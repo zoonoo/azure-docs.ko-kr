@@ -6,14 +6,14 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 04/08/2021
 ms.author: matjazl
-ms.openlocfilehash: fbc683c98eb0124e8d879eada276593ca9bf7042
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c10b27d375e2bfb8c64130eceb416a633241cf68
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934762"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284439"
 ---
 # <a name="register-a-confidential-client-application-in-azure-active-directory"></a>Azure Active Directory에서 기밀 클라이언트 응용 프로그램 등록
 
@@ -29,7 +29,7 @@ ms.locfileid: "105934762"
 
 1. **앱 등록** 을 선택합니다. 
 
-    ![Azure Portal 새 앱 등록.](media/how-to-aad/portal-aad-new-app-registration.png)
+    :::image type="content" source="media/how-to-aad/portal-aad-new-app-registration.png" alt-text="Azure Portal. 새 앱 등록.":::
 
 1. **새 등록** 을 선택합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "105934762"
 
 1. 필드 **리디렉션 URI** 를 제공 합니다. 이러한 세부 정보는 나중에 변경할 수 있지만 응용 프로그램의 회신 URL을 알고 있는 경우 지금 입력 하세요.
 
-    ![새 비밀 클라이언트 앱 등록.](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT.png)
+    :::image type="content" source="media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT.png" alt-text="새 비밀 클라이언트 앱 등록.":::
 
 1. **등록** 을 선택합니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "105934762"
 
 1. **API 사용 권한** 을 선택합니다.
 
-    ![기밀 클라이언트. API 사용 권한](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-Permissions.png)
+    :::image type="content" source="media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-Permissions.png" alt-text="기밀 클라이언트. API 권한.":::
 
 1. **사용 권한 추가** 를 선택합니다.
 
@@ -70,11 +70,11 @@ ms.locfileid: "105934762"
 
 1. **인증서 & 암호** 를 선택 하 고 **새 클라이언트 암호** 를 선택 합니다. 
 
-    ![기밀 클라이언트. 응용 프로그램 암호](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-SECRET.png)
+    :::image type="content" source="media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-SECRET.png" alt-text="기밀 클라이언트. 응용 프로그램 암호입니다.":::
 
-1. 클라이언트 암호에 대한 **설명** 을 입력합니다. 만료 (1 년, 2 년 또는 안 함)를 선택 하 고 **추가** 를 클릭 합니다.
+1. 클라이언트 암호에 대한 **설명** 을 입력합니다. 만료 시간 프레임을 선택 하려면 **만료** 드롭다운 메뉴를 선택 하 고 **추가** 를 클릭 합니다.
 
-   ![클라이언트 암호 추가](media/how-to-aad/add-a-client-secret.png)
+   :::image type="content" source="media/how-to-aad/add-a-client-secret.png" alt-text="클라이언트 암호를 추가 합니다.":::
 
 1. 클라이언트 암호 문자열을 만든 후에는 해당 **값** 과 **ID** 를 복사 하 여 원하는 보안 위치에 저장 합니다.
 

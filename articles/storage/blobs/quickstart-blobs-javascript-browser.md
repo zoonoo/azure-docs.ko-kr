@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Azure Blob 스토리지 라이브러리 v12 - 브라우저의 JavaScript'
 description: 이 빠른 시작에서는 브라우저에서 JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리 버전 12를 사용하는 방법을 알아봅니다. 컨테이너와 개체를 Blob 스토리지에 만듭니다. 다음으로, 모든 Blob을 컨테이너에 나열하는 방법을 알아봅니다. 마지막으로, Blob과 컨테이너를 삭제하는 방법을 알아봅니다.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 998d49e91d38a1f2fdc2503165ee99635e153027
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc02f9c526ec9b0826bbe640efc4b474794f30ae
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96001901"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278493"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
