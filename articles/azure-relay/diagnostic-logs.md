@@ -3,12 +3,12 @@ title: 하이브리드 연결에 대한 진단 로그
 description: 이 문서에서는 Azure Relay에 사용할 수 있는 모든 활동 및 진단 로그에 대한 개요를 제공합니다.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 9b459750ad1445da89a8e89a10a35b878bfb64e1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 7ca6dc95567a4867d3c58e0efad0fc74289e586c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100590872"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106079100"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Azure Relay 하이브리드 연결에 진단 로그 사용
 Azure Relay 하이브리드 연결을 사용하기 시작하면 수신기와 송신기가 열리고 닫히는 방법과 시기, 그리고 하이브리드 연결이 생성되고 메시지가 전송되는 방법을 모니터링하는 것이 좋습니다. 이 문서에서는 Azure Relay 서비스가 제공하는 활동 및 진단 로그에 대한 개요를 제공합니다. 
@@ -80,29 +80,29 @@ JSON 형식의 샘플 하이브리드 연결 이벤트는 다음과 같습니다
 
 ## <a name="events-and-operations-captured-in-diagnostic-logs"></a>진단 로그에 캡처되는 이벤트 및 작업
 
-| 작업(Operation) | Description | 
-| --------- | ----------- | 
-| AuthorizationFailed | 권한 부여에 실패했습니다.|
-| InvalidSasToken | 잘못된 SAS 토큰입니다. | 
-| ListenerAcceptingConnection | 연결을 수락하는 수신기입니다. |
-| ListenerAcceptingConnectionTimeout | 연결을 수락하는 수신기의 시간이 초과되었습니다. |
-| ListenerAcceptingHttpRequestFailed | 예외로 인해 HTTP 요청을 수락하는 수신기가 실패했습니다. |
-| ListenerAcceptingRequestTimeout | 요청을 수락하는 수신기의 시간이 초과되었습니다. |  
-| ListenerClosingFromExpiredToken | 보안 토큰이 만료되어 수신기가 닫히는 중입니다. | 
-| ListenerRejectedConnection | 수신기가 연결을 거부했습니다. |
-| ListenerReturningHttpResponse | 수신기가 HTTP 응답을 반환하는 중입니다. |  
-| ListenerReturningHttpResponseFailed | 수신기가 오류 코드와 함께 HTTP 응답을 반환하는 중입니다. | 
- ListenerSentHttpResponse | 릴레이 서비스가 수신기에서 HTTP 응답을 받았습니다. | 
-| ListenerUnregistered | 수신기의 등록이 취소되었습니다. | 
-| ListenerUnresponsive | 응답을 반환하는 경우 수신기가 응답하지 않습니다. | 
-| MessageSendingToListener | 수신기로 메시지가 전송되는 중입니다. |
-| MessageSentToListener | 수신기로 메시지가 전송되었습니다. | 
-| NewListenerRegistered | 새 수신기가 등록되었습니다. |
-| NewSenderRegistering | 새 수신기가 등록되는 중입니다. | 
-| ProcessingRequestFailed | 하이브리드 연결 작업을 처리하지 못했습니다. | 
-| SenderConnectionClosed | 송신기 연결이 닫혔습니다. |
-| SenderListenerConnectionEstablished | 송신기와 수신기의 연결이 설정되었습니다. |
-| SenderSentHttpRequest | 송신기가 HTTP 요청을 보냈습니다. | 
+| 작업(Operation)                           | Description                                                     |
+|-------------------------------------|-----------------------------------------------------------------|
+| AuthorizationFailed                 | 권한 부여에 실패했습니다.                                           |
+| InvalidSasToken                     | 잘못된 SAS 토큰입니다.                                              |
+| ListenerAcceptingConnection         | 연결을 수락하는 수신기입니다.                           |
+| ListenerAcceptingConnectionTimeout  | 연결을 수락하는 수신기의 시간이 초과되었습니다.                |
+| ListenerAcceptingHttpRequestFailed  | 예외로 인해 HTTP 요청을 수락하는 수신기가 실패했습니다. |
+| ListenerAcceptingRequestTimeout     | 요청을 수락하는 수신기의 시간이 초과되었습니다.                   |
+| ListenerClosingFromExpiredToken     | 보안 토큰이 만료되어 수신기가 닫히는 중입니다. |
+| ListenerRejectedConnection          | 수신기가 연결을 거부했습니다.                       |
+| ListenerReturningHttpResponse       | 수신기가 HTTP 응답을 반환하는 중입니다.                     |
+| ListenerReturningHttpResponseFailed | 수신기가 오류 코드와 함께 HTTP 응답을 반환하는 중입니다. |
+| ListenerSentHttpResponse            | 릴레이 서비스가 수신기에서 HTTP 응답을 받았습니다.  |
+| ListenerUnregistered                | 수신기의 등록이 취소되었습니다.                                   |
+| ListenerUnresponsive                | 응답을 반환하는 경우 수신기가 응답하지 않습니다.         |
+| MessageSendingToListener            | 수신기로 메시지가 전송되는 중입니다.                              |
+| MessageSentToListener               | 수신기로 메시지가 전송되었습니다.                                    |
+| NewListenerRegistered               | 새 수신기가 등록되었습니다.                                        |
+| NewSenderRegistering                | 새 수신기가 등록되는 중입니다.                                      |
+| ProcessingRequestFailed             | 하이브리드 연결 작업을 처리하지 못했습니다.     |
+| SenderConnectionClosed              | 송신기 연결이 닫혔습니다.                                |
+| SenderListenerConnectionEstablished | 송신기와 수신기의 연결이 설정되었습니다.    |
+| SenderSentHttpRequest               | 송신기가 HTTP 요청을 보냈습니다.                                |
 
 
 ## <a name="next-steps"></a>다음 단계

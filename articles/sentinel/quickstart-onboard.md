@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: a169b93b20df14e536d8764b5fb4c889d645a1fa
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a5a7af768875efd4733070b85bacd1916f897f27
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100570420"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063783"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>빠른 시작: Azure Sentinel 온보딩
 
@@ -47,7 +47,7 @@ Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 �
 
     | 작업 영역 지리 | Azure Sentinel 생성 데이터 지리 |
     | --- | --- |
-    | 미국<br>인도<br>브라질<br>아프리카<br>한국<br>아랍에미리트 | 미국 |
+    | 미국<br>인도<br>브라질<br>아프리카<br>한국<br>아랍에미리트연합국 | 미국 |
     | 유럽<br>프랑스<br>스위스 | 유럽 |
     | 오스트레일리아 | 오스트레일리아 |
     | United Kingdom | United Kingdom |
