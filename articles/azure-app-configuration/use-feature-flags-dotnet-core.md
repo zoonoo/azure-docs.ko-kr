@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 327bc687c466a30d4f92810e48dc08f822f752ec
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4d54e1ff07b250b5595d2f8aee5f022bd2359721
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101726430"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729510"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 기능 플래그 사용
 
@@ -218,7 +218,7 @@ config.AddAzureAppConfiguration(options =>
 
 ## <a name="use-dependency-injection-to-access-ifeaturemanager"></a>종속성 주입을 사용하여 IFeatureManager에 액세스 
 
-기능 플래그 값을 수동으로 확인하는 것과 같은 일부 작업의 경우 [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanager?view=azure-dotnet-preview) 인스턴스를 가져와야 합니다. ASP.NET Core MVC에서 종속성 주입을 통해 `IFeatureManager` 기능 관리자에 액세스할 수 있습니다. 다음 예제에서는 `IFeatureManager` 형식의 인수를 컨트롤러에 대한 생성자의 시그니처에 추가합니다. 런타임에서는 참조를 자동으로 확인하고, 생성자를 호출할 때 인터페이스를 제공합니다. 이미 컨트롤러에 생성자의 종속성 주입 인수(예: `ILogger`)가 하나 이상 있는 애플리케이션 템플릿을 사용하는 경우 추가 인수로 `IFeatureManager`만 추가하면 됩니다.
+기능 플래그 값을 수동으로 확인하는 것과 같은 일부 작업의 경우 [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanager?preserve-view=true&view=azure-dotnet-preview) 인스턴스를 가져와야 합니다. ASP.NET Core MVC에서 종속성 주입을 통해 `IFeatureManager` 기능 관리자에 액세스할 수 있습니다. 다음 예제에서는 `IFeatureManager` 형식의 인수를 컨트롤러에 대한 생성자의 시그니처에 추가합니다. 런타임에서는 참조를 자동으로 확인하고, 생성자를 호출할 때 인터페이스를 제공합니다. 이미 컨트롤러에 생성자의 종속성 주입 인수(예: `ILogger`)가 하나 이상 있는 애플리케이션 템플릿을 사용하는 경우 추가 인수로 `IFeatureManager`만 추가하면 됩니다.
 
 ### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
     
@@ -322,7 +322,7 @@ public IActionResult Index()
 }
 ```
 
-제어하는 기능 플래그가 *off* 로 설정되어 MVC 컨트롤러 또는 작업이 차단되면 등록된 [IDisabledFeaturesHandler](/dotnet/api/microsoft.featuremanagement.mvc.idisabledfeatureshandler?view=azure-dotnet-preview) 인터페이스가 호출됩니다. 기본 `IDisabledFeaturesHandler` 인터페이스는 응답 본문 없이 404 상태 코드를 클라이언트에 반환합니다.
+제어하는 기능 플래그가 *off* 로 설정되어 MVC 컨트롤러 또는 작업이 차단되면 등록된 [IDisabledFeaturesHandler](/dotnet/api/microsoft.featuremanagement.mvc.idisabledfeatureshandler?preserve-view=true&view=azure-dotnet-preview) 인터페이스가 호출됩니다. 기본 `IDisabledFeaturesHandler` 인터페이스는 응답 본문 없이 404 상태 코드를 클라이언트에 반환합니다.
 
 ## <a name="mvc-views"></a>MVC 보기
 

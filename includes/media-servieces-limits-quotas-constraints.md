@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: inhenkel
-ms.openlocfilehash: 59ff0ba854fa609e6d29f3473f662a89ab5f3dbc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 419d8d0cd20c13bffdd192060d81975ee94b47fe
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95554127"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106125936"
 ---
 > [!NOTE]
 > 고정되지 않은 리소스의 경우 지원 티켓을 열어 할당량 증가를 요청하세요. 더 높은 한도를 얻기 위해 추가 Azure Media Services 계정을 만들지 마세요.
@@ -66,9 +66,9 @@ ms.locfileid: "95554127"
 | --- | --- |
 | Media Services 계정당 라이브 이벤트 <sup>(4)</sup> |5|
 | 라이브 이벤트당 라이브 출력 |3<sup>(5)</sup> |
-| 최대 라이브 출력 기간 | [DVR 창의 크기](../articles/media-services/latest/live-event-cloud-dvr.md) |
+| 최대 라이브 출력 기간 | [DVR 창의 크기](../articles/media-services/latest/live-event-cloud-dvr-time-how-to.md) |
 
-<sup>4</sup> 라이브 이벤트 제한 사항에 대한 자세한 내용은 [라이브 이벤트 형식 비교 및 제한](../articles/media-services/latest/live-event-types-comparison.md)을 참조하세요.
+<sup>4</sup> 라이브 이벤트 제한 사항에 대한 자세한 내용은 [라이브 이벤트 형식 비교 및 제한](../articles/media-services/latest/live-event-types-comparison-reference.md)을 참조하세요.
 
 <sup>5</sup> 라이브 출력은 생성과 동시에 시작되고 삭제되면 중지됩니다.
 
