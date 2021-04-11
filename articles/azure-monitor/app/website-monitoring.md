@@ -2,14 +2,14 @@
 title: '빠른 시작: Azure Monitor Application Insights를 사용하여 웹 사이트 모니터링'
 description: 이 빠른 시작에서는 Azure Monitor Application Insights를 사용하여 클라이언트/브라우저 쪽 웹 사이트 모니터링을 설정하는 방법을 알아봅니다.
 ms.topic: quickstart
-ms.date: 08/19/2020
+ms.date: 03/19/2021
 ms.custom: mvc
-ms.openlocfilehash: 1773ebb9c490420451a119c8343fb613ff50f029
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 0e10db39c8dbbf81087d696cfbb5b2ded1ae79ac
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488582"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654937"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>빠른 시작: Azure Monitor Application Insights를 사용하여 웹 사이트 모니터링 시작
 
@@ -33,7 +33,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되고 
    >Application Insights 리소스를 처음 만드는 경우 [Application Insights 리소스 만들기](./create-new-resource.md)를 참조하세요.
 1. 구성 상자가 표시되면 다음 표를 사용하여 입력 필드를 완료합니다.
 
-    | 설정        | 값           | 설명  |
+    | 설정        | 값           | Description  |
    | ------------- |:-------------|:-----|
    | **이름**      | 전역적으로 고유한 값 | 모니터링 중인 앱을 식별하는 이름입니다. |
    | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. 새 리소스 그룹을 만들거나 기존 그룹을 사용할 수 있습니다. |
@@ -60,9 +60,9 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되고 
 
 ## <a name="configure-application-insights-sdk"></a>Application Insights SDK 구성
 
-1. **개요** > **기본 정보** 를 차례로 선택한 다음, 애플리케이션의 **계측 키** 를 복사합니다.
+1. **개요** 를 선택한 다음, 애플리케이션의 **연결 문자열** 을 복사합니다. 이 예제에서는 연결 문자열 `InstrumentationKey=00000000-0000-0000-0000-000000000000;`의 계측 키 부분만 필요합니다.
 
-   ![새 Application Insights 리소스 양식](media/website-monitoring/instrumentation-key-001.png)
+    :::image type="content" source="media/website-monitoring/keys.png" alt-text="계측 키 및 연결 문자열이 있는 개요 페이지의 스크린샷.":::
 
 1. 다음 스크립트를 ``hello_world.html`` 파일에 추가하고 ``</head>`` 태그를 닫습니다.
 
@@ -76,7 +76,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되고 
     crossOrigin: "anonymous", // When supplied this will add the provided value as the cross origin attribute on the script tag
     // onInit: null, // Once the application insights instance has loaded and initialized this callback function will be called with 1 argument -- the sdk instance (DO NOT ADD anything to the sdk.queue -- As they won't get called)
     cfg: { // Application Insights Configuration
-        instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
+        connectionString:"InstrumentationKey=YOUR_INSTRUMENTATION_KEY_GOES_HERE;" 
         /* ...Other Configuration Options... */
     }});
     </script>
@@ -84,7 +84,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되고 
 
     > [!NOTE]
     > 현재 코드 조각(위에 나열됨)은 버전 "5"이고, 이 버전은 sv:"#"에 인코딩되며 [현재 버전 및 구성 세부 정보는 GitHub에서 사용할 수 있습니다](https://go.microsoft.com/fwlink/?linkid=2156318).
-   
+
 1. ``hello_world.html``을 편집하고 계측 키를 추가합니다.
 
 1. 로컬 브라우저 세션에서 ``hello_world.html``을 엽니다. 이 작업은 단일 페이지 보기를 만듭니다. 브라우저를 새로 고침하여 여러 테스트 페이지 보기를 생성할 수 있습니다.
@@ -95,7 +95,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되고 
 
    개요 페이지의 기본 차트 4개는 그 범위가 서버 쪽 애플리케이션 데이터로 지정됩니다. 우리가 계측하려는 것은 JavaScript SDK와의 클라이언트/브라우저 쪽 상호 작용이므로 서버 쪽 SDK도 설치되어 있지 않으면 이 특정 보기가 적용되지 않습니다.
 
-1. **분석** ![애플리케이션 맵 아이콘](media/website-monitoring/006.png)을 선택합니다.  이 작업으로 Application Insights에서 수집한 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Analytics** 가 열립니다. 클라이언트 쪽 브라우저 요청과 관련된 데이터를 보려면 다음 쿼리를 실행합니다.
+1. **로그** 를 선택합니다.  이 작업으로 Application Insights에서 수집한 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Logs** 가 열립니다. 클라이언트 쪽 브라우저 요청과 관련된 데이터를 보려면 다음 쿼리를 실행합니다.
 
     ```kusto
     // average pageView duration by name
@@ -112,19 +112,15 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되고 
     | render timechart
     ```
 
-   ![일정 기간의 사용자 요청에 대한 분석 그래프](./media/website-monitoring/analytics-query.png)
+   :::image type="content" source="media/website-monitoring/log-query.png" alt-text="일정 기간 동안의 사용자 요청에 대한 로그 분석 그래프 스크린샷.":::
 
-1. **개요** 페이지로 돌아갑니다. **조사** 헤더에서 **브라우저** 를 선택한 다음, **성능** 을 선택합니다.  웹 사이트의 성능과 관련된 메트릭이 표시됩니다. 웹 사이트의 실패 및 예외를 분석할 수 있는 보기가 있습니다. **샘플** 을 선택하여 [엔드투엔드 트랜잭션 세부 정보](./transaction-diagnostics.md)에 액세스할 수 있습니다.
+1. **개요** 페이지로 돌아갑니다. **조사** 헤더에서 **성능** 을 선택한 다음, **브라우저** 탭을 선택합니다.  웹 사이트의 성능과 관련된 메트릭이 표시됩니다. 웹 사이트의 실패 및 예외를 분석할 수 있는 보기가 있습니다. **샘플** 을 선택하여 [엔드투엔드 트랜잭션 세부 정보](./transaction-diagnostics.md)에 액세스할 수 있습니다.
 
-   ![서버 메트릭 그래프](./media/website-monitoring/browser-performance.png)
+     :::image type="content" source="media/website-monitoring/performance.png" alt-text="브라우저 메트릭 그래프가 있는 성능 탭의 스크린샷.":::
 
-1. Application Insights 주 메뉴의 **사용량** 헤더 아래에서 [**사용자**](./usage-segmentation.md)를 선택하여 [사용자 동작 분석 도구](./usage-overview.md) 탐색을 시작합니다. 현재 단일 머신으로 테스트 중이기 때문에 한 사용자에 대한 데이터만 표시됩니다. 라이브 웹 사이트의 경우 사용자 분포가 다음과 비슷합니다.
-
-     ![사용자 그래프](./media/website-monitoring/usage-users.png)
+1. Application Insights 주 메뉴의 **사용량** 헤더 아래에서 [**사용자**](./usage-segmentation.md)를 선택하여 [사용자 동작 분석 도구](./usage-overview.md) 탐색을 시작합니다. 현재 단일 머신으로 테스트 중이기 때문에 한 사용자에 대한 데이터만 표시됩니다.
 
 1. 여러 페이지를 포함하는 보다 복잡한 웹 사이트의 경우 [**사용자 흐름**](./usage-flows.md) 도구를 사용하여 방문자가 웹 사이트의 다양한 부분을 차지하는 경로를 추적할 수 있습니다.
-
-   ![사용자 흐름 시각화](./media/website-monitoring/user-flows.png)
 
 웹 사이트 모니터링을 위한 고급 구성에 대해 자세히 알아보려면 [JavaScript SDK API 참조](./javascript.md)를 확인하세요.
 
