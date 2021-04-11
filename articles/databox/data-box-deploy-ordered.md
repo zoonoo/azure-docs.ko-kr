@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 281b22db692087f2876b4011563fee8c56bd476e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aa3614aa3c4fbaec3611806406e5129379999bc3
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102522396"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067144"
 ---
 # <a name="tutorial-order-azure-data-box"></a>자습서: Azure Data Box 주문
 
@@ -28,7 +28,7 @@ Azure Data Box는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레�
 > * 주문 추적
 > * 주문 취소
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 # <a name="portal"></a>[포털](#tab/portal)
 
@@ -790,7 +790,7 @@ Azure Data Box 주문을 취소하려면 [`az databox job cancel`](/cli/azure/ex
    |resource-group [필수]| 삭제할 주문과 연결된 리소스 그룹의 이름입니다. 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다. | "myresourcegroup"|
    |name [필수]| 삭제할 주문의 이름입니다. | "mydataboxorder"|
    |reason [필수]| 주문을 취소하는 이유입니다. | "잘못된 정보를 입력하여 주문을 취소해야 합니다." |
-   |예| 확인을 묻는 메시지를 표시하지 마세요. | --yes (-y)| --yes -y |
+   |예| 확인을 묻는 메시지를 표시하지 마세요. | --yes (-y)| 
    |debug| 자세한 정보 로깅을 위한 디버깅 정보를 포함합니다. | --debug |
    |help| 이 명령에 대한 도움말 정보를 표시합니다. | --help -h |
    |only-show-errors| 오류만 표시하고, 경고를 표시하지 않습니다. | --only-show-errors |
@@ -827,7 +827,7 @@ Azure Data Box 주문을 취소한 경우 [`az databox job delete`](/cli/azure/e
    |resource-group [필수]| 삭제할 주문과 연결된 리소스 그룹의 이름입니다. 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다. | "myresourcegroup"|
    |name [필수]| 삭제할 주문의 이름입니다. | "mydataboxorder"|
    |subscription| Azure 구독의 이름 또는 ID(GUID)입니다. | "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" |
-   |예| 확인을 묻는 메시지를 표시하지 마세요. | --yes (-y)| --yes -y |
+   |예| 확인을 묻는 메시지를 표시하지 마세요. | --yes (-y)|
    |debug| 자세한 정보 로깅을 위한 디버깅 정보를 포함합니다. | --debug |
    |help| 이 명령에 대한 도움말 정보를 표시합니다. | --help -h |
    |only-show-errors| 오류만 표시하고, 경고를 표시하지 않습니다. | --only-show-errors |
