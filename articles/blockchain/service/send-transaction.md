@@ -4,12 +4,12 @@ description: Visual Studio Code에서 Ethereum 확장용 Azure Blockchain Develo
 ms.date: 11/30/2020
 ms.topic: tutorial
 ms.reviewer: caleteet
-ms.openlocfilehash: f7605a0c118a40e52210582d2411569795fb25ee
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4c2df952480d2c30de10838c3d0f7714fc7e6126
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96763692"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105628648"
 ---
 # <a name="tutorial-create-build-and-deploy-smart-contracts-on-azure-blockchain-service"></a>자습서: Azure Blockchain Service에서 스마트 계약 생성, 빌드 및 배포
 
@@ -81,28 +81,105 @@ Azure Blockchain Development Kit에서 Truffle을 사용하여 계약을 블록�
 
 ![성공적으로 배포된 계약](./media/send-transaction/deploy-contract.png)
 
-## <a name="call-a-contract-function"></a>계약 함수 호출
+## <a name="call-a-contract-function&quot;></a>계약 함수 호출
+**HelloBlockchain** 계약의 **SendRequest** 함수는 **RequestMessage** 상태 변수를 변경합니다. 블록체인 네트워크의 상태를 변경하는 작업은 트랜잭션을 통해 수행됩니다. 트랜잭션을 통해 **SendRequest** 함수를 실행하는 스크립트를 만들 수 있습니다.
 
-**HelloBlockchain** 계약의 **SendRequest** 함수는 **RequestMessage** 상태 변수를 변경합니다. 블록체인 네트워크의 상태를 변경하는 작업은 트랜잭션을 통해 수행됩니다. Azure Blockchain Development Kit 스마트 계약 상호 작용 페이지를 사용하여 트랜잭션을 통해 **SendRequest** 함수를 호출할 수 있습니다.
+1. 새 파일을 Truffle 프로젝트의 루트에 만들고, 이름을 `sendrequest.js`로 지정합니다. 다음 Web3 JavaScript 코드를 파일에 추가합니다.
 
-1. 스마트 계약과 상호 작용하려면 마우스 오른쪽 단추로 **HelloBlockchain.sol** 을 클릭하고, 메뉴에서 **스마트 계약 상호 작용 페이지 표시** 를 선택합니다.
+    ```javascript
+    var HelloBlockchain = artifacts.require(&quot;HelloBlockchain");
+        
+    module.exports = function(done) {
+      console.log("Getting the deployed version of the HelloBlockchain smart contract")
+      HelloBlockchain.deployed().then(function(instance) {
+        console.log("Calling SendRequest function for contract ", instance.address);
+        return instance.SendRequest("Hello, blockchain!");
+      }).then(function(result) {
+        console.log("Transaction hash: ", result.tx);
+        console.log("Request complete");
+        done();
+      }).catch(function(e) {
+        console.log(e);
+        done();
+      });
+    };
+    ```
 
-    ![메뉴에서 스마트 계약 상호 작용 페이지 표시 선택](./media/send-transaction/contract-interaction.png)
+1. Azure Blockchain Development Kit에서 프로젝트를 만들면 Truffle 구성 파일이 컨소시엄 블록체인 네트워크 엔드포인트의 세부 정보를 사용하여 생성됩니다. 프로젝트에서 **truffle-config.js** 를 엽니다. 구성 파일에는 각각 development라는 이름 및 컨소시엄과 동일한 이름의 두 개의 네트워크가 나열되어 있습니다.
+1. VS Code의 터미널 창에서 Truffle을 사용하여 컨소시엄 블록체인 네트워크에서 스크립트를 실행합니다. 터미널 창 메뉴 모음의 드롭다운에서 **터미널** 탭 및 **PowerShell** 을 선택합니다.
 
-1. 상호 작용 페이지에서는 배포된 계약 버전을 선택하고, 함수를 호출하며, 현재 상태를 보고, 메타데이터를 볼 수 있습니다.
+    ```PowerShell
+    truffle exec sendrequest.js --network <blockchain network>
+    ```
 
-    ![스마트 계약 상호 작용 페이지 예](./media/send-transaction/interaction-page.png)
+    \<blockchain network\>를 **truffle-config.js** 에 정의된 블록체인 네트워크 이름으로 바꿉니다.
 
-1. 스마트 계약 함수를 호출하려면 계약 작업을 선택하고 인수를 전달합니다. **SendRequest** 계약 작업을 선택하고, **Hello, Blockchain!** 을 **requestMessage** 매개 변수에 입력합니다. **실행** 을 선택하여 트랜잭션을 통해 **SendRequest** 함수를 호출합니다.
+Truffle이 블록체인 네트워크에서 스크립트를 실행합니다.
 
-    ![SendRequest 작업 실행](./media/send-transaction/sendrequest-action.png)
+![트랜잭션이 전송되었음을 보여주는 출력](./media/send-transaction/execute-transaction.png)
 
-트랜잭션이 처리되면 상호 작용 섹션에 상태 변경 내용이 반영됩니다.
+트랜잭션을 통해 계약 함수를 실행하면 블록이 만들어질 때까지 트랜잭션이 처리되지 않습니다. 트랜잭션을 통해 수행되는 함수는 반환 값 대신 트랜잭션 ID를 반환합니다.
 
-![계약 상태 변경](./media/send-transaction/contract-state.png)
+## <a name="query-contract-state"></a>계약 상태 쿼리
 
-SendRequest 함수는 **RequestMessage** 및 **State** 필드를 설정합니다. **RequestMessage** 의 현재 상태는 **Hello, Blockchain** 을 전달한 인수입니다. **State** 필드 값은 **Request** 로 유지됩니다.
+스마트 계약 함수는 상태 변수의 현재 값을 반환할 수 있습니다. 상태 변수의 값을 반환하는 함수를 추가해 보겠습니다.
 
+1. **HelloBlockchain.sol** 에서 **getMessage** 함수를 **HelloBlockchain** 스마트 계약에 추가합니다.
+
+    ``` solidity
+    function getMessage() public view returns (string memory)
+    {
+        if (State == StateType.Request)
+            return RequestMessage;
+        else
+            return ResponseMessage;
+    }
+    ```
+
+    이 함수는 계약의 현재 상태에 따라 상태 변수에 저장된 메시지를 반환합니다.
+
+1. 마우스 오른쪽 단추로 **HelloBlockchain.sol** 을 클릭하고, 메뉴에서 **계약 빌드** 를 선택하여 스마트 계약의 변경 내용을 컴파일합니다.
+1. 배포하려면 마우스 오른쪽 단추로 **HelloBlockchain.sol** 을 클릭하고, 메뉴에서 **계약 배포** 를 선택합니다. 메시지가 표시되면 명령 팔레트에서 Azure Blockchain 컨소시엄 네트워크를 선택합니다.
+1. 다음으로 **getMessage** 함수를 호출하는 데 사용하는 스크립트를 만듭니다. 새 파일을 Truffle 프로젝트의 루트에 만들고, 이름을 `getmessage.js`로 지정합니다. 다음 Web3 JavaScript 코드를 파일에 추가합니다.
+
+    ```javascript
+    var HelloBlockchain = artifacts.require("HelloBlockchain");
+    
+    module.exports = function(done) {
+      console.log("Getting the deployed version of the HelloBlockchain smart contract")
+      HelloBlockchain.deployed().then(function(instance) {
+        console.log("Calling getMessage function for contract ", instance.address);
+        return instance.getMessage();
+      }).then(function(result) {
+        console.log("Request message value: ", result);
+        console.log("Request complete");
+        done();
+      }).catch(function(e) {
+        console.log(e);
+        done();
+      });
+    };
+    ```
+
+1. VS Code의 터미널 창에서 Truffle을 사용하여 블록체인 네트워크에서 스크립트를 실행합니다. 터미널 창 메뉴 모음의 드롭다운에서 **터미널** 탭 및 **PowerShell** 을 선택합니다.
+
+    ```bash
+    truffle exec getmessage.js --network <blockchain network>
+    ```
+
+    \<blockchain network\>를 **truffle-config.js** 에 정의된 블록체인 네트워크 이름으로 바꿉니다.
+
+스크립트에서 getMessage 함수를 호출하여 스마트 계약을 쿼리합니다. **RequestMessage** 상태 변수의 현재 값이 반환됩니다.
+
+![RequestMessage 상태 변수의 현재 값을 보여주는 getmessage 쿼리의 출력](./media/send-transaction/execute-get.png)
+
+값이 **Hello, blockchain!** 이 아닙니다. 대신, 반환되는 값은 자리 표시자입니다. 계약을 변경하여 배포하는 경우 변경된 계약은 새 주소로 배포되고 스마트 계약 생성자의 값이 상태 변수에 할당됩니다. Truffle 샘플인 **2_deploy_contracts.js** 마이그레이션 스크립트는 스마트 계약을 배포하고 자리 표시자 값을 인수로 전달합니다. 생성자는 **RequestMessage** 상태 변수를 자리 표시자 값으로 설정하고 이를 반환합니다.
+
+1. **RequestMessage** 상태 변수를 설정하고 값을 쿼리하려면 **sendrequest.js** 및 **getmessage.js** 스크립트를 다시 실행합니다.
+
+    ![RequestMessage가 설정되었음을 보여주는 sendrequest 및 getmessage 스크립트의 출력](./media/send-transaction/execute-set-get.png)
+
+    **sendrequest.js** 는 **RequestMessage** 상태 변수를 **Hello, blockchain!** 으로 설정하고, **getmessage.js** 는 **RequestMessage** 상태 변수의 값에 대한 계약을 쿼리하고 **Hello, blockchain!** 을 반환합니다.
 ## <a name="clean-up-resources"></a>리소스 정리
 
 더 이상 필요하지 않은 경우 *블록체인 멤버 만들기* 필수 조건 빠른 시작에서 만든 `myResourceGroup` 리소스 그룹을 삭제하여 리소스를 삭제할 수 있습니다.
