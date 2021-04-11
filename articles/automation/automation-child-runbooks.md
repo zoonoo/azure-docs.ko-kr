@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: f0dd5cf5209924972080af6d22429252338754de
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 338de996b06769b9d2891c7208b9050cc3acc7ed
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99491251"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167297"
 ---
 # <a name="create-modular-runbooks"></a>모듈식 Runbook 만들기
 
@@ -56,15 +56,15 @@ Runbook이 인라인 실행을 사용하여 그래픽 또는 PowerShell 워크�
 다음 예제는 복합 개체, 정수 값 및 부울 값을 허용하는 테스트 자식 Runbook을 시작합니다. 자식 runbook의 출력을 변수에 할당합니다. 이 경우 자식 Runbook은 PowerShell 워크플로 Runbook입니다.
 
 ```azurepowershell-interactive
-$vm = Get-AzVM –ResourceGroupName "LabRG" –Name "MyVM"
-$output = PSWF-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
+$vm = Get-AzVM -ResourceGroupName "LabRG" -Name "MyVM"
+$output = PSWF-ChildRunbook -VM $vm -RepeatCount 2 -Restart $true
 ```
 
 다음은 PowerShell Runbook을 자식으로 사용하는 동일한 예제입니다.
 
 ```azurepowershell-interactive
-$vm = Get-AzVM –ResourceGroupName "LabRG" –Name "MyVM"
-$output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
+$vm = Get-AzVM -ResourceGroupName "LabRG" -Name "MyVM"
+$output = .\PS-ChildRunbook.ps1 -VM $vm -RepeatCount 2 -Restart $true
 ```
 
 ## <a name="start-a-child-runbook-using-a-cmdlet"></a>cmdlet을 사용하여 자식 Runbook 시작
@@ -84,7 +84,7 @@ cmdlet으로 시작된 자식 Runbook에서 작업은 부모 Runbook 작업과 �
 
 자식 Runbook을 별도 작업으로 시작할 때 구독 컨텍스트가 손실될 수 있습니다. 자식 Runbook이 특정 Azure 구독에 대해 Az 모듈 cmdlet을 실행하려면 부모 Runbook과는 별도로 이 구독에서 인증을 받아야 합니다.
 
-동일한 Automation 계정 내의 작업이 여러 구독을 사용하는 경우 하나의 작업에서 구독을 선택하면 다른 작업에 대해서도 현재 선택한 구독 컨텍스트가 변경될 수 있습니다. 이 상황을 방지하려면 각 Runbook 맨 처음에 `Disable-AzContextAutosave –Scope Process`를 사용합니다. 이 작업을 수행하면 컨텍스트가 해당 runbook 실행에만 저장됩니다.
+동일한 Automation 계정 내의 작업이 여러 구독을 사용하는 경우 하나의 작업에서 구독을 선택하면 다른 작업에 대해서도 현재 선택한 구독 컨텍스트가 변경될 수 있습니다. 이 상황을 방지하려면 각 Runbook 맨 처음에 `Disable-AzContextAutosave -Scope Process`를 사용합니다. 이 작업을 수행하면 컨텍스트가 해당 runbook 실행에만 저장됩니다.
 
 ### <a name="example"></a>예제
 
@@ -92,7 +92,7 @@ cmdlet으로 시작된 자식 Runbook에서 작업은 부모 Runbook 작업과 �
 
 ```azurepowershell-interactive
 # Ensure that the runbook does not inherit an AzContext
-Disable-AzContextAutosave –Scope Process
+Disable-AzContextAutosave -Scope Process
 
 # Connect to Azure with Run As account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
@@ -108,11 +108,11 @@ $AzureContext = Set-AzContext -SubscriptionId $ServicePrincipalConnection.Subscr
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
 
 Start-AzAutomationRunbook `
-    –AutomationAccountName 'MyAutomationAccount' `
-    –Name 'Test-ChildRunbook' `
+    -AutomationAccountName 'MyAutomationAccount' `
+    -Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
     -AzContext $AzureContext `
-    –Parameters $params –Wait
+    -Parameters $params -Wait
 ```
 
 ## <a name="next-steps"></a>다음 단계

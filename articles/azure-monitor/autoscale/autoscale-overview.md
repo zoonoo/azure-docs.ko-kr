@@ -5,10 +5,10 @@ ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 4727d562e21b92e58c8091f1161cf53198ff0b26
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101726005"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Microsoft Azure의 자동 크기 조정 개요
@@ -81,8 +81,8 @@ Web Apps 및 클라우드 서비스의 원격 분석은 Azure 인프라에서 �
 * [Resource Manager 템플릿을 사용하여 VM 확장 집합에 대한 고급 자동 크기 조정 구성](autoscale-virtual-machine-scale-sets.md)  
 * [자동 크기 조정 REST API](/rest/api/monitor/autoscalesettings)
 
-## <a name="horizontal-vs-vertical-scaling"></a>수평 및 수직적 크기 조정
-자동 규모 조정은 수평적으로만 규모를 조정하며 이는 VM 인스턴스 수의 증가("규모 확장") 또는 감소("규모 축소")입니다.  수평적 규모 조정은 부하를 처리하기 위해 잠재적으로 수천 개의 VM을 실행할 수 있으므로 클라우드 상황에서 더 유연합니다.
+## <a name="horizontal-vs-vertical-scaling&quot;></a>수평 및 수직적 크기 조정
+자동 규모 조정은 수평적으로만 규모를 조정하며 이는 VM 인스턴스 수의 증가(&quot;규모 확장") 또는 감소("규모 축소")입니다.  수평적 규모 조정은 부하를 처리하기 위해 잠재적으로 수천 개의 VM을 실행할 수 있으므로 클라우드 상황에서 더 유연합니다.
 
 반대로 수직적 규모 조정은 다릅니다. 수직적 규모 조정은 동일한 수의 VM을 유지하지만 VM을 강력하게("강화") 만들거나 약하게("축소") 만듭니다. 전원은 메모리, CPU 속도, 디스크 공간 등에서 측정됩니다.  수직적 크기 조정에 더 많은 제한이 있습니다. 큰 하드웨어의 가용성에 따라 다르고 신속하게 상한값에 도달하며 지역에 따라 달라질 수 있습니다. 또한 수직적 규모 조정은 일반적으로 VM 중지 및 재시작이 필요합니다.
 

@@ -174,7 +174,7 @@
       href: /javascript/api/overview/azure/key-vault-index
     - name: Python
       href: /python/api/overview/azure/key-vault-index
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/keyvault
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.keyvault/allversions

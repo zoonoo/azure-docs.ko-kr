@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 03/26/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 64ff778f9735c690f4622402ef2e3124185fa3ea
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104877098"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>IntelliJ를 사용하여 Azure Spring Cloud 애플리케이션 배포

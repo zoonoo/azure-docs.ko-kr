@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Python용 Azure Blob 스토리지 클라이언트 라이브러리 v2.1'
 description: 이 빠른 시작에서는 개체(Blob) 스토리지에서 스토리지 계정 및 컨테이너를 만듭니다. 그런 다음, Python용 스토리지 클라이언트 라이브러리 v2.1을 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 34205caf03d2f2d7255f75ea6203c5572c4c429b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01ca2ee1bcd551baa471dda64d636e077f6e1a82
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95523310"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275450"
 ---
 # <a name="quickstart-manage-blobs-with-python-v21-sdk"></a>빠른 시작: Python v2.1 SDK로 Blob 관리
 
