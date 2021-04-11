@@ -3,38 +3,28 @@
 - name: 개요
   expanded: true
   items:
-    - name: Face 서비스란?
+    - name: Face 서비스 개요
       href: Overview.md
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'
     - name: 새로운 기능
       href: releasenotes.md
-- name: 빠른 시작
-  items:
-    - name: 클라이언트 라이브러리 또는 REST API 사용
-      href: Quickstarts/client-libraries.md
-- name: 자습서
-  items:
-    - name: 클라이언트 SDK 사용
-      items:
-        - name: C#
-          href: Tutorials/FaceAPIinCSharpTutorial.md
-- name: 개념
-  items:
-    - name: 얼굴 감지
-      href: concepts/face-detection.md
-    - name: 얼굴 인식
-      href: concepts/face-recognition.md
+- name: Face 빠른 시작
+  href: Quickstarts/client-libraries.md
+- name: 샘플
+  href: /samples/browse/?products=azure&term=face
 - name: 방법 가이드
   items:
-    - name: 얼굴 감지
+    - name: 얼굴 감지 및 분석
       href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
+    - name: 얼굴 인식 모델 버전 지정
+      href: Face-API-How-to-Topics/specify-recognition-model.md
+    - name: 얼굴 감지 모델 버전 지정
+      href: Face-API-How-to-Topics/specify-detection-model.md
     - name: 그룹에 얼굴 추가
       href: Face-API-How-to-Topics/how-to-add-faces.md
     - name: HeadPose 특성 사용
       href: Face-API-How-to-Topics/how-to-use-headpose.md
-    - name: 얼굴 인식 모델 지정
-      href: Face-API-How-to-Topics/specify-recognition-model.md
-    - name: 얼굴 감지 모델 지정
-      href: Face-API-How-to-Topics/specify-detection-model.md
     - name: 얼굴 서비스를 사용할 때 대기 시간 완화
       href: Face-API-How-to-Topics/how-to-mitigate-latency.md
     - name: 대규모 기능 사용
@@ -43,8 +33,12 @@
       href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
     - name: 얼굴 데이터 마이그레이션
       href: Face-API-How-to-Topics/how-to-migrate-face-data.md
-    - name: 컨테이너 사용
+    - name: Face 컨테이너 사용
       items:
+        - name: Cognitive Services 컨테이너 설명서
+          href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
+        - name: 컨테이너 개요
+          href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/computer-vision/context/context
         - name: 컨테이너 설치 및 실행
           href: face-how-to-install-containers.md
         - name: 컨테이너 구성
@@ -52,49 +46,47 @@
         - name: 컨테이너 인스턴스 사용
           maintainContext: true
           href: ../containers/azure-container-instance-recipe.md
-        - name: Cognitive Services 컨테이너 설명서
-          href: ../containers/index.yml
-- name: 시나리오 심층 분석
+- name: 개념
   items:
-    - name: 얼굴 등록
+    - name: 얼굴 감지
+      href: concepts/face-detection.md
+    - name: 얼굴 인식
+      href: concepts/face-recognition.md
+- name: 자습서
+  items:
+    - name: 얼굴 감지기 앱 만들기
+      href: Tutorials/FaceAPIinCSharpTutorial.md
+    - name: Face 서비스에 사용자 추가
       items:
-        - name: 개요
+        - name: 사용자 추가 모범 사례
           href: enrollment-overview.md
-        - name: 방법 가이드
-          items:
-            - name: React로 등록 앱 빌드
-              href: build-enrollment-app.md
+        - name: React 앱을 빌드하여 사용자 추가
+          href: build-enrollment-app.md
 - name: 참조
   items:
-    - name: Face API
+    - name: Face REST API
       href: APIReference.md
-    - name: SDK
-      items:
-        - name: .NET
-          href: /dotnet/api/overview/azure/cognitiveservices/client/faceapi
-        - name: Python
-          href: /python/api/azure-cognitiveservices-vision-face/
-        - name: Java
-          href: /java/api/overview/azure/cognitiveservices/client/faceapi
-        - name: Node.js
-          href: /javascript/api/@azure/cognitiveservices-face
-        - name: Go
-          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face'
+    - name: .NET
+      href: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
+    - name: Java
+      href: /java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
+    - name: Node.js
+      href: /javascript/api/@azure/cognitiveservices-face
+    - name: Python
+      href: /python/api/azure-cognitiveservices-vision-face/?view=azure-python
+    - name: Go
+      href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face'
 - name: 리소스
   items:
+    - name: 지역 지원
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: 모듈 배우기
+      href: 'https://docs.microsoft.com/learn/modules/detect-analyze-faces/'
     - name: 지원 및 도움말 옵션
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/face/context/context
-    - name: 샘플
-      items:
-        - name: Face 샘플
-          href: /samples/browse/?products=azure&term=face
-    - name: 가격 책정 및 제한
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: 국가별 가용성
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: 규정 준수
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 암호화
       href: encrypt-data-at-rest.md
+    - name: Azure 업데이트
+      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
