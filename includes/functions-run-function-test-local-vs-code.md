@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/28/2021
 ms.author: glenga
-ms.openlocfilehash: 5bc1d2ddb5b9ddb185a8349fb42d5f5db79c1498
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: eae828d03431dd339c5399d8db8c6e46141ab11b
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103201369"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075351"
 ---
 ## <a name="run-the-function-locally"></a>로컬에서 함수 실행
 
@@ -27,7 +27,7 @@ Visual Studio Code는 [Azure Functions Core 도구](../articles/azure-functions/
     
 1. **요청 본문 입력** 에서 `{ "name": "Azure" }`의 요청 메시지 본문 값이 표시됩니다. Enter를 눌러 이 요청 메시지를 함수로 보냅니다. 
 
-   대신 웹 브라우저에서 <http://localhost:7071/api/HttpExample> 주소로 HTTP GET 요청을 보낼 수 있습니다.
+   대신 웹 브라우저에서 `http://localhost:7071/api/HttpExample` 주소로 HTTP GET 요청을 보낼 수 있습니다.
 
 1. 함수가 로컬로 실행되고 응답을 반환하는 경우 Visual Studio Code에서 알림이 발생합니다. 기능 실행에 대한 정보는 **터미널** 패널에 표시됩니다.
 

@@ -1,14 +1,14 @@
 ---
 title: '패턴: 정책 정의의 값 연산자'
 description: 이 Azure Policy 패턴은 정책 정의에서 값 연산자를 사용하는 방법에 대한 예를 제공합니다.
-ms.date: 10/14/2020
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 8392c69ff3d63ff4ecad2a26d5d914b4766147b8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 560f128dc5f78ca2335f2712e7fd81bd94eda761
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92072886"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092800"
 ---
 # <a name="azure-policy-pattern-the-value-operator"></a>Azure Policy 패턴: 값 연산자
 

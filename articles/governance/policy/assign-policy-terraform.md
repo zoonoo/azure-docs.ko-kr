@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: Terraform을 사용하여 새 정책 할당'
 description: 이 빠른 시작에서는 Terraform 및 HCL 구문을 사용하여 비규격 리소스를 식별하는 정책 할당을 만듭니다.
-ms.date: 10/27/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
-ms.openlocfilehash: dc4dae2dc6e43e7532117bf64af3ce97ddc7c496
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6c1a43010c48f71872d935a8fb52f608b479da8a
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93104924"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092350"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-terraform"></a>빠른 시작: Terraform을 사용하여 비규격 리소스를 식별하는 정책 할당 만들기
 
@@ -17,7 +17,7 @@ Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 
 
 이 과정이 끝나면 관리 디스크를 사용하지 않는 가상 머신이 식별됩니다. 이 가상 머신은 정책 할당을 _비준수_ 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 - 사용자 환경에 구성된 [Terraform](https://www.terraform.io/) 버전 0.12.0 이상.
