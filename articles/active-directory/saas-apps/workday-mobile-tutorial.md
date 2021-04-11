@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: ef1ca41f54a15554a04fa3edf608bb13f5fb3398
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 94ab61a5c6335d43842ada48f17572c186af773c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96182022"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077196"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday-mobile-application"></a>자습서: Workday 모바일 애플리케이션과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -132,13 +132,11 @@ iOS 디바이스가 모바일 디바이스 관리를 통해 관리되는 Workday
 
 | 시나리오 | 키 값 쌍 |
 |----------------------------------------------------------------------------------------   |-----------|
-| 다음에 대한 테넌트 및 웹 주소 필드를 자동으로 채웁니다.<br>● 회사 프로필을 Android에 사용하도록 설정하는 경우 Workday<br>● iPad 및 iPhone의 경우 Workday     | 다음 값을 사용하여 테넌트를 구성합니다. <br>● 구성 키 = `UserGroupCode`<br>● 값 형식 = 문자열 <br>● 구성 값 = 테넌트 이름. 예: `gms`<br>다음 값을 사용하여 웹 주소를 구성합니다.<br>● 구성 키 = `AppServiceHost`<br>● 값 형식 = 문자열<br>● 구성 값 = 테넌트에 대한 기준 URL. 예: `https://www.myworkday.com`                                |   |
+| 다음에 대한 테넌트 및 웹 주소 필드를 자동으로 채웁니다.<br>● 회사 프로필을 Android에 사용하도록 설정하는 경우 Workday<br>● iPad 및 iPhone의 경우 Workday     | 다음 값을 사용하여 테넌트를 구성합니다. <br>● 구성 키 = `UserGroupCode`<br>● 값 형식 = 문자열 <br>● 구성 값 = 테넌트 이름. 예: `gms`<br>다음 값을 사용하여 웹 주소를 구성합니다.<br>● 구성 키 = `AppServiceHost`<br>● 값 형식 = 문자열<br>● 구성 값 = 테넌트에 대한 기준 URL. 예: `https://www.myworkday.com`                                | 
 | iPad 및 iPhone의 Workday에 대해 다음 작업을 사용하지 않도록 설정합니다.<br>● 잘라내기, 복사 및 붙여넣기<br>● 인쇄                       | 기능을 사용하지 않도록 설정하려면 이러한 키에 대한 값(부울)을 `False`로 설정합니다.<br>●   `AllowCutCopyPaste`<br>●    `AllowPrint`    |
 | 스크린샷을 Android의 Workday에 사용하지 않도록 설정합니다. |기능을 사용하지 않도록 설정하려면 `AllowScreenshots` 키에 대한 값(부울)을 `False`로 설정합니다.|
 | 사용자에게 제안된 업데이트를 사용하지 않도록 설정합니다.|기능을 사용하지 않도록 설정하려면 `AllowSuggestedUpdates` 키에 대한 값(부울)을 `False`로 설정합니다.|
 |모바일 사용자를 선택한 앱 스토어로 보내도록 앱 스토어 URL을 사용자 지정합니다.|다음 값을 사용하여 앱 스토어 URL을 변경합니다.<br>● 구성 키 = `AppUpdateURL`<br>● 값 형식 = 문자열<br> ● 구성 값 = 앱 스토어 URL|
-|       |
-
 
 ## <a name="ios-configuration-policies"></a>iOS 구성 정책
 

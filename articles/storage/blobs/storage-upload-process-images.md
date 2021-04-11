@@ -1,20 +1,20 @@
 ---
 title: Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드 | Microsoft Docs
 description: 웹앱에서 Azure Blob 스토리지를 사용하여 스토리지 계정에 앱 데이터를 저장합니다. 이 자습서에서는 Azure 스토리지에서 이미지를 저장 및 표시하는 웹앱을 만듭니다.
-author: mhopkins-msft
+author: twooley
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 06/24/2020
-ms.author: mhopkins
+ms.author: twooley
 ms.reviewer: dineshm
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: b50aadfa16ed95bacb5247187c15489a1b017d39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f751b93a7d298763da5a37a54f400d6fc56a58e3
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821921"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277966"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>자습서: Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드
 
@@ -41,7 +41,7 @@ ms.locfileid: "99821921"
 > * 앱 설정 구성
 > * 웹앱과 상호 작용
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 Azure 구독이 필요합니다. 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
