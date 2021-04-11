@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 6d31bd0911b5cf765215e6a482a39b2458c4ba0d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7e00332eca076b55a884682240ef26ea3a4546d1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101696064"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105046065"
 ---
 # <a name="register-and-scan-a-sap-s4hana-source-preview"></a>SAP S/4HANA 원본 등록 및 검사(미리 보기)
 
@@ -25,7 +25,7 @@ SAP S/4HANA 원본은 SAP S/4HANA 인스턴스에서 메타데이터를 추출�
 ## <a name="prerequisites"></a>사전 요구 사항
 
 1.  최신 [자체 호스팅 통합 런타임](https://www.microsoft.com/download/details.aspx?id=39717)을 설정합니다.
-    자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)을 참조하세요.
+    자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성](../data-factory/create-self-hosted-integration-runtime.md)을 참조하세요.
 
 2.  자체 호스팅 통합 런타임이 설치된 가상 머신에 [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)이 설치되어 있는지 확인합니다.
 
@@ -78,7 +78,7 @@ SAP S/4HANA 원본에 대해 유일하게 지원되는 인증은 **기본 인증
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
-1.  관리 센터에서 통합 런타임을 클릭합니다. 자체 호스팅 통합 런타임이 설정되어 있는지 확인합니다. 설정되지 않은 경우 [여기](https://docs.microsoft.com/azure/purview/manage-integration-runtimes)에 언급된 단계를 사용하여 자체 호스팅 통합 런타임을 만들 수 있습니다.
+1.  관리 센터에서 통합 런타임을 클릭합니다. 자체 호스팅 통합 런타임이 설정되어 있는지 확인합니다. 설정되지 않은 경우 [여기](./manage-integration-runtimes.md)에 언급된 단계를 사용하여 자체 호스팅 통합 런타임을 만들 수 있습니다.
 
 2.  **원본** 으로 이동합니다.
 

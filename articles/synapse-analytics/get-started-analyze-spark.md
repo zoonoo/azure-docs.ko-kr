@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
-ms.date: 12/31/2020
-ms.openlocfilehash: 8559bd0a354a64872e58d014d1027ed971773b60
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: 0becbbdb68f75072e10a51f5a2eae95291b9ed77
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104655345"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105108335"
 ---
 # <a name="analyze-with-apache-spark"></a>Apache Spark를 사용하여 분석
 
@@ -37,9 +37,10 @@ ms.locfileid: "104655345"
 ## <a name="analyze-nyc-taxi-data-in-blob-storage-using-spark"></a>Spark를 사용하여 Blob 스토리지에서 NYC Taxi 데이터 분석
 
 1. Synapse Studio에서 **개발** 허브로 이동합니다.
-2. 기본 언어가 **PySpark(Python)** 로 설정된 newnNotebook을 만듭니다.
+2. 기본 언어가 **PySpark(Python)** 로 설정된 새 Notebook을 만듭니다.
 3. 새 코드 셀을 만들고, 다음 코드를 해당 셀에 입력합니다.
-    ```
+    ```py
+    %%pyspark
     from azureml.opendatasets import NycTlcYellow
 
     data = NycTlcYellow()
@@ -62,6 +63,7 @@ ms.locfileid: "104655345"
 1. Notebook에 새 항목을 추가하고 다음 코드를 입력합니다.
 
     ```py
+    spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Spark 및 Notebook을 사용하여 NYC 택시 데이터 분석
@@ -76,16 +78,16 @@ ms.locfileid: "104655345"
    ```
 
 1. 셀을 실행하여 **nyctaxi** Spark 데이터베이스에 로드한 NYC 택시 데이터를 표시합니다.
-1. 새 코드 셀을 만들고, 다음 코드를 입력합니다. 그런 다음, 셀을 실행하여 이전에 전용 SQL 풀 **SQLPOOL1** 에서 수행한 것과 동일한 분석을 수행합니다. 이 코드는 분석 결과를 **nyctaxi.passengercountstats** 라는 테이블에 저장하고 표시합니다.
+1. 새 코드 셀을 만들고, 다음 코드를 입력합니다. 이 데이터를 분석하고 결과를 **nyctaxi.paulnercountstats** 라는 테이블에 저장합니다.
 
    ```py
    %%pyspark
    df = spark.sql("""
       SELECT PassengerCount,
-          SUM(TripDistanceMiles) as SumTripDistance,
-          AVG(TripDistanceMiles) as AvgTripDistance
+          SUM(TripDistance) as SumTripDistance,
+          AVG(TripDistance) as AvgTripDistance
       FROM nyctaxi.trip
-      WHERE TripDistanceMiles > 0 AND PassengerCount > 0
+      WHERE TripDistance > 0 AND PassengerCount > 0
       GROUP BY PassengerCount
       ORDER BY PassengerCount
    """) 

@@ -6,13 +6,13 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: node
 ms.topic: quickstart
-ms.date: 01/11/2021
-ms.openlocfilehash: 97fcff4706d6da968c93426f85569fed9af95aac
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.date: 03/25/2021
+ms.openlocfilehash: 047700be674dfab997b5c87f7446c19fdea9e0eb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102197812"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105605963"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-nodejs"></a>빠른 시작: 원격 분석을 디바이스에서 IoT 허브로 보내기(Node.js)
 
@@ -36,7 +36,7 @@ ms.locfileid: "102197812"
 ## <a name="use-the-nodejs-sdk-to-send-messages"></a>Node.js SDK를 사용하여 메시지 보내기
 이 섹션에서는 Node.js SDK를 사용하여 시뮬레이션된 디바이스에서 IoT 허브로 메시지를 보냅니다. 
 
-1. 새 터미널 창을 엽니다. 이 터미널을 사용하여 Node.js SDK를 설치하고 Node.js 샘플 코드로 작업합니다. 이제 두 개의 터미널 즉, Node.js로 작업하기 위해 방금 연 터미널과 이전 섹션에서 Azure CLI 명령을 입력하기 위해 사용한 CLI 셸이 열려 있어야 합니다. 
+1. 새 터미널 창을 엽니다. 이 터미널을 사용하여 Node.js SDK를 설치하고 Node.js 샘플 코드로 작업합니다. 이제 두 개의 터미널 즉, Node.js로 작업하기 위해 방금 연 터미널과 이전 섹션에서 Azure CLI 명령을 입력하기 위해 사용한 CLI 셸이 열려 있어야 합니다.
 
 1. [Azure IoT Node.js SDK 디바이스 샘플](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples)을 로컬 컴퓨터에 복사합니다.
 
@@ -44,142 +44,79 @@ ms.locfileid: "102197812"
     git clone https://github.com/Azure/azure-iot-sdk-node
     ```
 
-1. *azure-iot-sdk-node/device/samples* 폴더로 이동합니다.
+1. *azure-iot-sdk-node/device/samples/pnp* 디렉터리로 이동합니다.
 
     ```console
-    cd azure-iot-sdk-node/device/samples
+    cd azure-iot-sdk-node/device/samples/pnp
     ```
+
 1. Azure IoT Node.js SDK 및 필요한 종속성을 설치합니다.
 
     ```console
     npm install
     ```
+
     이 명령은 디바이스 샘플 디렉터리의 *package.json* 파일에 지정된 대로 적절한 종속성을 설치합니다.
 
-1. `DEVICE_CONNECTION_STRING`이라는 환경 변수로 디바이스 연결 문자열을 설정합니다. 사용할 문자열 값은 시뮬레이션된 Node.js 디바이스를 만든 후 이전 섹션에서 얻은 문자열입니다. 
+1. 시뮬레이션된 디바이스에서 Azure IoT에 연결할 수 있도록 다음 환경 변수를 모두 설정합니다.
+    * `IOTHUB_DEVICE_CONNECTION_STRING`이라는 환경 변수를 설정합니다. 변수 값의 경우 이전 섹션에서 저장한 디바이스 연결 문자열을 사용합니다.
+    * `IOTHUB_DEVICE_SECURITY_TYPE`이라는 환경 변수를 설정합니다. 변수의 경우 리터럴 문자열 값 `connectionString`을 사용합니다.
 
     **Windows(cmd)**
 
     ```console
-    set DEVICE_CONNECTION_STRING=<your connection string here>
+    set IOTHUB_DEVICE_CONNECTION_STRING=<your connection string here>
+    ```
+    ```console
+    set IOTHUB_DEVICE_SECURITY_TYPE=connectionString
     ```
 
     > [!NOTE]
-    > Windows CMD의 경우 연결 문자열을 묶는 따옴표가 없습니다.
+    > Windows CMD의 경우 각 변수의 문자열 값을 묶는 따옴표가 없습니다.
 
-    **Linux(bash)**
+    **PowerShell**
 
-    ```bash
-    export DEVICE_CONNECTION_STRING="<your connection string here>"
+    ```azurepowershell
+    $env:IOTHUB_DEVICE_CONNECTION_STRING='<your connection string here>'
+    ```
+    ```azurepowershell
+    $env:IOTHUB_DEVICE_SECURITY_TYPE='connectionString'
     ```
 
+    **Bash(Linux 또는 Windows)**
+
+    ```bash
+    export IOTHUB_DEVICE_CONNECTION_STRING="<your connection string here>"
+    ```
+    ```bash
+    export IOTHUB_DEVICE_SECURITY_TYPE="connectionString"
+    ```
 1. 열려 있는 CLI 셸에서 [az iot hub monitor-events](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-monitor-events) 명령을 실행하여 시뮬레이션된 IoT 디바이스의 이벤트 모니터링을 시작합니다.  이벤트 메시지가 도착하면 터미널에 출력됩니다.
 
     ```azurecli
     az iot hub monitor-events --output table --hub-name {YourIoTHubName}
     ```
 
-1. Node.js 터미널에서 설치된 샘플 파일 *simple_sample_device.js* 의 코드를 실행합니다. 이 코드는 시뮬레이션된 IoT 디바이스에 액세스하고, 메시지를 IoT 허브에 보냅니다.
+1. Node.js 터미널에서 설치된 샘플 파일 *simple_thermostat.js* 의 코드를 실행합니다. 이 코드는 시뮬레이션된 IoT 디바이스에 액세스하고, 메시지를 IoT 허브에 보냅니다.
 
     터미널에서 Node.js 샘플을 실행하려면 다음을 수행합니다.
     ```console
-    node ./simple_sample_device.js
+    node ./simple_thermostat.js
     ```
-
-    필요에 따라 JavaScript IDE의 샘플에서 Node.js 코드를 실행할 수 있습니다.
-    ```javascript
-    'use strict';
-
-    const Protocol = require('azure-iot-device-mqtt').Mqtt;
-    // Uncomment one of these transports and then change it in fromConnectionString to test other transports
-    // const Protocol = require('azure-iot-device-amqp').AmqpWs;
-    // const Protocol = require('azure-iot-device-http').Http;
-    // const Protocol = require('azure-iot-device-amqp').Amqp;
-    // const Protocol = require('azure-iot-device-mqtt').MqttWs;
-    const Client = require('azure-iot-device').Client;
-    const Message = require('azure-iot-device').Message;
-
-    // String containing Hostname, Device Id & Device Key in the following formats:
-    //  "HostName=<iothub_host_name>;DeviceId=<device_id>;SharedAccessKey=<device_key>"
-    const deviceConnectionString = process.env.DEVICE_CONNECTION_STRING;
-    let sendInterval;
-
-    function disconnectHandler () {
-    clearInterval(sendInterval);
-    client.open().catch((err) => {
-        console.error(err.message);
-    });
-    }
-
-    // The AMQP and HTTP transports have the notion of completing, rejecting or abandoning the message.
-    // For example, this is only functional in AMQP and HTTP:
-    // client.complete(msg, printResultFor('completed'));
-    // If using MQTT calls to complete, reject, or abandon are no-ops.
-    // When completing a message, the service that sent the C2D message is notified that the message has been processed.
-    // When rejecting a message, the service that sent the C2D message is notified that the message won't be processed by the device. the method to use is client.reject(msg, callback).
-    // When abandoning the message, IoT Hub will immediately try to resend it. The method to use is client.abandon(msg, callback).
-    // MQTT is simpler: it accepts the message by default, and doesn't support rejecting or abandoning a message.
-    function messageHandler (msg) {
-    console.log('Id: ' + msg.messageId + ' Body: ' + msg.data);
-    client.complete(msg, printResultFor('completed'));
-    }
-
-    function generateMessage () {
-    const windSpeed = 10 + (Math.random() * 4); // range: [10, 14]
-    const temperature = 20 + (Math.random() * 10); // range: [20, 30]
-    const humidity = 60 + (Math.random() * 20); // range: [60, 80]
-    const data = JSON.stringify({ deviceId: 'myFirstDevice', windSpeed: windSpeed, temperature: temperature, humidity: humidity });
-    const message = new Message(data);
-    message.properties.add('temperatureAlert', (temperature > 28) ? 'true' : 'false');
-    return message;
-    }
-
-    function errorCallback (err) {
-    console.error(err.message);
-    }
-
-    function connectCallback () {
-    console.log('Client connected');
-    // Create a message and send it to the IoT Hub every two seconds
-    sendInterval = setInterval(() => {
-        const message = generateMessage();
-        console.log('Sending message: ' + message.getData());
-        client.sendEvent(message, printResultFor('send'));
-    }, 2000);
-
-    }
-
-    // fromConnectionString must specify a transport constructor, coming from any transport package.
-    let client = Client.fromConnectionString(deviceConnectionString, Protocol);
-
-    client.on('connect', connectCallback);
-    client.on('error', errorCallback);
-    client.on('disconnect', disconnectHandler);
-    client.on('message', messageHandler);
-
-    client.open()
-    .catch(err => {
-    console.error('Could not connect: ' + err.message);
-    });
-
-    // Helper function to print results in the console
-    function printResultFor(op) {
-    return function printResult(err, res) {
-        if (err) console.log(op + ' error: ' + err.toString());
-        if (res) console.log(op + ' status: ' + res.constructor.name);
-    };
-    }
-    ```
+    > [!NOTE]
+    > 이 코드 샘플에서는 수동 구성 없이 솔루션에 스마트 디바이스를 통합할 수 있도록 하는 Azure IoT 플러그 앤 플레이를 사용합니다.  기본적으로 이 설명서에 있는 대부분의 샘플은 IoT 플러그 앤 플레이를 사용합니다. IoT PnP의 장점과 사용 여부에 대한 자세한 내용은 [IoT 플러그 앤 플레이란?](../iot-pnp/overview-iot-plug-and-play.md)을 참조하세요.
 
 Node.js 코드가 디바이스에서 IoT 허브로 시뮬레이션된 원격 분석 메시지를 보내면 이벤트를 모니터링하는 CLI 셸에 메시지가 나타납니다.
 
 ```output
+Starting event monitor, use ctrl-c to stop...
 event:
   component: ''
-  interface: ''
+  interface: dtmi:com:example:Thermostat;1
   module: ''
-  origin: <your device name>
-  payload: '{"deviceId":"myFirstDevice","windSpeed":11.853592092144627,"temperature":22.62484121157508,"humidity":66.17960805575937}'
+  origin: <your device ID>
+  payload:
+    temperature: 36.87027777131555
 ```
 
 이제 디바이스가 안전하게 연결되어 Azure IoT Hub로 원격 분석을 보냅니다.

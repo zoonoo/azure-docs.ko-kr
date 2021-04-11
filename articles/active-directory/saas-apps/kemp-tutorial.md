@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: jeedes
-ms.openlocfilehash: aa36d8522f548101ef3354237d93128b0f041eac
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 91f6db79b7d18dc8b34ba1712d74a92000d63528
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101648964"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104953683"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-kemp-loadmaster-azure-ad-integration"></a>자습서: Kemp LoadMaster Azure AD integration과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -371,8 +371,8 @@ d. [서버 쪽 구성]에서 이전에 만든 서버 쪽 프로필을 선택합�
 
 * Azure Portal에서 이 애플리케이션 테스트를 클릭하면 SSO를 설정한 Kemp LoadMaster AD integration에 자동으로 로그인됩니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Kemp LoadMaster Azure AD integration 타일을 클릭하면 SSO를 설정한 Kemp LoadMaster Azure AD integration에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Kemp LoadMaster Azure AD integration 타일을 클릭하면 SSO를 설정한 Kemp LoadMaster Azure AD integration에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Kemp LoadMaster Azure AD 통합이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Kemp LoadMaster Azure AD 통합이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

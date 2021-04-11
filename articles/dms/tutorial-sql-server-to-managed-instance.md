@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 6db1b6b17f1ed2c21588cb23880c89a49cf835ab
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2dfcb4ade9da76d5ec4883e9f4b5b3cb3e0c8682
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101094804"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076839"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>자습서: DMS를 사용하여 SQL Server를 Azure SQL Managed Instance로 오프라인 마이그레이션
 
@@ -198,7 +198,7 @@ Azure Database Migration Service를 사용하여 SQL Server 인스턴스에서 [
 
 1. **마이그레이션 설정 구성** 화면에서 다음 세부 정보를 입력합니다.
 
-    | | |
+    | 매개 변수 | 설명 |
     |--------|---------|
     |**원본 백업 옵션 선택** | DMS가 데이터베이스 마이그레이션에 사용할 수 있는 전체 백업 파일이 이미 있으면 **최신 백업 파일을 제공합니다** 옵션을 선택합니다. DMS에서 원본 데이터베이스 전체 백업을 처음으로 수행하고 마이그레이션에 이 백업을 사용하도록 하려면 **Azure Database Migration Service를 통해 백업 파일을 만들려고 합니다** 옵션을 선택합니다. |
     |**네트워크 위치 공유** | Azure Database Migration Service가 원본 데이터베이스를 백업하는 데 사용할 수 있는 로컬 SMB 네트워크 공유입니다. 원본 SQL Server 인스턴스를 실행하는 서비스 계정에는 이 네트워크 공유에 대한 쓰기 권한이 있어야 합니다. 네트워크 공유에 있는 서버의 FQDN 또는 IP 주소를 입력합니다(예: '\\\servername.domainname.com\backupfolder' 또는 '\\\IP address\backupfolder').|
