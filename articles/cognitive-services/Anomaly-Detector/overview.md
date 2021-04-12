@@ -12,12 +12,12 @@ ms.date: 02/16/2021
 ms.author: mbullwin
 keywords: 변칙 검색, 기계 학습, 알고리즘
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: ad3bd1eed6e5e7efb783c4a40958e16c3ca23691
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3bfa30cc5d3d57cfcd2677bb4b2719061541d5a9
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572082"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278867"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Anomaly Detector API란?
 
@@ -28,6 +28,12 @@ Anomaly Detector API를 사용하면 기계 학습을 몰라도 시계열 데이
 ![서비스 요청의 패턴 변경 내용 검색](./media/anomaly_detection2.png)
 
 Anomaly Detector 사용에는 기계 학습에 대한 사전 지식이 필요하지 않으며 RESTful API를 통해 애플리케이션과 프로세스에 서비스를 쉽게 통합할 수 있습니다.
+
+이 설명서에는 다음과 같은 유형의 문서가 포함되어 있습니다.
+* [빠른 시작](./Quickstarts/client-libraries.md)은 서비스를 호출하고 짧은 시간 내에 결과를 얻을 수 있는 단계별 지침입니다. 
+* [방법 가이드](./how-to/identify-anomalies.md)에는 보다 구체적이거나 사용자 지정된 방식으로 서비스를 사용하기 위한 지침이 포함되어 있습니다.
+* [개념 문서](./concepts/anomaly-detection-best-practices.md)에서는 서비스의 기능 및 기능에 대한 자세한 설명을 제공합니다.
+* [자습서](./tutorials/batch-anomaly-detection-powerbi.md)는 보다 광범위한 비즈니스 솔루션에서 이 서비스를 구성 요소로 사용하는 방법을 보여주는 긴 가이드입니다.
 
 ## <a name="features"></a>기능
 
