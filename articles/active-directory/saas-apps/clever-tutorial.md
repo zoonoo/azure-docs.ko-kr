@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2020
 ms.author: jeedes
-ms.openlocfilehash: 29384457f946eff5708c319e14161d670adf6ca8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5fe539521213a6c25804c5c0db1e6b18646cceea
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99821628"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105563840"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-clever"></a>자습서: Clever와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -118,7 +118,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-clever-sso"></a>Clever SSO 구성
 
-[링크](https://support.clever.com/hc/articles/205889768-Single-Sign-On-SSO-Log-in-with-Office-365-Azure-)에 제공된 지침에 따라 Clever 쪽에서 Single Sign-On을 구성합니다.
+[링크](https://support.clever.com/hc/s/articles/205889768)에 제공된 지침에 따라 Clever 쪽에서 Single Sign-On을 구성합니다.
 
 ### <a name="create-clever-test-user"></a>Clever 테스트 사용자 만들기
 

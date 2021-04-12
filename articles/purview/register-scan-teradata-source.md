@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 2008e014e9f160b643ed5f591fff81c0b215e24a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8f300f214ed36b7a5257b7276364027b91edc746
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175079"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105048105"
 ---
 # <a name="register-and-scan-teradata-source-preview"></a>Teradata 원본 등록 및 검사(미리 보기)
 
@@ -25,7 +25,7 @@ Teradata 원본은 Teradata 데이터베이스에서 메타데이터를 추출�
 ## <a name="prerequisites"></a>사전 요구 사항
 
 1.  최신 [자체 호스팅 통합 런타임](https://www.microsoft.com/download/details.aspx?id=39717)을 설정합니다.
-    자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)을 참조하세요.
+    자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성](../data-factory/create-self-hosted-integration-runtime.md)을 참조하세요.
 
 2.  자체 호스팅 통합 런타임이 설치된 가상 머신에 [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)이 설치되어 있는지 확인합니다.
 
@@ -70,7 +70,7 @@ Teradata 원본에 대해 유일하게 지원되는 인증은 **기본 인증** 
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
-1.  관리 센터에서 **통합 런타임** 을 클릭합니다. 자체 호스팅 통합 런타임이 설정되어 있는지 확인합니다. 설정되지 않은 경우 [여기](https://docs.microsoft.com/azure/purview/manage-integration-runtimes)에 언급된 단계를 사용하여 자체 호스팅 통합 런타임을 설정할 수 있습니다.
+1.  관리 센터에서 **통합 런타임** 을 클릭합니다. 자체 호스팅 통합 런타임이 설정되어 있는지 확인합니다. 설정되지 않은 경우 [여기](./manage-integration-runtimes.md)에 언급된 단계를 사용하여 자체 호스팅 통합 런타임을 설정할 수 있습니다.
 
 2.  **소스** 로 이동
 
@@ -90,7 +90,7 @@ Teradata 원본에 대해 유일하게 지원되는 인증은 **기본 인증** 
     -   데이터베이스 서버에 연결할 사용자 이름을 사용자 이름 입력 필드에 입력합니다.
     -   비밀 키에 데이터베이스 서버 암호를 저장합니다.
 
-        자격 증명에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/purview/manage-credentials)에 있는 링크를 참조하세요.
+        자격 증명에 대한 자세한 내용은 [여기](./manage-credentials.md)에 있는 링크를 참조하세요.
 
 6.  **스키마**: 가져올 스키마의 하위 집합을 나열하며, 세미콜론으로 구분된 목록으로 표현됩니다. 예: schema1; schema2. 목록이 비어 있으면 모든 사용자 스키마를 가져옵니다. 모든 시스템 스키마(예: SysAdmin) 및 개체는 기본적으로 무시됩니다. 목록이 비어 있는 경우 모든 사용 가능한 스키마를 가져옵니다.
 

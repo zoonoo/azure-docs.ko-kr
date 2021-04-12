@@ -4,12 +4,12 @@ description: 라이브 웹 애플리케이션의 애플리케이션 성능을 �
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: ac6b6f2b47df0bce9ae164c83df54adfdf00b184
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f25a53cb227d6894aaabaf82033178f15f61c173
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100575702"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076210"
 ---
 # <a name="what-is-application-insights"></a>Application Insights란?
 [Azure Monitor](../overview.md)의 기능인 Application Insights는 개발자 및 DevOps 전문가를 위한 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. 라이브 애플리케이션을 모니터링하는 데 사용합니다. 성능 이상을 자동으로 감지하고, 문제를 진단하고 사용자가 실제로 앱을 사용하여 수행하는 작업을 파악할 수 있는 강력한 분석 도구를 포함하고 있습니다.  성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. 온-프레미스, 하이브리드 또는 퍼블릭 클라우드에서 호스팅되는 .NET, Node.js, Java 및 Python을 포함하여 다양한 플랫폼의 앱에서 작동합니다. DevOps 프로세스와 통합되며, 다양한 개발 도구와의 연결 지점을 갖고 있습니다. Visual Studio App Center를 통합하여 모바일 앱에서 원격 분석을 모니터링하고 분석할 수 있습니다.
@@ -47,7 +47,7 @@ Application Insights는 애플리케이션 팀에서 앱의 작동 방식과 사
 
 다양한 방법으로 데이터를 탐색할 수 있습니다. 다음 문서를 확인하세요.
 
-|  |  |
+| 문서 설명   | 이미지 |
 | --- | --- |
 | [**스마트 검색 및 수동 경고**](./proactive-diagnostics.md)<br/>앱의 일반적인 원격 분석 패턴에 맞게 자동경고가 설정되고, 일반적인 패턴을 벗어나는 항목이 있으면 트리거합니다. 특정 수준의 사용자 지정 또는 표준 메트릭에 대해 [경고를 설정](../alerts/alerts-log.md)할 수도 있습니다. |![경고 샘플](./media/app-insights-overview/alerts-tn.png) |
 | [**애플리케이션 맵**](./app-map.md)<br/>주요 메트릭 및 경고가 포함된 앱의 구성 요소를 살펴봅니다. |![애플리케이션 맵](./media/app-insights-overview/appmap-tn.png)  |

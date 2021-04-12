@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure VM의 변경 내용 문제를 해결하�
 services: automation
 ms.subservice: change-inventory-management
 keywords: 변경 내용, 추적, 변경 내용 추적, 인벤토리, 자동화
-ms.date: 12/05/2018
+ms.date: 03/21/2021
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: a223ac4296dd160bbdd904e1d3443552d4f49a23
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 980740d387f9e953d1ea764327c8aa13f8650948
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587929"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775812"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Azure VM의 변경 내용 문제 해결
 
@@ -40,7 +40,7 @@ ms.locfileid: "100587929"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="enable-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 사용
 
@@ -208,15 +208,15 @@ Azure Portal에서 변경 내용을 보는 기능도 유용하지만, 중지된 
 
 14. **작업** 에서 **이메일 관리자** 과 같은 작업의 이름을 입력합니다. 
 
-15. **작업 유형** 에서 **이메일/SMS/푸시/음성** 을 선택합니다. 
+15. **작업 유형** 에서 **이메일/SMS 메시지/푸시/음성** 을 선택합니다. 
 
 16. **세부 정보** 에서 **세부 정보 편집** 을 선택합니다.
 
-    ![작업 그룹 추가](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
+    :::image type="content" source="./media/automation-tutorial-troubleshoot-changes/add-action-group.png" alt-text="사용량 및 예상 비용." lightbox="./media/automation-tutorial-troubleshoot-changes/add-action-group.png":::
 
-17. 이메일/SMS/푸시/음성 창에서 이름을 입력하고 **이메일** 확인란을 선택한 후 올바른 이메일 주소를 입력합니다. 완료되면 창에서 **확인** 을 클릭한 다음, 작업 그룹 추가 페이지에서 **확인** 을 클릭합니다.
+17. **이메일/SMS 메시지/푸시/음성** 창에서 이름을 입력하고 **이메일** 확인란을 선택한 다음, 올바른 이메일 주소를 입력합니다. 완료되면 창에서 **확인** 을 클릭한 다음, **작업 그룹 추가** 페이지에서 **확인** 을 클릭합니다.
 
-18. 경고 이메일의 제목을 사용자 지정하려면 **작업 사용자 지정** 을 선택합니다. 
+18. 경고 이메일의 제목을 사용자 지정하려면 **작업 사용자 지정** 을 선택합니다.
 
 19. **규칙 만들기** 에서 **이메일 제목** 을 선택한 다음, **경고 규칙 만들기** 를 선택합니다. 경고에서는 언제 업데이트 배포가 성공하고 해당 부분의 업데이트 배포 실행에 어떤 컴퓨터가 사용되었는지 알려줍니다. 다음 이미지는 W3SVC 서비스가 중지될 때 받는 예제 이메일입니다.
 
