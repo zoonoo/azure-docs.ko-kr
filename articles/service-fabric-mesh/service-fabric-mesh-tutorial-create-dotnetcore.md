@@ -7,10 +7,10 @@ ms.date: 09/18/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-csharp
 ms.openlocfilehash: b0bdb3c09aead812e1c16f4d0d17aae58e141809
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99822229"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>자습서: 다중 서비스 Service Fabric Mesh 앱 만들기, 디버그, 배포 및 업그레이드
@@ -46,7 +46,7 @@ ms.locfileid: "99822229"
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 
@@ -194,7 +194,7 @@ Visual Studio **솔루션 탐색기** 창에서 **todolistapp** 을 마우스 �
 
 **참조 관리자** 에서 **모델** 에 대한 확인란을 선택하고 **확인** 을 클릭합니다.
 
-### <a name="add-a-data-context"></a>데이터 컨텍스트 추가
+### <a name="add-a-data-context&quot;></a>데이터 컨텍스트 추가
 
 다음으로, 데이터 모델의 데이터 처리를 조정하는 데이터 컨텍스트를 만듭니다.
 
@@ -206,7 +206,7 @@ Visual Studio **솔루션 탐색기** 창에서 **todolistapp** 을 마우스 �
 ```csharp
 public static class DataContext
 {
-    public static Model.ToDoList ToDoList { get; } = new Model.ToDoList("Azure learning List");
+    public static Model.ToDoList ToDoList { get; } = new Model.ToDoList(&quot;Azure learning List");
 
     static DataContext()
     {

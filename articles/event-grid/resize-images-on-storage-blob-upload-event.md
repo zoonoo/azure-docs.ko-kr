@@ -4,10 +4,10 @@ description: '자습서: Azure Event Grid는 Azure Storage에 BLOB 업로드를 
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.openlocfilehash: ca231fc65162fe38f4dcb8b8d5677ef42c7807bb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99821364"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>자습서: Event Grid를 사용하여 업로드된 이미지 크기 자동 조정
@@ -35,7 +35,7 @@ Azure CLI 및 Azure Portal을 사용하여 크기 조정 기능을 기존 이미
 > * Azure Functions를 사용하여 서버 없는 코드 배포
 > * Event Grid에서 Blob Storage 이벤트 구독 만들기
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

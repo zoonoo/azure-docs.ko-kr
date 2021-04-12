@@ -5,6 +5,10 @@
   items:
     - name: Form Recognizer란?
       href: overview.md
+    - name: 언어 지원
+      href: language-support.md
+    - name: 가격 책정 및 제한
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/'
     - name: 새로운 기능
       href: whats-new.md
 - name: 빠른 시작
@@ -91,15 +95,13 @@
   items:
     - name: 지원 및 도움말 옵션
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
-    - name: 가격 책정 및 제한
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: 국가별 가용성
       href: 'https://go.microsoft.com/fwlink/?linkid=2087185'
-    - name: 언어 지원
-      href: language-support.md
     - name: 규정 준수
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 암호화
       href: encrypt-data-at-rest.md
+    - name: 개인 정보 및 쿠키
+      href: 'https://privacy.microsoft.com/en-US/privacystatement'

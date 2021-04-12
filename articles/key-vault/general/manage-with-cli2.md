@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cb7e047d998342125a52af5ea3ae1e88fe88d313
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c084df60fa2293a614726be44669a1465b399d2c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93289904"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557210"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Azure CLI를 사용하여 Key Vault 관리 
 
@@ -147,7 +147,7 @@ az keyvault key create --vault-name "ContosoKeyVault" --name "ContosoFirstKey" -
 az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
-이제 해당 URI를 사용하여 Azure Key Vault를 만들거나 업로드하는 이 키를 참조할 수 있습니다. 항상 현재 버전을 가져오려면 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** 를 사용합니다. 이 특정 버전을 가져오려면 https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id]를 사용합니다. 예를 들어 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** 입니다. 
+이제 해당 URI를 사용하여 Azure Key Vault를 만들거나 업로드하는 이 키를 참조할 수 있습니다. 항상 현재 버전을 가져오려면 `https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey` 를 사용합니다. 이 특정 버전을 가져오려면 https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id]를 사용합니다. 예들 들어 `https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87`입니다. 
 
 자격 증명 모음에 암호가 SQLPassword이고 Azure Key Vault에 대한 "hVFkk965BuUv" 값이 있는 비밀을 추가합니다. 
 
