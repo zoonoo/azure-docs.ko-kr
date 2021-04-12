@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: b108e757ed9fe9ab7038cae4240f0f749ac19675
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: e58473f5c3bc4bc6314fb0dc5c532e24daa225d6
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036047"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065704"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>자습서: Azure Stack Edge Pro device with GPU 배포 준비 
 
@@ -47,8 +46,8 @@ Azure Stack Edge Pro를 배포하려면 먼저 환경을 준비해야 합니다.
 |**[6. Azure Stack Edge Pro에 대한 보안 설정 구성](azure-stack-edge-gpu-deploy-configure-certificates.md)** |디바이스에 대한 인증서를 구성합니다. 디바이스에서 생성한 인증서를 사용하거나 사용자 고유의 인증서를 가져옵니다.   |
 |**[7. Azure Stack Edge Pro 활성화](azure-stack-edge-gpu-deploy-activate.md)** |서비스의 활성화 키를 사용하여 디바이스를 활성화합니다. 디바이스에서 SMB 또는 NFS 공유를 설정하거나 REST를 통해 연결할 준비가 되었습니다. |
 |**[8. 컴퓨팅 구성](azure-stack-edge-gpu-deploy-configure-compute.md)** |디바이스에서 컴퓨팅 역할을 구성합니다. Kubernetes 클러스터도 만들어집니다. |
-|**[9A. Edge 공유를 사용하여 데이터 전송](azure-stack-edge-j-series-deploy-add-shares.md)** |공유를 추가하고 SMB 또는 NFS를 통해 공유에 연결합니다. |
-|**[9B. Edge 스토리지 계정을 사용하여 데이터 전송](azure-stack-edge-j-series-deploy-add-storage-accounts.md)** |스토리지 계정을 추가하고, REST API를 통해 Blob 스토리지에 연결합니다. |
+|**[9A. Edge 공유를 사용하여 데이터 전송](./azure-stack-edge-gpu-deploy-add-shares.md)** |공유를 추가하고 SMB 또는 NFS를 통해 공유에 연결합니다. |
+|**[9B. Edge 스토리지 계정을 사용하여 데이터 전송](./azure-stack-edge-gpu-deploy-add-storage-accounts.md)** |스토리지 계정을 추가하고, REST API를 통해 Blob 스토리지에 연결합니다. |
 
 
 이제 Azure Stack Edge Pro 디바이스의 소프트웨어 구성에 대한 정보 수집을 시작할 수 있습니다.
