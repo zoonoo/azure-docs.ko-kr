@@ -3,12 +3,12 @@ title: Python(최신)을 사용하여 Azure Event Hubs에서 이벤트 보내기
 description: 이 문서에서는 최신 azure/eventhubs 패키지를 사용하여 Azure Event Hubs와 이벤트를 주고 받는 Python 애플리케이션을 만드는 과정을 연습할 수 있습니다.
 ms.topic: quickstart
 ms.date: 02/11/2020
-ms.openlocfilehash: f05f546f19a7944c049b97ba18065159db6fab67
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: ea2270888830327506df5f43c18f8e798f61cc00
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605567"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802780"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-python-azure-eventhub"></a>Python(azure-eventhub)을 사용하여 이벤트 허브에서 이벤트 보내기 또는 받기
 이 빠른 시작에서는 **azure-eventhubs** Python 패키지를 사용하여 이벤트 허브와 이벤트를 주고 받는 방법을 보여줍니다.
@@ -19,7 +19,7 @@ Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기
 이 빠른 시작을 완료하려면 다음 필수 구성 요소가 필요합니다.
 
 - **Microsoft Azure 구독**. Azure Event Hubs를 비롯한 Azure 서비스를 사용하려면 구독이 필요합니다.  기존 Azure 계정이 없는 경우 [평가판](https://azure.microsoft.com/free/)에 가입하거나 [계정을 만들 때](https://azure.microsoft.com) MSDN 구독자 혜택을 사용할 수 있습니다.
-- PIP가 설치 및 업데이트된 Python 2.7 또는 3.5 이상.
+- PIP가 설치 및 업데이트된 Python 2.7 또는 3.6 이상.
 - Event Hubs용 Python 패키지. 
 
     이 패키지를 설치하려면 경로에 Python이 있는 명령 프롬프트에서 다음 명령을 실행합니다.

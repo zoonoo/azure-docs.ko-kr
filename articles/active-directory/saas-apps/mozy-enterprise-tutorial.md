@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 97294bdd088f50a46786c3568f4230706f750c4c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dfeb99fdbd5cf2b0784982b385d46c3a16901ec8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92520951"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567358"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>자습서: Mozy Enterprise와 Azure Active Directory 통합
 
@@ -104,7 +104,7 @@ Mozy Enterprise에서 Azure AD Single Sign-on을 구성하려면 다음 단계�
     **로그인 URL** 텍스트 상자에서 `https://<tenantname>.Mozyenterprise.com` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Mozy Enterprise 클라이언트 지원 팀](https://support.mozy.com/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Mozy Enterprise 클라이언트 지원 팀](https://www.safenames.net/about-us/contact-us)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
@@ -120,13 +120,13 @@ Mozy Enterprise에서 Azure AD Single Sign-on을 구성하려면 다음 단계�
 
     다. 로그아웃 URL
 
-### <a name="configure-mozy-enterprise-single-sign-on"></a>Mozy Enterprise Single Sign-On 구성
+### <a name="configure-mozy-enterprise-single-sign-on&quot;></a>Mozy Enterprise Single Sign-On 구성
 
 1. 다른 웹 브라우저 창에서 Mozy Enterprise 회사 사이트에 관리자로 로그인합니다.
 
 2. **구성** 섹션에서 **인증 정책** 을 클릭합니다.
    
-    ![스크린샷은 구성에서 선택한 인증 정책을 보여줍니다.](./media/mozy-enterprise-tutorial/ic777314.png "인증 정책")
+    ![스크린샷은 구성에서 선택한 인증 정책을 보여줍니다.](./media/mozy-enterprise-tutorial/ic777314.png &quot;인증 정책")
 
 3. **인증 정책** 섹션에서 다음 단계를 수행합니다.
    
@@ -199,7 +199,7 @@ Mozy Enterprise에서 Azure AD Single Sign-on을 구성하려면 다음 단계�
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name="create-mozy-enterprise-test-user"></a>Mozy Enterprise 테스트 사용자 만들기
+### <a name="create-mozy-enterprise-test-user&quot;></a>Mozy Enterprise 테스트 사용자 만들기
 
 Azure AD 사용자가 Mozy Enterprise에 로그인할 수 있도록 하려면 Mozy Enterprise로 프로비전되어야 합니다. Mozy Enterprise의 경우 프로비전은 수동 작업입니다.
 
@@ -212,7 +212,7 @@ Azure AD 사용자가 Mozy Enterprise에 로그인할 수 있도록 하려면 Mo
 
 2. **사용자** 를 클릭한 후 **새 사용자 추가** 를 클릭합니다.
    
-    ![사용자](./media/mozy-enterprise-tutorial/ic777317.png "사용자")
+    ![사용자](./media/mozy-enterprise-tutorial/ic777317.png &quot;사용자")
    
     >[!NOTE]
     >**Mozy** 가 **인증 정책** 에서 공급자로 선택된 경우에만 **새 사용자 추가** 옵션이 표시됩니다. SAML 인증이 구성된 경우 Single Sign-On을 통해 처음 로그인 시 사용자가 자동으로 추가됩니다.

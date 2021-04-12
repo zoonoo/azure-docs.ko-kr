@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: azure-communication-services
 author: mikben
@@ -10,16 +10,14 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: cea425a3f133c54fecda06daa57e6e5e6d22a5d8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d6280a34b500f320d1292da524ad05d999403539
+ms.sourcegitcommit: 91361cbe8fff7c866ddc4835251dcbbe2621c055
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104783626"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105729765"
 ---
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-Azure Communication Services **iOS용 그룹 통화 주인공 샘플** 은 Communication Services 통화 iOS 클라이언트 라이브러리를 사용하여 음성 및 비디오가 포함된 그룹 통화 환경을 구축하는 방법을 보여 줍니다. 이 샘플 빠른 시작에서는 샘플을 설정하고 실행하는 방법에 대해 알아봅니다. 상황에 맞는 샘플 개요가 제공됩니다.
+Azure Communication Services **iOS용 그룹 통화 주인공 샘플** 은 Communication Services 통화 iOS SDK를 사용하여 음성 및 비디오가 포함된 그룹 통화 환경을 구축하는 방법을 보여 줍니다. 이 샘플 빠른 시작에서는 샘플을 설정하고 실행하는 방법에 대해 알아봅니다. 상황에 맞는 샘플 개요가 제공됩니다.
 
 ## <a name="download-code"></a>코드 다운로드
 
@@ -27,7 +25,7 @@ Azure Communication Services **iOS용 그룹 통화 주인공 샘플** 은 Commu
 
 ## <a name="overview"></a>개요
 
-샘플은 Azure Communication Services iOS 클라이언트 라이브러리를 사용하여 음성 및 영상 통화를 모두 제공하는 통화 환경을 구축하는 네이티브 iOS 애플리케이션입니다. 애플리케이션에서 서버 쪽 구성 요소를 사용하여 Azure Communication Services 클라이언트 라이브러리를 초기화하는 데 사용되는 액세스 토큰을 프로비저닝합니다. 이 서버 쪽 구성 요소를 구성하려면 언제든지 [Azure Functions를 사용하여 신뢰할 수 있는 서비스 빌드](../../tutorials/trusted-service-tutorial.md) 자습서를 따르세요.
+이 샘플은 Azure Communication Services iOS SDK를 사용하여 음성 및 영상 통화를 모두 제공하는 통화 환경을 구축하는 네이티브 iOS 애플리케이션입니다. 애플리케이션에서 서버 쪽 구성 요소를 사용하여 Azure Communication Services SDK를 초기화하는 데 사용되는 액세스 토큰을 프로비저닝합니다. 이 서버 쪽 구성 요소를 구성하려면 언제든지 [Azure Functions를 사용하여 신뢰할 수 있는 서비스 빌드](../../tutorials/trusted-service-tutorial.md) 자습서를 따르세요.
 
 샘플은 다음과 같습니다.
 
@@ -103,7 +101,7 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- [통화 클라이언트 라이브러리 사용법](../../quickstarts/voice-video-calling/calling-client-samples.md) 숙지
+- [통화 SDK 사용법](../../quickstarts/voice-video-calling/calling-client-samples.md) 숙지
 - [통화 작동 방식](../../concepts/voice-video-calling/about-call-types.md)에 대한 자세한 정보
 
 ### <a name="additional-reading"></a>추가 자료

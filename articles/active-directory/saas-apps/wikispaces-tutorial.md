@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 877f589c19663503b9bb0b1627f1dffe0eba1a23
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96302745"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>자습서: Wikispaces와 Azure Active Directory 통합
@@ -176,17 +176,17 @@ Wikispaces에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name="create-wikispaces-test-user"></a>Wikispaces 테스트 사용자 만들기
+### <a name="create-wikispaces-test-user&quot;></a>Wikispaces 테스트 사용자 만들기
 
 Azure AD 사용자가 Wikispaces에 로그인할 수 있도록 하려면 Azure AD 사용자를 Wikispaces로 프로비저닝해야 합니다. Wikispaces의 경우 프로비전은 수동 작업입니다.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
+### <a name=&quot;to-provision-a-user-accounts-perform-the-following-steps&quot;></a>사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
 
 1. **Wikispaces** 회사 사이트에 관리자로 로그인합니다.
 
 2. **멤버** 로 이동합니다.
    
-    ![멤버](./media/wikispaces-tutorial/ic787193.png "구성원")
+    ![멤버](./media/wikispaces-tutorial/ic787193.png &quot;구성원")
 
 3. **피플 초대** 를 클릭합니다.
    

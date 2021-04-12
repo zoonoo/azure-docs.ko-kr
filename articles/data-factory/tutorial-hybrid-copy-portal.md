@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: fa251b80f8e44f48de565685a0841f57f48620f1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4bfbd83f3f3910e1231bcce4043d9b59ccc512db
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724968"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606653"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>SQL Server 데이터베이스에서 Azure Blob 스토리지로 데이터 복사
 
@@ -114,7 +114,7 @@ ms.locfileid: "101724968"
 
    데이터 팩터리 이름은 *전역적으로 고유* 해야 합니다. 이름 필드에 대해 다음과 같은 오류 메시지가 표시되면 데이터 팩터리의 이름을 변경합니다(예: yournameADFTutorialDataFactory). Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory 명명 규칙](naming-rules.md)을 참조하세요.
 
-   ![새 데이터 팩터리 이름](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="중복된 이름에 대한 새 데이터 팩터리 오류 메시지.":::
 
 1. 데이터 팩터리를 만들 Azure **구독** 을 선택합니다.
 1. **리소스 그룹** 에 대해 다음 단계 중 하나를 사용합니다.
@@ -130,7 +130,7 @@ ms.locfileid: "101724968"
 
 1. 만들기가 완료되면 이미지와 같은 **Data Factory** 페이지가 표시됩니다.
 
-    ![데이터 팩터리 홈페이지](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="작성자 및 모니터링 타일이 있는 Azure Data Factory의 홈페이지.":::
 1. **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 Azure Data Factory UI를 실행합니다.
 
 

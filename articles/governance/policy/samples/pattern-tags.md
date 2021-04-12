@@ -1,14 +1,14 @@
 ---
 title: 패턴 정책 정의에 태그 사용
 description: 이 Azure Policy 패턴은 매개 변수화된 태그를 추가하거나 정책 정의의 리소스 그룹에서 태그를 상속하는 방법에 대한 예시를 제공합니다.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 3016fc7889f68fd13e993c67ca645a4af055c651
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c748eb9b8ea795f9725082ec0aa0b8065ada8c65
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88545559"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093387"
 ---
 # <a name="azure-policy-pattern-tags"></a>Azure Policy 패턴: 태그
 
