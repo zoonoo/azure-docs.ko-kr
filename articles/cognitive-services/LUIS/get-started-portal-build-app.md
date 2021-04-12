@@ -4,13 +4,13 @@ description: 이 빠른 시작에서는 앱, 의도 및 엔터티의 기본 부�
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/30/2020
-ms.openlocfilehash: a5443dce9fc8bc028232f66f45b537a46858f35a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.date: 03/26/2021
+ms.openlocfilehash: c2f2bafe68dd3f3dad704ba12cdd4d01bf4f6588
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436677"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278765"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>빠른 시작: LUIS 포털에서 새 앱 만들기
 
@@ -164,4 +164,4 @@ LUIS 포털에서 대화형 **테스트** 창을 사용하여 앱에 아직 표�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [2. 앱 배포](get-started-portal-deploy-app.md)
+> [앱 배포](get-started-portal-deploy-app.md)

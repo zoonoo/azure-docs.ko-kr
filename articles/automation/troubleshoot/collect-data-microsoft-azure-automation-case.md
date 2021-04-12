@@ -6,10 +6,10 @@ ms.subservice: ''
 ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.openlocfilehash: 3d2c0cf780b992d7bb464969c50d60ffa5093e8f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98896565"
 ---
 # <a name="data-to-collect-when-opening-a-case-for-microsoft-azure-automation"></a>Microsoft Azure Automation에 대한 사례를 열 때 수집할 데이터
