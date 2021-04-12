@@ -64,8 +64,8 @@ Media Services v3를 사용하여 콘텐츠를 인코딩 및 패키징하고, �
 * [원격 파일 및 스트림 비디오 인코딩 – REST](stream-files-tutorial-with-rest.md)
 * [업로드된 파일 및 스트림 비디오 인코딩 – .NET](stream-files-tutorial-with-api.md)
 * [라이브 스트리밍 - .NET](stream-live-tutorial-with-api.md)
-* [비디오 분석 - .NET](analyze-videos-tutorial-with-api.md)
-* [AES-128 동적 암호화 - .NET](protect-with-aes128.md)
+* [비디오 분석 - .NET](analyze-videos-tutorial.md)
+* [AES-128 동적 암호화 - .NET](drm-playready-license-template-concept.md)
 
 ### <a name="samples"></a>샘플
 
@@ -75,12 +75,12 @@ Media Services v3를 사용하여 콘텐츠를 인코딩 및 패키징하고, �
 
 방법 가이드에는 작업을 완료하는 방법을 설명하는 코드 샘플이 포함되어 있습니다. 이 섹션에서는 많은 예제를 찾을 수 있습니다. 다음은 몇 가지 옵션입니다.
 
-* [계정 만들기 - CLI](./create-account-howto.md)
+* [계정 만들기 - CLI](./account-create-how-to.md)
 * [API 액세스 - CLI](./access-api-howto.md)
 * [HTTPS를 작업 입력으로 인코딩 - .NET](job-input-from-http-how-to.md)  
 * [이벤트 모니터링 - 포털](monitoring/monitor-events-portal-how-to.md)
-* [다중 DRM으로 동적으로 암호화 - .NET](protect-with-drm.md) 
-* [사용자 지정 변환을 사용하여 인코딩하는 방법 - CLI](custom-preset-cli-howto.md)
+* [다중 DRM으로 동적으로 암호화 - .NET](drm-protect-with-drm-tutorial.md) 
+* [사용자 지정 변환을 사용하여 인코딩하는 방법 - CLI](transform-custom-preset-cli-how-to.md)
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
 

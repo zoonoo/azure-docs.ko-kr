@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 01/06/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro for advanced deployment flow so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 8946dfca9a416009effb45cad1e81348dd900f98
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 81953f573c47d229fcaccd7c11f62155acd2f119
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97968290"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063647"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro-for-advanced-deployment-flow"></a>자습서: 고급 배포 흐름을 위해 Azure Stack Edge Pro를 사용하여 데이터 변환
 
@@ -41,7 +40,7 @@ ms.locfileid: "97968290"
 > * 데이터 변환 및 전송 확인
 
  
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Stack Edge Pro 디바이스에서 컴퓨팅 역할을 설정하기 전에 다음 사항을 확인합니다.
 
@@ -140,7 +139,7 @@ Azure Stack Edge Pro에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들
 
 4. 샘플 경로를 복사하고 저장합니다. 이 샘플 경로를 수정하고 나중에 IoT Hub에서 사용합니다.
 
-    `"sampleroute": "FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/modulename/inputs/input1\")"`
+    `"sampleroute&quot;: &quot;FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/modulename/inputs/input1\")"`
 
     ![트리거 추가 4](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-4.png)
 
@@ -218,7 +217,7 @@ Azure Stack Edge Pro에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들
     *경로* 를 이전에 복사한 다음 경로 문자열로 바꿀 수 있습니다. 이 예제에서 데이터를 클라우드 공유에 푸시하는 로컬 공유의 이름을 입력합니다. `modulename`을 모듈의 이름으로 바꿉니다. **다음** 을 선택합니다.
         
     ```
-    "route": "FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/filemove/inputs/input1\")"
+    "route&quot;: &quot;FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/filemove/inputs/input1\")"
     ```
 
     ![경로 지정 섹션](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-8.png)
