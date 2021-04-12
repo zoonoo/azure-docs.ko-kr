@@ -1,17 +1,19 @@
 - name: Translator Service 설명서
   href: index.yml
 - name: 개요
+  expanded: true
   items:
-    - name: Translator란?
-      href: translator-info-overview.md
     - name: 언어 지원
       href: language-support.md
     - name: 가격 책정 및 제한
       href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator'
+- name: 텍스트 번역
+  expanded: true
+  items:
+    - name: Translator란?
+      href: translator-info-overview.md
     - name: 번역기 FAQ
       href: 'https://www.microsoft.com/translator/faq.aspx'
-- name: 텍스트 번역
-  items:
     - name: 빠른 시작
       href: quickstart-translator.md
     - name: 샘플
@@ -84,10 +86,10 @@
   items:
     - name: Custom Translator란?
       href: custom-translator/overview.md
-    - name: 빠른 시작
-      href: custom-translator/quickstart-build-deploy-custom-model.md
     - name: FAQ
       href: custom-translator/faq.md
+    - name: 빠른 시작
+      href: custom-translator/quickstart-build-deploy-custom-model.md
     - name: 방법 가이드
       items:
         - name: 프로젝트 만들기
@@ -112,7 +114,7 @@
           href: custom-translator/unsupported-language-deployments.md
     - name: 개념
       items:
-        - name: 용어
+        - name: 주요 용어
           href: custom-translator/terminology.md
         - name: 텍스트 번역 사용자 지정 및 개선
           href: customization.md
@@ -132,8 +134,6 @@
           href: custom-translator/training-and-model.md
         - name: BLEU 점수
           href: custom-translator/what-is-bleu-score.md
-        - name: 암호화
-          href: encrypt-data-at-rest.md
 - name: 문서 번역
   items:
     - name: 문서 번역이란?
@@ -146,8 +146,6 @@
           href: document-translation/create-sas-tokens.md
     - name: 참조
       items:
-        - name: 문서 번역 REST API
-          href: /rest/api/cognitiveservices/translator/documenttranslation
         - name: 문서 형식 가져오기
           href: document-translation/reference/get-document-formats.md
         - name: 용어집 형식 가져오기
@@ -164,11 +162,15 @@
           href: document-translation/reference/get-operations.md
         - name: 작업 취소
           href: document-translation/reference/cancel-operation.md
-- name: Translator 리소스
+- name: 리소스
   items:
     - name: 지원 및 도움말 옵션
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
     - name: 규정 준수
       href: 'https://azure.microsoft.com/en-us/support/legal/cognitive-services-compliance-and-privacy'
+    - name: 암호화
+      href: encrypt-data-at-rest.md
     - name: GitHub의 코드 샘플
       href: 'https://aka.ms/TranslatorGitHub'
+    - name: 개인 정보 및 쿠키
+      href: 'https://privacy.microsoft.com/en-US/privacystatement'
