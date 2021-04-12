@@ -3,12 +3,12 @@ title: 포털을 사용하여 관리 그룹 만들기
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 리소스를 리소스 계층 구조로 구성하는 관리 그룹을 만듭니다.
 ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: 5a336fe4caf5d2f825a93b5c7b8f8d05f6255c39
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2fa9b667079104fe9728ab41ecd87685c35de1b7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99592435"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105024722"
 ---
 # <a name="quickstart-create-a-management-group"></a>빠른 시작: 관리 그룹 만들기
 
@@ -16,7 +16,7 @@ ms.locfileid: "99592435"
 
 디렉터리에서 만드는 첫 번째 관리 그룹을 완료하려면 최대 15분이 소요될 수 있습니다. 디렉터리에 대해 Azure 내의 관리 그룹 서비스를 설정하기 위해 처음으로 실행되는 프로세스가 있습니다. 프로세스가 완료되면 알림이 수신됩니다. 자세한 내용은 [관리 그룹의 초기 설정](./overview.md#initial-setup-of-management-groups)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "99592435"
 
 1. **+ 관리 그룹 추가** 를 선택합니다.
 
-   :::image type="content" source="./media/main.png" alt-text="자식 관리 그룹 및 구독을 보여주는 관리 그룹 페이지 스크린샷" border="false":::
+   :::image type="content" source="./media/main.png" alt-text="자식 관리 그룹 및 구독을 보여주는 관리 그룹 페이지 스크린샷":::
 
 1. **새로 만들기** 를 선택한 상태로 두고 관리 그룹 ID 필드를 입력합니다.
 

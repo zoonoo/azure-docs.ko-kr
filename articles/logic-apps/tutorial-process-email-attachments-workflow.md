@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 02/27/2020
 ms.openlocfilehash: bd1715dc0a3767bc5826154616bbdc97c7b61dd3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99821251"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>자습서: Azure Logic Apps, Azure Functions 및 Azure Storage를 사용하여 이메일을 처리하는 작업 자동화
@@ -141,7 +141,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
 1. 함수를 만들기 전에 다음 설정을 사용하여 [함수 앱을 만듭니다](../azure-functions/functions-create-function-app-portal.md).
 
-   | 설정 | 값 | 설명 |
+   | 설정 | 값 | Description |
    | ------- | ----- | ----------- |
    | **앱 이름** | <*function-app-name*> | 함수 앱의 이름은 Azure에서 전역적으로 고유해야 합니다. 이 예에서는 “CleanTextFunctionApp”을 이미 사용하고 있으므로 다른 이름을 입력합니다(예: “MyCleanTextFunctionApp-<*사용자-이름*>”). |
    | **구독** | <*your-Azure-subscription-name*> | 이전에 사용한 동일한 Azure 구독 |

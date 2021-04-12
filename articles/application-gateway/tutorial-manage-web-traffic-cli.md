@@ -9,10 +9,10 @@ ms.date: 07/20/2019
 ms.author: victorh
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 89ba84be61469ff07eff55bb9cd114fe124b3ec2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94566608"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Azure CLI를 사용하여 애플리케이션 게이트웨이로 웹 트래픽 관리
@@ -71,7 +71,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
-[Az network application gateway create](/cli/azure/network/application-gateway) 를 사용 하 여 *myAppGateway* 라는 응용 프로그램 게이트웨이를 만듭니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myPublicIPAddress* 에 할당됩니다. 
+[az network application-gateway create](/cli/azure/network/application-gateway)를 사용하여 *myAppGateway* 라는 애플리케이션 게이트웨이를 만듭니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myPublicIPAddress* 에 할당됩니다. 
 
 ```azurecli-interactive
 az network application-gateway create \
