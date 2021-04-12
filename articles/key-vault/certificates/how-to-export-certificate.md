@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: ad3e5bcda0fb03af0637a309b4dbfd248b54f1a0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 116bafe2e26ca3af5b4ed68373d20e1e787502b7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587205"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729204"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Azure Key Vault의 인증서 내보내기
 
@@ -102,7 +102,7 @@ $pfxFileByte = $x509Cert.Export($type, $password)
 ```
 
 이 명령은 프라이빗 키(즉, 가져온 것과 동일)가 있는 전체 인증서 체인을 내보냅니다. 인증서가 암호로 보호됩니다.
-**Get-AzKeyVaultCertificate** 명령 및 매개 변수에 대한 자세한 내용은 [Get-AzKeyVaultCertificate - Example 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0)를 참조하세요.
+**Get-AzKeyVaultCertificate** 명령 및 매개 변수에 대한 자세한 내용은 [Get-AzKeyVaultCertificate - Example 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate)를 참조하세요.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
