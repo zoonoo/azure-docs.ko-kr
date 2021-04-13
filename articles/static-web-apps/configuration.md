@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: cshoe
-ms.openlocfilehash: 324a8e75488d74fc6aa52e499b8dde616cd9beb5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 280c13fdee281acc4f805aba27a10277eb3988c2
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102034050"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106218977"
 ---
 # <a name="configure-azure-static-web-apps"></a>Azure Static Web Apps 구성
 
@@ -39,6 +39,7 @@ _staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./github-a
 
 경로 규칙을 통해 웹에서 애플리케이션에 액세스할 수 있도록 허용하는 URL 패턴을 정의할 수 있습니다. 경로는 라우팅 규칙의 배열로 정의됩니다. 사용 예제는 [예제 구성 파일](#example-configuration-file)을 참조하세요.
 
+- 하나의 경로만 포함하는 경우에도 규칙이 `routes` 배열에 정의됩니다.
 - 규칙은 `routes` 배열에 표시되는 순서대로 실행됩니다.
 - 규칙 평가는 첫 번째 일치 항목에서 멈추고 라우팅 규칙은 서로 연결되지 않습니다.
 - 사용자 지정 역할 이름을 완전히 제어할 수 있습니다.
@@ -50,7 +51,7 @@ _staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./github-a
 
 ## <a name="defining-routes"></a>경로 정의
 
-각 규칙은 하나 이상의 선택적 규칙 속성과 함께 경로 패턴으로 구성됩니다. 사용 예제는 [예제 구성 파일](#example-configuration-file)을 참조하세요.
+각 규칙은 하나 이상의 선택적 규칙 속성과 함께 경로 패턴으로 구성됩니다. 경로 규칙은 `routes` 배열에 정의되어 있습니다. 사용 예제는 [예제 구성 파일](#example-configuration-file)을 참조하세요.
 
 | 규칙 속성  | 필수 | 기본값 | 주석                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
@@ -275,7 +276,7 @@ _staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./github-a
         },
         {
             "route": "/.auth/login/twitter",
-            "statusCode": 404,
+            "statusCode": 404
         },
         {
             "route": "/logout",
@@ -315,7 +316,7 @@ _staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./github-a
     },
     "mimeTypes": {
         ".json": "text/json"
-    },
+    }
 }
 ```
 
@@ -324,10 +325,10 @@ _staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./github-a
 | 다음에 대한 요청... | 결과 |
 | --- | --- |
 | _/profile_ | 인증된 사용자에게는 _/profile/index.html_ 파일이 제공됩니다. 인증되지 않은 사용자는 _/login_ 으로 리디렉션됩니다. |
-| _/admin/_ | _관리자_ 역할의 인증된 사용자에게는 _/admin/index.html_ 파일이 제공됩니다. 인증되었지만 _관리자_ 역할에 없는 사용자에게는 `403` 오류<sup>1</sup>이 표시됩니다. 인증되지 않은 사용자는 _/login_ 으로 리디렉션됩니다. |
+| _/admin/_ | _관리자_ 역할의 인증된 사용자에게는 _/admin/index.html_ 파일이 제공됩니다. 인증되었지만 _관리자_ 역할에 없는 사용자에게는 `403` 오류 <sup>1</sup>이 표시됩니다. 인증되지 않은 사용자는 _/login_ 으로 리디렉션됩니다. |
 | _/logo.png_ | 최대 사용 기간이 182일(15,770,000초)을 약간 초과하는 사용자 지정 캐시 규칙을 이미지에 적용합니다. |
 | _/api/admin_ | _registeredusers_ 역할이 있는 인증된 사용자의 `GET` 요청은 API로 전송됩니다. 인증되었지만 _registeredusers_ 역할에 없는 사용자와 인증되지 않은 사용자에게는 `401` 오류가 표시됩니다.<br/><br/>_관리자_ 역할의 인증된 사용자가 수행하는 `POST`, `PUT`, `PATCH` 및 `DELETE` 요청은 API로 전송됩니다. 인증되었지만 _관리자_ 역할에 없는 사용자와 인증되지 않은 사용자에게는 `401` 오류가 표시됩니다. |
-| _/customers/contoso_ | _관리자_ 또는 _고객\_contoso_ 역할에 속하는 인증된 사용자에게는 _/customers/contoso/index.html_ 파일이 제공됩니다. 인증되었지만 _관리자_ 또는 _고객\_contoso_ 역할에 없는 사용자에게는 `403` 오류<sup>1</sup>가 표시됩니다. 인증되지 않은 사용자는 _/login_ 으로 리디렉션됩니다. |
+| _/customers/contoso_ | _관리자_ 또는 _고객\_contoso_ 역할에 속하는 인증된 사용자에게는 _/customers/contoso/index.html_ 파일이 제공됩니다. 인증되었지만 _관리자_ 또는 _고객\_contoso_ 역할에 없는 사용자에게는 `403` 오류 <sup>1</sup>가 표시됩니다. 인증되지 않은 사용자는 _/login_ 으로 리디렉션됩니다. |
 | _/login_ | 인증되지 않은 사용자는 GitHub를 사용하여 인증해야 합니다. |
 | _/.auth/login/twitter_ | 경로 규칙에 따라 Twitter를 통한 권한 부여가 사용되지 않으므로 `404` 오류가 반환되고, _/index.html_ 파일과 `200` 상태 코드를 제공하도록 대체됩니다. |
 | _/logout_ | 사용자는 모든 인증 공급자에서 로그아웃됩니다. |

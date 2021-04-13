@@ -1,23 +1,23 @@
 ---
 title: 빠른 시작 - Azure Communication Services를 사용하여 웹앱에 VOIP 통화 추가
-description: 이 자습서에서는 JavaScript용 Azure Communication Services 통화 클라이언트 라이브러리를 사용하는 방법을 알아봅니다.
+description: 이 자습서에서는 JavaScript용 Azure Communication Services Calling SDK를 사용하는 방법을 알아봅니다.
 author: ddematheu
 ms.author: nimag
-ms.date: 08/11/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: d27a79e180a0219773a3094fb85f842773d75183
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 7d7b62d6587a568b74d142a2ee6a93587941559d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656619"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105645393"
 ---
-이 빠른 시작에서는 JavaScript용 Azure Communication Services 통화 클라이언트 라이브러리를 사용하여 통화를 시작하는 방법에 대해 알아봅니다.
-이 문서는 호출하는 라이브러리의 버전 1.0.0-beta. 5에서 형식을 참조합니다.
+이 빠른 시작에서는 JavaScript용 Azure Communication Services Calling SDK를 사용하여 통화를 시작하는 방법에 대해 알아봅니다.
 
 > [!NOTE]
-> 이 문서에서는 호출하는 클라이언트 라이브러리의 버전 1.0.0-beta.6을 사용합니다.
+> 이 문서에서는 Calling SDK의 버전 1.0.0-beta.10을 사용합니다.
+
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -41,10 +41,20 @@ ms.locfileid: "101656619"
     <h4>Azure Communication Services</h4>
     <h1>Calling Quickstart</h1>
     <input 
+      id="token-input"
+      type="text"
+      placeholder="User access token"
+      style="margin-bottom:1em; width: 200px;"
+    />
+    </div>
+    <button id="token-submit" type="button">
+        Submit
+    </button>
+    <input 
       id="callee-id-input"
       type="text"
       placeholder="Who would you like to call?"
-      style="margin-bottom:1em; width: 200px;"
+      style="margin-bottom:1em; width: 200px; display: block;"
     />
     <div>
       <button id="call-button" type="button" disabled="true">
@@ -68,34 +78,42 @@ import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 let call;
 let callAgent;
+let userTokenCredential = "";
+const userToken = document.getElementById("token-input");
 const calleeInput = document.getElementById("callee-id-input");
+const submitToken = document.getElementById("token-submit");
 const callButton = document.getElementById("call-button");
 const hangUpButton = document.getElementById("hang-up-button");
 ```
 
 ## <a name="object-model"></a>개체 모델
 
-Azure Communication Services 통화 클라이언트 라이브러리의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
+Azure Communication Services Calling SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
 | 이름                             | 설명                                                                                                                                 |
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
-| CallClient                       | CallClient는 통화 클라이언트 라이브러리의 주 진입점입니다.                                                                       |
+| CallClient                       | CallClient는 Calling SDK의 주 진입점입니다.                                                                       |
 | CallAgent                        | CallAgent는 통화를 시작하고 관리하는 데 사용됩니다.                                                                                            |
 | AzureCommunicationTokenCredential | AzureCommunicationTokenCredential 클래스는 CallAgent를 인스턴스화하는 데 사용되는 CommunicationTokenCredential 인터페이스를 구현합니다. |
 
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-`<USER_ACCESS_TOKEN>`을 리소스에 대한 유효한 사용자 액세스 토큰으로 바꾸어야 합니다. 사용할 수 있는 토큰이 아직 없는 경우 [사용자 액세스 토큰](../../access-tokens.md) 설명서를 참조하세요. `CallClient`를 사용하여 호출을 수행하고 받을 수 있도록 하는 `CommunicationTokenCredential`을 사용하여 `CallAgent` 인스턴스를 초기화합니다. **client.js** 에 다음 코드를 추가합니다.
+텍스트 필드에 리소스에 대한 유효한 사용자 액세스 토큰을 입력하고 '제출'을 클릭해야 합니다. 사용할 수 있는 토큰이 아직 없는 경우 [사용자 액세스 토큰](../../access-tokens.md) 설명서를 참조하세요. `CallClient`를 사용하여 호출을 수행하고 받을 수 있도록 하는 `CommunicationTokenCredential`을 사용하여 `CallAgent` 인스턴스를 초기화합니다. **client.js** 에 다음 코드를 추가합니다.
 
 ```javascript
-async function init() {
-    const callClient = new CallClient();
-    const tokenCredential = new AzureCommunicationTokenCredential("<USER ACCESS TOKEN>");
-    callAgent = await callClient.createCallAgent(tokenCredential);
-    callButton.disabled = false;
-}
-init();
+submitToken.addEventListener("click", async () => {
+  const callClient = new CallClient(); 
+  const userTokenCredential = userToken.value;
+    try {
+      tokenCredential = new AzureCommunicationTokenCredential(userTokenCredential);
+      callAgent = await callClient.createCallAgent(tokenCredential);
+      callButton.disabled = false;
+      submitToken.disabled = true;
+    } catch(error) {
+      window.alert("Please submit a valid token!");
+    }
+})
 ```
 
 ## <a name="start-a-call"></a>호출 시작
@@ -107,7 +125,7 @@ callButton.addEventListener("click", () => {
     // start a call
     const userToCall = calleeInput.value;
     call = callAgent.startCall(
-        [{ communicationUserId: userToCall }],
+        [{ id: userToCall }],
         {}
     );
     // toggle button states
@@ -128,6 +146,7 @@ hangUpButton.addEventListener("click", () => {
   // toggle button states
   hangUpButton.disabled = true;
   callButton.disabled = false;
+  submitToken.disabled = false;
 });
 ```
 

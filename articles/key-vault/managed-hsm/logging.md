@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 03/30/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 7420ffbe5b365c635c1eac2620cfd54ceb649ebf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0d5749894fd277ff6a2f77e3db9721e6989d72ac
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211807"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109240"
 ---
 # <a name="managed-hsm-logging"></a>관리형 HSM 로깅 
 
@@ -74,9 +74,10 @@ az monitor diagnostic-settings create --name ContosoMHSM-Diagnostics --resource 
 다음이 로깅됩니다.
 
 * 인증된 모든 REST API 요청(예: 액세스 권한, 시스템 오류 또는 잘못된 요청으로 인해 실패한 요청)
-* 태그와 같은 특성을 만들고 삭제하고 업데이트하는 작업을 포함하여 관리형 HSM에 대한 작업입니다.
+* 태그와 같은 특성을 만들고 삭제하고 업데이트하는 작업을 포함하여 관리형 HSM 리소스 자체에 대한 관리형 평면 작업입니다.
 * 초기화 및 다운로드, 초기화 복구, 업로드와 같은 보안 도메인 관련 작업
 * 전체 HSM 백업, 복원 및 선택적 복원 작업
+* 역할 할당 만들기/보기/삭제 및 사용자 지정 역할 정의 만들기/보기/삭제와 같은 역할 관리 작업
 * 다음을 포함하여 키에 대한 작업
   * 키 만들기, 수정 또는 삭제
   * 키 서명, 확인, 암호화, 암호 해독, 래핑 및 래핑 해제, 키 나열
@@ -121,30 +122,13 @@ az monitor diagnostic-settings create --name ContosoMHSM-Diagnostics --resource 
 ]
 ```
 
-다음 표에는 필드 이름 및 설명이 나와 있습니다.
 
-| 필드 이름 | Description |
-| --- | --- |
-| **TenantId** | 관리형 HSM을 만드는 구독의 Azure Active Directory 테넌트 ID |
-| **time** |UTC 형식의 날짜 및 시간입니다. |
-| **resourceId** |Azure Resource Manager 리소스 ID입니다. 관리형 HSM 로그의 경우 이는 항상 관리형 HSM 리소스 ID입니다. |
-| **operationName** |다음 표에 설명된 대로 작업의 이름입니다. |
-| **operationVersion** |클라이언트에서 요청한 REST API 버전입니다. |
-| **category** |결과 유형입니다. 관리형 HSM 로그의 경우 **AuditEvent** 는 사용 가능한 단일 값입니다. |
-| **resultType** |REST API 요청의 결과입니다. |
-| **properties** |작업(**operationName**)에 따라 달라지는 정보입니다.|
-| **resultSignature** |HTTP 상태입니다. |
-| **resultDescription** |사용 가능한 경우 결과에 대한 추가 설명입니다. |
-| **durationMs** |밀리초 단위로 REST API 요청을 처리하는 데 걸린 시간입니다. 네트워크 대기 시간을 포함하지 않으므로 클라이언트 쪽에서 측정한 시간은 이 시간과 일치하지 않을 수 있습니다. |
-| **callerIpAddress** |요청한 클라이언트의 IP 주소입니다. |
-| **correlationId** |클라이언트가 서비스 쪽 로그를 사용하여 클라이언트 쪽 로그 상관 관계를 지정하도록 전달할 수 있는 선택적 GUID입니다. |
-| **identity** |REST API 요청에 제공된 토큰의 ID입니다. 일반적으로 "사용자," "서비스 사용자"입니다. |
-| **requestUri** | REST API 요청 URI |
-| **clientInfo** | 
 
 ## <a name="use-azure-monitor-logs"></a>Azure Monitor 로그 사용
 
-Azure Monitor 로그에서 Key Vault 솔루션을 사용하여 관리형 HSM **AuditEvent** 로그를 검토할 수 있습니다. Azure Monitor 로그에서 로그 쿼리를 사용하여 데이터를 분석하고 필요한 정보를 가져옵니다. 
+Azure Monitor 로그에서 Key Vault 솔루션을 사용하여 관리형 HSM **AuditEvent** 로그를 검토할 수 있습니다. Azure Monitor 로그에서 로그 쿼리를 사용하여 데이터를 분석하고 필요한 정보를 가져옵니다.
+
+이를 설정하는 방법을 포함한 자세한 내용은 [Azure Monitor의 Azure Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

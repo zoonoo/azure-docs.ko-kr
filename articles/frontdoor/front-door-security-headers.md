@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 1727193faa028a1d681f2a74df950afeb9570ec9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e8462b98aee1d34b6c7a2ed671667223eca45a25
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91270052"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551920"
 ---
 # <a name="tutorial-add-security-headers-with-rules-engine"></a>자습서: 규칙 엔진을 사용하여 보안 헤더 추가
 
@@ -41,6 +41,9 @@ ms.locfileid: "91270052"
 1. 이 헤더를 이 경로에 들어오는 모든 요청에 대한 응답으로 추가하려면 연산자를 **추가** 로 설정합니다.
 
 1. 헤더 이름: **콘텐츠 보안 정책** 을 추가하고 이 헤더에 허용되는 값을 정의합니다. 이 시나리오에서는 *"script-src 'self' https://apiphany.portal.azure-api.net."* 을 선택합니다.
+
+   > [!NOTE]
+   > 헤더 값은 128자로 제한됩니다.
 
 1. 구성에 원하는 규칙을 모두 추가한 후에는 기본 경로로 이동하여 규칙 엔진 구성을 경로 규칙에 연결해야 합니다. 이 단계는 규칙이 작동하도록 설정하는 데 필요합니다. 
 

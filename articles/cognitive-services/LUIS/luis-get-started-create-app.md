@@ -4,13 +4,13 @@ description: 이 빠른 시작에서는 미리 빌드된 도메인 `HomeAutomati
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/13/2020
-ms.openlocfilehash: 2048079a9b1eb5234d03c6fe57073228bd892d53
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 03/29/2021
+ms.openlocfilehash: e0972998fad647c1c70be814cb7c13f14a6e1141
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019163"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277031"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>빠른 시작: 미리 빌드된 홈 자동화 앱 사용
 
@@ -52,7 +52,7 @@ ms.locfileid: "95019163"
 
     도메인 추가에 성공하면 미리 작성된 도메인 상자에 **도메인 제거** 단추가 표시됩니다.
 
-## <a name="intents-and-entities"></a>의도 및 엔터티
+## <a name="intents-and-entities&quot;></a>의도 및 엔터티
 
 1. 왼쪽 탐색 메뉴에서 **의도** 를 선택하여 HomeAutomation 도메인 의도를 확인합니다. `HomeAutomation.QueryState` 및 `HomeAutomation.SetDevice`와 같은 예제 발화가 있습니다.
 
@@ -61,8 +61,8 @@ ms.locfileid: "95019163"
 
 1. **HomeAutomation.TurnOff** 의도를 선택합니다. 의도에는 엔터티를 사용하여 레이블이 지정된 예제 발화 목록이 포함되어 있습니다.
 
-    > [!div class="mx-imgBorder"]
-    > [![HomeAutomation.TurnOff 의도의 스크린샷](media/luis-quickstart-new-app/home-automation-turnoff.png "HomeAutomation.TurnOff 의도의 스크린샷")](media/luis-quickstart-new-app/home-automation-turnoff.png)
+    > [!div class=&quot;mx-imgBorder&quot;]
+    > [![HomeAutomation.TurnOff 의도의 스크린샷](media/luis-quickstart-new-app/home-automation-turnoff.png &quot;HomeAutomation.TurnOff 의도의 스크린샷")](media/luis-quickstart-new-app/home-automation-turnoff.png)
 
 1. 앱의 엔터티를 보려면 **엔터티** 를 선택합니다. **HomeAutomation.DeviceName** 과 같은 엔터티 중 하나를 클릭하면 연결된 값 목록이 표시됩니다. 
  
@@ -220,7 +220,5 @@ ms.locfileid: "95019163"
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 코드에서 엔드포인트를 호출할 수 있습니다.
-
 > [!div class="nextstepaction"]
-> [코드를 사용하여 LUIS 엔드포인트 호출](./luis-get-started-get-intent-from-rest.md)
+> [LUIS에 대한 반복적인 앱 개발](./luis-concept-app-iteration.md)

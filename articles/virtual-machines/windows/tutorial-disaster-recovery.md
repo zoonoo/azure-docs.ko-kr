@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e9f44ea2af832729a47bf4b719b90f9b14e401b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd5d8c3e2c6e4ee5556568ebd23ac99b48300e9d
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555859"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382033"
 ---
 # <a name="tutorial-enable-disaster-recovery-for-windows-vms"></a>자습서: Windows VM에 대한 재해 복구를 사용하도록 설정
 
@@ -22,10 +22,10 @@ ms.locfileid: "102555859"
 
 > [!div class="checklist"]
 > * Windows VM에 대한 재해 복구를 사용하도록 설정
-> * 재해 복구 훈련 실행
+> * 재해 복구 훈련을 실행하여 예상대로 작동하는지 확인
 > * 훈련 후 VM 복제 중지
 
-VM에 복제를 사용하도록 설정하면 Site Recovery Mobility Service 확장이 VM에 설치되고 [Azure Site Recovery](../../site-recovery/site-recovery-overview.md)에 등록됩니다. 복제하는 동안 VM 디스크 쓰기는 원본 지역의 캐시 스토리지 계정으로 전송됩니다. 여기에서 대상 지역으로 데이터가 전송되고 데이터에서 복구 지점이 생성됩니다.  재해 복구 중에 VM을 장애 조치(failover)하면 복구 지점이 대상 지역에서 VM을 복원하는 데 사용됩니다.
+VM에 복제를 사용하도록 설정하면 Site Recovery Mobility Service 확장이 VM에 설치되고 [Azure Site Recovery](../../site-recovery/site-recovery-overview.md)에 등록됩니다. 복제하는 동안 VM 디스크 쓰기는 원본 지역의 캐시 스토리지 계정으로 전송됩니다. 여기에서 대상 지역으로 데이터가 전송되고 데이터에서 복구 지점이 생성됩니다.  재해 복구 중에 VM을 장애 조치(failover)하는 경우 복구 지점은 VM을 대상 지역에 만드는 데 사용됩니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
@@ -58,27 +58,69 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     AzureSiteRecovery 태그 | 모든 지역에서 Site Recovery 서비스에 대한 액세스를 허용합니다.
     GuestAndHybridManagement | 복제를 사용하도록 설정된 VM에서 실행 중인 Site Recovery Mobility 에이전트를 자동으로 업그레이드하려는 경우에 사용합니다.
 5.  Windows VM에서 최신 Windows 업데이트를 설치하여 VM에 최신 루트 인증서가 있는지 확인합니다.
- 
-## <a name="enable-disaster-recovery"></a>재해 복구를 사용하도록 설정
+
+## <a name="create-a-vm-and-enable-disaster-recovery"></a>VM 만들기 및 재해 복구 사용
+
+VM을 만드는 경우 필요에 따라 재해 복구를 사용하도록 설정할 수 있습니다.
+
+1. [VM을 만듭니다](quick-create-portal.md).
+2. **관리** 탭에서 **재해 복구 사용** 을 선택합니다.
+3. **보조 지역** 에서 재해 복구를 위해 VM을 복제하려는 대상 지역을 선택합니다.
+4. **보조 구독** 에서 대상 VM이 만들어질 대상 구독을 선택합니다. 대상 VM은 원본 VM을 원본 지역에서 대상 지역으로 장애 조치(failover)할 때 만들어집니다.
+5. **Recovery Services 자격 증명 모음** 에서 복제에 사용하려는 자격 증명 모음을 선택합니다. 자격 증명 모음이 없는 경우 **새로 만들기** 를 선택합니다. 자격 증명 모음을 배치할 리소스 그룹 및 자격 증명 모음 이름을 선택합니다.
+6. **Site Recovery 정책** 에서 기본 정책을 그대로 유지하거나 **새로 만들기** 를 선택하여 사용자 지정 값을 설정합니다.
+
+    - 복구 지점은 특정 시점에 생성되는 VM 디스크의 스냅샷에서 생성됩니다. VM을 장애 조치(failover)하는 경우 복구 지점을 사용하여 대상 지역에서 VM을 복원합니다. 
+    - 크래시 일치 복구 지점이 5분마다 만들어집니다. 이 설정은 수정할 수 없습니다. 크래시 일치 스냅샷은 스냅샷이 만들어질 때 디스크에 있던 데이터를 캡처합니다. 메모리의 데이터를 포함하지 않습니다. 
+    - 기본적으로 Site Recovery는 크래시 일치 복구 지점을 24시간 동안 유지합니다. 사용자 지정 값은 0~72시간으로 설정할 수 있습니다.
+    - 앱 일치 스냅샷은 4시간마다 수행됩니다. 앱 일치 스냅샷 
+    - 기본적으로 Site Recovery는 복구 지점을 24시간 동안 저장합니다.
+
+7. **가용성 옵션** 에서 VM을 독립 실행형으로 배포할지, 가용성 영역에 배포할지, 아니면 가용성 집합에 배포할지 여부를 지정합니다.
+
+    :::image type="content" source="./media/tutorial-disaster-recovery/create-vm.png" alt-text="VM 관리 속성 페이지에서 복제를 사용하도록 설정합니다."
+
+8. VM 만들기를 완료합니다.
+
+## <a name="enable-disaster-recovery-for-an-existing-vm"></a>기존 VM에 재해 복구 사용
+
+새 VM 대신 기존 VM에서 재해 복구를 사용하도록 설정하려면 다음 절차를 사용합니다.
 
 1. Azure Portal에서 VM 속성 페이지를 엽니다.
 2. **작업** 에서 **재해 복구** 를 선택합니다.
-3. **기본** > **대상 지역** 에서 VM을 복제할 지역을 선택합니다. 원본 및 대상 지역은 동일한 Azure Active Directory 테넌트에 있어야 합니다.
-4. **검토 + 복제 시작** 을 클릭합니다.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/disaster-recovery.png" alt-text="VM 속성 재해 복구 페이지에서 복제를 사용하도록 설정합니다.":::
+    :::image type="content" source="./media/tutorial-disaster-recovery/existing-vm.png" alt-text="기존 VM에 대한 재해 복구 옵션 열기":::
 
-5. **검토 + 복제 시작** 에서 설정을 확인합니다.
+3. **기본 사항** 에서 VM이 가용성 영역에 배포되는 경우 가용성 영역 간에 재해 복구를 선택할 수 있습니다.
+4. **대상 지역** 에서 VM을 복제하려는 지역을 선택합니다. 원본 및 대상 지역은 동일한 Azure Active Directory 테넌트에 있어야 합니다.
 
-    - **대상 설정**. 기본적으로 Site Recovery는 소스 설정을 미러링하여 대상 리소스를 만듭니다.
-    - **스토리지 설정-캐시 스토리지 계정**. 복구는 원본 지역의 스토리지 계정을 사용합니다. 원본 VM 변경 내용은 대상 위치로 복제되기 전에 이 계정에 캐시됩니다.
-    - **스토리지 설정-복제본 디스크**. 기본적으로 Site Recovery는 동일한 스토리지 유형(표준 또는 프리미엄)의 원본 VM 관리 디스크를 미러링하는 복제본 관리 디스크를 대상 지역에 만듭니다.
-    - **복제 설정**. 자격 증명 모음 세부 정보를 표시하고 Site Recovery에서 만든 복구 지점이 24시간 동안 유지됨을 나타냅니다.
-    - **확장 설정**. Site Recovery에서 복제하는 VM에 설치된 Site Recovery Mobility Service 확장에 대한 업데이트를 관리함을 나타냅니다. 표시된 Azure 자동화 계정은 업데이트 프로세스를 관리합니다.
+    :::image type="content" source="./media/tutorial-disaster-recovery/basics.png" alt-text="VM에 대한 기본 재해 복구 옵션 설정":::
+
+5. 완료되면 **다음: 고급 설정** 을 선택합니다.
+6. **고급 설정** 에서 설정을 검토하고, 값을 사용자 지정 설정으로 수정할 수 있습니다. 기본적으로 Site Recovery는 소스 설정을 미러링하여 대상 리소스를 만듭니다.
+
+    - **대상 구독**. 장애 조치(failover) 후 대상 VM이 만들어지는 구독입니다.
+    - **대상 VM 리소스 그룹**. 장애 조치(failover) 후 대상 VM이 만들어지는 리소스 그룹입니다.
+    - **대상 가상 네트워크**. 장애 조치(failover) 후 대상 VM이 만들어질 때 해당 대상 VM이 있는 Azure 가상 네트워크입니다.
+    - **대상 가용성**. 대상 VM이 가용성 집합 또는 가용성 영역에서 단일 인스턴스로 만들어지는 경우입니다.
+    - **근접 배치**. 해당하는 경우 장애 조치(failover) 대상 VM이 있는 근접 배치 그룹을 선택합니다.
+    - **스토리지 설정-캐시 스토리지 계정**. 복구는 원본 지역의 스토리지 계정을 임시 데이터 저장소로 사용합니다. 원본 VM 변경 내용은 대상 위치로 복제되기 전에 이 계정에 캐시됩니다.
+        - 기본적으로 자격 증명 모음마다 하나의 캐시 스토리지 계정이 만들어지고 다시 사용됩니다.
+        - VM에 대한 캐시 계정을 사용자 지정하려는 경우 다른 스토리지 계정을 선택할 수 있습니다.
+    - **스토리지 설정-복제 관리 디스크**. 기본적으로 Site Recovery는 복제 관리 디스크를 대상 지역에 만듭니다.
+        -  기본적으로 대상 관리 디스크는 동일한 스토리지 유형(표준 HDD/SSD 또는 프리미엄 SSD)을 사용하여 원본 VM 관리 디스크를 미러링합니다.
+        - 스토리지 유형은 필요에 따라 사용자 지정할 수 있습니다.
+    - **복제 설정**. VM이 있는 자격 증명 모음 및 VM에 사용되는 복제 정책을 표시합니다. 기본적으로 Site Recovery에서 VM에 대해 만든 복구 지점은 24시간 동안 유지됩니다.
+    - **확장 설정**. Site Recovery에서 복제하는 VM에 설치된 Site Recovery Mobility Service 확장에 대한 업데이트를 관리함을 나타냅니다.
+        - 표시된 Azure 자동화 계정은 업데이트 프로세스를 관리합니다.
+        - 자동화 계정은 사용자 지정할 수 있습니다.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/settings-summary.png" alt-text="대상 및 복제 설정 요약을 표시하는 페이지":::
 
-2. **복제 시작** 을 선택합니다. 배포가 시작되고 Site Recovery가 대상 리소스 생성을 시작합니다. 알림에서 복제 진행률을 모니터링할 수 있습니다.
+
+6. **검토 + 복제 시작** 을 선택합니다.
+
+7. **복제 시작** 을 선택합니다. 배포가 시작되고 Site Recovery가 대상 리소스 생성을 시작합니다. 알림에서 복제 진행률을 모니터링할 수 있습니다.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/notifications.png" alt-text="복제 진행률에 대한 알림":::
 

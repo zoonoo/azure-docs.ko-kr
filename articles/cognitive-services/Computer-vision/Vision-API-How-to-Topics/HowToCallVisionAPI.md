@@ -1,7 +1,7 @@
 ---
-title: Computer Vision API 호출
+title: 이미지 분석 API 호출
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services에서 REST API를 사용하여 Computer Vision API를 호출하는 방법을 알아봅니다.
+description: Azure Cognitive Services에서 REST API를 사용하여 이미지 분석 API를 호출하는 방법을 알아봅니다.
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: abb367b64da0811a1ff46efe60b60485375f809f
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 25907319be5fc79cf4c7d6e46499bacce54cea77
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102486066"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286439"
 ---
-# <a name="call-the-computer-vision-api"></a>Computer Vision API 호출
+# <a name="call-the-image-analysis-api"></a>이미지 분석 API 호출
 
-이 문서에서는 REST API를 사용하여 Computer Vision API를 호출하는 방법을 보여줍니다. 샘플은 Computer Vision API 클라이언트 라이브러리를 사용하여 C#으로 작성되고 HTTP POST 또는 GET 호출로 작성됩니다. 이 문서에서는 다음 내용을 중점적으로 다룹니다.
+이 문서에서는 REST API를 사용하여 이미지 분석 API를 호출하는 방법을 보여 줍니다. 샘플은 이미지 분석 API 클라이언트 라이브러리를 사용하여 C#으로 작성되고 HTTP POST 또는 GET 호출로 작성됩니다. 이 문서에서는 다음 내용을 중점적으로 다룹니다.
 
 - 태그, 설명 및 범주 가져오기
 - 도메인 관련 정보 또는 "유명인" 가져오기
@@ -49,11 +49,11 @@ ms.locfileid: "102486066"
   
 ## <a name="authorize-the-api-call"></a>API 호출 권한 부여
 
-Computer Vision API를 호출할 때마다 구독 키가 필요합니다. 이 키는 쿼리 문자열 매개 변수를 통해 전달하거나 요청 헤더에서 지정해야 합니다.
+이미지 분석 API를 호출할 때마다 구독 키가 필요합니다. 이 키는 쿼리 문자열 매개 변수를 통해 전달하거나 요청 헤더에서 지정해야 합니다.
 
 다음 방법 중 하나로 구독 키를 전달할 수 있습니다.
 
-* 이 Computer Vision API 예제처럼 쿼리 문자열을 통해 전달:
+* 이 예제처럼 쿼리 문자열을 통해 전달:
 
   ```
   https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
@@ -74,9 +74,9 @@ Computer Vision API를 호출할 때마다 구독 키가 필요합니다. 이 �
     }
     ```
 
-## <a name="upload-an-image-to-the-computer-vision-api-service"></a>Computer Vision API 서비스에 이미지 업로드
+## <a name="upload-an-image-to-the-image-analysis-service"></a>이미지 분석 서비스에 이미지 업로드
 
-Computer Vision API 호출을 수행하는 기본적인 방법은 이미지를 직접 업로드하여 태그, 설명 및 유명인을 반환하는 것입니다. 이렇게 하려면 이미지에서 읽은 데이터와 함께 HTTP 본문에 이진 이미지가 들어 있는 "POST" 요청을 보냅니다. upload 메서드는 모든 Computer Vision API 호출에 대해 동일합니다. 유일한 차이점은 사용자가 지정하는 쿼리 매개 변수입니다. 
+이미지 분석 API 호출을 수행하는 기본적인 방법은 이미지를 직접 업로드하여 태그, 설명 및 유명인을 반환하는 것입니다. 이렇게 하려면 이미지에서 읽은 데이터와 함께 HTTP 본문에 이진 이미지가 들어 있는 "POST" 요청을 보냅니다. 업로드 메서드는 모든 이미지 분석 API 호출에 대해 동일합니다. 유일한 차이점은 사용자가 지정하는 쿼리 매개 변수입니다. 
 
 지정된 이미지의 경우 다음 옵션 중 하나를 사용하여 태그와 설명을 가져옵니다.
 
@@ -254,4 +254,4 @@ categories[].detail     | `object?`      | (선택 사항) 세부 정보 개체�
 
 ## <a name="next-steps"></a>다음 단계
 
-REST API를 사용하려면 [Computer Vision API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b)로 이동합니다.
+REST API를 사용하려면 [이미지 분석 API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b)로 이동합니다.

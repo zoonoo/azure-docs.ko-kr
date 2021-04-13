@@ -8,12 +8,12 @@ ms.author: ddematheu2
 ms.date: 03/10/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: 41d959468e3183af00d2ab514e7c1bf0a134a1f8
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 5b71a0581bf4f9d8239171e6abc56f87e7ae8183
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103490480"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105152832"
 ---
 ## <a name="download-code"></a>코드 다운로드
 
@@ -76,7 +76,7 @@ module.exports = async function (context, req) {
 
 `Identity` 라이브러리를 사용하여 `User Access Tokens`를 생성합니다.
 
-`npm install` 명령을 사용하여 JavaScript용 Azure Communication Services ID 클라이언트 라이브러리를 설치합니다.
+`npm install` 명령을 사용하여 JavaScript용 Azure Communication Services ID SDK를 설치합니다.
 
 ```console
 
@@ -104,7 +104,7 @@ const connectionString = 'INSERT YOUR RESOURCE CONNECTION STRING'
 
 다음으로, `User Access Tokens`를 생성하도록 원래 함수를 수정합니다.
 
-`User Access Tokens`는 `createUser` 메서드에서 사용자를 만들어 생성됩니다. 사용자가 만들어지면 `issueToken` 메서드를 사용하여 Azure 함수에서 반환하는 해당 사용자에 대한 토큰을 생성할 수 있습니다.
+`User Access Tokens`는 `createUser` 메서드에서 사용자를 만들어 생성됩니다. 사용자가 만들어지면 `getToken` 메서드를 사용하여 Azure 함수에서 반환하는 해당 사용자에 대한 토큰을 생성할 수 있습니다.
 
 이 예제에서는 토큰 범위를 `voip`로 구성합니다. 애플리케이션에 다른 범위가 필요할 수 있습니다. [범위](../../quickstarts/access-tokens.md)에 대해 자세히 알아보세요.
 
@@ -114,7 +114,7 @@ module.exports = async function (context, req) {
 
     const user = await tokenClient.createUser();
 
-    const userToken = await tokenClient.issueToken(user, ["voip"]);
+    const userToken = await tokenClient.getToken(user, ["voip"]);
 
     context.res = {
         body: userToken
