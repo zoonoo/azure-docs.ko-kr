@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Node.js용 Computer Vision 클라이언트 라이브러리'
-description: 이 빠른 시작을 통해 Node.js용 Computer Vision 클라이언트 라이브러리 시작
+title: '빠른 시작: Node.js용 광학 인식 클라이언트 라이브러리'
+description: 이 빠른 시작을 통해 Node.js용 광학 인식 클라이언트 라이브러리를 시작합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,19 +10,16 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: be583fd530424262e8119295d2ff3df303acbfac
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 88f17ace7142fe1c5ff6d56226a935b229530147
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103622034"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284805"
 ---
 <a name="HOLTop"></a>
 
-Computer Vision 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
-
-* 태그, 텍스트 설명, 얼굴, 성인 콘텐츠 등에 대한 이미지를 분석합니다.
-* 읽기 API를 사용하여 인쇄 및 필기 텍스트를 읽습니다.
+광학 인식 클라이언트 라이브러리를 사용하여 Read API를 통해 인쇄 및 필기 텍스트를 읽을 수 있습니다.
 
 [참조 설명서](/javascript/api/@azure/cognitiveservices-computervision/) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [패키지(npm)](https://www.npmjs.com/package/@azure/cognitiveservices-computervision) | [샘플](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -87,19 +84,17 @@ Computer Vision 구독 키와 엔드포인트에 대한 변수를 만듭니다. 
 
 ## <a name="object-model"></a>개체 모델
 
-Computer Vision Node.js SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
+OCR Node.js SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
 |Name|Description|
 |---|---|
 | [ComputerVisionClient](/javascript/api/@azure/cognitiveservices-computervision/computervisionclient) | 이 클래스는 모든 Computer Vision 기능에 필요합니다. 구독 정보를 사용하여 이 클래스를 인스턴스화한 다음, 대부분의 이미지 작업에 사용합니다.|
-|[VisualFeatureTypes](/javascript/api/@azure/cognitiveservices-computervision/visualfeaturetypes)| 이 열거형은 표준 Analyze(분석) 작업에서 수행할 수 있는 다양한 유형의 이미지 분석을 정의합니다. 필요에 따라 **VisualFeatureTypes** 값 세트를 지정합니다. |
 
 ## <a name="code-examples"></a>코드 예제
 
-이 코드 조각은 Node.js용 Computer Vision 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여 줍니다.
+여기에 나와 있는 코드 조각에서는 Node.js용 OCR 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여 줍니다.
 
 * [클라이언트 인증](#authenticate-the-client)
-* [이미지 분석](#analyze-an-image)
 * [인쇄 텍스트 및 필기 텍스트 읽기](#read-printed-and-handwritten-text)
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
@@ -116,127 +111,13 @@ Computer Vision Node.js SDK의 주요 기능 중 일부를 처리하는 클래�
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_end)]
 
 > [!div class="nextstepaction"]
-> [클라이언트를 인증했습니다.](?success=authenticate-client#analyze-an-image) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Javascript&Section=authenticate-client)
+> [클라이언트를 인증했습니다.](?success=authenticate-client#read-printed-and-handwritten-text) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Javascript&Section=authenticate-client)
 
-## <a name="analyze-an-image"></a>이미지 분석
 
-이 섹션의 코드는 원격 이미지를 분석하여 다양한 시각적 개체 기능을 추출합니다. 클라이언트 개체의 **analyzeImage** 메서드의 일부로 이러한 작업을 수행하거나 개별 메서드를 사용하여 호출할 수 있습니다. 자세한 내용은 [참조 설명서](/javascript/api/@azure/cognitiveservices-computervision/)를 참조하세요.
-
-> [!NOTE]
-> 로컬 이미지를 분석할 수도 있습니다. [ComputerVisionClient](/javascript/api/@azure/cognitiveservices-computervision/computervisionclient) 메서드(예: **analyzeImageInStream**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js)의 샘플 코드를 참조하세요.
-
-### <a name="get-image-description"></a>이미지 설명 가져오기
-
-다음 코드는 이미지에 대해 생성된 캡션 목록을 가져옵니다. 자세한 내용은 [이미지 설명](../../concept-describing-images.md)을 참조하세요.
-
-먼저 분석할 이미지의 URL을 정의합니다.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_describe_image)]
-
-그런 다음, 다음 코드를 추가하여 이미지 설명을 가져오고 콘솔에 인쇄합니다.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_describe)]
-
-### <a name="get-image-category"></a>이미지 범주 가져오기
-
-다음 코드는 검색된 이미지 범주를 가져옵니다. 자세한 내용은 [이미지 분류](../../concept-categorizing-images.md)를 참조하세요.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_categories)]
-
-도우미 함수 `formatCategories`을 정의합니다.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_categories_format)]
-
-### <a name="get-image-tags"></a>이미지 태그 가져오기
-
-다음 코드는 이미지에서 검색된 범주 세트를 가져옵니다. 자세한 내용은 [콘텐츠 태그](../../concept-tagging-images.md)를 참조하세요.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_tags)]
-
-도우미 함수 `formatTags`을 정의합니다.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_tagsformat)]
-
-### <a name="detect-objects"></a>개체 감지
-
-다음 코드는 이미지의 공통 개체를 검색하여 콘솔에 출력합니다. 자세한 내용은 [개체 감지](../../concept-object-detection.md)를 참조하세요.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_objects)]
-
-도우미 함수 `formatRectObjects`를 정의하여 너비 및 높이와 함께 위쪽, 왼쪽, 아래쪽 및 오른쪽 좌표를 반환합니다.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_objectformat)]
-
-### <a name="detect-brands"></a>브랜드 감지
-
-다음 코드는 이미지의 회사 브랜드 및 로고를 감지하여 콘솔에 출력합니다. 자세한 내용은 [브랜드 감지](../../concept-brand-detection.md)를 참조하세요.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_brands)]
-
-### <a name="detect-faces"></a>얼굴 감지
-
-다음 코드는 사각형 좌표를 사용하여 이미지에서 검색된 얼굴을 반환하고 얼굴 특성을 선택합니다. 자세한 내용은 [얼굴 감지](../../concept-detecting-faces.md)를 참조하세요.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_faces)]
-
-도우미 함수 `formatRectFaces`을 정의합니다.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_formatfaces)]
-
-### <a name="detect-adult-racy-or-gory-content"></a>성인, 외설 또는 폭력 콘텐츠 검색
-
-다음 코드는 이미지에 있는 성인 콘텐츠의 검색된 상태를 출력합니다. 자세한 내용은 [성인, 외설, 폭력 콘텐츠](../../concept-detecting-adult-content.md)를 참조하세요.
-
-사용할 이미지의 URL을 정의합니다.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_adult_image)]
-
-그런 다음, 다음 코드를 추가하여 성인 콘텐츠를 검색하고 결과를 콘솔에 인쇄합니다.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_adult)]
-
-### <a name="get-image-color-scheme"></a>이미지 색 구성표 가져오기
-
-다음 코드는 주조색 및 강조 색과 같이 이미지에서 검색된 색 특성을 출력합니다. 자세한 내용은 [색 구성표](../../concept-detecting-color-schemes.md)를 참조하세요.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_colors)]
-
-`printColorScheme` 도우미 함수를 정의하여 색 구성표의 세부 정보를 콘솔에 인쇄합니다.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_colors_print)]
-
-### <a name="get-domain-specific-content"></a>도메인 특정 콘텐츠 가져오기
-
-Computer Vision은 특수 모델을 사용하여 이미지에 대한 추가 분석을 수행할 수 있습니다. 자세한 내용은 [도메인 특정 콘텐츠](../../concept-detecting-domain-content.md)를 참조하세요.
-
-먼저 분석할 이미지의 URL을 정의합니다.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_domain_image)]
-
-다음 코드는 이미지에서 검색된 랜드마크에 대한 데이터를 구문 분석합니다.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_landmarks)]
-
-`formatRectDomain` 도우미 함수를 정의하여 검색된 랜드마크에 대한 위치 데이터를 구문 분석합니다.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_landmarks_rect)]
-
-### <a name="get-the-image-type"></a>이미지 형식 가져오기
-
-다음 코드는 이미지 형식이 클립 아트인지 아니면 선 그리기인지 여부에 관계없이 이미지 형식에 대한 정보를 출력합니다.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imagetype)]
-
-도우미 함수 `describeType`을 정의합니다.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imagetype_describe)]
-
-> [!div class="nextstepaction"]
-> [이미지를 분석했습니다.](?success=analyze-image#read-printed-and-handwritten-text) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Javascript&Section=analyze-image)
 
 ## <a name="read-printed-and-handwritten-text"></a>인쇄 텍스트 및 필기 텍스트 읽기
 
-Computer Vision은 이미지에서 보이는 텍스트를 추출하여 문자 스트림으로 변환할 수 있습니다. 이 샘플에서는 읽기 작업을 사용합니다.
+OCR 서비스는 이미지에서 보이는 텍스트를 추출하여 문자 스트림으로 변환할 수 있습니다. 이 샘플에서는 읽기 작업을 사용합니다.
 
 ### <a name="set-up-test-images"></a>테스트 이미지 설정
 
@@ -292,8 +173,8 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
->[Computer Vision API 참조(Node.js)](/javascript/api/@azure/cognitiveservices-computervision/)
+>[OCR API 참조(Node.js)](/javascript/api/@azure/cognitiveservices-computervision/)
 
 
-* [Computer Vision이란?](../../overview.md)
+* [OCR 개요](../../overview-ocr.md)
 * 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js)에서 확인할 수 있습니다.

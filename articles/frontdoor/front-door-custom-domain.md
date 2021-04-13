@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: duau
-ms.openlocfilehash: 6abed66a5fbd9987e5a8a677dde7b4a77589e907
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: e1540602bae0779d69c0cb4bb59e93b810b52904
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065048"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550764"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>자습서: Front Door에 사용자 지정 도메인 추가
 
@@ -70,7 +70,7 @@ afdverify 하위 도메인에서 CNAME 레코드를 만들려면:
     |---------------------------|-------|---------------------------------|
     | afdverify. www.contoso.com | CNAME | afdverify.contoso-frontend.azurefd.net |
 
-    - 원본: afdverify 하위 도메인을 포함한 사용자 지정 도메인 이름을 afdverify. _&lt;custom domain name&gt;_ 형식으로 입력합니다. 예: afdverify. www.contoso.com.
+    - 원본: afdverify 하위 도메인을 포함한 사용자 지정 도메인 이름을 afdverify. _&lt;custom domain name&gt;_ 형식으로 입력합니다. 예: afdverify. www.contoso.com. \*.contoso.com과 같은 와일드카드 도메인을 매핑하는 경우 원본 값은 와일드카드(afdverify.contoso.com)를 사용하지 않는 것과 같습니다.
 
     - 유형: *CNAME* 를 입력합니다.
 

@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 Node.js용 QnA Maker 클라이언트 라
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: e76acd0f7b776ccad69b0616846988c5ba816a2d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 0d0522be53ec9b1008f18725308c91a19ee24156
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948350"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609396"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/version-1)
 
@@ -122,23 +122,28 @@ index.js 파일을 만들고 다음 라이브러리를 가져옵니다.
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/version-1)
 
-> [!IMPORTANT]
-> Azure Portal로 이동하여 필수 구성 요소에서 만든 QnA Maker 리소스의 키와 엔드포인트를 찾습니다. 리소스의 **키 및 엔드포인트** 페이지의 **리소스 관리** 아래에 있습니다.
+- 구독 키와 작성 키를 서로 바꿔 가며 사용합니다. 작성 키에 대한 자세한 내용은 [QnA Maker의 키](../concepts/azure-resources.md?tabs=v1#keys-in-qna-maker)를 참조하세요.
 
-- QNA_MAKER_SUBSCRIPTION_KEY, QNA_MAKER_ENDPOINT 및 QNA_MAKER_RUNTIME_ENDPOINT라는 환경 변수를 만들어 이러한 값을 저장합니다.
-- QNA_MAKER_ENDPOINT 값의 형식은 `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`입니다. 
-- QNA_MAKER_RUNTIME_ENDPOINT 값의 형식은 `https://YOUR-RESOURCE-NAME.azurewebsites.net`입니다.
+- QNA_MAKER_ENDPOINT 값의 형식은 `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`입니다. Azure Portal로 이동하여 필수 구성 요소에서 만든 QnA Maker 리소스를 찾습니다. **리소스 관리** 에서 **키 및 엔드포인트** 페이지를 클릭하여 작성(구독) 키 및 QnA Maker 엔드포인트를 찾습니다.
+
+ ![QnA Maker 작성 엔드포인트](../media/keys-endpoint.png)
+
+- QNA_MAKER_RUNTIME_ENDPOINT 값의 형식은 `https://YOUR-RESOURCE-NAME.azurewebsites.net`입니다. Azure Portal로 이동하여 필수 구성 요소에서 만든 QnA Maker 리소스를 찾습니다. **Automation** 에서 **템플릿 내보내기** 페이지를 클릭하여 런타임 엔드포인트를 찾습니다.
+
+ ![QnA Maker 런타임 엔드포인트](../media/runtime-endpoint.png)
+   
 - 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 예를 들어 [Azure Key Vault](../../../key-vault/general/overview.md)는 보안 키 스토리지를 제공합니다.
 
 [!code-javascript[Set the resource key and resource name](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=Resourcevariables)]
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
 
-> [!IMPORTANT]
-> Azure Portal로 이동하여 필수 구성 요소에서 만든 QnA Maker 리소스의 키와 엔드포인트를 찾습니다. 리소스의 **키 및 엔드포인트** 페이지의 **리소스 관리** 아래에 있습니다.
+- 구독 키와 작성 키를 서로 바꿔 가며 사용합니다. 작성 키에 대한 자세한 내용은 [QnA Maker의 키](../concepts/azure-resources.md?tabs=v2#keys-in-qna-maker)를 참조하세요.
 
-- QNA_MAKER_SUBSCRIPTION_KEY 및 QNA_MAKER_ENDPOINT라는 환경 변수를 만들어 이러한 값을 저장합니다.
-- QNA_MAKER_ENDPOINT 값의 형식은 `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`입니다. 
+- QNA_MAKER_ENDPOINT 값의 형식은 `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`입니다. Azure Portal로 이동하여 필수 구성 요소에서 만든 QnA Maker 리소스를 찾습니다. **리소스 관리** 에서 **키 및 엔드포인트** 페이지를 클릭하여 작성(구독) 키 및 QnA Maker 엔드포인트를 찾습니다.
+
+ ![QnA Maker 작성 엔드포인트](../media/keys-endpoint.png)
+ 
 - 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 예를 들어 [Azure Key Vault](../../../key-vault/general/overview.md)는 보안 키 스토리지를 제공합니다.
 
 [!code-javascript[Set the resource key and resource name](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/preview-sdk/quickstart.js?name=Resourcevariables)]
@@ -151,7 +156,7 @@ index.js 파일을 만들고 다음 라이브러리를 가져옵니다.
 
 [QnA Maker](/javascript/api/@azure/cognitiveservices-qnamaker/)는 다음과 같은 두 가지 개체 모델을 사용합니다.
 * **[QnAMakerClient](#qnamakerclient-object-model)** 는 기술 자료를 만들고, 관리하고, 게시하고, 다운로드하는 개체입니다.
-* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** 은 GenerateAnswer API를 사용하여 기술 자료를 쿼리하고 Train API([활성 학습](../concepts/active-learning-suggestions.md)의 일부로)를 사용하여 새로운 제안된 질문을 보내는 개체입니다.
+* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** 은 GenerateAnswer API를 사용하여 기술 자료를 쿼리하고 Train API([활성 학습](../how-to/use-active-learning.md)의 일부로)를 사용하여 새로운 제안된 질문을 보내는 개체입니다.
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
 

@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 0eb91754c3c70a7b477d456158454f707a874207
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5e2827a4f87398f0a37ef04f797d2c7276d1a66d
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629596"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384173"
 ---
 # <a name="tutorial-proving-possession-of-a-ca-certificate"></a>자습서: CA 인증서 소유 증명
 
@@ -49,6 +49,8 @@ ms.locfileid: "105629596"
     * OpenSSL을 사용하여 인증서를 생성하는 경우 먼저 프라이빗 키와 CSR(인증서 서명 요청)을 생성해야 합니다.
 
       ```bash
+      $ openssl genpkey -out pop.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
+
       $ openssl req -new -key pop.key -out pop.csr
 
       -----

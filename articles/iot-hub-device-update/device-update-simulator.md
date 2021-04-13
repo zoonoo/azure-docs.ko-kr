@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 4740bf02c33314dd7c887356f2ef1ed12bea44cf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 90e72bd12d9115e5ff95213428ae4ac37979dcf3
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443814"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120098"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-ubuntu-1804-x64-simulator-reference-agent"></a>Ubuntu(18.04 x64) 시뮬레이터 참조 에이전트를 사용하는 Azure IoT Hub용 디바이스 업데이트 자습서
 
@@ -30,10 +30,8 @@ IoT Hub용 디바이스 업데이트는 이미지 기반 및 패키지 기반의
 > * 이미지 업데이트 배포
 > * 업데이트 배포 모니터링
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-
-## <a name="prerequisites"></a>필수 구성 요소
-* IoT Hub에 대한 액세스 권한. S1(표준) 계층 이상을 사용하는 것이 좋습니다.
+## <a name="prerequisites"></a>필수 조건
+* 아직 수행하지 않은 경우 IoT Hub 구성을 포함하여 [디바이스 업데이트 계정 및 인스턴스](create-device-update-account.md)를 만듭니다.
 
 ### <a name="download-and-install"></a>다운로드 및 설치
 
@@ -104,7 +102,7 @@ Ubuntu 업데이트 이미지는 [여기](https://github.com/Azure/iot-hub-devic
   ```
 Azure IoT Hub용 디바이스 업데이트 소프트웨어에는 다음 사용 조건이 적용됩니다.
    * [IoT Hub에 대한 디바이스 업데이트 라이선스](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
-   * [배달 최적화 클라이언트 라이선스](https://github.com/microsoft/do-client/blob/main/LICENSE.md)
+   * [배달 최적화 클라이언트 라이선스](https://github.com/microsoft/do-client/blob/main/LICENSE)
    
 에이전트를 사용하기 전에 사용 조건을 읽어보세요. 설치 및 사용하면 이러한 사용 조건에 동의하게 됩니다. 사용 조건에 동의하지 않는 경우 IoT Hub 에이전트에 대한 디바이스 업데이트를 사용하지 마세요.
 
@@ -149,9 +147,9 @@ Agent running. [main]
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하여 IoT Hub로 이동합니다.
 
-2. 왼쪽 탐색 창의 'IoT 디바이스' 또는 'IoT Edge'에서 IoT 디바이스를 찾아 디바이스 쌍으로 이동합니다.
+2. 왼쪽 탐색 창의 'IoT 디바이스' 또는 'IoT Edge'에서 IoT 디바이스를 찾아 디바이스 쌍 또는 모듈 쌍으로 이동합니다.
 
-3. 디바이스 쌍에서 기존 디바이스 업데이트 태그 값을 null로 설정하여 삭제합니다.
+3. 디바이스 업데이트 에이전트 모듈의 모듈 쌍에서 기존 디바이스 업데이트 태그 값을 null로 설정하여 삭제합니다. 디바이스 업데이트 에이전트에서 디바이스 ID를 사용하는 경우 디바이스 쌍에서 이러한 변경을 수행합니다.
 
 4. 아래와 같이 새 디바이스 업데이트 태그 값을 추가합니다.
 

@@ -2,25 +2,25 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 778255dc7259bd66a7c7059ede855464c1e39569
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 443595a52458d7ff7c168f4c120257cfb60fad2e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102445189"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105110895"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/dotnet/).
-- 운영 체제에 대한 최신 버전의 [.NET Core 클라이언트 라이브러리](https://dotnet.microsoft.com/download/dotnet-core)
-- [.NET ID 클라이언트 라이브러리](/dotnet/api/azure.identity)의 최신 버전을 가져옵니다.
-- [.NET 관리 클라이언트 라이브러리](../../concepts/sdk-options.md)의 최신 버전을 가져옵니다.
+- 운영 체제에 대한 최신 버전의 [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core).
+- [.NET ID SDK](/dotnet/api/azure.identity)의 최신 버전을 가져옵니다.
+- [.NET 관리 SDK](../../concepts/sdk-options.md)의 최신 버전을 가져옵니다.
 
-## <a name="installing-the-client-library"></a>클라이언트 라이브러리 설치
+## <a name="installing-the-sdk"></a>SDK 설치
 
-먼저 C# 프로젝트에 Communication Services Management 클라이언트 라이브러리를 포함합니다.
+먼저 C# 프로젝트에 Communication Services 관리 SDK를 포함합니다.
 
 ```csharp
 using Azure.ResourceManager.Communication;
@@ -121,11 +121,11 @@ var communicationServiceClient = new CommunicationManagementClient(subscriptionI
 
 다음 각 예에서는 기존 리소스 그룹에 Communication Services 리소스를 할당합니다.
 
-리소스 그룹을 만들어야 하는 경우 [Azure Portal](../../../azure-resource-manager/management/manage-resource-groups-portal.md) 또는 [Azure Resource Manager 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md)를 사용하여 리소스 그룹을 만들 수 있습니다.
+리소스 그룹을 만들어야 하는 경우 [Azure Portal](../../../azure-resource-manager/management/manage-resource-groups-portal.md) 또는 [Azure Resource Manager SDK](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md)를 사용하여 리소스 그룹을 만들 수 있습니다.
 
 ### <a name="create-and-manage-a-communication-services-resource"></a>Communication Services 리소스 만들기 및 관리
 
-Communication Services Management 클라이언트 라이브러리 클라이언트(``Azure.ResourceManager.Communication.CommunicationManagementClient``)의 인스턴스를 사용하여 Communication Services 리소스에 대한 작업을 수행할 수 있습니다.
+Communication Services Management SDK 클라이언트(``Azure.ResourceManager.Communication.CommunicationManagementClient``)의 인스턴스를 사용하여 Communication Services 리소스에 대한 작업을 수행할 수 있습니다.
 
 #### <a name="create-a-communication-services-resource"></a>Communication Services 리소스 만들기
 
@@ -173,7 +173,7 @@ await acsClient.CommunicationService.StartDeleteAsync(resourceGroupName, resourc
 
 ## <a name="managing-keys-and-connection-strings"></a>키 및 연결 문자열 관리
 
-각 Communication Services 리소스에는 액세스 키와 해당 연결 문자열이 한 쌍 있습니다. 이러한 키는 관리 클라이언트 라이브러리를 사용하여 액세스할 수 있으며, 다른 Communication Services 클라이언트 라이브러리에서 Azure Communication Services에 인증하는 데 사용될 수 있습니다.
+각 Communication Services 리소스에는 액세스 키와 해당 연결 문자열이 한 쌍 있습니다. 이러한 키는 관리 SDK를 사용하여 액세스할 수 있으며, 다른 Communication Services SDK에서 Azure Communication Services에 인증하는 데 사용될 수 있습니다.
 
 #### <a name="get-access-keys-for-a-communication-services-resource"></a>Communication Services 리소스의 액세스 키 가져오기
 
