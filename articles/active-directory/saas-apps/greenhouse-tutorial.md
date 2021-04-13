@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/25/2020
+ms.date: 03/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 77f72d6c63231f0854b58470f86c65ffc81c9775
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6a14b16e34faa827228594bf6d4f0bd9ed48cf72
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821932"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221758"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>자습서: Greenhouse와 Azure Active Directory 통합
 
@@ -40,7 +40,7 @@ ms.locfileid: "99821932"
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
-* Greenhouse에서 **SP** 시작 SSO 지원
+* Greenhouse는 **SP 및 IDP** 시작 SSO를 지원합니다.
 
 ## <a name="adding-greenhouse-from-the-gallery"></a>갤러리에서 Greenhouse 추가
 
@@ -73,18 +73,28 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal의 **Greenhouse** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고, **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
     ![기본 SAML 구성 편집](common/edit-urls.png)
 
-4. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<companyname>.greenhouse.io` 패턴을 사용하는 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 `https://<COMPANYNAME>.greenhouse.io` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<companyname>.greenhouse.io` 패턴을 사용하는 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
+    
+    | 회신 URL|
+    | -------------- |
+    | `https://<COMPANYNAME>.greenhouse.io/users/saml/consume` |
+    | `https://app.greenhouse.io/<ENTITY ID>/users/saml/consume` |
+    |
+
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
+
+    **로그인 URL** 텍스트 상자에서 `https://<COMPANYNAME>.greenhouse.io` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Greenhouse 클라이언트 지원 팀](https://www.greenhouse.io/contact)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 해당 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [Greenhouse 클라이언트 지원 팀](https://www.greenhouse.io/contact)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML** 을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -127,7 +137,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![sso 페이지의 스크린샷](./media/greenhouse-tutorial/configure.png)
 
-1. Single Sign-On 페이지에서 다음 단계를 수행합니다.
+1. **Single Sign-On** 페이지에서 다음 단계를 수행합니다.
 
     ![sso 구성 페이지의 스크린샷](./media/greenhouse-tutorial/sso-page.png)
 
@@ -172,15 +182,22 @@ Azure AD 사용자가 Greenhouse에 로그인할 수 있도록 하려면 Greenho
       >[!NOTE]
       >Azure Active Directory 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 전자 메일을 받습니다.
 
-### <a name="test-sso"></a>SSO 테스트 
+## <a name="test-sso"></a>SSO 테스트 
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Greenhouse 로그온 URL로 리디렉션됩니다. 
+#### <a name="sp-initiated"></a>SP 시작:
+
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Greenhouse 로그온 URL로 리디렉션됩니다.  
 
 * Greenhouse 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Greenhouse 타일을 클릭하면 Greenhouse 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+#### <a name="idp-initiated"></a>IDP 시작:
+
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 Greenhouse에 자동으로 로그인됩니다. 
+
+Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 Greenhouse 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Greenhouse에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+
 
 
 ## <a name="next-steps"></a>다음 단계

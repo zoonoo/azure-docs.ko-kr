@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 11/16/2020
-ms.openlocfilehash: 59364a0a2c1d1e411f41dc35dee812c8e920b72d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/04/2021
+ms.openlocfilehash: a26f46da7b392bd3b4a49aacb360a4c6147f8d2c
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98209205"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382643"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Synapse 지식 센터 살펴보기
 
@@ -47,6 +47,7 @@ Synapse Studio에서 지식 센터를 찾는 방법에는 두 가지가 있습�
 1. 실행을 클릭합니다. 선택한 코드만 실행됩니다.
 
 ## <a name="loading-more-nyc-taxi-data"></a>더 많은 NYC Taxi 데이터 로드
+
 1. **지식 센터** 로 이동하여 **갤러리 찾아보기** 를 클릭합니다.
 1. 위쪽에서 **SQL 스크립트** 탭을 선택합니다.
 1. 데이터 수집 샘플 **New York Taxicab 로드** 를 선택하고 **계속** 을 클릭합니다.
@@ -61,6 +62,6 @@ Synapse Studio에서 지식 센터를 찾는 방법에는 두 가지가 있습�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Synapse Analytics 시작](get-started.md)
-* [작업 영역 만들기](quickstart-create-workspace.md)
-* [서버리스 SQL 풀 사용](quickstart-sql-on-demand.md)
+> [!div class="nextstepaction"]
+> [관리자 추가](get-started-add-admin.md)
+

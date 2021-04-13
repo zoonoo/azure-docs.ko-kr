@@ -4,12 +4,12 @@ ms.author: areddish
 ms.service: cognitive-services
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: cfcc5bbc101a37e607fcc1bdb0d374510e7c3825
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b78f74ec190f4b871e127fbe4e6b7a0f10d058c1
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102444873"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106113109"
 ---
 이 가이드는 Node.js용 Custom Vision 클라이언트 라이브러리를 사용하여 개체 감지 모델을 빌드하는 데 유용한 지침과 샘플 코드를 제공합니다. 프로젝트를 만들고, 태그를 추가하고, 프로젝트를 학습하고, 프로젝트의 예측 엔드포인트 URL을 사용하여 프로그래밍 방식으로 테스트합니다. 자체 이미지 인식 앱을 빌드하기 위한 템플릿으로 이 예제를 사용할 수 있습니다.
 
@@ -75,7 +75,7 @@ npm install @azure/cognitiveservices-customvision-prediction
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ObjectDetection/CustomVisionQuickstart.js?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Custom Vision 리소스가 성공적으로 배포되면 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키와 엔드포인트를 찾을 수 있습니다. 학습 리소스의 엔드포인트와 함께 학습 및 예측 키를 모두 받아야 합니다.
+> Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Custom Vision 리소스가 성공적으로 배포되면 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키와 엔드포인트를 찾을 수 있습니다. 학습 리소스에 대한 API 엔드포인트와 함께 학습 및 예측 리소스 모두에 대한 키를 가져와야 합니다.
 >
 > 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 자세한 내용은 Cognitive Services [보안](../../../../cognitive-services/cognitive-services-security.md) 문서를 참조하세요.
 

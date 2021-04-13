@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 03/01/2021
-ms.openlocfilehash: b28c4457129985a1d5c47d251873eaa52a253f72
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d40dfa9c8a79625910414409ac3a6df7045c31f2
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102607971"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490916"
 ---
 # <a name="quickstart-connect-and-query-with-azure-cli--with-azure-database-for-mysql---flexible-server"></a>빠른 시작: Azure Database for MySQL - 유연한 서버를 사용하여 Azure CLI로 연결 및 쿼리
 
@@ -157,5 +157,6 @@ Your preference of  are now saved to local context. To learn more, type in `az l
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [서버 관리](./how-to-manage-server-cli.md)
+* [암호화된 연결을 사용하여 Azure Database for MySQL - 유연한 서버에 연결](how-to-connect-tls-ssl.md)
+* [서버 관리](./how-to-manage-server-cli.md)
 

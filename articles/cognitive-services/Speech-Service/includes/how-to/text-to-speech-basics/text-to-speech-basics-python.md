@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: trbye
-ms.openlocfilehash: d990deca3f435f0b1e3fbdd3388371a11813662a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 98f13df2c4da993147ba3ef4157340910fcbc5d0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947375"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104719650"
 ---
 이 빠른 시작에서는 Speech SDK를 사용하여 텍스트 음성 변환을 수행하기 위한 일반적인 디자인 패턴에 대해 알아봅니다. 먼저 기본 구성 및 합성을 수행하고 다음과 같은 사용자 지정 애플리케이션 개발을 위한 고급 예제로 이동합니다.
 
@@ -102,7 +102,7 @@ audio_config = AudioOutputConfig(use_default_speaker=True)
 * 결과를 다른 API 또는 서비스와 통합합니다.
 * 오디오 데이터를 수정하고, 사용자 지정 `.wav` 헤더 등을 작성합니다.
 
-이전 예제에서 이 변경을 수행하는 것이 간단합니다. 먼저 제어를 향상하기 위해 이 시점부터 출력 동작을 수동으로 관리하므로 `AudioConfig`를 제거합니다. 그런 다음, `SpeechSynthesizer` 생성자의 `AudioConfig`에 대해 `None`을 전달합니다. 
+이전 예제에서 이 변경을 수행하는 것이 간단합니다. 먼저 제어를 향상하기 위해 이 시점부터 출력 동작을 수동으로 관리하므로 `AudioConfig`를 제거합니다. 그런 다음, `SpeechSynthesizer` 생성자의 `AudioConfig`에 대해 `None`을 전달합니다.
 
 > [!NOTE]
 > 위의 스피커 출력 예제와 같이 생략하는 대신 `AudioConfig`에 대해 `None`을 전달하면 현재 활성 출력 디바이스에서 기본적으로 오디오가 재생되지 않습니다.
@@ -206,3 +206,11 @@ stream.save_to_wav_file("path/to/write/file.wav")
   </voice>
 </speak>
 ```
+
+## <a name="get-facial-pose-events"></a>얼굴 포즈 이벤트 가져오기
+
+음성은 얼굴 식의 애니메이션을 구동하는 좋은 방법일 수 있습니다.
+[visemes](../../../how-to-speech-synthesis-viseme.md)는 특정 음소를 생성할 때 입술, 턱 및 혀의 위치와 같은 관찰된 음성의 주요 포즈를 나타내는 데 사용되는 경우가 많습니다.
+음성 SDK에서 viseme 이벤트를 구독할 수 있습니다.
+그런 다음, 음성 오디오가 재생될 때 viseme 이벤트를 적용하여 캐릭터의 얼굴에 애니메이션을 적용할 수 있습니다.
+[viseme 이벤트를 가져오는 방법](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk)에 대해 알아봅니다.

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 02/10/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: 3fa47935721ccfccdfe18d60a66d5cc480582e7d
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 95bc737f8a1b9b0a35b80ca2a80a7245ba407b18
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428228"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105055"
 ---
 이 빠른 시작에서는 Speech SDK를 사용하여 텍스트 음성 변환을 수행하기 위한 일반적인 디자인 패턴에 대해 알아봅니다. 먼저 기본 구성 및 합성을 수행하고 다음과 같은 사용자 지정 애플리케이션 개발을 위한 고급 예제로 이동합니다.
 
@@ -30,9 +30,9 @@ ms.locfileid: "102428228"
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 
 작업을 수행하려면 먼저 <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">JavaScript용 Speech SDK</a>를 설치해야 합니다. 사용하는 플랫폼에 따라 다음 중 적절한 지침을 따릅니다.
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
+- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span
 class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">웹 브라우저 </a>
+- <a href="/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">웹 브라우저 </a>
 
 또한 대상 환경에 따라 다음 중 하나를 사용합니다.
 
@@ -162,14 +162,14 @@ function synthesizeSpeech() {
 * 결과를 다른 API 또는 서비스와 통합합니다.
 * 오디오 데이터를 수정하고, 사용자 지정 `.wav` 헤더 등을 작성합니다.
 
-이전 예제에서 이 변경을 수행하는 것이 간단합니다. 먼저, 제어를 향상시키기 위해 이 시점부터 출력 동작을 수동으로 관리하므로 `AudioConfig` 블록을 제거합니다. 그런 다음, `SpeechSynthesizer` 생성자의 `AudioConfig`에 대해 `undefined`을 전달합니다. 
+이전 예제에서 이 변경을 수행하는 것이 간단합니다. 먼저, 제어를 향상시키기 위해 이 시점부터 출력 동작을 수동으로 관리하므로 `AudioConfig` 블록을 제거합니다. 그런 다음, `SpeechSynthesizer` 생성자의 `AudioConfig`에 대해 `undefined`을 전달합니다.
 
 > [!NOTE]
 > 위의 스피커 출력 예제와 같이 생략하는 대신 `AudioConfig`에 대해 `undefined`을 전달하면 현재 활성 출력 디바이스에서 기본적으로 오디오가 재생되지 않습니다.
 
-이번에는 결과를 [`SpeechSynthesisResult`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult) 변수에 저장합니다. `SpeechSynthesisResult.audioData` 속성은 기본 브라우저 스트림 유형인 출력 데이터의 `ArrayBuffer`를 반환합니다. 서버 코드의 경우 arrayBuffer를 버퍼 스트림으로 변환합니다. 
+이번에는 결과를 [`SpeechSynthesisResult`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult) 변수에 저장합니다. `SpeechSynthesisResult.audioData` 속성은 기본 브라우저 스트림 유형인 출력 데이터의 `ArrayBuffer`를 반환합니다. 서버 코드의 경우 arrayBuffer를 버퍼 스트림으로 변환합니다.
 
-다음 코드는 클라이언트 측 코드에서 작동합니다. 
+다음 코드는 클라이언트 측 코드에서 작동합니다.
 
 ```javascript
 function synthesizeSpeech() {
@@ -189,9 +189,9 @@ function synthesizeSpeech() {
 }
 ```
 
-여기에서 결과 `ArrayBuffer` 개체를 사용하여 사용자 지정 동작을 구현할 수 있습니다. ArrayBuffer는 브라우저에서 수신하여 이 형식에서 재생할 수 있는 일반적인 유형입니다. 
+여기에서 결과 `ArrayBuffer` 개체를 사용하여 사용자 지정 동작을 구현할 수 있습니다. ArrayBuffer는 브라우저에서 수신하여 이 형식에서 재생할 수 있는 일반적인 유형입니다.
 
-서버 기반 코드의 경우, 데이터를 ArrayBuffer 대신 스트림으로 작업해야 하는 경우 객체를 스트림으로 변환해야 합니다. 
+서버 기반 코드의 경우, 데이터를 ArrayBuffer 대신 스트림으로 작업해야 하는 경우 객체를 스트림으로 변환해야 합니다.
 
 ```javascript
 function synthesizeSpeech() {
@@ -342,3 +342,11 @@ function synthesizeSpeech() {
   </voice>
 </speak>
 ```
+
+## <a name="get-facial-pose-events"></a>얼굴 포즈 이벤트 가져오기
+
+음성은 얼굴 식의 애니메이션을 구동하는 좋은 방법일 수 있습니다.
+[visemes](../../../how-to-speech-synthesis-viseme.md)는 특정 음소를 생성할 때 입술, 턱 및 혀의 위치와 같은 관찰된 음성의 주요 포즈를 나타내는 데 사용되는 경우가 많습니다.
+음성 SDK에서 viseme 이벤트를 구독할 수 있습니다.
+그런 다음, 음성 오디오가 재생될 때 viseme 이벤트를 적용하여 캐릭터의 얼굴에 애니메이션을 적용할 수 있습니다.
+[viseme 이벤트를 가져오는 방법](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk)에 대해 알아봅니다.

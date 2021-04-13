@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 03/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 00d4381c7af7fdf82ee1e895072d92d1e641f8c4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d8c94bfaeb3438ef54e745505e51442d6d391929
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92454697"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642970"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>자습서: DocuSign과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -45,8 +45,6 @@ ms.locfileid: "92454697"
 * DocuSign에서 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
 
 * DocuSign에서 [자동 사용자 프로비저닝](./docusign-provisioning-tutorial.md)을 지원합니다.
-
-* DocuSign이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-docusign-from-the-gallery"></a>갤러리에서 DocuSign 추가
 
@@ -79,7 +77,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal의 **DocuSign** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 다음, **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 펜 아이콘을 선택하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 선택하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -97,8 +95,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     
     | 회신 URL |
     |-------------|
-    |`https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/<IDPID>`|
-    |`https://<subdomain>.docusign.net/SAML/`|
+    | 프로덕션: |
+    | `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/<IDPID>` |
+    | `https://<subdomain>.docusign.net/SAML/` |
+    | QA 인스턴스:|
+    | `https://<SUBDOMAIN>.docusign.com/organizations/saml2` |
 
     > [!NOTE]
     > 대괄호로 묶은 이러한 값은 자리 표시자입니다. 실제 로그온 URL, 식별자 및 회신 URL의 값으로 바꿉니다. 이러한 세부 정보는 이 자습서의 뒷부분에 나오는 "SAML 2.0 엔드포인트 보기" 섹션에 설명되어 있습니다.
@@ -235,7 +236,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. DocuSign 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-3. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 DocuSign 타일을 클릭하면 SSO를 설정한 DocuSign에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+3. Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 DocuSign 타일을 클릭하면 SSO를 설정한 DocuSign으로 자동으로 로그인되어야 합니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -244,16 +245,16 @@ DocuSign이 구성되면 세션 제어를 적용하여 조직의 중요한 데�
 
 <!--Image references-->
 
-[50]: ./media/docusign-tutorial/tutorial_docusign_18.png
-[51]: ./media/docusign-tutorial/tutorial_docusign_21.png
-[52]: ./media/docusign-tutorial/tutorial_docusign_22.png
-[53]: ./media/docusign-tutorial/tutorial_docusign_23.png
-[54]: ./media/docusign-tutorial/tutorial_docusign_19.png
-[55]: ./media/docusign-tutorial/tutorial_docusign_20.png
-[56]: ./media/docusign-tutorial/tutorial_docusign_24.png
-[57]: ./media/docusign-tutorial/tutorial_docusign_25.png
-[58]: ./media/docusign-tutorial/tutorial_docusign_26.png
-[59]: ./media/docusign-tutorial/tutorial_docusign_27.png
-[60]: ./media/docusign-tutorial/tutorial_docusign_28.png
-[61]: ./media/docusign-tutorial/tutorial_docusign_29.png
-[62]: ./media/docusign-tutorial/tutorial_docusign_30.png
+[50]: ./media/docusign-tutorial/tutorial-docusign-18.png
+[51]: ./media/docusign-tutorial/tutorial-docusign-21.png
+[52]: ./media/docusign-tutorial/tutorial-docusign-22.png
+[53]: ./media/docusign-tutorial/tutorial-docusign-23.png
+[54]: ./media/docusign-tutorial/tutorial-docusign-19.png
+[55]: ./media/docusign-tutorial/tutorial-docusign-20.png
+[56]: ./media/docusign-tutorial/tutorial-docusign-24.png
+[57]: ./media/docusign-tutorial/tutorial-docusign-25.png
+[58]: ./media/docusign-tutorial/tutorial-docusign-26.png
+[59]: ./media/docusign-tutorial/tutorial-docusign-27.png
+[60]: ./media/docusign-tutorial/tutorial-docusign-28.png
+[61]: ./media/docusign-tutorial/tutorial-docusign-29.png
+[62]: ./media/docusign-tutorial/tutorial-docusign-30.png

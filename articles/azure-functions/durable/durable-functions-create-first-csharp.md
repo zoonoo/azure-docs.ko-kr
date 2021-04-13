@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
-ms.openlocfilehash: d5b6ecc12cee983cee0772da8b6f8f26a3b5a8ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 36566baac2885c449e1eae762924357bf571b39f
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96008209"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490219"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>C\#으로 첫 번째 지속성 함수 만들기
 
@@ -163,7 +163,7 @@ Visual Studio Code를 사용하여 C# 지속성 함수 앱을 만들고 게시�
 
 ::: zone pivot="code-editor-visualstudio"
 
-이 문서에서는 Visual Studio 2019를 사용하여 "hello world" 지속성 함수를 로컬로 만들고 테스트하는 방법에 대해 알아봅니다.  이 함수는 다른 함수에 대한 호출을 오케스트레이션하고 함께 연결합니다. 그런 후 함수 코드를 Azure에 게시합니다. 이러한 도구는 Visual Studio 2019에서 Azure 개발 워크로드의 일부로 제공됩니다.
+이 문서에서는 Visual Studio 2019를 사용하여 "hello world" 지속성 함수를 로컬로 만들고 테스트하는 방법을 알아봅니다.  이 함수는 다른 함수에 대한 호출을 오케스트레이션하고 함께 연결합니다. 그런 후 함수 코드를 Azure에 게시합니다. 이러한 도구는 Visual Studio 2019에서 Azure 개발 워크로드의 일부로 제공됩니다.
 
 ![스크린샷은 지속적인 함수가 있는 Visual Studio 2019 창을 보여줍니다.](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 

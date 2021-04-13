@@ -5,20 +5,20 @@ ms.author: askaur
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: dd183e9088f24aa8b94955bc8ed2a68b4a7eb27c
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 773bca81694534346019e30e9d55190af6f51e74
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103496181"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105106799"
 ---
 ## <a name="joining-the-meeting-chat"></a>모임 채팅 참가 
 
-Teams 상호 운용성을 사용하도록 설정하면 Communication Services 사용자가 호출 클라이언트 라이브러리를 사용하여 Teams 호출에 외부 사용자로 참가할 수 있습니다. 통화에 조인하면 채팅 통화에 참가자로 추가됩니다. 그러면 통화 중인 다른 사용자와 메시지를 주고받을 수 있습니다. 사용자는 통화에 조인하기 전에 전송된 채팅 메시지에 액세스할 수 없습니다. 모임에 참가하고 채팅을 시작하려면 다음 단계를 수행하면 됩니다.
+Teams 상호 운용성을 사용하도록 설정하면 Communication Services 사용자가 Calling SDK를 사용하여 외부 사용자로 Teams 통화에 조인할 수 있습니다. 통화에 조인하면 채팅 통화에 참가자로 추가됩니다. 그러면 통화 중인 다른 사용자와 메시지를 주고받을 수 있습니다. 사용자는 통화에 조인하기 전에 전송된 채팅 메시지에 액세스할 수 없습니다. 모임에 참가하고 채팅을 시작하려면 다음 단계를 수행하면 됩니다.
 
 ## <a name="install-the-chat-packages"></a>채팅 패키지 설치
 
-`npm install` 명령을 사용하여 필수 JavaScript용 Communication Services 클라이언트 라이브러리를 설치합니다.
+`npm install` 명령을 사용하여 필수 JavaScript용 Communication Services SDK를 설치합니다.
 
 ```console
 npm install @azure/communication-common --save

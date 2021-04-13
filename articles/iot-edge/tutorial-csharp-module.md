@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 01b30fed23b33719f08e93907075eee757343b1c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b7695c825dbdd2c207c87799ea801026f7506bcb
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103461745"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219453"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-using-linux-containers"></a>자습서: Linux 컨테이너를 사용하여 C# IoT Edge 모듈 개발
 
@@ -52,7 +52,7 @@ Linux 컨테이너를 사용하여 C# 모듈을 개발하고 배포하기 위한
 이 자습서를 시작하기 전에 이전 자습서를 통해 개발 환경을 설정하고 [Linux 컨테이너를 사용하여 IoT Edge 모듈을 개발](tutorial-develop-for-linux.md)해야 합니다. 이 자습서를 완료한 후에는 다음과 같은 필수 구성 요소를 갖추어야 합니다.
 
 * Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
-* Azure IoT Edge를 실행하는 디바이스. 빠른 시작을 사용하여 [Linux 디바이스](quickstart-linux.md) 또는 [Windows 디바이스](quickstart.md)를 설정할 수 있습니다.
+* Linux 컨테이너가 있는 Azure IoT Edge를 실행하는 디바이스 빠른 시작을 사용하여 [Linux 디바이스](quickstart-linux.md) 또는 [Windows 디바이스](quickstart.md)를 설정할 수 있습니다.
 * [Azure Container Registry](../container-registry/index.yml)와 같은 컨테이너 레지스트리
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)를 사용하여 구성된 [Visual Studio Code](https://code.visualstudio.com/)
 * Linux 컨테이너를 실행하도록 구성된 [Docker CE](https://docs.docker.com/install/)

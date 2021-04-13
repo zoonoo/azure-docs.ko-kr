@@ -13,16 +13,16 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: f11aec770818cd4ceeeda1ae7decf30acb9ca92b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fc3717436619468e2db0bf4b408059112dae24cc
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629593"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384156"
 ---
 # <a name="tutorial-using-microsoft-supplied-scripts-to-create-test-certificates"></a>자습서: Microsoft에서 제공하는 스크립트를 사용하여 테스트 인증서 만들기
 
-Microsoft는 사용자 고유의 X.509 인증서를 만들어 IoT Hub에 인증하는 방법을 이해하는 데 도움이 되는 PowerShell 및 Bash 스크립트를 제공합니다. 스크립트는 [GitHub](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates)에 있습니다. 데모용으로만 제공됩니다. 만든 인증서는 프로덕션에 사용할 수 없습니다. 인증서는 하드 코딩된 암호("1234")를 포함하며 30일 후에 만료됩니다. 프로덕션 환경의 경우 인증서 만들기 및 수명 관리를 위해 사용자 고유의 모범 사례를 사용해야 합니다.
+Microsoft는 사용자 고유의 X.509 인증서를 만들어 IoT Hub에 인증하는 방법을 이해하는 데 도움이 되는 PowerShell 및 Bash 스크립트를 제공합니다. 스크립트는 GitHub [리포지토리](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates)에 있습니다. 데모용으로만 제공됩니다. 만든 인증서는 프로덕션에 사용할 수 없습니다. 인증서는 하드 코딩된 암호("1234")를 포함하며 30일 후에 만료됩니다. 프로덕션 환경의 경우 인증서 만들기 및 수명 관리를 위해 사용자 고유의 모범 사례를 사용해야 합니다.
 
 ## <a name="powershell-scripts"></a>PowerShell 스크립트
 
@@ -30,7 +30,7 @@ Microsoft는 사용자 고유의 X.509 인증서를 만들어 IoT Hub에 인증�
 
 Windows용 OpenSSL을 가져옵니다. 다운로드하는 위치는 <https://www.openssl.org/docs/faq.html#MISC4>를 참조하고, 원본에서 빌드하려면 <https://www.openssl.org/source/>를 참조하세요. 그런 다음, 예비 스크립트를 실행합니다.
 
-1. [GitHub](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates)의 스크립트를 작업하려는 로컬 디렉터리에 복사합니다. 모든 파일은 이 디렉터리의 자식으로 만들어집니다.
+1. GitHub [리포지토리](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates)의 스크립트를 작업하려는 로컬 디렉터리에 복사합니다. 모든 파일은 이 디렉터리의 자식으로 만들어집니다.
 
 1. 관리자 권한으로 PowerShell을 시작합니다.
 

@@ -7,15 +7,15 @@ ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/15/2020
+ms.date: 04/01/2021
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: 95feeebf009cae22cf3952df80596c12e75cbe4b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 605e3f0451cc2029ecc98e42741f30a2d3ef190b
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94357575"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167960"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm-preview"></a>Azure Key Vault 관리형 HSM(미리 보기)이란?
 
@@ -36,6 +36,7 @@ Azure Key Vault 관리형 HSM은 **FIPS 140-2 수준 3** 유효성이 검사된 
 - **격리된 액세스 제어**: 관리형 HSM "로컬 RBAC" 액세스 제어 모델을 통해 지정된 HSM 클러스터 관리자는 관리 그룹, 구독 또는 리소스 그룹 관리자도 재정의할 수 없는 HSM을 완벽하게 제어할 수 있습니다.
 - **FIPS 140-2 수준 3 유효성이 검사된 HSM**: FIPS((Federal Information Protection Standard)) 140-2 수준 3 유효성이 검사된 HSM을 사용하여 데이터를 보호하고 규정 준수 요구 사항을 충족합니다. 관리형 HSM은 Marvell LiquidSecurity HSM 어댑터를 사용합니다.
 - **모니터링 및 감사**: Azure Monitor와 완전히 통합됩니다. Azure Monitor를 통해 모든 활동의 전체 로그를 가져옵니다. 분석 및 경고에 Azure Log Analytics를 사용합니다.
+- **데이터 보존**: 관리되는 HSM은 고객이 HSM 인스턴스를 배포하는 지역 외부에 고객 데이터를 저장/처리하지 않습니다.
 
 ### <a name="integrated-with-azure-and-microsoft-paassaas-services"></a>Azure 및 Microsoft PaaS/SaaS 서비스와 통합 
 

@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: azure-communication-services
 author: mikben
@@ -10,13 +10,15 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: dedea2a622cb0eece92bb8b57871c76daa05fb68
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 30dcda4d7bb95ac59add104452415a0ddfc3c016
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495470"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106178328"
 ---
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
+
 ## <a name="prerequisites"></a>사전 요구 사항
 시작하기 전에 다음을 확인해야 합니다.
 
@@ -128,9 +130,9 @@ let endpoint = "<ACS_RESOURCE_ENDPOINT>"
 [사용자 액세스 토큰](../../access-tokens.md)에 대해 자세히 알아보세요.
 
 ## <a name="object-model"></a>개체 모델 
-다음 클래스 및 인터페이스는 JavaScript용 Azure Communication Services 채팅 클라이언트 라이브러리의 주요 기능 중 일부를 처리합니다.
+다음 클래스 및 인터페이스는 JavaScript용 Azure Communication Services 채팅 SDK의 주요 기능 중 일부를 처리합니다.
 
-| 이름                                   | 설명                                                                                                                                                                           |
+| Name                                   | 설명                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ChatClient | 이 클래스는 채팅 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고 스레드를 만들고 가져오고 삭제하는 데 사용합니다. |
 | ChatThreadClient | 이 클래스는 채팅 스레드 기능에 필요합니다. ChatClient를 통해 인스턴스를 확보하여 메시지 보내기/받기/업데이트/삭제, 사용자 추가/제거/받기, 입력 알림 보내기, 읽음 확인, 채팅 이벤트 구독에 사용할 수 있습니다. |
@@ -275,5 +277,4 @@ chatThreadClient
 ## <a name="run-the-code"></a>코드 실행
 
 Xcode에서 실행 단추를 눌러 프로젝트를 빌드하고 실행합니다. 콘솔에서 코드의 출력과 ChatClient의 로거 출력을 볼 수 있습니다.
-
 

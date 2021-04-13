@@ -3,12 +3,12 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/25/2020
-ms.openlocfilehash: 604af007e4549716edf8bac63b74351512b438a5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1a4ddee8262ddc8a573cf83715999f5c12cfd1dd
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102445354"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106113182"
 ---
 Python용 Custom Vision 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 개체 검색 모델을 빌드하기 위한 예제 코드를 사용해 보세요. 프로젝트를 만들고, 태그를 추가하고, 프로젝트를 학습하고, 프로젝트의 예측 엔드포인트 URL을 사용하여 프로그래밍 방식으로 테스트합니다. 자체 이미지 인식 앱을 빌드하기 위한 템플릿으로 이 예제를 사용할 수 있습니다.
 
@@ -60,7 +60,7 @@ pip install azure-cognitiveservices-vision-customvision
 
 
 > [!IMPORTANT]
-> Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Custom Vision 리소스가 성공적으로 배포되면 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키와 엔드포인트를 찾을 수 있습니다. 학습 리소스의 엔드포인트와 함께 학습 및 예측 키를 모두 받아야 합니다.
+> Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Custom Vision 리소스가 성공적으로 배포되면 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키와 엔드포인트를 찾을 수 있습니다. 학습 리소스에 대한 API 엔드포인트와 함께 학습 및 예측 리소스 모두에 대한 키를 가져와야 합니다.
 >
 > 리소스의 **개요** 탭에서 **구독 ID** 로 나열된 예측 리소스 ID 값을 찾을 수 있습니다.
 >

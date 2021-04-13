@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 9d77bb3dc75c607513f9a7548ccb1061f894259b
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 82f913eea730d10bef5034fca52c037ef49eadf0
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105032052"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106091159"
 ---
-|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[\[미리 보기\]: \[ASC 프라이빗 미리 보기\] 배포 - VM에서 Azure Monitor 할당을 사용하도록 시스템이 할당한 관리 ID 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F17b3de92-f710-4cf4-aa55-0e7859f1ed7b) |[ASC 프라이빗 미리 보기] 시스템 할당 관리 ID가 없는 Azure Monitor에서 지원하는 Azure에서 호스트되는 가상 머신에 시스템 할당 관리 ID를 구성합니다. 시스템 할당 관리 ID는 모든 Azure Monitor 할당에 대한 필수 구성 요소이며 Azure Monitor 확장을 사용하기 전에 머신에 추가해야 합니다. 대상 가상 머신은 지원되는 위치에 있어야 합니다. |수정 |[1.2.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/AzureMonitoring_AddSystemIdentity_Prerequisite.json) |
 |[활동 로그는 1년 이상 보존되어야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb02aacc0-b073-424e-8298-42b22829ee0a) |이 정책은 보존이 365일 또는 계속(보존 기간이 0으로 설정)으로 설정되지 않은 경우 활동 로그를 감사합니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLogRetention_365orGreater.json) |
@@ -69,6 +69,7 @@ ms.locfileid: "105032052"
 |[\[미리 보기\]: Windows Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd69b1763-b96d-40b8-a2d9-ca31e9fd0d3e) |이 정책은 Log Analytics 에이전트가 설치되지 않은 경우 Windows Azure Arc 머신을 감사합니다. |AuditIfNotExists, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/Arc_Windows_LogAnalytics_Audit.json) |
 |[\[미리 보기\]: Linux 가상 머신에 네트워크 트래픽 데이터 수집 에이전트를 설치해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F04c4380f-3fae-46e8-96c9-30193528f602) |Security Center에서는 Microsoft Dependency Agent를 사용하여 Azure 가상 머신에서 네트워크 트래픽 데이터를 수집함으로써 네트워크 맵의 트래픽 시각화, 네트워크 강화 권장 사항 및 특정 네트워크 위협과 같은 고급 네트워크 보호 기능을 활성화합니다. |AuditIfNotExists, 사용 안 함 |[1.0.1 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ASC_Dependency_Agent_Audit_Linux.json) |
 |[\[미리 보기\]: Windows 가상 머신에 네트워크 트래픽 데이터 수집 에이전트를 설치해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2f2ee1de-44aa-4762-b6bd-0893fc3f306d) |Security Center에서는 Microsoft Dependency Agent를 사용하여 Azure 가상 머신에서 네트워크 트래픽 데이터를 수집함으로써 네트워크 맵의 트래픽 시각화, 네트워크 강화 권장 사항 및 특정 네트워크 위협과 같은 고급 네트워크 보호 기능을 활성화합니다. |AuditIfNotExists, 사용 안 함 |[1.0.1 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ASC_Dependency_Agent_Audit_Windows.json) |
+|[공용 IP 주소는 Azure DDoS Protection 표준에 대해 리소스 로그를 사용하도록 설정되어 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F752154a7-1e0f-45c6-a880-ac75a7e4f648) |Log Analytics 작업 영역으로 스트리밍하려면 진단 설정에서 공용 IP 주소의 리소스 로그를 사용하도록 설정합니다. 알림, 보고서 및 흐름 로그를 통해 DDoS 공격을 완화하기 위해 수행된 공격 트래픽 및 작업에 대한 자세한 정보를 얻습니다. |AuditIfNotExists, DeployIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/PublicIpDdosLogging_Audit.json) |
 |[로그 암호화를 위해 Azure Monitor에 저장된 쿼리를 고객 스토리지 계정에 저장해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffa298e57-9444-42ba-bf04-86e8470e32c7) |저장소 계정을 Log Analytics 작업 영역에 연결하여 저장소 계정 암호화로 저장된 쿼리를 보호합니다. 고객 관리형 키는 일반적으로 규정 준수를 충족하고 Azure Monitor에 저장된 쿼리에 대한 액세스를 보다 강력하게 제어하는 데 필요합니다. 위의 항목에 대한 자세한 내용은 [https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys?tabs=portal#customer-managed-key-for-saved-queries](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys?tabs=portal#customer-managed-key-for-saved-queries)를 참조하세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/LogAnalyticsWorkspaces_CMKBYOSQueryEnabled_Deny.json) |
 |[활동 로그가 있는 컨테이너를 포함하는 스토리지 계정은 BYOK로 암호화해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffbb99e8e-e444-4da0-9ff1-75c92f5a85b2) |이 정책은 활동 로그가 있는 컨테이너를 포함하는 스토리지 계정이 BYOK로 암호화되었는지 감사합니다. 이 정책은 스토리지 계정이 기본적으로 활동 로그와 같은 구독에 있는 경우에만 작동합니다. Azure Storage 저장 데이터 암호화에 대한 자세한 내용은 [https://aka.ms/azurestoragebyok](https://aka.ms/azurestoragebyok)를 참조하세요.  |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_StorageAccountBYOK_Audit.json) |
 |[Virtual Machine Scale Sets에 Log Analytics 에이전트를 설치해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fefbde977-ba53-4479-b8e9-10b957924fbf) |이 정책은 모든 Windows/Linux Virtual Machine Scale Sets를 감사하여 Log Analytics 에이전트가 설치되어 있지 않은지 확인합니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/VMSS_LogAnalyticsAgent_AuditIfNotExists.json) |

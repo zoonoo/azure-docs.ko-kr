@@ -8,20 +8,16 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 0c1b67e42e7988a836ec58ac022b11d736210bca
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: bcf6b2f6b964a056b9d90f08c0586fcbdec5b260
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104865624"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167280"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-azure-powershell"></a>Azure PowerShell을 사용하여 Cloud Service(추가 지원) 배포
 
 이 문서에서는 `Az.CloudService` PowerShell 모듈을 사용하여 Azure에서 여러 역할(WebRole 및 WorkerRole)과 원격 데스크톱 확장이 있는 Cloud Services(추가 지원)를 배포하는 방법에 대해 설명합니다. 
-
-> [!IMPORTANT]
-> Cloud Services(추가 지원)는 현재 공개 미리 보기에 있습니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -73,13 +69,14 @@ Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-pre
     $virtualNetwork = New-AzVirtualNetwork -Name “ContosoVNet” -Location “East US” -ResourceGroupName “ContosOrg” -AddressPrefix "10.0.0.0/24" -Subnet $subnet 
     ```
  
-7. 공용 IP 주소를 만들고, 필요에 따라 공용 IP 주소의 DNS 레이블 속성을 설정합니다. 고정 IP를 사용하는 경우 서비스 구성 파일에서 예약된 IP로 참조해야 합니다.  
+7. 공용 IP 주소를 만들고 공용 IP 주소의 DNS 레이블 속성을 설정합니다. Cloud Services(추가 지원)는 [기본] (https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) SKU 공용 IP 주소만 지원합니다. 표준 SKU 공용 IP는 Cloud Services에서 작동하지 않습니다.
+고정 IP를 사용하는 경우 서비스 구성(.cscfg) 파일에서 예약된 IP로 참조해야 합니다. 
 
     ```powershell
     $publicIp = New-AzPublicIpAddress -Name “ContosIp” -ResourceGroupName “ContosOrg” -Location “East US” -AllocationMethod Dynamic -IpAddressVersion IPv4 -DomainNameLabel “contosoappdns” -Sku Basic 
     ```
 
-8. 네트워크 프로필 개체를 만들고, 공용 IP 주소를 플랫폼에서 만든 부하 분산 장치의 프런트 엔드에 연결합니다.  
+8. 네트워크 프로필 개체를 만들고, 공용 IP 주소를 부하 분산 장치의 프런트 엔드에 연결합니다. Azure 플랫폼은 클라우드 서비스 리소스와 동일한 구독에서 '클래식' SKU 부하 분산 장치 리소스를 자동으로 만듭니다. 부하 분산 장치 리소스는 ARM의 읽기 전용 리소스입니다. 리소스에 대한 모든 업데이트는 클라우드 서비스 배포 파일(.cscfg & .csdef)을 통해서만 지원됩니다.
 
     ```powershell
     $publicIP = Get-AzPublicIpAddress -ResourceGroupName ContosOrg -Name ContosIp  

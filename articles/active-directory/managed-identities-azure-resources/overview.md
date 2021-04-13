@@ -12,19 +12,19 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/06/2020
+ms.date: 04/05/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5390811c8da4a8cace32e0e7ba4524e8c537a26a
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: c49ded056c642fa91331b7cc98d18da34d9c73a6
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055589"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504358"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Azure 리소스용 관리 ID란?
 
-개발자는 일반적으로 서로 다른 서비스 간의 통신을 보호하기 위해 비밀과 자격 증명을 관리하는 데 어려움을 겪고 있습니다. Azure에서 관리 ID를 사용하면 개발자가 Azure AD에서 Azure 리소스에 대한 ID를 제공하고 이를 사용하여 Azure AD(Azure Active Directory) 토큰을 가져오는 방식으로 자격 증명을 관리할 필요가 없습니다. 또한 이는 개발자가 자격 증명을 안전한 방식으로 저장할 수 있는 [Azure Key Vault](../../key-vault/general/overview.md)에 액세스하는 데 도움이 됩니다. Azure 리소스에 대한 관리 ID는 Azure AD에서 자동으로 관리되는 ID를 Azure 서비스에 제공하여 이 문제를 해결합니다.
+개발자는 일반적으로 솔루션을 구성하는 서로 다른 구성 요소 간의 통신을 보호하는 데 사용되는 비밀과 자격 증명을 관리하는 데 어려움을 겪고 있습니다. 관리 ID를 통해 개발자는 자격 증명을 관리할 필요가 없습니다. 관리 ID는 Azure AD(Azure Active Directory) 인증을 지원하는 리소스에 연결할 때 사용할 애플리케이션의 ID를 제공합니다. 애플리케이션은 관리 ID를 사용하여 Azure AD 토큰을 가져올 수 있습니다. 예를 들어 애플리케이션은 관리 ID를 사용하여 개발자가 자격 증명을 안전하게 저장하거나 스토리지 계정에 액세스할 수 있는 [Azure Key Vault](../../key-vault/general/overview.md)와 같은 리소스에 액세스할 수 있습니다.
 
 관리 ID를 사용할 수 있는 대상은 무엇일까요?
 
@@ -33,7 +33,7 @@ ms.locfileid: "106055589"
 관리 ID를 사용하는 경우 얻을 수 있는 몇 가지 혜택은 다음과 같습니다.
 
 - 자격 증명을 관리할 필요가 없으며, 자격 증명에 액세스할 수도 없습니다.
-- 관리 ID를 사용하여 Azure Key Vault를 포함한 Azure AD 인증을 지원하는 모든 Azure 서비스에 인증할 수 있습니다.
+- 관리 ID를 사용하여 사용자 고유의 애플리케이션을 포함하여 [Azure Active Directory 인증](../authentication/overview-authentication.md)을 지원하는 모든 리소스에 인증할 수 있습니다.
 - 관리 ID는 추가 비용 없이 사용할 수 있습니다.
 
 > [!NOTE]
@@ -62,7 +62,7 @@ ms.locfileid: "106055589"
 
 ## <a name="how-can-i-use-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 사용하는 방법
 
-![개발자가 인증 정보를 관리하지 않고 코드에서 리소스에 액세스하기 위해 관리 ID를 사용할 수 있는 방법의 몇 가지 예](media/overview/azure-managed-identities-examples.png)
+![개발자가 인증 정보를 관리하지 않고 코드에서 리소스에 액세스하기 위해 관리 ID를 사용할 수 있는 방법의 몇 가지 예](media/overview/when-use-managed-identities.png)
 
 ## <a name="what-azure-services-support-the-feature"></a>Azure 서비스에서 어떤 기능을 지원하나요?<a name="which-azure-services-support-managed-identity"></a>
 

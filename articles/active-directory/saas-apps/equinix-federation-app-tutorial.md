@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/27/2020
+ms.date: 03/22/2021
 ms.author: jeedes
-ms.openlocfilehash: b0c772b3f30b211cf83512ca2ff2f10325fb4bc1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c1172cd818a3b40e908bbf5a133ea76d6b0d17b9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99822243"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642868"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-equinix-federation-app"></a>자습서: Equinix Federation App과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -38,6 +38,9 @@ ms.locfileid: "99822243"
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * Equinix Federation App에서 **SP** 시작 SSO를 지원합니다.
+
+> [!NOTE]
+> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
 
 ## <a name="adding-equinix-federation-app-from-the-gallery"></a>갤러리에서 Equinix Federation App 추가
 
@@ -70,20 +73,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal의 **Equinix Federation App** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고, **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.equinix.com/sp/ACS.saml2` 패턴을 사용하는 URL을 입력합니다.
-
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `Equinix:<CUSTOM_IDENTIFIER>` 패턴을 사용하는 URL을 입력합니다.
-
-    다. **회신 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.equinix.com/sp/ACS.saml2` 패턴을 사용하여 URL을 입력합니다.
+    **로그온 URL** 텍스트 상자에서 `https://<customerprefix>customerportal.equinix.com` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 로그온 URL, 식별자 및 회신 URL로 업데이트합니다. 해당 값을 얻으려면 [Equinix Federation App 클라이언트 지원 팀](mailto:prodsecops@equinix.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 해당 값을 얻으려면 [Equinix Federation App 클라이언트 지원 팀](mailto:prodsecops@equinix.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
@@ -92,6 +91,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **Equinix Federation App 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
@@ -128,13 +128,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Equinix Federation App 로그온 URL로 리디렉션됩니다. 
+Equinix Federation App 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Equinix Federation App 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
-
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Equinix Federation App 타일을 클릭하면 Equinix Federation App 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+ > [!NOTE]
+ > **이 애플리케이션 테스트** 링크를 사용하거나 Equinix Federation App 타일을 클릭하여 Azure 애플리케이션을 테스트하는 경우 Equinix에서 기본적으로 지원하지 않는 IdP 시작 SSO이므로 작동하지 않습니다.  내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Equinix Federation App이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+Equinix Federation App이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+

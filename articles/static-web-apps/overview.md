@@ -5,26 +5,26 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: overview
-ms.date: 05/08/2020
+ms.date: 04/01/2021
 ms.author: cshoe
-ms.openlocfilehash: 9cd5136d69e4b14aa50a96d20f3187ce88db6e96
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e81f0a9e4fc50cf0d80f2905b9328af3c721865c
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92320485"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166407"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기란?
 
-Azure Static Web Apps는 GitHub 리포지토리에서 전체 스택 웹앱을 Azure에 자동으로 빌드하고 배포하는 서비스입니다.
+Azure Static Web Apps는 코드 리포지토리에서 전체 스택 웹앱을 Azure에 자동으로 빌드하고 배포하는 서비스입니다.
 
-:::image type="content" source="media/overview/static-apps-overview.png" alt-text="Static Web Apps 개요":::
+:::image type="content" source="media/overview/azure-static-web-apps-overview.png" alt-text="Azure Static Web Apps 개요 다이어그램":::
 
-Azure Static Web Apps의 워크플로는 개발자의 일상 워크플로에 맞게 조정됩니다. 앱은 GitHub 상호 작용을 기반으로 빌드되고 배포됩니다.
+Azure Static Web Apps의 워크플로는 개발자의 일상 워크플로에 맞게 조정됩니다. 앱은 코드 변경 내용을 기반으로 빌드되고 배포됩니다.
 
-Azure Static Web Apps 리소스를 만들 때 Azure는 선택한 분기를 모니터링하는 앱의 소스 코드 리포지토리에서 GitHub Actions 워크플로를 설정합니다. 커밋을 푸시하거나 감시된 분기로 끌어오기 요청을 수락할 때마다 GitHub Action이 앱 및 해당 API를 Azure에 자동으로 빌드 및 배포합니다.
+Azure Static Web Apps 리소스를 만들 때 Azure는 GitHub 또는 Azure DevOps와 직접 상호 작용하여 선택한 분기를 모니터링합니다. 커밋을 푸시하거나 감시된 분기로 끌어오기 요청을 수락할 때마다 빌드가 자동으로 실행되고 앱 및 API를 Azure에 배포합니다.
 
-정적 웹앱은 일반적으로 Angular, React, Svelte, Vue 또는 Blazor 같은 라이브러리와 프레임워크를 사용하여 빌드됩니다. 이러한 앱에는 애플리케이션을 구성하는 HTML, CSS, JavaScript 및 이미지 자산이 포함됩니다. 기존 웹 서버를 사용하는 경우 이러한 자산은 필수 API 엔드포인트와 함께 단일 서버에서 제공됩니다.
+정적 웹앱은 일반적으로 서버쪽 렌더링이 필요하지 않은 Angular, React, Svelte, Vue 또는 Blazor 같은 라이브러리와 프레임워크를 사용하여 빌드됩니다. 이러한 앱에는 애플리케이션을 구성하는 HTML, CSS, JavaScript 및 이미지 자산이 포함됩니다. 기존 웹 서버를 사용하는 경우 이러한 자산은 필수 API 엔드포인트와 함께 단일 서버에서 제공됩니다.
 
 Static Web Apps를 사용하면 정적 자산은 기존 웹 서버와 분리되고 대신 전 세계에 지리적으로 분산된 지점에서 제공됩니다. 이 배포는 파일이 물리적으로 최종 사용자에게 더 가까이 있으므로 파일을 훨씬 더 빠르게 제공합니다. 또한 API 엔드포인트는 [서버리스 아키텍처](../azure-functions/functions-overview.md)를 사용하여 호스팅되므로 전체 백 엔드 서버를 함께 사용하지 않아도 됩니다.
 
@@ -32,7 +32,7 @@ Static Web Apps를 사용하면 정적 자산은 기존 웹 서버와 분리되�
 
 - HTML, CSS, JavaScript 및 이미지와 같은 정적 콘텐츠에 대한 **웹 호스팅** 입니다.
 - Azure Functions에서 제공하는 **통합 API**.
-- 리포지토리 변경 시 빌드 및 배포가 트리거되는 **최상급 GitHub 통합**.
+- 리포지토리 변경 시 빌드 및 배포가 트리거되는 **최상급 GitHub 및 Azure DevOps 통합**
 - **전역적으로 분산된** 정적 콘텐츠로, 사용자에게 더 가까운 콘텐츠를 제공합니다.
 - 자동으로 갱신되는 **무료 SSL 인증서**.
 - 앱에 브랜드 사용자 지정을 제공하는 **사용자 지정 도메인**.

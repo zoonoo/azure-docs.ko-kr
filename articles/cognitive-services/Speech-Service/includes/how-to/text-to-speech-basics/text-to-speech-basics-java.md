@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: bb2d9b04e6366b17cfb0ee4b8586359035be910d
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: e3ec10bdcfb602c61943da288c32d28d30ec83ab
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428225"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104663"
 ---
 이 빠른 시작에서는 Speech SDK를 사용하여 텍스트 음성 변환을 수행하기 위한 일반적인 디자인 패턴에 대해 알아봅니다. 먼저 기본 구성 및 합성을 수행하고 다음과 같은 사용자 지정 애플리케이션 개발을 위한 고급 예제로 이동합니다.
 
@@ -31,8 +31,8 @@ ms.locfileid: "102428225"
 
 작업을 수행하려면 먼저 음성 SDK를 설치해야 합니다. 사용하는 플랫폼에 따라 다음 중 적절한 지침을 따릅니다.
 
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=jre&pivots=programming-language-java" target="_blank">Java 런타임 </a>
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=android&pivots=programming-language-java" target="_blank">Android </a>
+* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-java&tabs=jre" target="_blank">Java 런타임 </a>
+* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-java&tabs=android" target="_blank">Android </a>
 
 ## <a name="import-dependencies"></a>종속성 가져오기
 
@@ -67,7 +67,7 @@ import java.util.Scanner;
 이 예제에서는 구독 키와 지역을 사용하여 [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig)를 만듭니다. [음성 서비스 무료로 사용해 보기](../../../overview.md#try-the-speech-service-for-free)의 단계를 따라 이러한 자격 증명을 가져오세요. 또한 이 문서의 나머지 부분에 사용할 몇 가지 기본 상용구 코드를 만들 수 있습니다. 이 문서의 나머지 부분에서는 사용자 지정을 위해 수정합니다.
 
 ```java
-public class Program 
+public class Program
 {
     public static void main(String[] args) {
         SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -124,7 +124,7 @@ public static void main(String[] args) {
 * 결과를 다른 API 또는 서비스와 통합합니다.
 * 오디오 데이터를 수정하고, 사용자 지정 `.wav` 헤더 등을 작성합니다.
 
-이전 예제에서 이 변경을 수행하는 것이 간단합니다. 먼저, 제어를 향상시키기 위해 이 시점부터 출력 동작을 수동으로 관리하므로 `AudioConfig` 블록을 제거합니다. 그런 다음, `SpeechSynthesizer` 생성자의 `AudioConfig`에 대해 `null`을 전달합니다. 
+이전 예제에서 이 변경을 수행하는 것이 간단합니다. 먼저, 제어를 향상시키기 위해 이 시점부터 출력 동작을 수동으로 관리하므로 `AudioConfig` 블록을 제거합니다. 그런 다음, `SpeechSynthesizer` 생성자의 `AudioConfig`에 대해 `null`을 전달합니다.
 
 > [!NOTE]
 > 위의 스피커 출력 예제와 같이 생략하는 대신 `AudioConfig`에 대해 `null`을 전달하면 현재 활성 출력 디바이스에서 기본적으로 오디오가 재생되지 않습니다.
@@ -135,7 +135,7 @@ public static void main(String[] args) {
 public static void main(String[] args) {
     SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
     SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, null);
-    
+
     SpeechSynthesisResult result = synthesizer.SpeakText("Getting the response as an in-memory stream.");
     AudioDataStream stream = AudioDataStream.fromResult(result);
     System.out.print(stream.getStatus());
@@ -254,3 +254,10 @@ public static void main(String[] args) {
   </voice>
 </speak>
 ```
+
+## <a name="get-facial-pose-events"></a>얼굴 포즈 이벤트 가져오기
+
+음성은 얼굴 식의 애니메이션을 구동하는 좋은 방법일 수 있습니다.
+[visemes](../../../how-to-speech-synthesis-viseme.md)는 특정 음소를 생성할 때 입술, 턱 및 혀의 위치와 같은 관찰된 음성의 주요 포즈를 나타내는 데 사용되는 경우가 많습니다.
+음성 SDK에서 viseme 이벤트를 구독하여 얼굴 애니메이션 데이터를 가져온 다음, 얼굴 애니메이션 중에 캐릭터에 데이터를 적용할 수 있습니다.
+[viseme 이벤트를 가져오는 방법](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk)에 대해 알아봅니다.

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalizer, Azure personalizer, 기계 학습
-ms.openlocfilehash: 913b4d989865a50b23d58c5493368997248f8db8
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b2577502907b69e134651c93ab7a98fc51e9aaa6
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928556"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169252"
 ---
 # <a name="what-is-personalizer"></a>Personalizer란?
 
@@ -21,11 +21,14 @@ Azure Personalizer는 애플리케이션에서 사용자를 표시하는 데 가
 > [!TIP]
 > 콘텐츠는 텍스트, 이미지, URL, 이메일 또는 기타 항목을 선택하고 사용자에게 표시하려는 정보의 모든 단위입니다.
 
-시작하기 전에 [이 대화형 데모가 있는 Personalizer](https://personalizationdemo.azurewebsites.net/)를 사용해 보세요.
+이 설명서에는 다음과 같은 문서 유형이 포함되어 있습니다.  
 
-<!--
-![What is personalizer animation](./media/what-is-personalizer.gif)
--->
+* [**빠른 시작**](quickstart-personalizer-sdk.md)은 서비스에 대한 요청을 수행하는 과정을 안내하는 시작 지침입니다.  
+* [**방법 가이드**](how-to-settings.md)에는 보다 구체적이거나 사용자 지정된 방식으로 서비스를 사용하기 위한 지침이 포함되어 있습니다.  
+* [**개념**](how-personalizer-works.md)은 서비스 기능에 대한 심층적인 설명을 제공합니다.  
+* [**자습서**](tutorial-use-personalizer-web-app.md)는 보다 광범위한 비즈니스 솔루션에서 서비스를 구성 요소로 사용하는 방법을 보여주는 긴 가이드입니다.  
+
+시작하기 전에 [이 대화형 데모가 있는 Personalizer](https://personalizationdemo.azurewebsites.net/)를 사용해 보세요.
 
 ## <a name="how-does-personalizer-select-the-best-content-item"></a>Personalizer에서 가장 적합한 콘텐츠 항목을 어떻게 선택하나요?
 
@@ -100,18 +103,6 @@ Personalizer는 그룹 정보를 거의 실시간으로 사용하여 가장 적�
         * 콘텐츠를 표시한 직후
         * 또는 나중에 오프라인 시스템에서
     1. 사용 기간 후에 오프라인 평가를 사용하여 [루프를 평가](concepts-offline-evaluation.md)합니다. 오프라인 평가를 사용하면 코드를 변경하거나 사용자 환경에 영향을 주지 않고 Personalizer 서비스의 효율성을 테스트하고 평가할 수 있습니다.
-
-## <a name="complete-a-quickstart"></a>빠른 시작 완료
-
-C#, JavaScript 및 Python에서 빠른 시작을 제공합니다. 각각의 빠른 시작은 기본 디자인 패턴을 학습하고 코드를 10분 이내에 실행할 수 있도록 설계되었습니다. 
-
-* [빠른 시작: Personalizer 클라이언트 라이브러리를 사용하는 방법](./quickstart-personalizer-sdk.md)
-
-Personalizer 서비스를 시작한 후에는 자습서를 시도하고 웹 애플리케이션, 채팅 봇 또는 Azure Notebook에서 Personalizer를 사용하는 방법을 알아봅니다.
-
-* [자습서: .NET 웹앱에서 Personalizer 사용](tutorial-use-personalizer-web-app.md)
-* [자습서: .NET 채팅 봇에서 Personalizer 사용](tutorial-use-personalizer-chat-bot.md)
-* [자습서: Azure Notebook에서 Personalizer 사용](tutorial-use-azure-notebook-generate-loop-data.md)
 
 ## <a name="reference"></a>참조 
 

@@ -1,5 +1,5 @@
 ---
-title: Read v3.x OCR 컨테이너로 마이그레이션
+title: Read v3.x 컨테이너로 마이그레이션
 titleSuffix: Azure Cognitive Services
 description: v3 Read OCR 컨테이너로 마이그레이션하는 방법에 대해 알아봅니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/29/2021
 ms.author: aahi
-ms.openlocfilehash: baa91e21979022064aaf13aca6079f8d092d673e
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 1cc17306265e6e8ba2e7fb3f570d0017b006b84f
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221156"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284688"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Read v3.x OCR 컨테이너로 마이그레이션
 
@@ -24,7 +24,7 @@ ms.locfileid: "99221156"
 
 ## <a name="configuration-changes"></a>구성 변경 내용
 
-* `ReadEngineConfig:ResultExpirationPeriod`은 더 이상 지원되지 않습니다. Read 컨테이너에는 48시간 후에 요청에 연결된 결과와 메타데이터를 제거하는 빌드된 Cron 작업이 있습니다.
+* `ReadEngineConfig:ResultExpirationPeriod`은 더 이상 지원되지 않습니다. Read OCR 컨테이너에는 48시간 후에 요청에 연결된 결과와 메타데이터를 제거하는 빌드된 Cron 작업이 있습니다.
 * `Cache:Redis:Configuration`은 더 이상 지원되지 않습니다. Cache는 v3.x 컨테이너에서 사용되지 않으므로 설정하지 않아도 됩니다.
 
 ## <a name="api-changes"></a>API 변경 내용
@@ -39,7 +39,7 @@ Read v3.2 컨테이너는 Computer Vision API 버전 3을 사용하고 다음 �
 
 ## <a name="memory-requirements"></a>메모리 요구 사항
 
-요구 사항 및 권장 사항은 초당 단일 요청을 포함하는 벤치마크를 기준으로 하며, 8MB의 스캔된 비즈니스 문자 이미지를 사용하여 29개 줄과 총 803 문자를 포함합니다. 다음 표에서는 각 Read 컨테이너의 최소 및 권장 리소스 할당에 대해 설명합니다.
+요구 사항 및 권장 사항은 초당 단일 요청을 포함하는 벤치마크를 기준으로 하며, 8MB의 스캔된 비즈니스 문자 이미지를 사용하여 29개 줄과 총 803 문자를 포함합니다. 다음 표에서는 각 Read OCR 컨테이너의 최소 및 권장 리소스 할당에 대해 설명합니다.
 
 |컨테이너  |최소 | 권장  |
 |---------|---------|------|
@@ -81,7 +81,7 @@ v3.x의 컨테이너에서 RabbitMQ는 현재 지원되지 않습니다. 지원�
 ## <a name="next-steps"></a>다음 단계
 
 * [컨테이너 구성](computer-vision-resource-container-config.md)에서 구성 설정을 검토합니다.
-* [Computer Vision 개요](overview.md)를 검토하여 인쇄 및 필기 텍스트를 인식하는 방법을 자세히 알아봅니다.
-* [Computer Vision API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)를 참조하여 컨테이너에서 지원하는 방법을 자세히 알아봅니다.
+* [OCR 개요](overview-ocr.md)를 검토하여 인쇄 및 필기 텍스트를 인식하는 방법을 자세히 알아봅니다.
+* [Read API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)를 참조하여 컨테이너에서 지원하는 방법을 자세히 알아봅니다.
 * [FAQ(질문과 대답)](FAQ.md)를 참조하여 Computer Vision 기능과 관련된 문제를 해결합니다.
 * 추가적인 [Cognitive Services 컨테이너](../cognitive-services-container-support.md) 사용
