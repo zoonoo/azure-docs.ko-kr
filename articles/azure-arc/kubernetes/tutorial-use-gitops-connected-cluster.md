@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 64299bd05e82cf6f5452cde3f3da5622eff25e56
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ec83d8d56ad67d8c64c6ac3151ca3819e88c0616
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121476"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449599"
 ---
 # <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>자습서: Azure Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 구성 배포 
 
@@ -21,7 +21,7 @@ ms.locfileid: "102121476"
 > [!div class="checklist"]
 > * 예제 Git 리포지토리를 사용하여 Azure Arc 지원 Kubernetes 클러스터에 대한 구성을 만듭니다.
 > * 구성이 성공적으로 만들어졌는지 확인합니다.
-> * 프라이빗 Git 리포지토리에 구성 형식을 적용합니다.
+> * 프라이빗 Git 리포지토리에서 구성을 적용합니다.
 > * Kubernetes 구성의 유효성을 검사합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -30,6 +30,14 @@ ms.locfileid: "102121476"
 - 기존 Azure Arc 지원 Kubernetes 연결 클러스터.
     - 아직 클러스터를 연결하지 않은 경우 [Azure Arc 지원 Kubernetes 클러스터 연결 빠른 시작](quickstart-connect-cluster.md)을 살펴보세요.
 - 이 기능의 이점과 아키텍처 이해. [구성 및 GitOps - Azure Arc 지원 Kubernetes 문서](conceptual-configurations.md)에서 자세히 알아보세요.
+- `k8s-configuration` Azure CLI 확장 버전 >= 1.0.0을 설치합니다.
+  
+  ```azurecli
+  az extension add --name k8s-configuration
+  ```
+
+    >[!TIP]
+    > `k8s-configuration` 확장이 이미 설치되어 있는 경우 다음 명령 - `az extension update --name k8s-configuration`을 사용하여 최신 버전으로 업데이트할 수 있습니다.
 
 ## <a name="create-a-configuration"></a>구성 만들기
 
@@ -141,7 +149,7 @@ Flux 연산자는 SSH 연결을 설정하기 전에 Git 리포지토리를 인�
 >[!NOTE]
 >* Helm 연산자 차트 버전 1.2.0+는 HTTPS Helm 릴리스 프라이빗 인증을 지원합니다.
 >* AKS 관리형 클러스터에는 HTTPS Helm 릴리스가 지원되지 않습니다.
->* 프록시를 통해 Git 리포지토리에 액세스하는 데 Flux가 필요한 경우 Azure Arc 에이전트를 프록시 설정으로 업데이트해야 합니다. 자세한 내용은 [아웃바운드 프록시 서버를 사용하여 연결](./connect-cluster.md#connect-using-an-outbound-proxy-server)을 참조하세요.
+>* 프록시를 통해 Git 리포지토리에 액세스하는 데 Flux가 필요한 경우 Azure Arc 에이전트를 프록시 설정으로 업데이트해야 합니다. 자세한 내용은 [아웃바운드 프록시 서버를 사용하여 연결](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server)을 참조하세요.
 
 
 ## <a name="additional-parameters"></a>추가 매개 변수

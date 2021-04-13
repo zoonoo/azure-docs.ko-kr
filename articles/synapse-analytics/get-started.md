@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 03/18/2021
-ms.openlocfilehash: 0153797445e2a3f55baa53e49c06ee5c82e3bebe
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 04/04/2021
+ms.openlocfilehash: d31634809786ca4e62b156b6659289012e27a560
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606228"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106387012"
 ---
 # <a name="get-started-with-azure-synapse-analytics"></a>Azure Synapse Analytics 시작
 
@@ -32,3 +32,4 @@ ms.locfileid: "104606228"
 * [7단계 - Power BI를 사용하여 데이터 시각화](get-started-visualize-power-bi.md)
 * [8단계 - 모니터링 활동](get-started-monitor.md)
 * [9단계 - 지식 센터 살펴보기](get-started-knowledge-center.md)
+* [10단계 - 관리자 추가](get-started-add-admin.md)

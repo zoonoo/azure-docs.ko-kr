@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 03/22/2021
+ms.date: 04/06/2021
 ms.author: memildin
-ms.openlocfilehash: f6ec14c577d1203b92085b791f89e4873a97c41a
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 33184a9a9afaf05b093b8495fddd3b2c97fbd09a
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786098"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492480"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -24,6 +24,91 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 
 > [!TIP]
 > 6개월 이상된 항목을 찾으려는 경우 [Azure Security Center의 새로운 기능 아카이브](release-notes-archive.md)에서 찾을 수 있습니다.
+
+## <a name="april-2021"></a>2021년 4월
+
+4월의 업데이트는 다음과 같습니다.
+- [게스트 구성과 관련된 4가지 새로운 권장 사항(미리 보기)](#four-new-recommendations-related-to-guest-configuration-preview)
+- [Azure Defender for Kubernetes를 사용하여 하이브리드 및 다중 클라우드 Kubernetes 배포 보호(미리 보기)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
+- [더 이상 사용되지 않는 11가지 Azure Defender 경고](#11-azure-defender-alerts-deprecated)
+- ["시스템 업데이트 적용" 보안 제어에서 더 이상 사용되지 않는 두 가지 권장 사항](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
+
+
+### <a name="four-new-recommendations-related-to-guest-configuration-preview"></a>게스트 구성과 관련된 4가지 새로운 권장 사항(미리 보기)
+
+Azure의 [게스트 구성 확장](../governance/policy/concepts/guest-configuration.md)은 가상 머신의 게스트 내 설정이 강화되었는지 확인할 수 있도록 Security Center에 보고합니다. Arc Connected Machine 에이전트에 포함되어 있으므로 Arc 사용 서버에는 확장이 필요하지 않습니다. 확장을 사용하려면 머신에서 시스템 관리 ID가 필요합니다.
+
+이 확장을 최대한 활용하기 위해 네 가지 권장 사항이 Security Center에 새로 추가되었습니다.
+
+- 확장 및 필요한 시스템 관리 ID를 설치하라는 두 가지 권장 사항:
+    - **게스트 구성 확장을 머신에 설치해야 함**
+    - **가상 머신의 게스트 구성 확장은 시스템이 할당한 관리 ID를 사용하여 배포해야 함**
+
+- 확장이 설치되고 실행되면 컴퓨터에 대한 감사가 시작되고 운영 체제 구성 및 환경 설정과 같은 설정을 강화하라는 메시지가 표시됩니다. 이러한 두 가지 권장 사항은 설명한 대로 Windows 및 Linux 컴퓨터를 강화하라는 메시지를 표시합니다.
+    - **Windows Defender Exploit Guard를 머신에서 사용하도록 설정해야 함**
+    - **Linux 머신에 대한 인증에 SSH 키가 필요함**
+
+[Azure Policy 게스트 구성 이해](../governance/policy/concepts/guest-configuration.md)에서 자세히 알아보세요.
+
+
+### <a name="use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview"></a>Azure Defender for Kubernetes를 사용하여 하이브리드 및 다중 클라우드 Kubernetes 배포 보호(미리 보기)
+
+Azure Defender for Kubernetes는 배포되는 위치에 관계없이 클러스터를 보호하도록 위협 방지 기능을 확장하고 있습니다. 이는 [Azure Arc 지원 Kubernetes](../azure-arc/kubernetes/overview.md) 및 새로운 확장 기능을 통합하여 사용하도록 설정되었습니다. 
+
+비 Azure Kubernetes 클러스터에서 Azure Arc를 사용하도록 설정한 경우 Azure Security Center의 새로운 권장 사항은 몇 번의 클릭만으로 Azure Defender 확장을 배포하도록 제안합니다.
+
+권장 사항(**Azure Arc 지원 Kubernetes 클러스터에는 Azure Defender의 확장이 설치되어 있어야 함**)과 확장을 사용하여 관리되는 Kubernetes 서비스가 아닌 다른 클라우드 공급자에 배포된 Kubernetes 클러스터를 보호합니다.
+
+Azure Security Center, Azure Defender 및 Azure Arc 지원 Kubernetes 간의 이러한 통합은 다음을 제공합니다.
+
+- 보호되지 않는 Azure Arc 지원 Kubernetes 클러스터에 대한 Azure Defender 확장의 간편한 프로비저닝(수동 및 대규모)
+- Azure Arc 포털에서 Azure Defender 확장 및 해당 프로비저닝 상태 모니터링
+- Security Center의 보안 권장 사항을 Azure Arc 포털의 새 보안 페이지에 보고
+- Azure Defender에서 식별된 보안 위협을 Azure Arc 포털의 새 보안 페이지에 보고
+- Azure Arc 지원 Kubernetes 클러스터를 Azure Security Center 플랫폼 및 환경에 통합
+
+[온-프레미스 및 다중 클라우드 Kubernetes 클러스터에서 Azure Defender for Kubernetes 사용](defender-for-kubernetes-azure-arc.md)에서 자세히 알아보세요.
+
+### <a name="11-azure-defender-alerts-deprecated"></a>더 이상 사용되지 않는 11가지 Azure Defender 경고
+
+더 이상 사용되지 않는 11가지 Azure Defender 경고는 다음과 같습니다.
+
+- 새 경고는 이러한 두 가지 경고를 대체하고 더 나은 적용 범위를 제공합니다.
+
+    | AlertType                | AlertDisplayName                                                         |
+    |--------------------------|--------------------------------------------------------------------------|
+    | ARM_MicroBurstDomainInfo | 미리 보기 - MicroBurst 도구 키트 "Get-AzureDomainInfo" 함수 실행이 감지됨 |
+    | ARM_MicroBurstRunbook    | 미리 보기 - MicroBurst 도구 키트 "Get-AzurePasswords" 함수 실행이 감지됨  |
+    |                          |                                                                          |
+
+- 이러한 9가지 경고는 이미 사용되지 않는 Azure Active Directory IPC(ID 보호 커넥터)와 관련이 있습니다.
+
+    | AlertType           | AlertDisplayName              |
+    |---------------------|-------------------------------|
+    | UnfamiliarLocation  | 일반적이지 않은 로그인 속성 |
+    | AnonymousLogin      | 익명 IP 주소          |
+    | InfectedDeviceLogin | 맬웨어 연결 IP 주소     |
+    | ImpossibleTravel    | 비정상적 이동               |
+    | MaliciousIP         | 악성 IP 주소          |
+    | LeakedCredentials   | 유출된 자격 증명            |
+    | PasswordSpray       | 암호 스프레이                |
+    | LeakedCredentials   | Azure AD 위협 인텔리전스  |
+    | AADAI               | Azure AD AI                   |
+    |                     |                               |
+ 
+    > [!TIP]
+    > 이러한 9가지 IPC 경고는 Security Center 경고가 아닙니다. Security Center에 보낸 AAD(Azure Active Directory) IPC(ID 보호 커넥터)의 일부입니다. 지난 2년 동안 이러한 경고를 확인한 고객은 2019년 또는 그 이전에 내보내기(커넥터에서 ASC로)를 구성한 조직뿐입니다. AAD IPC는 이러한 경고를 자체 경고 시스템에 계속 표시했으며 Azure Sentinel에서 계속 사용할 수 있었습니다. 유일한 변경 내용은 Security Center에 더 이상 표시되지 않는다는 것입니다.
+
+### <a name="two-recommendations-from-apply-system-updates-security-control-were-deprecated"></a>"시스템 업데이트 적용" 보안 제어에서 더 이상 사용되지 않는 두 가지 권장 사항 
+
+더 이상 사용되지 않는 두 가지 권장 사항은 다음과 같으며, 이러한 변경으로 인해 보안 점수에 약간의 영향을 줄 수 있습니다.
+
+- **시스템 업데이트를 적용하려면 머신을 다시 시작해야 함**
+- **머신에 모니터링 에이전트를 설치해야 합니다**. 이 권장 사항은 온-프레미스 컴퓨터에만 관련되며, 해당 논리 중 일부는 다른 권장 사항인 **컴퓨터에서 Log Analytics 에이전트 상태 문제를 해결해야 함** 으로 이전됩니다.
+
+연속 내보내기 및 워크플로 자동화 구성을 확인하여 이러한 권장 사항이 포함되어 있는지 확인하는 것이 좋습니다. 또한 대시보드 또는 이를 사용할 수 있는 기타 모니터링 도구를 적절하게 업데이트해야 합니다.
+
+[보안 추천 사항 참조 페이지](recommendations-reference.md)에서 이러한 권장 사항에 대해 자세히 알아보세요.
 
 
 ## <a name="march-2021"></a>2021년 3월
@@ -489,7 +574,7 @@ Azure Security Benchmark는 Azure Security Center의 기본 정책 이니셔티�
 Azure Security Center는 SQL Server에 대한 두 가지 Azure Defender 계획을 제공합니다.
 
 - **Azure SQL 데이터베이스 서버용 Azure Defender** - Azure 네이티브 SQL Server 방어 
-- **머신의 SQL 서버용 Azure Defender** - 하이브리드, 다중 클라우드 및 온-프레미스 환경의 SQL 서버로 동일한 보호를 확장합니다.
+- **컴퓨터의 SQL 서버용 Azure Defender** - 동일한 보호를 하이브리드, 다중 클라우드 및 온-프레미스 환경의 SQL 서버로 확장
 
 이 공지를 통해 **Azure Defender for SQL** 은 이제 데이터베이스와 해당 데이터가 어디에 있든 보호합니다.
 
@@ -753,154 +838,3 @@ Azure Security Center가 성장함에 따라 더 많은 확장이 개발되었�
 이제 Azure Portal의 Security Center **보안 정책** 페이지에서 구독에 기본 Security Center 정책이 할당되었는지 여부를 확인할 수 있습니다.
 
 :::image type="content" source="media/release-notes/policy-assignment-info-per-subscription.png" alt-text="기본 정책 할당을 보여주는 Azure Security Center의 정책 관리 페이지":::
-
-## <a name="october-2020"></a>2020년 10월
-
-10월의 업데이트는 다음과 같습니다.
-- [온-프레미스 및 다중 클라우드 머신의 취약성 평가(미리 보기)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
-- [Azure Firewall 권장 사항 추가(미리 보기)](#azure-firewall-recommendation-added-preview)
-- [[Kubernetes 서비스에서 권한 있는 IP 범위를 정의해야 함] 권장 사항의 빠른 픽스가 업데이트됨](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
-- [이제 규정 준수 대시보드에는 표준을 제거하는 옵션이 포함됨](#regulatory-compliance-dashboard-now-includes-option-to-remove-standards)
-- [ARG(Azure Resource Graph)에서 Microsoft.Security/securityStatuses 테이블이 제거됨](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
-
-### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview"></a>온-프레미스 및 다중 클라우드 머신의 취약성 평가(미리 보기)
-
-[서버용 Azure Defender](defender-for-servers-introduction.md)의 통합 취약성 평가 스캐너(Qualys 기반)는 이제 Azure Arc 사용 서버를 검색합니다.
-
-Azure가 아닌 머신에서 Azure Arc를 사용하도록 설정한 경우 Security Center는 이러한 머신에 통합 취약성 스캐너를 수동 및 대규모로 배포할 수 있습니다.
-
-이번 업데이트를 통해 모든 Azure 및 비-Azure 자산의 취약성 관리 프로그램을 통합하는 **서버용 Azure Defender** 의 강력한 성능을 발휘할 수 있습니다.
-
-주요 기능:
-
-- Azure Arc 머신의 VA(취약성 평가) 스캐너 프로비저닝 상태 모니터링
-- 보호되지 않는 Windows 및 Linux Azure Arc 머신에 통합 VA 에이전트 프로비저닝(수동 및 대규모로)
-- 배포된 에이전트에서 탐지된 취약성 수신 및 분석(수동 및 대규모로)
-- Azure VM 및 Azure Arc 머신에 대한 통합 환경
-
-[하이브리드 머신에 통합 취약성 스캐너를 배포하는 내용을 자세히 알아보세요](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
-
-[Azure Arc 사용 서버에 대해 자세히 알아보세요](../azure-arc/servers/index.yml).
-
-
-### <a name="azure-firewall-recommendation-added-preview"></a>Azure Firewall 권장 사항 추가(미리 보기)
-
-Azure Firewall을 통해 모든 가상 네트워크를 보호하기 위해 새로운 권장 사항이 추가되었습니다.
-
-**가상 네트워크는 Azure Firewall로 보호해야 합니다** 권장 사항은 Azure Firewall을 사용하여 가상 네트워크에 대한 액세스를 제한하고 잠재적 위협을 차단할 것을 조언합니다.
-
-[Azure Firewall](https://azure.microsoft.com/services/azure-firewall/)에 대해 자세히 알아보세요.
-
-
-### <a name="authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix"></a>[Kubernetes 서비스에서 권한 있는 IP 범위를 정의해야 함] 권장 사항의 빠른 픽스가 업데이트됨
-
-**Kubernetes 서비스에서 권한 있는 IP 범위를 정의해야 함** 권장 사항은 이제 빠른 픽스 옵션을 제공합니다.
-
-이 권장 사항 및 기타 모든 Security Center 권장 사항에 대한 자세한 내용은 [보안 권장 사항 - 참조 가이드](recommendations-reference.md)를 참조하세요.
-
-:::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="빠른 픽스 옵션을 제공하는 [Kubernetes 서비스에서 권한 있는 IP 범위를 정의해야 함] 권장 사항":::
-
-
-### <a name="regulatory-compliance-dashboard-now-includes-option-to-remove-standards"></a>이제 규정 준수 대시보드에는 표준을 제거하는 옵션이 포함됨
-
-Security Center의 규정 준수 대시보드는 특정 규정 준수 제어 및 요구 사항을 충족하는 방법에 따라 규정 준수 상태에 대한 인사이트를 제공합니다.
-
-대시보드에는 규정 표준의 기본 세트가 포함되어 있습니다. 제공된 표준이 조직과 관련이 없는 경우 이제 구독에 대한 UI에서 해당 표준을 제거할 수 있는 간단한 프로세스입니다. 표준은 관리 그룹 범위가 아닌 *구독* 수준에서만 제거할 수 있습니다.
-
-[대시보드에서 표준 제거](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard)에서 자세히 알아봅니다.
-
-
-### <a name="microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg"></a>ARG(Azure Resource Graph)에서 Microsoft.Security/securityStatuses 테이블이 제거됨
-
-Azure Resource Graph는 작업 환경을 효과적으로 관리할 수 있도록 특정 구독 세트에서 대규모로 쿼리를 수행할 수 있는 효율적인 리소스 탐색 기능을 제공하도록 디자인된 Azure 서비스입니다. 
-
-Azure Security Center의 경우 ARG 및 [KQL(Kusto Query Language)](/azure/data-explorer/kusto/query/)을 사용하여 다양한 보안 태세 데이터를 쿼리할 수 있습니다. 예를 들어:
-
-- 자산 인벤토리 활용(ARG)
-- [MFA(다단계 인증)를 사용하지 않고 계정을 식별](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)하는 방법에 대한 샘플 ARG 쿼리가 문서로 준비되어 있습니다.
-
-ARG 내에는 쿼리에 사용할 수 있는 데이터 테이블이 들어 있습니다.
-
-:::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="Azure Resource Graph Explorer 및 사용 가능한 테이블":::
-
-> [!TIP]
-> ARG 설명서에는 [Azure Resource Graph 테이블 및 리소스 종류 참조](../governance/resource-graph/reference/supported-tables-resources.md)에서 사용 가능한 모든 테이블이 나열되어 있습니다.
-
-이번 업데이트에서 **Microsoft.Security/securityStatuses** 테이블이 제거되었습니다. securityStatuses API는 계속 사용할 수 있습니다.
-
-데이터 교체는 Microsoft.Security/Assessments에서 사용할 수 있습니다.
-
-Microsoft.Security/securityStatuses는 평가의 집계를 보여주고 Microsoft.Security/Assessments는 각 평가에 대한 단일 레코드를 포함한다는 것이 가장 큰 차이점입니다.
-
-예를 들어 Microsoft.Security/securityStatuses는 다음과 같은 두 개의 policyAssessments 배열이 포함된 결과를 반환합니다.
-
-```
-{
-id: "/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet",
-name: "mico-rg-vnet",
-type: "Microsoft.Security/securityStatuses",
-properties:  {
-    policyAssessments: [
-        {assessmentKey: "e3deicce-f4dd-3b34-e496-8b5381bazd7e", category: "Networking", policyName: "Azure DDOS Protection Standard should be enabled",...},
-        {assessmentKey: "sefac66a-1ec5-b063-a824-eb28671dc527", category: "Compute", policyName: "",...}
-    ],
-    securitystateByCategory: [{category: "Networking", securityState: "None" }, {category: "Compute",...],
-    name: "GenericResourceHealthProperties",
-    type: "VirtualNetwork",
-    securitystate: "High"
-}
-```
-반면 Microsoft.Security/Assessments는 다음과 같이 각 정책 평가에 대한 레코드를 보유합니다.
-
-```
-{
-type: "Microsoft.Security/assessments",
-id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft. Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/assessments/e3delcce-f4dd-3b34-e496-8b5381ba2d70",
-name: "e3deicce-f4dd-3b34-e496-8b5381ba2d70",
-properties:  {
-    resourceDetails: {Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet"...},
-    displayName: "Azure DDOS Protection Standard should be enabled",
-    status: (code: "NotApplicable", cause: "VnetHasNOAppGateways", description: "There are no Application Gateway resources attached to this Virtual Network"...}
-}
-
-{
-type: "Microsoft.Security/assessments",
-id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourcegroups/mico-rg/providers/microsoft.network/virtualnetworks/mico-rg-vnet/providers/Microsoft.Security/assessments/80fac66a-1ec5-be63-a824-eb28671dc527",
-name: "8efac66a-1ec5-be63-a824-eb28671dc527",
-properties: {
-    resourceDetails: (Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourcegroups/mico-rg/providers/microsoft.network/virtualnetworks/mico-rg-vnet"...),
-    displayName: "Audit diagnostic setting",
-    status:  {code: "Unhealthy"}
-}
-```
-
-**이제 assessments 테이블을 사용하도록 securityStatuses를 사용하여 기존 ARG 쿼리를 변환하는 예제:**
-
-SecurityStatuses를 참조하는 쿼리:
-
-```kusto
-SecurityResources 
-| where type == 'microsoft.security/securitystatuses' and properties.type == 'virtualMachine'
-| where name in ({vmnames}) 
-| project name, resourceGroup, policyAssesments = properties.policyAssessments, resourceRegion = location, id, resourceDetails = properties.resourceDetails
-```
-
-Assessments 테이블의 대체 쿼리:
-
-```kusto
-securityresources
-| where type == "microsoft.security/assessments" and id contains "virtualMachine"
-| extend resourceName = extract(@"(?i)/([^/]*)/providers/Microsoft.Security/assessments", 1, id)
-| extend source = tostring(properties.resourceDetails.Source)
-| extend resourceId = trim(" ", tolower(tostring(case(source =~ "azure", properties.resourceDetails.Id,
-source =~ "aws", properties.additionalData.AzureResourceId,
-source =~ "gcp", properties.additionalData.AzureResourceId,
-extract("^(.+)/providers/Microsoft.Security/assessments/.+$",1,id)))))
-| extend resourceGroup = tolower(tostring(split(resourceId, "/")[4]))
-| where resourceName in ({vmnames}) 
-| project resourceName, resourceGroup, resourceRegion = location, id, resourceDetails = properties.additionalData
-```
-
-다음 링크에서 자세한 내용을 알아보세요.
-- [Azure Resource Graph Explorer를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
-- [Kusto Query Language(KQL)](/azure/data-explorer/kusto/query/)

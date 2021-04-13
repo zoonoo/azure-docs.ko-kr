@@ -5,14 +5,14 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 04/20/2020
+ms.date: 04/05/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 24a38fde3d1b6bbe1efef9241458da846c186112
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0fadb679260582a788eb6408ff3761f00c2ceb1a
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97916340"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448828"
 ---
 # <a name="playback-technology-tech"></a>재생 기술("기술") #
 
@@ -21,7 +21,7 @@ ms.locfileid: "97916340"
 - **azureHtml5JS**: Azure Media Services에서 AES-128 비트 봉투 암호화된 콘텐츠 또는 DRM 공통 암호화된 콘텐츠(브라우저에서 지원하는 경우 PlayReady 및 Widevine을 통해)를 지원하여 DASH 콘텐츠의 플러그 인 기반이 아닌 재생을 위해 비디오 요소와 함께 MSE 및 EME 표준을 활용합니다.
 - **flashSS**: Azure Media Services에서 AES-128 비트 봉투 암호화를 지원하여 Smooth 콘텐츠를 재생하는 Flash Player 기술을 활용합니다. Flash 버전 11.4 이상이 필요합니다.
 - **html5FairPlayHLS**: 비디오 요소를 사용하는 HLS를 통해 브라우저 기반 재생 기술 특정의 Safari를 활용합니다. 이 기술은 Azure Media Services에서 FairPlay로 보호된 콘텐츠를 재생해야 하며, 10/19/16부터 techOrder에 추가되었습니다.
-- **silverlightSS**: Azure Media Services에서 PlayReady로 보호된 콘텐츠를 지원하여 Smooth 콘텐츠를 재생하는 Silverlight 기술을 활용합니다.
+- **SilverlightSS**: Azure Media Services에서 PlayReady로 보호된 콘텐츠를 지원하여 Smooth 콘텐츠를 재생하는 Silverlight 기술을 활용합니다.
 - **html5**: 비디오 요소를 사용하는 브라우저 기반 재생 기술을 활용합니다.  Apple iOS 또는 Android 디바이스를 사용하는 경우 이 기술을 통해 AES-128 비트 봉투 암호화 또는 DRM 콘텐츠(브라우저에서 지원하는 경우 FairPlay를 통해)에 대한 몇 가지 기능을 지원하여 HLS 스트림을 재생할 수 있습니다.
 
 ## <a name="tech-order"></a>기술 순서 ##
@@ -45,16 +45,16 @@ Azure Media Services에서 콘텐츠를 스트림하는 데 추천되는 기술 
 | 브라우저        | OS                                                       | 필요한 기술(지우기)  | 필요한 기술(AES)  | 필요한 기술(DRM)          |
 |----------------|----------------------------------------------------------|------------------------|----------------------|------------------------------|
 | EdgeIE 11      | Windows 10, Windows 8.1, Windows Phone 10<sup>1</sup>               | azureHtml5JS           | azureHtml5JS         | azureHtml5JS(PlayReady)     |
-| IE 11          | Windows 7, Windows Vista<sup>1</sup>                     | flashSS                | flashSS              | silverlightSS(PlayReady)    |
+| IE 11          | Windows 7, Windows Vista<sup>1</sup>                     | flashSS                | flashSS              | SilverlightSS(PlayReady)    |
 | IE 11          | Windows Phone 8.1                                        | azureHtml5JS           | azureHtml5JS         | 지원되지 않음                |
 | Microsoft Edge           | Xbox One<sup>1</sup>(2015년 11월 업데이트)                   | azureHtml5JS           | azureHtml5JS         | 지원되지 않음                |
 | Chrome 37 이상     | Windows 10, Windows 8.1, macOS X Yosemite<sup>1</sup>   | azureHtml5JS           | azureHtml5JS         | azureHtml5JS(Widevine)      |
 | Firefox 47 이상    | Windows 10, Windows 8.1, macOS X Yosemite 이상<sup>1</sup>  | azureHtml5JS           | azureHtml5JS         | azureHtml5JS(Widevine)      |
-| Firefox 42-46  | Windows 10, Windows 8.1, macOS X Yosemite 이상<sup>1</sup>  | azureHtml5JS           | azureHtml5JS         | silverlightSS(PlayReady)    |
-| Firefox 35-41  | Windows 10, Windows 8.1                                  | flashSS                | flashSS              | silverlightSS(PlayReady)    |
+| Firefox 42-46  | Windows 10, Windows 8.1, macOS X Yosemite 이상<sup>1</sup>  | azureHtml5JS           | azureHtml5JS         | SilverlightSS(PlayReady)    |
+| Firefox 35-41  | Windows 10, Windows 8.1                                  | flashSS                | flashSS              | SilverlightSS(PlayReady)    |
 | Safari         | iOS 6 이상                                                   | html5                  | html5(토큰 없음)3    | 지원되지 않음                |
 | Safari 8 이상      | OS X Yosemite 이상                                           | azureHtml5JS           | azureHtml5JS         | html5FairPlayHLS(FairPlay)  |
-| Safari 6       | OS X Mountain Lion<sup>1</sup>                           | flashSS                | flashSS              | silverlightSS(PlayReady)    |
+| Safari 6       | OS X Mountain Lion<sup>1</sup>                           | flashSS                | flashSS              | SilverlightSS(PlayReady)    |
 | Chrome 37 이상     | Android 4.4.4 이상<sup>2</sup>                               | azureHtml5JS           | azureHtml5JS         | azureHtml5JS(Widevine)      |
 | Chrome 37 이상     | Android 4.02                                             | html5                  | html5(토큰 없음)<sup>3</sup>    | 지원되지 않음                |
 | Firefox 42 이상    | Android 5.0 이상<sup>2</sup>                                 | azureHtml5JS           | azureHtml5JS         | 지원되지 않음                |

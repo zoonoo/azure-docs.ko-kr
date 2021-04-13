@@ -3,17 +3,17 @@ title: Windows Virtual Desktop의 새로운 기능 - Azure
 description: Windows Virtual Desktop에 대한 새로운 기능 및 제품 업데이트.
 author: Heidilohr
 ms.topic: overview
-ms.date: 02/23/2021
+ms.date: 03/20/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
-manager: lizross
+manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: c0b4ad17c5aefe29a313b9eaf75fc87ce4d88720
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 1c5d846963d7fc0c2207893f5c4094e3f94351b5
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102499886"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505419"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Windows Virtual Desktop의 새로운 기능
 
@@ -35,6 +35,18 @@ Windows Virtual Desktop은 정기적으로 업데이트됩니다. 이 문서에�
 - [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
 - [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
 - [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
+
+## <a name="windows-virtual-desktop-agent-updates"></a>Windows Virtual Desktop 에이전트 업데이트
+
+Windows Virtual Desktop 에이전트는 한 달에 한 번 이상 업데이트됩니다.
+
+Windows Virtual Desktop 에이전트에서 변경된 내용은 다음과 같습니다.
+
+- 버전 1.0.2866.1500: 이 업데이트는 2021년 3월 26일에 출시되었으며 스택 상태 검사와 관련된 문제를 해결했습니다.
+- 버전 1.0.2800.2802: 이 업데이트는 2021년 3월 10일에 출시되었으며 일반적인 향상된 기능 및 버그 수정이 있습니다.
+- 버전 1.0.2800.2800: 이 업데이트는 2021년 3월 2일에 출시되었으며 역방향 연결 문제를 해결했습니다.
+- 버전 1.0.2800.2700: 이 업데이트는 2021년 2월 10일에 출시되었으며 일반적인 향상된 기능 및 버그 수정이 있습니다.
+- 버전 1.0.2800.2700: 이 업데이트는 2021년 2월 4일에 릴리스되었으며 액세스 거부 오케스트레이션 문제를 해결했습니다.
 
 ## <a name="fslogix-updates"></a>FSLogix 업데이트
 

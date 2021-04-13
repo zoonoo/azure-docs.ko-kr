@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 03/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 3b7c8e024ac8361c08cc41195531a114bb12fcb4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3af149f0c1db7f354be6bd968bbd0cf858493d4c
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92522294"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219300"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-peoplesoft---protected-by-f5-big-ip-apm"></a>자습서: Oracle PeopleSoft - Protected by F5 BIG-IP APM과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -43,7 +43,7 @@ ms.locfileid: "92522294"
         * URL 범주 데이터베이스를 사용하는 URL 필터링 구독 
         * 알려진 공격자와 악성 트래픽을 탐지 및 차단하는 F5 IP 인텔리전스 구독 
         * 강력한 인증을 위해 디지털 키를 보호하고 관리하는 HSM(네트워크 하드웨어 보안 모듈)
-1. F5 BIG-IP 시스템은 APM 모듈을 통해 프로비저닝됩니다(LTM은 선택 사항). 
+1. F5 BIG-IP 시스템은 APM 모듈을 통해 프로비저닝됩니다(LTM은 선택 사항).
 1. 선택 사항이지만, HA(고가용성)를 위해 부동 IP 주소를 사용하여 F5 시스템을 활성-대기 쌍이 포함된 [S/F DG](https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/big-ip-device-service-clustering-administration-14-1-0.html)(동기화/장애 조치 디바이스 그룹)에 배포하는 것이 좋습니다. LACP(링크 집계 제어 프로토콜)를 사용하여 더 많은 인터페이스 중복성을 달성할 수 있습니다. LACP는 연결된 실제 인터페이스를 단일 가상 인터페이스(집계 그룹)로 관리하고 그룹 내의 인터페이스 오류를 검색합니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
@@ -52,7 +52,7 @@ ms.locfileid: "92522294"
 
 * Oracle PeopleSoft - Protected by F5 BIG-IP APM에서 **SP 및 IDP** 시작 SSO를 지원합니다.
 
-## <a name="adding-oracle-peoplesoft---protected-by-f5-big-ip-apm-from-the-gallery"></a>갤러리에서 Oracle PeopleSoft - Protected by F5 BIG-IP APM 추가
+## <a name="add-oracle-peoplesoft---protected-by-f5-big-ip-apm-from-the-gallery"></a>갤러리에서 Oracle PeopleSoft - Protected by F5 BIG-IP APM 추가
 
 Oracle PeopleSoft - Protected by F5 BIG-IP APM이 Azure AD에 통합되도록 구성하려면 갤러리의 Oracle PeopleSoft - Protected by F5 BIG-IP APM을 관리형 SaaS 앱 목록에 추가해야 합니다.
 
@@ -83,7 +83,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal의 **Oracle PeopleSoft - Protected by F5 BIG-IP APM** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 다음, **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -329,9 +329,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 Oracle PeopleSoft-Protected by F5 BIG-IP APM에 자동으로 로그인됩니다. 
 
-Microsoft 액세스 패널을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 액세스 패널에서 Oracle PeopleSoft-Protected by F5 BIG-IP APM 타일을 클릭할 때 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Oracle PeopleSoft-Protected by F5 BIG-IP APM에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
-
+Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 Oracle PeopleSoft-Protected by F5 BIG-IP APM 타일을 클릭할 때 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Oracle PeopleSoft-Protected by F5 BIG-IP APM에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Oracle PeopleSoft-Protected by F5 BIG-IP APM이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+Oracle PeopleSoft-Protected by F5 BIG-IP APM이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

@@ -8,34 +8,33 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 6cb4abd536cc0d4177df424ac6a774e4e2e328d7
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 9849648c8a0a76ff89a6f95e64eeade791e7135c
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105564758"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106381777"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>ARM 템플릿을 사용하여 Cloud Service(추가 지원)를 배포합니다.
 
 이 문서에서는 [ARM 템플릿](../azure-resource-manager/templates/overview.md)을 사용하여 Cloud Service(추가 지원) 배포를 만드는 방법에 대해 설명합니다. 
-
-> [!IMPORTANT]
-> Cloud Services(추가 지원)는 현재 공개 미리 보기에 있습니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 1. Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-prerequisite.md)를 검토하고 관련 리소스를 만듭니다.
 
 2. [Azure Portal](../azure-resource-manager/management/manage-resource-groups-portal.md) 또는 [PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md)을 사용하여 새 리소스 그룹을 만듭니다. 기존 리소스 그룹을 사용하는 경우 이 단계는 선택 사항입니다.
+
+3. 공용 IP 주소를 만들고 공용 IP 주소의 DNS 레이블 속성을 설정합니다. Cloud Services(추가 지원)는 [기본] (https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) SKU 공용 IP 주소만 지원합니다. 표준 SKU 공용 IP는 Cloud Services에서 작동하지 않습니다.
+고정 IP를 사용하는 경우 서비스 구성(.cscfg) 파일에서 예약된 IP로 참조해야 합니다. 기존 IP 주소를 사용하는 경우 이 단계를 건너뛰고 IP 주소 정보를 ARM 템플릿의 부하 분산 장치 구성 설정에 직접 추가합니다.
+
+4. 네트워크 프로필 개체를 만들고, 공용 IP 주소를 부하 분산 장치의 프런트 엔드에 연결합니다. Azure 플랫폼은 클라우드 서비스 리소스와 동일한 구독에서 '클래식' SKU 부하 분산 장치 리소스를 자동으로 만듭니다. 부하 분산 장치 리소스는 ARM의 읽기 전용 리소스입니다. 리소스에 대한 모든 업데이트는 클라우드 서비스 배포 파일(.cscfg & .csdef)을 통해서만 지원됩니다.
  
-3. [Azure Portal](../storage/common/storage-account-create.md?tabs=azure-portal) 또는 [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell)을 사용하여 새 스토리지 계정을 만듭니다. 기존 스토리지 계정을 사용하는 경우 이 단계는 선택 사항입니다.
+5. [Azure Portal](../storage/common/storage-account-create.md?tabs=azure-portal) 또는 [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell)을 사용하여 새 스토리지 계정을 만듭니다. 기존 스토리지 계정을 사용하는 경우 이 단계는 선택 사항입니다.
 
-4. [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 또는 [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container)을 사용하여 서비스 정의(.csdef) 및 서비스 구성(.cscfg) 파일을 스토리지 계정에 업로드합니다. 이 자습서의 뒷부분에서 ARM 템플릿에 추가할 두 파일의 SAS URI를 가져옵니다.
+6. [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 또는 [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container)을 사용하여 서비스 정의(.csdef) 및 서비스 구성(.cscfg) 파일을 스토리지 계정에 업로드합니다. 이 자습서의 뒷부분에서 ARM 템플릿에 추가할 두 파일의 SAS URI를 가져옵니다.
 
-5. (선택 사항) 키 자격 증명 모음을 만들고 인증서를 업로드합니다.
+6. (선택 사항) 키 자격 증명 모음을 만들고 인증서를 업로드합니다.
 
     -  인증서를 클라우드 서비스에 연결하여 서비스와의 보안 통신을 실행할 수 있습니다. 인증서를 사용하려면 해당 지문을 서비스 구성(.cscfg) 파일에 지정하고 키 자격 증명 모음에 업로드해야 합니다. 키 자격 증명 모음은 [Azure Portal](../key-vault/general/quick-create-portal.md) 또는 [PowerShell](../key-vault/general/quick-create-powershell.md)을 통해 만들 수 있습니다.
     - 연결된 키 자격 증명 모음은 클라우드 서비스와 동일한 지역 및 구독에 있어야 합니다.
@@ -351,7 +350,7 @@ ms.locfileid: "105564758"
           }
         },
         {
-          "apiVersion": "2020-10-01-preview",
+          "apiVersion": "2021-03-01",
           "type": "Microsoft.Compute/cloudServices",
           "name": "[variables('cloudServiceName')]",
           "location": "[parameters('location')]",

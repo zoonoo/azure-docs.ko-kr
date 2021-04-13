@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, contperf-fy21q2
-ms.openlocfilehash: e6971fa129c01fc4cdf64e0dc681ac0fab4f707b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f7b24c711d99b1127ee77a920b305acb114d20e
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99833816"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505130"
 ---
 # <a name="what-is-azure-iot-central"></a>Azure IoT Central이란?
 
@@ -23,16 +23,16 @@ IoT Central은 엔터프라이즈급 IoT 솔루션의 개발, 관리 및 유지 
 
 이 문서에서는 IoT Central에 대해 개략적으로 설명합니다.
 
-- 프로젝트와 관련된 일반적인 가상 사용자.
+- 프로젝트와 관련된 일반적인 사용자 역할
 - 애플리케이션을 만드는 방법.
 - 디바이스를 애플리케이션에 연결하는 방법
 - 애플리케이션을 관리하는 방법.
 - IoT Central의 Azure IoT Edge 기능.
 - Azure IoT Edge 런타임 기반 디바이스를 애플리케이션에 연결하는 방법을 설명합니다.
 
-## <a name="personas"></a>가상 사용자
+## <a name="user-roles"></a>사용자 역할
 
-IoT Central 설명서는 IoT Central 애플리케이션과 상호 작용하는 다음 4명의 일반적인 가상 사용자와 관련이 있습니다.
+IoT Central 설명서는 IoT Central 애플리케이션과 상호 작용하는 네 개의 사용자 역할을 나타냅니다.
 
 - _솔루션 작성기_ 는 [애플리케이션 생성](quick-deploy-iot-central.md), [규칙 및 작업 구성](quick-configure-rules.md), [다른 서비스와의 통합 정의](howto-export-data.md) 및 운영자와 디바이스 개발자를 위해 애플리케이션을 추가로 사용자 지정하는 작업을 담당합니다.
 - _운영자_ 는 애플리케이션에 연결된 [디바이스를 관리](howto-manage-devices.md)합니다.

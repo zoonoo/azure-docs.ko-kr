@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9a878dc5cdbbe336e7279d0cd919bd17cd42d0e8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e1b7e091fe09bc2c093cc84473bd07917347f26d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728218"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220798"
 ---
 # <a name="communication-services-notifications"></a>Communication Services 알림
 
@@ -67,13 +67,24 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 
 #### <a name="using-the-azure-portal-to-link-your-notification-hub"></a>Azure Portal을 사용하여 Notification Hub 연결
 
-포털에서 Azure Communication Services 리소스로 이동합니다. Communication Services 리소스 내에서 Communication Services 페이지의 왼쪽 메뉴에 있는 푸시 알림을 선택하고 이전에 프로비저닝한 Notification Hub를 연결합니다. 여기에 연결 문자열과 리소스 ID를 제공해야 합니다.
+1. 포털에서 Azure Communication Services 리소스로 이동합니다.
 
-:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Azure Portal 내의 푸시 알림 설정을 보여 주는 스크린샷":::
+1. Communication Services 리소스 내에서 Communication Services 페이지의 왼쪽 메뉴에 있는 **푸시 알림** 을 선택하고 이전에 프로비저닝한 Notification Hub를 연결합니다.
+
+1. **알림 허브 연결** 을 선택합니다. 연결할 수 있는 알림 허브의 목록이 표시됩니다.
+ 
+1. 이 리소스에 사용할 알림 허브를 선택합니다.
+ 
+   - 새 허브를 만들어야 하는 경우 **새 알림 허브 만들기** 를 선택하여 이 리소스에 대해 프로비저닝된 새 허브를 가져옵니다.
+
+   :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Azure Portal 내의 푸시 알림 설정을 보여 주는 스크린샷":::
+
+이제 연결된 상태와 연결된 알림 허브가 표시됩니다.
+
+리소스에 대해 다른 허브를 사용하려는 경우 **연결 끊기** 를 선택한 다음, 단계를 반복하여 다른 알림 허브를 연결합니다.
 
 > [!NOTE]
-> Azure Notification Hub 연결 문자열이 업데이트되면 Communication Services 리소스도 업데이트해야 합니다.
-허브를 연결하는 방법에 대한 변경 내용은 최대 ``10``분 내에 데이터 평면(즉, 알림을 보낼 때)에 반영됩니다. 이전에 보낸 알림이 있는 **경우** 허브가 처음 연결되었을 때도 적용됩니다.
+> 허브를 연결하는 방법에 대한 변경 내용은 최대 10분 내에 데이터 평면(즉, 알림을 보낼 때)에 반영됩니다. 변경 전에 알림이 전송된 **경우** 허브를 처음 연결하는 경우에도 이와 동일한 동작이 적용됩니다.
 
 ### <a name="device-registration"></a>디바이스 등록
 
