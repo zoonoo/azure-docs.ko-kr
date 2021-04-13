@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 292c82624103fc2eae46d8aecb5e85b2181e7938
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b3192c3ee8458623f3724da5f875cc09032a42bf
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463054"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219419"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>자습서: Azure Machine Learning을 IoT Edge 모듈로 배포(미리 보기)
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Azure Notebooks를 사용하여 기계 학습 모듈을 개발하고 Azure IoT Edge를 실행하는 Linux 디바이스에 배포합니다.
+Azure Notebooks를 사용하여 기계 학습 모듈을 개발하고 Linux 컨테이너가 있는 Azure IoT Edge를 실행하는 디바이스에 배포합니다.
 비즈니스 논리를 직접 IoT Edge 디바이스에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 컴퓨터 온도 데이터에 따라 디바이스가 실패하는 경우를 예측하는 Azure Machine Learning 모듈을 배포하는 과정을 안내합니다. IoT Edge의 Azure Machine Learning에 대한 자세한 내용은 [Azure Machine Learning 설명서](../machine-learning/how-to-deploy-and-where.md)를 참조하세요.
 
 >[!NOTE]

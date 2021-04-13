@@ -1,16 +1,16 @@
 ---
-title: IoT 마이크로 에이전트용 Defender 설치(미리 보기)
-description: Defender 마이크로 에이전트를 설치하고 인증하는 방법을 알아봅니다.
+title: '빠른 시작: IoT 마이크로 에이전트용 Defender 설치(미리 보기)'
+description: 이 빠른 시작에서는 Defender 마이크로 에이전트를 설치하고 인증하는 방법을 알아봅니다.
 ms.date: 3/9/2021
 ms.topic: quickstart
-ms.openlocfilehash: ecde9f42acc5cf4a924a657f4f0cdc545c4a668e
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: a153b640a1d1e86f9b761817d05fda7d3e47da98
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104782727"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384411"
 ---
-# <a name="install-defender-for-iot-micro-agent-preview"></a>IoT 마이크로 에이전트용 Defender 설치(미리 보기)
+# <a name="quickstart-install-defender-for-iot-micro-agent-preview"></a>빠른 시작: IoT 마이크로 에이전트용 Defender 설치(미리 보기)
 
 이 문서에서는 Defender 마이크로 에이전트를 설치하고 인증하는 방법에 대해 설명합니다.
 
@@ -148,4 +148,5 @@ sudo apt-get install defender-iot-micro-agent=<version>
 
 ## <a name="next-steps"></a>다음 단계
 
-[소스 코드에서 Defender 마이크로 에이전트 빌드](quickstart-building-the-defender-micro-agent-from-source.md)
+> [!div class="nextstepaction"]
+> [소스 코드에서 Defender 마이크로 에이전트 빌드](quickstart-building-the-defender-micro-agent-from-source.md)

@@ -6,20 +6,21 @@ author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
-ms.date: 03/27/2021
+ms.date: 03/24/2021
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 316a78f4725aa3c33a78b00c6de3b8419aea717e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bb09a25d7ea242dfafd7d853015ae8e127b13883
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600210"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383408"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>Azure Synapse Analytics란?
 
 **Azure Synapse** 는 데이터 웨어하우스와 빅 데이터 시스템 전체에서 인사이트를 얻는 시간을 앞당길 수 있는 엔터프라이즈 분석 서비스입니다. Azure Synapse는 엔터프라이즈 데이터 웨어하우징에 사용되는 최고의 **SQL** 기술, 빅 데이터에 사용되는 **Spark** 기술, 데이터 통합 및 ETL/ELT를 위한 **파이프라인**, **Power BI**, **CosmosDB** 및 **AzureML** 과 같은 Azure 서비스와의 긴밀한 통합을 결합합니다.
 
+![Azure Synapse Analytics 아키텍처의 다이어그램.](./media/overview-what-is/synapse-architecture.png)
 
 ## <a name="industry-leading-sql"></a>업계 최고의 SQL
 
@@ -42,11 +43,11 @@ ms.locfileid: "104600210"
 
 Azure Synapse는 SQL과 Spark를 함께 사용하는 기존의 기술 장벽을 제거합니다. 사용자의 요구 사항과 전문 지식에 맞게 원활하게 조합하여 사용할 수 있습니다.
 
-* 공유 Hive 호환 메타데이터 시스템을 통해 Data Lake의 파일에 정의된 테이블을 Spark 또는 Hive에서 원활하게 사용할 수 있습니다.
+* 데이터 레이크의 파일에서 정의된 테이블은 Spark 또는 Hive에서 원활하게 사용됩니다.
 * SQL과 Spark는 데이터 레이크에 저장된 Parquet, CSV, TSV 및 JSON 파일을 직접 검색하고 분석할 수 있습니다.
-* SQL과 Spark 데이터베이스 간 데이터 이동을 위한 빠른고 확장성 있는 로드 및 언로드
+* SQL과 Spark 데이터베이스 사이의 빠르고 확장성 있는 데이터 로딩
 
-## <a name="built-in-data-integration-via-pipelines"></a>파이프라인을 통한 기본 제공 데이터 통합
+## <a name="built-in-data-integration"></a>기본 제공 데이터 통합
 
 Azure Synapse에는 Azure Data Factory와 동일한 데이터 통합 엔진과 환경이 포함되어 있으므로 Azure Synapse Analytics를 종료하지 않고도 다양한 규모의 ETL 파이프라인을 만들 수 있습니다.
 
@@ -66,14 +67,14 @@ Azure Synapse는 엔터프라이즈에서 분석 리소스를 관리하고, 사�
 
 **Synapse Studio** 는 데이터 엔지니어를 위해 모든 항목을 하나로 묶는 사용자 환경입니다. 이를 통해 전체 분석 솔루션을 빌드하는 데 필요한 모든 작업을 수행할 수 있습니다.
 
-* 한 곳에서 주요 데이터 엔지너어 작업: 수집, 탐색, 준비, 오케스트레이션, 시각화
+* 한 곳에서 주요 데이터 엔지니어 작업 수행: 수집, 탐색, 준비, 오케스트레이션, 시각화
 * SQL 또는 Spark 코드 작성을 위한 업계 최고의 생산성: 작성, 디버깅 및 성능 최적화
 * 엔터프라이즈 CI/CD 프로세스와 통합
 
-## <a name="engage-with-the-synapse-engineering-team"></a>Synapse 엔지니어링 팀과 협력
+## <a name="engage-with-the-synapse-community"></a>Synapse 커뮤니티에 참여
 
+- [Microsoft Q&A](/answers/topics/azure-synapse-analytics.html): 기술 관련 질문
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse): 개발에 관한 질문을 합니다.
-- [Microsoft Q&A 질문 페이지](/answers/topics/azure-synapse-analytics.html): 기술에 관한 질문을 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: 692033e323880db1699d7265a991775d41b05f7f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0d9ef13de29ac140d94e9e4c05b14f35b9e5834c
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656008"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968172"
 ---
 # <a name="what-is-document-translation-preview"></a>문서 번역(미리 보기)이란?
 
@@ -54,7 +54,6 @@ ms.locfileid: "104656008"
 |Microsoft Word|.docx| 텍스트 문서 파일입니다.|
 |탭으로 구분된 값/TAB|.tsv/.tab| 스프레드시트 프로그램에서 사용하는 탭으로 구분된 원시 데이터 파일입니다.|
 |텍스트|.txt| 서식이 지정되지 않은 텍스트 문서입니다.|
-|번역 메모리 교환|.tmx|CAT(컴퓨터 보조 번역) 및 지역화 애플리케이션에서 만든 TM(번역 메모리) 데이터를 교환하는 데 사용되는 개방형 XML 표준입니다.|
 
 ## <a name="supported-glossary-formats"></a>지원되는 글로서리 형식
 

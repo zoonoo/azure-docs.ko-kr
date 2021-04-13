@@ -3,12 +3,12 @@ title: '빠른 시작: 시작'
 description: 이 빠른 시작에서는 Defender for IoT 배포의 기본 워크플로를 시작하는 방법에 대해 알아봅니다.
 ms.topic: quickstart
 ms.date: 2/18/2021
-ms.openlocfilehash: c6136d734570714b691a4ba3c2a72305c4c85590
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: aa26ea26a3fb0a08d931657cb7ad236c68972e2f
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104784495"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384956"
 ---
 # <a name="quickstart-get-started-with-defender-for-iot"></a>빠른 시작: Defender for IoT 시작
 
@@ -20,7 +20,7 @@ ms.locfileid: "104784495"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-없음
+- 없음
 
 ## <a name="permission-requirements"></a>사용 권한 요구 사항
 
@@ -60,11 +60,14 @@ Azure Defender for IoT는 물리적 배포와 가상 배포를 모두 지원합�
 등록하려면 다음을 수행합니다.
 
 1. Azure Defender for IoT 포털로 이동합니다.
+
 1. **구독 등록** 을 선택합니다.
+
 1. **가격 책정** 페이지에서 구독을 선택하거나 새 구독을 만들고 커밋된 디바이스 수를 추가합니다.
+
 1. **온-프레미스 관리 콘솔 다운로드** 탭을 선택하고 다운로드한 활성화 파일을 저장합니다. 이 파일에는 사용자가 정의한 집계된 커밋된 디바이스가 포함되어 있습니다. 이 파일은 첫 로그인 후 관리 콘솔에 업로드됩니다.
 
-구독을 등록 취소하는 방법은 [구독 등록 취소](how-to-manage-sensors-on-the-cloud.md#offboard-a-subscription)를 참조하세요.
+구독을 등록 취소하는 방법은 [구독 등록 취소](how-to-manage-subscriptions.md#offboard-a-subscription)를 참조하세요.
 
 ## <a name="install-and-set-up-the-on-premises-management-console"></a>온-프레미스 관리 콘솔 설치 및 설정
 
@@ -87,6 +90,7 @@ Azure Defender for IoT는 물리적 배포와 가상 배포를 모두 지원합�
 센서를 Azure Defender for IoT에 등록하고 센서 활성화 파일을 다운로드하여 온보딩합니다.
 
 1. 센서 이름을 정의하고 구독과 연결합니다.
+
 1. 센서 관리 모드를 선택합니다.
 
    - **클라우드 연결 센서**: 센서에서 탐지한 정보가 센서 콘솔에 표시됩니다. 뿐만 아니라 경고 정보는 IoT 허브를 통해 전달되며 다른 Azure 서비스(예: Azure Sentinel)와 공유할 수 있습니다.
@@ -102,9 +106,13 @@ Azure Defender for IoT는 물리적 배포와 가상 배포를 모두 지원합�
 Azure Defender for IoT 포털에서 ISO 패키지를 다운로드하고, 소프트웨어를 설치하고, 센서를 설정합니다.
 
 1. Defender for IoT 포털에서 **시작** 을 선택합니다.
+
 1. **센서 설정** 을 선택합니다.
+
 1. 버전을 선택하고 **다운로드** 를 선택합니다.
+
 1. 센서 소프트웨어를 설치합니다. 자세한 내용은 [Defender for IoT 설치](how-to-install-software.md)를 참조하세요.
+
 1. 센서를 활성화하고 설정합니다. 자세한 내용은 [로그인하고 센서 활성화](how-to-activate-and-set-up-your-sensor.md)를 참조하세요.
 
 ## <a name="connect-sensors-to-an-on-premises-management-console"></a>온-프레미스 관리 콘솔에 센서 연결

@@ -3,12 +3,12 @@ title: 자습서 - 온-프레미스 환경을 프라이빗 클라우드로 피�
 description: Azure VMware Solution의 프라이빗 클라우드에 대한 ExpressRoute Global Reach 피어링을 만드는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: 59ddc2dd4aed850328807a4543d2fabd6f5a99f1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 798b822989127ccbb00e971de2cc4147ac234259
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564503"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449565"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>자습서: 온-프레미스 환경을 프라이빗 클라우드로 피어링
 
@@ -55,7 +55,7 @@ ExpressRoute Global Reach를 사용하여 두 ExpressRoute 회로 간에 연결�
 1. 온-프레미스 클라우드 연결을 만듭니다. 다음 중 하나를 수행한 다음, **만들기** 를 선택합니다.
 
    - 목록에서 **ExpressRoute** 회로를 선택하거나
-   - 회로 ID가 있는 경우 필드에 붙여넣고 권한 부여 키를 제공합니다.
+   - 회로 ID가 있는 경우 필드에 붙여넣고 방금 만든 권한 부여 키를 제공합니다.
 
    :::image type="content" source="./media/expressroute-global-reach/on-premises-cloud-connections.png" alt-text="ExpressRoute 경로 ID와 권한 부여 키를 입력한 다음, 만들기를 선택합니다.":::   
    

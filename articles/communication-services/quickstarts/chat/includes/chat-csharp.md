@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: azure-communication-services
 author: mikben
@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 80d6c4d3f0b2eef5bc6012f2aab3fcbeab0e31b8
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 4c8bd66dde54ff90ea2191fba58f10c87c45cf68
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495438"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958374"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 시작하기 전에 다음을 확인해야 합니다.
@@ -43,24 +43,24 @@ dotnet build
 
 ### <a name="install-the-package"></a>패키지 설치
 
-.NET용 Azure 통신 채팅 클라이언트 라이브러리 설치
+.NET용 Azure Communication 채팅 SDK 설치
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version 1.0.0-beta.5
+dotnet add package Azure.Communication.Chat --version 1.0.0
 ```
 
 ## <a name="object-model"></a>개체 모델
 
-다음 클래스는 C#용 Azure Communication Services 채팅 클라이언트 라이브러리의 주요 기능 중 일부를 처리합니다.
+다음 클래스는 C#용 Azure Communication Services 채팅 SDK의 주요 기능 중 일부를 처리합니다.
 
-| 이름                                  | 설명                                                  |
+| Name                                  | 설명                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | ChatClient | 이 클래스는 채팅 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고 스레드를 만들고 가져오고 삭제하는 데 사용합니다. |
 | ChatThreadClient | 이 클래스는 채팅 스레드 기능에 필요합니다. 사용자는 ChatClient를 통해 인스턴스를 가져오고, 이를 사용하여 메시지 전송/수신/업데이트/삭제, 참가자 추가/제거/가져오기, 입력 알림 및 읽음 확인 보내기를 수행할 수 있습니다. |
 
 ## <a name="create-a-chat-client"></a>채팅 클라이언트 만들기
 
-채팅 클라이언트를 만들려면 Communications Service 엔드포인트와 필수 조건 단계의 일부로 생성된 액세스 토큰을 사용합니다. ID 클라이언트 라이브러리의 `CommunicationIdentityClient` 클래스를 사용하여 사용자를 만들고 채팅 클라이언트에 전달할 토큰을 발급해야 합니다.
+채팅 클라이언트를 만들려면 Communications Service 엔드포인트와 필수 조건 단계의 일부로 생성된 액세스 토큰을 사용합니다. ID SDK의 `CommunicationIdentityClient` 클래스를 사용하여 사용자를 만들고 채팅 클라이언트에 전달할 토큰을 발급해야 합니다.
 
 [사용자 액세스 토큰](../../access-tokens.md)에 대해 자세히 알아보세요.
 
@@ -115,6 +115,17 @@ string threadId = "<THREAD_ID>";
 ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId: threadId);
 ```
 
+## <a name="list-all-chat-threads"></a>모든 채팅 스레드 나열
+`GetChatThreads`를 사용하여 사용자가 속한 모든 채팅 스레드를 검색합니다.
+
+```csharp
+AsyncPageable<ChatThreadItem> chatThreadItems = chatClient.GetChatThreadsAsync();
+await foreach (ChatThreadItem chatThreadItem in chatThreadItems)
+{
+    Console.WriteLine($"{ chatThreadItem.Id}");
+}
+```
+
 ## <a name="send-a-message-to-a-chat-thread"></a>채팅 스레드에 메시지 보내기
 
 `SendMessage`를 사용하여 스레드에 메시지를 보냅니다.
@@ -124,17 +135,8 @@ ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId: thr
 - `senderDisplayName`을 사용하여 보낸 사람의 표시 이름을 지정합니다. 지정되지 않는 경우 빈 문자열이 설정됩니다.
 
 ```csharp
-var messageId = await chatThreadClient.SendMessageAsync(content:"hello world", type: ChatMessageType.Text);
-```
-## <a name="get-a-message"></a>메시지 가져오기
-
-`GetMessage`를 사용하여 서비스에서 메시지를 검색합니다.
-`messageId`는 메시지의 고유 ID입니다.
-
-`ChatMessage`는 메시지를 가져온 후 반환되는 응답으로, 다른 필드 가운데 메시지의 고유 식별자인 ID가 포함됩니다. Azure.Communication.Chat.ChatMessage 참조
-
-```csharp
-ChatMessage chatMessage = await chatThreadClient.GetMessageAsync(messageId: messageId);
+SendChatMessageResult sendChatMessageResult = await chatThreadClient.SendMessageAsync(content:"hello world", type: ChatMessageType.Text);
+string messageId = sendChatMessageResult.Id;
 ```
 
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>채팅 스레드에서 채팅 메시지 받기
@@ -167,25 +169,6 @@ await foreach (ChatMessage message in allMessages)
 
 자세한 내용은 [메시지 유형](../../../concepts/chat/concepts.md#message-types)을 참조하세요.
 
-## <a name="update-a-message"></a>메시지 업데이트
-
-`ChatThreadClient`에서 `UpdateMessage`를 호출하여 이미 전송된 메시지를 업데이트할 수 있습니다.
-
-```csharp
-string id = "id-of-message-to-edit";
-string content = "updated content";
-await chatThreadClient.UpdateMessageAsync(messageId: id, content: content);
-```
-
-## <a name="deleting-a-message"></a>메시지 삭제
-
-`ChatThreadClient`에서 `DeleteMessage`를 호출하여 메시지를 삭제할 수 있습니다.
-
-```csharp
-string id = "id-of-message-to-delete";
-await chatThreadClient.DeleteMessageAsync(messageId: id);
-```
-
 ## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>채팅 스레드에 사용자를 참가자로 추가
 
 스레드가 생성되면 스레드에서 사용자를 추가하고 제거할 수 있습니다. 사용자를 추가하면 스레드에 메시지를 보내고 다른 참가자를 추가/제거할 수 있는 액세스 권한이 해당 사용자에게 부여됩니다. `AddParticipants`를 호출하기 전에 해당 사용자에 대한 새 액세스 토큰 및 ID를 획득했는지 확인하세요. 사용자가 채팅 클라이언트를 초기화하려면 액세스 토큰이 필요합니다.
@@ -209,14 +192,6 @@ var participants = new[]
 
 await chatThreadClient.AddParticipantsAsync(participants: participants);
 ```
-## <a name="remove-user-from-a-chat-thread"></a>채팅 스레드에서 사용자 제거
-
-스레드에 사용자를 추가하는 것과 마찬가지로 채팅 스레드에서 사용자를 제거할 수 있습니다. 사용자를 제거하려면 추가한 참가자의 ID `CommunicationUser`를 추적해야 합니다.
-
-```csharp
-var gloria = new CommunicationUserIdentifier(id: "<Access_ID_For_Gloria>");
-await chatThreadClient.RemoveParticipantAsync(identifier: gloria);
-```
 
 ## <a name="get-thread-participants"></a>스레드 참가자 가져오기
 
@@ -230,14 +205,6 @@ await foreach (ChatParticipant participant in allParticipants)
 }
 ```
 
-## <a name="send-typing-notification"></a>입력 알림 보내기
-
-`SendTypingNotification`을 사용하여 사용자가 스레드에 응답을 입력하고 있음을 나타냅니다.
-
-```csharp
-await chatThreadClient.SendTypingNotificationAsync();
-```
-
 ## <a name="send-read-receipt"></a>읽음 확인 보내기
 
 `SendReadReceipt`를 사용하여 다른 참가자에게 사용자가 메시지를 읽었음을 알립니다.
@@ -246,17 +213,6 @@ await chatThreadClient.SendTypingNotificationAsync();
 await chatThreadClient.SendReadReceiptAsync(messageId: messageId);
 ```
 
-## <a name="get-read-receipts"></a>읽음 확인 가져오기
-
-`GetReadReceipts`를 사용하여 메시지의 상태를 확인하고 채팅 스레드의 다른 참가자가 읽은 메시지를 확인합니다.
-
-```csharp
-AsyncPageable<ChatMessageReadReceipt> allReadReceipts = chatThreadClient.GetReadReceiptsAsync();
-await foreach (ChatMessageReadReceipt readReceipt in allReadReceipts)
-{
-    Console.WriteLine($"{readReceipt.ChatMessageId}:{((CommunicationUserIdentifier)readReceipt.Sender).Id}:{readReceipt.ReadOn}");
-}
-```
 ## <a name="run-the-code"></a>코드 실행
 
 `dotnet run` 명령을 사용하여 애플리케이션 디렉터리에서 애플리케이션을 실행합니다.

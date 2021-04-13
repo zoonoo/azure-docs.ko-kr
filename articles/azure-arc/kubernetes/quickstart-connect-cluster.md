@@ -6,14 +6,14 @@ ms.author: magoedte
 ms.service: azure-arc
 ms.topic: quickstart
 ms.date: 03/03/2021
-ms.custom: template-quickstart
+ms.custom: template-quickstart, references_regions
 keywords: Kubernetes, Arc, Azure, 클러스터
-ms.openlocfilehash: 3fc522c4bdda9eb1047d5258bcc431d0268990b9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b4cbd45f8478674c7c6bacc50f068bc0ec691a14
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121646"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449922"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>빠른 시작: Azure Arc에 기존 Kubernetes 클러스터 연결 
 
@@ -23,36 +23,35 @@ ms.locfileid: "102121646"
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-* 다음을 확인합니다.
-    * 실행 중인 Kubernetes 클러스터.
-    * Azure Arc에 연결하고자 하는 클러스터를 가리키는 `kubeconfig` 파일.
-    * Azure Arc 지원 Kubernetes 리소스 유형(`Microsoft.Kubernetes/connectedClusters`)을 만들어 연결하는 사용자 또는 서비스 주체에 대한 '읽기' 및 '쓰기' 권한입니다.
+* 실행 중인 Kubernetes 클러스터. 클러스터가 없는 경우 이러한 옵션 중 하나를 사용하여 클러스터를 만들 수 있습니다.
+    * [Docker의 Kubernetes(KIND)](https://kind.sigs.k8s.io/)
+    * [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) 또는 [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)용 Docker를 사용하여 Kubernetes 클러스터 만들기
+    * [클러스터 API](https://cluster-api.sigs.k8s.io/user/quick-start.html)를 사용하는 자체 관리되는 Kubernetes 클러스터
+
+    >[!NOTE]
+    > 클러스터에는 운영 체제 및 아키텍처 유형 `linux/amd64`의 노드가 하나 이상 있어야 합니다. `linux/arm64` 노드만 있는 클러스터는 아직 지원되지 않습니다.
+    
+* 클러스터를 가리키는 `kubeconfig` 파일 및 컨텍스트입니다.
+* Azure Arc 지원 Kubernetes 리소스 유형(`Microsoft.Kubernetes/connectedClusters`)에 대한 '읽기'및 '쓰기' 사용 권한입니다.
+
 * [Helm 3의 최신 릴리스](https://helm.sh/docs/intro/install)를 설치합니다.
-* 다음 Azure Arc 지원 Kubernetes CLI 확장 버전 1.0.0 이상을 설치합니다.
+
+- 버전 >= 2.16.0으로 [Azure CLI 설치 또는 업그레이드](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* `connectedk8s` Azure CLI 확장 버전 >= 1.0.0을 설치합니다.
   
   ```azurecli
   az extension add --name connectedk8s
-  az extension add --name k8s-configuration
-  ```
-  * 확장을 최신 버전으로 업데이트하려면 다음 명령을 실행합니다.
-  
-  ```azurecli
-  az extension update --name connectedk8s
-  az extension update --name k8s-configuration
   ```
 
+>[!TIP]
+> `connectedk8s` 확장이 이미 설치되어 있는 경우 다음 명령 - `az extension update --name connectedk8s`를 사용하여 최신 버전으로 업데이트합니다.
+
+
 >[!NOTE]
->**지원되는 지역:**
->* 미국 동부
->* 서유럽
->* 미국 중서부
->* 미국 중남부
->* 동남아시아
->* 영국 남부
->* 미국 서부 2
->* 오스트레일리아 동부
->* 미국 동부 2
->* 북유럽
+>Azure Arc 지원 Kubernetes에서 지원하는 지역 목록은 [여기](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)에서 찾을 수 있습니다.
+
+>[!NOTE]
+> 클러스터에서 사용자 지정 위치를 사용하려는 경우 사용자 지정 위치는 현재 지역에서만 사용할 수 있으므로 클러스터를 연결하려면 미국 동부 또는 서유럽 지역을 사용합니다. 다른 모든 Azure Arc 지원 Kubernetes 기능은 위에 나열된 모든 지역에서 사용할 수 있습니다.
 
 ## <a name="meet-network-requirements"></a>네트워크 요구 사항 충족
 
@@ -64,7 +63,7 @@ ms.locfileid: "102121646"
 | 엔드포인트(DNS) | 설명 |  
 | ----------------- | ------------- |  
 | `https://management.azure.com`                                                                                 | 에이전트가 Azure에 연결하고 클러스터를 등록하는 데 필요합니다.                                                        |  
-| `https://eastus.dp.kubernetesconfiguration.azure.com`, `https://westeurope.dp.kubernetesconfiguration.azure.com`, `https://westcentralus.dp.kubernetesconfiguration.azure.com`, `https://southcentralus.dp.kubernetesconfiguration.azure.com`, `https://southeastasia.dp.kubernetesconfiguration.azure.com`, `https://uksouth.dp.kubernetesconfiguration.azure.com`, `https://westus2.dp.kubernetesconfiguration.azure.com`, `https://australiaeast.dp.kubernetesconfiguration.azure.com`, `https://eastus2.dp.kubernetesconfiguration.azure.com`, `https://northeurope.dp.kubernetesconfiguration.azure.com` | 에이전트가 상태를 푸시하고 구성 정보를 가져오기 위한 데이터 평면 엔드포인트.                                      |  
+| `https://<region>.dp.kubernetesconfiguration.azure.com` | 에이전트가 상태를 푸시하고 구성 정보를 가져오기 위한 데이터 평면 엔드포인트.                                      |  
 | `https://login.microsoftonline.com`                                                                            | Azure Resource Manager 토큰을 가져오고 업데이트하는 데 필요합니다.                                                                                    |  
 | `https://mcr.microsoft.com`                                                                            | Azure Arc 에이전트의 컨테이너 이미지를 끌어오는 데 필요합니다.                                                                  |  
 | `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`, `https://wcus.his.arc.azure.com`, `https://scus.his.arc.azure.com`, `https://sea.his.arc.azure.com`, `https://uks.his.arc.azure.com`, `https://wus2.his.arc.azure.com`, `https://ae.his.arc.azure.com`, `https://eus2.his.arc.azure.com`, `https://ne.his.arc.azure.com` |  시스템 할당 MSI(관리 서비스 ID) 인증서를 가져오는 데 필요합니다.                                                                  |
@@ -75,11 +74,13 @@ ms.locfileid: "102121646"
     ```azurecli
     az provider register --namespace Microsoft.Kubernetes
     az provider register --namespace Microsoft.KubernetesConfiguration
+    az provider register --namespace Microsoft.ExtendedLocation
     ```
 2. 등록 프로세스를 모니터링합니다. 등록은 10분 정도 걸릴 수 있습니다.
     ```azurecli
     az provider show -n Microsoft.Kubernetes -o table
-    az provider show -n Microsoft.KubernetesConfiguration -o table    
+    az provider show -n Microsoft.KubernetesConfiguration -o table
+    az provider show -n Microsoft.ExtendedLocation -o table
     ```
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
