@@ -2,26 +2,29 @@
 title: 포함 파일
 description: 포함 파일
 services: azure-communication-services
-author: mikben
-manager: mikben
+author: ddematheu2
+manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
-ms.openlocfilehash: e8ef354480c69fa9b0b5407c88209b368485127d
-ms.sourcegitcommit: 91361cbe8fff7c866ddc4835251dcbbe2621c055
+ms.author: dademath
+ms.openlocfilehash: c6e8be5462e0caffec7a1c88dae54f3f818ec323
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "105729771"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106498768"
 ---
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-android-ios.md)]
+
+
 Azure Communication Services **Android용 그룹 통화 주인공 샘플** 은 Communication Services 통화 Android SDK를 사용하여 음성 및 비디오가 포함된 그룹 통화 환경을 구축하는 방법을 보여줍니다. 이 샘플 빠른 시작에서는 샘플을 설정하고 실행하는 방법에 대해 알아봅니다. 상황에 맞는 샘플 개요가 제공됩니다.
 
 ## <a name="download-code"></a>코드 다운로드
 
-[GitHub](https://github.com/Azure-Samples/communication-services-android-calling-hero)에서 이 빠른 시작에 대한 최종 코드를 찾습니다.
+[GitHub](https://github.com/Azure-Samples/communication-services-android-calling-hero)에서 이 샘플에 대한 프로젝트를 찾습니다. [Teams 상호 운용성](../../concepts/teams-interop.md)을 사용하는 샘플 버전은 별도의 [분기](https://github.com/Azure-Samples/communication-services-android-calling-hero/tree/feature/teams_interop)에서 찾을 수 있습니다.
 
 ## <a name="overview"></a>개요
 

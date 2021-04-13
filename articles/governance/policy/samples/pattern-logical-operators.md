@@ -1,14 +1,14 @@
 ---
 title: 패턴 정책 정의의 논리 연산자
 description: 이 Azure Policy 패턴에서는 정책 정의에서 논리 연산자를 사용하는 방법에 대한 예를 제공합니다.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 3f644cdbfc45b06d1ad5db8e7727c0fa69742f00
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: feb9e50b0c73c19027b747cf0f95fa1cb6fbd47c
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88545593"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093353"
 ---
 # <a name="azure-policy-pattern-logical-operators"></a>Azure Policy 패턴: 논리 연산자
 
@@ -16,7 +16,7 @@ ms.locfileid: "88545593"
 
 ## <a name="sample-1-one-logical-operator"></a>샘플 1: 하나의 논리 연산자
 
-이 정책 정의는 CosmosDB 계정을 평가하여 자동 장애 조치(failover) 및 여러 쓰기 위치가 구성되어 있는지 확인합니다. 그렇지 않은 경우 [감사](../concepts/effects.md#audit)는 비규격 리소스를 만들거나 업데이트할 때 트리거하고 로그 항목을 만듭니다.
+이 정책 정의는 [Azure Cosmos DB](../../../cosmos-db/introduction.md) 계정을 평가하여 자동 장애 조치(failover) 및 여러 쓰기 위치가 구성되어 있는지 확인합니다. 그렇지 않은 경우 [감사](../concepts/effects.md#audit)는 비규격 리소스를 만들거나 업데이트할 때 트리거하고 로그 항목을 만듭니다.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-1.json":::
 
@@ -41,7 +41,7 @@ ms.locfileid: "88545593"
 
 ## <a name="sample-3-combining-logical-operators"></a>샘플 3: 논리 연산자 결합
 
-이 정책 정의는 Java Spring 계정을 평가하여 추적을 사용하도록 설정하지 않았거나 추적이 성공했는지 여부를 확인합니다.
+이 정책 정의는 [Azure의 Spring](/azure/developer/java/spring-framework) 계정을 평가하여 추적을 사용하도록 설정하지 않았거나 추적이 성공했는지 여부를 확인합니다.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json":::
 

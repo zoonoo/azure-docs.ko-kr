@@ -6,14 +6,14 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/05/2020
+ms.date: 3/22/2021
 ms.author: pafarley
-ms.openlocfilehash: 7da10fbdff0b6771fcffb6cc303d5ab183df190a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 1ecfd58e961e70182bfc2e0cc8eaf77f5053eb77
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948038"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104879573"
 ---
 [참조 설명서](/dotnet/api/overview/azure/cognitiveservices/management) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/) | [샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
 
@@ -122,7 +122,9 @@ dotnet run
 
 ## <a name="see-also"></a>참고 항목
 
-* [Azure Management SDK 참조 설명서](/dotnet/api/overview/azure/cognitiveservices/management)
-* [Azure Cognitive Services란?](../../what-are-cognitive-services.md)
-* [Azure Cognitive Services에 대한 요청 인증](../../authentication.md)
-* [Azure Portal를 사용하여 새 리소스 만들기](../../cognitive-services-apis-create-account.md)
+* Cognitive Services를 안전하게 사용하는 방법을 알아보려면 **[Azure Cognitive Services 요청 인증](../../authentication.md)** 을 참조하세요.
+* Cognitive Services에 포함된 다양한 범주 목록을 가져오려면 **[Azure Cognitive Services란?](../../what-are-cognitive-services.md)** 을 참조하세요.
+* Cognitive Services에서 지원하는 자연어 목록을 보려면 **[자연어 지원](../../language-support.md)** 을 참조하세요.
+* Cognitive Services를 온-프레미스로 사용하는 방법은 **[Cognitive Services를 컨테이너로 사용](../../cognitive-services-container-support.md)** 을 참조하세요.
+* Cognitive Services 사용 비용을 추산하려면 **[Cognitive Services 비용 계획 및 관리](../../plan-manage-costs.md)** 를 참조하세요.
+* 관리 SDK에 대한 자세한 내용은 **[Cognitive Services 관리 SDK 참조 설명서](/dotnet/api/overview/azure/cognitiveservices/management)** 를 참조하세요.

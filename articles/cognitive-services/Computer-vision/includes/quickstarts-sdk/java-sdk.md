@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Java용 Computer Vision 클라이언트 라이브러리'
-description: 이 빠른 시작에서 Java용 Computer Vision 클라이언트 라이브러리를 시작합니다.
+title: '빠른 시작: Java용 광학 인식 클라이언트 라이브러리'
+description: 이 빠른 시작에서는 Java용 광학 인식 클라이언트 라이브러리를 시작합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,19 +10,16 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 58266e1d41344baf042349ed8b0ca9974a966827
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 84ac8e8309d9f1d0536d0f7a16ab9cd9f3c10a2c
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103622176"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284800"
 ---
 <a name="HOLTop"></a>
 
-Computer Vision 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
-
-* 태그, 텍스트 설명, 얼굴, 성인 콘텐츠 등에 대한 이미지를 분석합니다.
-* 읽기 API를 사용하여 인쇄 및 필기 텍스트를 읽습니다.
+광학 인식 클라이언트 라이브러리를 사용하여 이미지에서 인쇄 및 필기 텍스트를 읽을 수 있습니다.
 
 [참조 설명서](/java/api/overview/azure/cognitiveservices/client/computervision) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-computervision) |[아티팩트(Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision) | [샘플](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -101,27 +98,29 @@ Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Co
 
 애플리케이션의 **main** 메서드에서 이 빠른 시작에서 사용되는 메서드에 대한 호출을 추가합니다. 나중에 이를 정의합니다.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_maincalls)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_beginmain)]
 
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_authinmain)]
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_readinmain)]
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_endmain)]
 > [!div class="nextstepaction"]
 > [클라이언트를 설정했습니다.](?success=set-up-client#object-model) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=set-up-client)
 
 ## <a name="object-model"></a>개체 모델
 
-Computer Vision Java SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
+OCR Java SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
 |Name|Description|
 |---|---|
 | [ComputerVisionClient](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) | 이 클래스는 모든 Computer Vision 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고, 다른 클래스의 인스턴스를 생성하는 데 사용합니다.|
-|[ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision)| 이 클래스는 클라이언트 개체에서 제공되며, 이미지 분석, 텍스트 검색 및 썸네일 생성과 같은 모든 이미지 작업을 직접 처리합니다.|
-|[VisualFeatureTypes](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes)| 이 열거형은 표준 Analyze(분석) 작업에서 수행할 수 있는 다양한 유형의 이미지 분석을 정의합니다. 필요에 따라 VisualFeatureTypes 값 세트를 지정합니다. |
 
 ## <a name="code-examples"></a>코드 예제
 
-여기에 나와 있는 코드 조각에서는 Java용 Computer Vision 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여 줍니다.
+여기에 나와 있는 코드 조각에서는 Java용 OCR 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여 줍니다.
 
 * [클라이언트 인증](#authenticate-the-client)
-* [이미지 분석](#analyze-an-image)
 * [인쇄 텍스트 및 필기 텍스트 읽기](#read-printed-and-handwritten-text)
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
@@ -131,116 +130,13 @@ Computer Vision Java SDK의 주요 기능 중 일부를 처리하는 클래스�
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_auth)]
 
 > [!div class="nextstepaction"]
-> [클라이언트를 인증했습니다.](?success=authenticate-client#analyze-an-image) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=authenticate-client)
+> [클라이언트를 인증했습니다.](?success=authenticate-client#read-printed-and-handwritten-text) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=authenticate-client)
 
-## <a name="analyze-an-image"></a>이미지 분석
-
-다음 코드에서는 클라이언트 개체를 사용하여 로컬 이미지를 분석하고 결과를 출력하는 `AnalyzeLocalImage` 메서드를 정의합니다. 이 메서드는 텍스트 설명, 분류, 태그 목록, 감지된 얼굴, 성인 콘텐츠 플래그, 기본 색 및 이미지 형식을 반환합니다.
-
-> [!TIP]
-> URL을 사용하여 원격 이미지를 분석할 수도 있습니다. [ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision) 메서드(예: **AnalyzeImage**)를 참조하세요. 또는 원격 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java)의 샘플 코드를 참조하세요.
-
-### <a name="set-up-test-image"></a>테스트 이미지 설정
-
-먼저, **resources/** 폴더를 프로젝트의 **src/main/** 폴더에 만들고, 분석하려는 이미지를 추가합니다. 그런 다음, 다음 메서드 정의를 **ComputerVisionQuickstarts** 클래스에 추가합니다. 이미지 파일과 일치하도록 `pathToLocalImage`의 값을 변경합니다. 
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_refs)]
-
-### <a name="specify-visual-features"></a>시각적 기능 지정
-
-다음으로, 분석에서 추출하려는 시각적 기능을 지정합니다. 전체 목록은 [VisualFeatureTypes](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes) 열거형을 참조하세요.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_features)]
-
-### <a name="analyze"></a>분석
-이 블록은 각 이미지 분석 범위에 대한 자세한 결과를 콘솔에 출력합니다. **analyzeImageInStream** 메서드는 추출된 모든 정보가 포함된 **ImageAnalysis** 개체를 반환합니다.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_analyze)]
-
-다음 섹션에서는 이 정보를 자세히 구문 분석하는 방법을 보여줍니다.
-
-### <a name="get-image-description"></a>이미지 설명 가져오기
-
-다음 코드는 이미지에 대해 생성된 캡션 목록을 가져옵니다. 자세한 내용은 [이미지 설명](../../concept-describing-images.md)을 참조하세요.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_captions)]
-
-### <a name="get-image-category"></a>이미지 범주 가져오기
-
-다음 코드는 검색된 이미지 범주를 가져옵니다. 자세한 내용은 [범주 이미지](../../concept-categorizing-images.md)를 참조하세요.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_category)]
-
-### <a name="get-image-tags"></a>이미지 태그 가져오기
-
-다음 코드는 이미지에서 검색된 범주 세트를 가져옵니다. 자세한 내용은 [콘텐츠 태그](../../concept-tagging-images.md)를 참조하세요.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_tags)]
-
-### <a name="detect-faces"></a>얼굴 감지
-
-다음 코드는 사각형 좌표를 사용하여 이미지에서 검색된 얼굴을 반환하고 얼굴 특성을 선택합니다. 자세한 내용은 [얼굴 감지](../../concept-detecting-faces.md)를 참조하세요.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
-
-### <a name="detect-objects"></a>개체 감지
-
-다음 코드는 이미지에서 검색된 개체를 해당 좌표와 함께 반환합니다. 자세한 내용은 [개체 감지](../../concept-object-detection.md)를 참조하세요.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_objects)]
-
-
-### <a name="detect-brands"></a>브랜드 감지
-
-다음 코드는 이미지에서 검색된 브랜드 로고를 해당 좌표와 함께 반환합니다. 자세한 내용은 [브랜드 검색](../../concept-brand-detection.md)을 참조하세요.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_brands)]
-
-
-
-### <a name="detect-adult-racy-or-gory-content"></a>성인, 외설 또는 폭력 콘텐츠 검색
-
-다음 코드는 이미지에 있는 성인 콘텐츠의 검색된 상태를 출력합니다. 자세한 내용은 [성인, 외설, 폭력 콘텐츠](../../concept-detecting-adult-content.md)를 참조하세요.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_adult)]
-
-### <a name="get-image-color-scheme"></a>이미지 색 구성표 가져오기
-
-다음 코드는 주조색 및 강조 색과 같이 이미지에서 검색된 색 특성을 출력합니다. 자세한 내용은 [색 구성표](../../concept-detecting-color-schemes.md)를 참조하세요.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_colors)]
-
-### <a name="get-domain-specific-content"></a>도메인 특정 콘텐츠 가져오기
-
-Computer Vision은 특수 모델을 사용하여 이미지에 대한 추가 분석을 수행할 수 있습니다. 자세한 내용은 [도메인 특정 콘텐츠](../../concept-detecting-domain-content.md)를 참조하세요. 
-
-다음 코드는 이미지에서 검색된 유명인에 대한 데이터를 구문 분석합니다.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_celebrities)]
-
-다음 코드는 이미지에서 검색된 랜드마크에 대한 데이터를 구문 분석합니다.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_landmarks)]
-
-### <a name="get-the-image-type"></a>이미지 형식 가져오기
-
-다음 코드는 이미지 형식이 클립 아트인지 아니면 선 그리기인지 여부에 관계없이 이미지 형식에 대한 정보를 출력합니다.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_imagetype)]
-
-> [!div class="nextstepaction"]
-> [이미지를 분석했습니다.](?success=analyze-image#read-printed-and-handwritten-text) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=analyze-image)
-
-### <a name="close-out-the-method"></a>메서드 닫기
-
-try/catch 블록을 완료하고 메서드를 닫습니다.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyze_catch)]
 
 
 ## <a name="read-printed-and-handwritten-text"></a>인쇄 텍스트 및 필기 텍스트 읽기
 
-Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트림으로 변환할 수 있습니다. 이 섹션에서는 로컬 파일 경로를 사용하고 이미지의 텍스트를 콘솔에 인쇄하는 `ReadFromFile` 메서드를 정의합니다.
+OCR 서비스는 이미지 속의 시각적 텍스트를 읽고 문자 스트림으로 변환할 수 있습니다. 이 섹션에서는 로컬 파일 경로를 사용하고 이미지의 텍스트를 콘솔에 인쇄하는 `ReadFromFile` 메서드를 정의합니다.
 
 > [!TIP]
 > URL에서 참조하는 원격 이미지의 텍스트를 읽을 수도 있습니다. [ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision) 메서드(예: **read**)를 참조하세요. 또는 원격 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java)의 샘플 코드를 참조하세요.
@@ -313,11 +209,11 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Computer Vision Java 라이브러리를 사용하여 기본 작업을 수행하는 방법을 알아보았습니다. 다음으로 라이브러리에 대해 자세히 알아보려면 참조 설명서를 살펴보세요.
+이 빠른 시작에서는 OCR Java 라이브러리를 사용하여 기본 작업을 수행하는 방법을 알아보았습니다. 다음으로 라이브러리에 대해 자세히 알아보려면 참조 설명서를 살펴보세요.
 
 > [!div class="nextstepaction"]
->[Computer Vision 참조(Java)](/java/api/overview/azure/cognitiveservices/client/computervision)
+>[OCR SDK 참조(Java)](/java/api/overview/azure/cognitiveservices/client/computervision)
 
 
-* [Computer Vision이란?](../../overview.md)
+* [OCR 개요](../../overview-ocr.md)
 * 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java)에서 확인할 수 있습니다.

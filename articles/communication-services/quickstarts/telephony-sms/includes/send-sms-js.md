@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: azure-communication-services
 author: bertong
@@ -10,14 +10,14 @@ ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
 ms.author: bertong
-ms.openlocfilehash: 0d142c477e1de2a2a34a8abfd948800cc0b607ee
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 8fe8b853fe07af40603950a61c0dd2a1df74d14e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103622241"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105644317"
 ---
-Communication Services JavaScript SMS 클라이언트 라이브러리를 사용하여 SMS 메시지를 보내 Azure Communication Services를 시작하세요.
+Communication Services JavaScript SMS SDK를 사용하여 SMS 메시지를 보내 Azure Communication Services를 시작합니다.
 
 이 빠른 시작을 완료하면 Azure 계정에서 USD 센트 이하의 작은 비용이 발생합니다.
 
@@ -57,7 +57,7 @@ npm init -y
 
 ### <a name="install-the-package"></a>패키지 설치
 
-`npm install` 명령을 사용하여 JavaScript용 Azure Communication Services SMS 클라이언트 라이브러리를 설치합니다.
+`npm install` 명령을 사용하여 JavaScript용 Azure Communication Services SMS SDK를 설치합니다.
 
 ```console
 npm install @azure/communication-sms --save
@@ -67,20 +67,20 @@ npm install @azure/communication-sms --save
 
 ## <a name="object-model"></a>개체 모델
 
-다음 클래스 및 인터페이스는 Node.js용 Azure Communication Services SMS 클라이언트 라이브러리의 주요 기능 중 일부를 처리합니다.
+다음 클래스 및 인터페이스는 Node.js용 Azure Communication Services SMS SDK의 주요 기능 중 일부를 처리합니다.
 
-| 이름                                  | 설명                                                  |
+| Name                                  | 설명                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | SmsClient | 이 클래스는 모든 SMS 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고 SMS 메시지를 보내는 데 사용합니다. |
-| SmsSendResult               | 이 클래스는 SMS 서비스의 결과를 포함합니다.                                          |
-| SmsSendOptions | 이 인터페이스는 전달 보고를 구성하는 옵션을 제공합니다. `enableDeliveryReport`가 `true`로 설정된 경우 전달이 성공하면 이벤트를 내보냅니다. |
 | SmsSendRequest | 이 인터페이스는 sms 요청을 빌드하기 위한 모델입니다(예: 전화 번호와 sms 콘텐츠를 주고 받도록 구성). |
+| SmsSendOptions | 이 인터페이스는 전달 보고를 구성하는 옵션을 제공합니다. `enableDeliveryReport`가 `true`로 설정된 경우 전달이 성공하면 이벤트를 내보냅니다. |
+| SmsSendResult               | 이 클래스는 SMS 서비스의 결과를 포함합니다.                                          |
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-클라이언트 라이브러리에서 **SmsClient** 를 가져와서 연결 문자열로 인스턴스화합니다. 아래 코드는 `COMMUNICATION_SERVICES_CONNECTION_STRING`이라는 환경 변수에서 리소스에 대한 연결 문자열을 검색합니다. [리소스의 연결 문자열을 관리](../../create-communication-resource.md#store-your-connection-string)하는 방법을 알아봅니다.
+SDK에서 **SmsClient** 를 가져와서 연결 문자열로 인스턴스화합니다. 아래 코드는 `COMMUNICATION_SERVICES_CONNECTION_STRING`이라는 환경 변수에서 리소스에 대한 연결 문자열을 검색합니다. [리소스의 연결 문자열을 관리](../../create-communication-resource.md#store-your-connection-string)하는 방법을 알아봅니다.
 
-**send-sms.js** 에 다음 코드를 추가합니다.
+**send-sms.js** 라는 파일을 만들고, 열고 다음 코드를 추가합니다.
 
 ```javascript
 const { SmsClient } = require('@azure/communication-sms');
@@ -118,7 +118,10 @@ async function main() {
 
 main();
 ```
-`<from-phone-number>`를 Communication Services 리소스와 연결된 SMS 지원 전화 번호로 바꾸고, `<to-phone-number>`를 메시지를 보낼 전화 번호로 바꿔야 합니다.
+`<from-phone-number>`를 Communication Services 리소스와 연결된 SMS 지원 전화 번호로 바꾸고, `<to-phone-number-1>` 및 `<to-phone-number-2>`를 메시지를 보낼 전화 번호로 바꿔야 합니다.
+
+> [!WARNING]
+> 전화 번호는 E.164 국제 표준 형식으로 제공되어야 합니다. (예: +14255550123)
 
 ## <a name="send-a-1n-sms-message-with-options"></a>옵션이 포함된 1:N SMS 메시지 보내기
 
@@ -127,12 +130,12 @@ main();
 ```javascript
 
 async function main() {
-  await smsClient.send({
+  const sendResults = await smsClient.send({
     from: "<from-phone-number>",
     to: ["<to-phone-number-1>", "<to-phone-number-2>"],
     message: "Weekly Promotion!"
   }, {
-    //Optional parameter
+    //Optional parameters
     enableDeliveryReport: true,
     tag: "marketing"
   });
@@ -150,6 +153,11 @@ async function main() {
 
 main();
 ```
+
+`<from-phone-number>`를 Communication Services 리소스와 연결된 SMS 지원 전화 번호로 바꾸고, `<to-phone-number-1>` 및 `<to-phone-number-2>`를 메시지를 보낼 전화 번호로 바꿔야 합니다.
+
+> [!WARNING]
+> 전화 번호는 E.164 국제 표준 형식으로 제공되어야 합니다. (예: +14255550123)
 
 `enableDeliveryReport` 매개 변수는 전달 보고를 구성하는 데 사용할 수 있는 선택적 매개 변수입니다. 이 기능은 SMS 메시지가 전달될 때 이벤트를 내보내려는 시나리오에 유용합니다. SMS 메시지에 대한 전달 보고를 구성하려면 [SMS 이벤트 처리](../handle-sms-events.md)를 참조하세요.
 `tag`는 전달 보고서에 태그를 적용하는 데 사용할 수 있는 선택적 매개 변수입니다.

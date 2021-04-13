@@ -10,16 +10,16 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 5f0a7477df2e281748c053ea8c7e7d3e79626296
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0ef76be2c083d6185b8b919d174de28aa3b65446
+ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104588021"
+ms.lasthandoff: 04/04/2021
+ms.locfileid: "106293773"
 ---
 # <a name="analyze-data-with-a-serverless-sql-pool"></a>서버리스 SQL 풀을 사용하여 데이터 분석
 
-이 자습서에서는 Spark 데이터베이스에 있는 데이터를 사용하여 서버리스 SQL 풀로 데이터를 분석하는 방법을 알아봅니다. 
+이 자습서에서는 서버리스 SQL 풀로 데이터를 분석하는 방법을 알아봅니다. 
 
 ## <a name="the-built-in-serverless-sql-pool"></a>기본 제공 서버리스 SQL 풀
 

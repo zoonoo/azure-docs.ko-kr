@@ -2,7 +2,7 @@
 title: '빠른 시작: LUIS(Language Understanding) SDK 클라이언트 라이브러리 및 REST API'
 description: LUIS SDK 클라이언트 라이브러리 및 REST API를 사용하여 LUIS 앱을 만들고 쿼리합니다.
 ms.topic: quickstart
-ms.date: 12/09/2020
+ms.date: 03/29/2021
 ms.service: cognitive-services
 ms.author: aahi
 manager: nitinme
@@ -11,12 +11,12 @@ author: aahill
 keywords: Azure, 인공 지능, ai, 자연어 처리, nlp, LUIS, azure luis, 자연어 이해, ai 챗봇, 챗봇 작성자, 자연어 이해
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-luis
-ms.openlocfilehash: 7ff5844cf9f1bce45df438fc00e24da28c438b05
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: ca45266ce4b8ca784c3d54aafb80a66efaf2a1da
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96941526"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278918"
 ---
 # <a name="quickstart-language-understanding-luis-client-libraries-and-rest-api"></a>빠른 시작: LUIS(Language Understanding) 클라이언트 라이브러리 및 REST API
 
@@ -61,9 +61,5 @@ REST API를 사용 중인 경우 빠른 시작을 완료한 후 파일 시스템
 
 ## <a name="next-steps"></a>다음 단계
 
-* [LUIS(Language Understanding) API란?](what-is-luis.md)
-* [새로운 기능](whats-new.md)
-* [의도](luis-concept-intent.md), [엔터티](luis-concept-entity-types.md), [발화 예제](luis-concept-utterance.md) 및 [미리 작성된 엔터티](luis-reference-prebuilt-entities.md)
-* 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code)에서 확인할 수 있습니다.
-* 자연어 이해: [NLU(자연어 이해) 및 NLP(자연어 처리)](artificial-intelligence.md)
-* 봇: [AI 챗봇](luis-csharp-tutorial-bf-v4.md "챗봇 작성자 자습서")
+> [!div class="nextstepaction"]
+> [LUIS에 대한 반복적인 앱 개발](./luis-concept-app-iteration.md)

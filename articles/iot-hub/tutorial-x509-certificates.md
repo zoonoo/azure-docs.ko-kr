@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: cdc5b261abe91c31d31827aeab03c9e8838b2a91
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fada68ba395b959e557542eb8c230561aad84214
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629645"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384326"
 ---
 # <a name="tutorial-understanding-x509-public-key-certificates"></a>자습서: X.509 공개 키 인증서 이해
 
@@ -106,6 +106,13 @@ PEM 인증서(.pem 확장명)에는 -----BEGIN CERTIFICATE-----로 시작하고 
 ### <a name="pkcs12-key-and-certificate"></a>PKCS#12 키 및 인증서
 
 키 및 전체 인증서 체인을 저장하고 보호할 수 있는 복합 형식입니다. 일반적으로 .pfx 확장명과 함께 사용됩니다. PKCS#12는 PFX 형식과 동의어입니다.
+
+## <a name="for-more-information"></a>참조 항목
+
+자세한 내용은 다음 항목을 참조하세요.
+
+* [X.509 인증서 전문 용어에 대한 layman의 가이드](https://techcommunity.microsoft.com/t5/internet-of-things/the-layman-s-guide-to-x-509-certificate-jargon/ba-p/2203540)
+* [IoT 업계의 X.509 CA 인증서에 대한 개념적 이해](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-concept)
 
 ## <a name="next-steps"></a>다음 단계
 

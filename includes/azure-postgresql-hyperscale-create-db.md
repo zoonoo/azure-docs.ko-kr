@@ -9,10 +9,10 @@ ms.date: 12/16/2020
 ms.author: jonels
 ms.custom: include file
 ms.openlocfilehash: 26289f6bdfa086708548d17125a6dfdf50b02a8f
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97665014"
 ---
 ## <a name="create-a-hyperscale-citus-server-group"></a>하이퍼스케일(Citus) 서버 그룹 만들기
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    > 여기에서 지정하는 서버 관리자 암호는 서버 및 해당 데이터베이스에 로그인하는 데 필요합니다. 나중에 사용하기 위해 이 정보를 기억하거나 기록합니다.
 
 5. **서버 그룹 구성** 을 클릭합니다. 이 섹션의 설정을 변경하지 않고 **저장** 을 클릭합니다.
-6. 페이지 맨 아래의 **다음: 네트워킹 >** 을 선택합니다.
+6. 화면 아래쪽에서 **다음: 네트워킹 >** 을 선택합니다.
 
 7. **네트워킹** 탭에서 **공용 엔드포인트** 라디오 단추를 클릭합니다.
    ![선택된 공용 엔드포인트](./media/azure-postgresql-hyperscale-create-db/network-public-endpoint.png)

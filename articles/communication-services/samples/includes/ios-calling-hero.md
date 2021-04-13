@@ -2,26 +2,28 @@
 title: 포함 파일
 description: 포함 파일
 services: azure-communication-services
-author: mikben
-manager: mikben
+author: ddematheu2
+manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
-ms.openlocfilehash: d6280a34b500f320d1292da524ad05d999403539
-ms.sourcegitcommit: 91361cbe8fff7c866ddc4835251dcbbe2621c055
+ms.author: dademath
+ms.openlocfilehash: 287520f2964fba7c3c3804853e9356a8c77b2d06
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "105729765"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106498841"
 ---
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-android-ios.md)]
+
 Azure Communication Services **iOS용 그룹 통화 주인공 샘플** 은 Communication Services 통화 iOS SDK를 사용하여 음성 및 비디오가 포함된 그룹 통화 환경을 구축하는 방법을 보여 줍니다. 이 샘플 빠른 시작에서는 샘플을 설정하고 실행하는 방법에 대해 알아봅니다. 상황에 맞는 샘플 개요가 제공됩니다.
 
 ## <a name="download-code"></a>코드 다운로드
 
-[GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero)에서 이 빠른 시작에 대한 최종 코드를 찾습니다.
+[GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero)에서 이 샘플에 대한 프로젝트를 찾습니다. [Teams 상호 운용성](../../concepts/teams-interop.md)을 사용하는 샘플 버전은 별도의 [분기](https://github.com/Azure-Samples/communication-services-ios-calling-hero/tree/feature/teams_interop)에서 찾을 수 있습니다.
 
 ## <a name="overview"></a>개요
 
@@ -31,7 +33,7 @@ Azure Communication Services **iOS용 그룹 통화 주인공 샘플** 은 Commu
 
 :::image type="content" source="../media/calling/landing-page-ios.png" alt-text="샘플 애플리케이션의 방문 페이지를 보여 주는 스크린샷":::
 
-"새 통화 시작" 단추를 누르면 iOS 애플리케이션에서 새 통화를 만들고 해당 통화에 참가합니다. 애플리케이션을 사용하면 기존 통화의 ID를 지정하여 기존 Azure Communication Services 통화에 참가할 수 있습니다. 모임 초대장에 있는 참가 링크를 제공하여 Teams 회의에 참가할 수도 있습니다.  (참가 링크는 `https://teams.microsoft.com/l/meetup-join/` 형식입니다.) Teams 상호 운용성에 대한 자세한 내용은 [Teams 상호 운용성 개념 설명서](../../concepts/teams-interop.md)를 참조하세요.
+"새 통화 시작" 단추를 누르면 iOS 애플리케이션에서 새 통화를 만들고 해당 통화에 참가합니다. 애플리케이션을 사용하면 기존 통화의 ID를 지정하여 기존 Azure Communication Services 통화에 참가할 수 있습니다.
 
 통화에 참가하면 카메라와 마이크에 액세스할 수 있는 권한을 애플리케이션에 부여하라는 메시지가 표시됩니다. 표시 이름도 입력하라는 메시지가 표시됩니다.
 

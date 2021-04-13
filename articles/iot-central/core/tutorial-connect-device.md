@@ -11,18 +11,18 @@ ms.custom:
 - mqtt
 - device-developer
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 3beba1db82cc2a618ba7544228975c953b01acd9
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: bbf94b6e000d5c082debd6a0d41a8d62b8b3f26e
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064905"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491103"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application"></a>자습서: 클라이언트 애플리케이션을 만들어 Azure IoT Central 애플리케이션에 연결
 
 *이 문서는 솔루션 빌더 및 디바이스 개발자에게 적용됩니다.*
 
-이 자습서에서는 디바이스 개발자가 클라이언트 애플리케이션을 Azure IoT Central 애플리케이션에 연결하는 방법을 보여줍니다. 이 애플리케이션은 자동 온도 조절 디바이스의 동작을 시뮬레이션합니다. 애플리케이션이 IoT Central에 연결되면 자동 온도 조절 디바이스 모델의 모델 ID를 보냅니다. IoT Central은 모델 ID를 사용하여 디바이스 모델을 검색하고 디바이스 템플릿을 만듭니다. 운영자가 디바이스와 상호 작용할 수 있도록 디바이스 템플릿에 사용자 지정 및 보기를 추가합니다.
+이 자습서에서는 디바이스 개발자가 클라이언트 애플리케이션을 Azure IoT Central 애플리케이션에 연결하는 방법을 보여줍니다. 이 애플리케이션은 온도 컨트롤러 디바이스의 동작을 시뮬레이션합니다. 애플리케이션이 IoT Central에 연결되면 온도 컨트롤러 디바이스 모델의 모델 ID를 보냅니다. IoT Central은 모델 ID를 사용하여 디바이스 모델을 검색하고 디바이스 템플릿을 만듭니다. 운영자가 디바이스와 상호 작용할 수 있도록 디바이스 템플릿에 사용자 지정 및 보기를 추가합니다.
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 

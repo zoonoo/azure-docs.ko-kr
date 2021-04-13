@@ -8,16 +8,14 @@ ms.author: chpalm
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 933b5605cf38be90d419673a94e23e4c36f0ef36
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: beb8b81710cf4728259a8eb1df920cd74efce3ce
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495711"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728133"
 ---
 # <a name="region-availability-and-data-residency"></a>지역 가용성 및 데이터 상주
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Azure Communication Services는 개인 정보 및 개인 데이터 요구 사항을 충족할 수 있도록 고객을 지원하기 위해 노력하고 있습니다. 애플리케이션을 사용하는 사용자와 직접적인 관계가 있는 Communication Services를 사용하는 개발자는 잠재적으로 해당 사용자의 데이터를 제어할 수 있습니다. Azure Communication Services는 사용자를 대신하여 이 미사용 데이터를 저장하고 암호화하므로 이 데이터의 프로세서가 될 가능성이 높습니다. 이 페이지에는 서비스에서 데이터를 보존하는 방법과 이 데이터를 식별하고, 내보내고, 삭제하는 방법이 요약되어 있습니다.
 
@@ -58,10 +56,12 @@ Azure Communication Services는 Communication Services 리소스와 연결된 �
 
 ### <a name="chat"></a>채팅
 
-채팅 스레드 및 메시지는 명시적으로 삭제될 때까지 유지됩니다. 완전히 유휴 상태인 스레드는 30일 후에 자동으로 삭제됩니다. [채팅 API](/rest/api/communication/chat/chatthread)를 사용하여 메시지를 가져오고, 나열하고, 업데이트하고, 삭제합니다.
+채팅 스레드 및 메시지는 명시적으로 삭제될 때까지 유지됩니다. 참가자가 없는 완전히 유휴 상태인 스레드는 30일 후에 자동으로 삭제됩니다. [채팅 API](/rest/api/communication/chat/chatthread)를 사용하여 메시지를 가져오고, 나열하고, 업데이트하고, 삭제합니다.
 
 - `Get Thread`
 - `Get Message`
+- `List Messages`
+- `Update Message`
 - `Delete Thread`
 - `Delete Message`
 

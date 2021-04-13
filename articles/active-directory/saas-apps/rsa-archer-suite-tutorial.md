@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/01/2020
+ms.date: 04/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 397d59c60ed90e0e25df671baa3d46660eff1d47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d96f1e0413dac8477e2fc40bf84e88318abf3f9d
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181580"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284987"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-rsa-archer-suite"></a>자습서: RSA Archer Suite와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -43,7 +43,7 @@ ms.locfileid: "96181580"
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
 
-## <a name="adding-rsa-archer-suite-from-the-gallery"></a>갤러리에서 RSA Archer Suite 추가
+## <a name="add-rsa-archer-suite-from-the-gallery"></a>갤러리에서 RSA Archer Suite 추가
 
 RSA Archer Suite가 Azure AD에 통합되도록 구성하려면 갤러리의 RSA Archer Suite를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
@@ -53,7 +53,6 @@ RSA Archer Suite가 Azure AD에 통합되도록 구성하려면 갤러리의 RSA
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에서 **RSA Archer Suite** 를 입력합니다.
 1. 결과 패널에서 **RSA Archer Suite** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-rsa-archer-suite"></a>RSA Archer Suite에 대한 Azure AD SSO 구성 및 테스트
 
@@ -74,7 +73,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal의 **RSA Archer Suite** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고, **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -141,7 +140,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 다음 페이지에서 다음 단계를 수행합니다.
 
-    ![RSA Archer Suite SSO 구성](./media/rsa-archer-suite-tutorial/configuring-saml-sso.png)
+    ![RSA Archer Suite SSO 구성](./media/rsa-archer-suite-tutorial/configuration.png)
 
     a. **Single Sign-On** 탭으로 이동하고 드롭다운 목록에서 **Single Sign-On 모드** 로 **SAML** 을 선택합니다.
 

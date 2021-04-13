@@ -2,13 +2,13 @@
 title: 소개
 description: Azure에서 VMware 기반 워크로드를 배포하고 관리하는 Azure VMware 솔루션의 기능과 이점에 대해 알아봅니다.
 ms.topic: overview
-ms.date: 11/11/2020
-ms.openlocfilehash: 255d3599385c60d3b13f4769796ced41a1177311
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: 32dd73108dc12d7d7acc605f43a0fbf6d2cf1cd7
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100579295"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107992"
 ---
 # <a name="what-is-azure-vmware-solution"></a>Azure VMware Solution이란?
 
@@ -55,6 +55,9 @@ Azure VMware Solution이 구독에 배포되면 [Azure Monitor 로그](../azure-
 
 Azure VMware Solution 내의 모니터링 패턴은 IaaS 플랫폼 내의 Azure VM과 유사합니다. 자세한 내용 및 방법은 [Azure Monitor를 사용하여 Azure VM 모니터링](../azure-monitor/vm/monitor-vm-azure.md)을 참조하세요.
 
+## <a name="customer-communication"></a>고객 커뮤니케이션
+[!INCLUDE [customer-communications](includes/customer-communications.md)]
+
 ## <a name="next-steps"></a>다음 단계
 
 다음 단계에서는 주요 [프라이빗 클라우드 및 클러스터 개념](concepts-private-clouds-clusters.md)에 대해 알아봅니다.
@@ -63,3 +66,5 @@ Azure VMware Solution 내의 모니터링 패턴은 IaaS 플랫폼 내의 Azure 
 
 <!-- LINKS - internal -->
 [concepts-private-clouds-clusters]: ./concepts-private-clouds-clusters.md
+
+

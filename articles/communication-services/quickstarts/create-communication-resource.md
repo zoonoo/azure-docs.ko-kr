@@ -9,22 +9,18 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: ffb40d7fb45f43349004fc4d18e7582aa3521185
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+zone_pivot_groups: acs-plat-azp-azcli-net-ps
+ms.openlocfilehash: aabb8bdf4105702aa623c45bc291770b05b8279e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495897"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726774"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>빠른 시작: Communication Services 리소스 만들기 및 관리
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+첫 번째 Communication Services 리소스를 프로비저닝하여 Azure Communication Services를 시작합니다. Communication Services 리소스는 [Azure Portal](https://portal.azure.com) 또는 .NET 관리 SDK를 통해 프로비저닝될 수 있습니다. 관리 SDK 및 Azure Portal을 사용하면 리소스를 만들고, 구성, 업데이트 및 삭제하고 Azure의 배포 및 관리 서비스인 [Azure Resource Manager](../../azure-resource-manager/management/overview.md)와 상호 연결할 수 있습니다. SDK에서 사용할 수 있는 모든 기능은 Azure Portal에서 사용할 수 있습니다. 
 
-첫 번째 Communication Services 리소스를 프로비저닝하여 Azure Communication Services를 시작합니다. Communication Services 리소스는 [Azure Portal](https://portal.azure.com) 또는 .NET 관리 클라이언트 라이브러리를 통해 프로비저닝될 수 있습니다. 관리 클라이언트 라이브러리 및 Azure Portal을 사용하면 리소스를 만들고, 구성, 업데이트 및 삭제하고 Azure의 배포 및 관리 서비스인 [Azure Resource Manager](../../azure-resource-manager/management/overview.md)와 상호 연결할 수 있습니다. 클라이언트 라이브러리에서 사용할 수 있는 모든 기능은 Azure Portal에서 사용할 수 있습니다. 
-
-
-첫 번째 Communication Services 리소스를 프로비저닝하여 Azure Communication Services를 시작합니다. Communication Services 리소스는 [Azure Portal](https://portal.azure.com) 또는 .NET 관리 클라이언트 라이브러리를 통해 프로비저닝될 수 있습니다. 관리 클라이언트 라이브러리 및 Azure Portal을 사용하면 리소스를 만들고, 구성, 업데이트 및 삭제하고 Azure의 배포 및 관리 서비스인 [Azure Resource Manager](../../azure-resource-manager/management/overview.md)와 상호 연결할 수 있습니다. 클라이언트 라이브러리에서 사용할 수 있는 모든 기능은 Azure Portal에서 사용할 수 있습니다.
 
 > [!WARNING]
 > Communication Services는 여러 지역에서 사용 가능하지만 전화 번호를 얻으려면 리소스의 데이터 위치가 ‘US’로 설정되어야 합니다. 또한 공개 미리 보기 동안에는 통신 리소스를 다른 구독으로 이전할 수 없습니다.
@@ -41,25 +37,43 @@ ms.locfileid: "103495897"
 [!INCLUDE [.NET](./includes/create-resource-net.md)]
 ::: zone-end
 
+::: zone pivot="platform-powershell"
+[!INCLUDE [PowerShell](./includes/create-resource-powershell.md)]
+::: zone-end
+
+
 ## <a name="access-your-connection-strings-and-service-endpoints"></a>연결 문자열 및 서비스 엔드포인트 액세스
 
-연결 문자열을 통해 Communication Services 클라이언트 라이브러리를 Azure에 연결하고 인증할 수 있습니다. Azure Portal에서 또는 Azure Resource Manager API를 사용하여 프로그래밍 방식으로 Communication Services 연결 문자열 및 서비스 엔드포인트에 액세스할 수 있습니다.
+연결 문자열을 통해 Communication Services SDK를 Azure에 연결하고 인증할 수 있습니다. Azure Portal에서 또는 Azure Resource Manager API를 사용하여 프로그래밍 방식으로 Communication Services 연결 문자열 및 서비스 엔드포인트에 액세스할 수 있습니다.
 
-Communication Services 리소스로 이동한 후 탐색 메뉴에서 **키** 를 선택하고 Communication Services 클라이언트 라이브러리의 사용에 대한 **연결 문자열** 또는 **엔드포인트** 값을 복사합니다. 기본 키와 보조 키에 대한 액세스 권한이 있는지 확인합니다. 이는 타사 또는 스테이징 환경에 Communication Services 리소스에 대한 임시 액세스를 제공하려는 시나리오에서 유용할 수 있습니다.
+Communication Services 리소스로 이동한 후 탐색 메뉴에서 **키** 를 선택하고 Communication Services SDK의 사용에 대한 **연결 문자열** 또는 **엔드포인트** 값을 복사합니다. 기본 키와 보조 키에 대한 액세스 권한이 있는지 확인합니다. 이는 타사 또는 스테이징 환경에 Communication Services 리소스에 대한 임시 액세스를 제공하려는 시나리오에서 유용할 수 있습니다.
 
 :::image type="content" source="./media/key.png" alt-text="Communication Services 키 페이지의 스크린샷.":::
 
-Azure CLI를 사용하여 주요 정보에 액세스할 수도 있습니다.
+리소스 그룹 또는 특정 리소스에 대한 키와 같은 Azure CLI를 사용하여 키 정보에 액세스할 수도 있습니다. 
 
+[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli)를 설치하고 다음 명령을 사용하여 로그인합니다. Azure 계정과 연결하려면 자격 증명을 제공해야 합니다.
+```azurecli
+az login
+```
+
+이제 리소스에 대한 중요한 정보에 액세스할 수 있습니다.
 ```azurecli
 az communication list --resource-group "<resourceGroup>"
 
 az communication list-key --name "<communicationName>" --resource-group "<resourceGroup>"
 ```
 
+특정 구독을 선택하려는 경우 ```--subscription``` 플래그를 지정하고 구독 ID를 제공할 수도 있습니다.
+```
+az communication list --resource-group  "resourceGroup>"  --subscription "<subscriptionID>"
+
+az communication list-key --name "<communicationName>" --resource-group "resourceGroup>" --subscription "<subscriptionID>"
+```
+
 ## <a name="store-your-connection-string"></a>연결 문자열 저장
 
-Communication Services 클라이언트 라이브러리는 연결 문자열을 사용하여 Communication Services에 대한 요청에 권한을 부여합니다. 연결 문자열을 저장하기 위한 여러 가지 옵션이 있습니다.
+Communication Services SDK는 연결 문자열을 사용하여 Communication Services에 대한 요청에 권한을 부여합니다. 연결 문자열을 저장하기 위한 여러 가지 옵션이 있습니다.
 
 * 데스크톱 또는 디바이스에서 실행 중인 애플리케이션의 경우 연결 문자열을 **app.config** 또는 **web.config** 파일에 저장할 수 있습니다. 이러한 파일의 **AppSettings** 섹션에 연결 문자열을 추가합니다.
 * Azure App Service에서 실행 중인 애플리케이션의 경우, 연결 문자열을 [Azure Service 애플리케이션 설정](../../app-service/configure-common.md)에 저장할 수 있습니다. 포털 내 애플리케이션 설정 탭의 **연결 문자열** 섹션에 연결 문자열을 추가합니다.

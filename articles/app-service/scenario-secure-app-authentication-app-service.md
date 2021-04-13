@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 04/02/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-ms.openlocfilehash: a8bd2ef1348692bf57f7e5cb7b6606cfcfd324fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b17cb6906a37d2cab4383fac18400b35dc8adb2f
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96905573"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106223199"
 ---
 # <a name="tutorial-add-authentication-to-your-web-app-running-on-azure-app-service"></a>자습서: Azure App Service에서 실행되는 웹앱에 인증 추가
 
@@ -41,7 +41,7 @@ App Service는 기본 제공 인증 및 권한 부여 지원을 제공하므로 
 
 이 자습서에서는 App Service에 배포된 웹앱이 필요합니다. 기존 웹앱을 사용할 수도 있고, [ASP.NET Core 빠른 시작](quickstart-dotnetcore.md)에 따라 새 웹앱을 만들고 App Service에 게시할 수도 있습니다.
 
-기존 웹앱을 사용하든 새 웹앱을 만들든, 웹앱 이름과 웹앱이 배포되는 리소스 그룹의 이름을 기록해 두어야 합니다. 이 자습서 전체에서 이 이름이 필요합니다. 이 자습서 전체에서 프로시저 및 스크린샷의 예제 이름에는 *SecureWebApp* 이 포함되어 있습니다.
+기존 웹앱을 사용하든 새 웹앱을 만들든, 웹앱 이름과 웹앱이 배포되는 리소스 그룹의 이름을 기록해 두어야 합니다. 이 자습서 전체에서 이 이름이 필요합니다. 
 
 ## <a name="configure-authentication-and-authorization"></a>인증 및 권한 부여 구성
 
@@ -53,17 +53,19 @@ App Service는 기본 제공 인증 및 권한 부여 지원을 제공하므로 
 
 :::image type="content" alt-text="앱의 관리 페이지 선택을 보여주는 스크린샷." source="./media/scenario-secure-app-authentication-app-service/select-app-service.png":::
 
-앱의 왼쪽 메뉴에서 **인증/권한 부여** 을 선택한 다음, **켜기** 를 선택하여 App Service 인증을 사용하도록 설정합니다.
+앱의 왼쪽 메뉴에서 **인증** 을 선택한 다음, **ID 공급자 추가** 를 클릭합니다.
 
-**요청이 인증되지 않은 경우 수행할 작업** 에서 **Azure Active Directory로 로그인** 을 선택합니다.
+**ID 공급자 추가** 페이지에서 **ID 공급자** 로 **Microsoft** 를 선택하여 Microsoft 및 Azure AD ID에 로그인합니다.
 
-**인증 공급자** 에서 **Azure Active Directory** 를 선택합니다. **Express** 를 선택한 다음, 기본 설정을 적용하여 새 Active Directory 앱을 만듭니다. **확인** 을 선택합니다.
+**앱 등록** > **앱 등록 유형** 에 대해 **새 앱 등록 만들기** 를 선택합니다.
 
-:::image type="content" alt-text="Express 인증을 보여주는 스크린샷." source="./media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
+**앱 등록** > **지원 계정 유형** 에 대해 **현재 테넌트-단일 테넌트** 를 선택합니다.
 
-**인증/권한 부여** 페이지에서 **저장** 을 선택합니다.
+**App Service 인증 설정** 섹션에서 **인증** 을 **인증 필요** 로 설정하고 **인증되지 않은 요청** 을 **HTTP 302 리디렉션 찾음: 웹 사이트에 권장됨** 으로 설정합니다.
 
-`Successfully saved the Auth Settings for <app-name> App` 메시지가 포함된 알림이 표시되면 포털 페이지를 새로 고칩니다.
+**ID 공급자 추가** 페이지의 맨 아래에서 **추가** 를 클릭하여 웹앱에 대한 인증을 사용하도록 설정합니다.
+
+:::image type="content" alt-text="인증 구성을 보여 주는 스크린샷" source="./media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
 
 이제 App Service 인증 및 권한 부여를 통해 보호되는 앱이 생겼습니다.
 

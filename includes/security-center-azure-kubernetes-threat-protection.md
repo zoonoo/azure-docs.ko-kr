@@ -4,16 +4,16 @@ ms.author: memildin
 manager: rkarlin
 ms.date: 06/30/2020
 ms.topic: include
-ms.openlocfilehash: 4c09057f606423dc92b3364e502e632a385bf83f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 979bc3ea6a01d31e64aa503216b8fd69164eadc6
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100007818"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106450568"
 ---
-Security Center는 실시간 위협 방지를 컨테이너화된 환경에 제공하고 의심스러운 활동에 대한 경고를 생성합니다. 이 정보를 사용하여 보안 문제를 신속하게 수정하고 컨테이너의 보안을 강화할 수 있습니다.
+Azure Defender는 실시간 위협 방지를 컨테이너화된 환경에 제공하고 의심스러운 활동에 대한 경고를 생성합니다. 이 정보를 사용하여 보안 문제를 신속하게 수정하고 컨테이너의 보안을 강화할 수 있습니다.
 
-Security Center에서 위협 방지를 제공하는 다양한 수준은 다음과 같습니다. 
+Azure Defender에서 위협 방지를 제공하는 다양한 수준은 다음과 같습니다. 
 
 * **호스트 수준(서버용 Azure Defender에서 제공)** - Azure Defender는 Security Center가 다른 VM에서 사용하는 것과 동일한 Log Analytics 에이전트를 사용하여 Linux AKS 노드에서 웹 셸 검색 및 알려진 의심스러운 IP 주소와의 연결과 같은 의심스러운 활동을 모니터링합니다. 이 에이전트는 또한 권한 있는 컨테이너 만들기, API 서버에 대한 의심스러운 액세스 및 Docker 컨테이너 내에서 실행되는 SSH(Secure Shell) 서버와 같은 컨테이너 관련 분석을 모니터링합니다.
 
@@ -25,7 +25,7 @@ Security Center에서 위협 방지를 제공하는 다양한 수준은 다음�
     AKS 호스트 수준 경고 목록은 [경고 참조 테이블](../articles/security-center/alerts-reference.md#alerts-containerhost)을 참조하세요.
 
 
-* **AKS 클러스터 수준(Azure Defender for Kubernetes에서 제공)** - 클러스터 수준의 위협 보호는 Kubernetes의 감사 로그 분석을 기반으로 합니다. 이 **에이전트 없는** 모니터링을 사용하도록 설정하려면 Azure Defender를 사용하도록 설정합니다. 이 수준에서 경고를 생성하기 위해 Security Center는 AKS에서 검색한 로그를 사용하여 AKS 관리형 서비스를 모니터링합니다. 이 수준의 이벤트 예로 노출된 Kubernetes 대시보드, 높은 권한이 있는 역할 만들기 및 중요한 탑재 만들기가 있습니다.
+* **AKS 클러스터 수준(Azure Defender for Kubernetes에서 제공)** - 클러스터 수준의 위협 보호는 Kubernetes의 감사 로그 분석을 기반으로 합니다. 이 **에이전트 없는** 모니터링을 사용하도록 설정하려면 Azure Defender를 사용하도록 설정합니다. 이 수준에서 경고를 생성하기 위해 Azure Defender는 AKS에서 검색한 로그를 사용하여 AKS 관리형 서비스를 모니터링합니다. 이 수준의 이벤트 예로 노출된 Kubernetes 대시보드, 높은 권한이 있는 역할 만들기 및 중요한 탑재 만들기가 있습니다.
 
     >[!NOTE]
     > Security Center는 구독 설정에서 Kubernetes 옵션을 사용하도록 설정한 후에 발생하는 Azure Kubernetes Service 작업 및 배포에 대한 보안 경고를 생성합니다. 

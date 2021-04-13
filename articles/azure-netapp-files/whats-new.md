@@ -12,18 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/19/2021
+ms.date: 04/05/2021
 ms.author: b-juche
-ms.openlocfilehash: f2167159b03cd0387acfccf4bbd0a2e840f739df
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 94981cd0912f76b710b3a60040ffbffd38381bcd
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104955237"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552107"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Azure NetApp Files의 새로운 기능
 
 Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는 새로운 최신 기능과 향상된 기능에 대한 요약을 제공합니다. 
+
+## <a name="april-2021"></a>2021년 4월
+
+* [NFS 확장 그룹을 사용하여 ADDS(Active Directory Domain Services) LDAP 사용자 매핑](configure-ldap-extended-groups.md)(미리 보기)   
+
+    기본적으로 Azure NetApp Files는 [RFC 5531](https://tools.ietf.org/html/rfc5531)에 정의된 대로 NFS 사용자 자격 증명을 처리할 때 최대 16개의 그룹 ID를 지원합니다. 이 새로운 기능을 사용하면 기본 그룹 수를 초과하는 사용자가 있는 경우 최대 1,024까지 최대 수를 늘릴 수 있습니다. 이 기능을 지원하기 위해 이제는 NFS 볼륨을 ADDS LDAP에 추가할 수 있습니다. 이를 통해 확장된 그룹 항목(최대 1024 그룹)의 Active Directory LDAP 사용자가 볼륨에 액세스할 수 있습니다. 
 
 ## <a name="march-2021"></a>2021년 3월
 

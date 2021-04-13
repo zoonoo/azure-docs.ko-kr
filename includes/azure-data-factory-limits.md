@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: data-factory
 author: chez-charlie
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/16/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 10aa9b06af439fe701c53ef736ec691167560f95
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 96c67327a8272a02e677cc40b46c3177e470b684
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102109070"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106125873"
 ---
 Azure Data Factory는 고객 구독이 서로 다른 워크로드로부터 보호되도록 하기 위해 다음과 같은 기본 제한이 적용되는 다중 테넌트 서비스입니다. 구독에 대한 최대 제한 값을 높이려면 고객 지원에 문의하세요.
 
@@ -49,6 +49,7 @@ Azure Data Factory는 고객 구독이 서로 다른 워크로드로부터 보�
 | 통합 런타임당 동시 데이터 흐름 수 | 50 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | 팩터리당 사용자당 동시 데이터 흐름 디버그 세션 수 | 3 | 3 |
 | 데이터 흐름 Azure IR TTL 제한 | 4시간 |  4시간 |
+| 팩터리에서 메타데이터 엔터티 크기 제한 | 2GB | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 
 <sup>1</sup> DIU(데이터 통합 단위)는 클라우드 간 복사 작업에 사용됩니다. [데이터 통합 단위(버전 2)](../articles/data-factory/copy-activity-performance.md#data-integration-units)에서 자세히 알아보세요. 요금 청구에 대한 자세한 내용은 [Azure Data Factory 가격](https://azure.microsoft.com/pricing/details/data-factory/)을 참조하세요.
 
