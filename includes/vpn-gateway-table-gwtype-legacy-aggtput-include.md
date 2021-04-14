@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,21 +9,21 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9734859c0bf22201c146e5d8a220f3146f6051c4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "67182093"
 ---
 다음 테이블에서는 게이트웨이 형식과 게이트웨이 SKU에 의한 예상 총 처리량을 보여 줍니다. 이 표는 리소스 관리자 배포 모델과 클래식 배포 모델에 적용됩니다. 
 
-가격 책정은 게이트웨이 SKU마다 다릅니다. 자세한 내용은 [VPN Gateway 가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway)을 참조 하세요.
+가격 책정은 게이트웨이 SKU마다 다릅니다. 자세한 내용은 [VPN Gateway 가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway)을 참조하세요.
 
 UltraPerformance 게이트웨이 SKU는 이 테이블에 표시되지 않습니다. UltraPerformance SKU에 대한 내용은 [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) 설명서를 참조하세요.
 
 |  | **VPN Gateway 처리량(1)** | **VPN Gateway 최대 IPsec 터널(2)** | **ExpressRoute 게이트웨이 처리량** | **VPN Gateway 및 ExpressRoute 공존** |
 | --- | --- | --- | --- | --- |
-| **기본 SKU(3)(5)(6)** |100Mbps |10 |500Mbps(6) |아니요 |
+| **기본 SKU(3)(5)(6)** |100Mbps |10 |500Mbps(6) |예 |
 | **표준 SKU(4)(5)** |100Mbps |10 |1000Mbps |예 |
 | **고성능 SKU(4)** |200Mbps |30 |2000Mbps |예 |
 

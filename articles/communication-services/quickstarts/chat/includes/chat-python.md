@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: bcbf2137e578f703cf70b1b47952736aa50f7f17
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 31704e705b828cc0070e3b79f5d527cfa9deb0c3
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106178536"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107386840"
 ---
 [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
 
@@ -90,13 +90,11 @@ chat_client = ChatClient(endpoint, CommunicationTokenCredential("<Access Token>"
 `create_chat_thread` 메서드를 사용하여 채팅 스레드를 만듭니다.
 
 - `topic`을 사용하여 스레드 주제를 지정합니다. 주제는 `update_thread` 함수를 사용하여 채팅 스레드를 만든 후 업데이트할 수 있습니다.
-- `thread_participants`를 사용하여 채팅 스레드에 추가할 `ChatThreadParticipant`를 나열합니다. `ChatThreadParticipant`는 `user`로 `CommunicationUserIdentifier` 유형을 사용합니다. 이는 [사용자 생성](../../access-tokens.md#create-an-identity)으로 사용자가 생성된 후에 가져올 수 있습니다.
+- `thread_participants`를 사용하여 채팅 스레드에 추가할 `ChatParticipant`를 나열합니다. `ChatParticipant`는 `user`로 `CommunicationUserIdentifier` 유형을 사용합니다. 이는 [사용자 생성](../../access-tokens.md#create-an-identity)으로 사용자가 생성된 후에 가져올 수 있습니다.
 
 `CreateChatThreadResult`는 스레드를 만들 때 반환되는 결과이며, 생성된 채팅 스레드의 `id`를 페치하는 데 사용할 수 있습니다. 이 `id`는 `get_chat_thread_client` 메서드를 사용하여 `ChatThreadClient` 개체를 페치하는 데 사용할 수 있습니다. `ChatThreadClient`는 이 채팅 스레드에 대해 다른 채팅 작업을 수행하는 데 사용할 수 있습니다.
 
 ```python
-from azure.communication.chat import ChatThreadParticipant
-
 topic="test topic"
 
 create_chat_thread_result = chat_client.create_chat_thread(topic)
@@ -208,11 +206,11 @@ chat_thread_client.send_read_receipt(message_id=send_message_result.id)
 
 새 액세스 토큰과 ID가 모든 사용자에게 제공되는 경우 `add_participants` 메서드를 사용하여 한 명 이상의 사용자를 채팅 스레드에 추가할 수 있습니다.
 
-`list(tuple(ChatThreadParticipant, CommunicationError))`가 반환됩니다. 참가자가 성공적으로 추가되면 빈 목록이 필요합니다. 참가자를 추가하는 동안 오류가 발생한 경우 발생한 오류와 함께 실패한 참가자로 목록이 채워집니다.
+`list(tuple(ChatParticipant, CommunicationError))`가 반환됩니다. 참가자가 성공적으로 추가되면 빈 목록이 필요합니다. 참가자를 추가하는 동안 오류가 발생한 경우 발생한 오류와 함께 실패한 참가자로 목록이 채워집니다.
 
 ```python
 from azure.communication.identity import CommunicationIdentityClient
-from azure.communication.chat import ChatThreadParticipant
+from azure.communication.chat import ChatParticipant
 from datetime import datetime
 
 # create 2 users
@@ -225,14 +223,14 @@ new_users = [identity_client.create_user() for i in range(2)]
 # user_id = 'some user id'
 # user_display_name = "Wilma Flinstone"
 # new_user = CommunicationUserIdentifier(user_id)
-# participant = ChatThreadParticipant(
+# participant = ChatParticipant(
 #     user=new_user,
 #     display_name=user_display_name,
 #     share_history_time=datetime.utcnow())
 
 participants = []
 for _user in new_users:
-  chat_thread_participant = ChatThreadParticipant(
+  chat_thread_participant = ChatParticipant(
     user=_user,
     display_name='Fred Flinstone',
     share_history_time=datetime.utcnow()
@@ -263,13 +261,13 @@ if retry:
 - `results_per_page`(선택 사항)를 사용합니다. 페이지당 반환될 최대 참가자 수입니다.
 - `skip`(선택 사항)을 사용하여 응답에서 지정된 위치까지 참가자를 건너뜁니다.
 
-`[ChatThreadParticipant]`의 반복기는 참가자 목록에서 반환된 응답입니다.
+`[ChatParticipant]`의 반복기는 참가자 목록에서 반환된 응답입니다.
 
 ```python
 chat_thread_participants = chat_thread_client.list_participants()
 for chat_thread_participant_page in chat_thread_participants.by_page():
     for chat_thread_participant in chat_thread_participant_page:
-        print("ChatThreadParticipant: ", chat_thread_participant)
+        print("ChatParticipant: ", chat_thread_participant)
 ```
 
 ## <a name="run-the-code"></a>코드 실행

@@ -3,12 +3,12 @@ title: Azure Event Hubs 정의 - 빅 데이터 수집 서비스 | Microsoft Docs
 description: 초당 수백만 개의 이벤트를 수집하는 빅 데이터 스트리밍 서비스 Azure Event Hubs에 대해 알아봅니다.
 ms.topic: overview
 ms.date: 01/13/2021
-ms.openlocfilehash: 36eeb38d9ed1696c9524ae9b346065756ce49c46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35e89f60e93ec759d852641653ad138d7672cc37
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98195768"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303052"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs - 빅 데이터 스트리밍 플랫폼 및 이벤트 수집 서비스
 Azure Event Hubs는 빅 데이터 스트리밍 플랫폼 및 이벤트 수집 서비스입니다. 초당 수백만 개의 이벤트를 수신하고 처리할 수 있습니다. 이벤트 허브로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다.
@@ -92,4 +92,4 @@ Event Hubs 사용을 시작하려면 **이벤트 보내기 및 받기** 자습�
 Event Hubs에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Event Hubs 기능 개요](event-hubs-features.md)
-- [질문과 대답](event-hubs-faq.md)
+- [질문과 대답](event-hubs-faq.yml)

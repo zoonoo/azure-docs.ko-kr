@@ -3,12 +3,12 @@ title: Azure 빠른 시작 - Azure Portal을 사용하여 이벤트 허브 만�
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure 이벤트 허브를 만드는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 6bd9d247db6cd5a956ff4bce9b70f1f8a5a7499a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bf83c53792c4934f43e0039d092bb3e36954bf7b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742044"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303120"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 이벤트 허브 만들기
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
@@ -54,7 +54,7 @@ Event Hubs 네임스페이스는 하나 이상의 이벤트 허브를 만드는 
    1. 이전 단계에서 만든 **리소스 그룹** 을 선택합니다.   
    1. 네임스페이스의 **이름** 을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다.  
    1. 네임스페이스의 **위치** 를 선택합니다.
-   1. **가격 책정 계층**(기본 또는 표준)을 선택합니다. 기본 및 표준 계층 간의 차이점에 대한 자세한 내용은 [Event Hubs 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/), [계층 간 차이점](event-hubs-faq.md#what-is-the-difference-between-event-hubs-basic-and-standard-tiers), [할당량 및 제한](event-hubs-quotas.md)을 참조하세요. 
+   1. **가격 책정 계층**(기본 또는 표준)을 선택합니다. 기본 및 표준 계층 간의 차이점에 대한 자세한 내용은 [Event Hubs 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/), [계층 간 차이점](event-hubs-faq.yml#what-is-the-difference-between-event-hubs-basic-and-standard-tiers-), [할당량 및 제한](event-hubs-quotas.md)을 참조하세요. 
    1. **처리량 단위** 설정을 그대로 둡니다. 처리량 단위는 미리 구입한 용량의 단위입니다. 처리량 단위에 대한 자세한 내용은 [Event Hubs 확장성](event-hubs-scalability.md#throughput-units)을 참조하세요.  
    1. 페이지 아래쪽에서 **검토 + 만들기** 를 선택합니다.
       
