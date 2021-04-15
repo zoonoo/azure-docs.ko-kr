@@ -7,13 +7,13 @@ ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 2026b1721dbe05af1ecc52324d1dd0ebf2ec3d08
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.custom: devx-track-python
+ms.openlocfilehash: b8f36d7490e24247f1f8482c9dece86b68015d73
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802661"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376106"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>빠른 시작: Python용 Azure Key Vault 인증서 클라이언트 라이브러리
 
@@ -21,7 +21,7 @@ Python용 Azure Key Vault 인증서 클라이언트 라이브러리를 시작합
 
 [API 참조 설명서](/python/api/overview/azure/keyvault-certificates-readme) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-certificates) | [패키지(Python 패키지 인덱스)](https://pypi.org/project/azure-keyvault-certificates)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Python 2.7 이상 또는 3.6 이상](/azure/developer/python/configure-local-development-environment)
