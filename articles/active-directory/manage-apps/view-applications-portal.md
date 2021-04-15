@@ -2,22 +2,22 @@
 title: '빠른 시작: ID 관리를 위해 Azure AD(Azure Active Directory) 테넌트를 사용하는 애플리케이션 목록 보기'
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 ID 관리를 위해 Azure AD(Azure Active Directory) 테넌트를 사용하도록 등록된 애플리케이션 목록을 확인합니다.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 04/09/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.openlocfilehash: 4bf0353148a5f8474270b314a85d55c3cfd753ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4a03e85798d4406068bd5923dbc753d8e5d31b6
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99257564"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376446"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>빠른 시작: ID 관리를 위해 Azure AD(Azure Active Directory) 테넌트를 사용하는 애플리케이션 목록 보기
 

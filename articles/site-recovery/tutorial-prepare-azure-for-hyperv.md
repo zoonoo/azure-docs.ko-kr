@@ -1,19 +1,16 @@
 ---
 title: Azure Site Recovery를 사용하여 Hyper-V 재해 복구를 위한 Azure 준비
 description: Azure Site Recovery를 사용하여 온-프레미스 Hyper-V VM 재해 복구를 위해 Azure를 준비하는 방법 알아보기
-author: rayne-wiselman
 ms.service: site-recovery
-services: site-recovery
 ms.topic: tutorial
 ms.date: 11/14/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5ca03336fc60abbb458615e922a2556dd21a79a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ec1c41935d200ad220716940f898549d835510ba
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739681"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579281"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Hyper-V 재해 복구를 위한 Azure 리소스 준비
 

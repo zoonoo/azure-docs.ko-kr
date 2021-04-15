@@ -2,20 +2,20 @@
 title: '빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션 속성 구성'
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure AD(Azure Active Directory) 테넌트에 등록된 애플리케이션을 구성합니다.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
-ms.author: kenwith
-ms.openlocfilehash: e83caba2d2a5435c5cdac02c6f63094dc079c43c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: iangithinji
+ms.openlocfilehash: 3b7a5d88aa40422dc46c6ca2c1681447cb030ea4
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99258611"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379522"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션 속성 구성
 
@@ -55,12 +55,12 @@ Azure AD 테넌트에 애플리케이션 추가를 마치면 개요 페이지가
     |---|---|---|---|
     | 예 | 예 | 예 | 할당된 사용자는 앱을 보고 로그인할 수 있습니다.<br>할당되지 않은 사용자는 앱을 볼 수 없고 로그인할 수 없습니다. |
     | 예 | 예 | 아니요  | 할당된 사용자는 앱을 볼 수 없지만 로그인할 수 있습니다.<br>할당되지 않은 사용자는 앱을 볼 수 없고 로그인할 수 없습니다. |
-    | 예 | 예  | 예 | 할당된 사용자는 앱을 보고 로그인할 수 있습니다.<br>할당되지 않은 사용자는 앱을 볼 수 없지만 로그인할 수 있습니다. |
-    | 예 | 예  | 아니요  | 할당된 사용자는 앱을 볼 수 없지만 로그인할 수 있습니다.<br>할당되지 않은 사용자는 앱을 볼 수 없지만 로그인할 수 있습니다. |
-    | 예  | 예 | 예 | 할당된 사용자는 앱을 볼 수 없고 로그인할 수 없습니다.<br>할당되지 않은 사용자는 앱을 볼 수 없고 로그인할 수 없습니다. |
+    | 예 | 아니요  | 예 | 할당된 사용자는 앱을 보고 로그인할 수 있습니다.<br>할당되지 않은 사용자는 앱을 볼 수 없지만 로그인할 수 있습니다. |
+    | 예 | 아니요  | 아니요  | 할당된 사용자는 앱을 볼 수 없지만 로그인할 수 있습니다.<br>할당되지 않은 사용자는 앱을 볼 수 없지만 로그인할 수 있습니다. |
+    | 아니요  | 예 | 예 | 할당된 사용자는 앱을 볼 수 없고 로그인할 수 없습니다.<br>할당되지 않은 사용자는 앱을 볼 수 없고 로그인할 수 없습니다. |
     | 예  | 예 | 아니요  | 할당된 사용자는 앱을 볼 수 없고 로그인할 수 없습니다.<br>할당되지 않은 사용자는 앱을 볼 수 없고 로그인할 수 없습니다. |
-    | 예  | 예  | 예 | 할당된 사용자는 앱을 볼 수 없고 로그인할 수 없습니다.<br>할당되지 않은 사용자는 앱을 볼 수 없고 로그인할 수 없습니다. |
-    | 예  | 예  | 아니요  | 할당된 사용자는 앱을 볼 수 없고 로그인할 수 없습니다.<br>할당되지 않은 사용자는 앱을 볼 수 없고 로그인할 수 없습니다. |
+    | 예  | 아니요  | 예 | 할당된 사용자는 앱을 볼 수 없고 로그인할 수 없습니다.<br>할당되지 않은 사용자는 앱을 볼 수 없고 로그인할 수 없습니다. |
+    | 예  | 아니요  | 아니요  | 할당된 사용자는 앱을 볼 수 없고 로그인할 수 없습니다.<br>할당되지 않은 사용자는 앱을 볼 수 없고 로그인할 수 없습니다. |
 
 4. 완료되면 **저장** 을 선택합니다.
 
