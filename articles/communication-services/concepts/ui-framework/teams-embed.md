@@ -7,12 +7,12 @@ ms.author: chpalm
 ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: e55cfb1a4dff7bfda2323e68777d6f50514b1608
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8301f81b21db50814df1bc764cc1fae38b4f14de
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105930237"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307642"
 ---
 # <a name="teams-embed"></a>Teams 포함
 
@@ -33,6 +33,6 @@ Teams 포함은 다음을 포함하여 Teams 모임에서 지원되는 대부분
 - 오디오 및 비디오 디바이스를 구성하기 위한 모임 내 환경
 - [비디오 배경](https://support.microsoft.com/office/change-your-background-for-a-teams-meeting-f77a2381-443a-499d-825e-509a140f4780): 참가자가 배경을 흐리게 하거나 바꿀 수 있도록 허용
 - [비디오 갤러리에 대한 여러 옵션](https://support.microsoft.com/office/using-video-in-microsoft-teams-3647fc29-7b92-4c26-8c2d-8a596904cdae): 대형 갤러리, 함께 모드, 포커스, 고정 및 스포트라이트
-- [콘텐츠 공유](https://support.microsoft.comoffice/share-content-in-a-meeting-in-teams-fcc2bf59-aecd-4481-8f99-ce55dd836ce8#ID0EABAAA=Mobile): 참가자가 자신의 화면을 공유할 수 있도록 허용
+- [콘텐츠 공유](https://support.microsoft.com/en-us/office/share-content-in-a-meeting-in-teams-fcc2bf59-aecd-4481-8f99-ce55dd836ce8): 참가자가 자신의 화면을 공유할 수 있도록 허용
 
 이 UI와 다른 Azure 통신 SDK를 비교한 자세한 내용은 [UI SDK 개념 소개](ui-sdk-overview.md)를 참조하세요. 

@@ -6,13 +6,13 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 03/17/2021
-ms.openlocfilehash: 8e5c204709f0eadb6c1a4b6f479d4833f335b264
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/05/2021
+ms.openlocfilehash: 090d38a92da126cd4fd8423231f856d22ea9a64c
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104594889"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106839"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버
 
@@ -103,6 +103,7 @@ Azure에서 워크로드를 실행하는 이점 중 하나는 글로벌 연결�
 | 일본 동부 | :heavy_check_mark: | :heavy_check_mark: | 
 | 오스트레일리아 동부 | :heavy_check_mark: | :heavy_check_mark: | 
 | 캐나다 중부 | :heavy_check_mark: | :heavy_check_mark: | 
+| 프랑스 중부 | :heavy_check_mark: | :heavy_check_mark: | 
 
 유연한 서버를 위한 영역을 계속 추가하고 있습니다.
 
