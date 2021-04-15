@@ -3,12 +3,12 @@ title: '빠른 시작: REST API를 사용하여 관리 그룹 만들기'
 description: 이 빠른 시작에서는 REST API를 사용하여 리소스를 리소스 계층 구조로 구성하는 관리 그룹을 만듭니다.
 ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: ff1487bf25945c733402ddb74d1e102bea80b4b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 26a1c0a8025a00155bcf0498e6dfa89a8a73d983
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99592503"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259135"
 ---
 # <a name="quickstart-create-a-management-group-with-rest-api"></a>빠른 시작: REST API를 사용하여 관리 그룹 만들기
 
@@ -16,7 +16,7 @@ ms.locfileid: "99592503"
 
 디렉터리에서 만드는 첫 번째 관리 그룹을 완료하려면 최대 15분이 소요될 수 있습니다. 디렉터리에 대해 Azure 내의 관리 그룹 서비스를 설정하기 위해 처음으로 실행되는 프로세스가 있습니다. 프로세스가 완료되면 알림이 수신됩니다. 자세한 내용은 [관리 그룹의 초기 설정](./overview.md#initial-setup-of-management-groups)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "99592503"
 
 ### <a name="create-in-rest-api"></a>REST API에서 만들기
 
-REST API의 경우 [관리 그룹 - 만들기 또는 업데이트](/rest/api/resources/managementgroups/createorupdate) 엔드포인트를 사용하여 새 관리 그룹을 만듭니다. 이 예제에서 관리 그룹 **groupId** 는 _Contoso_ 입니다.
+REST API의 경우 [관리 그룹 - 만들기 또는 업데이트](/rest/api/managementgroups/managementgroups/createorupdate) 엔드포인트를 사용하여 새 관리 그룹을 만듭니다. 이 예제에서 관리 그룹 **groupId** 는 _Contoso_ 입니다.
 
 - REST API URI
 
@@ -81,7 +81,7 @@ REST API의 경우 [관리 그룹 - 만들기 또는 업데이트](/rest/api/res
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-위에서 만든 관리 그룹을 제거하려면 [관리 그룹 - 삭제](/rest/api/resources/managementgroups/delete) 엔드포인트를 사용합니다.
+위에서 만든 관리 그룹을 제거하려면 [관리 그룹 - 삭제](/rest/api/managementgroups/managementgroups/delete) 엔드포인트를 사용합니다.
 
 - REST API URI
 

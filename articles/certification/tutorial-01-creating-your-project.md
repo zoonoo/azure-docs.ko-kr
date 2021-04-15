@@ -1,18 +1,18 @@
 ---
 title: Azure Certified Device 프로그램 - 자습서 - 프로젝트 만들기
 description: Azure Certified Device 포털에서 프로젝트를 만들기 위한 가이드
-author: nikuntjo
+author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: tutorial
 ms.date: 03/01/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: e5602e133ac8ab13779c9dfebca21d97265d9d76
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 11d72847209a2e706d4aa32d38af1b2c8af3dfa0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105975560"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314000"
 ---
 # <a name="tutorial-create-your-project"></a>자습서: 프로젝트 만들기
 

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 799a7ea6d76df06cea9d3960f43fc78de9bdf5b6
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 07562641ef866074dcf14cb01afd4d7ce071e467
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067795"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311008"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Azure의 Windows 가상 머신
 
@@ -46,11 +46,11 @@ Azure에서 만든 리소스는 모두 전 세계의 여러 [지리적 지역](h
 
 아래 표에서는 사용할 수 있는 위치 목록을 가져올 수 있는 몇 가지 방법을 보여 줍니다.
 
-| 방법 | 설명 |
+| 메서드 | Description |
 | --- | --- |
 | Azure portal |VM을 만들 때 목록에서 위치를 선택합니다. |
 | Azure PowerShell |[Get-AzLocation](/powershell/module/az.resources/get-azlocation) 명령을 사용합니다. |
-| REST API |[위치 나열](/rest/api/resources/subscriptions/subscriptions/listlocations) 작업을 사용합니다. |
+| REST API |[위치 나열](/rest/api/resources/subscriptions/listlocations) 작업을 사용합니다. |
 | Azure CLI |[az account list-locations](/cli/azure/account) 작업을 사용합니다. |
 
 ## <a name="availability"></a>가용성
@@ -72,7 +72,7 @@ Azure에서는 다양한 버전과 종류의 Windows Server 운영 체제에서 
 
 아래 표에서는 이미지에 대한 정보를 찾을 수 있는 몇 가지 방법을 보여 줍니다.
 
-| 방법 | 설명 |
+| 방법 | Description |
 | --- | --- |
 | Azure portal |사용할 이미지를 선택할 때 사용자에 적합한 값이 자동으로 지정됩니다. |
 | Azure PowerShell |[Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
