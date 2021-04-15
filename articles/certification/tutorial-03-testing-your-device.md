@@ -1,18 +1,18 @@
 ---
 title: Azure Certified Device 프로그램 - 자습서 - 디바이스 테스트
 description: Azure Certified Device 포털에서 AICS 서비스를 사용하여 디바이스를 테스트하는 단계별 가이드입니다.
-author: nikuntjo
+author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 4cc9e37e95c6402bc535d818e994327e7d526047
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: ef82d44ef44189c0430ba9789baf3279fbe49a9c
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105975520"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310957"
 ---
 # <a name="tutorial-test-and-submit-your-device"></a>자습서: 디바이스 테스트 및 제출
 
@@ -27,7 +27,7 @@ ms.locfileid: "105975520"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- 로그인하여 [Azure Certified Device 포털](https://certify.azure.com)에서 디바이스에 대한 프로젝트를 만들어야 합니다. 자세한 내용은 [자습서](tutorial-01-creating-your-project.md)를 참조하세요.
+- 로그인되어 있고 [Azure Certified Device 포털](https://certify.azure.com)에서 만든 디바이스용 프로젝트가 있어야 합니다. 자세한 내용은 [자습서](tutorial-01-creating-your-project.md)를 참조하세요.
 - (선택 사항) 디바이스를 준비하고 인증 요구 사항에 따라 성능을 수동으로 확인하는 것이 좋습니다. 이는 다른 디바이스 코드 또는 인증 프로그램을 사용하여 다시 테스트하려면 새 프로젝트를 만들어야 하기 때문입니다.
 
 ## <a name="connecting-your-device-using-dps"></a>DPS를 사용하여 디바이스 연결

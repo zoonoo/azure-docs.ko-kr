@@ -6,15 +6,15 @@ ms.date: 09/24/2020
 ms.author: glenga
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 1ff9606d10ac62e0bab15f970a964bfd0b08bee8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97506316"
 ---
 # <a name="c"></a>[C#](#tab/csharp)
 
-| 서비스 | 예제 | 샘플 |
+| 서비스 | 예 | 샘플 |
 | ---- | ----- | ------ | 
 | Blob 스토리지 | [트리거](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=csharp#example)<br/>[Input](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=csharp#example)<br/>[출력](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=csharp#example) | [링크](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=C%23) |
 | Azure Cosmos DB |[트리거](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=csharp#example)<br/>[Input](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=csharp#example)<br/>[출력](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=csharp#example) | [링크](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=C%23) |
@@ -33,7 +33,7 @@ ms.locfileid: "97506316"
 
 # <a name="java"></a>[Java](#tab/java)
 
-| 서비스 | 예제 | 샘플 |
+| 서비스 | 예 | 샘플 |
 | ---- | ----- | ------ | 
 | Blob 스토리지 | [트리거](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=java#example)<br/>[Input](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=java#example)<br/>[출력](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=java#example) | [링크](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=Java) |
 | Azure Cosmos DB |[트리거](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=java#example)<br/>[Input](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=java#example)<br/>[출력](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=java#example) | [링크](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=Java) |
@@ -52,7 +52,7 @@ ms.locfileid: "97506316"
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-| 서비스 | 예제 | 샘플 |
+| 서비스 | 예 | 샘플 |
 | ---- | ----- | ------ | 
 | Blob 스토리지 | [트리거](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=javascript#example)<br/>[Input](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=javascript#example)<br/>[출력](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=javascript#example) | [링크](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=JavaScript) |
 | Azure Cosmos DB |[트리거](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=javascript#example)<br/>[Input](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=javascript#example)<br/>[출력](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=javascript#example) | [링크](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=JavaScript) |
@@ -71,7 +71,7 @@ ms.locfileid: "97506316"
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-| 서비스 | 예제 | 샘플 |
+| 서비스 | 예 | 샘플 |
 | ---- | ----- | ------ | 
 | Blob 스토리지 | [트리거](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=powershell#example)<br/>[Input](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=powershell#example)<br/>[출력](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=powershell#example) | [링크](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=PowerShell) |
 | Azure Cosmos DB |[트리거](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=powershell#example)<br/>[Input](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=powershell#example)<br/>[출력](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=powershell#example) | [링크](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=PowerShell) |
@@ -90,7 +90,7 @@ ms.locfileid: "97506316"
 
 # <a name="python"></a>[Python](#tab/python)
 
-| 서비스 | 예제 | 샘플 |
+| 서비스 | 예 | 샘플 |
 | ---- | ----- | ------ | 
 | Blob 스토리지 | [트리거](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=python#example)<br/>[Input](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=python#example)<br/>[출력](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=python#example) | [링크](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=Python) |
 | Azure Cosmos DB |[트리거](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=python#example)<br/>[Input](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=python#example)<br/>[출력](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=python#example) | [링크](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=Python) |

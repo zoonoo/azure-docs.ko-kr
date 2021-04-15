@@ -1,19 +1,16 @@
 ---
 title: Azure Site Recovery에서 Hyper-V VM의 Azure에 대한 장애 조치(failover) 설정
 description: Azure Site Recovery를 사용하여 Hyper-V VM을 Azure로 장애 조치(failover)하는 방법을 알아봅니다.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 12/16/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b46a2ea12a697afde8223cc3595365c1286512c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb012f7cc5faa5e286b617785512ffa463c213bb
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86132459"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579533"
 ---
 # <a name="fail-over-hyper-v-vms-to-azure"></a>Hyper-V VM을 Azure로 장애 조치(failover)
 

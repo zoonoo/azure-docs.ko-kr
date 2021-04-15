@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/26/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d155d0c4a18b254f66ff5fb58ea91dbee22d2c34
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 578befe3e26ebb42fa2172976e07d0a5836e3743
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103496612"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107162"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure Digital Twins 그래프 만들기
 
@@ -20,7 +20,7 @@ ms.locfileid: "103496612"
 
 이 자습서에서는 모델, 트윈 및 관계를 사용하여 Azure Digital Twins에서 그래프를 작성합니다. 이 자습서의 도구는 [**Azure CLI** 에 대한 Azure Digital Twines 명령 세트](how-to-use-cli.md)입니다. 
 
-CLI 명령을 사용하여 모델 업로드, 트윈 만들기/수정 및 관계 만들기와 같은 필수 Azure Digital Twins 작업을 수행할 수 있습니다. [*az dt* 명령 세트에 대한 참조 설명서](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)를 참조하여 CLI 명령의 전체 세트를 확인할 수도 있습니다.
+CLI 명령을 사용하여 모델 업로드, 트윈 만들기/수정 및 관계 만들기와 같은 필수 Azure Digital Twins 작업을 수행할 수 있습니다. [*az dt* 명령 세트에 대한 참조 설명서](/cli/azure/dt)를 참조하여 CLI 명령의 전체 세트를 확인할 수도 있습니다.
 
 이 자습서에서는 다음을 수행합니다.
 > [!div class="checklist"]
@@ -91,7 +91,7 @@ Azure Digital Twins 솔루션을 만드는 첫 번째 단계는 사용자 환경
     
     컴퓨터에서 *Room.json* 파일로 이동하여 "열기"를 선택합니다. 그런 다음, *Floor.json* 에 대해 이 단계를 반복합니다.
 
-1. 다음으로 [**az dt model create**](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_create) 명령을 아래와 같이 사용하여 업데이트된 *Room* 모델을 Azure Digital Twins 인스턴스에 업로드합니다. 두 번째 명령은 다른 모델인 *Floor* 를 업로드합니다. 이 모델은 다음 섹션에서도 다른 유형의 트윈을 만드는 데 사용합니다.
+1. 다음으로 [**az dt model create**](/cli/azure/dt/model#az_dt_model_create) 명령을 아래와 같이 사용하여 업데이트된 *Room* 모델을 Azure Digital Twins 인스턴스에 업로드합니다. 두 번째 명령은 다른 모델인 *Floor* 를 업로드합니다. 이 모델은 다음 섹션에서도 다른 유형의 트윈을 만드는 데 사용합니다.
 
     ```azurecli-interactive
     az dt model create -n <ADT_instance_name> --models Room.json
@@ -101,9 +101,9 @@ Azure Digital Twins 솔루션을 만드는 첫 번째 단계는 사용자 환경
     각 명령의 출력에는 성공적으로 업로드된 모델에 대한 정보가 표시됩니다.
 
     >[!TIP]
-    >`--from-directory` 옵션을 model create 명령에 사용하여 디렉터리 내의 모든 모델을 동시에 업로드할 수도 있습니다. 자세한 내용은 [*az dt model create* 에 대한 선택적 매개 변수](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_create-optional-parameters)를 참조하세요.
+    >`--from-directory` 옵션을 model create 명령에 사용하여 디렉터리 내의 모든 모델을 동시에 업로드할 수도 있습니다. 자세한 내용은 [*az dt model create* 에 대한 선택적 매개 변수](/cli/azure/dt/model#az_dt_model_create-optional-parameters)를 참조하세요.
 
-1. [**azdt model list**](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_list) 명령을 아래와 같이 사용하여 모델이 만들어졌는지 확인합니다. 그러면 Azure Digital Twins 인스턴스에 업로드된 모든 모델의 목록이 전체 정보와 함께 출력됩니다. 
+1. [**azdt model list**](/cli/azure/dt/model#az_dt_model_list) 명령을 아래와 같이 사용하여 모델이 만들어졌는지 확인합니다. 그러면 Azure Digital Twins 인스턴스에 업로드된 모든 모델의 목록이 전체 정보와 함께 출력됩니다. 
 
     ```azurecli-interactive
     az dt model list -n <ADT_instance_name> --definition
@@ -129,7 +129,7 @@ az dt model create -n <ADT_instance_name> --models Room.json
 
 일부 모델이 Azure Digital Twins 인스턴스에 업로드되었으므로 모델 정의를 기반으로 [**디지털 트윈**](concepts-twins-graph.md)을 만들 수 있습니다. 디지털 트윈은 농장의 센서, 건물의 방 또는 자동차의 조명과 같은 비즈니스 환경 내의 엔터티를 나타냅니다. 
 
-디지털 트윈을 만들려면 [**az dt twin create**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_create) 명령을 사용합니다. 트윈이 기반으로 하는 모델을 참조해야 하며, 필요에 따라 모델의 속성에 대한 초기 값을 정의할 수 있습니다. 이 단계에서는 관계 정보를 전달할 필요가 없습니다.
+디지털 트윈을 만들려면 [**az dt twin create**](/cli/azure/dt/twin#az_dt_twin_create) 명령을 사용합니다. 트윈이 기반으로 하는 모델을 참조해야 하며, 필요에 따라 모델의 속성에 대한 초기 값을 정의할 수 있습니다. 이 단계에서는 관계 정보를 전달할 필요가 없습니다.
 
 1. Cloud Shell에서 이 코드를 실행하여 이전에 업데이트한 *Room* 모델 및 또 다른 모델인 *Floor* 를 기반으로 하여 여러 개의 트윈을 만듭니다. *Room* 에는 세 가지 속성이 있으므로 인수에 이들 속성에 대한 초기 값을 제공할 수 있습니다. (속성 값 초기화는 일반적으로 선택 사항이지만 이 자습서에는 필요합니다.)
 
@@ -151,7 +151,7 @@ az dt model create -n <ADT_instance_name> --models Room.json
     
     각 명령의 출력에는 성공적으로 만들어진 트윈에 대한 정보(초기화된 방 트윈에 대한 속성 포함)가 표시됩니다.
 
-1. [**azd twin query**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_query) 명령을 아래와 같이 사용하여 트윈이 만들어졌는지 확인할 수 있습니다. 표시된 쿼리는 Azure Digital Twins 인스턴스에서 모든 디지털 트윈을 찾습니다.
+1. [**azd twin query**](/cli/azure/dt/twin#az_dt_twin_query) 명령을 아래와 같이 사용하여 트윈이 만들어졌는지 확인할 수 있습니다. 표시된 쿼리는 Azure Digital Twins 인스턴스에서 모든 디지털 트윈을 찾습니다.
     
     ```azurecli-interactive
     az dt twin query -n <ADT_instance_name> -q "SELECT * FROM DIGITALTWINS"
@@ -165,7 +165,7 @@ az dt model create -n <ADT_instance_name> --models Room.json
 
 사용자가 만든 트윈의 속성을 수정할 수도 있습니다. 
 
-1. 이 [**az dt twin update**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_update) 명령을 실행하여 *room0* 의 RoomName을 *Room0* 에서 *PresidentialSuite* 로 변경합니다.
+1. 이 [**az dt twin update**](/cli/azure/dt/twin#az_dt_twin_update) 명령을 실행하여 *room0* 의 RoomName을 *Room0* 에서 *PresidentialSuite* 로 변경합니다.
 
     ```azurecli-interactive
     az dt twin update -n <ADT_instance_name> --twin-id room0 --json-patch '{"op":"add", "path":"/RoomName", "value": "PresidentialSuite"}'
@@ -183,7 +183,7 @@ az dt model create -n <ADT_instance_name> --models Room.json
 
     :::image type="content" source="media/tutorial-command-line/cli/output-update-twin.png" alt-text="PresidentialSuite의 RoomName이 포함된 update 명령의 결과를 보여 주는 Cloud Shell의 스크린샷" lightbox="media/tutorial-command-line/cli/output-update-twin.png":::
 
-1. [**az dt twin show**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_show) 명령을 실행하여 *room0* 의 정보를 확인하면 업데이트가 성공했는지 확인할 수 있습니다.
+1. [**az dt twin show**](/cli/azure/dt/twin#az_dt_twin_show) 명령을 실행하여 *room0* 의 정보를 확인하면 업데이트가 성공했는지 확인할 수 있습니다.
 
     ```azurecli-interactive
     az dt twin show -n <ADT_instance_name> --twin-id room0
@@ -197,7 +197,7 @@ az dt model create -n <ADT_instance_name> --models Room.json
 
 한 트윈에서 다른 트윈으로 작성할 수 있는 관계 유형은 이전에 업로드한 [모델](#model-a-physical-environment-with-dtdl) 내에서 정의됩니다. [*Floor* 에 대한 모델 정의](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json)는 *포함* 이라는 관계 유형이 있는 floor를 지정합니다. 이를 통해 각 *Floor* 트윈에서 포함된 해당 room으로의 *포함* 유형 관계를 만들 수 있습니다.
 
-관계를 추가하려면 [**az dt twin relationship create**](/cli/azure/ext/azure-iot/dt/twin/relationship?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_relationship_create) 명령을 사용합니다. 관계가 시작되는 트윈, 관계 유형 및 관계가 연결되는 트윈을 지정합니다. 마지막으로 관계에 고유한 ID를 지정합니다. 관계가 속성으로 정의된 경우 이 명령에서도 관계 속성을 초기화할 수 있습니다.
+관계를 추가하려면 [**az dt twin relationship create**](/cli/azure/dt/twin/relationship#az_dt_twin_relationship_create) 명령을 사용합니다. 관계가 시작되는 트윈, 관계 유형 및 관계가 연결되는 트윈을 지정합니다. 마지막으로 관계에 고유한 ID를 지정합니다. 관계가 속성으로 정의된 경우 이 명령에서도 관계 속성을 초기화할 수 있습니다.
 
 1. 다음 코드를 실행하여 이전에 만든 각 *Floor* 트윈의 *contains* 형식 관계를 해당 *Room* 트윈에 추가합니다. 관계 이름은 *relationship0* 및 *relationship1* 입니다.
 
@@ -240,7 +240,7 @@ az dt model create -n <ADT_instance_name> --models Room.json
 
 ## <a name="query-the-twin-graph-to-answer-environment-questions"></a>트윈 그래프를 쿼리하여 환경 질문에 대답
 
-Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하도록 쉽고 효율적으로 트윈 그래프를 [쿼리](concepts-query-language.md)하는 기능입니다. Azure CLI에서 이 작업은 [**az dt twin query**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_query) 명령을 사용하여 수행됩니다.
+Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하도록 쉽고 효율적으로 트윈 그래프를 [쿼리](concepts-query-language.md)하는 기능입니다. Azure CLI에서 이 작업은 [**az dt twin query**](/cli/azure/dt/twin#az_dt_twin_query) 명령을 사용하여 수행됩니다.
 
 Cloud Shell에서 다음 쿼리를 실행하여 샘플 환경에 대한 몇 가지 질문에 답변합니다.
 
@@ -308,7 +308,7 @@ Cloud Shell에서 다음 쿼리를 실행하여 샘플 환경에 대한 몇 가�
 
 * **다음 자습서로 계속 진행하려는 경우** 여기서 설정한 리소스를 유지하고 중간에 아무것도 지우지 않고 Azure Digital Twines 인스턴스를 다시 사용할 수 있습니다.
 
-* **Azure Digital Twins 인스턴스를 계속 사용하지만 해당 모델, 트윈 및 관계를 모두 지우려는 경우** [**az dt twin relationship delete**](/cli/azure/ext/azure-iot/dt/twin/relationship?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_relationship_delete), [**az dt twin delete**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_delete) 및 [**az dt model delete**](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_delete) 명령을 사용하여 인스턴스의 관계, 트윈 및 모델을 각각 지울 수 있습니다.
+* **Azure Digital Twins 인스턴스를 계속 사용하지만 해당 모델, 트윈 및 관계를 모두 지우려는 경우** [**az dt twin relationship delete**](/cli/azure/dt/twin/relationship#az_dt_twin_relationship_delete), [**az dt twin delete**](/cli/azure/dt/twin#az_dt_twin_delete) 및 [**az dt model delete**](/cli/azure/dt/model#az_dt_model_delete) 명령을 사용하여 인스턴스의 관계, 트윈 및 모델을 각각 지울 수 있습니다.
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 

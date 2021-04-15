@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/09/2021
 ms.author: alkohli
 ms.openlocfilehash: 400c5f0b2281679c3ec913e94643ffec6082d9e6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100552205"
 ---
 #### <a name="to-create-a-volume"></a>볼륨을 만들려면
@@ -43,7 +43,7 @@ ms.locfileid: "100552205"
       1. **연결된 호스트** 블레이드에서 다음 단계를 수행하여 기존 ACR을 선택하거나 새 ACR을 추가합니다.
 
          1. ACR의 **이름** 을 입력합니다.
-         2. **iSCSI 초기자 이름** 에서 Windows 호스트의 IQN(정규화된 iSCSI 이름)을 제공합니다. IQN이 없는 경우 [Windows Server 호스트의 Iqn 가져오기](#get-the-iqn-of-a-windows-server-host)로 이동 합니다.
+         2. **iSCSI 초기자 이름** 에서 Windows 호스트의 IQN(정규화된 iSCSI 이름)을 제공합니다. IQN이 없는 경우 [Windows Server 호스트의 IQN 가져오기](#get-the-iqn-of-a-windows-server-host)로 이동합니다.
 
       1. **만들기** 를 클릭합니다. 지정한 설정으로 볼륨이 만들어집니다.
 
