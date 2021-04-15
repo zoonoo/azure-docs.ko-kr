@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 12/19/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: f728e1f1e2186188135666ed54e02c9ed3507509
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 66b3db9a7aec45a2a0881379db6f7ef51950b5c5
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056541"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364314"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-by-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 내부 부하 분산 장치 만들기
 
@@ -30,9 +30,6 @@ Azure CLI를 사용하여 내부 부하 분산 장치와 세 개의 가상 머�
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)] 
 
 이 빠른 시작에는 Azure CLI 버전 2.0.28 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
-
->[!NOTE]
->프로덕션 워크로드에는 Azure Load Balancer Standard를 선택하는 것이 좋습니다. 이 문서에는 Azure Load Balancer Standard 및 Azure Load Balancer Basic에 대한 정보가 포함되어 있습니다. SKU에 대한 자세한 내용은 [Azure Load Balancer SKU](skus.md)를 참조하세요.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -47,7 +44,11 @@ Azure 리소스 그룹은 Azure 리소스를 배포하고 관리하는 논리 �
 
 ```
 
-## <a name="azure-load-balancer-standard"></a>Azure Load Balancer Standard
+---
+# <a name="standard-sku"></a>[**표준 SKU**](#tab/option-1-create-load-balancer-standard)
+
+>[!NOTE]
+>표준 SKU 부하 분산 장치는 프로덕션 워크로드에 추천됩니다. SKU에 대한 자세한 내용은 **[Azure Load Balancer SKU](skus.md)** 를 참조하세요.
 
 이 섹션에서는 가상 머신의 부하를 분산하는 부하 분산 장치를 만듭니다. 내부 부하 분산 장치를 만들 때 가상 네트워크는 부하 분산 장치의 네트워크로 구성됩니다. 다음 다이어그램은 이 빠른 시작에서 만든 리소스를 보여줍니다.
 
@@ -335,7 +336,10 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ```
 
-## <a name="azure-load-balancer-basic"></a>Azure Load Balancer Basic
+# <a name="basic-sku"></a>[**기본 SKU**](#tab/option-1-create-load-balancer-basic)
+
+>[!NOTE]
+>표준 SKU 부하 분산 장치는 프로덕션 워크로드에 추천됩니다. SKU에 대한 자세한 내용은 **[Azure Load Balancer SKU](skus.md)** 를 참조하세요.
 
 이 섹션에서는 가상 머신의 부하를 분산하는 부하 분산 장치를 만듭니다. 내부 부하 분산 장치를 만들 때 가상 네트워크는 부하 분산 장치의 네트워크로 구성됩니다. 다음 다이어그램은 이 빠른 시작에서 만든 리소스를 보여줍니다.
 
@@ -636,7 +640,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
   done
 
 ```
-
+---
 ## <a name="test-the-load-balancer"></a>부하 분산 장치 테스트
 
 [az network nic create](/cli/azure/network/nic#az-network-nic-create)를 사용하여 네트워크 인터페이스를 만듭니다. 다음을 지정합니다.

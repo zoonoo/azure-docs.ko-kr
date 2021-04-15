@@ -9,26 +9,23 @@ ms.author: mariusu
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 824fd19e8acfed75ab3d64048a00f579b70286d2
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 35c3bd0213b6d895a81605f5858f924182e1e307
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103496238"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168861"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>웹 통화 샘플 시작
 
-웹 통화 샘플은 Communication Services 웹 통화 클라이언트 라이브러리에서 제공하는 다양한 기능에 대한 단계별 연습으로 사용되는 웹 애플리케이션입니다.
+웹 통화 샘플은 Communication Services 웹 Calling SDK에서 제공하는 다양한 기능에 대한 단계별 연습으로 사용되는 웹 애플리케이션입니다.
 
 이 샘플은 개발자를 위해 작성되었으며 Communication Services를 매우 쉽게 시작할 수 있습니다. 사용자 인터페이스는 여러 섹션으로 구분되며, 각 섹션에는 코드를 브라우저에서 사용자 고유의 Communication Services 애플리케이션으로 직접 복사할 수 있는 "코드 표시" 단추가 있습니다.
 
 ## <a name="get-started-with-the-web-calling-sample"></a>웹 통화 샘플 시작
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-
 > [!IMPORTANT]
-> [이 샘플은 Github에서 사용할 수 있습니다](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
+> [이 샘플은 **Github** 에서 사용할 수 있습니다.](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
 
 /Project/readme.md를 따라 프로젝트를 설정하고 머신에서 로컬로 실행합니다.
 [웹 통화 샘플](https://github.com/Azure-Samples/communication-services-web-calling-tutorial)이 머신에서 실행되면 다음 방문 페이지가 표시됩니다.
@@ -51,7 +48,7 @@ SDK가 초기화되면 다음과 같이 표시됩니다.
 
 ## <a name="placing-and-receiving-calls"></a>전화 걸기 및 받기
 
-Communication Services 웹 통화 SDK는 **1:1**, **1:N** 및 **그룹** 통화를 허용합니다.
+Communication Services 웹 Calling SDK는 **1:1**, **1:N** 및 **그룹** 통화를 허용합니다.
 
 1:1 또는 1:N 발신 전화의 경우 쉼표로 구분된 값을 사용하여 통화할 여러 Communication Services 사용자 ID를 지정할 수 있습니다. 쉼표로 구분된 값을 사용하여 통화할 기존(PSTN) 전화 번호를 지정할 수도 있습니다.
 
@@ -86,8 +83,8 @@ PSTN 전화 번호로 전화를 거는 경우 대체 호출자 ID를 지정합�
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- [통화 클라이언트 라이브러리 사용법](../quickstarts/voice-video-calling/calling-client-samples.md) 숙지
-- [호출 작동 방식](../concepts/voice-video-calling/about-call-types.md)에 대해 자세히 알아보기
+- [통화 SDK 사용법](../quickstarts/voice-video-calling/calling-client-samples.md) 숙지
+- [통화 작동 방식](../concepts/voice-video-calling/about-call-types.md)에 대한 자세한 정보
 - [API 참조 문서](/javascript/api/azure-communication-services/@azure/communication-calling/) 검토
 - [Contoso Med 앱](https://github.com/Azure-Samples/communication-services-contoso-med-app) 샘플 검토
 

@@ -2,21 +2,21 @@
 title: Azure Active Directory 애플리케이션 관리용 PowerShell 샘플
 description: 이러한 PowerShell 샘플은 Azure Active Directory 테넌트에서 관리하는 앱에 사용됩니다. 이러한 샘플 스크립트를 사용하여 비밀 및 인증서에 대한 만료 정보를 찾을 수 있습니다.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: sample
 ms.date: 02/18/2021
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: mifarca
-ms.openlocfilehash: f5f7ec8245a43440a400b9ca6b55bf1093eb62cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b6314935bfafc2fe6288c30619e1d01242a991d
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102636191"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378825"
 ---
 # <a name="azure-active-directory-powershell-examples-for-application-management"></a>애플리케이션 관리용 Azure Active Directory PowerShell 예제
 
