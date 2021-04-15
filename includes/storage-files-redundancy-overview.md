@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: storage
 author: roygara
@@ -9,10 +9,10 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: b7c097306ba46d4f0024aecc55994508e2d8a090
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96011723"
 ---
 Azure 파일 공유 데이터를 손실 또는 손상으로부터 보호하기 위해 모든 Azure 파일 공유는 기록 시 각 파일의 여러 복사본을 저장합니다. 워크로드의 요구 사항에 따라 추가 수준의 중복도를 선택할 수 있습니다. 현재 Azure Files는 다음과 같은 데이터 중복도 옵션을 지원합니다.
