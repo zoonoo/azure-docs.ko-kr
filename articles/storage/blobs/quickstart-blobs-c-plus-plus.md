@@ -7,12 +7,12 @@ ms.date: 10/21/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 7a0d2bdb1879e4f68b582ee56367f0238285a401
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: e6832cc835a464a2a3d17d5ed286e71b17bc980e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278085"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312283"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-c"></a>빠른 시작: C++용 Azure Blob Storage 클라이언트 라이브러리 v12
 
@@ -40,7 +40,7 @@ C++용 Azure Blob Storage 클라이언트 라이브러리 v12를 사용하여 �
 - [Azure Storage 계정](../common/storage-account-create.md)
 - [C++ 컴파일러](https://azure.github.io/azure-sdk/cpp_implementation.html#supported-platforms)
 - [CMake](https://cmake.org/)
-- [Vcpkg - C 및 C++ 패키지 관리자](https://github.com/microsoft/vcpkg/blob/master/docs/index.md)
+- [Vcpkg - C 및 C++ 패키지 관리자](https://github.com/microsoft/vcpkg/blob/master/docs/README.md)
 - [LibCurl](https://curl.haxx.se/libcurl/)
 - [LibXML2](http://www.xmlsoft.org/)
 

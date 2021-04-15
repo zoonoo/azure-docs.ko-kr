@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 4bea0f6091c02f80e381217ab7894ec4ad90d0ed
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 32f98eb9b98168bdab270ecff07446c31f8d706d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105104988"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729755"
 ---
 함수 트리거를 사용하여 이벤트 허브 이벤트 스트림으로 보내진 이벤트에 응답합니다. 트리거를 설정하려면 기본 이벤트 허브에 대한 읽기 액세스 권한이 있어야 합니다. 함수가 트리거되면 함수에 전달된 메시지가 문자열로 입력됩니다.
 
@@ -375,12 +375,12 @@ Event Hub를 트리거하는 데 대한 다음 매개 변수 형식을 사용할
 * `string`
 * `byte[]`
 * `POCO`
-* `EventData` - EventData의 기본 속성은 [Microsoft.Azure.EventHubs 네임스페이스](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet)에서 제공됩니다.
+* `EventData` - EventData의 기본 속성은 [Microsoft.Azure.EventHubs 네임스페이스](/dotnet/api/microsoft.azure.eventhubs.eventdata)에서 제공됩니다.
 
 ### <a name="additional-types"></a>추가 형식 
-5\.0.0 이상 버전의 Event Hub 확장을 사용하는 앱은 [Microsoft.Azure.EventHubs 네임스페이스](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet)에 있는 `EventData` 유형 대신 [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet)에 있는 유형을 사용합니다. 이 버전은 다음 유형을 위해 레거시 `Body` 유형 지원을 중단합니다.
+5\.0.0 이상 버전의 Event Hub 확장을 사용하는 앱은 [Microsoft.Azure.EventHubs 네임스페이스](/dotnet/api/microsoft.azure.eventhubs.eventdata)에 있는 `EventData` 유형 대신 [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata)에 있는 유형을 사용합니다. 이 버전은 다음 유형을 위해 레거시 `Body` 유형 지원을 중단합니다.
 
-- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody)
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
@@ -391,12 +391,12 @@ Event Hub를 트리거하는 데 대한 다음 매개 변수 형식을 사용할
 * `string`
 * `byte[]`
 * `POCO`
-* `EventData` - EventData의 기본 속성은 [Microsoft.Azure.EventHubs 네임스페이스](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet)에서 제공됩니다.
+* `EventData` - EventData의 기본 속성은 [Microsoft.Azure.EventHubs 네임스페이스](/dotnet/api/microsoft.azure.eventhubs.eventdata)에서 제공됩니다.
 
 ### <a name="additional-types"></a>추가 형식 
-5\.0.0 이상 버전의 Event Hub 확장을 사용하는 앱은 [Microsoft.Azure.EventHubs 네임스페이스](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet)에 있는 `EventData` 유형 대신 [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet)에 있는 유형을 사용합니다. 이 버전은 다음 유형을 위해 레거시 `Body` 유형 지원을 중단합니다.
+5\.0.0 이상 버전의 Event Hub 확장을 사용하는 앱은 [Microsoft.Azure.EventHubs 네임스페이스](/dotnet/api/microsoft.azure.eventhubs.eventdata)에 있는 `EventData` 유형 대신 [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata)에 있는 유형을 사용합니다. 이 버전은 다음 유형을 위해 레거시 `Body` 유형 지원을 중단합니다.
 
-- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody)
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -418,7 +418,7 @@ Event Hub를 트리거하는 데 대한 다음 매개 변수 형식을 사용할
 
 Event Hubs 트리거는 몇 가지 [메타데이터 속성](../articles/azure-functions/./functions-bindings-expressions-patterns.md)을 제공합니다. 메타데이터 속성은 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 이러한 속성은 [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) 클래스에서 제공됩니다.
 
-|속성|형식|Description|
+|속성|유형|Description|
 |--------|----|-----------|
 |`PartitionContext`|[PartitionContext](/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|`PartitionContext` 인스턴스입니다.|
 |`EnqueuedTimeUtc`|`DateTime`|큐에 대기된 시간(UTC)입니다.|
