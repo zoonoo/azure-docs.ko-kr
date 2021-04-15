@@ -2,19 +2,16 @@
 title: Azure Migrate를 사용하여 AWS VM을 Azure로 마이그레이션
 description: 이 문서에서는 AWS 인스턴스를 Azure로 마이그레이션하는 옵션을 설명하고 Azure Migrate를 권장합니다.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 07/27/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 83d8106b9f206da9095c37b6179bdda8001b439c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c3f20f0fa3bc6ad41e76626d3cb02ec1c0b96e9
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96009061"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581339"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services)에서 Azure로 VM 마이그레이션
 
