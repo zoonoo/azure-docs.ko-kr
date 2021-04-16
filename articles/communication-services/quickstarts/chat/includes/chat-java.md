@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 7fe50a6236cf67f1048dddecbf46fea836ec05c5
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: e5b5433be4a95a9df9d3b3527473c3004d24acac
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106125982"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107327579"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -134,12 +134,15 @@ public class App
 여기에는 `ChatThread` 개체를 반환하는 `getChatThread()` 메서드가 포함됩니다. 이는 참여자 추가, 메시지 보내기 등 생성된 스레드에서 작업을 수행하기 위해 `ChatThreadClient`를 가져올 수 있는 스레드 클라이언트를 가져오는 데 사용할 수 있습니다. 또한 `ChatThread` 개체에는 스레드의 고유 ID를 검색하는 `getId()` 메서드도 포함되어 있습니다.
 
 ```Java
+CommunicationUserIdentifier identity1 = new CommunicationUserIdentifier("<USER_1_ID>");
+CommunicationUserIdentifier identity2 = new CommunicationUserIdentifier("<USER_2_ID>");
+
 ChatParticipant firstThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(firstUser)
+    .setCommunicationIdentifier(identity1)
     .setDisplayName("Participant Display Name 1");
 
 ChatParticipant secondThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(secondUser)
+    .setCommunicationIdentifier(identity2)
     .setDisplayName("Participant Display Name 2");
 
 CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions("Topic")
@@ -239,12 +242,15 @@ chatParticipantsResponse.forEach(chatParticipant -> {
 ```Java
 List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
+CommunicationUserIdentifier identity3 = new CommunicationUserIdentifier("<USER_3_ID>");
+CommunicationUserIdentifier identity4 = new CommunicationUserIdentifier("<USER_4_ID>");
+
 ChatParticipant thirdThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(user3)
+    .setCommunicationIdentifier(identity3)
     .setDisplayName("Display Name 3");
 
 ChatParticipant fourthThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(user4)
+    .setCommunicationIdentifier(identity4)
     .setDisplayName("Display Name 4");
 
 participants.add(thirdThreadParticipant);
