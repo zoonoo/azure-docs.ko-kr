@@ -9,12 +9,12 @@ ms.reviewer: ''
 ms.date: 03/08/2021
 author: ruixinxu
 ms.author: ruxu
-ms.openlocfilehash: 928e2ef8b373626a91a291b1798f3ebb7ef290e8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5258d8f16e288e7df7e1286eb1902cc6ba6d10f7
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608836"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227724"
 ---
 # <a name="tutorial-build-machine-learning-applications-using-microsoft-machine-learning-for-apache-spark-preview"></a>자습서: Microsoft Machine Learning for Apache Spark를 사용하여 기계 학습 애플리케이션 빌드(미리 보기)
 
@@ -23,7 +23,7 @@ Synapse Spark는 다음을 비롯한 기본 제공 MMLSpark 라이브러리를 �
 
 - [Vowpal Wabbit](https://github.com/Azure/mmlspark/blob/master/docs/vw.md) – 트윗의 감정 분석과 같은 텍스트 분석을 가능하게 하는 기계 학습을 위한 라이브러리 서비스입니다.
 - [Spark의 Cognitive Services](https://github.com/Azure/mmlspark/blob/master/docs/cogsvc.md) - 변칙 검색과 같은 인식 데이터 모델링 서비스를 위한 솔루션 디자인을 도출하기 위해 SparkML 파이프라인에서 Azure Cognitive Services의 기능을 결합합니다.
-- [LightBGM](https://github.com/Azure/mmlspark/blob/master/docs/lightgbm.md) – LightBGM은 트리 기반 학습 알고리즘을 사용하는 경사 부스팅 프레임워크입니다. 배포하고 효율성을 높일 수 있도록 설계되었습니다.
+- [LightGBM](https://github.com/Azure/mmlspark/blob/master/docs/lightgbm.md) – LightGBM은 트리 기반 학습 알고리즘을 사용하는 경사 부스팅 프레임워크입니다. 배포하고 효율성을 높일 수 있도록 설계되었습니다.
 - 조건부 KNN - 조건부 쿼리를 사용하는 확장 가능한 KNN 모델.
 - [Spark의 HTTP](https://github.com/Azure/mmlspark/blob/master/docs/http.md) – Spark 및 HTTP 프로토콜 기반 접근성 통합에서 분산 마이크로 서비스 오케스트레이션을 지원합니다.
 

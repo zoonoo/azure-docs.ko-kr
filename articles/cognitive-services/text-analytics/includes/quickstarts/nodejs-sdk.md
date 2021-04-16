@@ -10,12 +10,12 @@ ms.date: 02/09/2021
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: a71559c5f75694d314547220f04fc2d7d7e1dbc6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3640a03f8ac814fec2823a761e651ab386438c5c
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599084"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107327783"
 ---
 <a name="HOLTop"></a>
 
@@ -768,7 +768,7 @@ The analyze batch actions operation results will expire on Sat Mar 13 2021 09:53
         - Entity Paul Allen of type Person
 ```
 
-Analyze(분석) 작업을 사용하여 PII를 검색하고, 연결된 엔터티 및 핵심 문구 추출을 인식할 수도 있습니다. GitHub의 [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/javascript) 및 [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/typescript/src) Analyze(분석) 샘플을 참조하세요.
+Analyze(분석) 작업을 사용하여 PII를 검색하고, 연결된 엔터티 및 핵심 문구 추출을 인식할 수도 있습니다. GitHub의 [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/v5/javascript) 및 [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/v5/typescript/src) Analyze(분석) 샘플을 참조하세요.
 
 # <a name="version-30"></a>[버전 3.0](#tab/version-3)
 

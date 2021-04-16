@@ -3,19 +3,19 @@ title: '자습서: 엔드포인트에 사용자 지정 도메인 추가'
 titleSuffix: Azure Content Delivery Network
 description: 이 자습서를 사용하여 도메인 이름이 URL에 표시되도록 Azure Content Delivery Network 엔드포인트에 사용자 지정 도메인을 추가합니다.
 services: cdn
-author: asudbring
+author: jessie-jyy
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 02/04/2020
-ms.author: allensu
+ms.date: 04/12/2021
+ms.author: yuajia
 ms.custom: mvc
-ms.openlocfilehash: 9bca81e7d0eb68d43c21065f5104fc423115be25
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 63ca8cc981f7a192c35f7d1889187ae84773ba08
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065194"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307999"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-endpoint"></a>자습서: 엔드포인트에 사용자 지정 도메인 추가
 
@@ -245,9 +245,14 @@ Azure에서 입력한 사용자 지정 도메인 이름에 대한 CNAME 레코�
 
 더 이상 사용자 지정 도메인과 엔드포인트를 연결하지 않으려면 다음 단계를 수행하여 사용자 지정 도메인을 제거합니다.
  
-1. CDN 프로필에서 제거하려는 사용자 지정 도메인을 포함하는 엔드포인트를 선택합니다.
+1. DNS 공급자로 이동하여 사용자 지정 도메인에 대한 CNAME 레코드를 삭제하거나 사용자 지정 도메인에 대한 CNAME 레코드를 비 Azure CDN 엔드포인트로 업데이트합니다.
 
-2. **엔드포인트** 페이지의 사용자 지정 도메인에서 제거하려는 사용자 지정 도메인을 마우스 오른쪽 단추로 클릭한 다음, 팝업 메뉴에서 **삭제** 를 선택합니다. **Yes** 를 선택합니다.
+    > [!Important]
+    > 2021년 4월 9일부터 현수 DNS 항목 및 발생하는 보안 위험을 방지하려면 Azure CDN에서 리소스를 삭제하기 전에 Azure CDN 엔드포인트에 대한 CNAME 레코드를 제거해야 합니다. 리소스에는 Azure CDN 사용자 지정 도메인, Azure CDN 프로필/엔드포인트 또는 Azure CDN 사용자 지정 도메인을 사용하도록 설정한 Azure 리소스 그룹이 포함됩니다.
+
+2. CDN 프로필에서 제거하려는 사용자 지정 도메인을 포함하는 엔드포인트를 선택합니다.
+
+3. **엔드포인트** 페이지의 사용자 지정 도메인에서 제거하려는 사용자 지정 도메인을 마우스 오른쪽 단추로 클릭한 다음, 팝업 메뉴에서 **삭제** 를 선택합니다. **Yes** 를 선택합니다.
 
    사용자 지정 도메인은 엔드포인트에서 분리됩니다.
 
@@ -255,25 +260,29 @@ Azure에서 입력한 사용자 지정 도메인 이름에 대한 CNAME 레코�
 
 더 이상 사용자 지정 도메인과 엔드포인트를 연결하지 않으려면 다음 단계를 수행하여 사용자 지정 도메인을 제거합니다.
 
-1. [Remove-AzCdnCustomDomain](/powershell/module/az.cdn/remove-azcdncustomdomain)을 사용하여 엔드포인트에서 사용자 지정 도메인을 제거합니다.
+1. DNS 공급자로 이동하여 사용자 지정 도메인에 대한 CNAME 레코드를 삭제하거나 사용자 지정 도메인에 대한 CNAME 레코드를 비 Azure CDN 엔드포인트로 업데이트합니다.
+
+    > [!Important]
+    > 2021년 4월 9일부터 현수 DNS 항목 및 발생하는 보안 위험을 방지하려면 Azure CDN에서 리소스를 삭제하기 전에 Azure CDN 엔드포인트에 대한 CNAME 레코드를 제거해야 합니다. 리소스에는 Azure CDN 사용자 지정 도메인, Azure CDN 프로필/엔드포인트 또는 Azure CDN 사용자 지정 도메인을 사용하도록 설정한 Azure 리소스 그룹이 포함됩니다.
+
+2. [Remove-AzCdnCustomDomain](/powershell/module/az.cdn/remove-azcdncustomdomain)을 사용하여 엔드포인트에서 사용자 지정 도메인을 제거합니다.
 
     * **myendpoint8675** 를 CDN 엔드포인트 이름으로 바꿉니다.
     * **www.contoso.com** 을 사용자 지정 도메인 이름으로 바꿉니다.
     * **myCDN** 을 CDN 프로필 이름으로 바꿉니다.
     * **myResourceGroupCDN** 을 리소스 그룹 이름으로 바꿉니다.
 
-
-```azurepowershell-interactive
-    $parameters = @{
-        CustomDomainName = 'www.contoso.com'
-        EndPointName = 'myendpoint8675'
-        ProfileName = 'myCDN'
-        ResourceGroupName = 'myResourceGroupCDN'
-    }
-    Remove-AzCdnCustomDomain @parameters
-```
-
+    ```azurepowershell-interactive
+        $parameters = @{
+            CustomDomainName = 'www.contoso.com'
+            EndPointName = 'myendpoint8675'
+            ProfileName = 'myCDN'
+            ResourceGroupName = 'myResourceGroupCDN'
+        }
+        Remove-AzCdnCustomDomain @parameters
+    ```
 ---
+
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 다음 작업 방법을 알아보았습니다.

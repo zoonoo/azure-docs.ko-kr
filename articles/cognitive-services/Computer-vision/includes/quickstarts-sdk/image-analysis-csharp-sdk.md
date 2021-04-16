@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 03/29/2021
 ms.author: pafarley
-ms.openlocfilehash: fbdd72480fd3db8cfafd0803a623c5cfe4279288
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 407ef167ca05f08d349a017c60164e2fe67977a6
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106287434"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107327764"
 ---
 <a name="HOLTop"></a>
 
@@ -40,7 +40,7 @@ Visual Studio를 사용하여 새 .NET Core 애플리케이션을 만듭니다.
 
 ### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치 
 
-새 프로젝트를 만든 후 **솔루션 탐색기** 에서 프로젝트 솔루션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리** 를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기** 를 선택하고, **시험판 포함** 을 선택하고, `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`를 검색합니다. `6.0.0-preview.1` 버전, **설치** 를 차례로 선택합니다. 
+새 프로젝트를 만든 후 **솔루션 탐색기** 에서 프로젝트 솔루션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리** 를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기** 를 선택하고, **시험판 포함** 을 선택하고, `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`를 검색합니다. `7.0.0` 버전, **설치** 를 차례로 선택합니다. 
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
@@ -71,7 +71,7 @@ Build succeeded.
 애플리케이션 디렉터리 내에서 다음 명령을 사용하여 .NET용 Computer Vision 클라이언트 라이브러리를 설치합니다.
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 6.0.0
+dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
 ```
 
 ---
@@ -260,8 +260,11 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 
 ## <a name="next-steps"></a>다음 단계
 
+이 빠른 시작에서는 Image Analysis 클라이언트 라이브러리를 설치하고 기본 이미지 분석 호출을 수행하는 방법을 알아보았습니다. 다음으로, Analyze API 기능에 대해 자세히 알아보세요.
+
+
 > [!div class="nextstepaction"]
->[이미지 분석 API 참조(.NET)](/dotnet/api/overview/azure/cognitiveservices/client/computervision)
+>[Analyze API 호출](../../Vision-API-How-to-Topics/HowToCallVisionAPI.md)
 
 * [이미지 분석 개요](../../overview-image-analysis.md)
 * 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs)에서 확인할 수 있습니다.

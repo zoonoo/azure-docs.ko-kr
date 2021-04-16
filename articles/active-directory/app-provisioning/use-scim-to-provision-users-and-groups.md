@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/22/2021
+ms.date: 04/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e8192c5c6734009f69e3f741531251dd85675b47
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 4130ed4bb690edb3c0c5d72d7d158262ed6ff39d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449463"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305602"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>자습서: SCIM 엔드포인트 프로비저닝 개발 및 계획
 
@@ -62,7 +62,7 @@ SCIM 표준은 사용자 및 그룹을 관리하기 위한 스키마를 정의�
 **core** 사용자 스키마에는 세 가지 특성만 필요합니다(다른 모든 특성은 선택 사항임).
 
 - `id` - 서비스 공급자 정의 식별자
-- `externalId` - 클라이언트 정의 식별자
+- `userName` - 사용자에 대한 고유 식별자(일반적으로 Azure AD 사용자 계정 이름에 매핑됨)
 - `meta` - 서비스 공급자에서 유지 관리하는 *읽기 전용* 메타데이터
 
 SCIM 표준은 **core** 사용자 스키마 외에도 애플리케이션의 요구 사항을 충족하기 위해 사용자 스키마를 확장하는 모델을 사용하여 **enterprise** 사용자 확장을 정의합니다. 

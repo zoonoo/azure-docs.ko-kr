@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b67dcf038dbe13b8c040f317bb117f3b7a7afdde
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: fc92543f5954cda9db42e53cab18db1d8f3366c3
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384241"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284207"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Azure Spatial Anchors에 대한 FAQ
 
@@ -52,6 +52,10 @@ Azure Spatial Anchors는 HoloLens, iOS 및 Android 디바이스에서 다중 사
 **Q: Azure Spatial Anchors는 데이터를 어떻게 저장하나요?**
 
 **A:** 모든 데이터는 Microsoft 관리형 데이터 암호화 키로 암호화된 상태로 저장되며, 모든 데이터는 각 리소스에 대해 지역별로 저장됩니다.
+
+**Q: Azure Spatial Anchors는 데이터를 어디에 저장하나요?**
+
+**A:** Azure Spatial Anchors 계정을 사용하면 데이터가 저장될 지역을 지정할 수 있습니다. Microsoft는 복원력을 위해 다른 지역에 데이터를 복제할 수 있지만, Microsoft는 지리 외부로 데이터를 복제하거나 이동하지 않습니다. 이 데이터는 Azure Spatial Anchors 계정이 구성된 지역에 저장됩니다. 예를 들어 계정이 미국 동부 지역에 등록된 경우 이 데이터는 미국 동부 지역에 저장되지만 복원력을 보장하기 위해 북아메리카 지리에서 다른 지역으로 복제될 수 있습니다.
 
 **Q: Azure Spatial Anchors를 사용하는 경우 서비스에 전송되고 저장되는 환경에 대한 정보는 무엇인가요? 환경 관련 사진이 전송되고 저장되나요?**
 

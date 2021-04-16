@@ -3,7 +3,7 @@ title: PowerShell 샘플 - 와일드카드를 사용하는 애플리케이션 �
 description: 와일드카드를 사용 중인 모든 Azure AD(Azure Active Directory) 애플리케이션 프록시 애플리케이션을 나열하는 PowerShell 예제입니다.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 944fe9606963c4d4fb9ec41e4d1a87ab62d1bc6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d49ec90a428cf0718b719ec6732690c2792b107
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102548980"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377856"
 ---
 # <a name="get-all-application-proxy-apps-using-wildcard-publishing"></a>와일드카드 게시를 사용하여 모든 애플리케이션 프록시 앱 가져오기
 

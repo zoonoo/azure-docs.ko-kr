@@ -7,14 +7,14 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 04/06/2021
+ms.date: 04/12/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 50e29262b609887d91c43ea8f012fad0c7a35ee2
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 534b5b3aca86cc2f6d7ee2d703939420f80abb8e
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449276"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365096"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>빠른 시작: Python을 사용하여 데이터 팩터리 및 파이프라인 만들기
 
@@ -40,7 +40,7 @@ Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레�
 
 * [Azure Storage Explorer](https://storageexplorer.com/)(선택 사항).
 
-* [Azure Active Directory의 애플리케이션](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). 이후 단계에서 사용하는 다음 값(**애플리케이션 ID**, **인증 키** 및 **테넌트 ID**)을 기록해 둡니다. 동일한 문서의 지침에 따라 애플리케이션을 **기여자** 역할에 할당합니다.
+* [Azure Active Directory의 애플리케이션](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). 이 링크의 단계에 따라 애플리케이션을 만들고 동일한 문서의 지침에 따라 **기여자** 역할에 할당합니다. 이후 단계에서 사용할 문서에 표시된 대로 **애플리케이션 ID(아래 서비스 주체 ID), 인증 키(아래 클라이언트 암호) 및 테넌트 ID** 값을 기록해 둡니다.
 
 ## <a name="create-and-upload-an-input-file"></a>입력 파일 만들기 및 업로드
 
@@ -226,6 +226,7 @@ Azure Blob의 원본 데이터를 나타내는 데이터 세트를 정의합니�
     print_item(dsOut)
 ```
 
+
 ## <a name="create-a-pipeline"></a>파이프라인 만들기
 
 **Main** 메서드에 **복사 작업이 있는 파이프라인** 을 만드는 다음 코드를 추가합니다.
@@ -240,6 +241,13 @@ Azure Blob의 원본 데이터를 나타내는 데이터 세트를 정의합니�
     copy_activity = CopyActivity(name=act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
 
     #Create a pipeline with the copy activity
+    
+    #Note1: To pass parameters to the pipeline, add them to the json string params_for_pipeline shown below in the format { “ParameterName1” : “ParameterValue1” } for each of the parameters needed in the pipeline.
+    #Note2: To pass parameters to a dataflow, create a pipeline parameter to hold the parameter name/value, and then consume the pipeline parameter in the dataflow parameter in the format @pipeline().parameters.parametername.
+    
+    p_name = 'copyPipeline'
+    params_for_pipeline = {}
+
     p_name = 'copyPipeline'
     params_for_pipeline = {}
     p_obj = PipelineResource(activities=[copy_activity], parameters=params_for_pipeline)

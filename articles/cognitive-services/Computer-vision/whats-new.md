@@ -10,16 +10,29 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: f102bbe45fd5eea853ba63def4f1c1a92888ca46
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: e42096fc32a504ae329d3b179004b6a123de4469
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285946"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365640"
 ---
 # <a name="whats-new-in-computer-vision"></a>Computer Vision의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목은 릴리스 정보, 비디오, 블로그 게시물 및 기타 유형의 정보입니다. 이 페이지에 책갈피를 설정하여 서비스를 최신 상태로 유지하세요.
+
+## <a name="april-2021"></a>2021년 4월
+
+### <a name="computer-vision-v32-ga"></a>Computer Vision v3.2 GA
+
+이제 Computer Vision API v3.2는 다음과 같은 업데이트를 통해 일반 공급됩니다.
+* 향상된 이미지 태깅 모델: 시각적 콘텐츠를 분석하고 이미지에 표시된 개체, 작업 및 콘텐츠에 따라 관련 태그를 생성합니다. 이는 [태그 이미지 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200)를 통해 사용할 수 있습니다. 자세히 알아보려면 이미지 분석 [방법 가이드](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) 및 [개요](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-image-analysis)를 참조하세요.
+* 업데이트된 콘텐츠 조정 모델: 성인 콘텐츠 유무를 검색하고 성인, 외설 및 유혈 콘텐츠가 포함된 이미지를 필터링하는 플래그를 제공합니다. 이는 [분석 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b)를 통해 사용할 수 있습니다. 자세히 알아보려면 이미지 분석 [방법 가이드](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) 및 [개요](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-image-analysis)를 참조하세요.
+* 중국어 간체 및 번체, 일본어, 한국어 및 라틴어를 포함한 [73개 언어에 사용할 수 있는 OCR(Read)](./language-support.md#optical-character-recognition-ocr).
+* [OCR(Read)](./overview-ocr.md)은 온-프레미스 배포를 위해 [Distroless 컨테이너](./computer-vision-how-to-install-containers.md?tabs=version-3-2)로도 사용할 수 있습니다.
+
+> [!div class="nextstepaction"]
+> [Computer Vision v3.2 GA 참조](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
 
 ## <a name="march-2021"></a>2021년 3월
 

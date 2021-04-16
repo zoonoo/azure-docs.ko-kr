@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 03/29/2021
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 3fff9f4bd34fc1defdb50f2eefbc8ac1f39b46af
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 41b3552a633c9cebce1138fa042dbd154eee0cb5
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106287443"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314119"
 ---
 # <a name="what-is-optical-character-recognition"></a>OCR(광학 문자 인식)이란?
 
-OCR(광학 문자 인식) 서비스를 사용하면 문서&mdash;송장, 청구서, 재무 보고서, 기사 등과 함께, 번호판 또는 일련번호가 있는 컨테이너의 사진과 같은 이미지에서 인쇄되거나 필기된 텍스트를 추출할 수 있습니다. 딥 러닝 기반 모델을 사용하고 다양한 표면 및 배경의 텍스트로 작업합니다.
+OCR(광학 인식) 서비스를 사용하면 문서&mdash;송장, 청구서, 재무 보고서, 문서 등과 함께 도로 표지판 및 제품 사진과 같은 이미지에서 인쇄되거나 필기된 텍스트를 추출할 수 있습니다. 딥 러닝 기반 모델을 사용하고 다양한 표면 및 배경의 텍스트로 작업합니다.
 
 OCR API는 [여러 언어](./language-support.md)로 인쇄된 텍스트 추출을 지원합니다. [빠른 시작](./quickstarts-sdk/client-library.md)을 따라 시작하세요.
 
@@ -46,7 +46,7 @@ OCR API는 인쇄 스타일 텍스트에 대해 총 73개 언어를 지원합니
 
 ## <a name="read-api"></a>읽기 API 
 
-Computer Vision [읽기 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005)는 이미지 및 다중 페이지 PDF 문서에서 인쇄된 텍스트(여러 언어로), 필기 텍스트(영어 전용), 숫자 및 통화 기호를 추출하는 Azure의 최신 OCR 기술([새로운 기능](./whats-new.md))입니다. 여러 언어가 혼합된 텍스트를 많이 사용한 이미지 및 다중 페이지 PDF에서 텍스트를 추출하는 데 최적화되어 있습니다. 동일한 이미지나 문서에서 인쇄된 텍스트와 필기 텍스트를 모두 검색하는 것을 지원합니다.
+Computer Vision [읽기 API](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)는 이미지 및 다중 페이지 PDF 문서에서 인쇄된 텍스트(여러 언어로), 필기 텍스트(영어 전용), 숫자 및 통화 기호를 추출하는 Azure의 최신 OCR 기술([새로운 기능](./whats-new.md))입니다. 여러 언어가 혼합된 텍스트를 많이 사용한 이미지 및 다중 페이지 PDF에서 텍스트를 추출하는 데 최적화되어 있습니다. 동일한 이미지나 문서에서 인쇄된 텍스트와 필기 텍스트를 모두 검색하는 것을 지원합니다.
 
 ![OCR이 이미지 및 문서를 추출된 텍스트가 포함된 구조화된 출력으로 변환하는 방식](./Images/how-ocr-works.svg)
 
@@ -58,9 +58,7 @@ Read 3.x 클라우드 API는 편리한 통합 및 빠른 생산성 덕분에 대
 
 ## <a name="ocr-api"></a>OCR API
 
-레거시 [OCR API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d)는 기존 인식 모델을 사용하고 이미지만 지원하며 동기적으로 실행되어 검색된 텍스트로 즉시 반환됩니다. 지원되는 언어의 목록은 [지원되는 언어](./language-support.md#optical-character-recognition-ocr)의 OCR 열을 참조하세요.
-
-## <a name="recognizetext-api"></a>RecognizeText API
+레거시 [OCR API](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20d)는 기존 인식 모델을 사용하고 이미지만 지원하며 동기적으로 실행되어 검색된 텍스트로 즉시 반환됩니다. 지원되는 언어의 목록은 [지원되는 언어](./language-support.md#optical-character-recognition-ocr)의 OCR 열을 참조하세요.
 
 > [!WARNING]
 > Computer Vision 2.0 RecognizeText 작업은 이 문서에서 다루는 새로운 [읽기 API](#read-api)에서 더 이상 사용되지 않는 추세입니다. 기존 고객은 [Read 작업을 사용하도록 전환](upgrade-api-versions.md)해야 합니다.
@@ -71,6 +69,5 @@ Read 3.x 클라우드 API는 편리한 통합 및 빠른 생산성 덕분에 대
 
 ## <a name="next-steps"></a>다음 단계
 
-- [OCR REST API 또는 클라이언트 라이브러리 빠른 시작](./quickstarts-sdk/client-library.md)을 시작하세요.
-- [Read 3.1 REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005)에 대해 알아봅니다.
-- 총 73개 언어에 대한 지원이 포함된 [Read 3.2 공개 미리 보기 REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)에 대해 알아봅니다.
+- [OCR(Read) REST API 또는 클라이언트 라이브러리 빠른 시작](./quickstarts-sdk/client-library.md)을 시작하세요.
+- [Read 3.2 REST API](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)에 대해 알아봅니다.

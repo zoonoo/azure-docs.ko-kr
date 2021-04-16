@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 80c08eb20a734c16543f2767d18d86b260f17eee
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: d38b1f20547056c30f19dbbc77589643be1663a4
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106287428"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073356"
 ---
 <a name="HOLTop"></a>
 
@@ -255,9 +255,11 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
->[이미지 분석 API 참조(Node.js)](/javascript/api/@azure/cognitiveservices-computervision/)
+이 빠른 시작에서는 Image Analysis 클라이언트 라이브러리를 설치하고 기본 이미지 분석 호출을 수행하는 방법을 알아보았습니다. 다음으로, Analyze API 기능에 대해 자세히 알아보세요.
 
+> [!div class="nextstepaction"]
+>[Analyze API 호출](../../Vision-API-How-to-Topics/HowToCallVisionAPI.md)
 
 * [이미지 분석 개요](../../overview-image-analysis.md)
 * 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js)에서 확인할 수 있습니다.
+

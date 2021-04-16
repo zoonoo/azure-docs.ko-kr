@@ -2,15 +2,15 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 03/29/2021
+ms.date: 04/13/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 164c5e199bcb17dfe7a8ce92b169b26ecd389703
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d2ae849616946169911468bb43e190c7ff8a4ec8
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105746120"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107386928"
 ---
 이 범주에는 **65** 개의 권장 사항이 있습니다.
 
