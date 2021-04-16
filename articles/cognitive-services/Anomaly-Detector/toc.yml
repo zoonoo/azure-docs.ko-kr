@@ -3,12 +3,18 @@
 - name: 개요
   expanded: true
   items:
-    - name: Anomaly Detector란?
+    - name: Anomaly Detector(다변량)란?
+      href: overview-multivariate.md
+    - name: Anomaly Detector(일변량)란?
       href: overview.md
     - name: 가격 책정 및 제한
       href: 'https://aka.ms/adpricing'
 - name: Anomaly Detector 빠른 시작
-  href: ./quickstarts/client-libraries.md
+  items:
+    - name: 단변량 클라이언트 라이브러리
+      href: ./quickstarts/client-libraries-multivariate.md
+    - name: 일변량 클라이언트 라이브러리
+      href: ./quickstarts/client-libraries.md
 - name: 샘플
   items:
     - name: 대화형 데모
@@ -39,10 +45,18 @@
               href: how-to/deploy-anomaly-detection-on-container-instances.md
 - name: 개념
   items:
-    - name: Anomaly Detector API 모범 사례
+    - name: Anomaly Detector API 모범 사례(다변량)
+      href: concepts/best-practices-multivariate.md
+    - name: Anomaly Detector API 모범 사례(일변량)
       href: concepts/anomaly-detection-best-practices.md
+    - name: 예측 유지 관리 아키텍처(다변량)
+      href: concepts/multivariate-architecture.md
+    - name: 다변량 문제 해결
+      href: concepts/troubleshoot.md
     - name: SR(Spectral Residual) 및 CNN(Convolutional Neural Net) 변칙 검색
       href: 'https://arxiv.org/abs/1906.03821'
+    - name: 그래프 어텐션 네트워크를 통한 다변량 시계열 변칙 검색
+      href: 'https://arxiv.org/abs/2009.02040'
 - name: 자습서
   items:
     - name: Power BI를 사용하여 일괄 처리로 변칙 시각화
