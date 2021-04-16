@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/17/2021
-ms.openlocfilehash: 96f40f1abd14987b7c404f5a4210a2cab1fa9143
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a8419ff2ba269b05d1fbf7e9d08a284085465fd8
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104594175"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257418"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Azure SQL Database와 Azure SQL Managed Instance 연결 및 쿼리 문서
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -40,7 +40,6 @@ ms.locfileid: "104594175"
 |[PHP](connect-query-php.md)|이 빠른 시작에서는 PHP를 사용하여 데이터베이스에 연결하고, Transact-SQL 문을 사용하여 데이터를 쿼리하는 프로그램을 만드는 방법을 보여 줍니다.|
 |[Python](connect-query-python.md)|이 빠른 시작에서는 Python을 사용하여 데이터베이스에 연결하고 Transact-SQL 문을 사용하여 데이터를 쿼리하는 방법을 보여 줍니다. |
 |[Ruby](connect-query-ruby.md)|이 빠른 시작에서는 Ruby를 사용하여 데이터베이스에 연결하고, Transact-SQL 문을 사용하여 데이터를 쿼리하는 프로그램을 만드는 방법을 보여 줍니다.|
-|[R](connect-query-r.md)|이 빠른 시작에서는 Azure SQL Database Machine Learning Services에서 R을 사용하여 Azure SQL Database의 데이터베이스에 연결하고, Transact-SQL 문을 사용하여 데이터를 쿼리하는 프로그램을 만드는 방법을 보여줍니다.|
 |||
 
 ## <a name="get-server-connection-information"></a>서버 연결 정보 가져오기

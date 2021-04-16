@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: service-bus-relay
 author: clemensv
 ms.service: service-bus-relay
@@ -9,10 +9,10 @@ ms.date: 05/02/2018
 ms.author: clemensv
 ms.custom: include file
 ms.openlocfilehash: fdd4e26839661ab9765b7d496e7f60c3686ba637
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "67182440"
 ---
 ### <a name="create-a-nodejs-application"></a>Node.js 애플리케이션 만들기

@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Python을 사용하여 연결 - Azure Database for PostgreSQL - 유연한 서버'
 description: 이 빠른 시작에서는 Azure Database for PostgreSQL - 유연한 서버에서 데이터를 연결하고 쿼리하는 데 사용할 수 있는 몇 가지 Python 코드 샘플을 제공합니다.
-author: rothja
-ms.author: jroth
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.openlocfilehash: 948972c1d47e550395a280e62c0491800e716663
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 823dd6fc64da2c4900f5a0a35a6cd27a9a2b43ff
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550645"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227487"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---flexible-server"></a>빠른 시작: Python을 사용하여 Azure Database for PostgreSQL - 유연한 서버의 데이터 연결 및 쿼리
 
