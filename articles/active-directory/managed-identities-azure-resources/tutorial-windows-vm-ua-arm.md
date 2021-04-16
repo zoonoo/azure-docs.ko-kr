@@ -1,5 +1,5 @@
 ---
-title: 자습서`:` 관리 ID를 사용하여 Azure Resource Manager에 액세스 - Windows - Azure AD
+title: '자습서: 관리 ID를 사용하여 Azure Resource Manager에 액세스 - Windows - Azure AD'
 description: Windows VM에서 사용자 할당 관리 ID를 사용하여 Azure Resource Manager에 액세스하는 프로세스를 설명하는 자습서입니다.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/02/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43f926f400bf8ddd522bbb5f62509519fa09903d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f46d92c38d2d2567eeaafce0f9c5c9c3b5dd44c5
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101096606"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307064"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>자습서: Windows VM에서 사용자 할당 관리 ID를 사용하여 Azure Resource Manager에 액세스
 

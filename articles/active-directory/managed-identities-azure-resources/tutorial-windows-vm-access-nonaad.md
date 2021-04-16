@@ -1,5 +1,5 @@
 ---
-title: 자습서`:` 관리 ID를 사용하여 Azure Key Vault에 액세스 - Windows - Azure AD
+title: '자습서: 관리 ID를 사용하여 Azure Key Vault에 액세스 - Windows - Azure AD'
 description: Windows VM 시스템 할당 관리 ID를 사용하여 Azure Key Vault에 액세스하는 프로세스를 단계별로 안내하는 자습서입니다.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f29c9daba80ffc57b96cf5bd82690dea9ac6429
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 92ded2d327fd7c75633bf7ef6b7dd3041725c921
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101093735"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378264"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure Key Vault에 액세스 
 

@@ -10,12 +10,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-nodejs-uiex
-ms.openlocfilehash: 6c6f0543dcfbecd16ba4176272f928ffd0eb54de
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3b1ff02d6a9b3e8c7b7abaf1b185a9becd2be12b
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735117"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105836"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure에서 Node.js 웹앱 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "101735117"
 
 Visual Studio Code를 사용하여 Node.js/Express 앱을 로컬로 만든 다음, 앱을 클라우드에 배포하여 Azure App Service를 시작합니다. 무료 App Service 계층을 사용하므로 이 빠른 시작을 완료하는 데 비용이 들지 않습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
 - <a href="https://git-scm.com/" target="_blank">Git 설치</a>
@@ -313,11 +313,11 @@ code .
 
 이 섹션에서는 실행 중인 App Service 앱에서 로그를 보거나 "추적(tail)"하는 방법에 대해 알아봅니다. 앱에서 `console.log`에 대한 모든 호출은 Visual Studio Code의 출력 창에 표시됩니다.
 
-**AZURE APP SERVICE** 탐색기에서 앱을 찾아서 마우스 오른쪽 단추로 클릭하고, **스트리밍 로그 보기** 를 선택합니다.
+**AZURE APP SERVICE** 탐색기에서 앱을 찾아 마우스 오른쪽 단추로 클릭하고 **스트리밍 로그 시작** 을 선택합니다.
 
 VS Code 출력 창이 열려 로그 스트림에 연결됩니다.
 
-![스트리밍 로그 보기](./media/quickstart-nodejs/view-logs.png)
+![스트리밍 로그 시작](./media/quickstart-nodejs/view-logs.png)
 
 :::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="[예] 단추를 선택한 상태에서 파일 로깅을 활성화하고 웹앱을 다시 시작하는 VS Code 프롬프트의 스크린샷.":::
 

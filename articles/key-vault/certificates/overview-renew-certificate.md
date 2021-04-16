@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: ffa130c0598d2405469d272a3ac6852f281ed965
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0492575bef93a1b08d48475c3ab32ecbc7becd6e
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726365"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364297"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Azure Key Vault 인증서 갱신
 
@@ -82,7 +82,7 @@ Azure Key Vault는 자체 서명된 인증서의 자동 갱신도 처리합니�
 
 **인증서의 자동 순환 기능을 테스트하려면 어떻게 해야 하나요?**
 
-유효 기간이 **1개월** 인 인증서를 만든 다음, 순환의 수명 동작을 **1%** 로 설정합니다. 이렇게 설정하면 7.2시간마다 인증서가 순환됩니다.
+유효 기간이 **1개월** 인 자체 서명된 인증서를 만든 다음, 순환의 수명 동작을 **1%** 로 설정합니다. 앞으로 며칠 동안 생성되는 인증서 버전 기록을 볼 수 있습니다.
   
 **인증서 자동 갱신 후 태그가 복제되나요?**
 

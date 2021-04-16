@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f45c3def84c548ba12221efa59e9ebbd4699df71
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5707d873bbf67add78f9a8e29fcb9135898486d6
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91316072"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226840"
 ---
 # <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>자습서: IoT Hub Device Provisioning Service를 사용하여 디바이스 프로비저닝을 위한 클라우드 리소스 구성
 
@@ -120,7 +120,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 > * Device Provisioning Service에 IoT Hub 연결
 > * Device Provisioning Service에서 할당 정책 설정
 
-프로비전을 위해 디바이스를 설정하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
+프로비저닝을 위해 디바이스를 설정하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
 > [프로비전을 위한 디바이스 설정](tutorial-set-up-device.md)

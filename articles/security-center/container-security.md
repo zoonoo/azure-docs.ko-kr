@@ -1,23 +1,18 @@
 ---
-title: Azure Security Center의 컨테이너 보안 | Microsoft Docs
-description: Azure Security Center의 컨테이너 보안 기능에 대해 알아봅니다.
-services: security-center
-documentationcenter: na
+title: Azure Security Center 및 Azure Defender를 사용한 컨테이너 보안
+description: Azure Security Center의 컨테이너 보안 기능에 대해 알아보기
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/07/2021
+ms.date: 04/06/2021
 ms.author: memildin
-ms.openlocfilehash: 3b5204f1d390388c2dc9a10ac2ca0234f6b0499b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9fddb27ee6a1139fa8b07c6c19dd4fdf1a20096e
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102101344"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029144"
 ---
 # <a name="container-security-in-security-center"></a>Security Center의 컨테이너 보안
 
@@ -27,9 +22,9 @@ Security Center는 다음과 같은 컨테이너 리소스 종류를 보호할 �
 
 | 리소스 종류 | Security Center에서 제공하는 보호 |
 |:--------------------:|-----------|
-| ![Kubernetes 서비스](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png)<br>**AKS(Azure Kubernetes Service) 클러스터** | - AKS 클러스터 구성을 지속적으로 평가하여 잘못된 구성에 대한 가시성을 제공하고 발견된 문제를 해결하는 데 도움이 되는 지침을 제공합니다.<br>[보안 권장 사항을 통한 환경 강화에 대해 자세히 알아보세요](#environment-hardening).<br><br>- AKS 클러스터 및 Linux 노드에 대한 위협 방지. 의심스러운 활동에 대한 경고는 선택 사항인 [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)에서 제공합니다.<br>[AKS 노드 및 클러스터의 런타임 보호에 대해 자세히 알아보세요](#run-time-protection-for-aks-nodes-and-clusters).|
-| ![컨테이너 호스트](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png)<br>**컨테이너 호스트**<br>(Docker를 실행하는 VM) | - 선택 사항인 [서버용 Azure Defender](defender-for-servers-introduction.md)를 통해 Docker 구성을 지속적으로 평가하여 잘못된 구성에 대한 가시성을 제공하고 발견된 문제를 해결하는 데 도움이 되는 지침을 제공합니다.<br>[보안 권장 사항을 통한 환경 강화에 대해 자세히 알아보세요](#environment-hardening).|
-| ![컨테이너 레지스트리](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png)<br>**ACR(Azure Container Registry) 레지스트리** | - 선택 사항인 [컨테이너 레지스트리용 Azure Defender](defender-for-container-registries-introduction.md)를 통해 Azure Resource Manager 기반 ACR 레지스트리에 포함된 이미지의 취약성을 평가하고 관리하는 도구입니다.<br>[컨테이너 이미지의 취약성 검사에 대해 자세히 알아보세요](#vulnerability-management---scanning-container-images). |
+| ![Kubernetes 서비스](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png)<br>**Kubernetes 클러스터** | 클러스터를 지속적으로 평가하여 잘못된 구성에 대한 가시성과 식별된 위협을 완화할 수 있는 지침을 제공합니다. [보안 권장 사항을 통한 환경 강화](#environment-hardening)에 대해 자세히 알아보세요.<br><br>클러스터 및 Linux 노드에 대한 위협 방지. 의심스러운 활동에 대한 경고는 [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)에서 제공합니다. 이 Azure Defender 계획은 AKS(Azure Kubernetes Service), 온-프레미스 또는 다른 클라우드 공급자에서 호스팅되는 Kubernetes 클러스터를 보호합니다. 클러스터. <br>[Kubernetes 노드 및 클러스터의 런타임 보호](#run-time-protection-for-kubernetes-nodes-and-clusters)에 대해 자세히 알아보세요.|
+| ![컨테이너 호스트](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png)<br>**컨테이너 호스트**<br>(Docker를 실행하는 VM) | Docker 환경을 지속적으로 평가하여 잘못된 구성에 대한 가시성과 선택 사항인 [서버용 Azure Defender](defender-for-servers-introduction.md)를 통해 식별된 위협을 완화하는 데 도움이 되는 지침을 제공합니다.<br>[보안 권장 사항을 통한 환경 강화](#environment-hardening)에 대해 자세히 알아보세요.|
+| ![컨테이너 레지스트리](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png)<br>**ACR(Azure Container Registry) 레지스트리** | 선택 사항인 [컨테이너 레지스트리용 Azure Defender](defender-for-container-registries-introduction.md)를 통해 Azure Resource Manager 기반 ACR 레지스트리에 포함된 이미지의 취약성을 평가하고 관리하는 도구입니다.<br>[컨테이너 이미지의 취약성 검사](#vulnerability-management---scanning-container-images)에 대해 자세히 알아보세요. |
 |||
 
 이 문서에서는 컨테이너 레지스트리, 서버 및 Kubernetes에 사용되는 선택적 Azure Defender 플랜과 함께 Security Center를 사용하여 컨테이너 및 컨테이너에 포함된 앱의 보안을 개선하고 모니터링하고 유지 관리하는 방법을 설명합니다.
@@ -38,7 +33,7 @@ Security Center가 컨테이너 보안의 이러한 주요 측면에 어떤 도�
 
 - [취약성 관리 - 컨테이너 이미지 검사](#vulnerability-management---scanning-container-images)
 - [환경 강화](#environment-hardening)
-- [AKS 노드 및 클러스터의 런타임 보호](#run-time-protection-for-aks-nodes-and-clusters)
+- [Kubernetes 노드 및 클러스터의 런타임 보호](#run-time-protection-for-kubernetes-nodes-and-clusters)
 
 다음 스크린샷에서는 자산 인벤토리 페이지와 Security Center로 보호되는 다양한 컨테이너 리소스 종류를 보여줍니다.
 
@@ -103,7 +98,7 @@ AKS 클러스터에 추가 기능을 사용하면 Kubernetes API 서버에 대�
 [Kubernetes 워크로드 보호](kubernetes-workload-protections.md)에 대해 자세히 알아보세요.
 
 
-## <a name="run-time-protection-for-aks-nodes-and-clusters"></a>AKS 노드 및 클러스터의 런타임 보호
+## <a name="run-time-protection-for-kubernetes-nodes-and-clusters"></a>Kubernetes 노드 및 클러스터의 런타임 보호
 
 [!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
 

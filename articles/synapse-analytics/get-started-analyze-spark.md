@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: 0becbbdb68f75072e10a51f5a2eae95291b9ed77
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: de48f906f4dc86bf6297cfb3b76f406df49feec3
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108335"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363855"
 ---
 # <a name="analyze-with-apache-spark"></a>Apache Spark를 사용하여 분석
 
@@ -34,18 +34,14 @@ ms.locfileid: "105108335"
 
 서버리스 Spark 풀은 사용자가 Spark를 사용하는 방법을 표시하는 방식입니다. 풀 사용을 시작하면 필요한 경우 Spark 세션이 생성됩니다. 풀은 해당 세션에서 사용할 Spark 리소스의 수와 세션이 자동으로 일시 중지되기 전까지의 지속 시간을 제어합니다. 풀 자체가 아닌 해당 세션 중에 사용되는 Spark 리소스에 대한 비용을 지불합니다. 이러한 방식으로 Spark 풀을 사용하면 클러스터 관리를 걱정하지 않고도 Spark로 작업할 수 있습니다. 이는 서버리스 SQL 풀의 작동 방식과 유사합니다.
 
-## <a name="analyze-nyc-taxi-data-in-blob-storage-using-spark"></a>Spark를 사용하여 Blob 스토리지에서 NYC Taxi 데이터 분석
+## <a name="analyze-nyc-taxi-data-with-a-spark-pool"></a>Spark 풀을 사용하여 NYC Taxi 데이터 분석
 
 1. Synapse Studio에서 **개발** 허브로 이동합니다.
-2. 기본 언어가 **PySpark(Python)** 로 설정된 새 Notebook을 만듭니다.
+2. 새 Notebook 만들기
 3. 새 코드 셀을 만들고, 다음 코드를 해당 셀에 입력합니다.
     ```py
     %%pyspark
-    from azureml.opendatasets import NycTlcYellow
-
-    data = NycTlcYellow()
-    df = data.to_spark_dataframe()
-    # Display 10 rows
+    df = spark.read.load('abfss://users@contosolake.dfs.core.windows.net/NYCTripSmall.parquet', format='parquet')
     display(df.limit(10))
     ```
 1. 노트북의 **연결 대상** 메뉴에서 이전에 만든 **Spark1** 서버리스 Spark 풀을 선택합니다.
@@ -53,22 +49,23 @@ ms.locfileid: "105108335"
 1. 데이터 프레임의 스키마만 확인하려면 다음 코드를 사용하여 셀을 실행합니다.
 
     ```py
+    %%pyspark
     df.printSchema()
     ```
 
 ## <a name="load-the-nyc-taxi-data-into-the-spark-nyctaxi-database"></a>Spark nyctaxi 데이터베이스에 NYC 택시 데이터 로드
 
-데이터는 **data** 라는 데이터 프레임을 통해 사용할 수 있습니다. 이제 이를 **nyctaxi** 라는 Spark 데이터베이스에 로드합니다.
+데이터는 **df** 라는 데이터 프레임을 통해 사용할 수 있습니다. 이제 이를 **nyctaxi** 라는 Spark 데이터베이스에 로드합니다.
 
-1. Notebook에 새 항목을 추가하고 다음 코드를 입력합니다.
+1. Notebook에 새 코드 셀을 추가하고 다음 코드를 입력합니다.
 
     ```py
+    %%pyspark
     spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Spark 및 Notebook을 사용하여 NYC 택시 데이터 분석
 
-1. Notebook으로 돌아갑니다.
 1. 새 코드 셀을 만들고, 다음 코드를 입력합니다. 
 
    ```py
@@ -84,10 +81,10 @@ ms.locfileid: "105108335"
    %%pyspark
    df = spark.sql("""
       SELECT PassengerCount,
-          SUM(TripDistance) as SumTripDistance,
-          AVG(TripDistance) as AvgTripDistance
+          SUM(TripDistanceMiles) as SumTripDistance,
+          AVG(TripDistanceMiles) as AvgTripDistance
       FROM nyctaxi.trip
-      WHERE TripDistance > 0 AND PassengerCount > 0
+      WHERE TripDistanceMiles > 0 AND PassengerCount > 0
       GROUP BY PassengerCount
       ORDER BY PassengerCount
    """) 

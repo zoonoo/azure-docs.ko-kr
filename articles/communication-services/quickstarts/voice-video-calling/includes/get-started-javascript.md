@@ -6,12 +6,12 @@ ms.author: nimag
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 7d7b62d6587a568b74d142a2ee6a93587941559d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bd9a607b46c87ca590bcefef310f822d6f23483c
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645393"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107386763"
 ---
 이 빠른 시작에서는 JavaScript용 Azure Communication Services Calling SDK를 사용하여 통화를 시작하는 방법에 대해 알아봅니다.
 
@@ -162,6 +162,10 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 브라우저를 열고 http://localhost:8080/로 이동합니다. 다음이 표시되어야 합니다.
 
-:::image type="content" source="../media/javascript/calling-javascript-app.png" alt-text="완성된 JavaScript 애플리케이션의 스크린샷":::
+:::image type="content" source="../media/javascript/calling-javascript-app-2.png" alt-text="완성된 JavaScript 애플리케이션의 스크린샷":::
 
-텍스트 필드에서 사용자 ID를 제공하고 **호출 시작** 단추를 클릭하여 아웃바운드 VOIP 호출을 수행할 수 있습니다. `8:echo123`을 호출하면 에코 봇과 연결되며, 오디오 디바이스를 시작하고 작동하는지 확인하는 데 유용합니다.
+해당 텍스트 필드에 유효한 사용자 액세스 토큰과 사용자 ID를 제공하고 **호출 시작** 단추를 클릭하여 아웃바운드 VOIP 호출을 수행할 수 있습니다. `8:echo123`에 전화를 걸면 에코 봇과 연결됩니다. 이렇게 하면 통화를 시작하고 오디오 디바이스가 작동하는지 확인하는 데 유용합니다.
+
+## <a name="sample-code"></a>예제 코드
+
+샘플 앱은 [Github](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling)에서 다운로드할 수 있습니다.

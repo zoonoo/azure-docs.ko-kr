@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 05/14/2018
-ms.openlocfilehash: 73d291fd76d9adbe2a095406b56bd879d497d3b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d432d20660cd1b7ee59c9ef72f9db04bc0009481
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98942657"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306588"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Azure Marketplace에 HDInsight 애플리케이션 게시
 Azure HDInsight 애플리케이션은 Linux 기반 HDInsight 클러스터에 설치할 수 있습니다. 이 문서에서는 HDInsight 애플리케이션을 Azure Marketplace에 게시하는 방법에 대해 알아봅니다. Azure Marketplace에 게시하는 방법에 대한 일반적인 내용은 [Azure Marketplace에 제품 게시](../marketplace/overview.md)를 참조하세요.
@@ -83,7 +83,8 @@ HDInsight 애플리케이션을 설치하는 데 필요한 모든 파일을 포�
 ## <a name="publish-the-application"></a>애플리케이션 게시
 HDInsight 애플리케이션을 게시하려면
 
-1. [Azure 게시](https://publish.windowsazure.com/)에 로그인합니다.
+1. Azure 게시에 로그인합니다.
+
 2. 왼쪽 메뉴에서 **솔루션 템플릿** 을 선택합니다.
 3. 제목을 입력한 다음 **새 솔루션 템플릿 만들기** 를 선택합니다.
 4. 조직을 아직 등록하지 않은 경우 **개발자 센터 계정 만들기 및 Azure 프로그램 조인** 을 선택합니다.  자세한 내용은 [Microsoft 개발자 계정 만들기](../marketplace/overview.md)를 참조하세요.

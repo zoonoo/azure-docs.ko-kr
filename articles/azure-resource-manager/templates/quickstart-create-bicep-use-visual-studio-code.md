@@ -2,15 +2,15 @@
 title: Bicep 파일 만들기 - Visual Studio Code
 description: Azure 리소스 배포를 위해 Visual Studio Code 및 Bicep 파일에 대한 Bicep 확장 사용
 author: mumian
-ms.date: 03/26/2021
+ms.date: 04/12/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 4d1064351ddfacdebfa67fd9b2f517f592de3a7c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e82f047f553290c9121d91060c347c5b242c7ec2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612906"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306469"
 ---
 # <a name="quickstart-create-bicep-files-with-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Bicep 파일 만들기
 
@@ -51,6 +51,10 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 - **심볼 이름**(stg): 심볼 이름은 bicep 파일 전체에서 리소스를 참조하는 식별자입니다. 배포되는 리소스의 이름이 아닙니다. 리소스 이름은 **name** 속성으로 정의됩니다.  이 목록에서 네 번째 구성 요소를 참조하세요.
 - **리소스 유형**(Microsoft.Storage/storageAccounts@2019-06-01): 리소스 공급자(Microsoft.Storage), 리소스 유형(storageAccounts) 및 apiVersion(2019-06-01)으로 구성됩니다. 각 리소스 공급자는 자체 API 버전을 게시하므로 이 값은 유형에 따라 다릅니다. [ARM 템플릿 참조](/azure/templates/)에서 다양한 Azure 리소스에 대한 더 많은 유형과 apiVersion을 찾을 수 있습니다.
 - **속성**(= {...} 내의 모든 항목): 리소스 종류에 대한 속성을 지정합니다. 모든 리소스에는 `name` 속성이 있습니다. 대부분의 리소스에는 `location` 속성이 있으며, 이 속성은 리소스가 배포되는 지역을 설정합니다. 다른 속성은 리소스 유형 및 API 버전에 따라 다릅니다.
+
+자세한 내용은 [Bicep 구조체](./bicep-file.md)를 참조하세요.
+
+이름 속성에 대한 설명이 있습니다.  한 줄 주석에는 `//`를 사용하고 여러 줄 주석에는 `/* ... */`를 사용합니다.
 
 ## <a name="completion-and-validation"></a>완성 및 유효성 검사
 

@@ -1,7 +1,7 @@
 ---
 title: '자습서: 수요 예측 및 AutoML'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning Studio에서 자동화된 Machine Learning을 사용하여 수요 예측 모델을 학습시키고 배포하는 방법을 알아봅니다.
+description: Azure Machine Learning의 자동화된 기계 학습(자동화된 ML) 인터페이스를 사용하여 코드를 작성하지 않고 수요 예측 모델을 학습 및 배포합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,21 +11,18 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: 2653161b5828d89858234a9ca98fe432e0eacb5c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a5f7c0cf95d62df2d06c91abd99a1827524d5d6b
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "99822509"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210553"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>자습서: 자동화된 기계 학습으로 수요 예측
 
+Azure Machine Learning 스튜디오에서 자동화된 기계 학습을 사용하여 한 줄의 코드도 작성하지 않고 [시계열 예측 모델](concept-automated-ml.md#time-series-forecasting)을 만드는 방법에 대해 알아봅니다. 이 모델은 자전거 공유 서비스에 대한 임대 수요를 예측합니다.  
 
-이 자습서에서는 Azure Machine Learning Studio에서 자동화된 기계 학습 또는 자동화된 ML을 사용하여 자전거 공유 서비스에 대한 임대 수요를 예측하는 시계열 예측 모델을 만듭니다.
-
-분류 모델 예제를 보려면 [자습서: Azure Machine Learning에서 자동화된 ML을 사용하여 분류 모델 만들기](tutorial-first-experiment-automated-ml.md)를 참조하세요.
-
-이 자습서에서는 다음 작업을 수행하는 방법을 알아봅니다.
+이 자습서에서는 코드를 작성하지 않고 스튜디오 인터페이스를 사용하여 학습을 수행합니다.  다음 작업을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 데이터 세트를 만들고 로드합니다.
@@ -34,13 +31,18 @@ ms.locfileid: "99822509"
 > * 실험 결과를 살펴봅니다.
 > * 최적의 모델을 배포합니다.
 
+또한 다음과 같은 다른 모델 유형에 대해 자동화된 기계 학습을 시도해 보세요.
+
+* 분류 모델의 코드 없는 예제는 [자습서: Azure Machine Learning에서 자동화된 ML을 사용하여 분류 모델 만들기](tutorial-first-experiment-automated-ml.md)를 참조하세요.
+* 회귀 모델의 코드 첫 번째 예제는 [자습서: 자동화된 기계 학습을 사용하여 택시 요금 예측](tutorial-auto-train-models.md)을 참조하세요.
+
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Machine Learning 작업 영역 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요. 
 
 * [bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv) 데이터 파일 다운로드
 
-## <a name="get-started-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 시작
+## <a name="sign-in-to-the-studio"></a>스튜디오에 로그인
 
 이 자습서에서는 모든 기술 수준의 데이터 과학 전문가용 데이터 과학 시나리오를 수행하기 위한 기계 학습 도구를 포함하는 통합 웹 인터페이스인 Azure Machine Learning Studio에서 자동화된 ML 실험 실행을 만듭니다. 이 Studio는 Internet Explorer 브라우저에서 지원되지 않습니다.
 

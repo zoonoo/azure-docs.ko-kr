@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 13ead70f278f12866dbe00b53c487aebcc43304f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 40094c00a4b896756c5c0e51116e0ae33ae2a096
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742639"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580728"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Azure Key Vault 방화벽 및 가상 네트워크 구성
 
@@ -29,13 +29,14 @@ ms.locfileid: "101742639"
 
 ### <a name="key-vault-firewall-disabled-default"></a>Key Vault 방화벽 사용 안 함(기본값)
 
-기본적으로 새 키 자격 증명 모음을 만들 때 Azure Key Vault 방화벽이 사용하지 않도록 설정됩니다. 모든 애플리케이션 및 Azure 서비스는 키 자격 증명 모음에 액세스하고 키 자격 증명 모음으로 요청을 보낼 수 있습니다. 이 구성은 모든 사용자가 키 자격 증명 모음에 대한 작업을 수행할 수 있다는 의미는 아닙니다. 키 자격 증명 모음은 Azure Active Directory 인증 및 액세스 정책 권한을 요구하는 방식으로 키 자격 증명 모음에 저장된 비밀, 키 및 인증서로 제한합니다. 키 자격 증명 모음 인증에 대한 자세한 내용은 [여기](./authentication-fundamentals.md)서 키 자격 증명 모음 인증 기본 문서를 참조하세요.
+기본적으로 새 키 자격 증명 모음을 만들 때 Azure Key Vault 방화벽이 사용하지 않도록 설정됩니다. 모든 애플리케이션 및 Azure 서비스는 키 자격 증명 모음에 액세스하고 키 자격 증명 모음으로 요청을 보낼 수 있습니다. 이 구성은 모든 사용자가 키 자격 증명 모음에 대한 작업을 수행할 수 있다는 의미는 아닙니다. 키 자격 증명 모음은 Azure Active Directory 인증 및 액세스 정책 권한을 요구하는 방식으로 키 자격 증명 모음에 저장된 비밀, 키 및 인증서로 제한합니다. 키 자격 증명 모음 인증에 대한 자세한 내용은 [여기](./authentication-fundamentals.md)서 키 자격 증명 모음 인증 기본 문서를 참조하세요. 자세한 내용은 [방화벽 뒤에 있는 Azure Key Vault에 액세스](./access-behind-firewall.md)를 참조하세요.
 
 ### <a name="key-vault-firewall-enabled-trusted-services-only"></a>Key Vault 방화벽 사용(신뢰할 수 있는 서비스만 해당)
 
-Key Vault 방화벽을 사용하도록 설정하면 '신뢰할 수 있는 Microsoft 서비스가 이 방화벽을 우회하도록 허용합니다' 옵션이 제공됩니다. Azure 서비스 중 일부는 신뢰할 수 있는 서비스 목록에 없습니다. 예를 들어 Azure DevOps는 신뢰할 수 있는 서비스 목록에 없습니다. **신뢰할 수 있는 서비스 목록에 없는 서비스는 신뢰할 수 없거나 안전하지 않다는 의미가 아닙니다.** 신뢰할 수 있는 서비스 목록에는 서비스에서 실행되는 모든 코드를 Microsoft가 제어하는 서비스가 포함됩니다. 사용자가 Azure DevOps 같은 Azure 서비스에서 사용자 지정 코드를 작성할 수 있기 때문에 Microsoft에서는 서비스에 대한 전면적 승인을 만드는 옵션을 제공하지 않습니다. 뿐만 아니라 신뢰할 수 있는 서비스 목록에 표시된다고 해서 모든 시나리오에 허용되는 것은 아닙니다.
+Key Vault 방화벽을 사용하도록 설정하면 '신뢰할 수 있는 Microsoft 서비스가 이 방화벽을 우회하도록 허용합니다' 옵션이 제공됩니다. Azure 서비스 중 일부는 신뢰할 수 있는 서비스 목록에 없습니다. 예를 들어 Azure DevOps는 신뢰할 수 있는 서비스 목록에 없습니다. **신뢰할 수 있는 서비스 목록에 없는 서비스는 신뢰할 수 없거나 안전하지 않다는 의미가 아닙니다.** 신뢰할 수 있는 서비스 목록에는 서비스에서 실행되는 모든 코드를 Microsoft가 제어하는 서비스가 포함됩니다. 사용자가 Azure DevOps 같은 Azure 서비스에서 사용자 지정 코드를 작성할 수 있기 때문에 Microsoft에서는 서비스에 대한 전면적 승인을 만드는 옵션을 제공하지 않습니다. 뿐만 아니라 신뢰할 수 있는 서비스 목록에 표시된다고 해서 모든 시나리오에 허용되는 것은 아닙니다. 
 
 사용하려는 서비스가 신뢰할 수 있는 서비스 목록에 있는지 확인하려면 [여기](./overview-vnet-service-endpoints.md#trusted-services)서 다음 문서를 참조하세요.
+방법 가이드는 [포털, Azure CLI 및 Powershell](https://docs.microsoft.com/azure/key-vault/general/network-security#use-the-azure-portal)에 대한 지침을 따르세요.
 
 ### <a name="key-vault-firewall-enabled-ipv4-addresses-and-ranges---static-ips"></a>Key Vault 방화벽 사용(IPv4 주소 및 범위 - 고정 IP)
 

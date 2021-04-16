@@ -2,16 +2,16 @@
 title: 자습서 - Azure Resource Manager Bicep 파일 만들기 및 배포
 description: Azure 리소스를 배포하기 위한 첫 번째 Bicep 파일을 만듭니다. 이 자습서에서는 Bicep 파일 구문 및 스토리지 계정을 배포하는 방법에 대해 알아봅니다.
 author: mumian
-ms.date: 03/17/2021
+ms.date: 04/12/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 8979585d7ec0fa6eac1866375fe1e80214f2d2e2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0ffd8a97d797144d458e7ec5836042cc6d8d8193
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594277"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306684"
 ---
 # <a name="tutorial-create-and-deploy-first-azure-resource-manager-bicep-file"></a>자습서: 첫 번째 Azure Resource Manager Bicep 파일 만들기 및 배포
 
@@ -57,7 +57,7 @@ Azure PowerShell 또는 Azure CLI가 설치되면 처음으로 로그인해야 �
 
     ```bicep
     resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-      name: '{provide-unique-name}'
+      name: '{provide-unique-name}'  // must be globally unique
       location: 'eastus'
       sku: {
         name: 'Standard_LRS'
@@ -85,6 +85,10 @@ Azure PowerShell 또는 Azure CLI가 설치되면 처음으로 로그인해야 �
         [storageAccounts 2016-05-01](/azure/templates/microsoft.storage/2016-05-01/storageaccounts)과 같은 이전 API 버전이 보이는 경우, 더 작은 속성 집합을 사용할 수 있습니다.
 
         리소스의 API 버전을 변경하려는 경우에는, 해당 버전의 속성을 평가하고 Bicep 파일을 적절히 조정해야 합니다.
+
+    자세한 내용은 [Bicep 구조체](./bicep-file.md)를 참조하세요.
+
+    이름 속성에 대한 설명이 있습니다.  한 줄 주석에는 `//`를 사용하고 여러 줄 주석에는 `/* ... */`를 사용합니다.
 
 1. 중괄호 `{}`를 포함하여 `{provide-unique-name}`을 고유한 스토리지 계정 이름으로 바꿉니다.
 

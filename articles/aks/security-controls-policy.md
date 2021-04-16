@@ -5,16 +5,17 @@ ms.date: 03/31/2021
 ms.topic: sample
 ms.service: container-service
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 0fdc3822b62053195ac1daa3f6eed16ac226f7f1
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: d4b36638caf1365f387f0c2644726706b3793c2f
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106095029"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107104935"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 Azure Policy 규정 준수 컨트롤
 
-[Azure Policy의 규정 준수](../governance/policy/concepts/regulatory-compliance.md)는 서로 다른 규정 준수 표준과 관련된 **규정 준수 도메인** 및 **보안 제어** 에 대해 _기본 제공_ 으로 알려진 Microsoft 생성 및 관리형 이니셔티브 정의를 제공합니다. 이 페이지에는 AKS(Azure Kubernetes Service)에 대한 **규정 준수 도메인** 및 **보안 제어** 가 나열되어 있습니다.
+[Azure Policy의 규정 준수](../governance/policy/concepts/regulatory-compliance.md)는 다양한 규정 준수 표준과 관련된 규정 준수 도메인 및 보안 제어에 대해 Microsoft에서 만들고 관리하는 이니셔티브 정의(*기본 제공*)를 제공합니다. 이 페이지에는 AKS(Azure Kubernetes Service) 규정 준수 도메인 및 보안 제어가 나열되어 있습니다.
+
 **보안 제어** 에 대한 기본 제공 기능을 개별적으로 할당하여 Azure 리소스가 특정 표준을 준수하도록 할 수 있습니다.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
