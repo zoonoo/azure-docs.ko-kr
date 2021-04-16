@@ -36,16 +36,15 @@
     - name: Face 컨테이너 사용
       items:
         - name: Cognitive Services 컨테이너 설명서
-          href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
+          href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/face/context/context
         - name: 컨테이너 개요
-          href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/computer-vision/context/context
+          href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/face/context/context
         - name: 컨테이너 설치 및 실행
           href: face-how-to-install-containers.md
         - name: 컨테이너 구성
           href: face-resource-container-config.md
         - name: 컨테이너 인스턴스 사용
-          maintainContext: true
-          href: ../containers/azure-container-instance-recipe.md
+          href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/face/context/context
 - name: 개념
   items:
     - name: 얼굴 감지
@@ -54,8 +53,6 @@
       href: concepts/face-recognition.md
 - name: 자습서
   items:
-    - name: 얼굴 감지기 앱 만들기
-      href: Tutorials/FaceAPIinCSharpTutorial.md
     - name: Face 서비스에 사용자 추가
       items:
         - name: 사용자 추가 모범 사례

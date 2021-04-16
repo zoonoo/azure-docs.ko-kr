@@ -1,18 +1,18 @@
 ---
 title: 미디어 청사진 샘플 제어
 description: 미디어 청사진 샘플의 제어 매핑입니다. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
-ms.date: 04/02/2021
+ms.date: 04/13/2021
 ms.topic: sample
-ms.openlocfilehash: b489111010c9a4fcb112428ae642332980302849
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 4c04c661d7dd8b2b07a05c20524258d6bb887e62
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386411"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376701"
 ---
 # <a name="control-mapping-of-the-media-blueprint-sample"></a>미디어 청사진 샘플의 제어 매핑
 
-다음 문서에서는 Azure Blueprints 미디어 청사진 샘플이 미디어 제어에 매핑되는 방법에 대해 자세히 설명합니다. 제어에 대한 자세한 내용은 [미디어](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html)를 참조하세요.
+다음 문서에서는 Azure Blueprints 미디어 청사진 샘플이 미디어 제어에 매핑되는 방법에 대해 자세히 설명합니다. 제어에 대한 자세한 내용은 [미디어](https://www.motionpictures.org/best-practices)를 참조하세요.
 
 다음은 **미디어** 제어에 대한 매핑입니다. 특정 컨트롤 매핑으로 바로 점프하려면 오른쪽의 탐색 기능을 사용합니다. 많은 매핑된 컨트롤은 [Azure Policy](../../../policy/overview.md) 이니셔티브를 사용하여 구현됩니다. 전체 이니셔티브를 검토하려면 Azure Portal에서 **정책** 을 열고 **정의** 페이지를 선택합니다. 그런 다음, **\[미리 보기\]: 미디어 감사 제어** 기본 제공 정책 이니셔티브를 찾아서 선택합니다.
 
