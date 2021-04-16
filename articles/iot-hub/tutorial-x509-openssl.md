@@ -12,13 +12,12 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-- devx-track-azurecli
-ms.openlocfilehash: 0d083d856138d7895a6e03f4d290ef3c4ddebd05
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0843e5d3a5e91cb4acdf18ad6bdf6f4f0c214f72
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629601"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378298"
 ---
 # <a name="tutorial-using-openssl-to-create-test-certificates"></a>자습서: OpenSSL을 사용하여 테스트 인증서 만들기
 
@@ -101,6 +100,13 @@ authorityKeyIdentifier   = keyid:always
 basicConstraints         = critical,CA:true,pathlen:0
 extendedKeyUsage         = clientAuth,serverAuth
 keyUsage                 = critical,keyCertSign,cRLSign
+subjectKeyIdentifier     = hash
+
+[client_ext]
+authorityKeyIdentifier   = keyid:always
+basicConstraints         = critical,CA:false
+extendedKeyUsage         = clientAuth
+keyUsage                 = critical,digitalSignature
 subjectKeyIdentifier     = hash
 
 ```
@@ -244,13 +250,19 @@ CSR을 루트 CA에 제출하고, 루트 CA를 사용하여 하위 CA 인증서�
 
 1. **확인 코드 생성** 을 선택합니다. 자세한 내용은 [CA 인증서 소유 증명](tutorial-x509-prove-possession.md)을 참조하세요.
 
-1. 확인 코드를 클립보드에 복사합니다. 확인 코드를 인증서 주체로 설정해야 합니다. 예를 들어 확인 코드가 BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A인 경우 다음 단계에서 표시한 대로 인증서 주체로 추가합니다.
+1. 확인 코드를 클립보드에 복사합니다. 확인 코드를 인증서 주체로 설정해야 합니다. 예를 들어 확인 코드가 BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A인 경우 9단계에서 표시한 대로 인증서 주체로 추가합니다.
 
 1. 프라이빗 키를 생성합니다.
 
   ```bash
-    $ openssl req -new -key pop.key -out pop.csr
+    $ openssl genpkey -out pop.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
+  ```
 
+9. 프라이빗 키에서 CSR(인증서 서명 요청)을 생성합니다. 인증서의 주체로 확인 코드를 추가합니다.
+
+  ```bash
+  openssl req -new -key pop.key -out pop.csr
+  
     -----
     Country Name (2 letter code) [XX]:.
     State or Province Name (full name) []:.
@@ -267,16 +279,16 @@ CSR을 루트 CA에 제출하고, 루트 CA를 사용하여 하위 CA 인증서�
  
   ```
 
-9. 루트 CA 구성 파일 및 CSR을 사용하여 인증서를 만듭니다.
+10. 루트 CA 구성 파일 및 소유 증명 인증서의 CSR을 사용하여 인증서를 만듭니다.
 
   ```bash
     openssl ca -config rootca.conf -in pop.csr -out pop.crt -extensions client_ext
 
   ```
 
-10. **인증서 세부 정보** 보기에서 새 인증서를 선택합니다.
+11. **인증서 세부 정보** 보기에서 새 인증서를 선택합니다. PEM 파일을 찾으려면 인증서 폴더로 이동합니다.
 
-11. 인증서가 업로드되면 **확인** 을 선택합니다. CA 인증서 상태가 **확인됨** 으로 변경됩니다.
+12. 인증서가 업로드되면 **확인** 을 선택합니다. CA 인증서 상태가 **확인됨** 으로 변경됩니다.
 
 ## <a name="step-8---create-a-device-in-your-iot-hub"></a>8단계 - IoT Hub에서 디바이스 만들기
 
@@ -331,4 +343,4 @@ openssl ca -config subca.conf -in device.csr -out device.crt -extensions client_
 
 ## <a name="next-steps"></a>다음 단계
 
-[인증서 인증 테스트](tutorial-x509-test-certificate.md)로 이동하여 인증서에서 디바이스를 IoT Hub에 인증할 수 있는지 확인합니다.
+[인증서 인증 테스트](tutorial-x509-test-certificate.md)로 이동하여 인증서가 디바이스를 IoT Hub에 인증할 수 있는지 확인합니다.
