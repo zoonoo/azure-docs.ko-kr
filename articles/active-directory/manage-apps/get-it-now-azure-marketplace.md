@@ -2,21 +2,21 @@
 title: Azure Marketplace에서 앱 추가
 description: 이 문서는 Azure Marketplace에서 지금 가져오기 단추를 클릭하면 나오는 방문 페이지 역할을 합니다.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/16/2020
-ms.author: kenwith
+ms.author: iangithinji
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7bff0ca3dfa561f836f94e362ee84d025de020ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b2c15ba1f059466240264565d5ff5276b70ddd63
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99258340"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374151"
 ---
 # <a name="get-it-now---add-an-app-from-the-azure-marketplace"></a>지금 가져오기 - Azure Marketplace에서 앱 추가
 

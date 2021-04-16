@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 03/02/2021
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 5820592bf06cc9427e12aa0cd79c54dc1f0156e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfaa04077a5148f19f06aa5e1257b986377ea8c0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101657998"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307132"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "101657998"
 
 ## <a name="wire-protocol-compatibility"></a>유선 프로토콜 호환성
 
-Azure Cosmos DB는 MongoDB에 대한 유선 프로토콜을 구현합니다. 이 구현을 통해 네이티브 MongoDB 클라이언트 SDK, 드라이버 및 도구와 투명하게 호환됩니다. Azure Cosmos DB는 MongoDB 데이터베이스 엔진을 호스팅합니다. MongoDB에서 지원되는 기능에 대한 자세한 내용은 다음에서 확인할 수 있습니다. 
+Azure Cosmos DB는 MongoDB에 대한 유선 프로토콜을 구현합니다. 이 구현을 통해 네이티브 MongoDB 클라이언트 SDK, 드라이버 및 도구와 투명하게 호환됩니다. Azure Cosmos DB는 MongoDB 데이터베이스 엔진을 호스트하지 않습니다. MongoDB에서 지원되는 기능에 대한 자세한 내용은 다음에서 확인할 수 있습니다. 
 - [Azure Cosmos DB의 MongoDB용 API 버전 4.0](mongodb-feature-support-40.md)
 - [Azure Cosmos DB의 MongoDB용 API 버전 3.6](mongodb-feature-support-36.md)
 
