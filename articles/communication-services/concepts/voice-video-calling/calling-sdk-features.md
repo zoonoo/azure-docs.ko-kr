@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: ac9cef77569dffe461f7711195c5638e831aa218
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 28072184d47beb32dc03e0d6ba52328bfceb5b73
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110107"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364875"
 ---
 # <a name="calling-sdk-overview"></a>통화 SDK 개요
 
@@ -68,12 +68,12 @@ Calling SDK의 주요 기능:
 |                   | 카메라 목록 가져오기                                                                                                     | ✔️   | ✔️            | ✔️
 |                   | 카메라 설정                                                                                                          | ✔️   | ✔️            | ✔️
 |                   | 선택한 카메라 가져오기                                                                                                 | ✔️   | ✔️            | ✔️
-|                   | 마이크 목록 가져오기                                                                                                 | ✔️   | ✔️            | ✔️
-|                   | 마이크 설정                                                                                                      | ✔️   | ✔️            | ✔️
-|                   | 선택한 마이크 가져오기                                                                                             | ✔️   | ✔️            | ✔️
-|                   | 스피커 목록 가져오기                                                                                                   | ✔️   | ✔️            | ✔️
-|                   | 스피커 설정                                                                                                         | ✔️   | ✔️            | ✔️
-|                   | 선택한 스피커 가져오기                                                                                                | ✔️   | ✔️            | ✔️
+|                   | 마이크 목록 가져오기                                                                                                 | ✔️   | ❌           |❌  
+|                   | 마이크 설정                                                                                                      | ✔️   | ❌           | ❌  
+|                   | 선택한 마이크 가져오기                                                                                             | ✔️   | ❌           | ❌  
+|                   | 스피커 목록 가져오기                                                                                                   | ✔️   | ❌           | ❌  
+|                   | 스피커 설정                                                                                                         | ✔️   | ❌           | ❌  
+|                   | 선택한 스피커 가져오기                                                                                                | ✔️   | ❌           | ❌  
 | 비디오 렌더링   | 여러 위치에서 단일 비디오 렌더링(로컬 카메라 또는 원격 스트림)                                                  | ✔️   | ✔️            | ✔️
 |                   | 크기 조정 모드 설정/업데이트                                                                                           | ✔️   | ✔️            | ✔️
 |                   | 원격 비디오 스트림 렌더링                                                                                          | ✔️   | ✔️            | ✔️

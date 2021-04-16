@@ -1,18 +1,18 @@
 ---
 title: Azure Certified Device 프로그램 - 자습서 - 디바이스 세부 정보 추가
 description: Azure Certified Device 포털에서 프로젝트에 디바이스 세부 정보를 추가하는 단계별 가이드
-author: nikuntjo
+author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: c2a67e794932504150a1eacedd5418642623a20c
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: f4f3d045a2530fa54d22bec789918454cba80097
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105975532"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310430"
 ---
 # <a name="tutorial-add-device-details"></a>자습서: 디바이스 세부 정보 추가
 
