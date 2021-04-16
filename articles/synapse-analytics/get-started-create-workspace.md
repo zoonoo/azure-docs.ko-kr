@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: a4fa902268d9a19cd0003a2fdaa4c5e58989a4ff
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: b22954edf4f3a5a935c470326aa43bd24ee2d708
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106218943"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366065"
 ---
 # <a name="creating-a-synapse-workspace"></a>Synapse 작업 영역 만들기
 
@@ -47,8 +47,8 @@ ms.locfileid: "106218943"
 
 **Data Lake Storage Gen 2 선택** 아래에서:
 
-1. **계정 이름** 별로 **새로 만들기** 를 클릭하고 새 스토리지 계정의 이름을 **contosolake** 로 지정하고, 이 이름은 고유해야 합니다.
-1. **파일 시스템 이름** 별로 **새로 만들기** 를 클릭하고 **사용자** 이름을 지정합니다. 이렇게 하면 **users** 라는 스토리지 컨테이너가 생성됩니다. 작업 영역에서는 이 스토리지 계정을 Spark 테이블 및 Spark 애플리케이션 로그에 대한 "기본" 스토리지 계정으로 사용합니다.
+1. **계정 이름** 별로 **새로 만들기** 를 선택하고 새 스토리지 계정의 이름을 **contosolake** 로 지정하고, 이 이름은 고유해야 합니다.
+1. **파일 시스템 이름** 별로 **새로 만들기** 를 선택하고 **사용자** 이름을 지정합니다. 이렇게 하면 **users** 라는 스토리지 컨테이너가 생성됩니다. 작업 영역에서는 이 스토리지 계정을 Spark 테이블 및 Spark 애플리케이션 로그에 대한 "기본" 스토리지 계정으로 사용합니다.
 1. "Data Lake Storage Gen2 계정에 Storage Blob 데이터 기여자 역할 할당" 상자를 선택합니다. 
 
 ## <a name="completing-the-process"></a>프로세스 완료
@@ -64,6 +64,16 @@ Azure Synapse 작업 영역이 만들어지면 다음 두 가지 방법으로 Sy
 
 * [Azure Portal](https://portal.azure.com)에서 Synapse 작업 영역을 열고, Synapse 작업 영역의 **개요** 섹션에 있는 Synapse Studio 열기 상자에서 **열기** 를 선택합니다.
 * `https://web.azuresynapse.net`(으)로 이동하여 작업 영역에 로그인합니다.
+
+## <a name="place-sample-data-into-the-primary-storage-account"></a>기본 스토리지 계정에 샘플 데이터 배치
+이 시작 가이드의 많은 예제에 대해 NYX Taxi Cab 데이터의 작은 100K 행 샘플 데이터 세트를 사용할 것입니다. 작업 영역에 대해 만든 기본 스토리지 계정에 배치하여 시작합니다.
+
+* 컴퓨터에 https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 파일을 다운로드합니다. 
+* Synapse Studio에서 Data Hub로 이동합니다. 
+* **연결됨** 을 선택합니다.
+* **Azure Data Lake Storae Gen2** 범주 아래에 **myworkspace(기본 - contosolake)** 와 같은 이름의 항목이 표시됩니다.
+* **사용자(기본)** 라는 컨테이너를 선택합니다.
+* **업로드** 를 선택하고 다운로드한 `NYCTripSmall.parquet` 파일을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
