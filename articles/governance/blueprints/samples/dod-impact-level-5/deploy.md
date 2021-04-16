@@ -1,14 +1,14 @@
 ---
 title: DoD 영향 수준 5 청사진 샘플
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 DoD 영향 수준 5 청사진 샘플에 대한 단계를 배포합니다.
-ms.date: 04/02/2021
+ms.date: 04/13/2021
 ms.topic: sample
-ms.openlocfilehash: d9292a9033a3c0b92e1a00c63d74bd1fb6023794
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: b978b9fb30732c13785a6a425e5195daf67bae0f
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386722"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377406"
 ---
 # <a name="deploy-the-dod-impact-level-5-blueprint-sample"></a>DoD 영향 수준 5 청사진 샘플 배포
 
@@ -19,7 +19,7 @@ Azure Blueprints DoD IL5(국방부 영향 수준 5) 청사진 샘플을 배포�
 > - 샘플 사본을 **게시됨** 으로 표시
 > - 기존 구독에 청사진 사본 할당
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
+Azure Government 구독이 없는 경우, 시작하기 전에 [평가판 구독](https://azure.microsoft.com/global-infrastructure/government/request/)을 요청하세요.
 
 ## <a name="create-blueprint-from-sample"></a>샘플에서 청사진 만들기
 

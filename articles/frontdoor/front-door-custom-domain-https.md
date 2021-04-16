@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2021
 ms.author: duau
-ms.openlocfilehash: d2c8d4179dbaa44929031ce7e14b597b145ed72a
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 3862197acd3b3181180d264c4d2a2c8dbf6a1401
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067608"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378859"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>자습서: Front Door 사용자 지정 도메인에서 HTTPS 구성
 
@@ -72,7 +72,8 @@ Azure Front Door에서 관리되는 인증서를 사용하면 단 몇 번의 클
 > [!NOTE]
 > AFD 관리형 인증서의 경우 DigiCert의 64자 제한이 적용됩니다. 해당 제한을 초과하면 유효성 검사가 실패합니다.
 
-![참고] Front Door 관리 인증서를 통해 HTTPS를 사용하도록 설정하는 것은 apex/root 도메인(예: contoso.com)에 지원되지 않습니다. 이 시나리오에는 사용자 고유의 인증서를 사용할 수 있습니다.  자세한 내용은 옵션 2로 계속 진행하세요.
+> [!NOTE]
+> Front Door 관리 인증서를 통해 HTTPS를 사용하도록 설정하는 것은 apex/root 도메인(예: contoso.com)에 지원되지 않습니다. 이 시나리오에는 사용자 고유의 인증서를 사용할 수 있습니다.  자세한 내용은 옵션 2로 계속 진행하세요.
 
 ### <a name="option-2-use-your-own-certificate"></a>옵션 2: 사용자 고유의 인증서 사용
 
