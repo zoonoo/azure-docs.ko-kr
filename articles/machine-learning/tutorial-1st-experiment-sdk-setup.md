@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python, contperf-fy21q3
 adobe-target: true
-ms.openlocfilehash: f00a5efb01ea59b04495747ffd93d9f15ad5f76e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ed7a95ea83cacc0eaccfa23cd87403fb9be615ee
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935535"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210672"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>자습서: Jupyter Notebook에서 Azure Machine Learning 시작
 
@@ -27,7 +27,13 @@ ms.locfileid: "105935535"
 > [!div class="checklist"]
 > * 다른 Jupyter Notebook 자습서에서 사용할 [Azure Machine Learning 작업 영역](concept-workspace.md)을 만듭니다.
 > * 자습서 Notebook을 작업 영역의 사용자 폴더로 복제합니다.
-> * Azure Machine Learning Python SDK가 설치되고 미리 구성된 클라우드 기반 컴퓨팅 인스턴스를 만듭니다.
+> * Azure Machine Learning Python SDK가 이미 설치 및 구성된 환경을 제공하는 클라우드 기반 컴퓨팅 인스턴스를 만듭니다.
+
+이 자습서에서는 작업 영역의 컴퓨팅 리소스에서 Jupyter Notebooks를 실행할 수 있도록 준비합니다.  
+
+Azure Machine Learning을 시작하는 또 다른 좋은 방법은 일괄 작업을 제출하는 것입니다.  [자습서: 개발 환경에서 Azure Machine Learning 시작](tutorial-1st-experiment-sdk-setup-local.md)을 참조하세요.
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 

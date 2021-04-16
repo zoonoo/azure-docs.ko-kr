@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: 82562eae748753cd785851c5d91f5f152b4c9960
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1cef56d15838d80079decc6e1da7ad830bd1cd9
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92206954"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029763"
 ---
 # <a name="what-is-azure-expressroute"></a>Azure ExpressRoute란?
 ExpressRoute를 사용하면 연결 공급자의 도움을 받아 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure 및 Microsoft 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.
@@ -20,6 +20,10 @@ ExpressRoute를 사용하면 연결 공급자의 도움을 받아 프라이빗 �
 연결은 공동 배치 시설의 연결 공급자를 통해 Any-to-Any(IP VPN) 네트워크, 지점 간 이더넷 네트워크 또는 가상 교차 연결에서 수행할 수 있습니다. ExpressRoute 연결은 퍼블릭 인터넷을 통해 이동하지 않습니다. 이 기능을 사용하면 ExpressRoute 연결은 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 일관되고 보안성이 높습니다. ExpressRoute를 사용하여 네트워크를 Microsoft에 연결하는 방법에 대한 내용은 [ExpressRoute 연결 모델](expressroute-connectivity-models.md)을 참조하세요.
 
 ![ExpressRoute 연결 개요](./media/expressroute-introduction/expressroute-connection-overview.png)
+
+> [!NOTE]
+> ExpressRoute의 컨텍스트에서 Microsoft Edge는 ExpressRoute 회로의 Microsoft 쪽에 있는 에지 라우터를 설명합니다. 이는 ExpressRoute 회로의 Microsoft 네트워크 진입점입니다.
+> 
 
 ## <a name="key-benefits"></a>주요 이점
 
