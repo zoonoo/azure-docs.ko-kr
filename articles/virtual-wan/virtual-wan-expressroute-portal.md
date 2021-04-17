@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 10/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6b9c4bcf760387f6bbe380c9aa079df2f86a1847
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 67df1c822f34f45bb0931848f8015374a346673a
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060655"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278442"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용한 ExpressRoute 연결 만들기
 
@@ -104,7 +104,7 @@ ExpressRoute 게이트웨이를 만들었으면 게이트웨이 세부 정보를
 
 ## <a name="connect-your-circuit-to-the-hub-gateway"></a><a name="connectcircuit"></a>회로를 허브 게이트웨이에 연결
 
-게이트웨이가 생성되면 [ExpressRoute 회로](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)에 연결할 수 있습니다. ExpressRoute Global Reach 지원 위치에 있는 ExpressRoute 표준 또는 프리미엄 회로는 Virtual WAN ExpressRoute 게이트웨이에 연결하고 모든 Virtual WAN 전송 기능(VPN 간, VPN 및 ExpressRoute 전송)을 사용할 수 있습니다. 비 Global Reach 위치에 있는 ExpressRoute 표준 및 프리미엄 회로는 Azure 리소스에 연결할 수 있지만 Virtual WAN 전송 기능을 사용할 수 없습니다. ExpressRoute 로컬은 Virtual WAN 허브에 연결된 스포크 VNET이 Virtual WAN Hub와 동일한 지역에 있는 한 Azure Virtual WAN 허브에서 지원됩니다.
+게이트웨이가 생성되면 [ExpressRoute 회로](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)에 연결할 수 있습니다. ExpressRoute Global Reach 지원 위치에 있는 ExpressRoute 표준 또는 프리미엄 회로는 Virtual WAN ExpressRoute 게이트웨이에 연결하고 모든 Virtual WAN 전송 기능(VPN 간, VPN 및 ExpressRoute 전송)을 사용할 수 있습니다. 비 Global Reach 위치에 있는 ExpressRoute 표준 및 프리미엄 회로는 Azure 리소스에 연결할 수 있지만 Virtual WAN 전송 기능을 사용할 수 없습니다. ExpressRoute 로컬은 Azure Virtual WAN 허브에서도 지원됩니다.
 
 ### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>회로를 허브 게이트웨이에 연결하려면
 
