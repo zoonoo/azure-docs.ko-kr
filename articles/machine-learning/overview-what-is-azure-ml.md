@@ -7,15 +7,15 @@ ms.subservice: core
 ms.topic: overview
 ms.author: larryfr
 author: BlackMist
-ms.date: 11/04/2020
+ms.date: 04/08/2021
 ms.custom: devx-track-python
 adobe-target: true
-ms.openlocfilehash: 00a3ab2954d09a7e70e81d8de3644b678b79d005
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 4f97883c157d04358322b01cab7049dcbbabdc4f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102521393"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031089"
 ---
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
 
@@ -40,7 +40,7 @@ Machine Learning을 통한 예측은 좀 더 똑똑한 앱 및 디바이스를 �
 ## <a name="machine-learning-tools-to-fit-each-task"></a>각 작업에 적합한 기계 학습 도구 
 
 Azure Machine Learning은 개발자와 데이터 과학자에게 다음을 비롯한 기계 학습 워크플로에 필요한 모든 도구를 제공합니다.
-+ [Azure Machine Learning 디자이너](tutorial-designer-automobile-price-train-score.md): 모듈 끌어서 놓기를 통해 실험을 빌드한 다음, 파이프라인을 배포합니다.
++ [Azure Machine Learning 디자이너](tutorial-designer-automobile-price-train-score.md): 모듈 끌어서 놓기를 통해 실험을 빌드한 다음, 낮은 코드 환경에서 파이프라인을 배포합니다.
 
 + Jupyter Notebook: [예제 Notebook](https://github.com/Azure/MachineLearningNotebooks)을 사용하거나 고유한 Notebook을 만들어 기계 학습에서 <a href="/python/api/overview/azure/ml/intro" target="_blank">Python용 Azure SDK</a> 샘플을 활용할 수 있습니다. 
 
@@ -48,11 +48,11 @@ Azure Machine Learning은 개발자와 데이터 과학자에게 다음을 비�
 
 + [많은 모델 솔루션 가속기](https://aka.ms/many-models)(미리 보기)는 Azure Machine Learning을 기반으로 하며 수백 또는 수천 개의 기계 학습 모델을 학습, 운영 및 관리할 수 있습니다.
 
-+ [Visual Studio Code 사용자를 위한 기계 학습 확장](tutorial-setup-vscode-extension.md)
++ [Visual Studio Code용 기계 학습 확장(미리 보기)](how-to-set-up-vs-code-remote.md)은 기계 학습 프로젝트를 빌드하고 관리하기 위한 완전한 기능을 갖춘 개발 환경을 제공합니다.
 
-+ [기계 학습 CLI](reference-azure-machine-learning-cli.md)
++ [기계 학습 CLI](reference-azure-machine-learning-cli.md)는 명령줄에서 Azure Machine Learning 리소스로 관리하기 위한 명령을 제공하는 Azure CLI 확장입니다.
 
-+ PyTorch, TensorFlow, scikit-learn 등과 같은 많은 오픈 소스 프레임워크
++ PyTorch, TensorFlow 및 scikit-learn과 같은 [오픈 소스 프레임워크와의 통합](concept-open-source.md)은 엔드투엔드 기계 학습 프로세스를 학습, 배포 및 관리하기 위한 다양한 기능을 포함합니다.
 
 + Ray RLlib를 사용하는 [보충 학습](how-to-use-reinforcement-learning.md)
 
@@ -130,6 +130,8 @@ Azure Storage 계정, 컴퓨팅 대상 및 기타 리소스를 가상 네트워�
 - + [자체 개발 환경에서 시작](tutorial-1st-experiment-sdk-setup-local.md)
   + [컴퓨팅 인스턴스에서 Jupyter Notebooks를 사용하여 ML 모델 학습 및 배포](tutorial-1st-experiment-sdk-setup.md)
   + [자동화된 기계 학습을 사용하여 ML 모델 학습 및 배포](tutorial-first-experiment-automated-ml.md) 
+  + [Visual Studio Code에서 리소스 관리](how-to-manage-resources-vscode.md)
+  + [Visual Studio Code를 사용하여 이미지 분류 모델 학습 및 배포](tutorial-train-deploy-image-classification-model-vscode.md)
   + [디자이너의 끌어서 놓기 기능을 사용하여 학습 및 배포](tutorial-designer-automobile-price-train-score.md) 
   + [기계 학습 CLI를 사용하여 모델 학습 및 배포](tutorial-train-deploy-model-cli.md)
 

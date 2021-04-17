@@ -1,7 +1,7 @@
 ---
-title: '회귀 자습서: 자동화된 ML'
+title: '자습서: 자동화된 기계 학습을 사용하는 회귀'
 titleSuffix: Azure Machine Learning
-description: 사용자가 제공하는 학습 데이터 및 구성 설정에 따라 회귀 모델을 생성하는 자동화된 기계 학습 실험을 만듭니다.
+description: Python SDK를 통해 코드를 작성하여 회귀 모델을 생성하는 자동화된 기계 학습 실험을 만듭니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,30 +11,34 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: 7f3052905d7594d64be9455c16239ebabd219849
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 85129cf282e39b4f4932cc5e9f7cfd72d1e445b0
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105565081"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210638"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>자습서: 자동화된 기계 학습을 사용하여 택시 요금 예측
 
-
-이 자습서에서는 Azure Machine Learning의 자동화된 기계 학습을 사용하여 NYC 택시 요금 가격을 예측하는 회귀 모델을 만듭니다. 이 프로세스는 학습 데이터 및 구성 설정을 적용하며 다양한 기능 정규화/표준화 메서드, 모델 및 하이퍼 매개 변수 설정의 결합을 자동으로 반복하여 최선의 모델에 도달합니다.
+이 자습서에서는 Azure Machine Learning SDK의 자동화된 기계 학습을 사용하여 NYC 택시 요금 가격을 예측하는 [회귀 모델](concept-automated-ml.md#regression)을 만듭니다. 이 프로세스는 학습 데이터 및 구성 설정을 적용하며 다양한 기능 정규화/표준화 메서드, 모델 및 하이퍼 매개 변수 설정의 결합을 자동으로 반복하여 최선의 모델에 도달합니다.
 
 ![흐름 다이어그램](./media/tutorial-auto-train-models/flow2.png)
 
-이 자습서에서는 다음 작업에 대해 알아봅니다.
+이 자습서에서는 Python SDK를 사용하여 코드를 작성합니다.  다음 작업에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Open Datasets를 사용하여 데이터 다운로드, 변환 및 지우기
 > * 자동화된 기계 학습 회귀 모델 학습
 > * 모델 정확도 계산
 
-Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 Azure Machine Learning의 [평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+또한 다음과 같은 다른 모델 유형에 대해 자동화된 기계 학습을 시도해 보세요. 
+
+* [자습서: Azure Machine Learning에서 자동화된 ML을 사용하여 분류 모델 만들기](tutorial-first-experiment-automated-ml.md) - 코드 없는 예제입니다.
+* [자습서: 자동화된 기계 학습으로 수요 예측](tutorial-automated-ml-forecast.md) - 코드 없는 예제입니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
+
+Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 Azure Machine Learning의 [평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 * Azure Machine Learning 작업 영역 또는 Notebook 가상 머신이 아직 없으면 [설정 자습서](tutorial-1st-experiment-sdk-setup.md)를 완료하세요.
 * 설정 자습서를 완료한 후 동일한 Notebook 서버를 사용하여 *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* Notebook을 엽니다.
