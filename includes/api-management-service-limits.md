@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: api-management
 author: vladvino
@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 02/19/2021
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: ebaca1f39b16e4a06b5dcaa4e5f1de07122c6c89
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0614e6fb1df13332cb05dcb7bb9b0f07a1764d23
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103622092"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107251643"
 ---
 | 리소스 | 제한 |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -29,7 +29,7 @@ ms.locfileid: "103622092"
 | 서비스 인스턴스당 최대 구독 수<sup>8</sup> | 500 |
 | 서비스 인스턴스당 최대 클라이언트 인증서 수<sup>8</sup> | 50 |
 | 서비스 인스턴스당 최대 API 수<sup>8</sup> | 50 |
-| 서비스 인스턴스당 최대 API 작업 수<sup>8</sup> | 1,000 |
+| 서비스 인스턴스당 최대 API 관리 작업 수<sup>8</sup> | 1,000 |
 | 최대 총 요청 기간<sup>8</sup> | 30초 |
 | 최대 버퍼링된 페이로드 크기<sup>8</sup> | 2MiB |
 | 최대 요청 URL 크기<sup>9</sup> | 4,096바이트 |

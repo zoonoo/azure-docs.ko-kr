@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: b53af0fda8bb24bf03d0e02f61ce7d195ae69503
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 55955f883425651749809da951832484f098aeaf
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97680822"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256126"
 ---
 # <a name="what-is-azure-maps"></a>Azure Maps란?
 
@@ -169,11 +169,11 @@ Traffic Service는 교통 정보가 필요한 웹 및 모바일 애플리케이�
 
 자세한 내용은 [Traffic Service 설명서](/rest/api/maps/traffic)를 참조하세요.
 
-### <a name="weather-services-preview"></a>Weather Services(미리 보기) 
+### <a name="weather-services"></a>Weather Service
 
 Weather Services는 개발자가 특정 위치의 날씨 정보를 검색하는 데 사용할 수 있는 API를 제공합니다. 이 정보에는 관측 날짜 및 시간, 기후 조건에 대한 간단한 설명, 날씨 아이콘, 강수량 지표 플래그, 온도, 바람 속도 정보 등의 세부 정보가 포함됩니다. RealFeel™ 온도 및 자외선 지수 같은 추가 세부 정보도 반환됩니다.
 
-개발자는 [Get Weather along route API](/rest/api/maps/weather/getweatheralongroutepreview)를 사용하여 특정 경로를 따라 날씨 정보를 검색할 수 있습니다. 또한 이 서비스는 홍수나 장마 같은 기후 재난의 영향을 받는 중간 지점에 대한 날씨 알림 생성을 지원합니다.
+개발자는 [Get Weather along route API](/rest/api/maps/weather/getweatheralongroute)를 사용하여 특정 경로를 따라 날씨 정보를 검색할 수 있습니다. 또한 이 서비스는 홍수나 장마 같은 기후 재난의 영향을 받는 중간 지점에 대한 날씨 알림 생성을 지원합니다.
 
 [Get Map Tile V2 API](/rest/api/maps/renderv2/getmaptilepreview)를 사용하여 과거, 현재, 미래의 레이더 및 위성 타일을 요청할 수 있습니다.
 
