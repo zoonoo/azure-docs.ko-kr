@@ -12,13 +12,12 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-- devx-track-azurecli
-ms.openlocfilehash: 82ef2e39d5d04914e1086e0b25ccbc8e5c7c762e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 982e402946cbd71d946bc1e316cef99621c536a3
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629589"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378196"
 ---
 # <a name="tutorial-using-openssl-to-create-self-signed-certificates"></a>자습서: OpenSSL을 사용하여 자체 서명된 인증서 만들기
 
