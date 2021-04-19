@@ -3,7 +3,7 @@
 - name: 개요
   expanded: true
   items:
-    - name: Personalizer 개요
+    - name: Personalizer란?
       href: what-is-personalizer.md
     - name: 가격 책정
       href: 'https://go.microsoft.com/fwlink/?linkid=2092154'
@@ -11,7 +11,7 @@
     - name: 새로운 기능
       href: whats-new.md
       displayName: 'release notes, service updates, videos'
-- name: Personalizer 빠른 시작
+- name: 빠른 시작
   href: ./quickstart-personalizer-sdk.md
 - name: 샘플
   href: 'https://github.com/Azure-Samples/cognitive-services-personalizer-samples'
@@ -32,6 +32,12 @@
       href: how-to-manage-model.md
     - name: 오프라인 평가를 사용하여 분석
       href: how-to-offline-evaluation.md
+    - name: 엔터프라이즈 준비
+      items:
+        - name: 가상 네트워크 설정
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/personalizer/context/context
+        - name: 고객 관리형 키 사용
+          href: encrypt-data-at-rest.md
 - name: 개념
   items:
     - name: Personalizer의 작동 원리
@@ -107,17 +113,17 @@
           href: 'https://pypi.org/project/azure-cognitiveservices-personalizer/'
 - name: 리소스
   items:
+    - name: 엔터프라이즈 준비
+      items:
+        - name: 지역 지원
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: 규정 준수 및 인증
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Microsoft Learn 모듈
+      href: 'https://docs.microsoft.com/learn/browse/?terms=personalizer'
     - name: 지원 및 도움말 옵션
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/personalizer/context/context
     - name: 문제 해결
       href: troubleshooting.md
-    - name: 모듈 배우기
-      href: 'https://docs.microsoft.com/learn/browse/?terms=personalizer'
-    - name: 지역 지원
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-    - name: 규정 준수
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: 암호화
-      href: encrypt-data-at-rest.md
     - name: Azure 업데이트
       href: 'https://go.microsoft.com/fwlink/?linkid=2092153'

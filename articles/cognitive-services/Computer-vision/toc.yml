@@ -3,11 +3,11 @@
 - name: 개요
   expanded: true
   items:
-    - name: Computer Vision 개요
+    - name: Computer Vision이란?
       href: overview.md
     - name: 언어 지원
       href: language-support.md
-    - name: 가격 책정 및 제한
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision'
     - name: 새로운 기능
       href: whats-new.md
@@ -180,21 +180,23 @@
               href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
 - name: 방법 가이드
   items:
-    - name: 가상 네트워크를 구성하는 방법
-      href: /azure/cognitive-services/cognitive-services-virtual-networks?context=/azure/cognitive-services/computer-vision/context/context
-    - name: AAD 인증을 구성하는 방법
-      href: /azure/cognitive-services/authentication?tabs=powershell?context=/azure/cognitive-services/computer-vision/context/context
-    - name: 고객 관리형 키를 사용하는 방법
-      href: /azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal?context=/azure/cognitive-services/computer-vision/context/context
+    - name: 엔터프라이즈 준비
+      items:
+        - name: 가상 네트워크 설정
+          href: /azure/cognitive-services/cognitive-services-virtual-networks?context=/azure/cognitive-services/computer-vision/context/context
+        - name: Azure AD 인증 사용
+          href: /azure/cognitive-services/authentication?tabs=powershell?context=/azure/cognitive-services/computer-vision/context/context
 - name: 리소스
   items:
-    - name: 지역 지원
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-    - name: 학습 모듈
-      href: /learn/paths/explore-computer-vision-microsoft-azure/
+    - name: 엔터프라이즈 준비
+      items:
+        - name: 지역 지원
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: 규정 준수 및 인증
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 지원 및 도움말 옵션
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
-    - name: 규정 준수
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Microsoft Learn 모듈
+      href: /learn/paths/explore-computer-vision-microsoft-azure/
     - name: Azure 업데이트
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'

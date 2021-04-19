@@ -7,7 +7,7 @@
       href: overview.md
     - name: 언어 지원
       href: language-support.md
-    - name: 가격 책정 및 제한
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/'
     - name: 새로운 기능
       href: whats-new.md
@@ -25,6 +25,8 @@
       href: /samples/azure/azure-sdk-for-java/formrecognizer-java-samples
     - name: 'Python: Form Recognizer 클라이언트 라이브러리 SDK'
       href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
+    - name: JavaScript Form Recognizer 클라이언트 라이브러리 SDK
+      href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
 - name: 방법 가이드
   items:
     - name: 학습 데이터 세트 빌드
@@ -48,6 +50,14 @@
           href: ../containers/index.yml
     - name: 모델 백업 및 복구
       href: disaster-recovery.md
+    - name: 엔터프라이즈 준비
+      items:
+        - name: 가상 네트워크 설정
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/form-recognizer/context/context
+        - name: 고객 관리형 키 사용
+          href: encrypt-data-at-rest.md
+        - name: Azure AD 인증 사용
+          href: ../authentication.md?context=/azure/cognitive-services/form-recognizer/context/context
 - name: 개념
   items:
     - name: 레이아웃 API
@@ -63,7 +73,7 @@
       href: concept-business-cards.md
     - name: 송장
       href: concept-invoices.md
-    - name: ID 카드
+    - name: ID 문서
       href: concept-identification-cards.md
 - name: 자습서
   items:
@@ -93,15 +103,15 @@
           href: /javascript/api/overview/azure/ai-form-recognizer-readme
 - name: 리소스
   items:
+    - name: 엔터프라이즈 준비
+      items:
+        - name: 지역 지원
+          href: 'https://go.microsoft.com/fwlink/?linkid=2087185'
+        - name: 규정 준수 및 인증
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 지원 및 도움말 옵션
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: 국가별 가용성
-      href: 'https://go.microsoft.com/fwlink/?linkid=2087185'
-    - name: 규정 준수
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: 암호화
-      href: encrypt-data-at-rest.md
     - name: 개인 정보 및 쿠키
       href: 'https://privacy.microsoft.com/en-US/privacystatement'

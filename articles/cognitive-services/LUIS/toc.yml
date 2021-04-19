@@ -3,7 +3,7 @@
 - name: 개요
   expanded: true
   items:
-    - name: LUIS 개요
+    - name: LUIS(Language Understanding)란?
       href: what-is-luis.md
     - name: 언어 지원
       href: luis-language-support.md
@@ -119,22 +119,26 @@
           diplayName: 'import, export, container'
         - name: Traffic Manager 포함
           href: luis-traffic-manager.md
-    - name: LUIS 배포
+    - name: 컨테이너 사용
       items:
-        - name: 컨테이너 사용
-          items:
-            - name: 컨테이너 설치 및 실행
-              displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, export to container'
-              href: luis-container-howto.md
-            - name: 컨테이너 구성
-              href: luis-container-configuration.md
-            - name: 컨테이너 인스턴스 사용
-              href: ../containers/azure-container-instance-recipe.md
-            - name: 컨테이너 제한 사항
-              href: luis-container-limitations.md
-              displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
-            - name: Cognitive Services 컨테이너 설명서
-              href: ../containers/index.yml
+        - name: 컨테이너 설치 및 실행
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, export to container'
+          href: luis-container-howto.md
+        - name: 컨테이너 구성
+          href: luis-container-configuration.md
+        - name: 컨테이너 인스턴스 사용
+          href: ../containers/azure-container-instance-recipe.md
+        - name: 컨테이너 제한 사항
+          href: luis-container-limitations.md
+          displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
+        - name: Cognitive Services 컨테이너 설명서
+          href: ../containers/index.yml
+    - name: 엔터프라이즈 준비
+      items:
+        - name: 가상 네트워크 설정
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/luis/context/context
+        - name: 고객 관리형 키 사용
+          href: encrypt-data-at-rest.md
 - name: 개념
   items:
     - name: 인공 지능
@@ -375,24 +379,21 @@
       href: luis-reference-prebuilt-sentiment.md
 - name: 리소스
   items:
-    - name: LUIS 포털
-      href: 'https://www.luis.ai'
+    - name: 엔터프라이즈 준비
+      items:
+        - name: 지역 지원
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+          displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, German, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
+        - name: 규정 준수 및 인증
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 지원 및 도움말 옵션
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
-    - name: 국가별 가용성
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-      displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, German, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
+    - name: LUIS 포털
+      href: 'https://www.luis.ai'
     - name: Azure 로드맵
       href: 'https://go.microsoft.com/fwlink/?linkid=2092089'
     - name: 용어
       href: luis-glossary.md
-    - name: 규정 준수
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: 암호화
-      href: encrypt-data-at-rest.md
-    - name: 가상 네트워크 구성
-      maintainContext: true
-      href: ../cognitive-services-virtual-networks.md
     - name: 검색
       href: /search/index?search=LUIS
     - name: 블로그

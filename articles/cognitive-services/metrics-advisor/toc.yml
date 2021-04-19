@@ -1,4 +1,4 @@
-- name: Metrics Advisor
+- name: Metrics Advisor 설명서
   href: index.yml
 - name: 개요
   expanded: true
@@ -9,7 +9,7 @@
       href: 'http://go.microsoft.com/fwlink/?LinkID=761229'
     - name: 새로운 기능
       href: whats-new.md
-- name: Metrics Advisor 빠른 시작
+- name: 빠른 시작
   items:
     - name: 웹 포털
       href: quickstarts/web-portal.md
@@ -35,6 +35,10 @@
       href: how-tos/anomaly-feedback.md
     - name: 메트릭 그래프 작성
       href: how-tos/metrics-graph.md
+    - name: 엔터프라이즈 준비
+      items:
+        - name: 고객 관리형 키 사용
+          href: encryption.md
 - name: 개념
   items:
     - name: Metrics Advisor 주요 용어
@@ -49,11 +53,11 @@
       href: /powershell/module/azurerm.cognitiveservices/
 - name: 리소스
   items:
-    - name: 지역 지원
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: 엔터프라이즈 준비
+      items:
+        - name: 지역 지원
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: 규정 준수 및 인증
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 지원 및 도움말 옵션
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/metrics-advisor/context/context
-    - name: 규정 준수
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: 암호화
-      href: encryption.md

@@ -5,7 +5,7 @@
   items:
     - name: 언어 지원
       href: language-support.md
-    - name: 가격 책정 및 제한
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator'
 - name: 텍스트 번역
   expanded: true
@@ -144,7 +144,7 @@
       items:
         - name: 문서 번역을 위한 SAS 토큰 생성
           href: document-translation/create-sas-tokens.md
-    - name: 참조
+    - name: 참고
       items:
         - name: 문서 형식 가져오기
           href: document-translation/reference/get-document-formats.md
@@ -162,14 +162,24 @@
           href: document-translation/reference/get-operations.md
         - name: 작업 취소
           href: document-translation/reference/cancel-operation.md
+- name: 방법 가이드
+  items:
+    - name: 엔터프라이즈 준비
+      items:
+        - name: 가상 네트워크 설정
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/translator/context/context
+        - name: 고객 관리형 키 사용
+          href: encrypt-data-at-rest.md
 - name: 리소스
   items:
+    - name: 엔터프라이즈 준비
+      items:
+        - name: 지역 지원
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: 규정 준수 및 인증
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 지원 및 도움말 옵션
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
-    - name: 규정 준수
-      href: 'https://azure.microsoft.com/en-us/support/legal/cognitive-services-compliance-and-privacy'
-    - name: 암호화
-      href: encrypt-data-at-rest.md
     - name: GitHub의 코드 샘플
       href: 'https://aka.ms/TranslatorGitHub'
     - name: 개인 정보 및 쿠키

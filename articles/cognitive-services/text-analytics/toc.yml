@@ -13,7 +13,7 @@
       href: whats-new.md
     - name: Text Analytics FAQ
       href: text-analytics-resource-faq.md
-- name: Text Analytics 빠른 시작
+- name: 빠른 시작
   href: quickstarts/client-libraries-rest-api.md
 - name: 샘플
   items:
@@ -71,21 +71,25 @@
       displayName: 'NER, Named entity recognition, PII, redaction'
     - name: 의료 분야 Text Analytics
       href: How-tos/text-analytics-for-health.md
-    - name: Text Analytics 배포
+    - name: 컨테이너 사용
       items:
-        - name: 컨테이너
-          items:
-            - name: 컨테이너 설치 및 실행
-              href: how-tos/text-analytics-how-to-install-containers.md
-            - name: 컨테이너 구성
-              href: text-analytics-resource-container-config.md
-            - name: 컨테이너 인스턴스 사용
-              maintainContext: true
-              href: ../containers/azure-container-instance-recipe.md
-            - name: Kubernetes 서비스(AKS) 사용
-              href: how-tos/text-analytics-how-to-use-kubernetes-service.md
-            - name: Cognitive Services 컨테이너 설명서
-              href: ../containers/index.yml
+        - name: 컨테이너 설치 및 실행
+          href: how-tos/text-analytics-how-to-install-containers.md
+        - name: 컨테이너 구성
+          href: text-analytics-resource-container-config.md
+        - name: 컨테이너 인스턴스 사용
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
+        - name: Kubernetes 서비스(AKS) 사용
+          href: how-tos/text-analytics-how-to-use-kubernetes-service.md
+        - name: Cognitive Services 컨테이너 설명서
+          href: ../containers/index.yml
+    - name: 엔터프라이즈 준비
+      items:
+        - name: 가상 네트워크 설정
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/text-analytics/context/context
+        - name: Azure AD 인증 사용
+          href: ../authentication.md?context=/azure/cognitive-services/text-analytics/context/context
     - name: API 버전 3으로 마이그레이션
       href: migration-guide.md
 - name: 개념
@@ -164,13 +168,13 @@
       href: /powershell/module/azurerm.cognitiveservices/
 - name: 리소스
   items:
+    - name: 엔터프라이즈 준비
+      items:
+        - name: 지역 지원
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: 규정 준수 및 인증
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 지원 및 도움말 옵션
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/text-analytics/context/context
     - name: 외부 및 커뮤니티 콘텐츠
       href: text-analytics-resource-external-community.md
-    - name: 국가별 가용성
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: 규정 준수
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: 사용해 보세요.
-      href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'

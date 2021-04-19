@@ -3,13 +3,13 @@
 - name: 개요
   expanded: true
   items:
-    - name: Face 서비스 개요
+    - name: Face 서비스란?
       href: Overview.md
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'
     - name: 새로운 기능
       href: releasenotes.md
-- name: Face 빠른 시작
+- name: 빠른 시작
   href: Quickstarts/client-libraries.md
 - name: 샘플
   href: /samples/browse/?products=azure&term=face
@@ -45,6 +45,14 @@
           href: face-resource-container-config.md
         - name: 컨테이너 인스턴스 사용
           href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/face/context/context
+    - name: 엔터프라이즈 준비
+      items:
+        - name: 가상 네트워크 설정
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/face/context/context
+        - name: 고객 관리형 키 사용
+          href: encrypt-data-at-rest.md
+        - name: Azure AD 인증 사용
+          href: ../authentication.md?context=/azure/cognitive-services/face/context/context
 - name: 개념
   items:
     - name: 얼굴 감지
@@ -75,15 +83,15 @@
       href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face'
 - name: 리소스
   items:
-    - name: 지역 지원
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: 엔터프라이즈 준비
+      items:
+        - name: 지역 지원
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: 규정 준수 및 인증
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 모듈 배우기
       href: 'https://docs.microsoft.com/learn/modules/detect-analyze-faces/'
     - name: 지원 및 도움말 옵션
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/face/context/context
-    - name: 규정 준수
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: 암호화
-      href: encrypt-data-at-rest.md
     - name: Azure 업데이트
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
