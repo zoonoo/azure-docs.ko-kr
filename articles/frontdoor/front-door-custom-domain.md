@@ -3,21 +3,21 @@ title: 자습서 - Azure Front Door 구성에 사용자 지정 도메인 추가
 description: 이 자습서에서는 사용자 지정 도메인을 Azure Front Door에 등록하는 방법을 알아봅니다.
 services: frontdoor
 documentationcenter: ''
-author: duongau
+author: jessie-jyy
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2020
-ms.author: duau
-ms.openlocfilehash: e1540602bae0779d69c0cb4bb59e93b810b52904
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.date: 04/12/2021
+ms.author: yuajia
+ms.openlocfilehash: 7e2f05a7d911ce2b311a423994d2b459de0fa269
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550764"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308866"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>자습서: Front Door에 사용자 지정 도메인 추가
 
@@ -42,7 +42,7 @@ Front Door를 만든 후 기본적으로 백 엔드에서 Front Door 콘텐츠�
 
 * 사용자 지정 도메인이 없으면 먼저 도메인 공급자를 통해 구매해야 합니다. 예를 들어 [사용자 지정 도메인 이름 구매](../app-service/manage-custom-dns-buy-domain.md)를 참조하세요.
 
-* Azure를 사용하여 [DNS 도메인](../dns/dns-overview.md)을 호스트하는 경우 도메인 공급자의 DNS(Domain Name System)를 Azure DNS에 위임해야 합니다. 자세한 내용은 [Azure DNS에 도메인 위임](../dns/dns-delegate-domain-azure-dns.md)을 참조하세요. 그렇지 않으면, 도메인 공급자를 사용하여 DNS 도메인을 처리하는 경우 [CNAME DNS 레코드 만들기](#create-a-cname-dns-record)로 계속 진행합니다.
+* Azure를 사용하여 [DNS 도메인](../dns/dns-overview.md)을 호스트하는 경우 도메인 공급자의 DNS(Domain Name System)를 Azure DNS에 위임해야 합니다. 자세한 내용은 [Azure DNS에 도메인 위임](../dns/dns-delegate-domain-azure-dns.md)을 참조하세요. 그렇지 않으면 도메인 공급자를 사용하여 DNS 도메인을 처리하는 경우 [CNAME DNS 레코드 만들기](#create-a-cname-dns-record)를 계속 진행합니다.
 
 
 ## <a name="create-a-cname-dns-record"></a>CNAME DNS 레코드 만들기
@@ -56,7 +56,7 @@ Front Door에 사용자 지정 도메인을 사용하려면 먼저 도메인 공
 
 프로덕션 중인 기존 도메인을 매핑할 경우 특별한 고려 사항이 있습니다. Azure Portal에서 사용자 지정 도메인을 등록하는 동안 도메인에 짧은 가동 중지 시간이 발생할 수 있습니다. 웹 트래픽이 중단하지 않게 하려면, 먼저 Azure cdnverify 하위 도메인을 포함한 Front Door 기본 프런트 엔드 호스트에 사용자 지정 도메인을 매핑하여 임시 CNAME 매핑을 만듭니다. 이 메서드를 사용하여 DNS 매핑이 발생하는 동안 사용자가 중단 없이 도메인에 액세스할 수 있습니다.
 
-그렇지 않으면 처음으로 사용자 지정 도메인을 사용하고 프로덕션 트래픽이 실행되는 경우 직접 사용자 지정 도메인을 Front Door에 매핑할 수 있습니다. [영구 사용자 지정 도메인 매핑](#map-the-permanent-custom-domain)으로 진행합니다.
+그렇지 않으면 처음으로 사용자 지정 도메인을 사용하고 프로덕션 트래픽이 실행되는 경우 직접 사용자 지정 도메인을 Front Door에 매핑할 수 있습니다. [영구 사용자 지정 도메인 매핑](#map-the-permanent-custom-domain)을 계속 진행합니다.
 
 afdverify 하위 도메인에서 CNAME 레코드를 만들려면:
 
@@ -109,7 +109,7 @@ afdverify 하위 도메인에서 CNAME 레코드를 만들려면:
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인하고, 사용자 지정 도메인에 매핑하려는 프런트 엔드 호스트가 포함된 Front Door로 이동합니다.
     
-2. **Front Door 디자이너** 페이지에서 '+'를 클릭하여 사용자 지정 도메인을 추가합니다.
+2. **Front Door 디자이너** 페이지에서 '+'를 선택하여 사용자 지정 도메인을 추가합니다.
     
 3. **사용자 지정 도메인** 을 지정합니다. 
 
@@ -187,17 +187,18 @@ afdverify 하위 도메인이 Front Door에 성공적으로 매핑되었음을 �
 
 8. **삭제** 를 선택하여 CNAME 레코드를 삭제합니다.
 
-
 ## <a name="clean-up-resources"></a>리소스 정리
 
 위의 단계에서는 사용자 지정 도메인을 Front Door에 추가했습니다. 더 이상 Front Door를 사용자 지정 도메인과 연결하지 않으려면 다음과 같은 단계를 수행하여 사용자 지정 도메인을 제거할 수 있습니다.
  
-1. Front Door 디자이너에서 제거하려는 사용자 지정 도메인을 선택합니다.
+1. DNS 공급자로 이동하여 사용자 지정 도메인에 대한 CNAME 레코드를 삭제하거나 사용자 지정 도메인에 대한 CNAME 레코드를 비 Front Door 엔드포인트로 업데이트합니다.
 
-2. 사용자 지정 도메인의 팝업 메뉴에서 [삭제]를 클릭합니다.  
+    > [!Important]
+    > 2021년 4월 9일부터 현수 DNS 항목 및 발생하는 보안 위험을 방지하려면 Azure Front Door에서 리소스를 삭제하기 전에 Front Door 엔드포인트에 대한 CNAME 레코드를 제거해야 합니다. 리소스에는 Front Door 사용자 지정 도메인, Front Door 엔드포인트 또는 Front Door 사용자 지정 도메인이 사용된 Azure 리소스 그룹이 포함됩니다.
 
-   사용자 지정 도메인은 엔드포인트에서 분리됩니다.
+2. Front Door 디자이너에서 제거하려는 사용자 지정 도메인을 선택합니다.
 
+3. 사용자 지정 도메인의 팝업 메뉴에서 **삭제** 를 선택합니다. 이제 사용자 지정 도메인이 엔드포인트에서 연결 해제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,9 +1,9 @@
 ---
 title: 이미지 분석 API 호출
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services에서 REST API를 사용하여 이미지 분석 API를 호출하는 방법을 알아봅니다.
+description: 이미지 분석 API를 호출하고 해당 동작을 구성하는 방법을 알아봅니다.
 services: cognitive-services
-author: KellyDF
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
@@ -11,144 +11,71 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 25907319be5fc79cf4c7d6e46499bacce54cea77
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 3f9a6afe3202df40e26332c3a8c91b8c3eca8a32
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286439"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012271"
 ---
 # <a name="call-the-image-analysis-api"></a>이미지 분석 API 호출
 
-이 문서에서는 REST API를 사용하여 이미지 분석 API를 호출하는 방법을 보여 줍니다. 샘플은 이미지 분석 API 클라이언트 라이브러리를 사용하여 C#으로 작성되고 HTTP POST 또는 GET 호출로 작성됩니다. 이 문서에서는 다음 내용을 중점적으로 다룹니다.
+이 문서에서는 이미지 분석 API를 호출하여 이미지의 시각적 기능에 대한 정보를 반환하는 방법을 보여 줍니다.
 
-- 태그, 설명 및 범주 가져오기
-- 도메인 관련 정보 또는 "유명인" 가져오기
-
-이 문서의 예제에서는 다음 기능을 보여줍니다.
-
-* 이미지를 분석하여 태그 배열 및 설명 반환
-* 도메인별 모델(특히 "유명인" 모델)을 사용하여 이미지를 분석하고 해당 결과를 JSON으로 반환
-
-이 기능은 다음과 같은 옵션을 제공합니다.
-
-- **옵션 1**: 범위 분석 - 지정된 모델만 분석
-- **옵션 2**: 고급 분석 - [86개 범주 분류](../Category-Taxonomy.md)를 통해 분석하여 추가 정보 제공
-
-## <a name="prerequisites"></a>필수 구성 요소
-
-* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
-* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 </a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
-    * 애플리케이션을 Computer Vision 서비스에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
-    * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
-* 로컬에 저장된 이미지의 이미지 URL 또는 경로.
-* 지원되는 입력 방법: application/octet-stream 또는 이미지 URL 형식의 원시 이미지 이진
-* 지원되는 이미지 파일 형식: JPEG, PNG, GIF, BMP
-* 이미지 파일 크기: 4MB 이하
-* 이미지 크기: 50 &times; 50 픽셀 이상
+이 가이드에서는 사용자가 이미 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision 리소스를 생성"  target="_blank">Computer Vision 리소스를 생성했으며 </a> 구독 키와 엔드포인트 URL을 획득했다고 가정합니다. 아직 시작하지 않았다면 [빠른 시작](../quickstarts-sdk/image-analysis-client-library.md)을 따라 시작하세요.
   
-## <a name="authorize-the-api-call"></a>API 호출 권한 부여
+## <a name="submit-data-to-the-service"></a>서비스에 데이터 제출
 
-이미지 분석 API를 호출할 때마다 구독 키가 필요합니다. 이 키는 쿼리 문자열 매개 변수를 통해 전달하거나 요청 헤더에서 지정해야 합니다.
+분석 API에 로컬 이미지 또는 원격 이미지를 제출합니다. 로컬의 경우 HTTP 요청 본문에 이진 이미지 데이터를 저장합니다. 원격의 경우 `{"url":"http://example.com/images/test.jpg"}` 같이 요청 본문의 형식을 지정하여 이미지의 URL을 지정합니다.
 
-다음 방법 중 하나로 구독 키를 전달할 수 있습니다.
+## <a name="determine-how-to-process-the-data"></a>데이터 처리 방법 결정
 
-* 이 예제처럼 쿼리 문자열을 통해 전달:
+###  <a name="select-visual-features"></a>시각적 기능 선택
 
-  ```
-  https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
-  ```
+[분석 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b)를 통해 모든 서비스의 이미지 분석 기능에 액세스할 수 있습니다. URL 쿼리 매개 변수를 설정하여 사용하려는 기능을 지정해야 합니다. 매개 변수는 쉼표로 구분된 여러 값을 가질 수 있습니다. 지정하는 기능마다 추가 계산 시간이 필요하므로 필요한 항목만 지정하세요.
 
-* HTTP 요청 헤더에서 지정:
+|URL 매개 변수 | 값 | Description|
+|---|---|--|
+|`visualFeatures`|`Adult` | 이미지가 본질적으로 음란물인지(노출 또는 성적 행위 묘사), 잔혹한지(지나친 폭력 또는 유혈 묘사) 감지합니다. 성적으로 노골적인 콘텐츠(즉, 외설 콘텐츠)도 감지됩니다.|
+||`Brands` | 이미지 내에서 대략적인 위치를 포함한 다양한 브랜드를 감지합니다. Brands 인수는 영어로만 사용할 수 있습니다.|
+||`Categories` | 설명서에 정의된 분류에 따라 이미지 콘텐츠를 분류합니다. 이것이 `visualFeatures`의 기본값입니다.|
+||`Color` | 강조 색, 기준 색, 이미지가 흑백인지 여부를 결정합니다.|
+||`Description` | 지원되는 언어를 사용하여 완전한 문장으로 이미지 콘텐츠를 설명합니다.|
+||`Faces` | 얼굴이 있는지 여부를 감지합니다. 얼굴이 있으면 좌표, 성별 및 나이를 생성합니다.|
+||`ImageType` | 이미지가 클립 아트인지 또는 선 그리기인지 감지합니다.|
+||`Objects` | 이미지 내에서 대략적인 위치를 포함한 다양한 개체를 감지합니다. Objects 인수는 영어로만 사용할 수 있습니다.|
+||`Tags` | 이미지 콘텐츠와 관련된 단어의 자세한 목록으로 이미지에 태그를 지정합니다.|
+|`details`| `Celebrities` | 이미지에서 감지할 수 있는 유명인을 식별합니다.|
+||`Landmarks` |이미지에서 감지할 수 있는 랜드마크를 식별합니다.|
 
-  ```
-  ocp-apim-subscription-key: <Your subscription key>
-  ```
+채워진 URL은 다음과 같습니다.
 
-* 클라이언트 라이브러리를 사용하는 경우 ComputerVisionClient의 생성자를 통해 키를 전달하고, 클라이언트의 속성에서 지역을 지정합니다.
+`https://{endpoint}/vision/v2.1/analyze?visualFeatures=Description,Tags&details=Celebrities`
 
-    ```
-    var visionClient = new ComputerVisionClient(new ApiKeyServiceClientCredentials("Your subscriptionKey"))
-    {
-        Endpoint = "https://westus.api.cognitive.microsoft.com"
-    }
-    ```
+### <a name="specify-languages"></a>언어 지정
 
-## <a name="upload-an-image-to-the-image-analysis-service"></a>이미지 분석 서비스에 이미지 업로드
+반환되는 데이터의 언어를 지정할 수도 있습니다. 다음 URL 쿼리 매개 변수는 언어를 지정합니다. 기본값은 `en`입니다.
 
-이미지 분석 API 호출을 수행하는 기본적인 방법은 이미지를 직접 업로드하여 태그, 설명 및 유명인을 반환하는 것입니다. 이렇게 하려면 이미지에서 읽은 데이터와 함께 HTTP 본문에 이진 이미지가 들어 있는 "POST" 요청을 보냅니다. 업로드 메서드는 모든 이미지 분석 API 호출에 대해 동일합니다. 유일한 차이점은 사용자가 지정하는 쿼리 매개 변수입니다. 
+|URL 매개 변수 | 값 | Description|
+|---|---|--|
+|`language`|`en` | 영어|
+||`es` | 스페인어|
+||`ja` | 일본어|
+||`pt` | 포르투갈어|
+||`zh` | 중국어(간체)|
 
-지정된 이미지의 경우 다음 옵션 중 하나를 사용하여 태그와 설명을 가져옵니다.
+채워진 URL은 다음과 같습니다.
 
-### <a name="option-1-get-a-list-of-tags-and-a-description"></a>옵션 1: 태그 및 설명 목록 가져오기
+`https://{endpoint}/vision/v2.1/analyze?visualFeatures=Description,Tags&details=Celebrities&language=en`
 
-```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
-```
+> [!NOTE]
+> **범위가 지정된 API 호출**
+>
+> 이미지 분석 기능 중 일부는 직접 호출하거나 분석 API 호출을 통해 호출할 수 있습니다. 예를 들어, `https://{endpoint}/vision/v3.2-preview.3/tag`에 요청을 보내 이미지 태그로 범위가 지정된 분석을 수행할 수 있습니다. 별도로 호출할 수 있는 다른 기능은 [참조 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b)를 확인하세요.
 
-```csharp
-using System.IO;
-using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
-using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
+## <a name="get-results-from-the-service"></a>서비스에서 결과 가져오기
 
-ImageAnalysis imageAnalysis;
-var features = new VisualFeatureTypes[] { VisualFeatureTypes.Tags, VisualFeatureTypes.Description };
-
-using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
-{
-  imageAnalysis = await visionClient.AnalyzeImageInStreamAsync(fs, features);
-}
-```
-
-### <a name="option-2-get-a-list-of-tags-only-or-a-description-only"></a>옵션 2: 태그만 있는 목록 또는 설명만 있는 목록 가져오기
-
-태그만 있는 목록의 경우 다음을 실행합니다.
-
-```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.1/tag?subscription-key=<Your subscription key>
-var tagResults = await visionClient.TagImageAsync("http://contoso.com/example.jpg");
-```
-
-설명만 있는 목록의 경우 다음을 실행합니다.
-
-```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.1/describe?subscription-key=<Your subscription key>
-using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
-{
-  imageDescription = await visionClient.DescribeImageInStreamAsync(fs);
-}
-```
-
-## <a name="get-domain-specific-analysis-celebrities"></a>도메인 특정 분석 가져오기(유명인)
-
-### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>옵션 1: 범위 분석 - 지정된 모델만 분석
-```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.1/models/celebrities/analyze
-var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celebrities");
-```
-
-이 옵션의 경우 모든 다른 쿼리 매개 변수 {visualFeatures, details}가 유효하지 않습니다. 지원되는 모든 모델을 확인하려면 다음을 사용합니다.
-
-```
-GET https://westus.api.cognitive.microsoft.com/vision/v2.1/models 
-var models = await visionClient.ListModelsAsync();
-```
-
-### <a name="option-2-enhanced-analysis---analyze-to-provide-additional-details-by-using-86-categories-taxonomy"></a>옵션 2: 고급 분석 - 86개 범주 분류를 통해 분석하여 추가 정보 제공
-
-하나 이상의 도메인별 모델 세부 정보 외에 일반 이미지 분석을 가져오려는 애플리케이션의 경우 모델 쿼리 매개 변수를 사용하여 v1 API를 확장합니다.
-
-```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?details=celebrities
-```
-
-이 메서드를 호출할 때 먼저 [86-category](../Category-Taxonomy.md) 분류자를 호출합니다. 범주 중 하나라도 알려진 모델 또는 일치 모델의 범주와 일치하는 경우 분류자 호출이 두 번째로 전달됩니다. 예를 들어 "details=all"이거나 "details"에 "celebrities"가 포함된 경우 86-category 분류자를 호출한 후 유명인 모델을 호출합니다. 그 결과에는 person 범주가 포함됩니다. 옵션 1과는 달리, 이 방법은 유명인에 관심이 있는 사용자의 대기 시간이 증가합니다.
-
-이 경우 모든 v1 쿼리 매개 변수가 동일한 방식으로 작동합니다. visualFeatures=categories를 지정하지 않으면 암시적으로 사용됩니다.
-
-## <a name="retrieve-and-understand-the-json-output-for-analysis"></a>분석을 위한 JSON 출력 검색 및 이해
-
-예를 들면 다음과 같습니다.
+이 서비스는 `200` HTTP 응답을 반환하며 본문에는 반환된 데이터가 JSON 문자열 형식으로 포함됩니다. 성공적인 JSON 응답의 예제는 다음과 같습니다.
 
 ```json
 {  
@@ -177,81 +104,39 @@ POST https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?details=cele
 }
 ```
 
+이 예제의 필드에 대한 설명은 다음 표를 참조하세요.
+
 필드 | Type | 콘텐츠
 ------|------|------|
 태그들  | `object` | 태그 배열의 최상위 개체입니다.
 tags[].Name | `string`    | 태그 분류자의 키워드입니다.
 tags[].Score    | `number`    | 0에서 1 사이의 신뢰도 점수입니다.
-description     | `object`    | 설명의 최상위 개체입니다.
-description.tags[] |    `string`    | 태그 목록입니다.  캡션을 생성하는 기능에 대한 신뢰도가 부족한 경우 태그는 호출자에게 제공되는 유일한 정보일 수 있습니다.
+description     | `object`    | 이미지 설명의 최상위 개체입니다.
+description.tags[] |    `string`    | 태그 목록입니다. 캡션을 생성하는 기능에 대한 신뢰도가 부족한 경우 태그는 호출자에게 제공되는 유일한 정보일 수 있습니다.
 description.captions[].text    | `string`    | 이미지를 설명하는 구.
 description.captions[].confidence    | `number`    | 구의 신뢰도 점수입니다.
 
-## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>도메인 특정 모델의 JSON 출력 검색 및 이해
+### <a name="error-codes"></a>오류 코드
 
-### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>옵션 1: 범위 분석 - 지정된 모델만 분석
+가능한 오류 및 오류의 원인에 대한 다음 목록을 참조하세요.
 
-출력은 다음 예제처럼 태그의 배열입니다.
-
-```json
-{  
-  "result":[  
-    {  
-      "name":"golden retriever",
-      "score":0.98
-    },
-    {  
-      "name":"Labrador retriever",
-      "score":0.78
-    }
-  ]
-}
-```
-
-### <a name="option-2-enhanced-analysis---analyze-to-provide-additional-details-by-using-the-86-categories-taxonomy"></a>옵션 2: 고급 분석 - "86개 범주" 분류를 통해 분석하여 추가 정보 제공
-
-옵션 2(고급 분석)를 사용하는 도메인별 모델의 경우 다음 예제처럼 범주 반환 형식이 확장됩니다.
-
-```json
-{  
-  "requestId":"87e44580-925a-49c8-b661-d1c54d1b83b5",
-  "metadata":{  
-    "width":640,
-    "height":430,
-    "format":"Jpeg"
-  },
-  "result":{  
-    "celebrities":[  
-      {  
-        "name":"Richard Nixon",
-        "faceRectangle":{  
-          "left":107,
-          "top":98,
-          "width":165,
-          "height":165
-        },
-        "confidence":0.9999827
-      }
-    ]
-  }
-}
-```
-
-범주 필드는 원래 분류의 [86개 범주](../Category-Taxonomy.md) 중 하나 이상이 포함된 목록입니다. 밑줄로 끝나는 범주는 해당 범주 및 자식과 일치합니다(예: 유명인 모델의 경우 "people_" 또는 "people_group").
-
-필드    | Type    | 콘텐츠
-------|------|------|
-범주 | `object`    | 최상위 개체입니다.
-categories[].name     | `string`    | 86개 범주 분류 목록의 이름입니다.
-categories[].score    | `number`    | 0에서 1 사이의 신뢰도 점수입니다.
-categories[].detail     | `object?`      | (선택 사항) 세부 정보 개체입니다.
-
-여러 범주가 일치하는 경우(예: model=celebrities인 경우 86개 범주 분류자가 "people_" 및 "people_young"의 점수를 둘 다 반환하는 경우) 세부 정보는 가장 일반적인 수준 일치(이 예제에서는 "people_")에 연결됩니다.
-
-## <a name="error-responses"></a>오류 응답
-
-이러한 오류는 옵션 1 및 옵션 2 시나리오에서 반환될 수 있는 추가 NotSupportedModel 오류(HTTP 400)가 포함된 vision.analyze의 오류와 동일합니다. 옵션 2(고급 분석)의 경우 세부 정보에 지정된 모델이 인식되지 않으면 API는 모델 중 하나 이상이 유효하더라도 NotSupportedModel을 반환합니다. listModels를 호출하여 지원되는 모델을 찾을 수 있습니다.
+* 400
+    * InvalidImageUrl - 이미지 URL의 형식이 잘못되었거나 액세스할 수 없습니다.
+    * InvalidImageFormat - 입력 데이터가 유효한 이미지가 아닙니다.
+    * InvalidImageSize - 입력 이미지가 너무 큽니다.
+    * NotSupportedVisualFeature - 지정된 기능 유형이 유효하지 않습니다.
+    * NotSupportedImage - 지원되지 않는 이미지입니다(예: 아동 포르노).
+    * InvalidDetails - 지원되지 않는 `detail` 매개 변수 값입니다.
+    * NotSupportedLanguage - 요청된 작업이 지정된 언어로 지원되지 않습니다.
+    * BadArgument - 오류 메시지에 추가 세부 정보가 제공됩니다.
+* 415 - 지원되지 않는 미디어 형식 오류입니다. Content-Type이 허용되는 형식이 아닙니다.
+    * 이미지 URL의 경우: Content-Type이 application/json이어야 합니다.
+    * 이진 이미지 데이터의 경우: Content-Type이 application/octet-stream 또는 multipart/form-data여야 합니다.
+* 500
+    * FailedToProcess
+    * Timeout - 이미지 처리 시간이 초과되었습니다.
+    * InternalServerError
 
 ## <a name="next-steps"></a>다음 단계
 
-REST API를 사용하려면 [이미지 분석 API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b)로 이동합니다.
+REST API를 사용해 보려면 [이미지 분석 API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b)로 이동합니다.

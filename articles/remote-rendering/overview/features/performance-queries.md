@@ -7,10 +7,10 @@ ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 30b8104a9596f0b32f731c507b513b204f5d1acd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "99594098"
 ---
 # <a name="server-side-performance-queries"></a>서버 쪽 성능 쿼리
@@ -19,7 +19,7 @@ ms.locfileid: "99594098"
 
 렌더링 성능에 가장 많은 영향을 주는 것은 모델 입력 데이터입니다. 입력 데이터는 [모델 변환 구성](../../how-tos/conversion/configure-model-conversion.md)에 설명된 대로 조정할 수 있습니다.
 
-클라이언트 쪽 애플리케이션 성능도 병목 지점이 될 수 있습니다. 클라이언트 쪽 성능에 대 한 심층 분석을 수행 하는 것이 좋습니다 [:::no-loc text="performance trace":::](../../how-tos/performance-tracing.md) .
+클라이언트 쪽 애플리케이션 성능도 병목 지점이 될 수 있습니다. 클라이언트 쪽 성능을 자세히 분석하려면 [:::no-loc text="performance trace":::](../../how-tos/performance-tracing.md)를 수행하는 것이 좋습니다.
 
 ## <a name="clientserver-timeline"></a>클라이언트/서버 타임라인
 
@@ -71,13 +71,13 @@ void QueryFrameData(ApiHandle<RenderingSession> session)
 | VideoFramesReceived | 마지막 1초 동안 서버에서 수신된 프레임 수입니다. |
 | VideoFrameReusedCount | 디바이스에서 두 번 이상 사용되었고 마지막 1초 동안 수신된 프레임 수입니다. 0이 아닌 값은 네트워크 지터 또는 과도한 서버 렌더링 시간으로 인해 프레임을 다시 사용하고 다시 프로젝션해야 했음을 나타냅니다. |
 | VideoFramesSkipped | 디코딩되었지만 새로운 프레임이 도착하여 디스플레이에 표시되지 않은 마지막 1초 동안 수신된 프레임 수입니다. 0이 아닌 값은 네트워크 지터링으로 인해 여러 프레임이 표시된 후 클라이언트 디바이스에 갑자기 한번에 도착했음을 나타냅니다. |
-| VideoFramesDiscarded | **VideoFramesSkipped** 와 매우 비슷하지만 보류 중인 모든 포즈와 더 이상 상관 관계를 지정할 수 없기 때문에 무시 됩니다. 이러한 폐기가 발생 하면 심각한 네트워크 경합이 발생 합니다.|
-| VideoFrameMinDelta | 마지막 1초 동안 도착하는 연속된 프레임 2개 사이의 최소 시간입니다. VideoFrameMaxDelta와 함께이 범위를 사용 하면 네트워크 또는 비디오 코덱이 발생 한 지터를 나타낼 수 있습니다. |
-| VideoFrameMaxDelta | 마지막 1초 동안 도착하는 연속된 프레임 2개 사이의 최대 시간입니다. VideoFrameMinDelta와 함께이 범위를 사용 하면 네트워크 또는 비디오 코덱이 발생 한 지터를 나타낼 수 있습니다. |
+| VideoFramesDiscarded | **VideoFramesSkipped** 와 매우 비슷하지만 프레임이 버려지는 이유는 프레임이 너무 늦게 도착해서 보류 중인 포즈와 더 이상 상관 관계로 연결될 수 없기 때문입니다. 이 버림이 발생하는 경우 심각한 네트워크 경합이 있는 것입니다.|
+| VideoFrameMinDelta | 마지막 1초 동안 도착하는 연속된 프레임 2개 사이의 최소 시간입니다. 이 범위는 VideoFrameMaxDelta와 함께 네트워크 또는 비디오 코덱에 의해 발생한 지터를 표시합니다. |
+| VideoFrameMaxDelta | 마지막 1초 동안 도착하는 연속된 프레임 2개 사이의 최대 시간입니다. 이 범위는 VideoFrameMinDelta와 함께 네트워크 또는 비디오 코덱에 의해 발생한 지터를 표시합니다. |
 
 모든 대기 시간 값의 합계는 60Hz에서 일반적으로 사용 가능한 프레임 시간보다 훨씬 큽니다. 그림에 표시된 것처럼 여러 프레임이 병렬로 처리되고 새 프레임 요청이 원하는 프레임 속도로 시작되기 때문에 이것은 문제가 되지 않습니다. 하지만 대기 시간이 너무 커지면 [후기 단계 다시 프로젝션](../../overview/features/late-stage-reprojection.md)의 품질에 영향을 주고 전체 환경을 손상시킬 수 있습니다.
 
-`VideoFramesReceived`, `VideoFrameReusedCount` 및 `VideoFramesDiscarded`를 사용하면 네트워크 및 서버 성능을 측정할 수 있습니다. 낮은 `VideoFramesReceived` 값과 높은 값의 조합은 `VideoFrameReusedCount` 네트워크 정체 나 서버 성능 저하를 나타낼 수 있습니다. 높은 `VideoFramesDiscarded` 값도 네트워크 정체를 나타냅니다.
+`VideoFramesReceived`, `VideoFrameReusedCount` 및 `VideoFramesDiscarded`를 사용하면 네트워크 및 서버 성능을 측정할 수 있습니다. `VideoFramesReceived` 값이 낮고 `VideoFrameReusedCount` 값이 높으면 네트워크 정체 또는 서버 성능 저하를 나타내는 것일 수 있습니다. 높은 `VideoFramesDiscarded` 값도 네트워크 정체를 나타냅니다.
 
 마지막으로 `TimeSinceLastPresent`, `VideoFrameMinDelta` 및 `VideoFrameMaxDelta`는 수신되는 비디오 프레임 및 로컬 현재 호출의 분산 개념을 제공합니다. 분산이 높으면 프레임 속도 안정성이 낮습니다.
 
@@ -123,7 +123,7 @@ void QueryPerformanceAssessment(ApiHandle<RenderingSession> session)
 | UtilizationGPU | 총 서버 GPU 사용률(%) |
 | MemoryCPU | 총 서버 주 메모리 사용률(%) |
 | MemoryGPU | 서버 GPU 대비 총 전용 비디오 메모리 사용률(%) |
-| NetworkLatency | 대략적인 평균 왕복 네트워크 대기 시간(밀리초)입니다. 위의 그림에서이 값은 빨간색 화살표의 합계에 해당 합니다. 값은 `FrameStatistics`의 `LatencyPoseToReceive` 값에서 실제 서버 렌더링 시간을 빼서 계산됩니다. 이 근사값이 정확하진 않아도 클라이언트에서 계산되는 대기 시간 값에서 분리된 네트워크 대기 시간을 어느 정도 나타낼 수 있습니다. |
+| NetworkLatency | 대략적인 평균 왕복 네트워크 대기 시간(밀리초)입니다. 위 그림에서 이 값은 빨간색 화살표의 합계에 해당합니다. 값은 `FrameStatistics`의 `LatencyPoseToReceive` 값에서 실제 서버 렌더링 시간을 빼서 계산됩니다. 이 근사값이 정확하진 않아도 클라이언트에서 계산되는 대기 시간 값에서 분리된 네트워크 대기 시간을 어느 정도 나타낼 수 있습니다. |
 | PolygonsRendered | 한 프레임에서 렌더링된 삼각형의 개수입니다. 이 숫자에는 렌더링 중 나중에 골라낸 삼각형도 포함됩니다. 즉, 여러 카메라 위치에 따라 이 숫자가 크게 달라지진 않아도, 삼각형 고르기 속도에 따라 성능이 크게 달라질 수 있습니다.|
 
 값을 평가하는 데 도움이 될 수 있도록 각 부분에는 **Great**, **Good**, **Mediocre** 또는 **Bad** 와 같은 품질 분류가 제공됩니다.
@@ -169,8 +169,8 @@ void Update()
 
 ## <a name="api-documentation"></a>API 설명서
 
-* [C # RenderingConnection QueryServerPerformanceAssessmentAsync ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.queryserverperformanceassessmentasync)
-* [C + + RenderingConnection:: QueryServerPerformanceAssessmentAsync ()](/cpp/api/remote-rendering/renderingconnection#queryserverperformanceassessmentasync)
+* [C# RenderingConnection.QueryServerPerformanceAssessmentAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.queryserverperformanceassessmentasync)
+* [C++ RenderingConnection::QueryServerPerformanceAssessmentAsync()](/cpp/api/remote-rendering/renderingconnection#queryserverperformanceassessmentasync)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: f1dfe88741a304da92901d3997c746654336ef54
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "85800043"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>API 콘솔에서 사용자 지정 용어 목록을 사용하여 조정
 
 Azure Content Moderator에서 기본 전역 용어 목록은 대부분의 콘텐츠 조정 요구에 적합합니다. 그러나 조직에 관련된 용어에 대해 차단해야 할 수 있습니다. 예를 들어 추가 검토를 위해 경쟁 업체 이름에 태그를 지정할 수 있습니다. 
 
-[목록 관리 api](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) 를 사용 하 여 텍스트 중재 api에 사용할 사용자 지정 약관 목록을 만듭니다. 텍스트 **화면** 작업은 텍스트에서 비속어를 검색 하 고 텍스트를 사용자 지정 및 공유 블록 목록과 비교 합니다.
+[목록 관리 API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)를 사용하여 텍스트 조정 API와 함께 사용할 사용자 지정 용어 목록을 만듭니다. **텍스트 - 차단** 작업은 텍스트에서 욕설을 검색하고 사용자 지정 및 공유 차단 목록에 대해 텍스트를 비교합니다.
 
 > [!NOTE]
 > 최대 **5개 용어 목록** 으로 제한되고, 각 목록은 **10,000개 용어를 초과하지 않아야** 합니다.

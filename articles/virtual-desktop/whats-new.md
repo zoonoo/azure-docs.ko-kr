@@ -3,17 +3,17 @@ title: Windows Virtual Desktop의 새로운 기능 - Azure
 description: Windows Virtual Desktop에 대한 새로운 기능 및 제품 업데이트.
 author: Heidilohr
 ms.topic: overview
-ms.date: 03/20/2021
+ms.date: 04/08/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: 1c5d846963d7fc0c2207893f5c4094e3f94351b5
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 710f33ada7a64248f0371a3e8c39e085d3f0834c
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505419"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107060"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Windows Virtual Desktop의 새로운 기능
 
@@ -51,6 +51,53 @@ Windows Virtual Desktop 에이전트에서 변경된 내용은 다음과 같습�
 ## <a name="fslogix-updates"></a>FSLogix 업데이트
 
 FSLogix의 최신 업데이트가 궁금하신가요? [FSLogix의 새로운 기능](/fslogix/whats-new)을 확인하세요.
+
+## <a name="march-2021"></a>2021년 3월
+
+2021년 3월에 변경된 내용은 다음과 같습니다.
+
+### <a name="updates-to-the-azure-portal-ui-for-windows-virtual-desktop"></a>Windows Virtual Desktop에 대한 Azure Portal UI 업데이트
+
+Azure Portal에서 Windows Virtual Desktop이 다음과 같이 업데이트되었습니다.
+
+- 호스트 풀을 만들고 VM을 추가하는 워크플로의 새 가용성 옵션(가용성 집합 및 영역)이 지원됩니다.
+- "지원 필요" 상태인 호스트가 사용할 수 없음으로 표시되는 문제가 해결되었습니다. 이제 해당 호스트 옆에 경고 아이콘이 표시됩니다.
+- 활성 세션에 대한 정렬 기능이 지원됩니다.
+- 이제 호스트 세부 정보 탭에서 특정 사용자에게 메시지를 보내거나 특정 사용자를 로그아웃시킬 수 있습니다.
+- 최대 세션 제한 필드가 변경되었습니다.
+- 호스트 풀을 만드는 워크플로에 OU 유효성 검사 경로가 추가되었습니다.
+- 이제 개인 호스트 풀을 만들 때 최신 버전의 Windows 10 이미지를 사용할 수 있습니다.
+
+### <a name="generation-2-images-and-trusted-launch"></a>2세대 이미지 및 신뢰할 수 있는 시작
+
+이제 Azure Marketplace에는 Windows 10 Enterprise 및 Windows 10 Enterprise 다중 세션을 위한 2세대 이미지가 있습니다. 이러한 이미지를 통해 신뢰할 수 있는 시작 VM을 사용할 수 있습니다. 2세대 VM에 대한 자세한 내용은 [1 또는 2세대 가상 머신을 만들어야 합니까?](../virtual-machines/generation-2.md)를 참조하세요. Windows 가상 데스크톱 신뢰할 수 있는 시작 VM을 프로비전하는 방법을 알아보려면 [TechCommunity 게시물](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-support-for-trusted-launch/m-p/2206170)을 참조하세요.
+
+### <a name="fslogix-is-now-preinstalled-on-windows-10-enterprise-multi-session-images"></a>FSLogix가 이제 Windows 10 Enterprise 다중 세션 이미지에 미리 설치됨
+
+고객 피드백에 따라, 구성되지 않은 FSLogix 버전이 이미 설치되어 있는 Windows 10 Enterprise 다중 세션 이미지의 새 버전이 설정되었습니다. 이를 통해 Windows Virtual Desktop 배포가 더 수월해지기를 바랍니다.
+
+### <a name="azure-monitor-for-windows-virtual-desktop-is-now-in-general-availability"></a>Azure Monitor for Windows Virtual Desktop이 이제 일반 공급됨
+
+Azure Monitor for Windows Virtual Desktop이 이제 대중에게 일반 공급됩니다. 이 기능은 배포를 모니터링하고, 단일 위치에서 이벤트, 상태 및 권장 문제 해결 방법을 볼 수 있게 해주는 자동화된 서비스입니다. 자세한 내용은 [설명서](azure-monitor.md) 또는 [TechCommunity 게시물](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-is-generally-available/m-p/2242861)을 참조하세요.
+
+### <a name="march-2021-updates-for-teams-on-windows-virtual-desktop"></a>Windows Virtual Desktop의 Teams에 대한 2021년 3월 업데이트
+
+Windows Virtual Desktop의 Teams가 다음과 같이 업데이트되었습니다.
+
+- 통화 및 2x2 모드에서 영상 화질 성능이 개선되었습니다.
+- 하드웨어 동영상 처리 오프로드(XVP)를 사용하여 CPU 사용률이 5-10%(CPU 세대에 따라 다음) 감소되었습니다.
+- 이제 이전 머신은 XVP 및 하드웨어 디코딩을 사용하여 2x2 모드에서 더 많은 수신 동영상 스트림을 원활하게 표시할 수 있습니다.
+- 더 나은 AV 동기화 성능을 제공하고 일시적인 문제를 줄이기 위해 WebRTC 스택이 M74에서 M88로 업데이트되었습니다.
+- 소프트웨어 H264 인코더가 OpenH264(웹의 Teams에서 사용되는 OSS)로 대체되어 송신 카메라의 동영상 품질이 개선되었습니다.
+- 3월 30일에 일반 대중을 위한 Teams Server에 2x2 모드가 지원됩니다. 2x2 모드는 최대 4개의 수신 동영상 스트림을 동시에 표시합니다.
+
+### <a name="start-vm-on-connect-public-preview"></a>Start VM on Connect 공개 미리 보기
+
+새 호스트 풀 설정인 Start VM on Connect가 이제 공개 미리 보기로 제공됩니다. 이 설정을 사용하여 필요할 때마다 VM을 켤 수 있습니다. 비용을 절약하려면 Azure Compute 설정을 구성하여 VM의 할당을 취소해야 합니다. 자세한 내용은 [블로그 게시물](https://aka.ms/wvdstartvmonconnect) 및 [설명서](start-virtual-machine-connect.md)를 참조하세요.
+
+### <a name="windows-virtual-desktop-specialty-certification"></a>Windows Virtual Desktop 특수 인증
+
+Azure의 Windows Virtual Desktop에 대한 전문성을 증명할 수 있는 AZ-140 시험의 베타 버전이 출시되었습니다. 자세히 알아보려면 [TechCommunity 게시물](https://techcommunity.microsoft.com/t5/microsoft-learn-blog/beta-exam-prove-your-expertise-in-windows-virtual-desktop-on/ba-p/2147107)을 확인하세요.
 
 ## <a name="february-2021"></a>2021년 2월
 

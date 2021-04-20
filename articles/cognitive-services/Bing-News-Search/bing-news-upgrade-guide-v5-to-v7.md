@@ -1,7 +1,7 @@
 ---
 title: Bing New Search API v5에서 v7로 업그레이드
 titleSuffix: Azure Cognitive Services
-description: 버전 7을 사용 하기 위해 업데이트 해야 하는 Bing News Search 응용 프로그램의 일부를 식별 합니다.
+description: Bing News Search 애플리케이션에서 버전 7을 사용하도록 업데이트해야 하는 부분을 식별합니다.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
 ms.openlocfilehash: a114cb24d79189f9e370fae1962f60ca97241d90
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96351370"
 ---
 # <a name="news-search-api-upgrade-guide"></a>News Search API 업그레이드 가이드
@@ -30,7 +30,7 @@ ms.locfileid: "96351370"
 
 ### <a name="endpoints"></a>엔드포인트
 
-- 엔드포인트의 버전 번호가 v5에서 v7로 변경되었습니다. 예: `https://api.cognitive.microsoft.com/bing/v7.0/news/search`
+- 엔드포인트의 버전 번호가 v5에서 v7로 변경되었습니다. 예들 들어 `https://api.cognitive.microsoft.com/bing/v7.0/news/search`입니다.
 
 ### <a name="error-response-objects-and-error-codes"></a>오류 응답 개체 및 오류 코드
 
@@ -42,7 +42,7 @@ ms.locfileid: "96351370"
 
 - v5 오류 코드가 다음과 같이 가능한 `code` 및 `subCode` 값으로 바뀌었습니다.
 
-|코드|SubCode|설명
+|코드|SubCode|Description
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing은 하위 코드 조건 중 하나가 발생할 때마다 ServerError를 반환합니다. 응답은 HTTP 상태 코드가 500인 경우 이러한 오류를 포함합니다.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>차단|Bing은 요청의 일부가 잘못된 경우 항상 InvalidRequest를 반환합니다. 예를 들어 필수 매개 변수가 없거나 매개 변수 값이 잘못된 경우입니다.<br/><br/>오류가 ParameterMissing 또는 ParameterInvalidValue이면 HTTP 상태 코드는 400입니다.<br/><br/>오류가 HttpNotAllowed이면 HTTP 상태 코드는 410입니다.
@@ -91,7 +91,7 @@ InsufficientScope|InsufficientAuthorization
 
 - `mentions` 필드가 [NewsArticle](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) 개체에 추가되었습니다. `mentions` 필드는 아티클에서 찾은 엔터티(사용자 또는 위치)의 목록을 포함합니다.
 
-- `video` 필드가 [NewsArticle](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) 개체에 추가되었습니다. `video` 필드는 뉴스 아티클과 관련된 비디오를 포함합니다. 비디오는 \<iframe\> 포함할 수 있는 이거나 동작 축소판 그림입니다.
+- `video` 필드가 [NewsArticle](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) 개체에 추가되었습니다. `video` 필드는 뉴스 아티클과 관련된 비디오를 포함합니다. 비디오는 사용자가 포함할 수 있는 \<iframe\> 또는 동작 썸네일 중 하나입니다.
 
 - `sort` 필드가 [News](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news) 개체에 추가되었습니다. `sort` 필드는 아티클의 정렬 순서를 보여 줍니다. 예를 들어 아티클이 관련성(기본값) 또는 날짜별로 정렬됩니다.
 

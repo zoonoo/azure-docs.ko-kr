@@ -1,7 +1,7 @@
 ---
-title: Bing Video Search API를 사용 하 여 비디오 검색
+title: Bing Video Search API를 사용하여 비디오 검색
 titleSuffix: Azure Cognitive Services
-description: Bing Video Search APIfinds 웹에서 관련 비디오를 찾고 반환 하며 웹에서 지능형 및 집중 된 비디오 검색을 위한 여러 기능을 제공 합니다.
+description: Bing Video Search API는 웹에서 관련 비디오를 찾고 반환하며, 웹에서 지능적이고 집중적인 비디오 검색을 위한 몇 가지 기능을 제공합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
 ms.openlocfilehash: 10277efe1f06de3633b2d614e2ee5ec0cc351c76
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96351932"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Bing Video Search API를 사용한 비디오 검색
@@ -125,10 +125,10 @@ Bing Video Search API에서 반환되는 비디오 썸네일의 전체 또는 �
 
 기본적으로 Video Search API는 쿼리와 관련된 모든 비디오를 반환합니다. 무료 비디오 또는 길이가 5분 이내 비디오만 원하는 경우 다음 필터 쿼리 매개 변수를 사용하면 됩니다.
 
-- [가격 책정](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#pricing) &mdash; 가격 기준으로 비디오 필터링 (예: 무료 이거나 요금을 지불 해야 하는 비디오)
-- [해결 방법](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#resolution) &mdash; 해상도로 비디오 필터링 (예: 720p 이상이 해상도 인 비디오)
-- [videoLength](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videolength) &mdash; 비디오 길이로 비디오 필터링 (예: 길이가 5 분 미만인 비디오)
-- [최신](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#freshness) &mdash; 사용 기간을 기준으로 비디오 필터링 (예: 지난 주에 Bing에서 검색 한 비디오)
+- [pricing](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#pricing)&mdash;가격별 비디오 필터링(예: 무료인 비디오 또는 가격을 지불해야 하는 비디오)
+- [resolution](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#resolution)&mdash;해상도별 비디오 필터링(예: 720p 또는 더 높은 해상도의 비디오)
+- [videoLength](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videolength)&mdash;비디오 길이별 비디오 필터링(예: 길이가 5분 이내인 비디오)
+- [freshness](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#freshness)&mdash;기간별 비디오 필터링(예: 지난 주에 Bing에서 검색된 비디오)
 
 특정 도메인에서 비디오를 가져오려면 쿼리 문자열에 [site:](/previous-versions/bing/search/ff795613(v=msdn.10)) 쿼리 연산자를 포함합니다.
 

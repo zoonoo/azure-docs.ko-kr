@@ -1,32 +1,32 @@
 ---
 title: Azure Certified Device 프로그램 개요
-description: 파트너와 고객을 위한 Azure Certified Device 프로그램에 대해 간략히 설명합니다.
-author: nikuntjo
+description: 파트너와 고객을 위한 Azure Certified Device 프로그램에 대해 간략히 설명합니다. 이 리소스를 사용하여 디바이스 인증 프로세스를 시작합니다. IoT 디바이스 요구 사항에서 디바이스 게시에 이르기까지 디바이스를 인증하는 방법을 알아보세요.
+author: nkuntjoro
 ms.author: nikuntjo
 ms.topic: overview
-ms.date: 03/03/2021
+ms.date: 04/09/2021
 ms.custom: template-overview
 ms.service: certification
-ms.openlocfilehash: 8f264c233a0e7cd14469a3931153decfe886061a
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: b9d599542a53e3d809748b72028512c66409b4ec
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105969587"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307710"
 ---
-# <a name="what-is-azure-certified-device"></a>Azure Certified Device란?
+# <a name="what-is-the-azure-certified-device-program"></a>Azure Certified Device 프로그램이란?
 
-Azure Certified Device 프로그램에 관심을 가져주셔서 감사합니다! 이는 Azure에서 실행되도록 빌드된 IoT 디바이스를 쉽게 차별화하고 승격하고 찾을 수 있는 원스톱 프로그램입니다. 인텔리전트 카메라에서 연결된 센서, 에지 인프라에 이르기까지 향상된 IoT 디바이스 인증 프로그램은 디바이스 빌더에서 제품 가시성을 높이고 고객이 솔루션을 빌드하는 시간을 절약할 수 있도록 지원합니다.
+Azure Certified Device 프로그램에 관심을 가져주셔서 감사합니다! 이 프로그램은 Azure에서 실행되도록 빌드된 IoT 디바이스를 쉽게 차별화, 홍보 및 찾을 수 있는 원스톱 샵입니다. 인텔리전트 카메라에서 연결된 센서, 에지 인프라에 이르기까지 향상된 IoT 디바이스 인증 프로그램은 디바이스 빌더에서 제품 가시성을 높이고 고객이 솔루션을 빌드하는 시간을 절약할 수 있도록 지원합니다.
 
 ## <a name="our-certification-promise"></a>인증 약속
 
 Azure Certified Device 프로그램은 고객 솔루션이 Azure에서 효율적으로 작동하도록 보장합니다. 도구, 서비스 및 카탈로그를 활용하여 업계 지식을 IoT 에코시스템 내의 빌더 커뮤니티와 공유하여 빌더와 고객을 모두 지원하는 프로그램입니다.
 
-이 프로그램의 세 가지 원칙은 다음과 같습니다.
+디바이스 인증 프로세스에서 이 프로그램의 세 가지 원칙은 다음과 같습니다.
 
 - **고객에게 신뢰도 제공:** 고객은 Microsoft의 약속을 이행하는 Azure Certified Device를 안전하게 구매할 수 있습니다.
 
-- **고객에게 적합한 디바이스를 중개:** 디바이스 빌더는 고유한 기능을 강조하는 인증과 별도로 설정할 수 있으며, 고객은 자신의 요구에 맞는 제품을 쉽게 찾을 수 있습니다.
+- **고객에게 적합한 디바이스를 중개:** 디바이스 빌더는 고유한 기능을 강조하는 인증과 별도로 설정할 수 있으며, 고객은 자신의 요구에 맞는 IoT 인증 디바이스를 쉽게 찾을 수 있습니다.
 
 - **인증된 디바이스 승격:** 디바이스 빌더는 Microsoft의 Azure Certified Device 브랜드에 대한 가시성, 고객 접촉 및 사용을 향상시킵니다.
 
@@ -34,12 +34,12 @@ Azure Certified Device 프로그램은 고객 솔루션이 Azure에서 효율적
 
 Azure Certified Device 프로그램은 두 가지 다른 대상 그룹을 제공합니다.
 
-1. **디바이스 빌더**: IoT 디바이스 기능을 쉽게 차별화하고, Azure에서 실행되도록 빌드된 디바이스를 안정적으로 구매하려는 전 세계 대상 그룹에 액세스할 수 있습니다. Azure Certified Device 카탈로그를 사용하여 제품 가시성을 높이고 디바이스를 인증하여 고객과 연결합니다.
-1.  **솔루션 빌더**: Azure에서 실행되도록 빌드된 IoT 디바이스가 특정 기능을 충족한다는 것을 알고 안전하게 찾고 구매합니다. [Azure Certified Device 카탈로그](https://devicecatalog.azure.com/)에서 IoT 솔루션에 적합한 인증된 디바이스를 쉽게 검색하고 선택할 수 있습니다.
+1. **디바이스 빌더**: IoT 디바이스를 빌드합니까? IoT 디바이스 기능을 쉽게 차별화하고, Azure에서 실행되도록 빌드된 디바이스를 안정적으로 구매하려는 전 세계 대상 그룹에 액세스할 수 있습니다. Azure Certified Device 카탈로그를 사용하여 제품 가시성을 높이고 디바이스를 인증하고 특정 IoT 디바이스 요구 사항을 충족함을 보여줌으로써 고객과 연결합니다.
+1.  **솔루션 빌더**: IoT 인증 디바이스가 무엇인지 궁금하십니까? Azure에서 실행되도록 빌드된 IoT 디바이스가 특정 IoT 요구 사항을 충족한다는 것을 알고 안전하게 찾고 구매합니다. [Azure Certified Device 카탈로그](https://devicecatalog.azure.com/)에서 IoT 솔루션에 적합한 인증된 디바이스를 쉽게 검색하고 선택할 수 있습니다.
 
-## <a name="our-certification-programs"></a>인증 프로그램
+## <a name="our-certification-programs-and-iot-device-requirements"></a>인증 프로그램 및 IoT 디바이스 요구 사항.
 
-현재 사용할 수 있는 네 가지 다른 인증이 있습니다. 각 인증은 서로 다른 고객 가치를 제공하는 데 중점을 둡니다. 디바이스 유형 및 대상 그룹에 따라 신청할 가장 적합한 인증을 선택할 수 있습니다. 프로그램 요구 사항에 대해 자세히 알아보려면 각 프로그램의 제목을 선택하세요.
+현재 사용할 수 있는 네 가지 다른 인증이 있습니다. 각 인증은 서로 다른 고객 가치를 제공하는 데 중점을 둡니다. 디바이스 유형 및 대상 그룹에 따라 신청할 가장 적합한 인증을 선택할 수 있습니다. 각 프로그램의 제목을 선택하여 프로그램 및 IoT 요구 사항에 대해 자세히 알아보세요.
 
 | 인증 프로그램         |  개요                      |
 ------------------------------|-------------------------------------------------|
@@ -50,21 +50,22 @@ Azure Certified Device 프로그램은 두 가지 다른 대상 그룹을 제공
 
 ## <a name="how-to-certify-your-device"></a>디바이스를 인증하는 방법
 
-디바이스 인증에는 다음과 같은 [Azure Certified Device 포털](https://certify.azure.com)의 네 가지 주요 단계가 포함됩니다.
+디바이스 인증에는 다음과 같은 [Azure Certified Device 포털](https://certify.azure.com)의 몇 가지 주요 단계가 포함됩니다.
 
-1. 프로젝트 만들기
-1. 하드웨어 기능 정보 제공
+1. IoT 디바이스 요구 사항에 따라 디바이스에 대한 올바른 인증을 선택합니다.
+1. [Azure Certified Device 포털](https://certify.azure.com)에서 프로젝트를 만듭니다.
+1. 하드웨어 기능 정보를 포함한 디바이스 세부 정보를 추가하여 디바이스 인증 프로세스를 시작합니다.
 1. 디바이스 기능 유효성 검사
 1. 검토 프로세스 제출 및 완료
 
-디바이스가 인증되면 필요에 따라 다음 작업 중 두 가지를 완료할 수 있습니다. 
+디바이스가 인증되면 필요에 따라 다음 작업 중 두 가지를 완료할 수 있습니다.
 
 1. Azure Certified Device 카탈로그에 게시(선택 사항)
 1. 승인/게시 후 프로젝트 업데이트(선택 사항)
 
 ## <a name="next-steps"></a>다음 단계
 
-인증 과정을 시작할 준비가 되었나요? 아래 리소스를 확인하여 디바이스 인증을 시작하세요.
+인증 과정을 시작할 준비가 되었나요? 디바이스 인증 프로세스를 시작하려면 아래 리소스를 확인하세요!
 
 - [인증 프로세스 시작](tutorial-00-selecting-your-certification.md)
 - 추가 질문 또는 피드백이 있는 경우 [Azure Certified Device 팀](mailto:iotcert@microsoft.com)에 문의하세요.

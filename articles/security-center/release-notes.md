@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/06/2021
+ms.date: 04/11/2021
 ms.author: memildin
-ms.openlocfilehash: 33184a9a9afaf05b093b8495fddd3b2c97fbd09a
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 3e4dddf61656ea38bac406366bf993788fd34943
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106492480"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303154"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -28,11 +28,43 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 ## <a name="april-2021"></a>2021년 4월
 
 4월의 업데이트는 다음과 같습니다.
-- [게스트 구성과 관련된 4가지 새로운 권장 사항(미리 보기)](#four-new-recommendations-related-to-guest-configuration-preview)
+- [이제 최근에 끌어온 컨테이너 레지스트리 이미지가 매주 다시 검사됩니다(일반 공급).](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
 - [Azure Defender for Kubernetes를 사용하여 하이브리드 및 다중 클라우드 Kubernetes 배포 보호(미리 보기)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
+- [게스트 구성과 관련된 4가지 새로운 권장 사항(미리 보기)](#four-new-recommendations-related-to-guest-configuration-preview)
+- [CMK 권장 사항이 모범 사례 보안 제어로 이동했습니다.](#cmk-recommendations-moved-to-best-practices-security-control)
 - [더 이상 사용되지 않는 11가지 Azure Defender 경고](#11-azure-defender-alerts-deprecated)
 - ["시스템 업데이트 적용" 보안 제어에서 더 이상 사용되지 않는 두 가지 권장 사항](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
 
+### <a name="recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability"></a>이제 최근에 끌어온 컨테이너 레지스트리 이미지가 매주 다시 검사됩니다(일반 공급).
+
+컨테이너 레지스트리용 Azure Defender에는 기본 제공 취약성 검사기가 포함되어 있습니다. 이 검사기는 사용자가 레지스트리에 밀어 넣는 이미지 및 지난 30일 이내에 끌어온 이미지를 즉시 검사합니다.
+
+새 취약성은 매일 발견됩니다. 이 업데이트를 사용하면 지난 30일 동안 레지스트리에서 끌어온 컨테이너 이미지가 매주 다시 **검사됩니다**. 이렇게 하면 이미지에서 새로 발견된 취약점이 식별됩니다.
+
+검사 요금은 이미지별로 청구되므로 이러한 다시 검사에는 추가 요금이 부과되지 않습니다.
+
+[컨테이너 레지스트리용 Azure Defender를 사용하여 이미지에서 취약성 검사](defender-for-container-registries-usage.md)에서 이 검사기에 대해 자세히 알아보세요.
+
+
+### <a name="use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview"></a>Azure Defender for Kubernetes를 사용하여 하이브리드 및 다중 클라우드 Kubernetes 배포 보호(미리 보기)
+
+Azure Defender for Kubernetes는 배포되는 위치에 관계없이 클러스터를 보호하도록 위협 방지 기능을 확장하고 있습니다. 이는 [Azure Arc 지원 Kubernetes](../azure-arc/kubernetes/overview.md) 및 새로운 [확장 기능](../azure-arc/kubernetes/extensions.md)을 통합하여 사용하도록 설정되었습니다. 
+
+비 Azure Kubernetes 클러스터에서 Azure Arc를 사용하도록 설정한 경우 Azure Security Center의 새로운 권장 사항은 몇 번의 클릭만으로 Azure Defender 확장을 배포하도록 제안합니다.
+
+권장 사항(**Azure Arc 지원 Kubernetes 클러스터에는 Azure Defender의 확장이 설치되어 있어야 함**)과 확장을 사용하여 관리되는 Kubernetes 서비스가 아닌 다른 클라우드 공급자에 배포된 Kubernetes 클러스터를 보호합니다.
+
+Azure Security Center, Azure Defender 및 Azure Arc 지원 Kubernetes 간의 이러한 통합은 다음을 제공합니다.
+
+- 보호되지 않는 Azure Arc 지원 Kubernetes 클러스터에 대한 Azure Defender 확장의 간편한 프로비저닝(수동 및 대규모)
+- Azure Arc 포털에서 Azure Defender 확장 및 해당 프로비저닝 상태 모니터링
+- Security Center의 보안 권장 사항을 Azure Arc 포털의 새 보안 페이지에 보고
+- Azure Defender에서 식별된 보안 위협을 Azure Arc 포털의 새 보안 페이지에 보고
+- Azure Arc 지원 Kubernetes 클러스터를 Azure Security Center 플랫폼 및 환경에 통합
+
+[온-프레미스 및 다중 클라우드 Kubernetes 클러스터에서 Azure Defender for Kubernetes 사용](defender-for-kubernetes-azure-arc.md)에서 자세히 알아보세요.
+
+:::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Arc 지원 Kubernetes 클러스터용 Azure Defender 확장 배포에 대한 Azure Security Center의 권장 사항" lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
 ### <a name="four-new-recommendations-related-to-guest-configuration-preview"></a>게스트 구성과 관련된 4가지 새로운 권장 사항(미리 보기)
 
@@ -50,24 +82,24 @@ Azure의 [게스트 구성 확장](../governance/policy/concepts/guest-configura
 
 [Azure Policy 게스트 구성 이해](../governance/policy/concepts/guest-configuration.md)에서 자세히 알아보세요.
 
+### <a name="cmk-recommendations-moved-to-best-practices-security-control"></a>CMK 권장 사항이 모범 사례 보안 제어로 이동했습니다.
 
-### <a name="use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview"></a>Azure Defender for Kubernetes를 사용하여 하이브리드 및 다중 클라우드 Kubernetes 배포 보호(미리 보기)
+모든 조직의 보안 프로그램에는 데이터 암호화 요구 사항이 포함되어 있습니다. 기본적으로 Azure 고객의 데이터는 미사용 시 서비스 관리형 키를 사용하여 암호화됩니다. 그러나 CMK(고객 관리형 키)는 일반적으로 규정 준수 표준을 충족하는 데 필요합니다. CMK를 사용하면 사용자가 만들고 소유한 [Azure Key Vault](../key-vault/general/overview.md) 키로 데이터를 암호화할 수 있습니다. 순환 및 관리를 포함한 키 수명 주기에 대한 전체 제어권과 책임은 고객에게 있습니다.
 
-Azure Defender for Kubernetes는 배포되는 위치에 관계없이 클러스터를 보호하도록 위협 방지 기능을 확장하고 있습니다. 이는 [Azure Arc 지원 Kubernetes](../azure-arc/kubernetes/overview.md) 및 새로운 확장 기능을 통합하여 사용하도록 설정되었습니다. 
+Azure Security Center의 보안 제어는 관련 보안 권장 사항의 논리적 그룹이며, 취약한 공격 표면을 반영합니다. 각 컨트롤에는 모든 리소스의 컨트롤에 나열된 모든 권장 사항에 따라 수정할 경우 보안 점수에 추가될 수 있는 최대 포인트가 있습니다. **보안 모범 사례 구현** 보안 제어는 0 포인트의 가치가 있습니다. 따라서 이 컨트롤의 권장 사항은 보안 점수에 영향을 주지 않습니다.
 
-비 Azure Kubernetes 클러스터에서 Azure Arc를 사용하도록 설정한 경우 Azure Security Center의 새로운 권장 사항은 몇 번의 클릭만으로 Azure Defender 확장을 배포하도록 제안합니다.
+아래에 나열된 권장 사항은 선택적 특성을 더 잘 반영하기 위해 **보안 모범 사례 구현** 보안 제어로 이동합니다. 이러한 권장 사항이 목표를 달성하는 데 가장 적합한 제어에 있도록 하기 위한 조치입니다.
 
-권장 사항(**Azure Arc 지원 Kubernetes 클러스터에는 Azure Defender의 확장이 설치되어 있어야 함**)과 확장을 사용하여 관리되는 Kubernetes 서비스가 아닌 다른 클라우드 공급자에 배포된 Kubernetes 클러스터를 보호합니다.
+- Azure Cosmos DB 계정은 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함
+- Azure Machine Learning 작업 영역은 CMK(고객 관리형 키)를 사용하여 암호화해야 함
+- Cognitive Services 계정은 CMK(고객 관리형 키)로 데이터 암호화를 사용하도록 설정해야 함
+- 컨테이너 레지스트리는 CMK(고객 관리형 키)로 암호화해야 함
+- SQL 관리형 인스턴스는 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함
+- SQL 서버는 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함
+- 스토리지 계정은 암호화에 CMK(고객 관리형 키)를 사용해야 함
 
-Azure Security Center, Azure Defender 및 Azure Arc 지원 Kubernetes 간의 이러한 통합은 다음을 제공합니다.
+[보안 컨트롤 및 해당 권장](secure-score-security-controls.md#security-controls-and-their-recommendations)에서 각 보안 제어에 어떤 권장 사항이 있는지 알아보세요.
 
-- 보호되지 않는 Azure Arc 지원 Kubernetes 클러스터에 대한 Azure Defender 확장의 간편한 프로비저닝(수동 및 대규모)
-- Azure Arc 포털에서 Azure Defender 확장 및 해당 프로비저닝 상태 모니터링
-- Security Center의 보안 권장 사항을 Azure Arc 포털의 새 보안 페이지에 보고
-- Azure Defender에서 식별된 보안 위협을 Azure Arc 포털의 새 보안 페이지에 보고
-- Azure Arc 지원 Kubernetes 클러스터를 Azure Security Center 플랫폼 및 환경에 통합
-
-[온-프레미스 및 다중 클라우드 Kubernetes 클러스터에서 Azure Defender for Kubernetes 사용](defender-for-kubernetes-azure-arc.md)에서 자세히 알아보세요.
 
 ### <a name="11-azure-defender-alerts-deprecated"></a>더 이상 사용되지 않는 11가지 Azure Defender 경고
 

@@ -1,7 +1,7 @@
 ---
 title: 언어 지원 - Bing Web Search API
 titleSuffix: Azure Cognitive Services
-description: Bing Web Search API에서 지 원하는 자연 언어, 국가 및 지역 목록입니다.
+description: Bing Web Search API에서 지원되는 자연 언어, 국가 및 지역 목록입니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
 ms.openlocfilehash: 6de01d2c12454f43a2802b4a7a979b5f74b46f0e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96340274"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Bing Web Search API에 대한 언어 및 지역 지원
@@ -26,7 +26,7 @@ ms.locfileid: "96340274"
 
 Bing Web Search API는 수십 개의 국가 또는 지역을 지원하며, 이 중에는 둘 이상의 언어를 사용하는 국가/지역도 많습니다. 쿼리를 통한 국가 또는 지역 지정은 해당 국가 또는 지역의 관심 분야에 따라 검색 결과를 구체화하는 데 유용합니다. 결과는 Bing에 대한 링크를 포함할 수 있으며 이러한 링크는 지정된 국가/지역 또는 언어에 따라 Bing 사용자 경험을 지역화할 수 있습니다.
 
-`cc` 쿼리 매개 변수를 사용하여 국가 또는 지역을 지정할 수 있습니다. 국가 또는 지역이 지정 된 경우 [ `Accept-Language` 헤더](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers)를 사용 하 여 언어 코드를 하나 이상 지정 해야 합니다. 각 시장에서 지원되는 언어 목록에 대한 [시장 테이블](#markets)을 사용합니다.
+`cc` 쿼리 매개 변수를 사용하여 국가 또는 지역을 지정할 수 있습니다. 국가 또는 지역이 지정된 경우 [`Accept-Language` 헤더](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers)를 사용하여 하나 이상의 언어 코드를 지정해야 합니다. 각 시장에서 지원되는 언어 목록에 대한 [시장 테이블](#markets)을 사용합니다.
 
 또는 **시장** 테이블에서 `mkt` 쿼리 매개 변수 및 코드를 사용하여 시장을 지정할 수 있습니다. 시장을 지정하면 동시에 국가 또는 지역 및 기본 언어가 지정됩니다. `setLang` 쿼리 매개 변수로 언어를 명시적으로 설정할 수 있습니다.
 
@@ -113,7 +113,7 @@ Bing Web Search API는 수십 개의 국가 또는 지역을 지원하며, 이 �
 |대만|중국어 번체|zh-TW|
 |터키|터키어|tr-TR|
 |영국|영어|en-GB|
-|미국|영어|ko-KR|
+|미국|영어|en-US|
 |미국|스페인어|es-US|
 
 ## <a name="next-steps"></a>다음 단계

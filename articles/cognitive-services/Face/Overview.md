@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 얼굴 인식, 얼굴 인식 소프트웨어, 얼굴 분석, 얼굴 일치, 얼굴 인식 앱, 이미지별 얼굴 검색, 얼굴 인식 검색
-ms.openlocfilehash: e159ead12179f86406fd7df22475229298f95ee8
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 26076289d8c6659abdd55fa805c27b13690feccd
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285470"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258744"
 ---
 # <a name="what-is-the-azure-face-service"></a>Azure Face 서비스란?
 
@@ -37,10 +37,10 @@ Face 서비스는 다음 섹션에 각각 설명된 여러 가지 얼굴 분석 
 
 ## <a name="face-detection"></a>얼굴 감지
 
-Face 서비스는 이미지에서 사람의 얼굴을 감지하고 해당 위치의 사각형 좌표를 반환합니다. 필요에 따라 얼굴 감지는 머리 자세, 성별, 연령, 감정, 수염 및 안경과 같은 일련의 얼굴 관련 특성을 추출할 수 있습니다.
+Detect API는 이미지에서 사람의 얼굴을 감지하고 해당 위치의 사각형 좌표를 반환합니다. 필요에 따라 얼굴 감지는 머리 자세, 성별, 연령, 감정, 수염 및 안경과 같은 일련의 얼굴 관련 특성을 추출할 수 있습니다. 이러한 속성은 실제 분류가 아닌 일반적인 예측입니다. 
 
 > [!NOTE]
-> 얼굴 감지 기능은 [Computer Vision 서비스](../computer-vision/overview.md)를 통해 사용할 수도 있습니다. 그러나 얼굴 데이터를 사용하여 추가 작업을 수행하려는 경우에는 이 서비스를 대신 사용해야 합니다.
+> 얼굴 감지 기능은 [Computer Vision 서비스](../computer-vision/overview.md)를 통해 사용할 수도 있습니다. 그러나 식별, 확인, 유사 항목 찾기 또는 그룹과 같은 추가 Face 작업을 수행하려면 이 Face 서비스를 대신 사용해야 합니다.
 
 ![얼굴 주위에 사각형이 그려지고 연령과 성별이 표시된 여자와 남자의 이미지](./Images/Face.detection.jpg)
 
@@ -48,7 +48,19 @@ Face 서비스는 이미지에서 사람의 얼굴을 감지하고 해당 위치
 
 ## <a name="face-verification"></a>얼굴 확인
 
-Verify API는 감지된 두 얼굴을 비교하여 인증하거나 하나의 감지된 얼굴과 하나의 개인 개체를 비교하여 인증합니다. 실질적으로 두 얼굴이 같은 사람인지 여부를 평가합니다. 이 기능은 보안 시나리오에서 유용할 수 있습니다. 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) 참조 설명서를 참조하세요.
+Verify API는 검색을 기반으로 하며 "이 두 이미지가 동일한 사람입니까?"라는 질문을 해결합니다. 프로브 이미지가 등록된 하나의 템플릿과 비교되기 때문에 확인을 "일대일" 일치라고도 합니다. ID 확인 또는 액세스 제어 시나리오에서 확인을 사용하여 사진이 이전에 캡처한 이미지(예: 정부 발급 ID 카드의 사진)와 일치하는지 확인할 수 있습니다. 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) 참조 설명서를 참조하세요.
+
+## <a name="face-identification"></a>얼굴 식별
+
+또한 Identify API는 감지로 시작하여 "데이터베이스에 등록된 얼굴과 이 탐지된 얼굴을 일치시킬 수 있습니까?"라는 질문에 응답합니다. 얼굴 인식 검색과 비슷하기 때문에 "일대다" 일치라고도 합니다. 감지된 얼굴이 포함된 프로브 템플릿이 등록된 각 템플릿과 얼마나 일치하는지에 따라 후보 일치가 반환됩니다.
+
+다음 이미지는 `"myfriends"`라는 데이터베이스의 예를 보여 줍니다. 각 그룹은 최대 1백만 개의 서로 다른 사람 개체를 포함할 수 있습니다. 각 사람 개체에 대해 최대 248개의 얼굴을 등록할 수 있습니다.
+
+![서로 다른 사람에 대한 3개의 열 및 각 열에 3개의 얼굴 이미지 행이 있는 그리드](./Images/person.group.clare.jpg)
+
+데이터베이스를 만들고 학습시킨 후에 새로 감지된 얼굴과 그룹을 비교하여 식별할 수 있습니다. 얼굴이 그룹에 속한 사람의 것으로 식별되면 해당 사람 개체가 표시됩니다.
+
+사람 식별에 대한 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 참조 설명서를 참조하세요.
 
 ## <a name="find-similar-faces"></a>유사 얼굴 찾기
 
@@ -70,21 +82,6 @@ Find Similar API는 대상 얼굴과 일련의 후보 얼굴 간 얼굴 일치�
 
 Group API는 알 수 없는 얼굴을 유사성에 따라 여러 그룹으로 나눕니다. 각 그룹은 서로 공통점이 없는 여러 개의 고유한 원래 얼굴에 속합니다. 그룹의 모든 얼굴은 동일한 사람에게 속할 가능성이 큽니다. 한 사람에게 여러 다른 그룹이 있을 수 있습니다. 그룹은 식과 같은 다른 요소로 구분됩니다. 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Group API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) 참조 설명서를 참조하세요.
 
-## <a name="person-identification"></a>사람 식별
-
-Identify API는 사람 데이터베이스에서 감지된 얼굴을 식별하는 데 사용됩니다(얼굴 인식 검색). 이 기능은 사진 관리 소프트웨어에서 이미지 태그를 자동으로 지정하는 데 유용할 수 있습니다. 데이터베이스는 미리 만든 후에 시간이 지남에 따라 편집할 수 있습니다.
-
-다음 이미지는 `"myfriends"`라는 데이터베이스의 예를 보여 줍니다. 각 그룹은 최대 1백만 개의 서로 다른 사람 개체를 포함할 수 있습니다. 각 사람 개체에 대해 최대 248개의 얼굴을 등록할 수 있습니다.
-
-![서로 다른 사람에 대한 3개의 열 및 각 열에 3개의 얼굴 이미지 행이 있는 그리드](./Images/person.group.clare.jpg)
-
-데이터베이스를 만들고 학습시킨 후에 새로 감지된 얼굴과 그룹을 비교하여 식별할 수 있습니다. 얼굴이 그룹에 속한 사람의 것으로 식별되면 해당 사람 개체가 표시됩니다.
-
-사람 식별에 대한 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 참조 설명서를 참조하세요.
-
-## <a name="deploy-on-premises-using-docker-containers"></a>Docker 컨테이너를 사용하여 온-프레미스 배포
-
-[Face 컨테이너(미리 보기)를 사용](face-how-to-install-containers.md)하여 온-프레미스에 API 기능을 배포합니다. 이 Docker 컨테이너는 규정 준수, 보안 또는 기타 운영상의 이유로 서비스를 데이터에 더 가깝게 가져올 수 있습니다.
 
 ## <a name="sample-apps"></a>샘플 앱
 

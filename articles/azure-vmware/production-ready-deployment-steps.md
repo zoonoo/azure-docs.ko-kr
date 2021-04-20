@@ -3,12 +3,12 @@ title: Azure VMware Solution 배포 계획
 description: 이 문서에서는 Azure VMware Solution 배포 워크플로를 간략하게 설명합니다.  결국에는 VM(가상 머신)을 만들고 마이그레이션할 수 있는 환경이 준비됩니다.
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: 2ded5d706ab71b3880633cd324fb366d0a1bccbe
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 60e0a4083c0253d322b2e10472d0df7496722c10
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104584638"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107247"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Azure VMware Solution 배포 계획
 
@@ -16,8 +16,12 @@ ms.locfileid: "104584638"
 
 이 빠른 시작에 설명된 단계는 VM(가상 머신)을 만들고 마이그레이션을 수행할 수 있는 프로덕션 준비 환경을 제공합니다. 
 
->[!IMPORTANT]
->Azure VMware Solution 리소스를 만들기 전에 [Azure VMware Solution 리소스를 사용하도록 설정하는 방법](enable-azure-vmware-solution.md) 문서에 따라 호스트가 할당되도록 지원 티켓을 제출합니다. 지원 팀에서 요청을 받으면 요청을 확인하고 호스트를 할당하는 데 최대 5일(영업일 기준)이 걸립니다. 기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 호스트를 할당하려는 경우에도 동일한 프로세스를 진행합니다. 
+수집할 데이터를 추적하려면 [HCX 계획 검사 목록](https://www.virtualworkloads.com/2021/04/hcx-planning-checklist/)을 받습니다.
+
+> [!IMPORTANT]
+> Azure VMware Solution 리소스를 만들기 위해 준비할 때 초기에 호스트 할당량을 요청하는 것이 중요합니다. 지금 호스트 할당량을 요청할 수 있으므로 계획 프로세스가 완료되면 Azure VMware Solution 프라이빗 클라우드를 배포할 준비가 된 것입니다. 지원 팀에서 호스트 할당량 요청을 받으면 요청을 확인하고 호스트를 할당하는 데 최대 5일(영업일 기준)이 걸립니다. 기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 호스트를 할당하려는 경우에도 동일한 프로세스를 완료합니다. 자세한 내용은 구독 유형에 따라 다음 링크를 참조하세요.
+> - [EA 고객](enable-azure-vmware-solution.md?tabs=azure-portal#request-host-quota-for-ea-customers)
+> - [CSP 고객](enable-azure-vmware-solution.md?tabs=azure-portal#request-host-quota-for-csp-customers)
 
 ## <a name="subscription"></a>Subscription
 
@@ -82,18 +86,6 @@ Azure VMware Solution을 배포할 때 사용할 호스트 크기를 확인합�
 
 :::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="확인 - 가상 머신 워크로드에 대한 IP 주소 세그먼트" border="false":::     
 
-## <a name="optional-extend-your-networks"></a>(선택 사항) 네트워크 확장
-
-네트워크 세그먼트는 온-프레미스에서 Azure VMware Solution으로 확장할 수 있습니다. 이렇게 하는 경우 지금 해당 네트워크를 확인합니다.  
-
-다음 사항에 유의하세요.
-
-- 온-프레미스에서 네트워크를 확장하려는 경우 해당 네트워크에서 온-프레미스 VMware 환경의 [vDS(vSphere 분산 스위치)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html)에 연결해야 합니다.  
-- [vSphere 표준 스위치](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html)에서 라이브로 확장하려는 네트워크인 경우 확장할 수 없습니다.
-
->[!NOTE]
->이러한 네트워크는 배포 중이 아니라 구성의 마지막 단계로 확장됩니다.
-
 ## <a name="attach-azure-virtual-network-to-azure-vmware-solution"></a>Azure VMware Solution에 Azure Virtual Network 연결
 
 Azure VMware Solution에 대한 연결을 제공하기 위해 Azure VMware Solution 프라이빗 클라우드에서 ExpressRoute 가상 네트워크 게이트웨이로 ExpressRoute가 빌드됩니다.
@@ -106,7 +98,7 @@ Azure VMware Solution에 대한 연결을 제공하기 위해 Azure VMware Solut
 
 *기존* ExpressRoute 가상 네트워크 게이트웨이를 사용하려는 경우 Azure VMware Solution ExpressRoute 회로가 배포 후 단계로 설정됩니다. 이 경우 **Virtual Network** 필드를 비워 둡니다.
 
-일반적으로 기존 ExpressRoute 가상 네트워크 게이트웨이를 사용하는 것이 좋습니다. 계획을 수립하기 위해 사용할 ExpressRoute 가상 네트워크 게이트웨이를 기록한 후, 다음 단계를 계속 진행합니다.
+일반적으로 기존 ExpressRoute 가상 네트워크 게이트웨이를 사용하는 것이 좋습니다. 계획을 수립하기 위해 사용할 ExpressRoute 가상 네트워크 게이트웨이를 기록한 후, [다음 단계](#vmware-hcx-network-segments)를 계속 진행합니다.
 
 ### <a name="create-a-new-expressroute-virtual-network-gateway"></a>새로운 ExpressRoute 가상 네트워크 게이트웨이 만들기
 
@@ -116,23 +108,36 @@ Azure VMware Solution에 대한 연결을 제공하기 위해 Azure VMware Solut
    1. 기존 ExpressRoute 가상 네트워크 게이트웨이가 없는 Azure Virtual Network를 식별합니다.
    2. 배포하기 전에 Azure Virtual Network에서 [GatewaySubnet](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet)을 만듭니다.
 
-- 새로운 Azure Virtual Network의 경우 사전에 또는 배포 중에 만들 수 있습니다. **Virtual Network** 목록에서 **새로 만들기** 링크를 선택합니다.
+- 새 Azure Virtual Network 및 가상 네트워크 게이트웨이의 경우 **Virtual Network** 목록에서 **새로 만들기** 링크를 선택하여 배포 중에 이를 만듭니다.  배포 전에 주소 공간과 서브넷을 정의하는 것이 중요하므로 배포 단계를 완료할 때 해당 정보를 입력할 준비가 된 것입니다.
 
-아래 그림에는 **Virtual Network** 필드가 강조 표시된 **프라이빗 클라우드 만들기** 배포 화면이 나와 있습니다.
+다음 이미지는 **Virtual Network** 필드가 강조 표시된 **프라이빗 클라우드 만들기** 배포 화면을 보여줍니다.
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-deployment-screen-vnet-circle.png" alt-text="Virtual Network 필드가 강조 표시된 Azure VMware Solution 배포 화면의 스크린샷":::
 
->[!NOTE]
->앞으로 사용하거나 만들 가상 네트워크는 온-프레미스 환경 및 Azure VMware Solution에서 표시되므로 이 가상 네트워크와 서브넷에서 사용하는 IP 세그먼트가 겹치지 않도록 해야 합니다.
+> [!NOTE]
+> 앞으로 사용하거나 만들 가상 네트워크는 온-프레미스 환경 및 Azure VMware Solution에서 표시되므로 이 가상 네트워크와 서브넷에서 사용하는 IP 세그먼트가 겹치지 않도록 해야 합니다.
 
 ## <a name="vmware-hcx-network-segments"></a>VMware HCX 네트워크 세그먼트
 
-VMware HCX는 Azure VMware Solution과 함께 번들되는 기술입니다. VMware HCX에 대한 주요 사용 사례는 워크로드 마이그레이션 및 재해 복구입니다. 둘 중 하나를 수행하려는 경우 지금 네트워킹을 계획하는 것이 가장 좋습니다.   그렇지 않은 경우 이 계획을 건너뛰고 다음 단계로 계속 진행할 수 있습니다.
+VMware HCX는 Azure VMware Solution과 함께 제공되는 기술입니다. VMware HCX에 대한 주요 사용 사례는 워크로드 마이그레이션 및 재해 복구입니다. 둘 중 하나를 수행하려는 경우 지금 네트워킹을 계획하는 것이 가장 좋습니다. 그렇지 않은 경우 이 계획을 건너뛰고 다음 단계로 계속 진행할 수 있습니다.
 
 [!INCLUDE [hcx-network-segments](includes/hcx-network-segments.md)]
 
+## <a name="optional-extend-your-networks"></a>(선택 사항) 네트워크 확장
+
+네트워크 세그먼트는 온-프레미스에서 Azure VMware Solution으로 확장할 수 있습니다. 네트워크 세그먼트를 확장한 경우 지금 해당 네트워크를 식별합니다.  
+
+고려해야 할 몇 가지 요인은 다음과 같습니다.
+
+- 온-프레미스에서 네트워크를 확장하려는 경우 해당 네트워크에서 온-프레미스 VMware 환경의 [vDS(vSphere 분산 스위치)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html)에 연결해야 합니다.  
+- [vSphere 표준 스위치](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html)에 있는 네트워크는 확장할 수 없습니다.
+
+>[!NOTE]
+>이러한 네트워크는 배포 중이 아니라 구성의 마지막 단계로 확장됩니다.
+>
 ## <a name="next-steps"></a>다음 단계
 이제 필요한 정보를 수집하고 문서화했으므로 다음 섹션으로 계속 진행하여 Azure VMware Solution 프라이빗 클라우드를 만듭니다.
 
 > [!div class="nextstepaction"]
 > [Azure VMware Solution 배포](deploy-azure-vmware-solution.md)
+> 

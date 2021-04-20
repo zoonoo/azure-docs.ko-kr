@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 726395e9f004130699dab061cfa752a2e516c834
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: acfaa780f21f5264b546f97e9a3792aa43e9c30b
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552957"
+ms.locfileid: "107029746"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀에 대한 스토리지 계정 액세스 제어
 
@@ -23,6 +23,13 @@ ms.locfileid: "106552957"
 - **SQL 서비스 수준** - 사용자는 [외부 테이블](develop-tables-external-tables.md)을 사용하여 데이터를 읽거나 `OPENROWSET` 함수를 실행할 수 있는 권한을 부여해야 합니다. [이 섹션에서 필요한 권한](develop-storage-files-overview.md#permissions)에 대해 자세히 알아보세요.
 
 이 문서에서는 사용할 수 있는 자격 증명의 유형과 SQL 및 Azure AD 사용자에 대한 자격 증명 조회가 적용되는 방법에 대해 설명합니다.
+
+## <a name="storage-permissions"></a>스토리지 권한
+
+Synapse Analytics 작업 영역의 서버리스 SQL 풀은 Azure Data Lake 스토리지에 저장된 파일의 내용을 읽을 수 있습니다. SQL 쿼리를 실행하는 사용자가 파일을 읽을 수 있도록 하려면 스토리지에 대한 사용 권한을 구성해야 합니다. 파일에 대한 액세스를 허용하는 방법에는 세 가지가 있습니다.
+- **[RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)** 를 사용하면 스토리지가 배치된 테넌트의 일부 Azure AD 사용자에게 역할을 할당할 수 있습니다. Azure AD 사용자에게 RBAC 역할을 할당할 수 있습니다. reader에게는 `Storage Blob Data Reader`, `Storage Blob Data Contributor` 또는 `Storage Blob Data Owner` 역할을 부여해야 합니다. Azure Storage에 데이터를 기록하는 사용자에게는 `Storage Blob Data Writer` 또는 `Storage Blob Data Owner` 역할을 부여해야 합니다. `Storage Owner` 역할은 사용자가 `Storage Data Owner`이기도 한다는 것을 의미하지 않습니다.
+- **ACL(액세스 제어 목록)** 을 사용하면 Azure Storage의 파일 및 디렉터리에 대한 세분화된 권한 모델을 정의할 수 있습니다. Azure AD 사용자에게 ACL을 할당할 수 있습니다. reader가 Azure Storage의 경로에 있는 파일을 읽으려면 파일 경로에 있는 모든 폴더에 대한 실행(X) ACL 및 파일에 대한 읽기(R) ACL이 있어야 합니다. [스토리지 레이어에서 ACL 사용 권한을 설정하는 방법 자세히 알아보기](../../storage/blobs/data-lake-storage-access-control.md#how-to-set-acls)
+- **SAS(공유 액세스 서명)** 를 사용하면 reader가 시간 제한 토큰을 사용하여 Azure Data Lake 스토리지에 있는 파일에 액세스할 수 있습니다. reader는 Azure AD 사용자로 인증하지 않아도 됩니다. SAS 토큰에는 reader에 부여된 사용 권한뿐만 아니라 토큰의 유효 기간도 포함됩니다. SAS 토큰은 동일한 Azure AD 테넌트에 없어도 되는 모든 사용자에게 시간 제한 액세스를 부여하는 경우에 사용하면 좋습니다. SAS 토큰은 스토리지 계정 또는 특정 디렉터리에 정의할 수 있습니다. [공유 액세스 서명을 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../../storage/common/storage-sas-overview.md)에 대해 자세히 알아보세요.
 
 ## <a name="supported-storage-authorization-types"></a>지원되는 스토리지 권한 부여 유형
 
@@ -88,7 +95,7 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
 | 권한 부여 유형  | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | 지원됨\*      | 지원되지 않음   | 지원됨\*     |
-| [관리 ID](?tabs=managed-identity#supported-storage-authorization-types) | 지원됨      | 지원됨        | 지원 여부     |
+| [관리 ID](?tabs=managed-identity#supported-storage-authorization-types) | 지원됨      | 지원 여부        | 지원 여부     |
 | [사용자 ID](?tabs=user-identity#supported-storage-authorization-types)    | 지원 여부\*      | 지원 여부\*        | 지원 여부\*     |
 
 \* SAS 토큰 및 Azure AD ID를 사용하여 방화벽으로 보호되지 않는 스토리지에 액세스할 수 있습니다.
@@ -103,7 +110,7 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
 
 #### <a name="user-identity"></a>사용자 ID
 
-사용자 ID를 통해 방화벽으로 보호된 스토리지에 액세스하려면 PowerShell 모듈 Az. Storage를 사용할 수 있습니다.
+사용자 ID를 통해 방화벽으로 보호된 스토리지에 액세스하려면 Azure Portal UI 또는 PowerShell 모듈 Az. Storage를 사용하면 됩니다.
 #### <a name="configuration-via-azure-portal"></a>Azure Portal을 통한 구성
 
 1. Azure Portal에서 스토리지 계정을 검색합니다.
