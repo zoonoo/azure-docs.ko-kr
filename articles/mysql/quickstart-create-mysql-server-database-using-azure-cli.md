@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/15/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4f774351fc0eaaf32069687a1943c72b74b6308a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3dd971ff36bde02072d14c465dbafec2823b256d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96494327"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780320"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>빠른 시작: Azure CLI를 사용한 MySQL용 Azure 데이터베이스 서버 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "96494327"
 
  - 이 빠른 시작에는 Azure CLI 버전 2.0 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
- - [az account set](/cli/azure/account) 명령을 사용하여 계정에 속한 특정 구독을 선택합니다. 명령에서 **subscription** 인수에 대한 값으로 사용할 **az login** 출력의 **id** 값을 적어 둡니다. 구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. 모든 구독을 가져오려면 [az account list](/cli/azure/account#az-account-list)를 사용합니다.
+ - [az account set](/cli/azure/account) 명령을 사용하여 계정에 속한 특정 구독을 선택합니다. 명령에서 **subscription** 인수에 대한 값으로 사용할 **az login** 출력의 **id** 값을 적어 둡니다. 구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. 모든 구독을 가져오려면 [az account list](/cli/azure/account#az_account_list)를 사용합니다.
 
    ```azurecli
    az account set --subscription <subscription id>
@@ -41,7 +41,7 @@ ms.locfileid: "96494327"
 az group create --name myresourcegroup --location westus
 ```
 
-[az mysql server create](/cli/azure/mysql/server#az-mysql-server-create) 명령을 사용하여 MySQL용 Azure Database 서버를 만듭니다. 서버는 여러 데이터베이스를 포함할 수 있습니다.
+[az mysql server create](/cli/azure/mysql/server#az_mysql_server_create) 명령을 사용하여 MySQL용 Azure Database 서버를 만듭니다. 서버는 여러 데이터베이스를 포함할 수 있습니다.
 
 ```azurecli
 az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 
@@ -60,7 +60,7 @@ sku-name|GP_Gen5_2|가격 책정 계층 및 컴퓨팅 구성의 이름을 입력
 
 >[!IMPORTANT] 
 >- 서버의 기본 MySQL 버전은 5.7입니다. 현재 5.6 및 8.0 버전도 사용할 수 있습니다.
->- **az mysql server create** 명령에 대한 모든 인수를 보려면 이 [참조 문서](/cli/azure/mysql/server#az-mysql-server-create)를 참조하세요.
+>- **az mysql server create** 명령에 대한 모든 인수를 보려면 이 [참조 문서](/cli/azure/mysql/server#az_mysql_server_create)를 참조하세요.
 >- SSL은 서버에서 기본적으로 사용하도록 설정됩니다. SSL에 대한 자세한 내용은 [SSL 연결 구성](howto-configure-ssl.md) 참조
 
 ## <a name="configure-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 구성 
@@ -126,7 +126,7 @@ az mysql server show --resource-group myresourcegroup --name mydemoserver
 az group delete --name myresourcegroup
 ```
 
-새로 만든 서버 하나만 삭제하려면 [az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete) 명령을 실행합니다.
+새로 만든 서버 하나만 삭제하려면 [az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete) 명령을 실행합니다.
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver

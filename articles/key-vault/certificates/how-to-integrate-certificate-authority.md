@@ -3,19 +3,18 @@ title: DigiCert 인증 기관과 Key Vault 통합
 description: DigiCert 인증 기관과 Key Vault를 통합하는 방법
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: c36353448c140450044f352062c3349939e3f7b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4351526c77961856b118bdeae07cecf48340f5fe
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98789013"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749315"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>DigiCert 인증 기관과 Key Vault 통합
 

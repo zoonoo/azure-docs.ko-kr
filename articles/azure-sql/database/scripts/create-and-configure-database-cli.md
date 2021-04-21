@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: dc17ab55cb473036d8c40bd1e533bcc20c4c6259
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00346accbccd67f542a8496ac097b0236c56a08c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92742254"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773822"
 ---
 # <a name="use-the-azure-cli-to-create-a-single-database-and-configure-a-firewall-rule"></a>Azure CLI를 사용하여 단일 데이터베이스 만들고 및 방화벽 규칙을 구성합니다.
 
@@ -50,9 +50,9 @@ az group delete --name $resource
 
 | 명령 | Description |
 |---|---|
-| [az sql server](/cli/azure/sql/server#az-sql-server-create) | 서버 명령 |
-| [az sql server firewall](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | 서버 방화벽 명령입니다. |
-| [az sql db](/cli/azure/sql/db#az-sql-db-create) | 데이터베이스 명령입니다. |
+| [az sql server](/cli/azure/sql/server#az_sql_server_create) | 서버 명령 |
+| [az sql server firewall](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) | 서버 방화벽 명령입니다. |
+| [az sql db](/cli/azure/sql/db#az_sql_db_create) | 데이터베이스 명령입니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
