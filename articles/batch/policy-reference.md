@@ -1,15 +1,15 @@
 ---
 title: Azure Batch에 대한 기본 제공 정책 정의
 description: Azure Batch에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: c278588e3035c6197018cc563abdc5f842c08a49
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: e013d27d2c8e813fc2eb6d0f288a98e0867d8889
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106092259"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107497248"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-batch"></a>Azure Batch에 대한 Azure Policy 기본 제공 정의
 

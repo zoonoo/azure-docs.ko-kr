@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c748034145781f639da244b16e3df7053da3d5d2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c9412e2adeb9b43b4c61437fb41e68bc96b86afd
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103489968"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481840"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>IoT Edge 디바이스, 모듈 및 자식 디바이스용 확장 오프라인 기능을 이해합니다.
 
@@ -70,7 +70,7 @@ IoT Edge 디바이스 및 할당된 자식 디바이스는 초기 일회성 동�
 
 #### <a name="option-2-use-the-az-command-line-tool"></a>옵션 2: `az` 명령줄 도구를 사용하세요.
 
-[IoT 확장](https://github.com/azure/azure-iot-cli-extension)(v 0.7.0 이상)에서 [Azure 명령줄 인터페이스](/cli/azure/)를 사용하면 [device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) 하위 명령으로 부모 자식 관계를 관리할 수 있습니다. 아래 예에서는 쿼리를 사용하여 허브에 있는 모든 비 IoT Edge 디바이스를 IoT Edge 디바이스의 자식 디바이스로 할당합니다.
+[IoT 확장](https://github.com/azure/azure-iot-cli-extension)(v 0.7.0 이상)에서 [Azure 명령줄 인터페이스](/cli/azure/)를 사용하면 [device-identity](/cli/azure/iot/hub/device-identity/) 하위 명령으로 부모 자식 관계를 관리할 수 있습니다. 아래 예에서는 쿼리를 사용하여 허브에 있는 모든 비 IoT Edge 디바이스를 IoT Edge 디바이스의 자식 디바이스로 할당합니다.
 
 ```azurecli
 # Set IoT Edge parent device
