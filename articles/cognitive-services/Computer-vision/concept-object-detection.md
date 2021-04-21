@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4269209017ecc0afa740bc3ed56cbdcbd915201e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a705a4134ec22d1cb14406cab4491f2af9177b48
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96533845"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768000"
 ---
 # <a name="detect-common-objects-in-images"></a>이미지에서 공통 개체 검색
 
@@ -97,6 +97,6 @@ Detect API는 개체를 기반으로 한 태그 또는 이미지에서 식별되
 
 ## <a name="use-the-api"></a>API 사용
 
-개체 검색 기능은 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. **visualFeatures** 쿼리 매개 변수에 `Objects`를 포함합니다. 그런 다음 전체 JSON 응답을 받으면 `"objects"` 섹션의 내용에 대한 문자열을 구문 분석하기만 하면 됩니다.
+개체 검색 기능은 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. **visualFeatures** 쿼리 매개 변수에 `Objects`을 포함합니다. 그런 다음 전체 JSON 응답을 받으면 `"objects"` 섹션의 내용에 대한 문자열을 구문 분석하기만 하면 됩니다.
 
 * [빠른 시작: Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
