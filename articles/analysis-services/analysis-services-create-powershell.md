@@ -2,18 +2,18 @@
 title: 빠른 시작 - PowerShell을 사용하여 Azure Analysis Services 만들기 | Azure Analysis Services | Microsoft Docs
 description: 이 빠른 시작에서는 PowerShell을 사용하여 Azure Analysis Services 서버를 만드는 방법을 설명합니다.
 author: minewiskan
-ms.service: azure-analysis-services
-ms.topic: quickstart
-ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.custom: references_regions , devx-track-azurepowershell
-ms.openlocfilehash: 737649538aaf82352e27aec6220b13ba355a7a82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/31/2020
+ms.topic: quickstart
+ms.service: azure-analysis-services
+ms.custom: devx-track-azurepowershell - references_regions - devx-track-azurepowershell - mode-api
+ms.openlocfilehash: f1902a7192fc2153725e2b1d1e76f23cbd1426f3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89229347"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769363"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>빠른 시작: 서버 만들기 - PowerShell
 

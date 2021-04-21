@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: a9a9fe93ebe302a76d69249dc56933e1bcc924d1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 46caae53ed81de335c2b9d5ddbd3fd7f89424fdd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102200090"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780418"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>CLI를 사용하여 Internet Analyzer 테스트 만들기(미리 보기)
 
@@ -50,7 +50,7 @@ Internet Analyzer CLI는 다음 유형의 리소스를 표시합니다.
 
 5. Internet Analyzer 공개 미리 보기에 대한 액세스 권한을 부여받은 구독 ID를 선택합니다.
 
-    로그인하면 Azure 계정에 연결된 구독 목록이 나타납니다. `isDefault: true`가 있는 구독 정보는 로그인한 후 현재 활성화된 구독입니다. 다른 구독을 선택하려면 전환할 구독 ID와 함께 [az account set](/cli/azure/account#az-account-set) 명령을 사용합니다. 구독 선택에 대한 자세한 내용은 [여러 Azure 구독 사용](/cli/azure/manage-azure-subscriptions-azure-cli)을 참조하세요.
+    로그인하면 Azure 계정에 연결된 구독 목록이 나타납니다. `isDefault: true`가 있는 구독 정보는 로그인한 후 현재 활성화된 구독입니다. 다른 구독을 선택하려면 전환할 구독 ID와 함께 [az account set](/cli/azure/account#az_account_set) 명령을 사용합니다. 구독 선택에 대한 자세한 내용은 [여러 Azure 구독 사용](/cli/azure/manage-azure-subscriptions-azure-cli)을 참조하세요.
 
     비 대화형으로 로그인할 수 있는 방법도 여러 가지가 있으며, 이는 [Azure CLI에 로그인](/cli/azure/authenticate-azure-cli)에서 자세히 설명됩니다.
 

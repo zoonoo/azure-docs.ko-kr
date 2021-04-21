@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: 0a72bea08052e5cd17502a21a98b41cb5582a3b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd982ab6dc66674e705f080511282bcfeb909872
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96493630"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787182"
 ---
 # <a name="use-the-azure-cli-to-monitor-and-scale-a-single-database-in-azure-sql-database"></a>Azure CLI를 사용하여 Azure SQL Database의 단일 데이터베이스 모니터링 및 크기 조정
 
@@ -43,7 +43,7 @@ az account set -s $subscription # ...or use 'az login'
 [!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale a database in Azure SQL Database")]
 
 > [!TIP]
-> [az sql db op list](/cli/azure/sql/db/op?#az-sql-db-op-list)를 사용하여 데이터베이스에서 수행된 작업 목록을 가져오고 [az sql db op cancel](/cli/azure/sql/db/op#az-sql-db-op-cancel)을 사용하여 데이터베이스에서 업데이트 작업을 취소합니다.
+> [az sql db op list](/cli/azure/sql/db/op?#az_sql_db_op_list)를 사용하여 데이터베이스에서 수행된 작업 목록을 가져오고 [az sql db op cancel](/cli/azure/sql/db/op#az_sql_db_op_cancel)을 사용하여 데이터베이스에서 업데이트 작업을 취소합니다.
 
 ### <a name="clean-up-deployment"></a>배포 정리
 
@@ -60,7 +60,7 @@ az group delete --name $resource
 | 스크립트 | Description |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | 서버 명령입니다. |
-| [az sql db show-usage](/cli/azure/sql#az-sql-show-usage) | 데이터베이스의 크기 사용량 정보가 표시됩니다. |
+| [az sql db show-usage](/cli/azure/sql#az_sql_show_usage) | 데이터베이스의 크기 사용량 정보가 표시됩니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

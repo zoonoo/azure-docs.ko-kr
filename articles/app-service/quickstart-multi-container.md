@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 2ba42e5e800ae607631e00aee50954bf2638ae43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ea55c36c239b5ecdb51ef3dc7a3ff762718bd1e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97007146"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769006"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Docker Compose 구성을 사용하여 다중 컨테이너(미리 보기) 앱 만들기
 
@@ -55,7 +55,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-Cloud Shell에서 [`az group create`](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *미국 중남부* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다. **표준** 계층에서 Linux의 App Service에 지원되는 모든 위치를 확인하려면 [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice#az-appservice-list-locations) 명령을 실행합니다.
+Cloud Shell에서 [`az group create`](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *미국 중남부* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다. **표준** 계층에서 Linux의 App Service에 지원되는 모든 위치를 확인하려면 [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice#az_appservice_list_locations) 명령을 실행합니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -67,7 +67,7 @@ az group create --name myResourceGroup --location "South Central US"
 
 ## <a name="create-an-azure-app-service-plan"></a>Azure App Service 계획 만들기
 
-Cloud Shell에서 [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) 명령을 사용하여 리소스 그룹에 App Service 계획을 만듭니다.
+Cloud Shell에서 [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) 명령을 사용하여 리소스 그룹에 App Service 계획을 만듭니다.
 
 다음 예제에서는 **표준** 가격 책정 계층(`--sku S1`) 및 Linux 컨테이너(`--is-linux`)에서 `myAppServicePlan`이라는 App Service 계획을 만듭니다.
 
@@ -100,7 +100,7 @@ App Service 계획을 만든 경우 Azure CLI는 다음 예제와 비슷한 정�
 > [!NOTE]
 > 현재 Azure App Services의 Docker Compose는 4,000자로 제한되어 있습니다.
 
-Cloud Shell 터미널에서 [az webapp create](/cli/azure/webapp#az-webapp-create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 다중 컨테이너 [웹앱](overview.md#app-service-on-linux)을 만듭니다. _\<app_name>_ 를 고유한 앱 이름으로 바꿔야 합니다(유효한 문자는 `a-z`, `0-9` 및 `-`임).
+Cloud Shell 터미널에서 [az webapp create](/cli/azure/webapp#az_webapp_create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 다중 컨테이너 [웹앱](overview.md#app-service-on-linux)을 만듭니다. _\<app_name>_ 를 고유한 앱 이름으로 바꿔야 합니다(유효한 문자는 `a-z`, `0-9` 및 `-`임).
 
 ```azurecli
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml

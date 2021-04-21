@@ -3,19 +3,18 @@ title: 비밀의 Key Vault 상태가 변경될 때 이메일 보내기
 description: Logic Apps를 사용하여 Key Vault 비밀 변경에 응답하는 가이드
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9c522d870a25b3df34ab6a0cf1c1e944a6462685
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e6ec06e3df87e0ad0e50efca24439435d655f6a1
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96013992"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752105"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Logic Apps를 사용하여 키 자격 증명 모음 비밀의 상태 변경에 대한 이메일 수신
 

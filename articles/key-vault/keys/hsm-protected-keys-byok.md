@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: 4a3eaddd160acb8d4d2ae9f0da43ce6cb0236055
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: f1b5d6499594e9026e1615be5361c52c9ce2f4ef
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "102198152"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774812"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Key Vault로 HSM 보호 키 가져오기(BYOK)
 
@@ -101,7 +101,7 @@ KEK는 다음과 같아야 합니다.
 > [!NOTE]
 > KEK의 유일하게 허용되는 키 작업은 'import'여야 합니다. 'import'는 다른 모든 키 작업과 상호 배타적 관계입니다.
 
-[az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create) 명령을 사용하여 키 작업이 `import`로 설정된 KEK를 만듭니다. 다음 명령에서 반환된 키 식별자(`kid`)를 기록해 둡니다. ([3단계](#step-3-generate-and-prepare-your-key-for-transfer)에서 `kid` 값이 사용됩니다.)
+[az keyvault key create](/cli/azure/keyvault/key#az_keyvault_key_create) 명령을 사용하여 키 작업이 `import`로 설정된 KEK를 만듭니다. 다음 명령에서 반환된 키 식별자(`kid`)를 기록해 둡니다. ([3단계](#step-3-generate-and-prepare-your-key-for-transfer)에서 `kid` 값이 사용됩니다.)
 
 ```azurecli
 az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --vault-name ContosoKeyVaultHSM
@@ -109,7 +109,7 @@ az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import 
 
 ### <a name="step-2-download-the-kek-public-key"></a>2단계: KEK 공개 키 다운로드
 
-[az keyvault key download](/cli/azure/keyvault/key#az-keyvault-key-download) 명령을 사용하여 KEK 공개 키를 .pem 파일로 다운로드합니다. 가져오는 대상 키는 KEK 공개 키를 사용하여 암호화됩니다.
+[az keyvault key download](/cli/azure/keyvault/key#az_keyvault_key_download) 명령을 사용하여 KEK 공개 키를 .pem 파일로 다운로드합니다. 가져오는 대상 키는 KEK 공개 키를 사용하여 암호화됩니다.
 
 ```azurecli
 az keyvault key download --name KEKforBYOK --vault-name ContosoKeyVaultHSM --file KEKforBYOK.publickey.pem
@@ -130,7 +130,7 @@ BYOK 파일을 연결된 컴퓨터로 전송합니다.
 
 ### <a name="step-4-transfer-your-key-to-azure-key-vault"></a>4단계: Azure Key Vault에 키 전송
 
-키 가져오기를 완료하려면 연결이 끊어진 컴퓨터의 키 전송 패키지(BYOK 파일)를 인터넷에 연결된 컴퓨터로 전송합니다. [az keyvault key import](/cli/azure/keyvault/key#az-keyvault-key-import) 명령을 사용하여 BYOK 파일을 Key Vault HSM에 업로드합니다.
+키 가져오기를 완료하려면 연결이 끊어진 컴퓨터의 키 전송 패키지(BYOK 파일)를 인터넷에 연결된 컴퓨터로 전송합니다. [az keyvault key import](/cli/azure/keyvault/key#az_keyvault_key_import) 명령을 사용하여 BYOK 파일을 Key Vault HSM에 업로드합니다.
 
 RSA 키를 가져오려면 다음 명령을 사용합니다. 매개 변수 --kty는 선택 사항이며 기본값은 'RSA-HSM'입니다.
 ```azurecli
@@ -148,6 +148,3 @@ az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey
 ## <a name="next-steps"></a>다음 단계
 
 이제 주요 자격 증명 모음에서 이 HSM 보호된 키를 사용할 수 있습니다. 자세한 내용은 [가격 및 기능 비교](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요.
-
-
-

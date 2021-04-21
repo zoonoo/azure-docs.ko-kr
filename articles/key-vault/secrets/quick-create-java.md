@@ -8,12 +8,12 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: f1a502722156bc010dab917afdbd1d49ae93681a
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: b45bb353ae32f1037fde7dc5d518472089edf12f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375987"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766338"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-java"></a>빠른 시작: Java용 Azure Key Vault 비밀 클라이언트 라이브러리
 Java용 Azure Key Vault 비밀 클라이언트 라이브러리를 시작합니다. 아래 단계에 따라 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 봅니다.
@@ -175,7 +175,7 @@ SecretClient secretClient = new SecretClientBuilder()
 secretClient.setSecret(new KeyVaultSecret(secretName, secretValue));
 ```
 
-[az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) 명령을 사용하여 비밀이 설정되었는지 확인할 수 있습니다.
+[az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show) 명령을 사용하여 비밀이 설정되었는지 확인할 수 있습니다.
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-key-vault-name> --name mySecret
@@ -200,7 +200,7 @@ SyncPoller<DeletedSecret, Void> deletionPoller = secretClient.beginDeleteSecret(
 deletionPoller.waitForCompletion();
 ```
 
-[az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) 명령을 사용하여 비밀이 삭제되었는지 확인할 수 있습니다.
+[az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show) 명령을 사용하여 비밀이 삭제되었는지 확인할 수 있습니다.
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-key-vault-name> --name mySecret
@@ -281,4 +281,4 @@ public class App {
 
 - [Azure Key Vault 개요](../general/overview.md) 참조
 - [Azure Key Vault 개발자 가이드](../general/developers-guide.md) 참조
-- [키 자격 증명 모음에 대한 액세스를 보호](../general/secure-your-key-vault.md)하는 방법
+- [키 자격 증명 모음에 대한 액세스를 보호](../general/security-overview.md)하는 방법

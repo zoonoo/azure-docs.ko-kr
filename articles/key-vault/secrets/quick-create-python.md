@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: e9e27720c50de8653fa859e051c9cfb3af4509ff
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: e06881d078b4e881174c3e931f7898cb622ad7f9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107377474"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766356"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>빠른 시작: Python용 Azure Key Vault 비밀 클라이언트 라이브러리
 
@@ -21,7 +21,7 @@ Python용 Azure Key Vault 비밀 클라이언트 라이브러리를 시작합니
 
 [API 참조 설명서](/python/api/overview/azure/keyvault-secrets-readme) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets) | [패키지(Python 패키지 인덱스)](https://pypi.org/project/azure-keyvault-secrets/)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Python 2.7 이상 또는 3.6 이상](/azure/developer/python/configure-local-development-environment)
@@ -170,7 +170,7 @@ retrieved_secret = client.get_secret(secretName)
 
 비밀 값은 `retrieved_secret.value`에 포함되어 있습니다.
 
-Azure CLI 명령 [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show)를 사용하여 비밀을 검색할 수도 있습니다.
+Azure CLI 명령 [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show)를 사용하여 비밀을 검색할 수도 있습니다.
 
 ### <a name="delete-a-secret"></a>비밀 삭제
 
@@ -183,7 +183,7 @@ deleted_secret = poller.result()
 
 `begin_delete_secret` 메서드는 비동기식이며 폴러 개체를 반환합니다. 폴러의 `result` 메서드를 호출하면 작업이 완료될 때까지 대기합니다.
 
-Azure CLI 명령 [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show)를 사용하여 비밀이 제거되었는지 확인할 수 있습니다.
+Azure CLI 명령 [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show)를 사용하여 비밀이 제거되었는지 확인할 수 있습니다.
 
 비밀이 삭제되었지만 당분간 복구 가능한 상태로 유지됩니다. 코드를 다시 실행하는 경우 다른 비밀 이름을 사용합니다.
 
@@ -200,7 +200,7 @@ az group delete --resource-group KeyVault-PythonQS-rg
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Key Vault 개요](../general/overview.md)
-- [Key vault에 대한 액세스 보안](../general/secure-your-key-vault.md)
+- [Key vault에 대한 액세스 보안](../general/security-overview.md)
 - [Azure Key Vault 개발자 가이드](../general/developers-guide.md)
 - [Key Vault 보안 개요](../general/security-overview.md)
 - [Key Vault로 인증](../general/authentication.md)

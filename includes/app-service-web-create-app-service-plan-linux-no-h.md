@@ -5,42 +5,24 @@ services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: include
-ms.date: 12/20/2019
+ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: f3d558736751d3c50e3c007e3aebb369093ef856
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc44780bd9b42e00ecfb3d140486fec87c767a76
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102244983"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765759"
 ---
-Cloud Shell에서 [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) 명령을 사용하여 리소스 그룹에 App Service 계획을 만듭니다.
+[!INCLUDE [resource group intro text](resource-group.md)]
 
-<!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
-
-다음 예제에서는 **체험** 가격 책정 계층(`--sku F1`) 및 Linux 컨테이너(`--is-linux`)에서 `myAppServicePlan`이라는 App Service 계획을 만듭니다.
+Cloud Shell에서 [`az group create`](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *서유럽* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다. **기본** 계층에서 Linux의 App Service에 지원되는 모든 위치를 확인하려면 [`az appservice list-locations --sku B1 --linux-workers-enabled`](/cli/azure/appservice#az_appservice_list_locations) 명령을 실행합니다.
 
 ```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku F1 --is-linux
+az group create --name myResourceGroup --location "West Europe"
 ```
 
-App Service 계획을 만든 경우 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다.
+일반적으로 사용자와 가까운 지역에서 리소스 그룹 및 리소스를 만듭니다. 
 
-```json
-{ 
-  "adminSiteName": null,
-  "appServicePlanName": "myAppServicePlan",
-  "geoRegion": "West Europe",
-  "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan",
-  "kind": "linux",
-  "location": "West Europe",
-  "maximumNumberOfWorkers": 1,
-  "name": "myAppServicePlan",
-  <JSON data removed for brevity.>
-  "targetWorkerSizeId": 0,
-  "type": "Microsoft.Web/serverfarms",
-  "workerTierName": null
-} 
-```
+명령이 완료되면 JSON 출력이 리소스 그룹 속성을 보여줍니다.

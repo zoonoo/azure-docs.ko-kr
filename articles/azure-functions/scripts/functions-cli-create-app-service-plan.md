@@ -5,12 +5,12 @@ ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 07/03/2018
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 020bd064628554703bb375c06c72e68d4536a2a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea368714ded56d77a10e24b853144bdf1dd42dfe
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934444"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786336"
 ---
 # <a name="create-a-function-app-in-an-app-service-plan"></a>App Service 계획에서 함수 앱 만들기
 
@@ -36,10 +36,10 @@ ms.locfileid: "97934444"
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Azure Storage 계정을 만듭니다. |
-| [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) | 프리미엄 플랜을 만듭니다. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | App Service 계획의 함수 앱을 만듭니다. |
+| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Azure Storage 계정을 만듭니다. |
+| [az functionapp plan create](/cli/azure/functionapp/plan#az_functionapp_plan_create) | 프리미엄 플랜을 만듭니다. |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | App Service 계획의 함수 앱을 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

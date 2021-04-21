@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: e6630cbb44157f25bd2cbfcff25ec3132c74c61c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d347be4e6727cdda659620befe20824678160020
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565574"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792438"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합에서 OS 및 연결된 데이터 디스크 암호화
 
@@ -87,7 +87,7 @@ az keyvault update --name $keyvault_name --enabled-for-disk-encryption
 
 ## <a name="enable-encryption"></a>암호화 사용
 
-확장 집합에서 VM 인스턴스를 암호화하려면 먼저 [az keyvault show](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-show)를 사용하여 Key Vault 리소스 ID에 대한 정보를 얻습니다. 이러한 변수는 [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable)로 암호화 프로세스를 시작하는 데 사용됩니다.
+확장 집합에서 VM 인스턴스를 암호화하려면 먼저 [az keyvault show](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-show)를 사용하여 Key Vault 리소스 ID에 대한 정보를 얻습니다. 이러한 변수는 [az vmss encryption enable](/cli/azure/vmss/encryption#az_vmss_encryption_enable)로 암호화 프로세스를 시작하는 데 사용됩니다.
 
 ```azurecli-interactive
 # Get the resource ID of the Key Vault
@@ -103,7 +103,7 @@ az vmss encryption enable \
 
 암호화 프로세스를 시작하는 데 1~2분 정도 걸릴 수 있습니다.
 
-확장 집합이 이전 단계에 만든 확장 집합에 대한 업그레이드 정책이며 “자동”으로 설정되어 있으므로 VM 인스턴스가 암호화 프로세스를 자동으로 시작합니다. 업그레이드 정책이 수동으로 설정된 확장 집합의 경우에는 [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances)를 사용하여 VM 인스턴스에 대해 암호화 정책을 시작합니다.
+확장 집합이 이전 단계에 만든 확장 집합에 대한 업그레이드 정책이며 “자동”으로 설정되어 있으므로 VM 인스턴스가 암호화 프로세스를 자동으로 시작합니다. 업그레이드 정책이 수동으로 설정된 확장 집합의 경우에는 [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances)를 사용하여 VM 인스턴스에 대해 암호화 정책을 시작합니다.
 
 ### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>KEK를 사용하여 암호화를 사용하여 키 래핑
 
@@ -131,7 +131,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 
 ## <a name="check-encryption-progress"></a>암호화 진행 확인
 
-디스크 암호화의 상태를 확인하려면 [az vmss encryption show](/cli/azure/vmss/encryption#az-vmss-encryption-show)를 사용합니다.
+디스크 암호화의 상태를 확인하려면 [az vmss encryption show](/cli/azure/vmss/encryption#az_vmss_encryption_show)를 사용합니다.
 
 ```azurecli-interactive
 az vmss encryption show --resource-group myResourceGroup --name myScaleSet
@@ -166,7 +166,7 @@ VM 인스턴스가 암호화되어 있으면 다음 예제 출력에 나온 것�
 
 ## <a name="disable-encryption"></a>암호화 사용 안 함
 
-암호화된 VM 인스턴스 디스크를 더 이상 사용하지 않으려는 경우 다음과 같이 [az vmss encryption disable](/cli/azure/vmss/encryption#az-vmss-encryption-disable)을 사용하여 암호화를 비활성화할 수 있습니다.
+암호화된 VM 인스턴스 디스크를 더 이상 사용하지 않으려는 경우 다음과 같이 [az vmss encryption disable](/cli/azure/vmss/encryption#az_vmss_encryption_disable)을 사용하여 암호화를 비활성화할 수 있습니다.
 
 ```azurecli-interactive
 az vmss encryption disable --resource-group myResourceGroup --name myScaleSet

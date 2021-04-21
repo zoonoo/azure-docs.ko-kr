@@ -6,13 +6,13 @@ author: mksuni
 ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
-ms.custom: mvc
-ms.openlocfilehash: 6f2b3d9f38fc04428678a71c9942fc7aa2182dc8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: vc, devx-track-azurecli
+ms.openlocfilehash: 0c6211f4cd647addd6f1d18a153695d16a9d9952
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217196"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770168"
 ---
 # <a name="tutorial-deploy-wordpress-app-on-aks-with-azure-database-for-mysql---flexible-server"></a>자습서: Azure Database for MySQL - 유연한 서버를 사용하여 AKS에 WordPress 앱 배포
 
@@ -60,7 +60,7 @@ az group create --name wordpress-project --location eastus
 
 ## <a name="create-aks-cluster"></a>AKS 클러스터 만들기
 
-[az aks create](/cli/azure/aks#az-aks-create) 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster* 라는 클러스터를 만듭니다. 이 작업을 완료하는 데는 몇 분 정도 걸립니다.
+[az aks create](/cli/azure/aks#az_aks_create) 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster* 라는 클러스터를 만듭니다. 이 작업을 완료하는 데는 몇 분 정도 걸립니다.
 
 ```azurecli-interactive
 az aks create --resource-group wordpress-project --name myAKSCluster --node-count 1 --generate-ssh-keys
@@ -73,13 +73,13 @@ az aks create --resource-group wordpress-project --name myAKSCluster --node-coun
 
 ## <a name="connect-to-the-cluster"></a>클러스터에 연결
 
-Kubernetes 클러스터를 관리하려면 [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) Kubernetes 명령줄 클라이언트를 사용합니다. Azure Cloud Shell을 사용하는 경우 `kubectl`이 이미 설치되어 있습니다. `kubectl`을 로컬로 설치하려면 [az aks install-cli](/cli/azure/aks#az-aks-install-cli) 명령을 사용합니다.
+Kubernetes 클러스터를 관리하려면 [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) Kubernetes 명령줄 클라이언트를 사용합니다. Azure Cloud Shell을 사용하는 경우 `kubectl`이 이미 설치되어 있습니다. `kubectl`을 로컬로 설치하려면 [az aks install-cli](/cli/azure/aks#az_aks_install_cli) 명령을 사용합니다.
 
 ```azurecli-interactive
 az aks install-cli
 ```
 
-Kubernetes 클러스터에 연결하도록 `kubectl`을 구성하려면 [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) 명령을 사용합니다. 이 명령은 자격 증명을 다운로드하고 Kubernetes CLI가 해당 자격 증명을 사용하도록 구성합니다.
+Kubernetes 클러스터에 연결하도록 `kubectl`을 구성하려면 [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials) 명령을 사용합니다. 이 명령은 자격 증명을 다운로드하고 Kubernetes CLI가 해당 자격 증명을 사용하도록 구성합니다.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group wordpress-project --name myAKSCluster
@@ -327,4 +327,3 @@ az group delete --name wordpress-project --yes --no-wait
 - [클러스터 크기를 조정](../../aks/tutorial-kubernetes-scale.md)하는 방법 알아보기
 - [MySQL 유연한 서버를 관리](./quickstart-create-server-cli.md)하는 방법 알아보기
 - 데이터베이스 서버에 대한 [서버 매개 변수를 구성](./how-to-configure-server-parameters-cli.md)하는 방법 알아보기
-

@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: e4d9fc6e597fb51f607a3e2833ae6ddd7d9281fc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: 24658525ca1248aa82732a31eb9a40df1403203c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97006342"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782426"
 ---
 # <a name="connect-an-app-service-app-to-an-azure-cache-for-redis-using-cli"></a>CLI를 사용하여 Azure Cache for Redis에 App Service 앱 연결
 
@@ -38,12 +38,12 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 Azure CLI 버�
 
 | 명령 | 메모 |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | App Service 계획을 만듭니다. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | App Service 앱을 만듭니다. |
-| [`az redis create`](/cli/azure/redis#az-redis-create) | 새 Azure Cache for Redis 인스턴스를 만듭니다. |
-| [`az redis list-keys`](/cli/azure/redis#az-redis-list-keys) | Azure Cache for Redis 인스턴스에 대한 액세스 키를 나열합니다. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | App Service 앱에 대한 앱 설정을 만들거나 업데이트합니다. 앱 설정은 앱에 대한 환경 변수로 노출됩니다. |
+| [`az group create`](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | App Service 계획을 만듭니다. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | App Service 앱을 만듭니다. |
+| [`az redis create`](/cli/azure/redis#az_redis-create) | 새 Azure Cache for Redis 인스턴스를 만듭니다. |
+| [`az redis list-keys`](/cli/azure/redis#az_redis_list_keys) | Azure Cache for Redis 인스턴스에 대한 액세스 키를 나열합니다. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | App Service 앱에 대한 앱 설정을 만들거나 업데이트합니다. 앱 설정은 앱에 대한 환경 변수로 노출됩니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
