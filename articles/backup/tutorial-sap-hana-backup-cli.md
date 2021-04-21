@@ -4,12 +4,12 @@ description: 이 자습서에서는 Azure CLI를 사용하여 Azure VM에서 실
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ba06ef876f30dc51e04fe7491d491621f5d8e21b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bebfe852aaac965fc7d07371be889fe515e3da3a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101710603"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768507"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure VM에서 SAP HANA 데이터베이스 복원
 
@@ -34,7 +34,7 @@ Azure CLI는 명령줄 또는 스크립트를 통해 Azure 리소스를 만들�
 
 Recovery Services 자격 증명 모음은 Azure VM 또는 Azure VM에서 실행되는 워크로드(예: SQL 또는 HANA 데이터베이스)처럼 보호된 리소스의 백업 데이터를 저장하는 논리 컨테이너입니다. 보호된 리소스에 대한 백업 작업이 실행될 때 Recovery Services 자격 증명 모음 내에 복구 지점을 만듭니다. 이러한 복구 지점 중 하나를 사용하여 지정된 특정 시점으로 데이터를 복원할 수 있습니다.
 
-[az backup vault create](/cli/azure/backup/vault#az-backup-vault-create)를 사용하여 Recovery Services 자격 증명 모음을 만듭니다. 보호하려는 VM으로 동일한 리소스 그룹 및 위치를 지정합니다. 이 [VM 빠른 시작](../virtual-machines/linux/quick-create-cli.md)에서 Azure CLI를 사용하여 VM을 만드는 방법을 알아보세요.
+[az backup vault create](/cli/azure/backup/vault#az_backup_vault_create)를 사용하여 Recovery Services 자격 증명 모음을 만듭니다. 보호하려는 VM으로 동일한 리소스 그룹 및 위치를 지정합니다. 이 [VM 빠른 시작](../virtual-machines/linux/quick-create-cli.md)에서 Azure CLI를 사용하여 VM을 만드는 방법을 알아보세요.
 
 이 자습서에서는 다음을 사용합니다.
 
@@ -50,7 +50,7 @@ az backup vault create --resource-group saphanaResourceGroup \
     --location westus2
 ```
 
-기본적으로 Recovery Services 자격 증명 모음은 지역 중복 스토리지에 대해 설정됩니다. 지역 중복 스토리지는 주 지역에서 수백 마일 떨어져 있는 보조 Azure 지역에 백업 데이터가 복제되었음을 보장합니다. 스토리지 중복 설정을 수정해야 하는 경우 [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties#az-backup-vault-backup-properties-set) cmdlet을 사용합니다.
+기본적으로 Recovery Services 자격 증명 모음은 지역 중복 스토리지에 대해 설정됩니다. 지역 중복 스토리지는 주 지역에서 수백 마일 떨어져 있는 보조 Azure 지역에 백업 데이터가 복제되었음을 보장합니다. 스토리지 중복 설정을 수정해야 하는 경우 [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties#az_backup_vault_backup_properties_set) cmdlet을 사용합니다.
 
 ```azurecli
 az backup vault backup-properties set \
@@ -59,7 +59,7 @@ az backup vault backup-properties set \
     --backup-storage-redundancy "LocallyRedundant/GeoRedundant"
 ```
 
-자격 증명 모음이 성공적으로 만들어졌는지 확인하려면 [az backup vault list](/cli/azure/backup/vault#az-backup-vault-list) cmdlet을 사용합니다. 다음 응답이 표시됩니다.
+자격 증명 모음이 성공적으로 만들어졌는지 확인하려면 [az backup vault list](/cli/azure/backup/vault#az_backup_vault_list) cmdlet을 사용합니다. 다음 응답이 표시됩니다.
 
 ```output
 Location   Name             ResourceGroup
@@ -71,7 +71,7 @@ westus2    saphanaVault     saphanaResourceGroup
 
 Azure 서비스에서 SAP HANA 인스턴스(SAP HANA가 설치된 VM)를 검색하려면 SAP HANA 머신에서 [사전 등록 스크립트](https://aka.ms/scriptforpermsonhana)를 실행해야 합니다. 스크립트를 실행하기 전에 모든 [필수 구성 요소](./tutorial-backup-sap-hana-db.md#prerequisites)를 충족하는지 확인합니다. 스크립트가 수행하는 작업에 대한 자세한 내용은 [사전 등록 스크립트의 기능](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) 섹션을 참조하세요.
 
-스크립트가 실행되면 앞에서 만든 Recovery Services 자격 증명 모음에 SAP HANA 인스턴스를 등록할 수 있습니다. 인스턴스를 등록하려면 [az backup container register](/cli/azure/backup/container#az-backup-container-register) cmdlet을 사용합니다. *VMResourceId* 는 SAP HANA를 설치하기 위해 만든 VM의 리소스 ID입니다.
+스크립트가 실행되면 앞에서 만든 Recovery Services 자격 증명 모음에 SAP HANA 인스턴스를 등록할 수 있습니다. 인스턴스를 등록하려면 [az backup container register](/cli/azure/backup/container#az_backup_container_register) cmdlet을 사용합니다. *VMResourceId* 는 SAP HANA를 설치하기 위해 만든 VM의 리소스 ID입니다.
 
 ```azurecli-interactive
 az backup container register --resource-group saphanaResourceGroup \
@@ -87,7 +87,7 @@ az backup container register --resource-group saphanaResourceGroup \
 
 SAP HANA 인스턴스를 등록하면 해당 인스턴스의 모든 현재 데이터베이스가 자동으로 검색됩니다. 그러나 나중에 추가될 수 있는 새 데이터베이스를 검색하려면 [등록된 SAP HANA 인스턴스에 추가된 새 데이터베이스 검색](tutorial-sap-hana-manage-cli.md#protect-new-databases-added-to-an-sap-hana-instance) 섹션을 참조하세요.
 
-SAP HANA 인스턴스가 자격 증명 모음에 성공적으로 등록되었는지 확인하려면 [az backup container list](/cli/azure/backup/container#az-backup-container-list) cmdlet을 사용합니다. 다음 응답이 표시됩니다.
+SAP HANA 인스턴스가 자격 증명 모음에 성공적으로 등록되었는지 확인하려면 [az backup container list](/cli/azure/backup/container#az_backup_container_list) cmdlet을 사용합니다. 다음 응답이 표시됩니다.
 
 ```output
 Name                                                    Friendly Name    Resource Group        Type           Registration Status
@@ -100,7 +100,7 @@ VMAppContainer;Compute;saphanaResourceGroup;saphanaVM   saphanaVM        saphana
 
 ## <a name="enable-backup-on-sap-hana-database"></a>SAP HANA 데이터베이스에서 백업 사용
 
-[az backup protectable-item list](/cli/azure/backup/protectable-item#az-backup-protectable-item-list) cmdlet은 이전 단계에서 등록한 SAP HANA 인스턴스에서 검색된 모든 데이터베이스를 나열합니다.
+[az backup protectable-item list](/cli/azure/backup/protectable-item#az_backup_protectable_item_list) cmdlet은 이전 단계에서 등록한 SAP HANA 인스턴스에서 검색된 모든 데이터베이스를 나열합니다.
 
 ```azurecli-interactive
 az backup protectable-item list --resource-group saphanaResourceGroup \
@@ -121,7 +121,7 @@ saphanadatabase;hxe;hxe        SAPHanaDatabase          HXE           hxehost   
 
 위의 출력에서 볼 수 있듯이, SAP HANA 시스템의 SID는 HXE입니다. 이 자습서에서는 *hxehost* 서버에 상주하는 *saphanadatabase;hxe;hxe* 데이터베이스의 백업을 구성합니다.
 
-데이터베이스에서 한 번에 하나씩 백업을 보호하고 구성하려면 [az backup protection enable-for-azurewl](/cli/azure/backup/protection#az-backup-protection-enable-for-azurewl) cmdlet을 사용합니다. 사용할 정책의 이름을 입력합니다. CLI를 사용하여 정책을 만들려면 [az backup policy create](/cli/azure/backup/policy#az-backup-policy-create) cmdlet을 사용합니다. 이 자습서에서는 *sapahanaPolicy* 정책을 사용합니다.
+데이터베이스에서 한 번에 하나씩 백업을 보호하고 구성하려면 [az backup protection enable-for-azurewl](/cli/azure/backup/protection#az_backup_protection_enable_for_azurewl) cmdlet을 사용합니다. 사용할 정책의 이름을 입력합니다. CLI를 사용하여 정책을 만들려면 [az backup policy create](/cli/azure/backup/policy#az_backup_policy_create) cmdlet을 사용합니다. 이 자습서에서는 *sapahanaPolicy* 정책을 사용합니다.
 
 ```azurecli-interactive
 az backup protection enable-for-azurewl --resource-group saphanaResourceGroup \
@@ -133,7 +133,7 @@ az backup protection enable-for-azurewl --resource-group saphanaResourceGroup \
     --output table
 ```
 
-[az backup job list](/cli/azure/backup/job#az-backup-job-list) cmdlet을 사용하여 위의 백업 구성이 완료되었는지 확인할 수 있습니다. 출력은 다음과 같이 표시됩니다.
+[az backup job list](/cli/azure/backup/job#az_backup_job_list) cmdlet을 사용하여 위의 백업 구성이 완료되었는지 확인할 수 있습니다. 출력은 다음과 같이 표시됩니다.
 
 ```output
 Name                                  Operation         Status     Item Name   Start Time UTC
@@ -141,7 +141,7 @@ Name                                  Operation         Status     Item Name   S
 e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2019-12-03T03:09:210831+00:00  
 ```
 
-[az backup job list](/cli/azure/backup/job#az-backup-job-list) cmdlet은 등록, 백업 구성 및 백업 데이터 삭제와 같은 다른 작업 외에도 보호된 데이터베이스에서 실행되었거나 현재 실행 중인 모든 백업 작업(예약된 백업 또는 요청 시 백업)을 나열합니다.
+[az backup job list](/cli/azure/backup/job#az_backup_job_list) cmdlet은 등록, 백업 구성 및 백업 데이터 삭제와 같은 다른 작업 외에도 보호된 데이터베이스에서 실행되었거나 현재 실행 중인 모든 백업 작업(예약된 백업 또는 요청 시 백업)을 나열합니다.
 
 >[!NOTE]
 >Azure Backup은 Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업할 때 일광 절약 시간제 변경을 자동으로 조정하지 않습니다.
@@ -150,7 +150,7 @@ e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2
 
 ## <a name="trigger-an-on-demand-backup"></a>주문형 백업 트리거
 
-위의 섹션에서는 예약된 백업을 구성하는 방법을 자세히 설명했고, 이 섹션에서는 요청 시 백업을 트리거하는 방법을 설명합니다. 요청 시 백업을 트리거하려면 [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now) cmdlet을 사용합니다.
+위의 섹션에서는 예약된 백업을 구성하는 방법을 자세히 설명했고, 이 섹션에서는 요청 시 백업을 트리거하는 방법을 설명합니다. 요청 시 백업을 트리거하려면 [az backup protection backup-now](/cli/azure/backup/protection#az_backup_protection_backup_now) cmdlet을 사용합니다.
 
 >[!NOTE]
 > 요청 시 백업의 보존 정책은 데이터베이스의 기본 보존 정책에 의해 결정됩니다.
@@ -173,7 +173,7 @@ Name                                  ResourceGroup
 e0f15dae-7cac-4475-a833-f52c50e5b6c3  saphanaResourceGroup
 ```
 
-응답에서 작업 이름을 알 수 있습니다. 이 작업 이름은 [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet을 사용하여 작업 상태를 추적하는 데 사용할 수 있습니다.
+응답에서 작업 이름을 알 수 있습니다. 이 작업 이름은 [az backup job show](/cli/azure/backup/job#az_backup_job_show) cmdlet을 사용하여 작업 상태를 추적하는 데 사용할 수 있습니다.
 
 >[!NOTE]
 >로그 백업은 내부에서 SAP HANA를 통해 자동으로 트리거되고 관리됩니다.

@@ -6,12 +6,12 @@ ms.author: timlt
 ms.service: iot-develop
 ms.topic: include
 ms.date: 01/14/2021
-ms.openlocfilehash: 10bd2c4902157b9e01b1cb0ff10b3ebdf448568c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: be51d4db6c98b63fcb1c9c60df045b494536d78f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102244777"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766529"
 ---
 다음 섹션에서는 터미널을 설정하고 Azure CLI를 사용하여 IoT 허브를 만듭니다. Azure CLI 명령을 실행하는 터미널을 구성하려면 브라우저 기반 Azure Cloud Shell을 사용하거나 로컬 터미널을 사용할 수 있습니다.
 * Cloud Shell을 사용하려면 [Cloud Shell 시작](#launch-the-cloud-shell) 섹션으로 이동합니다. 
@@ -65,7 +65,7 @@ Cloud Shell이 아닌 로컬 터미널을 사용하기로 선택한 경우 이 �
 > [!IMPORTANT]
 > 이 빠른 시작의 나머지 부분에 있는 터미널 명령은 Cloud Shell 또는 로컬 터미널에서 동일하게 작동합니다. 명령을 실행하려면 **복사** 를 선택하여 이 빠른 시작에서 코드 블록을 복사합니다. 그런 다음, CLI 셸에 붙여넣고 실행합니다.
 
-[az extension add](/cli/azure/extension#az-extension-add) 명령을 실행합니다. 
+[az extension add](/cli/azure/extension#az_extension_add) 명령을 실행합니다. 
 
    ```azurecli
    az extension add --name azure-iot
@@ -77,7 +77,7 @@ Cloud Shell이 아닌 로컬 터미널을 사용하기로 선택한 경우 이 �
 
 IoT 허브 및 리소스 그룹을 만들려면 다음을 수행합니다.
 
-1. [az group create](/cli/azure/group#az-group-create)를 실행하여 리소스 그룹을 만듭니다. 다음 명령은 *eastus* 위치에 *MyResourceGroup* 이라는 리소스 그룹을 만듭니다. 
+1. [az group create](/cli/azure/group#az_group_create)를 실행하여 리소스 그룹을 만듭니다. 다음 명령은 *eastus* 위치에 *MyResourceGroup* 이라는 리소스 그룹을 만듭니다. 
     >[!NOTE]
     > 선택적으로 대체 위치를 설정할 수 있습니다. 사용 가능한 위치를 보려면 `az account list-locations`를 실행합니다. 이 자습서에서는 예제 명령에 표시된 대로 *eastus* 를 사용합니다. 
 
@@ -85,7 +85,7 @@ IoT 허브 및 리소스 그룹을 만들려면 다음을 수행합니다.
     az group create --name MyResourceGroup --location eastus
     ```
 
-1. [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) 명령을 사용하여 IoT Hub를 만듭니다. IoT Hub를 만드는 데 몇 분 정도 걸릴 수 있습니다. 
+1. [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) 명령을 사용하여 IoT Hub를 만듭니다. IoT Hub를 만드는 데 몇 분 정도 걸릴 수 있습니다. 
 
     *YourIotHubName*. IoT 허브에 대해 선택한 이름을 사용하여 다음 명령에서 이 자리 표시자와 주변 중괄호를 바꿉니다. IoT Hub 이름은 Azure에서 전역적으로 고유해야 합니다. 자리 표시자가 표시될 때마다 이 빠른 시작의 나머지 부분에서 IoT 허브 이름을 사용합니다.
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 1443ab37beb28706227159c53d336384216d8387
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 655ea1920fc80c8cd677281f09cfca21120e1d61
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104582457"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726433"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -44,6 +44,8 @@ ms.locfileid: "104582457"
 ```azurecli
 az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
+
+## <a name="retrieve-a-secret-from-key-vault"></a>Key Vault에서 비밀 검색
 
 이제 해당 URI를 사용하여 Azure Key Vault에 추가한 이 암호를 참조할 수 있습니다. **'https://<your-unique-keyvault-name>.vault.azure.net/secrets/ExamplePassword'** 를 사용하여 현재 버전을 가져옵니다.
 

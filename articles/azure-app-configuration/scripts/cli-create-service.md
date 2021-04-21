@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 01/24/2020
 ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4554ca64dccaa69e3a6fb63e5c28a6bcbb1a32e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4a341e9772c67da7781a5cec92f286c037c55ce9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96930843"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768934"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Azure App Configuration 저장소 만들기
 
@@ -69,9 +69,9 @@ echo "$appConfigConnectionString"
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az appconfig create](/cli/azure/appconfig#az-appconfig-create) | App Configuration 저장소 리소스를 만듭니다. |
-| [az appconfig 자격 증명 목록](/cli/azure/appconfig/credential#az-appconfig-credential-list) | App Configuration 저장소의 액세스 키를 나열합니다. |
+| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az appconfig create](/cli/azure/appconfig#az_appconfig_create) | App Configuration 저장소 리소스를 만듭니다. |
+| [az appconfig 자격 증명 목록](/cli/azure/appconfig/credential#az_appconfig_credential_list) | App Configuration 저장소의 액세스 키를 나열합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

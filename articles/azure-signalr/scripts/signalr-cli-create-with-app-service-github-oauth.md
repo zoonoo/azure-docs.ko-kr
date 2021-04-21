@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/22/2018
 ms.author: zhshang
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ee9f0253f2ec27b4afbbb6c5dc1ff3f5c129fe8a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c46ac350c1bf7f7593f334a9a7fa5df1af7b19d8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94841838"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787326"
 ---
 # <a name="create-a-web-app-that-uses-signalr-service-and-github-authentication"></a>SignalR Service 및 GitHub 인증을 사용하는 웹앱 만들기
 
@@ -107,14 +107,14 @@ az webapp deployment source config-local-git --name $myWebAppName --resource-gro
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az signalr create](/cli/azure/signalr#az-signalr-create) | Azure SignalR Service 리소스를 만듭니다. |
-| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | SignalR을 통해 실시간 콘텐츠 업데이트를 푸시할 때 애플리케이션에서 사용할 키를 나열합니다. |
-| [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) | 웹앱을 호스팅하기 위한 Azure App Service 계획을 만듭니다. |
-| [az webapp create](/cli/azure/webapp#az-webapp-create) | App Service 호스팅 계획을 사용하는 Azure 웹앱을 만듭니다. |
-| [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | 웹앱에 대한 새 앱 설정을 추가합니다. 이러한 앱 설정은 SignalR 연결 문자열 및 GitHub OAuth 앱 암호를 저장하는 데 사용됩니다. |
-| [az webapp deployment user set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) | 배포 자격 증명을 업데이트합니다. |
-| [az webapp deployment source config-local-git](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-local-git) | 웹앱 배포를 위해 복제 및 푸시하기 위한 git 리포지토리 엔드포인트의 URL을 가져옵니다. |
+| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az signalr create](/cli/azure/signalr#az_signalr_create) | Azure SignalR Service 리소스를 만듭니다. |
+| [az signalr key list](/cli/azure/signalr/key#az_signalr_key_list) | SignalR을 통해 실시간 콘텐츠 업데이트를 푸시할 때 애플리케이션에서 사용할 키를 나열합니다. |
+| [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) | 웹앱을 호스팅하기 위한 Azure App Service 계획을 만듭니다. |
+| [az webapp create](/cli/azure/webapp#az_webapp_create) | App Service 호스팅 계획을 사용하는 Azure 웹앱을 만듭니다. |
+| [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | 웹앱에 대한 새 앱 설정을 추가합니다. 이러한 앱 설정은 SignalR 연결 문자열 및 GitHub OAuth 앱 암호를 저장하는 데 사용됩니다. |
+| [az webapp deployment user set](/cli/azure/webapp/deployment/user#az_webapp_deployment_user_set) | 배포 자격 증명을 업데이트합니다. |
+| [az webapp deployment source config-local-git](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config_local_git) | 웹앱 배포를 위해 복제 및 푸시하기 위한 git 리포지토리 엔드포인트의 URL을 가져옵니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
