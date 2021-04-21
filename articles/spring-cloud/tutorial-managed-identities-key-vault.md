@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: bbfafeaf9ce24911bb4893748d456d22e02fc411
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 870a04af244d18826e1041316895f746e27870eb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877145"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786588"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>자습서: 관리 ID를 사용하여 Key Vault를 Azure Spring Cloud 앱에 연결
 
@@ -29,14 +29,14 @@ Azure Key Vault는 앱의 토큰, 암호, 인증서, API 키 및 기타 비밀�
 * [Maven 3.0 이상 설치](https://maven.apache.org/download.cgi)
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
-리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 Key Vault 및 Spring Cloud를 모두 포함하는 리소스 그룹을 만듭니다.
+리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 Key Vault 및 Spring Cloud를 모두 포함하는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" -l "EastUS"
 ```
 
 ## <a name="set-up-your-key-vault"></a>Key Vault 설정
-Key Vault를 만들려면 [az keyvault create](/cli/azure/keyvault#az-keyvault-create) 명령을 사용합니다.
+Key Vault를 만들려면 [az keyvault create](/cli/azure/keyvault#az_keyvault_create) 명령을 사용합니다.
 
 > [!Important]
 > 각 Key Vault마다 고유한 이름이 있어야 합니다. 다음 예제에서 <your-keyvault-name>을 Key Vault 이름으로 바꿉니다.
@@ -47,7 +47,7 @@ az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 
 반환된 `vaultUri`를 적어 둡니다. 이는 "https://<your-keyvault-name>.vault.azure.net" 형식이며, 다음 단계에서 사용됩니다.
 
-이제 [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) 명령을 사용하여 비밀을 Key Vault에 배치할 수 있습니다.
+이제 [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set) 명령을 사용하여 비밀을 Key Vault에 배치할 수 있습니다.
 
 ```azurecli-interactive
 az keyvault secret set --vault-name "<your-keyvault-name>" \

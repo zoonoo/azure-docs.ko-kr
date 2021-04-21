@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/16/2020
-ms.openlocfilehash: fc33b24aac8964d0a8390b4b38c5e1862ed639a8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: be1b0da23841b5a63ec044e04a5465e29345f9d1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198917"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772202"
 ---
 # <a name="tutorial-access-azure-blob-storage-using-azure-databricks-and-azure-key-vault"></a>자습서: Azure Databricks와 Azure Key Vault를 사용하여 Azure Blob Storage에 액세스
 
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-storage-account-and-blob-container-with-azure-cli"></a>Azure CLI를 사용하여 스토리지 계정 및 Blob 컨테이너 만들기
 
-Blob을 사용하려면 먼저 범용 스토리지 계정을 만들어야 합니다. [리소스 그룹](/cli/azure/group#az-group-create)이 없는 경우 명령을 실행하기 전에 하나를 만듭니다. 다음 명령은 스토리지 컨테이너의 메타데이터를 만들고 표시합니다. **ID** 를 복사합니다.
+Blob을 사용하려면 먼저 범용 스토리지 계정을 만들어야 합니다. [리소스 그룹](/cli/azure/group#az_group_create)이 없는 경우 명령을 실행하기 전에 하나를 만듭니다. 다음 명령은 스토리지 컨테이너의 메타데이터를 만들고 표시합니다. **ID** 를 복사합니다.
 
 ```azurecli
 az storage account create --name contosoblobstorage5 --resource-group contosoResourceGroup --location eastus --sku Standard_ZRS --encryption-services blob

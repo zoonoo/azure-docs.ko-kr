@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 03/02/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: 9eebc77c5b3d9402c766320fddfdaf05d50b574f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74e08cce381d173e0c5e1458ae99167a0c8c697f
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102485404"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107504513"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-40-server-version-supported-features-and-syntax"></a>Azure Cosmos DB의 API for MongoDB(4.0 서버 버전): 지원되는 기능 및 구문
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -143,7 +143,7 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 | $limit | 예 |
 | $listLocalSessions | 예 |
 | $listSessions | 예 |
-| $lookup | 예 |
+| $lookup | Partial |
 | $match | 예 |
 | $out | 예 |
 | $project | 예 |
@@ -155,6 +155,9 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 | $sort | 예 |
 | $sortByCount | 예 |
 | $unwind | 예 |
+
+> [!NOTE]
+> `$lookup`은 서버 버전 3.6에 도입된 [상관 관계가 없는 하위 쿼리](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#join-conditions-and-uncorrelated-sub-queries) 기능을 아직 지원하지 않습니다. `let` 및 `pipeline` 필드에서 `$lookup` 연산자를 사용하려고 하면 `let is not supported`가 포함된 오류 메시지가 표시됩니다.
 
 ### <a name="boolean-expressions"></a>부울 식
 

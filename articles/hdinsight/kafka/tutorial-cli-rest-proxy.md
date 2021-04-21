@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ff11b8461b483f5a66df19bb1b108a1fe1168fb9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cfb9ff9e6b107c9da84b164a055453994fc29229
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99821641"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786642"
 ---
 # <a name="tutorial-create-an-apache-kafka-rest-proxy-enabled-cluster-in-hdinsight-using-azure-cli"></a>자습서: Azure CLI를 사용하여 HDInsight에서 Apache Kafka REST 프록시 사용 클러스터 만들기
 
@@ -82,7 +82,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     export componentVersion=kafka=2.1
     ```
 
-1. 아래 명령을 입력하여 [리소스 그룹을 만듭니다](/cli/azure/group#az-group-create).
+1. 아래 명령을 입력하여 [리소스 그룹을 만듭니다](/cli/azure/group#az_group_create).
 
     ```azurecli
      az group create \
@@ -90,7 +90,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
         --name $resourceGroupName
     ```
 
-1. 아래 명령을 입력하여 [Azure Storage 계정을 만듭니다](/cli/azure/storage/account#az-storage-account-create).
+1. 아래 명령을 입력하여 [Azure Storage 계정을 만듭니다](/cli/azure/storage/account#az_storage_account_create).
 
     ```azurecli
     # Note: kind BlobStorage is not available as the default storage account.
@@ -103,7 +103,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
         --sku Standard_LRS
     ```
 
-1. 아래 명령을 입력하여 Azure Storage 계정에서 [기본 키를 추출](/cli/azure/storage/account/keys#az-storage-account-keys-list)하고 변수에 저장합니다.
+1. 아래 명령을 입력하여 Azure Storage 계정에서 [기본 키를 추출](/cli/azure/storage/account/keys#az_storage_account_keys_list)하고 변수에 저장합니다.
 
     ```azurecli
     export storageAccountKey=$(az storage account keys list \
@@ -112,7 +112,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
         --query [0].value -o tsv)
     ```
 
-1. 아래 명령을 입력하여 [Azure Storage 컨테이너를 만듭니다](/cli/azure/storage/container#az-storage-container-create).
+1. 아래 명령을 입력하여 [Azure Storage 컨테이너를 만듭니다](/cli/azure/storage/container#az_storage_container_create).
 
     ```azurecli
     az storage container create \
@@ -121,7 +121,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
         --account-name $storageAccount
     ```
 
-1. [HDInsight 클러스터를 만듭니다](/cli/azure/hdinsight#az-hdinsight-create). 명령을 입력하기 전에 다음 매개 변수를 확인하세요.
+1. [HDInsight 클러스터를 만듭니다](/cli/azure/hdinsight#az_hdinsight_create). 명령을 입력하기 전에 다음 매개 변수를 확인하세요.
 
     1. Kafka 클러스터에 필요한 매개 변수는 다음과 같습니다.
 

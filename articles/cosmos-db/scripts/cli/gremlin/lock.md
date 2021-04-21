@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: 492246b5dfb19664ea54ce8b5462c7d77f8d951b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 19809d7150c8a461f97282d1583d0d870d6af8bb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94562715"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770672"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-gremlin-api-database-and-graph-using-azure-cli"></a>Azure CLI를 사용하여 Azure Cosmos Gremlin API 데이터베이스 및 그래프에 대한 리소스 잠금 만들기
 [!INCLUDE[appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
@@ -34,10 +34,10 @@ ms.locfileid: "94562715"
 
 | 명령 | 메모 |
 |---|---|
-| [az lock create](/cli/azure/lock#az-lock-create) | 잠금을 만듭니다. |
-| [az lock list](/cli/azure/lock#az-lock-list) | 잠금 정보를 나열합니다. |
-| [az lock show](/cli/azure/lock#az-lock-show) | 잠금의 속성을 표시합니다. |
-| [az lock delete](/cli/azure/lock#az-lock-delete) | 잠금을 삭제합니다. |
+| [az lock create](/cli/azure/lock#az_lock_create) | 잠금을 만듭니다. |
+| [az lock list](/cli/azure/lock#az_lock_list) | 잠금 정보를 나열합니다. |
+| [az lock show](/cli/azure/lock#az_lock_show) | 잠금의 속성을 표시합니다. |
+| [az lock delete](/cli/azure/lock#az_lock_delete) | 잠금을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

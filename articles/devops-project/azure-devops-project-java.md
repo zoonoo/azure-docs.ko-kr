@@ -1,30 +1,36 @@
 ---
 title: '빠른 시작: Java용 CI/CD 파이프라인 만들기 - Azure DevOps Starter'
 description: 간소화된 Azure DevOps Starter 환경을 사용하여 Azure Pipelines에서 Java 앱용 CI(연속 통합) 및 CD(지속적인 업데이트) 파이프라인을 설정하는 방법을 알아봅니다.
-ms.prod: devops
-ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
+ms.author: mlearned
 manager: gwallace
+ms.date: 03/24/2020
+ms.prod: devops
+ms.technology: devops-cicd
+ms.topic: quickstart
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.topic: quickstart
-ms.date: 03/24/2020
-ms.author: mlearned
-ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: d76c4206ca39518c3a09d27ee470c05db108ae6d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- mvc
+- seo-java-july2019
+- seo-java-august2019
+- seo-java-september2019
+- devx-track-java
+- mode-api
+ms.openlocfilehash: 30ee97e0928f7b2995bd7bf02bec15bb8a46f7e2
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102551884"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535425"
 ---
 # <a name="set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-starter"></a>Azure DevOps Starter를 사용하여 Java 앱에 대한 CI/CD 파이프라인 설정
 
 이 빠른 시작에서는 간소화된 Azure DevOps Starter 환경을 사용하여 Azure Pipelines에서 Java 앱용 CI(연속 통합) 및 CD(지속적인 업데이트) 파이프라인을 설정합니다. Azure DevOps Starter를 사용하여 앱을 개발, 배포 및 모니터링하는 데 필요한 모든 항목을 설정할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
 - [Azure DevOps](https://azure.microsoft.com/services/devops/) 계정 및 조직입니다.

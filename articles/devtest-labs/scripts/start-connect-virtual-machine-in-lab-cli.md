@@ -4,12 +4,12 @@ description: 이 Azure CLI 스크립트는 Azure DevTest Labs의 랩에서 가�
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/11/2020
-ms.openlocfilehash: 8a3308a4e13b82cd90e00b6c25edadf4cc8aa4ee
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f82d43fc212da034d978ee3d65236d806daeb008
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198169"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764984"
 ---
 # <a name="use-azure-cli-to-start-a-virtual-machine-in-a-lab-in-azure-devtest-labs"></a>Azure CLI를 사용하여 Azure DevTest Labs의 랩에서 가상 머신 시작
 
@@ -30,7 +30,7 @@ ms.locfileid: "102198169"
 
 | 명령 | 메모 |
 |---|---|
-| [az lab vm start](/cli/azure/lab/vm#az-lab-vm-start) | 랩에서 VM(가상 머신)을 시작합니다. 이 작업은 완료하는 데 시간이 걸릴 수 있습니다. |
+| [az lab vm start](/cli/azure/lab/vm#az_lab_vm_start) | 랩에서 VM(가상 머신)을 시작합니다. 이 작업은 완료하는 데 시간이 걸릴 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

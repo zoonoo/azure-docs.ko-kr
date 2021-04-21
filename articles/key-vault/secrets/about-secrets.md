@@ -3,19 +3,18 @@ title: Azure Key Vault 비밀 정보 - Azure Key Vault
 description: Azure Key Vault 비밀 개요.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 55814dff5cba572e2e22b5a0f9971bc920e32372
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d4f3f744a85c14c42ffef1c894b237081e871f8
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100526643"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752429"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Azure Key Vault 비밀 정보
 
@@ -133,5 +132,5 @@ Key Vault에서 액세스를 제어하는 방법 가이드:
 - [키, 비밀 및 인증서에 대한 정보](../general/about-keys-secrets-certificates.md)
 - [키 정보](../keys/about-keys.md)
 - [인증서 정보](../certificates/about-certificates.md)
-- [Key vault에 대한 액세스 보안](../general/secure-your-key-vault.md)
+- [Key vault에 대한 액세스 보안](../general/security-overview.md)
 - [Key Vault 개발자 가이드](../general/developers-guide.md)

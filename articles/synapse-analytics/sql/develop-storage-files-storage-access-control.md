@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: acfaa780f21f5264b546f97e9a3792aa43e9c30b
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 266a6c27261107b883fdc0c1cdd274e6345de6db
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029746"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483455"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀에 대한 스토리지 계정 액세스 제어
 
@@ -86,7 +86,7 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
 | ------------------------------------- | ------------- | -----------    |
 | [사용자 ID](?tabs=user-identity#supported-storage-authorization-types)       | 지원되지 않음 | 지원됨      |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | 지원됨     | 지원됨      |
-| [관리 ID](?tabs=managed-identity#supported-storage-authorization-types) | 지원되지 않음 | 지원됨      |
+| [관리 ID](?tabs=managed-identity#supported-storage-authorization-types) | 지원됨 | 지원됨      |
 
 ### <a name="supported-storages-and-authorization-types"></a>지원되는 스토리지 및 권한 부여 유형
 

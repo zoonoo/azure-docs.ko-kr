@@ -3,19 +3,23 @@ title: Azure 빠른 시작 - Azure Resource Manager 템플릿을 사용하여 �
 description: Resource Manager 템플릿을 사용하여 Azure에서 Azure Key Vault 관리형 HSM을 만드는 방법을 보여주는 빠른 시작
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
+ms.author: mbaldwin
+ms.date: 09/15/2020
+ms.topic: quickstart
 ms.service: key-vault
 ms.subservice: managed-hsm
-ms.topic: quickstart
-ms.custom: mvc
-ms.date: 09/15/2020
-ms.author: mbaldwin
-ms.openlocfilehash: b2cd8578599fe1e80044f1eb388cddae7a292166
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+tags:
+- azure-resource-manager
+ms.custom:
+- mvc
+- devx-track-azurecli
+- mode-arm
+ms.openlocfilehash: 33c262c61d50b45663a627e40ea186f1f0dcde41
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376871"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532960"
 ---
 # <a name="quickstart-create-an-key-vault-managed-hsm-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Key Vault 관리형 HSM 만들기
 
@@ -25,7 +29,7 @@ ms.locfileid: "107376871"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 단계를 완료하려면 다음 항목이 있어야 합니다.
 
