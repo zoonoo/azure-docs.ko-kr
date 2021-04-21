@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb14a6a82535ac5a7d36213b082d08aedbb44da5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 585e31ab566cc990af2819fcf9cdde0506560208
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99090623"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780176"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>REST API 호출을 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -60,13 +60,13 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
 
 시스템 할당 관리 ID를 사용할 수 있는 가상 머신 확장 집합을 만들려면 가상 머신 확장 집합을 만들고 액세스 토큰을 검색하여 CURL을 통해 시스템 할당 관리 ID 유형 값으로 Resource Manager 엔드포인트를 호출해야 합니다.
 
-1. [az group create](/cli/azure/group/#az-group-create)를 사용하여 가상 머신 확장 집합 및 관련 리소스를 포함하고 배포하기 위한 [리소스 그룹](../../azure-resource-manager/management/overview.md#terminology)을 만듭니다. 대신 사용하려는 리소스 그룹이 이미 있다면 이 단계를 건너뛰어도 됩니다.
+1. [az group create](/cli/azure/group/#az_group_create)를 사용하여 가상 머신 확장 집합 및 관련 리소스를 포함하고 배포하기 위한 [리소스 그룹](../../azure-resource-manager/management/overview.md#terminology)을 만듭니다. 대신 사용하려는 리소스 그룹이 이미 있다면 이 단계를 건너뛰어도 됩니다.
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-2. 가상 머신 확장 집합의 [네트워크 인터페이스](/cli/azure/network/nic#az-network-nic-create)를 만듭니다.
+2. 가상 머신 확장 집합의 [네트워크 인터페이스](/cli/azure/network/nic#az_network_nic_create)를 만듭니다.
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
@@ -325,7 +325,7 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    az account get-access-token
    ```
 
-2. 가상 머신 확장 집합의 [네트워크 인터페이스](/cli/azure/network/nic#az-network-nic-create)를 만듭니다.
+2. 가상 머신 확장 집합의 [네트워크 인터페이스](/cli/azure/network/nic#az_network_nic_create)를 만듭니다.
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic

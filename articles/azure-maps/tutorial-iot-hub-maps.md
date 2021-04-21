@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 91556087cd3e7ccd85550c721f70b8608fdc4ffd
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 9ebc6e266c93e55bc250e8450356f8b695dd9080
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168453"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714995"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 IoT 공간 분석 구현
 
@@ -95,7 +95,7 @@ IoT 시나리오에서는 일반적으로 시간과 공간에서 발생하는 �
 
 ## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
-차량 위치 이탈 추적 데이터를 저장하기 위해 리소스 그룹에 [범용 v2 스토리지 계정](../storage/common/storage-account-overview.md#general-purpose-v2-accounts)을 만듭니다. 리소스 그룹을 만들지 않은 경우 [ 리소스 그룹 만들기](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups)의 지침을 따릅니다. 이 자습서에서는 리소스 그룹 이름을 *ContosoRental* 이라고 지정합니다.
+차량 위치 이탈 추적 데이터를 저장하기 위해 리소스 그룹에 [범용 v2 스토리지 계정](../storage/common/storage-account-overview.md)을 만듭니다. 리소스 그룹을 만들지 않은 경우 [ 리소스 그룹 만들기](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups)의 지침을 따릅니다. 이 자습서에서는 리소스 그룹 이름을 *ContosoRental* 이라고 지정합니다.
 
 스토리지 계정을 만들려면 [스토리지 계정 만들기](../storage/common/storage-account-create.md?tabs=azure-portal)의 지침을 따릅니다. 이 자습서에서는 스토리지 계정 이름을 *contosorentalstorage* 라고 지정하지만, 일반적으로 원하는 대로 이름을 지정할 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 611068fa020321be88be6e1d6da663266029c658
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3d52a83c8c0920c4d85aa5b4b6b89fd8d36e5fea
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94660188"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774972"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 IoT Hub Device Provisioning Service 설정
 
@@ -30,7 +30,7 @@ ms.locfileid: "94660188"
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
+[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
 
 다음 예제에서는 *westus* 위치에 *my-sample-resource-group* 이라는 리소스 그룹을 만듭니다.
 
@@ -45,7 +45,7 @@ az group create --name my-sample-resource-group --location westus
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
-[az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) 명령을 사용하여 IoT 허브를 만듭니다.
+[az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) 명령을 사용하여 IoT 허브를 만듭니다.
 
 다음 예제에서는 *westus* 위치에 *my-sample-hub* 라는 IoT 허브를 만듭니다. IoT 허브 이름은 Azure에서 전역적으로 고유해야 하며, 예제 이름에 고유한 접두사 또는 접미사를 추가해도 되고 새 이름을 선택해도 됩니다. 이름이 IoT 허브에 대한 명명 규칙을 준수해야 합니다. 즉, 길이는 3-50자여야 하고, 대문자나 소문자 영숫자 또는 하이픈('-')만 포함할 수 있습니다. 
 
@@ -55,7 +55,7 @@ az iot hub create --name my-sample-hub --resource-group my-sample-resource-group
 
 ## <a name="create-a-device-provisioning-service"></a>Device Provisioning Service 만들기
 
-[az iot dps create](/cli/azure/iot/dps#az-iot-dps-create) 명령을 사용하여 Device Provisioning Service를 만듭니다. 
+[az iot dps create](/cli/azure/iot/dps#az_iot_dps_create) 명령을 사용하여 Device Provisioning Service를 만듭니다. 
 
 다음 예제에서는 *westus* 위치에 *my-sample-dps* 라는 프로비저닝 서비스를 만듭니다. 또한 전역적으로 고유한 프로비저닝 서비스 이름을 선택해야 합니다. 이름이 IoT Hub Device Provisioning Service에 대한 명명 규칙을 준수해야 합니다. 즉, 길이는 3-64자여야 하고, 대문자나 소문자 영숫자 또는 하이픈('-')만 포함할 수 있습니다.
 
@@ -69,7 +69,7 @@ az iot dps create --name my-sample-dps --resource-group my-sample-resource-group
 
 ## <a name="get-the-connection-string-for-the-iot-hub"></a>IoT 허브에 대한 연결 문자열 가져오기
 
-Device Provisioning Service와 연결하려면 IoT 허브의 연결 문자열이 필요합니다. [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) 명령을 사용하여 연결 문자열을 가져오고, 해당 출력을 사용하여 두 리소스를 연결할 때 사용할 변수를 설정합니다. 
+Device Provisioning Service와 연결하려면 IoT 허브의 연결 문자열이 필요합니다. [az iot hub show-connection-string](/cli/azure/iot/hub#az_iot_hub_show_connection_string) 명령을 사용하여 연결 문자열을 가져오고, 해당 출력을 사용하여 두 리소스를 연결할 때 사용할 변수를 설정합니다. 
 
 다음 예제에서는 *hubConnectionString* 변수를 허브의 *iothubowner* 정책에 있는 기본 키에 대한 연결 문자열 값으로 설정합니다(`--policy-name` 매개 변수를 사용하여 다른 정책을 지정할 수 있음). *my-sample-hub* 를 앞에서 선택한 고유한 IoT 허브 이름으로 바꿉니다. 이 명령은 Azure CLI [query](/cli/azure/query-azure-cli) 및 [output](/cli/azure/format-output-azure-cli#tsv-output-format) 옵션을 사용하여 명령 출력에서 연결 문자열을 추출합니다.
 
@@ -93,7 +93,7 @@ echo $hubConnectionString
 
 ## <a name="link-the-iot-hub-and-the-provisioning-service"></a>IoT 허브 및 프로비전 서비스 연결
 
-[az iot dps linked-hub create](/cli/azure/iot/dps/linked-hub#az-iot-dps-linked-hub-create) 명령을 사용하여 IoT 허브와 프로비전 서비스를 연결합니다. 
+[az iot dps linked-hub create](/cli/azure/iot/dps/linked-hub#az_iot_dps_linked_hub_create) 명령을 사용하여 IoT 허브와 프로비전 서비스를 연결합니다. 
 
 다음 예제에서는 *westus* 위치에 있는 *my-sample-hub* 라는 IoT 허브와 *my-sample-dps* 라는 디바이스 프로비저닝 서비스를 연결합니다. 두 이름을 이전에 선택한 고유한 IoT 허브 이름과 Device Provisioning Service 이름으로 바꿉니다. 이 명령은 이전 단계의 *hubConnectionString* 변수에 저장된 IoT 허브의 연결 문자열을 사용합니다.
 
@@ -105,7 +105,7 @@ az iot dps linked-hub create --dps-name my-sample-dps --resource-group my-sample
 
 ## <a name="verify-the-provisioning-service"></a>프로비전 서비스 확인
 
-[az iot dps show](/cli/azure/iot/dps#az-iot-dps-show) 명령을 사용하여 프로비전 서비스에 대한 세부 정보를 가져옵니다.
+[az iot dps show](/cli/azure/iot/dps#az_iot_dps_show) 명령을 사용하여 프로비전 서비스에 대한 세부 정보를 가져옵니다.
 
 다음 예제에서는 *my-sample-dps* 라는 프로비전 서비스에 대한 세부 정보를 가져옵니다. 이 이름을 사용자 고유의 Device Provisioning Service 이름으로 바꿉니다.
 
@@ -120,18 +120,18 @@ az iot dps show --name my-sample-dps
 
 이 컬렉션의 다른 빠른 시작은 이 빠른 시작을 기반으로 구성됩니다. 다음 빠른 시작 또는 자습서를 사용하여 계속하려는 경우 이 빠른 시작에서 만든 리소스를 정리하지 않습니다. 계속하지 않으려는 경우 다음 명령을 사용하여 프로비전 서비스, IoT 허브 또는 리소스 그룹 및 모든 관련 리소스를 삭제할 수 있습니다. 아래에 작성된 리소스 이름을 사용자 고유의 리소스 이름으로 바꿉니다.
 
-프로비전 서비스를 삭제하려면 [az iot dps delete](/cli/azure/iot/dps#az-iot-dps-delete) 명령을 실행합니다.
+프로비전 서비스를 삭제하려면 [az iot dps delete](/cli/azure/iot/dps#az_iot_dps_delete) 명령을 실행합니다.
 
 ```azurecli-interactive
 az iot dps delete --name my-sample-dps --resource-group my-sample-resource-group
 ```
-IoT 허브를 삭제하려면 [az iot hub delete](/cli/azure/iot/hub#az-iot-hub-delete) 명령을 실행합니다.
+IoT 허브를 삭제하려면 [az iot hub delete](/cli/azure/iot/hub#az_iot_hub_delete) 명령을 실행합니다.
 
 ```azurecli-interactive
 az iot hub delete --name my-sample-hub --resource-group my-sample-resource-group
 ```
 
-리소스 그룹 및 모든 관련 리소스를 삭제하려면 [az group delete](/cli/azure/group#az-group-delete) 명령을 실행합니다.
+리소스 그룹 및 모든 관련 리소스를 삭제하려면 [az group delete](/cli/azure/group#az_group_delete) 명령을 실행합니다.
 
 ```azurecli-interactive
 az group delete --name my-sample-resource-group

@@ -2,20 +2,20 @@
 title: 소스 제어 통합
 description: Azure Repos(Git 및 GitHub)를 사용하는 네이티브 소스 제어 통합이 포함된 전용 SQL 풀에 대한 엔터프라이즈급 데이터베이스 DevOps 환경.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql-dw
 ms.date: 08/23/2019
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
-ms.openlocfilehash: 0864ab90f35e4af0443b418bc139ee5f8a7db665
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53adbc0288c28c3b18632539c3f812bbca82da92
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585539"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566157"
 ---
 # <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대한 소스 제어 통합
 

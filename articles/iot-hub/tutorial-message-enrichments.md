@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: bd047419275d98049f883bb88a83708a9dfdd7d3
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 0d6c90120d050b6896161f50332faf447c3ed67b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066894"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788874"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>자습서: Azure IoT Hub 메시지 보강 사용
 
@@ -386,7 +386,7 @@ Simulated Device 애플리케이션은 압축을 푼 다운로드의 애플리�
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Azure CLI를 사용하여 리소스 정리
 
-리소스 그룹을 제거하려면 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용합니다. 이 자습서를 시작할 때 `$resourceGroup`을 **ContosoResourcesMsgEn** 으로 설정했습니다.
+리소스 그룹을 제거하려면 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용합니다. 이 자습서를 시작할 때 `$resourceGroup`을 **ContosoResourcesMsgEn** 으로 설정했습니다.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
