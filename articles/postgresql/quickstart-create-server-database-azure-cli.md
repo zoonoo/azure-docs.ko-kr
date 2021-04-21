@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1d7b6cd6d61be6df66d215613222c12a0f2c9c5e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a595d677cf0964083526cb7e2c73471148be0fd4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606736"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778433"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Database for PostgreSQL 서버 만들기
 
@@ -34,11 +34,11 @@ ms.locfileid: "105606736"
         az account set --subscription <subscription id>
         ```
 
-    - 구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. 모든 구독을 가져오려면 [az account list](/cli/azure/account#az-account-list)를 사용합니다.
+    - 구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. 모든 구독을 가져오려면 [az account list](/cli/azure/account#az_account_list)를 사용합니다.
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>PostgreSQL용 Azure Database 서버 만들기
 
-[az group create](/cli/azure/group#az-group-create) 명령을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)을 만든 다음, 이 리소스 그룹 내에 PostgreSQL 서버를 만듭니다. 고유한 이름을 제공해야 합니다. 다음 예제에서는 `westus` 위치에 `myresourcegroup`이라는 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)을 만든 다음, 이 리소스 그룹 내에 PostgreSQL 서버를 만듭니다. 고유한 이름을 제공해야 합니다. 다음 예제에서는 `westus` 위치에 `myresourcegroup`이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
@@ -62,7 +62,7 @@ sku-name|GP_Gen5_2| 가격 책정 계층 및 컴퓨팅 구성의 이름입니다
 
 >[!IMPORTANT] 
 >- 서버의 기본 PostgreSQL 버전은 9.6입니다. 지원되는 모든 버전을 보려면 [지원되는 PostgreSQL 주 버전](./concepts-supported-versions.md)을 참조하세요.
->- **az postgres server create** 명령에 대한 모든 인수를 보려면 [이 참조 문서](/cli/azure/postgres/server#az-postgres-server-create)를 참조하세요.
+>- **az postgres server create** 명령에 대한 모든 인수를 보려면 [이 참조 문서](/cli/azure/postgres/server#az_postgres_server_create)를 참조하세요.
 >- SSL은 서버에서 기본적으로 사용하도록 설정됩니다. SSL에 대한 자세한 내용은 [SSL 연결 구성](./concepts-ssl-connection-security.md)을 참조하세요.
 
 ## <a name="configure-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 구성 

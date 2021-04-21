@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 6dd10039ba5c71d3a787761914b111e7828c47d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a8d5d5d76dc762734921dc2cb7ae575d15b626c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552612"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789638"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>자습서 - cloud-init를 사용하여 첫 번째 부팅 시 Azure에서 Linux 가상 머신을 사용자 지정하는 방법
 
@@ -89,13 +89,13 @@ runcmd:
 cloud-init 구성 옵션에 대한 자세한 내용은 [cloud-init 구성 예제](https://cloudinit.readthedocs.io/en/latest/topics/examples.html)를 참조하세요.
 
 ## <a name="create-virtual-machine"></a>가상 머신 만들기
-VM을 만들려면 먼저 [az group create](/cli/azure/group#az-group-create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupAutomate* 라는 리소스 그룹을 만듭니다.
+VM을 만들려면 먼저 [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupAutomate* 라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-이제 [az vm create](/cli/azure/vm#az-vm-create)로 VM을 만듭니다. `--custom-data` 매개 변수를 사용하여 cloud-init 구성 파일을 전달합니다. 현재 작업 디렉터리 외부에 파일을 저장한 경우 *cloud-init.txt* 구성의 전체 경로를 제공합니다. 다음 예제에서는 *myVM* 이라는 VM을 만듭니다.
+이제 [az vm create](/cli/azure/vm#az_vm_create)로 VM을 만듭니다. `--custom-data` 매개 변수를 사용하여 cloud-init 구성 파일을 전달합니다. 현재 작업 디렉터리 외부에 파일을 저장한 경우 *cloud-init.txt* 구성의 전체 경로를 제공합니다. 다음 예제에서는 *myVM* 이라는 VM을 만듭니다.
 
 ```azurecli-interactive
 az vm create \
@@ -109,7 +109,7 @@ az vm create \
 
 VM을 만들고 패키지를 설치하고 앱을 시작하는 데 몇 분 정도 걸립니다. Azure CLI에서 프롬프트로 반환한 후 실행을 계속하는 백그라운드 작업이 있습니다. 앱에 액세스하려면 몇 분이 걸릴 수 있습니다. VM이 만들어지면 Azure CLI에 표시된 `publicIpAddress`를 기록해 둡니다. 이 주소는 웹 브라우저를 통해 Node.js 앱에 액세스할 때 사용됩니다.
 
-웹 트래픽이 VM에 도달하도록 허용하려면 [az vm open-port](/cli/azure/vm#az-vm-open-port)를 사용하여 인터넷에서 포트 80을 엽니다.
+웹 트래픽이 VM에 도달하도록 허용하려면 [az vm open-port](/cli/azure/vm#az_vm_open_port)를 사용하여 인터넷에서 포트 80을 엽니다.
 
 ```azurecli-interactive
 az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myAutomatedVM
@@ -134,7 +134,7 @@ Azure Key Vault는 암호화 키 및 비밀(인증서 또는 암호)을 보호�
 - VM 만들기 및 인증서 삽입
 
 ### <a name="create-an-azure-key-vault"></a>Azure Key Vault 만들기
-먼저 [az keyvault create](/cli/azure/keyvault#az-keyvault-create)를 사용하여 Key Vault를 만들고 VM 배포 시에 사용할 수 있도록 설정합니다. 각 Key Vault에는 고유한 이름이 필요하며 모두 소문자여야 합니다. 다음 예제에서 `mykeyvault`를 사용자 고유의 Key Vault 이름으로 바꿉니다.
+먼저 [az keyvault create](/cli/azure/keyvault#az_keyvault_create)를 사용하여 Key Vault를 만들고 VM 배포 시에 사용할 수 있도록 설정합니다. 각 Key Vault에는 고유한 이름이 필요하며 모두 소문자여야 합니다. 다음 예제에서 `mykeyvault`를 사용자 고유의 Key Vault 이름으로 바꿉니다.
 
 ```azurecli-interactive
 keyvault_name=mykeyvault
@@ -145,7 +145,7 @@ az keyvault create \
 ```
 
 ### <a name="generate-certificate-and-store-in-key-vault"></a>인증서 생성 및 Key Vault에 저장
-프로덕션 사용을 위해 [az keyvault certificate import](/cli/azure/keyvault/certificate#az-keyvault-certificate-import)를 사용하여 신뢰할 수 있는 공급자가 서명한 유효한 인증서를 가져와야 합니다. 이 자습서에서는 다음 예제를 통해 [az keyvault certificate create](/cli/azure/keyvault/certificate#az-keyvault-certificate-create)를 사용하여 기본 인증서 정책을 사용하는 자체 서명된 인증서를 생성할 수 있는 방법을 보여 줍니다.
+프로덕션 사용을 위해 [az keyvault certificate import](/cli/azure/keyvault/certificate#az_keyvault_certificate_import)를 사용하여 신뢰할 수 있는 공급자가 서명한 유효한 인증서를 가져와야 합니다. 이 자습서에서는 다음 예제를 통해 [az keyvault certificate create](/cli/azure/keyvault/certificate#az_keyvault_certificate_create)를 사용하여 기본 인증서 정책을 사용하는 자체 서명된 인증서를 생성할 수 있는 방법을 보여 줍니다.
 
 ```azurecli-interactive
 az keyvault certificate create \
@@ -156,7 +156,7 @@ az keyvault certificate create \
 
 
 ### <a name="prepare-certificate-for-use-with-vm"></a>VM에 사용할 인증서 준비
-VM 만들기 프로세스 동안 인증서를 사용하려면 [az keyvault secret list-versions](/cli/azure/keyvault/secret#az-keyvault-secret-list-versions)를 사용하여 인증서 ID를 가져옵니다. VM에는 부팅 시 삽입하는 특정 형식의 인증서가 필요하므로 [az vm secret format](/cli/azure/vm)을 사용하여 인증서를 변환합니다. 다음 예제에서는 다음 단계의 사용 편의성을 위해 변수에 이러한 명령의 출력을 할당합니다.
+VM 만들기 프로세스 동안 인증서를 사용하려면 [az keyvault secret list-versions](/cli/azure/keyvault/secret#az_keyvault_secret_list_versions)를 사용하여 인증서 ID를 가져옵니다. VM에는 부팅 시 삽입하는 특정 형식의 인증서가 필요하므로 [az vm secret format](/cli/azure/vm)을 사용하여 인증서를 변환합니다. 다음 예제에서는 다음 단계의 사용 편의성을 위해 변수에 이러한 명령의 출력을 할당합니다.
 
 ```azurecli-interactive
 secret=$(az keyvault secret list-versions \
@@ -222,7 +222,7 @@ runcmd:
 ```
 
 ### <a name="create-secure-vm"></a>보안 VM 만들기
-이제 [az vm create](/cli/azure/vm#az-vm-create)로 VM을 만듭니다. 인증서 데이터는 `--secrets` 매개 변수를 사용하여 Key Vault에서 삽입됩니다. 이전 예제와 마찬가지로 `--custom-data` 매개 변수를 사용하여 cloud-init 구성을 전달합니다.
+이제 [az vm create](/cli/azure/vm#az_vm_create)로 VM을 만듭니다. 인증서 데이터는 `--secrets` 매개 변수를 사용하여 Key Vault에서 삽입됩니다. 이전 예제와 마찬가지로 `--custom-data` 매개 변수를 사용하여 cloud-init 구성을 전달합니다.
 
 ```azurecli-interactive
 az vm create \
@@ -237,7 +237,7 @@ az vm create \
 
 VM을 만들고 패키지를 설치하고 앱을 시작하는 데 몇 분 정도 걸립니다. Azure CLI에서 프롬프트로 반환한 후 실행을 계속하는 백그라운드 작업이 있습니다. 앱에 액세스하려면 몇 분이 걸릴 수 있습니다. VM이 만들어지면 Azure CLI에 표시된 `publicIpAddress`를 기록해 둡니다. 이 주소는 웹 브라우저를 통해 Node.js 앱에 액세스할 때 사용됩니다.
 
-보안 웹 트래픽이 VM에 도달하도록 허용하려면 [az vm open-port](/cli/azure/vm#az-vm-open-port)를 사용하여 인터넷에서 포트 443을 엽니다.
+보안 웹 트래픽이 VM에 도달하도록 허용하려면 [az vm open-port](/cli/azure/vm#az_vm_open_port)를 사용하여 인터넷에서 포트 443을 엽니다.
 
 ```azurecli-interactive
 az vm open-port \

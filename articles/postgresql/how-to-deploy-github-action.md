@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.author: sumuth
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 2e546801f95d9d884bdfb3f09a18b3fa6e2d78a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7fc59c0d9036a2e83c742f51fc17750d40e057fe
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97364989"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791430"
 ---
 # <a name="quickstart-use-github-actions-to-connect-to-azure-postgresql"></a>빠른 시작: GitHub Actions를 사용하여 Azure PostgreSQL에 연결
 
@@ -41,7 +41,7 @@ GitHub Actions 워크플로는 리포지토리의 `/.github/workflows/` 경로�
 
 ## <a name="generate-deployment-credentials"></a>배포 자격 증명 생성
 
-[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac&preserve-view=true) 명령을 사용하여 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)를 만들 수 있습니다. 이 명령은 Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 실행합니다.
+[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac&preserve-view=true) 명령을 사용하여 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)를 만들 수 있습니다. 이 명령은 Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 실행합니다.
 
 `server-name` 자리 표시자를 Azure에서 호스팅되는 PostgreSQL 서버의 이름으로 바꿉니다. `subscription-id` 및 `resource-group`을 PostgreSQL 서버에 연결된 구독 ID 및 리소스 그룹으로 바꿉니다.
 

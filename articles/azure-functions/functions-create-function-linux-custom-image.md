@@ -5,12 +5,12 @@ ms.date: 12/2/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions-full
-ms.openlocfilehash: 1c7a9fd83131ea6282d2ef4860b744fa348153ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7950bfb4a57db812da87f4e5f76f3075d50a8293
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98070920"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782280"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 Linux에서 함수 만들기
 
@@ -360,13 +360,13 @@ Docker Hub는 이미지를 호스팅하고 이미지 및 컨테이너 서비스�
 
 이러한 항목은 Azure CLI 명령을 사용하여 만듭니다. 각 명령은 완료 시 JSON 출력을 제공합니다.
 
-1. [az login](/cli/azure/reference-index#az-login) 명령을 사용하여 Azure에 로그인합니다.
+1. [az login](/cli/azure/reference-index#az_login) 명령을 사용하여 Azure에 로그인합니다.
 
     ```azurecli
     az login
     ```
     
-1. [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 `AzureFunctionsContainers-rg`라는 리소스 그룹을 `westeurope` 지역에 만듭니다. (일반적으로 `az account list-locations` 명령에서 사용 가능한 지역을 사용하여 리소스 그룹과 리소스를 가까운 지역에 만듭니다.)
+1. [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 `AzureFunctionsContainers-rg`라는 리소스 그룹을 `westeurope` 지역에 만듭니다. (일반적으로 `az account list-locations` 명령에서 사용 가능한 지역을 사용하여 리소스 그룹과 리소스를 가까운 지역에 만듭니다.)
 
     ```azurecli
     az group create --name AzureFunctionsContainers-rg --location westeurope
@@ -375,7 +375,7 @@ Docker Hub는 이미지를 호스팅하고 이미지 및 컨테이너 서비스�
     > [!NOTE]
     > Linux 및 Windows 앱을 동일한 리소스 그룹에 호스트할 수 없습니다. Windows 함수 앱 또는 웹앱이 포함된 `AzureFunctionsContainers-rg`이라는 기존 리소스 그룹이 있는 경우 다른 리소스 그룹을 사용해야 합니다.
     
-1. [az storage account create](/cli/azure/storage/account#az-storage-account-create) 명령을 사용하여 범용 스토리지 계정을 리소스 그룹 및 지역에 만듭니다. 다음 예제에서 `<storage_name>`을 적절하고 전역적으로 고유한 이름으로 바꿉니다. 이름은 3~24자의 숫자와 소문자만 포함해야 합니다. `Standard_LRS`는 일반적인 범용 계정을 지정합니다.
+1. [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용하여 범용 스토리지 계정을 리소스 그룹 및 지역에 만듭니다. 다음 예제에서 `<storage_name>`을 적절하고 전역적으로 고유한 이름으로 바꿉니다. 이름은 3~24자의 숫자와 소문자만 포함해야 합니다. `Standard_LRS`는 일반적인 범용 계정을 지정합니다.
 
     ```azurecli
     az storage account create --name <storage_name> --location westeurope --resource-group AzureFunctionsContainers-rg --sku Standard_LRS
@@ -397,7 +397,7 @@ Docker Hub는 이미지를 호스팅하고 이미지 및 컨테이너 서비스�
 
 Azure의 함수 앱은 호스팅 계획에서 함수 실행을 관리합니다. 이 섹션에서는 이전 섹션의 Azure 리소스를 사용하여 Docker Hub의 이미지에서 함수 앱을 만들고 Azure Storage에 대한 연결 문자열을 사용하여 구성합니다.
 
-1. [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 명령을 사용하여 Functions 앱을 만듭니다. 다음 예제에서 `<storage_name>`을 이전 섹션에서 스토리지 계정에 사용한 이름으로 바꿉니다. 또한 `<app_name>`을 적절하고 전역적으로 고유한 이름으로 바꾸고, `<docker_id>`를 Docker ID로 바꿉니다.
+1. [az functionapp create](/cli/azure/functionapp#az_functionapp_create) 명령을 사용하여 Functions 앱을 만듭니다. 다음 예제에서 `<storage_name>`을 이전 섹션에서 스토리지 계정에 사용한 이름으로 바꿉니다. 또한 `<app_name>`을 적절하고 전역적으로 고유한 이름으로 바꾸고, `<docker_id>`를 Docker ID로 바꿉니다.
 
     ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
     ```azurecli
@@ -410,7 +410,7 @@ Azure의 함수 앱은 호스팅 계획에서 함수 실행을 관리합니다. 
     ```
     ::: zone-end
     
-    *deployment-container-image-name* 매개 변수는 함수 앱에 사용할 이미지를 지정합니다. [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) 명령을 사용하여 배포에 사용되는 이미지에 대한 정보를 볼 수 있습니다. 또한 [az functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) 명령을 사용하여 다른 이미지에서 배포할 수도 있습니다.
+    *deployment-container-image-name* 매개 변수는 함수 앱에 사용할 이미지를 지정합니다. [az functionapp config container show](/cli/azure/functionapp/config/container#az_functionapp_config_container_show) 명령을 사용하여 배포에 사용되는 이미지에 대한 정보를 볼 수 있습니다. 또한 [az functionapp config container set](/cli/azure/functionapp/config/container#az_functionapp_config_container_set) 명령을 사용하여 다른 이미지에서 배포할 수도 있습니다.
 
 1. [az storage account show-connection-string](/cli/azure/storage/account) 명령을 사용하여 만든 스토리지 계정에 대한 연결 문자열을 표시합니다. `<storage-name>`을 위에서 만든 스토리지 계정의 이름으로 바꿉니다.
 
@@ -418,7 +418,7 @@ Azure의 함수 앱은 호스팅 계획에서 함수 실행을 관리합니다. 
     az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <storage_name> --query connectionString --output tsv
     ```
     
-1. [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 명령을 사용하여 이 설정을 함수 앱에 추가합니다. 다음 명령에서 `<app_name>`을 함수 앱의 이름으로 바꾸고 `<connection_string>`을 이전 단계의 연결 문자열 ("DefaultEndpointProtocol="로 시작하는 인코딩된 긴 문자열)로 바꿉니다.
+1. [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_ppsettings_set) 명령을 사용하여 이 설정을 함수 앱에 추가합니다. 다음 명령에서 `<app_name>`을 함수 앱의 이름으로 바꾸고 `<connection_string>`을 이전 단계의 연결 문자열 ("DefaultEndpointProtocol="로 시작하는 인코딩된 긴 문자열)로 바꿉니다.
  
     ```azurecli
     az functionapp config appsettings set --name <app_name> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=<connection_string>
@@ -513,13 +513,13 @@ Azure의 함수 앱은 호스팅 계획에서 함수 실행을 관리합니다. 
 
 레지스트리의 이미지를 업데이트할 때마다 Azure Functions에서 이미지 배포를 자동으로 업데이트하도록 설정할 수 있습니다.
 
-1. [az functionapp deployment container config](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config) 명령을 사용하여 지속적인 배포를 사용하도록 설정합니다. 여기서 `<app_name>`을 함수 앱 이름으로 바꿉니다.
+1. [az functionapp deployment container config](/cli/azure/functionapp/deployment/container#az_functionapp_deployment_container_config) 명령을 사용하여 지속적인 배포를 사용하도록 설정합니다. 여기서 `<app_name>`을 함수 앱 이름으로 바꿉니다.
 
     ```azurecli
     az functionapp deployment container config --enable-cd --query CI_CD_URL --output tsv --name <app_name> --resource-group AzureFunctionsContainers-rg
     ```
     
-    이 명령은 지속적인 배포를 사용하도록 설정하고 배포 웹후크 URL을 반환합니다. (이 URL은 나중에 [az functionapp deployment container show-cd-url](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-show-cd-url) 명령을 사용하여 검색할 수 있습니다.)
+    이 명령은 지속적인 배포를 사용하도록 설정하고 배포 웹후크 URL을 반환합니다. (이 URL은 나중에 [az functionapp deployment container show-cd-url](/cli/azure/functionapp/deployment/container#az_functionapp_deployment_container_show_cd_url) 명령을 사용하여 검색할 수 있습니다.)
 
 1. 배포 웹후크 URL을 클립보드에 복사합니다.
 

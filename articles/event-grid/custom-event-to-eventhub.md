@@ -4,12 +4,12 @@ description: '빠른 시작: Azure Event Grid 및 Azure CLI를 사용하여 토�
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7c236025f31e10c00b324e5ff3374bd6504b2b7e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e1989c94cc7b260cfc36a3129d2743350ca430bf
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91324113"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780496"
 ---
 # <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>빠른 시작: Azure CLI 및 Event Grid를 사용하여 Azure Event Hubs로 사용자 지정 이벤트 라우팅
 
@@ -21,7 +21,7 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. Azure E
 
 Event Grid 토픽은 Azure 리소스이며 Azure 리소스 그룹에 배치해야 합니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컬렉션입니다.
 
-[az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. 
+[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. 
 
 다음 예제에서는 *westus2* 위치에 *gridResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
