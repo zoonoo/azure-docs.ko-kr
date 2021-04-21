@@ -3,17 +3,19 @@ title: 빠른 시작 - 지역 복제 레지스트리 만들기 - Azure Resource 
 description: Azure Resource Manager 템플릿을 사용하여 지역 복제 Azure Container Registry를 만드는 방법을 알아봅니다.
 services: azure-resource-manager
 author: dlepow
-ms.service: azure-resource-manager
-ms.topic: quickstart
-ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 10/06/2020
-ms.openlocfilehash: 97b556e0329644b973def8333ddb5e70e370b0bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.service: azure-resource-manager
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: c59c7897054b2ad65a76353e6d886af46cac91e0
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91827022"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537429"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 지역 복제 컨테이너 레지스트리 만들기
 

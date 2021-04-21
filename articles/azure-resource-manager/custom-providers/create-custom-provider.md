@@ -5,12 +5,12 @@ author: MSEvanhi
 ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: evanhi
-ms.openlocfilehash: 23ae69f49d37a210dd9fa1bfeedeca6c1b461e20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 721fe31f514cb948c93dc2a779a92ef3b2775ef9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94888864"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779240"
 ---
 # <a name="quickstart-create-a-custom-provider-and-deploy-custom-resources"></a>빠른 시작: 사용자 지정 공급자 만들기 및 사용자 지정 리소스 배포
 
@@ -27,7 +27,7 @@ Azure CLI에 대한 환경을 준비합니다.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Azure CLI 예제에서는 `REST` 요청에 대해 `az rest`를 사용합니다. 자세한 내용은 [az rest](/cli/azure/reference-index#az-rest)를 참조하세요.
+Azure CLI 예제에서는 `REST` 요청에 대해 `az rest`를 사용합니다. 자세한 내용은 [az rest](/cli/azure/reference-index#az_rest)를 참조하세요.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -52,7 +52,7 @@ Azure CLI 예제에서는 `REST` 요청에 대해 `az rest`를 사용합니다. 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-이 예제에서는 리소스 그룹, 위치 및 공급자의 함수 앱 이름을 입력하라는 메시지를 표시합니다. 이름은 다른 명령에 사용되는 변수에 저장됩니다. [az group create](/cli/azure/group#az-group-create) 및 [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) 명령을 통해 리소스를 배포합니다.
+이 예제에서는 리소스 그룹, 위치 및 공급자의 함수 앱 이름을 입력하라는 메시지를 표시합니다. 이름은 다른 명령에 사용되는 변수에 저장됩니다. [az group create](/cli/azure/group#az_group_create) 및 [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) 명령을 통해 리소스를 배포합니다.
 
 ```azurecli-interactive
 read -p "Enter a resource group name:" rgName &&

@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 01/07/2021
 ms.author: kumud
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 18e380345ef0caab52e9b1c537bada73e36d8b48
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 701df4353e8d2e36baf0496bd6944c4a95395414
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063307"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763272"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>빠른 시작: 가상 머신 네트워크 트래픽 필터 문제 진단 - Azure CLI
 
@@ -62,7 +62,7 @@ Network Watcher와의 네트워크 통신을 테스트하려면 먼저 테스트
 
 ### <a name="enable-network-watcher"></a>네트워크 감시자 사용
 
-미국 동부 지역에서 이미 Network Watcher를 사용하도록 설정한 경우 [IP 흐름 확인 사용](#use-ip-flow-verify)으로 건너뜁니다. [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) 명령을 사용하여 미국 동부 지역의 네트워크 감시자를 만듭니다.
+미국 동부 지역에서 이미 Network Watcher를 사용하도록 설정한 경우 [IP 흐름 확인 사용](#use-ip-flow-verify)으로 건너뜁니다. [az network watcher configure](/cli/azure/network/watcher#az_network_watcher_configure) 명령을 사용하여 미국 동부 지역의 네트워크 감시자를 만듭니다.
 
 ```azurecli-interactive
 az network watcher configure \
@@ -73,7 +73,7 @@ az network watcher configure \
 
 ### <a name="use-ip-flow-verify"></a>IP 흐름 확인 사용
 
-VM을 만들 때 Azure는 기본적으로 VM 간 네트워크 트래픽을 허용하고 거부합니다. 추가 트래픽 형식을 허용하거나 거부하여 나중에 Azure의 기본값을 재정의할 수 있습니다. 트래픽이 다른 대상 및 원본 IP 주소에서 허용되거나 거부되는지 여부를 테스트하려면 [az network watcher test-ip-flow](/cli/azure/network/watcher#az-network-watcher-test-ip-flow) 명령을 사용합니다.
+VM을 만들 때 Azure는 기본적으로 VM 간 네트워크 트래픽을 허용하고 거부합니다. 추가 트래픽 형식을 허용하거나 거부하여 나중에 Azure의 기본값을 재정의할 수 있습니다. 트래픽이 다른 대상 및 원본 IP 주소에서 허용되거나 거부되는지 여부를 테스트하려면 [az network watcher test-ip-flow](/cli/azure/network/watcher#az_network_watcher_test_ip_flow) 명령을 사용합니다.
 
 VM에서 www.bing.com 에 대한 IP 주소 중 하나로 아웃바운드 통신을 테스트합니다.
 
@@ -125,7 +125,7 @@ az network watcher test-ip-flow \
 
 ## <a name="view-details-of-a-security-rule"></a>보안 규칙의 세부 정보 보기
 
-[IP 흐름 확인 사용](#use-ip-flow-verify)의 규칙이 통신을 허용하거나 방지하는 이유를 확인하려면 [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg) 명령을 사용하여 네트워크 인터페이스에 대한 효과적인 보안 규칙을 검토합니다.
+[IP 흐름 확인 사용](#use-ip-flow-verify)의 규칙이 통신을 허용하거나 방지하는 이유를 확인하려면 [az network nic list-effective-nsg](/cli/azure/network/nic#az_network_nic_list_effective_nsg) 명령을 사용하여 네트워크 인터페이스에 대한 효과적인 보안 규칙을 검토합니다.
 
 ```azurecli-interactive
 az network nic list-effective-nsg \

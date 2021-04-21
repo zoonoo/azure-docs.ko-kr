@@ -3,16 +3,18 @@ title: 빠른 시작 - Azure PowerShell을 사용하여 Azure 프라이빗 DNS �
 description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 첫 번째 프라이빗 DNS 영역 및 레코드를 만들고 관리하는 방법을 알아봅니다.
 services: dns
 author: rohinkoul
-ms.service: dns
-ms.topic: quickstart
-ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: ee6dde6b34cccd415f9bf2052f65dcbe940715c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/20/2020
+ms.topic: quickstart
+ms.service: dns
+ms.custom:
+- mode-api
+ms.openlocfilehash: 321cd9c9f85b7f1dc2540992d9db0aaefa1b9b62
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92424389"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535480"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure 프라이빗 DNS 영역 만들기
 

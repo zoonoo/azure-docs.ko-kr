@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/29/2020
-ms.openlocfilehash: 2412d3d2851d1b4d251b50ff3068b7dcafcccee8
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: eddcab2c0a34ef437e4f2f1e2203fee9065133a4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105642046"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781886"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스로 BACPAC 파일을 가져옵니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -128,7 +128,7 @@ $importStatus
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) 명령을 사용하여 Azure에 데이터베이스 가져오기 요청을 제출합니다. 데이터베이스 크기에 따라 가져오기를 완료하는 데 다소 시간이 걸릴 수 있습니다. DTU 기반 프로비저닝 모델은 각 계층에 대한 데이터베이스 최대 크기 값을 선택할 수 있도록 해줍니다. 데이터베이스를 가져올 때 [지원되는 값 중 하나를 사용합니다](/sql/t-sql/statements/create-database-transact-sql). 
+[az-sql-db-import](/cli/azure/sql/db#az_sql_db_import) 명령을 사용하여 Azure에 데이터베이스 가져오기 요청을 제출합니다. 데이터베이스 크기에 따라 가져오기를 완료하는 데 다소 시간이 걸릴 수 있습니다. DTU 기반 프로비저닝 모델은 각 계층에 대한 데이터베이스 최대 크기 값을 선택할 수 있도록 해줍니다. 데이터베이스를 가져올 때 [지원되는 값 중 하나를 사용합니다](/sql/t-sql/statements/create-database-transact-sql). 
 
 ```azurecli
 # get the storage account key

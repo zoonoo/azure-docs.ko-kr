@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: 2ea833b72b9522cdfca836a7b13f7b411402103e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee298b33736ae25b365cc54ee1bb5ec9f38bfb62
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94562698"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763611"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-dbs-api-for-mongodb-using-azure-cli"></a>Azure CLI를 사용하여 Azure Cosmos DB의 API for MongoDB에 대한 리소스 잠금 만들기
 [!INCLUDE[appliesto-mongodb-api](../../../includes/appliesto-mongodb-api.md)]
@@ -34,10 +34,10 @@ ms.locfileid: "94562698"
 
 | 명령 | 메모 |
 |---|---|
-| [az lock create](/cli/azure/lock#az-lock-create) | 잠금을 만듭니다. |
-| [az lock list](/cli/azure/lock#az-lock-list) | 잠금 정보를 나열합니다. |
-| [az lock show](/cli/azure/lock#az-lock-show) | 잠금의 속성을 표시합니다. |
-| [az lock delete](/cli/azure/lock#az-lock-delete) | 잠금을 삭제합니다. |
+| [az lock create](/cli/azure/lock#az_lock_create) | 잠금을 만듭니다. |
+| [az lock list](/cli/azure/lock#az_lock_list) | 잠금 정보를 나열합니다. |
+| [az lock show](/cli/azure/lock#az_lock_show) | 잠금의 속성을 표시합니다. |
+| [az lock delete](/cli/azure/lock#az_lock_delete) | 잠금을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

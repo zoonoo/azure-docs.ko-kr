@@ -3,20 +3,23 @@ title: '빠른 시작: 전용 SQL 풀(이전의 SQL DW) 만들기 및 쿼리(Azu
 description: Azure Portal을 사용하여 전용 SQL 풀(이전의 SQL DW) 만들기 및 쿼리
 services: synapse-analytics
 author: pimorano
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: quickstart
-ms.subservice: sql-dw
-ms.date: 05/28/2019
 ms.author: pimorano
+manager: craigg
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: dd9d66683d5f2349807915651c50bf9eedd285c1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 05/28/2019
+ms.topic: quickstart
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.custom:
+- seo-lt-2019
+- azure-synapse
+- mode-portal
+ms.openlocfilehash: 99530b1949f03867a5b755208191341556ba8083
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104602233"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535839"
 ---
 # <a name="quickstart-create-and-query-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Synapse Analytics에서 전용 SQL 풀(이전의 SQL DW) 만들기 및 쿼리
 
@@ -51,7 +54,7 @@ Azure Portal을 사용하여 Azure Synapse Analytics에서 전용 SQL 풀(이전
 
 3. **기본 사항** 에서 구독, 리소스 그룹, 전용 SQL 풀(이전의 SQL DW) 이름 및 서버 이름을 제공합니다.
 
-   | 설정 | 제안 값 | Description |
+   | 설정 | 제안 값 | 설명 |
    | :------ | :-------------- | :---------- |
    | **구독** | 사용자의 구독 | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
    | **리소스 그룹** | myResourceGroup | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조하세요. |

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 315519472baa672e802855b5ab21b8bae8f51935
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: d03a4865c8db52f74f4130c458fec3028f5b95a4
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109852"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481670"
 ---
 # <a name="what-is-azure-digital-twins"></a>Azure Digital Twins란?
 
@@ -102,6 +102,6 @@ Azure Digital Twins를 사용하는 완전한 솔루션은 다음과 같은 부�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 다음 빠른 시작을 사용하여 Azure Digital Twins 작업을 자세히 살펴보세요. [*빠른 시작: 샘플 시나리오 살펴보기*](quickstart-adt-explorer.md).
+* 다음 빠른 시작을 사용하여 Azure Digital Twins 작업을 자세히 살펴보세요. [*빠른 시작: 샘플 시나리오 살펴보기*](quickstart-azure-digital-twins-explorer.md).
 
 * 또는 Azure Digital Twins 개념에 대해 [*개념: 사용자 지정 모델*](concepts-models.md)에서 자세히 알아보세요.

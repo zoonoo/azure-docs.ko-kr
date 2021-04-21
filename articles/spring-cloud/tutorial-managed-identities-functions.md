@@ -6,12 +6,12 @@ ms.author: margard
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/10/2020
-ms.openlocfilehash: 99e3611711e9a25119a4428d7736a36073163894
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: b737ea751d3b3d2132691e04a1a2cd853748db65
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877151"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792510"
 ---
 # <a name="tutorial-use-a-managed-identity-to-invoke-azure-functions-from-an-azure-spring-cloud-app"></a>자습서: 관리 ID를 사용하여 Azure Spring Cloud 앱에서 Azure Functions 호출
 
@@ -29,7 +29,7 @@ Azure Functions 및 App Services는 모두 Azure AD(Azure Active Directory) 인�
 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
-리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 함수 앱 및 Spring Cloud가 모두 포함되는 리소스 그룹을 만듭니다.
+리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 함수 앱 및 Spring Cloud가 모두 포함되는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -37,7 +37,7 @@ az group create --name myResourceGroup --location eastus
 
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
-함수 앱을 만들려면 먼저 [az storage account create](/cli/azure/storage/account#az-storage-account-create) 명령을 사용하여 지원하는 스토리지 계정을 만들어야 합니다.
+함수 앱을 만들려면 먼저 [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용하여 지원하는 스토리지 계정을 만들어야 합니다.
 
 > [!Important]
 > 각 함수 앱 및 스토리지 계정에는 고유한 이름이 있어야 합니다. 다음 예제에서는 <your-functionapp-name>을 함수 앱 이름으로 바꾸고, <your-storageaccount-name>을 스토리지 계정 이름으로 바꿉니다.

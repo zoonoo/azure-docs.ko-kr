@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: 668988ae34c2f97f3baca3f360c13e3ec3e30731
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 771c79f56a31c83f2152886ad6cf68367776f83f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100586350"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767231"
 ---
 # <a name="app-service-overview"></a>App Service 개요
 
@@ -44,7 +44,7 @@ App Service는 지원되는 애플리케이션 스택에 대해 기본적으로 
 
 ### <a name="built-in-languages-and-frameworks"></a>기본 제공 언어 및 프레임워크
 
-Linux의 App Service는 다양한 언어별 기본 제공 이미지를 지원합니다. 코드를 배포하기만 하면 됩니다. 지원되는 언어는 다음과 같습니다. Node.js, Java(JRE 8 & JRE 11), PHP, Python, .NET Core 및 Ruby. [`az webapp list-runtimes --linux`](/cli/azure/webapp#az-webapp-list-runtimes)를 실행하여 최신 언어 및 지원되는 버전을 확인합니다. 애플리케이션에 필요한 런타임이 기본 제공 이미지에서 지원되지 않는 경우 사용자 지정 컨테이너를 사용하여 배포할 수 있습니다.
+Linux의 App Service는 다양한 언어별 기본 제공 이미지를 지원합니다. 코드를 배포하기만 하면 됩니다. 지원되는 언어는 다음과 같습니다. Node.js, Java(JRE 8 & JRE 11), PHP, Python, .NET Core 및 Ruby. [`az webapp list-runtimes --linux`](/cli/azure/webapp#az_webapp_list_runtimes)를 실행하여 최신 언어 및 지원되는 버전을 확인합니다. 애플리케이션에 필요한 런타임이 기본 제공 이미지에서 지원되지 않는 경우 사용자 지정 컨테이너를 사용하여 배포할 수 있습니다.
 
 오래된 런타임은 포털의 Web Apps 만들기 및 구성 블레이드에서 정기적으로 제거됩니다. 이러한 런타임은 유지 관리 조직에서 사용을 중단하거나 심각한 취약성이 발견될 경우 포털에서 숨겨집니다. 고객에게 가장 도움이 되는 최신 런타임으로 고객을 안내할 수 있도록 이러한 옵션은 숨겨져 있습니다. 
 
