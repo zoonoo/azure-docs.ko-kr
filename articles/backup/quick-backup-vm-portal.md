@@ -1,16 +1,18 @@
 ---
 title: 빠른 시작 - Azure Portal을 사용하여 VM 백업
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Recovery Services 자격 증명 모음을 만들고, Azure VM에서 보호를 사용하도록 설정하고, VM을 백업하는 방법을 알아봅니다.
-ms.devlang: azurecli
-ms.topic: quickstart
 ms.date: 05/12/2020
-ms.custom: mvc
-ms.openlocfilehash: cd0d4928d5cd0eb15f4f1372a0a3417fc85d13bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.devlang: azurecli
+ms.custom:
+- mvc
+- mode-portal
+ms.openlocfilehash: 9779f84e6ddf1958ee234a96267171869a33e4e0
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91328781"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535059"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Azure에서 가상 머신 백업
 

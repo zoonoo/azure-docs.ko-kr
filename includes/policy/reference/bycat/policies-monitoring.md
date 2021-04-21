@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 82f913eea730d10bef5034fca52c037ef49eadf0
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 29c6ca6a394c2fe4343159f985a90f8bc13cadfb
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106091159"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107499144"
 ---
-|Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[\[미리 보기\]: \[ASC 프라이빗 미리 보기\] 배포 - VM에서 Azure Monitor 할당을 사용하도록 시스템이 할당한 관리 ID 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F17b3de92-f710-4cf4-aa55-0e7859f1ed7b) |[ASC 프라이빗 미리 보기] 시스템 할당 관리 ID가 없는 Azure Monitor에서 지원하는 Azure에서 호스트되는 가상 머신에 시스템 할당 관리 ID를 구성합니다. 시스템 할당 관리 ID는 모든 Azure Monitor 할당에 대한 필수 구성 요소이며 Azure Monitor 확장을 사용하기 전에 머신에 추가해야 합니다. 대상 가상 머신은 지원되는 위치에 있어야 합니다. |수정 |[1.2.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/AzureMonitoring_AddSystemIdentity_Prerequisite.json) |
 |[활동 로그는 1년 이상 보존되어야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb02aacc0-b073-424e-8298-42b22829ee0a) |이 정책은 보존이 365일 또는 계속(보존 기간이 0으로 설정)으로 설정되지 않은 경우 활동 로그를 감사합니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLogRetention_365orGreater.json) |

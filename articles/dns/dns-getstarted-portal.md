@@ -4,16 +4,18 @@ titleSuffix: Azure DNS
 description: 이 단계별 빠른 시작 가이드를 통해 Azure Portal을 사용하여 Azure DNS 영역 및 레코드를 만드는 방법을 알아봅니다.
 services: dns
 author: rohinkoul
-ms.service: dns
-ms.topic: quickstart
-ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: be76a7902c2747c7a8dc1bfc21d58ae88f3ff343
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/20/2020
+ms.topic: quickstart
+ms.service: dns
+ms.custom:
+- mode-portal
+ms.openlocfilehash: d08c5768c2c400ff3d842f58081a58708bfc28db
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92282145"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537781"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure DNS 영역 및 레코드 만들기
 

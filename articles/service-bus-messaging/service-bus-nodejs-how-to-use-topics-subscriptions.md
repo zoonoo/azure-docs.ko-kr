@@ -2,17 +2,19 @@
 title: 토픽 및 구독과 함께 미리 보기 JavaScript azure/service-bus 사용
 description: '@azure/service-bus 패키지의 최신 미리 보기 버전을 사용하여 메시지를 Service Bus 토픽으로 보내고 구독에서 토픽으로 메시지를 받는 JavaScript 프로그램을 작성하는 방법에 대해 알아봅니다.'
 author: spelluru
-ms.devlang: nodejs
-ms.topic: quickstart
-ms.date: 11/09/2020
 ms.author: spelluru
-ms.custom: devx-track-js
-ms.openlocfilehash: a1afe4207ce3833f3bcb55bc7bc2e8e27f393f63
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 11/09/2020
+ms.topic: quickstart
+ms.devlang: nodejs
+ms.custom:
+- devx-track-js
+- mode-api
+ms.openlocfilehash: 59f1bb29099f2b921e687ca9de46365bc34f1b91
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98179999"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537254"
 ---
 # <a name="quickstart-service-bus-topics-and-subscriptions-with-nodejs-and-the-preview-azureservice-bus-package"></a>빠른 시작: Node.js 및 미리 보기 azure/service-bus 패키지를 사용하는 Service Bus 토픽 및 구독
 이 자습서에서는 JavaScript 프로그램에서 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 패키지를 사용하여 Service Bus 토픽으로 메시지를 보내고 Service Bus 구독에서 해당 토픽으로 메시지를 받는 방법에 대해 알아봅니다.

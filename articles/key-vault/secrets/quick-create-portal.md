@@ -3,7 +3,6 @@ title: Azure 빠른 시작 - Azure Portal을 사용하여 Key Vault에서 비밀
 description: Azure Portal을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색하는 방법을 보여주는 빠른 시작
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: secrets
@@ -11,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 904c00c26171854a32234d7b6ba5cac81ac43e5c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ba5b375f75d2655045e62583679839c8dd2a5720
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97936671"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752447"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -82,7 +81,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 이 빠른 시작에서는 Key Vault를 만들어 비밀을 저장했습니다. Key Vault 및 이를 애플리케이션과 통합하는 방법에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
 
 - [Azure Key Vault 개요](../general/overview.md) 참조
-- [Key Vault에 대한 액세스 보안](../general/secure-your-key-vault.md) 읽기
+- [Key Vault에 대한 액세스 보안](../general/security-overview.md) 읽기
 - [App Service 웹앱에서 Key Vault 사용](../general/tutorial-net-create-vault-azure-web-app.md) 참조
 - [VM에 배포된 애플리케이션과 함께 Key Vault 사용](../general/tutorial-net-virtual-machine.md) 참조
 - [Azure Key Vault 개발자 가이드](../general/developers-guide.md) 참조

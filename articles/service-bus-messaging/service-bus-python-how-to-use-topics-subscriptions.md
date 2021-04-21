@@ -3,17 +3,19 @@ title: Python azure-servicebus 패키지 버전 7.0.0에서 Azure Service Bus �
 description: 이 문서에서는 Python을 사용하여 토픽에 메시지를 보내고 구독에서 메시지를 받는 방법을 보여줍니다.
 documentationcenter: python
 author: spelluru
-ms.devlang: python
-ms.topic: quickstart
-ms.date: 11/18/2020
 ms.author: spelluru
-ms.custom: devx-track-python
-ms.openlocfilehash: 4eba3ea055e78888d482927fa6eed5c7d41fa0ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 11/18/2020
+ms.topic: quickstart
+ms.devlang: python
+ms.custom:
+- devx-track-python
+- mode-api
+ms.openlocfilehash: 49e80e277c6df5372341293861d5bda0580f3e8c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98630050"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537161"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-python"></a>Azure Service Bus 토픽에 메시지를 보내고 구독에서 토픽으로 메시지 받기(Python)
 이 문서에서는 Python을 사용하여 Service Bus 토픽에 메시지를 보내고 구독에서 토픽으로 메시지를 받는 방법을 보여줍니다. 

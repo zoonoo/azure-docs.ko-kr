@@ -4,17 +4,19 @@ titleSuffix: Azure DNS
 description: Azure DNS에 DNS 영역 및 레코드를 만드는 방법을 알아봅니다. Azure PowerShell을 사용하여 첫 번째 DNS 영역 및 레코드를 만들고 관리하는 단계별 빠른 시작입니다.
 services: dns
 author: rohinkoul
-ms.service: dns
-ms.topic: quickstart
-ms.date: 10/20/2020
 ms.author: rohink
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f2563c33d02490732f73fcf9d1a78f548ec2d3e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/20/2020
+ms.topic: quickstart
+ms.service: dns
+ms.custom:
+- devx-track-azurepowershell
+- mode-api
+ms.openlocfilehash: 9c457b435ca17ce9dc86e1a83a4d1a56d9623b17
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92282218"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537873"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure DNS 영역 및 레코드 만들기
 
@@ -111,4 +113,3 @@ Azure PowerShell을 사용하여 첫 번째 DNS 영역과 레코드를 만들었
 
 > [!div class="nextstepaction"]
 > [사용자 지정 도메인에서 웹앱에 대한 DNS 레코드 만들기](./dns-web-sites-custom-domain.md)
-

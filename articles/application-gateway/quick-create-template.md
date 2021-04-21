@@ -4,17 +4,20 @@ titleSuffix: Azure Application Gateway
 description: 이 빠른 시작에서는 Resource Manager 템플릿을 사용하여 백 엔드 풀의 가상 머신에 웹 트래픽을 보내는 Azure Application Gateway를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
-ms.service: application-gateway
-ms.topic: quickstart
-ms.date: 01/20/2021
 ms.author: victorh
-ms.custom: mvc, subject-armqs
-ms.openlocfilehash: 05e7cd8d7018759a3c8670a610b4c98ac0a86a7a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 01/20/2021
+ms.topic: quickstart
+ms.service: application-gateway
+ms.custom:
+- mvc
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: dd100361ba5d4ff175e340ced782999e52c720c4
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98660058"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538443"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---arm-template"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - ARM 템플릿
 

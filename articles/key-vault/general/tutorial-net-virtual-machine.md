@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/17/2021
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-csharp, devx-track-azurepowershell
-ms.openlocfilehash: ce982b38faa72978e1b043d374a333b68aca80b6
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: c08d0c210e992cba5bca2695fda0bcf08c4689dc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374746"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772094"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>자습서: .NET에서 가상 머신이 있는 Azure Key Vault 사용
 
@@ -115,7 +115,7 @@ xxxxxxxx-xx-xxxxxx   xxxxxxxx-xxxx-xxxx   SystemAssigned
 ---
 
 ## <a name="assign-permissions-to-the-vm-identity"></a>VM ID에 사용 권한을 할당합니다.
-[az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) 명령으로 키 자격 증명 모음에 이전에 만든 ID 사용 권한을 할당합니다.
+[az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) 명령으로 키 자격 증명 모음에 이전에 만든 ID 사용 권한을 할당합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli

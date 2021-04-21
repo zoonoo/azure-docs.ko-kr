@@ -4,12 +4,12 @@ description: 이 문서에서는 최신 Azure.Messaging.EventHubs 패키지를 �
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 36551a52bc095a37aa5176ab945dd5d27c640954
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 58da331336481614cf0f85bdf6c1136c8bdc8db7
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97504613"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536505"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Azure Event Hubs에서 이벤트 보내기 및 받기 - .NET(Azure.Messaging.EventHubs) 
 이 빠른 시작에서는 **Azure.Messaging.EventHubs** .NET 라이브러리를 사용하여 이벤트 허브와 이벤트를 주고 받는 방법을 보여줍니다. 
@@ -19,7 +19,7 @@ ms.locfileid: "97504613"
 
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기 전에 [Event Hubs 개요](event-hubs-about.md)를 참조하세요. 
 
 이 빠른 시작을 완료하려면 다음 필수 구성 요소가 필요합니다.
@@ -188,8 +188,8 @@ Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기
             // Start the processing
             await processor.StartProcessingAsync();
 
-            // Wait for 10 seconds for the events to be processed
-            await Task.Delay(TimeSpan.FromSeconds(10));
+            // Wait for 30 seconds for the events to be processed
+            await Task.Delay(TimeSpan.FromSeconds(30));
 
             // Stop the processing
             await processor.StopProcessingAsync();

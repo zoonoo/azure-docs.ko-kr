@@ -3,13 +3,15 @@ title: '빠른 시작: JavaScript를 사용하여 관리 그룹 만들기'
 description: 이 빠른 시작에서는 JavaScript를 사용하여 리소스를 리소스 계층 구조로 구성하는 관리 그룹을 만듭니다.
 ms.date: 02/05/2021
 ms.topic: quickstart
-ms.custom: devx-track-js
-ms.openlocfilehash: 99a2ed406d4837f6fc346e68b3b400003feed38c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- devx-track-js
+- mode-api
+ms.openlocfilehash: 553133f30bd16543444356e8cda3e70458247b5c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100099152"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536010"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>빠른 시작: JavaScript를 사용하여 관리 그룹 만들기
 

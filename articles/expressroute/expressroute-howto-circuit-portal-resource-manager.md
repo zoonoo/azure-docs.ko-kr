@@ -3,16 +3,18 @@ title: '빠른 시작: ExpressRoute를 사용하여 회로 만들기 및 수정 
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 ExpressRoute 회로를 만들고, 프로비저닝하고, 확인하고, 업데이트하고, 삭제하고, 프로비저닝 해제하는 방법을 알아봅니다.
 services: expressroute
 author: duongau
-ms.service: expressroute
-ms.topic: quickstart
-ms.date: 10/21/2020
 ms.author: duau
-ms.openlocfilehash: b0fd844021e7398e061072d7939b782616580c1c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/21/2020
+ms.topic: quickstart
+ms.service: expressroute
+ms.custom:
+- mode-portal
+ms.openlocfilehash: f62b60a9c33cd1b813b8f3307ec82d4242be168b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96185201"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534797"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit"></a>빠른 시작: ExpressRoute 회로 만들기 및 수정
 

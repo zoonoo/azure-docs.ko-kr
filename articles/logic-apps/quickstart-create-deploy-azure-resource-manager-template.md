@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.date: 06/30/2020
-ms.openlocfilehash: 8cee79efd9be53ddb9d450f643c04f21ae5e7fca
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 04/01/2021
+ms.openlocfilehash: bdeb80dc487d8418e21a40a29e5d2baab49d7b05
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102214000"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771896"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 논리 앱 워크플로 만들기 및 배포
 
@@ -32,7 +32,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정을
 
 이 빠른 시작에서는 [**논리 앱 만들기**](https://azure.microsoft.com/resources/templates/101-logic-app-create/) 템플릿을 사용합니다. 이 템플릿은 [Azure 빠른 시작 템플릿 갤러리](https://azure.microsoft.com/resources/templates)에서 찾을 수 있지만, 너무 길므로 여기서는 표시할 수 없습니다. 대신 템플릿 갤러리에서 빠른 시작 템플릿의 ["azuredeploy.json 파일"](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json)을 검토할 수 있습니다.
 
-빠른 시작 템플릿은 1시간마다 실행되도록 설정된 되풀이 트리거 및 Azure에 대한 상태를 반환하는 URL을 호출하는 HTTP [*기본 제공* 작업](../connectors/apis-list.md#connector-types)을 사용하는 논리 앱 워크플로를 만듭니다. 기본 제공 작업은 Azure Logic Apps 플랫폼의 기본 작업입니다.
+빠른 시작 템플릿은 1시간마다 실행되도록 설정된 되풀이 트리거 및 Azure에 대한 상태를 반환하는 URL을 호출하는 HTTP [*기본 제공* 작업](../connectors/built-in.md)을 사용하는 논리 앱 워크플로를 만듭니다. 기본 제공 작업은 Azure Logic Apps 플랫폼의 기본 작업입니다.
 
 이 템플릿에서 만드는 Azure 리소스는 다음과 같습니다.
 
@@ -303,7 +303,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-자세한 내용은 [Azure CLI: az group delete](/cli/azure/group#az-group-delete)를 참조하세요.
+자세한 내용은 [Azure CLI: az group delete](/cli/azure/group#az_group_delete)를 참조하세요.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

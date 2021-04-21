@@ -3,16 +3,18 @@ title: 빠른 시작 - 컨테이너 인스턴스에 Docker 컨테이너 배포 -
 description: 이 빠른 시작에서는 Azure PowerShell을 사용하여, 격리된 Azure 컨테이너 인스턴스에서 실행하는 컨테이너화된 웹앱을 신속하게 배포합니다.
 services: container-instances
 manager: gwallace
-ms.service: container-instances
-ms.topic: quickstart
 ms.date: 03/21/2019
-ms.custom: seodec18, mvc
-ms.openlocfilehash: c7002d8a83e58a9089ee3c3840b0397d63e2f198
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.topic: quickstart
+ms.service: container-instances
+ms.custom:
+- mvc
+- mode-api
+ms.openlocfilehash: f9c6bac45e2e7fe18895a16831f840c3ae5a9f9d
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89565585"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536162"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure에서 컨테이너 인스턴스 배포
 

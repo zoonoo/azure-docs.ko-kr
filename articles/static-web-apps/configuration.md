@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 3ecd38b725307c7a3d75787795130c5106de85a7
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 9494bcc9941491bbb82c6a948dce720cb9e51424
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312249"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502286"
 ---
 # <a name="configure-azure-static-web-apps"></a>Azure Static Web Apps 구성
 
@@ -33,7 +33,7 @@ _staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./github-a
 자세한 내용은 [예제 구성](#example-configuration-file) 파일을 참조하세요.
 
 > [!IMPORTANT]
-> _staticwebapp.config.json_ 파일이 있는 경우 [_staticwebapp.config.json_ 파일](./routes.md)은 무시됩니다.
+> _staticwebapp.config.json_ 파일이 있는 경우 [ _routes.json_ 파일](./routes.md)은 무시됩니다.
 
 ## <a name="routes"></a>경로
 
@@ -328,7 +328,7 @@ _staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./github-a
 | _/admin/_                                                         | _관리자_ 역할의 인증된 사용자에게는 _/admin/index.html_ 파일이 제공됩니다. 인증되었지만 _관리자_ 역할에 없는 사용자에게는 `403` 오류 <sup>1</sup>이 표시됩니다. 인증되지 않은 사용자는 _/login_ 으로 리디렉션됩니다.                                                                                                                                                                                                          |
 | _/logo.png_                                                       | 최대 사용 기간이 182일(15,770,000초)을 약간 초과하는 사용자 지정 캐시 규칙을 이미지에 적용합니다.                                                                                                                                                                                                                                                                                                                                   |
 | _/api/admin_                                                      | _registeredusers_ 역할이 있는 인증된 사용자의 `GET` 요청은 API로 전송됩니다. 인증되었지만 _registeredusers_ 역할에 없는 사용자와 인증되지 않은 사용자에게는 `401` 오류가 표시됩니다.<br/><br/>_관리자_ 역할의 인증된 사용자가 수행하는 `POST`, `PUT`, `PATCH` 및 `DELETE` 요청은 API로 전송됩니다. 인증되었지만 _관리자_ 역할에 없는 사용자와 인증되지 않은 사용자에게는 `401` 오류가 표시됩니다. |
-| _/customers/contoso_                                              | _관리자_ 또는 _customers_contoso_ 역할에 속하는 인증된 사용자에게는 _/customers/contoso/index.html_ 파일이 제공됩니다. 인증되었지만 _관리자_ 또는 _customers_contoso_ 역할에 없는 사용자에게는 `403` 오류<sup>1</sup>가 표시됩니다. 인증되지 않은 사용자는 _/login_ 으로 리디렉션됩니다.                                                                                                                            |
+| _/customers/contoso_                                              | _관리자_ 또는 _customers_contoso_ 역할에 속하는 인증된 사용자에게는 _/customers/contoso/index.html_ 파일이 제공됩니다. 인증되었지만 _관리자_ 또는 _customers_contoso_ 역할에 없는 사용자에게는 `403` 오류 <sup>1</sup>가 표시됩니다. 인증되지 않은 사용자는 _/login_ 으로 리디렉션됩니다.                                                                                                                            |
 | _/login_                                                          | 인증되지 않은 사용자는 GitHub를 사용하여 인증해야 합니다.                                                                                                                                                                                                                                                                                                                                                                             |
 | _/.auth/login/twitter_                                            | 경로 규칙에 따라 Twitter를 통한 권한 부여가 사용되지 않으므로 `404` 오류가 반환되고, _/index.html_ 파일과 `200` 상태 코드를 제공하도록 대체됩니다.                                                                                                                                                                                                                                                                                     |
 | _/logout_                                                         | 사용자는 모든 인증 공급자에서 로그아웃됩니다.                                                                                                                                                                                                                                                                                                                                                                                          |

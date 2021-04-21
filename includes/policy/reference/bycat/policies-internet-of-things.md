@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 2498c656b75ac8b9b651f4a7ce83b74d3542c841
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 630b8d9a965f4b34e7b14b5b1d80fe74b0cc31c3
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106091079"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107499069"
 ---
-|Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[\[미리 보기\]: Azure IoT Hub는 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d7e144b-159c-44fc-95c1-ac3dbf5e6e54) |고객 관리형 키를 사용하여 IoT Hub에서 미사용 데이터를 암호화하면 기본 서비스 관리형 키 위에 두 번째 암호화 계층이 추가되고, 키에 대한 고객 제어, 사용자 지정 회전 정책 및 키 액세스 제어를 통해 데이터에 대한 액세스를 관리할 수 있습니다. IoT Hub를 만드는 동안 고객 관리형 키를 구성해야 합니다. 고객 관리형 키를 구성하는 방법에 대한 자세한 내용은 [https://aka.ms/iotcmk](https://aka.ms/iotcmk)를 구성해야 합니다. |감사, 거부, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IotHub_CMKEncryptionEnabled.json) |
 |[프라이빗 DNS 영역을 사용하도록 IoT Hub 디바이스 프로비저닝 인스턴스 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faaa64d2d-2fa3-45e5-b332-0b031b9b30e8) |프라이빗 DNS 영역을 사용하여 프라이빗 엔드포인트에 대한 DNS 확인을 재정의합니다. 프라이빗 DNS 영역은 가상 네트워크에 연결하여 IoT Hub 디바이스 프로비저닝 서비스 인스턴스로 확인합니다. [https://aka.ms/iotdpsvnet](https://aka.ms/iotdpsvnet)에서 자세히 알아보세요. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IoTDps_DeployPrivateDnsZoneForPrivateEndpoint_Deploy.json) |

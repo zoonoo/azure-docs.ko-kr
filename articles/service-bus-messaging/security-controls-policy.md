@@ -1,18 +1,18 @@
 ---
 title: Azure Service Bus Messaging에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Service Bus Messaging에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.topic: sample
 author: spelluru
 ms.author: spelluru
 ms.service: service-bus-messaging
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 80d7d13ac387a5fed2c3c6a58c4954f2f91d1451
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: d141eb9a04f058eaf9405919cc1d7eccac1469fe
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106093126"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505586"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-service-bus-messaging"></a>Azure Service Bus Messaging에 대한 Azure Policy 규정 준수 컨트롤
 

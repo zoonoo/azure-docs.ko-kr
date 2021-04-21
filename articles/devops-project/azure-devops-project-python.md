@@ -1,30 +1,33 @@
 ---
 title: '빠른 시작: Azure DevOps Starter를 사용하여 Python용 CI/CD 파이프라인 만들기'
 description: DevOps Starter를 사용하면 Azure를 쉽게 시작할 수 있습니다. 빠른 몇 단계로 원하는 Azure 서비스에서 앱을 시작할 수 있습니다.
-ms.prod: devops
-ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
+ms.author: mlearned
 manager: gwallace
+ms.date: 03/24/2020
+ms.prod: devops
+ms.technology: devops-cicd
+ms.topic: quickstart
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.topic: quickstart
-ms.date: 03/24/2020
-ms.author: mlearned
-ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 99ca60f2610d34d194c50e92501c0126a7c80323
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- mvc
+- devx-track-python
+- mode-api
+ms.openlocfilehash: d236eadd4c1c3bbda5a781d00de43e4ed3dc88b9
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566552"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533268"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-starter"></a>Azure DevOps Starter를 사용하여 Python용 CI/CD 파이프라인 만들기
 
 이 빠른 시작에서는 간소화된 A Azure DevOps Starter 경험을 사용하여 Azure Pipelines에서 Python 앱용 CI(연속 통합) 및 CD(연속 업데이트) 파이프라인을 설정합니다. Azure DevOps Starter를 사용하여 앱을 개발, 배포 및 모니터링하는 데 필요한 모든 항목을 설정할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
 - [Azure DevOps](https://azure.microsoft.com/services/devops/) 계정 및 조직입니다.
