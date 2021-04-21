@@ -7,12 +7,12 @@ ms.date: 11/23/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 2a789b4ca1261c79e8e6eb93a4ed44e7e8e9272e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ff86bedf47395b50dc25e552b8b3ed4176e23b65
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102214238"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769106"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>빠른 시작: Azure에서 ASP.NET Core 웹앱 만들기
 
@@ -256,7 +256,7 @@ az login
     <li><code>az</code> 명령이 인식되지 않는 경우 <a href="#1-prepare-your-environment">환경 준비</a>의 설명대로 Azure CLI가 설치되어 있는지 확인합니다.</li>
     <li><code>&lt;app-name&gt;</code>을 모든 Azure에서 고유한 이름으로 바꿉니다(<em>유효한 문자는 <code>a-z</code>, <code>0-9</code> 및 <code>-</code></em>). 좋은 패턴은 회사 이름과 앱 식별자의 조합을 사용하는 것입니다.</li>
     <li><code>--sku F1</code> 인수는 무료 가격 책정 계층에 웹앱을 만듭니다. 이 인수를 생략하여 더 빠른 프리미엄 계층을 사용합니다. 이 경우 시간당 비용이 발생합니다.</li>
-    <li>선택적으로 인수 <code>--location &lt;location-name&gt;</code>을 포함할 수 있습니다. 여기서 <code>&lt;location-name&gt;</code>은 사용 가능한 Azure 지역입니다. Azure 계정에 허용되는 지역 목록은 <a href="/cli/azure/appservice#az-appservice-list-locations"><code>az account list-locations</code></a> 명령을 실행하여 검색할 수 있습니다.</li>
+    <li>선택적으로 인수 <code>--location &lt;location-name&gt;</code>을 포함할 수 있습니다. 여기서 <code>&lt;location-name&gt;</code>은 사용 가능한 Azure 지역입니다. Azure 계정에 허용되는 지역 목록은 <a href="/cli/azure/appservice#az_appservice_list_locations"><code>az account list-locations</code></a> 명령을 실행하여 검색할 수 있습니다.</li>
     </ul>
     </details>
     
@@ -268,7 +268,7 @@ az login
     <ul>
     <li>기본 리소스 그룹 만들기</li>
     <li>기본 App Service 계획을 만듭니다.</li>
-    <li>지정된 이름으로 <a href="/cli/azure/webapp#az-webapp-create">App Service 앱을 만듭니다</a>.</li>
+    <li>지정된 이름으로 <a href="/cli/azure/webapp#az_webapp_create">App Service 앱을 만듭니다</a>.</li>
     <li>현재 작업 디렉터리에서 앱까지의 <a href="/azure/app-service/deploy-zip">배포 파일을 압축합니다</a>.</li>
     <li>실행되는 동안 리소스 생성, 로깅 및 ZIP 배포에 대한 메시지가 표시됩니다.</li>
     </ul>
@@ -302,14 +302,14 @@ http://<app_name>.azurewebsites.net
 
 <hr/> 
 
-## <a name="7-update-and-redeploy-the-code"></a>7. 코드 업데이트 및 다시 배포
+## <a name="7-update-and-redeploy-the-code&quot;></a>7. 코드 업데이트 및 다시 배포
 
 1. 로컬 디렉터리에서 **_Startup.cs_ 파일을 엽니다**. 
 
 1. 메서드 호출 `context.Response.WriteAsync`의 텍스트를 **약간 변경합니다**.
 
     ```csharp
-    await context.Response.WriteAsync("Hello Azure!");
+    await context.Response.WriteAsync(&quot;Hello Azure!");
     ```
     
 1. **변경 내용을 저장합니다**.

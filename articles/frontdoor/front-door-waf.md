@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: fa5d34d195cfed2d5dbfa6954d83b28487bf0bba
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: d315fa5b588c6e5f2e4643ca18626e400e6ca01b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167756"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785652"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>자습서: Azure Front Door와 Azure WAF(Web Application Firewall)를 사용하여 웹 애플리케이션을 신속하게 확장 및 보호
 
@@ -144,7 +144,7 @@ Azure Front Door 에지만 웹 애플리케이션과 통신할 수 있도록 하
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서에 사용된 리소스가 더 이상 필요 없으면 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용하여 리소스 그룹, Front Door, WAF 정책을 제거합니다.
+이 자습서에 사용된 리소스가 더 이상 필요 없으면 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용하여 리소스 그룹, Front Door, WAF 정책을 제거합니다.
 
 ```azurecli-interactive
   az group delete \

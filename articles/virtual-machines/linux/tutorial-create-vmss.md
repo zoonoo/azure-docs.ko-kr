@@ -9,12 +9,12 @@ ms.subservice: linux
 ms.date: 06/01/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: c38fb976ca597647493f3dc3d32be79040ded6eb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d31bde05158e89168f2a67b820c8743d4cd2729
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91320186"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769898"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>자습서: Azure CLI를 통해 Linux에서 가상 머신 확장 집합 만들기 및 고가용성 앱 배포
 
@@ -91,13 +91,13 @@ runcmd:
 
 
 ## <a name="create-a-scale-set"></a>확장 집합 만들기
-확장 집합을 만들려면 먼저 [az group create](/cli/azure/group#az-group-create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupScaleSet* 이라는 리소스 그룹을 만듭니다.
+확장 집합을 만들려면 먼저 [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupScaleSet* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroupScaleSet --location eastus
 ```
 
-이제 [az vmss create](/cli/azure/vmss#az-vmss-create)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 *myScaleSet* 이라는 확장 집합을 만들고, cloud-init 파일을 사용하여 VM을 사용자 지정하고, SSH 키가 없는 경우 SSH 키를 생성합니다.
+이제 [az vmss create](/cli/azure/vmss#az_vmss_create)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 *myScaleSet* 이라는 확장 집합을 만들고, cloud-init 파일을 사용하여 VM을 사용자 지정하고, SSH 키가 없는 경우 SSH 키를 생성합니다.
 
 ```azurecli-interactive
 az vmss create \
@@ -116,7 +116,7 @@ az vmss create \
 ## <a name="allow-web-traffic"></a>웹 트래픽 허용
 부하 분산 장치는 가상 머신 확장 집합의 일부로 자동으로 생성되었습니다. 부하 분산 장치는 부하 분산 장치 규칙을 사용하여 정의된 VM 집합 전역에 트래픽을 분산시킵니다. 다음 자습서 [Azure에서 Virtual Machines의 부하를 분산하는 방법](tutorial-load-balancer.md)에서 부하 분산 장치 개념 및 구성에 대해 자세히 알아볼 수 있습니다.
 
-트래픽이 Web App에 도달하도록 허용하려면 [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create)를 사용하여 규칙을 만듭니다. 다음 예제는 *myLoadBalancerRuleWeb* 이라는 규칙을 만듭니다.
+트래픽이 Web App에 도달하도록 허용하려면 [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create)를 사용하여 규칙을 만듭니다. 다음 예제는 *myLoadBalancerRuleWeb* 이라는 규칙을 만듭니다.
 
 ```azurecli-interactive
 az network lb rule create \
@@ -131,7 +131,7 @@ az network lb rule create \
 ```
 
 ## <a name="test-your-app"></a>앱 테스트
-웹에서 Node.js 앱을 보려면 [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다. 다음 예제에서는 확장 집합의 일부로 만든 *myScaleSetLBPublicIP* 의 IP 주소를 가져옵니다.
+웹에서 Node.js 앱을 보려면 [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다. 다음 예제에서는 확장 집합의 일부로 만든 *myScaleSetLBPublicIP* 의 IP 주소를 가져옵니다.
 
 ```azurecli-interactive
 az network public-ip show \
@@ -152,7 +152,7 @@ az network public-ip show \
 확장 집합의 수명 주기 내내 하나 이상의 관리 작업을 실행해야 합니다. 또한 다양한 수명 주기 작업을 자동화하는 스크립트를 만들어야 하는 경우가 있습니다. Azure CLI는 이러한 작업을 수행할 수 있는 빠른 방법을 제공합니다. 다음은 몇 가지 일반적인 작업입니다.
 
 ### <a name="view-vms-in-a-scale-set"></a>확장 집합의 VM 보기
-확장 집합에서 실행 중인 VM 목록을 보려면 다음과 같이 [az vmss list-instances](/cli/azure/vmss#az-vmss-list-instances)를 사용합니다.
+확장 집합에서 실행 중인 VM 목록을 보려면 다음과 같이 [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances)를 사용합니다.
 
 ```azurecli-interactive
 az vmss list-instances \
@@ -172,7 +172,7 @@ az vmss list-instances \
 
 
 ### <a name="manually-increase-or-decrease-vm-instances"></a>수동으로 VM 인스턴스 증가 또는 감소
-현재 확장 집합의 인스턴스 수를 보려면 [az vmss show](/cli/azure/vmss#az-vmss-show)를 사용하여 *sku.capacity* 를 쿼리합니다.
+현재 확장 집합의 인스턴스 수를 보려면 [az vmss show](/cli/azure/vmss#az_vmss_show)를 사용하여 *sku.capacity* 를 쿼리합니다.
 
 ```azurecli-interactive
 az vmss show \
@@ -182,7 +182,7 @@ az vmss show \
     --output table
 ```
 
-그런 다음[az vmss scale](/cli/azure/vmss#az-vmss-scale)을 사용하여 확장 집합의 Virtual Machines 수를 수동으로 증가 또는 감소시킬 수 있습니다. 다음 예제는 확장 집합의 VM 수를 *3* 으로 설정합니다.
+그런 다음[az vmss scale](/cli/azure/vmss#az_vmss_scale)을 사용하여 확장 집합의 Virtual Machines 수를 수동으로 증가 또는 감소시킬 수 있습니다. 다음 예제는 확장 집합의 VM 수를 *3* 으로 설정합니다.
 
 ```azurecli-interactive
 az vmss scale \
@@ -192,7 +192,7 @@ az vmss scale \
 ```
 
 ### <a name="get-connection-info"></a>연결 정보 가져오기
-확장 집합의 VM에 대한 연결 정보를 가져오려면 [az vmss list-instance-connection-info](/cli/azure/vmss#az-vmss-list-instance-connection-info)를 사용합니다. 이 명령은 SSH와 연결할 수 있도록 각 VM의 공용 IP 주소 및 포트를 출력합니다.
+확장 집합의 VM에 대한 연결 정보를 가져오려면 [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info)를 사용합니다. 이 명령은 SSH와 연결할 수 있도록 각 VM의 공용 IP 주소 및 포트를 출력합니다.
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -205,7 +205,7 @@ az vmss list-instance-connection-info \
 확장 집합으로 데이터 디스크를 사용할 수 있습니다. OS 디스크 대신 데이터 디스크에 앱을 빌드하는 모범 사례 및 성능 향상에 대해 설명하는 이전 자습서에서는 [Azure 디스크를 관리하는 방법](tutorial-manage-disks.md)을 배웠습니다.
 
 ### <a name="create-scale-set-with-data-disks"></a>데이터 디스크로 확장 집합 만들기
-확장 집합을 만들고 데이터 디스크를 연결하려면 [az vmss create](/cli/azure/vmss#az-vmss-create) 명령에 `--data-disk-sizes-gb` 매개 변수를 추가합니다. 다음 예제에서는 각 인스턴스에 *50* Gb 데이터 디스크가 연결된 확장 집합을 만듭니다.
+확장 집합을 만들고 데이터 디스크를 연결하려면 [az vmss create](/cli/azure/vmss#az_vmss_create) 명령에 `--data-disk-sizes-gb` 매개 변수를 추가합니다. 다음 예제에서는 각 인스턴스에 *50* Gb 데이터 디스크가 연결된 확장 집합을 만듭니다.
 
 ```azurecli-interactive
 az vmss create \
@@ -222,7 +222,7 @@ az vmss create \
 확장 집합에서 인스턴스가 제거되면 연결된 데이터 디스크도 제거됩니다.
 
 ### <a name="add-data-disks"></a>데이터 디스크 추가
-확장 집합의 인스턴스에 데이터 디스크를 추가하려면 [az vmss disk attach](/cli/azure/vmss/disk#az-vmss-disk-attach) 명령을 사용합니다. 다음 예제는 각 인스턴스에 *50* Gb 디스크를 추가합니다.
+확장 집합의 인스턴스에 데이터 디스크를 추가하려면 [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach) 명령을 사용합니다. 다음 예제는 각 인스턴스에 *50* Gb 디스크를 추가합니다.
 
 ```azurecli-interactive
 az vmss disk attach \
@@ -233,7 +233,7 @@ az vmss disk attach \
 ```
 
 ### <a name="detach-data-disks"></a>데이터 디스크 분리
-확장 집합의 인스턴스에서 데이터 디스크를 제거하려면 [az vmss disk detach](/cli/azure/vmss/disk#az-vmss-disk-detach) 명령을 사용합니다. 다음 예제는 각 인스턴스의 LUN *2* 에서 데이터 디스크를 제거합니다.
+확장 집합의 인스턴스에서 데이터 디스크를 제거하려면 [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach) 명령을 사용합니다. 다음 예제는 각 인스턴스의 LUN *2* 에서 데이터 디스크를 제거합니다.
 
 ```azurecli-interactive
 az vmss disk detach \

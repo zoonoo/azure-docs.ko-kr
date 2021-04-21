@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
-ms.openlocfilehash: 32c331b10fcc73b5449588595370f8f69ef9893c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 140709a0ddb548c126ceca208fdeef2db77616bf
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104872050"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107761802"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 판매 인사이트를 파생하는 엔드투엔드 데이터 파이프라인 만들기
 
@@ -90,7 +90,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     ./scripts/resources.sh $resourceGroup LOCATION
     ```
 
-    어떤 지역을 지정할지 확실하지 않으면 [az account list-locations](/cli/azure/account#az-account-list-locations) 명령을 사용하여 구독에 대해 지원되는 지역 목록을 검색할 수 있습니다.
+    어떤 지역을 지정할지 확실하지 않으면 [az account list-locations](/cli/azure/account#az_account_list_locations) 명령을 사용하여 구독에 대해 지원되는 지역 목록을 검색할 수 있습니다.
 
     이 명령을 통해 배포하는 리소스는 다음과 같습니다.
 
