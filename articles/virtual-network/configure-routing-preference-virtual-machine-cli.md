@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: mnayak
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ad8f2d150c3cf17c4b24c6dc92188be9017dcfa9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b9155c3114d5a5a1b8729351dc189bc1e5c22369
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666010"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764480"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-cli"></a>Azure CLI를 사용하여 VM에 대한 라우팅 기본 설정 구성
 
@@ -28,7 +28,7 @@ ms.locfileid: "101666010"
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 1. Cloud Shell을 사용하는 경우 2단계로 건너뜁니다. 명령 세션을 열고 `az login`를 사용하여 Azure에 로그인합니다.
-2. [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 미국 동부 Azure 지역의 리소스 그룹을 만듭니다.
+2. [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 미국 동부 Azure 지역의 리소스 그룹을 만듭니다.
 
     ```azurecli
     az group create --name myResourceGroup --location eastus
@@ -54,7 +54,7 @@ VM을 배포하기 전에 지원되는 네트워크 리소스(네트워크 보�
 
 ### <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
-[az network nsg create](/cli/azure/network/nsg#az-network-nsg-create)를 사용하여 VNet에서 인바운드 및 아웃바운드 통신을 제어하는 규칙에 대한 네트워크 보안 그룹을 만듭니다.
+[az network nsg create](/cli/azure/network/nsg#az_network_nsg_create)를 사용하여 VNet에서 인바운드 및 아웃바운드 통신을 제어하는 규칙에 대한 네트워크 보안 그룹을 만듭니다.
 
 ```azurecli
 az network nsg create \
@@ -65,7 +65,7 @@ az network nsg create \
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 서브넷 *mySubNet* 으로 *myVNET* 이라는 가상 네트워크를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 서브넷 *mySubNet* 으로 *myVNET* 이라는 가상 네트워크를 만듭니다.
 
 ```azurecli
 # Create a virtual network
@@ -85,7 +85,7 @@ az network vnet subnet create \
 
 ### <a name="create-a-nic"></a>NIC 만들기
 
-[az network nic create](/cli/azure/network/nic#az-network-nic-create)를 사용하여 VM에 대한 가상 NIC를 만듭니다. 다음 예제에서는 VM에 연결할 가상 NIC를 만듭니다.
+[az network nic create](/cli/azure/network/nic#az_network_nic_create)를 사용하여 VM에 대한 가상 NIC를 만듭니다. 다음 예제에서는 VM에 연결할 가상 NIC를 만듭니다.
 
 ```azurecli-interactive
 # Create a NIC
@@ -101,7 +101,7 @@ az network nic create \
 
 ## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
-[az vm create](/cli/azure/vm#az-vm-create)로 VM을 만듭니다. 다음 예제에서는 Windows Server 2019 VM 및 아직 없는 경우 필요한 가상 네트워크 구성 요소를 만듭니다.
+[az vm create](/cli/azure/vm#az_vm_create)로 VM을 만듭니다. 다음 예제에서는 Windows Server 2019 VM 및 아직 없는 경우 필요한 가상 네트워크 구성 요소를 만듭니다.
 
 ```azurecli
 az vm create \
@@ -115,7 +115,7 @@ az vm create \
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az-group-delete)를 사용하여 리소스 그룹 및 해당 그룹에 포함된 모든 리소스를 제거할 수 있습니다.
+더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az_group_delete)를 사용하여 리소스 그룹 및 해당 그룹에 포함된 모든 리소스를 제거할 수 있습니다.
 
 ```azurecli
 az group delete --name myResourceGroup --yes

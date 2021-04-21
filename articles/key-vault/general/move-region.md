@@ -2,20 +2,20 @@
 title: 자격 증명 모음을 다른 지역으로 이동 - Azure Key Vault | Microsoft Docs
 description: 이 문서에서는 키 자격 증명 모음을 다른 지역으로 이동하는 방법에 대한 지침을 제공합니다.
 services: key-vault
-author: ShaneBala-keyvault
+author: msmbaldwin
 manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/24/2020
-ms.author: sudbalas
-ms.openlocfilehash: 97956b8c6f18d37acd07543b8921b4973be3bda9
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.date: 03/31/2021
+ms.author: mbaldwin
+ms.openlocfilehash: ac2f6347776c2f5d230065b80b1c0336e21e181c
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066656"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751799"
 ---
 # <a name="move-an-azure-key-vault-across-regions"></a>지역 간에 Azure 키 자격 증명 모음 이동
 

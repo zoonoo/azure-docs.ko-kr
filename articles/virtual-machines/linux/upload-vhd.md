@@ -16,12 +16,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 9d549d77b4a60f7543f69a9fd89e8b538c95d010
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ecad48592ecfb6723548a27997cfe1b81545b24a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564614"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107759602"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Azure CLI를 사용하여 사용자 지정 디스크에서 Linux VM 만들기
 
@@ -50,7 +50,7 @@ ms.locfileid: "102564614"
 > 
 
 
-- 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index#az-login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
+- 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
 
 다음 예제에서 매개 변수 이름을 `myResourceGroup`, `mystorageaccount` 및 `mydisks`와 같은 고유한 값으로 바꿉니다.
 
@@ -121,7 +121,7 @@ az disk create \
 
 ## <a name="create-the-vm"></a>VM 만들기
 
-[az vm create](/cli/azure/vm#az-vm-create)를 사용하여 VM을 만들고, 관리 디스크를 OS 디스크로 연결합니다(--attach-os-disk). 다음 예제에서는 업로드한 VHD에서 만든 관리 디스크를 사용하여 *myNewVM* 이라는 VM을 만듭니다.
+[az vm create](/cli/azure/vm#az_vm_create)를 사용하여 VM을 만들고, 관리 디스크를 OS 디스크로 연결합니다(--attach-os-disk). 다음 예제에서는 업로드한 VHD에서 만든 관리 디스크를 사용하여 *myNewVM* 이라는 VM을 만듭니다.
 
 ```azurecli
 az vm create \

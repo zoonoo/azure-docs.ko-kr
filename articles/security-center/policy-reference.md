@@ -1,25 +1,25 @@
 ---
 title: Azure Security Center에 대한 기본 제공 정책 정의
 description: Azure Security Center에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.topic: reference
 author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 82fd5a9a0bdf9a37535796af8f72c2c4238cdc9c
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 8023dcc29fe8ea3af853237e911524549e4d2bcb
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106089575"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739641"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Azure Security Center에 대한 Azure Policy 기본 제공 정의
 
 이 페이지는 Azure Security Center와 관련된 [Azure Policy](../governance/policy/overview.md) 기본 제공 정책 정의의 인덱스입니다. 다음 정책 정의 그룹을 사용할 수 있습니다.
 
 - [이니셔티브](#azure-security-center-initiatives) 그룹은 "Security Center" 범주에 Azure Policy 이니셔티브 정의를 나열합니다.
-- [기본 이니셔티브](#azure-security-center-initiatives) 그룹은 Security Center의 기본 이니셔티브인 [Azure Security Benchmark](../security/benchmarks/introduction.md)의 일부인 모든 Azure Policy 정의를 나열합니다. Microsoft가 제작하고 널리 인정받는 이 벤치마크는 클라우드 중심 보안에 초점을 맞춘 [CIS(Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) 및 [NIST(National Institute of Standards and Technology)](https://www.nist.gov/)의 컨트롤을 기반으로 합니다.
+- [기본 이니셔티브](#azure-security-center-initiatives) 그룹은 Security Center의 기본 이니셔티브인 [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)의 일부인 모든 Azure Policy 정의를 나열합니다. Microsoft가 제작하고 널리 인정받는 이 벤치마크는 클라우드 중심 보안에 초점을 맞춘 [CIS(Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) 및 [NIST(National Institute of Standards and Technology)](https://www.nist.gov/)의 컨트롤을 기반으로 합니다.
 - [범주](#azure-security-center-category) 그룹은 "Security Center" 범주에 모든 Azure Policy 정의를 나열합니다.
 
 보안 정책에 대한 자세한 내용은 [보안 정책 작업](./tutorial-security-policy.md)을 참조하세요. 다른 서비스에 대한 추가 Azure Policy 기본 제공 기능은 [Azure Policy 기본 제공 정의](../governance/policy/samples/built-in-policies.md)를 참조하세요.
