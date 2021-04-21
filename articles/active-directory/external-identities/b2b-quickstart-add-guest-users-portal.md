@@ -2,22 +2,25 @@
 title: '빠른 시작: Azure Portal에서 게스트 사용자 추가 - Azure AD'
 description: 이 빠른 시작을 사용하여 Azure AD 관리자가 Azure Portal에서 B2B 게스트 사용자를 추가하는 방법을 알아보고 B2B 초대 워크플로를 살펴봅니다.
 services: active-directory
-ms.service: active-directory
-ms.subservice: B2B
-ms.topic: quickstart
-ms.date: 08/05/2020
-ms.author: mimart
 author: msmimart
+ms.author: mimart
 manager: celestedg
 ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.date: 08/05/2020
+ms.topic: quickstart
+ms.service: active-directory
+ms.subservice: B2B
+ms.custom:
+- it-pro
+- seo-update-azuread-jan
+- mode-portal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12f134a11b6d0a561a8b53156c927906afe2874a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7326a35d07715eae75f70f2f33763f82946c589c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87910608"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529854"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 디렉터리에 게스트 사용자 추가
 
@@ -27,7 +30,7 @@ ms.locfileid: "87910608"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서의 시나리오를 완료하려면 다음이 필요합니다.
 

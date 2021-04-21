@@ -1,16 +1,21 @@
 ---
 title: Java에서 Azure Service Bus 큐 사용
 description: 이 자습서에서는 Azure Service Bus 큐와 메시지를 주고 받는 Java 애플리케이션을 만드는 방법에 대해 알아봅니다.
-ms.devlang: Java
-ms.topic: quickstart
 ms.date: 06/23/2020
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 1f7c5f71e75a1b683433531a9d95905e9a7d81cc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.topic: quickstart
+ms.devlang: Java
+ms.custom:
+- seo-java-july2019
+- seo-java-august2019
+- seo-java-september2019
+- devx-track-java
+- mode-api
+ms.openlocfilehash: 38657f333fea4ca18fb76eb5832649067bfd01b4
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101729728"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538260"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>빠른 시작: Java에서 Azure Service Bus 큐를 사용하여 메시지 보내기 및 받기
 

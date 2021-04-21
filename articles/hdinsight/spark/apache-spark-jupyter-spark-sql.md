@@ -1,16 +1,18 @@
 ---
 title: '빠른 시작: 템플릿을 사용하여 Apache Spark 클러스터 만들기 - Azure HDInsight'
 description: 이 빠른 시작에서는 Resource Manager 템플릿을 사용하여 Azure HDInsight에서 Apache Spark 클러스터를 만들고 Spark SQL 쿼리를 실행하는 방법을 보여줍니다.
-ms.service: hdinsight
-ms.topic: quickstart
-ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 1fb36b30385abc72fb0966c928e0dd6f8ea80e73
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.topic: quickstart
+ms.service: hdinsight
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 6d3f8c3313d9e6be38acdbecb683899ea8dd5376
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104865930"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538007"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure HDInsight에서 Apache Spark 클러스터 만들기
 
