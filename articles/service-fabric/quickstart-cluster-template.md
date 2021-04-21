@@ -2,17 +2,19 @@
 title: Azure Resource Manager 템플릿을 사용하여 Service Fabric 클러스터 만들기
 description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure Service Fabric 테스트 클러스터를 만듭니다.
 author: erikadoyle
-ms.service: service-fabric
-ms.topic: quickstart
-ms.custom: subject-armqs
 ms.author: edoyle
 ms.date: 07/29/2020
-ms.openlocfilehash: 359b527733ee8eebf7e1e7d12c40a0c74ec1c9bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.service: service-fabric
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: cb3758ae837dc03789371d00f768b257a9ef295d
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87460306"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535313"
 ---
 # <a name="quickstart-create-a-service-fabric-cluster-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Service Fabric 클러스터 만들기
 

@@ -11,12 +11,12 @@ ms.date: 03/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: 자동화된 데이터 처리, 문서 처리, 자동화된 데이터 입력, 양식 처리
-ms.openlocfilehash: 8d6c2ea760b85e3170b26c63a28d4ac2b3a2ef5a
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 680bb612546aaffc167970c1c48a44159ef9af6f
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105639462"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518240"
 ---
 # <a name="what-is-form-recognizer"></a>Form Recognizer란?
 
@@ -83,7 +83,7 @@ REST 샘플(GitHub)을 사용하여 시작할 수도 있습니다.
 
 다음 API를 사용하여 모델을 학습시키고 양식에서 정형 데이터를 추출합니다.
 
-|Name |Description |
+|속성 |Description |
 |---|---|
 | **레이아웃 분석** | 스트림으로 전달된 문서를 분석하여 문서에서 텍스트, 선택 표시, 표 및 구조 추출 |
 | **사용자 지정 모델 학습**| 동일한 형식의 5개 양식을 사용하여 양식을 분석하는 새 모델을 학습시킵니다. _useLabelFile_ 매개 변수를 `true`로 설정하여 수동 레이블 지정 데이터로 학습합니다. |
@@ -99,7 +99,7 @@ REST 샘플(GitHub)을 사용하여 시작할 수도 있습니다.
 
 ### <a name="v20"></a>[v2.0](#tab/v2-0)
 
-자세히 알아보려면 [REST API 참조 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)를 확인하세요. 이전 버전의 API에 대해 잘 알고 있는 경우에는 [새로운 기능](./whats-new.md) 문서를 읽고 최신 변경 내용에 대해 알아보세요.
+자세히 알아보려면 [REST API 참조 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync)를 확인하세요. 이전 버전의 API에 대해 잘 알고 있는 경우에는 [새로운 기능](./whats-new.md) 문서를 읽고 최신 변경 내용에 대해 알아보세요.
 
 ---
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b81f80af69b47152f7111066070e173bb1ede5f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca92658f6ba15d10bdc14f192b97f6e996ffe1c5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101093945"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771464"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>자습서: Linux VM 시스템 할당 관리 ID를 사용하여 Azure Cosmos DB에 액세스 
 
@@ -43,7 +43,7 @@ ms.locfileid: "101093945"
 - 필요한 리소스 생성 및 역할 관리를 수행하려면 적절한 범위(사용자 구독 또는 리소스 그룹)에서 계정에 "소유자" 권한이 필요합니다. 역할 할당에 관한 도움이 필요한 경우 [Azure 역할을 할당하여 Azure 구독 리소스에 대한 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 - 예제 스크립트를 실행하려면 다음 두 가지 옵션을 사용합니다.
     - 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보기** 단추를 사용하여 열 수 있는 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다.
-    - 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli)를 설치하여 스크립트를 로컬로 실행한 다음, [az login](/cli/azure/reference-index#az-login)을 사용하여 Azure에 로그인합니다. 리소스를 만들려는 Azure 구독과 연결된 계정을 사용합니다.
+    - 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli)를 설치하여 스크립트를 로컬로 실행한 다음, [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure에 로그인합니다. 리소스를 만들려는 Azure 구독과 연결된 계정을 사용합니다.
 
 ## <a name="create-a-cosmos-db-account"></a>Cosmos DB 계정 만들기 
 

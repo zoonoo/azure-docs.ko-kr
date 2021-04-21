@@ -4,12 +4,12 @@ description: Azure CLI 스크립트 샘플 - Azure Cosmos DB에 연결하는 Azu
 ms.topic: sample
 ms.date: 07/03/2018
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9ec4d3cb9d47608aa98075ba98aacfde51f341cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 261ede1493b93ccd3cfed19125bbabc3be871698
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934427"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786298"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Azure Cosmos DB에 연결하는 Azure Function 만들기
 
@@ -35,20 +35,16 @@ ms.locfileid: "97934427"
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | 위치와 함께 리소스 그룹 만들기 |
-| [az storage accounts create](/cli/azure/storage/account#az-storage-account-create) | 스토리지 계정 만들기 |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | 서버리스 [소비 계획](../consumption-plan.md)에서 함수 앱을 만듭니다. |
-| [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Azure Cosmos DB 데이터베이스를 만듭니다. |
-| [az cosmosdb show](/cli/azure/cosmosdb#az-cosmosdb-show)| 데이터베이스 계정 연결을 가져옵니다. |
-| [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys)| 데이터베이스의 키를 가져옵니다. |
-| [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) | 함수 앱에서 연결 문자열을 앱 설정으로 설정합니다. |
+| [az group create](/cli/azure/group#az_group_create) | 위치와 함께 리소스 그룹 만들기 |
+| [az storage accounts create](/cli/azure/storage/account#az_storage_account_create) | 스토리지 계정 만들기 |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | 서버리스 [소비 계획](../consumption-plan.md)에서 함수 앱을 만듭니다. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Azure Cosmos DB 데이터베이스를 만듭니다. |
+| [az cosmosdb show](/cli/azure/cosmosdb#az_cosmosdb_show)| 데이터베이스 계정 연결을 가져옵니다. |
+| [az cosmosdb list-keys](/cli/azure/cosmosdb#az_cosmosdb_list_keys)| 데이터베이스의 키를 가져옵니다. |
+| [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) | 함수 앱에서 연결 문자열을 앱 설정으로 설정합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
 
 추가 Azure Functions CLI 스크립트 샘플은 [Azure Functions 설명서](../functions-cli-samples.md)에서 확인할 수 있습니다.
-
-
-
-

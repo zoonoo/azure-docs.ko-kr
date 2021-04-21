@@ -4,12 +4,12 @@ description: 이 스크립트는 사용자 구독 모드에서 Batch 계정을 �
 ms.topic: sample
 ms.date: 01/29/2018
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c9b8ba2ef782dcdc99cb18698175b8b53a53f0dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9bd7b7ac3dbb52ebafa00499e64ec3cff0969a13
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93076778"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768342"
 ---
 # <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>CLI 예제: 사용자 구독 모드에서 Batch 계정 만들기
 
@@ -38,12 +38,12 @@ az group delete --name myResourceGroup
 | 명령 | 메모 |
 |---|---|
 | [az role assignment create](/cli/azure/role) | 사용자, 그룹 또는 서비스 사용자에 대한 새 역할 할당을 만듭니다. |
-| [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az keyvault create](/cli/azure/keyvault#az-keyvault-create) | 키 자격 증명 모음을 만듭니다. |
-| [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) | 지정된 주요 자격 증명 모음의 보안 정책을 업데이트합니다. |
-| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Batch 계정을 만듭니다.  |
-| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | 추가 CLI 상호 작용을 위해 지정된 Batch 계정에 대해 인증합니다.  |
-| [az group delete](/cli/azure/group#az-group-delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az keyvault create](/cli/azure/keyvault#az_keyvault_create) | 키 자격 증명 모음을 만듭니다. |
+| [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) | 지정된 주요 자격 증명 모음의 보안 정책을 업데이트합니다. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Batch 계정을 만듭니다.  |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | 추가 CLI 상호 작용을 위해 지정된 Batch 계정에 대해 인증합니다.  |
+| [az group delete](/cli/azure/group#az_group_delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
