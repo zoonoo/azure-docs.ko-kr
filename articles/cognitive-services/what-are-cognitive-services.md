@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 10/22/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 71f8635d1cd96a6436cfc902622bf18bc608a143
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: c89131cc34d45ea94f3bb290ac11ec86f4b83be3
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104867188"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587615"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure Cognitive Services란?
 
@@ -43,7 +43,7 @@ Azure Cognitive Services는 애플리케이션에 인식 인텔리전스를 빌�
 |[Custom Vision Service](./custom-vision-service/index.yml "사용자 지정 시각 서비스")|Custom Vision Service를 사용하면 사용자 고유의 이미지 분류자를 빌드, 배포 및 개선할 수 있습니다. 이미지 분류자는 해당 시각적 특성에 따라 이미지에 레이블을 적용하는 AI 서비스입니다. |
 |[Face](./face/index.yml "Face")| Face 서비스는 개선된 얼굴 인식 알고리즘에 액세스할 수 있도록 하여 얼굴 특성 감지 및 인식을 지원합니다. 서비스를 시작하려면 [Face 빠른 시작](./face/quickstarts/client-libraries.md)을 참조하세요.|
 |[Form Recognizer](./form-recognizer/index.yml "Form Recognizer")|Form Recognizer는 양식 문서에서 키-값 쌍 및 테이블 데이터를 식별하고 추출합니다. 그런 다음, 원본 파일의 관계를 포함한 정형 데이터를 출력합니다. 시작하려면 [Form Recognizer 빠른 시작](./form-recognizer/quickstarts/client-library.md)을 참조하세요.|
-|[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "비디오 인덱서")|Video Indexer를 사용하여 비디오에서 인사이트를 추출할 수 있습니다. 시작하려면 [Video Indexer 빠른 시작](/media-services/video-indexer/video-indexer-get-started.md)을 참조하세요.|
+|[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "비디오 인덱서")|Video Indexer를 사용하여 비디오에서 인사이트를 추출할 수 있습니다. 시작하려면 [Video Indexer 빠른 시작](/azure/media-services/video-indexer/video-indexer-get-started)을 참조하세요.|
 
 ## <a name="speech-apis"></a>Speech API
 

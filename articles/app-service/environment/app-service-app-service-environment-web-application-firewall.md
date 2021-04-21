@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 354568fa3ab3816b643a8f08305ab55868a9b0b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 56d931f2346e5a0b615d3f11dce3b06396e586b4
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90973700"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588720"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>App Service Environment에 대한 웹 애플리케이션 방화벽(WAF) 구성
 ## <a name="overview"></a>개요
@@ -66,7 +66,7 @@ Barracuda에는 Azure의 가상 머신에 WAF를 배포하는 방법에 대한 [
 
 ![관리 대시보드][ManagementDashboard]
 
-**서비스** 탭을 클릭하여 WAF가 보호하는 서비스에 대해 구성할 수 있습니다. Barracuda WAF를 구성하는 방법에 대한 자세한 내용은 [해당 설명서](https://techlib.barracuda.com/waf/getstarted1)를 참조하세요. 다음 예제에서는 HTTP 및 HTTPS에 트래픽을 제공하는 App Service 앱이 구성되었습니다.
+**서비스** 탭을 클릭하여 WAF가 보호하는 서비스에 대해 구성할 수 있습니다. Barracuda WAF를 구성하는 방법에 대한 자세한 내용은 [해당 설명서](https://campus.barracuda.com/product/webapplicationfirewall/doc/4259884/configure-the-barracuda-web-application-firewall-from-the-web-interface/)를 참조하세요. 다음 예제에서는 HTTP 및 HTTPS에 트래픽을 제공하는 App Service 앱이 구성되었습니다.
 
 ![관리 서비스를 추가 합니다.][ManagementAddServices]
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2021
 ms.author: duau
-ms.openlocfilehash: 3862197acd3b3181180d264c4d2a2c8dbf6a1401
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 4291a7d46c723f799cf9d09ca0e7a3f6d614971f
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378859"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389743"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>자습서: Front Door 사용자 지정 도메인에서 HTTPS 구성
 
@@ -70,10 +70,8 @@ Azure Front Door에서 관리되는 인증서를 사용하면 단 몇 번의 클
 5. 계속해서 [도메인의 유효성 검사](#validate-the-domain)를 진행합니다.
 
 > [!NOTE]
-> AFD 관리형 인증서의 경우 DigiCert의 64자 제한이 적용됩니다. 해당 제한을 초과하면 유효성 검사가 실패합니다.
-
-> [!NOTE]
-> Front Door 관리 인증서를 통해 HTTPS를 사용하도록 설정하는 것은 apex/root 도메인(예: contoso.com)에 지원되지 않습니다. 이 시나리오에는 사용자 고유의 인증서를 사용할 수 있습니다.  자세한 내용은 옵션 2로 계속 진행하세요.
+> * AFD 관리형 인증서의 경우 DigiCert의 64자 제한이 적용됩니다. 해당 제한을 초과하면 유효성 검사가 실패합니다.
+> * Front Door 관리 인증서를 통해 HTTPS를 사용하도록 설정하는 것은 apex/root 도메인(예: contoso.com)에 지원되지 않습니다. 이 시나리오에는 사용자 고유의 인증서를 사용할 수 있습니다.  자세한 내용은 옵션 2로 계속 진행하세요.
 
 ### <a name="option-2-use-your-own-certificate"></a>옵션 2: 사용자 고유의 인증서 사용
 
@@ -154,7 +152,7 @@ Front Door의 프런트 엔드 호스트에 사용자 지정 도메인을 추가
 
 CNAME 레코드는 다음 형식이어야 합니다. 여기서 *Name* 은 사용자 지정 도메인 이름이고 *Value* 는 Front Door의 기본 .azurefd.net 호스트 이름입니다.
 
-| 속성            | 유형  | 값                 |
+| 속성            | Type  | 값                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azurefd.net |
 

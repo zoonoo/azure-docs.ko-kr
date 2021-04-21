@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 4d6274f3e1356a8ff8a997e830f0ebee43f50cff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5c2520c8e209ab8319cbc5a369b70d247a52232c
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92893141"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107601001"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>자습서: PolicyStat과 Azure Active Directory 통합
 
@@ -110,7 +110,7 @@ PolicyStat에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<companyname>.policystat.com/saml2/metadata/` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [PolicyStat 클라이언트 지원 팀](http://www.policystat.com/support/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [PolicyStat 클라이언트 지원 팀](https://rldatix.com/services-support/support)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML** 을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -154,13 +154,13 @@ PolicyStat에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     다. 로그아웃 URL
 
-### <a name="configure-policystat-single-sign-on"></a>PolicyStat Single Sign-On 구성
+### <a name="configure-policystat-single-sign-on&quot;></a>PolicyStat Single Sign-On 구성
 
 1. 다른 웹 브라우저 창에서 PolicyStat 회사 사이트에 관리자로 로그인합니다.
 
 2. **관리** 탭을 클릭한 다음 왼쪽 탐색 창에서 **Single Sign-On 구성** 을 클릭합니다.
    
-    ![관리자 메뉴](./media/policystat-tutorial/ic808633.png "관리자 메뉴")
+    ![관리자 메뉴](./media/policystat-tutorial/ic808633.png &quot;관리자 메뉴")
 
 3. **IDP 메타데이터** 를 클릭한 다음, **IDP 메타데이터** 섹션에서 다음 단계를 수행합니다.
    

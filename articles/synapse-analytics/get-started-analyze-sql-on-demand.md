@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 12/31/2020
-ms.openlocfilehash: 7c228bfe5897b45e6345234f2ed8e0f5cfbec73a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 04/15/2021
+ms.openlocfilehash: c6f2dfe0d4846227400ac9b3c7ac3e6ead8f0b57
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312793"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567556"
 ---
 # <a name="analyze-data-with-a-serverless-sql-pool"></a>서버리스 SQL 풀을 사용하여 데이터 분석
 
@@ -29,7 +29,6 @@ ms.locfileid: "107312793"
 
 ## <a name="analyze-nyc-taxi-data-with-a-serverless-sql-pool"></a>서버리스 SQL 풀을 사용하여 NYC Taxi 데이터 분석
 
-
 1. Synapse Studio에서 **개발** 허브로 이동합니다.
 1. 새 SQL 스크립트를 만듭니다.
 1. 다음 코드를 스크립트에 붙여 넣습니다.
@@ -39,11 +38,11 @@ ms.locfileid: "107312793"
         TOP 100 *
     FROM
         OPENROWSET(
-                BULK 'https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet',
+            BULK 'https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet',
             FORMAT='PARQUET'
         ) AS [result]
     ```
-1. **실행** 을 클릭합니다.
+1. **실행** 을 클릭합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
