@@ -1,15 +1,15 @@
 ---
 title: Azure Lighthouse에 대한 기본 제공 정책 정의
 description: Azure Lighthouse에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: d494dce95406daa738292833bce0f44883929c7a
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: ab3596c8c14e7d82e2c90117dff6d9f2e676f66e
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106089793"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505688"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-lighthouse"></a>Azure Lighthouse에 대한 Azure Policy 기본 제공 정의
 
