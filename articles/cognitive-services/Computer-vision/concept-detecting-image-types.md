@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6d2ed00f3fc6f5b52a9a13a96f1e1659e30f02d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc24788ddd21ca2b7df1f9f92238c776dee33016
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96532604"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778880"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Computer Vision으로 이미지 형식 검색
 
-[Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API를 사용하면 Computer Vision이 이미지의 콘텐츠 형식을 분석하여 이미지가 클립 아트인지 또는 선 그리기인지 표시할 수 있습니다.
+[Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b) API를 사용하면 Computer Vision이 이미지의 콘텐츠 형식을 분석하여 이미지가 클립 아트인지 또는 선 그리기인지 표시할 수 있습니다.
 
 ## <a name="detecting-clip-art"></a>클립 아트 검색
 
@@ -115,6 +115,6 @@ Computer Vision는 이미지를 분석하고 이미지가 선 그리기인지 �
 
 ## <a name="use-the-api"></a>API 사용
 
-이미지 형식 검색 기능은 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. **visualFeatures** 쿼리 매개 변수에 `ImageType`을 포함합니다. 그런 다음 전체 JSON 응답을 받으면 `"imageType"` 섹션의 내용에 대한 문자열을 구문 분석하기만 하면 됩니다.
+이미지 형식 검색 기능은 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. **visualFeatures** 쿼리 매개 변수에 `ImageType`을 포함합니다. 그런 다음 전체 JSON 응답을 받으면 `"imageType"` 섹션의 내용에 대한 문자열을 구문 분석하기만 하면 됩니다.
 
 * [빠른 시작: Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
