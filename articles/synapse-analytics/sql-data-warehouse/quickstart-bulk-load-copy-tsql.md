@@ -2,21 +2,21 @@
 title: '빠른 시작: 단일 T-SQL 문을 사용하여 데이터 대량 로드'
 description: COPY 문을 사용하여 데이터 대량 로드
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 11/20/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 2f97c630189a0f037f1231bb2386fcb7226a9350
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2b41342ab7d267c37b8e68fdbcaa9d570034ac17
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104600040"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568440"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>빠른 시작: COPY 문을 사용하여 데이터 대량 로드
 
