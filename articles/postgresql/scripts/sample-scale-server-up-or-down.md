@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.custom: mvc, devx-track-azurecli
 ms.topic: sample
 ms.date: 08/07/2019
-ms.openlocfilehash: b0a17b12c51c08cd39d0c4fb7860021b8c68e606
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 56fd88ab658e59cccb14a35559d1793bc3ad1aa0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606405"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778441"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Azure CLI를 사용하여 단일 PostgreSQL 서버 모니터링 및 확장
 이 샘플 CLI 스크립트는 메트릭을 쿼리한 후에 단일 Azure Database for PostgreSQL 서버에 대한 컴퓨팅 및 스토리지를 확장합니다. 컴퓨팅을 확장하거나 축소할 수 있습니다. 스토리지는 확장만 가능합니다. 
@@ -39,8 +39,8 @@ ms.locfileid: "105606405"
 | **명령** | **참고** |
 |---|---|
 | [az group create](/cli/azure/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) | 데이터베이스를 호스팅하는 PostgreSQL 서버를 만듭니다. |
-| [az postgres server update](/cli/azure/postgres/server#az-postgres-server-update) | PostgreSQL 서버의 속성을 업데이트합니다. |
+| [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) | 데이터베이스를 호스팅하는 PostgreSQL 서버를 만듭니다. |
+| [az postgres server update](/cli/azure/postgres/server#az_postgres_server_update) | PostgreSQL 서버의 속성을 업데이트합니다. |
 | [az monitor metrics list](/cli/azure/monitor/metrics) | 리소스에 대한 메트릭 값을 나열합니다. |
 | [az group delete](/cli/azure/group) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 

@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: 4e38366ddcee07f38ca390acf9d580b8764c1c00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6276fc2027e92d5b7baaf9237a928e7828a3b021
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99979830"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775770"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Helm을 사용하여 Kubernetes 배포와 통합
 
@@ -185,7 +185,7 @@ settings:
 먼저, 구성을 App Configuration에서 *myConfig.yaml* 파일로 다운로드합니다. 키 필터를 사용하여 **settings.** 로 시작하는 키만 다운로드합니다. 키 필터가 키 자격 증명 모음 참조의 키를 제외하는 데 충분하지 않은 경우 **--skip-keyvault** 인수를 사용하여 제외할 수 있습니다. 
 
 > [!TIP]
-> [export 명령](/cli/azure/appconfig/kv#az-appconfig-kv-export)에 대해 자세히 알아보세요. 
+> [export 명령](/cli/azure/appconfig/kv#az_appconfig_kv_export)에 대해 자세히 알아보세요. 
 
 ```azurecli-interactive
 az appconfig kv export -n myAppConfiguration -d file --path myConfig.yaml --key "settings.*"  --separator "." --format yaml

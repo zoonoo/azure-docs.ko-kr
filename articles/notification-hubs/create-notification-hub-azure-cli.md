@@ -14,12 +14,12 @@ ms.author: dbradish
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c565be3aea43fc4dc86fd793e0dc2dea0b08d4c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d8400eb051c09fac4cb88863ad2fac12d2ca0a1b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94563752"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789886"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure 알림 허브 만들기
 
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 모든 Azure 리소스와 마찬가지로 Azure Notification Hubs는 리소스 그룹에 배포해야 합니다.  리소스 그룹을 사용하면 관련 Azure 리소스를 구성하고 관리할 수 있습니다.  리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager란?](../azure-resource-manager/management/overview.md)을 참조하세요.
 
-이 빠른 시작에서는 다음과 같이 [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 **eastus** 위치에 **spnhubrg** 라는 리소스 그룹을 만듭니다.
+이 빠른 시작에서는 다음과 같이 [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 **eastus** 위치에 **spnhubrg** 라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name spnhubrg --location eastus

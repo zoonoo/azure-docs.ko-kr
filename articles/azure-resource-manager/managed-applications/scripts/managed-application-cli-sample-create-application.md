@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a9912f5134c3596740ef53f23531d57fe9467682
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ea2baa897efb5c1a01b32e92e76a69c9d1f231c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87497871"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775496"
 ---
 # <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>Azure CLI를 사용하여 서비스 카탈로그에 대한 관리되는 애플리케이션 배포
 
@@ -34,7 +34,7 @@ ms.locfileid: "87497871"
 
 | 명령 | 메모 |
 |---|---|
-| [az managedapp create](/cli/azure/managedapp#az-managedapp-create) | 관리되는 애플리케이션을 만듭니다. 템플릿에 대한 정의 ID 및 매개 변수를 제공합니다. |
+| [az managedapp create](/cli/azure/managedapp#az_managedapp_create) | 관리되는 애플리케이션을 만듭니다. 템플릿에 대한 정의 ID 및 매개 변수를 제공합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

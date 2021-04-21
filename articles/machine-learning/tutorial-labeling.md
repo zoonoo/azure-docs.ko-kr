@@ -11,12 +11,12 @@ author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
 ms.custom: data4ml
-ms.openlocfilehash: 3a86f0eb88ba0a56f0887d71f649cf9b9d5ec7a3
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 41e93584937ca10740e9ee0be3353d1edf5efb3e
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227265"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587683"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>자습서: 다중 클래스 이미지 분류를 위한 레이블 지정 프로젝트 만들기 
 
@@ -35,7 +35,7 @@ ms.locfileid: "107227265"
 > * 데이터에 레이블을 지정합니다.  사용자 또는 레이블 지정자에서 이 작업을 수행할 수 있습니다.
 > * 데이터를 검토하고 내보내서 프로젝트를 완료합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 아직 없는 경우 [체험 계정](https://aka.ms/AMLFree)을 만듭니다.
 
@@ -210,4 +210,5 @@ Azure 리소스가 설정되고 데이터 레이블 지정 프로젝트가 구�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [데이터 레이블 지정 프로젝트를 만들고 레이블을 내보냅니다](how-to-create-labeling-projects.md).
+> [기계 학습 이미지 인식 모델 학습](/azure/machine-learning/how-to-use-labeled-dataset)
+

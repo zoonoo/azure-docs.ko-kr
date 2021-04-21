@@ -3,18 +3,18 @@ title: IoT 플러그 앤 플레이 소개 | Microsoft Docs
 description: IoT 플러그 앤 플레이에 대해 알아봅니다. IoT 플러그 앤 플레이는 스마트 IoT 디바이스가 기능을 선언할 수 있는 개방형 모델링 언어를 기반으로 합니다. IoT 디바이스는 클라우드 솔루션에 연결할 때 디바이스 모델이라는 이러한 선언을 제시합니다. 그러면 클라우드 솔루션이 코드를 작성하지 않고도 디바이스를 자동으로 이해하고 디바이스와 상호 작용을 시작할 수 있습니다.
 author: rido-min
 ms.author: rmpablos
-ms.date: 07/06/2020
+ms.date: 03/21/2021
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: eb39939f4a48a549479605dcccc346094359875f
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 91a09db16524ebc7e4c04069b69b1c42c67538c6
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106079015"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739713"
 ---
 # <a name="what-is-iot-plug-and-play"></a>IoT 플러그 앤 플레이란?
 

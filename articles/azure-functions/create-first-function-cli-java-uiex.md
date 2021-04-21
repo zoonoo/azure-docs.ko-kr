@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: b5bc453e2e0371ee0412824f01d99863b12d91e2
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: a270f482438129b7b07506744bf3f9489b242900
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375375"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787488"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 Java 함수 만들기
 
@@ -195,7 +195,7 @@ Windows 대신 Linux에서 실행되는 함수 앱을 만들려면 *pom.xml* 파
     az login
     ```
 
-    [az login](/cli/azure/reference-index#az-login) 명령은 Azure 계정에 로그인합니다.
+    [az login](/cli/azure/reference-index#az_login) 명령은 Azure 계정에 로그인합니다.
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell) 
     ```azurepowershell
