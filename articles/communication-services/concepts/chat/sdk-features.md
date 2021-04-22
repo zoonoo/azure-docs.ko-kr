@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 520dc611e49675f35b8ba0330448438192770773
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 561855704d157f9ad826b5db83600a79d9437fc6
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168878"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500688"
 ---
 # <a name="chat-sdk-overview"></a>채팅 SDK 개요 
 
@@ -43,7 +43,7 @@ Azure Communication Services 채팅 SDK를 사용하여 다양한 실시간 채�
 |                   | 참가자가 채팅 스레드에서 메시지를 적극적으로 입력할 때 알림 받기                                         | ✔️   | ✔️   | ✔️    | ✔️    |  ✔️    | ✔️   | 
 |                   | 채팅 스레드에서 모든 메시지 가져오기                                                                        | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   | 
 |                   | 메시지 콘텐츠의 일부로 유니코드 이모지 보내기                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
-|실시간 알림(독점적인 신호 패키지에서 사용하도록 설정**)|  채팅 클라이언트는 채팅 스레드에서 발생하는 들어오는 메시지 및 기타 작업에 대한 실시간 업데이트를 받기 위해 구독할 수 있습니다. 실시간 알림에 대해 지원되는 업데이트 목록을 보려면 [채팅 개념](concepts.md#real-time-notifications)을 참조하세요.                                     | ✔️   | ❌    | ❌  | ❌  | ❌  | ❌  | 
+|실시간 알림(독점적인 신호 패키지에서 사용하도록 설정**)|  채팅 클라이언트는 채팅 스레드에서 발생하는 들어오는 메시지 및 기타 작업에 대한 실시간 업데이트를 받기 위해 구독할 수 있습니다. 실시간 알림에 대해 지원되는 업데이트 목록을 보려면 [채팅 개념](concepts.md#real-time-notifications)을 참조하세요.                                     | ✔️   | ❌    | ❌  | ❌  | ✔️  | ✔️  |   
 | Azure Event Grid와 통합             | Azure Event Grid에서 사용할 수 있는 채팅 이벤트를 사용하여 사용자 지정 알림 서비스를 연결하거나 해당 이벤트를 웹후크에 게시하여 채팅이 완료된 후 CRM 레코드 업데이트와 같은 비즈니스 논리를 실행합니다.   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
 | 보고 </br>(이 정보는 Azure Portal에서 Communication Services 리소스의 모니터링 탭에서 사용할 수 있습니다.)      | Azure 메트릭 탐색기에서 게시된 메트릭을 모니터링하여 채팅 앱의 API 트래픽을 이해하고 이상을 감지하도록 경고를 설정합니다.     | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
 |                   | 리소스에 대한 진단 로깅을 사용하도록 설정하여 Communication Services 솔루션을 모니터링하고 디버깅합니다.    | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |   
