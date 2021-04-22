@@ -390,15 +390,12 @@
           href: how-to-migrate-from-estimators-to-scriptrunconfig.md
         - name: 교육 추적 및 모니터링
           items:
-            - name: '시작, 모니터링 또는 실행 취소'
+            - name: '실행 추적, 모니터링 및 분석'
               displayName: 'cancel, fail, status, child run'
-              href: how-to-manage-runs.md
-            - name: 로그 사용 설정
-              displayName: 'troubleshoot, log, files, tracing'
-              href: how-to-track-experiments.md
-            - name: 실행에 대한 로그 및 메트릭 보기
+              href: how-to-track-monitor-analyze-runs.md
+            - name: 메트릭 및 로그 파일 로그 및 보기
               displayName: 'troubleshoot, log, files, tracing, metrics'
-              href: how-to-monitor-view-training-logs.md
+              href: how-to-log-view-metrics.md
             - name: TensorBoard로 시각화 실행
               displayName: 'log, monitor, metrics'
               href: how-to-monitor-tensorboard.md
@@ -440,9 +437,6 @@
         - name: Databricks와 함께 자동화된 ML 사용
           displayName: automl
           href: how-to-configure-databricks-automl-environment.md
-        - name: 원격 컴퓨팅 대상 사용
-          displayName: automl automated auto ml
-          href: how-to-auto-train-remote.md
         - name: 예측 모델 자동 학습
           displayName: time series
           href: how-to-auto-train-forecast.md
@@ -625,7 +619,7 @@
       displayName: 'environments, curated environments'
       href: resource-curated-environments.md
     - name: Azure CLI
-      href: /cli/azure/ext/azure-cli-ml/ml
+      href: /cli/azure/ml
 - name: 리소스
   items:
     - name: 릴리스 정보

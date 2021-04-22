@@ -17,10 +17,12 @@
       href: ./quickstarts/client-libraries.md
 - name: 샘플
   items:
-    - name: 대화형 데모
+    - name: 대화형 데모(일변량)
       href: 'https://aka.ms/adDemo'
-    - name: Jupyter 노트북
+    - name: Jupyter Notebook(일변량)
       href: 'https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook'
+    - name: Jupyter Notebook(다변량)
+      href: 'https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb'
     - name: Azure 샘플
       href: 'https://docs.microsoft.com/samples/browse/?products=azure&terms=anomaly-detector'
 - name: 방법 가이드

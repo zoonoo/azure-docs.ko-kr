@@ -144,24 +144,26 @@
       items:
         - name: 문서 번역을 위한 SAS 토큰 생성
           href: document-translation/create-sas-tokens.md
-    - name: 참고
+    - name: 참조
       items:
-        - name: 문서 형식 가져오기
-          href: document-translation/reference/get-document-formats.md
-        - name: 용어집 형식 가져오기
-          href: document-translation/reference/get-glossary-formats.md
-        - name: 문서 스토리지 원본 가져오기
-          href: document-translation/reference/get-document-storage-source.md
-        - name: 일괄 처리 요청 제출
-          href: document-translation/reference/submit-batch-request.md
-        - name: 작업 문서 상태 가져오기
-          href: document-translation/reference/get-operation-documents-status.md
+        - name: 지원되는 문서 형식 가져오기
+          href: document-translation/reference/get-supported-document-formats.md
+        - name: 지원되는 용어집 형식 가져오기
+          href: document-translation/reference/get-supported-glossary-formats.md
+        - name: 지원되는 스토리지 원본 가져오기
+          href: document-translation/reference/get-supported-storage-sources.md
+        - name: 번역 시작
+          href: document-translation/reference/start-translation.md
+        - name: 문서 상태 가져오기
+          href: document-translation/reference/get-documents-status.md
         - name: 문서 상태 가져오기
           href: document-translation/reference/get-document-status.md
-        - name: 작업 가져오기
-          href: document-translation/reference/get-operations.md
-        - name: 작업 취소
-          href: document-translation/reference/cancel-operation.md
+        - name: 번역 상태 가져오기
+          href: document-translation/reference/get-translations-status.md
+        - name: 번역 상태 가져오기
+          href: document-translation/reference/get-translation-status.md
+        - name: 번역 취소
+          href: document-translation/reference/cancel-translation.md
 - name: 방법 가이드
   items:
     - name: 엔터프라이즈 준비
