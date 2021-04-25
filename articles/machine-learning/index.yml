@@ -13,12 +13,12 @@ metadata:
   author: BlackMist
   ms.date: 09/21/2020
   ms.custom: contperf-fy21q1
-  ms.openlocfilehash: 11815192c0076ed826ede60bfbb741caf87545c1
-  ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+  ms.openlocfilehash: c128830ec7219fd5080c2c348542c736af4eef5a
+  ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/22/2021
-  ms.locfileid: "107872032"
+  ms.lasthandoff: 04/25/2021
+  ms.locfileid: "107944984"
 landingContent:
 - title: '시작: 코드 우선'
   linkLists:
@@ -55,7 +55,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: 클라우드에 모델 배포
-      url: how-to-deploy-existing-model.md
+      url: how-to-deploy-and-where.md
     - text: MLflow 모델 추적
       url: how-to-use-mlflow.md
 - title: 모델 배포 및 관리(MLOps)

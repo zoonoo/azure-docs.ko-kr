@@ -3,7 +3,7 @@ title: LUIS(Language Understanding) 설명서
 summary: Language Understanding을 통해 애플리케이션이 사람의 말에서 원하는 것을 어떻게 이해할 수 있는지 알아봅니다.
 metadata:
   ms.topic: landing-page
-  ms.date: 04/13/2021
+  ms.date: 04/16/2021
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -12,12 +12,12 @@ metadata:
   title: LUIS(Language Understanding) 설명서
   titleSuffix: Azure Cognitive Services
   description: LUIS(Language Understanding) 서비스를 사용하면 애플리케이션은 사람의 말을 통해 무엇을 원하는지 이해할 수 있습니다. LUIS는 기계 학습을 사용하여 사용자 입력을 자연어로 받아서 의미를 추출하는 애플리케이션을 개발자가 작성할 수 있도록 합니다.
-  ms.openlocfilehash: 793638552b35dd6dc65395e9c568c55a8ef9f946
-  ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+  ms.openlocfilehash: 6c0b126f222e4dcb1bcd2dedcad38fe80b338f81
+  ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/14/2021
-  ms.locfileid: "107497050"
+  ms.lasthandoff: 04/25/2021
+  ms.locfileid: "107947414"
 landingContent:
 - title: LUIS(Language Understanding) 정보
   linkLists:
@@ -58,7 +58,7 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: '포털: 새 LUIS 앱 만들기'
-      url: get-started-portal-build-app.md
+      url: luis-get-started-create-app.md
     - text: C# SDK 사용
       url: ./client-libraries-rest-api.md?pivots=rest-api
     - text: Python SDK 사용
@@ -85,8 +85,6 @@ landingContent:
       url: ./luis-how-to-batch-test.md
   - linkListType: quickstart
     links:
-    - text: '포털: 예측 엔드포인트에 앱 배포'
-      url: get-started-portal-deploy-app.md
     - text: SDK 사용
       url: ./client-libraries-rest-api.md?pivots=rest-api
   - linkListType: how-to-guide
