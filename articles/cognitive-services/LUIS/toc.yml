@@ -16,16 +16,8 @@
       displayName: 'Troubleshooting, import'
 - name: LUIS 빠른 시작
   items:
-    - name: 미리 빌드된 도메인 앱 빌드
-      href: luis-get-started-create-app.md
     - name: LUIS 포털 사용
-      items:
-        - name: 앱 만들기
-          href: get-started-portal-build-app.md
-          displayName: 'intent, entity, create app, test, example utterance'
-        - name: 앱 배포
-          href: get-started-portal-deploy-app.md
-          displayName: 'assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish'
+      href: luis-get-started-create-app.md
     - name: 브라우저 사용
       href: luis-get-started-get-intent-from-browser.md
     - name: 클라이언트 라이브러리 및 REST API 사용
