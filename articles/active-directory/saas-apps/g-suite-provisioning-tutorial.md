@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/18/2021
 ms.author: Zhchia
-ms.openlocfilehash: f6ef2f91d178db01e618c19df55705bc9c1209e4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b8513f62b6f181a1490d136062c5de81db847ba7
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104583754"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533388"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 G Suite 구성
 
@@ -273,7 +273,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 * 2020년 10월 17일 - 추가 G Suite 사용자 및 그룹 특성에 대한 지원이 추가되었습니다.
 * 2020년 10월 17일 - [여기](https://developers.google.com/admin-sdk/directory)에 정의된 것과 일치하도록 G Suite 대상 특성 이름이 업데이트되었습니다.
 * 2020년 10월 17일 - 기본 특성 매핑이 업데이트되었습니다.
-* 2021/03/18 - 이제 모든 새 사용자에 대한 ID 대신 관리자 이메일이 동기화됩니다. 관리자를 ID로 프로비저닝된 기존 사용자의 경우 "full" 범위를 가진 [Microsoft Graph](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http)를 통해 다시 시작하여 이메일이 프로비저닝되도록 할 수 있습니다. 이 변경 내용은 GSuite 프로비저닝 작업에만 영향을 주며 Goov2OutDelta로 시작하는 이전 프로비저닝 작업에는 영향을 주지 않습니다. 관리자 이메일은 사용자를 처음 만들 때 또는 관리자가 변경될 때 프로비저닝됩니다. 관리자가 이메일 주소를 변경하면 관리자 이메일이 프로비저닝되지 않습니다. 
+* 2021/03/18 - 이제 모든 새 사용자에 대한 ID 대신 관리자 이메일이 동기화됩니다. 관리자를 ID로 프로비저닝된 기존 사용자의 경우 "full" 범위를 가진 [Microsoft Graph](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http&preserve-view=true)를 통해 다시 시작하여 이메일이 프로비저닝되도록 할 수 있습니다. 이 변경 내용은 GSuite 프로비저닝 작업에만 영향을 주며 Goov2OutDelta로 시작하는 이전 프로비저닝 작업에는 영향을 주지 않습니다. 관리자 이메일은 사용자를 처음 만들 때 또는 관리자가 변경될 때 프로비저닝됩니다. 관리자가 이메일 주소를 변경하면 관리자 이메일이 프로비저닝되지 않습니다. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -3,7 +3,6 @@ title: Azure 빠른 시작 - Azure Portal을 사용하여 Key Vault에서 인증
 description: Azure Portal을 사용하여 Azure Key Vault에서 인증서를 설정하고 검색하는 방법을 보여주는 빠른 시작
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
@@ -11,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e55c0832638105ad681f74cbeb6429a6704b7fb2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be138a0c97e02cace45a57d8d6b32d7c9aea83b7
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97935141"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749981"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Key Vault에서 인증서 설정 및 검색
 
@@ -26,7 +25,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-vault"></a>자격 증명 모음 만들기
 
@@ -61,7 +60,8 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
     - **인증서를 만드는 방법**: Generate.
     - **인증서 이름**: ExampleCertificate.
     - **주체**: CN=ExampleDomain
-    - 다른 값은 기본값으로 그대로 둡니다. **만들기** 를 클릭합니다.
+    - 다른 값은 기본값으로 그대로 둡니다. (기본적으로 고급 정책에서 특수 항목을 지정하지 않으면 클라이언트 인증 인증서로 사용할 수 있습니다.)
+ 4. **만들기** 를 클릭합니다.
 
 인증서가 성공적으로 생성되었다는 메시지가 표시되면 목록에서 클릭할 수 있습니다. 그런 다음, 속성 중 일부를 볼 수 있습니다. 현재 버전을 클릭하면 이전 단계에서 지정한 값을 볼 수 있습니다.
 

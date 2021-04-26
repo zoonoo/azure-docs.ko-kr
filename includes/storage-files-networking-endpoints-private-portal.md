@@ -5,17 +5,17 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 5/11/2020
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 09723030f0da0252120f66f36347cad2e3a3546a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 958c40ed311ebe8b2a83ce0d4d394d00f48d1afa
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93375802"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107732368"
 ---
-프라이빗 엔드포인트를 만들려는 스토리지 계정으로 이동합니다. 스토리지 계정의 목차에서 **프라이빗 엔드포인트 연결** 을 선택한 다음, **+ 프라이빗 엔드포인트** 를 선택하여 새 프라이빗 엔드포인트를 만듭니다. 
+프라이빗 엔드포인트를 만들려는 스토리지 계정으로 이동합니다. 스토리지 계정의 목차에서 **네트워킹**, **프라이빗 엔드포인트 연결** 을 선택한 다음, **+ 프라이빗 엔드포인트** 를 선택하여 새 프라이빗 엔드포인트를 만듭니다. 
 
 [![스토리지 계정 목차의 프라이빗 엔드포인트 연결 항목 스크린샷](media/storage-files-networking-endpoints-private-portal/create-private-endpoint-0.png)](media/storage-files-networking-endpoints-private-portal/create-private-endpoint-0.png#lightbox)
 

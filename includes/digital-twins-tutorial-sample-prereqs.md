@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 1/20/2021
 ms.author: baanders
-ms.openlocfilehash: 43cc3dfc5b425df6d9dd5e2c2f35a792907ccdea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00d584690d37f1dcc47b785ef533abe888befec3
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103622340"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107513417"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -27,7 +27,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 **[체험 계정](https
 
 이 자습서는 C#로 작성된 샘플 프로젝트를 기반으로 합니다. 이 샘플은 다음 위치에 있습니다. [Azure Digital Twins 엔드투엔드 샘플](/samples/azure-samples/digital-twins-samples/digital-twins-samples). 샘플 링크로 이동하여 제목 아래에서 *코드 찾아보기* 단추를 선택하여 머신에서 **샘플 프로젝트를 가져옵니다**. 그러면 *코드* 단추와 *ZIP 다운로드* 를 선택하여 *.ZIP* 으로 다운로드할 수 있는 샘플용 GitHub 리포지토리로 이동합니다.
 
-:::image type="content" source="../articles/digital-twins/media/includes/download-repo-zip.png" alt-text="GitHub의 디지털 트윈 샘플 리포지토리 보기입니다. 코드 단추가 선택되어 ZIP 다운로드 단추가 강조 표시된 작은 대화 상자를 생성합니다." lightbox="../articles/digital-twins/media/includes/download-repo-zip.png":::
+:::image type="content" source="../articles/digital-twins/media/includes/download-repo-zip.png" alt-text="GitHub의 digital-twins-samples 리포지토리 스크린샷. 코드 단추를 선택하면 ZIP 다운로드 단추가 강조 표시된 작은 대화 상자가 생성됩니다." lightbox="../articles/digital-twins/media/includes/download-repo-zip.png":::
 
 그러면 *.ZIP* 폴더가 **digital-twins-samples-master.zip** 으로 머신에 다운로드됩니다. 폴더의 압축을 풀고 파일을 추출합니다.
 

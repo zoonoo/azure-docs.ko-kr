@@ -6,14 +6,14 @@ ms.author: amverma
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: overview
-ms.date: 03/18/2021
+ms.date: 04/09/2021
 ms.reviewer: cynthn
-ms.openlocfilehash: 65b37a8c07e083f5e9809812e2d4446cc48717d1
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 554764b89e5da4cd6777ec89fcb2f2d5ad104ebf
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720596"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600270"
 ---
 # <a name="high-performance-computing-on-infiniband-enabled-h-series-and-n-series-vms"></a>InfiniBand 지원 H 시리즈 및 N 시리즈 VM의 고성능 컴퓨팅
 
@@ -47,4 +47,5 @@ SR-IOV 지원 H 시리즈 및 N 시리즈는 거의 모든 MPI 라이브러리 �
 - InfiniBand 지원 [H 시리즈](../../sizes-hpc.md) 및 [N 시리즈](../../sizes-gpu.md) VM의 [구성 및 최적화](configure.md)에 대해 자세히 알아보세요.
 - [HBv3 시리즈 개요](hb-series-overview.md) 및 [HC 시리즈 개요](hc-series-overview.md)를 검토하여 성능 및 확장성을 높일 수 있도록 워크로드를 최적으로 구성하는 방법을 알아보세요.
 - [Azure Compute 기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)에서 최신 공지 사항, HPC 워크로드 예제 및 성능 결과에 대해 읽어보세요.
+- [Azure에서 HPC 애플리케이션 최적화에 대한 학습 모듈](https://docs.microsoft.com/learn/modules/optimize-tightly-coupled-hpc-apps/)을 사용하여 지식을 테스트합니다.
 - HPC 워크로드를 실행하는 상위 수준의 아키텍처 보기는 [Azure의 HPC(고성능 컴퓨팅)](/azure/architecture/topics/high-performance-computing/)를 참조하세요.

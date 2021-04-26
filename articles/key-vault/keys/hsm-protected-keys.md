@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/24/2021
 ms.author: ambapat
-ms.openlocfilehash: a7e709ba9a4de5ff77524a2d2b1b64a5933131a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 171e0c03dc6f246d0f56d11f793ca711b0082f49
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102489415"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588295"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Key Vault로 HSM 보호 키 가져오기
 
@@ -33,7 +33,7 @@ ms.locfileid: "102489415"
 
 |공급업체 이름|공급업체 유형|지원되는 HSM 모델|지원되는 HSM 키 전송 방법|
 |---|---|---|---|
-|[nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|제조업체,<br/>서비스로 제공되는 HSM|<ul><li>HSM의 nShield 제품군</li><li>서비스로 제공되는 nShield</ul>|**방법 1:** [nCipher BYOK](hsm-protected-keys-ncipher.md)(사용되지 않음)<br/>**방법 2:** [새로운 BYOK 방법 사용](hsm-protected-keys-byok.md)(권장)|
+|[nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|제조업체,<br/>서비스로 제공되는 HSM|<ul><li>HSM의 nShield 제품군</li><li>서비스로 제공되는 nShield</ul>|**방법 1:** [nCipher BYOK](hsm-protected-keys-ncipher.md)(사용되지 않음). 이 방법은 <strong>2021년 6월 30일</strong> 이후 지원되지 않습니다.<br/>**방법 2:** [새로운 BYOK 방법 사용](hsm-protected-keys-byok.md)(권장)|
 |Thales|제조업체|<ul><li>펌웨어 버전 7.3 이상을 사용하는 Luna HSM 7 제품군</li></ul>| [새로운 BYOK 방법 사용](hsm-protected-keys-byok.md)|
 |Fortanix|제조업체,<br/>서비스로 제공되는 HSM|<ul><li>SDKMS(자체 방어 키 관리 서비스)</li><li>Equinix SmartKey</li></ul>|[새로운 BYOK 방법 사용](hsm-protected-keys-byok.md)|
 |Marvell|제조업체|다음을 사용하는 모든 LiquidSecurity HSM<ul><li>펌웨어 버전 2.0.4 이상</li><li>펌웨어 버전 3.2 이상</li></ul>|[새로운 BYOK 방법 사용](hsm-protected-keys-byok.md)|

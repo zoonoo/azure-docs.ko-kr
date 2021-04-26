@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 04/06/2021
 ms.author: jeedes
-ms.openlocfilehash: 8c3d76f24cce860538dc3bd5dcf29b59708bdb5d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b4d39492a05ee90c0ba2e081336d7b04579a5c43
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821683"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519102"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>자습서: Azure Active Directory와 Zscaler Two 통합
 
@@ -37,11 +37,14 @@ Zscaler Two와 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-* Zscaler Two는 **SP** 시작 SSO를 지원합니다.
+* Zscaler Two에서 **SP** 시작 SSO를 지원합니다.
 
-* Zscaler Two는 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
+* Zscaler Two에서 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
 
-## <a name="adding-zscaler-two-from-the-gallery"></a>갤러리에서 Zscaler Two 추가
+> [!NOTE]
+> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
+
+## <a name="add-zscaler-two-from-the-gallery"></a>갤러리에서 Zscaler Two 추가
 
 Zscaler Two가 Azure AD에 통합되도록 구성하려면 갤러리의 Zscaler Two를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
@@ -69,7 +72,7 @@ Zscaler Two에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계�
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. Azure Portal의 **Zscaler Three** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
+1. Azure Portal의 **Zscaler Two** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
 1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
@@ -134,23 +137,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
-이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Zscaler Two에 대한 액세스 권한을 부여합니다.
+이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 Zscaler Two에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Zscaler Two** 를 차례로 선택합니다.
-2. 애플리케이션 목록에서 **Zscaler Two** 를 선택합니다.
-3. 왼쪽 메뉴에서 **사용자 및 그룹** 을 선택합니다.
-4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
-5. **사용자 및 그룹** 대화 상자의 목록에서 **Britta Simon** 등의 사용자를 선택한 다음, 화면 맨 아래에서 **선택** 단추를 클릭합니다.
-
-    ![스크린샷은 사용자를 선택할 수 있는 사용자 및 그룹 대화 상자를 보여줍니다.](./media/zscaler-two-tutorial/tutorial_zscalertwo_users.png)
-
-6. **역할 선택** 대화 상자의 목록에서 적절한 사용자 역할을 선택한 다음, 화면 맨 아래에서 **선택** 단추를 클릭합니다.
-
-    ![스크린샷은 사용자 역할을 선택할 수 있는 역할 선택 대화 상자를 보여줍니다.](./media/zscaler-two-tutorial/tutorial_zscalertwo_roles.png)
-
-7. **할당 추가** 대화 상자에서 **할당** 단추를 선택합니다.
-
-    ![스크린샷은 할당을 선택할 수 있는 할당 추가 대화 상자를 보여줍니다.](./media/zscaler-two-tutorial/tutorial_zscalertwo_assign.png)
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 애플리케이션 목록에서 **Zscaler Two** 를 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
+1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
 ## <a name="configure-zscaler-two-sso"></a>Zscaler Two SSO 구성
 
@@ -166,7 +161,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. **관리 > 인증 > 인증 설정** 으로 이동하고 다음 단계를 수행합니다.
    
-    ![스크린샷은 설명된 단계가 있는 Zscaler One 사이트를 보여줍니다.](./media/zscaler-two-tutorial/ic800206.png "관리")
+    ![스크린샷은 설명된 단계가 있는 Zscaler One 사이트를 보여줍니다.](./media/zscaler-two-tutorial/administrator.png "관리")
 
     a. 인증 형식에서 **SAML** 을 선택합니다.
 
@@ -174,7 +169,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 5. **SAML 편집** 창에서 다음 단계를 수행하고 저장을 클릭합니다.  
             
-    ![사용자 및 인증 관리](./media/zscaler-two-tutorial/ic800208.png "사용자 & 인증 관리")
+    ![사용자 및 인증 관리](./media/zscaler-two-tutorial/authentication.png "사용자 & 인증 관리")
     
     a. Azure Portal에서 복사한 **로그인 URL** 값을 **SAML 포털 URL** 텍스트 상자에 붙여넣습니다.
 
@@ -194,20 +189,21 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 6. **사용자 인증 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
-    ![스크린샷은 활성화가 선택된 사용자 인증 구성 대화 상자를 보여줍니다.](./media/zscaler-two-tutorial/ic800207.png)
+    ![스크린샷은 활성화가 선택된 사용자 인증 구성 대화 상자를 보여줍니다.](./media/zscaler-two-tutorial/activation.png)
 
     a. 왼쪽 아래 근처에 있는 **활성화** 메뉴를 마우스로 가리킵니다.
 
     b. **활성화** 를 클릭합니다.
 
 ## <a name="configuring-proxy-settings&quot;></a>프록시 설정 구성
+
 ### <a name=&quot;to-configure-the-proxy-settings-in-internet-explorer&quot;></a>Internet Explorer에서 프록시 설정을 구성하려면
 
 1. **Internet Explorer** 를 시작합니다.
 
 2. **도구** 메뉴에서 **인터넷 옵션** 을 선택하여 **인터넷 옵션** 대화 상자를 엽니다.   
     
-     ![인터넷 옵션](./media/zscaler-two-tutorial/ic769492.png &quot;인터넷 옵션")
+     ![인터넷 옵션](./media/zscaler-two-tutorial/internet.png &quot;인터넷 옵션")
 
 3. **연결** 탭을 클릭합니다.   
   
@@ -217,7 +213,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 5. 프록시 서버 섹션에서 다음 단계를 수행합니다.   
    
-    ![프록시 서버](./media/zscaler-two-tutorial/ic769494.png "프록시 서버")
+    ![프록시 서버](./media/zscaler-two-tutorial/proxy.png "프록시 서버")
 
     a. **사용자 LAN의 프록시 서버 사용** 을 선택합니다.
 
@@ -239,7 +235,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 >[!Note]
 >사용자를 수동으로 만들어야 하는 경우 [Zscaler Two 지원 팀](https://www.zscaler.com/company/contact)에 문의해야 합니다.
 
-### <a name="test-sso"></a>SSO 테스트 
+## <a name="test-sso"></a>SSO 테스트 
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
@@ -248,7 +244,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 * Zscaler Two 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
 * Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Zscaler Two 타일을 클릭하면 Zscaler Two 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
-
 
 ## <a name="next-steps"></a>다음 단계
 

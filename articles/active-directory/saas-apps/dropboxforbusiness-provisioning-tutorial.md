@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 04d17e17ef11696efd52f04ea83639f2a9b81fea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e718ef30d029995c49efe36f19a6efcf7de0616
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96938752"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589604"
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Dropbox for Business 구성
 
 이 자습서에서는 사용자 및/또는 그룹을 Dropbox for Business로 자동으로 프로비저닝 및 프로비저닝 해제하도록 Azure AD(Azure Active Directory)를 구성하기 위해 Dropbox for Business 및 Azure AD에서 수행하는 단계를 보여 줍니다.
 
 > [!IMPORTANT]
-> Microsoft 및 Dropbox는 2021년 4월 1일부터 이전 Dropbox 통합을 사용 중단합니다. 서비스 중단을 방지하려면 그룹을 지원하는 새 Dropbox 통합으로 마이그레이션하는 것이 좋습니다. 새 Dropbox 통합으로 마이그레이션하려면 아래 단계를 사용하여 Azure AD 테넌트에서 프로비저닝할 새 Dropbox 인스턴스를 추가하고 구성합니다. 새 Dropbox 통합이 구성되면 이전 Dropbox 통합에서 프로비저닝을 사용하지 않도록 설정하여 프로비저닝 충돌을 방지합니다. 새 Dropbox 통합으로 마이그레이션하는 방법에 대한 자세한 단계는 [Azure AD를 사용하여 최신 Dropbox for Business 애플리케이션으로 업데이트](https://help.dropbox.com/installs-integrations/third-party/update-dropbox-azure-ad-connector)를 참조하세요.
+> 향후 Microsoft 및 Dropbox는 이전 Dropbox 통합을 더 이상 사용하지 않게 됩니다. 이는 원래 2021년 4월 1일로 계획되었지만 무기한 연기되었습니다. 그러나 서비스 중단을 방지하려면 그룹을 지원하는 새 SCIM 2.0 Dropbox 통합으로 마이그레이션하는 것이 좋습니다. 새 Dropbox 통합으로 마이그레이션하려면 아래 단계를 사용하여 Azure AD 테넌트에서 프로비저닝할 새 Dropbox 인스턴스를 추가하고 구성합니다. 새 Dropbox 통합이 구성되면 이전 Dropbox 통합에서 프로비저닝을 사용하지 않도록 설정하여 프로비저닝 충돌을 방지합니다. 새 Dropbox 통합으로 마이그레이션하는 방법에 대한 자세한 단계는 [Azure AD를 사용하여 최신 Dropbox for Business 애플리케이션으로 업데이트](https://help.dropbox.com/installs-integrations/third-party/update-dropbox-azure-ad-connector)를 참조하세요.
 
 > [!NOTE]
 > 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요.

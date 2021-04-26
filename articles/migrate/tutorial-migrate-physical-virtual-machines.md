@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: aeeb810174ff5c21a81bcec8aa9265ff100edf91
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1563543dec0a27094c00e446a205e94535e54229
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99626328"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713527"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>물리적 서버로 머신을 Azure에 마이그레이션
 
@@ -43,7 +43,7 @@ ms.locfileid: "99626328"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 다음을 수행해야 합니다.
 
@@ -125,23 +125,25 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
 
     ![VM 검색](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
-3. **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **가상화되지 않음/기타** 를 클릭합니다.
-4. **대상 지역** 에서 머신을 마이그레이션하려는 Azure 지역을 선택합니다.
-5. **마이그레이션의 대상 지역이 region-name인지 확인합니다.** 를 선택합니다.
-6. **리소스 만들기** 를 클릭합니다. 그러면 Azure Site Recovery 자격 증명 모음이 백그라운드에서 만들어집니다.
+2. **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **가상화되지 않음/기타** 를 클릭합니다.
+3. **대상 지역** 에서 머신을 마이그레이션하려는 Azure 지역을 선택합니다.
+4. **마이그레이션의 대상 지역이 region-name인지 확인합니다.** 를 선택합니다.
+5. **리소스 만들기** 를 클릭합니다. 그러면 Azure Site Recovery 자격 증명 모음이 백그라운드에서 만들어집니다.
     - 이미 Azure Migrate : Server Migration을 사용하여 마이그레이션을 설정한 경우 이전에 리소스가 설정되었으므로 대상 옵션을 구성할 수 없습니다.    
     - 이 단추를 클릭한 후에는 이 프로젝트의 대상 지역을 변경할 수 없습니다.
-    - 이후의 모든 마이그레이션은 이 지역으로 수행됩니다.
+    - 이후의 모든 마이그레이션은 이 지역으로 수행됩니다. 
+    > [!NOTE]
+    > Azure Migrate 프로젝트를 만들 때 연결 방법으로 프라이빗 엔드포인트를 선택한 경우 Recovery Services 자격 증명 모음도 프라이빗 엔드포인트 연결을 위해 구성됩니다. 복제 어플라이언스에서 프라이빗 엔드포인트에 연결할 수 있는지 확인합니다. [**자세한 정보**](how-to-use-azure-migrate-with-private-endpoints.md#troubleshoot-network-connectivity)
 
-7. **새 복제 어플라이언스를 설치하거나 기존 설치를 확장하시겠습니까?** 에서 **복제 어플라이언스 설치** 를 선택합니다.
-9. **복제 어플라이언스 소프트웨어를 다운로드하고 설치합니다.** 에서 어플라이언스 설치 관리자 및 등록 키를 다운로드합니다. 어플라이언스를 등록하려면 키가 필요합니다. 키는 다운로드한 후 5일 동안 유효합니다.
+6. **새 복제 어플라이언스를 설치하거나 기존 설치를 확장하시겠습니까?** 에서 **복제 어플라이언스 설치** 를 선택합니다.
+7. **복제 어플라이언스 소프트웨어를 다운로드하고 설치합니다.** 에서 어플라이언스 설치 관리자 및 등록 키를 다운로드합니다. 어플라이언스를 등록하려면 키가 필요합니다. 키는 다운로드한 후 5일 동안 유효합니다.
 
     ![공급자 다운로드](media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
-10. 어플라이언스 설정 파일 및 키 파일을 어플라이언스용으로 만든 Windows Server 2016 머신에 복사합니다.
-11. 설치가 완료되면 어플라이언스 구성 마법사가 자동으로 시작됩니다(어플라이언스의 바탕 화면에 만들어진 cspsconfigtool 바로 가기를 사용하여 마법사를 수동으로 시작할 수도 있음). 마법사의 계정 관리 탭을 사용하여 모바일 서비스의 푸시 설치에 사용할 계정 세부 정보를 추가합니다. 이 자습서에서는 Mobility Service를 복제할 원본 VM에 수동으로 설치하므로 이 단계에서 더미 계정을 만들어 계속 진행합니다. 더미 계정 만들 때 식별 이름으로 "guest", 사용자 이름으로 "username", 계정 암호로 "password"를 입력할 수 있습니다. 이 더미 계정은 복제 사용 단계에서 사용됩니다. 
+8. 어플라이언스 설정 파일 및 키 파일을 어플라이언스용으로 만든 Windows Server 2016 머신에 복사합니다.
+9. 설치가 완료되면 어플라이언스 구성 마법사가 자동으로 시작됩니다(어플라이언스의 바탕 화면에 만들어진 cspsconfigtool 바로 가기를 사용하여 마법사를 수동으로 시작할 수도 있음). 마법사의 계정 관리 탭을 사용하여 모바일 서비스의 푸시 설치에 사용할 계정 세부 정보를 추가합니다. 이 자습서에서는 Mobility Service를 복제할 원본 VM에 수동으로 설치하므로 이 단계에서 더미 계정을 만들어 계속 진행합니다. 더미 계정 만들 때 식별 이름으로 "guest", 사용자 이름으로 "username", 계정 암호로 "password"를 입력할 수 있습니다. 이 더미 계정은 복제 사용 단계에서 사용됩니다. 
 
-12. 설치 후에 어플라이언스가 다시 시작되면 **머신 검색** 의 **구성 서버 선택** 에서 새 어플라이언스를 선택하고 **등록 완료** 를 클릭합니다. 등록 완료에서는 복제 어플라이언스를 준비하기 위한 몇 가지 최종 작업이 수행됩니다.
+10. 설치 후에 어플라이언스가 다시 시작되면 **머신 검색** 의 **구성 서버 선택** 에서 새 어플라이언스를 선택하고 **등록 완료** 를 클릭합니다. 등록 완료에서는 복제 어플라이언스를 준비하기 위한 몇 가지 최종 작업이 수행됩니다.
 
     ![등록 완료](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
@@ -216,18 +218,24 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
 2. **복제** > **원본 설정** > **머신이 가상화되어 있나요?** 에서 **가상화되지 않음/기타** 를 선택합니다.
 3. **온-프레미스 어플라이언스** 에서 설정한 Azure Migrate 어플라이언스의 이름을 선택합니다.
 4. **프로세스 서버** 에서 복제 어플라이언스의 이름을 선택합니다.
-6. **게스트 자격 증명** 에서, [복제 설치 관리자 설치](#download-the-replication-appliance-installer) 중에 만든 더미 계정을 선택하여 모바일 서비스를 수동으로 설치합니다(푸시 설치는 지원되지 않음). 그런 다음, **다음: 가상 머신** 을 클릭합니다.   
+5. **게스트 자격 증명** 에서, [복제 설치 관리자 설치](#download-the-replication-appliance-installer) 중에 만든 더미 계정을 선택하여 모바일 서비스를 수동으로 설치합니다(푸시 설치는 지원되지 않음). 그런 다음, **다음: 가상 머신** 을 클릭합니다.   
 
     ![게스트 자격 증명 필드가 강조 표시된 복제 화면에 있는 원본 설정 탭의 스크린샷.](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 
-7. **Virtual Machines** 의 **평가에서 마이그레이션 설정을 가져오시겠습니까?** 에서 기본 설정인 **아니요, 수동으로 마이그레이션 설정 지정** 을 그대로 유지합니다.
-8. 마이그레이션하려는 각 VM을 선택합니다. 그런 다음, **다음: 대상 설정** 을 클릭합니다.
+6. **Virtual Machines** 의 **평가에서 마이그레이션 설정을 가져오시겠습니까?** 에서 기본 설정인 **아니요, 수동으로 마이그레이션 설정 지정** 을 그대로 유지합니다.
+7. 마이그레이션하려는 각 VM을 선택합니다. 그런 다음, **다음: 대상 설정** 을 클릭합니다.
 
     ![VM 선택](./media/tutorial-migrate-physical-virtual-machines/select-vms.png)
 
 
-9. **대상 설정** 에서 마이그레이션할 구독 및 대상 지역을 선택하고, 마이그레이션 후 Azure VM이 상주할 리소스 그룹을 지정합니다.
-10. **Virtual Network** 에서 마이그레이션 후 Azure VM이 조인될 Azure VNet/서브넷을 선택합니다.
+8. **대상 설정** 에서 마이그레이션할 구독 및 대상 지역을 선택하고, 마이그레이션 후 Azure VM이 상주할 리소스 그룹을 지정합니다.
+9. **Virtual Network** 에서 마이그레이션 후 Azure VM이 조인될 Azure VNet/서브넷을 선택합니다.   
+10. **캐시 스토리지 계정** 에서 프로젝트에 대해 자동으로 생성되는 캐시 스토리지 계정을 사용하는 기본 옵션을 유지합니다. 복제를 위해 캐시 스토리지 계정으로 사용할 다른 스토리지 계정을 지정하려는 경우 드롭다운을 사용하세요. <br/> 
+    > [!NOTE]
+    >
+    > - Azure Migrate 프로젝트의 연결 방법으로 프라이빗 엔드포인트를 선택한 경우 Recovery Services 자격 증명 모음에 캐시 스토리지 계정에 대한 액세스 권한을 부여합니다. [**자세한 정보**](how-to-use-azure-migrate-with-private-endpoints.md#grant-access-permissions-to-the-recovery-services-vault)
+    > - 개인 피어링에서 ExpressRoute를 사용하여 복제하려면 캐시 스토리지 계정에 대한 프라이빗 엔드포인트를 만듭니다. [**자세한 정보**](how-to-use-azure-migrate-with-private-endpoints.md#create-a-private-endpoint-for-the-storage-account-optional) 
+  
 11. **가용성 옵션** 에서 다음을 선택합니다.
     -  마이그레이션된 머신을 지역의 특정 가용성 영역에 고정하는 가용성 영역. 이 옵션을 사용하여 가용성 영역에서 다중 노드 애플리케이션 계층을 구성하는 서버를 배포합니다. 이 옵션을 선택하는 경우 Compute 탭에서 선택한 각 머신에 사용할 가용성 영역을 지정해야 합니다. 이 옵션은 마이그레이션을 위해 선택한 대상 지역이 가용성 영역을 지원하는 경우에만 사용할 수 있습니다.
     -  마이그레이션된 머신을 가용성 집합에 배치하기 위한 가용성 집합입니다. 이 옵션을 사용하려면 선택한 대상 리소스 그룹에 하나 이상의 가용성 집합이 있어야 합니다.
@@ -246,7 +254,7 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
     - Azure 하이브리드 혜택을 적용하지 않으려면 **아니요** 를 선택합니다. 그런 후 **Next** 를 클릭합니다.
     - 활성 Software Assurance 또는 Windows Server 구독이 적용되는 Windows Server 머신이 있고 마이그레이션할 머신에 이 혜택을 적용하려면 **예** 를 선택합니다. 그런 후 **Next** 를 클릭합니다.
 
-    ![대상 설정](./media/tutorial-migrate-vmware/target-settings.png)
+    ![대상 설정](./media/tutorial-migrate-physical-virtual-machines/target-settings.png)
 
 14. **Compute** 에서 VM 이름, 크기, OS 디스크 유형 및 가용성 구성을 검토합니다(이전 단계에서 선택한 경우). VM은 [Azure 요구 사항](migrate-support-matrix-physical-migration.md#azure-vm-requirements)을 준수해야 합니다.
 

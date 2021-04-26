@@ -6,13 +6,13 @@ ms.author: routlaw
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 2cecf2038190adcf12d376715a5fbf261cf758e0
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 7a0dd1198bcad675f7662a2cf4eb369f2a276445
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105962631"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479409"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>자습서: Linux 및 Azure Cosmos DB에서 Azure App Service를 사용하여 Java Spring Boot Java 웹앱 빌드
 
@@ -300,7 +300,6 @@ az appservice plan update --number-of-workers 2 \
 ## <a name="clean-up-resources"></a>리소스 정리
 
 다른 자습서에서 이러한 리소스가 필요하지 않으면([다음 단계](#next) 참조) Cloud Shell에서 다음 명령을 실행하여 삭제할 수 있습니다. 
-  
 ```azurecli
 az group delete --name <your-azure-group-name>
 ```

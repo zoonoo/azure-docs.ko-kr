@@ -2,18 +2,20 @@
 title: 빠른 시작 - Azure Portal에서 Azure 기밀 컴퓨팅 가상 머신 만들기
 description: Azure Portal에서 기밀 컴퓨팅 가상 머신을 빠르게 만드는 방법을 학습하여 배포를 시작합니다.
 author: JBCook
+ms.author: JenCook
+ms.date: 04/23/2020
+ms.topic: quickstart
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
-ms.topic: quickstart
-ms.date: 04/23/2020
-ms.author: JenCook
-ms.openlocfilehash: 3f0984acd66bd5d6c148be8451938d3152fb9ca7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- mode-portal
+ms.openlocfilehash: f43229570f6bab942cc57a2ea3be163d37f02f89
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566671"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536178"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure 기밀 컴퓨팅 VM 배포
 
@@ -148,7 +150,7 @@ Linux VM에 연결하는 방법에 대한 자세한 내용은 [포털을 사용�
 
 단계별 지침에 따라 Ubuntu 18.04 LTS 2세대 이미지를 실행하는 DCsv2 시리즈 가상 머신에 [OE SDK](https://github.com/openenclave/openenclave)를 설치합니다. 
 
-가상 머신이 Ubuntu 16.04 LTS 2세대에서 실행되는 경우 [Ubuntu 16.04 설치 지침](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_16.04.md)을 따라야 합니다.
+가상 머신이 Ubuntu 18.04 LTS Gen 2에서 실행되는 경우 [Ubuntu 18.04 설치 지침](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md)을 따라야 합니다.
 
 #### <a name="1-configure-the-intel-and-microsoft-apt-repositories"></a>1. Intel 및 Microsoft APT 리포지토리 구성
 

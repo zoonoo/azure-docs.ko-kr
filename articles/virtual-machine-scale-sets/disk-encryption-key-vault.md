@@ -8,17 +8,17 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: 3d30d506ae3b49b2e247ee77ef17d101f94854c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 77a2fc900e3888575fb6411a8c2b76b2c639d719
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501018"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107748591"
 ---
 # <a name="create-and-configure-a-key-vault-for-azure-disk-encryption"></a>Azure Disk Encryption을 위한 Key Vault 만들기 및 구성
 
-Azure Disk Encryption은 Azure Key Vault를 사용하여 키 디스크 암호화 키와 비밀을 제어하고 관리합니다.  키 자격 증명 모음에 대한 자세한 내용은 [Azure Key Vault 시작](../key-vault/general/overview.md) 및 [키 자격 증명 모음 보안](../key-vault/general/secure-your-key-vault.md)을 참조하세요.
+Azure Disk Encryption은 Azure Key Vault를 사용하여 키 디스크 암호화 키와 비밀을 제어하고 관리합니다.  키 자격 증명 모음에 대한 자세한 내용은 [Azure Key Vault 시작](../key-vault/general/overview.md) 및 [Azure Key Vault 보안 기능](../key-vault/general/security-overview.md)을 참조하세요.
 
 Azure Disk Encryption을 위한 키 자격 증명 모음 만들기 및 구성은 다음과 같이 세 단계로 이루어져 있습니다.
 

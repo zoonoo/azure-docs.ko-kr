@@ -10,17 +10,17 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/24/2021
 ms.author: ambapat
-ms.openlocfilehash: f7761cf011a3a678bb7609e1063ac6ebec90d395
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8230404d71b0fe46e8a7cc536d2b5f3a4c5004f
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102499189"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588397"
 ---
 # <a name="import-hsm-protected-keys-for-key-vault-ncipher"></a>Key Vault에 사용할 HSM 보호 키 가져오기(nCipher)
 
 > [!WARNING]
-> 이 문서에서 설명하는 HSM 키 가져오기 방법은 **더 이상 사용** 되지 않으며 향후에 지원되지 않습니다. 핫핏스가 있는 펌웨어 12.40.2 또는 12.50을 사용하는 HSM의 nCipher nShield 제품군에서만 작동합니다. [HSM 키를 가져오는 새로운 방법](hsm-protected-keys-byok.md)을 사용하는 것이 가장 좋습니다.
+> 이 문서에서 설명하는 HSM 키 가져오기 방법은 **더 이상 사용** 되지 않으며 2021년 6월 30일 이후에는 지원되지 않습니다. 핫핏스가 있는 펌웨어 12.40.2 또는 12.50을 사용하는 HSM의 nCipher nShield 제품군에서만 작동합니다. [HSM 키를 가져오는 새로운 방법](hsm-protected-keys-byok.md)을 사용하는 것이 가장 좋습니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

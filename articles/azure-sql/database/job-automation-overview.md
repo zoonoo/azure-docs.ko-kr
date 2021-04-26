@@ -13,12 +13,12 @@ author: williamdassafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 2/1/2021
-ms.openlocfilehash: 1f4bd28d2b95aeebe07fcad84d757327622d51f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 295889cf64d27761021dd09549a3366ea142516e
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101690433"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752033"
 ---
 # <a name="automate-management-tasks-using-elastic-jobs-preview"></a>탄력적 작업을 사용하여 관리 작업 자동화(미리 보기)
 
@@ -159,7 +159,7 @@ SQL 에이전트(SQL Server 및 SQL Managed Instance의 일부로 사용 가능)
 
 #### <a name="job-history"></a>작업 기록
 
-[테이블 jobs.job_executions를 쿼리](elastic-jobs-tsql-create-manage.md#monitor-job-execution-status)하여 *작업 데이터베이스* 에서 탄력적 작업 실행 기록을 봅니다. 시스템 정리 작업은 45일 이상된 실행 기록을 제거합니다. 45일 이하 기록을 제거하려면 *작업 데이터베이스* 에서 **sp_purge_history** 저장 프로시저를 호출합니다.
+[테이블 jobs.job_executions를 쿼리](elastic-jobs-tsql-create-manage.md#monitor-job-execution-status)하여 *작업 데이터베이스* 에서 탄력적 작업 실행 기록을 봅니다. 시스템 정리 작업은 45일 이상된 실행 기록을 제거합니다. 45일 미만의 기록을 제거하려면 *작업 데이터베이스* 에서 **sp_purge_jobhistory** 저장 프로시저를 호출합니다.
 
 #### <a name="job-status"></a>작업 상태
 

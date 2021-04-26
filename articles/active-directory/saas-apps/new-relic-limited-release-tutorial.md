@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/04/2020
+ms.date: 04/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 29e19eea51b5ee55831bf1d694a9a6473a62d471
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c0ffe4affb6b30f2e2a1aa97a0f4795c130f59b
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97504052"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517609"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic"></a>자습서: New Relic과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,9 +26,7 @@ ms.locfileid: "97504052"
 * 사용자가 해당 Azure AD 계정으로 New Relic에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보려면 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음이 필요합니다.
 
@@ -40,13 +38,12 @@ Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * New Relic에서 서비스 공급자 또는 ID 공급자가 시작한 SSO를 지원합니다.
-* New Relic이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-new-relic-from-the-gallery"></a>갤러리에서 New Relic 추가
 
 New Relic이 Azure AD에 통합되도록 구성하려면 갤러리의 **New Relic (By Organization)** 을 관리형 SaaS 앱 목록에 추가해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 회사나 학교 계정 또는 개인 Microsoft 계정으로 로그인합니다.
+1. Azure Portal에 회사나 학교 계정 또는 개인 Microsoft 계정으로 로그인합니다.
 1. **Azure Active Directory** 서비스를 선택합니다.
 1. **엔터프라이즈 애플리케이션** > **새 애플리케이션** 을 차례로 선택합니다.
 1. **Azure AD 갤러리 찾아보기** 페이지의 검색 상자에서 **New Relic (By Organization)** 을 입력합니다.
@@ -69,7 +66,7 @@ New Relic에서 Azure AD SSO를 구성하고 테스트하려면 다음을 수행
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **New Relic by Organization** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾습니다. 그런 다음, **Single Sign-On** 을 선택합니다.
+1. Azure Portal의 **New Relic by Organization** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾습니다. 그런 다음, **Single Sign-On** 을 선택합니다.
 
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
 
@@ -98,32 +95,27 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
-Azure Portal에서 B.Simon이라는 테스트 사용자를 만드는 방법은 다음과 같습니다.
+이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal에서 **Azure Active Directory** 를 선택합니다.
-1. **사용자** > **새 사용자** 를 차례로 선택합니다.
-1. **새 사용자** 페이지에서 다음을 수행합니다.
-   1. **사용자 이름** 필드에서 `username@companydomain.extension`을 입력합니다. 예들 들어 `b.simon@contoso.com`입니다. 이는 New Relic 쪽에서 사용할 이메일 주소와 일치해야 합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
+1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
+1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **암호 표시** 를 선택한 다음, 표시되는 값을 저장합니다.
-   1. **만들기** 를 선택합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
+   1. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
-B.Simon에게 New Relic by Organization 애플리케이션에 대한 액세스 권한을 부여하여 해당 사용자가 Azure AD Single Sign-On을 사용하도록 설정하는 방법은 다음과 같습니다.
+이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 New Relic에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **Azure Active Directory** 를 선택합니다.
-1. **엔터프라이즈 애플리케이션** > **New Relic by Organization** 을 차례로 선택합니다.
-1. 앱의 개요 페이지에서 **관리** 섹션을 찾고, **사용자 및 그룹** 을 선택합니다.
-
-   ![사용자 및 그룹이 강조 표시된 관리 섹션의 스크린샷](common/users-groups-blade.png)
-
-1. **사용자 추가** 를 선택합니다. **할당 추가** 에서 **사용자 및 그룹**(또는 요금제 수준에 따라 **사용자**)을 선택합니다.
-
-   ![사용자 추가 옵션의 스크린샷](common/add-assign-user.png)
-
-1. **사용자 및 그룹** (또는 **사용자**)의 **사용자** 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 을 선택합니다.
-1. **할당 추가** 에서 **할당** 을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 애플리케이션 목록에서 **New Relic** 을 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
+1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
 ## <a name="configure-new-relic-sso"></a>New Relic SSO 구성
 
@@ -167,18 +159,20 @@ New Relic에서 다음 단계에 따라 SSO를 구성합니다.
 
 ## <a name="test-sso"></a>SSO 테스트 
 
-액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하는 방법은 다음과 같습니다.
+이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-액세스 패널에서 **New Relic by Organization** 을 선택하면 New Relic에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [내 앱 포털에서 로그인하고 앱 시작](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
+#### <a name="sp-initiated"></a>SP 시작:
 
-## <a name="additional-resources"></a>추가 리소스
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 New Relic 로그온 URL로 리디렉션됩니다.  
 
-- [SaaS 애플리케이션과 Azure Active Directory 통합을 위한 자습서](./tutorial-list.md)
+* New Relic 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>IDP 시작:
 
-- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 New Relic에 자동으로 로그인됩니다. 
 
-- [Azure AD에서 New Relic 사용해 보기](https://aad.portal.azure.com/)
+Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 New Relic 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 New Relic에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
-- [Microsoft Cloud App Security의 세션 제어란?](/cloud-app-security/proxy-intro-aad)
+## <a name="next-steps"></a>다음 단계
+
+New Relic이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

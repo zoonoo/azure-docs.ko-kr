@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 476a0c2d75dcbee5c1ed4d758e0cbc9d4726ff95
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b65013bbf21faa8bffdcf799a991952b69f5fead
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97587199"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714473"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-with-azure-iot-central"></a>자습서: Azure IoT Central을 사용하여 용수 사용량 모니터링 애플리케이션 만들기
 
@@ -200,22 +200,23 @@ Azure IoT Central에서는 디바이스 원격 분석을 자동으로 모니터�
 
    ![규칙 창](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-rules.png)
 
-1. 애플리케이션의 미리 구성된 규칙 중 하나인 **높은 pH 경고** 를 선택합니다.
+1. 애플리케이션에서 미리 구성된 규칙 중 하나인 **상위 워터 흐름 경고** 를 선택합니다.
 
      ![높은 pH 경고](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-highflowalert.png)
 
-    `High flow alert` 규칙은 `Acidity (pH)` 조건이 `Max flow threshold`보다 `greater than`인지 확인하도록 구성되었습니다. 최대 흐름 임계값은 **스마트 밸브** 디바이스 템플릿에 정의된 클라우드 속성입니다. `Max flow threshold` 값은 디바이스 인스턴스마다 설정됩니다.
+    `High water flow alert` 규칙은 `Flow` 조건이 `Max flow threshold`보다 `greater than`인지 확인하도록 구성되었습니다. 최대 흐름 임계값은 **스마트 밸브** 디바이스 템플릿에 정의된 클라우드 속성입니다. `Max flow threshold` 값은 디바이스 인스턴스마다 설정됩니다.
 
 이제 이메일 작업을 만들겠습니다.
 
 규칙에 작업을 추가하려면 다음을 수행합니다.
 
 1. **+메일** 을 선택합니다.
-1. 작업의 친숙한 **표시 이름** 으로 **높은 pH 경고** 를 입력합니다.
+1. 작업의 친숙한 **표시 이름** 으로 **높은 흐름 경고** 를 입력합니다.
 1. **받는 사람** 에서 Azure IoT Central 계정과 연결된 이메일 주소를 입력합니다.
 1. 필요에 따라 이메일 텍스트에 포함할 메모를 입력합니다.
 1. **완료** 를 선택하여 작업을 완료합니다.
-1. **저장** 을 선택하여 새 규칙을 저장하고 활성화합니다.
+1. 새 규칙을 저장하려면 **저장** 을 선택합니다.
+1. 규칙을 사용하도록 설정합니다.
 
 몇 분 내에 구성된 조건이 충족되면 이메일을 받게 됩니다.
 

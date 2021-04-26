@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: bb4dd08b4f30982ec4572fd4e130a89112578175
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 37f33a217467619240d3339363c6a2fcd8800a12
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102203558"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505550"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>자습서: Azure CLI를 통해 DMS를 사용하여 PostgreSQL을 Azure DB for PostgreSQL로 온라인 마이그레이션
 
@@ -155,7 +155,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
 6. 테이블에 ENUM 데이터 형식이 있으면 대상 테이블에서 'character varying' 데이터 형식으로 일시적으로 업데이트하는 것이 좋습니다. 데이터 복제가 완료되면 데이터 형식을 ENUM으로 되돌립니다.
 
-## <a name="provisioning-an-instance-of-dms-using-the-cli"></a>CLI를 사용하여 DMS의 인스턴스 프로비전
+## <a name="provisioning-an-instance-of-dms-using-the-azure-cli"></a>Azure CLI를 사용하여 DMS의 인스턴스 프로비저닝
 
 1. dms 동기화 확장을 설치합니다.
    * 다음 명령을 실행하여 Azure에 로그인합니다.

@@ -3,7 +3,6 @@ title: 자습서 - Key Vault에서 인증서 자동 회전 빈도 업데이트 |
 description: Azure Portal을 사용하여 Azure Key Vault에서 인증서의 자동 회전 빈도를 업데이트하는 방법을 보여주는 자습서
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
@@ -11,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: ec648f02918717dad6b739aa6ae99206bcec1d6e
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: ec88dfc7ded7ecb1d640eb4d73ef4c8045e549cf
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581814"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791988"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>자습서: Key Vault에서 인증서 자동 회전 구성
 
@@ -80,10 +79,12 @@ Key Vault는 파트너 관계를 맺은 CA를 통해 인증서를 자동으로 �
    - **유효 기간**: 값(월 단위)을 입력합니다. 수명이 짧은 인증서를 만드는 것이 보안에 좋습니다. 기본적으로 새로 만드는 인증서의 유효 기간은 12개월입니다.
    - **수명 동작 유형**: 인증서의 자동 갱신 및 경고 동작을 선택한 다음, **백분율 수명** 또는 **만료 전 일수** 를 업데이트합니다. 기본적으로 인증서의 자동 갱신은 수명의 80%로 설정됩니다. 드롭다운 메뉴에서 다음 옵션 중 하나를 선택합니다.
 
-        |  지정된 시간에 자동으로 갱신| 지정된 시간에 모든 담당자에게 이메일 보내기 |
-        |-----------|------|
-        |이 옵션을 선택하면 자동 회전이 *켜집니다*. | 이 옵션을 선택하면 자동으로 회전되지 *않고*, 담당자에게 경고만 합니다.|
-         You can learn about [setting up Email contact here](https://docs.microsoft.com/azure/key-vault/certificates/overview-renew-certificate#get-notified-about-certificate-expiration)
+      |  지정된 시간에 자동으로 갱신| 지정된 시간에 모든 담당자에게 이메일 보내기 |
+      |-----------|------|
+      |이 옵션을 선택하면 자동 회전이 *켜집니다*. | 이 옵션을 선택하면 자동으로 회전되지 *않고*, 담당자에게 경고만 합니다.|
+      
+      [여기에서 이메일 연락처 설정](https://docs.microsoft.com/azure/key-vault/certificates/overview-renew-certificate#get-notified-about-certificate-expiration)에 대해 알아볼 수 있습니다.
+
 1. **만들기** 를 선택합니다.
 
 ![인증서 수명 주기](../media/certificates/tutorial-rotate-cert/create-cert-lifecycle.png)
@@ -134,7 +135,7 @@ Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName
 > }
 >  ```
 > 
-매개 변수에 대한 자세한 내용은 [az keyvault certificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-set-attributes)를 참조하세요.
+매개 변수에 대한 자세한 내용은 [az keyvault certificate](/cli/azure/keyvault/certificate#az_keyvault_certificate_set_attributes)를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

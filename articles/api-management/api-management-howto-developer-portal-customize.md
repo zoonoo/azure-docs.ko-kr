@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: tutorial
 ms.date: 11/16/2020
 ms.author: apimpm
-ms.openlocfilehash: 90544fbafe7393630c3f3fbc694ae367eccb7f90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c341dee3106530715248355da4412b97ed30980
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96012983"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739623"
 ---
 # <a name="tutorial-access-and-customize-the-developer-portal"></a>자습서: 개발자 포털 액세스 및 사용자 지정
 
@@ -45,6 +45,35 @@ ms.locfileid: "96012983"
 1. [Azure Portal](https://portal.azure.com)에서 API Management 인스턴스로 이동합니다.
 1. 위쪽 탐색 모음에서 **개발자 포털** 단추를 선택합니다. 관리형 버전 포털이 포함된 새 브라우저 탭이 열립니다.
 
+
+## <a name="developer-portal-architectural-concepts"></a>개발자 포털 아키텍처 개념
+
+포털 구성 요소는 논리적으로 *코드* 와 *콘텐츠* 라는 두 가지 범주로 나눌 수 있습니다.
+
+### <a name="code"></a>코드
+
+코드는 API Management 개발자 포털 [GitHub 리포지토리](https://github.com/Azure/api-management-developer-portal)에서 유지 관리되며 다음을 포함합니다.
+
+- **위젯** - 시각적 요소를 나타내며 HTML, JavaScript, 스타일링 기능, 설정 및 콘텐츠 매핑을 결합합니다. 예로는 이미지, 텍스트 단락, 양식, API 목록 등이 있습니다.
+- **스타일링 정의** - 위젯의 스타일을 지정할 수 있는 방법을 지정합니다.
+- **엔진** - 포털 콘텐츠에서 정적 웹 페이지를 생성하고 JavaScript로 작성됩니다.
+- **시각적 개체 편집기** - 브라우저 내 사용자 지정 및 제작 환경을 허용합니다.
+
+### <a name="content"></a>콘텐츠
+
+콘텐츠는 *포털 콘텐츠* 와 *API Management 콘텐츠* 의 두 하위 범주로 나뉩니다.
+
+*포털 콘텐츠* 는 포털에 적용되며 다음을 포함합니다.
+
+- **페이지** - 예: 방문 페이지, API 자습서, 블로그 게시물
+- **미디어** - 이미지, 애니메이션 및 기타 파일 기반 콘텐츠
+- **레이아웃** - URL과 일치하고 페이지가 표시되는 방식을 정의하는 템플릿
+- **스타일** - 글꼴, 색, 테두리와 같은 스타일 정의에 대한 값
+- **설정** - 파비콘, 웹 사이트 메타데이터와 같은 구성
+
+    미디어를 제외한 포털 콘텐츠는 JSON 문서로 표시됩니다.
+
+*API Management 콘텐츠* 에는 API, 작업, 제품, 구독과 같은 엔터티가 포함됩니다.
 ## <a name="understand-the-portals-administrative-interface"></a>포털의 관리 인터페이스 이해
 
 ### <a name="default-content"></a>기본 콘텐츠 
@@ -138,7 +167,7 @@ ms.locfileid: "96012983"
 
 ## <a name="apply-the-cors-policy-on-apis"></a>API에 CORS 정책 적용
 
-포털 방문자가 기본 제공 대화형 콘솔을 통해 API를 테스트할 수 있게 하려면 API에서 CORS(원본 간 리소스 공유)를 사용하도록 설정합니다. 자세한 내용은 [Azure API Management 개발자 포털 개요](api-management-howto-developer-portal.md#cors)를 참조하세요.
+포털 방문자가 기본 제공 대화형 콘솔을 통해 API를 테스트할 수 있게 하려면 API에서 CORS(원본 간 리소스 공유)를 사용하도록 설정합니다. 자세한 내용은 [Azure API Management 개발자 포털 FAQ](developer-portal-faq.md#cors)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

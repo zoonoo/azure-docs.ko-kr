@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/11/2021
+ms.date: 04/20/2021
 ms.author: memildin
-ms.openlocfilehash: 3e4dddf61656ea38bac406366bf993788fd34943
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 92138b0253d28c8bf2617ee7b17474f30ac5cafe
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303154"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751206"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -30,10 +30,12 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 4월의 업데이트는 다음과 같습니다.
 - [이제 최근에 끌어온 컨테이너 레지스트리 이미지가 매주 다시 검사됩니다(일반 공급).](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
 - [Azure Defender for Kubernetes를 사용하여 하이브리드 및 다중 클라우드 Kubernetes 배포 보호(미리 보기)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
+- [DNS 및 Resource Manager용 Azure Defender를 사용하도록 설정하는 권장 사항(미리 보기)](#recommendations-to-enable-azure-defender-for-dns-and-resource-manager-preview)
 - [게스트 구성과 관련된 4가지 새로운 권장 사항(미리 보기)](#four-new-recommendations-related-to-guest-configuration-preview)
 - [CMK 권장 사항이 모범 사례 보안 제어로 이동했습니다.](#cmk-recommendations-moved-to-best-practices-security-control)
 - [더 이상 사용되지 않는 11가지 Azure Defender 경고](#11-azure-defender-alerts-deprecated)
 - ["시스템 업데이트 적용" 보안 제어에서 더 이상 사용되지 않는 두 가지 권장 사항](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
+- [Azure Defender 대시보드에서 제거되는 머신 타일의 Azure Defender for SQL](#azure-defender-for-sql-on-machine-tile-removed-from-azure-defender-dashboard)
 
 ### <a name="recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability"></a>이제 최근에 끌어온 컨테이너 레지스트리 이미지가 매주 다시 검사됩니다(일반 공급).
 
@@ -65,6 +67,19 @@ Azure Security Center, Azure Defender 및 Azure Arc 지원 Kubernetes 간의 이
 [온-프레미스 및 다중 클라우드 Kubernetes 클러스터에서 Azure Defender for Kubernetes 사용](defender-for-kubernetes-azure-arc.md)에서 자세히 알아보세요.
 
 :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Arc 지원 Kubernetes 클러스터용 Azure Defender 확장 배포에 대한 Azure Security Center의 권장 사항" lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+
+
+### <a name="recommendations-to-enable-azure-defender-for-dns-and-resource-manager-preview"></a>DNS 및 Resource Manager용 Azure Defender를 사용하도록 설정하는 권장 사항(미리 보기)
+
+[Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) 및 [Azure Defender for DNS](defender-for-dns-introduction.md)를 사용하도록 설정하는 프로세스를 간소화하기 위한 두 가지 새로운 권장 사항이 추가되었습니다.
+
+- **Azure Defender for Resource Manager를 사용하도록 설정해야 함** - Defender for Resource Manager는 조직의 리소스 관리 작업을 자동으로 모니터링합니다. Azure Defender는 위협을 감지하고 의심스러운 활동에 대해 경고합니다.
+- **Azure Defender for DNS를 사용하도록 설정해야 함** - Defender for DNS는 Azure 리소스의 모든 DNS 쿼리를 지속적으로 모니터링하여 클라우드 리소스에 대한 추가 보호 계층을 제공합니다. Azure Defender는 DNS 계층에서 의심스러운 활동에 대해 경고합니다.
+
+Azure Defender 계획을 사용하도록 설정하면 요금이 청구됩니다. Security Center의 가격 책정 페이지: https://aka.ms/pricing-security-center에서 지역별 가격 정보에 대해 알아봅니다.
+
+> [!TIP]
+> 미리 보기 추천 사항은 리소스를 비정상으로 렌더링하지 않으며 보안 점수 계산에 포함되지 않습니다. 미리 보기 기간이 끝나면 점수에 기여할 수 있도록 가능한 경우 언제든지 수정합니다. [Azure Security Center의 추천 사항 수정](security-center-remediate-recommendations.md)에서 이러한 추천 사항에 대응하는 방법에 대해 자세히 알아보세요.
 
 ### <a name="four-new-recommendations-related-to-guest-configuration-preview"></a>게스트 구성과 관련된 4가지 새로운 권장 사항(미리 보기)
 
@@ -141,6 +156,10 @@ Azure Security Center의 보안 제어는 관련 보안 권장 사항의 논리�
 연속 내보내기 및 워크플로 자동화 구성을 확인하여 이러한 권장 사항이 포함되어 있는지 확인하는 것이 좋습니다. 또한 대시보드 또는 이를 사용할 수 있는 기타 모니터링 도구를 적절하게 업데이트해야 합니다.
 
 [보안 추천 사항 참조 페이지](recommendations-reference.md)에서 이러한 권장 사항에 대해 자세히 알아보세요.
+
+### <a name="azure-defender-for-sql-on-machine-tile-removed-from-azure-defender-dashboard"></a>Azure Defender 대시보드에서 제거되는 머신 타일의 Azure Defender for SQL
+
+Azure Defender 대시보드의 검사 영역에는 사용자 환경과 관련된 Azure Defender 계획에 대한 타일이 포함되어 있습니다. 보호된 리소스 및 보호되지 않은 리소스의 수를 보고하는 문제로 인해 문제가 해결될 때까지 **머신에서 Azure Defender for SQL** 에 대한 리소스 검사 상태를 일시적으로 제거하기로 결정했습니다.
 
 
 ## <a name="march-2021"></a>2021년 3월
@@ -329,7 +348,7 @@ Windows 서버에서 서버용 Azure Defender를 사용하도록 설정하면 De
 이제 Windows Server 2019 및 [WVD(Windows Virtual Desktop)](../virtual-desktop/overview.md)를 포함하도록 지원 범위가 확장되었습니다.
 
 > [!NOTE]
-> Windows Server 2019 머신에서 Defender for Endpoint를 사용하도록 설정하는 경우 [Defender for Endpoint 통합 사용](security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration)에 설명된 필수 조건을 충족하는지 확인합니다.
+> Windows Server 2019 머신에서 Defender for Endpoint를 사용하도록 설정하는 경우 [Defender for Endpoint 통합 사용](security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration)에 설명된 필수 구성 요소를 충족하는지 확인합니다.
 
 ### <a name="direct-link-to-policy-from-recommendation-details-page"></a>권장 사항 세부 정보 페이지에서 정책으로 직접 연결
 
@@ -411,7 +430,7 @@ Security Center의 규정 준수 대시보드를 사용하는 경우 전환 기�
 
 자세히 알아보려면 다음 페이지를 참조하세요.
 
-- [Azure 보안 벤치마크에 대한 자세한 정보](../security/benchmarks/introduction.md)
+- [Azure 보안 벤치마크에 대한 자세한 정보](https://docs.microsoft.com/security/benchmark/azure/introduction)
 - [규정 준수 대시보드의 표준 집합 사용자 지정](update-regulatory-compliance-packages.md)
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga"></a>온-프레미스 및 다중 클라우드 머신의 취약성 평가가 GA(일반 공급)를 위해 릴리스되었습니다.
@@ -526,7 +545,7 @@ Security Center의 메뉴에서 **다중 클라우드 커넥터** 를 선택하�
 
 ### <a name="35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Azure 보안 벤치마크의 적용 범위를 늘리기 위해 35개의 미리 보기 추천 사항이 추가됨
 
-Azure Security Benchmark는 Azure Security Center의 기본 정책 이니셔티브입니다. 
+[Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)는 Azure Security Center의 기본 정책 이니셔티브입니다. 
 
 이 벤치마크의 적용 범위를 늘리기 위해 다음 35개의 미리 보기 권장 사항이 Security Center에 추가되었습니다.
 
@@ -544,7 +563,7 @@ Azure Security Benchmark는 Azure Security Center의 기본 정책 이니셔티�
 
 관련 링크:
 
-- [Azure 보안 벤치마크에 대한 자세한 정보](../security/benchmarks/introduction.md)
+- [Azure 보안 벤치마크에 대한 자세한 정보](https://docs.microsoft.com/security/benchmark/azure/introduction)
 - [Azure Database for MariaDB에 대한 자세한 정보](../mariadb/overview.md)
 - [Azure Database for MySQL에 대한 자세한 정보](../mysql/overview.md)
 - [Azure Database for PostgreSQL에 대한 자세한 정보](../postgresql/overview.md)
@@ -770,7 +789,7 @@ Azure Security Center의 연속 내보내기 도구를 사용하여 환경의 �
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Azure 보안 벤치마크의 적용 범위를 늘리기 위해 29개의 미리 보기 권장 사항 추가됨
 
-Azure 보안 벤치마크는 일반적인 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침 세트입니다. [Azure 보안 벤치마크에 대해 자세히 알아보세요](../security/benchmarks/introduction.md).
+Azure 보안 벤치마크는 일반적인 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침 세트입니다. [Azure 보안 벤치마크에 대해 자세히 알아보세요](https://docs.microsoft.com/security/benchmark/azure/introduction).
 
 이 벤치마크의 적용 범위를 넓히기 위해 다음 29개의 새로운 추천 사항이 Security Center에 추가되었습니다.
 
@@ -787,7 +806,7 @@ Azure 보안 벤치마크는 일반적인 규정 준수 프레임워크를 기�
 
 관련 링크:
 
-- [Azure 보안 벤치마크에 대한 자세한 정보](../security/benchmarks/introduction.md)
+- [Azure 보안 벤치마크에 대한 자세한 정보](https://docs.microsoft.com/security/benchmark/azure/introduction)
 - [Azure API 앱에 대한 자세한 정보](../app-service/app-service-web-tutorial-rest-api.md)
 - [Azure 함수 앱에 대한 자세한 정보](../azure-functions/functions-overview.md)
 - [Azure 웹앱에 대한 자세한 정보](../app-service/overview.md)

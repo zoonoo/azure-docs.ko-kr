@@ -12,12 +12,12 @@ ms.date: 04/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 4130ed4bb690edb3c0c5d72d7d158262ed6ff39d
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 3d53c96c4b0306911b0c8a0b8576f35a73419db0
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305602"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107498155"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>자습서: SCIM 엔드포인트 프로비저닝 개발 및 계획
 
@@ -210,7 +210,8 @@ AAD와의 호환성을 보장하려면 SCIM 엔드포인트를 구현할 때 다
 * [섹션 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2)에서 정의한 대로 SCIM의 구조적 요소, 특히 **PATCH** `op` 작업 값에서 대/소문자를 구분할 필요가 없습니다. AAD는 `op` 값을 **Add**, **Replace**, **Remove** 로 내보냅니다.
 * Microsoft AAD는 엔드포인트 및 자격 증명이 유효한지 확인하기 위해 임의의 사용자 및 그룹을 가져오도록 요청합니다. 또한 [Azure Portal](https://portal.azure.com)에서 **연결 테스트** 흐름의 일부로 수행됩니다. 
 * 리소스를 쿼리할 수 있는 특성은 [Azure Portal](https://portal.azure.com)의 애플리케이션에서 일치하는 특성으로 설정해야 합니다. [사용자 프로비저닝 특성 매핑 사용자 지정](customize-application-attributes.md)을 참조하세요.
-* SCIM 엔드포인트에서 HTTPS 지원
+* 자격 특성은 지원되지 않습니다.
+* SCIM 엔드포인트에서 HTTPS를 지원합니다.
 * [스키마 검색](#schema-discovery)
   * 스키마 검색은 현재 사용자 지정 애플리케이션에서 지원되지 않지만 특정 갤러리 애플리케이션에서 사용되고 있습니다. 앞으로 스키마 검색은 커넥터에 특성을 추가하는 기본 방법으로 사용됩니다. 
   * 값이 없으면 null 값을 보내지 마세요.

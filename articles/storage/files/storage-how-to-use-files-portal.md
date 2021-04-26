@@ -4,15 +4,15 @@ description: Azure Portal에서 Azure 파일 공유 만들고 관리하는 방�
 author: roygara
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6a88124397812f7599ce54b46b23d22e626cf520
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7867a4bd60bb179c18fff49691072d683660f7e
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629821"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717841"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure 파일 공유 만들기 및 관리 
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows, Linux 및 macOS에 탑재할 수 있습니다. 이 가이드에서는 [Azure Portal](https://portal.azure.com/)을 사용하여 Azure 파일 공유 작업의 기본 사항을 안내합니다.
@@ -26,12 +26,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 Azure 파일 공유 만들려면:
 
 1. 대시보드에서 스토리지 계정을 선택합니다.
-2. 스토리지 계정 페이지의 **서비스** 섹션에서 **파일** 을 선택합니다.
-    ![스토리지 계정의 서비스 섹션에서 파일 서비스 선택에 대한 스크린샷](media/storage-how-to-use-files-portal/create-file-share-1.png)
+1. 스토리지 계정 페이지의 **서비스** 섹션에서 **파일** 을 선택합니다.
+    
+    ![스토리지 계정의 데이터 스토리지 섹션에 대한 스크린샷: 파일 공유를 선택합니다.](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
-3. **파일 서비스** 페이지 위쪽의 메뉴에서 **파일 공유** 를 클릭합니다. **새 파일 공유** 페이지가 드롭다운 방식으로 펼쳐집니다.
-4. **이름** 에서 *myshare* 를 입력합니다.
-5. **확인** 을 클릭하여 Azure 파일 공유를 만듭니다.
+1. **파일 서비스** 페이지 위쪽의 메뉴에서 **파일 공유** 를 클릭합니다. **새 파일 공유** 페이지가 드롭다운 방식으로 펼쳐집니다.
+1. **이름** 에 *myshare* 를 입력하고, 할당량을 입력하고, **계층** 에 대해 **최적화된 트랜잭션** 을 선택한 상태로 둡니다.
+1. **만들기** 를 선택하여 Azure 파일 공유를 만듭니다.
 
 공유 이름은 모두 소문자, 숫자 및 단일 하이픈이어야 하지만 하이픈으로 시작할 수 없습니다. 파일 공유 및 파일 이름 지정에 대한 자세한 내용은 [공유, 디렉터리, 파일 및 메타데이터 이름 지정 및 참조](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata)를 참조하세요.
 
@@ -60,20 +61,21 @@ Azure Portal을 통한 모든 요청은 파일 REST API를 통해 수행되므�
 Azure 파일 공유의 루트에 *myDirectory* 라는 새 디렉터리를 만들려면,
 
 1. **파일 서비스** 페이지에서 **myshare** 파일 공유를 선택합니다. 파일 공유 페이지가 열립니다.
-2. 페이지 위쪽의 메뉴에서 **+ 디렉터리 추가** 를 선택합니다. **새 디렉터리** 페이지가 드롭다운 방식으로 펼쳐집니다.
-3. *myDirectory* 를 입력한 다음, **확인** 을 클릭합니다.
+1. 페이지 위쪽의 메뉴에서 **+ 디렉터리 추가** 를 선택합니다. **새 디렉터리** 페이지가 드롭다운 방식으로 펼쳐집니다.
+1. *myDirectory* 를 입력한 다음, **확인** 을 클릭합니다.
 
 #### <a name="upload-a-file"></a>파일 업로드 
 파일 업로드를 실제로 보여 주려면 먼저 업로드할 파일을 만들거나 선택해야 합니다. 적절하다고 판단되는 어떤 방법으로든 이 작업을 수행할 수 있습니다. 업로드하려는 파일이 선택되면 다음을 수행합니다.
 
 1. **myDirectory** 디렉터리를 클릭합니다. **myDirectory** 패널이 열립니다.
-2. 위쪽의 메뉴에서 **업로드** 를 클릭합니다. **파일 업로드** 패널이 열립니다.  
+1. 위쪽 메뉴에서 **업로드** 를 선택합니다. **파일 업로드** 패널이 열립니다.  
+    
     ![파일 업로드 패널의 스크린샷](media/storage-how-to-use-files-portal/upload-file-1.png)
 
-3. 폴더 아이콘을 클릭하여 로컬 파일을 탐색할 수 있는 창을 엽니다. 
-4. 파일을 선택한 다음, **열기** 를 클릭합니다. 
-5. **파일 업로드** 페이지에서 파일 이름을 확인한 다음, **업로드** 를 클릭합니다.
-6. 완료되면 파일이 **myDirectory** 페이지의 목록에 표시됩니다.
+1. 폴더 아이콘을 클릭하여 로컬 파일을 탐색할 수 있는 창을 엽니다. 
+1. 파일을 선택한 다음, **열기** 를 클릭합니다. 
+1. **파일 업로드** 페이지에서 파일 이름을 확인한 다음, **업로드** 를 클릭합니다.
+1. 완료되면 파일이 **myDirectory** 페이지의 목록에 표시됩니다.
 
 #### <a name="download-a-file"></a>파일 다운로드
 파일을 마우스 오른쪽 단추로 클릭하여 업로드한 파일의 복사본을 다운로드할 수 있습니다. 다운로드 단추를 클릭하면 표시되는 정확한 환경은 사용 중인 운영 체제와 브라우저에 따라 다릅니다.

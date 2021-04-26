@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/03/2020
+ms.date: 04/14/2021
 ms.author: jeedes
-ms.openlocfilehash: af1c0702929e7cd700c8d19ab24e40f9c6f43a21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5904d3eeec3f5880213f8a8c6a41cefbe76801b3
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96602175"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107520091"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mongodb-cloud"></a>자습서: MongoDB Cloud와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,14 +26,12 @@ ms.locfileid: "96602175"
 * 사용자가 자신의 Azure AD 계정으로 MongoDB Cloud에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보려면 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
-
 ## <a name="prerequisites"></a>사전 요구 사항
 
-시작하려면 다음이 필요합니다.
+시작하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-* SSO(Single Sign-On)를 사용하도록 설정된 MongoDB Cloud 조직은 [사용 가능한 클러스터](https://www.mongodb.com/cloud)에 등록할 수 있습니다.
+* MongoDB Cloud SSO(Single Sign-On)가 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -41,25 +39,23 @@ Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보
 
 * MongoDB Cloud에서 **SP** 및 **IDP** 시작 SSO를 지원합니다.
 * MongoDB Cloud에서 **Just In Time** 사용자 프로비저닝을 지원합니다.
-* MongoDB Cloud를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. 자세한 내용은 [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](/cloud-app-security/proxy-deployment-any-app)를 참조하세요.
 
 ## <a name="add-mongodb-cloud-from-the-gallery"></a>갤러리에서 MongoDB Cloud 추가
 
 MongoDB Cloud가 Azure AD에 통합되도록 구성하려면 갤러리에서 MongoDB Cloud를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 회사나 학교 계정 또는 개인 Microsoft 계정으로 로그인합니다.
-1. 왼쪽 창에서 **Azure Active Directory** 를 선택합니다.
+1. Azure Portal에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
+1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
 1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **MongoDB Cloud** 를 입력합니다.
-1. 결과에서 **MongoDB Cloud** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
+1. 결과 패널에서 **MongoDB Cloud** 를 선택한 후 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on-for-mongodb-cloud"></a>MongoDB Cloud용 Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-sso-for-mongodb-cloud"></a>MongoDB Cloud에 대한 Azure AD SSO 구성 및 테스트
 
 **B.Simon** 이라는 테스트 사용자를 사용하여 MongoDB Cloud에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 MongoDB Cloud의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
-MongoDB Cloud에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
+MongoDB Cloud에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 수행합니다.
 
 1. [Azure AD SSO 구성](#configure-azure-ad-sso) - 사용자가 이 기능을 사용할 수 있도록 구성합니다.
     1. [Azure AD 테스트 사용자를 생성](#create-an-azure-ad-test-user)하여 B.Simon으로 Azure AD Single Sign-On을 테스트합니다.
@@ -97,7 +93,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위의 특성 외에도 MongoDB Cloud 애플리케이션에는 SAML 응답에서 다시 전달되는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
     
-    | Name | 원본 특성|
+    | 속성 | 원본 특성|
     | ---------------| --------- |
     | 이메일 | user.userprincipalname |
     | firstName | user.givenname |
@@ -110,6 +106,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **MongoDB Cloud 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![URL이 강조 표시된 Mongo DB Cloud 설정 섹션의 스크린샷](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
@@ -126,19 +123,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 MongoDB Cloud에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** > **모든 애플리케이션** 을 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 애플리케이션 목록에서 **MongoDB Cloud** 를 선택합니다.
-1. 앱의 개요 페이지에서 **관리** 섹션을 찾고, **사용자 및 그룹** 을 선택합니다.
-
-   ![사용자 및 그룹이 강조 표시된 관리 섹션의 스크린샷](common/users-groups-blade.png)
-
-1. **사용자 추가** 를 선택합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
-
-    ![사용자 추가가 강조 표시된 사용자 및 그룹 페이지의 스크린샷](common/add-assign-user.png)
-
-1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택합니다. 화면 하단에서 **선택** 을 누릅니다.
-1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에게 적합한 역할을 선택합니다. 화면 하단에서 **선택** 을 누릅니다.
-1. **할당 추가** 대화 상자에서 **할당** 을 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
+1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
 ## <a name="configure-mongodb-cloud-sso"></a>MongoDB Cloud SSO 구성
 
@@ -150,22 +141,20 @@ MongoDB Cloud는 기본적으로 사용하도록 설정되는 Just-In-Time 사�
 
 ## <a name="test-sso"></a>SSO 테스트 
 
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-액세스 패널에서 MongoDB Cloud 타일을 선택하면 SSO를 설정한 MongoDB Cloud에 자동으로 로그인됩니다. 자세한 내용은 [내 앱 포털에서 앱에 로그인하여 시작](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
+#### <a name="sp-initiated"></a>SP 시작:
 
-## <a name="additional-resources"></a>추가 리소스
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 MongoDB Cloud 로그온 URL로 리디렉션됩니다.  
 
-- [SaaS 애플리케이션과 Azure Active Directory 통합을 위한 자습서](./tutorial-list.md)
+* MongoDB Cloud 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>IDP 시작:
 
-- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 MongoDB Cloud에 자동으로 로그인됩니다. 
 
-- [Azure에서 MongoDB Atlas 등록](https://azuremarketplace.microsoft.com/marketplace/apps/mongodb.mdb_atlas_oct2020?tab=Overview)
+Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 MongoDB Cloud 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우 SSO를 설정한 MongoDB Cloud에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
-- [Azure AD로 MongoDB Cloud 사용해보기](https://aad.portal.azure.com/)
+## <a name="next-steps"></a>다음 단계
 
-- [Microsoft Cloud App Security의 세션 제어란?](/cloud-app-security/proxy-intro-aad)
-
-- [고급 표시 유형 및 컨트롤을 사용하여 MongoDB Cloud 보호](/cloud-app-security/proxy-intro-aad)
+MongoDB Cloud가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

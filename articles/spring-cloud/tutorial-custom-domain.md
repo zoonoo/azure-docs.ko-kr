@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 7d01f3d5efeee2db5f468a0fe6217d1ff3c313a7
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 493752a3857b80b43668b6bf1b20480604442955
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375018"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567998"
 ---
 # <a name="tutorial-map-an-existing-custom-domain-to-azure-spring-cloud"></a>자습서: Azure Spring Cloud에 기존 사용자 지정 도메인 매핑
 
@@ -30,7 +30,7 @@ DNS(Domain Name Service)는 네트워크를 통해 네트워크 노드 이름을
 
 ## <a name="keyvault-private-link-considerations"></a>Keyvault Private Link 고려 사항
 
-Azure Spring Cloud 관리 IP는 Azure Trusted Microsoft 서비스의 일부가 아닙니다. 따라서 Azure Spring Cloud가 프라이빗 엔드포인트 연결로 보호되는 Key Vault에서 인증서를 로드할 수 있도록 하려면 다음 IP를 Azure Key Vault Firewall에 추가해야 합니다.
+Azure Spring Cloud 관리 IP는 아직 Azure Trusted Microsoft 서비스의 일부가 아닙니다. 따라서 Azure Spring Cloud가 프라이빗 엔드포인트 연결로 보호되는 Key Vault에서 인증서를 로드할 수 있도록 하려면 다음 IP를 Azure Key Vault Firewall에 추가해야 합니다.
 
 ```
 20.53.123.160 52.143.241.210 40.65.234.114 52.142.20.14 20.54.40.121 40.80.210.49 52.253.84.152 20.49.137.168 40.74.8.134 51.143.48.243

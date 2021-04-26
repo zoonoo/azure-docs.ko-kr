@@ -8,14 +8,14 @@ ms.service: dns
 ms.topic: tutorial
 ms.custom: ''
 ms.workload: infrastructure-services
-ms.date: 7/16/2020
+ms.date: 04/19/2021
 ms.author: jonbeck
-ms.openlocfilehash: 1e2eddd821bb7a9d2050913efef3d73b406e32f7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 283ff2786a0b63c6263c62a13e27cce92c2368dd
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101733213"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107737391"
 ---
 # <a name="tutorial-creating-a-new-child-dns-zone"></a>자습서: 새 자식 DNS 영역 만들기
 
@@ -26,8 +26,6 @@ ms.locfileid: "101733213"
 > * 새 DNS 영역을 통해 자식 DNS 영역 만들기.
 > * 부모 DNS 영역을 통해 자식 DNS 영역 만들기.
 > * 새 자식 DNS 영역에 대한 NS 위임 확인.
-
-
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -46,7 +44,6 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 1.  “DNS 영역 만들기” 포털 페이지를 통해.
 1.  부모 DNS 영역의 구성 페이지를 통해.
 
-
 ## <a name="create-child-dns-zone-via-create-dns-zone"></a>DNS 영역 만들기를 통해 자식 DNS 영역 만들기
 
 이 단계에서는 이름이 **subdomain.contoso.com** 인 새 자식 DNS 영역을 만들고 기존 부모 DNS 영역 **contoso.com** 에 위임합니다. **DNS 영역 만들기** 페이지의 탭을 사용하여 DNS 영역을 만듭니다.
@@ -55,9 +52,9 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 
 1.  **서브넷** 탭에서 다음 값을 입력하거나 선택합니다.
     * **구독**: 영역을 만들 구독을 선택합니다.
-    * **리소스 그룹**: 기존 리소스 그룹을 입력합니다. 또는 **새로 만들기** 를 선택하고 *MyResourceGroup* 을 입력한 후 **확인** 을 선택하여 새로 만들 수 있습니다. 리소스 그룹 이름은 Azure 구독 내에서 고유해야 합니다.
+    * **리소스 그룹**: 기존 리소스 그룹을 입력하거나 **새로 만들기** 를 선택하여 새 리소스 그룹을 만듭니다. *MyResourceGroup* 을 입력하고 **확인** 을 선택합니다. 리소스 그룹 이름은 Azure 구독 내에서 고유해야 합니다.
     * 이 확인란을 선택합니다. **이 영역은 Azure DNS에 이미 호스트된 기존 영역의 자식입니다.**
-    * **부모 영역 구독**: 이 드롭다운에서 부모 DNS 영역 *contoso.com* 이 생성된 구독 이름을 검색하여 선택합니다.
+    * **부모 영역 구독**: 이 드롭다운에서 부모 DNS 영역 *contoso.com* 이 생성된 구독 이름을 검색하거나 선택합니다.
     * **부모 영역**: 검색 창에서 *contoso.com* 을 입력하여 드롭다운 목록에 로드합니다. 로드된 후 드롭다운 목록에서 *contoso.com* 을 선택합니다.
     * **이름:** 이 자습서 예제에 대한 *subdomain* 을 입력합니다. 위의 단계에서 부모 영역을 선택하는 경우 부모 DNS 영역 이름 *contoso.com* 이 이름에 접미사로 자동 추가됩니다.
 
@@ -65,7 +62,6 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 1. **검토 + 만들기** 탭에서 요약을 검토하고, 유효성 검사 오류를 수정한 다음, **만들기** 를 선택합니다.
 영역을 만드는 데 몇 분이 걸릴 수 있습니다.
 
- 
     :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-inline.png" alt-text="DNS 영역 만들기 페이지의 스크린샷." lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-expanded.png":::
 
 ## <a name="create-child-dns-zone-via-parent-dns-zone-overview-page"></a>부모 DNS 영역을 통해 자식 DNS 영역 만들기 페이지
@@ -76,7 +72,7 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 
       :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-inline.png" alt-text="자식 영역 단추의 스크린샷." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-expanded.png":::
 
-1.  그러면 DNS 영역 만들기 페이지가 열립니다. 자식 영역 옵션이 이미 선택되어 있으며 이 페이지에서 부모 영역 구독과 부모 영역이 이미 채워져 있습니다.
+1.  그러면 DNS 영역 만들기 페이지가 열립니다. 자식 영역 옵션이 이미 선택되어 있으며 이 페이지에서 부모 영역 구독과 부모 영역이 채워집니다.
 1.  이 자습서 예제의 이름을 *child* 라고 입력합니다. 부모 DNS 영역 이름 contoso.com은 이름에 접두사로 자동 추가됩니다.
 1.  완료되면 **다음: 태그** 를 선택하고 **다음: 리뷰 + 만들기** 를 클릭합니다.
 1.  **검토 + 만들기** 탭에서 요약을 검토하고, 유효성 검사 오류를 수정한 다음, **만들기** 를 선택합니다.
@@ -98,13 +94,11 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 
 1. Azure Portal의 **모든 리소스** 에서 **MyResourceGroup** 리소스 그룹의 contoso.com DNS 영역을 엽니다. 더 쉽게 찾기 위해 **이름으로 필터링** 상자에 contoso.com을 입력할 수 있습니다.
 1.  *contoso.com* DNS 영역 개요 페이지에서 레코드 세트를 확인합니다.
-1.  NS 및 이름 하위 도메인 형식의 레코드 집합이 이미 부모 DNS 영역에 생성된 것을 확인할 수 있습니다. 이 레코드 세트에 대한 값을 확인합니다. 이는 위의 단계에서 자식 DNS 영역에서 검색한 이름 서버 목록과 유사합니다.
+1.  NS 및 이름 하위 도메인 형식의 레코드 집합이 이미 부모 DNS 영역에 생성된 것을 확인할 수 있습니다. 이 레코드 집합에 대한 값을 확인합니다. 이는 위의 단계에서 자식 DNS 영역에서 검색한 이름 서버 목록과 유사합니다.
 
      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-inline.png" alt-text="자식 영역 이름 서버 확인의 스크린샷" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-expanded.png":::
 ## <a name="clean-up-resources"></a>리소스 정리
 이 자습서에서 만든 리소스가 더 이상 필요하지 않으면 **MyResourceGroup** 리소스 그룹을 삭제하여 제거합니다. **MyResourceGroup** 리소스 그룹을 열고 **리소스 그룹 삭제** 를 선택합니다.
-
-
 
 ## <a name="next-steps"></a>다음 단계
 

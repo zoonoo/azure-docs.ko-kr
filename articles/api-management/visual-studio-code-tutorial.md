@@ -6,12 +6,12 @@ author: dlepow
 ms.author: apimpm
 ms.topic: tutorial
 ms.date: 12/10/2020
-ms.openlocfilehash: 0dea8e43d5f09b84c5795bc257cf3331ad919fcb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0090d981e93cee12f2feaaf7d2c12f341564f6ec
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649549"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482333"
 ---
 # <a name="tutorial-use-the-api-management-extension-for-visual-studio-code-to-import-and-manage-apis"></a>자습서: Visual Studio Code용 API Management 확장을 사용하여 API 가져오기 및 관리
 
@@ -101,7 +101,7 @@ API Management는 API에 대해 구성할 수 있는 [정책](api-management-pol
 ### <a name="test-an-api-operation"></a>API 작업 테스트
 
 1. 탐색기 창의 가져온 *demo-conference-api* 아래에서 **작업** 노드를 펼칩니다.
-1. *GetSpeakers* 와 같은 작업을 선택합니다.
+1. *GetSpeakers* 와 같은 작업을 선택한 다음, 작업을 마우스 오른쪽 단추로 클릭하고 **작업 테스트** 를 선택합니다.
 1. 편집기 창에서 **Ocp-Apim-Subscription-Key** 옆에 있는 `{{SubscriptionKey}}`를 복사한 구독 키로 바꿉니다.
 1. **요청 보내기** 를 선택합니다. 
 

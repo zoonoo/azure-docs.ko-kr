@@ -10,12 +10,12 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: de24f6c8436b4537519f8cc65931325dd7d5f8d9
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 9f0562d4471ac1129bf9bc7ecfee058cddac7c61
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313354"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533130"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-windows-device-preview"></a>빠른 시작: Windows 디바이스에 첫 번째 IoT Edge 모듈 배포(미리 보기)
 
@@ -59,7 +59,7 @@ IoT Edge 디바이스가 다음 요구 사항을 충족하는지 확인합니다
   * Windows Server 2019 빌드 17763 이상
 
 * 하드웨어 요구 사항
-  * 사용 가능한 최소 메모리: 2GB
+  * 사용 가능한 최소 메모리: 1GB
   * 사용 가능한 최소 디스크 공간: 10GB
 
 >[!NOTE]

@@ -2,20 +2,20 @@
 title: 자습서 - Azure Resource Manager Bicep 파일에 함수 추가
 description: Bicep 파일에 함수를 추가하여 값을 생성합니다.
 author: mumian
-ms.date: 03/10/2021
+ms.date: 04/20/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: references_regions
-ms.openlocfilehash: b909beb0cce9ad04ba00068ee25247520dcff47d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 43dec6ceb21a6604bc0034b3f14b79ffd2cbe263
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102633158"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773804"
 ---
 # <a name="tutorial-add-functions-to-azure-resource-manager-bicep-file"></a>자습서: Azure Resource Manager Bicep 파일에 함수 추가
 
-이 자습서에서는 Bicep 파일에 [템플릿 함수](template-functions.md)를 추가하는 방법을 알아봅니다. 함수를 사용하여 값을 동적으로 구성합니다. 이러한 시스템 제공 템플릿 함수 외에도 [사용자 정의 함수](./template-user-defined-functions.md)를 만들 수 있습니다. 이 자습서를 완료하는 데 **7분** 이 소요됩니다.
+이 자습서에서는 Bicep 파일에 [템플릿 함수](template-functions.md)를 추가하는 방법을 알아봅니다. 함수를 사용하여 값을 동적으로 구성합니다. 현재 Bicep은 사용자 정의 함수를 지원하지 않습니다. 이 자습서를 완료하는 데 **7분** 이 소요됩니다.
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 

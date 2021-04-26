@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/29/2021
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 41b3552a633c9cebce1138fa042dbd154eee0cb5
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: da4ada8b505c747d24738e175a1701b5ea73b4e4
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107314119"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536740"
 ---
 # <a name="what-is-optical-character-recognition"></a>OCR(광학 문자 인식)이란?
 
@@ -42,7 +42,6 @@ OCR API는 인쇄 스타일 텍스트에 대해 총 73개 언어를 지원합니
 * 지원되는 파일 형식: JPEG, PNG, BMP, PDF 및 TIFF
 * PDF 및 TIFF 파일의 경우 최대 2000페이지(무료 계층의 경우 처음 두 페이지만)가 처리됩니다.
 * 파일 크기는 50MB(무료 계층의 경우 4MB) 미만이어야 하며, 크기는 최소 50 x 50픽셀 및 최대 1만 x 1만 픽셀 이상이어야 합니다. 
-* PDF 크기는 최대 17x17인치(Legal 또는 A3 용지 크기 이하에 해당)여야 합니다.
 
 ## <a name="read-api"></a>읽기 API 
 
@@ -50,6 +49,21 @@ Computer Vision [읽기 API](https://centraluseuap.dev.cognitive.microsoft.com/d
 
 ![OCR이 이미지 및 문서를 추출된 텍스트가 포함된 구조화된 출력으로 변환하는 방식](./Images/how-ocr-works.svg)
 
+### <a name="key-features"></a>주요 특징
+
+Read API에는 다음 기능이 포함됩니다. 
+
+* 73개 언어로 인쇄 텍스트 추출
+* 영어로 필기 텍스트 추출
+* 위치 및 신뢰도 점수가 있는 텍스트 줄 및 단어
+* 언어 식별이 필요하지 않음
+* 혼합 언어, 혼합 모드 지원(인쇄 및 필기)
+* 여러 페이지로 구성된 대형 문서에서 페이지 및 페이지 범위 선택
+* 텍스트 줄의 자연스러운 읽기 순서
+* 텍스트 줄에 대한 필기 분류
+* 온-프레미스 배포를 위한 Distroless Docker 컨테이너로 사용 가능
+
+[OCR 기능을 사용하는 방법](./vision-api-how-to-topics/call-read-api.md)에 대해 알아봅니다.
 
 ## <a name="use-the-cloud-api-or-deploy-on-premise"></a>클라우드 API 사용 또는 온-프레미스 배포
 Read 3.x 클라우드 API는 편리한 통합 및 빠른 생산성 덕분에 대부분의 고객에게 선호되는 옵션입니다. Azure와 Computer Vision 서비스는 사용자가 고객의 요구를 충족하는 데 집중하는 동안 규모, 성능, 데이터 보안 및 규정 준수 요구 사항을 처리합니다.

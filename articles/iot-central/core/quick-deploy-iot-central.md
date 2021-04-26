@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: a1492593c24c2bc350205536006b648608cc5e46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b33beaad580e64a4760b0557f04f266ecfc1b4d
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101712643"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718812"
 ---
 # <a name="quickstart---create-an-azure-iot-central-application"></a>빠른 시작 - Azure IoT Central 애플리케이션 만들기
 
@@ -21,7 +21,8 @@ ms.locfileid: "101712643"
 
 ## <a name="prerequisite"></a>필수 요소 
 
-*기여자* 액세스 권한이 있는 Azure 구독이 필요합니다.
+ - 활성 구독이 있는 Azure 계정. [체험](https://aka.ms/createazuresubscription) 계정을 만드세요.
+ - Azure 구독에는 기여자 액세스 권한이 있어야 합니다.
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
 
@@ -35,11 +36,13 @@ ms.locfileid: "101712643"
 
     :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-new-application.png" alt-text="IoT 애플리케이션 빌드 페이지":::
 
-1. **사용자 지정 앱** 을 선택하고 **사용자 지정 애플리케이션** 템플릿이 선택되어 있는지 확인합니다.
+1. **사용자 지정 앱** 선택
+
+1. **새 애플리케이션** 페이지의 **애플리케이션 템플릿** 에서 **사용자 지정 애플리케이션** 이 선택되어 있는지 확인합니다.
 
 1. Azure IoT Central은 선택한 애플리케이션 템플릿을 기반으로 **애플리케이션 이름** 을 자동으로 제안합니다. 이 이름을 그대로 사용하거나 친숙한 애플리케이션 이름을 입력할 수 있습니다.
 
-1. 또한 Azure IoT Central은 애플리케이션 이름에 따라 고유한 **애플리케이션 URL** 접두사를 생성합니다. 이 URL을 사용하여 애플리케이션에 액세스합니다. 원하는 경우 이 URL 접두사를 더욱 기억하기 쉬운 것으로 자유롭게 변경할 수 있습니다.
+1. 또한 Azure IoT Central은 애플리케이션 이름을 기반으로 고유한 **URL** 접두사를 자동으로 생성합니다. 이 URL을 사용하여 애플리케이션에 액세스합니다. 원하는 경우 이 URL 접두사를 더욱 기억하기 쉬운 것으로 자유롭게 변경할 수 있습니다.
 
     :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-custom.png" alt-text="Azure IoT Central 애플리케이션 만들기 페이지":::
 

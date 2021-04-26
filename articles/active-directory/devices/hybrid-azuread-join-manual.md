@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 05/14/2019
+ms.date: 04/16/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28cc8a858d1779e17c893d64eda5f907bb4c808e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1aafcd8ace846d7da65d95d4148872d5a6eddeee
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577991"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587853"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>자습서: 하이브리드 Azure Active Directory 조인 디바이스를 수동으로 구성
 
@@ -145,7 +145,7 @@ cmdlet:
 
 `Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
 
-* Active Directory PowerShell 모듈 및 Azure AD DS(Azure Active Directory Domain Services) 도구를 사용합니다. 이러한 도구는 도메인 컨트롤러에서 실행되는 Active Directory Web Services를 사용합니다. Active Directory Web Services는 Windows Server 2008 R2 이상을 실행하는 도메인 컨트롤러에서 지원됩니다.
+* Active Directory PowerShell 모듈 및 AD DS(Active Directory Domain Services) 도구를 사용합니다. 이러한 도구는 도메인 컨트롤러에서 실행되는 Active Directory Web Services를 사용합니다. Active Directory Web Services는 Windows Server 2008 R2 이상을 실행하는 도메인 컨트롤러에서 지원됩니다.
 * MSOnline PowerShell 모듈 버전 1.1.166.0에서만 지원됩니다. 이 모듈을 다운로드하려면 이 [링크](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)를 사용합니다.
 * Azure AD DS 도구가 설치되지 않은 경우 `Initialize-ADSyncDomainJoinedComputerSync`에 실패합니다. **기능** > **원격 서버 관리 도구** > **역할 관리 도구** 아래에서 서버 관리자를 통해 AD DS 도구를 설치할 수 있습니다.
 

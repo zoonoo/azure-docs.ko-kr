@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: c98d88d66e89df3efe186212d8c004ec2a65158d
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 1166585c7291c4fe0d78cbc9540e3f08f985db6c
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106450366"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107590165"
 ---
 | 리소스 | 제한 | 참고 |
 | --- | --- | --- |
@@ -37,7 +37,7 @@ ms.locfileid: "106450366"
 | 다시 쓰기 규칙 집합당 조건 수|40| |
 | 동시 WebSocket 연결 |중간 게이트웨이 20,000<sup>2</sup><br> 대형 게이트웨이 50,000<sup>2</sup>| |
 | 최대 URL 길이|32KB| |
-| HTTP/2에 대한 최대 헤더 크기 |4KB| |
+| HTTP/2에 대한 최대 헤더 크기 |16KB| |
 | 최대 파일 업로드 크기, 표준 |2GB | |
 | 최대 파일 업로드 크기 WAF |V1 중간 WAF 게이트웨이, 100MB<br>V1 대형 WAF 게이트웨이, 500MB<br>V2 WAF, 750MB| |
 | WAF 본문 크기 제한(파일 제외)|128KB||

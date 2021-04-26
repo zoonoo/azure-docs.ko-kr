@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 6b7ead2e54889327bfbea188ad464012c3861556
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 75de7b122bff75ea13e3b66bb0b79452142dc36c
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968614"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500093"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>자습서: Azure SQL Database의 데이터베이스와 SQL Server 간에 SQL 데이터 동기화 설정
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -236,6 +236,11 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
 **프라이빗 링크를 사용하기 전에 수동으로 승인해야 하나요?**
 
 예, 동기화 그룹 배포 중에 또는 PowerShell을 사용하여 Azure Portal의 프라이빗 엔드포인트 연결 페이지에서 서비스 관리형 프라이빗 엔드포인트를 수동으로 승인해야 합니다.
+
+**동기화 작업에서 Azure 데이터베이스를 프로비저닝할 때 방화벽 오류가 발생하는 이유는 무엇인가요?**
+
+이는 Azure 리소스가 서버에 액세스할 수 없기 때문에 발생할 수 있습니다. Azure 데이터베이스의 방화벽에 "이 서버에 액세스할 수 있는 Azure 서비스 및 리소스 허용" 설정이 "예"로 설정되어 있는지 확인합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,12 +3,12 @@ title: 새로운 기능은 무엇입니까? 릴리스 정보 - Azure Event Grid
 description: Azure Event Grid의 최신 릴리스 정보, 알려진 문제, 버그 수정, 사용되지 않는 기능, 예정된 변경 내용 등을 알아봅니다.
 ms.topic: overview
 ms.date: 07/23/2020
-ms.openlocfilehash: da0b26e4f163f428e6955a37636ceb19bb34abc5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f135b25f28002c037dd24fa0cb3bb7476a06309f
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107536"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389590"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>Azure Event Grid의 새로운 기능
 
@@ -21,6 +21,24 @@ Azure Event Grid는 지속적인 향상되고 있습니다. 최신 개발 정보
 - 버그 수정
 - 사용되지 않는 기능
 - 변경 계획
+
+## <a name="610-preview-2020-10"></a>6.1.0-preview(2020년 10월)
+- [시스템 항목에 대한 관리 ID](enable-identity-system-topics.md)
+- [사용자 지정 전달 속성](delivery-properties.md)
+- [스토리지 큐 - 메시지 TTL(Time-to-Live)](delivery-properties.md#configure-time-to-live-on-outgoing-events-to-azure-storage-queues)
+- [고급 필터링 개선](event-filtering.md#advanced-filtering)
+    - 들어오는 이벤트의 배열 데이터에 대한 필터링 지원
+    - CloudEvents 확장 컨텍스트 특성에 대한 필터링 허용
+    - 새 연산자
+        - StringNotContains
+        - StringNotBeginsWith
+        - StringNotEndsWith
+        - NumberInRange
+        - NumberNotInRange
+        - IsNull
+        - IsNotNull
+- [사용자 지정 토픽 및 도메인에 대한 Event Grid 스키마를 CloudEvents 1.0 스키마 변환으로 허용](cloudevents-schema.md#configure-event-grid-for-cloudevents)
+        
 
 ## <a name="600-2020-06"></a>6.0.0(2020년 6월)
 - 새 GA(일반 공급) 서비스 API 버전 2020-06-01에 대한 지원을 추가합니다.

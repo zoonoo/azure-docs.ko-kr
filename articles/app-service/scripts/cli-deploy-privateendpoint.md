@@ -9,12 +9,12 @@ ms.date: 07/06/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: acebc75b579b13ebb2cfad0e18057245781165ad
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3c8d0927c3fb74c52e54ceb5ff8ba5c0361c4f46
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175280"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787843"
 ---
 # <a name="create-an-app-service-app-and-deploy-private-endpoint-using-azure-cli"></a>Azure CLI를 사용하여 App Service 앱 만들기 및 프라이빗 엔드포인트 배포
 
@@ -37,7 +37,7 @@ az group create --name myResourceGroup --location francecentral
 ## <a name="create-an-app-service-plan"></a>App Service 계획 만들기
 
 웹앱을 호스트할 App Service 계획을 만듭니다.
-[az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create)를 사용하여 App Service 계획을 만듭니다.
+[az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create)를 사용하여 App Service 계획을 만듭니다.
 다음 예제에서는 *P1V2* sku와 작업자를 하나만 사용하여 *francecentral* 위치에 *myAppServicePlan* 이라는 App Service 계획을 만듭니다. 
 
 ```azurecli-interactive
@@ -52,7 +52,7 @@ az appservice plan create \
 ## <a name="create-a-web-app"></a>웹앱 만들기
 
 App Service 계획이 있으면 웹앱을 배포할 수 있습니다.
-[az appservice plan create](/cli/azure/webapp#az-webapp-create를 사용하여 웹앱을 만듭니다.
+[az appservice plan create](/cli/azure/webapp#az_webapp_create를 사용하여 웹앱을 만듭니다.
 다음 예제에서는 *myAppServicePlan* 이라는 계획에 *mySiteName* 이라는 웹앱을 만듭니다.
 
 ```azurecli-interactive
@@ -78,7 +78,7 @@ az network vnet create \
 
 ## <a name="configure-the-subnet"></a>서브넷 구성 
 
-프라이빗 엔드포인트 네트워크 정책을 사용하지 않도록 설정하려면 서브넷을 업데이트해야 합니다. [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)를 사용하여 *mySubnet* 이라는 서브넷 구성을 업데이트합니다.
+프라이빗 엔드포인트 네트워크 정책을 사용하지 않도록 설정하려면 서브넷을 업데이트해야 합니다. [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)를 사용하여 *mySubnet* 이라는 서브넷 구성을 업데이트합니다.
 
 ```azurecli-interactive
 az network vnet subnet update \

@@ -7,16 +7,16 @@ ms.topic: overview
 ms.date: 04/09/2021
 ms.custom: template-overview
 ms.service: certification
-ms.openlocfilehash: b9d599542a53e3d809748b72028512c66409b4ec
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: e7cd664e9eb61cae4f1888e4c94f02f19301e9e5
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307710"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502099"
 ---
 # <a name="what-is-the-azure-certified-device-program"></a>Azure Certified Device 프로그램이란?
 
-Azure Certified Device 프로그램에 관심을 가져주셔서 감사합니다! 이 프로그램은 Azure에서 실행되도록 빌드된 IoT 디바이스를 쉽게 차별화, 홍보 및 찾을 수 있는 원스톱 샵입니다. 인텔리전트 카메라에서 연결된 센서, 에지 인프라에 이르기까지 향상된 IoT 디바이스 인증 프로그램은 디바이스 빌더에서 제품 가시성을 높이고 고객이 솔루션을 빌드하는 시간을 절약할 수 있도록 지원합니다.
+Azure Certified Device 프로그램에 관심을 가져주셔서 감사합니다! Azure Certified Device는 Azure에서 실행되도록 빌드된 IoT 디바이스를 차별화, 인증 및 승격할 수 있는 무료 프로그램입니다. 인텔리전트 카메라에서 연결된 센서, 에지 인프라에 이르기까지 향상된 IoT 디바이스 인증 프로그램은 디바이스 빌더에서 제품 가시성을 높이고 고객이 솔루션을 빌드하는 시간을 절약할 수 있도록 지원합니다.
 
 ## <a name="our-certification-promise"></a>인증 약속
 
@@ -58,7 +58,10 @@ Azure Certified Device 프로그램은 두 가지 다른 대상 그룹을 제공
 1. 디바이스 기능 유효성 검사
 1. 검토 프로세스 제출 및 완료
 
-디바이스가 인증되면 필요에 따라 다음 작업 중 두 가지를 완료할 수 있습니다.
+> [!Note]
+> 검토 프로세스를 완료하는 데 일주일이 걸릴 수 있지만 경우에 따라 시간이 더 걸릴 수 있습니다.
+
+디바이스가 인증되면 필요에 따라 다음 작업 중 두 가지를 완료할 수 있습니다. 
 
 1. Azure Certified Device 카탈로그에 게시(선택 사항)
 1. 승인/게시 후 프로젝트 업데이트(선택 사항)
@@ -68,4 +71,4 @@ Azure Certified Device 프로그램은 두 가지 다른 대상 그룹을 제공
 인증 과정을 시작할 준비가 되었나요? 디바이스 인증 프로세스를 시작하려면 아래 리소스를 확인하세요!
 
 - [인증 프로세스 시작](tutorial-00-selecting-your-certification.md)
-- 추가 질문 또는 피드백이 있는 경우 [Azure Certified Device 팀](mailto:iotcert@microsoft.com)에 문의하세요.
+- 다른 질문 또는 피드백이 있는 경우 [Azure Certified Device 팀](mailto:iotcert@microsoft.com)에 문의하세요.

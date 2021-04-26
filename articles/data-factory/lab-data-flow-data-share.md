@@ -6,13 +6,13 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 12/09/2020
-ms.openlocfilehash: fa424f7e1f5e1f885dd433b8abc8aae1dc1bc206
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/16/2021
+ms.openlocfilehash: 392b1a1650ab40951704d003f2a5e5337cf3c0f5
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97006201"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566711"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Azure Data Factory 및 Azure Data Share를 사용하여 데이터 통합
 
@@ -64,12 +64,9 @@ Azure Data Factory 연결된 서비스에서는 외부 리소스에 대한 연�
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Azure SQL Database 연결된 서비스 만들기
 
-1. 작성 페이지에서는 파이프라인, 데이터 세트, 데이터 흐름, 트리거 및 연결된 서비스와 같은 데이터 팩터리 리소스를 만들 수 있습니다. 연결된 서비스를 만들려면 오른쪽 아래 모서리에 있는 **연결** 단추를 클릭합니다.
+1. 연결된 서비스를 만들려면 왼쪽 사이드바에서 허브 **관리** 를 선택하고 **연결** 창에서 **연결된 서비스** 를 선택한 다음, **새로 만들기** 를 선택하여 새 연결된 서비스를 추가합니다.
 
     ![포털 구성 2](media/lab-data-flow-data-share/configure2.png)
-1. 연결 탭에서 **새로 만들기** 를 클릭하여 새 연결된 서비스를 추가합니다.
-
-    ![포털 구성 3](media/lab-data-flow-data-share/configure3.png)
 1. 구성할 첫 번째 연결된 서비스는 Azure SQL DB입니다. 검색 창을 사용하여 데이터 저장소 목록을 필터링할 수 있습니다. **Azure SQL Database** 타일을 클릭하고 [계속]을 클릭합니다.
 
     ![포털 구성 4](media/lab-data-flow-data-share/configure-4.png)
@@ -99,9 +96,11 @@ Azure Data Factory 연결된 서비스에서는 외부 리소스에 대한 연�
 
 *매핑 데이터 흐름을 사용하여 데이터 변환* 섹션에서는 매핑 데이터 흐름을 빌드합니다. 매핑 데이터 흐름을 빌드하기 전에 활성 스파크 클러스터에서 변환 논리를 초 단위로 테스트할 수 있는 디버그 모드를 켜는 것이 가장 좋습니다.
 
-디버그 모드를 켜려면 팩터리 위쪽 표시줄에서 **데이터 흐름 디버그** 슬라이더를 클릭합니다. 확인 대화 상자가 나타나면 [확인]을 클릭합니다. 클러스터가 시작될 때까지 약 5-7분 정도 걸립니다. 초기화하는 동안 *복사 작업을 사용하여 Azure SQL DB에서 ADLS Gen2로 데이터 수집* 을 진행합니다.
+디버그를 설정하려면 **데이터 흐름** 활동이 있을 때 데이터 흐름 캔버스 또는 파이프라인 캔버스의 위쪽 막대에서 **데이터 흐름 디버그** 슬라이더를 클릭합니다. 확인 대화 상자가 나타나면 [확인]을 클릭합니다. 클러스터가 시작될 때까지 약 5-7분 정도 걸립니다. 초기화하는 동안 *복사 작업을 사용하여 Azure SQL DB에서 ADLS Gen2로 데이터 수집* 을 진행합니다.
 
 ![포털 구성 10](media/lab-data-flow-data-share/configure10.png)
+
+![데이터 흐름 디버그 슬라이더가 있는 위치를 보여주는 스크린샷.](media/lab-data-flow-data-share/configure-11.png)
 
 ## <a name="ingest-data-using-the-copy-activity"></a>복사 작업을 사용하여 데이터 수집
 

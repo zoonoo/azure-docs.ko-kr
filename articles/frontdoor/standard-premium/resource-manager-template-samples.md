@@ -6,13 +6,13 @@ author: johndowns
 ms.author: jodowns
 ms.service: frontdoor
 ms.topic: sample
-ms.date: 03/24/2021
-ms.openlocfilehash: 929adb0be948339af033d85b0dabd7e1cedf353e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/16/2021
+ms.openlocfilehash: e939aec8f1cf5fa615904bb81bad82ea3cf22c61
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561749"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587479"
 ---
 # <a name="azure-resource-manager-templates-for-azure-front-door"></a>Azure Front Door용 Azure Resource Manager 템플릿
 
@@ -23,7 +23,10 @@ ms.locfileid: "105561749"
 
 | 샘플 | Description |
 |-|-|
+| [Front Door(빠른 생성)](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium/) | 엔드포인트, 원본 그룹, 원본 및 경로를 포함하는 기본 Front Door 프로필을 만듭니다.  |
 | [규칙 집합](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set/) | Front Door 프로필 및 규칙 집합을 만듭니다.  |
+| [관리형 규칙 집합이 있는 WAF 정책](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-waf-managed/) | 관리형 규칙 집합이 있는 Front Door 프로필 및 WAF를 만듭니다.  |
+| [사용자 지정 규칙이 있는 WAF 정책](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-waf-custom/) | 사용자 지정 규칙이 있는 Front Door 프로필 및 WAF를 만듭니다.  |
 |**App Service 원본**| **설명** |
 | [App Service](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-app-service-public) | 퍼블릭 엔드포인트 및 Front Door 프로필을 사용하여 App Service 앱을 만듭니다.  |
 | [Private Link가 있는 App Service](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-app-service-private-link) | 프라이빗 엔드포인트 및 Front Door 프로필을 사용하여 App Service 앱을 만듭니다.  |

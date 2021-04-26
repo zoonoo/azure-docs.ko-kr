@@ -4,27 +4,30 @@ description: 이 빠른 시작에서는 Azure Front Door를 사용하여 Azure P
 services: front-door
 documentationcenter: na
 author: duongau
-manager: KumudD
-ms.assetid: ''
-ms.service: frontdoor
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/21/2020
 ms.author: duau
-ms.openlocfilehash: a3ecb8cacd8fa47709432e26243bd754511658d2
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+manager: KumudD
+ms.date: 04/19/2021
+ms.topic: quickstart
+ms.service: frontdoor
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.custom:
+- mode-api
+ms.openlocfilehash: 17fa18e1f29622b941c281b9cdce27f6e72eb13a
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057918"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739983"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하는 고가용성 글로벌 웹 애플리케이션을 위한 Front Door 만들기
 
 Azure PowerShell을 사용하여 고가용성 및 고성능 글로벌 웹 애플리케이션을 만들어 Azure Front Door를 시작하세요.
 
 Front Door는 웹 트래픽을 백 엔드 풀의 특정 리소스로 보냅니다. 프런트 엔드 도메인을 정의하고, 백 엔드 풀에 리소스를 추가하고, 라우팅 규칙을 만듭니다. 이 문서에서는 두 개의 웹앱 리소스와 기본 경로 일치 “/*”를 사용하는 단일 라우팅 규칙을 포함하는 하나의 백 엔드 풀에 대한 간단한 구성을 사용합니다.
+
+:::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="PowerShell을 사용하는 Front Door 환경의 다이어그램." border="false":::
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -54,17 +57,17 @@ New-AzResourceGroup -Name myResourceGroupFD -Location centralus
 ```azurepowershell-interactive
 # Create first web app in Central US region.
 $webapp1 = New-AzWebApp `
--Name "WebAppContoso-$(Get-Random)" `
+-Name "WebAppContoso-1" `
 -Location centralus `
 -ResourceGroupName myResourceGroupFD `
 -AppServicePlan myAppServicePlanCentralUS
 
 # Create second web app in South Central US region.
 $webapp2 = New-AzWebApp `
--Name "WebAppContoso-$(Get-Random)" `
+-Name "WebAppContoso-2" `
 -Location southcentralus `
 -ResourceGroupName myResourceGroupFD `
--AppServicePlan myAppServicePlanSouthCentralUS
+-AppServicePlan myAppServicePlanEastUS
 ```
 
 ## <a name="create-a-front-door"></a>Front Door 만들기

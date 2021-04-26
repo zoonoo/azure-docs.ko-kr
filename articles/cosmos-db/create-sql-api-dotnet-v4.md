@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/07/2021
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: 559ace3e9cb9f6daeb6dc3da581bb99d3ff9145e
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.custom: devx-track-dotnet, devx-track-azurecli
+ms.openlocfilehash: 495191dfcdfd7a4d318bef508878e951d88b3ae6
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365164"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483897"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-preview-to-manage-azure-cosmos-db-sql-api-account-resources"></a>빠른 시작: .NET V4 SDK(미리 보기)를 사용하여 Azure Cosmos DB SQL API 계정 리소스를 관리하는 콘솔 앱을 빌드합니다.
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -96,7 +96,7 @@ Azure Cosmos 계정을 만드는 데 시간이 걸리며, 작업이 성공하면
 선호하는 편집기 또는 IDE에서 .NET 애플리케이션을 새로 만듭니다. 로컬 컴퓨터에서 Windows 명령 프롬프트 또는 터미널 창을 엽니다. 명령 프롬프트 또는 터미널에서 다음 섹션의 명령을 모두 실행합니다.  다음 dotnet new 명령을 실행하여 이름이 `todo`인 새 앱을 만듭니다. --langVersion 매개 변수는 생성된 프로젝트 파일의 LangVersion 속성을 설정합니다.
 
    ```bash
-   dotnet new console –langVersion:8 -n todo
+   dotnet new console â€“langVersion:8 -n todo
    ```
 
 새로 만든 앱 폴더로 디렉터리를 변경합니다. 다음을 통해 애플리케이션을 빌드할 수 있습니다.

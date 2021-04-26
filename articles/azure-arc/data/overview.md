@@ -1,20 +1,21 @@
 ---
 title: Azure Arc 지원 데이터 서비스란?
 description: Azure Arc 지원 데이터 서비스 소개
+ms.custom: references_regions
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 09/22/2020
+ms.date: 03/31/2021
 ms.topic: overview
-ms.openlocfilehash: ef16a4c0b6ea40fb4934307916f1fe79ccea72f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d866dcb5b2a0be9e6468b3d40258e37ac93834e
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97609142"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107716100"
 ---
 # <a name="what-are-azure-arc-enabled-data-services-preview"></a>Azure Arc 지원 데이터 서비스(미리 보기)란?
 
@@ -46,6 +47,16 @@ Azure Arc 지원 SQL 관리형 인스턴스 및 Azure Arc 지원 PostgreSQL 하�
 ## <a name="disconnected-scenario-support"></a>연결되지 않은 시나리오 지원
 
 셀프서비스 프로비저닝, 자동화된 백업/복원 및 모니터링과 같은 대부분의 서비스는 Azure에 대한 직접 연결의 사용 여부에 관계 없이 인프라에서 로컬로 실행할 수 있습니다. Azure에 직접 연결하면 Azure Monitor와 같은 다른 Azure 서비스와의 통합을 위한 추가 옵션이 제공되며, 전 세계 어디에서나 Azure Portal 및 Azure Resource Manager API를 사용하여 Azure Arc 지원 데이터 서비스를 관리할 수 있습니다.
+
+## <a name="supported-regions"></a>지원되는 지역
+
+다음 표에서는 현재 Arc 지원 데이터 서비스에 대해 지원되는 시나리오를 설명합니다.
+
+|Azure 지역  |직접 연결 모드  |간접 연결 모드  |
+|---------|---------|---------|
+|미국 동부|사용 가능|사용 가능
+|서유럽 |사용 가능 |사용 가능
+|북유럽|사용 가능|사용 가능
 
 ## <a name="next-steps"></a>다음 단계
 

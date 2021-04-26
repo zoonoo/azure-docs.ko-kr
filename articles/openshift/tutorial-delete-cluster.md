@@ -2,17 +2,17 @@
 title: 자습서 - Azure Red Hat OpenShift 클러스터 삭제
 description: 이 자습서에서는 Azure CLI를 사용하여 Azure Red Hat OpenShift 클러스터를 삭제하는 방법 알아보기
 author: sakthi-vetrivel
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, devx-track-azurecli
 ms.author: suvetriv
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 04/24/2020
-ms.openlocfilehash: 3830942d63c3db9646b84d43d65f7c68cb5fcf9e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 65bb27f1f85b7a26e35074da84cfc27b2a5761a1
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102209798"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484764"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-4-cluster"></a>자습서: Azure Red Hat OpenShift 4 클러스터 삭제
 
@@ -53,7 +53,7 @@ RESOURCEGROUP=yourresourcegroup
 az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
 ```
 
-그런 다음, 클러스터를 삭제할지 여부를 묻는 메시지가 표시됩니다. `y`로 확인한 후에 클러스터를 삭제하는 데 몇 분 정도 걸립니다. 명령이 완료되면 전체 리소스 그룹 및 클러스터를 포함하여 내부의 모든 리소스가 삭제됩니다.
+그런 다음, 클러스터를 삭제할지 여부를 묻는 메시지가 표시됩니다. `y`로 확인한 후에 클러스터를 삭제하는 데 몇 분 정도 걸립니다. 명령이 완료되면 전체 리소스 그룹 및 내부의 모든 리소스(클러스터 포함)가 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

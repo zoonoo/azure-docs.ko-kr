@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-python
 - devx-track-azurecli
 ms.date: 09/14/2020
-ms.openlocfilehash: d252aa15fef29f7c22e224fd7b6021a469530287
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 2ecc1ceb624f2f98bca47d4d1331f67c52fa54b4
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067744"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566914"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>빠른 시작: IoT Hub에 연결된 디바이스 제어(Python)
 
@@ -33,7 +33,7 @@ ms.locfileid: "106067744"
 
 * [Python 3.7 이상](https://www.python.org/downloads/). 지원되는 다른 버전의 Python은 [Azure IoT 디바이스 기능](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features)을 참조하세요.
 
-* [샘플 Python 프로젝트](https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip).
+* github의 [샘플 Python 프로젝트](https://github.com/Azure-Samples/azure-iot-samples-python/). github 리포지토리에 있는 **코드** 단추를 사용하여 샘플을 다운로드하거나 복제합니다.
 
 * 방화벽에서 포트 8883이 열려 있습니다. 이 빠른 시작의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 

@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: cbc415411e05d6fdecee1acf2fbc02b3c170b9d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 628bb9886264574bf33ac927cf5480f91144c39c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501127"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534010"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Attestation 설정
 
@@ -120,6 +120,10 @@ $attestationResourceGroup = "<attestation provider resource group name>"
 New-AzResourceGroup -Name $attestationResourceGroup -Location $location 
 ```
 
+ > [!NOTE]
+   > 이 리소스 그룹에 증명 공급자가 생성되면 Azure AD 사용자에게 정책 구성/정책 서명자 인증서 관리와 같은 작업을 수행하는 공급자에 대한 **증명 기여자** 역할이 있어야 합니다. 이러한 권한은 구독/리소스 그룹에 대한 **소유자**(와일드카드 권한)/ **기여자**(와일드카드 권한)와 같은 역할로 상속될 수도 있습니다.  
+
+
 ## <a name="create-and-manage-an-attestation-provider"></a>증명 공급자 만들기 및 관리
 
 New-AzAttestation은 증명 공급자를 만듭니다.
@@ -170,12 +174,12 @@ Remove-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationR
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
-이러한 권한은 "소유자"(와일드카드 권한), "기여자"(와일드카드 권한) 또는 "증명 기여자"(Azure Attestation의 특정 권한만 해당)와 같은 역할을 통해 AD 사용자에게 할당할 수 있습니다.  
+ 이러한 작업을 수행하려면 Azure AD 사용자에게 증명 공급자에 대한 **증명 기여자** 역할이 있어야 합니다. 이러한 권한은 구독/리소스 그룹에 대한 **소유자**(와일드카드 권한)/ **기여자**(와일드카드 권한)와 같은 역할로 상속될 수도 있습니다.  
 
 정책을 읽으려면 Azure AD 사용자에게 "작업"에 대한 다음 권한이 필요합니다.
 - Microsoft.Attestation/attestationProviders/attestation/read
 
-이 권한은 "Reader"(와일드카드 권한) 또는 "Attestation Reader"(Azure Attestation에 대한 특정 권한만 해당)와 같은 역할을 통해 AD 사용자에게 할당할 수 있습니다.
+ 이 작업을 수행하려면 Azure AD 사용자에게 증명 공급자에 대한 **증명 리더** 역할이 있어야 합니다. 읽기 권한은 구독/리소스 그룹에 대한 **리더**(와일드카드 권한)와 같은 역할로 상속될 수도 있습니다.  
 
 아래의 PowerShell cmdlet은 증명 공급자에 대한 정책 관리를 제공합니다(한 번에 하나의 TEE).
 

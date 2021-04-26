@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/05/2021
+ms.date: 04/19/2021
 ms.author: b-juche
-ms.openlocfilehash: 94981cd0912f76b710b3a60040ffbffd38381bcd
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 3c6da2137f2db43284ce7a533ff763e9ef157f35
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552107"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726649"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Azure NetApp Files의 새로운 기능
 
@@ -27,12 +27,16 @@ Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는
 
 ## <a name="april-2021"></a>2021년 4월
 
+* [SMB3 프로토콜 암호화](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)(미리 보기) 
+
+    이제 Azure NetApp Files SMB 및 이중 프로토콜 볼륨에서 SMB3 프로토콜 암호화를 사용하도록 설정할 수 있습니다. 이 기능을 통해 [SMB 3.0의 AES-CCM 알고리즘과 SMB 3.1.1의 AES GCM 알고리즘](/windows-server/storage/file-server/file-server-smb-overview#features-added-in-smb-311-with-windows-server-2016-and-windows-10-version-1607) 연결을 사용하여 진행 중인 SMB3 데이터를 암호화할 수 있습니다. SMB3 암호화를 사용하지 않는 SMB 클라이언트는 이 볼륨에 액세스할 수 없습니다. 미사용 데이터는 이 설정에 관계없이 암호화됩니다. SMB 암호화를 통해 보안이 강화됩니다. 그러나 클라이언트(메시지 암호화 및 암호 해독을 위한 CPU 오버헤드)에 영향을 줄 수 있습니다. 스토리지 리소스 사용률(처리량 감소)에도 영향을 줄 수 있습니다. 프로덕션에 워크로드를 배포하기 전에 애플리케이션에 대한 암호화 성능 영향을 테스트해야 합니다.
+
 * [NFS 확장 그룹을 사용하여 ADDS(Active Directory Domain Services) LDAP 사용자 매핑](configure-ldap-extended-groups.md)(미리 보기)   
 
     기본적으로 Azure NetApp Files는 [RFC 5531](https://tools.ietf.org/html/rfc5531)에 정의된 대로 NFS 사용자 자격 증명을 처리할 때 최대 16개의 그룹 ID를 지원합니다. 이 새로운 기능을 사용하면 기본 그룹 수를 초과하는 사용자가 있는 경우 최대 1,024까지 최대 수를 늘릴 수 있습니다. 이 기능을 지원하기 위해 이제는 NFS 볼륨을 ADDS LDAP에 추가할 수 있습니다. 이를 통해 확장된 그룹 항목(최대 1024 그룹)의 Active Directory LDAP 사용자가 볼륨에 액세스할 수 있습니다. 
 
 ## <a name="march-2021"></a>2021년 3월
-
+ 
 * [SMB CA(지속적인 가용성) 공유](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)(미리 보기)  
 
     SMB 투명 장애 조치(Failover)를 사용하면 SMB 볼륨의 데이터를 저장 및 액세스하는 서버 애플리케이션에 대한 연결을 중단하지 않고도 Azure NetApp Files 서비스에서 유지 관리 작업을 수행할 수 있습니다. SMB 투명 장애 조치(Failover)를 지원하기 위해 Azure NetApp Files는 이제 Azure VM에서 실행되는 SMB를 통해 SQL Server 애플리케이션에서 사용할 수 있는 SMB 지속적인 가용성 공유 옵션을 지원합니다. 이 기능은 현재 Windows SQL Server에서 지원됩니다. Linux SQL Server는 현재 지원되지 않습니다. 이 기능을 사용하도록 설정하면 [단일 인스턴스, Always-On 장애 조치(Failover) 클러스터 인스턴스 및 Always-On 가용성 그룹 배포](azure-netapp-files-solution-architectures.md#sql-server)에 대한 SQL Server 성능 향상, 확장성 및 비용 혜택이 제공됩니다. [SQL Server 배포에 Azure NetApp Files 사용할 경우의 이점](solutions-benefits-azure-netapp-files-sql-server.md)을 참조하세요.

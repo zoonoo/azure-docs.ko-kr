@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: f014ce55dc40723faf1b60f908814f9fa0428b8e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 18f64defbc4222b46d858cb9cfd3e9b56866a4d0
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99215459"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107510941"
 ---
 Azure는 Azure AD 및 OAuth를 사용하여 BLOB 및 큐 데이터에 대한 액세스 권한을 부여할 수 있도록 다음과 같은 Azure 기본 역할을 제공합니다.
 

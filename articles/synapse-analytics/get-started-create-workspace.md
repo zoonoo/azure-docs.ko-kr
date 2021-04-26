@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: b22954edf4f3a5a935c470326aa43bd24ee2d708
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 4b7251be220c012ca51970863ac2eed55d46d711
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107366065"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751151"
 ---
 # <a name="creating-a-synapse-workspace"></a>Synapse 작업 영역 만들기
 
@@ -43,7 +43,10 @@ ms.locfileid: "107366065"
 다음 필드를 작성합니다.
 
 1. **작업 영역 이름** - 전역적으로 고유한 이름을 선택합니다. 이 자습서에서는 **myworkspace** 를 사용합니다.
-1. **지역** - 지역을 선택합니다.
+1. **지역** - 클라이언트 애플리케이션/서비스(예: Azure VM, Power BI, Azure Analysis Service)와 데이터가 포함된 스토리지(예: Azure Data Lake 스토리지, Azure Cosmos DB 분석 스토리지)를 배치한 지역을 선택합니다.
+
+> [!NOTE]
+> 클라이언트 애플리케이션 또는 스토리지와 공동 배치되지 않는 작업 영역은 많은 성능 문제의 근본 원인이 될 수 있습니다. 데이터 또는 클라이언트를 여러 지역에 배치하는 경우 데이터와 클라이언트가 공동 배치된 다른 지역에 별도의 작업 영역을 만들 수 있습니다.
 
 **Data Lake Storage Gen 2 선택** 아래에서:
 
@@ -71,9 +74,17 @@ Azure Synapse 작업 영역이 만들어지면 다음 두 가지 방법으로 Sy
 * 컴퓨터에 https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 파일을 다운로드합니다. 
 * Synapse Studio에서 Data Hub로 이동합니다. 
 * **연결됨** 을 선택합니다.
-* **Azure Data Lake Storae Gen2** 범주 아래에 **myworkspace(기본 - contosolake)** 와 같은 이름의 항목이 표시됩니다.
+* **Azure Data Lake Storage Gen2** 범주 아래에 **myworkspace(기본 - contosolake)** 와 같은 이름의 항목이 표시됩니다.
 * **사용자(기본)** 라는 컨테이너를 선택합니다.
 * **업로드** 를 선택하고 다운로드한 `NYCTripSmall.parquet` 파일을 선택합니다.
+
+하나의 Parquet 파일이 업로드되면 두 개의 동등한 URI를 통해 사용할 수 있습니다.
+* `https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet` 
+* `abfss://users@contosolake.dfs.core.windows.net/NYCTripSmall.parquet`
+
+이 자습서의 뒷부분에 나오는 예제에서는 UI의 **contosolake** 를 작업 영역에 대해 선택한 기본 스토리지 계정의 이름으로 바꾸어야 합니다.
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

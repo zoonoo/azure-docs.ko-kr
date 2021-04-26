@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 얼굴 인식, 얼굴 인식 소프트웨어, 얼굴 분석, 얼굴 일치, 얼굴 인식 앱, 이미지별 얼굴 검색, 얼굴 인식 검색
-ms.openlocfilehash: 26076289d8c6659abdd55fa805c27b13690feccd
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 30707dd844769f730f135a451cd5306ca7e402cb
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258744"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726991"
 ---
 # <a name="what-is-the-azure-face-service"></a>Azure Face 서비스란?
 
@@ -33,7 +33,7 @@ Face 서비스는 다음 섹션에 각각 설명된 여러 가지 얼굴 분석 
 * [빠른 시작](./Quickstarts/client-libraries.md)은 서비스를 호출하고 짧은 시간 내에 결과를 얻을 수 있는 단계별 지침입니다. 
 * [방법 가이드](./Face-API-How-to-Topics/HowtoDetectFacesinImage.md)에는 보다 구체적이거나 사용자 지정된 방식으로 서비스를 사용하기 위한 지침이 포함되어 있습니다.
 * [개념 문서](./concepts/face-detection.md)에서는 서비스의 기능 및 기능에 대한 자세한 설명을 제공합니다.
-* [자습서](./Tutorials/FaceAPIinCSharpTutorial.md)는 보다 광범위한 비즈니스 솔루션에서 이 서비스를 구성 요소로 사용하는 방법을 보여주는 긴 가이드입니다.
+* [자습서](./enrollment-overview.md)는 보다 광범위한 비즈니스 솔루션에서 이 서비스를 구성 요소로 사용하는 방법을 보여주는 긴 가이드입니다.
 
 ## <a name="face-detection"></a>얼굴 감지
 
@@ -48,11 +48,11 @@ Detect API는 이미지에서 사람의 얼굴을 감지하고 해당 위치의 
 
 ## <a name="face-verification"></a>얼굴 확인
 
-Verify API는 검색을 기반으로 하며 "이 두 이미지가 동일한 사람입니까?"라는 질문을 해결합니다. 프로브 이미지가 등록된 하나의 템플릿과 비교되기 때문에 확인을 "일대일" 일치라고도 합니다. ID 확인 또는 액세스 제어 시나리오에서 확인을 사용하여 사진이 이전에 캡처한 이미지(예: 정부 발급 ID 카드의 사진)와 일치하는지 확인할 수 있습니다. 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) 참조 설명서를 참조하세요.
+Verify API는 검색을 기반으로 하며 "이 두 이미지가 동일한 사람인가요?"라는 질문을 해결합니다. 프로브 이미지가 등록된 하나의 템플릿과 비교되기 때문에 확인을 "일대일" 일치라고도 합니다. ID 확인 또는 액세스 제어 시나리오에서 확인을 사용하여 사진이 이전에 캡처한 이미지(예: 정부 발급 ID 카드의 사진)와 일치하는지 확인할 수 있습니다. 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) 참조 설명서를 참조하세요.
 
 ## <a name="face-identification"></a>얼굴 식별
 
-또한 Identify API는 감지로 시작하여 "데이터베이스에 등록된 얼굴과 이 탐지된 얼굴을 일치시킬 수 있습니까?"라는 질문에 응답합니다. 얼굴 인식 검색과 비슷하기 때문에 "일대다" 일치라고도 합니다. 감지된 얼굴이 포함된 프로브 템플릿이 등록된 각 템플릿과 얼마나 일치하는지에 따라 후보 일치가 반환됩니다.
+또한 Identify API는 감지로 시작하여 "데이터베이스에 등록된 얼굴과 이 감지된 얼굴을 일치시킬 수 있나요?"라는 질문에 응답합니다. 얼굴 인식 검색과 비슷하기 때문에 "일대다" 일치라고도 합니다. 감지된 얼굴이 포함된 프로브 템플릿이 등록된 각 템플릿과 얼마나 일치하는지에 따라 후보 일치가 반환됩니다.
 
 다음 이미지는 `"myfriends"`라는 데이터베이스의 예를 보여 줍니다. 각 그룹은 최대 1백만 개의 서로 다른 사람 개체를 포함할 수 있습니다. 각 사람 개체에 대해 최대 248개의 얼굴을 등록할 수 있습니다.
 
@@ -64,7 +64,7 @@ Verify API는 검색을 기반으로 하며 "이 두 이미지가 동일한 사�
 
 ## <a name="find-similar-faces"></a>유사 얼굴 찾기
 
-Find Similar API는 대상 얼굴과 일련의 후보 얼굴 간 얼굴 일치를 수행하고 대상 얼굴과 비슷해 보이는 몇 개의 얼굴을 찾습니다. 이는 이미지별 얼굴 검색을 수행하는 데 유용합니다. 
+Find Similar API는 대상 얼굴과 일련의 후보 얼굴 간 얼굴 일치를 수행하고 대상 얼굴과 비슷해 보이는 몇 개의 얼굴을 찾습니다. 이 작업은 이미지별 얼굴 검색을 수행하는 데 유용합니다. 
 
 **matchPerson** 및 **matchFace** 의 두 가지 작업 모드가 지원됩니다. **matchPerson** 모드는 [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)를 사용하여 동일한 사람에 대해 필터링한 후 유사한 얼굴을 반환합니다. **matchFace** 모드는 동일한 사람 필터를 무시합니다. 이 모드는 동일한 사람에게 속하거나 속하지 않을 수 있는 유사한 후보 얼굴의 목록을 표시합니다.
 

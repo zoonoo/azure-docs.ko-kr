@@ -4,26 +4,30 @@ description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Front
 services: front-door
 documentationcenter: na
 author: duongau
-manager: KumudD
-ms.service: frontdoor
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/16/2020
 ms.author: duau
-ms.openlocfilehash: 1869098362e37ea18c7ca9a9f827b0e5ec98ea3c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+manager: KumudD
+ms.date: 04/19/2021
+ms.topic: quickstart
+ms.service: frontdoor
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 74b7c16904c86751076d40056027999fe44cb868
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067574"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727870"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>빠른 시작: 고가용성 글로벌 웹 애플리케이션에 대한 Front Door 만들기
 
 Azure Portal을 사용하여 웹 애플리케이션에 대한 고가용성을 설정하여 Azure Front Door를 시작합니다.
 
 이 빠른 시작에서 Azure Front Door는 서로 다른 Azure 지역에서 실행되는 웹 애플리케이션의 두 인스턴스를 풀링합니다. 가중치와 우선 순위가 동일한 백 엔드를 기반으로 하는 Front Door 구성을 만듭니다. 이 구성은 애플리케이션을 실행하는 가장 가까운 사이트로 트래픽을 보냅니다. Azure Front Door는 웹 애플리케이션을 지속적으로 모니터링합니다. 이 서비스는 가장 가까운 사이트를 사용할 수 없는 경우 자동 장애 조치를 사용 가능한 다음 사이트에 제공합니다.
+
+:::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Azure Portal을 사용하는 Front Door 배포 환경의 다이어그램." border="false":::
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -65,8 +69,8 @@ Azure Portal을 사용하여 웹 애플리케이션에 대한 고가용성을 �
 | ---              | ---  |
 | **리소스 그룹**   | **새로 만들기** 를 선택하고 *FrontDoorQS_rg2* 를 입력합니다. |
 | **이름**             | 웹앱에 대한 고유 이름을 입력합니다(이 예에서는 *WebAppContoso-2*).  |
-| **지역**           | 다른 지역(이 예에서는 *미국 중남부*) |
-| **App Service 계획** > **Windows 플랜**         | **새로 만들기** 를 선택하고, *myAppServicePlanSouthCentralUS* 를 입력한 다음, **확인** 을 선택합니다. |
+| **지역**           | 다른 지역(이 예에서는 *미국 동부*) |
+| **App Service 계획** > **Windows 플랜**         | **새로 만들기** 를 선택하고 *myAppServicePlanEastUS* 를 입력한 다음, **확인** 을 선택합니다. |
 
 ## <a name="create-a-front-door-for-your-application"></a>애플리케이션에 대한 Front Door 만들기
 

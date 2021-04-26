@@ -8,16 +8,16 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: e31a1cef427062723adf4b45bd47cd8009630128
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77d5ce2cc903be51b7a38d6edc34bb8424c52ddb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94888813"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786102"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>빠른 시작: Azure NetApp Files 설정 및 NFS 볼륨 만들기
 
-이 문서에서는 신속하게 Azure NetApp Files를 설정하고 볼륨을 만드는 방법을 보여줍니다.
+이 문서에서는 신속하게 Azure NetApp Files를 설정하고 NFS 볼륨을 만드는 방법을 보여줍니다. 
 
 이 빠른 시작에서는 다음 항목을 설정합니다.
 
@@ -27,6 +27,8 @@ ms.locfileid: "94888813"
 - Azure NetApp Files에 대한 NFS 볼륨
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+
+NFS 볼륨 및 관련 고려 사항에 대해 활성화할 수 있는 모든 기능을 확인하려면 [NFS 볼륨 만들기](azure-netapp-files-create-volumes.md)를 참조하세요. 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -145,7 +147,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure NetApp Files 및
     > 명령줄 도구에서 지원되는 지역 이름을 가져오려면 `az account list-locations --query "[].{Region:name}" --out table`을 사용하세요.
     >
 
-2. [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 새 리소스 그룹을 만듭니다.
+2. [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 새 리소스 그룹을 만듭니다.
 
     ```azurecli-interactive
     az group create \
@@ -153,7 +155,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure NetApp Files 및
         --location $LOCATION
     ```
 
-3. [az netappfiles account create](/cli/azure/netappfiles/account#az-netappfiles-account-create) 명령을 사용하여 Azure NetApp Files 계정을 만듭니다.
+3. [az netappfiles account create](/cli/azure/netappfiles/account#az_netappfiles_account_create) 명령을 사용하여 Azure NetApp Files 계정을 만듭니다.
 
     ```azurecli-interactive
     az netappfiles account create \
@@ -224,7 +226,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure NetApp Files 및
     SERVICE_LEVEL="Premium" # Valid values are Standard, Premium and Ultra
     ```
 
-2. [az netappfiles pool create](/cli/azure/netappfiles/pool#az-netappfiles-pool-create)를 사용하여 새 용량 풀을 만듭니다.
+2. [az netappfiles pool create](/cli/azure/netappfiles/pool#az_netappfiles_pool_create)를 사용하여 새 용량 풀을 만듭니다.
 
     ```azurecli-interactive
     az netappfiles pool create \
@@ -248,7 +250,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure NetApp Files 및
 
 ---
 
-## <a name="create-nfs-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFS 볼륨 만들기
+## <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFS 볼륨 만들기
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -341,7 +343,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure NetApp Files 및
     SUBNET_NAME="myANFSubnet"
     ```
 
-1. [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) 명령을 사용하여 서브넷이 없는 가상 네트워크를 만듭니다.
+1. [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) 명령을 사용하여 서브넷이 없는 가상 네트워크를 만듭니다.
 
     ```azurecli-interactive
     az network vnet create \
@@ -352,7 +354,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure NetApp Files 및
 
     ```
 
-2. [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) 명령을 사용하여 위임된 서브넷을 만듭니다.
+2. [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) 명령을 사용하여 위임된 서브넷을 만듭니다.
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -363,7 +365,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure NetApp Files 및
         --delegations "Microsoft.NetApp/volumes"
     ```
 
-3. [az netappfiles volume create](/cli/azure/netappfiles/volume#az-netappfiles-volume-create) 명령을 사용하여 볼륨을 만듭니다.
+3. [az netappfiles volume create](/cli/azure/netappfiles/volume#az_netappfiles_volume_create) 명령을 사용하여 볼륨을 만듭니다.
 
     ```azurecli-interactive
     VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
@@ -447,7 +449,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure NetApp Files 및
 > [!IMPORTANT]
 > 리소스 그룹 내의 모든 리소스가 영구적으로 삭제되고 취소할 수 없습니다.
 
-1. [az group delete](/cli/azure/group#az-group-delete) 명령을 사용하여 리소스 그룹을 삭제합니다.
+1. [az group delete](/cli/azure/group#az_group_delete) 명령을 사용하여 리소스 그룹을 삭제합니다.
 
     ```azurecli-interactive
     az group delete \

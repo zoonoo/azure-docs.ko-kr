@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 9443c6fbaca16cf075745972a1655a2b4b2ea43c
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: b240806b934cae54810cf9dfe1a6c1f369cede7e
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077536"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587513"
 ---
 # <a name="tutorial-create-and-import-glossary-terms-in-azure-purview-preview"></a>자습서: Azure Purview에서 용어집 용어 만들기 및 가져오기(미리 보기)
 
@@ -96,6 +96,9 @@ ms.locfileid: "106077536"
 1. [이 자습서 시리즈의 1부](tutorial-scan-data.md)에서 다운로드한 시작 키트의 일부인 *StarterKitTerms.csv* 라는 파일이 저장된 위치를 확인합니다.
 
    이 파일에는 데이터 자산에 해당하는 미리 채워진 용어 목록이 포함되어 있습니다.
+
+ > [!Important]
+   > .CSV 파일에 있는 관리자 및 전문가의 이메일 주소는 AAD 그룹에 있는 사용자의 기본 주소여야 합니다. 대체 이메일, 사용자 계정 이름 및 AAD가 아닌 이메일은 아직 지원되지 않습니다. 이메일 주소를 조직의 AAD 기본 주소로 바꾸어야 합니다.
 
 1. 가져오기를 시작하려면 **용어집** 을 선택한 다음, **용어 가져오기** 를 선택합니다.
 

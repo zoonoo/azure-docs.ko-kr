@@ -10,20 +10,22 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/21/2020
+ms.date: 4/19/2021
 ms.author: duau
-ms.openlocfilehash: a64c91910ba65901a6d1374df9633062398a90e4
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 99204a2d4c3a2455f0916878fb09a348dc79ac7a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067659"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778780"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하는 고가용성 글로벌 웹 애플리케이션을 위한 Front Door 만들기
 
 Azure CLI를 사용하여 고가용성 및 고성능 글로벌 웹 애플리케이션을 만들어 Azure Front Door를 시작하세요.
 
 Front Door는 웹 트래픽을 백 엔드 풀의 특정 리소스로 보냅니다. 프런트 엔드 도메인을 정의하고, 백 엔드 풀에 리소스를 추가하고, 라우팅 규칙을 만듭니다. 이 문서에서는 두 개의 웹앱 리소스와 기본 경로 일치 “/*”를 사용하는 단일 라우팅 규칙을 포함하는 하나의 백 엔드 풀에 대한 간단한 구성을 사용합니다.
+
+:::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Azure CLI를 사용하는 Front Door 배포 환경의 다이어그램." border="false":::
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -45,7 +47,7 @@ Azure에서 관련 리소스를 리소스 그룹에 할당합니다. 기존 리�
 
 이 빠른 시작에서는 두 개의 리소스 그룹이 필요합니다. *미국 중부* 에서 하나이며 *미국 중남부* 에서 두 번째입니다.
 
-[az group create](/cli/azure/group#az-group-create)를 사용하여 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create \
@@ -53,8 +55,8 @@ az group create \
     --location centralus
 
 az group create \
-    --name myRGFDSouthCentral \
-    --location southcentralus
+    --name myRGFDEast \
+    --location eastus
 ```
 
 ## <a name="create-two-instances-of-a-web-app"></a>웹앱의 두 인스턴스 만들기
@@ -65,7 +67,7 @@ az group create \
 
 ### <a name="create-app-service-plans"></a>앱 서비스 계획 만들기
 
-웹앱을 만들기 전에 *미국 중부* 에서 하나와 *미국 중남부* 에서 하나씩 두 개의 앱 서비스 계획이 필요합니다.
+웹앱을 만들려면 먼저 *미국 중부* 와 *미국 동부* 에 하나씩 두 개의 앱 서비스 계획이 필요합니다.
 
 [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create&preserve-view=true)를 사용하여 앱 서비스 계획을 만듭니다.
 
@@ -75,8 +77,8 @@ az appservice plan create \
 --resource-group myRGFDCentral
 
 az appservice plan create \
---name myAppServicePlanSouthCentralUS \
---resource-group myRGFDSouthCentral
+--name myAppServicePlanEastUS \
+--resource-group myRGFDEast
 ```
 
 ### <a name="create-web-apps"></a>웹앱 만들기
@@ -87,14 +89,14 @@ az appservice plan create \
 
 ```azurecli-interactive
 az webapp create \
---name WebAppContoso1 \
+--name WebAppContoso-1 \
 --resource-group myRGFDCentral \
 --plan myAppServicePlanCentralUS 
 
 az webapp create \
---name WebAppContoso2 \
---resource-group myRGFDSouthCentral \
---plan myAppServicePlanSouthCentralUS
+--name WebAppContoso-2 \
+--resource-group myRGFDEast \
+--plan myAppServicePlanEastUS
 ```
 
 다음 단계에서 Front Door를 배포할 때 백 엔드 주소를 정의할 수 있도록 각 웹앱의 기본 호스트 이름을 적어 둡니다.
@@ -110,7 +112,7 @@ az network front-door create \
 --resource-group myRGFDCentral \
 --name contoso-frontend \
 --accepted-protocols http https \
---backend-address webappcontoso1.azurewebsites.net webappcontoso2.azurewebsites.net 
+--backend-address webappcontoso-1.azurewebsites.net webappcontoso-2.azurewebsites.net 
 ```
 
 **--resource-group:** Front Door를 배포하려는 리소스 그룹을 지정합니다.
@@ -140,7 +142,7 @@ az group delete \
 --name myRGFDCentral 
 
 az group delete \
---name myRGFDSouthCentral
+--name myRGFDEast
 ```
 
 ## <a name="next-steps"></a>다음 단계

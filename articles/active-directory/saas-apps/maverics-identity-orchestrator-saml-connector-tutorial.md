@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 19f6b0601afe9ad84f02c93d7f6e1ae3a71a06a4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 402f6cd6961108cdf1e9c94fb4f93309fbf15ead
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104585097"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599029"
 ---
 # <a name="integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>Maverics Identity Orchestrator SAML Connector와 Azure AD Single Sign-On 통합
 
@@ -35,7 +35,7 @@ Strata의 Maverics Identity Orchestrator는 인증 및 액세스 제어를 위�
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Maverics Identity Orchestrator SAML Connector SSO가 설정된 구독. Maverics 소프트웨어를 받으려면 [Strata sales](mailto:sales@strata.io)에 문의하세요.
-* 헤더 기반 인증을 사용하는 하나 이상의 애플리케이션. 이 예제는 https://app.sonarsystems.com 에 호스트되는 Sonar라는 애플리케이션 및 https://app.connectulum.com 에 호스트되는 Connectulum이라는 애플리케이션에 대해 작동합니다.
+* 헤더 기반 인증을 사용하는 하나 이상의 애플리케이션. 이 예제는 `https://app.connectulum.com`에서 호스팅되는 Connectulum이라는 애플리케이션에 대해 작동합니다.
 * Maverics Orchestrator를 호스트하는 Linux 머신
   * OS: RHEL 7.7 이상, CentOS 7 이상
   * 디스크: 10GB 이상
@@ -107,7 +107,7 @@ tls:
     keyFile: /etc/maverics/maverics.key
 ```
 
-TLS가 예상대로 구성되었는지 확인하려면 Maverics 서비스를 다시 시작하고 상태 엔드포인트에 대한 요청을 만듭니다. 브라우저에서 https://sonar.maverics.com/status 를 요청합니다.
+TLS가 예상대로 구성되었는지 확인하려면 Maverics 서비스를 다시 시작하고 상태 엔드포인트에 대한 요청을 만듭니다.
 
 ## <a name="step-2-proxy-an-application"></a>2단계: 애플리케이션 프록시 구성
 
@@ -131,7 +131,7 @@ appgateways:
     upstream: https://app.sonarsystems.com
 ```
 
-프록시가 예상대로 작동하는지 확인하려면 Maverics 서비스를 다시 시작하고 Maverics 프록시를 통해 애플리케이션에 대한 요청을 만듭니다. 브라우저에서 https://sonar.maverics.com 을 요청합니다. 필요에 따라 특정 애플리케이션 리소스(예: `https://sonar.maverics.com/RESOURCE`)에 대한 요청을 만들 수 있습니다. 여기서 `RESOURCE`는 보호된 업스트림 앱의 유효한 애플리케이션 리소스입니다.
+프록시가 예상대로 작동하는지 확인하려면 Maverics 서비스를 다시 시작하고 Maverics 프록시를 통해 애플리케이션에 대한 요청을 만듭니다. 필요한 경우 특정 애플리케이션 리소스에 요청할 수 있습니다.
 
 ## <a name="step-3-register-an-enterprise-application-in-azure-ad"></a>3단계: Azure AD에서 엔터프라이즈 애플리케이션 등록
 
@@ -325,7 +325,7 @@ connectors:
 
 이 코드는 App Gateway 정의에 `host` 필드를 추가합니다. `host` 필드를 사용하면 Maverics Orchestrator에서 트래픽을 프록시할 업스트림 호스트를 구분할 수 있습니다.
 
-새로 추가된 App Gateway가 예상대로 작동하는지 확인하려면 https://connectulum.maverics.com 에 대한 요청을 만듭니다.
+새로 추가된 App Gateway가 예상대로 작동하는지 확인하려면 `https://connectulum.maverics.com` 에 대한 요청을 만듭니다.
 
 ## <a name="advanced-scenarios"></a>고급 시나리오
 

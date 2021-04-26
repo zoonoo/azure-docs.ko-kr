@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: c9e1de7b5dee8e351cd8744287c07b0bbb174512
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8cbccc3fb4cc513d7c86253ae07fbced4626a15e
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92516463"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599658"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>자습서: Tidemark와 Azure Active Directory 통합
 
@@ -113,7 +113,7 @@ Tidemark에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
     - `https://<subdomain>.tidemark.net/saml`
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Tidemark 클라이언트 지원 팀](http://www.tidemark.com/contact-us)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 Tidemark 클라이언트 지원 팀에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
@@ -131,7 +131,7 @@ Tidemark에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
 ### <a name="configure-tidemark-single-sign-on"></a>Tidemark Single Sign-On 구성
 
-**Tidemark** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 [Tidemark 지원 팀](http://www.tidemark.com/contact-us)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Tidemark** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 Tidemark 지원 팀으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
@@ -185,7 +185,7 @@ Tidemark에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
 ### <a name="create-tidemark-test-user"></a>Tidemark 테스트 사용자 만들기
 
-이 섹션에서는 Tidemark에서 Britta Simon이라는 사용자를 만듭니다. Tidemark 플랫폼에 사용자를 추가하려면 [Tidemark 지원 팀](http://www.tidemark.com/contact-us)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Tidemark에서 Britta Simon이라는 사용자를 만듭니다. Tidemark 플랫폼에 사용자를 추가하려면 Tidemark 지원 팀에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

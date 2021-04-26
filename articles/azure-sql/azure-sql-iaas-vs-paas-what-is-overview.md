@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: ea097119111d5dbd5eba3c11aba549d201186e3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 394b3390386c60e2a64f52dd944dfcdb0d33951e
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104592186"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727027"
 ---
 # <a name="what-is-azure-sql"></a>Azure SQL란? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -98,18 +98,19 @@ Azure SQL Database는 다음과 같은 배포 옵션을 제공합니다.
 ### <a name="sql-server-on-azure-vm"></a>Azure VM의 SQL Server
 
 [Azure VM의 SQL Server](virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)는 업계 범주에 속하는 *IaaS(Infrastructure as a service)* 산업 부분으로 분류되며 Azure의 완전 관리형 VM(가상 머신) 내에서 SQL Server를 실행할 수 있도록 지원합니다. 
-- OS 수준의 액세스가 필요한 마이그레이션 및 애플리케이션에 적합합니다. Azure의 SQL 가상 머신은 변경 내용을 최소화하거나 변경하지 않고 클라우드로 신속하게 마이그레이션해야 하는 기존 애플리케이션을 위한 리프트 앤 시프트가 준비되어 있습니다. SQL 가상 머신은 Azure로 마이그레이션하는 데 필요한 SQL Server 인스턴스 및 기본 OS에 대한 전체 관리 제어 권한을 제공합니다. 
-- 온-프레미스 개발 및 테스팅 SQL Server 하드웨어를 구입하지 않는 빠른 개발 및 테스트 시나리오 SQL 가상 머신은 Microsoft에서 소유, 호스트 및 유지 관리하는 표준화된 하드웨어에서도 실행됩니다. SQL 가상 머신을 사용하는 경우 SQL Server 이미지에 이미 포함된 SQL Server 라이선스에 종량제를 사용하거나 기존 라이선스를 쉽게 사용할 수 있습니다. 필요에 따라 VM을 중지하거나 다시 시작할 수도 있습니다. 
 - 클라우드에 설치되고 호스트되는 SQL Server는 Azure에서 실행 중인 Windows Server 또는 Linux 가상 머신에서 실행되며, IaaS(infrastructure as a service)라고도 합니다. SQL 가상 머신은 데이터베이스 변경 없이 온-프레미스 SQL Server 데이터베이스 및 애플리케이션을 마이그레이션하는 좋은 옵션입니다. 모든 최신 버전의 SQL Server를 IaaS 가상 머신에 설치할 수 있습니다. 
-
-    SQL Database와 SQL Managed Instance의 가장 큰 차이점은 Azure Virtual Machines의 SQL Server에서는 데이터베이스 엔진을 완전히 제어할 수 있다는 점입니다. 유지 관리/패치 적용을 시작할 시기를 선택하고, 복구 모델을 단순 또는 대량 로그로 변경하고, 필요에 따라 서비스를 일시 중지하거나 시작하고, SQL Server 데이터베이스 엔진을 완전히 사용자 지정할 수 있습니다. 이러한 추가 제어 기능과 더불어 가상 머신을 관리해야 하는 책임도 추가됩니다.
+- OS 수준의 액세스가 필요한 마이그레이션 및 애플리케이션에 적합합니다. Azure의 SQL 가상 머신은 변경 내용을 최소화하거나 변경하지 않고 클라우드로 신속하게 마이그레이션해야 하는 기존 애플리케이션을 위한 리프트 앤 시프트가 준비되어 있습니다. SQL 가상 머신은 Azure로 마이그레이션하는 데 필요한 SQL Server 인스턴스 및 기본 OS에 대한 전체 관리 제어 권한을 제공합니다. 
+- SQL Database와 SQL Managed Instance의 가장 큰 차이점은 Azure Virtual Machines의 SQL Server에서는 데이터베이스 엔진을 완전히 제어할 수 있다는 점입니다. 유지 관리/패치 적용을 시작할 시기를 선택하고, 복구 모델을 단순 또는 대량 로그로 변경하고, 필요에 따라 서비스를 일시 중지하거나 시작하고, SQL Server 데이터베이스 엔진을 완전히 사용자 지정할 수 있습니다. 이러한 추가 제어 기능과 더불어 가상 머신을 관리해야 하는 책임도 추가됩니다.
+- 온-프레미스 개발 및 테스팅 SQL Server 하드웨어를 구입하지 않는 빠른 개발 및 테스트 시나리오 SQL 가상 머신은 Microsoft에서 소유, 호스트 및 유지 관리하는 표준화된 하드웨어에서도 실행됩니다. SQL 가상 머신을 사용하는 경우 SQL Server 이미지에 이미 포함된 SQL Server 라이선스에 종량제를 사용하거나 기존 라이선스를 쉽게 사용할 수 있습니다. 필요에 따라 VM을 중지하거나 다시 시작할 수도 있습니다. 
 - 기존 애플리케이션을 Azure로 마이그레이션하거나 기존 온-프레미스 애플리케이션을 하이브리드 배포의 클라우드로 확장하는 데 최적화됩니다. 또한 가상 머신에서 SQL Server를 사용하여 기존 SQL Server 애플리케이션을 개발하고 테스트할 수 있습니다. SQL 가상 머신을 사용하면 전용 SQL Server 인스턴스와 클라우드 기반 VM에 대한 모든 관리 권한을 갖습니다. 이 옵션은 가상 머신을 유지 관리하는 IT 리소스를 이미 갖춘 조직에게 가장 적합합니다. 이러한 기능을 사용하면 애플리케이션 관련 성능 및 가용성 요구 사항을 해결하는 고도로 사용자 지정된 시스템을 구축할 수 있습니다.
 
-다음 표에는 차이점이 추가로 나열되어 있지만 SQL Database와 SQL Managed Instance는 모두 여러 데이터베이스를 프로비저닝하고 관리하는 전체 관리 비용을 최소로 줄이도록 최적화되어 있습니다. 가상 머신, 운영 체제 또는 데이터베이스 소프트웨어를 관리할 필요가 없으므로 지속적인 관리 비용이 줄어듭니다. 업그레이드, 고가용성 또는 [백업](database/automated-backups-overview.md)을 관리할 필요가 없습니다. 
-
-일반적으로 SQL Database와 SQL Managed Instance는 단일 IT 또는 개발 리소스로 관리되는 데이터베이스 수를 크게 늘립니다. 또한 [탄력적 풀](database/elastic-pool-overview.md)은 테넌트 격리, 데이터베이스 간에 리소스를 공유하여 비용을 줄이는 기능을 비롯한 기능으로 SaaS 다중 테넌트 애플리케이션 아키텍처를 지원합니다. [SQL Managed Instance](managed-instance/sql-managed-instance-paas-overview.md)는 데이터베이스 간에 리소스를 공유하는 기능뿐만 아니라 기존 애플리케이션을 쉽게 마이그레이션할 수 있게 해주는 인스턴스 범위 기능을 지원합니다.
 
 ### <a name="comparison-table"></a>비교 표
+
+다음 표에는 차이점이 추가로 나열되어 있지만 *SQL Database와 SQL Managed Instance는 모두 여러 데이터베이스를 프로비저닝하고 관리하는 전체 관리 비용을 최소로 줄이도록 최적화되어 있습니다.* 가상 머신, 운영 체제 또는 데이터베이스 소프트웨어를 관리할 필요가 없으므로 지속적인 관리 비용이 줄어듭니다. 업그레이드, 고가용성 또는 [백업](database/automated-backups-overview.md)을 관리할 필요가 없습니다. 
+
+일반적으로 SQL Database와 SQL Managed Instance는 단일 IT 또는 개발 리소스로 관리되는 데이터베이스 수를 크게 늘립니다. 또한 [탄력적 풀](database/elastic-pool-overview.md)은 테넌트 격리, 데이터베이스 간에 리소스를 공유하여 비용을 줄이는 기능을 비롯한 기능으로 SaaS 다중 테넌트 애플리케이션 아키텍처를 지원합니다. [SQL Managed Instance](managed-instance/sql-managed-instance-paas-overview.md)는 데이터베이스 간에 리소스를 공유하는 기능뿐만 아니라 기존 애플리케이션을 쉽게 마이그레이션할 수 있게 해주는 인스턴스 범위 기능을 지원합니다. 반면 [Azure VM의 SQL Server](virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)는 익숙한 온-프레미스 환경과 가장 유사한 환경을 DBA에게 제공합니다. 
+
 
 | Azure SQL Database | Azure SQL Managed Instance | Azure VM의 SQL Server |
 | :--- | :--- | :--- |

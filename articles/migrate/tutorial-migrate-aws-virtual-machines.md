@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 430ece58bd3dc1651ac391ba0e29515085ee507b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4879c8370953a5ac8c6b46efe8010db9692d3052
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821219"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714509"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services) VM 검색, 평가 및 Azure로 마이그레이션
 
@@ -145,7 +145,9 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
 5. **리소스 만들기** 를 클릭합니다. 그러면 Azure Site Recovery 자격 증명 모음이 백그라운드에서 만들어집니다.
     - 이미 Azure Migrate 서버 마이그레이션을 사용하여 마이그레이션을 설정한 경우 이전에 리소스가 설정되었으므로 대상 옵션을 구성할 수 없습니다.
     - 이 단추를 클릭한 후에는 이 프로젝트의 대상 지역을 변경할 수 없습니다.
-    - VM을 다른 지역으로 마이그레이션하려면 새롭거나 다른 Azure Migrate 프로젝트를 만들어야 합니다.
+    - VM을 다른 지역으로 마이그레이션하려면 새롭거나 다른 Azure Migrate 프로젝트를 만들어야 합니다.  
+    > [!NOTE]
+    > Azure Migrate 프로젝트를 만들 때 연결 방법으로 프라이빗 엔드포인트를 선택한 경우 Recovery Services 자격 증명 모음도 프라이빗 엔드포인트 연결을 위해 구성됩니다. 복제 어플라이언스에서 프라이빗 엔드포인트에 연결할 수 있는지 확인합니다. [**자세한 정보**](how-to-use-azure-migrate-with-private-endpoints.md#troubleshoot-network-connectivity)
 
 6. **새 복제 어플라이언스를 설치하거나 기존 설치를 확장하시겠습니까?** 에서 **복제 어플라이언스 설치** 를 선택합니다.
 7. **복제 어플라이언스 소프트웨어를 다운로드하고 설치합니다.** 에서 어플라이언스 설치 관리자 및 등록 키를 다운로드합니다. 어플라이언스를 등록하려면 키가 필요합니다. 키는 다운로드한 후 5일 동안 유효합니다.
@@ -244,13 +246,18 @@ Mobility Service 에이전트가 마이그레이션할 원본 AWS VM에 설치�
     ![VM 선택](./media/tutorial-migrate-physical-virtual-machines/select-vms.png)
 
 8. **대상 설정** 에서 마이그레이션할 구독 및 대상 지역을 선택하고, 마이그레이션 후 Azure VM이 상주할 리소스 그룹을 지정합니다.
-9. **Virtual Network** 에서 마이그레이션 후 Azure VM이 조인될 Azure VNet/서브넷을 선택합니다.
-10. **가용성 옵션** 에서 다음을 선택합니다.
+9. **Virtual Network** 에서 마이그레이션 후 Azure VM이 조인될 Azure VNet/서브넷을 선택합니다.  
+10. **캐시 스토리지 계정** 에서 프로젝트에 대해 자동으로 생성되는 캐시 스토리지 계정을 사용하는 기본 옵션을 유지합니다. 복제를 위해 캐시 스토리지 계정으로 사용할 다른 스토리지 계정을 지정하려는 경우 드롭다운을 사용하세요. <br/> 
+    > [!NOTE]
+    >
+    > - Azure Migrate 프로젝트의 연결 방법으로 프라이빗 엔드포인트를 선택한 경우 Recovery Services 자격 증명 모음에 캐시 스토리지 계정에 대한 액세스 권한을 부여합니다. [**자세한 정보**](how-to-use-azure-migrate-with-private-endpoints.md#grant-access-permissions-to-the-recovery-services-vault)
+    > - 개인 피어링에서 ExpressRoute를 사용하여 복제하려면 캐시 스토리지 계정에 대한 프라이빗 엔드포인트를 만듭니다. [**자세한 정보**](how-to-use-azure-migrate-with-private-endpoints.md#create-a-private-endpoint-for-the-storage-account-optional) 
+11. **가용성 옵션** 에서 다음을 선택합니다.
     -  마이그레이션된 머신을 지역의 특정 가용성 영역에 고정하는 가용성 영역. 이 옵션을 사용하여 가용성 영역에서 다중 노드 애플리케이션 계층을 구성하는 서버를 배포합니다. 이 옵션을 선택하는 경우 Compute 탭에서 선택한 각 머신에 사용할 가용성 영역을 지정해야 합니다. 이 옵션은 마이그레이션을 위해 선택한 대상 지역이 가용성 영역을 지원하는 경우에만 사용할 수 있습니다.
     -  마이그레이션된 머신을 가용성 집합에 배치하기 위한 가용성 집합입니다. 이 옵션을 사용하려면 선택한 대상 리소스 그룹에 하나 이상의 가용성 집합이 있어야 합니다.
     - 마이그레이션된 머신에 대해 이러한 가용성 구성이 필요하지 않은 경우에는 인프라 중복이 필요하지 않습니다.
     
-11. **디스크 암호화 유형** 에서 다음을 선택합니다.
+12. **디스크 암호화 유형** 에서 다음을 선택합니다.
     - 플랫폼 관리형 키를 사용하여 저장 데이터 암호화
     - 고객 관리형 키를 사용하여 미사용 데이터 암호화
     - 플랫폼 관리형 키 및 고객 관리형 키를 사용한 이중 암호화
@@ -258,14 +265,14 @@ Mobility Service 에이전트가 마이그레이션할 원본 AWS VM에 설치�
    > [!NOTE]
    > CMK를 사용하여 VM을 복제하려면 대상 리소스 그룹 아래에 [디스크 암호화 집합을 생성](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set)해야 합니다. 디스크 암호화 집합 개체는 SSE에 사용할 CMK가 포함된 Key Vault에 Managed Disks를 매핑됩니다.
   
-12. **Azure 하이브리드 혜택** 에서
+13. **Azure 하이브리드 혜택** 에서
 
     - Azure 하이브리드 혜택을 적용하지 않으려면 **아니요** 를 선택합니다. 그런 후 **Next** 를 클릭합니다.
     - 활성 Software Assurance 또는 Windows Server 구독이 적용되는 Windows Server 머신이 있고 마이그레이션할 머신에 이 혜택을 적용하려면 **예** 를 선택합니다. 그런 후 **Next** 를 클릭합니다.
 
     ![대상 설정](./media/tutorial-migrate-vmware/target-settings.png)
 
-13. **Compute** 에서 VM 이름, 크기, OS 디스크 유형 및 가용성 구성을 검토합니다(이전 단계에서 선택한 경우). VM은 [Azure 요구 사항](migrate-support-matrix-physical-migration.md#azure-vm-requirements)을 준수해야 합니다.
+14. **Compute** 에서 VM 이름, 크기, OS 디스크 유형 및 가용성 구성을 검토합니다(이전 단계에서 선택한 경우). VM은 [Azure 요구 사항](migrate-support-matrix-physical-migration.md#azure-vm-requirements)을 준수해야 합니다.
 
     - **VM 크기**: 평가 권장 사항을 사용하는 경우 VM 크기 드롭다운에서 권장 크기를 표시합니다. 그렇지 않으면 Azure Migrate는 Azure 구독에서 가장 일치하는 항목을 기준으로 크기를 선택합니다. 또는 **Azure VM 크기** 에서 수동 크기를 선택합니다.
     - **OS 디스크**: VM에 맞는 OS(부팅) 디스크를 지정합니다. OS 디스크는 운영 체제 부팅 로더 및 설치 관리자가 있는 디스크입니다.
@@ -274,13 +281,13 @@ Mobility Service 에이전트가 마이그레이션할 원본 AWS VM에 설치�
 
 ![컴퓨팅 설정](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
-14. **디스크** 에서 VM 디스크를 Azure에 복제해야 하는지 여부를 지정하고, Azure에서 디스크 유형(표준 SSD/HDD 또는 프리미엄 관리 디스크)을 선택합니다. 그런 후 **Next** 를 클릭합니다.
+15. **디스크** 에서 VM 디스크를 Azure에 복제해야 하는지 여부를 지정하고, Azure에서 디스크 유형(표준 SSD/HDD 또는 프리미엄 관리 디스크)을 선택합니다. 그런 후 **Next** 를 클릭합니다.
     - 디스크를 복제에서 제외할 수 있습니다.
     - 디스크를 제외하는 경우 마이그레이션 후 Azure VM에 표시되지 않습니다. 
 
     ![디스크 설정](./media/tutorial-migrate-physical-virtual-machines/disks.png)
 
-15. **검토 및 복제 시작** 에서 설정을 검토하고, **복제** 를 클릭하여 서버에 대한 초기 복제를 시작합니다.
+16. **검토 및 복제 시작** 에서 설정을 검토하고, **복제** 를 클릭하여 서버에 대한 초기 복제를 시작합니다.
 
 > [!NOTE]
 > 복제가 시작되기 전에 언제든지 **관리** > **머신 복제 중** 에서 복제 설정을 업데이트할 수 있습니다. 복제가 시작된 후에는 설정을 변경할 수 없습니다.

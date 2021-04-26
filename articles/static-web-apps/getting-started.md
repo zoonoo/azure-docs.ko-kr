@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 335f78bba24947b1b6c3d6132bc38f237b3298b9
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: fb874c25ab688cc5e6723d1023157b8acd9478b9
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449217"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483850"
 ---
 # <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>빠른 시작: Azure Static Web Apps를 사용하여 첫 번째 정적 사이트 빌드
 
@@ -20,7 +20,7 @@ Azure Static Web Apps는 코드 리포지토리에서 앱을 빌드하여 웹 �
 
 Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.com/free)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [GitHub](https://github.com) 계정
 - [Azure](https://portal.azure.com) 계정
@@ -62,17 +62,31 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
 
     :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="애플리케이션 파일 위치":::
 
-    현재 Azure Functions api의 위치로 **지금은 건너뛰기** 를 선택합니다.
+    현재 Azure Functions API의 위치로 **지금은 건너뛰기** 를 선택합니다.
 
     :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="API 위치":::
 
-    빌드 출력 위치로 **./** 입력
+    빌드 출력 위치로 **./** 를 입력합니다.
 
     :::image type="content" source="media/getting-started/extension-build-location.png" alt-text="애플리케이션 빌드 출력 위치":::
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
-    :::image type="content" source="media/getting-started/extension-presets-angular.png" alt-text="애플리케이션 사전 설정: Angular":::
+    Angular 미리 설정이 있지만 이 애플리케이션에 적절한 출력 위치를 제공할 수 있도록 **사용자 지정** 옵션을 선택합니다.
+
+    :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="애플리케이션 사전 설정: Angular":::
+
+    애플리케이션 파일의 위치로 **./** 를 입력합니다.
+
+    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="애플리케이션 파일 위치: Angular":::
+
+    현재 Azure Functions API의 위치로 **지금은 건너뛰기** 를 선택합니다.
+
+    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="API 위치: Angular":::
+
+    빌드 출력 위치로 **dist/angular-basic** 을 입력합니다.
+
+    :::image type="content" source="media/getting-started/extension-angular.png" alt-text="애플리케이션 빌드 출력 위치: Angular":::
 
     # <a name="react"></a>[React](#tab/react)
 

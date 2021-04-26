@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 361a151d1f1835f82e440704105cf8b3844a4c54
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 709c7bf352635ffb1c17f6cb24aee59dcae2e033
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106221629"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479766"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>자습서: SQL Server 데이터베이스로 에지에 데이터 저장
 
@@ -43,7 +43,7 @@ Azure IoT Edge 및 SQL Server를 사용하여 에지에 데이터를 저장하�
 
 * Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 * Linux 컨테이너가 있는 Azure IoT Edge를 실행하는 AMD64 디바이스 빠른 시작을 사용하여 [Linux 디바이스](quickstart-linux.md) 또는 [Windows 디바이스](quickstart.md)를 설정할 수 있습니다.
-  * Raspberry Pi와 같은 ARM 디바이스는 SQL Server를 실행할 수 없습니다. ARM 디바이스에서 SQL을 사용하려는 경우 등록하여 미리 보기에서 [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/)를 사용해 볼 수 있습니다.
+  * Raspberry Pi와 같은 ARM 디바이스는 SQL Server를 실행할 수 없습니다. ARM 디바이스에서 SQL을 사용하려는 경우 [Azure SQL Edge](../azure-sql-edge/overview.md)를 사용할 수 있습니다.
 * [Azure Container Registry](../container-registry/index.yml)와 같은 컨테이너 레지스트리
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)를 사용하여 구성된 [Visual Studio Code](https://code.visualstudio.com/)
 * Linux 컨테이너를 실행하도록 구성된 [Docker CE](https://docs.docker.com/install/)

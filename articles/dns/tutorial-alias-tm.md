@@ -6,19 +6,18 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 04/19/2021
 ms.author: rohink
-ms.openlocfilehash: 4bdfc950cc1277809811dc2c548a57cc2138a8e4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e0101133c68142845a8ada50d9921d341cf10ad0
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "77149952"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738795"
 ---
 # <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>자습서: Traffic Manager를 사용하여 apex 도메인 이름을 지원하도록 별칭 레코드 구성 
 
 도메인 이름 apex에 대한 별칭 레코드를 만들어 Azure Traffic Manager 프로필을 참조할 수 있습니다. 예를 들어 contoso.com이 있습니다. 리디렉션 서비스를 사용하는 대신, 영역에서 직접 Traffic Manager 프로필을 참조하도록 Azure DNS를 구성합니다. 
-
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
@@ -27,7 +26,6 @@ ms.locfileid: "77149952"
 > * Traffic Manager 프로필 만들기.
 > * 별칭 레코드 만들기.
 > * 별칭 레코드 테스트.
-
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -39,24 +37,28 @@ Azure DNS에서 도메인을 호스트하는 방법에 대한 지침은 [자습�
 이 자습서에 사용되는 예제 도메인은 contoso.com이지만 사용자 고유의 도메인 이름을 사용하세요.
 
 ## <a name="create-the-network-infrastructure"></a>네트워크 인프라 만들기
+
 먼저 웹 서버를 배치할 가상 네트워크 및 서브넷을 만듭니다.
+
 1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 2. Azure Portal의 왼쪽 위에서 **리소스 만들기** 를 선택합니다. 검색 상자에 *리소스 그룹* 을 입력하고 **RG-DNS-Alias-TM** 이라는 리소스 그룹을 만듭니다.
 3. **리소스 만들기** > **네트워킹** > **가상 네트워크** 를 차례로 선택합니다.
 4. **VNet-Servers** 라는 가상 네트워크를 만들고 **RG-DNS-Alias-TM** 리소스 그룹에 배치한 후 서브넷 이름을 **SN-Web** 으로 지정합니다.
 
 ## <a name="create-two-web-server-virtual-machines"></a>두 개의 웹 서버 가상 머신 만들기
+
 1. **리소스 만들기** > **Windows Server 2016 VM** 을 선택합니다.
 2. 이름으로 **Web-01** 을 입력하고 VM을 **RG-DNS-Alias-TM** 리소스 그룹에 배치합니다. 사용자 이름 및 암호를 입력하고 **확인** 을 선택합니다.
 3. **크기** 에 8GB RAM을 지원하는 SKU를 선택합니다.
 4. **설정** 에서 **VNet-Servers** 가상 네트워크 및 **SN-Web** 서브넷을 선택합니다.
 5. **공용 IP 주소** 를 선택합니다. **할당** 에서 **고정** 을 선택한 다음, **확인** 을 선택합니다.
-6. 공용 인바운드 포트의 경우 **HTTP** > **HTTPS** > **RDP(3389)** 를 선택한 다음, **확인** 을 선택합니다.
+6. 공용 인바운드 포트의 경우 **HTTP(80)**  > **HTTPS(443)**  > **RDP(3389)** 를 선택한 다음, **확인** 을 선택합니다.
 7. **요약** 페이지에서 **만들기** 를 선택합니다. 이 절차는 완료하는 데 몇 분이 걸립니다.
 
 이 프로세스를 반복하여 **Web-02** 라는 다른 가상 머신을 만듭니다.
 
 ### <a name="add-a-dns-label"></a>DNS 레이블 추가
+
 공용 IP 주소는 Traffic Manager와 작동하기 위해 DNS 레이블이 필요합니다.
 1. **RG-DNS-Alias-TM** 리소스 그룹에서 **Web-01-ip** 공용 IP 주소를 선택합니다.
 2. **설정** 에서 **구성** 을 선택합니다.

@@ -1,18 +1,18 @@
 ---
 title: 소개
-description: Azure에서 VMware 기반 워크로드를 배포하고 관리하는 Azure VMware 솔루션의 기능과 이점에 대해 알아봅니다.
+description: Azure에서 VMware 기반 워크로드를 배포하고 관리하는 Azure VMware 솔루션의 기능과 이점에 대해 알아봅니다. Azure VMware Solution SLA는 Azure VMware 관리 도구(vCenter Server 및 NSX Manager)를 99.9% 이상 사용할 수 있도록 보장합니다.
 ms.topic: overview
-ms.date: 03/24/2021
-ms.openlocfilehash: 32dd73108dc12d7d7acc605f43a0fbf6d2cf1cd7
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.date: 04/20/2021
+ms.openlocfilehash: 9471aa2e427d28e0b8211dc8b25b2e61a4bfa8c4
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107992"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752645"
 ---
 # <a name="what-is-azure-vmware-solution"></a>Azure VMware Solution이란?
 
-Azure VMware Solution은 전용 운영 체제 미설치 Azure 인프라에서 빌드된 vSphere 클러스터가 포함된 프라이빗 클라우드를 제공합니다. 최소 초기 배포는 호스트 3개이지만, 클러스터당 최대 16개의 호스트를 한 번에 하나씩 추가할 수 있습니다.  프로비저닝된 모든 프라이빗 클라우드에는 vCenter Server, vSAN, vSphere 및 NSX-T가 있습니다. 온-프레미스 환경에서 워크로드를 마이그레이션하고, 새 VM(가상 머신)을 배포하고, 프라이빗 클라우드에서 Azure 서비스를 사용할 수 있습니다.
+Azure VMware Solution은 전용 운영 체제 미설치 Azure 인프라에서 빌드된 vSphere 클러스터가 포함된 프라이빗 클라우드를 제공합니다. 최소 초기 배포는 호스트 3개이지만, 클러스터당 최대 16개의 호스트를 한 번에 하나씩 추가할 수 있습니다.  프로비저닝된 모든 프라이빗 클라우드에는 vCenter Server, vSAN, vSphere 및 NSX-T가 있습니다. 온-프레미스 환경에서 워크로드를 마이그레이션하고, 새 VM(가상 머신)을 배포하고, 프라이빗 클라우드에서 Azure 서비스를 사용할 수 있습니다.  Azure VMware 관리 도구(vCenter Server 및 NSX Manager)는 99.9% 이상 사용할 수 있습니다. 자세한 내용은 [Azure VMware Solution SLA](https://aka.ms/avs/sla)를 참조하세요.
 
 Azure VMware 솔루션은 향상된 기능과 업그레이드에 대해 지속적으로 유효성을 검사하고 테스트하는 VMware 유효성이 검사된 솔루션입니다. Microsoft는 프라이빗 클라우드 인프라와 소프트웨어를 관리하고 유지합니다. 이를 통해 프라이빗 클라우드에서 워크로드를 개발하고 실행하는 데 집중할 수 있습니다. 
 

@@ -10,20 +10,18 @@ ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 05c33db130bfa3fcc1a4f5d75935294fcc0ba1d7
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 19bff62883341947eb5290118494b8244c5476ac
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365470"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518255"
 ---
 # <a name="integrate-with-pipelines"></a>파이프라인과 통합
 
 이 자습서에서는 Synapse Studio를 사용하여 파이프라인과 활동을 통합하는 방법에 대해 알아봅니다. 
 
 ## <a name="create-a-pipeline-and-add-a-notebook-activity"></a>파이프라인 만들기 및 Notebook 작업 추가
-
-
 
 1. Synapse Studio에서 **통합** 허브로 이동합니다.
 1. **+**  > **파이프라인** 을 선택하여 새 파이프라인을 만듭니다. 새 파이프라인 개체를 클릭하여 파이프라인 디자이너를 엽니다.
@@ -37,14 +35,19 @@ ms.locfileid: "107365470"
 1. **확인** 을 선택합니다. 
 1. **모두 게시** 를 선택합니다. 
 
+## <a name="forcing-a-pipeline-to-run-immediately"></a>파이프라인이 즉시 실행되도록 강제 적용
+
+파이프라인이 게시되면 한 시간이 경과할 때까지 기다리지 않고 즉시 실행할 수 있습니다.
+
+1. 파이프라인을 엽니다.
+1. **트리거 추가** > **지금 트리거** 를 클릭합니다.
 
 ## <a name="monitor-pipeline-execution"></a>파이프라인 실행 모니터링
 
-1. 파이프라인이 게시된 후 다음 시간을 기다리지 않고 즉시 파이프라인을 실행하려면 **트리거 추가** > **지금 트리거** 를 선택합니다.
-1. Synapse Studio에서 **모니터** 허브로 이동합니다.
+1. **모니터** 허브로 이동합니다.
 1. **파이프라인 실행** 을 선택하여 파이프라인 실행 진행률을 모니터링합니다.
-
-
+1. 이 보기에서는 표 형식 **목록** 간에 전환하여 그래픽 **Gantt** 차트를 표시할 수 있습니다. 
+1. 파이프라인 이름을 클릭하여 해당 파이프라인의 활동 상태를 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

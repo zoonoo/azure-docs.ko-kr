@@ -3,26 +3,30 @@ title: '빠른 시작: 고가용성 애플리케이션을 위한 프로필 만�
 description: 이 빠른 시작 문서에서는 고가용성 웹 애플리케이션을 빌드하기 위한 Traffic Manager 프로필을 만드는 방법을 설명합니다.
 services: traffic-manager
 author: duongau
-mnager: twooley
-ms.service: traffic-manager
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: ed3f6c96f6c02d5dad686947ee7f61e8852b559f
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+manager: kumud
+ms.date: 04/19/2021
+ms.topic: quickstart
+ms.service: traffic-manager
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.custom:
+- mode-api
+ms.openlocfilehash: 96580a56abaffcc11180a406e00aaabb1cb1e2e7
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063817"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727883"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 고가용성 웹 애플리케이션을 위한 Traffic Manager 프로필 만들기
 
 이 빠른 시작에서는 웹 애플리케이션에 고가용성을 제공하는 Traffic Manager 프로필을 만드는 방법에 대해 설명합니다.
 
 여기서는 웹 애플리케이션의 두 인스턴스를 만듭니다. 각각 다른 Azure 지역에서 실행됩니다. [엔드포인트 우선 순위](traffic-manager-routing-methods.md#priority-traffic-routing-method)에 따라 Traffic Manager 프로필을 만듭니다. 프로필은 웹 애플리케이션을 실행하는 주 사이트로 사용자 트래픽을 보냅니다. Traffic Manager는 웹 애플리케이션을 지속적으로 모니터링합니다. 주 사이트를 사용할 수 없는 경우 백업 사이트에 자동 장애 조치를 제공합니다.
+
+:::image type="content" source="./media/quickstart-create-traffic-manager-profile/environment-diagram.png" alt-text="Azure PowerShell을 사용하는 Traffic Manager 배포 환경의 다이어그램." border="false":::
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -38,7 +42,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 문
 ```azurepowershell-interactive
 
 # Variables
-$Location1="WestUS"
+$Location1="EastUS"
 
 # Create a Resource Group
 New-AzResourceGroup -Name MyResourceGroup -Location $Location1
@@ -75,39 +79,37 @@ New-AzTrafficManagerProfile `
 ```azurepowershell-interactive
 
 # Variables
-$App1Name="AppServiceTM1$Random"
-$App2Name="AppServiceTM2$Random"
-$Location1="WestUS"
-$Location2="EastUS"
+$Location1="EastUS"
+$Location2="WestEurope"
 
 # Create an App service plan
-New-AzAppservicePlan -Name "$App1Name-Plan" -ResourceGroupName MyResourceGroup -Location $Location1 -Tier Standard
-New-AzAppservicePlan -Name "$App2Name-Plan" -ResourceGroupName MyResourceGroup -Location $Location2 -Tier Standard
+New-AzAppservicePlan -Name "myAppServicePlanEastUS" -ResourceGroupName MyResourceGroup -Location $Location1 -Tier Standard
+New-AzAppservicePlan -Name "myAppServicePlanEastUS" -ResourceGroupName MyResourceGroup -Location $Location2 -Tier Standard
 
 ```
 ### <a name="create-a-web-app-in-the-app-service-plan"></a>App Service 계획에서 웹앱 만들기
-*미국 서부* 및 *미국 동부* Azure 지역의 App Service 계획에서 [New-AzWebApp](/powershell/module/az.websites/new-azwebapp)을 사용하여 두 웹 애플리케이션 인스턴스를 만듭니다.
+[New-AzWebApp](/powershell/module/az.websites/new-azwebapp)을 사용하여 웹 애플리케이션의 두 인스턴스를 *미국 동부* 및 *서유럽* Azure 지역의 App Service 계획에 만듭니다.
 
 ```azurepowershell-interactive
-$App1ResourceId=(New-AzWebApp -Name $App1Name -ResourceGroupName MyResourceGroup -Location $Location1 -AppServicePlan "$App1Name-Plan").Id
-$App2ResourceId=(New-AzWebApp -Name $App2Name -ResourceGroupName MyResourceGroup -Location $Location2 -AppServicePlan "$App2Name-Plan").Id
+$App1ResourceId=(New-AzWebApp -Name myWebAppEastUS -ResourceGroupName MyResourceGroup -Location $Location1 -AppServicePlan "myAppServicePlanEastUS").Id
+$App2ResourceId=(New-AzWebApp -Name myWebAppWestEurope -ResourceGroupName MyResourceGroup -Location $Location2 -AppServicePlan "myAppServicePlanWestEurope").Id
 
 ```
 
 ## <a name="add-traffic-manager-endpoints"></a>Traffic Manager 엔드포인트 추가
 다음과 같이 [New-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint)를 사용하여 두 웹앱을 Traffic Manager 프로필에 Traffic Manager 엔드포인트로 추가합니다.
-- *미국 서부* Azure 지역에 있는 웹앱을 모든 사용자 트래픽을 라우팅할 기본 엔드포인트로서 추가합니다. 
-- *미국 동부* Azure 지역에 있는 웹앱을 장애 조치(failover) 엔드포인트로서 추가합니다. 기본 엔드포인트를 사용할 수 없으면 트래픽이 자동으로 장애 조치 엔드포인트로 라우팅됩니다.
+- *미국 동부* Azure 지역에 있는 웹앱을 모든 사용자 트래픽을 라우팅할 기본 엔드포인트로서 추가합니다. 
+- *미국 서부* Azure 지역에 있는 웹앱을 장애 조치(failover) 엔드포인트로서 추가합니다. 기본 엔드포인트를 사용할 수 없으면 트래픽이 자동으로 장애 조치 엔드포인트로 라우팅됩니다.
 
 ```azurepowershell-interactive
-New-AzTrafficManagerEndpoint -Name "$App1Name-$Location1" `
+New-AzTrafficManagerEndpoint -Name "myPrimaryEndpoint" `
 -ResourceGroupName MyResourceGroup `
 -ProfileName "$mytrafficmanagerprofile" `
 -Type AzureEndpoints `
 -TargetResourceId $App1ResourceId `
 -EndpointStatus "Enabled"
 
-New-AzTrafficManagerEndpoint -Name "$App2Name-$Location2" `
+New-AzTrafficManagerEndpoint -Name "myFailoverEndpoint" `
 -ResourceGroupName MyResourceGroup `
 -ProfileName "$mytrafficmanagerprofile" `
 -Type AzureEndpoints `
@@ -138,7 +140,7 @@ Get-AzTrafficManagerProfile -Name $mytrafficmanagerprofile `
 2. 작동 중인 Traffic Manager 장애 조치(failover)를 보려면 [Disable-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/disable-aztrafficmanagerendpoint)를 사용하여 기본 사이트를 사용하지 않도록 설정합니다.
 
    ```azurepowershell-interactive
-    Disable-AzTrafficManagerEndpoint -Name $App1Name-$Location1 `
+    Disable-AzTrafficManagerEndpoint -Name "myPrimaryEndpoint" `
     -Type AzureEndpoints `
     -ProfileName $mytrafficmanagerprofile `
     -ResourceGroupName MyResourceGroup `

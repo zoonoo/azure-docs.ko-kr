@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 03/24/2021
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: bb09a25d7ea242dfafd7d853015ae8e127b13883
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 652f98659f96b36e3185432e50d9d36dc569bd43
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383408"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537939"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>Azure Synapse Analytics란?
 
@@ -55,21 +55,14 @@ Azure Synapse에는 Azure Data Factory와 동일한 데이터 통합 엔진과 �
 * 데이터 흐름 활동을 사용하는 코드 없는 ETL
 * Notebooks, Spark 작업, 저장 프로시저, SQL 스크립트 등 오케스트레이션
 
-## <a name="unified-management-monitoring-and-security"></a>통합 관리, 모니터링 및 보안
+## <a name="unified-experience"></a>통합 환경 
 
-Azure Synapse는 엔터프라이즈에서 분석 리소스를 관리하고, 사용 및 활동을 모니터링하며, 보안을 강화할 수 있는 단일 방법을 제공합니다.
+**Synapse Studio** 는 기업이 단일 사용자 환경에서 솔루션을 빌드하고, 유지 관리하고, 보안을 유지하는 단일 방법을 제공합니다.
 
-* 사용자를 역할에 할당하여 분석 리소스에 대한 액세스 간소화
-* 데이터와 코드에 대한 세분화된 액세스 제어
-* SQL과 Spark 전체에서 리소스, 사용 및 사용자를 모니터링할 수 있는 단일 대시보드
-
-## <a name="unified-experience"></a>통합 환경
-
-**Synapse Studio** 는 데이터 엔지니어를 위해 모든 항목을 하나로 묶는 사용자 환경입니다. 이를 통해 전체 분석 솔루션을 빌드하는 데 필요한 모든 작업을 수행할 수 있습니다.
-
-* 한 곳에서 주요 데이터 엔지니어 작업 수행: 수집, 탐색, 준비, 오케스트레이션, 시각화
-* SQL 또는 Spark 코드 작성을 위한 업계 최고의 생산성: 작성, 디버깅 및 성능 최적화
-* 엔터프라이즈 CI/CD 프로세스와 통합
+* 주요 작업 수행: 수집, 탐색, 준비, 오케스트레이션, 시각화
+* SQL 및 Spark 전반에 걸쳐 리소스, 사용량 및 사용자 모니터링
+* 역할 기반 액세스 제어를 사용하여 분석 리소스에 대한 액세스 간소화
+* SQL 또는 Spark 코드를 작성하고 엔터프라이즈 CI/CD 프로세스와 통합
 
 ## <a name="engage-with-the-synapse-community"></a>Synapse 커뮤니티에 참여
 

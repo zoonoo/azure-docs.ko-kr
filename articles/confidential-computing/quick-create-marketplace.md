@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: aba23b67574fb74b7cd571dc5d4642bb8b991b93
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6dbd6fb5c989e1e8b88bf752f5009bdbb62d8c39
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566637"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535462"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-marketplace"></a>빠른 시작: Marketplace에서 Azure 기밀 컴퓨팅 VM 배포
 
@@ -128,7 +128,7 @@ Linux VM에 연결하는 방법에 대한 자세한 내용은 [포털을 사용�
 
 단계별 지침에 따라 Ubuntu 18.04 LTS 2세대 이미지를 실행하는 DCsv2 시리즈 가상 머신에 [OE SDK](https://github.com/openenclave/openenclave)를 설치합니다. 
 
-가상 머신이 Ubuntu 16.04 LTS 2세대에서 실행되는 경우 [Ubuntu 16.04 설치 지침](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_16.04.md)을 따라야 합니다. 
+가상 머신이 Ubuntu 18.04 LTS Gen 2에서 실행되는 경우 [Ubuntu 18.04 설치 지침](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md)을 따라야 합니다. 
 
 #### <a name="1-configure-the-intel-and-microsoft-apt-repositories"></a>1. Intel 및 Microsoft APT 리포지토리 구성
 

@@ -3,20 +3,19 @@ title: 빠른 시작 - Azure PowerShell을 사용하여 Azure Key Vault 인증�
 description: Azure PowerShell을 사용하여 Azure Key Vault에서 인증서를 설정하고 검색하는 방법을 보여주는 빠른 시작
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurepowershell
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 587815cf9628df35f1e1efdbc6a7a3c89a27ed55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a641ca1206cb41ded0513db72daa278dc3753c85
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99071920"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750395"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Key Vault에서 인증서 설정 및 검색
 
@@ -62,6 +61,18 @@ Get-AzKeyVaultCertificate -VaultName "<your-unique-keyvault-name>" -Name "Exampl
 ```
 
 지금까지 Key Vault를 만들고, 인증서를 저장하고, 검색했습니다.
+
+**문제 해결**:
+
+작업에서 잘못된 상태 코드 '금지됨'을 반환했습니다.
+
+이 오류가 발생하면 Azure Key Vault에 액세스하는 계정에 인증서를 만들 수 있는 적절한 권한이 없는 것입니다.
+
+다음 Azure PowerShell 명령을 실행하여 적절한 권한을 할당합니다.
+
+```azurepowershell-interactive
+Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> -ObjectId <AzureObjectID> -PermissionsToCertificates get,list,update,create
+```
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

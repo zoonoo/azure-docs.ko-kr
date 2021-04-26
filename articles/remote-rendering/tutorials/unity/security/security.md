@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b1bcba264589d6cbe9b4f671e1e4f2c9b1dbf2c5
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 6e595f7ff313ff85a12209e8c124b9aa376b20b6
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594251"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739749"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>자습서: Azure Remote Rendering 및 모델 스토리지 보안
 
@@ -211,7 +211,7 @@ Azure 쪽의 준비가 완료되었으므로, 이제 코드가 AAR 서비스에 
     ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
-
+    
     using Microsoft.Azure.RemoteRendering;
     using Microsoft.Identity.Client;
     using System;
@@ -219,17 +219,9 @@ Azure 쪽의 준비가 완료되었으므로, 이제 코드가 AAR 서비스에 
     using System.Threading;
     using System.Threading.Tasks;
     using UnityEngine;
-
+    
     public class AADAuthentication : BaseARRAuthentication
     {
-        [SerializeField]
-        private string accountDomain;
-        public string AccountDomain
-        {
-            get => accountDomain.Trim();
-            set => accountDomain = value;
-        }
-
         [SerializeField]
         private string activeDirectoryApplicationClientID;
         public string ActiveDirectoryApplicationClientID
@@ -237,7 +229,7 @@ Azure 쪽의 준비가 완료되었으므로, 이제 코드가 AAR 서비스에 
             get => activeDirectoryApplicationClientID.Trim();
             set => activeDirectoryApplicationClientID = value;
         }
-
+    
         [SerializeField]
         private string azureTenantID;
         public string AzureTenantID
@@ -245,7 +237,15 @@ Azure 쪽의 준비가 완료되었으므로, 이제 코드가 AAR 서비스에 
             get => azureTenantID.Trim();
             set => azureTenantID = value;
         }
-
+    
+        [SerializeField]
+        private string azureRemoteRenderingDomain;
+        public string AzureRemoteRenderingDomain
+        {
+            get => azureRemoteRenderingDomain.Trim();
+            set => azureRemoteRenderingDomain = value;
+        }
+    
         [SerializeField]
         private string azureRemoteRenderingAccountID;
         public string AzureRemoteRenderingAccountID
@@ -255,37 +255,37 @@ Azure 쪽의 준비가 완료되었으므로, 이제 코드가 AAR 서비스에 
         }
     
         [SerializeField]
-        private string azureRemoteRenderingAccountAuthenticationDomain;
-        public string AzureRemoteRenderingAccountAuthenticationDomain
+        private string azureRemoteRenderingAccountDomain;
+        public string AzureRemoteRenderingAccountDomain
         {
-            get => azureRemoteRenderingAccountAuthenticationDomain.Trim();
-            set => azureRemoteRenderingAccountAuthenticationDomain = value;
-        }
-
+            get => azureRemoteRenderingAccountDomain.Trim();
+            set => azureRemoteRenderingAccountDomain = value;
+        }    
+    
         public override event Action<string> AuthenticationInstructions;
-
+    
         string authority => "https://login.microsoftonline.com/" + AzureTenantID;
-
+    
         string redirect_uri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
-
-        string[] scopes => new string[] { "https://sts." + AzureRemoteRenderingAccountAuthenticationDomain + "/mixedreality.signin" };
-
+    
+        string[] scopes => new string[] { "https://sts." + AzureRemoteRenderingAccountDomain + "/mixedreality.signin" };
+    
         public void OnEnable()
         {
             RemoteRenderingCoordinator.ARRCredentialGetter = GetAARCredentials;
             this.gameObject.AddComponent<ExecuteOnUnityThread>();
         }
-
+    
         public async override Task<SessionConfiguration> GetAARCredentials()
         {
             var result = await TryLogin();
             if (result != null)
             {
                 Debug.Log("Account signin successful " + result.Account.Username);
-
+    
                 var AD_Token = result.AccessToken;
-
-                return await Task.FromResult(new SessionConfiguration(AzureRemoteRenderingAccountAuthenticationDomain, AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
+    
+                return await Task.FromResult(new SessionConfiguration(AzureRemoteRenderingAccountDomain, AzureRemoteRenderingDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
             }
             else
             {
@@ -293,7 +293,7 @@ Azure 쪽의 준비가 완료되었으므로, 이제 코드가 AAR 서비스에 
             }
             return default;
         }
-
+    
         private Task DeviceCodeReturned(DeviceCodeResult deviceCodeDetails)
         {
             //Since everything in this task can happen on a different thread, invoke responses on the main Unity thread
@@ -303,10 +303,10 @@ Azure 쪽의 준비가 완료되었으므로, 이제 코드가 AAR 서비스에 
                 Debug.Log(deviceCodeDetails.Message);
                 AuthenticationInstructions?.Invoke(deviceCodeDetails.Message);
             });
-
+    
             return Task.FromResult(0);
         }
-
+    
         public override async Task<AuthenticationResult> TryLogin()
         {
             var clientApplication = PublicClientApplicationBuilder.Create(ActiveDirectoryApplicationClientID).WithAuthority(authority).WithRedirectUri(redirect_uri).Build();
@@ -314,11 +314,11 @@ Azure 쪽의 준비가 완료되었으므로, 이제 코드가 AAR 서비스에 
             try
             {
                 var accounts = await clientApplication.GetAccountsAsync();
-
+    
                 if (accounts.Any())
                 {
                     result = await clientApplication.AcquireTokenSilent(scopes, accounts.First()).ExecuteAsync();
-
+    
                     return result;
                 }
                 else
@@ -356,7 +356,7 @@ Azure 쪽의 준비가 완료되었으므로, 이제 코드가 AAR 서비스에 
                 Debug.LogError("GetAccountsAsync");
                 Debug.LogException(ex);
             }
-
+    
             return null;
         }
     }
@@ -372,10 +372,10 @@ Azure 쪽의 준비가 완료되었으므로, 이제 코드가 AAR 서비스에 
 ARR 관점에서 이 클래스의 가장 중요한 부분은 다음 줄입니다.
 
 ```cs
-return await Task.FromResult(new SessionConfiguration(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
+return await Task.FromResult(new SessionConfiguration(AzureRemoteRenderingAccountDomain, AzureRemoteRenderingDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
 ```
 
-여기서는 계정 도메인, 계정 ID, 계정 인증 도메인 및 액세스 토큰을 사용하여 새 **SessionConfiguration** 개체를 만듭니다. 이전에 구성된 역할 기반 권한에 따라 사용자에게 권한이 부여되는 한, ARR 서비스에서 원격 렌더링 세션을 쿼리, 생성 및 조인할 때 이 토큰이 사용됩니다.
+여기서는 원격 렌더링 도메인, 계정 ID, 계정 도메인 및 액세스 토큰을 사용하여 새 **SessionConfiguration** 개체를 만듭니다. 이전에 구성된 역할 기반 권한에 따라 사용자에게 권한이 부여되는 한, ARR 서비스에서 원격 렌더링 세션을 쿼리, 생성 및 조인할 때 이 토큰이 사용됩니다.
 
 이렇게 변경한 후, 애플리케이션의 현재 상태와 Azure 리소스에 대한 액세스는 다음과 같습니다.
 
@@ -393,11 +393,11 @@ Unity 편집기에서 AAD 인증이 활성화되면 애플리케이션을 시작
 
 1. 클라이언트 ID 및 테넌트 ID의 값을 입력합니다. 두 값은 앱 등록의 개요 페이지에서 찾을 수 있습니다.
 
-    * **계정 도메인** 은 **RemoteRenderingCoordinator** 의 계정 도메인에서 사용하던 것과 동일한 도메인입니다.
     * **Active Directory 애플리케이션 클라이언트 ID** 는 AAD 앱 등록에서 찾을 수 있는 *애플리케이션(클라이언트) ID* 입니다(아래 이미지 참조).
     * **Azure 테넌트 ID** 는 AAD 앱 등록에서 찾을 수 있는 *디렉터리(테넌트) ID* 입니다(아래 이미지 참조).
+    * **Azure Remote Rendering 도메인** 은 **RemoteRenderingCoordinator** 의 Remote Rendering 도메인에서 사용한 것과 동일한 도메인입니다.
     * **Azure Remote Rendering 계정 ID** 는 **RemoteRenderingCoordinator** 에 사용했던 것과 동일한 **계정 ID** 입니다.
-    * **계정 인증 도메인** 은 **RemoteRenderingCoordinator** 에서 사용했던 것과 동일한 **계정 인증 도메인** 입니다.
+    * **Azure Remote Rendering 계정 도메인** 은 **RemoteRenderingCoordinator** 에서 사용한 것과 동일한 **계정 도메인** 입니다.
 
     ![애플리케이션(클라이언트) ID 및 디렉터리(테넌트) ID를 강조 표시하는 스크린샷.](./media/app-overview-data.png)
 

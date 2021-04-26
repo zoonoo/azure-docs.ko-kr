@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 76aadd667691e12c61e0e5e13c13ca0241a9f0ce
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 40c5e0ff2c2301607f5a548ff05c742c5c5a948d
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045504"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517065"
 ---
 # <a name="register-and-scan-oracle-source-preview"></a>Oracle 원본 등록 및 검사(미리 보기)
 
@@ -38,9 +38,7 @@ Oracle 원본은 Oracle 데이터베이스에서 메타데이터를 추출할 �
 
 5.  지원되는 Oracle 데이터베이스 버전은 6i~19c입니다.
 
-6.  사용자 권한: 처음으로 성공적인 검사가 이루어지려면 Full Sys Admin 유형의 권한이 필요합니다.
-
-    후속 검사의 경우 시스템 테이블에 대한 읽기 전용 액세스가 필요합니다. 사용자는 세션은 물론 SELECT\_CATALOG\_ROLE이 할당된 역할을 만들 권한을 보유해야 합니다. 또는 사용자가 이 커넥터가 다음으로부터 메타데이터를 쿼리하는 모든 개별 시스템 테이블에 대해 SELECT 권한을 부여했을 수 있습니다.
+6.  사용자 권한: 시스템 테이블에 대한 읽기 전용 액세스가 필요합니다. 사용자는 세션은 물론 SELECT\_CATALOG\_ROLE이 할당된 역할을 만들 권한을 보유해야 합니다. 또는 사용자가 이 커넥터가 다음으로부터 메타데이터를 쿼리하는 모든 개별 시스템 테이블에 대해 SELECT 권한을 부여했을 수 있습니다.
        > grant create session to \[user\];\
         grant select on all\_users to \[user\];\
         grant select on dba\_objects to \[user\];\

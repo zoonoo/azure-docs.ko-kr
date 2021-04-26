@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 01/24/2021
+ms.date: 04/19/2021
 ms.author: memildin
-ms.openlocfilehash: 25639509cfb689e025ea4388f302378648af8ba6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f9ab258f59279112d0b90c5d460e6761ac911a2d
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439496"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713357"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>PowerShell을 사용하여 Azure Security Center 온보딩 자동화
 
@@ -75,9 +75,9 @@ PowerShell을 사용하여 Azure Security Center를 온보딩하면 Azure 리소
     > 자동 프로비저닝을 사용하도록 설정하여 Azure Virtual Machines가 Azure Security Center를 통해 자동으로 보호되도록 하는 것이 좋습니다.
     >
 
-1. 선택 사항: Security Center에서 생성한 경고 및 알림의 수신자로 사용될, 온보딩하는 구독의 보안 연락처 세부 정보를 정의하는 것이 좋습니다.
+1. 선택 사항: Security Center에서 생성한 경고 및 알림의 수신자로 사용되는 등록한 구독의 [보안 연락처 세부 정보를 정의](security-center-provide-security-contact-details.md)하는 것이 좋습니다.
 
-    ```Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert```
+    ```Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -AlertAdmin -NotifyOnAlert```
 
 1. 기본 Security Center 정책 이니셔티브를 할당합니다.
 

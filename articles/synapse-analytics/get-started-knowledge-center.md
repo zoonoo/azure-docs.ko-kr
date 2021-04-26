@@ -10,18 +10,18 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 04/04/2021
-ms.openlocfilehash: 92d1534b5dd0233ce88b81d605c6502b67a121df
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: f4cc631bd3ff05dc63566677ec96ef0360d362c9
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307897"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517354"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Synapse 지식 센터 살펴보기
 
 이 자습서에서는 Synapse Studio 지식 센터를 사용하는 방법에 대해 알아봅니다.
 
-## <a name="introduction-to-the-knowledge-center"></a>지식 센터 소개
+## <a name="finding-to-the-knowledge-center"></a>지식 센터로 찾기
 
 Synapse Studio에서 지식 센터를 찾는 방법에는 두 가지가 있습니다.
 
@@ -30,12 +30,14 @@ Synapse Studio에서 지식 센터를 찾는 방법에는 두 가지가 있습�
 
 두 가지 방법 중 하나를 선택하고 **지식 센터** 를 엽니다.
 
+## <a name="exploring-the-knowledge-center"></a>지식 센터 살펴보기
+
 표시되면 **기술 센터** 를 통해 다음과 같은 세 가지 작업을 수행할 수 있습니다.
 * **샘플 즉시 사용**. Synapse의 작동 방식에 대한 빠른 예제를 원하는 경우 이 옵션을 선택합니다.
 * **갤러리 찾아보기**. 이 옵션을 사용하면 샘플 데이터 세트를 연결하고, 샘플 코드를 SQL 스크립트, Notebook 및 파이프라인 형식으로 추가할 수 있습니다.
 * **Synapse Studio 둘러보기**. 이 옵션을 사용하면 Synapse Studio의 기본 부분을 간략히 둘러볼 수 있습니다. 이 옵션은 Synapse Studio를 사용한 적이 없는 경우에 유용합니다.
 
-## <a name="exploring-use-samples-immediately"></a>탐색: 샘플 즉시 사용
+## <a name="use-samples-immediately-three-samples-to-help-you-get-started-fast"></a>샘플 즉시 사용: 빠른 시작에 도움이 되는 세 가지 샘플
 
 이 섹션에는 다음과 같은 세 가지 항목이 있습니다.
 * Spark를 사용하여 샘플 데이터 살펴보기
@@ -49,7 +51,7 @@ Synapse Studio에서 지식 센터를 찾는 방법에는 두 가지가 있습�
 1. 첫 번째 쿼리(28~32번 줄)로 스크롤하여 쿼리 텍스트를 선택합니다.
 1. 실행을 클릭합니다. 선택한 코드만 실행됩니다.
 
-## <a name="loading-more-nyc-taxi-data"></a>더 많은 NYC Taxi 데이터 로드
+## <a name="gallery-a-collectiopn-of-sample-data-sets-and-sample-code"></a>갤러리: 샘플 데이터 세트 및 샘플 코드 모음
 
 1. **지식 센터** 로 이동하여 **갤러리 찾아보기** 를 클릭합니다.
 1. 위쪽에서 **SQL 스크립트** 탭을 선택합니다.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 9f368a4aebc4d5de38ebbab800241366650633e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 92553e9d598823ee1b812a4f07480dec380b2490
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97936586"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739425"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>자습서: Zscaler에 대한 자동 사용자 프로비저닝 구성
 
@@ -76,6 +76,10 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 ## <a name="configuring-automatic-user-provisioning-to-zscaler"></a>Zscaler에 대한 자동 사용자 프로비저닝 구성
 
 이 섹션에서는 Azure AD의 사용자 및/또는 그룹 할당에 따라 Zscaler에서 사용자 및/또는 그룹을 만들고, 업데이트하고, 사용 해제하도록 Azure AD 프로비저닝 서비스를 구성하는 단계를 안내합니다.
+
+
+> [!NOTE]
+> [지원 티켓](https://help.zscaler.com/)을 열어 Zscaler에서 도메인을 만듭니다.
 
 > [!TIP]
 > [Zscaler Single Sign-On 자습서](zscaler-tutorial.md)에서 제공하는 지침에 따라 SAML 기반 Single Sign-On을 Zscaler에 사용하도록 선택할 수도 있습니다. Single Sign-On과 자동 사용자 프로비저닝은 서로 보완적이지만, 별개로 구성할 수 있습니다.

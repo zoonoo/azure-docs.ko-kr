@@ -8,12 +8,12 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5611088b76d8acf785fc0951100dcd4a2f439250
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9aec838aa762cd018a96b2f17e80cc04ea95795d
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593189"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738993"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure 파일 공유 만들기 및 관리
 이 가이드에서는 Azure CLI를 사용하여 [Azure 파일 공유](storage-files-introduction.md)로 작업하는 기본 사항을 설명합니다. Azure 파일 공유는 다른 파일 공유와 유사하지만, 클라우드에 저장되고 Azure Platform에서 지원합니다. Azure 파일 공유는 업계 표준 SMB(서버 메시지 블록) 프로토콜, NFS(네트워크 파일 시스템) 프로토콜(미리 보기)을 지원하고 여러 머신, 애플리케이션 및 인스턴스에서 파일 공유가 가능하도록 합니다. 
@@ -73,16 +73,17 @@ export storageAccountKey=$(az storage account keys list \
 ```
 
 ## <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
-이제 첫 번째 Azure 파일 공유를 만들 수 있습니다. [az storage share create](/cli/azure/storage/share) 명령을 사용하여 파일 공유를 만듭니다. 이 예제에서는 *myshare* 라는 Azure 파일 공유를 만듭니다. 
+이제 첫 번째 Azure 파일 공유를 만들 수 있습니다. [az storage share-rm create](/cli/azure/storage/share-rm?view=azure-cli-latest&preserve-view=false#az_storage_share_rm_create) 명령을 사용하여 파일 공유를 만듭니다. 이 예제에서는 *myshare* 라는 Azure 파일 공유를 만듭니다. 
 
 ```azurecli-interactive
 shareName="myshare"
 
-az storage share create \
-    --account-name $storageAccountName \
-    --account-key $storageAccountKey \
+az storage share-rm create \
+    --resource-group $resourceGroupName \
+    --storage-account $storageAccountName \
     --name $shareName \
     --quota 1024 \
+    --enabled-protocols SMB \
     --output none
 ```
 
@@ -169,11 +170,12 @@ az storage file download \
 ```azurecli-interactive
 otherShareName="myshare2"
 
-az storage share create \
-    --account-name $storageAccountName \
-    --account-key $storageAccountKey \
+az storage share-rm create \
+    --resource-group $resourceGroupName \
+    --storage-account $storageAccountName \
     --name $otherShareName \
     --quota 1024 \
+    --enabled-protocols SMB \
     --output none
 
 az storage directory create \

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/05/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b58040917ed3d3345a35b7acbe31b6b500f05562
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: c0ca74b6cf63e3c81d830eca76eea6815548faa1
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107073299"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107732237"
 ---
 ### <a name="do-i-need-a-public-ip-on-my-virtual-machine-to-connect-via-azure-bastion"></a><a name="publicip"></a>Azure Bastion을 통해 연결하려면 내 가상 머신에 공용 IP가 필요한가요?
 
@@ -51,7 +51,7 @@ RDP와 SSH는 모두 사용 기반 프로토콜입니다. 세션을 많이 사�
 
 ### <a name="which-browsers-are-supported"></a><a name="browsers"></a>어떤 브라우저가 지원되나요?
 
-Windows에서 Microsoft Edge 브라우저 또는 Chrome을 사용합니다. Apple Mac의 경우 Google Chrome 브라우저를 사용하세요. Microsoft Edge Chromium도 Windows와 Mac에서 모두 지원됩니다.
+브라우저는 HTML 5를 지원해야 합니다. Windows에서 Microsoft Edge 브라우저 또는 Chrome을 사용합니다. Apple Mac의 경우 Google Chrome 브라우저를 사용하세요. Microsoft Edge Chromium도 Windows와 Mac에서 모두 지원됩니다.
 
 ### <a name="where-does-azure-bastion-store-customer-data"></a><a name="data"></a>Azure Bastion은 고객 데이터를 어디에 저장하나요?
 

@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 06/16/2020
-ms.openlocfilehash: bb86ccafaa0b9eac5ef35e96bbe3031a40f350ee
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 18163c3e5cdf83d736cdb52a3de028bf8890e728
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067531"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568576"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>빠른 시작: 디바이스에서 IoT Hub로 원격 분석을 보내고 백 엔드 애플리케이션(Python)으로 읽습니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "106067531"
 
 * [Python 3.7 이상](https://www.python.org/downloads/). 지원되는 다른 버전의 Python은 [Azure IoT 디바이스 기능](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features)을 참조하세요.
 
-* [샘플 Python 프로젝트](https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip).
+* github의 [샘플 Python 프로젝트](https://github.com/Azure-Samples/azure-iot-samples-python/). github 리포지토리에 있는 **코드** 단추를 사용하여 샘플을 다운로드하거나 복제합니다.
 
 * 방화벽에서 포트 8883이 열려 있습니다. 이 빠른 시작의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
@@ -91,6 +91,8 @@ ms.locfileid: "106067531"
 ## <a name="send-simulated-telemetry"></a>시뮬레이션된 원격 분석 전송
 
 시뮬레이션된 디바이스 애플리케이션은 IoT 허브의 디바이스 관련 엔드포인트에 연결하고 시뮬레이션된 온도 및 습도 원격 분석을 전송합니다.
+
+1. [azure-iot-samples-python 리포지토리 페이지](https://github.com/Azure-Samples/azure-iot-samples-python/)에서 **코드** 단추를 사용하여 azure-iot-samples-python 리포지토리를 다운로드하거나 복제합니다.
 
 1. 로컬 터미널 창에서 Python 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\simulated-device** 폴더로 이동합니다.
 

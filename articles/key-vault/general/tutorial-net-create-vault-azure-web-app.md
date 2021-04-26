@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 2960726cf687908e8e4aed9333fce490dd7ff006
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 901f2b938512f842a5b4c34adbfc61f9379e5131
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821941"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772167"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>자습서: 관리 ID를 사용하여 .NET에서 Key Vault를 Azure 웹앱에 연결
 
@@ -34,7 +34,7 @@ ms.locfileid: "99821941"
 
 * Azure 구독 [체험 계정을 만듭니다.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [.NET Core 3.1 SDK(이상)](https://dotnet.microsoft.com/download/dotnet-core/3.1)
-* [Git](https://www.git-scm.com/downloads) 설치
+* 버전 2.28.0 이상의 [Git](https://www.git-scm.com/downloads) 설치.
 * [Azure CLI](/cli/azure/install-azure-cli) 또는 [Azure PowerShell](/powershell/azure/).
 * [Azure Key Vault.](./overview.md) 키 자격 증명 모음은 [Azure Portal](quick-create-portal.md), [Azure CLI](quick-create-cli.md) 또는 [Azure PowerShell](quick-create-powershell.md)을 사용하여 만들 수 있습니다.
 * Key Vault [비밀](../secrets/about-secrets.md). 비밀은 [Azure Portal](../secrets/quick-create-portal.md), [PowerShell](../secrets/quick-create-powershell.md) 또는 [Azure CLI](../secrets/quick-create-cli.md)를 사용하여 만들 수 있습니다.
@@ -78,14 +78,14 @@ Azure용 웹 애플리케이션을 만드는 방법에 대한 자세한 내용�
 터미널 창에서 **Ctrl+C** 를 선택하여 웹 서버를 닫습니다.  .NET Core 프로젝트에 대한 Git 리포지토리를 초기화합니다.
 
 ```bash
-git init
+git init --initial-branch=main
 git add .
 git commit -m "first commit"
 ```
 
 FTP 및 로컬 Git에서 *배포 사용자* 를 사용하여 Azure 웹앱을 배포할 수 있습니다. 배포 사용자가 구성되면 이를 모든 Azure 배포에 사용할 수 있습니다. 계정 수준 배포 사용자 이름 및 암호는 Azure 구독 자격 증명과 다릅니다. 
 
-배포 사용자를 구성하려면 [az webapp deployment user set](/cli/azure/webapp/deployment/user?#az-webapp-deployment-user-set) 명령을 실행합니다. 다음 지침을 준수하는 사용자 이름과 암호를 선택합니다. 
+배포 사용자를 구성하려면 [az webapp deployment user set](/cli/azure/webapp/deployment/user?#az_webapp_deployment_user_set) 명령을 실행합니다. 다음 지침을 준수하는 사용자 이름과 암호를 선택합니다. 
 
 - 사용자 이름은 Azure 내에서 고유해야 합니다. 로컬 Git 푸시의 경우 at 기호(@)는 포함할 수 없습니다. 
 - 암호는 8자 이상이어야 하며 문자, 숫자 및 기호의 세 가지 요소 중 두 가지를 포함해야 합니다. 
@@ -100,7 +100,7 @@ JSON 출력에는 암호가 `null`로 나옵니다. `'Conflict'. Details: 409` �
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-리소스 그룹은 Azure 리소스를 배포하고 관리하는 논리적 컨테이너입니다. [az group create](/cli/azure/group?#az-group-create) 명령을 사용하여 키 자격 증명 모음과 웹앱을 모두 포함하는 리소스 그룹을 만듭니다.
+리소스 그룹은 Azure 리소스를 배포하고 관리하는 논리적 컨테이너입니다. [az group create](/cli/azure/group?#az_group_create) 명령을 사용하여 키 자격 증명 모음과 웹앱을 모두 포함하는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" -l "EastUS"
@@ -167,8 +167,13 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;your-webapp-na
 }
 </pre>
 
-
 Git 원격의 URL은 `deploymentLocalGitUrl` 속성에서 `https://<username>@<your-webapp-name>.scm.azurewebsites.net/<your-webapp-name>.git` 형식으로 표시됩니다. 이 URL을 저장합니다. 나중에 필요합니다.
+
+이제 `main` 분기에서 배포하도록 웹앱을 구성합니다.
+
+```azurecli-interactive
+ az webapp config appsettings set -g MyResourceGroup -name "<your-webapp-name>"--settings deployment_branch=main
+```
 
 다음 명령을 사용하여 새 앱으로 이동합니다. `<your-webapp-name>`을 앱 이름으로 바꿉니다.
 
@@ -238,7 +243,7 @@ Git을 사용한 웹 애플리케이션 배포에 대한 자세한 내용은 [Az
 
 이 자습서에서는 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 사용하여 Key Vault에 인증합니다. 관리 ID는 애플리케이션 자격 증명을 자동으로 관리합니다.
 
-Azure CLI에서 애플리케이션에 대한 ID를 만들려면 [az webapp-identity assign](/cli/azure/webapp/identity?#az-webapp-identity-assign) 명령을 실행합니다.
+Azure CLI에서 애플리케이션에 대한 ID를 만들려면 [az webapp-identity assign](/cli/azure/webapp/identity?#az_webapp_identity_assign) 명령을 실행합니다.
 
 ```azurecli-interactive
 az webapp identity assign --name "<your-webapp-name>" --resource-group "myResourceGroup"
@@ -254,7 +259,7 @@ az webapp identity assign --name "<your-webapp-name>" --resource-group "myResour
 }
 ```
 
-키 자격 증명 모음에서 **get** 및 **list** 작업을 수행할 수 있는 권한을 웹앱에 부여하려면 `principalId`를 Azure CLI [az keyvault set-policy](/cli/azure/keyvault?#az-keyvault-set-policy) 명령에 전달합니다.
+키 자격 증명 모음에서 **get** 및 **list** 작업을 수행할 수 있는 권한을 웹앱에 부여하려면 `principalId`를 Azure CLI [az keyvault set-policy](/cli/azure/keyvault?#az_keyvault_set_policy) 명령에 전달합니다.
 
 ```azurecli-interactive
 az keyvault set-policy --name "<your-keyvault-name>" --object-id "<principalId>" --secret-permissions get list
@@ -338,4 +343,4 @@ http://<your-webapp-name>.azurewebsites.net
 - [.NET에서 가상 머신에 배포된 애플리케이션을 통해 Azure Key Vault 사용](./tutorial-net-virtual-machine.md)
 - [Azure 리소스에 대한 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)에 대해 자세히 알아보기
 - [개발자 가이드](./developers-guide.md) 살펴보기
-- [Key vault에 대한 액세스 보안](./secure-your-key-vault.md)
+- [Key vault에 대한 액세스 보안](./security-overview.md)
