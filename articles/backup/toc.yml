@@ -77,25 +77,25 @@
     - name: 질문과 대답(FAQ)
       items:
         - name: FAQ-Recovery Services 자격 증명 모음
-          href: backup-azure-backup-faq.md
+          href: backup-azure-backup-faq.yml
         - name: FAQ 백업 센터
           href: backup-center-faq.yml
         - name: FAQ-Azure VM 백업
           href: backup-azure-vm-backup-faq.yml
         - name: FAQ-MARS 에이전트
-          href: backup-azure-file-folder-backup-faq.md
+          href: backup-azure-file-folder-backup-faq.yml
         - name: FAQ-Azure Files 백업
-          href: backup-azure-files-faq.md
+          href: backup-azure-files-faq.yml
         - name: FAQ - Azure Disk Backup
-          href: disk-backup-faq.md
+          href: disk-backup-faq.yml
         - name: FAQ-Azure VM에 SQL Server 데이터베이스 백업
-          href: faq-backup-sql-server.md
+          href: faq-backup-sql-server.yml
         - name: FAQ-Azure VM에 SAP HANA 데이터베이스 백업
-          href: sap-hana-faq-backup-azure-vm.md
+          href: sap-hana-faq-backup-azure-vm.yml
         - name: FAQ-Azure Backup Server 및 DPM
-          href: backup-azure-dpm-azure-server-faq.md
+          href: backup-azure-dpm-azure-server-faq.yml
         - name: FAQ-Azure Backup 모니터링 경고
-          href: backup-azure-monitor-alert-faq.md
+          href: backup-azure-monitor-alert-faq.yml
     - name: 백업 아키텍처
       href: backup-architecture.md
     - name: 지침 및 모범 사례
@@ -224,10 +224,18 @@
       items:
         - name: 개요
           href: disk-backup-overview.md
-        - name: Backup
-          href: backup-managed-disks.md
-        - name: 복원
-          href: restore-managed-disks.md
+        - name: Azure Portal에서
+          items:
+            - name: Backup
+              href: backup-managed-disks.md
+            - name: 복원
+              href: restore-managed-disks.md
+        - name: PowerShell 사용
+          items:
+            - name: Backup
+              href: backup-managed-disks-ps.md
+            - name: 복원
+              href: restore-managed-disks-ps.md
     - name: Azure Blob 백업
       items:
         - name: 개요
@@ -452,7 +460,7 @@
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/backup-security-baseline
     - name: 액세스 계층
       items:
         - name: 보관 액세스 계층
@@ -492,7 +500,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.recoveryservices
     - name: PowerShell – Azure Backup 에이전트
-      href: /powershell/module/msonlinebackup/msonlinebackup
+      href: /powershell/module/msonlinebackup/?view=msonlinebackup-ps
     - name: REST - 백업
       href: /rest/api/backup/
     - name: REST - Recovery Services 자격 증명 모음

@@ -10,10 +10,10 @@ ms.date: 12/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ms.openlocfilehash: f18458d0c2ce857ba71463a14844414e631a73ad
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104595705"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Java SDK: 릴리스 정보 및 리소스
@@ -55,16 +55,16 @@ ms.locfileid: "104595705"
 ## <a name="release-notes"></a>릴리스 정보
 
 ### <a name="261"></a><a name="2.6.1"></a>2.6.1
-* 서비스 interop를 통해 쿼리를 처리 하는 버그를 수정 했습니다.
+* 서비스 interop를 통해 쿼리를 처리할 때 발생하는 버그가 수정되었습니다.
 
 ### <a name="260"></a><a name="2.6.0"></a>2.6.0
-* 특정 시점에서 변경 피드를 쿼리 하는 지원이 추가 되었습니다.
+* 특정 시점에서 변경 피드를 쿼리하기 위한 지원이 추가되었습니다.
 
 ### <a name="251"></a><a name="2.5.1"></a>2.5.1
-* DocumentCollection 쿼리의 주 파티션 캐시 문제를 수정 합니다.
+* DocumentCollection 쿼리의 주 파티션 캐시 문제가 수정되었습니다.
 
 ### <a name="250"></a><a name="2.5.0"></a>2.5.0
-* 449 다시 시도 사용자 지정 구성에 대 한 지원이 추가 되었습니다.
+* 449 사용자 지정 구성 다시 시도에 대한 지원이 추가되었습니다.
 
 ### <a name="247"></a><a name="2.4.7"></a>2.4.7
 * 연결 풀 제한 시간 문제를 수정합니다.
@@ -270,16 +270,16 @@ ms.locfileid: "104595705"
 Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적어도 SDK 사용 중지 **12개월** 전에 알림을 제공합니다. 새로운 기능 및 최적화는 현재 SDK에만 추가되어 있으며, 따라서 항상 최신 SDK 버전으로 가능한 한 빨리 업그레이드할 것을 권장합니다.
 
 > [!WARNING]
-> 30 년 5 월 2020, Azure Cosmos DB는 더 이상 버그를 수정 하 고, 새 기능을 추가 하 고, Azure Cosmos DB Java SDK for SQL API의 버전 2.x에 대 한 지원을 제공 합니다. 업그레이드하지 않으려는 경우 SDK 버전 1.x에서 보낸 요청은 Azure Cosmos DB 서비스에서 계속 제공됩니다.
+> 2020년 5월 30일 이후 Azure Cosmos DB는 더 이상 버그를 수정하거나 새로운 기능을 추가하거나 SQL API용 Azure Cosmos DB Java SDK 버전 1.x에 대한 지원을 제공하지 않습니다. 업그레이드하지 않으려는 경우 SDK 버전 1.x에서 보낸 요청은 Azure Cosmos DB 서비스에서 계속 제공됩니다.
 >
-> 2016 년 2 월 29 일부 터 Azure Cosmos DB는 더 이상 버그를 수정 하지 않으며, 새 기능을 추가 하 고, Azure Cosmos DB Java SDK for SQL API의 버전 2.x에 대 한 지원을 제공 합니다. 업그레이드 하지 않으려는 경우 SDK의 버전 0. x에서 전송 된 요청은 Azure Cosmos DB 서비스에서 계속 제공 됩니다.
+> 2016년 2월 29일 이후 Azure Cosmos DB는 더 이상 버그를 수정하거나 새로운 기능을 추가하거나 SQL API용 Azure Cosmos DB Java SDK 버전 0.x에 대한 지원을 제공하지 않습니다. 업그레이드하지 않으려는 경우 SDK 버전 0.x에서 보낸 요청은 Azure Cosmos DB 서비스에서 계속 제공됩니다.
 
 
 | 버전 | 출시 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
-| [2.6.1](#2.6.1) |Dec 17, 2020 |--- |
+| [2.6.1](#2.6.1) |2020년 12월 17일 |--- |
 | [2.6.0](#2.6.0) |2020년 7월 16일 |--- |
-| [2.5.1](#2.5.1) |June 03, 2020 |--- |
+| [2.5.1](#2.5.1) |2020년 6월 3일 |--- |
 | [2.5.0](#2.5.0) |2020년 5월 12일 |--- |
 | [2.4.7](#2.4.7) |2020년 2월 20일 |--- |
 | [2.4.6](#2.4.6) |2020년 1월 24일 |--- |

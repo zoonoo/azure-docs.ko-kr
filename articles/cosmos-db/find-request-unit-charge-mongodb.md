@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB API for MongoDB 작업에 대 한 요청 단위 요금을 찾습니다.
-description: Azure Cosmos 컨테이너에 대해 실행 되는 MongoDB 쿼리에 대 한 (요청 단위) 요금을 찾는 방법에 대해 알아봅니다. Azure Portal MongoDB .NET, Java, Node.js 드라이버를 사용할 수 있습니다.
+title: Azure Cosmos DB API for MongoDB 작업에 대한 요청 단위 요금 찾기
+description: Azure Cosmos 컨테이너에 대해 실행되는 MongoDB 쿼리에 대한 RU(요청 단위) 요금을 찾는 방법에 대해 알아봅니다. Azure Portal, MongoDB .NET, Java, Node.js 드라이버를 사용할 수 있습니다.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
@@ -9,20 +9,20 @@ ms.date: 03/19/2021
 ms.author: thweiss
 ms.custom: devx-track-js
 ms.openlocfilehash: 6b2944c1d29849ea44b5afd878d5b0e030358cc5
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104801828"
 ---
-# <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-api-for-mongodb"></a>MongoDB 용 Azure Cosmos DB API에서 실행 된 작업에 대 한 요청 단위 요금을 찾습니다.
+# <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB API for MongoDB에서 실행되는 작업에 대한 요청 단위 요금을 찾습니다.
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB는 SQL, MongoDB, Cassandra, Gremlin, Table 등의 많은 API를 지원합니다. 각 API에는 고유한 데이터베이스 작업 세트가 있습니다. 이러한 작업은 간단한 지점 읽기 및 쓰기에서 복잡한 쿼리에 이르기까지 다양합니다. 각 데이터베이스 작업은 작업의 복잡도에 따라 시스템 리소스를 사용합니다.
 
-모든 데이터베이스 작업 비용은 Azure Cosmos DB에서 정규화되고 RU(요청 단위)를 기준으로 표시됩니다. 요청 요금은 모든 데이터베이스 작업에서 사용 되는 요청 단위입니다. RUs는 Azure Cosmos DB에서 지 원하는 데이터베이스 작업을 수행 하는 데 필요한 CPU, IOPS 및 메모리와 같은 시스템 리소스를 추상화 하는 성능 통화로 간주할 수 있습니다. Azure Cosmos 컨테이너 조작에 사용하는 API에 상관없이 비용은 항상 RU로 측정됩니다. 데이터베이스 작업이 쓰기, 지점 읽기 또는 쿼리 인지에 상관 없이 비용은 항상 RUs로 측정 됩니다. 자세히 알아보려면 [요청 단위 및 it 고려 사항](request-units.md) 문서를 참조 하세요.
+모든 데이터베이스 작업 비용은 Azure Cosmos DB에서 정규화되고 RU(요청 단위)를 기준으로 표시됩니다. 요청 요금은 모든 데이터베이스 작업에서 사용되는 요청 단위입니다. RU는 Azure Cosmos DB에서 지원하는 데이터베이스 작업을 수행하는 데 필요한 CPU, IOPS 및 메모리와 같은 시스템 리소스를 추상화하는 성능 통화로 생각할 수 있습니다. Azure Cosmos 컨테이너 조작에 사용하는 API에 상관없이 비용은 항상 RU로 측정됩니다. 데이터베이스 작업이 쓰기, 지점 읽기 또는 쿼리든 간에 비용은 항상 RU로 측정됩니다. 자세한 내용은 [요청 단위 및 고려 사항](request-units.md) 도움말을 참조하세요.
 
-이 문서에서는 MongoDB 용 Azure Cosmos DB API의 컨테이너에 대해 실행 된 모든 작업에 대해 작업을 수행 [하는 데](request-units.md) 필요한 다양 한 방법을 제공 합니다. 다른 API를 사용 하는 경우 [SQL api](find-request-unit-charge.md), [CASSANDRA API](find-request-unit-charge-cassandra.md), [Gremlin API](find-request-unit-charge-gremlin.md)및 [Table API](find-request-unit-charge-table.md) 문서를 참조 하 여 r u/초 요금을 확인 하세요.
+이 문서에서는 Azure Cosmos DB API for MongoDB의 컨테이너에 대해 실행한 작업의 [RU(요청 단위)](request-units.md) 사용량을 알아보는 다양한 방법을 설명합니다. 다른 API를 사용하는 경우 [SQL API](find-request-unit-charge.md), [Cassandra API](find-request-unit-charge-cassandra.md), [Gremlin API](find-request-unit-charge-gremlin.md) 및 [Table API](find-request-unit-charge-table.md) 문서를 참조하여 RU/s 요금을 찾습니다.
 
 RU 요금은 `getLastRequestStatistics`라는 사용자 지정 [데이터베이스 명령](https://docs.mongodb.com/manual/reference/command/)을 통해 표시됩니다. 이 명령은 마지막으로 실행된 작업의 이름, 해당 작업의 요청 요금 및 해당 작업 기간이 포함된 문서를 반환합니다. Azure Cosmos DB API for MongoDB를 사용하는 경우 RU 요금을 검색하는 여러 옵션이 있습니다.
 
@@ -34,15 +34,15 @@ RU 요금은 `getLastRequestStatistics`라는 사용자 지정 [데이터베이�
 
 1. **Data Explorer** 창으로 이동한 다음, 작업할 컨테이너를 선택합니다.
 
-1. 컨테이너 이름 **옆의 ...를 선택** 하 고 **새 쿼리** 를 선택 합니다.
+1. 컨테이너 이름 옆에 있는 **...** 을 선택하고 **새 쿼리** 를 선택합니다.
 
 1. 유효한 쿼리를 입력한 다음, **쿼리 실행** 을 선택합니다.
 
-1. **쿼리 통계** 를 선택하여 방금 실행한 요청의 실제 요청 요금을 표시합니다. 이 쿼리 편집기를 사용 하 여 쿼리 조건자에 대 한 요청 단위 요금 청구를 실행 하 고 볼 수 있습니다. Insert 문과 같은 데이터 조작 명령에는이 편집기를 사용할 수 없습니다.
+1. **쿼리 통계** 를 선택하여 방금 실행한 요청의 실제 요청 요금을 표시합니다. 이 쿼리 편집기를 사용하면 쿼리 조건자에 대해서만 요청 단위 요금을 실행하고 볼 수 있습니다. insert 문과 같은 데이터 조작 명령에는 이 편집기를 사용할 수 없습니다.
 
    :::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Azure Portal의 MongoDB 쿼리 요청 요금 스크린샷":::
 
-1. 데이터 조작 명령에 대 한 요청 요금을 얻으려면 `getLastRequestStatistics` Mongo shell, [Robo 3t](mongodb-robomongo.md), [MongoDB 나침반](mongodb-compass.md)또는 셸 스크립팅을 사용 하는 VS Code 확장 등의 셸 기반 UI에서 명령을 실행 합니다.
+1. 데이터 조작 명령에 대한 요청 요금을 받으려면 Mongo 셸, [Robo 3T](mongodb-robomongo.md), [MongoDB Compass](mongodb-compass.md)와 같은 셸 기반 UI 또는 셸 스크립팅을 사용하는 VS 코드 확장에서 `getLastRequestStatistics` 명령을 실행합니다.
 
    `db.runCommand({getLastRequestStatistics: 1})`
 
@@ -63,7 +63,7 @@ Dictionary<string, object> stats = database.RunCommand(new GetLastRequestStatist
 double requestCharge = (double)stats["RequestCharge"];
 ```
 
-자세한 내용은 [빠른 시작: MONGODB API를 사용 Azure Cosmos DB 하 여 .net 웹 앱 빌드](create-mongodb-dotnet.md)를 참조 하세요.
+자세한 내용은 [빠른 시작: Azure Cosmos DB API for MongoDB를 사용하여 .NET 웹앱 빌드](create-mongodb-dotnet.md)를 참조하세요.
 
 ## <a name="use-the-mongodb-java-driver"></a>MongoDB Java 드라이버 사용
 
@@ -75,7 +75,7 @@ Document stats = database.runCommand(new Document("getLastRequestStatistics", 1)
 Double requestCharge = stats.getDouble("RequestCharge");
 ```
 
-자세한 내용은 [빠른 시작: MONGODB API를 사용 Azure Cosmos DB 하 여 웹 앱 빌드 및 JAVA SDK](create-mongodb-java.md)를 참조 하세요.
+자세한 내용은 [빠른 시작: Azure Cosmos DB API for MongoDB 및 Java SDK를 사용하여 웹앱 빌드](create-mongodb-java.md)를 참조하세요.
 
 ## <a name="use-the-mongodb-nodejs-driver"></a>MongoDB Node.js 드라이버 사용
 
@@ -88,7 +88,7 @@ db.command({ getLastRequestStatistics: 1 }, function(err, result) {
 });
 ```
 
-자세한 내용은 [빠른 시작: 기존 MongoDB Node.js 웹 앱을 Azure Cosmos DB로 마이그레이션](create-mongodb-nodejs.md)을 참조 하세요.
+자세한 내용은 [빠른 시작: 기존 MongoDB Node.js 웹앱을 Azure Cosmos DB로 마이그레이션](create-mongodb-nodejs.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

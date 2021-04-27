@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a5e00ef81afc709a9072eedbb07983057f57eb08
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: de16932f1f77e569302b222fe2948de3046fabd6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304304"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104950599"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Azure Digital Twins로 IoT Hub 원격 분석 수집
 
@@ -45,7 +45,7 @@ Azure Digital Twins로 데이터를 수집하는 프로세스는 [Azure Function
 
 이 섹션에서는 Azure Digital Twins에서 자동 온도 조절기 디바이스를 나타내고 IoT Hub 정보로 업데이트되는 [디지털 트윈](concepts-twins-graph.md)을 설정합니다.
 
-자동 온도 조절기 형식 트윈을 만들려면 먼저 자동 온도 조절기 [모델](concepts-models.md)을 인스턴스에 업로드해야 합니다. 이 모델은 자동 온도 조절기의 속성을 설명하고 나중에 트윈을 만드는 데 사용됩니다.
+자동 온도 조절기 형식 트윈을 만들려면 먼저 자동 온도 조절기 [모델](concepts-models.md)을 인스턴스에 업로드해야 합니다. 이 모델은 자동 온도 조절기의 속성을 설명하고 나중에 트윈을 만드는 데 사용됩니다. 
 
 [!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 

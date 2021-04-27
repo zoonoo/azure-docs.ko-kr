@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: dc4450fb1e21211b43bc178d94cf4bdfe6da58e1
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: ccad323c1834894367cca0ef0d3f98eb1b1b1ec3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256789"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105639920"
 ---
 # <a name="embedded-sign-in-experience"></a>포함된 로그인 환경
 
@@ -49,7 +49,7 @@ iframe을 사용하는 경우 다음 사항을 고려하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [Active Directory B2C에서 사용자 지정 정책을 사용하여 시작하기](tutorial-create-user-flows.md?pivots=b2c-custom-policy)에 있는 단계를 완료합니다.
+* [Active Directory B2C에서 사용자 지정 정책을 사용하여 시작하기](custom-policy-get-started.md)에 있는 단계를 완료합니다.
 * 정책에 대해 [사용자 지정 도메인을 사용하도록 설정](custom-domain.md)합니다.
 
 ## <a name="configure-your-policy"></a>정책 구성

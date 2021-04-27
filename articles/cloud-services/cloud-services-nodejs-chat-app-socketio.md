@@ -1,6 +1,6 @@
 ---
 title: Socket.io를 사용하는 Node.js 애플리케이션 - Azure
-description: 이 자습서를 사용 하 여 소켓을 호스트 하는 방법을 알아보세요. Azure의 IO 기반 채팅 응용 프로그램입니다. Socket.IO는 node.js 서버 및 클라이언트에 대 한 실시간 통신을 제공 합니다.
+description: 이 자습서를 사용하여 socket.IO 기반 채팅 애플리케이션을 Azure에 호스트하는 방법을 알아봅니다. Socket.IO는 node.js 서버 및 클라이언트에 대한 실시간 통신을 제공합니다.
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
@@ -9,24 +9,24 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: abc02769d7d978e14975d90ae0f98547bdc4faf7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98743324"
 ---
-# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service-classic"></a>Azure 클라우드 서비스 (클래식)에서 Socket.IO를 사용 하 여 Node.js 채팅 응용 프로그램 빌드
+# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service-classic"></a>Azure Cloud Service(클래식)에서 Socket.IO를 사용하여 Node.js 채팅 애플리케이션 빌드
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 AzureCloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다. 이러한 변경으로 AzureService Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 바뀌었으며 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
-Socket.IO는 node.js 서버와 클라이언트 간의 실시간 통신을 제공 합니다. 이 자습서는 Azure에서 채팅 애플리케이션을 기반으로 하는 socket.IO 호스팅에 대해 안내합니다. Socket.IO에 대한 자세한 내용은 [socket.io](https://socket.io)를 참조하세요.
+Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공합니다. 이 자습서는 Azure에서 채팅 애플리케이션을 기반으로 하는 socket.IO 호스팅에 대해 안내합니다. Socket.IO에 대한 자세한 내용은 [socket.io](https://socket.io)를 참조하세요.
 
 아래에는 완성된 애플리케이션의 스크린샷이 표시되어 있습니다.
 
 ![Azure에 호스트된 서비스를 표시하는 브라우저 창][completed-app]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서의 예제를 완료하려면 다음 제품 및 버전이 설치되어 있는지 확인합니다.
 
 * [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
@@ -51,7 +51,7 @@ Socket.IO는 node.js 서버와 클라이언트 간의 실시간 통신을 제공
     PS C:\> cd node
     ```
 
-4. 다음 명령을 입력 하 여 라는 새 솔루션과 `chatapp` 이라는 작업자 역할을 만듭니다 `WorkerRole1` .
+4. 다음 명령을 입력하여 `chatapp`라는 이름의 새 솔루션과 `WorkerRole1`이라는 작업자 역할을 만듭니다.
 
     ```powershell
     PS C:\node> New-AzureServiceProject chatapp
@@ -127,9 +127,9 @@ Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가
    > [!NOTE]
    > 에뮬레이터 시작 문제가 발생하는 경우(예: Start-AzureEmulator: 예기치 않은 오류가 발생했습니다.  세부 정보: 예기치 않은 오류가 발생했습니다. 통신 개체 System.ServiceModel.Channels.ServiceChannel은(는) Faulted 상태이기 때문에 통신에 사용할 수 없습니다.)
    >
-   > AzureAuthoringTools v 2.7.1 및 azure Eemulator v 2.7을 다시 설치-버전이 일치 하는지 확인 합니다.
+   > AzureAuthoringTools v 2.7.1 및 AzureComputeEmulator v 2.7을 다시 설치합니다. 버전이 일치하는지 확인하세요.
 
-2. 브라우저를 열고로 이동 **http://127.0.0.1** 합니다.
+2. 브라우저를 열고 **http://127.0.0.1** 로 이동합니다.
 3. 브라우저 창이 열리면 애칭을 입력하고 Enter 키를 누릅니다.
    이렇게 하면 특정 애칭으로 메시지를 게시할 수 있습니다. 다중 사용자 기능을 테스트하려면 같은 URL을 사용하여 브라우저 창을 추가로 열고 다른 애칭을 입력합니다.
 

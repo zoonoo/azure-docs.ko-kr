@@ -9,10 +9,10 @@ ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 4b6835b22e5cfa4ca703b95d70e20112b8723def
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93339175"
 ---
 # <a name="contains-azure-cosmos-db"></a>CONTAINS(Azure Cosmos DB)
@@ -78,7 +78,7 @@ SELECT CONTAINS("abc", "ab", false) AS c1, CONTAINS("abc", "A", false) AS c2, CO
 
 도시의 카디널리티가 국가보다 높기 때문에 첫 번째 쿼리가 두 번째 쿼리보다 더 많은 RU를 사용할 것입니다.
 
-포함 된의 속성 크기가 일부 문서에 대해 1kb 보다 큰 경우 쿼리 엔진은 해당 문서를 로드 해야 합니다. 이 경우 쿼리 엔진은 인덱스를 사용 하 여 Contains를 완전히 평가할 수 없습니다. 속성 크기가 1kb 이상인 문서 수가 많은 경우 Contains의 추가 요금은 높아집니다.
+Contains의 속성 크기가 일부 문서에 대해 1KB보다 큰 경우 쿼리 엔진은 해당 문서를 로드해야 합니다. 이 경우 쿼리 엔진은 인덱스로 Contains를 완전히 평가할 수 없습니다. Contains에 대한 RU 요금은 속성 크기가 1KB를 초과하는 문서가 많은 경우 높습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

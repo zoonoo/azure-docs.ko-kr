@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: Zhchia
-ms.openlocfilehash: c9c938ab344a7d861af713fa42e2e39afa1df1b3
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 7258aaba738b63db4d37af78389003d36874dcb9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589468"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104878407"
 ---
 # <a name="tutorial-configure-logicgate-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 LogicGate 구성
 
@@ -33,7 +33,7 @@ ms.locfileid: "107589468"
 > * LogicGate에서 더 이상 액세스할 필요가 없는 사용자 제거
 > * Azure AD와 LogicGate 간에 사용자 특성을 동기화된 상태로 유지
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "107589468"
     
     ![키 탭](./media/logicgate-provisioning-tutorial/access.png)
 
-## <a name="step-3-add-logicgate-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 애플리케이션 갤러리에서 LogicGate 추가
+## <a name="step-3-add-logicgate-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 애플리케이션 갤러리에서 LogicGate 추가
 
 Azure AD 애플리케이션 갤러리에서 LogicGate를 추가하여 LogicGate로 프로비저닝 관리를 시작합니다. 이전에 SSO를 LogicGate에 사용하도록 설정한 경우 동일한 애플리케이션을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
@@ -139,7 +139,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.
 
 1. [프로비저닝 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
-2. [진행률 표시줄](/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
+2. [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
 3. 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)를 참조하세요.  
 
 ## <a name="additional-resources"></a>추가 리소스

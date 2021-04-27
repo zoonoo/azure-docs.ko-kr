@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: c2aceedd57bcc7cd88c4e822c7b696e36b28bd8f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c10a39b050fa66192f762ba642b4c8ac2e080250
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579793"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258145"
 ---
 # <a name="tutorial-configure-arkose-labs-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 Arkose Labs 구성
 
@@ -234,4 +234,4 @@ API 커넥터를 사용하도록 설정하려면 사용자 흐름에 대한 **AP
 
 - [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C의 사용자 지정 정책 시작하기](./custom-policy-get-started.md?tabs=applications)
+- [Azure AD B2C의 사용자 지정 정책 시작하기](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)

@@ -9,16 +9,16 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 2453fa2d9b4e78b60d4922e09347799266a84cff
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98743222"
 ---
-# <a name="troubleshoot-azure-cloud-service-classic-roles-that-fail-to-start"></a>시작 하지 못한 Azure 클라우드 서비스 (클래식) 역할 문제 해결
+# <a name="troubleshoot-azure-cloud-service-classic-roles-that-fail-to-start"></a>시작에 실패한 Azure Cloud Service(클래식) 역할 문제 해결
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 AzureCloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다. 이러한 변경으로 AzureService Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 바뀌었으며 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 시작에 실패한 Azure Cloud Services 역할에 관련된 일반적인 문제 및 솔루션은 다음과 같습니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "98743222"
 7. `IPconfig`.
 8. IPV4 주소 값을 적습니다.
 9. Internet Explorer를 엽니다.
-10. 웹 애플리케이션의 주소 및 이름을 입력합니다. 예: `http://<IPV4 Address>/default.aspx`
+10. 웹 애플리케이션의 주소 및 이름을 입력합니다. 예들 들어 `http://<IPV4 Address>/default.aspx`입니다.
 
 웹 사이트를 탐색하면 이제 더 구체적인 오류 메시지가 반환됩니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "98743222"
 !['/' 애플리케이션의 명시적 서버 오류](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 
 ## <a name="diagnose-issues-by-using-the-compute-emulator"></a>컴퓨팅 에뮬레이터를 사용하여 문제 진단
-Microsoft Azure 계산 에뮬레이터를 사용 하 여 누락 된 종속성 및 web.config 오류 문제를 진단 하 고 해결할 수 있습니다.
+Microsoft Azure 컴퓨팅 에뮬레이터를 사용하여 누락된 종속성 및 web.config 오류 문제를 진단하고 해결할 수 있습니다.
 
 이 진단 방법을 사용하여 최상의 결과가 발생한 경우 Windows 새로 설치한 컴퓨터 또는 가상 머신을 사용해야 합니다. Azure 환경을 가장 잘 시뮬레이션하려면 Windows Server 2008 R2 x64를 사용해야 합니다.
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/18/2016
 tags: connectors
 ms.openlocfilehash: 48c819566db43e2f997309d1bea55a9436ec7085
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "74789457"
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>비즈니스용 OneDrive 커넥터 시작
@@ -22,7 +22,7 @@ ms.locfileid: "74789457"
 ## <a name="create-a-connection-to-onedrive-for-business"></a>비즈니스용 OneDrive에 대한 연결 만들기
 비즈니스용 OneDrive로 논리 앱을 만들려면 먼저 **연결** 을 만든 후에 다음 속성에 대한 세부 정보를 제공해야 합니다.
 
-| 속성 | 필수 | 설명 |
+| 속성 | 필수 | Description |
 | --- | --- | --- |
 | 토큰 |예 |비즈니스용 OneDrive 자격 증명 제공 |
 

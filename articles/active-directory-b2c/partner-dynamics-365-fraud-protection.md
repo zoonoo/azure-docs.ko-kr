@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 8c9d760ed888eb194ad8f282f180a634e3c09538
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 9483b0a8829c042a7cf8d516c6007cbbf14a97ac
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107587819"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105639743"
 ---
 # <a name="tutorial-configure-microsoft-dynamics-365-fraud-protection-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C을 사용하여 Microsoft Dynamics 365 Fraud Protection 구성
 
@@ -26,7 +26,7 @@ Microsoft DFP는 클라이언트에게 새 계정을 만들도록 시도하는 �
 
 이 샘플에서는 Microsoft BFP의 계정 보호 기능을 Azure AD B2C 사용자 흐름과 통합합니다. 해당 서비스는 모든 로그인 또는 등록 시도에 대해 외부에서 신원을 알아내고 과거 또는 현재의 의심스러운 동작을 찾아냅니다. Azure AD B2C는 사용자의 모든 과거 및 현재 동작을 기반으로 결과를 반환하고, Microsoft DFP 서비스 내에 지정된 사용자 지정 규칙을 사용하여 Microsoft DFP에서 결정 엔드포인트를 호출합니다. 이 결과에 따라 Azure AD B2C는 승인을 결정하고 Microsoft DFP에게 동일한 내용을 전달합니다.
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음이 필요합니다.
 
@@ -68,7 +68,7 @@ Microsoft EFP 통합에는 다음 구성 요소가 포함됩니다.
 ## <a name="set-up-the-solution"></a>솔루션 설정
 
 1. Azure AD B2C 페더레이션을 허용하도록 구성된 [Facebook 애플리케이션을 만듭니다](./identity-provider-facebook.md#create-a-facebook-application).
-2. 만든 [Facebook 비밀](./tutorial-create-user-flows.md?pivots=b2c-custom-policy#create-the-facebook-key)을 Identity Experience Framework 정책 키로 추가합니다.
+2. 만든 [Facebook 비밀](./custom-policy-get-started.md#create-the-facebook-key)을 Identity Experience Framework 정책 키로 추가합니다.
 
 ## <a name="configure-your-application-under-microsoft-dfp"></a>Microsoft DFP에서 애플리케이션 구성
 
@@ -126,8 +126,8 @@ CORS를 설정, **허용된 원본** 추가 `https://{your_tenant_name}.b2clogin
 |  {your_tenant_extensions_appid}   |  테넌트 스토리지 애플리케이션의 앱 ID   |  01234567-89ab-cdef-0123-456789abcdef  |
 |   {your_tenant_extensions_app_objectid}  | 테넌트 스토리지 애플리케이션의 개체 ID    | 01234567-89ab-cdef-0123-456789abcdef   |
 |   {your_app_insights_instrumentation_key}  |   App Insights 인스턴스의 계측 키*  |   01234567-89ab-cdef-0123-456789abcdef |
-|  {your_ui_base_url}   | UI 파일이 제공되는 앱 서비스의 엔드포인트    | `https://yourapp.azurewebsites.net/B2CUI/GetUIPage`   |
-|   {your_app_service_url}  | 앱 서비스의 URL    |  `https://yourapp.azurewebsites.net`  |
+|  {your_ui_base_url}   | UI 파일이 제공되는 앱 서비스의 엔드포인트    | https://yourapp.azurewebsites.net/B2CUI/GetUIPage   |
+|   {your_app_service_url}  | 앱 서비스의 URL    |  https://yourapp.azurewebsites.net  |
 |   {your-facebook-app-id}  |  Azure AD B2C와 페더레이션을 위해 구성된 Facebook 앱의 앱 ID   | 000000000000000   |
 |  {your-facebook-app-secret}   |  Facebook의 앱 비밀을 저장한 정책 키의 이름   | B2C_1A_FacebookAppSecret   |
 
@@ -148,7 +148,7 @@ UserID의 값은 해당하는 Azure AD B2C 구성 값(ObjectID)의 값과 동일
 
 1. 정책 폴더의 [Azure AD B2C 정책](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/Policies)으로 이동합니다.
 
-2. 이 [문서](./tutorial-create-user-flows.md?pivots=b2c-custom-policy?tabs=applications#custom-policy-starter-pack)에 따라 [LocalAccounts 스타터 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)을 다운로드합니다.
+2. 이 [문서](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack)에 따라 [LocalAccounts 스타터 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)을 다운로드합니다.
 
 3. Azure AD B2C 테넌트에 대한 정책을 구성합니다.
 
@@ -167,7 +167,7 @@ UserID의 값은 해당하는 Azure AD B2C 구성 값(ObjectID)의 값과 동일
 
    b. **회신 URL**: **리디렉션 URL** 을 선택합니다.
 
-   c. **사용자 흐름 실행** 을 선택합니다.
+   다. **사용자 흐름 실행** 을 선택합니다.
 
 4. 등록 흐름을 따라 계정 만들기
 
@@ -184,4 +184,4 @@ UserID의 값은 해당하는 Azure AD B2C 구성 값(ObjectID)의 값과 동일
 
 - [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C의 사용자 지정 정책 시작하기](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
+- [Azure AD B2C의 사용자 지정 정책 시작하기](./custom-policy-get-started.md?tabs=applications)

@@ -2,22 +2,24 @@
 title: Azure Active Directory에 애플리케이션 인증 마이그레이션
 description: 이 백서에서는 애플리케이션 인증을 Azure AD로 마이그레이션하는 계획 및 혜택에 대해 자세히 설명합니다.
 services: active-directory
-author: iantheninja
-manager: CelesteDG
+author: kenwith
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.date: 02/05/2021
-ms.author: iangithinji
+ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3458f358c12ef33a337e50066e83b6e59273ccf1
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 1e05a7af3f0b95470432b4fb9602e1b41da9f72f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376752"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104952969"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Azure Active Directory에 애플리케이션 인증 마이그레이션
 
@@ -625,7 +627,7 @@ Azure AD는 마이그레이션된 앱을 관리하는 중앙 액세스 위치를
 
 수많은 [배포 계획](../fundamentals/active-directory-deployment-plans.md)을 사용할 수 있으며, 점점 더 다양해질 것입니다.
 
-### <a name="contact-support"></a>지원에 문의
+### <a name="contact-support"></a>기술 지원 서비스에 문의하십시오.
 
 지원 티켓을 만들거나 추적하고 상태를 모니터링하려면 다음 지원 링크를 방문하세요.
 

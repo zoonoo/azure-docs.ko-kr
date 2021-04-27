@@ -1,5 +1,5 @@
 ---
-title: Visual Studio를 사용 하 여 역할에 대해 원격 데스크톱을 사용 하도록 설정 합니다 (Azure Cloud Services 클래식).
+title: Visual Studio를 사용하여 역할에 대해 원격 데스크톱을 사용하도록 설정(Azure Cloud Services 클래식)
 description: Azure 클라우드 서비스 애플리케이션을 구성하여 원격 데스크톱 연결을 허용하는 방법입니다.
 ms.topic: article
 ms.service: cloud-services
@@ -9,16 +9,16 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: ad95cefbdf839c28b0979b051e217a1dfec76eea
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98743239"
 ---
-# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-classic-using-visual-studio"></a>Visual Studio를 사용 하 여 Azure Cloud Services (클래식)에서 역할에 대 한 원격 데스크톱 연결 사용
+# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-classic-using-visual-studio"></a>Visual Studio를 사용하여 Azure Cloud Services(클래식)에서 역할에 대한 원격 데스크톱 연결 사용
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 AzureCloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다. 이러한 변경으로 AzureService Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 바뀌었으며 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
@@ -46,7 +46,7 @@ Visual Studio 2017 버전 15.4 및 이전 버전을 사용하는 경우 게시 �
    > [!Note]
    > 원격 데스크톱 연결에 필요한 인증서는 다른 Azure 작업에 사용하는 인증서와 다릅니다. 원격 액세스 인증서에는 프라이빗 키가 있어야 합니다.
 
-5. 목록에서 인증서를 선택 하거나 **&lt; 만들기 &gt;**...를 선택 합니다. 새 인증서를 만들 때 메시지가 표시되면 새 인증서에 대한 이름을 입력하고 **확인** 을 선택합니다. 새 인증서가 드롭다운 목록 상자에 표시됩니다.
+5. 목록에서 인증서를 선택하거나 **&lt;만들기...&gt;** 를 선택합니다. 새 인증서를 만들 때 메시지가 표시되면 새 인증서에 대한 이름을 입력하고 **확인** 을 선택합니다. 새 인증서가 드롭다운 목록 상자에 표시됩니다.
 
 6. 사용자 이름과 암호를 제공합니다. 기존 계정을 사용할 수 없습니다. "관리자"는 새 계정에 대한 사용자 이름으로 사용하지 않습니다.
 
@@ -64,7 +64,7 @@ Visual Studio 2017 버전 15.5 이상에서는 클라우드 서비스 프로젝�
 
 이 권장 사항은 Visual Studio 2017 버전 15.5 이상에서 클라우드 서비스 VM과 통신하는 방식이 변경되었기 때문입니다. 게시 마법사를 통해 원격 데스크톱을 사용하도록 설정하면 이전 버전의 Visual Studio에서 "RDP 플러그 인"을 통해 VM과 통신합니다. Visual Studio 2017 버전 15.5 이상에서는 더 안전하고 유연한 "RDP 확장"을 대신 사용하여 통신합니다. 또한 이 변경은 원격 데스크톱을 사용하도록 설정하는 Azure Portal 및 PowerShell 메서드에서도 RDP 확장을 사용한다는 사실과 일치합니다.
 
-Visual Studio는 RDP 확장과 통신 하는 경우 TLS를 통해 일반 텍스트 암호를 전송 합니다. 그러나 프로젝트의 구성 파일에는 암호화된 암호만 저장되며, 이 암호는 원래 암호화하는데 사용된 로컬 인증서에서만 일반 텍스트로 해독할 수 있습니다.
+Visual Studio는 RDP 확장과 통신하는 경우 TLS를 통해 일반 텍스트 암호를 전송합니다. 그러나 프로젝트의 구성 파일에는 암호화된 암호만 저장되며, 이 암호는 원래 암호화하는데 사용된 로컬 인증서에서만 일반 텍스트로 해독할 수 있습니다.
 
 매번 동일한 개발 컴퓨터에서 클라우드 서비스 프로젝트를 배포하면 해당 로컬 인증서를 사용할 수 있습니다. 이 경우에도 게시 마법사에서 **모든 역할에 원격 데스크톱 사용** 옵션을 계속 사용할 수 있습니다.
 

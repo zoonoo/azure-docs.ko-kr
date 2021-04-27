@@ -5,12 +5,12 @@ ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
-ms.openlocfilehash: 5080d16a7b14506b24e07e2ee4ba862c645f83a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed87a5a744defb15d4a898aeabdce5267b7431fe
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98875452"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775658"
 ---
 # <a name="manage-your-function-app"></a>함수 앱 관리 
 
@@ -46,14 +46,14 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 
-이 [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) 명령은 다음 예와 같이 기존 애플리케이션 설정을 반환합니다.
+이 [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_list) 명령은 다음 예와 같이 기존 애플리케이션 설정을 반환합니다.
 
 ```azurecli-interactive
 az functionapp config appsettings list --name <FUNCTION_APP_NAME> \
 --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-[`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 명령은 애플리케이션 설정을 추가하거나 업데이트합니다. 다음 예에서는 `CUSTOM_FUNCTION_APP_SETTING`이라는 키와 `12345` 값을 사용하여 설정을 만듭니다.
+[`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) 명령은 애플리케이션 설정을 추가하거나 업데이트합니다. 다음 예에서는 `CUSTOM_FUNCTION_APP_SETTING`이라는 키와 `12345` 값을 사용하여 설정을 만듭니다.
 
 
 ```azurecli-interactive
@@ -260,7 +260,7 @@ App Service용 고급 도구(Kudu라고도 함)를 사용하면 함수 앱의 �
 
 와일드 카드(`*`)를 사용하면 다른 모든 도메인은 무시됩니다. 
 
-[`az functionapp cors add`](/cli/azure/functionapp/cors#az-functionapp-cors-add) 명령을 사용하여 허용된 원본 목록에 도메인을 추가합니다. 다음 예에서는 contoso.com 도메인을 추가합니다.
+[`az functionapp cors add`](/cli/azure/functionapp/cors#az_functionapp_cors_add) 명령을 사용하여 허용된 원본 목록에 도메인을 추가합니다. 다음 예에서는 contoso.com 도메인을 추가합니다.
 
 ```azurecli-interactive
 az functionapp cors add --name <FUNCTION_APP_NAME> \
@@ -268,7 +268,7 @@ az functionapp cors add --name <FUNCTION_APP_NAME> \
 --allowed-origins https://contoso.com
 ```
 
-[`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) 명령을 사용하여 현재 허용된 원본을 나열합니다.
+[`az functionapp cors show`](/cli/azure/functionapp/cors#az_functionapp_cors_show) 명령을 사용하여 현재 허용된 원본을 나열합니다.
 
 ### <a name="authentication"></a><a name="auth"></a>인증
 

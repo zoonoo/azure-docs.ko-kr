@@ -9,16 +9,16 @@ ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: b0e7996b71e68db371201da1f0f5c93486ae4e29
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104592098"
 ---
-# <a name="datetimefromparts-azure-cosmos-db"></a>DateTimeFromParts (Azure Cosmos DB)
+# <a name="datetimefromparts-azure-cosmos-db"></a>DateTimeFromParts(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-입력 값에서 생성 된 문자열 DateTime 값을 반환 합니다.
+입력 값에서 생성된 문자열 DateTime 값을 반환합니다.
   
 ## <a name="syntax"></a>구문
   
@@ -28,49 +28,49 @@ DateTimeFromParts(<numberYear>, <numberMonth>, <numberDay> [, numberHour]  [, nu
 
 ## <a name="arguments"></a>인수
   
-*숫자 연도* 형식의 연도에 대 한 정수 값입니다. `YYYY`
+*numberYear* `YYYY` 형식의 연도에 대한 정수 값
 
-*숫자 월*  
-   형식의 월에 대 한 정수 값입니다. `MM`
+*numberMonth*  
+   `MM` 형식의 월에 대한 정수 값
 
-*숫자 일*  
-   형식의 날짜에 대 한 정수 값 `DD`
+*numberDay*  
+   `DD` 형식의 일에 대한 정수 값
 
-*숫자 시간* (옵션) 형식의 시간에 대 한 정수 값 `hh`
+*numberHour*(선택 사항) `hh` 형식의 시간에 대한 정수 값
 
-*숫자 분* (선택 사항) 형식으로 된 분의 정수 값 `mm`
+*numberMinute*(선택 사항) `mm` 형식의 분에 대한 정수 값
 
-두 번째 형식으로 된 *숫자* (옵션)의 정수 값입니다.`ss`
+*numberSecond*(선택 사항) `ss` 형식의 초에 대한 정수 값
 
-*numberOfFractionsOfSecond* (선택 사항) 형식에서 초의 소수 부분에 대 한 정수 값입니다. `.fffffff`
+*numberOfFractionsOfSecond*(선택 사항) `.fffffff` 형식의 1초 미만의 시간에 대한 정수 값
 
 ## <a name="return-types"></a>반환 형식
 
-UTC 날짜 및 시간 ISO 8601 문자열 값을 다음 형식으로 반환 합니다 `YYYY-MM-DDThh:mm:ss.fffffffZ` .
+UTC 날짜 및 시간 ISO 8601 문자열 값을 `YYYY-MM-DDThh:mm:ss.fffffffZ` 형식으로 반환합니다. 형식은 다음과 같습니다.
   
-|서식|설명|
+|형식|Description|
 |-|-|
-|YYYY|네 자리 연도|
-|MM|두 자리 월 (01 = 1 월 등)|
+|YYYY|4자리 연도|
+|MM|두 자리 월(01 = 1월 등)|
 |DD|월 (01-31)의 2 자리 숫자 일|
-|T|시간 요소 시작에 대 한 signifier|
-|hh|두 자리 시간 (00-23)|
-|MM|두 자리 분 (00-59)|
-|ss|두 자리 초 (00-59)|
-|. fffffff|7 자리 소수 자릿수 초|
-|Z|UTC (협정 세계시) 지정자|
+|T|시간 요소의 시작을 나타내는 기호|
+|hh|두 자리 시간(00-23)|
+|MM|두 자리 분(00 - 59)|
+|ss|두 자리 초(00 - 59)|
+|.fffffff|7자리 소수 자릿수 초|
+|Z|UTC(협정 세계시) 지정자|
   
- ISO 8601 형식에 대 한 자세한 내용은을 참조 하십시오 [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+ ISO 8601 형식에 대한 자세한 내용은 [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)을 참조하세요.
 
 ## <a name="remarks"></a>설명
 
-지정 된 정수가 잘못 된 날짜/시간을 만드는 경우 DateTimeFromParts는을 반환 `undefined` 합니다.
+지정된 정수가 유효하지 않은 DateTime을 생성하는 경우 DateTimeFromParts는 `undefined`를 반환합니다.
 
-선택적 인수를 지정 하지 않으면 해당 값은 0이 됩니다.
+선택적 인수를 지정하지 않으면 해당 값은 0이 됩니다.
 
 ## <a name="examples"></a>예제
 
-DateTime을 생성 하는 데 필요한 인수만 포함 하는 예제는 다음과 같습니다.
+다음은 필요한 인수만 포함하여 DateTime을 생성하는 예입니다.
 
 ```sql
 SELECT DateTimeFromParts(2020, 9, 4) AS DateTime
@@ -84,7 +84,7 @@ SELECT DateTimeFromParts(2020, 9, 4) AS DateTime
 ]
 ```
 
-다음은 몇 가지 선택적 인수를 사용 하 여 DateTime을 생성 하는 또 다른 예입니다.
+다음은 몇 가지 선택적 인수를 사용하여 DateTime을 생성하는 예입니다.
 
 ```sql
 SELECT DateTimeFromParts(2020, 9, 4, 10, 52) AS DateTime
@@ -98,7 +98,7 @@ SELECT DateTimeFromParts(2020, 9, 4, 10, 52) AS DateTime
 ]
 ```
 
-모든 선택적 인수를 사용 하 여 DateTime을 생성 하는 또 다른 예는 다음과 같습니다.
+다음은 모든 선택적 인수를 사용하여 DateTime을 생성하는 예입니다.
 
 ```sql
 SELECT DateTimeFromParts(2020, 9, 4, 10, 52, 12, 3456789) AS DateTime

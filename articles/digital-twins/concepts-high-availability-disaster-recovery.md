@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 41edef58910fe2b772831ef083e5aca8bb52a321
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 3336a086fbe8f4291f752836a610cd80b773ec2d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482271"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "98790819"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Azure Digital Twins 고가용성 및 재해 복구
 
@@ -73,4 +73,4 @@ HA/DR에 대한 모범 사례는 이 항목에 대한 다음 Azure 지침을 참
 Azure Digital Twins 솔루션 시작하기에 대해 자세히 알아봅니다.
  
 * [*Azure Digital Twins란?*](overview.md)
-* [*빠른 시작 - 샘플 시나리오 살펴보기*](quickstart-azure-digital-twins-explorer.md)
+* [*빠른 시작 - 샘플 시나리오 살펴보기*](quickstart-adt-explorer.md)

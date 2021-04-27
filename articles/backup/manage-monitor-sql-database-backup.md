@@ -3,12 +3,12 @@ title: Azure VM에서 SQL Server DB 관리 및 모니터링
 description: 이 문서에서는 Azure VM에서 실행되는 SQL Server 데이터베이스를 관리하고 모니터링하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: e37e6fc211b34b7e427b66db374a705faafd25f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3938e26e134f7d823d8a6f6fac631ebf4442e6ab
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97858741"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519139"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>백업한 SQL Server 데이터베이스 관리 및 모니터링
 
@@ -79,8 +79,8 @@ Azure Backup은 매우 빈번할 수 있으므로 예약된 로그 백업을 제
 >
 >데이터 삭제 옵션에 대한 자세한 내용은 아래 FAQ를 참조하세요.
 >
->- [자동 보호된 인스턴스에서 데이터베이스를 삭제하면 백업은 어떻게 되나요?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
->- [자동 보호된 데이터베이스의 백업 작업을 중지하면 어떻게 되나요?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>- [자동 보호된 인스턴스에서 데이터베이스를 삭제하면 백업은 어떻게 되나요?](faq-backup-sql-server.yml#if-i-delete-a-database-from-an-autoprotected-instance--what-will-happen-to-the-backups-)
+>- [자동 보호된 데이터베이스의 백업 작업을 중지하면 어떻게 되나요?](faq-backup-sql-server.yml#if-i-change-the-name-of-the-database-after-it-has-been-protected--what-will-be-the-behavior-)
 >
 >
 

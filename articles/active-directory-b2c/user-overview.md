@@ -11,12 +11,12 @@ ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 4b35cfeded13a50e5e27c240b0826f1d108ff7eb
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: f2473955db5439911280360b169f469b8c93eb93
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529443"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105043600"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 계정 개요
 
@@ -72,9 +72,9 @@ Azure AD B2C(Azure Active Directory B2C)에는 여러 가지 유형의 계정을
 
 외부 사용자를 게스트 사용자로 테넌트에 초대할 수 있습니다. Azure AD B2C 테넌트에 게스트 사용자를 초대하기 위한 일반적인 시나리오는 관리 책임을 공유하는 것입니다. 게스트 계정 사용 예제를 보려면 [Azure Active Directory B2B 협업 사용자 속성](../active-directory/external-identities/user-properties.md)을 참조하세요.
 
-테넌트에 게스트 사용자를 초대하는 경우 받는 사람의 이메일 주소와 초대를 설명하는 메시지를 제공합니다. 초대 링크는 사용자를 동의 페이지로 연결시킵니다. 전자 메일 주소에 받은 편지함이 연결되어 있지 않으면 초대된 자격 증명을 사용하여 Microsoft 페이지로 이동한 후 동의 페이지로 이동할 수 있습니다. 그러면 사용자는 전자 메일의 링크를 클릭할 때와 동일한 방식으로 초대를 강제로 사용하게 됩니다. 예를 들면 `https://myapps.microsoft.com/B2CTENANTNAME`와 같습니다.
+테넌트에 게스트 사용자를 초대하는 경우 받는 사람의 이메일 주소와 초대를 설명하는 메시지를 제공합니다. 초대 링크는 사용자를 동의 페이지로 연결시킵니다. 전자 메일 주소에 받은 편지함이 연결되어 있지 않으면 초대된 자격 증명을 사용하여 Microsoft 페이지로 이동한 후 동의 페이지로 이동할 수 있습니다. 그러면 사용자는 전자 메일의 링크를 클릭할 때와 동일한 방식으로 초대를 강제로 사용하게 됩니다. 예: `https://myapps.microsoft.com/B2CTENANTNAME`
 
-[Microsoft Graph API](/graph/api/invitation-post)를 사용하여 게스트 사용자를 초대할 수도 있습니다.
+[Microsoft Graph API](/graph/api/invitation-post?view=graph-rest-beta)를 사용하여 게스트 사용자를 초대할 수도 있습니다.
 
 ## <a name="consumer-user"></a>소비자 사용자
 

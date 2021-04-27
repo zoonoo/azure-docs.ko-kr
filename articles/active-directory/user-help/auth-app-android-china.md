@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 01/27/2021
 ms.author: curtand
 ms.openlocfilehash: d499417414e560bdaa3fcd0a12255946aca413d9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99054842"
 ---
 # <a name="microsoft-authenticator-for-android-in-the-public-cloud-in-china"></a>중국 퍼블릭 클라우드의 Android용 Microsoft Authenticator
@@ -56,7 +56,7 @@ TOTP/확인 코드만 사용하는 MFA 등록/인증 | 예
 휴대폰 로그인 등록 | 예
 푸시 알림을 사용하는 기존 휴대폰 로그인 | 예
 수동 인증 요청 확인을 수행하여 기존 휴대폰 로그인 확인 | 예
-개인 Microsoft 계정에 대 한 Authenticator 앱 지원 | 아니요
+개인 Microsoft 계정에 대한 Authenticator 앱 지원 | 예
 
 ## <a name="next-steps"></a>다음 단계
 

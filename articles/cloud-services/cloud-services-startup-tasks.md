@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Services에서 시작 작업 실행 (클래식) | Microsoft Docs
+title: Azure Cloud Services(클래식)에서 시작 작업 실행 | Microsoft Docs
 description: 시작 작업을 통해 응용 프로그램에 대한 클라우드 서비스 환경을 준비합니다. 시작 작업의 작동 방법 및 만드는 방법을 배웁니다.
 ms.topic: article
 ms.service: cloud-services
@@ -9,16 +9,16 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 25190075bdd13bd4b75dd82c97ee06ee60f4c26c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98743188"
 ---
-# <a name="how-to-configure-and-run-startup-tasks-for-an-azure-cloud-service-classic"></a>Azure 클라우드 서비스 (클래식)에 대 한 시작 작업을 구성 하 고 실행 하는 방법
+# <a name="how-to-configure-and-run-startup-tasks-for-an-azure-cloud-service-classic"></a>Azure Cloud Service(클래식)에 대한 시작 작업을 구성하고 실행하는 방법
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 AzureCloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다. 이러한 변경으로 AzureService Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 바뀌었으며 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 시작 작업을 사용하여 역할이 시작되기 전에 작업을 수행할 수 있습니다. 수행하려는 작업은 구성 요소 설치, COM 구성 요소 등록, 레지스트리 키 설정 또는 장기 실행 프로세스를 시작을 포함합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "98743188"
 
 시작 작업은 재부팅 사이에 여러 번 실행할 수도 있습니다. 예를 들어 시작 작업은 역할 재활용 때마다 실행되고 역할 재활용은 재부팅을 항상 포함하지 않을 수도 있습니다. 시작 작업은 문제 없이 여러 번 실행할 수 있도록 하는 방식으로 작성되어야 합니다.
 
-시작 작업은 완료할 시작 프로세스에 대해 0의 **errorlevel** (또는 종료 코드)로 끝나야 합니다. 시작 작업이 0이 아닌 **errorlevel** 로 끝나는 경우 역할이 시작 되지 않습니다.
+시작 작업은 완료할 시작 프로세스에 대해 0의 **errorlevel** (또는 종료 코드)로 끝나야 합니다. 시작 작업이 0이 아닌 **errorlevel** 로 끝나는 경우 역할이 시작되지 않습니다.
 
 ## <a name="role-startup-order"></a>역할 시작 순서
 다음은 Azure에서 역할 시작 절차를 나열합니다.
@@ -97,7 +97,7 @@ EXIT /B 0
 
 **executionContext** -시작 작업에 대한 권한 수준을 지정합니다. 권한 수준은 제한되거나 상승될 수 있습니다.
 
-* **제한이**  
+* **제한**  
    시작 작업이 역할과 동일한 권한으로 실행됩니다. [런타임] 요소에 대한 **executionContext** 특성 또한 **제한** 인 경우 사용자 권한이 사용됩니다.
 * **상승**  
    시작 작업이 관리자 권한으로 실행됩니다. 이를 통해 시작 작업이 역할 자체의 권한 수준을 높이지 않고 프로그램을 설치하고 IIS 구성을 변경하고 기타 관리자 수준 작업을 수행할 수 있습니다.  
@@ -109,7 +109,7 @@ EXIT /B 0
 
 **taskType** -시작 작업이 실행되는 방식을 지정합니다.
 
-* **쉽게**  
+* **간단한**  
   작업이 동기적으로 한 번에 하나씩 [작업] 파일에 지정된 순서로 실행됩니다. 하나의 **간단** 시작 작업이 0의 **errorlevel** 로 끝나는 경우 다음 **간단** 시작 작업이 실행됩니다. 더 이상 실행할 **간단** 시작 작업이 없는 경우 역할 자체가 시작됩니다.   
   
   > [!NOTE]
@@ -120,7 +120,7 @@ EXIT /B 0
     배치 파일이 0의 **errorlevel** 로 끝나는지 확인하려면 배치 파일 프로세스의 끝에 명령 `EXIT /B 0`을 실행합니다.
 * **background**  
    작업이 비동기적으로 역할의 시작과 병렬로 실행됩니다.
-* **전경색**  
+* **포그라운드**  
    작업이 비동기적으로 역할의 시작과 병렬로 실행됩니다. **포그라운드** 및 **백그라운드** 작업 사이의 주요 차이점은 **포그라운드** 작업은 작업이 종료될 때까지 작업이 재활용 또는 종료되는 것을 방지합니다. **백그라운드** 작업은 이러한 제한이 없습니다.
 
 ## <a name="environment-variables"></a>환경 변수
@@ -158,7 +158,7 @@ RoleEnvironment 클래스의 멤버를 기반으로 한 환경 변수는 **변�
 
 [포장합니다](cloud-services-model-and-package.md) .  
 
-[ServiceDefinition. .csdef]: cloud-services-model-and-package.md#csdef
+[ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
 [Task]: /previous-versions/azure/reference/gg557552(v=azure.100)#Task
 [Startup 클래스]: /previous-versions/azure/reference/gg557552(v=azure.100)#Startup
 [런타임]: /previous-versions/azure/reference/gg557552(v=azure.100)#Runtime

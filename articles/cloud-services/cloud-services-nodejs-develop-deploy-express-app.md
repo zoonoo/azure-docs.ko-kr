@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Services에 Node.js Express 앱 빌드 및 배포 (클래식)
-description: 이 자습서를 사용 하 여 Node.js 웹 응용 프로그램을 만들기 위한 MVC 프레임 워크를 제공 하는 Express 모듈을 사용 하 여 새 응용 프로그램을 만들 수 있습니다.
+title: Azure Cloud Services(클래식)에 Node.js Express 앱 빌드 및 배포
+description: 이 자습서를 사용하여 Node.js 웹 애플리케이션을 만들기 위해 MVC 프레임워크를 제공하는 Express 모듈을 사용하여 새 애플리케이션을 만듭니다.
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
@@ -9,16 +9,16 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: e15af589b3a3c496738c97c0c2c6429ba708ba7e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98743341"
 ---
-# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services-classic"></a>Azure Cloud Services에서 Express를 사용 하 여 Node.js 웹 응용 프로그램 빌드 및 배포 (클래식)
+# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services-classic"></a>Azure Cloud Services(클래식)에서 Express를 사용하여 Node.js 웹 애플리케이션 빌드 및 배포
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 AzureCloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다. 이러한 변경으로 AzureService Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 바뀌었으며 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다.
 개발자는 Node.js 애플리케이션을 개발할 때 추가 기능을 제공하기 위해 종종 타사 모듈을 사용합니다. 이 자습서에서는 Node.js 웹 애플리케이션을 만들기 위해 MVC 프레임워크를 제공하는 [Express](https://github.com/expressjs/express) 모듈을 사용하여 새 애플리케이션을 만듭니다.
@@ -113,7 +113,7 @@ Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다.
 
    ![index.jade 파일의 내용](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
 
-   Jade는 Express 애플리케이션에서 사용하는 기본 뷰 엔진입니다. Jade 뷰 엔진에 대 한 자세한 내용은을 참조 하십시오 [http://jade-lang.com][http://jade-lang.com] .
+   Jade는 Express 애플리케이션에서 사용하는 기본 뷰 엔진입니다. Jade 뷰 엔진에 대한 자세한 내용은 [http://jade-lang.com][http://jade-lang.com]을 참조하세요.
 2. **in Azure** 를 추가하여 텍스트의 마지막 줄을 수정합니다.
 
    ![index.jade 파일, 마지막 줄: p Welcome to \#{title} in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)

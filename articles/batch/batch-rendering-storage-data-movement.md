@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 55ec04df2a107dabfc72298bc8849c13f3a926e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a18ee6961cb601b0fa9db7213eb6115afa20096
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86147303"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765200"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>자산 및 출력 파일을 렌더링하기 위한 스토리지 및 데이터 이동 옵션
 
@@ -126,7 +126,7 @@ JSON 파일에서 사용하기 위해 이스케이프된 풀 템플릿의 cmdkey
 
 Azure Files는 Azure Storage를 지원하는 기본 API 및 도구에서 지원됩니다(예: azcopy, Azure CLI, Storage Explorer, Azure PowerShell, Batch Explorer 등).
 
-[Azure 파일 동기화](../storage/files/storage-sync-files-planning.md)는 온-프레미스 파일 시스템과 Azure 파일 공유 간에 파일을 자동으로 동기화하기 위해 사용할 수 있습니다.
+[Azure 파일 동기화](../storage/file-sync/file-sync-planning.md)는 온-프레미스 파일 시스템과 Azure 파일 공유 간에 파일을 자동으로 동기화하기 위해 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

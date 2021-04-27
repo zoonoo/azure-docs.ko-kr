@@ -1,6 +1,6 @@
 ---
-title: 클라우드 서비스를 만들고 배포 하는 방법 (클래식) | Microsoft Docs
-description: 빠른 생성 방법을 사용 하 여 클라우드 서비스를 만들고, 업로드를 사용 하 여 Azure에서 클라우드 서비스 패키지를 업로드 하 고 배포 하는 방법을 알아봅니다.
+title: 클라우드 서비스(클래식)를 만들고 배포하는 방법 | Microsoft Docs
+description: 빠른 생성 방법을 사용하여 새 클라우드 서비스를 만든 다음 업로드를 사용하여 Azure에서 클라우드 서비스 패키지를 업로드하고 배포하는 방법을 알아봅니다.
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
@@ -9,16 +9,16 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 879b86714adf50b5a4da4398389405063ac046dc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98743409"
 ---
-# <a name="how-to-create-and-deploy-an-azure-cloud-service-classic"></a>Azure 클라우드 서비스를 만들고 배포 하는 방법 (클래식)
+# <a name="how-to-create-and-deploy-an-azure-cloud-service-classic"></a>Azure Cloud Service(클래식)를 만들고 배포하는 방법
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 AzureCloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다. 이러한 변경으로 AzureService Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 바뀌었으며 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 Azure 포털은 클라우드 서비스를 만들고 배포하는 두 가지 방법으로 *빨리 만들기* 및 *사용자 지정 만들기* 를 제공합니다.
 
@@ -46,9 +46,9 @@ Azure에서 애플리케이션을 클라우드 서비스로 배포하려면 다�
 
 세 가지 클라우드 서비스 기능은 서비스 패키지를 내보내기 전에 특별히 구성해야 합니다.
 
-* 이전에 SSL(Secure Sockets Layer) (SSL)로 알려진 TLS (Transport Layer Security)를 사용 하는 클라우드 서비스를 배포 하려는 경우 데이터 암호화를 위해 TLS에 대 한 [응용 프로그램을 구성](cloud-services-configure-ssl-certificate-portal.md#modify) 합니다.
+* 데이터 암호화를 위해 이전에 SSL(보안 소켓 계층)로 알려진 TLS(전송 계층 보안)를 사용하는 클라우드 서비스를 배포하려는 경우 TLS에 대해 [애플리케이션을 구성](cloud-services-configure-ssl-certificate-portal.md#modify)합니다.
 * 역할 인스턴스에 대한 원격 데스크톱 연결을 구성하려면 원격 데스크톱에 대한 [역할을 구성](cloud-services-role-enable-remote-desktop-new-portal.md) 합니다.
-* 클라우드 서비스에 대해 자세한 모니터링을 구성하려면 클라우드 서비스에 Azure Diagnostics를 사용하도록 설정합니다. *최소 모니터링* (기본 모니터링 수준)에서는 역할 인스턴스(가상 머신)에 대해 호스트 운영 체제에서 수집된 성능 카운터를 사용합니다. *자세한 정보 표시 모니터링* 은 응용 프로그램을 처리 하는 동안 발생 하는 문제를 보다 자세히 분석할 수 있도록 역할 인스턴스 내의 성능 데이터를 기반으로 추가 메트릭을 수집 합니다. Azure 진단를 사용 하도록 설정 하는 방법을 알아보려면 [Azure에서 진단 사용](cloud-services-dotnet-diagnostics.md)을 참조 하세요.
+* 클라우드 서비스에 대해 자세한 모니터링을 구성하려면 클라우드 서비스에 Azure Diagnostics를 사용하도록 설정합니다. *최소 모니터링* (기본 모니터링 수준)에서는 역할 인스턴스(가상 머신)에 대해 호스트 운영 체제에서 수집된 성능 카운터를 사용합니다. *세부 정보 표시 모니터링* 에서는 역할 인스턴스 내 성능 데이터를 기반으로 추가 메트릭을 수집하여 애플리케이션 처리 중 발생하는 문제를 보다 자세히 분석할 수 있습니다. Azure Diagnostics를 사용하도록 설정하는 방법에 대해 알아보려면 [Azure에서 진단 사용](cloud-services-dotnet-diagnostics.md)을 참조하세요.
 
 웹 역할 또는 작업자 역할 배포를 통해 클라우드 서비스를 만들려면 [서비스 패키지를 만들어야](cloud-services-model-and-package.md#servicepackagecspkg)합니다.
 
@@ -60,26 +60,26 @@ Azure에서 애플리케이션을 클라우드 서비스로 배포하려면 다�
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **리소스 만들기 > Compute** 를 클릭한 다음, 아래로 스크롤하여 **클라우드 서비스** 를 클릭합니다.
 
-    ![클라우드 service1 게시](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+    ![클라우드 서비스1 게시](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 
 3. 새 **클라우드 서비스** 창에서 **DNS 이름** 의 값을 입력합니다.
-4. 새 리소스 그룹을 만들거나 기존 **리소스 그룹** 을 선택 합니다.
+4. 새 **리소스 그룹** 을 만들거나 기존 항목을 선택합니다.
 5. **위치** 를 선택합니다.
 6. **패키지** 를 클릭합니다. **패키지 업로드** 창에서 열립니다. 필수 필드를 입력합니다. 역할에 단일 인스턴스가 포함된 경우 **단일 인스턴스가 포함된 역할이 하나 이상 있는 경우에도 배포합니다.** 가 선택되어 있어야 합니다.
 7. **배포 시작** 이 선택되어 있는지 확인합니다.
 8. **확인** 을 클릭하면 **패키지 업로드** 창이 닫힙니다.
 9. 추가할 인증서가 없는 경우 **만들기** 를 클릭합니다.
 
-    ![클라우드 service2 게시](media/cloud-services-how-to-create-deploy-portal/select-package.png)
+    ![클라우드 서비스2 게시](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
 ## <a name="upload-a-certificate"></a>인증서 업로드
 배포 패키지가 [인증서를 사용하도록 구성되었으면](cloud-services-configure-ssl-certificate-portal.md#modify)이제 인증서를 업로드할 수 있습니다.
 
-1. **인증서** 를 선택 하 고 **인증서 추가** 창에서 TLS/SSL 인증서 .pfx 파일을 선택한 다음, 인증서에 대 한 **암호** 를 제공 합니다.
+1. **인증서** 를 선택하고 **인증서 추가** 창에서 TLS/SSL 인증서 .pfx 파일을 선택한 다음, 인증서에 대한 **암호** 를 제공합니다.
 2. **인증서 첨부** 를 클릭한 다음, **인증서 추가** 창에서 **확인** 을 클릭합니다.
 3. **클라우드 서비스** 창에서 **만들기** 를 클릭합니다. 배포가 **준비** 상태에 도달하면 다음 단계로 진행할 수 있습니다.
 
-    ![클라우드 service3 게시](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+    ![클라우드 서비스3 게시](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
 ## <a name="verify-your-deployment-completed-successfully"></a>배포가 완료되었는지 확인
 1. 클라우드 서비스 인스턴스를 클릭합니다.
@@ -93,6 +93,6 @@ Azure에서 애플리케이션을 클라우드 서비스로 배포하려면 다�
 
 ## <a name="next-steps"></a>다음 단계
 * [클라우드 서비스의 일반 구성](cloud-services-how-to-configure-portal.md)
-* [사용자 지정 도메인 이름을](cloud-services-custom-domain-name-portal.md)구성 합니다.
+* [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)구성
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage-portal.md).
-* [TLS/SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)를 구성 합니다.
+* [TLS/SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)를 구성합니다.

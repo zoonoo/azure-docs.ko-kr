@@ -3,12 +3,12 @@ title: 공용 레지스트리 액세스 구성
 description: 선택한 공용 IP 주소나 주소 범위에서 Azure 컨테이너 레지스트리에 대한 액세스를 사용하기 위한 IP 규칙을 구성합니다.
 ms.topic: article
 ms.date: 03/08/2021
-ms.openlocfilehash: 727aa1dc028b5f52a022e54c2cd252ae372e78fe
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
-ms.translationtype: MT
+ms.openlocfilehash: 00912f0e66c84feff40e6439d59ccdfa82a4ab6a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773065"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785839"
 ---
 # <a name="configure-public-ip-network-rules"></a>공용 IP 네트워크 규칙 구성
 
@@ -66,7 +66,7 @@ az acr network-rule add \
 필요에 따라 레지스트리에서 퍼블릭 엔드포인트를 사용하지 않게 설정합니다. 퍼블릭 엔드포인트를 사용하지 않게 설정하면 모든 방화벽 구성이 재정의됩니다. 예를 들어 [프라이빗 링크](container-registry-private-link.md)를 사용하여 가상 네트워크에서 보호되는 레지스트리에 대한 공용 액세스를 사용하지 않게 설정할 수 있습니다.
 
 > [!NOTE]
-> [서비스가 서비스 끝점](container-registry-vnet.md)을 사용 하 여 가상 네트워크에 설정 된 경우 레지스트리의 공용 끝점에 대 한 액세스를 사용 하지 않도록 설정 하면 가상 네트워크 내의 레지스트리에 대 한 액세스도 비활성화 됩니다.
+> 레지스트리가 [서비스 엔드포인트](container-registry-vnet.md)가 있는 가상 네트워크에 설정된 경우 레지스트리의 공용 엔드포인트에 대한 액세스를 사용하지 않도록 설정하면 가상 네트워크 내의 레지스트리에 대한 액세스도 사용하지 않도록 설정됩니다.
 
 ### <a name="disable-public-access---cli"></a>공용 액세스 사용 안 함 - CLI
 
@@ -108,9 +108,9 @@ az acr update --name myContainerRegistry --public-network-enabled true
 
 ## <a name="troubleshoot"></a>문제 해결
 
-공용 네트워크 규칙이 설정 되어 있거나 레지스트리에 대 한 공용 액세스가 거부 된 경우 허용 되지 않는 공용 네트워크에서 레지스트리에 로그인 하려고 하면 실패 합니다. 프록시에 대 한 액세스 규칙이 설정 되지 않은 경우에는 HTTPS 프록시 뒤의 클라이언트 액세스도 실패 합니다. 또는와 유사한 오류 메시지가 표시 됩니다 `Error response from daemon: login attempt failed with status: 403 Forbidden` `Looks like you don't have access to registry` .
+공용 네트워크 규칙이 설정되거나 레지스트리에 대한 공용 액세스가 거부된 경우 허용되지 않은 공용 네트워크에서 레지스트리에 로그인하려는 시도가 실패합니다. 프록시에 대한 액세스 규칙이 설정되지 않은 경우 HTTPS 프록시 뒤에서의 클라이언트 액세스도 실패합니다. `Error response from daemon: login attempt failed with status: 403 Forbidden` 또는 `Looks like you don't have access to registry`와 유사한 오류 메시지가 표시됩니다.
 
-네트워크 액세스 규칙에서 허용 하는 HTTPS 프록시를 사용 하지만 클라이언트 환경에서 프록시가 제대로 구성 되지 않은 경우에도 이러한 오류가 발생할 수 있습니다. Docker 클라이언트와 Docker 데몬이 프록시 동작에 대해 구성 되어 있는지 확인 합니다. 자세한 내용은 Docker 설명서의 [HTTP/HTTPS 프록시](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy) 를 참조 하세요.
+이러한 오류는 네트워크 액세스 규칙에서 허용하는 HTTPS 프록시를 사용하지만 프록시가 클라이언트 환경에서 제대로 구성되지 않은 경우에도 발생할 수 있습니다. Docker 클라이언트와 Docker 데몬이 모두 프록시 동작에 대해 구성되어 있는지 확인합니다. 자세한 내용은 Docker 문서의 [HTTP/HTTPS 프록시](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -118,12 +118,12 @@ az acr update --name myContainerRegistry --public-network-enabled true
 * 가상 네트워크에서 프라이빗 엔드포인트를 사용하여 레지스트리에 대한 액세스를 제한하려면 [Azure 컨테이너에 대한 Azure Private Link 구성](container-registry-private-link.md)을 참조하세요.
 * 클라이언트 방화벽 뒤에서 레지스트리 액세스 규칙을 설정해야 할 경우 [방화벽 뒤의 Azure Container Registry에 액세스하기 위한 규칙 구성](container-registry-firewall-access-rules.md)을 참조하세요.
 
-[az-acr-login]: /cli/azure/acr#az-acr-login
-[az-acr-network-rule-add]: /cli/azure/acr/network-rule/#az-acr-network-rule-add
-[az-acr-network-rule-remove]: /cli/azure/acr/network-rule/#az-acr-network-rule-remove
-[az-acr-network-rule-list]: /cli/azure/acr/network-rule/#az-acr-network-rule-list
-[az-acr-run]: /cli/azure/acr#az-acr-run
-[az-acr-update]: /cli/azure/acr#az-acr-update
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-acr-network-rule-add]: /cli/azure/acr/network-rule/#az_acr_network_rule_add
+[az-acr-network-rule-remove]: /cli/azure/acr/network-rule/#az_acr_network_rule_remove
+[az-acr-network-rule-list]: /cli/azure/acr/network-rule/#az_acr_network_rule_list
+[az-acr-run]: /cli/azure/acr#az_acr_run
+[az-acr-update]: /cli/azure/acr#az_acr_update
 [quickstart-portal]: container-registry-get-started-portal.md
 [quickstart-cli]: container-registry-get-started-azure-cli.md
 [azure-portal]: https://portal.azure.com
