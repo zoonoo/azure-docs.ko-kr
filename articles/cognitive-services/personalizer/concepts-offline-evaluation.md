@@ -1,7 +1,7 @@
 ---
-title: 오프 라인 평가 방법 사용-Personalizer
+title: 오프라인 평가 방법 사용 - Personalizer
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 오프 라인 평가를 사용 하 여 앱의 효율성을 측정 하 고 학습 루프를 분석 하는 방법을 설명 합니다.
+description: 이 문서에서는 오프라인 평가를 사용하여 앱의 효과를 측정하고 학습 루프를 분석하는 방법에 대해 설명합니다.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -9,15 +9,15 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 627f511bb12c16c8f54935d1f782cb7c2c962163
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "87132758"
 ---
 # <a name="offline-evaluation"></a>오프라인 평가
 
-오프라인 평가는 코드를 변경하거나 사용자 환경에 영향을 주지 않고 Personalizer 서비스의 효율성을 테스트하고 평가할 수 있는 방법입니다. 오프 라인 평가는 응용 프로그램에서 순위 및 보상 Api로 전송 되는 과거 데이터를 사용 하 여 다른 순위가 수행 된 방식을 비교 합니다.
+오프라인 평가는 코드를 변경하거나 사용자 환경에 영향을 주지 않고 Personalizer 서비스의 효율성을 테스트하고 평가할 수 있는 방법입니다. 오프라인 평가는 애플리케이션에서 Rank 및 Reward API로 보낸 과거 데이터를 사용하여 다른 순위에서 수행된 방식을 비교합니다.
 
 오프라인 평가는 날짜 범위에서 수행됩니다. 범위의 끝은 현재 시간까지 늦을 수 있으며, 범위의 시작은 [데이터 보존](how-to-settings.md)에 지정된 일 수보다 클 수 없습니다.
 
@@ -46,17 +46,17 @@ ms.locfileid: "87132758"
 
 Personalizer는 오프라인 평가 프로세스를 사용하여 최적의 학습 정책을 자동으로 검색할 수 있습니다.
 
-오프라인 평가가 수행되면 현재 온라인 정책과 비교하여 새 정책을 사용한 Personalizer의 비교 효율성을 확인할 수 있습니다. 그런 다음이를 다운로드 하 고 모델 및 정책 패널에서 업로드 하 여 Personalizer 즉시 적용 되도록 해당 학습 정책을 적용할 수 있습니다. 나중에 분석 하거나 사용 하기 위해 다운로드할 수도 있습니다.
+오프라인 평가가 수행되면 현재 온라인 정책과 비교하여 새 정책을 사용한 Personalizer의 비교 효율성을 확인할 수 있습니다. 그런 다음 학습 정책을 다운로드하고 모델 및 정책 패널에 업로드하여 Personalizer에서 즉시 적용할 수 있습니다. 나중에 분석하거나 사용하기 위해 다운로드할 수도 있습니다.
 
-평가에 포함 된 현재 정책:
+평가에 포함된 현재 정책:
 
-| 학습 설정 | 용도|
+| 학습 설정 | 목적|
 |--|--|
 |**온라인 정책**| Personalizer에서 사용되는 현재 학습 정책입니다. |
-|**기초**|응용 프로그램의 기본 (순위 호출에서 보낸 첫 번째 작업에 의해 결정 됨)|
+|**기초**|애플리케이션의 기본값(Rank 호출에서 보낸 첫 번째 작업에 의해 결정)입니다.|
 |**임의 정책**|제공된 작업 중에서 항상 임의의 작업을 선택하여 반환하는 가상 순위 동작입니다.|
 |**사용자 지정 정책**|평가를 시작할 때 업로드되는 추가 학습 정책입니다.|
-|**최적화 된 정책**|최적화된 정책을 검색하는 옵션을 사용하여 평가를 시작한 경우 최적화된 정책 비교가 수행되며, 최적화된 정책을 다운로드하거나 온라인 학습 정책으로 만들어서 현재 정책을 대체할 수 있습니다.|
+|**최적화된 정책**|최적화된 정책을 검색하는 옵션을 사용하여 평가를 시작한 경우 최적화된 정책 비교가 수행되며, 최적화된 정책을 다운로드하거나 온라인 학습 정책으로 만들어서 현재 정책을 대체할 수 있습니다.|
 
 ## <a name="understanding-the-relevance-of-offline-evaluation-results"></a>오프라인 평가 결과의 관련성 이해
 
@@ -100,11 +100,11 @@ Personalizer는 사용자의 동작(및 이에 따라 보상)을 소급하여 �
 
 * 더 효과적인 기능과 같은 맥락에서 애플리케이션 또는 시스템에서 추가로 제공할 수 있는 다른 기능은 무엇인가요?
 * 낮은 효율성으로 인해 제거할 수 있는 기능은 무엇인가요? 효율성이 낮은 기능은 _노이즈_ 를 기계 학습에 추가합니다.
-* 실수로 포함된 기능이 있나요? 이러한 예로는 사용자 식별이 가능한 정보, 중복 Id 등이 있습니다.
+* 실수로 포함된 기능이 있나요? 예를 들어 사용자 식별 정보, 중복 ID 등이 있습니다.
 * 규정 또는 사용 책임에 대한 고려 사항으로 인해 개인에 맞게 설정하는 데 사용할 수 없는 바람직하지 않은 기능이 있나요? 바람직하지 않은 기능을 프록시(즉, 밀접하게 미러링하거나 상관 관계 지정)할 수 있는 기능이 있나요?
 
 
 ## <a name="next-steps"></a>다음 단계
 
 [Personalizer 구성](how-to-settings.md) 
- [오프 라인 평가 실행](how-to-offline-evaluation.md) [Personalizer 작동 방식](how-personalizer-works.md) 이해
+ [오프라인 평가 실행](how-to-offline-evaluation.md) [Personalizer 작동 방식](how-personalizer-works.md) 이해

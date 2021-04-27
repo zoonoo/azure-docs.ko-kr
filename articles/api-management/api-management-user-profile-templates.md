@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1aef238ec0b947dda1417b567b343ae9d92754d9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86249515"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Azure API Management의 사용자 프로필 템플릿
@@ -40,7 +40,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="profile"></a><a name="Profile"></a> Profile  
+##  <a name="profile"></a><a name="Profile"></a>프로필  
  **프로필** 템플릿을 사용하여 개발자 포털에서 사용자 프로필 페이지의 사용자 프로필 섹션을 사용자 지정할 수 있습니다.  
   
  ![사용자 프로필 페이지](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "APIM 사용자 프로필 페이지")  
@@ -105,7 +105,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 > [!NOTE]
 >  [프로필](#Profile), [애플리케이션](#Applications) 및 [구독](#Subscriptions) 템플릿은 동일한 데이터 모델을 공유하며 동일한 템플릿 데이터를 수신합니다.  
   
-|속성|Type|Description|  
+|속성|유형|Description|  
 |--------------|----------|-----------------|  
 |`firstName`|문자열|현재 사용자의 이름입니다.|  
 |`lastName`|문자열|현재 사용의 성입니다.|  
@@ -185,7 +185,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 }  
 ```  
   
-##  <a name="subscriptions"></a><a name="Subscriptions"></a> 등에  
+##  <a name="subscriptions"></a><a name="Subscriptions"></a> 구독  
  **구독** 템플릿을 사용하여 개발자 포털에서 사용자 프로필 페이지의 구독 섹션을 사용자 지정할 수 있습니다.  
   
  ![사용자 구독 페이지](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "APIM 사용자 구독 페이지")  
@@ -319,14 +319,14 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ### <a name="controls"></a>컨트롤  
  이 템플릿에서 다음 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 있습니다.  
   
--   [구독-취소](api-management-page-controls.md#subscription-cancel)  
+-   [subscription-cancel](api-management-page-controls.md#subscription-cancel)  
   
 ### <a name="data-model"></a>데이터 모델  
   
 > [!NOTE]
 >  [프로필](#Profile), [애플리케이션](#Applications) 및 [구독](#Subscriptions) 템플릿은 동일한 데이터 모델을 공유하며 동일한 템플릿 데이터를 수신합니다.  
   
-|속성|Type|Description|  
+|속성|유형|Description|  
 |--------------|----------|-----------------|  
 |`firstName`|문자열|현재 사용자의 이름입니다.|  
 |`lastName`|문자열|현재 사용의 성입니다.|  
@@ -406,10 +406,10 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 }  
 ```  
   
-##  <a name="applications"></a><a name="Applications"></a> 프로그램도  
+##  <a name="applications"></a><a name="Applications"></a> 애플리케이션  
  **애플리케이션** 템플릿을 사용하여 개발자 포털에서 사용자 프로필 페이지의 구독 섹션을 사용자 지정할 수 있습니다.  
   
- ![사용자 계정 응용 프로그램 페이지](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "APIM 사용자 계정 응용 프로그램 페이지")  
+ ![사용자 계정 애플리케이션 페이지](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "APIM 사용자 계정 애플리케이션 페이지")  
   
 ### <a name="default-template"></a>기본 템플릿  
   
@@ -482,14 +482,14 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ### <a name="controls"></a>컨트롤  
  이 템플릿에서 다음 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 있습니다.  
   
--   [앱-작업](api-management-page-controls.md#app-actions)  
+-   [app-actions](api-management-page-controls.md#app-actions)  
   
 ### <a name="data-model"></a>데이터 모델  
   
 > [!NOTE]
 >  [프로필](#Profile), [애플리케이션](#Applications) 및 [구독](#Subscriptions) 템플릿은 동일한 데이터 모델을 공유하며 동일한 템플릿 데이터를 수신합니다.  
   
-|속성|Type|Description|  
+|속성|유형|Description|  
 |--------------|----------|-----------------|  
 |`firstName`|문자열|현재 사용자의 이름입니다.|  
 |`lastName`|문자열|현재 사용의 성입니다.|  

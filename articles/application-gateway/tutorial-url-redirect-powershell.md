@@ -8,15 +8,15 @@ ms.date: 03/24/2021
 ms.author: victorh
 ms.topic: how-to
 ms.openlocfilehash: 61a47f691d453218f06a5db4ad433b4760ebe265
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105038383"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Azure PowerShell을 사용하여 URL 경로 기반 리디렉션으로 애플리케이션 게이트웨이 만들기
 
-Azure PowerShell을 사용하여 [애플리케이션 게이트웨이](./overview.md)를 만들 때 [URL 기반 회람 규칙](./url-route-overview.md)을 구성할 수 있습니다. 이 문서에서는  [가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)을 사용 하 여 백 엔드 풀을 만듭니다. 그런 다음, 웹 트래픽이 적절한 백 엔드 풀로 리디렉션되도록 하는 URL 라우팅 규칙을 만듭니다.
+Azure PowerShell을 사용하여 [애플리케이션 게이트웨이](./overview.md)를 만들 때 [URL 기반 회람 규칙](./url-route-overview.md)을 구성할 수 있습니다. 이 문서에서는 [가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)을 사용하여 백 엔드 풀을 만듭니다. 그런 다음, 웹 트래픽이 적절한 백 엔드 풀로 리디렉션되도록 하는 URL 라우팅 규칙을 만듭니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-PowerShell을 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 절차에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요 합니다. 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 절차에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요합니다. 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -128,7 +128,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-default-listener-and-rule"></a>기본 수신기 및 규칙 만들기
 
-애플리케이션 게이트웨이에서 트래픽을 백 엔드 풀로 적절하게 라우팅할 수 있으려면 수신기가 필요합니다. 이 문서에서는 여러 수신기를 만듭니다. 첫 번째 기본 수신기는 루트 URL에서 트래픽을 예상합니다. 다른 수신기는 특정 URL(예: `http://52.168.55.24:8080/images/` 또는 `http://52.168.55.24:8081/video/`)에서 트래픽을 예상합니다.
+애플리케이션 게이트웨이에서 트래픽을 백 엔드 풀로 적절하게 라우팅할 수 있으려면 수신기가 필요합니다. 이 문서에서는 여러 개의 수신기를 만듭니다. 첫 번째 기본 수신기는 루트 URL에서 트래픽을 예상합니다. 다른 수신기는 특정 URL(예: `http://52.168.55.24:8080/images/` 또는 `http://52.168.55.24:8081/video/`)에서 트래픽을 예상합니다.
 
 이전에 만든 프런트 엔드 구성 및 프런트 엔드 포트가 포함된 [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener)를 사용하여 *defaultListener* 라는 수신기를 만듭니다. 수신기에서 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)을 사용하여 *rule1* 이라는 기본 규칙을 만듭니다.
 
@@ -392,7 +392,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 이 예제에서는 사용자가 만든 세 개의 백 엔드 풀을 지원하는 세 개의 가상 머신 확장 집합을 만듭니다. 사용자가 만든 확장 집합의 이름은 *myvmss1*, *myvmss2* 및 *myvmss3* 입니다. 각 확장 집합에는 IIS를 설치하는 두 개의 가상 머신 인스턴스가 포함됩니다. IP 설정을 구성할 때 확장 집합을 백 엔드 풀에 할당합니다.
 
-\<username> \<password> 스크립트를 실행 하기 전에 및를 사용자 고유의 값으로 바꿉니다.
+스크립트를 실행하기 전에 \<username> 및 \<password>를 고유의 값으로 바꿉니다.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `

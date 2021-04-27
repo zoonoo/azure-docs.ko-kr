@@ -1,7 +1,7 @@
 ---
-title: 메트릭 관리자 서비스 암호화
+title: Metrics Advisor 서비스 암호화
 titleSuffix: Azure Cognitive Services
-description: 미사용 데이터의 메트릭 관리자 서비스 암호화
+description: 미사용 데이터의 Metrics Advisor 서비스 암호화.
 author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbullwin
 ms.openlocfilehash: 5d41500a9c53e38cd36f0feba602e0e1baa5da2c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "92909746"
 ---
-# <a name="metrics-advisor-service-encryption-of-data-at-rest"></a>미사용 데이터의 메트릭 관리자 서비스 암호화
+# <a name="metrics-advisor-service-encryption-of-data-at-rest"></a>미사용 데이터의 Metrics Advisor 서비스 암호화
 
-메트릭 관리자 서비스는 데이터를 클라우드에 보관할 때 데이터를 자동으로 암호화 합니다. 메트릭 관리자 서비스 암호화는 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움을 줍니다.
+Metrics Advisor 서비스는 데이터를 클라우드에 저장할 때 자동으로 암호화합니다. Metrics Advisor 서비스 암호화는 데이터를 보호하고 조직의 보안 및 규정 준수 약정에 부합하는 데 도움이 됩니다.
 
 [!INCLUDE [cognitive-services-about-encryption](../includes/cognitive-services-about-encryption.md)]
 
 > [!IMPORTANT]
-> 고객 관리 키는 E0 가격 책정 계층 에서만 사용할 수 있습니다. 고객 관리 키를 사용 하는 기능을 요청 하려면 [메트릭 Advisor 서비스 Customer-Managed 키 요청 양식](https://aka.ms/cogsvc-cmk)을 작성 하 고 제출 합니다. 요청 상태를 다시 들으려면 영업일 3-5 영업일이 소요 됩니다. 요청에 따라 큐에 배치 되 고 공간을 사용할 수 있게 되 면 승인 될 수 있습니다. 메트릭 관리자 서비스와 함께 CMK를 사용 하도록 승인 되 면 새 메트릭 관리자 리소스를 만들고 해당 가격 책정 계층으로 E0를 선택 해야 합니다. E0 가격 책정 계층을 사용 하 여 메트릭 관리자 리소스를 만든 후 Azure Key Vault를 사용 하 여 관리 id를 설정할 수 있습니다.
+> 고객 관리형 키는 E0 가격 책정 계층에서만 사용할 수 있습니다. 고객 관리형 키를 사용하는 기능을 요청하려면 [Metrics Advisor 서비스 고객 관리형 키 요청 양식](https://aka.ms/cogsvc-cmk)을 작성하여 제출합니다. 요청 상태에 대한 답변을 받는 데는 영업일 기준 약 3~5일이 소요됩니다. 요청에 따라 공간이 확보되면 큐에 배치되고 승인될 수 있습니다. Metrics Advisor 서비스에서 CMK 사용이 승인되면 새 Metrics Advisor 리소스를 만들고 E0을 가격 책정 계층으로 선택해야 합니다. E0 가격 계층을 사용하여 Metrics Advisor 리소스가 만들어지면 Azure Key Vault를 사용하여 관리 ID를 설정할 수 있습니다.
 
 [!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
@@ -31,5 +31,5 @@ ms.locfileid: "92909746"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [메트릭 관리자 서비스 Customer-Managed 키 요청 양식](https://aka.ms/cogsvc-cmk)
+* [Metrics Advisor 서비스 고객 관리형 키 요청 양식](https://aka.ms/cogsvc-cmk)
 * [Azure Key Vault에 대해 자세히 알아보기](../../key-vault/general/overview.md)

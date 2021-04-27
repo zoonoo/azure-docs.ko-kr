@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/18/2021
 ms.topic: conceptual
 ms.openlocfilehash: c46a8753c87e981d9e3d6ecdd698bbbe6cba9894
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104775785"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>웹후크에서 Runbook 시작
@@ -21,7 +21,7 @@ ms.locfileid: "104775785"
 
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
-웹 후크에 TLS 1.2에 대 한 클라이언트 요구 사항을 이해 하려면 [Azure Automation에 대 한 tls 1.2 적용](automation-managing-data.md#tls-12-enforcement-for-azure-automation)을 참조 하세요.
+웹후크에 TLS 1.2에 대한 클라이언트 요구 사항을 이해하려면 [Azure Automation에 대한 TLS 1.2 적용](automation-managing-data.md#tls-12-enforcement-for-azure-automation)을 참조하세요.
 
 ## <a name="webhook-properties"></a>웹후크 속성
 
@@ -83,13 +83,13 @@ ms.locfileid: "104775785"
 
 웹후크의 보안은 웹후크를 호출할 수 있는 보안 토큰을 포함하는 URL의 개인 정보에 의존합니다. Azure Automation은 올바른 URL로 설정되어 있는 경우에만 요청에 대한 인증을 수행합니다. 따라서 클라이언트는 요청의 유효성을 검사하는 대체 수단을 사용하지 않고 매우 중요한 작업을 수행하는 Runbook에 웹후크를 사용해서는 안 됩니다.
 
-다음 전략을 고려 하십시오.
+다음과 같은 전략을 고려해 보세요.
 
 * Runbook에 논리를 포함하여 웹후크에서 호출되었는지 여부를 확인할 수 있습니다. Runbook이 `WebhookData` 매개 변수의 `WebhookName` 속성을 확인하도록 합니다. Runbook은 `RequestHeader` 및 `RequestBody` 속성에서 특정 정보를 찾아 추가로 유효성 검사를 수행할 수 있습니다.
 
-* Runbook에서 webhook 요청을 수신할 때 외부 조건의 유효성 검사를 수행 하도록 합니다. 예를 들어 GitHub 리포지토리에 대한 새 커밋이 있을 때마다 GitHub에 의해 호출되는 Runbook을 가정해 보겠습니다. 이 Runbook은 계속하기 전에 GitHub에 연결하여 새 커밋이 발생했는지 유효성 검사를 수행할 수 있습니다.
+* Runbook이 웹후크 요청을 받았을 때 외부 조건의 유효성 검사를 일부 수행하도록 합니다. 예를 들어 GitHub 리포지토리에 대한 새 커밋이 있을 때마다 GitHub에 의해 호출되는 Runbook을 가정해 보겠습니다. 이 Runbook은 계속하기 전에 GitHub에 연결하여 새 커밋이 발생했는지 유효성 검사를 수행할 수 있습니다.
 
-* Azure Automation는 Azure virtual network 서비스 태그, 특히 [GuestAndHybridManagement](../virtual-network/service-tags-overview.md)을 지원 합니다. 서비스 태그를 사용 하 여 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md#security-rules) 또는 [Azure 방화벽](../firewall/service-tags.md) 에서 네트워크 액세스 제어를 정의 하 고 가상 네트워크 내에서 웹 후크를 트리거할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 규칙의 적절 한 원본 또는 대상 필드에서 서비스 태그 이름 **GuestAndHybridManagement**  을 지정 하 여 자동화 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. 이 서비스 태그는 IP 범위를 특정 지역으로 제한 하 여 보다 세부적인 제어를 허용 하는 기능을 지원 하지 않습니다.
+* Azure Automation은 Azure 가상 네트워크 서비스 태그, 특히 [GuestAndHybridManagement](../virtual-network/service-tags-overview.md)를 지원합니다. 서비스 태그를 사용하여 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md#security-rules) 또는 [Azure Firewall](../firewall/service-tags.md)에서 네트워크 액세스 제어를 정의하고 가상 네트워크 내에서 웹후크를 트리거할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용합니다. 서비스 태그 이름 **GuestAndHybridManagement** 를 규칙의 적절한 원본 또는 대상 필드에 지정하면 Automation 서비스에 대한 트래픽을 허용하거나 거부할 수 있습니다. 이 서비스 태그는 IP 범위를 특정 지역으로 제한하여 보다 세부적인 제어를 허용하는 기능을 지원하지 않습니다.
 
 ## <a name="create-a-webhook"></a>웹후크 만들기
 
@@ -102,7 +102,7 @@ Azure 포털에서 runbook에 연결된 새 webhook를 만들려면 다음 절�
 5. 복사 아이콘을 클릭하고 Ctrl+C를 눌러 webhook의 URL을 복사합니다. 그런 다음 안전한 곳에 기록합니다. 
 
     > [!IMPORTANT]
-    > 웹후크를 만들고 나면 URL을 다시 검색할 수 없습니다. 위와 같이 복사 하 고 기록해 야 합니다.
+    > 웹후크를 만들고 나면 URL을 다시 검색할 수 없습니다. 위와 같이 복사하고 기록해야 합니다.
 
    ![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
 
@@ -135,14 +135,14 @@ http://<Webhook Server>/token?=<Token Value>
 
 클라이언트는 Runbook 작업의 완료 여부 또는 완료 상태를 webhook에서 확인할 수 없습니다. [Windows PowerShell](/powershell/module/servicemanagement/azure.service/get-azureautomationjob) 또는 [Azure Automation API](/rest/api/automation/job)와 같은 다른 메커니즘으로 작업 ID를 사용하여 이 정보를 찾을 수 있습니다.
 
-### <a name="use-a-webhook-from-an-arm-template"></a>ARM 템플릿에서 webhook 사용
+### <a name="use-a-webhook-from-an-arm-template"></a>ARM 템플릿에서 웹후크 사용
 
-[Azure Resource Manager (ARM) 템플릿에서](/azure/azure-resource-manager/templates/overview)Automation 웹 후크를 호출할 수도 있습니다. ARM 템플릿은 요청을 발행 `POST` 하 고 다른 클라이언트와 마찬가지로 반환 코드를 받습니다. [Webhook 사용을](#use-a-webhook)참조 하세요.
+[ARM(Azure Resource Manager) 템플릿에서](/azure/azure-resource-manager/templates/overview) 자동화 웹후크를 호출할 수도 있습니다. ARM 템플릿은 `POST` 요청을 발행하고 다른 클라이언트와 마찬가지로 반환 코드를 받습니다. [웹후크 사용](#use-a-webhook)을 참조하세요.
 
    > [!NOTE]
-   > 보안상의 이유로 URI는 처음 템플릿이 배포 될 때만 반환 됩니다.
+   > 보안상의 이유로 URI는 처음 템플릿이 배포될 때만 반환됩니다.
 
-이 샘플 템플릿은 테스트 환경을 만들고 만든 webhook에 대 한 URI를 반환 합니다.
+이 샘플 템플릿은 테스트 환경을 만들고 만든 웹후크에 대한 URI를 반환합니다.
 
 ```json
 {

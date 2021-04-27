@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: 원활한 단일 Sign-On-빠른 시작 | Microsoft Docs'
+title: 'Azure AD Connect: Seamless Single Sign-On - 빠른 시작 | Microsoft Docs'
 description: 이 문서에서는 Azure Active Directory Seamless Single Sign-On을 시작하는 방법을 설명합니다.
 services: active-directory
 keywords: Azure AD Connect의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on
@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 349aef1bb9382eec19d9ad9c7f6d4579c82b62de
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105043940"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>원활한 Single Sign-on Azure Active Directory: 빠른 시작
+# <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
 ## <a name="deploy-seamless-single-sign-on"></a>Seamless Single Sign-On 배포
 
@@ -35,15 +35,15 @@ Seamless SSO를 배포하려면 다음 단계를 수행합니다.
 
 다음 필수 조건이 충족되는지 확인합니다.
 
-* **Azure AD Connect 서버 설정**: 로그인 방법으로 [통과 인증](how-to-connect-pta.md) 을 사용 하는 경우 추가 필수 구성 요소 확인이 필요 하지 않습니다. 로그인 방법으로 [암호 해시 동기화](how-to-connect-password-hash-synchronization.md)를 사용하고 Azure AD Connect와 Azure AD 사이에 방화벽이 있는 경우 다음을 확인합니다.
+* **Azure AD Connect 서버 설정**: 로그인 방법으로 [통과 인증](how-to-connect-pta.md)을 사용하는 경우 추가 필수 구성 요소 확인이 필요하지 않습니다. 로그인 방법으로 [암호 해시 동기화](how-to-connect-password-hash-synchronization.md)를 사용하고 Azure AD Connect와 Azure AD 사이에 방화벽이 있는 경우 다음을 확인합니다.
    - Azure AD Connect 버전 1.1.644.0 이상을 사용합니다. 
-   - 방화벽 또는 프록시에서 허용 하는 경우 포트 443을 통해 **\* msappproxy.net** url에 대해 허용 된 목록에 대 한 연결을 추가 합니다. 프록시 구성에 와일드 카드 대신 특정 URL이 필요한 경우 **tenantid.registration.msappproxy.net** 를 구성할 수 있습니다. 여기서 tenantid는 기능을 구성 하는 테 넌 트의 GUID입니다. 조직에서 URL 기반 프록시 예외를 사용할 수 없는 경우에는 매주 업데이트 되는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대 한 액세스를 허용할 수 있습니다. 이 필수 조건은 해당 기능을 사용하도록 설정한 경우에만 적용할 수 있습니다. 실제 사용자 로그인에서는 필요하지 않습니다.
+   - 방화벽 또는 프록시에서 허용하는 경우 포트 443을 통해 **\*.msappproxy.net** URL에 대해 허용된 목록에 연결을 추가합니다. 프록시 구성에 와일드 카드 대신 특정 URL이 필요한 경우 **tenantid.registration.msappproxy.net** 을 구성할 수 있습니다. 여기서 tenantid는 기능을 구성하는 테넌트의 GUID입니다. 조직에서 URL 기반 프록시 예외를 사용할 수 없는 경우에는 매주 업데이트되는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대한 액세스를 대신 허용할 수 있습니다. 이 필수 조건은 해당 기능을 사용하도록 설정한 경우에만 적용할 수 있습니다. 실제 사용자 로그인에서는 필요하지 않습니다.
 
     >[!NOTE]
     >Azure AD Connect 버전 1.1.557.0, 1.1.558.0, 1.1.561.0 및 1.1.614.0에는 암호 해시 동기화와 관련된 문제가 있습니다. 암호 해시 동기화를 통과 인증과 함께 사용하지 _않으려는_ 경우 자세한 내용은 [Azure AD Connect 릴리스 정보](./reference-connect-version-history.md)를 참조하세요.
     
     >[!NOTE]
-    >나가는 HTTP 프록시가 있는 경우이 URL (autologon.microsoftazuread-sso.com)이 허용 목록에 있는지 확인 합니다. 와일드 카드를 사용할 수 없으므로이 URL을 명시적으로 지정 해야 합니다. 
+    >나가는 HTTP 프록시가 있는 경우 이 URL (autologon.microsoftazuread-sso.com)이 허용 목록에 있는지 확인합니다. 와일드 카드를 사용 가능하지 않을 수 있으므로 이 URL을 명시적으로 지정해야 합니다. 
 
 * **지원되는 Azure AD Connect 토폴로지 사용**: [여기](plan-connect-topologies.md)에서 설명한 Azure AD Connect의 지원되는 토폴로지 중 하나를 사용하는지 확인합니다.
 
@@ -56,7 +56,7 @@ Seamless SSO를 배포하려면 다음 단계를 수행합니다.
     
 * **최신 인증 사용하도록 설정**: 이 기능에 대한 테넌트에서 [최신 인증](/office365/enterprise/modern-auth-for-office-2013-and-2016)을 사용하도록 설정해야 합니다.
 
-* **최신 버전의 Microsoft 365 클라이언트 사용**: Microsoft 365 클라이언트 (Outlook, Word, Excel 등)를 사용 하 여 자동 로그온 환경을 가져오려면 사용자가 16.0.8730 이상의 버전을 사용 해야 합니다.
+* **최신 버전의 Microsoft 365 클라이언트 사용**: Microsoft 365 클라이언트(Outlook, Word, Excel 등)를 사용하여 자동 로그온 환경을 가져오려면 버전 16.0.8730.xxxx 이상을 사용해야 합니다.
 
 ## <a name="step-2-enable-the-feature"></a>2단계: 기능 활성화
 
@@ -76,7 +76,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
 ![Azure AD Connect: 사용자 로그인 변경](./media/how-to-connect-sso-quick-start/changeusersignin.png)
 
-**Single Sign-on 사용** 페이지에 도달할 때까지 마법사를 계속 진행 합니다. 각 Active Directory 포리스트에 대한 도메인 관리자 자격 증명을 제공합니다.
+**Single Sign-On 사용** 페이지에 도달할 때까지 마법사를 계속 진행합니다. 각 Active Directory 포리스트에 대한 도메인 관리자 자격 증명을 제공합니다.
 
 * Azure AD Connect를 통해 Azure AD에 동기화합니다.
 * Seamless SSO를 사용하도록 설정할 사용자를 포함합니다.
@@ -96,10 +96,10 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 ![Azure Portal: Azure AD Connect 창](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> 원활한 SSO는 `AZUREADSSOACC` 각 ad 포리스트의 온-프레미스 Active Directory (ad)에 이름이 지정 된 컴퓨터 계정을 만듭니다. `AZUREADSSOACC`보안상의 이유로 컴퓨터 계정을 강력 하 게 보호 해야 합니다. 도메인 관리자만 컴퓨터 계정을 관리할 수 있어야 합니다. 컴퓨터 계정에 대 한 Kerberos 위임이 사용 하지 않도록 설정 되어 있고 Active Directory의 다른 계정에 컴퓨터 계정에 대 한 위임 권한이 없는지 확인 하십시오 `AZUREADSSOACC` . 실수로 삭제 되는 것이 안전 하 고 도메인 관리자만 액세스할 수 있는 조직 구성 단위 (OU)에 컴퓨터 계정을 저장 합니다.
+> Seamless SSO는 각 AD 포리스트의 온-프레미스 AD(Active Directory)에 Azure AD를 나타내는 `AZUREADSSOACC`라는 컴퓨터 계정을 만듭니다. 보안상의 이유로 `AZUREADSSOACC` 컴퓨터 계정은 강력하게 보호되어야 합니다. 도메인 관리자만 컴퓨터 계정을 관리할 수 있어야 합니다. 컴퓨터 계정에 대한 Kerberos 위임이 사용하지 않도록 설정되어 있고 Active Directory의 다른 계정에 컴퓨터 계정 `AZUREADSSOACC`에 대한 위임 권한이 없도록 확인하세요. 실수로 삭제될 위험이 없고 도메인 관리자만 액세스할 수 있는 OU(조직 구성 단위)에 컴퓨터 계정을 저장합니다.
 
 >[!NOTE]
-> 온-프레미스 환경에서 해시-해시 및 자격 증명 도난 완화 아키텍처를 사용 하는 경우 `AZUREADSSOACC` 컴퓨터 계정이 격리 컨테이너에서 종료 되지 않도록 적절 하 게 변경 합니다. 
+> 온-프레미스 환경에서 Pass-the-Hash 및 자격 증명 도난 완화 아키텍처를 사용하는 경우 `AZUREADSSOACC` 컴퓨터 계정이 격리 컨테이너에 저장되지 않도록 적절하게 조정합니다. 
 
 ## <a name="step-3-roll-out-the-feature"></a>3단계: 기능 배포
 
@@ -110,7 +110,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 또한 그룹 정책을 통해 **스크립트를 통해 상태 표시줄에 대한 업데이트 허용** 이라는 인트라넷 영역 정책 설정을 활성화해야 합니다. 
 
 >[!NOTE]
-> 다음 지침은 Windows의 Internet Explorer, Microsoft Edge 및 Google Chrome (Internet Explorer와 신뢰할 수 있는 사이트 Url 집합을 공유 하는 경우) 에서만 작동 합니다. macOS에서 Mozilla Firefox 및 Google Chrome을 설정하는 방법에 대한 지침은 다음 섹션을 참조하세요.
+> 다음 지침은 Windows의 Internet Explorer, Microsoft Edge 및 Google Chrome(Internet Explorer와 신뢰할 수 있는 사이트 URL 집합을 공유하는 경우)에서만 작동합니다. macOS에서 Mozilla Firefox 및 Google Chrome을 설정하는 방법에 대한 지침은 다음 섹션을 참조하세요.
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>사용자의 인트라넷 영역 설정을 수정해야 하는 이유
 
@@ -127,8 +127,8 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
 1. 그룹 정책 관리 편집기 도구를 엽니다.
 2. 일부 또는 모든 사용자에게 적용되는 그룹 정책을 편집합니다. 예를 들어 **기본 도메인 정책** 은 다음과 같습니다.
-3. **사용자 구성**  >  **정책**  >  **관리 템플릿**  >  **Windows 구성 요소**  >  **internet Explorer**  >  **인터넷 제어판**  >  **보안 페이지** 로 이동 합니다. 그런 다음 **영역에 사이트 할당 목록** 을 선택합니다.
-    !["사이트 간 할당 목록"이 선택 된 "보안 페이지"를 보여 주는 스크린샷](./media/how-to-connect-sso-quick-start/sso6.png)
+3. **사용자 구성** > **정책** > **관리 템플릿** > **Windows 구성 요소** > **Internet Explorer** > **인터넷 제어판** > **보안 페이지** 를 찾아봅니다. 그런 다음 **영역에 사이트 할당 목록** 을 선택합니다.
+    !["영역에 사이트 할당 목록"이 선택된 "보안 페이지"를 보여 주는 스크린샷](./media/how-to-connect-sso-quick-start/sso6.png)
 4. 정책을 사용하도록 설정한 다음, 대화 상자에서 다음 값을 입력합니다.
    - **값 이름**: Kerberos 티켓이 전달되는 Azure AD URL입니다.
    - **값**(데이터): **1** 은 인트라넷 영역을 나타냅니다.
@@ -145,23 +145,23 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
 5. **확인** 을 선택한 후 **만들기** 를 선택합니다.
 
-    ![영역 할당이 선택 된 "내용 표시" 창을 보여 주는 스크린샷](./media/how-to-connect-sso-quick-start/sso7.png)
+    ![영역 할당이 선택된 "콘텐츠 표시" 창을 보여 주는 스크린샷](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. **사용자 구성**  >  **정책**  >  **관리 템플릿**  >  **Windows 구성 요소**  >  **internet Explorer**  >  **인터넷 제어판**  >  **보안 페이지**  >  **인트라넷 영역** 으로 이동 합니다. 그런 다음 **스크립트를 통해 상태 표시줄에 대한 업데이트 허용** 을 선택합니다.
+6. **사용자 구성** > **정책** > **관리 템플릿** > **Windows 구성 요소** > **Internet Explorer** > **인터넷 제어판** > **보안 페이지** > **인트라넷 영역** 을 찾아봅니다. 그런 다음 **스크립트를 통해 상태 표시줄에 대한 업데이트 허용** 을 선택합니다.
 
-    !["인트라넷 영역" 페이지를 보여 주는 스크린샷 "스크립트를 통해 상태 표시줄에 대 한 업데이트 허용"이 선택 되어 있습니다.](./media/how-to-connect-sso-quick-start/sso11.png)
+    !["스크립트를 통해 상태 표시줄에 대한 업데이트 허용"이 선택된 "인트라넷 영역" 페이지를 보여 주는 스크린샷](./media/how-to-connect-sso-quick-start/sso11.png)
 
 7. 정책 설정을 활성화한 다음, **확인** 을 선택합니다.
 
-    ![정책 설정이 사용 하도록 설정 된 "스크립트를 통해 상태 표시줄에 대 한 업데이트 허용" 창을 보여 주는 스크린샷](./media/how-to-connect-sso-quick-start/sso12.png)
+    ![정책 설정이 사용하도록 설정된 "스크립트를 통해 상태 표시줄에 대한 업데이트 허용" 창을 보여 주는 스크린샷](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="group-policy-preference-option---detailed-steps"></a>"그룹 정책 기본 설정" 옵션 - 자세한 단계
 
 1. 그룹 정책 관리 편집기 도구를 엽니다.
 2. 일부 또는 모든 사용자에게 적용되는 그룹 정책을 편집합니다. 예를 들어 **기본 도메인 정책** 은 다음과 같습니다.
-3. **사용자 구성**  >  **기본 설정**  >  **Windows 설정**  >  **레지스트리**  >  **새**  >  **레지스트리 항목** 으로 이동 합니다.
+3. **사용자 구성** > **기본 설정** > **Windows 설정** > **레지스트리** > **새로 만들기** > **레지스트리 항목** 으로 이동합니다.
 
-    ![선택한 "레지스트리" 및 "레지스트리 항목"을 보여 주는 스크린샷](./media/how-to-connect-sso-quick-start/sso15.png)
+    ![선택된 "레지스트리" 및 "레지스트리 항목"을 보여 주는 스크린샷](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. 적절한 필드에서 다음 값을 입력하고 **확인** 을 클릭합니다.
    - **키 경로**: **_Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon_**
@@ -190,11 +190,11 @@ macOS를 실행하는 머신이 AD에 가입되어 있는지 확인합니다. ma
 
 #### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Chromium 기반 Microsoft Edge(모든 플랫폼)
 
-사용자 환경에서 [AuthNegotiateDelegateAllowlist](/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) 또는 [AuthServerAllowlist](/DeployEdge/microsoft-edge-policies#authserverallowlist) 정책 설정을 재정의 한 경우 Azure AD의 URL ()도 추가 해야 `https://autologon.microsoftazuread-sso.com` 합니다.
+환경에서 [AuthNegotiateDelegateAllowlist](/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) 또는 [AuthServerAllowlist](/DeployEdge/microsoft-edge-policies#authserverallowlist) 정책 설정을 재정의한 경우 Azure AD의 URL(`https://autologon.microsoftazuread-sso.com`)도 해당 정책 설정에 추가해야 합니다.
 
-#### <a name="microsoft-edge-based-on-chromium-macos-and-other-non-windows-platforms"></a>Chromium 기반 Microsoft Edge (macOS 및 기타 Windows 이외의 플랫폼)
+#### <a name="microsoft-edge-based-on-chromium-macos-and-other-non-windows-platforms"></a>Chromium 기반 Microsoft Edge(macOS 및 기타 Windows가 아닌 플랫폼)
 
-MacOS 및 기타 비 Windows 플랫폼의 Chromium을 기반으로 하는 Microsoft edge의 경우 허용 목록에 통합 인증을 위해 Azure AD URL을 추가 하는 방법에 대 한 자세한 내용은 [Microsoft edge 기반 Chromium 정책 목록을](/DeployEdge/microsoft-edge-policies#authserverallowlist) 참조 하세요.
+macOS 및 기타 Windows가 아닌 플랫폼의 Chromium을 기반으로 하는 Microsoft Edge의 경우 통합 인증을 위해 허용 목록에 Azure AD URL을 추가하는 방법에 대한 자세한 내용은 [Microsoft Edge 기반 Chromium 정책 목록](/DeployEdge/microsoft-edge-policies#authserverallowlist)을 참조하세요.
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome(모든 플랫폼)
 
@@ -202,13 +202,13 @@ MacOS 및 기타 비 Windows 플랫폼의 Chromium을 기반으로 하는 Micros
 
 #### <a name="google-chrome-macos-and-other-non-windows-platforms"></a>Google Chrome(macOS 및 기타 Windows 이외 플랫폼)
 
-MacOS 및 기타 비 Windows 플랫폼의 Google Chrome에 대 한 자세한 내용은 [Chromium 프로젝트 정책 목록](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) 에서 통합 인증을 위해 AZURE AD URL에 대 한 허용 목록을 제어 하는 방법에 대 한 정보를 참조 하세요.
+macOS 및 기타 Windows가 아닌 플랫폼의 Google Chrome의 경우 통합 인증에 대한 Azure AD URL을 위해 허용 목록을 컨트롤하는 방법은 [Chromium 프로젝트 정책 목록](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist)을 참조하세요.
 
 타사 Active Directory 그룹 정책 확장을 사용하여 Mac 사용자의 Firefox 및 Google Chrome에 Azure AD URL을 롤아웃하는 방법은 이 문서에 포함되어 있지 않습니다.
 
 #### <a name="known-browser-limitations"></a>알려진 브라우저 제한 사항
 
-원활한 SSO는 Firefox 및 Microsoft Edge (레거시) 브라우저의 개인 검색 모드에서 작동 하지 않습니다. 또한 브라우저가 고급 보호 모드에서 실행 중인 경우 Internet Explorer에서 작동하지 않습니다. 원활한 SSO는 Chromium을 기반으로 하는 Microsoft Edge의 다음 버전을 지원 하 고 설계에 따라 InPrivate 및 게스트 모드에서 작동 합니다.
+Firefox 및 Microsoft Edge(레거시) 브라우저의 프라이빗 검색 모드에서는 Seamless SSO가 작동하지 않습니다. 또한 브라우저가 고급 보호 모드에서 실행 중인 경우 Internet Explorer에서 작동하지 않습니다. 원활한 SSO는 Chromium을 기반으로 하는 Microsoft Edge의 다음 버전을 지원하고 설계에 따라 InPrivate 및 게스트 모드에서 작동합니다.
 
 ## <a name="step-4-test-the-feature"></a>4단계: 기능 테스트
 
@@ -219,10 +219,10 @@ MacOS 및 기타 비 Windows 플랫폼의 Google Chrome에 대 한 자세한 내
   - 그룹 정책을 통해 해당 사용자에게 [기능을 롤아웃](#step-3-roll-out-the-feature)했습니다.
 
 사용자가 암호가 아니라 사용자 이름만 입력하는 시나리오를 테스트하려면 다음을 수행합니다.
-   - '에 로그인 https://myapps.microsoft.com/ 합니다. 브라우저 캐시를 지우거 나 개인 모드에서 지원 되는 브라우저와 함께 새 개인 브라우저 세션을 사용 해야 합니다.
+   - https://myapps.microsoft.com/ 에 로그인합니다. 지원되는 브라우저의 프라이빗 모드에서 브라우저 캐시를 삭제하거나, 새 프라이빗 브라우저 세션을 사용해야 합니다.
 
 사용자가 사용자 이름이나 암호를 입력할 필요가 없는 시나리오를 테스트하려면 다음 중 하나를 수행합니다. 
-   - `https://myapps.microsoft.com/contoso.onmicrosoft.com`브라우저 캐시를 지우거 나 개인 모드에서 지원 되는 브라우저와 함께 새 개인 브라우저 세션을 사용 하려면 로그인 하십시오. *contoso* 를 테넌트의 이름으로 바꿉니다.
+   - `https://myapps.microsoft.com/contoso.onmicrosoft.com`에 로그인, 지원되는 브라우저의 프라이빗 모드에서 브라우저 캐시를 삭제하거나 새 프라이빗 브라우저 세션을 사용해야 합니다. *contoso* 를 테넌트의 이름으로 바꿉니다.
    - 새 프라이빗 브라우저 세션에서 `https://myapps.microsoft.com/contoso.com`에 로그인합니다. *contoso.com* 을 테넌트에서 확인된 도메인(페더레이션 도메인이 아님)으로 바꿉니다.
 
 ## <a name="step-5-roll-over-keys"></a>5단계: 키 롤오버

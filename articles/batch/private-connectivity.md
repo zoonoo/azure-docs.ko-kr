@@ -1,65 +1,65 @@
 ---
 title: Azure Batch 계정으로 프라이빗 엔드포인트 사용
-description: 개인 끝점을 사용 하 여 Azure Batch 계정에 비공개로 연결 하는 방법에 대해 알아봅니다.
+description: 프라이빗 엔드포인트를 사용하여 Azure Batch 계정에 비공개로 연결하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.custom: references_regions
 ms.openlocfilehash: d2e9d36e9e964f2e9f9a5a986fbf55d19b3069d8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98920006"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Azure Batch 계정으로 프라이빗 엔드포인트 사용
 
-기본적으로 [Azure Batch 계정은](accounts.md) 공용 끝점을 포함 하며 공개적으로 액세스할 수 있습니다. Batch 서비스는 개인 Batch 계정을 만들고 공용 네트워크 액세스를 사용 하지 않도록 설정 하는 기능을 제공 합니다.
+기본적으로 [Azure Batch 계정](accounts.md)에는 공용 엔드포인트가 있으며 공개적으로 액세스할 수 있습니다. Batch 서비스는 프라이빗 Batch 계정을 만들고 공용 네트워크 액세스를 사용하지 않도록 설정하는 기능을 제공합니다.
 
-[Azure 개인 링크](../private-link/private-link-overview.md)를 사용 하 여 [개인 끝점](../private-link/private-endpoint-overview.md)을 통해 Azure Batch 계정에 연결할 수 있습니다. 프라이빗 엔드포인트는 가상 네트워크 내부에 있는 서브넷의 개인 IP 주소 세트입니다. 그런 다음 개인 IP 주소를 통해 Azure Batch 계정에 대 한 액세스를 제한할 수 있습니다.
+[Azure Private Link](../private-link/private-link-overview.md)를 사용하면 [프라이빗 엔드포인트](../private-link/private-endpoint-overview.md)를 통해 Azure Batch 계정에 연결할 수 있습니다. 프라이빗 엔드포인트는 가상 네트워크 내부에 있는 서브넷의 개인 IP 주소 세트입니다. 그런 다음, 개인 IP 주소를 통해 Azure Batch 계정에 대한 액세스를 제한할 수 있습니다.
 
-개인 링크를 사용 하면 사용자가 가상 네트워크 또는 피어 링 가상 네트워크 내에서 Azure Batch 계정에 액세스할 수 있습니다. 개인 링크에 매핑된 리소스는 VPN 또는 [Azure express](../expressroute/expressroute-introduction.md)경로를 통해 개인 피어 링을 통해 온-프레미스 에서도 액세스할 수 있습니다. [자동 또는 수동 승인 방법을](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow)사용 하 여 개인 링크로 구성 된 Azure Batch 계정에 연결할 수 있습니다.
+Private Link를 사용하면 사용자가 가상 네트워크 내부에서 또는 피어링된 가상 네트워크에서 Azure Batch 계정에 액세스할 수 있습니다. Private Link에 매핑된 리소스 역시 프라이빗 피어링을 사용하여 VPN 또는 [Azure ExpressRoute](../expressroute/expressroute-introduction.md)를 통해 온-프레미스에서 액세스할 수 있습니다. [자동 또는 수동 승인 방법](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow)을 사용하여 Private Link를 통해 구성된 Azure Batch 계정에 연결할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure Batch의 개인 연결에 대 한 지원은 현재 독일 중부, 독일 북동쪽, 중국 동부, 중국 동부 2, 중국 북부 및 중국 북부 2를 제외한 모든 지역에서 사용할 수 있습니다.
+> Azure Batch의 프라이빗 연결에 대한 지원은 현재 독일 중부, 독일 북동부, 중국 동부, 중국 동부 2, 중국 북부 및 중국 북부 2를 제외한 모든 지역에서 사용할 수 있습니다.
 
-이 문서에서는 개인 일괄 처리 계정을 만들고 개인 끝점을 사용 하 여 액세스 하는 단계를 설명 합니다.
+이 문서에서는 프라이빗 Batch 계정을 만들고 프라이빗 엔드포인트를 사용하여 액세스하는 단계를 설명합니다.
 
 ## <a name="azure-portal"></a>Azure portal
 
-Azure Portal를 사용 하 여 개인 배치 계정을 만들려면 다음 단계를 수행 합니다.
+다음 단계에 따라 Azure Portal을 사용하여 프라이빗 Batch 계정을 만듭니다.
 
-1. **리소스 만들기** 창에서 **Batch 서비스** 를 선택한 다음 **만들기** 를 선택 합니다.
-2. **기본 사항** 탭에 구독, 리소스 그룹, 지역 및 배치 계정 이름을 입력 하 고 **다음: 고급** 을 선택 합니다.
-3. **고급** 탭에서 **공용 네트워크 액세스** 를 **사용 안 함** 으로 설정 합니다.
-4. **설정** 에서 **개인 끝점 연결** 을 선택 하 고 **+ 개인 끝점** 을 선택 합니다.
-   :::image type="content" source="media/private-connectivity/private-endpoint-connections.png" alt-text="개인 끝점 연결":::
-5. **기본 사항** 창에서 구독, 리소스 그룹, 개인 끝점 리소스 이름 및 지역 세부 정보를 입력 하거나 선택 하 고 **다음: 리소스** 를 선택 합니다.
-6. **리소스** 창에서 **리소스 종류** 를 **ch/batchaccountsMicrosoft.Bat** 로 설정 합니다. 액세스 하려는 개인 Batch 계정을 선택 하 고 **다음: 구성** 을 선택 합니다.
-   :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="개인 끝점 만들기-리소스 창":::
-7. **구성** 창에서 다음 정보를 입력 하거나 선택 합니다.
-   - **가상 네트워크**: 가상 네트워크를 선택 합니다.
-   - **서브넷**: 서브넷을 선택 합니다.
-   - **개인 DNS 영역과 통합**: **예** 를 선택 합니다. 프라이빗 엔드포인트에 비공개로 연결하려면 DNS 레코드가 필요합니다. 프라이빗 엔드포인트를 프라이빗 DNS 영역과 통합하는 것이 좋습니다. 자체 DNS 서버를 활용하거나 가상 머신의 호스트 파일을 사용하여 DNS 레코드를 만들 수도 있습니다.
-   - **사설 DNS 영역**: \<region\> privatelink를 선택 합니다. batch.azure.com. 프라이빗 DNS 영역은 자동으로 결정됩니다. Azure Portal을 사용하여 변경할 수 없습니다.
-8. **검토 + 만들기** 를 선택한 다음 Azure에서 구성의 유효성을 검사할 때까지 기다립니다.
+1. **리소스 만들기** 창에서 **일괄 서비스** 를 선택한 다음 **만들기** 를 선택합니다.
+2. **기본** 탭에 구독, 리소스 그룹, 지역 및 배치 계정 이름을 입력한 후 **다음: 고급** 을 선택합니다.
+3. **고급** 탭에서 **공용 네트워크 액세스** 를 **사용 안 함** 으로 설정합니다.
+4. **설정** 에서 **비공개 엔드포인트 연결** 을 선택한 다음 **+ 프라이빗 엔드포인트** 를 선택합니다.
+   :::image type="content" source="media/private-connectivity/private-endpoint-connections.png" alt-text="프라이빗 엔드포인트 연결":::
+5. **기본** 창에서 구독, 리소스 그룹, 프라이빗 엔드포인트 리소스 이름 및 지역 세부 정보를 입력하거나 선택한 후 **다음: 리소스** 를 선택합니다.
+6. **리소스** 창에서 **리소스 유형** 을 **Microsoft.Batch/batchAccounts** 로 설정합니다. 액세스하려는 프라이빗 Batch 계정을 선택한 후 **다음: 구성** 을 선택합니다.
+   :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="프라이빗 엔드포인트 만들기 - 리소스 창":::
+7. **구성** 창에서 다음 정보를 입력하거나 선택합니다.
+   - **가상 네트워크**: 가상 네트워크를 선택합니다.
+   - **서브넷**: 서브넷을 선택합니다.
+   - **프라이빗 DNS 영역과 통합**: **예** 를 선택합니다. 프라이빗 엔드포인트에 비공개로 연결하려면 DNS 레코드가 필요합니다. 프라이빗 엔드포인트를 프라이빗 DNS 영역과 통합하는 것이 좋습니다. 자체 DNS 서버를 활용하거나 가상 머신의 호스트 파일을 사용하여 DNS 레코드를 만들 수도 있습니다.
+   - **프라이빗 DNS 영역**: privatelink.\<region\>.batch.azure.com을 선택합니다. 프라이빗 DNS 영역은 자동으로 결정됩니다. Azure Portal을 사용하여 변경할 수 없습니다.
+8. **검토 + 만들기** 를 선택한 다음 Azure가 구성을 확인할 때까지 기다립니다.
 9. **유효성 검사 통과** 메시지가 표시되면 **만들기** 를 선택합니다.
 
-개인 끝점이 프로 비전 되 면 개인 끝점을 사용 하 여 동일한 가상 네트워크의 Vm에서 Batch 계정에 액세스할 수 있습니다.
+프라이빗 엔드포인트가 프로비저닝되면 프라이빗 엔드포인트를 사용하여 동일한 가상 네트워크의 VM에서 Batch 계정에 액세스할 수 있습니다.
 
 > [!IMPORTANT]
-> 개인 끝점이 프로 비전 되는 가상 네트워크 외부에서 작업을 수행 하면 Azure Portal에서 "AuthorizationFailure" 메시지가 생성 됩니다.
+> 프라이빗 엔드포인트가 프로비저닝된 가상 네트워크 외부에서 작업을 수행하면 Azure Portal에 "AuthorizationFailure" 메시지가 표시됩니다.
 
-Azure Portal에서 IP 주소를 보려면 다음을 수행 합니다.
+Azure Portal에서 IP 주소를 보려면:
 
 1. **모든 리소스** 를 선택합니다.
 2. 이전에 만든 프라이빗 엔드포인트를 검색합니다.
 3. **개요** 탭을 선택하여 DNS 설정 및 IP 주소를 확인합니다.
 
-:::image type="content" source="media/private-connectivity/access-private.png" alt-text="개인 끝점 DNS 설정 및 IP 주소":::
+:::image type="content" source="media/private-connectivity/access-private.png" alt-text="프라이빗 엔드포인트 DNS 설정 및 IP 주소":::
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 
-[Azure Resource Manager 템플릿을 사용 하 여 Batch 계정을 만들](quick-create-template.md)때 아래와 같이 **Publicnetworkaccess** 를 **사용 안 함으로** 설정 하도록 템플릿을 수정 합니다.
+[Azure Resource Manager 템플릿을 사용하여 Batch 계정을 만들 때](quick-create-template.md) 템플릿을 수정하여 아래와 같이 **publicNetworkAccess** 를 **사용 안 함** 으로 설정합니다.
 
 ```json
 {
@@ -91,26 +91,26 @@ Azure Portal에서 IP 주소를 보려면 다음을 수행 합니다.
 
 ## <a name="configure-dns-zones"></a>DNS 영역 구성
 
-개인 끝점을 만든 서브넷 내에서 [개인 DNS 영역](../dns/private-dns-privatednszone.md) 을 사용 합니다. 각 개인 IP 주소가 DNS 항목에 매핑되도록 엔드포인트를 구성합니다.
+프라이빗 엔드포인트를 만든 서브넷 내부의 [프라이빗 DNS 영역](../dns/private-dns-privatednszone.md)을 사용합니다. 각 개인 IP 주소가 DNS 항목에 매핑되도록 엔드포인트를 구성합니다.
 
-개인 끝점을 만들 때 Azure의 [개인 DNS 영역과](../dns/private-dns-privatednszone.md) 통합할 수 있습니다. 대신 [사용자 지정 도메인](../dns/dns-custom-domain.md)을 사용 하도록 선택 하는 경우 개인 끝점에 예약 된 모든 개인 IP 주소에 대 한 DNS 레코드를 추가 하도록 구성 해야 합니다.
+프라이빗 엔드포인트를 만들 때 Azure의 [프라이빗 DNS 영역](../dns/private-dns-privatednszone.md)과 통합할 수 있습니다. [사용자 지정 도메인](../dns/dns-custom-domain.md)을 대신 사용하기로 선택하는 경우 프라이빗 엔드포인트에 대해 예약된 모든 개인 IP 주소의 DNS 레코드를 추가하도록 구성해야 합니다.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
-개인 끝점과 관련 된 비용에 대 한 자세한 내용은 [Azure 개인 링크 가격 책정](https://azure.microsoft.com/pricing/details/private-link/)을 참조 하세요.
+프라이빗 엔드포인트와 관련된 비용에 대한 자세한 내용은 [Azure Private Link 가격 책정](https://azure.microsoft.com/pricing/details/private-link/)을 참조하세요.
 
 ## <a name="current-limitations-and-best-practices"></a>현재 제한 사항 및 모범 사례
 
-개인 Batch 계정을 만들 때 다음 사항에 유의 하세요.
+프라이빗 Batch 계정을 만들 때 다음 사항에 유의하세요.
 
-- 개인 끝점 리소스는 Batch 계정과 동일한 구독에 만들어야 합니다.
-- 개인 연결을 삭제 하려면 개인 끝점 리소스를 삭제 해야 합니다.
-- Batch 계정이 공용 네트워크 액세스를 사용 하 여 만들어진 후에는 개인 액세스로만 변경할 수 없습니다.
-- 개인 DNS 영역의 DNS 레코드는 개인 끝점을 삭제 하거나 배치 계정에서 지역을 제거할 때 자동으로 제거 되지 않습니다. 이 개인 DNS 영역에 연결 된 새 개인 끝점을 추가 하기 전에 DNS 레코드를 수동으로 제거 해야 합니다. DNS 레코드를 정리 하지 않으면 개인 끝점 제거 또는 지역 제거 후에 추가 된 지역에 대 한 데이터 중단이 발생할 수 있습니다.
+- 프라이빗 엔드포인트 리소스는 Batch 계정과 동일한 구독에 만들어야 합니다.
+- 프라이빗 연결을 삭제하려면 프라이빗 엔드포인트 리소스를 삭제해야 합니다.
+- Batch 계정이 공용 네트워크 액세스를 사용하여 만들어진 후에는 프라이빗 액세스로만 변경할 수 없습니다.
+- 프라이빗 엔드포인트를 삭제하거나 Batch 계정에서 지역을 제거해도 프라이빗 DNS 영역의 DNS 레코드는 자동으로 제거되지 않습니다. 이 프라이빗 DNS 영역에 연결된 새 프라이빗 엔드포인트를 추가하기 전에 DNS 레코드를 수동으로 제거해야 합니다. DNS 레코드를 정리하지 않으면 프라이빗 엔드포인트 제거 또는 지역 제거 후에 추가된 지역에 대한 데이터 중단이 발생할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [가상 네트워크에서 Batch 풀을 만드는](batch-virtual-network.md)방법에 대해 알아봅니다.
-- [공용 IP 주소를 사용 하지 않고 Batch 풀을 만드는](batch-pool-no-public-ip-address.md) 방법을 알아봅니다.
-- [지정 된 공용 IP 주소를 사용 하 여 Batch 풀을 만드는](create-pool-public-ip.md)방법을 알아봅니다.
-- [Azure 개인 링크](../private-link/private-link-overview.md)에 대해 알아봅니다.
+- [가상 네트워크에서 배치 풀을 만드는 방법](batch-virtual-network.md)에 대해 알아봅니다.
+- [공용 IP 주소 없이 배치 풀을 만드는 방법](batch-pool-no-public-ip-address.md) 알아보기
+- [지정된 공용 IP 주소로 배치 풀을 만드는 방법](create-pool-public-ip.md)에 대해 알아보세요.
+- [Azure Private Link](../private-link/private-link-overview.md)에 대해 알아봅니다.

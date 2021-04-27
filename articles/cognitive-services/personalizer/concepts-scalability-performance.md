@@ -1,5 +1,5 @@
 ---
-title: 확장성 및 성능-Personalizer
+title: 확장성 및 성능 - Personalizer
 titleSuffix: Azure Cognitive Services
 description: 고성능이고 트래픽이 많은 웹 사이트 및 애플리케이션은 확장성과 성능을 위해 Personalizer와 관련하여 대기 시간 및 학습 처리량이라는 두 가지 주요 요소를 고려해야 합니다.
 services: cognitive-services
@@ -9,10 +9,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.openlocfilehash: 52d22fce64a26267e73cb9a1df8614129bb96c3e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "87132690"
 ---
 # <a name="scalability-and-performance"></a>확장성 및 성능
@@ -22,11 +22,11 @@ ms.locfileid: "87132690"
 * Rank API 호출을 수행할 때 짧은 대기 시간 유지
 * 이벤트 입력을 따라잡을 수 있는 학습 처리량 확인
 
-개인 설정은 REST API를 통한 통신에만 사용 되는 대부분의 호출 기간을 통해 순위를 신속 하 게 반환할 수 있습니다. Azure는 요청에 신속하게 응답할 수 있는 기능을 자동 조정합니다.
+개인 설정은 대부분의 REST API를 통한 통신 전용 호출 기간을 사용하여 순위를 신속하게 반환할 수 있습니다. Azure는 요청에 신속하게 응답할 수 있는 기능을 자동 조정합니다.
 
 ##  <a name="low-latency-scenarios"></a>짧은 대기 시간 시나리오
 
-일부 애플리케이션은 순위를 반환할 때 대기 시간이 짧아야 합니다. 짧은 대기 시간이 필요 합니다.
+일부 애플리케이션은 순위를 반환할 때 대기 시간이 짧아야 합니다. 대기 시간은 짧아야 합니다.
 
 * 순위가 지정된 콘텐츠를 표시하기까지 사용자가 너무 오랜 시간 기다리지 않도록 합니다.
 * 트래픽이 많이 발생하는 서버에서 컴퓨팅 시간 및 네트워크 연결이 부족하지 않도록 합니다.

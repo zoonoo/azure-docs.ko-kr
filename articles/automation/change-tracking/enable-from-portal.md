@@ -6,22 +6,22 @@ ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.openlocfilehash: 63041e0b1b6e12c765299b12f28aa3637b6a6ccb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99052790"
 ---
 # <a name="enable-change-tracking-and-inventory-from-azure-portal"></a>Azure Portal에서 변경 내용 추적 및 인벤토리 사용
 
-이 문서에서는 Azure Portal에서 하나 이상의 Azure Vm에 대해 [변경 내용 추적 및 인벤토리](overview.md) 를 사용 하도록 설정 하는 방법을 설명 합니다. 대규모로 Azure VM을 사용하도록 설정하려면 변경 내용 추적 및 인벤토리를 사용하여 기존 VM을 사용하도록 설정해야 합니다.
+이 문서에서는 Azure Portal의 Azure VM에 [변경 내용 추적 및 인벤토리](overview.md) 기능을 사용하도록 설정하는 방법을 설명합니다. 대규모로 Azure VM을 사용하도록 설정하려면 변경 내용 추적 및 인벤토리를 사용하여 기존 VM을 사용하도록 설정해야 합니다.
 
-VM 관리에 사용할 수 있는 리소스 그룹 수는 [Resource Manager 배포 제한](../../azure-resource-manager/templates/deploy-to-resource-group.md)으로 제한됩니다. 리소스 관리자 배포는 배포 당 5 개의 리소스 그룹으로 제한 됩니다. 이러한 리소스 그룹 중 2개는 Log Analytics 작업 영역, Automation 계정 및 관련 리소스를 구성하기 위해 예약되어 있습니다. 그러면 변경 내용 추적 및 인벤토리로 관리할 리소스 그룹이 3개 남습니다. 이 제한은 Automation 기능으로 관리할 수 있는 리소스 그룹의 수가 아니라 동시 설정에만 적용됩니다.
+VM 관리에 사용할 수 있는 리소스 그룹 수는 [Resource Manager 배포 제한](../../azure-resource-manager/templates/deploy-to-resource-group.md)으로 제한됩니다. Resource Manager 배포는 배포당 5개의 리소스 그룹으로 제한됩니다. 이러한 리소스 그룹 중 2개는 Log Analytics 작업 영역, Automation 계정 및 관련 리소스를 구성하기 위해 예약되어 있습니다. 그러면 변경 내용 추적 및 인벤토리로 관리할 리소스 그룹이 3개 남습니다. 이 제한은 Automation 기능으로 관리할 수 있는 리소스 그룹의 수가 아니라 동시 설정에만 적용됩니다.
 
 > [!NOTE]
 > 변경 내용 추적 및 인벤토리를 사용하도록 설정할 때 특정 Azure 지역에서만 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다. 지원되는 매핑 쌍 목록은 [Automation 계정의 지역 매핑 및 Log Analytics 작업 영역](../how-to/region-mappings.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
 * 컴퓨터를 관리하기 위한 [Automation 계정](../automation-security-overview.md)
@@ -60,5 +60,5 @@ https://portal.azure.com 에서 Azure에 로그인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 기능을 사용 하는 방법에 대 한 자세한 내용은 [변경 내용 추적 관리](manage-change-tracking.md) 및 [인벤토리 관리](manage-inventory-vms.md)를 참조 하세요.
+* 이 기능을 사용하는 방법에 대한 자세한 내용은 [변경 내용 추적](manage-change-tracking.md) 및 [인벤토리 관리](manage-inventory-vms.md)를 참조하세요.
 * 이 기능의 일반적인 문제를 해결하려면 [변경 내용 추적 및 인벤토리 문제 해결](../troubleshoot/change-tracking.md)을 참조하세요.

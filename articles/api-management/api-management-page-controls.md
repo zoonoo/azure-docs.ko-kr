@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: b826c986a0af26bb79fb0823e4e8626f0165d460
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86250026"
 ---
 # <a name="azure-api-management-page-controls"></a>Azure API Management 페이지 컨트롤
@@ -38,19 +38,19 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 ## <a name="developer-portal-template-page-controls"></a>개발자 포털 템플릿 페이지 컨트롤  
   
--   [앱-작업](#app-actions)  
--   [기본-로그인](#basic-signin)  
--   [페이징-컨트롤](#paging-control)  
+-   [app-actions](#app-actions)  
+-   [basic-signin](#basic-signin)  
+-   [paging-control](#paging-control)  
 -   [providers](#providers)  
--   [검색-컨트롤](#search-control)  
--   [등록](#sign-up)  
--   [구독-단추](#subscribe-button)  
--   [구독-취소](#subscription-cancel)  
+-   [search-control](#search-control)  
+-   [sign-up](#sign-up)  
+-   [subscribe-button](#subscribe-button)  
+-   [subscription-cancel](#subscription-cancel)  
   
 ##  <a name="app-actions"></a><a name="app-actions"></a> app-actions  
  `app-actions` 컨트롤은 개발자 포털의 사용자 프로필 페이지에서 애플리케이션과 상호 작용하기 위한 사용자 인터페이스를 제공합니다.  
   
- ![앱&#45;작업 제어](./media/api-management-page-controls/APIM-app-actions-control.png "APIM 앱-작업 컨트롤")  
+ ![앱&#45;작업 컨트롤](./media/api-management-page-controls/APIM-app-actions-control.png "APIM 앱-작업 컨트롤")  
   
 ### <a name="usage"></a>사용  
   
@@ -60,7 +60,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 ### <a name="parameters"></a>매개 변수  
   
-|매개 변수|설명|  
+|매개 변수|Description|  
 |---------------|-----------------|  
 |appId|애플리케이션의 ID입니다.|  
   
@@ -72,7 +72,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 ##  <a name="basic-signin"></a><a name="basic-signin"></a>basic-signin  
  `basic-signin` 컨트롤은 개발자 포털의 로그인 페이지에서 사용자 로그인 정보를 수집하기 위한 컨트롤을 제공합니다.  
   
- ![기본&#45;signin 컨트롤](./media/api-management-page-controls/APIM-basic-signin-control.png "APIM 기본-signin 컨트롤")  
+ ![기본&#45;로그인 컨트롤](./media/api-management-page-controls/APIM-basic-signin-control.png "APIM 기본-로그인 컨트롤")  
   
 ### <a name="usage"></a>사용  
   
@@ -111,10 +111,10 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 -   [제품 목록](api-management-product-templates.md#ProductList)  
   
-##  <a name="providers"></a><a name="providers"></a> 업체가  
+##  <a name="providers"></a><a name="providers"></a> 공급자  
  `providers` 컨트롤은 개발자 포털의 로그인 페이지에서 인증 공급자 선택을 위한 컨트롤을 제공합니다.  
   
- ![providers 컨트롤](./media/api-management-page-controls/APIM-providers-control.png "APIM 공급자 컨트롤")  
+ ![공급자 컨트롤](./media/api-management-page-controls/APIM-providers-control.png "APIM 공급자 컨트롤")  
   
 ### <a name="usage"></a>사용  
   
@@ -151,10 +151,10 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 -   [제품 목록](api-management-product-templates.md#ProductList)  
   
-##  <a name="sign-up"></a><a name="sign-up"></a> 등록  
+##  <a name="sign-up"></a><a name="sign-up"></a> sign-up  
  `sign-up` 컨트롤은 개발자 포털의 등록 페이지에서 사용자 프로필 정보를 수집하기 위한 컨트롤을 제공합니다.  
   
- ![&#45;등록 컨트롤](./media/api-management-page-controls/APIM-sign-up-control.png "APIM 등록 제어")  
+ ![등록&#45; 컨트롤](./media/api-management-page-controls/APIM-sign-up-control.png "APIM 등록 컨트롤")  
   
 ### <a name="usage"></a>사용  
   
@@ -173,7 +173,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 ##  <a name="subscribe-button"></a><a name="subscribe-button"></a> subscribe-button  
  `subscribe-button`은 사용자의 제품 구독에 대한 컨트롤을 제공합니다.  
   
- ![구독&#45;단추 컨트롤](./media/api-management-page-controls/APIM-subscribe-button-control.png "APIM 구독 단추 컨트롤")  
+ ![구독&#45;단추 컨트롤](./media/api-management-page-controls/APIM-subscribe-button-control.png "APIM 구독-단추 컨트롤")  
   
 ### <a name="usage"></a>사용  
   

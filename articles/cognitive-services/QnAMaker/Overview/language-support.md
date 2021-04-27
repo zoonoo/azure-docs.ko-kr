@@ -9,79 +9,79 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2019
 ms.openlocfilehash: 1edd5ffc2578a27a53c7e9a46a4a5f1cf61331ff
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "97605062"
 ---
-# <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>QnA Maker 리소스 및 기술 자료에 대 한 언어 지원
+# <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>QnA Maker 리소스 및 기술 자료에 대한 언어 지원
 
-이 문서에서는 QnA Maker 리소스 및 기술 자료에 대 한 언어 지원 옵션을 설명 합니다. 
+이 문서에서는 QnA Maker 리소스 및 기술 자료에 대한 언어 지원 옵션을 설명합니다. 
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
-리소스의 첫 번째 기술 자료를 만들 때 서비스에 대 한 언어가 선택 됩니다. 리소스의 모든 추가 기술 자료가 동일한 언어로 되어 있어야 합니다. 
+리소스의 첫 번째 기술 자료를 만들 때 서비스의 언어가 선택됩니다. 리소스의 모든 추가 기술 자료는 동일한 언어로 되어 있어야 합니다. 
 
-언어는 사용자 쿼리에 대 한 응답으로 제공 QnA Maker 결과의 관련성을 결정 합니다. QnA Maker 리소스 및 해당 리소스 내의 모든 기술 자료는 단일 언어를 지원 합니다. 단일 언어는 쿼리에 가장 적합 한 답변을 제공 하는 데 필요 합니다.
+언어는 QnA Maker가 사용자 쿼리에 대한 응답으로 제공하는 결과의 관련성을 결정합니다. QnA Maker 리소스 및 해당 리소스 내의 모든 기술 자료는 단일 언어를 지원합니다. 쿼리에 대한 최상의 응답 결과를 제공하려면 단일 언어가 필요합니다.
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
 
-관리 QnA Maker에서 개별 기술 자료 수준에서 언어 설정을 선택할 수 있습니다. 이 설정은 서비스의 기술 자료 에서만 사용 하도록 설정할 수 있습니다. 설정 되 면 서비스에 대 한 언어 설정을 변경할 수 없습니다. 
+QnAMaker 관리형에서는 개별 기술 자료 수준에서 언어 설정을 선택합니다. 이 설정은 서비스의 기술 자료에서만 활성화할 수 있습니다. 서비스에 대한 언어 설정을 설정한 후에는 변경할 수 없습니다. 
 
-기술 자료를 기반으로 하는 언어 설정을 선택 하는 경우 서비스 자체에서 다른 언어의 기술 자료를 만들 수 있습니다. 
+언어 설정을 기술 자료별로 선택할 경우 서비스 자체에서 다른 언어의 기술 자료를 만들 수 있습니다. 
 
 ---
 
-## <a name="single-language-per-resource"></a>리소스 당 단일 언어
+## <a name="single-language-per-resource"></a>리소스당 단일 언어
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 다음을 살펴보세요.
 
-* QnA Maker 서비스 및 모든 기술 자료는 한 가지 언어만 지원 합니다.
-* 서비스의 첫 번째 기술 자료가 생성 될 때 언어는 명시적으로 설정 됩니다.
-* 언어는 기술 자료가 만들어질 때 추가 된 파일 및 Url에서 결정 됩니다.
-* 서비스의 다른 기술 자료에 대 한 언어를 변경할 수 없습니다.
-* 언어는 Cognitive Search 서비스 (ranker #1) 및 QnA Maker 서비스 (ranker #2)에서 쿼리에 대 한 최상의 답을 생성 하는 데 사용 됩니다.
+* QnA Maker 서비스 및 모든 기술 자료는 한 가지 언어만 지원합니다.
+* 언어는 서비스의 첫 번째 기술 자료 작성 시 명시적으로 설정됩니다.
+* 언어는 기술 자료 작성 시 추가된 파일 및 URL에서 결정됩니다.
+* 서비스의 다른 기술 자료에 대해서는 언어를 변경할 수 없습니다.
+* 언어는 Cognitive Search 서비스(순위 #1)와 QnA Maker 서비스(순위 #2)에서 쿼리에 대한 최상의 응답을 생성하기 위해 사용됩니다.
 
-# <a name="qnamaker-managed-preview"></a>[QnAMaker 관리 (미리 보기)](#tab/v2)
-![QnA Maker 관리 되는 언어 설정](../media/language-support/language-setting-managed.png)
+# <a name="qnamaker-managed-preview"></a>[QnAMaker 관리형(미리 보기)](#tab/v2)
+![QnA Maker 관리형의 언어 설정](../media/language-support/language-setting-managed.png)
 
-**기술 자료 별 언어 설정 사용 확인란을 선택 하지 않은** 경우 다음 사항을 고려 하십시오. 
-* QnA Maker 서비스와 모든 해당 기술 자료는 한 가지 언어만 지원 합니다.
-* 서비스의 첫 번째 기술 자료가 생성 될 때 언어가 명시적으로 설정 됩니다.
-* 언어는 기술 자료가 만들어질 때 추가 된 파일 및 Url에서 결정 됩니다.
-* 서비스의 다른 기술 자료에 대 한 언어를 변경할 수 없습니다.
-* 언어는 Cognitive Search 서비스 (ranker #1) 및 QnA Maker 서비스 (ranker #2)에서 쿼리에 대 한 최상의 답을 생성 하는 데 사용 됩니다.
+**기술 자료별로 언어 설정을 사용하도록 선택하지 않은** 경우 다음을 고려하세요. 
+* QnA Maker 서비스 및 모든 기술 자료는 한 가지 언어만 지원합니다.
+* 언어는 서비스의 첫 번째 기술 자료 작성 시 명시적으로 설정됩니다.
+* 언어는 기술 자료를 만들 때 추가된 파일 및 URL에서 결정됩니다.
+* 서비스의 다른 기술 자료에 대해서는 언어를 변경할 수 없습니다.
+* 언어는 Cognitive Search 서비스(순위 #1)와 QnA Maker 서비스(순위 #2)에서 쿼리에 대한 최상의 응답을 생성하기 위해 사용됩니다.
 
 ---
 
 ## <a name="supporting-multiple-languages-in-one-qna-maker-resource"></a>하나의 QnA Maker 리소스에서 여러 언어 지원
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
-이 기능은 현재 GA (일반 공급) 안정적인 릴리스에서 지원 되지 않습니다. 이 기능을 테스트 하려면 관리 QnA Maker를 확인 하세요. 
+이 기능은 현재 GA(일반 공급) 안정적인 릴리스에서는 지원되지 않습니다. 이 기능을 테스트하려면 관리 QnA Maker를 체크 아웃하세요. 
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
-* 서비스에서 첫 번째 기술 자료를 만들 때 기술 자료 당 언어 설정을 사용 하도록 선택할 수 있습니다. 한 서비스 내에서 다른 언어에 속하는 기술 자료를 만들려면이 확인란을 선택 합니다.
-* 첫 번째 기술 자료가 만들어진 후에는 서비스에 대 한 언어 설정 옵션을 수정할 수 없습니다.
-* 모든 기술 자료에 특정 한 언어 설정을 사용 하도록 설정 하는 경우 서비스에 대해 하나의 테스트 인덱스를 사용 하는 대신 기술 자료 당 하나의 테스트 인덱스를 갖게 됩니다. 
+* 서비스에서 첫 번째 기술 자료를 작성할 때 기술 자료별로 언어 설정을 사용하도록 선택할 수 있습니다. 하나의 서비스 내에서 서로 다른 언어에 속하는 기술 자료를 작성하려면 확인란을 선택합니다.
+* 첫 번째 기술 자료를 작성한 후에는 서비스에 대한 언어 설정 옵션을 수정할 수 없습니다.
+* 기술 자료마다 다른 언어를 사용하도록 설정하면 서비스에 대해 하나의 테스트 인덱스가 생성되지 않고 기술 자료당 하나의 테스트 인덱스가 생성됩니다. 
 
-![QnA Maker 관리 되는 언어 설정](../media/language-support/language-setting-managed.png)
+![QnA Maker 관리형의 언어 설정](../media/language-support/language-setting-managed.png)
 
 ---
 
 ## <a name="supporting-multiple-languages-in-one-knowledge-base"></a>한 기술 자료에서 여러 언어 지원
 
-여러 언어를 포함 하는 기술 자료 시스템을 지원 해야 하는 경우 다음을 수행할 수 있습니다.
+여러 언어가 포함된 기술 자료 시스템을 지원해야 하는 경우 다음을 수행할 수 있습니다.
 
-* 질문을 기술 자료에 보내기 전에 [Translator 서비스](../../translator/translator-info-overview.md) 를 사용 하 여 질문을 단일 언어로 번역 합니다. 이를 통해 단일 언어의 품질 및 대체 질문과 대답의 품질에 집중할 수 있습니다.
-* 모든 언어에 대해 QnA Maker 리소스 및 해당 리소스 내에 기술 자료를 만듭니다. 이렇게 하면 별도의 대체 질문과 대답 텍스트를 관리할 수 있습니다 .이 텍스트는 각 언어에 대해 더 미묘한. 이는 훨씬 더 많은 유연성을 제공 하지만 모든 언어에서 질문이 나 답변이 변경 될 때 훨씬 높은 유지 관리 비용이 필요 합니다.
+* 질문을 기술 자료로 보내기 전에 [Translator 서비스](../../translator/translator-info-overview.md)를 사용하여 질문을 단일 언어로 번역합니다. 이를 통해 단일 언어의 품질과 대체 질문 및 대답의 품질에 집중할 수 있습니다.
+* 모든 언어에 대해 QnA Maker 리소스와 해당 리소스 내부에 기술 자료를 만듭니다. 이를 통해 각 언어에 대해 미묘하게 다른 대체 질문과 응답 텍스트를 관리할 수 있습니다. 이렇게 하면 훨씬 더 많은 유연성을 제공하지만 모든 언어에 대해 질문이나 대답이 변경될 경우 유지 관리 비용이 훨씬 더 많이 필요합니다.
 
 
 ## <a name="languages-supported"></a>지원되는 언어
 
-다음 목록에는 QnA Maker 리소스에 대해 지원 되는 언어가 나와 있습니다. 
+다음 목록에는 QnA Maker 리소스에 대해 지원되는 언어가 나와 있습니다. 
 
 | 언어 |
 |--|
@@ -140,11 +140,11 @@ ms.locfileid: "97605062"
 | 베트남어 |
 
 ## <a name="query-matching-and-relevance"></a>쿼리 일치 및 관련성
-QnA Maker은 결과를 제공 하기 위해 [Azure Cognitive Search 언어 분석기](/rest/api/searchservice/language-support) 에 의존 합니다.
+QnA Maker는 [Azure Cognitive Search 언어 분석기](/rest/api/searchservice/language-support)에 따라 다른 결과를 제공합니다.
 
-Azure Cognitive Search 기능은 지원 되는 언어에 대해 동일 하지만 QnA Maker에는 Azure Search 결과 위에 추가 ranker 있습니다. 이 ranker 모델에서는 다음과 같은 언어에서 특수 한 의미 체계 및 단어 기반 기능을 사용 합니다.
+Azure Cognitive Search 기능은 지원되는 언어에 동일하며 QnA Maker에는 Azure Search 결과의 상위에 있는 추가 랭커(ranker)가 포함되어 있습니다. 이 순위매기기 모델에서는 다음 언어로 된 몇 가지 특별한 의미 체계 및 단어 기반 기능을 사용합니다.
 
-|추가 ranker 있는 언어|
+|추가 순위매기기 언어|
 |--|
 |중국어|
 |체코어|
@@ -161,7 +161,7 @@ Azure Cognitive Search 기능은 지원 되는 언어에 대해 동일 하지만
 |스페인어|
 |스웨덴어|
 
-이 추가 순위는 QnA Maker의 ranker에 대 한 내부 작업입니다.
+이 추가 순위 지정은 QnA Maker 순위매기기의 내부 작업입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,23 +1,23 @@
 ---
 title: Personalizer 리소스 만들기
-description: 이 문서에서는 각 피드백 루프에 대해 Azure Portal에서 personalizer 리소스를 만드는 방법에 대해 알아봅니다.
+description: 이 문서에서는 Azure Portal에서 각 피드백 루프에 대해 Personalizer 리소스를 만드는 방법에 대해 알아봅니다.
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 0c75d917f1abe72af2f4aa56b0f67dbb7bcd24a1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "91303559"
 ---
 # <a name="create-a-personalizer-resource"></a>Personalizer 리소스 만들기
 
-Personalizer 리소스는 Personalizer learning 루프와 동일 합니다. 각 주체 도메인 또는 콘텐츠 영역에 대해 단일 리소스 또는 학습 루프가 생성 됩니다. 학습 루프를 혼동 하 고 잘못 된 예측을 제공 하기 때문에 같은 루프에서 여러 콘텐츠 영역을 사용 하지 마십시오.
+Personalizer 리소스는 Personalizer 학습 루프와 동일합니다. 사용하고 있는 각 주제 도메인 또는 콘텐츠 영역에 대해 단일 리소스 또는 학습 루프가 만들어집니다. 동일한 루프에서 여러 콘텐츠 영역을 사용하지 마세요. 학습 루프를 혼동하여 잘못된 예측이 제공될 수 있습니다.
 
-Personalizer가 웹 페이지의 둘 이상의 콘텐츠 영역에 대 한 최상의 콘텐츠를 선택 하도록 하려면 각에 대해 서로 다른 학습 루프를 사용 합니다.
+Personalizer가 웹 페이지에서 둘 이상의 콘텐츠 영역에 대해 최상의 콘텐츠를 선택하도록 하려면 각각에 대해 다른 학습 루프를 사용합니다.
 
 
 ## <a name="create-a-resource-in-the-azure-portal"></a>Azure Portal에서 리소스 만들기
@@ -28,25 +28,25 @@ Personalizer가 웹 페이지의 둘 이상의 콘텐츠 영역에 대 한 최�
 1. 서비스 이름을 입력하고 구독, 위치, 가격 책정 계층 및 리소스 그룹을 선택합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![Azure Portal를 사용 하 여 학습 루프 라고도 하는 Personalizer 리소스를 만듭니다.](./media/how-to-create-resource/how-to-create-personalizer-resource-learning-loop.png)
+    > ![Azure Portal을 사용하여 Personalizer 리소스 만듭니다(학습 루프라고도 함).](./media/how-to-create-resource/how-to-create-personalizer-resource-learning-loop.png)
 
-1. **만들기** 를 선택 하 여 리소스를 만듭니다.
+1. **만들기** 를 선택하여 리소스를 만듭니다.
 
-1. 리소스를 배포한 후 **리소스로 이동** 단추를 선택 하 여 Personalizer 리소스로 이동 합니다.
+1. 리소스를 배포한 후 **리소스로 이동** 단추를 선택하여 Personalizer 리소스로 이동합니다.
 
-1. 리소스에 대 한 **빠른 시작** 페이지를 선택한 다음, 끝점과 키에 대 한 값을 복사 합니다. 랭크 및 보상 Api를 사용 하려면 리소스 끝점과 키가 모두 필요 합니다.
+1. 리소스에 대한 **빠른 시작**  페이지를 선택한 다음 엔드포인트 및 키 값을 복사합니다. 순위 및 보상 API를 사용하려면 리소스 엔드포인트와 키가 모두 필요합니다.
 
-1. 새 리소스에 대 한 **구성** 페이지를 선택 하 여 [학습 루프를 구성](how-to-settings.md)합니다.
+1. 새 리소스에 대한 **구성** 페이지를 선택하여 [학습 루프를 구성](how-to-settings.md)합니다.
 
-## <a name="create-a-resource-with-the-azure-cli"></a>Azure CLI를 사용 하 여 리소스 만들기
+## <a name="create-a-resource-with-the-azure-cli"></a>Azure CLI를 사용하여 리소스 만들기
 
-1. 다음 명령을 사용 하 여 Azure CLI에 로그인 합니다.
+1. 다음 명령을 사용하여 Azure CLI에 로그인합니다.
 
     ```azurecli-interactive
     az login
     ```
 
-1. Personalizer 리소스와 함께 사용 하려는 모든 Azure 리소스를 관리 하기 위한 논리적 그룹인 리소스 그룹을 만듭니다.
+1. Personalizer 리소스와 함께 사용하려는 모든 Azure 리소스를 관리하기 위한 논리적 그룹인 리소스 그룹을 만듭니다.
 
 
     ```azurecli-interactive
@@ -55,7 +55,7 @@ Personalizer가 웹 페이지의 둘 이상의 콘텐츠 영역에 대 한 최�
         --location westus2
     ```
 
-1. 기존 리소스 그룹에 대 한 다음 명령을 사용 하 여 새 Personalizer 리소스 인 _학습 루프_ 를 만듭니다.
+1. 기존 리소스 그룹에 대한 다음 명령을 사용하여 새 Personalizer 리소스인 _학습 루프_ 를 만듭니다.
 
     ```azurecli-interactive
     az cognitiveservices account create \
@@ -67,9 +67,9 @@ Personalizer가 웹 페이지의 둘 이상의 콘텐츠 영역에 대 한 최�
         --yes
     ```
 
-    그러면 **리소스 끝점** 을 포함 하는 JSON 개체가 반환 됩니다.
+    그러면 **리소스 엔드포인트** 를 포함하는 JSON 개체가 반환됩니다.
 
-1. 다음 Azure CLI 명령을 사용 하 여 **리소스 키** 를 가져옵니다.
+1. 다음 Azure CLI 명령을 사용하여 **리소스 키** 를 가져옵니다.
 
     ```azurecli-interactive
         az cognitiveservices account keys list \
@@ -77,8 +77,8 @@ Personalizer가 웹 페이지의 둘 이상의 콘텐츠 영역에 대 한 최�
         --resource-group your-personalizer-resource-group
     ```
 
-    랭크 및 보상 Api를 사용 하려면 리소스 끝점과 키가 모두 필요 합니다.
+    순위 및 보상 API를 사용하려면 리소스 엔드포인트와 키가 모두 필요합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [구성](how-to-settings.md) Personalizer learning 루프
+* Personalizer 학습 루프 [구성](how-to-settings.md)

@@ -1,5 +1,5 @@
 ---
-title: 기술 자료 분석-QnA Maker
+title: 기술 자료 분석 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker Service를 생성하는 동안 App Insights를 사용하도록 설정한 경우 QnA Maker는 모든 채팅 로그 및 기타 원격 분석을 저장합니다. App Insights에서 채팅 로그를 가져오려면 샘플 쿼리를 실행합니다.
 services: cognitive-services
@@ -10,23 +10,23 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.openlocfilehash: 5f149dd6db82b66b45a4c995e2004936481af786
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96352425"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>기술 자료에 대한 분석 가져오기
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
-[QnA Maker 서비스를 만드는](./set-up-qnamaker-service-azure.md)동안 Application Insights를 사용 하도록 설정한 경우 모든 채팅 로그 및 기타 원격 분석을 QnA Maker 저장 합니다. 샘플 쿼리를 실행 하 여 Application Insights에서 채팅 로그를 가져옵니다.
+[QnA Maker Service를 만드는](./set-up-qnamaker-service-azure.md) 동안 Application Insights를 사용하도록 설정한 경우 QnA Maker는 모든 채팅 로그 및 기타 원격 분석을 저장합니다. 샘플 쿼리를 실행하여 Application Insight에서 채팅 로그를 가져옵니다.
 
-1. Application Insights 리소스로 이동 합니다.
+1. Application Insights 리소스로 이동합니다.
 
     ![Application Insights 리소스 선택](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 
-2. **로그 (분석)** 를 선택 합니다. QnA Maker 원격 분석을 쿼리할 수 있는 새 창이 열립니다.
+2. **Log(Analytics)** 를 선택합니다. QnA Maker 원격 분석을 쿼리할 수 있는 새 창이 열립니다.
 
 3. 다음 쿼리에 붙여넣고 실행합니다.
 
@@ -46,17 +46,17 @@ ms.locfileid: "96352425"
 
     **실행** 을 선택하여 쿼리를 실행합니다.
 
-    [![쿼리를 실행 하 여 사용자의 질문, 답변 및 점수를 확인 합니다.](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
+    [![쿼리를 실행하여 사용자의 질문, 대답 및 점수 확인](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
 
-QnA Maker 관리 (미리 보기)는 Azure 진단 로깅을 사용 하 여 원격 분석 데이터와 채팅 로그를 저장 합니다. 아래 단계에 따라 샘플 쿼리를 실행 하 여 QnA Maker 기술 자료의 사용에 대 한 분석을 받으세요.
+QnA Maker 관리형(미리 보기)은 Azure 진단 로깅을 사용하여 원격 분석 데이터와 채팅 로그를 저장합니다. 다음 단계에 따라 샘플 쿼리를 실행하여 QnA Maker 기술 자료 사용에 대한 분석을 가져옵니다.
 
-1. QnA Maker 관리 (미리 보기) 서비스에 대 한 [진단 로깅을 사용 하도록 설정](../../diagnostic-logging.md) 합니다.
+1. QnA Maker 관리형(미리 보기) 서비스에 대한 [진단 로깅을 사용하도록 설정](../../diagnostic-logging.md)합니다.
 
-2. 이전 단계에서 로깅에 대 한 **감사, RequestResponse 및 AllMetrics** 외에 **추적** 을 선택 합니다.
+2. 이전 단계에서 로깅을 위해 **Audit, RequestResponse 및 AllMetrics** 외에 **Trace** 를 선택합니다.
 
-    ![QnA Maker 관리 (미리 보기)에서 추적 로깅 사용](../media/qnamaker-how-to-analytics-kb/qnamaker-v2-enable-trace-logging.png)
+    ![QnA Maker 관리형(미리 보기)에서 추적 로깅 사용](../media/qnamaker-how-to-analytics-kb/qnamaker-v2-enable-trace-logging.png)
 
 ---
 
@@ -113,7 +113,7 @@ requests
 | summarize count() by performanceBucket, KbId
 ```
 
-### <a name="unanswered-questions"></a>답변 되지 않은 질문
+### <a name="unanswered-questions"></a>대답이 없는 질문
 
 ```kusto
 // Unanswered questions
@@ -148,7 +148,7 @@ AzureDiagnostics
 | project question_, answer_, score_, kbId_
 ```
 
-### <a name="traffic-count-per-knowledge-base-and-user-in-a-time-period"></a>특정 기간 동안 기술 자료 및 사용자 당 트래픽 수
+### <a name="traffic-count-per-knowledge-base-and-user-in-a-time-period"></a>특정 기간 동안의 기술 자료 및 사용자당 트래픽 수
 
 ```kusto
 // Traffic count per KB and user in a time period
@@ -185,7 +185,7 @@ AzureDiagnostics
 | render barchart
 ```
 
-### <a name="unanswered-questions"></a>답변 되지 않은 질문
+### <a name="unanswered-questions"></a>대답이 없는 질문
 
 ```kusto
 // All unanswered questions
@@ -205,4 +205,4 @@ AzureDiagnostics
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Capactiy 선택](./improve-knowledge-base.md)
+> [용량 선택](./improve-knowledge-base.md)

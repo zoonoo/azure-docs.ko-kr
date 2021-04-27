@@ -1,76 +1,76 @@
 ---
-title: GitHub 작업을 사용 하 여 Azure Functions에서 코드 업데이트 수행
-description: Github 작업을 사용 하 여 GitHub에서 Azure Functions 프로젝트를 빌드하고 배포 하는 워크플로를 정의 하는 방법을 알아봅니다.
+title: GitHub Actions를 사용하여 Azure Functions에서 코드 업데이트 수행
+description: GitHub Actions를 사용하여 GitHub에서 Azure Functions 프로젝트를 빌드하고 배포하는 워크플로를 정의하는 방법을 알아봅니다.
 author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
 ms.openlocfilehash: cc356b307a752b10ba6f1c1a7151381c5644ca1e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98762720"
 ---
-# <a name="continuous-delivery-by-using-github-action"></a>GitHub 작업을 사용 하 여 지속적인 배달
+# <a name="continuous-delivery-by-using-github-action"></a>GitHub 작업을 사용하여 지속적으로 업데이트
 
-[GitHub 작업](https://github.com/features/actions) 을 사용 하 여 Azure Functions에서 함수 앱에 코드를 자동으로 빌드하고 배포 하는 워크플로를 정의 합니다. 
+[GitHub Actions](https://github.com/features/actions)를 사용하여 Azure Functions에서 함수 앱에 코드를 자동으로 빌드하고 배포하는 워크플로를 정의합니다. 
 
-GitHub 작업에서 [워크플로](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) 는 github 리포지토리에서 정의 하는 자동화 된 프로세스입니다. 이 프로세스는 github에서 함수 앱 프로젝트를 빌드하고 배포 하는 방법을 GitHub에 알려 줍니다. 
+GitHub Actions에서 [워크플로](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions)는 GitHub 리포지토리에서 정의하는 자동화된 프로세스입니다. 이 프로세스는 GitHub에서 함수 앱 프로젝트를 빌드하고 배포하는 방법을 GitHub에 알려 줍니다. 
 
 워크플로는 리포지토리의 `/.github/workflows/` 경로에 있는 YAML(.yml) 파일에서 정의됩니다. 이 정의는 워크플로를 구성하는 다양한 단계와 매개 변수를 포함합니다. 
 
-Azure Functions 워크플로의 경우 파일에는 다음과 같은 세 개의 섹션이 있습니다. 
+Azure Functions 워크플로의 경우 파일에는 다음 세 개의 섹션이 있습니다. 
 
 | 섹션 | 작업 |
 | ------- | ----- |
-| **인증** | 게시 프로필을 다운로드 합니다.<br/>GitHub 비밀을 만듭니다.|
-| **빌드** | 환경을 설정 합니다.<br/>함수 앱을 빌드합니다.|
-| **배포** | 함수 앱을 배포 합니다.|
+| **인증** | 게시 프로필을 다운로드합니다.<br/>GitHub 비밀을 만듭니다.|
+| **빌드** | 환경을 설정합니다.<br/>함수 앱을 빌드합니다.|
+| **배포** | 함수 앱을 배포합니다.|
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - GitHub 계정. 없는 경우 [평가판](https://github.com/join)에 등록하세요.  
-- GitHub 리포지토리를 사용 하 여 Azure에서 호스트 되는 작업 중인 함수 앱입니다.   
+- GitHub 리포지토리를 사용하여 Azure에서 호스팅되고 작동하는 함수 앱.   
     - [빠른 시작: Visual Studio Code를 사용하여 Azure에서 함수 만들기](./create-first-function-vs-code-csharp.md)
 
 ## <a name="generate-deployment-credentials"></a>배포 자격 증명 생성
 
-GitHub 작업에 대해 Azure Functions를 사용 하 여 인증 하는 권장 방법은 게시 프로필을 사용 하는 것입니다. 서비스 주체를 사용 하 여 인증할 수도 있습니다. 자세히 알아보려면 [이 GitHub 작업 리포지토리](https://github.com/Azure/functions-action)를 참조 하세요. 
+GitHub Actions에 대해 Azure Functions를 사용하여 인증하려면 게시 프로필을 사용하는 것이 좋습니다. 서비스 주체를 사용하여 인증할 수도 있습니다. 자세히 알아보려면 [이 GitHub Actions 리포지토리](https://github.com/Azure/functions-action)를 참조하세요. 
 
-게시 프로필 자격 증명을 [GitHub 암호로](https://docs.github.com/en/actions/reference/encrypted-secrets)저장 한 후 워크플로 내에서이 암호를 사용 하 여 Azure에 인증 합니다. 
+게시 프로필 자격 증명을 [GitHub 암호](https://docs.github.com/en/actions/reference/encrypted-secrets)로 저장한 후 워크플로 내에서 이 암호를 사용하여 Azure에 인증합니다. 
 
 #### <a name="download-your-publish-profile"></a>게시 프로필 다운로드
 
-함수 앱의 게시 프로필을 다운로드 하려면 다음을 수행 합니다.
+함수 앱의 게시 프로필을 다운로드하려면 다음을 수행합니다.
 
-1. 함수 앱의 **개요** 페이지를 선택한 다음 **게시 프로필 가져오기** 를 선택 합니다.
+1. 함수 앱의 **개요** 페이지를 선택한 다음 **게시 프로필 가져오기** 를 선택합니다.
 
    :::image type="content" source="media/functions-how-to-github-actions/get-publish-profile.png" alt-text="게시 프로필 다운로드":::
 
-1. 파일의 내용을 저장 하 고 복사 합니다.
+1. 파일 콘텐츠를 저장한 후 복사합니다.
 
 
-### <a name="add-the-github-secret"></a>GitHub 암호 추가
+### <a name="add-the-github-secret"></a>GitHub 비밀 추가
 
-1. [GitHub](https://github.com)에서 리포지토리로 이동 하 고 **설정**  >  **비밀**  >  **새 비밀 추가** 를 선택 합니다.
+1. [GitHub](https://github.com)에서 리포지토리를 검색하고 **설정** > **비밀** > **새 비밀 추가** 를 선택합니다.
 
    :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="비밀 추가":::
 
-1. 이름으로를 사용 하 여 새 암호를 추가 하 `AZURE_FUNCTIONAPP_PUBLISH_PROFILE` 고 **값** 에 대 한 게시 프로필 파일의 콘텐츠를 추가한 다음 **비밀 추가** 를 선택 합니다. 
+1. `AZURE_FUNCTIONAPP_PUBLISH_PROFILE`을 **이름** 으로 사용하여 새 암호를 추가하고 **값** 에 대한 게시 프로필 파일의 콘텐츠를 추가한 다음 **비밀 추가** 를 선택합니다.
 
 이제 GitHub에서 Azure의 함수 앱에 인증할 수 있습니다.
 
 ## <a name="create-the-environment"></a>환경 만들기 
 
-환경 설정은 언어별 게시 설정 작업을 사용 하 여 수행 됩니다.
+환경 설정은 언어별 게시 설정 작업을 사용하여 수행됩니다.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-.NET (ASP.NET 포함)은 작업을 사용 `actions/setup-dotnet` 합니다.  
-다음 예에서는 환경을 설정 하는 워크플로의 일부를 보여 줍니다.
+.NET(ASP.NET 포함)은 `actions/setup-dotnet` 작업을 사용합니다.  
+다음 예에서는 환경을 설정하는 워크플로의 일부를 보여 줍니다.
 
 ```yaml
     - name: Setup DotNet 2.2.402 Environment
@@ -81,8 +81,8 @@ GitHub 작업에 대해 Azure Functions를 사용 하 여 인증 하는 권장 �
 
 # <a name="java"></a>[Java](#tab/java)
 
-Java는 작업을 사용  `actions/setup-java` 합니다.  
-다음 예에서는 환경을 설정 하는 워크플로의 일부를 보여 줍니다.
+Java는 `actions/setup-java` 작업을 사용합니다.  
+다음 예에서는 환경을 설정하는 워크플로의 일부를 보여 줍니다.
 
 ```yaml
     - name: Setup Java 1.8.x
@@ -95,8 +95,8 @@ Java는 작업을 사용  `actions/setup-java` 합니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-JavaScript (Node.js)는 작업을 사용 `actions/setup-node` 합니다.  
-다음 예에서는 환경을 설정 하는 워크플로의 일부를 보여 줍니다.
+JavaScript(Node.js)는 `actions/setup-node` 작업을 사용합니다.  
+다음 예에서는 환경을 설정하는 워크플로의 일부를 보여 줍니다.
 
 ```yaml
 
@@ -108,8 +108,8 @@ JavaScript (Node.js)는 작업을 사용 `actions/setup-node` 합니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Python은 작업을 사용 `actions/setup-python` 합니다.  
-다음 예에서는 환경을 설정 하는 워크플로의 일부를 보여 줍니다.
+Python은 `actions/setup-python` 작업을 사용합니다.  
+다음 예에서는 환경을 설정하는 워크플로의 일부를 보여 줍니다.
 
 ```yaml
     - name: Setup Python 3.7 Environment
@@ -121,9 +121,9 @@ Python은 작업을 사용 `actions/setup-python` 합니다.
 
 ## <a name="build-the-function-app"></a>함수 앱 빌드
 
-이 섹션은 언어와 Azure Functions에서 지 원하는 언어에 따라 달라 집니다 .이 섹션은 각 언어의 표준 빌드 단계 여야 합니다.
+이 작업은 언어에 따라 달라지며 Azure Functions에서 지원하는 언어의 경우 이 섹션은 각 언어의 표준 빌드 단계여야 합니다.
 
-다음 예제에서는 언어와 관련 된 함수 앱을 빌드하는 워크플로의 일부를 보여 줍니다.
+다음 예에서는 함수 앱을 빌드하는 워크플로의 일부를 보여 줍니다(언어별).
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -188,19 +188,19 @@ Python은 작업을 사용 `actions/setup-python` 합니다.
 
 ## <a name="deploy-the-function-app"></a>함수 앱 배포
 
-`Azure/functions-action`함수 앱에 코드를 배포 하려면 작업을 사용 합니다. 이 작업에는 다음과 같은 세 가지 매개 변수가 있습니다.
+함수 앱에 코드를 배포하려면 `Azure/functions-action` 작업을 사용합니다. 이 작업에는 다음 3개의 매개 변수가 있습니다.
 
 |매개 변수 |설명  |
 |---------|---------|
-|_**앱 이름**_ | 강제로 함수 앱의 이름입니다. |
-|_**슬롯-이름**_ | 필드 배포 하려는 [배포 슬롯](functions-deployment-slots.md) 의 이름입니다. 슬롯은 함수 앱에 이미 정의 되어 있어야 합니다. |
-|_**publish-profile**_ | 필드 게시 프로필에 대 한 GitHub 암호의 이름입니다. |
+|_**app-name**_ | (필수) 함수 앱의 이름. |
+|_**slot-name**_ | (선택) 배포하고자 하는 위치인 [배포 슬롯](functions-deployment-slots.md)의 이름. 슬롯은 함수 앱에 이미 정의되어 있어야 합니다. |
+|_**publish-profile**_ | (선택) 필드 게시 프로필에 대한 GitHub 암호의 이름. |
 
-다음 예제에서는 `functions-action` 인증을 위해 및의 버전 1을 사용 합니다. `publish profile` 
+다음 예에서는 `functions-action`의 버전 1 및 인증용 `publish profile`을 사용합니다. 
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-게시 프로필을 사용 하는 .NET Linux 워크플로를 설정 합니다.
+게시 프로필을 사용하는 .NET Linux 워크플로를 설정합니다.
 
 ```yaml
 name: Deploy DotNet project to function app with a Linux environment
@@ -239,7 +239,7 @@ jobs:
         package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
         publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
 ```
-게시 프로필을 사용 하는 .NET Windows 워크플로를 설정 합니다.
+게시 프로필을 사용하는 .NET Windows 워크플로를 설정합니다.
 
 ```yaml
 name: Deploy DotNet project to function app with a Windows environment
@@ -281,7 +281,7 @@ jobs:
 
 # <a name="java"></a>[Java](#tab/java)
 
-게시 프로필을 사용 하는 Java Linux 워크플로를 설정 합니다.
+게시 프로필을 사용하는 Java Linux 워크플로를 설정합니다.
 
 ```yaml
 name: Deploy Java project to function app
@@ -323,7 +323,7 @@ jobs:
         publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
 ```
 
-게시 프로필을 사용 하는 Java Windows 워크플로를 설정 합니다.
+게시 프로필을 사용하는 Java Windows 워크플로를 설정합니다.
 
 ```yaml
 name: Deploy Java project to function app
@@ -367,7 +367,7 @@ jobs:
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-게시 프로필을 사용 하는 Node.JS Linux 워크플로를 설정 합니다.
+게시 프로필을 사용하는 Node.JS Linux 워크플로를 설정합니다.
 
 ```yaml
 name: Deploy Node.js project to function app
@@ -409,7 +409,7 @@ jobs:
         publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
 ```
 
-게시 프로필을 사용 하는 Node.JS Windows 워크플로를 설정 합니다.
+게시 프로필을 사용하는 Node.JS Windows 워크플로를 설정합니다.
 
 ```yaml
 name: Deploy Node.js project to function app
@@ -453,7 +453,7 @@ jobs:
 ```
 # <a name="python"></a>[Python](#tab/python)
 
-게시 프로필을 사용 하는 Python Linux 워크플로를 설정 합니다.
+게시 프로필을 사용하는 Python Linux 워크플로를 설정합니다.
 
 ```yaml
 name: Deploy Python project to function app
@@ -499,4 +499,4 @@ jobs:
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure 및 GitHub 통합에 대 한 자세한 정보](/azure/developer/github/)
+> [Azure 및 GitHub 통합에 대해 자세히 알아보기](/azure/developer/github/)

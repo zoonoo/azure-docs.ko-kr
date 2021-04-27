@@ -11,23 +11,23 @@ ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: f2473955db5439911280360b169f469b8c93eb93
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
-ms.translationtype: MT
+ms.openlocfilehash: 4b35cfeded13a50e5e27c240b0826f1d108ff7eb
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105043600"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529443"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 계정 개요
 
-Azure Active Directory B2C (Azure AD B2C)에는 여러 가지 유형의 계정을 만들 수 있습니다. Azure Active Directory, Active Directory B2B 및 Active Directory B2C는 사용할 수 있는 사용자 계정 유형에 서 공유 됩니다.
+Azure AD B2C(Azure Active Directory B2C)에는 여러 가지 유형의 계정을 만들 수 있습니다. Azure Active Directory, Active Directory B2B 및 Active Directory B2C는 사용할 수 있는 사용자 계정 유형에서 공유됩니다.
 
 다음 유형의 계정을 사용할 수 있습니다.
 
 - **회사 계정** - 회사 계정은 테넌트의 리소스에 액세스할 수 있으며, 관리자 역할이 있는 경우 테넌트를 관리할 수 있습니다.
 - **게스트 계정** - 게스트 계정은 Microsoft 계정 또는 Azure Active Directory 사용자만 될 수 있으며, 애플리케이션에 액세스하거나 테넌트를 관리하는 데 사용될 수 있습니다.
-- **소비자 계정** -Azure AD B2C에 등록 한 응용 프로그램의 사용자가 소비자 계정을 사용 합니다. 소비자 계정은 다음과 같은 방법으로 만들 수 있습니다.
-  - 사용자가 Azure AD B2C 응용 프로그램에서 등록 사용자 흐름을 진행 하 고 있습니다.
+- **소비자 계정** - Azure AD B2C에 등록한 애플리케이션의 사용자가 소비자 계정을 사용합니다. 소비자 계정은 다음과 같은 방법으로 만들 수 있습니다.
+  - 사용자가 Azure AD B2C 애플리케이션에서 등록 사용자 흐름을 진행하고 있습니다.
   - Microsoft Graph API 사용
   - Azure Portal 사용
 
@@ -38,9 +38,9 @@ Azure Active Directory B2C (Azure AD B2C)에는 여러 가지 유형의 계정�
 새 회사 계정을 추가할 때는 다음 구성 설정을 고려해야 합니다.
 
 - **이름** 및 **사용자 이름** - **이름** 속성에는 사용자의 이름과 성이 포함됩니다. **사용자 이름** 은 사용자가 로그인할 때 입력하는 식별자입니다. 사용자 이름에는 전체 도메인이 포함됩니다. 사용자 이름의 도메인 이름 부분은 초기 기본 도메인 이름 *your-domain.onmicrosoft.com* 또는 *contoso.com* 과 같은 확인된 페더레이션되지 않은 [사용자 지정 도메인](../active-directory/fundamentals/add-custom-domain.md)이어야 합니다. 
-- **전자 메일** -새 사용자는 전자 메일 주소를 사용 하 여 로그인 할 수도 있습니다. 전자 메일에서 특수 문자 또는 멀티 바이트 문자를 지원 하지 않습니다 (예: 일본어 문자).
+- **이메일** - 새 사용자는 이메일 주소를 사용하여 로그인할 수도 있습니다. 이메일에서는 특수 문자 또는 멀티바이트 문자를 지원하지 않습니다(예: 일본어 문자).
 - **프로필** - 계정이 사용자 데이터 프로필로 설정됩니다. 이름, 성, 직위 및 부서 이름을 입력할 수 있습니다. 계정이 생성된 후 프로필을 편집할 수 있습니다.
-- **그룹** -그룹을 사용 하 여 여러 사용자에 게 라이선스 또는 사용 권한을 할당 하는 등의 관리 작업을 수행 하거나 한 번에 장치를 사용 합니다. 테넌트의 기존 [그룹](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)에 새 계정을 삽입할 수 있습니다.
+- **그룹** - 그룹을 사용하여 한 번에 많은 사용자 또는 디바이스에 라이선스 또는 사용 권한을 할당하는 등 관리 작업을 수행합니다. 테넌트의 기존 [그룹](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)에 새 계정을 삽입할 수 있습니다.
 - **디렉터리 역할** - 사용자 계정이 테넌트의 리소스에 대해 가지는 액세스 수준을 지정해야 합니다. 다음 권한 수준을 사용할 수 있습니다.
 
     - **사용자** - 사용자는 할당된 리소스에 액세스할 수 있지만, 대부분의 테넌트 리소스를 관리할 수는 없습니다.
@@ -72,17 +72,17 @@ Azure Active Directory B2C (Azure AD B2C)에는 여러 가지 유형의 계정�
 
 외부 사용자를 게스트 사용자로 테넌트에 초대할 수 있습니다. Azure AD B2C 테넌트에 게스트 사용자를 초대하기 위한 일반적인 시나리오는 관리 책임을 공유하는 것입니다. 게스트 계정 사용 예제를 보려면 [Azure Active Directory B2B 협업 사용자 속성](../active-directory/external-identities/user-properties.md)을 참조하세요.
 
-테넌트에 게스트 사용자를 초대하는 경우 받는 사람의 이메일 주소와 초대를 설명하는 메시지를 제공합니다. 초대 링크를 누르면 사용자가 동의 페이지로 이동 합니다. 전자 메일 주소에 받은 편지함이 연결되어 있지 않으면 초대된 자격 증명을 사용하여 Microsoft 페이지로 이동한 후 동의 페이지로 이동할 수 있습니다. 그러면 사용자는 전자 메일의 링크를 클릭할 때와 동일한 방식으로 초대를 강제로 사용하게 됩니다. 예를 들어 `https://myapps.microsoft.com/B2CTENANTNAME`을 참조하십시오.
+테넌트에 게스트 사용자를 초대하는 경우 받는 사람의 이메일 주소와 초대를 설명하는 메시지를 제공합니다. 초대 링크는 사용자를 동의 페이지로 연결시킵니다. 전자 메일 주소에 받은 편지함이 연결되어 있지 않으면 초대된 자격 증명을 사용하여 Microsoft 페이지로 이동한 후 동의 페이지로 이동할 수 있습니다. 그러면 사용자는 전자 메일의 링크를 클릭할 때와 동일한 방식으로 초대를 강제로 사용하게 됩니다. 예를 들면 `https://myapps.microsoft.com/B2CTENANTNAME`와 같습니다.
 
-[Microsoft Graph API](/graph/api/invitation-post?view=graph-rest-beta)를 사용하여 게스트 사용자를 초대할 수도 있습니다.
+[Microsoft Graph API](/graph/api/invitation-post)를 사용하여 게스트 사용자를 초대할 수도 있습니다.
 
 ## <a name="consumer-user"></a>소비자 사용자
 
-소비자 사용자는 Azure AD B2C에서 보호하는 애플리케이션에 로그인할 수 있지만 Azure Portal과 같은 Azure 리소스에 액세스할 수 없습니다. 소비자 사용자는 로컬 계정이나 Facebook 또는 Twitter와 같은 페더레이션된 계정을 사용할 수 있습니다. [등록 또는 로그인 사용자 흐름](user-flow-overview.md)을 사용 하거나 Microsoft Graph API를 사용 하거나 Azure Portal를 사용 하 여 소비자 계정을 만들 수 있습니다.
+소비자 사용자는 Azure AD B2C에서 보호하는 애플리케이션에 로그인할 수 있지만 Azure Portal과 같은 Azure 리소스에 액세스할 수 없습니다. 소비자 사용자는 로컬 계정이나 Facebook 또는 Twitter와 같은 페더레이션된 계정을 사용할 수 있습니다. [등록 또는 로그인 사용자 흐름](user-flow-overview.md)을 사용하거나 Microsoft Graph API를 사용하거나 Azure Portal을 사용하여 소비자 계정을 만들 수 있습니다.
 
-소비자 사용자 계정을 만들 때 수집 되는 데이터를 지정할 수 있습니다. 자세한 내용은 [사용자 특성 추가 및 사용자 입력 사용자 지정](configure-user-input.md)을 참조 하세요.
+소비자 사용자 계정이 생성될 때 수집되는 데이터를 지정할 수 있습니다. 자세한 내용은 [사용자 특성 추가 및 사용자 입력 사용자 지정](configure-user-input.md)을 참조하세요.
 
-소비자 계정을 관리 하는 방법에 대 한 자세한 내용은 [Microsoft Graph를 사용 하 여 Azure AD B2C 사용자 계정 관리](./microsoft-graph-operations.md)를 참조 하세요.
+소비자 계정을 관리하는 방법에 대한 자세한 내용은 [Microsoft Graph를 사용하여 Azure AD B2C 사용자 계정 관리](./microsoft-graph-operations.md)를 참조하세요.
 
 ### <a name="migrate-consumer-user-accounts"></a>소비자 사용자 계정 마이그레이션
 

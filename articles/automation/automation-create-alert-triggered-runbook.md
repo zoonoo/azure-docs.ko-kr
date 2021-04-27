@@ -6,15 +6,15 @@ ms.subservice: process-automation
 ms.date: 02/14/2021
 ms.topic: conceptual
 ms.openlocfilehash: ea7979ad4a401d317ec126b7abfe354690475235
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104953105"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>경고를 사용하여 Azure Automation Runbook 트리거
 
-[Azure Monitor](../azure-monitor/overview.md)를 사용하여 대부분의 Azure 서비스에 대한 기본 수준의 메트릭과 로그를 모니터링합니다. [작업 그룹](../azure-monitor/alerts/action-groups.md) 을 사용 하 여 Azure Automation runbook을 호출 하 여 경고를 기반으로 작업을 자동화할 수 있습니다. 이 문서에서는 경고를 사용하여 Runbook을 구성하고 실행하는 방법을 보여 줍니다.
+[Azure Monitor](../azure-monitor/overview.md)를 사용하여 대부분의 Azure 서비스에 대한 기본 수준의 메트릭과 로그를 모니터링합니다. [작업 그룹](../azure-monitor/alerts/action-groups.md)을 사용하거나 경고에 따라 작업을 자동화하기 위해 Azure Automation Runbook을 호출할 수 있습니다. 이 문서에서는 경고를 사용하여 Runbook을 구성하고 실행하는 방법을 보여 줍니다.
 
 ## <a name="alert-types"></a>경고 유형
 

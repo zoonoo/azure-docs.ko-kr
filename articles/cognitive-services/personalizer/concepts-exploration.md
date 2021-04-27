@@ -9,10 +9,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.openlocfilehash: 00b9cc881d9414e957d7503bb6156095bb821c06
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "87128151"
 ---
 # <a name="exploration-and-exploitation"></a>탐색 및 이용
@@ -27,7 +27,7 @@ Personalizer는 현재 *입실론 그리디* 라는 알고리즘을 사용하여
 
 ## <a name="choosing-an-exploration-setting"></a>탐색 설정 선택
 
-Personalizer에 대 한 Azure Portal **구성** 페이지에서 탐색에 사용할 트래픽의 비율을 구성 합니다. 이 설정은 탐색을 수행하는 순위 호출의 백분율을 결정합니다. 
+Azure Portal의 Personalizer에 대한 **구성** 페이지에서 탐색에 사용할 트래픽의 백분율을 구성합니다. 이 설정은 탐색을 수행하는 순위 호출의 백분율을 결정합니다. 
 
 Personalizer는 각 순위 호출에 대해 이 확률을 사용하여 탐색할지 또는 이용할지를 결정합니다. 이는 특정 사용자 ID에 대해 처리를 잠그는 일부 A/B 프레임워크의 동작과 다릅니다.
 

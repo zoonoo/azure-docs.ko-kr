@@ -10,36 +10,36 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
 ms.openlocfilehash: 1208d95a282ca6e236d9d6be8013f51dead90d13
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "94376655"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>기술 자료에 잡담 추가
 
 봇에 잡담을 추가하면 실제로 대화하는 것 같은 느낌이 들고 몰입도가 높아집니다. QnA Maker의 잡담 기능을 사용하면 미리 채워진 최고의 잡담 집합을 KB(기술 자료)로 손쉽게 추가할 수 있습니다. 이는 봇 성격의 시작점 역할을 하며, 잡담을 처음부터 작성하는 데 드는 비용과 시간을 많이 절약할 수 있습니다.
 
-이 데이터 집합에는 전문, 친숙 한 및 Witty 같은 여러 가상 사용자의 음성에서 chit-채팅의 약 100 시나리오가 있습니다. 봇의 음성과 가장 유사한 가상 사용자를 선택하세요. QnA Maker는 사용자 쿼리가 지정되면 알려진 잡담 QnA 중 가장 가까운 QnA와 이를 매칭합니다.
+이 데이터 집합에는 전문적인, 친숙한 및 재치있는 등 여러 가상 사용자의 목소리로 녹음된 약 100개의 채팅 시나리오가 있습니다. 봇의 음성과 가장 유사한 가상 사용자를 선택하세요. QnA Maker는 사용자 쿼리가 지정되면 알려진 잡담 QnA 중 가장 가까운 QnA와 이를 매칭합니다.
 
-다른 개성의 몇 가지 예는 다음과 같습니다. 개성에 대 한 세부 정보와 함께 모든 정보 [데이터 집합](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) 을 볼 수 있습니다.
+다음은 다른 성격의 몇 가지 예입니다. 모든 퍼스낼리티 [데이터 집합](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets)을 퍼스낼리티 세부 정보와 함께 볼 수 있습니다.
 
-사용자 쿼리의 경우 각 사용자에 게 `When is your birthday?` 다음과 같은 스타일의 응답이 있습니다.
+`When is your birthday?`의 사용자 쿼리에 대해 각 퍼스낼리티에는 다음과 같은 스타일의 응답이 있습니다.
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
 |개성|예제|
 |--|--|
-|Professional|나이는 전혀 적용 되지 않습니다.|
-|친숙한|나의 나이가 없습니다.|
-|Witty|나이-무료입니다.|
-|신경쓰지|나이가 없습니다.|
-|열정적|저는 봇 이므로 나이가 없습니다.|
+|Professional|나이가 저에게 적용되지 않습니다.|
+|친숙한|저는 나이가 정말 없어요.|
+|재치있는|저는 나이와는 관계가 없어요.|
+|배려하는|저는 나이가 없어요.|
+|열정적인|저는 봇입니다. 따라서 나이가 없습니다.|
 ||
 
 
 ## <a name="language-support"></a>언어 지원
 
-Chit-채팅 데이터 집합은 다음 언어로 지원 됩니다.
+chit-chat 데이터 집합은 다음 언어로 지원됩니다.
 
 |언어|
 |--|
@@ -66,7 +66,7 @@ KB를 선택하고 **설정** 페이지로 이동합니다. 적절한 **.tsv** �
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
 
-![Chit-기존 KB 미리 보기 릴리스에 대 한 채팅을 추가 합니다.](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset-v2.png)
+![기존 KB 미리 보기 릴리스에 chit-chat 추가](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset-v2.png)
 
 ---
 
@@ -75,10 +75,10 @@ KB를 편집할 때 선택된 성격에 따라 잡담의 새 원본이 표시됩
 
 ![잡담 QnA 편집](../media/qnamaker-how-to-chit-chat/edit-chit-chat.png)
 
-메타 데이터를 보려면 도구 모음에서 **옵션 보기** 를 선택 하 고 **메타 데이터 표시** 를 선택 합니다.
+메타데이터를 보려면 도구 모음에서 **보기 옵션** 을 선택한 다음 **메타데이터 표시** 를 선택합니다.
 
 ## <a name="add-additional-chit-chat-questions-and-answers"></a>잡담 질문과 답변 추가
-미리 정의 된 데이터 집합에 없는 새 chit-chat QnA 쌍을 추가할 수 있습니다. 잡담 집합에 이미 포함된 QnA 쌍을 복제하지 않도록 하세요. 새로운 잡담 QnA를 추가하면 **Editorial** 원본에 추가됩니다. Ranker이이를 이해 하 고 있는지 확인 하려면 다음 이미지에 표시 된 것 처럼 메타 데이터 키/값 쌍 "편집: chitchat"을 추가 합니다.
+미리 정의된 데이터 집합에 없는 새 chit-chat QnA 쌍을 추가할 수 있습니다. 잡담 집합에 이미 포함된 QnA 쌍을 복제하지 않도록 하세요. 새로운 잡담 QnA를 추가하면 **Editorial** 원본에 추가됩니다. 평가자가 잡담이라고 이해할 수 있도록 다음 이미지에 보이는 것과 같이 메타데이터 키/값 쌍 "Editorial: 잡담"을 추가하세요.
 
 :::image type="content" source="../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png" alt-text="잡담 QnA 추가" lightbox="../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png":::
 

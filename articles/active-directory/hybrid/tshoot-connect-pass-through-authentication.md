@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9a014bd5c8f1edbfb00019b8541cef552271d65b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98762849"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증 문제 해결
@@ -44,7 +44,7 @@ ms.locfileid: "98762849"
 
 사용자가 통과 인증을 통해 로그인할 수 없는 경우 Azure AD 로그인 화면에서 다음과 같은 사용자 관련 오류 메시지 중 하나가 표시될 수 있습니다. 
 
-|오류|설명|해결 방법
+|Error|Description|해결 방법
 | --- | --- | ---
 |AADSTS80001|Active Directory에 연결할 수 없음|에이전트 서버가 자신의 암호에 대한 유효성이 검사되어야 하는 사용자와 동일한 AD 포리스트의 멤버이고 Active Directory에 연결할 수 있는지 확인합니다.  
 |AADSTS8002|Active Directory에 연결하는 동안 시간 초과 발생|Active Directory를 사용할 수 있고 에이전트의 요청에 응답하는지 확인합니다.
@@ -52,11 +52,11 @@ ms.locfileid: "98762849"
 |AADSTS80005|유효성 검사 중 예측할 수 없는 WebException 발생|일시적인 오류입니다. 요청을 다시 시도하십시오. 계속 실패할 경우 Microsoft 지원에 문의하세요.
 |AADSTS80007|Active Directory와 통신 중 오류 발생|에이전트 로그에서 자세한 정보를 확인하고 Active Directory가 예상대로 작동하는지 확인합니다.
 
-### <a name="users-get-invalid-usernamepassword-error"></a>사용자가 잘못 된 사용자 이름/암호 오류를 가져옵니다. 
+### <a name="users-get-invalid-usernamepassword-error"></a>사용자에게 잘못된 사용자 이름/암호 오류 발생 
 
-사용자의 온-프레미스 UserPrincipalName (UPN)이 사용자의 클라우드 UPN과 다른 경우에 발생할 수 있습니다.
+이러한 오류는 사용자의 온-프레미스 UPN(사용자 계정 이름)이 사용자의 클라우드 UPN과 다른 경우에 발생할 수 있습니다.
 
-이것이 문제 인지 확인 하려면 먼저 통과 인증 에이전트가 제대로 작동 하는지 테스트 합니다.
+이것이 원인인지 확인하려면 먼저 통과 인증 에이전트가 제대로 작동하는지 테스트합니다.
 
 
 1. 테스트 계정을 만듭니다.  
@@ -65,17 +65,17 @@ ms.locfileid: "98762849"
  ```powershell
  Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
  ```
-3. Invoke PowerShell 명령을 실행 합니다. 
+3. PowerShell 호출 명령을 실행합니다. 
 
  ```powershell
  Invoke-PassthroughAuthOnPremLogonTroubleshooter 
  ``` 
-4. 자격 증명을 입력 하 라는 메시지가 표시 되 면에 로그인 하는 데 사용 되는 것과 동일한 사용자 이름 및 암호를 입력 https://login.microsoftonline.com) 합니다.
+4. 자격 증명을 입력하라는 메시지가 표시되면 https://login.microsoftonline.com) 에 로그인하는 데 사용되는 것과 동일한 사용자 이름 및 암호를 입력합니다.
 
-동일한 사용자 이름/암호 오류가 표시 되 면 통과 인증 에이전트가 제대로 작동 하 고 온-프레미스 UPN을 라우팅할 수 없는 문제일 수 있습니다. 자세한 내용은 [대체 로그인 ID 구성](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)을 참조 하세요.
+이전과 동일한 사용자 이름/암호 오류가 표시되면 통과 인증 에이전트가 제대로 작동한다는 것을 의미하며 오류의 원인은 라우팅할 수 없는 온-프레미스 UPN일 수 있습니다. 자세한 내용은 [대체 로그인 ID 구성](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)을 참조하세요.
 
 > [!IMPORTANT]
-> Azure AD Connect 서버가 도메인에 가입 되지 않은 경우 [Azure AD Connect: 필수 조건](./how-to-connect-install-prerequisites.md#installation-prerequisites)에 설명 된 요구 사항으로 인해 잘못 된 사용자 이름/암호 문제가 발생 합니다.
+> [Azure AD Connect: 필수 조건](./how-to-connect-install-prerequisites.md#installation-prerequisites)에 설명된 요구 사항에 반해 Azure AD Connect 서버가 도메인에 가입되지 않은 경우 이로 인해 잘못된 사용자 이름/암호 문제가 발생합니다.
 
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Azure Active Directory 관리 센터에서 로그인이 실패한 이유(프리미엄 라이선스 필요)
 
@@ -83,7 +83,7 @@ ms.locfileid: "98762849"
 
 ![Azure Active Directory 관리 센터 - 로그인 보고서](./media/tshoot-connect-pass-through-authentication/pta4.png)
 
-  ->  [Azure Active Directory 관리 센터](https://aad.portal.azure.com/) 에서 Azure Active Directory **로그인** 으로 이동 하 고 특정 사용자의 로그인 활동을 클릭 합니다. **로그인 오류 코드** 필드를 찾습니다. 다음 표를 사용하여 해당 필드의 값을 실패 이유 및 해결에 매핑합니다.
+[Azure Active Directory 관리 센터](https://aad.portal.azure.com/)에서 **Azure Active Directory** -> **로그인** 으로 차례로 이동하고 특정 사용자의 로그인 활동을 클릭합니다. **로그인 오류 코드** 필드를 찾습니다. 다음 표를 사용하여 해당 필드의 값을 실패 이유 및 해결에 매핑합니다.
 
 |로그인 오류 코드|로그인 실패 이유|해결 방법
 | --- | --- | ---
@@ -96,10 +96,10 @@ ms.locfileid: "98762849"
 | 80007 | 인증 에이전트에서 Active Directory에 연결할 수 없습니다. | 인증 에이전트에서 Active Directory에 연결할 수 있는지 확인합니다.
 | 80010 | 인증 에이전트에서 암호를 해독할 수 없습니다. | 일관되게 재현될 수 있는 문제이면 새 인증 에이전트를 설치하고 등록합니다. 그리고 현재의 인증 에이전트는 제거합니다. 
 | 80011 | 인증 에이전트에서 암호 해독 키를 검색할 수 없습니다. | 일관되게 재현될 수 있는 문제이면 새 인증 에이전트를 설치하고 등록합니다. 그리고 현재의 인증 에이전트는 제거합니다.
-| 80014 | 최대 경과 시간이 초과 된 후 유효성 검사 요청이 응답 했습니다. | 인증 에이전트 시간이 초과 되었습니다. 이 오류에 대 한 자세한 내용을 보려면 오류 코드, 상관 관계 ID 및 타임 스탬프를 사용 하 여 지원 티켓을 여세요.
+| 80014 | 유효성 검사 요청이 최대 경과 시간이 초과된 후 응답했습니다. | 인증 에이전트 시간이 초과되었습니다. 이 오류에 대한 자세한 내용을 보려면 오류 코드, 상관 관계 ID 및 타임스탬프를 사용하여 지원 티켓을 여세요.
 
 >[!IMPORTANT]
->통과 인증 에이전트는 [Win32 LOGONUSER API](/windows/win32/api/winbase/nf-winbase-logonusera)를 호출 하 여 Active Directory에 대 한 사용자 이름 및 암호의 유효성을 검사 하 여 Azure AD 사용자를 인증 합니다. 따라서 워크스테이션 로그온 액세스를 제한 하기 위해 Active Directory에 "로그온" 설정을 구성한 경우 통과 인증 에이전트를 호스트 하는 서버를 "로그온" 서버 목록에도 추가 해야 합니다. 이 작업을 수행 하지 못하면 사용자가 Azure AD에 로그인 하지 못하도록 차단 됩니다.
+>통과 인증 에이전트는 [Win32 LogonUser API](/windows/win32/api/winbase/nf-winbase-logonusera)를 호출하여 Active Directory에 대한 사용자 이름 및 암호의 유효성을 검사하여 Azure AD 사용자를 확인합니다. 따라서 워크스테이션 로그온 액세스를 제한하기 위해 Active Directory에 "로그온" 설정을 구성한 경우 통과 인증 에이전트를 호스팅하는 서버를 "로그온" 서버 목록에도 추가해야 합니다. 이 작업을 수행하지 못하면 사용자가 Azure AD에 로그인하지 못하도록 차단됩니다.
 
 ## <a name="authentication-agent-installation-issues"></a>인증 에이전트 설치 문제
 

@@ -7,10 +7,10 @@ ms.date: 05/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
 ms.openlocfilehash: 1c290032f7a33079b560d3c4cc1fcb9526e70331
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98762150"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>App Configuration에 GitHub 리포지토리 동기화
@@ -25,7 +25,7 @@ GitHub Actions [워크플로](https://docs.github.com/en/actions/learn-github-ac
 GitHub [문서](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions)에서는 GitHub 워크플로 및 작업의 자세한 보기를 제공합니다. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>리포지토리에서 GitHub Actions 사용
-이 GitHub 동작 사용을 시작 하려면 리포지토리로 이동 하 여 **작업** 탭을 선택 합니다. **새 워크플로** 를 선택한 다음 **직접 워크플로를 설정** 합니다. 마지막으로 마켓플레이스에서 “Azure App Configuration 동기화”를 검색합니다.
+이 GitHub 작업을 사용하기 시작하려면 리포지토리로 이동하고 **작업** 탭을 선택합니다. **새 워크플로**, **직접 워크플로 설정** 을 차례로 선택합니다. 마지막으로 마켓플레이스에서 “Azure App Configuration 동기화”를 검색합니다.
 > [!div class="mx-imgBorder"]
 > ![작업 탭 선택](media/find-github-action.png)
 
@@ -35,7 +35,7 @@ GitHub [문서](https://docs.github.com/en/actions/learn-github-actions/introduc
 ## <a name="sync-configuration-files-after-a-push"></a>푸시 후 구성 파일 동기화
 이 작업은 변경 내용이 `appsettings.json`에 푸시될 때 Azure App Configuration 파일을 동기화합니다. 개발자가 `appsettings.json`의 변경 내용을 푸시하면 App Configuration 동기화 작업은 App Configuration 인스턴스를 새 값으로 업데이트합니다.
 
-이 워크플로의 첫 번째 섹션에서는가  main 분기로 포함 된 푸시 *에 대해* 트리거되는 동작을 지정 합니다 `appsettings.json` .  두 번째 섹션에는 작업이 트리거된 후 실행되는 작업이 나열됩니다. 이 작업은 관련 파일을 체크 아웃하고 리포지토리에 비밀로 저장된 연결 문자열을 사용하여 App Configuration 인스턴스를 업데이트합니다.  GitHub에서 비밀을 사용하는 방법에 관한 자세한 내용은 암호화된 비밀 만들기 및 사용에 관한 [GitHub 문서](https://docs.github.com/en/actions/reference/encrypted-secrets)를 참조하세요.
+이 워크플로의 첫 번째 섹션에서는 *주* 분기에 대한 `appsettings.json`을 포함하는 *푸시* 를 *실행* 하도록 지정합니다. 두 번째 섹션에는 작업이 트리거된 후 실행되는 작업이 나열됩니다. 이 작업은 관련 파일을 체크 아웃하고 리포지토리에 비밀로 저장된 연결 문자열을 사용하여 App Configuration 인스턴스를 업데이트합니다.  GitHub에서 비밀을 사용하는 방법에 관한 자세한 내용은 암호화된 비밀 만들기 및 사용에 관한 [GitHub 문서](https://docs.github.com/en/actions/reference/encrypted-secrets)를 참조하세요.
 
 ```json
 on: 
@@ -92,7 +92,7 @@ jobs:
 ```
 ## <a name="sync-multiple-files-in-one-action"></a>하나의 작업에서 여러 파일 동기화 
 
-구성이 여러 파일에 있는 경우 아래 패턴을 사용하여 파일 중 하나를 수정할 때 동기화를 트리거할 수 있습니다. 이 패턴은 glob 라이브러리를 사용 합니다 https://www.npmjs.com/package/glob . 구성 파일 이름에 쉼표가 포함 되어 있으면 백슬래시를 사용 하 여 쉼표를 이스케이프할 수 있습니다. 
+구성이 여러 파일에 있는 경우 아래 패턴을 사용하여 파일 중 하나를 수정할 때 동기화를 트리거할 수 있습니다. 이 패턴은 glob 라이브러리 https://www.npmjs.com/package/glob 를 사용합니다. 구성 파일 이름에 쉼표가 포함되어 있으면 백슬래시를 사용하여 쉼표를 이스케이프할 수 있습니다. 
 
 ```json
 on:
@@ -177,7 +177,7 @@ jobs:
 ## <a name="use-a-dynamic-label-on-sync"></a>동기화 시 동적 레이블 사용
 다음 작업은 동기화될 때마다 동적 레이블을 삽입하므로 각 동기화를 고유하게 식별할 수 있으며 코드 변경 내용을 구성 변경 내용에 매핑할 수 있습니다.
 
-이 워크플로의 첫 번째 섹션에서는가  main 분기로 포함 된 푸시 *에 대해* 트리거되는 동작을 지정 합니다 `appsettings.json` .  두 번째 섹션에서는 커밋 해시에 따라 구성 업데이트의 고유 레이블을 만드는 작업을 실행합니다. 그런 다음, 이 작업은 이 업데이트의 새 값과 고유 레이블로 App Configuration 인스턴스를 업데이트합니다.
+이 워크플로의 첫 번째 섹션에서는 *주* 분기에 대한 `appsettings.json`을 포함하는 *푸시* 를 *실행* 하도록 지정합니다. 두 번째 섹션에서는 커밋 해시에 따라 구성 업데이트의 고유 레이블을 만드는 작업을 실행합니다. 그런 다음, 이 작업은 이 업데이트의 새 값과 고유 레이블로 App Configuration 인스턴스를 업데이트합니다.
 
 ```json
 on: 

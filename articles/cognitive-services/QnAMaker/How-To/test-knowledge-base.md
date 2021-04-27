@@ -6,13 +6,13 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.openlocfilehash: 273548ec095ce04772438a2d732b914d80d976cc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96353156"
 ---
-# <a name="test-your-knowledge-base-in-qna-maker"></a>QnA Maker에서 기술 자료 테스트
+# <a name="test-your-knowledge-base-in-qna-maker"></a>QnA Maker의 기술 자료 테스트
 
 QnA Maker 기술 자료를 테스트하는 작업은 반환되는 응답의 정확도를 향상시키기 위한 반복 프로세스의 중요한 부분입니다. 또한 편집할 수도 있는 향상된 채팅 인터페이스를 통해 기술 자료를 테스트할 수 있습니다.
 
@@ -51,7 +51,7 @@ QnA Maker 기술 자료를 테스트하는 작업은 반환되는 응답의 정�
 
 ### <a name="add-alternate-questions"></a>대체 질문 추가
 
-질문의 대체 형식을 지정된 대답에 추가할 수 있습니다. 텍스트 상자에 대체 대답을 입력 하 고 enter 키를 선택 하 여 추가 합니다. **저장 후 학습** 을 선택하여 업데이트를 저장합니다.
+질문의 대체 형식을 지정된 대답에 추가할 수 있습니다. 텍스트 상자에서 대체 답변을 입력하고 Enter 키를 선택하여 추가합니다. **저장 후 학습** 을 선택하여 업데이트를 저장합니다.
 
 ![대체 질문 추가](../media/qnamaker-how-to-test-knowledge-bases/add-alternate-question.png)
 
@@ -59,7 +59,7 @@ QnA Maker 기술 자료를 테스트하는 작업은 반환되는 응답의 정�
 
 일치된 기존 대답이 올바르지 않거나 기술 자료에 존재하지 않는(KB에서 일치 항목을 찾을 수 없음) 경우 새 응답을 추가할 수 있습니다.
 
-답변 목록의 맨 아래에 있는 텍스트 상자를 사용 하 여 새 답변을 입력 하 고 enter 키를 눌러 추가 합니다.
+응답 목록 맨 아래에 있는 텍스트 상자를 사용하여 새 응답을 입력하고 Enter 키를 눌러 추가합니다.
 
 **저장 후 학습** 을 선택하여 이 대답을 유지합니다. 새로운 질문-대답 쌍이 기술 자료에 추가되었습니다.
 
@@ -70,11 +70,11 @@ QnA Maker 기술 자료를 테스트하는 작업은 반환되는 응답의 정�
 
 1. **내 기술 자료** 페이지에서 해당 이름을 선택하여 기술 자료에 액세스합니다.
 1. 테스트 슬라이드 아웃 패널에 액세스하려면 애플리케이션의 위쪽 패널에서 **테스트** 를 선택합니다. 
-1. 맨 위에 표시 되는 **짧은 답** 에는 기본적으로 선택 되어 있는 확인란이 표시 됩니다. 이 옵션은 테스트 패널에서 MRC 기반 응답 범위 검색을 사용 하도록 설정 하는 데 사용 됩니다. 
+1. 상단의 **간단한 응답 표시** 확인란이 기본적으로 선택되어 있는 것을 볼 수 있습니다. 이 옵션은 테스트 패널에서 MRC 기반 응답 범위 검색을 사용하도록 설정하는 데 사용됩니다. 
 1. 텍스트 상자에 쿼리를 입력하고 Enter 키를 선택합니다. 
-1. 모든 쿼리에 대해 답변 통로에 정확히 일치 하는 대답 및 짧은 답변이 있는 경우 기술 자료에 있는 가장 일치 하는 대답 통로를 사용 하 여 쿼리에 대 한 짧은 답을 갖게 됩니다.
+1. 모든 쿼리에 대해 응답 구절에 자세한 응답/간단한 응답이 모두 있는 경우, 기술 자료에 있는 가장 일치하는 응답 구절을 사용하여 쿼리에 대한 간단한 응답도 제공됩니다.
     ![활성화된 관리형 테스트 창](../media/qnamaker-how-to-test-knowledge-bases/test-pane-with-managed-detail.png)
-1. **짧은 답 표시** 를 선택 취소 하면 기술 자료에서 가장 일치 하는 대답 통로만 응답으로 반환 됩니다.
+1. **간단한 응답 표시** 를 선택 취소하면 기술 자료에서 가장 일치하는 응답 구절만 응답으로 반환됩니다.
 
 ### <a name="clear-test-panel"></a>테스트 패널 지우기
 
@@ -93,44 +93,44 @@ QnA Maker 기술 자료를 테스트하는 작업은 반환되는 응답의 정�
     ![응답 검사 미리 보기](../media/qnamaker-how-to-test-knowledge-bases/inspect-with-managed.png)
 
 2.  검사 패널이 나타납니다. 패널에는 식별된 엔터티뿐만 아니라 상위 채점 의도도 포함됩니다. 패널에는 선택한 발화의 결과가 표시됩니다.
-3. 이 패널에는 검색 된 응답 범위의 점수와 함께 대답 통로의 신뢰도 점수가 표시 됩니다.
+3. 패널에는 검색된 응답 범위 점수에 따라 응답 구절의 신뢰도 점수가 표시됩니다.
 
 ### <a name="correct-the-top-scoring-answer"></a>상위 점수 대답 수정
 
 상위 점수 대답이 올바르지 않으면 목록에서 올바른 대답을 선택하고 **저장 후 학습** 을 선택합니다.
 
-![가장 중요 한 점수 매기기 답변 미리 보기 수정](../media/qnamaker-how-to-test-knowledge-bases/choose-answer-managed.png)
+![상위 점수 응답 수정 미리 보기](../media/qnamaker-how-to-test-knowledge-bases/choose-answer-managed.png)
 
 ### <a name="add-alternate-questions"></a>대체 질문 추가
 
-질문의 대체 형식을 지정된 대답에 추가할 수 있습니다. 텍스트 상자에 대체 대답을 입력 하 고 enter 키를 선택 하 여 추가 합니다. **저장 후 학습** 을 선택하여 업데이트를 저장합니다.
+질문의 대체 형식을 지정된 대답에 추가할 수 있습니다. 텍스트 상자에서 대체 답변을 입력하고 Enter 키를 선택하여 추가합니다. **저장 후 학습** 을 선택하여 업데이트를 저장합니다.
 
-![대체 질문 미리 보기 추가](../media/qnamaker-how-to-test-knowledge-bases/add-alternate-question-with-managed.png)
+![대체 질문 추가 미리 보기](../media/qnamaker-how-to-test-knowledge-bases/add-alternate-question-with-managed.png)
 
 ### <a name="add-a-new-answer"></a>새 대답 추가
 
 일치된 기존 대답이 올바르지 않거나 기술 자료에 존재하지 않는(KB에서 일치 항목을 찾을 수 없음) 경우 새 응답을 추가할 수 있습니다.
 
-답변 목록의 맨 아래에 있는 텍스트 상자를 사용 하 여 새 답변을 입력 하 고 enter 키를 눌러 추가 합니다.
+응답 목록 맨 아래에 있는 텍스트 상자를 사용하여 새 응답을 입력하고 Enter 키를 눌러 추가합니다.
 
 **저장 후 학습** 을 선택하여 이 대답을 유지합니다. 새로운 질문-대답 쌍이 기술 자료에 추가되었습니다.
 
 ---
 
-### <a name="test-the-published-knowledge-base"></a>게시 된 기술 자료 테스트
+### <a name="test-the-published-knowledge-base"></a>게시된 기술 자료 테스트
 
-테스트 창에서 기술 자료의 게시 된 버전을 테스트할 수 있습니다. KB를 게시 한 후 **게시 된 kb** 상자를 선택 하 고 게시 된 kb의 결과를 가져오는 쿼리를 보냅니다.
+테스트 창에서 게시된 기술 자료 버전을 테스트할 수 있습니다. KB를 게시한 후 **게시된 KB** 상자를 선택하고 쿼리를 보내 게시된 KB에서 결과를 얻습니다.
 
-![게시 된 KB에 대해 테스트](../media/qnamaker-how-to-test-knowledge-bases/test-against-published-knowledge-base.png)
+![게시된 KB 테스트](../media/qnamaker-how-to-test-knowledge-bases/test-against-published-knowledge-base.png)
 
-## <a name="batch-test-with-tool"></a>도구를 사용 하 여 Batch 테스트
+## <a name="batch-test-with-tool"></a>도구를 사용하여 일괄 처리 테스트
 
-다음을 수행 하려는 경우 batch 테스트 도구를 사용 합니다.
+다음을 수행하려는 경우 일괄 처리 테스트 도구를 사용합니다.
 
-* 질문 집합의 최고 대답 및 점수 결정
+* 질문 집합에 대한 최상의 응답 및 점수 결정
 * 질문 집합의 예상 응답 유효성 검사
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * 영어를 사용하는 [QnA Maker 서비스를 만들거나](../Quickstarts/create-publish-knowledge-base.md) 기존 서비스를 사용합니다.
@@ -183,11 +183,11 @@ QnA Maker 포털에 [로그인](https://www.qnamaker.ai/)합니다.
 |--|--|--|
 |기술 자료 ID|기술 자료 ID는 [게시] 페이지에 있습니다. 단일 파일에서 여러 기술 자료 ID를 사용하여 동일한 서비스에서 여러 기술 자료를 한 번에 테스트합니다.|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (`POST`의 일부로 표시되는 36자 문자열) |
 |질문|사용자가 입력하는 질문 텍스트입니다. 최대 1,000자입니다.|`How do I sign out?`|
-|메타데이터 태그|선택 사항|`topic:power`형식을 사용 합니다. `key:value`|
+|메타데이터 태그|선택 사항|`topic:power`(`key:value` 형식 사용)|
 |top(상위 항목) 매개 변수|선택 사항|`25`|
 |예상 대답 ID|선택 사항|`13`|
 
-이 기술 자료에 대해서는 두 개의 필수 열에 있는 세 개의 행만 파일에 추가 합니다. 첫 번째 열은 기술 자료 ID이고, 두 번째 열은 다음 질문 목록이어야 합니다.
+이 기술 자료의 경우 2개의 필수 열만 있는 3개의 행을 파일에 추가합니다. 첫 번째 열은 기술 자료 ID이고, 두 번째 열은 다음 질문 목록이어야 합니다.
 
 |열 2 - 질문|
 |--|
@@ -197,7 +197,7 @@ QnA Maker 포털에 [로그인](https://www.qnamaker.ai/)합니다.
 
 이러한 질문은 기술 자료에서 나온 정확한 문구이며 신뢰도 점수로 100을 반환해야 합니다.
 
-다음으로 동일한 기술 자료 ID를 사용 하 여 다음 질문에 해당 하는 몇 가지 질문을 추가 합니다.
+다음으로, 동일한 기술 자료 ID를 사용하여 다음 질문과 비슷하지만 3개 행에서 정확히 동일하지 않은 몇 가지 질문을 추가합니다.
 
 |열 2 - 질문|
 |--|
@@ -229,7 +229,7 @@ batchtesting.exe batch-test-data-1.tsv https://YOUR-RESOURCE-NAME.azurewebsites.
 
 보안상 기술 자료 ID는 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`로 대체되었습니다. 자체 일괄 처리 테스트의 경우 열에 기술 자료 ID가 표시됩니다.
 
-네 번째 열에는 신뢰도 점수의 테스트 출력이 기술 자료에 표시 되는 것과 정확히 동일 하기 때문에 예상 대로 100 점수가 반환 된 것을 보여 줍니다. 질문에 대 한 새로운 질문이 있는 마지막 세 가지 질문은 신뢰성 점수로 100을 반환 하지 않습니다. 테스트와 사용자의 점수를 모두 높이려면 더 많은 대체 질문을 기술 자료에 추가해야 합니다.
+각 질문이 기술 자료에 표시되는 것과 정확히 동일하므로 4번째 열에 있는 신뢰도 점수의 테스트 출력에서 예상대로 100점을 반환한 상위 3개의 질문을 보여 줍니다. 새로운 단어가 포함된 마지막 세 개의 질문은 신뢰도 점수로 100을 반환하지 마세요. 테스트와 사용자의 점수를 모두 높이려면 더 많은 대체 질문을 기술 자료에 추가해야 합니다.
 
 ### <a name="testing-with-the-optional-fields"></a>선택적 필드를 사용하여 테스트
 
@@ -245,7 +245,7 @@ batchtesting.exe batch-test-data-1.tsv https://YOUR-RESOURCE-NAME.azurewebsites.
 
 |열 번호|선택적 열|데이터 위치|
 |--|--|--|
-|3|metadata|기존 쌍에 대 한 기존 기술 자료를 내보냅니다 `key:value` .|
+|3|metadata|기존 `key:value` 쌍에 대한 기존 기술 자료를 내보냅니다.|
 |4|top|기본값으로 `25`가 추천됩니다.|
 |5|질문 및 대답 세트 ID|ID 값에 대한 기존 기술 자료를 내보냅니다. 또한 ID가 출력 파일에 반환되었는지 확인합니다.|
 
@@ -278,7 +278,7 @@ batchtesting.exe batch-test-data-1.tsv https://YOUR-RESOURCE-NAME.azurewebsites.
 
 다음 절차에서는 채팅 로그를 처리하는 시나리오를 가정합니다.
 
-1. `batch-test-data-2.tsv`라는 선택적 데이터를 포함하는 새 일괄 처리 테스트 파일을 만듭니다. 원래 일괄 처리 테스트 입력 파일에서 6 개의 행을 추가한 다음 각 행에 대 한 메타 데이터, 최상위 및 QnA 쌍 ID를 추가 합니다.
+1. `batch-test-data-2.tsv`라는 선택적 데이터를 포함하는 새 일괄 처리 테스트 파일을 만듭니다. 원래의 일괄 처리 테스트 입력 파일에서 6개 행을 추가한 다음, 각 행에 대한 메타데이터, 상위 항목 대답 및 QnA 쌍 ID를 추가합니다.
 
     기술 자료와 비교하여 채팅 로그의 새 텍스트를 확인하는 자동화된 프로세스를 시뮬레이션하려면 각 열에 대한 메타데이터를 동일한 값(`topic:power`)으로 설정합니다.
 
@@ -290,11 +290,11 @@ batchtesting.exe batch-test-data-1.tsv https://YOUR-RESOURCE-NAME.azurewebsites.
     > [!div class="mx-imgBorder"]
     > ![일괄 처리 테스트에서 .tsv 파일의 두 번째 버전 출력](../media/batch-test/batch-test-2-output.png)
 
-### <a name="test-results-and-an-automated-test-system"></a>테스트 결과 및 자동화된 테스트 시스템
+### <a name="test-results-and-an-automated-test-system&quot;></a>테스트 결과 및 자동화된 테스트 시스템
 
 이 테스트 출력 파일은 자동화된 연속 테스트 파이프라인의 일부로 구문 분석할 수 있습니다.
 
-이 특정 테스트 출력은 다음과 같이 읽어야 합니다. 각 행은 메타데이터를 사용하여 필터링되었으며, 각 행이 기술 자료의 메타데이터와 일치하지 않으므로 일치하지 않는 해당 행에 대한 기본 대답("kb에서 적절한 일치 항목이 없습니다")이 반환되었습니다. 일치 하는 행 중 QnA ID 및 점수가 반환 되었습니다.
+이 특정 테스트 출력은 다음과 같이 읽어야 합니다. 각 행은 메타데이터를 사용하여 필터링되었으며, 각 행이 기술 자료의 메타데이터와 일치하지 않으므로 일치하지 않는 해당 행에 대한 기본 대답(&quot;kb에서 적절한 일치 항목이 없습니다")이 반환되었습니다. 일치하는 행 중 QnA ID와 점수가 반환되었습니다.
 
 예상 대답 ID와 일치하는 행이 없으므로 모든 행에서 잘못된 레이블을 반환했습니다.
 
@@ -315,10 +315,10 @@ batchtesting.exe batch-test-data-1.tsv https://YOUR-RESOURCE-NAME.azurewebsites.
 1. QnA Maker 포털의 위쪽 메뉴에서 **내 기술 자료** 를 선택합니다.
 1. 기술 자료 목록에서 이 빠른 시작의 기술 자료 행에 있는 **삭제** 아이콘을 선택합니다.
 
-이 [도구에 대 한 참조 설명서](../reference-tsv-format-batch-testing.md) 는 다음과 같습니다.
+[도구에 대한 참조 문서](../reference-tsv-format-batch-testing.md)에는 다음이 포함됩니다.
 
-* 도구의 명령줄 예제
-* TSV 입력 및 출력 파일의 형식입니다.
+* 도구의 명령줄 예
+* TSV 입력 및 출력 파일 형식
 
 ## <a name="next-steps"></a>다음 단계
 

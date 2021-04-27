@@ -1,63 +1,63 @@
 ---
-title: 기본 대답 가져오기-QnA Maker
-description: 질문과 일치 하는 항목이 없는 경우 기본 대답이 반환 됩니다. 표준 기본 응답에서 기본 대답을 변경 하는 것이 좋습니다.
+title: 기본 대답 가져오기 - QnA Maker
+description: 질문과 일치하는 항목이 없는 경우 기본 대답이 반환됩니다. 표준 기본 대답에서 기본 대답을 변경하려고 할 수 있습니다.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
 ms.openlocfilehash: 5aab021ab5194b4af18e3ff1b2c154ed74710353
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96346123"
 ---
-# <a name="change-default-answer-for-a-qna-maker-resource"></a>QnA Maker 리소스에 대 한 기본 응답 변경
+# <a name="change-default-answer-for-a-qna-maker-resource"></a>QnA Maker 리소스의 기본 대답 변경
 
-답변을 찾을 수 없을 때 기술 자료에 대 한 기본 답은 반환 됩니다. [Azure Bot service](/azure/bot-service/bot-builder-howto-qna)와 같은 클라이언트 응용 프로그램을 사용 하는 경우 점수 임계값을 충족 하는 답변이 없음을 나타내는 별도의 기본 응답이 있을 수도 있습니다.
+대답을 찾을 수 없는 경우 기술 자료의 기본 대답이 반환됩니다. [Azure Bot Service](/azure/bot-service/bot-builder-howto-qna)와 같은 클라이언트 애플리케이션을 사용하는 경우 점수 임계값을 충족하는 대답이 없음을 나타내는 별도의 기본 대답이 있을 수도 있습니다.
 
-## <a name="types-of-default-answer"></a>기본 응답 형식
+## <a name="types-of-default-answer"></a>기본 대답 유형
 
-기술 자료에는 두 가지 유형의 기본 대답이 있습니다. 예측 쿼리에서 각을 반환 하는 방법과 시기를 이해 하는 것이 중요 합니다.
+기술 자료에는 두 가지 유형의 기본 대답이 있습니다. 예측 쿼리에서 각 대답이 반환되는 방법과 시기를 이해하는 것이 중요합니다.
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
-|기본 답변의 유형|답변에 대 한 설명|
+|기본 대답 유형|대답에 대한 설명|
 |--|--|
-|답변이 결정 되지 않은 경우 응답 (KB)|`No good match found in KB.` - [GENERATEANSWER API](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) 가 질문에 대 한 일치 하는 대답을 찾지 못하면 `DefaultAnswer` App service의 설정이 반환 됩니다. 동일한 QnA Maker 리소스의 모든 기술 자료가 동일한 기본 대답 텍스트를 공유 합니다.<br>설정을 가져오거나 [업데이트](/rest/api/appservice/webapps/updateapplicationsettings) [하기 위한 REST](/rest/api/appservice/webapps/listapplicationsettings) api 또는 App service를 통해 Azure Portal에서 설정을 관리할 수 있습니다.|
-|후속 프롬프트 명령 텍스트|대화 흐름에서 추가 작업 프롬프트를 사용 하는 경우 사용자가 추가 작업 프롬프트에서 선택 하기 때문에 QnA 쌍의 응답이 필요 하지 않을 수 있습니다. 이 경우 추가 작업 프롬프트에 대해 각 예측이 반환 되는 기본 대답 텍스트를 설정 하 여 특정 텍스트를 설정 합니다. 텍스트는 추가 작업 프롬프트를 선택 하는 데 지침 텍스트로 표시 됩니다. 이 기본 대답 텍스트의 예는 `Please select from the following choices` 입니다. 이 구성은이 문서의 다음 섹션에 설명 되어 있습니다. 는 REST API를 사용 하는 기술 자료 정의의 일부로 설정할 수도 있습니다 `defaultAnswerUsedForExtraction` . [](/rest/api/cognitiveservices/qnamaker/knowledgebase/create)|
+|대답을 결정할 수 없는 경우의 KB 대답|`No good match found in KB.` - [GenerateAnswer API](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)가 질문에 일치하는 대답을 찾지 못하면 앱 서비스의 `DefaultAnswer` 설정이 반환됩니다. 동일한 QnA Maker 리소스의 모든 기술 자료는 동일한 기본 대답 텍스트를 공유합니다.<br>설정을 [가져오거나](/rest/api/appservice/webapps/listapplicationsettings) [업데이트](/rest/api/appservice/webapps/updateapplicationsettings)하기 위해 앱 서비스를 통하거나 REST API를 사용하여 Azure Portal에서 설정을 관리할 수 있습니다.|
+|후속 프롬프트 지침 텍스트|대화 흐름에서 후속 프롬프트를 사용할 경우 사용자가 후속 프롬프트에서 선택하기를 원하기 때문에 QnA 쌍에 대답이 필요하지 않을 수 있습니다. 이 경우 후속 프롬프트에 대한 각 예측과 함께 반환되는 기본 대답 텍스트를 설정하여 특정 텍스트를 설정합니다. 텍스트는 후속 프롬프트 선택에 대한 지침 텍스트로 표시됩니다. 이 기본 대답 텍스트의 예는 `Please select from the following choices`입니다. 이 문서의 다음 섹션에서 이 구성에 대해 설명합니다. [REST API](/rest/api/cognitiveservices/qnamaker/knowledgebase/create)를 사용하여 `defaultAnswerUsedForExtraction`의 기술 자료 정의의 일부로 설정할 수도 있습니다.|
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
 
-|기본 답변의 유형|답변에 대 한 설명|
+|기본 대답 유형|대답에 대한 설명|
 |--|--|
-|답변이 결정 되지 않은 경우 응답 (KB)|`No good match found in KB.` - [GENERATEANSWER API](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) 가 질문에 대 한 일치 하는 대답을 찾지 못하면 기본 텍스트 응답이 표시 됩니다. QnA Maker 관리 (미리 보기)에서 기술 자료의 **설정** 에이 텍스트를 설정할 수 있습니다. <br><br> ![QnA Maker 관리 (미리 보기) 기본 대답 설정](../media/qnamaker-how-change-default-answer/qnamaker-v2-change-default-answer.png)|
-|후속 프롬프트 명령 텍스트|대화 흐름에서 추가 작업 프롬프트를 사용 하는 경우 사용자가 추가 작업 프롬프트에서 선택 하기 때문에 QnA 쌍의 응답이 필요 하지 않을 수 있습니다. 이 경우 추가 작업 프롬프트에 대해 각 예측이 반환 되는 기본 대답 텍스트를 설정 하 여 특정 텍스트를 설정 합니다. 텍스트는 추가 작업 프롬프트를 선택 하는 데 지침 텍스트로 표시 됩니다. 이 기본 대답 텍스트의 예는 `Please select from the following choices` 입니다. 이 구성은이 문서의 다음 섹션에 설명 되어 있습니다. `defaultAnswerUsedForExtraction` [REST API](/rest/api/cognitiveservices/qnamaker/knowledgebase/create)사용 하 여이를 기술 자료 정의의 일부로 설정할 수도 있습니다.|
+|대답을 결정할 수 없는 경우의 KB 대답|`No good match found in KB.` - [GenerateAnswer API](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)에서 질문과 일치하는 대답을 찾지 못하면 기본 텍스트 대답이 표시됩니다. QnA Maker 관리형(미리 보기)에서는 기술 자료의 **설정** 에서 이 텍스트를 설정할 수 있습니다. <br><br> ![QnA Maker 관리형(미리 보기) 기본 대답 설정](../media/qnamaker-how-change-default-answer/qnamaker-v2-change-default-answer.png)|
+|후속 프롬프트 지침 텍스트|대화 흐름에서 후속 프롬프트를 사용할 경우 사용자가 후속 프롬프트에서 선택하기를 원하기 때문에 QnA 쌍에 대답이 필요하지 않을 수 있습니다. 이 경우 후속 프롬프트에 대한 각 예측과 함께 반환되는 기본 대답 텍스트를 설정하여 특정 텍스트를 설정합니다. 텍스트는 후속 프롬프트 선택에 대한 지침 텍스트로 표시됩니다. 이 기본 대답 텍스트의 예는 `Please select from the following choices`입니다. 이 문서의 다음 섹션에서 이 구성에 대해 설명합니다. [REST API](/rest/api/cognitiveservices/qnamaker/knowledgebase/create)를 사용하여 `defaultAnswerUsedForExtraction`을 통해 기술 자료 정의의 일부로 설정할 수도 있습니다.|
 
 ---
 
-### <a name="client-application-integration"></a>클라이언트 응용 프로그램 통합
+### <a name="client-application-integration"></a>클라이언트 애플리케이션 통합
 
-**Azure bot service** 와 같은 클라이언트 응용 프로그램의 경우 다음과 같은 일반적인 시나리오에서 선택할 수 있습니다.
+**Azure Bot Service** 와 같은 클라이언트 애플리케이션의 경우 다음과 같은 일반적인 시나리오에서 선택할 수 있습니다.
 
 * 기술 자료의 설정 사용
-* 클라이언트 응용 프로그램에서 다른 텍스트를 사용 하 여 응답이 반환 되는 경우와 점수 임계값을 충족 하지 않는 경우를 구분 합니다. 이 텍스트는 코드에 저장 된 정적 텍스트 이거나 클라이언트 응용 프로그램의 설정 목록에 저장 될 수 있습니다.
+* 클라이언트 애플리케이션에서 다른 텍스트를 사용하여 대답이 반환되었지만 점수 임계값을 충족하지 못하는 경우를 구별합니다. 이 텍스트는 코드에 저장된 정적 텍스트이거나 클라이언트 애플리케이션의 설정 목록에 저장될 수 있습니다.
 
 ## <a name="set-follow-up-prompts-default-answer-when-you-create-knowledge-base"></a>기술 자료를 만들 때 후속 프롬프트의 기본 대답 설정
 
-새 기술 자료를 만들 때 기본 대답 텍스트는 설정 중 하나입니다. 만들기 프로세스 중에 설정 하지 않도록 선택 하는 경우 나중에 다음 절차를 수행 하 여 변경할 수 있습니다.
+기본 대답 텍스트는 새 기술 자료를 만들 때 지정하는 설정 중 하나입니다. 생성 프로세스 중에 기본 대답을 설정하지 않도록 선택한 경우 나중에 다음 절차를 수행하여 변경할 수 있습니다.
 
-## <a name="change-follow-up-prompts-default-answer-in-qna-maker-portal"></a>QnA Maker 포털에서 추가 작업 프롬프트의 기본 대답 변경
+## <a name="change-follow-up-prompts-default-answer-in-qna-maker-portal"></a>QnA Maker 포털에서 후속 프롬프트의 기본 대답 변경
 
-QnA Maker 서비스에서 응답이 반환 되지 않으면 기술 자료 기본 응답이 반환 됩니다.
+QnA Maker 서비스에서 대답이 반환되지 않으면 기술 자료 기본 대답이 반환됩니다.
 
-1. [QnA Maker 포털](https://www.qnamaker.ai/) 에 로그인 하 고 목록에서 기술 자료를 선택 합니다.
-1. 탐색 모음에서 **설정** 을 선택 합니다.
-1. **기술 자료 관리** 섹션에서 **기본 대답 텍스트** 의 값을 변경 합니다.
+1. [QnA Maker 포털](https://www.qnamaker.ai/)에 로그인하고 목록에서 기술 자료를 선택합니다.
+1. 탐색 모음에서 **설정** 을 선택합니다.
+1. **기술 자료 관리** 섹션에서 **기본 대답 텍스트** 의 값을 변경합니다.
 
-    :::image type="content" source="../media/qnamaker-concepts-confidencescore/change-default-answer.png" alt-text="기본 답변 텍스트 상자가 강조 표시 된 QnA Maker 포털, 설정 페이지의 스크린샷":::
+    :::image type="content" source="../media/qnamaker-concepts-confidencescore/change-default-answer.png" alt-text="기본 대답 텍스트 상자가 강조 표시된 QnA Maker 포털, 설정 페이지의 스크린샷":::
 
-1. **저장 및 학습** 을 선택 하 여 변경 내용을 저장 합니다.
+1. **저장 후 학습** 을 선택하여 변경 사항을 저장합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

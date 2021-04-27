@@ -12,10 +12,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b1c8bf5cb8944b990737d557326b2741716bab3d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104579759"
 ---
 # <a name="relyingparty"></a>RelyingParty
@@ -75,29 +75,29 @@ ms.locfileid: "104579759"
 
 선택적 **RelyingParty** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | DefaultUserJourney | 1:1 | RP 애플리케이션의 기본 사용자 경험입니다. |
-| 엔드포인트 | 0:1 | 끝점의 목록입니다. 자세한 내용은 [UserInfo endpoint](userinfo-endpoint.md)를 참조 하세요. |
+| 엔드포인트 | 0:1 | 엔드포인트 목록 자세한 내용은 [UserInfo 엔드포인트](userinfo-endpoint.md)를 참조하세요. |
 | UserJourneyBehaviors | 0:1 | 사용자 경험 동작의 범위입니다. |
 | TechnicalProfile | 1:1 | RP 애플리케이션에서 지원되는 기술 프로필입니다. 기술 프로필은 RP 애플리케이션이 Azure AD B2C에 연결할 때 적용되는 계약을 제공합니다. |
 
 ## <a name="endpoints"></a>엔드포인트
 
-**Endpoints** 요소에는 다음 요소가 포함 됩니다.
+**Endpoint** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
-| 엔드포인트 | 1:1 | 끝점에 대 한 참조입니다.|
+| 엔드포인트 | 1:1 | 엔드포인트에 대한 참조입니다.|
 
-**Endpoint** 요소는 다음 특성을 포함 합니다.
+**Endpoint** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| Id | 예 | 끝점의 고유 식별자입니다.|
+| Id | 예 | 엔드포인트의 고유 식별자입니다.|
 | UserJourneyReferenceId | 예 | 정책의 사용자 경험 식별자입니다. 자세한 내용은 [사용자 경험](userjourneys.md)을 참조하세요.  | 
 
-다음 예제에서는 [UserInfo 끝점](userinfo-endpoint.md)을 사용 하는 신뢰 당사자를 보여 줍니다.
+다음 예에서는 [UserInfo 엔드포인트](userinfo-endpoint.md)를 사용하는 신뢰 당사자를 보여 줍니다.
 
 ```xml
 <RelyingParty>
@@ -110,7 +110,7 @@ ms.locfileid: "104579759"
 
 ## <a name="defaultuserjourney"></a>DefaultUserJourney
 
-`DefaultUserJourney`요소는 기본 또는 확장 정책에 정의 된 사용자 경험의 식별자에 대 한 참조를 지정 합니다. 다음 예제에서는 **RelyingParty** 요소에 지정된 등록 또는 로그인 사용자 경험을 보여 줍니다.
+`DefaultUserJourney` 요소는 기본 또는 확장 정책에서 정의되는 사용자 경험의 식별자에 대한 참조를 지정합니다. 다음 예제에서는 **RelyingParty** 요소에 지정된 등록 또는 로그인 사용자 경험을 보여 줍니다.
 
 *B2C_1A_signup_signin* 정책:
 
@@ -130,7 +130,7 @@ ms.locfileid: "104579759"
 
 **DefaultUserJourney** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | 참조 | 예 | 정책의 사용자 경험 식별자입니다. 자세한 내용은 [사용자 경험](userjourneys.md)을 참조하세요. |
 
@@ -138,36 +138,36 @@ ms.locfileid: "104579759"
 
 **UserJourneyBehaviors** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | SingleSignOn | 0:1 | 사용자 경험의 SSO(Single Sign-On) 세션 동작 범위입니다. |
 | SessionExpiryType |0:1 | 세션의 인증 동작입니다. 가능한 값은 `Rolling` 또는 `Absolute`입니다. `Rolling` 값(기본값)은 사용자가 애플리케이션에서 계속 활성 상태이면 로그인된 상태로 유지됨 을 나타냅니다. `Absolute` 값은 애플리케이션 세션 수명에 따라 지정된 기간 후 사용자가 강제로 다시 인증을 해야 함을 나타냅니다. |
 | SessionExpiryInSeconds | 0:1 | 인증 성공 시 사용자 브라우저에 저장되는 Azure AD B2C 세션 쿠키의 수명(정수로 지정됨)입니다. |
 | JourneyInsights | 0:1 | 사용할 Application Insights 계측 키입니다. |
 | ContentDefinitionParameters | 0:1 | 콘텐츠 정의 로드 URI에 추가할 키 값 쌍의 목록입니다. |
-|ScriptExecution| 0:1| 지원 되는 [JavaScript](javascript-and-page-layout.md) 실행 모드입니다. 가능한 값: `Allow` 또는 `Disallow` (기본값)
+|ScriptExecution| 0:1| 지원되는 [JavaScript](javascript-and-page-layout.md) 실행 모드입니다. 가능한 값은 `Allow` 또는 `Disallow`(기본값)입니다.
 | JourneyFraming | 0:1| 이 정책의 사용자 인터페이스를 iframe에 로드할 수 있습니다. |
 
 ### <a name="singlesignon"></a>SingleSignOn
 
-**SingleSignOn** 요소는 다음 특성을 포함 합니다.
+**SingleSignOn** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| 범위 | 예 | Single Sign-On 동작의 범위입니다. 가능한 값은 `Suppressed`, `Tenant`, `Application` 또는 `Policy`입니다. 이 `Suppressed` 값은 동작이 억제 되 고 사용자에 게 id 공급자를 선택 하 라는 메시지가 항상 표시 됨을 나타냅니다.  `Tenant` 값은 테넌트의 모든 정책에 동작이 적용됨을 나타냅니다. 예를 들어 테넌트의 두 공용 경험 간을 이동하는 사용자에게는 ID 공급자를 선택하라는 메시지가 표시되지 않습니다. `Application` 값은 요청을 수행하는 애플리케이션의 모든 정책에 동작이 적용됨을 나타냅니다. 예를 들어 애플리케이션의 두 공용 경험 간을 이동하는 사용자에게는 ID 공급자를 선택하라는 메시지가 표시되지 않습니다. `Policy` 값은 동작이 한 정책에만 적용됨을 나타냅니다. 예를 들어 보안 프레임워크의 두 공용 경험 간을 이동하는 사용자가 정책 간을 전환할 때 ID 공급자를 선택하라는 메시지가 표시됩니다. |
-| KeepAliveInDays | 아니요 | 사용자가 로그인 상태로 유지되는 기간을 제어합니다. 값을 0으로 설정하면 KMSI 기능이 해제됩니다. 자세한 내용은 [로그인 유지](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi)를 참조하세요. |
-|EnforceIdTokenHintOnLogout| 아니요|  를 사용 하 여 이전에 발급 된 ID 토큰을 클라이언트와 최종 사용자의 현재 인증 된 세션에 대 한 힌트로 로그 아웃 끝점에 전달 합니다. 가능한 값은 `false`(기본값) 또는 `true`입니다. 자세한 내용은 [Openid connect Connect를 사용 하 여 웹 로그인](openid-connect.md)을 참조 하세요.  |
+| 범위 | 예 | Single Sign-On 동작의 범위입니다. 가능한 값은 `Suppressed`, `Tenant`, `Application` 또는 `Policy`입니다. `Suppressed` 값은 동작이 억제되며 사용자에게 ID 공급자를 선택하라는 메시지가 항상 표시됨을 나타냅니다.  `Tenant` 값은 테넌트의 모든 정책에 동작이 적용됨을 나타냅니다. 예를 들어 테넌트의 두 공용 경험 간을 이동하는 사용자에게는 ID 공급자를 선택하라는 메시지가 표시되지 않습니다. `Application` 값은 요청을 수행하는 애플리케이션의 모든 정책에 동작이 적용됨을 나타냅니다. 예를 들어 애플리케이션의 두 공용 경험 간을 이동하는 사용자에게는 ID 공급자를 선택하라는 메시지가 표시되지 않습니다. `Policy` 값은 동작이 한 정책에만 적용됨을 나타냅니다. 예를 들어 보안 프레임워크의 두 공용 경험 간을 이동하는 사용자가 정책 간을 전환할 때 ID 공급자를 선택하라는 메시지가 표시됩니다. |
+| KeepAliveInDays | 예 | 사용자가 로그인 상태로 유지되는 기간을 제어합니다. 값을 0으로 설정하면 KMSI 기능이 해제됩니다. 자세한 내용은 [로그인 유지](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi)를 참조하세요. |
+|EnforceIdTokenHintOnLogout| 예|  이전에 발급된 ID 토큰을 클라이언트와 최종 사용자의 현재 인증된 세션에 대한 힌트로 로그아웃 엔드포인트에 전달합니다. 가능한 값은 `false`(기본값) 또는 `true`입니다. 자세한 내용은 [OpenID Connect를 사용하여 웹 로그인](openid-connect.md)을 참조하세요.  |
 
 
 ## <a name="journeyinsights"></a>JourneyInsights
 
 **JourneyInsights** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | TelemetryEngine | 예 | 값은 `ApplicationInsights`여야 합니다. |
 | InstrumentationKey | 예 | Application Insights 요소의 계측 키를 포함하는 문자열입니다. |
-| DeveloperMode | 예 | 가능한 값은 `true` 또는 `false`입니다. 값이 `true`인 경우 Application Insights는 처리 파이프라인을 통해 원격 분석을 빠르게 수행합니다. 이 설정은 개발에 적합 하지만 많은 볼륨에서 제한 됩니다. 자세한 활동 로그는 사용자 지정 정책 개발에 도움이 되도록 설계 되었습니다. 프로덕션에서 개발 모드를 사용하지 않습니다. 로그는 개발 중에 ID 공급자 간에 전송된 모든 클레임을 수집합니다. 프로덕션 환경에서 사용 하는 경우 개발자는 소유 하 고 있는 App Insights 로그에 수집 된 개인 데이터에 대 한 책임을 가정 합니다. 이 값이 `true`로 설정되어 있을 때만 이와 같은 자세한 로그가 수집됩니다.|
+| DeveloperMode | 예 | 가능한 값은 `true` 또는 `false`입니다. 값이 `true`인 경우 Application Insights는 처리 파이프라인을 통해 원격 분석을 빠르게 수행합니다. 이 설정은 개발에는 적합하지만 많은 볼륨에서는 제한됩니다. 자세한 활동 로그는 사용자 지정 정책 개발에 도움이 되도록 설계되었습니다. 프로덕션에서 개발 모드를 사용하지 않습니다. 로그는 개발 중에 ID 공급자 간에 전송된 모든 클레임을 수집합니다. 프로덕션에서 사용하는 경우 개발자는 소유한 App Insights 로그에서 수집된 개인 정보에 대한 책임이 있다고 가정합니다. 이 값이 `true`로 설정되어 있을 때만 이와 같은 자세한 로그가 수집됩니다.|
 | ClientEnabled | 예 | 가능한 값은 `true` 또는 `false`입니다. 값이 `true`인 경우 페이지 보기 및 클라이언트 쪽 오류 추적용으로 Application Insights 클라이언트 쪽 스크립트를 전송합니다. |
 | ServerEnabled | 예 | 가능한 값은 `true` 또는 `false`입니다. 값이 `true`인 경우 기존 UserJourneyRecorder JSON을 사용자 지정 이벤트로 Application Insights에 전송합니다. |
 | TelemetryVersion | 예 | 값은 `1.0.0`여야 합니다. |
@@ -184,13 +184,13 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 **ContentDefinitionParameters** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | ContentDefinitionParameter | 0:n | 콘텐츠 정의 로드 URI의 쿼리 문자열에 추가되는 키 값 쌍을 포함하는 문자열입니다. |
 
 **ContentDefinitionParameter** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | 이름 | 예 | 키 값 쌍의 이름입니다. |
 
@@ -198,18 +198,18 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 ### <a name="journeyframing"></a>JourneyFraming
 
-**JourneyFraming** 요소는 다음 특성을 포함 합니다.
+**JourneyFraming** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| 사용 | 예 | Iframe 내에서이 정책을 로드할 수 있습니다. 가능한 값은 `false`(기본값) 또는 `true`입니다. |
-| 원본 | 예 | 호스트 iframe을 로드할 도메인을 포함 합니다. 자세한 내용은 [iframe에서 AZURE B2C 로드](embedded-login.md)를 참조 하세요. |
+| 사용 | 예 | Iframe 내에서 이 정책을 로드할 수 있습니다. 가능한 값은 `false`(기본값) 또는 `true`입니다. |
+| 원본 | 예 | 호스트 iframe을 로드할 도메인을 포함합니다. 자세한 내용은 [iframe에서 Azure B2C 로드](embedded-login.md)를 참조하세요. |
 
 ## <a name="technicalprofile"></a>TechnicalProfile
 
 **TechnicalProfile** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 값은 `PolicyProfile`여야 합니다. |
 
@@ -217,8 +217,8 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 | 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
-| DisplayName | 1:1 | 기술 프로필의 이름을 포함 하는 문자열입니다. |
-| 설명 | 0:1 | 기술 프로필에 대 한 설명이 포함 된 문자열입니다. |
+| DisplayName | 1:1 | 기술 프로필의 이름이 들어 있는 문자열입니다. |
+| Description | 0:1 | 기술 프로필의 설명이 들어 있는 문자열입니다. |
 | 프로토콜 | 1:1 | 페더레이션에 사용되는 프로토콜입니다. |
 | 메타데이터 | 0:1 | 신뢰 당사자와 기타 커뮤니티 참가자 간의 상호 작용을 구성하기 위한 트랜잭션 과정에서 엔드포인트와의 통신을 위해 프로토콜에서 사용하는 키/값 쌍의 *Item* 컬렉션입니다. |
 | OutputClaims | 1:1 | 기술 프로필의 출력으로 가져오는 클레임 형식 목록입니다. 이러한 각 요소는 **ClaimsSchema** 섹션 또는 이 정책 파일이 상속을 하는 정책에 이미 정의되어 있는 **ClaimType** 에 대한 참조를 포함합니다. |
@@ -226,56 +226,56 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 **Protocol** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | 이름 | 예 | 기술 프로필의 일부로 사용되는 Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 `OpenIdConnect` 또는 `SAML2`입니다. `OpenIdConnect` 값은 OpenID Foundation 사양에 따른 OpenID Connect 1.0 프로토콜 표준을 나타냅니다. `SAML2`는 OASIS 사양에 따른 SAML 2.0 프로토콜 표준을 나타냅니다. |
 
 ### <a name="metadata"></a>메타데이터
 
-프로토콜이 인 경우 `SAML` 메타 데이터 요소에는 다음 요소가 포함 됩니다. 자세한 내용은 [Azure AD B2C에서 SAML 응용 프로그램을 등록 하는 옵션](saml-service-provider-options.md)을 참조 하세요.
+프로토콜이 `SAML`인 경우 메타데이터 요소에는 다음 요소가 포함됩니다. 자세한 내용은 [Azure AD B2C에서 SAML 애플리케이션을 등록하는 옵션](saml-service-provider-options.md)을 참조하세요.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| IdpInitiatedProfileEnabled | 아니요 | IDP 시작 흐름이 지원 되는지 여부를 나타냅니다. 가능한 값: `true` 또는 `false` (기본값) | 
-| XmlSignatureAlgorithm | 아니요 | Azure AD B2C에서 SAML 응답에 서명 하는 데 사용 하는 메서드입니다. 가능한 값은 `Sha256`, `Sha384`, `Sha512` 또는 `Sha1`입니다. 양쪽의 서명 알고리즘을 같은 값으로 구성해야 합니다. 인증서가 지원하는 알고리즘만 사용하세요. SAML 어설션을 구성 하려면 [saml 발급자 기술 프로필 메타 데이터](saml-issuer-technical-profile.md#metadata)를 참조 하세요. |
-| DataEncryptionMethod | 아니요 | AES (AES(Advanced Encryption Standard)) 알고리즘을 사용 하 여 데이터를 암호화 하는 데 사용 하 Azure AD B2C 방법을 나타냅니다. 메타 데이터는 `<EncryptedData>` SAML 응답의 요소 값을 제어 합니다. 가능한 값은 `Aes256`(기본값), `Aes192`, `Sha512` 또는 ` Aes128`입니다. |
-| KeyEncryptionMethod| 아니요 | Azure AD B2C에서 데이터를 암호화 하는 데 사용 된 키의 복사본을 암호화 하는 데 사용 하는 메서드를 나타냅니다. 메타 데이터는  `<EncryptedKey>` SAML 응답의 요소 값을 제어 합니다. 가능한 값: ` Rsa15` (기본값)-RSA PKCS (공개 키 암호화 표준) 버전 1.5 알고리즘, ` RsaOaep` -RSA 최적 OAEP (비대칭 암호화 패딩) 암호화 알고리즘입니다. |
-| UseDetachedKeys | 아니요 |  가능한 값은 `true` 또는 `false`(기본값)입니다. 값을로 설정 하면 `true` Azure AD B2C는 암호화 된 어설션의 형식을 변경 합니다. 분리 된 키를 사용 하면 EncryptedData와는 달리 암호화 된 어설션을 EncrytedAssertion의 자식으로 추가 합니다. |
-| WantsSignedResponses| 아니요 | Azure AD B2C SAML 응답의 섹션에 서명할지 여부를 나타냅니다 `Response` . 가능한 값은 `true` (기본값) 또는 `false` 입니다.  |
-| RemoveMillisecondsFromDateTime| 아니요 | SAML 응답 내의 datetime 값에서 밀리초를 제거할지 여부를 나타냅니다. 여기에는 IssueInstant, NotBefore, NotOnOrAfter 및 AuthnInstant가 포함 됩니다. 가능한 값은 `false` (기본값) 또는 `true` 입니다.  |
+| IdpInitiatedProfileEnabled | 예 | IDP 시작 흐름이 지원되는지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. | 
+| XmlSignatureAlgorithm | 예 | Azure AD B2C에서 SAML 응답에 서명하는 데 사용하는 메서드입니다. 가능한 값은 `Sha256`, `Sha384`, `Sha512` 또는 `Sha1`입니다. 양쪽의 서명 알고리즘을 같은 값으로 구성해야 합니다. 인증서가 지원하는 알고리즘만 사용하세요. SAML 어설션을 구성하려면 [SAML 발급자 기술 프로필 메타데이터](saml-issuer-technical-profile.md#metadata)를 참조하세요. |
+| DataEncryptionMethod | 예 | Azure AD B2C가 AES(Advanced Encryption Standard) 알고리즘을 통하여 데이터를 암호화하는 데 사용하는 방법을 나타냅니다. 메타데이터는 SAML 응답의 `<EncryptedData>` 요소 값을 제어합니다. 가능한 값은 `Aes256`(기본값), `Aes192`, `Sha512` 또는 ` Aes128`입니다. |
+| KeyEncryptionMethod| 예 | Azure AD B2C에서 데이터를 암호화하는 데 사용된 키의 복사본을 암호화하는 데 사용하는 메서드를 나타냅니다. 메타데이터는 SAML 응답의 `<EncryptedKey>` 요소 값을 제어합니다. 가능한 값: ` Rsa15` (기본값) - RSA PKCS(공개 키 암호화 표준) 버전 1.5 알고리즘, ` RsaOaep` -RSA 최적 OAEP(비대칭형 암호화 패딩) 암호화 알고리즘. |
+| UseDetachedKeys | 예 |  가능한 값은 `true` 또는 `false`(기본값)입니다. 값을 `true`로 설정하면 Azure AD B2C는 암호화된 어설션의 형식을 변경합니다. 분리된 키를 사용하면 암호화된 어설션을 EncryptedData가 아닌 EncrytedAssertion의 자식으로 추가합니다. |
+| WantsSignedResponses| 예 | Azure AD B2C SAML 응답의 `Response` 섹션에 서명할지 여부를 나타냅니다. 가능한 값은 `true`(기본값) 또는 `false`입니다.  |
+| RemoveMillisecondsFromDateTime| 예 | SAML 응답 내의 날짜/시간 값에서 밀리초를 제거할지 여부를 나타냅니다. 여기에는 IssueInstant, NotBefore, NotOnOrAfter 및 AuthnInstant가 포함됩니다. 가능한 값은 `false`(기본값) 또는 `true`입니다.  |
 
 
 ### <a name="outputclaims"></a>OutputClaims
 
 **OutputClaims** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | OutputClaim | 0:n | 신뢰 당사자가 구독하는 정책에 대해 지원되는 목록에 필요한 클레임 형식의 이름입니다. 이 클레임은 기술 프로필의 출력으로 사용됩니다. |
 
 **OutputClaim** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | 예 | 정책 파일의 **ClaimsSchema** 섹션에 이미 정의되어 있는 **ClaimType** 에 대한 참조입니다. |
-| DefaultValue | 아니요 | 클레임 값이 비어 있는 경우 사용할 수 있는 기본값입니다. |
-| PartnerClaimType | 아니요 | ClaimType 정의에 구성되어 있는 다른 이름으로 클레임을 보냅니다. |
+| DefaultValue | 예 | 클레임 값이 비어 있는 경우 사용할 수 있는 기본값입니다. |
+| PartnerClaimType | 예 | ClaimType 정의에 구성되어 있는 다른 이름으로 클레임을 보냅니다. |
 
 ### <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
 **SubjectNameingInfo** 요소를 사용하여 토큰 제목의 값을 제어합니다.
 
 - **JWT 토큰** - `sub` 클레임입니다. 애플리케이션 사용자 등 토큰에서 정보를 어설션하는 보안 주체입니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 예를 들어 토큰을 사용해 리소스에 액세스할 때 이 값을 사용하면 안전하게 권한 부여 확인을 수행할 수 있습니다. 기본적으로 주체 클레임은 디렉터리에 있는 사용자의 개체 ID로 채워집니다. 자세한 내용은 [토큰, 세션 및 Single Sign-On 구성](session-behavior.md)을 참조하세요.
-- **SAML 토큰** - `<Subject><NameID>` subject 요소를 식별 하는 요소입니다. NameId 형식을 수정할 수 있습니다.
+- **SAML 토큰** - subject 요소를 식별하는 `<Subject><NameID>` 요소입니다. NameId 형식은 수정할 수 있습니다.
 
 **SubjectNamingInfo** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | ClaimType | 예 | 출력 클레임의 **PartnerClaimType** 에 대한 참조입니다. 신뢰 당사자 정책 **OutputClaims** 컬렉션에서 출력 클레임을 정의해야 합니다. |
-| 서식 | 아니요 | Saml 어설션에 반환 된 **NameId 형식을** 설정 하는 saml 신뢰 당사자에 사용 됩니다. |
+| 형식 | 예 | SAML 신뢰 당사자가 SAML 어설션에 반환된 **NameId 형식** 을 설정하는 데 사용됩니다. |
 
-다음 예제에서는 Openid connect Connect 신뢰 당사자를 정의 하는 방법을 보여 줍니다. 주체 이름 정보는 `objectId`로 구성됩니다.
+다음 예에서는 OpenID Connect 신뢰 당사자를 정의하는 방법을 보여 줍니다. 주체 이름 정보는 `objectId`로 구성됩니다.
 
 ```xml
 <RelyingParty>
@@ -305,7 +305,7 @@ JWT 토큰에는 사용자 objectId가 들어 있는 `sub` 클레임이 포함�
 }
 ```
 
-다음 예제에서는 SAML 신뢰 당사자를 정의 하는 방법을 보여 줍니다. 주체 이름 정보가로 구성 되 `objectId` 고 NameId `format` 가 제공 되었습니다.
+다음 예에서는 OpenId Connect 신뢰 당사자를 정의하는 방법을 보여 줍니다. 주체 이름 정보가 `objectId`로 구성되고 NameId `format`이 제공되었습니다.
 
 ```xml
 <RelyingParty>

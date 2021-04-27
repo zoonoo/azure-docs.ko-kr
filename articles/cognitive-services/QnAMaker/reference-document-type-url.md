@@ -1,20 +1,20 @@
 ---
-title: 가져오기-QnA Maker에 대해 지원 되는 Url 형식
-description: Url 형식을 사용 하 여 QnA 쌍을 가져오고 만드는 방법을 이해 합니다.
+title: 가져오기에 대해 지원되는 URL 형식 - QnA Maker
+description: URL 형식을 사용하여 QnA 쌍을 가져오고 만드는 방법을 이해합니다.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 01/02/2020
 ms.openlocfilehash: 8bf50c1ea81cdf5246c47646d1a55926fe7d58d6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "91776700"
 ---
-# <a name="urls-supported-for-importing-documents"></a>문서 가져오기에 대해 지원 되는 Url
+# <a name="urls-supported-for-importing-documents"></a>문서 가져오기에 대해 지원되는 URL
 
-Url 형식을 사용 하 여 QnA 쌍을 가져오고 만드는 방법을 이해 합니다.
+URL 형식을 사용하여 QnA 쌍을 가져오고 만드는 방법을 이해합니다.
 
 ## <a name="faq-urls"></a>FAQ URL
 
@@ -22,7 +22,7 @@ QnA Maker는 3가지 형식으로 FAQ 웹 페이지를 지원할 수 있습니�
 
 * 일반 FAQ 페이지
 * 링크가 포함된 FAQ 페이지
-* 토픽 홈페이지를 사용 하는 FAQ 페이지
+* 항목 홈페이지가 포함된 FAQ 페이지
 
 ### <a name="plain-faq-pages"></a>일반 FAQ 페이지
 
@@ -42,11 +42,11 @@ QnA Maker는 3가지 형식으로 FAQ 웹 페이지를 지원할 수 있습니�
  ![기술 자료를 위한 섹션 링크 FAQ 페이지 예제](./media/qnamaker-concepts-datasources/sectionlink-faq.png)
 
 
-### <a name="parent-topics-page-links-to-child-answers-pages"></a>부모 항목 페이지 자식 응답 페이지에 대 한 링크
+### <a name="parent-topics-page-links-to-child-answers-pages"></a>부모 항목 페이지와 자식 응답 페이지 연결
 
-이 유형의 FAQ에는 각 항목이 다른 페이지에서 해당 질문 및 답변 집합에 연결 된 항목 페이지가 있습니다. QnA Maker 연결 된 모든 페이지를 탐색 하 여 해당 질문 & 답변을 추출 합니다.
+이 유형의 FAQ에는 각 항목이 다른 페이지에 있는 해당 질문과 대답 집합이 연결되는 항목 페이지가 있습니다. QnA Maker는 연결된 모든 페이지를 크롤링하여 해당하는 질문과 답변을 추출합니다.
 
-다음은 여러 페이지의 FAQ 섹션에 대 한 링크가 포함 된 항목 페이지의 예입니다.
+여러 페이지의 FAQ 섹션에 대한 링크가 포함된 항목 페이지의 예는 아래와 같습니다.
 
  ![기술 자료를 위한 딥 링크 FAQ 페이지 예제](./media/qnamaker-concepts-datasources/topics-faq.png)
 

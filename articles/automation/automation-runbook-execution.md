@@ -1,15 +1,15 @@
 ---
 title: Azure Automation에서 Runbook 실행
-description: 이 문서에서는 Azure Automation runbook의 처리에 대 한 개요를 제공 합니다.
+description: 이 문서에서는 Azure Automation에서 Runbook을 처리하는 방법에 대한 개요를 제공합니다.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/23/2021
 ms.topic: conceptual
 ms.openlocfilehash: 165c9ea721bec7fc7a1657f5dde5c19d9e254e20
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104954346"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
@@ -34,7 +34,7 @@ Azure Portal에서 Runbook 목록을 확인하면 각 Runbook에 대해 시작�
 
 Azure Automation의 Runbook은 Azure 샌드박스 또는 [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)에서 실행할 수 있습니다. 
 
-Runbook이 Azure의 리소스에 대해 인증되고 실행되도록 설계된 경우, 여러 작업에서 사용할 수 있는 공유 환경인 Azure 샌드박스에서 실행됩니다. 동일한 샌드박스를 사용하는 작업에는 샌드박스의 리소스 제한이 적용됩니다. Azure 샌드박스 환경은 대화형 작업을 지원하지 않으며 모든 out-of-process COM 서버에 대 한 액세스를 방지 하 고 runbook에서 Win32 공급자에 대 한 [WMI 호출](/windows/win32/wmisdk/wmi-architecture) 을 지원 하지 않습니다.  이러한 시나리오는 Windows Hybrid Runbook Worker에서 runbook을 실행 하는 경우에만 지원 됩니다.
+Runbook이 Azure의 리소스에 대해 인증되고 실행되도록 설계된 경우, 여러 작업에서 사용할 수 있는 공유 환경인 Azure 샌드박스에서 실행됩니다. 동일한 샌드박스를 사용하는 작업에는 샌드박스의 리소스 제한이 적용됩니다. Azure 샌드박스 환경은 대화형 작업을 지원하지 않으며 모든 Out of Process COM 서버에 대한 액세스를 방지하고 Runbook의 Win32 공급자에 대한 [WMI 호출](/windows/win32/wmisdk/wmi-architecture)을 지원하지 않습니다.  이러한 시나리오는 Windows Hybrid Runbook Worker에서 Runbook을 실행하는 경우에만 지원됩니다.
 
 
 역할을 호스트하는 컴퓨터에서, 그리고 환경의 리소스에 대해 Runbook을 직접 실행하는 데 [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)를 사용할 수도 있습니다. Azure Automation은 Runbook을 저장 및 관리한 후 하나 이상의 할당된 컴퓨터로 전달합니다.
@@ -60,11 +60,11 @@ Runbook이 Azure의 리소스에 대해 인증되고 실행되도록 설계된 �
 |권한 상승이 필요한 스크립트 실행|Hybrid Runbook Worker|샌드박스에서는 권한 상승이 허용되지 않습니다. Hybrid Runbook Worker를 사용하면 권한 상승이 필요한 명령을 실행할 때 UAC를 해제하고 [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command)를 사용할 수 있습니다.|
 |WMI(Windows Management Instrumentation)에 액세스해야 하는 스크립트 실행|Hybrid Runbook Worker|클라우드의 샌드박스에서 실행되는 작업은 WMI 공급자에 액세스할 수 없습니다. |
 
-## <a name="temporary-storage-in-a-sandbox"></a>샌드박스에서 임시 저장소
+## <a name="temporary-storage-in-a-sandbox"></a>샌드박스의 임시 스토리지
 
-Runbook 논리의 일부로 임시 파일을 만들어야 하는 경우 azure `$env:TEMP` 에서 실행 되는 runbook에 대해 azure 샌드박스에서 임시 폴더 (즉,)를 사용할 수 있습니다. 유일한 제한 사항은 1gb 이상의 디스크 공간 (각 샌드박스에 대 한 할당량)을 사용할 수 없다는 것입니다. Powershell 워크플로를 사용 하는 경우 PowerShell 워크플로에서 검사점을 사용 하 고 다른 샌드박스에서 스크립트를 다시 시도할 수 있으므로이 시나리오에서 문제가 발생할 수 있습니다.
+Runbook 논리의 일부로 임시 파일을 만들어야 하는 경우 Azure에서 실행되는 Runbook에 대해 Azure 샌드박스에서 임시 폴더(즉, `$env:TEMP`)를 사용할 수 있습니다. 유일한 제한 사항은 1GB를 초과하는 디스크 공간(각 샌드박스에 대한 할당량)을 사용할 수 없다는 것입니다. Powershell 워크플로를 사용하는 경우 PowerShell 워크플로에서 검사점을 사용하고 다른 샌드박스에서 스크립트를 다시 시도할 수 있으므로 이 시나리오에서 문제가 발생할 수 있습니다.
 
-하이브리드 샌드박스를 사용 하면 `C:\temp` Hybrid Runbook Worker의 저장소 가용성에 따라를 사용할 수 있습니다. 그러나 Azure VM 권장 사항에 따라 유지 해야 하는 데이터에 대해 Windows 또는 Linux에서 [임시 디스크](../virtual-machines/managed-disks-overview.md#temporary-disk) 를 사용해 서는 안 됩니다.
+하이브리드 샌드박스를 사용하면 Hybrid Runbook Worker의 스토리지 가용성에 따라 `C:\temp`를 사용할 수 있습니다. 그러나 Azure VM 권장 사항에 따라 유지해야 하는 데이터에 대해 Windows 또는 Linux에서 [임시 디스크](../virtual-machines/managed-disks-overview.md#temporary-disk)를 사용해서는 안 됩니다.
 
 ## <a name="resources"></a>리소스
 
@@ -86,7 +86,7 @@ Runbook을 사용하려면 Azure 또는 타사 시스템의 리소스에 액세�
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-Azure Automation은 [Azure Monitor](../azure-monitor/overview.md) 를 사용 하 여 컴퓨터 작업을 모니터링 합니다. 작업에는 Log Analytics 작업 영역 및 [Log Analytics 에이전트가](../azure-monitor/agents/log-analytics-agent.md)필요 합니다.
+Azure Automation은 [Azure Monitor](../azure-monitor/overview.md)를 사용하여 머신 작업을 모니터링합니다. 작업에는 Log Analytics 작업 영역과 [Log Analytics 에이전트](../azure-monitor/agents/log-analytics-agent.md)가 필요합니다.
 
 ### <a name="log-analytics-agent-for-windows"></a>Windows용 Log Analytics 에이전트
 
@@ -97,11 +97,11 @@ Azure Automation은 [Azure Monitor](../azure-monitor/overview.md) 를 사용 하
 
 ### <a name="log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트
 
-[Linux용 Log Analytics 에이전트](../azure-monitor/agents/agent-linux.md)는 Linux 컴퓨터를 Azure Monitor에 연결해 준다는 점을 제외하면 Windows용 에이전트와 비슷하게 작동합니다. 에이전트는 **nxautomation** 사용자 계정을 사용 하 여 설치 됩니다. 예를 들어 Hybrid Runbook Worker에서 루트 권한이 필요한 명령을 실행할 수 있습니다. **nxautomation** 계정은 암호를 요구하지 않는 시스템 계정입니다.
+[Linux용 Log Analytics 에이전트](../azure-monitor/agents/agent-linux.md)는 Linux 컴퓨터를 Azure Monitor에 연결해 준다는 점을 제외하면 Windows용 에이전트와 비슷하게 작동합니다. 에이전트는 Hybrid Runbook Worker 등에서 루트 권한이 필요한 명령을 실행할 수 있도록 지원하는 **nxautomation** 사용자 계정을 사용하여 설치됩니다. **nxautomation** 계정은 암호를 요구하지 않는 시스템 계정입니다.
 
 [Linux Hybrid Runbook Worker](automation-linux-hrw-install.md)를 설치할 때는 해당 sudo 권한이 있는 **nxautomation** 계정이 있어야 합니다. 작업자를 설치하려고 시도했는데 계정이 없거나 계정에 적절한 권한이 없는 경우 설치가 실패합니다.
 
-폴더 또는 해당 소유권의 사용 권한을 변경 하면 안 `sudoers.d` 됩니다. **Nxautomation** 계정에는 Sudo 권한이 필요 하며 사용 권한은 제거 하면 안 됩니다. 이를 특정 폴더 또는 명령으로 제한 하면 주요 변경 사항이 발생할 수 있습니다.
+`sudoers.d` 폴더 또는 해당 소유권의 사용 권한을 변경하면 안 됩니다. **nxautomation** 계정에는 Sudo 권한이 필요하며 사용 권한은 제거하면 안 됩니다. 이를 특정 폴더 또는 명령으로 제한하면 호환성이 손상되는 변경이 발생할 수 있습니다.
 
 Log Analytics 에이전트 및 **nxautomation** 계정에서 사용할 수 있는 로그는 다음과 같습니다.
 
@@ -113,7 +113,7 @@ Log Analytics 에이전트 및 **nxautomation** 계정에서 사용할 수 있�
 
 ## <a name="runbook-permissions"></a>Runbook 사용 권한
 
-Runbook이 자격 증명을 통해 Azure에 대해 인증되려면 권한이 필요합니다. [Azure Automation 인증 개요](automation-security-overview.md)를 참조 하세요.
+Runbook이 자격 증명을 통해 Azure에 대해 인증되려면 권한이 필요합니다. [Azure Automation 계정 인증 개요](automation-security-overview.md)를 참조하세요.
 
 ## <a name="modules"></a>모듈
 
@@ -140,7 +140,7 @@ Azure Automation은 동일한 Automation 계정에서 작업을 실행하는 환
 
 | 상태 | Description |
 |:--- |:--- |
-| 토폴로지만 |작업이 활성화 되 고 있습니다. |
+| 활성화 |작업이 활성화되는 중입니다. |
 | Completed |작업이 완료되었습니다. |
 | 실패 |그래픽 또는 PowerShell 워크플로 Runbook을 컴파일하지 못했습니다. PowerShell Runbook을 시작하지 못했거나 작업에서 예외가 발생했습니다. [Azure Automation Runbook 형식](automation-runbook-types.md)을 참조하세요.|
 | Failed, waiting for resources |작업이 [공평 분배](#fair-share) 한도에 세 번 도달했기 때문에 실패했고 매번 동일한 검사점 또는 Runbook의 처음부터 시작되었습니다. |
@@ -230,7 +230,7 @@ Azure DevOps Services나 GitHub와 같은 외부 서비스는 Azure Automation�
 
 Azure 클라우드에 있는 모든 Runbook리소스를 공유할 수 있도록 공평 분배라는 개념을 사용합니다. Azure는 공평 분배를 사용하여 3시간 이상 실행된 작업을 일시적으로 언로드하거나 중지합니다. [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 및 [Python Runbook](automation-runbook-types.md#python-runbooks)의 작업은 중지된 후 다시 시작되지 않으며 작업 상태는 중지됨으로 설정됩니다.
 
-장기 실행 Azure Automation 작업의 경우 Hybrid Runbook Worker를 사용하는 것이 좋습니다. Hybrid Runbook Worker는 공평 분배로 제한되지 않으며, Runbook을 실행할 수 있는 기간에 대한 제한이 없습니다. 다른 작업 [제한](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)은 Azure 샌드박스 및 Hybrid Runbook Worker에 모두 적용됩니다. Hybrid Runbook Worker는 3 시간 공평 공유 제한으로 제한 되지 않지만 예기치 않은 로컬 인프라 문제부터 다시 시작을 지 원하는 작업자에서 실행할 runbook을 개발 해야 합니다.
+장기 실행 Azure Automation 작업의 경우 Hybrid Runbook Worker를 사용하는 것이 좋습니다. Hybrid Runbook Worker는 공평 분배로 제한되지 않으며, Runbook을 실행할 수 있는 기간에 대한 제한이 없습니다. 다른 작업 [제한](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)은 Azure 샌드박스 및 Hybrid Runbook Worker에 모두 적용됩니다. Hybrid Runbook Worker는 3시간으로 제한되지 않지만 예기치 않은 로컬 인프라 문제로 인한 다시 시작을 지원하는 작업자에서 실행할 Runbook을 개발해야 합니다.
 
 또 다른 옵션은 자식 Runbook을 사용하여 Runbook을 최적화하는 것입니다. 예를 들어 Runbook이 여러 리소스에서 동일한 함수를 반복하는 경우(예: 여러 데이터베이스의 데이터베이스 작업에서) 해당 함수를 [자식 Runbook](automation-child-runbooks.md)으로 이동한 다음 Runbook에서 [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook)을 사용하여 이 함수를 호출하도록 할 수 있습니다. 자식 Runbook은 별도의 프로세스에서 병렬로 실행됩니다.
 

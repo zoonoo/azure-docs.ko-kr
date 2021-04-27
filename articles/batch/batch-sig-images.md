@@ -1,19 +1,19 @@
 ---
-title: 공유 이미지 갤러리를 사용 하 여 사용자 지정 이미지 풀 만들기
-description: 사용자 지정 이미지 풀은 Batch 워크 로드를 실행 하도록 계산 노드를 구성 하는 효율적인 방법입니다.
+title: Shared Image Gallery를 사용하여 사용자 지정 이미지 풀 만들기
+description: 사용자 지정 이미지 풀은 Batch 워크로드를 실행하도록 컴퓨팅 노드를 구성하는 효율적인 방법입니다.
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.custom: devx-track-python, devx-track-azurecli
 ms.openlocfilehash: a9ff30f52ae19e3d6a7bc58ca81eabeb91d21146
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105024067"
 ---
-# <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>공유 이미지 갤러리를 사용 하 여 사용자 지정 이미지 풀 만들기
+# <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Shared Image Gallery를 사용하여 사용자 지정 이미지 풀 만들기
 
-Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에서 각 컴퓨팅 노드에 대해 운영 체제를 제공하는 VM 이미지를 지정합니다. 지원 되는 Azure Marketplace 이미지를 사용 하 여 가상 머신 풀을 만들거나 [공유 이미지 갤러리 이미지](../virtual-machines/shared-image-galleries.md)를 사용 하 여 사용자 지정 이미지를 만들 수 있습니다.
+Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에서 각 컴퓨팅 노드에 대해 운영 체제를 제공하는 VM 이미지를 지정합니다. 지원되는 Azure Marketplace 이미지를 사용하여 가상 머신의 풀을 만들거나 [Shared Image Gallery 이미지](../virtual-machines/shared-image-galleries.md)를 사용하여 사용자 지정 이미지를 만들 수 있습니다.
 
 ## <a name="benefits-of-the-shared-image-gallery"></a>Shared Image Gallery의 이점
 
@@ -30,7 +30,7 @@ Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에�
 - **애플리케이션 미리 설치**. OS 디스크에 애플리케이션을 미리 설치하는 것은 시작 작업을 사용하여 컴퓨팅 노드를 프로비저닝한 후에 애플리케이션을 설치하는 것보다 효율성은 높고 오류 발생 가능성은 낮습니다.
 - **많은 데이터를 한 번에 복사** 관리되는 공유 이미지를 관리되는 이미지의 데이터 디스크에 복사하여 관리되는 공유 이미지의 정적 데이터 부분을 만듭니다. 이 작업은 한 번만 수행하며 풀의 각 노드에서 데이터를 사용할 수 있게 됩니다.
 - **풀을 더 큰 크기로 확장** Shared Image Gallery를 사용하면 더 많은 공유 이미지 복제본과 함께 사용자 지정된 이미지를 사용하여 더 큰 풀을 만들 수 있습니다.
-- **관리 되는 이미지만 사용자 지정 이미지로 사용 하는 것 보다 성능이 향상 됩니다.** 공유 이미지 사용자 지정 이미지 풀의 경우 안정 된 상태에 도달 하는 시간은 최대 25% 더 빠르며 VM 유휴 대기 시간은 최대 30% 더 짧습니다.
+- **관리형 이미지를 사용자 지정 이미지로 사용하는 것보다 성능이 뛰어납니다.** 공유 이미지 사용자 지정 이미지 풀의 경우 정상 상태에 도달하는 시간이 최대 25% 더 빠르며 VM 유휴 지연 시간이 최대 30% 더 짧습니다.
 - **보다 쉽게 관리할 수 있도록 이미지 버전 관리 및 그룹화** 이미지 그룹화 정의에는 이미지를 만든 이유에 대한 정보, 사용 중인 OS 및 이미지 사용에 대한 정보가 포함되어 있습니다. 이미지를 그룹화하면 이미지를 쉽게 관리할 수 있습니다. 자세한 내용은 [이미지 정의](../virtual-machines/shared-image-galleries.md#image-definitions)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -43,22 +43,22 @@ Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에�
 - **Shared Image Gallery 이미지** 공유 이미지를 만들려면 관리되는 이미지 리소스를 갖거나 만들어야 합니다. VM OS 디스크 및 연결된 데이터 디스크(선택 사항)의 스냅샷에서 이미지를 만들어야 합니다.
 
 > [!NOTE]
-> 공유 이미지가 Batch 계정과 동일한 구독에 있지 않은 경우 해당 구독에 대 한 [Microsoft.Batch 리소스 공급자를 등록](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) 해야 합니다. 두 구독은 동일한 Azure AD 테 넌 트에 있어야 합니다.
+> 공유 이미지가 Batch 계정과 동일한 구독에 없는 경우 해당 구독에 대해 [Microsoft.Batch 리소스 공급자를 등록](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)해야 합니다. 두 구독은 동일한 Azure AD 테넌트에 있어야 합니다.
 >
 > Batch 계정과 동일한 지역에 복제본이 있는 경우 이미지는 다른 지역에 있을 수 있습니다.
 
-Azure AD 응용 프로그램을 사용 하 여 공유 이미지 갤러리 이미지를 사용 하 여 사용자 지정 이미지 풀을 만드는 경우 해당 응용 프로그램에는 공유 이미지에 대 한 액세스 권한을 부여 하는 [azure 기본 제공 역할이](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) 부여 되어 있어야 합니다. 공유 이미지를 탐색 하 고, **액세스 제어 (IAM)** 를 선택 하 고, 응용 프로그램에 대 한 역할 할당을 추가 하 여 Azure Portal에서이 액세스 권한을 부여할 수 있습니다.
+Azure AD 애플리케이션을 사용하여 Shared Image Gallery 이미지가 있는 사용자 지정 이미지 풀을 만드는 경우 해당 애플리케이션에는 공유 이미지에 대한 액세스 권한을 부여하는 [Azure 기본 제공 역할](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)이 부여되어야 합니다. 공유 이미지로 이동하여 **액세스 제어(IAM)** 를 선택하고 애플리케이션에 대한 역할 할당을 추가하여 Azure Portal에서 이 액세스 권한을 부여할 수 있습니다.
 
 ## <a name="prepare-a-shared-image"></a>공유 이미지 준비
 
-Azure에서는 다음을 통해 만들 수 있는 관리 되는 이미지에서 공유 이미지를 준비할 수 있습니다.
+Azure에서는 다음을 통해 만들 수 있는 관리되는 이미지에서 공유 이미지를 준비할 수 있습니다.
 
 - Azure VM의 OS 및 데이터 디스크의 스냅샷
 - 관리 디스크를 사용하는 일반화된 Azure VM
 - 클라우드로 업로드된 일반화된 온-프레미스 VHD
 
 > [!NOTE]
-> Batch는 일반화 된 공유 이미지만 지원 합니다. 특수 공유 이미지를 사용 하 여 풀을 만들 수 없습니다.
+> Batch는 일반화된 공유 이미지만 지원합니다. 특수 공유 이미지를 사용하여 풀을 만들 수 없습니다.
 
 다음 단계는 VM을 준비하고 스냅샷을 생성하고 스냅샷에서 이미지를 만드는 방법을 보여 줍니다.
 
@@ -67,17 +67,17 @@ Azure에서는 다음을 통해 만들 수 있는 관리 되는 이미지에서 
 이미지용으로 새 VM을 만드는 경우 Batch에서 지원하는 자사 Azure Marketplace 이미지를 관리형 이미지의 기본 이미지로 사용합니다. 자사 이미지만 기본 이미지로 사용할 수 있습니다. Azure Batch에서 지원하는 Azure Marketplace 이미지 참조의 전체 목록을 가져오려면 [노드 에이전트 SKU 나열](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) 작업을 참조하세요.
 
 > [!NOTE]
-> 추가 라이선스 및 구매 약관이 있는 타사 이미지는 기본 이미지로 사용할 수 없습니다. 이러한 Marketplace 이미지에 대 한 자세한 내용은 [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) 또는 [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties)vm에 대 한 지침을 참조 하세요.
+> 추가 라이선스 및 구매 약관이 있는 타사 이미지는 기본 이미지로 사용할 수 없습니다. Marketplace 이미지에 대한 자세한 내용은 [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) 또는 [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties) VM을 참조하세요.
 
-Vm을 만들 때 다음 지침을 따르세요.
+VM을 만드는 경우 다음 지침을 따릅니다.
 
 - 관리 디스크로 VM이 생성되었는지 확인합니다. VM을 만들 때 기본 스토리지 설정입니다.
 - 사용자 지정 스크립트 확장 등의 Azure 확장을 VM에 설치해서는 안 됩니다. 이미지에 미리 설치된 확장이포함되어 있으면 Batch 풀을 배포할 때 Azure에서 문제가 발생할 수 있습니다.
 - 연결된 데이터 디스크를 사용하는 경우 VM 내에서 디스크를 탑재하고 포맷하여 사용해야 합니다.
 - 제공하는 기본 OS 이미지가 기본 임시 드라이브를 사용하도록 해야 합니다. Batch 노드 에이전트는 현재 기본 임시 드라이브를 예상합니다.
-- OS 디스크가 암호화 되지 않았는지 확인 합니다.
+- OS 디스크가 암호화되지 않았는지 확인합니다.
 - VM이 실행되면 RDP(Windows용) 또는 SSH(Linux용)를 통해 연결합니다. 필요한 소프트웨어를 설치하거나 원하는 데이터를 복사합니다.
-- 더 빠른 풀 프로 비전을 위해 VM의 OS 디스크에 대 한 [ReadWrite disk cache 설정을](../virtual-machines/premium-storage-performance.md#disk-caching) 사용 합니다.
+- 더 빠른 풀 프로비저닝을 위해 VM의 OS 디스크에 [ReadWrite 디스크 캐시 설정](../virtual-machines/premium-storage-performance.md#disk-caching)을 사용합니다.
 
 ### <a name="create-a-vm-snapshot"></a>VM 스냅샷 만들기
 
@@ -222,7 +222,7 @@ client.pool.add(new_pool)
 
 공유 이미지를 사용하여 수백 또는 수천 개의 VM이 포함된 풀을 만들려는 경우 다음 지침을 사용합니다.
 
-- **Shared Image Gallery 복제본 번호**  최대 300 인스턴스를 포함 하는 모든 풀에 대해 하나 이상의 복제본을 유지 하는 것이 좋습니다. 예를 들어 3000 Vm을 사용 하 여 풀을 만드는 경우 이미지의 복제본을 10 개 이상 유지 해야 합니다. 성능 향상을 위해 항상 최소 요구 사항보다 더 많은 복제본을 유지하는 것이 좋습니다.
+- **Shared Image Gallery 복제본 번호**  최대 300개의 인스턴스를 포함하는 모든 풀에 대해 하나 이상의 복제본을 유지하는 것이 좋습니다. 예를 들어 3000개의 VM을 사용하여 풀을 만드는 경우 이미지의 복제본을 10개 이상 유지해야 합니다. 성능 향상을 위해 항상 최소 요구 사항보다 더 많은 복제본을 유지하는 것이 좋습니다.
 
 - **크기 조정 시간 제한** 풀이 고정된 수의 노드를 포함하는 경우(자동 크기 조정하지 않는 경우) 풀 크기에 따라 풀의 `resizeTimeout` 속성을 늘립니다. 1000개의 VM마다 권장 크기 조정 시간 제한은 15분 이상입니다. 예를 들어 2000개의 VM이 있는 풀에 권장되는 크기 조정 제한 시간은 30분 이상입니다.
 

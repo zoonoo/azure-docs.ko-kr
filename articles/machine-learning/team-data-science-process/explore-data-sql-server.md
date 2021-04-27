@@ -12,15 +12,15 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 33b55afb7796b197f7130ec9288abb01cc115651
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "86085653"
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Azure의 SQL Server Virtual Machine에서 데이터 탐색
 
-이 문서에서는 Azure에서 SQL Server VM에 저장된 데이터를 탐색하는 방법을 다룹니다. SQL 또는 Python을 사용 하 여 데이터를 검사 합니다.
+이 문서에서는 Azure에서 SQL Server VM에 저장된 데이터를 탐색하는 방법을 다룹니다. SQL 또는 Python을 사용하여 데이터를 검사합니다.
 
 이 작업은 [팀 데이터 과학 프로세스](overview.md)의 단계입니다.
 
@@ -51,7 +51,7 @@ SQL Server에서 데이터 저장소를 탐색하는 데 사용할 수 있는 �
 > 
 
 ## <a name="explore-sql-data-with-python"></a><a name="python"></a>Python으로 SQL 데이터 탐색
-데이터 [과학 환경에서 Azure blob 데이터 처리](data-blob.md)에 설명 된 대로 python을 사용 하 여 데이터를 탐색 하 고 SQL Server 기능을 생성 하는 것은 python을 사용 하 여 azure blob에서 데이터를 처리 하는 것과 유사 합니다. 데이터베이스에서 pandas 데이터 프레임로 데이터를 로드 한 다음 추가로 처리할 수 있습니다. 데이터베이스에 연결하여 데이터 프레임으로 데이터를 로드하는 프로세스는 이 섹션에 설명되어 있습니다.
+데이터가 SQL Server에 있는 경우 Python을 사용하여 데이터를 탐색하고 기능을 생성하는 작업은 [데이터 과학 환경에서 Azure Blob 데이터 처리](data-blob.md)에 설명된 대로 Python을 사용하여 Azure Blob의 데이터를 처리하는 것과 유사합니다. 데이터베이스에서 Pandas DataFrame으로 데이터를 로드한 다음 추가로 처리할 수 있습니다. 데이터베이스에 연결하여 데이터 프레임으로 데이터를 로드하는 프로세스는 이 섹션에 설명되어 있습니다.
 
 다음 연결 문자열 형식은 pyodbc를 사용(servername, dbname, username 및 password를 특정 값으로 대체)하여 Python에서 SQL Server 데이터베이스 연결하는 데 사용될 수 있습니다.
 
@@ -61,7 +61,7 @@ import pyodbc
 conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 ```
 
-Python의 [Pandas 라이브러리](https://pandas.pydata.org/) 는 python 프로그래밍에 대 한 데이터 조작을 위한 다양 한 데이터 구조 및 데이터 분석 도구 집합을 제공 합니다. 다음 코드는 SQL Server 데이터베이스에서 Pandas 데이터 프레임으로 반환되는 결과를 읽습니다.
+Python의 [Pandas 라이브러리](https://pandas.pydata.org/) 에서는 Python 프로그래밍용 데이터 조작을 위한 다양한 데이터 구조 및 데이터 분석 도구 집합을 제공합니다. 다음 코드는 SQL Server 데이터베이스에서 Pandas 데이터 프레임으로 반환되는 결과를 읽습니다.
 
 ```python
 # Query database and load the returned results in pandas data frame
