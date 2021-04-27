@@ -4,12 +4,12 @@ description: Azure Container Instances에 컨테이너 이미지를 빌드, 푸�
 ms.topic: article
 ms.date: 08/20/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: e6a4d9ecff292d79f132f933c36b0030e04f4efa
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 1409d8fc1430cd9bf67bd735d9826a74979d495b
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771302"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "98762971"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>GitHub 작업을 구성하여 컨테이너 인스턴스 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "107771302"
 > [!IMPORTANT]
 > Azure Container Instances에 대한 GitHub 작업은 현재 미리 보기 상태입니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **GitHub 계정** - 아직 계정이 없는 경우 https://github.com 에서 계정을 만듭니다.
 * **Azure CLI** - Azure Cloud Shell 또는 로컬에 설치된 Azure CLI를 사용하여 Azure CLI 단계를 완료할 수 있습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
@@ -310,13 +310,13 @@ az group delete \
 <!-- LINKS - internal -->
 
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-group-show]: /cli/azure/group#az_group_show
-[az-group-delete]: /cli/azure/group#az_group_delete
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
-[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
-[az-container-create]: /cli/azure/container#az_container_create
-[az-acr-show]: /cli/azure/acr#az_acr_show
-[az-container-show]: /cli/azure/container#az_container_show
-[az-container-delete]: /cli/azure/container#az_container_delete
-[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-group-show]: /cli/azure/group#az-group-show
+[az-group-delete]: /cli/azure/group#az-group-delete
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[az-container-create]: /cli/azure/container#az-container-create
+[az-acr-show]: /cli/azure/acr#az-acr-show
+[az-container-show]: /cli/azure/container#az-container-show
+[az-container-delete]: /cli/azure/container#az-container-delete
+[az-extension-add]: /cli/azure/extension#az-extension-add
 [az-container-app-up]: /cli/azure/ext/deploy-to-azure/container/app#ext-deploy-to-azure-az-container-app-up

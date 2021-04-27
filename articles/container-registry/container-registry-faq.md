@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/15/2021
 ms.author: sajaya
-ms.openlocfilehash: a8c007d7f4419ddbe1555b50ceb6fb92ea0a6f98
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 5550c53289228f154fab485b4b7bbff17555aad7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783902"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105045742"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry에 대한 질문과 대답
 
@@ -484,7 +484,7 @@ Microsoft Edge/IE 브라우저를 사용하는 경우 최대 100개의 리포지
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>허용되지 않은 작업으로 인해 풀 또는 푸시 요청이 실패하는 이유는 무엇인가요?
 
 작업이 허용될 수 없는 몇 가지 시나리오는 다음과 같습니다.
-* 클래식 레지스트리가 더 이상 지원되지 않습니다. [az acr update](/cli/azure/acr#az_acr_update) 또는 Azure Portal을 사용하여 지원되는 [서비스 계층](./container-registry-skus.md)으로 업그레이드하세요.
+* 클래식 레지스트리가 더 이상 지원되지 않습니다. [az acr update](/cli/azure/acr#az-acr-update) 또는 Azure Portal을 사용하여 지원되는 [서비스 계층](./container-registry-skus.md)으로 업그레이드하세요.
 * 이미지 또는 리포지토리가 잠겨 있어 삭제하거나 업데이트할 수 없습니다. [az acr show repository](./container-registry-image-lock.md) 명령을 사용하여 현재 특성을 볼 수 있습니다.
 * 이미지가 격리 모드에 있는 경우 일부 작업이 허용되지 않습니다. [격리](https://github.com/Azure/acr/tree/master/docs/preview/quarantine)에 대해 자세히 알아보세요.
 * 레지스트리가 [스토리지 한도](container-registry-skus.md#service-tier-features-and-limits)에 도달했을 수 있습니다.

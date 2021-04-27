@@ -3,12 +3,12 @@ title: ACR 작업에서 크로스 레지스트리 인증
 description: Azure 리소스에 대해 관리 ID를 사용하여 다른 프라이빗 Azure 컨테이너 레지스트리에 액세스하도록 ACR 작업(Azure Container Registry Task)을 구성합니다.
 ms.topic: article
 ms.date: 07/06/2020
-ms.openlocfilehash: a9b70a44de0cfccb9a61bc24575281e440db6e32
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 789d2c141f8b7c3f2eb8daa31d99090e3d028a43
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781127"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "98915831"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Azure 관리 ID를 사용하는 ACR 작업의 레지스트리 간 인증 
 
@@ -237,17 +237,17 @@ cf10
 * [ACR 작업 YAML 참조](container-registry-tasks-reference-yaml.md)를 참조하세요.
 
 <!-- LINKS - Internal -->
-[az-login]: /cli/azure/reference-index#az_login
-[az-acr-login]: /cli/azure/acr#az_acr_login
-[az-acr-show]: /cli/azure/acr#az_acr_show
-[az-acr-build]: /cli/azure/acr#az_acr_build
-[az-acr-repository-show-tags]: /cli/azure/acr/repository#az_acr_repository_show_tags
-[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
-[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-login]: /cli/azure/reference-index#az-login
+[az-acr-login]: /cli/azure/acr#az-acr-login
+[az-acr-show]: /cli/azure/acr#az-acr-show
+[az-acr-build]: /cli/azure/acr#az-acr-build
+[az-acr-repository-show-tags]: /cli/azure/acr/repository#az-acr-repository-show-tags
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[az-acr-login]: /cli/azure/acr#az-acr-login
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
-[az-acr-task-show]: /cli/azure/acr/task#az_acr_task_show
-[az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
-[az-acr-task-list-runs]: /cli/azure/acr/task#az_acr_task_list_runs
-[az-acr-task-credential-add]: /cli/azure/acr/task/credential#az_acr_task_credential_add
-[az-group-create]: /cli/azure/group?#az_group_create
+[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
+[az-acr-task-show]: /cli/azure/acr/task#az-acr-task-show
+[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
+[az-acr-task-list-runs]: /cli/azure/acr/task#az-acr-task-list-runs
+[az-acr-task-credential-add]: /cli/azure/acr/task/credential#az-acr-task-credential-add
+[az-group-create]: /cli/azure/group?#az-group-create

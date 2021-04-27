@@ -3,12 +3,12 @@ title: 공용 레지스트리 액세스 구성
 description: 선택한 공용 IP 주소나 주소 범위에서 Azure 컨테이너 레지스트리에 대한 액세스를 사용하기 위한 IP 규칙을 구성합니다.
 ms.topic: article
 ms.date: 03/08/2021
-ms.openlocfilehash: 00912f0e66c84feff40e6439d59ccdfa82a4ab6a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 727aa1dc028b5f52a022e54c2cd252ae372e78fe
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785839"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104773065"
 ---
 # <a name="configure-public-ip-network-rules"></a>공용 IP 네트워크 규칙 구성
 
@@ -118,12 +118,12 @@ az acr update --name myContainerRegistry --public-network-enabled true
 * 가상 네트워크에서 프라이빗 엔드포인트를 사용하여 레지스트리에 대한 액세스를 제한하려면 [Azure 컨테이너에 대한 Azure Private Link 구성](container-registry-private-link.md)을 참조하세요.
 * 클라이언트 방화벽 뒤에서 레지스트리 액세스 규칙을 설정해야 할 경우 [방화벽 뒤의 Azure Container Registry에 액세스하기 위한 규칙 구성](container-registry-firewall-access-rules.md)을 참조하세요.
 
-[az-acr-login]: /cli/azure/acr#az_acr_login
-[az-acr-network-rule-add]: /cli/azure/acr/network-rule/#az_acr_network_rule_add
-[az-acr-network-rule-remove]: /cli/azure/acr/network-rule/#az_acr_network_rule_remove
-[az-acr-network-rule-list]: /cli/azure/acr/network-rule/#az_acr_network_rule_list
-[az-acr-run]: /cli/azure/acr#az_acr_run
-[az-acr-update]: /cli/azure/acr#az_acr_update
+[az-acr-login]: /cli/azure/acr#az-acr-login
+[az-acr-network-rule-add]: /cli/azure/acr/network-rule/#az-acr-network-rule-add
+[az-acr-network-rule-remove]: /cli/azure/acr/network-rule/#az-acr-network-rule-remove
+[az-acr-network-rule-list]: /cli/azure/acr/network-rule/#az-acr-network-rule-list
+[az-acr-run]: /cli/azure/acr#az-acr-run
+[az-acr-update]: /cli/azure/acr#az-acr-update
 [quickstart-portal]: container-registry-get-started-portal.md
 [quickstart-cli]: container-registry-get-started-azure-cli.md
 [azure-portal]: https://portal.azure.com
