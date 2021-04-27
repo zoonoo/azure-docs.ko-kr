@@ -2,19 +2,73 @@
 title: Azure Defender for IoT의 새로운 기능
 description: 이 문서에서는 최신 Defender for IoT 릴리스의 새로운 기능을 확인할 수 있습니다.
 ms.topic: overview
-ms.date: 03/14/2021
-ms.openlocfilehash: 7d8c4ebfc55c80878b780fe9f663aaec62a75f9d
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.date: 04/19/2021
+ms.openlocfilehash: da5358ccf0f69ca2ba8f5722b75889b6b7c92c07
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106382915"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752609"
 ---
 # <a name="whats-new-in-azure-defender-for-iot"></a>Azure Defender for IoT의 새로운 기능이란?
 
 이 문서에는 Defender for IoT의 새로운 기능과 향상된 기능이 나와 있습니다.
 
 언급된 기능은 미리 보기에 있습니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
+
+## <a name="april-2021"></a>2021년 4월
+
+### <a name="work-with-automatic-threat-intelligence-updates-public-preview"></a>자동 위협 인텔리전스 업데이트 사용(공개 미리 보기)
+
+이제 Microsoft Defender for IoT에서 새로운 위협 인텔리전스 패키지를 출시했으므로 클라우드 연결 센서에 자동으로 밀어넣을 수 있습니다. 위협 인텔리전스 패키지를 다운로드한 다음, 센서에 업로드하는 것도 가능합니다.
+
+자동 업데이트를 사용하면 운영 작업을 줄이고 보안을 강화하는 데 도움이 됩니다. **자동 위협 인텔리전스 업데이트** 토글을 켜고 Defender for IoT 포털에 클라우드 연결 센서를 온보딩하여 자동 업데이트를 사용하도록 설정하세요.
+
+위협 인텔리전스 데이터를 업데이트할 때 좀 더 보수적인 접근법을 사용하려면 필요하다고 생각될 때만 Azure Defender for IoT 포털에서 클라우드 연결 센서로 패키지를 수동으로 밀어넣으면 됩니다.
+그러면 패키지를 다운로드한 후 센서에 업로드할 필요 없이 패키지 설치 시기를 제어할 수 있습니다. Defender for IoT **사이트 및 센서** 페이지에서 센서에 수동으로 업데이트를 밀어넣습니다.
+
+또한 위협 인텔리전스 패키지에 대한 다음 정보를 검토할 수 있습니다.
+
+- 설치된 패키지 버전
+- 위협 인텔리전트 업데이트 모드 
+- 위협 인텔리전스 업데이트 상태
+
+### <a name="view-cloud-connected-sensor-information-public-preview"></a>클라우드 연결 센서 정보 보기(공개 미리 보기)
+
+**사이트 및 센서** 페이지에서 클라우드 연결 센서에 대한 중요한 작업 정보를 확인합니다.
+
+- 설치된 센서 버전
+- 클라우드에 대한 센서 연결 상태
+- 센서가 클라우드에 연결한 것으로 감지된 마지막 시간
+
+### <a name="alert-api-enhancements"></a>알림 API 향상 기능
+
+알림 API를 사용하는 사용자를 위한 새 필드가 제공됩니다.
+
+**온-프레미스 관리 콘솔**
+
+- 원본 및 대상 주소
+- 수정 단계
+- 사용자가 정의한 센서 이름
+- 센서와 연결된 영역의 이름 
+- 센서와 연결된 사이트의 이름
+
+**Sensor**
+
+- 원본 및 대상 주소
+- 수정 단계
+
+새 필드를 사용할 때는 API 버전 2가 필요합니다.
+
+### <a name="features-delivered-as-generally-available-ga"></a>GA(일반 공급)로 제공되는 기능
+
+이전에 공개 미리 보기로 제공되었으며 현재는 GA(일반 공급)로 제공되는 기능은 다음과 같습니다.
+
+- 센서 - 향상된 사용자 지정 경고 규칙
+- 온-프레미스 관리 콘솔 - 경고 내보내기
+- 온-프레미스 관리 콘솔에 두 번째 네트워크 인터페이스 추가
+- 디바이스 빌더 - 새 마이크로 에이전트
+
 ## <a name="march-2021"></a>2021년 3월
 
 ### <a name="sensor---enhanced-custom-alert-rules-public-preview"></a>센서 - 향상된 사용자 지정 경고 규칙(공개 미리 보기)
@@ -26,6 +80,12 @@ ms.locfileid: "106382915"
 ### <a name="on-premises-management-console---export-alerts-public-preview"></a>온-프레미스 관리 콘솔 - 경고 내보내기(공개 미리 보기)
 
 경고 정보는 이제 온-프레미스 관리 콘솔에서 .csv 파일로 내보낼 수 있습니다. 검색된 모든 경고의 정보를 내보내거나 필터링된 보기를 기반으로 하여 정보를 내보낼 수 있습니다.
+
+이 기능은 버전 10.2 릴리스의 온-프레미스 관리 콘솔에서 사용할 수 있습니다.
+
+### <a name="add-second-network-interface-to-on-premises-management-console-public-preview"></a>온-프레미스 관리 콘솔에 두 번째 네트워크 인터페이스 추가(공개 미리 보기)
+
+이제 두 번째 네트워크 인터페이스를 온-프레미스 관리 콘솔에 추가하여 배포의 보안을 향상시킬 수 있습니다. 이 기능을 사용하면 온-프레미스 관리에서 센서를 하나의 보안 네트워크에 연결하고, 사용자가 별도의 두 번째 네트워크 인터페이스를 통해 온-프레미스 관리 콘솔에 액세스할 수 있습니다.
 
 이 기능은 버전 10.2 릴리스의 온-프레미스 관리 콘솔에서 사용할 수 있습니다.
 

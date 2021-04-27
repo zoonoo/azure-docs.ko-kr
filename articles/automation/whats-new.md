@@ -5,14 +5,14 @@ ms.subservice: ''
 ms.topic: overview
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/23/2021
+ms.date: 04/09/2021
 ms.custom: references_regions
-ms.openlocfilehash: 899249c98c3ce0fdf061b1e689182f71c120aa13
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f8b4d6965a8a1f046fd2459ce9fe5cce8ea45443
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101729400"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531075"
 ---
 # <a name="whats-new-in-azure-automation"></a>Azure Automation의 새로운 기능
 
@@ -23,6 +23,70 @@ Azure Automation은 지속적으로 향상되고 있습니다. 최신 개발 정
 - 버그 수정
 
 이 페이지는 매월 업데이트되므로 정기적으로 다시 방문해 주세요.
+
+## <a name="march-2021"></a>2021년 3월
+
+### <a name="new-azure-automation-built-in-policies"></a>새 Azure Automation 기본 제공 정책
+
+**유형:** 새로운 기능
+
+Azure Automation에는 새로운 5개의 기본 제공 정책이 추가되었습니다.
+
+- Automation 계정은 공용 네트워크 액세스를 사용하지 않도록 설정해야 함
+- Azure Automation 계정은 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함
+- 공용 네트워크 액세스를 사용하지 않도록 Azure Automation 계정 구성
+- Azure Automation 계정에서 프라이빗 엔드포인트 연결 구성
+- Automation 계정에서 프라이빗 엔드포인트 연결을 사용하도록 설정해야 함
+
+자세한 내용은 [정책 참조](./policy-reference.md) 문서를 참조하세요.
+
+### <a name="support-for-automation-and-state-configuration-declared-ga-in-south-india"></a>인도 남부의 Automation 및 State Configuration 선언 GA 지원
+
+**유형:** 새로운 기능
+
+인도 남부에서 프로세스 Automation 및 State Configuration 기능을 사용합니다. 자세한 내용은 [공지](https://azure.microsoft.com/updates/azure-automation-in-south-india-region/)를 참조하세요.
+
+### <a name="support-for-automation-and-state-configuration-declared-ga-in-uk-west"></a>영국 서부의 Automation 및 State Configuration 선언 GA 지원
+
+**유형:** 새로운 기능
+
+영국 서부에서 프로세스 Automation 및 State Configuration 기능을 사용합니다. 자세한 내용은 [공지](https://azure.microsoft.com/updates/azure-automation-in-uk-west-region/)를 참조하세요.
+
+### <a name="support-for-automation-and-state-configuration-declared-ga-in-uae-central"></a>아랍에미리트 중부의 Automation 및 State Configuration 선언 GA 지원
+
+**유형:** 새로운 기능
+
+아랍에미리트 중부에서 프로세스 Automation 및 State Configuration 기능을 사용합니다. 자세한 내용은 [공지](https://azure.microsoft.com/updates/azure-automation-in-uae-central-region/)를 참조하세요.
+
+### <a name="support-for-automation-and-state-configuration-available-in-australia-central-2--norway-west-and-france-south"></a>오스트레일리아 중부 2, 노르웨이 서부, 프랑스 남부에서 사용할 수 있는 Automation 및 State Configuration 지원
+
+**유형:** 새로운 기능
+
+각 지역의 지리를 선택하여 [데이터 보존 페이지](https://azure.microsoft.com/global-infrastructure/data-residency/)에서 자세한 내용을 참조하세요.
+
+### <a name="new-scripts-added-for-installing-hybrid-worker-on-windows-and-linux"></a>Windows 및 Linux에서 Hybrid Worker를 설치하기 위해 추가된 새 스크립트
+
+**유형:** 새로운 기능
+
+Windows 또는 Linux 컴퓨터에서 Hybrid Runbook Worker를 설정하는 Azure Automation 주요 시나리오 중 하나를 해결하는 Azure Automation [GitHub 리포지토리](https://github.com/azureautomation)에 두 개의 새로운 스크립트가 추가되었습니다. 이 스크립트는 새 VM을 만들거나 기존 VM을 사용하고, 필요한 경우 Log Analytics 작업 영역을 만들고, Windows용 Log Analytics 에이전트 또는 Linux용 Log Analytics 에이전트를 설치하고, 컴퓨터를 Log Analytics 작업 영역에 등록합니다. Windows 스크립트 이름은 **Create Automation Windows HybridWorker** 이고 Linux 스크립트 이름은 **Create Automation Linux HybridWorker** 입니다.
+
+### <a name="invoke-runbook-through-an-azure-resource-manager-template-webhook"></a>Azure Resource Manager 템플릿 웹후크를 통해 Runbook 호출
+
+**유형:** 새로운 기능
+
+자세한 내용은 [ARM 템플릿에서 웹후크 사용](./automation-webhooks.md#use-a-webhook-from-an-arm-template)을 참조하세요.
+
+### <a name="azure-update-management-now-supports-centos-8x-red-hat-enterprise-linux-server-8x-and-suse-linux-enterprise-server-15"></a>이제 Azure 업데이트 관리에서 Centos 8.x, Red Hat Enterprise Linux Server 8.x, SUSE Linux Enterprise Server 15를 지원합니다.
+
+**유형:** 새로운 기능
+
+자세한 내용은 지원되는 Linux 운영 체제의 [전체 목록](./update-management/overview.md#supported-operating-systems)을 참조하세요.
+
+### <a name="in-region-data-residency-support-for-brazil-south-and-south-east-asia"></a>브라질 남부 및 동남아시아에 대한 지역 내 데이터 보존 지원 
+
+**유형:** 새로운 기능
+
+브라질 남부 및 동남 아시아를 제외한 모든 지역에서 Azure Automation 데이터는 BCDR(비즈니스 연속성 및 재해 복구)을 제공하기 위해 다른 지역(Azure 쌍을 이루는 지역)에 저장됩니다. 브라질 및 동남 아시아 지역에 한해, 이러한 지역에 대한 데이터 보존 요구 사항을 수용하기 위해 동일한 지역에 Azure Automation 데이터를 저장합니다. 자세한 내용은 [Azure Automation의 지역 복제](./automation-managing-data.md#geo-replication-in-azure-automation)를 참조하세요.
 
 ## <a name="february-2021"></a>2021년 2월
 
@@ -62,17 +126,17 @@ Automation 업데이트 관리 기능은 미국 동부, 프랑스 중부 및 북
 
 **유형.** 새로운 기능
 
-Hybrid Runbook Worker 기능은 Hybrid Runbook Worker의 프로세스 자동화에 대해서만 CentOS 8.x, REHL 8.x 및 SLES 15 배포판을 지원합니다.  이러한 변경 내용을 반영하기 위한 설명서 업데이트는 [지원되는 운영 체제](automation-linux-hrw-install.md#supported-linux-operating-systems)를 참조하세요.
+Hybrid Runbook Worker 기능은 Hybrid Runbook Worker의 프로세스 자동화에 대해서만 CentOS 8.x, REHL 8.x 및 SLES 15 배포판을 지원합니다. 이러한 변경 내용을 반영하기 위한 설명서 업데이트는 [지원되는 운영 체제](automation-linux-hrw-install.md#supported-linux-operating-systems)를 참조하세요.
 
-### <a name="update-management--change-tracking-availability-in-australia-east-east-asia-west-us--central-us-regions"></a>오스트레일리아 동부, 동아시아, 미국 서부 및 미국 중부 지역의 업데이트 관리 및 변경 내용 추적 가용성
+### <a name="update-management-and-change-tracking-availability-in-australia-east-east-asia-west-us-and-central-us-regions"></a>오스트레일리아 동부, 동아시아, 미국 서부, 미국 중부 지역의 업데이트 관리 및 변경 내용 추적 가용성
 
 **유형:** 새로운 기능
 
-Automation 계정, 변경 내용 추적 및 인벤토리, 업데이트 관리는 오스트레일리아 동부, 동아시아, 미국 서부 및 미국 중부 지역에서 사용할 수 있습니다. 
+Automation 계정, 변경 내용 추적 및 인벤토리, 업데이트 관리를 오스트레일리아 동부, 동아시아, 미국 서부, 미국 중부 지역에서 사용할 수 있습니다. 
 
 ### <a name="introduced-public-preview-of-python-3-runbooks-in-us-government-cloud"></a>미국 정부 클라우드의 Python 3 Runbook에 대한 퍼블릭 미리 보기를 도입함
 
-**유형:** 새 기능인 Azure Automation의 경우 미국 정부 클라우드 지역에서 Python 3 클라우드 및 하이브리드 Runbook 실행의 퍼블릭 미리 보기 지원이 도입되었습니다.  자세한 내용은 [공지](https://azure.microsoft.com/updates/azure-automation-python-3-public-preview/)를 참조하세요.
+**유형:** 새 기능인 Azure Automation의 경우 미국 정부 클라우드 지역에서 Python 3 클라우드 및 하이브리드 Runbook 실행의 퍼블릭 미리 보기 지원이 도입되었습니다. 자세한 내용은 [공지](https://azure.microsoft.com/updates/azure-automation-python-3-public-preview/)를 참조하세요.
 
 ### <a name="azure-automation-runbooks-moved-from-technet-script-center-to-github"></a>TechNet Script Center에서 GitHub로 이동한 Azure Automation Runbook
 
@@ -222,7 +286,7 @@ New-OnPremiseHybridWorker Runbook이 Az 모듈을 지원하도록 업데이트�
 
 Azure Automation DNS 레코드가 Private Link를 지원하도록 업데이트되었습니다. 자세한 내용은 [공지](https://azure.microsoft.com/updates/azure-automation-updateddns-records/)를 참조하세요.
 
-### <a name="added-capability-to-keep-automation-runbooks--dsc-scripts-encrypted-by-default"></a>Automation Runbook 및 DSC 스크립트를 기본적으로 암호화하는 기능 추가
+### <a name="added-capability-to-keep-automation-runbooks-and-dsc-scripts-encrypted-by-default"></a>Automation Runbook 및 DSC 스크립트를 기본적으로 암호화하는 기능 추가
 
 **유형:** 새로운 기능
 

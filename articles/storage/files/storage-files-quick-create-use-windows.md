@@ -4,15 +4,15 @@ description: Azure Portal에서 Azure Files 공유를 만들고 사용합니다.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4c5629f80c37c9f79dc9a39c4d8304acbee9679d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a3c664f6c6c0532ef915357cfbcbc8228202502
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92489577"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718238"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>빠른 시작: Windows 가상 머신에서 Azure Files 공유 만들기 및 관리
 
@@ -42,19 +42,19 @@ Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만�
 이제 파일 공유를 만듭니다.
 
 1. Azure 스토리지 계정 배포가 완료되면 **리소스로 이동** 을 선택합니다.
-1. 스토리지 계정 창에서 **파일** 을 선택합니다.
+1. 스토리지 계정 창에서 **파일 공유** 를 선택합니다.
 
-    ![파일 선택](./media/storage-files-quick-create-use-windows/click-files.png)
+    ![파일 공유를 선택합니다.](./media/storage-files-quick-create-use-windows/click-files.png)
 
-1. **파일 공유** 를 선택합니다.
+1. **+ 파일 공유** 를 선택합니다.
 
-    ![파일 공유 추가 단추 선택](./media/storage-files-quick-create-use-windows/create-file-share.png)
+    ![새 파일 공유를 만들려면 + 파일 공유를 선택합니다.](./media/storage-files-quick-create-use-windows/create-file-share.png)
 
-1. 새 파일 공유의 이름을 *qsfileshare* 로 지정하고 > **할당량** 에 “1”을 입력하고 > **만들기** 를 선택합니다. 할당량은 최대 5TiB까지 가능하지만 이 자습서에서는 1GiB만 필요합니다.
+1. 새 파일 공유에 *qsfileshare* 라는 이름을 지정하고, **할당량** 에 "1"을 입력하고, **트랜잭션 최적화** 를 선택한 상태로 두고, **만들기** 를 선택합니다. 할당량은 최대 5TiB(대용량 파일 공유가 설정된 경우 100TiB)까지 가능하지만 이 자습서에서는 1GiB만 필요합니다.
 1. 로컬 머신에 *qsTestFile* 이라는 새 txt 파일을 만듭니다.
 1. 새 파일 공유를 선택한 다음, 파일 공유 위치에서 **업로드** 를 선택합니다.
 
-    ![파일 업로드](./media/storage-files-quick-create-use-windows/create-file-share-portal5.png)
+    ![파일을 업로드합니다.](./media/storage-files-quick-create-use-windows/create-file-share-portal5.png)
 
 1. .txt 파일을 만든 위치로 이동하고 > *qsTestFile.txt* 를 선택하고 > **업로드** 를 선택합니다.
 
@@ -63,14 +63,14 @@ Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만�
 ### <a name="deploy-a-vm"></a>VM 배포
 
 1. 이제 포털 왼쪽의 메뉴를 확장하고 Azure Portal 왼쪽 위 모서리에 있는 **리소스 만들기** 를 선택합니다.
-1. **Azure Marketplace** 리소스 목록 위에 있는 검색 상자에서 **Windows Server 2016 Datacenter** 를 검색하고 선택한 다음, **만들기** 를 선택합니다.
+1. **Azure Marketplace** 리소스 목록 위에 있는 검색 상자에서 **Windows Server 2016 Datacenter** 를 검색하고 선택합니다.
 1. **기본** 탭의 **프로젝트 세부 정보** 에서 이 빠른 시작용으로 만든 리소스 그룹을 선택합니다.
 
-   ![포털 블레이드에서 VM에 대한 기본 정보 입력](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
+   ![포털 블레이드에서 VM에 대한 기본 정보를 입력합니다.](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
 
 1. **인스턴스 세부 정보** 에서 VM 이름을 *qsVM* 으로 지정합니다.
 1. **지역**, **가용성 옵션**, **이미지** 및 **크기** 는 기본 설정을 그대로 둡니다.
-1. **관리자 계정** 에서 *VMadmin* 을 **Username** 으로 추가하고 VM에 사용할 **암호** 를 입력합니다.
+1. **관리자 계정** 에서 **사용자 이름** 을 추가하고 VM에 사용할 **암호** 를 입력합니다.
 1. **인바운드 포트 규칙** 에서 **선택한 포트 허용** 을 선택한 다음, 드롭다운에서 **RDP(3389)** 및 **HTTP** 를 선택합니다.
 1. **검토 + 만들기** 를 선택합니다.
 1. **만들기** 를 선택합니다. 새 VM을 만드는 데 몇 분 정도 걸릴 수 있습니다.
@@ -96,60 +96,50 @@ Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만�
 ## <a name="map-the-azure-file-share-to-a-windows-drive"></a>Azure 파일 공유를 Windows 드라이브로 매핑
 
 1. Azure Portal에서 *qsfileshare* fileshare로 이동하고 **연결** 을 선택합니다.
-1. 두 번째 상자의 콘텐츠를 복사하고 **메모장** 에 붙여넣습니다.
+1. 드라이브 문자를 선택한 다음, 두 번째 상자의 내용을 복사하여 **메모장** 에 붙여넣습니다.
 
-   ![메모장에 복사하여 붙여넣어야 하는 초 상자의 내용을 보여주는 스크린샷.](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
+   :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="복사하여 메모장에 붙여넣어야 하는 상자의 내용을 보여주는 스크린샷." lightbox="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png":::
 
-1. VM에서 **파일 탐색기** 를 열고 창에서 **이 PC** 를 선택합니다. 이렇게 하면 리본에서 사용할 수 있는 메뉴가 변경됩니다. **컴퓨터** 메뉴에서 **네트워크 드라이브 매핑** 을 선택합니다.
-1. 드라이브 문자를 선택하고 UNC 경로를 입력합니다. 이 빠른 시작에서 명명 제안을 따르는 경우 **메모장** 에서 *\\qsstorageacct.file.core.windows.net\qsfileshare* 를 복사합니다.
-
-   확인란이 모두 선택되어 있는지 확인합니다.
-
-   !["네트워크 드라이브 연결" 대화 상자의 스크린샷](./media/storage-files-quick-create-use-windows/mountonwindows10.png)
-
-1. **마침** 을 선택합니다.
-1. **Windows 보안** 대화 상자에서
-
-   - 메모장에서 AZURE\라는 접두어가 붙은 스토리지 계정 이름을 복사하여 **Windows 보안** 대화 상자에 사용자 이름으로 붙여넣습니다. 이 빠른 시작에서 명명 제안을 따른 경우 *AZURE\qsstorageacct* 를 복사합니다.
-   - 메모장에서 스토리지 계정 키를 복사하여 **Windows 보안** 대화 상자에 암호로 붙여넣습니다.
-
-      ![Azure Files 연결 창의 UNC 경로](./media/storage-files-quick-create-use-windows/portal_netuse_connect3.png)
+1. VM에서 **PowerShell** 을 열고 **메모장** 의 내용을 붙여넣은 다음, Enter 키를 눌러 명령을 실행합니다. 드라이브를 매핑해야 합니다.
 
 ## <a name="create-a-share-snapshot"></a>공유 스냅샷 만들기
 
 이제 드라이브를 매핑했으므로 스냅샷을 만들 수 있습니다.
 
-1. 포털에서 파일 공유로 이동하고 **스냅샷 만들기** 를 선택합니다.
+1. 포털에서 파일 공유로 이동하고 **스냅샷** 을 선택한 후 **+ 스냅샷 추가** 를 선택합니다.
 
-   ![스냅샷 만들기](./media/storage-files-quick-create-use-windows/create-snapshot.png)
+   ![작업 섹션에서 스냅샷을 선택한 후 스냅샷 추가를 선택합니다.](./media/storage-files-quick-create-use-windows/create-snapshot.png)
 
 1. VM에서 *qstestfile.txt* 를 열고 “이 파일이 수정되었습니다”를 입력하고 > 파일을 저장하고 닫습니다.
 1. 다른 스냅샷을 만듭니다.
 
 ## <a name="browse-a-share-snapshot"></a>공유 스냅샷 찾아보기
 
-1. 파일 공유에서 **스냅샷 보기** 를 선택합니다.
-1. **파일 공유 스냅샷** 창에서 목록 중 첫 번째 스냅샷을 선택합니다.
+1. 파일 공유에서 **스냅샷** 을 선택합니다.
+1. **스냅샷** 블레이드에서 목록의 첫 번째 스냅샷을 선택합니다.
 
    ![타임스탬프의 목록에서 선택한 스냅샷](./media/storage-files-quick-create-use-windows/snapshot-list.png)
 
-1. 해당 스냅샷에 대한 창에서 *qsTestFile.txt* 를 선택합니다.
+1. 해당 스냅샷을 열고 *qsTestFile.txt* 를 선택합니다.
 
 ## <a name="restore-from-a-snapshot"></a>스냅샷에서 복원
 
 1. 파일 공유 스냅샷 블레이드에서 *qsTestFile* 을 마우스 오른쪽 단추로 클릭하고 **복원** 단추를 선택합니다.
+
+    :::image type="content" source="media/storage-files-quick-create-use-windows/restore-share-snapshot.png" alt-text="qstestfile이 선택되어 있고 복원이 강조 표시된 스냅샷 블레이드의 스크린샷.":::
+
 1. **원본 파일 덮어쓰기** 를 선택합니다.
 
-   ![다운로드 및 복원 단추](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)
+   ![원본 파일 덮어쓰기가 선택된 복원 팝업의 스크린샷.](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)
 
 1. VM에서 파일을 엽니다. 수정되지 않은 버전이 복원되었습니다.
 
 ## <a name="delete-a-share-snapshot"></a>공유 스냅샷 삭제
 
-1. 파일 공유에서 **스냅샷 보기** 를 선택합니다.
-1. **파일 공유 스냅샷** 창에서 목록 중 마지막 스냅샷을 선택하고 **삭제** 를 클릭합니다.
+1. 파일 공유에서 **스냅샷** 을 선택합니다.
+1. **스냅샷** 블레이드에서 목록의 마지막 스냅샷을 선택하고 **삭제** 를 선택합니다.
 
-   ![삭제 단추](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
+   ![마지막 스냅샷이 선택되어 있고, 삭제 단추가 강조 표시된 스냅샷 블레이드의 스크린샷](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
 
 ## <a name="use-a-share-snapshot-in-windows"></a>Windows에서 공유 스냅샷 사용
 
@@ -173,7 +163,10 @@ Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만�
 
 1. **복원** 을 선택합니다. 그러면 공유 스냅샷을 만들 때 전체 디렉터리의 콘텐츠가 원래 위치에 재귀적으로 복사됩니다.
 
-   ![경고 메시지의 복원 단추](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png) 참고: 파일이 변경되지 않은 경우 해당 파일이 스냅샷과 동일한 버전이므로 해당 파일의 이전 버전이 표시되지 않습니다. 이는 Windows 파일 서버에서 작동하는 방식과 일치합니다.
+   ![경고 메시지의 복원 단추](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png)
+    
+    > [!NOTE]
+    > 파일이 변경되지 않은 경우 해당 파일이 스냅샷과 동일한 버전이므로 해당 파일의 이전 버전이 표시되지 않습니다. 이는 Windows 파일 서버에서 작동하는 방식과 일치합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

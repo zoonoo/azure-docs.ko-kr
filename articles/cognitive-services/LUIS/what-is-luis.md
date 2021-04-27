@@ -1,28 +1,26 @@
 ---
-title: LUIS(Language Understanding)란?
+title: LUIS(Language Understanding) 개요
 description: LUIS(Language Understanding) - 의미를 예측하고 정보를 추출하기 위해 대화형 자연어에 기계 학습을 사용하는 클라우드 기반 API 서비스입니다.
 keywords: Azure, 인공 지능, ai, 자연어 처리, nlp, 자연어 이해, nlu, LUIS, 대화형 AI, ai 챗봇, nlp ai, azure luisl
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 03/22/2021
+ms.date: 04/13/2021
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: f32f58bebc0a7d64443259981590e368b109b19b
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: f46586b3f120cf191d88b7de9cf8686ca9b16cca
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278952"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503775"
 ---
 # <a name="what-is-language-understanding-luis"></a>LUIS(Language Understanding)란?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-LUIS(Language Understanding)는 사용자의 대화형 자연어 텍스트에 사용자 지정 기계 학습 인텔리전스를 적용하여 전체적인 의미를 예측하고 관련된 자세한 정보를 추출하는 클라우드 기반 대화형 AI 서비스입니다.
+LUIS(Language Understanding)는 사용자의 대화형 자연어 텍스트에 사용자 지정 기계 학습 인텔리전스를 적용하여 전체적인 의미를 예측하고 관련된 자세한 정보를 추출하는 클라우드 기반 대화형 AI 서비스입니다. LUIS는 [사용자 지정 포털](https://www.luis.ai), [API][endpoint-apis] 및 [SDK 클라이언트 라이브러리](client-libraries-rest-api.md)를 통해 액세스를 제공합니다.
 
-LUIS용 클라이언트 애플리케이션은 자연어로 사용자와 통신하여 작업을 완료하는 대화형 애플리케이션입니다. 클라이언트 애플리케이션의 예로는 소셜 미디어 앱, AI 챗봇 및 음성 지원 데스크톱 애플리케이션을 들 수 있습니다.
-
-![Cognitive Services LUIS(Language Understanding)를 사용하는 3개의 클라이언트 애플리케이션의 개념 이미지](./media/luis-overview/luis-entry-point.png "Cognitive Services LUIS(Language Understanding)를 사용하는 3개의 클라이언트 애플리케이션의 개념 이미지")
+처음 사용하는 경우 다음 단계에 따라 [LUIS 포털에 로그인](sign-in-luis-portal.md "LUIS 포털에 로그인")합니다. 시작하려면 LUIS의 [미리 빌드된 도메인](luis-get-started-create-app.md) 앱을 사용해 보거나, [앱을 빌드](get-started-portal-build-app.md)할 수 있습니다.
 
 이 설명서에는 다음과 같은 문서 유형이 포함되어 있습니다.  
 
@@ -31,120 +29,39 @@ LUIS용 클라이언트 애플리케이션은 자연어로 사용자와 통신�
 * [**개념**](artificial-intelligence.md)은 서비스 기능에 대한 심층적인 설명을 제공합니다.  
 * [**자습서**](tutorial-intents-only.md)는 보다 광범위한 비즈니스 솔루션에서 서비스를 구성 요소로 사용하는 방법을 보여주는 긴 가이드입니다.  
 
-## <a name="use-luis-in-a-chat-bot"></a>채팅 봇에서 LUIS 사용
+## <a name="what-does-luis-offer"></a>LUIS가 제공하는 이점 
 
-<a name="Accessing-LUIS"></a>
-
-Azure LUIS 앱이 게시되면 클라이언트 애플리케이션은 LUIS 자연어 처리 엔드포인트 [API][endpoint-apis]에 발언을 전송하고, 결과를 JSON 응답으로 수신합니다. LUIS에 사용되는 일반 클라이언트 애플리케이션은 챗봇입니다.
-
-
-![채팅 봇을 사용하여 NLP(Natural Language Understanding)로 사용자 텍스트를 예측하는 LUIS의 개념 이미지](./media/luis-overview/LUIS-chat-bot-request-response.svg "채팅 봇을 사용하여 NLP(Natural Language Understanding)로 사용자 텍스트를 예측하는 LUIS의 개념 이미지")
-
-|단계|작업|
-|:--|:--|
-|1|클라이언트 애플리케이션이 사용자 _발언_(사용자가 한 말의 텍스트) "I want to call my HR rep."를 LUIS 엔드포인트에 HTTP 요청으로 보냅니다.|
-|2|LUIS를 사용하면 사용자 지정 언어 모델을 만들어서 애플리케이션에 인텔리전스를 추가합니다. 기계 학습 언어 모델은 사용자의 비정형 입력 텍스트를 가져와서 최상위 의도인 `HRContact`와 함께 JSON 형식의 응답을 반환합니다. 최소 JSON 엔드포인트 응답에는 최소한 쿼리 발언 및 최상위 채점 의도가 포함됩니다. _연락처 유형_ 엔터티와 같은 데이터를 추출할 수도 있습니다.|
-|3|클라이언트 애플리케이션은 JSON 응답을 사용하여 사용자의 요청을 처리하는 방법에 대한 결정을 내립니다. 이러한 의사 결정에는 봇 프레임워크 코드의 의사 결정 트리 및 기타 서비스에 대한 호출이 포함될 수 있습니다. |
-
-LUIS 앱은 클라이언트 애플리케이션이 현명한 선택을 내릴 수 있도록 인텔리전스를 제공합니다. LUIS는 이러한 선택 항목을 제공하지 않습니다.
-
-<a name="Key-LUIS-concepts"></a>
-<a name="what-is-a-luis-model"></a>
-
-## <a name="natural-language-understanding-nlu"></a>NLU(자연어 인식)
-
-자연어 처리 AI의 하위 집합인 NLU 형태로 [LUIS가 AI(인공 지능)를 제공](artificial-intelligence.md "LUIS는 AI(인공 지능)를 제공합니다.")합니다.
-
-LUIS 앱은 도메인별 자연어 모델을 포함합니다. 미리 작성된 모델로 LUIS 앱을 시작할 수도 있고, 직접 작성할 수도 있고, 미리 작성된 도메인 조각을 사용자 고유의 정보와 혼합할 수도 있습니다.
-
-* **미리 작성된 모델** LUIS에는 의도, 발언 및 미리 작성된 엔터티를 비롯하여 미리 작성된 여러 도메인 모델이 포함되어 있습니다. 미리 작성된 모델의 의도 및 발언을 사용하지 않고도 미리 작성된 엔터티를 사용할 수 있습니다. [미리 작성된 도메인 모델](./howto-add-prebuilt-models.md "미리 빌드된 도메인 모델")에는 모든 디자인이 포함되며 LUIS를 빠르게 시작하는 유용한 방법입니다.
-
-* **사용자 지정 모델** LUIS는 의도와 엔터티를 포함한 사용자 지정 모델을 식별하는 여러 가지 방법을 제공합니다. 엔터티에는 기계 학습 엔터티, 특정 또는 리터럴 엔터티 및 기계 학습과 리터럴의 조합이 포함됩니다.
-
-[NLP AI](artificial-intelligence.md "NLP") 및 NLU의 LUIS 관련 영역에 대해 자세히 알아봅니다.
-
-## <a name="step-1-design-and-build-your-model"></a>1단계: 모델 디자인 및 빌드
-
-**[의도](luis-concept-intent.md "의도")** 라고 하는 사용자 의도 범주로 모델을 디자인합니다. 각 의도에는 사용자 **[발언](luis-concept-utterance.md "발화")** 예제가 필요합니다. 각 발화는 [기계 학습 엔터티](luis-concept-entity-types.md#effective-machine-learned-entities "기계 학습 엔터티")로 추출해야 하는 데이터를 제공할 수 있습니다.
-
-|예제 사용자 발언|Intent|추출된 데이터|
-|-----------|-----------|-----------|
-|`Book a flight to Seattle?`|BookFlight|Seattle|
-|`When does your store open?`|StoreHoursAndLocation|open|
-|`Schedule a meeting at 1pm with Bob in Distribution`|ScheduleMeeting|1pm, Bob|
-
-[작성](https://go.microsoft.com/fwlink/?linkid=2092087 "작성") API 또는 **[LUIS 포털](https://www.luis.ai "LUIS 포털")**(또는 둘 다)을 사용하여 모델을 빌드합니다. [포털](get-started-portal-build-app.md "portal") 및 [SDK 클라이언트 라이브러리](./client-libraries-rest-api.md?pivots=rest-api "SDK 클라이언트 라이브러리")를 사용하여 빌드하는 방법에 대해 자세히 알아봅니다.
-
-## <a name="step-2-get-the-query-prediction"></a>2단계: 쿼리 예측 가져오기
-
-앱의 모델을 학습하여 엔드포인트에 게시하면 클라이언트 애플리케이션(예: 채팅 봇)은 예측 [엔드포인트](https://go.microsoft.com/fwlink/?linkid=2092356 "엔드포인트(endpoint)") API에 발화를 보냅니다. API는 분석을 위해 발화에 모델을 적용하고 JSON 형식의 예측 결과로 응답합니다.
-
-최소 JSON 엔드포인트 응답에는 최소한 쿼리 발언 및 최상위 채점 의도가 포함됩니다. 다음 **연락처 유형** 엔터티와 전반적인 감정 등의 데이터를 추출할 수도 있습니다.
-
-```JSON
-{
-    "query": "I want to call my HR rep",
-    "prediction": {
-        "topIntent": "HRContact",
-        "intents": {
-            "HRContact": {
-                "score": 0.8582669
-            }
-        },
-        "entities": {
-            "Contact Type": [
-                "call"
-            ]
-        },
-        "sentiment": {
-            "label": "neutral",
-            "score": 0.5
-        }
-    }
-}
-```
-
-## <a name="step-3-improve-model-prediction"></a>3단계: 모델 예측 개선
-
-LUIS 앱이 게시되고 실제 사용자 발화를 받은 후 LUIS가 엔드포인트 발화의 [활성 학습](luis-concept-review-endpoint-utterances.md "활성 학습")을 제공하여 예측 정확도를 높입니다. 개발 수명 주기에서 정기 유지 관리 작업의 일환으로 이러한 제안 사항을 검토합니다.
-
-<a name="using-luis"></a>
-
-## <a name="development-lifecycle-and-tools"></a>개발 수명 주기 및 도구
-LUIS는 전체 [개발 수명 주기](luis-concept-app-iteration.md "개발 수명 주기")에 통합될 수 있는 도구, 버전 관리 및 다른 LUIS 작성자와의 협업을 제공합니다.
-
-LUIS(Language Understanding)는 REST API로서 HTTP 요청과 함께 모든 제품, 서비스 또는 프레임워크에 사용할 수 있습니다. 또한 LUIS는 여러 상위 프로그래밍 언어에 대한 클라이언트 라이브러리(SDK)를 제공합니다. 제공된 [개발자 리소스](developer-reference-resource.md "개발자 리소스")에 대해 자세히 알아봅니다.
-
-봇에서 LUIS를 빠르고 쉽게 사용할 수 있는 도구는 다음과 같습니다.
-* [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS "LUIS CLI") - NPM 패키지에서 독립 실행형 명령줄 도구 또는 가져오기를 사용하여 작성 및 자동 완성을 제공합니다.
-* [LUISGen](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUISGen "LUISGen") - LUISGen은 내보낸 LUIS 모델에서 강력한 형식의 C# 및 TypeScript 소스 코드를 생성하는 도구입니다.
-* [디스패치](https://aka.ms/dispatch-tool "Dispatch")는 디스패처 모델을 사용하는 부모 앱에서 여러 LUIS 및 QnA Maker 앱을 사용할 수 있도록 허용합니다.
-* [LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Ludown "LUDown") - 봇용 언어 모델을 관리하는 데 도움이 되는 명령줄 도구입니다.
-
-## <a name="integrate-with-a-bot"></a>봇과 통합
-
-[Microsoft Bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework")와 함께 [Azure Bot 서비스](/azure/bot-service/ "Azure Bot 서비스")를 사용하여 채팅 봇을 빌드 및 배포합니다. 상위 봇 시나리오를 위해 디자인된 그래픽 인터페이스 도구, [작성기](/composer/ "작성기") 또는 [작업 봇 샘플](https://github.com/microsoft/BotBuilder-Samples "작업 봇 샘플")을 사용하여 디자인하고 개발합니다.
-
-## <a name="integrate-with-other-cognitive-services"></a>다른 Cognitive Services와 통합
-
-LUIS에 사용되는 다른 Cognitive Services:
-* [QnA Maker](../QnAMaker/overview/overview.md "QnA Maker")에서는 몇 가지 유형의 텍스트를 질문 및 답변 기술 자료로 결합할 수 있습니다.
-* [음성 서비스](../Speech-Service/overview.md "Speech Service")는 음성 언어 요청을 텍스트로 변환합니다.
-
-LUIS는 기존 LUIS 리소스의 일부로 Text Analytics의 기능을 제공합니다. 이 기능에는 미리 빌드된 keyPhrase 엔터티를 사용하는 [감정 분석](luis-how-to-publish-app.md#configuring-publish-settings "감정 분석") 및 [키 구문 추출](luis-reference-prebuilt-keyphrase.md "핵심 구 추출")이 포함됩니다.
-
-## <a name="learn-with-the-quickstarts"></a>빠른 시작으로 학습
-
-[포털](get-started-portal-build-app.md "portal") 및 [SDK 클라이언트 라이브러리](./client-libraries-rest-api.md?pivots=rest-api "SDK 클라이언트 라이브러리")를 사용하여 실습 빠른 시작이 포함된 LUIS에 대해 알아봅니다.
+* **단순성**: LUIS는 사내 AI 전문가나 이전의 기계 학습 지식이 없어도 사용할 수 있습니다. 마우스를 몇 번만 클릭하면 고유한 대화형 AI 애플리케이션을 빌드할 수 있습니다. [빠른 시작](get-started-portal-build-app.md) 중 하나를 진행하여 사용자 지정 애플리케이션을 빌드하거나 [미리 빌드된 도메인](luis-get-started-create-app.md) 앱 중 하나를 사용할 수 있습니다.
+* **보안, 프라이버시 및 규정 준수**: Azure 인프라 기반의 LUIS는 엔터프라이즈급 보안, 프라이버시 및 규정 준수를 제공합니다. 데이터의 소유권은 그대로 유지됩니다. 언제든지 데이터를 삭제할 수 있습니다. 데이터는 스토리지에 있는 동안 암호화됩니다. 이 기능에 대한 자세한 내용은 [여기](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy)를 참조하세요.
+* **통합**: LUIS 앱을 [Microsoft Bot Framework](https://docs.microsoft.com/composer/tutorial/tutorial-luis), [QnA Maker](../QnAMaker/choose-natural-language-processing-service.md), [Speech Service](../Speech-Service/quickstarts/intent-recognition.md) 등의 다른 Microsoft 서비스와 쉽게 통합할 수 있습니다.
 
 
-## <a name="deploy-on-premises-using-docker-containers"></a>Docker 컨테이너를 사용하여 온-프레미스 배포
+## <a name="luis-scenarios"></a>LUIS 시나리오
+* [엔터프라이즈급 대화형 봇 빌드](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/conversational-bot): 이 참조 아키텍처는 Azure Bot Framework를 사용하는 엔터프라이즈급 대화형 봇(챗봇)을 빌드하는 방법에 대해 설명합니다.
+* [상거래 챗봇](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/commerce-chatbot): 개발자는 Azure Bot Service 및 Language Understanding 서비스를 함께 사용하여 은행, 여행 및 엔터테인먼트와 같은 다양한 시나리오에 대한 대화형 인터페이스를 만들 수 있습니다.
+* [음성 도우미를 사용하여 IoT 디바이스 제어](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-controlling-devices-with-voice-assistant): 연결된 TV 또는 냉장고에서 연결된 발전소의 디바이스에 이르기까지 인터넷에 액세스할 수 있는 모든 디바이스와의 원활한 대화형 인터페이스를 만듭니다.
 
-[LUIS 컨테이너를 사용하여](luis-container-howto.md) 온-프레미스에 API 기능을 배포합니다. 이러한 Docker 컨테이너는 규정 준수, 보안 또는 기타 운영상의 이유로 서비스를 데이터에 더 가깝게 가져올 수 있습니다.
+
+## <a name="application-development-life-cycle"></a>애플리케이션 개발 수명 주기
+
+![LUIS 앱 개발 수명 주기](./media/luis-overview/luis-dev-lifecycle.png "LUIS 애플리케이션 개발 수명 주기")
+
+-   **계획**: 사용자가 애플리케이션을 사용할 수 있는 시나리오를 식별합니다. 작업 및 알아 두어야 할 관련 정보를 정의합니다.
+-   **빌드**: 제작 리소스를 사용하여 앱을 개발합니다. 먼저 [의도](luis-concept-intent.md) 및 [엔터티](luis-concept-entity-types.md)를 정의합니다. 그런 다음, 각 의도의 학습 [발화](luis-concept-utterance.md)를 추가합니다. 
+-   **테스트 및 개선**: 다른 발화로 모델 테스트를 시작하여 앱의 작동 방식을 파악하고, 향상된 기능이 필요한지 여부를 결정할 수 있습니다. 이러한 [모범 사례](luis-concept-best-practices.md)에 따라 애플리케이션을 개선할 수 있습니다. 
+-   **게시**: 예측을 위해 앱을 배포하고 예측 리소스를 사용하여 엔드포인트를 쿼리합니다. [여기](luis-how-to-azure-subscription.md#luis-resources)에서 제작 및 예측 리소스에 대해 자세히 알아보세요. 
+-   **연결**: [Microsoft Bot Framework](https://docs.microsoft.com/composer/tutorial/tutorial-luis), [QnA Maker](../QnAMaker/choose-natural-language-processing-service.md) 및 [Speech Service](../Speech-Service/quickstarts/intent-recognition.md) 등의 다른 서비스에 연결합니다. 
+-   **구체화**: [엔드포인트 발화를 검토](luis-concept-review-endpoint-utterances.md)하여 실제 예제로 애플리케이션을 개선합니다.
+
+애플리케이션 계획 및 빌드에 대한 자세한 내용은 [여기](luis-how-plan-your-app.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * 서비스 및 설명서의 [새로운 기능](whats-new.md "새로운 기능")
+* [LUIS 앱 빌드](tutorial-intents-only.md)
+* [API 참조][endpoint-apis]
+* [모범 사례](luis-concept-best-practices.md)
+* LUIS의 [개발자 리소스](developer-reference-resource.md "개발자 리소스").
 * [의도](luis-concept-intent.md "의도") 및 [엔터티](luis-concept-entity-types.md "엔터티")를 사용하여 [앱을 계획](luis-how-plan-your-app.md "앱 계획")합니다.
 
 [bot-framework]: /bot-framework/
