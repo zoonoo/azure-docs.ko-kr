@@ -45,7 +45,8 @@
               href: ../containers/azure-container-instance-recipe.md
               displayName: 'container instances, container, containers, images'
             - name: 모든 Cognitive Services 컨테이너
-              href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
+              href: ../containers/index.yml
+              maintainContext: true
     - name: 참조
       items:
         - name: OCR REST API v3.2
