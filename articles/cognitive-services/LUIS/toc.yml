@@ -123,8 +123,9 @@
         - name: 컨테이너 제한 사항
           href: luis-container-limitations.md
           displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
-        - name: Cognitive Services 컨테이너 설명서
+        - name: 모든 Cognitive Services 컨테이너 설명서
           href: ../containers/index.yml
+          maintainContext: true
     - name: 엔터프라이즈 준비
       items:
         - name: 가상 네트워크 설정

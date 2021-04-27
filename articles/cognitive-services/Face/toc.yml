@@ -23,20 +23,20 @@
       href: Face-API-How-to-Topics/specify-detection-model.md
     - name: 그룹에 얼굴 추가
       href: Face-API-How-to-Topics/how-to-add-faces.md
+    - name: PersonDirectory 구조 사용
+      href: Face-API-How-to-Topics/use-persondirectory.md
+    - name: 대규모 기능 사용
+      href: Face-API-How-to-Topics/how-to-use-large-scale.md
     - name: HeadPose 특성 사용
       href: Face-API-How-to-Topics/how-to-use-headpose.md
     - name: 얼굴 서비스를 사용할 때 대기 시간 완화
       href: Face-API-How-to-Topics/how-to-mitigate-latency.md
-    - name: 대규모 기능 사용
-      href: Face-API-How-to-Topics/how-to-use-large-scale.md
     - name: 실시간 비디오 분석
       href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
     - name: 얼굴 데이터 마이그레이션
       href: Face-API-How-to-Topics/how-to-migrate-face-data.md
     - name: Face 컨테이너 사용
       items:
-        - name: Cognitive Services 컨테이너 설명서
-          href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/face/context/context
         - name: 컨테이너 개요
           href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/face/context/context
         - name: 컨테이너 설치 및 실행
@@ -45,6 +45,9 @@
           href: face-resource-container-config.md
         - name: 컨테이너 인스턴스 사용
           href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/face/context/context
+        - name: 모든 Cognitive Services 컨테이너 설명서
+          href: ../containers/index.yml
+          maintainContext: true
     - name: 엔터프라이즈 준비
       items:
         - name: 가상 네트워크 설정

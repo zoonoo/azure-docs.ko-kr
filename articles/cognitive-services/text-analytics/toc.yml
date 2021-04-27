@@ -82,8 +82,9 @@
           href: ../containers/azure-container-instance-recipe.md
         - name: Kubernetes 서비스(AKS) 사용
           href: how-tos/text-analytics-how-to-use-kubernetes-service.md
-        - name: Cognitive Services 컨테이너 설명서
+        - name: 모든 Cognitive Services 컨테이너 설명서
           href: ../containers/index.yml
+          maintainContext: true
     - name: 엔터프라이즈 준비
       items:
         - name: 가상 네트워크 설정
