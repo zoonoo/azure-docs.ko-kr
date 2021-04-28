@@ -9,12 +9,12 @@ ms.subservice: enterprise
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 643aac7927cc7b14693387fbb5765bdcd0214dc2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 5d945c421dc0a4abed17b3a355339c131dd922df
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598249"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728053"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Azure 기업계약 청구서 이해
 
@@ -396,51 +396,6 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 
     API 키는 Azure Enterprise Portal의 **사용량 다운로드** 탭 아래에서 가져올 수 있습니다. **API 액세스 키** 를 선택한 다음, 해당 키를 **계정 키** 상자에 붙여넣습니다.
 1. 데이터 세트의 크기에 따라 Power BI에서 데이터를 로드하는 데 약 5-30분이 걸립니다.
-
-## <a name="reports-faq"></a>보고서 FAQ
-
-이 섹션에서는 보고서에 대한 일반적인 질문을 다룹니다.
-
-### <a name="why-is-my-cost-showing-as-0"></a>비용이 $0로 표시되는 이유는 무엇인가요?
-
-**직접 등록** 고객의 경우 엔터프라이즈 관리자는 계정 소유자 및 부서 관리자에게 사용량 보고서에 대한 비용/가격 책정 정보에 대한 액세스 권한을 부여할 수 있습니다. 다음 단계를 수행하세요.
-
-1. Azure Enterprise Portal의 왼쪽 탐색 영역에서 **관리** 를 선택합니다.
-1. DA(부서 관리자) 요금 보기 옆에 있는 파란색 연필을 선택합니다.
-1. **사용** 를 선택하고 저장합니다.
-1. AO(계정 소유자) 요금 보기 옆에 있는 파란색 연필을 선택합니다.
-1. **사용** 를 선택하고 저장합니다.
-
-> [!NOTE]
-> 계정 소유자 또는 부서 관리자인 경우 엔터프라이즈 관리자에게 문의하여 가격 책정 기능을 사용하도록 설정합니다.
-
-**간접 등록** 고객의 경우 파트너에게 문의하여 가격 책정 기능을 사용하도록 설정했는지 확인합니다. 파트너만 이 작업을 수행할 수 있습니다. 사용하도록 설정되면 엔터프라이즈 관리자가 등록에 대한 비용과 가격 책정을 볼 수 있습니다.
-
-계정 소유자 또는 부서 관리자의 요금 보기 기능을 사용하도록 설정하려면 파트너가 **직접 등록** 의 단계를 수행합니다.
-
-### <a name="why-is-there-no-sku-information-on-my-usage-detail-report"></a>사용량 세부 정보 보고서에 SKU 정보가 없는 이유는 무엇인가요?
-
-사용량 세부 정보 보고서에는 SKU 정보가 포함되지 않습니다. 그러나 이 보고서에는 사용량 정보가 포함되어 있으므로 가격표 보고서를 다운로드하여 SKU 정보를 얻을 수 있습니다.
-
-### <a name="why-doesnt-the-total-amount-on-azure-marketplace-match-the-reports-for-usage-summary-and-detail"></a>Azure Marketplace의 총 금액이 사용 요약 및 세부 정보 보고서와 일치하지 않는 이유는 무엇인가요?
-
-Azure Marketplace 요금 보고서에는 사용량 기준 요금만 표시됩니다. 일회성 요금은 표시되지 않습니다. 최신의 사용량 기준 요금과 일회성 요금에 대해서는 사용 요약 페이지를 참조하세요.
-
-### <a name="why-is-there-no-information-on-my-api-report"></a>API 보고서에 정보가 없는 이유는 무엇인가요?
-
-API 키는 6개월마다 만료됩니다. 문제가 있는 경우 엔터프라이즈 관리자가 새 API 키를 생성해야 합니다. API 보고서 FAQ의 단계를 수행해야 합니다.
-
-### <a name="why-isnt-my-power-bi-report-working"></a>Power BI 보고서가 작동하지 않는 이유는 무엇인가요?
-
-Power BI 관련 문제의 경우 [Power BI 지원 팀](https://support.powerbi.com)을 통해 티켓을 기록하세요.
-
-### <a name="why-dont-my-resource-tags-show-on-my-reports"></a>보고서에 리소스 태그가 표시되지 않는 이유는 무엇인가요?
-
-리소스 태그는 Azure Portal에서 관리됩니다. [Azure Portal](https://portal.azure.com)에서 Azure 구독 팀에 문의할 수 있습니다. [Azure 지원 요청을 만드는 방법](../../azure-portal/supportability/how-to-create-azure-support-request.md) 문서의 단계를 수행합니다.
-
-### <a name="why-does-my-resource-rate-change-every-day"></a>리소스 요금이 매일 변경되는 이유는 무엇인가요?
-
-자세한 사용량 보고서에 표시된 리소스 요율은 계산된 값입니다. 이는 서비스에 대해 청구된 월간 평균 요율을 나타냅니다. 리소스 요율은 서비스 단위에 대한 월간 약정 및 월간 초과분 요금의 평균에서 계산됩니다. 약정 및 초과분 요율에 대해 청구되는 사용량 부분은 해당 월의 마감 날짜로 변경됩니다. 따라서 나열된 리소스 요율도 해당 월 중에 변경됩니다. 해당 월이 끝난 후 5일째에 리소스 요금이 잠깁니다.
 
 ### <a name="glossary-of-processes-for-calculating-the-resource-rate"></a>리소스 요금을 계산하는 프로세스 용어집
 
