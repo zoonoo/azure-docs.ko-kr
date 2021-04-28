@@ -1,20 +1,20 @@
 ---
 title: '빠른 시작: Python을 사용하여 Azure Data Factory 만들기'
 description: 데이터 팩터리를 사용하여 Azure Blob 스토리지의 한 위치에서 다른 위치로 데이터를 복사합니다.
-author: dcstwh
-ms.author: weetok
+author: ssabat
+ms.author: susabat
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/12/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 534b5b3aca86cc2f6d7ee2d703939420f80abb8e
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 665944688533b4efa6e0e14077ae7df22d352d50
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365096"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123630"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>빠른 시작: Python을 사용하여 데이터 팩터리 및 파이프라인 만들기
 
@@ -75,7 +75,7 @@ Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레�
     ```
     > [!NOTE] 
     > "azure-identity" 패키지는 일부 공통 종속성에서 "azure-cli"와 충돌할 수 있습니다. 인증 문제가 발생하면 "azure-cli" 및 해당 종속성을 제거하거나 "azure cli" 패키지를 설치하지 않고 정리된 머신을 사용하여 작동하도록 합니다.
-    > 소버린 클라우드의 경우 적절한 클라우드 관련 상수를 사용해야 합니다.  [Python 다중 클라우드용 Azure 라이브러리를 사용하여 모든 지역에 연결 | 소버린 클라우드에서 Python을 사용하여 연결하는 지침에 대한 Microsoft Docs](https://docs.microsoft.com/azure/developer/python/azure-sdk-sovereign-domain)를 참조하세요.
+    > 소버린 클라우드의 경우 적절한 클라우드 관련 상수를 사용해야 합니다.  [Python 다중 클라우드용 Azure 라이브러리를 사용하여 모든 지역에 연결 | 소버린 클라우드에서 Python을 사용하여 연결하는 지침에 대한 Microsoft Docs](/azure/developer/python/azure-sdk-sovereign-domain)를 참조하세요.
     
     
 ## <a name="create-a-data-factory-client"></a>데이터 팩터리 클라이언트 만들기

@@ -3,20 +3,19 @@ title: Azure Active Directory 내 앱 구성 계획
 description: 조직에서 내 앱을 효과적으로 사용하기 위한 계획 가이드입니다.
 services: active-directory
 author: barbaraselden
-manager: daveba
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/29/2020
-ms.author: kenwith
-ms.reviewer: baselden
-ms.openlocfilehash: 5184639d8c34be705aeeb691f1cf38486f850673
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.author: baselden
+ms.openlocfilehash: 9f05e14de9d6ebe76f722d1e4b21bc2085a74888
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105543961"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108125139"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Azure Active Directory 내 앱 구성 계획
 
@@ -82,7 +81,7 @@ Azure AD(Azure Active Directory) 내 앱은 앱을 시작하고 관리하기 위
 
 ### <a name="group-owner-consent-for-apps-accessing-data"></a>데이터에 액세스하는 앱에 대한 그룹 소유자 동의
 
-그룹 및 팀 소유자는 타사 공급업체에서 게시한 애플리케이션과 같은 애플리케이션에 권한을 부여하여 그룹과 연결된 조직의 데이터에 액세스하도록 할 수 있습니다. 자세히 알아보려면 [Microsoft Teams의 리소스별 동의](https://docs.microsoft.com/microsoftteams/resource-specific-consent)를 참조하세요. 
+그룹 및 팀 소유자는 타사 공급업체에서 게시한 애플리케이션과 같은 애플리케이션에 권한을 부여하여 그룹과 연결된 조직의 데이터에 액세스하도록 할 수 있습니다. 자세히 알아보려면 [Microsoft Teams의 리소스별 동의](/microsoftteams/resource-specific-consent)를 참조하세요. 
 
 이 기능을 허용할지 여부를 구성할 수 있습니다.
 
@@ -127,7 +126,7 @@ SSO에 대한 SaaS(Software as a Service) 애플리케이션을 구성하는 방
 
 확장에 대한 자세한 내용은 [내 앱 브라우저 확장 설치](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
-이러한 애플리케이션을 통합해야 하는 경우 [지원되는 브라우저](../user-help/my-apps-portal-end-user-access.md)를 사용하여 확장을 대규모로 배포하는 메커니즘을 정의해야 합니다. 표시되는 옵션은 다음과 같습니다.
+이러한 애플리케이션을 통합해야 하는 경우 [지원되는 브라우저](../user-help/my-apps-portal-end-user-access.md)를 사용하여 확장을 대규모로 배포하는 메커니즘을 정의해야 합니다. 다음 옵션을 사용할 수 있습니다.
 
 * [Chrome, Firefox, Microsoft Edge 또는 IE에 대한 사용자 중심 다운로드 및 구성](../user-help/my-apps-portal-end-user-access.md)
 
@@ -258,4 +257,3 @@ Azure AD는 30일 동안 대부분의 감사 데이터를 유지합니다. Azure
 [Azure AD Multi-Factor Authentication 배포 계획](../authentication/howto-mfa-getstarted.md)
 
 [애플리케이션 프록시 배포 계획](application-proxy-deployment-plan.md)
-

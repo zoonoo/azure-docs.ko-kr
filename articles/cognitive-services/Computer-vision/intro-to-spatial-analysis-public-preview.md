@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 03/29/2021
-ms.openlocfilehash: 5aa34ce15d96112450a7c15debcd92312c1d9e19
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: fc0d0b0a589ff5b8354a56a2f8c95062f4d2d9a9
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284545"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076152"
 ---
 # <a name="what-is-spatial-analysis"></a>공간 분석이란?
 
@@ -45,7 +45,7 @@ ms.locfileid: "106284545"
 
 ### <a name="public-preview-gating"></a>공개 미리 보기 제한
 
-공간 분석이 설계된 시나리오에 사용되도록 하기 위해 애플리케이션 프로세스를 통해 이 기술을 고객에게 제공하고 있습니다. 공간 분석에 액세스하려면 온라인 접수 양식을 작성하여 시작해야 합니다. [여기서 신청을 시작하세요](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u).
+공간 분석이 설계된 시나리오에 사용되도록 하기 위해 애플리케이션 프로세스를 통해 이 기술을 고객에게 제공하고 있습니다. 공간 분석에 액세스하려면 온라인 접수 양식을 작성하여 시작해야 합니다. [여기서 신청을 시작하세요](https://aka.ms/csgate).
 
 공간 분석 공개 미리 보기에 대한 액세스는 Microsoft의 자격 기준, 심사 프로세스 및 이 제한된 미리 보기 동안 제한된 수의 고객을 지원할 수 있는 가용성에 따라 Microsoft의 단독 재량으로 결정됩니다. 공개 미리 보기에서는 Microsoft와 중요한 관계를 맺고 있으며, 권장되는 사용 사례 및 책임 있는 AI 약정에 부합하는 추가 시나리오를 Microsoft와 함께 수행하는 데 관심이 있는 고객을 찾고 있습니다.
 

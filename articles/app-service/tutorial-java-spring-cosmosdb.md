@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 7a0dd1198bcad675f7662a2cf4eb369f2a276445
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 44ab45d51d8d5ee7a67000f086769add64a086a9
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479409"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107886609"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>자습서: Linux 및 Azure Cosmos DB에서 Azure App Service를 사용하여 Java Spring Boot Java 웹앱 빌드
 

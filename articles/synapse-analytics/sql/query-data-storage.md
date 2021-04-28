@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: d299afca0bd8070a1da738e02812b64c41a7101c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 351407a74f37df24f4d70384d49840e8e6b77dc6
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101675053"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144406"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 스토리지 파일 쿼리
 
@@ -104,7 +104,7 @@ SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
 ```
 
-최적의 성능을 위해 [적절한 유추된 데이터 형식](best-practices-sql-on-demand.md#check-inferred-data-types)이 사용되는지 확인합니다. 
+최적의 성능을 위해 [적절한 유추된 데이터 형식](./best-practices-serverless-sql-pool.md#check-inferred-data-types)이 사용되는지 확인합니다. 
 
 ## <a name="query-multiple-files-or-folders"></a>여러 파일 또는 폴더 쿼리
 

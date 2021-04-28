@@ -7,15 +7,15 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 67531c1c5d37b02f9107dfc487c10b2fcac734d8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 81f5f2f9f9ad0e5e4daed5b6548d789722e47ef8
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791970"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108073920"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>자습서: Azure Key Vault에서 인증서 가져오기
 
@@ -153,4 +153,4 @@ Import-AzureKeyVaultCertificate
 
 - [Azure Key Vault에서 인증서 생성 관리](./create-certificate-scenarios.md)에 대해 자세히 알아봅니다.
 - [REST API를 사용하여 인증서 가져오기](/rest/api/keyvault/importcertificate/importcertificate)의 예제 참조
-- [Azure Key Vault 보안 개요](../general/security-overview.md)를 검토하세요.
+- [Azure Key Vault 보안 개요](../general/security-features.md)를 검토하세요.

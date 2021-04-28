@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: e18193b40bb7c59a21a279f451673dc7d11140e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e3471d778e0589083caaf2dfedbccc4568de471
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92092905"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144658"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Azure Spring Cloud 재해 복구
 
@@ -48,7 +48,7 @@ Azure Spring Cloud 애플리케이션이 여러 지역에 있는 경우 Azure Tr
 | service-sample-a | 미국 동부 | gateway / auth-service / account-service |
 | service-sample-b | 서유럽 | gateway / auth-service / account-service |
 
-2. 서비스 팔로우용 사용자 지정 도메인([사용자 지정 도메인 문서](spring-cloud-tutorial-custom-domain.md))을 설정하여 두 개의 기존 서비스 인스턴스용 사용자 지정 도메인을 설정합니다. 설정한 후 서비스 인스턴스는 둘 다 사용자 지정 도메인 bcdr-test.contoso.com에 바인딩됩니다.
+2. 서비스 팔로우용 사용자 지정 도메인([사용자 지정 도메인 문서](./tutorial-custom-domain.md))을 설정하여 두 개의 기존 서비스 인스턴스용 사용자 지정 도메인을 설정합니다. 설정한 후 서비스 인스턴스는 둘 다 사용자 지정 도메인 bcdr-test.contoso.com에 바인딩됩니다.
 
 3. Traffic Manager 및 두 개의 엔드포인트를 만듭니다. [Azure Portal을 사용하여 Traffic Manager 프로필 만들기](../traffic-manager/quickstart-create-traffic-manager-profile.md)
 
@@ -67,4 +67,4 @@ Traffic Manager 프로필은 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [빠른 시작: 첫 번째 Azure Spring Cloud 애플리케이션 배포](spring-cloud-quickstart.md)
+* [빠른 시작: 첫 번째 Azure Spring Cloud 애플리케이션 배포](./quickstart.md)

@@ -2,24 +2,22 @@
 title: Azure Active Directory에 애플리케이션 인증 마이그레이션
 description: 이 백서에서는 애플리케이션 인증을 Azure AD로 마이그레이션하는 계획 및 혜택에 대해 자세히 설명합니다.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 02/05/2021
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e05a7af3f0b95470432b4fb9602e1b41da9f72f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b7e4a92f84cdbc0061509fa710de148e9e9f2b52
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952969"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108125160"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Azure Active Directory에 애플리케이션 인증 마이그레이션
 
@@ -489,7 +487,7 @@ Azure AD에서 지원하는 앱 및 리소스에는 다음 두 가지 주요 범
 
 마이그레이션을 진행하는 동안 앱은 정기 배포 중에 사용되는 테스트 환경을 이미 사용하고 있을 수 있습니다. 마이그레이션 테스트에 이 환경을 계속 사용할 수 있습니다. 테스트 환경을 현재 사용할 수 없는 경우 애플리케이션의 아키텍처에 따라 Azure App Service 또는 Azure Virtual Machines를 사용하여 설정할 수 있습니다. 앱 구성을 개발할 때 사용할 개별 테스트 Azure AD 테넌트를 설정하도록 선택할 수 있습니다. 이 테넌트는 정리된 상태로 시작되며 어떤 시스템과도 동기화하도록 구성되지 않습니다.
 
-테스트 사용자로 로그인하여 각 애플리케이션을 테스트하고 모든 기능이 마이그레이션 이전과 동일한지 확인합니다. 테스트 중에 사용자가 [MFA](/azure/active-directory/authentication/howto-mfa-userstates) 또는 [SSPR](../authentication/tutorial-enable-sspr.md) 설정을 업데이트해야 하는지 또는 마이그레이션 중에 이 기능을 추가해야 하는지 확인하는 경우 최종 사용자 통신 계획에 이 기능을 추가해야 합니다. [MFA](https://aka.ms/mfatemplates) 및 [SSPR](https://aka.ms/ssprtemplates) 최종 사용자 통신 템플릿을 참조하세요.
+테스트 사용자로 로그인하여 각 애플리케이션을 테스트하고 모든 기능이 마이그레이션 이전과 동일한지 확인합니다. 테스트 중에 사용자가 [MFA](../authentication/howto-mfa-userstates.md) 또는 [SSPR](../authentication/tutorial-enable-sspr.md) 설정을 업데이트해야 하는지 또는 마이그레이션 중에 이 기능을 추가해야 하는지 확인하는 경우 최종 사용자 통신 계획에 이 기능을 추가해야 합니다. [MFA](https://aka.ms/mfatemplates) 및 [SSPR](https://aka.ms/ssprtemplates) 최종 사용자 통신 템플릿을 참조하세요.
 
 앱을 마이그레이션한 후에는 [Azure Portal](https://aad.portal.azure.com/)로 이동하여 마이그레이션이 성공했는지 테스트합니다. 아래의 지침을 따르세요.
 
@@ -627,7 +625,7 @@ Azure AD는 마이그레이션된 앱을 관리하는 중앙 액세스 위치를
 
 수많은 [배포 계획](../fundamentals/active-directory-deployment-plans.md)을 사용할 수 있으며, 점점 더 다양해질 것입니다.
 
-### <a name="contact-support"></a>기술 지원 서비스에 문의하십시오.
+### <a name="contact-support"></a>지원에 문의
 
 지원 티켓을 만들거나 추적하고 상태를 모니터링하려면 다음 지원 링크를 방문하세요.
 

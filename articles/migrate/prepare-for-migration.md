@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: d8f9d4e0b002348f286f45c6b45c96531c5d6530
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b8c9610ca7043ed6b8baa86e35ea76c74ed75bba
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558230"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107883997"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Azure로 마이그레이션하기 위한 온-프레미스 머신 준비
 
@@ -84,7 +84,7 @@ VM을 Azure로 마이그레이션하기 전에 VM에서 몇 가지 사항을 변
 
 **동작** | **VMware(에이전트 없는 마이그레이션)** | **VMware(에이전트 기반)/물리적 머신** | **Hyper-V의 Windows** 
 --- | --- | --- | ---
-**SAN 정책을 [모두 온라인]으로 구성**<br/><br/> 이렇게 하면 Azure VM의 Windows 볼륨에 온-프레미스 VM과 동일한 드라이브 문자가 할당됩니다. | Windows Server 2008 R2 이상을 실행하는 머신은 자동으로 설정됩니다.<br/><br/> 이전 운영 체제는 수동으로 구성해야 합니다. | 대부분의 경우 자동으로 설정됩니다. | 수동으로 구성합니다.
+**SAN 정책을 [모두 온라인]으로 구성**<br/><br/> | Windows Server 2008 R2 이상을 실행하는 머신은 자동으로 설정됩니다.<br/><br/> 이전 운영 체제는 수동으로 구성해야 합니다. | 대부분의 경우 자동으로 설정됩니다. | 수동으로 구성합니다.
 **Hyper-V 게스트 통합 설치** | Windows Server 2003을 실행하는 머신에 [수동으로 설치](prepare-windows-server-2003-migration.md#install-on-vmware-vms)합니다. | Windows Server 2003을 실행하는 머신에 [수동으로 설치](prepare-windows-server-2003-migration.md#install-on-vmware-vms)합니다. | Windows Server 2003을 실행하는 머신에 [수동으로 설치](prepare-windows-server-2003-migration.md#install-on-hyper-v-vms)합니다.
 **Azure 직렬 콘솔을 사용하도록 설정합니다**.<br/><br/>문제 해결에 도움이 되도록 Azure VM에서 [콘솔을 사용하도록 설정](/troubleshoot/azure/virtual-machines/serial-console-windows)합니다. VM을 다시 부팅할 필요가 없습니다. Azure VM은 디스크 이미지를 사용하여 부팅됩니다. 디스크 이미지 부팅은 새 VM을 다시 부팅하는 것과 같습니다. | 수동으로 사용하도록 설정 | 수동으로 사용하도록 설정 | 수동으로 사용하도록 설정
 **마이그레이션 후 연결**<br/><br/> 마이그레이션 후 연결하려면 마이그레이션하기 전에 여러 단계를 수행해야 합니다. | 수동으로 [설정](#prepare-to-connect-to-azure-windows-vms)합니다. | 수동으로 [설정](#prepare-to-connect-to-azure-windows-vms)합니다. | 수동으로 [설정](#prepare-to-connect-to-azure-windows-vms)합니다.
@@ -140,11 +140,11 @@ Azure VM에는 기본적으로 임시 스토리지로 사용할 D 드라이브�
 |---------------------------------------------|-------------------------------|----------------------------|------------|
 | Hyper\-V Linux Integration Services 설치 | yes                           | 예                        | 필요하지 않음 |
 | Azure 직렬 콘솔 로깅 사용         | yes                           | 예                        | 예         |
-| 디바이스 맵 파일 업데이트                      | 예                           | 예                         | 아니요         |
+| 디바이스 맵 파일 업데이트                      | 예                           | 아니요                         | 아니요         |
 | fstab 항목 업데이트                        | yes                           | 예                        | 예         |
 | udev 규칙 제거                            | yes                           | 예                        | 예         |
-| 네트워크 인터페이스 업데이트                   | yes                           | 예                        | 예         |
-| ssh 사용                                  | 아니요                            | 예                         | 아니요         |
+| 네트워크 인터페이스 업데이트                   | yes                           | 예                        | 아니요         |
+| ssh 사용                                  | 아니요                            | 아니요                         | 아니요         |
 
 [Azure에서 Linux VM 실행](../virtual-machines/linux/create-upload-generic.md) 단계에 대해 자세히 알아보고, 많이 사용되는 Linux 배포판에 대한 지침을 확인합니다.
 

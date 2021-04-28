@@ -10,12 +10,12 @@ ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 1d99d6f876e4896bb4321afb8dc4d8e7c3a404e7
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 6ab3f2e4e2164611820813a5fdb04e2b27df1ff2
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107483557"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877033"
 ---
 # <a name="tutorial-use-revisions-to-make-non-breaking-api-changes-safely"></a>자습서: 수정 버전을 사용하여 작업을 중단하지 않는 API 변경을 안전하게 수행
 개발자들이 API를 사용할 수 있도록 모든 준비가 완료되면, API 호출자의 작업을 중단하지 않으면서 해당 API를 변경해야 합니다. 이렇게 하면 개발자에게 변경 내용을 알릴 때도 유용합니다. 
