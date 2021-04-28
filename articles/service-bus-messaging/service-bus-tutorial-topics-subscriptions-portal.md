@@ -6,12 +6,12 @@ ms.author: spelluru
 ms.date: 10/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d0a94f346f9d3cf7a05a1ca6e1b37d4d008f3e75
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: a7b03727c574dcee1cd56144a521f36de6dc48c6
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102179666"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861376"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>자습서: Azure Portal 및 토픽/구독을 사용하여 재고 업데이트
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 �
 이 자습서를 완료하려면 다음을 설치했어야 합니다.
 
 - [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](https://www.visualstudio.com/vs) 이상
-- [NET Core SDK](https://www.microsoft.com/net/download/windows) 버전 2.0 이상
+- [NET Core SDK](https://dotnet.microsoft.com/download) 버전 2.0 이상
 
 ## <a name="service-bus-topics-and-subscriptions"></a>Service Bus 토픽 및 구독
 

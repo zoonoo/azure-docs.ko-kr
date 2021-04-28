@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-azurepowershell
-ms.openlocfilehash: 52e33660b4076f8119ddb5d77e2dbbf7ee201913
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 5c1e4d64ba3359a07dddbbf89774e31815935230
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968461"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818425"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-net-sdk-v4"></a>빠른 시작: .NET용 Azure Key Vault 키 클라이언트 라이브러리(SDK v4)
 
@@ -272,4 +272,4 @@ Key Vault 및 이를 앱과 통합하는 방법에 대해 자세히 알아보려
 - [App Service 애플리케이션에서 Key Vault 액세스 자습서](../general/tutorial-net-create-vault-azure-web-app.md) 참조
 - [Virtual Machine에서 Key Vault 액세스 자습서](../general/tutorial-net-virtual-machine.md) 참조
 - [Azure Key Vault 개발자 가이드](../general/developers-guide.md) 참조
-- [Azure Key Vault 보안 개요](../general/security-overview.md)를 검토하세요.
+- [Azure Key Vault 보안 개요](../general/security-features.md)를 검토하세요.

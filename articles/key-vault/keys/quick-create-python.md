@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 2c15090551ad9d84282f65925ff9c2cfbab7e14f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: dbff065fc4ee0f4618cae3fa0b012a286d4a0645
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773354"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815417"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>빠른 시작: Python용 Azure Key Vault 키 클라이언트 라이브러리
 
@@ -21,7 +21,7 @@ Python용 Azure Key Vault 클라이언트 라이브러리를 시작합니다. �
 
 [API 참조 설명서](/python/api/overview/azure/keyvault-keys-readme) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-keys) | [패키지(Python 패키지 인덱스)](https://pypi.org/project/azure-keyvault-keys/)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Python 2.7 이상 또는 3.6 이상](/azure/developer/python/configure-local-development-environment)
@@ -209,7 +209,7 @@ az group delete --resource-group KeyVault-PythonQS-rg
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Key Vault 개요](../general/overview.md)
-- [Key vault에 대한 액세스 보안](../general/security-overview.md)
+- [Key vault에 대한 액세스 보안](../general/security-features.md)
 - [Azure Key Vault 개발자 가이드](../general/developers-guide.md)
-- [Key Vault 보안 개요](../general/security-overview.md)
+- [Key Vault 보안 개요](../general/security-features.md)
 - [Key Vault로 인증](../general/authentication.md)

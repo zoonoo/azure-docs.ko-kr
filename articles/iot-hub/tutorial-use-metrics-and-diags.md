@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: 099b7f4e812e92503c7ed8e3eb733f2e49ccd8b9
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 96a9f7c50f3e30d86497c7a612ddda248db3f703
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107768074"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865696"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>자습서: IoT 허브를 사용하여 메트릭 및 진단 로그 설정 및 사용
 
@@ -44,7 +44,7 @@ Azure Monitor를 사용하여 IoT 허브에 대한 메트릭 및 로그를 수�
 
 - Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-- 개발 머신에 .NET Core SDK 2.1 이상이 필요합니다. [.NET](https://www.microsoft.com/net/download/all)에서 여러 플랫폼에 대한 .NET Core SDK를 다운로드할 수 있습니다.
+- 개발 머신에 .NET Core SDK 2.1 이상이 필요합니다. [.NET](https://dotnet.microsoft.com/download)에서 여러 플랫폼에 대한 .NET Core SDK를 다운로드할 수 있습니다.
 
   다음 명령을 사용하여 개발 컴퓨터에서 C#의 현재 버전을 확인할 수 있습니다.
 

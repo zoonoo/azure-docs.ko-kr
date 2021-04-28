@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/19/2021
 ms.author: duau
-ms.openlocfilehash: 99204a2d4c3a2455f0916878fb09a348dc79ac7a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 3567d5af31b0c7bc2443e3d02426a5bb7aba06f7
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107778780"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862006"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하는 고가용성 글로벌 웹 애플리케이션을 위한 Front Door 만들기
 
@@ -105,7 +105,7 @@ az webapp create \
 
 다음을 실행하여 기본 부하 분산 설정, 상태 프로브 및 라우팅 규칙을 사용하여 기본 Front 도어를 만듭니다.
 
-[az network front-door create](/cli/azure/ext/front-door/network/front-door#ext_front_door_az_network_front_door_create&preserve-view=true)를 사용하여 Front Door를 만듭니다.
+[az network front-door create](/cli/azure/network/front-door#az_network_front_door_create&preserve-view=true)를 사용하여 Front Door를 만듭니다.
 
 ```azurecli-interactive
 az network front-door create \

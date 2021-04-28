@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/08/2021
 ms.author: amgowda
 ms.custom: contentperf-fy21q3, devx-track-azurecli
-ms.openlocfilehash: 261deb0c4f5f28be51e806ab76261278709efc3b
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: b7dd9685be5e0928743eaf9a541c88de6a49a36c
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482877"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891252"
 ---
 # <a name="quickstart-deploy-an-aks-cluster-with-confidential-computing-nodes-by-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 기밀 컴퓨팅 노드가 있는 AKS 클러스터 배포
 
@@ -211,7 +211,7 @@ az aks nodepool delete --cluster-name myAKSCluster --name confcompool1 --resourc
 AKS 클러스터를 삭제하려면 다음 명령을 사용합니다. 
 
 ```azurecli-interactive
-az aks delete --resource-group myResourceGroup --name myAKSCluster
+az aks delete --resource-group myResourceGroup --cluster-name myAKSCluster
 ```
 
 ## <a name="next-steps"></a>다음 단계

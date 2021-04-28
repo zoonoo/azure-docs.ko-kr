@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 5/11/2020
 ms.author: rogarana
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: e6cc45c3aedc013b63f9d7876b923e7db36ccd37
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: fd0953348de109101ed14c20ac342054d2faf3a1
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107513478"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107893269"
 ---
 스토리지 계정의 프라이빗 엔드포인트를 만들려면 먼저 프라이빗 엔드포인트를 추가하려는 스토리지 계정과 가상 네트워크 서브넷의 참조를 가져와야 합니다. 다음과 같이 `<storage-account-resource-group-name>`, `<storage-account-name>`, `<vnet-resource-group-name>`, `<vnet-name>` 및 `<vnet-subnet-name>`을 바꿉니다.
 

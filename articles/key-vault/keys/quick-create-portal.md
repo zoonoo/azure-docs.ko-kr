@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 75ea1c0e92e4d22e73178685472eb1953565a616
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 1c6cca640d8607a355e0ffca36e3af502df5052c
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750341"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815507"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Key Vault에서 키 설정 및 검색
 
@@ -82,4 +82,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 - [Azure Key Vault 개요](../general/overview.md) 참조
 - [Azure Key Vault 개발자 가이드](../general/developers-guide.md) 참조
-- [Azure Key Vault 보안 개요](../general/security-overview.md)를 검토하세요.
+- [Azure Key Vault 보안 개요](../general/security-features.md)를 검토하세요.

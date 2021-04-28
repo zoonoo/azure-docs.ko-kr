@@ -7,12 +7,12 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: dms
-ms.openlocfilehash: a9c68bca4d50af734a0a2cd8a91c7e46d9b56ff1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b448f04811ad254358990f6f37c4a02f1909d65
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94963218"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107952731"
 ---
 # <a name="quickstart-create-instance-of-azure-database-migration-service-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database Migration Service의 인스턴스 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "94963218"
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-database-migration-simple-deploy%2fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.datamigration%2fazure-database-migration-simple-deploy%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -35,7 +35,7 @@ Azure Database Migration Service ARM 템플릿에는 다음이 필요합니다.
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-azure-database-migration-simple-deploy/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-azure-database-migration-simple-deploy/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.datamigration/azure-database-migration-simple-deploy/azuredeploy.json":::
 
 템플릿에 정의된 세 가지 Azure 리소스는 다음과 같습니다. 
 
@@ -50,7 +50,7 @@ Azure Database Migration Service ARM 템플릿에는 다음이 필요합니다.
 
 1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 템플릿은 Azure Database Migration Service의 인스턴스를 만듭니다. 
 
-   [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-database-migration-simple-deploy%2fazuredeploy.json)
+   [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.datamigration%2fazure-database-migration-simple-deploy%2fazuredeploy.json)
 
 2. 다음 값을 선택하거나 입력합니다.
 

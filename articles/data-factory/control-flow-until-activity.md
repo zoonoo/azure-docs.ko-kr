@@ -1,18 +1,18 @@
 ---
 title: Azure Data Factory의 Until 작업
 description: Until 작업은 작업과 관련된 조건이 참으로 평가되거나 시간이 초과될 때까지 일단의 반복 작업을 실행합니다.
-author: dcstwh
-ms.author: weetok
+author: chez-charlie
+ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 2ac5474f1b20e409da01c531ef13060e72fd548c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 56ed631c395c994e5a445318caf8464ec5f1f62f
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786127"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906245"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Azure Data Factory의 Until 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

@@ -12,15 +12,15 @@ ms.date: 11/02/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 21c8e75ac81a443b1dd9d4a0f43263bbf40bee88
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97359203"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 비 Microsoft 계정 추가
 
-Google, Facebook 또는 GitHub와 같은 타사 계정이 있는 경우 2 단계 인증을 위해 Microsoft Authenticator 앱에 추가할 수 있습니다. Microsoft Authenticator 앱은 2 단계 인증을 사용 하는 모든 앱과 시간 기반 TOTP (일회용 암호) 표준을 지 원하는 계정을 사용 하 여 작동 합니다.
+Google, Facebook, GitHub 계정 등 비 Microsoft 계정이 있으면 Microsoft Authenticator 앱에 추가하여 2단계 인증에 사용할 수 있습니다. Microsoft Authenticator 앱은 2단계 인증을 사용하는 모든 앱 및 TOTP(시간 제약이 있는 일회성 암호) 표준을 지원하는 모든 계정과 호환됩니다.
 
 >[!Important]
 >계정을 추가하려면 Microsoft Authenticator 앱을 다운로드하여 설치해야 합니다. [앱 다운로드 및 설치](user-help-auth-app-download-install.md) 문서의 단계를 아직 진행하지 않은 경우 지금 진행하세요.
@@ -36,7 +36,7 @@ Google, Facebook 또는 GitHub와 같은 타사 계정이 있는 경우 2 단계
     >[!Note]
     >Microsoft Authenticator 앱을 처음으로 설정하는 경우 앱에서 카메라에 액세스할 수 있도록 허용할지(iOS) 아니면 앱에서 사진을 촬영하고 비디오를 녹화할 수 있도록 허용할지(Android) 묻는 메시지를 받을 수 있습니다. 인증자 앱이 카메라에 액세스하여 다음 단계에서 QR 코드의 사진을 찍을 수 있도록 **허용** 을 선택해야 합니다. 카메라를 허용하지 않는 경우에도 여전히 인증자 앱을 설정할 수 있지만 코드 정보를 수동으로 추가해야 합니다. 코드를 수동으로 추가하는 방법에 대한 자세한 내용은 [수동으로 앱에 계정 추가](user-help-auth-app-add-account-manual.md)를 참조하세요.
 
-Facebook, Google, GitHub 및 Amazon 계정에 대 한 여기에서 프로세스를 제공 하지만,이 프로세스는 다른 앱 (예: 인스턴스 된 Agram 및 Adobe)에서 동일 합니다.
+이 문서에서는 Facebook, Google, GitHub 및 Amazon 계정용 프로세스를 설명하지만 Instagram 및 Adobe 등의 기타 앱에서도 동일한 프로세스를 수행하면 됩니다.
 
 ## <a name="add-your-google-account"></a>Google 계정 추가
 
@@ -50,7 +50,7 @@ Facebook, Google, GitHub 및 Amazon 계정에 대 한 여기에서 프로세스�
 
 ### <a name="add-your-google-account-to-the-app"></a>앱에 Google 계정 추가
 
-1. 컴퓨터의 Google 계정 보안 페이지에서 https://myaccount.google.com/security) **추가 두 번째 단계 추가** 로 이동 하 여 확인 합니다. 섹션에서 **인증자 앱** 에서 **설정** 을 선택 합니다.
+1. 컴퓨터의 Google 계정 보안 페이지(https://myaccount.google.com/security) )에서 **인증을 위한 두 번째 단계 추가** 섹션으로 이동하고 **Authenticator 앱** 섹션에서 **설정** 을 선택합니다.
 
 2. **Authenticator 앱에서 코드 받기** 페이지에서 사용 중인 휴대폰 유형에 따라 **Android** 또는 **iPhone** 을 선택하고, **다음** 을 선택합니다.
 

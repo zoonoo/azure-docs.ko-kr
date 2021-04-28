@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 3d8f20f598243754e3fd39f649e7c84d55b64817
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 90e505a4d505cc52920f1c7727afb321f4eda462
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751673"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814157"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-javascript-version-4"></a>빠른 시작: JavaScript용 Azure Key Vault 비밀 클라이언트 라이브러리(버전 4)
 
@@ -27,7 +27,7 @@ Key Vault 및 비밀에 대한 자세한 내용은 다음을 참조하세요.
 - [Key Vault 개요](../general/overview.md)
 - [비밀 개요](about-secrets.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - 현재 운영 체제의 [Node.js](https://nodejs.org)입니다.
@@ -285,6 +285,6 @@ main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
 
 - [Azure Key Vault 개요](../general/overview.md) 참조
 - [Azure Key Vault 비밀 개요](about-secrets.md) 읽기
-- [키 자격 증명 모음에 대한 액세스를 보호](../general/security-overview.md)하는 방법
+- [키 자격 증명 모음에 대한 액세스를 보호](../general/security-features.md)하는 방법
 - [Azure Key Vault 개발자 가이드](../general/developers-guide.md) 참조
-- [Azure Key Vault 보안 개요](../general/security-overview.md)를 검토하세요.
+- [Azure Key Vault 보안 개요](../general/security-features.md)를 검토하세요.

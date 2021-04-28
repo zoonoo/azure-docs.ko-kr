@@ -5,24 +5,42 @@ services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: include
-ms.date: 02/02/2018
+ms.date: 04/27/2021
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: cc44780bd9b42e00ecfb3d140486fec87c767a76
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4bc789435d99c5faed80ffdb13a8bbf4ac6d48a4
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765759"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108121222"
 ---
-[!INCLUDE [resource group intro text](resource-group.md)]
+Cloud Shell에서 [`az appservice plan create`](/cli/azure/appservice/plan) 명령을 사용하여 App Service 계획을 만듭니다.
 
-Cloud Shell에서 [`az group create`](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *서유럽* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다. **기본** 계층에서 Linux의 App Service에 지원되는 모든 위치를 확인하려면 [`az appservice list-locations --sku B1 --linux-workers-enabled`](/cli/azure/appservice#az_appservice_list_locations) 명령을 실행합니다.
+<!-- [!INCLUDE [app-service-plan](app-service-plan.md)] -->
+
+다음 예에서는 **체험** 가격 책정 계층에서 `myAppServicePlan`이라는 App Service 계획을 만듭니다.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location "West Europe"
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 
-일반적으로 사용자와 가까운 지역에서 리소스 그룹 및 리소스를 만듭니다. 
+App Service 계획을 만든 경우 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다.
 
-명령이 완료되면 JSON 출력이 리소스 그룹 속성을 보여줍니다.
+<pre>
+{ 
+  "adminSiteName": null,
+  "appServicePlanName": "myAppServicePlan",
+  "geoRegion": "West Europe",
+  "hostingEnvironmentProfile": null,
+  "id": "/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan",
+  "kind": "app",
+  "location": "West Europe",
+  "maximumNumberOfWorkers": 1,
+  "name": "myAppServicePlan",
+  &lt; JSON data removed for brevity. &gt;
+  "targetWorkerSizeId": 0,
+  "type": "Microsoft.Web/serverfarms",
+  "workerTierName": null
+} 
+</pre>

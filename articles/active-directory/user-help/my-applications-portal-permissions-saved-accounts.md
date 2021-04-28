@@ -13,10 +13,10 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.custom: user-help
 ms.openlocfilehash: cb162231c8cf2bf733c992de0c4aa56bf1fd1be2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92791089"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>내 앱 포털에서 애플리케이션 사용 권한 편집 또는 해지
@@ -30,7 +30,7 @@ ms.locfileid: "92791089"
 
 ## <a name="manage-app-accounts"></a>앱 계정 관리
 
-사용자 또는 관리자가 동의한 앱을 보려면 **내 앱** 포털에서 앱을 마우스로 가리킬 때 ...를 선택 하 고 **응용 프로그램 관리** 를 **선택 합니다.**
+사용자 또는 관리자가 동의한 앱을 확인하려면 마우스가 **내 앱** 포털의 앱을 가리키면 **...** 를 선택하고 **애플리케이션 관리** 를 선택합니다.
 
 ![내 앱 포털에서 애플리케이션 관리](media/my-applications-portal-permissions-saved-accounts/my-apps-home-woodgrove.png)
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 666e77a06bd2934622400cc2f11830d6ebc34ddb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 02ea87bba8c28f0217479ffc65ccc65903fc0442
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104954652"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903041"
 ---
 # <a name="manage-digital-twins"></a>Digital Twins 관리
 
@@ -143,7 +143,7 @@ ms.locfileid: "104954652"
 
 다음은 인스턴스의 모든 디지털 트윈 목록을 반환하는 기본 쿼리의 본문입니다.
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="GetAllTwins":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="GetAllTwins":::
 
 ## <a name="update-a-digital-twin"></a>디지털 쌍 업데이트
 

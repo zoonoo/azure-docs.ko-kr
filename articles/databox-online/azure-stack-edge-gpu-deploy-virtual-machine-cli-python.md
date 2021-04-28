@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 14d9c762702648d25efcbcc7ac85824659e20f05
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: a0e52d64625e8dc9d785a1e6f53db0042de8a1bf
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304072"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126168"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Azure CLI 및 Python을 사용하여 Azure Stack Edge Pro GPU 디바이스에 VM 배포
 
@@ -355,7 +355,7 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge Pro 디바이스에서 VM �
 
    Azure Resource Manager 클라이언트 ID는 하드 코딩됩니다. Azure Resource Manager 테넌트 ID와 Azure Resource Manager 구독 ID는 모두 이전에 실행한 `az login` 명령의 출력에 표시됩니다. Azure Resource Manager 클라이언트 암호는 내가 설정한 Azure Resource Manager 암호입니다.
 
-   자세한 내용은 [Azure Resource Manager 암호](/azure/databox-online/azure-stack-edge-gpu-set-azure-resource-manager-password)를 참조하세요.
+   자세한 내용은 [Azure Resource Manager 암호](./azure-stack-edge-gpu-set-azure-resource-manager-password.md)를 참조하세요.
 
 5. 프로필을 2019-03-01-hybrid 버전으로 변경합니다. 프로필 버전을 변경하려면 다음 명령을 실행합니다.
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: references_regions, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 3bca2701b708bfb957dce1c954f43f60f55b7dae
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: e327a8ec5ef2df8419bd4e66a5ae92395f964f1c
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479953"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891143"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>빠른 시작: C# 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용(미리 보기)
 
@@ -37,7 +37,7 @@ Microsoft Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기�
 
 * 이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 C#으로 작성되었습니다. 개발 머신에는 .NET Core SDK 2.1.0 이상이 필요합니다.
 
-    [.NET](https://www.microsoft.com/net/download/all)에서 여러 플랫폼에 대한 .NET Core SDK를 다운로드할 수 있습니다.
+    [.NET](https://dotnet.microsoft.com/download)에서 여러 플랫폼에 대한 .NET Core SDK를 다운로드할 수 있습니다.
 
     다음 명령을 사용하여 개발 머신에서 C#의 현재 버전을 확인합니다.
 

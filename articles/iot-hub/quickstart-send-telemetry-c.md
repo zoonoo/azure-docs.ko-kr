@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 04/10/2019
 ms.author: wesmc
-ms.openlocfilehash: 6cc20a362ceebe56beb0d2baa48ea479d3b322a7
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a9478948cd5232c863014631acb884cd637a2f7d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067643"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864004"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>빠른 시작: 디바이스에서 IoT Hub로 원격 분석을 보내고 백 엔드 애플리케이션(C#)으로 읽습니다.
 
@@ -114,7 +114,7 @@ IoT Hub는 스토리지 또는 처리를 위해 IoT 디바이스에서 클라우
 
 ## <a name="register-a-device"></a>디바이스 등록
 
-연결을 위해 디바이스를 IoT Hub에 등록해야 합니다. 이 섹션에서는 [IoT 확장](/cli/azure/ext/azure-iot/iot)과 함께 Azure Cloud Shell을 사용하여 시뮬레이션된 디바이스를 등록합니다.
+연결을 위해 디바이스를 IoT Hub에 등록해야 합니다. 이 섹션에서는 [IoT 확장](/cli/azure/iot)과 함께 Azure Cloud Shell을 사용하여 시뮬레이션된 디바이스를 등록합니다.
 
 1. Azure Cloud Shell에서 다음 명령을 실행하여 디바이스 ID를 만듭니다.
 
@@ -183,7 +183,7 @@ IoT Hub는 스토리지 또는 처리를 위해 IoT 디바이스에서 클라우
 
 ## <a name="read-the-telemetry-from-your-hub"></a>허브에서 원격 분석 읽기
 
-이 섹션에서는 [IoT 확장](/cli/azure/ext/azure-iot/iot)과 함께 Azure Cloud Shell을 사용하여 시뮬레이션된 디바이스에서 보내는 디바이스 메시지를 모니터링합니다.
+이 섹션에서는 [IoT 확장](/cli/azure/iot)과 함께 Azure Cloud Shell을 사용하여 시뮬레이션된 디바이스에서 보내는 디바이스 메시지를 모니터링합니다.
 
 1. Azure Cloud Shell을 통해 다음 명령을 실행하여 IoT 허브의 메시지를 연결하고 읽습니다.
 

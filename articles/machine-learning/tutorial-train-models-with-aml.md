@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 85dea807ee09338e7f0e9e388f6b196fd3beef33
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6c5691759983d8ec40598834e5dbcd507ccf00cf
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104588667"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816875"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>자습서: MNIST 데이터와 scikit-learn을 사용하여 이미지 분류 모델 학습 
 
@@ -396,7 +396,7 @@ RunDetails(run).show()
 
 ![Notebook 위젯](./media/tutorial-train-models-with-aml/widget.png)
 
-실행을 취소해야 하는 경우 [다음 지침](./how-to-manage-runs.md)을 따릅니다.
+실행을 취소해야 하는 경우 [다음 지침](./how-to-track-monitor-analyze-runs.md)을 따릅니다.
 
 ### <a name="get-log-results-upon-completion"></a>완료 시 로그 결과 가져오기
 
