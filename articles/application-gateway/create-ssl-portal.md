@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 01/28/2021
 ms.author: victorh
-ms.openlocfilehash: c976ea236ae1d37cc0a543b10a9de55609035632
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa7123a1c4dea5fcede3e94250576f6677671176
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821820"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872248"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 TLS 종료로 애플리케이션 게이트웨이 구성
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 
-이 섹션에서는 [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate)를 사용하여 자체 서명된 인증서를 만듭니다. 애플리케이션 게이트웨이의 수신기를 만들 때 이 인증서를 Azure Portal에 업로드합니다.
+이 섹션에서는 [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate)를 사용하여 자체 서명된 인증서를 만듭니다. 애플리케이션 게이트웨이의 수신기를 만들 때 이 인증서를 Azure Portal에 업로드합니다.
 
 로컬 컴퓨터에서 Windows PowerShell 창을 관리자로 엽니다. 다음 명령을 실행하여 인증서를 만듭니다.
 
@@ -56,7 +56,7 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-인증서에서 pfx 파일을 내보내도록 반환된 지문과 함께 [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate)를 사용합니다. 암호 길이가 4~12자인지 확인합니다.
+인증서에서 pfx 파일을 내보내도록 반환된 지문과 함께 [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate)를 사용합니다. 암호 길이가 4~12자인지 확인합니다.
 
 
 ```powershell

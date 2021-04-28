@@ -4,12 +4,12 @@ description: Azure Container Instances에 컨테이너 이미지를 빌드, 푸�
 ms.topic: article
 ms.date: 08/20/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 1409d8fc1430cd9bf67bd735d9826a74979d495b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df8f7a546767f1198cee6fc6ceb6032645c14989
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98762971"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868990"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>GitHub 작업을 구성하여 컨테이너 인스턴스 만들기
 
@@ -310,13 +310,13 @@ az group delete \
 <!-- LINKS - internal -->
 
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-group-show]: /cli/azure/group#az-group-show
-[az-group-delete]: /cli/azure/group#az-group-delete
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[az-container-create]: /cli/azure/container#az-container-create
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-container-show]: /cli/azure/container#az-container-show
-[az-container-delete]: /cli/azure/container#az-container-delete
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-container-app-up]: /cli/azure/ext/deploy-to-azure/container/app#ext-deploy-to-azure-az-container-app-up
+[az-group-show]: /cli/azure/group#az_group_show
+[az-group-delete]: /cli/azure/group#az_group_delete
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
+[az-container-create]: /cli/azure/container#az_container_create
+[az-acr-show]: /cli/azure/acr#az_acr_show
+[az-container-show]: /cli/azure/container#az_container_show
+[az-container-delete]: /cli/azure/container#az_container_delete
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-container-app-up]: /cli/azure/container/app#az_container_app_up

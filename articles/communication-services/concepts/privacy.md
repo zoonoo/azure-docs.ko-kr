@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: beb8b81710cf4728259a8eb1df920cd74efce3ce
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9ccc192bb5cf4c5e183e21add8e73d9e096d281c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728133"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136016"
 ---
 # <a name="region-availability-and-data-residency"></a>지역 가용성 및 데이터 상주
 
@@ -49,7 +49,7 @@ Communication Services에서 Azure Portal 또는 Azure Resource Manager API를 �
 
 ### <a name="telephone-number-management"></a>전화 번호 관리
 
-Azure Communication Services는 Communication Services 리소스와 연결된 전화 번호의 디렉터리를 유지 관리합니다. [전화 번호 관리 API](/rest/api/communication/phonenumberadministration)를 사용하여 전화 번호를 검색하고 삭제합니다.
+Azure Communication Services는 Communication Services 리소스와 연결된 전화 번호의 디렉터리를 유지 관리합니다. [전화 번호 관리 API](/rest/api/communication/phonenumbers)를 사용하여 전화 번호를 검색하고 삭제합니다.
 
 - `Get All Phone Numbers`
 - `Release Phone Number`

@@ -6,12 +6,12 @@ ms.author: chrhar
 ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 01/25/2021
-ms.openlocfilehash: f64cc67ad6f0296ad289d858795ee783943f3daf
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: fb1c1d64d77ca1c69960b77cbec7f60bb717c26c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259876"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143524"
 ---
 # <a name="tutorial-access-data-in-cosmos-db-using-mongoose-with-azure-static-web-apps"></a>자습서: Azure Static Web Apps에서 Mongoose를 사용하여 Cosmos DB의 데이터에 액세스
 
@@ -37,7 +37,7 @@ Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/fre
 
 ## <a name="create-a-cosmos-db-serverless-database"></a>Cosmos DB 서버리스 데이터베이스 만들기
 
-[Cosmos DB 서버리스 계정](https://docs.microsoft.com/azure/cosmos-db/serverless)을 만드는 것부터 시작합니다. 서버리스 계정을 사용하면 리소스를 사용하는 경우에만 요금을 지불하고 전체 인프라를 만들 필요가 없습니다.
+[Cosmos DB 서버리스 계정](../cosmos-db/serverless.md)을 만드는 것부터 시작합니다. 서버리스 계정을 사용하면 리소스를 사용하는 경우에만 요금을 지불하고 전체 인프라를 만들 필요가 없습니다.
 
 1. [https://portal.azure.com](https://portal.azure.com)로 이동합니다.
 2. **리소스 만들기** 를 클릭합니다.
@@ -140,4 +140,3 @@ Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/fre
 로컬 개발을 구성하는 방법에 대한 다음 문서를 진행하세요.
 > [!div class="nextstepaction"]
 > [로컬 개발 설정](./local-development.md)
- 

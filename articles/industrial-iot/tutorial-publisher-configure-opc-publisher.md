@@ -6,12 +6,12 @@ ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
-ms.openlocfilehash: 4d4f9c90fd96365216480164f29f08fad92eb9d0
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: e4d26856d269a07ce87b22843c61be97b73bbea3
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104787345"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137259"
 ---
 # <a name="tutorial-configure-the-opc-publisher"></a>자습서: OPC 게시자 구성
 
@@ -100,7 +100,7 @@ OPC 게시자에는 62222 포트에서 실행되는 기본 제공 OPC UA 서버�
 >[!NOTE] 
 > 이 기능은 OPC 게시자 버전 2.5 이하에서만 사용할 수 있습니다.**
 
-OPC 게시자는 다음과 같은 [IoT Hub 직접 메서드](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods)를 구현하며, 이는 [IoT Hub 디바이스 SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks)를 활용하여 전 세계 어디서나 애플리케이션에서 호출할 수 있습니다.
+OPC 게시자는 다음과 같은 [IoT Hub 직접 메서드](../iot-hub/iot-hub-devguide-direct-methods.md)를 구현하며, 이는 [IoT Hub 디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 활용하여 전 세계 어디서나 애플리케이션에서 호출할 수 있습니다.
 
   - PublishNodes
   - UnpublishNodes

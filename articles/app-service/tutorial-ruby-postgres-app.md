@@ -5,12 +5,12 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
-ms.openlocfilehash: 63194ab87e0f2228b8585e962394aa1ebfff48d6
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c19dba659fd88fc17ba89987cdf5245ca365dcbf
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767278"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108018388"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Ruby 및 Postgres 앱 빌드
 
@@ -125,7 +125,7 @@ Rails 서버를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 az extension add --name db-up
 ```
 
-다음 예제와 같이 Azure에서 [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) 명령을 사용하여 Postgres 데이터베이스를 만듭니다. *\<postgresql-name>* 를 *고유* 이름으로 바꿉니다(서버 엔드포인트는 *https://\<postgresql-name>.postgres.database.azure.com* 임). *\<admin-username>* 및 *\<admin-password>* 의 경우 이 Postgres 서버에 대한 관리자 사용자를 만들기 위한 자격 증명을 지정합니다.
+다음 예제와 같이 Azure에서 [`az postgres up`](/cli/azure/postgres#az_postgres_up) 명령을 사용하여 Postgres 데이터베이스를 만듭니다. *\<postgresql-name>* 를 *고유* 이름으로 바꿉니다(서버 엔드포인트는 *https://\<postgresql-name>.postgres.database.azure.com* 임). *\<admin-username>* 및 *\<admin-password>* 의 경우 이 Postgres 서버에 대한 관리자 사용자를 만들기 위한 자격 증명을 지정합니다.
 
 <!-- Issue: without --location -->
 ```azurecli

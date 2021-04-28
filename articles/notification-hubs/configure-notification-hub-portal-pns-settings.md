@@ -12,12 +12,12 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5dd1044895ba55d1fbc6be7f4f4a2d7f615daa16
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 31d915cd44bcf60f3515eb1a84309980f45d40b0
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94887266"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868289"
 ---
 # <a name="quickstart-set-up-push-notifications-in-a-notification-hub"></a>빠른 시작: 알림 허브에서 푸시 알림 설정
 
@@ -75,13 +75,13 @@ Google FCM(Firebase Cloud Messaging) 프로젝트용 **API 키** 가 필요합�
 
 ### <a name="set-up-push-notifications-for-google-fcm"></a>Google FCM용 푸시 알림 설정
 
-1. [az notification-hub credential gcm update](/cli/azure/ext/notification-hub/notification-hub/credential/gcm#ext-notification-hub-az-notification-hub-credential-gcm-update) 명령을 사용하여 Google API 키를 알림 허브에 추가합니다.
+1. [az notification-hub credential gcm update](/cli/azure/notification-hub/credential/gcm#az_notification_hub_credential_gcm_update) 명령을 사용하여 Google API 키를 알림 허브에 추가합니다.
 
    ```azurecli
    az notification-hub credential gcm update --resource-group spnhubrg --namespace-name spnhubns    --notification-hub-name spfcmtutorial1nhub --google-api-key myKey
    ```
 
-2. Android 앱에는 알림 허브에 연결하기 위한 연결 문자열이 필요합니다.  [az notification-hub authorization-rule list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) 명령을 사용하여 사용 가능한 액세스 정책을 나열합니다.  [az notification-hub authorization-rule list-keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys) 명령을 사용하여 액세스 정책 연결 문자열을 가져옵니다.  기본 연결 문자열을 직접 가져오려면 `--query` 매개 변수에 **primaryConnectionString** 또는 **secondaryConnectionString** 을 지정합니다.
+2. Android 앱에는 알림 허브에 연결하기 위한 연결 문자열이 필요합니다.  [az notification-hub authorization-rule list](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization_rule_list) 명령을 사용하여 사용 가능한 액세스 정책을 나열합니다.  [az notification-hub authorization-rule list-keys](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization_rule_list_keys) 명령을 사용하여 액세스 정책 연결 문자열을 가져옵니다.  기본 연결 문자열을 직접 가져오려면 `--query` 매개 변수에 **primaryConnectionString** 또는 **secondaryConnectionString** 을 지정합니다.
 
    ```azurecli
    #list access policies for a notification hub
@@ -94,7 +94,7 @@ Google FCM(Firebase Cloud Messaging) 프로젝트용 **API 키** 가 필요합�
    az notification-hub authorization-rule list-keys --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --name myAccessPolicyName --query primaryConnectionString
    ```
 
-3. [az notification-hub test-send](/cli/azure/ext/notification-hub/notification-hub#ext-notification-hub-az-notification-hub-test-send) 명령을 사용하여 Android 앱으로 메시지 보내기를 테스트합니다.
+3. [az notification-hub test-send](/cli/azure/notification-hub#az_notification_hub_test_send) 명령을 사용하여 Android 앱으로 메시지 보내기를 테스트합니다.
 
    ```azurecli
    #test with message body
@@ -104,7 +104,7 @@ Google FCM(Firebase Cloud Messaging) 프로젝트용 **API 키** 가 필요합�
    az notification-hub test-send --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --notification-format gcm --payload "{\"data\":{\"message\":\"my JSON string\"}}"
    ```
 
-[az notification-hub credential](/cli/azure/ext/notification-hub/notification-hub/credential) 명령을 사용하여 다른 플랫폼에 대한 Azure CLI 참조를 가져옵니다.
+[az notification-hub credential](/cli/azure/notification-hub/credential) 명령을 사용하여 다른 플랫폼에 대한 Azure CLI 참조를 가져옵니다.
 
 Android 애플리케이션에 알림을 보내는 방법에 대한 자세한 내용은 [Firebase를 사용하여 Android 디바이스에 푸시 알림 보내기](notification-hubs-android-push-notification-google-fcm-get-started.md)를 참조하세요.
 
