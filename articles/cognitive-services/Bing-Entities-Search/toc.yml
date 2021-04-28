@@ -70,16 +70,12 @@
   items:
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/bing-entity-search-api/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/601036-bing-entity-search-api'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/search?q=bing+entity+search'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: 기술 자료
-      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
     - name: API 키 가져오기
       href: 'https://azure.microsoft.com/free/cognitive-services'
     - name: 사용해 보세요.

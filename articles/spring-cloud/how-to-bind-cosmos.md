@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: bf761bded38ffa975610c7a7f217e911704ae3bf
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 73ab7e9bab4106af52f615982666922115af4187
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227945"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135386"
 ---
 # <a name="bind-an-azure-cosmos-db-database-to-your-azure-spring-cloud-application"></a>Azure Cosmos DB 데이터베이스를 Azure Spring Cloud 애플리케이션에 바인딩
 
@@ -22,7 +22,7 @@ Spring Boot 애플리케이션을 수동으로 구성하는 대신 Azure Spring 
 
 필수 조건:
 
-* 배포된 Azure Spring Cloud 인스턴스. [Azure CLI를 통해 배포에 대한 빠른 시작](spring-cloud-quickstart.md)을 수행하여 시작하세요.
+* 배포된 Azure Spring Cloud 인스턴스. [Azure CLI를 통해 배포에 대한 빠른 시작](./quickstart.md)을 수행하여 시작하세요.
 * 최소 수준의 기여자 권한이 있는 Azure Cosmos DB 계정
 
 ## <a name="bind-azure-cosmos-db"></a>Azure Cosmos DB 바인딩
@@ -108,4 +108,4 @@ Azure Cosmos DB에는 바인딩을 지원하는 다음 5가지 API 형식이 있
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Spring Cloud 애플리케이션을 Azure Cosmos DB 데이터베이스에 바인딩하는 방법을 알아보았습니다. 서비스를 애플리케이션에 바인딩하는 방법에 대한 자세한 내용은 [Azure Cache for Redis 캐시에 바인딩](spring-cloud-howto-bind-redis.md)을 참조하세요.
+이 문서에서는 Azure Spring Cloud 애플리케이션을 Azure Cosmos DB 데이터베이스에 바인딩하는 방법을 알아보았습니다. 서비스를 애플리케이션에 바인딩하는 방법에 대한 자세한 내용은 [Azure Cache for Redis 캐시에 바인딩](./how-to-bind-redis.md)을 참조하세요.

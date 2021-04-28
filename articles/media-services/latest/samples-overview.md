@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: overview
 ms.date: 03/24/2021
 ms.author: inhenkel
-ms.openlocfilehash: 1d827d734c434204ff6b7ec60d27e507ae626abd
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 3707516818e54dd251bd470eb9231afc6e3fff67
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227690"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138682"
 ---
 # <a name="media-services-v3-samples"></a>Media Services v3 샘플
 
@@ -47,7 +47,7 @@ ms.locfileid: "107227690"
 | [ContentProtection/OfflinePlayReadyAndWidevine](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/ContentProtection/OfflinePlayReadyAndWidevine)|PlayReady 및 Widevine DRM을 사용하여 콘텐츠를 동적으로 암호화하고, 라이선스 서비스에서 라이선스를 요청하지 않고 콘텐츠를 재생하는 방법입니다. 기본 제공 AdaptiveStreaming 사전 설정을 사용하여 변환을 만들고, 작업을 제출하고, 개방 제한 및 PlayReady/Widevine 영구 구성을 사용하여 ContentKeyPolicy를 만들고, ContentKeyPolicy를 StreamingLocator와 연결하고, 재생할 URL을 출력하는 방법을 보여 줍니다.|
 | [Streaming/AssetFilters](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Streaming/AssetFilters)|기본 제공 AdaptiveStreaming 사전 설정을 사용하여 변환을 만들고, 작업을 제출하고, 자산 필터 및 계정 필터를 만들고, 필터를 스트리밍 로케이터와 연결하고, 재생할 URL을 출력하는 방법입니다.|
 | [Streaming/StreamHLSAndDASH](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Streaming/StreamHLSAndDASH)|기본 제공 AdaptiveStreaming 사전 설정을 사용하여 변환을 만들고, 작업을 제출하고, HLS 및 DASH 스트리밍에 대한 출력 자산을 게시하는 방법입니다.|
-| [HighAvailabilityEncodingStreaming](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/HighAvailabilityEncodingStreaming/) | 주문형 인코딩 또는 분석을 사용하는 프로덕션 시스템에 대한 지침 및 모범 사례입니다. 읽기 권한자는 [Media Services 및 VOD를 통한 고가용성](https://docs.microsoft.com/azure/media-services/latest/architecture-high-availability-encoding-concept) 관련 문서를 시작해야 합니다. [HighAvailabilityEncodingStreaming](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/HighAvailabilityEncodingStreaming/README.md) 샘플에 제공되는 별도의 솔루션 파일이 있습니다. |
+| [HighAvailabilityEncodingStreaming](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/HighAvailabilityEncodingStreaming/) | 주문형 인코딩 또는 분석을 사용하는 프로덕션 시스템에 대한 지침 및 모범 사례입니다. 읽기 권한자는 [Media Services 및 VOD를 통한 고가용성](./architecture-high-availability-encoding-concept.md) 관련 문서를 시작해야 합니다. [HighAvailabilityEncodingStreaming](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/HighAvailabilityEncodingStreaming/README.md) 샘플에 제공되는 별도의 솔루션 파일이 있습니다. |
 
 ## <a name="nodejs"></a>[Node.JS](#tab/node/)
 

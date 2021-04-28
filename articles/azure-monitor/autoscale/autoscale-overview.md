@@ -4,12 +4,12 @@ description: Microsoft Azure의 자동 크기 조정
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 4727d562e21b92e58c8091f1161cf53198ff0b26
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b3ac08addac4fb668b58ebb218ffb57bb920813
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101726005"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139690"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Microsoft Azure의 자동 크기 조정 개요
 이 문서에서는 Microsoft Azure 자동 크기 조정에 대해 설명하고 그 이점과 사용 방법을 소개합니다.  
@@ -107,7 +107,7 @@ Web Apps 및 클라우드 서비스의 원격 분석은 Azure 인프라에서 �
 | API Management 서비스|[Azure API Management 인스턴스 자동 크기 조정](../../api-management/api-management-howto-autoscale.md)
 | Azure Data Explorer 클러스터|[변화하는 요구를 수용하기 위해 Azure Data Explorer 클러스터 크기 조정 관리](/azure/data-explorer/manage-cluster-horizontal-scaling)|
 | Logic Apps |[ISE(통합 서비스 환경) 용량 추가](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
-| Spring Cloud |[마이크로서비스 애플리케이션에 대한 자동 크기 조정 설정](../../spring-cloud/spring-cloud-tutorial-setup-autoscale.md)|
+| Spring Cloud |[마이크로서비스 애플리케이션에 대한 자동 크기 조정 설정](../../spring-cloud/how-to-setup-autoscale.md)|
 | Service Bus |[Azure Service Bus 네임스페이스의 메시징 단위 자동 업데이트](../../service-bus-messaging/automate-update-messaging-units.md)|
 
 ## <a name="next-steps"></a>다음 단계

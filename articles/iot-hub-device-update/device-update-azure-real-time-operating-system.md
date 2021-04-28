@@ -1,17 +1,17 @@
 ---
 title: Azure 실시간 운영 체제에 대한 디바이스 업데이트 | Microsoft Docs
 description: Azure 실시간 운영 체제에 대한 디바이스 업데이트 시작
-author: valls
+author: ValOlson
 ms.author: valls
 ms.date: 3/18/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 66da860a5cdae1f5c7c18e4136b1f2d960492ca8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d03ed1b23966d92a4e289534c427b84e5fc14789
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629056"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141905"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-azure-real-time-operating-system-rtos"></a>Azure RTOS(실시간 운영 체제)를 사용하는 Azure IoT Hub 자습서에 대한 디바이스 업데이트
 
@@ -29,7 +29,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites"></a>필수 구성 요소
 * IoT Hub에 대한 액세스 권한. S1(표준) 계층 이상을 사용하는 것이 좋습니다.
-* IoT Hub에 연결된 디바이스 업데이트 인스턴스 및 계정 이전에 수행하지 않은 경우 지침에 따라 디바이스 업데이트 계정을 [만들고 연결](http://create-device-update-account.md/)합니다.
+* IoT Hub에 연결된 디바이스 업데이트 인스턴스 및 계정 이전에 수행하지 않은 경우 지침에 따라 디바이스 업데이트 계정을 [만들고 연결](create-device-update-account.md)합니다.
 
 ## <a name="get-started"></a>시작
 
@@ -41,7 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 6. 그런 다음, 펨웨어 이미지와 매니페스트를 IoT Hub용 디바이스 업데이트에 게시합니다.
 7. 마지막으로 디바이스에서 프로젝트를 다운로드하여 실행합니다.
 
-[Azure RTOS](https://docs.microsoft.com/azure/rtos/)에 대해 자세히 알아봅니다.  
+[Azure RTOS](/azure/rtos/)에 대해 자세히 알아봅니다.  
 
 ## <a name="tag-your-device"></a>디바이스 태그
 

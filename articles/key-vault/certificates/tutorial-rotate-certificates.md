@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: ec88dfc7ded7ecb1d640eb4d73ef4c8045e549cf
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 50cc8f2454aa18dd9a0f1365490fadedcbb623b7
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791988"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140680"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>자습서: Key Vault에서 인증서 자동 회전 구성
 
@@ -83,7 +83,7 @@ Key Vault는 파트너 관계를 맺은 CA를 통해 인증서를 자동으로 �
       |-----------|------|
       |이 옵션을 선택하면 자동 회전이 *켜집니다*. | 이 옵션을 선택하면 자동으로 회전되지 *않고*, 담당자에게 경고만 합니다.|
       
-      [여기에서 이메일 연락처 설정](https://docs.microsoft.com/azure/key-vault/certificates/overview-renew-certificate#get-notified-about-certificate-expiration)에 대해 알아볼 수 있습니다.
+      [여기에서 이메일 연락처 설정](./overview-renew-certificate.md#get-notified-about-certificate-expiration)에 대해 알아볼 수 있습니다.
 
 1. **만들기** 를 선택합니다.
 

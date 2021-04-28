@@ -4,12 +4,12 @@ description: 다음 통합 작업에 최적화된 Microsoft 클라우드 서비�
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: e6bd97469a6b7b6c42427e130ac103954377c652
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c25f1511203cf3f951e409ebbaa9381329eeed92
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643361"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108128382"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Azure에서 적절한 통합 및 자동화 서비스 선택
 
@@ -58,7 +58,7 @@ Azure Functions의 경우 코드를 작성하고 [지속성 함수 확장](durab
 | **actions** | 각 작업은 Azure 함수입니다. 작업 함수에 대한 코드 작성 |[즉시 사용 가능한 작업의 대규모 컬렉션](../logic-apps/logic-apps-workflow-actions-triggers.md)|
 | **Monitoring** | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Azure Monitor 로그](../logic-apps/monitor-logic-apps.md)|
 | **관리** | [REST API](durable/durable-functions-http-api.md), [Visual Studio](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](/rest/api/logic/), [PowerShell](/powershell/module/az.logicapp), [Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md) |
-| **실행 컨텍스트** | [로컬로](functions-runtime-overview.md) 또는 클라우드에서 실행 가능 | 클라우드에서만 실행|
+| **실행 컨텍스트** | [로컬로](./functions-kubernetes-keda.md) 또는 클라우드에서 실행 가능 | 클라우드에서만 실행|
 
 <a name="function"></a>
 

@@ -7,12 +7,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 377abef31dbc4364f37161194923bbf74d272d80
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 193c8b1f47960b9b42c61a9b0e394e5ebedf7bf7
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98012294"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107867586"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Stream Analytics 작업 만들기
 
@@ -96,7 +96,7 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
     ```
 
-4. [az iot hub device-identity show-connection-string](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-show-connection-string) 명령을 사용하여 디바이스 연결 문자열을 가져옵니다. 전체 연결 문자열을 복사하여 Raspberry Pi 시뮬레이터를 만들 때를 위해 저장해 둡니다.
+4. [az iot hub device-identity show-connection-string](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_show_connection_string) 명령을 사용하여 디바이스 연결 문자열을 가져옵니다. 전체 연결 문자열을 복사하여 Raspberry Pi 시뮬레이터를 만들 때를 위해 저장해 둡니다.
 
     ```azurecli
     az iot hub device-identity show-connection-string --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table

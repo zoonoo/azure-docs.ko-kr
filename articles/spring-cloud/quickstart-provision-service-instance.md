@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 6f25c4172b384abd487d2084f31981d16e73ee93
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 47ab010d5306d57a03687ca2fc11520e3fd6acb2
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878845"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132740"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-service"></a>빠른 시작: Azure Spring Cloud 서비스 프로비저닝
 
@@ -160,7 +160,7 @@ Azure Portal 또는 Azure CLI를 사용하여 Azure Spring Cloud를 인스턴스
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 구독에 남아있는 경우 요금이 계속 청구되는 Azure 리소스를 만들었습니다. 다음 빠른 시작을 계속 진행하지 않으려는 경우 [리소스 정리](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources)를 참조하세요. 그렇지 않으면 다음 빠른 시작으로 이동하세요.
+이 빠른 시작에서는 구독에 남아있는 경우 요금이 계속 청구되는 Azure 리소스를 만들었습니다. 다음 빠른 시작을 계속 진행하지 않으려는 경우 [리소스 정리](./quickstart-logs-metrics-tracing.md#clean-up-resources)를 참조하세요. 그렇지 않으면 다음 빠른 시작으로 이동하세요.
 
 > [!div class="nextstepaction"]
-> [구성 서버 설정](spring-cloud-quickstart-setup-config-server.md)
+> [구성 서버 설정](./quickstart-setup-config-server.md)

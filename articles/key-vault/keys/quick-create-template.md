@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 48686fb78dc4295da3bd390d92ae3837cd09a4d0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 66d41ed1bb900f55db0d3670c1ce312950ff165d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639425"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108147052"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure 키 자격 증명 모음 및 키 만들기 
 
@@ -168,7 +168,7 @@ ms.locfileid: "105639425"
 추가 Azure Key Vault 템플릿 샘플은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault&pageNumber=1&sort=Popular)에서 찾을 수 있습니다.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
-[Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal), Azure PowerShell, Azure CLI 또는 REST API를 사용할 수 있습니다. 배포 방법에 대해 알아보려면 [템플릿 배포](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell)를 참조하세요.
+[Azure Portal](../../azure-resource-manager/templates/deploy-portal.md), Azure PowerShell, Azure CLI 또는 REST API를 사용할 수 있습니다. 배포 방법에 대해 알아보려면 [템플릿 배포](../../azure-resource-manager/templates/deploy-powershell.md)를 참조하세요.
 
 ## <a name="review-deployed-resources"></a>배포된 리소스 검토
 
@@ -223,4 +223,4 @@ Write-Host "Press [ENTER] to continue..."
 
 - [Azure Key Vault 개요](../general/overview.md) 참조
 - [Azure Resource Manager](../../azure-resource-manager/management/overview.md)에 대해 자세히 알아보기
-- [Azure Key Vault 보안 개요](../general/security-overview.md)를 검토하세요.
+- [Azure Key Vault 보안 개요](../general/security-features.md)를 검토하세요.

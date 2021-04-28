@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 493752a3857b80b43668b6bf1b20480604442955
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 583124e9e3ca657ee13e4726eda981ae26022856
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567998"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138520"
 ---
 # <a name="tutorial-map-an-existing-custom-domain-to-azure-spring-cloud"></a>자습서: Azure Spring Cloud에 기존 사용자 지정 도메인 매핑
 
@@ -23,7 +23,7 @@ DNS(Domain Name Service)는 네트워크를 통해 네트워크 노드 이름을
 인증서는 웹 트래픽을 암호화합니다. 이러한 TLS/SSL 인증서는 Azure Key Vault에 저장할 수 있습니다. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
-* Azure Spring Cloud에 배포된 애플리케이션. [빠른 시작: Azure Portal을 사용하여 기존 Azure Spring Cloud 애플리케이션 시작](spring-cloud-quickstart.md)을 참조하거나 기존 앱을 사용하세요.
+* Azure Spring Cloud에 배포된 애플리케이션. [빠른 시작: Azure Portal을 사용하여 기존 Azure Spring Cloud 애플리케이션 시작](./quickstart.md)을 참조하거나 기존 앱을 사용하세요.
 * GoDaddy 같은 도메인 공급자의 DNS 레지스트리에 대한 액세스 권한이 있는 도메인
 * 타사 공급자의 프라이빗 인증서(즉, 자체 서명된 인증서) 인증서는 도메인과 일치해야 합니다.
 * 배포된 [Azure Key Vault](../key-vault/general/overview.md) 인스턴스
@@ -164,7 +164,7 @@ DNS 공급자로 이동한 후 CNAME 레코드를 추가하여 도메인을 <ser
 ![DNS 레코드 페이지](./media/custom-dns-tutorial/dns-records.png)
 
 ## <a name="map-your-custom-domain-to-azure-spring-cloud-app"></a>Azure Spring Cloud 앱에 사용자 지정 도메인 매핑
-Azure Spring Cloud에 아직 애플리케이션이 없으면 [빠른 시작: Azure Portal을 사용하여 기존 Azure Spring Cloud 애플리케이션 시작](./spring-cloud-quickstart.md)의 지침을 따릅니다.
+Azure Spring Cloud에 아직 애플리케이션이 없으면 [빠른 시작: Azure Portal을 사용하여 기존 Azure Spring Cloud 애플리케이션 시작](./quickstart.md)의 지침을 따릅니다.
 
 #### <a name="portal"></a>[포털](#tab/Azure-portal)
 애플리케이션 페이지로 이동합니다.
@@ -234,4 +234,4 @@ az spring-cloud app update -n <app name> --resource-group <resource group name> 
 ## <a name="see-also"></a>참고 항목
 * [Azure Key Vault란?](../key-vault/general/overview.md)
 * [인증서 가져오기](../key-vault/certificates/certificate-scenarios.md#import-a-certificate)
-* [Azure CLI를 사용하여 Spring Cloud 앱 시작](./spring-cloud-quickstart.md)
+* [Azure CLI를 사용하여 Spring Cloud 앱 시작](./quickstart.md)

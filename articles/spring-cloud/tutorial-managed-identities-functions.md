@@ -6,12 +6,12 @@ ms.author: margard
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/10/2020
-ms.openlocfilehash: b737ea751d3b3d2132691e04a1a2cd853748db65
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6742c55dffb86e591542f5da1379c483ccd1ebcd
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107792510"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138412"
 ---
 # <a name="tutorial-use-a-managed-identity-to-invoke-azure-functions-from-an-azure-spring-cloud-app"></a>자습서: 관리 ID를 사용하여 Azure Spring Cloud 앱에서 Azure Functions 호출
 
@@ -173,6 +173,6 @@ az spring-cloud app create --name "msiapp" --service "mymsispringcloud" --resour
 
 ## <a name="next-steps"></a>다음 단계
 
-* [시스템이 할당한 관리 ID를 Azure Spring Cloud 애플리케이션에 사용하도록 설정하는 방법](./spring-cloud-howto-enable-system-assigned-managed-identity.md)
+* [시스템이 할당한 관리 ID를 Azure Spring Cloud 애플리케이션에 사용하도록 설정하는 방법](./how-to-enable-system-assigned-managed-identity.md)
 * [Azure 리소스의 관리 ID에 대해 자세히 알아보기](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
 * [App Service에 액세스하도록 클라이언트 앱 구성](../app-service/configure-authentication-provider-aad.md#configure-client-apps-to-access-your-app-service)

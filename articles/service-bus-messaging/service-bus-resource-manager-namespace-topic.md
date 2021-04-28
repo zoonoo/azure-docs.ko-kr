@@ -8,15 +8,14 @@ ms.date: 06/23/2020
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.custom:
-- devx-track-azurecli
 - devx-track-azurepowershell
 - mode-arm
-ms.openlocfilehash: 9c235f8e056bf185267aa0bb493b71b897f3c510
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: d3ffdf144d334143fcf6b15bf7e0128c165c7119
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534928"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108075090"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 토픽 및 구독이 있는 Service Bus 네임스페이스 만들기
 
