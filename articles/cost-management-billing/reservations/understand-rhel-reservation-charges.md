@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: 8e735d623cc991d2e3720e0ec418eee77aa8c46c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a10e6204184f28dbb62083bc72c6963ea8db082b
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350860"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568633"
 ---
 # <a name="understand-how-the-red-hat-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Azure에 Red Hat Linux Enterprise 소프트웨어 예약 요금제 할인이 적용되는 방식 이해
 
@@ -46,7 +46,7 @@ Azure Portal Marketplace 이름:
 - Red Hat Enterprise Linux 7.6
 - Red Hat Enterprise Linux 8.2
 
-[계획이 적용되는 Red Hat Enterprise Linux 미터 확인](https://isfratio.blob.core.windows.net/isfratio/RHELRatios.csv)
+[계획이 적용되는 Red Hat Enterprise Linux 미터 확인](https://phoenixnap.com/kb/how-to-check-redhat-version)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.subservice: billing
 ms.topic: article
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: b4d6502e49fdd30a68188a1e580a1c137984c89f
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: f23beeb735c83cdf2d42a01ff684510dbd0d9feb
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132383"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058836"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Azure REST API를 사용하여 구독 청구 검토
 
@@ -72,7 +72,7 @@ Authorization: Bearer
 }
 ```
 
-**값**의 각 항목은 서비스 사용과 관련한 세부 정보를 나타냅니다.
+**값** 의 각 항목은 서비스 사용과 관련한 세부 정보를 나타냅니다.
 
 |응답 속성|Description|
 |----------------|----------|
