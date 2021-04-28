@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: c2c3636e98d67616826b03cca9657b806c5bd653
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: d03ae5062cc81b3e042ed3b714838e14929dbba2
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598002"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778222"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Azure EA 계약 및 수정안
 
@@ -145,7 +145,7 @@ Microsoft에서는 적어도 구매한 월별 선불에 포함된 관련 사용 
 
 ## <a name="requesting-a-quota-increase"></a>할당량 증가 요청
 
-언제든지 [온라인 요청](https://g.microsoftonline.com/0WAEP00en/6)을 제출하여 할당량 증가를 요청할 수 있습니다. 요청을 처리할 수 있도록 다음 정보를 제공해 주세요.
+언제든지 [온라인 요청](https://ms.portal.azure.com/)을 제출하여 할당량 증가를 요청할 수 있습니다. 요청을 처리할 수 있도록 다음 정보를 제공해 주세요.
 
 - 구독의 계정 소유자와 연결된 Microsoft 계정이나 회사 또는 학교 계정. 이 이메일 주소는 구독을 관리하기 위해 Microsoft Azure Portal에 로그인하는 데 사용됩니다. 또한 이 계정이 EA 등록과 연결되어 있는지 확인해야 합니다.
 - 할당량 증가를 원하는 리소스 및 양
