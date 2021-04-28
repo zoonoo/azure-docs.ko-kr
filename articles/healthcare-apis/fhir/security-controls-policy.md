@@ -1,19 +1,19 @@
 ---
 title: FHIR 용 Azure API에 대 한 규정 준수 제어 Azure Policy
 description: FHIR 용 Azure API에 사용할 수 있는 규정 준수 제어 Azure Policy를 나열 합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 04/21/2021
+ms.date: 04/28/2021
 ms.topic: sample
 author: matjazl
 ms.author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 82ea8ec188c18af10196c7c795ff09b78ad63023
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: ab59b8bd7c24fcd8cfeeb2298720ecb5e6579b6f
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107862144"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108180227"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-api-for-fhir"></a>FHIR 용 Azure API에 대 한 규정 준수 제어 Azure Policy
 
