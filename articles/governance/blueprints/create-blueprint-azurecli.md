@@ -3,12 +3,12 @@ title: '빠른 시작: Azure CLI를 사용하여 청사진 만들기'
 description: 이 빠른 시작에서는 Azure Blueprints를 사용하여 Azure CLI를 통해 아티팩트를 만들고 정의하고 배포합니다.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: fbe5c12f1c94d4b59dbdc2a97b6a4cb9af5a2328
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 506877eddd78ce54681bd4870e1d9040b4738c27
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563670"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877411"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>빠른 시작: Azure CLI로 Azure Blueprint 정의 및 할당
 
@@ -117,7 +117,7 @@ Azure CLI를 사용하여 청사진 정의 및 할당을 관리하려면 확장�
 
      > [!NOTE]
      > 청사진 정의를 가져올 때 _blueprint.json_ 이라는 파일 이름을 사용합니다.
-     > 이 파일 이름은 [az 청사진 가져오기](/cli/azure/ext/blueprint/blueprint#ext_blueprint_az_blueprint_import)를 호출할 때 사용됩니다.
+     > 이 파일 이름은 [az 청사진 가져오기](/cli/azure/blueprint#az_blueprint_import)를 호출할 때 사용됩니다.
 
      청사진 개체는 기본적으로 기본 구독에 생성됩니다. 관리 그룹을 지정하려면 매개 변수 **managementgroup** 를 사용합니다. 구독을 지정하려면 매개 변수 **subscription** 을 사용합니다.
 

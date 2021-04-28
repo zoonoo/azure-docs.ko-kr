@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 04/09/2021
 ms.author: rohink
-ms.openlocfilehash: 560a88c973d71b3e2c6533e05e4f374f9a5bcd8f
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 4c867ad3888544df93f8a6e5a6236a01197eefc2
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311484"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127842"
 ---
 # <a name="what-is-azure-private-dns"></a>Azure 프라이빗 DNS란?
 
@@ -78,4 +78,4 @@ Azure DNS의 제한 사항은 다음과 같습니다.
 
 * [DNS 영역 및 레코드 개요](dns-zones-records.md)를 참조하여 DNS 영역 및 레코드에 대해 알아봅니다.
 
-* Azure의 몇 가지 다른 주요 [네트워킹 기능](../networking/networking-overview.md)을 알아봅니다.
+* Azure의 몇 가지 다른 주요 [네트워킹 기능](../networking/fundamentals/networking-overview.md)을 알아봅니다.

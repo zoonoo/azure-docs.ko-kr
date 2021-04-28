@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 9483b0a8829c042a7cf8d516c6007cbbf14a97ac
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8a94500f1669e47065f6ea9789b18442e0c8349e
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639743"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127014"
 ---
 # <a name="tutorial-configure-microsoft-dynamics-365-fraud-protection-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C을 사용하여 Microsoft Dynamics 365 Fraud Protection 구성
 
-이 샘플 자습서에서는 AD(Azure Active Directory) B2C를 사용하여 [Microsoft DFP(Dynamics 365 Fraud Protection)](https://docs.microsoft.com/dynamics365/fraud-protection/overview)를 통합하는 방법에 대한 지침을 제공합니다.
+이 샘플 자습서에서는 AD(Azure Active Directory) B2C를 사용하여 [Microsoft DFP(Dynamics 365 Fraud Protection)](/dynamics365/fraud-protection/overview)를 통합하는 방법에 대한 지침을 제공합니다.
 
 Microsoft DFP는 클라이언트에게 새 계정을 만들도록 시도하는 위험과 클라이언트 에코시스템에 대한 로그인 시도가 사기인지 여부를 평가하는 기능을 제공합니다. 고객은 Microsoft DFP 평가를 사용하여 새 가짜 계정을 만들거나 기존 계정을 손상시킬 위험이 있는 의심스러운 시도를 차단할 수 있습니다. 계정 보호에는 인공 지능 기반 디바이스 핑거프린팅, 실시간 위험 평가를 위한 API, 클라이언트의 비즈니스 요구에 따라 위험 전략을 최적화하는 규칙 및 목록 환경, 클라이언트 에코 시스템의 사기 행위 보호 효율성 및 추세를 모니터링하는 성과 기록표가 포함됩니다.
 
@@ -68,7 +68,7 @@ Microsoft EFP 통합에는 다음 구성 요소가 포함됩니다.
 ## <a name="set-up-the-solution"></a>솔루션 설정
 
 1. Azure AD B2C 페더레이션을 허용하도록 구성된 [Facebook 애플리케이션을 만듭니다](./identity-provider-facebook.md#create-a-facebook-application).
-2. 만든 [Facebook 비밀](./custom-policy-get-started.md#create-the-facebook-key)을 Identity Experience Framework 정책 키로 추가합니다.
+2. 만든 [Facebook 비밀](./tutorial-create-user-flows.md?pivots=b2c-custom-policy#create-the-facebook-key)을 Identity Experience Framework 정책 키로 추가합니다.
 
 ## <a name="configure-your-application-under-microsoft-dfp"></a>Microsoft DFP에서 애플리케이션 구성
 
@@ -103,7 +103,7 @@ CORS를 설정, **허용된 원본** 추가 `https://{your_tenant_name}.b2clogin
 |FraudProtectionSettings:InstanceId | Microsoft DFP 구성 |     |
 |FraudProtectionSettings:DeviceFingerprintingCustomerId | Microsoft 디바이스 핑거프린팅 고객 ID |     |
 | FraudProtectionSettings:ApiBaseUrl |  Microsoft DFP 포털의 기본 URL   | '-int '를 제거하여 프로덕션 API를 대신 호출|
-|  TokenProviderConfig: 리소스  | 기본 URL - https://api.dfp.dynamics-int.com     | '-int '를 제거하여 프로덕션 API를 대신 호출|
+|  TokenProviderConfig: 리소스  | 기본 URL - `https://api.dfp.dynamics-int.com`     | '-int '를 제거하여 프로덕션 API를 대신 호출|
 |   TokenProviderConfig:ClientId       |Fraud Protection 판매자 Azure AD 클라이언트 앱 ID      |       |
 | TokenProviderConfig:Authority | https://login.microsoftonline.com/<directory_ID> | Fraud Protection 판매자 Azure AD 테넌트 기관 |
 | TokenProviderConfig:CertificateThumbprint* | 판매자 Azure AD 클라이언트 앱에 대해 인증하는 데 사용할 인증서의 지문입니다. |
@@ -126,8 +126,8 @@ CORS를 설정, **허용된 원본** 추가 `https://{your_tenant_name}.b2clogin
 |  {your_tenant_extensions_appid}   |  테넌트 스토리지 애플리케이션의 앱 ID   |  01234567-89ab-cdef-0123-456789abcdef  |
 |   {your_tenant_extensions_app_objectid}  | 테넌트 스토리지 애플리케이션의 개체 ID    | 01234567-89ab-cdef-0123-456789abcdef   |
 |   {your_app_insights_instrumentation_key}  |   App Insights 인스턴스의 계측 키*  |   01234567-89ab-cdef-0123-456789abcdef |
-|  {your_ui_base_url}   | UI 파일이 제공되는 앱 서비스의 엔드포인트    | https://yourapp.azurewebsites.net/B2CUI/GetUIPage   |
-|   {your_app_service_url}  | 앱 서비스의 URL    |  https://yourapp.azurewebsites.net  |
+|  {your_ui_base_url}   | UI 파일이 제공되는 앱 서비스의 엔드포인트    | `https://yourapp.azurewebsites.net/B2CUI/GetUIPage`   |
+|   {your_app_service_url}  | 앱 서비스의 URL    |  `https://yourapp.azurewebsites.net`  |
 |   {your-facebook-app-id}  |  Azure AD B2C와 페더레이션을 위해 구성된 Facebook 앱의 앱 ID   | 000000000000000   |
 |  {your-facebook-app-secret}   |  Facebook의 앱 비밀을 저장한 정책 키의 이름   | B2C_1A_FacebookAppSecret   |
 
@@ -148,7 +148,7 @@ UserID의 값은 해당하는 Azure AD B2C 구성 값(ObjectID)의 값과 동일
 
 1. 정책 폴더의 [Azure AD B2C 정책](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/Policies)으로 이동합니다.
 
-2. 이 [문서](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack)에 따라 [LocalAccounts 스타터 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)을 다운로드합니다.
+2. 이 [문서](./tutorial-create-user-flows.md?pivots=b2c-custom-policy?tabs=applications#custom-policy-starter-pack)에 따라 [LocalAccounts 스타터 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)을 다운로드합니다.
 
 3. Azure AD B2C 테넌트에 대한 정책을 구성합니다.
 
@@ -184,4 +184,4 @@ UserID의 값은 해당하는 Azure AD B2C 구성 값(ObjectID)의 값과 동일
 
 - [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C의 사용자 지정 정책 시작하기](./custom-policy-get-started.md?tabs=applications)
+- [Azure AD B2C의 사용자 지정 정책 시작하기](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)

@@ -7,12 +7,13 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 03/26/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 8ff2e73a8557c6b1761c852ac58a46037a122ddb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ceefd4695583822536d8cc4c14614af7f6736f70
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105628529"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830127"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 프라이빗 엔드포인트 만들기
 
@@ -174,7 +175,7 @@ New-AzPrivateDnsZoneGroup -ResourceGroupName $rg -PrivateEndpointName "myPrivate
 
 이 섹션에서는 이전 단계에서 만든 가상 머신을 사용하여 프라이빗 엔드포인트에서 SQL 서버에 연결합니다.
 
-1. [Azure Portal](https://portal.azure.com) 
+1. [Azure 포털](https://portal.azure.com) 
  
 2. 왼쪽 탐색 창에서 **리소스 그룹** 을 선택합니다.
 

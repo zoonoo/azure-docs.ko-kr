@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: b2648382fb19fafcfc342379aa9da974f6f8d1ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 43ad18173c96c506c0df87a01fc7452065442bc9
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90528422"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868666"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>빠른 시작 - IoT Hub Device Provisioning Service용 Java 디바이스 SDK를 사용하여 시뮬레이션된 TPM 디바이스 만들고 프로비저닝합니다.
 
@@ -37,7 +37,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>개발 환경 준비 
 
-1. 머신에 [.NET Core 2.1 SDK 이상](https://www.microsoft.com/net/download/windows)이 설치되어 있는지 확인합니다. 
+1. 머신에 [.NET Core 2.1 SDK 이상](https://dotnet.microsoft.com/download)이 설치되어 있는지 확인합니다. 
 
 1. 컴퓨터에 `git`이 설치되어 있고 명령 창에서 액세스할 수 있는 환경 변수에 추가되었는지 확인합니다. 설치할 `git` 도구의 최신 버전은 [Software Freedom Conservancy의 Git 클라이언트 도구](https://git-scm.com/download/)를 참조하세요. 여기에는 로컬 Git 리포지토리와 상호 작용하는 데 사용할 수 있는 명령줄 앱인 **Git Bash** 가 포함됩니다. 
 

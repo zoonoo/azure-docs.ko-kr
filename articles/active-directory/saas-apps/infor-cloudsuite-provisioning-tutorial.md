@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: 8fdd2c8a326fbdc68d1aec65377f4c465c5ee4c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cea5b360abc265601a366f73a92a5340713fccac
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96353904"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074303"
 ---
 # <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 Infor CloudSuite 구성
 
@@ -32,7 +32,7 @@ ms.locfileid: "96353904"
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
 * Azure AD 테넌트
-* [Infor CloudSuite 테넌트](https://www.infor.com/products/infor-os)
+* [Infor CloudSuite 테넌트](https://www.infor.com/products)
 * 관리자 권한이 있는 Infor CloudSuite의 사용자 계정
 
 ## <a name="assigning-users-to-infor-cloudsuite"></a>Infor CloudSuite에 사용자 할당

@@ -6,12 +6,12 @@ ms.author: mingshen
 ms.service: marketplace
 ms.topic: overview
 ms.date: 10/15/2020
-ms.openlocfilehash: de8e9060f8e7ccdcf38b9f0908dfb05063811817
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: b624b8ba997acf75c652a522ce1eae9737371c97
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103407"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133190"
 ---
 # <a name="what-is-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스란?
 
@@ -75,7 +75,7 @@ Microsoft의 목표는 Microsoft와의 파트너 관계를 통해 비즈니스�
 
 - 개발 및 테스트를 위해 기술 지원, 애플리케이션 디자인 및 아키텍처 디자인에서 Azure 크레딧에 이르기까지 애플리케이션을 시작할 수 있도록 준비하는 데 필요한 기술 리소스를 활용할 수 있습니다.
 - 무료 Microsoft Go-to-Market 출시 기본 사항에 액세스하여 솔루션 출시 및 홍보에 대한 도움을 받을 수 있습니다. 추가 Microsoft 마케팅 캠페인을 포함시키고 상업용 마켓플레이스에 소개될 기회를 얻을 자격이 있을 수도 있습니다.
-- [CSP(클라우드 솔루션 공급자)](https://partner.microsoft.com/cloud-solution-provider) 프로그램, [공동 판매](marketplace-co-sell.md) 프로그램 및 Microsoft 영업 팀을 통해 추가 고객에 도달하고 판매 기회를 확장시킵니다.
+- [CSP(클라우드 솔루션 공급자)](https://partner.microsoft.com/cloud-solution-provider) 프로그램, [공동 판매](./co-sell-overview.md) 프로그램 및 Microsoft 영업 팀을 통해 추가 고객에 도달하고 판매 기회를 확장시킵니다.
 
 이러한 혜택에 대한 자세한 내용은 [상업용 마켓플레이스 혜택](gtm-your-marketplace-benefits.md)을 참조하세요.
 

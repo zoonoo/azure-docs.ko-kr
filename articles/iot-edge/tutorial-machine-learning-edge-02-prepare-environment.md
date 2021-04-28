@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 723d7b6ae5b96cf6dc622be1b1bb98065151787f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 71ef55d720ca768bfa45ea13ba7ec481b908d915
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463156"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133802"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>자습서: IoT Edge의 기계 학습에 사용할 환경 설정
 
@@ -36,7 +36,7 @@ ms.locfileid: "103463156"
 
 이 단계는 일반적으로 클라우드 개발자가 수행합니다. 일부 소프트웨어는 데이터 과학자도 유용하게 사용할 수 있습니다.
 
-많은 필수 구성 요소가 이미 구성된 Azure 가상 머신을 만드는 PowerShell 스크립트를 만들었습니다. 우리가 만드는 VM은 [중첩 가상화](../virtual-machines/windows/nested-virtualization.md)를 처리할 수 있어야 하므로 [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) 머신 크기를 선택했습니다.
+많은 필수 구성 요소가 이미 구성된 Azure 가상 머신을 만드는 PowerShell 스크립트를 만들었습니다. 우리가 만드는 VM은 [중첩 가상화](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)를 처리할 수 있어야 하므로 [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) 머신 크기를 선택했습니다.
 
 개발 VM을 설정하려면 다음이 필요합니다.
 

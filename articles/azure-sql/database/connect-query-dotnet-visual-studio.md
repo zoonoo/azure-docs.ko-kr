@@ -12,17 +12,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/10/2020
-ms.openlocfilehash: 1d8859f4790610e72ad517f74bbbbf0cf77d9316
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1fe39e0ff9acc0c092199ab2dd199cf396f67d01
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97705206"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874768"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-a-database"></a>빠른 시작: Visual Studio에서 .NET과 C#을 사용하여 데이터베이스 연결 및 쿼리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-이 빠른 시작에서는 Visual Studio에서 [.NET Framework](https://www.microsoft.com/net/) 및 C# 코드를 사용하여 Transact-SQL 문으로 Azure SQL 또는 Synapse SQL의 데이터베이스를 쿼리하는 방법을 보여줍니다.
+이 빠른 시작에서는 Visual Studio에서 [.NET Framework](https://dotnet.microsoft.com) 및 C# 코드를 사용하여 Transact-SQL 문으로 Azure SQL 또는 Synapse SQL의 데이터베이스를 쿼리하는 방법을 보여줍니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
