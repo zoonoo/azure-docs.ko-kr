@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: devx-track-js
 ms.devlang: javascript
-ms.openlocfilehash: 0fd28262f4a4b852386fa354037e69c5097109c5
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: ef48074c5346374b12eb5a3a3aea50b2c753a082
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104723586"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950301"
 ---
 # <a name="2---create-and-load-search-index-with-javascript"></a>2 - JavaScript를 사용하여 검색 인덱스 만들기 및 로드
 
@@ -61,14 +61,14 @@ Visual Studio Code 확장을 사용하여 검색 리소스 관리자 키를 가�
 * [npm 패키지 @azure/search-documents](https://www.npmjs.com/package/@azure/search-documents)
 * [참조 설명서](/javascript/api/overview/azure/search-documents-readme)
 
-1. Visual Studio Code에서 `search-web/bulk-insert` 하위 디렉터리의 `bulk_insert_books.js` 파일을 열고, Azure Search SDK를 사용하여 인증하기 위해 다음 변수를 사용자 고유의 값으로 바꿉니다.
+1. Visual Studio Code에서 `search-website/bulk-insert` 하위 디렉터리의 `bulk_insert_books.js` 파일을 열고, Azure Search SDK를 사용하여 인증하기 위해 다음 변수를 사용자 고유의 값으로 바꿉니다.
 
     * YOUR-SEARCH-RESOURCE-NAME
     * YOUR-SEARCH-ADMIN-KEY
 
     :::code language="javascript" source="~/azure-search-javascript-samples/search-website/bulk-insert/bulk_insert_books.js" highlight="16,17" :::
 
-1. Visual Studio에서 프로젝트 디렉터리의 `search-web/bulk-insert` 하위 디렉터리에 대한 통합 터미널을 열고, 다음 명령을 실행하여 종속성을 설치합니다. 
+1. Visual Studio에서 프로젝트 디렉터리의 `search-website/bulk-insert` 하위 디렉터리에 대한 통합 터미널을 열고, 다음 명령을 실행하여 종속성을 설치합니다. 
 
     ```bash
     npm install 
@@ -76,7 +76,7 @@ Visual Studio Code 확장을 사용하여 검색 리소스 관리자 키를 가�
 
 ## <a name="run-the-bulk-import-script-for-search"></a>검색을 위해 대량 가져오기 스크립트 실행
 
-1. Visual Studio에서 프로젝트 디렉터리의 `search-web/bulk-insert` 하위 디렉터리에 대한 통합 터미널을 계속 사용하고, 다음 bash 명령을 실행하여 `bulk_insert_books.js` 스크립트를 실행합니다.
+1. Visual Studio에서 프로젝트 디렉터리의 `search-website/bulk-insert` 하위 디렉터리에 대한 통합 터미널을 계속 사용하고, 다음 bash 명령을 실행하여 `bulk_insert_books.js` 스크립트를 실행합니다.
 
     ```javascript
     npm start

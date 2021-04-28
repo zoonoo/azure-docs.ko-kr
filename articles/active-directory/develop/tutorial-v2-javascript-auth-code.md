@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 1ec046ca6b42a5ca8f33b0347c562c85abd42684
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2eaaeda879e9946610d2f18f7ccf530bc60f7910
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99822250"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108072210"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>자습서: 권한 부여 코드 흐름을 사용하여 사용자 로그인 및 JavaScript SPA(단일 페이지 앱)에서 Microsoft Graph API 호출
 
@@ -574,7 +574,7 @@ ID 토큰에는 사용자에 대한 기본 정보(예: 표시 이름)가 포함�
 1. 사용자가 로그인에 적절한 시간을 선택하거나 나중에 애플리케이션에서 `acquireTokenSilent`를 다시 시도할 수 있도록 대화형 로그인이 필요하다는 것을 사용자에게 시각적으로 표시합니다. 이 기술은 일반적으로 사용자가 중단 없이 애플리케이션의 다른 기능을 사용할 수 있는 경우에 사용됩니다. 예를 들어 애플리케이션에서 사용할 수 있는 인증되지 않은 콘텐츠가 있을 수 있습니다. 이 경우 사용자는 보호된 리소스에 액세스하거나 오래된 정보를 새로 고치기 위해 로그인하려는 시기를 결정할 수 있습니다.
 
 > [!NOTE]
-> 이 자습서에서는 기본적으로 `loginPopup` 및 `acquireTokenPopup` 메서드를 사용합니다. Internet Explorer를 사용하는 경우 Internet Explorer 및 팝업 창에 대한 [알려진 문제](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues)로 인해 `loginRedirect` 및 `acquireTokenRedirect` 방법을 사용하는 것이 좋습니다. 리디렉션 메서드를 사용하여 동일한 결과를 얻는 예제는 GitHub의 [*authRedirect.js*](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/blob/quickstart/JavaScriptSPA/authRedirect.js)를 참조하세요.
+> 이 자습서에서는 기본적으로 `loginPopup` 및 `acquireTokenPopup` 메서드를 사용합니다. Internet Explorer를 사용하는 경우 Internet Explorer 및 팝업 창에 대한 [알려진 문제](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues)로 인해 `loginRedirect` 및 `acquireTokenRedirect` 방법을 사용하는 것이 좋습니다. 리디렉션 메서드를 사용하여 동일한 결과를 얻는 예제는 GitHub의 [*authRedirect.js*](https://github.com/Azure-Samples/ms-identity-javascript-v2/blob/master/app/authRedirect.js)를 참조하세요.
 
 ## <a name="call-the-microsoft-graph-api"></a>Microsoft Graph API 호출
 

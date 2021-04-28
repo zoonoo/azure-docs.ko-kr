@@ -7,12 +7,12 @@ ms.service: certification
 ms.topic: tutorial
 ms.date: 03/01/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 11d72847209a2e706d4aa32d38af1b2c8af3dfa0
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 44c053eac2215354fbd43e4c0068f02419010a85
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107314000"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108131858"
 ---
 # <a name="tutorial-create-your-project"></a>자습서: 프로젝트 만들기
 
@@ -27,7 +27,7 @@ Azure Certified Device 프로그램을 통해 디바이스를 인증하기로 �
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- 유효한 회사/학교 [Azure Active Directory 계정](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)이 필요합니다.
+- 유효한 회사/학교 [Azure Active Directory 계정](../active-directory/fundamentals/active-directory-whatis.md)이 필요합니다.
 - 확인된 MPN(Microsoft 파트너 네트워크) 계정이 필요합니다. MPN 계정이 없는 경우 시작하기 전에 [파트너 네트워크에 가입](https://partner.microsoft.com/)합니다.
 
 ## <a name="signing-into-the-azure-certified-device-portal"></a>Azure Certified Device 포털에 로그인

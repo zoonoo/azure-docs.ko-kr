@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-ms.openlocfilehash: 7cbf6ca7606210b70ae9efa69a8cc6551eb6f36f
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 85883cd465626764d7af0c20af480b6075e13f9e
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106073479"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070584"
 ---
 액세스 토큰을 제공하는 클라이언트 애플리케이션을 통해 보호된 리소스 요청을 수락하고 응답하려면 먼저 웹 API 리소스를 테넌트에 등록해야 합니다.
 
@@ -34,7 +34,7 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합
 1. **암시적 권한 부여** 에서 **액세스 토큰** 및 **ID 토큰** 확인란을 둘 다 선택합니다.
 1. **저장** 을 선택합니다.
 
-#### <a name="applications"></a>[애플리케이션](#tab/applications/)
+#### <a name="applications-legacy"></a>[애플리케이션(레거시)](#tab/applications/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.

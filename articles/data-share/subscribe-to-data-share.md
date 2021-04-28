@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: ccfda4975b6453ed67edc2640520bc0a76df5709
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d063a0870616b5b977df18c56d9d66515b03d0a5
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644875"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870862"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>자습서: Azure Data Share를 사용하여 데이터 수락 및 받기  
 
@@ -106,7 +106,7 @@ Azure CLI에 대한 환경 준비하는 것으로 시작합니다.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-[az datashare consumer invitation list](/cli/azure/ext/datashare/datashare/consumer/invitation#ext_datashare_az_datashare_consumer_invitation_list) 명령을 실행하여 현재 초대를 확인합니다.
+[az datashare consumer invitation list](/cli/azure/datashare/consumer/invitation#az_datashare_consumer_invitation_list) 명령을 실행하여 현재 초대를 확인합니다.
 
 ```azurecli
 az datashare consumer invitation list --subscription 11111111-1111-1111-1111-111111111111
@@ -140,7 +140,7 @@ az datashare consumer invitation list --subscription 11111111-1111-1111-1111-111
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[az datashare consumer share-subscription create](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_create) 명령을 사용하여 Data Share를 만듭니다.
+[az datashare consumer share-subscription create](/cli/azure/datashare/consumer/share-subscription#az_datashare_consumer_share_subscription_create) 명령을 사용하여 Data Share를 만듭니다.
 
 ```azurecli
 az datashare consumer share-subscription create --resource-group share-rg \
@@ -175,7 +175,7 @@ az datashare consumer share-subscription create --resource-group share-rg \
 
 이러한 명령을 사용하여 데이터를 받을 위치를 구성합니다.
 
-1. [az datashare consumer share-subscription list-source-dataset](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_list_source_dataset) 명령을 실행하여 데이터 세트 ID를 가져옵니다.
+1. [az datashare consumer share-subscription list-source-dataset](/cli/azure/datashare/consumer/share-subscription#az_datashare_consumer_share_subscription_list_source_dataset) 명령을 실행하여 데이터 세트 ID를 가져옵니다.
 
    ```azurecli
    az datashare consumer share-subscription list-source-dataset \
@@ -221,7 +221,7 @@ az datashare consumer share-subscription create --resource-group share-rg \
      \"storage_account_name\":\"datashareconsumersa\",\"kind\":\"BlobFolder\",\"prefix\":\"consumer\"}'
    ```
 
-1. [az datashare consumer dataset-mapping create](/cli/azure/ext/datashare/datashare/consumer/dataset-mapping#ext_datashare_az_datashare_consumer_dataset_mapping_create) 명령을 사용하여 데이터 세트 매핑을 만듭니다.
+1. [az datashare consumer dataset-mapping create](/cli/azure/datashare/consumer/dataset-mapping#az_datashare_consumer_dataset_mapping_create) 명령을 사용하여 데이터 세트 매핑을 만듭니다.
 
    ```azurecli
    az datashare consumer dataset-mapping create --resource-group "share-rg" \
@@ -230,7 +230,7 @@ az datashare consumer share-subscription create --resource-group share-rg \
      --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-1. [az datashare consumer share-subscription synchronization start](/cli/azure/ext/datashare/datashare/consumer/share-subscription/synchronization#ext_datashare_az_datashare_consumer_share_subscription_synchronization_start) 명령을 실행하여 데이터 세트 동기화를 시작합니다.
+1. [az datashare consumer share-subscription synchronization start](/cli/azure/datashare/consumer/share-subscription/synchronization#az_datashare_consumer_share_subscription_synchronization_start) 명령을 실행하여 데이터 세트 동기화를 시작합니다.
 
    ```azurecli
    az datashare consumer share-subscription synchronization start \
@@ -239,7 +239,7 @@ az datashare consumer share-subscription create --resource-group share-rg \
      --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-   [az datashare consumer share-subscription synchronization list](/cli/azure/ext/datashare/datashare/consumer/share-subscription/synchronization#ext_datashare_az_datashare_consumer_share_subscription_synchronization_list) 명령을 실행하여 동기화 목록을 확인합니다.
+   [az datashare consumer share-subscription synchronization list](/cli/azure/datashare/consumer/share-subscription/synchronization#az_datashare_consumer_share_subscription_synchronization_list) 명령을 실행하여 동기화 목록을 확인합니다.
 
    ```azurecli
    az datashare consumer share-subscription synchronization list \
@@ -248,7 +248,7 @@ az datashare consumer share-subscription create --resource-group share-rg \
      --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-   [az datashare consumer share-subscription list-source-share-synchronization-setting](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_list_source_share_synchronization_setting) 명령을 사용하여 공유에 설정된 동기화 설정을 확인합니다.
+   [az datashare consumer share-subscription list-source-share-synchronization-setting](/cli/azure/datashare/consumer/share-subscription#az_datashare_consumer_share_subscription_list_source_share_synchronization_setting) 명령을 사용하여 공유에 설정된 동기화 설정을 확인합니다.
 
    ```azurecli
    az datashare consumer share-subscription list-source-share-synchronization-setting \
@@ -274,7 +274,7 @@ az datashare consumer share-subscription create --resource-group share-rg \
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[az datashare consumer trigger create](/cli/azure/ext/datashare/datashare/consumer/trigger#ext_datashare_az_datashare_consumer_trigger_create) 명령을 실행하여 스냅샷을 트리거합니다.
+[az datashare consumer trigger create](/cli/azure/datashare/consumer/trigger#az_datashare_consumer_trigger_create) 명령을 실행하여 스냅샷을 트리거합니다.
 
 ```azurecli
 az datashare consumer trigger create --resource-group "share-rg" \

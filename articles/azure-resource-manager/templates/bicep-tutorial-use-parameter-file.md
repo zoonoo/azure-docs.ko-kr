@@ -2,15 +2,15 @@
 title: 자습서 - 매개 변수 파일을 사용하여 Azure Resource Manager Bicep 파일 배포
 description: Bicep 파일 배포에 사용할 값이 포함된 매개 변수 파일을 사용합니다.
 author: mumian
-ms.date: 03/10/2021
+ms.date: 04/27/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ca3a73cde9549bfcdfd47bc4f1955904fac69d1c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 73af451292462d9963720924df7718116a78baaa
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102632359"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071490"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-azure-resource-manager-bicep-file"></a>자습서: 매개 변수 파일을 사용하여 Azure Resource Manager Bicep 파일 배포
 
@@ -112,7 +112,7 @@ New-AzResourceGroup `
 New-AzResourceGroupDeployment `
   -Name prodenvironment `
   -ResourceGroupName myResourceGroupProd `
-  -TemplateFile $templateFile `
+  -TemplateFile $bicepFile `
   -TemplateParameterFile $parameterFile
 ```
 
@@ -126,7 +126,7 @@ az group create \
 az deployment group create \
   --name prodenvironment \
   --resource-group myResourceGroupProd \
-  --template-file $templateFile \
+  --template-file $bicepFile \
   --parameters $prodParameterFile
 ```
 

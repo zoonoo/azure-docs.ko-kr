@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 4274596f7d53488a2ca5d0e0d3ab3021531907df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9255e10743182c55308fa9a07e9dc8fa08b6bbb4
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97674106"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074802"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-beeline"></a>자습서: Beeline과 Azure Active Directory 통합
 
@@ -110,9 +110,9 @@ Beeline에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
     ```
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Beeline 클라이언트 지원 팀](https://www.beeline.com/support-beeline/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Beeline 클라이언트 지원 팀](https://www.beeline.com/contact-support/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-5. Beeline 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 애플리케이션에 매핑되는 올바른 사용자 ID를 식별하려면 [Beeline 지원 팀](https://www.beeline.com/support-beeline/)에 먼저 문의하세요. 또한 이 매핑에 사용하려는 특성에 대한 [Beeline 지원 팀](https://www.beeline.com/support-beeline/)의 지침을 수행하세요. 애플리케이션의 **사용자 특성** 탭에서 이 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. 여기서는 고유한 사용자 ID를 제공하는 **userprincipalname** 특성으로 **사용자 ID** 클레임을 매핑했으며, 성공적인 모든 SAML 응답에서 Beeline 애플리케이션으로 전송됩니다.
+5. Beeline 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 애플리케이션에 매핑되는 올바른 사용자 ID를 식별하려면 [Beeline 지원 팀](https://www.beeline.com/contact-support/)에 먼저 문의하세요. 또한 이 매핑에 사용하려는 특성에 대한 [Beeline 지원 팀](https://www.beeline.com/contact-support/)의 지침을 수행하세요. 애플리케이션의 **사용자 특성** 탭에서 이 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. 여기서는 고유한 사용자 ID를 제공하는 **userprincipalname** 특성으로 **사용자 ID** 클레임을 매핑했으며, 성공적인 모든 SAML 응답에서 Beeline 애플리케이션으로 전송됩니다.
 
     ![이미지](common/edit-attribute.png)
 
@@ -127,7 +127,7 @@ Beeline에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 ### <a name="configure-beeline-single-sign-on"></a>Beeline Single Sign-On 구성
 
-**Beeline** 쪽에서 Single Sign-On을 구성하려면 Azure Portal 속성에서 다운로드한 **페더레이션 메타데이터 XML** 과 사용자 액세스 URL을 [Beeline 지원 팀](https://www.beeline.com/support-beeline/)으로 보내야 합니다. SAML SSO 연결이 양쪽 모두에서 올바르게 구성되도록 하려면 메타데이터 및 사용자 액세스 URL이 필요합니다.
+**Beeline** 쪽에서 Single Sign-On을 구성하려면 Azure Portal 속성에서 다운로드한 **페더레이션 메타데이터 XML** 과 사용자 액세스 URL을 [Beeline 지원 팀](https://www.beeline.com/contact-support/)으로 보내야 합니다. SAML SSO 연결이 양쪽 모두에서 올바르게 구성되도록 하려면 메타데이터 및 사용자 액세스 URL이 필요합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -182,7 +182,7 @@ Beeline에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 ### <a name="create-beeline-test-user"></a>Beeline 테스트 사용자 만들기
 
-이 섹션에서는 Beeline에서 Britta Simon이라는 사용자를 만듭니다. Beeline 애플리케이션에서는 Single Sign On을 수행하기 전에 모든 사용자를 프로비전해야 합니다. 따라서 모든 사용자를 애플리케이션에 프로비전하려면 [Beeline 지원 팀](https://www.beeline.com/support-beeline/)에 문의하세요.
+이 섹션에서는 Beeline에서 Britta Simon이라는 사용자를 만듭니다. Beeline 애플리케이션에서는 Single Sign On을 수행하기 전에 모든 사용자를 프로비전해야 합니다. 따라서 모든 사용자를 애플리케이션에 프로비전하려면 [Beeline 지원 팀](https://www.beeline.com/contact-support/)에 문의하세요.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

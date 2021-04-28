@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: c3eeb1577e628965e3e5a35fa20c072224383149
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a2450a45140b3ba47c172f05d2eb7200252ca23b
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92514625"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071022"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>자습서: Thoughtworks Mingle과 Azure Active Directory 통합
 
@@ -104,7 +104,7 @@ Thoughtworks Mingle에서 Azure AD Single Sign-On을 구성하려면 다음 단�
     **로그인 URL** 텍스트 상자에서 `https://<companyname>.mingle.thoughtworks.com` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 값을 얻으려면 [Thoughtworks Mingle 클라이언트 지원 팀](https://support.thoughtworks.com/hc/categories/201743486-Mingle-Community-Support)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 값을 얻으려면 Thoughtworks Mingle 클라이언트 지원 팀에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML** 을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -120,13 +120,13 @@ Thoughtworks Mingle에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
     다. 로그아웃 URL
 
-### <a name="configure-thoughtworks-mingle-single-sign-on"></a>Thoughtworks Mingle Single Sign-On 구성
+### <a name="configure-thoughtworks-mingle-single-sign-on&quot;></a>Thoughtworks Mingle Single Sign-On 구성
 
 1. **Thoughtworks Mingle** 회사 사이트에 관리자로 로그인합니다.
 
 2. **관리** 탭을 클릭한 후 **SSO 구성** 을 클릭합니다.
    
-    ![관리 탭](./media/thoughtworks-mingle-tutorial/ic785157.png "SSO 구성")
+    ![관리 탭](./media/thoughtworks-mingle-tutorial/ic785157.png &quot;SSO 구성")
 
 3. **SSO 구성** 섹션에서 다음 단계를 수행합니다.
    
@@ -186,7 +186,7 @@ Thoughtworks Mingle에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name="create-thoughtworks-mingle-test-user"></a>Thoughtworks Mingle 테스트 사용자 만들기
+### <a name="create-thoughtworks-mingle-test-user&quot;></a>Thoughtworks Mingle 테스트 사용자 만들기
 
 Azure AD 사용자가 로그인할 수 있도록 Azure Active Directory 사용자 이름을 사용하여 Thoughtworks Mingle 애플리케이션에 프로비전되어야 합니다. Thoughtworks Mingle의 경우 프로비전은 수동 작업입니다.
 
@@ -196,7 +196,7 @@ Azure AD 사용자가 로그인할 수 있도록 Azure Active Directory 사용�
 
 2. **프로필** 을 클릭합니다.
    
-    ![첫 번째 프로젝트](./media/thoughtworks-mingle-tutorial/ic785160.png "첫 번째 프로젝트")
+    ![첫 번째 프로젝트](./media/thoughtworks-mingle-tutorial/ic785160.png &quot;첫 번째 프로젝트")
 
 3. **관리** 탭을 클릭한 후 **사용자** 를 클릭합니다.
    

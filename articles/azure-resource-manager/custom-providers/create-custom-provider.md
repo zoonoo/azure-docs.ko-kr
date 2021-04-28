@@ -5,12 +5,12 @@ author: MSEvanhi
 ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: evanhi
-ms.openlocfilehash: 721fe31f514cb948c93dc2a779a92ef3b2775ef9
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 915856e3f9875c0a3318bc19138eaae8742bf72f
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779240"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871744"
 ---
 # <a name="quickstart-create-a-custom-provider-and-deploy-custom-resources"></a>빠른 시작: 사용자 지정 공급자 만들기 및 사용자 지정 리소스 배포
 
@@ -265,7 +265,7 @@ armclient PUT $addURI $requestBody
 
 ## <a name="custom-resource-provider-commands"></a>사용자 지정 리소스 공급자 명령
 
-[custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) 명령을 사용하여 사용자 지정 리소스 공급자를 사용할 수 있습니다.
+[custom-providers](/cli/azure/custom-providers/resource-provider) 명령을 사용하여 사용자 지정 리소스 공급자를 사용할 수 있습니다.
 
 ### <a name="list-custom-resource-providers"></a>사용자 지정 리소스 공급자 나열
 

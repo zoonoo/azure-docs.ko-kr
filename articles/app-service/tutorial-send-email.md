@@ -4,12 +4,12 @@ description: App Service 앱에서 비즈니스 프로세스를 호출하는 방
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 8072a941cd89290af3e25cc63c4fccccce705df9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b15c09162146de7aef8abfcdba40627eb77621c
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95014665"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830937"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>자습서: App Service에서 이메일 보내기 및 다른 비즈니스 프로세스 호출
 
@@ -270,13 +270,14 @@ Python에서는 [requests](https://pypi.org/project/requests/)를 사용하여 H
 ```python
 # Requires pip install requests && pip freeze > requirements.txt
 import requests
+import os
 ...
 payload = {
     "email": "a-valid@emailaddress.com",
     "due": "4/1/2020",
     "task": "My new task!"
 }
-response = requests.post("https://prod-112.westeurope.logic.azure.com:443/workfl$
+response = requests.post(os.environ['LOGIC_APP_URL'], data = payload)
 print(response.status_code)
 ```
 <!-- ```python
