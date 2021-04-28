@@ -3,13 +3,13 @@ title: '자습서: 데이터 웨어하우스로 Event Hubs 데이터 보내기 -
 description: Azure Functions 및 Event Hubs 트리거를 통해 Azure Synapse Analytics에서 Event Hubs 캡처된 데이터를 저장하는 방법을 설명합니다.
 ms.topic: tutorial
 ms.date: 12/07/2020
-ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 7b0e471e32650490e1896bb6ea171c8223b21378
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 094cf874c072e0e59a04447d26070d8ac1a0deef
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96854719"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108073488"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>자습서: 데이터 웨어하우스로 빅 데이터 스트림
 Azure [Event Grid](overview.md)는 앱과 서비스의 알림 또는 이벤트에 응답하는 데 사용할 수 있는 인텔리전트 이벤트 라우팅 서비스입니다. 예를 들어 Azure 함수를 트리거하여 Blob Storage 또는 Data Lake Storage에 캡처된 Event Hubs 데이터를 처리할 수 있습니다. 이 [샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)에서는 Event Grid 및 Azure Functions를 사용하여 캡처된 Event Hubs를 Blob 스토리지에서 Azure Synapse Analytics, 특히 전용 SQL 풀로 마이그레이션하는 방법을 보여줍니다.

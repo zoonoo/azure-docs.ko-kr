@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: sample
 ms.date: 02/11/2021
 ms.author: alzam
-ms.openlocfilehash: 04d0fe2b322f6b70cb1cda8d61fbd49638ec214a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9310920ead3b36516a9beb16e7cb9be732e7628f
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100385832"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107948260"
 ---
 # <a name="configure-a-point-to-site-vpn---certificate-authentication---powershell-script-sample"></a>지점 및 사이트 간 VPN 구성 - 인증서 인증 - PowerShell 스크립트 샘플
 
@@ -111,7 +111,7 @@ Remove-AzResourceGroup -Name TestRG1
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | 공용 IP 주소를 만듭니다. |
 | [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | 게이트웨이 IP 구성을 새로 만듭니다. |
 | [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | VPN 게이트웨이를 만듭니다. |
-| [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) | 자체 서명된 루트 인증서를 새로 만듭니다. |
+| [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) | 자체 서명된 루트 인증서를 새로 만듭니다. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 리소스 그룹 및 포함된 모든 리소스를 제거합니다. |
 | [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | 가상 네트워크에 대한 서브넷 구성을 설정합니다. |
 

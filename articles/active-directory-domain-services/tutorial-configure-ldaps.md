@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: justinha
-ms.openlocfilehash: 928b1a6dcff7ad186bf5fe9ce07d1a886d429867
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 27e8c108447a3e16a5e61854eb9d43c4a8efffee
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933341"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126914"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Azure Active Directory Domain Services 관리되는 도메인에 대한 보안 LDAP 구성
 
@@ -34,7 +34,7 @@ Azure AD DS를 사용하면 LDAPS(보안 Lightweight Directory Access Protocol)�
 
 Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
@@ -152,7 +152,7 @@ Thumbprint                                Subject
 
     *.PFX* 인증서 파일을 보호하려면 **보안** 페이지에서 **암호** 옵션을 선택합니다. 암호화 알고리즘은 *TripleDES-SHA1* 여야 합니다. 암호를 입력하여 확인하고, **다음** 을 선택합니다. 이 암호는 다음 섹션에서 관리되는 도메인에 보안 LDAP를 사용하도록 설정하는 데 사용됩니다.
 
-    [PowerShell export-pfxcertificate cmdlet](/powershell/module/pkiclient/export-pfxcertificate)을 사용하여 내보내는 경우 TripleDES_SHA1을 사용하여 *-CryptoAlgorithmOption* 플래그를 전달해야 합니다.
+    [PowerShell export-pfxcertificate cmdlet](/powershell/module/pki/export-pfxcertificate)을 사용하여 내보내는 경우 TripleDES_SHA1을 사용하여 *-CryptoAlgorithmOption* 플래그를 전달해야 합니다.
 
     ![암호를 암호화하는 방법의 스크린샷](./media/tutorial-configure-ldaps/encrypt.png)
 
@@ -245,7 +245,7 @@ Thumbprint                                Subject
     | 프로토콜                          | TCP          |
     | 작업                            | 허용        |
     | 우선 순위                          | 401          |
-    | Name                              | AllowLDAPS   |
+    | 속성                              | AllowLDAPS   |
 
 1. 준비가 되면 **추가** 를 선택하여 규칙을 저장하고 적용합니다.
 
@@ -312,7 +312,7 @@ LDAP.exe를 연결할 수 없다는 오류가 표시되는 경우 연결을 가�
 
 클라이언트는 사용자가 제공한 이름을 사용하여 TLS 연결을 설정하려고 합니다. 트래픽은 모든 방식으로 가져와야 합니다. DC가 서버 인증 인증서의 공개 키를 보냅니다. 인증서에는 인증서의 올바른 사용법이 있어야 합니다. 주체 이름에 서명된 이름은 클라이언트가 연결하는 DNS 이름(즉, 와일드카드가 철자 오류 없이 작동됨)을 신뢰할 수 있도록 호환되어야 하며, 클라이언트는 발급자를 신뢰해야 합니다. 이벤트 뷰어의 시스템 로그에서 해당 체인의 모든 문제를 확인하고 원본이 Schannel과 동일한 이벤트를 필터링할 수 있습니다. 이러한 조각이 배치되면 세션 키를 형성합니다.  
 
-자세한 내용은 [TLS Handshake](https://docs.microsoft.com/windows/win32/secauthn/tls-handshake-protocol)를 참조하세요.
+자세한 내용은 [TLS Handshake](/windows/win32/secauthn/tls-handshake-protocol)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -336,4 +336,4 @@ LDAP.exe를 연결할 수 없다는 오류가 표시되는 경우 연결을 가�
 <!-- EXTERNAL LINKS -->
 [rsat]: /windows-server/remote/remote-server-administration-tools
 [ldap-query-basics]: /windows/desktop/ad/creating-a-query-filter
-[New-SelfSignedCertificate]: /powershell/module/pkiclient/new-selfsignedcertificate
+[New-SelfSignedCertificate]: /powershell/module/pki/new-selfsignedcertificate

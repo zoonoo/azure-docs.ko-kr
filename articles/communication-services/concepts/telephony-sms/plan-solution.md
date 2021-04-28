@@ -10,16 +10,14 @@ ms.date: 03/10/2021
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 66edf35f292f5b681578d49b8be784de66e4d904
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7ab843b9e30d1b72c46c6e44d3a272f3b1c72083
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936532"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108016440"
 ---
 # <a name="phone-number-types-in-azure-communication-services"></a>Azure Communication Services의 전화 번호 유형
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-phone-numbers.md)]
 
 > [!IMPORTANT]
 > 전화 번호 가용성은 현재 미국에 청구 주소가 있는 유료 Azure 구독 및 미국 데이터 위치가 있는 Communication Services 리소스로 제한됩니다. 평가판 계정 또는 Azure 체험 크레딧을 사용하여 전화 번호를 얻을 수 없습니다. 자세한 내용은 이 문서의 [구독 자격](#azure-subscriptions-eligibility) 섹션을 참조하세요.

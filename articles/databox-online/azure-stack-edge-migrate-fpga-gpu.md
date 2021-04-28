@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 430e34a1ca631be00ef46170affd4b56c79894a9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5ad065ff74a7cec293b83497d6258bcf62975f26
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566407"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139294"
 ---
 # <a name="migrate-workloads-from-an-azure-stack-edge-pro-fpga-to-an-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro FPGA에서 Azure Stack Edge Pro GPU로 워크로드 마이그레이션
 
@@ -157,10 +157,10 @@ Edge 로컬 공유의 데이터는 디바이스에 남아 있습니다. *원본*
 
 다음 단계에 따라 대상 디바이스에서 Edge 클라우드 공유의 데이터를 동기화합니다.
 
-1. 원본 디바이스에서 만든 공유 이름에 해당하는 [공유를 추가](azure-stack-edge-j-series-manage-shares.md#add-a-share)합니다. 공유를 만들 때 **Blob 컨테이너 선택** 이 **기존 항목 사용** 으로 설정되었는지 확인한 다음, 이전 디바이스에서 사용된 컨테이너를 선택합니다.
-1. 이전 디바이스에 대한 액세스 권한이 있는 [사용자를 추가](azure-stack-edge-j-series-manage-users.md#add-a-user)합니다.
-1. Azure에서 공유 [데이터를 새로 고칩니다](azure-stack-edge-j-series-manage-shares.md#refresh-shares). 공유를 새로 고치면 기존 컨테이너에서 공유로 모든 클라우드 데이터를 풀다운합니다.
-1. 공유와 연결할 대역폭 일정을 다시 만듭니다. 자세한 단계는 [대역폭 일정 추가](azure-stack-edge-j-series-manage-bandwidth-schedules.md#add-a-schedule)를 참조하세요.
+1. 원본 디바이스에서 만든 공유 이름에 해당하는 [공유를 추가](./azure-stack-edge-gpu-manage-shares.md#add-a-share)합니다. 공유를 만들 때 **Blob 컨테이너 선택** 이 **기존 항목 사용** 으로 설정되었는지 확인한 다음, 이전 디바이스에서 사용된 컨테이너를 선택합니다.
+1. 이전 디바이스에 대한 액세스 권한이 있는 [사용자를 추가](./azure-stack-edge-gpu-manage-users.md#add-a-user)합니다.
+1. Azure에서 공유 [데이터를 새로 고칩니다](./azure-stack-edge-gpu-manage-shares.md#refresh-shares). 공유를 새로 고치면 기존 컨테이너에서 공유로 모든 클라우드 데이터를 풀다운합니다.
+1. 공유와 연결할 대역폭 일정을 다시 만듭니다. 자세한 단계는 [대역폭 일정 추가](./azure-stack-edge-gpu-manage-bandwidth-schedules.md#add-a-schedule)를 참조하세요.
 
 
 ### <a name="2-from-edge-local-shares"></a>2. Edge 로컬 공유에서 할 일
