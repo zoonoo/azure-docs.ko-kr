@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 11/20/2020
 ms.author: jrasnick
 ms.custom: azure-synapse, devx-track-azurecli
-ms.openlocfilehash: 532c06cc49f9fddab09c6678ee5fff9fe32347cb
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 3903aa0be5ffa63bc4292371c59002846ec9363c
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565936"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107892097"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Synapse SQL 풀 만들기
 
@@ -77,43 +77,43 @@ SQL 풀을 만듭니다. 이 예제에서는 DW100c를 SQL 풀의 저렴한 시�
 > [!NOTE]
 > 이전에 만든 작업 영역이 필요합니다. 자세한 내용은 [빠른 시작: Azure CLI를 사용하여 Azure Synapse 작업 영역 만들기](../quickstart-create-workspace-cli.md)를 참조하세요.
 
-[az synapse sql pool create](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_create) 명령을 사용하여 SQL 풀을 만듭니다.
+[az synapse sql pool create](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_create) 명령을 사용하여 SQL 풀을 만듭니다.
 
 ```azurecli
 az synapse sql pool create --resource-group myResourceGroup --name mySampleDataWarehouse \
    --performance-level "DW1000c" --workspace-name testsynapseworkspace
 ```
 
-매개 변수 옵션에 대한 자세한 내용은 [az synapse sql pool](/cli/azure/ext/synapse/synapse/sql/pool)을 참조하세요.
+매개 변수 옵션에 대한 자세한 내용은 [az synapse sql pool](/cli/azure/synapse/sql/pool)을 참조하세요.
 
-[az synapse sql pool list](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_list) 명령을 사용하여 SQL 풀을 볼 수 있습니다.
+[az synapse sql pool list](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_list) 명령을 사용하여 SQL 풀을 볼 수 있습니다.
 
 ```azurecli
 az synapse sql pool list --resource-group myResourceGroup --workspace-name testsynapseworkspace
 ```
 
-[az synapse sql pool update](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_update) 명령을 사용하여 기존 풀을 업데이트합니다.
+[az synapse sql pool update](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_update) 명령을 사용하여 기존 풀을 업데이트합니다.
 
 ```azurecli
 az synapse sql pool update --resource-group myResourceGroup --name mySampleDataWarehouse \
    --workspace-name testsynapseworkspace
 ```
 
-[az synapse sql pool pause](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_pause) 명령을 사용하여 풀을 일시 중지합니다.
+[az synapse sql pool pause](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_pause) 명령을 사용하여 풀을 일시 중지합니다.
 
 ```azurecli
 az synapse sql pool pause --resource-group myResourceGroup --name mySampleDataWarehouse \
    --workspace-name testsynapseworkspace
 ```
 
-[az synapse sql pool resume](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_resume) 명령을 사용하여 일시 중지된 풀을 시작합니다.
+[az synapse sql pool resume](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_resume) 명령을 사용하여 일시 중지된 풀을 시작합니다.
 
 ```azurecli
 az synapse sql pool resume --resource-group myResourceGroup --name mySampleDataWarehouse \
    --workspace-name testsynapseworkspace
 ```
 
-기존 SQL 풀을 제거하려면 [az synapse SQL pool delete](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_delete) 명령을 사용합니다.
+기존 SQL 풀을 제거하려면 [az synapse SQL pool delete](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_delete) 명령을 사용합니다.
 
 ```azurecli
 az synapse sql pool delete --resource-group myResourceGroup --name mySampleDataWarehouse \

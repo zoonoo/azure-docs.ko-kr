@@ -4,12 +4,12 @@ description: '빠른 시작: Azure CLI를 사용하여 Azure Portal에서 대시
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 12/4/2020
-ms.openlocfilehash: d951c692c7d3c282ae68c5f9b53e9cda5407df10
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 76d4e3b9c1c906dd91a7355af2c7cb957ef6ac95
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481024"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891737"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Portal 대시보드 만들기
 
@@ -73,20 +73,20 @@ Azure 대시보드는 리소스이므로 JSON으로 표현할 수 있습니다.
 
 이제 Azure CLI 내에서 템플릿을 배포할 수 있습니다.
 
-1. [az portal dashboard create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) 명령을 실행하여 템플릿을 배포합니다.
+1. [az portal dashboard create](/cli/azure/portal/dashboard#az_portal_dashboard_create) 명령을 실행하여 템플릿을 배포합니다.
 
    ```azurecli
    az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
       --input-path portal-dashboard-template-testvm.json --location centralus
    ```
 
-1. [az portal dashboard show](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show) 명령을 실행하여 대시보드가 성공적으로 만들어졌는지 확인합니다.
+1. [az portal dashboard show](/cli/azure/portal/dashboard#az_portal_dashboard_show) 명령을 실행하여 대시보드가 성공적으로 만들어졌는지 확인합니다.
 
    ```azurecli
    az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
    ```
 
-현재 구독에 대한 모든 대시보드를 보려면 [az portal dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list)를 사용합니다.
+현재 구독에 대한 모든 대시보드를 보려면 [az portal dashboard list](/cli/azure/portal/dashboard#az_portal_dashboard_list)를 사용합니다.
 
 ```azurecli
 az portal dashboard list
@@ -98,7 +98,7 @@ az portal dashboard list
 az portal dashboard list --resource-group myResourceGroup
 ```
 
-[az portal dashboard update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) 명령을 사용하여 대시보드를 업데이트할 수 있습니다.
+[az portal dashboard update](/cli/azure/portal/dashboard#az_portal_dashboard_update) 명령을 사용하여 대시보드를 업데이트할 수 있습니다.
 
 ```azurecli
 az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
@@ -119,7 +119,7 @@ az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Da
 az group delete --name myResourceGroup
 ```
 
-대시보드만 제거하려면 [az portal dashboard delete](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_delete) 명령을 사용합니다.
+대시보드만 제거하려면 [az portal dashboard delete](/cli/azure/portal/dashboard#az_portal_dashboard_delete) 명령을 사용합니다.
 
 ```azurecli
 az portal dashboard delete --resource-group myResourceGroup --name "Simple VM Dashboard"
@@ -127,4 +127,4 @@ az portal dashboard delete --resource-group myResourceGroup --name "Simple VM Da
 
 ## <a name="next-steps"></a>다음 단계
 
-대시보드용 Azure CLI 지원에 대한 자세한 내용은 [az portal dashboard](/cli/azure/ext/portal/portal/dashboard)를 참조하세요.
+대시보드용 Azure CLI 지원에 대한 자세한 내용은 [az portal dashboard](/cli/azure/portal/dashboard)를 참조하세요.

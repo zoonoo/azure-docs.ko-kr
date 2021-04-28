@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: eae8cca0302993c16ea29adddf6e4ee9b5b24be8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: ed539df9fec3c66b3881257ff1ce68d03cf4c382
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107770901"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107878599"
 ---
 # <a name="tutorial-order-azure-data-box"></a>자습서: Azure Data Box 주문
 
@@ -28,7 +28,7 @@ Azure Data Box는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레�
 > * 주문 추적
 > * 주문 취소
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 # <a name="portal"></a>[포털](#tab/portal)
 
@@ -449,7 +449,7 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
    |Query| JMESPath 쿼리 문자열입니다. 자세한 내용은 [JMESPath](http://jmespath.org/)를 참조하세요. | --query <string>|
    |verbose| 자세한 정보 로깅을 포함합니다. | --verbose |
 
-2. 선택한 명령 프롬프트 또는 터미널에서 [az databox job create](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-create)를 실행하여 Azure Data Box 주문을 만듭니다.
+2. 선택한 명령 프롬프트 또는 터미널에서 [az databox job create](/cli/azure/databox/job#az_databox_job_create)를 실행하여 Azure Data Box 주문을 만듭니다.
 
    ```azurecli
    az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
@@ -617,7 +617,7 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
 
 ### <a name="track-a-single-order"></a>단일 주문 추적
 
-단일 기존 Azure Data Box 주문에 대한 추적 정보를 가져오려면 [`az databox job show`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-show)를 실행합니다. 이 명령은 이름, 리소스 그룹, 추적 정보, 구독 ID, 연락처 정보, 배송 유형, 디바이스 sku 등의 주문 정보를 표시합니다.
+단일 기존 Azure Data Box 주문에 대한 추적 정보를 가져오려면 [`az databox job show`](/cli/azure/databox/job#az_databox_job_show)를 실행합니다. 이 명령은 이름, 리소스 그룹, 추적 정보, 구독 ID, 연락처 정보, 배송 유형, 디바이스 sku 등의 주문 정보를 표시합니다.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -658,7 +658,7 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
 
 ### <a name="list-all-orders"></a>모든 주문 나열
 
-여러 디바이스를 주문한 경우 [`az databox job list`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-list)을 실행하여 모든 Azure Data Box 주문을 볼 수 있습니다. 이 명령은 특정 리소스 그룹에 속한 모든 주문을 나열합니다. 또한 주문 이름, 배송 상태, Azure 지역, 배달 유형, 주문 상태가 출력에 표시됩니다. 취소된 주문도 목록에 포함됩니다.
+여러 디바이스를 주문한 경우 [`az databox job list`](/cli/azure/databox/job#az_databox_job_list)을 실행하여 모든 Azure Data Box 주문을 볼 수 있습니다. 이 명령은 특정 리소스 그룹에 속한 모든 주문을 나열합니다. 또한 주문 이름, 배송 상태, Azure 지역, 배달 유형, 주문 상태가 출력에 표시됩니다. 취소된 주문도 목록에 포함됩니다.
 뿐만 아니라 이 명령은 각 주문의 타임스탬프를 표시합니다.
 
 ```azurecli
@@ -777,7 +777,7 @@ PS C:\WINDOWS\system32>
 
 ### <a name="cancel-an-order"></a>주문 취소
 
-Azure Data Box 주문을 취소하려면 [`az databox job cancel`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-cancel)를 실행합니다. 주문을 취소하는 이유를 지정해야 합니다.
+Azure Data Box 주문을 취소하려면 [`az databox job cancel`](/cli/azure/databox/job#az_databox_job_cancel)를 실행합니다. 주문을 취소하는 이유를 지정해야 합니다.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -814,7 +814,7 @@ Azure Data Box 주문을 취소하려면 [`az databox job cancel`](/cli/azure/ex
 
 ### <a name="delete-an-order"></a>주문 삭제
 
-Azure Data Box 주문을 취소한 경우 [`az databox job delete`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-delete)을 실행하여 주문을 삭제할 수 있습니다.
+Azure Data Box 주문을 취소한 경우 [`az databox job delete`](/cli/azure/databox/job#az_databox_job_delete)을 실행하여 주문을 삭제할 수 있습니다.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]

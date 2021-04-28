@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 901f2b938512f842a5b4c34adbfc61f9379e5131
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: fdefca482dfa1afeb3eebb284b08eaadf4f1af60
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772167"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897057"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>자습서: 관리 ID를 사용하여 .NET에서 Key Vault를 Azure 웹앱에 연결
 
@@ -172,7 +172,7 @@ Git 원격의 URL은 `deploymentLocalGitUrl` 속성에서 `https://<username>@<y
 이제 `main` 분기에서 배포하도록 웹앱을 구성합니다.
 
 ```azurecli-interactive
- az webapp config appsettings set -g MyResourceGroup -name "<your-webapp-name>"--settings deployment_branch=main
+ az webapp config appsettings set -g MyResourceGroup --name "<your-webapp-name>" --settings deployment_branch=main
 ```
 
 다음 명령을 사용하여 새 앱으로 이동합니다. `<your-webapp-name>`을 앱 이름으로 바꿉니다.
@@ -343,4 +343,4 @@ http://<your-webapp-name>.azurewebsites.net
 - [.NET에서 가상 머신에 배포된 애플리케이션을 통해 Azure Key Vault 사용](./tutorial-net-virtual-machine.md)
 - [Azure 리소스에 대한 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)에 대해 자세히 알아보기
 - [개발자 가이드](./developers-guide.md) 살펴보기
-- [Key vault에 대한 액세스 보안](./security-overview.md)
+- [Key vault에 대한 액세스 보안](./security-features.md)

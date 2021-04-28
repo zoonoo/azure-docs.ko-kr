@@ -3,12 +3,12 @@ title: CMMC 수준 3 청사진 샘플
 description: CMMC 수준 3 청사진 샘플에 대한 개요입니다. 이 청사진 샘플은 고객이 특정 컨트롤을 평가하는 데 도움이 됩니다.
 ms.date: 03/24/2021
 ms.topic: sample
-ms.openlocfilehash: 950c6064ce8b3d9973ac08e5895a4b6f48e37d6a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 100e404567f0241e814280650944e620435dc60c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105572144"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108145090"
 ---
 # <a name="cmmc-level-3-blueprint-sample"></a>CMMC 수준 3 청사진 샘플
 
@@ -110,173 +110,173 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |CMMC Level 3|정책 할당|Kubernetes 클러스터 Pod에 대한 호스트 네트워크 사용 허용|Pod에서 호스트 네트워크를 사용할 수 있는 경우 이 값을 true로 설정하고, 그렇지 않은 경우 false로 설정합니다.|
 |CMMC Level 3|정책 할당|인증 정책 변경 감사|인증 정책이 변경될 때 감사 이벤트를 생성할지 여부를 지정합니다. 이 설정은 사용자 계정 또는 그룹에 부여된 도메인 수준 및 포리스트 수준 신뢰 및 권한의 변경을 추적하는 데 유용합니다.|
 |CMMC Level 3|정책 할당|권한 부여 정책 변경 감사|사용자 권한 정책의 사용자 권한 할당 및 제거, 보안 토큰 개체 권한 변경, 리소스 특성 변경 및 파일 시스템 개체에 대한 중앙 액세스 정책 변경에 대한 감사 이벤트를 생성하는지 여부를 지정합니다.|
-|CMMC Level 3|정책 할당|정책 효과: Virtual Machines에 대해 Azure Backup을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Cognitive Services 계정은 네트워크 액세스를 제한해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: SQL Managed Instance는 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Azure API for FHIR은 CMK(고객 관리형 키)를 사용하여 미사용 데이터를 암호화해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Azure Front Door Service에 대해 WAF(Web Application Firewall)를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: SQL Server에 대한 취약성 평가 설정에는 검사 보고서를 수신할 이메일 주소를 포함해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Cognitive Services 계정에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: CORS에서 모든 리소스가 함수 앱에 액세스하도록 허용하지 않아야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 적응형 네트워크 강화 권장 사항은 인터넷에 연결된 가상 머신에 적용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 구독에 둘 이상의 소유자를 할당해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 가상 머신에서 디스크 암호화를 적용해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 심각도가 높은 경고에 대해 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Key Vault는 제거 보호를 사용하도록 설정되어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: SQL Server는 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 함수 앱에 대해 원격 디버깅을 해제해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Key Vault용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Azure Database for MariaDB에서 지역 중복 백업을 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: CORS에서 모든 도메인이 API for FHIR에 액세스하도록 허용하지 않아야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Windows 머신은 '보안 옵션 - 네트워크 보안'에 대한 요구 사항을 충족해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 적응형 애플리케이션 제어 정책의 허용 목록 규칙을 업데이트해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: WAF(Web Application Firewall)는 Application Gateway에 대해 지정된 모드를 사용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 키에 만료 날짜가 설정되어 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: SQL 데이터베이스에 투명한 데이터 암호화를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Azure Monitor 로그 프로필은 범주 '쓰기,' '삭제' 및 '작업'에 대한 로그를 수집해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: SQL Managed Instance에서 취약성 평가를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: API 앱의 일부로 사용되는 경우 'PHP 버전'이 최신 상태인지 확인함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Key Vault는 일시 삭제를 사용하도록 설정되어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: SQL Server에 대해 Azure Active Directory 관리자를 프로비저닝해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Azure Cache for Redis에 대해 보안 연결만 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Azure Database for PostgreSQL 서버에 대해 인프라 암호화를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 가상 머신 확장 집합에 Endpoint Protection 솔루션을 설치해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: App Service용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Windows 머신은 '시스템 감사 정책 - 정책 변경'에 대한 요구 사항을 충족해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Cognitive Services 계정은 데이터 암호화를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 인터넷에서 SSH 액세스를 차단해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 연결되지 않은 디스크는 암호화되어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 스토리지용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 스토리지 계정은 네트워크 액세스를 제한해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: CORS에서 모든 리소스가 API 앱에 액세스하도록 허용하지 않아야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 스토리지 계정에 Advanced Threat Protection 배포|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 계정 변수 자동화는 암호화되어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: IoT Hub의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Azure Database for MySQL 서버에 대해 인프라 암호화를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 특정 보안 작업의 활동 로그 경고가 있어야 함(Microsoft.Security/securitySolutions/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Windows 머신은 '보안 옵션 - 네트워크 액세스'에 대한 요구 사항을 충족해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Storage 계정에 보안 전송을 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Azure Monitor는 모든 지역의 활동 로그를 수집해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: WAF(Web Application Firewall)는 Azure Front Door Service에 대해 지정된 모드를 사용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 스토리지 계정에 인프라 암호화가 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 머신에서 안전한 애플리케이션을 정의하기 위한 적응형 애플리케이션 제어를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Azure Database for PostgreSQL에 대해 지역 중복 백업을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Windows 머신은 '보안 옵션 - 사용자 계정 컨트롤'에 대한 요구 사항을 충족해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 웹앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 서버용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 구독에 최대 3명의 소유자를 지정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 구독에 보안 문제에 대한 연락처 이메일 주소가 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 스토리지 계정 퍼블릭 액세스를 허용하지 않아야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 가상 머신에서 취약성 평가 솔루션을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Kubernetes용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Key Vault에서 방화벽을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Application Gateway에 대해 WAF(Web Application Firewall)를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: CORS에서 모든 리소스가 웹 애플리케이션에 액세스하도록 허용하지 않아야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 이전 24개 암호의 재사용을 허용하는 Windows 머신 감사|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Container Registry를 CMK(고객 관리형 키)로 암호화해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: PostgreSQL 유연한 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Azure Container Registry 이미지의 취약성을 수정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Service Fabric 클러스터에는 ClusterProtectionLevel 속성이 EncryptAndSign으로 설정되어 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 머신에서 SQL Server용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Cognitive Services 계정은 고객 관리형 키로 데이터 암호화를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 더 이상 사용되지 않는 계정은 구독에서 제거해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 함수 앱에 HTTPS를 통해서만 액세스 가능|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 심각도가 높은 경고에 대해 이메일 알림을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 스토리지 계정은 고객 관리형 키를 암호화에 사용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 웹앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 함수 앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 웹앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: API 앱의 일부로 사용되는 경우 'Python 버전'이 최신 상태인지 확인함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 키는 지정된 암호화 유형 RSA 또는 EC여야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Azure 구독에는 활동 로그에 대한 로그 프로필이 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Azure Kubernetes Service 클러스터의 운영 체제와 데이터 디스크는 모두 고객 관리형 키로 암호화해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Azure SQL Database 서버용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Azure Data Explorer 미사용 암호화에는 고객 관리형 키를 사용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: RSA 암호화를 사용하는 키에는 지정된 최소 키 크기가 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Azure Database for MySQL에 대해 지역 중복 백업을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Kubernetes 클러스터 Pod는 승인된 호스트 네트워크와 포트 범위만 사용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 시스템 업데이트를 머신에 설치해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Windows 머신은 '시스템 감사 정책 - 권한 사용'에 대한 요구 사항을 충족해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Azure Stream Analytics 작업은 고객 관리형 키를 사용하여 데이터를 암호화해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: API 앱의 일부로 사용되는 경우 'Java 버전'이 최신 상태인지 확인함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 웹앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: API 앱에서 최신 TLS 버전을 사용해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 구독에서 쓰기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: API 앱을 실행하는 데 사용되는 경우 'HTTP 버전'이 최신 상태인지 확인함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Microsoft IaaSAntimalware 확장을 Windows Server에 배포해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 함수 앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 가상 머신에 연결된 네트워크 보안 그룹에서 모든 네트워크 포트가 제한되어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Security Center 표준 가격 책정 계층을 선택해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 암호 최소 길이를 14자로 제한하지 않는 Windows 머신 감사|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 사용자 지정 RBAC 규칙의 사용 감사|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 웹 애플리케이션에 HTTPS를 통해서만 액세스 가능|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: SQL Server에 대한 감사가 사용되도록 설정되어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 가상 머신에 Log Analytics 에이전트를 설치해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: SQL Server에서 Advanced Data Security를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: SQL Managed Instance에서 Advanced Data Security를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Kubernetes 서비스에서 RBAC(역할 기반 액세스 제어)를 사용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 가상 머신에 게스트 구성 확장이 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Azure Security Center에서 누락된 Endpoint Protection 모니터링|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 활동 로그는 1년 이상 보존되어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 가상 머신의 관리 포트는 Just-In-Time 네트워크 액세스 제어로 보호해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: PostgreSQL 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Cosmos DB 계정에 대한 Advanced Threat Protection 배포|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: App Services의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: API 앱은 HTTPS를 통해서만 액세스할 수 있어야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.ClassicNetwork/networkSecurityGroups/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Network/networkSecurityGroups/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Network/networkSecurityGroups/securityRules/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Sql/servers/firewallRules/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 네트워크 보안 그룹을 사용하여 인터넷에 연결되지 않은 가상 머신을 보호해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 암호 복잡성 설정을 사용하도록 설정하지 않는 Windows 머신 감사|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 컨테이너 레지스트리용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Azure Data Box 작업에서 디바이스의 미사용 데이터에 대해 이중 암호화를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 가상 머신 확장 집합에 대한 시스템 업데이트를 설치해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 보호 서명을 자동으로 업데이트하려면 Azure용 Microsoft Antimalware를 구성해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 특정 정책 작업의 활동 로그 경고가 있어야 함(Microsoft.Authorization/policyAssignments/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: MySQL 유연한 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 스토리지 계정은 신뢰할 수 있는 Microsoft 서비스의 액세스를 허용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 웹 애플리케이션에 대해 원격 디버깅을 해제해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: RSA 암호화를 사용하는 인증서에는 지정된 최소 키 크기가 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Container Registry는 무제한 네트워크 액세스를 허용해서는 안 됨|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: PostgreSQL 데이터베이스 서버에 대해 SSL 강제 연결을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 시스템이 할당한 관리 ID를 사용하여 게스트 구성 확장을 Azure 가상 머신에 배포해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Azure SQL Database에 대해 장기 지역 중복 백업을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: MySQL 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 해독 가능한 암호화를 사용하여 암호를 저장하지 않는 Windows 머신 감사|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Windows 머신은 '사용자 권한 할당'에 대한 요구 사항을 충족해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 머신 보안 구성의 취약성을 수정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 함수 앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 구독에서 읽기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 인터넷에서 RDP 액세스를 차단해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: passwd 파일 권한이 0644로 설정되지 않은 Linux 머신 감사|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 서브넷을 네트워크 보안 그룹과 연결해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: MySQL 데이터베이스 서버에 대해 SSL 강제 연결을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 컨테이너 보안 구성의 취약성을 수정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: API Apps에 대해 원격 디버깅을 해제해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 암호가 없는 계정에서 원격 연결을 허용하는 Linux 머신 감사|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Azure Data Explorer에서 이중 암호화를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Virtual Machine Scale Sets에 Log Analytics 에이전트를 설치해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 웹앱에서 최신 TLS 버전을 사용해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Azure Data Explorer에서 디스크 암호화를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 네트워크 보안 그룹을 사용하여 인터넷에 연결되지 않은 가상 머신을 보호해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 암호가 없는 계정이 있는 Linux 머신 감사|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Azure Synapse 작업 영역은 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 소유자 권한이 있는 외부 계정은 구독에서 제거해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 함수 앱에서 최신 TLS 버전을 사용해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Kubernetes 서비스를 취약하지 않은 Kubernetes 버전으로 업그레이드해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 모든 인터넷 트래픽은 배포된 Azure Firewall을 통해 라우팅되어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: Linux 머신은 Azure 보안 기준에 대한 요구 사항을 충족해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: MariaDB 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: SQL 데이터베이스의 취약성을 수정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
-|CMMC Level 3|정책 할당|정책 효과: 타원 곡선 암호화를 사용하는 키에는 지정된 곡선 이름이 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Virtual Machines에 대해 Azure Backup을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Cognitive Services 계정은 네트워크 액세스를 제한해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: SQL Managed Instance는 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Azure API for FHIR은 CMK(고객 관리형 키)를 사용하여 미사용 데이터를 암호화해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Azure Front Door Service에 대해 WAF(Web Application Firewall)를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: SQL Server에 대한 취약성 평가 설정에는 검사 보고서를 수신할 이메일 주소를 포함해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Cognitive Services 계정에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: CORS에서 모든 리소스가 함수 앱에 액세스하도록 허용하지 않아야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 적응형 네트워크 강화 권장 사항은 인터넷에 연결된 가상 머신에 적용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 구독에 둘 이상의 소유자를 할당해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 가상 머신에서 디스크 암호화를 적용해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 심각도가 높은 경고에 대해 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Key Vault는 제거 보호를 사용하도록 설정되어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: SQL Server는 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 함수 앱에 대해 원격 디버깅을 해제해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Key Vault용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Azure Database for MariaDB에서 지역 중복 백업을 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: CORS에서 모든 도메인이 API for FHIR에 액세스하도록 허용하지 않아야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Windows 머신은 '보안 옵션 - 네트워크 보안'에 대한 요구 사항을 충족해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 적응형 애플리케이션 제어 정책의 허용 목록 규칙을 업데이트해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: WAF(Web Application Firewall)는 Application Gateway에 대해 지정된 모드를 사용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 키에 만료 날짜가 설정되어 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: SQL 데이터베이스에 투명한 데이터 암호화를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Azure Monitor 로그 프로필은 범주 '쓰기,' '삭제' 및 '작업'에 대한 로그를 수집해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: SQL Managed Instance에서 취약성 평가를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: API 앱의 일부로 사용되는 경우 'PHP 버전'이 최신 상태인지 확인함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Key Vault는 일시 삭제를 사용하도록 설정되어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: SQL Server에 대해 Azure Active Directory 관리자를 프로비저닝해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Azure Cache for Redis에 대해 보안 연결만 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Azure Database for PostgreSQL 서버에 대해 인프라 암호화를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 가상 머신 확장 집합에 Endpoint Protection 솔루션을 설치해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: App Service용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Windows 머신은 '시스템 감사 정책 - 정책 변경'에 대한 요구 사항을 충족해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Cognitive Services 계정은 데이터 암호화를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 인터넷에서 SSH 액세스를 차단해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 연결되지 않은 디스크는 암호화되어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 스토리지용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 스토리지 계정은 네트워크 액세스를 제한해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: CORS에서 모든 리소스가 API 앱에 액세스하도록 허용하지 않아야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 스토리지 계정에 Advanced Threat Protection 배포|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 계정 변수 자동화는 암호화되어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: IoT Hub의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Azure Database for MySQL 서버에 대해 인프라 암호화를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 특정 보안 작업의 활동 로그 경고가 있어야 함(Microsoft.Security/securitySolutions/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Windows 머신은 '보안 옵션 - 네트워크 액세스'에 대한 요구 사항을 충족해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Storage 계정에 보안 전송을 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Azure Monitor는 모든 지역의 활동 로그를 수집해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: WAF(Web Application Firewall)는 Azure Front Door Service에 대해 지정된 모드를 사용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 스토리지 계정에 인프라 암호화가 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 머신에서 안전한 애플리케이션을 정의하기 위한 적응형 애플리케이션 제어를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Azure Database for PostgreSQL에 대해 지역 중복 백업을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Windows 머신은 '보안 옵션 - 사용자 계정 컨트롤'에 대한 요구 사항을 충족해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 웹앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 서버용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 구독에 최대 3명의 소유자를 지정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 구독에 보안 문제에 대한 연락처 이메일 주소가 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 스토리지 계정 퍼블릭 액세스를 허용하지 않아야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 가상 머신에서 취약성 평가 솔루션을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Kubernetes용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Key Vault에서 방화벽을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Application Gateway에 대해 WAF(Web Application Firewall)를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: CORS에서 모든 리소스가 웹 애플리케이션에 액세스하도록 허용하지 않아야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 이전 24개 암호의 재사용을 허용하는 Windows 머신 감사|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Container Registry를 CMK(고객 관리형 키)로 암호화해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: PostgreSQL 유연한 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Azure Container Registry 이미지의 취약성을 수정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Service Fabric 클러스터에는 ClusterProtectionLevel 속성이 EncryptAndSign으로 설정되어 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 머신에서 SQL Server용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Cognitive Services 계정은 고객 관리형 키로 데이터 암호화를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 더 이상 사용되지 않는 계정은 구독에서 제거해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 함수 앱에 HTTPS를 통해서만 액세스 가능|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 심각도가 높은 경고에 대해 이메일 알림을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 스토리지 계정은 고객 관리형 키를 암호화에 사용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 웹앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 함수 앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 웹앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: API 앱의 일부로 사용되는 경우 'Python 버전'이 최신 상태인지 확인함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 키는 지정된 암호화 유형 RSA 또는 EC여야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Azure 구독에는 활동 로그에 대한 로그 프로필이 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Azure Kubernetes Service 클러스터의 운영 체제와 데이터 디스크는 모두 고객 관리형 키로 암호화해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Azure SQL Database 서버용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Azure Data Explorer 미사용 암호화에는 고객 관리형 키를 사용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: RSA 암호화를 사용하는 키에는 지정된 최소 키 크기가 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Azure Database for MySQL에 대해 지역 중복 백업을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Kubernetes 클러스터 Pod는 승인된 호스트 네트워크와 포트 범위만 사용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 시스템 업데이트를 머신에 설치해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Windows 머신은 '시스템 감사 정책 - 권한 사용'에 대한 요구 사항을 충족해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Azure Stream Analytics 작업은 고객 관리형 키를 사용하여 데이터를 암호화해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: API 앱의 일부로 사용되는 경우 'Java 버전'이 최신 상태인지 확인함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 웹앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: API 앱에서 최신 TLS 버전을 사용해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 구독에서 쓰기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: API 앱을 실행하는 데 사용되는 경우 'HTTP 버전'이 최신 상태인지 확인함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Microsoft IaaSAntimalware 확장을 Windows Server에 배포해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 함수 앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 가상 머신에 연결된 네트워크 보안 그룹에서 모든 네트워크 포트가 제한되어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Security Center 표준 가격 책정 계층을 선택해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 암호 최소 길이를 14자로 제한하지 않는 Windows 머신 감사|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 사용자 지정 RBAC 규칙의 사용 감사|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 웹 애플리케이션에 HTTPS를 통해서만 액세스 가능|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: SQL Server에 대한 감사가 사용되도록 설정되어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 가상 머신에 Log Analytics 에이전트를 설치해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: SQL Server에서 Advanced Data Security를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: SQL Managed Instance에서 Advanced Data Security를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Kubernetes 서비스에서 RBAC(역할 기반 액세스 제어)를 사용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 가상 머신에 게스트 구성 확장이 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Azure Security Center에서 누락된 Endpoint Protection 모니터링|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 활동 로그는 1년 이상 보존되어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 가상 머신의 관리 포트는 Just-In-Time 네트워크 액세스 제어로 보호해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: PostgreSQL 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Cosmos DB 계정에 대한 Advanced Threat Protection 배포|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: App Services의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: API 앱은 HTTPS를 통해서만 액세스할 수 있어야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.ClassicNetwork/networkSecurityGroups/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Network/networkSecurityGroups/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Network/networkSecurityGroups/securityRules/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Sql/servers/firewallRules/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 네트워크 보안 그룹을 사용하여 인터넷에 연결되지 않은 가상 머신을 보호해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 암호 복잡성 설정을 사용하도록 설정하지 않는 Windows 머신 감사|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 컨테이너 레지스트리용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Azure Data Box 작업에서 디바이스의 미사용 데이터에 대해 이중 암호화를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 가상 머신 확장 집합에 대한 시스템 업데이트를 설치해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 보호 서명을 자동으로 업데이트하려면 Azure용 Microsoft Antimalware를 구성해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 특정 정책 작업의 활동 로그 경고가 있어야 함(Microsoft.Authorization/policyAssignments/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: MySQL 유연한 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 스토리지 계정은 신뢰할 수 있는 Microsoft 서비스의 액세스를 허용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 웹 애플리케이션에 대해 원격 디버깅을 해제해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: RSA 암호화를 사용하는 인증서에는 지정된 최소 키 크기가 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Container Registry는 무제한 네트워크 액세스를 허용해서는 안 됨|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: PostgreSQL 데이터베이스 서버에 대해 SSL 강제 연결을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 시스템이 할당한 관리 ID를 사용하여 게스트 구성 확장을 Azure 가상 머신에 배포해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Azure SQL Database에 대해 장기 지역 중복 백업을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: MySQL 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 해독 가능한 암호화를 사용하여 암호를 저장하지 않는 Windows 머신 감사|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Windows 머신은 '사용자 권한 할당'에 대한 요구 사항을 충족해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 머신 보안 구성의 취약성을 수정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 함수 앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 구독에서 읽기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 인터넷에서 RDP 액세스를 차단해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: passwd 파일 권한이 0644로 설정되지 않은 Linux 머신 감사|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 서브넷을 네트워크 보안 그룹과 연결해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: MySQL 데이터베이스 서버에 대해 SSL 강제 연결을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 컨테이너 보안 구성의 취약성을 수정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: API Apps에 대해 원격 디버깅을 해제해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 암호가 없는 계정에서 원격 연결을 허용하는 Linux 머신 감사|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Azure Data Explorer에서 이중 암호화를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Virtual Machine Scale Sets에 Log Analytics 에이전트를 설치해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 웹앱에서 최신 TLS 버전을 사용해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Azure Data Explorer에서 디스크 암호화를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 네트워크 보안 그룹을 사용하여 인터넷에 연결되지 않은 가상 머신을 보호해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 암호가 없는 계정이 있는 Linux 머신 감사|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Azure Synapse 작업 영역은 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 소유자 권한이 있는 외부 계정은 구독에서 제거해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 함수 앱에서 최신 TLS 버전을 사용해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Kubernetes 서비스를 취약하지 않은 Kubernetes 버전으로 업그레이드해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 모든 인터넷 트래픽은 배포된 Azure Firewall을 통해 라우팅되어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: Linux 머신은 Azure 보안 기준에 대한 요구 사항을 충족해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: MariaDB 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: SQL 데이터베이스의 취약성을 수정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
+|CMMC Level 3|정책 할당|정책 효과: 타원 곡선 암호화를 사용하는 키에는 지정된 곡선 이름이 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요.|
 |CMMC Level 3|정책 할당|정책 평가에서 제외된 네임스페이스: Kubernetes 클러스터 Pod는 승인된 호스트 네트워크와 포트 범위만 사용해야 함|정책 평가에서 제외할 Kubernetes 네임스페이스의 목록입니다.|
 |CMMC Level 3|정책 할당|App Services용 최신 Java 버전|App Services에 대해 지원되는 최신 Java 버전|
 |CMMC Level 3|정책 할당|App Services에 지원되는 Linux용 최신 Python 버전|App Services에 대해 지원되는 최신 Python 버전|
@@ -298,7 +298,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |CMMC Level 3|정책 할당|네트워크 보안: Kerberos에 허용된 암호화 유형 구성|Kerberos에서 사용할 수 있는 암호화 유형을 지정합니다.|
 |CMMC Level 3|정책 할당|네트워크 보안: LAN Manager 인증 수준|네트워크 로그온에 사용되는 시도/응답 인증 프로토콜을 지정합니다. 이 옵션은 클라이언트에서 사용하는 인증 프로토콜 수준, 협상된 세션 보안 수준 및 서버에서 수락한 인증 수준에 영향을 줍니다.|
 |CMMC Level 3|정책 할당|네트워크 보안: LDAP 클라이언트 서명 필요|LDAP BIND 요청을 실행하는 클라이언트를 대신하여 요청된 데이터 서명 수준을 지정합니다.|
-|CMMC Level 3|정책 할당|네트워크 보안: NTLM SSP 기반(보안 RPC 포함) 클라이언트에 대한 최소 세션 보안|NTLM SSP(보안 지원 공급자)를 사용하는 애플리케이션에 대해 클라이언트에서 허용하는 동작을 지정합니다. 인증 서비스가 필요한 애플리케이션에서 SSPI(SSP 인터페이스)를 사용합니다. 자세한 내용은 [https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/network-security-minimum-session-security-for-ntlm-ssp-based-including-secure-rpc-servers](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/network-security-minimum-session-security-for-ntlm-ssp-based-including-secure-rpc-servers)를 참조하세요.|
+|CMMC Level 3|정책 할당|네트워크 보안: NTLM SSP 기반(보안 RPC 포함) 클라이언트에 대한 최소 세션 보안|NTLM SSP(보안 지원 공급자)를 사용하는 애플리케이션에 대해 클라이언트에서 허용하는 동작을 지정합니다. 인증 서비스가 필요한 애플리케이션에서 SSPI(SSP 인터페이스)를 사용합니다. 자세한 내용은 [https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/network-security-minimum-session-security-for-ntlm-ssp-based-including-secure-rpc-servers](/windows/security/threat-protection/security-policy-settings/network-security-minimum-session-security-for-ntlm-ssp-based-including-secure-rpc-servers)를 참조하세요.|
 |CMMC Level 3|정책 할당|네트워크 보안: NTLM SSP 기반(보안 RPC 포함) 서버에 대한 최소 세션 보안|NTLM SSP(보안 지원 공급자)를 사용하는 애플리케이션에 대해 서버에서 허용하는 동작을 지정합니다. 인증 서비스가 필요한 애플리케이션에서 SSPI(SSP 인터페이스)를 사용합니다.|
 |CMMC Level 3|정책 할당|App Services용 최신 PHP 버전|App Services에 대해 지원되는 최신 PHP 버전|
 |CMMC Level 3|정책 할당|IoT Hub 진단 로그의 필수 보존 기간(일)||

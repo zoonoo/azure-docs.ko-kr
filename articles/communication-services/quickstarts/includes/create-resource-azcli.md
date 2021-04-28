@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 22a9cf3338f422341928a77f2bf14c497aa2ba31
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 69857915620eada94586754a6c934edaf0b294a9
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563782"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107880629"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -51,4 +51,4 @@ az communication show --name "<communicationName>" --resource-group "<resourceGr
 az communication show --name "<communicationName>" --resource-group "<resourceGroup>" --subscription "<subscriptionID>"
 ```
 
-추가 명령에 대한 자세한 내용은 [az communication](/cli/azure/ext/communication/communication)을 참조하세요.
+추가 명령에 대한 자세한 내용은 [az communication](/cli/azure/communication)을 참조하세요.

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: c0066409732f4492186ea0bf604261e1ab59ca9f
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 08de0045a19b0f07308778f8716fa48abded445b
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750305"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815543"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-javascript-version-4"></a>빠른 시작: JavaScript용 Azure Key Vault 클라이언트 라이브러리(버전 4)
 
@@ -272,6 +272,6 @@ Purging your key from <your-unique-keyvault-name> ... done.
 
 - [Azure Key Vault 개요](../general/overview.md) 참조
 - [Azure Key Vault 개요](about-keys.md) 읽기
-- [키 자격 증명 모음에 대한 액세스를 보호](../general/security-overview.md)하는 방법
+- [키 자격 증명 모음에 대한 액세스를 보호](../general/security-features.md)하는 방법
 - [Azure Key Vault 개발자 가이드](../general/developers-guide.md) 참조
-- [Azure Key Vault 보안 개요](../general/security-overview.md)를 검토하세요.
+- [Azure Key Vault 보안 개요](../general/security-features.md)를 검토하세요.

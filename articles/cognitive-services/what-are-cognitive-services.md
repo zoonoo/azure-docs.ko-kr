@@ -9,15 +9,15 @@ keywords: 인지적 서비스, 인지적 인텔리전스, 인지적 솔루션, A
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: overview
-ms.date: 10/22/2020
+ms.date: 04/16/2021
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: c89131cc34d45ea94f3bb290ac11ec86f4b83be3
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 108c716708936aa5e0e5a563bdb8787466ad06ef
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107587615"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076854"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure Cognitive Services란?
 
@@ -59,7 +59,7 @@ Azure Cognitive Services는 애플리케이션에 인식 인텔리전스를 빌�
 
 |서비스 이름|서비스 설명|
 |:-----------|:------------------|
-|[Language Understanding LUIS](./luis/index.yml "언어 이해")|LUIS(Language Understanding)는 사용자의 대화형 자연어 텍스트에 사용자 지정 기계 학습 인텔리전스를 적용하여 전체적인 의미를 예측하고 관련된 자세한 정보를 추출하는 클라우드 기반 대화형 AI 서비스입니다. 서비스를 시작하려면 [LUIS 빠른 시작을 참조](./luis/get-started-portal-build-app.md)하세요.|
+|[Language Understanding LUIS](./luis/index.yml "언어 이해")|LUIS(Language Understanding)는 사용자의 대화형 자연어 텍스트에 사용자 지정 기계 학습 인텔리전스를 적용하여 전체적인 의미를 예측하고 관련된 자세한 정보를 추출하는 클라우드 기반 대화형 AI 서비스입니다. 서비스를 시작하려면 [LUIS 빠른 시작을 참조](./luis/luis-get-started-create-app.md)하세요.|
 |[QnA Maker](./qnamaker/index.yml "QnA Maker")|QnA Maker를 사용하여 반구조화된 콘텐츠로부터 질문 및 답변 서비스를 작성할 수 있습니다. 서비스를 시작하려면 [QnA Maker 빠른 시작을 참조](./qnamaker/quickstarts/create-publish-knowledge-base.md)하세요.|
 |[Text Analytics](./text-analytics/index.yml "텍스트 분석")| Text Analytics는 감정 분석, 핵심 구 추출 및 언어 감지를 위한 원시 텍스트의 자연어 처리를 제공합니다. 서비스를 시작하려면 [Text Analytics 빠른 시작](./text-analytics/quickstarts/client-libraries-rest-api.md)을 참조하세요.|
 |[Translator](./translator/index.yml "변환기")|Translator는 거의 실시간으로 머신 기반 텍스트 번역을 제공합니다.|
@@ -134,7 +134,7 @@ Azure Cognitive Services는 Azure Active Directory 자격 증명을 통한 [인�
 
 Cognitive Services에서 API는 증가하는 Microsoft 운영 데이터 센터의 네트워크에서 호스팅됩니다. [Azure 지역 목록](https://azure.microsoft.com/regions "Azure 지역 목록")에서 각 API에 대한 지역별 가용성을 확인할 수 있습니다.
 
-아직 지원하지 않는 지역을 찾습니까? [UserVoice 포럼](https://cognitive.uservoice.com/ "UserVoice 포럼")에서 기능 요청을 제출하여 Microsoft에 알려주세요.
+아직 지원하지 않는 지역을 찾습니까? [UserVoice 포럼](https://feedback.azure.com/forums/932041-azure-cognitive-services "UserVoice 포럼")에서 기능 요청을 제출하여 Microsoft에 알려주세요.
 
 ## <a name="supported-cultural-languages"></a>지원되는 문화 언어
 

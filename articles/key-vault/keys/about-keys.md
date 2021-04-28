@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 02/17/2021
 ms.author: ambapat
-ms.openlocfilehash: 3c4bb61217c7b972220a55a4837c2b3db980f2ca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b9565095a40052a940d7a7b31f0fd3a27e0e75c2
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101095998"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815001"
 ---
 # <a name="about-keys"></a>키 정보
 
@@ -24,7 +24,7 @@ Azure Key Vault는 암호화 키를 저장하고 관리하는 두 가지 유형�
 |리소스 유형|키 보호 방법|데이터 평면 엔드포인트 기준 URL|
 |--|--|--|
 | **자격 증명 모음** | 소프트웨어 보호<br/><br/>및<br/><br/>HSM 보호(프리미엄 SKU 포함)</li></ul> | https://{vault-name}.vault.azure.net |
-| **관리형 HSM ** | HSM 보호 | https://{hsm-name}.managedhsm.azure.net |
+| **관리형 HSM** | HSM 보호 | https://{hsm-name}.managedhsm.azure.net |
 ||||
 
 - **자격 증명 모음** - 가장 일반적인 클라우드 애플리케이션 시나리오에 적합한 저렴하고 배포하기 쉬운 다중 테넌트, 영역 복원 가능(사용 가능한 경우), 고가용성 키 관리 솔루션을 제공합니다.

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/14/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 37e67ad869af23b51497e1497865f620bae612aa
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: b8690b5ce3e2aee9a554d3e0682161b86264e124
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749189"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818536"
 ---
 # <a name="client-libraries-for-azure-key-vault"></a>Azure Key Vault용 클라이언트 라이브러리
 
@@ -35,4 +35,4 @@ Azure Key Vault용 클라이언트 라이브러리를 사용하면 .NET, Python,
 
 - [Azure Key Vault 개발자 가이드](developers-guide.md) 참조
 - [Key Vault에 인증](authentication.md)에 대해 자세히 알아보세요.
-- [Key Vault에 대한 액세스 보안](security-overview.md)에 대해 자세히 알아보세요.
+- [Key Vault에 대한 액세스 보안](security-features.md)에 대해 자세히 알아보세요.

@@ -8,12 +8,12 @@ ms.date: 01/05/2021
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.openlocfilehash: 75cb7b6c9225e8579561f980df10da8994257133
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: ecebeb6d14a00a92ef845001cf04a59f10345e23
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777188"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815579"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-java"></a>빠른 시작: Java용 Azure Key Vault 키 클라이언트 라이브러리
 Java용 Azure Key Vault 키 클라이언트 라이브러리를 시작합니다. 아래 단계에 따라 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 봅니다.
@@ -269,6 +269,6 @@ public class App {
 이 빠른 시작에서는 키 자격 증명 모음을 만들고, 키를 만든 후 해당 인증서를 삭제했습니다. Key Vault 및 이를 애플리케이션과 통합하는 방법에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
 
 - [Azure Key Vault 개요](../general/overview.md) 참조
-- [Azure Key Vault 보안 개요](../general/security-overview.md)를 읽으세요.
+- [Azure Key Vault 보안 개요](../general/security-features.md)를 읽으세요.
 - [Azure Key Vault 개발자 가이드](../general/developers-guide.md) 참조
-- [키 자격 증명 모음에 대한 액세스를 보호](../general/security-overview.md)하는 방법
+- [키 자격 증명 모음에 대한 액세스를 보호](../general/security-features.md)하는 방법
