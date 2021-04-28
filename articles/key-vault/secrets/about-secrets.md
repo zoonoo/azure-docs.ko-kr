@@ -9,12 +9,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6d4f3f744a85c14c42ffef1c894b237081e871f8
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: dc4368075e1cecb43887c9fab21e55b23208dbab
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752429"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814931"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Azure Key Vault 비밀 정보
 
@@ -132,5 +132,5 @@ Key Vault에서 액세스를 제어하는 방법 가이드:
 - [키, 비밀 및 인증서에 대한 정보](../general/about-keys-secrets-certificates.md)
 - [키 정보](../keys/about-keys.md)
 - [인증서 정보](../certificates/about-certificates.md)
-- [Key vault에 대한 액세스 보안](../general/security-overview.md)
+- [Key vault에 대한 액세스 보안](../general/security-features.md)
 - [Key Vault 개발자 가이드](../general/developers-guide.md)

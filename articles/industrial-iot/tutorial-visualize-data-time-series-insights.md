@@ -6,12 +6,12 @@ ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
-ms.openlocfilehash: 5bd218c0d94922b6137a964e3993f516216ca4b7
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 9a07f2b1d4b63005bff4a8963bd1258ad72e87ee
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104787353"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137277"
 ---
 # <a name="tutorial-visualize-data-with-time-series-insights-tsi"></a>자습서: TSI(Time Series Insights)를 사용하여 데이터 시각화
 
@@ -54,13 +54,13 @@ TSI 탐색기에서 할당되지 않은 시계열 인스턴스를 확인하세�
 
 원격 분석 데이터는 마우스 오른쪽 단추로 TSI 인스턴스를 클릭하고 값을 선택하여 차트에서 시각화할 수 있습니다. 차트에서 사용할 시간 프레임은 오른쪽 위 모서리에서 조정할 수 있습니다. 여러 인스턴스의 값을 동시에 선택하여 시각화 할 수 있습니다.
 
-자세한 내용은 [빠른 시작: Azure Time Series Insights 미리 보기 살펴보기](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart)를 참조하세요.
+자세한 내용은 [빠른 시작: Azure Time Series Insights 미리 보기 살펴보기](../time-series-insights/quickstart-explore-tsi.md)를 참조하세요.
 
 ## <a name="define-and-apply-a-new-model"></a>새 모델 정의 및 적용
 
 원격 분석 인스턴스는 이제 원시 형식이므로 적절하게 컨텍스트화되어야 합니다. 
 
-TSI 모델에 대한 자세한 내용은 [Azure Time Series Insights 미리 보기의 시계열 모델](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-tsm)을 참조하세요.
+TSI 모델에 대한 자세한 내용은 [Azure Time Series Insights 미리 보기의 시계열 모델](../time-series-insights/concepts-model-overview.md)을 참조하세요.
 
 1. 1단계 - 탐색기의 모델 탭에서 수집된 원격 분석 데이터에 대한 새 계층 구조를 정의합니다. 계층 구조는 사용자가 TSI 인스턴스를 통해 더 직관적인 탐색에 필요한 메타 정보를 삽입할 수 있도록 하는 논리적 트리 구조입니다. 사용자는 나중에 다양한 TSI 인스턴스에 대해 인스턴스화할 수 있는 계층 구조 템플릿을 만들거나 삭제하거나 수정할 수 있습니다.
 
@@ -88,7 +88,7 @@ TSI 모델에 대한 자세한 내용은 [Azure Time Series Insights 미리 보�
 
 ## <a name="connect-time-series-insights-to-power-bi"></a>Time Series Insights를 Power BI에 연결
 
-Time Series Insights 환경을 Power BI에 연결할 수도 있습니다.  자세한 내용은 [TSI를 Power BI에 연결하는 방법](https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi) 및 [ Power BI에서 TSI의 데이터 시각화](https://docs.microsoft.com/azure/time-series-insights/concepts-power-bi)를 참조하세요.
+Time Series Insights 환경을 Power BI에 연결할 수도 있습니다.  자세한 내용은 [TSI를 Power BI에 연결하는 방법](../time-series-insights/how-to-connect-power-bi.md) 및 [ Power BI에서 TSI의 데이터 시각화](../time-series-insights/concepts-power-bi.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -8,19 +8,19 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d89cc41ed26124ae4ad2e6689be6d59278c3d9da
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cfe19f71af5f8ac876ca7d57dc2ad3328c766eb4
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94542170"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987023"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>빠른 시작: 간단한 Azure CLI 명령을 사용하여 Azure Database for MySQL 만들기 - az mysql up(미리 보기)
 
 > [!IMPORTANT]
-> [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) Azure CLI 명령은 미리 보기에 있습니다.
+> [az mysql up](/cli/azure/mysql#az_mysql_up) Azure CLI 명령은 미리 보기에 있습니다.
 
-Azure Database for MySQL은 클라우드에서 항상 사용 가능한 MySQL 데이터베이스를 실행, 관리 및 크기 조정할 수 있게 하는 관리 서비스입니다. 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작에서는 Azure CLI에서 [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) 명령을 사용하여 Azure Database for MySQL 서버를 만드는 방법을 보여 줍니다. `az mysql up` 명령은 서버를 만드는 것 외에도 샘플 데이터베이스(데이터베이스에 루트 사용자)를 만들고, Azure 서비스에 대한 방화벽을 열고, 클라이언트 컴퓨터에 대한 기본 방화벽 규칙을 만듭니다. 이렇게 하면 개발 프로세스를 빠르게 진행할 수 있습니다.
+Azure Database for MySQL은 클라우드에서 항상 사용 가능한 MySQL 데이터베이스를 실행, 관리 및 크기 조정할 수 있게 하는 관리 서비스입니다. 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작에서는 Azure CLI에서 [az mysql up](/cli/azure/mysql#az_mysql_up) 명령을 사용하여 Azure Database for MySQL 서버를 만드는 방법을 보여 줍니다. `az mysql up` 명령은 서버를 만드는 것 외에도 샘플 데이터베이스(데이터베이스에 루트 사용자)를 만들고, Azure 서비스에 대한 방화벽을 열고, 클라이언트 컴퓨터에 대한 기본 방화벽 규칙을 만듭니다. 이렇게 하면 개발 프로세스를 빠르게 진행할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -42,7 +42,8 @@ az account set --subscription <subscription id>
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Azure Database for MySQL 서버 만들기
 
-명령을 사용하려면 [db-up](/cli/azure/ext/db-up) 확장을 설치합니다. 오류가 반환되면 최신 버전의 Azure CLI를 설치했는지 확인합니다. [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+명령을 사용하려면 [db-up](/cli/azure/ext/db-up/mysql
+) 확장을 설치합니다. 오류가 반환되면 최신 버전의 Azure CLI를 설치했는지 확인합니다. [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ```azurecli
 az extension add --name db-up
@@ -71,7 +72,7 @@ admin-user | 시스템 생성 | 관리자 로그인에 대한 사용자 이름�
 admin-password | 시스템 생성 | 관리자 사용자의 암호입니다.
 
 > [!NOTE]
-> `az mysql up` 명령과 해당 추가 매개 변수에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up)를 참조하세요.
+> `az mysql up` 명령과 해당 추가 매개 변수에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure/mysql#az_mysql_up)를 참조하세요.
 
 서버가 만들어지면 다음과 같은 설정이 제공됩니다.
 
@@ -88,7 +89,7 @@ admin-password | 시스템 생성 | 관리자 사용자의 암호입니다.
 
 `az mysql up` 명령이 완료되면 인기 있는 프로그래밍 언어에 대한 연결 문자열 목록이 반환됩니다. 이러한 연결 문자열은 새로 만든 Azure Database for MySQL 서버의 특정 특성으로 미리 구성되어 있습니다.
 
-[az mysql show-connection-string](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-show-connection-string) 명령을 사용하여 이러한 연결 문자열을 다시 나열할 수 있습니다.
+[az mysql show-connection-string](/cli/azure/mysql#az_mysql_show_connection_string) 명령을 사용하여 이러한 연결 문자열을 다시 나열할 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -98,7 +99,7 @@ admin-password | 시스템 생성 | 관리자 사용자의 암호입니다.
 az mysql down --delete-group
 ```
 
-새로 만든 서버만 삭제하려면 [az mysql down](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-down) 명령을 실행할 수 있습니다.
+새로 만든 서버만 삭제하려면 [az mysql down](/cli/azure/mysql#az_mysql_down) 명령을 실행할 수 있습니다.
 
 ```azurecli
 az mysql down

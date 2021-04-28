@@ -3,13 +3,13 @@ title: 명령줄에서 JavaScript 함수 만들기 - Azure Functions
 description: 명령줄에서 JavaScript 함수를 만든 다음, 로컬 Node.js 프로젝트를 Azure Functions의 서버리스 호스팅에 게시하는 방법을 알아봅니다.
 ms.date: 11/03/2020
 ms.topic: quickstart
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: b8db78e56087e7cb777d1aa85391d4b6ac2aae27
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: eb162bcff647e9e1dbced19ddea33a8f3c54b58e
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107787542"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831945"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 JavaScript 함수 만들기
 

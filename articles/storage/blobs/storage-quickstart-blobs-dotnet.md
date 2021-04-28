@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7ab7c52f6fe392cfebd056a86f0566705fb2b8e6
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: f913b33d0bea425a24d2fd336c9d065978606e82
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280669"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869260"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>빠른 시작: .NET용 Azure Blob Storage 클라이언트 라이브러리 v12
 
@@ -228,4 +228,4 @@ Blob 스토리지 샘플 앱을 보려면 다음을 계속 진행합니다.
 > [Azure Blob Storage SDK v12 .NET 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
 
 * 자습서, 샘플, 빠른 시작 및 기타 설명서는 [.NET 및 .NET Core 개발자용 Azure](/dotnet/azure/)를 참조하세요.
-* .NET Core에 대해 자세히 알아보려면 [10분 안에 .NET 시작](https://www.microsoft.com/net/learn/get-started/)을 참조하세요.
+* .NET Core에 대해 자세히 알아보려면 [10분 안에 .NET 시작](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro)을 참조하세요.

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 12/08/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2d8bfdf3a4ad8b713fb6c937d61fa437fc7977f2
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 93c0c77ad36be82802fd53e4130e48ac431b0280
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749675"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819289"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 키 자격 증명 모음 만들기
 
@@ -69,5 +69,5 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 빠른 시작에서는 Azure Portal을 사용하여 Key Vault를 만들었습니다. Key Vault 및 이를 애플리케이션과 통합하는 방법에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
 
 - [Azure Key Vault 개요](overview.md) 참조
-- [Azure Key Vault 보안 개요](security-overview.md)를 검토하세요.
+- [Azure Key Vault 보안 개요](security-features.md)를 검토하세요.
 - [Azure Key Vault 개발자 가이드](developers-guide.md) 참조

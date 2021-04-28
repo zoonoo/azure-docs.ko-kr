@@ -10,12 +10,12 @@ ms.devlang: java
 ms.custom:
 - devx-track-java
 - mode-api
-ms.openlocfilehash: 15453fb8177248087cbec98fd734bcff3bf66868
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 0d93b9b645aaf4190a36dbc523d40dec2757a18b
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107533236"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869800"
 ---
 # <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>빠른 시작: Java를 사용하여 Azure Functions와 SignalR Service로 대화방 만들기
 
@@ -31,7 +31,7 @@ Azure SignalR Service를 사용하면 애플리케이션에 실시간 기능을 
    > Java의 필수 SignalR Service 바인딩은 Azure Function Core Tools 버전 2.4.419(호스트 버전 2.0.12332) 이상에서만 지원됩니다.
 
    > [!NOTE]
-   > 확장을 설치하려면 Azure Functions Core Tools에 [.NET Core SDK](https://www.microsoft.com/net/download)가 설치되어 있어야 합니다. 그러나 JavaScript Azure 함수 앱을 빌드하는 데는 .NET에 대한 지식이 필요하지 않습니다.
+   > 확장을 설치하려면 Azure Functions Core Tools에 [.NET Core SDK](https://dotnet.microsoft.com/download)가 설치되어 있어야 합니다. 그러나 JavaScript Azure 함수 앱을 빌드하는 데는 .NET에 대한 지식이 필요하지 않습니다.
 
 - [Java Developer Kit](https://www.azul.com/downloads/zulu/), 버전 8
 - [Apache Maven](https://maven.apache.org), 버전 3.0 이상
