@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4141e60370b397e799664b7d42384bbeb096bd05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5281c02f68598b1cf121a6ab8a574f0694f5ea2
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99071184"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813444"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Key Vault에서 키 설정 및 검색
 
@@ -66,4 +66,4 @@ az keyvault key show --name "ExampleKey" --vault-name "<your-unique-keyvault-nam
 
 - [Azure Key Vault 개요](../general/overview.md) 참조
 - [Azure CLI az keyvault 명령](/cli/azure/keyvault)에 대한 참조를 참조하세요.
-- [Azure Key Vault 보안 개요](../general/security-overview.md)를 검토하세요.
+- [Azure Key Vault 보안 개요](../general/security-features.md)를 검토하세요.

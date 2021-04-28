@@ -3,12 +3,12 @@ title: '빠른 시작: IoT 마이크로 에이전트용 Defender 설치(미리 �
 description: 이 빠른 시작에서는 Defender 마이크로 에이전트를 설치하고 인증하는 방법을 알아봅니다.
 ms.date: 3/9/2021
 ms.topic: quickstart
-ms.openlocfilehash: a153b640a1d1e86f9b761817d05fda7d3e47da98
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: a78b633dffda42122114d2fce55ef6d8ccb323dc
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384411"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137440"
 ---
 # <a name="quickstart-install-defender-for-iot-micro-agent-preview"></a>빠른 시작: IoT 마이크로 에이전트용 Defender 설치(미리 보기)
 
@@ -94,7 +94,7 @@ IoT Hub에서 모듈 ID 연결 문자열을 가져오려면 다음을 수행합�
 
 인증서를 사용하여 인증하려면 다음을 수행합니다.
 
-1. [이 지침](../iot-hub/iot-hub-security-x509-get-started.md)에 따라 인증서를 확보합니다.
+1. [이 지침](../iot-hub/tutorial-x509-scripts.md)에 따라 인증서를 확보합니다.
 
 1. 인증서 및 프라이빗 키의 PEM으로 인코딩된 공개 부분을 Defender 에이전트 디렉터리의 `certificate_public.pem` 및 `certificate_private.pem` 파일에 저장합니다. 
 

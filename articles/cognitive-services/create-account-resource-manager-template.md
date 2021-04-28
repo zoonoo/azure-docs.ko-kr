@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 3/22/2021
 ms.author: aahi
-ms.custom: subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 161c5779926acad8814ec057f24e36f371738483
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.custom: subject-armqs
+ms.openlocfilehash: c3d74f8552f06290b43f6078bb7fcdd55c8b5f40
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104864366"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108072274"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Cognitive Services 리소스 만들기
 
@@ -57,7 +57,7 @@ ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 리소스를 만
 
 2. 다음 값을 입력합니다.
 
-    |값  |Description  |
+    |값  |설명  |
     |---------|---------|
     | **구독** | Azure 구독을 선택합니다. |
     | **리소스 그룹** | **새로 만들기** 를 선택하고 리소스 그룹의 고유한 이름을 입력한 다음, **확인** 을 클릭합니다. |
@@ -142,5 +142,5 @@ az group delete --name $resourceGroupName
 * Cognitive Services를 안전하게 사용하는 방법을 알아보려면 **[Azure Cognitive Services 요청 인증](authentication.md)** 을 참조하세요.
 * Cognitive Services에 포함된 다양한 범주 목록을 가져오려면 **[Azure Cognitive Services란?](./what-are-cognitive-services.md)** 을 참조하세요.
 * Cognitive Services에서 지원하는 자연어 목록을 보려면 **[자연어 지원](language-support.md)** 을 참조하세요.
-* Cognitive Services를 온-프레미스로 사용하는 방법을 파악하려면 **[Cognitive Services를 컨테이너로 사용](cognitive-services-container-support.md)** 을 참조하세요.
+* Cognitive Services를 온-프레미스로 사용하는 방법은 **[Cognitive Services를 컨테이너로 사용](cognitive-services-container-support.md)** 을 참조하세요.
 * Cognitive Services 사용 비용을 추산하려면 **[Cognitive Services 비용 계획 및 관리](plan-manage-costs.md)** 를 참조하세요.

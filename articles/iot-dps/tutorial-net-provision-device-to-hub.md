@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: f9a14ee6ee3e10b36d64ec11fc23807efe2bfaf2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 84fe935c1122d3d5c65423341b8760643257f992
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94966567"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868574"
 ---
 # <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>자습서: Azure IoT Hub Provisioning Service 클라이언트를 사용하여 IoT 허브에 디바이스를 등록(.NET)
 
@@ -32,7 +32,7 @@ ms.locfileid: "94966567"
 * Visual Studio
 
 > [!NOTE]
-> Visual Studio는 필요하지 않습니다. [.NET](https://www.microsoft.com/net) 설치로 충분하며, 개발자는 Windows 또는 Linux에서 원하는 편집기를 사용할 수 있습니다.  
+> Visual Studio는 필요하지 않습니다. [.NET](https://dotnet.microsoft.com) 설치로 충분하며, 개발자는 Windows 또는 Linux에서 원하는 편집기를 사용할 수 있습니다.  
 
 이 자습서는 하드웨어 제조 프로세스 도중 또는 직후에 디바이스 정보가 프로비전 서비스에 추가되는 기간을 시뮬레이션합니다. 이 코드는 일반적으로 .NET 코드를 실행할 수 있는 PC 또는 팩터리 디바이스 자체에서 실행되며, 디바이스 자체에는 추가할 수 없습니다.
 

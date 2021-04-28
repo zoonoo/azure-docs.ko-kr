@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 09/01/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e8e70884838d56003694e2da09668527ce5b6c7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d92a5e0b0d1a6953d0043f85ff98f6740aaacebb
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652992"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864017"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Service Bus 큐 시작
 이 자습서에서는 Service Bus 큐에서 메시지를 보내고 받는 .NET Core 콘솔 애플리케이션을 만듭니다.
@@ -21,7 +21,7 @@ ms.locfileid: "100652992"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs).
-- [NET Core SDK](https://www.microsoft.com/net/download/windows) 버전 2.0 이상
+- [NET Core SDK](https://dotnet.microsoft.com/download) 버전 2.0 이상
 - Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 - 작업할 큐가 없는 경우 [Azure Portal을 사용하여 Service Bus 큐 만들기](service-bus-quickstart-portal.md) 문서의 단계에 따라 큐를 만듭니다.
 

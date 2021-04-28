@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: fa1c01c2d9da19ec1f60878de83a509b7cf561e8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b845ecabe74040e154886476a8ba28efecc99325
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606830"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868864"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 기존 가상 네트워크에 HSM 배포
 
@@ -102,7 +102,7 @@ az network vnet subnet create \
 
 네트워크를 구성한 후에는 이러한 Azure CLI 명령을 사용하여 HSM을 프로비저닝합니다.
 
-1. [az dedicated-hsm create](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_create) 명령을 사용하여 첫 번째 HSM을 프로비저닝합니다. HSM의 이름은 hsm1입니다. 구독을 대체합니다.
+1. [az dedicated-hsm create](/cli/azure/dedicated-hsm#az_dedicated_hsm_create) 명령을 사용하여 첫 번째 HSM을 프로비저닝합니다. HSM의 이름은 hsm1입니다. 구독을 대체합니다.
 
    ```azurecli
    az dedicated-hsm create --location westus --name hsm1 --resource-group myRG --network-profile-network-interfaces \
@@ -111,7 +111,7 @@ az network vnet subnet create \
 
    이 배포를 완료하는 데는 약 25~30분이 소요됩니다. HSM 디바이스에서 대부분의 시간이 소요됩니다.
 
-1. 현재 HSM을 보려면 [az dedicated-hsm show](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_show) 명령을 실행합니다.
+1. 현재 HSM을 보려면 [az dedicated-hsm show](/cli/azure/dedicated-hsm#az_dedicated_hsm_show) 명령을 실행합니다.
 
    ```azurecli
    az dedicated-hsm show --resource group myRG --name hsm1
@@ -124,19 +124,19 @@ az network vnet subnet create \
         /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.Network/virtualNetworks/MyHSM-vnet/subnets/MyHSM-vnet
    ```
 
-1. [az dedicated-hsm list](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_list) 명령을 실행하여 현재 HSM에 대한 세부 정보를 확인합니다.
+1. [az dedicated-hsm list](/cli/azure/dedicated-hsm#az_dedicated_hsm_list) 명령을 실행하여 현재 HSM에 대한 세부 정보를 확인합니다.
 
    ```azurecli
    az dedicated-hsm list --resource-group myRG
    ```
 
-유용하게 사용할 수 있는 몇 가지 다른 명령이 있습니다. [az dedicated-hsm update](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_update) 명령을 사용하여 HSM을 업데이트합니다.
+유용하게 사용할 수 있는 몇 가지 다른 명령이 있습니다. [az dedicated-hsm update](/cli/azure/dedicated-hsm#az_dedicated_hsm_update) 명령을 사용하여 HSM을 업데이트합니다.
 
 ```azurecli
 az dedicated-hsm update --resource-group myRG –name hsm1
 ```
 
-HSM을 삭제하려면 [az dedicated-hsm delete](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_delete) 명령을 사용합니다.
+HSM을 삭제하려면 [az dedicated-hsm delete](/cli/azure/dedicated-hsm#az_dedicated_hsm_delete) 명령을 사용합니다.
 
 ```azurecli
 az dedicated-hsm delete --resource-group myRG –name hsm1

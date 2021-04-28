@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 3f9a6afe3202df40e26332c3a8c91b8c3eca8a32
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 39db32a7ee7eb8fed1da9ac8c9eb609efcf57c74
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012271"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070824"
 ---
 # <a name="call-the-image-analysis-api"></a>이미지 분석 API 호출
 
@@ -32,7 +32,7 @@ ms.locfileid: "107012271"
 
 ###  <a name="select-visual-features"></a>시각적 기능 선택
 
-[분석 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b)를 통해 모든 서비스의 이미지 분석 기능에 액세스할 수 있습니다. URL 쿼리 매개 변수를 설정하여 사용하려는 기능을 지정해야 합니다. 매개 변수는 쉼표로 구분된 여러 값을 가질 수 있습니다. 지정하는 기능마다 추가 계산 시간이 필요하므로 필요한 항목만 지정하세요.
+[분석 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b)를 통해 모든 서비스의 이미지 분석 기능에 액세스할 수 있습니다. URL 쿼리 매개 변수를 설정하여 사용하려는 기능을 지정해야 합니다. 매개 변수는 쉼표로 구분된 여러 값을 가질 수 있습니다. 지정하는 기능마다 추가 계산 시간이 필요하므로 필요한 항목만 지정하세요.
 
 |URL 매개 변수 | 값 | Description|
 |---|---|--|
@@ -71,7 +71,7 @@ ms.locfileid: "107012271"
 > [!NOTE]
 > **범위가 지정된 API 호출**
 >
-> 이미지 분석 기능 중 일부는 직접 호출하거나 분석 API 호출을 통해 호출할 수 있습니다. 예를 들어, `https://{endpoint}/vision/v3.2-preview.3/tag`에 요청을 보내 이미지 태그로 범위가 지정된 분석을 수행할 수 있습니다. 별도로 호출할 수 있는 다른 기능은 [참조 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b)를 확인하세요.
+> 이미지 분석 기능 중 일부는 직접 호출하거나 분석 API 호출을 통해 호출할 수 있습니다. 예를 들어, `https://{endpoint}/vision/v3.2-preview.3/tag`에 요청을 보내 이미지 태그로 범위가 지정된 분석을 수행할 수 있습니다. 별도로 호출할 수 있는 다른 기능은 [참조 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b)를 확인하세요.
 
 ## <a name="get-results-from-the-service"></a>서비스에서 결과 가져오기
 
@@ -139,4 +139,4 @@ description.captions[].confidence    | `number`    | 구의 신뢰도 점수입�
 
 ## <a name="next-steps"></a>다음 단계
 
-REST API를 사용해 보려면 [이미지 분석 API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b)로 이동합니다.
+REST API를 사용해 보려면 [이미지 분석 API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b)로 이동합니다.

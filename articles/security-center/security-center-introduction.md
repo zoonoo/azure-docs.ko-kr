@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 741cd68145b262c1f200ced9a7f28b25673b6925
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: fb505c42cda53db549cd5187972ad6fabfdf7ca4
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107738921"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137096"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Security Center란?
 
@@ -72,7 +72,7 @@ Security Center를 사용하면 **섀도 IT 구독을 확인** 할 수 있습니
 
 ### <a name="continuous-assessments"></a>연속 평가
 
-Security Center는 워크로드 전체에 배포되는 새 리소스를 지속적으로 검색하고 보안 모범 사례에 따라 구성되었는지 여부를 평가하며, 그렇지 않은 경우 리소스에 플래그가 지정되어 머신을 보호하기 위해 수정해야 하는 권장 사항 목록이 우선 순위에 따라 작성됩니다. 이 권장 사항 목록은 일반적인 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침 세트인 [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)에서 활성화 및 지원됩니다. 널리 인정받는 이 벤치마크는 클라우드 중심 보안에 초점을 맞춘 [CIS(Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) 및 [NIST(National Institute of Standards and Technology)](https://www.nist.gov/)의 컨트롤을 기반으로 합니다.
+Security Center는 워크로드 전체에 배포되는 새 리소스를 지속적으로 검색하고 보안 모범 사례에 따라 구성되었는지 여부를 평가하며, 그렇지 않은 경우 리소스에 플래그가 지정되어 머신을 보호하기 위해 수정해야 하는 권장 사항 목록이 우선 순위에 따라 작성됩니다. 이 권장 사항 목록은 일반적인 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침 세트인 [Azure Security Benchmark](/security/benchmark/azure/introduction)에서 활성화 및 지원됩니다. 널리 인정받는 이 벤치마크는 클라우드 중심 보안에 초점을 맞춘 [CIS(Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) 및 [NIST(National Institute of Standards and Technology)](https://www.nist.gov/)의 컨트롤을 기반으로 합니다.
 
 각 권장 사항이 전체 보안 상태에 얼마나 중요한지 이해하는 데 도움이 되도록 Security Center는 권장 사항을 보안 제어에 그룹화하고 각 제어에 **보안 점수** 값을 추가합니다. 이는 **보안 작업의 우선 순위를 지정** 하는 데 중요합니다.
 

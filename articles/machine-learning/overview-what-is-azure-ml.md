@@ -10,12 +10,12 @@ author: BlackMist
 ms.date: 04/08/2021
 ms.custom: devx-track-python
 adobe-target: true
-ms.openlocfilehash: 4f97883c157d04358322b01cab7049dcbbabdc4f
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: cd395f0ff29eed1e09f5bdac882482b201052c90
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107031089"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814834"
 ---
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
 
@@ -78,14 +78,14 @@ SDK를 사용하여 [모델 학습 및 튜닝을 자동화](tutorial-auto-train-
 
 + **실험 추적**
 
-  스튜디오에서 [데이터 과학 실험을 추적하고 시각화](tutorial-first-experiment-automated-ml.md)하는 방법에 대해 알아봅니다. 
+  스튜디오에서 [데이터 과학 실험을 추적하고 시각화](how-to-track-monitor-analyze-runs.md)하는 방법에 대해 알아봅니다. 
 
-    ![Azure Machine Learning 스튜디오에서 세부 정보 실행](media/how-to-track-experiments/experimentation-tab.gif)
+    :::image type="content" source="media/how-to-track-monitor-analyze-runs/run-history.png" alt-text="Azure Machine Learning 스튜디오에서 세부 정보 실행":::
 
 
 + **이 외에도 많은 기능이 있습니다.**
 
-  [ml.azure.com](https://studio.azureml.net)에서 Azure Machine Learning 스튜디오를 방문하세요. 
+  [ml.azure.com](https://studio.azureml.net)에서 Azure Machine Learning 스튜디오를 방문하세요.
 
 
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps: 배포 및 수명 주기 관리

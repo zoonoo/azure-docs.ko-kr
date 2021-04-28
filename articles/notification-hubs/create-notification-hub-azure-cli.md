@@ -14,12 +14,12 @@ ms.author: dbradish
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d8400eb051c09fac4cb88863ad2fac12d2ca0a1b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d9754bb1390e242b12944b0b59595d4a4d46af33
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789886"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873580"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure 알림 허브 만들기
 
@@ -48,7 +48,7 @@ az group create --name spnhubrg --location eastus
 
 1. 알림 허브에 대한 네임스페이스를 만듭니다.
 
-   네임스페이스는 하나 이상의 허브를 포함하며, 이름은 모든 Azure 구독에서 고유해야 하고, 길이가 6자 이상이어야 합니다. 이름의 가용성을 확인하려면 [az notification-hub namespace check-availability](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-check-availability) 명령을 사용합니다.
+   네임스페이스는 하나 이상의 허브를 포함하며, 이름은 모든 Azure 구독에서 고유해야 하고, 길이가 6자 이상이어야 합니다. 이름의 가용성을 확인하려면 [az notification-hub namespace check-availability](/cli/azure/notification-hub/namespace#az_notification_hub_namespace_check-availability) 명령을 사용합니다.
 
    ```azurecli
    az notification-hub namespace check-availability --name spnhubns
@@ -69,7 +69,7 @@ az group create --name spnhubrg --location eastus
    }
    ```
 
-   Azure CLI 응답의 두 번째 줄(`"isAvailable": true`)을 확인하세요. 사용자가 네임스페이스에 지정하기를 원하는 이름이 없는 경우 이 줄은 `false`가 됩니다. 이름의 사용 가능 여부를 확인한 후에는 [az notification-hub namespace create](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-create) 명령을 실행하여 네임스페이스를 만듭니다.  
+   Azure CLI 응답의 두 번째 줄(`"isAvailable": true`)을 확인하세요. 사용자가 네임스페이스에 지정하기를 원하는 이름이 없는 경우 이 줄은 `false`가 됩니다. 이름의 사용 가능 여부를 확인한 후에는 [az notification-hub namespace create](/cli/azure/notification-hub/namespace#az_notification_hub_namespace_create) 명령을 실행하여 네임스페이스를 만듭니다.  
 
    ```azurecli
    az notification-hub namespace create --resource-group spnhubrg --name spnhubns  --location eastus --sku Free
@@ -92,7 +92,7 @@ az group create --name spnhubrg --location eastus
 
 2. 네임스페이스의 목록을 가져옵니다.
 
-   새 네임스페이스에 대한 세부 정보를 보려면 [az notification-hub namespace list](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-list) 명령을 사용합니다. 구독에 대한 모든 네임스페이스를 확인하려는 경우 `--resource-group` 매개 변수는 선택 사항입니다.
+   새 네임스페이스에 대한 세부 정보를 보려면 [az notification-hub namespace list](/cli/azure/notification-hub/namespace#az_notification_hub_namespace_list) 명령을 사용합니다. 구독에 대한 모든 네임스페이스를 확인하려는 경우 `--resource-group` 매개 변수는 선택 사항입니다.
 
    ```azurecli
    az notification-hub namespace list --resource-group spnhubrg
@@ -102,7 +102,7 @@ az group create --name spnhubrg --location eastus
 
 1. 첫 번째 알림 허브를 만듭니다.
 
-   이제 새 네임스페이스에서 하나 이상의 알림 허브를 만들 수 있습니다. [az notification-hub create](/cli/azure/ext/notification-hub/notification-hub#ext-notification-hub-az-notification-hub-create) 명령을 실행하여 알림 허브를 만듭니다.
+   이제 새 네임스페이스에서 하나 이상의 알림 허브를 만들 수 있습니다. [az notification-hub create](/cli/azure/notification-hub#az_notification_hub_create) 명령을 실행하여 알림 허브를 만듭니다.
 
    ```azurecli
    az notification-hub create --resource-group spnhubrg --namespace-name spnhubns --name spfcmtutorial1nhub --location eastus --sku Free
@@ -118,7 +118,7 @@ az group create --name spnhubrg --location eastus
 
 3. 알림 허브 목록을 가져옵니다.
 
-   Azure CLI는 각 명령이 실행될 때마다 성공 또는 오류 메시지를 반환합니다. 그러나 알림 허브 목록을 쿼리할 수 있으면 안심할 수 있습니다. [az notification-hub list](/cli/azure/ext/notification-hub/notification-hub#ext-notification-hub-az-notification-hub-list) 명령은 이 목적을 위해 설계되었습니다.
+   Azure CLI는 각 명령이 실행될 때마다 성공 또는 오류 메시지를 반환합니다. 그러나 알림 허브 목록을 쿼리할 수 있으면 안심할 수 있습니다. [az notification-hub list](/cli/azure/notification-hub#az_notification_hub_list) 명령은 이 목적을 위해 설계되었습니다.
 
    ```azurecli
    az notification-hub list --resource-group spnhubrg --namespace-name spnhubns --output table
@@ -126,7 +126,7 @@ az group create --name spnhubrg --location eastus
 
 ## <a name="work-with-access-policies"></a>액세스 정책 작업
 
-1. Azure Notification Hubs는 액세스 정책을 통해 [공유 액세스 서명 보안](./notification-hubs-push-notification-security.md)을 사용합니다. 알림 허브를 만들면 두 가지 정책이 자동으로 생성됩니다. 이러한 정책의 연결 문자열은 푸시 알림을 구성하는 데 필요합니다. [az notification-hub authorization-rule list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) 명령은 정책 이름 및 해당 리소스 그룹의 목록을 제공합니다.
+1. Azure Notification Hubs는 액세스 정책을 통해 [공유 액세스 서명 보안](./notification-hubs-push-notification-security.md)을 사용합니다. 알림 허브를 만들면 두 가지 정책이 자동으로 생성됩니다. 이러한 정책의 연결 문자열은 푸시 알림을 구성하는 데 필요합니다. [az notification-hub authorization-rule list](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization-rule-list) 명령은 정책 이름 및 해당 리소스 그룹의 목록을 제공합니다.
 
    ```azurecli
    az notification-hub authorization-rule list --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --output table
@@ -135,13 +135,13 @@ az group create --name spnhubrg --location eastus
    > [!IMPORTANT]
    > 애플리케이션에서 _DefaultFullSharedAccessSignature_ 정책을 사용하지 마세요. 이 정책은 백 엔드에서만 사용할 수 있습니다. 클라이언트 애플리케이션에서는 `Listen` 액세스 정책만 사용하세요.
 
-2. 의미 있는 이름을 사용하여 추가 권한 부여 규칙을 만들려는 경우 [az notification-hub authorization-rule create](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-create) 명령을 사용하여 사용자 고유의 액세스 정책을 만들고 사용자 지정할 수 있습니다. `--rights` 매개 변수는 할당하려는 권한의 공백으로 구분된 목록입니다.
+2. 의미 있는 이름을 사용하여 추가 권한 부여 규칙을 만들려는 경우 [az notification-hub authorization-rule create](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization_rule_create) 명령을 사용하여 사용자 고유의 액세스 정책을 만들고 사용자 지정할 수 있습니다. `--rights` 매개 변수는 할당하려는 권한의 공백으로 구분된 목록입니다.
 
    ```azurecli
    az notification-hub authorization-rule create --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --name spnhub1key --rights Listen Manage Send
    ```
 
-3. 액세스 정책마다 두 가지 키 및 연결 문자열 세트가 있습니다. 나중에 [알림 허브를 구성](./configure-notification-hub-portal-pns-settings.md)하는 데 필요합니다. 알림 허브 액세스 정책에 대한 키 및 연결 문자열을 나열하려면 [az notification-hub authorization-rule list-keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys) 명령을 사용합니다.
+3. 액세스 정책마다 두 가지 키 및 연결 문자열 세트가 있습니다. 나중에 [알림 허브를 구성](./configure-notification-hub-portal-pns-settings.md)하는 데 필요합니다. 알림 허브 액세스 정책에 대한 키 및 연결 문자열을 나열하려면 [az notification-hub authorization-rule list-keys](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization_rule_list_keys) 명령을 사용합니다.
 
    ```azurecli
    # query the keys and connection strings for DefaultListenSharedAccessSignature
@@ -154,7 +154,7 @@ az group create --name spnhubrg --location eastus
    ```
 
    > [!NOTE]
-   > [알림 허브 네임스페이스](/cli/azure/ext/notification-hub/notification-hub/namespace/authorization-rule#ext-notification-hub-az-notification-hub-namespace-authorization-rule-list-keys) 및 [알림 허브](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys)는 별도의 액세스 정책을 사용합니다. 키 및 연결 문자열을 쿼리할 때 올바른 Azure CLI 참조를 사용하고 있는지 확인해야 합니다.
+   > [알림 허브 네임스페이스](/cli/azure/notification-hub/namespace/authorization-rule#az_notification_hub_namespace_authorization_rule_list_keys) 및 [알림 허브](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization_rule_list_keys)는 별도의 액세스 정책을 사용합니다. 키 및 연결 문자열을 쿼리할 때 올바른 Azure CLI 참조를 사용하고 있는지 확인해야 합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -170,10 +170,10 @@ az group delete --name spnhubrg
 
 * Azure CLI를 사용하여 알림 허브를 관리하기 위한 광범위한 기능을 검색합니다.
 
-  [Notification Hubs 전체 참조 목록](/cli/azure/ext/notification-hub/notification-hub)
+  [Notification Hubs 전체 참조 목록](/cli/azure/notification-hub)
 
-  [Notification Hubs 네임스페이스 참조 목록](/cli/azure/ext/notification-hub/notification-hub/namespace)
+  [Notification Hubs 네임스페이스 참조 목록](/cli/azure/notification-hub/namespace)
 
-  [Notification Hubs 권한 부여 규칙 참조 목록](/cli/azure/ext/notification-hub/notification-hub/authorization-rule)
+  [Notification Hubs 권한 부여 규칙 참조 목록](/cli/azure/notification-hub/authorization-rule)
 
-  [Notification Hubs 자격 증명 참조 목록](/cli/azure/ext/notification-hub/notification-hub/credential)
+  [Notification Hubs 자격 증명 참조 목록](/cli/azure/notification-hub/credential)

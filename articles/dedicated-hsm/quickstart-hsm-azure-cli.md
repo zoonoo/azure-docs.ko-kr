@@ -9,16 +9,16 @@ ms.service: key-vault
 ms.devlang: azurecli
 ms.date: 01/06/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e07bc758b1ef86b3d8c605cbce72f6db564a355f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 80d5bbb54715c5a1a5102f8991f366e273145edc
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98020862"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868954"
 ---
 # <a name="quickstart-create-an-azure-dedicated-hsm-by-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Dedicated HSM 만들기
 
-이 문서에서는 [az dedicated-hsm](/cli/azure/ext/hardware-security-modules/dedicated-hsm) Azure CLI 확장을 사용하여 Azure Dedicated HSM을 만들고 관리하는 방법을 설명합니다.
+이 문서에서는 [az dedicated-hsm](/cli/azure/dedicated-hsm) Azure CLI 확장을 사용하여 Azure Dedicated HSM을 만들고 관리하는 방법을 설명합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -44,7 +44,7 @@ az group create --name myRG --location westus
 
 ## <a name="create-a-dedicated-hsm"></a>전용 HSM 만들기
 
-전용 HSM을 만들려면 [az dedicated-hsm create](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_create) 명령을 사용합니다. 다음 예제에서는 `hsm1`이라는 전용 HSM을 `westus` 지역, `myRG` 리소스 그룹 및 지정된 구독, 가상 네트워크 및 서브넷에 프로비저닝합니다. 필수 매개 변수는 `name`, `location` 및 `resource group`입니다.
+전용 HSM을 만들려면 [az dedicated-hsm create](/cli/azure/dedicated-hsm#az_dedicated_hsm_create) 명령을 사용합니다. 다음 예제에서는 `hsm1`이라는 전용 HSM을 `westus` 지역, `myRG` 리소스 그룹 및 지정된 구독, 가상 네트워크 및 서브넷에 프로비저닝합니다. 필수 매개 변수는 `name`, `location` 및 `resource group`입니다.
 
 ```azurecli-interactive
 az dedicated-hsm create \
@@ -63,7 +63,7 @@ az dedicated-hsm create \
 
 ## <a name="get-a-dedicated-hsm"></a>전용 HSM 가져오기
 
-현재 전용 HSM을 가져오려면 [az dedicated-hsm show](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_show) 명령을 실행합니다. 다음 예제에서는 리소스 그룹 `myRG`의 전용 HSM `hsm1`을 가져옵니다.
+현재 전용 HSM을 가져오려면 [az dedicated-hsm show](/cli/azure/dedicated-hsm#az_dedicated_hsm_show) 명령을 실행합니다. 다음 예제에서는 리소스 그룹 `myRG`의 전용 HSM `hsm1`을 가져옵니다.
 
 ```azurecli-interactive
 az dedicated-hsm show --resource-group myRG --name hsm1
@@ -71,7 +71,7 @@ az dedicated-hsm show --resource-group myRG --name hsm1
 
 ## <a name="update-a-dedicated-hsm"></a>전용 HSM 업데이트
 
-[az dedicated-hsm update](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_update) 명령을 사용하여 전용 HSM을 업데이트합니다. 다음 예제에서는 리소스 그룹 `myRG`의 전용 HSM `hsm1`과 태그를 업데이트합니다.
+[az dedicated-hsm update](/cli/azure/dedicated-hsm#az_dedicated_hsm_update) 명령을 사용하여 전용 HSM을 업데이트합니다. 다음 예제에서는 리소스 그룹 `myRG`의 전용 HSM `hsm1`과 태그를 업데이트합니다.
 
 ```azurecli-interactive
 az dedicated-hsm update --resource-group myRG –-name hsm1 --tags resourceType="hsm" Environment="prod" Slice="A"
@@ -79,7 +79,7 @@ az dedicated-hsm update --resource-group myRG –-name hsm1 --tags resourceType=
 
 ## <a name="list-dedicated-hsms"></a>전용 HSM 나열
 
-[az dedicated-hsm list](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_list) 명령을 실행하여 현재 전용 HSM에 대한 정보를 가져옵니다. 다음 예제에서는 리소스 그룹 `myRG`의 전용 HSM을 나열합니다.
+[az dedicated-hsm list](/cli/azure/dedicated-hsm#az_dedicated_hsm_list) 명령을 실행하여 현재 전용 HSM에 대한 정보를 가져옵니다. 다음 예제에서는 리소스 그룹 `myRG`의 전용 HSM을 나열합니다.
 
 ```azurecli-interactive
 az dedicated-hsm list --resource-group myRG
@@ -87,7 +87,7 @@ az dedicated-hsm list --resource-group myRG
 
 ## <a name="remove-a-dedicated-hsm"></a>전용 HSM 제거
 
-전용 HSM을 제거하려면 [az dedicated-hsm delete](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_delete) 명령을 사용합니다. 다음 예제에서는 리소스 그룹 `myRG`에서 전용 HSM `hsm1`을 삭제합니다.
+전용 HSM을 제거하려면 [az dedicated-hsm delete](/cli/azure/dedicated-hsm#az_dedicated_hsm_delete) 명령을 사용합니다. 다음 예제에서는 리소스 그룹 `myRG`에서 전용 HSM `hsm1`을 삭제합니다.
 
 ```azurecli-interactive
 az dedicated-hsm delete --resource-group myRG –-name hsm1

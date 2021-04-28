@@ -12,12 +12,12 @@ tags:
 - azure-resource-manager
 ms.custom:
 - mode-api
-ms.openlocfilehash: ba1cd8d6b1410be30eefe9dca9675daaf6c16256
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: aa984a8f3899db72ead878e2c4381ea6a080e32d
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534660"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815435"
 ---
 # <a name="quickstart-set-and-retrieve-a-managed-key-from-azure-key-vault-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Key Vault에서 관리형 키 설정 및 검색
 
@@ -115,4 +115,4 @@ Export-AzKeyVaultSecurityDomain -Name "<your-unique-managed-hsm-name>" -Certific
 
 - [Azure Key Vault 개요](../general/overview.md) 참조
 - [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/)에 대한 참조를 참조하세요.
-- [Azure Key Vault 보안 개요](../general/security-overview.md)를 검토하세요.
+- [Azure Key Vault 보안 개요](../general/security-features.md)를 검토하세요.
