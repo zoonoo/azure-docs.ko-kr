@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/15/2021
-ms.openlocfilehash: 53fe53e1406bfcde1f2d8c7b2a1ce8369303426f
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 56fe69ad7f56d62c9f61738448ea0276fee47063
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379369"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862528"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-using-azure-cli-preview"></a>빠른 시작: Azure CLI를 사용하여 Apache Cassandra용 Azure Managed Instance 클러스터 만들기(미리 보기)
 
@@ -66,7 +66,7 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
    > [!NOTE]
    > 이전 명령의 `assignee` 및 `role` 값은 고정된 값이므로 명령에 설명된 대로 이러한 값을 정확하게 입력합니다. 그렇게 하지 않으면 클러스터를 만들 때 오류가 발생합니다. 이 명령을 실행할 때 오류가 발생하면 실행할 권한이 없는 것일 수 있습니다. 관리자에게 문의하여 권한을 받으세요.
 
-1. 그런 다음, [az managed-cassandra cluster create](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_create) 명령을 사용하여 새로 만든 Virtual Network에서 클러스터를 만듭니다. `delegatedManagementSubnetId` 변수 값으로 다음 명령을 실행합니다.
+1. 그런 다음, [az managed-cassandra cluster create](/cli/azure/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_cluster_create) 명령을 사용하여 새로 만든 Virtual Network에서 클러스터를 만듭니다. `delegatedManagementSubnetId` 변수 값으로 다음 명령을 실행합니다.
 
    > [!NOTE]
    > 아래에 제공할 `delegatedManagementSubnetId` 변수 값은 위의 명령에서 제공한 `--scope` 값과 정확히 동일합니다.
@@ -87,7 +87,7 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
       --debug
    ```
 
-1. 마지막으로 [az managed-cassandra datacenter create](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_create) 명령을 사용하여 세 개의 노드가 있는 클러스터용 데이터 센터를 만듭니다.
+1. 마지막으로 [az managed-cassandra datacenter create](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_create) 명령을 사용하여 세 개의 노드가 있는 클러스터용 데이터 센터를 만듭니다.
 
    ```azurecli-interactive
    dataCenterName='dc1'
@@ -102,7 +102,7 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
       --node-count 3 
    ```
 
-1. 데이터 센터가 생성된 후 데이터 센터의 노드를 스케일 업 또는 스케일 다운하려는 경우 [az managed-cassandra datacenter update](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_update) 명령을 실행합니다. `node-count` 매개 변수 값을 원하는 값으로 변경합니다.
+1. 데이터 센터가 생성된 후 데이터 센터의 노드를 스케일 업 또는 스케일 다운하려는 경우 [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_update) 명령을 실행합니다. `node-count` 매개 변수 값을 원하는 값으로 변경합니다.
 
    ```azurecli-interactive
    resourceGroupName='<Resource_Group_Name>'

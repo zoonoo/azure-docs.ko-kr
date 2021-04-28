@@ -4,15 +4,19 @@ description: Azure Cosmos DB의 API for MongoDB를 사용하여 Azure Cosmos DB�
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 03/02/2021
+ms.date: 04/21/2021
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: dfaa04077a5148f19f06aa5e1257b986377ea8c0
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+adobe-target: true
+adobe-target-activity: DocsExp– 396298–A/B–Docs–IntroToCosmosDBAPIforMongoDB-Revamp–FY21Q4
+adobe-target-experience: Experience B
+adobe-target-content: ./mongodb-introduction-experiment
+ms.openlocfilehash: 518eaadf75a5ff2cabc541586fcdf029b0ca1c60
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307132"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107887093"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]

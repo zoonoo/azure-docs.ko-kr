@@ -1,18 +1,18 @@
 ---
 title: Azure App Configuration에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure App Configuration에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: sample
 author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: fdb46c9ab82055137c67e03a1d99fa3f5c0f6786
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 50dea90648abc9d2d5bab4edfa1348e290c2b178
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107504583"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107878773"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-app-configuration"></a>Azure App Configuration에 대한 Azure Policy 규정 준수 컨트롤
 

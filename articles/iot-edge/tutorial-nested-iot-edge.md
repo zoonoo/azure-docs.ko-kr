@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 44fe6bb3787e1fe0df7ccf83200497b46c473568
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 79ccd1f8107eb5d287cf74084978b92715b936fa
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728503"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133748"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices"></a>자습서: IoT Edge 디바이스의 계층 구조 만들기
 
@@ -77,7 +77,7 @@ IoT Edge 디바이스의 계층 구조를 만들려면 다음이 필요합니다
     --query "properties.outputs.[publicFQDN.value, publicSSH.value]" -o tsv
    ```
 
-   가상 머신은 사용자를 인증하는 데 SSH 키를 사용합니다. SSH 키를 만들고 사용하는 방법을 잘 모르는 경우 [Azure의 Linux VM용 SSH 공개-프라이빗 키 쌍에 대한 지침](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)을 따를 수 있습니다.
+   가상 머신은 사용자를 인증하는 데 SSH 키를 사용합니다. SSH 키를 만들고 사용하는 방법을 잘 모르는 경우 [Azure의 Linux VM용 SSH 공개-프라이빗 키 쌍에 대한 지침](../virtual-machines/linux/mac-create-ssh-keys.md)을 따를 수 있습니다.
 
    이 ARM 템플릿에는 IoT Edge 버전 1.2가 미리 설치되어 있으므로 가상 머신에 수동으로 자산을 설치할 필요가 없습니다. 사용자 고유의 디바이스에 IoT Edge를 설치하는 경우 [Linux용 Azure IoT Edge 설치(버전 1.2)](how-to-install-iot-edge.md) 또는 [IoT Edge를 버전 1.2로 업데이트](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12)를 참조하세요.
 

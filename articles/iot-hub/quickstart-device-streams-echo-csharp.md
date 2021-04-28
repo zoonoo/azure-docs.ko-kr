@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 3eb65db27e5b96f4b12973154bc860a2ab3df020
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4f6e06524412c76661623cb5ef2985a41f2d7fc
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98624611"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864092"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>빠른 시작: IoT Hub 디바이스 스트림을 통해 C#에서 디바이스 애플리케이션과 통신(미리 보기)
 
@@ -36,7 +36,7 @@ Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기능](https:/
 
 * 이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 C#으로 작성되었습니다. 개발 머신에는 .NET Core SDK 2.1.0 이상이 필요합니다.
 
-    [.NET에서 여러 플랫폼에 대한 .NET Core SDK](https://www.microsoft.com/net/download/all)를 다운로드하세요.
+    [.NET에서 여러 플랫폼에 대한 .NET Core SDK](https://dotnet.microsoft.com/download)를 다운로드하세요.
 
     다음 명령을 사용하여 개발 머신에서 C#의 현재 버전을 확인합니다.
 

@@ -6,18 +6,18 @@ ms.author: msangapu
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.custom: subject-armqs, devx-track-azurecli
+ms.custom: subject-armqs
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-arm-template-uiex
-ms.openlocfilehash: 8b048127c8a5581a34a62cfb67c19ba7aa50f2d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b462c8e102d65470b55eb6d5d4368917053c155
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101701589"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074676"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 App Service 앱 만들기
 
@@ -29,11 +29,11 @@ ARM 템플릿(Azure Resource Manager 템플릿) 및 Cloud Shell의 [Azure CLI](/
 
 다음 단추를 사용하여 **Linux** 에 배포합니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-linux%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-linux%2Fazuredeploy.json)
 
 다음 단추를 사용하여 **Windows** 에 배포합니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-windows%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-windows%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -44,7 +44,7 @@ ARM 템플릿(Azure Resource Manager 템플릿) 및 Cloud Shell의 [Azure CLI](/
 ::: zone pivot="platform-windows"
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows)에서 나온 것입니다. Windows에 App Service 요금제 및 App Service 앱을 배포합니다. .NET Core, .NET Framework, PHP, Node.js 및 정적 HTML 앱과 호환됩니다. Java의 경우 [Java 앱 만들기](./quickstart-java.md)를 참조하세요.
 
-:::code language="json" source="~/quickstart-templates/101-app-service-docs-windows/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-windows/azuredeploy.json":::
 
 템플릿에는 두 개의 Azure 리소스가 정의되어 있습니다.
 
@@ -65,7 +65,7 @@ ARM 템플릿(Azure Resource Manager 템플릿) 및 Cloud Shell의 [Azure CLI](/
 ::: zone pivot="platform-linux"
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-app-service-docs-linux)에서 나온 것입니다. Linux에 App Service 요금제 및 App Service 앱을 배포합니다. App Service에서 지원되는 모든 프로그래밍 언어와 호환됩니다.
 
-:::code language="json" source="~/quickstart-templates/101-app-service-docs-linux/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-linux/azuredeploy.json":::
 
 템플릿에는 두 개의 Azure 리소스가 정의되어 있습니다.
 
@@ -98,7 +98,7 @@ Azure CLI는 템플릿을 배포하는 데 사용됩니다. Azure Portal, Azure 
 az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup \
 --parameters language=".net" helloWorld="true" webAppName="<app-name>" \
---template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-service-docs-windows/azuredeploy.json"
+--template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsofot.web/app-service-docs-windows/azuredeploy.json"
 ::: zone-end
 ::: zone pivot="platform-linux"
 Run the code below to create a Python app on Linux.
@@ -106,7 +106,7 @@ Run the code below to create a Python app on Linux.
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup --parameters webAppName="<app-name>" linuxFxVersion="PYTHON|3.7" \
---template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-service-docs-linux/azuredeploy.json"
+--template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/app-service-docs-linux/azuredeploy.json"
 ```
 
 다른 언어 스택을 배포하려면 `linuxFxVersion`을 적절한 값으로 업데이트합니다. 샘플은 다음과 같습니다. 최신 버전을 표시하려면 Cloud Shell에서 다음 명령어를 실행합니다. `az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion`

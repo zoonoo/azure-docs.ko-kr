@@ -8,12 +8,12 @@ ms.date: 12/02/2020
 ms.author: brendm
 ms.custom: devx-track-java, contperf-fy21q2
 customer intent: As an Azure Cloud user, I want to deploy, run, and monitor Spring Boot microservices.
-ms.openlocfilehash: a92e535cb1edeb0eeaa285e442b4b24766e20ead
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 119128fcc2b2f08ba101c5c44768281cf7e6e600
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104878839"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132812"
 ---
 # <a name="what-is-azure-spring-cloud"></a>Azure Spring Cloud란?
 
@@ -50,26 +50,26 @@ Azure 에코시스템의 일부인 Azure Spring Cloud를 사용하면 스토리�
 이 설명서에는 Azure Spring Cloud 서비스를 시작하고 활용하는 방법을 설명하는 섹션이 포함되어 있습니다.
 
 * 시작하기
-    * [첫 번째 앱 시작](spring-cloud-quickstart.md)
-    * [Azure Spring Cloud 서비스 프로비저닝](spring-cloud-quickstart-provision-service-instance.md)
+    * [첫 번째 앱 시작](./quickstart.md)
+    * [Azure Spring Cloud 서비스 프로비저닝](./quickstart-provision-service-instance.md)
     * [구성 서버 설정]()
-    * [앱 빌드 및 배포](spring-cloud-quickstart-deploy-apps.md)
-    * [로그 메트릭 및 추적 사용](spring-cloud-quickstart-logs-metrics-tracing.md)
+    * [앱 빌드 및 배포](./quickstart-deploy-apps.md)
+    * [로그 메트릭 및 추적 사용](./quickstart-logs-metrics-tracing.md)
 * 방법
     * [개발](how-to-prepare-app-deployment.md): Azure Spring Cloud에 배포할 기존 Java Spring 애플리케이션을 준비합니다. 제대로 구성되면 Azure Spring Cloud는 Java Spring Cloud 애플리케이션을 모니터링하고, 크기를 조정하고, 업데이트할 수 있는 강력한 서비스를 제공합니다.
-    * [배포](spring-cloud-howto-staging-environment.md): Azure Spring Cloud에서 청록색 배포 패턴을 사용하여 스테이징 배포를 설정하는 방법을 보여줍니다. 파란색/녹색 배포는 새로운(녹색) 버전이 배포되는 동안 기존(파란색) 버전을 유지하도록 하는 Azure DevOps 지속적인 업데이트 패턴입니다.
-    * [앱 구성](spring-cloud-howto-start-stop-delete.md):  Azure Spring Cloud 애플리케이션을 시작, 중지 및 삭제합니다. Azure Portal 또는 Azure CLI를 사용하여 Azure Spring Cloud에서 애플리케이션의 상태를 변경합니다.
-    * [크기 조정](spring-cloud-howto-scale-manual.md): Azure Portal에서 Azure Spring Cloud 대시보드를 사용하거나 자동 크기 조정 설정을 사용하여 모든 마이크로서비스 애플리케이션의 크기를 조정하는 방법을 보여줍니다. 공용 IP는 데이터베이스, 스토리지 및 키 자격 증명 모음과 같은 외부 리소스와 통신하는 데 사용할 수 있습니다.
-    * [앱 모니터링](spring-cloud-howto-distributed-tracing.md): 복잡한 문제를 쉽게 디버깅하고 모니터링할 수 있는 분산 추적 도구입니다. Azure Spring Cloud는 Spring Cloud Sleuth를 Azure의 Application Insights와 통합합니다. 이러한 통합은 Azure Portal의 강력한 분산 추적 기능을 제공합니다.
-    * [보안 앱](spring-cloud-howto-enable-system-assigned-managed-identity.md): Azure 리소스는 Azure Active Directory에서 자동으로 관리 ID를 제공합니다. 이 ID를 사용하면 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.
-    * [다른 Azure 서비스와 통합](spring-cloud-howto-bind-cosmos.md): Spring Boot 애플리케이션을 수동으로 구성하는 대신 선택한 Azure 서비스를 애플리케이션에 자동으로 바인딩할 수 있습니다(예: 애플리케이션을 Azure Cosmos DB에 바인딩).
-    * [자동화](spring-cloud-howto-cicd.md): 연속 통합 및 지속적인 업데이트 도구를 사용하면 최소한의 노력과 위험으로 기존 애플리케이션에 업데이트를 신속하게 배포할 수 있습니다. Azure DevOps는 이러한 주요 작업을 구성하고 제어하는 데 도움이 됩니다. 
-    * [문제 해결](spring-cloud-howto-self-diagnose-solve.md): Azure Spring Cloud 진단은 앱 문제를 해결하는 데 유용한 대화형 환경을 제공합니다. 구성이 필요하지 않습니다. 문제를 발견하면 Azure Spring Cloud 진단에서 문제를 식별하고 문제를 해결하는 데 도움이 되는 정보로 안내합니다.
+    * [배포](./how-to-staging-environment.md): Azure Spring Cloud에서 청록색 배포 패턴을 사용하여 스테이징 배포를 설정하는 방법을 보여줍니다. 파란색/녹색 배포는 새로운(녹색) 버전이 배포되는 동안 기존(파란색) 버전을 유지하도록 하는 Azure DevOps 지속적인 업데이트 패턴입니다.
+    * [앱 구성](./how-to-start-stop-delete.md):  Azure Spring Cloud 애플리케이션을 시작, 중지 및 삭제합니다. Azure Portal 또는 Azure CLI를 사용하여 Azure Spring Cloud에서 애플리케이션의 상태를 변경합니다.
+    * [크기 조정](./how-to-scale-manual.md): Azure Portal에서 Azure Spring Cloud 대시보드를 사용하거나 자동 크기 조정 설정을 사용하여 모든 마이크로서비스 애플리케이션의 크기를 조정하는 방법을 보여줍니다. 공용 IP는 데이터베이스, 스토리지 및 키 자격 증명 모음과 같은 외부 리소스와 통신하는 데 사용할 수 있습니다.
+    * [앱 모니터링](./how-to-distributed-tracing.md): 복잡한 문제를 쉽게 디버깅하고 모니터링할 수 있는 분산 추적 도구입니다. Azure Spring Cloud는 Spring Cloud Sleuth를 Azure의 Application Insights와 통합합니다. 이러한 통합은 Azure Portal의 강력한 분산 추적 기능을 제공합니다.
+    * [보안 앱](./how-to-enable-system-assigned-managed-identity.md): Azure 리소스는 Azure Active Directory에서 자동으로 관리 ID를 제공합니다. 이 ID를 사용하면 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.
+    * [다른 Azure 서비스와 통합](./how-to-bind-cosmos.md): Spring Boot 애플리케이션을 수동으로 구성하는 대신 선택한 Azure 서비스를 애플리케이션에 자동으로 바인딩할 수 있습니다(예: 애플리케이션을 Azure Cosmos DB에 바인딩).
+    * [자동화](./how-to-cicd.md): 연속 통합 및 지속적인 업데이트 도구를 사용하면 최소한의 노력과 위험으로 기존 애플리케이션에 업데이트를 신속하게 배포할 수 있습니다. Azure DevOps는 이러한 주요 작업을 구성하고 제어하는 데 도움이 됩니다. 
+    * [문제 해결](./how-to-self-diagnose-solve.md): Azure Spring Cloud 진단은 앱 문제를 해결하는 데 유용한 대화형 환경을 제공합니다. 구성이 필요하지 않습니다. 문제를 발견하면 Azure Spring Cloud 진단에서 문제를 식별하고 문제를 해결하는 데 도움이 되는 정보로 안내합니다.
     * [마이그레이션](/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud): Azure Spring Cloud에서 실행되도록 기존 Spring Cloud 애플리케이션 또는 Spring Boot 애플리케이션을 마이그레이션하는 방법입니다.
 
  시작하려면 다음을 참조하십시오.
 
 > [!div class="nextstepaction"]
-> [Spring Cloud 빠른 시작](spring-cloud-quickstart.md)
+> [Spring Cloud 빠른 시작](./quickstart.md)
 
 샘플은 GitHub에서 사용할 수 있습니다. [Azure Spring Cloud 샘플](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/).

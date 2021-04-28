@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: d12a48729616a5181f019f84f19779390e736cb4
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 919c72453b4fcbe3b7decc7a045a6656171ecb06
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877133"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132452"
 ---
 # <a name="tutorial-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>자습서: 경고 및 작업 그룹을 사용하여 Spring Cloud 리소스 모니터링
 
@@ -26,7 +26,7 @@ Azure Spring Cloud 경고는 사용 가능한 스토리지, 요청 속도 또는
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-Azure Spring 요구 사항 외에도 이 자습서의 절차는 배포된 Azure Spring Cloud 인스턴스와 함께 작동합니다.  [빠른 시작](spring-cloud-quickstart.md)을 따라 시작하세요.
+Azure Spring 요구 사항 외에도 이 자습서의 절차는 배포된 Azure Spring Cloud 인스턴스와 함께 작동합니다.  [빠른 시작](./quickstart.md)을 따라 시작하세요.
 
 다음 절차에서는 Spring Cloud 인스턴스의 왼쪽 탐색 창에 있는 **경고** 옵션에서 시작하여 **작업 그룹** 및 **경고** 를 모두 초기화합니다. 이 절차는 Azure Portal의 **모니터 개요** 페이지에서 시작할 수도 있습니다. 
 
@@ -86,7 +86,7 @@ Azure Spring 요구 사항 외에도 이 자습서의 절차는 배포된 Azure 
 
 1. **Done** 을 클릭합니다.
 
-   모니터링할 수 있는 조건에 대한 자세한 내용은 [사용자 포털 메트릭 옵션](spring-cloud-concept-metrics.md#user-metrics-options)을 참조하세요.
+   모니터링할 수 있는 조건에 대한 자세한 내용은 [사용자 포털 메트릭 옵션](./concept-metrics.md#user-metrics-options)을 참조하세요.
 
 1. **작업** 에서 **작업 그룹 선택** 을 클릭합니다. **작업** 창에서 이전에 정의한 **작업 그룹** 을 선택합니다.
 

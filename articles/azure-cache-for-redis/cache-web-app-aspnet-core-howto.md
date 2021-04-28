@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 03/31/2021
-ms.openlocfilehash: 19c346bd3bdc0a5882244ff595bfeedbde8c06e4
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 5496e1778d47e30d338c38e492f1862212339c48
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106123160"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134252"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-core-web-app"></a>빠른 시작: ASP.NET Core 웹앱에서 Azure Cache for Redis 사용 
 
@@ -430,7 +430,7 @@ dotnet run
 Azure로 배포에 대한 자세한 내용은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [자습서: Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드](/azure/app-service/tutorial-dotnetcore-sqldb-app)
+> [자습서: Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드](../app-service/tutorial-dotnetcore-sqldb-app.md)
 
 Azure Key Vault에서 캐시 연결 비밀을 저장하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 

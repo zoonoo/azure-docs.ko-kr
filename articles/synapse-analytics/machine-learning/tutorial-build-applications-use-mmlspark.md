@@ -9,12 +9,12 @@ ms.reviewer: ''
 ms.date: 03/08/2021
 author: ruixinxu
 ms.author: ruxu
-ms.openlocfilehash: 5258d8f16e288e7df7e1286eb1902cc6ba6d10f7
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 52344d0fbc30eb318f7335c2a2a6a5a0eb42f641
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227724"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107898228"
 ---
 # <a name="tutorial-build-machine-learning-applications-using-microsoft-machine-learning-for-apache-spark-preview"></a>자습서: Microsoft Machine Learning for Apache Spark를 사용하여 기계 학습 애플리케이션 빌드(미리 보기)
 
@@ -249,5 +249,5 @@ display(anamoly_detector.transform(df_timeseriesdata).select("timestamp", "value
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Synapse 샘플 Notebooks 체크 아웃](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks) 
+* [Synapse 샘플 Notebooks 체크 아웃](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
 * [MMLSpark GitHub 리포지토리](https://github.com/Azure/mmlspark)

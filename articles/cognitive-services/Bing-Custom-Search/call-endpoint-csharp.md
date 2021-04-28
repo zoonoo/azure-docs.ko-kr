@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b892194a0e716aa3de218bc6edb6c38cdc898935
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 1d3accdb20073bd1e9b29988b78d7eacd49976b8
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338659"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862312"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-c"></a>빠른 시작: C#을 사용하여 Bing Custom Search 엔드포인트 호출 
 
@@ -30,7 +30,7 @@ ms.locfileid: "96338659"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - Bing Custom Search 인스턴스 자세한 내용은 [빠른 시작: 처음으로 Bing Custom Search 인스턴스 만들기](quick-start.md)를 참조하세요.
-- [Microsoft .NET Core](https://www.microsoft.com/net/download/core).
+- [Microsoft .NET Core](https://dotnet.microsoft.com/download).
 - [Visual Studio 2019 이상](https://www.visualstudio.com/downloads/)의 모든 버전.
 - Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
 - [Bing Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/2.0.0) NuGet 페키지. 

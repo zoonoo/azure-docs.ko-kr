@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: 3cfcf57f455a5c3b17b794acf2ded66ed2285eff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9099a8620f6e4d87ec38c10226d94b1b3cd3462f
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94873508"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865984"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>빠른 시작: SignalR Service를 사용하여 대화방 만들기
 
@@ -29,7 +29,7 @@ Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [.NET Core SDK](https://www.microsoft.com/net/download/windows)를 설치합니다.
+* [.NET Core SDK](https://dotnet.microsoft.com/download)를 설치합니다.
 * [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub 리포지토리를 다운로드하거나 복제합니다. 
 
 문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsnetcore).

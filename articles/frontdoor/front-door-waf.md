@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: d315fa5b588c6e5f2e4643ca18626e400e6ca01b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f02a8fff9ed3e75f5add287a2d5205988f87949f
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785652"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107896786"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>자습서: Azure Front Door와 Azure WAF(Web Application Firewall)를 사용하여 웹 애플리케이션을 신속하게 확장 및 보호
 
@@ -48,7 +48,7 @@ ms.locfileid: "107785652"
    ```
 
 > [!NOTE] 
-> 이 자습서에서 사용되는 명령에 대한 자세한 내용은 [Front Door에 대한 Azure CLI 참조](/cli/azure/ext/front-door)를 참조하세요.
+> 이 자습서에서 사용되는 명령에 대한 자세한 내용은 [Front Door에 대한 Azure CLI 참조](/cli/azure/)를 참조하세요.
 
 ## <a name="create-an-azure-front-door-resource"></a>Azure Front Door 리소스 만들기
 

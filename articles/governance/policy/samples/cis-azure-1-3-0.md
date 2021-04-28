@@ -1,15 +1,15 @@
 ---
 title: CIS Microsoft Azure Foundations Benchmark 1.3.0에 대한 규정 준수 세부 정보
 description: CIS Microsoft Azure Foundations Benchmark 1.3.0 규정 준수 기본 제공 이니셔티브에 대한 세부 정보. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 3dc7578af93f36ba8f0400099bb21cdabdcffb70
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 14a93281eb93bee1bf6ecd15da8811088a692c29
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107497730"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865624"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-130-regulatory-compliance-built-in-initiative"></a>CIS Microsoft Azure Foundations Benchmark 1.3.0 규정 준수 기본 제공 이니셔티브에 대한 세부 정보
 
