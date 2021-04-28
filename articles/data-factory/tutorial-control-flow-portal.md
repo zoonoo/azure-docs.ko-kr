@@ -1,19 +1,19 @@
 ---
 title: Azure Portal을 사용한 파이프라인 분기 및 연결 작업
 description: Azure Portal을 사용하여 Azure Data Factory 파이프라인에서 데이터 흐름을 제어하는 방법을 알아봅니다.
-author: dcstwh
-ms.author: weetok
+author: ssabat
+ms.author: susabat
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 034b0400190cadd750e7420ab37800783afa050c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a1e30bb59d81e949720560f2ce5da796a2c7fbe2
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104783424"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107905345"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Azure Portal을 사용한 Azure Data Factory 파이프라인 분기 및 연결 작업
 

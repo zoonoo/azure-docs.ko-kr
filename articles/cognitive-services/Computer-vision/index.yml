@@ -66,7 +66,7 @@ conceptualContent:
           url: Tutorials/storage-lab-tutorial.md
         - itemType: reference
           text: 이미지 분석 API 참조
-          url: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b'
+          url: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b'
       footerLink:
         text: 자세히
         url: index-image-analysis.yml
@@ -118,9 +118,9 @@ additionalContent:
         - title: REST API
           links:
             - text: OCR(광학 문자 인식)
-              url: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005'
+              url: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005'
             - text: 이미지 분석
-              url: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b'
+              url: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b'
         - title: 리소스
           links:
             - text: 가격 책정

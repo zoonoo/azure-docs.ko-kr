@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 04/01/2021
 ms.author: cshoe
-ms.openlocfilehash: e81f0a9e4fc50cf0d80f2905b9328af3c721865c
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: c0a4156fb0015c6d319700c82f6285dbf0ed1443
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166407"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107947882"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기란?
 
@@ -44,7 +44,7 @@ Static Web Apps를 사용하면 정적 자산은 기존 웹 서버와 분리되�
 
 ## <a name="what-you-can-do-with-static-web-apps"></a>Static Web Apps로 수행할 수 있는 작업
 
-- [Azure Functions](apis.md) 백 엔드를 통해WebAssembly 애플리케이션을 만드는 [Angular](getting-started.md?tabs=angular), [React](getting-started.md?tabs=react), [Svelte](/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md?tabs=react), [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) 같은 JavaScript 프레임워크와 라이브러리를 사용하여 **최신 웹 애플리케이션을 빌드** 합니다.
+- [Azure Functions](apis.md) 백 엔드를 통해WebAssembly 애플리케이션을 만드는 [Angular](getting-started.md?tabs=angular), [React](getting-started.md?tabs=react), [Svelte](/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md?tabs=vue), [Blazor](./deploy-blazor.md) 같은 JavaScript 프레임워크와 라이브러리를 사용하여 **최신 웹 애플리케이션을 빌드** 합니다.
 - [Gatsby](publish-gatsby.md), [Hugo](publish-hugo.md), [VuePress](publish-vuepress.md)와 같은 프레임워크를 사용하여 **정적 사이트를 게시** 합니다.
 - [Next.js](deploy-nextjs.md) 및 [Nuxt.js](deploy-nuxtjs.md)와 같은 프레임워크를 사용하여 **웹 애플리케이션** 을 배포합니다.
 

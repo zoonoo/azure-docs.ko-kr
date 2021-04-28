@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: allensu
-ms.custom: subject-armqs, devx-track-azurecli
-ms.openlocfilehash: ea214cb98e1f75daccf783333a67c6d1b0eacfeb
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: subject-armqs
+ms.openlocfilehash: 6a0f7e0e1421242e68f156754a9cbf42b57a2ef3
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776609"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071229"
 ---
 # <a name="quickstart-create-a-nat-gateway---arm-template"></a>빠른 시작: NAT 게이트웨이 만들기 - ARM 템플릿
 

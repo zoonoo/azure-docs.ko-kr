@@ -4,15 +4,15 @@ description: 변수 설정 작업을 사용하여 Data Factory 파이프라인�
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/07/2020
-author: dcstwh
-ms.author: weetok
+author: chez-charlie
+ms.author: chez
 ms.reviewer: jburchel
-ms.openlocfilehash: 113829dd35c14b5efae39c55a8085dcd2c1ecef4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5110160234131bd105ac860efe818506db48f6b0
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786161"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903923"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Azure Data Factory의 변수 설정 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

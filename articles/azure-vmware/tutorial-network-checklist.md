@@ -2,13 +2,13 @@
 title: 자습서 - 네트워크 계획 검사 목록
 description: Azure VMware Solution의 네트워크 연결 및 네트워크 포트에 대한 네트워크 요구 사항에 대해 알아봅니다.
 ms.topic: tutorial
-ms.date: 03/13/2021
-ms.openlocfilehash: 8cee5fa24aab8bd7fe6a9527f9c8e7cdff997511
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/23/2021
+ms.openlocfilehash: 2e7854100df7e19ec8cfcc9b6de647fa8ed31d38
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103462068"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107945452"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Azure VMware Solution에 대한 네트워킹 계획 검사 목록 
 
@@ -88,8 +88,6 @@ Azure VMware Solution 프라이빗 클라우드는 최소한 `/22` CIDR 네트�
 프라이빗 클라우드 환경에서 실행되는 애플리케이션 및 워크로드에는 조회 및 IP 주소 할당을 위한 이름 확인 및 DHCP 서비스가 필요합니다. 이러한 서비스를 제공하려면 적절한 DHCP 및 DNS 인프라가 필요합니다. 프라이빗 클라우드 환경에서 이러한 서비스를 제공하도록 가상 머신을 구성할 수 있습니다.  
 
 WAN을 통해 브로드캐스트 DHCP 트래픽을 온-프레미스로 다시 라우팅하는 대신, NSX에 기본 제공되는 DHCP 서비스를 사용하거나 프라이빗 클라우드에서 로컬 DHCP 서버를 사용합니다.
-
-자세한 내용은 [NSX-T 네트워크 세그먼트에 DHCP 서비스 제공](deploy-azure-vmware-solution.md#optional-provide-dhcp-services-to-nsx-t-network-segment) 문서를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

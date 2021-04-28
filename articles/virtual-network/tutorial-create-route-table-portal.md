@@ -12,12 +12,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/16/2021
 ms.author: kumud
-ms.openlocfilehash: 7da59e996ec37d3653dbde68c5f56caa9e8261ee
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 1d8a3bf8a17d04d98f605be3bcc01f47a61fdc89
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061913"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906065"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -36,10 +36,6 @@ Azure에서는 기본적으로 가상 네트워크 내의 모든 서브넷 간�
 ## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 활성 구독이 포함된 Azure 계정이 필요합니다. 계정이 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
-
-## <a name="prerequisites"></a>사전 요구 사항
-
-- Azure 구독
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -101,7 +97,7 @@ NVA(네트워크 가상 어플라이언스)는 라우팅 및 방화벽 최적화
     | 설정 | 값                                          |
     |-----------------------|----------------------------------|
     | **프로젝트 세부 정보** |  |
-    | Subscription | Azure 구독 선택 |
+    | 구독 | Azure 구독 선택 |
     | 리소스 그룹 | **myResourceGroup** 을 선택합니다. |
     | **인스턴스 세부 정보** |  |
     | 가상 머신 이름 | **myVMNVA** 를 입력합니다. |
@@ -230,7 +226,7 @@ NVA(네트워크 가상 어플라이언스)는 라우팅 및 방화벽 최적화
     | 설정 | 값                                          |
     |-----------------------|----------------------------------|
     | **프로젝트 세부 정보** |  |
-    | Subscription | Azure 구독 선택 |
+    | 구독 | Azure 구독 선택 |
     | 리소스 그룹 | **myResourceGroup** 을 선택합니다. |
     | **인스턴스 세부 정보** |  |
     | 가상 머신 이름 | **myVMPublic** 을 입력합니다. |
@@ -273,7 +269,7 @@ NVA(네트워크 가상 어플라이언스)는 라우팅 및 방화벽 최적화
     | 설정 | 값                                          |
     |-----------------------|----------------------------------|
     | **프로젝트 세부 정보** |  |
-    | Subscription | Azure 구독 선택 |
+    | 구독 | Azure 구독 선택 |
     | 리소스 그룹 | **myResourceGroup** 을 선택합니다. |
     | **인스턴스 세부 정보** |  |
     | 가상 머신 이름 | **myVMPrivate** 을 입력합니다. |

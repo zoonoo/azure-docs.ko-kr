@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: devx-track-js
 ms.devlang: javascript
-ms.openlocfilehash: 03192b8a84b78682b53bf3d47e7de7b65eb8bceb
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: da341d202dcfd0fc81a6becec6646b1116069aa7
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104723507"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123288"
 ---
 # <a name="1---overview-of-adding-search-to-a-website"></a>1 - 검색을 웹 사이트에 추가하는 방법에 대한 개요
 
@@ -59,7 +59,7 @@ ms.locfileid: "104723507"
     - [Azure Cognitive Search 0.2.0 이상](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)
     - [Azure Static Web App](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) 
 - 선택 사항:
-    - 이 자습서에서는 Azure 함수 API를 로컬로 실행하지 않지만, 로컬로 실행하려면 다음 bash 명령을 사용하여 [azure-functions-core-tools](/azure/azure-functions/functions-run-local?tabs=linux%2Ccsharp%2Cbash)를 전역적으로 설치해야 합니다. 
+    - 이 자습서에서는 Azure 함수 API를 로컬로 실행하지 않지만, 로컬로 실행하려면 다음 bash 명령을 사용하여 [azure-functions-core-tools](../azure-functions/functions-run-local.md?tabs=linux%2ccsharp%2cbash)를 전역적으로 설치해야 합니다. 
     
     ```bash
     npm install -g azure-functions-core-tools

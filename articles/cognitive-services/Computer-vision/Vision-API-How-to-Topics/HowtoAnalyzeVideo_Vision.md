@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: c86b06ff46f1ddc8d22d2ab7ec4bc8620a8c862f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3aa218710ddd4addfb8e430122ab19c95e42772a
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88933174"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070894"
 ---
 # <a name="analyze-videos-in-near-real-time"></a>거의 실시간으로 비디오 분석
 
@@ -233,7 +233,7 @@ namespace BasicConsoleSample
 1. [Azure 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다. 이미 있는 경우 다음 단계로 건너뛸 수 있습니다.
 2. Azure Portal에서 Computer Vision 및 Face용 리소스를 만들어 키와 엔드포인트를 가져옵니다. 설치 중에 체험 계층(F0)을 선택했는지 확인합니다.
    - [Computer Vision](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
-   - [Face](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace): 리소스를 배포한 후 **리소스로 이동**을 클릭하여 각 리소스에 대한 키와 엔드포인트를 수집합니다. 
+   - [Face](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace): 리소스를 배포한 후 **리소스로 이동** 을 클릭하여 각 리소스에 대한 키와 엔드포인트를 수집합니다. 
 3. [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub 리포지토리를 복제합니다.
 4. Visual Studio 2015 이상에서 샘플을 열고, 샘플 애플리케이션을 빌드 및 실행합니다.
     - BasicConsoleSample의 경우 Face 키가 [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs)에 직접 하드 코딩되어 있습니다.
@@ -247,5 +247,5 @@ VideoFrameAnalyzer의 이미지, 음성, 비디오 및 텍스트 해석 기능�
 
 이 문서에서는 Face 및 Computer Vision 서비스를 사용하여 라이브 비디오 스트림을 거의 실시간으로 분석하는 방법을 알아보았습니다. 샘플 코드를 사용하여 시작하는 방법도 배웠습니다.
 
-[GitHub 리포지토리](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)에서 자유롭게 피드백과 의견을 남겨주세요. 보다 광범위한 API 피드백을 제공하려면 [UserVoice 사이트](https://cognitive.uservoice.com/)로 이동하세요.
+[GitHub 리포지토리](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)에서 자유롭게 피드백과 의견을 남겨주세요. 보다 광범위한 API 피드백을 제공하려면 UserVoice 사이트로 이동하세요.
 

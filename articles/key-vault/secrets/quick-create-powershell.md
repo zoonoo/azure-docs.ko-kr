@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 5e3b78dfb8f08f1a596ad12884ec088cd36c4a98
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8a0ebfc90fb57a6e67d7c9e41b78d9db502b2720
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104582454"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814643"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -98,4 +98,4 @@ Remove-AzResourceGroup -Name ContosoResourceGroup
 - [Azure Key Vault 개요](../general/overview.md) 참조
 - [Key Vault에서 여러 줄 비밀을 저장](multiline-secrets.md)하는 방법을 알아봅니다.
 - [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/#key_vault)에 대한 참조를 참조하세요.
-- [Azure Key Vault 보안 개요](../general/security-overview.md)를 검토하세요.
+- [Azure Key Vault 보안 개요](../general/security-features.md)를 검토하세요.

@@ -1,17 +1,17 @@
 ---
 title: 변경 데이터 캡처를 사용하여 데이터 증분 복사
 description: 이 자습서에서는 Azure SQL Managed Instance 데이터베이스의 테이블에서 Azure Storage로 델타 데이터를 증분 복사해 Azure Data Factory 파이프라인을 만듭니다.
-ms.author: nihurt
-author: hurtn
+ms.author: yexu
+author: dearandyxu
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 02/18/2021
-ms.openlocfilehash: a00ec8698b188b8fa87935e498e8cfab3aeab5aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c7bfaf6bd6ca11593a986ca8d929faf063be720
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101724985"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107905777"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>CDC(변경 데이터 캡처)를 사용하여 Azure SQL Managed Instance에서 Azure Storage로 데이터 증분 로드
 

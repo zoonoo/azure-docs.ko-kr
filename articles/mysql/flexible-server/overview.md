@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 46b056c22a6d1c70a729f5b9558f53c685a878f0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2f92c0646ef8c14134e8fc2f9b7558519f71fe8d
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101732856"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107931004"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL - 유연한 서버(미리 보기)
 
@@ -136,7 +136,7 @@ Azure에서 워크로드를 실행하는 이점 중 하나는 글로벌 연결�
 | --- | --- | --- |
 | 서유럽 | :heavy_check_mark: | :heavy_check_mark: |
 | 북유럽 | :heavy_check_mark: | :heavy_check_mark: |
-| 영국 남부 | :heavy_check_mark: | :x: | 
+| 영국 남부 | :heavy_check_mark: | :heavy_check_mark: | 
 | 미국 동부 2 | :heavy_check_mark: | :heavy_check_mark: |
 | 미국 서부 2 | :heavy_check_mark: | :heavy_check_mark: |
 | 미국 중부 | :heavy_check_mark: | :x: | 
@@ -144,8 +144,10 @@ Azure에서 워크로드를 실행하는 이점 중 하나는 글로벌 연결�
 | 캐나다 중부 | :heavy_check_mark: | :x: | 
 | 동남 아시아 | :heavy_check_mark: | :heavy_check_mark: |
 | 한국 중부 | :heavy_check_mark: | :x: | 
-| 일본 동부 | :heavy_check_mark: | :x: | 
+| 일본 동부 | :heavy_check_mark: | :heavy_check_mark: | 
 | 오스트레일리아 동부 | :heavy_check_mark: | :heavy_check_mark: |
+| 프랑스 중부 | :heavy_check_mark: | :x:|
+| 브라질 남부 | :heavy_check_mark: | :x: |
 
 곧 새 지역을 추가하기 위해 노력하고 있습니다.
 

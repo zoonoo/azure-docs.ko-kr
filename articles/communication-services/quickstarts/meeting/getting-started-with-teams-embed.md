@@ -8,20 +8,18 @@ ms.date: 01/25/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-ios-android
-ms.openlocfilehash: fee77b799ce0e415d8a968ef623f35d5ac31c6ee
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b26c0631ed8a8982578d1c910d40689ff27dcc91
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726858"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903171"
 ---
 # <a name="quickstart-add-joining-a-teams-meeting-to-your-app"></a>빠른 시작: 앱에 Teams 모임 조인 추가
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Communication Services Teams Embed SDK를 사용해 앱에 팀 모임을 추가하여 Azure Communication Services를 시작하세요. 
-
-[!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
 ::: zone pivot="platform-android"
 [!INCLUDE [Teams Embed with Android](./includes/get-started-android.md)]
