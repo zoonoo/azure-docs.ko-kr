@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: mvc, seodec18
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: 0791f2e8d5119c2087286a24cf83b4259ee9e7af
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f453370530359bc967316957b717f40904f6e392
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105611653"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108125988"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Azure Dedicated HSM 서비스 문제 해결
 
@@ -33,7 +33,7 @@ Dedicated HSM은 클라우드에서 하드웨어 리소스를 제공하므로 �
 
 ### <a name="getting-access-to-dedicated-hsm"></a>Dedicated HSM에 액세스
 
-먼저 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) 또는 [Azure Managed HSM](https://docs.microsoft.com/azure/key-vault/managed-hsm/overview)으로 해결할 수 없는 사용 사례를 확인합니다. 그런 다음, Dedicated HSM만 주요 스토리지 요구 사항에 적합하다고 생각되면 액세스를 요청하는 이메일을 HSMrequest@microsoft.com으로 보냅니다. 애플리케이션과 사용 사례, HSM을 원하는 지역 및 찾고 있는 HSM 볼륨을 간략히 설명합니다. 예를 들어 영업 책임자 또는 클라우드 솔루션 설계자와 같은 Microsoft 담당자와 협력하는 경우 요청에 포함시킵니다.
+먼저 [Azure Key Vault](../key-vault/general/overview.md) 또는 [Azure Managed HSM](../key-vault/managed-hsm/overview.md)으로 해결할 수 없는 사용 사례를 확인합니다. 그런 다음, Dedicated HSM만 주요 스토리지 요구 사항에 적합하다고 생각되면 액세스를 요청하는 이메일을 HSMrequest@microsoft.com으로 보냅니다. 애플리케이션과 사용 사례, HSM을 원하는 지역 및 찾고 있는 HSM 볼륨을 간략히 설명합니다. 예를 들어 영업 책임자 또는 클라우드 솔루션 설계자와 같은 Microsoft 담당자와 협력하는 경우 요청에 포함시킵니다.
 
 ## <a name="hsm-provisioning"></a>HSM 프로비저닝
 
@@ -152,4 +152,4 @@ HSM이 "0으로 초기화됨" 상태인 경우에만 HSM에 대한 Azure 리소�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 HSM 배포 수명 주기 전반에 걸쳐 문제가 있거나 문제를 해결해야 하거나 신중하게 고려해야 하는 영역에 대한 인사이트를 제공했습니다. 이 문서를 통해 불필요한 지연과 실패를 방지하고, 관련 추가 또는 변경 내용이 있는 경우 Microsoft에 지원 요청을 제출하여 알려주세요. 
+이 문서에서는 HSM 배포 수명 주기 전반에 걸쳐 문제가 있거나 문제를 해결해야 하거나 신중하게 고려해야 하는 영역에 대한 인사이트를 제공했습니다. 이 문서를 통해 불필요한 지연과 실패를 방지하고, 관련 추가 또는 변경 내용이 있는 경우 Microsoft에 지원 요청을 제출하여 알려주세요.

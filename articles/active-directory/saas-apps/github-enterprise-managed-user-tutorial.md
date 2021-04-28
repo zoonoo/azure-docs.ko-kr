@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 864415f421f4fbecf31fd52a624ac568b4cf9c80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a5a6833e07e6743eed4013739f9acda6b5bd1fa4
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103574765"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108145931"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-enterprise-managed-user"></a>자습서: GitHub Enterprise Managed User와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -39,7 +39,7 @@ ms.locfileid: "103574765"
 
 * GitHub Enterprise Managed User에서 **SP 및 IDP** 시작 SSO를 지원합니다.
 * GitHub Enterprise Managed User에서 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
-* GitHub Enterprise Managed User에서 [**자동** 사용자 프로비저닝](https://docs.microsoft.com/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial)을 지원합니다.
+* GitHub Enterprise Managed User에서 [**자동** 사용자 프로비저닝](./github-enterprise-managed-user-provisioning-tutorial.md)을 지원합니다.
 
 ## <a name="adding-github-enterprise-managed-user-from-the-gallery"></a>갤러리에서 GitHub Enterprise Managed User 추가
 
@@ -128,7 +128,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 GitHub Enterprise Managed User에서 B.Simon이라는 사용자를 만듭니다. GitHub Enterprise Managed User는 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. GitHub Enterprise Managed User에 사용자가 아직 없는 경우 GitHub Enterprise Managed User에 액세스하려고 할 때 새 사용자가 만들어집니다.
 
-또한 GitHub Enterprise Managed User는 자동 사용자 프로비저닝을 지원합니다. 자동 사용자 프로비저닝을 구성하는 방법에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial)서 확인할 수 있습니다.
+또한 GitHub Enterprise Managed User는 자동 사용자 프로비저닝을 지원합니다. 자동 사용자 프로비저닝을 구성하는 방법에 대한 자세한 내용은 [여기](./github-enterprise-managed-user-provisioning-tutorial.md)서 확인할 수 있습니다.
 
 ## <a name="test-sso"></a>SSO 테스트 
 
@@ -144,11 +144,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 GitHub Enterprise Managed User에 자동으로 로그인됩니다. 
 
-Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 GitHub Enterprise Managed User 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우 SSO를 설정한 GitHub Enterprise Managed User에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 GitHub Enterprise Managed User 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우 SSO를 설정한 GitHub Enterprise Managed User에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-GitHub Enterprise Managed User가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+GitHub Enterprise Managed User가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

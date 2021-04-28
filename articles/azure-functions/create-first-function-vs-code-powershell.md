@@ -3,12 +3,12 @@ title: Visual Studio Code를 사용하여 PowerShell 함수 만들기 - Azure Fu
 description: PowerShell 함수를 만든 다음, Visual Studio Code의 Azure Functions 확장을 사용하여 Azure Functions의 서버리스 호스팅에 로컬 프로젝트를 게시하는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: 9833b154cdba24f8760e7e8d9040bfc72bbcd271
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 58a2b8a5fb386603361afa9fc26b4d323c487691
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99493597"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862546"
 ---
 # <a name="quickstart-create-a-powershell-function-in-azure-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure에서 PowerShell 함수 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "99493597"
 
 + [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-+ [.NET Core 3.1 런타임](https://www.microsoft.com/net/download) 및 [.NET Core 2.1 런타임](https://dotnet.microsoft.com/download/dotnet-core/2.1) 모두  
++ [.NET Core 3.1 런타임](https://dotnet.microsoft.com/download) 및 [.NET Core 2.1 런타임](https://dotnet.microsoft.com/download/dotnet/2.1) 모두  
 
 + [지원되는 플랫폼](https://code.visualstudio.com/docs/supporting/requirements#_platforms) 중 하나인 [Visual Studio Code](https://code.visualstudio.com/).    
 

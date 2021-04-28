@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2c4af7afd96f6c503f35cdb4896c3b49d4ef6ed3
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: f0b03f8a0a9e3aa277ec940c8e65064ef0411ccc
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276232"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107867622"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>빠른 시작: .NET용 Azure Queue Storage 클라이언트 라이브러리 v12
 
@@ -335,4 +335,4 @@ Done
 
 - 자세한 내용은 [.NET용 Azure Storage 라이브러리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage)를 참조하세요.
 - 더 많은 Azure Queue Storage 샘플 앱은 [.NET용 Azure Queue Storage 클라이언트 라이브러리 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples)을 참조하세요.
-- .NET Core에 대해 자세히 알아보려면 [10분 안에 .NET 시작](https://www.microsoft.com/net/learn/get-started/)을 참조하세요.
+- .NET Core에 대해 자세히 알아보려면 [10분 안에 .NET 시작](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro)을 참조하세요.

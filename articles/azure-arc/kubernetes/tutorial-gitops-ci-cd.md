@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial, devx-track-azurecli
-ms.openlocfilehash: 9a228ce6f8b18afb77b656765abbad0bb4ae877f
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: e27923ff1f29163f5d3390c2c92a11f3adfa5c87
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589145"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126636"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>자습서: Azure Arc 지원 Kubernetes 클러스터를 사용하여 GitOps로 CI/CD 구현
 
@@ -58,7 +58,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 ## <a name="import-application-and-gitops-repos-into-azure-repos"></a>애플리케이션 및 GitOps 리포지토리를 Azure Repos로 가져오기
 
-[애플리케이션 리포지토리](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd#application-repo) 및 [GitOps 리포지토리](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd#gitops-repo) 를 Azure Repos로 가져옵니다. 이 자습서에서는 다음 예제 리포지토리를 사용합니다.
+[애플리케이션 리포지토리](./conceptual-gitops-ci-cd.md#application-repo) 및 [GitOps 리포지토리](./conceptual-gitops-ci-cd.md#gitops-repo) 를 Azure Repos로 가져옵니다. 이 자습서에서는 다음 예제 리포지토리를 사용합니다.
 
 * **arc-cicd-demo-src** 애플리케이션 리포지토리
    * URL: https://github.com/Azure/arc-cicd-demo-src
@@ -337,4 +337,4 @@ CI 파이프라인이 성공적으로 실행되면 CD 파이프라인이 트리�
 개념 문서를 계속 진행하여 GitOps 및 Azure Arc 지원 Kubernetes를 사용한 구성에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [GitOps - Azure Arc 지원 Kubernetes를 사용하는 CI/CD 워크플로](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd)
+> [GitOps - Azure Arc 지원 Kubernetes를 사용하는 CI/CD 워크플로](./conceptual-gitops-ci-cd.md)

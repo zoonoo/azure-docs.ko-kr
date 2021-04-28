@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: f7f6f5d82c5fda7101e80ddcb8b17dc6bdef6532
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 588bee2922ee44f3f89b5d252b5b4a6991d26b82
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99070299"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815129"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 키 자격 증명 모음 만들기
 
@@ -43,6 +43,6 @@ Azure Key Vault는 [키](../keys/index.yml), [비밀](../secrets/index.yml) 및 
 이 빠른 시작에서는 키 자격 증명 모음을 만들고 삭제했습니다. Key Vault 및 이를 애플리케이션과 통합하는 방법에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
 
 - [Azure Key Vault 개요](overview.md) 참조
-- [Azure Key Vault 보안 개요](security-overview.md)를 검토하세요.
+- [Azure Key Vault 보안 개요](security-features.md)를 검토하세요.
 - [Azure CLI az keyvault 명령](/cli/azure/keyvault)에 대한 참조를 참조하세요.
 

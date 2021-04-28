@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: eaa4a219a1020639c930f8a07bfcaa1c45d0cef8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 596c0deb833c5af7b85c1680062a24f075cf28cf
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878436"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134630"
 ---
 # <a name="set-up-autoscale-for-microservice-applications"></a>마이크로서비스 애플리케이션에 대한 자동 크기 조정 설정
 
@@ -25,7 +25,7 @@ ms.locfileid: "104878436"
 이러한 절차를 따르려면 다음이 필요합니다.
 
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* 배포된 Azure Spring Cloud 서비스 인스턴스 [Azure CLI를 통한 앱 배포를 위한 빠른 시작](./spring-cloud-quickstart.md)을 수행하여 시작하세요.
+* 배포된 Azure Spring Cloud 서비스 인스턴스 [Azure CLI를 통한 앱 배포를 위한 빠른 시작](./quickstart.md)을 수행하여 시작하세요.
 * 해당 서비스 인스턴스에서 이미 하나 이상의 애플리케이션이 생성되었습니다.
 
 ## <a name="navigate-to-the-autoscale-page-in-the-azure-portal"></a>Azure Portal에서 자동 스케일링 페이지로 이동합니다.

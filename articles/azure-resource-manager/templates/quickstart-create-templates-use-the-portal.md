@@ -2,16 +2,16 @@
 title: 템플릿 배포 - Azure Portal
 description: Azure Portal을 사용하여 첫 번째 ARM 템플릿(Azure Resource Manager 템플릿)을 만들고 이를 배포하는 방법을 알아봅니다.
 author: mumian
-ms.date: 03/26/2021
+ms.date: 04/27/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.custom: contperfq1
-ms.openlocfilehash: 279dde9c4cd7b19086d29d3ba31a32c60a8cdf0b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 90c7145e6761820dea11fa13fc883dc87bec999e
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612928"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108075126"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 ARM 템플릿 만들기 및 배포
 

@@ -6,16 +6,17 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - devx-track-azurecli
+- devx-track-azurepowershell
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-python-uiex
-ms.openlocfilehash: f5c51630d111bd68e311a93100abb8266e2a8e27
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: b006f006c9fb45c9a7d80e815f95bec812e5ec3f
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107787434"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831837"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 Python 함수 만들기
 

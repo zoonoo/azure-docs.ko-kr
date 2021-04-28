@@ -10,12 +10,12 @@ ms.devlang: python
 ms.custom:
 - devx-track-python
 - mode-api
-ms.openlocfilehash: a279c1ed16cac69932001146d4108cec19203e22
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: bfaf0463f1ee4904562a5d7b3dd565c9d149ff35
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536644"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124836"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>빠른 시작: Python을 사용하여 Azure Functions와 SignalR Service로 대화방 만들기
 
@@ -29,7 +29,7 @@ Azure SignalR Service를 사용하면 애플리케이션에 실시간 기능을 
 
 Python Azure 함수 앱을 로컬로 실행하려면 [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)(버전 2.7.1505 이상)를 설치하세요.
 
-Azure Functions에는 [Python 3.6 이상](https://www.python.org/downloads/)이 필요합니다. ([지원되는 Python 버전](/azure/azure-functions/functions-reference-python#python-version) 참조)
+Azure Functions에는 [Python 3.6 이상](https://www.python.org/downloads/)이 필요합니다. ([지원되는 Python 버전](../azure-functions/functions-reference-python.md#python-version) 참조)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

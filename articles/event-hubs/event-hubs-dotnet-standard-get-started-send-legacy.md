@@ -4,12 +4,12 @@ description: 이 문서에서는 이전 Microsoft.Azure.EventHubs 패키지를 �
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f289b920b036629e5c518ce3c9e8ec521b1497c3
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 00eadbed23b702e77aefaf34b174bd1e6800c307
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310107"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877465"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>.NET Core(Microsoft.Azure.EventHubs)를 사용하여 Azure Event Hubs에서 이벤트 보내기 또는 받기
 이 빠른 시작에서는 **Microsoft.Azure.EventHubs** .NET Core 라이브러리를 사용하여 이벤트 허브와 이벤트를 주고 받는 방법을 보여줍니다.
@@ -24,7 +24,7 @@ Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기
 
 - **Microsoft Azure 구독**. Azure Event Hubs를 비롯한 Azure 서비스를 사용하려면 구독이 필요합니다.  기존 Azure 계정이 없는 경우 [평가판](https://azure.microsoft.com/free/)에 가입하거나 [계정을 만들 때](https://azure.microsoft.com) MSDN 구독자 혜택을 사용할 수 있습니다.
 - [Microsoft Visual Studio 2019](https://www.visualstudio.com)
-- [.NET Core Visual Studio 2015 또는 2017 도구](https://www.microsoft.com/net/core). 
+- [.NET Core SDK](https://dotnet.microsoft.com/download) 
 - **Event Hubs 네임스페이스 및 이벤트 허브 만들기** 첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 그리고 다음 문서의 지침에 따라 **이벤트 허브 네임스페이스에 대한 연결 문자열** 을 가져옵니다. [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal) 이 빠른 시작의 뒷부분에서 연결 문자열을 사용합니다.
 
 ## <a name="send-events"></a>이벤트 보내기 
