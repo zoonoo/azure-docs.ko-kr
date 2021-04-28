@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 11/20/2020
 ms.author: parkerra
-ms.openlocfilehash: 596b73f8fb205b6a5681fecf3d00fd2a67c1f59f
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 2c85e26d5a9115b00621c4099e3ed36afb224e3f
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97628722"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107881165"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Spatial Anchors 리소스 만들기
 
@@ -76,7 +76,7 @@ Azure CLI에 대한 환경 준비하는 것으로 시작합니다.
 
    [!INCLUDE [resource group intro text](resource-group.md)]
 
-   [az spatial-anchors-account list](/cli/azure/ext/mixed-reality/spatial-anchors-account#ext_mixed_reality_az_spatial_anchors_account_list) 명령을 사용하여 리소스 그룹의 현재 공간 앵커 계정을 볼 수 있습니다.
+   [az spatial-anchors-account list](/cli/azure/spatial-anchors-account#az_spatial_anchors_account_list) 명령을 사용하여 리소스 그룹의 현재 공간 앵커 계정을 볼 수 있습니다.
 
    ```azurecli
    az spatial-anchors-account list --resource-group myResourceGroup
@@ -88,13 +88,13 @@ Azure CLI에 대한 환경 준비하는 것으로 시작합니다.
    az spatial-anchors-account list
    ```
 
-1. [az spatial-anchors-account create](/cli/azure/ext/mixed-reality/spatial-anchors-account#ext_mixed_reality_az_spatial_anchors_account_create) 명령을 실행하여 공간 앵커 계정을 만듭니다.
+1. [az spatial-anchors-account create](/cli/azure/spatial-anchors-account#az_spatial_anchors_account_create) 명령을 실행하여 공간 앵커 계정을 만듭니다.
 
    ```azurecli
    az spatial-anchors-account create --resource-group myResourceGroup --name MySpatialAnchorsQuickStart --location eastus2
    ```
 
-1. [az spatial-anchors-account show](/cli/azure/ext/mixed-reality/spatial-anchors-account#ext_mixed_reality_az_spatial_anchors_account_show) 명령을 사용하여 리소스 속성을 봅니다.
+1. [az spatial-anchors-account show](/cli/azure/spatial-anchors-account#az_spatial_anchors_account_show) 명령을 사용하여 리소스 속성을 봅니다.
 
    ```azurecli
    az spatial-anchors-account show --resource-group myResourceGroup --name MySpatialAnchorsQuickStart
@@ -102,7 +102,7 @@ Azure CLI에 대한 환경 준비하는 것으로 시작합니다.
 
    나중에 사용하기 위해 리소스 **계정 ID** 값과 리소스 **계정 도메인** 값을 텍스트 편집기에 복사합니다.
 
-1. [az spatial-anchors-account key show](/cli/azure/ext/mixed-reality/spatial-anchors-account/key#ext_mixed_reality_az_spatial_anchors_account_key_show) 명령을 실행하여 기본 키 및 보조 키를 가져옵니다.
+1. [az spatial-anchors-account key show](/cli/azure/spatial-anchors-account/key#az_spatial_anchors_account_key_show) 명령을 실행하여 기본 키 및 보조 키를 가져옵니다.
 
    ```azurecli
    az spatial-anchors-account key show --resource-group myResourceGroup --name MySpatialAnchorsQuickStart
@@ -110,14 +110,14 @@ Azure CLI에 대한 환경 준비하는 것으로 시작합니다.
 
    나중에 사용하기 위해 키 값을 텍스트 편집기에 복사합니다.
 
-   키를 다시 생성해야 하는 경우 [az spatial-anchors-account key renew](/cli/azure/ext/mixed-reality/spatial-anchors-account/key#ext_mixed_reality_az_spatial_anchors_account_key_renew) 명령을 사용합니다.
+   키를 다시 생성해야 하는 경우 [az spatial-anchors-account key renew](/cli/azure/spatial-anchors-account/key#az_spatial_anchors_account_key_renew) 명령을 사용합니다.
 
    ```azurecli
    az spatial-anchors-account key renew --resource-group myResourceGroup --name example --key primary
    az spatial-anchors-account key renew --resource-group myResourceGroup --name example --key secondary
    ```
 
-[az spatial-anchors-account delete](/cli/azure/ext/mixed-reality/spatial-anchors-account#ext_mixed_reality_az_spatial_anchors_account_delete) 명령을 사용하여 계정을 삭제할 수 있습니다.
+[az spatial-anchors-account delete](/cli/azure/spatial-anchors-account#az_spatial_anchors_account_delete) 명령을 사용하여 계정을 삭제할 수 있습니다.
 
 ```azurecli
 az spatial-anchors-account delete --resource-group myResourceGroup --name MySpatialAnchorsQuickStart

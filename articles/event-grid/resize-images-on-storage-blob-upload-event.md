@@ -3,12 +3,12 @@ title: '자습서: Azure Event Grid를 사용하여 업로드된 이미지 크�
 description: '자습서: Azure Event Grid는 Azure Storage에 BLOB 업로드를 트리거할 수 있습니다. 이 기능을 활용하여 Azure Storage에 업로드된 이미지 파일을 Azure Functions 등의 타 서비스로 보내 크기를 조절하거나 다른 향상을 수행할 수 있습니다.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: ca231fc65162fe38f4dcb8b8d5677ef42c7807bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e88dff9dcf06ad5eb120c11c4c17c3ef318e4418
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821364"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897148"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>자습서: Event Grid를 사용하여 업로드된 이미지 크기 자동 조정
 
@@ -269,7 +269,7 @@ Event Grid 알림에서 함수에 전달되는 데이터에는 Blob의 URL이 �
     
     ![Azure Portal의 함수에서 이벤트 구독 만들기](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
-    | 설정      | 제안 값  | Description                                        |
+    | 설정      | 제안 값  | 설명                                        |
     | ------------ | ---------------- | -------------------------------------------------- |
     | **이름** | imageresizersub | 새 이벤트 구독을 식별하는 이름입니다. |
     | **항목 유형** | Storage 계정 | 스토리지 계정 이벤트 공급자를 선택합니다. |
@@ -329,3 +329,4 @@ Event Grid 알림에서 함수에 전달되는 데이터에는 Blob의 URL이 �
 + Azure Functions를 다룬 다른 자습서를 살펴보려면 [Azure Logic Apps와 통합하는 함수 만들기](../azure-functions/functions-twitter-email.md)를 참조하세요.
 
 [previous-tutorial]: ../storage/blobs/storage-upload-process-images.md
+

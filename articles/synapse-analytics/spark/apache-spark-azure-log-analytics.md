@@ -10,25 +10,25 @@ ms.topic: tutorial
 ms.subservice: spark
 ms.date: 03/25/2021
 ms.custom: references_regions
-ms.openlocfilehash: 243618192593d93bba9d5229e7becfb2af62ce32
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: d32d822d0ca85c25401f17411a8d34b4fb2e1eaf
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107743"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108125401"
 ---
 # <a name="tutorial-use-azure-log-analytics-to-collect-and-visualize-metrics-and-logs-preview"></a>자습서: Azure Log Analytics를 사용하여 메트릭과 로그 수집 및 시각화(미리 보기)
 
-이 자습서에서는 Apache Spark 애플리케이션 메트릭과 로그를 수집하고 [Azure Log Analytics 작업 영역](/azure/azure-monitor/logs/quick-create-workspace)에 전송하기 위해 Synapse 기본 제공 Azure Log Analytics 커넥터를 사용하도록 설정하는 방법을 알아봅니다. 그런 다음, Azure 모니터 통합 문서를 활용하여 메트릭과 로그를 시각화할 수 있습니다.
+이 자습서에서는 Apache Spark 애플리케이션 메트릭과 로그를 수집하고 [Azure Log Analytics 작업 영역](../../azure-monitor/logs/quick-create-workspace.md)에 전송하기 위해 Synapse 기본 제공 Azure Log Analytics 커넥터를 사용하도록 설정하는 방법을 알아봅니다. 그런 다음, Azure 모니터 통합 문서를 활용하여 메트릭과 로그를 시각화할 수 있습니다.
 
 ## <a name="configure-azure-log-analytics-workspace-information-in-synapse-studio"></a>Synapse Studio에서 Azure Log Analytics 작업 영역 정보 구성
 
 ### <a name="step-1-create-an-azure-log-analytics-workspace"></a>1단계: Azure Log Analytics 작업 영역 만들기
 
 다음 문서를 따라 Log Analytics 작업 영역을 만들 수 있습니다.
-- [Azure Portal에서 Log Analytics 작업 영역 만들기](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace)
-- [Azure CLI로 Log Analytics 작업 영역 만들기](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace-cli)
-- [PowerShell을 사용하여 Azure Monitor에서 Log Analytics 작업 영역 만들기 및 구성](https://docs.microsoft.com/azure/azure-monitor/logs/powershell-workspace-configuration)
+- [Azure Portal에서 Log Analytics 작업 영역 만들기](../../azure-monitor/logs/quick-create-workspace.md)
+- [Azure CLI로 Log Analytics 작업 영역 만들기](../../azure-monitor/logs/quick-create-workspace-cli.md)
+- [PowerShell을 사용하여 Azure Monitor에서 Log Analytics 작업 영역 만들기 및 구성](../../azure-monitor/logs/powershell-workspace-configuration.md)
 
 ### <a name="step-2-prepare-a-spark-configuration-file"></a>2단계: Spark 구성 파일 준비
 
@@ -49,7 +49,7 @@ spark.synapse.logAnalytics.secret <LOG_ANALYTICS_WORKSPACE_KEY>
 
 > [!NOTE]
 >
-> Spark 애플리케이션을 제출하는 사용자에게 비밀 읽기 권한을 부여해야 합니다. [Azure 역할 기반 액세스 제어를 사용하여 Key Vault 키, 인증서 및 비밀에 대한 액세스 제공](https://docs.microsoft.com/azure/key-vault/general/rbac-guide)을 참조하세요.
+> Spark 애플리케이션을 제출하는 사용자에게 비밀 읽기 권한을 부여해야 합니다. [Azure 역할 기반 액세스 제어를 사용하여 Key Vault 키, 인증서 및 비밀에 대한 액세스 제공](../../key-vault/general/rbac-guide.md)을 참조하세요.
 
 작업 영역 키를 저장할 Azure Key Vault를 구성하려면 다음 단계를 수행합니다.
 
@@ -81,7 +81,7 @@ spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
 
 > [!NOTE]
 >
-> Synapse 작업 영역에 대한 비밀 읽기 권한을 부여해야 합니다. [Azure 역할 기반 액세스 제어를 사용하여 Key Vault 키, 인증서 및 비밀에 대한 액세스 제공](https://docs.microsoft.com/azure/key-vault/general/rbac-guide)을 참조하세요.
+> Synapse 작업 영역에 대한 비밀 읽기 권한을 부여해야 합니다. [Azure 역할 기반 액세스 제어를 사용하여 Key Vault 키, 인증서 및 비밀에 대한 액세스 제공](../../key-vault/general/rbac-guide.md)을 참조하세요.
 
 Synapse Studio에서 작업 영역 키를 저장할 Azure Key Vault 연결된 서비스를 구성하려면 다음 단계를 수행합니다.
 
@@ -123,7 +123,7 @@ spark.synapse.logAnalytics.keyVault.linkedServiceName <LINKED_SERVICE_NAME>
 > - Azure 중국 클라우드의 경우 "spark.synapse.logAnalytics.keyVault.uriSuffix" 매개 변수가 "ods.opinsights.azure.cn"이어야 합니다. 
 > - Azure Gov 클라우드의 경우 "spark.synapse.logAnalytics.keyVault.uriSuffix" 매개 변수가 "ods.opinsights.azure.us"이어야 합니다. 
 
-[uri_suffix]: https://docs.microsoft.com/azure/azure-monitor/logs/data-collector-api#request-uri
+[uri_suffix]: ../../azure-monitor/logs/data-collector-api.md#request-uri
 
 
 ### <a name="step-3-upload-your-spark-configuration-to-a-spark-pool"></a>3단계: Spark 풀에 Spark 구성 업로드
@@ -210,18 +210,14 @@ Synapse Studio의 Synapse Spark 풀에 구성 파일을 업로드할 수 있습�
 
 사용자는 Azure Monitor 경고를 통해 설정된 빈도마다 Log Analytics 쿼리를 사용하여 메트릭 및 로그를 평가하고 결과에 따라 경고를 실행할 수 있습니다.
 
-자세한 내용은 [Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log)를 참조하세요.
+자세한 내용은 [Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리](../../azure-monitor/alerts/alerts-log.md)를 참조하세요.
 
 ## <a name="limitation"></a>제한 사항
 
- - [관리형 가상 네트워크](https://docs.microsoft.com/azure/synapse-analytics/security/synapse-workspace-managed-vnet)를 사용할 수 있는 Azure Synapse Analytics 작업 영역은 지원되지 않습니다.
- - 다음 지역은 현재 지원되지 않습니다.
-   - 미국 동부 2
-   - 노르웨이 동부
-   - 아랍에미리트 북부
+[관리형 가상 네트워크](/azure/synapse-analytics/security/synapse-workspace-managed-vnet)를 사용할 수 있는 Azure Synapse Analytics 작업 영역은 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
- - [Synapse Studio에서 서버리스 Apache Spark 풀을 사용](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool-studio)하는 방법 알아보기
- - [Notebook에서 Spark 애플리케이션을 실행](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-development-using-notebooks)하는 방법 알아보기
- - [Synapse Studio에서 Apache Spark 작업 정의를 생성](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-job-definitions)하는 방법 알아보기
+ - [Synapse Studio에서 서버리스 Apache Spark 풀을 사용](../quickstart-create-apache-spark-pool-studio.md)하는 방법 알아보기
+ - [Notebook에서 Spark 애플리케이션을 실행](./apache-spark-development-using-notebooks.md)하는 방법 알아보기
+ - [Synapse Studio에서 Apache Spark 작업 정의를 생성](./apache-spark-job-definitions.md)하는 방법 알아보기
