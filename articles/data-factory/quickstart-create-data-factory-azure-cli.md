@@ -9,12 +9,12 @@ ms.date: 03/24/2021
 ms.custom:
 - template-quickstart
 - devx-track-azurecli
-ms.openlocfilehash: 9af5f276e49e9eb2756dc544db353c75c99bc5a9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b40407f4c4fb81bbf76bd0b552f3c9f2c827232a
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105937957"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871527"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Data Factory 만들기
 
@@ -73,7 +73,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
-Azure 데이터 팩터리를 만들려면 [az datafactory factory create](/cli/azure/ext/datafactory/datafactory/factory#ext_datafactory_az_datafactory_factory_create) 명령을 실행합니다.
+Azure 데이터 팩터리를 만들려면 [az datafactory factory create](/cli/azure/datafactory/factory#az_datafactory_factory_create) 명령을 실행합니다.
 
 ```azurecli
 az datafactory factory create --resource-group ADFQuickStartRG \
@@ -83,7 +83,7 @@ az datafactory factory create --resource-group ADFQuickStartRG \
 > [!IMPORTANT]
 > `ADFTutorialFactory`를 ADFTutorialFactorySP1127과 같은 전역적으로 고유한 데이터 팩터리 이름으로 바꿉니다.
 
-[az datafactory factory show](/cli/azure/ext/datafactory/datafactory/factory#ext_datafactory_az_datafactory_factory_show) 명령을 사용하여 만든 데이터 팩터리를 볼 수 있습니다.
+[az datafactory factory show](/cli/azure/datafactory/factory#az_datafactory_factory_show) 명령을 사용하여 만든 데이터 팩터리를 볼 수 있습니다.
 
 ```azurecli
 az datafactory factory show --resource-group ADFQuickStartRG \
@@ -94,7 +94,7 @@ az datafactory factory show --resource-group ADFQuickStartRG \
 
 다음으로, 연결된 서비스 및 두 개의 데이터 세트를 만듭니다.
 
-1. [az storage account show-connection-string](/cli/azure/ext/datafactory/datafactory/factory#ext_datafactory_az_datafactory_factory_show) 명령을 사용하여 스토리지 계정에 대한 연결 문자열을 가져옵니다.
+1. [az storage account show-connection-string](/cli/azure/datafactory/factory#az_datafactory_factory_show) 명령을 사용하여 스토리지 계정에 대한 연결 문자열을 가져옵니다.
 
    ```azurecli
    az storage account show-connection-string --resource-group ADFQuickStartRG \
@@ -115,7 +115,7 @@ az datafactory factory show --resource-group ADFQuickStartRG \
    }
    ```
 
-1. [az datafactory linked-service create](/cli/azure/ext/datafactory/datafactory/linked-service#ext_datafactory_az_datafactory_linked_service_create) 명령을 사용하여 `AzureStorageLinkedService`라는 연결된 서비스를 만듭니다.
+1. [az datafactory linked-service create](/cli/azure/datafactory/linked-service#az_datafactory_linked_service_create) 명령을 사용하여 `AzureStorageLinkedService`라는 연결된 서비스를 만듭니다.
 
    ```azurecli
    az datafactory linked-service create --resource-group ADFQuickStartRG \
@@ -146,7 +146,7 @@ az datafactory factory show --resource-group ADFQuickStartRG \
    }
    ```
 
-1. [az datafactory dataset create](/cli/azure/ext/datafactory/datafactory/dataset#ext_datafactory_az_datafactory_dataset_create) 명령을 사용하여 `InputDataset`라는 입력 데이터 세트를 만듭니다.
+1. [az datafactory dataset create](/cli/azure/datafactory/dataset#az_datafactory_dataset_create) 명령을 사용하여 `InputDataset`라는 입력 데이터 세트를 만듭니다.
 
    ```azurecli
    az datafactory dataset create --resource-group ADFQuickStartRG \
@@ -177,7 +177,7 @@ az datafactory factory show --resource-group ADFQuickStartRG \
    }
    ```
 
-1. [az datafactory dataset create](/cli/azure/ext/datafactory/datafactory/dataset#ext_datafactory_az_datafactory_dataset_create) 명령을 사용하여 `OutputDataset`라는 출력 데이터 세트를 만듭니다.
+1. [az datafactory dataset create](/cli/azure/datafactory/dataset#az_datafactory_dataset_create) 명령을 사용하여 `OutputDataset`라는 출력 데이터 세트를 만듭니다.
 
    ```azurecli
    az datafactory dataset create --resource-group ADFQuickStartRG \
@@ -243,7 +243,7 @@ az datafactory factory show --resource-group ADFQuickStartRG \
    }
    ```
 
-1. [az datafactory pipeline create](/cli/azure/ext/datafactory/datafactory/pipeline#ext_datafactory_az_datafactory_pipeline_create) 명령을 사용하여 `Adfv2QuickStartPipeline`이라는 파이프라인을 만듭니다.
+1. [az datafactory pipeline create](/cli/azure/datafactory/pipeline#az_datafactory_pipeline_create) 명령을 사용하여 `Adfv2QuickStartPipeline`이라는 파이프라인을 만듭니다.
 
    ```azurecli
    az datafactory pipeline create --resource-group ADFQuickStartRG \
@@ -251,7 +251,7 @@ az datafactory factory show --resource-group ADFQuickStartRG \
        --pipeline @Adfv2QuickStartPipeline.json
    ```
 
-1. [az datafactory pipeline create-run](/cli/azure/ext/datafactory/datafactory/pipeline#ext_datafactory_az_datafactory_pipeline_create_run) 명령을 사용하여 파이프라인을 실행합니다.
+1. [az datafactory pipeline create-run](/cli/azure/datafactory/pipeline#az_datafactory_pipeline_create_run) 명령을 사용하여 파이프라인을 실행합니다.
 
    ```azurecli
    az datafactory pipeline create-run --resource-group ADFQuickStartRG \
@@ -260,7 +260,7 @@ az datafactory factory show --resource-group ADFQuickStartRG \
 
    이 명령은 실행 ID를 반환합니다. 다음 단계에서 사용할 수 있도록 복사합니다.
 
-1. [az datafactory pipeline-run show](/cli/azure/ext/datafactory/datafactory/pipeline-run#ext_datafactory_az_datafactory_pipeline_run_show) 명령을 사용하여 파이프라인 실행이 성공했는지 확인합니다.
+1. [az datafactory pipeline-run show](/cli/azure/datafactory/pipeline-run#az_datafactory_pipeline_run_show) 명령을 사용하여 파이프라인 실행이 성공했는지 확인합니다.
 
    ```azurecli
    az datafactory pipeline-run show --resource-group ADFQuickStartRG \
@@ -277,7 +277,7 @@ az datafactory factory show --resource-group ADFQuickStartRG \
 az group delete --name ADFQuickStartRG
 ```
 
-다른 항목에 대해 이 리소스 그룹을 사용하는 경우 대신 개별 리소스를 삭제합니다. 예를 들어 연결된 서비스를 제거하려면 [az datafactory linked-service delete](/cli/azure/ext/datafactory/datafactory/linked-service#ext_datafactory_az_datafactory_linked_service_delete) 명령을 사용합니다.
+다른 항목에 대해 이 리소스 그룹을 사용하는 경우 대신 개별 리소스를 삭제합니다. 예를 들어 연결된 서비스를 제거하려면 [az datafactory linked-service delete](/cli/azure/datafactory/linked-service#az_datafactory_linked_service_delete) 명령을 사용합니다.
 
 이 빠른 시작에서는 다음 JSON 파일을 만들었습니다.
 

@@ -6,16 +6,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 04/19/2021
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: 3640a03f8ac814fec2823a761e651ab386438c5c
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 72ca331546d53f85ca82f33ec6a02558d91f1c1e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107327783"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765110"
 ---
 <a name="HOLTop"></a>
 
@@ -710,8 +710,7 @@ ID: 0
 
 # <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
-> [!CAUTION]
-> Analyze(분석) 작업을 사용하려면 표준 가격 책정 계층을 사용하는 Text Analytics 리소스를 사용해야 합니다.  
+[!INCLUDE [Analyze Batch Action pricing](../analyze-operation-pricing-caution.md)]
 
 `beginAnalyze()` 함수를 호출하는 `analyze_example()`이라는 새 함수를 만듭니다. 그러면 장기 실행 작업이 실행되고 결과가 폴링됩니다.
 

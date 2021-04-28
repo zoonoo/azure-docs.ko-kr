@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: 982bd9239c5e95c9b7af09b5f54c5a09067ca7c6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cf41d6f9219397e439e8d89ea011c454662e6903
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565429"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126492"
 ---
 # <a name="configure-storage-for-sql-server-vms"></a>SQL Server VM에 대한 스토리지 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -48,7 +48,7 @@ SQL Server 갤러리 이미지를 사용하여 Azure VM을 프로비전하는 �
 
 **스토리지 최적화** 에서 SQL Server를 배포하는 워크로드의 유형을 선택합니다. **일반** 최적화 옵션을 사용하는 경우 기본적으로 최대 5,000 IOPS를 포함하는 하나의 데이터 디스크가 있으며 데이터, 트랜잭션 로그 및 TempDB 스토리지에 대해 동일한 드라이브를 사용합니다. 
 
-**트랜잭션 처리**(OLTP) 또는 **데이터 웨어하우징** 을 선택하면 데이터용 및 트랜잭션 로그용으로 별도의 디스크가 생성되고 TempDB에 로컬 SSD가 사용됩니다. **트랜잭션 처리** 와 **데이터 웨어하우징** 간에는 스토리지 차이점이 없지만 사용자의 [스트라이프 구성 및 추적 플래그](#workload-optimization-settings)를 변경합니다. Premium Storage를 선택하면 데이터 드라이브에 *ReadOnly* 캐싱이 설정되고 [SQL Server VM 성능 모범 사례](performance-guidelines-best-practices.md)에 따라 로그 드라이브에 없음이 설정됩니다. 
+**트랜잭션 처리**(OLTP) 또는 **데이터 웨어하우징** 을 선택하면 데이터용 및 트랜잭션 로그용으로 별도의 디스크가 생성되고 TempDB에 로컬 SSD가 사용됩니다. **트랜잭션 처리** 와 **데이터 웨어하우징** 간에는 스토리지 차이점이 없지만 사용자의 [스트라이프 구성 및 추적 플래그](#workload-optimization-settings)를 변경합니다. Premium Storage를 선택하면 데이터 드라이브에 *ReadOnly* 캐싱이 설정되고 [SQL Server VM 성능 모범 사례](./performance-guidelines-best-practices-checklist.md)에 따라 로그 드라이브에 없음이 설정됩니다. 
 
 ![프로비전하는 동안 SQL Server VM 스토리지 구성](./media/storage-configuration/sql-vm-storage-configuration.png)
 
@@ -197,7 +197,7 @@ Azure Portal을 사용하여 쓰기 가속을 사용하도록 설정하려면 �
 더 많은 처리량이 필요한 경우 추가 데이터 디스크를 추가하고 디스크 스트라이프를 사용할 수 있습니다. 데이터 디스크 수를 확인하려면 로그 및 tempdb를 포함하여 SQL Server 데이터 파일에 필요한 처리량 및 대역폭을 분석합니다. 처리량 및 대역폭 제한은 VM 크기에 따라 달라집니다. 자세한 내용은 [VM 크기](../../../virtual-machines/sizes.md)를 참조하세요.
 
 
-* Windows 8/Windows Server 2012 이상인 경우 다음 지침을 통해 [스토리지 공간](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11))을 사용합니다.
+* Windows 8/Windows Server 2012 이상인 경우 다음 지침을 통해 [스토리지 공간](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11))을 사용합니다.
 
   1. 인터리브(스트라이프 크기)를 64KB(65,536 바이트)로 설정하여 파티션 잘못 맞춤으로 인한 성능 영향을 방지합니다. 이는 PowerShell로 설정되어야 합니다.
 
@@ -216,9 +216,9 @@ Azure Portal을 사용하여 쓰기 가속을 사용하도록 설정하려면 �
       -AllocationUnitSize 65536 -Confirm:$false 
   ```
 
-  * Windows 2008 R2 또는 이전 버전에서는 동적 디스크(OS 스트라이프 볼륨)를 사용할 수 있으며 스트라이프 크기는 항상 64KB입니다. 이 옵션은 Windows 8/Windows Server 2012부터 사용되지 않습니다. 자세한 내용은 [가상 디스크 서비스가 Windows 스토리지 관리 API로 전환](https://docs.microsoft.com/windows/win32/w8cookbook/vds-is-transitioning-to-wmiv2-based-windows-storage-management-api)에 있는 지원 설명을 참조하세요.
+  * Windows 2008 R2 또는 이전 버전에서는 동적 디스크(OS 스트라이프 볼륨)를 사용할 수 있으며 스트라이프 크기는 항상 64KB입니다. 이 옵션은 Windows 8/Windows Server 2012부터 사용되지 않습니다. 자세한 내용은 [가상 디스크 서비스가 Windows 스토리지 관리 API로 전환](/windows/win32/w8cookbook/vds-is-transitioning-to-wmiv2-based-windows-storage-management-api)에 있는 지원 설명을 참조하세요.
  
-  * [SQL Server 장애 조치(failover) 클러스터 인스턴스](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure)와 함께 [S2D(스토리지 공간 다이렉트)](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm)를 사용하는 경우 단일 풀을 구성해야 합니다. 해당 단일 풀에서 여러 볼륨을 만들 수 있지만 모두 동일한 캐싱 정책 등의 동일한 특성을 공유합니다.
+  * [SQL Server 장애 조치(failover) 클러스터 인스턴스](./failover-cluster-instance-storage-spaces-direct-manually-configure.md)와 함께 [S2D(스토리지 공간 다이렉트)](/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm)를 사용하는 경우 단일 풀을 구성해야 합니다. 해당 단일 풀에서 여러 볼륨을 만들 수 있지만 모두 동일한 캐싱 정책 등의 동일한 특성을 공유합니다.
  
   * 예상되는 부하에 따라 스토리지 풀에 연결되는 디스크 수를 결정합니다. VM 크기가 다르면 연결된 데이터 디스크 수도 다를 수 있다는 점에 유의하세요. 자세한 내용은 [가상 머신의 크기](../../../virtual-machines/sizes.md?toc=/azure/virtual-machines/windows/toc.json)를 참조하세요.
 

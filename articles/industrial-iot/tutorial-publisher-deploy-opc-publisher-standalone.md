@@ -6,18 +6,18 @@ ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
-ms.openlocfilehash: c82d15541459b5b482e427fc707b92755aa02c6c
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: a47f9d6a47876f09ca241c30e3443886642e4fd8
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104787297"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137241"
 ---
 # <a name="tutorial-deploy-the-opc-publisher"></a>자습서: OPC 게시자 배포
 
 OPC 게시자는 산업 자산과 Microsoft Azure 클라우드 간의 차이를 극복하기 위해 공개적으로 개발되어 완벽하게 지원되는 Microsoft 제품입니다. 이는 OPC UA 사용 자산 또는 산업용 연결 소프트웨어에 연결하여 수행하고, 원격 분석 데이터를 IEC62541 OPC UA PubSub 표준 형식(버전 2.6 이상)을 포함한 다양한 형식으로 [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)에 게시합니다.
 
-[Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/)에서 모듈로 실행되거나 일반 Docker에서 컨테이너로 실행됩니다. [.NET 플랫폼 간 런타임](https://docs.microsoft.com/dotnet/core/introduction)을 활용하므로 Linux 및 Windows 10에서도 기본적으로 실행됩니다.
+[Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/)에서 모듈로 실행되거나 일반 Docker에서 컨테이너로 실행됩니다. [.NET 플랫폼 간 런타임](/dotnet/core/introduction)을 활용하므로 Linux 및 Windows 10에서도 기본적으로 실행됩니다.
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 

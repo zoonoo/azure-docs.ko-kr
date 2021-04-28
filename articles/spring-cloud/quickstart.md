@@ -8,12 +8,12 @@ ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 6ae56e4e1586a875d4d3d75d41580f375df0eebf
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: aa4a5ec19f9747014bf1a00c35778af6bfc396c3
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105962852"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134666"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>빠른 시작: 첫 번째 Azure Spring Cloud 애플리케이션 배포
 
@@ -345,9 +345,9 @@ info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
 
 ## <a name="generate-a-spring-cloud-project"></a>Spring Cloud 프로젝트 생성
 
-[Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.9.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client)를 시작하여 Azure Spring Cloud의 권장 종속성이 있는 샘플 프로젝트를 생성합니다. 다음 그림은 이 샘플 프로젝트에 대해 설정된 Initializr를 보여 줍니다.
+[Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.10.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client)를 시작하여 Azure Spring Cloud의 권장 종속성이 있는 샘플 프로젝트를 생성합니다. 다음 그림은 이 샘플 프로젝트에 대해 설정된 Initializr를 보여 줍니다.
 ```url
-https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client
+https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.10.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client
 ```
 이 예제에서는 Java 버전 8을 사용합니다.  Java 버전 11을 사용하려면 **프로젝트 메타데이터** 에서 옵션을 변경합니다.
 
@@ -449,7 +449,7 @@ Azure에 배포하려면 Azure 계정으로 로그인하고 구독을 선택해�
 1. **이름** 필드에서 앱 이름을 적용합니다. **이름** 은 앱 이름이 아니라 구성을 나타냅니다. 사용자는 일반적으로 변경할 필요가 없습니다.
 1. **Artifact** 텍스트 상자에서 *hellospring-0.0.1-SNAPSHOT.jar* 을 선택합니다.
 1. **구독** 텍스트 상자에서 구독을 확인합니다.
-1. **Spring Cloud** 텍스트 상자에서 [Azure Spring Cloud 인스턴스 프로비저닝](./spring-cloud-quickstart-provision-service-instance.md)에서 만든 Azure Spring Cloud의 인스턴스를 선택합니다.
+1. **Spring Cloud** 텍스트 상자에서 [Azure Spring Cloud 인스턴스 프로비저닝](./quickstart-provision-service-instance.md)에서 만든 Azure Spring Cloud의 인스턴스를 선택합니다.
 1. **퍼블릭 엔드포인트** 를 *사용* 으로 설정합니다.
 1. **App:** 텍스트 상자에서 **앱 만들기...** 를 선택합니다.
 1. *hellospring* 을 입력한 다음, **확인** 을 클릭합니다.
@@ -520,6 +520,6 @@ az group delete --name <your resource group name; for example: hellospring-15584
 더 많은 Azure Spring 기능을 사용하는 방법을 알아보려면 샘플 애플리케이션을 Azure Spring Cloud에 배포하는 빠른 시작 시리즈로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [마이크로서비스 빌드 및 실행](spring-cloud-quickstart-sample-app-introduction.md)
+> [마이크로서비스 빌드 및 실행](./quickstart-sample-app-introduction.md)
 
 GitHub에서 더 많은 샘플을 사용할 수 있습니다. [Azure Spring Cloud 샘플](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).

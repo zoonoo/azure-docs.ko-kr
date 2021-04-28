@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: db7c0f2dbc547d78e3caa9ab37450c86278929bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 13ba043582efe4a9e8d52f96f279b02ad8dab963
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555944"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141364"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>자습서: Azure에서 Windows 가상 머신 변경 내용 및 업데이트 모니터링
 
@@ -178,7 +178,7 @@ Windows에 사용 가능한 설정은 다음과 같습니다.
 * Windows 레지스트리
 * Windows 파일
 
-변경 내용 추적에 대한 자세한 내용은 [VM에서 변경 내용 문제 해결](../../automation/automation-tutorial-troubleshoot-changes.md)을 참조하세요.
+변경 내용 추적에 대한 자세한 내용은 [VM에서 변경 내용 문제 해결](../../automation/troubleshoot/change-tracking.md)을 참조하세요.
 
 ### <a name="view-inventory"></a>인벤토리 보기
 

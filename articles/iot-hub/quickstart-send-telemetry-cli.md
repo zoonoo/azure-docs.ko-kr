@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: a34fd5480ae47678f250dbf888005c396ba32f38
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 843db24707b8c826fe48e9d50aa7ec5bc135399f
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107792150"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107863608"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>빠른 시작: 디바이스에서 IoT hub로 원격 분석을 전송하고 Azure CLI를 사용하여 모니터링
 
@@ -94,7 +94,7 @@ Azure CLI를 사용하려면 Azure 계정에 로그인해야 합니다. Azure CL
 이 섹션에서는 첫 번째 CLI 세션에서 시뮬레이트된 디바이스를 만듭니다. 시뮬레이트된 디바이스는 IoT Hub에 디바이스 원격 분석을 보냅니다. 두 번째 CLI 세션에서 이벤트 및 원격 분석을 모니터링하고 클라우드-디바이스 메시지를 시뮬레이트된 디바이스로 보냅니다.
 
 시뮬레이트된 디바이스를 만들고 시작 하려면 다음을 실행합니다.
-1. 첫 번째 CLI 세션에서 [az iot hub device-identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) 명령을 실행합니다. 시뮬레이트된 디바이스 ID가 만들어집니다. 
+1. 첫 번째 CLI 세션에서 [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) 명령을 실행합니다. 시뮬레이트된 디바이스 ID가 만들어집니다. 
 
     *YourIotHubName*. 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다. 
 
@@ -104,7 +104,7 @@ Azure CLI를 사용하려면 Azure 계정에 로그인해야 합니다. Azure CL
     az iot hub device-identity create --device-id simDevice --hub-name {YourIoTHubName} 
     ```
 
-1. 첫 번째 CLI 세션에서 [az iot device simulate](/cli/azure/ext/azure-iot/iot/device#ext-azure-iot-az-iot-device-simulate) 명령을 실행합니다.  그러면 시뮬레이트된 디바이스가 시작됩니다. 이 디바이스는 IoT Hub에 원격 분석을 보내고 메시지를 수신합니다.  
+1. 첫 번째 CLI 세션에서 [az iot device simulate](/cli/azure/iot/device#az_iot_device_simulate) 명령을 실행합니다.  그러면 시뮬레이트된 디바이스가 시작됩니다. 이 디바이스는 IoT Hub에 원격 분석을 보내고 메시지를 수신합니다.  
 
     *YourIotHubName*. 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다. 
 
@@ -113,7 +113,7 @@ Azure CLI를 사용하려면 Azure 계정에 로그인해야 합니다. Azure CL
     ```
 
 디바이스를 모니터링하려면 다음을 수행합니다.
-1. 두 번째 CLI 세션에서 [az iot hub monitor-events](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-monitor-events) 명령을 실행합니다. 그러면 시뮬레이트된 디바이스 모니터링이 시작됩니다. 출력은 시뮬레이트된 디바이스가 IoT Hub에 보내는 원격 분석을 보여 줍니다.
+1. 두 번째 CLI 세션에서 [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) 명령을 실행합니다. 그러면 시뮬레이트된 디바이스 모니터링이 시작됩니다. 출력은 시뮬레이트된 디바이스가 IoT Hub에 보내는 원격 분석을 보여 줍니다.
 
     *YourIotHubName*. 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다. 
 
@@ -136,7 +136,7 @@ Azure CLI를 사용하려면 Azure 계정에 로그인해야 합니다. Azure CL
     az iot device simulate -d simDevice -n {YourIoTHubName}
     ```
 
-1. 두 번째 CLI 세션에서 [az iot device c2d-message send](/cli/azure/ext/azure-iot/iot/device/c2d-message#ext-azure-iot-az-iot-device-c2d-message-send) 명령을 실행합니다. 그러면 IoT Hub에서 시뮬레이트된 디바이스로 클라우드-디바이스 메시지를 보냅니다. 이 메시지에는 문자열 1개와 키-값 쌍 2개가 포함됩니다.  
+1. 두 번째 CLI 세션에서 [az iot device c2d-message send](/cli/azure/iot/device/c2d-message#az_iot_device_c2d-message-send) 명령을 실행합니다. 그러면 IoT Hub에서 시뮬레이트된 디바이스로 클라우드-디바이스 메시지를 보냅니다. 이 메시지에는 문자열 1개와 키-값 쌍 2개가 포함됩니다.  
 
     *YourIotHubName*. 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다. 
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5eacf9c53715bf42c466aaf6a58938bd681630b9
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 631b01dadacf81d66c3f42dc1401d2cf492316b8
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280652"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869242"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>빠른 시작: .NET용 Azure Blob 스토리지 클라이언트 라이브러리 v11
 
@@ -401,5 +401,5 @@ Blob Storage에 이미지를 업로드하는 웹앱을 만드는 방법을 알�
 > [!div class="nextstepaction"]
 > [이미지 업로드 및 처리](storage-upload-process-images.md)
 
-* .NET Core에 대해 자세히 알아보려면 [10분 안에 .NET 시작](https://www.microsoft.com/net/learn/get-started/)을 참조하세요.
+* .NET Core에 대해 자세히 알아보려면 [10분 안에 .NET 시작](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro)을 참조하세요.
 * Windows용 Visual Studio에서 배포할 수 있는 샘플 애플리케이션을 탐색하려면 [Azure Blob Storage를 사용하여 .NET 사진 갤러리 웹 애플리케이션 샘플](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/)을 참조하세요.

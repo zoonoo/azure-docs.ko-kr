@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: f94134b2a06155b1b1f390175578e501a840038b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ae9a1a374724465148f922efe486c4680e1e36ab
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101669427"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144280"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>서버리스 SQL 풀에 대한 자가 진단
 
@@ -41,7 +41,7 @@ Synapse Studio가 서버리스 SQL 풀에 대한 연결을 설정할 수 없는 
 
 - 쿼리 대상이 CSV 파일인 경우 [통계 만들기](develop-tables-statistics.md#statistics-in-serverless-sql-pool)를 고려해 보세요. 
 
-- 쿼리를 최적화하려면 [서버리스 SQL 풀의 성능 모범 사례](best-practices-sql-on-demand.md)를 참조하세요.  
+- 쿼리를 최적화하려면 [서버리스 SQL 풀의 성능 모범 사례](./best-practices-serverless-sql-pool.md)를 참조하세요.  
 
 ## <a name="create-statement-is-not-supported-in-master-database"></a>CREATE 'STATEMENT'는 마스터 데이터베이스에서 지원되지 않습니다.
 

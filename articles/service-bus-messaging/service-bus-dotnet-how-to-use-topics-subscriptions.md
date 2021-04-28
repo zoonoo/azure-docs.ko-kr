@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 03/16/2021
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 79eb7783fd3daf546539dd5b9048f4e9f484374f
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 7cc854c850b02674151da7c88d94a2800b6572f5
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279802"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108015972"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-net"></a>Azure Service Bus 토픽에 메시지 보내기 및 토픽의 구독에서 메시지 받기(.NET)
 이 자습서에서는 다음 작업을 수행하는 C# 애플리케이션을 만듭니다.
@@ -188,7 +188,7 @@ Visual Studio를 사용하여 .NET Core 콘솔 애플리케이션 만들기.
     다음은 코드의 중요한 단계입니다.
     1. 네임스페이스에 대한 연결 문자열을 사용하여 [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) 개체를 만듭니다. 
     1. `ServiceBusClient` 개체에서 [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) 메서드를 호출하여 지정된 Service Bus 토픽에 대한 [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) 개체를 만듭니다. 
-    1. 도우미 메서드 `GetMessages`를 호출하여 Service Bus 토픽으로 보낼 메시지 큐를 가져옵니다. 
+    1. 도우미 메서드 `CreateMessages`를 호출하여 Service Bus 토픽으로 보낼 메시지 큐를 가져옵니다. 
     1. [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync)를 사용하여 [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch)를 만듭니다.
     1. [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage)를 사용하여 일괄 처리에 메시지를 추가합니다. 메시지가 일괄 처리에 추가되면 .NET 큐에서 제거됩니다. 
     1. [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync) 메서드를 사용하여 메시지 일괄 처리를 Service Bus 토픽에 보냅니다.
@@ -208,7 +208,7 @@ Visual Studio를 사용하여 .NET Core 콘솔 애플리케이션 만들기.
 ```
 
 ### <a name="test-the-app-to-send-messages-to-the-topic"></a>앱을 테스트하여 메시지를 토픽에 보내기
-1. 애플리케이션을 실행합니다. 다음과 같은 출력이 표시됩니다.
+1. 애플리케이션을 실행합니다. 다음 출력이 표시됩니다.
 
     ```console
     Sent a single message to the topic: mytopic

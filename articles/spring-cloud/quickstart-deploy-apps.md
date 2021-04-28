@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 727354593488cd5af77408eaa7c8d9e747a0b071
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 99a2544a755f04bad0fcf36ead865a4311705566
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878848"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132848"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>빠른 시작: Azure Spring Cloud에 앱 빌드 및 배포
 
@@ -24,8 +24,8 @@ ms.locfileid: "104878848"
 
 * 이 시리즈의 이전 빠른 시작을 완료합니다.
 
-  * [Azure Spring Cloud 서비스 프로비저닝](spring-cloud-quickstart-provision-service-instance.md)
-  * [Azure Spring Cloud 구성 서버 설정](spring-cloud-quickstart-setup-config-server.md)
+  * [Azure Spring Cloud 서비스 프로비저닝](./quickstart-provision-service-instance.md)
+  * [Azure Spring Cloud 구성 서버 설정](./quickstart-setup-config-server.md)
 
 ## <a name="download-the-sample-app"></a>샘플 앱 다운로드
 
@@ -183,7 +183,7 @@ https://servicename-solar-system-weather.azuremicroservices.io/weatherforecast
 * Maven 플러그 인
 * Intellij
 
-Azure CLI 또는 Maven을 사용하여 배포하기 전에 [Azure Spring Cloud의 인스턴스를 프로비저닝](spring-cloud-quickstart-provision-service-instance.md)하고 [구성 서버를 설정](spring-cloud-quickstart-setup-config-server.md)하는 예제를 완료합니다.
+Azure CLI 또는 Maven을 사용하여 배포하기 전에 [Azure Spring Cloud의 인스턴스를 프로비저닝](./quickstart-provision-service-instance.md)하고 [구성 서버를 설정](./quickstart-setup-config-server.md)하는 예제를 완료합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -313,7 +313,7 @@ Azure에 배포하려면 Azure Toolkit for IntelliJ를 사용하여 Azure 계정
 1. **이름** 필드에서 *:게이트웨이* 를 기존 **이름** 에 추가합니다.
 1. **아티팩트** 텍스트 상자에서 *com.piggymetrics:gateway:1.0-SNAPSHOT* 을 선택합니다.
 1. **구독** 텍스트 상자에서 구독을 확인합니다.
-1. **Spring Cloud** 텍스트 상자에서 [Azure Spring Cloud 인스턴스 프로비저닝](./spring-cloud-quickstart-provision-service-instance.md)에서 만든 Azure Spring Cloud의 인스턴스를 선택합니다.
+1. **Spring Cloud** 텍스트 상자에서 [Azure Spring Cloud 인스턴스 프로비저닝](./quickstart-provision-service-instance.md)에서 만든 Azure Spring Cloud의 인스턴스를 선택합니다.
 1. **퍼블릭 엔드포인트** 를 *사용* 으로 설정합니다.
 1. **App:** 텍스트 상자에서 **앱 만들기...** 를 선택합니다.
 1. *게이트웨이* 를 입력한 다음, **확인** 을 클릭합니다.
@@ -355,7 +355,7 @@ Azure Portal로 이동하여 URL을 찾을 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 구독에 남아있는 경우 요금이 계속 청구되는 Azure 리소스를 만들었습니다. 다음 빠른 시작을 계속 진행하지 않으려는 경우 [리소스 정리](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources)를 참조하세요. 그렇지 않으면 다음 빠른 시작으로 이동하세요.
+이 빠른 시작에서는 구독에 남아있는 경우 요금이 계속 청구되는 Azure 리소스를 만들었습니다. 다음 빠른 시작을 계속 진행하지 않으려는 경우 [리소스 정리](./quickstart-logs-metrics-tracing.md#clean-up-resources)를 참조하세요. 그렇지 않으면 다음 빠른 시작으로 이동하세요.
 
 > [!div class="nextstepaction"]
-> [로그, 메트릭 및 추적](spring-cloud-quickstart-logs-metrics-tracing.md)
+> [로그, 메트릭 및 추적](./quickstart-logs-metrics-tracing.md)
