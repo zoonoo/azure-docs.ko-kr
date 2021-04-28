@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 0b064e8491b5d4fa988e9f476143cc0711e3934a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cfa4239fb6a3c78d861885478c1c643151ee6e13
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100651377"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108128562"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>빠른 시작: 웹 API에 액세스하도록 클라이언트 애플리케이션 구성
 
@@ -149,4 +149,4 @@ Microsoft Graph의 *Files.Read.All* 권한과 같은 일부 권한에는 관리�
 애플리케이션에 액세스할 수 있는 계정 유형을 구성하는 방법을 알아보려면 시리즈의 다음 빠른 시작으로 이동합니다. 예를 들어 조직의 사용자(단일 테넌트)에 대해서만 액세스를 제한하거나 다른 Azure AD 테넌트(다중 테넌트)의 사용자 및 개별 MSA(Microsoft 계정)를 가진 사용자에게만 액세스를 허용할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [애플리케이션에서 지원되는 계정 수정](quickstart-modify-supported-accounts.md)
+> [애플리케이션에서 지원되는 계정 수정](./howto-modify-supported-accounts.md)

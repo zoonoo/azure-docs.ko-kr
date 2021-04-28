@@ -171,7 +171,7 @@
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
         - name: 보안 기준
-          href: /security/benchmark/azure/baselines/machine-learning-security-baseline
+          href: /security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context
         - name: Azure Policy의 보안 컨트롤
           href: ./security-controls-policy.md
         - name: 데이터 암호화

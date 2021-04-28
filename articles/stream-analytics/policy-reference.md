@@ -1,18 +1,18 @@
 ---
 title: Azure Stream Analytics에 대한 기본 제공 정책 정의
 description: Azure Stream Analytics에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: reference
 author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.custom: subject-policy-reference
-ms.openlocfilehash: bfe79c6949bcc2520a35e6bb8901a2a56c97489a
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 6f17943f14ca545cb76be9b57f7a3a5fefd9ece4
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107499985"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873430"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-stream-analytics"></a>Azure Stream Analytics에 대한 Azure Policy 기본 제공 정의
 

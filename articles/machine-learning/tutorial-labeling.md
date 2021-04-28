@@ -11,12 +11,12 @@ author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
 ms.custom: data4ml
-ms.openlocfilehash: 41e93584937ca10740e9ee0be3353d1edf5efb3e
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 53521233e4e0b130eb6416f230aba5d01d974b03
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107587683"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141742"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>자습서: 다중 클래스 이미지 분류를 위한 레이블 지정 프로젝트 만들기 
 
@@ -210,5 +210,4 @@ Azure 리소스가 설정되고 데이터 레이블 지정 프로젝트가 구�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [기계 학습 이미지 인식 모델 학습](/azure/machine-learning/how-to-use-labeled-dataset)
-
+> [기계 학습 이미지 인식 모델 학습](how-to-use-labeled-dataset.md)

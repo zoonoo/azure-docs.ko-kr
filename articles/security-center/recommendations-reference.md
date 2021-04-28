@@ -4,22 +4,21 @@ description: 이 문서에는 리소스를 강화하고 보호하는 데 도움�
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/06/2021
+ms.date: 04/26/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: e994aead1840fd3ef9b57e92cf95e94837608d7a
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 0457cba053e79907780b52aee00e25ea78987c6b
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107719136"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001893"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>보안 권장 사항 - 참조 가이드
 
 이 문서에는 Azure Security Center에서 볼 수 있는 권장 사항이 나열되어 있습니다. 환경에 표시되는 권장 사항은 보호하는 리소스 및 사용자 지정된 구성에 따라 다릅니다.
 
-Security Center 권장 사항은 [Azure 보안 벤치마크](https://docs.microsoft.com/security/benchmark/azure/introduction)를 기반으로 합니다.
-Azure 보안 벤치마크는 일반적인 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침 세트입니다. 널리 인정받는 이 벤치마크는 클라우드 중심 보안에 초점을 맞춘 [CIS(Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) 및 [NIST(National Institute of Standards and Technology)](https://www.nist.gov/)의 컨트롤을 기반으로 합니다.
+Security Center 권장 사항은 [Azure 보안 벤치마크](../security/benchmarks/introduction.md)를 기반으로 합니다. Azure 보안 벤치마크는 일반적인 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침 세트입니다. 널리 인정받는 이 벤치마크는 클라우드 중심 보안에 초점을 맞춘 [CIS(Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) 및 [NIST(National Institute of Standards and Technology)](https://www.nist.gov/)의 컨트롤을 기반으로 합니다.
 
 이러한 권장 사항에 대응하는 방법에 대한 자세한 내용은 [Azure Security Center의 권장 사항 해결](security-center-remediate-recommendations.md)을 참조하세요.
 

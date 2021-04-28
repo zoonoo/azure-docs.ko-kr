@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 16e8cfd9c6b20e3a8d17ba335079b1b6fe8b499f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: bbc294f006859e30aa891c7aa1b9ad4d1665a21c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785022"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139960"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>자습서: Azure에서 Linux 가상 머신 변경 내용 및 업데이트 모니터링
 
@@ -170,7 +170,7 @@ VM에 대해 변경 내용 및 인벤토리 관리 사용:
 
 VM에서 **작업** 아래에 있는 **변경 내용 추적** 을 선택합니다. **설정 편집** 을 선택하면 **변경 내용 추적** 페이지가 표시됩니다. 추적할 설정의 형식을 선택한 다음, **+ 추가** 를 선택하여 설정을 구성합니다. 사용 가능한 Linux 옵션은 **Linux 파일** 입니다.
 
-변경 내용 추적에 대한 자세한 내용은 [VM에서 변경 내용 문제 해결](../../automation/automation-tutorial-troubleshoot-changes.md)을 참조하세요.
+변경 내용 추적에 대한 자세한 내용은 [VM에서 변경 내용 문제 해결](../../automation/troubleshoot/change-tracking.md)을 참조하세요.
 
 ### <a name="view-inventory"></a>인벤토리 보기
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/22/2021
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9035c0a91bbbd7493437c692540fcbb3136a094e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9741c2e85a7cd3523ffe7fe8262e5f5d821b62c3
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105613131"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126600"
 ---
 # <a name="emergency-rotation-of-the-ad-fs-certificates"></a>AD FS 인증서의 긴급 회전
 AD FS 인증서를 즉시 회전해야 하는 경우 이 섹션의 아래에 설명된 단계를 수행할 수 있습니다.
@@ -26,7 +26,7 @@ AD FS 인증서를 즉시 회전해야 하는 경우 이 섹션의 아래에 설
 
 > [!NOTE]
 > Microsoft는 HSM(하드웨어 보안 모듈)을 사용하여 인증서를 보호하는 것이 좋습니다.
-> 자세한 내용은 AD FS 보안 설정에 대한 모범 사례에서 [하드웨어 보안 모듈](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm)을 참조하세요.
+> 자세한 내용은 AD FS 보안 설정에 대한 모범 사례에서 [하드웨어 보안 모듈](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm)을 참조하세요.
 
 ## <a name="determine-your-token-signing-certificate-thumbprint"></a>토큰 서명 인증서 지문 확인
 현재 사용 중인 AD FS 이전 토큰 서명 인증서를 철회하려면 토큰 서명 인증서의 지문을 확인해야 합니다.  이렇게 하려면 다음 단계를 따릅니다.
@@ -69,7 +69,7 @@ AutoCertificateRollover 속성은 AD FS가 토큰 서명 및 토큰 암호 해�
 ## <a name="generating-new-certificates-manually-if-autocertificaterollover-is-set-to-false"></a>AutoCertificateRollover이 FALSE로 설정된 경우 새 인증서를 수동으로 생성
 자동으로 생성되었으며 기본 자체 서명된 토큰 서명 및 토큰 암호 해독 인증서를 사용하지 않는 경우 이러한 인증서를 수동으로 갱신하고 구성해야 합니다.  여기에는 두 개의 새 토큰 서명 인증서를 만들고 가져오는 작업이 포함됩니다.  그런 다음, 하나를 주로 승격하고 이전 인증서를 철회한 후 두 번째 인증서를 보조 인증서로 구성합니다.
 
-먼저, 인증 기관에서 두 개의 새 인증서를 얻어 각 페더레이션 서버의 로컬 컴퓨터 개인 인증서 스토리지로 가져와야 합니다. 관련 지침은 [인증서 가져오기](https://technet.microsoft.com/library/cc754489.aspx) 문서를 참조하세요.
+먼저, 인증 기관에서 두 개의 새 인증서를 얻어 각 페더레이션 서버의 로컬 컴퓨터 개인 인증서 스토리지로 가져와야 합니다. 관련 지침은 [인증서 가져오기](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754489(v=ws.11)) 문서를 참조하세요.
 
 >[!IMPORTANT]
 >두 개의 인증서를 만드는 이유는 Azure가 이전 인증서와 관련된 정보를 계속 보유하기 때문입니다.  두 번째를 만들면 Azure는 이전 인증서에 대한 정보를 해제하고 두 번째 인증서에 대한 정보로 대체하게 됩니다.
@@ -118,9 +118,9 @@ Azure AD에서 인증서 정보를 업데이트하려면 명령 `Update-MsolFede
 ## <a name="replace-ssl-certificates"></a>SSL 인증서 유효성을 바꿉니다.
 손상으로 인해 토큰 서명 인증서를 교체해야 하는 경우 AD FS 및 WAP 서버에 대한 SSL 인증서를 철회하고 바꾸어야 합니다.  
 
-SSL 인증서 해지는 인증서를 발급한 CA(인증 기관)에서 수행해야 합니다.  이러한 인증서는 GoDaddy와 같은 타사 공급자가 발급하는 경우가 많습니다.  예를 보려면 (인증서 철회 | SSL 인증서 - GoDaddy 도움말 US)를 참조하세요.  자세한 내용은 [인증서를 해지하는 방법](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee619754(v=ws.10)?redirectedfrom=MSDN)을 참조하세요.
+SSL 인증서 해지는 인증서를 발급한 CA(인증 기관)에서 수행해야 합니다.  이러한 인증서는 GoDaddy와 같은 타사 공급자가 발급하는 경우가 많습니다.  예를 보려면 (인증서 철회 | SSL 인증서 - GoDaddy 도움말 US)를 참조하세요.  자세한 내용은 [인증서를 해지하는 방법](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee619754(v=ws.10))을 참조하세요.
 
-이전 SSL 인증서가 해지되고 새 인증서가 발급되면 SSL 인증서를 바꿀 수 있습니다. 자세한 내용은 [AD FS에 대한 SSL 인증서 바꾸기](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs)를 참조하세요.
+이전 SSL 인증서가 해지되고 새 인증서가 발급되면 SSL 인증서를 바꿀 수 있습니다. 자세한 내용은 [AD FS에 대한 SSL 인증서 바꾸기](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs)를 참조하세요.
 
 
 ## <a name="remove-your-old-certificates"></a>이전 인증서 제거
@@ -139,29 +139,10 @@ SSL 인증서 해지는 인증서를 발급한 CA(인증 기관)에서 수행해
 
 
 ## <a name="revoke-refresh-tokens-via-powershell"></a>PowerShell을 통해 새로 고침 토큰 철회
-이제 사용자에 대한 새로 고침 토큰을 철회하고 다시 로그온하여 새 토큰을 가져오는 데 사용할 수 있습니다.  그러면 토큰 및 새로 고침 토큰을 사용하는 다른 항목과 함께 사용자의 휴대폰, 현재 웹 메일 세션에서 로그아웃합니다.  [여기](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0&preserve-view=true)에서 정보를 찾을 수 있으며 [Azure Active Directory에서 사용자 액세스를 철회](../../active-directory/enterprise-users/users-revoke-access.md)하는 방법을 참조할 수도 있습니다.
+이제 사용자에 대한 새로 고침 토큰을 철회하고 다시 로그온하여 새 토큰을 가져오는 데 사용할 수 있습니다.  그러면 토큰 및 새로 고침 토큰을 사용하는 다른 항목과 함께 사용자의 휴대폰, 현재 웹 메일 세션에서 로그아웃합니다.  [여기](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?preserve-view=true&view=azureadps-2.0)에서 정보를 찾을 수 있으며 [Azure Active Directory에서 사용자 액세스를 철회](../../active-directory/enterprise-users/users-revoke-access.md)하는 방법을 참조할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Windows Server 2016의 AD FS 및 WAP에서 SSL 인증서 관리](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs)
-- [AD FS에 대한 토큰 암호 해독 인증서 및 토큰 서명 가져오기 및 구성 ](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn781426(v=ws.11)#updating-federation-partners)
+- [Windows Server 2016의 AD FS 및 WAP에서 SSL 인증서 관리](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs)
+- [AD FS에 대한 토큰 암호 해독 인증서 및 토큰 서명 가져오기 및 구성 ](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn781426(v=ws.11)#updating-federation-partners)
 - [Microsoft 365 및 Azure Active Directory에 대한 페더레이션 인증서 갱신](how-to-connect-fed-o365-certs.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
