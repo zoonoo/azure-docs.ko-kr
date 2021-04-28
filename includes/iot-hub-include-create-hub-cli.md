@@ -6,12 +6,12 @@ ms.author: timlt
 ms.service: iot-develop
 ms.topic: include
 ms.date: 01/14/2021
-ms.openlocfilehash: be51d4db6c98b63fcb1c9c60df045b494536d78f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4999bd93f338ca7b34b141b88e06e4a769a4aaa1
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107766529"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876435"
 ---
 다음 섹션에서는 터미널을 설정하고 Azure CLI를 사용하여 IoT 허브를 만듭니다. Azure CLI 명령을 실행하는 터미널을 구성하려면 브라우저 기반 Azure Cloud Shell을 사용하거나 로컬 터미널을 사용할 수 있습니다.
 * Cloud Shell을 사용하려면 [Cloud Shell 시작](#launch-the-cloud-shell) 섹션으로 이동합니다. 
@@ -97,7 +97,7 @@ IoT 허브 및 리소스 그룹을 만들려면 다음을 수행합니다.
 이 섹션에서는 IoT 허브에 연결되어 시뮬레이션된 IoT 디바이스를 만듭니다. 
 
 시뮬레이션된 디바이스를 만들려면 다음을 수행합니다.
-1. CLI 셸에서 [az iot hub device-identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) 명령을 실행합니다. 시뮬레이트된 디바이스 ID가 만들어집니다. 
+1. CLI 셸에서 [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) 명령을 실행합니다. 시뮬레이트된 디바이스 ID가 만들어집니다. 
 
     *YourIotHubName*. 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다. 
 
@@ -107,7 +107,7 @@ IoT 허브 및 리소스 그룹을 만들려면 다음을 수행합니다.
     az iot hub device-identity create --device-id myDevice --hub-name {YourIoTHubName} 
     ```
 
-1.  [Az iot hub device-identity connection-string show](/cli/azure/ext/azure-iot/iot/hub/device-identity/connection-string#ext_azure_iot_az_iot_hub_device_identity_connection_string_show) 명령을 실행합니다. 
+1.  [Az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az_iot_hub_device_identity_connection_string_show) 명령을 실행합니다. 
 
     ```azurecli
     az iot hub device-identity connection-string show --device-id myDevice --hub-name {YourIoTHubName}

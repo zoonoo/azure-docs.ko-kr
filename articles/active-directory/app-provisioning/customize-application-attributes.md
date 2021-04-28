@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/17/2021
 ms.author: kenwith
-ms.openlocfilehash: 738b89ee9347a25e2d24369a48e966f0bec6daf0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8534c21bb0dad782b89c6518ea2313b4232639a6
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579470"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108128670"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>자습서 - Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비저닝 특성 매핑 사용자 지정
 
@@ -113,7 +113,7 @@ ServiceNow, Box 및 G Suite와 같은 일부 애플리케이션은 그룹 개체
 - ServiceNow
 - Workday에서 Active Directory로 / Workday에서 Azure Active Directory로
 - SuccessFactors에서 Active Directory로 / SuccessFactors에서 Azure Active Directory로
-- Azure Active Directory([Azure AD Graph API 기본 특성](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) 및 사용자 지정 디렉터리 확장이 지원됨). [확장 만들기](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping#create-an-extension-attribute-on-a-cloud-only-user) 및 [알려진 제한](https://docs.microsoft.com/azure/active-directory/app-provisioning/known-issues)에 대해 자세히 알아보세요. 
+- Azure Active Directory([Azure AD Graph API 기본 특성](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) 및 사용자 지정 디렉터리 확장이 지원됨). [확장 만들기](./user-provisioning-sync-attributes-for-mapping.md#create-an-extension-attribute-on-a-cloud-only-user) 및 [알려진 제한](./known-issues.md)에 대해 자세히 알아보세요. 
 - [SCIM 2.0](https://tools.ietf.org/html/rfc7643)을 지원하는 앱
 - Workday 또는 SuccessFactors에 대한 Azure Active Directory 쓰기 저장의 경우, 지원되는 특성(XPATH 및 JSONPath)에 대한 관련 메타 데이터를 업데이트하는 것이 지원되지만 기본 스키마에 포함된 특성을 넘어서 새 Workday 또는 SuccessFactors 특성을 추가하는 것은 지원되지 않습니다.
 

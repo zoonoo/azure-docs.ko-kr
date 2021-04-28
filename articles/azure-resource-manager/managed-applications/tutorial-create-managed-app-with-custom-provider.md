@@ -6,12 +6,12 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 228d1a8bcd97daebae873de4c69cbec238e0c995
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 7f35f1e82723829f6c0b1190730c5e5fab56fbc8
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312538"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143866"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>자습서: 사용자 지정 작업 및 리소스가 있는 관리형 애플리케이션 만들기
 
@@ -349,7 +349,7 @@ az managedapp create \
 
 ## <a name="looking-for-help"></a>도움말 찾기
 
-Azure Managed Applications에 대한 질문이 있는 경우 azure-managed-app 태그가 있는 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managed-app) 또는 azure-managed-application 태그가 있는 [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-managed-applications.html)에서 질문할 수 있습니다. 이미 비슷한 질문을 받고 답변했을 수 있으므로 게시하기 전에 먼저 확인하세요. 더 빠른 응답을 위해 각 태그를 사용하세요. 
+Azure Managed Applications에 대한 질문이 있는 경우 azure-managed-app 태그가 있는 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managed-app) 또는 azure-managed-application 태그가 있는 [Microsoft Q&A](/answers/topics/azure-managed-applications.html)에서 질문할 수 있습니다. 이미 비슷한 질문을 받고 답변했을 수 있으므로 게시하기 전에 먼저 확인하세요. 더 빠른 응답을 위해 각 태그를 사용하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

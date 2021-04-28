@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 5503f9ad57180146c25a01c133a27b34e643496c
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 0acb337af36bdc62504ad7b32de1b31871c1a795
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378349"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141724"
 ---
 # <a name="tutorial-understanding-x509-public-key-certificates"></a>자습서: X.509 공개 키 인증서 이해
 
@@ -111,7 +111,7 @@ PEM 인증서(.pem 확장명)에는 -----BEGIN CERTIFICATE-----로 시작하고 
 자세한 내용은 다음 항목을 참조하세요.
 
 * [X.509 인증서 전문 용어에 대한 layman의 가이드](https://techcommunity.microsoft.com/t5/internet-of-things/the-layman-s-guide-to-x-509-certificate-jargon/ba-p/2203540)
-* [IoT 업계의 X.509 CA 인증서에 대한 개념적 이해](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-concept)
+* [IoT 업계의 X.509 CA 인증서에 대한 개념적 이해](./iot-hub-x509ca-concept.md)
 
 ## <a name="next-steps"></a>다음 단계
 

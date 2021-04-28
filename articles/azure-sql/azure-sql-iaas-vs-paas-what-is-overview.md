@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: 394b3390386c60e2a64f52dd944dfcdb0d33951e
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 1202843781ab1c08b2d573967e5118ed04d48990
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107727027"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129912"
 ---
 # <a name="what-is-azure-sql"></a>Azure SQL란? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -168,7 +168,7 @@ IT 부서의 경우 SLA(서비스 수준 계약)의 작동 시간 의무를 충�
 
 **Azure SQL Managed Instance** 는 기존 애플리케이션을 Azure로 마이그레이션하는 과정을 간소화하므로 Azure에서 마이그레이션된 데이터베이스 애플리케이션을 빠르게 출시할 수 있습니다.
 
-**Azure VM의 SQL** 은 기존 애플리케이션 또는 새 애플리케이션에 큰 데이터베이스가 필요하거나 SQL Server 또는 Windows/Linux의 모든 기능에 액세스해야 하며 새로운 온-프레미스 하드웨어를 획득하는 시간과 비용을 피하려는 경우에 유용합니다. 또한 기존 온-프레미스 애플리케이션 및 데이터베이스를 Azure로 있는 그대로 마이그레이션하기를 원하지만 SQL Database 또는 SQL Managed Instance가 적합하지 않은 경우에 적절한 선택입니다. 프레젠테이션, 애플리케이션 및 데이터 계층을 변경할 필요가 없으므로 기존 솔루션 재설계에 따른 비용과 예산이 절감됩니다. 대신 모든 솔루션을 Azure에 마이그레이션하고 Azure 플랫폼에 필요할 수 있는 일부 성능 최적화를 수행하는 데 집중할 수 있습니다. 자세한 내용은 [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](virtual-machines/windows/performance-guidelines-best-practices.md)를 참조하세요.
+**Azure VM의 SQL** 은 기존 애플리케이션 또는 새 애플리케이션에 큰 데이터베이스가 필요하거나 SQL Server 또는 Windows/Linux의 모든 기능에 액세스해야 하며 새로운 온-프레미스 하드웨어를 획득하는 시간과 비용을 피하려는 경우에 유용합니다. 또한 기존 온-프레미스 애플리케이션 및 데이터베이스를 Azure로 있는 그대로 마이그레이션하기를 원하지만 SQL Database 또는 SQL Managed Instance가 적합하지 않은 경우에 적절한 선택입니다. 프레젠테이션, 애플리케이션 및 데이터 계층을 변경할 필요가 없으므로 기존 솔루션 재설계에 따른 비용과 예산이 절감됩니다. 대신 모든 솔루션을 Azure에 마이그레이션하고 Azure 플랫폼에 필요할 수 있는 일부 성능 최적화를 수행하는 데 집중할 수 있습니다. 자세한 내용은 [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](./virtual-machines/windows/performance-guidelines-best-practices-checklist.md)를 참조하세요.
 
 [!INCLUDE [sql-database-create-manage-portal](includes/sql-database-create-manage-portal.md)]
 

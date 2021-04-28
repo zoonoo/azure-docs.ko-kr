@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1aafcd8ace846d7da65d95d4148872d5a6eddeee
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 9f1043bf94276c752b816e458ee7513837db0ecd
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107587853"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130632"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>자습서: 하이브리드 Azure Active Directory 조인 디바이스를 수동으로 구성
 
@@ -76,7 +76,7 @@ Azure AD에 컴퓨터를 등록하려면 조직 네트워크 내에 있는 컴�
 Windows 10 1803부터는 페더레이션된 도메인에서 AD FS를 사용한 디바이스의 하이브리드 Azure AD 조인 시도가 실패하더라도 Azure AD Connect가 컴퓨터/디바이스 개체를 Azure AD와 동기화하도록 구성되어 있으면 디바이스가 동기화된 컴퓨터/디바이스를 사용하여 하이브리드 Azure AD 조인을 완료하려고 시도합니다.
 
 > [!NOTE]
-> 디바이스 등록 동기화 조인을 성공하려면 디바이스 등록 구성의 일부로 기본 디바이스 특성을 Azure AD Connect 동기화 구성에서 제외하지 마세요. Azure AD에 동기화된 기본 디바이스 특성에 대한 자세한 내용은 [Azure AD Connect에서 동기화된 특성](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized#windows-10)을 참조하세요.
+> 디바이스 등록 동기화 조인을 성공하려면 디바이스 등록 구성의 일부로 기본 디바이스 특성을 Azure AD Connect 동기화 구성에서 제외하지 마세요. Azure AD에 동기화된 기본 디바이스 특성에 대한 자세한 내용은 [Azure AD Connect에서 동기화된 특성](../hybrid/reference-connect-sync-attributes-synchronized.md#windows-10)을 참조하세요.
 
 디바이스가 시스템 계정으로 위의 Microsoft 리소스에 액세스할 수 있는지 확인하기 위해 [디바이스 등록 연결 테스트](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/) 스크립트를 사용할 수 있습니다.
 

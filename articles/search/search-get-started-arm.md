@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 11/17/2020
-ms.openlocfilehash: 88a081f1ebbda52653302384c06403e223128c60
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea5840b76d8e558a261c15200b7f28524989df84
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101668387"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107952317"
 ---
 # <a name="quickstart-deploy-cognitive-search-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Cognitive Search 배포
 
@@ -24,7 +24,7 @@ ms.locfileid: "101668387"
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-search-create%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.search%2Fazure-search-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-azure-search-create/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-azure-search-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.search/azure-search-create/azuredeploy.json":::
 
 이 템플릿에 정의된 Azure 리소스는 다음과 같습니다.
 
@@ -44,7 +44,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 이 템플릿은 Azure Cognitive Search 리소스를 만듭니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-search-create%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.search%2Fazure-search-create%2Fazuredeploy.json)
 
 포털에는 매개 변수 값을 쉽게 입력할 수 있는 양식이 표시됩니다. 일부 매개 변수는 템플릿의 기본값으로 미리 채워져 있습니다. 구독, 리소스 그룹, 위치 및 서비스 이름을 입력해야 합니다. [AI 보강](cognitive-search-concept-intro.md) 파이프라인에서 Cognitive Services를 사용하려면(예: 텍스트의 이진 이미지 파일 분석) Cognitive Search 및 Cognitive Services를 모두 제공하는 위치를 선택합니다. 두 서비스가 AI 보강 워크로드에 대한 동일한 지역에 있어야 합니다. 양식을 모두 작성한 후에는 사용 약관에 동의하고 구매 단추를 선택하여 배포를 완료해야 합니다.
 

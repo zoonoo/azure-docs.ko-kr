@@ -10,12 +10,12 @@ ms.author: cherylmc
 ms.custom:
 - contperf-fy21q1
 - e2e-hybrid
-ms.openlocfilehash: b4a2e1b80fe62c5e8f74e35a1a7f61bdddf89c53
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 9a73b3ab2a9ed939001350609a176dba3c2fc44d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066537"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141148"
 ---
 # <a name="what-is-vpn-gateway"></a>VPN Gateway란?
 
@@ -84,4 +84,4 @@ RSS 피드를 구독하고 [Azure 업데이트](https://azure.microsoft.com/upda
 
 - 자세한 내용은 [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)를 참조하세요.
 - [구독 및 서비스 한도](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)를 참조하세요.
-- Azure의 몇 가지 다른 주요 [네트워킹 기능](../networking/networking-overview.md)을 알아봅니다.
+- Azure의 몇 가지 다른 주요 [네트워킹 기능](../networking/fundamentals/networking-overview.md)을 알아봅니다.

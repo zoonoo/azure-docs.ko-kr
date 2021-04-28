@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 5b8a94409f082177192847f2c65d44a513ecdbe4
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: d683507e8c35db5af3ef7e91674f6a55254e22e2
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305041"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132426"
 ---
 # <a name="tutorial-building-a-static-web-app-with-blazor-in-azure-static-web-apps"></a>자습서: Azure Static Web Apps에서 Blazor를 사용하여 정적 웹앱 빌드
 
@@ -43,17 +43,13 @@ Azure Static Web Apps를 사용하면 서버리스 백 엔드에서 지원하는
 
 ## <a name="fallback-route"></a>대체(fallback) 경로
 
-애플리케이션은 애플리케이션의 특정 경로에 매핑되는 _/counter_ 및 _/fetchdata_ 같은 URL을 공개합니다. 이 앱은 단일 페이지 애플리케이션으로 구현되기 때문에 각 경로에 _index.html_ 파일이 제공됩니다. 모든 경로 요청에서 _index.html_ 을 반환하도록 클라이언트 프로젝트의 _wwwroot_ 폴더에 있는 _staticwebapp.config.json_ 파일에 [대체(fallback) 경로](./routes.md#fallback-routes)가 구현됩니다.
+애플리케이션은 애플리케이션의 특정 경로에 매핑되는 _/counter_ 및 _/fetchdata_ 같은 URL을 공개합니다. 이 앱은 단일 페이지 애플리케이션으로 구현되기 때문에 각 경로에 _index.html_ 파일이 제공됩니다. 모든 경로 요청에서 _index.html_ 을 반환하도록 클라이언트 프로젝트의 _wwwroot_ 폴더에 있는 _staticwebapp.config.json_ 파일에 [대체(fallback) 경로](./configuration.md#fallback-routes)가 구현됩니다.
 
 ```json
 {
-  "routes": [
-    {
-      "route": "/*",
-      "serve": "/index.html",
-      "statusCode": 200
-    }
-  ]
+  "navigationFallback": {
+    "rewrite": "/index.html"
+  }
 }
 ```
 

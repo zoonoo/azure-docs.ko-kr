@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b4b1234b88eafedbd03b78241baaa40231a6cbd6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bdb890ac70d60e7742c4818fef27d5959c2df801
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97356806"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142300"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure Virtual Machines의 SQL Server란(Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -51,7 +51,7 @@ Azure는 Azure VM에서 실행 중인 SQL Server에 대한 엔터프라이즈 �
 
 ## <a name="performance"></a>성능
 
-Azure 가상 머신은 다양한 워크로드 요구 사항을 충족하기 위해 다양한 컴퓨터 크기를 제공합니다. SQL Server VM은 성능 요구 사항에 최적화되어 자동화된 스토리지 구성도 제공합니다. SQL Server VM용 스토리지 구성에 대한 자세한 내용은 [SQL Server VM에 대한 스토리지 구성](storage-configuration.md)을 참조하세요. 성능을 세밀하게 조정하려면 [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](performance-guidelines-best-practices.md)를 참조하세요.
+Azure 가상 머신은 다양한 워크로드 요구 사항을 충족하기 위해 다양한 컴퓨터 크기를 제공합니다. SQL Server VM은 성능 요구 사항에 최적화되어 자동화된 스토리지 구성도 제공합니다. SQL Server VM용 스토리지 구성에 대한 자세한 내용은 [SQL Server VM에 대한 스토리지 구성](storage-configuration.md)을 참조하세요. 성능을 세밀하게 조정하려면 [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](./performance-guidelines-best-practices-checklist.md)를 참조하세요.
 
 ## <a name="get-started-with-sql-server-vms"></a>SQL Server VM 시작
 

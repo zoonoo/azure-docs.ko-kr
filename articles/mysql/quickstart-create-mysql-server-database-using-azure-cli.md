@@ -8,17 +8,17 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/15/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3dd971ff36bde02072d14c465dbafec2823b256d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 63c7fe703a1fbf4cb46532085a33efd74e6a76ef
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780320"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875380"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>빠른 시작: Azure CLI를 사용한 MySQL용 Azure 데이터베이스 서버 만들기
 
 > [!TIP]
-> 보다 단순한 [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) Azure CLI 명령(현재 미리 보기로 제공)을 사용하는 것이 좋습니다. [빠른 시작](./quickstart-create-server-up-azure-cli.md)을 사용해 보세요.
+> 보다 단순한 [az mysql up](/cli/azure/mysql#az_mysql_up) Azure CLI 명령(현재 미리 보기로 제공)을 사용하는 것이 좋습니다. [빠른 시작](./quickstart-create-server-up-azure-cli.md)을 사용해 보세요.
 
 이 빠른 시작에서는 [Azure Cloud Shell](https://shell.azure.com)에서 [Azure CLI](/cli/azure/get-started-with-azure-cli) 명령을 사용하여 5분 안에 Azure Database for MySQL 서버를 만드는 방법을 보여 줍니다. 
 

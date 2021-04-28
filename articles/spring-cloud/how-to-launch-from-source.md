@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: a6710a15bd0637eead0051ebb70a7cdd8bb8aa58
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8497e095d4caf6213bbb838b2033845ee65e3834
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878837"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134918"
 ---
 # <a name="how-to-launch-your-spring-cloud-application-from-source-code"></a>소스 코드에서 Spring Cloud 애플리케이션을 시작하는 방법
 
@@ -165,6 +165,6 @@ az spring-cloud app show-deploy-log -n <app-name> [-d <deployment-name>]
 > * 애플리케이션 게이트웨이에 대한 퍼블릭 IP 할당
 
 > [!div class="nextstepaction"]
-> [Spring Cloud 로그, 메트릭, 추적](spring-cloud-quickstart-logs-metrics-tracing.md)
+> [Spring Cloud 로그, 메트릭, 추적](./quickstart-logs-metrics-tracing.md)
 
 GitHub에서 더 많은 샘플을 사용할 수 있습니다. [Azure Spring Cloud 샘플](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

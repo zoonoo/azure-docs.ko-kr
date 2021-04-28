@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 09/02/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 28e94cdb0df0a18b41f4c8a0ded362b50df6dcac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a64ccec49248f48a85782cfe9537513a97b2bdfc
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652975"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868162"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Service Bus 큐 항목 시작
 이 자습서에서 다루는 단계는 다음과 같습니다.
@@ -30,7 +30,7 @@ ms.locfileid: "100652975"
     3. 네임스페이스에서 **토픽** 을 만듭니다.
     4. 네임스페이스에서 토픽에 대한 **하나의 구독** 을 만듭니다.
 3. [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](https://www.visualstudio.com/vs) 이상
-4. [NET Core SDK](https://www.microsoft.com/net/download/windows) 버전 2.0 이상
+4. [NET Core SDK](https://dotnet.microsoft.com/download) 버전 2.0 이상
  
 ## <a name="send-messages-to-the-topic"></a>토픽에 메시지 보내기
 

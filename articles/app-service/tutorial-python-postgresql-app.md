@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 882a9fb0f8d528ca21cdc8149c60b9d5bdaf1723
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: be55a3fb07b35fccb0f71f9ca7bfd2c88a9d097c
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767098"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017052"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>자습서: Azure App Service에서 PostgreSQL을 사용하는 Django 웹앱 배포
 
@@ -133,7 +133,7 @@ az extension add --name db-up
 
 `az` 명령이 인식되지 않는 경우 [초기 환경 설정](#1-set-up-your-initial-environment)에서 설명한 대로 Azure CLI가 설치되어 있는지 확인합니다.
 
-그런 다음, [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) 명령을 사용하여 Azure에서 Postgres 데이터베이스를 만듭니다.
+그런 다음, [`az postgres up`](/cli/azure/postgres#az_postgres_up) 명령을 사용하여 Azure에서 Postgres 데이터베이스를 만듭니다.
 
 ```azurecli
 az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen5_1 --server-name <postgres-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
@@ -242,7 +242,7 @@ Django 데이터베이스 마이그레이션은 Azure 데이터베이스에서 P
     cd $APP_PATH
     
     # Activate the venv
-    source /antenv/bin/activate
+    source antenv/bin/activate
 
     # Install requirements
     pip install -r requirements.txt
@@ -402,7 +402,7 @@ az webapp up
 
 ```
 cd $APP_PATH
-source /antenv/bin/activate
+source antenv/bin/activate
 pip install -r requirements.txt
 python manage.py migrate
 ```

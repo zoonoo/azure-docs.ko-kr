@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: e42f85bb79dcb1bfe14cacbbfda3576888b841c9
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 315b505e9de853fbe4663eacdfe929149dbaa458
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481331"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873148"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>빠른 시작: Azure Portal에서 Apache Cassandra 클러스터용 Azure Managed Instance 생성(미리 보기)
  

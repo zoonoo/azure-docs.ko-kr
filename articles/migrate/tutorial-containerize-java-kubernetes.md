@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: 2c1a0ee78e866a12105eca77653b1063943d06db
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4e9eda21f637c285b218b7fdc627631225efdf12
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561069"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108131299"
 ---
 # <a name="java-web-app-containerization-and-migration-to-azure-kubernetes-service"></a>Java 웹앱 컨테이너화 및 Azure Kubernetes Service로 마이그레이션
 
@@ -20,7 +20,7 @@ ms.locfileid: "105561069"
 
 Azure Migrate: 앱 컨테이너화 도구는 현재 다음과 같은 작업을 지원합니다.
 
-- ASP.NET 앱을 컨테이너화하여 AKS의 Windows 컨테이너에 배포 [자세히 알아보기](./tutorial-containerize-aspnet-kubernetes.md)
+- ASP.NET 앱을 컨테이너화하여 AKS의 Windows 컨테이너에 배포 [자세히 알아보기](./tutorial-app-containerization-aspnet-kubernetes.md)
 - Apache Tomcat(Linux 서버)의 Java 웹앱을 컨테이너화하여 AKS의 Linux 컨테이너에 배포
 
 
@@ -261,4 +261,4 @@ Dockerfile 및 Kubernetes YAML 사양 파일을 포함하여 애플리케이션�
 
 ## <a name="next-steps"></a>다음 단계
 
-- ASP.NET 앱을 컨테이너화하여 AKS의 Windows 컨테이너에 배포 [자세히 알아보기](./tutorial-containerize-aspnet-kubernetes.md)
+- ASP.NET 앱을 컨테이너화하여 AKS의 Windows 컨테이너에 배포 [자세히 알아보기](./tutorial-app-containerization-aspnet-kubernetes.md)
