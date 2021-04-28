@@ -9,12 +9,12 @@ ms.subservice: keys
 ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: adbf3080367e54147c981c8ccf0bb6236111b8c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ede01de815a65aede410fe539b6205f1f4e4fd68
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99071208"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815453"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Key Vault에서 키 설정 및 검색
 
@@ -68,4 +68,4 @@ Get-AzKeyVaultKey -VaultName "<your-unique-keyvault-name>" -KeyName "ExampleKey"
 
 - [Azure Key Vault 개요](../general/overview.md) 참조
 - [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/)에 대한 참조를 참조하세요.
-- [Azure Key Vault 보안 개요](../general/security-overview.md)를 검토하세요.
+- [Azure Key Vault 보안 개요](../general/security-features.md)를 검토하세요.

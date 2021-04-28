@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2021
 ms.author: Zhchia
-ms.openlocfilehash: b74175c7847bb19aa9410edd613afbfe1d762d05
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0afd2e2420868e40847ff1243fc61fb5b15c4853
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105549323"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144095"
 ---
 # <a name="tutorial-configure-olfeo-saas-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Olfeo SAAS 구성
 
-이 자습서에서는 자동 사용자 프로비저닝을 구성하기 위해 Olfeo SAAS 및 Azure AD(Azure Active Directory)에서 수행해야 하는 단계를 설명합니다. 구성된 경우 Azure AD는 Azure AD 프로비저닝 서비스를 사용하여 사용자 및 그룹을 [Olfeo SAAS](https://www.olfeo.com)로 자동 프로비저닝하거나 프로비저닝을 해제합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요. 
+이 자습서에서는 자동 사용자 프로비저닝을 구성하기 위해 Olfeo SAAS 및 Azure AD(Azure Active Directory)에서 수행해야 하는 단계를 설명합니다. 구성된 경우 Azure AD는 Azure AD 프로비저닝 서비스를 사용하여 사용자 및 그룹을 [Olfeo SAAS](https://www.olfeo.com)로 자동 프로비저닝하거나 프로비저닝을 해제합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요. 
 
 
 ## <a name="capabilities-supported"></a>지원되는 기능
@@ -60,7 +60,7 @@ ms.locfileid: "105549323"
 
 ## <a name="step-3-add-olfeo-saas-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 애플리케이션 갤러리에서 Olfeo SAAS 추가
 
-Azure AD 애플리케이션 갤러리에서 Olfeo SAAS를 추가하여 Olfeo SAAS에 대한 프로비저닝 관리를 시작합니다. 이전에 SSO에 대해 Olfeo SAAS를 설정한 경우 동일한 애플리케이션을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](../manage-apps/add-gallery-app.md)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
+Azure AD 애플리케이션 갤러리에서 Olfeo SAAS를 추가하여 Olfeo SAAS에 대한 프로비저닝 관리를 시작합니다. 이전에 SSO에 대해 Olfeo SAAS를 설정한 경우 동일한 애플리케이션을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](../manage-apps/add-application-portal.md)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>4단계. 프로비저닝 범위에 있는 사용자 정의 
 

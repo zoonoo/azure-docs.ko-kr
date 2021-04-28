@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: apedward
-ms.openlocfilehash: f82ae60ab7f57b20a727deefa6e286d698ee5b6c
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 4283bccf543dc496342d64cc0e7b898a4f279866
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365759"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141634"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-with-azure-devops"></a>자습서: Azure DevOps를 사용하여 Azure Static Web Apps 게시
 
@@ -27,7 +27,7 @@ ms.locfileid: "107365759"
 
 - **활성 Azure 계정:** 계정이 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/) 수 있습니다.
 - **Azure DevOps 프로젝트:** 프로젝트가 없으면 [프로젝트를 무료로 만들](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/) 수 있습니다.
-- **Azure DevOps 파이프라인:** 시작하는 데 도움이 필요한 경우 [첫 번째 파이프라인 만들기](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&preserve-view=true)를 참조하세요.
+- **Azure DevOps 파이프라인:** 시작하는 데 도움이 필요한 경우 [첫 번째 파이프라인 만들기](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops)를 참조하세요.
 
 ## <a name="create-a-static-web-app-in-an-azure-devops-repository"></a>Azure DevOps 리포지토리에 정적 웹앱 만들기
 

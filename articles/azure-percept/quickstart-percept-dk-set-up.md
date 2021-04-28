@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/17/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 8cecd1b57395fa51fd95c824e88885d9c3ae3f09
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 7056027965bd5e0f41c07835d21b454ab772a55a
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023302"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132254"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Azure Percept DK를 설정하고 첫 번째 AI 모델 배포
 
@@ -25,7 +25,7 @@ Azure Percept DK 설정 환경을 완료하여 개발자 키트를 구성하고 
 
 이 과정에서 문제가 발생하는 경우 [설정 문제 해결 가이드](./how-to-troubleshoot-setup.md)에서 가능한 해결 방법을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - Azure Percept DK(개발 키트)
 - Wi-Fi 기능과 웹 브라우저를 지원하는 Windows, Linux 또는 OS X 기반 호스트 컴퓨터
@@ -130,7 +130,7 @@ Azure 계정이 구독 내에서 "소유자" 또는 "기여자"인지 확인하�
     - S1(표준) 가격 책정 계층을 선택합니다.
 
     > [!NOTE]
-    > 에지 AI 애플리케이션에 더 높은 [메시지 처리량](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling#message-throughput)이 필요한 경우 언제든지 Azure Portal에서 [더 높은 표준 계층으로 IoT Hub를 업그레이드](https://docs.microsoft.com/azure/iot-hub/iot-hub-upgrade)할 수 있습니다. B 및 F 계층은 Azure Percept를 지원하지 않습니다.
+    > 에지 AI 애플리케이션에 더 높은 [메시지 처리량](../iot-hub/iot-hub-scaling.md#message-throughput)이 필요한 경우 언제든지 Azure Portal에서 [더 높은 표준 계층으로 IoT Hub를 업그레이드](../iot-hub/iot-hub-upgrade.md)할 수 있습니다. B 및 F 계층은 Azure Percept를 지원하지 않습니다.
 
 1. IoT Hub 배포는 몇 분 정도 걸릴 수 있습니다. 배포가 완료되면 **등록** 을 클릭합니다.
 

@@ -6,15 +6,15 @@ ms.author: msangapu
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.custom: subject-armqs, devx-track-azurecli
+ms.custom: subject-armqs
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: bce6bfb61eb59d1fa66c550a133ac8b6f8d7f2c5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: bfdfad8af2d730caf0ac9e22ee815a6d59a6b6a3
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769008"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074730"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 App Service 앱 만들기
 
@@ -23,11 +23,11 @@ ms.locfileid: "107769008"
  환경이 필수 구성 요소를 충족하고 [ARM 템플릿](../azure-resource-manager/templates/overview.md) 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
 ::: zone pivot="platform-windows"
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-windows%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-windows%2Fazuredeploy.json)
 ::: zone-end
 
 ::: zone pivot="platform-linux"
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-linux%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-linux%2Fazuredeploy.json)
 ::: zone-end
 
 <hr/>
@@ -43,7 +43,7 @@ ms.locfileid: "107769008"
 ::: zone pivot="platform-windows"
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows)에서 나온 것입니다. Windows에 App Service 요금제 및 App Service 앱을 배포합니다.
 
-:::code language="json" source="~/quickstart-templates/101-app-service-docs-windows/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-windows/azuredeploy.json":::
 
 <details>
 <summary>어떤 리소스와 매개 변수가 템플릿에 정의되어 있나요?</summary>
@@ -71,7 +71,7 @@ ms.locfileid: "107769008"
 ::: zone pivot="platform-linux"
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-app-service-docs-linux)에서 나온 것입니다. Windows에 App Service 요금제 및 App Service 앱을 배포합니다.
 
-:::code language="json" source="~/quickstart-templates/101-app-service-docs-linux/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-linux/azuredeploy.json":::
 
 이 템플릿에는 편의를 위해 정의된 Azure 리소스 및 매개 변수가 포함되어 있습니다.
 
@@ -112,7 +112,7 @@ Azure CLI를 사용하여 아래 코드를 실행하고 Windows에 .NET Framewor
 az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup \
 --parameters language=".net" helloWorld="true" webAppName="<app-name>" \
---template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-service-docs-windows/azuredeploy.json"
+--template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/app-service-docs-windows/azuredeploy.json"
 ```
 ::: zone-end
 ::: zone pivot="platform-linux"
@@ -123,7 +123,7 @@ az deployment group create --resource-group myResourceGroup \
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup --parameters webAppName="<app-name>" linuxFxVersion="PYTHON|3.7" \
---template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-service-docs-linux/azuredeploy.json"
+--template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/app-service-docs-linux/azuredeploy.json"
 ```
 ::: zone-end
 
@@ -142,7 +142,7 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 <summary>다른 언어 스택은 어떻게 배포하나요?</summary>
 다른 언어 스택을 배포하려면 - 업데이트: <abbr title="이 템플릿은 .NET Core, .NET Framework, PHP, Node.js 및 정적 HTML 앱과 호환됩니다.">언어 매개 변수</abbr> 적절한 값으로. Java의 경우 <a href="/azure/app-service/quickstart-java-uiex">Java 앱 만들기</a>를 참조하세요.
 
-| 매개 변수 | Type    | 기본값                | 설명 |
+| 매개 변수 | Type    | 기본값                | Description |
 |------------|---------|------------------------------|-------------|
 | 언어   | 문자열  | ".net"                       | 프로그래밍 언어 스택(.net, php, node, html) |
 

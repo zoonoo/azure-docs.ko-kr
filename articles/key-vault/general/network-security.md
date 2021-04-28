@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8352deb00f6954d862b9e44646cce1604e2c5428
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 91cba45bc38bddc32aae036a029006c5004da058
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749621"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140644"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Azure Key Vault 방화벽 및 가상 네트워크 구성
 
@@ -35,7 +35,7 @@ ms.locfileid: "107749621"
 Key Vault 방화벽을 사용하도록 설정하면 '신뢰할 수 있는 Microsoft 서비스가 이 방화벽을 우회하도록 허용합니다' 옵션이 제공됩니다. Azure 서비스 중 일부는 신뢰할 수 있는 서비스 목록에 없습니다. 예를 들어 Azure DevOps는 신뢰할 수 있는 서비스 목록에 없습니다. **신뢰할 수 있는 서비스 목록에 없는 서비스는 신뢰할 수 없거나 안전하지 않다는 의미가 아닙니다.** 신뢰할 수 있는 서비스 목록에는 서비스에서 실행되는 모든 코드를 Microsoft가 제어하는 서비스가 포함됩니다. 사용자가 Azure DevOps 같은 Azure 서비스에서 사용자 지정 코드를 작성할 수 있기 때문에 Microsoft에서는 서비스에 대한 전면적 승인을 만드는 옵션을 제공하지 않습니다. 뿐만 아니라 신뢰할 수 있는 서비스 목록에 표시된다고 해서 모든 시나리오에 허용되는 것은 아닙니다. 
 
 사용하려는 서비스가 신뢰할 수 있는 서비스 목록에 있는지 확인하려면 [여기](./overview-vnet-service-endpoints.md#trusted-services)서 다음 문서를 참조하세요.
-방법 가이드는 [포털, Azure CLI 및 Powershell](https://docs.microsoft.com/azure/key-vault/general/network-security#use-the-azure-portal)에 대한 지침을 따르세요.
+방법 가이드는 [포털, Azure CLI 및 Powershell](#use-the-azure-portal)에 대한 지침을 따르세요.
 
 ### <a name="key-vault-firewall-enabled-ipv4-addresses-and-ranges---static-ips"></a>Key Vault 방화벽 사용(IPv4 주소 및 범위 - 고정 IP)
 
@@ -68,7 +68,7 @@ Key Vault 방화벽을 통해 전체 Azure 서비스를 허용하려면 [여기]
 키 자격 증명 모음에서 프라이빗 링크 연결을 구성하는 방법을 알아보려면 [여기](./private-link-service.md) 문서를 참조하세요.
 
 > [!IMPORTANT]
-> 방화벽 규칙이 적용되면 사용자의 요청이 허용되는 가상 네트워크 또는 IPv4 주소 범위에서 시작되는 경우에만 사용자는 Key Vault [데이터 평면](security-overview.md#privileged-access) 작업을 수행할 수 있습니다. Azure Portal에서 Key Vault에 액세스하는 경우도 마찬가지입니다. 사용자가 Azure Portal에서 키 자격 증명 모음으로 이동할 수 있다고 해도 해당 클라이언트 머신이 허용 목록에 없는 경우 키, 비밀 또는 인증서를 나열하지 못할 수 있습니다. 다른 Azure 서비스의 Key Vault 선택기도 마찬가지입니다. 방화벽 규칙이 사용자의 클라이언트 머신을 금지하는 경우 해당 사용자는 키 자격 증명 모음 목록을 확인할 수 있지만 키를 나열하지는 못합니다.
+> 방화벽 규칙이 적용되면 사용자의 요청이 허용되는 가상 네트워크 또는 IPv4 주소 범위에서 시작되는 경우에만 사용자는 Key Vault [데이터 평면](security-features.md#privileged-access) 작업을 수행할 수 있습니다. Azure Portal에서 Key Vault에 액세스하는 경우도 마찬가지입니다. 사용자가 Azure Portal에서 키 자격 증명 모음으로 이동할 수 있다고 해도 해당 클라이언트 머신이 허용 목록에 없는 경우 키, 비밀 또는 인증서를 나열하지 못할 수 있습니다. 다른 Azure 서비스의 Key Vault 선택기도 마찬가지입니다. 방화벽 규칙이 사용자의 클라이언트 머신을 금지하는 경우 해당 사용자는 키 자격 증명 모음 목록을 확인할 수 있지만 키를 나열하지는 못합니다.
 
 > [!NOTE]
 > 다음과 같은 구성 제한 사항을 고려해야 합니다.
@@ -175,4 +175,4 @@ PowerShell을 사용하여 Key Vault 방화벽 및 가상 네트워크를 구성
 ## <a name="next-steps"></a>다음 단계
 
 * [Key Vault의 가상 네트워크 서비스 엔드포인트](overview-vnet-service-endpoints.md)
-* [Azure Key Vault 보안 개요](security-overview.md)
+* [Azure Key Vault 보안 개요](security-features.md)
