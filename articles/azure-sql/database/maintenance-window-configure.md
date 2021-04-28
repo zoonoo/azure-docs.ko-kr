@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/23/2021
-ms.openlocfilehash: 8688458d85084f3d3dab4678fa91ed827a337739
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9771c68dda6f457586f27ea45fbc52aa118e8006
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047354"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874786"
 ---
 # <a name="configure-maintenance-window-preview"></a>유지 관리 기간 구성(미리 보기)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -178,7 +178,7 @@ Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **�
 
 ### <a name="discover-sql-database-and-elastic-pool-maintenance-windows"></a>SQL Database 및 탄력적 풀 유지 관리 기간 검색
 
-다음 예는 [az maintenance public-configuration list](/cli/azure/ext/maintenance/maintenance/public-configuration#ext_maintenance_az_maintenance_public_configuration_list) 명령을 사용하여 *eastus2* 지역에 대해 사용 가능한 유지 관리 기간을 반환합니다. 데이터베이스 및 탄력적 풀의 경우 `maintenanceScope`를 `SQLDB`로 설정합니다.
+다음 예는 [az maintenance public-configuration list](/cli/azure/maintenance/public-configuration#az_maintenance_public_configuration_list) 명령을 사용하여 *eastus2* 지역에 대해 사용 가능한 유지 관리 기간을 반환합니다. 데이터베이스 및 탄력적 풀의 경우 `maintenanceScope`를 `SQLDB`로 설정합니다.
 
    ```azurecli
    location="eastus2"
@@ -188,7 +188,7 @@ Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **�
 
 ### <a name="discover-sql-managed-instance-maintenance-windows"></a>SQL Managed Instance 유지 관리 기간 검색
 
-다음 예는 [az maintenance public-configuration list](/cli/azure/ext/maintenance/maintenance/public-configuration#ext_maintenance_az_maintenance_public_configuration_list) 명령을 사용하여 *eastus2* 지역에 대해 사용 가능한 유지 관리 기간을 반환합니다. 관리되는 인스턴스의 경우 `maintenanceScope`을 `SQLManagedInstance`로 설정합니다.
+다음 예는 [az maintenance public-configuration list](/cli/azure/maintenance/public-configuration#az_maintenance_public_configuration_list) 명령을 사용하여 *eastus2* 지역에 대해 사용 가능한 유지 관리 기간을 반환합니다. 관리되는 인스턴스의 경우 `maintenanceScope`을 `SQLManagedInstance`로 설정합니다.
 
    ```azurecli
    az maintenance public-configuration list --query "[?location=='eastus2'&&contains(maintenanceScope,'SQLManagedInstance')]"

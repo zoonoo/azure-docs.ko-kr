@@ -7,16 +7,16 @@ ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli, contperf-fy21q2
 ms.date: 11/23/2020
-ms.openlocfilehash: bc172fd1702addf8f4e34094452a779b09320a4d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: afc39673a30f5c99455696c7a075cb1a6a33ecd1
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97033377"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875506"
 ---
 # <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 논리 앱 만들기 및 관리
 
-이 빠른 시작에서는 [Azure CLI Logic Apps 확장](/cli/azure/ext/logic/logic)(`az logic`)을 사용하여 논리 앱을 만들고 관리하는 방법을 보여줍니다. 명령줄에서 논리 앱 워크플로 정의에 대한 JSON 파일을 사용하여 논리 앱을 만들 수 있습니다. 그런 다음, 명령줄에서 `list`, `show`(`get`), `update`, `delete` 등의 작업을 실행하여 논리 앱을 관리할 수 있습니다.
+이 빠른 시작에서는 [Azure CLI Logic Apps 확장](/cli/azure/logic)(`az logic`)을 사용하여 논리 앱을 만들고 관리하는 방법을 보여줍니다. 명령줄에서 논리 앱 워크플로 정의에 대한 JSON 파일을 사용하여 논리 앱을 만들 수 있습니다. 그런 다음, 명령줄에서 `list`, `show`(`get`), `update`, `delete` 등의 작업을 실행하여 논리 앱을 관리할 수 있습니다.
 
 > [!WARNING]
 > Azure CLI Logic Apps 확장은 현재 *실험 단계* 이며 *고객 지원에서 다루지 않습니다*. 특히 프로덕션 환경에서 이 확장을 사용하도록 선택하는 경우 이 CLI 확장을 주의해서 사용해야 합니다.
@@ -69,7 +69,7 @@ Azure CLI를 사용하여 [새 논리 앱을 만들거나](#create-logic-apps-fr
 
 ## <a name="create-logic-apps-from-cli"></a>CLI에서 논리 앱 만들기
 
-Azure CLI에서 [`az logic workflow create`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create) 명령과 정의에 대한 JSON 파일을 사용하여 논리 앱 워크플로를 만들 수 있습니다.
+Azure CLI에서 [`az logic workflow create`](/cli/azure/logic/workflow#az_logic_workflow_create) 명령과 정의에 대한 JSON 파일을 사용하여 논리 앱 워크플로를 만들 수 있습니다.
 
 ```azurecli
 
@@ -86,7 +86,7 @@ az logic workflow create --definition
 
 ```
 
-명령에 다음과 같은 [필수 매개 변수](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create-required-parameters)가 포함되어야 합니다.
+명령에 다음과 같은 [필수 매개 변수](/cli/azure/logic/workflow#az_logic_workflow_create-required-parameters)가 포함되어야 합니다.
 
 | 매개 변수 | 값 | 설명 |
 | --------- | ----- | ----------- |
@@ -95,7 +95,7 @@ az logic workflow create --definition
 | Name | `--name -n` | 논리 앱의 이름입니다. 이름에는 문자, 숫자, 하이픈(`-`), 밑줄(`_`), 괄호(`()`) 및 마침표(`.`)만 사용할 수 있습니다. 또한 이름은 모든 Azure 지역에서 고유해야 합니다. |
 | 리소스 그룹 이름 | `--resource-group -g` | 논리 앱을 만들 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)입니다. 논리 앱에 대한 리소스 그룹이 아직 없는 경우 시작하기 전에 [리소스 그룹을 만듭니다](#example---create-resource-group). |
 
-[선택적 매개 변수](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create-optional-parameters)를 추가로 포함시켜 논리 앱의 액세스 제어, 엔드포인트, 통합 계정, 통합 서비스 환경, 상태 및 리소스 태그를 구성할 수도 있습니다.
+[선택적 매개 변수](/cli/azure/logic/workflow#az_logic_workflow_create-optional-parameters)를 추가로 포함시켜 논리 앱의 액세스 제어, 엔드포인트, 통합 계정, 통합 서비스 환경, 상태 및 리소스 태그를 구성할 수도 있습니다.
 
 ### <a name="example---create-logic-app"></a>예제 - 논리 앱 만들기
 
@@ -111,9 +111,9 @@ az logic workflow create --resource-group "testResourceGroup" --location "westus
 
 ## <a name="update-logic-apps-from-cli"></a>CLI에서 논리 앱 업데이트
 
-Azure CLI에서 [`az logic workflow create`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create) 명령을 사용하여 논리 앱의 워크플로를 업데이트할 수도 있습니다.
+Azure CLI에서 [`az logic workflow create`](/cli/azure/logic/workflow#az_logic_workflow_create) 명령을 사용하여 논리 앱의 워크플로를 업데이트할 수도 있습니다.
 
-명령에는 [논리 앱을 만들 때](#create-logic-apps-from-cli)와 동일한 [필수 매개 변수](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create-required-parameters)가 포함되어야 합니다. 논리 앱을 만들 때와 동일한 [선택적 매개 변수](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create-optional-parameters)를 추가할 수도 있습니다.
+명령에는 [논리 앱을 만들 때](#create-logic-apps-from-cli)와 동일한 [필수 매개 변수](/cli/azure/logic/workflow#az_logic_workflow_create-required-parameters)가 포함되어야 합니다. 논리 앱을 만들 때와 동일한 [선택적 매개 변수](/cli/azure/logic/workflow#az_logic_workflow_create-optional-parameters)를 추가할 수도 있습니다.
 
 ```azurecli
 
@@ -144,16 +144,16 @@ az logic workflow create --resource-group "testResourceGroup" --location "westus
 
 ## <a name="delete-logic-apps-from-cli"></a>CLI에서 논리 앱 삭제
 
-Azure CLI에서 [`az logic workflow delete`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-delete) 명령을 사용하여 논리 앱의 워크플로를 삭제할 수 있습니다.
+Azure CLI에서 [`az logic workflow delete`](/cli/azure/logic/workflow#az_logic_workflow_delete) 명령을 사용하여 논리 앱의 워크플로를 삭제할 수 있습니다.
 
-명령에 다음과 같은 [필수 매개 변수](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-delete-required-parameters)가 포함되어야 합니다.
+명령에 다음과 같은 [필수 매개 변수](/cli/azure/logic/workflow#az_logic_workflow_delete-required-parameters)가 포함되어야 합니다.
 
 | 매개 변수 | 값 | Description |
 | --------- | ----- | ----------- |
-| 이름 | `--name -n` | 논리 앱의 이름입니다. |
+| Name | `--name -n` | 논리 앱의 이름입니다. |
 | 리소스 그룹 이름 | `-resource-group -g` | 논리 앱이 배치되는 리소스 그룹입니다. |
 
-확인 프롬프트를 건너뛰는 [선택적 매개 변수](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-delete-optional-parameters) `--yes -y`를 포함할 수도 있습니다.
+확인 프롬프트를 건너뛰는 [선택적 매개 변수](/cli/azure/logic/workflow#az_logic_workflow_delete-optional-parameters) `--yes -y`를 포함할 수도 있습니다.
 
 ```azurecli
 
@@ -187,7 +187,7 @@ az logic workflow delete --resource-group "testResourceGroup" --name "testLogicA
 
 ## <a name="show-logic-apps-in-cli"></a>CLI에서 논리 앱 표시
 
-[`az logic workflow show`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-show) 명령을 사용하여 특정 논리 앱 워크플로를 가져올 수 있습니다.
+[`az logic workflow show`](/cli/azure/logic/workflow#az_logic_workflow_show) 명령을 사용하여 특정 논리 앱 워크플로를 가져올 수 있습니다.
 
 ```azurecli
 
@@ -196,11 +196,11 @@ az logic workflow show --name
 
 ```
 
-명령에 다음과 같은 [필수 매개 변수](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-show-required-parameters)가 포함되어야 합니다.
+명령에 다음과 같은 [필수 매개 변수](/cli/azure/logic/workflow#az_logic_workflow_show-required-parameters)가 포함되어야 합니다.
 
 | 매개 변수 | 값 | Description |
 | --------- | ----- | ----------- |
-| 이름 | `--name -n` | 논리 앱의 이름입니다. |
+| Name | `--name -n` | 논리 앱의 이름입니다. |
 | 리소스 그룹 이름 | `--resource-group -g` | 논리 앱이 배치되는 리소스 그룹의 이름입니다. |
 
 ### <a name="example---get-logic-app"></a>예제 - 논리 앱 가져오기
@@ -215,9 +215,9 @@ az logic workflow show --resource-group "testResourceGroup" --name "testLogicApp
 
 ## <a name="list-logic-apps-in-cli"></a>CLI에서 논리 앱 나열
 
-[`az logic workflow list`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-list) 명령을 사용하여 논리 앱을 구독별로 나열할 수 있습니다. 이 명령은 논리 앱의 워크플로에 대한 JSON 코드를 반환합니다.
+[`az logic workflow list`](/cli/azure/logic/workflow#az_logic_workflow_list) 명령을 사용하여 논리 앱을 구독별로 나열할 수 있습니다. 이 명령은 논리 앱의 워크플로에 대한 JSON 코드를 반환합니다.
 
-다음과 같은 [선택적 매개 변수](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-list-optional-parameters)로 결과를 필터링할 수 있습니다.
+다음과 같은 [선택적 매개 변수](/cli/azure/logic/workflow#az_logic_workflow_list-optional-parameters)로 결과를 필터링할 수 있습니다.
 
 | 매개 변수 | 값 | 설명 |
 | --------- | ----- | ----------- |
