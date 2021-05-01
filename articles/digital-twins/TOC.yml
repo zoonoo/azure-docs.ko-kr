@@ -177,6 +177,22 @@
       href: /cli/azure/dt
     - name: DTDL v2 사양
       href: 'https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md'
+    - name: 쿼리 언어 참조
+      items:
+        - name: 절
+          items:
+            - name: SELECT
+              href: reference-query-clause-select.md
+            - name: FROM
+              href: reference-query-clause-from.md
+            - name: JOIN
+              href: reference-query-clause-join.md
+            - name: WHERE
+              href: reference-query-clause-where.md
+        - name: Functions
+          href: reference-query-functions.md
+        - name: 연산자
+          href: reference-query-operators.md
 - name: 리소스
   items:
     - name: Digital Twins 서비스 제한

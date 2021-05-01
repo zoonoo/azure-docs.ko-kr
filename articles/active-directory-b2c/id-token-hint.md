@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d77e145cabcef2931d5fe6e76599da7931e576e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a3f8a0562df4b4eeef338ddf357f37d7d0bc8f5a
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97669162"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107946640"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 ID 토큰 힌트 기술 프로필 정의
 
@@ -82,26 +82,26 @@ Id_token_hint는 유효한 JWT 토큰이어야 합니다. 다음 표에는 필�
 
 다음 메타데이터는 대칭 키를 사용할 때 관련됩니다. 
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| 발급자 | 예 | 보안 토큰 서비스(토큰 발급자)를 식별합니다. 이 값은 JWT 토큰 클레임 내의 `iss` 클레임과 동일해야 합니다. | 
-| IdTokenAudience | 예 | 토큰의 의도한 수신자를 식별합니다. JWT 토큰 클레임 내의 `aud` 클레임과 동일해야 합니다. | 
+| 발급자 | Yes | 보안 토큰 서비스(토큰 발급자)를 식별합니다. 이 값은 JWT 토큰 클레임 내의 `iss` 클레임과 동일해야 합니다. | 
+| IdTokenAudience | Yes | 토큰의 의도한 수신자를 식별합니다. JWT 토큰 클레임 내의 `aud` 클레임과 동일해야 합니다. | 
 
 다음 메타데이터는 비대칭 키를 사용할 때 관련됩니다. 
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| METADATA| 예 | OpenID의 잘 알려진 구성 엔드포인트라고도 하는 토큰 발급자 구성 문서를 가리키는 URL입니다.   |
-| 발급자 | 예 | 보안 토큰 서비스(토큰 발급자)를 식별합니다. 이 값은 메타데이터에 구성된 값을 덮어쓰는 데 사용할 수 있으며 `iss` JWT 토큰 클레임 내의 클레임과 동일해야 합니다. |  
-| IdTokenAudience | 예 | 토큰의 의도한 수신자를 식별합니다. JWT 토큰 클레임 내의 `aud` 클레임과 동일해야 합니다. |  
+| METADATA| Yes | OpenID의 잘 알려진 구성 엔드포인트라고도 하는 토큰 발급자 구성 문서를 가리키는 URL입니다.   |
+| 발급자 | No | 보안 토큰 서비스(토큰 발급자)를 식별합니다. 이 값은 메타데이터에 구성된 값을 덮어쓰는 데 사용할 수 있으며 `iss` JWT 토큰 클레임 내의 클레임과 동일해야 합니다. |  
+| IdTokenAudience | No | 토큰의 의도한 수신자를 식별합니다. JWT 토큰 클레임 내의 `aud` 클레임과 동일해야 합니다. |  
 
 ## <a name="cryptographic-keys"></a>암호화 키
 
 대칭 키를 사용하는 경우 **CryptographicKeys** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| client_secret | 예 | JWT 토큰 서명의 유효성을 검사하는 데 사용되는 암호화 키입니다.|
+| client_secret | Yes | JWT 토큰 서명의 유효성을 검사하는 데 사용되는 암호화 키입니다.|
 
 
 ## <a name="how-to-guide"></a>방법 가이드
@@ -189,7 +189,7 @@ $newClientSecret
 
 #### <a name="step-1-prepare-a-self-signed-certificate"></a>1단계. 자체 서명된 인증서 준비
 
-인증서가 아직 없는 경우 이 방법 가이드에서는 자체 서명된 인증서를 사용할 수 있습니다. Windows에서는 PowerShell의 [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet을 사용하여 인증서를 생성할 수 있습니다.
+인증서가 아직 없는 경우 이 방법 가이드에서는 자체 서명된 인증서를 사용할 수 있습니다. Windows에서는 PowerShell의 [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) cmdlet을 사용하여 인증서를 생성할 수 있습니다.
 
 이 PowerShell 명령을 실행하여 자체 서명된 인증서를 실행합니다. `-Subject` 인수를 애플리케이션 및 Azure AD B2C 테넌트 이름에 적절하게 수정합니다. `-NotAfter` 날짜를 조정하여 인증서에 다른 만료 날짜를 지정할 수도 있습니다.
 
@@ -249,7 +249,7 @@ New-SelfSignedCertificate `
     ```xml
     <OrchestrationStep Order="1" Type="GetClaims" CpimIssuerTechnicalProfileReferenceId="IdTokenHint_ExtractClaims" />
     ``` 
-1. 신뢰 당사자 정책에서 IdTokenHint_ExtractClaims 기술 프로필에서 구성한 것과 동일한 입력 클레임을 반복합니다. 예를 들면 다음과 같습니다.
+1. 신뢰 당사자 정책에서 IdTokenHint_ExtractClaims 기술 프로필에서 구성한 것과 동일한 입력 클레임을 반복합니다. 예를 들어:
     ```xml
    <RelyingParty>
      <DefaultUserJourney ReferenceId="SignUp" />

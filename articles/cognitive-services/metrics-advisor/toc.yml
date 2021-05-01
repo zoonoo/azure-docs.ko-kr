@@ -16,7 +16,7 @@
     - name: REST API 및 클라이언트 라이브러리
       href: quickstarts/rest-api-and-client-library.md
 - name: 샘플
-  href: 'https://docs.microsoft.com/en-us/samples/browse/?products=azure&terms=metrics-advisor'
+  href: /samples/browse/?products=azure&terms=metrics-advisor
 - name: 방법 가이드
   items:
     - name: 데이터 온보딩

@@ -134,6 +134,8 @@
           href: custom-translator/training-and-model.md
         - name: BLEU 점수
           href: custom-translator/what-is-bleu-score.md
+        - name: 고객 관리형 키
+          href: encrypt-data-at-rest.md
 - name: 문서 번역
   items:
     - name: 문서 번역이란?
@@ -164,22 +166,12 @@
           href: document-translation/reference/get-translation-status.md
         - name: 번역 취소
           href: document-translation/reference/cancel-translation.md
-- name: 방법 가이드
-  items:
-    - name: 엔터프라이즈 준비
-      items:
-        - name: 가상 네트워크 설정
-          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/translator/context/context
-        - name: 고객 관리형 키 사용
-          href: encrypt-data-at-rest.md
 - name: 리소스
   items:
-    - name: 엔터프라이즈 준비
-      items:
-        - name: 지역 지원
-          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-        - name: 규정 준수 및 인증
-          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: 지역 지원
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: 규정 준수 및 인증
+      href: 'https://www.microsoft.com/translator/business/notrace/'
     - name: 지원 및 도움말 옵션
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
     - name: GitHub의 코드 샘플

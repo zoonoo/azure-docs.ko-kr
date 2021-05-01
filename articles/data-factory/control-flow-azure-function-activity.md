@@ -1,18 +1,18 @@
 ---
 title: Azure Data Factory의 Azure 함수 작업
 description: Data Factory 파이프라인에서 Azure Function 작업을 사용하여 Azure 함수를 실행하는 방법 알아보기
-author: dcstwh
-ms.author: weetok
+author: nabhishek
+ms.author: abnarain
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: 13f00907737a99bc5dcd8c21d660ce83aa681908
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 202cf30ae0f620789f300404b26ba04582ea3300
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104783798"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906731"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Data Factory의 Azure 함수 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -38,11 +38,11 @@ Azure 함수의 반환 형식은 유효한 `JObject`여야 합니다. ([JArray](
 | **속성**  | **설명** | **허용된 값** | **필수** |
 | --- | --- | --- | --- |
 | name  | 파이프라인의 작업 이름입니다.  | String | 예 |
-| type  | 작업의 형식은 'AzureFunctionActivity'입니다. | String | 예 |
+| 형식  | 작업의 형식은 'AzureFunctionActivity'입니다. | String | 예 |
 | 연결된 서비스 | 해당하는 Azure 함수 앱에 대한 Azure Function 연결된 서비스입니다.  | 연결된 서비스 참조 | 예 |
 | 함수 이름  | Azure 함수 앱에서 이 작업이 호출하는 함수의 이름입니다. | String | 예 |
-| 메서드  | 함수 호출에 대한 REST API 메서드입니다. | 문자열 지원 형식: ‘GET’, ‘POST’, ‘PUT’   | 예 |
-| header  | 요청에 전송되는 헤더입니다. 예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 씁니다. "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | 문자열(또는 resultType 문자열이 있는 식) | 예 |
+| 메서드(method)  | 함수 호출에 대한 REST API 메서드입니다. | 문자열 지원 형식: ‘GET’, ‘POST’, ‘PUT’   | 예 |
+| header  | 요청에 전송되는 헤더입니다. 예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 씁니다. "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | 문자열(또는 resultType 문자열이 있는 식) | No |
 | 본문  | 함수 API 메서드에 대한 요청과 함께 전송되는 본문입니다.  | 문자열(또는 resultType 문자열이 있는 식) 또는 개체   | PUT/POST 메서드에 필요합니다. |
 |   |   |   | |
 

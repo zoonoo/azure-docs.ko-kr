@@ -1,41 +1,41 @@
 ---
 title: Azure Monitor 통합 문서 액세스 제어
-description: 역할 기반 access control을 사용 하 여 미리 작성 되 고 사용자 지정 매개 변수가 있는 통합 문서로 복잡 한 보고 간소화
+description: 역할 기반 액세스 제어를 통해 미리 빌드되고 사용자 지정 매개 변수가 있는 통합 문서를 사용하여 복잡한 보고 간소화
 services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.openlocfilehash: 7d3bc13dc373cda510153099859cf4cd61b3dd69
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101710824"
 ---
 # <a name="access-control"></a>Access Control
 
-통합 문서에서 Access control은 다음 두 가지를 의미 합니다.
+통합 문서에서 액세스 제어는 다음 두 가지를 의미합니다.
 
-* 통합 문서의 데이터를 읽으려면 액세스 권한이 필요 합니다. 이 액세스는 통합 문서에 사용 되는 리소스에 대 한 표준 [Azure 역할](../../role-based-access-control/overview.md) 에 의해 제어 됩니다. 통합 문서는 해당 리소스에 대 한 액세스를 지정 하거나 구성 하지 않습니다. 사용자는 일반적으로 해당 리소스에 대 한 [모니터링 판독기](../../role-based-access-control/built-in-roles.md#monitoring-reader) 역할을 사용 하 여 이러한 리소스에 대 한 액세스 권한을 얻습니다.
+* 통합 문서의 데이터를 읽는 데 필요한 액세스 이 액세스 권한은 통합 문서에 사용되는 리소스에 대한 표준 [Azure 역할](../../role-based-access-control/overview.md)에 의해 제어됩니다. 통합 문서는 해당 리소스에 대한 액세스를 지정하거나 구성하지 않습니다. 사용자는 일반적으로 해당 리소스에 대한 [모니터링 읽기 권한자](../../role-based-access-control/built-in-roles.md#monitoring-reader) 역할을 사용하여 이 액세스 권한을 얻습니다.
 
-* 통합 문서를 저장 하는 데 필요한 액세스
+* 통합 문서를 저장하는 데 필요한 액세스
 
-    - 비공개 `("My")` 통합 문서를 저장 하려면 추가 권한이 필요 하지 않습니다. 모든 사용자는 개인 통합 문서를 저장할 수 있으며 해당 통합 문서를 볼 수 있습니다.
-    - 공유 통합 문서를 저장 하려면 통합 문서를 저장할 리소스 그룹에 대 한 쓰기 권한이 있어야 합니다. 이러한 권한은 일반적으로 [모니터링 참여자](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 역할에 의해 지정 되지만 *통합 문서 참가자* 역할을 통해 설정할 수도 있습니다.
+    - 프라이빗 `("My")` 통합 문서를 저장하는 데 추가 권한이 필요하지 않습니다. 모든 사용자는 프라이빗 통합 문서를 저장할 수 있으며 해당 통합 문서를 볼 수 있습니다.
+    - 공유 통합 문서를 저장하려면 통합 문서를 저장할 리소스 그룹에 대한 쓰기 권한이 필요합니다. 이러한 권한은 일반적으로 [모니터링 참가자](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 역할에 의해 지정되지만 *통합 문서 참가자* 역할을 통해 설정할 수도 있습니다.
     
 ## <a name="standard-roles-with-workbook-related-privileges"></a>통합 문서 관련 권한이 있는 표준 역할
 
-[모니터링 판독기](../../role-based-access-control/built-in-roles.md#monitoring-reader) 에는 리소스에서 데이터를 읽는 모니터링 도구 (통합 문서 포함)에서 사용할 수 있는 표준/읽기 권한이 포함 되어 있습니다.
+[모니터링 읽기 권한자](../../role-based-access-control/built-in-roles.md#monitoring-reader)에는 모니터링 도구(통합 문서 포함)가 리소스에서 데이터를 읽는 데 사용되는 표준/읽기 권한이 포함됩니다.
 
-[모니터링 참가자](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 에 `/write` 는 항목 저장을 위한 다양 한 모니터링 도구에서 사용 하는 일반 권한 ( `workbooks/write` 공유 통합 문서 저장 권한 포함)이 포함 됩니다.
-"통합 문서 참여자"는 공유 통합 문서를 저장 하기 위해 개체에 "통합 문서/쓰기" 권한을 추가 합니다.
-사용자가 볼 수 있는 전용 통합 문서를 저장 하는 데에는 특별 한 권한이 필요 하지 않습니다.
+[모니터링 참가자](../../role-based-access-control/built-in-roles.md#monitoring-contributor)에는 항목 저장을 위해 다양한 모니터링 도구에서 사용하는 일반 `/write` 권한(공유 통합 문서를 저장할 `workbooks/write` 권한 포함)이 포함됩니다.
+"통합 문서 참가자"는 공유 통합 문서를 저장하기 위해 개체에 "통합 문서/쓰기" 권한을 추가합니다.
+사용자가 볼 수 있는 프라이빗 통합 문서를 저장하는 데 특별한 권한이 필요하지 않습니다.
 
 사용자 지정 역할:
 
-`microsoft.insights/workbooks/write`공유 통합 문서를 저장 하려면를 추가 합니다. 자세한 내용은 [통합 문서 참가자](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 역할을 참조 하세요.
+공유 통합 문서를 저장하려면 `microsoft.insights/workbooks/write`를 추가합니다. 자세한 내용은 [통합 문서 참가자](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 역할을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 통합 문서에 대 한 자세한 내용은 다양 한 기능을 갖춘 시각화 옵션을 [시작](./workbooks-overview.md#visualizations) 하세요.
+* [시작하여](./workbooks-overview.md#visualizations) 다양한 시각화 옵션을 갖춘 통합 문서에 대해 알아봅니다.

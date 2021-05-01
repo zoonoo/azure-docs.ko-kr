@@ -1,6 +1,6 @@
 ---
 title: Azure 지역
-description: Azure에서 가상 머신을 실행 하기 위한 지역에 대해 알아봅니다.
+description: Azure에서 가상 머신을 실행하기 위한 지역을 알아봅니다.
 author: mimckitt
 ms.author: mimckitt
 ms.reviewer: cynthnn
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 3/8/2021
 ms.openlocfilehash: e874a76cc447158127da8482f23bf03d56961818
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102504612"
 ---
 # <a name="regions-for-virtual-machines-in-azure"></a>Azure에서 가상 머신의 지역
@@ -31,7 +31,7 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 애플리케이션을 �
 * **US Gov 버지니아** 및 **US Gov 아이오와**
   * 미국 정부 기관 및 파트너를 위한 물리적 및 논리적 네트워크로 격리된 Azure 인스턴스로, 선별된 미국인이 운영합니다. [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) 및 [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA)와 같은 추가 규정 준수 인증서를 포함합니다. [Azure Government](https://azure.microsoft.com/features/gov/)에 대해 자세히 알아보세요.
 * **중국 동부** 및 **중국 북부**
-  * 이러한 지역은 Microsoft 및 21Vianet 간의 고유한 파트너십을 통해 사용할 수 있으며, Microsoft에서 데이터 센터를 직접 관리하지 않습니다. [Azure 중국 21vianet](https://www.windowsazure.cn/)에 대 한 자세한 내용을 참조 하세요.
+  * 이러한 지역은 Microsoft 및 21Vianet 간의 고유한 파트너십을 통해 사용할 수 있으며, Microsoft에서 데이터 센터를 직접 관리하지 않습니다. [Azure 중국 21vianet](https://www.windowsazure.cn/)에 대해 자세히 알아보세요.
 * **독일 중부** 및 **독일 북동부**
   * 이러한 지역은 데이터 트러스티 모델을 통해 사용할 수 있으며, 이로 인해 독일 데이터 트러스티 역할을 수행하는 독일 통신국 회사인 T-Systems의 관리 하에 고객 데이터가 독일에서 유지됩니다.
 
@@ -48,9 +48,9 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 애플리케이션을 �
 |:--- |:--- |
 | 미국 서부 |미국 동부 |
 | 북유럽 |서유럽 |
-| 동남 아시아 |동아시아 |
+| 동남아시아 |동아시아 |
 
-[여기에서 지역 쌍의 전체 목록을](../best-practices-availability-paired-regions.md#what-are-paired-regions)볼 수 있습니다.
+[여기에서 전체 지역 쌍 목록](../best-practices-availability-paired-regions.md#what-are-paired-regions)을 확인할 수 있습니다.
 
 ## <a name="feature-availability"></a>기능 가용성
 일부 서비스 또는 VM 기능(예: 특정 VM 크기 또는 스토리지 형식)은 특정 지역에서만 사용할 수 있습니다. [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), [Traffic Manager](../traffic-manager/traffic-manager-overview.md) 또는 [Azure DNS](../dns/dns-overview.md)와 같이 특정 지역을 선택하지 않아도 되는 전역 Azure 서비스도 있습니다. 애플리케이션 환경 설계에 도움이 되도록 [각 지역의 Azure 서비스 가용성](https://azure.microsoft.com/regions/#services)을 확인할 수 있습니다. [각 지역에서 지원되는 VM 크기 및 제한을 프로그래밍 방식으로 쿼리](../azure-resource-manager/templates/error-sku-not-available.md)할 수도 있습니다.
@@ -76,8 +76,8 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 애플리케이션을 �
 
 | 복제 전략 | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| 데이터가 여러 시설에 걸쳐 복제됩니다. |아니요 |예 |예 |예 |
-| 기본 위치와 보조 위치에서 데이터를 읽을 수 있습니다. |아니요 |아니요 |아니요 |예 |
+| 데이터가 여러 시설에 걸쳐 복제됩니다. |예 |예 |예 |예 |
+| 기본 위치와 보조 위치에서 데이터를 읽을 수 있습니다. |예 |예 |예 |예 |
 | 별도 노드에서 유지 관리되는 데이터 복사본 수입니다. |3 |3 |6 |6 |
 
 [여기에서 Azure Storage 복제 옵션](../storage/common/storage-redundancy.md)에 대해 자세히 알아볼 수 있습니다. 관리 디스크에 대한 자세한 내용은 [Azure Managed Disks 개요](./managed-disks-overview.md)를 참조하세요.
