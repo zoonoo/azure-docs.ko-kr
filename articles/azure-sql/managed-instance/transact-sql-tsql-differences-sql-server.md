@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Managed Instance & SQL Server 간의 t-sql 차이점
-description: 이 문서에서는 Azure SQL Managed Instance와 SQL Server 간의 Transact-sql (T-sql) 차이점에 대해 설명 합니다.
+title: SQL Server와 Azure SQL Managed Instance 간의 T-SQL 차이점
+description: 이 문서에서는 Azure SQL Managed Instance와 SQL Server 간의 T-SQL(Transact-SQL) 차이점을 설명합니다.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
@@ -12,23 +12,23 @@ ms.reviewer: sstein, bonova, danil
 ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
 ms.openlocfilehash: 227b573d3771efd3fd36e6d3d6222696647849f7
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105644921"
 ---
-# <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Azure SQL Managed Instance & SQL Server 간의 t-sql 차이점
+# <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>SQL Server와 Azure SQL Managed Instance 간의 T-SQL 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-이 문서에서는 Azure SQL Managed Instance와 SQL Server 간의 구문 및 동작 차이를 요약 하 고 설명 합니다. 
+이 문서에서는 Azure SQL Managed Instance와 SQL Server 간의 구문과 동작의 차이점을 요약하고 설명합니다. 
 
 
-SQL Managed Instance는 SQL Server 데이터베이스 엔진과의 호환성을 제공 하며 대부분의 기능은 SQL Managed Instance에서 지원 됩니다.
+SQL Managed Instance는 SQL Server 데이터베이스 엔진과의 높은 호환성을 제공하며 대부분의 기능은 SQL Managed Instance에서 지원됩니다.
 
 ![SQL Server에서 쉽게 마이그레이션](./media/transact-sql-tsql-differences-sql-server/migration.png)
 
-SQL Managed Instance에서 도입 된 몇 가지 PaaS 제한 사항이 있으며 SQL Server에 비해 일부 동작이 변경 되었습니다. 차이점은 다음 범주로 구분됩니다. <a name="Differences"></a>
+SQL Managed Instance에 도입된 일부 PaaS 제한 사항이 있으며 SQL Server에 비해 일부 동작이 변경되었습니다. 차이점은 다음 범주로 구분됩니다. <a name="Differences"></a>
 
 - [가용성](#availability)에는 [Always On 가용성 그룹](#always-on-availability-groups) 및 [백업](#backup)의 차이점이 포함됩니다.
 - [감사](#auditing), [인증서](#certificates), [자격 증명](#credential), [암호화 공급자](#cryptographic-providers), [로그인 및 사용자](#logins-and-users), [서비스 키 및 서비스 마스터 키](#service-key-and-service-master-key)의 차이점을 비롯한 [보안](#security).
@@ -38,13 +38,13 @@ SQL Managed Instance에서 도입 된 몇 가지 PaaS 제한 사항이 있으며
 
 이러한 기능 중 대부분은 아키텍처 제약 조건이며 서비스 기능을 나타냅니다.
 
-SQL Managed Instance에서 검색 되 고 나중에 해결 될 수 있는 일시적인 알려진 문제는 [릴리스 정보 페이지](../database/doc-changes-updates-release-notes.md)에 설명 되어 있습니다.
+SQL Managed Instance에서 검색되고 나중에 해결될 수 있는 알려진 일시적 문제는 [릴리스 정보 페이지](../database/doc-changes-updates-release-notes.md)에 설명되어 있습니다.
 
 ## <a name="availability"></a>가용성
 
 ### <a name="always-on-availability-groups"></a><a name="always-on-availability-groups"></a>Always On 가용성 그룹
 
-[고가용성](../database/high-availability-sla.md) 은 SQL Managed Instance 기본 제공 되며 사용자가 제어할 수 없습니다. 다음 문은 지원되지 않습니다.
+[고가용성](../database/high-availability-sla.md)은 SQL Managed Instance에 기본적으로 제공되며 사용자가 제어할 수 없습니다. 다음 문은 지원되지 않습니다.
 
 - [CREATE ENDPOINT … FOR DATABASE_MIRRORING](/sql/t-sql/statements/create-endpoint-transact-sql)
 - [CREATE AVAILABILITY GROUP](/sql/t-sql/statements/create-availability-group-transact-sql)
@@ -54,9 +54,9 @@ SQL Managed Instance에서 검색 되 고 나중에 해결 될 수 있는 일시
 
 ### <a name="backup"></a>Backup
 
-SQL Managed Instance에는 자동 백업이 있으므로 사용자는 전체 데이터베이스 백업을 만들 수 있습니다 `COPY_ONLY` . 차등, 로그 및 파일 스냅샷 백업은 지원되지 않습니다.
+SQL Managed Instance에는 자동 백업이 있으므로 사용자는 전체 데이터베이스 `COPY_ONLY` 백업을 만들 수 있습니다. 차등, 로그 및 파일 스냅샷 백업은 지원되지 않습니다.
 
-- SQL Managed Instance를 사용 하 여 Azure Blob storage 계정에만 인스턴스 데이터베이스를 백업할 수 있습니다.
+- SQL Managed Instance를 사용하는 경우 Azure Blob Storage 계정에만 인스턴스 데이터베이스를 백업할 수 있습니다.
   - `BACKUP TO URL`만 지원됩니다.
   - `FILE`, `TAPE` 및 백업 디바이스는 지원되지 않습니다.
 - 대부분의 일반 `WITH` 옵션이 지원됩니다.
@@ -67,19 +67,19 @@ SQL Managed Instance에는 자동 백업이 있으므로 사용자는 전체 데
 
 제한 사항: 
 
-- SQL Managed Instance를 사용 하면 최대 32 개의 스트라이프를 사용 하 여 백업에 인스턴스 데이터베이스를 백업할 수 있습니다. 백업 압축을 사용 하는 경우 최대 2TB의 데이터베이스에 충분 합니다.
+- SQL Managed Instance를 사용하는 경우 최대 32개의 스트라이프가 있는 백업에 인스턴스 데이터베이스를 백업할 수 있습니다. 이 개수는 백업 압축을 사용할 경우 최대 4TB의 데이터베이스에 충분합니다.
 - 서비스 관리 TDE(투명한 데이터 암호화)로 암호화된 데이터베이스에서는 `BACKUP DATABASE ... WITH COPY_ONLY`를 실행할 수 없습니다. 서비스 관리 TDE는 내부 TDE 키를 사용하여 백업을 암호화합니다. 키를 내보낼 수 없어 백업을 복원할 수 없습니다. 자동 백업 및 특정 시점 복원을 사용하거나 [고객 관리(BYOK) TDE](../database/transparent-data-encryption-tde-overview.md#customer-managed-transparent-data-encryption---bring-your-own-key)를 대신 사용합니다. 데이터베이스에서 암호화를 사용하지 않도록 설정할 수 있습니다.
-- Managed Instance에서 수행 되는 기본 백업은 SQL Server 복원할 수 없습니다. 이는 Managed Instance 모든 버전의 SQL Server와 비교 하 여 내부 데이터베이스 버전이 더 높기 때문입니다.
-- SQL Managed Instance의 명령을 사용 하 여 최대 백업 스트라이프 크기는 `BACKUP` 최대 blob 크기인 195 GB입니다. 개별 스트라이프 크기를 줄이고 이 제한 내로 유지하려면 백업 명령에서 스트라이프 수를 늘립니다.
+- Managed Instance에서 가져온 기본 백업은 SQL Server로 복원할 수 없습니다. 이는 Managed Instance가 SQL Server의 모든 버전과 비교하여 내부 데이터베이스 버전이 더 높기 때문입니다.
+- SQL Managed Instance에서 `BACKUP` 명령을 사용한 최대 백업 스트라이프 크기는 최대 BLOB 크기인 195GB입니다. 개별 스트라이프 크기를 줄이고 이 제한 내로 유지하려면 백업 명령에서 스트라이프 수를 늘립니다.
 
     > [!TIP]
     > 이 제한을 해결하기 위해 온-프레미스 환경 또는 가상 머신의 SQL Server에서 데이터베이스를 백업하는 경우 다음 작업을 수행할 수 있습니다.
     >
     > - `URL`을 백업하는 대신 `DISK`에 백업합니다.
     > - BLOB Storage에 백업 파일을 업로드합니다.
-    > - SQL Managed Instance로 복원 합니다.
+    > - SQL Managed Instance로 복원합니다.
     >
-    > `Restore`업로드 된 백업 파일의 저장소에 다른 blob 유형이 사용 되므로 SQL Managed Instance의 명령은 백업 파일의 blob 크기를 더 크게 지원 합니다.
+    > 업로드된 백업 파일의 스토리지에 서로 다른 BLOB 유형이 사용되기 때문에 SQL Managed Instance의 `Restore` 명령은 백업 파일에서 더 큰 BLOB 크기를 지원합니다.
 
 T-SQL을 사용하는 백업에 대한 자세한 내용은 [BACKUP](/sql/t-sql/statements/backup-transact-sql)을 참조하세요.
 
@@ -87,18 +87,18 @@ T-SQL을 사용하는 백업에 대한 자세한 내용은 [BACKUP](/sql/t-sql/s
 
 ### <a name="auditing"></a>감사
 
-Microsoft Azure SQL과 SQL Server의 감사 간 주요 차이점은 다음과 같습니다.
+Microsoft Azure SQL과 SQL Server 감사의 주요 차이점은 다음과 같습니다.
 
-- SQL Managed Instance를 사용 하 여 감사는 서버 수준에서 작동 합니다. `.xel` 로그 파일은 Azure BLOB Storage에 저장됩니다.
-- Azure SQL Database에서 감사는 데이터베이스 수준에서 작동 합니다. `.xel` 로그 파일은 Azure BLOB Storage에 저장됩니다.
-- SQL Server 온-프레미스 또는 가상 머신에서 감사는 서버 수준에서 작동 합니다. 이벤트는 파일 시스템 또는 Windows 이벤트 로그에 저장됩니다.
+- SQL Managed Instance를 사용하면 감사는 서버 수준에서 작동합니다. `.xel` 로그 파일은 Azure BLOB Storage에 저장됩니다.
+- Azure SQL Database를 사용하면 감사는 데이터베이스 수준에서 작동합니다. `.xel` 로그 파일은 Azure BLOB Storage에 저장됩니다.
+- 온-프레미스 또는 가상 머신의 SQL Server를 사용하면 감사는 서버 수준에서 작동합니다. 이벤트는 파일 시스템 또는 Windows 이벤트 로그에 저장됩니다.
  
-SQL Managed Instance의 XEvent 감사는 Azure Blob 저장소 대상을 지원 합니다. 파일 및 Windows 로그는 지원되지 않습니다.
+SQL Managed Instance의 XEvent 감사는 Azure Blob Storage 대상을 지원합니다. 파일 및 Windows 로그는 지원되지 않습니다.
 
 Azure Blob Storage에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이점은 다음과 같습니다.
 
 - 새 `TO URL` 구문이 제공되고 `.xel` 파일이 배치되는 Azure Blob Storage 컨테이너의 URL을 지정하는 데 사용할 수 있습니다.
-- `TO FILE`SQL Managed Instance Windows 파일 공유에 액세스할 수 없으므로 구문은 지원 되지 않습니다.
+- SQL Managed Instance에서 Windows 파일 공유에 액세스할 수 없으므로 `TO FILE` 구문은 지원되지 않습니다.
 
 자세한 내용은 다음을 참조하세요. 
 
@@ -108,7 +108,7 @@ Azure Blob Storage에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이
 
 ### <a name="certificates"></a>인증서
 
-SQL Managed Instance는 파일 공유 및 Windows 폴더에 액세스할 수 없으므로 다음과 같은 제약 조건이 적용 됩니다.
+SQL Managed Instance에서 파일 공유 및 Windows 폴더에 액세스할 수 없으므로 다음과 같은 제약 조건이 적용됩니다.
 
 - `CREATE FROM`/`BACKUP TO` 파일은 인증서에서 지원되지 않습니다.
 - `FILE`/`ASSEMBLY`의 `CREATE`/`BACKUP` 인증서는 지원되지 않습니다. 프라이빗 키 파일은 사용할 수 없습니다. 
@@ -131,7 +131,7 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
 
 ### <a name="cryptographic-providers"></a>암호화 공급자
 
-SQL Managed Instance 파일에 액세스할 수 없으므로 암호화 공급자를 만들 수 없습니다.
+SQL Managed Instance는 파일에 액세스할 수 없으므로 암호화 공급자를 만들 수 없습니다.
 
 - `CREATE CRYPTOGRAPHIC PROVIDER`는 지원되지 않습니다. [CREATE CRYPTOGRAPHIC PROVIDER](/sql/t-sql/statements/create-cryptographic-provider-transact-sql)를 참조하세요.
 - `ALTER CRYPTOGRAPHIC PROVIDER`는 지원되지 않습니다. [ALTER CRYPTOGRAPHIC PROVIDER](/sql/t-sql/statements/alter-cryptographic-provider-transact-sql)를 참조하세요.
@@ -141,12 +141,12 @@ SQL Managed Instance 파일에 액세스할 수 없으므로 암호화 공급자
 - `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY` 및 `FROM SID`를 사용하여 만든 SQL 로그인이 지원됩니다. [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql)을 참조하세요.
 - [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) 구문 또는 [CREATE USER FROM LOGIN [Azure AD Login]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current&preserve-view=true) 구문을 사용하여 만든 Azure AD(Azure Active Directory) 서버 보안 주체(로그인)가 지원됩니다. 이러한 로그인은 서버 수준에서 만들어집니다.
 
-    SQL Managed Instance는 구문을 사용 하 여 Azure AD 데이터베이스 보안 주체를 지원 `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER` 합니다. 이 기능을 Azure AD 포함된 데이터베이스 사용자라고도 합니다.
+    SQL Managed Instance는 `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER` 구문을 사용하여 Azure AD 데이터베이스 보안 주체를 지원합니다. 이 기능을 Azure AD 포함된 데이터베이스 사용자라고도 합니다.
 
 - `CREATE LOGIN ... FROM WINDOWS` 구문으로 만든 Windows 로그인은 지원되지 않습니다. Azure Active Directory 로그인 및 사용자를 사용합니다.
 - 인스턴스를 만든 Azure AD 사용자에게는 [무제한 관리자 권한](../database/logins-create-manage.md)이 있습니다.
 - 관리자가 아닌 Azure AD 데이터베이스 수준 사용자는 `CREATE USER ... FROM EXTERNAL PROVIDER` 구문을 사용하여 만들 수 있습니다. [CREATE USER ... FROM EXTERNAL PROVIDER](../database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)를 참조하세요.
-- Azure AD 서버 보안 주체 (로그인)는 하나의 SQL Managed Instance 내 에서만 SQL 기능을 지원 합니다. 인스턴스 간 상호 작용이 필요한 기능은 동일한 Azure AD 테넌트에 있는지 또는 다른 테넌트 내에 있는지에 관계없이 Azure AD 사용자에게 지원되지 않습니다. 이러한 기능의 예는 다음과 같습니다.
+- Azure AD 서버 보안 주체(로그인)는 단일 SQL Managed Instance 내에서만 SQL 기능을 지원합니다. 인스턴스 간 상호 작용이 필요한 기능은 동일한 Azure AD 테넌트에 있는지 또는 다른 테넌트 내에 있는지에 관계없이 Azure AD 사용자에게 지원되지 않습니다. 이러한 기능의 예는 다음과 같습니다.
 
   - SQL 트랜잭션 복제
   - 링크 서버
@@ -160,26 +160,26 @@ SQL Managed Instance 파일에 액세스할 수 없으므로 암호화 공급자
     - EXECUTE AS USER
     - EXECUTE AS LOGIN
 
-  - EXECUTE AS 문을 사용 하 여 사용자를 가장 하려면 사용자를 Azure AD 서버 보안 주체 (로그인)에 직접 매핑해야 합니다. Azure ad 서버 보안 주체에 매핑되는 Azure AD 그룹의 멤버인 사용자는 호출자에 게 지정 된 사용자 이름에 대 한 impersonate 권한이 있더라도 EXECUTE AS 문으로 효과적으로 가장할 수 없습니다.
+  - EXECUTE AS 문으로 사용자를 가장하려면 사용자를 Azure AD 서버 보안 주체(로그인)에 직접 매핑해야 합니다. 호출자에게 지정된 사용자 이름에 대한 가장 권한이 있더라도 Azure AD 서버 보안 주체에 매핑된 Azure AD 그룹의 구성원인 사용자는 EXECUTE AS 문으로 효과적으로 가장할 수 없습니다.
 
-- Bacpac 파일을 사용 하는 데이터베이스 내보내기/가져오기는 [SSMS v 18.4 이상](/sql/ssms/download-sql-server-management-studio-ssms)또는 [SQLPackage.exe](/sql/tools/sqlpackage-download)를 사용 하 여 SQL Managed Instance의 Azure AD 사용자에 대해 지원 됩니다.
+- bacpac 파일을 사용하는 데이터베이스 내보내기/가져오기는 [SSMS V18.4 이상 버전](/sql/ssms/download-sql-server-management-studio-ssms) 또는 [SQLPackage.exe](/sql/tools/sqlpackage-download)를 사용하여 SQL Managed Instance의 Azure AD 사용자에게 지원됩니다.
   - 데이터베이스 bacpac 파일을 사용하여 다음 구성이 지원됩니다. 
     - 동일한 Azure AD 도메인 내의 서로 다른 관리 인스턴스 간에 데이터베이스 내보내기/가져오기
-    - SQL Managed Instance에서 데이터베이스를 내보내고 동일한 Azure AD 도메인 내에서 SQL Database으로 가져옵니다. 
-    - SQL Database에서 데이터베이스를 내보내고 동일한 Azure AD 도메인 내에서 SQL Managed Instance으로 가져옵니다.
-    - SQL Managed Instance에서 데이터베이스를 내보내고 SQL Server (버전 2012 이상)로 가져옵니다.
-      - 이 구성에서는 모든 Azure AD 사용자가 로그인 없이 SQL Server 데이터베이스 보안 주체 (사용자)로 생성 됩니다. 사용자의 유형은로 나열 되 `SQL` 고 sys.database_principals)로 표시 됩니다 `SQL_USER` . 해당 사용 권한과 역할은 SQL Server 데이터베이스 메타데이터에 남아 있으며 가장에 사용할 수 있습니다. 그러나 해당 자격 증명을 사용하여 SQL Server에 액세스하고 로그인하는 데는 사용할 수 없습니다.
+    - SQL Managed Instance에서 데이터베이스 내보내기 및 동일한 Azure AD 도메인 내의 SQL Database로 가져오기 
+    - SQL Database에서 데이터베이스 내보내기 및 동일한 Azure AD 도메인 내에서 SQL Managed Instance로 가져오기
+    - SQL Managed Instance에서 데이터베이스 내보내기 및 SQL Server(버전 2012 이상)로 가져오기
+      - 이 구성에서는 모든 Azure AD 사용자가 로그인 없이 SQL Server 데이터베이스 보안 주체(사용자)로 만들어집니다. 사용자 유형은 `SQL`로 나열되며 sys.database_principals에서 `SQL_USER`로 표시됩니다. 해당 사용 권한과 역할은 SQL Server 데이터베이스 메타데이터에 남아 있으며 가장에 사용할 수 있습니다. 그러나 해당 자격 증명을 사용하여 SQL Server에 액세스하고 로그인하는 데는 사용할 수 없습니다.
 
-- SQL Managed Instance 프로 비전 프로세스에서 생성 된 서버 수준 보안 주체 로그인, 서버 역할의 멤버 (예: `securityadmin` 또는) `sysadmin` 또는 서버 수준에서 ALTER ANY login 권한이 있는 기타 로그인만 sql Managed Instance의 master 데이터베이스에 Azure AD 서버 보안 주체 (로그인)를 만들 수 있습니다.
+- 서버 수준 보안 주체 로그인(SQL Managed Instance 프로비전 프로세스를 통해 생성됨), 서버 역할의 구성원(예: `securityadmin` 또는 `sysadmin`) 또는 서버 수준에서 ALTER ANY LOGIN 권한이 있는 기타 로그인만 SQL Managed Instance에 대한 Azure AD 서버 보안 주체(로그인)를 master 데이터베이스에 만들 수 있습니다.
 - 로그인이 SQL 보안 주체인 경우 `sysadmin` 역할에 포함된 로그인만 create 명령을 사용하여 Azure AD 계정에 대한 로그인을 만들 수 있습니다.
-- Azure AD 로그인은 azure SQL Managed Instance에 사용 되는 것과 동일한 디렉터리 내에서 Azure AD의 멤버 여야 합니다.
+- Azure AD 로그인은 Azure SQL Managed Instance에 사용되는 것과 동일한 디렉터리 내의 Azure AD 구성원이어야 합니다.
 - Azure AD 서버 보안 주체(로그인)는 SQL Server Management Studio 18.0 미리 보기 5부터 개체 탐색기에 표시됩니다.
-- Azure AD 서버 보안 주체(로그인)를 Azure AD 관리자 계정과 겹칠 수 있습니다. Azure AD 서버 보안 주체 (로그인)는 주 서버를 확인 하 고 SQL Managed Instance에 대 한 사용 권한을 적용 하는 경우 Azure AD 관리자 보다 우선적으로 적용 됩니다.
+- Azure AD 서버 보안 주체(로그인)를 Azure AD 관리자 계정과 겹칠 수 있습니다. 보안 주체를 확인하고 SQL Managed Instance에 대한 사용 권한을 적용할 때 Azure AD 서버 보안 주체(로그인)가 Azure AD 관리자보다 우선합니다.
 - 인증 중에 인증 보안 주체를 확인하기 위해 적용되는 시퀀스는 다음과 같습니다.
 
     1. Azure AD 계정이 Azure AD 서버 보안 주체(로그인)에 직접 매핑된 경우(sys.server_principals에서 "E" 형식으로), 액세스 권한을 부여하고 Azure AD 서버 보안 주체(로그인)의 사용 권한을 적용합니다.
     2. Azure AD 계정이 Azure AD 서버 보안 주체(로그인)에 직접 매핑된 Azure AD 그룹의 멤버인 경우(sys.server_principals에서 "X" 형식으로), 액세스 권한을 부여하고 Azure AD 그룹 로그인의 사용 권한을 적용합니다.
-    3. Azure AD 계정이 sql Managed Instance에 대 한 특별 한 포털 구성 Azure AD 관리자 인 경우 (sql Managed Instance 시스템 뷰에 존재 하지 않음) SQL Managed Instance (레거시 모드)에 대 한 Azure AD 관리자의 특수 한 고정 권한을 적용 합니다.
+    3. Azure AD 계정이 포털에서 구성된 SQL Managed Instance에 대한 특수 Azure AD 관리자인 경우(SQL Managed Instance 시스템 뷰에 없음), SQL Managed Instance(레거시 모드)에 대해 Azure AD 관리자의 수정된 특수 사용 권한을 적용합니다.
     4. Azure AD 계정이 데이터베이스의 Azure AD 사용자에 직접 매핑된 경우(sys.database_principals에서 "E" 형식으로), 액세스 권한을 부여하고 Azure AD 데이터베이스 사용자의 사용 권한을 적용합니다.
     5. Azure AD 계정이 데이터베이스의 Azure AD 사용자에 매핑된 Azure AD 그룹의 멤버인 경우(sys.database_principals에서 "X" 형식으로), 액세스 권한을 부여하고 Azure AD 그룹 로그인의 사용 권한을 적용합니다.
     6. Azure AD 사용자 계정 또는 Azure AD 그룹 계정에 매핑되어 사용자 인증으로 확인되는 Azure AD 로그인이 있는 경우, 이 Azure AD 로그인의 모든 사용 권한이 적용됩니다.
@@ -246,7 +246,7 @@ SQL Managed Instance 파일에 액세스할 수 없으므로 암호화 공급자
 
 일부 파일 속성은 설정하거나 변경할 수 없습니다.
 
-- `ALTER DATABASE ADD FILE (FILENAME='path')` T-SQL 문에서 파일 경로를 지정할 수 없습니다. `FILENAME`SQL Managed Instance 자동으로 파일을 저장 하기 때문에 스크립트에서을 제거 합니다. 
+- `ALTER DATABASE ADD FILE (FILENAME='path')` T-SQL 문에서 파일 경로를 지정할 수 없습니다. SQL Managed Instance에서 파일을 자동으로 저장하기 때문에 스크립트에서 `FILENAME`을 제거합니다. 
 - `ALTER DATABASE` 문을 사용하여 파일 이름을 변경할 수 없습니다.
 
 기본적으로 설정되고 변경할 수 없는 옵션은 다음과 같습니다.
@@ -277,15 +277,15 @@ SQL Managed Instance 파일에 액세스할 수 없으므로 암호화 공급자
 - `SINGLE_USER`
 - `WITNESS`
 
-예 `ALTER DATABASE` 를 들어 [SET 제약](/sql/relational-databases/databases/migrate-to-a-partially-contained-database#converting-a-database-to-partially-contained-using-transact-sql)의 일부 문은 transiently 실패할 수 있습니다. 예를 들어 자동화 된 데이터베이스 백업 중 또는 데이터베이스를 만든 직후입니다. 이 경우 `ALTER DATABASE` 문을 다시 시도해 야 합니다. 관련 오류 메시지에 대 한 자세한 내용은 [설명 부분](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&tabs=sqlpool&view=azuresqldb-mi-current#remarks-2)을 참조 하십시오.
+일부 `ALTER DATABASE` 문(예: [SET CONTAINMENT](/sql/relational-databases/databases/migrate-to-a-partially-contained-database#converting-a-database-to-partially-contained-using-transact-sql))은 예를 들어 자동화된 데이터베이스 백업 중에 또는 데이터베이스가 생성된 직후에 일시적으로 실패할 수 있습니다. 이 경우 `ALTER DATABASE` 문을 다시 시도해야 합니다. 관련 오류 메시지에 대한 자세한 내용은 [설명 섹션](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&tabs=sqlpool&view=azuresqldb-mi-current#remarks-2)을 참조하세요.
 
 자세한 내용은 [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options)를 참조하세요.
 
 ### <a name="sql-server-agent"></a>SQL Server 에이전트
 
 - SQL Server 에이전트를 사용하거나 사용하지 않도록 설정하는 기능은 현재 SQL Managed Instance에서 지원되지 않습니다. SQL 에이전트는 항상 실행됩니다.
-- 유휴 CPU를 기반으로 하는 작업 일정 트리거는 지원 되지 않습니다.
-- SQL Server 에이전트 설정은 읽기 전용입니다. 이 프로시저는 `sp_set_agent_properties` SQL Managed Instance에서 지원 되지 않습니다. 
+- 유휴 상태의 CPU를 기반으로 하는 작업 일정 트리거는 지원되지 않습니다.
+- SQL Server 에이전트 설정은 읽기 전용입니다. `sp_set_agent_properties` 프로시저는 SQL Managed Instance에서 지원되지 않습니다. 
 - 작업
   - T-SQL 작업 단계가 지원됩니다.
   - 다음 복제 작업이 지원됩니다.
@@ -297,8 +297,8 @@ SQL Managed Instance 파일에 액세스할 수 없으므로 암호화 공급자
     - 병합 복제 작업 단계는 지원되지 않습니다. 
     - 큐 판독기는 지원되지 않습니다. 
     - 명령 셸은 아직 지원되지 않습니다.
-  - SQL Managed Instance는 robocopy를 통한 네트워크 공유와 같은 외부 리소스에 액세스할 수 없습니다. 
-  - SQL Server Analysis Services 지원 되지 않습니다.
+  - SQL Managed Instance는 외부 리소스(예: robocopy를 통한 네트워크 공유)에 액세스할 수 없습니다. 
+  - SQL Server Analysis Services는 지원되지 않습니다.
 - 알림은 부분적으로 지원됩니다.
 - 데이터베이스 메일 프로필을 구성해야 하지만 이메일 알림이 지원됩니다. SQL Server 에이전트는 데이터베이스 메일 프로필을 하나만 사용할 수 있으며 `AzureManagedInstance_dbmail_profile`이라고 해야 합니다. 
   - 호출기는 지원되지 않습니다.
@@ -306,8 +306,8 @@ SQL Managed Instance 파일에 액세스할 수 없으므로 암호화 공급자
   - 경고는 아직 지원되지 않습니다.
   - 프록시는 지원되지 않습니다.
 - EventLog는 지원되지 않습니다.
-- SQL 에이전트 작업을 만들거나, 수정 하거나, 실행 하려면 사용자를 Azure AD 서버 보안 주체 (로그인)에 직접 매핑해야 합니다. 사용자가 직접 매핑되지 않은 사용자 (예: SQL 에이전트 작업을 생성, 수정 또는 실행할 수 있는 권한이 있는 Azure AD 그룹에 속한 사용자)는 이러한 작업을 효율적으로 수행할 수 없습니다. 이는 Managed Instance 가장 및 [실행 제한](#logins-and-users)으로 인 한 것입니다.
-- Master/target (MSX/TSX) 작업에 대 한 다중 서버 관리 기능은 지원 되지 않습니다.
+- SQL 에이전트 작업을 생성, 수정 또는 실행하려면 사용자가 Azure AD 서버 보안 주체(로그인)에 직접 매핑되어야 합니다. 직접 매핑되지 않은 사용자(예: SQL 에이전트 작업을 생성, 수정 또는 실행할 권한이 있는 Azure AD 그룹에 속한 사용자)는 이러한 작업을 효과적으로 수행할 수 없습니다. 이는 Managed Instance 가장 및 [EXECUTE AS 제한](#logins-and-users)으로 인한 것입니다.
+- Master/Target(MSX/TSX) 작업에 대한 다중 서버 관리 기능은 지원되지 않습니다.
 
 SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](/sql/ssms/agent/sql-server-agent)를 참조하세요.
 
@@ -326,15 +326,15 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 
 ### <a name="bulk-insert--openrowset"></a>BULK INSERT/OPENROWSET
 
-SQL Managed Instance 파일 공유 및 Windows 폴더에 액세스할 수 없으므로 Azure Blob storage에서 파일을 가져와야 합니다.
+SQL Managed Instance에서 파일 공유 및 Windows 폴더에 액세스할 수 없으므로 Azure Blob Storage에서 파일을 가져와야 합니다.
 
 - `DATASOURCE`는 Azure BLOB Storage에서 파일을 가져오는 동안 `BULK INSERT` 명령에 필요합니다. [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql)를 참조하세요.
 - Azure Blob Storage에서 파일의 내용을 읽을 때 `OPENROWSET` 함수에 `DATASOURCE`가 필요합니다. [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql)를 참조하세요.
-- `OPENROWSET` 을 사용 하 여 Azure SQL Database, Azure SQL Managed Instance 또는 SQL Server 인스턴스에서 데이터를 읽을 수 있습니다. Oracle Database 또는 Excel 파일 등의 다른 원본은 지원되지 않습니다.
+- `OPENROWSET`을 사용하여 Azure SQL Database, Azure SQL Managed Instance 또는 SQL Server 인스턴스에서 데이터를 읽을 수 있습니다. Oracle Database 또는 Excel 파일 등의 다른 원본은 지원되지 않습니다.
 
 ### <a name="clr"></a>CLR
 
-SQL Managed Instance는 파일 공유 및 Windows 폴더에 액세스할 수 없으므로 다음과 같은 제약 조건이 적용 됩니다.
+SQL Managed Instance에서 파일 공유 및 Windows 폴더에 액세스할 수 없으므로 다음과 같은 제약 조건이 적용됩니다.
 
 - `CREATE ASSEMBLY FROM BINARY`만 지원됩니다. [CREATE ASSEMBLY FROM BINARY](/sql/t-sql/statements/create-assembly-transact-sql)를 참조하세요. 
 - `CREATE ASSEMBLY FROM FILE`는 지원되지 않습니다. [CREATE ASSEMBLY FROM FILE](/sql/t-sql/statements/create-assembly-transact-sql)을 참조하세요.
@@ -346,19 +346,19 @@ SQL Managed Instance는 파일 공유 및 Windows 폴더에 액세스할 수 없
  
 ### <a name="dbcc"></a>DBCC
 
-SQL Server에서 사용 하도록 설정 된 문서화 되지 않은 DBCC 문은 SQL Managed Instance에서 지원 되지 않습니다.
+SQL Server에서 사용하도록 설정되었지만 문서화되지 않은 DBCC 문은 SQL Managed Instance에서 지원되지 않습니다.
 
 - 제한된 수의 전역 추적 플래그만 지원됩니다. 세션 수준 `Trace flags`는 지원되지 않습니다. [추적 플래그](/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql)를 참조하세요.
 - [DBCC TRACEOFF](/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) 및 [DBCC TRACEON](/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql)은 제한된 수의 전역 추적 플래그와 함께 사용합니다.
-- 데이터베이스를 `SINGLE_USER` 모드로 설정할 수 없으므로 REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST 및 REPAIR_REBUILD 옵션과 함께 [DBCC CHECKDB](/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql)를 사용할 수 없습니다. [ALTER DATABASE 차이점](#alter-database-statement)을 참조하세요. 잠재적 데이터베이스 손상은 Azure 지원 팀에서 처리 합니다. 데이터베이스가 손상 된 경우 Azure 지원에 문의 하세요.
+- 데이터베이스를 `SINGLE_USER` 모드로 설정할 수 없으므로 REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST 및 REPAIR_REBUILD 옵션과 함께 [DBCC CHECKDB](/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql)를 사용할 수 없습니다. [ALTER DATABASE 차이점](#alter-database-statement)을 참조하세요. 잠재적 데이터베이스 손상은 Azure 지원 팀에서 처리합니다. 데이터베이스가 손상된 경우 Azure 지원에 문의하세요.
 
 ### <a name="distributed-transactions"></a>분산 트랜잭션
 
-[분산 트랜잭션에](../database/elastic-transactions-overview.md) 대 한 부분 지원은 현재 공개 미리 보기 상태입니다. 지원 되는 시나리오는 다음과 같습니다.
-* 참가자가 [서버 신뢰 그룹](./server-trust-group-overview.md)의 일부인 Azure SQL 관리 인스턴스인 경우
-* .NET (TransactionScope 클래스) 및 Transact-sql에서 시작 된 트랜잭션입니다.
+[분산 트랜잭션](../database/elastic-transactions-overview.md)에 대한 부분 지원은 현재 공개 미리 보기로 제공됩니다. 지원되는 시나리오는 다음과 같습니다.
+* 참가자가 [서버 신뢰 그룹](./server-trust-group-overview.md)에 속하는 Azure SQL Managed Instance인 트랜잭션
+* .NET(TransactionScope 클래스) 및 Transact-SQL에서 시작된 트랜잭션
 
-현재 azure SQL Managed Instance는 MSDTC 온-프레미스 또는 Azure Virtual Machines에서 정기적으로 지원 되는 다른 시나리오를 지원 하지 않습니다.
+Azure SQL Managed Instance는 현재 MSDTC 온-프레미스 또는 Azure Virtual Machines에서 정기적으로 지원하는 다른 시나리오를 지원하지 않습니다.
 
 ### <a name="extended-events"></a>확장 이벤트
 
@@ -369,7 +369,7 @@ SQL Server에서 사용 하도록 설정 된 문서화 되지 않은 DBCC 문은
 
 ### <a name="external-libraries"></a>외부 라이브러리
 
-데이터베이스 내 R 및 Python 외부 라이브러리는 제한 된 공개 미리 보기에서 지원 됩니다. [AZURE SQL Managed Instance에서 Machine Learning Services (미리 보기)를](machine-learning-services-overview.md)참조 하세요.
+데이터베이스 내 R 및 Python 외부 라이브러리는 제한된 공개 미리 보기로 지원됩니다. [Azure SQL Managed Instance의 Machine Learning Services(미리 보기)](machine-learning-services-overview.md)를 참조하세요.
 
 ### <a name="filestream-and-filetable"></a>Filestream 및 FileTable
 
@@ -392,30 +392,30 @@ SQL Server에서 사용 하도록 설정 된 문서화 되지 않은 DBCC 문은
 
 ### <a name="linked-servers"></a>연결된 서버
 
-SQL Managed Instance의 연결 된 서버는 제한 된 수의 대상을 지원 합니다.
+SQL Managed Instance의 연결된 서버는 제한된 수의 대상을 지원합니다.
 
-- 지원 되는 대상은 SQL Managed Instance, SQL Database, Azure Synapse [SQL server](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) 를 사용 하지 않으며 전용 풀 및 SQL Server 인스턴스입니다. 
-- 관리 되는 인스턴스 간에만 분산 쓰기 가능 트랜잭션을 수행할 수 있습니다. 자세한 내용은 [분산 트랜잭션](../database/elastic-transactions-overview.md)을 참조 하세요. 그러나 MS DTC는 지원 되지 않습니다.
-- 지원되지 않는 대상은 파일, Analysis Services 및 기타 RDBMS입니다. `BULK INSERT`또는 파일 가져오기에 대 한 대체 방법으로 또는를 사용 하 여 Azure Blob Storage에서 네이티브 CSV 가져오기를 사용 `OPENROWSET` 하거나 [Azure Synapse Analytics에서 서버](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/)를 사용 하지 않는 SQL 풀을 사용 하 여 파일을 로드 하십시오.
+- 지원되는 대상은 SQL Managed Instance, SQL Database, Azure Synapse SQL [서버리스](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/), 전용 풀 및 SQL Server Instances입니다. 
+- 분산 쓰기 가능한 트랜잭션은 Managed Instance 간에만 가능합니다. 자세한 내용은 [분산 트랜잭션](../database/elastic-transactions-overview.md)을 참조하세요. 그러나 MS DTC는 지원되지 않습니다.
+- 지원되지 않는 대상은 파일, Analysis Services 및 기타 RDBMS입니다. 파일 가져오기의 대안으로, `BULK INSERT` 또는 `OPENROWSET`을 사용하여 Azure Blob Storage에서 네이티브 CSV 가져오기를 사용하거나 [Azure Synapse Analytics의 서버리스 SQL 풀](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/)을 사용하여 파일을 로드해 보세요.
 
 작업: 
 
-- [인스턴스 간](../database/elastic-transactions-overview.md) 쓰기 트랜잭션은 관리 되는 인스턴스에서만 지원 됩니다.
+- [인스턴스 간](../database/elastic-transactions-overview.md) 쓰기 트랜잭션은 Managed Instances에서만 지원됩니다.
 - `sp_dropserver`는 연결된 서버를 삭제하는 데 지원됩니다. [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql)를 참조하세요.
 - `OPENROWSET` 함수는 SQL Server 인스턴스에서만 쿼리를 실행하는 데 사용할 수 있습니다. 관리되는 컴퓨터, 온-프레미스 컴퓨터 또는 가상 머신 중 하나일 수 있습니다. [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql)를 참조하세요.
 - `OPENDATASOURCE` 함수는 SQL Server 인스턴스에서만 쿼리를 실행하는 데 사용할 수 있습니다. 관리되는 컴퓨터, 온-프레미스 컴퓨터 또는 가상 머신 중 하나일 수 있습니다. `SQLNCLI`, `SQLNCLI11` 및 `SQLOLEDB` 값만 공급자로 지원됩니다. 예제는 `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`입니다. [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql)를 참조하세요.
-- 연결된 서버를 네트워크 공유에서 파일(Excel, CSV)을 읽는 데 사용할 수 없습니다. Azure Blob Storage에서 CSV 파일을 읽는 [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file)또는 [Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀을 참조 하는 연결 된 서버](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/)를 사용 하십시오. [](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) [SQL Managed Instance 피드백 항목](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources) 에서이 요청 추적|
+- 연결된 서버를 네트워크 공유에서 파일(Excel, CSV)을 읽는 데 사용할 수 없습니다. Azure Blob Storage에서 CSV 파일을 읽는 [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file), [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file)을 사용하거나 [Synapse Analytics에서 서버리스 SQL 풀을 참조하는 연결된 서버](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/)를 사용해 보세요. [SQL Managed Instance 피드백 항목](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|에서 이 요청 추적
 
 ### <a name="polybase"></a>PolyBase
 
-Azure SQL database, Azure SQL 관리 되는 인스턴스 및 Azure Synapse 풀에는 RDBMS (공개 미리 보기의 경우)만 사용할 수 있습니다. Azure storage에서 직접 읽는 Polybase 외부 테이블에 대 한 해결 방법으로 [Synapse Analytics에서 서버 리스 SQL 풀을 참조 하는 외부 테이블](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) 을 사용할 수 있습니다. Azure SQL 관리 되는 인스턴스에서 연결 된 서버를 [Synapse Analytics의 서버](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) 를 사용 하지 않는 sql 풀에 사용 하거나 SQL Server 하 여 azure storage 데이터를 읽을 수 있습니다.
+사용 가능한 유일한 외부 원본 유형은 Azure SQL database, Azure SQL Managed Instance 및 Azure Synapse 풀에 대한 RDBMS(공개 미리 보기)입니다. Azure Storage에서 직접 읽는 Polybase 외부 테이블에 대한 해결 방법으로 [ Synapse Analytics에서 서버리스 SQL 풀을 참조하는 외부 테이블](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/)을 사용할 수 있습니다. Azure SQL managed instance에서는 연결된 서버를 사용하여 [Synapse Analytics의 서버리스 SQL 풀](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) 또는 SQL Server를 사용하여 Azure 스토리지 데이터를 읽을 수 있습니다.
 PolyBase에 대한 자세한 내용은 [PolyBase](/sql/relational-databases/polybase/polybase-guide)를 참조하세요.
 
 ### <a name="replication"></a>복제
 
 - 스냅숏과 양방향 복제 형식이 지원됩니다. 병합 복제, 피어 투 피어 복제 및 업데이트할 수 있는 구독은 지원되지 않습니다.
-- [트랜잭션 복제](replication-transactional-overview.md) 는 다음과 같은 몇 가지 제약 조건으로 SQL Managed Instance의 공개 미리 보기에 사용할 수 있습니다.
-    - 모든 유형의 복제 참여자 (게시자, 배포자, 끌어오기 구독자 및 밀어넣기 구독자)는 SQL Managed Instance에 배치 될 수 있지만 게시자와 배포자는 모두 클라우드 또는 온-프레미스 모두에 있어야 합니다.
+- [트랜잭션 복제](replication-transactional-overview.md)는 일부 제약 조건이 있는 SQL Managed Instance의 공개 미리 보기에 제공됩니다.
+    - 모든 유형의 복제 참가자(게시자, 배포자, 끌어오기 구독자 및 밀어넣기 구독자)가 SQL Managed Instance에 배치될 수 있지만 게시자와 배포자는 클라우드 또는 온-프레미스에 모두 있어야 합니다.
     - SQL Managed Instance는 최신 버전의 SQL Server와 통신할 수 있습니다. 자세한 내용은 [지원되는 버전 매트릭스](replication-transactional-overview.md#supportability-matrix)를 참조하세요.
     - 트랜잭션 복제에는 [추가 네트워킹 요구 사항](replication-transactional-overview.md#requirements)이 있습니다.
 
@@ -438,7 +438,7 @@ PolyBase에 대한 자세한 내용은 [PolyBase](/sql/relational-databases/poly
   - `FROM URL`(Azure Blob Storage)만 지원되는 옵션입니다.
   - `FROM DISK`/`TAPE`/백업 디바이스는 지원되지 않습니다.
   - 백업 세트는 지원되지 않습니다.
-- `WITH` 옵션은 지원되지 않습니다. ,, 등을 포함 한 복원 시도 `WITH` `DIFFERENTIAL` `STATS` `REPLACE` 는 실패 합니다.
+- `WITH` 옵션은 지원되지 않습니다. `DIFFERENTIAL`, `STATS`, `REPLACE` 등과 같은 `WITH`를 포함한 복원 시도는 실패합니다.
 - `ASYNC RESTORE`: 클라이언트 연결이 중단되더라도 복원이 계속됩니다. 연결이 삭제된 경우 `sys.dm_operation_status` 보기에서 복원 작업 상태와 CREATE 및 DROP Database를 확인할 수 있습니다. 자세한 내용은 [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)를 참조하세요. 
 
 다음은 설정 또는 재정의되고 나중에 변경할 수 없는 데이터베이스 옵션입니다. 
@@ -453,8 +453,8 @@ PolyBase에 대한 자세한 내용은 [PolyBase](/sql/relational-databases/poly
 
 제한 사항: 
 
-- 손상된 데이터베이스의 백업은 손상 유형에 따라 복원될 수 있지만 손상이 수정될 때까지 자동화된 백업은 수행되지 않습니다. `DBCC CHECKDB`원본 SQL Managed Instance에서를 실행 하 고 `WITH CHECKSUM` 이 문제를 방지 하기 위해 백업을 사용 하는지 확인 합니다.
-- `.BAK`이 문서에서 설명 하는 제한 (예: 또는 개체)을 포함 하는 데이터베이스 파일의 복원은 `FILESTREAM` `FILETABLE` SQL Managed Instance에서 복원할 수 없습니다.
+- 손상된 데이터베이스의 백업은 손상 유형에 따라 복원될 수 있지만 손상이 수정될 때까지 자동화된 백업은 수행되지 않습니다. 원본 SQL Managed Instance에서 `DBCC CHECKDB`를 실행하고 이 문제를 방지하려면 `WITH CHECKSUM` 백업을 사용해야 합니다.
+- 이 문서에서 설명하는 제한(예: `FILESTREAM` 또는 `FILETABLE` 개체)을 포함하는 데이터베이스의 `.BAK` 파일 복원은 SQL Managed Instance에서 복원할 수 없습니다.
 - 여러 백업 세트가 포함된 `.BAK` 파일은 복원할 수 없습니다. 
 - 여러 로그 파일이 포함된 `.BAK` 파일은 복원할 수 없습니다.
 - 8TB보다 큰 데이터베이스, 활성 메모리 내 OLTP 개체 또는 인스턴스당 280개의 파일을 초과하는 파일 수를 포함하는 백업은 범용 인스턴스에서 복원할 수 없습니다. 
@@ -468,13 +468,13 @@ PolyBase에 대한 자세한 내용은 [PolyBase](/sql/relational-databases/poly
 
 인스턴스 간 Service Broker 메시지 교환은 Azure SQL Managed Instance 사이에만 지원됩니다.
 
-- `CREATE ROUTE`: `CREATE ROUTE` `ADDRESS` `LOCAL` 다른 SQL MANAGED INSTANCE의 또는 DNS 이름과 함께 사용할 수 없습니다.
-- `ALTER ROUTE`: `ALTER ROUTE` `ADDRESS` `LOCAL` 다른 SQL MANAGED INSTANCE의 또는 DNS 이름과 함께 사용할 수 없습니다.
+- `CREATE ROUTE`: 다른 SQL Managed Instance의 `LOCAL`또는 DNS 이름 이외의 `ADDRESS`가 포함된 `CREATE ROUTE`는 사용할 수 없습니다.
+- `ALTER ROUTE`: 다른 SQL Managed Instance의 `LOCAL`또는 DNS 이름 이외의 `ADDRESS`가 포함된 `ALTER ROUTE`는 사용할 수 없습니다.
 
 전송 보안이 지원되며, 대화 보안은 지원되지 않습니다.
 - `CREATE REMOTE SERVICE BINDING`은 지원되지 않습니다.
 
-Service Broker는 기본적으로 사용하도록 설정되어 있으며, 비활성화할 수 없습니다. 다음 ALTER DATABSE 옵션은 지원 되지 않습니다.
+Service Broker는 기본적으로 사용하도록 설정되어 있으며, 비활성화할 수 없습니다. 다음 ALTER DATABASE 옵션은 지원되지 않습니다.
 - `ENABLE_BROKER`
 - `DISABLE_BROKER`
 
@@ -491,46 +491,46 @@ Service Broker는 기본적으로 사용하도록 설정되어 있으며, 비활
   - `scan for startup procs`
 - `sp_execute_external_scripts`는 지원되지 않습니다. [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples)를 참조하세요.
 - `xp_cmdshell`는 지원되지 않습니다. [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)을 참조하세요.
-- `Extended stored procedures` 는 지원 되지 않습니다. 여기에는 및가 포함 됩니다 `sp_addextendedproc` `sp_dropextendedproc` . 이 기능은 SQL Server의 사용 중단 경로에 있기 때문에 지원 되지 않습니다. 자세한 내용은 [확장 저장 프로시저](/sql/relational-databases/extended-stored-procedures-programming/database-engine-extended-stored-procedures-programming)를 참조 하세요.
+- `Extended stored procedures` 는 지원되지 않으며 여기에는 `sp_addextendedproc` 및 `sp_dropextendedproc`이 포함됩니다. 이 기능은 SQL Server의 사용 중단 경로에 있기 때문에 지원되지 않습니다. 자세한 내용은 [확장 저장 프로시저](/sql/relational-databases/extended-stored-procedures-programming/database-engine-extended-stored-procedures-programming)를 참조하세요.
 - `sp_attach_db`, `sp_attach_single_file_db` 및 `sp_detach_db`는 지원되지 않습니다. [sp_attach_db](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) 및 [sp_detach_db](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)를 참조하세요.
 
 ### <a name="system-functions-and-variables"></a>시스템 함수 및 변수
 
 다른 결과를 반환하는 변수, 함수 및 뷰는 다음과 같습니다.
 
-- `SERVERPROPERTY('EngineEdition')`에서 값 8을 반환합니다. 이 속성은 SQL Managed Instance를 고유 하 게 식별 합니다. [SERVERPROPERTY](/sql/t-sql/functions/serverproperty-transact-sql)를 참조하세요.
-- `SERVERPROPERTY('InstanceName')` SQL Server에 대 한 인스턴스 개념이 SQL Managed Instance에 적용 되지 않으므로 NULL을 반환 합니다. [SERVERPROPERTY('InstanceName')](/sql/t-sql/functions/serverproperty-transact-sql)를 참조하세요.
+- `SERVERPROPERTY('EngineEdition')`에서 값 8을 반환합니다. 이 속성은 SQL Managed Instance를 고유하게 식별합니다. [SERVERPROPERTY](/sql/t-sql/functions/serverproperty-transact-sql)를 참조하세요.
+- SQL Server에 대한 인스턴스 개념은 SQL Managed Instance에 적용되지 않으므로 `SERVERPROPERTY('InstanceName')`에서 NULL을 반환합니다. [SERVERPROPERTY('InstanceName')](/sql/t-sql/functions/serverproperty-transact-sql)를 참조하세요.
 - `@@SERVERNAME`은 전체 DNS "연결 가능한" 이름을 반환합니다(예: my-managed-instance.wcus17662feb9ce98.database.windows.net). [@@SERVERNAME](/sql/t-sql/functions/servername-transact-sql)을 참조하세요. 
 - `SYS.SERVERS`는 "name" 및 "data_source" 속성에 대한 전체 DNS "연결 가능한" 이름을 반환합니다(예: `myinstance.domain.database.windows.net`). [SYS.SERVERS](/sql/relational-databases/system-catalog-views/sys-servers-transact-sql)를 참조하세요.
-- `@@SERVICENAME` SQL Server에 대해 존재 하는 서비스 개념이 SQL Managed Instance에 적용 되지 않으므로 NULL을 반환 합니다. [@@SERVICENAME](/sql/t-sql/functions/servicename-transact-sql)을 참조하세요.
+- SQL Server에 대한 서비스 개념은 SQL Managed Instance에 적용되지 않으므로 `@@SERVICENAME`에서 NULL을 반환합니다. [@@SERVICENAME](/sql/t-sql/functions/servicename-transact-sql)을 참조하세요.
 - `SUSER_ID`이 지원됩니다. Azure AD 로그인이 sys. syslogins에 없으면 NULL을 반환합니다. [SUSER_ID](/sql/t-sql/functions/suser-id-transact-sql)를 참조하세요. 
 - `SUSER_SID`는 지원되지 않습니다. 잘못된 데이터가 반환되며 이는 알려진 일시적 문제입니다. [SUSER_SID](/sql/t-sql/functions/suser-sid-transact-sql)를 참조하세요. 
 
 ## <a name="environment-constraints"></a><a name="Environment"></a>환경 제약 조건
 
 ### <a name="subnet"></a>서브넷
--  SQL Managed Instance를 배포한 서브넷에 다른 리소스 (예: 가상 컴퓨터)를 배치할 수 없습니다. 다른 서브넷을 사용하여 이러한 리소스를 배포합니다.
-- 서브넷에 사용 가능한 [IP 주소](connectivity-architecture-overview.md#network-requirements) 수가 충분해야 합니다. 최소 32 IP 주소를 서브넷에 포함 해야 합니다.
+-  SQL Managed Instance를 배포한 서브넷에 다른 리소스(예: 가상 머신)를 배치할 수 없습니다. 다른 서브넷을 사용하여 이러한 리소스를 배포합니다.
+- 서브넷에 사용 가능한 [IP 주소](connectivity-architecture-overview.md#network-requirements) 수가 충분해야 합니다. 최소한 32개의 IP 주소를 서브넷에 포함해야 합니다.
 - 지역에 배포할 수 있는 vCore 및 인스턴스 유형 수에는 몇 가지 [제약 조건 및 제한](resource-limits.md#regional-resource-limitations)이 있습니다.
-- 서브넷에 적용 해야 하는 [네트워킹 구성이](connectivity-architecture-overview.md#network-requirements) 있습니다.
+- 서브넷에 적용해야 하는 [네트워킹 구성](connectivity-architecture-overview.md#network-requirements)이 있습니다.
 
 ### <a name="vnet"></a>VNET
 - VNet은 리소스 모델을 사용하여 배포할 수 있으며 VNet에 대한 클래식 모델은 지원되지 않습니다.
-- SQL Managed Instance를 만든 후에는 SQL Managed Instance 또는 VNet을 다른 리소스 그룹 또는 구독으로 이동할 수 없습니다.
-- 9/22/2020 이전에 만든 가상 클러스터에서 호스트 되는 SQL 관리 되는 인스턴스의 경우에는 [전역 피어 링](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) 이 지원 되지 않습니다. VNet 게이트웨이를 사용하여 ExpressRoute 또는 VNet 간을 통해 이러한 리소스에 연결할 수 있습니다.
+- SQL Managed Instance를 만든 후에 SQL Managed Instance 또는 VNet을 다른 리소스 그룹이나 구독으로 이동하는 기능은 지원되지 않습니다.
+- 2020년 9월 22일 이전에 만든 가상 클러스터에서 호스트되는 SQL Managed Instances의 경우에는 [글로벌 피어링](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)이 지원되지 않습니다. VNet 게이트웨이를 사용하여 ExpressRoute 또는 VNet 간을 통해 이러한 리소스에 연결할 수 있습니다.
 
 ### <a name="failover-groups"></a>장애 조치(failover) 그룹
-시스템 데이터베이스는 장애 조치 (failover) 그룹의 보조 인스턴스에 복제 되지 않습니다. 따라서 시스템 데이터베이스의 개체에 종속 된 시나리오는 보조 인스턴스에서 개체를 수동으로 만들지 않는 한 보조 인스턴스에서는 불가능 합니다.
+시스템 데이터베이스는 장애 조치(failover) 그룹의 보조 인스턴스에 복제되지 않습니다. 따라서 시스템 데이터베이스의 개체를 사용하는 시나리오는 개체가 보조 인스턴스에서 수동으로 생성되지 않는 한 보조 인스턴스에서는 불가능합니다.
 
 ### <a name="tempdb"></a>TEMPDB
-- `tempdb`의 최대 파일 크기는 범용 계층에서 코어당 24GB보다 클 수 없습니다. `tempdb`중요 비즈니스용 계층의 최대 크기는 SQL Managed Instance 저장소 크기에 의해 제한 됩니다. `Tempdb` 로그 파일 크기는 범용 계층에서 120GB로 제한됩니다. 일부 쿼리는 `tempdb`에서 코어당 24GB보다 많이 필요하거나 120GB보다 많이 로그 데이터를 생성하는 경우 오류를 반환할 수 있습니다.
-- `Tempdb` 는 항상 12 개의 데이터 파일로 분할 됩니다. 주 복제본은 master, data file 및 11 이외의 주 데이터 파일이 라고도 합니다. 파일 구조를 변경할 수 없으며 새 파일을에 추가할 수 없습니다 `tempdb` . 
-- 새 SQL Server 2019 메모리 내 데이터베이스 기능이 있는 [메모리 최적화 `tempdb` 메타 데이터](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15&preserve-view=true#memory-optimized-tempdb-metadata)는 지원 되지 않습니다.
-- Model 데이터베이스에서 만든 개체는 `tempdb` `tempdb` model 데이터베이스에서 초기 개체 목록을 가져오지 않으므로 다시 시작 또는 장애 조치 (failover) 후에에서 자동으로 만들 수 없습니다. `tempdb`각 다시 시작 또는 장애 조치 (failover) 후에는 수동으로 개체를 만들어야 합니다.
+- `tempdb`의 최대 파일 크기는 범용 계층에서 코어당 24GB보다 클 수 없습니다. 중요 비즈니스용 계층의 최대 `tempdb` 크기는 SQL Managed Instance 스토리지 크기에 의해 제한됩니다. `Tempdb` 로그 파일 크기는 범용 계층에서 120GB로 제한됩니다. 일부 쿼리는 `tempdb`에서 코어당 24GB보다 많이 필요하거나 120GB보다 많이 로그 데이터를 생성하는 경우 오류를 반환할 수 있습니다.
+- `Tempdb`는 항상 12개의 데이터 파일(마스터 파일이라고도 하는 주 데이터 파일 1개, 주 데이터 파일 이외의 파일 11개)로 분할됩니다. 파일 구조는 변경할 수 없으며 새 파일을 `tempdb`에 추가할 수 없습니다. 
+- 새로운 SQL Server 2019 메모리 내 데이터베이스 기능인 [메모리 최적화`tempdb` 메타데이터](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15&preserve-view=true#memory-optimized-tempdb-metadata)는 지원되지 않습니다.
+- 모델 데이터베이스에서 생성된 개체는 `tempdb`가 모델 데이터베이스에서 초기 개체 목록을 가져오지 않기 때문에 다시 시작 또는 장애 복구(failover) 후에 `tempdb`에서 자동으로 만들 수 없습니다. 각 다시 시작 또는 장애 조치(failover) 후에는 `tempdb`에서 수동으로 개체를 만들어야 합니다.
 
 ### <a name="msdb"></a>MSDB
 
-SQL Managed Instance의 다음 MSDB 스키마는 해당 하는 미리 정의 된 역할이 소유 해야 합니다.
+SQL Managed Instance의 다음 MSDB 스키마는 각각의 미리 정의된 역할이 소유해야 합니다.
 
 - 일반 역할
   - TargetServersRole
@@ -550,11 +550,11 @@ SQL Managed Instance의 다음 MSDB 스키마는 해당 하는 미리 정의 된
 
 ### <a name="error-logs"></a>오류 로그
 
-SQL Managed Instance는 오류 로그에 자세한 정보를 저장 합니다. 내부 시스템 이벤트는 오류 로그에 많이 기록됩니다. 관련이 없는 항목을 필터링하는 사용자 지정 프로시저를 사용하여 오류 로그를 읽습니다. 자세한 내용은 Azure Data Studio에 대 한 [sql Managed Instance – sp_readmierrorlog](/archive/blogs/sqlcat/azure-sql-db-managed-instance-sp_readmierrorlog) 또는 [sql Managed Instance 확장 (미리 보기)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) 을 참조 하세요.
+SQL Managed Instance는 자세한 정보를 오류 로그에 배치합니다. 내부 시스템 이벤트는 오류 로그에 많이 기록됩니다. 관련이 없는 항목을 필터링하는 사용자 지정 프로시저를 사용하여 오류 로그를 읽습니다. 자세한 내용은 Azure Data Studio의 경우 [ 확장(미리 보기)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) 또는 [ – sp_readmierrorlog](/archive/blogs/sqlcat/azure-sql-db-managed-instance-sp_readmierrorlog)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- SQL Managed Instance에 대 한 자세한 내용은 [sql Managed Instance 정의](sql-managed-instance-paas-overview.md) 를 참조 하세요.
-- 기능 및 비교 목록은 [AZURE SQL Managed Instance 기능 비교](../database/features-comparison.md)를 참조 하세요.
-- 릴리스 업데이트 및 알려진 문제 상태는 [SQL Managed Instance 릴리스 정보](../database/doc-changes-updates-release-notes.md) 를 참조 하세요.
-- 새 SQL Managed Instance를 만드는 방법을 보여주는 빠른 시작은 [sql Managed Instance 만들기](instance-create-quickstart.md)를 참조 하세요.
+- SQL Managed Instance에 대한 자세한 내용은 [SQL Managed Instance란?](sql-managed-instance-paas-overview.md)을 참조하세요.
+- 기능 및 비교 목록은 [ Azure SQL Managed Instance 기능](../database/features-comparison.md)을 참조하세요.
+- 릴리스 업데이트 및 알려진 문제 상태는 [SQL Managed Instance 릴리스 정보](../database/doc-changes-updates-release-notes.md)를 참조하세요.
+- 새 SQL Managed Instance를 만드는 방법을 보여 주는 빠른 시작은 [ 만들기](instance-create-quickstart.md)를 참조하세요.

@@ -3,12 +3,12 @@ title: Azure VMware Solution에 대한 vSphere 자격 증명 다시 설정
 description: Azure VMware Solution 프라이빗 클라우드에 대한 vSphere 자격 증명을 다시 설정하고 HCX 커넥터에 최신 vSphere 자격 증명이 있는지 확인하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 03/31/2021
-ms.openlocfilehash: 3533de03cbea0014a8a50cd0103f96273f0680a7
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 793b79e42a0adbca54804d1b66102736aff22d7a
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145306"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109104"
 ---
 # <a name="reset-vsphere-credentials-for-azure-vmware-solution"></a>Azure VMware Solution에 대한 vSphere 자격 증명 다시 설정
 
@@ -21,7 +21,7 @@ ms.locfileid: "108145306"
  먼저 Azure VMare Solution 구성 요소 자격 증명을 다시 설정하겠습니다. vCenter Server CloudAdmin 및 NSX-T 관리자 자격 증명은 만료되지 않습니다. 그러나 다음 단계에 따라 이러한 계정에 대한 새 암호를 생성할 수 있습니다.
 
 > [!NOTE]
-> HCX, vRealize Orchestrator, vRealizae Operations Manager 또는 VMware Horizon과 같은 연결된 서비스에 CloudAdmin 자격 증명을 사용하는 경우 암호를 업데이트하면 연결 작동이 중지됩니다.  이러한 서비스는 암호 순환을 시작하기 전에 중지해야 합니다.  그러지 않으면 vCenter CloudAdmin 및 NSX-T 관리자 계정이 일시적으로 잠길 수 있습니다. 이러한 서비스는 이전 자격 증명을 사용하여 계속 호출하기 때문입니다.  연결된 서비스에 대해 별도의 계정을 설정하는 방법에 대한 자세한 내용은 [액세스 및 ID 개념](./concepts-identity.md)을 참조하세요.
+> HCX, vRealize Orchestrator, vRealizae Operations Manager 또는 VMware Horizon과 같은 연결된 서비스에 CloudAdmin 자격 증명을 사용하는 경우 암호를 업데이트하면 연결 작동이 중지됩니다.  이러한 서비스는 암호 순환을 시작하기 전에 중지해야 합니다.  그러지 않으면 vCenter CloudAdmin 및 NSX-T 관리자 계정이 일시적으로 잠길 수 있습니다. 이러한 서비스는 이전 자격 증명을 사용하여 계속 호출하기 때문입니다.  연결된 서비스에 대해 별도의 계정을 설정하는 방법에 대한 자세한 내용은 [액세스 및 ID 개념](https://docs.microsoft.com/azure/azure-vmware/concepts-identity)을 참조하세요.
 
 1. Azure Portal에서 Azure Cloud Shell 세션을 엽니다.
 

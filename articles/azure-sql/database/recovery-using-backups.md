@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 11/13/2020
-ms.openlocfilehash: 0c3db3b3f22f9f2639012068924708537f9ada77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 670176d7478ddab3d17e15526df512dfa7e99fd4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98795327"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762086"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>자동화된 데이터베이스 백업을 사용하여 복구 - Azure SQL Database 및 SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-다음 옵션은 [자동화된 데이터베이스 백업](automated-backups-overview.md)을 사용한 데이터베이스 복구에 사용할 수 있습니다. 다음을 할 수 있습니다.
+다음 옵션은 [자동화된 데이터베이스 백업](automated-backups-overview.md)을 사용한 데이터베이스 복구에 사용할 수 있습니다. 다음과 같습니다.
 
 - 동일한 서버에 보존 기간 내의 지정된 시점으로 복구된 새 데이터베이스를 만듭니다.
 - 동일한 서버에 삭제된 데이터베이스의 삭제 시간으로 복구된 데이터베이스를 만듭니다.
@@ -214,7 +214,7 @@ Azure Portal에서 관리형 인스턴스 데이터베이스를 선택한 지역
 
 독립 실행형 또는 풀링된 데이터베이스를 복원하려면 [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase)를 참조하세요.
 
-  | Cmdlet | Description |
+  | Cmdlet | 설명 |
   | --- | --- |
   | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |하나 이상의 데이터베이스를 가져옵니다. |
   | [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | 복원할 수 있는 삭제된 데이터베이스를 가져옵니다. |
@@ -228,7 +228,7 @@ Azure Portal에서 관리형 인스턴스 데이터베이스를 선택한 지역
 
 관리형 인스턴스 데이터베이스를 복원하려면 [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase)를 참조하세요.
 
-  | Cmdlet | Description |
+  | Cmdlet | 설명 |
   | --- | --- |
   | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |하나 이상의 관리형 인스턴스를 가져옵니다. |
   | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | 인스턴스 데이터베이스를 가져옵니다. |
@@ -247,11 +247,11 @@ REST API를 사용하여 데이터베이스 복원 방법:
 
 #### <a name="sql-database"></a>SQL Database
 
-Azure CLI를 사용하여 데이터베이스를 복원하려면 [az sql db restore](/cli/azure/sql/db#az-sql-db-restore)를 참조하세요.
+Azure CLI를 사용하여 데이터베이스를 복원하려면 [az sql db restore](/cli/azure/sql/db#az_sql_db_restore)를 참조하세요.
 
 #### <a name="sql-managed-instance"></a>SQL Managed Instance
 
-Azure CLI를 사용하여 관리형 인스턴스 데이터베이스를 복원하려면 [az sql midb restore](/cli/azure/sql/midb#az-sql-midb-restore)를 참조하세요.
+Azure CLI를 사용하여 관리형 인스턴스 데이터베이스를 복원하려면 [az sql midb restore](/cli/azure/sql/midb#az_sql_midb_restore)를 참조하세요.
 
 ## <a name="summary"></a>요약
 
