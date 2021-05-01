@@ -38,7 +38,7 @@
     - name: Face 컨테이너 사용
       items:
         - name: 컨테이너 개요
-          href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/face/context/context
+          href: ../cognitive-services-container-support.md?context=%2fazure%2fcognitive-services%2fface%2fcontext%2fcontext
         - name: 컨테이너 설치 및 실행
           href: face-how-to-install-containers.md
         - name: 컨테이너 구성
@@ -93,7 +93,7 @@
         - name: 규정 준수 및 인증
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 모듈 배우기
-      href: 'https://docs.microsoft.com/learn/modules/detect-analyze-faces/'
+      href: /learn/modules/detect-analyze-faces/
     - name: 지원 및 도움말 옵션
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/face/context/context
     - name: Azure 업데이트

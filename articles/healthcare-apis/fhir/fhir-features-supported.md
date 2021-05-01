@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 4/15/2021
 ms.author: cavoeg
-ms.openlocfilehash: 56e3ba46ffb43aec907d729a2e74cdf6f7a62c32
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: e012bc2bc3c9ec1ab9351ed937e2c5049eef20d5
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530638"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108316014"
 ---
 # <a name="features"></a>기능
 
@@ -34,20 +34,20 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 | update                         | 예       | 예       | 예       |                                                     |
 | 낙관적 잠금으로 업데이트 | 예       | 예       | 예       |                                                     |
 | update (조건부)           | 예       | 예       | 예       |                                                     |
-| 패치                          | 아니요        | 아니요        | 아니요        |                                                     |
+| 패치                          | 예        | 예        | 예        |                                                     |
 | delete                         | 예       | 예       | 예       |  아래 참고를 참조 하세요.                                   |
-| delete (조건부)           | 아니요        | 아니요        | 아니요        |                                                     |
+| delete (조건부)           | 예        | 예        | 예        |                                                     |
 | history                        | 예       | 예       | 예       |                                                     |
 | create                         | 예       | 예       | 예       | POST/PUT 모두 지원                               |
 | create (조건부)           | 예       | 예       | 예       | 문제 [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
-| search                         | Partial   | Partial   | Partial   | 아래의 검색 섹션을 참조 하세요.                           |
-| 연결 된 검색                 | Partial       | 예       | 부분   | 아래의 참고 2를 참조 하세요.                                   |
-| 역방향 연결 된 검색         | Partial       | 예       | 부분   | 아래의 참고 2를 참조 하세요.                                   |
+| search                         | Partial   | Partial   | Partial   | [FHIR 검색 개요를](overview-of-search.md)참조 하세요.                           |
+| 연결 된 검색                 | 부분       | 예       | 부분   | 아래의 참고 2를 참조 하세요.                                   |
+| 역방향 연결 된 검색         | 부분       | 예       | 부분   | 아래의 참고 2를 참조 하세요.                                   |
 | capabilities                   | 예       | 예       | 예       |                                                     |
 | 일괄 처리                          | 예       | 예       | 예       |                                                     |
-| 트랜잭션                    | 아니요        | 예       | 아니요        |                                                     |
+| 트랜잭션                    | 예        | 예       | 예        |                                                     |
 | 페이징                         | Partial   | Partial   | Partial   | `self` 및 `next` 가 지원 됩니다.                     |
-| 매개자                 | 아니요        | 아니요        | 아니요        |                                                     |
+| 매개자                 | 예        | 예        | 예        |                                                     |
 
 > [!Note]
 > FHIR 사양에 정의 된 삭제를 수행 하려면 삭제 후에 다음 버전의 특정 리소스 읽기가 410 HTTP 상태 코드를 반환 하 고 검색을 통해 리소스를 더 이상 찾을 수 없습니다. 또한 Azure API for FHIR을 사용 하 여 리소스의 모든 기록을 포함 하 여 전체를 삭제할 수 있습니다. 리소스를 완전히 삭제 하려면 매개 변수 설정을 `hardDelete` true ()로 전달할 수 있습니다 `DELETE {server}/{resource}/{id}?hardDelete=true` . 이 매개 변수를 전달 하지 않거나 `hardDelete` 을 false로 설정 하면 리소스의 기록 버전을 계속 사용할 수 있습니다.
@@ -57,66 +57,6 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 * CosmosDB에서 연결 및 역방향 연결 된 FHIR 검색에 대 한 MVP 지원을 추가 합니다. 
 
   FHIR 용 Azure API와 Cosmos에서 지 원하는 오픈 소스 FHIR 서버에서 연결 된 검색 및 역방향 연결 검색은 MVP 구현입니다. Cosmos DB에 대 한 연결 된 검색을 수행 하기 위해 구현은 검색 식을 아래로 이동 하 고 하위 쿼리를 발행 하 여 일치 하는 리소스를 확인 합니다. 식의 각 수준에 대해 수행 됩니다. 쿼리가 100 개 보다 많은 결과를 반환 하면 오류가 throw 됩니다. 기본적으로 연결 된 검색은 기능 플래그 뒤에 있습니다. Cosmos DB에서 연결 된 검색을 사용 하려면 헤더를 사용 합니다 `x-ms-enable-chained-search: true` . 자세한 내용은 [PR 1695](https://github.com/microsoft/fhir-server/pull/1695)을 참조 하세요.
-
-## <a name="search"></a>검색
-
-모든 검색 매개 변수 유형이 지원 됩니다. 
-
-| 검색 매개 변수 유형 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 의견 |
-|-----------------------|-----------|-----------|-----------|---------|
-| 숫자                | 예       | 예       | 예       |         |
-| Date/DateTime         | 예       | 예       | 예       |         |
-| String                | 예       | 예       | 예       |         |
-| 토큰                 | 예       | 예       | 예       |         |
-| 참고             | 예       | 예       | 예       |         |
-| 복합             | 예       | 예       | 예       |         |
-| 수량              | 예       | 예       | 예       |         |
-| URI                   | 예       | 예       | 예       |         |
-| 특수               | 아니요        | 아니요        | 아니요        |         |
-
-
-| 한정자             | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석 |
-|-----------------------|-----------|-----------|-----------|---------|
-|`:missing`             | 예       | 예       | 예       |         |
-|`:exact`               | 예       | 예       | 예       |         |
-|`:contains`            | 예       | 예       | 예       |         |
-|`:text`                | 예       | 예       | 예       |         |
-|`:[type]` 참조일  | 예       | 예       | 예       |         |
-|`:not`                 | 예       | 예       | 예       |         |
-|`:below` uri         | 예       | 예       | 예       |         |
-|`:above` uri         | 아니요        | 아니요        | 아니요        | 문제 [#158](https://github.com/Microsoft/fhir-server/issues/158) |
-|`:in` 토큰          | 아니요        | 아니요        | 아니요        |         |
-|`:below` 토큰       | 아니요        | 아니요        | 아니요        |         |
-|`:above` 토큰       | 아니요        | 아니요        | 아니요        |         |
-|`:not-in` 토큰      | 아니요        | 아니요        | 아니요        |         |
-
-| 공통 검색 매개 변수 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석 |
-|-------------------------| ----------| ----------| ----------|---------|
-| `_id`                   | 예       | 예       | 예       |         |
-| `_lastUpdated`          | 예       | 예       | 예       |         |
-| `_tag`                  | 예       | 예       | 예       |         |
-| `_list`                 | 예       | 예       | 예       |         |
-| `_type`                 | 예       | 예       | 예       | 문제 [#1562](https://github.com/microsoft/fhir-server/issues/1562)        |
-| `_security`             | 예       | 예       | 예       |         |
-| `_profile`              | Partial   | Partial   | Partial   | STU3에서 지원 됩니다. 2021 년 2 월 20 일 **후** 에 데이터베이스를 만든 경우에는 4 월도 지원 됩니다. 2021 년 2 월 20 이전에 만든 데이터베이스에서 _profile를 사용 하도록 설정 하기 위해 노력 하 고 있습니다. |
-| `_text`                 | 아니요        | 아니요        | 아니요        |         |
-| `_content`              | 아니요        | 아니요        | 아니요        |         |
-| `_has`                  | 아니요        | 아니요        | 아니요        |         |
-| `_query`                | 아니요        | 아니요        | 아니요        |         |
-| `_filter`               | 아니요        | 아니요        | 아니요        |         |
-
-| 검색 결과 매개 변수 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석 |
-|-------------------------|-----------|-----------|-----------|---------|
-| `_elements`             | 예       | 예       | 예       | 문제 [#1256](https://github.com/microsoft/fhir-server/issues/1256)        |
-| `_count`                | 예       | 예       | 예       | `_count` 는 1000 자로 제한 됩니다. 1000 보다 높게 설정 하면 1000만 반환 되 고 번들에 경고가 반환 됩니다. |
-| `_include`              | 예       | 예       | 예       |포함 된 항목은 100 개로 제한 됩니다. PaaS 및 OSS에 포함 Cosmos DB에 포함 되지 않음: 반복 지원.|
-| `_revinclude`           | 예       | 예       | 예       | 포함 된 항목은 100 개로 제한 됩니다. PaaS 및 OSS에 포함 Cosmos DB에 포함 [되지 않음: 반복 지원](https://github.com/microsoft/fhir-server/issues/1313). 문제 [#1319](https://github.com/microsoft/fhir-server/issues/1319)|
-| `_summary`              | Partial   | Partial   | Partial   | `_summary=count`가 지원됨 |
-| `_total`                | Partial   | Partial   | Partial   | `_total=none` 및 `_total=accurate`      |
-| `_sort`                 | Partial   | Partial   | Partial   |   `_sort=_lastUpdated`가 지원됨       |
-| `_contained`            | 아니요        | 아니요        | 아니요        |         |
-| `containedType`         | 아니요        | 아니요        | 아니요        |         |
-| `_score`                | 아니요        | 아니요        | 아니요        |         |
 
 ## <a name="extended-operations"></a>확장 된 작업
 
