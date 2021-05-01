@@ -24,7 +24,7 @@
     - name: Jupyter Notebook(다변량)
       href: 'https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb'
     - name: Azure 샘플
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure&terms=anomaly-detector'
+      href: /samples/browse/?products=azure&terms=anomaly-detector
 - name: 방법 가이드
   items:
     - name: 데이터에서 변칙 식별
@@ -95,7 +95,7 @@
     - name: 지원 및 도움말 옵션
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
     - name: Microsoft Learn 모듈
-      href: 'https://docs.microsoft.com/learn/modules/intro-to-anomaly-detector/'
+      href: /learn/modules/intro-to-anomaly-detector/
     - name: 사용자 생성 콘텐츠
       href: user-generated-content.md
     - name: Microsoft Teams Anomaly Detector Advisors 그룹에 참여
