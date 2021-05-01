@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: ef7e0450725b456a7fb2b1ab61c50d7edece52ce
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.openlocfilehash: 60e1e06dfdc904683f2d65e984d3c752e1e6a055
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104867562"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108064686"
 ---
-# <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>SSH 터널링을 사용 하 여 Apache Ambari 웹 UI, JobHistory, NameNode, Apache Oozie 및 기타 Ui에 액세스
+# <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>SSH 터널링을 사용하여 Apache Ambari 웹 UI, JobHistory, NameNode, Apache Oozie 및 기타 UI에 액세스
 
-HDInsight 클러스터는 인터넷을 통해 Apache Ambari 웹 UI에 대 한 액세스를 제공 합니다. 일부 기능에는 SSH 터널이 필요 합니다. 예를 들어 SSH 터널 없이 인터넷을 통해 Apache Oozie 웹 UI에 액세스할 수 없습니다.
+HDInsight 클러스터는 인터넷을 통해 Apache Ambari 웹 UI에 대한 액세스를 제공합니다. 일부 기능에는 SSH 터널이 필요합니다. 예를 들어 Apache Oozie 웹 UI는 SSH 터널 없이 인터넷을 통해 액세스할 수 없습니다.
 
 ## <a name="why-use-an-ssh-tunnel"></a>SSH 터널을 사용하는 이유
 
@@ -28,7 +28,7 @@ Ambari의 일부 메뉴만 SSH 터널을 통해 작동합니다. 이러한 메�
 * Oozie web UI
 * HBase Master 및 로그 UI
 
-웹 서비스를 노출 하는 스크립트 작업으로 설치 된 서비스에는 SSH 터널이 필요 합니다. 스크립트 작업을 사용 하 여 설치 된 색상에는 웹 UI에 액세스 하기 위한 SSH 터널이 필요 합니다.
+웹 서비스를 표시하는 스크립트 동작으로 설치된 서비스에는 SSH 터널이 필요합니다. 스크립트 동작으로 설치된 Hue에는 웹 UI에 액세스하기 위한 SSH 터널이 필요합니다.
 
 > [!IMPORTANT]  
 > 가상 네트워크를 통해 HDInsight에 대한 직접 액세스가 있는 경우 SSH 터널을 사용할 필요가 없습니다. 가상 네트워크를 통해 HDInsight에 직접 액세스하는 예는 [온-프레미스 네트워크에 HDInsight 연결](connect-on-premises-network.md) 문서를 참조하세요.
@@ -53,7 +53,7 @@ Ambari의 일부 메뉴만 SSH 터널을 통해 작동합니다. 이러한 메�
 
 ## <a name="create-a-tunnel-using-the-ssh-command"></a><a name="usessh"></a>SSH 명령을 사용하여 터널 만들기
 
-`ssh` 명령을 사용하여 SSH 터널을 만들려면 다음 명령을 사용합니다. 을 `sshuser` hdinsight 클러스터에 대 한 SSH 사용자로 바꾸고을 `CLUSTERNAME` hdinsight 클러스터의 이름으로 바꿉니다.
+`ssh` 명령을 사용하여 SSH 터널을 만들려면 다음 명령을 사용합니다. `sshuser`을(를) HDInsight 클러스터에 대한 SSH 사용자로 바꾸고 `CLUSTERNAME`을(를) HDInsight 클러스터의 이름으로 바꿉니다.
 
 ```cmd
 ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -63,30 +63,30 @@ ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 
 |옵션 |Description |
 |---|---|
-|D 9876|터널을 통해 트래픽을 라우팅하는 로컬 포트입니다.|
-|C|웹 트래픽이 주로 텍스트 이기 때문에 모든 데이터를 압축 합니다.|
-|2|SSH에서 프로토콜 버전 2만 시도 합니다.|
+|D 9876|터널을 통해 트래픽을 라우팅하는 로컬 포트|
+|C|웹 트래픽은 대부분 텍스트이므로 모든 데이터 압축|
+|2|SSH가 프로토콜 버전 2만 시도하도록 강요|
 |q|자동 모드입니다.|
-|T|포트를 전달 하 고 있으므로 의사 tty 할당을 사용 하지 않도록 설정 합니다.|
-|n|포트를 전달 하는 중 이므로 STDIN을 읽지 않습니다.|
-|N|포트를 전달 하는 것 이므로 원격 명령을 실행 하지 마십시오.|
-|f|백그라운드에서를 실행 합니다.|
+|T|포트 전달 후 허위 tty 할당 비활성화|
+|n|포트 전달 후 STDIN 읽지 않음|
+|N|포트 전달 후 원격 명령 실행 안 함|
+|f|백그라운드에서 실행|
 
 명령이 완료되면 로컬 컴퓨터에서 9876 포트로 전송되는 트래픽이 클러스터 헤드 노드로 라우팅됩니다.
 
 ## <a name="create-a-tunnel-using-putty"></a><a name="useputty"></a>PuTTY를 사용하여 터널 만들기
 
-[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty)는 Windows용 그래픽 SSH 클라이언트입니다. PuTTY에 익숙하지 않은 경우 [PuTTY 설명서](https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)를 참조 하세요. PuTTY를 사용하여 SSH 터널을 만들려면 다음 단계를 사용합니다.
+[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty)는 Windows용 그래픽 SSH 클라이언트입니다. PuTTY에 대해 잘 모르는 경우 [PuTTY 설명서](https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)를 참조하세요. PuTTY를 사용하여 SSH 터널을 만들려면 다음 단계를 사용합니다.
 
 ### <a name="create-or-load-a-session"></a>세션 만들기 또는 로드
 
-1. PuTTY를 열고 왼쪽 메뉴에서 **세션** 이 선택되어 있는지 확인합니다. 세션을 이미 저장 한 경우에는 **저장 된 세션** 목록에서 세션 이름을 선택 하 고 **로드** 를 선택 합니다.
+1. PuTTY를 열고 왼쪽 메뉴에서 **세션** 이 선택되어 있는지 확인합니다. 세션을 이미 저장한 경우 **저장된 세션** 목록에서 세션 이름을 선택하고 **로드** 를 선택합니다.
 
 1. 저장된 세션이 없는 경우 연결 정보를 입력합니다.
 
     |속성 |값 |
     |---|---|
-    |호스트 이름 (또는 IP 주소)|HDInsight 클러스터에 대 한 SSH 주소입니다. 예를 들면 **mycluster-ssh.azurehdinsight.net** 과 같습니다.|
+    |호스트 이름 (또는 IP 주소)|HDInsight 클러스터의 SSH 주소입니다. 예를 들면 **mycluster-ssh.azurehdinsight.net** 과 같습니다.|
     |포트|22|
     |연결 유형|SSH|
 
@@ -96,19 +96,19 @@ ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 
 1. 대화 상자의 왼쪽에 있는 **Category** 섹션에서 **Connection**, **SSH** 를 차례로 확장한 다음 **Tunnels** 를 선택합니다.
 
-1. **SSH 포트 전달 양식을 제어** 하는 옵션에 대 한 다음 정보를 제공 합니다.
+1. **Options controlling SSH port forwarding** 양식에 다음 정보를 제공합니다.
 
     |속성 |값 |
     |---|---|
-    |원본 포트|클라이언트에서 전달 하려는 포트입니다. 예를 들면 **9876** 과 같습니다.|
-    |대상|HDInsight 클러스터에 대 한 SSH 주소입니다. 예를 들면 **mycluster-ssh.azurehdinsight.net** 과 같습니다.|
-    |동적|동적 SOCKS 프록시 라우팅을 사용 하도록 설정 합니다.|
+    |원본 포트|전달하려는 클라이언트의 포트입니다. 예를 들면 **9876** 과 같습니다.|
+    |대상|HDInsight 클러스터의 SSH 주소입니다. 예를 들면 **mycluster-ssh.azurehdinsight.net** 과 같습니다.|
+    |동적|동적 SOCKS 프록시 라우팅을 활성화합니다.|
 
     :::image type="content" source="./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png" alt-text="PuTTY 구성 터널링 옵션":::
 
-1. **추가** 를 선택 하 여 설정을 추가한 다음 **열기** 를 선택 하 여 SSH 연결을 엽니다.
+1. **Add** 를 선택하여 설정을 추가한 다음 **Open** 을 선택하여 SSH 연결을 엽니다.
 
-1. 메시지가 표시 되 면 서버에 로그인 합니다.
+1. 메시지가 표시되면 서버에 로그인합니다.
 
 ## <a name="use-the-tunnel-from-your-browser"></a>브라우저에서 터널 사용
 
@@ -122,7 +122,7 @@ ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
    > [!NOTE]  
    > **Remote DNS** 를 선택하면 HDInsight 클러스터를 통해 DNS(Domain Name System) 요청이 확인됩니다. 이 설정은 클러스터의 헤드 노드를 사용하여 DNS를 확인합니다.
 
-2. 와 같은 사이트를 방문 하 여 터널이 작동 하는지 확인 [https://www.whatismyip.com/](https://www.whatismyip.com/) 합니다. 반환된 IP는 Microsoft Azure 데이터 센터에서 사용하는 하나여야 합니다.
+2. [https://www.whatismyip.com/](https://www.whatismyip.com/)과 같은 사이트를 방문하여 터널이 작동하는지 확인합니다. 반환된 IP는 Microsoft Azure 데이터 센터에서 사용하는 하나여야 합니다.
 
 ## <a name="verify-with-ambari-web-ui"></a>Ambari 웹 UI 통해 확인
 
@@ -131,11 +131,11 @@ ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 1. 브라우저에서 `http://headnodehost:8080`으로 이동합니다. `headnodehost` 주소는 터널을 통해 클러스터로 전송되며 Ambari가 실행 중인 헤드 노드를 확인합니다. 메시지가 표시되면 클러스터의 관리자 사용자 이름(관리자) 및 암호를 입력합니다. Ambari 웹 UI에서 두 번째로 메시지가 표시될 수 있습니다. 이러한 경우 정보를 다시 입력합니다.
 
    > [!NOTE]  
-   > `http://headnodehost:8080` 주소를 사용하여 클러스터에 연결할 경우 터널을 통해 연결됩니다. 통신 보안은 HTTPS가 아닌 SSH 터널을 사용하여 유지됩니다. HTTPS를 사용 하 여 인터넷을 통해 연결 하려면 `https://clustername.azurehdinsight.net` 를 사용 `clustername` 합니다. 여기서은 클러스터의 이름입니다.
+   > `http://headnodehost:8080` 주소를 사용하여 클러스터에 연결할 경우 터널을 통해 연결됩니다. 통신 보안은 HTTPS가 아닌 SSH 터널을 사용하여 유지됩니다. HTTPS를 사용하여 인터넷을 통해 연결하려면 `https://clustername.azurehdinsight.net`을(를) 사용합니다. 여기서 `clustername`은(는) 클러스터의 이름입니다.
 
 2. Ambari 웹 UI에서 페이지의 왼쪽 목록에서 HDFS를 선택합니다.
 
-    :::image type="content" source="./media/hdinsight-linux-ambari-ssh-tunnel/hdfs-service-selected.png" alt-text="Apache Ambari hdfs 서비스 선택 됨":::
+    :::image type="content" source="./media/hdinsight-linux-ambari-ssh-tunnel/hdfs-service-selected.png" alt-text="Apache Ambari hdfs 서비스 선택됨":::
 
 3. HDFS 서비스 정보가 표시되면 **빠른 링크** 를 선택합니다. 클러스터 헤드 노드 목록이 표시됩니다. 헤드 노드 중 하나를 선택한 다음 **NameNode UI** 를 선택합니다.
 
@@ -148,13 +148,13 @@ ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 
 4. 다음 이미지와 유사한 페이지가 표시됩니다.
 
-    :::image type="content" source="./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-namenode-ui.png" alt-text="Hadoop NameNode UI 이미지":::
+    :::image type="content" source="./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-namenode-ui.png" alt-text="Hadoop NameNode UI의 이미지":::
 
     > [!NOTE]  
-    > 이 페이지에 대한 URL로, `http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster`와 유사해야 합니다. 이 URI는 노드의 내부 FQDN(정규화된 도메인 이름)을 사용하며 SSH 터널을 통해서만 액세스할 수 있습니다.
+    > 이 페이지에 대한 URL로, `http://hn*.randomcharacters.cx.internal.cloudapp.net:8088/cluster`와 유사해야 합니다. 이 URI는 노드의 내부 FQDN(정규화된 도메인 이름)을 사용하며 SSH 터널을 통해서만 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 SSH 터널을 만들고 사용 하는 방법을 알아보았습니다. Ambari를 사용 하는 다른 방법에 대해서는 다음 문서를 참조 하세요.
+SSH 터널을 만들고 사용하는 방법을 배웠으므로 다음 문서에서 Ambari를 사용하는 다른 방법을 참조하세요.
 
 * [Apache Ambari를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)

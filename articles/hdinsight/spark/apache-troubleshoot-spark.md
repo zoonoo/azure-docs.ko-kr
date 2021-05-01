@@ -7,29 +7,29 @@ ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
 ms.openlocfilehash: b54b9d932505ada890ac21c1b8de3178ad2f0042
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104867511"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Spark 문제 해결
 
-[Apache Ambari](https://ambari.apache.org/)에서 Apache Spark 페이로드를 사용할 때의 주요 문제 및 해결 방법에 대해 알아봅니다.
+[Apache Ambari](https://ambari.apache.org/)에서 Apache Spark 페이로드 작업 시 주요 issue 및 해결 방법을 알아봅니다.
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-ambari-on-clusters"></a>클러스터에서 Apache Ambari를 사용하여 Apache Spark 애플리케이션을 구성하려면 어떻게 해야 하나요?
 
-Spark 구성 값을 튜닝 하 여 Apache Spark 응용 프로그램 예외를 방지할 수 있습니다 `OutofMemoryError` . 다음 단계는 Azure HDInsight의 기본 Spark 구성 값을 보여 줍니다.
+Spark 구성 값을 튜닝하여 Apache Spark 애플리케이션 `OutofMemoryError` 예외를 방지할 수 있습니다. 다음 단계는 Azure HDInsight의 기본 Spark 구성 값을 보여 줍니다.
 
-1. `https://CLUSTERNAME.azurehdidnsight.net`클러스터 자격 증명을 사용 하 여 Ambari에 로그인 합니다. 초기 화면에 개요 대시보드가 표시 됩니다. HDInsight 3.6과 4.0 간에는 약간의 외관상 차이가 있습니다.
+1. `https://CLUSTERNAME.azurehdidnsight.net`에서 클러스터 자격 증명을 사용하여 Ambari에 로그인합니다. 초기 화면에 대시보드 개요가 표시됩니다. HDInsight 3.6과 4.0 간에는 약간의 외관상 차이가 있습니다.
 
-1. **Spark2**  >  **Configs** 로 이동 합니다.
+1. **Spark2** > **Configs** 로 이동합니다.
 
     :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png" alt-text="Configs 탭 선택" border="true":::
 
-1. 구성 목록에서 **spark2-defaults** 를 선택 하 고 확장 합니다.
+1. 구성 목록에서 **Custom-spark2-defaults** 를 선택하고 확장합니다.
 
-1. **spark.executor.memory** 와 같이 조정해야 하는 값 설정을 찾습니다. 이 경우에는 **9728m** 의 값이 너무 높습니다.
+1. **spark.executor.memory** 와 같이 조정해야 하는 값 설정을 찾습니다. 이 경우 **9728m** 의 값이 너무 높습니다.
 
     :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png" alt-text="custom-spark-defaults 선택" border="true":::
 
@@ -49,7 +49,7 @@ Spark 구성 값을 튜닝 하 여 Apache Spark 응용 프로그램 예외를 �
 
 1. 구성이 저장될 때마다 서비스를 다시 시작하라는 메시지가 표시됩니다. **다시 시작** 을 선택합니다.
 
-    :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png" alt-text="다시 시작 선택" border="true":::
+    :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png" alt-text="다시 시작을 선택합니다" border="true":::
 
     다시 시작을 확인합니다.
 
@@ -73,9 +73,9 @@ Spark 구성 값을 튜닝 하 여 Apache Spark 응용 프로그램 예외를 �
 
 이러한 변경 내용은 클러스터 전체를 대상으로 하지만 Spark 작업을 제출할 때 재정의할 수 있습니다.
 
-## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>클러스터에서 Jupyter Notebook를 사용 하 여 Apache Spark 응용 프로그램을 구성 어떻게 할까요??
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>클러스터에서 Jupyter Notebook을 사용하여 Apache Spark 애플리케이션을 구성하려면 어떻게 할까요?
 
-Jupyter Notebook의 첫 번째 셀에서 **%% configure** 지시문 뒤에 올바른 JSON 형식의 Spark 구성을 지정 합니다. 필요에 따라 실제 값을 변경합니다.
+Jupyter Notebook의 첫 번째 셀에서 **%%configure** 지시문 뒤에 유효한 JSON 형식의 Spark 구성을 지정합니다. 필요에 따라 실제 값을 변경합니다.
 
 :::image type="content" source="./media/apache-troubleshoot-spark/add-configuration-cell.png" alt-text="구성 추가" border="true":::
 
@@ -105,7 +105,7 @@ spark-submit --master yarn-cluster --class com.microsoft.spark.application --num
 
 * [Spark 메모리 관리 개요](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview).
 
-* [HDInsight 클러스터에서 Spark 응용 프로그램 디버깅](/archive/blogs/azuredatalake/spark-debugging-101)
+* [HDInsight 클러스터에서 Spark 애플리케이션 디버깅](/archive/blogs/azuredatalake/spark-debugging-101).
 
 * [Azure 커뮤니티 지원](https://azure.microsoft.com/support/community/)을 통해 Azure 전문가로부터 답변을 얻습니다.
 

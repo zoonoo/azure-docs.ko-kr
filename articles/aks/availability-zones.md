@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 03/16/2021
-ms.openlocfilehash: 4c5b0ceb3f8e0b96f18a67ed0c7dbf1b56ac30da
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 6123b040be8076c3b05f0dc81e6ac707dc38d0ed
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104583550"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017855"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>가용성 영역을 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기
 
@@ -54,13 +54,13 @@ AKS 클러스터는 현재 다음 지역에서 가용성 영역을 사용하여 
 
 ### <a name="azure-disks-limitations"></a>Azure 디스크 제한 사항
 
-Azure 관리형을 사용하는 볼륨은 현재 영역 중복 리소스가 아닙니다. 볼륨은 영역에 연결할 수 없으며 대상 pod를 호스트 하는 지정 된 노드와 동일한 영역에 함께 배치 되어야 합니다.
+Azure 관리형을 사용하는 볼륨은 현재 영역 중복 리소스가 아닙니다. 볼륨은 영역 간에 연결될 수 없으며 대상 Pod를 호스트하는 지정된 노드와 같은 영역에 공동 배치되어야 합니다.
 
-Kubernetes는 버전 1.12부터 Azure 가용성 영역을 인식 합니다. Azure 관리 디스크를 참조 하는 PersistentVolumeClaim 개체를 다중 영역 AKS 클러스터에 배포할 수 있으며, [Kubernetes는](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#storage-access-for-zones) 올바른 가용성 영역에서이 PVC를 청구 하는 pod를 예약 하는 과정을 담당 합니다.
+Kubernetes는 버전 1.12부터 Azure 가용성 영역을 인식합니다. Azure Managed Disk를 참조하는 PersistentVolumeClaim 개체를 다중 영역 AKS 클러스터에 배포할 수 있으며, [Kubernetes는 올바른 가용성 영역에서 이 PVC를 클레임하는 Pod를 예약하는 과정](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#storage-access-for-zones)을 담당합니다.
 
 ## <a name="overview-of-availability-zones-for-aks-clusters"></a>AKS 클러스터의 가용성 영역 개요
 
-가용성 영역은 데이터 센터 오류에서 애플리케이션 및 데이터를 보호하는 고가용성 기능입니다. 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원 력을 보장 하기 위해 모든 영역 사용 지역에는 항상 둘 이상의 영역이 있습니다. 한 지역 내에서 가용성 영역을 물리적으로 구분하면 애플리케이션 및 데이터를 데이터 센터 오류로부터 보호할 수 있습니다.
+가용성 영역은 데이터 센터 오류에서 애플리케이션 및 데이터를 보호하는 고가용성 기능입니다. 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하기 위해 모든 영역 사용 지역에는 항상 둘 이상의 영역이 있습니다. 한 지역 내에서 가용성 영역을 물리적으로 구분하면 애플리케이션 및 데이터를 데이터 센터 오류로부터 보호할 수 있습니다.
 
 자세한 내용은 [Azure에서 가용성 영역이란?][az-overview]을 참조하세요.
 
@@ -72,7 +72,7 @@ Kubernetes는 버전 1.12부터 Azure 가용성 영역을 인식 합니다. Azur
 
 ## <a name="create-an-aks-cluster-across-availability-zones"></a>가용성 영역에 AKS 클러스터 만들기
 
-[az aks create][az-aks-create] 명령을 사용하여 클러스터를 만들 때 `--zones` 매개 변수는 배포할 영역 에이전트 노드를 정의합니다. 클러스터를 만들 때 매개 변수를 정의 하면 etcd 또는 API와 같은 제어 평면 구성 요소가 지역에서 사용 가능한 영역에 분산 됩니다 `--zones` . 컨트롤 플레인 구성 요소가 분산된 특정 영역은 초기 노드 풀에 선택되는 명시적 영역과 별개입니다.
+[az aks create][az-aks-create] 명령을 사용하여 클러스터를 만들 때 `--zones` 매개 변수는 배포할 영역 에이전트 노드를 정의합니다. 클러스터를 만들 때 `--zones` 매개 변수를 정의하면 etcd 또는 API와 같은 컨트롤 플레인 구성 요소가 지역에서 사용 가능한 영역에 분산됩니다. 컨트롤 플레인 구성 요소가 분산된 특정 영역은 초기 노드 풀에 선택되는 명시적 영역과 별개입니다.
 
 AKS 클러스터를 만들 때 기본 에이전트 풀에 대한 영역을 정의하지 않으면 컨트롤 플레인 구성 요소가 가용성 영역에 분산되지 않을 수 있습니다. [az aks nodepool add][az-aks-nodepool-add] 명령을 사용하여 노드 풀을 더 추가하고 새 노드에 `--zones`를 지정할 수 있지만, 컨트롤 플레인이 영역에 분산된 방식은 변경되지 않습니다. 가용성 영역 설정은 클러스터 또는 노드 풀 생성 시에만 정의할 수 있습니다.
 
@@ -105,7 +105,7 @@ AKS 클러스터를 만드는 데 몇 분이 걸립니다.
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-그런 다음 [kubectl 설명][kubectl-describe] 명령을 사용 하 여 클러스터의 노드를 나열 하 고 *failure-domain.beta.kubernetes.io/zone* 값을 필터링 합니다. 다음은 Bash 셸에 대 한 예입니다.
+그런 다음 [kubectl 설명][kubectl-describe] 명령을 사용하여 클러스터의 노드를 나열하고 *failure-domain.beta.kubernetes.io/zone* 값을 필터링합니다. 다음은 Bash 셸에 대한 예입니다.
 
 ```console
 kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"
@@ -124,13 +124,13 @@ Name:       aks-nodepool1-28993262-vmss000002
 
 에이전트 풀에 노드를 더 추가하면 Azure 플랫폼에서 기본 VM을 지정된 가용성 영역에 자동으로 배포합니다.
 
-최신 Kubernetes 버전(1.17.0 이상)에서 AKS는 더 이상 사용되지 않는 `failure-domain.beta.kubernetes.io/zone` 외에 최신 레이블 `topology.kubernetes.io/zone`도 사용합니다. 다음 스크립트를 실행 하 여 위와 동일한 결과를 얻을 수 있습니다.
+최신 Kubernetes 버전(1.17.0 이상)에서 AKS는 더 이상 사용되지 않는 `failure-domain.beta.kubernetes.io/zone` 외에 최신 레이블 `topology.kubernetes.io/zone`도 사용합니다. 다음 스크립트를 실행하여 위와 동일한 결과를 얻을 수 있습니다.
 
 ```console
 kubectl get nodes -o custom-columns=NAME:'{.metadata.name}',REGION:'{.metadata.labels.topology\.kubernetes\.io/region}',ZONE:'{metadata.labels.topology\.kubernetes\.io/zone}'
 ```
 
-더 간결한 출력을 제공 합니다.
+더 간결한 출력을 제공합니다.
 
 ```console
 NAME                                REGION   ZONE
@@ -150,7 +150,7 @@ az aks scale \
     --node-count 5
 ```
 
-몇 분 후에 크기 조정 작업이 완료 되 면 `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` Bash 셸의 명령이 다음 샘플과 유사한 출력을 제공 해야 합니다.
+몇 분 후에 스케일링 작업이 완료되면 Bash 셸의 `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` 명령이 이 샘플과 유사한 출력을 제공합니다.
 
 ```console
 Name:       aks-nodepool1-28993262-vmss000000
@@ -172,7 +172,7 @@ kubectl create deployment nginx --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5
 kubectl scale deployment nginx --replicas=3
 ```
 
-Pod가 실행되는 노드를 보면 3개의 다른 가용성 영역에 해당하는 노드에서 Pod가 실행되고 있는 것을 볼 수 있습니다. 예를 들어 `kubectl describe pod | grep -e "^Name:" -e "^Node:"` Bash 셸에서 명령을 사용 하면 다음과 유사한 출력이 표시 됩니다.
+Pod가 실행되는 노드를 보면 3개의 다른 가용성 영역에 해당하는 노드에서 Pod가 실행되고 있는 것을 볼 수 있습니다. 예를 들어 Bash 셸의 `kubectl describe pod | grep -e "^Name:" -e "^Node:"` 명령을 사용하여 다음과 유사한 출력을 얻을 수 있습니다.
 
 ```console
 Name:         nginx-6db489d4b7-ktdwg
@@ -191,19 +191,19 @@ Node:         aks-nodepool1-28993262-vmss000004/10.240.0.8
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
-[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-aks-create]: /cli/azure/aks#az_aks_create
 [az-overview]: ../availability-zones/az-overview.md
 [best-practices-bc-dr]: operator-best-practices-multi-region.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [standard-lb-limitations]: load-balancer-standard.md#limitations
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-aks-nodepool-add]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-add
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [vmss-zone-balancing]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing
 
 <!-- LINKS - external -->

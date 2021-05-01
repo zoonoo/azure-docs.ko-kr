@@ -1,26 +1,26 @@
 ---
 title: 리소스 그룹에 리소스 배포
-description: Azure Resource Manager 템플릿에서 리소스를 배포 하는 방법을 설명 합니다. 둘 이상의 리소스 그룹을 대상으로 하는 방법을 보여 줍니다.
+description: Azure Resource Manager 템플릿에 리소스를 배포하는 방법을 설명합니다. 둘 이상의 리소스 그룹을 대상으로 지정하는 방법을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 01/13/2021
 ms.openlocfilehash: 1d636be9ffab5a4398e3e12867e601ce6df382bf
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104889793"
 ---
-# <a name="resource-group-deployments-with-arm-templates"></a>ARM 템플릿을 사용 하 여 리소스 그룹 배포
+# <a name="resource-group-deployments-with-arm-templates"></a>ARM 템플릿을 사용한 리소스 그룹 배포
 
-이 문서에서는 리소스 그룹에 대 한 배포 범위를 결정 하는 방법을 설명 합니다. 배포에 Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 합니다. 또한이 문서에서는 배포 작업에서 리소스 그룹을 벗어나는 범위를 확장 하는 방법을 보여 줍니다.
+이 문서에서는 리소스 그룹으로 배포 범위를 지정하는 방법을 설명합니다. 배포에 ARM 템플릿(Azure Resource Manager 템플릿)을 사용합니다. 또한 이 문서에서는 배포 작업에서 리소스 그룹 이상으로 범위를 확장하는 방법을 보여 줍니다.
 
 ## <a name="supported-resources"></a>지원되는 리소스
 
-대부분의 리소스는 리소스 그룹에 배포할 수 있습니다. 사용 가능한 리소스 목록은 [ARM 템플릿 참조](/azure/templates)를 참조 하세요.
+대부분의 리소스는 리소스 그룹에 배포가 가능합니다. 사용 가능한 리소스 목록은 [ARM 템플릿 참조](/azure/templates)를 참조하십시오.
 
 ## <a name="schema"></a>스키마
 
-템플릿의 경우 다음 스키마를 사용 합니다.
+템플릿의 경우 다음 스키마를 사용합니다.
 
 ```json
 {
@@ -40,11 +40,11 @@ ms.locfileid: "104889793"
 
 ## <a name="deployment-commands"></a>배포 명령
 
-리소스 그룹에 배포 하려면 리소스 그룹 배포 명령을 사용 합니다.
+리소스 그룹에 배포하려면 리소스 그룹 배포 명령을 사용합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI의 경우 [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create)를 사용 합니다. 다음 예제에서는 리소스 그룹을 만드는 템플릿을 배포합니다.
+Azure CLI의 경우 [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create)를 사용합니다. 다음 예제에서는 리소스 그룹을 만드는 템플릿을 배포합니다.
 
 ```azurecli-interactive
 az deployment group create \
@@ -56,7 +56,7 @@ az deployment group create \
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-PowerShell 배포 명령에 대해 [AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)를 사용 합니다. 다음 예제에서는 리소스 그룹을 만드는 템플릿을 배포합니다.
+PowerShell 배포 명령의 경우 [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)를 사용합니다. 다음 예제에서는 리소스 그룹을 만드는 템플릿을 배포합니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment `
@@ -68,85 +68,85 @@ New-AzResourceGroupDeployment `
 
 ---
 
-ARM 템플릿 배포에 대 한 배포 명령 및 옵션에 대 한 자세한 내용은 다음을 참조 하세요.
+ARM 템플릿 배포를 위한 배포 명령 및 옵션에 대한 자세한 내용은 다음을 참조하십시오.
 
-* [ARM 템플릿을 사용 하 여 리소스 배포 및 Azure Portal](deploy-portal.md)
+* [ARM 템플릿 및 Azure Portal을 사용하여 리소스 배포](deploy-portal.md)
 * [ARM 템플릿 및 Azure CLI를 사용하여 리소스 배포](deploy-cli.md)
 * [ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포](deploy-powershell.md)
-* [ARM 템플릿 및 Azure Resource Manager REST API를 사용 하 여 리소스 배포](deploy-rest.md)
-* [배포 단추를 사용 하 여 GitHub 리포지토리에서 템플릿 배포](deploy-to-azure-button.md)
+* [ARM 템플릿 및 Azure Resource Manager REST API를 사용하여 리소스 배포](deploy-rest.md)
+* [배포 단추를 사용하여 GitHub 리포지토리에서 템플릿 배포](deploy-to-azure-button.md)
 * [Cloud Shell에서 ARM 템플릿 배포](deploy-cloud-shell.md)
 
 ## <a name="deployment-scopes"></a>배포 범위
 
-리소스 그룹에 배포 하는 경우 다음에 리소스를 배포할 수 있습니다.
+리소스 그룹에 배포하는 경우 리소스를 배포할 수 있는 대상은 다음과 같습니다.
 
 * 작업의 대상 리소스 그룹
 * 동일한 구독 또는 다른 구독에 있는 다른 리소스 그룹
-* 테 넌 트의 모든 구독
-* 리소스 그룹에 대 한 테 넌 트
+* 테넌트의 모든 구독
+* 리소스 그룹의 테넌트
 
-[확장 리소스](scope-extension-resources.md) 의 범위는 배포 대상과 다른 대상으로 지정할 수 있습니다.
+[확장 리소스](scope-extension-resources.md)의 범위를 배포 대상과 다른 대상으로 지정할 수 있습니다.
 
-템플릿을 배포 하는 사용자에 게는 지정 된 범위에 대 한 액세스 권한이 있어야 합니다.
+템플릿을 배포하는 사용자는 지정된 범위에 대한 액세스 권한이 있어야 합니다.
 
-이 섹션에서는 다양 한 범위를 지정 하는 방법을 보여 줍니다. 단일 템플릿에서 이러한 여러 범위를 결합할 수 있습니다.
+이 섹션에서는 다양한 범위를 지정하는 방법을 보여 줍니다. 단일 템플릿에서 여러 범위를 결합할 수 있습니다.
 
-### <a name="scope-to-target-resource-group"></a>대상 리소스 그룹의 범위
+### <a name="scope-to-target-resource-group"></a>대상 리소스 그룹으로 범위 지정
 
-대상 리소스에 리소스를 배포 하려면 템플릿의 리소스 섹션에 해당 리소스를 추가 합니다.
+대상 리소스에 리소스를 배포하려면 템플릿의 리소스 섹션에 해당 리소스를 추가합니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-rg.json" highlight="5":::
 
-예제 템플릿에 대해서는 [대상 리소스 그룹에 배포](#deploy-to-target-resource-group)를 참조 하세요.
+예제 템플릿은 [대상 리소스 그룹에 배포](#deploy-to-target-resource-group)를 참조하십시오.
 
-### <a name="scope-to-resource-group-in-same-subscription"></a>동일한 구독의 리소스 그룹에 대 한 범위
+### <a name="scope-to-resource-group-in-same-subscription"></a>동일한 구독의 리소스 그룹으로 범위 지정
 
-동일한 구독의 다른 리소스 그룹에 리소스를 배포 하려면 중첩 된 배포를 추가 하 고 속성을 포함 `resourceGroup` 합니다. 구독 ID 또는 리소스 그룹을 지정하지 않으면 부모 템플릿의 구독 및 리소스 그룹이 사용됩니다. 모든 리소스 그룹은 배포를 실행하기 전에 존재해야 합니다.
+동일한 구독의 다른 리소스 그룹에 리소스를 배포하려면 중첩된 배포를 추가하고 `resourceGroup` 속성을 포함시킵니다. 구독 ID 또는 리소스 그룹을 지정하지 않으면 부모 템플릿의 구독 및 리소스 그룹이 사용됩니다. 모든 리소스 그룹은 배포를 실행하기 전에 존재해야 합니다.
 
-다음 예제에서 중첩 된 배포는 이라는 리소스 그룹을 대상으로 `demoResourceGroup` 합니다.
+다음 예제에서 중첩된 배포는 `demoResourceGroup`이라는 이름의 리소스 그룹을 대상으로 합니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/same-sub-to-resource-group.json" highlight="9,13":::
 
-예제 템플릿은 [여러 리소스 그룹에 배포를](#deploy-to-multiple-resource-groups)참조 하세요.
+예제 템플릿은 [여러 리소스 그룹에 배포](#deploy-to-multiple-resource-groups)를 참조하십시오.
 
-### <a name="scope-to-resource-group-in-different-subscription"></a>다른 구독의 리소스 그룹에 대 한 범위
+### <a name="scope-to-resource-group-in-different-subscription"></a>다른 구독의 리소스 그룹으로 범위 지정
 
-다른 구독의 리소스 그룹에 리소스를 배포 하려면 중첩 된 배포를 추가 하 고 `subscriptionId` 및 속성을 포함 `resourceGroup` 합니다. 다음 예제에서 중첩 된 배포는 이라는 리소스 그룹을 대상으로 `demoResourceGroup` 합니다.
+다른 구독의 리소스 그룹에 리소스를 배포하려면 중첩된 배포를 추가하고 `subscriptionId` 및 `resourceGroup` 속성을 포함시킵니다. 다음 예제에서 중첩된 배포는 `demoResourceGroup`이라는 이름의 리소스 그룹을 대상으로 합니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/different-sub-to-resource-group.json" highlight="9,10,14":::
 
-예제 템플릿은 [여러 리소스 그룹에 배포를](#deploy-to-multiple-resource-groups)참조 하세요.
+예제 템플릿은 [여러 리소스 그룹에 배포](#deploy-to-multiple-resource-groups)를 참조하십시오.
 
-### <a name="scope-to-subscription"></a>구독 범위
+### <a name="scope-to-subscription"></a>구독으로 범위 지정
 
-구독에 리소스를 배포 하려면 중첩 된 배포를 추가 하 고 속성을 포함 `subscriptionId` 합니다. 구독은 대상 리소스 그룹 또는 테 넌 트의 다른 구독에 대 한 구독 일 수 있습니다. 또한 `location` 중첩 된 배포에 대 한 속성을 설정 합니다.
+구독에 리소스를 배포하려면 중첩된 배포를 추가하고 `subscriptionId` 속성을 포함시킵니다. 구독은 대상 리소스 그룹의 구독 또는 테넌트의 다른 모든 구독이 될 수 있습니다. 중첩된 배포의 `location` 속성도 설정합니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-subscription.json" highlight="9,10,14":::
 
-예제 템플릿은 [리소스 그룹 만들기](#create-resource-group)를 참조 하세요.
+예제 템플릿은 [리소스 그룹 만들기](#create-resource-group)를 참조하십시오.
 
-### <a name="scope-to-tenant"></a>테 넌 트로 범위
+### <a name="scope-to-tenant"></a>테넌트로 범위 지정
 
-테 넌 트에서 리소스를 만들려면를로 설정 `scope` `/` 합니다. 템플릿을 배포 하는 사용자에 게는 [테 넌 트에 배포 하는 데 필요한 액세스](deploy-to-tenant.md#required-access)권한이 있어야 합니다.
+테넌트에서 리소스를 만들려면 `scope`을 `/`로 설정합니다. 템플릿을 배포하는 사용자에게는 [테넌트에서 배포하는 데 필요한 액세스 권한이 있어야 합니다](deploy-to-tenant.md#required-access).
 
-중첩 된 배포를 사용 하려면 및를 설정 `scope` `location` 합니다.
+중첩된 배포를 사용하려면 `scope`와 `location`을 설정합니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,10,14":::
 
-또는 `/` 관리 그룹과 같은 일부 리소스 형식에 대해 범위를로 설정할 수 있습니다.
+또는 관리 그룹과 같은 일부 리소스 종류에 대해 범위를 `/`로 설정할 수 있습니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-create-mg.json" highlight="12,15":::
 
-자세한 내용은 [관리 그룹](deploy-to-management-group.md#management-group)을 참조 하세요.
+자세한 내용은 [관리 그룹](deploy-to-management-group.md#management-group)을 참조하십시오.
 
-## <a name="deploy-to-target-resource-group"></a>대상 리소스 그룹에 배포
+## <a name="deploy-to-target-resource-group"></a>대상 리소스 그룹으로 배포
 
-대상 리소스 그룹에 리소스를 배포 하려면 템플릿의 섹션에서 해당 리소스를 정의 `resources` 합니다. 다음 템플릿은 배포 작업에 지정 된 리소스 그룹에 저장소 계정을 만듭니다.
+대상 리소스 그룹에 리소스를 배포하려면 템플릿의 `resources` 섹션에서 해당 리소스를 정의합니다. 다음 템플릿은 배포 작업에 지정된 리소스 그룹에 스토리지 계정을 만듭니다.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
 
-## <a name="deploy-to-multiple-resource-groups"></a>여러 리소스 그룹에 배포
+## <a name="deploy-to-multiple-resource-groups"></a>여러 리소스 그룹으로 배포
 
 단일 ARM 템플릿에서 둘 이상의 리소스 그룹에 배포할 수 있습니다. 부모 템플릿의 리소스 그룹과 다른 리소스 그룹을 대상으로 하려면 [중첩되거나 연결된 템플릿](linked-templates.md)을 사용합니다. 배포 리소스 형식 내에서 중첩된 템플릿을 배포하려는 구독 ID 및 리소스 그룹의 값을 지정합니다. 리소스 그룹은 서로 다른 구독에 존재할 수 있습니다.
 
@@ -247,7 +247,7 @@ az deployment group create \
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
-리소스 그룹 배포에서 구독의 수준으로 전환 하 고 리소스 그룹을 만들 수 있습니다. 다음 템플릿은 저장소 계정을 대상 리소스 그룹에 배포 하 고 지정 된 구독에 새 리소스 그룹을 만듭니다.
+리소스 그룹 배포에서 구독의 수준으로 전환하고 리소스 그룹을 만들 수 있습니다. 다음 템플릿은 스토리지 계정을 대상 리소스 그룹에 배포하고 지정된 구독에 새 리소스 그룹을 만듭니다.
 
 ```json
 {

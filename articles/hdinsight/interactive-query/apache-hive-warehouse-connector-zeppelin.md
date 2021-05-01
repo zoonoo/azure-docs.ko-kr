@@ -6,12 +6,12 @@ ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 7957041c9d445f4239b8f0100128a531d982b451
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.openlocfilehash: 8c266861f10b32c63c48680ed548928613dc6b0d
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104871557"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108064560"
 ---
 # <a name="integrate-apache-zeppelin-with-hive-warehouse-connector-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Zeppelin과 Hive Warehouse Connector 통합
 
@@ -95,15 +95,15 @@ Livy 인터프리터를 사용하여 Zeppelin에서 Hive 테이블에 액세스�
     |---|---|
     | livy.spark.sql.hive.hiveserver2.jdbc.url.principal | `hive/<llap-headnode>@<AAD-Domain>` |
 
-    * 웹 브라우저에서로 이동 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` 합니다. 여기서 CLUSTERNAME은 대화형 쿼리 클러스터의 이름입니다. **HiveServer2 Interactive** 를 클릭 합니다. 스크린샷에 표시 된 것 처럼 LLAP이 실행 되는 헤드 노드의 FQDN (정규화 된 도메인 이름)이 표시 됩니다. `<llap-headnode>`이 값으로 대체 합니다.
+    * 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary`로 이동합니다. 여기서 CLUSTERNAME은 대화형 쿼리 클러스터의 이름입니다. **HiveServer2 대화형** 을 클릭합니다. 스크린샷과 같이 LLAP가 실행 중인 헤드 노드의 FQDN(정규화된 도메인 이름)이 보입니다. `<llap-headnode>`를 이 값으로 바꿉니다.
 
-        :::image type="content" source="./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png" alt-text="hive 웨어하우스 커넥터 헤드 노드" border="true":::
+        :::image type="content" source="./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png" alt-text="Hive Warehouse Connector 헤드 노드" border="true":::
 
-    * [Ssh 명령을](../hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 대화형 쿼리 클러스터에 연결 합니다. `default_realm`파일에서 매개 변수를 찾습니다 `/etc/krb5.conf` . `<AAD-DOMAIN>`이 값을 대문자 문자열로 바꾸고, 그렇지 않으면 자격 증명을 찾을 수 없습니다.
+    * [ssh 명령을](../hdinsight-hadoop-linux-use-ssh-unix.md) 사용하여 대화형 쿼리 클러스터에 연결합니다. `/etc/krb5.conf` 파일에서 `default_realm` 매개 변수를 찾습니다. `<AAD-DOMAIN>`을 대문자 문자열로 하여 이 값으로 바꿉니다. 그렇지 않으면 자격 증명을 찾을 수 없습니다.
 
-        :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="hive 웨어하우스 커넥터 AAD 도메인" border="true":::
+        :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="Hive Warehouse Connector AAD 도메인" border="true":::
 
-    * 예를 들면 `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET` 입니다.
+    * 예: `hive/hn*.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET`.
 
 1. 변경 내용을 저장하고 Livy 인터프리터를 다시 시작합니다.
 

@@ -1,14 +1,14 @@
 ---
-title: Azure Communication Services를 Event Grid 원본으로
-description: 이 문서에서는 Azure Communication Services를 Event Grid 이벤트 원본으로 사용 하는 방법을 설명 합니다.
+title: Event Grid 원본으로 사용되는 Azure Communication Services
+description: 이 문서에서는 Event Grid 이벤트 원본으로 Azure Communication Services를 사용하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.author: mikben
 ms.openlocfilehash: 72941faf122be50d2c721fd4c8421ae4339d5d2c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104656246"
 ---
 # <a name="event-handling-in-azure-communication-services"></a>Azure Communication Services에서 이벤트 처리
@@ -826,9 +826,9 @@ Azure Portal 또는 Azure CLI를 사용하여 Communication Services 리소스�
 
 ## <a name="tutorials"></a>자습서
 
-| 제목 | 설명 |
+| 제목 | Description |
 |---------|---------|
-| [빠른 시작: SMS 이벤트 처리](../communication-services/quickstarts/telephony-sms/handle-sms-events.md) | Event Grid를 사용 하 여 SMS 이벤트를 구독 하는 방법을 보여 줍니다.   |
+| [빠른 시작: SMS 이벤트 처리](../communication-services/quickstarts/telephony-sms/handle-sms-events.md) | Event Grid를 사용하여 SMS 이벤트를 구독하는 방법을 설명합니다.   |
 
 ## <a name="next-steps"></a>다음 단계
 

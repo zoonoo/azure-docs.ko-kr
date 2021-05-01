@@ -1,14 +1,14 @@
 ---
-title: 아웃 바운드 IP 주소 변경 준비
+title: 아웃바운드 IP 주소 변경 준비
 description: 아웃바운드 IP 주소를 변경하려는 경우 앱이 변경 후 작업을 계속할 수 있도록 수행할 작업에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
 ms.openlocfilehash: 2be4bc92dde278b054bd04f412f937440027ece7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "74671674"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>아웃바운드 IP 주소 변경 준비하는 방법

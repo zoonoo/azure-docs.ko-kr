@@ -1,18 +1,18 @@
 ---
-title: 연결 된 템플릿을 사용 하 여 템플릿 사양 만들기
-description: 연결 된 템플릿으로 템플릿 사양을 만드는 방법에 대해 알아봅니다.
+title: 연결된 템플릿을 사용하여 템플릿 사양 만들기
+description: 연결된 템플릿을 사용하여 템플릿 사양을 만드는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/05/2021
 ms.openlocfilehash: 31764b9adb1d0fc28a170fa2e6b5073812533083
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104889844"
 ---
-# <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>자습서: 연결 된 템플릿을 사용 하 여 템플릿 사양 만들기 (미리 보기)
+# <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>자습서: 연결된 템플릿을 사용하여 템플릿 사양 만들기(미리 보기)
 
-주 템플릿과 [연결 된 템플릿을](linked-templates.md#linked-template)사용 하 여 [템플릿 사양을](template-specs.md) 만드는 방법에 대해 알아봅니다. 템플릿 사양을 사용 하 여 조직 내 다른 사용자와 ARM 템플릿을 공유 합니다. 이 문서에서는 `relativePath` [배포 리소스](/azure/templates/microsoft.resources/deployments)의 속성을 사용 하 여 주 템플릿과 연결 된 템플릿을 패키징하는 템플릿 사양을 만드는 방법을 보여 줍니다.
+기본 템플릿과 [연결된 템플릿](linked-templates.md#linked-template)을 사용하여 [템플릿 사양](template-specs.md)을 만드는 방법에 대해 알아봅니다. 템플릿 사양을 사용하여 조직 내 다른 사용자와 ARM 템플릿을 공유합니다. 이 문서에서는 [배포 리소스](/azure/templates/microsoft.resources/deployments)의 `relativePath` 속성을 사용하여 기본 템플릿 및 연결된 템플릿을 패키징하는 템플릿 사양을 만드는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -23,19 +23,19 @@ ms.locfileid: "104889844"
 
 ## <a name="create-linked-templates"></a>연결된 템플릿 만들기
 
-주 템플릿과 연결 된 템플릿을 만듭니다.
+기본 템플릿과 연결된 템플릿을 만듭니다.
 
-템플릿을 연결 하려면 [배포 리소스](/azure/templates/microsoft.resources/deployments) 를 기본 템플릿에 추가 합니다. 속성에서 `templateLink` 부모 템플릿의 경로에 따라 연결 된 템플릿의 상대 경로를 지정 합니다.
+템플릿에 연결하려면 [배포 리소스](/azure/templates/microsoft.resources/deployments)를 기본 템플릿에 추가합니다. `templateLink` 속성에서 연결된 템플릿의 상대 경로를 부모 템플릿에 따라 지정합니다.
 
-연결 된 템플릿은 **에서linkedTemplate.json** 이라고 하며 주 템플릿이 저장 된 경로에서 **아티팩트** 라는 하위 폴더에 저장 됩니다.  RelativePath에 대해 다음 값 중 하나를 사용할 수 있습니다.
+연결 된 템플릿은 **에서linkedTemplate.json** 이라고 하며 주 템플릿이 저장 된 경로에서 **아티팩트** 라는 하위 폴더에 저장 됩니다.  relativePath에 대해 다음 값 중 하나를 사용할 수 있습니다.
 
 - `./artifacts/linkedTemplate.json`
 - `/artifacts/linkedTemplate.json`
 - `artifacts/linkedTemplate.json`
 
-`relativePath`속성은가 선언 된 템플릿 파일을 기준으로 합니다. `relativePath` 따라서의 linkedTemplate.js에서 호출 되 고 linkedTemplate2.js의 다른 linkedTemplate2.js이 동일한 아티팩트 하위 폴더에 저장 된 경우에는 linkedTemplate.js에 지정 된 relativePath만이 됩니다 `linkedTemplate2.json` .
+`relativePath` 속성은 항상 `relativePath`가 선언된 템플릿 파일을 기준으로 합니다. 따라서 linkedTemplate.json에서 호출되는 또 다른 linkedTemplate2.json이 존재하고 linkedTemplate2.json이 동일한 아티팩트 하위 폴더에 저장되는 경우에는 linkedTemplate.json에 지정되는 relativePath는 `linkedTemplate2.json`만 됩니다.
 
-1. 다음 JSON을 사용 하 여 기본 템플릿을 만듭니다. 주 템플릿을 로컬 컴퓨터에 **azuredeploy.js** 로 저장 합니다. 이 자습서에서는 **c:\Templates\linkedTS\azuredeploy.js** 경로에 저장 했지만 임의의 경로를 사용할 수 있다고 가정 합니다.
+1. 다음 JSON을 사용하여 기본 템플릿을 만듭니다. 기본 템플릿을 로컬 컴퓨터에 **azuredeploy.json** 으로 저장합니다. 이 자습서에서는 경로 **c:\Templates\linkedTS\azuredeploy.json** 에 저장했지만 모든 경로를 사용할 수 있다고 가정합니다.
 
     ```json
     {
@@ -102,10 +102,10 @@ ms.locfileid: "104889844"
     ```
 
     > [!NOTE]
-    > ApiVersion은 `Microsoft.Resources/deployments` 2020-06-01 이상 이어야 합니다.
+    > `Microsoft.Resources/deployments`의 apiVersion은 2020-06-01 이상이어야 합니다.
 
-1. 주 템플릿이 저장 된 폴더에 **아티팩트** 라는 디렉터리를 만듭니다.
-1. 다음 JSON을 사용 하 여 연결 된 템플릿을 만듭니다.
+1. 기본 템플릿이 저장된 폴더에 **아티팩트** 라는 디렉터리를 만듭니다.
+1. 다음 JSON을 사용하여 연결된 템플릿을 만듭니다.
 
     ```json
     {
@@ -158,11 +158,11 @@ ms.locfileid: "104889844"
     }
     ```
 
-1. **아티팩트** 폴더에 **linkedTemplate.js** 로 템플릿을 저장 합니다.
+1. 템플릿을 **아티팩트** 폴더에 **linkedTemplate.json** 으로 저장합니다.
 
 ## <a name="create-template-spec"></a>템플릿 사양 만들기
 
-템플릿 사양은 리소스 그룹에 저장 됩니다.  리소스 그룹을 만든 후 다음 스크립트를 사용 하 여 템플릿 사양을 만듭니다. 템플릿 사양 이름은 **Webspec** 입니다.
+템플릿 사양은 리소스 그룹에 저장됩니다.  리소스 그룹을 만든 후 다음 스크립트를 사용하여 템플릿 사양을 만듭니다. 템플릿 사양 이름은 **webSpec** 입니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -196,7 +196,7 @@ az ts create \
 
 ---
 
-작업이 완료 되 면 Azure Portal에서 템플릿 사양을 보거나 다음 cmdlet을 사용할 수 있습니다.
+작업이 완료되면 Azure Portal에서 또는 다음 cmdlet을 사용하여 템플릿 사양을 볼 수 있습니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -251,4 +251,4 @@ az deployment group create \
 
 ## <a name="next-steps"></a>다음 단계
 
-템플릿 사양을 연결 된 템플릿으로 배포 하는 방법에 대 한 자세한 내용은 [자습서: 템플릿 사양을 연결 된 템플릿으로 배포](template-specs-deploy-linked-template.md)를 참조 하세요.
+템플릿 사양을 연결된 템플릿으로 배포하는 방법은 [자습서: 템플릿 사양을 연결된 템플릿으로 배포](template-specs-deploy-linked-template.md)를 참조하십시오.

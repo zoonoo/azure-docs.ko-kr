@@ -1,7 +1,7 @@
 ---
-title: 사용자 지정 기술에 대 한 인터페이스 정의
+title: 사용자 지정 기술에 대한 인터페이스 정의
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search에서 AI 보강 파이프라인의 웹 api 사용자 지정 기술에 대 한 사용자 지정 데이터 추출 인터페이스입니다.
+description: Azure Cognitive Search의 AI 보강 파이프라인에서 Web API 사용자 지정 기술을 위해 사용자 지정 데이터를 추출하는 인터페이스입니다.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,25 +9,25 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.openlocfilehash: e78f0d1e8d6d637dfebe1ff475ab8416ba49a263
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88935418"
 ---
-# <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Azure Cognitive Search 보강 파이프라인에 사용자 지정 기술 추가 방법
+# <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Azure Cognitive Search 보강 파이프라인에 사용자 지정 기술을 추가하는 방법
 
 > [!VIDEO https://www.youtube.com/embed/fHLCE-NZeb4?version=3&start=172&end=221]
 
-Azure Cognitive Search의 [보강 파이프라인](cognitive-search-concept-intro.md) 은 [기본 제공 인식 기술](cognitive-search-predefined-skills.md) 뿐만 아니라 개인적으로 만들고 파이프라인에 추가 하는 [사용자 지정 기술](cognitive-search-custom-skill-web-api.md) 에서 조합할 수 있습니다. 이 문서에서는 AI 보강 파이프라인에 포함 될 수 있도록 인터페이스를 노출 하는 사용자 지정 기술을 만드는 방법을 알아봅니다. 
+Azure Cognitive Search의 [보강 파이프라인](cognitive-search-concept-intro.md)은 [기본 제공 인식 기술](cognitive-search-predefined-skills.md)뿐 아니라 사용자가 개인적으로 만들어 파이프라인에 추가하는 [사용자 지정 기술](cognitive-search-custom-skill-web-api.md)로도 어셈블할 수 있습니다. 이 문서에서는 AI 보강 파이프라인에 포함될 수 있도록 하는 인터페이스를 노출하는 사용자 지정 기술을 만드는 방법을 알아봅니다. 
 
-사용자 지정 기술을 작성하면 콘텐츠에 고유한 변환을 삽입할 수 있습니다. 사용자 지정 기술은 독립적으로 실행되며 필요한 보강 단계를 적용합니다. 예를 들어, 필드별 사용자 지정 엔터티를 정의하거나, 사용자 지정 분류 모델을 작성하여 비즈니스 및 재무 계약과 문서를 구별하거나, 음성 인식 기술을 추가하여 관련 콘텐츠에 대해 오디오 파일을 더 자세히 조사할 수 있습니다. 단계별 예제는 [예제: AI 보강 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)를 참조 하세요.
+사용자 지정 기술을 작성하면 콘텐츠에 고유한 변환을 삽입할 수 있습니다. 사용자 지정 기술은 독립적으로 실행되며 필요한 보강 단계를 적용합니다. 예를 들어, 필드별 사용자 지정 엔터티를 정의하거나, 사용자 지정 분류 모델을 작성하여 비즈니스 및 재무 계약과 문서를 구별하거나, 음성 인식 기술을 추가하여 관련 콘텐츠에 대해 오디오 파일을 더 자세히 조사할 수 있습니다. 단계별 예제는 [예제: AI 보강을 위한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)를 참조하세요.
 
  필요한 사용자 지정 기능이 무엇이든 관계없이, 사용자 지정 기술을 보강 파이프라인의 나머지 부분에 연결하기 위한 간단하고 명확한 인터페이스가 있습니다. [기능](cognitive-search-defining-skillset.md)에 포함하기 위한 유일한 요구 사항은 기능 전체에서 사용할 수 있는 방식으로 입력을 수락하고 출력을 내보내는 것뿐입니다. 이 문서에서는 보강 파이프라인에 필요한 입력 및 출력 형식을 중심으로 설명합니다.
 
 ## <a name="web-api-custom-skill-interface"></a>Web API 사용자 지정 기술 인터페이스
 
-사용자 지정 WebAPI 기술 엔드포인트는 기본적으로 30초 이내에 응답을 반환하지 않으면 시간 제한에 걸립니다. 인덱싱 파이프라인은 동기식이며, 인덱싱을 수행할 경우 해당 기간 내에 응답이 수신되지 않으면 시간 제한 오류가 생성됩니다.  Timeout 매개 변수를 설정 하 여 제한 시간을 최대 230 초로 구성할 수 있습니다.
+사용자 지정 WebAPI 기술 엔드포인트는 기본적으로 30초 이내에 응답을 반환하지 않으면 시간 제한에 걸립니다. 인덱싱 파이프라인은 동기식이며, 인덱싱을 수행할 경우 해당 기간 내에 응답이 수신되지 않으면 시간 제한 오류가 생성됩니다.  timeout 매개 변수를 설정하여 시간 제한을 230초까지 구성할 수 있습니다.
 
 ```json
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
@@ -36,7 +36,7 @@ Azure Cognitive Search의 [보강 파이프라인](cognitive-search-concept-intr
         "timeout": "PT230S",
 ```
 
-URI가 안전한 지 확인 합니다 (HTTPS).
+URI의 보안을 확인합니다(HTTPS).
 
 현재, 사용자 지정 기술을 조작하는 유일한 메커니즘은 Web API 인터페이스를 사용하는 것입니다. Web API는 이 섹션에 설명된 요구 사항을 충족해야 합니다.
 
@@ -130,7 +130,7 @@ Web API가 입력 레코드 배치를 수신할 준비가 되어 있어야 합�
 
 ## <a name="consuming-custom-skills-from-skillset"></a>기능의 사용자 지정 기술 사용
 
-Web API 보강자를 만들 때 요청의 일부로 HTTP 헤더 및 매개 변수를 설명할 수 있습니다. 아래 코드 조각은 요청 매개 변수 및 *선택적* HTTP 헤더를 기술 정의의 일부로 설명 하는 방법을 보여 줍니다. HTTP 헤더는 요구 사항이 아니지만 기술에 추가 구성 기능을 추가 하 고 기술 정의에서 설정할 수 있습니다.
+Web API 보강자를 만들 때 요청의 일부로 HTTP 헤더 및 매개 변수를 설명할 수 있습니다. 아래 코드 조각은 요청 매개 변수 및 *선택적* HTTP 헤더를 기술 세트 정의의 일부로 설명할 수 있는 방법을 보여 줍니다. HTTP 헤더는 요구 사항이 아니지만 기술에 다른 구성 기능을 추가하고 기술 세트 정의에서 설정할 수 있습니다.
 
 ```json
 {
@@ -162,11 +162,11 @@ Web API 보강자를 만들 때 요청의 일부로 HTTP 헤더 및 매개 변�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 사용자 지정 기술을 기술에 통합 하는 데 필요한 인터페이스 요구 사항에 대해 설명 했습니다. 사용자 지정 기술 및 기술 컴퍼지션에 대 한 자세한 내용을 보려면 다음 링크를 클릭 하십시오.
+이 문서에서는 사용자 지정 기술을 기술 세트에 통합하는 데 필요한 인터페이스 요구 사항에 대해 다룹니다. 사용자 지정 기술 및 기술 세트 구성에 대한 자세한 내용을 보려면 다음 링크를 클릭합니다.
 
-+ [사용자 지정 기술에 대 한 비디오 보기](https://youtu.be/fHLCE-NZeb4)
-+ [전원 기술: 사용자 지정 기술의 리포지토리입니다.](https://github.com/Azure-Samples/azure-search-power-skills)
-+ [예: AI 보강에 대 한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
++ [사용자 지정 기술에 대한 비디오 보기](https://youtu.be/fHLCE-NZeb4)
++ [파워 기술: 사용자 지정 기술 리포지토리](https://github.com/Azure-Samples/azure-search-power-skills)
++ [예제: AI 보강을 위한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [기술 집합 만들기(REST)](/rest/api/searchservice/create-skillset)
 + [보강 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)

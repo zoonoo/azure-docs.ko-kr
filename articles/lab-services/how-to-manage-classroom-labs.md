@@ -1,16 +1,16 @@
 ---
-title: Azure Lab Services에서 랩 관리 | Microsoft Docs
-description: 교실 랩을 만들고 구성 하 고, 모든 랩을 보거나, 랩 사용자와 등록 링크를 공유 하거나, 랩을 삭제 하는 방법에 대해 알아봅니다.
+title: Azure Lab Services의 랩 관리 | Microsoft Docs
+description: 클래스룸 랩을 만들고 구성하거나, 모든 랩을 보거나, 랩 사용자와 등록 링크를 공유하거나 또는 랩을 삭제하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: db7a2f58f99252a7e5076dd86c37b65bbe8ea37a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: c6acb9609abac15b9ff92250e3d5d44c585881cc
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96434212"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481806"
 ---
-# <a name="manage-labs-in-azure-lab-services"></a>Azure Lab Services에서 랩 관리 
+# <a name="manage-labs-in-azure-lab-services"></a>Azure Lab Services의 랩 관리 
 이 문서에서는 클래스룸 랩을 만들고 삭제하는 방법을 설명합니다. 또한 랩 계정에서 모든 랩을 보는 방법을 보여 줍니다. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -18,7 +18,7 @@ ms.locfileid: "96434212"
 
 ## <a name="create-a-classroom-lab"></a>클래스룸 랩 만들기
 
-1. [Azure Lab Services 웹 사이트](https://labs.azure.com)로 이동합니다. Internet Explorer 11은 아직 지원되지 않습니다. 
+1. [Azure Lab Services 웹 사이트](https://labs.azure.com)로 이동합니다.
 1. **로그인** 을 선택하고 자격 증명을 입력합니다. 랩 계정에서 **랩 작성자** 역할의 멤버인 **사용자 ID** 를 선택하거나 입력하고 암호를 입력합니다. Azure Lab Services는 조직 계정 및 Microsoft 계정을 지원합니다. 
 1. **새 랩** 을 선택합니다. 
     
@@ -32,7 +32,7 @@ ms.locfileid: "96434212"
     1. 페이지에 표시되는 **시간당 총 가격** 을 검토합니다. 
     1. **저장** 을 선택합니다.
 
-        !["새 랩" 창을 보여 주는 스크린샷](./media/tutorial-setup-classroom-lab/new-lab-window.png)
+        ![“새 랩” 창을 보여 주는 스크린샷입니다.](./media/tutorial-setup-classroom-lab/new-lab-window.png)
 
         > [!NOTE]
         > 랩 계정에 [랩 작성자가 랩 위치를 선택하도록 허용](allow-lab-creator-pick-lab-location.md) 옵션이 구성된 경우 랩의 위치를 선택하는 옵션이 표시됩니다. 
@@ -139,5 +139,5 @@ ms.locfileid: "96434212"
 
 - [랩 소유자 권한으로 템플릿 설정 및 게시](how-to-create-manage-template.md)
 - [랩 소유자 권한으로 랩 사용 구성 및 제어](how-to-configure-student-usage.md)
-- [랩 사용자로 서 액세스 랩](how-to-use-classroom-lab.md)
+- [랩 사용자로서 랩에 액세스](how-to-use-classroom-lab.md)
 

@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs 인프라-리소스의 거 버 넌 스
-description: 이 문서에서는 조직 내에서 Azure DevTest Labs에 대 한 리소스의 정렬과 관리에 대해 설명 합니다.
+title: Azure DevTest Labs 인프라의 거버넌스 - 리소스
+description: 이 문서에서는 조직 내 Azure DevTest Labs용으로 리소스를 맞추고 관리하는 방법을 설명합니다.
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 1e470da5cd317d49f0d0734caa11eed6630d3f32
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85480918"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Azure DevTest Labs 인프라의 거버넌스 - 리소스
@@ -29,7 +29,7 @@ Azure 구독 내에서 DevTest Labs 리소스를 조정하려면 어떻게 해�
 
 **첫 번째 권장 방식** 은 프로덕션 구독과 개발 구독을 구분하는 방식이 요약되어 있는 조직의 Azure 분류법을 검토하는 것입니다. 아래 다이어그램에 나와 있는 제안 분류법을 사용하면 개발/테스트 환경과 프로덕션 환경을 논리적으로 분리할 수 있습니다. 이 방식을 사용하는 경우 조직은 각 환경과 연결된 비용을 개별적으로 추적하는 청구 코드를 도입할 수 있습니다. 자세한 내용은 [규범적 구독 거버넌스](/azure/architecture/cloud-adoption/appendix/azure-scaffold)를 참조하세요. 또한 [Azure 태그](../azure-resource-manager/management/tag-resources.md)를 사용하여 추적 및 청구용으로 리소스를 구성할 수도 있습니다.
 
-**두 번째 권장 방식** 은 Azure Enterprise Portal 내에서 DevTest 구독을 사용하도록 설정하는 것입니다. 이 경우 조직은 Azure Enterprise 구독에서 일반적으로 제공되지 않는 클라이언트 운영 체제를 실행할 수 있습니다. 그런 다음 계산에 대해서만 비용을 지불 하 고 라이선스에 대해 걱정 하지 않는 엔터프라이즈 소프트웨어를 사용 합니다. 이 경우 Microsoft SQL Server와 같은 IaaS의 갤러리 이미지를 비롯한 지정된 서비스의 대금이 사용량을 기준으로만 청구됩니다. EA(기업계약) 고객의 경우 [여기](https://azure.microsoft.com/offers/ms-azr-0148p/)에서, 그리고 종량제 고객의 경우 [여기](https://azure.microsoft.com/offers/ms-azr-0023p/)에서 Azure DevTest 구독에 대한 세부 정보를 확인할 수 있습니다.
+**두 번째 권장 방식** 은 Azure Enterprise Portal 내에서 DevTest 구독을 사용하도록 설정하는 것입니다. 이 경우 조직은 Azure Enterprise 구독에서 일반적으로 제공되지 않는 클라이언트 운영 체제를 실행할 수 있습니다. 그런 다음, 라이선싱에 신경 쓰지 않고 수행하는 컴퓨팅에 대한 요금만 결제하는 엔터프라이즈 소프트웨어를 사용하면 됩니다. 이 경우 Microsoft SQL Server와 같은 IaaS의 갤러리 이미지를 비롯한 지정된 서비스의 대금이 사용량을 기준으로만 청구됩니다. EA(기업계약) 고객의 경우 [여기](https://azure.microsoft.com/offers/ms-azr-0148p/)에서, 그리고 종량제 고객의 경우 [여기](https://azure.microsoft.com/offers/ms-azr-0023p/)에서 Azure DevTest 구독에 대한 세부 정보를 확인할 수 있습니다.
 
 ![구독에 맞게 리소스 조정](./media/devtest-lab-guidance-governance/resource-alignment-with-subscriptions.png)
 

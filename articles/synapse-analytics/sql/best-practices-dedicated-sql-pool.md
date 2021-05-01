@@ -1,6 +1,6 @@
 ---
-title: 전용 SQL 풀에 대 한 모범 사례
-description: 전용 SQL 풀을 사용할 때 알아야 할 권장 사항 및 모범 사례입니다.
+title: 전용 SQL 풀의 모범 사례
+description: 전용 SQL 풀을 사용할 때 알아야 하는 권장 사항 및 모범 사례입니다.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,19 +11,19 @@ ms.date: 03/17/2021
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: b11a76be94fc52285482e13dadbc8c7c92af1374
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104609788"
 ---
-# <a name="best-practices-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대 한 모범 사례
+# <a name="best-practices-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀 모범 사례
 
-이 문서에서는 Azure Synapse Analytics에서 전용 SQL 풀의 성능을 최적화 하는 데 도움이 되는 모범 사례 모음을 제공 합니다. 아래에서는 솔루션을 빌드할 때 중점적으로 살펴볼 기본 지침과 중요 영역을 찾을 수 있습니다. 각 섹션에서는 개념을 소개한 다음, 개념을 보다 심도 있게 다루는 자세한 문서를 안내합니다.
+이 문서에서는 Azure Synapse Analytics에서 전용 SQL 풀의 성능을 최적화하는 데 도움이 되는 모범 사례의 컬렉션을 제공합니다. 아래에서는 솔루션을 빌드할 때 중점적으로 살펴볼 기본 지침과 중요 영역을 찾을 수 있습니다. 각 섹션에서는 개념을 소개한 다음, 개념을 보다 심도 있게 다루는 자세한 문서를 안내합니다.
 
 ## <a name="dedicated-sql-pools-loading"></a>전용 SQL 풀 로드
 
-전용 SQL 풀 로드 지침은 [데이터 로드에 대 한 지침](data-loading-best-practices.md)을 참조 하세요.
+전용 SQL 풀 로드 지침은 [데이터 로드에 대한 지침](data-loading-best-practices.md)을 참조하세요.
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>일시 중지 및 규모 조정으로 비용 절감
 
@@ -31,9 +31,9 @@ ms.locfileid: "104609788"
 
 ## <a name="maintain-statistics"></a>통계 유지 관리
 
-열에 대 한 통계를 자동으로 검색 하 고 만들려면 전용 SQL 풀을 구성할 수 있습니다.  최적화 프로그램으로 만든 쿼리 계획은 사용 가능한 통계만큼 훌륭합니다.  
+열에 대한 통계를 자동으로 검색하고 만들도록 전용 SQL 풀을 구성할 수 있습니다.  최적화 프로그램으로 만든 쿼리 계획은 사용 가능한 통계만큼 훌륭합니다.  
 
-데이터베이스에 대 한 AUTO_CREATE_STATISTICS를 사용 하도록 설정 하 고 매일 또는 각 로드 후 통계를 업데이트 하 여 쿼리에 사용 되는 열에 대 한 통계가 항상 최신 상태를 유지 하도록 하는 것이 좋습니다.
+데이터베이스에 AUTO_CREATE_STATISTICS를 사용하도록 설정하고 쿼리에 사용된 열에 대한 통계를 항상 최신 상태를 유지하도록 매일 또는 각 로드 후에 통계를 업데이트하는 것이 좋습니다.
 
 통계 유지 관리 시간을 줄이려면 통계를 배치할 열 또는 가장 자주 업데이트할 열을 신중하게 고민해야 합니다. 예를 들어 새 값이 매일 추가될 수 있는 날짜 열을 업데이트해야 합니다. 조인에 포함된 열, WHERE 절에 사용된 열, GROUP BY에서 발견된 열에 대한 통계에 집중해야 합니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "104609788"
 
 ## <a name="use-polybase-to-load-and-export-data-quickly"></a>PolyBase를 사용하여 데이터를 신속하고 로드하고 내보내기
 
-전용 SQL 풀은 Azure Data Factory, PolyBase 및 BCP를 비롯 한 여러 도구를 통해 데이터를 로드 하 고 내보내는 것을 지원 합니다.  성능이 중요하지 않은 소량의 데이터에는 어떤 도구를 사용해도 사용자 요구 사항을 충족할 수 있습니다.  
+전용 SQL 풀은 Azure Data Factory, PolyBase, BCP 등의 여러 도구를 통해 데이터 로드 및 내보내기를 지원합니다.  성능이 중요하지 않은 소량의 데이터에는 어떤 도구를 사용해도 사용자 요구 사항을 충족할 수 있습니다.  
 
 > [!NOTE]
 > 대량의 데이터를 로드하거나 내보낼 때 또는 더 빠른 성능이 필요한 경우에는 Polybase가 가장 좋습니다.
@@ -65,7 +65,7 @@ Gzip 텍스트 파일을 사용할 때 처리량을 최대화하려면 파일을
 
 - [데이터 로드](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [PolyBase 사용 지침](data-loading-best-practices.md)
-- [전용 SQL 풀 로드 패턴 및 전략](/archive/blogs/sqlcat/azure-sql-data-warehouse-loading-patterns-and-strategies)
+- [전용 SQL 풀 로드 패턴과 전략](/archive/blogs/sqlcat/azure-sql-data-warehouse-loading-patterns-and-strategies)
 - [Azure Data Factory를 사용하여 데이터 로드](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Azure Data Factory를 사용하여 데이터 이동](../../data-factory/transform-data-using-machine-learning.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true)
@@ -73,7 +73,7 @@ Gzip 텍스트 파일을 사용할 때 처리량을 최대화하려면 파일을
 
 ## <a name="load-then-query-external-tables"></a>외부 테이블 로드 후 쿼리
 
-Polybase는 쿼리에 가장 적합한 선택이 아닙니다. 전용 SQL 풀의 Polybase 테이블은 현재 Azure blob 파일 및 Azure Data Lake 저장소만 지원 합니다. 이러한 파일에는 지원 컴퓨팅 리소스가 없습니다. 따라서 전용 SQL 풀은이 작업을 오프 로드할 수 없으며 데이터를 읽을 수 있도록 tempdb로 로드 하 여 전체 파일을 읽어야 합니다.
+Polybase는 쿼리에 가장 적합한 선택이 아닙니다. 전용 SQL 풀용 Polybase 테이블은 현재 Azure Blob 파일 및 Azure Data Lake 스토리지만 지원합니다. 이러한 파일에는 지원 컴퓨팅 리소스가 없습니다. 따라서 전용 SQL 풀은 이 작업을 오프로드할 수 없으며 데이터를 읽을 수 있도록 tempdb로 로드하여 전체 파일을 읽어야 합니다.
 
 이 데이터한 쿼리가 여러 개 있는 경우 이 데이터를 한 번 로드한 후 쿼리에서 로컬 테이블을 사용하는 것이 더 좋습니다. 자세한 Polybase 지침은 [PolyBase 사용 가이드](data-loading-best-practices.md) 문서에 포함되어 있습니다.
 
@@ -98,9 +98,9 @@ Polybase는 쿼리에 가장 적합한 선택이 아닙니다. 전용 SQL 풀의
 
 ## <a name="do-not-over-partition"></a>과도한 분할 피하기
 
-데이터를 분할하면 파티션 전환 또는 파티션 제거로 스캔 최적화를 통해 데이터를 효율적으로 유지 관리할 수 있지만, 과도하게 분할하면 쿼리 속도가 느려질 수 있습니다.  경우에 따라 SQL Server에서 잘 작동할 수 있는 높은 세분성 분할 전략이 전용 SQL 풀에서 제대로 작동 하지 않을 수 있습니다.  
+데이터를 분할하면 파티션 전환 또는 파티션 제거로 스캔 최적화를 통해 데이터를 효율적으로 유지 관리할 수 있지만, 과도하게 분할하면 쿼리 속도가 느려질 수 있습니다.  경우에 따라 SQL Server에서는 잘 작동할 수 있는 세분성 높은 분할 전략이 전용 SQL 풀에서 제대로 작동하지 않을 수 있습니다.  
 
-파티션이 너무 많으면 각 파티션에 100만 개 미만의 행이 포함된 경우 클러스터형 columnstore 인덱스의 효율성이 떨어질 수 있습니다. 전용 SQL 풀은 데이터를 60 데이터베이스로 자동 분할 합니다. 따라서 100개 파티션을 포함하는 테이블을 만드는 경우 결과적으로 6,000개의 파티션이 생성됩니다. 각 워크로드가 서로 다르므로 가장 좋은 방법은 분할 실험을 통해 사용자의 워크로드에 가장 적합한 방법을 찾는 것입니다.  
+파티션이 너무 많으면 각 파티션에 100만 개 미만의 행이 포함된 경우 클러스터형 columnstore 인덱스의 효율성이 떨어질 수 있습니다. 전용 SQL 풀은 데이터를 자동으로 60개 데이터베이스로 분할합니다. 따라서 100개 파티션을 포함하는 테이블을 만드는 경우 결과적으로 6,000개의 파티션이 생성됩니다. 각 워크로드가 서로 다르므로 가장 좋은 방법은 분할 실험을 통해 사용자의 워크로드에 가장 적합한 방법을 찾는 것입니다.  
 
 SQL Server를 사용하여 구현한 것보다 낮은 세분성을 사용하는 옵션을 고려해 볼 수 있습니다. 예를 들어 매일 분할보다는 매주 또는 매달 분할을 고려해 볼 수 있습니다.
 
@@ -138,7 +138,7 @@ DDL을 정의할 때, 이 과정에서 데이터를 지원하는 가장 작은 �
 
 ## <a name="use-temporary-heap-tables-for-transient-data"></a>임시 데이터에 대해 임시 힙 테이블 사용
 
-전용 SQL 풀에서 일시적으로 데이터를 방문 하는 경우 힙 테이블은 일반적으로 전체 프로세스를 빠르게 수행 합니다.  추가 변환을 실행하기 전의 준비 과정으로만 데이터를 로드하는 경우에는 힙 테이블에 테이블을 로드하는 것이 클러스터형 columnstore 테이블에 데이터를 로드하는 것보다 빠릅니다.  
+전용 SQL 풀에서 일시적으로 데이터를 가져올 때 힙 테이블을 사용하면 일반적으로 전체 프로세스가 더 빨라집니다.  추가 변환을 실행하기 전의 준비 과정으로만 데이터를 로드하는 경우에는 힙 테이블에 테이블을 로드하는 것이 클러스터형 columnstore 테이블에 데이터를 로드하는 것보다 빠릅니다.  
 
 데이터를 임시 테이블에 로드하면 테이블을 영구 스토리지에 로드할 때보다 훨씬 빠르게 로드됩니다.  임시 테이블은 "#"으로 시작되고 해당 테이블을 만든 세션에서만 액세스할 수 있으므로 제한된 시나리오에서만 작동할 수 있습니다. 힙 테이블은 CREATE TABLE의 WITH 절에 정의됩니다.  임시 테이블을 사용하는 경우 해당 임시 테이블에서도 통계를 작성해야 합니다.
 
@@ -146,13 +146,13 @@ DDL을 정의할 때, 이 과정에서 데이터를 지원하는 가장 작은 �
 
 ## <a name="optimize-clustered-columnstore-tables"></a>클러스터형 Columnstore 테이블 최적화
 
-클러스터형 columnstore 인덱스는 전용 SQL 풀에 데이터를 저장할 수 있는 가장 효율적인 방법 중 하나입니다.  기본적으로 전용 SQL 풀의 테이블은 클러스터형 ColumnStore로 생성 됩니다.  columnstore 테이블에서 쿼리에 대해 최상의 성능을 얻으려면 좋은 세그먼트 품질을 갖는 것이 중요합니다.  메모리 부족 상황에서 행이 columnstore 테이블에 기록되는 경우 columnstore 세그먼트 품질이 저하될 수 있습니다.  
+클러스터형 columnstore 인덱스는 전용 SQL 풀에 데이터를 저장할 수 있는 가장 효율적인 방법 중 하나입니다.  기본적으로 전용 SQL 풀의 테이블은 클러스터형 ColumnStore로 만들어집니다.  columnstore 테이블에서 쿼리에 대해 최상의 성능을 얻으려면 좋은 세그먼트 품질을 갖는 것이 중요합니다.  메모리 부족 상황에서 행이 columnstore 테이블에 기록되는 경우 columnstore 세그먼트 품질이 저하될 수 있습니다.  
 
 세그먼트 품질은 압축된 행 그룹에 있는 행의 수로 측정할 수 있습니다. 클러스터형 columnstore 테이블에 대해 세그먼트 품질을 감지하고 개선하는 단계별 지침은 [테이블 인덱스](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 문서의 [Columnstore 인덱스 품질 저하 원인](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#causes-of-poor-columnstore-index-quality)을 참조하세요.  
 
 고품질 columnstore 세그먼트가 중요하므로 데이터를 로드하기 위해서는 중간 규모 또는 대규모 리소스 클래스에 속하는 사용자 ID를 사용하는 것이 좋습니다. 낮은 [데이터 웨어하우스 단위](resource-consumption-models.md)를 사용하면 로드하는 사용자에게 더 큰 리소스 클래스를 할당하려는 것입니다.
 
-Columnstore 테이블은 일반적으로 테이블당 행 수가 100만 개를 초과하기 전에는 데이터를 압축된 columnstore 세그먼트로 푸시하지 않습니다. 각 전용 SQL 풀 테이블은 60 테이블로 분할 됩니다. 따라서 테이블의 행 수가 6천만 개 미만이면 columnstore 테이블을 사용해도 도움이 되지 않습니다.  
+Columnstore 테이블은 일반적으로 테이블당 행 수가 100만 개를 초과하기 전에는 데이터를 압축된 columnstore 세그먼트로 푸시하지 않습니다. 각 전용 SQL 풀 테이블은 60개 테이블로 분할됩니다. 따라서 테이블의 행 수가 6천만 개 미만이면 columnstore 테이블을 사용해도 도움이 되지 않습니다.  
 
 > [!TIP]
 > 행 수가 6천만 개 미만인 테이블에는 columstore 인덱스가 최적의 솔루션이 아닐 수 있습니다.  
@@ -161,7 +161,7 @@ Columnstore 테이블은 일반적으로 테이블당 행 수가 100만 개를 �
 
 테이블의 행 수가 60억 개 미만일 때 선택할 수 있는 두 가지 주요 옵션이 있습니다. 하나는 파티션 수를 줄이는 것이고, 다른 하나는 힙 테이블을 사용하는 것입니다.  columnstore 테이블 대신 보조 인덱스가 있는 힙 테이블을 사용하면 성능이 향상되는지 실험해 보는 것도 좋습니다.
 
-columnstore 테이블을 쿼리할 때 필요한 열만 선택하면 쿼리가 더 빨리 실행됩니다.  테이블 및 columnstore 인덱스에 대 한 자세한 내용은 다음 문서에서 찾을 수 있습니다.
+columnstore 테이블을 쿼리할 때 필요한 열만 선택하면 쿼리가 더 빨리 실행됩니다.  테이블 및 columnstore 인덱스에 대한 자세한 내용은 다음 문서에서 찾을 수 있습니다.
 - [테이블 인덱스](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Columnstore 인덱스 가이드](/sql/relational-databases/indexes/columnstore-indexes-overview?view=azure-sqldw-latest&preserve-view=true)
 - [Columnstore 인덱스 다시 빌드](../sql-data-warehouse/sql-data-warehouse-tables-index.md?view=azure-sqldw-latest&preserve-view=true#rebuilding-indexes-to-improve-segment-quality) 
@@ -183,7 +183,7 @@ SQL 풀은 메모리를 쿼리에 할당하는 방법으로 리소스 그룹을 
 
 ## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>DMV를 사용하여 쿼리 모니터링 및 최적화
 
-전용 SQL 풀에는 쿼리 실행을 모니터링 하는 데 사용할 수 있는 여러 Dmv가 있습니다.  아래의 모니터링 문서에서는 쿼리 실행 세부 정보를 살펴보는 방법에 대한 단계별 지침을 제공합니다.  이러한 DMV에서 쿼리를 신속하게 찾으려면 쿼리에 LABEL 옵션을 사용하는 것이 도움이 될 수 있습니다. 자세한 내용은 아래 목록의 문서를 참조하세요.
+전용 SQL 풀에는 쿼리 실행을 모니터링하는 데 사용할 수 있는 여러 DMV가 있습니다.  아래의 모니터링 문서에서는 쿼리 실행 세부 정보를 살펴보는 방법에 대한 단계별 지침을 제공합니다.  이러한 DMV에서 쿼리를 신속하게 찾으려면 쿼리에 LABEL 옵션을 사용하는 것이 도움이 될 수 있습니다. 자세한 내용은 아래 목록의 문서를 참조하세요.
 
 - [DMV를 사용하여 작업 모니터링](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
@@ -201,8 +201,8 @@ SQL 풀은 메모리를 쿼리에 할당하는 방법으로 리소스 그룹을 
 
 [문제 해결](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 문서에서 일반적인 문제 및 해결 방법을 확인하세요.
 
-이 문서에서 제공 하지 않는 정보가 필요한 경우 [Microsoft Q&Azure Synapse의 질문 페이지](/answers/topics/azure-synapse-analytics.html) 를 검색 하 여 다른 사용자와 Azure Synapse Analytics 제품 그룹에 대 한 질문을 할 수 있습니다.  
+이 문서에서 제공하지 않는 정보가 필요한 경우 [Azure Synapse에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-synapse-analytics.html)에서 다른 사용자와 Azure Synapse Analytics 제품 그룹에 궁금한 내용을 질문할 수 있습니다.  
 
-Microsoft는 이 포럼을 적극적으로 모니터링하여 사용자의 질문에 다른 사용자나 당사 직원이 응답하도록 합니다.  Stack Overflow에 대 한 질문을 하는 것을 선호 하는 경우 [Azure Synapse Analytics Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-synapse)도 있습니다.
+Microsoft는 이 포럼을 적극적으로 모니터링하여 사용자의 질문에 다른 사용자나 당사 직원이 응답하도록 합니다.  Stack Overflow에 질문하는 것을 선호하는 경우를 위해 [Azure Synapse Analytics Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-synapse)도 제공합니다.
 
-기능 요청에 대해서는 [Azure Synapse Analytics 피드백](https://feedback.azure.com/forums/307516-sql-data-warehouse) 페이지를 사용 하세요.  요청을 추가하거나 다른 요청을 추천해 주시면 저희가 가장 수요가 많은 기능에 집중하는 데 도움이 됩니다.
+기능 요청에 대해서는 [Azure Synapse Analytics 피드백](https://feedback.azure.com/forums/307516-sql-data-warehouse) 페이지를 사용하세요.  요청을 추가하거나 다른 요청을 추천해 주시면 저희가 가장 수요가 많은 기능에 집중하는 데 도움이 됩니다.

@@ -6,19 +6,19 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
 ms.openlocfilehash: fe5b2a1f083e246ea61854c9cbe03932e6655fdb
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104866593"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Apache Hadoop 서비스에 힙 덤프 사용
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
-힙 덤프는 덤프가 만들어질 당시의 변수 값을 비롯해 애플리케이션의 메모리에 대한 스냅샷을 포함합니다. 따라서 런타임에 발생 하는 문제를 진단 하는 데 유용 합니다.
+힙 덤프는 덤프가 만들어질 당시의 변수 값을 비롯해 애플리케이션의 메모리에 대한 스냅샷을 포함합니다. 따라서 런타임에 발생하는 문제를 진단하는 데 유용합니다.
 
-## <a name="services"></a>서비스
+## <a name="services"></a>Services
 
 다음 서비스에 힙 덤프를 사용할 수 있습니다.
 
@@ -34,7 +34,7 @@ HDInsight에서 실행하는 map 및 reduce프로세스에 힙 덤프를 사용�
 
 힙 덤프를 사용하려면 서비스를 시작할 때 JVM으로 옵션(opts 또는 매개 변수라고도 함)을 전달합니다. 대부분의 [Apache Hadoop](https://hadoop.apache.org/) 서비스에서는 서비스를 시작하는 데 사용하는 셸 스크립트를 수정하여 이러한 옵션을 생략할 수 있습니다.
 
-각 스크립트에는 JVM에 전달 된 옵션을 포함 하는 **\* \_ OPTS** 에 대 한 내보내기가 있습니다. 예를 들어 **hadoop-env.sh** 스크립트에는 `export HADOOP_NAMENODE_OPTS=`로 시작하는 줄에 NameNode 서비스에 대한 옵션이 포함되어 있습니다.
+각 스크립트에는 JVM으로 전달되는 옵션이 포함된 **\*\_OPTS** 에 대한 내보내기가 있습니다. 예를 들어 **hadoop-env.sh** 스크립트에는 `export HADOOP_NAMENODE_OPTS=`로 시작하는 줄에 NameNode 서비스에 대한 옵션이 포함되어 있습니다.
 
 map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로세스이므로 서로 약간 다른 작업입니다. 각 map 또는 reduce 프로세스는 자식 컨테이너에서 실행되며, JVM 옵션이 포함된 두 가지 항목이 있습니다. **mapred-site.xml** 에 포함된 두 항목은 다음과 같습니다.
 
@@ -50,7 +50,7 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
 `-XX:+HeapDumpOnOutOfMemoryError`
 
-는 **+** 이 옵션이 사용 하도록 설정 되어 있음을 나타냅니다. 기본적으로 이 옵션은 사용하지 않도록 설정됩니다.
+**+** 는 이 옵션이 사용하도록 설정되었음을 나타냅니다. 기본적으로 이 옵션은 사용하지 않도록 설정됩니다.
 
 > [!WARNING]  
 > 덤프 파일은 용량이 클 수 있기 때문에 HDInsight의 Hadoop 서비스에는 기본적으로 힙 덤프가 사용되지 않습니다. 문제 해결을 위해 사용하도록 설정한 경우에는 문제를 재현하고 덤프 파일을 수집한 후 사용하지 않도록 설정해야 합니다.
@@ -86,11 +86,11 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
 3. **Filter...** 항목에 **opts** 를 입력합니다. 이 텍스트가 포함된 항목만 표시됩니다.
 
-    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png" alt-text="Apache Ambari 구성 필터링 된 목록":::
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png" alt-text="Apache Ambari 구성 필터링된 목록":::
 
-4. 힙 덤프를 사용 하도록 설정 하려는 서비스에 대 한 **\* \_ OPTS** 항목을 찾아서 사용 하도록 설정 하려는 옵션을 추가 합니다. 다음 그림에서는 **HADOOP\_NAMENODE\_OPTS** 항목에 `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/`를 추가했습니다.
+4. 힙 덤프를 사용할 서비스에 대한 **\*\_OPTS** 항목을 찾아서 사용할 옵션을 추가합니다. 다음 그림에서는 **HADOOP\_NAMENODE\_OPTS** 항목에 `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/`를 추가했습니다.
 
-    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png" alt-text="Apache Ambari hadoop-namenode-opts":::
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png" alt-text="Apache Ambari Hadoop-Namenode-opts":::
 
    > [!NOTE]  
    > map 또는 reduce 자식 프로세스에 힙 덤프를 사용할 경우 **mapreduce.admin.map.child.java.opts** 및 **mapreduce.admin.reduce.child.java.opts** 필드를 찾습니다.
@@ -103,13 +103,13 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
 6. 다시 시작해야 하는 각 서비스를 선택하고 **Service Actions** 단추를 사용하여 **Turn On Maintenance Mode** 를 지정합니다. 유지 관리 모드에서는 다시 시작할 때 서비스에서 경고가 표시되지 않습니다.
 
-    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png" alt-text="Hdi 유지 관리 모드 메뉴 설정":::
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png" alt-text="hdi 유지 관리 모드 메뉴 설정":::
 
 7. 유지 관리 모드를 설정한 후에는 **Restart** 단추를 사용하여 서비스에 대해 **Restart All Effected** 를 지정합니다.
 
-    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png" alt-text="Apache Ambari 모든 영향을 받는 항목 다시 시작":::
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png" alt-text="Apache Ambari의 Restart All Affected 항목":::
 
    > [!NOTE]  
-   > **다시 시작** 단추의 항목은 다른 서비스에서 다를 수 있습니다.
+   > **Restart** 단추의 항목은 서비스마다 다를 수 있습니다.
 
 8. 서비스가 다시 시작되면 **Service Actions** 단추를 사용하여 **Turn Off Maintenance Mode** 를 지정합니다. 그러면 Ambari에서 서비스에 대한 경고 모니터링을 재개합니다.

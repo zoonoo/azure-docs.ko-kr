@@ -17,10 +17,10 @@ ms.date: 03/15/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8b1a29b0f94c5009d0535ca92363c25ad5c6c884
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103493495"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 파일 공유를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성
@@ -47,22 +47,22 @@ SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP 중앙 �
 
 부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한 - Azure Resource Manager][networking-limits-azure-resource-manager]에서 "부하 분산 장치당 프라이빗 프런트 엔드 IP" 섹션을 참조하세요. 또한 Azure 부하 분산 장치의 기본 SKU 대신 [Azure 표준 Load Balancer SKU](../../../load-balancer/load-balancer-standard-availability-zones.md) 사용도 고려하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 다이어그램처럼 **파일 공유** 를 사용하는 한 SAP ASCS/SCS 인스턴스에 사용되는 WSFC 클러스터가 이미 구성되어 있어야 합니다.
 
 ![그림 1: 두 클러스터에 배포된 SAP ASCS/SCS 인스턴스 및 SOFS][sap-ha-guide-figure-8007]
 
-_**그림 1:** 두 클러스터에 배포 된 SAP ASCS/SCS 인스턴스 및 SOFS_
+_**그림 1:** 두 클러스터에 배포된 SAP ASCS/SCS 인스턴스 및 SOFS_
 
 > [!IMPORTANT]
 > 설치 프로그램은 다음 조건을 충족해야 합니다.
 > * SAP ASCS/SCS 인스턴스는 동일한 WSFC 클러스터를 공유해야 합니다.
 > * 서로 다른 SAP SID에 속한 서로 다른 SAP 글로벌 호스트 파일 공유는 동일한 SOFS 클러스터를 공유해야 합니다.
-> * SAP ASCS/SCS 인스턴스와 SOFS 공유가 동일한 클러스터에 결합 되지 않아야 합니다. 
+> * SAP ASCS/SCS 인스턴스와 SOFS 공유는 동일한 클러스터에서 결합되지 않아야 합니다. 
 > * 각 DBMS(데이터베이스 관리 시스템) SID에는 해당하는 고유한 전용 WSFC 클러스터가 있어야 합니다.
 > * 하나의 SAP 시스템 SID에 속하는 SAP 애플리케이션 서버에는 고유한 전용 VM이 있어야 합니다.
-> * 동일한 클러스터에서 큐에 넣기 복제 서버 1과 큐에 넣기 복제 서버 2를 함께 사용할 수 없습니다.  
+> * 동일한 클러스터에서 큐에 넣기 복제 서버 1과 큐에 넣기 복제 서버 2를 함께 사용하는 것은 지원되지 않습니다.  
 
 ## <a name="sap-ascsscs-multi-sid-architecture-with-file-share"></a>파일 공유를 사용하는 SAP ASCS 다중 SID 아키텍처
 
@@ -70,19 +70,19 @@ _**그림 1:** 두 클러스터에 배포 된 SAP ASCS/SCS 인스턴스 및 SOFS
 
 ![그림 2: 두 클러스터에 SAP 다중 SID 구성][sap-ha-guide-figure-8008]
 
-_**그림 2:** 두 클러스터의 SAP 다중 SID 구성_
+_**그림 2:** 두 클러스터에 SAP 다중 SID 구성_
 
-추가 **SAP \<SID2>** 시스템의 설치는 한 시스템의 설치와 동일 합니다 \<SID> . ASCS/SCS 클러스터 및 파일 공유 SOFS 클러스터에서 두 개의 추가 준비 단계가 필요합니다.
+추가 **SAP \<SID2>** 시스템을 설치하는 방법은 한 \<SID> 시스템을 설치하는 방법과 동일합니다. ASCS/SCS 클러스터 및 파일 공유 SOFS 클러스터에서 두 개의 추가 준비 단계가 필요합니다.
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>SAP 다중 SID 시나리오에 대한 인프라 준비
 
 ### <a name="prepare-the-infrastructure-on-the-domain-controller"></a>도메인 컨트롤러에서 인프라 준비
 
-도메인 그룹 **\<Domain> \ SAP_ \<SID2> _GlobalAdmin**(예:를 사용 하 여 \<SID2> = p r 2)를 만듭니다. 도메인 그룹 이름은 \<Domain> \ SAP_PR2_GlobalAdmin입니다.
+예를 들어 \<SID2> = PR2를 사용하여 **\<Domain>\SAP_\<SID2>_GlobalAdmin** 도메인 그룹을 만듭니다. 도메인 그룹 이름은 \<Domain>\SAP_PR2_GlobalAdmin입니다.
 
 ### <a name="prepare-the-infrastructure-on-the-ascsscs-cluster"></a>ASCS/SCS 클러스터에서 인프라 준비
 
-두 번째 SAP의 경우 기존 ASCS/SCS 클러스터에서 인프라를 준비 해야 합니다 \<SID> .
+기존 ASCS/SCS 클러스터에서 두 번째 SAP \<SID>에 대한 인프라를 준비해야 합니다.
 
 * DNS 서버에서 클러스터형 SAP ASCS/SCS 인스턴스의 가상 호스트 이름을 만듭니다.
 * PowerShell을 사용하여 기존 Azure 내부 부하 분산 장치에 IP 주소를 추가합니다.
@@ -92,22 +92,22 @@ _**그림 2:** 두 클러스터의 SAP 다중 SID 구성_
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>기존 SAP 글로벌 호스트를 사용하여 SOFS 클러스터에서 인프라 준비
 
-\<SAPGlobalHost>첫 번째 SAP 시스템의 기존 및 Volume1를 다시 사용할 수 있습니다 \<SID1> .
+첫 번째 SAP \<SID1> 시스템의 기존 \<SAPGlobalHost> 및 Volume1을 다시 사용할 수 있습니다.
 
 ![그림 3: 다중 SID SOFS가 SAP 글로벌 호스트 이름과 같음][sap-ha-guide-figure-8014]
 
 _**그림 3:** 다중 SID SOFS가 SAP 글로벌 호스트 이름과 같음_
 
 > [!IMPORTANT]
->두 번째 **SAP \<SID2>** 시스템의 경우 동일한 Volume1와 동일한 **\<SAPGlobalHost>** 네트워크 이름이 사용 됩니다.
->**SAPMNT** 를 다양 한 SAP 시스템의 공유 이름으로 이미 설정 했기 때문에 네트워크 이름을 다시 사용 하려면 **\<SAPGlobalHost>** 동일한 **Volume1** 를 사용 해야 합니다.
+>두 번째 **SAP \<SID2>** 시스템의 경우 동일한 Volume1 및 동일한 **\<SAPGlobalHost>** 네트워크 이름이 사용됩니다.
+>이미 다양한 SAP 시스템의 공유 이름으로 **SAPMNT** 를 설정했으므로 **\<SAPGlobalHost>** 네트워크 이름을 다시 사용하려면 동일한 **Volume1** 을 사용해야 합니다.
 >
->전역 호스트의 파일 경로는 \<SID2> C:\ClusterStorage \\ **Volume1**\usr\sap \<SID2> \sys입니다.\.
+>\<SID2> 글로벌 호스트의 파일 경로는 C:\ClusterStorage\\**Volume1**\usr\sap\<SID2>\SYS\.입니다.
 >
 
-시스템의 경우 \<SID2> SAP 글로벌 호스트를 준비 해야 합니다. \SYS \. . 폴더를 준비해야 합니다.
+\<SID2> 시스템의 경우 SAP 글로벌 호스트 ..\SYS\.를 준비해야 합니다. 폴더를 준비해야 합니다.
 
-인스턴스에 대 한 SAP 글로벌 호스트를 준비 하려면 \<SID2> 다음 PowerShell 스크립트를 실행 합니다.
+\<SID2> 인스턴스에 대한 SAP 글로벌 호스트를 준비하려면 다음 PowerShell 스크립트를 실행합니다.
 
 
 ```powershell
@@ -158,13 +158,13 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ### <a name="prepare-the-infrastructure-on-the-sofs-cluster-by-using-a-different-sap-global-host"></a>다른 SAP 글로벌 호스트를 사용하여 SOFS 클러스터에서 인프라 준비
 
-두 번째 SOFS (예:를 사용 하 여 두 번째 SOFS 클러스터 역할을, **\<SAPGlobalHost2>** 두 번째는 다른 **Volume2** )를 구성할 수 있습니다 **\<SID2>** .
+두 번째 SOFS를 구성할 수 있습니다(예: 두 번째 **\<SID2>** 에 대해 **\<SAPGlobalHost2>** 및 다른 **Volume2** 를 사용하여 두 번째 SOFS 클러스터 역할 구성).
 
 ![그림 4: 다중 SID SOFS가 SAP 글로벌 호스트 이름 2와 같음][sap-ha-guide-figure-8015]
 
 _**그림 4:** 다중 SID SOFS가 SAP 글로벌 호스트 이름 2와 같음_
 
-를 사용 하 여 두 번째 SOFS 역할을 만들려면 \<SAPGlobalHost2> 다음 PowerShell 스크립트를 실행 합니다.
+\<SAPGlobalHost2>로 두 번째 SOFS 역할을 만들려면 다음 PowerShell 스크립트를 실행합니다.
 
 ```powershell
 # Create SOFS with SAP Global Host Name 2
@@ -182,7 +182,7 @@ New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_
 
 _**그림 5:** 장애 조치(Failover) 클러스터 관리자의 두 번째 Volume2_
 
-두 번째에 대 한 SAP 글로벌 폴더 \<SID2> 를 만들고 파일 보안을 설정 합니다.
+두 번째 \<SID2>에 대한 SAP 글로벌 폴더를 만들고 파일 보안을 설정합니다.
 
 이 PowerShell 스크립트를 실행합니다.
 
@@ -225,7 +225,7 @@ $Acl.SetAccessRule($Ar)
 Set-Acl $UsrSAPFolder $Acl -Verbose
 ```
 
-두 번째 SAP의 호스트 이름을 사용 하 여 Volume2에 SAPMNT 파일 공유를 만들려면 *\<SAPGlobalHost2>* \<SID2> 장애 조치(Failover) 클러스터 관리자에서 **파일 공유 추가** 마법사를 시작 합니다.
+두 번째 SAP \<SID2>에 대해 *\<SAPGlobalHost2>* 호스트 이름을 사용하여 Volume2에 SAPMNT 파일 공유를 만들려면 장애 조치(Failover) 클러스터 관리자에서 **파일 공유 추가** 마법사를 시작합니다.
 
 **saoglobal2** SOFS 클러스터 그룹을 마우스 오른쪽 단추로 클릭하고 **파일 공유 추가** 를 선택합니다.
 
@@ -235,7 +235,7 @@ _**그림 6:** "파일 공유 추가" 마법사 시작_
 
 <br>
 
-![그림 7: "SMB 공유 – 빠른 선택"][sap-ha-guide-figure-8018]
+![그림 7: "SMB 공유 – 빠르게" 선택][sap-ha-guide-figure-8018]
 
 _**그림 7:** "SMB 공유 – 빠르게" 선택_
 
@@ -249,7 +249,7 @@ _**그림 8:** "sapglobalhost2"를 선택하고 Volume2에 경로 지정_
 
 ![그림 9: 파일 공유 이름을 "sapmnt"로 설정][sap-ha-guide-figure-8020]
 
-_**그림 9:** 파일 공유 이름을 "sapmnt"로 설정 합니다._
+_**그림 9:** 파일 공유 이름을 "sapmnt"로 설정_
 
 <br>
 
@@ -260,7 +260,7 @@ _**그림 10:** 모든 설정 사용 안 함_
 <br>
 
 다음에 대해 *모든 권한* 을 파일 및 sapmnt 공유에 할당합니다.
-* **SAP_ \<SID> _GlobalAdmin** 도메인 사용자 그룹
+* **SAP_\<SID>_GlobalAdmin** 도메인 사용자 그룹
 * ASCS/SCS 클러스터 노드 **ascs-1$** 및 **ascs-2$** 의 컴퓨터 개체
 
 ![그림 11: 사용자 그룹 및 컴퓨터 계정에 대한 모든 권한 할당][sap-ha-guide-figure-8022]
@@ -283,9 +283,9 @@ _**그림 13:** 두 번째 sapmnt가 sapglobal2 호스트에 바인딩되고 Vol
 
 ## <a name="install-sap-netweaver-multi-sid"></a>SAP NetWeaver 다중 SID 설치
 
-### <a name="install-sap-sid2-ascsscs-and-ers-instances"></a>SAP \<SID2> ascs/SCS 및 ERS 인스턴스 설치
+### <a name="install-sap-sid2-ascsscs-and-ers-instances"></a>SAP \<SID2> ASCS/SCS 및 ERS 인스턴스 설치
 
-한 SAP에 대해 앞에서 설명한 것과 동일한 설치 및 구성 단계를 따릅니다 \<SID> .
+한 SAP \<SID>에 대해 설명된 것과 동일한 설치 및 구성 단계를 따릅니다.
 
 ### <a name="install-dbms-and-sap-application-servers"></a>DBMS 및 SAP 애플리케이션 서버 설치
 앞에서 설명한 대로 DBMS 및 SAP 애플리케이션 서버를 설치합니다.
@@ -296,7 +296,7 @@ _**그림 13:** 두 번째 sapmnt가 sapglobal2 호스트에 바인딩되고 Vol
 
 * [Windows Server 2016의 저장소 공간 다이렉트][s2d-in-win-2016]
 
-* [응용 프로그램 데이터를 위한 스케일 아웃 파일 서버 개요][sofs-overview]
+* [애플리케이션 데이터에 대한 스케일 아웃 파일 서버 개요][sofs-overview]
 
 * [Windows Server 2016 스토리지의 새로운 기능][new-in-win-2016-storage]
 

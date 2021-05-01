@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
 ms.openlocfilehash: 2216eb5893b77761f4d31c5819d152ceeb985abc
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104869653"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka에서 Azure Kubernetes Service 사용
@@ -89,9 +89,9 @@ AKS 클러스터가 아직 없으면 다음 문서 중 하나를 사용하여 �
 
     |속성 |값 |
     |---|---|
-    |에서 \<this VN> 원격 가상 네트워크로의 피어 링 이름|피어링 구성에 대한 고유 이름을 입력합니다.|
+    |\<this VN>에서 원격 가상 네트워크로의 피어링 이름|피어링 구성에 대한 고유 이름을 입력합니다.|
     |가상 네트워크|**AKS 클러스터** 의 가상 네트워크를 선택합니다.|
-    |에서로의 피어 링 이름 \<AKS VN>\<this VN>|고유한 이름을 입력합니다.|
+    |\<AKS VN>에서 \<this VN>(으)로의 피어링 이름|고유한 이름을 입력합니다.|
 
     다른 필드는 모두 기본값으로 남겨두고 __확인__ 을 선택하여 피어링을 구성합니다.
 

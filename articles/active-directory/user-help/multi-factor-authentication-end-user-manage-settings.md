@@ -13,10 +13,10 @@ ms.topic: end-user-help
 ms.date: 07/06/2020
 ms.author: curtand
 ms.openlocfilehash: e0a6c566e8e0dfb77b5899f735020d0f1facf3d1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88798383"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>2단계 인증 방법 및 설정 변경
@@ -88,7 +88,7 @@ ms.locfileid: "88798383"
 
 1. **추가 보안 인증** 페이지의 **어떤 방법으로 응답하시겠습니까?** 섹션에서 **인증 전화**(기본 모바일 디바이스) 및 **사무실 전화** 의 전화 번호 정보를 업데이트합니다.
 
-1. **대체 인증 전화** 옵션 옆의 상자를 선택 하 고 기본 장치에 액세스할 수 없는 경우 전화 통화를 받을 수 있는 보조 전화 번호를 입력 합니다.
+1. **대체 인증 전화** 옵션 옆에 있는 확인란을 선택한 후, 기본 디바이스에 액세스할 수 없는 경우 전화를 받을 수 있는 보조 전화 번호를 입력합니다.
 
 1. **저장** 을 선택합니다.
 

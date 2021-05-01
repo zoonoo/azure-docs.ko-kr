@@ -6,25 +6,25 @@ ms.author: markscu
 ms.date: 03/15/2021
 ms.topic: how-to
 ms.openlocfilehash: 86ea4ce4d596875e455d7b86250882713a14337f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104720154"
 ---
 # <a name="check-for-pool-and-node-errors"></a>풀 및 노드 오류 확인
 
-Azure Batch 풀을 만들고 관리할 때 일부 작업은 즉시 수행됩니다. 이러한 작업에 대 한 오류 검색은 API, CLI 또는 UI에서 즉시 반환 되기 때문에 일반적으로 간단 합니다. 그러나 일부 작업은 비동기적으로 백그라운드에서 실행되어 완료되는 데 몇 분 정도 걸릴 수 있습니다.
+Azure Batch 풀을 만들고 관리할 때 일부 작업은 즉시 수행됩니다. 이러한 작업에서는 실패를 쉽게 검색할 수 있습니다. API, CLI 또는 UI에서 실패가 즉시 반환되기 때문입니다. 그러나 일부 작업은 비동기적으로 백그라운드에서 실행되어 완료되는 데 몇 분 정도 걸릴 수 있습니다.
 
-특히 비동기 작업에 대 한 포괄적인 오류 검사를 구현 하도록 응용 프로그램을 설정 했는지 확인 합니다. 이를 통해 문제를 신속 하 게 식별 하 고 진단할 수 있습니다.
+특히 비동기 작업에 대해 포괄적인 오류 검사를 구현하도록 애플리케이션을 설정했는지 확인합니다. 이를 통해 문제를 신속하게 식별 및 진단할 수 있습니다.
 
-이 문서에서는 풀 및 풀 노드에 발생할 수 있는 백그라운드 작업에서 오류를 감지 하 고 방지 하는 방법을 설명 합니다.
+이 문서에서는 풀 및 풀 노드에 발생할 수 있는 백그라운드 작업에서 실패를 감지 및 방지하는 방법을 설명합니다.
 
 ## <a name="pool-errors"></a>풀 오류
 
 ### <a name="resize-timeout-or-failure"></a>크기 조정 시간 제한 또는 오류
 
-새 풀을 만들거나 기존 풀의 크기를 조정할 때는 노드의 대상 수를 지정합니다. 작업은 즉시 완료되지만 새 노드의 실제 할당 또는 기존 노드의 제거에는 몇 분 정도 걸릴 수 있습니다. [만들기](/rest/api/batchservice/pool/add) 또는 [크기 조정](/rest/api/batchservice/pool/resize) API에서 크기 조정 제한 시간을 지정할 수 있습니다. 일괄 처리 제한 시간 동안 일괄 처리에서 대상 노드 수를 가져올 수 없는 경우 풀이 안정 된 상태로 전환 되 고 크기 조정 오류가 보고 됩니다.
+새 풀을 만들거나 기존 풀의 크기를 조정할 때는 노드의 대상 수를 지정합니다. 작업은 즉시 완료되지만 새 노드의 실제 할당 또는 기존 노드의 제거에는 몇 분 정도 걸릴 수 있습니다. [create](/rest/api/batchservice/pool/add) 또는 [resize](/rest/api/batchservice/pool/resize) API에서 크기 조정 시간 제한을 지정할 수 있습니다. 크기 조정 시간 제한 동안 Batch에서 목표 노드 수를 가져올 수 없는 경우 풀이 안정된 상태가 되고 크기 조정 오류가 보고됩니다.
 
 가장 최근 평가의 [ResizeError](/rest/api/batchservice/pool/get#resizeerror) 속성은 발생한 오류를 나열합니다.
 
@@ -44,30 +44,30 @@ Azure Batch 풀을 만들고 관리할 때 일부 작업은 즉시 수행됩니�
 
 ### <a name="automatic-scaling-failures"></a>자동 크기 조정 실패
 
-풀의 노드 수를 자동으로 조정 하도록 Azure Batch를 설정할 수 있습니다. [풀의 자동 크기 조정 수식](./batch-automatic-scaling.md)에 대한 매개 변수를 정의합니다. 그런 다음 Batch 서비스는 수식을 사용 하 여 풀의 노드 수를 정기적으로 평가 하 고 새 대상 번호를 설정 합니다.
+풀의 노드 수를 자동으로 조정하도록 Azure Batch를 설정할 수 있습니다. [풀의 자동 크기 조정 수식](./batch-automatic-scaling.md)에 대한 매개 변수를 정의합니다. Batch 서비스는 이 수식을 사용하여 풀의 노드 수를 정기적으로 평가하고 새 목표 개수를 설정합니다.
 
-자동 크기 조정을 사용 하는 경우 다음과 같은 문제가 발생할 수 있습니다.
+자동 크기 조정을 사용하는 경우 다음 유형의 문제가 발생할 수 있습니다.
 
 - 자동 크기 조정 평가가 실패합니다.
 - 평가 결과에 따른 크기 조정 작업이 실패하고 시간이 초과됩니다.
 - 자동 크기 조정 수식에 문제가 있으면 노드 대상 값이 잘못됩니다. 크기 조정이 작동하거나 시간이 초과됩니다.
 
-마지막 자동 크기 조정 계산에 대 한 정보를 가져오려면 [cloudpool.autoscalerun](/rest/api/batchservice/pool/get#autoscalerun) 속성을 사용 합니다. 이 속성은 평가 시간, 값과 결과, 성능 오류를 보고합니다.
+[autoScaleRun](/rest/api/batchservice/pool/get#autoscalerun) 속성을 사용하여 마지막 자동 크기 조정 평가에 대한 정보 얻기. 이 속성은 평가 시간, 값과 결과, 성능 오류를 보고합니다.
 
 [풀 크기 조정 완료 이벤트](./batch-pool-resize-complete-event.md)는 모든 평가 정보를 캡처합니다.
 
-### <a name="pool-deletion-failures"></a>풀 삭제 실패
+### <a name="pool-deletion-failures"></a>큐 삭제 실패
 
-노드를 포함하는 풀을 삭제하면 Batch는 먼저 노드를 삭제합니다. 이 작업을 완료하는 데 몇 분 정도 걸릴 수 있습니다. 그런 다음 Batch는 풀 개체 자체를 삭제 합니다.
+노드를 포함하는 풀을 삭제하면 Batch는 먼저 노드를 삭제합니다. 이 작업을 완료하는 데 몇 분 정도 걸릴 수 있습니다. 그런 다음 Batch는 풀 개체 자체를 삭제합니다.
 
 삭제 프로세스 중에 Batch는 [풀 상태](/rest/api/batchservice/pool/get#poolstate)를 **deleting** 으로 설정합니다. 호출 애플리케이션은 **state** 및 **stateTransitionTime** 속성을 사용하여 풀 삭제가 너무 오래 걸리는지를 검색할 수 있습니다.
 
-풀이 예상 보다 오래 걸리고 있으면 풀을 삭제할 수 있을 때까지 일괄 처리가 정기적으로 다시 시도 됩니다. 경우에 따라 Azure 서비스 중단 또는 기타 일시적인 문제로 인해 지연이 발생 합니다. 풀을 삭제 하는 데 방해가 될 수 있는 다른 요소는 문제를 해결 하기 위한 조치를 취해야 할 수 있습니다. 이러한 요소에는 다음이 포함 됩니다.
+풀이 예상 보다 오래 걸리고 있으면 Batch는 풀이 성공적으로 삭제될 수 있을 때까지 정기적으로 다시 시도됩니다. 경우에 따라 Azure 서비스 중단 또는 기타 일시적인 문제로 인해 지연이 발생합니다. 풀을 삭제하는 데 방해가 될 수 있는 기타 요소는 문제를 해결을 위한 작업 실시를 필요로 할 수 있습니다. 이러한 파일은 다음과 같습니다.
 
-- 리소스 잠금은 일괄 처리에서 만든 리소스 또는 일괄 처리에 사용 되는 네트워크 리소스에 배치 됩니다.
-- 만든 리소스는 일괄 생성 된 리소스에 대 한 종속성이 있습니다. 예를 들어 [가상 네트워크에서 풀을 만드는](batch-virtual-network.md)경우 BATCH는 nsg (네트워크 보안 그룹), 공용 IP 주소 및 부하 분산 장치를 만듭니다. 풀 외부에서 이러한 리소스를 사용 하는 경우에는 해당 종속성이 제거 될 때까지 풀을 삭제할 수 없습니다.
-- Microsoft.Batch 리소스 공급자가 풀을 포함 하는 구독에서 등록 취소 되었습니다.
-- "Microsoft Azure Batch"에는 사용자 구독 모드 배치 계정에 대 한 풀을 포함 하는 구독에 대 한 [참가자 또는 소유자 역할이](batch-account-create-portal.md#allow-azure-batch-to-access-the-subscription-one-time-operation) 더 이상 없습니다.
+- 리소스 잠금은 Batch에서 만든 리소스 또는 Batch가 사용하는 네트워크 리소스에 배치됩니다.
+- 만들어진 리소스는 Batch에서 만든 리소스에 대한 종속성이 있습니다. 예를 들어 [가상 네트워크에서 풀을 만드는](batch-virtual-network.md) 경우 BATCH는 네트워크 보안 그룹(NSG), 공용 IP 주소 및 부하 분산 디바이스를 만듭니다. 풀 외부에서 이러한 리소스를 사용하는 경우에는 해당 종속성이 제거 될 때까지 풀을 삭제할 수 없습니다.
+- Microsoft.Batch 리소스 공급자가 풀을 포함하는 구독에서 등록 취소되었습니다.
+- "Microsoft Azure Batch"에는 사용자 구독 모드 배치 계정에 대한 풀을 포함하는 구독에 대한 [참가자 또는 소유자 역할](batch-account-create-portal.md#allow-azure-batch-to-access-the-subscription-one-time-operation)이 더 이상 없습니다.
 
 ## <a name="node-errors"></a>노드 오류
 
@@ -83,7 +83,7 @@ Batch가 풀의 노드를 성공적으로 할당하더라도 다양한 문제로
 
 시작 작업이 실패하면 **waitForSuccess** 가 **true** 로 설정된 경우에도 Batch는 노드 [state](/rest/api/batchservice/computenode/get#computenodestate)를 **starttaskfailed** 로 설정합니다.
 
-모든 작업과 마찬가지로 작업을 시작 하는 데 실패 하는 원인은 여러 가지가 있을 수 있습니다. 문제를 해결하려면 stdout, stderr 및 추가 작업 관련 로그 파일을 확인합니다.
+일반적인 작업과 마찬가지로 시작 작업 역시 여러 가지 원인으로 인해 실패할 수 있습니다. 문제를 해결하려면 stdout, stderr 및 추가 작업 관련 로그 파일을 확인합니다.
 
 시작 태스크는 동일한 노드에서 여러 번 실행될 수 있으므로 재진입성이 있어야 합니다. 노드가 이미지로 다시 설치되거나 다시 부팅되면 시작 태스크가 실행됩니다. 드물지만 이벤트에 의해 노드가 다시 부팅되었는데 운영 체제 또는 임시 디스크 중 하나가 이미지로 다시 설치되었지만 다른 하나는 삭제되지 않은 경우 시작 태스크가 실행됩니다. Batch 시작 태스크(예: 모든 Batch 태스크)는 임시 디스크에서 실행되므로 일반적으로 문제가 되지 않지만, 시작 태스크가 운영 체제 디스크에 애플리케이션을 설치하고 다른 데이터를 임시 디스크에 유지하는 경우에는 데이터가 동기화되지 않기 때문에 문제가 발생할 수 있습니다. 두 디스크를 모두 사용하는 경우 애플리케이션을 적절히 보호하세요.
 
@@ -99,7 +99,7 @@ Batch가 풀의 노드를 성공적으로 할당하더라도 다양한 문제로
 
 ### <a name="node-os-updates"></a>노드 OS 업데이트
 
-Windows 풀의 경우 `enableAutomaticUpdates` 은 기본적으로로 설정 됩니다 `true` . 자동 업데이트를 허용 하는 것이 좋지만 특히 작업이 장기 실행 되는 경우 작업 진행률을 중단할 수 있습니다. `false`OS 업데이트가 예기치 않게 발생 하지 않는지 확인 해야 하는 경우이 값을로 설정할 수 있습니다.
+Windows 풀의 경우 `enableAutomaticUpdates`은 기본적으로 `true`로 설정됩니다. 자동 업데이트를 허용하는 것이 좋지만 특히 작업이 장기 실행되는 경우 작업 진행률을 중단할 수 있습니다. OS 업데이트가 예기치 않게 발생하지 않는지 확인해야 하는 경우 이 값을 `false`로 설정할 수 있습니다.
 
 ### <a name="node-in-unusable-state"></a>unusable 상태의 노드
 
@@ -124,7 +124,7 @@ Batch가 원인을 확인할 수 있으면 노드 [errors](/rest/api/batchservic
 
 ### <a name="node-disk-full"></a>노드 디스크가 가득 참
 
-풀 노드 VM의 임시 드라이브는 작업 파일, 태스크 파일 및 공유 파일에 대 한 Batch에서 다음과 같이 사용 됩니다.
+Batch는 풀 노드 VM의 임시 드라이브를 다음과 같은 작업 파일, 태스크 파일 및 공유 파일용으로 사용합니다.
 
 - 애플리케이션 패키지 파일
 - 태스크 리소스 파일
@@ -136,26 +136,26 @@ Batch가 원인을 확인할 수 있으면 노드 [errors](/rest/api/batchservic
 
 다른 파일은 stdout, stderr 등의 노드에서 실행되는 각 태스크에 대해 기록됩니다. 동일한 노드에서 많은 작업을 실행하거나 태스크 파일이 너무 클 경우 임시 드라이브가 가득 찰 수 있습니다.
 
-또한 노드가 시작 된 후 사용자를 만들기 위해 운영 체제 디스크에 작은 공간이 필요 합니다.
+또한 노드가 시작된 후 사용자를 만들기 위해 운영 체제 디스크에 작은 공간이 필요합니다.
 
-임시 드라이브의 크기는 VM 크기에 따라 달라집니다. VM 크기를 선택할 때 고려해 야 할 한 가지 사항은 임시 드라이브에 계획 된 워크 로드를 위한 충분 한 공간이 있는지 확인 하는 것입니다.
+임시 드라이브의 크기는 VM 크기에 따라 달라집니다. VM 크기를 선택할 때는 임시 드라이브에 계획된 워크로드를 위한 충분한 공간이 있는지 확인해야 합니다.
 
 - Azure Portal에서 풀을 추가하면 VM 크기의 전체 목록이 표시되는데, 여기에는 '리소스 디스크 크기' 열이 있습니다.
 - 모든 VM 크기를 설명하는 문서에는 '임시 스토리지' 열이 있는 테이블이 있습니다(예: [컴퓨팅 최적화 VM 크기](../virtual-machines/sizes-compute.md)).
 
 각 태스크에 의해 기록된 파일의 경우 태스크 파일이 자동으로 정리되기 전에 유지되는 기간을 결정하는 보존 기간을 각 태스크별로 지정할 수 있습니다. 보존 기간을 축소하면 스토리지 요구량을 줄일 수 있습니다.
 
-임시 또는 운영 체제 디스크의 공간이 부족 하거나 (공간이 부족 하 여 디스크의 공간이 부족 한 경우) 노드가 [사용할](/rest/api/batchservice/computenode/get#computenodestate) 수 없는 상태로 전환 되 고 디스크가 꽉 차서 노드 오류가 보고 됩니다.
+임시 디스크의 공간이 부족하거나 공간이 얼마 남지 않은 경우 노드가 [사용할 수 없음](/rest/api/batchservice/computenode/get#computenodestate) 상태로 전환되고 디스크가 가득 찼다는 노드 오류가 보고됩니다.
 
-노드에서 공간을 차지 하 고 있는지 확실 하지 않은 경우에는 노드에 대 한 원격 기능을 사용해 보고 공간이 사라진 위치를 수동으로 조사 합니다. 또한 [Batch List Files API](/rest/api/batchservice/file/listfromcomputenode)를 사용하여 Batch 관리형 폴더의 파일(예: 태스크 출력)을 살펴볼 수도 있습니다. 이 API는 Batch 관리 디렉터리의 파일만 나열 합니다. 작업에서 다른 곳으로 파일을 만든 경우에는 표시 되지 않습니다.
+무엇이 노드에서 공간을 차지하고 있는지 확실하지 않은 경우에는 노드에 대한 원격 기능을 사용해 보고 공간이 사라진 위치를 수동으로 조사합니다. 또한 [Batch List Files API](/rest/api/batchservice/file/listfromcomputenode)를 사용하여 Batch 관리형 폴더의 파일(예: 태스크 출력)을 살펴볼 수도 있습니다. 이 API는 Batch 관리 디렉터리 내 파일을 나열만 한다는 점을 참고하십시오. 작업에서 다른 곳에 파일을 만든 경우에는 표시되지 않습니다.
 
-필요한 모든 데이터가 노드에서 검색 되었는지 또는 지속형 저장소에 업로드 되었는지 확인 한 다음 필요에 따라 데이터를 삭제 하 여 공간을 확보 합니다.
+필요한 모든 데이터가 노드에서 검색되었는지 또는 지속형 저장소에 업로드되었는지 확인한 다음 필요에 따라 데이터를 삭제하여 공간을 확보합니다.
 
-작업 데이터가 여전히 노드에 있는 이전 완료 된 작업 또는 이전에 완료 된 작업을 삭제할 수 있습니다. 노드의 [RecentTasks 컬렉션](/rest/api/batchservice/computenode/get#taskinformation) 또는 [노드의 파일](/rest/api/batchservice/file/listfromcomputenode)을 찾습니다. 작업을 삭제 하면 작업의 모든 태스크가 삭제 됩니다. 작업의 태스크를 삭제 하면 노드의 태스크 디렉터리에 있는 데이터를 트리거하여 삭제할 수 있으므로 공간이 확보 됩니다. 충분한 공간을 확보한 후에는 노드를 다시 부팅하세요. 그러면 "Unusable" 상태에서 "Idle" 상태로 다시 전환됩니다.
+이전에 완료된 작업 또는 이전에 완료된 태스크 중 태스크 데이터가 아직 노드에 남아 있는 항목을 삭제할 수 있습니다. 노드의 [RecentTasks 컬렉션](/rest/api/batchservice/computenode/get#taskinformation) 또는 [노드의 파일](/rest/api/batchservice/file/listfromcomputenode)을 살펴봅니다. 작업을 삭제하면 작업의 모든 태스크가 삭제되고, 작업의 태스크를 삭제하면 삭제할 노드의 태스크 디렉터리에 있는 데이터가 트리거되어 공간이 확보됩니다. 충분한 공간을 확보한 후에는 노드를 다시 부팅하세요. 그러면 "Unusable" 상태에서 "Idle" 상태로 다시 전환됩니다.
 
-[VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration) 풀에서 사용할 수 없는 노드를 복구 하려면 [노드 제거 API](/rest/api/batchservice/pool/removenodes)를 사용 하 여 풀에서 노드를 제거할 수 있습니다. 그런 다음, 풀을 다시 확장하여 잘못된 노드를 새 노드로 바꿀 수 있습니다. [CloudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration) 풀의 경우 [BATCH 다시 이미지 API](/rest/api/batchservice/computenode/reimage)를 통해 노드를 다시 이미지로 만들 수 있습니다. 그러면 전체 디스크가 정리 됩니다. [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration) 풀은 현재 이미지로 다시 설치할 수 없습니다.
+[VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration) 풀에서 사용할 수 없는 노드를 복구하려면 [노드 제거 API](/rest/api/batchservice/pool/removenodes)를 사용하여 풀에서 노드를 제거할 수 있습니다. 그런 다음, 풀을 다시 확장하여 잘못된 노드를 새 노드로 바꿀 수 있습니다. [CloudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration) 풀의 경우 [Batch 재이미징 API](/rest/api/batchservice/computenode/reimage)를 통해 노드를 재이미징 할 수 있습니다. 그러면 전체 디스크가 정리됩니다. [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration) 풀은 현재 이미지로 다시 설치할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [작업 및 태스크 오류 검사](batch-job-task-error-checking.md)에 대해 알아봅니다.
-- Azure Batch 사용에 대 한 [모범 사례](best-practices.md) 에 대해 알아봅니다.
+- [작업 및 태스크 오류 검사](batch-job-task-error-checking.md)에 대해 알아보기.
+- Azure Batch 사용에 대한 [모범 사례](best-practices.md)에 대해 알아보기.

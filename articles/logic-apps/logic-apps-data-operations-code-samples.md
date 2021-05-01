@@ -1,16 +1,16 @@
 ---
-title: 데이터 작업 사용에 대 한 코드 샘플
-description: 을 사용 하 여 만든 자동화 된 워크플로에서 데이터 작업을 사용 하는 방법을 보여 주는 다음 코드 샘플을 사용해 보세요 Azure Logic Apps
+title: 데이터 작업 사용에 대한 코드 샘플
+description: Azure Logic Apps로 만든 자동화된 워크플로에서 데이터 작업을 사용하는 방법을 보여 주는 다음 코드 샘플을 사용해보세요.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.openlocfilehash: c56c31bb6f56efb10808ce25b6b232089391e831
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84712448"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>Azure Logic Apps용 데이터 작업 코드 샘플

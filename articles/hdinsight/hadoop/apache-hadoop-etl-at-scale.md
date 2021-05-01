@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
 ms.openlocfilehash: f11b31ba698c193029834caada2e5c4cf3ef2902
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104866644"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>규모에 맞게 ETL(추출, 변환 및 로드)
@@ -45,7 +45,7 @@ Azure Data Factory를 사용하여 다음과 같은 작업을 수행할 수 있�
 
 1. 데이터 기반 워크플로를 만들고 예약. 파이프라인은 서로 다른 데이터 저장소에서 데이터를 수집합니다.
 1. HDInsight, Hadoop과 같은 컴퓨팅 서비스를 사용하여 데이터 처리 및 변환. 이 단계에서는 Spark, Azure Data Lake Analytics, Azure Batch 또는 Azure Machine Learning을 사용할 수도 있습니다.
-1. Azure Synapse Analytics와 같은 데이터 저장소에 출력 데이터를 게시 하 여 BI 응용 프로그램에서 사용할 수 있습니다.
+1. 사용할 BI 애플리케이션용 Azure Synapse Analytics와 같은 데이터 저장소에 출력 데이터를 게시합니다.
 
 Azure Data Factory에 대한 자세한 내용은 [이 설명서](../../data-factory/introduction.md)를 참조하세요.
 
@@ -83,9 +83,9 @@ Data Lake Storage는 Azure Event Hubs 또는 Apache Storm을 통한 이벤트 �
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-Azure Synapse Analytics는 준비 된 결과를 저장 하는 데 적절 한 선택입니다. Azure HDInsight를 사용 하 여 Azure Synapse Analytics에 대해 이러한 서비스를 수행할 수 있습니다.
+Azure Synapse Analytics는 준비된 결과를 저장하기에 적합한 옵션입니다. Azure HDInsight를 사용하여 Azure Synapse Analytics에 대해 해당 서비스를 수행할 수 있습니다.
 
-Azure Synapse Analytics는 분석 워크 로드에 최적화 된 관계형 데이터베이스 저장소입니다. Azure SQL Data Warehouse의 크기는 분할된 테이블에 따라 조정됩니다. 테이블은 여러 노드에 걸쳐 분할될 수 있습니다. 노드는 테이블을 만들 때 선택됩니다. 사후에 크기를 조정할 수 있지만, 이 경우 데이터 이동이 필요할 수 있는 활성 프로세스입니다. 자세한 내용은 [Azure Synapse Analytics에서 계산 관리](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)를 참조 하세요.
+Azure Synapse Analytics는 분석 워크로드에 최적화된 관계형 데이터베이스 저장소입니다. Azure SQL Data Warehouse의 크기는 분할된 테이블에 따라 조정됩니다. 테이블은 여러 노드에 걸쳐 분할될 수 있습니다. 노드는 테이블을 만들 때 선택됩니다. 사후에 크기를 조정할 수 있지만, 이 경우 데이터 이동이 필요할 수 있는 활성 프로세스입니다. 자세한 내용은 [Azure Synapse Analytics에서 컴퓨팅 관리](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)를 참조하세요.
 
 ### <a name="apache-hbase"></a>Apache HBase
 

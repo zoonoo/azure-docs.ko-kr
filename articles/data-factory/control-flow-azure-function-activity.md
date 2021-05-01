@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory의 Azure 함수 활동
+title: Azure Data Factory의 Azure 함수 작업
 description: Data Factory 파이프라인에서 Azure Function 작업을 사용하여 Azure 함수를 실행하는 방법 알아보기
 author: dcstwh
 ms.author: weetok
@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.openlocfilehash: 13f00907737a99bc5dcd8c21d660ce83aa681908
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104783798"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Data Factory의 Azure 함수 작업
@@ -38,11 +38,11 @@ Azure 함수의 반환 형식은 유효한 `JObject`여야 합니다. ([JArray](
 | **속성**  | **설명** | **허용된 값** | **필수** |
 | --- | --- | --- | --- |
 | name  | 파이프라인의 작업 이름입니다.  | String | 예 |
-| 형식  | 작업의 형식은 'AzureFunctionActivity'입니다. | String | 예 |
+| type  | 작업의 형식은 'AzureFunctionActivity'입니다. | String | 예 |
 | 연결된 서비스 | 해당하는 Azure 함수 앱에 대한 Azure Function 연결된 서비스입니다.  | 연결된 서비스 참조 | 예 |
 | 함수 이름  | Azure 함수 앱에서 이 작업이 호출하는 함수의 이름입니다. | String | 예 |
-| method  | 함수 호출에 대한 REST API 메서드입니다. | 지원 되는 문자열 형식: "GET", "POST", "PUT"   | 예 |
-| header  | 요청에 전송되는 헤더입니다. 예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 씁니다. "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | 문자열(또는 resultType 문자열이 있는 식) | 아니요 |
+| 메서드  | 함수 호출에 대한 REST API 메서드입니다. | 문자열 지원 형식: ‘GET’, ‘POST’, ‘PUT’   | 예 |
+| header  | 요청에 전송되는 헤더입니다. 예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 씁니다. "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | 문자열(또는 resultType 문자열이 있는 식) | 예 |
 | 본문  | 함수 API 메서드에 대한 요청과 함께 전송되는 본문입니다.  | 문자열(또는 resultType 문자열이 있는 식) 또는 개체   | PUT/POST 메서드에 필요합니다. |
 |   |   |   | |
 
@@ -50,20 +50,20 @@ Azure 함수의 반환 형식은 유효한 `JObject`여야 합니다. ([JArray](
 
 ## <a name="routing-and-queries"></a>라우팅 및 쿼리
 
-Azure 함수 작업은 **라우팅** 을 지원합니다. 예를 들어 Azure 함수에 끝점이 있는 경우  `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>` `functionName` Azure function 활동에서 사용할는 `<functionName>/<value>` 입니다. 이 함수를 매개 변수화 하 여 런타임에 원하는를 제공할 수 있습니다 `functionName` .
+Azure 함수 작업은 **라우팅** 을 지원합니다. 예를 들어, Azure 함수에 엔드포인트 `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>`가 있는 경우, Azure 함수 작업에 사용할 `functionName`은 `<functionName>/<value>`입니다. 런타임에 원하는 `functionName`을 제공하도록 이 함수를 매개 변수화할 수 있습니다.
 
-또한 Azure 함수 작업은 **쿼리** 를 지원합니다. 쿼리는의 일부로 포함 되어야 `functionName` 합니다. 예를 들어 함수 이름이이 `HttpTriggerCSharp` 고 포함 하려는 쿼리가 인 경우 `name=hello` `functionName` Azure function 활동에서로를 생성할 수 있습니다 `HttpTriggerCSharp?name=hello` . 이 함수는 매개 변수화 할 수 있으므로 런타임에 값을 결정할 수 있습니다.
+또한 Azure 함수 작업은 **쿼리** 를 지원합니다. 쿼리는 `functionName`의 일부로 포함되어야 합니다. 예를 들어, 함수 이름이 `HttpTriggerCSharp`고 포함할 쿼리가 `name=hello`면 Azure 함수 작업에서 `functionName`을 `HttpTriggerCSharp?name=hello`로 구성할 수 있습니다. 이 함수는 매개 변수화하여 런타임에 값을 결정할 수 있습니다.
 
-## <a name="timeout-and-long-running-functions"></a>시간 제한 및 장기 실행 함수
+## <a name="timeout-and-long-running-functions"></a>타임아웃 및 장기 실행 함수
 
-설정에서 구성한 설정에 관계 없이 230 초 후에 Azure Functions 시간이 초과 `functionTimeout` 됩니다. 자세한 내용은 [이 문서](../azure-functions/functions-versions.md#timeout)를 참조하세요. 이 동작을 해결 하려면 비동기 패턴을 따르거나 Durable Functions를 사용 합니다. Durable Functions의 혜택은 자신의 상태 추적 메커니즘을 제공 하므로 사용자가 직접 구현할 필요가 없다는 것입니다.
+Azure Functions는 설정에서 구성한 `functionTimeout` 설정에 관계없이 230초 후 시간이 초과됩니다. 자세한 내용은 [이 문서](../azure-functions/functions-versions.md#timeout)를 참조하세요. 이 동작을 해결하려면 비동기 패턴을 따르거나 Durable Functions를 사용합니다. Durable Functions의 이점은 자신의 상태 추적 메커니즘을 제공하므로 사용자가 직접 구현할 필요가 없다는 것입니다.
 
-[이 문서](../azure-functions/durable/durable-functions-overview.md)에서 Durable Functions에 대해 자세히 알아보세요. Azure Function 활동을 설정 하 여 지 속성 함수를 호출할 수 있습니다 .이 함수는 [이 예와](../azure-functions/durable/durable-functions-http-features.md#http-api-url-discovery)같이 다른 URI를 사용 하는 응답을 반환 합니다. 는 `statusQueryGetUri` 함수가 실행 되는 동안 HTTP 상태 202을 반환 하므로 웹 작업을 사용 하 여 함수의 상태를 폴링할 수 있습니다. 필드를로 설정 하 여 웹 활동을 설정 하기만 하면 됩니다 `url` `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri` . 지 속성 함수가 완료 되 면 함수의 출력이 웹 활동의 출력이 됩니다.
+[이 문서](../azure-functions/durable/durable-functions-overview.md)에서 Durable Functions에 대해 자세히 알아보세요. Azure 함수 작업을 설정하여 Durable Function을 호출할 수 있습니다. 이 함수는 [이 예제](../azure-functions/durable/durable-functions-http-features.md#http-api-url-discovery)와 같이 다른 URI를 사용하는 응답을 반환합니다. `statusQueryGetUri`는 함수가 실행되는 동안 HTTP Status 202를 반환하므로 웹 작업을 사용하여 함수의 상태를 폴링할 수 있습니다. `url` 필드를 `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`로 설정하여 웹 작업을 설정하기만 하면 됩니다. Durable Function이 완료되면 함수의 출력이 웹 작업의 출력이 됩니다.
 
 
 ## <a name="sample"></a>샘플
 
-Azure 함수를 사용 하 여 tar 파일의 콘텐츠를 추출 하는 Data Factory 샘플은 [여기](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)에서 찾을 수 있습니다.
+Azure 함수를 사용하여 tar 파일의 콘텐츠를 추출하는 Data Factory 샘플은 [여기](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

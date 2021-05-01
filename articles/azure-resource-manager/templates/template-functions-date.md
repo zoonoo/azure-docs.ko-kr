@@ -1,18 +1,18 @@
 ---
-title: 템플릿 함수-날짜
-description: 날짜 작업에 Azure Resource Manager 템플릿 (ARM 템플릿)에서 사용할 수 있는 함수에 대해 설명 합니다.
+title: 템플릿 함수 - 날짜
+description: ARM 템플릿(Azure Resource Manager 템플릿)에서 날짜 작업을 수행하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: abff5b86ad1e10042596b11f613cdb594e307209
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104889929"
 ---
-# <a name="date-functions-for-arm-templates"></a>ARM 템플릿에 대 한 날짜 함수
+# <a name="date-functions-for-arm-templates"></a>ARM 템플릿의 날짜 함수
 
-리소스 관리자는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 날짜를 사용 하기 위한 다음 함수를 제공 합니다.
+Resource Manager는 ARM 템플릿(Azure Resource Manager 템플릿)에서 날짜 작업을 수행하는 데 사용할 수 있도록 아래의 함수를 제공합니다.
 
 * [dateTimeAdd](#datetimeadd)
 * [utcNow](#utcnow)
@@ -23,23 +23,23 @@ ms.locfileid: "104889929"
 
 `dateTimeAdd(base, duration, [format])`
 
-기본 값에 기간을 추가 합니다. ISO 8601 형식이 필요 합니다.
+기본 값에 기간을 추가합니다. ISO 8601 형식이 예상됩니다.
 
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| base | 예 | 문자열 | 더하기의 시작 날짜/시간 값입니다. [ISO 8601 타임 스탬프 형식을](https://en.wikipedia.org/wiki/ISO_8601)사용 합니다. |
-| duration | 예 | 문자열 | 밑에 더할 시간 값입니다. 음수 값일 수 있습니다. [ISO 8601 기간 형식을](https://en.wikipedia.org/wiki/ISO_8601#Durations)사용 합니다. |
-| format | 예 | 문자열 | 날짜/시간 결과의 출력 형식입니다. 지정 하지 않으면 기준 값의 형식이 사용 됩니다. [표준 형식 문자열](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 문자열](/dotnet/standard/base-types/custom-date-and-time-format-strings)을 사용 합니다. |
+| base | 예 | 문자열 | 더하기의 시작 날짜/시간 값. [ISO 8601 타임스탬프 형식](https://en.wikipedia.org/wiki/ISO_8601)을 사용합니다. |
+| duration | 예 | 문자열 | 베이스에 추가할 시간 값. 음수가 될 수 있습니다. [ISO 8601 기간 형식](https://en.wikipedia.org/wiki/ISO_8601#Durations)을 사용합니다. |
+| format | 예 | 문자열 | 날짜/시간 결과의 출력 형식입니다. 제공되지 않는 경우, 기준 값의 형식이 사용됩니다. [표준 형식 문자열](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 문자열](/dotnet/standard/base-types/custom-date-and-time-format-strings)을 사용합니다. |
 
 ### <a name="return-value"></a>반환 값
 
-기준 값에 duration 값을 더하여 생성 되는 datetime 값입니다.
+기준 값에 기간 값을 더하여 생성되는 날짜/시간 값입니다.
 
 ### <a name="examples"></a>예제
 
-다음 예제 템플릿에서는 시간 값을 추가 하는 여러 가지 방법을 보여 줍니다.
+다음 예제 템플릿에서는 시간 값을 더하는 여러 가지 방법을 보여줍니다.
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -92,15 +92,15 @@ output add1HourOutput string = add1Hour
 
 ---
 
-위의 템플릿이 기본 시간을 사용 하 여 배포 된 경우 `2020-04-07 14:53:14Z` 출력은 다음과 같습니다.
+앞선 템플릿이 기본 시간 `2020-04-07 14:53:14Z`으로 배포되는 경우 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| 이름 | 유형 | 값 |
 | ---- | ---- | ----- |
-| add3YearsOutput | String | 오후 4/7/2023 2:53:14 |
-| subtract9DaysOutput | String | 오후 3/29/2020 2:53:14 |
-| add1HourOutput | String | 오후 4/7/2020 3:53:14 |
+| add3YearsOutput | String | 4/7/2023 2:53:14 PM |
+| subtract9DaysOutput | String | 3/29/2020 2:53:14 PM |
+| add1HourOutput | String | 4/7/2020 3:53:14 PM |
 
-다음 예제 템플릿에서는 자동화 일정의 시작 시간을 설정 하는 방법을 보여 줍니다.
+다음 예제 템플릿에서는 Automation 일정의 시작 시간을 설정하는 방법을 보여 줍니다.
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -182,21 +182,21 @@ resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2015-10-31
 
 `utcNow(format)`
 
-지정 된 형식의 현재 (UTC) datetime 값을 반환 합니다. 형식이 제공 되지 않으면 ISO 8601 ( `yyyyMMddTHHmmssZ` ) 형식이 사용 됩니다. **이 함수는 매개 변수의 기본값에만 사용할 수 있습니다.**
+현재(UTC) 날짜/시간 값을 지정된 양식으로 반환합니다. 제공되는 형식이 없는 경우 ISO 8601(`yyyyMMddTHHmmssZ`) 형식이 사용됩니다. **이 함수는 매개 변수의 기본값에만 사용할 수 있습니다.**
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| format |예 |문자열 |문자열로 변환할 URI 인코딩 값입니다. [표준 형식 문자열](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 문자열](/dotnet/standard/base-types/custom-date-and-time-format-strings)을 사용 합니다. |
+| format |예 |문자열 |문자열로 변환할 URI 인코딩 값입니다. [표준 형식 문자열](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 문자열](/dotnet/standard/base-types/custom-date-and-time-format-strings)을 사용합니다. |
 
 ### <a name="remarks"></a>설명
 
-이 함수는 매개 변수의 기본값에 대해서만 식 내에서 사용할 수 있습니다. 템플릿의 다른 위치에서이 함수를 사용 하면 오류가 반환 됩니다. 함수는 호출 될 때마다 다른 값을 반환 하므로 템플릿의 다른 부분에서는 허용 되지 않습니다. 동일한 매개 변수를 사용 하 여 동일한 템플릿을 배포 하는 것은 안정적으로 동일한 결과를 생성 하지 않습니다.
+이 함수는 매개 변수의 기본값에 대한 언어 식 내에서만 사용할 수 있습니다. 템플릿의 다른 위치에서 사용하면 오류가 반환됩니다. 호출될 때마다 다른 값을 반환하는 함수이므로 템플릿의 다른 부분에서는 허용되지 않습니다. 동일한 매개 변수를 사용하여 동일한 템플릿을 배포하면 동일한 결과가 안정적으로 생성되지 않습니다.
 
-이전에 성공한 배포에 [대해 오류 발생 시 롤백 옵션](rollback-on-error.md) 을 사용 하는 경우 이전 배포에 utcNow를 사용 하는 매개 변수가 포함 된 경우 매개 변수는 다시 평가 되지 않습니다. 대신 이전 배포의 매개 변수 값이 롤백 배포에서 자동으로 다시 사용 됩니다.
+이전에 성공한 배포에 [오류 시 롤백 옵션](rollback-on-error.md)을 사용하고 이전 배포에 utcNow를 사용하는 매개 변수가 포함된 경우 해당 매개 변수는 재평가되지 않습니다. 대신 이전 배포의 매개 변수 값이 롤백 배포에서 자동으로 다시 사용됩니다.
 
-기본값에 대해 utcNow 함수를 사용 하는 템플릿을 다시 배포 해야 합니다. 다시 배포 하는 경우 매개 변수에 대 한 값을 제공 하지 않으면 함수가 재평가 됩니다. 새 리소스를 만드는 대신 기존 리소스를 업데이트 하려면 이전 배포에서 매개 변수 값을 전달 합니다.
+기본값에 대한 utcNow 함수에 의존하는 템플릿은 주의를 기울여 재배포해야 합니다. 재배포할 때 매개 변수 값을 제공하지 않으면 함수는 재평가됩니다. 새 리소스를 만드는 대신 기존 리소스를 업데이트하려면 이전 배포의 매개 변수 값을 제공해야 합니다.
 
 ### <a name="return-value"></a>반환 값
 
@@ -204,7 +204,7 @@ resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2015-10-31
 
 ### <a name="examples"></a>예제
 
-다음 예제 템플릿에서는 datetime 값에 대 한 다양 한 형식을 보여 줍니다.
+다음 예제 템플릿에서는 날짜/시간 값의 다양한 형식을 보여줍니다.
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -259,15 +259,15 @@ output utcCustomOutput string = utcCustomValue
 
 ---
 
-이전 예제의 출력은 각 배포에 따라 다르지만 다음과 유사 합니다.
+이전 예제의 출력은 각 배포마다 다르지만 다음과 유사합니다.
 
-| 이름 | Type | 값 |
+| 이름 | 유형 | 값 |
 | ---- | ---- | ----- |
-| utcOutput | string | 20190305T175318Z |
-| utcShortOutput | string | 2019/03/05 |
-| utcCustomOutput | string | 3 5 |
+| utcOutput | 문자열 | 20190305T175318Z |
+| utcShortOutput | 문자열 | 2019/03/05 |
+| utcCustomOutput | 문자열 | 3 5 |
 
-다음 예제에서는 태그 값을 설정할 때 함수의 값을 사용 하는 방법을 보여 줍니다.
+다음 예제에서는 태그 값을 설정할 때 함수의 값을 사용하는 방법을 보여 줍니다.
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -326,4 +326,4 @@ output utcShortOutput string = utcShort
 
 ## <a name="next-steps"></a>다음 단계
 
-* ARM 템플릿의 섹션에 대 한 설명은 [arm 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* ARM 템플릿의 섹션에 대한 설명은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하십시오.

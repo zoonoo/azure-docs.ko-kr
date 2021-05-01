@@ -1,6 +1,6 @@
 ---
 title: '자습서: 뉴욕 택시 데이터 로드'
-description: 자습서에서는 Azure Portal 및 SQL Server Management Studio를 사용 하 여 Synapse SQL 용 Azure blob에서 뉴욕 택시 데이터를 로드 합니다.
+description: 이 자습서에서는 Azure Portal과 SQL Server Management Studio를 사용해 Synapse SQL용 Azure Blob에서 뉴욕 택시 데이터를 로드합니다.
 services: synapse-analytics
 author: gaursa
 manager: craigg
@@ -12,21 +12,21 @@ ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: 1490a0e094c6ce2665e28f7d32540ad58d53cb2a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104600142"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>자습서: 뉴욕 택시 데이터 집합 로드
 
-이 자습서에서는 [COPY 문을](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) 사용 하 여 Azure Blob Storage 계정에서 뉴욕 택시 데이터 집합을 로드 합니다. 이 자습서에서는 [Azure Portal](https://portal.azure.com) 및 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true))를 사용합니다.
+이 자습서에서는 [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true)을 사용하여 Azure Blob Storage 계정에서 뉴욕 택시 데이터 집합을 로드합니다. 이 자습서에서는 [Azure Portal](https://portal.azure.com) 및 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true))를 사용합니다.
 
 > [!div class="checklist"]
 >
 > * 데이터 로드용으로 지정된 사용자 만들기
-> * 예제 데이터 집합에 대 한 테이블 만들기 
-> * COPY T-sql 문을 사용 하 여 데이터 웨어하우스로 데이터 로드
+> * 샘플 데이터 집합에 대한 테이블 만들기 
+> * COPY T-SQL 문을 사용해 데이터 웨어하우스로 데이터 로드
 > * 로드될 때 데이터의 진행 상태 확인
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
@@ -35,17 +35,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 자습서를 시작하기 전에 최신 버전의 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true))를 다운로드하여 설치합니다.  
 
-이 자습서에서는 다음 [자습서](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin)에서 SQL 전용 풀을 이미 만들었다고 가정 합니다.
+이 자습서에서는 다음 [자습서](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin)에서 SQL 전용 풀을 이미 만들었다고 가정합니다.
 
 ## <a name="create-a-user-for-loading-data"></a>데이터를 로드하기 위한 사용자 만들기
 
-서버 관리자 계정은 관리 작업을 수행하며 사용자 데이터에 대해 쿼리를 실행하는 데는 적합하지 않습니다. 데이터 로드는 메모리를 많이 사용하는 작업입니다. 메모리 최대값은 구성 된 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md) 및 [리소스 클래스](resource-classes-for-workload-management.md) 에 따라 정의 됩니다.
+서버 관리자 계정은 관리 작업을 수행하며 사용자 데이터에 대해 쿼리를 실행하는 데는 적합하지 않습니다. 데이터 로드는 메모리를 많이 사용하는 작업입니다. 메모리 최대값은 구성된 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)와 [리소스 클래스](resource-classes-for-workload-management.md)에 따라 정의됩니다.
 
 데이터 로드 전용 로그인 및 사용자를 만드는 것이 좋습니다. 그런 후 로드 사용자를 [리소스 클래스](resource-classes-for-workload-management.md)에 추가하여 적절한 최대 메모리가 할당되도록 합니다.
 
-로그인 및 사용자를 만들 수 있도록 서버 관리자로 연결 합니다. 다음 단계를 사용하여 **LoaderRC20** 이라는 로그인 및 사용자를 만듭니다. 그런 후 **staticrc20** 리소스 클래스에 해당 사용자를 할당합니다.
+로그인하고 사용자를 만들 수 있도록 서버 관리자로 연결합니다. 다음 단계를 사용하여 **LoaderRC20** 이라는 로그인 및 사용자를 만듭니다. 그런 후 **staticrc20** 리소스 클래스에 해당 사용자를 할당합니다.
 
-1. SSMS에서 **master** 를 마우스 오른쪽 단추로 선택 하 여 드롭다운 메뉴를 표시 하 고 **새 쿼리** 를 선택 합니다. 새 쿼리 창이 열립니다.
+1. SSMS에서 **마스터** 를 마우스 오른쪽 단추로 클릭하여 드롭다운 메뉴를 표시하고 **새 쿼리** 를 선택합니다. 새 쿼리 창이 열립니다.
 
     ![master에서의 새 쿼리](./media/load-data-from-azure-blob-storage-using-polybase/create-loader-login.png)
 
@@ -76,7 +76,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 로드 데이터에 대한 첫 번째 단계는 LoaderRC20으로 로그인하는 것입니다.  
 
-1. 개체 탐색기에서 **연결** 드롭다운 메뉴를 선택 하 고 **데이터베이스 엔진** 를 선택 합니다. **서버에 연결** 대화 상자가 표시됩니다.
+1. 개체 탐색기에서 **연결** 드롭다운 메뉴를 클릭하고 **데이터베이스 엔진** 을 선택합니다. **서버에 연결** 대화 상자가 표시됩니다.
 
     ![새 로그인으로 연결](./media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
@@ -88,11 +88,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ![연결에 성공함](./media/load-data-from-azure-blob-storage-using-polybase/connected-as-new-login.png)
 
-## <a name="create-tables-for-the-sample-data"></a>샘플 데이터에 대 한 테이블 만들기
+## <a name="create-tables-for-the-sample-data"></a>샘플 데이터에 대한 테이블 만들기
 
-새 데이터 웨어하우스로 데이터를 로드하는 프로세스를 시작할 준비가 되었습니다. 이 자습서의 부분에서는 COPY 문을 사용 하 여 Azure Storage blob에서 뉴욕 도시 taxi cab 데이터 집합을 로드 하는 방법을 보여 줍니다. 나중에 참조할 수 있도록 데이터를 Azure Blob Storage 하는 방법 또는 원본에서 직접 로드 하는 방법에 대 한 자세한 내용은 [로드 개요](design-elt-data-loading.md)를 참조 하세요.
+새 데이터 웨어하우스로 데이터를 로드하는 프로세스를 시작할 준비가 되었습니다. 자습서의 이 부분에서는 COPY 문을 사용하여 Azure Storage Blob에서 뉴욕 택시 데이터 집합을 로드하는 방법을 설명합니다. 나중에 참조할 수 있도록 데이터를 Azure Blob Storage로 가져오거나 또는 원본에서 직접 로드하는 방법에 대한 자세한 내용은 [로드 개요](design-elt-data-loading.md)를 참조하세요.
 
-다음 SQL 스크립트를 실행 하 고 로드 하려는 데이터에 대 한 정보를 지정 합니다. 이 정보에는 데이터가 있는 위치, 데이터 콘텐츠 형식 및 데이터에 대한 테이블 정의가 포함됩니다.
+다음 SQL 스크립트를 실행하여 로드하려는 데이터에 대한 정보를 지정합니다. 이 정보에는 데이터가 있는 위치, 데이터 콘텐츠 형식 및 데이터에 대한 테이블 정의가 포함됩니다.
 
 1. 이전 섹션에서는 LoaderRC20 권한으로 데이터 웨어하우스에 로그인했습니다. SSMS에서 LoaderRC20 연결을 마우스 오른쪽 단추로 클릭하고 **새 쿼리** 를 선택합니다.  새 쿼리 창이 표시됩니다.
 
@@ -100,7 +100,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 2. 쿼리 창을 이전 이미지와 비교합니다.  새 쿼리 창이 LoaderRC20 권한으로 실행되고 있으며 MySampleDataWarehouse 데이터베이스에서 쿼리를 수행하고 있는지 확인합니다. 이 쿼리 창을 사용하여 모든 로드 단계를 수행합니다.
 
-7. 다음 T-sql 문을 실행 하 여 테이블을 만듭니다.
+7. 다음 T-SQL 문을 실행하여 테이블을 만듭니다.
 
     ```sql
     CREATE TABLE [dbo].[Date]
@@ -251,12 +251,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="load-the-data-into-your-data-warehouse"></a>데이터 웨어하우스로 데이터 로드
 
-이 섹션에서는 [COPY 문을](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) 사용 하 여 Azure Storage Blob에서 샘플 데이터를 로드 합니다.  
+이 섹션에서는 [COPY 문을 사용해](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) Azure Storage Blob의 샘플 데이터를 로드합니다.  
 
 > [!NOTE]
-> 이 자습서에서는 최종 테이블에 직접 데이터를 로드합니다. 일반적으로 프로덕션 워크 로드에 대 한 준비 테이블로 로드 합니다. 데이터가 준비 테이블에 있는 동안에는 필요한 모든 변환을 수행할 수 있습니다. 
+> 이 자습서에서는 최종 테이블에 직접 데이터를 로드합니다. 일반적으로 프로덕션 워크로드에 쓰이는 준비 테이블로 로드하게 됩니다. 데이터가 준비 테이블에 있는 동안에는 필요한 모든 변환을 수행할 수 있습니다. 
 
-1. 다음 문을 실행 하 여 데이터를 로드 합니다.
+1. 다음 문을 실행하여 데이터를 로드합니다.
 
     ```sql
     COPY INTO [dbo].[Date]
@@ -334,7 +334,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     OPTION (LABEL = 'COPY : Load [dbo].[Trip] - Taxi dataset');
     ```
 
-2. 로드되는 데이터를 봅니다. 데이터의 여러 Gb를 로드 하 고 성능이 뛰어난 클러스터형 columnstore 인덱스로 압축 합니다. DMV(동적 관리 보기)를 사용하는 다음과 같은 쿼리를 실행하여 로드 상태를 봅니다.
+2. 로드되는 데이터를 봅니다. 수 GB의 데이터를 로드하고 그 데이터를 고성능 클러스터형 columnstore 인덱스에 압축합니다. DMV(동적 관리 보기)를 사용하는 다음과 같은 쿼리를 실행하여 로드 상태를 봅니다.
 
     ```sql
     SELECT  r.[request_id]                           
@@ -379,21 +379,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 필요에 따라 다음 단계에 따라 리소스를 정리합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인 하 고 데이터 웨어하우스를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 데이터 웨어하우스를 선택합니다.
 
     ![리소스 정리](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. 컴퓨팅을 일시 중지하려면 **일시 중지** 단추를 선택합니다. 데이터 웨어하우스가 일시 중지되면 **시작** 단추가 표시됩니다.  컴퓨팅을 다시 시작하려면 **시작** 을 선택합니다.
 
-3. 계산 또는 저장소에 대 한 요금이 청구 되지 않도록 데이터 웨어하우스를 제거 하려면 **삭제** 를 선택 합니다.
+3. 컴퓨팅 또는 스토리지 요금이 청구되지 않도록 데이터 웨어하우스를 제거하려면 **삭제** 를 선택합니다.
 
-4. 만든 서버를 제거 하려면 이전 이미지에서 **mynewserver-20180430.database.windows.net** 를 선택 하 고 **삭제** 를 선택 합니다.  서버를 삭제하면 서버에 할당된 모든 데이터베이스가 삭제되므로 주의해야 합니다.
+4. 만든 서버를 제거하려면 이전 이미지에 있는 **mynewserver-20180430.database.windows.net** 을 선택한 다음 **삭제** 를 선택합니다.  서버를 삭제하면 서버에 할당된 모든 데이터베이스가 삭제되므로 주의해야 합니다.
 
 5. 리소스 그룹을 제거하려면 **myResourceGroup** 을 선택한 다음, **리소스 그룹 삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 데이터를 로드하기 위해 데이터 웨어하우스를 만들고 사용자를 만드는 방법을 배웠습니다. 단순 [복사 문을](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples) 사용 하 여 데이터 웨어하우스에 데이터를 로드 했습니다.
+이 자습서에서는 데이터를 로드하기 위해 데이터 웨어하우스를 만들고 사용자를 만드는 방법을 배웠습니다. 간단한 [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples)을 사용해 데이터 웨어하우스에 데이터를 로드했습니다.
 
 다음 작업을 수행했습니다.
 > [!div class="checklist"]
@@ -402,17 +402,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 > * Azure Portal에서 서버 수준 방화벽 규칙 설정
 > * SSMS로 데이터 웨어하우스에 연결
 > * 데이터 로드용으로 지정된 사용자 생성
-> * 샘플 데이터에 대 한 테이블을 만들었습니다.
-> * 복사 T-sql 문을 사용 하 여 데이터 웨어하우스에 데이터를 로드 합니다.
+> * 샘플 데이터용 테이블 생성
+> * COPY T-SQL 문을 사용하여 데이터 웨어하우스로 데이터 로드
 > * 로드될 때 데이터의 진행 상태 확인
 
-개발 개요로 이동 하 여 기존 데이터베이스를 Azure Synapse Analytics로 마이그레이션하는 방법에 대해 알아봅니다.
+개발 개요를 계속 진행하여 기존 데이터베이스를 Azure Synapse Analytics로 마이그레이션하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
-> [기존 데이터베이스를 Azure Synapse Analytics로 마이그레이션하기 위한 설계 결정](sql-data-warehouse-overview-develop.md)
+> [기존 데이터베이스를 Azure Synapse Analytics로 마이그레이션하기 위한 디자인 결정](sql-data-warehouse-overview-develop.md)
 
-예제 및 참조를 로드 하는 방법에 대 한 자세한 내용은 다음 설명서를 참조 하세요.
+예제 및 참조 사항을 로드하는 방법에 대한 자세한 내용은 다음 설명서를 참조하세요.
 
 - [COPY 문 참조 설명서](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax)
-- [각 인증 방법에 대 한 복사 예제](./quickstart-bulk-load-copy-tsql-examples.md)
-- [단일 테이블에 대 한 빠른 시작 복사](./quickstart-bulk-load-copy-tsql.md)
+- [각 인증 방법에 대한 COPY 예제](./quickstart-bulk-load-copy-tsql-examples.md)
+- [단일 테이블에 대한 COPY 빠른 시작](./quickstart-bulk-load-copy-tsql.md)

@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.openlocfilehash: aaa690a4205951bd251a5230721e34fcb960a3b1
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104782744"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Azure Data Factory의 연결된 서비스
@@ -28,7 +28,7 @@ Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduct
 
 ## <a name="overview"></a>개요
 
-데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. **파이프라인** 은 함께 하나의 작업을 수행하는 **활동** 의 논리적 그룹화입니다. 파이프라인의 활동은 데이터에 수행할 작업을 정의합니다. 예를 들어 복사 작업을 사용 하 여 SQL Server에서 Azure Blob 저장소로 데이터를 복사할 수 있습니다. 그런 다음 Azure HDInsight 클러스터에서 Hive 스크립트를 실행하는 Hive 활동을 사용하여 출력 데이터를 생성하도록 Blob Storage의 데이터를 처리합니다. 마지막으로 두 번째 복사 작업을 사용 하 여 BI (비즈니스 인텔리전스) 보고 솔루션이 빌드되는 동안 출력 데이터를 Azure Synapse Analytics에 복사할 수 있습니다. 파이프라인 및 활동에 대한 자세한 내용은 Azure Data Factory의 [파이프라인 및 활동](concepts-pipelines-activities.md) 문서를 참조하세요.
+데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. **파이프라인** 은 함께 하나의 작업을 수행하는 **활동** 의 논리적 그룹화입니다. 파이프라인의 활동은 데이터에 수행할 작업을 정의합니다. 예를 들어, 복사 활동을 사용하여 SQL Server에서 Azure Blob Storage로 데이터를 복사할 수 있습니다. 그런 다음 Azure HDInsight 클러스터에서 Hive 스크립트를 실행하는 Hive 활동을 사용하여 출력 데이터를 생성하도록 Blob Storage의 데이터를 처리합니다. 마지막으로 두 번째 복사 활동을 사용하여 BI(비즈니스 인텔리전스) 보고 솔루션의 기반이 되는 Azure Synapse Analytics로 출력 데이터를 복사할 수 있습니다. 파이프라인 및 활동에 대한 자세한 내용은 Azure Data Factory의 [파이프라인 및 활동](concepts-pipelines-activities.md) 문서를 참조하세요.
 
 이제 **데이터 세트** 는 입력 및 출력으로 **활동** 에서 사용하려는 데이터를 단순히 가리키거나 참조하는 데이터의 명명된 뷰입니다.
 
@@ -65,13 +65,13 @@ Data Factory의 연결된 서비스는 다음과 같이 JSON 형식으로 정의
 속성 | Description | 필수 |
 -------- | ----------- | -------- |
 name | 연결된 서비스의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  예 |
-type | 연결된 서비스의 형식입니다. 예: AzureBlobStorage (데이터 저장소) 또는 AzureBatch (compute). typeProperties에 대한 설명을 참조하세요. | 예 |
-typeProperties | 형식 속성은 각 데이터 저장소 또는 컴퓨팅에 대해 다릅니다. <br/><br/> 지원 되는 데이터 저장소 형식 및 해당 형식 속성은 [커넥터 개요](copy-activity-overview.md#supported-data-stores-and-formats) 문서를 참조 하세요. 데이터 저장소 관련 형식 속성에 대해 알아보려면 데이터 저장소 커넥터 문서로 이동하세요. <br/><br/> 지원되는 컴퓨팅 형식 및 해당 형식 속성은 [컴퓨팅 연결 서비스](compute-linked-services.md)를 참조하세요. | 예 |
+type | 연결된 서비스의 형식입니다. 예: AzureBlobStorage(데이터 저장소) 또는 AzureBatch(컴퓨팅). typeProperties에 대한 설명을 참조하세요. | 예 |
+typeProperties | 형식 속성은 각 데이터 저장소 또는 컴퓨팅에 대해 다릅니다. <br/><br/> 지원되는 데이터 저장소 형식 및 해당 형식 속성은 [커넥터 개요](copy-activity-overview.md#supported-data-stores-and-formats) 문서를 참조하세요. 데이터 저장소 관련 형식 속성에 대해 알아보려면 데이터 저장소 커넥터 문서로 이동하세요. <br/><br/> 지원되는 컴퓨팅 형식 및 해당 형식 속성은 [컴퓨팅 연결 서비스](compute-linked-services.md)를 참조하세요. | 예 |
 connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 예
 
 ## <a name="linked-service-example"></a>연결된 서비스 예제
 
-다음 연결 된 서비스는 Azure Blob storage 연결 된 서비스입니다. 형식은 Azure Blob storage로 설정 됩니다. Azure Blob 저장소 연결 된 서비스의 형식 속성에는 연결 문자열이 포함 됩니다. Data Factory 서비스는 이 연결 문자열을 사용하여 런타임에 데이터 저장소에 연결합니다.
+다음의 연결된 서비스는 Azure Blob Storage 연결된 서비스입니다. 형식은 Azure Blob Storage로 설정됩니다. Azure Blob Storage 연결된 서비스의 형식 속성에는 연결 문자열이 포함됩니다. Data Factory 서비스는 이 연결 문자열을 사용하여 런타임에 데이터 저장소에 연결합니다.
 
 ```json
 {
@@ -91,9 +91,9 @@ connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runt
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 
-연결 된 서비스는 [관리 허브](author-management-hub.md) 와이를 참조 하는 작업, 데이터 집합 또는 데이터 흐름을 통해 Azure Data Factory UX에서 만들 수 있습니다.
+연결된 서비스는 [관리 허브](author-management-hub.md) 및 이를 참조하는 모든 활동, 데이터 세트 또는 데이터 흐름을 사용하여 Azure Data Factory UX에서 만들 수 있습니다.
 
-다음 도구 또는 Sdk 중 하나를 사용 하 여 [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager 템플릿 및 Azure Portal를 사용 하 여 연결 된 서비스를 만들 수 있습니다.
+[.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager 템플릿 및 Azure Portal 등의 도구 또는 SDK 중 하나를 사용하여 연결된 서비스를 만들 수 있습니다.
 
 
 ## <a name="data-store-linked-services"></a>데이터 저장소 연결된 서비스

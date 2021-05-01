@@ -1,20 +1,20 @@
 ---
 title: Azure Monitor 서비스 제한 | Microsoft Docs
-description: Azure Monitor의 여러 영역에 대 한 제한을 나열 합니다.
+description: Azure Monitor의 다양한 영역에 적용되는 제한을 나열합니다.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/10/2019
-ms.openlocfilehash: a3589aff65b24563cf21f175ccfc3a706891d699
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
-ms.translationtype: MT
+ms.openlocfilehash: 71df05c8c8dfb7946303ae2d75b51a91972775be
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104954006"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123774"
 ---
 # <a name="azure-monitor-service-limits"></a>Azure Monitor 서비스 제한
 
-이 문서에서는 Azure Monitor의 여러 영역에 대 한 제한을 나열 합니다.
+이 문서에서는 Azure Monitor의 다양한 영역에 적용되는 제한을 나열합니다.
 
 ## <a name="alerts"></a>경고
 
@@ -47,5 +47,5 @@ ms.locfileid: "104954006"
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)
-- [Azure Monitor의 모니터링 사용량 및 예상 비용](/azure/azure-monitor/usage-estimated-costs)
+- [Azure Monitor의 모니터링 사용량 및 예상 비용](./usage-estimated-costs.md)
 - [Application Insights의 사용량 및 비용 관리](app/pricing.md)

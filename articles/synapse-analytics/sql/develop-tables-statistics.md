@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse SQL 리소스를 사용 하 여 통계 만들기 및 업데이트
+title: Azure Synapse SQL 리소스를 사용한 통계 제작 및 업데이트
 description: Synapse SQL에서 쿼리 최적화 통계를 만들고 업데이트하기 위한 권장 사항과 예제입니다.
 services: synapse-analytics
 author: filippopovic
@@ -12,21 +12,21 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
 ms.openlocfilehash: 450a089c6cc1c77ac26cb0aa339277d5c49b41c8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104594787"
 ---
 # <a name="statistics-in-synapse-sql"></a>Synapse SQL의 통계
 
-이 문서에서 제공 하는 권장 사항 및 예제는 Synapse SQL 리소스를 사용 하 여 쿼리 최적화 통계를 만들고 업데이트 하는 예제입니다. 전용 SQL 풀 및 서버 리스 SQL 풀.
+이 문서에서는 Synapse SQL 리소스인 SQL 풀과 서버리스 SQL 풀을 사용해 쿼리 최적화 통계를 만들고 업데이트하기 위한 권장 사항과 예제를 보게 됩니다.
 
 ## <a name="statistics-in-dedicated-sql-pool"></a>전용 SQL 풀의 통계
 
 ### <a name="why-use-statistics"></a>통계를 사용하는 이유
 
-더 많은 전용 SQL 풀에서 데이터를 인식 하 여 쿼리를 더 빠르게 실행할 수 있습니다. 전용 SQL 풀로 데이터를 로드 한 후에는 쿼리 최적화를 위해 수행할 수 있는 가장 중요 한 작업 중 하나는 데이터에 대 한 통계를 수집 하는 것입니다.  
+전용 SQL 풀에서 데이터에 대해 많이 알수록 쿼리를 빠르게 실행할 수 있습니다. 전용 SQL 풀로 데이터를 로드한 후에 쿼리 최적화를 위해 수행할 수 있는 가장 중요한 작업 중 하나는 데이터에 대한 통계 수집입니다.  
 
 전용 SQL 풀 쿼리 최적화 프로그램은 비용 기반 최적화 프로그램입니다. 다양한 쿼리 계획의 비용을 비교한 다음, 비용이 가장 낮은 계획을 선택합니다. 선택된 계획은 대부분의 경우 가장 빠르게 실행되는 계획입니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "104594787"
 
 ### <a name="automatic-creation-of-statistics"></a>통계 자동 생성
 
-데이터베이스 AUTO_CREATE_STATISTICS 옵션이로 설정 되어 있으면 전용 SQL 풀 엔진이 누락 된 통계에 대 한 들어오는 사용자 쿼리를 분석 합니다 `ON` .  통계가 누락된 경우 쿼리 최적화 프로그램은 쿼리 조건자 또는 조인 조건의 개별 열에 대해 통계를 만듭니다. 
+전용 SQL 풀 엔진은 데이터베이스 AUTO_CREATE_STATISTICS 옵션이 `ON`으로 설정된 경우 수신 사용자 쿼리를 분석하여 누락된 통계가 있는지 확인합니다.  통계가 누락된 경우 쿼리 최적화 프로그램은 쿼리 조건자 또는 조인 조건의 개별 열에 대해 통계를 만듭니다. 
 
 이 기능은 쿼리 계획의 카디널리티 추정을 개선하는 데 사용됩니다.
 
@@ -90,9 +90,9 @@ table_name은 표시할 통계를 포함하는 테이블의 이름으로, 이 �
 
 그러나 데이터 웨어하우스에 하나의 국가 또는 지역만 포함되어 있고 새 국가 또는 지역에서 데이터를 가져오는 경우, 국가 또는 지역 열에 대한 통계를 업데이트해야 합니다.
 
-통계 업데이트에 대 한 권장 사항은 다음과 같습니다.
+통계를 업데이트하는 권장 사항은 다음과 같습니다.
 
-|Type|권장|
+|유형|권장|
 |-|-|
 | **통계 업데이트의 빈도**  | 일반: 매일 </br> 데이터 로드 또는 변환 후 |
 | **샘플링** |  10억 개 미만의 행인 경우 기본 샘플링(20%)을 사용합니다. </br> 10억 개 이상의 행인 경우 2%의 샘플링을 사용합니다. |
@@ -166,7 +166,7 @@ WHERE
 #### <a name="create-single-column-statistics-with-default-options"></a>기본 옵션으로 단일 열 통계 만들기
 
 열에 대해 통계를 만들려면 통계 개체의 이름과 열 이름을 지정합니다.
-이 구문은 모든 기본 옵션을 사용합니다. 기본적으로 전용 SQL 풀은 통계를 만들 때 테이블의 **20%** 를 샘플링 합니다.
+이 구문은 모든 기본 옵션을 사용합니다. SQL 풀은 통계를 만들 때 기본적으로 테이블의 **20%** 를 샘플링합니다.
 
 ```sql
 CREATE STATISTICS [statistics_name]
@@ -430,7 +430,7 @@ UPDATE STATISTICS 문은 쉽게 사용할 수 있습니다. 테이블에 대한 
 성능이 문제가 되지 않는다면 통계가 최신 상태임을 보증하는 가장 쉽고 완벽한 방법입니다.
 
 > [!NOTE]
-> 테이블의 모든 통계를 업데이트할 때 전용 SQL 풀은 각 통계 개체에 대 한 테이블을 샘플링 하는 검색을 수행 합니다. 테이블이 크고 많은 열과 통계가 있는 경우 필요에 따라 개별 통계를 업데이트하는 것이 더 효율적일 수 있습니다.
+> 테이블에 대한 모든 통계를 업데이트하는 경우 전용 SQL 풀은 각 통계 개체에 대한 테이블을 검사하여 샘플링합니다. 테이블이 크고 많은 열과 통계가 있는 경우 필요에 따라 개별 통계를 업데이트하는 것이 더 효율적일 수 있습니다.
 
 `UPDATE STATISTICS` 프로시저의 구현은 [임시 테이블](develop-tables-temporary.md)을 참조하세요. 구현 방법은 앞의 `CREATE STATISTICS` 프로시저와 약간 다르지만 그 결과는 동일합니다.
 전체 구문은 [통계 업데이트](/sql/t-sql/statements/update-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true)를 참조하세요.
@@ -512,7 +512,7 @@ DBCC SHOW_STATISTICS()는 통계 개체 내에 있는 데이터를 보여줍니�
 
 헤더는 통계의 메타데이터입니다. 히스토그램은 통계 개체의 첫 번째 키 열에 값의 분포를 표시합니다. 
 
-밀도 벡터는 열 간 상관 관계를 측정합니다. 전용 SQL 풀은 통계 개체의 데이터를 사용 하 여 카디널리티 예상치를 계산 합니다.
+밀도 벡터는 열 간 상관 관계를 측정합니다. 전용 SQL 풀은 통계 개체에 있는 임의의 데이터를 사용하여 카디널리티 추정치를 계산합니다.
 
 #### <a name="show-header-density-and-histogram"></a>헤더, 밀도 및 히스토그램 표시
 
@@ -546,7 +546,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 
 ### <a name="dbcc-show_statistics-differences"></a>DBCC SHOW_STATISTICS() 차이점
 
-`DBCC SHOW_STATISTICS()` 는 SQL Server에 비해 전용 SQL 풀에서 보다 엄격 하 게 구현 됩니다.
+`DBCC SHOW_STATISTICS()`는 SQL Server와 비교했을 때 전용 SQL 풀에서 다음과 같이 더 엄격하게 구현됩니다.
 
 - 문서화되지 않은 기능은 지원되지 않습니다.
 - Stats_stream은 사용할 수 없습니다.
@@ -557,24 +557,24 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 - 사용자 지정 오류 2767은 지원되지 않습니다.
 
 
-## <a name="statistics-in-serverless-sql-pool"></a>서버를 사용 하지 않는 SQL 풀의 통계
+## <a name="statistics-in-serverless-sql-pool"></a>서버리스 SQL 풀의 통계
 
 통계는 특정 데이터 세트(스토리지 경로)의 특정 열에 대해 생성됩니다.
 
 > [!NOTE]
-> LOB 열에 대해서는 통계를 만들 수 없습니다.
+> LOB 열에 대한 통계는 만들 수 없습니다.
 
 ### <a name="why-use-statistics"></a>통계를 사용하는 이유
 
-서버를 사용 하지 않는 SQL 풀에서 데이터를 알고 있으므로 데이터에 대 한 쿼리를 더 빠르게 실행할 수 있습니다. 데이터에 대해 통계를 수집하는 것은 쿼리 최적화를 위해 할 수 있는 가장 중요한 작업입니다. 
+서버리스 SQL 풀에서 데이터에 대해 많이 알수록 쿼리를 빠르게 실행할 수 있습니다. 데이터에 대해 통계를 수집하는 것은 쿼리 최적화를 위해 할 수 있는 가장 중요한 작업입니다. 
 
-서버를 사용 하지 않는 SQL 풀 쿼리 최적화 프로그램은 비용 기반 최적화 프로그램입니다. 다양한 쿼리 계획의 비용을 비교한 다음, 비용이 가장 낮은 계획을 선택합니다. 선택된 계획은 대부분의 경우 가장 빠르게 실행되는 계획입니다. 
+서버리스 SQL 풀 쿼리 최적화 프로그램은 비용 기반 최적화 프로그램입니다. 다양한 쿼리 계획의 비용을 비교한 다음, 비용이 가장 낮은 계획을 선택합니다. 선택된 계획은 대부분의 경우 가장 빠르게 실행되는 계획입니다. 
 
 예를 들어 최적화 프로그램이 쿼리에서 필터링하는 날짜가 하나의 행을 반환한다고 예측하는 경우에는 특정 계획을 선택할 수 있고, 선택한 날짜가 1백만 개의 행을 반환한다고 예측하는 경우에는 또 다른 계획을 선택할 수 있습니다.
 
 ### <a name="automatic-creation-of-statistics"></a>통계 자동 생성
 
-서버를 사용 하지 않는 SQL 풀은 누락 된 통계에 대해 들어오는 사용자 쿼리를 분석 합니다. 누락된 통계가 있는 경우 쿼리 최적화 프로그램이 쿼리 조건자 또는 조인 조건의 개별 열에 대한 통계를 만들어서 쿼리 계획의 카디널리티 추정값을 개선합니다.
+서버리스 SQL 풀은 누락된 통계에 대한 수신 사용자 쿼리를 분석합니다. 누락된 통계가 있는 경우 쿼리 최적화 프로그램이 쿼리 조건자 또는 조인 조건의 개별 열에 대한 통계를 만들어서 쿼리 계획의 카디널리티 추정값을 개선합니다.
 
 SELECT 문은 통계의 자동 생성을 트리거합니다.
 
@@ -585,7 +585,7 @@ SELECT 문은 통계의 자동 생성을 트리거합니다.
 
 ### <a name="manual-creation-of-statistics"></a>통계 수동 생성
 
-서버를 사용 하지 않는 SQL 풀에서 통계를 수동으로 만들 수 있습니다. CSV 파일의 경우에는 CSV 파일에 대한 통계 자동 생성이 설정되어 있지 않으므로 통계를 수동으로 만들어야 합니다. 
+서버리스 SQL 풀로 통계를 수동으로 만들 수 있습니다. CSV 파일의 경우에는 CSV 파일에 대한 통계 자동 생성이 설정되어 있지 않으므로 통계를 수동으로 만들어야 합니다. 
 
 통계를 수동으로 만드는 방법은 아래 예제를 참조하세요.
 
@@ -593,7 +593,7 @@ SELECT 문은 통계의 자동 생성을 트리거합니다.
 
 파일의 데이터가 변경되거나 파일이 삭제 또는 추가되면 데이터 분포가 변경되어 통계가 최신 상태가 아니게 됩니다. 이 경우 통계를 업데이트해야 합니다.
 
-데이터가 크게 변경 되는 경우 서버를 사용 하지 않는 SQL 풀에서 자동으로 통계를 다시 만듭니다. 통계가 자동으로 생성될 때마다 데이터 세트의 현재 상태(파일 경로, 크기, 마지막 수정 날짜)도 저장됩니다.
+데이터가 대폭 변경된 경우에는 서버리스 SQL 풀이 자동으로 통계를 다시 생성합니다. 통계가 자동으로 생성될 때마다 데이터 세트의 현재 상태(파일 경로, 크기, 마지막 수정 날짜)도 저장됩니다.
 
 통계가 오래되면 새로운 통계가 만들어집니다. 알고리즘은 데이터를 살펴보며 데이터 세트의 현재 상태와 비교합니다. 변경의 규모가 지정된 임계값보다 큰 경우 기존 통계가 삭제되고 새로운 데이터 세트에 대해 다시 만들어집니다.
 
@@ -616,7 +616,7 @@ SELECT 문은 통계의 자동 생성을 트리거합니다.
 통계를 업데이트하기 위해 제공되는 지침 원칙은 다음과 같습니다.
 
 - 데이터 세트에 하나 이상의 업데이트된 통계 개체가 있는지 확인합니다. 이렇게 하면 통계 업데이트의 일부로 크기(행 수 및 페이지 수) 정보가 업데이트됩니다.
-- WHERE, JOIN, GROUP BY, ORDER BY 및 DISTINCT 절에 참여 하는 열에 집중 합니다.
+- WHERE, JOIN, GROUP BY, ORDER BY 및 DISTINCT 절에 참여하는 열에 중점을 둡니다.
 - 이러한 값은 통계 히스토그램에 포함되지 않으므로 트랜잭션 날짜와 같은 “오름차순 키” 열을 더 자주 업데이트하고
 - 통계 분포 열은 덜 자주 업데이트하세요.
 
@@ -629,7 +629,7 @@ SELECT 문은 통계의 자동 생성을 트리거합니다.
 > [!NOTE]
 > 지금은 단일 열 통계만 만들 수 있습니다.
 >
-> Sp_create_openrowset_statistics를 실행 하 sp_drop_openrowset_statistics 고 대량 작업을 관리 하거나 데이터베이스 대량 작업을 관리 하려면 다음 권한이 필요 합니다.
+> sp_create_openrowset_statistics와 sp_drop_openrowset_statistics를 실행하려면 ADMINISTER BULK OPERATIONS 혹은 ADMINISTER DATABASE BULK OPERATIONS 두 가지 권한이 필요합니다.
 
 다음 저장 프로시저는 통계를 만드는 데 사용됩니다.
 
@@ -650,7 +650,7 @@ sys.sp_create_openrowset_statistics [ @stmt = ] N'statement_text'
 
 열에 대해 통계를 만들려면 통계가 필요한 열을 반환하는 쿼리를 제공합니다.
 
-달리 지정 하지 않으면 기본적으로 서버를 사용 하지 않는 SQL 풀에서 통계를 만들 때 데이터 집합에 제공 된 데이터의 100%를 사용 합니다.
+기본적으로 달리 지정하지 않는 한 서버리스 SQL 풀은 통계를 만들 때 데이터 집합에 제공된 데이터를 100% 사용합니다.
 
 예를 들어 다음은 population.csv 파일을 기반으로 데이터 세트의 연도 열에 대해 기본 옵션(FULLSCAN)을 사용하여 통계를 만듭니다.
 
@@ -716,7 +716,7 @@ sys.sp_drop_openrowset_statistics [ @stmt = ] N'statement_text'
 ```
 
 > [!NOTE]
-> Sp_create_openrowset_statistics를 실행 하 sp_drop_openrowset_statistics 고 대량 작업을 관리 하거나 데이터베이스 대량 작업을 관리 하려면 다음 권한이 필요 합니다.
+> sp_create_openrowset_statistics와 sp_drop_openrowset_statistics를 실행하려면 ADMINISTER BULK OPERATIONS 혹은 ADMINISTER DATABASE BULK OPERATIONS 두 가지 권한이 필요합니다.
 
 인수: [ @stmt = ] N'statement_text' - 통계를 만들 때 사용된 것과 통일한 Transact-SQL 문을 지정합니다.
 
@@ -819,7 +819,7 @@ CREATE STATISTICS sState
 통계에 대한 정보를 찾는 데 사용할 수 있는 몇 가지 시스템 뷰 및 함수가 있습니다. 예를 들어 STATS_DATE() 함수를 사용하여 통계 개체가 오래되었는지 확인할 수 있습니다. STATS_DATE()를 사용하면 통계가 마지막으로 만들어졌거나 업데이트된 시기를 확인할 수 있습니다.
 
 > [!NOTE]
-> 통계 메타 데이터는 외부 테이블 열에만 사용할 수 있습니다. OPENROWSET 열에는 통계 메타 데이터를 사용할 수 없습니다.
+> 통계 메타데이터는 외부 테이블 열에만 사용할 수 있습니다. OPENROWSET 열에는 통계 메타데이터를 사용할 수 없습니다.
 
 #### <a name="catalog-views-for-statistics"></a>통계에 대한 카탈로그 뷰
 
@@ -884,6 +884,6 @@ WHERE   st.[user_created] = 1
 
 ## <a name="next-steps"></a>다음 단계
 
-전용 SQL 풀의 쿼리 성능을 향상 시키려면 [전용 sql 풀에 대 한 작업 및 모범 사례](best-practices-dedicated-sql-pool.md#maintain-statistics) [모니터링](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 을 참조 하세요.
+전용 SQL 풀의 쿼리 성능을 더욱 향상시키려면 [사용자 워크로드 모니터링](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 및 [전용 SQL 풀에 대한 모범 사례](best-practices-dedicated-sql-pool.md#maintain-statistics)를 참조하세요.
 
-서버를 사용 하지 않는 SQL 풀의 쿼리 성능을 향상 시키려면 [서버 리스 sql 풀의 모범 사례](best-practices-serverless-sql-pool.md) 를 참조 하세요.
+서버리스 SQL 풀의 쿼리 성능을 더욱 향상시키려면 [서버리스 SQL 풀의 모범 사례](best-practices-serverless-sql-pool.md)를 참조하세요.

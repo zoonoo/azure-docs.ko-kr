@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.openlocfilehash: 66b078e8dfa1daa100978f04283e9bba7158bddf
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104867035"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Azure HDInsight에서 네트워크 트래픽 제어
@@ -30,9 +30,9 @@ Azure Virtual Networks의 네트워크 트래픽은 다음 방법을 사용하�
 1. HDInsight에 대해 사용할 Azure 지역을 식별합니다.
 
 2. 해당 지역에서 HDInsight에 필요한 서비스 태그를 확인합니다. 이러한 서비스 태그를 가져오는 방법에는 여러 가지가 있습니다.
-    1. [Azure HDInsight에 대 한 NSG (네트워크 보안 그룹) 서비스 태그](hdinsight-service-tags.md)에서 게시 된 서비스 태그의 목록을 참조 하세요. 
-    2. 지역이 목록에 없는 경우 [서비스 태그 검색 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) 를 사용 하 여 해당 지역에 대 한 서비스 태그를 찾습니다.
-    3. API를 사용할 수 없는 경우 [서비스 태그 JSON 파일](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) 을 다운로드 하 고 원하는 지역을 검색 합니다.
+    1. [Azure HDInsight에 대한 NSG (네트워크 보안 그룹) 서비스 태그](hdinsight-service-tags.md)에서 게시된 서비스 태그의 목록을 참조하세요. 
+    2. 지역이 목록에 없는 경우 [서비스 태그 검색 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview)를 사용하여 해당 지역에 대한 서비스 태그를 찾습니다.
+    3. API를 사용할 수 없는 경우 [서비스 태그 JSON 파일](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)을 다운로드하고 원하는 지역을 검색합니다.
 
 
 3. HDInsight를 설치하려는 서브넷에 대한 네트워크 보안 그룹을 만들거나 수정합니다.
@@ -55,7 +55,7 @@ Azure Firewall을 사용한 UDR 설정의 예를 보려면 [Azure HDInsight 클�
 
 ## <a name="required-ports"></a>필수 포트
 
-**방화벽** 을 사용하여 특정 포트 외부에서 클러스터에 액세스하려는 경우 시나리오에 필요한 포트에서 트래픽을 허용해야 합니다. 이전 섹션에서 설명한 Azure 관리 트래픽이 포트 443의 클러스터에 도달할 수 있는 경우에는 기본적으로 포트에 대 한 특별 한 필터링이 필요 하지 않습니다.
+**방화벽** 을 사용하여 특정 포트 외부에서 클러스터에 액세스하려는 경우 시나리오에 필요한 포트에서 트래픽을 허용해야 합니다. 이전 섹션에서 설명한 Azure 관리 트래픽이 포트 443의 클러스터에 도달할 수 있는 한 기본적으로 포트에 대한 특별한 필터링이 필요하지 않습니다.
 
 특정 서비스에 대한 포트 목록은 [HDInsight의 Apache Hadoop 서비스에서 사용되는 포트](hdinsight-hadoop-port-settings-for-services.md) 문서를 참조하세요.
 

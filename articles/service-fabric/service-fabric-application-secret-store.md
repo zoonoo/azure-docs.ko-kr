@@ -4,17 +4,17 @@ description: 이 문서에서는 Azure Service Fabric에서 중앙 비밀 저장
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.openlocfilehash: e9fd435803ad5354b0eb2d4f5de50009a8cbbfe2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88869758"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Azure Service Fabric의 중앙 비밀 저장소 
 이 문서에서는 Azure Service Fabric에서 CSS(중앙 비밀 저장소)를 사용하여 Service Fabric 애플리케이션에서 비밀을 만드는 방법을 설명합니다. CSS는 중요한 데이터(예: 암호, 토큰, 키 등)를 메모리에 암호화된 상태로 유지하는 로컬 비밀 저장소 캐시입니다.
 
   > [!NOTE] 
-  > SF 버전 7.1 이전에 CSS를 처음 활성화할 때 CU3는 Windows 인증 클러스터에서 CSS가 활성화 된 경우 활성화가 실패 하 고 CSS가 영구적 비정상 상태로 유지 될 수 있습니다. CSS가 모든 클러스터에서 활성화 되어 있지만 `EncryptionCertificateThumbprint` 올바르게 선언 되지 않았거나 해당 인증서가 설치 되지 않았거나 노드에 ACL로 설정 되어 있지 않습니다. Windows 인증 클러스터의 경우 7.1을 참조 하세요. 계속 하기 전에 CU3. 다른 클러스터의 경우 이러한 고정을 다시 확인 하거나 7.1에 제공 하세요. CU3.
+  > SF 버전 7.1.CU3 이전에 CSS를 처음 활성화할 때 Windows 인증 클러스터에서 CSS가 활성화된 경우 활성화가 실패하고 CSS가 영구적 비정상 상태로 유지될 수 있습니다. CSS가 모든 클러스터에서 활성화되어 있지만 `EncryptionCertificateThumbprint`가 잘못 선언되었거나 해당 인증서가 노드에 설치되지 않았거나 ACL로 설정되어 있지 않습니다. Windows 인증 클러스터의 경우 계속하려면 7.1.CU3을 참조하세요. 다른 클러스터의 경우 이러한 고정 항목을 다시 확인하거나 7\.1.CU3을 참조하세요.
   
 ## <a name="enable-central-secrets-store"></a>중앙 비밀 저장소 사용
 CSS를 사용하도록 설정하려면 `fabricSettings` 아래의 클러스터 구성에 다음 스크립트를 추가합니다. CSS에 대해 클러스터 인증서 이외의 인증서를 사용하는 것이 좋습니다. 암호화 인증서가 모든 노드에 설치되어 있고 `NetworkService`에 인증서의 프라이빗 키에 대한 읽기 권한이 있는지 확인합니다.

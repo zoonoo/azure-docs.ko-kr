@@ -1,6 +1,6 @@
 ---
-title: Azure 인프라 가용성-Azure 보안
-description: 이 문서에서는 Microsoft가 Azure 인프라를 보호 하 고 고객 데이터의 최대 가용성을 제공 하기 위해 수행 하는 작업에 대 한 정보를 제공 합니다.
+title: Azure 인프라 가용성 - Azure 보안
+description: 이 문서에서는 Microsoft가 Azure 인프라를 보호하고 고객 데이터의 최대 가용성을 제공하기 위해 수행하는 작업에 대한 정보를 제공합니다.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
 ms.openlocfilehash: c50c4faf47caf0a7519d61fdc8989ec9fd809d78
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "68727224"
 ---
 # <a name="azure-infrastructure-availability"></a>Azure 인프라 가용성
-이 문서에서는 Microsoft가 Azure 인프라를 보호 하 고 고객 데이터의 최대 가용성을 제공 하기 위해 수행 하는 작업에 대 한 정보를 제공 합니다. Azure에서는 가상화 기술을 사용하여 수행된 광범위한 중복성을 기반으로 강력한 가용성을 제공합니다.
+이 문서에서는 Microsoft가 Azure 인프라를 보호하고 고객 데이터의 최대 가용성을 제공하기 위해 수행하는 작업에 대한 정보를 제공합니다. Azure에서는 가상화 기술을 사용하여 수행된 광범위한 중복성을 기반으로 강력한 가용성을 제공합니다.
 
 ## <a name="temporary-outages-and-natural-disaster"></a>임시 작동 중단 및 자연 재해
 Microsoft 클라우드 인프라 및 운영 팀은 클라우드 인프라를 디자인하고, 빌드하고, 운영하고, 보안을 개선합니다. 이 팀은 Azure 인프라가 고가용성 및 안정성, 고효율, 스마트한 확장성을 제공하도록 노력합니다. 이 팀은 보다 안전하고 프라이빗이고 신뢰할 수 있는 클라우드를 제공합니다.

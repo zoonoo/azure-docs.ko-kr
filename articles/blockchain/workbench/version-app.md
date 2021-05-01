@@ -1,19 +1,19 @@
 ---
-title: 블록 체인 앱 버전 관리-Azure Blockchain 워크 벤치
-description: Azure Blockchain 워크 벤치 미리 보기에서 응용 프로그램 버전을 사용 하는 방법입니다.
+title: 블록체인 앱 버전 관리 - Azure Blockchain Workbench
+description: Azure Blockchain Workbench 미리 보기에서 애플리케이션 버전을 사용하는 방법
 ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: brendal
 ms.openlocfilehash: 2a70112fd0ab6e2f664ca48265c121936b01e58b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85209881"
 ---
-# <a name="azure-blockchain-workbench-preview-application-versioning"></a>Azure Blockchain 워크 벤치 미리 보기 응용 프로그램 버전 관리
+# <a name="azure-blockchain-workbench-preview-application-versioning"></a>Azure Blockchain Workbench 미리 보기 애플리케이션 버전 관리
 
-여러 버전의 Azure Blockchain 워크 벤치 미리 보기 앱을 만들고 사용할 수 있습니다. 여러 버전의 동일한 애플리케이션이 업로드되는 경우 버전 기록을 사용할 수 있으며 사용자는 사용하려는 버전을 선택할 수 있습니다.
+여러 버전의 Azure Blockchain Workbench 미리 보기 앱을 만들고 사용할 수 있습니다. 여러 버전의 동일한 애플리케이션이 업로드되는 경우 버전 기록을 사용할 수 있으며 사용자는 사용하려는 버전을 선택할 수 있습니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

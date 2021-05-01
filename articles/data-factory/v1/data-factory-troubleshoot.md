@@ -9,10 +9,10 @@ ms.author: weetok
 ms.reviewer: jburchel
 robots: noindex
 ms.openlocfilehash: 70c1aecd358b52a7b5b62ba7cb8f3badffef2998
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104779922"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>데이터 팩터리 문제 해결
@@ -43,27 +43,27 @@ ms.locfileid: "104779922"
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>문제: 데이터 팩터리 cmdlet을 실행할 때 권한 없음 오류 발생
 Azure PowerShell에서 올바른 Azure 계정 또는 구독을 사용하고 있지 않습니다. 다음 cmdlet을 사용하여 Azure PowerShell에서 사용할 올바른 Azure 계정 및 구독을 선택합니다.
 
-1. Connect-AzAccount-올바른 사용자 ID 및 암호를 사용 합니다.
-2. Get-AzSubscription-계정에 대 한 모든 구독을 표시 합니다.
-3. Select-AzSubscription &lt; 구독 이름 &gt; -올바른 구독을 선택 합니다. Azure 포털에서 데이터 팩터리를 만드는 데 사용한 것과 동일한 구독을 사용합니다.
+1. Connect-AzAccount - 올바른 사용자 ID 및 암호 사용
+2. Get-AzSubscription - 계정의 구독을 모두 확인합니다.
+3. Select-AzSubscription &lt;구독 이름&gt; - 올바른 구독을 선택합니다. Azure 포털에서 데이터 팩터리를 만드는 데 사용한 것과 동일한 구독을 사용합니다.
 
 ### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>문제: Azure 포털에서 데이터 관리 게이트웨이 빠른 설치를 시작하지 못함
 데이터 관리 게이트웨이 빠른 설치를 수행하려면 Internet Explorer 또는 Microsoft ClickOnce 호환 웹 브라우저가 필요합니다. 빠른 설치를 시작할 수 없는 경우 다음 중 하나를 수행합니다.
 
 * Internet Explorer 또는 Microsoft ClickOnce 호환 웹 브라우저를 사용합니다.
 
-    Chrome을 사용 하는 경우 [chrome 웹 저장소](https://chrome.google.com/webstore/)로 이동 하 여 "clickonce" 키워드로 검색 하 고 clickonce 확장 중 하나를 선택 하 여 설치 합니다.
+    Chrome을 사용하는 경우 [Chrome 웹 스토어](https://chrome.google.com/webstore/)로 이동하여 "ClickOnce" 키워드로 검색하고 ClickOnce 확장 중 하나를 선택해 설치합니다.
 
     Firefox의 경우에도 동일한 작업을 수행합니다(추가 기능 설치). 도구 모음(상단 오른쪽 모서리의 가로 줄 세 개)의 열기 메뉴 단추를 클릭하고 추가 기능을 클릭하고 "ClickOnce" 키워드로 검색하고 ClickOnce 확장 중 하나를 선택하고 설치합니다.
 * 포털의 같은 블레이드에 표시되어 있는 **수동 설치** 링크를 사용합니다. 이 방식을 사용하여 설치 파일을 다운로드해 수동으로 실행합니다. 설치가 정상적으로 완료되면 데이터 관리 게이트웨이 구성 대화 상자가 표시됩니다. 포털 화면에서 **키** 를 복사하고 구성 관리자에서 이 키를 사용하여 게이트웨이를 서비스에 등록합니다.  
 
-### <a name="problem-fail-to-connect-to-sql-server"></a>문제: SQL Server에 연결 하지 못함
+### <a name="problem-fail-to-connect-to-sql-server"></a>문제: SQL Server에 연결하지 못함
 게이트웨이 컴퓨터에서 **데이터 관리 게이트웨이 구성 관리자** 를 시작하고 **문제 해결** 탭을 사용하여 게이트웨이 컴퓨터에서 SQL Server에 대한 연결을 테스트합니다. 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 을 참조하세요.   
 
-### <a name="problem-input-slices-are-in-waiting-state-forever"></a>문제: 입력 조각이 무기한 대기 상태입니다.
+### <a name="problem-input-slices-are-in-waiting-state-forever"></a>문제: 입력 조각이 무기한 대기 상태임
 이 조각은 다양한 이유로 인해 **대기 중** 상태일 수 있습니다. 일반적으로는 **external** 속성이 **true** 로 설정되어 있지 않으면 이러한 상태가 설정됩니다. Azure Data Factory 범위 외에서 생성된 데이터 세트는 **external** 속성으로 표시되어야 합니다. 이 속성은 데이터가 외부에 있으며 데이터 팩터리 내의 파이프라인에서 지원되지 않음을 나타냅니다. 해당 저장소에서 데이터를 사용할 수 있으면 데이터 조각이 **Ready** 로 표시됩니다.
 
-**external** 속성의 사용 방법은 다음 예제를 참조하세요. 외부를 true로 설정 하는 경우 선택적으로 **externalData***를 지정할 수 있습니다.
+**external** 속성의 사용 방법은 다음 예제를 참조하세요. external을 true로 설정할 경우 선택적으로 **externalData**\*를 지정할 수 있습니다.
 
 이 속성에 대한 자세한 내용은 [데이터 세트](data-factory-create-datasets.md) 문서를 참조하세요.
 

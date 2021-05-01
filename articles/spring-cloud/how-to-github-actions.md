@@ -1,6 +1,6 @@
 ---
-title: GitHub 작업을 사용 하는 Azure 스프링 클라우드 CI/CD
-description: GitHub 작업을 사용 하 여 Azure 스프링 클라우드 용 CI/CD 워크플로를 구축 하는 방법
+title: GitHub Actions를 사용하는 Azure Spring Cloud CI/CD
+description: GitHub Actions를 사용하여 Azure Spring Cloud용 CI/CD 워크플로를 빌드하는 방법
 author: MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
@@ -8,36 +8,36 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 8400fcacbfa4c76aceb079b788255e3d3b83ce33
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.openlocfilehash: caf70a005711decae794b02d4a2ccbaf3c2c32f4
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104878296"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135008"
 ---
-# <a name="azure-spring-cloud-cicd-with-github-actions"></a>GitHub 작업을 사용 하는 Azure 스프링 클라우드 CI/CD
+# <a name="azure-spring-cloud-cicd-with-github-actions"></a>GitHub Actions를 사용하는 Azure Spring Cloud CI/CD
 
-GitHub 작업은 자동화 된 소프트웨어 개발 수명 주기 워크플로를 지원 합니다. Azure 스프링 클라우드의 GitHub 작업을 사용 하 여 Azure에 빌드, 테스트, 패키지, 릴리스 및 배포를 위해 리포지토리에 워크플로를 만들 수 있습니다. 
+GitHub Actions는 자동화된 소프트웨어 개발 수명 주기 워크플로를 지원합니다. Azure Spring Cloud용 GitHub Actions를 사용하여 Azure에 빌드, 테스트하고 패키징, 릴리스 및 배포하기 위한 리포지토리에 워크플로를 만들 수 있습니다. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
-이 예에서는 [Azure CLI](/cli/azure/install-azure-cli)필요 합니다.
+이 예제에는 [Azure CLI](/cli/azure/install-azure-cli)가 필요합니다.
 
 ::: zone pivot="programming-language-csharp"
 ## <a name="set-up-github-repository-and-authenticate"></a>GitHub 리포지토리 설정 및 인증
-Azure 로그인 작업에 권한을 부여 하려면 Azure 서비스 주체 자격 증명이 필요 합니다. Azure 자격 증명을 가져오려면 로컬 컴퓨터에서 다음 명령을 실행 합니다.
+Azure 로그인 작업에 권한을 부여하려면 Azure 서비스 사용자 자격 증명이 필요 합니다. Azure 자격 증명을 가져오려면 로컬 컴퓨터에서 다음 명령을 실행합니다.
 
 ```
 az login
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth 
 ```
 
-특정 리소스 그룹에 액세스 하려면 범위를 줄일 수 있습니다.
+특정 리소스 그룹에 액세스하기 위해 범위를 줄일 수 있습니다.
 
 ```
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
 ```
 
-명령은 JSON 개체를 출력 해야 합니다.
+명령은 JSON 개체를 출력해야 합니다.
 
 ```JSON
 {
@@ -49,18 +49,18 @@ az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTIO
 }
 ```
 
-이 예제에서는 [GitHub의 steeltoe 샘플](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/steeltoe-sample)을 사용 합니다.  리포지토리를 포크 하 고, 포크에 대 한 GitHub 리포지토리 페이지를 열고 **설정** 탭을 선택 합니다. **비밀** 메뉴를 열고 **새 비밀** 을 선택 합니다.
+이 예제에서는 [GitHub의 steeltoe 샘플](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/steeltoe-sample)을 사용합니다.  리포지토리를 포크하고, 포크에 대한 GitHub 리포지토리 페이지를 연 다음 **설정** 탭을 선택합니다. **비밀** 메뉴를 열고 **새 비밀** 을 선택합니다.
 
  ![새 비밀 추가](./media/github-actions/actions1.png)
 
-비밀 이름을로 설정 하 `AZURE_CREDENTIALS` 고 해당 값을 *GitHub 리포지토리를 설정 하 고 인증* 하는 제목 아래에 있는 JSON 문자열로 설정 합니다.
+비밀 이름을 `AZURE_CREDENTIALS`(으)로 설정하고 해당 값을 *GitHub 리포지토리 설정 및 인증* 이라는 제목 아래에서 찾을 수 있는 JSON 문자열로 설정합니다.
 
  ![비밀 데이터 설정](./media/github-actions/actions2.png)
 
-[Github 작업에서 Key Vault를 사용 하 여 Azure 스프링 인증](./spring-cloud-github-actions-key-vault.md)에 설명 된 대로 github 작업의 Key Vault에서 azure 로그인 자격 증명을 가져올 수도 있습니다.
+[GitHub Actions에서 Key Vault를 사용하여 Azure Spring 인증](./github-actions-key-vault.md)에 설명된 대로 GitHub Actions의 Key Vault에서 Azure 로그인 자격 증명도 가져올 수 있습니다.
 
-## <a name="provision-service-instance"></a>서비스 인스턴스 프로 비전
-Azure 스프링 클라우드 서비스 인스턴스를 프로 비전 하려면 Azure CLI을 사용 하 여 다음 명령을 실행 합니다.
+## <a name="provision-service-instance"></a>서비스 인스턴스 프로비저닝
+Azure Spring Cloud 서비스 인스턴스를 프로비저닝하려면 Azure CLI를 사용하 여 다음 명령을 실행합니다.
 
 ```azurecli
 az extension add --name spring-cloud
@@ -70,13 +70,13 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 ```
 
 ## <a name="build-the-workflow"></a>워크플로 빌드
-워크플로는 다음 옵션을 사용 하 여 정의 됩니다.
+워크플로는 다음 옵션을 사용하여 정의됩니다.
 
-### <a name="prepare-for-deployment-with-azure-cli"></a>Azure CLI를 사용 하 여 배포 준비
+### <a name="prepare-for-deployment-with-azure-cli"></a>Azure CLI를 사용하여 배포 준비
 
-명령이 `az spring-cloud app create` 현재 idempotent이 아닙니다. 한 번 실행 한 후 동일한 명령을 다시 실행 하면 오류가 발생 합니다. 기존 Azure 스프링 클라우드 앱 및 인스턴스에이 워크플로를 권장 합니다.
+`az spring-cloud app create` 명령이 현재 idempotent가 아닙니다. 한 번 실행한 후 동일한 명령을 다시 실행하면 오류가 발생합니다. 기존 Azure Spring Cloud 앱 및 인스턴스에서 이 워크플로를 권장합니다.
 
-준비를 위해 다음 Azure CLI 명령을 사용 합니다.
+준비 시 다음 Azure CLI 명령을 사용합니다.
 ```
 az configure --defaults group=<service group name>
 az configure --defaults spring-cloud=<service instance name>
@@ -84,9 +84,9 @@ az spring-cloud app create --name planet-weather-provider
 az spring-cloud app create --name solar-system-weather
 ```
 
-### <a name="deploy-with-azure-cli-directly"></a>Azure CLI를 사용 하 여 직접 배포
+### <a name="deploy-with-azure-cli-directly"></a>Azure CLI를 사용하여 직접 배포
 
-`.github/workflows/main.yml`다음 콘텐츠를 사용 하 여 리포지토리에서 파일을 만듭니다. `<your resource group name>`및를 `<your service name>` 올바른 값으로 바꿉니다.
+다음 콘텐츠를 사용하여 리포지토리에 `.github/workflows/main.yml` 파일을 만듭니다. `<your resource group name>` 및 `<your service name>`을(를) 올바른 값으로 바꿉니다.
 
 ```yaml
 name: Steeltoe-CD
@@ -147,16 +147,16 @@ jobs:
 
 ::: zone pivot="programming-language-java"
 ## <a name="set-up-github-repository-and-authenticate"></a>GitHub 리포지토리 설정 및 인증
-Azure 로그인 작업에 권한을 부여 하려면 Azure 서비스 주체 자격 증명이 필요 합니다. Azure 자격 증명을 가져오려면 로컬 컴퓨터에서 다음 명령을 실행 합니다.
+Azure 로그인 작업에 권한을 부여하려면 Azure 서비스 사용자 자격 증명이 필요 합니다. Azure 자격 증명을 가져오려면 로컬 컴퓨터에서 다음 명령을 실행합니다.
 ```
 az login
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth 
 ```
-특정 리소스 그룹에 액세스 하려면 범위를 줄일 수 있습니다.
+특정 리소스 그룹에 액세스하기 위해 범위를 줄일 수 있습니다.
 ```
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
 ```
-명령은 JSON 개체를 출력 해야 합니다.
+명령은 JSON 개체를 출력해야 합니다.
 ```JSON
 {
     "clientId": "<GUID>",
@@ -167,18 +167,18 @@ az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTIO
 }
 ```
 
-이 예제에서는 GitHub의 [PiggyMetrics](https://github.com/Azure-Samples/piggymetrics) 샘플을 사용 합니다.  샘플을 포크 하 고 GitHub 리포지토리 페이지를 연 다음 **설정** 탭을 클릭 합니다. **비밀** 메뉴를 열고 **새 비밀 추가** 를 클릭 합니다.
+이 예제에서는 GitHub의 [PiggyMetrics](https://github.com/Azure-Samples/piggymetrics) 샘플을 사용합니다.  샘플을 포크하고 GitHub 리포지토리 페이지를 연 다음 **설정** 탭을 클릭합니다. **비밀** 메뉴를 열고 **새 비밀 추가** 를 클릭합니다.
 
  ![새 비밀 추가](./media/github-actions/actions1.png)
 
-비밀 이름을로 설정 하 `AZURE_CREDENTIALS` 고 해당 값을 *GitHub 리포지토리를 설정 하 고 인증* 하는 제목 아래에 있는 JSON 문자열로 설정 합니다.
+비밀 이름을 `AZURE_CREDENTIALS`(으)로 설정하고 해당 값을 *GitHub 리포지토리 설정 및 인증* 이라는 제목 아래에서 찾을 수 있는 JSON 문자열로 설정합니다.
 
  ![비밀 데이터 설정](./media/github-actions/actions2.png)
 
-[Github 작업에서 Key Vault를 사용 하 여 Azure 스프링 인증](./spring-cloud-github-actions-key-vault.md)에 설명 된 대로 github 작업의 Key Vault에서 azure 로그인 자격 증명을 가져올 수도 있습니다.
+[GitHub Actions에서 Key Vault를 사용하여 Azure Spring 인증](./github-actions-key-vault.md)에 설명된 대로 GitHub Actions의 Key Vault에서 Azure 로그인 자격 증명도 가져올 수 있습니다.
 
-## <a name="provision-service-instance"></a>서비스 인스턴스 프로 비전
-Azure 스프링 클라우드 서비스 인스턴스를 프로 비전 하려면 Azure CLI을 사용 하 여 다음 명령을 실행 합니다.
+## <a name="provision-service-instance"></a>서비스 인스턴스 프로비저닝
+Azure Spring Cloud 서비스 인스턴스를 프로비저닝하려면 Azure CLI를 사용하 여 다음 명령을 실행합니다.
 ```
 az extension add --name spring-cloud
 az group create --location eastus --name <resource group name>
@@ -186,12 +186,12 @@ az spring-cloud create -n <service instance name> -g <resource group name>
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/xxx/piggymetrics --label config
 ```
 ## <a name="build-the-workflow"></a>워크플로 빌드
-워크플로는 다음 옵션을 사용 하 여 정의 됩니다.
+워크플로는 다음 옵션을 사용하여 정의됩니다.
 
-### <a name="prepare-for-deployment-with-azure-cli"></a>Azure CLI를 사용 하 여 배포 준비
-명령이 `az spring-cloud app create` 현재 idempotent이 아닙니다.  기존 Azure 스프링 클라우드 앱 및 인스턴스에이 워크플로를 권장 합니다.
+### <a name="prepare-for-deployment-with-azure-cli"></a>Azure CLI를 사용하여 배포 준비
+`az spring-cloud app create` 명령이 현재 idempotent가 아닙니다.  기존 Azure Spring Cloud 앱 및 인스턴스에서 이 워크플로를 권장합니다.
 
-준비를 위해 다음 Azure CLI 명령을 사용 합니다.
+준비 시 다음 Azure CLI 명령을 사용합니다.
 ```
 az configure --defaults group=<service group name>
 az configure --defaults spring-cloud=<service instance name>
@@ -200,8 +200,8 @@ az spring-cloud app create --name auth-service
 az spring-cloud app create --name account-service
 ```
 
-### <a name="deploy-with-azure-cli-directly"></a>Azure CLI를 사용 하 여 직접 배포
-`.github/workflow/main.yml`리포지토리에서 파일을 만듭니다.
+### <a name="deploy-with-azure-cli-directly"></a>Azure CLI를 사용하여 직접 배포
+리포지토리에서 `.github/workflow/main.yml` 파일을 만듭니다.
 
 ```
 name: AzureSpringCloud
@@ -243,13 +243,13 @@ jobs:
         az spring-cloud app deploy -n account-service --jar-path ${{ github.workspace }}/account-service/target/account-service.jar
         az spring-cloud app deploy -n auth-service --jar-path ${{ github.workspace }}/auth-service/target/auth-service.jar
 ```
-### <a name="deploy-with-azure-cli-action"></a>Azure CLI 작업으로 배포
-Az `run` command는 최신 버전의 Azure CLI을 사용 합니다. 주요 변경 내용이 있는 경우 Azure/CLI에서 Azure CLI의 특정 버전을 사용할 수도 있습니다 `action` . 
+### <a name="deploy-with-azure-cli-action"></a>Azure CLI 작업을 사용하여 배포
+az `run` 명령은 최신 버전의 Azure CLI를 사용합니다. 호환성이 손상되는 변경이 있는 경우 azure/CLI `action`을(를) 사용하여 특정 버전의 Azure CLI도 사용할 수 있습니다. 
 
 > [!Note] 
-> 이 명령은 새 컨테이너에서 실행 되므로 `env` 작동 하지 않으며 상호 작업 파일 액세스에 추가 제한이 있을 수 있습니다.
+> 이 명령은 새 컨테이너에서 실행되므로, `env`이(가) 작동하지 않고 상호 작업 파일 액세스에 추가 제한이 있을 수 있습니다.
 
-리포지토리에서 github/workflow/main .yml 파일을 만듭니다.
+리포지토리에서 .github/workflow/main.yml 파일을 만듭니다.
 ```
 name: AzureSpringCloud
 on: push
@@ -288,8 +288,8 @@ jobs:
           az spring-cloud app deploy -n auth-service --jar-path $GITHUB_WORKSPACE/auth-service/target/auth-service.jar
 ```
 
-## <a name="deploy-with-maven-plugin"></a>Maven 플러그 인을 사용 하 여 배포
-또 다른 옵션은 Jar을 배포 하 고 앱 설정을 업데이트 하는 데 [Maven 플러그 인](./spring-cloud-quickstart.md) 을 사용 하는 것입니다. 명령은 `mvn azure-spring-cloud:deploy` idempotent 이며 필요한 경우 자동으로 앱을 만듭니다. 해당 앱을 미리 만들 필요가 없습니다.
+## <a name="deploy-with-maven-plugin"></a>Maven 플러그인을 사용하여 배포
+또 다른 옵션은 [Maven 플러그인](./quickstart.md)을 사용하여 Jar를 배포하고 앱 설정을 업데이트하는 것입니다. `mvn azure-spring-cloud:deploy` 명령은 idempotent이며 필요한 경우 앱을 자동으로 만듭니다. 해당 앱을 미리 만들 필요는 없습니다.
 
 ```
 name: AzureSpringCloud
@@ -327,18 +327,18 @@ jobs:
 
 ## <a name="run-the-workflow"></a>워크플로 실행
 
-Github에 푸시 하면 GitHub **작업** 을 자동으로 사용 하도록 설정 해야 합니다 `.github/workflow/main.yml` . 새 커밋을 푸시할 때 동작이 트리거됩니다. 브라우저에서이 파일을 만드는 경우에는 작업을 이미 실행 해야 합니다.
+Github에 `.github/workflow/main.yml`을(를) 푸시하면 GitHub **Actions** 를 자동으로 사용하도록 설정해야 합니다. 새 커밋을 푸시하면 작업이 트리거됩니다. 브라우저에서 이 파일을 만드는 경우 작업이 이미 실행되어 있어야 합니다.
 
-작업이 활성화 되었는지 확인 하려면 GitHub 리포지토리 페이지에서 **작업** 탭을 클릭 합니다.
+작업이 사용하도록 설정되었는지 확인하려면 GitHub 리포지토리 페이지에서 **작업** 탭을 클릭합니다.
 
-![작업 사용 확인](./media/github-actions/actions3.png)
+![작업이 사용하도록 설정되었는지 확인](./media/github-actions/actions3.png)
 
-오류가 발생 한 경우 (예: Azure 자격 증명을 설정 하지 않은 경우) 오류를 수정 하 고 나 서 검사를 다시 실행할 수 있습니다. GitHub 리포지토리 페이지에서 **작업** 을 클릭 하 고, 특정 워크플로 작업을 선택한 다음, **다시 실행 확인** 단추를 클릭 하 여 검사를 다시 실행 합니다.
+작업에서 오류가 발생한 경우(예: Azure 자격 증명을 설정하지 않은 경우) 오류를 수정하면 검사를 다시 시작할 수 있습니다. GitHub 리포지토리 페이지에서 **작업** 을 클릭하고 특정 워크플로 작업을 선택한 다음, **검사 다시 실행** 단추를 클릭하여 검사를 다시 실행합니다.
 
 ![검사 다시 실행](./media/github-actions/actions4.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [스프링 클라우드 GitHub 작업 Key Vault](./spring-cloud-github-actions-key-vault.md)
-* [Azure Active Directory 서비스 주체](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)
+* [Spring Cloud GitHub Actions용 Key Vault](./github-actions-key-vault.md)
+* [Azure Active Directory 서비스 사용자](/cli/azure/ad/sp#az_ad_sp_create_for_rbac)
 * [Azure에 대한 GitHub 작업](https://github.com/Azure/actions/)

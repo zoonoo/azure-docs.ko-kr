@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/10/2020
 ms.author: terrylan
 ms.openlocfilehash: 3eac3c9abda74f0414fc97512f011d235d3991f5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87076329"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Azure 시설, 구역 및 물리적 보안
@@ -30,7 +30,7 @@ Azure는 전 세계적으로 수천 개의 온라인 서비스를 지원하고 1
 
 이 인프라는 전 세계 사용자에게 애플리케이션을 더 가까이 제공하는 데 필요한 확장성을 제공하고, 데이터 상주를 유지하고, 고객에게 포괄적인 준수 및 복원력 옵션을 제공하도록 디자인되어 있습니다. Azure는 전 세계 58개 지역을 포함하며 140개 국가/지역에서 사용할 수 있습니다.
 
-지역은 대규모의 복원력 있는 네트워크를 통해 상호 연결된 데이터 센터 집합입니다. 네트워크에는 지역 내의 모든 Azure 트래픽에 대해 기본적으로 콘텐츠 배포, 부하 분산, 중복성 및 [데이터 링크 계층 암호화가](encryption-overview.md#encryption-of-data-in-transit) 포함 되거나 지역 간에 여행 됩니다. 다른 클라우드 공급자보다 많은 글로벌 지역을 제공하는 Azure는 필요한 곳에 애플리케이션을 유연하게 배포할 수 있습니다.
+지역은 대규모의 복원력 있는 네트워크를 통해 상호 연결된 데이터 센터 집합입니다. 네트워크에는 한 지역 내의 모든 Azure 트래픽 또는 지역 간 이동에 대한 컨텐츠 배포, 부하 분산, 중복도 및 [데이터 링크 계층 암호화가 기본적으로](encryption-overview.md#encryption-of-data-in-transit) 포함됩니다. 다른 클라우드 공급자보다 많은 글로벌 지역을 제공하는 Azure는 필요한 곳에 애플리케이션을 유연하게 배포할 수 있습니다.
 
 Azure 지역은 지리적 위치로 구성됩니다. Azure 지리적 위치는 지리적 경계 내에서 데이터 상주, 주권, 준수 및 복원력 요구 사항이 적용되도록 합니다.
 

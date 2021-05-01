@@ -1,21 +1,21 @@
 ---
 title: Azure CLI를 사용하여 Apache Cassandra용 Azure Managed Instance 리소스 관리
-description: Azure CLI를 사용 하 여 Apache Cassandra에 대 한 Azure Managed Instance의 관리를 자동화 하는 일반적인 명령에 대해 알아봅니다.
+description: Azure CLI를 사용하여 Apache Cassandra용 Azure Managed Instance의 관리를 자동화하는 일반적인 명령을 알아봅니다.
 author: TheovanKraay
 ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: thvankra
 ms.openlocfilehash: 3e44625d23a302c58ea065a4fc3ecec5605e60b9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103564527"
 ---
-# <a name="manage-azure-managed-instance-for-apache-cassandra-resources-using-azure-cli-preview"></a>Azure CLI를 사용 하 여 Apache Cassandra 리소스에 대 한 Azure Managed Instance 관리 (미리 보기)
+# <a name="manage-azure-managed-instance-for-apache-cassandra-resources-using-azure-cli-preview"></a>Azure CLI(미리 보기)를 사용하여 Apache Cassandra용 Azure Managed Instance 리소스 관리
 
-이 문서에서는 Azure CLI를 사용 하 여 Apache Cassandra 클러스터에 대 한 Azure Managed Instance의 관리를 자동화 하는 일반적인 명령을 설명 합니다.
+이 문서에서는 Azure CLI를 사용하여 Apache Cassandra 클러스터용 Azure Managed Instance의 관리를 자동화하는 일반적인 명령을 설명합니다.
 
 > [!IMPORTANT]
 > Apache Cassandra용 Azure Managed Instance는 현재 공개 미리 보기로 제공됩니다.
@@ -25,24 +25,24 @@ ms.locfileid: "103564527"
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 > [!IMPORTANT]
-> 이 문서에서는 Azure CLI 버전 2.17.1 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
+> 이 문서를 진행하려면 Azure CLI 버전 2.17.1 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 >
-> Apache Cassandra 리소스에 대 한 Azure Managed Instance 관리는 Azure Resource Manager 리소스 Uri와 함께 작동 하는 방법을 위반 하므로 이름을 바꿀 수 없습니다.
+> Azure Resource Manager가 리소스 URI와 함께 작동하는 방식을 위반하므로 Apache Cassandra 리소스에 대한 Azure Managed Instance 관리의 이름을 바꿀 수 없습니다.
 
-## <a name="azure-managed-instance-for-apache-cassandra-clusters"></a>Apache Cassandra 클러스터에 대 한 Azure Managed Instance
+## <a name="azure-managed-instance-for-apache-cassandra-clusters"></a>Apache Cassandra 클러스터용 Azure Managed Instance
 
-다음 섹션에서는 다음을 포함 하 여 Apache Cassandra 클러스터에 대 한 Azure Managed Instance를 관리 하는 방법을 보여 줍니다.
+다음 섹션에서는 다음을 포함하여 Apache Cassandra 클러스터용 Azure Managed Instance를 관리하는 방법을 보여 줍니다.
 
-* [관리 되는 인스턴스 클러스터 만들기](#create-cluster)
-* [관리 되는 인스턴스 클러스터 삭제](#delete-cluster)
+* [관리되는 인스턴스 클러스터 만들기](#create-cluster)
+* [관리되는 인스턴스 클러스터 삭제](#delete-cluster)
 * [클러스터 세부 정보 가져오기](#get-cluster-details)
 * [클러스터 노드 상태 가져오기](#get-cluster-status)
-* [리소스 그룹별 클러스터 나열](#list-clusters-resource-group)
-* [구독 ID 별 클러스터 나열](#list-clusters-subscription)
+* [리소스 그룹별로 클러스터 나열](#list-clusters-resource-group)
+* [구독 ID별 클러스터 나열](#list-clusters-subscription)
 
 ### <a name="create-a-managed-instance-cluster"></a><a id="create-cluster"></a>관리형 인스턴스 클러스터 만들기
 
-[Az Managed-Cassandra cluster create](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_create) 명령을 사용 하 여 Apache Cassandra 클러스터에 대 한 Azure Managed Instance를 만듭니다.
+[az managed-cassandra cluster create](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_create) 명령을 사용하여 Apache Cassandra 클러스터용 Azure Managed Instance를 만듭니다.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -63,9 +63,9 @@ az managed-cassandra cluster create \
     --initial-cassandra-admin-password $initialCassandraAdminPassword \
 ```
 
-### <a name="delete-a-managed-instance-cluster"></a><a id="delete-cluster"></a>관리 되는 인스턴스 클러스터 삭제
+### <a name="delete-a-managed-instance-cluster"></a><a id="delete-cluster"></a>관리되는 인스턴스 클러스터 삭제
 
-[Az managed-cassandra cluster delete](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_delete) 명령을 사용 하 여 클러스터를 삭제 합니다.
+[Az managed-cassandra cluster delete](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_delete) 명령을 사용하여 클러스터를 삭제합니다.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -78,7 +78,7 @@ az managed-cassandra cluster delete \
 
 ### <a name="get-the-cluster-details"></a><a id="get-cluster-details"></a>클러스터 세부 정보 가져오기
 
-[Az managed-cassandra cluster show](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_show) 명령을 사용 하 여 클러스터 세부 정보를 가져옵니다.
+[az managed-cassandra cluster show](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_show) 명령을 사용하여 클러스터 세부 정보를 가져옵니다.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -91,7 +91,7 @@ az managed-cassandra cluster show \
 
 ### <a name="get-the-cluster-node-status"></a><a id="get-cluster-status"></a>클러스터 노드 상태 가져오기
 
-[Az managed-cassandra cluster node-status](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_node_status) 명령을 사용 하 여 클러스터 세부 정보를 가져옵니다.
+[az managed-cassandra cluster node-status](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_node_status) 명령을 사용하여 클러스터 세부 정보를 가져옵니다.
 
 ```azurecli-interactive
 clusterName='cassandra-hybrid-cluster'
@@ -104,7 +104,7 @@ az managed-cassandra cluster node-status \
 
 ### <a name="list-the-clusters-by-resource-group"></a><a id="list-clusters-resource-group"></a>리소스 그룹별 클러스터 나열
 
-[Az managed-cassandra cluster list](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_list) 명령을 사용 하 여 리소스 그룹별로 클러스터를 나열 합니다.
+[az managed-cassandra cluster list](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_list) 명령을 사용하여 리소스 그룹별로 클러스터를 나열합니다.
 
 ```azurecli-interactive
 subscriptionId='MySubscriptionId'
@@ -114,9 +114,9 @@ az managed-cassandra cluster list\
     --resource-group $resourceGroupName
 ```
 
-### <a name="list-clusters-by-subscription-id"></a><a id="list-clusters-subscription"></a>구독 ID 별 클러스터 나열
+### <a name="list-clusters-by-subscription-id"></a><a id="list-clusters-subscription"></a>구독 ID별 클러스터 나열
 
-[Az managed-cassandra cluster list](/cli/azure/ext/cosmosdb-preview/managed-cassandra?view=azure-cli-latest&preserve-view=true) 명령을 사용 하 여 구독 ID로 클러스터를 나열 합니다.
+[az managed-cassandra cluster list](/cli/azure/ext/cosmosdb-preview/managed-cassandra?view=azure-cli-latest&preserve-view=true) 명령을 사용하여 구독 ID별로 클러스터를 나열합니다
 
 ```azurecli-interactive
 # set your subscription id
@@ -125,19 +125,19 @@ az account set -s <subscription id>
 az managed-cassandra cluster list
 ```
 
-## <a name="the-managed-instance-datacenters"></a><a id="managed-instance-datacenter"></a>관리 되는 인스턴스 데이터 센터
+## <a name="the-managed-instance-datacenters"></a><a id="managed-instance-datacenter"></a>관리되는 인스턴스 데이터 센터
 
-다음 섹션에서는 다음을 포함 하 여 Apache Cassandra 데이터 센터에 대 한 Azure Managed Instance를 관리 하는 방법을 보여 줍니다.
+다음 섹션에서는 다음을 포함하여 Apache Cassandra 데이터 센터용 Azure Managed Instance를 관리하는 방법을 보여 줍니다.
 
 * [데이터 센터 만들기](#create-datacenter)
 * [데이터 센터 삭제](#delete-datacenter)
-* [데이터 센터 정보 가져오기](#get-datacenter-details)
+* [데이터 센터 세부 정보 가져오기](#get-datacenter-details)
 * [데이터 센터 업데이트 또는 크기 조정](#update-datacenter)
 * [클러스터의 데이터 센터 가져오기](#get-datacenters-cluster)
 
 ### <a name="create-a-datacenter"></a><a id="create-datacenter"></a>데이터 센터 만들기
 
-[Az managed-cassandra datacenter create](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_create) 명령을 사용 하 여 데이터 센터를 만듭니다.
+[az managed-cassandra datacenter create](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_create) 명령을 사용하여 데이터 센터를 만듭니다.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -157,7 +157,7 @@ az managed-cassandra datacenter create \
 
 ### <a name="delete-a-datacenter"></a><a id="delete-datacenter"></a>데이터 센터 삭제
 
-[Az managed-cassandra datacenter delete](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_delete) 명령을 사용 하 여 데이터 센터를 삭제 합니다.
+[Az managed-cassandra datacenter delete](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_delete) 명령을 사용하여 데이터 센터를 삭제합니다.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -170,9 +170,9 @@ az managed-cassandra datacenter delete \
     --data-center-name $dataCenterName 
 ```
 
-### <a name="get-datacenter-details"></a><a id="get-datacenter-details"></a>데이터 센터 정보 가져오기
+### <a name="get-datacenter-details"></a><a id="get-datacenter-details">데이터 센터 세부 정보를 가져옵니다.</a>
 
-[Az managed-cassandra datacenter show](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_show) 명령을 사용 하 여 데이터 센터 정보를 가져옵니다.
+[Az managed-cassandra datacenter show](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_show) 명령을 사용하여 데이터 센터 세부 정보를 가져옵니다.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -187,7 +187,7 @@ az managed-cassandra datacenter show \
 
 ### <a name="update-or-scale-a-datacenter"></a><a id="update-datacenter"></a>데이터 센터 업데이트 또는 크기 조정
 
-[Az managed-cassandra datacenter update](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_update) 명령을 사용 하 여 데이터 센터를 업데이트 하거나 크기를 조정 하 여 변경 nodeCount 값을 조정 합니다.
+[Az managed-cassandra datacenter update](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_update) 명령을 사용하여 데이터 센터를 업데이트하거나 크기를 조정하여 변경 nodeCount 값을 조정합니다.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -205,7 +205,7 @@ az managed-cassandra datacenter update \
 
 ### <a name="get-the-datacenters-in-a-cluster"></a><a id="get-datacenters-cluster"></a>클러스터의 데이터 센터 가져오기
 
-[Az managed-cassandra datacenter list](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_list) 명령을 사용 하 여 클러스터의 데이터 센터를 가져옵니다.
+[Az managed-cassandra datacenter list](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_list) 명령을 사용하여 클러스터의 데이터 센터를 가져옵니다.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'

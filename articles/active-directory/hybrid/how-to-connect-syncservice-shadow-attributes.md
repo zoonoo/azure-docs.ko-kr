@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 128303cb51b39db8442fdda71f949db17923bfa2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90088973"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect 동기화 서비스 섀도 특성
@@ -32,13 +32,13 @@ ms.locfileid: "90088973"
 Azure Portal 또는 PowerShell을 사용하여 섀도 특성을 볼 수는 없습니다. 하지만 개념을 이해하면 온-프레미스와 클라우드의 특성 값이 서로 다른 시나리오를 해결하는 데 도움이 됩니다.
 
 이 동작을 보다 정확하게 이해하려면 Fabrikam의 예를 살펴보세요.  
-![스크린샷에는 해당 Azure AD 도메인 값이 추가 되지 않고 확인 되지 않으며 확인 되지 않은 여러 예제에 대 한 Active Directory UPN 접미사가 표시 됩니다.](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
+![스크린샷에는 해당 Azure AD 도메인 값인 추가되지 않음, 확인되지 않음 및 확인됨으로 여러 예제에 대한 Active Directory UPN 접미사가 표시됩니다.](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
 온-프레미스 Active Directory에 UPN 접미사가 여러 개 있지만 확인된 것은 하나뿐입니다.
 
 ### <a name="userprincipalname"></a>userPrincipalName
 사용자는 유효성이 확인되지 않은 도메인에서 다음과 같은 특성 값을 가집니다.
 
-| 특성 | 값 |
+| attribute | 값 |
 | --- | --- |
 | 온-프레미스 userPrincipalName | lee.sperry@fabrikam.com |
 | Azure AD shadowUserPrincipalName | lee.sperry@fabrikam.com |
@@ -53,12 +53,12 @@ proxyAddresses에서도 확인된 도메인만 포함하기 위한 동일한 프
 
 사서함 사용자의 경우 온-프레미스 또는 Exchange Online에서 확인된 도메인의 값만 표시됩니다. 다음과 같이 표시될 수 있습니다.
 
-| 특성 | 값 |
+| attribute | 값 |
 | --- | --- |
 | 온-프레미스 proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | Exchange Online proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-이 경우 해당 도메인이 확인 되지 않았기 때문에 **smtp: abbie. spencer \@ fabrikam.com** 가 제거 되었습니다. 그러나 Exchange는 **SIP: abbie. spencer \@ fabrikamonline.com** 도 추가 했습니다. Fabrikam은 Lync/Skype 온-프레미스를 사용하지 않지만 Azure AD와 Exchange Online은 그에 대한 준비를 합니다.
+이 경우 해당 도메인이 확인되지 않았기 때문에 **smtp:abbie.spencer\@fabrikam.com** 이 제거되었습니다. 그러나 Exchange는 **SIP:abbie.spencer\@fabrikamonline.com** 도 추가했습니다. Fabrikam은 Lync/Skype 온-프레미스를 사용하지 않지만 Azure AD와 Exchange Online은 그에 대한 준비를 합니다.
 
 proxyAddresses에 대한 이 논리를 **ProxyCalc** 라고 합니다. 다음과 같은 경우 사용자에 대한 모든 변경 내용과 함께 ProxyCalc가 호출됩니다.
 

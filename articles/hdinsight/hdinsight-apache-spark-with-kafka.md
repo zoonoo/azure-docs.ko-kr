@@ -1,20 +1,20 @@
 ---
 title: Apache Kafka에서 Apache Spark 스트리밍 - Azure HDInsight
-description: DStreams를 사용하여 Apache Kafka 간에 데이터를 스트리밍하기 위해 Apache Spark를 사용하는 방법을 알아봅니다. 이 예제에서는 HDInsight의 Spark에서 Jupyter Notebook를 사용 하 여 데이터를 스트리밍합니다.
+description: DStreams를 사용하여 Apache Kafka 간에 데이터를 스트리밍하기 위해 Apache Spark를 사용하는 방법을 알아봅니다. 이 예제에서는 HDInsight의 Spark에서 Jupyter Notebook을 사용하여 데이터를 스트리밍합니다.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
 ms.openlocfilehash: 6ef11e9c7907f57b3b8de0a042e1035bce638cf4
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104863278"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>HDInsight에서 Apache Kafka를 사용한 Apache Spark 스트리밍(DStream) 예제
 
-[Apache Spark](https://spark.apache.org/) 를 사용 [하 여 데이터](https://spark.apache.org/docs/latest/api/java/org/apache/spark/streaming/dstream/DStream.html)를 [Apache Kafka](https://kafka.apache.org/) 데이터를 스트리밍하는 방법에 대해 알아봅니다. 이 예제에서는 Spark 클러스터에서 실행되는 [Jupyter Notebook](https://jupyter.org/)을 사용합니다.
+[DStreams](https://spark.apache.org/docs/latest/api/java/org/apache/spark/streaming/dstream/DStream.html)를 사용하여 HDInsight에서 [Apache Kafka](https://kafka.apache.org/) 간에 데이터를 스트리밍하기 위해 [Apache Spark](https://spark.apache.org/)를 사용하는 방법을 알아봅니다. 이 예제에서는 Spark 클러스터에서 실행되는 [Jupyter Notebook](https://jupyter.org/)을 사용합니다.
 
 > [!NOTE]  
 > 이 문서의 단계는 HDInsight의 Spark와 HDInsight의 Kafka 클러스터를 모두 포함하는 Azure 리소스 그룹을 만듭니다. 이러한 클러스터는 모두 Azure Virtual Network에 있으며, 여기서는 Spark 클러스터와 Kafka 클러스터 간에 직접 통신할 수 있습니다.
@@ -73,7 +73,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
 ## <a name="use-the-notebooks"></a>노트북 사용
 
-이 문서에서 설명 하는 예제에 대 한 코드는에서 사용할 수 있습니다 [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka) .
+이 문서에 설명된 예제에 대한 코드는 [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka)에서 지원됩니다.
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 
