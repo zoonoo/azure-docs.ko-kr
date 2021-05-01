@@ -5,17 +5,17 @@ ms.topic: how-to
 ms.date: 10/06/2020
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 9d8776ba8e683cd14c766fead1e7238a6c24d000
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91843450"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Azure Batch에서 컨테이너 애플리케이션 실행
 
 Azure Batch를 사용하면 Azure에서 많은 수의 일괄 처리 계산 작업을 실행하고 확장할 수 있습니다. Batch 작업은 Batch 풀의 가상 머신(노드)에서 직접 실행할 수 있지만 노드에서 Docker 호환 컨테이너의 작업을 실행하도록 Batch 풀을 설정할 수도 있습니다. 이 문서에서는 컨테이너 작업의 실행을 지원하는 컴퓨팅 노드 풀을 만드는 방법과 풀에서 컨테이너 작업을 실행하는 방법을 보여 줍니다.
 
-이 코드 예제에서는 Batch .NET 및 Python Sdk를 사용 합니다. Azure Portal을 포함하여 다른 Batch SDK 및 도구를 사용하여 컨테이너 사용이 가능한 Batch 풀을 만들고 컨테이너 작업을 실행할 수도 있습니다.
+여기에서 코드 예제는 Batch .NET 및 Python SDK를 사용합니다. Azure Portal을 포함하여 다른 Batch SDK 및 도구를 사용하여 컨테이너 사용이 가능한 Batch 풀을 만들고 컨테이너 작업을 실행할 수도 있습니다.
 
 ## <a name="why-use-containers"></a>컨테이너를 사용하는 이유
 
@@ -36,15 +36,15 @@ Azure Batch를 사용하면 Azure에서 많은 수의 일괄 처리 계산 작�
 
 - **지원되는 VM 이미지**: 컨테이너는 다음 섹션, “지원되는 가상 머신 이미지”에 자세히 설명된 이미지의 Virtual Machine 구성으로 만든 풀에서만 지원됩니다. 사용자 지정 이미지를 제공하는 경우 다음 섹션의 고려 사항 및 [관리되는 사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](batch-custom-images.md)의 요구 사항을 참조하세요.
 
-다음 제한 사항에 유의 하세요.
+다음 제한 사항에 유의합니다.
 
 - Batch는 Linux 풀에서 실행되는 컨테이너에 대해서만 RDMA 지원을 제공합니다.
 
-- Windows 컨테이너 워크 로드의 경우 풀에 대 한 다중 코어 VM 크기를 선택 하는 것이 좋습니다.
+- Windows 컨테이너 워크로드의 경우 풀에 대한 다중 코어 VM 크기를 선택하는 것이 좋습니다.
 
 ## <a name="supported-virtual-machine-images"></a>지원되는 가상 머신 이미지
 
-컨테이너 워크로드에 대한 VM 컴퓨팅 노드 풀을 만들려면 다음 지원되는 Windows 또는 Linux 이미지 중 하나를 사용합니다. Batch와 호환 되는 Marketplace 이미지에 대 한 자세한 내용은 [가상 머신 이미지 목록](batch-linux-nodes.md#list-of-virtual-machine-images)을 참조 하세요.
+컨테이너 워크로드에 대한 VM 컴퓨팅 노드 풀을 만들려면 다음 지원되는 Windows 또는 Linux 이미지 중 하나를 사용합니다. Batch와 호환되는 Marketplace 이미지에 대한 자세한 내용은 [가상 머신 이미지 목록](batch-linux-nodes.md#list-of-virtual-machine-images)을 참조하세요.
 
 ### <a name="windows-support"></a>Windows 지원
 
@@ -96,7 +96,7 @@ Batch 풀을 사용하여 컨테이너 워크로드를 실행하려면 해당 �
 
 ### <a name="pool-without-prefetched-container-images"></a>프리페치된 컨테이너 이미지 없는 풀
 
-프리페치된 컨테이너 이미지 없이 컨테이너 사용 가능 풀을 구성 하려면 `ContainerConfiguration` 다음 예제와 같이 및 개체를 정의 `VirtualMachineConfiguration` 합니다. 이러한 예제에서는 Marketplace의 Azure Batch 컨테이너 풀 이미지에 Ubuntu 서버를 사용 합니다.
+프리페치된 컨테이너 이미지 없이 컨테이너 지원 풀을 구성하려면 다음 예제와 같이 `ContainerConfiguration` 및 `VirtualMachineConfiguration` 개체를 정의합니다. 이 예제에서는 Marketplace에서 Azure Batch 컨테이너 풀 이미지의 Ubuntu Server를 사용합니다.
 
 ```python
 image_ref_to_use = batch.models.ImageReference(
@@ -219,7 +219,7 @@ pool.StartTask = startTaskContainer;
 
 ### <a name="prefetch-images-from-a-private-container-registry"></a>프라이빗 컨테이너 레지스트리에서 이미지 프리페치
 
-프라이빗 컨테이너 레지스트리 서버에서 인증을 받아 컨테이너 이미지를 프리페치할 수도 있습니다. 다음 예제에서는 `ContainerConfiguration` 및 `VirtualMachineConfiguration` 개체가 개인 Azure container registry에서 개인 TensorFlow 이미지를 프리페치 합니다. 이미지 참조는 앞의 예와 동일합니다.
+프라이빗 컨테이너 레지스트리 서버에서 인증을 받아 컨테이너 이미지를 프리페치할 수도 있습니다. 다음 예제에서는 `ContainerConfiguration` 및 `VirtualMachineConfiguration` 개체가 프라이빗 Azure Container Registry에서 프라이빗 TensorFlow 이미지를 프리페치한다고 가정합니다. 이미지 참조는 앞의 예와 동일합니다.
 
 ```python
 image_ref_to_use = batch.models.ImageReference(
@@ -285,11 +285,11 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 - 컨테이너 이미지에 대해 작업(task)를 실행하는 경우 [클라우드 작업(task)](/dotnet/api/microsoft.azure.batch.cloudtask) 및 [작업(Job) 관리자 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask)에 컨테이너 설정이 필요합니다. 그러나 [시작 태스크](/dotnet/api/microsoft.azure.batch.starttask), [작업(Job) 준비 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) 및 [작업(Job) 관리자 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask)에는 컨테이너 설정이 필요하지 않습니다(즉, 컨테이너 컨텍스트 내에서 또는 노드에서 직접 실행될 수 있음).
 
-- Windows의 경우 [ElevationLevel](/rest/api/batchservice/task/add#elevationlevel) 을로 설정 하 여 작업을 실행 해야 합니다 `admin` . 
+- Windows의 경우 [ElevationLevel](/rest/api/batchservice/task/add#elevationlevel)을 `admin`으로 설정하여 작업을 실행해야 합니다. 
 
-- Linux의 경우 Batch는 컨테이너에 사용자/그룹 권한을 매핑합니다. 컨테이너 내의 폴더에 대 한 액세스 권한이 필요한 경우 관리자 권한 수준으로 태스크를 풀 범위로 실행 해야 할 수 있습니다. 이렇게 하면 일괄 처리가 컨테이너 컨텍스트의 루트로 태스크를 실행 하 게 됩니다. 그렇지 않으면 관리자가 아닌 사용자에 게 해당 폴더에 대 한 액세스 권한이 없을 수 있습니다.
+- Linux의 경우 Batch는 컨테이너에 사용자/그룹 권한을 매핑합니다. 컨테이너 내의 폴더에 액세스할 때 관리자 권한이 필요한 경우 관리자 권한 상승 수준인 풀 범위로 작업을 실행해야 할 수 있습니다. 그러면 Batch가 컨테이너 컨텍스트에서 루트로 작업을 실행합니다. 실행하지 않으면 관리자가 아닌 사용자에게 해당 폴더에 대한 액세스 권한이 없을 수 있습니다.
 
-- GPU 사용 하드웨어가 있는 컨테이너 풀의 경우 Batch는 컨테이너 작업에 대해 GPU를 자동으로 사용 하도록 설정 하므로 인수를 포함 하지 않아야 `–gpus` 합니다.
+- GPU 지원 하드웨어가 있는 컨테이너 풀의 경우 Batch는 컨테이너 작업에 대해 GPU를 자동으로 사용 설정하므로 `–gpus` 인수를 포함하지 않아야 합니다.
 
 ### <a name="container-task-command-line"></a>컨테이너 작업 명령줄
 
@@ -361,7 +361,7 @@ containerTask.ContainerSettings = cmdContainerSettings;
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Shipyard 조리법](https://github.com/Azure/batch-shipyard/tree/master/recipes)을 통해 Azure Batch에서 컨테이너 워크 로드를 쉽게 배포 하려면 [Batch Shipyard](https://github.com/Azure/batch-shipyard) toolkit을 참조 하세요.
-- Linux에서 Docker CE를 설치 하 고 사용 하는 방법에 대 한 자세한 내용은 [docker](https://docs.docker.com/engine/installation/) 설명서를 참조 하세요.
-- [관리 되는 사용자 지정 이미지를 사용 하 여 가상 머신 풀을 만드는](batch-custom-images.md)방법을 알아봅니다.
+- [Shipyard recipes](https://github.com/Azure/batch-shipyard/tree/master/recipes)를 통해 Azure Batch에 컨테이너 워크로드를 쉽게 배포하려면 [Batch Shipyard](https://github.com/Azure/batch-shipyard) 도구 키트를 참조하세요.
+- Linux에서 Docker CE를 설치 및 사용하는 방법에 대한 자세한 내용은 [Docker](https://docs.docker.com/engine/installation/) 설명서를 참조하세요.
+- [관리형 사용자 지정 이미지를 사용하여 가상 머신의 풀을 만드는](batch-custom-images.md) 방법을 알아보세요.
 - 컨테이너 기반 시스템을 만들기 위한 프레임워크인 [Moby 프로젝트](https://mobyproject.org/)에 대해 자세히 알아봅니다.

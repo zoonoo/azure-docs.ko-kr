@@ -9,14 +9,14 @@ ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
 ms.date: 03/02/2021
-ms.topic: how-to
-ms.custom: devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: e6b8a4bbbe596ec06f7f9b445dbaa439e1207e46
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
+ms.openlocfilehash: 1c3d9b286a8262efa126ba9c661c50dd88e78b64
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888713"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103573475"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>가상 네트워크 격리 및 개인 정보 개요
 
@@ -28,10 +28,10 @@ ms.locfileid: "107888713"
 
 **1. VNet 개요** > [2. 작업 영역 보호](how-to-secure-workspace-vnet.md) > [3. 학습 환경 보호](how-to-secure-training-vnet.md) > [4. 추론 환경 보호](how-to-secure-inferencing-vnet.md) > [5. 스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 사용자가 다음 항목에 익숙하다고 가정합니다.
-+ [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
++ [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md)
 + [IP 네트워킹](../virtual-network/public-ip-addresses.md)
 + [Azure Private Link](how-to-configure-private-link.md)
 + [NSG(네트워크 보안 그룹)](../virtual-network/network-security-groups-overview.md)
@@ -116,7 +116,7 @@ ms.locfileid: "107888713"
 
 - Azure 컴퓨팅 인스턴스 및 Azure 컴퓨팅 클러스터는 작업 영역 및 연결된 리소스와 동일한 VNet, 지역 및 구독에 있어야 합니다. 
 
-## <a name="secure-the-inferencing-environment"></a>추론 환경 보안
+## <a name="secure-the-inferencing-environment"></a>추론 환경 보호
 
 이 섹션에서는 추론 환경을 보호하는 데 사용할 수 있는 옵션을 알아봅니다. 대규모 프로덕션 배포에는 AKS(Azure Kubernetes Services) 클러스터를 사용하는 것이 좋습니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure 프로덕션 네트워크 관리-Microsoft Azure
-description: 이 문서에서는 Microsoft가 azure 데이터 센터를 보호 하기 위해 Azure 프로덕션 네트워크를 관리 하 고 운영 하는 방법을 설명 합니다.
+title: Azure 프로덕션 네트워크 관리 - Microsoft Azure
+description: 이 문서에서는 Microsoft가 Azure 데이터 센터를 보호하기 위해 Azure 프로덕션 네트워크를 관리하고 운영하는 방법을 설명합니다.
 services: security
 documentationcenter: n
 author: TerryLanfear
@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 05/30/2019
 ms.author: terrylan
 ms.openlocfilehash: d41fe409b4a44a4c2af3670d76dd3a83a300feae
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "68727122"
 ---
 # <a name="management-and-operation-of-the-azure-production-network"></a>Azure 프로덕션 네트워크의 관리 및 운영    
-이 문서에서는 Microsoft가 azure 데이터 센터를 보호 하기 위해 Azure 프로덕션 네트워크를 관리 하 고 운영 하는 방법을 설명 합니다.
+이 문서에서는 Microsoft가 Azure 데이터 센터를 보호하기 위해 Azure 프로덕션 네트워크를 관리하고 운영하는 방법을 설명합니다.
 
-## <a name="monitor-log-and-report"></a>모니터, 로그 및 보고서
+## <a name="monitor-log-and-report"></a>모니터, 로그 및 보고
 
 Azure 프로덕션 네트워크의 관리 및 운영은 Azure 및 Azure SQL Database의 운영 팀 간에 조정된 노력입니다. 이러한 팀은 환경 내에서 여러 시스템 및 애플리케이션 성능 모니터링 도구를 사용합니다. 또한 적절한 도구를 사용하여 네트워크 디바이스, 서버, 서비스 및 애플리케이션 프로세스를 모니터링합니다.
 

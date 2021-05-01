@@ -9,14 +9,14 @@ ms.author: sagopal
 author: saachigopal
 ms.reviewer: larryfr
 ms.date: 11/16/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: fb6d9a1a1ad341763c205a11b7a6a9acafda1ac4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: how-to
+ms.custom: devx-track-python, deploy
+ms.openlocfilehash: 55e38db17fcaa1c3f3955cc942936a7ff810d31b
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889742"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897724"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>사용자 지정 Docker 기본 이미지를 사용하여 모델 배포
 
@@ -139,9 +139,9 @@ Azure Machine Learning을 사용하여 이미 모델을 학습시키거나 배�
     ```text
     FROM ubuntu:16.04
 
-    ARG CONDA_VERSION=4.7.12
+    ARG CONDA_VERSION=4.9.2
     ARG PYTHON_VERSION=3.7
-    ARG AZUREML_SDK_VERSION=1.13.0
+    ARG AZUREML_SDK_VERSION=1.27.0
     ARG INFERENCE_SCHEMA_VERSION=1.1.0
 
     ENV LANG=C.UTF-8 LC_ALL=C.UTF-8

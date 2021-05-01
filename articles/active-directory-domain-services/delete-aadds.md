@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory Domain Services 삭제 | Microsoft Docs
-description: 을 사용 하 여 관리 되는 Azure Active Directory Domain Services 도메인을 사용 하지 않도록 설정 하거나 삭제 하는 방법을 알아봅니다 Azure Portal
+description: Azure Portal을 사용하여 Azure Active Directory Domain Services 관리되는 도메인 사용하지 않도록 설정 또는 삭제하는 방법 알아보기
 services: active-directory-ds
 author: justinha
 manager: daveba
@@ -12,42 +12,42 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: justinha
 ms.openlocfilehash: a5126abd6643eba7f63b2bf4ca984bb9892b2d7a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96619813"
 ---
-# <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Active Directory Domain Services 관리 되는 도메인 삭제
+# <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 관리되는 도메인을 사용하지 않도록 설정 또는 삭제하는 방법 알아보기
 
-Azure Active Directory Domain Services (Azure AD DS) 관리 도메인이 더 이상 필요 하지 않은 경우 삭제할 수 있습니다. Azure AD DS 관리 되는 도메인을 끄거나 일시적으로 사용 하지 않도록 설정할 수 있는 옵션은 없습니다. 관리 되는 도메인을 삭제 해도 삭제 되거나 Azure AD 테 넌 트에 부정적인 영향을 줍니다.
+Azure AD DS(Azure Active Directory Domain Services) 관리되는 도메인이 더 이상 필요하지 않은 경우 이를 삭제할 수 있습니다. Azure AD DS 관리되는 도메인을 끄거나 일시적으로 사용하지 않도록 설정할 수 있는 옵션은 없습니다. 관리되는 도메인을 삭제해도 Azure AD 테넌트가 삭제되거나 테넌트에 기타 부정적인 영향을 주지는 않습니다.
 
-이 문서에서는 Azure Portal를 사용 하 여 관리 되는 도메인을 삭제 하는 방법을 보여 줍니다.
+이 문서에서는 Azure Portal을 사용하여 관리되는 도메인을 삭제하는 방법에 대해 보여줍니다.
 
 > [!WARNING]
-> **삭제는 영구적 이며 되돌릴 수 없습니다.**
+> **삭제는 영구적이며 되돌릴 수 없습니다.**
 > 
-> 관리 되는 도메인을 삭제 하면 다음 단계가 수행 됩니다.
+> 관리되는 도메인을 삭제하면 다음 단계가 수행됩니다.
 >   * 관리되는 도메인의 도메인 컨트롤러가 가상 네트워크에서 프로비전 해제되고 제거됩니다.
->   * 관리되는 도메인의 데이터가 영구적으로 삭제됩니다. 이 데이터에는 사용자가 만든 사용자 지정 Ou, Gpo, 사용자 지정 DNS 레코드, 서비스 사용자, GMSAs 등이 포함 됩니다.
+>   * 관리되는 도메인의 데이터가 영구적으로 삭제됩니다. 이 데이터에는 사용자가 만든 사용자 지정 OU, GPO, 사용자 지정 DNS 레코드, 서비스 주체, GMSA 등이 포함됩니다.
 >   * 관리되는 도메인에 가입된 컴퓨터는 도메인과의 트러스트 관계를 해제하고 도메인 가입을 해제해야 합니다.
->       * 회사 AD 자격 증명을 사용 하 여 이러한 컴퓨터에 로그인 할 수 없습니다. 대신, 컴퓨터에 대 한 로컬 관리자 자격 증명을 사용 해야 합니다.
+>       * 기업 AD 자격 증명을 사용하여 이러한 컴퓨터에 로그인할 수는 없습니다. 대신 컴퓨터에 대한 로컬 관리자 자격 증명을 사용해야 합니다.
 
-## <a name="delete-the-managed-domain"></a>관리 되는 도메인 삭제
+## <a name="delete-the-managed-domain"></a>관리되는 도메인 삭제
 
-관리 되는 도메인을 삭제 하려면 다음 단계를 완료 합니다.
+관리되는 도메인을 삭제하려면 다음 단계를 완료합니다.
 
 1. Azure Portal에서 **Azure AD Domain Services** 를 검색하여 선택합니다.
-1. 관리 되는 도메인의 이름 (예: *aaddscontoso.com*)을 선택 합니다.
-1. **개요** 페이지에서 **삭제** 를 선택합니다. 삭제를 확인 하려면 관리 되는 도메인의 도메인 이름을 다시 입력 하 고 **삭제** 를 선택 합니다.
+1. 관리되는 도메인 이름(예: *aaddscontoso.com*)을 선택합니다.
+1. **개요** 페이지에서 **삭제** 를 선택합니다. 삭제를 확인하려면 관리되는 도메인의 도메인 이름을 다시 입력하고 **삭제** 를 선택합니다.
 
-관리 되는 도메인을 삭제 하는 데 15-20 분 이상 걸릴 수 있습니다.
+관리되는 도메인을 삭제하는 데 15-20분 이상 소요될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure AD DS에 표시 하려는 기능에 대 한 [피드백을 공유][feedback] 해 보세요.
+Azure AD DS에 표시하려는 기능에 대한 [피드백을 공유][feedback]해 보세요.
 
-Azure AD DS을 다시 시작 하려면 [관리 되는 Azure Active Directory Domain Services 도메인 만들기 및 구성][create-instance]을 참조 하세요.
+Azure AD DS를 다시 시작하려는 경우 [Azure Active Directory Domain Services 관리되는 도메인 만들기 및 구성][create-instance]을 참조하세요.
 
 <!-- INTERNAL LINKS -->
 [feedback]: https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160593%3fcategory_id%3d160593

@@ -1,16 +1,16 @@
 ---
 title: Enterprise Security Package를 사용하는 Azure HDInsight 아키텍처
-description: Enterprise Security Package를 사용 하 여 Azure HDInsight 보안을 계획 하는 방법을 알아봅니다.
+description: Enterprise Security Package를 사용하여 Azure HDInsight 보안을 계획하는 방법을 알아봅니다.
 ms.reviewer: omidm
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/11/2020
 ms.openlocfilehash: 404cd8652a4daf602f3326696ef5df2c3a23a548
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98943327"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>HDInsight에서 Enterprise Security Package 사용
@@ -35,7 +35,7 @@ HDInsight의 VM(가상 머신)은 제공된 도메인에 가입된 도메인입�
 
 요약하면 다음으로 환경을 설정해야 합니다.
 
-- Active Directory 도메인(Azure AD DS에서 관리함) **Azure HDInsight에서 작업 하려면 도메인 이름이 39 자이 하 여야 합니다.**
+- Active Directory 도메인(Azure AD DS에서 관리함) **Azure HDInsight를 사용하여 작업하려면 도메인 이름이 39자 이하여야 합니다.**
 - Azure AD DS에서 사용하도록 설정된 보안 LDAP(LDAPS)
 - 가상 네트워크를 별도로 선택하는 경우, HDInsight 가상 네트워크에서 Azure AD DS 가상 네트워크로 적절한 네트워킹 연결 HDInsight 가상 네트워크 내의 VM은 가상 네트워크 피어링을 통해 Azure AD DS에 연결되어 있어야 합니다. HDInsight 및 Azure AD DS가 동일한 가상 네트워크에 배포된 경우, 연결이 자동으로 제공되며 추가 작업이 필요하지 않습니다.
 
@@ -57,19 +57,19 @@ HDInsight는 현재 클러스터가 Kerberos 통신에 사용하는 주 도메�
 
 Kerberos가 암호 해시를 사용하므로 [Azure AD DS에서 암호 해시 동기화를 사용하도록 설정](../../active-directory-domain-services/tutorial-create-instance.md)해야 합니다.
 
-Active Directory Federation Services (AD FS)와 페더레이션을 사용 하는 경우 암호 해시 동기화를 사용 하도록 설정 해야 합니다. 권장 설정에 대해서는 [이 비디오](https://youtu.be/qQruArbu2Ew)를 참조 하세요. 암호 해시 동기화는 AD FS 인프라에 오류가 발생 하는 경우 재해 복구에 도움이 되며, 누출 된 자격 증명 보호를 제공 하는 데도 도움이 됩니다. 자세한 내용은 [Azure AD Connect에서 암호 해시 동기화 사용](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)을 참조하세요.
+페더레이션을 AD FS(Active Directory Federation Services)와 함께 사용하는 경우, 암호 해시 동기화를 사용하도록 설정해야 합니다. (권장 설정은 [이 동영상](https://youtu.be/qQruArbu2Ew)을 참조하세요.) 암호 해시 동기화를 사용하면 AD FS 인프라에 장애가 발생했을 때 재해 복구하는 데 유용하며 자격 증명이 유출되는 경우에도 보호받을 수 있습니다. 자세한 내용은 [Azure AD Connect에서 암호 해시 동기화 사용](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)을 참조하세요.
 
 Azure AD 및 Azure AD DS 없이 온-프레미스 Active Directory 또는 IaaS VM의 Active Directory만 사용하는 방식은 ESP가 포함된 HDInsight 클러스터에 대해 지원되는 구성이 아닙니다.
 
-페더레이션을 사용 중이 고 암호 해시가 올바르게 동기화 되었지만 인증 오류가 발생 하는 경우 PowerShell 서비스 주체에 대해 클라우드 암호 인증을 사용 하도록 설정 했는지 확인 합니다. 그렇지 않은 경우 Azure AD 테넌트에 대해 [HRD(홈 영역 검색) 정책](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md)을 설정해야 합니다. HRD 정책을 확인하고 설정하려면:
+페더레이션을 사용 중이고 암호 해시가 올바르게 동기화되었지만 인증 오류가 발생하는 경우에는 PowerShell 서비스 주체에 대해 클라우드 암호 인증이 활성화되어 있는지 확인합니다. 그렇지 않은 경우 Azure AD 테넌트에 대해 [HRD(홈 영역 검색) 정책](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md)을 설정해야 합니다. HRD 정책을 확인하고 설정하려면:
 
-1. Preview [AZURE AD PowerShell 모듈](/powershell/azure/active-directory/install-adv2)을 설치 합니다.
+1. [Azure AD PowerShell 모듈](/powershell/azure/active-directory/install-adv2) 미리 보기를 설치합니다.
 
    ```powershell
    Install-Module AzureAD
    ```
 
-2. 전역 관리자 (테 넌 트 관리자) 자격 증명을 사용 하 여 연결 합니다.
+2. 전역 관리자(테넌트 관리자) 자격 증명을 연결합니다.
 
    ```powershell
    Connect-AzureAD
@@ -81,7 +81,7 @@ Azure AD 및 Azure AD DS 없이 온-프레미스 Active Directory 또는 IaaS VM
    Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
    ```
 
-4. 존재 하지 않는 경우 서비스 주체를 만듭니다.
+4. 서비스 주체가 없는 경우, 서비스 주체를 만듭니다.
 
    ```powershell
    $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2

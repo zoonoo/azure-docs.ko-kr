@@ -1,13 +1,13 @@
 ---
-title: 예약 된 리소스 이름 오류
+title: 예약된 리소스 이름 오류
 description: 예약어가 포함된 리소스 이름을 제공할 때 발생하는 오류를 해결하는 방법을 설명합니다.
 ms.topic: troubleshooting
 ms.date: 11/08/2017
 ms.openlocfilehash: e76f4bf9bfee7de6e7523d69acf1388d2dd80e93
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "75477630"
 ---
 # <a name="resolve-reserved-resource-name-errors"></a>예약된 리소스 이름 오류 해결

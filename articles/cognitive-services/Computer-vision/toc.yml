@@ -178,15 +178,15 @@
             - name: 카메라 배치
               href: spatial-analysis-camera-placement.md
             - name: 모든 Cognitive Services 컨테이너
-              href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
+              href: ../containers/index.yml?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
 - name: 방법 가이드
   items:
     - name: 엔터프라이즈 준비
       items:
         - name: 가상 네트워크 설정
-          href: /azure/cognitive-services/cognitive-services-virtual-networks?context=/azure/cognitive-services/computer-vision/context/context
+          href: ../cognitive-services-virtual-networks.md?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
         - name: Azure AD 인증 사용
-          href: /azure/cognitive-services/authentication?tabs=powershell?context=/azure/cognitive-services/computer-vision/context/context
+          href: ../authentication.md?tabs=powershell%3fcontext%3d%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
 - name: 리소스
   items:
     - name: 엔터프라이즈 준비

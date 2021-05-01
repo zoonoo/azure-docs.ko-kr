@@ -2,17 +2,17 @@
 title: Azure에 클라우드 서비스(클래식)를 배포하는 경우 LocationNotFoundForRoleSize 문제 해결 | Microsoft Docs
 description: 이 문서에서는 클라우드 서비스(클래식)를 Azure에 배포할 때 LocationNotFoundForRoleSize 예외 사항을 해결하는 방법을 보여 줍니다.
 services: cloud-services
-author: mibufo
-ms.author: v-mibufo
+author: mamccrea
+ms.author: mamccrea
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
-ms.openlocfilehash: 2ed889bea715ff5a26bf8e918789429e57fa31b2
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 54af2387ec0ff6c8f86f96821baad17736e8d85b
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109665"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877969"
 ---
 # <a name="troubleshoot-locationnotfoundforrolesize-when-deploying-a-cloud-service-classic-to-azure"></a>Azure에 클라우드 서비스(클래식)를 배포하는 경우 LocationNotFoundForRoleSize 문제 해결
 
@@ -41,7 +41,7 @@ Azure Portal에서 클라우드 서비스(클래식)로 이동하고 사이드�
 
 배포하는 지역 또는 클러스터에 용량 문제가 있습니다. *LocationNotFoundForRoleSize* 예외는 지정한 지역에 대해 선택한 리소스 SKU(VM 크기)를 사용할 수 없는 경우에 발생합니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 이 시나리오에서는 클라우드 서비스(클래식)를 배포할 다른 지역 또는 SKU를 선택해야 합니다. 클라우드 서비스(클래식)를 배포하거나 업그레이드하기 전에 지역 또는 가용성 영역에서 사용할 수 있는 SKU를 확인할 수 있습니다. 아래의 [Azure CLI](#list-skus-in-region-using-azure-cli), [PowerShell](#list-skus-in-region-using-powershell) 또는 [REST API](#list-skus-in-region-using-rest-api) 프로세스를 따르세요.
 

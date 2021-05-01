@@ -1,6 +1,6 @@
 ---
-title: Azure Virtual Machine Scale Sets에 대 한 디자인 고려 사항
-description: Azure Virtual Machine Scale Sets에 대 한 디자인 고려 사항에 대해 알아봅니다. 확장 집합 기능과 VM 기능을 비교 합니다.
+title: Azure Virtual Machine Scale Sets에 대한 디자인 고려 사항
+description: Azure Virtual Machine Scale Sets에 대한 디자인 고려 사항을 알아봅니다. 확장 집합 기능과 VM 기능을 비교합니다.
 keywords: linux 가상 머신, 가상 머신 크기 집합
 author: mimckitt
 ms.author: mimckitt
@@ -11,10 +11,10 @@ ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 04446243ed827cca4972a4b606c4930e74a2c704
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104774969"
 ---
 # <a name="design-considerations-for-scale-sets"></a>확장 집합 디자인 고려 사항
@@ -25,7 +25,7 @@ ms.locfileid: "104774969"
 
 ### <a name="scale-set-specific-features"></a>확장 집합 특정 기능
 
-- 확장 집합 구성을 지정한 후에는 *용량* 속성을 업데이트 하 여 더 많은 vm을 병렬로 배포할 수 있습니다. 이 방법은 다수의 개별 VM을 병렬로 배포하는 작업을 오케스트레이션하는 스크립트를 작성하는 것보다 좋습니다.
+- 확장 집합 구성을 지정하고 나면 추가 VM을 병렬로 배포하도록 *용량* 속성을 업데이트할 수 있습니다. 이 방법은 다수의 개별 VM을 병렬로 배포하는 작업을 오케스트레이션하는 스크립트를 작성하는 것보다 좋습니다.
 - [Azure 자동 크기 조정을 사용하여 확장 집합의 크기를 자동으로 조정](./virtual-machine-scale-sets-autoscale-overview.md)할 수 있지만 개별 VM의 경우는 불가능합니다.
 - [확장 집합 VM을 이미지로 다시 설치](/rest/api/compute/virtualmachinescalesets/reimage)할 수 있지만 [개별 VM의 경우는 불가능합니다](/rest/api/compute/virtualmachines).
 - 안정성 향상과 배포 시간 단축을 위해 확장 집합 VM을 [오버프로비전](#overprovisioning)할 수 있습니다. 이 작업을 수행하는 사용자 지정 코드를 작성하지 않는 한 개별 VM을 과도하게 프로비전할 수 없습니다.
@@ -39,7 +39,7 @@ ms.locfileid: "104774969"
 - 네이티브 디스크에서 관리 디스크로 개별 VM을 마이그레이션할 수 있지만, 확장 집합의 VM 인스턴스는 마이그레이션할 수 없습니다.
 - 개별 VM 가상 NIC(네트워크 인터페이스 카드)에 IPv6 공용 IP 주소를 할당할 수 있지만 확장 집합의 VM 인스턴스에 대해서는 이렇게 할 수 없습니다. 개별 VM이나 확장 집합 VM 앞에 놓인 부하 분산 장치에 IPv6 공용 IP 주소를 할당할 수 있습니다.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>스토리지
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>Azure Managed Disks를 사용하는 확장 집합
 확장 집합은 기존의 Azure Storage 계정 대신 [Azure Managed Disks](../virtual-machines/managed-disks-overview.md)를 사용하여 만들 수 있습니다. Managed Disks는 다음과 같은 이점을 제공합니다.

@@ -120,7 +120,7 @@
         - name: 규정 준수 및 인증
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Microsoft Learn 모듈
-      href: 'https://docs.microsoft.com/learn/browse/?terms=personalizer'
+      href: /learn/browse/?terms=personalizer
     - name: 지원 및 도움말 옵션
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/personalizer/context/context
     - name: 문제 해결
