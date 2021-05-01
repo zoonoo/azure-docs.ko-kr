@@ -1,50 +1,50 @@
 ---
 title: Azure Event Hubs에 대한 액세스 권한 부여
-description: 이 문서에서는 Azure Event Hubs 리소스에 대 한 액세스 권한을 부여 하는 여러 옵션에 대 한 정보를 제공 합니다.
+description: 이 문서에서는 Azure Event Hubs 리소스에 대한 액세스 권한을 부여하는 여러 옵션에 대한 정보를 제공합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 5fc35387f4ac28ad4dd28bea0013bcdf1e1e9f02
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92332385"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Azure Event Hubs에 대한 액세스 권한 부여
-이벤트 허브에서 이벤트/데이터를 게시 하거나 사용할 때마다 클라이언트가 Event Hubs 리소스에 액세스 하려고 합니다. 보안 리소스에 대 한 모든 요청은 서비스에서 클라이언트에 데이터를 게시/사용 하는 데 필요한 권한이 있는지 확인할 수 있도록 권한을 부여 해야 합니다. 
+Event Hubs에서 이벤트/데이터를 게시하거나 이용할 때마다 클라이언트가 Event Hubs 리소스에 액세스하려고 합니다. 안전한 리소스에 대한 모든 요청은 서비스에서 클라이언트가 데이터를 게시/이용하는 데 필요한 권한을 가지고 있는지 확인할 수 있도록 권한을 부여해야 합니다. 
 
-Azure Event Hubs는 보안 리소스에 대 한 액세스 권한을 부여 하는 다음과 같은 옵션을 제공 합니다.
+Azure Event Hubs는 안전한 리소스에 대한 액세스 권한을 부여하는 다음과 같은 옵션을 제공합니다.
 
 - Azure Active Directory
 - 공유 액세스 서명
 
 > [!NOTE]
-> 이 문서는 Event Hubs 및 [Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) 시나리오에 모두 적용 됩니다. 
+> 이 문서는 Event Hubs 및 [Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) 시나리오에 모두 적용됩니다. 
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
-Event Hubs 리소스에 대 한 Azure Active Directory (Azure AD) 통합은 클라이언트에서 리소스에 대 한 액세스를 세부적으로 제어할 수 있도록 azure RBAC (역할 기반 액세스 제어)를 제공 합니다. Azure RBAC를 사용 하 여 사용자, 그룹 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 보안 주체는 OAuth 2.0 토큰을 반환 하기 위해 Azure AD에서 인증 됩니다. 토큰은 Event Hubs 리소스에 대 한 액세스 요청에 권한을 부여 하는 데 사용할 수 있습니다.
+Event Hubs 리소스에 대한 Azure AD(Azure Active Directory) 통합은 클라이언트에서 리소스에 대한 액세스를 세부적으로 제어할 수 있도록 Azure RBAC(역할 기반 액세스 제어)를 제공합니다. Azure RBAC를 사용하여 사용자, 그룹 또는 애플리케이션 서비스 주체일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 보안 주체는 Azure AD에 의해 인증되어 OAuth 2.0 토큰을 반환합니다. 토큰은 Event Hubs 리소스에 대한 액세스 요청에 권한을 부여하는 데 사용할 수 있습니다.
 
-Azure AD를 사용 하 여 인증 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
+Azure AD 인증에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure Active Directory를 사용 하 여 Azure Event Hubs에 대 한 요청 인증](authenticate-application.md)
-- [Azure Active Directory를 사용 하 여 Event Hubs 리소스에 대 한 액세스 권한을 부여](authorize-access-azure-active-directory.md)합니다.
+- [Azure Active Directory를 사용하여 Azure Event Hubs에 대한 요청 인증](authenticate-application.md)
+- [Azure Active Directory를 사용하여 Event Hubs 리소스에 대한 액세스 권한 부여](authorize-access-azure-active-directory.md)
 
 ## <a name="shared-access-signatures"></a>공유 액세스 서명 
-Event Hubs 리소스에 대 한 SAS (공유 액세스 서명)는 Event Hubs 리소스에 대해 제한 된 위임 된 액세스를 제공 합니다. 서명이 유효한 시간 간격에 대 한 제약 조건을 추가 하거나 부여 하는 사용 권한에 따라 리소스 관리의 유연성이 제공 됩니다. 자세한 내용은 [SAS (공유 액세스 서명)를 사용 하 여 인증](authenticate-shared-access-signature.md)을 참조 하세요. 
+Event Hubs 리소스에 대한 SAS(공유 액세스 서명)는 Event Hubs 리소스에 대해 위임된 액세스를 제한적으로 제공합니다. 서명이 유효한 시간 간격 또는 부여되는 권한에 제약 조건을 추가하면 리소스를 유연하게 관리할 수 있습니다. 자세한 내용은 [SAS(공유 액세스 서명)를 사용하여 인증](authenticate-shared-access-signature.md)을 참조하세요. 
 
-Azure AD에서 반환 된 OAuth 2.0 토큰을 사용 하는 사용자 또는 응용 프로그램에 대 한 권한 부여는 SAS (공유 액세스 서명)를 통해 뛰어난 보안과 사용 편의성을 제공 합니다. Azure AD를 사용 하면 코드를 사용 하 여 액세스 토큰을 저장 하지 않아도 되며 잠재적 보안 취약성이 발생할 수 있습니다. SAS (공유 액세스 서명)를 계속 사용 하 여 Event Hubs 리소스에 대 한 세분화 된 액세스 권한을 부여할 수 있지만, Azure AD는 SAS 토큰을 관리 하거나 손상 된 SAS를 해지 하는 것에 대해 걱정할 필요 없이 유사한 기능을 제공 합니다. 
+Azure AD에서 반환된 OAuth 2.0 토큰을 사용하는 사용자 또는 애플리케이션에 대한 권한 부여는 SAS(공유 액세스 서명)를 통해 뛰어난 보안과 사용 편의성을 제공합니다. Azure AD를 사용하면 잠재적인 보안 취약성 위험이 있는 코드와 함께 액세스 토큰을 저장할 필요가 없습니다. SAS(공유 액세스 서명)를 계속 사용하여 Event Hubs 리소스에 대한 세분화된 액세스 권한을 부여할 수 있습니다. 하지만 Azure AD에서는 SAS 토큰을 관리하거나 손상된 SAS를 해지할 필요 없이 유사한 기능을 제공합니다. 
 
-기본적으로 모든 Event Hubs 리소스는 보안 되며 계정 소유자만 사용할 수 있습니다. 위에서 설명한 권한 부여 전략 중 하나를 사용 하 여 클라이언트에 이벤트 허브 리소스에 대 한 액세스 권한을 부여할 수 있습니다. 최대한의 보안과 사용 편의성을 위해 가능한 경우 Azure AD를 사용 하는 것이 좋습니다.
+기본적으로 모든 Event Hubs 리소스는 보안을 유지하며 계정 소유자만 사용할 수 있습니다. 위에서 설명한 권한 부여 전략 중 하나를 사용하여 클라이언트에 Event Hub 리소스에 대한 액세스 권한을 부여할 수 있습니다. 최대 수준의 보안과 사용 편의성을 위해 가능한 경우 Azure AD를 사용하는 것이 좋습니다.
 
-SAS를 사용한 권한 부여에 대 한 자세한 내용은 [공유 액세스 서명을 사용 하 여 Event Hubs 리소스에](authorize-access-shared-access-signature.md)대 한 액세스 권한 부여를 참조 하세요.
+SAS를 사용한 권한 부여에 대한 자세한 내용은 [공유 액세스 서명을 사용하여 Event Hubs 리소스에 대한 액세스 권한 부여](authorize-access-shared-access-signature.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-- GitHub 리포지토리에 게시 된 [AZURE RBAC 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac) 을 검토 합니다. 
+- GitHub 리포지토리에 게시된 [Azure RBAC 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac)을 검토합니다. 
 - 다음 문서를 참조하세요.
-    - [Azure Active Directory를 사용 하 여 응용 프로그램에서 Azure Event Hubs에 대 한 요청 인증](authenticate-application.md)
-    - [Event Hubs 리소스에 액세스 하기 위해 Azure Active Directory를 사용 하 여 관리 id 인증](authenticate-managed-identity.md)
-    - [공유 액세스 서명을 사용 하 여 Azure Event Hubs에 대 한 요청 인증](authenticate-shared-access-signature.md)
-    - [Azure Active Directory를 사용 하 여 Event Hubs 리소스에 대 한 액세스 권한 부여](authorize-access-azure-active-directory.md)
-    - [공유 액세스 서명을 사용 하 여 Event Hubs 리소스에 대 한 액세스 권한 부여](authorize-access-shared-access-signature.md)
+    - [Azure Active Directory를 사용하여 애플리케이션에서 Azure Event Hubs에 대한 요청 인증](authenticate-application.md)
+    - [Azure Active Directory에서 관리 ID를 인증하여 Event Hubs 리소스에 액세스](authenticate-managed-identity.md)
+    - [공유 액세스 서명을 사용하여 Azure Event Hubs에 대한 요청 인증](authenticate-shared-access-signature.md)
+    - [Azure Active Directory를 사용하여 Event Hubs 리소스에 대한 액세스 권한 부여](authorize-access-azure-active-directory.md)
+    - [공유 액세스 서명을 사용하여 Event Hubs 리소스에 대한 액세스 권한 부여](authorize-access-shared-access-signature.md)
 

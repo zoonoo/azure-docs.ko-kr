@@ -1,6 +1,6 @@
 ---
 title: 암호화 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
-description: Threat Modeling Tool에 노출 되는 위협에 대 한 암호화 완화에 대해 알아봅니다. 완화 정보 및 코드 예제 보기를 참조 하십시오.
+description: Threat Modeling Tool에 노출되는 위협에 대한 암호화 완화에 대해 알아봅니다. 완화 정보 및 코드 예제 보기를 참조하십시오.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,23 +16,23 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 6af4fba8ddf50b795d847a2c7b4e2fbc02fe593f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97587182"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>보안 프레임: 암호화 | 완화 
 
 | 제품/서비스 | 아티클 |
 | --------------- | ------- |
-| **웹 애플리케이션** | <ul><li>[승인 된 대칭 블록 암호화 및 키 길이만 사용](#cipher-length)</li><li>[대칭 암호화에 승인된 블록 암호화 모드 및 초기화 벡터 사용](#vector-ciphers)</li><li>[승인된 비대칭 알고리즘, 키 길이 및 패딩 사용](#padding)</li><li>[승인된 난수 생성기 사용](#numgen)</li><li>[대칭 스트림 암호화 사용 안 함](#stream-ciphers)</li><li>[승인 된 MAC/HMAC/키 지정 해시 알고리즘 사용](#mac-hash)</li><li>[승인 된 암호화 해시 함수만 사용](#hash-functions)</li></ul> |
-| **데이터베이스** | <ul><li>[강력한 암호화 알고리즘을 사용 하 여 데이터베이스의 데이터 암호화](#strong-db)</li><li>[SSIS 패키지는 암호화 되 고 디지털 서명 되어야 합니다.](#ssis-signed)</li><li>[중요 한 데이터베이스 보안 개체에 디지털 서명 추가](#securables-db)</li><li>[SQL server EKM을 사용 하 여 암호화 키 보호](#ekm-keys)</li><li>[암호화 키를 데이터베이스 엔진에 표시 하지 않아야 하는 경우 AlwaysEncrypted 기능을 사용 합니다.](#keys-engine)</li></ul> |
-| **IoT 디바이스** | <ul><li>[IoT 장치에 안전 하 게 암호화 키 저장](#keys-iot)</li></ul> | 
-| **IoT 클라우드 게이트웨이** | <ul><li>[IoT Hub에 대 한 인증에 충분 한 길이의 임의 대칭 키 생성](#random-hub)</li></ul> | 
-| **Dynamics CRM 모바일 클라이언트** | <ul><li>[PIN 사용이 필요 하 고 원격 지우기를 허용 하는 장치 관리 정책이 있는지 확인](#pin-remote)</li></ul> | 
-| **Dynamics CRM Outlook 클라이언트** | <ul><li>[PIN/암호/자동 잠금이 필요 하 고 모든 데이터를 암호화 (예: BitLocker) 하는 장치 관리 정책이 있는지 확인 합니다.](#bitlocker)</li></ul> | 
-| **ID 서버** | <ul><li>[Id 서버를 사용할 때 서명 키가 롤오버 되는지 확인](#rolled-server)</li><li>[Identity Server에서 암호화 된 강력한 클라이언트 ID와 클라이언트 비밀이 사용 되는지 확인](#client-server)</li></ul> | 
+| **웹 애플리케이션** | <ul><li>[승인된 대칭 블록 암호화 및 키 길이만 사용](#cipher-length)</li><li>[대칭 암호화에 승인된 블록 암호화 모드 및 초기화 벡터 사용](#vector-ciphers)</li><li>[승인된 비대칭 알고리즘, 키 길이 및 패딩 사용](#padding)</li><li>[승인된 난수 생성기 사용](#numgen)</li><li>[대칭 스트림 암호화 사용 금지](#stream-ciphers)</li><li>[승인된 MAC/HMAC/키 해시 알고리즘 사용](#mac-hash)</li><li>[승인된 암호화 해시 함수만 사용](#hash-functions)</li></ul> |
+| **데이터베이스** | <ul><li>[강력한 암호화 알고리즘을 사용하여 데이터베이스 데이터 암호화](#strong-db)</li><li>[암호화되고 디지털 서명되어야 하는 SSIS 패키지](#ssis-signed)</li><li>[중요한 데이터베이스 보안 개체에 디지털 서명 추가](#securables-db)</li><li>[SQL 서버 EKM을 사용하여 암호화 키 보호](#ekm-keys)</li><li>[데이터베이스 엔진에 암호화 키를 공개하지 않아야 하는 경우 AlwaysEncrypted 기능 사용](#keys-engine)</li></ul> |
+| **IoT 디바이스** | <ul><li>[IoT 디바이스에 안전하게 암호화 키 저장](#keys-iot)</li></ul> | 
+| **IoT 클라우드 게이트웨이** | <ul><li>[IoT Hub 인증에 충분한 길이의 임의 대칭 키 생성](#random-hub)</li></ul> | 
+| **Dynamics CRM 모바일 클라이언트** | <ul><li>[PIN 사용이 필요하고 원격 지우기를 허용하는 디바이스 관리 정책이 있는지 확인](#pin-remote)</li></ul> | 
+| **Dynamics CRM Outlook 클라이언트** | <ul><li>[PIN/암호/자동 잠금이 필요하고 모든 데이터를 암호화(예: BitLocker)하는 디바이스 관리 정책이 있는지 확인합니다.](#bitlocker)</li></ul> | 
+| **ID 서버** | <ul><li>[Identity Server를 사용할 때 서명 키가 롤오버되는지 확인](#rolled-server)</li><li>[Identity Server에서 암호화된 강력한 클라이언트 ID와 클라이언트 비밀이 사용되는지 확인](#client-server)</li></ul> | 
 
 ## <a name="use-only-approved-symmetric-block-ciphers-and-key-lengths"></a><a id="cipher-length"></a>승인된 대칭 블록 암호화 및 키 길이만 사용
 
@@ -211,7 +211,7 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 | **참조**              | 해당 없음  |
 | **단계** | PIN 사용이 필요하고 원격 지우기를 허용하는 디바이스 관리 정책이 있는지 확인합니다. |
 
-## <a name="ensure-a-device-management-policy-is-in-place-that-requires-a-pinpasswordauto-lock-and-encrypts-all-data-eg-bitlocker"></a><a id="bitlocker"></a>PIN/암호/자동 잠금이 필요 하 고 모든 데이터를 암호화 (예: BitLocker) 하는 장치 관리 정책이 있는지 확인 합니다.
+## <a name="ensure-a-device-management-policy-is-in-place-that-requires-a-pinpasswordauto-lock-and-encrypts-all-data-eg-bitlocker"></a><a id="bitlocker"></a>PIN/암호/자동 잠금이 필요하고 모든 데이터를 암호화(예: BitLocker)하는 디바이스 관리 정책이 있는지 확인합니다.
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -230,10 +230,10 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [Id 서버-키, 서명 및 암호화](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
+| **참조**              | [Identity Server - 키, 서명 및 암호화](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
 | **단계** | Identity Server를 사용할 때 서명 키가 롤오버되는지 확인합니다. 참조 섹션의 링크에서는 Identity Server를 사용하는 애플리케이션을 중단하지 않고도 서명 키를 롤오버하도록 계획하는 방법을 설명합니다. |
 
-## <a name="ensure-that-cryptographically-strong-client-id-client-secret-are-used-in-identity-server"></a><a id="client-server"></a>Identity Server에서 암호화 된 강력한 클라이언트 ID와 클라이언트 비밀이 사용 되는지 확인
+## <a name="ensure-that-cryptographically-strong-client-id-client-secret-are-used-in-identity-server"></a><a id="client-server"></a>Identity Server에서 암호화된 강력한 클라이언트 ID와 클라이언트 비밀이 사용되는지 확인
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |

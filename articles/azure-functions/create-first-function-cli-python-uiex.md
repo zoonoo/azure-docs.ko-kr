@@ -4,15 +4,16 @@ description: 명령줄에서 Python 함수를 만들고 로컬 프로젝트를 A
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom:
-- devx-track-python
+- devx-track-powershell
 - devx-track-azurecli
+- devx-track-azurepowershell
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 626cff867a336880689373c289087e2332a816ee
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e144304ae1b36ca02d4b8796e7994e87b09505d9
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107787452"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831099"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 Python 함수 만들기
 

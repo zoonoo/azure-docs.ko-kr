@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.openlocfilehash: 7623b7131e6344a67c468d0436884ebfef9b0058
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96746100"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>통합된 구성 요소 간 트랜잭션 진단
@@ -66,9 +66,9 @@ ms.locfileid: "96746100"
 
 [Application Insights 프로파일러](./profiler.md) 또는 [스냅샷 디버거](snapshot-debugger.md)는 성능 및 오류 문제에 대한 코드 수준 진단에 도움이 됩니다. 이 환경을 사용하면 한 번의 클릭으로 모든 구성 요소에서 프로파일러 추적 또는 스냅샷을 볼 수 있습니다.
 
-프로파일러 작업을 수행할 수 없는 경우 **serviceprofilerhelp \@ microsoft.com** 에 문의 하세요.
+프로파일러 작업을 수행할 수 없는 경우 **serviceprofilerhelp\@microsoft.com** 에 문의하세요.
 
-스냅숏 디버거 작업을 수행할 수 없는 경우 **snapshothelp \@ microsoft.com** 에 문의 하세요.
+스냅샷 디버거 작업을 수행할 수 없는 경우 **snapshothelp\@microsoft.com** 에 문의하세요.
 
 ![프로파일러 통합](media/transaction-diagnostics/profilerTraces.png)
 
@@ -80,9 +80,9 @@ ms.locfileid: "96746100"
 
 * 다른 구성 요소가 Application Insights를 통해 계측됩니까?
 * 최신의 안정적인 Application Insights SDK를 사용하고 있습니까?
-* 이러한 구성 요소가 별도 Application Insights 리소스 인 경우 액세스 권한이 있고 구성 요소가 최신 Application Insights Sdk를 사용 하 여 계측 되는 경우 [액세스](resources-roles-access-control.md) 권한이 필요 합니다. 가장 오른쪽의 피드백 채널을 통해 알려주세요.
+* 이러한 구성 요소가 별도 Application Insights 리소스인 경우, 요구되는 [액세스 권한](resources-roles-access-control.md)이 있습니까? 해당 액세스 권한이 있고 구성 요소가 최신 Application Insights SDK로 계측되는 경우 오른쪽 상단의 피드백 채널을 통해 알려주세요.
 
-*종속성에 대 한 중복 행이 표시 됩니다. 이것이 예상 되나요?*
+*종속성에 대해 중복된 행이 표시됩니다. 일반적인 현상인가요?*
 
 현재 아웃바운드 종속성 호출은 인바운드 요청과는 별도로 표시됩니다. 일반적으로 두 호출은 네트워크 왕복으로 인해 기간 값만 다를 뿐 동일하게 보입니다. 기간 막대의 선행 아이콘과 고유한 스타일은 구분하는 데 도움이 됩니다. 이러한 데이터 표시가 혼란스러운가요? 의견을 보내주세요!
 

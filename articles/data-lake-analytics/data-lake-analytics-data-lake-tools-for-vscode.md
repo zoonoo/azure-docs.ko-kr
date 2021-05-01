@@ -6,17 +6,17 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 02/09/2018
 ms.openlocfilehash: 40e3ce17e036312e7c3fdee95fcb42d06f5845e9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96751362"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Azure Data Lake Tools for Visual Studio Code 사용
 
 이 문서에서는 Azure Data Lake Tools for Visual Studio Code(VS Code)를 사용하여 U-SQL 스크립트를 만들고, 테스트하고, 실행하는 방법을 알아봅니다. 정보는 또한 다음 비디오에서 설명합니다.
 
-[![비디오 플레이어: VS Code Azure Data Lake 도구](media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png)](https://channel9.msdn.com/Series/AzureDataLake/Azure-Data-Lake-Tools-for-VSCode?term=ADL%20Tools%20for%20VSCode")
+[![비디오 플레이어: Azure Data Lake tools for VS Code](media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png)](https://channel9.msdn.com/Series/AzureDataLake/Azure-Data-Lake-Tools-for-VSCode?term=ADL%20Tools%20for%20VSCode")
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -76,7 +76,7 @@ U-SQL을 사용하려면 U-SQL 파일이나 폴더를 열어야 합니다.
                  D( DepID, DepName );
    ```
 
-   @departmentsOutputters.Csv ()를 사용 하 여 "/Output/departments.csv"로 출력 합니다.
+   OUTPUT @departments     TO "/Output/departments.csv" USING Outputters.Csv();
 
     스크립트는 /output 폴더에 일부 데이터가 포함된 departments.csv 파일을 만듭니다.
 
@@ -117,8 +117,8 @@ U-SQL 작업을 제출한 후에 전송 로그가 VS Code의 **출력** 창에 �
 3. xxx_settings.json 파일이 열리고 다음 속성이 표시됩니다.
 
    - **계정**: U-SQL 작업을 컴파일하고 실행하는 데 필요한 Azure 구독 아래의 Azure Data Lake Analytics 계정입니다. U-SQL 작업을 컴파일하고 실행하려면 먼저 컴퓨터 계정을 구성해야 합니다.
-   - **database**: 사용자 계정의 데이터베이스입니다. 기본값은 **master** 입니다.
-   - **스키마**: 데이터베이스의 스키마입니다. 기본값은 **dbo** 입니다.
+   - **database**: 사용자 계정의 데이터베이스입니다. 기본은 **master** 입니다.
+   - **schema**: 데이터베이스의 스키마입니다. 기본은 **dbo** 입니다.
    - **optionalSettings**:
         - **priority**: 우선 순위의 범위는 1-1000이며, 가장 높은 우선 순위는 1입니다. 기본값은 **1000** 입니다.
         - **degreeOfParallelism**: 병렬 처리의 범위는 1-150입니다. 기본값은 Azure Data Lake Analytics 계정에 허용되는 최대 병렬 처리입니다.
@@ -169,7 +169,7 @@ Data Lake Tools를 사용하여 사용자 지정 코드 어셈블리를 Data Lak
 1. Ctrl+Shift+P를 선택하여 명령 팔레트를 엽니다.
 2. **ADL: Register Assembly(Advanced)** 를 입력합니다.
 3. 로컬 어셈블리 경로를 지정합니다.
-4. JSON 파일이 표시됩니다. 필요한 경우 어셈블리 종속성 및 리소스 매개 변수를 검토하고 편집합니다. 지침이 **출력** 창에 표시 됩니다. 어셈블리 등록을 계속하려면 JSON 파일을 저장(Ctrl+S)합니다.
+4. JSON 파일이 표시됩니다. 필요한 경우 어셈블리 종속성 및 리소스 매개 변수를 검토하고 편집합니다. 지침이 **출력** 창에 표시됩니다. 어셈블리 등록을 계속하려면 JSON 파일을 저장(Ctrl+S)합니다.
 
    ![어셈블리 종속성 및 리소스 매개 변수가 포함된 JSON 파일](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-register-assembly-advance.png)
 

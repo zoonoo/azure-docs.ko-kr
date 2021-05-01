@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/26/2021
+ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 0e49d460d5ba7bf9131bc0a2f7ec0c1c9a6e653b
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: c87c8cfd40903f6296f0a36f5c83c0b5c5cb7818
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076782"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "99831583"
 ---
 # <a name="azure-stack-edge-pro-system-requirements"></a>Azure Stack Edge Pro 시스템 요구 사항
 
@@ -60,7 +60,7 @@ Azure IoT Edge 런타임을 호스트하는 서버의 포트 구성에 대한 �
 
 | 포트 번호 | 인 또는 아웃 | 포트 범위 | 필수 | 지침 |
 |----------|-----------|------------|----------|----------|
-| TCP 443(HTTPS)| 아웃       | WAN        | Yes      | IoT Edge 프로비전을 위해 아웃바운드로 엽니다. 수동 스크립트 또는 Azure IoT DPS(디바이스 프로비저닝 서비스)를 사용하는 경우 이 구성이 필요합니다.|
+| TCP 443(HTTPS)| 아웃       | WAN        | 예      | IoT Edge 프로비전을 위해 아웃바운드로 엽니다. 수동 스크립트 또는 Azure IoT DPS(디바이스 프로비저닝 서비스)를 사용하는 경우 이 구성이 필요합니다.|
 
 전체 정보를 보려면 [IoT Edge 배포에 대한 방화벽 및 포트 구성 규칙](../iot-edge/troubleshoot.md)으로 이동하세요.
 

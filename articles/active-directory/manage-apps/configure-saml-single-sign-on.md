@@ -2,21 +2,21 @@
 title: Azure Active Directory의 앱에서 사용되는 SAML 기반 SSO(Single Sign-On) 이해
 description: Azure Active Directory의 앱에서 사용되는 SAML 기반 SSO(Single Sign-On) 이해
 services: active-directory
-author: iantheninja
-manager: CelesteDG
+author: kenwith
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/28/2020
-ms.author: iangithinji
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: b7468f33c75dd58e70c344f3ef19c51e220a7abb
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: f6422c3f751a7aaa430b93ee68ca1a3520ac915f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374491"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "99257695"
 ---
 # <a name="understand-saml-based-single-sign-on"></a>SAML 기반 Single Sign-On 이해
 

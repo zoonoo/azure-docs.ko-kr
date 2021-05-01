@@ -12,16 +12,16 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 03/17/2021
-ms.openlocfilehash: b5ad439a8e10fa9aa44e477ca35f45d65ae40803
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a322efdf5ef21912a8e29e9b3dea4bc041c61cca
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599547"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108131894"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Azure SQL Managed Instance와 SQL Server의 Machine Learning Services에 대한 주요 차이점
 
-이 문서에서는 [Azure SQL Managed Instance의 Machine Learning Services](machine-learning-services-overview.md)와 [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning) 사이에 나타나는 기능의 주요 차이점을 몇 가지 설명합니다.
+이 문서에서는 [Azure SQL Managed Instance의 Machine Learning Services](machine-learning-services-overview.md)와 [SQL Server Machine Learning Services](/sql/advanced-analytics/what-is-sql-server-machine-learning) 사이에 나타나는 기능의 주요 차이점을 몇 가지 설명합니다.
 
 ## <a name="language-support"></a>언어 지원
 
@@ -44,8 +44,8 @@ SQL Managed Instance와 SQL Server의 Machine Learning Services에서는 Python 
 
 Python 및 R 패키지를 관리하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Python 패키지 정보 가져오기](https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)
-- [R 패키지 정보 가져오기](https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)
+- [Python 패키지 정보 가져오기](/sql/machine-learning/package-management/python-package-information?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current)
+- [R 패키지 정보 가져오기](/sql/machine-learning/package-management/r-package-information?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current)
 
 ## <a name="resource-governance"></a>리소스 거버넌스
 
@@ -67,7 +67,7 @@ sp_configure 'external scripts enabled', 0;
 RECONFIGURE WITH OVERRIDE;
 ```
 
-SQL Managed Instance에서 사용할 수 있는 전체 리소스는 선택한 서비스 계층에 따라 다릅니다. 자세한 내용은 [Azure SQL Database 구매 모델](/azure/sql-database/sql-database-service-tiers)을 참조하세요.
+SQL Managed Instance에서 사용할 수 있는 전체 리소스는 선택한 서비스 계층에 따라 다릅니다. 자세한 내용은 [Azure SQL Database 구매 모델](../database/purchasing-models.md)을 참조하세요.
 
 ### <a name="insufficient-memory-error"></a>메모리 부족 오류
 
@@ -86,5 +86,5 @@ Machine Learning Services는 현재 [Azure SQL Managed Instance 풀(미리 보�
 ## <a name="next-steps"></a>다음 단계
 
 - 개요, [Azure SQL Managed Instance의 Machine Learning Services](machine-learning-services-overview.md)를 참조하세요.
-- Machine Learning Services에서 Python을 사용하는 방법에 대해 알아보려면 [Python 스크립트 실행](/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)을 참조하세요.
-- Machine Learning Services에서 R를 사용하는 방법에 대해 알아보려면 [R 스크립트 실행](/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)을 참조하세요.
+- Machine Learning Services에서 Python을 사용하는 방법을 알아보려면 [Python 스크립트 실행](/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)을 참조하세요.
+- Machine Learning Services에서 R을 사용하는 방법을 알아보려면 [R 스크립트 실행](/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)을 참조하세요.

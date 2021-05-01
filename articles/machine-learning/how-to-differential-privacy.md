@@ -5,18 +5,18 @@ description: SmartNoise 오픈 소스 라이브러리를 사용하여 차등 프
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.custom: responsible-ml
+ms.topic: conceptual
+ms.custom: how-to, responsible-ml
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
 ms.date: 01/21/2020
-ms.openlocfilehash: 81c93d33b752a3620163169d0f2b8f900a5b9052
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 62a002569696da4ef18e7bd967f027eb8247ef65
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885149"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "98681407"
 ---
 # <a name="use-differential-privacy-in-azure-machine-learning-preview"></a>Azure Machine Learning에서 차등 프라이버시 사용(미리 보기)
 
@@ -25,7 +25,7 @@ SmartNoise Python 오픈 소스 라이브러리를 사용하여 Azure Machine Le
 차등 프라이버시는 프라이버시의 골드 표준 정의입니다. 이 프라이버시 정의를 준수하는 시스템은 보조 정보를 소유한 악의적 사용자의 공격을 포함하여 다양한 데이터 재구성 및 재식별 공격에 강력한 보증을 제공합니다. [차등 프라이버시 작동 원리](./concept-differential-privacy.md)에 대해 자세히 알아봅니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 - [Python 3](https://www.python.org/downloads/)
