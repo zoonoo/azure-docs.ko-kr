@@ -1,31 +1,31 @@
 ---
-title: 차등 개인 정보 취급 방침 소음 (미리 보기)
+title: 차등 프라이버시 방법 - SmartNoise(미리 보기)
 titleSuffix: Azure Machine Learning
-description: SmartNoise 오픈 소스 라이브러리를 사용 하 여 Azure Machine Learning 모델에 대 한 차등 개인 정보 모범 사례를 적용 하는 방법을 알아봅니다.
+description: SmartNoise 오픈 소스 라이브러리를 사용하여 차등 프라이버시 모범 사례를 Azure Machine Learning 모델에 적용하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, responsible-ml
+ms.topic: how-to
+ms.custom: responsible-ml
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
 ms.date: 01/21/2020
-ms.openlocfilehash: 62a002569696da4ef18e7bd967f027eb8247ef65
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 81c93d33b752a3620163169d0f2b8f900a5b9052
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98681407"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107885149"
 ---
-# <a name="use-differential-privacy-in-azure-machine-learning-preview"></a>Azure Machine Learning에서 차등 개인 정보 사용 (미리 보기)
+# <a name="use-differential-privacy-in-azure-machine-learning-preview"></a>Azure Machine Learning에서 차등 프라이버시 사용(미리 보기)
 
-SmartNoise Python 오픈 소스 라이브러리를 사용 하 여 Azure Machine Learning 모델에 대 한 차등 개인 정보 모범 사례를 적용 하는 방법을 알아봅니다.
+SmartNoise Python 오픈 소스 라이브러리를 사용하여 Azure Machine Learning 모델에 차등 프라이버시 모범 사례를 적용하는 방법에 대해 알아봅니다.
 
-차등 프라이버시는 프라이버시의 골드 표준 정의입니다. 이 프라이버시 정의를 준수하는 시스템은 보조 정보를 소유한 악의적 사용자의 공격을 포함하여 다양한 데이터 재구성 및 재식별 공격에 강력한 보증을 제공합니다. [차등 개인 정보 취급의 작동 방식](./concept-differential-privacy.md)에 대해 자세히 알아보세요.
+차등 프라이버시는 프라이버시의 골드 표준 정의입니다. 이 프라이버시 정의를 준수하는 시스템은 보조 정보를 소유한 악의적 사용자의 공격을 포함하여 다양한 데이터 재구성 및 재식별 공격에 강력한 보증을 제공합니다. [차등 프라이버시 작동 원리](./concept-differential-privacy.md)에 대해 자세히 알아봅니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 - [Python 3](https://www.python.org/downloads/)
@@ -38,7 +38,7 @@ SmartNoise Python 오픈 소스 라이브러리를 사용 하 여 Azure Machine 
 
 아래 지침에서는 `python` 및 `pip` 명령이 `python3` 및 `pip3`에 매핑되는 것으로 가정합니다.
 
-Pip를 사용 하 여 [Smartnoise Python 패키지](https://pypi.org/project/opendp-smartnoise/)를 설치 합니다.
+pip를 사용하여 [SmartNoise Python 패키지](https://pypi.org/project/opendp-smartnoise/)를 설치합니다.
 
 `pip install opendp-smartnoise`
 
@@ -53,7 +53,7 @@ import opendp.smartnoise.sql
 
 ### <a name="docker-image-installation"></a>Docker 이미지 설치
 
-또한 Docker에서 SmartNoise 패키지를 사용할 수 있습니다.
+SmartNoise 패키지를 Docker와 함께 사용할 수도 있습니다.
 
 Spark, Jupyter 및 샘플 코드를 포함하는 Docker 컨테이너 내의 라이브러리를 사용하려면 `opendp/smartnoise` 이미지를 끌어옵니다.
 
@@ -152,7 +152,7 @@ Privacy usage: approximate {
 | 합계           |            | 대체 |
 | 가변성/공변성(Covariance) |      | 변환  |
 
-자세한 내용은 [데이터 분석 노트북](https://github.com/opendifferentialprivacy/smartnoise-samples/blob/master/analysis/basic_data_analysis.ipynb) 을 참조 하세요.
+자세한 내용은 [데이터 분석 Notebook](https://github.com/opendifferentialprivacy/smartnoise-samples/blob/master/analysis/basic_data_analysis.ipynb)을 참조하세요.
 
 ## <a name="approximate-utility-of-differentially-private-releases"></a>차등 프라이빗 릴리스의 근사 유틸리티
 
@@ -216,7 +216,7 @@ with sn.Analysis() as analysis:
 
 ## <a name="generate-a-covariance-matrix"></a>공변성(Covariance) 행렬 생성
 
-SmartNoise는 함수를 사용 하 여 세 가지 기능을 제공 합니다 `dp_covariance` .
+SmartNoise는 `dp_covariance` 함수를 사용하는 세 가지 기능을 제공합니다.
 
 - 두 벡터 사이의 공변성
 - 행렬의 공변성 행렬
@@ -247,4 +247,4 @@ https://github.com/opendifferentialprivacy/smartnoise-samples/blob/master/analys
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Smartnoise 샘플 노트북](https://github.com/opendifferentialprivacy/smartnoise-samples/tree/master/analysis)을 탐색 합니다.
+- [SmartNoise 샘플 Notebook](https://github.com/opendifferentialprivacy/smartnoise-samples/tree/master/analysis)을 살펴보세요.

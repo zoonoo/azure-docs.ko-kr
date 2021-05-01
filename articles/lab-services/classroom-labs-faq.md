@@ -1,17 +1,17 @@
 ---
-title: Azure Lab Services의 랩-FAQ | Microsoft Docs
-description: 이 문서에서는 Azure Lab Services 실습에 대 한 FAQ (질문과 대답)를 제공 합니다.
+title: Azure Lab Services의 랩 - FAQ | Microsoft Docs
+description: 이 문서는 Azure Lab Services의 랩에 대한 FAQ(자주 묻는 질문)에 대한 답변을 제공합니다.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 757af8f30e9a71a3889d9f625c87a002af2e1302
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96437187"
 ---
-# <a name="labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Azure Lab Services의 랩-질문과 대답 (FAQ)
-Azure Lab Services에서 labs에 대해 가장 일반적인 질문 중 일부에 대 한 답변을 받으세요. 
+# <a name="labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Azure Lab Services의 랩 - FAQ(자주 묻는 질문)
+Azure Lab Services의 랩에 관해 가장 자주 묻는 질문에 대한 답변을 확인합니다. 
 
 ## <a name="quotas"></a>할당량
 
@@ -30,7 +30,7 @@ Azure Lab Services에서 labs에 대해 가장 일반적인 질문 중 일부에
 
 ### <a name="why-am-i-not-able-to-create-a-lab-because-of-unavailability-of-the-address-range"></a>주소 범위를 사용할 수 없는 경우에 랩을 만들 수 없는 이유는 무엇인가요? 
 
-랩은 Azure Portal에서 랩 계정을 만들 때 지정 하는 IP 주소 범위 내에서 랩 Vm을 만들 수 있습니다. 주소 범위가 지정된 후에 생성된 각 랩에는 랩 VM의 512개 IP 주소가 할당됩니다. 랩 계정의 주소 범위는 랩 계정에서 만들려는 랩을 모두 수용할 수 있을 만큼 커야 합니다. 
+랩은 Azure Portal에서 랩 계정을 만들 때 지정하는 IP 주소 범위 내에 랩 VM을 만들 수 있습니다. 주소 범위가 지정된 후에 생성된 각 랩에는 랩 VM의 512개 IP 주소가 할당됩니다. 랩 계정의 주소 범위는 랩 계정에서 만들려는 랩을 모두 수용할 수 있을 만큼 커야 합니다. 
 
 예를 들어 /19 - 10.0.0.0/19 블록이 있는 경우 이 주소 범위는 8192개 IP 주소 및 16개 랩(8192/512 = 16개 랩)을 수용합니다. 이 경우 17번째 랩을 만들면 오류가 발생합니다.
 

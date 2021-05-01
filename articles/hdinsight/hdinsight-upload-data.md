@@ -1,26 +1,26 @@
 ---
 title: HDInsight에서 Apache Hadoop 작업용 데이터 업로드
-description: HDInsight에서 Apache Hadoop 작업에 대 한 데이터를 업로드 및 액세스 하는 방법에 대해 알아봅니다. Azure 클래식 CLI, Azure Storage 탐색기, Azure PowerShell, Hadoop 명령줄 또는 Sqoop을 사용 합니다.
+description: HDInsight에서 Apache Hadoop 작업에 대한 데이터를 업로드 및 액세스하는 방법에 대해 알아봅니다. Azure Classic CLI, Azure Storage Explorer, Azure PowerShell, Hadoop 명령줄 또는 Sqoop을 사용합니다.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
 ms.openlocfilehash: a8d21b88298b6092c869b89d48fe4c259c2365b6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98931348"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Apache Hadoop 작업용 데이터 업로드
 
-HDInsight는 Azure Storage 및 Azure Data Lake Storage에 대 한 HDFS (Hadoop 분산 파일 시스템)를 제공 합니다. 이 저장소는 Gen1 및 Gen2를 포함 합니다. Azure Storage 및 Data Lake Storage Gen1 및 Gen2는 HDFS 확장으로 설계 되었습니다. 이를 통해 Hadoop 환경에서 구성 요소의 전체 집합이 관리 하는 데이터에 대해 직접 작동할 수 있습니다. Azure Storage, Data Lake Storage Gen1 및 Gen2는 별개의 파일 시스템입니다. 시스템은 데이터를 저장 하 고 해당 데이터를 계산 하는 데 최적화 되어 있습니다. Azure Storage 사용의 이점에 대 한 자세한 내용은 [HDInsight에서 Azure Storage 사용](hdinsight-hadoop-use-blob-storage.md)을 참조 하세요. 또한 HDInsight에서 [Data Lake Storage Gen1 사용](hdinsight-hadoop-use-data-lake-storage-gen1.md)및 [Hdinsight에서 Data Lake Storage Gen2 사용](hdinsight-hadoop-use-data-lake-storage-gen2.md)을 참조 하세요.
+HDInsight는 Azure Storage 및 Azure Data Lake Store를 통해 HDFS(Hadoop 분산 파일 시스템)를 제공합니다. 이 스토리지는 Gen1 및 Gen2를 포함합니다. Azure Storage와 Data Lake Storage Gen1 및 Gen2는 HDFS 확장명으로 설계되었습니다. 이를 통해 Hadoop 환경에서 구성 요소의 전체 집합이 관리하는 데이터에서 직접 작동하도록 할 수 있습니다. Azure Storage와 Data Lake Storage Gen1 및 Gen2는 고유한 파일 시스템입니다. 시스템은 해당 데이터에 대한 데이터 및 계산의 스토리지를 위해 최적화됩니다. Azure Storage 사용의 혜택에 대한 자세한 내용은 [HDInsight에서 Azure Storage 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. 또한 [HDInsight에서 Data Lake Store Gen1 사용](hdinsight-hadoop-use-data-lake-storage-gen1.md) 및 [HDInsight에서 Data Lake Store Gen2 사용](hdinsight-hadoop-use-data-lake-storage-gen2.md)도 참조합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 요구 사항을 확인하세요.
 
-* Azure HDInsight 클러스터를 만듭니다. 자세한 지침은 [Azure HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조 하세요.
+* Azure HDInsight 클러스터를 만듭니다. 자세한 내용은 [Azure HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 * 다음 문서의 정보:
     * [HDInsight에서 Azure Storage 사용](hdinsight-hadoop-use-blob-storage.md)
     * [HDInsight에서 Data Lake Store Gen1 사용](hdinsight-hadoop-use-data-lake-storage-gen1.md)
@@ -47,7 +47,7 @@ Microsoft는 Azure Storage에서 작업할 다음 유틸리티를 제공합니�
 
 데이터가 클러스터 헤드 노드에 존재하는 경우 Hadoop 명령줄은 Azure Storage Blob에 데이터를 저장하는데만 유용합니다.
 
-Hadoop 명령을 사용 하려면 먼저 [SSH 또는 PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md)를 사용 하 여 헤드 노드에 연결 해야 합니다.
+Hadoop 명령을 사용하려면 먼저 [SSH 또는 PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md)를 사용하는 헤드 노드에 연결해야 합니다.
 
 연결된 후에 스토리지에 파일을 업로드하려면 다음 구문을 사용할 수 있습니다.
 
@@ -57,7 +57,7 @@ hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 
 예를 들어 `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
-HDInsight에 대 한 기본 파일 시스템은 Azure Storage 이므로/example/data/data.txt 실제로는 Azure Storage에 있습니다. 파일이 다음과 같을 수도 있습니다.
+HDInsight의 기본 파일 시스템이 Azure Storage에 있으므로 /example/data/data.txt는 실제로 Azure Storage에 있습니다. 파일이 다음과 같을 수도 있습니다.
 
 `wasbs:///example/data/data.txt`
 
@@ -65,10 +65,10 @@ HDInsight에 대 한 기본 파일 시스템은 Azure Storage 이므로/example/
 
 `wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt`
 
-파일에 사용 되는 다른 Hadoop 명령 목록은 다음을 참조 하세요. [https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+파일로 작업하는 다른 Hadoop 명령의 목록은 [https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)을 참조하세요.
 
 > [!WARNING]  
-> Apache HBase 클러스터에서 데이터 쓰기 시 사용되는 기본 블록 크기는 256KB입니다. HBase API 또는 REST API를 사용할 때는 잘 작동하는 반면 `hadoop` 또는 `hdfs dfs` 명령을 사용하여 12GB를 초과하는 데이터를 기록하면 오류가 발생합니다. 자세한 내용은 [blob에서 쓰기에 대 한 저장소 예외](hdinsight-troubleshoot-hdfs.md#storage-exception-for-write-on-blob)를 참조 하세요.
+> Apache HBase 클러스터에서 데이터 쓰기 시 사용되는 기본 블록 크기는 256KB입니다. HBase API 또는 REST API를 사용할 때는 잘 작동하는 반면 `hadoop` 또는 `hdfs dfs` 명령을 사용하여 12GB를 초과하는 데이터를 기록하면 오류가 발생합니다. 자세한 내용은 [Blob에서 쓰기를 위한 스토리지 예외](hdinsight-troubleshoot-hdfs.md#storage-exception-for-write-on-blob)를 참조하세요.
 
 ### <a name="graphical-clients"></a>그래픽 클라이언트
 
@@ -89,9 +89,9 @@ Azure Storage를 사용하기 위한 그래픽 인터페이스를 제공하는 �
 
 ## <a name="upload-using-services"></a>서비스를 사용하여 업로드
 
-### <a name="azure-data-factory"></a>Azure 데이터 팩터리
+### <a name="azure-data-factory"></a>Azure Data Factory
 
-Azure Data Factory 서비스는 데이터를 작성 하기 위한 완전히 관리 되는 서비스로, 저장소, 처리 및 이동 서비스를 간소화 되 고, 조정 가능 하며, 신뢰할 수 있는 데이터 프로덕션 파이프라인으로 만듭니다.
+Azure Data Factory 서비스는 스토리지, 처리 및 유연하고, 조정 가능하며, 안정적인 데이터 제작 파이프라인으로의 서비스 이동 등의 데이터 구성에 대한 완전 관리형 서비스입니다.
 
 |스토리지 유형|설명서|
 |----|----|
@@ -101,7 +101,7 @@ Azure Data Factory 서비스는 데이터를 작성 하기 위한 완전히 관�
 
 ### <a name="apache-sqoop"></a>Apache Sqoop
 
-Sqoop은 Hadoop과 관계형 데이터베이스 간 데이터 전송을 위해 설계된 도구입니다. 이를 사용 하 여 SQL Server, MySQL 또는 Oracle과 같은 관계형 데이터베이스 관리 시스템 (RDBMS)에서 데이터를 가져옵니다. 그런 다음 HDFS (Hadoop distributed file system)로 전환 합니다. MapReduce 또는 Hive를 사용 하 여 Hadoop의 데이터를 변환한 다음 데이터를 RDBMS로 다시 내보냅니다.
+Sqoop은 Hadoop과 관계형 데이터베이스 간 데이터 전송을 위해 설계된 도구입니다. SQL Server, MySQL 또는 Oracle과 같은 RDBMS(관계형 데이터베이스 관리 시스템)에서 데이터를 가져오기 위해 사용합니다. 그런 다음 HDFS(Hadoop 분산 파일 시스템)로 가져옵니다. MapReduce 또는 Hive를 사용하여 Hadoop의 데이터를 변환한 다음 데이터를 RDBMS로 다시 내보냅니다.
 
 자세한 내용은 [HDInsight에서 Sqoop 사용](hadoop/hdinsight-use-sqoop.md)을 참조하세요.
 
@@ -120,7 +120,7 @@ Azure SDK 설치에 대한 자세한 내용은 [Azure 다운로드](https://azur
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 HDInsight로 데이터를 가져오는 방법을 이해 했으므로 다음 문서를 참조 하 여 분석에 대해 알아보세요.
+이제 HDInsight로 데이터를 가져오는 방법을 파악했으니 다음 문서를 읽고 분석에 대해 알아봅니다.
 
 * [Azure HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [프로그래밍 방식으로 Apache Hadoop 작업 제출](hadoop/submit-apache-hadoop-jobs-programmatically.md)

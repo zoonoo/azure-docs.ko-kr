@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 10/26/2020
-ms.openlocfilehash: 39119f62fa938f5f4f6529539d4ca9a84bdf8fd7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 084f9aae16cfbf495f05c90c8244b2b9b71cf624
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94989193"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812987"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Azure SQL Database 및 SQL Managed Instance 보안 기능 개요
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -114,11 +114,11 @@ SQL Database, SQL Managed Instance 및 Azure Synapse Analytics는 모든 연결�
 
 [Azure SQL Database, SQL Managed Instance 및 Azure Synapse Analytics용 TDE(투명한 데이터 암호화)](transparent-data-encryption-tde-overview.md)는 보안 계층을 추가하여 원시 파일이나 백업에 대해 무단/오프라인으로 액세스할 수 없도록 미사용 데이터를 보호합니다. 무단/오프라인 액세스의 일반적인 시나리오에는 데이터 센터 도난, 하드웨어 또는 미디어(예: 디스크 드라이브 및 백업 테이프)의 보안되지 않은 폐기 등이 해당됩니다.TDE는 AES 암호화 알고리즘을 사용하여 전체 데이터베이스를 암호화하므로 애플리케이션 개발자는 기존 애플리케이션을 전혀 변경할 필요가 없습니다.
 
-Azure에서는 새로 만드는 모든 데이터베이스가 기본적으로 암호화되며, 기본 제공 서버 인증서를 통해 데이터베이스 암호화 키가 보호됩니다.  인증서 유지 관리 및 순환은 서비스를 통해 관리되며 사용자의 입력이 필요하지 않습니다. 암호화 키를 직접 제어하려는 고객은 [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md)에서 키를 관리할 수 있습니다.
+Azure에서는 새로 만드는 모든 데이터베이스가 기본적으로 암호화되며, 기본 제공 서버 인증서를 통해 데이터베이스 암호화 키가 보호됩니다.  인증서 유지 관리 및 순환은 서비스를 통해 관리되며 사용자의 입력이 필요하지 않습니다. 암호화 키를 직접 제어하려는 고객은 [Azure Key Vault](../../key-vault/general/security-features.md)에서 키를 관리할 수 있습니다.
 
 ### <a name="key-management-with-azure-key-vault"></a>Azure Key Vault으로 키 관리
 
-TDE( [투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption))를 지원하는 BYOK([Bring Your Own Key](transparent-data-encryption-byok-overview.md))를 통해 고객은 Azure의 클라우드 기반 외부 키 관리 시스템인  [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md)를 사용하여 키 관리 및 순환을 직접 제어할 수 있습니다. 데이터베이스의 키 자격 증명 모음 액세스 권한이 철회되면 데이터베이스를 암호 해독하여 메모리로 읽어들일 수 없습니다. 중앙 키 관리 플랫폼을 제공하며 철저하게 모니터링되는 HSM(하드웨어 보안 모듈)을 활용하는 Azure Key Vault를 사용하면 키와 데이터 관리 작업을 분리하여 보안 규정 준수 요구 사항을 충족할 수 있습니다.
+TDE( [투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption))를 지원하는 BYOK([Bring Your Own Key](transparent-data-encryption-byok-overview.md))를 통해 고객은 Azure의 클라우드 기반 외부 키 관리 시스템인  [Azure Key Vault](../../key-vault/general/security-features.md)를 사용하여 키 관리 및 순환을 직접 제어할 수 있습니다. 데이터베이스의 키 자격 증명 모음 액세스 권한이 철회되면 데이터베이스를 암호 해독하여 메모리로 읽어들일 수 없습니다. 중앙 키 관리 플랫폼을 제공하며 철저하게 모니터링되는 HSM(하드웨어 보안 모듈)을 활용하는 Azure Key Vault를 사용하면 키와 데이터 관리 작업을 분리하여 보안 규정 준수 요구 사항을 충족할 수 있습니다.
 
 ### <a name="always-encrypted-encryption-in-use"></a>Always Encrypted(사용 중인 데이터 암호화)
 

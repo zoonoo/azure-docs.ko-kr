@@ -4,12 +4,12 @@ description: Visual Studio 2019용 Azure Functions 도구를 사용하여 Azure 
 ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 2cba0a9ad63e319af0a5eaa1c1c018c3b285c28a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 877c82e375b0ea469071402b83fadbd634177f3f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765578"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "97655818"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio를 사용하여 Azure Functions 개발  
 
@@ -27,7 +27,7 @@ Visual Studio로 함수를 개발하면 다음과 같은 이점이 있습니다.
 
 별도로 언급하지 않는 한, 표시된 프로시저와 예제는 Visual Studio 2019에 대한 것입니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure Functions 도구. Azure Functions 도구를 추가하려면 Visual Studio 설치 시 **Azure 개발** 워크로드를 포함합니다. Azure Functions 도구는 Visual Studio 2017부터 Azure 개발 워크로드에서 사용할 수 있습니다.
 
@@ -237,7 +237,7 @@ Azure의 함수 앱에 필요한 설정을 업로드하는 가장 쉬운 방법�
 
 * [Azure 포털을 사용합니다](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Azure Functions Core 도구에서 `--publish-local-settings` 게시 옵션을 사용합니다](functions-run-local.md#publish).
-* [Azure CLI를 사용합니다](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set).
+* [Azure CLI를 사용합니다](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
 ## <a name="monitoring-functions"></a>함수 모니터링
 

@@ -1,5 +1,5 @@
 ---
-title: Java SDK에서 Maven로 마이그레이션
+title: Java SDK에서 Maven으로 마이그레이션
 description: Service Fabric Java SDK를 사용하기 위해 사용되는 이전 Java 애플리케이션을 업데이트하여 Maven에서 Service Fabric Java 종속성을 페치합니다. 이 설정을 완료한 후에 이전 Java 애플리케이션을 빌드할 수 있습니다.
 author: rapatchi
 ms.topic: conceptual
@@ -7,18 +7,18 @@ ms.date: 08/23/2017
 ms.custom: devx-track-java
 ms.author: rapatchi
 ms.openlocfilehash: 3efa51f5632dd5cdc274ea39df5178aa0351a01f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97652299"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>이전 Java Service Fabric 애플리케이션을 업데이트하여 Maven에서 Java 라이브러리 페치
-Service Fabric Java 이진 파일이 Service Fabric Java SDK에서 Maven 호스팅으로 이동 되었습니다. **Mavencentral** 를 사용 하 여 최신 Service Fabric Java 종속성을 가져올 수 있습니다. 이 가이드는 Service Fabric Java SDK 용으로 만든 기존 Java 응용 프로그램을 업데이트 하는 데 도움이 됩니다.
+Service Fabric Java 이진 파일을 Service Fabric Java SDK에서 Maven 호스팅으로 이동했습니다. **mavencentral** 을 사용하여 최신 Service Fabric Java 종속성을 가져올 수 있습니다. 이 가이드를 통해 Yeoman 템플릿 또는 Eclipse 중 하나를 사용하여 Maven 기반 빌드와 호환되도록 Service Fabric Java SDK에서 사용하기 위해 만든 기존의 Java 애플리케이션을 업데이트할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-1. 먼저 기존 Java SDK를 제거 합니다.
+1. 먼저 기존 Java SDK를 제거합니다.
 
    ```bash
    sudo dpkg -r servicefabricsdkjava
@@ -26,7 +26,7 @@ Service Fabric Java 이진 파일이 Service Fabric Java SDK에서 Maven 호스�
 
 2. [여기](service-fabric-cli.md)에서 언급한 단계에 따라 최신 Service Fabric CLI를 설치합니다.
 
-3. Service Fabric Java 응용 프로그램을 빌드하고 작업 하려면 JDK 1.8 및 Gradle이 설치 되어 있는지 확인 합니다. 설치하지 않은 경우 다음을 실행하여 JDK 1.8(openjdk-8-jdk) 및 Gradle을 설치할 수 있습니다.
+3. Service Fabric Java 애플리케이션을 빌드하고 사용하려면 JDK 1.8 및 Gradle이 설치되어 있는지 확인합니다. 설치하지 않은 경우 다음을 실행하여 JDK 1.8(openjdk-8-jdk) 및 Gradle을 설치할 수 있습니다.
 
    ```bash
    sudo apt-get install openjdk-8-jdk-headless
@@ -63,7 +63,7 @@ Service Fabric Java 라이브러리는 Maven에서 호스팅되었습니다. 프
   }
   ```
 
-### <a name="services"></a>서비스
+### <a name="services"></a>Services
 
 애플리케이션에 대한 Service Fabric 상태 비저장 서비스 지원입니다.
 

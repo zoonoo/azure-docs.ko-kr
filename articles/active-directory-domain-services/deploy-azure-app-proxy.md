@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 9b1d6c255aee93ab92eab6ebefcb275b2fc63f23
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 8305b2190cf3b157973f5844c3237ffe73adba66
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071157"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "96619919"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리되는 도메인의 내부 애플리케이션에 안전하게 액세스할 수 있도록 Azure AD 애플리케이션 프록시 배포
 
@@ -121,5 +121,5 @@ Azure AD DS와 통합된 Azure AD 애플리케이션 프록시를 사용하여 �
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
 [azure-bastion]: ../bastion/tutorial-create-host-portal.md
-[Get-ADComputer]: /powershell/module/activedirectory/get-adcomputer
-[Set-ADComputer]: /powershell/module/activedirectory/set-adcomputer
+[Get-ADComputer]: /powershell/module/addsadministration/get-adcomputer
+[Set-ADComputer]: /powershell/module/addsadministration/set-adcomputer

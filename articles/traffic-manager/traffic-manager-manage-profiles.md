@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Traffic Manager 프로필 | Microsoft Docs
-description: 이 문서에서는 Azure Traffic Manager 프로필을 만들고, 사용 하지 않도록 설정 하 고, 삭제 하는 방법을 설명 합니다.
+description: 이 문서는 Azure Traffic Manager 프로필을 만들고, 사용하지 않거나 사용하도록 설정하고, 삭제하는 데 도움이 됩니다.
 services: traffic-manager
 documentationcenter: ''
 author: duongau
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: duau
 ms.openlocfilehash: a39120b1305022739aaef3407aa6c2621a97e842
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98184156"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Azure Traffic Manager 프로필 관리
@@ -49,23 +49,23 @@ Azure Portal을 사용하여 Traffic Manager 프로필을 만들 수 있습니�
 1. 사용자 지정 도메인 이름을 사용하고 있는 경우 Traffic Manager 프로필을 더 이상 가리키지 않도록 인터넷 DNS 서버에서 CNAME 레코드를 변경합니다.
 2. Traffic Manager 프로필 설정을 통해 엔드포인트에 보내는 트래픽이 중지됩니다.
 3. 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 포털의 검색 창에서 수정 하려는 **Traffic Manager 프로필** 이름을 검색 한 다음 표시 되는 결과에서 Traffic Manager 프로필을 클릭 합니다.
-3. **개요**  >  **사용 안 함** 을 클릭 합니다.
+2. 포털의 검색 창에서 수정하려는 **Traffic Manager 프로필** 이름을 검색한 다음 표시되는 결과에서 Traffic Manager 프로필을 클릭합니다.
+3. **개요** > **사용 안 함** 을 클릭합니다.
 4. Traffic Manager 프로필을 사용하지 않는 것으로 확인합니다.
 
 ### <a name="to-enable-a-profile"></a>프로필을 사용하려면
 
 1. 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 포털의 검색 창에서 수정 하려는 **Traffic Manager 프로필** 이름을 검색 한 다음 표시 되는 결과에서 Traffic Manager 프로필을 클릭 합니다.
-3. **개요**  >  **사용** 을 클릭 합니다.
+2. 포털의 검색 창에서 수정하려는 **Traffic Manager 프로필** 이름을 검색한 다음 표시되는 결과에서 Traffic Manager 프로필을 클릭합니다.
+3. **개요** > **사용** 을 클릭합니다.
 1. 사용자 지정 도메인 이름을 사용하고 있는 경우 Traffic Manager 프로필의 도메인 이름을 가리키도록 인터넷 DNS 서버에 CNAME 리소스 레코드를 만듭니다.
 2. 트래픽이 엔드포인트에 다시 전달됩니다.
 
 ### <a name="to-delete-a-profile"></a>프로필을 삭제하려면
 
 1. 인터넷 DNS 서버의 DNS 리소스 레코드에서 Traffic Manager 프로필의 도메인 이름을 가리키는 CNAME 리소스 레코드를 더 이상 사용하지 않는지 확인합니다.
-2. 포털의 검색 창에서 수정 하려는 **Traffic Manager 프로필** 이름을 검색 한 다음 표시 되는 결과에서 Traffic Manager 프로필을 클릭 합니다.
-3. **개요**  >  **삭제** 를 클릭 합니다.
+2. 포털의 검색 창에서 수정하려는 **Traffic Manager 프로필** 이름을 검색한 다음 표시되는 결과에서 Traffic Manager 프로필을 클릭합니다.
+3. **개요** > **삭제** 를 클릭합니다.
 4. Traffic Manager 프로필 삭제를 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계

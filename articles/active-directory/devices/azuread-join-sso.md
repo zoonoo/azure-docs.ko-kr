@@ -1,6 +1,6 @@
 ---
 title: 온-프레미스 리소스에 대한 SSO가 Azure AD 조인 디바이스에서 작동하는 방식 | Microsoft Docs
-description: 하이브리드 Azure Active Directory 연결 장치를 구성 하 여 SSO 환경을 확장 하는 방법을 알아봅니다.
+description: 하이브리드 Azure Active Directory 조인 디바이스를 구성하여 SSO 환경을 확장하는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -12,40 +12,40 @@ manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: da22a4e5e9ab13ec18347e58bea6cfc5f45333de
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98630703"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>온-프레미스 리소스에 대한 SSO가 Azure AD 조인 디바이스에서 작동하는 방식
 
-Azure AD(Azure Active Directory) 조인 디바이스에서 SSO(Single Sign-On) 환경을 테넌트의 클라우드 앱에 제공하는 것은 놀랄 일이 아닙니다. 사용자 환경에 온-프레미스 ad (Active Directory)가 있는 경우 Azure AD 조인 장치에서 온-프레미스 AD를 사용 하는 리소스 및 응용 프로그램에 대 한 SSO 환경을 가져올 수도 있습니다. 
+Azure AD(Azure Active Directory) 조인 디바이스에서 SSO(Single Sign-On) 환경을 테넌트의 클라우드 앱에 제공하는 것은 놀랄 일이 아닙니다. 사용자 환경에 온-프레미스 AD(Active Directory)가 있는 경우 Azure AD 조인 디바이스에서 온-프레미스 AD를 사용하는 리소스 및 애플리케이션에 대한 SSO 환경을 가져올 수도 있습니다. 
 
 이 문서에서는 이러한 작동 방식에 대해 설명합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-온-프레미스 SSO에는 온-프레미스 AD DS 도메인 컨트롤러와의 시야 통신이 필요 합니다. Azure AD 가입 장치가 조직의 네트워크에 연결 되어 있지 않으면 VPN 또는 다른 네트워크 인프라가 필요 합니다. 
+온-프레미스 SSO에는 온-프레미스 AD DS 도메인 컨트롤러와의 가시 거리 내 통신이 필요합니다. Azure AD 조인 디바이스가 조직의 네트워크에 연결되어 있지 않으면 VPN 또는 다른 네트워크 인프라가 필요합니다. 
 
 ## <a name="how-it-works"></a>작동 방법 
 
-Azure AD 조인 디바이스를 사용하면 사용자는 이미 자신의 환경에서 클라우드 앱에 대한 SSO 환경을 갖추고 있습니다. 환경에 Azure AD와 온-프레미스 AD가 있는 경우 온-프레미스 LOB (기간 업무) 앱, 파일 공유 및 프린터에 대 한 SSO 환경의 범위를 확장할 수 있습니다.
+Azure AD 조인 디바이스를 사용하면 사용자는 이미 자신의 환경에서 클라우드 앱에 대한 SSO 환경을 갖추고 있습니다. 환경에 Azure AD와 온-프레미스 AD가 있는 경우 SSO 환경 범위를 온-프레미스 LOB(기간 업무) 앱, 파일 공유 및 프린터로 확장하려고 할 수도 있습니다.
 
 Azure AD 조인 디바이스는 온-프레미스 AD 환경에 조인되어 있지 않으므로 해당 환경에 대한 지식이 없습니다. 그러나 Azure AD Connect를 사용하여 온-프레미스 AD에 대한 추가 정보를 이러한 디바이스에 제공할 수 있습니다.
 
-Azure AD와 온-프레미스 AD를 모두 사용 하 여 하이브리드 환경을 사용 하는 경우 온-프레미스 id 정보를 클라우드로 동기화 하는 Azure AD Connect 이미 배포 되어 있을 수 있습니다. 동기화 프로세스의 일부로, Azure AD Connect 온-프레미스 사용자 및 도메인 정보를 Azure AD에 동기화 합니다. 사용자가 하이브리드 환경에서 Azure AD 조인 디바이스에 로그인하는 경우 다음을 수행합니다.
+하이브리드 환경을 사용하는 경우 온-프레미스 ID 정보를 클라우드에 동기화하기 위해 Azure AD Connect를 이미 배포했을 가능성이 높습니다. 동기화 프로세스의 일부로 Azure AD Connect는 온-프레미스 사용자 및 도메인 정보를 Azure AD에 동기화합니다. 사용자가 하이브리드 환경에서 Azure AD 조인 디바이스에 로그인하는 경우 다음을 수행합니다.
 
-1. Azure AD는 사용자의 온-프레미스 도메인의 세부 정보를 [기본 새로 고침 토큰과](concept-primary-refresh-token.md) 함께 장치에 다시 보냅니다.
-1. LSA (로컬 보안 기관) 서비스는 장치에서 Kerberos 및 NTLM 인증을 사용 하도록 설정 합니다.
+1. Azure AD는 사용자의 온-프레미스 도메인의 세부 정보를 [기본 새로 고침 토큰](concept-primary-refresh-token.md)과 함께 디바이스로 다시 보냅니다.
+1. LSA(로컬 보안 기관) 서비스를 통해 디바이스에서 Kerberos 및 NTLM 인증을 사용할 수 있습니다.
 
 >[!NOTE]
 > Azure AD 조인 디바이스에서 온-프레미스 SSO를 사용하도록 설정하려면 비즈니스용 Windows Hello를 추가로 구성해야 합니다. 자세한 내용은 [비즈니스용 Windows Hello를 사용하여 온-프레미스 Single Sign-On에 대한 Azure AD 조인 디바이스 구성](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base)을 참조하세요. 
 
-사용자의 온-프레미스 환경에서 Kerberos 또는 NTLM을 요청 하는 리소스에 대 한 액세스를 시도 하는 동안 장치는 다음과 같습니다.
+사용자의 온-프레미스 환경에서 Kerberos 또는 NTLM을 요청하는 리소스에 대한 액세스를 시도하는 동안, 디바이스는
 
 1. 온-프레미스 도메인 정보와 사용자 자격 증명을 찾아낸 DC로 보내 사용자를 인증합니다.
-1. 온-프레미스 리소스 또는 응용 프로그램이 지 원하는 프로토콜을 기반으로 하는 Kerberos [TGT (허용 티켓)](/windows/desktop/secauthn/ticket-granting-tickets) 또는 NTLM 토큰을 받습니다. 도메인에 대 한 Kerberos TGT 또는 NTLM 토큰을 가져오지 못한 경우 (관련 DCLocator 시간 제한으로 인해 지연이 발생할 수 있음) 자격 증명 관리자 항목이 시도 되거나 사용자가 대상 리소스에 대 한 자격 증명을 요청 하는 인증 팝업을 받을 수 있습니다.
+1. 온-프레미스 리소스 또는 애플리케이션이 지원하는 프로토콜을 기반으로 하는 Kerberos [TGT(허용 티켓)](/windows/desktop/secauthn/ticket-granting-tickets) 또는 NTLM 토큰을 받습니다. 도메인에 대한 Kerberos TGT 또는 NTLM 토큰을 가져오지 못한 경우(관련 DCLocator 시간 제한으로 인해 지연이 발생할 수 있음) 자격 증명 관리자 항목이 시도되거나 사용자가 대상 리소스에 대한 자격 증명을 요청하는 인증 팝업을 받을 수 있습니다.
 
 사용자가 액세스하려고 시도하면 **Windows 통합 인증** 에 구성된 모든 앱에서 SSO를 원활하게 받습니다.
 

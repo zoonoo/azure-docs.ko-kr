@@ -1,21 +1,21 @@
 ---
-title: 바인딩 식 및 패턴 Azure Functions
-description: 일반적인 패턴을 기반으로 다양 한 Azure Functions 바인딩 식을 만드는 방법을 알아봅니다.
+title: Azure Functions 바인딩 식 및 패턴
+description: 일반적인 패턴을 기반으로 다양한 Azure Functions 바인딩 식 만드는 방법을 알아봅니다.
 author: craigshoemaker
 ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 7245b0c0fb1e96959ef5dca4992cf52a38accb58
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98920293"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Azure Functions 바인딩 식 패턴
 
-[트리거와 바인딩의](./functions-triggers-bindings.md) 가장 강력한 기능 중 하나는 *바인딩 식* 입니다. *function.json* 파일에서 그리고 함수 매개 변수 및 코드에서 다양한 원본의 값을 확인하는 식을 사용할 수 있습니다.
+[트리거와 바인딩](./functions-triggers-bindings.md)의 가장 강력한 기능 중 하나는 *바인딩 식* 입니다. *function.json* 파일에서 그리고 함수 매개 변수 및 코드에서 다양한 원본의 값을 확인하는 식을 사용할 수 있습니다.
 
 대부분의 식은 중괄호로 래핑하여 식별됩니다. 예를 들어 큐 트리거 함수에서 `{queueTrigger}`는 큐 메시지 텍스트를 확인합니다. blob 출력 바인딩에 대한 `path` 속성이 `container/{queueTrigger}`이고 함수가 큐 메시지 `HelloWorld`에 의해 트리거되는 경우 `HelloWorld`라는 blob이 만들어집니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "98920293"
 함수를 로컬로 실행 중인 경우 앱 설정 값은 *local.settings.json* 파일에서 가져옵니다.
 
 > [!NOTE]
-> `connection`트리거와 바인딩의 속성은 특수 한 경우 이며 백분율 기호 없이 앱 설정으로 값을 자동으로 확인 합니다. 
+> 트리거와 바인딩의 `connection` 속성은 특수한 경우이며 백분율 기호 없이 앱 설정으로 값을 자동 확인합니다. 
 
 다음 예제는 `%input_queue_name%` 앱 설정을 사용하여 트리거할 큐를 정의하는 Azure Queue Storage 트리거입니다.
 
@@ -133,7 +133,7 @@ public static void Run(
 
 ```
 
-파일 이름 부분에 대 한 식을 만들 수도 있습니다. 다음 예제에서 함수는 패턴과 일치 하는 파일 이름에 대해서만 트리거됩니다. `anyname-anyfile.csv`
+또한 파일 이름 부분에 대한 식을 만들 수도 있습니다. 다음 예제에서 함수는 패턴과 일치하는 파일 이름에 대해서만 트리거됩니다. `anyname-anyfile.csv`
 
 ```json
 {
@@ -323,4 +323,4 @@ C# 및 기타 .NET 언어에서는 *function.json* 및 특성의 바인딩과 �
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
-> [Azure Function 반환 값 사용](./functions-bindings-return-value.md)
+> [Azure 함수 반환 값 사용](./functions-bindings-return-value.md)

@@ -11,12 +11,12 @@ ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ace250e843e0e9fd0a99e4948c344abd65a3beec
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 3f7d6f8ca285fdc024db9ba952af9f7d169e7188
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140014"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "98678477"
 ---
 # <a name="optimizing-transactions-in-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀의 트랜잭션 최적화
 
@@ -419,4 +419,4 @@ END
 
 ## <a name="next-steps"></a>다음 단계
 
-격리 수준 및 트랜잭션 제한에 대해 자세히 알아보려면 [전용 SQL 풀의 트랜잭션](sql-data-warehouse-develop-transactions.md)을 참조하세요.  기타 모범 사례의 개요는 [전용 SQL 풀 모범 사례](../sql/best-practices-dedicated-sql-pool.md)를 참조하세요.
+격리 수준 및 트랜잭션 제한에 대해 자세히 알아보려면 [전용 SQL 풀의 트랜잭션](sql-data-warehouse-develop-transactions.md)을 참조하세요.  기타 모범 사례의 개요는 [전용 SQL 풀 모범 사례](sql-data-warehouse-best-practices.md)를 참조하세요.

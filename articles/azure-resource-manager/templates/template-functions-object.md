@@ -1,18 +1,18 @@
 ---
-title: 템플릿 함수-개체
-description: 개체 작업을 위해 Azure Resource Manager 템플릿 (ARM 템플릿)에서 사용할 함수에 대해 설명 합니다.
+title: 템플릿 함수 - 개체
+description: 개체 작업을 위해 ARM 템플릿(Azure Resource Manager 템플릿)에서 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: 5e13177db1a7cf2f19a822363cb3884474566add
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96920452"
 ---
-# <a name="object-functions-for-arm-templates"></a>ARM 템플릿에 대 한 개체 함수
+# <a name="object-functions-for-arm-templates"></a>ARM 템플릿의 개체 함수
 
-리소스 관리자는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 개체를 사용 하기 위한 몇 가지 함수를 제공 합니다.
+리소스 관리자는 ARM 템플릿(Azure Resource Manager 템플릿)에서 개체를 사용하기 위한 몇 가지 함수를 제공합니다.
 
 * [contains](#contains)
 * [createObject](#createobject)
@@ -128,39 +128,39 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
-| stringFalse | Bool | 거짓 |
+| stringFalse | Bool | False |
 | objectTrue | Bool | True |
-| objectFalse | Bool | 거짓 |
+| objectFalse | Bool | False |
 | arrayTrue | Bool | True |
-| arrayFalse | Bool | 거짓 |
+| arrayFalse | Bool | False |
 
 ## <a name="createobject"></a>createObject
 
 `createObject(key1, value1, key2, value2, ...)`
 
-키와 값에서 개체를 만듭니다. `createObject`함수는 Bicep에서 지원 되지 않습니다.  를 사용 하 여 개체를 생성 `{}` 합니다.
+키와 값에서 개체를 만듭니다. Bicep에서 `createObject` 함수는 지원되지 않습니다.  `{}`를 사용하여 개체를 생성합니다.
 
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | key1 |예 |문자열 |키의 이름입니다. |
-| value1 |아니요 |int, boolean, string, object 또는 array |키의 값입니다. |
-| 추가 키 |예 |문자열 |키의 추가 이름입니다. |
-| 추가 값 |아니요 |int, boolean, string, object 또는 array |키의 추가 값입니다. |
+| value1 |예 |int, 부울, 문자열, 개체 또는 배열 |키의 값입니다. |
+| additional keys |예 |문자열 |키의 추가 이름입니다. |
+| additional values |예 |int, 부울, 문자열, 개체 또는 배열 |키에 대한 추가 값입니다. |
 
-함수는 짝수 개수의 매개 변수만 허용 합니다. 각 키에는 일치 하는 값이 있어야 합니다.
+함수는 짝수의 매개 변수만 사용할 수 있습니다. 각 키는 일치 값이 있어야 합니다.
 
 ### <a name="return-value"></a>반환 값
 
-각 키와 값 쌍을 포함 하는 개체입니다.
+각 키와 값 쌍을 포함하는 개체입니다.
 
 ### <a name="example"></a>예제
 
-다음 예에서는 다양 한 값 형식에서 개체를 만듭니다.
+다음 예에서는 다양한 값 형식에서 개체를 만듭니다.
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -199,7 +199,7 @@ output newObject object = {
 
 ---
 
-기본값을 사용 하는 이전 예제의 출력은 `newObject` 다음과 같은 값을 가진 라는 개체입니다.
+기본값을 사용하는 이전 예제의 출력은 다음과 같은 값을 가진 `newObject`라는 개체입니다.
 
 ```json
 {
@@ -286,7 +286,7 @@ output stringEmpty bool = empty(testString)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -392,7 +392,7 @@ output arrayOutput array = intersection(firstArray, secondArray)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
@@ -403,27 +403,27 @@ output arrayOutput array = intersection(firstArray, secondArray)
 
 `json(arg1)`
 
-유효한 JSON 문자열을 JSON 데이터 형식으로 변환 합니다.
+유효한 JSON 문자열을 JSON 데이터 형식으로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |문자열 |JSON으로 변환할 값입니다. 문자열은 올바른 형식의 JSON 문자열 이어야 합니다. |
+| arg1 |예 |문자열 |JSON으로 변환할 값입니다. 문자열은 올바른 형식의 JSON 문자열이어야 합니다. |
 
 ### <a name="return-value"></a>반환 값
 
-지정 된 문자열의 JSON 데이터 형식 이거나, **null** 이 지정 된 경우 빈 값입니다.
+지정된 문자열의 JSON 데이터 형식이거나, **null** 을 지정한 경우 빈 개체입니다.
 
 ### <a name="remarks"></a>설명
 
 JSON 개체에 매개 변수 값이나 변수를 포함해야 하는 경우 [concat](template-functions-string.md#concat) 함수를 사용하여 함수로 전달할 문자열을 작성합니다.
 
-Null [()](#null) 을 사용 하 여 null 값을 가져올 수도 있습니다.
+[null()](#null)을 사용하여 Null 값을 가져올 수도 있습니다.
 
 ### <a name="example"></a>예제
 
-다음 [예제 템플릿에서는](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) json 함수를 사용 하는 방법을 보여 줍니다. 빈 개체에 대해 **null** 을 전달할 수 있습니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json)에서는 json 함수를 사용하는 방법을 보여줍니다. 빈 개체에 대해 **null** 을 전달할 수 있습니다.
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -520,7 +520,7 @@ output concatObjectOutput object = json(concat('{"a": "', concatValue, '"}'))
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | emptyObjectOutput | 부울 | True |
 | objectOutput | Object | {"a": "b"} |
@@ -528,19 +528,19 @@ output concatObjectOutput object = json(concat('{"a": "', concatValue, '"}'))
 | booleanOutput | 부울 | True |
 | intOutput | 정수 | 3 |
 | arrayOutput | Array | [ 1, 2, 3 ] |
-| concatObjectOutput | Object | {"a": "demo 값"} |
+| concatObjectOutput | Object | { "a": "demo value" } |
 
 ## <a name="length"></a>length
 
 `length(arg1)`
 
-배열의 요소 수, 문자열의 문자 또는 개체의 루트 수준 속성을 반환 합니다.
+배열의 요소 수, 문자열의 문자 수 또는 개체의 루트 수준 속성 수를 반환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |array, string 또는 object |요소 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준 속성의 수를 가져오는 데 사용할 개체입니다. |
+| arg1 |예 |배열, 문자열 또는 개체 |요소의 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준의 속성 수를 가져오려는 데 사용할 개체입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -628,7 +628,7 @@ output objectLength int = length(objectToTest)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -638,19 +638,19 @@ output objectLength int = length(objectToTest)
 
 `null()`
 
-null을 반환합니다. `null`함수는 Bicep에서 사용할 수 없습니다. `null`대신 키워드를 사용 합니다.
+null을 반환합니다. `null` 함수는 Bicep에서 사용할 수 없습니다. 대신 `null` 키워드를 사용합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-Null 함수는 매개 변수를 허용 하지 않습니다.
+Null 함수는 매개 변수를 허용하지 않습니다.
 
 ### <a name="return-value"></a>반환 값
 
-항상 null 인 값입니다.
+항상 Null인 값입니다.
 
 ### <a name="example"></a>예제
 
-다음 예에서는 null 함수를 사용 합니다.
+다음 예제에서는 Null 함수를 사용합니다.
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -678,7 +678,7 @@ output emptyOutput bool = empty(null)
 
 위 예제의 출력은 다음과 같습니다.
 
-| Name | Type | 값 |
+| 이름 | 유형 | 값 |
 | ---- | ---- | ----- |
 | emptyOutput | Bool | True |
 
@@ -785,11 +785,11 @@ output arrayOutput array = union(firstArray, secondArray)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |
 
 ## <a name="next-steps"></a>다음 단계
 
-* ARM 템플릿의 섹션에 대 한 설명은 [arm 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* ARM 템플릿의 섹션에 대한 설명은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하세요.

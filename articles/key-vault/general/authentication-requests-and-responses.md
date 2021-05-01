@@ -1,6 +1,6 @@
 ---
 title: 인증, 요청 및 응답
-description: Azure Key Vault에서 JSON 형식 요청 및 응답과 키 자격 증명 모음을 사용 하는 데 필요한 인증을 사용 하는 방법에 대해 알아봅니다.
+description: Azure Key Vault에서 JSON 형식 요청 및 응답과 키 자격 증명 모음을 사용하는 데 필요한 인증을 사용하는 방법에 대해 알아보세요.
 services: key-vault
 author: amitbapat
 manager: msmbaldwin
@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: 58616b647affd33e96357e556ab61f85d1c62129
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96752280"
 ---
 # <a name="authentication-requests-and-responses"></a>인증, 요청 및 응답
 
-Azure Key Vault는 클라우드 응용 프로그램에 대 한 암호를 저장 하 고 관리 하는 두 가지 유형의 컨테이너를 제공 합니다.
+Azure Key Vault는 클라우드 애플리케이션에 대한 비밀을 저장하고 관리하는 두 가지 유형의 컨테이너를 제공합니다.
 
-|컨테이너 유형|지원 되는 개체 유형|데이터 평면 끝점|
+|컨테이너 유형|지원되는 개체 유형|데이터 평면 엔드포인트|
 |--|--|--|
-| **자격 증명 모음**|<ul><li>소프트웨어 보호 키</li><li>HSM 보호 된 키 (프리미엄 SKU 포함)</li><li>인증서</li><li>Storage 계정 키</li></ul> | https://{vault-name}.vault.azure.net
-|**관리형 HSM** |<ul><li>HSM 보호 키</li></ul> | https://{hsm-name}.managedhsm.azure.net
+| **자격 증명 모음**|<ul><li>소프트웨어 보호 키</li><li>HSM 보호 키(프리미엄 SKU 포함)</li><li>인증서</li><li>Storage 계정 키</li></ul> | https://{vault-name}.vault.azure.net
+|**관리되는 HSM** |<ul><li>HSM 보호 키</li></ul> | https://{hsm-name}.managedhsm.azure.net
 
-각 개체 형식에 액세스 하는 데 사용 되는 URL 접미사는 다음과 같습니다.
+각 개체 형식에 액세스하는 데 사용되는 URL 접미사
 
 |개체 형식|URL 접미사|
 |--|--|
@@ -55,8 +55,8 @@ Azure Key Vault는 JSON 형식 요청과 응답을 지원합니다. Azure Key Va
 - Key Vault에서 TESTKEY라는 키를 사용하여 다이제스트에 서명하려면 `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1` 사용  
 
 - Key Vault에 대한 요청을 위한 기관은 항상 다음과 같습니다. 
-  - 자격 증명 모음: `https://{keyvault-name}.vault.azure.net/`
-  - 관리 되는 Hsm의 경우: `https://{HSM-name}.managedhsm.azure.net/`
+  - 자격 증명 모음의 경우: `https://{keyvault-name}.vault.azure.net/`
+  - 관리되는 HSM의 경우: `https://{HSM-name}.managedhsm.azure.net/`
 
   키는 항상 /keys 경로에 저장되며, 비밀은 항상 /secrets 경로에 저장됩니다.  
 
@@ -85,7 +85,7 @@ Azure Key Vault는 JSON 형식 요청과 응답을 지원합니다. Azure Key Va
 
 - 3xx – 리디렉션: 조건부 GET을 충족하기 위해 304 “수정되지 않음”이 반환될 수 있습니다. 나중에 DNS 및 경로 변경을 나타내기 위해 다른 3xx 코드가 사용될 수 있습니다.  
 
-- 4xx – 클라이언트 오류: 잘못 된 요청, 누락 된 키, 구문 오류, 잘못 된 매개 변수, 인증 오류 등에 사용 됩니다. 응답 본문에는 자세한 오류 설명이 포함 됩니다.  
+- 4xx – 클라이언트 오류: 잘못된 요청, 누락된 키, 구문 오류, 잘못된 매개 변수, 인증 오류 등에 사용됩니다. 응답 본문에는 자세한 오류 설명이 포함됩니다.  
 
 - 5xx – 서버 오류: 내부 서버 오류에 사용됩니다. 응답 본문에는 요약된 오류 정보가 포함됩니다.  
 
@@ -133,7 +133,7 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   권한 부여: 요청에 대한 액세스 토큰을 가져오는 데 사용할 수 있는 OAuth2 권한 부여 서비스의 주소입니다.  
 
--   리소스: `https://vault.azure.net` 권한 부여 요청에 사용할 리소스 ()의 이름입니다.
+-   리소스: 권한 부여 요청에서 사용하는 리소스(`https://vault.azure.net`)의 이름입니다.
 
 > [!NOTE]
-> Key Vault에 대 한 첫 번째 호출에서 암호, 인증서 및 키에 대 한 Key Vault SDK 클라이언트는 테 넌 트 정보를 검색 하는 액세스 토큰을 제공 하지 않습니다. 응용 프로그램에 리소스를 포함 하는 WWW-Authenticate 헤더와 토큰을 요청 하 고 요청 하는 테 넌 트가 응용 프로그램에 표시 Key Vault 되는 Key Vault SDK 클라이언트를 사용 하 여 HTTP 401을 수신 해야 합니다. 모든 것이 올바르게 구성 되어 있으면 응용 프로그램에서 Key Vault에 대 한 두 번째 호출에 유효한 토큰이 포함 되 고 성공 하 게 됩니다. 
+> Key Vault에 대한 첫 번째 호출에서 비밀, 인증서 및 키에 대한 Key Vault SDK 클라이언트는 테넌트 정보를 검색하는 액세스 토큰을 제공하지 않습니다. Key Vault SDK 클라이언트를 사용하여 HTTP 401을 수신해야 합니다. 여기서 Key Vault는 리소스를 포함하는 WWW-Authenticate 헤더와 토큰을 요청해야 하는 테넌트를 애플리케이션에 보여줍니다. 모든 것이 올바르게 구성되어 있으면 애플리케이션에서 Key Vault에 대한 두 번째 호출에 유효한 토큰이 포함되고 성공하게 됩니다. 

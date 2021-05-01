@@ -13,17 +13,17 @@ ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
 ms.openlocfilehash: efaf6060c0b09e071546038d9e30f2c8065059e7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98600128"
 ---
 # <a name="what-are-security-defaults"></a>보안 기본값이란?
 
-암호 스프레이, 재생, 피싱 등의 일반적인 id 관련 공격이 점점 더 인기 있는 것으로 보안을 관리 하는 것이 어려울 수 있습니다. 보안 기본값을 사용하면 미리 구성된 보안 설정을 사용하여 조직을 이러한 공격에서 쉽게 보호할 수 있습니다.
+암호 스프레이, 재생, 피싱 같은 일반적인 ID 관련 공격이 점점 더 많이 확산하게 되면 보안 관리가 어려울 수 있습니다. 보안 기본값을 사용하면 미리 구성된 보안 설정을 사용하여 조직을 이러한 공격에서 쉽게 보호할 수 있습니다.
 
-- 모든 사용자가 Azure AD Multi-Factor Authentication에 등록 하도록 요구 합니다.
+- 모든 사용자에게 Azure AD Multi-Factor Authentication에 등록하도록 요구
 - 관리자에게 다단계 인증을 수행하도록 요구
 - 레거시 인증 프로토콜 차단
 - 필요한 경우 사용자에게 다단계 인증을 수행하도록 요구
@@ -52,13 +52,13 @@ Microsoft는 모든 사용자가 보안 기본값을 사용할 수 있도록 합
 
 ### <a name="unified-multi-factor-authentication-registration"></a>통합 다단계 인증 등록
 
-테 넌 트의 모든 사용자는 Azure AD Multi-Factor Authentication 형식으로 MFA (multi-factor authentication)를 등록 해야 합니다. 사용자는 Microsoft Authenticator 앱을 사용 하 여 Azure AD Multi-Factor Authentication에 등록 하는 데 14 일이 있습니다. 14일이 지나면 사용자는 등록이 완료될 때까지 로그인할 수 없습니다. 사용자의 14일 기간은 보안 기본값을 사용하도록 설정한 후 처음 성공한 대화형 로그인 이후에 시작됩니다.
+테넌트의 모든 사용자는 Azure AD Multi-Factor Authentication의 형태로 MFA(다단계 인증)에 등록해야 합니다. 사용자는 Microsoft Authenticator 앱을 사용하여 Azure AD 다단계 인증에 등록하는 데 14일이 제공됩니다. 14일이 지나면 사용자는 등록이 완료될 때까지 로그인할 수 없습니다. 사용자의 14일 기간은 보안 기본값을 사용하도록 설정한 후 처음 성공한 대화형 로그인 이후에 시작됩니다.
 
 ### <a name="protecting-administrators"></a>관리자 보호
 
 권한 있는 액세스 권한이 있는 사용자는 사용자 환경에 대해 강화된 액세스 권한을 갖습니다. 이러한 계정은 권한이 크기 때문에 특별히 주의해서 처리해야 합니다. 권한 있는 계정의 보호를 향상하는 한 가지 일반적인 방법은 로그인 시 보다 강력한 형태의 계정 확인을 요구하는 것입니다. Azure AD에서 다단계 인증을 요구하면 보다 강력한 계정 확인이 가능합니다.
 
-Azure AD Multi-Factor Authentication 등록을 완료 한 후에는 다음 9 개의 Azure AD 관리자 역할이 로그인 할 때마다 추가 인증을 수행 해야 합니다.
+Azure AD 다단계 인증 등록을 완료한 후에는 로그인할 때마다 추가 인증을 위해 다음 9개의 Azure AD 관리자 역할이 필요합니다.
 
 - 전역 관리자
 - SharePoint 관리자
@@ -76,7 +76,7 @@ Azure AD Multi-Factor Authentication 등록을 완료 한 후에는 다음 9 개
 
 이러한 공격자는 액세스 권한을 얻은 후에 원래 계정 소유자를 대신하여 권한 있는 정보에 대한 액세스를 요청할 수 있습니다. 전체 디렉터리를 다운로드하여 전체 조직에서 피싱 공격을 수행할 수도 있습니다. 
 
-모든 사용자에 대해 보호를 개선하는 일반적인 방법 중 하나는 모든 사용자에 대해 다단계 인증과 같은 보다 강력한 형식의 계정 확인을 요구하는 것입니다. 사용자가 다단계 인증 등록을 완료한 후에는 필요할 때마다 추가 인증을 요구하는 메시지가 표시됩니다. 사용자는 주로 새 장치나 응용 프로그램을 사용 하 여 인증 하거나 중요 한 역할 및 작업을 수행할 때 표시 됩니다. 이 기능은 SaaS 애플리케이션을 포함하여 Azure AD에 등록된 모든 애플리케이션을 보호합니다.
+모든 사용자에 대해 보호를 개선하는 일반적인 방법 중 하나는 모든 사용자에 대해 다단계 인증과 같은 보다 강력한 형식의 계정 확인을 요구하는 것입니다. 사용자가 다단계 인증 등록을 완료한 후에는 필요할 때마다 추가 인증을 요구하는 메시지가 표시됩니다. 사용자 새 디바이스나 애플리케이션을 사용하여 인증하거나 중요한 역할 및 작업을 수행할 때 주로 메시지가 표시됩니다. 이 기능은 SaaS 애플리케이션을 포함하여 Azure AD에 등록된 모든 애플리케이션을 보호합니다.
 
 ### <a name="blocking-legacy-authentication"></a>레거시 인증 차단
 
@@ -92,7 +92,7 @@ Azure AD Multi-Factor Authentication 등록을 완료 한 후에는 다음 9 개
 > [!WARNING]
 > 보안 기본값을 사용하도록 설정하기 전에 관리자가 이전 인증 프로토콜을 사용하지 않는지 확인합니다. 자세한 내용은 [레거시 인증에서 전환하는 방법](concept-fundamentals-block-legacy-authentication.md)을 참조하세요.
 
-- [Microsoft 365를 사용 하 여 전자 메일을 보내도록 다기능 장치 또는 응용 프로그램을 설정 하는 방법](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
+- [Microsoft 365를 사용하여 이메일을 보내도록 다기능 디바이스 또는 애플리케이션을 설정하는 방법](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
 
 ### <a name="protecting-privileged-actions"></a>권한 있는 작업 보호
 
@@ -120,9 +120,9 @@ Azure Resource Manager에 액세스하고 구성을 업데이트하려는 사용
 
 ### <a name="authentication-methods"></a>인증 방법
 
-이러한 무료 보안 기본값은 **알림을 사용 하 여 Microsoft Authenticator 앱만 사용 하는** Azure AD Multi-Factor Authentication의 등록과 사용을 허용 합니다. 조건부 액세스를 사용하면 관리자가 사용하도록 선택하는 모든 인증 방법을 사용할 수 있습니다.
+이러한 무료 보안 기본값을 사용하면 **알림을 통해 Microsoft Authenticator 앱만 사용하여** Azure AD Multi-Factor Authentication에 등록하고 사용할 수 있습니다. 조건부 액세스를 사용하면 관리자가 사용하도록 선택하는 모든 인증 방법을 사용할 수 있습니다.
 
-| 메서드 | 보안 기본값 | 조건부 액세스 |
+| 방법 | 보안 기본값 | 조건부 액세스 |
 | --- | --- | --- |
 | 모바일 앱을 통한 알림 | X | X |
 | 모바일 앱 또는 하드웨어 토큰의 확인 코드 | X** | X |
@@ -135,7 +135,7 @@ Azure Resource Manager에 액세스하고 구성을 업데이트하려는 사용
 
 ### <a name="disabled-mfa-status"></a>사용하지 않도록 설정된 MFA 상태
 
-사용자가 사용자별 기반 Azure AD Multi-Factor Authentication의 이전 사용자 인 경우 Multi-factor Auth 상태 페이지를 살펴보면 사용 또는 **적용** **됨** 상태에서 사용자가 표시 되지 않도록 합니다. **사용 안 함** 은 보안 기본값 또는 조건부 액세스 기반 Azure AD Multi-Factor Authentication를 사용 하는 사용자에 대 한 적절 한 상태입니다.
+조직이 사용자 기준 Azure AD Multi-Factor Authentication의 이전 사용자인 경우 다단계 인증 상태 페이지를 볼 때 **사용** 또는 **적용** 상태에 사용자가 표시되지 않더라도 놀라지 마세요. **사용 안 함** 은 보안 기본값 또는 조건부 액세스 기반 Azure AD Multi-Factor Authentication을 사용하는 사용자에게 적절한 상태입니다.
 
 ### <a name="conditional-access"></a>조건부 액세스
 
@@ -149,7 +149,7 @@ Azure Resource Manager에 액세스하고 구성을 업데이트하려는 사용
 - [Azure 관리용 MFA 필요](../conditional-access/howto-conditional-access-policy-azure-management.md)
 - [레거시 인증 차단](../conditional-access/howto-conditional-access-policy-block-legacy.md)
 - [모든 사용자용 MFA 필요](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
-- [AZURE AD MFA 등록 필요](../identity-protection/howto-identity-protection-configure-mfa-policy.md) -Azure AD Premium P2의 Azure AD ID 보호 부분이 필요 합니다.
+- [Azure AD MFA 등록 필요](../identity-protection/howto-identity-protection-configure-mfa-policy.md) - Azure AD Premium P2의 Azure AD ID 보호 부분이 필요합니다.
 
 ## <a name="enabling-security-defaults"></a>보안 기본값 사용
 

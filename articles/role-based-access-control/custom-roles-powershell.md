@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트-Azure RBAC
-description: Azure PowerShell 및 Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제 하는 방법에 대해 알아봅니다.
+title: Azure PowerShell을 사용하여 사용자 지정 역할 만들기 또는 업데이트 - Azure RBAC
+description: Azure PowerShell과 Azure RBAC(역할 기반 액세스 제어)를 사용하여 사용자 지정 역할 목록을 작성하고, 만들고, 업데이트하거나 삭제하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,10 +15,10 @@ ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 799475db567c88f067192d027589e9185ee1782b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97369177"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-powershell"></a>Azure PowerShell을 사용하여 사용자 지정 역할 만들기 또는 업데이트
@@ -28,9 +28,9 @@ ms.locfileid: "97369177"
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [사용자 지정 역할](built-in-roles.md)을 만들면 됩니다. 이 문서에서는 Azure PowerShell를 사용 하 여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제 하는 방법을 설명 합니다.
+Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [사용자 지정 역할](built-in-roles.md)을 만들면 됩니다. 본 아티클에서는 Azure PowerShell을 사용하여 사용자 지정 역할을 나열하고, 만들고, 업데이트하고, 삭제하는 방법을 설명합니다.
 
-사용자 지정 역할을 만드는 방법에 대 한 단계별 자습서는 [자습서: Azure PowerShell을 사용 하 여 Azure 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)를 참조 하세요.
+사용자 지정 역할을 만드는 방법에 대한 단계별 자습서는 [자습서: Azure PowerShell을 사용하여 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)를 참조하세요.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -74,9 +74,9 @@ Virtual Machine Operator     True
 
 선택한 구독이 역할의 `AssignableScopes`에 없는 경우 사용자 지정 역할은 나열되지 않습니다.
 
-## <a name="list-a-custom-role-definition"></a>사용자 지정 역할 정의 나열
+## <a name="list-a-custom-role-definition"></a>사용자 지정 역할 정의 나열하기
 
-사용자 지정 역할 정의를 나열 하려면 [AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition)를 사용 합니다. 이는 기본 제공 역할에 대해를 사용 하는 것과 동일한 명령입니다.
+사용자 지정 역할 정의를 나열하려면 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition)을 사용합니다. 이 명령은 기본 제공 역할에 사용하는 것과 동일한 명령입니다.
 
 ```azurepowershell
 Get-AzRoleDefinition <role_name> | ConvertTo-Json
@@ -111,7 +111,7 @@ PS C:\> Get-AzRoleDefinition "Virtual Machine Operator" | ConvertTo-Json
 }
 ```
 
-다음 예에서는 역할의 작업만 나열 합니다.
+다음 예제에서는 역할에 대한 작업만 나열합니다.
 
 ```azurepowershell
 (Get-AzRoleDefinition <role_name>).Actions
@@ -302,7 +302,7 @@ AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
                    /subscriptions/22222222-2222-2222-2222-222222222222}
 ```
 
-다음 예제에서는 `AssignableScopes` *Virtual Machine Operator* 사용자 지정 역할의에 관리 그룹을 추가 합니다. `AssignableScopes`에 관리 그룹을 추가하는 것은 현재 미리 보기로 제공됩니다.
+다음 예제에서는 *Virtual Machine Operator* 사용자 지정 역할의 `AssignableScopes`에 관리 그룹을 추가합니다. `AssignableScopes`에 관리 그룹을 추가하는 것은 현재 미리 보기로 제공됩니다.
 
 ```azurepowershell
 Get-AzManagementGroup

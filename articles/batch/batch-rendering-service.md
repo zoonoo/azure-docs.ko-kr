@@ -6,10 +6,10 @@ ms.author: markscu
 ms.date: 01/14/2021
 ms.topic: how-to
 ms.openlocfilehash: 1cd07f9322837c03e15aaeabec993820deb3170a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98232117"
 ---
 # <a name="rendering-using-azure"></a>Azure를 사용한 렌더링
@@ -18,11 +18,11 @@ ms.locfileid: "98232117"
 
 렌더링 워크로드는 미디어 및 엔터테인먼트 산업에서 특수 효과(VFX)에 널리 사용되고 있습니다. 렌더링은 광고, 소매, 석유 및 가스, 제조 등, 다른 여러 업계에서도 사용됩니다.
 
-렌더링 프로세스는 계산이 많은 가정으로, 많은 프레임/이미지를 생성할 수 있고 각각의 이미지는 렌더링에 몇 시간이 걸릴 수도 있습니다.  따라서 렌더링은 Azure를 활용 하 여 많은 렌더링을 병렬로 실행 하 고 Gpu를 비롯 한 다양 한 하드웨어를 활용 하는 완벽 한 일괄 처리 워크 로드입니다.
+렌더링 프로세스는 계산이 많은 가정으로, 많은 프레임/이미지를 생성할 수 있고 각각의 이미지는 렌더링에 몇 시간이 걸릴 수도 있습니다.  따라서 렌더링은 Azure를 활용하여 많은 렌더링을 병렬로 실행하고 GPU를 비롯한 다양한 하드웨어를 활용하는 완벽한 일괄 처리 워크로드입니다.
 
 ## <a name="why-use-azure-for-rendering"></a>렌더링에 Azure를 사용하는 이유
 
-여러 가지 이유로 렌더링은 Azure에 대해 완벽 하 게 적합 한 워크 로드입니다.
+여러 가지 이유로 렌더링은 Azure에 완벽하게 부합하는 워크로드입니다.
 
 * 렌더링 작업은 여러 VM을 사용하여 병렬로 실행할 수 있는 많은 부분으로 분할할 수 있습니다.
   * 애니메이션은 여러 프로그램으로 구성되며 각각의 프레임은 병렬로 렌더링할 수 있습니다.  각각의 프레임 처리에 사용할 수 있는 VM이 많을수록 모든 프레임과 애니메이션이 생성되는 속도는 더 빨라집니다.
@@ -36,31 +36,31 @@ ms.locfileid: "98232117"
 * 애플리케이션, 워크로드, 기간에 따라 광범위한 하드웨어를 선택할 수 있습니다.
   * Azure에서 Batch로 할당 및 관리할 수 있는 하드웨어의 선택 사항은 다양합니다.
   * 프로젝트에 따라 요구 사항이 최적 가격/성능 또는 최적의 전체 성능에 대한 것이 될 수 있습니다.  서로 다른 장면 및/또는 렌더링 애플리케이션에서는 메모리 요구 사항이 각기 다릅니다.  일부 렌더링 애플리케이션은 GPU를 최고 성능을 위해 또는 특정 기능에 활용할 수 있습니다. 
-* 낮은 우선 순위 또는 [스폿 vm](https://azure.microsoft.com/pricing/spot/) 은 비용을 절감 합니다.
-  * 낮은 우선 순위의 Vm은 표준 Vm과 비교 하 여 높은 할인에 사용할 수 있으며 일부 작업 유형에 적합 합니다.
+* 우선 순위가 낮은 VM 또는 [스폿 VM](https://azure.microsoft.com/pricing/spot/)으로 비용 절감:
+  * 우선 순위가 낮은 VM과 스폿 VM은 표준 VM에 비해 크게 낮은 가격으로 사용할 수 있고 일부 작업 형식에 적합합니다.
   
 ## <a name="existing-on-premises-rendering-environment"></a>기존 온-프레미스 렌더링 환경
 
-가장 일반적인 경우는 PipelineFX, 선명한 렌더링, Thinkbox 최종 기한 또는 사용자 지정 응용 프로그램과 같은 렌더링 관리 응용 프로그램에 의해 관리 되는 기존 온-프레미스 렌더링 팜이 있는 경우입니다.  Azure VM을 사용하여 온-프레미스 렌더링 팜 용량을 확장하기 위한 요구 사항입니다.
+가장 일반적인 경우는 PipelineFX Qube, Royal Render, Thinkbox Deadline 또는 사용자 지정 애플리케이션 같은 렌더링 관리 애플리케이션에서 관리하는 기존 온-프레미스 렌더링 팜이 있는 경우입니다.  Azure VM을 사용하여 온-프레미스 렌더링 팜 용량을 확장하기 위한 요구 사항입니다.
 
-Azure 인프라 및 서비스는 Azure를 사용 하 여 온-프레미스 용량을 보완 하는 하이브리드 환경을 만드는 데 사용 됩니다. 예를 들면 다음과 같습니다.
+Azure 인프라 및 서비스는 Azure를 사용하여 온-프레미스 용량을 보완하는 하이브리드 환경을 만드는 데 사용됩니다. 예를 들면 다음과 같습니다.
 
-* [Virtual Network](../virtual-network/virtual-networks-overview.md) 를 사용 하 여 Azure 리소스를 온-프레미스 렌더링 팜과 동일한 네트워크에 저장 합니다.
-* Azure 또는 azure [HPC 캐시용](../hpc-cache/hpc-cache-overview.md) [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) 를 사용 하 여 대역폭 사용 및 대기 시간을 줄이고 성능을 극대화 하는 azure의 원본 파일을 캐시 합니다.
-* 기존 라이선스 서버가 가상 네트워크에 있는지 확인 하 고 추가 Azure 기반 용량을 보장 하는 데 필요한 추가 라이선스를 구입 합니다.
+* [Virtual Network](../virtual-network/virtual-networks-overview.md)를 사용하여 Azure 리소스를 온-프레미스 렌더링 팜과 동일한 네트워크에 저장합니다.
+* [Avere vFXT for Azure](../avere-vfxt/avere-vfxt-overview.md) 또는 [Azure HPC Cache](../hpc-cache/hpc-cache-overview.md)를 사용하여 대역폭 사용 및 대기 시간을 줄이고 성능을 극대화하는 Azure의 원본 파일을 캐시합니다.
+* 기존 라이선스 서버가 가상 네트워크에 있는지 확인하고 추가 Azure 기반 용량을 보장하는 데 필요한 추가 라이선스를 구매합니다.
 
 ## <a name="no-existing-render-farm"></a>기존 렌더링 팜 없음
 
-클라이언트 워크스테이션에서 렌더링을 수행할 수 있지만 렌더링 부하가 늘어나고 워크스테이션 용량을 사용 하는 데 시간이 너무 오래 걸립니다.
+클라이언트 워크스테이션이 렌더링을 수행할 수 있지만 렌더링 로드가 증가하고 워크스테이션 용량만 사용하는 데 시간이 너무 오래 걸립니다.
 
 사용할 수 있는 두 가지 주요 옵션은 다음과 같습니다.
 
-* 선명한 렌더링 등의 온-프레미스 렌더링 관리자를 배포 하 고 추가 용량이 나 성능이 필요한 경우 Azure를 사용 하도록 하이브리드 환경을 구성 합니다. 렌더링 관리자는 렌더링 작업에 맞게 특별히 조정 되며 인기 있는 클라이언트 응용 프로그램에 대 한 플러그 인을 포함 하 여 렌더링 작업을 쉽게 전송할 수 있게 해줍니다.
+* Royal Render와 같은 온-프레미스 렌더링 관리자를 배포하고 추가 용량이나 성능이 필요한 경우 Azure를 사용하도록 하이브리드 환경을 구성합니다. 렌더링 관리자는 렌더링 워크로드에 맞게 특별히 조정되며 인기 있는 클라이언트 애플리케이션에 대한 플러그 인을 포함하여 렌더링 작업을 쉽게 전송할 수 있게 해줍니다.
 
-* Azure Batch를 사용 하 여 계산 용량을 할당 하 고 관리 하며 작업 예약을 제공 하 여 렌더링 작업을 실행할 수 있도록 하는 사용자 지정 솔루션입니다.
+* Azure Batch를 사용하여 컴퓨팅 용량을 할당하고 관리하며 작업 예약을 제공하여 렌더링 작업을 실행할 수 있도록 하는 사용자 지정 솔루션입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
- [Azure 인프라 및 서비스를 사용 하 여 기존 온-프레미스 렌더링 팜을 확장](https://azure.microsoft.com/solutions/high-performance-computing/rendering/)하는 방법을 알아봅니다.
+ [Azure 인프라 및 서비스를 사용하여 기존 온-프레미스 렌더링 팜을 확장](https://azure.microsoft.com/solutions/high-performance-computing/rendering/)하는 방법을 알아봅니다.
 
-[Azure Batch 렌더링 기능](batch-rendering-functionality.md)에 대해 자세히 알아보세요.
+[Azure Batch 렌더링 기능](batch-rendering-functionality.md)에 대해 알아봅니다.

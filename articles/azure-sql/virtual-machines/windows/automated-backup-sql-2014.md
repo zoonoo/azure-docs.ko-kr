@@ -15,10 +15,10 @@ ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 41add54ce767413982ab0503f7263c58aed4d4e2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97359288"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>SQL Server 2014 가상 머신에서 자동화된 백업(Resource Manager)
@@ -46,13 +46,13 @@ ms.locfileid: "97359288"
 - SQL Server 2014 Enterprise
 
 > [!NOTE]
-> SQL 2016 이상에 대 한 [SQL Server 2016의 자동화 된 백업](automated-backup.md)을 참조 하세요.
+> SQL 2016 이상의 경우 [SQL Server 2016의 자동화된 백업](automated-backup.md)을 참조하세요.
 
 **데이터베이스 구성**:
 
-- 대상 _사용자_ 데이터베이스는 전체 복구 모델을 사용 해야 합니다. 시스템 데이터베이스는 전체 복구 모델을 사용할 필요가 없습니다. 그러나 Model 또는 MSDB에 대해 로그 백업을 수행해야 할 경우 전체 복구 모델을 사용해야 합니다. 전체 복구 모델이 백업에 미치는 영향에 대한 자세한 내용은 [전체 복구 모델에서의 백업](/previous-versions/sql/sql-server-2008-r2/ms190217(v=sql.105))을 참조하세요. 
-- SQL Server VM는 SQL IaaS 에이전트 확장을 사용 하 여 [전체 관리 모드로](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full)등록 되었습니다. 
--  자동화 된 백업은 전체 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)에 의존 합니다. 따라서 자동화 된 백업은 기본 인스턴스의 대상 데이터베이스나 단일 명명 된 인스턴스로만 지원 됩니다. 기본 인스턴스 및 여러 개의 명명 된 인스턴스가 없는 경우 SQL IaaS 확장이 실패 하 고 자동화 된 백업이 작동 하지 않습니다. 
+- 대상 _사용자_ 데이터베이스는 전체 복구 모델을 사용해야 합니다. 시스템 데이터베이스는 전체 복구 모델을 사용할 필요가 없습니다. 그러나 Model 또는 MSDB에 대해 로그 백업을 수행해야 할 경우 전체 복구 모델을 사용해야 합니다. 전체 복구 모델이 백업에 미치는 영향에 대한 자세한 내용은 [전체 복구 모델에서의 백업](/previous-versions/sql/sql-server-2008-r2/ms190217(v=sql.105))을 참조하세요. 
+- SQL Server VM은 [전체 관리 모드](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full)로 SQL IaaS 에이전트 확장에 등록되었습니다. 
+-  자동화된 백업은 전체 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)에 의존합니다. 따라서 자동화된 백업은 기본 인스턴스 또는 명명된 단일 인스턴스의 대상 데이터베이스에서만 지원됩니다. 기본 인스턴스가 없고 여러 개의 명명된 인스턴스가 있는 경우 SQL IaaS 확장이 실패하고 자동화된 백업이 작동하지 않습니다. 
 
 ## <a name="settings"></a>설정
 

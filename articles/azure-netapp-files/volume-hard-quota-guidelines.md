@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: b-juche
-ms.openlocfilehash: 52e855cb4ab42ed78a055ecdc31cffa886dc9bf2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5e7f71f91e5778b4f096bb760bfe5a0a89b5cbcb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731992"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764282"
 ---
 # <a name="what-changing-to-volume-hard-quota-means-for-your-azure-netapp-files-service"></a>볼륨 하드 할당량 변경이 Azure NetApp Files 서비스에 미치는 영향
 
@@ -196,13 +196,13 @@ Azure CLI를 사용하여 Azure NetApp Files 리소스를 관리하려면 Azure 
 
 [ ![Cloud Shell 창을 보여 주는 스크린샷입니다.](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png) ](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png#lightbox)
 
-다음 예제에서는 명령을 사용하여 볼륨 크기를 [표시](/cli/azure/netappfiles/volume#az-netappfiles-volume-show) 및 [업데이트](/cli/azure/netappfiles/volume#az-netappfiles-volume-update)합니다.
+다음 예제에서는 명령을 사용하여 볼륨 크기를 [표시](/cli/azure/netappfiles/volume#az_netappfiles_volume_show) 및 [업데이트](/cli/azure/netappfiles/volume#az_netappfiles_volume_update)합니다.
  
 [ ![PowerShell을 사용하여 볼륨 크기를 보여 주는 스크린샷입니다.](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png) ](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png#lightbox)
 
 [ ![PowerShell을 사용하여 볼륨 크기를 업데이트하는 방법을 보여 주는 스크린샷입니다.](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png) ](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png#lightbox)
 
-다음 예제에서는 명령을 사용하여 용량 풀의 크기를 [표시](/cli/azure/netappfiles/pool#az-netappfiles-pool-show) 및 [업데이트](/cli/azure/netappfiles/pool#az-netappfiles-pool-update)합니다.
+다음 예제에서는 명령을 사용하여 용량 풀의 크기를 [표시](/cli/azure/netappfiles/pool#az_netappfiles_pool_show) 및 [업데이트](/cli/azure/netappfiles/pool#az_netappfiles_pool_update)합니다.
 
 [ ![PowerShell을 사용하여 용량 풀 크기를 보여 주는 스크린샷입니다.](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png) ](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png#lightbox) 
 

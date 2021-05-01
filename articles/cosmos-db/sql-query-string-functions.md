@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB 쿼리 언어의 문자열 함수
+title: Azure Cosmos DB의 문자열 함수 쿼리 언어
 description: Azure Cosmos DB의 문자열 SQL 시스템 함수에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
@@ -9,20 +9,20 @@ ms.date: 10/13/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 5e84a679f0bc26b701dc1d51db3605c452675ea3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96545284"
 ---
-# <a name="string-functions-azure-cosmos-db"></a>문자열 함수 (Azure Cosmos DB)
+# <a name="string-functions-azure-cosmos-db"></a>문자열 함수(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-문자열 함수를 사용 하면 Azure Cosmos DB의 문자열에 대해 작업을 수행할 수 있습니다.
+문자열 함수를 사용하면 Azure Cosmos DB의 문자열에 대해 작업을 수행할 수 있습니다.
 
 ## <a name="functions"></a>Functions
 
-다음 스칼라 함수는 문자열 입력 값에 대 한 작업을 수행 하 고 문자열, 숫자 또는 부울 값을 반환 합니다.
+다음 스칼라 반환 함수는 문자열 입력 값에 대해 작업을 수행하고 문자열, 숫자 또는 부울 값을 반환합니다.
   
 * [CONCAT](sql-query-concat.md)
 * [CONTAINS](sql-query-contains.md)

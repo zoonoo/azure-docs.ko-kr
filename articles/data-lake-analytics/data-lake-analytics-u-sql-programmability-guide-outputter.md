@@ -1,20 +1,20 @@
 ---
-title: U-SQL 사용자 정의 된 outputter 프로그래밍 기능 가이드 Azure Data Lake
-description: U-SQL UDO 프로그래밍 기능 가이드 사용자 정의 outputter에 대해 알아봅니다.
+title: Azure Data Lake에 대한 U-SQL 사용자 정의 출력자 프로그래밍 기능 가이드
+description: U-SQL UDO 프로그래밍 기능 가이드 사용자 정의 출력자에 대해 알아봅니다.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: 56b104b5cc8f8923445455c71fe2418e39539b8e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96512639"
 ---
 # <a name="use-user-defined-outputter"></a>사용자 정의 출력자 사용
 
-## <a name="u-sql-udo-user-defined-outputter"></a>U-SQL UDO: 사용자 정의 출력 자
+## <a name="u-sql-udo-user-defined-outputter"></a>U-SQL UDO: 사용자 정의 출력자
 사용자 정의 출력자는 기본 제공 U-SQL 기능을 확장할 수 있는 또 다른 U-SQL UDO입니다. 추출기와 마찬가지로 여러 개의 기본 제공 출력자가 있습니다.
 
 * *Outputters.Text()*: 다른 인코딩의 구분 기호로 분리된 텍스트 파일에 데이터를 씁니다.
@@ -27,7 +27,7 @@ ms.locfileid: "96512639"
 * 지원되지 않는 인코딩 데이터 쓰기
 * 출력 데이터 수정 또는 사용자 지정 특성 추가
 
-## <a name="how-to-define-and-use-user-defined-outputter"></a>사용자 정의 outputter를 정의 하 고 사용 하는 방법
+## <a name="how-to-define-and-use-user-defined-outputter"></a>사용자 정의 출력자를 정의하고 사용하는 방법
 사용자 정의 출력자를 정의하려면 `IOutputter` 인터페이스를 생성해야 합니다.
 
 다음은 기본 `IOutputter` 클래스 구현입니다.
@@ -296,5 +296,5 @@ USING USQL_Programmability.Factory.HTMLOutputter(isHeader: true);
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [U-SQL 프로그래밍 기능 가이드-개요](data-lake-analytics-u-sql-programmability-guide.md)
-* [U-SQL 프로그래밍 기능 가이드-UDT 및 UDAGG](data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md)
+* [U-SQL 프로그램 기능 가이드 - 개요](data-lake-analytics-u-sql-programmability-guide.md)
+* [U-SQL 프로그램 기능 가이드 - UDT 및 UDAGG](data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md)

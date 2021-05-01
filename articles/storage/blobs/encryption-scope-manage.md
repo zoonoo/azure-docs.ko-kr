@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: c29282637f6854248c98dff59f8fae46ad1a9d39
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 656443b0bc9d0e45f43634b1b4c21145de7a5bb5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640521"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792546"
 ---
 # <a name="create-and-manage-encryption-scopes"></a>암호화 범위 만들기 및 관리
 
@@ -111,7 +111,7 @@ Azure CLI를 사용하여 암호화 범위를 만들려면 먼저 Azure CLI 버�
 
 ### <a name="create-an-encryption-scope-protected-by-microsoft-managed-keys"></a>Microsoft 관리형 키로 보호되는 암호화 범위 만들기
 
-Microsoft 관리형 키로 보호되는 새 암호화 범위를 만들려면 [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-create) 명령을 호출하여 `--key-source` 매개 변수를 `Microsoft.Storage`로 지정합니다. 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
+Microsoft 관리형 키로 보호되는 새 암호화 범위를 만들려면 [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_create) 명령을 호출하여 `--key-source` 매개 변수를 `Microsoft.Storage`로 지정합니다. 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli-interactive
 az storage account encryption-scope create \
@@ -123,7 +123,7 @@ az storage account encryption-scope create \
 
 ### <a name="create-an-encryption-scope-protected-by-customer-managed-keys"></a>고객 관리형 키로 보호되는 암호화 범위 만들기
 
-Microsoft 관리형 키로 보호되는 새 암호화 범위를 만들려면 [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-create) 명령을 호출하여 `--key-source` 매개 변수를 `Microsoft.Storage`로 지정합니다. 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
+Microsoft 관리형 키로 보호되는 새 암호화 범위를 만들려면 [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_create) 명령을 호출하여 `--key-source` 매개 변수를 `Microsoft.Storage`로 지정합니다. 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 키 자격 증명 모음 또는 관리되는 HSM에 있는 고객 관리형 키로 보호되는 새 암호화 범위를 만들려면 먼저 스토리지 계정에 대한 고객 관리형 키를 구성합니다. 관리되는 ID를 스토리지 계정에 할당한 뒤 관리되는 ID를 사용하여 키 자격 증명 모음에 대한 액세스 정책을 구성함으로써 스토리지 계정이 액세스 권한을 가질 수 있도록 합니다. 자세한 내용은 [Azure Storage 암호화용 고객 관리형 키](../common/customer-managed-keys-overview.md)를 참조하세요.
 
@@ -202,7 +202,7 @@ Get-AzStorageAccount -ResourceGroupName $rgName | Get-AzStorageEncryptionScope
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-Azure CLI를 사용하여 스토리지 계정에 사용할 수 있는 암호화 범위를 나열하려면 [az storage account encryption-scope list](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-list) 명령을 호출합니다. 예제의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
+Azure CLI를 사용하여 스토리지 계정에 사용할 수 있는 암호화 범위를 나열하려면 [az storage account encryption-scope list](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_list) 명령을 호출합니다. 예제의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli-interactive
 az storage account encryption-scope list \
@@ -246,7 +246,7 @@ New-AzStorageContainer -Name $containerName1 `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-Azure CLI를 사용하여 기본 암호화 범위로 컨테이너를 만들려면 [az storage container create](/cli/azure/storage/container#az-storage-container-create) 명령을 호출하고 `--default-encryption-scope` 매개변수에 대한 범위를 지정합니다. 컨테이너의 모든 BLOB가 컨테이너의 기본 범위를 사용하도록 강제하려면 `--prevent-encryption-scope-override` 매개 변수를 `true`로 설정합니다.
+Azure CLI를 사용하여 기본 암호화 범위로 컨테이너를 만들려면 [az storage container create](/cli/azure/storage/container#az_storage_container_create) 명령을 호출하고 `--default-encryption-scope` 매개변수에 대한 범위를 지정합니다. 컨테이너의 모든 BLOB가 컨테이너의 기본 범위를 사용하도록 강제하려면 `--prevent-encryption-scope-override` 매개 변수를 `true`로 설정합니다.
 
 다음 예제에서는 Azure AD 계정을 사용하여 컨테이너를 만드는 작업에 권한을 부여합니다. 계정 액세스 키를 사용할 수도 있습니다. 자세한 내용은 [Azure CLI를 사용하여 Blob 또는 큐 데이터에 대한 액세스 권한 부여](./authorize-data-operations-cli.md)를 참조하세요.
 
@@ -303,7 +303,7 @@ Set-AzStorageBlobContent -Context $ctx `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-Azure CLI를 통해 암호화 범위를 사용하여 BLOB를 업로드하려면 [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) 명령을 호출하고 BLOB의 암호화 범위를 제공합니다.
+Azure CLI를 통해 암호화 범위를 사용하여 BLOB를 업로드하려면 [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) 명령을 호출하고 BLOB의 암호화 범위를 제공합니다.
 
 Azure Cloud Shell를 사용하는 경우 [BLOB 업로드](storage-quickstart-blobs-cli.md#upload-a-blob)에 설명된 단계에 따라 루트 디렉터리에 파일을 만듭니다. 그런 다음, 다음 샘플을 사용하여 이 파일을 BLOB에 업로드할 수 있습니다.
 
@@ -354,7 +354,7 @@ Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-암호화 범위를 보호하는 키를 Azure CLI를 사용하여 고객 관리형 키에서 Microsoft 관리형 키로 변경하려면 [az storage account encryption-scope update](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-update) 명령을 호출하고 `Microsoft.Storage` 값을 사용하여 `--key-source` 매개 변수를 전달합니다.
+암호화 범위를 보호하는 키를 Azure CLI를 사용하여 고객 관리형 키에서 Microsoft 관리형 키로 변경하려면 [az storage account encryption-scope update](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_update) 명령을 호출하고 `Microsoft.Storage` 값을 사용하여 `--key-source` 매개 변수를 전달합니다.
 
 ```azurecli-interactive
 az storage account encryption-scope update \
@@ -398,7 +398,7 @@ Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-Azure CLI를 사용하여 암호화 범위를 사용하지 않도록 설정하려면 다음 예제와 같이 [az storage account encryption-scope update](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-update) 명령을 호출하고 값이 `Disabled`인 `--state` 매개 변수를 포함시킵니다. 암호화 범위를 다시 사용하도록 설정하려면 `--state` 매개 변수를 `Enabled`로 설정하여 동일한 명령을 호출합니다. 예제의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
+Azure CLI를 사용하여 암호화 범위를 사용하지 않도록 설정하려면 다음 예제와 같이 [az storage account encryption-scope update](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_update) 명령을 호출하고 값이 `Disabled`인 `--state` 매개 변수를 포함시킵니다. 암호화 범위를 다시 사용하도록 설정하려면 `--state` 매개 변수를 `Enabled`로 설정하여 동일한 명령을 호출합니다. 예제의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli-interactive
 az storage account encryption-scope update \

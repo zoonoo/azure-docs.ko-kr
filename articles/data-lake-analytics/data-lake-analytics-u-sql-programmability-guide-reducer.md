@@ -1,26 +1,26 @@
 ---
-title: Azure Data Lake에 대 한 U-SQL 사용자 정의 리 듀 서 프로그래밍 기능 가이드
-description: U-SQL UDO 프로그래밍 기능 가이드-사용자 정의 리 듀 서에 대해 알아봅니다.
+title: Azure Data Lake에 대한 U-SQL 사용자 정의 리듀서 프로그래밍 기능 가이드
+description: U-SQL UDO 프로그래밍 기능 가이드 - 사용자 정의 리듀서에 대해 알아봅니다.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: 52d44685678c3e89dc820042a7925d284500cef8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96512628"
 ---
 # <a name="use-user-defined-reducer"></a>사용자 정의 리듀서 사용
 
-## <a name="u-sql-udo-user-defined-reducer"></a>U-SQL UDO: 사용자 정의 리 듀 서
+## <a name="u-sql-udo-user-defined-reducer"></a>U-SQL UDO: 사용자 정의 리듀서
 
 U-SQL을 사용하면 IReducer 인터페이스를 구현하고 사용자 정의 연산자 확장성 프레임워크를 사용하여 C#으로 사용자 지정 행 집합 리듀서를 작성할 수 있습니다.
 
 UDR(사용자 정의 리듀서)은 데이터를 추출하는(가져오기) 동안 불필요한 행을 제거하는 데 사용할 수 있습니다. 행 및 열을 조작하고 평가하는 데 사용할 수도 있습니다. 프로그래밍 기능 논리를 기반으로 추출해야 하는 행을 정의할 수도 있습니다.
 
-## <a name="how-to-define-and-use-user-defined-reducer"></a>사용자 정의 리 듀 서을 정의 하 고 사용 하는 방법
+## <a name="how-to-define-and-use-user-defined-reducer"></a>사용자 정의 리듀서를 정의하고 사용하는 방법
 UDR 클래스를 정의하려면 선택적 `SqlUserDefinedReducer` 특성을 사용하여 `IReducer` 인터페이스를 생성해야 합니다.
 
 이 클래스 인터페이스는 `IEnumerable` 인터페이스 행 집합 override에 대한 정의를 포함해야 합니다.
@@ -141,5 +141,5 @@ OUTPUT @rs2
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [U-SQL 프로그래밍 기능 가이드-개요](data-lake-analytics-u-sql-programmability-guide.md)
-* [U-SQL 프로그래밍 기능 가이드-UDT 및 UDAGG](data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md)
+* [U-SQL 프로그램 기능 가이드 - 개요](data-lake-analytics-u-sql-programmability-guide.md)
+* [U-SQL 프로그램 기능 가이드 - UDT 및 UDAGG](data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md)

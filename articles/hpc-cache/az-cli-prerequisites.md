@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: v-erkel
-ms.openlocfilehash: 13f45c96a830110bd0f4a2d4a2b422921d7a2e31
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b8e1158bc60c4cceea508db988000fe952a90a4
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94654459"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864292"
 ---
 # <a name="set-up-azure-cli-for-azure-hpc-cache"></a>Azure HPC Cache용 Azure CLI 설치
 
@@ -23,11 +23,11 @@ Azure CLI를 사용하여 Azure HPC Cache를 만들거나 관리하기 전에 �
 
 ## <a name="set-default-resource-group-optional"></a>기본 리소스 그룹 설정(선택 사항)
 
-대부분의 hpc-cache 명령을 사용하려면 캐시의 리소스 그룹을 전달해야 합니다. [az configure](/cli/azure/reference-index#az-configure)를 사용하여 기본 리소스 그룹을 설정할 수 있습니다.
+대부분의 hpc-cache 명령을 사용하려면 캐시의 리소스 그룹을 전달해야 합니다. [az configure](/cli/azure/reference-index#az_configure)를 사용하여 기본 리소스 그룹을 설정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure CLI 확장을 설치하고 로그인한 후 Azure CLI를 사용하여 Azure HPC Cache 시스템을 만들고 관리할 수 있습니다.
 
 * [Azure HPC Cache 만들기](hpc-cache-create.md)
-* [Azure CLI hpc-cache 설명서](/cli/azure/ext/hpc-cache/hpc-cache)
+* [Azure CLI hpc-cache 설명서](/cli/azure/hpc-cache)

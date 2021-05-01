@@ -12,31 +12,31 @@ ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 1652c52dcc6870e396d74a2f38fe63c304d37df5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97672271"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools PowerShell 참조
 이 설명서에서는 Azure AD Connect에 포함된 ADSyncTools.psm1 PowerShell 모듈에 대해 다음과 같은 참조 정보를 제공합니다.
 
-## <a name="install-the-adsynctools-powershell-module"></a>ADSyncTools PowerShell 모듈을 설치 합니다.
-ADSyncTools PowerShell 모듈을 설치 하려면 다음을 수행 합니다.
+## <a name="install-the-adsynctools-powershell-module"></a>ADSyncTools PowerShell 모듈 설치
+ADSyncTools PowerShell 모듈을 설치하려면 다음을 수행합니다.
 
-1.  관리를 사용 하 여 Windows PowerShell 열기
-2.  다음을 입력 하거나 복사 하 여 붙여넣습니다. 
+1.  관리 권한으로 Windows PowerShell 열기
+2.  다음을 입력하거나 복사하여 붙여넣습니다. 
     ``` powershell
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
         Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
     ```
 3.  Enter 키를 누릅니다.
-4.  모듈이 설치 되었는지 확인 하려면 다음을 입력 하거나 복사 하 여 붙여넣습니다.
+4.  모듈이 설치되었는지 확인하려면 다음을 입력하거나 복사하여 붙여넣음
     ```powershell
     Get-module AdSyncTools
     ```
-5.  이제 모듈에 대 한 정보가 표시 됩니다.
+5.  이제 모듈에 대한 정보가 표시됩니다.
 
 
 ## <a name="clear-adsynctoolsconsistencyguid"></a>Clear-ADSyncToolsConsistencyGuid
@@ -547,7 +547,7 @@ Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object>
 ```
 
 ### <a name="description"></a>설명
-함수는 AAD Connect 실행 기록을 쿼리 하 고 오류를 보고 하는 모든 사용자를 내보냅니다. "SourceAnchor 특성이 변경 되었습니다."
+함수는 AAD Connect 실행 기록을 쿼리하고, "SourceAnchor 특성이 변경되었습니다." 오류를 보고하는 모든 사용자를 내보냅니다.
 
 ### <a name="examples"></a>예제
 
@@ -556,7 +556,7 @@ Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object>
 #Required Parameters
 ```
 
-$sourcePath = Read-Host-프롬프트 "파일 이름이" # "인 로그 파일 경로를 입력 합니다." \<Source_Path\> $outputPath = Read-Host-프롬프트 "파일 이름이" # "인 파일 경로를 입력 합니다. \<Out_Path\>
+$sourcePath = Read-Host -Prompt "파일 이름이 "#"\<Source_Path\>인 로그 파일의 경로를 입력합니다" $outputPath = Read-Host -Prompt "파일 이름이 "#"\<Out_Path\>인 출력 파일의 경로를 입력합니다"
 
  Get-ADSyncToolsUsersSourceAnchorChanged -sourcePath $sourcePath -outputPath $outputPath
 
@@ -878,7 +878,7 @@ Accept wildcard characters: False
 ## <a name="restore-adsynctoolsexpiredcertificates"></a>Restore-ADSyncToolsExpiredCertificates
 
 ### <a name="synopsis"></a>개요
-(할 일) 인증서 파일에서 AD UserCertificate 특성을 복원 합니다.
+(TO DO) 인증서 파일에서 AD UserCertificate 특성을 복원합니다.
 
 ### <a name="syntax"></a>SYNTAX
 

@@ -9,10 +9,10 @@ ms.date: 12/09/2020
 ms.author: victorh
 ms.topic: how-to
 ms.openlocfilehash: ef4337b187500695d9ef1c0b896d6ae8b5663ca6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96938854"
 ---
 # <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Azure PowerShell을 사용 하 여 사이트별 WAF 정책 구성
@@ -296,7 +296,7 @@ Add-AzApplicationGatewayRequestRoutingRule -ApplicationGateway $AppGw `
 
 이 예제에서는 애플리케이션 게이트웨이에서 백 엔드 풀에 대한 서버를 제공하도록 가상 머신 확장 집합을 만듭니다. IP 설정을 구성할 때 확장 집합을 백 엔드 풀에 할당합니다.
 
-및에 대 한 고유한 값을 바꿉니다 `-AdminUsername` `-AdminPassword` .
+`-AdminUsername` 및 `-AdminPassword`의 고유한 값을 바꿉니다.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `

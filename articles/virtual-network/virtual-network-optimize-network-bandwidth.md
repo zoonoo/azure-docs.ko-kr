@@ -1,6 +1,6 @@
 ---
 title: VM 네트워크 처리량 최적화 | Microsoft Docs
-description: Ubuntu, CentOS, Red Hat 등의 주요 배포를 비롯 하 여 Microsoft Azure Windows 및 Linux Vm에 대 한 네트워크 처리량을 최적화 합니다.
+description: Ubuntu, CentOS 및 Red Hat과 같은 주요 배포판을 비롯한 Microsoft Azure Windows 및 Linux VM에 대해 네트워크 처리량을 최적화합니다.
 services: virtual-network
 documentationcenter: na
 author: steveesp
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/06/2020
 ms.author: steveesp
 ms.openlocfilehash: bb9235f4d1190bf7f71ddc007f09c9666c353234
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98216804"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Azure Virtual Machine에 대한 네트워크 처리량 최적화
@@ -56,7 +56,7 @@ RSS는 Azure Linux VM에 기본적으로 항상 사용되도록 설정됩니다.
 
 ### <a name="ubuntu-for-new-deployments"></a>새 배포에 대한 Ubuntu
 
-Ubuntu Azure 커널은 Azure의 네트워크 성능에 가장 적합 합니다. 최신 최적화를 얻으려면 먼저 다음과 같이 지원 되는 최신 버전의 18.04-LTS를 설치 합니다.
+Ubuntu Azure 커널은 Azure의 네트워크 성능에 가장 적합합니다. 최신 최적화 기능을 사용하려면 먼저 다음과 같이 지원되는 최신 버전의 18.04-LTS를 설치합니다.
 
 ```json
 "Publisher": "Canonical",
@@ -89,7 +89,7 @@ apt-get -y dist-upgrade
 
 #### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>기존 VM에 대한 Ubuntu Azure 커널 업그레이드
 
-Azure Linux 커널로 업그레이드하면 처리량 성능을 대폭 개선할 수 있습니다. 이 커널이 있는지 확인하려면 커널 버전을 확인합니다. 예제와 같거나 그 이후 여야 합니다.
+Azure Linux 커널로 업그레이드하면 처리량 성능을 대폭 개선할 수 있습니다. 이 커널이 있는지 확인하려면 커널 버전을 확인합니다. 예제와 같거나 그 이후 버전이어야 합니다.
 
 ```bash
 #Azure kernel name ends with "-azure"
@@ -152,7 +152,7 @@ sudo ./install.sh #or upgrade.sh if prior LIS was previously installed
 [다운로드 페이지](https://www.microsoft.com/download/details.aspx?id=55106)를 확인하여 Hyper-V용 Linux Integration Services 버전 4.2에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [근접 배치 그룹](../virtual-machines/co-location.md) 의 짧은 대기 시간을 위해 서로 가까운 vm 배포
+* [근접 배치 그룹](../virtual-machines/co-location.md)을 사용하여 짧은 대기 시간 동안 서로 가깝게 VM 배포
 * 시나리오에 대한 [Azure VM 대역폭/처리량 테스트](virtual-network-bandwidth-testing.md)를 통해 최적화된 결과를 확인합니다.
-* [가상 컴퓨터에 대역폭을 할당](virtual-machine-network-throughput.md) 하는 방법에 대해 알아봅니다.
+* [가상 머신에 대역폭이 할당되는 방법](virtual-machine-network-throughput.md)을 알아봅니다.
 * [Azure Virtual Network FAQ(질문과 대답)](virtual-networks-faq.md)에 대해 자세히 알아보기

@@ -1,7 +1,7 @@
 ---
-title: 응용 프로그램에서 지속적인 액세스 평가를 사용 하는 Api를 사용 하는 방법 | Microsoft
+title: 애플리케이션에서 지속적인 액세스 권한 평가를 사용하도록 설정된 API를 사용하는 방법 | Azure
 titleSuffix: Microsoft identity platform
-description: 지속적인 액세스 평가 지원을 추가 하 여 앱 보안 및 복원 력을 높이는 방법으로, 중요 한 이벤트 및 정책 평가에 따라 취소할 수 있는 수명이 긴 액세스 토큰을 사용할 수 있습니다.
+description: 지속적인 액세스 권한 평가 지원을 추가하여 앱 보안 및 복원력을 높이는 방법으로, 중요한 이벤트 및 정책 평가에 따라 철회할 수 있는 수명이 긴 액세스 토큰을 사용할 수 있습니다.
 services: active-directory
 author: knicholasa
 manager: CelesteDG
@@ -13,27 +13,27 @@ ms.date: 10/06/2020
 ms.author: nichola
 ms.reviewer: ''
 ms.openlocfilehash: f6ce792b3db0100d7356884bbc6ee2696580df10
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97652061"
 ---
-# <a name="how-to-use-continuous-access-evaluation-enabled-apis-in-your-applications"></a>응용 프로그램에서 지속적인 액세스 평가를 사용 하도록 설정 된 Api를 사용 하는 방법
+# <a name="how-to-use-continuous-access-evaluation-enabled-apis-in-your-applications"></a>애플리케이션에서 지속적인 액세스 권한 평가를 사용하도록 설정된 API를 사용하는 방법
 
-CAE ( [연속 액세스 평가](../conditional-access/concept-continuous-access-evaluation.md) )는 수명에 따라 토큰 만료에 의존 하는 대신 [중요 한 이벤트](../conditional-access/concept-continuous-access-evaluation.md#critical-event-evaluation) 및 [정책 평가](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation-preview) 에 따라 액세스 토큰을 해지할 수 있게 해 주는 새로운 업계 표준입니다. 일부 리소스 Api의 경우 위험 및 정책이 실시간으로 평가 되기 때문에 토큰 수명이 최대 28 시간까지 늘어날 수 있습니다. 이러한 수명이 긴 토큰은 MSAL (Microsoft Authentication Library)을 통해 사전에 새로 고쳐 응용 프로그램의 복원 력을 향상 시킵니다.
+CAE([지속적인 액세스 권한 평가](../conditional-access/concept-continuous-access-evaluation.md))는 수명에 따라 토큰 만료에 의존하는 대신 [중요한 이벤트](../conditional-access/concept-continuous-access-evaluation.md#critical-event-evaluation) 및 [정책 평가](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation-preview)에 따라 액세스 토큰을 철회할 수 있게 해주는 새로운 업계 표준입니다. 일부 리소스 API의 경우 위험 및 정책이 실시간으로 평가되기 때문에 토큰 수명이 최대 28시간까지 늘어날 수 있습니다. 이러한 수명이 긴 토큰은 MSAL(Microsoft Authentication Library)을 통해 사전에 새로 고침되므로 애플리케이션의 복원력이 향상됩니다.
 
-이 문서에서는 응용 프로그램에서 CAE 사용 Api를 사용 하는 방법을 보여 줍니다.
+이 문서에서는 애플리케이션에서 CAE 사용 API를 사용하는 방법을 보여 줍니다.
 
 ## <a name="implementation-considerations"></a>구현 고려 사항
 
-연속 액세스 평가를 사용 하려면 앱 및 액세스 하는 리소스 API 모두 CAE를 사용 하도록 설정 해야 합니다. 그러나 CAE 사용 리소스를 사용 하도록 코드를 준비 해도 CAE 사용 되지 않는 Api를 사용 하는 것은 차단 되지 않습니다.
+지속적인 액세스 권한 평가를 사용하려면 앱 및 액세스하는 리소스 API 모두 CAE를 사용하도록 설정해야 합니다. 그러나 CAE 사용 리소스를 사용하도록 코드를 준비해도 CAE가 사용되지 않는 API를 사용할 수는 있습니다.
 
-리소스 API가 CAE을 구현 하 고 응용 프로그램에서 CAE를 처리할 수 있도록 선언 하는 경우 앱은 해당 리소스에 대 한 CAE 토큰을 가져옵니다. 이러한 이유로 CAE ready 앱을 선언 하는 경우 응용 프로그램은 Microsoft Id 액세스 토큰을 수락 하는 모든 리소스 Api에 대 한 CAE 클레임 챌린지를 처리 해야 합니다. 이러한 API 호출에서 CAE 응답을 처리 하지 않는 경우 앱은 여전히 토큰의 반환 된 수명 동안 토큰을 사용 하 여 API 호출을 다시 시도 하지만 CAE로 인해 해지 된 루프에서 종료 될 수 있습니다.
+리소스 API가 CAE을 구현하고 애플리케이션에서 CAE를 처리할 수 있다고 선언하는 경우 해당 리소스에 대한 CAE 토큰이 제공됩니다. 이러한 이유로 앱에서 CAE가 준비되었다고 선언하는 경우, 애플리케이션은 Microsoft Identity 액세스 토큰을 수락하는 모든 리소스 API에 대한 CAE 클레임 챌린지를 처리해야 합니다. 이러한 API 호출에서 CAE 응답을 처리하지 않는 경우 앱은 여전히 토큰의 반환된 수명 동안 토큰을 사용하여 API 호출을 다시 시도하지만 CAE로 인해 철회된 루프에서 종료될 수 있습니다.
 
 ## <a name="the-code"></a>코드
 
-첫 번째 단계는 CAE로 인해 호출을 거부 하는 리소스 API의 응답을 처리 하는 코드를 추가 하는 것입니다. CAE를 사용 하는 경우 Api는 액세스 토큰이 해지 되었거나 API에서 사용 되는 IP 주소 변경을 감지한 경우 401 상태 및 WWW-Authenticate 헤더를 반환 합니다. WWW-Authenticate 헤더는 응용 프로그램이 새 액세스 토큰을 획득 하는 데 사용할 수 있는 클레임 챌린지를 포함 합니다.
+첫 번째 단계는 CAE로 인해 호출을 거부하는 리소스 API의 응답을 처리하는 코드를 추가하는 것입니다. CAE를 사용하는 경우 API는 액세스 토큰이 철회되었거나 API에서 사용되는 IP 주소 변경을 감지한 경우 401 상태 및 WWW-Authenticate 헤더를 반환합니다. WWW-Authenticate 헤더는 애플리케이션이 새 액세스 토큰을 획득하는 데 사용할 수 있는 클레임 챌린지를 포함합니다.
 
 예를 들면 다음과 같습니다.
 
@@ -45,14 +45,14 @@ WWW-Authenticate=Bearer
   claims="eyJhY2Nlc3NfdG9rZW4iOnsibmJmIjp7ImVzc2VudGlhbCI6dHJ1ZSwgInZhbHVlIjoiMTYwNDEwNjY1MSJ9fX0="
 ```
 
-앱에서 다음을 확인 합니다.
+앱에서 다음을 확인합니다.
 
-- 401 상태를 반환 하는 API 호출
-- 다음을 포함 하는 WWW-Authenticate 헤더가 존재 합니다.
-  - "insufficient_claims" 값을 포함 하는 "error" 매개 변수
+- 401 상태를 반환하는 API 호출
+- 다음을 포함하는 WWW-Authenticate 헤더의 존재:
+  - "insufficient_claims 값을 포함하는 "오류" 매개 변수
   - "클레임" 매개 변수
 
-이러한 조건이 충족 되 면 앱에서 클레임 챌린지를 추출 하 고 디코딩할 수 있습니다.
+이러한 조건이 충족되면 앱에서 클레임 챌린지를 추출하고 디코딩할 수 있습니다.
 
 ```csharp
 if (APIresponse.IsSuccessStatusCode)
@@ -79,7 +79,7 @@ else
                 var newAccessToken = await GetAccessTokenWithClaimChallenge(scopes, claimChallenge);
 ```
 
-그러면 앱에서 클레임 챌린지를 사용 하 여 리소스에 대 한 새 액세스 토큰을 획득 합니다.
+그러면 앱에서 클레임 챌린지를 사용하여 리소스에 대한 새 액세스 토큰을 획득합니다.
 
 ```csharp
 try
@@ -102,7 +102,7 @@ catch (MsalUiRequiredException)
     // ...
 ```
 
-응용 프로그램이 CAE 사용 리소스에서 반환 된 클레임 챌린지를 처리할 준비가 되 면 앱을 CAE ready로 Microsoft Id에 지시할 수 있습니다. MSAL 응용 프로그램에서이 작업을 수행 하려면 "cp1"의 클라이언트 기능을 사용 하 여 공용 클라이언트를 빌드합니다.
+애플리케이션이 CAE 사용 리소스에서 반환된 클레임 챌린지를 처리할 준비가 되면 앱에 CAE가 준비되었다고 Microsoft Identity에 지시할 수 있습니다. MSAL 애플리케이션에서 이 작업을 수행하려면 "cp1"의 클라이언트 기능을 사용하여 공용 클라이언트를 빌드합니다.
 
 ```csharp
 _clientApp = PublicClientApplicationBuilder.Create(App.ClientId)
@@ -112,8 +112,8 @@ _clientApp = PublicClientApplicationBuilder.Create(App.ClientId)
     .Build();
 ```
 
-응용 프로그램에 사용자를 로그인 하 여 응용 프로그램을 테스트 한 다음 Azure Portal를 사용 하 여 사용자 세션을 해지할 수 있습니다. 다음 번에 앱이 CAE 사용 API를 호출 하면 사용자에 게 다시 인증 하 라는 메시지가 표시 됩니다.
+애플리케이션에 사용자를 로그인하여 애플리케이션을 테스트한 다음 Azure Portal를 사용하여 사용자 세션을 철회할 수 있습니다. 다음에 앱에서 CAE 사용 API를 호출하면 사용자에게 다시 인증하라는 메시지가 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-자세히 알아보려면 [연속 액세스 평가](../conditional-access/concept-continuous-access-evaluation.md)를 참조 하세요.
+자세한 내용은 [지속적인 액세스 권한 평가](../conditional-access/concept-continuous-access-evaluation.md)를 참조하세요.

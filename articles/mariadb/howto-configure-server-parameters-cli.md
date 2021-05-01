@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/1/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a3ebcf5a381efceb5e7de503caf88f4ffd3b504e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4009d8047dae7bf8d9ba66566ff8797fa09a8878
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774740"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "98662307"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB에서 서버 매개 변수 구성
 Azure 명령줄 유틸리티인 Azure CLI를 사용하여 Azure Database for MariaDB 서버의 구성 매개 변수를 나열하고, 표시하며, 업데이트할 수 있습니다. 엔진 구성의 하위 집합은 서버 수준에서 노출되고 수정할 수 있습니다.
@@ -27,7 +27,7 @@ Azure 명령줄 유틸리티인 Azure CLI를 사용하여 Azure Database for Mar
 - [Azure CLI](/cli/azure/install-azure-cli) 명령줄 유틸리티 또는 브라우저의 Azure Cloud Shell
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-mariadb-server"></a>Azure Database for MariaDB에 대한 서버 구성 매개 변수 나열
-서버의 수정 가능한 모든 매개 변수와 해당 값을 나열하려면 [az mariadb server configuration list](/cli/azure/mariadb/server/configuration#az_mariadb_server_configuration_list) 명령을 실행합니다.
+서버의 수정 가능한 모든 매개 변수와 해당 값을 나열하려면 [az mariadb server configuration list](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-list) 명령을 실행합니다.
 
 **myresourcegroup** 리소스 그룹에 있는 **mydemoserver.mariadb.database.azure.com** 서버에 대한 서버 구성 매개 변수를 나열할 수 있습니다.
 ```azurecli-interactive
@@ -37,7 +37,7 @@ az mariadb server configuration list --resource-group myresourcegroup --server m
 나열된 각 매개 변수의 정의를 보려면 [서버 시스템 변수](https://mariadb.com/kb/en/library/server-system-variables/)에서 MariaDB 참조 섹션을 확인하세요.
 
 ## <a name="show-server-configuration-parameter-details"></a>서버 구성 매개 변수 세부 정보 표시
-서버에 대한 특정 구성 매개 변수의 세부 정보를 표시하려면 [az mariadb server configuration show](/cli/azure/mariadb/server/configuration#az_mariadb_server_configuration_show) 명령을 실행합니다.
+서버에 대한 특정 구성 매개 변수의 세부 정보를 표시하려면 [az mariadb server configuration show](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-show) 명령을 실행합니다.
 
 이 예제에서는 **myresourcegroup** 리소스 그룹에 있는 **mydemoserver.mariadb.database.azure.com** 서버에 대한 **slow\_query\_log** 서버 구성 매개 변수의 세부 정보를 보여 줍니다.
 ```azurecli-interactive
@@ -45,7 +45,7 @@ az mariadb server configuration show --name slow_query_log --resource-group myre
 ```
 
 ## <a name="modify-a-server-configuration-parameter-value"></a>서버 구성 매개 변수 값 수정
-또한 특정 서버 구성 매개 변수의 값을 수정할 수 있습니다. 그러면 MariaDB 서버 엔진에 대한 기본 구성 값이 업데이트됩니다. 구성을 업데이트하려면 [az mariadb server configuration set](/cli/azure/mariadb/server/configuration#az_mariadb_server_configuration_set) 명령을 사용합니다. 
+또한 특정 서버 구성 매개 변수의 값을 수정할 수 있습니다. 그러면 MariaDB 서버 엔진에 대한 기본 구성 값이 업데이트됩니다. 구성을 업데이트하려면 [az mariadb server configuration set](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-set) 명령을 사용합니다. 
 
 **myresourcegroup** 리소스 그룹에 있는 **mydemoserver.mariadb.database.azure.com** 서버의 **slow\_query\_log** 서버 구성 매개 변수를 업데이트하려면 다음을 실행합니다.
 ```azurecli-interactive
@@ -91,7 +91,7 @@ SELECT name FROM mysql.time_zone_name;
 
 ### <a name="setting-the-global-level-time-zone"></a>전역 수준 표준 시간대 설정
 
-전역 수준 표준 시간대는 [az mariadb server configuration set](/cli/azure/mariadb/server/configuration#az_mariadb_server_configuration_set) 명령을 사용하여 설정할 수 있습니다.
+전역 수준 표준 시간대는 [az mariadb server configuration set](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-set) 명령을 사용하여 설정할 수 있습니다.
 
 다음 명령은 **myresourcegroup** 리소스 그룹에 있는 **mydemoserver.mariadb.database.azure.com** 서버의 **time\_zone** 서버 구성 매개 변수를 **US/Pacific** 으로 업데이트합니다.
 

@@ -1,23 +1,23 @@
 ---
-title: Azure Data Lake에 대 한 U-SQL 사용자 정의 프로세서 프로그래밍 가이드
-description: U-SQL UDO 프로그래밍 기능 가이드-사용자 정의 프로세서에 대해 알아봅니다.
+title: Azure Data Lake에 대한 U-SQL 사용자 정의 처리기 프로그래밍 기능 가이드
+description: U-SQL UDO 프로그래밍 기능 가이드 - 사용자 정의 처리기에 대해 알아봅니다.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: 6ff45c577e94a8c63bd7cb1e6603e4d5519af5c6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96512688"
 ---
 # <a name="use-user-defined-processor"></a>사용자 정의 처리기 사용
 
-## <a name="u-sql-udo-user-defined-processor"></a>U-SQL UDO: 사용자 정의 프로세서
+## <a name="u-sql-udo-user-defined-processor"></a>U-SQL UDO: 사용자 정의 처리기
 UDP(사용자 정의 처리기)는 프로그래밍 기능을 적용하여 들어오는 행을 처리할 수 있는 U-SQL UDO의 형식입니다. UDP를 사용하면 열을 결합하고, 값을 수정하고, 필요한 경우 새 열을 추가할 수 있습니다. 기본적으로 필요한 데이터 요소를 생성하기 위해 행 집합을 처리하는 데 도움이 됩니다.
 
-## <a name="how-to-define-and-use-user-defined-processor"></a>사용자 정의 프로세서를 정의 및 사용 하는 방법
+## <a name="how-to-define-and-use-user-defined-processor"></a>사용자 정의 처리기를 정의하고 사용하는 방법
 UDP를 정의하려면 UDP의 선택 사항인 `SqlUserDefinedProcessor` 특성을 포함한 `IProcessor` 인터페이스를 생성해야 합니다.
 
 다음 예제와 같이 이 인터페이스는 `IRow` 인터페이스 행 집합 override에 대한 정의를 포함해야 합니다.
@@ -108,5 +108,5 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 
 
 ## <a name="next-steps"></a>다음 단계
-* [U-SQL 프로그래밍 기능 가이드-개요](data-lake-analytics-u-sql-programmability-guide.md)
-* [U-SQL 프로그래밍 기능 가이드-UDT 및 UDAGG](data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md)
+* [U-SQL 프로그램 기능 가이드 - 개요](data-lake-analytics-u-sql-programmability-guide.md)
+* [U-SQL 프로그램 기능 가이드 - UDT 및 UDAGG](data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md)

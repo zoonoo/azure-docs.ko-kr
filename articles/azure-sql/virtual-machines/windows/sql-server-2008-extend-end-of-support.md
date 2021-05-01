@@ -15,10 +15,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 4c25adc16d14b4a5fb72ae0103ca05b193b40499
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97359169"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Azure를 사용하여 SQL Server 2008 및 SQL Server 2008 R2 지원 확장
@@ -46,9 +46,9 @@ Azure Marketplace를 통해 배포된 이미지는 SQL IaaS 확장이 미리 설
 ## <a name="licensing"></a>라이선스
 종량제 SQL Server 2008 R2 배포가 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)으로 변환될 수 있습니다.
 
-소프트웨어 보증 (SA) 기반 라이선스를 종 량 제로 변환 하려면 고객은 [SQL IaaS 에이전트 확장](sql-agent-extension-manually-register-single-vm.md)에 등록 해야 합니다. 등록 후에는 Azure 하이브리드 혜택과 종량제 간에 SQL 라이선스 유형을 교환할 수 있습니다.
+SA(Software Assurance) 기반 라이선스를 종량제로 변환하려면 고객은 [SQL IaaS 에이전트 확장](sql-agent-extension-manually-register-single-vm.md)에 등록해야 합니다. 등록 후에는 Azure 하이브리드 혜택과 종량제 간에 SQL 라이선스 유형을 교환할 수 있습니다.
 
-Azure VM에서 자체 설치 된 SQL Server 2008 또는 SQL Server 2008 R2 인스턴스는 SQL IaaS 에이전트 확장에 등록 하 고 해당 라이선스 유형을 종 량 제로 변환할 수 있습니다.
+Azure VM에 자체 설치된 SQL Server 2008 또는 SQL Server 2008 R2 인스턴스는 SQL IaaS 에이전트 확장에 등록하고 해당 라이선스 유형을 종량제로 전환할 수 있습니다.
 
 ## <a name="migration"></a>마이그레이션
 수동 백업/복원 방법으로 EOS SQL Server 인스턴스를 Azure VM으로 마이그레이션할 수 있습니다. 이는 온-프레미스에서 Azure VM으로의 가장 일반적인 마이그레이션 방법입니다.
@@ -61,7 +61,7 @@ SQL Server는 복구를 보장하기 위해 앱 일치 Azure Site Recovery 스�
 
 ### <a name="database-migration-service"></a>Database Migration Service
 
-[Azure Database Migration Service](../../../dms/dms-overview.md) 은 SQL Server를 2012 이상 버전으로 업그레이드 하 여 온-프레미스에서 Azure VM으로 마이그레이션하는 경우 고객을 위한 옵션입니다.
+SQL Server를 2012 이상 버전으로 업그레이드하여 온-프레미스에서 Azure VM으로 마이그레이션하는 경우 고객이 사용할 수 있는 옵션은 [Azure Database Migration Service](../../../dms/dms-overview.md)입니다.
 
 ## <a name="disaster-recovery"></a>재해 복구
 
@@ -73,7 +73,7 @@ Azure VM에서 EOS SQL Server에 대한 재해 복구 솔루션은 다음과 같
 
 ## <a name="security-patching"></a>보안 패치
 
-SQL Server Vm에 대 한 확장 된 보안 업데이트는 [SQL IaaS 에이전트 확장](sql-agent-extension-manually-register-single-vm.md)을 사용 하 여 SQL Server VM 등록 한 후 Microsoft 업데이트 채널을 통해 전달 됩니다. 패치는 수동 또는 자동으로 다운로드할 수 있습니다.
+[SQL IaaS 에이전트 확장](sql-agent-extension-manually-register-single-vm.md)에 SQL Server VM이 등록된 후 SQL Server VM에 대한 확장된 보안 업데이트는 Microsoft 업데이트 채널을 통해 제공됩니다. 패치는 수동 또는 자동으로 다운로드할 수 있습니다.
 
 *Automated patching* 이 사용됩니다. Azure에서는 자동화된 패치를 통해 SQL Server와 운영 체제를 자동으로 패치합니다. SQL Server IaaS 확장이 설치된 경우 유지 관리 기간을 요일, 시간 및 기간으로 지정할 수 있습니다. Azure에서 유지 관리 기간에 패치를 수행합니다. 유지 관리 기간 일정에서는 VM 로캘 시간을 사용합니다. 자세한 내용은 [Azure Virtual Machines에서 SQL Server의 자동화된 패치](automated-patching.md)를 참조하세요.
 

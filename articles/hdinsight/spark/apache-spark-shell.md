@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/10/2020
 ms.openlocfilehash: 324852a967b5de015a9b1e9b465d4b4703e573cb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98929687"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Spark 셸에서 Apache Spark 실행
@@ -24,7 +24,7 @@ ms.locfileid: "98929687"
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Spark는 Scala (spark-shell) 및 Python (pyspark)에 대 한 셸을 제공 합니다. SSH 세션에서 다음 명령 *중 하나* 를 입력 합니다.
+1. Spark는 Scala(spark 셸) 및 Python(pyspark)에 대한 셸을 제공합니다. SSH 세션에서 다음 명령 중 *하나* 를 입력합니다.
 
     ```bash
     spark-shell
@@ -40,9 +40,9 @@ ms.locfileid: "98929687"
     # pyspark --num-executors 4 --executor-memory 4g --executor-cores 2 --driver-memory 8g --driver-cores 4
     ```
 
-    선택적 구성을 사용 하려는 경우 먼저 [Apache Spark OutOfMemoryError 예외](./apache-spark-troubleshoot-outofmemory.md)를 검토 해야 합니다.
+    선택적 구성을 사용하려는 경우 먼저 [Apache Spark용 OutOfMemoryError 예외](./apache-spark-troubleshoot-outofmemory.md)를 검토해야 합니다.
 
-1. 몇 가지 기본 예제 명령입니다. 관련 언어를 선택 합니다.
+1. 몇 가지 기본 예제 명령입니다. 관련 언어를 선택합니다.
 
     ```spark-shell
     val textFile = spark.read.textFile("/example/data/fruits.txt")
@@ -56,13 +56,13 @@ ms.locfileid: "98929687"
     textFile.filter(textFile.value.contains("apple")).show()
     ```
 
-1. CSV 파일을 쿼리 합니다. 아래 언어는 및에 대해 `spark-shell` 작동 `pyspark` 합니다.
+1. CSV 파일을 쿼리합니다. 아래 언어는 `spark-shell` 및 `pyspark`에 대해 작동합니다.
 
     ```scala
     spark.read.csv("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv").show()
     ```
 
-1. CSV 파일을 쿼리하고 결과를 변수에 저장 합니다.
+1. CSV 파일을 쿼리하고 결과를 변수에 저장합니다.
 
     ```spark-shell
     var data = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv")
@@ -102,9 +102,9 @@ SparkSession 인스턴스에 액세스하려면 `spark`를 입력합니다. Spar
 
 ## <a name="important-shell-parameters"></a>중요한 셸 매개 변수
 
-Spark Shell 명령 ( `spark-shell` 또는)은 `pyspark` 많은 명령줄 매개 변수를 지원 합니다. 매개 변수의 전체 목록을 보려면 스위치 `--help`를 사용하여 Spark 셸을 시작합니다. 이러한 매개 변수 중 일부는 Spark 셸이 래핑하는에만 적용 될 수 있습니다 `spark-submit` .
+Spark 셸 명령(`spark-shell` 또는 `pyspark`)은 여러 명령줄 매개 변수를 지원합니다. 매개 변수의 전체 목록을 보려면 스위치 `--help`를 사용하여 Spark 셸을 시작합니다. 이러한 매개 변수 중 일부는 Spark 셸에서 래핑하는 `spark-submit`에만 적용될 수 있습니다.
 
-| switch | 설명 | 예제 |
+| switch | description | 예제 |
 | --- | --- | --- |
 | --master MASTER_URL | 마스터 URL을 지정합니다. HDInsight에서 이 값은 항상 `yarn`입니다. | `--master yarn`|
 | --jars JAR_LIST | 드라이버 및 실행기 클래스 경로에서 포함하도록 쉼표로 구분된 로컬 jar의 목록입니다. HDInsight에서 이 목록은 Azure Storage 또는 Data Lake Storage에서 기본 파일 시스템에 대한 경로로 구성됩니다. | `--jars /path/to/examples.jar` |

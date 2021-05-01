@@ -1,20 +1,20 @@
 ---
-title: Data Lake 도구를 사용 하 여 리소스 액세스
-description: Azure Data Lake 도구를 사용 하 여 Azure Data Lake Analytics 리소스에 액세스 하는 방법을 알아봅니다.
+title: Data Lake 도구를 사용하여 리소스에 액세스
+description: Azure Data Lake 도구를 사용하여 Azure Data Lake Analytics 리소스에 액세스하는 방법을 알아봅니다.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 02/09/2018
 ms.openlocfilehash: d04f108b45070b27c4ff9ed833e8fb77b74cd597
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96754753"
 ---
-# <a name="accessing-resources-with-azure-data-lake-tools"></a>Azure Data Lake 도구를 사용 하 여 리소스 액세스
+# <a name="accessing-resources-with-azure-data-lake-tools"></a>Azure Data Lake 도구를 사용하여 리소스에 액세스
 
-Azure Data Tools 명령 또는 작업을 사용 하 여 VS Code 쉽게 Azure Data Lake Analytics 리소스에 액세스할 수 있습니다.
+쉽게 VS Code에서 Azure Data 도구 명령 또는 동작을 사용하여 Azure Data Lake Analytics 리소스에 액세스할 수 있습니다.
 
 ## <a name="integrate-with-azure-data-lake-analytics-through-a-command"></a>명령을 통해 Azure Data Lake Analytics와 통합
 
@@ -105,7 +105,7 @@ Azure Data Lake Analytics 리소스에 액세스하여 계정을 나열하고, �
 ### <a name="to-download-a-file-through-the-adl-download-file-advanced-command"></a>ADL: Download File(Advanced) 명령을 통해 파일을 다운로드하려면
 
 1. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음 **Download File(Advanced)** 를 선택합니다.
-2. VS Code에서 JSON 파일을 표시합니다. 파일 경로를 입력하고 여러 파일을 동시에 다운로드할 수 있습니다. 지침이 **출력** 창에 표시 됩니다. 파일 다운로드를 계속하려면 JSON 파일을 저장(Ctrl+S)합니다.
+2. VS Code에서 JSON 파일을 표시합니다. 파일 경로를 입력하고 여러 파일을 동시에 다운로드할 수 있습니다. 지침이 **출력** 창에 표시됩니다. 파일 다운로드를 계속하려면 JSON 파일을 저장(Ctrl+S)합니다.
 
     ![파일 다운로드 경로가 포함된 JSON 파일](./media/data-lake-analytics-data-lake-tools-for-vscode/download-multi-files.png)
 
@@ -216,7 +216,7 @@ Data Lake Tools for VSCode에서 지원하는 기능은 다음과 같습니다.
 
     ![IntelliSense 개체 형식](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-complete-objects.png)
 
-- **Data Lake Analytics 메타 데이터에 대 한 IntelliSense 자동 완성**: Data Lake 도구는 Data Lake Analytics 메타 데이터 정보를 로컬로 다운로드 합니다. IntelliSense 기능은 Data Lake Analytics 메타데이터에서 개체를 자동으로 채웁니다. 이러한 개체에는 데이터베이스, 스키마, 테이블, 뷰, 테이블 반환 함수, 프로시저 및 C# 어셈블리가 포함됩니다.
+- **Data Lake Analytics 메타데이터의 IntelliSense 자동 완성**: Data Lake 도구는 Data Lake Analytics 메타데이터 정보를 로컬로 다운로드합니다. IntelliSense 기능은 Data Lake Analytics 메타데이터에서 개체를 자동으로 채웁니다. 이러한 개체에는 데이터베이스, 스키마, 테이블, 뷰, 테이블 반환 함수, 프로시저 및 C# 어셈블리가 포함됩니다.
 
   ![IntelliSense 메타데이터](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-complete-metastore.png)
 

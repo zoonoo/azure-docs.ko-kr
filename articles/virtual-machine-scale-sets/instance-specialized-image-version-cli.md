@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5fc88c00d548c0a034984976557d316fdac7620f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 2ecc2bfe6bdc06ede61e6c4d1e6eccfc9ef6323a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107792348"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "98878005"
 ---
 # <a name="create-a-scale-set-using-a-specialized-image-version-with-the-azure-cli"></a>Azure CLI를 통해 특수 이미지 버전을 사용하는 확장 집합 만들기
 
@@ -25,7 +25,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 이 예제에서 필요에 따라 리소스 이름을 바꿉니다. 
 
-[az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list)를 사용하여 갤러리에서 이미지 정의를 나열하면 해당 이름과 정의의 ID를 볼 수 있습니다.
+[az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list)를 사용하여 갤러리에서 이미지 정의를 나열하면 해당 이름과 정의의 ID를 볼 수 있습니다.
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -37,7 +37,7 @@ az sig image-definition list \
    --output tsv
 ```
 
-이미지가 특수 이미지임을 나타내는 `--specialized` 매개 변수를 사용하여 [`az vmss create`](/cli/azure/vmss#az_vmss_create)를 사용하는 확장 집합을 만듭니다.
+이미지가 특수 이미지임을 나타내는 `--specialized` 매개 변수를 사용하여 [`az vmss create`](/cli/azure/vmss#az-vmss-create)를 사용하는 확장 집합을 만듭니다.
 
 이미지 정의 ID를 `--image`에 사용하여 사용 가능한 최신 버전의 이미지에서 확장 집합 인스턴스를 만듭니다. 또한 `--image`에 대한 이미지 버전 ID를 제공하여 특정 버전에서 확장 집합 인스턴스를 만들 수 있습니다. 특정 이미지 버전이 지역에서 삭제되거나 제거되었기 때문에 사용할 수 없는 경우 특정 이미지 버전을 사용하면 자동화가 실패할 수 있음을 의미합니다. 특정 이미지 버전이 필요하지 않는 한 새 VM을 만들기 위해 이미지 정의 ID를 사용하는 것이 좋습니다.
 

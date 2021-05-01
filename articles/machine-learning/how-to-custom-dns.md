@@ -9,14 +9,14 @@ ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.date: 04/01/2021
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q3
-ms.openlocfilehash: 9021c3f70c9fc053998d1b31271a1ca3b0124b4d
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.topic: how-to
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 2a55fedd0fe059e7bff8203924389956dce36f3b
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169541"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107889811"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>사용자 지정 DNS 서버에서 작업 영역을 사용하는 방법
 
@@ -25,7 +25,7 @@ ms.locfileid: "106169541"
 > [!IMPORTANT]
 > 이 문서에서는 이러한 항목에 대한 FQDN(정규화된 도메인 이름) 및 IP 주소를 찾는 방법만 다루며 해당 항목에 대한 DNS 레코드 구성에 대한 정보는 제공하지 않습니다. 레코드를 추가하는 방법에 대한 자세한 내용은 DNS 소프트웨어에 대한 문서를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [자체 DNS 서버](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)를 사용하는 Azure Virtual Network입니다.
 

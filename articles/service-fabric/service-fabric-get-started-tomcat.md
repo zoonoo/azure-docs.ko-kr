@@ -1,14 +1,14 @@
 ---
-title: Linux에서 Apache Tomcat에 대 한 컨테이너 만들기
+title: Linux에서 Apache Tomcat에 대한 컨테이너 만들기
 description: Azure Service Fabric의 Apache Tomcat 서버에서 실행되는 애플리케이션을 노출하는 Linux 컨테이너를 만듭니다. 애플리케이션과 Apache Tomcat 서버를 사용하여 Docker 이미지를 빌드하고, 이 이미지를 컨테이너 레지스트리로 푸시하고, Service Fabric 컨테이너 애플리케이션을 빌드하고 배포합니다.
 ms.topic: conceptual
 ms.date: 6/08/2018
 ms.author: pepogors
 ms.openlocfilehash: 3de97bc277195dff2daf5868c0eb9aec5d6e27c0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96534032"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Linux에서 Apache Tomcat 서버를 실행하는 Service Fabric 컨테이너 만들기
@@ -18,7 +18,7 @@ Apache Tomcat에 대한 자세한 내용은 [Apache Tomcat 홈페이지](https:/
 
 ## <a name="prerequisites"></a>필수 구성 요소
 * 다음을 실행하는 개발 컴퓨터
-  * [SDK 및 도구를 Service Fabric](service-fabric-get-started-linux.md)합니다.
+  * [Service Fabric SDK 및 도구](service-fabric-get-started-linux.md)
   * [Linux용 Docker CE](https://docs.docker.com/engine/installation/#prior-releases) 
   * [Service Fabric CLI](service-fabric-cli.md)
 
@@ -52,7 +52,7 @@ Apache Tomcat에 대한 자세한 내용은 [Apache Tomcat 홈페이지](https:/
    자세한 내용은 [Dockerfile 참조](https://docs.docker.com/engine/reference/builder/)를 참조하세요.
 
 
-4. Docker에 로그인 하 고 명령을 실행 `docker build` 하 여 웹 응용 프로그램을 실행 하는 이미지를 만듭니다.
+4. Docker에 로그인한 후 `docker build` 명령을 실행하여 웹 애플리케이션을 실행하는 이미지를 만듭니다.
 
    ```bash
    docker login
@@ -100,11 +100,11 @@ Apache Tomcat에 대한 자세한 내용은 [Apache Tomcat 홈페이지](https:/
    ```
 
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>컨테이너 레지스트리에 Tomcat 이미지 푸시
-이제 Tomcat 이미지가 개발 컴퓨터의 컨테이너에서 실행 되는 것을 확인 했으므로 이미지 개발 및 배포 워크플로에 대 한 [중단을 줄이기](../container-registry/buffer-gate-public-content.md) 위해 컨테이너 레지스트리의 리포지토리로 푸시합니다. 이 문서에서는 Azure Container Registry를 사용하여 이미지를 저장하지만, 단계를 약간 수정하면 선택한 모든 컨테이너 레지스트리를 사용할 수 있습니다. 이 문서에서 레지스트리 이름은 *myregistry* 로 간주되며, 전체 레지스트리 이름은 myregistry.azurecr.io입니다. 시나리오에 맞게 적절하게 변경합니다. 
+Tomcat 이미지가 개발 컴퓨터의 컨테이너에서 실행되는지 확인했으므로 이제 이 이미지를 컨테이너 레지스트리의 리포지토리로 푸시합니다. 이렇게 하면 이미지 개발 및 배포 워크플로가 [중단되는 현상을 줄일 수](../container-registry/buffer-gate-public-content.md) 있습니다. 이 문서에서는 Azure Container Registry를 사용하여 이미지를 저장하지만, 단계를 약간 수정하면 선택한 모든 컨테이너 레지스트리를 사용할 수 있습니다. 이 문서에서 레지스트리 이름은 *myregistry* 로 간주되며, 전체 레지스트리 이름은 myregistry.azurecr.io입니다. 시나리오에 맞게 적절하게 변경합니다. 
 
-1. `docker login`을 실행 하 여 [레지스트리 자격 증명](../container-registry/container-registry-authentication.md)을 사용 하 여 컨테이너 레지스트리에 로그인 합니다.
+1. `docker login`을 실행하여 [레지스트리 자격 증명](../container-registry/container-registry-authentication.md)으로 컨테이너 레지스트리에 로그인합니다.
 
-   다음 예제는 Azure Active Directory [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)의 ID와 암호를 전달합니다. 예를 들어 자동화 시나리오를 위해 레지스트리에 서비스 주체를 할당할 수 있습니다. 또는 레지스트리 사용자 이름과 암호를 사용 하 여 로그인 할 수 있습니다.
+   다음 예제는 Azure Active Directory [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)의 ID와 암호를 전달합니다. 예를 들어 자동화 시나리오를 위해 레지스트리에 서비스 주체를 할당할 수 있습니다. 또는 레지스트리 사용자 이름과 암호를 사용하여 로그인할 수 있습니다.
 
    ```bash
    docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -153,7 +153,7 @@ Tomcat 이미지를 컨테이너 레지스트리로 푸시했으므로 이제 �
    </Resources>
    ```
 
-11. 애플리케이션 매니페스트(*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*)의 **ServiceManifestImport** 태그 아래에 다음 XML을 추가합니다. **RepositoryCredentials** 태그의 **AccountName** 및 **password** 를 컨테이너 레지스트리 이름으로 바꾸고 로그인에 필요한 암호를 바꿉니다.
+11. 애플리케이션 매니페스트(*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*)의 **ServiceManifestImport** 태그 아래에 다음 XML을 추가합니다. **RepositoryCredentials** 태그의 **AccountName** 및 **Password** 를 로그인하는 데 필요한 컨테이너 레지스트리 이름과 암호로 바꿉니다.
 
    ```xml
    <Policies>
