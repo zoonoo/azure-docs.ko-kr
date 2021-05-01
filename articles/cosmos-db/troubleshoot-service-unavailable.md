@@ -1,6 +1,6 @@
 ---
-title: 서비스를 사용할 수 없는 예외 Azure Cosmos DB 문제 해결
-description: Azure Cosmos DB 서비스를 사용할 수 없는 예외를 진단 하 고 해결 하는 방법을 알아봅니다.
+title: Azure Cosmos DB 서비스를 사용할 수 없음 예외 문제 해결
+description: Azure Cosmos DB 서비스를 사용할 수 없음 예외를 진단하고 해결하는 방법을 알아봅니다.
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,37 +9,37 @@ ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: d19d30c03412ba7212211b30646acb50c3f55ece
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93340027"
 ---
-# <a name="diagnose-and-troubleshoot-azure-cosmos-db-service-unavailable-exceptions"></a>서비스를 사용할 수 없는 예외 Azure Cosmos DB 진단 및 문제 해결
+# <a name="diagnose-and-troubleshoot-azure-cosmos-db-service-unavailable-exceptions"></a>Azure Cosmos DB 서비스를 사용할 수 없음 예외 진단 및 문제 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 SDK가 Azure Cosmos DB에 연결할 수 없습니다.
 
 ## <a name="troubleshooting-steps"></a>문제 해결 단계
-다음 목록에는 서비스를 사용할 수 없는 예외에 대 한 알려진 원인과 해결 방법이 나와 있습니다.
+다음 목록에는 서비스를 사용할 수 없음 예외에 대한 알려진 원인과 해결책이 나와 있습니다.
 
-### <a name="the-required-ports-are-being-blocked"></a>필요한 포트가 차단 되 고 있습니다.
-[필요한 포트](sql-sdk-connection-modes.md#service-port-ranges) 를 모두 사용 하도록 설정 했는지 확인 합니다.
+### <a name="the-required-ports-are-being-blocked"></a>필수 포트가 차단되어 있음
+모든 [필수 포트](sql-sdk-connection-modes.md#service-port-ranges)가 사용하도록 설정되어 있는지 확인합니다.
 
-### <a name="client-side-transient-connectivity-issues"></a>클라이언트 쪽 임시 연결 문제
-서비스를 사용할 수 없는 예외는 시간 초과를 유발 하는 일시적인 연결 문제가 있는 경우에 발생할 수 있습니다. 일반적으로이 시나리오와 관련 된 스택 추적에는 오류가 포함 됩니다 `TransportException` . 예를 들면 다음과 같습니다.
+### <a name="client-side-transient-connectivity-issues"></a>클라이언트 측 임시 연결 문제
+서비스를 사용할 수 없음 예외는 시간 초과를 일으키는 임시적인 연결 문제가 있는 경우에 발생할 수 있습니다. 일반적으로 이러한 시나리오와 관련된 스택 추적에는 `TransportException` 오류가 포함됩니다. 예를 들면 다음과 같습니다.
 
 ```C#
 TransportException: A client transport error occurred: The request timed out while waiting for a server response. 
 (Time: xxx, activity ID: xxx, error code: ReceiveTimeout [0x0010], base error: HRESULT 0x80131500
 ```
 
-[요청 시간 제한 문제 해결 단계](troubleshoot-dot-net-sdk-request-timeout.md#troubleshooting-steps) 에 따라 문제를 해결 합니다.
+문제를 해결하려면 [요청 시간 초과 문제 해결 단계](troubleshoot-dot-net-sdk-request-timeout.md#troubleshooting-steps)를 따릅니다.
 
 ### <a name="service-outage"></a>서비스 중단
-[Azure 상태](https://status.azure.com/status) 를 확인 하 여 진행 중인 문제가 있는지 확인 합니다.
+[Azure 상태](https://status.azure.com/status)를 확인하여 진행 중인 문제가 있는지 확인합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-* Azure Cosmos DB .NET SDK를 사용 하는 경우 문제를 [진단 하 고 해결](troubleshoot-dot-net-sdk.md) 합니다.
-* [.Net v3](performance-tips-dotnet-sdk-v3-sql.md) 및 [.net v2](performance-tips.md)의 성능 지침에 대해 알아봅니다.
+* Azure Cosmos DB .NET SDK를 사용하고 있는 경우 문제를 [진단 및 문제 해결](troubleshoot-dot-net-sdk.md)합니다.
+* [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) 및 [.NET v2](performance-tips.md)의 성능 지침에 대해 자세히 알아봅니다.

@@ -1,6 +1,6 @@
 ---
 title: BizTalk Services에서 Azure Logic Apps로 앱 마이그레이션
-description: Microsoft Azure BizTalk Services (MABS)에서 Azure Logic Apps 앱 및 솔루션을 이동 하는 방법
+description: MABS(Microsoft Azure BizTalk Services)에서 Azure Logic Apps로 앱 및 솔루션을 이동하는 방법
 services: logic-apps
 ms.suite: integration
 author: jonfancey
@@ -9,13 +9,13 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
 ms.openlocfilehash: 6c07ab4b18c017bd29723d2640129b8e67374e3c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96023655"
 ---
-# <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>BizTalk Services에서 Azure Logic Apps 앱 및 솔루션 마이그레이션
+# <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>BizTalk Services에서 Azure Logic Apps로 앱 및 솔루션 마이그레이션
 
 MABS(Microsoft Azure BizTalk Services)가 사용 중지됩니다. MABS 통합 솔루션을 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)로 이동하려면 이 문서의 지침을 따릅니다. 
 
@@ -32,7 +32,7 @@ BizTalk Services는 다음 두 하위 서비스로 구성됩니다.
 
 다음 표에서는 BizTalk Services 기능을 Logic Apps에 매핑하고 있습니다.
 
-| BizTalk Services   | Logic Apps            | 용도                      |
+| BizTalk Services   | Logic Apps            | 목적                      |
 | ------------------ | --------------------- | ---------------------------- |
 | 커넥터          | 커넥터             | 데이터 보내기 및 받기   |
 | 브리지             | 논리 앱             | 파이프라인 프로세서           |
@@ -51,9 +51,9 @@ BizTalk Services에는 여러 종류의 아티팩트가 있습니다.
 
 ## <a name="connectors"></a>커넥터
 
-BizTalk Services 커넥터를 사용하면 HTTP 기반 요청/응답과 상호 작용할 수 있게 하는 양방향 브리지를 포함하여 브리지에서 데이터를 보내고 받을 수 있습니다. Logic Apps는 동일한 용어를 사용 하며 광범위 한 기술 및 서비스에 연결 하 여 동일한 용도를 제공 하는 수백 개의 커넥터를 포함 합니다. 예를 들어 OneDrive, Office365, Dynamics CRM 등과 같은 클라우드 SaaS 및 PaaS 서비스에 사용할 수 있는 커넥터와 BizTalk Services용 BizTalk 어댑터 서비스를 대체하는 온-프레미스 데이터 게이트웨이를 통해 온-프레미스 시스템에 사용할 수 있는 커넥터가 있습니다. BizTalk Services의 원본은 FTP, SFTP 및 Service Bus 큐 또는 토픽 구독으로 제한됩니다.
+BizTalk Services 커넥터를 사용하면 HTTP 기반 요청/응답과 상호 작용할 수 있게 하는 양방향 브리지를 포함하여 브리지에서 데이터를 보내고 받을 수 있습니다. Logic Apps는 동일한 용어를 사용하고, 광범위한 기술과 서비스에 연결하여 동일한 목적을 수행하는 수백 개의 커넥터를 가지고 있습니다. 예를 들어 OneDrive, Office365, Dynamics CRM 등과 같은 클라우드 SaaS 및 PaaS 서비스에 사용할 수 있는 커넥터와 BizTalk Services용 BizTalk 어댑터 서비스를 대체하는 온-프레미스 데이터 게이트웨이를 통해 온-프레미스 시스템에 사용할 수 있는 커넥터가 있습니다. BizTalk Services의 원본은 FTP, SFTP 및 Service Bus 큐 또는 토픽 구독으로 제한됩니다.
 
-![BizTalk Services 흐름을 보여 주는 다이어그램입니다.](media/logic-apps-move-from-mabs/sources.png)
+![BizTalk Services 흐름을 보여 주는 다이어그램.](media/logic-apps-move-from-mabs/sources.png)
 
 기본적으로 각 브리지에는 브리지에 대한 런타임 주소 및 상대 주소 속성으로 구성되는 HTTP 엔드포인트가 있습니다. Logic Apps에서 동일한 결과를 얻으려면 [요청 및 응답](../connectors/connectors-native-reqres.md) 작업을 사용합니다.
 
@@ -69,7 +69,7 @@ BizTalk Services에서 브리지는 처리 파이프라인과 비슷합니다. �
 
 다음 이미지에서는 요청과 회신 간에 처리가 분할되는 방식을 보여 줍니다. 여기서는 요청과 회신 경로를 개별적으로 제어합니다(예 : 각 경로마다 다른 맵 사용).
 
-![요청과 회신 간에 처리를 분할 하는 방법을 보여 주는 스크린샷](media/logic-apps-move-from-mabs/xml-request-reply.png)
+![요청과 회신 간에 처리가 분할되는 방식을 보여 주는 스크린샷.](media/logic-apps-move-from-mabs/xml-request-reply.png)
 
 또한 XML 단방향 브리지는 처리의 시작과 끝에 디코드 및 인코드 단계를 추가합니다. 통과 브리지는 단일 강화 단계를 포함합니다.
 
@@ -91,7 +91,7 @@ BizTalk Services에서 변환 단계는 하나의 XML 기반 메시지 형식을
 
 BizTalk Services는 들어오는 메시지 또는 데이터를 보낼 엔드포인트 또는 커넥터에 대한 라우팅을 결정합니다. 라우팅 필터 옵션을 사용하면 미리 구성된 엔드포인트에서 선택할 수 있습니다.
 
-![라우팅 필터 옵션을 보여 주는 스크린샷](media/logic-apps-move-from-mabs/route-filter.png)
+![라우팅 필터 옵션을 보여 주는 스크린샷.](media/logic-apps-move-from-mabs/route-filter.png)
 
 BizTalk Services에서 두 가지 옵션만 있는 경우 *조건* 을 사용하는 것이 BizTalk Services의 라우팅 필터를 변환하는 가장 좋은 방법입니다. 세 개 이상 있으면 **스위치** 를 사용합니다.
 
@@ -125,7 +125,7 @@ BizTalk Services와는 달리 이러한 작업은 전송 프로토콜에서 분�
 
 ## <a name="manage-and-monitor"></a>관리 및 모니터링
 
-BizTalk Services의 전용 포털에서 문제를 모니터링하고 해결할 수 있는 추적 기능을 제공했습니다. Logic Apps은 [Azure Portal에서 논리 앱을 모니터링](../logic-apps/monitor-logic-apps.md)하기 위한 보다 풍부한 추적 및 모니터링 기능을 제공 하며, 이동 중에는 관심을 유지 하기 위한 모바일 앱을 포함 합니다.
+BizTalk Services의 전용 포털에서 문제를 모니터링하고 해결할 수 있는 추적 기능을 제공했습니다. Logic Apps는 [Azure Portal에서 논리 앱을 모니터링](../logic-apps/monitor-logic-apps.md)할 수 있는 더 풍부한 추적 및 모니터링 기능을 제공하며, 이동 중인 경우에는 사물을 주시하는 모바일 앱을 포함합니다.
 
 ## <a name="high-availability"></a>고가용성
 

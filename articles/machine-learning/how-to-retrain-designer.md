@@ -1,26 +1,26 @@
 ---
-title: 파이프라인 매개 변수를 사용 하 여 디자이너에서 모델 다시 학습
+title: 파이프라인 매개 변수를 사용하여 디자이너에서 모델 재학습
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning designer에서 게시 된 파이프라인 및 파이프라인 매개 변수를 사용 하 여 모델을 다시 학습 합니다.
+description: Azure Machine Learning 디자이너에서 게시된 파이프라인 및 파이프라인 매개 변수로 모델을 재학습시킵니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 04/06/2020
+ms.date: 03/06/2021
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 6efb0f095f8a157f723a3b7c0c2b229546ebb36b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: ed5f59fc1d751f92a7c016aa3586497659f778fd
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97708469"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962954"
 ---
-# <a name="use-pipeline-parameters-to-retrain-models-in-the-designer"></a>파이프라인 매개 변수를 사용 하 여 디자이너에서 모델 다시 학습
+# <a name="use-pipeline-parameters-to-retrain-models-in-the-designer"></a>파이프라인 매개 변수를 사용하여 디자이너에서 모델 재학습
 
 
-이 방법 문서에서는 Azure Machine Learning designer를 사용 하 여 파이프라인 매개 변수를 사용 하 여 Machine Learning 모델을 다시 학습 하는 방법을 알아봅니다. 게시된 파이프라인을 사용하여 워크플로를 자동화하고 매개 변수를 설정하여 새 데이터에 대한 모델을 학습시킵니다. 파이프라인 매개 변수를 사용 하면 다른 작업에 대해 기존 파이프라인을 다시 사용할 수 있습니다.  
+이 방법 문서에서는 Azure Machine Learning 디자이너의 파이프라인 매개 변수를 사용하여 기계 학습 모델을 재학습시키는 방법을 알아봅니다. 게시된 파이프라인을 사용하여 워크플로를 자동화하고 매개 변수를 설정하여 새 데이터에 대한 모델을 학습시킵니다. 파이프라인 매개 변수를 사용하면 다른 작업에 대해 기존 파이프라인을 다시 사용할 수 있습니다.  
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -33,23 +33,23 @@ ms.locfileid: "97708469"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Machine Learning 작업 영역
-* 이 방법 시리즈의 1 부를 완료 하 고 [디자이너에서 데이터를 변환 합니다](how-to-designer-transform-data.md) .
+* 이 방법 시리즈의 1부인 [디자이너에서 데이터 변환](how-to-designer-transform-data.md)을 완료합니다.
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
-또한이 문서에서는 사용자가 디자이너에서 파이프라인을 빌드하는 데 대 한 지식이 있다고 가정 합니다. 단계별 소개를 보려면 [자습서](tutorial-designer-automobile-price-train-score.md)를 완료하세요. 
+또한 이 문서에서는 디자이너에서 파이프라인을 빌드하는 방법에 대한 지식이 어느 정도 있다고 가정합니다. 단계별 소개를 보려면 [자습서](tutorial-designer-automobile-price-train-score.md)를 완료하세요. 
 
 ### <a name="sample-pipeline"></a>샘플 파이프라인
 
-이 문서에서 사용 되는 파이프라인은 디자이너 홈페이지에서 샘플 파이프라인 [수입 예측](samples-designer.md#classification) 의 변경 된 버전입니다. 파이프라인에서는 자체 데이터를 사용하여 모델을 학습시키는 방법을 보여 주기 위해 샘플 데이터 세트 대신 [데이터 가져오기](algorithm-module-reference/import-data.md) 모듈을 사용합니다.
+이 문서에 사용된 파이프라인은 디자이너 홈페이지에 있는 샘플 파이프라인 [수입 예측](samples-designer.md#classification)의 변경된 버전입니다. 파이프라인에서는 자체 데이터를 사용하여 모델을 학습시키는 방법을 보여 주기 위해 샘플 데이터 세트 대신 [데이터 가져오기](algorithm-module-reference/import-data.md) 모듈을 사용합니다.
 
 ![데이터 가져오기 모듈을 강조 표시하는 상자를 포함된 수정된 샘플 파이프라인을 보여 주는 스크린샷](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
 ## <a name="create-a-pipeline-parameter"></a>파이프라인 매개 변수 만들기
 
-파이프라인 매개 변수는 다양 한 매개 변수 값으로 나중에 다시 전송할 수 있는 다양 한 파이프라인을 빌드하는 데 사용 됩니다. 몇 가지 일반적인 시나리오는 다시 학습을 위해 데이터 집합 또는 일부 하이퍼 매개 변수를 업데이트 하는 것입니다. 런타임에 동적으로 변수를 설정하는 파이프라인 매개 변수를 만듭니다. 
+파이프라인 매개 변수는 다양한 파이프라인을 구축하는 데 사용되어 여러 매개 변수 값으로 나중에 다시 제출할 수 있습니다. 몇 가지 일반적인 시나리오는 재학습을 위해 데이터 집합 또는 일부 하이퍼 매개 변수를 업데이트하는 것입니다. 런타임에 동적으로 변수를 설정하는 파이프라인 매개 변수를 만듭니다. 
 
-파이프라인 매개 변수는 파이프라인의 데이터 소스 또는 모듈 매개 변수에 추가할 수 있습니다. 파이프라인이 다시 전송 될 때 이러한 매개 변수의 값을 지정할 수 있습니다.
+파이프라인 매개 변수는 파이프라인의 데이터 원본 또는 모듈 매개 변수에 추가할 수 있습니다. 파이프라인이 다시 제출될 때 이러한 매개 변수의 값을 지정할 수 있습니다.
 
 이 예에서는 학습 데이터 경로를 고정 값에서 매개 변수로 변경하여 다른 데이터에 대해 모델을 재학습시킬 것입니다. 사용 사례에 따라 다른 모듈 매개 변수를 파이프라인 매개 변수로 추가할 수도 있습니다.
 
@@ -73,11 +73,11 @@ ms.locfileid: "97708469"
 1. **저장** 을 선택합니다.
 
    > [!NOTE]
-   > 파이프라인 매개 변수를 추가 하는 것과 유사 하 게 모듈 세부 정보 창의 파이프라인 매개 변수에서 모듈 매개 변수를 분리할 수도 있습니다.
+   > 파이프라인 매개 변수를 추가하는 것과 유사하게 모듈 세부 정보 창의 파이프라인 매개 변수에서 모듈 매개 변수를 분리할 수도 있습니다.
    >
    > 파이프라인 초안의 제목 옆에 있는 **설정** 기어 아이콘을 선택하여 파이프라인 매개 변수를 검사하고 편집할 수 있습니다. 
-   >    - 분리 한 후 **설정** 창에서 파이프라인 매개 변수를 삭제할 수 있습니다.
-   >    - 또한 **설정** 창에서 파이프라인 매개 변수를 추가한 다음 일부 모듈 매개 변수에 적용할 수 있습니다.
+   >    - 분리한 후에는 **설정** 창에서 파이프라인 매개 변수를 삭제할 수 있습니다.
+   >    - 또한 **설정** 창에서 파이프라인 매개 변수를 추가한 다음, 일부 모듈 매개 변수에 적용할 수 있습니다.
 
 1. 파이프라인 실행을 제출합니다.
 
@@ -97,9 +97,9 @@ ms.locfileid: "97708469"
 
 이제 게시된 학습 파이프라인이 있으므로 이를 사용하여 새 데이터에 대해 모델을 재학습시킬 수 있습니다. 스튜디오 작업 영역이나 프로그래밍 방식으로 파이프라인 엔드포인트에서 실행을 제출할 수 있습니다.
 
-### <a name="submit-runs-by-using-the-studio-portal"></a>Studio 포털을 사용 하 여 실행 제출
+### <a name="submit-runs-by-using-the-studio-portal"></a>스튜디오 포털을 사용하여 실행 제출
 
-다음 단계를 사용 하 여 studio 포털에서 실행 되는 매개 변수가 있는 파이프라인 끝점을 제출 합니다.
+스튜디오 포털에서 매개 변수가 있는 파이프라인 엔드포인트 실행을 제출하려면 다음 단계를 수행합니다.
 
 1. 스튜디오 작업 영역에서 **엔드포인트** 페이지로 이동합니다.
 1. **파이프라인 엔드포인트** 탭을 선택합니다. 그런 다음 파이프라인 엔드포인트를 선택합니다.
@@ -120,3 +120,5 @@ REST 호출을 수행하려면 OAuth 2.0 전달자 유형 인증 헤더가 필�
 이 문서에서는 디자이너를 사용하여 매개 변수가 있는 학습 파이프라인 엔드포인트를 만드는 방법을 알아보았습니다.
 
 모델을 배포하여 예측을 만드는 방법에 대한 전체 연습은 회귀 모델을 학습시키고 배포하는 [디자이너 자습서](tutorial-designer-automobile-price-train-score.md)를 참조하세요.
+
+SDK를 사용하여 파이프라인 엔드포인트에 실행을 게시하고 제출하는 방법은 [이 문서](how-to-deploy-pipelines.md)를 참조하세요.

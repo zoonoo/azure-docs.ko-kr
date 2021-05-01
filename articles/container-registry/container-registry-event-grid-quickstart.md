@@ -1,17 +1,17 @@
 ---
-title: 빠른 시작-Event Grid로 이벤트 보내기
+title: 빠른 시작 - Event Grid로 이벤트 보내기
 description: 이 빠른 시작에서는 컨테이너 레지스트리에 Event Grid 이벤트를 활성화한 다음, 애플리케이션 예제에 컨테이너 이미지 push 및 delete 이벤트를 전송합니다.
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: b4038bb232c14278e838f2c34706dcc103def7e4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 43dea2640c9c9445ea464205f6c586bc1e486206
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98919666"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784028"
 ---
-# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>빠른 시작: 개인 컨테이너 레지스트리의 이벤트를 Event Grid으로 보내기
+# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>빠른 시작: Event Grid로 개인 컨테이너 레지스트리의 이벤트 보내기
 
 Azure Event Grid는 게시-구독 모델을 사용하여 균일한 이벤트 소비를 제공하는 완전히 관리되는 이벤트 라우팅 서비스입니다. 이 빠른 시작에서는 Azure CLI를 사용하여 컨테이너 레지스트리를 만들고, 레지스트리 이벤트를 구독한 다음, 샘플 웹 애플리케이션을 배포하여 이벤트를 수신합니다. 마지막으로, 컨테이너 이미지 `push` 및 `delete` 이벤트를 트리거하고 애플리케이션 예제에서 이벤트 페이로드를 봅니다.
 
@@ -236,6 +236,6 @@ Event Grid 설명서에서 Azure Container Registry 이벤트 메시지 스키�
 
 <!-- LINKS - Internal -->
 [az-acr-create]: /cli/azure/acr/repository
-[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
-[az-eventgrid-event-subscription-create]: /cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create
-[az-group-create]: /cli/azure/group#az-group-create
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[az-eventgrid-event-subscription-create]: /cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create
+[az-group-create]: /cli/azure/group#az_group_create

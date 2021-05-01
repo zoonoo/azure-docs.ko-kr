@@ -6,12 +6,12 @@ ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 8c266861f10b32c63c48680ed548928613dc6b0d
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: 7957041c9d445f4239b8f0100128a531d982b451
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108064560"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104871557"
 ---
 # <a name="integrate-apache-zeppelin-with-hive-warehouse-connector-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Zeppelin과 Hive Warehouse Connector 통합
 
@@ -103,7 +103,7 @@ Livy 인터프리터를 사용하여 Zeppelin에서 Hive 테이블에 액세스�
 
         :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="Hive Warehouse Connector AAD 도메인" border="true":::
 
-    * 예: `hive/hn*.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET`.
+    * 예: `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET`.
 
 1. 변경 내용을 저장하고 Livy 인터프리터를 다시 시작합니다.
 

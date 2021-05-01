@@ -4,12 +4,12 @@ description: 파티션을 사용하여 Azure Event Hubs에서 가용성 및 일�
 ms.topic: article
 ms.date: 03/15/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 02f26aaf369db177d77d27f3274b34fe1c400419
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: e014a33e94fe7f90569dd2ef1e9b620eef274842
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988949"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104952867"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Event Hubs의 가용성 및 일관성
 이 문서에서는 Azure Event Hubs에서 지원하는 가용성과 일관성에 대한 정보를 제공합니다. 
@@ -60,14 +60,14 @@ producer.SendAsync(events, sendOptions)
 
 
 ### <a name="java"></a>[Java](#tab/java)
-특정 파티션에 이벤트를 보내려면 [createBatchOptions](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/main/java/com/azure/messaging/eventhubs/models/CreateBatchOptions.java)에서 **파티션 ID** 또는 **파티션 키** 를 지정하여 [createBatch](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/main/java/com/azure/messaging/eventhubs/EventHubProducerClient.java) 메서드를 사용해 배치를 만듭니다. 다음 코드에서는 파티션 키를 지정하여 이벤트 일괄 처리를 특정 파티션으로 보냅니다. 
+특정 파티션에 이벤트를 보내려면 [createBatchOptions](/java/api/com.azure.messaging.eventhubs.models.createbatchoptions)에서 **파티션 ID** 또는 **파티션 키** 를 지정하여 [createBatch](/java/api/com.azure.messaging.eventhubs.eventhubproducerclient.createbatch) 메서드를 사용해 배치를 만듭니다. 다음 코드에서는 파티션 키를 지정하여 이벤트 일괄 처리를 특정 파티션으로 보냅니다. 
 
 ```java
 CreateBatchOptions batchOptions = new CreateBatchOptions();
 batchOptions.setPartitionKey("cities");
 ```
 
-또한 [SendOptions](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/main/java/com/azure/messaging/eventhubs/models/SendOptions.java)에서 **파티션 ID** 또는 **파티션 키** 를 지정하여 [EventHubProducerClient.send](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/main/java/com/azure/messaging/eventhubs/EventHubProducerClient.java) 메서드를 사용할 수 있습니다.
+또한 [SendOptions](/java/api/com.azure.messaging.eventhubs.models.sendoptions)에서 **파티션 ID** 또는 **파티션 키** 를 지정하여 [EventHubProducerClient.send](/java/api/com.azure.messaging.eventhubs.eventhubproducerclient.send#com_azure_messaging_eventhubs_EventHubProducerClient_send_java_lang_Iterable_com_azure_messaging_eventhubs_EventData__com_azure_messaging_eventhubs_models_SendOptions_) 메서드를 사용할 수 있습니다.
 
 ```java
 List<EventData> events = Arrays.asList(new EventData("Melbourne"), new EventData("London"), new EventData("New York"));

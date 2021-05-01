@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: rohink
 ms.openlocfilehash: 41eb15a38c97532951723f12d1ac74c90c838eb1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94968199"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 영역 및 레코드 개요
@@ -22,9 +22,9 @@ ms.locfileid: "94968199"
 
 ## <a name="domain-names"></a>도메인 이름
 
-Domain Name System은 도메인 계층 구조입니다. 계층은 이름이 '**.**' 인 ' root ' 도메인에서 시작 합니다.  그 아래에 'com', 'net', 'org', 'uk' 또는 'jp'와 같은 최상위 도메인이 있습니다.  그 아래에 'org.uk' 또는 'co.jp'와 같은 두 번째 수준의 도메인이 있는 DNS 계층 구조의 도메인은 전체적으로 분산되며 전 세계의 DNS 이름 서버에서 호스팅됩니다.
+Domain Name System은 도메인 계층 구조입니다. 계층 구조는 이름이 단순히 ' **.** '인 'root' 도메인에서 시작합니다.  그 아래에 'com', 'net', 'org', 'uk' 또는 'jp'와 같은 최상위 도메인이 있습니다.  그 아래에 'org.uk' 또는 'co.jp'와 같은 두 번째 수준의 도메인이 있는 DNS 계층 구조의 도메인은 전체적으로 분산되며 전 세계의 DNS 이름 서버에서 호스팅됩니다.
 
-도메인 이름 등록자는와 같은 도메인 이름을 구입할 수 있는 조직입니다 `contoso.com` .  도메인 이름을 구매 하면 이름을 `www.contoso.com` 회사 웹 사이트에 전달할 수 있도록 하는 등의 방법으로 DNS 계층 구조를 제어 하는 권한을 부여 합니다. 등록 기관은 사용자 대신 자체 이름 서버에 도메인을 호스트하거나 사용자가 다른 이름 서버를 지정할 수 있습니다.
+도메인 이름 등록 기관은 `contoso.com`과 같은 도메인 이름을 구입할 수 있는 조직입니다.  도메인 이름을 구입할 경우 해당 이름 하의 DNS 계층 구조를 관리할 수 있습니다. 예를 들어, `www.contoso.com`이라는 이름을 회사 웹 사이트에 사용할 수 있습니다. 등록 기관은 사용자 대신 자체 이름 서버에 도메인을 호스트하거나 사용자가 다른 이름 서버를 지정할 수 있습니다.
 
 Azure DNS는 전 세계적으로 분산된 고가용성 이름 서버 인프라를 제공하므로 조직은 이러한 인프라를 사용하여 도메인을 호스팅할 수 있습니다. Azure에 도메인을 호스팅하면 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구를 사용하여 DNS 레코드를 관리할 수 있습니다.
 
@@ -82,7 +82,7 @@ SOA 레코드는 각 영역의 루트(name = '\@')에서 자동으로 생성되�
 
 SOA 레코드에서 'host' 속성(Azure DNS에서 제공한 기본 이름 서버 이름을 참조하도록 사전 구성됨)을 제외한 모든 속성을 수정할 수 있습니다.
 
-SOA 레코드의 영역 일련 번호는 영역에 레코드가 변경 될 때 자동으로 업데이트 되지 않습니다. 필요한 경우 SOA 레코드를 편집 하 여 수동으로 업데이트할 수 있습니다.
+SOA 레코드의 영역 일련 번호는 영역의 레코드가 변경될 때 자동으로 업데이트되지 않습니다. 필요한 경우 SOA 레코드를 편집하여 수동으로 업데이트할 수 있습니다.
 
 ### <a name="spf-records"></a>SPF 레코드
 
@@ -107,7 +107,7 @@ DNS 레코드의 여러 문자열을 TXT 레코드 집합의 여러 TXT 레코�
 
 ## <a name="tags-and-metadata"></a>태그 및 메타데이터
 
-### <a name="tags"></a>태그
+### <a name="tags"></a>태그들
 
 태그는 이름-값 쌍의 목록으로, Azure Resource Manager에서 리소스에 레이블을 지정하는 데 사용됩니다.  Azure Resource Manager는 태그를 사용하여 Azure 청구서를 필터링하여 표시할 수 있으며 태그가 필요한 정책을 설정할 수 있습니다. 태그에 대한 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md)을 참조하십시오.
 

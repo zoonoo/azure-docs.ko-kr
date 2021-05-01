@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a026d1c0c70fb210a1a24dd4a8d85beba97b9612
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: f670af1fca4b4638988e53075f092ca1bbac55b2
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124216"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104578263"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>사용자가 로그인하는 웹앱: 프로덕션으로 이동
 
@@ -53,7 +53,7 @@ The Microsoft.Identity.Web NuGet 패키지는 일반적인 SameSite 문제를 �
 
 이 자습서의 Node.js 웹에 대해 자세히 알아보세요.
 
-[자습서: Node.js 및 Express 웹앱에서 사용자 로그인](./tutorial-v2-nodejs-webapp-msal.md)
+[자습서: Node.js 및 Express 웹앱에서 사용자 로그인](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-nodejs-webapp-msal)
 
 ## <a name="sample-code-java-web-app"></a>샘플 코드: Java 웹앱
 

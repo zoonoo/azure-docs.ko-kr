@@ -1,5 +1,5 @@
 ---
-title: Azure AD 앱 승인 환경
+title: Azure AD 앱 동의 환경
 titleSuffix: Microsoft identity platform
 description: Azure AD에서 애플리케이션을 관리 및 개발할 때 Azure AD 동의 환경을 사용하는 방법을 확인하기 위해 해당 환경에 대해 알아보기
 services: active-directory
@@ -14,10 +14,10 @@ ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
 ms.openlocfilehash: c4a4af81c6a216119ae2e1b0221c06ddc349452f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92478136"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Azure AD 애플리케이션 동의 환경 이해
@@ -65,13 +65,13 @@ Azure AD(Azure Active Directory) 애플리케이션 동의 사용자 환경에 �
     
     2. 사용자에게는 기존의 동의 확인 프롬프트가 표시됩니다.
 
-        ![기존 동의 확인 프롬프트를 보여 주는 스크린샷](./media/application-consent-experience/consent_prompt_1b.png)
+        ![기존 동의 프롬프트를 보여 주는 스크린샷입니다.](./media/application-consent-experience/consent_prompt_1b.png)
 
 2. 권한 범위 밖에 있는 하나 이상의 사용 권한이 필요한 앱에 액세스하는 개인 사용자.
     1. 관리자에게는 위에 표시된 1.i과 동일한 프롬프트가 표시됩니다.
     2. 사용자는 애플리케이션에 대한 동의를 부여하는 것이 차단되므로 앱에 액세스하려면 관리자에게 요청하라는 메시지가 나타납니다. 
                 
-        ![관리자에 게 앱에 대 한 액세스를 요청 하도록 요청 하는 동의 프롬프트의 스크린샷](./media/application-consent-experience/consent_prompt_2b.png)
+        ![사용자에게 앱 액세스 권한을 관리자에게 요청하도록 알리는 동의 프롬프트 스크린샷입니다.](./media/application-consent-experience/consent_prompt_2b.png)
 
 3. 관리지 동의 흐름으로 이동하거나 안내되는 개인 사용자.
     1. 관리 사용자에게는 관리자 동의 확인 프롬프트가 표시됩니다. 이 프롬프트에서 제목 및 사용 권한 설명이 변경됐습니다. 이 변경 사항은 이 프롬프트에 대한 동의를 통해 전체 테넌트를 대신해 요청된 데이터에 대한 액세스 권한이 앱에 부여된다는 사실을 강조 표시합니다.
@@ -83,4 +83,4 @@ Azure AD(Azure Active Directory) 애플리케이션 동의 사용자 환경에 �
 ## <a name="next-steps"></a>다음 단계
 - [Azure AD 동의 프레임워크가 동의를 구현하는 방법](./quickstart-register-app.md)에 대한 단계별 개요 확인
 - 좀 더 깊이 있는 이해를 위해 [다중 테넌트 애플리케이션이 동의 프레임워크를 사용하여](./howto-convert-app-to-be-multi-tenant.md) "user" 및 "admin" 동의를 구현하고 좀 더 수준 높은 다중 계층 애플리케이션 패턴을 지원하는 방법 알아보기
-- [앱의 게시자 도메인을 구성 하는 방법](howto-configure-publisher-domain.md)에 대해 알아봅니다.
+- [앱의 게시자 도메인을 구성 하는 방법](howto-configure-publisher-domain.md)을 알아봅니다.

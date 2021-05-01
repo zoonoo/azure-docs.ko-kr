@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 09/11/2020
-ms.openlocfilehash: 15816d58105841ee53f3724158ebcbfa65df4877
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 584e1e943f215aa4a69368fb71cb3053b1444a01
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133136"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "94660222"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스에 대한 일반적인 질문
 
@@ -46,7 +46,7 @@ Microsoft는 많은 국가/지역에서 세금 납부를 관리하고 재판매�
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스에 대한 등록 수수료가 있나요?
 
-아니요. 상업용 마켓플레이스에 제품을 게시하는 데 드는 비용은 없습니다. Microsoft는 판매의 작은 비율을 거래 수수료로 유지하고 마켓플레이스 보상 프로그램, 플랫폼 혁신 및 상업용 마켓플레이스 운영에 투자합니다. 이 트랜잭션 요금은 [Azure IP 공동 판매](./co-sell-overview.md) 보상형 제품 및 하나의 Microsoft Teams 앱 또는 둘 이상의 Microsoft 365 추가 기능(Excel, PowerPoint, Word, Outlook 및 SharePoint)과 연결된 AppSource의 유료 SaaS 제품의 경우 줄어듭니다.
+아니요. 상업용 마켓플레이스에 제품을 게시하는 데 드는 비용은 없습니다. Microsoft는 판매의 작은 비율을 거래 수수료로 유지하고 마켓플레이스 보상 프로그램, 플랫폼 혁신 및 상업용 마켓플레이스 운영에 투자합니다. 이 트랜잭션 요금은 [Azure IP 공동 판매](./marketplace-co-sell.md) 보상형 제품 및 하나의 Microsoft Teams 앱 또는 둘 이상의 Microsoft 365 추가 기능(Excel, PowerPoint, Word, Outlook 및 SharePoint)과 연결된 AppSource의 유료 SaaS 제품의 경우 줄어듭니다.
 
 ### <a name="how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스에서 게시자로 가입하려면 어떻게 해야 하나요?
 

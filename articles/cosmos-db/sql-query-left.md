@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB 쿼리 언어 왼쪽
-description: Azure Cosmos DB에서 남은 SQL 시스템 함수에 대해 알아봅니다.
+title: Azure Cosmos DB 쿼리 언어의 LEFT
+description: Azure Cosmos DB의 SQL 시스템 함수 LEFT에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,13 +9,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 647bee87283f26b0d1ce832b2b2aaac690c05b92
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93333735"
 ---
-# <a name="left-azure-cosmos-db"></a>LEFT (Azure Cosmos DB)
+# <a name="left-azure-cosmos-db"></a>LEFT(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  지정된 수의 문자로 문자열의 왼쪽 부분을 반환합니다.  
@@ -32,13 +32,13 @@ LEFT(<str_expr>, <num_expr>)
    문자를 추출할 문자열 식입니다.  
   
 *num_expr*  
-   문자 수를 지정 하는 숫자 식입니다.  
+   문자 수를 지정하는 숫자 식입니다.  
   
 ## <a name="return-types"></a>반환 형식
   
   문자열 식을 반환합니다.  
   
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
   다음 예제에서는 다양한 길이 값에 대해 "abc"의 왼쪽 부분을 반환합니다.  
   

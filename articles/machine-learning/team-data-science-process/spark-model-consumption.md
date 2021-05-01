@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 659f61734001163ada6fd26caabe2fb007892f61
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4a8d46b5ff10fdaa62f7747aac654e0b1ca78c42
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104774493"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259152"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Spark에서 만든 Machine Learning 모델 운영
 
@@ -374,7 +374,8 @@ print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 위의 셀을 실행하는 데 걸린 시간: 19.22초
 
 ## <a name="score-a-linear-regression-model"></a>선형 회귀 모델 점수 매기기
-[LinearRegressionWithSGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD)를 사용하여 최적화를 위해 SGD(Stochastic Gradient Descent)를 통해, 지불한 팁 금액을 예측하는 선형 회귀 모델을 학습했습니다. 
+[LinearRegressionWithSGD](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.regression.LinearRegressionWithSGD.html
+)를 사용하여 최적화를 위해 SGD(Stochastic Gradient Descent)를 통해, 지불한 팁 금액을 예측하는 선형 회귀 모델을 학습했습니다. 
 
 이 섹션의 코드는 Azure Blob Storage에서 선형 회귀 모델을 로드하고 규모 조정된 변수를 사용하여 점수를 매긴 다음 결과를 blob에 다시 저장하는 방법을 보여 줍니다.
 

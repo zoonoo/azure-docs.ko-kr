@@ -1,30 +1,30 @@
 ---
 title: 로컬 캐시
-description: Azure App Service에서 로컬 캐시의 작동 방식, 앱의 로컬 캐시 상태를 사용 하도록 설정 하 고 크기를 조정 하 고 쿼리 하는 방법에 대해 알아봅니다.
+description: Azure App Service에서 로컬 캐시의 작동 방식 및 앱의 로컬 캐시를 사용하고, 크기를 조정하고, 상태를 쿼리하는 방법을 알아봅니다.
 tags: optional
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: 81782f63199a9fe8f43f56aeefcd1c68951d57a4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 462f37730d61a674edd463e57a98a1228c8ed611
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96852255"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967084"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure App Service 로컬 캐시 개요
 
 > [!NOTE]
-> [Windows 컨테이너](quickstart-custom-container.md?pivots=container-windows) 또는 [Linux의 App Service](overview.md#app-service-on-linux)와 같이 함수 앱 또는 컨테이너 화 된 App Service 앱에서 로컬 캐시는 지원 되지 않습니다.
+> 로컬 캐시는 [Windows 컨테이너](quickstart-custom-container.md?pivots=container-windows) 또는 [App Service on Linux](overview.md#app-service-on-linux) 등의 컨테이너화된 App Service 앱이나 함수 앱에서 지원되지 않습니다. 이러한 앱 유형에 사용할 수 있는 로컬 캐시 버전은 [앱 캐시](https://github.com/Azure-App-Service/KuduLite/wiki/App-Cache)입니다.
 
 
-Azure App Service 콘텐츠는 Azure Storage에 저장 되며 콘텐츠 공유로 지속적으로 노출 됩니다. 이 디자인은 다양한 앱으로 작업하기 위한 것이며, 다음과 같은 특성을 가집니다.  
+Azure App Service의 콘텐츠는 Azure Storage에 저장되며 영구적인 방식의 콘텐츠 공유로 표시됩니다. 이 디자인은 다양한 앱으로 작업하기 위한 것이며, 다음과 같은 특성을 가집니다.  
 
 * 콘텐츠는 앱의 여러 VM(가상 머신) 인스턴스 간에 공유됩니다.
 * 콘텐츠는 영구적이며 앱을 실행하여 수정할 수 있습니다.
 * 동일한 공유 콘텐츠 폴더 아래에서 로그 파일 및 진단 데이터 파일을 사용할 수 있습니다.
-* 새 콘텐츠를 직접 게시하면 콘텐츠 폴더가 업데이트됩니다. SCM 웹 사이트 및 실행 중인 응용 프로그램을 통해 동일한 콘텐츠를 즉시 볼 수 있습니다. 일반적으로 ASP.NET와 같은 일부 기술은 최신 콘텐츠를 가져오기 위해 일부 파일 변경에서 앱 다시 시작을 시작 합니다.
+* 새 콘텐츠를 직접 게시하면 콘텐츠 폴더가 업데이트됩니다. SCM 웹 사이트 및 실행 중인 앱을 통해 동일한 콘텐츠를 즉시 볼 수 있습니다. 일반적으로 ASP.NET과 같은 일부 기술은 몇 가지 파일 변경 내용에 대해 앱을 다시 시작하여 최신 콘텐츠를 가져옵니다.
 
 많은 앱에서 이러한 기능 중 하나 또는 모두를 사용하지만 일부 앱에서는 고가용성으로 실행할 수 있는 읽기 전용 콘텐츠 저장소 성능만 뛰어나면 됩니다. 이러한 앱은 특정 로컬 캐시의 VM 인스턴스 이점을 활용할 수 있습니다.
 
@@ -36,7 +36,7 @@ Azure App Service 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 제�
 
 ## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>로컬 캐시가 App Service 동작을 변경하는 방식
 * _D:\home_ 은 앱이 시작될 때 VM 인스턴스에서 만들어진 로컬 캐시를 가리킵니다. _D:\local_ 은 임시 VM 관련 스토리지를 계속 가리킵니다.
-* 로컬 캐시는 각각 _D:\home\site_ 및 _D:\home\siteextensions_ 에 공유 콘텐츠 저장소의 _/site_ 및 _/siteextensions_ 폴더에 대한 일회성 복사본을 포함합니다. 앱이 시작 되 면 파일이 로컬 캐시로 복사 됩니다. 각 앱에 대 한 두 폴더의 크기는 기본적으로 1gb로 제한 되지만 2gb로 증가할 수 있습니다. 캐시 크기가 늘어나면 캐시를 로드 하는 데 시간이 더 오래 걸립니다. 로컬 캐시 제한인 2gb로 증가 하 고 복사 된 파일이 최대 크기인 2gb를 초과 하는 경우 App Service 자동으로 로컬 캐시를 무시 하 고 원격 파일 공유에서 읽기를 자동으로 무시 합니다. 제한이 정의 되어 있지 않거나 제한이 2gb 보다 작은 값으로 설정 되 고 복사 된 파일이 제한을 초과 하는 경우 배포 또는 교환이 오류로 인해 실패할 수 있습니다.
+* 로컬 캐시는 각각 _D:\home\site_ 및 _D:\home\siteextensions_ 에 공유 콘텐츠 저장소의 _/site_ 및 _/siteextensions_ 폴더에 대한 일회성 복사본을 포함합니다. 파일은 앱이 시작될 때 로컬 캐시에 복사됩니다. 각 앱에서 두 폴더의 크기는 기본적으로 1GB로 제한되지만 최대 2GB로 증가될 수 있습니다. 캐시 크기가 늘어나면 캐시를 로드하는 시간이 더 오래 걸립니다. 로컬 캐시 제한을 2GB로 늘렸으며 복사된 파일이 최대 크기인 2GB를 초과하는 경우 App Service는 자동으로 로컬 캐시를 무시하고 원격 파일 공유에서 읽습니다. 제한이 정의되어 있지 않거나 제한이 2GB 미만으로 설정되어 있고 복사된 파일이 제한을 초과하는 경우 배포 또는 전환이 오류로 인해 실패할 수 있습니다.
 * 로컬 캐시는 읽기/쓰기가 가능합니다. 그러나 앱이 가상 머신을 이동하거나 다시 시작된 경우 모든 수정 내용이 삭제됩니다. 중요 업무용 데이터를 콘텐츠 저장소에 저장하는 앱에 로컬 캐시를 사용해서는 안 됩니다.
 * _D:\home\LogFiles_ 및 _D:\home\Data_ 에는 로그 파일 및 앱 데이터가 포함됩니다. 두 개의 하위 폴더가 VM 인스턴스에 로컬로 저장되고 공유 콘텐츠 저장소에 주기적으로 복사됩니다. 앱은 로그 파일 및 데이터를 이러한 폴더에 써서 유지할 수 있습니다. 그러나 공유 콘텐츠 저장소로의 복사는 최상의 노력 방식을 따르므로 VM 인스턴스의 갑작스러운 작동 중단으로 인해 로그 파일 및 데이터가 손실될 수 있습니다.
 * [로그 스트리밍](troubleshoot-diagnostic-logs.md#stream-logs)은 최상의 노력 복사의 영향을 받습니다. 스트리밍된 로그에서 최대 1분의 지연을 확인할 수 있습니다.
@@ -48,7 +48,7 @@ Azure App Service 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 제�
 ## <a name="enable-local-cache-in-app-service"></a>App Service에서 로컬 캐시 사용 
 
 > [!NOTE]
-> 로컬 캐시는 **F1** 또는 **D1** 계층에서 지원 되지 않습니다. 
+> 로컬 캐시는 **F1** 또는 **D1** 계층에서 지원되지 않습니다. 
 
 로컬 캐시는 예약된 앱 설정 조합을 사용하여 구성됩니다. 다음과 같은 방법으로 이러한 앱 설정을 구성할 수 있습니다.
 
@@ -87,7 +87,7 @@ Azure App Service 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 제�
 ```
 
 ## <a name="change-the-size-setting-in-local-cache"></a>로컬 캐시에서 크기 설정 변경
-기본적으로 로컬 캐시 크기는 **1gb** 입니다. 여기에는 Site 폴더, 콘텐츠 저장소에서 복사된 SiteExtensions 폴더, 로컬로 만든 모든 로그 및 데이터 폴더가 포함됩니다. 이 한도를 늘리려면 앱 설정 `WEBSITE_LOCAL_CACHE_SIZEINMB`를 사용합니다. 앱당 최대 **2GB**(2000MB)로 늘릴 수 있습니다. 크기를 늘릴 때 로컬 캐시를 로드 하는 데 시간이 더 오래 걸립니다.
+기본적으로 로컬 캐시 크기는 **1GB** 입니다. 여기에는 Site 폴더, 콘텐츠 저장소에서 복사된 SiteExtensions 폴더, 로컬로 만든 모든 로그 및 데이터 폴더가 포함됩니다. 이 한도를 늘리려면 앱 설정 `WEBSITE_LOCAL_CACHE_SIZEINMB`를 사용합니다. 앱당 최대 **2GB**(2000MB)로 늘릴 수 있습니다. 크기를 늘리면 로컬 캐시를 로드하는 시간이 더 오래 걸립니다.
 
 ## <a name="best-practices-for-using-app-service-local-cache"></a>App Service 로컬 캐시 사용에 대한 모범 사례
 로컬 캐시는 [스테이징 환경](../app-service/deploy-staging-slots.md) 기능과 함께 사용하는 것이 좋습니다.
@@ -106,11 +106,11 @@ Azure App Service 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 제�
 ### <a name="how-can-i-tell-if-my-site-has-switched-to-using-local-cache"></a>사이트가 로컬 캐시를 사용하도록 전환되었는지 어떻게 알 수 있나요?
 스테이징 환경에서 로컬 캐시 기능을 사용하는 경우 로컬 캐시가 준비될 때까지 교환 작업이 완료되지 않습니다. 사이트가 로컬 캐시에 대해 실행되고 있는지 알아보려면 작업자 프로세스 환경 변수 `WEBSITE_LOCALCACHE_READY`를 확인하세요. [작업자 프로세스 환경 변수](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) 페이지의 지침을 사용하여 여러 인스턴스에서 작업자 프로세스 환경 변수에 액세스할 수 있습니다.  
 
-### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>방금 새 변경 내용을 게시했지만 앱에 없는 것 같습니다. 이유
+### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>방금 새 변경 내용을 게시했지만 앱에 없는 것 같습니다. 그 이유는
 앱에서 로컬 캐시를 사용하는 경우 최신 변경 내용을 가져오려면 사이트를 다시 시작해야 합니다. 프로덕션 사이트에 변경 내용을 게시하고 싶지 않으신가요? 이전 모범 사례 섹션에서 슬롯 옵션을 참조하세요.
 
 > [!NOTE]
-> [패키지 배포에서 실행](deploy-run-package.md) 옵션은 로컬 캐시와 호환 되지 않습니다.
+> [패키지에서 실행](deploy-run-package.md) 배포 옵션은 로컬 캐시와 호환되지 않습니다.
 
 ### <a name="where-are-my-logs"></a>내 로그는 어디에 있나요?
 로컬 캐시를 사용하는 경우 로그 폴더와 데이터 폴더가 서로 약간 다르게 표시됩니다. 그러나 하위 폴더의 구조는 하위 폴더가 "고유한 VM 식별자" + 타임스탬프 형식의 하위 폴더 아래에 중첩된다는 점을 제외하고는 동일하게 유지됩니다.
@@ -121,5 +121,5 @@ Azure App Service 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 제�
 ### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>로컬 캐시는 더 빠른 로컬 드라이브로 복사할 대상에서 디렉터리를 제외합니까?
 스토리지 콘텐츠를 복사하는 단계의 일부로 리포지토리로 이름이 지정된 모든 폴더가 제외됩니다. 이는 사용자 사이트 콘텐츠에 앱의 일상적인 작업에 불필요할 수도 있는 소스 제어 리포지토리가 포함될 수 있는 시나리오에 유용합니다. 
 
-### <a name="how-to-flush-the-local-cache-logs-after-a-site-management-operation"></a>사이트 관리 작업 후 로컬 캐시 로그를 플러시하는 방법
-로컬 캐시 로그를 플러시하려면 앱을 중지 하 고 다시 시작 합니다. 이 작업을 수행 하면 이전 캐시가 지워집니다. 
+### <a name="how-to-flush-the-local-cache-logs-after-a-site-management-operation"></a>사이트 관리 작업 후에 로컬 캐시 로그를 플러시하는 방법은 무엇인가요?
+로컬 캐시 로그를 플러시하려면 앱을 중지한 후 다시 시작합니다. 이 작업을 수행하면 이전 캐시가 지워집니다. 

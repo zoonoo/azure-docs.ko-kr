@@ -1,21 +1,21 @@
 ---
 title: Azure Machine Learning 디자이너를 사용하여 일괄 처리 예측 실행
 titleSuffix: Azure Machine Learning
-description: 일괄 처리 예측 파이프라인을 만드는 방법에 대해 알아봅니다. 파이프라인을 매개 변수가 있는 웹 서비스로 배포 하 고 모든 HTTP 라이브러리에서 트리거합니다.
+description: 일괄 처리 예측 파이프라인을 만드는 방법을 알아봅니다. 파이프라인을 매개 변수가 있는 웹 서비스로 배포하고 HTTP 라이브러리에서 트리거합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 02/05/2020
+ms.date: 02/05/2021
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: dda47d3ff561d4d57045dbb28f8c411e193086d5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 34d0d31296214355b85c52e4564e9bf6658b2005
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101657379"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962937"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너를 사용하여 일괄 처리 예측 실행
 
@@ -74,9 +74,9 @@ SDK를 사용하여 일괄 처리 채점 서비스를 설정하는 방법에 대
     > [!div class="mx-imgBorder"]
     > ![데이터 집합을 파이프라인 매개 변수로 설정](./media/how-to-run-batch-predictions-designer/set-dataset-as-pipeline-parameter.png)
 
-## <a name="publish-your-batch-inference-pipeline"></a>일괄 처리 유추 파이프라인 게시
+## <a name="publish-your-batch-inference-pipeline"></a>일괄 처리 추론 파이프라인 게시
 
-이제 유추 파이프라인을 배포할 준비가 되었습니다. 이로써 파이프라인을 배포하고 다른 사용자가 사용할 수 있도록 합니다.
+이제 추론 파이프라인을 배포할 준비가 되었습니다. 이로써 파이프라인을 배포하고 다른 사용자가 사용할 수 있도록 합니다.
 
 1. **게시** 단추를 선택합니다.
 
@@ -129,7 +129,7 @@ SDK를 사용하여 일괄 처리 채점 서비스를 설정하는 방법에 대
 
 파이프라인 엔드포인트의 REST 엔드포인트는 실행 개요 패널에서 찾을 수 있습니다. 엔드포인트를 호출하여 기본 게시된 파이프라인을 사용 중입니다.
 
-**게시된 파이프라인** 페이지에서 게시된 파이프라인을 사용할 수도 있습니다. 게시 된 파이프라인을 선택 하 고 그래프의 오른쪽에 있는 **게시 된 파이프라인 개요** 패널에서 해당 파이프라인의 REST 끝점을 찾을 수 있습니다. 
+**게시된 파이프라인** 페이지에서 게시된 파이프라인을 사용할 수도 있습니다. 게시된 파이프라인을 선택하고 그래프의 오른쪽에 있는 **게시된 파이프라인 개요** 패널에서 해당 파이프라인의 REST 엔드포인트를 찾을 수 있습니다. 
 
 REST 호출을 수행하려면 OAuth 2.0 전달자 유형 인증 헤더가 필요합니다. 작업 영역에 대한 인증을 설정하고 매개 변수가 있는 REST 호출을 수행하는 방법에 대한 자세한 내용은 다음 [자습서 섹션](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint)을 참조하세요.
 
@@ -143,13 +143,13 @@ REST 호출을 수행하려면 OAuth 2.0 전달자 유형 인증 헤더가 필�
 
 엔드포인트의 **게시된 파이프라인** 탭에서 새 기본 파이프라인을 설정할 수도 있습니다.
 
-![게시 된 파이프라인 페이지에서 기본 파이프라인 설정](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
+![게시된 파이프라인 페이지에서 기본 파이프라인 설정](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
 ## <a name="limitations"></a>제한 사항
 
-학습 파이프라인을 수정 하는 경우 학습 파이프라인을 다시 제출 하 고 유추 파이프라인을 **업데이트**  한 다음 유추 파이프라인을 다시 실행 해야 합니다.
+학습 파이프라인을 수정하는 경우 학습 파이프라인을 다시 제출하고 추론 파이프라인을 **업데이트** 한 후에 추론 파이프라인을 다시 실행해야 합니다.
 
-모델은 유추 파이프라인에서 업데이트 되지만 데이터 변환은 업데이트 되지 않습니다.
+추론 파이프라인에서는 모델만 업데이트되며 데이터 변환은 업데이트되지 않습니다.
 
 업데이트된 변환을 유추 파이프라인에서 사용하려면 변환 모듈의 변환 출력을 데이터 세트로 등록해야 합니다.
 
@@ -159,9 +159,10 @@ REST 호출을 수행하려면 OAuth 2.0 전달자 유형 인증 헤더가 필�
 
 ![변환 모듈을 바꾸는 방법을 보여주는 스크린샷](./media/how-to-run-batch-predictions-designer/replace-td-module-batch-inference-pipeline.png)
 
-그런 다음 업데이트 된 모델 및 변환과 함께 유추 파이프라인을 제출 하 고 게시할 수 있습니다.
+그러면 업데이트된 모델과 변환이 적용된 추론 파이프라인을 제출하고 배포할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 디자이너 [자습서](tutorial-designer-automobile-price-train-score.md)에 따라 회귀 모델을 학습하고 배포합니다.
-''
+
+SDK를 사용하여 게시된 파이프라인을 게시 및 실행하는 방법은 [이 문서](how-to-deploy-pipelines.md)를 참조하세요.

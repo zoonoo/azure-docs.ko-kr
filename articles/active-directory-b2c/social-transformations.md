@@ -1,7 +1,7 @@
 ---
-title: 사용자 지정 정책에 대 한 소셜 계정 클레임 변환 예제
+title: 사용자 지정 정책에 대한 소셜 계정 클레임 변환 예제
 titleSuffix: Azure AD B2C
-description: Azure Active Directory B2C의 IEF (Identity Experience Framework) 스키마에 대 한 소셜 계정 클레임 변환 예입니다.
+description: Azure Active Directory B2C의 IEF(Identity Experience Framework) 스키마에 대한 소셜 계정 클레임 변환 예제입니다.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,17 +12,17 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c60cecb9d6bfeeefc0569a1a57185d13f0c6442f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94953120"
 ---
 # <a name="social-accounts-claims-transformations"></a>소셜 계정 클레임 변환
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C)에서 소셜 계정 id는 `userIdentities` **alternativeSecurityIdCollection** 클레임 유형의 특성에 저장 됩니다. **alternativeSecurityIdCollection** 의 각 항목은 발급자(ID 공급자 이름, 예: facebook.com) 및 발급자의 고유한 사용자 식별자인 `issuerUserId`를 지정합니다.
+Azure AD B2C(Azure Active Directory B2C)에서 소셜 계정 ID는 **alternativeSecurityIdCollection** 클레임 유형의 `userIdentities` 특성에 저장됩니다. **alternativeSecurityIdCollection** 의 각 항목은 발급자(ID 공급자 이름, 예: facebook.com) 및 발급자의 고유한 사용자 식별자인 `issuerUserId`를 지정합니다.
 
 ```json
 "userIdentities": [{
@@ -39,7 +39,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 소셜 계정 id는 `userIdentit
 
 ## <a name="createalternativesecurityid"></a>CreateAlternativeSecurityId
 
-Azure Active Directory 호출에서 사용할 수 있는, 사용자의 alternativeSecurityId 속성에 대한 JSON 표현을 만듭니다. 자세한 내용은 [AlternativeSecurityId](/graph/api/resources/alternativesecurityid) 스키마를 참조 하세요.
+Azure Active Directory 호출에서 사용할 수 있는, 사용자의 alternativeSecurityId 속성에 대한 JSON 표현을 만듭니다. 자세한 내용은 [AlternativeSecurityId](/graph/api/resources/alternativesecurityid) 스키마를 참조하세요.
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
@@ -147,7 +147,7 @@ Azure Active Directory 호출에서 사용할 수 있는, 사용자의 alternati
 1. **AAD-UserReadUsingAlternativeSecurityId** 및 **AAD-UserReadUsingObjectId** 기술 프로필에서 사용자의 **alternativeSecurityIds** 클레임을 출력합니다.
 2. 사용자에게 이 사용자와 연결된 ID 공급자 목록에서 제거할 소셜 계정을 선택하도록 요청합니다.
 3. ID 공급자 이름을 사용하여 선택한 소셜 ID를 제거한 **RemoveAlternativeSecurityIdByIdentityProvider** 클레임 변환을 호출하는 클레임 변환 기술 프로필을 호출합니다.
-4. **AlternativeSecurityIds** 클레임을 사용자 계정에 유지 합니다.
+4. **alternativeSecurityIds** 클레임을 사용자 계정에 저장합니다.
 
 ```xml
 <ClaimsTransformation Id="RemoveAlternativeSecurityIdByIdentityProvider" TransformationMethod="RemoveAlternativeSecurityIdByIdentityProvider">

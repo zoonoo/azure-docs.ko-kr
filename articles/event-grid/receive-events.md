@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 75c80fb85d39298f1130537971bc700897c039d0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96023726"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>HTTP 엔드포인트에서 이벤트 수신
@@ -18,13 +18,13 @@ ms.locfileid: "96023726"
 > [!NOTE]
 > Event Grid로 Azure Function을 트리거할 때는 [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md)를 사용하는 것이 **좋습니다**. 여기서 사용된 일반 웹후크 트리거는 데모용입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 HTTP 트리거 함수가 있는 함수 앱이 필요합니다.
 
 ## <a name="add-dependencies"></a>종속성 추가
 
-.NET에서 개발 하는 경우 NuGet 패키지에 대 한 함수에 [종속성을 추가](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) `Microsoft.Azure.EventGrid` [](https://www.nuget.org/packages/Microsoft.Azure.EventGrid)합니다. 이 문서의 예제에는 버전 1.4.0 이상이 필요합니다.
+.NET에서 개발할 때는 함수에 `Microsoft.Azure.EventGrid` [NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.EventGrid)의 [종속성을 추가](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies)합니다. 이 문서의 예제에는 버전 1.4.0 이상이 필요합니다.
 
 다른 언어에 대한 SDK는 [SDK 게시](./sdk-overview.md#data-plane-sdks) 참조에서 제공합니다. 이 패키지에는 `EventGridEvent`, `StorageBlobCreatedEventData`, `EventHubCaptureFileCreatedEventData` 같은 원시 이벤트 형식의 모델이 있습니다.
 

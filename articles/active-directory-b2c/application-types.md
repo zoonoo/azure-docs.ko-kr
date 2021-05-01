@@ -1,7 +1,7 @@
 ---
-title: Azure AD B2C에서 지 원하는 응용 프로그램 유형
+title: Azure AD B2C에서 지원하는 애플리케이션 형식
 titleSuffix: Azure AD B2C
-description: Azure Active Directory B2C에서 사용할 수 있는 응용 프로그램 유형에 대해 알아봅니다.
+description: Azure Active Directory B2C에 사용할 수 있는 애플리케이션 형식을 알아봅니다.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,22 +12,22 @@ ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 07897823a3ba3b83e240e8e8dc005ea13b036fce
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94952049"
 ---
-# <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Active Directory B2C에서 사용할 수 있는 응용 프로그램 유형
+# <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Active Directory B2C에서 사용할 수 있는 애플리케이션 형식
  
-Azure Active Directory B2C (Azure AD B2C)는 다양 한 최신 응용 프로그램 아키텍처에 대 한 인증을 지원 합니다. 모두 업계 표준 프로토콜인 [OAuth 2.0](protocols-overview.md) 또는 [OpenID Connect](protocols-overview.md)를 기반으로 합니다. 이 문서에서는 선호 하는 언어 또는 플랫폼에 독립적으로 빌드할 수 있는 응용 프로그램의 유형을 설명 합니다. 또한 애플리케이션 빌드를 시작하기 전에 대략적인 시나리오에 대한 이해를 돕습니다.
+Azure AD B2C(Azure Active Directory B2C)는 다양한 최신 애플리케이션 아키텍처의 인증을 지원합니다. 모두 업계 표준 프로토콜인 [OAuth 2.0](protocols-overview.md) 또는 [OpenID Connect](protocols-overview.md)를 기반으로 합니다. 이 문서에서는 선호하는 언어 또는 플랫폼에 독립적으로 빌드할 수 있는 애플리케이션 형식을 설명합니다. 또한 애플리케이션 빌드를 시작하기 전에 대략적인 시나리오에 대한 이해를 돕습니다.
 
-Azure AD B2C를 사용 하는 모든 응용 프로그램은 [Azure Portal](https://portal.azure.com/)을 사용 하 여 [Azure AD B2C 테 넌 트](tutorial-create-tenant.md) 에 등록 해야 합니다. 애플리케이션 등록 프로세스는 다음과 같은 값을 수집하고 할당합니다.
+Azure AD B2C를 사용하는 모든 애플리케이션은 [Azure Portal](https://portal.azure.com/)을 사용하여 [Azure AD B2C 테넌트](tutorial-create-tenant.md)에 등록해야 합니다. 애플리케이션 등록 프로세스는 다음과 같은 값을 수집하고 할당합니다.
 
 * 애플리케이션을 고유하게 식별하는 **애플리케이션 ID**
 * 응답을 다시 애플리케이션으로 보내는 데 사용할 수 있는 **회신 URL**
 
-Azure AD B2C로 전송 되는 각 요청은 **사용자 흐름** (기본 제공 정책) 또는 Azure AD B2C 동작을 제어 하는 **사용자 지정 정책을** 지정 합니다. 두 정책 유형 모두 사용자 환경을 사용자 지정 하는 사용자 환경을 만들 수 있습니다.
+Azure AD B2C에 전송되는 각 요청은 Azure AD B2C의 동작을 제어하는 **사용자 흐름**(기본 제공 정책) 또는 **사용자 지정 정책** 을 지정합니다. 두 정책 형식 모두 사용자 환경의 사용자 지정할 수 있는 집합을 만들 수 있습니다.
 
 모든 애플리케이션의 상호 작용은 높은 수준에서 비슷한 패턴을 따릅니다.
 
@@ -119,7 +119,7 @@ Web API는 웹 애플리케이션, 데스크톱 및 모바일 애플리케이션
 6. `access_token` 및 `refresh_token`이 웹 서버에 반환됩니다.
 7. 웹 API가 권한 부여 헤더에서 `access_token`을 사용하여 호출됩니다.
 8. 웹 API에서 토큰의 유효성을 검사합니다.
-9. 보안 데이터는 웹 응용 프로그램에 반환 됩니다.
+9. 보안 데이터가 웹 애플리케이션에 반환됩니다.
 
 권한 부여 코드, 새로 고침 토큰 및 토큰을 가져오는 단계에 대한 자세한 내용은 [OAuth 2.0 프로토콜](authorization-code-flow.md)을 참조하세요.
 
@@ -139,15 +139,15 @@ Azure AD B2C를 사용하여 Web API를 보호하는 방법을 알아보려면 [
 
 장기 실행 프로세스를 포함하거나 사용자 없이 작동하는 애플리케이션은 Web API와 같은 보안 리소스에 액세스하는 방법도 필요합니다. 이러한 애플리케이션은 사용자의 위임된 ID 대신 애플리케이션의 ID를 사용하거나 OAuth 2.0 클라이언트 자격 증명 흐름을 사용하여 인증하고 토큰을 가져올 수 있습니다. 클라이언트 자격 증명 흐름은 대리 흐름과 동일하지 않으며 대리 흐름은 서버 간 인증에 사용하지 않아야 합니다.
 
-OAuth 2.0 클라이언트 자격 증명 부여 흐름은 현재 Azure AD B2C 인증 서비스에서 직접 지원 되지 않지만, Azure AD B2C 테 넌 트에서 응용 프로그램에 대 한 Microsoft identity platform/token 끝점 및 Azure AD를 사용 하 여 클라이언트 자격 증명 흐름을 설정할 수 있습니다. Azure AD B2C 테넌트는 Azure AD Enterprise 테넌트와 일부 기능을 공유합니다.
+OAuth 2.0 클라이언트 자격 증명 권한 부여 흐름은 현재 Azure AD B2C 인증 서비스를 통해 직접 지원되지 않지만, Azure AD B2C 테넌트에서 애플리케이션에 대해 Azure AD 및 Microsoft ID 플랫폼/토큰 엔드포인트를 사용하여 클라이언트 자격 증명 흐름을 설정할 수 있습니다. Azure AD B2C 테넌트는 Azure AD Enterprise 테넌트와 일부 기능을 공유합니다.
 
 클라이언트 자격 증명 흐름을 설정하려면 [Azure Active Directory v2.0 및 OAuth 2.0 클라이언트 자격 증명 흐름](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md)을 참조하세요. 인증에 성공하면 [Azure AD 토큰 참조](../active-directory/develop/id-tokens.md)에 설명된 대로 Azure AD에서 사용할 수 있도록 형식이 지정된 토큰을 수신합니다.
 
-관리 응용 프로그램을 등록 하는 방법에 대 한 지침은 [Microsoft Graph를 사용 하 여 Azure AD B2C 관리](microsoft-graph-get-started.md)를 참조 하세요.
+관리 애플리케이션 등록 지침은 [Microsoft Graph를 사용하여 Azure AD B2C 관리](microsoft-graph-get-started.md)를 참조하세요.
 
 #### <a name="web-api-chains-on-behalf-of-flow"></a>Web API 체인(On-Behalf-Of 흐름)
 
-많은 아키텍처에는 다른 다운스트림 Web API를 호출해야 하는 Web API가 포함되어 있으며 둘 다 Azure AD B2C로 보안됩니다. 이 시나리오는 Web API 백 엔드를 포함 하는 네이티브 클라이언트에서 일반적 이며 Microsoft Graph API와 같은 Microsoft 온라인 서비스를 호출 합니다.
+많은 아키텍처에는 다른 다운스트림 Web API를 호출해야 하는 Web API가 포함되어 있으며 둘 다 Azure AD B2C로 보안됩니다. 웹 API 백 엔드를 포함하는 네이티브 클라이언트에서 일반적으로 수행되는 이 시나리오에서는 Microsoft Graph API 등의 Microsoft 온라인 서비스를 호출합니다.
 
 On-Behalf-Of 흐름이라고도 하는 OAuth 2.0 JWT 전달자 자격 증명 권한 부여를 사용하여 이 연결된 Web API 시나리오를 지원할 수 있습니다.  그러나 On-Behalf-Of 흐름은 현재 Azure AD B2C에 구현되어 있지 않습니다.
 
@@ -164,4 +164,4 @@ Azure Portal 외부에서 Azure AD B2C 애플리케이션을 편집하는 경우
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Active Directory B2C에서 사용자 흐름이](user-flow-overview.md)제공 하는 기본 제공 정책에 대해 자세히 알아보세요.
+[Azure Active Directory B2C에서 사용자 흐름](user-flow-overview.md)을 통해 제공되는 기본 제공 정책에 대한 자세한 내용을 알아봅니다.

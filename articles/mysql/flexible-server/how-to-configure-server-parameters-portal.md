@@ -1,53 +1,53 @@
 ---
-title: 서버 매개 변수 구성-Azure Portal-유연한 서버 Azure Database for MySQL
-description: 이 문서에서는 Azure Portal를 사용 하 Azure Database for MySQL 유연한 서버에서 MySQL 서버 매개 변수를 구성 하는 방법을 설명 합니다.
+title: 서버 매개 변수 구성 - Azure Portal - Azure Database for MySQL 유연한 서버
+description: 이 문서에서는 Azure Portal을 사용하여 Azure Database for MySQL 유연한 서버에서 MySQL 서버 매개 변수를 구성하는 방법을 설명합니다.
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 11/10/2020
 ms.openlocfilehash: 618862e12bd62fbe37ef5e621c89babd7942c04b
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105106958"
 ---
-# <a name="configure-server-parameters-in-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MySQL 유연한 서버에서 서버 매개 변수 구성
+# <a name="configure-server-parameters-in-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL - 유연한 서버에서 서버 매개 변수 구성
 
 > [!IMPORTANT] 
 > Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
-서버 매개 변수를 사용 하 여 유연한 서버 구성 Azure Database for MySQL 관리할 수 있습니다. 서버 매개 변수는 서버를 만들 때 기본 및 권장 값으로 구성 됩니다.  
+서버 매개 변수를 사용하여 Azure Database for MySQL 유연한 서버 구성을 관리할 수 있습니다. 서버 매개 변수는 서버를 만들 때 기본 값/권장 값으로 구성됩니다.  
 
-이 문서에서는 Azure Portal를 사용 하 여 서버 매개 변수를 확인 하 고 구성 하는 방법을 설명 합니다. Azure Portal의 서버 매개 변수 블레이드에는 수정 가능 하 고 수정 불가능 한 서버 매개 변수가 모두 표시 됩니다. 수정할 수 없는 서버 매개 변수는 회색으로 표시 됩니다.
+이 문서에서는 Azure Portal을 사용하여 서버 매개 변수를 보고 구성하는 방법을 설명합니다. Azure Portal의 서버 매개 변수 블레이드에는 수정 가능/불가능한 서버 매개 변수가 모두 표시됩니다. 수정 불가능한 서버 매개 변수는 회색으로 표시됩니다.
 
 >[!Note]
-> 서버 매개 변수는 서버 수준에서 전역적으로 업데이트 될 수 있으며 [Azure CLI](./how-to-configure-server-parameters-cli.md) 또는 [Azure Portal](./how-to-configure-server-parameters-portal.md)를 사용할 수 있습니다.
+> 서버 매개 변수는 서버 수준에서 전역적으로 업데이트될 수 있으며, [Azure CLI](./how-to-configure-server-parameters-cli.md), [Azure Portal](./how-to-configure-server-parameters-portal.md)을 사용합니다.
 
 ## <a name="configure-server-parameters"></a>서버 매개 변수 구성
 
-1. [Azure Portal](https://portal.azure.com)에 로그인 한 다음 유연한 Azure Database for MySQL 서버를 찾습니다.
-2. **설정** 섹션에서 **서버 매개 변수** 를 클릭 하 여 Azure Database for MySQL 유연한 서버에 대 한 서버 매개 변수 페이지를 엽니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인한 다음 Azure Database for MySQL 유연한 서버를 찾습니다.
+2. **설정** 섹션에서 **서버 매개 변수** 를 클릭하여 Azure Database for MySQL 유연한 서버에 대한 서버 매개 변수 페이지를 엽니다.
 [:::image type="content" source="./media/how-to-server-parameters/azure-portal-server-parameters.png" alt-text="Azure Portal 서버 매개 변수 페이지":::](./media/how-to-server-parameters/azure-portal-server-parameters.png#lightbox)
-3. 조정 해야 하는 서버 매개 변수를 찾습니다. **설명** 열을 검토하여 용도 및 허용되는 값을 이해합니다.
+3. 조정해야 하는 서버 매개 변수를 모두 찾습니다. **설명** 열을 검토하여 용도 및 허용되는 값을 이해합니다.
 [:::image type="content" source="./media/how-to-server-parameters/3-toggle-parameter.png" alt-text="드롭다운 열거":::](./media/how-to-server-parameters/3-toggle-parameter.png#lightbox)
-4. **저장** 을 클릭 하 여 변경 내용을 저장 합니다.
+4. **저장** 을 클릭하여 변경 내용을 저장합니다.
 [:::image type="content" source="./media/how-to-server-parameters/4-save-parameters.png" alt-text="변경 내용 저장 또는 취소":::](./media/how-to-server-parameters/4-save-parameters.png#lightbox)
-5. 정적 매개 변수는 서버를 다시 부팅 해야 적용 됩니다. 정적 매개 변수를 수정 하는 경우 **지금 다시 시작** 하거나 **나중에 다시 시작** 하 라는 메시지가 표시 됩니다.
+5. 정적 매개 변수는 적용하려면 서버를 다시 부팅해야 하는 매개 변수입니다. 정적 매개 변수를 수정하는 경우 **지금 다시 시작** 하거나 **나중에 다시 시작** 하라는 메시지가 표시됩니다.
 [:::image type="content" source="./media/how-to-server-parameters/5-save-parameter.png" alt-text="정적 매개 변수 저장 시 다시 시작":::](./media/how-to-server-parameters/5-save-parameter.png#lightbox)
 6. 매개 변수에 새 값을 저장한 경우 언제든지 **모두 기본값으로 다시 설정** 을 선택하여 모든 항목을 기본값으로 되돌릴 수있습니다.
 [:::image type="content" source="./media/how-to-server-parameters/6-reset-parameters.png" alt-text="모두 기본값으로 다시 설정":::](./media/how-to-server-parameters/6-reset-parameters.png#lightbox)
 
-## <a name="setting-non-modifiable-server-parameters"></a>수정할 수정 불가능 서버 매개 변수 설정
+## <a name="setting-non-modifiable-server-parameters"></a>수정 불가능한 서버 매개 변수 설정
 
-업데이트 하려는 서버 매개 변수를 수정할 수 없는 경우 필요에 따라를 사용 하 여 연결 수준에서 매개 변수를 설정할 수 있습니다 `init_connect` . 서버에 연결 하는 각 클라이언트에 대 한 서버 매개 변수를 설정 합니다. 
+업데이트하려는 서버 매개 변수가 수정 불가능한 경우 필요에 따라 `init_connect`을(를) 사용하여 연결 수준에서 매개 변수를 설정할 수 있습니다. 여기에서는 서버에 연결하는 각 클라이언트에 대한 서버 매개 변수를 설정합니다. 
 
 1. **설정** 섹션에서 **서버 매개 변수** 를 클릭하여 Azure Database for MySQL 서버에 대한 서버 매개 변수 페이지를 엽니다.
-2. 검색 `init_connect`
-3. 서버 매개 변수를 다음 형식으로 추가 합니다. 값 열에 값을 추가 `SET parameter_name=YOUR_DESIRED_VALUE` 합니다.
+2. `init_connect` 검색
+3. 값 열의 값에 `SET parameter_name=YOUR_DESIRED_VALUE` 형식으로 서버 매개 변수를 추가합니다.
 
-    예를 들어를로 설정 하 여 서버의 문자 집합을 변경할 수 있습니다. `init_connect``SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`
+    예를 들면 `init_connect`을(를) `SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`(으)로 설정하여 서버 문자 집합을 변경할 수 있습니다.
 4. **저장** 을 클릭하여 변경 내용을 저장합니다.
 
 >[!Note]
@@ -93,4 +93,4 @@ SET time_zone = 'US/Pacific';
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure CLI에서 서버 매개 변수](./how-to-configure-server-parameters-cli.md) 를 구성 하는 방법
+- [Azure CLI에서 서버 매개 변수](./how-to-configure-server-parameters-cli.md)를 구성하는 방법

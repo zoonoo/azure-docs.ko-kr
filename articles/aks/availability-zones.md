@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 03/16/2021
-ms.openlocfilehash: 6123b040be8076c3b05f0dc81e6ac707dc38d0ed
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 4c5b0ceb3f8e0b96f18a67ed0c7dbf1b56ac30da
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108017855"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104583550"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>가용성 영역을 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기
 
@@ -54,7 +54,7 @@ AKS 클러스터는 현재 다음 지역에서 가용성 영역을 사용하여 
 
 ### <a name="azure-disks-limitations"></a>Azure 디스크 제한 사항
 
-Azure 관리형을 사용하는 볼륨은 현재 영역 중복 리소스가 아닙니다. 볼륨은 영역 간에 연결될 수 없으며 대상 Pod를 호스트하는 지정된 노드와 같은 영역에 공동 배치되어야 합니다.
+Azure 관리형을 사용하는 볼륨은 현재 영역 중복 리소스가 아닙니다. 볼륨은 영역에 연결할 수 없으며 대상 Pod를 호스트하는 지정된 노드와 동일한 영역에 함께 배치되어야 합니다.
 
 Kubernetes는 버전 1.12부터 Azure 가용성 영역을 인식합니다. Azure Managed Disk를 참조하는 PersistentVolumeClaim 개체를 다중 영역 AKS 클러스터에 배포할 수 있으며, [Kubernetes는 올바른 가용성 영역에서 이 PVC를 클레임하는 Pod를 예약하는 과정](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#storage-access-for-zones)을 담당합니다.
 
@@ -191,19 +191,19 @@ Node:         aks-nodepool1-28993262-vmss000004/10.240.0.8
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-provider-register]: /cli/azure/provider#az_provider_register
-[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-aks-create]: /cli/azure/aks#az-aks-create
 [az-overview]: ../availability-zones/az-overview.md
 [best-practices-bc-dr]: operator-best-practices-multi-region.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [standard-lb-limitations]: load-balancer-standard.md#limitations
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
-[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
-[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-aks-nodepool-add]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-add
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [vmss-zone-balancing]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing
 
 <!-- LINKS - external -->

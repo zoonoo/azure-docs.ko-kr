@@ -4,15 +4,15 @@ description: Batch 분석의 항목에는 Batch 서비스 리소스에 사용할
 ms.topic: reference
 ms.date: 10/08/2020
 ms.openlocfilehash: 0d55ecd7f10e267a9cb469dffcdf26c131c8ce41
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91849514"
 ---
 # <a name="batch-analytics"></a>Batch 분석
 
-이 섹션의 항목에는 Batch 서비스 리소스에 사용할 수 있는 이벤트 및 경고에 대 한 참조 정보가 포함 되어 있습니다.
+이 섹션의 항목에는 Batch 서비스 리소스에 사용할 수 있는 이벤트 및 경고에 대한 참조 정보가 포함됩니다.
 
 Batch 진단 로그를 활성화하고 사용하는 방법에 대한 자세한 내용은 [Azure Batch 진단 로깅](./batch-diagnostics.md)을 참조하세요.
 

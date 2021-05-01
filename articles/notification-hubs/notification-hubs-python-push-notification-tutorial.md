@@ -1,6 +1,6 @@
 ---
 title: Python과 함께 Notification Hubs를 사용하는 방법
-description: Python 응용 프로그램에서 Azure Notification Hubs를 사용 하는 방법을 알아봅니다.
+description: Python 애플리케이션에서 Azure Notification Hubs를 사용하는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -18,10 +18,10 @@ ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-python
 ms.openlocfilehash: f81614005a1b0374dc249187c4ff3c920b7c97e9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92424842"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Python에서 Notification Hubs를 사용하는 방법
@@ -377,13 +377,13 @@ hub.send_baidu_notification(baidu_payload)
 
 Python 코드를 실행하면 대상 디바이스에 나타나는 알림이 생성됩니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ### <a name="enabling-the-debug-property"></a>`debug` 속성 사용
 
 NotificationHub를 초기화하는 동안 디버그 플래그를 사용하도록 설정하면, 다음과 같이 자세한 HTTP 요청 및 응답 덤프 요청에 전달된 HTTP 헤더뿐만 아니라 Notification Hub에서 받은 HTTP 응답을 이해할 수 있는 NotificationOutcome도 표시됩니다.
 
-![빨간색으로 요약 된 H T T P 요청 및 응답 덤프와 알림 결과 메시지의 세부 정보가 포함 된 콘솔의 스크린샷][1]
+![HTTP 요청 및 응답 덤프 및 알림 결과 메시지의 세부 정보가 빨간색 윤곽선으로 표시된 콘솔의 스크린샷입니다.][1]
 
 예를 들어 메시지가 푸시 알림 서비스로 전송되면
 
@@ -404,7 +404,7 @@ Windows 클라이언트로 브로드캐스트 알림 메시지를 보낼 때 전
 hub.send_windows_notification(wns_payload)
 ```
 
-![H T T P 요청에 대 한 세부 정보 및 Service Bus 알림 형식 및 빨간색으로 요약 된 X W N S 형식 값이 포함 된 콘솔의 스크린샷][2]
+![HTTP 요청 및 Service Bus 알림 형식과 XWNS 유형 값에 대한 세부 정보가 빨간색 윤곽선으로 표시된 콘솔의 스크린샷입니다.][2]
 
 ### <a name="send-notification-specifying-a-tag-or-tag-expression"></a>태그(또는 태그 식)를 지정하여 알림 보내기
 
@@ -414,7 +414,7 @@ HTTP 요청에 추가되는 태그 HTTP 헤더를 확인합니다. 아래 예제
 hub.send_windows_notification(wns_payload, "sports")
 ```
 
-![H T T P 요청에 대 한 세부 정보 및 Service Bus 알림 형식, Service Bus 알림 태그 및 빨간색으로 윤곽이 지정 된 X W N S 형식 값이 포함 된 콘솔의 스크린샷][3]
+![HTTP 요청 및 Service Bus 알림 형식, Service Bus 알림 태그 및 XWNS 유형 값에 대한 세부 정보가 빨간색 윤곽선으로 표시된 콘솔의 스크린샷입니다.][3]
 
 ### <a name="send-notification-specifying-multiple-tags"></a>여러 태그를 지정하여 알림 보내기
 
@@ -425,7 +425,7 @@ tags = {'sports', 'politics'}
 hub.send_windows_notification(wns_payload, tags)
 ```
 
-![H T T P 요청에 대 한 세부 정보 및 Service Bus 알림 형식, 여러 Service Bus 알림 태그 및 빨간색으로 요약 된 X W N S 형식 값이 포함 된 콘솔의 스크린샷][4]
+![HTTP 요청 및 Service Bus 알림 형식, 여러 Service Bus 알림 태그 및 빨간색 윤곽선으로 표시된 XWNS 유형 값에 대한 세부 정보가 포함된 콘솔의 스크린샷입니다.][4]
 
 ### <a name="templated-notification"></a>템플릿 기반 알림
 
@@ -444,19 +444,19 @@ template_payload = {'greeting_en': 'Hello', 'greeting_fr': 'Salut'}
 hub.send_template_notification(template_payload)
 ```
 
-![H T T P 요청에 대 한 세부 정보와 콘텐츠 형식 및 Service Bus 알림 형식 값이 빨간색으로 표시 된 콘솔의 스크린샷][5]
+![HTTP 요청의 세부 정보와 콘텐츠 유형 및 Service Bus 알림 형식 값이 빨간색 윤곽선으로 표시된 콘솔의 스크린샷입니다.][5]
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 Notification Hubs에 대한 Python REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음과 같은 작업을 할 수 있습니다.
 
 - 이 문서의 모든 코드가 포함된 전체 [Python REST 래퍼 샘플]을 다운로드합니다.
-- [최신 뉴스 자습서] 의 Notification Hubs 태깅 기능에 대해 계속 학습
+- [속보 자습서]
 - [지역화 뉴스 자습서]
 
 <!-- URLs -->
 [Python REST 래퍼 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
-[자습서 시작 하기]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[시작 자습서]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [속보 자습서]: ./notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [지역화 뉴스 자습서]: ./notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 

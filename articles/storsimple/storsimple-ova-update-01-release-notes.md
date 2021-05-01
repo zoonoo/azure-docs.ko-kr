@@ -1,5 +1,5 @@
 ---
-title: StorSimple 가상 배열 업데이트 0.2 & 0.1 릴리스 정보
+title: StorSimple 가상 배열 업데이트 0.2 및 0.1 릴리스 정보
 description: 업데이트 0.2 및 0.1을 실행하는 StorSimple 가상 배열에 대한 중대한 미해결 문제 및 해결책을 설명합니다.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
 ms.openlocfilehash: 67d3fafb9b4b93ae52bdb09d673bf65cad30b816
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94966159"
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>StorSimple 가상 배열 업데이트 0.2 및 0.1 릴리스 정보
@@ -63,7 +63,7 @@ ms.locfileid: "94966159"
 | 5 |모니터링 차트 |이전 릴리스에서 디바이스 장애 조치(failover) 이후 클라우드 용량 사용률 차트에서 Azure 클래식 포털에 잘못된 값이 표시되었습니다. 이 문제는 현재 릴리스에서 해결되었습니다. |
 
 ## <a name="known-issues-in-the-update-01"></a>업데이트 0.1의 알려진 문제
-다음 표에서는 이전 릴리스에서 언급된 문제 릴리스를 포함하여 StorSimple 가상 배열에 대해 알려진 문제를 간략하게 제공합니다. **이 릴리스에 명시 된 문제 릴리스는 별표로 표시 되어 있습니다. 이 목록의 거의 모든 문제는 StorSimple 가상 배열의 GA 릴리스에서 전달 되었습니다.**
+다음 표에서는 이전 릴리스에서 언급된 문제 릴리스를 포함하여 StorSimple 가상 배열에 대해 알려진 문제를 간략하게 제공합니다. **이 릴리스에 명시된 문제 릴리스는 별표로 표시되어 있습니다. 이 목록의 거의 모든 문제는 StorSimple 가상 배열의 GA 릴리스에서 전달되었습니다.**
 
 | 아니요. | 기능 | 문제 | 해결 방법/설명 |
 | --- | --- | --- | --- |
@@ -76,11 +76,11 @@ ms.locfileid: "94966159"
 | **7.** |계층화된 공유 |큰 파일로 작업하면 계층화가 매우 느려질 수 있습니다. |큰 파일을 사용하는 경우 가장 큰 파일이 공유 크기의 3% 보다 작은 것이 좋습니다. |
 | **8.** |공유에 사용된 용량 |공유에 데이터가 전혀 없어도 공유 사용량이 표시될 수 있습니다. 이것은 공유에 사용된 용량에 메타데이터가 포함되기 때문입니다. | |
 | **9.** |재해 복구 |파일 서버에 대한 재해 복구는 원본 디바이스의 도메인과 같은 도메인에만 수행할 수 있습니다. 다른 도메인의 대상 디바이스로 재해 복구는 이번 릴리스에서 지원되지 않습니다. |이후 릴리스에서 구현될 예정입니다. |
-| **5-10.** |Azure PowerShell |이번 릴리스에서는 Azure PowerShell을 통해 StorSimple 가상 디바이스를 관리할 수 없습니다. |가상 디바이스에 대한 모든 관리는 Azure 클래식 포털 및 로컬 웹 UI를 통해 수행됩니다. |
-| **pt.** |암호 변경 |가상 배열 디바이스 콘솔은 EN-US 키보드 형식으로 입력하는 것을 허용합니다. | |
-| **10.** |CHAP |CHAP 자격 증명은 일단 한 번 만들면 제거할 수 없습니다. 또한 CHAP 자격 증명을 수정하면 볼륨을 오프라인 상태로 만든 다음 온라인 상태로 변경해야 변경사항이 적용됩니다. |이것은 이후 릴리스에서 해결될 예정입니다. |
-| **/10.** |iSCSI 서버 |iSCSI 볼륨에 대해 표시된 '사용된 스토리지'는 StorSimple Manager 서비스 및 iSCSI 호스트에서 다를 수 있습니다. |iSCSI 호스트에는 파일 시스템 보기가 있습니다.<br></br>볼륨이 최대 크기일 때 디바이스에서는 블록이 할당된 것을 봅니다. |
+| **10.** |Azure PowerShell |이번 릴리스에서는 Azure PowerShell을 통해 StorSimple 가상 디바이스를 관리할 수 없습니다. |가상 디바이스에 대한 모든 관리는 Azure 클래식 포털 및 로컬 웹 UI를 통해 수행됩니다. |
+| **11.** |암호 변경 |가상 배열 디바이스 콘솔은 EN-US 키보드 형식으로 입력하는 것을 허용합니다. | |
+| **12.** |CHAP |CHAP 자격 증명은 일단 한 번 만들면 제거할 수 없습니다. 또한 CHAP 자격 증명을 수정하면 볼륨을 오프라인 상태로 만든 다음 온라인 상태로 변경해야 변경사항이 적용됩니다. |이것은 이후 릴리스에서 해결될 예정입니다. |
+| **13.** |iSCSI 서버 |iSCSI 볼륨에 대해 표시된 '사용된 스토리지'는 StorSimple Manager 서비스 및 iSCSI 호스트에서 다를 수 있습니다. |iSCSI 호스트에는 파일 시스템 보기가 있습니다.<br></br>볼륨이 최대 크기일 때 디바이스에서는 블록이 할당된 것을 봅니다. |
 | **14.** |파일 서버* |폴더의 파일에 연결된 ADS(대체 데이터 스트림)가 있는 경우 ADS는 재해 복구, 복제 및 항목 수준 복구를 통해 백업 또는 복원되지 않습니다. | |
 
 ## <a name="next-step"></a>다음 단계
-StorSimple 가상 배열에 [업데이트를 설치](./storsimple-virtual-array-install-update-06.md) 합니다.
+[업데이트 0.1 설치](./storsimple-virtual-array-install-update-06.md)

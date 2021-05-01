@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f5e4ff93b90c7644c1d1498a14c8b9954041cb34
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 63183eb6a77b3a7aecfb6f3e8a7c9ee7c2544de2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028369"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105543910"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Azure Active Directory B2C를 사용하여 Apple ID로 등록 설정 및 로그인(미리 보기)
 
@@ -30,7 +30,7 @@ ms.locfileid: "107028369"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -250,7 +250,7 @@ Azure 기능은 적절한 형식의 서명된 클라이언트 암호 JWT로 응�
 ## <a name="test-your-custom-policy"></a>사용자 지정 정책 테스트
 
 1. 신뢰 당사자 정책(예: `B2C_1A_signup_signin`)을 선택합니다.
-1. **애플리케이션** 에서 [이전에 등록](tutorial-register-applications.md)한 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **애플리케이션** 에서 [이전에 등록](troubleshoot-custom-policies.md#troubleshoot-the-runtime)한 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **지금 실행** 단추를 선택합니다.
 1. Apple ID로 로그인하려면 등록이나 로그인 페이지에서 **Apple** 을 선택합니다.
 

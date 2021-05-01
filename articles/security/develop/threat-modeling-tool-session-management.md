@@ -1,6 +1,6 @@
 ---
 title: 세션 관리 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
-description: Threat Modeling Tool에 노출 되는 위협에 대 한 세션 관리 완화에 대해 알아봅니다. 완화 정보 및 코드 예제 보기를 참조 하십시오.
+description: Threat Modeling Tool에 노출되는 위협에 대한 세션 관리 완화에 대해 알아봅니다. 완화 정보를 참조하고 코드 예제를 확인하세요.
 services: security
 documentationcenter: na
 author: jegeib
@@ -17,10 +17,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
 ms.openlocfilehash: a1f4d4a3bb78da82753d651e1a73cf244096d5df
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94518104"
 ---
 # <a name="security-frame-session-management"></a>보안 프레임: 세션 관리
@@ -30,8 +30,8 @@ ms.locfileid: "94518104"
 | **IoT 디바이스** | <ul><li>[생성된 SaS 토큰에 대해 한정된 수명 사용](#finite-tokens)</li></ul> |
 | **Azure Document DB** | <ul><li>[생성된 리소스 토큰에 대해 최소 토큰 수명 사용](#resource-tokens)</li></ul> |
 | **ADFS** | <ul><li>[ADFS를 사용하는 경우에 WsFederation 메서드를 사용하여 적절한 로그아웃 구현](#wsfederation-logout)</li></ul> |
-| **ID 서버** | <ul><li>[Id 서버를 사용 하는 경우 적절 한 로그 아웃 구현](#proper-logout)</li></ul> |
-| **웹 애플리케이션** | <ul><li>[HTTPS를 통해 사용할 수 있는 애플리케이션은 보안 쿠키를 사용해야 함](#https-secure-cookies)</li><li>[모든 http 기반 애플리케이션은 쿠키 정의에 대해서 http만을 지정해야 함](#cookie-definition)</li><li>[ASP.NET 웹 페이지에서 CSRF(교차 사이트 요청 위조) 공격에 대해 완화](#csrf-asp)</li><li>[비활성 수명에 대 한 세션 설정](#inactivity-lifetime)</li><li>[응용 프로그램에서 적절 한 로그 아웃 구현](#proper-app-logout)</li></ul> |
+| **ID 서버** | <ul><li>[ID 서버를 사용하는 경우 적절한 로그아웃 구현](#proper-logout)</li></ul> |
+| **웹 애플리케이션** | <ul><li>[HTTPS를 통해 사용할 수 있는 애플리케이션은 보안 쿠키를 사용해야 함](#https-secure-cookies)</li><li>[모든 http 기반 애플리케이션은 쿠키 정의에 대해서 http만을 지정해야 함](#cookie-definition)</li><li>[ASP.NET 웹 페이지에서 CSRF(교차 사이트 요청 위조) 공격에 대해 완화](#csrf-asp)</li><li>[비활성 수명에 대한 세션 설정](#inactivity-lifetime)</li><li>[애플리케이션에서 적절한 로그아웃 구현](#proper-app-logout)</li></ul> |
 | **앱 API** | <ul><li>[ASP.NET Web API에서 CSRF(교차 사이트 요청 위조) 공격에 대해 완화](#csrf-api)</li></ul> |
 
 ## <a name="implement-proper-logout-using-adal-methods-when-using-azure-ad"></a><a id="logout-adal"></a>Azure AD를 사용하는 경우에 ADAL 메서드를 사용하여 적절한 로그아웃 구현
@@ -149,7 +149,7 @@ Session.Abandon() 메서드를 호출하여 사용자의 세션을 삭제해야 
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [IdentityServer3-페더레이션된 로그아웃](https://identityserver.github.io/Documentation/docsv2/advanced/federated-signout.html) |
-| **단계** | IdentityServer는 외부 ID 공급자를 사용하여 페더레이션하는 기능을 지원합니다. 사용자가 업스트림 id 공급자에서 로그 아웃 하는 경우 사용 된 프로토콜에 따라 사용자가 로그 아웃 하면 알림을 받을 수 있습니다. IdentityServer에서 사용자를 로그 아웃할 수도 있도록 클라이언트에 게 알릴 수 있습니다. 구현에 대 한 자세한 내용은 참조 섹션의 설명서를 참조 하십시오.|
+| **단계** | IdentityServer는 외부 ID 공급자를 사용하여 페더레이션하는 기능을 지원합니다. 사용자가 업스트림 ID 공급자에서 로그아웃하면 사용되는 프로토콜에 따라 사용자가 로그아웃할 때 알림을 받을 수 있습니다. 이를 통해 IdentityServer는 사용자도 로그아웃하도록 클라이언트에게 알릴 수 있습니다. 구현 세부 정보는 참조 섹션의 문서를 확인하세요.|
 
 ## <a name="applications-available-over-https-must-use-secure-cookies"></a><a id="https-secure-cookies"></a>HTTPS를 통해 사용할 수 있는 애플리케이션은 보안 쿠키를 사용해야 함
 
@@ -222,7 +222,7 @@ Session.Abandon() 메서드를 호출하여 사용자의 세션을 삭제해야 
 | **적용 가능한 기술** | Web Forms |
 | **특성**              | 해당 없음  |
 | **참조**              | [FormsAuthentication.RequireSSL 속성](/dotnet/api/system.web.security.formsauthentication.requiressl) |
-| **단계** | RequireSSL 속성 값은 구성 요소의 requireSSL 특성을 사용하여 ASP.NET 애플리케이션의 구성 파일에서 설정됩니다. ASP.NET 응용 프로그램에 대해 Web.config 파일에서를 지정할 수 있습니다. 이전에 SSL (SSL(Secure Sockets Layer)) 이라고 알려진 TLS (Transport Layer Security)는 requireSSL 특성을 설정 하 여 서버에 폼 인증 쿠키를 반환 해야 합니다.|
+| **단계** | RequireSSL 속성 값은 구성 요소의 requireSSL 특성을 사용하여 ASP.NET 애플리케이션의 구성 파일에서 설정됩니다. ASP.NET 애플리케이션에 대한 Web.config 파일에서 TLS(전송 계층 보안)(이전의 SSL(Secure Sockets Layer))가 requireSSL 특성을 설정하여 서버에 양식 인증 쿠키를 반환해야 하는지 여부를 지정할 수 있습니다.|
 
 ### <a name="example"></a>예제 
 다음 코드 예제에서는 Web.config 파일에서 requireSSL 특성을 설정합니다.
@@ -379,7 +379,7 @@ void Page_Init (object sender, EventArgs e) {
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [HttpSessionState.Timeout 속성](/dotnet/api/system.web.sessionstate.httpsessionstate.timeout) |
-| **단계** | 세션 제한 시간은 사용자가 웹 서버에서 정의한 간격 동안 웹 사이트에서 작업을 수행 하지 않을 때 발생 하는 이벤트를 나타냅니다. 서버 쪽의 이벤트는 사용자 세션의 상태를 '잘못됨'(즉, "더 이상 사용되지 않는")으로 변경하고 웹 서버가 해당 항목을 삭제하도록 지시합니다(포함된 모든 데이터 삭제). 다음 코드 예제에서는 Web.config 파일에서 시간 제한 세션 특성을 15분으로 설정합니다.|
+| **단계** | 세션 시간 제한은 사용자가 웹 서버에서 정의되는 간격 내에 웹 사이트에서 아무 작업도 수행하지 않는 경우 발생하는 이벤트를 나타냅니다. 서버 쪽의 이벤트는 사용자 세션의 상태를 '잘못됨'(즉, "더 이상 사용되지 않는")으로 변경하고 웹 서버가 해당 항목을 삭제하도록 지시합니다(포함된 모든 데이터 삭제). 다음 코드 예제에서는 Web.config 파일에서 시간 제한 세션 특성을 15분으로 설정합니다.|
 
 ### <a name="example"></a>예제
 ```XML 
@@ -398,7 +398,7 @@ void Page_Init (object sender, EventArgs e) {
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | Web Forms |
 | **특성**              | 해당 없음  |
-| **참조**              | [인증용 Forms 요소 (ASP.NET Settings 스키마)](/previous-versions/dotnet/netframework-4.0/1d3t3c61(v=vs.100)) |
+| **참조**              | [인증(ASP.NET 설정 스키마)에 대한 양식 요소](/previous-versions/dotnet/netframework-4.0/1d3t3c61(v=vs.100)) |
 | **단계** | 양식 인증 티켓 쿠키 시간 제한을 15분으로 설정|
 
 ### <a name="example"></a>예제

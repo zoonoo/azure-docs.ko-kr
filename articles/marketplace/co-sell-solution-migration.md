@@ -8,12 +8,12 @@ author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
 ms.date: 3/04/2021
-ms.openlocfilehash: 7ffb5a3dfd23a1515c6d21784b82ccdbf0674f0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3455cc5b7ce5e1ddb7db3c3a9de4aedefcedc4b5
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593410"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133406"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>공동 판매 솔루션을 OCP GTM에서 상업용 Marketplace로 마이그레이션
 
@@ -27,16 +27,16 @@ Microsoft는 게시 환경을 바꾸고 있습니다. [상업용 Marketplace](ov
 - 이미 Microsoft와 계약을 맺어 공동 판매 기회를 관리하고 있는 파트너 센터에서 제품 게시를 맞춰보세요.
 - [Marketplace Rewards](partner-center-portal/marketplace-rewards.md)의 잠금을 해제합니다.
 
-## <a name="prerequisites-to-continue-co-selling-with-microsoft"></a>Microsoft와 공동 판매를 지속하기 위한 전제 조건
+## <a name="prerequisites-to-continue-co-selling-with-microsoft"></a>Microsoft와 공동 판매를 지속하기 위한 필수 구성 요소
 
 활성화된 Microsoft 파트너 네트워크 멤버 자격이 있고 파트너 센터의 상업용 Marketplace에 등록되어 있는지 확인하세요.
 
 - Microsoft 파트너 네트워크에 [무료로](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 조인하세요. 파트너는 독점적 리소스, 프로그램, 도구 및 연결에 액세스하여 비즈니스를 성장시킬 수 있습니다.
-- 상업용 Marketplace 계정이 없는 경우 [지금 등록](partner-center-portal/create-account.md)해서 Microsoft와 지속적으로 공동 판매를 하고 전체 게시 환경에 액세스하세요.
+- 상업용 Marketplace 계정이 없는 경우 [지금 등록](create-account.md)해서 Microsoft와 지속적으로 공동 판매를 하고 전체 게시 환경에 액세스하세요.
 
-## <a name="publishing-updates-for-attaining-co-sell-ready-status"></a>공동 판매 준비 상태를 위한 업데이트 게시
+## <a name="publishing-updates-for-attaining-co-sell-ready-status"></a>공동 판매를 바로 수행할 수 있는 상태를 실현하기 위한 업데이트 게시
 
-솔루션이 Microsoft 판매자와 파트너에 노출되려면 [공동 판매 준비 요구 사항](marketplace-co-sell.md)을 충족해야 합니다. Microsoft 판매자가 인센티브를 받으려면 [인센티브 자격 요구 사항](marketplace-co-sell.md)을 충족해야 합니다. 파트너 센터의 공동 판매 탭에서 요구 사항을 충족하세요(이 문서 뒷부분의 [이 이미지](#cosell-tab) 참조).
+솔루션이 Microsoft 판매자와 파트너에 노출되려면 [공동 판매 준비 요구 사항](./co-sell-overview.md)을 충족해야 합니다. Microsoft 판매자가 인센티브를 받으려면 [인센티브 자격 요구 사항](./co-sell-overview.md)을 충족해야 합니다. 파트너 센터의 공동 판매 탭에서 요구 사항을 충족하세요(이 문서 뒷부분의 [이 이미지](#cosell-tab) 참조).
 
 > [!NOTE]
 > 상업용 Marketplace에서 솔루션은 게시 환경 전체에서 “제품”으로 간주됩니다.
@@ -45,7 +45,7 @@ Microsoft는 게시 환경을 바꾸고 있습니다. [상업용 Marketplace](ov
 
 OCP GTM에서 솔루션을 가져오기 전에 다음 단계를 수행합니다.
 
-1. 회사의 [게시자 목록](https://partner.microsoft.com/dashboard/account/v3/publishers/list)에 접속합니다. 게시자에는 게시 액세스 권한이 있는 계정 소유자, 관리자 및 개발자가 포함됩니다. 자세한 정보는 [파트너 센터 사용자 역할](./partner-center-portal/manage-account.md#define-user-roles-and-permissions)에서 알아보세요.
+1. 회사의 [게시자 목록](https://partner.microsoft.com/dashboard/account/v3/publishers/list)에 접속합니다. 게시자에는 게시 액세스 권한이 있는 계정 소유자, 관리자 및 개발자가 포함됩니다. 자세한 정보는 [파트너 센터 사용자 역할](user-roles.md)에서 알아보세요.
 2. 해당 역할들로만 솔루션을 편집 및 게시할 수 있으므로 나열된 연락처 중 하나를 통해 *관리자* 또는 *개발자* 로서 상업용 Marketplace에 [사용자를 추가](https://partner.microsoft.com/dashboard/account/usermanagement)하도록 요청합니다.
 3. 개발자와 협력하여 OCP GTM 계정에서 상업용 Marketplace로 솔루션을 이동합니다.
 4. 수행할 작업을 결정합니다.
@@ -97,7 +97,7 @@ OCP GTM에서 솔루션을 가져오기 전에 다음 단계를 수행합니다.
 
     [![마이그레이션 프로세스의 작업 1 탭.](media/co-sell-migrate/action-1-migrate.png)](media/co-sell-migrate/action-1-migrate.png#lightbox)
 
-1. **작업 2** 탭의 목록에서 [게시자 프로필](partner-center-portal/create-account.md)을 선택합니다. 게시자 계정이 없으면 [파트너 센터](https://partner.microsoft.com/solutions/migration)에서 게시자 계정을 만든 다음 여기에서 선택합니다.
+1. **작업 2** 탭의 목록에서 [게시자 프로필](create-account.md)을 선택합니다. 게시자 계정이 없으면 [파트너 센터](https://partner.microsoft.com/solutions/migration)에서 게시자 계정을 만든 다음 여기에서 선택합니다.
 
     [![마이그레이션 프로세스의 작업 2 탭.](media/co-sell-migrate/action-2-migrate.png)](media/co-sell-migrate/action-2-migrate.png#lightbox)
 
@@ -121,7 +121,7 @@ OCP GTM 솔루션의 솔루션이 더 이상 상관이 없는 경우 이 옵션�
 
     :::image type="content" source="media/co-sell-migrate/get-support-link.png" alt-text="도움말 보기 탭의 지원 링크.":::
 
-## <a name="make-your-offer-live-in-the-marketplace"></a>마켓플레이스에서 제품을 라이브 상태로 만들기
+## <a name="make-your-offer-live-in-the-marketplace"></a>마켓플레이스에서 제품을 라이브로 전환
 
 제품을 상업용 Marketplace로 마이그레이션하도록 선택했다면 초안 상태로 도착합니다. 상업용 Marketplace에서 라이브 상태로 만들려면 제품을 게시해야 합니다. 게시하면 공동 판매 상태, 인센티브 및 참조 파이프라인이 보존됩니다.
 
@@ -137,7 +137,7 @@ OCP GTM 솔루션의 솔루션이 더 이상 상관이 없는 경우 이 옵션�
 
     :::image type="content" source="media/co-sell-migrate/offer-setup.png" alt-text="파트너 센터의 제품 개요 설정 탭.":::
 
-3. Microsoft 판매자 대상 세부 정보 중 일부는 OCP GTM 솔루션에서 복사됩니다. **Microsoft와 공동 판매** 탭에서 나머지 필수 정보를 작성하여 제품을 공동 판매하도록 준비합니다. 완료되면 **검토 및 게시** 를 선택합니다. 자세한 내용은 [상업용 Marketplace 제품에 대한 공동 판매 구성](commercial-marketplace-co-sell.md)을 참조하세요.
+3. Microsoft 판매자 대상 세부 정보 중 일부는 OCP GTM 솔루션에서 복사됩니다. **Microsoft와 공동 판매** 탭에서 나머지 필수 정보를 작성하여 제품을 공동 판매하도록 준비합니다. 완료되면 **검토 및 게시** 를 선택합니다. 자세한 내용은 [상업용 Marketplace 제품에 대한 공동 판매 구성](./co-sell-configure.md)을 참조하세요.
 
     :::image type="content" source="media/co-sell-migrate/co-sell-page.png" alt-text="파트너 센터의 제품 공동 판매 탭입니다.":::
 
@@ -155,5 +155,5 @@ OCP GTM 솔루션의 솔루션이 더 이상 상관이 없는 경우 이 옵션�
 ## <a name="next-steps"></a>다음 단계
 
 - [CSP 파트너를 통한 재판매](cloud-solution-providers.md)
-- [상업용 Marketplace 제품에 대한 공동 판매 구성](commercial-marketplace-co-sell.md)
+- [상업용 Marketplace 제품에 대한 공동 판매 구성](./co-sell-configure.md)
 - 해당 [FAQ](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) 보기(PDF)

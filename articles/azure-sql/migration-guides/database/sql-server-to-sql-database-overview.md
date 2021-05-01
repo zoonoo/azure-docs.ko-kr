@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 72e27e79bc1eea7633d7594f1f72e31abbfd7744
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: f515725ea0f306546039b92d953254a093b15b8b
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136520"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065177"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-database"></a>마이그레이션 개요: SQL Server를 Azure SQL Database로
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션하기 
 - GCP(Google Cloud Platform)의 컴퓨팅 엔진  
 - GCP의 SQL Server용 Cloud SQL 
 
-다른 마이그레이션 가이드는 [데이터베이스 마이그레이션](/data-migration)을 참조하세요. 
+다른 마이그레이션 가이드는 [데이터베이스 마이그레이션](https://docs.microsoft.com/data-migration)을 참조하세요. 
 
 ## <a name="overview"></a>개요
 
@@ -95,7 +95,7 @@ Azure SQL Database의 올바른 배포 모델 및 서비스 계층을 선택하�
 
 다음 마이그레이션 도구를 권장합니다. 
 
-|기술 | Description|
+|기술 | 설명|
 |---------|---------|
 | [Azure Migrate](../../../migrate/how-to-create-azure-sql-assessment.md) | 이 Azure 서비스는 VMware에서 대규모 SQL 데이터 자산을 검색하고 평가하는 데 도움이 됩니다. Azure SQL 배포 권장 사항, 대상 크기 조정 및 월간 예상 비용을 제공합니다. | 
 |[데이터 Migration Assistant](/sql/dma/dma-migrateonpremsqltosqldb)|Microsoft의 이 데스크톱 도구는 SQL Server 및 Azure SQL Database로의 단일 데이터베이스 마이그레이션(스키마 및 데이터 모두)에 대한 원활한 평가를 제공합니다. </br></br>이 도구는 온-프레미스 서버 또는 원본 데이터베이스에 연결된 로컬 컴퓨터에 설치할 수 있습니다. 마이그레이션 프로세스는 원본 및 대상 데이터베이스의 개체 간의 논리적 데이터 이동입니다.|
@@ -105,7 +105,7 @@ Azure SQL Database의 올바른 배포 모델 및 서비스 계층을 선택하�
 
 다음 표에는 대체 마이그레이션 도구가 나와 있습니다. 
 
-|기술 |Description  |
+|기술 |설명  |
 |---------|---------|
 |[트랜잭션 복제](../../database/replication-to-sql-database.md)|트랜잭션 일관성을 유지하면서 게시자-구독자 유형 마이그레이션 옵션을 제공하여 원본 SQL Server 데이터베이스 테이블에서 Azure SQL Database로 데이터를 복제합니다. 증분 데이터 변경 사항은 게시자에서 발생하면 구독자에게 전파됩니다.|
 |[가져오기 내보내기 서비스/BACPAC](../../database/database-import.md)|[BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac)는 데이터베이스의 스키마와 데이터를 캡슐화하는 확장명이 .bacpac인 Windows 파일입니다. BACPAC를 사용하여 SQL Server 원본에서 데이터를 내보내고 Azure SQL Database로 데이터를 가져올 수 있습니다. BACPAC 파일은 Azure Portal을 통해 새 SQL 데이터베이스로 가져올 수 있습니다. </br></br> 데이터베이스 크기가 크거나 데이터베이스 수가 많은 경우 규모와 성능을 얻으려면 [SqlPackage](../../database/database-import.md#using-sqlpackage) 명령줄 도구를 사용하여 데이터베이스를 내보내고 가져오는 것이 좋습니다.|

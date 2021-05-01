@@ -11,12 +11,12 @@ editor: edprice
 ms.author: larryme
 ms.date: 05/09/2020
 ms.topic: article
-ms.openlocfilehash: 0b3dd754e226436cb26cbb808bf37e4262efa344
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 467cae97f9b4efe4782ac802cccd84271d475ea7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599556"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104955434"
 ---
 # <a name="mainframe-workloads-supported-on-azure"></a>Azure에서 지원되는 메인프레임 워크로드
 
@@ -52,7 +52,7 @@ ms.locfileid: "107599556"
 
 ## <a name="code-conversion"></a>코드 변환
 
-- 소스 코드, 데이터, 일괄 처리, 일정, TP 모니터, 인터페이스, 보안, 관리 등을 포함하는 [Asysco](https://asysco.com/) 시스템 변환 기술입니다.
+- 소스 코드, 데이터, 일괄 처리, 일정, TP 모니터, 인터페이스, 보안, 관리 등을 포함하는 [Asysco](https://www.asysco.com/azure-cloud/) 시스템 변환 기술입니다.
 - [Asysco AMT Services](https://www.asysco.com/migration-services/) 인벤토리 및 분석, 디자인 교육, 최종 예행연습, 라이브 전환, 마이그레이션 후 지원 등 마이그레이션 프로젝트를 위한 엔드 투 엔드 서비스.
 - [Blu Age](https://www.bluage.com/) 레거시 비즈니스 애플리케이션 및 데이터베이스 디지털화를 위한 도구.
 - [Heirloom Computing](https://www.heirloomcomputing.com/tag/convert-cobol-to-java/) 메인프레임 COBOL, CICS 및 VSAM을 Java로 변환하는 서비스.

@@ -1,6 +1,6 @@
 ---
 title: 사용자 지정 CA 인증서 추가 - Azure API Management | Microsoft Docs
-description: Azure API Management에서 사용자 지정 CA 인증서를 추가하는 방법을 알아봅니다. 인증서를 삭제 하는 지침을 볼 수도 있습니다.
+description: Azure API Management에서 사용자 지정 CA 인증서를 추가하는 방법을 알아봅니다. 지침을 참조하여 인증서를 삭제할 수도 있습니다.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 124bc053aa2c6e59e205bb6f33a9a96190799499
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93102040"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Azure API Management에서 사용자 지정 CA 인증서를 추가하는 방법
@@ -41,15 +41,15 @@ Azure API Management를 통해 신뢰할 수 있는 루트 및 중간 인증서 
 
 3. **+추가** 단추를 클릭합니다.  
 
-    ![CA 인증서를 추가 하는 + 추가 단추를 보여 주는 스크린샷](media/api-management-howto-ca-certificates/01.png)  
+    ![CA 인증서를 추가하기 위한 + Add 단추가 표시되는 스크린샷입니다.](media/api-management-howto-ca-certificates/01.png)  
 
 4. 인증서를 찾고 인증서 저장소를 결정합니다. 공개 키만 필요하므로 암호는 필요하지 않습니다.
 
-    ![인증서를 찾아보는 방법을 보여 주는 스크린샷](media/api-management-howto-ca-certificates/02.png)  
+    ![인증서를 찾아보는 방법을 보여 주는 스크린샷입니다.](media/api-management-howto-ca-certificates/02.png)  
 
 5. **저장** 을 클릭합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.
 
-    ![인증서를 저장 하는 방법을 보여 주는 스크린샷](media/api-management-howto-ca-certificates/03.png)  
+    ![인증서를 저장하는 방법을 보여 주는 스크린샷입니다.](media/api-management-howto-ca-certificates/03.png)  
 
 > [!NOTE]
 > `New-AzApiManagementSystemCertificate` Powershell 명령을 사용하여 CA 인증서를 업로드할 수 있습니다.

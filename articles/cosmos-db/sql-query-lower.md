@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB 쿼리 언어 낮음
-description: 대문자 데이터를 소문자로 변환한 후 문자열 식을 반환 하는 Azure Cosmos DB의 낮은 SQL 시스템 함수에 대해 알아봅니다.
+title: Azure Cosmos DB 쿼리 언어의 LOWER
+description: 대문자 데이터를 소문자로 변환한 후 문자열 식을 반환하는 Azure Cosmos DB의 LOWER SQL 시스템 함수에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,18 +9,18 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: dd1d9ddefd67cadb92632fd6db7a1fbd5a34f35a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93338439"
 ---
-# <a name="lower-azure-cosmos-db"></a>LOWER (Azure Cosmos DB)
+# <a name="lower-azure-cosmos-db"></a>LOWER(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  대문자 데이터를 소문자로 변환한 후에 문자열 식을 반환합니다.  
 
-낮은 시스템 함수는 인덱스를 사용 하지 않습니다. 대/소문자를 구분 하지 않는 비교를 자주 수행 하려는 경우에는 낮은 시스템 함수에서 많은 양의를 사용할 수 있습니다. 이 경우 하위 시스템 함수를 사용 하 여 비교할 때마다 데이터를 정규화 하는 대신 삽입 시 대/소문자를 정규화 할 수 있습니다. 그런 다음 SELECT * FROM c WHERE (c. name) = ' bob '과 같은 쿼리는 단순히 SELECT * FROM c WHERE c.name = ' bob '이 됩니다.
+LOWER 시스템 함수는 인덱스를 활용하지 않습니다. 대/소문자를 구분하지 않는 비교를 자주 수행하려는 경우에는 LOWER 시스템 함수에서 매우 많은 양의 RU를 사용할 수 있습니다. 이 경우 비교할 때마다 데이터를 정규화하는 데 LOWER 시스템 함수를 사용하는 대신, 삽입 시 대/소문자를 정규화할 수 있습니다. 그런 다음 SELECT * FROM c WHERE LOWER(c.name) = 'bob'과 같은 쿼리는 단순히 SELECT * FROM c WHERE c.name = 'bob'이 됩니다.
 
 ## <a name="syntax"></a>구문
   
@@ -37,9 +37,9 @@ LOWER(<str_expr>)
   
   문자열 식을 반환합니다.  
   
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
-  다음 예제에서는 쿼리에서를 사용 하는 방법을 보여 줍니다 `LOWER` .  
+  다음 예제에서는 쿼리에서 `LOWER`를 사용하는 방법을 보여 줍니다.  
   
 ```sql
 SELECT LOWER("Abc") AS lower
@@ -54,7 +54,7 @@ SELECT LOWER("Abc") AS lower
 
 ## <a name="remarks"></a>설명
 
-이 시스템 함수는 인덱스를 활용 하지 않습니다.
+이 시스템 함수는 인덱스를 활용하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: 'Python, R 및 c #에서 U-SQL 작업 실행-Azure Data Lake Analytics'
+title: Python, R 및 C#에서 U-SQL 작업 실행 - Azure Data Lake Analytics
 description: Python, R 및 C#에서 코드 숨김을 사용하여 Azure Data Lake에 작업을 제출하는 방법을 알아봅니다.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 11/22/2017
 ms.custom: devx-track-python
 ms.openlocfilehash: d6066bd6ec2a4c986ae17ad0cce3e7f6f73b21e7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92219975"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Visual Studio Code에서 Python, R 및 C#를 사용하여 Azure Data Lake Analytics용 U-SQL 개발
@@ -33,7 +33,7 @@ ADL 계정에 대한 Python 및 R 확장 어셈블리를 등록합니다.
    > [!Note]
    > Python 및 R 언어 서비스에 대한 최상의 환경을 얻으려면 VSCode Python 및 R 확장을 설치하세요. 
 
-## <a name="develop-python-file"></a>Python 파일 개발
+## <a name="develop-python-file&quot;></a>Python 파일 개발
 1. 작업 영역에서 **새 파일** 을 클릭합니다.
 2. U-SQL에 코드를 작성합니다. 다음은 코드 샘플입니다.
     ```U-SQL
@@ -41,7 +41,7 @@ ADL 계정에 대한 Python 및 R 확장 어셈블리를 등록합니다.
     @t  = 
         SELECT * FROM 
         (VALUES
-            ("D1","T1","A1","@foo Hello World @bar"),
+            (&quot;D1&quot;,&quot;T1&quot;,&quot;A1&quot;,&quot;@foo Hello World @bar"),
             ("D2","T2","A2","@baz Hello World @beer")
         ) AS 
             D( date, time, author, tweet );

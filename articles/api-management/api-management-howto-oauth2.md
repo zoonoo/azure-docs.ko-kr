@@ -1,7 +1,7 @@
 ---
-title: API Management에서 OAuth 2.0을 사용 하 여 개발자 계정에 권한 부여
+title: API Management에서 OAuth 2.0을 사용하여 개발자 계정에 권한 부여
 titleSuffix: Azure API Management
-description: API Management에서 OAuth 2.0을 사용하여 사용자에게 권한을 부여하는 방법에 대해 알아봅니다. OAuth 2.0은 사용자가 자격이 있는 리소스에만 액세스할 수 있도록 API를 보호 합니다.
+description: API Management에서 OAuth 2.0을 사용하여 사용자에게 권한을 부여하는 방법에 대해 알아봅니다. OAuth 2.0은 사용자가 자격이 있는 리소스에만 액세스할 수 있도록 API를 보호합니다.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 08/14/2020
 ms.author: apimpm
 ms.openlocfilehash: fae4e349d46425c0c2b2b923d6a61e2e588708c1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93077254"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Azure API Management에서 OAuth 2.0을 사용하여 개발자 계정에 권한을 부여하는 방법
@@ -47,7 +47,7 @@ ms.locfileid: "93077254"
     > [!NOTE]
     > 이러한 필드는 현재 API Management 서비스 인스턴스 내에서 OAuth 2.0 권한 부여 서버를 식별하는 데 사용되며, 해당 값은 OAuth 2.0 서버에서 제공되지 않습니다.
 
-3. **클라이언트 등록 페이지 URL** 을 입력합니다. 사용자는 이 페이지에서 계정을 만들고 관리할 수 있습니다. 사용되는 OAuth 2.0 공급자에 따라 페이지는 달라집니다. **클라이언트 등록 페이지 URL** 은 사용자 계정 (예:)의 사용자 관리를 지 원하는 OAuth 2.0 공급자에 대해 고유한 계정을 만들고 구성 하는 데 사용할 수 있는 페이지를 가리킵니다 `https://contoso.com/login` . 일부 조직에서는 OAuth 2.0 공급자가 지원하는 경우에도 이 기능을 구성 또는 사용하지 않습니다. OAuth 2.0 공급자에 계정의 사용자 관리가 구성되지 않은 경우 회사의 URL 또는 `https://placeholder.contoso.com` 등의 URL과 같은 자리 표시자 URL을 여기에 입력합니다.
+3. **클라이언트 등록 페이지 URL** 을 입력합니다. 사용자는 이 페이지에서 계정을 만들고 관리할 수 있습니다. 사용되는 OAuth 2.0 공급자에 따라 페이지는 달라집니다. **클라이언트 등록 페이지 URL** 은 사용자가 계정의 사용자 관리를 지원하는 OAuth 2.0 공급자에 대한 계정을 만들고 구성하는 데 사용할 수 있는 페이지를 가리킵니다(예: `https://contoso.com/login`). 일부 조직에서는 OAuth 2.0 공급자가 지원하는 경우에도 이 기능을 구성 또는 사용하지 않습니다. OAuth 2.0 공급자에 계정의 사용자 관리가 구성되지 않은 경우 회사의 URL 또는 `https://placeholder.contoso.com` 등의 URL과 같은 자리 표시자 URL을 여기에 입력합니다.
 
     ![OAuth 2.0 새 서버](./media/api-management-howto-oauth2/oauth-02.png)
 
@@ -55,7 +55,7 @@ ms.locfileid: "93077254"
 
     원하는 유형을 선택하여 **권한 부여 유형** 을 지정합니다. **인증 코드** 가 지정됩니다.
 
-    **권한 부여 엔드포인트 URL** 을 입력합니다. Azure Active Directory의 경우이 URL은 다음 URL과 유사 합니다 `<tenant_id>` . 여기서는 AZURE AD 테 넌 트의 ID로 바뀝니다.
+    **권한 부여 엔드포인트 URL** 을 입력합니다. Azure Active Directory의 경우이 URL은 다음 URL과 유사합니다. 여기서 `<tenant_id>`는 Azure AD 테넌트의 ID로 바뀝니다.
 
     `https://login.microsoftonline.com/<tenant_id>/oauth2/authorize`
 
@@ -63,7 +63,7 @@ ms.locfileid: "93077254"
 
 5. 그런 후에 **토큰 엔드포인트 URL**, **클라이언트 인증 방법**, **액세스 토큰 전송 방법** 및 **기본 범위** 를 지정해야 합니다.
 
-    ![OAuth2 서비스 추가 화면을 보여 주는 스크린샷](./media/api-management-howto-oauth2/oauth-03.png)
+    ![OAuth2 추가 서비스 화면을 보여주는 스크린샷입니다.](./media/api-management-howto-oauth2/oauth-03.png)
 
     Azure Active Directory OAuth 2.0 서버의 경우 **토큰 엔드포인트 URL** 의 형식은 다음과 같습니다. `<TenantID>`의 형식은 `yourapp.onmicrosoft.com`입니다.
 
@@ -73,12 +73,12 @@ ms.locfileid: "93077254"
 
 6. **클라이언트 자격 증명** 섹션에는 **클라이언트 ID** 및 **클라이언트 암호** 가 포함되어 있습니다. OAuth 2.0 서버 만들기 및 구성 프로세스 중에 이러한 값을 가져옵니다. **클라이언트 ID** 및 **클라이언트 암호** 를 지정하고 나면 **인증 코드** 의 **redirect_uri** 가 생성됩니다. 이 URI를 사용하여 OAuth 2.0 서버 구성에서 회신 URL을 구성합니다.
 
-    새 개발자 포털에서 URI 접미사는 형식입니다.
+    새 개발자 포털에서 URI 접미사 형식은 다음과 같습니다.
 
-    - `/signin-oauth/code/callback/{authServerName}` 인증 코드 부여 흐름
-    - `/signin-oauth/implicit/callback` 암시적 허용 흐름의 경우
+    - `/signin-oauth/code/callback/{authServerName}` 인증 코드 권한 부여 흐름
+    - `/signin-oauth/implicit/callback` 임시적 권한 부여 흐름
 
-    ![새 OAuth2 서비스에 대 한 클라이언트 자격 증명을 추가할 위치를 보여 주는 스크린샷](./media/api-management-howto-oauth2/oauth-04.png)
+    ![새 OAuth2 서비스에 대한 클라이언트 자격 증명을 추가할 위치를 보여주는 스크린샷입니다.](./media/api-management-howto-oauth2/oauth-04.png)
 
     **권한 부여 유형** 을 **리소스 소유자 암호** 로 설정한 경우 **리소스 소유자 암호 자격 증명** 섹션에서 해당 자격 증명을 지정합니다. 그렇지 않은 경우에는 자격 증명을 비워 두면 됩니다.
 
@@ -96,13 +96,13 @@ ms.locfileid: "93077254"
 
 3. 드롭다운 목록에서 원하는 **권한 부여 서버** 를 선택하고 **저장** 을 클릭합니다.
 
-    ![선택한 권한 부여 서버 및 저장 단추를 강조 표시 하는 스크린샷](./media/api-management-howto-oauth2/oauth-07.png)
+    ![선택한 인증 서버와 저장 버튼을 강조 표시하는 스크린샷입니다.](./media/api-management-howto-oauth2/oauth-07.png)
 
-## <a name="legacy-developer-portal---test-the-oauth-20-user-authorization"></a><a name="step3"> </a>레거시 개발자 포털-OAuth 2.0 사용자 권한 부여 테스트
+## <a name="legacy-developer-portal---test-the-oauth-20-user-authorization"></a><a name="step3"> </a>레거시 개발자 포털 - OAuth 2.0 사용자 권한 부여 테스트
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
-OAuth 2.0 권한 부여 서버를 구성하고 해당 서버를 사용하도록 API를 구성한 후에는 개발자 포털로 이동하여 API를 호출하는 방법으로 권한 부여를 테스트할 수 있습니다. Azure API Management 인스턴스 **개요** 페이지의 상단 메뉴에서 **개발자 포털 (레거시)** 을 클릭 합니다.
+OAuth 2.0 권한 부여 서버를 구성하고 해당 서버를 사용하도록 API를 구성한 후에는 개발자 포털로 이동하여 API를 호출하는 방법으로 권한 부여를 테스트할 수 있습니다. Azure API Management 인스턴스 **개요** 페이지의 맨 위 메뉴에서 **개발자 포털(레거시)** 을 클릭합니다.
 
 상단 메뉴에서 **API** 를 클릭하고 **Echo API** 를 선택합니다.
 

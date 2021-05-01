@@ -7,14 +7,14 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 04/09/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0711d764514e45d3c28e26cf99b45dc711ef201c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cf92d9e1a1f92c2dc3294b71e3e620166fd90680
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104868259"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818705"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버그
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,7 +31,7 @@ Azure Cosmos DB는 처리량, 스토리지, 일관성, 가용성 및 대기 시�
 
    :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Azure Portal의 Cosmos DB 성능 메트릭":::
 
-**메트릭** 창에서 다음 메트릭을 사용할 수 있습니다. 
+**메트릭** 창에서 다음 메트릭을 사용할 수 있습니다.
 
 * **처리량 메트릭** - 이 메트릭은 컨테이너에 프로비전된 처리량 또는 스토리지 용량이 초과되어 사용 또는 실패한 요청 수(429 응답 코드)를 표시합니다.
 

@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: cb0ac41d469ad9a7670ce4b1bae23b315a17dc38
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c9102f8ca724e431bb478945c5f4ba0369643d6
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104871108"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714844"
 ---
 # <a name="create-and-manage-projects"></a>프로젝트 만들기 및 관리
 
@@ -46,9 +46,13 @@ Azure 구독에서 새 프로젝트를 설정합니다.
 5. **프로젝트 만들기** 에서 Azure 구독 및 리소스 그룹을 선택합니다. 리소스 그룹이 없는 경우 리소스 그룹을 만듭니다.
 6. **프로젝트 세부 정보** 에서 프로젝트 이름과 이 프로젝트를 만들려는 지역을 지정합니다.
     - 지리는 온-프레미스 서버에서 수집된 메타데이터를 저장하는 데에만 사용됩니다. 마이그레이션 대상 지역을 선택할 수 있습니다. 
-    - [퍼블릭](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드](migrate-support-matrix.md#supported-geographies-azure-government)에 대해 지원되는 지역을 검토합니다.
+    - [퍼블릭](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드](migrate-support-matrix.md#supported-geographies-azure-government)에 대해 지원되는 지역을 검토합니다. 
 
-8. **만들기** 를 선택합니다.
+
+    > [!Note]
+    > **고급** 구성 섹션을 사용하여 프라이빗 엔드포인트 연결로 Azure Migrate 프로젝트를 만듭니다. [자세히 알아보기](how-to-use-azure-migrate-with-private-endpoints.md#create-a-project-with-private-endpoint-connectivity) 
+
+7. **만들기** 를 선택합니다.
 
      :::image type="content" source="./media/create-manage-projects/project-details.png" alt-text="프로젝트 설정을 입력하는 페이지":::
 
@@ -109,7 +113,7 @@ PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/Migra
     - 리소스 종류는 **Microsoft.Migrate/migrateprojects** 입니다.
     - 리소스 그룹이 프로젝트에서 독점적으로 사용되는 경우 전체 리소스 그룹을 삭제할 수 있습니다.
 
-다음 사항에 유의합니다.
+다음 사항에 유의하십시오.
 
 - 삭제하면 검색된 서버에 대한 메타데이터와 프로젝트가 모두 삭제됩니다.
 - 이전 버전의 Azure Migrate를 사용하는 경우 프로젝트가 만들어진 Azure 리소스 그룹을 엽니다. 삭제하려는 프로젝트를 선택합니다(리소스 종류: **마이그레이션 프로젝트**).

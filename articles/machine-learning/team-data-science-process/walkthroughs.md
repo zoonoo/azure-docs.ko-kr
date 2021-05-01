@@ -12,15 +12,15 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8a1af48d89fbf5d303c2a6b8ef85ca3117debd5a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "93320077"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Azure에서 Team Data Science Process 실행 연습
 
-이러한 **포괄적인 연습** 에서는 특정 시나리오에 대 한 팀 데이터 과학 프로세스의 단계를 보여 줍니다. 클라우드, 온-프레미스 도구 및 서비스를 **지능형 응용 프로그램** 의 워크플로로 결합 하는 방법을 보여 줍니다. 연습은 사용하는 **플랫폼** 별로 그룹화됩니다.
+이러한 **포괄적인 연습** 에서는 특정 시나리오에 대한 Team Data Science Process의 단계를 보여 줍니다. 이 연습에서는 클라우드, 온-프레미스 도구 및 서비스를 **지능형 애플리케이션** 에 대한 워크플로에 결합하는 방법을 보여 줍니다. 연습은 사용하는 **플랫폼** 별로 그룹화됩니다.
 
 
 ## <a name="walkthrough-descriptions"></a>연습 설명
@@ -32,7 +32,7 @@ ms.locfileid: "93320077"
 - [Hive를 사용하여 HDInsight Hadoop 연습](walkthroughs-hdinsight-hadoop.md) 이 연습에서는 HDInsight Hadoop 클러스터와 Hive를 사용하여 예측 분석을 수행합니다.
 - [U-SQL을 사용하여 Azure Data Lake 연습](walkthroughs-azure-data-lake.md) 이러한 연습은 예측 분석을 수행하는 데 Azure Data Lake와 함께 U-SQL을 사용합니다.
 - [SQL Server](walkthroughs-sql-server.md) 이 연습에서는 SQL Server, SQL Server R Services 및 SQL Server Python Services를 사용하여 예측 분석을 수행합니다.
-- [Azure Synapse 분석](walkthroughs-sql-data-warehouse.md) 이러한 연습은 예측 분석을 수행 하기 위해 Azure Synapse Analytics를 사용 합니다. 
+- [Azure Synapse Analytics](walkthroughs-sql-data-warehouse.md) 이러한 연습에서는 Azure Synapse Analytics를 사용하여 예측 분석을 수행합니다. 
 
 
 
@@ -40,6 +40,6 @@ ms.locfileid: "93320077"
 
 Team Data Science Process를 구성하는 주요 구성의 논의는 [Team Data Science Process 개요](overview.md)를 참조하세요.
 
-팀 데이터 과학 프로세스 수명 주기에 대 한 설명은 [팀 데이터 과학 프로세스 수명 주기](lifecycle.md)를 참조 하세요. 이 수명 주기에서는 프로젝트가 실행 될 때 일반적으로 수행 하는 단계를 처음부터 끝까지 간략하게 설명 합니다. 
+Team Data Science Process 수명 주기의 논의는 [Team Data Science Process 수명 주기](lifecycle.md)를 참조하세요. 이 수명 주기는 일반적으로 프로젝트가 실행될 때 시작부터 끝까지 따라야 하는 단계를 간략하게 설명합니다. 
 
-개요는 [데이터 과학 프로세스](./index.yml)를 참조 하세요.
+개요는 [Data Science Process](./index.yml)를 참조하세요.

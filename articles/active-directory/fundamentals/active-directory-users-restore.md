@@ -1,5 +1,5 @@
 ---
-title: 최근 삭제 된 사용자 복원 또는 영구 제거-Azure AD
+title: 최근에 삭제된 사용자 복원 또는 영구 제거 - Azure AD
 description: Azure Active Directory를 사용하여 복원 가능한 사용자를 보거나, 삭제된 사용자를 복원하거나, 사용자를 영구적으로 삭제하는 방법.
 services: active-directory
 author: ajburnle
@@ -14,14 +14,14 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bd4d42e1cafa58aaf6a47188c9e86c24ac175047
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92514392"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Azure Active Directory를 사용하여 최근에 삭제된 사용자를 복원하거나 제거
-사용자를 삭제하면 30일 동안 계정이 일시 중단된 상태로 유지됩니다. 30일이라는 기간 동안 사용자는 모든 속성과 함께 계정을 복원할 수 있습니다. 30 일 기간이 지나면 영구 삭제 프로세스가 자동으로 시작 됩니다.
+사용자를 삭제하면 30일 동안 계정이 일시 중단된 상태로 유지됩니다. 30일이라는 기간 동안 사용자는 모든 속성과 함께 계정을 복원할 수 있습니다. 30일 기간이 지나면 영구 삭제 프로세스가 자동으로 시작됩니다.
 
 Azure Portal에서 Azure AD(Azure Active Directory)를 사용하여 복원 가능한 사용자를 보거나, 삭제된 사용자를 복원하거나, 사용자를 영구적으로 삭제할 수 있습니다.
 
@@ -43,7 +43,7 @@ Azure Portal에서 Azure AD(Azure Active Directory)를 사용하여 복원 가�
 30일 이내에 삭제된 모든 사용자를 볼 수 있습니다. 이러한 사용자를 복원할 수 있습니다.
 
 ### <a name="to-view-your-restorable-users"></a>복원 가능한 사용자를 보려면
-1. 조직의 전역 관리자 계정을 사용 하 여 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
+1. 조직에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 2. **Azure Active Directory** 를 선택하고, **사용자** 를 선택한 다음, **삭제된 사용자** 를 선택합니다.
 
@@ -53,10 +53,10 @@ Azure Portal에서 Azure AD(Azure Active Directory)를 사용하여 복원 가�
 
 ## <a name="restore-a-recently-deleted-user"></a>최근에 삭제된 사용자 복원
 
-조직에서 사용자 계정을 삭제 하면 해당 계정이 일시 중단 된 상태가 되며 모든 관련 된 조직 정보가 보존 됩니다. 사용자를 복원 하면이 조직 정보도 복원 됩니다.
+조직에서 사용자 계정을 삭제하면 해당 계정이 일시 중단된 상태가 되며 관련된 모든 조직 정보가 보존됩니다. 사용자를 복원하면 이 조직 정보도 복원됩니다.
 
 > [!Note]
-> 사용자가 복원 되 면 해당 라이선스에 사용할 수 있는 사용자가 없는 경우에도 삭제 시 사용자에 게 할당 된 라이선스가 복원 됩니다. 구매한 것 보다 많은 라이선스를 사용 하는 경우 조직은 일시적으로 라이선스 사용에 대 한 준수를 받을 수 있습니다.
+> 사용자가 복원되면 해당 라이선스에 사용 가능한 사용자가 없는 경우에도 삭제 시 사용자에게 할당된 라이선스가 복원됩니다. 구매한 것보다 더 많은 라이선스를 사용하는 경우 조직은 일시적으로 라이선스 사용 규정 준수를 위반할 수 있습니다.
 
 ### <a name="to-restore-a-user"></a>사용자를 복원하려면
 1. **사용자 - 삭제된 사용자** 페이지에서 사용할 수 있는 사용자 중 하나를 검색하고 선택합니다. 예를 들어, _Mary Parker_ 입니다.
@@ -66,7 +66,7 @@ Azure Portal에서 Azure AD(Azure Active Directory)를 사용하여 복원 가�
     ![사용자 - 사용자 복원 옵션이 강조 표시된 삭제된 사용자 페이지](media/active-directory-users-restore/users-deleted-users-restore-user.png)
 
 ## <a name="permanently-delete-a-user"></a>사용자 영구 삭제
-30 일 동안 자동 삭제를 기다리지 않고 조직에서 사용자를 영구적으로 삭제할 수 있습니다. 사용자나 다른 관리자 또는 Microsoft 고객 지원에서 영구적으로 삭제된 사용자를 복원할 수 없습니다.
+30일 동안 자동 삭제되기를 기다리지 않고 조직에서 사용자를 영구적으로 삭제할 수 있습니다. 사용자나 다른 관리자 또는 Microsoft 고객 지원에서 영구적으로 삭제된 사용자를 복원할 수 없습니다.
 
 >[!Note]
 >사용자를 실수로 영구적으로 삭제하면 새 사용자를 만들고 모든 이전 정보를 수동으로 입력해야 합니다. 새 사용자 만들기에 대한 자세한 내용은 [사용자 추가 또는 삭제](add-users-azure-active-directory.md)를 참조하세요.
@@ -77,10 +77,10 @@ Azure Portal에서 Azure AD(Azure Active Directory)를 사용하여 복원 가�
 
 2. **영구적으로 삭제** 를 선택합니다.
 
-    ![사용자-삭제 된 사용자 페이지, 사용자 삭제 옵션 강조 표시](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
+    ![사용자 - 사용자 삭제 옵션이 강조 표시된 삭제된 사용자 페이지](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
 
 ## <a name="next-steps"></a>다음 단계
-사용자를 복원 하거나 삭제 한 후에는 다음을 수행할 수 있습니다.
+사용자를 복원하거나 삭제하면 다음을 수행할 수 있습니다.
 
 - [사용자 추가 또는 삭제](add-users-azure-active-directory.md)
 
@@ -90,4 +90,4 @@ Azure Portal에서 Azure AD(Azure Active Directory)를 사용하여 복원 가�
 
 - [다른 조직에서 게스트 사용자 추가](../external-identities/what-is-b2b.md)
 
-사용 가능한 다른 사용자 관리 작업에 대 한 자세한 내용은 [AZURE AD 사용자 관리 설명서](../enterprise-users/index.yml)를 참조 하세요.
+사용 가능한 다른 사용자 관리 작업에 대한 자세한 내용은 [Azure AD 사용자 관리 설명서](../enterprise-users/index.yml)를 참조하세요.

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/06/2020
-ms.openlocfilehash: 08363a1a1de8f95c4ff74fbe20f4052796c41f49
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 44131ecf6fd3d8d2f07f0fe567fb924ac8621682
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108018514"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110005"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>개요: Azure Resource Manager 템플릿을 사용하여 Azure Logic Apps에 대한 배포 자동화
 
@@ -63,7 +63,7 @@ Logic Apps REST API의 경우 [Azure Logic Apps REST API 개요](/rest/api/logic
 
 논리 앱 템플릿의 경우 주로 다음과 같은 템플릿 개체를 사용합니다.
 
-| attribute | Description |
+| attribute | 설명 |
 |-----------|-------------|
 | `parameters` | Azure에서 배포할 리소스를 만들고 사용자 지정할 때 사용할 값을 허용하기 위한 [템플릿 매개 변수](../azure-resource-manager/templates/template-syntax.md#parameters)를 선언합니다. 예를 들어 이러한 매개 변수는 논리 앱의 이름과 위치, 연결 및 배포에 필요한 기타 리소스에 대한 값을 허용합니다. 이러한 매개 변수 값은 이 항목의 뒷부분에서 설명하는 [매개 변수 파일](#template-parameter-files)에 저장할 수 있습니다. 일반적인 세부 정보는 [매개 변수 - Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/templates/template-syntax.md#parameters)을 참조하세요. |
 | `resources` | 논리 앱, 연결, Azure Storage 계정 등과 같은 Azure 리소스 그룹을 만들거나 업데이트하고 배포할 [리소스](../azure-resource-manager/templates/template-syntax.md#resources)를 정의합니다. 일반적인 세부 정보는 [리소스 - Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/templates/template-syntax.md#resources)을 참조하세요. |
@@ -328,14 +328,14 @@ Azure 리소스 그룹의 모든 리소스에 대한 리소스 정의를 검토�
 
 논리 앱 리소스 정의와 관련된 특성은 다음과 같습니다.
 
-| attribute | 필수 | Type | Description |
+| attribute | 필수 | Type | 설명 |
 |-----------|----------|------|-------------|
 | `state` | 예 | String | 배포 시 논리 앱의 상태입니다. 여기서 `Enabled`는 논리 앱이 활성 상태이며 `Disabled`는 논리 앱이 비활성 상태임을 의미합니다. 예를 들어 논리 앱을 활성 상태로 전환할 준비가 되지 않았지만 초안 버전을 배포하려는 경우 `Disabled` 옵션을 사용할 수 있습니다. |
-| `integrationAccount` | No | 개체 | 논리 앱이 B2B(Business-to-Business) 시나리오에 대한 아티팩트를 저장하는 통합 계정을 사용하는 경우 이 개체에는 통합 계정의 ID를 지정하는 `id` 속성이 포함됩니다. |
+| `integrationAccount` | 예 | Object | 논리 앱이 B2B(Business-to-Business) 시나리오에 대한 아티팩트를 저장하는 통합 계정을 사용하는 경우 이 개체에는 통합 계정의 ID를 지정하는 `id` 속성이 포함됩니다. |
 | `definition` | 예 | Object | 논리 앱의 기본 워크플로 정의는 코드 보기에 표시되는 동일한 개체이며 [워크플로 정의 언어에 대한 스키마 참조](../logic-apps/logic-apps-workflow-definition-language.md) 항목에 자세히 설명되어 있습니다. 이 워크플로 정의에서 `parameters` 개체는 논리 앱 런타임에 사용할 값에 대한 매개 변수를 선언합니다. 자세한 내용은 [워크플로 정의 및 매개 변수](#workflow-definition-parameters)를 참조하세요. <p><p>논리 앱의 워크플로 정의에서 특성을 보려면 Azure Portal 또는 Visual Studio에서 "디자인 뷰"를 "코드 보기"로 전환하거나 [Azure Resource Explorer](https://resources.azure.com)와 같은 도구를 사용하여 전환합니다. |
-| `parameters` | No | 개체 | 논리 앱 런타임에 사용할 [워크플로 정의 매개 변수 값](#workflow-definition-parameters)입니다. 이러한 값에 대한 매개 변수 정의는 [워크플로 정의의 매개 변수 개체](#workflow-definition-parameters) 내에 표시됩니다. 또한 논리 앱이 [관리되는 커넥터](../connectors/apis-list.md)를 사용하여 다른 서비스 및 시스템에 액세스하는 경우 이 개체에는 런타임에 사용할 연결 값을 설정하는 `$connections` 개체가 포함됩니다. |
-| `accessControl` | No | 개체 | 요청 트리거 또는 실행 기록 입력 및 출력에 대한 IP 액세스 제한과 같은 논리 앱의 보안 속성을 지정합니다. 자세한 내용은 [논리 앱에 대한 액세스 보호](../logic-apps/logic-apps-securing-a-logic-app.md)를 참조하세요. |
-| `runtimeConfiguration` | No | 개체 | 런타임에 논리 앱이 작동하는 방식을 제어하는 `operationOptions` 속성을 지정합니다. 예를 들어 [높은 처리량 모드](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode)에서 논리 앱을 실행할 수 있습니다. |
+| `parameters` | 예 | Object | 논리 앱 런타임에 사용할 [워크플로 정의 매개 변수 값](#workflow-definition-parameters)입니다. 이러한 값에 대한 매개 변수 정의는 [워크플로 정의의 매개 변수 개체](#workflow-definition-parameters) 내에 표시됩니다. 또한 논리 앱이 [관리되는 커넥터](../connectors/apis-list.md)를 사용하여 다른 서비스 및 시스템에 액세스하는 경우 이 개체에는 런타임에 사용할 연결 값을 설정하는 `$connections` 개체가 포함됩니다. |
+| `accessControl` | 예 | Object | 요청 트리거 또는 실행 기록 입력 및 출력에 대한 IP 액세스 제한과 같은 논리 앱의 보안 속성을 지정합니다. 자세한 내용은 [논리 앱에 대한 액세스 보호](../logic-apps/logic-apps-securing-a-logic-app.md)를 참조하세요. |
+| `runtimeConfiguration` | 예 | Object | 런타임에 논리 앱이 작동하는 방식을 제어하는 `operationOptions` 속성을 지정합니다. 예를 들어 [높은 처리량 모드](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode)에서 논리 앱을 실행할 수 있습니다. |
 |||||
 
 이러한 논리 앱 개체의 리소스 정의에 대한 자세한 내용은 [Microsoft.Logic 리소스 종류](/azure/templates/microsoft.logic/allversions)를 참조하세요.
@@ -972,7 +972,7 @@ Azure Blob Storage 연결에 대한 계정 이름 및 액세스 키를 제공하
 }
 ```
 
-| attribute | Description |
+| attribute | 설명 |
 |-----------|-------------|
 | `token:clientId` | 서비스 주체와 연결된 애플리케이션 또는 클라이언트 ID |
 | `token:clientSecret` | 서비스 주체와 연결된 키 값 |
@@ -1121,7 +1121,7 @@ Azure Blob Storage 연결에 대한 계정 이름 및 액세스 키를 제공하
          "defaultValue": "",
          "metadata": {
             "description": "Name of the storage account the connector should use."
-         }
+         },
 
       },
       "azureblob_1_accountName": {
@@ -1164,7 +1164,7 @@ Azure Blob Storage 연결에 대한 계정 이름 및 액세스 키를 제공하
                            "connection": {
                               "name": "@parameters('$connections')['azureblob']['connectionId']"
                            }
-                        }
+                        },
                      },
                      "method": "post",
                      "body": "@triggerBody()?['Body']",

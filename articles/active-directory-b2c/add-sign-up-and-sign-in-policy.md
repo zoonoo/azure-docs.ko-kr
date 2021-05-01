@@ -1,7 +1,7 @@
 ---
 title: 등록 및 로그인 흐름 설정
 titleSuffix: Azure AD B2C
-description: Azure Active Directory B2C에서 등록 및 로그인 흐름을 설정 하는 방법에 대해 알아봅니다.
+description: Azure Active Directory B2C에서 등록 및 로그인 흐름을 설정하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -14,10 +14,10 @@ ms.subservice: B2C
 ms.custom: b2c-support
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: fbcdef0002a227d5319fc01e625146480e4c99fc
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105043753"
 ---
 # <a name="set-up-a-sign-up-and-sign-in-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 등록 및 로그인 흐름 설정
@@ -28,16 +28,16 @@ ms.locfileid: "105043753"
 
 등록 및 로그인 정책을 통해 사용자는 다음을 수행할 수 있습니다. 
 
-* 로컬 계정으로 등록
-* 로컬 계정으로 로그인
-* 소셜 계정을 사용 하 여 등록 또는 로그인
+* 로컬 계정을 사용하여 등록
+* 로컬 계정을 사용하여 로그인
+* 소셜 계정을 사용하여 등록 또는 로그인
 * 암호 재설정
 
 ![프로필 편집 흐름](./media/add-sign-up-and-sign-in-policy/add-sign-up-and-sign-in-flow.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-아직 수행 하지 않은 경우 [Azure Active Directory B2C에 웹 응용 프로그램을 등록](tutorial-register-applications.md)합니다.
+아직 수행하지 않은 경우 [Azure Active Directory B2C에 웹 애플리케이션을 등록](tutorial-register-applications.md)합니다.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -61,13 +61,13 @@ ms.locfileid: "105043753"
     ![속성이 강조 표시된 Azure Portal의 사용자 흐름 만들기 페이지](./media/add-sign-up-and-sign-in-policy/select-version.png)
 
 1. 사용자 흐름에 대한 **이름** 을 입력합니다. 예를 들어 *signupsignin1* 과 같습니다.
-1. **Id 공급자** 에 대해 **전자 메일 등록** 을 선택 합니다.
+1. **ID 공급자** 에서 **이메일 등록** 을 선택합니다.
 1. **사용자 특성 및 클레임** 에 대해 수집한 후 등록 동안 사용자로부터 전송하려는 클레임 및 특성을 선택합니다. 예를 들어 **자세히 보기** 를 선택하고 **국가/지역**, **표시 이름** 및 **우편 번호** 의 특성 및 클레임을 선택합니다. **확인** 을 클릭합니다.
 
     ![세 개의 클레임이 선택된 특성 및 클레임 선택 페이지](./media/add-sign-up-and-sign-in-policy/signup-signin-attributes.png)
 
 1. **만들기** 를 클릭하여 사용자 흐름을 추가합니다. *B2C_1* 이라는 접두사가 이름 앞에 자동으로 붙습니다.
-2. 단계에 따라 ["암호를 잊으셨나요?"에 대 한 흐름을 처리](add-password-reset-policy.md?pivots=b2c-user-flow.md#self-service-password-reset-recommended) 합니다. 등록 또는 로그인 정책 내에 있습니다.
+2. 등록 또는 로그인 정책 내에서 ["암호를 잊으셨나요?" 흐름을 처리](add-password-reset-policy.md?pivots=b2c-user-flow.md#self-service-password-reset-recommended)하려면 단계에 따릅니다.
 
 ### <a name="test-the-user-flow"></a>사용자 흐름 테스트
 
@@ -91,11 +91,11 @@ ms.locfileid: "105043753"
 
 ## <a name="create-a-sign-up-and-sign-in-policy"></a>등록 및 로그인 정책 만들기
 
-사용자 지정 정책은 사용자 경험를 정의 하기 위해 Azure AD B2C 테 넌 트에 업로드 하는 XML 파일 집합입니다. 등록 및 로그인, 암호 재설정 및 프로필 편집 정책을 포함 하 여 몇 가지 미리 작성 된 정책으로 시작 팩을 제공 합니다. 자세한 내용은 [Azure AD B2C에서 사용자 지정 정책 시작](custom-policy-get-started.md)을 참조 하세요.
+사용자 지정 정책은 사용자 경험을 정의하기 위해 Azure AD B2C 테넌트에 업로드하는 XML 파일 집합입니다. 당사는 등록 및 로그인, 암호 재설정 및 프로필 편집 정책 등 미리 빌드된 몇 가지 정책으로 시작 팩을 제공합니다. 자세한 내용은 [Azure AD B2C에서 사용자 지정 정책 시작](custom-policy-get-started.md)을 참조하세요.
 
 ::: zone-end
 
 ## <a name="next-steps"></a>다음 단계
 
-* [소셜 id 공급자를 사용 하 여 로그인](add-identity-provider.md)을 추가 합니다.
-* [암호 다시 설정 흐름](add-password-reset-policy.md)을 설정 합니다.
+* [소셜 ID 공급자를 사용하여 로그인](add-identity-provider.md)을 추가합니다.
+* [암호 재설정 흐름](add-password-reset-policy.md)을 설정합니다.

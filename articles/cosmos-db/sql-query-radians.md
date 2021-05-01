@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB 쿼리 언어의 라디안
-description: Azure Cosmos DB의 SQL 시스템 함수 라디안에 대해 알아봅니다.
+title: Azure Cosmos DB 쿼리 언어의 RADIANS
+description: Azure Cosmos DB의 SQL 시스템 함수 RADIANS에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,13 +9,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: c6eaff5abd8c10aa90b89a54cd48281ba8ec09dc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93341674"
 ---
-# <a name="radians-azure-cosmos-db"></a>라디안 (Azure Cosmos DB)
+# <a name="radians-azure-cosmos-db"></a>RADIANS(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  숫자 식을 도 단위로 입력하면 라디안을 반환합니다.  
@@ -35,7 +35,7 @@ RADIANS (<numeric_expr>)
   
   숫자 식을 반환합니다.  
   
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
   다음 예제에서는 몇 개의 각도를 입력으로 사용하여 해당 라디안 값을 반환합니다.  
   
@@ -57,10 +57,10 @@ SELECT RADIANS(-45.01) AS r1, RADIANS(-181.01) AS r2, RADIANS(0) AS r3, RADIANS(
 
 ## <a name="remarks"></a>설명
 
-이 시스템 함수는 인덱스를 활용 하지 않습니다.
+이 시스템 함수는 인덱스를 활용하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [수치 연산 함수 Azure Cosmos DB](sql-query-mathematical-functions.md)
+- [수학 함수 Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [시스템 함수 Azure Cosmos DB](sql-query-system-functions.md)
 - [Azure Cosmos DB 소개](introduction.md)

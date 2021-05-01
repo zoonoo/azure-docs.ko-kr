@@ -1,19 +1,19 @@
 ---
-title: 메트릭 경고 구성-Azure Portal-Azure Database for MySQL 유연한 서버
-description: 이 문서에서는 Azure Portal에서 Azure Database for MySQL 유연한 서버에 대 한 메트릭 경고를 구성 하 고 액세스 하는 방법을 설명 합니다.
+title: 메트릭 경고 구성 - Azure Portal - Azure Database for MySQL - 유연한 서버
+description: 이 문서에서는 Azure Portal에서 Azure Database for MySQL 유연한 서버의 메트릭 경고를 구성 및 액세스하는 방법을 설명합니다.
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: be52bbe58f6c2ff6ee21703860e8d8e00ec30072
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105110154"
 ---
-# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql---flexible-server"></a>Azure Portal를 사용 하 여 Azure Database for MySQL 유연한 서버에 대 한 메트릭에 대 한 경고를 설정 합니다. 
+# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql---flexible-server"></a>Azure Portal을 사용하여 Azure Database for MySQL - 유연한 서버의 메트릭 경고 설정 
 
 > [!IMPORTANT] 
 > Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
@@ -33,31 +33,31 @@ ms.locfileid: "105110154"
 * [Azure Monitor REST API](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Azure Portal에서 메트릭에 대한 경고 규칙 만들기
-1. [Azure Portal](https://portal.azure.com/)에서 모니터링할 Azure Database for MySQL 유연한 서버를 선택 합니다.
-2. 사이드바의 **모니터링** 섹션에서 **경고** 를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 모니터링할 Azure Database for MySQL 유연한 서버를 선택합니다.
+2. 사이드바의 **모니터링** 섹션에서 **경고** 를 선택합니다.
 3. **+ 새 경고 규칙** 을 선택합니다.
 4. **규칙 만들기** 페이지가 열립니다. 필수 정보를 입력합니다.
-5. **조건** 섹션 내에서 **조건 선택** 을 선택 합니다.
-6. 지원 되는 신호 목록이 표시 되 면 경고를 생성 하려는 메트릭을 선택 합니다. 예를 들어 "Storage percent"를 선택 합니다.
-7. 지난 6 시간 동안의 메트릭에 대 한 차트가 표시 됩니다. **차트 기간** 드롭다운을 사용 하 여 메트릭에 대 한 더 긴 기록을 표시 하도록 선택 합니다.
-8. **임계값** 유형 (예: "정적" 또는 "동적"), **연산자** (예: "보다 큼") 및 **집계 유형** (예: 평균). 이를 통해 메트릭 경고 규칙이 평가할 논리를 결정 합니다.
-    - **정적** 임계값을 사용 하는 경우 **임계값** 을 계속 정의 합니다 (예: 85%). 메트릭 차트는 적절 한 임계값을 결정 하는 데 도움이 될 수 있습니다.
-    - **동적** 임계값을 사용 하는 경우 **임계값 민감도** 를 계속 정의 합니다. 최근 데이터에 기반하여 계산된 임계값이 메트릭 차트에 표시됩니다. [동적 임계값 조건 형식 및 민감도 옵션에 대해 자세히 알아보세요](../../azure-monitor/alerts/alerts-dynamic-thresholds.md).
-9. 집계 유형 함수를 사용 하 여 데이터 요소를 그룹화 하는 **집계 세분성 (기간)** 간격을 조정 하 여 조건을 구체화 합니다 (예: "30 분") 및 **Frequency** (예: "15 분 간격").
+5. **조건** 섹션 내에서 **조건 선택** 을 선택합니다.
+6. 지원되는 신호 목록이 표시되면 경고를 만들 메트릭을 선택합니다. 예를 들면 "스토리지 비율"을 선택합니다.
+7. 지난 6시간의 메트릭에 대한 차트가 표시됩니다. **차트 기간** 드롭다운을 사용하여 더 긴 메트릭 기록을 표시하도록 선택합니다.
+8. **임계값** 유형(예: "정적" 또는 "동적"), **연산자**(예: "보다 큼") 및 **집계 유형**(예: 평균)을 선택합니다. 이는 메트릭 경고 규칙이 평가할 논리를 결정합니다.
+    - **정적** 임계값을 사용하는 경우 **임계값**(예: 85%)을 계속 정의합니다. 메트릭 차트는 적절한 임계값을 결정하는 데 도움이 될 수 있습니다.
+    - **동적** 임계값을 사용하는 경우 **임계값 민감도** 를 계속 정의합니다. 최근 데이터에 기반하여 계산된 임계값이 메트릭 차트에 표시됩니다. [동적 임계값 조건 형식 및 민감도 옵션에 대해 자세히 알아보세요](../../azure-monitor/alerts/alerts-dynamic-thresholds.md).
+9. 집계 유형 함수를 사용하여 데이터 요소를 그룹화하는 **집계 세분성(기간)** 간격(예: "30분")과 **빈도**(예: "15분마다")를 조정하여 조건을 구체화합니다.
 10. **Done** 을 클릭합니다.
-11. 작업 그룹을 추가 합니다. 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. **작업** 그룹 섹션 내에서 **작업 그룹 선택** 을 선택 하 여 경고 규칙에 연결할 기존 작업 그룹을 선택 합니다.
-12. 경고에 대 한 알림을 수신 하는 새 작업 그룹을 만들 수도 있습니다. 자세한 내용은 [작업 그룹 만들기 및 관리](../../azure-monitor/alerts/action-groups.md) 를 참조 하세요.
-13. 새 작업 그룹을 만들려면 **+ 작업 그룹 만들기** 를 선택 합니다. **구독**, **리소스 그룹**, **작업 그룹 이름** 및 **표시 이름을** 사용 하 여 "작업 그룹 만들기" 양식을 작성 합니다.
-14. 작업 그룹에 대 한 **알림을** 구성 합니다.
+11. 작업 그룹을 추가합니다. 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. **작업 그룹** 섹션 내에서 **작업 그룹 선택** 을 선택하여 경고 규칙에 연결할 기존 작업 그룹을 선택합니다.
+12. 경고에 대한 알림을 수신하는 새 작업 그룹을 만들 수도 있습니다. 자세한 내용은 [작업 그룹 만들기 및 관리](../../azure-monitor/alerts/action-groups.md)를 참조하세요.
+13. 새 작업 그룹을 만들려면 **+ 작업 그룹 만들기** 를 선택합니다. **구독**, **리소스 그룹**, **작업 그룹 이름** 및 **표시 이름** 을 사용하여 "작업 그룹 만들기" 양식을 작성합니다.
+14. 작업 그룹에 대한 **알림을** 구성합니다.
     
-    **알림 유형** 에서 "전자 메일 Azure Resource Manager 역할"을 선택 하 여 알림을 받을 구독 소유자, 참가자 및 읽기 권한자를 선택 합니다. 전자 메일을 보내기 위한 **Azure Resource Manager 역할** 을 선택 합니다.
-    **이메일/SMS 메시지/푸시/음성** 을 선택 하 여 특정 받는 사람에 게 알림을 보낼 수도 있습니다.
+    **알림 유형** 에서 "이메일 Azure Resource Manager 역할"을 선택하여 알림을 받을 구독 소유자, 참가자 및 읽기 권한자를 선택합니다. 이메일을 보내기 위한 **Azure Resource Manager 역할** 을 선택합니다.
+    **이메일/SMS 메시지/푸시/음성** 을 선택하여 특정 받는 사람에게 알림을 보낼 수도 있습니다.
 
-    알림 유형에 **이름을** 제공 하 고 완료 되 면 **검토 + 만들기** 를 선택 합니다.
+    알림 유형에 **이름** 을 입력하고 완료되면 **검토 + 만들기** 를 선택합니다.
 
     <!--:::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Action group":::-->
     
-15. 경고 규칙 **이름**, **설명**, **리소스 그룹** 및 **심각도** 에 경고 규칙 저장과 같은 **경고 규칙 세부 정보** 를 입력 합니다.
+15. **경고 규칙 이름**, **설명**, **리소스 그룹에 경고 규칙 저장** 및 **심각도** 같은 **경고 규칙 세부 정보** 를 입력합니다.
 
     <!--:::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Action group":::-->
 
@@ -72,6 +72,6 @@ ms.locfileid: "105110154"
 
 
 ## <a name="next-steps"></a>다음 단계
-- 메트릭에 대 한 [경고 설정](../../azure-monitor/alerts/alerts-metric.md)에 대해 자세히 알아보세요.
-- [Azure Database for MySQL 유연한 서버에서](./concepts-monitoring.md)사용 가능한 메트릭에 대해 자세히 알아보세요.
+- [메트릭 경고 설정](../../azure-monitor/alerts/alerts-metric.md)에 대해 자세히 알아봅니다.
+- 사용 가능한 [Azure Database for MySQL 유연한 서버의 메트릭](./concepts-monitoring.md)에 대해 자세히 알아봅니다.
 - [Azure Monitor에서 메트릭 경고가 작동하는 방식 이해](../../azure-monitor/alerts/alerts-metric-overview.md)

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 6a8be63c134c25373f85a146ed3df7316e1eb7dc
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: a84ed5a6f80b038ced2077fe3c038bd9801ca033
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132408"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732944"
 ---
 # <a name="troubleshooting-azure-spring-cloud-in-virtual-networks"></a>가상 네트워크에서 Azure Spring Cloud 문제 해결
 
@@ -20,7 +20,7 @@ ms.locfileid: "108132408"
 
 ## <a name="i-encountered-a-problem-with-creating-an-azure-spring-cloud-service-instance"></a>Azure Spring Cloud 서비스 인스턴스를 만드는 동안 문제가 발생했습니다.
 
-Azure Spring Cloud의 인스턴스를 만들려면 가상 네트워크에 인스턴스를 배포할 수 있는 권한이 있어야 합니다.  Spring Cloud 서비스 인스턴스는 자체적으로 [가상 네트워크에 Azure Spring Cloud 서비스 권한을 부여](./how-to-deploy-in-azure-virtual-network.md#grant-service-permission-to-the-virtual-network)해야 합니다.
+Azure Spring Cloud의 인스턴스를 만들려면 가상 네트워크에 인스턴스를 배포할 수 있는 권한이 있어야 합니다.  Spring Cloud 서비스 인스턴스는 자체적으로 [가상 네트워크에 Azure Spring Cloud 서비스 권한을 부여](spring-cloud-tutorial-deploy-in-azure-virtual-network.md#grant-service-permission-to-the-virtual-network)해야 합니다.
 
 Azure Portal을 사용하여 Azure Spring Cloud 서비스 인스턴스를 설정하는 경우 Azure Portal에서 권한의 유효성을 검사합니다.
 
@@ -38,7 +38,7 @@ Resource Manager 템플릿을 사용하여 Azure Spring Cloud 서비스 인스�
 | 오류 메시지 | 수정 방법 |
 |------|------|
 | Azure Spring Cloud에서 만든 리소스가 정책에 의해 허용되지 않았습니다. | 네트워크 리소스는 자체 가상 네트워크에 Azure Spring Cloud를 배포할 때 생성됩니다. 이러한 생성을 차단하도록 정의된 [Azure Policy](../governance/policy/overview.md)가 있는지 확인하세요. 생성에 실패한 리소스는 오류 메시지에서 찾을 수 있습니다. |
-| 필요한 트래픽이 허용 목록에 없습니다. | 필요한 트래픽이 허용 목록에 있는지 확인하려면 [VNET에서 Azure Spring Cloud 실행에 대한 고객 책임](./vnet-customer-responsibilities.md)을 참조하세요. |
+| 필요한 트래픽이 허용 목록에 없습니다. | 필요한 트래픽이 허용 목록에 있는지 확인하려면 [VNET에서 Azure Spring Cloud 실행에 대한 고객 책임](spring-cloud-vnet-customer-responsibilities.md)을 참조하세요. |
 
 ## <a name="my-application-cant-be-registered"></a>내 애플리케이션을 등록할 수 없습니다.
 
@@ -46,4 +46,4 @@ Resource Manager 템플릿을 사용하여 Azure Spring Cloud 서비스 인스�
 
 ## <a name="other-issues"></a>기타 문제
 
-[일반적인 Azure Spring Cloud 문제를 해결](./troubleshoot.md)합니다.
+[일반적인 Azure Spring Cloud 문제를 해결](./spring-cloud-troubleshoot.md)합니다.

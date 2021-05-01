@@ -1,6 +1,6 @@
 ---
 title: '지점 및 사이트 간 연결과 RADIUS 인증을 사용하여 가상 네트워크에 컴퓨터 연결: PowerShell | Azure'
-description: P2S 및 RADIUS 인증을 사용 하 여 Windows 및 OS X 클라이언트를 가상 네트워크에 안전 하 게 연결 합니다.
+description: P2S 및 RADIUS 인증을 사용하여 Windows 및 OS X 클라이언트를 가상 네트워크에 안전하게 연결합니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: cherylmc
 ms.openlocfilehash: 9d962d3a4757b4c7b2d217f91aaf73d6ad4164d3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94964850"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>RADIUS 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: PowerShell
@@ -24,17 +24,17 @@ P2S VPN 연결은 Windows 및 Mac 디바이스에서 시작됩니다. 다음 인
 
 * RADIUS 서버
 * VPN Gateway 기본 인증서 인증
-* 네이티브 Azure Active Directory 인증 (Windows 10에만 해당)
+* 기본 Azure Active Directory 인증(Windows 10에만 해당)
 
-이 문서에서는 RADIUS 서버를 통해 인증하도록 P2S를 구성하는 방법에 대해 설명합니다. 대신 생성 된 인증서와 VPN gateway 기본 인증서 인증을 사용 하 여 인증 하려는 경우 [vpn gateway 기본 인증서 인증을 사용 하 여 VNet에 지점 및 사이트 간 연결 구성](vpn-gateway-howto-point-to-site-rm-ps.md) 또는 Azure Active Directory 인증을 위해 [P2S openvpn 프로토콜 연결에 대 한 Azure Active Directory 테 넌 트 만들기](openvpn-azure-ad-tenant.md) 를 참조 하세요.
+이 문서에서는 RADIUS 서버를 통해 인증하도록 P2S를 구성하는 방법에 대해 설명합니다. 대신 생성된 인증서와 VPN 게이트웨이 기본 인증서 인증을 사용하여 인증하려는 경우 [VPN 기본 인증서 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성](vpn-gateway-howto-point-to-site-rm-ps.md) 또는 Azure Active Directory 인증을 위해 [P2S OpenVPN 프로토콜 연결에 대한 Azure Active Directory 테넌트 만들기](openvpn-azure-ad-tenant.md)를 참조하세요.
 
-![RADIUS 서버를 사용 하 여 인증을 사용 하는 P2S 구성을 보여 주는 다이어그램입니다.](./media/point-to-site-how-to-radius-ps/p2sradius.png)
+![RADIUS 서버를 사용하여 인증을 사용하는 P2S 구성을 보여주는 다이어그램입니다.](./media/point-to-site-how-to-radius-ps/p2sradius.png)
 
-P2S 연결을 작동하는 데는 VPN 디바이스 또는 공용 IP 주소가 필요하지 않습니다. P2S는 SSTP (Secure Socket Tunneling Protocol), OpenVPN 또는 IKEv2를 통해 VPN 연결을 만듭니다.
+P2S 연결을 작동하는 데는 VPN 디바이스 또는 공용 IP 주소가 필요하지 않습니다. P2S는 SSTP(Secure Socket Tunneling Protocol), OpenVPN 또는 IKEv2를 통한 VPN 연결을 만듭니다.
 
-* SSTP는 Windows 클라이언트 플랫폼 에서만 지원 되는 TLS 기반 VPN 터널입니다. 이를 통해 방화벽을 통과할 수 있으므로 어디서나 Azure에 연결할 수 있는 이상적인 옵션입니다. 서버 쪽에서 SSTP 버전 1.0, 1.1 및 1.2를 지원하며, 클라이언트에서 사용할 버전을 결정합니다. Windows 8.1 이상에서는 기본적으로 SSTP 버전 1.2를 사용합니다.
+* SSTP는 Windows 클라이언트 플랫폼에서만 지원되는 TLS 기반 VPN 터널입니다. 이를 통해 방화벽을 통과할 수 있으므로 어디서나 Azure에 연결할 수 있는 이상적인 옵션입니다. 서버 쪽에서 SSTP 버전 1.0, 1.1 및 1.2를 지원하며, 클라이언트에서 사용할 버전을 결정합니다. Windows 8.1 이상에서는 기본적으로 SSTP 버전 1.2를 사용합니다.
 
-* OpenVPN® 프로토콜, SSL/TLS 기반 VPN 프로토콜입니다. 대부분의 방화벽은 TLS에서 사용 하는 TCP 포트 443 아웃 바운드를 열기 때문에 TLS VPN 솔루션은 방화벽을 통과할 수 있습니다. OpenVPN은 Android, iOS (버전 11.0 이상), Windows, Linux 및 Mac 장치 (OSX 버전 10.13 이상)에서 연결 하는 데 사용할 수 있습니다.
+* OpenVPN® 프로토콜, SSL/TLS 기반 VPN 프로토콜입니다. 대부분의 방화벽에서 TLS가 사용되는 TCP 포트 443 아웃바운드를 열기 때문에 TLS VPN 솔루션이 방화벽을 통과할 수 있습니다. OpenVPN은 Android, iOS(버전 11.0 이상), Windows, Linux 및 Mac 디바이스(OSX 버전 10.13 이상)에서 연결하는 데 사용할 수 있습니다.
 
 * IKEv2 VPN - 표준 기반 IPsec VPN 솔루션입니다. IKEv2 VPN은 Mac 디바이스(OSX 버전 10.11 이상)에서 연결하는 데 사용할 수 있습니다.
 
@@ -73,7 +73,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 * **이름: VNet1**
 * **주소 공간: 192.168.0.0/16** 및 **10.254.0.0/16**<br>이 예제에서는 둘 이상의 주소 공간을 사용하여 이 구성이 여러 주소 공간에서 작동하는 것을 보여 줍니다. 하지만 이 구성에 여러 주소 공간이 반드시 필요한 것은 아닙니다.
-* **서브넷 이름: 프런트 엔드**
+* **서브넷 이름: FrontEnd**
   * **서브넷 주소 범위: 192.168.1.0/24**
 * **서브넷 이름: BackEnd**
   * **서브넷 주소 범위: 10.254.1.0/24**
@@ -88,7 +88,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 * **공용 IP 이름: VNet1GWPIP**
 * **VpnType: RouteBased**
 
-## <a name="1-set-the-variables"></a><a name="signin"></a>1. 변수를 설정 합니다.
+## <a name="1-set-the-variables"></a><a name="signin"></a>1. 변수 설정
 
 사용할 변수를 선언합니다. 다음 샘플을 사용하여 필요할 때 고유한 값으로 대체합니다. 이 연습을 수행하는 동안 PowerShell/Cloud Shell 세션을 닫게 되는 경우 값을 복사하고 붙여넣어 변수를 다시 선언하세요.
 
@@ -110,11 +110,11 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
   $GWIPconfName = "gwipconf"
   ```
 
-## <a name="2-create-the-resource-group-vnet-and-public-ip-address"></a>2. <a name="vnet"></a> 리소스 그룹, VNet 및 공용 IP 주소 만들기
+## <a name="2-create-the-resource-group-vnet-and-public-ip-address"></a>2. <a name="vnet"></a>리소스 그룹, VNet 및 공용 IP 주소 만들기
 
 다음 단계에서는 세 개의 서브넷이 있는 리소스 그룹과 리소스 그룹의 가상 네트워크를 만듭니다. 값을 대체할 때 언제나 게이트웨이 서브넷 이름을 'GatewaySubnet'이라고 구체적으로 지정해야 합니다. 다른 이름을 지정하면 게이트웨이 만들기가 실패합니다.
 
-1. 리소스 그룹을 만듭니다.
+1. 리소스 그룹을 생성합니다.
 
    ```azurepowershell-interactive
    New-AzResourceGroup -Name "TestRG" -Location "East US"
@@ -144,7 +144,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
    $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name "gwipconf" -Subnet $subnet -PublicIpAddress $pip
    ```
 
-## <a name="3-set-up-your-radius-server"></a>3. <a name="radius"></a> RADIUS 서버 설정
+## <a name="3-set-up-your-radius-server"></a>3. <a name="radius"></a>RADIUS 서버 설정
 
 가상 네트워크 게이트웨이를 만들고 구성하기 전에 인증을 위한 RADIUS 서버를 올바르게 구성해야 합니다.
 
@@ -154,12 +154,12 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 [NPS(네트워크 정책 서버)](/windows-server/networking/technologies/nps/nps-top) 문서에서는 AD 도메인 인증을 위해 Windows RADIUS 서버(NPS)를 구성하는 방법에 대한 지침을 제공하고 있습니다.
 
-## <a name="4-create-the-vpn-gateway"></a>4. <a name="creategw"></a> VPN gateway 만들기
+## <a name="4-create-the-vpn-gateway"></a>4. <a name="creategw"></a>VPN Gateway 만들기
 
 VNet에 대한 VPN 게이트웨이를 구성하고 만듭니다.
 
 * -GatewayType은  'Vpn'이어야 하고 -VpnType은  'RouteBased'여야 합니다.
-* VPN gateway는 선택한 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)에 따라 완료 하는 데 최대 45 분까지 걸릴 수 있습니다   .
+* VPN 게이트웨이는 선택한  [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) 에 따라 완료하는 데 최대 45분이 걸릴 수 있습니다.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
@@ -167,7 +167,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1
 ```
 
-## <a name="5-add-the-radius-server-and-client-address-pool"></a>5. <a name="addradius"></a> RADIUS 서버 및 클라이언트 주소 풀 추가
+## <a name="5-add-the-radius-server-and-client-address-pool"></a>5. <a name="addradius"></a>RADIUS 서버 및 클라이언트 주소 풀 추가
  
 * -RadiusServer는 이름 또는 IP 주소로 지정할 수 있습니다. 이름을 지정하고 서버가 온-프레미스에 있으면 VPN 게이트웨이에서 해당 이름을 확인할 수 없습니다. 이러한 경우에는 서버의 IP 주소를 지정하는 것이 좋습니다. 
 * -RadiusSecret은 RADIUS 서버에 구성된 것과 일치해야 합니다.
@@ -195,7 +195,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-   OpenVPN® 구성의 경우:
+   OpenVPN® 구성:
 
     ```azurepowershell-interactive
     $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
@@ -224,7 +224,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-   **두** RADIUS 서버를 지정 하려면 다음 구문을 사용 합니다. 필요에 따라 **-vpnclientprotocol 추가 됨** 값을 수정 합니다.
+   **두** RADIUS 서버를 지정하려면 다음 구문을 사용합니다. 필요에 따라 **-VpnClientProtocol** 값 수정
 
     ```azurepowershell-interactive
     $radiusServer1 = New-AzRadiusServer -RadiusServerAddress 10.1.0.15 -RadiusServerSecret $radiuspd -RadiusServerScore 30
@@ -235,7 +235,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $actual -VpnClientAddressPool 201.169.0.0/16 -VpnClientProtocol "IkeV2" -RadiusServerList $radiusServers
     ```
 
-## <a name="6-download-the-vpn-client-configuration-package-and-set-up-the-vpn-client"></a>6. <a name="vpnclient"></a> vpn 클라이언트 구성 패키지를 다운로드 하 고 vpn 클라이언트를 설정 합니다.
+## <a name="6-download-the-vpn-client-configuration-package-and-set-up-the-vpn-client"></a>6. <a name="vpnclient"></a>VPN 클라이언트 구성 패키지 다운로드 및 VPN 클라이언트 설정
 
 VPN 클라이언트 구성을 사용하면 P2S 연결을 통해 VNet에 디바이스를 연결할 수 있습니다. VPN 클라이언트 구성 패키지를 생성하고 VPN 클라이언트를 설정하려면 [RADIUS 인증에 대한 VPN 클라이언트 구성 만들기](point-to-site-vpn-client-configuration-radius.md)를 참조하세요.
 
@@ -292,4 +292,4 @@ P2S 연결 문제를 해결하려면 [Azure 지점 및 사이트 간 연결 문�
 
 ## <a name="next-steps"></a>다음 단계
 
-연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](../index.yml)를 참조 하세요. 네트워킹 및 가상 머신에 대한 자세한 내용은 [Azure 및 Linux VM 네트워크 개요](../virtual-machines/network-overview.md)를 참조하세요.
+연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](../index.yml)를 참조하세요. 네트워킹 및 가상 머신에 대한 자세한 내용은 [Azure 및 Linux VM 네트워크 개요](../virtual-machines/network-overview.md)를 참조하세요.

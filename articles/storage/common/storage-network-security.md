@@ -9,12 +9,12 @@ ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 3d71a7ad2507909dacf54e7f1c49b6e768033113
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5e8123c252d99b2999eeef42fecae189a05e382b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104600482"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778124"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -571,7 +571,7 @@ az storage account network-rule list \
 | Azure DevTest Labs       | Microsoft.DevTestLab       | 사용자 지정 이미지 만들기 및 아티팩트 설치. [자세히 알아보기](../../devtest-labs/devtest-lab-overview.md). |
 | Azure Event Grid         | Microsoft.EventGrid        | Blob Storage 이벤트 게시를 사용하도록 설정하고 Event Grid가 스토리지 큐에 게시하도록 허용합니다. [Blob Storage 이벤트](../../event-grid/overview.md#event-sources)와 [큐에 게시](../../event-grid/event-handlers.md)에 대해 알아봅니다. |
 | Azure Event Hubs         | Microsoft.EventHub         | Event Hubs 캡처로 데이터를 보관합니다. [자세한 정보](../../event-hubs/event-hubs-capture-overview.md). |
-| Azure 파일 동기화          | Microsoft.StorageSync      | Azure 파일 공유를 위해 온-프레미스 파일 서버를 캐시로 변환할 수 있습니다. 다중 사이트 동기화, 빠른 재해 복구 및 클라우드 쪽 백업을 허용합니다. [자세히 알아보기](../files/storage-sync-files-planning.md) |
+| Azure 파일 동기화          | Microsoft.StorageSync      | Azure 파일 공유를 위해 온-프레미스 파일 서버를 캐시로 변환할 수 있습니다. 다중 사이트 동기화, 빠른 재해 복구 및 클라우드 쪽 백업을 허용합니다. [자세히 알아보기](../file-sync/file-sync-planning.md) |
 | Azure HDInsight          | Microsoft.HDInsight        | 새 HDInsight 클러스터에 대한 기본 파일 시스템의 초기 콘텐츠를 프로비저닝합니다. [자세히 알아보기](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). |
 | Azure Import/Export      | Microsoft.ImportExport     | Azure Storage 가져오기/내보내기 서비스를 사용하여 Azure로 데이터를 가져오고 Azure에서 데이터를 내보낼 수 있습니다. [자세히 알아보기](../../import-export/storage-import-export-service.md).  |
 | Azure Monitor            | Microsoft.Insights         | 리소스 로그 Azure Active Directory 로그인 및 감사 로그, Microsoft Intune 로그를 포함하는 모니터링 데이터를 보안 스토리지 계정에 쓸 수 있습니다. [자세히 알아보기](../../azure-monitor/roles-permissions-security.md). |
@@ -590,7 +590,7 @@ az storage account network-rule list \
 
 | 서비스                        | 리소스 공급자 이름                 | 목적            |
 | :----------------------------- | :------------------------------------- | :----------------- |
-| Azure API Management           | Microsoft.ApiManagement/service        | 정책을 사용하여 방화벽 뒤에 있는 스토리지 계정에 대한 API Management 서비스 액세스를 사용하는 것으로 설정합니다. [자세히 알아보기](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
+| Azure API Management           | Microsoft.ApiManagement/service        | 정책을 사용하여 방화벽 뒤에 있는 스토리지 계정에 대한 API Management 서비스 액세스를 사용하는 것으로 설정합니다. [자세한 정보를 알아보세요](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Cognitive Search 서비스를 사용하여 인덱싱, 처리 및 쿼리를 위해 스토리지 계정에 액세스할 수 있습니다. |
 | Azure Cognitive Services       | Microsoft.CognitiveService/accounts    | Cognitive Services를 사용하는 것으로 설정하여 스토리지 계정에 액세스할 수 있습니다. |
 | Azure Container Registry 작업 | Microsoft.ContainerRegistry/registries | ACR 태스크는 컨테이너 이미지를 빌드할 때 스토리지 계정에 액세스할 수 있습니다. |

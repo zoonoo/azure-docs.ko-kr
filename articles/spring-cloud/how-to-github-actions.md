@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: caf70a005711decae794b02d4a2ccbaf3c2c32f4
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 8400fcacbfa4c76aceb079b788255e3d3b83ce33
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108135008"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104878296"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>GitHub Actions를 사용하는 Azure Spring Cloud CI/CD
 
 GitHub Actions는 자동화된 소프트웨어 개발 수명 주기 워크플로를 지원합니다. Azure Spring Cloud용 GitHub Actions를 사용하여 Azure에 빌드, 테스트하고 패키징, 릴리스 및 배포하기 위한 리포지토리에 워크플로를 만들 수 있습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 예제에는 [Azure CLI](/cli/azure/install-azure-cli)가 필요합니다.
 
 ::: zone pivot="programming-language-csharp"
@@ -57,7 +57,7 @@ az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTIO
 
  ![비밀 데이터 설정](./media/github-actions/actions2.png)
 
-[GitHub Actions에서 Key Vault를 사용하여 Azure Spring 인증](./github-actions-key-vault.md)에 설명된 대로 GitHub Actions의 Key Vault에서 Azure 로그인 자격 증명도 가져올 수 있습니다.
+[GitHub Actions에서 Key Vault를 사용하여 Azure Spring 인증](./spring-cloud-github-actions-key-vault.md)에 설명된 대로 GitHub Actions의 Key Vault에서 Azure 로그인 자격 증명도 가져올 수 있습니다.
 
 ## <a name="provision-service-instance"></a>서비스 인스턴스 프로비저닝
 Azure Spring Cloud 서비스 인스턴스를 프로비저닝하려면 Azure CLI를 사용하 여 다음 명령을 실행합니다.
@@ -175,7 +175,7 @@ az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTIO
 
  ![비밀 데이터 설정](./media/github-actions/actions2.png)
 
-[GitHub Actions에서 Key Vault를 사용하여 Azure Spring 인증](./github-actions-key-vault.md)에 설명된 대로 GitHub Actions의 Key Vault에서 Azure 로그인 자격 증명도 가져올 수 있습니다.
+[GitHub Actions에서 Key Vault를 사용하여 Azure Spring 인증](./spring-cloud-github-actions-key-vault.md)에 설명된 대로 GitHub Actions의 Key Vault에서 Azure 로그인 자격 증명도 가져올 수 있습니다.
 
 ## <a name="provision-service-instance"></a>서비스 인스턴스 프로비저닝
 Azure Spring Cloud 서비스 인스턴스를 프로비저닝하려면 Azure CLI를 사용하 여 다음 명령을 실행합니다.
@@ -289,7 +289,7 @@ jobs:
 ```
 
 ## <a name="deploy-with-maven-plugin"></a>Maven 플러그인을 사용하여 배포
-또 다른 옵션은 [Maven 플러그인](./quickstart.md)을 사용하여 Jar를 배포하고 앱 설정을 업데이트하는 것입니다. `mvn azure-spring-cloud:deploy` 명령은 idempotent이며 필요한 경우 앱을 자동으로 만듭니다. 해당 앱을 미리 만들 필요는 없습니다.
+또 다른 옵션은 [Maven 플러그인](./spring-cloud-quickstart.md)을 사용하여 Jar를 배포하고 앱 설정을 업데이트하는 것입니다. `mvn azure-spring-cloud:deploy` 명령은 idempotent이며 필요한 경우 앱을 자동으로 만듭니다. 해당 앱을 미리 만들 필요는 없습니다.
 
 ```
 name: AzureSpringCloud
@@ -339,6 +339,6 @@ Github에 `.github/workflow/main.yml`을(를) 푸시하면 GitHub **Actions** �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Spring Cloud GitHub Actions용 Key Vault](./github-actions-key-vault.md)
-* [Azure Active Directory 서비스 사용자](/cli/azure/ad/sp#az_ad_sp_create_for_rbac)
+* [Spring Cloud GitHub Actions용 Key Vault](./spring-cloud-github-actions-key-vault.md)
+* [Azure Active Directory 서비스 사용자](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)
 * [Azure에 대한 GitHub 작업](https://github.com/Azure/actions/)

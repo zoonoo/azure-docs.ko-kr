@@ -3,21 +3,21 @@ title: Azure Durable Functions 단위 테스트
 description: Durable Functions를 단위 테스트하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: 89b6419e95b3971b0d272490e19354f300204e1e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: fe5a25e0296eb183ef2426e12f7bdee35633ec78
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103491047"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076635"
 ---
 # <a name="durable-functions-unit-testing"></a>Durable Functions 단위 테스트
 
-단위 테스트는 최신 소프트웨어 개발 방법의 중요한 부분입니다. 단위 테스트는 비즈니스 논리 동작을 확인하고 향후 중요하지 않은 변경 내용을 도입하지 못하게 방지합니다. Durable Functions는 복잡성이 쉽게 증가할 수 있으므로 단위 테스트를 도입하면 변경 내용을 방지하는 데 도움이 됩니다. 다음 섹션에서는 세 가지 함수 형식 오케스트레이션 클라이언트, orchestrator 및 작업 함수를 단위 테스트 하는 방법을 설명 합니다.
+단위 테스트는 최신 소프트웨어 개발 방법의 중요한 부분입니다. 단위 테스트는 비즈니스 논리 동작을 확인하고 향후 중요하지 않은 변경 내용을 도입하지 못하게 방지합니다. Durable Functions는 복잡성이 쉽게 증가할 수 있으므로 단위 테스트를 도입하면 변경 내용을 방지하는 데 도움이 됩니다. 다음 섹션에서는 세 가지 함수 형식 오케스트레이션 클라이언트, 오케스트레이터 및 작업 함수를 단위 테스트하는 방법을 설명합니다.
 
 > [!NOTE]
-> 이 문서에서는 Durable Functions 2.x를 대상으로 하는 Durable Functions 앱에 대 한 단위 테스트에 대 한 지침을 제공 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이 문서에서는 Durable Functions 2.x를 대상으로 하는 Durable Functions 앱의 유닛 테스트에 대한 지침을 제공합니다. 버전 간의 차이점에 대한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 예제를 살펴보려면 다음과 같은 개념과 프레임워크에 대한 지식이 필요합니다.
 
@@ -31,17 +31,17 @@ ms.locfileid: "103491047"
 
 ## <a name="base-classes-for-mocking"></a>모의 동작에 대한 기본 클래스
 
-Mock는 다음 인터페이스를 통해 지원 됩니다.
+모의 동작은 다음 인터페이스를 통해 지원됩니다.
 
-* [IDurableOrchestrationClient](/dotnet/api/microsoft.azure.webjobs.IDurableOrchestrationClient), [idurableentityclient](/dotnet/api/microsoft.azure.webjobs.IDurableEntityClient) 및 [IDurableClient](/dotnet/api/microsoft.azure.webjobs.IDurableClient)
+* [IDurableOrchestrationClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient), [IDurableEntityClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableentityclient) 및 [IDurableClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableclient)
 
-* [IDurableOrchestrationContext](/dotnet/api/microsoft.azure.webjobs.IDurableOrchestrationContext)
+* [IDurableOrchestrationContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext)
 
-* [IDurableActivityContext](/dotnet/api/microsoft.azure.webjobs.IDurableActivityContext)
+* [IDurableActivityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableactivitycontext)
   
-* [IDurableEntityContext](/dotnet/api/microsoft.azure.webjobs.IDurableEntityContext)
+* [IDurableEntityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableentitycontext)
 
-이러한 인터페이스는 Durable Functions에서 지 원하는 다양 한 트리거 및 바인딩과 함께 사용할 수 있습니다. Azure Functions를 실행 하는 경우 함수 런타임은 이러한 인터페이스의 구체적인 구현을 사용 하 여 함수 코드를 실행 합니다. 단위 테스트의 경우 이러한 인터페이스의 모의 버전을 전달 하 여 비즈니스 논리를 테스트할 수 있습니다.
+이러한 인터페이스는 Durable Functions에서 지원하는 다양한 트리거 및 바인딩과 함께 사용할 수 있습니다. Azure Functions를 실행하는 경우 함수 런타임은 이러한 인터페이스의 구체적인 구현을 사용하여 함수 코드를 실행합니다. 유닛 테스트의 경우 이러한 인터페이스의 모의 버전을 전달하여 비즈니스 논리를 테스트할 수 있습니다.
 
 ## <a name="unit-testing-trigger-functions"></a>트리거 함수 단위 테스트
 
@@ -49,9 +49,9 @@ Mock는 다음 인터페이스를 통해 지원 됩니다.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-단위 테스트 작업에서는 응답 페이로드에 제공되는 `Retry-After` 헤더의 값을 확인합니다. 따라서 단위 테스트는 `IDurableClient` 예측 가능한 동작을 보장 하기 위해 몇 가지 메서드를 mock 합니다.
+단위 테스트 작업에서는 응답 페이로드에 제공되는 `Retry-After` 헤더의 값을 확인합니다. 따라서 단위 테스트에서는 모의 `IDurableClient` 메서드를 만들어서 동작의 예측 가능성을 보장합니다.
 
-먼저 모의 프레임 워크 (이 경우[moq](https://github.com/moq/moq4) )를 모의으로 사용 합니다 `IDurableClient` .
+먼저 모의 프레임워크(이 경우[moq](https://github.com/moq/moq4))를 모의 `IDurableClient`로 사용합니다.
 
 ```csharp
 // Mock IDurableClient
@@ -59,7 +59,7 @@ var durableClientMock = new Mock<IDurableClient>();
 ```
 
 > [!NOTE]
-> 인터페이스를 클래스로 직접 구현 하 여 모의 인터페이스를 사용할 수 있지만 모의 프레임 워크는 다양 한 방법으로 프로세스를 간소화 합니다. 예를 들어, 새 메서드가 부 릴리스 간에 인터페이스에 추가 되는 경우에는 구체적 구현과 달리 moq에서 코드를 변경할 필요가 없습니다.
+> 인터페이스를 클래스로 직접 구현하여 인터페이스를 모의할 수 있지만 모의 프레임워크는 다양한 방식으로 프로세스를 단순화합니다. 예를 들어 부 릴리스에서 인터페이스에 새 메서드가 추가되면 moq는 구체적인 구현과 달리 코드 변경이 필요하지 않습니다.
 
 그런 후 잘 알려진 인스턴스 ID를 반환하는 모의 `StartNewAsync` 메서드를 만듭니다.
 
@@ -175,7 +175,7 @@ Assert.Equal("Hello London!", result[2]);
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-그리고 단위 테스트에서 출력의 형식을 확인합니다. 단위 테스트는 매개 변수 형식 직접 또는 모의 클래스를 사용할 수 있습니다 `IDurableActivityContext` .
+그리고 단위 테스트에서 출력의 형식을 확인합니다. 단위 테스트는 매개 변수 유형을 직접 사용하거나 모의 `IDurableActivityContext` 클래스를 사용할 수 있습니다.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceActivityTests.cs)]
 

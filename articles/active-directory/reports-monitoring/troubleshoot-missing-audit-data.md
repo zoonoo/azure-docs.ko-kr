@@ -1,5 +1,5 @@
 ---
-title: 활동 로그에서 누락 된 데이터 문제 해결 | Microsoft Docs
+title: 활동 로그의 데이터 누락 문제 해결 | Microsoft Docs
 description: Azure Active Directory 활동 로그의 데이터 누락 문제 해결 방법을 제공합니다.
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2f48c26a65314e2f23513fba155f07db3805a516
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93123067"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>문제 해결: Azure Active Directory 활동 로그의 데이터 누락 | Microsoft Docs 
@@ -32,7 +32,7 @@ ms.locfileid: "93123067"
 
 Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` 블레이드에서 해당 작업에 대한 감사 로그가 표시될 것을 예상했지만 찾을 수 없습니다.
 
- ![감사 로그 항목을 보여 주는 스크린샷](./media/troubleshoot-missing-audit-data/01.png)
+ ![스크린샷에 감사 로그 항목이 표시됩니다.](./media/troubleshoot-missing-audit-data/01.png)
  
 ### <a name="cause"></a>원인
 
@@ -53,7 +53,7 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 
 최근에 Azure Portal에 로그인했고 `Activity logs > Sign-ins` 블레이드에 이 작업에 대한 로그인 로그가 표시될 것으로 예상했지만 찾을 수 없습니다.
 
- ![활동 로그의 로그인을 보여 주는 스크린샷](./media/troubleshoot-missing-audit-data/02.png)
+ ![스크린샷에 활동 로그의 로그인이 표시됩니다.](./media/troubleshoot-missing-audit-data/02.png)
  
 ### <a name="cause"></a>원인
 
@@ -62,7 +62,7 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 | 보고서 | 대기 시간(P95) | 대기 시간(P99) |
 |--------|---------------|---------------|
 | 디렉터리 감사 | 2분 | 5분 |
-| 로그인 활동 2 분 | 5분 |
+| 로그인 작업 2분 | 5분 |
 
 ### <a name="resolution"></a>해결 방법
 
@@ -72,9 +72,9 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 
 ### <a name="symptoms"></a>증상
 
-Azure Portal에서 30일이 초과된 로그인 및 감사 데이터를 볼 수 없습니다. 이유 
+Azure Portal에서 30일이 초과된 로그인 및 감사 데이터를 볼 수 없습니다. 그 이유는 
 
- ![스크린샷 날짜 메뉴를 표시 합니다.](./media/troubleshoot-missing-audit-data/03.png)
+ ![스크린샷에 날짜 메뉴가 표시됩니다.](./media/troubleshoot-missing-audit-data/03.png)
 
 ### <a name="cause"></a>원인
 
@@ -94,6 +94,6 @@ Azure Active Directory 작업은 사용자 라이선스에 따라 다음 기간 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure AD 보고서 보존](reference-reports-data-retention.md).
-* [Azure Active Directory 보고 대기 시간](reference-reports-latencies.md)입니다.
-* [보고 FAQ를 Azure Active Directory](reports-faq.md)합니다.
+* [Azure Active Directory 보고 대기 시간](reference-reports-latencies.md).
+* [Azure Active Directory 보고 FAQ](reports-faq.md).
 

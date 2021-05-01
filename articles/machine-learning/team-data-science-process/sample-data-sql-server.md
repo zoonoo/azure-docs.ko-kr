@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 7ac1fc5688dad3406041f36ff858e6fd27c7272f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "93321866"
 ---
 # <a name="sample-data-in-sql-server-on-azure"></a><a name="heading"></a>Azure의 SQL Server에서 데이터 샘플링
@@ -30,14 +30,14 @@ Python 샘플링은 Azure의 SQL Sever와 [Pandas](https://pandas.pydata.org/) �
 > 
 
 **데이터를 샘플링하는 이유**
-분석할 데이터 세트가 큰 경우 일반적으로 데이터를 다운 샘플링하여 작지만 전형적이고 관리하기 쉬운 크기로 줄이는 것이 좋습니다. 샘플링은 데이터 이해, 탐색 및 기능 엔지니어링을 용이 하 게 합니다. [TDSP(팀 데이터 과학 프로세스)](./index.yml) 에서는 데이터 처리 기능 및 기계 학습 모델의 빠른 프로토타입 제작을 지원하는 역할을 합니다.
+분석할 데이터 세트가 큰 경우 일반적으로 데이터를 다운 샘플링하여 작지만 전형적이고 관리하기 쉬운 크기로 줄이는 것이 좋습니다. 샘플링을 수행하면 데이터 해석, 탐색 및 기능 엔지니어링이 용이해집니다. [TDSP(팀 데이터 과학 프로세스)](./index.yml) 에서는 데이터 처리 기능 및 기계 학습 모델의 빠른 프로토타입 제작을 지원하는 역할을 합니다.
 
 이 샘플 작업은 [TDSP(팀 데이터 과학 프로세스)](./index.yml)의 단계입니다.
 
 ## <a name="using-sql"></a><a name="SQL"></a>SQL 사용
 이 섹션에는 SQL을 사용하여 데이터베이스의 데이터에 대해 간단한 무작위 샘플링을 수행하는 몇 가지 방법을 설명합니다. 데이터 크기 및 해당 분포에 따라 방법을 선택하세요.
 
-다음 두 항목은 SQL Server에서 `newid`를 사용하여 샘플링을 수행하는 방법을 보여줍니다. 선택할 수 있는 메서드는 샘플을 원하는 난수의 (다음 샘플 코드에서 pk_id 자동 생성 된 기본 키로 가정)에 따라 달라 집니다.
+다음 두 항목은 SQL Server에서 `newid`를 사용하여 샘플링을 수행하는 방법을 보여줍니다. 선택하는 방법은 샘플링할 무작위 수준에 따라 달라집니다. 다음 샘플 코드의 pk_id는 자동으로 생성된 기본 키로 간주됩니다.
 
 1. 낮은 수준 무작위 샘플
 
@@ -53,7 +53,7 @@ Python 샘플링은 Azure의 SQL Sever와 [Pandas](https://pandas.pydata.org/) �
     WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
     ```
 
-데이터를 샘플링하는 데도 Tablesample을 사용할 수 있습니다. 이 옵션은 데이터 크기가 큰 경우 (서로 다른 페이지에 있는 데이터의 상관 관계가 없는 것으로 가정), 쿼리가 적절 한 시간 내에 완료 되는 경우 더 나은 방법일 수 있습니다.
+데이터를 샘플링하는 데도 Tablesample을 사용할 수 있습니다. 이 옵션은 데이터 크기가 큰 경우(여러 페이지의 데이터가 상관 관계가 없는 것으로 가정) 및 적당한 시간에 쿼리를 완료하는 데 보다 적합한 접근법일 수 있습니다.
 
 ```sql
 SELECT *
@@ -67,12 +67,12 @@ TABLESAMPLE (10 PERCENT)
 > 
 
 ### <a name="connecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Azure 기계 학습에 연결
-Azure Machine Learning [데이터 가져오기][import-data] 모듈에서 위의 샘플 쿼리를 직접 사용하여 데이터를 즉시 다운 샘플링한 후 Azure Machine Learning 실험으로 가져올 수 있습니다. 판독기 모듈을 사용 하 여 샘플링 된 데이터를 읽는 스크린 샷은 다음과 같습니다.
+Azure Machine Learning [데이터 가져오기][import-data] 모듈에서 위의 샘플 쿼리를 직접 사용하여 데이터를 즉시 다운 샘플링한 후 Azure Machine Learning 실험으로 가져올 수 있습니다. 판독기 모듈을 사용하여 샘플링된 데이터를 읽는 스크린샷은 다음과 같습니다.
 
 ![판독기 sql][1]
 
 ## <a name="using-the-python-programming-language"></a><a name="python"></a>Python 프로그래밍 언어 사용
-이 섹션에서는 [pyodbc 라이브러리](https://code.google.com/p/pyodbc/)를 사용하여 Python에서 SQL server 데이터베이스에 ODBC 연결을 설정하는 방법을 보여줍니다. 데이터베이스 연결 문자열은 다음과 같습니다. (servername, dbname, username 및 password를 사용자의 구성으로 바꿉니다.)
+이 섹션에서는 [pyodbc 라이브러리](https://code.google.com/p/pyodbc/)를 사용하여 Python에서 SQL server 데이터베이스에 ODBC 연결을 설정하는 방법을 보여줍니다. 데이터베이스 연결 문자열은 다음과 같습니다. 여기서 servername, dbname, username 및 password를 고유한 구성으로 바꾸세요.
 
 ```python
 #Set up the SQL Azure connection
@@ -80,7 +80,7 @@ import pyodbc
 conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 ```
 
-Python의 [Pandas](https://pandas.pydata.org/) 라이브러리에서는 Python 프로그래밍용 데이터 조작을 위한 다양한 데이터 구조 및 데이터 분석 도구 집합을 제공합니다. 다음 코드는 Azure SQL Database의 테이블에서 데이터의 0.1% 샘플을 Pandas 데이터로 읽습니다.
+Python의 [Pandas](https://pandas.pydata.org/) 라이브러리에서는 Python 프로그래밍용 데이터 조작을 위한 다양한 데이터 구조 및 데이터 분석 도구 집합을 제공합니다. 다음 코드는 Azure SQL Database의 테이블에서 0.1% 샘플 데이터를 Pandas 데이터로 읽습니다.
 
 ```python
 import pandas as pd
@@ -129,7 +129,7 @@ data_frame = pd.read_sql('''select column1, column2... from <table_name> tablesa
 ![판독기 blob][2]
 
 ## <a name="the-team-data-science-process-in-action-example"></a>실행 중인 팀 데이터 과학 프로세스 예제
-공용 데이터 집합을 사용 하는 팀 데이터 과학 프로세스의 예제를 살펴보려면 [작업 중인 팀 데이터 과학 프로세스: SQL Server 사용](sql-walkthrough.md)을 참조 하세요.
+공용 데이터 세트를 사용하여 팀 데이터 과학 프로세스 예제를 진행하려면 [실행 중인 팀 데이터 과학 프로세스: SQL Server 사용](sql-walkthrough.md)을 참조하세요.
 
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png

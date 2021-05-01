@@ -1,15 +1,15 @@
 ---
 title: Azure Data Lake Analytics에서 U-SQL 언어 시작
-description: Azure Data Lake Analytics에서 U-SQL 언어에 대한 기본 사항을 알아봅니다. 변수를 사용 하 여 파일의 추가 데이터에 대 한 첫 번째 쿼리를 작성 하 고 행 집합을 변환한 다음 데이터를 집계 합니다.
+description: Azure Data Lake Analytics에서 U-SQL 언어에 대한 기본 사항을 알아봅니다. 변수를 사용하여 파일의 추가 데이터에 대한 첫 번째 쿼리를 작성하고, 행 집합을 변환하고, 데이터를 집계합니다.
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 06/23/2017
 ms.openlocfilehash: 5920f2b5823e568d56d13107200eb0025a654db0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92219924"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 시작

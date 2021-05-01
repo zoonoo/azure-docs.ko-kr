@@ -14,20 +14,20 @@ ms.topic: how-to
 ms.date: 03/16/2021
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 035215bf9350243f667c4883786a923a172cb89c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 74769feba1d717a2f1a72d311f85bdfbeac7b7db
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126564"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103574792"
 ---
 # <a name="ad-fs-sign-ins-in-azure-ad-with-connect-health---preview"></a>Connect Health를 사용하여 Azure AD에서 AD FS 로그인 - 미리 보기
 
-이제 Connect Health를 사용하여 AD FS 로그인을 Azure Active Directory 로그인 보고서에 통합할 수 있습니다. [Azure AD 로그인 보고서](../reports-monitoring/concept-all-sign-ins.md)에는 사용자, 애플리케이션 및 관리되는 리소스가 Azure AD에 로그인하고 리소스에 액세스하는 시기에 대한 정보가 포함됩니다. 
+이제 Connect Health를 사용하여 AD FS 로그인을 Azure Active Directory 로그인 보고서에 통합할 수 있습니다. [Azure AD 로그인 보고서](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-all-sign-ins#:~:text=Interactive%20user%20sign-ins%20are%20sign-ins%20where%20a%20user,to%20Azure%20AD%20or%20to%20a%20helper%20app.)에는 사용자, 애플리케이션 및 관리되는 리소스가 Azure AD에 로그인하고 리소스에 액세스하는 시기에 대한 정보가 포함됩니다. 
 
 AD FS용 Connect Health 에이전트는 서버 버전에 따라 AD FS의 여러 이벤트 ID를 상호 연결하여 요청에 대한 정보, 그리고 요청이 실패할 경우 오류 세부 정보를 제공합니다. 이 정보는 Azure AD 로그인 보고서 스키마와 관련되어 있으며 Azure AD 로그인 보고서 UX에 표시됩니다. 보고서와 함께 새 Log Analytics 스트림을 AD FS 데이터 및 새 Azure Monitor 통합 문서 템플릿과 함께 사용할 수 있습니다. 템플릿은 AD FS 계정 잠금, 잘못된 암호 시도 및 예기치 않은 로그인 시도 급증과 같은 시나리오에 대한 심층 분석을 위해 사용 및 수정할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 * AD FS용 Azure AD Connect Health가 설치되어 있고 최신 버전으로 업그레이드되어 있음
 * Azure AD 로그인을 볼 수 있는 전역 관리자 또는 보고서 읽기 권한자 역할
 
@@ -48,7 +48,7 @@ AD FS용 Connect Health 에이전트는 서버 버전에 따라 AD FS의 여러 
 #### <a name="authentication-method-information"></a>인증 방법 정보
 다음 값이 인증 탭에 표시될 수 있습니다. 인증 방법은 AD FS 감사 로그에서 가져옵니다.
 
-|인증 방법|Description|
+|인증 방법|설명|
 |-----|-----|
 |양식|사용자 이름/암호 인증|
 |Windows|Windows 통합 인증|
@@ -111,3 +111,8 @@ AD FS Sign-In 보고서는 OAuth 로그인을 위한 애플리케이션 ID 필�
 * [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Azure AD Connect Health Agent 설치](how-to-connect-health-agent-install.md)
 * [위험 IP 보고서](how-to-connect-health-adfs-risky-ip.md)
+
+
+
+
+

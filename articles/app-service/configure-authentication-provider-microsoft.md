@@ -3,16 +3,16 @@ title: Microsoft 인증 구성
 description: App Service 또는 Azure Functions 앱의 ID 공급자로 Microsoft 계정 인증을 구성하는 방법에 대해 알아봅니다.
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 03/29/2021
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: 9ec9c102680496407106a3bf9b7683890c7a63ee
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 5e7b4c7ed1950b2fa585639a3097cc1f5688d739
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93043245"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077949"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Microsoft 계정 로그인을 사용하도록 App Service 또는 Azure Functions 앱 구성
 
@@ -20,15 +20,15 @@ ms.locfileid: "93043245"
 
 이 항목에서는 Azure App Service 또는 Azure Functions를 구성하여 AAD를 사용하고 개인 Microsoft 계정 로그인을 지원하는 방법을 보여줍니다.
 
-> [!NOTE]
-> 개인 Microsoft 계정과 조직 계정 모두 AAD ID 공급자를 사용합니다. 현재 이 ID 공급자를 구성하여 두 가지 유형의 로그인을 모두 지원할 수는 없습니다.
+> [!IMPORTANT]
+> Microsoft 계정 공급자가 계속 지원되지만 앱에서는 [Microsoft ID 플랫폼 공급자(Azure AD)](./configure-authentication-provider-aad.md)를 대신 사용하는 것이 좋습니다. Microsoft ID 플랫폼은 조직 계정 및 개인 Microsoft 계정 둘 다에 대한 지원을 제공합니다.
 
 ## <a name="register-your-app-with-microsoft-account"></a><a name="register-microsoft-account"> </a>Microsoft 계정을 사용하여 앱 등록
 
 1. Azure Portal의 [**앱 등록**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)으로 이동합니다. 필요한 경우 Microsoft 계정으로 로그인합니다.
 1. **새 등록** 을 선택하고 애플리케이션 이름을 입력합니다.
 1. **지원되는 계정 유형** 에서 **모든 조직 디렉터리의 계정(모든 Azure AD 디렉터리 - 다중 테넌트) 및 개인 Microsoft 계정(예: Skype, Xbox)** 을 선택합니다.
-1. **리디렉션 URI** 에서 **웹** 을 선택한 다음, `https://<app-domain-name>/.auth/login/aad/callback`를 입력합니다. 를 *\<app-domain-name>* 앱의 도메인 이름으로 바꿉니다.  `https://contoso.azurewebsites.net/.auth/login/aad/callback`)을 입력합니다. URL에서 HTTPS 체계를 사용해야 합니다.
+1. **리디렉션 URI** 에서 **웹** 을 선택한 다음, `https://<app-domain-name>/.auth/login/aad/callback`를 입력합니다. \<app-domain-name>을 앱의 도메인 이름으로 바꿉니다.  `https://contoso.azurewebsites.net/.auth/login/aad/callback`)을 입력합니다. URL에서 HTTPS 체계를 사용해야 합니다.
 
 1. **등록** 을 선택합니다.
 1. **애플리케이션(클라이언트) ID** 를 복사합니다. 나중에 필요합니다.
@@ -47,7 +47,7 @@ ms.locfileid: "93043245"
 
    App Service는 인증을 제공하지만, 사이트 콘텐츠 및 API에 대한 권한 있는 액세스를 제한하지는 않습니다. 앱 코드에서 사용자 권한을 부여해야 합니다.
 
-1. (선택 사항) Microsoft 계정 사용자만 액세스하도록 제한하려면 **요청이 인증되지 않으면 수행할 동작** 을 **Azure Active Directory로 로그인** 으로 설정합니다. 이 기능을 설정하면 앱에서 모든 요청을 인증해야 합니다. 또한 인증되지 않은 모든 요청을 리디렉션하여 인증에 AAD를 사용합니다. Microsoft 계정 테 넌 트를 사용 하도록 **발급자 Url** 을 구성 했으므로 개인 계정만 성공적으로 인증 됩니다.
+1. (선택 사항) Microsoft 계정 사용자만 액세스하도록 제한하려면 **요청이 인증되지 않으면 수행할 동작** 을 **Azure Active Directory로 로그인** 으로 설정합니다. 이 기능을 설정하면 앱에서 모든 요청을 인증해야 합니다. 또한 인증되지 않은 모든 요청을 리디렉션하여 인증에 AAD를 사용합니다. Microsoft 계정 테넌트를 사용하도록 **발급자 URL** 을 구성했기 때문에 개인 계정만 성공적으로 인증됩니다.
 
    > [!CAUTION]
    > 이러한 방식으로 액세스를 제한하면 모든 앱 호출에 제한이 적용되며, 여러 단일 페이지 애플리케이션이 그렇듯이 공개적으로 사용 가능한 홈페이지가 있는 앱에는 이 방법이 바람직하지 않을 수 있습니다. 이러한 애플리케이션에서는 **익명 요청 허용(작업 없음)** 으로 설정하고, 앱에서 수동으로 인증을 시작하는 것이 더 좋은 방법일 수 있습니다. 자세한 내용은 [인증 흐름](overview-authentication-authorization.md#authentication-flow)을 참조하세요.

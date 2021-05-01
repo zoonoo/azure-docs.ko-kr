@@ -1,24 +1,25 @@
 ---
-title: 클라우드 서비스를 구성 하는 방법 (클래식)-포털 | Microsoft Docs
+title: 클라우드 서비스(클래식)를 구성하는 방법 - 포털 | Microsoft Docs
 description: Azure에서 클라우드 서비스를 구성하는 방법에 대해 알아봅니다. 또한 클라우드 서비스 구성을 업데이트하고 역할 인스턴스에 대한 원격 액세스를 구성하는 방법도 알아봅니다. 이 예제는 Azure 포털을 사용합니다.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: f16fcfe227663958279281659b09929a4cd2d386
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: adb2066b12a57630a7615d1bc2a8989f022b0de7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98743426"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935962"
 ---
-# <a name="how-to-configure-and-azure-cloud-service-classic"></a>및 Azure 클라우드 서비스를 구성 하는 방법 (클래식)
+# <a name="how-to-configure-and-azure-cloud-service-classic"></a>Azure Cloud Service(클래식)를 구성하는 방법
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 Azure Portal에서 클라우드 서비스에 가장 일반적으로 사용되는 설정을 구성할 수 있습니다. 또는 구성 파일을 직접 업데이트하려는 경우 업데이트할 서비스 구성 파일을 다운로드한 후 업데이트된 파일을 업로드하고 구성 변경 내용으로 클라우드 서비스를 업데이트합니다. 어느 방법이든 모든 역할 인스턴스에 구성 업데이트를 적용합니다.
 
@@ -49,9 +50,9 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 
 ## <a name="monitoring"></a>모니터링
 
-클라우드 서비스에 경고를 추가할 수 있습니다. **설정**  >  **경고 규칙**  >  **경고 추가** 를 클릭 합니다.
+클라우드 서비스에 경고를 추가할 수 있습니다. **설정** > **경고 규칙** > **경고 추가** 를 클릭합니다.
 
-![경고 규칙 옵션이 강조 표시 되 고 빨간색으로 표시 되 고 경고 추가 옵션이 빨간색으로 표시 된 설정으로 이동 하는 설정의 스크린샷](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
+![경고 규칙 옵션이 강조 표시되고 테두리가 빨간색으로 표시되며 경고 추가 옵션이 빨간색으로 표시되어 있는 설정 팬의 스크린샷입니다.](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
 여기에서 경고를 설정할 수 있습니다. **메트릭** 드롭다운 상자에서 다음 데이터 형식에 대한 경고를 설정할 수 있습니다.
 
@@ -61,11 +62,11 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 * 네트워크 출력
 * CPU 비율
 
-![모든 구성 옵션이 설정 된 경고 규칙 추가 창의 스크린샷](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
+![모든 구성 옵션이 설정된 경고 규칙 추가 창의 스크린샷입니다.](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
 ### <a name="configure-monitoring-from-a-metric-tile"></a>메트릭 타일에서 모니터링 구성
 
-**설정**  >  **경고 규칙** 을 사용 하는 대신 클라우드 서비스의 **모니터링** 섹션에서 메트릭 타일 중 하나를 클릭할 수 있습니다.
+**설정** > **경고 규칙** 을 사용하는 대신 클라우드 서비스의 **모니터링** 섹션에서 메트릭 타일 중 하나를 클릭할 수 있습니다.
 
 ![클라우드 서비스 모니터링](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 
@@ -104,9 +105,9 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 ## <a name="next-steps"></a>다음 단계
 
 * [클라우드 서비스를 배포](cloud-services-how-to-create-deploy-portal.md)하는 방법을 알아봅니다.
-* [사용자 지정 도메인 이름을](cloud-services-custom-domain-name-portal.md)구성 합니다.
+* [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)구성
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage-portal.md).
-* [TLS/SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)를 구성 합니다.
+* [TLS/SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)를 구성합니다.
 
 
 

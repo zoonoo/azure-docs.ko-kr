@@ -1,6 +1,6 @@
 ---
-title: Azure Arc 사용 데이터 서비스 문제를 해결 하기 위한 로그 가져오기
-description: Azure Arc 사용 데이터 서비스 문제를 해결 하기 위해 데이터 컨트롤러에서 로그 파일을 가져오는 방법에 대해 알아봅니다.
+title: Azure Arc 사용 데이터 서비스 문제를 해결하기 위한 로그 가져오기
+description: Azure Arc 사용 데이터 서비스 문제를 해결하기 위해 데이터 컨트롤러에서 로그 파일을 가져오는 방법에 대해 알아봅니다.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -10,34 +10,34 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 0c4cff7583f08fe27649cee464fcef802cddd88f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93234049"
 ---
-# <a name="get-logs-to-troubleshoot-azure-arc-enabled-data-services"></a>Azure Arc 사용 데이터 서비스 문제를 해결 하기 위한 로그 가져오기
+# <a name="get-logs-to-troubleshoot-azure-arc-enabled-data-services"></a>Azure Arc 사용 데이터 서비스 문제를 해결하기 위한 로그 가져오기
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-계속 하기 전에 다음이 필요 합니다.
+계속 진행하려면 다음 항목이 필요합니다.
 
-* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. 자세한 내용은 [Azure Arc data services 배포 및 관리를 위한 클라이언트 도구 설치](./install-client-tools.md)를 참조 하세요.
-* Azure Arc 사용 데이터 컨트롤러에 로그인 하는 데 사용 되는 관리자 계정입니다.
+* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. 자세한 내용은 [Azure Arc 데이터 서비스 배포 및 관리를 위한 클라이언트 도구 설치](./install-client-tools.md)를 참조하세요.
+* Azure Arc 사용 데이터 컨트롤러에 로그인하는 데 사용되는 관리자 계정입니다.
 
 ## <a name="get-log-files"></a>로그 파일 가져오기
 
-문제 해결을 위해 모든 pod 또는 특정 pod에서 서비스 로그를 가져올 수 있습니다. 한 가지 방법은 명령과 같은 표준 Kubernetes 도구를 사용 하는 것입니다 `kubectl logs` . 이 문서에서는이 도구를 사용 하 여 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] 모든 로그를 한 번에 쉽게 가져올 수 있도록 합니다.
+문제 해결을 위해 모든 Pod 또는 특정 Pod에서 서비스 로그를 가져올 수 있습니다. 한 가지 방법은 `kubectl logs` 명령과 같은 표준 Kubernetes 도구를 사용하는 것입니다. 이 문서에서는 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] 도구를 사용하며 이 도구는 모든 로그를 한 번에 쉽게 가져올 수 있습니다.
 
-1. 관리자 계정을 사용 하 여 데이터 컨트롤러에 로그인 합니다.
+1. 관리자 계정으로 데이터 컨트롤러에 로그인합니다.
 
    ```console
    azdata login
    ```
 
-2. 다음 명령을 실행 하 여 로그를 덤프 합니다.
+2. 다음 명령을 실행하여 로그를 덤프합니다.
 
    ```console
    azdata arc dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
@@ -49,19 +49,19 @@ ms.locfileid: "93234049"
    #azdata arc dc debug copy-logs --namespace arc --exclude-dumps --skip-compress
    ```
 
-데이터 컨트롤러는 라는 하위 디렉터리에 현재 작업 디렉터리에 로그 파일을 만듭니다 `logs` . 
+데이터 컨트롤러는 `logs`라는 하위 디렉터리에서 현재 작업 디렉터리에 로그 파일을 만듭니다. 
 
 ## <a name="options"></a>옵션
 
-`azdata arc dc debug copy-logs`명령은 출력을 관리 하기 위해 다음 옵션을 제공 합니다.
+`azdata arc dc debug copy-logs` 명령은 출력을 관리하기 위해 다음 옵션을 제공합니다.
 
-* 매개 변수를 사용 하 여 로그 파일을 다른 디렉터리에 출력 합니다 `--target-folder` .
-* 매개 변수를 생략 하 여 파일을 압축 합니다 `--skip-compress` .
-* 를 생략 하 여 메모리 덤프를 트리거하고 포함 `--exclude-dumps` 합니다. Microsoft 지원에서 메모리 덤프를 요청 하지 않는 한이 메서드를 권장 하지 않습니다. 메모리 덤프를 가져오려면 데이터 컨트롤러를 만들 때 데이터 컨트롤러 설정이 `allowDumps` 로 설정 되어야 합니다 `true` .
-* 특정 pod ( `--pod` ) 또는 컨테이너 ()에 대 한 로그를 이름으로 수집 하도록 필터링 `--container` 합니다.
-* 및 매개 변수를 전달 하 여 특정 사용자 지정 리소스에 대 한 로그를 수집 하도록 필터링 `--resource-kind` `--resource-name` 합니다. `resource-kind`매개 변수 값은 사용자 지정 리소스 정의 이름 중 하나 여야 합니다. 명령을 사용 하 여 이러한 이름을 검색할 수 있습니다 `kubectl get customresourcedefinition` .
+* `--target-folder` 매개 변수를 사용하여 로그 파일을 다른 디렉터리에 출력합니다.
+* `--skip-compress` 매개 변수를 생략하여 파일을 압축합니다.
+* `--exclude-dumps`를 생략하여 메모리 덤프를 트리거 및 포함합니다. Microsoft 지원에서 메모리 덤프를 요청하는 경우를 제외하면 이 메서드를 권장하지 않습니다. 메모리 덤프를 가져오려면 데이터 컨트롤러를 만들 때 데이터 컨트롤러 설정 `allowDumps`가 `true`로 설정되어야 합니다
+* 특정 Pod(`--pod`) 또는 컨테이너(`--container`)에 대한 로그를 이름으로 수집하도록 필터링합니다.
+* `--resource-kind` 및 `--resource-name` 매개 변수를 전달하여 특정 사용자 지정 리소스에 대한 로그를 수집하도록 필터링합니다. `resource-kind` 매개 변수 값은 사용자 지정 리소스 정의 이름 중 하나여야 합니다. `kubectl get customresourcedefinition` 명령을 사용하여 이러한 이름을 검색할 수 있습니다.
 
-이러한 매개 변수를 사용 하 여 다음 예제에서를 바꿀 수 있습니다 `<parameters>` . 
+이러한 매개 변수를 사용하여 다음 예제에서 `<parameters>`를 바꿀 수 있습니다. 
 
 ```console
 azdata arc dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --namespace <namespace name>
@@ -73,7 +73,7 @@ azdata arc dc debug copy-logs --target-folder <desired folder> --exclude-dumps -
 #azdata arc dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --namespace arc
 ```
 
-다음 폴더 계층 구조를 예로 들 수 있습니다. Pod 이름, 컨테이너, 컨테이너 내의 디렉터리 계층 구조를 기준으로 구성 됩니다.
+다음 폴더 계층 구조를 예로 들 수 있습니다. Pod 이름, 컨테이너, 컨테이너 내의 디렉터리 계층 구조를 기준으로 구성됩니다.
 
 ```output
 <export directory>
