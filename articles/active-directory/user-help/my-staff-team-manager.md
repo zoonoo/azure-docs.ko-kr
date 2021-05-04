@@ -1,5 +1,5 @@
 ---
-title: 내 직원을 사용 하 여 암호 및 전화 번호 관리-Azure AD | Microsoft Docs
+title: 내 직원을 사용하여 암호와 전화 번호 관리 - Azure AD | Microsoft Docs
 description: 내 직원을 사용하여 사용자의 암호와 전화 번호 관리하기
 services: active-directory
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
 ms.openlocfilehash: 7b435c56f53001275fbdb1a3b3cfae25536a9a63
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104583601"
 ---
-# <a name="delegate-user-management-with-my-staff"></a>내 직원과 사용자 관리 위임
+# <a name="delegate-user-management-with-my-staff"></a>내 직원을 사용하여 사용자 관리 위임
 
 조직에서는 **내 직원** 을 사용하여 사용자 관리 업무를 매장 관리자, 팀 리더와 같은 권한 있는 담당자에게 위임하여 직원들이 여러 애플리케이션에 액세스할 수 있도록 지원할 수 있습니다. 팀원이 암호를 잊어버려서 애플리케이션에 액세스할 수 없다면 생산성이 떨어집니다. 지원 비용이 증가하고 관리 프로세스에서 병목 현상이 발생하는 원인이 되기도 합니다.  내 직원을 사용하면, 계정에 액세스할 수 없는 팀원은 관리자의 도움 없이도 클릭 몇 번으로 액세스 권한을 회복할 수 있습니다.
 
@@ -104,7 +104,7 @@ ms.locfileid: "104583601"
 
 1. 완료되면 **확인** 을 선택합니다.
 
-    !["로그인에 전화 번호를 사용 하도록 설정 하 시겠습니까?"를 보여 주는 스크린샷 "확인" 단추가 선택 된 창입니다.](media/my-staff-team-manager/enableforms2.png)
+    ![“로그인에 전화번호를 사용하도록 설정하시겠어요?”창에 “확인” 단추가 선택되었음을 보여 주는 스크린샷.](media/my-staff-team-manager/enableforms2.png)
 
 ### <a name="remove-a-phone-number"></a>전화 번호 제거
 

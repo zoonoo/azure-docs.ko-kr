@@ -1,7 +1,7 @@
 ---
 title: 리소스 소유자 암호 자격 증명 흐름 설정
 titleSuffix: Azure AD B2C
-description: Azure Active Directory B2C에서 ROPC (리소스 소유자 암호 자격 증명) 흐름을 설정 하는 방법에 대해 알아봅니다.
+description: Azure Active Directory B2C에서 ROPC(리소스 소유자 암호 자격 증명 흐름)을 설정하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -14,10 +14,10 @@ ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: 3a7c93bb0e0dcc51e35bc27fa0799d8410e66df6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104581884"
 ---
 # <a name="set-up-a-resource-owner-password-credentials-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 리소스 소유자 암호 자격 증명 흐름 설정
@@ -44,9 +44,9 @@ Azure AD B2C(Azure Active Directory B2C)에서 지원되는 옵션은 다음과 
 
 ROPC 흐름을 사용하는 경우 다음 사항을 고려하세요.
 
-- 사용자 조작이 필요한 인증 흐름이 중단되면 ROPC가 작동하지 않습니다. 예를 들어 암호가 만료 되었거나 변경 되어야 하는 경우, [다단계 인증이](multi-factor-authentication.md) 필요 하거나 로그인 중에 추가 정보 (예: 사용자 동의)를 수집 해야 하는 경우를 예로 들 수 있습니다.
-- ROPC는 로컬 계정만 지원합니다. 사용자는 Microsoft, Google +, Twitter, AD FS 또는 Facebook과 같은 [페더레이션된 id 공급자](add-identity-provider.md) 를 사용 하 여 로그인 할 수 없습니다.
-- [KMSI (로그인 유지)](session-behavior.md#enable-keep-me-signed-in-kmsi)를 비롯 한 [세션 관리](session-behavior.md)는 적용 되지 않습니다.
+- 사용자 조작이 필요한 인증 흐름이 중단되면 ROPC가 작동하지 않습니다. 예를 들어, 암호가 만료되었거나 암호를 변경해야 하는 경우, [다단계 인증](multi-factor-authentication.md)이 필요한 경우 또는 로그인 중에 추가 정보(예: 사용자 동의)를 수집해야 하는 경우가 있습니다.
+- ROPC는 로컬 계정만 지원합니다. 사용자는 Microsoft, Google+, Twitter, AD-FS 또는 Facebook과 같은 [페더레이션된 ID 공급자](add-identity-provider.md)를 사용하여 로그인할 수 없습니다.
+- [KMSI(로그인 유지)](session-behavior.md#enable-keep-me-signed-in-kmsi)를 비롯한 [세션 관리](session-behavior.md)는 적용되지 않습니다.
 
 
 ## <a name="register-an-application"></a>애플리케이션 등록
@@ -59,9 +59,9 @@ ROPC 흐름을 사용하는 경우 다음 사항을 고려하세요.
 
 1. Azure AD B2C 테넌트의 전역 관리자로 Azure Portal에 로그인합니다.
 2. Azure AD B2C 테넌트로 전환하려면 포털의 오른쪽 위 모서리에서 B2C 디렉터리를 선택합니다.
-3. **사용자 흐름** 을 선택 하 고 **새 사용자 흐름** 을 선택 합니다.
-4. **ROPC (리소스 소유자 암호 자격 증명)를 사용 하 여 로그인** 을 선택 합니다.
-5. **버전** 에서 **미리 보기** 가 선택 되어 있는지 확인 한 다음 **만들기** 를 선택 합니다.
+3. **사용자 흐름** 을 선택하고 **새 사용자 흐름** 을 선택합니다.
+4. **ROPC(리소스 소유자 암호 자격 증명)를 사용하여 로그인** 을 선택합니다.
+5. **버전** 에서 **미리 보기** 가 선택되어 있는지 확인한 다음 **만들기** 를 선택합니다.
 7. *ROPC_Auth* 와 같은 사용자 흐름에 사용할 이름을 입력합니다.
 8. **애플리케이션 클레임** 에서 **자세히 표시** 를 클릭합니다.
 9. 표시 이름, 이메일 주소 및 ID 공급 기업과 같은 애플리케이션에 필요한 애플리케이션 클레임을 선택합니다.

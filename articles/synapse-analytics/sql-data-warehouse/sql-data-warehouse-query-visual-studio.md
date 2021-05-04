@@ -1,24 +1,24 @@
 ---
-title: VSTS를 사용 하 여 전용 SQL 풀 (이전의 SQL DW)에 연결
-description: Visual Studio를 사용 하 여 Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)을 쿼리 합니다.
+title: VSTS를 사용하여 전용 SQL 풀(이전의 SQL DW)에 연결
+description: Visual Studio로 Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)을 쿼리합니다.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 08/15/2019
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0baf2396b7c5af103f0b3aa223d0bccf725babbe
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 926e95887f8d6aa164908a4107656074142a969e
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104584145"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566463"
 ---
-# <a name="connect-to-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>Visual Studio 및 SSDT를 사용 하 여 Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)에 연결
+# <a name="connect-to-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>Visual Studio 및 SSDT로 Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)에 연결
 
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](../sql/get-started-azure-data-studio.md)
@@ -29,18 +29,18 @@ ms.locfileid: "104584145"
 > 
 > 
 
-Visual Studio를 사용 하 여 몇 분만에 Azure Synapse 내에서 전용 SQL 풀 (이전의 SQL DW)을 쿼리 합니다. 이 메서드는 Visual Studio 2019에서 SSDT(SQL Server Data Tools) 확장을 사용합니다. 
+Visual Studio를 사용하여 몇 분 만에 Azure Synapse 내의 전용 SQL 풀(이전의 SQL DW)을 쿼리합니다. 이 메서드는 Visual Studio 2019에서 SSDT(SQL Server Data Tools) 확장을 사용합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 이 자습서를 사용하려면 다음이 필요합니다.
 
-* 기존 전용 SQL 풀 (이전의 SQL DW) 하나를 만들려면 [전용 sql 풀 만들기 (이전의 SQL DW)](create-data-warehouse-portal.md)를 참조 하세요.
-* Visual Studio용 SSDT. Visual Studio가 있는 경우 Visual Studio 용 SSDT 이미 있는 것입니다. 설치 지침 및 옵션은 [Visual Studio 및 SSDT 설치](sql-data-warehouse-install-visual-studio.md)를 참조하세요.
-* 정규화된 SQL 서버 이름. 이 정보를 찾으려면 [전용 sql 풀에 연결 (이전의 SQL DW)](sql-data-warehouse-connect-overview.md)을 참조 하세요.
+* 기존 전용 SQL 풀(이전의 SQL DW). 새로 만들려면 [전용 SQL 풀(이전의 SQL DW) 만들기](create-data-warehouse-portal.md)를 참조하세요.
+* Visual Studio용 SSDT. Visual Studio가 있는 경우 이미 Visual Studio용 SSDT가 있을 것입니다. 설치 지침 및 옵션은 [Visual Studio 및 SSDT 설치](sql-data-warehouse-install-visual-studio.md)를 참조하세요.
+* 정규화된 SQL 서버 이름. 이 정보를 찾으려면 [전용 SQL 풀(이전의 SQL DW)에 연결](sql-data-warehouse-connect-overview.md)을 참조하세요.
 
-## <a name="1-connect-to-your-dedicated-sql-pool-formerly-sql-dw"></a>1. 전용 SQL 풀에 연결 (이전의 SQL DW)
+## <a name="1-connect-to-your-dedicated-sql-pool-formerly-sql-dw"></a>1. 전용 SQL 풀(이전의 SQL DW)에 연결
 1. Visual Studio 2019를 엽니다.
-2. **보기** SQL Server 개체 탐색기를 선택 하 여 SQL Server 개체 탐색기을 엽니다  >  .
+2. **보기** > **SQL Server 개체 탐색기** 를 선택하여 SQL Server 개체 탐색기를 엽니다.
    
     ![SQL Server 개체 탐색기](./media/sql-data-warehouse-query-visual-studio/open-ssdt.png)
 3. **SQL Server 추가** 아이콘을 클릭합니다.
@@ -50,9 +50,9 @@ Visual Studio를 사용 하 여 몇 분만에 Azure Synapse 내에서 전용 SQL
    
     ![서버에 연결](./media/sql-data-warehouse-query-visual-studio/connection-dialog.png)
    
-   * **서버 이름** 입니다. 이전에 식별한 **서버 이름** 을 입력합니다.
+   * **서버 이름**. 이전에 식별한 **서버 이름** 을 입력합니다.
    * **인증**. **SQL Server 인증** 또는 **Active Directory 통합 인증** 을 선택합니다.
-   * **사용자 이름** 및 **암호** 입니다. 위에서 SQL Server 인증을 선택한 경우 사용자 이름 및 암호를 입력합니다.
+   * **사용자 이름** 및 **암호**. 위에서 SQL Server 인증을 선택한 경우 사용자 이름 및 암호를 입력합니다.
    * **연결** 을 클릭합니다.
 5. 탐색하려면 SQL Azure Server를 확장합니다. 서버와 연결된 데이터베이스를 볼 수 있습니다. AdventureWorksDW를 확장하여 샘플 데이터베이스의 테이블을 확인합니다.
    
@@ -80,4 +80,4 @@ Visual Studio를 사용 하 여 몇 분만에 Azure Synapse 내에서 전용 SQL
 ## <a name="next-steps"></a>다음 단계
 이제 연결 및 쿼리할 수 있으므로 [Power BI로 데이터 시각화](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)를 시도해 보세요.
 
-Azure Active Directory 인증을 위한 환경을 구성 하려면 [전용 sql 풀에 인증 (이전의 SQL DW)](sql-data-warehouse-authentication.md)을 참조 하세요.
+Azure Active Directory 인증을 위한 환경을 구성하려면 [전용 SQL 풀(이전의 SQL DW)에 대한 인증](sql-data-warehouse-authentication.md)을 참조하세요.

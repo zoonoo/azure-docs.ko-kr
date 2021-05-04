@@ -1,4 +1,4 @@
-- name: FHIR용 Azure API
+- name: Azure API for FHIR
   href: index.yml
 - name: 개요
   items:
@@ -86,6 +86,17 @@
           href: configure-export-data.md
         - name: Private Link 구성
           href: configure-private-link.md
+    - name: 검색
+      expand: false
+      items:
+        - name: FHIR 검색 개요
+          href: overview-of-search.md
+        - name: 사용자 지정 검색 매개 변수 정의
+          href: how-to-do-custom-search.md
+        - name: 재색인 작업 실행 방법
+          href: how-to-run-a-reindex.md
+        - name: Azure API for FHIR 검색 예
+          href: search-samples.md
     - name: 데이터 내보내기
       expanded: false
       items:

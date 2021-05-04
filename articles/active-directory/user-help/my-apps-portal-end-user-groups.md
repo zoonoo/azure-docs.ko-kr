@@ -13,22 +13,22 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: fc8d211160e757c78a8e2adafad703118628e6dc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100095047"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>내 앱 포털에서 그룹 정보 업데이트
 
-웹 기반 **내 앱** 포털에서 회사 또는 학교 계정을 사용 하 여 여러 조직의 클라우드 기반 앱을 보고 시작 하 고, 일부 프로필 및 계정 정보를 업데이트 하 고, **그룹** 정보를 확인 하 고, 앱 및 그룹에 대 한 **액세스 검토** 를 수행할 수 있습니다. **My Apps** 포털에 액세스할 수 없는 경우 사용 권한에 대해 기술 지원팀에 문의해야 합니다.
+웹 기반 **내 앱** 포털을 통해 회사 또는 학교 계정을 사용하여 다양한 조직의 클라우드 기반 앱을 확인하여 시작하고, 일부 프로필 및 계정 정보를 업데이트하며, **그룹** 정보를 확인하여 앱 및 그룹에 대한 **액세스 검토** 를 수행할 수 있습니다. **My Apps** 포털에 액세스할 수 없는 경우 사용 권한에 대해 기술 지원팀에 문의해야 합니다.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
 >이 콘텐츠는 사용자를 위한 것입니다. 관리자인 경우 [애플리케이션 관리 설명서](../manage-apps/index.yml)에서 클라우드 기반 앱을 설정 및 관리하는 방법에 대한 더 자세한 정보를 확인할 수 있습니다.
 >
-> 개인 Microsoft 계정를 사용 하 여 로그인 하는 동안 오류가 표시 되는 경우 다음 Url 중 하나를 사용 하 여 관리자에 게 서 조직의 도메인 이름 (예: contoso.com) 또는 조직의 **테 넌 트 ID** 를 사용 하 여 로그인 할 수 있습니다.
+> 개인 Microsoft 계정으로 로그인하는 중 오류가 표시되는 경우, 다음 URL 중에서 관리자에게 문의하여 얻은 조직의 도메인 이름(예: contoso.com) 또는 조직 **테넌트 ID** 를 사용하여 로그인할 수 있습니다.
 >
 >   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
 >   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
@@ -45,7 +45,7 @@ ms.locfileid: "100095047"
 
 1. 회사 또는 학교 계정에 로그인합니다.
 
-2. 웹 브라우저를 열고 https://myapps.microsoft.com 으로 이동하거나 조직에서 제공하는 링크를 사용합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 과 같이 조직의 사용자 지정된 페이지로 이동할 수 있습니다. 개인 Microsoft 계정를 사용 하 여 로그인 하는 경우에도 조직의 도메인 이름 (예: contoso.com) 또는 다음 Url 중 하나를 사용 하 여 관리자 로부터 조직의 **테 넌 트 ID** 를 사용 하 여 로그인 할 수 있습니다.
+2. 웹 브라우저를 열고 https://myapps.microsoft.com 으로 이동하거나 조직에서 제공하는 링크를 사용합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 과 같이 조직의 사용자 지정된 페이지로 이동할 수 있습니다. 개인 Microsoft 계정으로 로그인하는 경우 다음 URL 중 하나에서 조직의 도메인 이름(예: contoso.com) 또는 관리자의 조직 **테넌트 ID** 를 사용하여 로그인할 수 있습니다.
 
    - https://myapplications.microsoft.com?tenantId=*your_domain_name*
    - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
@@ -55,9 +55,9 @@ ms.locfileid: "100095047"
 
     ![내 앱 포털의 앱 페이지](media/my-apps-portal-end-user-groups/my-apps-home-large.png)
 
-3. **내 앱** 메뉴를 끌어와 **내 그룹** 을 선택 하 여 그룹 관련 정보를 확인 합니다.
+3. **내 앱** 메뉴를 끌어와 **내 그룹** 을 선택하여 그룹 관련 정보를 확인합니다.
 
-4. 사용 권한에 따라 **내 그룹** 페이지를 사용 하 여 다음 작업을 수행할 수 있습니다.
+4. 권한에 따라 **그룹** 페이지를 사용하여 다음 작업을 수행할 수 있습니다.
 
     - **소유하고 있는 그룹 검토.** **내가 소유한 그룹** 영역에서 조직 내에서 소유한 모든 그룹에 대한 정보를 봅니다. 특정 그룹 이름을 선택하면 그룹 유형, 멤버 수, 가입 정책 및 활성 멤버 목록을 포함하여 그룹에 대한 자세한 정보가 제공됩니다.
 

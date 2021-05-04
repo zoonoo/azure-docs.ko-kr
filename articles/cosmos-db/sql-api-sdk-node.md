@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-js
-ms.openlocfilehash: 8408cdada40bd3595f9bf7cf2c6a2de90040ec0b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: a3e21abe2f4ed24726256689af16b48ed6721ce8
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217264"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366150"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Node.js SDK: 릴리스 정보 및 리소스
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -29,7 +29,8 @@ ms.locfileid: "102217264"
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark 커넥터](sql-api-sdk-java-spark.md)
+> * [Spark 3 OLTP 커넥터](sql-api-sdk-java-spark-v3.md)
+> * [Spark 2 OLTP 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](/rest/api/cosmos-db-resource-provider/)
@@ -61,7 +62,7 @@ ms.locfileid: "102217264"
 * 사용자가 부분 다시 시도 옵션을 제공했을 때의 버그 수정
 
 ### <a name="303"></a><a name="3.0.3"></a>3.0.3
-* Webpack에서 필수로 호출 된 모듈을 확인 하지 못하도록 방지
+* Webpack이 필수로 호출된 모듈을 확인하는 것 방지
 
 ### <a name="302"></a><a name="3.0.2"></a>3.0.2
 * RU가 집계 쿼리에 대해 항상 0으로 보고되는 장기 미해결 버그 수정
@@ -187,7 +188,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 ```
 
 #### <a name="improved-browser-experience"></a>향상된 브라우저 환경
-브라우저에서 v2 SDK를 사용할 수 있었지만 이상적인 환경은 아니었습니다. 여러 node.js 기본 제공 라이브러리를 safehtml 하 고 webpack 또는 Parcel와 같은 번들러을 사용 해야 합니다. v3 SDK를 사용하면 브라우저 사용자에게 가장 적합한 환경을 사용할 수 있습니다.
+브라우저에서 v2 SDK를 사용할 수 있었지만 이상적인 환경은 아니었습니다. 여러 node.js 기본 제공 라이브러리를 보충하고 Webpack 또는 Parcel 같은 번들러를 사용해야 했습니다. v3 SDK를 사용하면 브라우저 사용자에게 가장 적합한 환경을 사용할 수 있습니다.
 
 * 요청 내부 구조를 fetch로 바꿈(#245)
 * 버퍼 사용 제거(#330)

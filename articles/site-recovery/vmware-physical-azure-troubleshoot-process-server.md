@@ -1,18 +1,15 @@
 ---
 title: Azure Site Recovery 프로세스 서버 문제 해결
 description: 이 문서에서는 Azure Site Recovery 프로세스 서버와 관련된 문제를 해결하는 방법을 설명합니다.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 09/09/2019
-ms.author: raynew
-ms.openlocfilehash: ad1bec66edaa3fcc6049f4911684f6e6d6c3e366
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: c6696fb395aee7284f1354269cd4cc3167ff3198
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95999192"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581799"
 ---
 # <a name="troubleshoot-the-process-server"></a>프로세스 서버 문제 해결
 
@@ -91,7 +88,7 @@ Microsoft Azure Recovery Services 에이전트(obengine)를 제외한 모든 서
 
  종종 원본 머신과 프로세스 서버 간 또는 프로세스 서버와 Azure 간의 연결 문제로 인해 초기 복제 및 진행 중 복제가 실패할 수 있습니다. 이러한 단계는 다음 그림에 요약되어 있으며 뒤이어 단계를 수행하는 데 도움이 되는 절차가 나옵니다.
 
-![연결 및 복제 문제를 해결 하는 단계를 보여 주는 순서도](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-connectivity-replication.png)
+![연결 뭋 복제 문제를 해결하는 단계를 보여 주는 순서도.](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-connectivity-replication.png)
 
 
 ## <a name="step-4-verify-time-sync-on-source-machine"></a>4단계: 원본 머신에서 시간 동기화 확인
@@ -170,7 +167,7 @@ Microsoft Azure Recovery Services 에이전트(obengine)를 제외한 모든 서
   2. **성능** 탭 > **리소스 모니터 열기** 를 선택합니다.
   3. **리소스 모니터** 페이지에서 **네트워크** 탭을 선택합니다. **네트워크 활동이 있는 프로세스** 에서 cbengine.exe가 현재 대용량 데이터를 전송하고 있는지 확인합니다.
 
-       ![네트워크 활동을 사용 하는 프로세스 아래의 볼륨에 대해 많은 수를 보여 주는 스크린샷](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
+       ![네트워크 활동이 있는 프로세스를 거치는 대용량 데이터를 보여주는 스크린샷.](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
 
   cbengine.exe가 대용량 데이터를 전송하고 있지 않으면 다음 섹션의 단계를 완료합니다.
 
@@ -179,7 +176,7 @@ Microsoft Azure Recovery Services 에이전트(obengine)를 제외한 모든 서
 1. 리소스 모니터에서 **cbengine.exe** 를 선택합니다.
 2. **TCP 연결** 아래에서 프로세스 서버에서 Azure Storage로의 연결이 있는지 확인합니다.
 
-  ![cbengine.exe와 Azure Blob storage URL 간의 연결을 보여 주는 스크린샷](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
+  ![cbengine.exe와 Azure Blob 스토리지 URL 간의 연결을 보여 주는 스크린샷.](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
 
 ### <a name="check-services"></a>서비스 확인
 

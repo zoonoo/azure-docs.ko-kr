@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: normesta
 ms.openlocfilehash: 1aeaa8607618a6f0a2dbf756e6ddae420627bce6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101749990"
 ---
-이 표에서는 [계정 수준 메트릭을](../articles/azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccounts)보여 줍니다.
+이 표에서는 [계정 수준 메트릭](../articles/azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccounts)을 보여 줍니다.
 
 | 메트릭 | Description |
 | ------------------- | ----------------- |

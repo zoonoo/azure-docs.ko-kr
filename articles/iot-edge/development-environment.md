@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 517bcdab375db819b0942306df82e7285b9473b1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 1070a5ddf298ad88100e7803635e970f9a314e52
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103487703"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869584"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>IoT Edge를 위한 개발 및 테스트 환경 준비
 
@@ -51,24 +51,24 @@ Visual Studio Code용 Azure IoT Edge 확장은 C#의 Azure 함수뿐만 아니�
 
 IoT Edge 확장 외에도 개발을 위한 추가 확장을 설치하면 유용할 수 있습니다. 예를 들어 [Visual Studio Code용 Docker 지원](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)을 사용하여 이미지, 컨테이너 및 레지스트리를 관리할 수 있습니다. 또한 지원되는 모든 주요 언어 모듈에는 개발 시 도움이 될 수 있는 Visual Studio Code용 확장이 있습니다.
 
-#### <a name="prerequisites"></a>필수 조건
+#### <a name="prerequisites"></a>사전 요구 사항
 
 일부 언어 및 서비스용 모듈 템플릿에는 Visual Studio Code를 사용하여 개발 컴퓨터에서 프로젝트 폴더를 빌드하는 데 필요한 필수 구성 요소가 있습니다.
 
 | 모듈 템플릿 | 필수 조건 |
 | --------------- | ------------ |
-| Azure Functions | [.NET Core 2.1 SDK](https://www.microsoft.com/net/download) |
+| Azure 기능 | [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1) |
 | C | [Git](https://git-scm.com/) |
-| C# | [.NET Core 2.1 SDK](https://www.microsoft.com/net/download) |
+| C# | [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1) |
 | Java | <ul><li>[Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support) <li> [JAVA_HOME 환경 변수 설정](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
 | Node.js | <ul><li>[Node.JS](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Azure IoT Edge Node.js 모듈 생성기](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
 | Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Git](https://git-scm.com/) </ul> |
 
 ### <a name="visual-studio-20172019-extension"></a>Visual Studio 2017/2019 확장
 
-Visual Studio 용 Azure IoT Edge 도구는 c # 및 C에서 빌드된 IoT Edge 모듈 템플릿을 제공 합니다.
+Visual Studio용 Azure IoT Edge 도구는 C# 및 C로 빌드한 IoT Edge 모듈 템플릿을 제공합니다.
 
-자세한 내용 및 다운로드에 대 한 자세한 내용은 [Azure IoT Edge tools For Visual studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) 또는 [Azure IoT Edge Tools for visual studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools)를 참조 하세요.
+자세한 내용을 확인하고 다운로드하려면 [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) 또는 [Azure IoT Edge Tools for Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools)를 참조하세요.
 
 ### <a name="iot-edge-dev-tool"></a>IoT Edge 개발자 도구
 
@@ -105,13 +105,13 @@ Azure IoT Edge 개발 컨테이너는 IoT Edge 개발에 필요한 종속성이 
 
 ### <a name="iot-edge-runtime-in-a-container"></a>컨테이너의 IoT Edge 런타임
 
-컨테이너의 IoT Edge 런타임은 디바이스 연결 문자열을 환경 변수로 사용하는 전체 런타임을 제공합니다. 이 컨테이너를 사용 하면 macOS와 같이 기본적으로 런타임을 지원 하지 않을 수 있는 시스템에서 IoT Edge 모듈과 시나리오를 테스트할 수 있습니다. 배포하는 모든 모듈은 런타임 컨테이너에서 외부에서 시작됩니다. 런타임 및 배포한 모든 모듈을 동일한 컨테이너에 두려면 대신 IoT Edge 디바이스 컨테이너를 고려합니다.
+컨테이너의 IoT Edge 런타임은 디바이스 연결 문자열을 환경 변수로 사용하는 전체 런타임을 제공합니다. 이 컨테이너를 사용하면 macOS와 같이 기본적으로는 런타임을 지원하지 않을 수도 있는 시스템에서 IoT Edge 모듈 및 시나리오를 테스트할 수 있습니다. 배포하는 모든 모듈은 런타임 컨테이너에서 외부에서 시작됩니다. 런타임 및 배포한 모든 모듈을 동일한 컨테이너에 두려면 대신 IoT Edge 디바이스 컨테이너를 고려합니다.
 
 자세한 내용은 [컨테이너에서 Azure IoT Edge 실행](https://github.com/Azure/iotedgedev/tree/master/docker/runtime)을 참조하세요.
 
 ### <a name="iot-edge-device-container"></a>IoT Edge 디바이스 컨테이너
 
-IoT Edge 디바이스 컨테이너는 컨테이너 엔진이 있는 어떤 컴퓨터에서도 실행할 준비가 된 완전한 IoT Edge 디바이스입니다. 디바이스 컨테이너에는 IoT Edge 런타임 및 컨테이너 엔진 자체가 포함됩니다. 컨테이너의 각 인스턴스는 완전 기능형 자체 프로비전 IoT Edge 디바이스입니다. 네트워크를 통해 모듈에 연결되어 있는 한, 디바이스 컨테이너는 모듈의 원격 디버깅을 지원합니다. 장치 컨테이너는 대규모 시나리오 또는 Azure Pipelines를 테스트 하기 위해 많은 수의 IoT Edge 장치를 신속 하 게 만드는 데 적합 합니다. 또한 helm을 통해 kubernetes에 배포하도록 지원합니다.
+IoT Edge 디바이스 컨테이너는 컨테이너 엔진이 있는 어떤 컴퓨터에서도 실행할 준비가 된 완전한 IoT Edge 디바이스입니다. 디바이스 컨테이너에는 IoT Edge 런타임 및 컨테이너 엔진 자체가 포함됩니다. 컨테이너의 각 인스턴스는 완전 기능형 자체 프로비전 IoT Edge 디바이스입니다. 네트워크를 통해 모듈에 연결되어 있는 한, 디바이스 컨테이너는 모듈의 원격 디버깅을 지원합니다. 디바이스 컨테이너는 많은 수의 IoT Edge 디바이스를 빠르게 만들어 대규모 시나리오 또는 Azure Pipelines를 테스트하는 데 적합합니다. 또한 helm을 통해 kubernetes에 배포하도록 지원합니다.
 
 자세한 내용은 [Azure IoT Edge 디바이스 컨테이너](https://github.com/toolboc/azure-iot-edge-device-container)를 참조하세요.
 
@@ -122,6 +122,5 @@ IoT Edge 디바이스 컨테이너는 컨테이너 엔진이 있는 어떤 컴�
 자세한 내용, 지침 및 예제를 보려면 다음 페이지를 참조하세요.
 
 * [Azure IoT Edge 연속 통합 및 지속적인 배포](how-to-continuous-integration-continuous-deployment.md)
-* [Azure DevOps 스타터를 사용 하 여 IoT Edge에 대 한 CI/CD 파이프라인 만들기](how-to-devops-starter.md)
-* [Azure IoT Edge Jenkins 플러그 인](https://plugins.jenkins.io/azure-iot-edge)
+* [Azure DevOps Starter를 사용하여 IoT Edge에 대한 CI/CD 파이프라인 만들기](how-to-devops-starter.md)
 * [IoT Edge DevOps GitHub 리포지토리](https://github.com/toolboc/IoTEdge-DevOps)

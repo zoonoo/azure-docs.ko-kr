@@ -1,6 +1,6 @@
 ---
-title: 'ML Studio (클래식): 웹 서비스 다시 학습-Azure'
-description: Azure Machine Learning Studio (클래식)에서 새로 학습 된 기계 학습 모델을 사용 하도록 웹 서비스를 업데이트 하는 방법에 대해 알아봅니다.
+title: 'ML Studio(클래식): 웹 서비스 다시 학습 - Azure'
+description: Azure Machine Learning Studio(클래식)에서 새로 학습한 기계 학습 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18, devx-track-csharp
 ms.date: 02/14/2019
 ms.openlocfilehash: a4fe9e54e5e03a8dbf2a727b22f784c36d6c65f9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100517589"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>기계 학습 모델 재학습 및 배포
@@ -21,9 +21,9 @@ ms.locfileid: "100517589"
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
-기계 학습 모델 다시 학습은 사용 가능한 가장 관련성 있는 데이터를 기반으로 계속 정확성을 유지하는 한 가지 방법입니다. 이 문서에서는 Studio (클래식)에서 machine learning 모델을 다시 학습 하 고 새 웹 서비스로 배포 하는 방법을 보여 줍니다. 클래식 웹 서비스를 다시 학습하려는 경우 [이 방법 문서를 확인](retrain-classic-web-service.md)하세요.
+기계 학습 모델 다시 학습은 사용 가능한 가장 관련성 있는 데이터를 기반으로 계속 정확성을 유지하는 한 가지 방법입니다. 이 문서에서는 Studio(클래식)에서 기계 학습 모델을 다시 학습하고 새 웹 서비스로 배포하는 방법을 보여 줍니다. 클래식 웹 서비스를 다시 학습하려는 경우 [이 방법 문서를 확인](retrain-classic-web-service.md)하세요.
 
-이 문서는 예측 웹 서비스를 이미 배포했다고 가정합니다. 예측 웹 서비스가 아직 없는 경우 [여기에서 Studio (클래식) 웹 서비스를 배포 하는 방법을 알아보세요.](deploy-a-machine-learning-web-service.md)
+이 문서는 예측 웹 서비스를 이미 배포했다고 가정합니다. 예측 웹 서비스가 아직 없는 경우 [여기서 Studio(클래식) 웹 서비스 배포 방법을 알아봅니다](deploy-a-machine-learning-web-service.md).
 
 다음 단계에 따라 기계 학습의 새 웹 서비스를 다시 학습하고 배포합니다.
 
@@ -61,7 +61,7 @@ ms.locfileid: "100517589"
 
 다음 단계에 따라 재학습 API를 호출합니다.
 
-1. Visual Studio에서 c # 콘솔 응용 프로그램을 만듭니다. **새**  >  **프로젝트**  >  **visual c #**  >  **Windows 클래식 데스크톱**  >  **콘솔 앱 (.NET Framework)**.
+1. Visual Studio(**새로 만들기** > **프로젝트** > **Visual C#**  > **Windows 클래식 바탕 화면** > **콘솔 앱(.NET Framework)** )에서 C# 콘솔 애플리케이션을 만듭니다.
 1. Machine Learning Web Service 포털에 로그인합니다.
 1. 현재 작업 중인 웹 서비스를 클릭합니다.
 1. **사용** 을 클릭합니다.
@@ -74,26 +74,26 @@ ms.locfileid: "100517589"
 
 ![사용 페이지](media/retrain-machine-learning/machine-learning-retrain-models-consume-page.png)
 
-### <a name="update-the-apikey-declaration"></a>apikey 선언 업데이트
+### <a name="update-the-apikey-declaration&quot;></a>apikey 선언 업데이트
 
 **apikey** 선언을 찾습니다.
 
 ```csharp
-const string apiKey = "abc123"; // Replace this with the API key for the web service
+const string apiKey = &quot;abc123&quot;; // Replace this with the API key for the web service
 ```
 
-**사용** 페이지의 **기본 소비 정보** 섹션에서 기본 키를 찾아 **apikey** 선언에 복사 합니다.
+**사용** 페이지의 **기본 사용량 정보** 섹션에서 기본 키를 찾아 **apikey** 선언으로 복사합니다.
 
-### <a name="update-the-azure-storage-information"></a>Azure Storage 정보 업데이트
+### <a name=&quot;update-the-azure-storage-information&quot;></a>Azure Storage 정보 업데이트
 
-BES 샘플 코드는 로컬 드라이브에서(예: "C:\temp\CensusInput.csv") Azure Storage로 파일을 업로드하고 이를 처리하고 결과를 Azure Storage에 다시 작성합니다.
+BES 샘플 코드는 로컬 드라이브에서(예: &quot;C:\temp\CensusInput.csv") Azure Storage로 파일을 업로드하고 이를 처리하고 결과를 Azure Storage에 다시 작성합니다.
 
 1. Azure Portal에 로그인합니다.
 1. 왼쪽 탐색 열에서 **추가 서비스** 를 클릭하고, **스토리지 계정** 을 검색하고 선택합니다.
 1. 스토리지 계정 목록에서 하나를 선택하여 재학습된 모델을 저장합니다.
 1. 왼쪽 탐색 열에서 **선택키** 를 클릭합니다.
 1. **기본 선택키** 를 복사하고 저장합니다.
-1. 왼쪽 탐색 열에서 **blob** 을 클릭 합니다.
+1. 왼쪽 탐색 열에서 **Blob** 을 클릭합니다.
 1. 기존 컨테이너를 선택하거나 새 컨테이너를 만들어 이름을 저장합니다.
 
 *StorageAccountName*, *StorageAccountKey* 및 *StorageContainerName* 선언을 찾아 포털에서 저장한 값을 업데이트합니다.
@@ -140,17 +140,17 @@ Outputs = new Dictionary<string, AzureBlobDataReference>() {
 
 ### <a name="sign-in-to-azure-resource-manager"></a>Azure Resource Manager로 로그인
 
-먼저 [AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용 하 여 PowerShell 환경 내에서 Azure 계정에 로그인 합니다.
+먼저 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용하여 PowerShell 환경 내에서 Azure 계정에 로그인합니다.
 
 ### <a name="get-the-web-service-definition-object"></a>웹 서비스 정의 개체 가져오기
 
-그런 다음 [AzMlWebService](/powershell/module/az.machinelearning/get-azmlwebservice) cmdlet을 호출 하 여 웹 서비스 정의 개체를 가져옵니다.
+다음으로 [Get-AzMlWebService](/powershell/module/az.machinelearning/get-azmlwebservice) cmdlet을 호출하여 웹 서비스 정의 개체를 가져옵니다.
 
 ```azurepowershell
 $wsd = Get-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 ```
 
-기존 웹 서비스의 리소스 그룹 이름을 확인 하려면 매개 변수 없이 Get-AzMlWebService cmdlet을 실행 하 여 구독에 웹 서비스를 표시 합니다. 웹 서비스를 찾은 다음 웹 서비스 ID를 살펴봅니다. 리소스 그룹 이름은 ID의 네 번째 요소로 *resourceGroups* 요소 바로 뒤에 있습니다. 다음 예제에서 리소스 그룹 이름은 Default-MachineLearning-SouthCentralUS입니다.
+기존 웹 서비스의 리소스 그룹 이름을 결정하려면 구독 중인 웹 서비스를 표시하도록 매개 변수 없이 Get-AzMlWebService cmdlet을 실행합니다. 웹 서비스를 찾은 다음 웹 서비스 ID를 살펴봅니다. 리소스 그룹 이름은 ID의 네 번째 요소로 *resourceGroups* 요소 바로 뒤에 있습니다. 다음 예제에서 리소스 그룹 이름은 Default-MachineLearning-SouthCentralUS입니다.
 
 ```azurepowershell
 Properties : Microsoft.Azure.Management.MachineLearning.WebServices.Models.WebServicePropertiesForGraph
@@ -167,7 +167,7 @@ Tags : {}
 
 ### <a name="export-the-web-service-definition-object-as-json"></a>JSON으로 웹 서비스 정의 개체 내보내기
 
-새로 학습 된 모델을 사용 하도록 학습 된 모델의 정의를 수정 하려면 먼저 [AzMlWebService](/powershell/module/az.machinelearning/export-azmlwebservice) cmdlet을 사용 하 여 JSON 형식 파일로 내보내야 합니다.
+새로 학습된 모델을 사용하여 새로 학습된 모델에 대한 정의를 수정하려면 먼저 [Export-AzMlWebService](/powershell/module/az.machinelearning/export-azmlwebservice) cmdlet을 사용하여 JSON 형식 파일에 내보내기해야 합니다.
 
 ```azurepowershell
 Export-AzMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
@@ -194,7 +194,7 @@ Export-AzMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.jso
 
 ### <a name="import-the-json-into-a-web-service-definition-object"></a>JSON을 웹 서비스 정의 개체로 가져오기
 
-[AzMlWebService](/powershell/module/az.machinelearning/import-azmlwebservice) cmdlet을 사용 하 여 수정 된 JSON 파일을 예측 실험을 업데이트 하는 데 사용할 수 있는 웹 서비스 정의 개체로 다시 변환 합니다.
+수정된 JSON 파일을 예측 실험을 업데이트하는 데 사용할 수 있는 웹 서비스 정의 개체로 변환하려면 [Import-AzMlWebService](/powershell/module/az.machinelearning/import-azmlwebservice) cmdlet을 사용합니다.
 
 ```azurepowershell
 $wsd = Import-AzMlWebService -InputFile "C:\temp\mlservice_export.json"
@@ -202,7 +202,7 @@ $wsd = Import-AzMlWebService -InputFile "C:\temp\mlservice_export.json"
 
 ### <a name="update-the-web-service"></a>웹 서비스 업데이트
 
-마지막으로 [AzMlWebService](/powershell/module/az.machinelearning/update-azmlwebservice) cmdlet을 사용 하 여 예측 실험을 업데이트 합니다.
+마지막으로, [Update-AzMlWebService](/powershell/module/az.machinelearning/update-azmlwebservice) cmdlet를 사용하여 예측 실험을 업데이트합니다.
 
 ```azurepowershell
 Update-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'

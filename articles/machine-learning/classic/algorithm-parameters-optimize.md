@@ -1,6 +1,6 @@
 ---
-title: 'ML Studio (클래식): 최적화 알고리즘-Azure'
-description: Azure Machine Learning Studio (클래식)에서 알고리즘에 대해 최적의 매개 변수 집합을 선택 하는 방법에 대해 설명 합니다.
+title: 'ML Studio(클래식): 최적화 알고리즘 - Azure'
+description: Azure Machine Learning Studio(클래식)에서 알고리즘에 대한 최적 매개 변수 집합을 선택하는 방법에 대해 설명합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -10,21 +10,21 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
 ms.openlocfilehash: a216dc7cb17b9e35e412c6bebe34c0cccfb732e4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100519306"
 ---
-# <a name="choose-parameters-to-optimize-your-algorithms-in-machine-learning-studio-classic"></a>Machine Learning Studio (클래식)에서 알고리즘을 최적화 하는 매개 변수 선택
+# <a name="choose-parameters-to-optimize-your-algorithms-in-machine-learning-studio-classic"></a>Machine Learning Studio(클래식)에서 알고리즘을 최적화하는 매개 변수 선택
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-이 항목에서는 Azure Machine Learning Studio (클래식)에서 알고리즘에 대 한 적절 한 하이퍼 매개 변수 집합을 선택 하는 방법에 대해 설명 합니다. 대부분의 기계 학습 알고리즘은 설정할 매개 변수를 포함하고 있습니다. 모델을 학습할 때 이러한 매개 변수의 값을 제공해야 합니다. 학습된 모델의 효율성은 선택한 모델 매개 변수에 따라 달라집니다. 최적의 매개 변수 집합을 찾는 프로세스를 *모델 선택* 이라고 합니다.
+이 항목에서는 Azure Machine Learning Studio(클래식)에서 알고리즘에 맞는 하이퍼 매개 변수 집합을 선택하는 방법을 설명합니다. 대부분의 기계 학습 알고리즘은 설정할 매개 변수를 포함하고 있습니다. 모델을 학습할 때 이러한 매개 변수의 값을 제공해야 합니다. 학습된 모델의 효율성은 선택한 모델 매개 변수에 따라 달라집니다. 최적의 매개 변수 집합을 찾는 프로세스를 *모델 선택* 이라고 합니다.
 
 
 
-모델 선택 영역을 수행하는 방법은 여러 가지가 있습니다. 기계 학습에서 교차 유효성 검사는 모델 선택에 가장 널리 사용 되는 방법 중 하나 이며 Azure Machine Learning Studio (클래식)의 기본 모델 선택 메커니즘입니다. Azure Machine Learning Studio (클래식)에서 R과 Python을 모두 지원 하기 때문에 항상 R 또는 Python을 사용 하 여 고유한 모델 선택 메커니즘을 구현할 수 있습니다.
+모델 선택 영역을 수행하는 방법은 여러 가지가 있습니다. 기계 학습에서는 교차 유효성 검사가 모델 선택에 가장 널리 사용되는 방법 중 하나이며, Azure Machine Learning Studio(클래식)의 기본 모델 선택 메커니즘입니다. Azure Machine Learning Studio(클래식)에서는 R과 Python을 둘 다 지원하므로 언제든지 R 또는 Python을 사용하여 고유한 모델 선택 메커니즘을 구현할 수 있습니다.
 
 최상의 매개 변수 집합을 찾는 프로세스는 4단계로 구성됩니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "100519306"
 3. **메트릭 정의**: 최상의 매개 변수 집합(예: 정확도, 평균 제곱근 오차, 정밀도, 재현율 또는 f-score)을 결정하는 데 사용할 메트릭을 결정합니다.
 4. **학습, 평가 및 비교**: 매개 변수 값의 각 고유한 조합에 대해 정의한 오류 메트릭을 기반으로 교차 유효성 검사를 수행합니다. 평가 및 비교 후에 최고 성능 모델을 선택할 수 있습니다.
 
-다음 이미지는 Azure Machine Learning Studio (클래식)에서이를 달성할 수 있는 방법을 보여 줍니다.
+다음 이미지는 Azure Machine Learning Studio(클래식)에서 이 작업을 수행하는 방법을 보여 줍니다.
 
 ![최상의 매개 변수 집합 찾기](./media/algorithm-parameters-optimize/fig1.png)
 
@@ -42,7 +42,7 @@ ms.locfileid: "100519306"
 
 ![2클래스 향상된 의사 결정 트리, 단일 매개 변수](./media/algorithm-parameters-optimize/fig2.png)
 
- 또는 **범위 작성기 사용** 을 사용하여 그리드의 최대 및 최소 요소 수와 생성할 총 요소 수를 정의할 수 있습니다. 기본적으로 매개 변수 값은 선형 눈금으로 생성됩니다. 그러나 **로그 규모** 상자를 선택한 경우에는 로그 규모에서 값이 생성됩니다(즉, 인접 요소의 비율이 차이가 나지 않고 일정함). 정수 매개 변수의 경우 하이픈을 사용하여 범위를 정의할 수 있습니다. 예를 들어 "1-10"은 1과 10 사이의 모든 정수 (둘 다 포함)가 매개 변수 집합을 형성 함을 의미 합니다. 혼합 모드도 지원됩니다. 예를 들어 "1-10, 20, 50"로 설정 된 매개 변수는 정수 1-10, 20 및 50을 포함 합니다.
+ 또는 **범위 작성기 사용** 을 사용하여 그리드의 최대 및 최소 요소 수와 생성할 총 요소 수를 정의할 수 있습니다. 기본적으로 매개 변수 값은 선형 눈금으로 생성됩니다. 그러나 **로그 규모** 상자를 선택한 경우에는 로그 규모에서 값이 생성됩니다(즉, 인접 요소의 비율이 차이가 나지 않고 일정함). 정수 매개 변수의 경우 하이픈을 사용하여 범위를 정의할 수 있습니다. 예를 들어, '1-10'은 1부터 10까지의 모든 정수가 매개 변수 집합을 형성함을 의미합니다. 혼합 모드도 지원됩니다. 예를 들어, '1-10, 20, 50'으로 설정된 매개 변수는 정수 1~10, 20, 50을 포함합니다.
 
 ![2클래스 향상된 의사 결정 트리, 매개 변수 범위](./media/algorithm-parameters-optimize/fig3.png)
 

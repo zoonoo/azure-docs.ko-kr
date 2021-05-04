@@ -1,52 +1,52 @@
 ---
-title: Azure Functions를 사용 하 여 사용자 지정 가용성 테스트 만들기 및 실행
-description: 이 문서에서는 동작 트리거 함수에 지정 된 구성에 따라 주기적으로 실행 되는 지 수 ()를 사용 하 여 Azure 함수를 만드는 방법을 설명 합니다. 이 테스트의 결과는 Application Insights 리소스로 전송 되며, 여기서 가용성 결과 데이터를 쿼리하고 경고할 수 있습니다. 사용자 지정 된 테스트를 통해 포털 UI를 사용 하 여 보다 복잡 한 가용성 테스트를 작성 하거나, Azure VNET 내부에서 앱을 모니터링 하거나, 끝점 주소를 변경 하거나, 지역에서 사용할 수 없는 경우 가용성 테스트를 만들 수 있습니다.
+title: Azure Functions를 사용하여 사용자 지정 가용성 테스트 만들기 및 실행
+description: 이 문서에서는 TimerTrigger 함수에 지정된 구성에 따라 주기적으로 실행되는 TrackAvailability()를 사용하여 Azure 함수를 만드는 방법을 설명합니다. 이 테스트의 결과는 Application Insights 리소스로 전송되며, 해당 리소스에서 가용성 결과 데이터를 쿼리하고 경고할 수 있습니다. 사용자 지정된 테스트를 통해 포털 UI를 사용하여 가능한 것보다 복잡한 가용성 테스트를 작성하거나, Azure VNET 내부에서 앱을 모니터링하거나, 엔드포인트 주소를 변경하거나, 지역에서 사용할 수 없는 경우 가용성 테스트를 만들 수 있습니다.
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 98d9eaadb31ffdeabe85752f7c76bdd4f7c0d4f3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100589942"
 ---
-# <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Azure Functions를 사용 하 여 사용자 지정 가용성 테스트 만들기 및 실행
+# <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Azure Functions를 사용하여 사용자 지정 가용성 테스트 만들기 및 실행
 
-이 문서에서는 사용자 고유의 비즈니스 논리를 사용 하 여 동작 트리거 함수에 지정 된 구성에 따라 주기적으로 실행 되는 지 수 ()를 사용 하 여 Azure 함수를 만드는 방법을 설명 합니다. 이 테스트의 결과는 Application Insights 리소스로 전송 되며, 여기서 가용성 결과 데이터를 쿼리하고 경고할 수 있습니다. 이를 통해 포털에서 [가용성 모니터링](./monitor-web-app-availability.md) 을 통해 수행할 수 있는 것과 유사한 사용자 지정 된 테스트를 만들 수 있습니다. 사용자 지정 된 테스트를 통해 포털 UI를 사용 하 여 보다 복잡 한 가용성 테스트를 작성 하거나, Azure VNET 내부에서 앱을 모니터링 하거나, 끝점 주소를 변경 하거나, 지역에서이 기능을 사용할 수 없는 경우에도 가용성 테스트를 만들 수 있습니다.
+이 문서에서는 고유한 비즈니스 논리를 포함하는 TimerTrigger 함수에 지정된 구성에 따라 주기적으로 실행되는 TrackAvailability()를 사용하여 Azure 함수를 만드는 방법을 설명합니다. 이 테스트의 결과는 Application Insights 리소스로 전송되며, 해당 리소스에서 가용성 결과 데이터를 쿼리하고 경고할 수 있습니다. 그러면 포털에서 [가용성 모니터링](./monitor-web-app-availability.md)을 통해 수행할 수 있는 것과 유사한 사용자 지정된 테스트를 만들 수 있습니다. 사용자 지정된 테스트를 통해 포털 UI를 사용하여 가능한 것보다 복잡한 가용성 테스트를 작성하거나, Azure VNET 내부에서 앱을 모니터링하거나, 엔드포인트 주소를 변경하거나, 지역에서 사용할 수 없는 기능이라 하더라도 가용성 테스트를 만들 수 있습니다.
 
 > [!NOTE]
-> 이 예제는 Azure Function 내에서 지 수 () API 호출이 작동 하는 방식에 대 한 메커니즘을 보여 주기 위해서만 설계 되었습니다. 이를 완전 한 기능을 갖춘 가용성 테스트로 전환 하는 데 필요한 기본 HTTP 테스트 코드/비즈니스 논리를 작성 하는 방법에 대해서는 설명 하지 않습니다. 기본적으로이 예제를 진행 하는 경우 항상 오류를 생성 하는 가용성 테스트를 만듭니다.
+> 이 예제는 Azure Function 내에서 TrackAvailability() API 호출이 작동하는 방식에 대한 메커니즘을 보여 주기 위해서만 설계되었습니다. 이를 전체 기능을 갖춘 가용성 테스트로 전환하는 데 필요한 기본 HTTP 테스트 코드/비즈니스 논리를 작성하는 방법에 대해서는 설명하지 않습니다. 기본적으로 이 예제를 진행하는 경우 항상 오류를 생성하는 가용성 테스트를 만듭니다.
 
 ## <a name="create-timer-triggered-function"></a>타이머 트리거 함수 만들기
 
-- Application Insights 리소스가 있는 경우:
-    - 기본적으로 Azure Functions는 Application Insights 리소스를 만들지만 이미 생성 된 리소스 중 하나를 사용 하려는 경우 생성 중에 지정 해야 합니다.
-    - 다음 선택 항목을 사용 하 여 [Azure Functions 리소스 및 타이머 트리거 함수](../../azure-functions/functions-create-scheduled-function.md) (정리 전에 중지)를 만드는 방법에 대 한 지침을 따르세요.
-        -  위쪽 근처의 **모니터링** 탭을 선택 합니다.
+- Application Insights 리소스가 있는 경우
+    - 기본적으로 Azure Functions는 Application Insights 리소스를 만들지만 이미 만든 리소스 중 하나를 사용하려는 경우 만드는 도중에 지정해야 합니다.
+    - [Azure Functions 리소스 및 타이머 트리거 함수 만들기](../../azure-functions/functions-create-scheduled-function.md)(정리 전 중지) 지침을 따르고 다음 선택 사항을 사용하세요.
+        -  위쪽에서 **모니터링** 탭을 선택합니다.
 
-            ![ 사용자 고유의 App Insights 리소스를 사용 하 여 Azure Functions 앱 만들기](media/availability-azure-functions/create-function-app.png)
+            ![ 자체 App Insights 리소스를 사용하여 Azure Functions 앱 만들기](media/availability-azure-functions/create-function-app.png)
 
-        - Application Insights 드롭다운 상자를 선택 하 고 리소스 이름을 입력 하거나 선택 합니다.
+        - Application Insights 드롭다운 상자를 선택하고 리소스의 이름을 입력하거나 선택합니다.
 
             ![기존 Application Insights 리소스 선택](media/availability-azure-functions/app-insights-resource.png)
 
         - **검토 + 만들기** 를 선택합니다.
-- 타이머 트리거 함수에 대해 아직 Application Insights 리소스가 생성 되지 않은 경우:
-    - 기본적으로 Azure Functions 응용 프로그램을 만들 때 Application Insights 리소스를 만들게 됩니다.
-    - [Azure Functions 리소스 및 타이머 트리거 함수를 만드는](../../azure-functions/functions-create-scheduled-function.md) 방법에 대 한 지침을 따르세요 (정리 전 중지).
+- 타이머 트리거 함수에서 사용할 Application Insights 리소스가 아직 생성되지 않은 경우
+    - 기본적으로 Azure Functions 애플리케이션을 만들 때 Application Insights 리소스를 만들게 됩니다.
+    - [Azure Functions 리소스 및 타이머 트리거 함수 만들기](../../azure-functions/functions-create-scheduled-function.md)(정리 전 중지) 지침을 따르세요.
 
 ## <a name="sample-code"></a>샘플 코드
 
-아래 코드를 실행. csx 파일에 복사 합니다. 이렇게 하면 기존 코드가 바뀝니다. 이렇게 하려면 Azure Functions 응용 프로그램으로 이동 하 여 왼쪽에서 타이머 트리거 함수를 선택 합니다.
+아래 코드를 run.csx 파일에 복사합니다. 그러면 기존 코드가 바뀝니다. 이렇게 하려면 Azure Functions 애플리케이션으로 이동하여 왼쪽에서 타이머 트리거 함수를 선택합니다.
 
 >[!div class="mx-imgBorder"]
->![Azure Portal에서 Azure 함수의 실행. csx](media/availability-azure-functions/runcsx.png)
+>![Azure Portal에서 Azure 함수의 run.csx](media/availability-azure-functions/runcsx.png)
 
 > [!NOTE]
-> 끝점 주소에 대해를 사용 합니다. `EndpointAddress= https://dc.services.visualstudio.com/v2/track` 리소스가 Azure Government 또는 Azure 중국와 같은 지역에 있는 경우를 제외 하 고 [기본 끝점 재정의](./custom-endpoints.md#regions-that-require-endpoint-modification) 에 대 한이 문서를 참조 하 고 해당 지역에 적절 한 원격 분석 채널 끝점을 선택 합니다.
+> 엔드포인트 주소에 `EndpointAddress= https://dc.services.visualstudio.com/v2/track`을 사용합니다. 리소스가 Azure Government 또는 Azure 중국 같은 지역에 있는 경우를 제외하고 [기본 엔드포인트 재정의](./custom-endpoints.md#regions-that-require-endpoint-modification)에 관한 이 문서를 참조하고 해당 지역에 적절한 원격 분석 채널 엔드포인트를 선택합니다.
 
 ```C#
-#load "runAvailabilityTest.csx"
+#load "runAvailabilityTest.csx&quot;
  
 using System;
 using System.Diagnostics;
@@ -57,7 +57,7 @@ using Microsoft.ApplicationInsights.Extensibility;
  
 // The Application Insights Instrumentation Key can be changed by going to the overview page of your Function App, selecting configuration, and changing the value of the APPINSIGHTS_INSTRUMENTATIONKEY Application setting.
 // DO NOT replace the code below with your instrumentation key, the key's value is pulled from the environment variable/application setting key/value pair.
-private static readonly string instrumentationKey = Environment.GetEnvironmentVariable("APPINSIGHTS_INSTRUMENTATIONKEY");
+private static readonly string instrumentationKey = Environment.GetEnvironmentVariable(&quot;APPINSIGHTS_INSTRUMENTATIONKEY");
  
 //[CONFIGURATION_REQUIRED]
 // If your resource is in a region like Azure Government or Azure China, change the endpoint address accordingly.
@@ -125,7 +125,7 @@ public async static Task Run(TimerInfo myTimer, ILogger log)
 
 ```
 
-파일 보기 오른쪽에서 **추가** 를 선택 합니다. 다음 구성을 사용 하 여 새 파일 **함수 proj** 를 호출 합니다.
+오른쪽의 파일 보기 아래에서 **추가** 를 선택합니다. 다음 구성을 사용하여 새 파일 **function.proj** 를 호출합니다.
 
 ```C#
 <Project Sdk="Microsoft.NET.Sdk">
@@ -140,9 +140,9 @@ public async static Task Run(TimerInfo myTimer, ILogger log)
 ```
 
 >[!div class="mx-imgBorder"]
->![오른쪽 select에서을 추가 합니다. File 함수 이름을 proj로 합니다.](media/availability-azure-functions/addfile.png)
+>![오른쪽에서 추가를 선택합니다. function.proj 파일에 이름을 지정합니다.](media/availability-azure-functions/addfile.png)
 
-파일 보기 오른쪽에서 **추가** 를 선택 합니다. 다음 구성을 사용 하 여 새 파일 **runAvailabilityTest** 를 호출 합니다.
+오른쪽의 파일 보기 아래에서 **추가** 를 선택합니다. 다음 구성을 사용하여 새 파일 **runAvailabilityTest.csx** 를 호출합니다.
 
 ```C#
 public async static Task RunAvailbiltyTestAsync(ILogger log)
@@ -155,33 +155,33 @@ public async static Task RunAvailbiltyTestAsync(ILogger log)
 
 ## <a name="check-availability"></a>중복 확인
 
-모든 것이 작동 하는지 확인 하기 위해 Application Insights 리소스의 가용성 탭에서 그래프를 살펴볼 수 있습니다.
+모든 것이 작동하는지 확인하기 위해 Application Insights 리소스의 가용성 탭에서 그래프를 살펴볼 수 있습니다.
 
 > [!NOTE]
-> RunAvailabilityTest에 고유한 비즈니스 논리를 구현한 경우 아래 스크린샷 처럼 성공적인 결과가 표시 됩니다. 그렇지 않은 경우에는 실패 한 결과가 표시 됩니다. 로 만든 테스트 `TrackAvailability()` 는 테스트 이름 옆에 **사용자 지정** 이 표시 됩니다.
+> runAvailabilityTest.csx에 고유한 비즈니스 논리를 구현한 경우 아래 스크린샷처럼 성공 결과가 표시됩니다. 그렇지 않은 경우에는 실패 결과가 표시됩니다. `TrackAvailability()`로 만든 테스트는 테스트 이름 옆에 **CUSTOM** 이 표시됩니다.
 
 >[!div class="mx-imgBorder"]
->![성공적인 결과가 포함 된 가용성 탭](media/availability-azure-functions/availability-custom.png)
+>![성공 결과가 표시된 가용성 탭](media/availability-azure-functions/availability-custom.png)
 
-종단 간 트랜잭션 세부 정보를 보려면 드릴스루에서 **성공** 또는 **실패** 를 선택 하 고 샘플을 선택 합니다. 그래프에서 데이터 요소를 선택 하 여 종단 간 트랜잭션 세부 정보를 가져올 수도 있습니다.
+엔드투엔드 트랜잭션 세부 정보를 보려면 상세 검색 아래에서 **성공** 또는 **실패** 를 선택하고 샘플을 선택합니다. 그래프에서 데이터 요소를 선택하여 엔드투엔드 트랜잭션 세부 정보를 가져올 수도 있습니다.
 
 >[!div class="mx-imgBorder"]
 >![샘플 가용성 테스트 선택](media/availability-azure-functions/sample.png)
 
 >[!div class="mx-imgBorder"]
->![종단 간 트랜잭션 세부 정보](media/availability-azure-functions/end-to-end.png)
+>![엔드투엔드 트랜잭션 세부 정보](media/availability-azure-functions/end-to-end.png)
 
-비즈니스 논리를 추가 하지 않고 모든 항목을 그대로 실행 하는 경우 테스트가 실패 한 것을 볼 수 있습니다.
+비즈니스 논리를 추가하지 않고 함수를 있는 그대로 실행하는 경우 테스트가 실패하는 것을 볼 수 있습니다.
 
-## <a name="query-in-logs-analytics"></a>로그에서 쿼리 (분석)
+## <a name="query-in-logs-analytics"></a>로그(분석)에서 쿼리
 
-로그 (분석)를 사용 하 여 가용성 결과, 종속성 등을 볼 수 있습니다. 로그에 대 한 자세한 내용을 보려면 [로그 쿼리 개요](../logs/log-query-overview.md)를 참조 하세요.
+로그(분석)를 사용하여 가용성 결과, 종속성 등을 볼 수 있습니다. 로그에 대한 자세한 내용을 보려면 [로그 쿼리 개요](../logs/log-query-overview.md)를 참조하세요.
 
 >[!div class="mx-imgBorder"]
 >![가용성 결과](media/availability-azure-functions/availabilityresults.png)
 
 >[!div class="mx-imgBorder"]
->![50로 제한 된 종속성이 있는 새 쿼리 탭을 보여 주는 스크린샷](media/availability-azure-functions/dependencies.png)
+>![종속성이 50개로 제한된 새 쿼리 탭을 보여 주는 스크린샷](media/availability-azure-functions/dependencies.png)
 
 ## <a name="next-steps"></a>다음 단계
 

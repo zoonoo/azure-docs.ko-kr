@@ -1,6 +1,6 @@
 ---
 title: 내 계정 포털에서 조직 관리 - Azure AD
-description: 내 계정 포털의 조직 페이지에서 액세스할 수 있는 조직을 확인 하 고 유지 하는 방법입니다.
+description: 내 계정 포털의 조직 페이지에서 액세스할 수 있는 조직을 확인하고 나가는 방법
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,15 +12,15 @@ ms.topic: end-user-help
 ms.date: 01/19/2021
 ms.author: curtand
 ms.openlocfilehash: ef2e79f8c8e7964d04db0dd1a3f9988599fcb130
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100094120"
 ---
 # <a name="manage-organizations-you-have-access-to-in-the-my-account-portal"></a>내 계정 포털에서 액세스할 수 있는 조직 관리
 
-**내 계정** 포털의 **조직** 페이지에서는 액세스 권한이 있는 조직 (일반적으로 조직의 이름)을 관리할 수 있습니다. **조직** 페이지에는 두 가지 유형의 조직이 표시됩니다.
+**내 계정** 포털의 **조직** 페이지를 통해 액세스할 수 있는 조직(일반적으로 조직 이름)을 관리할 수 있습니다. **조직** 페이지에는 두 가지 유형의 조직이 표시됩니다.
 
 - **홈 조직.** 홈 조직은 회사 또는 학교 계정을 소유하는 조직입니다. 홈 조직을 나갈 수 없습니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "100094120"
 - **기타 조직.** 기타 조직은 이전에 회사 또는 학교 계정을 사용하여 로그인한 임의의 그룹입니다. 언제든지 이러한 조직 중 어느 곳도 나갈 수 있습니다.
 
 >[!Important]
->이 문서는 회사 또는 학교 계정에서 액세스 하는 조직 정보를 업데이트 하려는 사용자를 위해 작성 되었습니다. 개인 Microsoft 계정를 사용 하 여 로그인 하는 동안 오류가 표시 되는 경우 다음 Url 중 하나를 사용 하 여 관리자에 게 서 조직의 도메인 이름 (예: contoso.com) 또는 조직의 **테 넌 트 ID** 를 사용 하 여 로그인 할 수 있습니다.
+>이 문서는 회사 또는 학교 계정으로 액세스할 수 있는 조직 정보를 업데이트하려는 사용자를 위해 작성되었습니다. 개인 Microsoft 계정으로 로그인하는 동안 오류가 표시되는 경우, 다음 URL 중 하나에서 조직의 도메인 이름(예: contoso.com) 또는 관리자의 조직 **테넌트 ID** 를 사용하여 로그인할 수 있습니다.
 >
 >   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
 >   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
@@ -49,7 +49,7 @@ ms.locfileid: "100094120"
 
     ![조직 페이지](media/my-account-portal/my-account-portal-organization-page.png)
 
-1. 액세스 권한이 있는 모든 조직을 인식할 수 있도록 다른 조직을 검토 합니다.
+1. 다른 조직을 검토하여 액세스할 수 있는 모든 조직을 알아볼 수 있는지 확인합니다.
 
 ## <a name="leave-an-organization"></a>조직 나가기
 

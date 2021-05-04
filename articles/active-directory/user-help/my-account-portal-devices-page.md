@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 01/19/2021
 ms.author: curtand
 ms.openlocfilehash: d82b59e887eb35a972812dd82dbca5ca6bc5179b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100096211"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>디바이스 페이지에서 연결된 디바이스 관리
@@ -27,7 +27,7 @@ ms.locfileid: "100096211"
 - 더 이상 소유하지 않거나, 분실하거나, 도난당한 디바이스를 사용하지 않도록 설정합니다.
 
 >[!Important]
->이 문서는 회사 또는 학교 계정에 연결된 디바이스 정보를 업데이트하려는 사용자를 위해 작성되었습니다. 개인 Microsoft 계정를 사용 하 여 로그인 하는 동안 오류가 표시 되는 경우 다음 Url 중 하나를 사용 하 여 관리자에 게 서 조직의 도메인 이름 (예: contoso.com) 또는 조직의 **테 넌 트 ID** 를 사용 하 여 로그인 할 수 있습니다.
+>이 문서는 회사 또는 학교 계정에 연결된 디바이스 정보를 업데이트하려는 사용자를 위해 작성되었습니다. 개인 Microsoft 계정으로 로그인하는 동안 오류가 표시되는 경우, 다음 URL 중 하나에서 조직의 도메인 이름(예: contoso.com) 또는 관리자의 조직 **테넌트 ID** 를 사용하여 로그인할 수 있습니다.
 >
 >   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
 >   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
@@ -67,7 +67,7 @@ ms.locfileid: "100096211"
 
     ![BitLocker 키 옵션이 있는 디바이스 페이지](media/my-account-portal/my-account-portal-devices-bitlocker.png)
 
-2. 잠긴 장치에 대 한 **Bitlocker 키 보기** 를 선택 하 고 잠긴 장치에 대 한 bitlocker 키를 적어둡니다.
+2. 잠긴 디바이스에 대한 **BitLocker 키 보기** 를 선택하고 잠긴 디바이스에 대한 BitLocker 키를 작성합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

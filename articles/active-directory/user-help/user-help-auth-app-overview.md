@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
 ms.openlocfilehash: 7f4c09a32794e13b0e0041ee916401b714d8509e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90055234"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱이란?
@@ -41,8 +41,8 @@ Microsoft Authenticator 앱은 다음을 비롯한 여러 가지 방법으로 �
 | ----|-----------|
 | 2단계 인증 | 암호 및 PIN 같은 두 가지 인증 정보만 사용해야 하는 인증 프로세스입니다. Microsoft Authenticator 앱은 표준 2단계 인증 및 암호 없는 로그인을 지원합니다. |
 | MFA(다단계 인증) | 모든 2단계 인증은 다단계 인증이며, 조직의 요구 사항에 따라 *최소한* 두 가지 인증 정보를 사용해야 합니다. |
-| Microsoft 계정(MSA라고도 함) | 사용자 고유의 개인 계정을 만들어 Outlook, OneDrive, Xbox LIVE, Microsoft 365 등의 소비자 지향 Microsoft 제품 및 클라우드 서비스에 액세스할 수 있습니다. Microsoft 계정은 Microsoft에서 실행하는 Microsoft 소비자 ID 계정 시스템에 생성되고 저장됩니다. |
-| 회사 또는 학교 계정 | 조직에서는 회사 또는 학교 계정 (예:)을 만들어 alain@contoso.com Microsoft Azure, Windows Intune, Microsoft 365 등의 제한 된 내부 리소스에 액세스할 수 있습니다. |
+| Microsoft 계정(MSA라고도 함) | 사용자가 고유한 개인 계정을 만들어 Outlook, OneDrive, Xbox LIVE 또는 Microsoft 365 같은 소비자 지향 Microsoft 제품 및 클라우드 서비스에 액세스합니다. Microsoft 계정은 Microsoft에서 실행하는 Microsoft 소비자 ID 계정 시스템에 생성되고 저장됩니다. |
+| 회사 또는 학교 계정 | 사용자가 Microsoft Azure, Windows Intune, Microsoft 365 같은 내부의 제한된 리소스에 액세스할 수 있도록 조직에서 회사 또는 학교 계정(예: alain@contoso.com)을 만듭니다. |
 | 확인 코드 | 추가된 각 계정 아래의 인증 앱에 표시되는 6자리 코드입니다. 확인 코드는 30초마다 변경되므로 코드 하나를 여러 번 사용할 수 없습니다. 이것을 OTP(일회성 암호)라고도 합니다. |
 
 ## <a name="how-two-factor-verification-works-with-the-app"></a>2단계 인증이 앱에서 작동하는 원리
@@ -51,7 +51,7 @@ Microsoft Authenticator 앱은 다음을 비롯한 여러 가지 방법으로 �
 
 - **알림.** 회사/학교 계정 또는 개인 Microsoft 계정에 로그인하는 데 사용하는 디바이스에 사용자 이름 및 암호를 입력하면 Microsoft Authenticator 앱에서 **로그인 승인** 을 요청하는 알림을 보냅니다. 로그인 시도를 인식한 경우 **승인** 을 선택합니다. 그렇지 않은 경우 **거부** 를 선택합니다. **거부** 를 선택하면 요청을 사기로 표시할 수 있습니다.
 
-- **확인 코드입니다.** 회사/학교 계정 또는 개인 Microsoft 계정에 로그인하는 데 사용하는 디바이스에 사용자 이름 및 암호를 입력한 다음, Microsoft Authenticator 앱의 **계정** 화면에서 연결된 확인 코드를 복사합니다. 확인 코드를 OTP(일회성 암호) 인증이라고도 합니다.
+- **확인 코드.** 회사/학교 계정 또는 개인 Microsoft 계정에 로그인하는 데 사용하는 디바이스에 사용자 이름 및 암호를 입력한 다음, Microsoft Authenticator 앱의 **계정** 화면에서 연결된 확인 코드를 복사합니다. 확인 코드를 OTP(일회성 암호) 인증이라고도 합니다.
 
 - **암호 없는 로그인.** 회사/학교 계정 또는 개인 Microsoft 계정에 로그인하는 데 사용하는 디바이스에 사용자 이름을 입력한 다음, 모바일 디바이스에서 지문, 얼굴 또는 PIN을 사용하여 본인이라는 것을 확인합니다. 이 방법은 암호를 입력할 필요가 없습니다.
 
@@ -69,7 +69,7 @@ PIN을 사용하여 인증 프로세스를 완료하는 경우 디바이스의 �
 
 - **비 Microsoft 계정** 을 참조하세요. 비 Microsoft 계정에 2단계 인증을 설정하도록 선택할 수 있습니다(예: alain@gmail.com). 비 Microsoft 계정에서 2단계 인증이라는 용어를 사용하지 않을 수도 있지만, **보안** 또는 **로그인** 설정에서 해당 기능을 찾을 수 있을 것입니다. Microsoft Authenticator 앱은 TOTP 표준을 지원하는 계정과 호환됩니다. Microsoft 이외의 계정 추가에 대한 자세한 내용은 [비 Microsoft 계정 추가](user-help-auth-app-add-non-ms-account.md)를 참조하세요.
 
-## <a name="in-this-section"></a>단원 내용
+## <a name="in-this-section"></a>섹션 내용
 
 | 아티클 | 설명 |
 | ------ | ------------ |

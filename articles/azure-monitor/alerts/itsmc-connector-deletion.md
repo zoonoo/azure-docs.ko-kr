@@ -1,40 +1,57 @@
 ---
-title: ITSM 커넥터 및 연결 된 작업 삭제
-description: 이 문서에서는 ITSM 커넥터와 연결 된 작업 그룹을 삭제 하는 방법에 대해 설명 합니다.
+title: 사용하지 않는 ITSM 커넥터 삭제
+description: 이 문서에서는 ITSM 커넥터 및 ITSM 커넥터와 연결된 작업 그룹을 삭제하는 방법을 설명합니다.
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/29/2020
 ms.custom: references_regions
-ms.openlocfilehash: e73510b6c61c58f6f0b2b8067a240214ee35a46c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 3dc84ea6def9b762527226dbeb3e2eaab78ec200
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102036489"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387941"
 ---
-# <a name="deletion-of-unused-itsm-connectors"></a>사용 하지 않는 ITSM 커넥터 삭제
+# <a name="delete-unused-itsm-connectors"></a>사용하지 않는 ITSM 커넥터 삭제
 
-사용 하지 않는 커넥터를 삭제 하는 프로세스에는 다음 두 단계가 포함 됩니다.
+사용하지 않는 ITSM(IT 서비스 관리) 커넥터 삭제는 두 단계로 진행됩니다. ITSM 커넥터와 연결된 모든 작업을 삭제한 다음 커넥터 자체를 삭제합니다. 커넥터 없이 작업을 수행하면 구독에서 오류가 발생할 수 있으므로 먼저 작업을 삭제해야 합니다.
 
-1. 연결 된 작업 삭제: ITSM 커넥터와 연결 된 모든 작업을 삭제 해야 합니다. 이렇게 하려면 커넥터 없이 구독에서 오류를 일으킬 수 있는 작업을 수행 하지 않도록 해야 합니다.
+## <a name="delete-associated-actions"></a>연결된 작업 삭제
 
-2. 사용 하지 않는 ITSM 커넥터를 삭제 합니다.
+1. Azure Portal에서 **모니터** 를 선택합니다.
+  
+    ![모니터 선택의 스크린샷.](media/itsmc-connector-deletion/itsmc-monitor-selection.png)
 
-## <a name="deletion-of-the-associated-actions"></a>연결 된 작업 삭제
+2. **경고** 를 선택합니다.
+   
+    ![경고 선택의 스크린샷.](media/itsmc-connector-deletion/itsmc-alert-selection.png)
 
-1. 작업 그룹을 찾으려면 모니터 선택의 "모니터" 스크린샷으로 이동 해야 합니다  ![ .](media/itsmc-connector-deletion/itsmc-monitor-selection.png)
+3. **작업 관리** 를 선택합니다.
+   
+    ![작업 관리 선택의 스크린샷.](media/itsmc-connector-deletion/itsmc-actions-selection.png)
 
-2. ![경고 선택 항목의 "경고" 스크린샷을 선택 합니다.](media/itsmc-connector-deletion/itsmc-alert-selection.png)
-3. ![작업 선택 관리의 "작업 관리" 스크린샷을 선택 합니다.](media/itsmc-connector-deletion/itsmc-actions-selection.png)
-4. Cherwell에 연결 된 ITSM 커넥터의 Cherwell 스크린샷에 연결 된 모든 ITSM 커넥터를 선택  ![ 합니다.](media/itsmc-connector-deletion/itsmc-actions-screen.png)
-5. 작업  ![ 그룹 삭제의 작업 그룹 스크린샷 삭제 합니다.](media/itsmc-connector-deletion/itsmc-action-deletion.png)
+4. 삭제할 ITSM 커넥터와 연결된 작업 그룹을 선택합니다. 이 문서에서는 Cherwell 커넥터 예시를 사용합니다.
+   
+    ![Cherwell 커넥터와 연결된 작업의 스크린샷.](media/itsmc-connector-deletion/itsmc-actions-screen.png)
 
-## <a name="deletion-of-the-unused-itsm-connector"></a>사용 하지 않는 ITSM 커넥터 삭제
+5. 정보를 검토한 다음 **작업 그룹 삭제** 를 선택합니다.
 
-1. 검색의 위쪽 검색 표시줄 스크린샷에서 "ServiceDesk" LA를 검색 하 고 선택 하  ![ 고 "servicedesk" la를 선택 해야 합니다.](media/itsmc-connector-deletion/itsmc-connector-selection.png)
-2. "ITSM 연결"을 선택 하 고  ![ Cherwell ITSM 커넥터의 Cherwell connector 스크린샷을 선택 합니다.](media/itsmc-connector-deletion/itsmc-cherwell-connector.png)
-3. ![ITSM 커넥터 삭제의 "삭제" 스크린샷을 선택 합니다.](media/itsmc-connector-deletion/itsmc-connector-deletion.png)
+    ![작업 그룹 정보 및 그룹 삭제 단추의 스크린샷.](media/itsmc-connector-deletion/itsmc-action-deletion.png)
+
+## <a name="delete-the-connector"></a>커넥터 삭제
+
+1. 검색 창에서 **servicedesk** 를 검색합니다. 그런 다음 리소스 목록에서 **ServiceDesk** 를 선택합니다.
+
+    ![ServiceDesk 검색 및 선택의 스크린샷.](media/itsmc-connector-deletion/itsmc-connector-selection.png)
+
+2. **ITSM 연결** 을 선택하고 Cherwell 커넥터를 선택합니다.
+
+    ![Cherwell I T S M 커넥터의 스크린샷.](media/itsmc-connector-deletion/itsmc-cherwell-connector.png)
+
+3. **삭제** 를 선택합니다.
+
+    ![I T S M 커넥터 삭제 단추의 스크린샷.](media/itsmc-connector-deletion/itsmc-connector-deletion.png)
 
 ## <a name="next-steps"></a>다음 단계
 

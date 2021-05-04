@@ -13,10 +13,10 @@ ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
 ms.openlocfilehash: efb3ee24add847baf8264eccdf71278be5ee9496
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91536973"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>조직의 네트워크에 회사 디바이스 가입
@@ -48,22 +48,22 @@ ms.locfileid: "91536973"
 
 4. 모바일 디바이스에서 계정에 액세스할 수 있도록 디바이스를 승인합니다. 
 
-    !["암호 입력" 알림 화면을 보여 주는 스크린샷](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
+    ![“암호 입력” 알림 화면 스크린샷](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
 
 5. 개인 정보 및 Windows Hello(필요한 경우) 설정을 포함하여 OOBE 프로세스를 완료합니다.
 
     디바이스는 이제 조직의 네트워크에 가입되었습니다.
 
-## <a name="to-make-sure-youre-joined-new-device"></a>조인 되었는지 확인 하려면 (새 장치)
+## <a name="to-make-sure-youre-joined-new-device"></a>가입되었는지 확인하려면(새 디바이스)
 설정을 통해 가입되었는지 확인할 수 있습니다.
 
 1. **설정** 을 열고 **계정** 을 선택합니다.
 
     ![설정 화면의 계정](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. **회사 또는 학교 액세스** 를 선택 하 고 ***\<your_organization>* Azure AD에 연결 된** 것과 같은 텍스트가 표시 되는지 확인 합니다.
+2. **회사 또는 학교 액세스** 를 선택하고 ***\<your_organization>* Azure AD에 연결됨** 과 같은 텍스트가 표시되는지 확인합니다.
 
-    !["연결 된 (조직) Azure AD" 계정이 선택 된 "회사 또는 학교 액세스" 창을 보여 주는 스크린샷](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
+    ![“(조직) Azure AD에 연결됨” 계정이 선택된 “회사 또는 학교 액세스” 창 스크린샷](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
 
 ## <a name="to-join-an-already-configured-windows-10-device"></a>이미 구성된 Windows 10 디바이스를 가입하려면
@@ -106,7 +106,7 @@ ms.locfileid: "91536973"
 
     ![설정 화면의 계정](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. **회사 또는 학교 액세스** 를 선택 하 고 ***\<your_organization>* Azure AD에 연결 된** 것과 같은 텍스트가 표시 되는지 확인 합니다.
+2. **회사 또는 학교 액세스** 를 선택하고 ***\<your_organization>* Azure AD에 연결됨** 과 같은 텍스트가 표시되는지 확인합니다.
 
     ![연결된 contoso 계정을 사용하여 회사 또는 학교 액세스 화면](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 

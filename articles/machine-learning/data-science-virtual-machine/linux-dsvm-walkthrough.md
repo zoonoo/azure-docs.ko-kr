@@ -9,15 +9,15 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.openlocfilehash: 42136d0d58dbc318aab0e111fcef46f80751ca88
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100517674"
 ---
-# <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Azure에서 Ubuntu Data Science Virtual Machine를 사용 하는 데이터 과학
+# <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Azure에서 Ubuntu Data Science Virtual Machine을 사용하는 데이터 과학
 
-이 연습에서는 Ubuntu Data Science Virtual Machine (DSVM)를 사용 하 여 몇 가지 일반적인 데이터 과학 작업을 완료 하는 방법을 보여 줍니다. Ubuntu DSVM은 Azure에서 사용할 수 있는 가상 머신 이미지로, 데이터 분석 및 기계 학습에 일반적으로 사용 되는 도구 모음에 미리 설치 되어 있습니다. 주요 소프트웨어 구성 요소는 [Ubuntu Data Science Virtual Machine 프로 비전](./dsvm-ubuntu-intro.md)에서 항목별로 제공 됩니다. DSVM 이미지를 사용하면 각 도구를 개별적으로 설치하고 구성할 필요 없이 몇 분 내에 데이터 과학 작업을 쉽게 시작할 수 있습니다. 필요한 경우 DSVM을 쉽게 확장할 수 있으며 사용하지 않을 때는 중지할 수 있습니다. 이 DSVM 리소스는 탄력적이고 비용 효율적입니다.
+이 연습에서는 Ubuntu DSVM(Data Science Virtual Machine)을 사용하여 몇 가지 일반적인 데이터 과학 작업을 수행하는 방법을 보여 줍니다. Ubuntu DSVM은 Azure에서 사용할 수 있는 가상 머신 이미지이며, 데이터 분석 및 기계 학습에 일반적으로 사용되는 도구 모음과 함께 사전 설치되어 있습니다. 주요 소프트웨어 구성 요소는 [Ubuntu Data Science Virtual Machine 프로비저닝](./dsvm-ubuntu-intro.md)에 항목별로 나와 있습니다. DSVM 이미지를 사용하면 각 도구를 개별적으로 설치하고 구성할 필요 없이 몇 분 내에 데이터 과학 작업을 쉽게 시작할 수 있습니다. 필요한 경우 DSVM을 쉽게 확장할 수 있으며 사용하지 않을 때는 중지할 수 있습니다. 이 DSVM 리소스는 탄력적이고 비용 효율적입니다.
 
 이 연습에서는 [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 데이터 세트를 분석합니다. Spambase는 스팸 또는 햄(스팸이 아님)으로 표시된 이메일 집합입니다. Spambase에는 이메일의 내용에 대한 일부 통계도 포함되어 있습니다. 이 연습의 뒷부분에서 이러한 통계에 대해 설명합니다.
 
@@ -27,7 +27,7 @@ Linux DSVM을 사용하려면 먼저 다음과 같은 필수 구성 요소가 �
 
 * **Azure 구독**. Azure 구독을 얻으려면 [지금 무료 Azure 계정 만들기](https://azure.microsoft.com/free/)를 참조하세요.
 
-* [**Ubuntu Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). 가상 컴퓨터를 프로 비전 하는 방법에 대 한 자세한 내용은 [Ubuntu Data Science Virtual Machine 프로 비전](./release-notes.md)을 참조 하세요.
+* [**Ubuntu Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). 가상 머신을 프로비전하는 방법에 대한 자세한 내용은 [Ubuntu Data Science Virtual Machine 프로비저닝](./release-notes.md)을 참조하세요.
 * 열린 XFCE 세션을 사용하여 컴퓨터에 설치된 [**X2Go**](https://wiki.x2go.org/doku.php). 자세한 내용은 [X2Go 클라이언트 설치 및 구성](dsvm-ubuntu-intro.md#x2go)을 참조하세요.
 * 더 부드러운 스크롤 경험을 원할 경우 DSVM의 Firefox 웹 브라우저에서 `about:config`의 `gfx.xrender.enabled` 플래그를 전환합니다. [자세히 알아보기](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). 또한 `mousewheel.enable_pixel_scrolling`을 `False`로 설정하는 것이 좋습니다. [자세히 알아보기](https://support.mozilla.org/questions/981140).
 
@@ -285,7 +285,7 @@ clf.fit(X, y)
 
 ### <a name="jupyterhub"></a>JupyterHub
 
-DSVM에서 Anaconda 배포판에는 Jupyter Notebook, Python R 공유를 위한 플랫폼 간 환경 또는 Julia 코드 및 분석이 함께 제공됩니다. JupyterHub를 통해 Jupyter Notebook에 액세스합니다. Https://: 8000/에서 로컬 Linux 사용자 이름 및 암호를 사용 하 여 로그인 \<DSVM DNS name or IP address\> 합니다. JupyterHub에 대한 모든 구성 파일은 /etc/jupyterhub 디렉터리에서 찾을 수 있습니다.
+DSVM에서 Anaconda 배포판에는 Jupyter Notebook, Python R 공유를 위한 플랫폼 간 환경 또는 Julia 코드 및 분석이 함께 제공됩니다. JupyterHub를 통해 Jupyter Notebook에 액세스합니다. https://\<DSVM DNS name or IP address\>:8000/에서 로컬 Linux 사용자 이름 및 암호를 사용하여 로그인합니다. JupyterHub에 대한 모든 구성 파일은 /etc/jupyterhub 디렉터리에서 찾을 수 있습니다.
 
 > [!NOTE]
 > 현재 커널의 Jupyter Notebook에서 `pip` 명령을 통해 Python 패키지 관리자를 사용하려면 코드 셀에 다음 명령을 사용합니다.
@@ -505,7 +505,7 @@ PostgreSQL 데이터베이스에 저장된 데이터를 사용하여 기계 학�
 
 ### <a name="azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics(이전의 SQL DW)
 
-Azure Synapse Analytics는 관계형 데이터와 비관계형 데이터를 모두 처리할 수 있는 클라우드 기반 스케일 아웃 데이터베이스입니다. 자세한 내용은 [Azure Synapse Analytics 란?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 을 참조 하세요.
+Azure Synapse Analytics는 방대한 양의 관계형 및 비관계형 데이터를 처리할 수 있는 클라우드 기반 규모 스케일 아웃 데이터베이스입니다. 자세한 내용은 [Azure Synapse Analytics란?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)을 참조하세요.
 
 데이터 웨어하우스에 연결하고 테이블을 만들려면 명령 프롬프트에서 다음 명령을 실행합니다.
 

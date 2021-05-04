@@ -1,18 +1,15 @@
 ---
-title: 아키텍처-Azure Site Recovery를 사용 하 여 보조 사이트로의 VMware/물리적 재해 복구
+title: Azure Site Recovery를 사용하는 보조 사이트의 아키텍처-VMware/물리적 재해 복구
 description: 이 문서에서는 Azure Site Recovery를 사용하여 온-프레미스 VMware VM 또는 실제 Windows/Linux 서버를 보조 VMware 사이트로 재해 복구하는 동안 사용되는 구성 요소 및 아키텍처 개요를 설명합니다.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.author: raynew
-ms.openlocfilehash: d400e6bcda0a2114d798a3289f01f52b677a6f94
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 032f8619a1f8d4299af1eb069fdccba1307542d4
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97656498"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579498"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>VMware용 아키텍처/보조 온-프레미스 사이트에 물리적 서버 복제
 
@@ -31,9 +28,9 @@ ms.locfileid: "97656498"
 **VMware ESX/ESXi 및 vCenter 서버** |  ESX/ESXi 호스트에서 호스트되는 VM. vCenter 서버로 관리되는 호스트. | VMware VM을 복제하려면 VMware 인프라가 필요합니다.
 **VM/물리적 서버** |  복제하려는 VMware VM 또는 물리적 서버에 설치되는 통합 에이전트. | 에이전트는 모든 구성 요소 간의 통신 공급자 역할을 합니다.
 
-## <a name="set-up-outbound-network-connectivity"></a>아웃 바운드 네트워크 연결 설정
+## <a name="set-up-outbound-network-connectivity"></a>아웃바운드 네트워크 연결 설정
 
-Site Recovery가 예상 대로 작동 하려면 아웃 바운드 네트워크 연결을 수정 하 여 환경을 복제할 수 있도록 해야 합니다.
+Site Recovery가 예상대로 작동하려면 아웃바운드 네트워크 연결을 수정하여 환경 복제를 허용해야 합니다.
 
 > [!NOTE]
 > Site Recovery는 인증 프록시를 사용하여 네트워크 연결을 제어하도록 지원하지 않습니다.
@@ -55,7 +52,7 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 2. 초기 복제 후 각 컴퓨터에서 에이전트는 델타 복제 변경을 프로세스 서버로 보냅니다.
 3. 프로세스 서버가 데이터를 최적화하고 보조 사이트의 마스터 대상 서버로 보냅니다. 구성 서버는 복제 프로세스를 관리합니다.
 
-![VMware Vm 및 물리적 서버를 보조 데이터 센터에 복제 하는 방법을 보여 주는 다이어그램](./media/site-recovery-components/vmware-to-vmware.png)
+![보조 데이터 센터로의 VMware VM 및 물리 서버 복제를 보여주는 다이어그램](./media/site-recovery-components/vmware-to-vmware.png)
 
 
 

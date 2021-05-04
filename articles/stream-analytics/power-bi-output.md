@@ -1,19 +1,19 @@
 ---
-title: Azure Stream Analytics에서 출력 Power BI
-description: 이 문서에서는 Azure Stream Analytics Power BI에 데이터를 출력 하는 방법을 설명 합니다.
+title: Azure Stream Analytics의 Power BI 출력
+description: 이 문서에서는 Azure Stream Analytics에서 Power BI로 데이터를 출력하는 방법을 설명합니다.
 author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: a94389a075fd62d80345a21e32f1bc977dfdee87
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.date: 4/7/2021
+ms.openlocfilehash: 07b7715935756293467f2a3004109df9bf679661
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98020063"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030007"
 ---
-# <a name="power-bi-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 출력 Power BI
+# <a name="power-bi-output-from-azure-stream-analytics"></a>Azure Stream Analytics의 Power BI 출력
 
 [Power BI](https://powerbi.microsoft.com/)를 Stream Analytics 작업의 출력으로 사용하여 분석 결과에 대한 풍부한 시각화 환경을 제공할 수 있습니다. 이 기능은 운영 대시보드, 보고서 생성 및 메트릭 기반 보고에 사용할 수 있습니다.
 
@@ -44,7 +44,7 @@ Azure Stream Analytics는 사용자를 위한 Power BI 데이터 세트 및 테�
 Power BI는 FIFO(선입선출) 보존 정책을 사용합니다. 200,000개 행에 도달할 때까지 데이터가 테이블에 수집됩니다.
 
 > [!NOTE]
-> 여러 가지 문제를 일으킬 수 있으므로 동일한 데이터 집합에 쓰는 여러 출력을 사용 하지 않는 것이 좋습니다. 각 출력은 동일한 이름을 가진 여러 데이터 집합을 생성할 수 있는 Power BI 데이터 집합을 독립적으로 만들려고 시도 합니다. 또한 출력에 일관 된 스키마가 없는 경우 데이터 집합은 각 쓰기의 스키마를 변경 하 여 스키마 변경 요청이 너무 많이 발생 합니다. 이러한 문제를 방지 하는 경우에도 여러 출력은 병합 된 단일 출력 보다 성능이 떨어집니다.
+> 몇 가지 문제가 생길 수 있으므로 여러 출력을 사용하여 동일한 데이터 세트에 작성하지 않는 것이 좋습니다. 각 출력에서 Power BI 데이터 세트를 독립적으로 만들려고 시도하면 이름이 동일한 여러 데이터 세트가 생성될 수 있습니다. 또한 출력에 일관된 스키마가 없는 경우 데이터 세트에서 각 쓰기마다 스키마가 변경되어 스키마 변경 요청이 지나치게 많아집니다. 이런 문제가 방지되더라도 여러 출력은 병합된 단일 출력 보다 성능이 떨어집니다.
 
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>Stream Analytics에서 Power BI로 데이터 형식 변환
 
@@ -73,11 +73,12 @@ Double | Double | String | String | Double
 String | String | String | String | String 
 DateTime | String | String |  DateTime | String
 
-## <a name="output-batch-size"></a>출력 일괄 처리 크기
+## <a name="limitations-and-best-practices"></a>제한 사항 및 모범 사례
+현재는 대략 1초당 한 번 Power BI를 호출할 수 있습니다. 스트리밍 시각적 개체는 15KB의 패킷을 지원합니다. 이보다 크면 스트리밍 시각적 개체가 실패합니다(푸시는 계속 작동). 이러한 제한 사항 때문에 Power BI는 Azure Stream Analytics가 데이터 부하를 상당히 줄이는 경우에 가장 적합합니다. 연속 창 또는 도약 창을 사용하여 데이터 푸시가 최대 초당 한번의 푸시를 수행하고 쿼리가 처리량 요구 사항 범위 내에 있도록 하는 것이 좋습니다.
 
-출력 일괄 처리 크기는 [Power BI REST API 제한](/power-bi/developer/automation/api-rest-api-limitations)을 참조 하세요.
+출력 일괄 처리 크기에 관한 자세한 내용은 [Power BI Rest API 한도](/power-bi/developer/automation/api-rest-api-limitations)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [관리 Id를 사용 하 여 Power BI에 Azure Stream Analytics 작업 인증 (미리 보기)](powerbi-output-managed-identity.md)
+* [관리 ID를 사용하여 Power BI에 Azure Stream Analytics 작업 인증(미리 보기)](powerbi-output-managed-identity.md)
 * [빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-portal.md)

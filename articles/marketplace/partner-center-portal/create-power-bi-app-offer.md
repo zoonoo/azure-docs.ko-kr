@@ -1,5 +1,5 @@
 ---
-title: Microsoft AppSource에서 Power BI 앱 제안 만들기
+title: Microsoft AppSource에서 Power BI 앱 제품 만들기
 description: Power BI 앱 제품을 만들고 Microsoft AppSource에 게시하는 방법을 알아봅니다.
 author: navits09
 ms.author: navits
@@ -7,18 +7,18 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
-ms.openlocfilehash: bff20468e8185073f5c192c1e115bc405dd089eb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: d5eb253fb24f463106866f8b0fe17f634e805cbb
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97693616"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107480"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Power BI 앱 제품 만들기
 
-이 문서에서는 [Microsoft AppSource](https://appsource.microsoft.com/)에 Power BI 앱 제품을 만들고 게시 하는 방법을 설명 합니다.
+이 문서에서는 Power BI 앱 제품을 만들고 Microsoft [AppSource](https://appsource.microsoft.com/)에 게시하는 방법을 설명합니다.
 
-시작하기 전에 [파트너 센터에서 상업용 Marketplace 계정을 만드세요](create-account.md)(계정이 없는 경우). 계정이 상업용 마켓플레이스 프로그램에 등록되어 있는지 확인합니다.
+시작하기 전에 [파트너 센터에서 상업용 Marketplace 계정을 만드세요](../create-account.md)(계정이 없는 경우). 계정이 상업용 마켓플레이스 프로그램에 등록되어 있는지 확인합니다.
 
 ## <a name="create-a-new-offer"></a>새 제안 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "97693616"
    ![왼쪽 탐색 메뉴를 보여 줍니다.](./media/new-offer-power-bi-app.png)
 
 > [!NOTE]
-> 제품을 게시 한 후에는 제품을 다시 게시 한 후에만 파트너 센터에서 해당 제품에 대 한 편집 내용이 온라인 매장에 표시 됩니다. 변경을 수행한 후에는 항상 다시 게시해야 합니다.
+> 제품이 게시된 후 파트너 센터에서 해당 제품에 대해 편집한 내용이 온라인 저장소에만 표시되려면 제품을 다시 게시해야 합니다. 변경을 수행한 후에는 항상 다시 게시해야 합니다.
 
 > [!IMPORTANT]
 > **Power BI 서비스 앱** 이 표시되지 않거나 사용할 수 없는 경우 계정에 이 제품 유형을 만들 수 있는 권한이 없는 것입니다. 개발자 계정에 등록하는 것을 포함하여 이 제품 유형에 대한 모든 [요구 사항](create-power-bi-app-overview.md)이 충족되었는지 확인합니다.
@@ -73,7 +73,7 @@ ms.locfileid: "97693616"
     - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > CRM 시스템이이 목록에 없는 경우 [Azure Table](commercial-marketplace-lead-management-instructions-azure-table.md) 또는 및 [HTTPS 끝점](commercial-marketplace-lead-management-instructions-https.md) 을 사용 하 여 고객 리드 데이터를 저장 합니다. CRM 시스템으로 데이터를 내보냅니다.
+    > CRM 시스템이 위 목록에 나열되지 않은 경우 [Azure Table](commercial-marketplace-lead-management-instructions-azure-table.md) 또는 [Https 엔드포인트](commercial-marketplace-lead-management-instructions-https.md)를 사용하여 잠재 고객 데이터를 저장합니다. CRM 시스템으로 데이터를 내보냅니다.
 
 2. 파트너 센터에 게시할 때 제품을 잠재 고객 대상에 연결합니다.
 3. 잠재 고객 대상에 대한 연결이 제대로 구성되어 있는지 확인합니다. 파트너 센터에 게시하면 연결의 유효성이 검사되고 테스트 잠재 고객을 받을 수 있습니다. 제품을 라이브로 전환하기 전에 미리 볼 때 미리 보기 환경에서 직접 제품을 구매하여 잠재 고객 연결을 테스트할 수도 있습니다.
@@ -83,7 +83,7 @@ ms.locfileid: "97693616"
 
 - [상업용 Marketplace 제품의 잠재 고객](commercial-marketplace-get-customer-leads.md)
 - [잠재 고객 관리에 대한 일반적인 질문](../lead-management-faq.md#common-questions-about-lead-management)
-- [리드 구성 오류 문제 해결](../lead-management-faq.md#publishing-config-errors)
+- [구성 오류를 일으킬 수 있는 문제 해결](../lead-management-faq.md#publishing-config-errors)
 - [잠재 고객 관리 개요](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF입니다(팝업 차단이 해제되어 있는지 확인).
 
 계속하기 전에 **초안 저장** 을 선택합니다.
@@ -94,12 +94,12 @@ ms.locfileid: "97693616"
 
 ### <a name="category"></a>Category
 
-범주 및 하위 범주를 선택 하 여 제품을 적절 한 마켓플레이스 검색 영역에 넣습니다. 제품 설명에서 제품이 해당 범주를 지원하는 방법을 설명해야 합니다. 선택:
+범주와 하위 범주를 선택하여 적절한 마켓플레이스 검색 영역을 선택하세요. 제품 설명에서 제품이 해당 범주를 지원하는 방법을 설명해야 합니다. 선택:
 
-- 기본 및 보조 범주 (선택 사항)를 포함 하 여 적어도 하나 이상의 범주입니다.
-- 각 주 및/또는 보조 범주에 대해 최대 두 개의 하위 범주 제안에 적용 되는 하위 범주가 없으면 **해당 없음** 을 선택 합니다.
+- 주 범주와 보조 범주를 포함하여 하나 이상에서 최대 2개의 범주(선택 사항).
+- 주 및/또는 보조 범주 각각에 대해 최대 2개의 하위 범주. 제안에 적용되는 하위 범주가 없으면 **해당 없음** 을 선택합니다.
 
-[제품 목록 모범 사례](../gtm-offer-listing-best-practices.md)에서 범주 및 하위 범주의 전체 목록을 참조 하세요.
+[제안 목록 모범 사례](../gtm-offer-listing-best-practices.md)에서 범주와 하위 범주의 전체 목록을 확인하세요.
 
 ### <a name="industry"></a>업종
 
@@ -126,9 +126,9 @@ ms.locfileid: "97693616"
 > [!NOTE]
 > 제품 설명이 “이 애플리케이션은 [영어가 아닌 언어]에서만 사용할 수 있습니다.”라는 문구로 시작하는 경우 제품 세부 정보를 영어로 작성하지 않아도 됩니다. 제품 목록 세부 정보에 사용된 것과 다른 언어로 콘텐츠를 제공하는 유용한 링크를 제공해도 좋습니다.
 
-다음은 Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예입니다. 나열 된 가격은 예를 들기 위한 것 이며 실제 비용을 반영 하지는 않습니다.
+다음은 Microsoft AppSource에서 제품 정보가 표시되는 방식의 예시입니다(나열된 가격은 예시를 들기 위함이며, 실제 비용을 반영하지 않습니다).
 
-:::image type="content" source="media/example-power-bi-app.png" alt-text="이 제품이 Microsoft AppSource 표시 되는 방식을 보여 줍니다.":::
+:::image type="content" source="media/example-power-bi-app.png" alt-text="이 제품이 Microsoft AppSource에서 표시되는 방식을 보여줍니다.":::
 
 #### <a name="call-out-descriptions"></a>호출 설명
 
@@ -136,12 +136,12 @@ ms.locfileid: "97693616"
 2. 제품
 3. 범주
 4. 산업
-5. 지원 주소 (링크)
+5. 지원 주소(링크)
 6. 사용 약관
 7. 개인 정보 보호 정책
 8. Offer name
 9. 요약
-10. 설명
+10. Description
 11. 스크린샷/비디오
 
 ### <a name="name"></a>속성
@@ -207,12 +207,12 @@ PDF 형식의 백서, 브로슈어, 검사 목록, 프레젠테이션 등의 관
 
 #### <a name="store-logos"></a>스토어 로고
 
-**큰** 크기의 로고에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작은** 로고를 만듭니다. 필요에 따라 나중에 다른 이미지로이를 바꿀 수 있습니다.
+**큰** 로고의 경우 PNG 파일을 제공하세요. 파트너 센터에서는 이를 사용하여 **작은** 로고를 만듭니다. 필요에 따라 나중에 다른 이미지로 교체할 수 있습니다.
 
-- **큼** (216 x 216에서 350 x 350 px, required)
-- **작음** (48 x 48 px, 선택 사항)
+- **큼**(216 x 216~350 x 350px, 필수)
+- **작음**(48 x 48px, 선택 사항)
 
-이러한 로고는 목록의 다른 위치에서 사용 됩니다.
+이러한 로고는 목록의 여러 위치에서 사용됩니다.
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
@@ -224,7 +224,7 @@ PDF 형식의 백서, 브로슈어, 검사 목록, 프레젠테이션 등의 관
 
 #### <a name="videos-optional"></a>동영상(선택 사항)
 
-제품을 설명하는 최대 5개의 비디오를 추가합니다. 비디오의 이름, 웹 주소 및 비디오의 미리 보기 PNG 이미지를 1280 x 720 픽셀 크기로 입력 합니다.
+제품을 설명하는 최대 5개의 비디오를 추가합니다. 비디오의 이름, 웹 주소 및 비디오의 썸네일 PNG 이미지를 1280 x 720 픽셀 크기로 입력합니다.
 
 #### <a name="additional-marketplace-listing-resources"></a>추가 마켓플레이스 목록 리소스
 
@@ -258,4 +258,4 @@ Power BI Service에서 앱을 프로덕션으로 승격하고 고객이 앱을 �
 
 게시하기 위해 제품을 제출하려면 **게시** 를 선택합니다.
 
-Microsoft에서 제품의 미리 보기 버전이 검토 및 승인 준비가 되었음을 알려 주는 메일을 보내 드립니다. 공개에 제품을 게시 하려면 파트너 센터로 이동 하 여 **라이브** 를 선택 합니다.
+Microsoft에서 제품의 미리 보기 버전이 검토 및 승인 준비가 되었음을 알려 주는 메일을 보내 드립니다. 제품을 대중에게 공개하려면 파트너 센터로 이동하여 **라이브 상태로 전환** 을 선택합니다.

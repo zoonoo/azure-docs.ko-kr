@@ -13,10 +13,10 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: 4377ed76de971f78336ea9024b59dafc5d513487
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100094970"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>내 앱 포털 문제 해결
@@ -31,9 +31,9 @@ ms.locfileid: "100094970"
 
     - **Microsoft Edge.** Windows 10 Anniversary Edition 이상에서 실행됩니다.
 
-    - **Google Chrome.** Windows 7 이상 및 macOS X 이상에서 실행 됩니다.
+    - **Google Chrome.** Windows 7 이상 및 macOS X 이상에서 실행됩니다.
 
-    - **Mozilla Firefox 26.0 이상.** Windows XP SP2 이상 및 macOS X 10.6 이상에서 실행 됩니다.
+    - **Mozilla Firefox 26.0 이상.** Windows XP SP2 이상 및 macOS X 10.6 이상에서 실행됩니다.
 
     - **Internet Explorer 11.** Windows 7 이상에서 실행됩니다(제한적 지원).
 
@@ -47,7 +47,7 @@ ms.locfileid: "100094970"
 
 **내 앱** 포털에 로그인하는 데 문제가 있는 경우 다음을 시도할 수 있습니다.
 
-- 개인 Microsoft 계정를 사용 하 여 로그인 하는 동안 오류가 표시 되는 경우 다음 Url 중 하나를 사용 하 여 관리자에 게 서 조직의 도메인 이름 (예: contoso.com) 또는 조직의 **테 넌 트 ID** 를 사용 하 여 로그인 할 수 있습니다.
+- 개인 Microsoft 계정으로 로그인하는 중 오류가 표시되는 경우, 다음 URL 중에서 관리자에게 문의하여 얻은 조직의 도메인 이름(예: contoso.com) 또는 조직 **테넌트 ID** 를 사용하여 로그인할 수 있습니다.
 
    - https://myapplications.microsoft.com?tenantId=*your_domain_name*
    - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
@@ -56,7 +56,7 @@ ms.locfileid: "100094970"
 
 - 암호가 올바르고 만료되지 않았는지 확인합니다. 자세한 내용은 [회사 또는 학교 암호 재설정](active-directory-passwords-update-your-own-password.md)을 참조하세요.
 
-- 확인 정보가 최신이고 정확한지 확인합니다. 자세한 내용은 [AZURE AD Multi-Factor Authentication 의미는 무엇 인가요?](./multi-factor-authentication-end-user-first-time.md) 또는 [보안 정보 방법 및 정보를 변경](./security-info-setup-auth-app.md)하는 방법을 참조 하세요.
+- 확인 정보가 최신이고 정확한지 확인합니다. 자세한 내용은 [Azure AD Multi-Factor Authentication](./multi-factor-authentication-end-user-first-time.md) 또는 [보안 정보 방법 및 정보 변경](./security-info-setup-auth-app.md)을 참조하세요.
 
 - **인터넷 속성 > 보안 > 신뢰할 수 있는 사이트** 설정에 **내 앱** 포털 URL을 추가합니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "100094970"
 
 - 암호가 올바르고 만료되지 않았는지 확인합니다. 자세한 내용은 [회사 또는 학교 암호 재설정](active-directory-passwords-update-your-own-password.md)을 참조하세요.
 
-- 확인 정보가 최신이고 정확한지 확인합니다. 자세한 내용은 [AZURE AD Multi-Factor Authentication 의미는 무엇 인가요?](./multi-factor-authentication-end-user-first-time.md) 또는 [보안 정보 방법 및 정보를 변경](./security-info-setup-auth-app.md)하는 방법을 참조 하세요.
+- 확인 정보가 최신이고 정확한지 확인합니다. 자세한 내용은 [Azure AD Multi-Factor Authentication](./multi-factor-authentication-end-user-first-time.md) 또는 [보안 정보 방법 및 정보 변경](./security-info-setup-auth-app.md)을 참조하세요.
 
 - 브라우저 캐시를 지우고 다시 로그인해 보세요.
 

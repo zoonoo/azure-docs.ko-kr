@@ -1,6 +1,6 @@
 ---
 title: Azure 파일 공유 – Azure 파일 공유에서 파일을 삭제하지 못함
-description: Azure 파일 공유에서 파일을 삭제 하지 못한 문제를 식별 하 고 해결 합니다.
+description: Azure 파일 공유에서 파일을 삭제하지 못하는 문제를 식별하고 해결합니다.
 author: v-miegge
 ms.topic: troubleshooting
 ms.author: kartup
@@ -10,23 +10,23 @@ ms.service: storage
 ms.subservice: files
 services: storage
 tags: ''
-ms.openlocfilehash: 3d4f10745d90ccd83e7251af40d3e92a230f2fcd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: d8cc0cb7df4bb7bfff5a6b9d2f159cb674532927
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94629685"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789756"
 ---
 # <a name="azure-file-share--failed-to-delete-files-from-azure-file-share"></a>Azure 파일 공유 – Azure 파일 공유에서 파일을 삭제하지 못함
 
-Azure 파일 공유에서 파일을 삭제 하지 못하는 경우 다음과 같은 여러 가지 현상이 발생할 수 있습니다.
+Azure 파일 공유에서 파일을 삭제하지 못하면 다음과 같은 다양한 증상이 발생할 수 있습니다.
 
 **증상 1:**
 
-다음 두 가지 문제 중 하나로 인해 azure 파일 공유에서 파일을 삭제 하지 못했습니다.
+다음 두 가지 문제 중 하나 때문에 Azure 파일 공유에서 파일을 삭제할 수 없습니다.
 
-* 삭제 하도록 표시 된 파일입니다.
-* 지정 된 리소스가 SMB 클라이언트에서 사용 중일 수 있습니다.
+* 삭제 표시된 파일
+* 지정된 리소스가 SMB 클라이언트에서 사용 중임
 
 **증상 2:**
 
@@ -34,9 +34,9 @@ Not enough quota is available to process this command
 
 ## <a name="cause"></a>원인
 
-파일 공유가 탑재 되는 컴퓨터에서 파일에 대해 허용 되는 동시 열린 핸들의 상한에 도달 하면 오류 1816이 발생 합니다. 자세한 내용은 [Azure Storage 성능 및 확장성 검사 목록](../blobs/storage-performance-checklist.md)을 참조 하세요.
+파일 공유가 탑재되어 있는 컴퓨터의 파일에 허용되는 동시 오픈 핸들의 상한값에 도달하면 오류 1816이 발생합니다. 자세한 내용은 [Azure Storage 성능 및 확장성 검사 목록](../blobs/storage-performance-checklist.md)을 참조하세요.
 
-## <a name="resolution"></a>해결 방법
+## <a name="resolution"></a>해상도
 
 일부 핸들을 닫아 동시 열린 핸들 수를 줄입니다.
 
@@ -52,25 +52,25 @@ Not enough quota is available to process this command
 # Connect-AzAccount
 ```
 
-### <a name="select-the-subscription-of-the-target-storage-account"></a>대상 저장소 계정의 구독을 선택 합니다.
+### <a name="select-the-subscription-of-the-target-storage-account"></a>대상 스토리지 계정의 구독 선택:
 
 ```
 # Select-AzSubscription -subscriptionid "SubscriptionID"
 ```
 
-### <a name="create-context-for-the-target-storage-account"></a>대상 저장소 계정에 대 한 컨텍스트를 만듭니다.
+### <a name="create-context-for-the-target-storage-account"></a>대상 스토리지 계정의 컨텍스트 생성:
 
 ```
 $Context = New-AzStorageContext -StorageAccountName "StorageAccountName" -StorageAccountKey "StorageAccessKey"
 ```
 
-### <a name="get-the-current-open-handles-of-the-file-share"></a>파일 공유의 현재 열린 핸들을 가져옵니다.
+### <a name="get-the-current-open-handles-of-the-file-share"></a>파일 공유의 현재 열린 핸들 가져오기:
 
 ```
 # Get-AzStorageFileHandle -Context $Context -ShareName "FileShareName" -Recursive
 ```
 
-## <a name="example-result"></a>예제 결과:
+## <a name="example-result"></a>결과 예제:
 
 |HandleId|경로|ClientIp|ClientPort|OpenTime|LastReconnectTime|FileId|ParentId|SessionId|
 |---|---|---|---|---|---|---|---|---|
@@ -82,7 +82,7 @@ $Context = New-AzStorageContext -StorageAccountName "StorageAccountName" -Storag
 
 ### <a name="close-an-open-handle"></a>열린 핸들을 닫습니다.
 
-열린 핸들을 닫으려면 다음 명령을 사용 합니다.
+열린 핸들을 닫으려면 다음 명령을 사용하세요.
 
 ```
 # Close-AzStorageFileHandle -Context $Context -ShareName "FileShareName" -Path 'New folder/test.zip' -CloseAll
@@ -92,4 +92,4 @@ $Context = New-AzStorageContext -StorageAccountName "StorageAccountName" -Storag
 
 * [Windows에서 Azure Files 문제 해결](storage-troubleshoot-windows-file-connection-problems.md)
 * [Linux에서 Azure Files 문제 해결](storage-troubleshoot-linux-file-connection-problems.md)
-* [Azure 파일 동기화 문제 해결](storage-sync-files-troubleshoot.md)
+* [Azure 파일 동기화 문제 해결](../file-sync/file-sync-troubleshoot.md)

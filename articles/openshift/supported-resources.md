@@ -1,38 +1,38 @@
 ---
 title: Azure Red Hat OpenShift 3.11을 지원하는 리소스
-description: Red Hat OpenShift Microsoft Azure에서 지 원하는 Azure 지역 및 가상 머신 크기를 이해 합니다.
+description: Microsoft Azure Red Hat OpenShift에서 지원하는 Azure 지역 및 가상 머신 크기를 이해합니다.
 author: jimzim
 ms.author: jzim
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.openlocfilehash: ad0837ae110b84cdff690fe76e13923a0ab60996
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100635611"
 ---
 # <a name="azure-red-hat-openshift-resources"></a>Azure Red Hat OpenShift 리소스
 
-이 항목에서는 Microsoft Azure Red Hat OpenShift 3.11 서비스에서 지 원하는 Azure 지역 및 가상 머신 크기를 나열 합니다.
+이 항목에서는 Microsoft Azure Red Hat OpenShift 3.11 서비스에서 지원하는 Azure 지역 및 가상 머신 크기를 나열합니다.
 
 ## <a name="azure-regions"></a>Azure 지역
 
-Azure Red Hat OpenShift 클러스터를 배포할 수 있는 현재 지역 목록은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all) 을 참조 하세요.
+Azure Red Hat OpenShift 클러스터를 배포할 수 있는 지역의 현재 목록은 [지역별 사용 가능 제품](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all)을 참조하세요.
 
 ## <a name="virtual-machine-sizes"></a>가상 머신 크기
 
-Azure Red Hat OpenShift 클러스터에서 계산 노드에 대해 지정할 수 있는 지원 되는 가상 머신 크기는 다음과 같습니다.
+Azure Red Hat OpenShift 클러스터에서 컴퓨팅 노드에 지정할 수 있는 지원되는 가상 머신 크기는 다음과 같습니다.
 
 > [!Important]
-> 각 VM에는 서로 다른 수의 드라이브를 연결할 수 있습니다. 이는 메모리 또는 CPU 크기와는 즉시 명확 하지 않을 수 있습니다.
-> 일부 VM 크기는 일부 지역에서 사용할 수 없습니다. 지정 된 크기를 API에서 지원 하더라도 지정 된 지역에서 크기를 사용할 수 없는 경우 오류가 발생할 수 있습니다.
-> 자세한 내용은 [지역 당 지원 되는 VM 크기의 현재 목록](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) 을 참조 하세요.
+> 각 VM은 연결할 수 있는 드라이브 수가 다릅니다. 이는 메모리 또는 CPU 크기처럼 즉시 파악하기 어려울 수 있습니다.
+> 일부 VM 크기는 일부 지역에서 사용할 수 없습니다. 지정한 크기를 API에서 지원하더라도 지정한 지역에서 해당 크기를 사용할 수 없는 경우 오류가 발생할 수 있습니다.
+> 자세한 내용은 [지역별로 지원되는 VM 크기의 현재 목록](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)을 참조하세요.
 
-## <a name="compute-node-sizes"></a>계산 노드 크기
+## <a name="compute-node-sizes"></a>컴퓨팅 노드 크기
 
-Azure Red Hat OpenShift REST API에서 지 원하는 계산 노드 크기는 다음과 같습니다.
+Azure Red Hat OpenShift REST API에서 지원하는 컴퓨팅 노드 크기는 다음과 같습니다.
 
 |크기|vCPU|RAM|
 |-|-|-|
@@ -52,7 +52,7 @@ Azure Red Hat OpenShift REST API에서 지 원하는 계산 노드 크기는 다
 
 ## <a name="master-node-sizes"></a>마스터 노드 크기
 
-Azure Red Hat OpenShift REST API에서 지 원하는 마스터/인프라 노드 크기는 다음과 같습니다.
+Azure Red Hat OpenShift REST API에서 지원하는 마스터/인프라 노드 크기는 다음과 같습니다.
 
 |크기|vCPU|RAM|
 |-|-|-|
@@ -63,4 +63,4 @@ Azure Red Hat OpenShift REST API에서 지 원하는 마스터/인프라 노드 
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Red Hat OpenShift 클러스터 만들기](tutorial-create-cluster.md) 자습서를 사용해 보세요.
+[Azure Red Hat OpenShift 클러스터 만들기](tutorial-create-cluster.md) 자습서를 시도해 보세요.

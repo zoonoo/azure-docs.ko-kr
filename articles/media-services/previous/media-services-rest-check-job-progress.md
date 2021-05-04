@@ -1,6 +1,6 @@
 ---
 title: REST API를 사용하여 작업 진행률을 확인하는 방법 | Microsoft 문서
-description: 이 문서에서는 Azure Media Services v2 REST API를 사용 하 여 작업 진행률을 확인 하는 방법을 보여 줍니다.
+description: 이 문서에서는 Azure Media Services v2 REST API를 사용하여 작업 진행 상태를 확인하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 8727c9e20a9a04dfc48d89b224d15f0cde184f72
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103017344"
 ---
 # <a name="how-to-check-job-progress"></a>방법: 작업 진행 상태 확인

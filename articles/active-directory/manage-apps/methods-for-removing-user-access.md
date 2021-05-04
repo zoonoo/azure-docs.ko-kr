@@ -1,21 +1,21 @@
 ---
-title: Azure Active Directory에서 응용 프로그램에 대 한 사용자의 액세스 권한을 제거 하는 방법
-description: Azure Active Directory에서 응용 프로그램에 대 한 사용자 액세스를 제거 하는 방법 이해
+title: Azure Active Directory에서 애플리케이션에 대한 사용자 액세스를 제거하는 방법
+description: Azure Active Directory에서 애플리케이션에 대한 사용자 액세스를 제거하는 방법을 이해합니다.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 11/02/2020
-ms.author: kenwith
-ms.openlocfilehash: e6a6c00811a7b87156802897db62a4a10130f130
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.author: iangithinji
+ms.openlocfilehash: 958abc5f9be443d66037a6d9fe8d8779e6e37e0e
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99257358"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379590"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>애플리케이션에 대한 사용자 액세스를 제거하는 방법
 
@@ -31,11 +31,11 @@ ms.locfileid: "99257358"
 
 ## <a name="i-want-to-delete-an-application-entirely"></a>애플리케이션을 완전히 삭제하려는 경우
 
-[응용 프로그램 관리에 대 한 빠른 시작 시리즈](delete-application-portal.md) 는 Azure Active Directory 테 넌 트에서 응용 프로그램 삭제에 대 한 지침을 포함 합니다.
+[애플리케이션 관리 빠른 시작 시리즈](delete-application-portal.md)에는 Azure Active Directory 테넌트에서의 애플리케이션 삭제 방법에 대한 지침이 포함되어 있습니다.
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>모든 애플리케이션에 대한 모든 이후 사용자 동의 작업을 비활성화하려는 경우
 
-전체 디렉터리에 대한 사용자 동의를 비활성화하면 모든 애플리케이션에 대한 최종 사용자 동의를 방지합니다. 관리자는 사용자를 대신 하 여 동의할 수 있습니다. 애플리케이션 동의 및 이 작업을 수행하거나 수행하지 않을 수 있는 이유에 대한 자세한 내용은 [사용자 및 관리자 동의 이해](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)를 참조하세요. [권한 및 동의](../develop/v2-permissions-and-consent.md)도 참조 하세요.
+전체 디렉터리에 대한 사용자 동의를 비활성화하면 모든 애플리케이션에 대한 최종 사용자 동의를 방지합니다. 관리자는 여전히 사용자의 동작에 동의할 수 있습니다. 애플리케이션 동의 및 이 작업을 수행하거나 수행하지 않을 수 있는 이유에 대한 자세한 내용은 [사용자 및 관리자 동의 이해](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)를 참조하세요. [권한 및 동의](../develop/v2-permissions-and-consent.md)도 참조 하세요.
 
 **전체 디렉터리에서 모든 이후 사용자 동의 작업을 비활성화** 하려면 다음 지침을 따릅니다.
 

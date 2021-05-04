@@ -1,23 +1,23 @@
 ---
-title: Azure Active Directory에서 앱에 사용자를 할당 하는 방법 이해
-description: Id 관리를 위해 Azure Active Directory를 사용 하는 앱에 사용자가 할당 되는 방식을 이해 합니다.
+title: Azure Active Directory의 앱에 사용자를 할당하는 방법 이해
+description: ID 관리를 위해 Azure Active Directory를 사용하는 앱에 사용자를 할당하는 방법을 이해합니다.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/07/2021
-ms.author: kenwith
-ms.openlocfilehash: 161df0446c9478ca0f2b135c1e426f3786b164fc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.author: iangithinji
+ms.openlocfilehash: 84700bca6ff306dbcce01a837c312c4c0c90066d
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99257443"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376412"
 ---
-# <a name="understand-how-users-are-assigned-to-apps-in-azure-active-directory"></a>Azure Active Directory에서 앱에 사용자를 할당 하는 방법 이해
+# <a name="understand-how-users-are-assigned-to-apps-in-azure-active-directory"></a>Azure Active Directory의 앱에 사용자를 할당하는 방법 이해
 이 문서에서는 테넌트의 애플리케이션에 사용자가 할당되는 방법을 이해하는 데 도움을 줍니다.
 
 ## <a name="how-do-users-get-assigned-to-an-application-in-azure-ad"></a>Azure AD의 애플리케이션에 사용자가 할당되는 방법
@@ -30,12 +30,12 @@ ms.locfileid: "99257443"
     * 클라우드에서 만든 [동적 보안 그룹](../enterprise-users/groups-dynamic-membership.md)
     * 클라우드에서 만든 Microsoft 365 그룹
     * [모든 사용자](../fundamentals/active-directory-groups-create-azure-portal.md) 그룹
-*  관리자는 [셀프 서비스 응용 프로그램 액세스](./manage-self-service-access.md) 를 통해 사용자가 [내 앱](../user-help/my-apps-portal-end-user-access.md) 을 사용 하 여 응용 프로그램을 추가할 수 있습니다. **비즈니스 승인 없이** 앱 **추가** 기능을 사용 합니다.
-*  관리자는 [셀프 서비스 응용 프로그램 액세스](./manage-self-service-access.md) 를 통해 사용자가 [내 앱](../user-help/my-apps-portal-end-user-access.md) **앱 추가** 기능을 사용 하 여 응용 프로그램을 추가할 수 있지만 **선택한 비즈니스 승인자의 사전 승인만** 사용 합니다.
+*  관리자가 [셀프 서비스 애플리케이션 액세스](./manage-self-service-access.md)를 통해 사용자가 **비즈니스 승인 없이** [My Apps](../user-help/my-apps-portal-end-user-access.md)**앱 추가** 를 사용하여 애플리케이션을 추가하도록 허용
+*  관리자가 [셀프 서비스 애플리케이션 액세스](./manage-self-service-access.md)를 통해 사용자가 **선택된 비즈니스 승인자 세트의 사전 승인이 있는 경우에만** [내 앱](../user-help/my-apps-portal-end-user-access.md)**앱 추가** 를 사용하여 애플리케이션을 추가하도록 허용
 *  관리자가 [셀프 서비스 그룹 관리](../enterprise-users/groups-self-service-management.md)를 통해 사용자가 **비즈니스 승인 없이** 애플리케이션이 할당된 그룹에 가입하도록 허용
 *  관리자가 [셀프 서비스 그룹 관리](../enterprise-users/groups-self-service-management.md)를 통해 사용자가 **선택된 비즈니스 승인자 세트의 사전 승인이 있는 경우에만** 애플리케이션이 할당된 그룹에 가입하도록 허용
-*  관리자는 [Microsoft 365](https://products.office.com/) 같은 자사 응용 프로그램에 대해 사용자에 게 직접 라이선스를 할당 합니다.
-*  관리자가 사용자가 구성원 인 그룹에 대 한 라이선스를 자사 응용 프로그램에 할당 하는 것과 같은 [Microsoft 365](https://products.office.com/)
+*  관리자가 [Microsoft 365](https://products.office.com/)와 같은 자사 애플리케이션에 대해 직접, 사용자에게 라이선스 할당
+*  관리자가 해당 [Microsoft 365](https://products.office.com/)와 같은 자사 애플리케이션의 구성원인 그룹에 라이선스 할당
 *  [관리자가 모든 사용자가 사용할 수 있게 애플리케이션에 동의](../develop/howto-convert-app-to-be-multi-tenant.md)한 다음, 사용자가 애플리케이션에 로그인
 * 사용자가 애플리케이션에 로그인하여 [애플리케이션에 직접 동의](../develop/howto-convert-app-to-be-multi-tenant.md)
 

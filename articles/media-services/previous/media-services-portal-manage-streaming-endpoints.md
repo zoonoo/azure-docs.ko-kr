@@ -1,6 +1,6 @@
 ---
 title: Azure Portal을 통해 스트리밍 엔드포인트 관리 | Microsoft 문서
-description: 이 문서에서는 Azure Portal를 사용 하 여 스트리밍 끝점을 관리 하는 방법을 보여 줍니다.
+description: 이 문서에서는 Azure Portal을 사용하여 스트리밍 엔드포인트를 관리하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: bda244267e81d959abbc4ae0a8532ddce68d5726
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103017395"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Azure 포털을 통해 스트리밍 엔드포인트 관리
@@ -40,7 +40,7 @@ ms.locfileid: "103017395"
 1. [Azure Portal](https://portal.azure.com/)에서 Azure Media Services 계정을 선택합니다.
 2. **설정** 블레이드에서 **스트리밍 엔드포인트** 를 선택합니다.
    
-    !["설정" 블레이드에서 "스트리밍 끝점"이 선택 된 "미디어 서비스" 페이지를 보여 주는 스크린샷](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
+    ![‘설정’ 블레이드에서 ‘스트리밍 엔드포인트’가 선택된 ‘미디어 서비스’ 페이지를 보여 주는 스크린샷](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
 
 > [!NOTE]
 > 스트리밍 엔드포인트가 실행 중인 상태일 때만 요금이 청구됩니다.
@@ -57,9 +57,9 @@ Azure 포털을 사용하여 스트리밍 엔드포인트를 추가/삭제하려
     다른 CDN 및 직접 액세스를 사용하려는 경우 여러 스트리밍 엔드포인트를 배치하는 것이 좋습니다.
 
 2. 스트리밍 엔드포인트를 삭제하려면 **삭제** 단추를 누릅니다.      
-3. **시작** 단추를 클릭 하 여 스트리밍 끝점을 시작 합니다.
+3. 스트리밍 엔드포인트를 시작하려면 **시작** 단추를 클릭합니다.
    
-    !["끝점" 작업을 선택 하 고 "스트리밍 끝점 세부 정보" 창이 표시 된 스크린샷](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
+    ![“엔드포인트” 작업이 선택되고 “스트리밍 엔드포인트 세부 정보” 창이 표시된 것을 보여 주는 스크린샷](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
 ## <a name="configuring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>스트리밍 엔드포인트 구성
@@ -81,7 +81,7 @@ Azure 포털을 사용하여 스트리밍 엔드포인트를 추가/삭제하려
 
 필드에 대한 간략한 설명은 다음과 같습니다.
 
-![스트리밍 끝점에 대해 선택 된 "설정" 작업을 보여 주는 스크린샷](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
+![스트리밍 엔드포인트에 대해 선택된 ‘설정’ 작업을 보여 주는 스크린샷](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
 
 1. 최대 캐시 정책: 이 스트리밍 엔드포인트를 통해 제공되는 자산의 캐시 수명 주기를 구성하는 데 사용됩니다. 값을 설정하지 않으면 기본값이 사용됩니다. Azure Storage에서 기본값을 직접 정의할 수도 있습니다. 스트리밍 엔드포인트에 대해 Azure CDN을 사용하도록 설정한 경우에는 캐시 정책 값을 600초보다 작게 설정하면 안 됩니다.  
 2. 허용된 IP 주소: 게시된 스트리밍 엔드포인트에 연결할 수 있는 IP 주소를 지정하는 데 사용됩니다. IP 주소를 지정하지 않은 경우 모든 IP 주소에서 연결할 수 있습니다. IP 주소는 단일 IP 주소(예: '10.0.0.1'), IP 주소 및 CIDR 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1/22') 또는 IP 주소와 점으로 구분된 십진수 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1(255.255.255.0)')로 지정할 수 있습니다.

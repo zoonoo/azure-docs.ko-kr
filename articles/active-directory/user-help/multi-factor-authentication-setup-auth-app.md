@@ -11,10 +11,10 @@ ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
 ms.openlocfilehash: 10b6b788077eccda522c9e8c6e631939ca1819fc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91530343"
 ---
 # <a name="set-up-an-authenticator-app-as-your-two-factor-verification-method"></a>2단계 인증 방법으로 인증자 앱 설정
@@ -33,7 +33,7 @@ ms.locfileid: "91530343"
 
 2. **모바일 앱을 사용하시겠습니까?** 영역에서 **확인 시 알림 수신** 을 선택한 다음, **설정** 을 선택합니다.
 
-    !["모바일 앱" 및 "확인 알림 수신"이 선택 된 "추가 보안 확인" 페이지를 보여 주는 스크린샷](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification.png)
+    ![“모바일 앱” 및 “확인 시 알림 수신”이 선택된 “추가 보안 확인” 페이지 스크린샷](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification.png)
 
     **모바일 앱 구성** 페이지가 나타납니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "91530343"
 
 5. 컴퓨터로 돌아가서 **추가 보안 인증** 페이지에서 구성이 완료되었다는 메시지가 표시되는지 확인하고 **다음** 을 선택합니다.
 
-    !["모바일 앱이 구성 되었습니다."와 함께 "추가 보안 확인" 페이지를 보여 주는 스크린샷 강조 표시 된 성공 메시지입니다.](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification-confirm.png)
+    ![“모바일 앱이 구성되었습니다.” 성공 메시지가 강조 표시된 “추가 보안 확인” 페이지 스크린샷](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification-confirm.png)
 
     인증자 앱은 테스트 목적으로 모바일 디바이스에 알림을 보냅니다.
 

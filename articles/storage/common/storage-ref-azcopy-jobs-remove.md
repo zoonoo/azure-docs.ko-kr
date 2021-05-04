@@ -1,6 +1,6 @@
 ---
-title: azcopy 작업 제거 | Microsoft Docs
-description: 이 문서에서는 azcopy job remove 명령에 대 한 참조 정보를 제공 합니다.
+title: azcopy jobs remove | Microsoft Docs
+description: 이 문서에서는 azcopy jobs remove 명령에 대한 참조 정보를 제공합니다.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -8,19 +8,19 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 2744c2a082b5321fb671de08301981fd17396640
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: c6a4745c4059c81384448deba37495030c4bf3a3
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98879091"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503374"
 ---
 # <a name="azcopy-jobs-remove"></a>azcopy jobs remove
 
-지정 된 작업 ID와 연결 된 모든 파일을 제거 합니다.
+지정된 작업 ID와 연결된 파일을 모두 제거합니다.
 
 > [!NOTE] 
-> 로그 및 계획 파일이 저장 되는 위치를 사용자 지정할 수 있습니다. 자세히 알아보려면 [azcopy env](storage-ref-azcopy-env.md) 명령을 참조 하세요.
+> 로그 및 계획 파일이 저장되는 위치를 사용자 지정할 수 있습니다. 자세한 내용은 [azcopy env](storage-ref-azcopy-env.md) 명령을 참조하세요.
 
 ```
 azcopy jobs remove [jobID] [flags]
@@ -29,11 +29,10 @@ azcopy jobs remove [jobID] [flags]
 ## <a name="related-conceptual-articles"></a>관련 개념 문서
 
 - [AzCopy 시작](storage-use-azcopy-v10.md)
-- [AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송](./storage-use-azcopy-v10.md#transfer-data)
+- [AzCopy 및 Blob Storage를 사용하여 데이터 전송](./storage-use-azcopy-v10.md#transfer-data)
 - [AzCopy 및 File Storage를 사용하여 데이터 전송](storage-use-azcopy-files.md)
-- [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ```
   azcopy jobs rm e52247de-0323-b14d-4cc8-76e0be2e2d44
@@ -41,16 +40,16 @@ azcopy jobs remove [jobID] [flags]
 
 ## <a name="options"></a>옵션
 
-**--도움말**                제거에 대 한 도움말입니다.
+**--help**                제거에 대한 도움말입니다.
 
-## <a name="options-inherited-from-parent-commands"></a>부모 명령에서 상속 된 옵션
+## <a name="options-inherited-from-parent-commands"></a>부모 명령에서 상속된 옵션
 
-**--0mbps float**      전송 률 (메가 비트/초)을 대문자로 처리 합니다. 순간 처리량은 cap와 약간 다를 수 있습니다. 이 옵션을 0으로 설정 하거나 생략 하면 처리량이 생략 되지 않습니다.
+**--cap-mbps float**      전송 속도(초당 메가비트)의 한도를 지정합니다. 시간 경과별 처리량은 한도와 약간 다를 수 있습니다. 이 옵션이 0으로 설정되거나 생략되는 경우 처리량이 제한되지 않습니다.
 
-**--output-** 명령 출력의 문자열 형식입니다. 텍스트, json 등을 선택할 수 있습니다. 기본값은 `text`입니다. (기본값 `text` )
+**--output-type** 문자열   명령의 출력 형식입니다. text, json 등을 선택할 수 있습니다. 기본값은 `text`입니다. (기본값 `text`)
 
-**--trusted-microsoft-접미사** 문자열 Azure Active Directory 로그인 토큰이 전송 될 수 있는 추가 도메인 접미사를 지정 합니다.  기본값은 '*. core.windows.net;* 입니다. core.chinacloudapi.cn; *. core.cloudapi.de;*. core.usgovcloudapi.net '. 여기에 나열 된 Any는 기본값에 추가 됩니다. 보안을 위해 여기에 Microsoft Azure 도메인만 배치 해야 합니다. 여러 항목을 세미콜론으로 구분 합니다.
+**--trusted-microsoft-suffixes** 문자열   Azure Active Directory 로그인 토큰이 전송될 수 있는 추가 도메인 접미사를 지정합니다.  기본값은 ' *.core.windows.net;* .core.chinacloudapi.cn; *.core.cloudapi.de;* .core.usgovcloudapi.net'입니다. 여기에 나열된 항목은 모두 기본값에 추가됩니다. 보안을 위해 여기에는 Microsoft Azure 도메인만 배치해야 합니다. 여러 항목은 세미콜론으로 구분됩니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [azcopy jobs](storage-ref-azcopy-jobs.md)
