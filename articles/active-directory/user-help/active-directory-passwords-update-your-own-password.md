@@ -12,17 +12,17 @@ ms.topic: end-user-help
 ms.date: 09/10/2020
 ms.author: curtand
 ms.openlocfilehash: c47d573dab3e72a956f6f0b9d09a1dafadf0225c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91827769"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>보안 정보를 사용하여 회사 또는 학교 암호 재설정
 
 회사 또는 학교 암호가 생각 나지 않거나, 조직으로부터 암호를 받은 적이 없거나, 계정이 잠긴 경우 보안 정보 및 모바일 디바이스를 사용하여 회사 또는 학교 암호를 재설정할 수 있습니다. 관리자는 사용자가 정보를 설정하고 [암호를 재설정](./active-directory-passwords-reset-register.md)할 수 있도록 이 기능을 켜야 합니다.
 
-암호를 알고 있는 경우 암호를 변경 하려면이 문서의 [암호 단계 변경](#how-to-change-your-password) 섹션을 참조 하세요.
+암호를 알고 있고 변경하려는 경우 이 문서의 [암호 변경 단계](#how-to-change-your-password) 섹션을 참조하세요.
 
 >[!Important]
 >이 문서는 분실했거나 알 수 없는 회사 또는 학교 계정 암호를 재설정하려는 사용자를 위해 작성되었습니다. 직원 또는 다른 사용자에 대해 셀프 서비스 암호 재설정을 켜는 방법을 원하는 관리자는 [Azure AD 셀프 서비스 암호 재설정 배포 및 기타 문서](../authentication/howto-sspr-deployment.md)를 참조하세요.
@@ -69,7 +69,7 @@ Azure AD(Azure Active Directory) 계정에 액세스할 수 없는 경우 원인
 
     3. 새 암호를 입력하고 확인한 다음, **완료** 를 선택합니다.
 
-- **전화 번호를 사용하여 암호 재설정.** 이전에 보안 정보에서 설정한 전화 번호에 자동 음성 전화를 겁니다. 관리자가 보안 정보 환경을 설정한 경우 [전화 통화를 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-phone-number.md) 문서에서 전화 번호 설정에 대해 자세히 알아볼 수 있습니다. 아직 보안 정보를 사용하지 않는 경우 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md) 문서에서 전화 번호 설정에 대해 자세히 알아볼 수 있습니다.
+- **전화 번호를 사용하여 암호 재설정.** 이전에 보안 정보에서 설정한 전화 번호로 자동 음성 전화를 겁니다. 관리자가 보안 정보 환경을 설정한 경우 [전화 통화를 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-phone-number.md) 문서에서 전화 번호 설정에 대해 자세히 알아볼 수 있습니다. 아직 보안 정보를 사용하지 않는 경우 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md) 문서에서 전화 번호 설정에 대해 자세히 알아볼 수 있습니다.
 
     1. **내 휴대폰으로 전화 걸기** 를 선택하고, 전화 번호를 입력하고, **호출** 을 선택합니다.
 
@@ -103,11 +103,11 @@ Azure AD(Azure Active Directory) 계정에 액세스할 수 없는 경우 원인
 
      여전히 계정에 액세스할 수 없는 경우 조직의 관리자에게 연락하여 도움을 요청해야 합니다.
 
-암호를 재설정 한 후에 "Microsoft를 대신 하 여"와 같은 계정에서 확인 전자 메일을 받을 수 있습니다 \<*your_organization*> . 최근에 암호를 재설정하지 않았는데도 이와 비슷한 이메일을 받으면 즉시 조직의 관리자에게 알려야 합니다.
+암호를 재설정한 후 “Microsoft가 \<*your_organization*>을 대신하여”와 같은 확인 메일을 계정에서 받을 수도 있습니다. 최근에 암호를 재설정하지 않았는데도 이와 비슷한 이메일을 받으면 즉시 조직의 관리자에게 알려야 합니다.
 
 ## <a name="how-to-change-your-password"></a>암호를 변경하는 방법
 
-암호를 변경 하려는 경우에는 Office 365 포털, 내 앱 포털 또는 Windows 10 로그인 페이지를 통해 암호를 변경할 수 있습니다.
+단순히 암호를 변경하려는 경우 Office 365 포털, 내 앱 포털 또는 Windows 10 로그인 페이지를 통해 변경할 수 있습니다.
 
 ### <a name="to-change-your-password-using-the-office-365-portal"></a>Office 365 포털을 사용하여 암호를 변경하려면
 
@@ -121,11 +121,11 @@ Azure AD(Azure Active Directory) 계정에 액세스할 수 없는 경우 원인
 
 4. 이전 암호를 입력하고, 새 암호를 만들고 확인한 후 **제출** 을 선택합니다.
 
-### <a name="to-change-your-password-from-the-my-apps-portal"></a>내 앱 포털에서 암호를 변경 하려면
+### <a name="to-change-your-password-from-the-my-apps-portal"></a>내 앱 포털에서 암호를 변경하려면
 
-일반적으로 내 앱 포털에서 앱에 액세스 하는 경우이 방법을 사용 합니다.
+이 방법은 주로 내 앱 포털에서 앱에 액세스하는 경우에 사용합니다.
 
-1. 기존 암호를 사용 하 여 [My Apps 포털](https://myapps.microsoft.com/)에 로그인 합니다.
+1. 기존 암호를 사용하여 [내 앱 포털](https://myapps.microsoft.com/)에 로그인합니다.
 
 2. 오른쪽 위에서 자신의 프로필을 선택한 다음 **프로필** 을 선택합니다.
 

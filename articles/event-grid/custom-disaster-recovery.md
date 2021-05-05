@@ -2,14 +2,14 @@
 title: Azure Event Grid의 사용자 지정 항목에 대한 재해 복구
 description: 이 자습서에서는 지역에서 Event Grid 서비스가 비정상 상태가 될 경우 복구되도록 이벤트 아키텍처를 설정하는 방법을 안내합니다.
 ms.topic: tutorial
-ms.date: 07/07/2020
+ms.date: 04/22/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e37cb6a0679ee2e249de4ed8fa31c40d5082ea4a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f4b387a673cf49f30d40b44bb8d5e1f4dac51d0c
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96020146"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107895706"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Event Grid에서 사용자 지정 항목용 자체 재해 복구 빌드
 재해 복구는 애플리케이션 기능의 심각한 손실에서 복구하는 데 집중합니다. 이 자습서에서는 특정 지역에서 Event Grid 서비스가 비정상 상태가 될 경우 복구되도록 이벤트 아키텍처를 설정하는 방법을 안내합니다.
@@ -91,6 +91,9 @@ ms.locfileid: "96020146"
 ### <a name="basic-client-side-implementation"></a>기본 클라이언트 쪽 구현
 
 다음 샘플 코드는 항상 기본 항목을 먼저 게시하려고 하는 간단한 .NET 게시자입니다. 기본 항목을 게시하는 데 실패하면 보조 항목을 장애 조치합니다. 두 경우 모두 `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`에서 GET을 수행하여 다른 항목의 상태 api를 확인합니다. 정상적인 항목은 **/api/health** 엔드포인트에 대해 GET이 수행될 경우 항상 **200 OK** 로 응답해야 합니다.
+
+> [!NOTE]
+> 다음 샘플 코드는 데모용으로만 제공되며 프로덕션 용도로 사용될 수 없습니다. 
 
 ```csharp
 using System;

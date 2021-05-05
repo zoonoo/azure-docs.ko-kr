@@ -1,99 +1,125 @@
 ---
 title: 확장 리소스 종류
-description: 다른 리소스 유형의 기능을 확장 하는 데 사용 되는 Azure 리소스 유형을 나열 합니다.
+description: 다른 리소스 유형의 기능을 확장하는 데 사용되는 Azure 리소스 유형을 나열합니다.
 ms.topic: conceptual
-ms.date: 11/14/2020
-ms.openlocfilehash: 5561c480dd5a2849588ed2288eb5bcc35fc1446c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.date: 04/12/2021
+ms.openlocfilehash: 7085c0894fbf3bd56b56e4187d56f9af54916962
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94658454"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363991"
 ---
-# <a name="resource-types-that-extend-capabilities-of-other-resources"></a>다른 리소스의 기능을 확장 하는 리소스 종류
+# <a name="resource-types-that-extend-capabilities-of-other-resources"></a>다른 리소스의 기능을 확장하는 리소스 유형
 
-확장 리소스는 다른 리소스의 기능에 추가 되는 리소스입니다. 예를 들어 리소스 잠금은 확장 리소스입니다. 리소스 잠금을 삭제 하거나 수정 하지 못하도록 다른 리소스에 적용 합니다. 리소스 잠금을 직접 만드는 것은 적절 하지 않습니다. 확장 리소스는 항상 다른 리소스에 적용 됩니다.
+확장 리소스는 다른 리소스의 기능에 추가되는 리소스입니다. 예를 들어, 리소스 잠금은 확장 리소스입니다. 리소스 잠금을 다른 리소스에 적용하여 삭제나 수정을 방지합니다. 리소스 잠금은 직접 만들지 않는 것이 좋습니다. 확장 리소스는 항상 다른 리소스에 적용됩니다.
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
 
-- Microsoft Advisor/구성
-- Microsoft Advisor/권장 사항
-- Microsoft Advisor/비 표시 오류
+- Microsoft.Advisor/configurations
+- Microsoft.Advisor/recommendations
+- Microsoft.Advisor/suppressions
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
-- AlertsManagement/경고
+- Microsoft.AlertsManagement/alerts
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 
-- Microsoft. Authorization/denyAssignments
+- Microsoft.Authorization/denyAssignments
 - Microsoft.Authorization/locks
 - Microsoft.Authorization/policyAssignments
-- Microsoft. Authorization/policyDefinitions
-- Microsoft. Authorization/policyExemptions
-- Microsoft. Authorization/policySetDefinitions
-- Microsoft. Authorization/privateLinkAssociations
+- Microsoft.Authorization/policyDefinitions
+- Microsoft.Authorization/policyExemptions
+- Microsoft.Authorization/policySetDefinitions
+- Microsoft.Authorization/privateLinkAssociations
+- Microsoft.Authorization/roleAssignmentApprovals
 - Microsoft.Authorization/roleAssignments
-- Microsoft. Authorization/roleDefinitions
+- Microsoft.Authorization/roleAssignmentScheduleInstances
+- Microsoft.Authorization/roleAssignmentScheduleRequests
+- Microsoft.Authorization/roleAssignmentSchedules
+- Microsoft.Authorization/roleDefinitions
+- Microsoft.Authorization/roleEligibilityScheduleInstances
+- Microsoft.Authorization/roleEligibilityScheduleRequests
+- Microsoft.Authorization/roleEligibilitySchedules
+- Microsoft.Authorization/roleManagementPolicies
+- Microsoft.Authorization/roleManagementPolicyAssignments
 
-## <a name="microsoftautomanage"></a>Microsoft Automanage
+## <a name="microsoftautomanage"></a>Microsoft.Automanage
 
-- Microsoft. automanage/configurationprofil
+- Microsoft.Automanage/configurationProfileAssignments
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
-- Microsoft. 청구/billingPeriods
-- Microsoft. 청구/billingPermissions
-- Microsoft. 청구/billingRoleAssignments
-- Microsoft. 청구/billingRoleDefinitions
-- Microsoft. 청구/createBillingRoleAssignment
+- Microsoft.Billing/billingPeriods
+- Microsoft.Billing/billingPermissions
+- Microsoft.Billing/billingRoleAssignments
+- Microsoft.Billing/billingRoleDefinitions
+- Microsoft.Billing/createBillingRoleAssignment
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
-- Microsoft. 청사진/blueprintAssignments
-- Microsoft. 청사진/청사진
+- Microsoft.Blueprint/blueprintAssignments
+- Microsoft.Blueprint/blueprints
+
+## <a name="microsoftcapacity"></a>Microsoft.Capacity
+
+- Microsoft.Capacity/listSkus
+
+## <a name="microsoftchangeanalysis"></a>Microsoft.ChangeAnalysis
+
+- Microsoft.ChangeAnalysis/changes
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
-- Microsoft 소비량/AggregatedCost
-- Microsoft 소비량/잔액
-- Microsoft 소비량/예산
-- Microsoft 소비량/요금
-- Microsoft 소비량/CostTags
-- Microsoft 소비량/크레딧
-- Microsoft 사용량과 이벤트
-- Microsoft의 소비/예측
-- Microsoft 사용량과 많은
-- Microsoft 소비량/마켓플레이스
-- Microsoft 소비량/Pricesheets
-- Microsoft. 소비/제품
-- Microsoft 소비량/ReservationDetails
-- Microsoft 소비량/ReservationRecommendationDetails
-- Microsoft 소비량/ReservationRecommendations
-- Microsoft 소비량/ReservationSummaries
-- Microsoft 소비량/ReservationTransactions
+- Microsoft.Consumption/AggregatedCost
+- Microsoft.Consumption/Balances
+- Microsoft.Consumption/Budgets
+- Microsoft.Consumption/Charges
+- Microsoft.Consumption/CostTags
+- Microsoft.Consumption/credits
+- Microsoft.Consumption/events
+- Microsoft.Consumption/Forecasts
+- Microsoft.Consumption/lots
+- Microsoft.Consumption/Marketplaces
+- Microsoft.Consumption/Pricesheets
+- Microsoft.Consumption/products
+- Microsoft.Consumption/ReservationDetails
+- Microsoft.Consumption/ReservationRecommendationDetails
+- Microsoft.Consumption/ReservationRecommendations
+- Microsoft.Consumption/ReservationSummaries
+- Microsoft.Consumption/ReservationTransactions
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
-- ContainerInstance/serviceAssociationLinks
+- Microsoft.ContainerInstance/serviceAssociationLinks
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 
-- CostManagement/경고
-- CostManagement/예산
-- CostManagement/차원
-- CostManagement/내보내기
-- CostManagement/ExternalSubscriptions
-- CostManagement/예측
-- CostManagement/정보
-- CostManagement/쿼리
-- CostManagement/Reportconfigs
-- CostManagement/보고서
-- CostManagement/뷰
+- Microsoft.CostManagement/Alerts
+- Microsoft.CostManagement/Budgets
+- Microsoft.CostManagement/CheckNameAvailability
+- Microsoft.CostManagement/Dimensions
+- Microsoft.CostManagement/Exports
+- Microsoft.CostManagement/ExternalSubscriptions
+- Microsoft.CostManagement/Forecast
+- Microsoft.CostManagement/GenerateDetailedCostReport
+- Microsoft.CostManagement/Insights
+- Microsoft.CostManagement/OperationResults
+- Microsoft.CostManagement/OperationStatus
+- Microsoft.CostManagement/Query
+- Microsoft.CostManagement/Reportconfigs
+- Microsoft.CostManagement/Reports
+- Microsoft.CostManagement/ScheduledActions
+- Microsoft.CostManagement/Views
 
 ## <a name="microsoftcustomproviders"></a>Microsoft.CustomProviders
 
 - Microsoft.CustomProviders/associations
+
+## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
+
+- Microsoft.DataMigration/DatabaseMigrations
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
@@ -102,134 +128,145 @@ ms.locfileid: "94658454"
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
-- GuestConfiguration/configurationprofil
-- GuestConfiguration/guestConfigurationAssignments
-- GuestConfiguration/소프트웨어
+- Microsoft.GuestConfiguration/configurationProfileAssignments
+- Microsoft.GuestConfiguration/guestConfigurationAssignments
+- Microsoft.GuestConfiguration/software
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 
-- microsoft. a s e/기준
-- microsoft insights/dataCollectionRuleAssociations
-- microsoft insights/diagnosticSettings
-- microsoft insights/diagnosticSettingsCategories
-- microsoft insights/eventtypes
-- microsoft insights/extendedDiagnosticSettings
-- microsoft insights/찾은 guestdiagnosticsettingsassociation
-- microsoft insights/logDefinitions
-- microsoft 인 사이트/로그
-- microsoft insights/metricbaselines
-- microsoft insights/metricDefinitions
-- microsoft insights/metricNamespaces
-- microsoft. 통찰력/메트릭
-- microsoft insights/myWorkbooks 문서
-- microsoft. a s e/토폴로지
-- microsoft. a s e/트랜잭션
+- microsoft.insights/baseline
+- microsoft.insights/dataCollectionRuleAssociations
+- microsoft.insights/diagnosticSettings
+- microsoft.insights/diagnosticSettingsCategories
+- microsoft.insights/eventtypes
+- microsoft.insights/extendedDiagnosticSettings
+- microsoft.insights/guestDiagnosticSettingsAssociation
+- microsoft.insights/logDefinitions
+- microsoft.insights/logs
+- microsoft.insights/metricbaselines
+- microsoft.insights/metricDefinitions
+- microsoft.insights/metricNamespaces
+- microsoft.insights/metrics
+- microsoft.insights/myWorkbooks
+- microsoft.insights/topology
+- microsoft.insights/transactions
 
 ## <a name="microsoftkubernetesconfiguration"></a>Microsoft.KubernetesConfiguration
 
-- KubernetesConfiguration/extensions
-- KubernetesConfiguration/sourceControlConfigurations
+- Microsoft.KubernetesConfiguration/extensions
+- Microsoft.KubernetesConfiguration/sourceControlConfigurations
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
-- Microsoft. Maintenance/applyUpdates
-- Microsoft. 유지 관리/configurationAssignments
-- Microsoft. 유지 관리/업데이트
+- Microsoft.Maintenance/applyUpdates
+- Microsoft.Maintenance/configurationAssignments
+- Microsoft.Maintenance/updates
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
-- Microsoft.managedidentity/Id
+- Microsoft.ManagedIdentity/Identities
 
 ## <a name="microsoftmanagedservices"></a>Microsoft.ManagedServices
 
-- Microsoft ManagedServices/registrationAssignments
-- Microsoft ManagedServices/registrationDefinitions
+- Microsoft.ManagedServices/registrationAssignments
+- Microsoft.ManagedServices/registrationDefinitions
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
-- OperationalInsights/storageInsightConfigs
+- Microsoft.OperationalInsights/storageInsightConfigs
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
-- Microsoft.operationsmanagement/managementassociations
+- Microsoft.OperationsManagement/managementassociations
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
-- Microsoft PolicyInsights/증명
-- Microsoft PolicyInsights/Policyinsights
-- Microsoft PolicyInsights/Policyinsights
-- Microsoft PolicyInsights/policyTrackedResources
+- Microsoft.PolicyInsights/attestations
+- Microsoft.PolicyInsights/eventGridFilters
+- Microsoft.PolicyInsights/policyEvents
+- Microsoft.PolicyInsights/policyStates
+- Microsoft.PolicyInsights/policyTrackedResources
 - Microsoft.PolicyInsights/remediations
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
-- Microsoft RecoveryServices/backupProtectedItems
-- Microsoft RecoveryServices/replicationEligibilityResults
+- Microsoft.RecoveryServices/backupProtectedItems
+- Microsoft.RecoveryServices/replicationEligibilityResults
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 
-- Microsoft ResourceHealth/childResources
-- Microsoft ResourceHealth/이벤트
-- Microsoft ResourceHealth/impactedResources
-- Microsoft ResourceHealth/알림
+- Microsoft.ResourceHealth/childResources
+- Microsoft.ResourceHealth/events
+- Microsoft.ResourceHealth/impactedResources
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
-- Microsoft .Resources/링크
-- Microsoft .Resources/태그
+- Microsoft.Resources/links
+- Microsoft.Resources/tags
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 
-- Microsoft. Security/adaptiveNetworkHardenings
-- Microsoft. Security/advancedThreatProtectionSettings
-- Microsoft. Security/assessmentMetadata
-- Microsoft. 보안/평가
-- Microsoft. Security/규격
-- Microsoft. Security/dataCollectionAgents
-- Microsoft. 보안/장치
-- Microsoft. Security/deviceSecurityGroups
-- Microsoft. Security/InformationProtectionPolicies
-- Microsoft. Security/I이상 센서
-- Microsoft. Security/jitPolicies
-- Microsoft. Security/serverVulnerabilityAssessments
-- Microsoft. Security/sqlVulnerabilityAssessments
+- Microsoft.Security/adaptiveNetworkHardenings
+- Microsoft.Security/advancedThreatProtectionSettings
+- Microsoft.Security/assessmentMetadata
+- Microsoft.Security/assessments
+- Microsoft.Security/Compliances
+- Microsoft.Security/dataCollectionAgents
+- Microsoft.Security/devices
+- Microsoft.Security/deviceSecurityGroups
+- Microsoft.Security/InformationProtectionPolicies
+- Microsoft.Security/insights
+- Microsoft.Security/iotAlerts
+- Microsoft.Security/iotRecommendations
+- Microsoft.Security/iotSensors
+- Microsoft.Security/iotSites
+- Microsoft.Security/jitPolicies
+- Microsoft.Security/serverVulnerabilityAssessments
+- Microsoft.Security/sqlVulnerabilityAssessments
 
 ## <a name="microsoftsecurityinsights"></a>Microsoft.SecurityInsights
 
-- Microsoft SecurityInsights/집계
-- Microsoft SecurityInsights/alertRules
-- Microsoft SecurityInsights/alertRuleTemplates
-- Microsoft SecurityInsights/automationRules
-- Microsoft SecurityInsights/책갈피
-- Microsoft SecurityInsights/사례
-- Microsoft SecurityInsights/dataConnectors
-- Microsoft SecurityInsights/dataConnectorsCheckRequirements
-- Microsoft SecurityInsights/엔터티
-- Microsoft SecurityInsights/인시던트
-- Microsoft SecurityInsights/설정
-- Microsoft SecurityInsights/threatIntelligence
-- Microsoft SecurityInsights/watchlists
+- Microsoft.SecurityInsights/aggregations
+- Microsoft.SecurityInsights/alertRules
+- Microsoft.SecurityInsights/alertRuleTemplates
+- Microsoft.SecurityInsights/automationRules
+- Microsoft.SecurityInsights/bookmarks
+- Microsoft.SecurityInsights/cases
+- Microsoft.SecurityInsights/dataConnectors
+- Microsoft.SecurityInsights/dataConnectorsCheckRequirements
+- Microsoft.SecurityInsights/enrichment
+- Microsoft.SecurityInsights/entities
+- Microsoft.SecurityInsights/entityQueryTemplates
+- Microsoft.SecurityInsights/incidents
+- Microsoft.SecurityInsights/settings
+- Microsoft.SecurityInsights/threatIntelligence
+- Microsoft.SecurityInsights/watchlists
 
-## <a name="microsoftserialconsoleppe"></a>SerialConsole
+## <a name="microsoftserialconsole"></a>Microsoft.SerialConsole
 
-- SerialConsole e/serialPorts
+- Microsoft.SerialConsole/serialPorts
+
+## <a name="microsoftservicelinker"></a>Microsoft.ServiceLinker
+
+- Microsoft.ServiceLinker/linkers
 
 ## <a name="microsoftsoftwareplan"></a>Microsoft.SoftwarePlan
 
-- SoftwarePlan/hybridUseBenefits
+- Microsoft.SoftwarePlan/hybridUseBenefits
+
+## <a name="microsoftsubscription"></a>Microsoft.Subscription
+
+- Microsoft.Subscription/policies
 
 ## <a name="microsoftsupport"></a>microsoft.support
 
-- microsoft. 지원/지원 티켓
+- microsoft.support/supporttickets
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 
-- WorkloadMonitor/구성 요소
-- WorkloadMonitor/monitorInstances
-- WorkloadMonitor/모니터
-- WorkloadMonitor/notificationSettings
+- Microsoft.WorkloadMonitor/monitors
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Resource Manager 템플릿에서 확장 리소스의 리소스 ID를 가져오려면 [Extensionresourceid](../templates/template-functions-resource.md#extensionresourceid)를 사용 합니다.
-- 템플릿에 확장 리소스를 만드는 방법에 대 한 예는 [Event Grid 이벤트 구독](/azure/templates/microsoft.eventgrid/2019-06-01/eventsubscriptions)을 참조 하십시오.
+- Azure Resource Manager 템플릿에서 확장 리소스의 리소스 ID를 가져오려면 [extensionResourceId](../templates/template-functions-resource.md#extensionresourceid)를 사용합니다.
+- 템플릿에 확장 리소스를 만드는 방법에 대한 예시는 [Event Grid 이벤트 구독](/azure/templates/microsoft.eventgrid/2019-06-01/eventsubscriptions)을 참조하세요.

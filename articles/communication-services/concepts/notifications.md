@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e1b7e091fe09bc2c093cc84473bd07917347f26d
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 1a2d4059f701a45d982f2045dea5e8dfe4e12a20
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220798"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286351"
 ---
 # <a name="communication-services-notifications"></a>Communication Services 알림
 
@@ -28,7 +28,7 @@ Azure Communication Services는 [Azure Event Grid](https://azure.microsoft.com/s
 
 :::image type="content" source="./media/notifications/acs-events-int.png" alt-text="Communication Services가 Event Grid와 통합되는 방식을 보여주는 다이어그램":::
 
-[Azure Communication Services에서 이벤트 처리](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services)에 대해 자세히 알아보세요.
+[Azure Communication Services에서 이벤트 처리](../../event-grid/event-schema-communication-services.md)에 대해 자세히 알아보세요.
 
 ## <a name="deliver-push-notifications-via-azure-notification-hubs"></a>Azure Notification Hubs를 통해 푸시 알림 제공
 

@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/20/2021
+ms.date: 04/27/2021
 ms.author: memildin
-ms.openlocfilehash: 92138b0253d28c8bf2617ee7b17474f30ac5cafe
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 35873711753400132f47933f009365cc6383429b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751206"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123486"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -31,11 +31,14 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 - [이제 최근에 끌어온 컨테이너 레지스트리 이미지가 매주 다시 검사됩니다(일반 공급).](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
 - [Azure Defender for Kubernetes를 사용하여 하이브리드 및 다중 클라우드 Kubernetes 배포 보호(미리 보기)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
 - [DNS 및 Resource Manager용 Azure Defender를 사용하도록 설정하는 권장 사항(미리 보기)](#recommendations-to-enable-azure-defender-for-dns-and-resource-manager-preview)
+- [Azure CIS 1.3.0, CMMC Level 3 및 뉴질랜드 ISM 제한됨 등 3가지 규정 준수 표준이 추가됨](#three-regulatory-compliance-standards-added-azure-cis-130-cmmc-level-3-and-new-zealand-ism-restricted)
 - [게스트 구성과 관련된 4가지 새로운 권장 사항(미리 보기)](#four-new-recommendations-related-to-guest-configuration-preview)
 - [CMK 권장 사항이 모범 사례 보안 제어로 이동했습니다.](#cmk-recommendations-moved-to-best-practices-security-control)
 - [더 이상 사용되지 않는 11가지 Azure Defender 경고](#11-azure-defender-alerts-deprecated)
 - ["시스템 업데이트 적용" 보안 제어에서 더 이상 사용되지 않는 두 가지 권장 사항](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
 - [Azure Defender 대시보드에서 제거되는 머신 타일의 Azure Defender for SQL](#azure-defender-for-sql-on-machine-tile-removed-from-azure-defender-dashboard)
+- [보안 제어 간에 권장 사항 21개 이동](#21-recommendations-moved-between-security-controls)
+
 
 ### <a name="recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability"></a>이제 최근에 끌어온 컨테이너 레지스트리 이미지가 매주 다시 검사됩니다(일반 공급).
 
@@ -80,6 +83,24 @@ Azure Defender 계획을 사용하도록 설정하면 요금이 청구됩니다.
 
 > [!TIP]
 > 미리 보기 추천 사항은 리소스를 비정상으로 렌더링하지 않으며 보안 점수 계산에 포함되지 않습니다. 미리 보기 기간이 끝나면 점수에 기여할 수 있도록 가능한 경우 언제든지 수정합니다. [Azure Security Center의 추천 사항 수정](security-center-remediate-recommendations.md)에서 이러한 추천 사항에 대응하는 방법에 대해 자세히 알아보세요.
+
+
+### <a name="three-regulatory-compliance-standards-added-azure-cis-130-cmmc-level-3-and-new-zealand-ism-restricted"></a>Azure CIS 1.3.0, CMMC Level 3 및 뉴질랜드 ISM 제한됨 등 3가지 규정 준수 표준이 추가됨
+
+Azure Security Center와 함께 사용할 수 있도록 3가지 표준을 추가했습니다. 규정 준수 대시보드를 사용하면 이제 다음을 통해 규정 준수를 추적할 수 있습니다.
+
+- [CIS Microsoft Azure Foundations Benchmark 1.3.0](../governance/policy/samples/cis-azure-1-3-0.md)
+- [CMMC Level 3](../governance/policy/samples/cmmc-l3.md)
+- [뉴질랜드 ISM 제한됨](../governance/policy/samples/new-zealand-ism.md)
+
+[규정 준수 대시보드의 표준 집합 사용자 지정](update-regulatory-compliance-packages.md)의 설명대로 이러한 표준을 구독에 할당할 수 있습니다.
+
+:::image type="content" source="media/release-notes/additional-regulatory-compliance-standards.png" alt-text="Azure Security Center의 규정 준수 대시보드와 함께 사용할 수 있도록 추가된 3가지 표준입니다." lightbox="media/release-notes/additional-regulatory-compliance-standards.png":::
+
+다음에서 자세히 알아보세요.
+- [규정 준수 대시보드의 표준 집합 사용자 지정](update-regulatory-compliance-packages.md)
+- [자습서: 규정 준수 개선](security-center-compliance-dashboard.md)
+- [FAQ - 규정 준수 대시보드](security-center-compliance-dashboard.md#faq---regulatory-compliance-dashboard)
 
 ### <a name="four-new-recommendations-related-to-guest-configuration-preview"></a>게스트 구성과 관련된 4가지 새로운 권장 사항(미리 보기)
 
@@ -160,6 +181,19 @@ Azure Security Center의 보안 제어는 관련 보안 권장 사항의 논리�
 ### <a name="azure-defender-for-sql-on-machine-tile-removed-from-azure-defender-dashboard"></a>Azure Defender 대시보드에서 제거되는 머신 타일의 Azure Defender for SQL
 
 Azure Defender 대시보드의 검사 영역에는 사용자 환경과 관련된 Azure Defender 계획에 대한 타일이 포함되어 있습니다. 보호된 리소스 및 보호되지 않은 리소스의 수를 보고하는 문제로 인해 문제가 해결될 때까지 **머신에서 Azure Defender for SQL** 에 대한 리소스 검사 상태를 일시적으로 제거하기로 결정했습니다.
+
+
+### <a name="21-recommendations-moved-between-security-controls"></a>보안 제어 간에 권장 사항 21개 이동 
+
+다음 권장 사항은 다른 보안 제어로 이동했습니다. 보안 제어는 관련 보안 권장 사항의 논리적 그룹이며 취약한 공격 노출 영역을 반영합니다. 이러한 이동은 이러한 각 권장 사항에서 목표를 충족하는 가장 적절한 제어 상태에 있도록 보장합니다.
+
+[보안 컨트롤 및 해당 권장](secure-score-security-controls.md#security-controls-and-their-recommendations)에서 각 보안 제어에 어떤 권장 사항이 있는지 알아보세요.
+
+|권장 |변경 및 영향  |
+|---------|---------|
+|SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다.<br>SQL 관리형 인스턴스에서 취약성 평가를 사용하도록 설정해야 합니다.<br>SQL 데이터베이스의 취약성을 수정해야 함 신규<br>VM의 SQL 데이터베이스 취약성을 수정해야 함     |취약성 수정(6점 가치)에서<br>보안 구성 수정(4점 가치)으로 이동합니다.<br>사용자 환경에 따라 이러한 권장 사항은 점수에 미치는 영향을 줄일 수 있습니다.|
+|구독에 둘 이상의 소유자를 할당해야 합니다.<br>자동화 계정 변수를 암호화해야 합니다.<br>IoT 디바이스 - Auditd 프로세스가 이벤트 전송을 중지함<br>IoT 디바이스 - 운영 체제 기준 유효성 검사 실패<br>IoT 디바이스 - TLS 암호화 도구 모음 업그레이드 필요<br>IoT 디바이스 - 디바이스에서 포트 열기<br>IoT 디바이스 - 체인 중 하나에서 허용되는 방화벽 정책이 발견됨<br>IoT 디바이스 - 체인 중 하나에서 허용되는 방화벽 정책이 발견됨<br>IoT 디바이스 - 출력 체인에서 허용되는 방화벽 규칙이 발견됨<br>IoT Hub의 진단 로그를 사용하도록 설정해야 합니다.<br>IoT 디바이스 - 에이전트에서 미달 사용된 메시지를 보내고 있음<br>IoT 디바이스 - 기본 IP 필터 정책은 거부여야 함<br>IoT 디바이스 - IP 필터 규칙 큰 IP 범위<br>IoT 디바이스 - 에이전트 메시지 간격 및 크기를 조정해야 함<br>IoT 디바이스 - 동일한 인증 자격 증명<br>IoT 디바이스 - Audited 프로세스가 이벤트 전송을 중지함<br>IoT 디바이스 - OS(운영 체제) 기준 구성을 수정해야 함|**보안 모범 사례 구현** 으로 이동합니다.<br>권장 사항이 점수 가치가 없는 보안 모범 사례 구현 보안 제어로 이동하는 경우 해당 권장 사항은 더 이상 보안 점수에 영향을 주지 않습니다.|
+|||
 
 
 ## <a name="march-2021"></a>2021년 3월
@@ -284,7 +318,7 @@ Security Center는 거의 모든 보안 권장 사항에 대한 데이터를 Azu
 이제 권장 사항 페이지에 다음 정보가 표시됩니다.
 
 1. 각 보안 컨트롤의 최고 점수 및 현재 점수
-1. **빠른 수정** 및 **미리 보기** 와 같은 태그를 대체하는 아이콘
+1. **수정** 및 **미리 보기** 와 같은 태그를 대체하는 아이콘
 1. 각 권장 사항과 관련된 [정책 이니셔티브](security-policy-concept.md)를 보여주는 새 열 - "컨트롤 기준 그룹화"를 사용하지 않을 때 표시
 
 :::image type="content" source="media/release-notes/recommendations-grid-enhancements.png" alt-text="Azure Security Center 권장 사항 페이지의 향상된 기능 - 2021년 3월" lightbox="media/release-notes/recommendations-grid-enhancements.png":::
@@ -430,7 +464,7 @@ Security Center의 규정 준수 대시보드를 사용하는 경우 전환 기�
 
 자세히 알아보려면 다음 페이지를 참조하세요.
 
-- [Azure 보안 벤치마크에 대한 자세한 정보](https://docs.microsoft.com/security/benchmark/azure/introduction)
+- [Azure 보안 벤치마크에 대한 자세한 정보](/security/benchmark/azure/introduction)
 - [규정 준수 대시보드의 표준 집합 사용자 지정](update-regulatory-compliance-packages.md)
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga"></a>온-프레미스 및 다중 클라우드 머신의 취약성 평가가 GA(일반 공급)를 위해 릴리스되었습니다.
@@ -545,7 +579,7 @@ Security Center의 메뉴에서 **다중 클라우드 커넥터** 를 선택하�
 
 ### <a name="35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Azure 보안 벤치마크의 적용 범위를 늘리기 위해 35개의 미리 보기 추천 사항이 추가됨
 
-[Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)는 Azure Security Center의 기본 정책 이니셔티브입니다. 
+[Azure Security Benchmark](/security/benchmark/azure/introduction)는 Azure Security Center의 기본 정책 이니셔티브입니다. 
 
 이 벤치마크의 적용 범위를 늘리기 위해 다음 35개의 미리 보기 권장 사항이 Security Center에 추가되었습니다.
 
@@ -563,7 +597,7 @@ Security Center의 메뉴에서 **다중 클라우드 커넥터** 를 선택하�
 
 관련 링크:
 
-- [Azure 보안 벤치마크에 대한 자세한 정보](https://docs.microsoft.com/security/benchmark/azure/introduction)
+- [Azure 보안 벤치마크에 대한 자세한 정보](/security/benchmark/azure/introduction)
 - [Azure Database for MariaDB에 대한 자세한 정보](../mariadb/overview.md)
 - [Azure Database for MySQL에 대한 자세한 정보](../mysql/overview.md)
 - [Azure Database for PostgreSQL에 대한 자세한 정보](../postgresql/overview.md)
@@ -743,13 +777,13 @@ Security Center가 범위와 기능을 계속 확장함에 따라 보안 권장 
 
 - **환경** - AWS, GCP 또는 Azure 리소스(또는 모든 조합)에 대한 권장 사항 보기
 - **심각도** - Security Center에 의해 설정된 심각도 분류에 따른 권장 사항 보기
-- **대응 조치** - 다음과 같은 Security Center 대응 옵션에 따른 권장 사항 보기 빠른 수정, 거부 및 적용
+- **대응 조치** - 수정, 거부 및 적용 등 사용 가능한 Security Center 응답 옵션에 따른 권장 사항 보기
 
     > [!TIP]
     > 대응 조치 필터는 **빠른 수정 사용 가능(예/아니요)** 필터를 대체합니다. 
     > 
     > 각각의 대응 옵션에 대해 자세히 알아보세요.
-    > - [빠른 수정](security-center-remediate-recommendations.md#quick-fix-remediation)
+    > - [수정 단추](security-center-remediate-recommendations.md#fix-button)
     > - [적용/거부 권장 사항을 사용하여 구성 오류 방지](prevent-misconfigurations.md)
 
 :::image type="content" source="./media/release-notes/added-recommendations-filters.png" alt-text="보안 컨트롤별로 그룹화된 권장 사항" lightbox="./media/release-notes/added-recommendations-filters.png":::
@@ -789,7 +823,7 @@ Azure Security Center의 연속 내보내기 도구를 사용하여 환경의 �
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Azure 보안 벤치마크의 적용 범위를 늘리기 위해 29개의 미리 보기 권장 사항 추가됨
 
-Azure 보안 벤치마크는 일반적인 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침 세트입니다. [Azure 보안 벤치마크에 대해 자세히 알아보세요](https://docs.microsoft.com/security/benchmark/azure/introduction).
+Azure 보안 벤치마크는 일반적인 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침 세트입니다. [Azure 보안 벤치마크에 대해 자세히 알아보세요](/security/benchmark/azure/introduction).
 
 이 벤치마크의 적용 범위를 넓히기 위해 다음 29개의 새로운 추천 사항이 Security Center에 추가되었습니다.
 
@@ -806,7 +840,7 @@ Azure 보안 벤치마크는 일반적인 규정 준수 프레임워크를 기�
 
 관련 링크:
 
-- [Azure 보안 벤치마크에 대한 자세한 정보](https://docs.microsoft.com/security/benchmark/azure/introduction)
+- [Azure 보안 벤치마크에 대한 자세한 정보](/security/benchmark/azure/introduction)
 - [Azure API 앱에 대한 자세한 정보](../app-service/app-service-web-tutorial-rest-api.md)
 - [Azure 함수 앱에 대한 자세한 정보](../azure-functions/functions-overview.md)
 - [Azure 웹앱에 대한 자세한 정보](../app-service/overview.md)

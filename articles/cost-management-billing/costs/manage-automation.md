@@ -3,17 +3,17 @@ title: 자동화로 Azure 비용 관리
 description: 이 문서에서는 자동화를 사용하여 Azure 비용을 관리하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/08/2021
+ms.date: 03/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: f5cebffeaba1ce198be347758004068e8c03133b
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 2a39f77e3e7409d23ab7506b525f65e01082e99e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102499682"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720120"
 ---
 # <a name="manage-costs-with-automation"></a>자동화로 비용 관리
 
@@ -74,6 +74,10 @@ API를 사용하여 사용 가능한 최상위 범위에서 필요한 모든 데
   - 포항된 수량 - 예: 처음 100개 단위는 무료이며 단위당 $10입니다.
   - 예약
   - 계산 중에 발생하는 반올림 - 반올림은 사용된 수량, 계층화/포함된 수량 가격 및 조정된 단가를 고려합니다.
+
+### <a name="a-single-resource-might-have-multiple-records-for-a-single-day"></a>단일 리소스에는 하루의 레코드가 여러 개 있을 수 있습니다.
+
+Azure 리소스 공급자는 사용량 및 요금을 청구 시스템에 내보내고 사용량 레코드의 `Additional Info` 필드를 채웁니다. 경우에 따라 리소스 공급자는 특정 일의 사용량을 내보내고 사용량 레코드의 `Additional Info` 필드에서 다른 데이터 센터가 있는 레코드를 스탬프 처리할 수 있습니다. 이로 인해 하루의 사용량 파일에 미터/리소스의 레코드가 여러 개 표시될 수 있습니다. 이 경우 초과 요금이 부과되지 않습니다. 여러 레코드는 해당 일의 리소스에 대한 미터 전체 비용을 나타냅니다.
 
 ## <a name="example-usage-details-api-requests"></a>예제 사용량 정보 API 요청
 
@@ -182,9 +186,9 @@ Azure에서 비용이 임계값을 초과했음을 감지하는 경우 알림이
 | pl-pl | 폴란드어(폴란드) |
 | tr-tr | 터키어(터키) |
 | da-dk | 덴마크어(덴마크) |
-| dn-gb | 영어(영국) |
+| en-gb | 영어(영국) |
 | hu-hu | 헝가리어(헝가리) |
-| nb-bo | 노르웨이어 복말(노르웨이) |
+| nb-no | 노르웨이어 복말(노르웨이) |
 | nl-nl | 네덜란드어(네덜란드) |
 | pt-pt | 포르투갈어(포르투갈) |
 | sv-se | 스웨덴어(스웨덴) |

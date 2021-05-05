@@ -5,12 +5,12 @@ ms.date: 3/5/2020
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs, devx-track-azurepowershell
-ms.openlocfilehash: 0badc233597c13228e9826ed062cc15828c65cf2
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 708e66cdf41dbe144ac1178ebf54279b32870910
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833385"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277942"
 ---
 # <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>빠른 시작: ARM 템플릿에서 Azure Functions 리소스 만들기 및 배포
 
@@ -22,7 +22,7 @@ ms.locfileid: "107833385"
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-function-app-create-dynamic%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Ffunction-app-create-dynamic%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -70,7 +70,7 @@ Visual Studio Code에서 선택한 언어로 로컬 함수 프로젝트를 만�
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-function-app-create-dynamic/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json":::
 
 이 템플릿에서 생성되는 네 가지 Azure 리소스는 다음과 같습니다.
 
@@ -85,7 +85,7 @@ Visual Studio Code에서 선택한 언어로 로컬 함수 프로젝트를 만�
 ```azurecli-interactive
 read -p "Enter a resource group name that is used for generating resource names:" resourceGroupName &&
 read -p "Enter the location (like 'eastus' or 'northeurope'):" location &&
-templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json" &&
+templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json" &&
 az group create --name $resourceGroupName --location "$location" &&
 az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri &&
 echo "Press [ENTER] to continue ..." &&
@@ -96,7 +96,7 @@ read
 ```powershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter a resource group name that is used for generating resource names"
 $location = Read-Host -Prompt "Enter the location (like 'eastus' or 'northeurope')"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json"
 
 New-AzResourceGroup -Name $resourceGroupName -Location "$location"
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri

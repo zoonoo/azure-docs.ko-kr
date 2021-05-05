@@ -6,14 +6,14 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 11/19/2020
+ms.date: 03/10/2021
 ms.author: banders
-ms.openlocfilehash: 93dda4fc3a152b0a07a95ff327c9ea619f25787c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 24fbf52c8fd0338537862a54e15e8a249541a701
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355823"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102635793"
 ---
 # <a name="migrate-from-enterprise-reporting-to-azure-resource-manager-apis"></a>Enterprise Reporting에서 Azure Resource Manager API로 마이그레이션
 
@@ -51,28 +51,7 @@ Azure Resource Manager API를 프로그래밍 방식으로 호출하는 서비�
 
 ### <a name="azure-billing-hierarchy-access"></a>Azure 청구 계층 구조 액세스
 
-기업 청구 계정, 부서 또는 등록 계정 범위에 서비스 주체 권한을 할당하려면 [청구 권한](/rest/api/billing/2019-10-01-preview/billingpermissions), [청구 역할 정의](/rest/api/billing/2019-10-01-preview/billingroledefinitions) 및 [청구 역할 할당](/rest/api/billing/2019-10-01-preview/billingroleassignments) API를 사용합니다.
-
-- 청구 권한 API를 사용하여 서비스 주체가 특정 범위(예: 청구 계정 또는 부서)에 대해 이미 갖고 있는 권한을 확인합니다.
-- 청구 역할 정의 API를 사용하여 서비스 주체에 할당할 수 있는 사용 가능한 역할을 열거합니다.
-  - 지금은 읽기 전용 EA 관리자 및 읽기 전용 부서 관리자 역할만 서비스 주체에 할당할 수 있습니다.
-- 청구 역할 할당 API를 사용하여 서비스 주체에 역할을 할당합니다.
-
-다음 예제에서는 역할 할당 API를 호출하여 청구 계정에 대한 액세스 권한을 서비스 주체에 부여하는 방법을 보여줍니다. 이 일회성 권한 구성을 수행하려면 [PostMan](https://postman.com)을 사용하는 것이 좋습니다.
-
-```json
-POST https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/createBillingRoleAssignment?api-version=2019-10-01-preview
-```
-
-#### <a name="request-body"></a>요청 본문
-
-```json
-{
-  "principalId": "00000000-0000-0000-0000-000000000000",
-  "billingRoleDefinitionId": "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/providers/Microsoft.Billing/billingRoleDefinition/10000000-aaaa-bbbb-cccc-100000000000"
-}
-
-```
+기업 청구 계정, 부서 또는 등록 계정 범위에 서비스 사용자 권한을 할당하려면 [Azure 기업계약 서비스 사용자 이름에 역할 할당](../manage/assign-roles-azure-service-principals.md)을 참조하세요.
 
 ### <a name="azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어
 

@@ -1,5 +1,5 @@
 ---
-title: Data Factory를 사용 하 여 Oracle 간 데이터 복사
+title: Data Factory를 사용하여 Oracle에서 데이터 복사
 description: Azure Data Factory를 사용하여 다른 곳에서 온-프레미스 Oracle 데이터베이스로 또는 그 반대로 데이터를 복사하는 방법을 알아봅니다.
 author: linda33wj
 ms.service: data-factory
@@ -8,10 +8,10 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 02fc142a08176aa577250417c0e394218e832f34
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100387345"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 다른 곳에서 Oracle 온-프레미스로 또는 그 반대로 데이터 복사
@@ -36,7 +36,7 @@ ms.locfileid: "100387345"
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미스 Oracle 원본에 연결하도록 지원합니다. 데이터 관리 게이트웨이에 대해 자세히 알아보려면 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 참조하세요. 데이터 이동을 위해 데이터 파이프라인에서 게이트웨이를 설정하는 방법에 대한 단계별 지침은 [온-프레미스에서 클라우드로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요.
 
@@ -77,13 +77,13 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 
 파이프라인을 만드는 가장 쉬운 방법은 복사 마법사를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
-다음 도구 중 하나를 사용 하 여 파이프라인을 만들 수도 있습니다. **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager 템플릿**, **.net API** 또는 **REST API**. 복사 작업이 포함된 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
+또한 다음과 같은 도구를 사용하여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager 템플릿**, **.NET API** 또는 **REST API**. 복사 작업이 포함된 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만듭니다.
 
 1. **데이터 팩터리** 를 만듭니다. 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다.
-2. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결 하는 **연결 된 서비스** 를 만듭니다. 예를 들어 Oracle 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 경우 Oracle 데이터베이스 및 Azure 스토리지 계정을 데이터 팩터리에 연결하는 두 개의 연결된 서비스를 만듭니다. Oracle과 관련된 연결된 서비스 속성은 [연결된 서비스 속성](#linked-service-properties)을 참조하세요.
-3. 복사 작업에 대 한 입력 및 출력 데이터를 나타내는 데이터 **집합** 을 만듭니다. 이전 단계의 예제에서 입력 데이터가 포함된 Oracle 데이터베이스의 테이블을 지정하는 데이터 세트를 만듭니다. Oracle 데이터베이스에서 복사된 데이터가 저장되는 폴더 및 Blob 컨테이너를 지정하는 또 다른 데이터 세트를 만듭니다. Oracle과 관련된 데이터 세트 속성은 [데이터 세트 속성](#dataset-properties)을 참조하세요.
+2. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결하는 **연결된 서비스** 를 만듭니다. 예를 들어 Oracle 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 경우 Oracle 데이터베이스 및 Azure 스토리지 계정을 데이터 팩터리에 연결하는 두 개의 연결된 서비스를 만듭니다. Oracle과 관련된 연결된 서비스 속성은 [연결된 서비스 속성](#linked-service-properties)을 참조하세요.
+3. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 세트** 를 만듭니다. 이전 단계의 예제에서 입력 데이터가 포함된 Oracle 데이터베이스의 테이블을 지정하는 데이터 세트를 만듭니다. Oracle 데이터베이스에서 복사된 데이터가 저장되는 폴더 및 Blob 컨테이너를 지정하는 또 다른 데이터 세트를 만듭니다. Oracle과 관련된 데이터 세트 속성은 [데이터 세트 속성](#dataset-properties)을 참조하세요.
 4. 입력과 출력으로 각각의 데이터 세트를 사용하는 복사 작업이 포함된 **파이프라인** 을 만듭니다. 이전 예제에서는 **OracleSource** 를 원본으로, **BlobSink** 를 복사 작업의 싱크로 사용합니다. 마찬가지로, Azure Blob Storage에서 Oracle 데이터베이스로 복사하는 경우 복사 작업에 **BlobSource** 및 **OracleSink** 를 사용합니다. Oracle 데이터베이스와 관련된 복사 작업 속성은 [복사 작업 속성](#copy-activity-properties)을 참조하세요. 원본 또는 싱크로 데이터 저장소를 사용하는 방법에 대한 자세한 내용은 이전 섹션의 데이터 저장소에 대한 링크를 선택하세요.
 
 마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구 또는 API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다. 다른 곳에서 온-프레미스 Oracle 데이터베이스로 또는 그 반대로 데이터를 복사하는 데 사용하는 Data Factory 엔터티에 대한 JSON 정의가 포함된 샘플은 JSON 예제를 참조하세요.
@@ -94,10 +94,10 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 
 다음 테이블은 Oracle 연결 서비스에 해당하는 JSON 요소에 대해 설명합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
-| type |**Type** 속성은 **OnPremisesOracle** 로 설정 해야 합니다. |예 |
-| driverType | Oracle 데이터베이스에서 다른 곳으로 또는 그 반대로 데이터를 복사하는 데 사용할 드라이버를 지정합니다. 허용되는 값은 **Microsoft** 및 **ODP**(기본값)입니다. 드라이버 세부 정보에 대해서는 [지원되는 버전 및 설치](#supported-versions-and-installation)를 참조하세요. | 아니요 |
+| type |**type** 속성은 **OnPremisesOracle** 로 설정해야 합니다. |예 |
+| driverType | Oracle 데이터베이스에서 다른 곳으로 또는 그 반대로 데이터를 복사하는 데 사용할 드라이버를 지정합니다. 허용되는 값은 **Microsoft** 및 **ODP**(기본값)입니다. 드라이버 세부 정보에 대해서는 [지원되는 버전 및 설치](#supported-versions-and-installation)를 참조하세요. | 예 |
 | connectionString | **connectionString** 속성에 대한 Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. | 예 |
 | gatewayName | 온-프레미스 Oracle 서버에 연결하는 데 사용되는 게이트웨이 이름입니다. |예 |
 
@@ -143,9 +143,9 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 
 구조, 가용성 및 정책과 같은 데이터 세트 JSON 파일의 섹션은 모든 데이터 세트 형식(예: Oracle, Azure Blob Storage 및 Azure Table Storage)에 대해 유사합니다.
 
-**TypeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대 한 정보를 제공 합니다. **OracleTable** 형식의 데이터 집합에 대 한 **typeProperties** 섹션에는 다음 속성이 있습니다.
+**typeProperties** 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **OracleTable** 형식의 데이터 세트에 대한 **typeProperties** 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 Oracle 데이터베이스에 있는 테이블의 이름입니다. |아니요(**oracleReaderQuery** 또는 **OracleSource** 가 지정된 경우) |
 
@@ -166,7 +166,7 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| oracleReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 “select \* from **MyTable**”입니다. <br/><br/>지정하지 않은 경우 “select \* from **MyTable**” SQL 문이 실행됩니다. |아니요<br />(**dataset** 의 **tableName** 이 지정된 경우) |
+| oracleReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 “select \* from **MyTable**”입니다. <br/><br/>지정하지 않은 경우 “select \* from **MyTable**” SQL 문이 실행됩니다. |예<br />(**dataset** 의 **tableName** 이 지정된 경우) |
 
 ### <a name="oraclesink"></a>파이프라인
 
@@ -176,12 +176,12 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 | --- | --- | --- | --- |
 | writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |**timespan**<br/><br/> 예: 00:30:00(30분). |예 |
 | writeBatchSize |버퍼 크기가 **writeBatchSize** 값에 도달하면 SQL 테이블에 데이터를 삽입합니다. |정수(행 수) |아니요(기본값: 100) |
-| sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 작업에 대해 실행할 쿼리를 지정합니다. |쿼리 문입니다. |아니요 |
-| sliceIdentifierColumnName |자동으로 생성된 조각 식별자를 사용하여 채울 복사 작업에 대한 열 이름을 지정합니다. 다시 실행할 때 특정 조각의 데이터를 정리하는 데 **sliceIdentifierColumnName** 에 대한 값이 사용됩니다. |**이진(32)** 데이터 형식이 있는 열의 열 이름입니다. |아니요 |
+| sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 작업에 대해 실행할 쿼리를 지정합니다. |쿼리 문입니다. |예 |
+| sliceIdentifierColumnName |자동으로 생성된 조각 식별자를 사용하여 채울 복사 작업에 대한 열 이름을 지정합니다. 다시 실행할 때 특정 조각의 데이터를 정리하는 데 **sliceIdentifierColumnName** 에 대한 값이 사용됩니다. |**이진(32)** 데이터 형식이 있는 열의 열 이름입니다. |예 |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>다른 곳에서 Oracle 데이터베이스로 또는 그 반대로 데이터를 복사하는 JSON 예제
 
-다음 예제에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)를 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공 합니다. 샘플은 Oracle 데이터베이스에서 다른 곳으로 또는 그 반대로, 다른 곳에서 Azure Blob Storage로 또는 그 반대로 데이터를 복사하는 방법을 보여줍니다. 단, 데이터는 Azure Data Factory의 복사 작업을 사용하여 [지원되는 데이터 저장소 및 형식](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 나열된 싱크로 직접 복사할 수 있습니다.
+다음 예제에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 샘플은 Oracle 데이터베이스에서 다른 곳으로 또는 그 반대로, 다른 곳에서 Azure Blob Storage로 또는 그 반대로 데이터를 복사하는 방법을 보여줍니다. 단, 데이터는 Azure Data Factory의 복사 작업을 사용하여 [지원되는 데이터 저장소 및 형식](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 나열된 싱크로 직접 복사할 수 있습니다.
 
 **예제: Oracle에서 Azure Blob Storage로 데이터 복사**
 
@@ -195,7 +195,7 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 
 샘플은 온-프레미스 Oracle 데이터베이스의 테이블에서 blob에 매시간 데이터를 복사합니다. 샘플에 사용되는 다양한 속성에 대한 자세한 내용은 샘플 다음에 나오는 섹션을 참조하세요.
 
-**Oracle 연결 된 서비스**
+**Oracle 연결된 서비스**
 
 ```json
 {
@@ -211,7 +211,7 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 }
 ```
 
-**Azure Blob 저장소 연결 된 서비스**
+**비디오: Linux에서 Azure File Storage 사용**
 
 ```json
 {
@@ -225,7 +225,7 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 }
 ```
 
-**Oracle 입력 데이터 집합**
+**Oracle 입력 데이터 세트**
 
 샘플은 Oracle에 **MyTable** 이란 테이블을 만들었다고 가정합니다. 시계열 데이터에 대한 **timestampcolumn** 이라는 열을 포함합니다.
 
@@ -260,7 +260,7 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 
 **Azure Blob 출력 데이터 세트**
 
-데이터는 매시간 새 blob에 기록 됩니다 (**frequency**: **hour**, **interval**: **1**). Blob에 대한 폴더 경로 및 파일 이름은 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간의 년, 월, 일 및 시 부분을 사용합니다.
+데이터는 1시간마다 새 blob에 기록됩니다(**frequency**: **hour**, **interval**: **1**). Blob에 대한 폴더 경로 및 파일 이름은 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간의 년, 월, 일 및 시 부분을 사용합니다.
 
 ```json
 {
@@ -318,7 +318,7 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 }
 ```
 
-**복사 작업을 포함 하는 파이프라인**
+**복사 작업이 포함된 파이프라인**
 
 파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성되고 매시간 실행하도록 예약된 복사 작업을 포함합니다. 파이프라인 JSON 정의에서 **원본** 형식은 **OracleSource** 로 설정되고 **싱크** 형식은 **BlobSink** 로 설정됩니다. **oracleReaderQuery** 속성을 사용하여 지정한 SQL 쿼리는 과거 시간에서 복사할 데이터를 선택합니다.
 
@@ -383,7 +383,7 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 
 샘플은 Blob에서 온-프레미스 Oracle 데이터베이스의 테이블로 매시간 데이터를 복사합니다. 샘플에 사용되는 다양한 속성에 대한 자세한 내용은 샘플 다음에 나오는 섹션을 참조하세요.
 
-**Oracle 연결 된 서비스**
+**Oracle 연결된 서비스**
 
 ```json
 {
@@ -399,7 +399,7 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 }
 ```
 
-**Azure Blob 저장소 연결 된 서비스**
+**비디오: Linux에서 Azure File Storage 사용**
 
 ```json
 {
@@ -415,7 +415,7 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 
 **Azure Blob 입력 데이터 세트**
 
-데이터는 매시간 새 blob에서 선택 됩니다 (**frequency**: **hour**, **interval**: **1**). Blob에 대한 폴더 경로 및 파일 이름은 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간의 년, 월 및 일 부분을 사용합니다. 파일 이름은 시작 시간의 시 부분을 사용합니다. **external** 설정: **true** 는 이 테이블이 Data Factory의 외부에 있으며 Data Factory의 작업에 의해 생성되지 않음을 Data Factory 서비스에 알립니다.
+데이터는 1시간마다 새 blob에서 선택됩니다(**frequency**: **hour**, **interval**: **1**). Blob에 대한 폴더 경로 및 파일 이름은 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간의 년, 월 및 일 부분을 사용합니다. 파일 이름은 시작 시간의 시 부분을 사용합니다. **external** 설정: **true** 는 이 테이블이 Data Factory의 외부에 있으며 Data Factory의 작업에 의해 생성되지 않음을 Data Factory 서비스에 알립니다.
 
 ```json
 {
@@ -473,7 +473,7 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 }
 ```
 
-**Oracle 출력 데이터 집합**
+**Oracle 출력 데이터 세트**
 
 샘플은 Oracle에 **MyTable** 이란 테이블을 만들었다고 가정합니다. Blob CSV 파일을 포함하려면 같은 수의 열을 사용하여 Oracle에 테이블을 만듭니다. 새 행은 매시간 테이블에 추가됩니다.
 
@@ -494,7 +494,7 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 }
 ```
 
-**복사 작업을 포함 하는 파이프라인**
+**복사 작업이 포함된 파이프라인**
 
 파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성되고 매시간 실행하도록 예약된 복사 작업을 포함합니다. 파이프라인 JSON 정의에서 **원본** 형식은 **BlobSource** 로 설정되고 **싱크** 형식은 **OracleSink** 로 설정됩니다.
 
@@ -565,8 +565,8 @@ Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: 
 * Oracle용 .NET Provider를 설치하지 않은 경우 [해당 항목을 설치](https://www.oracle.com/technetwork/topics/dotnet/downloads/)한 다음, 시나리오를 다시 시도합니다.
 * 공급자를 설치한 후에도 오류 메시지가 표시되면 다음 단계를 완료합니다.
     1. <시스템 디스크\>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config 폴더에서 .NET 2.0에 대한 머신 구성 파일을 엽니다.
-    2. **.NET용 Oracle Data Provider** 를 검색합니다. 다음 샘플에 표시 된 것 처럼 **시스템 데이터**  >  **dbproviderfactories** 에서 항목을 찾을 수 있어야 합니다.`<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
-* 이 항목을 다음 .NET 4.0 폴더의 machine.config 파일에 복사 합니다. <시스템 디스크 \>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. 그런 다음 버전을 x.x.로 변경 합니다.
+    2. **.NET용 Oracle Data Provider** 를 검색합니다. **system.data** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`에서 다음 샘플에서와 같이 항목을 찾을 수 있습니다
+* 이 항목을 .NET 4.0 폴더(<시스템 디스크\>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config)의 machine.config 파일에 복사하고 버전을 4.xxx.x.x으로 변경합니다.
 * **gacutil /i[공급자 경로]** 를 실행하여 GAC(글로벌 어셈블리 캐시)에 <ODP.NET 설치된 경로\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll을 설치합니다.
 
 ### <a name="problem-2-datetime-formatting"></a>문제 2: 날짜/시간 서식

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 072377f98939d996547cb6ee9f9a535b4b32a3dc
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6303a94cec9efc01815b6dc6c697abdfe0f84227
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98597966"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220903"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Azure EA VM 예약 인스턴스
 
@@ -96,7 +96,7 @@ Azure EA 고객이 모든 Azure 선불을 사용한 경우에도 예약된 인�
 
 ### <a name="reserved-instance-expiration"></a>예약된 인스턴스 만료
 
-예약 및 만료되기까지 30일 동안 이메일 알림을 보내드립니다. 예약이 만료되면 배포된 VM은 계속 실행되며 종량제 요금으로 청구됩니다. 자세한 내용은 [Reserved Virtual Machine Instances 제품](https://azure.microsoft.com/pricing/reserved-vm-instances/)을 참조하세요.
+예약 만료 전에 첫 30일 전에와 만료 날짜에 이메일 알림을 받게 됩니다. 예약이 만료되면 배포된 VM은 계속 실행되며 종량제 요금으로 청구됩니다. 자세한 내용은 [Reserved Virtual Machine Instances 제품](https://azure.microsoft.com/pricing/reserved-vm-instances/)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

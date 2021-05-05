@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/06/2020
-ms.openlocfilehash: 44131ecf6fd3d8d2f07f0fe567fb924ac8621682
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: b1551b4d9c28a693adb74436b6490ce7af62a977
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110005"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279855"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>개요: Azure Resource Manager 템플릿을 사용하여 Azure Logic Apps에 대한 배포 자동화
 
@@ -39,7 +39,7 @@ Resource Manager 템플릿에 대한 자세한 내용은 다음 항목을 참조
 샘플 논리 앱 템플릿은 다음 예제를 참조하세요.
 
 * 이 항목의 예제에 사용되는 [전체 템플릿](#full-example-template)
-* GitHub의 [샘플 빠른 시작 논리 앱 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create)
+* GitHub의 [샘플 빠른 시작 논리 앱 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json)
 
 Logic Apps REST API의 경우 [Azure Logic Apps REST API 개요](/rest/api/logic)부터 시작합니다.
 
@@ -63,7 +63,7 @@ Logic Apps REST API의 경우 [Azure Logic Apps REST API 개요](/rest/api/logic
 
 논리 앱 템플릿의 경우 주로 다음과 같은 템플릿 개체를 사용합니다.
 
-| attribute | 설명 |
+| attribute | Description |
 |-----------|-------------|
 | `parameters` | Azure에서 배포할 리소스를 만들고 사용자 지정할 때 사용할 값을 허용하기 위한 [템플릿 매개 변수](../azure-resource-manager/templates/template-syntax.md#parameters)를 선언합니다. 예를 들어 이러한 매개 변수는 논리 앱의 이름과 위치, 연결 및 배포에 필요한 기타 리소스에 대한 값을 허용합니다. 이러한 매개 변수 값은 이 항목의 뒷부분에서 설명하는 [매개 변수 파일](#template-parameter-files)에 저장할 수 있습니다. 일반적인 세부 정보는 [매개 변수 - Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/templates/template-syntax.md#parameters)을 참조하세요. |
 | `resources` | 논리 앱, 연결, Azure Storage 계정 등과 같은 Azure 리소스 그룹을 만들거나 업데이트하고 배포할 [리소스](../azure-resource-manager/templates/template-syntax.md#resources)를 정의합니다. 일반적인 세부 정보는 [리소스 - Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/templates/template-syntax.md#resources)을 참조하세요. |
@@ -328,7 +328,7 @@ Azure 리소스 그룹의 모든 리소스에 대한 리소스 정의를 검토�
 
 논리 앱 리소스 정의와 관련된 특성은 다음과 같습니다.
 
-| attribute | 필수 | Type | 설명 |
+| attribute | 필수 | Type | Description |
 |-----------|----------|------|-------------|
 | `state` | 예 | String | 배포 시 논리 앱의 상태입니다. 여기서 `Enabled`는 논리 앱이 활성 상태이며 `Disabled`는 논리 앱이 비활성 상태임을 의미합니다. 예를 들어 논리 앱을 활성 상태로 전환할 준비가 되지 않았지만 초안 버전을 배포하려는 경우 `Disabled` 옵션을 사용할 수 있습니다. |
 | `integrationAccount` | 예 | Object | 논리 앱이 B2B(Business-to-Business) 시나리오에 대한 아티팩트를 저장하는 통합 계정을 사용하는 경우 이 개체에는 통합 계정의 ID를 지정하는 `id` 속성이 포함됩니다. |
@@ -972,7 +972,7 @@ Azure Blob Storage 연결에 대한 계정 이름 및 액세스 키를 제공하
 }
 ```
 
-| attribute | 설명 |
+| attribute | Description |
 |-----------|-------------|
 | `token:clientId` | 서비스 주체와 연결된 애플리케이션 또는 클라이언트 ID |
 | `token:clientSecret` | 서비스 주체와 연결된 키 값 |
@@ -1121,7 +1121,7 @@ Azure Blob Storage 연결에 대한 계정 이름 및 액세스 키를 제공하
          "defaultValue": "",
          "metadata": {
             "description": "Name of the storage account the connector should use."
-         },
+         }
 
       },
       "azureblob_1_accountName": {
@@ -1164,7 +1164,7 @@ Azure Blob Storage 연결에 대한 계정 이름 및 액세스 키를 제공하
                            "connection": {
                               "name": "@parameters('$connections')['azureblob']['connectionId']"
                            }
-                        },
+                        }
                      },
                      "method": "post",
                      "body": "@triggerBody()?['Body']",

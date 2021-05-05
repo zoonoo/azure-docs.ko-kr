@@ -5,18 +5,18 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 03/30/2021
 ms.author: banders
-ms.openlocfilehash: 3bd571195a3f0df290387812e68f2b0377fe3c3c
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 15c97640ab1f4e862aab0aff4b3965822daafb2b
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584053"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219827"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Azure 무료 계정에 포함된 서비스 만들기
 
-Azure 체험 계정을 만든 후 처음 30일 동안 타사 Marketplace 구매를 제외한 모든 서비스에서 사용할 수 있는 $200 크레딧이 있습니다. 체험 크레딧을 사용하여 다양한 계층 및 유형의 Azure 서비스를 실험하여 Azure를 사용해 볼 수 있습니다. 해당 기간 동안 무료가 아닌 서비스 또는 Azure 리소스를 사용하는 경우 요금은 크레딧에서 공제됩니다.
+Azure 체험 계정을 만든 후 첫 30일 동안 타사 Marketplace 구매를 제외한 모든 서비스에서 사용할 수 있도록 청구 통화로 USD200 크레딧이 제공됩니다. 체험 크레딧을 사용하여 다양한 계층 및 유형의 Azure 서비스를 실험하여 Azure를 사용해 볼 수 있습니다. 해당 기간 동안 무료가 아닌 서비스 또는 Azure 리소스를 사용하는 경우 요금은 크레딧에서 공제됩니다.
 
 처음 30일이 지나도록 크레딧을 모두 사용하지 않으면 손실됩니다. 처음 30일 후 및 등록 후 최대 12개월 후에는 *일부 서비스* 의 제한된 수량만 사용할 수 있습니다. 모든 Azure 서비스가 무료는 아닙니다. 30일 이전에 업그레이드하고 크레딧이 남아 있는 경우 남은 기간 동안 종량제 구독으로 나머지 크레딧을 사용할 수 있습니다. 예를 들어 11월 1일에 체험 계정에 가입하고 11월 5일에 업그레이드하는 경우 11월 30일까지 새 종량제 구독에서 크레딧을 사용할 수 있습니다. 
 

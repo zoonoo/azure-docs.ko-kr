@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/06/2021
 ms.author: mbullwin
-ms.openlocfilehash: eae4d00cd7b1a0ff90648086320135505a0d900a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: f9ba38b6493ee3dcb246382407552091b97454f0
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107318781"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108121122"
 ---
 Java용 Anomaly Detector 다변량 클라이언트 라이브러리를 시작합니다. 서비스에서 제공하는 알고리즘을 사용하여 패키지 시작을 설치하려면 다음 단계를 따르세요. 새로운 다변량 변칙 검색 API를 통해 개발자는 기계 학습 기술 또는 레이블이 지정된 데이터 없이도 메트릭 그룹에서 변칙을 검색하는 고급 AI를 쉽게 통합할 수 있습니다. 서로 다른 신호 간의 종속성 및 상호 상관 관계는 자동으로 주요 요소로 계산됩니다. 이를 통해 복잡한 시스템의 오류로부터 사전에 보호할 수 있습니다.
 
@@ -21,9 +21,11 @@ Java용 Anomaly Detector 다변량 클라이언트 라이브러리를 사용하�
 
 * 시계열 그룹에서 시스템 수준 이상 징후를 감지합니다.
 * 개별 시계열이 많은 것을 알 수 없는 경우 문제를 감지하기 위해 모든 신호를 확인해야 합니다.
-* 시스템 상태의 다양한 측면을 측정하는 수십~수백 가지 유형의 센서를 통해 고가의 물리적 자산을 예측하여 유지 관리할 수 있습니다.
+* 시스템 상태의 다양한 양상을 측정하는 수천 개 유형의 센서를 사용하여 고가의 물리적 자산을 사전 예방적으로 유지 관리.
 
-## <a name="prerequisites"></a>필수 구성 요소
+[라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/anomalydetector/azure-ai-anomalydetector) | [패키지(Maven)](https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector/3.0.0-beta.2/) | [샘플 코드](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/anomalydetector/azure-ai-anomalydetector/src/samples/java/com/azure/ai/anomalydetector/MultivariateSample.java)
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * [JDK(Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)의 현재 버전
@@ -108,7 +110,7 @@ String key = "YOUR_API_KEY";
 String endpoint = "YOUR_ENDPOINT";
 ```
 
- Anomaly Detector 다변량 API를 사용하려면 검색을 사용하기 전에 고유한 모델을 학습해야 합니다. 학습에 사용되는 데이터는 일련의 시계열의 일괄 처리입니다. 각 시계열은 타임스탬프와 값이라는 두 개의 열이 포함된 CSV 형식이어야 합니다. 모든 시계열은 하나의 zip 파일로 압축되고 [Azure Blob 스토리지](../../../../storage/blobs/storage-blobs-introduction.md)에 업로드되어야 합니다. 기본적으로 파일 이름은 시계열의 변수를 나타내는 데 사용됩니다. 또는 변수의 이름을 .zip 파일 이름과 다르게 지정하려는 경우 추가 meta.json 파일을 zip 파일에 포함시킬 수 있습니다. [Blob SAS(공유 액세스 서명) URL](../../../../storage/common/storage-sas-overview.md)을 생성하면 학습을 위해 zip 파일에 대한 URL을 사용할 수 있습니다.
+ Anomaly Detector 다변량 API를 사용하려면 검색을 사용하기 전에 고유한 모델을 학습해야 합니다. 학습에 사용되는 데이터는 시계열의 일괄 처리입니다. 각 시계열은 타임스탬프와 값이라는 두 열이 포함된 CSV 형식이어야 합니다. 모든 시계열은 하나의 zip 파일로 압축되고 [Azure Blob Storage](../../../../storage/blobs/storage-blobs-introduction.md)에 업로드되어야 합니다. 기본적으로 파일 이름은 시계열의 변수를 나타내는 데 사용됩니다. 또는 변수의 이름을 .zip 파일 이름과 다르게 지정하려는 경우 추가 meta.js 파일을 zip 파일에 포함시킬 수 있습니다. [Blob SAS(공유 액세스 서명) URL](../../../../storage/common/storage-sas-overview.md)을 생성하면 학습을 위해 zip 파일에 대한 URL을 사용할 수 있습니다.
 
 ## <a name="code-examples"></a>코드 예제
 
@@ -151,7 +153,7 @@ AnomalyDetectorClient anomalyDetectorClient = new AnomalyDetectorClientBuilder()
 
 먼저 모델 요청을 생성해야 합니다. 시작 및 종료 시간이 데이터 원본과 일치하는지 확인합니다.
 
- Anomaly Detector 다변량 API를 사용하려면 검색을 사용하기 전에 고유한 모델을 학습해야 합니다. 학습에 사용되는 데이터는 일련의 시계열의 일괄 처리입니다. 각 시계열은 타임스탬프와 값이라는 두 개의 열이 포함된 CSV 형식이어야 합니다. 모든 시계열은 하나의 zip 파일로 압축되고 [Azure Blob 스토리지](../../../../storage/blobs/storage-blobs-introduction.md#blobs)에 업로드되어야 합니다. 기본적으로 파일 이름은 시계열의 변수를 나타내는 데 사용됩니다. 또는 변수의 이름을 .zip 파일 이름과 다르게 지정하려는 경우 추가 meta.json 파일을 zip 파일에 포함시킬 수 있습니다. [Blob SAS(공유 액세스 서명) URL](../../../../storage/common/storage-sas-overview.md)을 생성하면 학습을 위해 zip 파일에 대한 URL을 사용할 수 있습니다.
+Anomaly Detector 다변량 API를 사용하려면 검색을 사용하기 전에 고유한 모델을 학습해야 합니다. 학습에 사용되는 데이터는 시계열 일괄 처리입니다. 각 시계열은 열이 두 개( **"timestamp"** 및 **"value"** )만 있는 CSV 파일에 있어야 합니다. 열 이름은 정확하게 동일해야 합니다. 각 CSV 파일 이름은 시계열의 각 변수 다음에 지정되어야 합니다. 모든 시계열은 zip 파일 하나로 압축되어 [Azure Blob Storage](../../../../storage/blobs/storage-blobs-introduction.md#blobs)에 업로드되어야 합니다. zip 파일 이름에 대한 요구 사항은 없습니다. 또는 변수의 이름을 .zip 파일 이름과 다르게 지정하려는 경우 추가 meta.js 파일을 zip 파일에 포함시킬 수 있습니다. [Blob SAS(공유 액세스 서명) URL](../../../../storage/common/storage-sas-overview.md)을 생성하면 학습을 위해 zip 파일에 대한 URL을 사용할 수 있습니다.
 
 ```java
 Path path = Paths.get("test-data.csv");
@@ -253,6 +255,8 @@ Response<Void> deleteMultivariateModelWithResponse = anomalyDetectorClient.delet
 gradle build
 ```
 ### <a name="run-the-application"></a>애플리케이션 실행
+
+실행하기 전에 [전체 샘플 코드](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/anomalydetector/azure-ai-anomalydetector/src/samples/java/com/azure/ai/anomalydetector/MultivariateSample.java)에서 코드를 확인하는 것이 도움이 될 수 있습니다.
 
 `run` 목표를 사용하여 애플리케이션을 실행합니다.
 

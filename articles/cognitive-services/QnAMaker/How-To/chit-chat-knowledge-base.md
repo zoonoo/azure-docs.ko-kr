@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1208d95a282ca6e236d9d6be8013f51dead90d13
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0463ccf12a254ebda1ee3d6f9cc9bfe7f43b4e80
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94376655"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108178721"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>기술 자료에 잡담 추가
 
@@ -22,7 +22,7 @@ ms.locfileid: "94376655"
 
 이 데이터 집합에는 전문적인, 친숙한 및 재치있는 등 여러 가상 사용자의 목소리로 녹음된 약 100개의 채팅 시나리오가 있습니다. 봇의 음성과 가장 유사한 가상 사용자를 선택하세요. QnA Maker는 사용자 쿼리가 지정되면 알려진 잡담 QnA 중 가장 가까운 QnA와 이를 매칭합니다.
 
-다음은 다른 성격의 몇 가지 예입니다. 모든 퍼스낼리티 [데이터 집합](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets)을 퍼스낼리티 세부 정보와 함께 볼 수 있습니다.
+다음은 다른 성격의 몇 가지 예입니다. 모든 퍼스낼리티 [데이터 집합](https://github.com/microsoft/botframework-cli/blob/main/packages/qnamaker/docs/chit-chat-dataset.md)을 퍼스낼리티 세부 정보와 함께 볼 수 있습니다.
 
 `When is your birthday?`의 사용자 쿼리에 대해 각 퍼스낼리티에는 다음과 같은 스타일의 응답이 있습니다.
 

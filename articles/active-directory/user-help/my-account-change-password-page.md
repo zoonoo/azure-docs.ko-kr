@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 01/19/2021
 ms.author: curtand
 ms.openlocfilehash: 2e1cfae18265dc00cda9fb66f7b9b5dbbdf6d64d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100092386"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>암호 변경 페이지에서 회사 또는 학교 계정 암호 변경
@@ -23,7 +23,7 @@ ms.locfileid: "100092386"
 **내 계정** 포털의 **암호 변경** 페이지는 회사 또는 학교 계정의 기존 암호를 업데이트하는 데 도움이 됩니다(사용자가 암호를 기억하고 있고 계정이 잠기지 않은 것으로 가정). 암호를 기억하지 못하거나, 계정이 잠겼거나, 조직에서 암호를 받은 적이 없는 경우에는 보안 정보와 모바일 디바이스를 사용하여 암호를 재설정할 수 있습니다.
 
 >[!Important]
->이 문서는 기존 회사 또는 학교 계정에 대해 알려진 암호를 업데이트하려는 사용자를 위해 작성되었습니다. Xbox, Hotmail, Outlook.com과 같은 개인 계정에 다시 액세스하려는 사용자인 경우 [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) 문서의 권장 사항을 시도해 보세요. 개인 Microsoft 계정를 사용 하 여 로그인 하는 동안 오류가 표시 되는 경우 다음 Url 중 하나를 사용 하 여 관리자에 게 서 조직의 도메인 이름 (예: contoso.com) 또는 조직의 **테 넌 트 ID** 를 사용 하 여 로그인 할 수 있습니다.
+>이 문서는 기존 회사 또는 학교 계정에 대해 알려진 암호를 업데이트하려는 사용자를 위해 작성되었습니다. Xbox, Hotmail, Outlook.com과 같은 개인 계정에 다시 액세스하려는 사용자인 경우 [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) 문서의 권장 사항을 시도해 보세요. 개인 Microsoft 계정으로 로그인하는 동안 오류가 표시되는 경우, 다음 URL 중 하나에서 조직의 도메인 이름(예: contoso.com) 또는 관리자의 조직 **테넌트 ID** 를 사용하여 로그인할 수 있습니다.
 >
 >   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
 >   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*

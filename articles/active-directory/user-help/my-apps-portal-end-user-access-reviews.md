@@ -13,10 +13,10 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: 34885e2a364778a2f81f4920aa26aa3bb5f40320
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100095021"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>내 앱 포털에서 액세스 검토를 수행
@@ -30,7 +30,7 @@ ms.locfileid: "100095021"
 >[!Important]
 >이 콘텐츠는 **내 앱** 사용자를 위한 것입니다. 관리자인 경우 [애플리케이션 관리 설명서](../manage-apps/index.yml)에서 클라우드 기반 앱을 설정 및 관리하는 방법에 대한 더 자세한 정보를 확인할 수 있습니다.
 >
-> 개인 Microsoft 계정를 사용 하 여 로그인 하는 동안 오류가 표시 되는 경우 다음 Url 중 하나를 사용 하 여 관리자에 게 서 조직의 도메인 이름 (예: contoso.com) 또는 조직의 **테 넌 트 ID** 를 사용 하 여 로그인 할 수 있습니다.
+> 개인 Microsoft 계정으로 로그인하는 동안 오류가 표시되는 경우, 다음 URL 중 하나에서 조직의 도메인 이름(예: contoso.com) 또는 관리자의 조직 **테넌트 ID** 를 사용하여 로그인할 수 있습니다.
 >
 >   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
 >   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*

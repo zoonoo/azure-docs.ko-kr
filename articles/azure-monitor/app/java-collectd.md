@@ -7,16 +7,16 @@ author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
 ms.openlocfilehash: 08d8deb4c7769c4f8a202050d7b5515439d691f4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100573852"
 ---
-# <a name="collectd-linux-performance-metrics-in-application-insights-deprecated"></a>collectd: Application Insights의 Linux 성능 메트릭 [사용 되지 않음]
+# <a name="collectd-linux-performance-metrics-in-application-insights-deprecated"></a>collectd: Application Insights의 Linux 성능 메트릭[사용 중단]
 
 > [!IMPORTANT]
-> Java 응용 프로그램 모니터링에 권장 되는 **방법은** 코드를 변경 하지 않고 자동 계측을 사용 하는 것입니다. **[Application Insights Java 3.0 에이전트](./java-in-process-agent.md)** 에 대 한 지침을 따르세요.
+> Java 애플리케이션 모니터링에 **권장되는 방법** 은 코드를 변경하지 않고 자동 계측을 사용하는 것입니다. **[Application Insights Java 3.0 에이전트](./java-in-process-agent.md)** 지침을 따르세요.
 
 Linux 시스템 성능 메트릭을[Application Insights](./app-insights-overview.md)에서 탐색하려면 [collectd](https://collectd.org/)와 Application Insights 플러그 인을 함께 설치합니다. 이 오픈 소스 솔루션은 다양한 시스템 및 네트워크 통계를 수집합니다.
 
@@ -87,7 +87,7 @@ Linux 서버 컴퓨터에서:
 Collectd를 해당 [설명서](https://collectd.org/wiki/index.php/First_steps)에 따라서 다시 시작합니다.
 
 ## <a name="view-the-data-in-application-insights"></a>Application Insights에서 데이터 보기
-Application Insights 리소스에서 메트릭을 열고 [차트를 추가][metrics]하 여 사용자 지정 범주에서 보려는 메트릭을 선택 합니다.
+Application Insights 리소스에서 [메트릭 및 차트 추가][metrics]를 열고, 사용자 지정 범주에서 보려는 메트릭을 선택합니다.
 
 기본적으로 메트릭을 수집한 모든 호트스 컴퓨터의 메트릭이 집계됩니다. 차트 세부 정보 블레이드에서 호스트마다 메트릭을 보려면 그룹화를 설정하고 CollectD 호스트별로 그룹화를 선택합니다.
 
@@ -120,7 +120,7 @@ Application Insights 리소스에서 메트릭을 열고 [차트를 추가][metr
 
 Application Insights 쓰기 플러그 인이 특정 읽기 플러그 인과 호환되지 않습니다. 경우에 따라 일부 플러그 인은 Application Insights 플러그 인에서 부동 소수점 숫자를 예상하는 위치로 “NaN”를 전송합니다.
 
-증상: collectd 로그에 "AI: ... SyntaxError: 예기치 않은 토큰 N ".
+증상: collectd 로그에 'AI: ... SyntaxError: Unexpected token N'이 포함된 오류가 표시됩니다.
 
 해결 방법: 문제 쓰기 플러그 인에 의해 수집된 데이터를 제외합니다. 
 
