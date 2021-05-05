@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/19/2020
-ms.openlocfilehash: 3da3b1694a16507203d7f1f1f6cb5df58dd54423
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 067d4fb6ce61ca2a5938bbc3256e8a9c01c8a818
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100366180"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279836"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database for MySQL 서버 만들기
 
@@ -22,7 +22,7 @@ Azure Database for MySQL은 클라우드에서 고가용성 MySQL 데이터베�
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 배포":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 배포":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.dbformysql%2Fmanaged-mysql-with-vnet%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -48,7 +48,7 @@ Azure Database for MySQL은 클라우드에서 고가용성 MySQL 데이터베�
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-managed-mysql-with-vnet/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-managed-mysql-with-vnet/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.dbformysql/managed-mysql-with-vnet/azuredeploy.json":::
 
 템플릿에서 정의하는 5개의 Azure 리소스는 다음과 같습니다.
 
@@ -66,7 +66,7 @@ Azure Database for MySQL은 클라우드에서 고가용성 MySQL 데이터베�
 
 다음 링크를 선택하여 Azure Portal에서 Azure Database for MySQL 서버 템플릿을 배포합니다.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 배포":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 배포":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.dbformysql%2Fmanaged-mysql-with-vnet%2Fazuredeploy.json)
 
 **VNet을 사용하여 Azure Database for MySQL 배포** 페이지에서 다음을 수행합니다.
 
@@ -114,7 +114,7 @@ $adminPassword = Read-Host -Prompt "Enter the administrator password" -AsSecureS
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location # Use this command when you need to create a new resource group for your deployment
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
-    -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-managed-mysql-with-vnet/azuredeploy.json `
+    -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.dbformysql/managed-mysql-with-vnet/azuredeploy.json `
     -serverName $serverName `
     -administratorLogin $adminUser `
     -administratorLoginPassword $adminPassword
@@ -141,7 +141,7 @@ echo "Enter the administrator password:" &&
 read adminPassword &&
 params='serverName='$serverName' administratorLogin='$adminUser' administratorLoginPassword='$adminPassword &&
 az group create --name $resourceGroupName --location $location &&
-az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-managed-mysql-with-vnet/azuredeploy.json &&
+az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.dbformysql/managed-mysql-with-vnet/azuredeploy.json &&
 echo "Press [ENTER] to continue ..."
 ```
 

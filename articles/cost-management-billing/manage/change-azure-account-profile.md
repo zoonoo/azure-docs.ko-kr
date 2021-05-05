@@ -1,21 +1,21 @@
 ---
 title: Azure 청구 계정의 연락처 정보 변경
 description: Azure 청구 계정의 연락처 정보를 변경하는 방법 설명
-author: genlin
-ms.reviewer: dcscontentpm
+author: bandersmsft
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 04/08/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 776c207387ee55b998615131baf77e6c13655b49
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: f394b6b44b2030253f7b78ec68459819c82c3c27
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033940"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480905"
 ---
 # <a name="change-contact-information-for-an-azure-billing-account"></a>Azure 청구 계정의 연락처 정보 변경
 
@@ -64,6 +64,21 @@ Azure Active Directory 사용자 프로필 정보를 업데이트하려는 경�
     ![주소를 업데이트하는 위치를 보여 주는 스크린샷](./media/change-azure-account-profile/update-bill-to-list-properties-mca.png)
 1. 새 주소를 입력한 다음, **저장** 을 선택합니다.  
     ![주소 업데이트를 보여 주는 스크린샷](./media/change-azure-account-profile/update-bill-to-save-mca.png)
+
+## <a name="update-a-po-number"></a>PO 번호 업데이트
+
+기본적으로 청구 프로필의 청구서에는 연결된 PO 번호가 없습니다. 청구 프로필의 PO 번호를 추가하면 청구 프로필의 청구서에 PO 번호가 표시됩니다.
+
+청구 프로필의 PO 번호를 추가하거나 변경하려면 다음 단계를 수행합니다.
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. **Cost Management + Billing** 를 검색한 다음, **청구 범위** 를 선택합니다.
+1. 청구 범위를 선택합니다.
+1. 왼쪽 메뉴의 **청구** 에서 **청구 프로필** 을 선택합니다.
+1. 적절한 청구 프로필을 선택합니다.
+1. 왼쪽 메뉴의 **설정** 에서 **속성** 을 선택합니다.
+1. **PO 번호 업데이트** 를 선택합니다.
+1. PO 번호를 입력한 다음, **업데이트** 를 선택합니다.
 
 ## <a name="service-and-marketing-emails"></a>서비스 및 마케팅 이메일
 

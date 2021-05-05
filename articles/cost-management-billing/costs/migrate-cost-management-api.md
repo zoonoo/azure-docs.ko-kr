@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.openlocfilehash: 811b2cb7fd9a4f664e7a643f5a8e192a51416888
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 46ad81f6723d160bf1d675b68a8459dd8df32c80
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689102"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078352"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>기업계약에서 Microsoft 고객 계약 API로 마이그레이션
 
@@ -55,7 +55,7 @@ EA API는 인증 및 권한 부여에 API 키를 사용합니다. MCA API는 Azu
 | 사용량(CSV) | [/usagedetails/download](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format)[/usagedetails/submit](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format) | [Microsoft.Consumption/usageDetails/download](/rest/api/consumption/usagedetails)<sup>1</sup> |
 | Marketplace 사용량(CSV) | [/marketplacecharges](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)[/marketplacechargesbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) | [Microsoft.Consumption/usageDetails/download](/rest/api/consumption/usagedetails)<sup>1</sup> |
 | 청구 기간 | [/billingperiods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) | Microsoft.Billing/billingAccounts/billingProfiles/invoices |
-| 가격표 | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | Microsoft.Billing/billingAccounts/billingProfiles/pricesheet/default/download format=json|csv Microsoft.Billing/billingAccounts/…/billingProfiles/…/invoices/… /pricesheet/default/download format=json|csv Microsoft.Billing/billingAccounts/../billingProfiles/../providers/Microsoft.Consumption/pricesheets/download  |
+| 가격표 | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | Microsoft.Billing/billingAccounts/billingProfiles/pricesheet/default/download format=json\|csv Microsoft.Billing/billingAccounts/…/billingProfiles/…/invoices/… /pricesheet/default/download format=json\|csv Microsoft.Billing/billingAccounts/../billingProfiles/../providers/Microsoft.Consumption/pricesheets/download  |
 | 예약 구매 | [/reservationcharges](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) | Microsoft.Billing/billingAccounts/billingProfiles/transactions |
 | 예약 권장 사항 | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations)[/](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations)[SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
 | 예약 사용량 | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for-reserved-instance-usage-details)[/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails)[Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) |
@@ -124,12 +124,12 @@ Usage Details API를 사용하여 사용량 세부 정보를 가져오는 방법
 
 모든 Cost Management API와 마찬가지로, Usage Details API는 여러 범위에서 사용할 수 있습니다. 청구서가 발부된 비용의 경우 기존에 등록 수준에서 받던 것처럼 청구 프로필 범위를 사용합니다.  Cost Management 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 
-| Type | ID 형식 |
+| 유형 | ID 형식 |
 | --- | --- |
 | 청구 계정 | `/Microsoft.Billing/billingAccounts/{billingAccountId}` |
 | 청구 프로필 | `/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}` |
-| Subscription | `/subscriptions/{subscriptionId}` |
-| Resource group | `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}` |
+| 구독 | `/subscriptions/{subscriptionId}` |
+| 리소스 그룹 | `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}` |
 
 다음 querystring 매개 변수를 사용하여 프로그래밍 코드를 업데이트합니다.
 
@@ -166,7 +166,7 @@ Usage Details API를 사용하여 사용량 세부 정보를 가져오는 방법
 }
 ```
 
-사용량 레코드 배열을 포함하는 속성 이름이 데이터에서 _값_으로 변경되었습니다. 각 레코드는 상세 속성의 단순 목록을 포함하는 데 사용되었습니다. 하지만 이제 각 레코드는 태그를 제외하고 _속성_이라는 중첩 속성에 있습니다. 새 구조는 다른 Azure API와 일치합니다. 일부 속성 이름이 변경되었습니다. 다음 표에서는 해당하는 속성을 보여줍니다.
+사용량 레코드 배열을 포함하는 속성 이름이 데이터에서 _값_ 으로 변경되었습니다. 각 레코드는 상세 속성의 단순 목록을 포함하는 데 사용되었습니다. 하지만 이제 각 레코드는 태그를 제외하고 _속성_ 이라는 중첩 속성에 있습니다. 새 구조는 다른 Azure API와 일치합니다. 일부 속성 이름이 변경되었습니다. 다음 표에서는 해당하는 속성을 보여줍니다.
 
 | 이전 속성 | 새 속성 | 메모 |
 | --- | --- | --- |
@@ -184,20 +184,20 @@ Usage Details API를 사용하여 사용량 세부 정보를 가져오는 방법
 | DepartmentName | invoiceSectionName | 정확한 문자열 값은 다를 수 있습니다. 필요한 경우 부서와 일치하도록 청구서 섹션을 구성합니다. |
 | ExtendedCost 및 Cost | costInBillingCurrency | &nbsp;  |
 | InstanceId | resourceId | &nbsp;  |
-| 반복 청구 여부 | None | &nbsp;  |
+| 반복 청구 여부 | 없음 | &nbsp;  |
 | 위치 | 위치 | &nbsp;  |
 | MeterCategory | meterCategory | 정확한 문자열 값은 다를 수 있습니다. |
 | MeterId | meterId | 정확한 문자열 값은 다릅니다. |
 | MeterName | meterName | 정확한 문자열 값은 다를 수 있습니다. |
 | MeterRegion | meterRegion | 정확한 문자열 값은 다를 수 있습니다. |
 | MeterSubCategory | meterSubCategory | 정확한 문자열 값은 다를 수 있습니다. |
-| Month | None | 날짜에서 월을 구문 분석합니다. |
+| 월 | None | 날짜에서 월을 구문 분석합니다. |
 | 제품 이름 | None | publisherName 및 productOrderName을 사용합니다. |
 | OfferID | None | &nbsp;  |
 | 주문 번호 | None | &nbsp;  |
 | PartNumber | None | meterId 및 productOrderName을 사용하여 가격을 고유하게 식별합니다. |
 | 플랜 이름 | productOrderName | &nbsp;  |
-| Product | Product |   |
+| 제품 | 제품 |   |
 | ProductId | productId | 정확한 문자열 값은 다릅니다. |
 | 게시자 이름 | publisherName | &nbsp;  |
 | ResourceGroup | resourceGroupName | &nbsp;  |
@@ -214,7 +214,7 @@ Usage Details API를 사용하여 사용량 세부 정보를 가져오는 방법
 | SubscriptionGuid | subscriptionId | &nbsp;  |
 | SubscriptionId | subscriptionId | &nbsp;  |
 | SubscriptionName | subscriptionName | &nbsp;  |
-| 태그들 | tags | tags 속성은 루트 개체에 적용되며 nested properties 속성에는 적용되지 않습니다. |
+| 태그 | tags | tags 속성은 루트 개체에 적용되며 nested properties 속성에는 적용되지 않습니다. |
 | UnitOfMeasure | unitOfMeasure | 정확한 문자열 값은 다릅니다. |
 | usageEndDate | date | &nbsp;  |
 | Year | None | 날짜에서 연도를 구문 분석합니다. |
@@ -269,7 +269,7 @@ Microsoft 고객 계약에 대한 Price Sheet API를 사용하여 모든 Azure C
 | --- | --- |
 | POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/pricesheet/default/download?api-version=2018-11-01-preview&startDate=2019-01-01&endDate=2019-01-31&format=json` |
 
-API를 사용하면 전체 계정의 가격표가 반환됩니다. 그러나 요약 버전의 가격표를 PDF 형식으로 가져올 수도 있습니다. 요약 버전에는 특정 청구서로 요금이 청구되는 Azure Consumption 및 Marketplace 사용 서비스가 포함됩니다. 청구서는 청구서 요약 PDF 파일에 표시된 **청구서 번호**와 동일한 {invoiceId}로 식별됩니다. 예를 들면 다음과 같습니다.
+API를 사용하면 전체 계정의 가격표가 반환됩니다. 그러나 요약 버전의 가격표를 PDF 형식으로 가져올 수도 있습니다. 요약 버전에는 특정 청구서로 요금이 청구되는 Azure Consumption 및 Marketplace 사용 서비스가 포함됩니다. 청구서는 청구서 요약 PDF 파일에 표시된 **청구서 번호** 와 동일한 {invoiceId}로 식별됩니다. 예를 들면 다음과 같습니다.
 
 ![InvoiceId에 해당하는 청구서 번호를 보여주는 예제 이미지](./media/migrate-cost-management-api/invoicesummary.png)
 
@@ -299,7 +299,7 @@ Price Sheet API를 사용하여 사용 서비스의 예상 가격을 JSON 형식
 | --- | --- |
 | POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billing AccountId}/billingProfiles/{billingProfileId}/pricesheet/default/download?api-version=2018-11-01-preview&format=json` |
 
-Microsoft 고객 계약 Price Sheet API는 *비동기 REST API*입니다. API에 대한 응답이 이전의 동기 API에서 변경되었습니다. API 응답 본문도 변경되었습니다.
+Microsoft 고객 계약 Price Sheet API는 *비동기 REST API* 입니다. API에 대한 응답이 이전의 동기 API에서 변경되었습니다. API 응답 본문도 변경되었습니다.
 
 #### <a name="old-response-body"></a>이전 응답 본문
 
@@ -428,10 +428,10 @@ EA의 등록 범위에서 API 응답과 속성은 동일합니다. 속성은 동
 
 | 이전 Azure Resource Manager Price Sheet API 속성  | 새 Microsoft 고객 계약 Price Sheet API 속성   | Description |
 | --- | --- | --- |
-| 측정기 ID | _meterId_ | 측정기의 고유 식별자입니다. meterID와 동일합니다. |
+| Meter ID | _meterId_ | 측정기의 고유 식별자입니다. meterID와 동일합니다. |
 | 미터 이름 | meterName | 측정기의 이름입니다. 미터는 Azure 서비스의 배포 가능한 리소스를 나타냅니다. |
-| 미터 범주  | 서비스 | 측정기에 대한 분류 범주의 이름입니다. Microsoft 고객 계약 가격표의 서비스와 동일합니다. 정확한 문자열 값은 다릅니다. |
-| 미터 하위 범주 | meterSubCategory | 미터의 하위 분류 범주 이름입니다. 서비스의 상위 수준 기능 세트 차별화 분류를 기준으로 합니다. 기본 SQL DB와 표준 SQL DB를 예로 들 수 있습니다. |
+| 미터 범주  | service | 측정기에 대한 분류 범주의 이름입니다. Microsoft 고객 계약 가격표의 서비스와 동일합니다. 정확한 문자열 값은 다릅니다. |
+| 미터 범주 | meterSubCategory | 미터의 하위 분류 범주 이름입니다. 서비스의 상위 수준 기능 세트 차별화 분류를 기준으로 합니다. 기본 SQL DB와 표준 SQL DB를 예로 들 수 있습니다. |
 | 미터 영역 | meterRegion | &nbsp;  |
 | 단위 | _해당 사항 없음_ | unitOfMeasure에서 구문 분석할 수 있습니다. |
 | 측정 단위 | unitOfMeasure | &nbsp;  |
@@ -479,7 +479,7 @@ Transactions API를 사용하여 예약 구매 트랜잭션을 가져오는 방�
 
 ## <a name="recommendations-apis-replaced"></a>Recommendations API 대체됨
 
-Reserved Instance Purchase Recommendations API는 지난 7일, 30일 또는 60일의 가상 머신 사용량을 제공합니다. 이 API는 예약 구매 추천도 제공합니다. 해당 기능은 아래와 같습니다.
+Reserved Instance Purchase Recommendations API는 지난 7일, 30일 또는 60일의 가상 머신 사용량을 제공합니다. 이 API는 예약 구매 추천도 제공합니다. 다음과 같은 변경 내용이 해당됩니다.
 
 - [Shared Reserved Instance Recommendation API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations)
 - [Single Reserved Instance Recommendations API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations)
@@ -496,7 +496,7 @@ Reservation Recommendations API를 사용하여 예약 추천을 가져오는 �
 
 Reserved Instance Usage API를 사용하여 등록의 예약 사용량을 가져올 수 있습니다. 등록에 예약 인스턴스가 여러 개 있는 경우 이 API를 사용하여 모든 예약 인스턴스 구매의 사용량을 가져올 수도 있습니다.
 
-해당 기능은 아래와 같습니다.
+다음과 같은 변경 내용이 해당됩니다.
 
 - [예약 인스턴스 사용량 세부 정보](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for-reserved-instance-usage-details)
 - [예약 인스턴스 사용량 요약 정보](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)

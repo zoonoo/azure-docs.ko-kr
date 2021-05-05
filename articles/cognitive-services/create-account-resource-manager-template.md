@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: quickstart
-ms.date: 3/22/2021
+ms.date: 04/28/2021
 ms.author: aahi
 ms.custom: subject-armqs
-ms.openlocfilehash: c3d74f8552f06290b43f6078bb7fcdd55c8b5f40
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: b67639c5a6f55c45e42e3a17187356caf32451a6
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108072274"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278455"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Cognitive Services 리소스 만들기
 
@@ -32,7 +32,7 @@ ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 리소스를 만
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 인지 서비스 배포](../media/template-deployments/deploy-to-azure.svg "Azure에 인지 서비스 배포")](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cognitive-services-universalkey%2Fazuredeploy.json)
+[![Azure에 인지 서비스 배포](../media/template-deployments/deploy-to-azure.svg "Azure에 인지 서비스 배포")](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.cognitiveservices%2Fcognitive-services-universalkey%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -42,7 +42,7 @@ ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 리소스를 만
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-cognitive-services-universalkey/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-cognitive-services-universalkey/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.cognitiveservices/cognitive-services-universalkey/azuredeploy.json":::
 
 템플릿에 다음과 같은 Azure 리소스 하나가 정의되어 있습니다.
 * [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts): Cognitive Services 리소스를 만듭니다.
@@ -53,11 +53,11 @@ ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 리소스를 만
 
 1. **Azure에 배포** 단추를 클릭합니다.
 
-    [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cognitive-services-universalkey%2Fazuredeploy.json)
+    [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.cognitiveservices%2Fcognitive-services-universalkey%2Fazuredeploy.json)
 
 2. 다음 값을 입력합니다.
 
-    |값  |설명  |
+    |값  |Description  |
     |---------|---------|
     | **구독** | Azure 구독을 선택합니다. |
     | **리소스 그룹** | **새로 만들기** 를 선택하고 리소스 그룹의 고유한 이름을 입력한 다음, **확인** 을 클릭합니다. |
@@ -81,7 +81,7 @@ ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 리소스를 만
 ```azurecli-interactive
 read -p "Enter a name for your new resource group:" resourceGroupName &&
 read -p "Enter the location (i.e. centralus):" location &&
-templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cognitive-services-universalkey/azuredeploy.json" &&
+templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.cognitiveservices/cognitive-services-universalkey/azuredeploy.json" &&
 az group create --name $resourceGroupName --location "$location" &&
 az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri &&
 echo "Press [ENTER] to continue ..." &&
@@ -91,7 +91,6 @@ read
 ---
 
 [!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
-
 
 ## <a name="review-deployed-resources"></a>배포된 리소스 검토
 

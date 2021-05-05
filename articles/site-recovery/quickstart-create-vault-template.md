@@ -1,17 +1,17 @@
 ---
 title: Azure Resource Manager 템플릿을 사용하여 Azure Recovery Services 자격 증명 모음을 만들기 위한 빠른 시작입니다.
 description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure Recovery Services 자격 증명 모음을 만드는 방법에 대해 알아봅니다.
-ms.date: 04/29/2020
+ms.date: 04/28/2021
 ms.topic: quickstart
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: 11a88b5485ad970802a65af31daccdb30a1c86df
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 453c1a14a54011d8124588911da1cde64fe2ea28
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107533259"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277303"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Recovery Services 자격 증명 모음 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "107533259"
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-vault-create%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.recoveryservices%2Frecovery-services-vault-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -31,7 +31,7 @@ ms.locfileid: "107533259"
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-recovery-services-vault-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.recoveryservices/recovery-services-vault-create/azuredeploy.json":::
 
 템플릿에는 두 개의 Azure 리소스가 정의되어 있습니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "107533259"
 
 1. Azure에 로그인하고 템플릿을 열려면 **Azure에 배포** 이미지를 선택합니다.
 
-   [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-vault-create%2Fazuredeploy.json)
+   [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.recoveryservices%2Frecovery-services-vault-create%2Fazuredeploy.json)
 
 1. 다음 값을 선택하거나 입력합니다.
 
