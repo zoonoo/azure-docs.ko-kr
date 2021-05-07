@@ -1,5 +1,5 @@
 ---
-title: Azure DevOps 스타터를 사용 하는 CI/CD 파이프라인-Azure IoT Edge | Microsoft Docs
+title: Azure DevOps Starter를 사용하는 CI/CD 파이프라인 - Azure IoT Edge | Microsoft Docs
 description: Azure DevOps Starter를 사용하면 Azure를 쉽게 시작할 수 있습니다. 몇 단계로 원하는 Azure IoT Edge 앱을 시작할 수 있습니다.
 author: kgremban
 ms.author: kgremban
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 8a23041a714089c447ab35ee05aae0de0c9c33d2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103201166"
 ---
-# <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Azure DevOps 스타터를 사용 하 여 IoT Edge에 대 한 CI/CD 파이프라인 만들기
+# <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Azure DevOps Starter를 사용하여 IoT Edge에 대한 CI/CD 파이프라인 만들기
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
@@ -28,19 +28,19 @@ DevOps Starter는 Azure DevOps에 CI/CD 파이프라인을 만듭니다. 새 Azu
 
 1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인합니다.
 
-1. 왼쪽 창에서 **리소스 만들기** 를 선택 하 고 **devops 스타터** 를 검색 합니다.  
+1. 왼쪽 창에서 **리소스 만들기** 를 선택하고 **DevOps Starter** 를 검색합니다.  
 
 1. **만들기** 를 선택합니다.
 
-1. 기본적으로 DevOps 스타터는 GitHub를 사용 하 여 설정 됩니다. 이 방법의 기능을 활용 하려면 DevOps 스타터를 전환 하 여 Azure DevOps를 사용 하도록 설정 합니다. **설정 변경** 링크를 따릅니다.
+1. 기본적으로 DevOps Starter는 GitHub를 사용하여 설정합니다. 이 방법으로 해당 기능을 활용하려면 DevOps Starter를 전환하여 Azure DevOps를 사용하도록 설정합니다. **여기에서 설정 변경** 링크를 따라갑니다.
 
-   ![GitHub에서 Azure DevOps로 전환 하려면 여기에서 설정 변경을 선택 합니다.](./media/how-to-devops-starter/create-with-github-change-settings.png)
+   ![GitHub에서 Azure DevOps로 전환하려면 여기에서 설정 변경을 선택합니다.](./media/how-to-devops-starter/create-with-github-change-settings.png)
 
-1. 오른쪽 창에서 **Azure DevOps** 타일을 선택 하 고 **완료** 를 선택 합니다.
+1. 오른쪽 창에서 **Azure DevOps** 타일을 선택하고 **완료** 를 선택합니다.
 
-   ![Azure DevOps를 선택 하 여 DevOps 스타터를 설정 합니다.](./media/how-to-devops-starter/select-azure-devops.png)
+   ![Azure DevOps를 선택하여 DevOps Starter 설정](./media/how-to-devops-starter/select-azure-devops.png)
 
-   이제 DevOps 스타터가 Azure DevOps를 사용 하 여 설정 되는 것을 볼 수 있습니다.
+   이제 DevOps Starter가 Azure DevOps로 설정되는 것을 볼 수 있습니다.
 
 ## <a name="create-a-new-application-pipeline"></a>새 애플리케이션 파이프라인 만들기
 
@@ -68,11 +68,11 @@ DevOps Starter는 Azure DevOps에 CI/CD 파이프라인을 만듭니다. 새 Azu
 
    5. 기본 위치를 그대로 적용하거나 본인에게 가까운 위치를 선택합니다.
 
-   6. **추가 설정을** 선택 하 여 Devops 스타터에서 사용자를 대신 하 여 만드는 Azure 리소스를 구성 합니다.
+   6. **추가 설정** 을 선택하여 DevOps Starter에서 자동으로 만드는 Azure 리소스를 구성합니다.
 
    7. **완료** 를 선택하여 프로젝트 만들기를 마칩니다.
 
-   ![이름 및 프로젝트 만들기](media/how-to-devops-starter/create-project.png)
+   ![프로젝트 이름 지정 및 만들기](media/how-to-devops-starter/create-project.png)
 
 잠시 후에 DevOps Starter 대시보드가 Azure Portal에 표시됩니다. 진행률을 보려면 프로젝트 이름을 선택합니다. 페이지를 새로 고쳐야 할 수도 있습니다. 샘플 IoT Edge 애플리케이션이 Azure DevOps 조직의 리포지토리에서 설정되고, 빌드가 실행되고, 애플리케이션이 IoT Edge 디바이스에 배포됩니다. 이 대시보드에서는 코드 리포지토리, CI/CD 파이프라인 및 Azure의 애플리케이션에 가시성을 제공합니다.
 
@@ -80,9 +80,9 @@ DevOps Starter는 Azure DevOps에 CI/CD 파이프라인을 만듭니다. 새 Azu
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>코드 변경 내용 커밋 및 CI/CD 실행
 
-DevOps 스타터는 Azure Repos에서 프로젝트에 대 한 Git 리포지토리를 만들었습니다. 이 섹션에서는 리포지토리를 살펴보고 애플리케이션의 코드를 변경합니다.
+DevOps Starter에서 Azure Repos에 프로젝트의 Git 리포지토리를 만들었습니다. 이 섹션에서는 리포지토리를 살펴보고 애플리케이션의 코드를 변경합니다.
 
-1. 프로젝트에 대해 생성된 리포지토리로 이동하려면 프로젝트 대시보드 메뉴에서 **리포지토리** 를 선택합니다. 이 링크는 새 프로젝트에 대 한 브라우저 탭 및 Azure DevOps 리포지토리를 엽니다.
+1. 프로젝트에 대해 생성된 리포지토리로 이동하려면 프로젝트 대시보드 메뉴에서 **리포지토리** 를 선택합니다. 이 링크는 브라우저 탭 및 새 프로젝트에 대한 Azure DevOps 리포지토리를 엽니다.
 
    ![Azure Repos에서 생성된 리포지토리 보기](./media/how-to-devops-starter/view-repositories.png)
 
@@ -97,13 +97,13 @@ DevOps 스타터는 Azure Repos에서 프로젝트에 대 한 Git 리포지토�
 
 ## <a name="examine-the-cicd-pipeline"></a>CD 파이프라인 검토
 
-이전 섹션에서 Azure DevOps 스타터는 IoT Edge 응용 프로그램에 대 한 전체 CI/CD 파이프라인을 자동으로 구성 했습니다. 이제 필요에 따라 파이프라인을 살펴보고 사용자 지정합니다. 다음 단계에 따라 Azure DevOps 빌드 및 릴리스 파이프라인을 숙지합니다.
+이전 섹션에서는 Azure DevOps Starter가 IoT Edge 애플리케이션에 대한 전체 CI/CD 파이프라인을 자동으로 구성했습니다. 이제 필요에 따라 파이프라인을 살펴보고 사용자 지정합니다. 다음 단계에 따라 Azure DevOps 빌드 및 릴리스 파이프라인을 숙지합니다.
 
 1. DevOps 프로젝트에서 빌드 파이프라인을 보려면 프로젝트 대시보드 메뉴에서 **빌드 파이프라인** 을 선택합니다. 이 링크는 브라우저 탭 및 새 프로젝트에 대한 Azure DevOps 빌드 파이프라인을 엽니다.
 
    ![Azure Pipelines에서 빌드 파이프라인 보기](./media/how-to-devops-starter/view-build-pipelines.png)
 
-2. 자동으로 생성 된 빌드 파이프라인을 열고 오른쪽 위에 있는 **편집** 을 선택 합니다.
+2. 자동으로 생성된 빌드 파이프라인을 열고 오른쪽 위에 있는 **편집** 을 선택합니다.
 
     ![빌드 파이프라인 편집](media/how-to-devops-starter/click-edit-button.png)
 
@@ -113,11 +113,11 @@ DevOps 스타터는 Azure Repos에서 프로젝트에 대 한 Git 리포지토�
 
    ![파이프라인 세부 정보 편집](./media/how-to-devops-starter/edit-build-pipeline.png)
 
-5. **저장 및 큐** 를 선택한 다음, **저장** 을 선택합니다. 주석에서 선택 사항입니다.
+5. **저장 및 큐** 를 선택한 다음, **저장** 을 선택합니다. 주석은 선택 사항입니다.
 
 6. 빌드 파이프라인 메뉴에서 **트리거** 를 선택합니다. DevOps Starter는 CI 트리거를 자동으로 생성했으며 리포지토리에 대한 모든 커밋이 새 빌드를 시작합니다.  필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
 
-7. **보존** 을 선택합니다. 링크를 따라 보존 정책이 있는 프로젝트 설정으로 이동 합니다. 시나리오에 따라 특정 수의 빌드를 유지하거나 제거하는 정책을 지정할 수 있습니다.
+7. **보존** 을 선택합니다. 링크를 따라 보존 정책이 있는 프로젝트 설정으로 이동합니다. 시나리오에 따라 특정 수의 빌드를 유지하거나 제거하는 정책을 지정할 수 있습니다.
 
 8. **기록** 을 선택합니다. [기록] 창에는 최근 빌드 변경 내용의 감사 내역이 포함되어 있습니다. Azure Pipelines는 빌드 파이프라인에 대한 모든 변경 내용을 계속 추적하고 버전을 비교할 수 있습니다.
 

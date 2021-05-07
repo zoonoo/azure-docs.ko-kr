@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용 하 여 Azure VM에 대 한 OS 디스크 교체
+title: PowerShell을 통해 Azure VM에 대한 OS 디스크 교체
 description: PowerShell을 사용하여 Azure Virtual Machine에서 사용하는 운영 체제 디스크를 변경합니다.
 author: cynthn
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 04/24/2018
 ms.author: cynthn
 ms.openlocfilehash: 8e928944a7508cc2a0ed35e89189fa2dd8c50665
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102550385"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-powershell"></a>PowerShell을 사용하여 Azure VM에서 사용하는 OS 디스크를 변경합니다.
@@ -23,8 +23,8 @@ ms.locfileid: "102550385"
 
 VM은 반드시 중지/할당 취소되어야 합니다. 그래야만 관리 디스크의 리소스 ID를 다른 관리 디스크의 리소스 ID로 바꿀 수 있습니다.
 
-VM 크기 및 스토리지 유형이 연결할 디스크와 호환되어야 합니다. 예를 들어, 사용하려는 디스크가 Premium Storage에 있으면, VM이 Premium Storage를 지원할 수 있어야 합니다(예: DS 시리즈 크기). 두 디스크도 크기가 같아야 합니다.
-암호화 되지 않은 VM을 암호화 된 OS 디스크와 혼합 하지 않아야 합니다 .이는 지원 되지 않습니다. VM에서 Azure Disk Encryption 사용 하지 않는 경우 스왑 되는 OS 디스크는 Azure Disk Encryption를 사용 하지 않아야 합니다.
+VM 크기 및 스토리지 유형이 연결할 디스크와 호환되어야 합니다. 예를 들어, 사용하려는 디스크가 Premium Storage에 있으면, VM이 Premium Storage를 지원할 수 있어야 합니다(예: DS 시리즈 크기). 두 디스크의 크기도 같아야 합니다.
+또한 암호화되지 않은 VM을 암호화된 OS 디스크와 혼합하는 것은 지원되지 않습니다. VM에서 Azure Disk Encryption을 사용하지 않는 경우 스왑되는 OS 디스크는 Azure Disk Encryption을 사용하지 않아야 합니다.
 
 [Get-AzDisk](/powershell/module/az.compute/get-azdisk)를 사용하여 리소스 그룹에서 디스크 목록 가져오기
 

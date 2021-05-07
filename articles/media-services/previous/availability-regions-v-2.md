@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services 지역 가용성 | Microsoft Docs
-description: 이 문서에서는 Microsoft Azure Media Services 기능 및 서비스 지역 가용성에 대 한 개요를 제공 합니다.
+title: Azure Media Services 지역별 가용성 | Microsoft Docs
+description: 이 문서에서는 Microsoft Azure Media Services 기능 및 서비스 지역별 가용성에 대한 개요를 제공합니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -15,13 +15,13 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: references_regions
 ms.openlocfilehash: 125f2be205760618ab6ffa3175f719f5e91e8c05
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103012261"
 ---
-# <a name="media-services-regional-availability"></a>Media Services 지역 가용성
+# <a name="media-services-regional-availability"></a>Media Services 지역별 가용성
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
@@ -30,26 +30,26 @@ ms.locfileid: "103012261"
 
 Microsoft AMS(Azure Media Services)는 다양한 클라이언트(예: TV, PC 및 모바일 디바이스)로의 주문형 및 라이브 스트리밍 배달을 위해 비디오 또는 오디오 콘텐츠를 안전하게 업로드, 저장, 인코딩 및 패키지할 수 있습니다.
 
-AMS는 전 세계 여러 지역에서 작동 하므로 응용 프로그램을 빌드할 위치를 유연 하 게 선택할 수 있습니다. 이 문서에서는 Microsoft Azure Media Services 기능 및 서비스 지역 가용성에 대 한 개요를 제공 합니다.
+AMS는 전 세계 여러 지역에서 운영되므로 애플리케이션을 빌드할 위치를 자유롭게 선택할 수 있습니다. 이 문서에서는 Microsoft Azure Media Services 기능 및 서비스 지역별 가용성에 대한 개요를 제공합니다.
 
-전체 Azure 글로벌 인프라에 대 한 자세한 내용은 [azure 지역](https://azure.microsoft.com/global-infrastructure/geographies/)을 참조 하세요.
+전체 Azure 글로벌 인프라에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/global-infrastructure/geographies/)을 참조하세요.
 
 ## <a name="ams-accounts"></a>AMS 계정
 
-[지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=media-services&regions=all) 을 사용 하 여 Media Services를 특정 지역에서 사용할 수 있는지 여부를 확인 합니다.
+[지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=media-services&regions=all)을 사용하여 특정 지역에서 Media Services를 사용할 수 있는지 확인합니다.
 
 ## <a name="streaming-endpoints"></a>스트리밍 엔드포인트
 
 Media Services 고객은 **표준** 스트리밍 엔드포인트나 **프리미엄** 스트리밍 엔드포인트를 선택할 수 있습니다.
 
-|Name|상태|지역
+|이름|상태|지역
 |---|---|---|
 |Standard|GA|모두|
 |Premium|GA|모두|
 
 ## <a name="live-encoding"></a>라이브 인코딩
 
-독일, 브라질 남부, 인도 서 부, 인도 남부 및 인도 중부를 제외한 모든 지역에서 사용할 수 있습니다.
+독일, 브라질 남부, 인도 서부, 인도 남부, 인도 중부를 제외한 모든 지역에서 사용할 수 있습니다.
 
 ## <a name="encoding-media-processors"></a>미디어 프로세서 인코딩
 
@@ -82,11 +82,11 @@ Microsoft Azure Media Services를 사용하면 컴퓨터를 떠날 때부터 스
 
 |암호화|상태|영역|
 |---|---|---| 
-|Storage|GA|모두|
+|스토리지|GA|모두|
 |AES-128 키|GA|모두|
 |Fairplay|GA|모두|
 |PlayReady|GA|모두|
-|Widevine|GA|독일, 연방 정부 및 중국을 제외한 모든입니다.
+|Widevine|GA|독일, 연방 정부, 중국을 제외한 모든 지역.
 
 > [!NOTE]
 > Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
@@ -99,7 +99,7 @@ Microsoft Azure Media Services를 사용하면 컴퓨터를 떠날 때부터 스
 
 ## <a name="reserved-unit-ru-type"></a>RU(예약 단위) 형식
 
-Media Services 계정은 미디어 처리 작업을 완료 하는 속도를 결정 하는 예약 단위 형식과 연결 됩니다. S1, S2 또는 S3 예약 단위 유형 중에서 선택할 수 있습니다.
+Media Services 계정은 미디어 처리 작업을 완료하는 속도를 결정하는 예약 단위 형식과 연결됩니다. S1, S2 또는 S3 예약 단위 유형 중에서 선택할 수 있습니다.
 
 |RU 형식 이름|상태|영역
 |---|---|---|

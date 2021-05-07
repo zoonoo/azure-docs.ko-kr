@@ -1,6 +1,6 @@
 ---
-title: Azure AD를 사용 하 여 그룹 데이터에 액세스 하는 앱에 대 한 그룹 소유자 동의 구성
-description: 그룹 및 팀 소유자가 그룹 또는 팀의 데이터에 액세스할 수 있는 응용 프로그램에 동의할 수 있는지 여부를 관리 하는 방법을 알아봅니다.
+title: Azure AD를 사용해 그룹 데이터에 액세스하는 앱에 대한 그룹 소유자 동의 구성
+description: 그룹 및 팀 소유자가 그룹 또는 팀의 데이터에 액세스할 수 있는 애플리케이션에 동의할 수 있는지를 관리하는 방법을 알아봅니다.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -13,23 +13,23 @@ ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: 8d8604a1dd54ed819bb9e27c46d61a46466bf3da
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102548804"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>그룹 데이터에 액세스하는 앱에 대한 그룹 소유자 동의 구성
 
-그룹 및 팀 소유자는 타사 공급 업체에서 게시 한 응용 프로그램과 같은 응용 프로그램에 권한을 부여 하 여 그룹과 연결 된 조직의 데이터에 액세스할 수 있습니다. 예를 들어 Microsoft 팀 소유자는 앱이 팀의 모든 팀 메시지를 읽거나 그룹 멤버의 기본 프로필을 나열하도록 허용할 수 있습니다. 자세히 알아보려면 [Microsoft 팀의 리소스 관련 동의](/microsoftteams/resource-specific-consent) 를 참조 하세요.
+그룹 및 팀 소유자는 타사 공급업체에서 게시한 애플리케이션과 같은 애플리케이션에 권한을 부여하여 그룹과 연결된 조직의 데이터에 액세스하도록 할 수 있습니다. 예를 들어 Microsoft 팀 소유자는 앱이 팀의 모든 팀 메시지를 읽거나 그룹 멤버의 기본 프로필을 나열하도록 허용할 수 있습니다. 자세히 알아보려면 [Microsoft Teams의 리소스 관련 동의](/microsoftteams/resource-specific-consent)를 참조하세요.
 
-## <a name="manage-group-owner-consent-to-apps"></a>앱에 대 한 그룹 소유자 동의 관리
+## <a name="manage-group-owner-consent-to-apps"></a>앱에 대한 그룹 소유자의 동의 관리
 
-자신의 그룹 또는 팀 데이터에 액세스 하는 앱에 동의할 수 있는 사용자를 구성 하거나 모든 사용자에 대해이를 사용 하지 않도록 설정할 수 있습니다.
+해당 그룹 또는 팀의 데이터에 액세스하는 앱에 동의할 수 있는 사용자를 구성하거나 모든 사용자가 이 기능을 사용하지 않도록 설정할 수 있습니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-그룹 데이터에 액세스 하는 앱에 대 한 그룹 소유자 동의를 관리 하려면 다음 단계를 따르세요.
+그룹 데이터에 액세스하는 앱에 대한 그룹 소유자의 동의를 관리하려면 다음 단계를 따르세요.
 
 1. [전역 관리자](../roles/permissions-reference.md#global-administrator)로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **엔터프라이즈 애플리케이션** > **동의 및 권한** > **사용자 동의 설정** 을 선택합니다.
@@ -74,7 +74,7 @@ Azure AD PowerShell Preview 모듈 [AzureADPreview](/powershell/module/azuread/?
 
 1. 설정 값을 이해합니다. 앱에서 해당 그룹의 데이터에 액세스하도록 허용할 수 있는 사용자를 정의하는 두 가지 설정 값이 있습니다.
 
-    | 설정       | Type         | Description  |
+    | 설정       | 유형         | Description  |
     | ------------- | ------------ | ------------ |
     | _EnableGroupSpecificConsent_   | 부울 | 그룹 소유자가 그룹 관련 권한을 부여할 수 있는지 여부를 나타내는 플래그입니다. |
     | _ConstrainGroupSpecificConsentToMembersOfGroupId_ | Guid | _EnableGroupSpecificConsent_ 를 "True"로 설정하고 이 값을 그룹의 개체 ID로 설정하면 식별된 그룹의 멤버가 자신이 소유한 그룹에 대한 그룹 관련 권한을 부여할 수 있습니다. |
@@ -117,11 +117,11 @@ Azure AD PowerShell Preview 모듈 [AzureADPreview](/powershell/module/azuread/?
 
 자세히 알아보려면 다음을 수행합니다.
 
-* [사용자 승인 설정 구성](configure-user-consent.md)
+* [사용자 동의 설정 구성](configure-user-consent.md)
 * [관리자 동의 워크플로 구성](configure-admin-consent-workflow.md)
 * [애플리케이션에 대한 동의를 관리하고 동의 요청을 평가하는 방법 알아보기](manage-consent-requests.md)
 * [애플리케이션에 대한 테넌트 전체 관리자 동의 부여](grant-admin-consent.md)
 * [Microsoft ID 플랫폼의 권한 및 동의](../develop/v2-permissions-and-consent.md)
 
 도움말을 얻거나 질문에 대한 답변을 찾으려면 다음을 수행합니다.
-* [Microsoft Q의 Azure AD&A ](/answers/topics/azure-active-directory.html)
+* [Microsoft Azure AD Q&A](/answers/topics/azure-active-directory.html)

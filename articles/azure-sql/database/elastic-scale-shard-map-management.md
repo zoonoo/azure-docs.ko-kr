@@ -1,5 +1,5 @@
 ---
-title: 데이터베이스 확장
+title: 데이터베이스 스케일 아웃
 description: ShardMapManager 및 .NET용 탄력적 데이터베이스를 사용하는 방법
 services: sql-database
 ms.service: sql-database
@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 03bf92a2d77fb262ed6506bf18c0d27006e435a7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103201189"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>분할된 데이터베이스 맵 관리자를 사용하여 데이터베이스 확장
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Azure SQL Database에서 데이터베이스를 쉽게 확장 하려면 분할 된 데이터베이스 맵 관리자를 사용 합니다. 분할된 데이터베이스 맵 관리자는 분할된 데이터베이스 집합에서 모든 분할된 데이터베이스(데이터베이스)에 대한 전역 매핑 정보를 유지 관리하는 특수한 데이터베이스입니다. 메타데이터를 사용하면 애플리케이션을 **분할 키** 의 값에 따라 올바른 데이터베이스에 연결할 수 있습니다. 또한 집합에 있는 모든 분할된 데이터베이스는 로컬 분할된 데이터베이스 데이터를 추적하는 맵을 포함합니다( **shardlet** 라고도 함).
+Azure SQL Database에서 데이터베이스를 쉽게 스케일 아웃하려면 분할된 데이터베이스 맵 관리자를 사용합니다. 분할된 데이터베이스 맵 관리자는 분할된 데이터베이스 집합에서 모든 분할된 데이터베이스(데이터베이스)에 대한 전역 매핑 정보를 유지 관리하는 특수한 데이터베이스입니다. 메타데이터를 사용하면 애플리케이션을 **분할 키** 의 값에 따라 올바른 데이터베이스에 연결할 수 있습니다. 또한 집합에 있는 모든 분할된 데이터베이스는 로컬 분할된 데이터베이스 데이터를 추적하는 맵을 포함합니다( **shardlet** 라고도 함).
 
 ![분할된 데이터베이스 맵 관리](./media/elastic-scale-shard-map-management/glossary.png)
 
@@ -36,7 +36,7 @@ Azure SQL Database에서 데이터베이스를 쉽게 확장 하려면 분할 �
    1. 목록 매핑
    2. 범위 매핑
 
-단일 테넌트 모델은 **목록 매핑** 분할된 데이터베이스 맵을 만듭니다. 단일 테넌트 모델은 테넌트당 하나의 데이터베이스를 할당합니다. 이 모델은 SaaS 개발자가 분할 된 맵 관리를 간소화 하는 효율적인 모델입니다.
+단일 테넌트 모델은 **목록 매핑** 분할된 데이터베이스 맵을 만듭니다. 단일 테넌트 모델은 테넌트당 하나의 데이터베이스를 할당합니다. 분할된 데이터베이스 관리를 단순화하므로 SaaS 개발자에게 효과적인 모델입니다.
 
 ![목록 매핑][1]
 
@@ -108,7 +108,7 @@ Elastic Scale은 분할 키로 다음의 형식을 지원합니다.
 
 **참고:****ShardMapManager** 는 애플리케이션용 초기화 코드 내에서 앱 도메인별로 한 번만 인스턴스화해야 합니다. 동일한 AppDomain에서 ShardMapManager의 추가 인스턴스를 만들면 애플리케이션의 메모리와 CPU 사용률이 증가합니다. **ShardMapManager** 는 분할된 데이터베이스 맵을 개수와 관계없이 포함할 수 있습니다. 많은 애플리케이션의 경우 단일 분할된 데이터베이스 맵으로 충분할 수 있지만 서로 다른 스키마에 대해서 또는 고유성을 위해서는 서로 다른 데이터베이스 집합이 사용되며 이러한 경우 다중 분할된 데이터베이스 맵을 사용하는 것이 좋습니다.
 
-이 코드에서 응용 프로그램은 TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.trygetsqlshardmapmanager), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) 메서드)를 사용 하 여 기존 **ShardMapManager** 를 열려고 시도 합니다. GSM(글로벌 **ShardMapManager**)을 나타내는 개체가 아직 데이터베이스 내에 없는 경우 클라이언트 라이브러리에서 CreateSqlShardMapManager([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.createsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) 메서드를 사용하여 해당 개체를 데이터베이스에 만듭니다.
+이 코드는 애플리케이션에서 TryGetSqlShardMapManager([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.trygetsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) 메서드를 사용하여 기존 **ShardMapManager** 를 열려고 합니다. GSM(글로벌 **ShardMapManager**)을 나타내는 개체가 아직 데이터베이스 내에 없는 경우 클라이언트 라이브러리에서 CreateSqlShardMapManager([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.createsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) 메서드를 사용하여 해당 개체를 데이터베이스에 만듭니다.
 
 ```Java
 // Try to get a reference to the Shard Map Manager in the shardMapManager database.
@@ -221,7 +221,7 @@ public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shard
 
 ### <a name="only-metadata-affected"></a>영향을 받는 메타데이터만
 
-**ShardMapManager** 데이터를 채우거나 변경하는 데 사용되는 메서드는 분할된 데이터베이스 자체에 저장된 사용자 데이터를 변경하지 않습니다. 예를 들어 **CreateShard**, **DeleteShard**, **UpdateMapping** 등의 메서드는 분할된 데이터베이스 맵 메타데이터에만 적용됩니다. 분할된 데이터베이스에 포함된 사용자 데이터를 제거, 추가 또는 변경하지 않습니다. 대신, 이러한 메서드는 실제 데이터베이스를 생성 또는 제거하기 위해 수행하는 개별 작업 또는 분할된 환경을 리밸런스하기 위해 분할된 데이터베이스 간에 행을 이동하는 개별 작업과 함께 사용하도록 설계되었습니다.  (탄력적 데이터베이스 도구에 포함 된 **분할/병합** 도구를 사용 하면 분할 간의 실제 데이터 이동과 오케스트레이션 함께 이러한 api를 사용 합니다.) [Elastic Database 분할/병합 도구를 사용 하 여 크기 조정을](elastic-scale-overview-split-and-merge.md)참조 하세요.
+**ShardMapManager** 데이터를 채우거나 변경하는 데 사용되는 메서드는 분할된 데이터베이스 자체에 저장된 사용자 데이터를 변경하지 않습니다. 예를 들어 **CreateShard**, **DeleteShard**, **UpdateMapping** 등의 메서드는 분할된 데이터베이스 맵 메타데이터에만 적용됩니다. 분할된 데이터베이스에 포함된 사용자 데이터를 제거, 추가 또는 변경하지 않습니다. 대신, 이러한 메서드는 실제 데이터베이스를 생성 또는 제거하기 위해 수행하는 개별 작업 또는 분할된 환경을 리밸런스하기 위해 분할된 데이터베이스 간에 행을 이동하는 개별 작업과 함께 사용하도록 설계되었습니다.  탄력적 데이터베이스 도구에 포함된 **분할-병합** 도구는 분할된 데이터베이스 간의 실제 데이터 이동을 조정하면서 해당 API를 사용합니다. [탄력적 데이터베이스 분할-병합 툴을 사용하여 확장](elastic-scale-overview-split-and-merge.md)을 참조하세요.
 
 ## <a name="data-dependent-routing"></a>데이터 종속 라우팅
 
@@ -254,7 +254,7 @@ public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shard
   
     **UpdateMapping** 및 **DeleteMapping** 을 비롯하여 매핑이 "오프라인" 상태인 경우에만 분할된 데이터베이스 매핑에 대한 특정 작업이 허용됩니다. 매핑이 오프라인 상태이면 해당 매핑에 포함된 특정 키를 기반으로 하는 데이터 종속 요청이 오류를 반환합니다. 또한 범위가 먼저 오프라인으로 전환되면 변경 중인 범위에 대해 전송된 쿼리 결과가 불일치하거나 불완전해지지 않도록 영향 받는 분할된 데이터베이스에 대한 모든 연결이 자동으로 중지됩니다.
 
-매핑은 .NET의 변경할 수 없는 개체입니다.  매핑을 변경하는 위의 모든 메서드는 사용자의 코드 안의 메서드의 모든 참조를 무효화합니다 쉽게 매핑의 상태를 변경 하는 작업의 시퀀스를 수행 하려면 모든 매핑을 변경 하는 메서드의 반환 새 매핑 참조를 작업을 연결할 수 있도록 합니다. 예를 들면, key25가 포함된 shardmap sm의 기존 매핑을 삭제하려면 다음을 실행합니다:
+매핑은.NET에서 변경할 수 없는 개체입니다.  매핑을 변경하는 위의 모든 메서드는 사용자의 코드 안의 메서드의 모든 참조를 무효화합니다 쉽게 매핑의 상태를 변경 하는 작업의 시퀀스를 수행 하려면 모든 매핑을 변경 하는 메서드의 반환 새 매핑 참조를 작업을 연결할 수 있도록 합니다. 예를 들면, key25가 포함된 shardmap sm의 기존 매핑을 삭제하려면 다음을 실행합니다:
 
 ```
     sm.DeleteMapping(sm.MarkMappingOffline(sm.GetMappingForKey(25)));

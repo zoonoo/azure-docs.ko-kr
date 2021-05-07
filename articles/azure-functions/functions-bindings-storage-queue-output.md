@@ -1,21 +1,21 @@
 ---
-title: Azure Functions에 대 한 Azure Queue storage 출력 바인딩
-description: Azure Functions에서 Azure Queue storage 메시지를 만드는 방법에 대해 알아봅니다.
+title: Azure Functions에 대한 Azure Queue Storage 출력 바인딩
+description: Azure Functions에서 Azure Queue Storage 메시지를 만드는 방법에 대해 알아봅니다.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
 ms.openlocfilehash: 5d94625e3eb121e556b28038cf59626be1332966
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102455808"
 ---
-# <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Azure Functions에 대 한 Azure Queue storage 출력 바인딩
+# <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Azure Functions에 대한 Azure Queue Storage 출력 바인딩
 
-Azure Functions는 출력 바인딩을 설정 하 여 새 Azure 큐 저장소 메시지를 만들 수 있습니다.
+Azure Functions에서 출력 바인딩을 설정하여 새 Azure Queue Storage 메시지를 만들 수 있습니다.
 
 설정 및 구성 세부 정보에 관한 내용은 [개요](./functions-bindings-storage-queue.md)를 참조하세요.
 
@@ -102,7 +102,7 @@ public static void Run(
 
 # <a name="java"></a>[Java](#tab/java)
 
- 다음 예제에서는 HTTP 요청에 의해 트리거되는 경우에 대 한 큐 메시지를 만드는 Java 함수를 보여 줍니다.
+ 다음 예제에서는 HTTP 요청에 의해 트리거되는 경우 큐 메시지를 만드는 Java 함수를 보여 줍니다.
 
 ```java
 @FunctionName("httpToQueue")
@@ -116,7 +116,7 @@ public static void Run(
  }
 ```
 
-[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Queue Storage에 작성되는 매개 변수에 대한 `@QueueOutput` 주석을 사용합니다.  매개 변수 형식은 이어야 `OutputBinding<T>` `T` 합니다. 여기서은 pojo의 네이티브 Java 형식입니다.
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Queue Storage에 작성되는 매개 변수에 대한 `@QueueOutput` 주석을 사용합니다.  매개 변수 형식은 `OutputBinding<T>`이어야 합니다. 여기서 `T`는 POJO의 원시 Java 형식입니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -171,7 +171,7 @@ module.exports = function(context) {
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-다음 코드 예제에서는 HTTP로 트리거되는 함수에서 큐 메시지를 출력 하는 방법을 보여 줍니다. 가 인 구성 섹션은 `type` `queue` 출력 바인딩을 정의 합니다.
+다음 코드 예제에서는 HTTP로 트리거되는 함수에서 큐 메시지를 출력하는 방법을 보여 줍니다. `queue`의 `type` 구성 섹션은 출력 바인딩을 정의합니다.
 
 ```json
 {
@@ -202,7 +202,7 @@ module.exports = function(context) {
 }
 ```
 
-PowerShell 함수는이 바인딩 구성을 사용 하 여를 사용 하 여 큐 메시지를 만들 수 있습니다 `Push-OutputBinding` . 이 예에서는 쿼리 문자열이 나 본문 매개 변수에서 메시지를 만듭니다.
+PowerShell 함수는 해당 바인딩 구성을 사용하여 `Push-OutputBinding`을 통해 큐 메시지를 만들 수 있습니다. 이 예제에서는 쿼리 문자열 또는 본문 매개 변수로 메시지를 만듭니다.
 
 ```powershell
 using namespace System.Net
@@ -222,7 +222,7 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 })
 ```
 
-여러 메시지를 한 번에 보내려면 메시지 배열을 정의 하 고 `Push-OutputBinding` 를 사용 하 여 메시지를 큐 출력 바인딩으로 보냅니다.
+여러 개의 메시지를 한 번에 전송하려면 메시지 배열을 정의한 다음 `Push-OutputBinding`을 사용하여 메시지를 큐 출력 바인딩으로 보냅니다.
 
 ```powershell
 using namespace System.Net
@@ -244,9 +244,9 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 
 # <a name="python"></a>[Python](#tab/python)
 
-다음 예제에서는 단일 및 여러 값을 저장소 큐에 출력 하는 방법을 보여 줍니다. *function.js* 에 필요한 구성은 모두 동일 합니다.
+다음 예제에서는 단일 값 및 여러 값을 스토리지 큐에 출력하는 방법을 보여 줍니다. *function.json* 에 필요한 구성은 어느 쪽이든 동일합니다.
 
-저장소 큐 바인딩은 *형식이* 로 설정 된 *function.js* 에서 정의 됩니다 `queue` .
+스토리지 큐 바인딩은 ‘유형’이 `queue`로 설정된 *function.json* 에서 정의됩니다.
 
 ```json
 {
@@ -278,7 +278,7 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 }
 ```
 
-큐에서 개별 메시지를 설정 하려면 메서드에 단일 값을 전달 `set` 합니다.
+큐에 개별 메시지를 설정하려면 `set` 메서드에 단일 값을 전달합니다.
 
 ```python
 import azure.functions as func
@@ -292,7 +292,7 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
     return 'OK'
 ```
 
-큐에서 여러 메시지를 만들려면 매개 변수를 적절 한 목록 유형으로 선언 하 고 목록 유형과 일치 하는 값 배열을 `set` 메서드에 전달 합니다.
+큐에 여러 메시지를 만들려면 매개 변수를 적절한 목록 형식으로 선언하고 해당 목록 형식과 일치하는 값 배열을 `set` 메서드에 전달합니다.
 
 ```python
 import azure.functions as func
@@ -335,7 +335,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 }
 ```
 
-전체 예제는 [출력 예제](#example)를 참조 하세요.
+전체 예제는 [출력 예제](#example)를 참조하세요.
 
 `StorageAccount` 특성을 사용하여 클래스, 메서드 또는 매개 변수 수준에서 스토리지 계정을 지정합니다. 자세한 내용은 트리거 - 특성을 참조하세요.
 
@@ -345,7 +345,7 @@ C# 스크립트에서는 특성을 지원하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-`QueueOutput`주석을 사용 하면 함수의 출력으로 메시지를 작성할 수 있습니다. 다음 예제에서는 큐 메시지를 만드는 HTTP 트리거 함수를 보여 줍니다.
+`QueueOutput` 주석을 사용하면 메시지를 함수 출력으로 쓸 수 있습니다. 다음 예제에서는 큐 메시지를 만드는 HTTP로 트리거되는 함수를 보여 줍니다.
 
 ```java
 package com.function;
@@ -366,13 +366,13 @@ public class HttpTriggerQueueOutput {
 }
 ```
 
-| 속성    | 설명 |
+| 속성    | Description |
 |-------------|-----------------------------|
-|`name`       | 함수 시그니처의 매개 변수 이름을 선언 합니다. 함수가 트리거되면이 매개 변수의 값에 큐 메시지의 내용이 포함 됩니다. |
-|`queueName`  | 저장소 계정에서 큐 이름을 선언 합니다. |
-|`connection` | 저장소 계정 연결 문자열을 가리킵니다. |
+|`name`       | 함수 시그니처의 매개 변수 이름을 선언합니다. 함수가 트리거되면 해당 매개 변수의 값이 큐 메시지의 내용을 포함합니다. |
+|`queueName`  | 스토리지 계정에서 큐 이름을 선언합니다. |
+|`connection` | 스토리지 계정 연결 문자열을 가리킵니다. |
 
-주석과 연결 된 매개 변수는 `QueueOutput` [outputbinding \<T\> ](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java) 인스턴스로 형식화 됩니다.
+`QueueOutput` 주석과 연결된 매개 변수는 [OutputBinding\<T\>](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java) 인스턴스로 형식화됩니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -380,7 +380,7 @@ JavaScript에서는 특성을 지원하지 않습니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-특성은 PowerShell에서 지원 되지 않습니다.
+PowerShell에서는 특성을 지원하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -398,7 +398,7 @@ Python에서는 특성을 지원하지 않습니다.
 |**direction** | 해당 없음 | `out`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
 |**name** | 해당 없음 | 함수 코드에서 큐를 나타내는 변수의 이름입니다. `$return`으로 설정하여 함수 반환 값을 참조합니다.|
 |**queueName** |**QueueName** | 큐의 이름입니다. |
-|**connection** | **연결** |이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다.<br><br>예를 들어를 `connection` "mystorage"로 설정 하는 경우 함수 런타임은 "MyStorage" 라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열 대신 [버전 5.x 이상의 확장](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)을 사용하는 경우 연결을 정의하는 구성 섹션에 대한 참조를 제공할 수 있습니다. [연결](./functions-reference.md#connections)을 참조하세요.|
+|**connection** | **연결** |이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다.<br><br>예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "MyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열 대신 [버전 5.x 이상의 확장](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)을 사용하는 경우 연결을 정의하는 구성 섹션에 대한 참조를 제공할 수 있습니다. [연결](./functions-reference.md#connections)을 참조하세요.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -408,7 +408,7 @@ Python에서는 특성을 지원하지 않습니다.
 
 ### <a name="default"></a>기본값
 
-와 같은 메서드 매개 변수를 사용 하 여 단일 큐 메시지를 작성 `out T paramName` 합니다. `out` 매개 변수 대신 메서드 반환 형식을 사용할 수 있습니다. `T`는 다음 형식 중 하나일 수 있습니다.
+`out T paramName`과 같은 메서드 매개 변수를 사용하여 단일 큐 메시지를 씁니다. `out` 매개 변수 대신 메서드 반환 형식을 사용할 수 있습니다. `T`는 다음 형식 중 하나일 수 있습니다.
 
 * JSON으로 직렬화 가능한 개체
 * `string`
@@ -424,7 +424,7 @@ C# 및 C# 스크립트에서 다음 형식 중 하나를 사용하여 여러 큐
 
 ### <a name="additional-types"></a>추가 형식
 
-[5.0.0 이상 버전의 스토리지 확장](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)을 사용하는 앱은 [.NET용 Azure SDK](/dotnet/api/overview/azure/storage.queues-readme)의 형식을 사용할 수도 있습니다. 이 버전은 레거시 및 형식에 대 한 지원을 `CloudQueue` `CloudQueueMessage` 다음 형식으로 대체 합니다.
+[5.0.0 이상 버전의 스토리지 확장](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)을 사용하는 앱은 [.NET용 Azure SDK](/dotnet/api/overview/azure/storage.queues-readme)의 형식을 사용할 수도 있습니다. 이 버전은 다음 형식을 위해 레거시 `CloudQueue` 및 `CloudQueueMessage` 형식에 대한 지원을 중단합니다.
 
 - [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
 - 여러 큐 메시지를 쓰기 위한 [QueueClient](/dotnet/api/azure.storage.queues.queueclient)
@@ -435,7 +435,7 @@ C# 및 C# 스크립트에서 다음 형식 중 하나를 사용하여 여러 큐
 
 ### <a name="default"></a>기본값
 
-와 같은 메서드 매개 변수를 사용 하 여 단일 큐 메시지를 작성 `out T paramName` 합니다. 는 `paramName` `name` *function.js* 의 속성에 지정 된 값입니다. `out` 매개 변수 대신 메서드 반환 형식을 사용할 수 있습니다. `T`는 다음 형식 중 하나일 수 있습니다.
+`out T paramName`과 같은 메서드 매개 변수를 사용하여 단일 큐 메시지를 씁니다. `paramName`은 *function.json* 의 `name` 속성에 지정된 값입니다. `out` 매개 변수 대신 메서드 반환 형식을 사용할 수 있습니다. `T`는 다음 형식 중 하나일 수 있습니다.
 
 * JSON으로 직렬화 가능한 개체
 * `string`
@@ -451,7 +451,7 @@ C# 및 C# 스크립트에서 다음 형식 중 하나를 사용하여 여러 큐
 
 ### <a name="additional-types"></a>추가 형식
 
-[5.0.0 이상 버전의 스토리지 확장](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)을 사용하는 앱은 [.NET용 Azure SDK](/dotnet/api/overview/azure/storage.queues-readme)의 형식을 사용할 수도 있습니다. 이 버전은 레거시 및 형식에 대 한 지원을 `CloudQueue` `CloudQueueMessage` 다음 형식으로 대체 합니다.
+[5.0.0 이상 버전의 스토리지 확장](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)을 사용하는 앱은 [.NET용 Azure SDK](/dotnet/api/overview/azure/storage.queues-readme)의 형식을 사용할 수도 있습니다. 이 버전은 다음 형식을 위해 레거시 `CloudQueue` 및 `CloudQueueMessage` 형식에 대한 지원을 중단합니다.
 
 - [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
 - 여러 큐 메시지를 쓰기 위한 [QueueClient](/dotnet/api/azure.storage.queues.queueclient)
@@ -460,27 +460,27 @@ C# 및 C# 스크립트에서 다음 형식 중 하나를 사용하여 여러 큐
 
 # <a name="java"></a>[Java](#tab/java)
 
-[Queueoutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) 주석을 사용 하 여 함수에서 큐 메시지를 출력 하는 두 가지 옵션이 있습니다.
+[QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) 주석을 사용하여 함수에서 큐 메시지를 출력하는 두 가지 옵션이 있습니다.
 
-- **반환 값**: 함수 자체에 주석을 적용 하면 함수의 반환 값이 큐 메시지로 유지 됩니다.
+- **반환 값**: 함수 자체에 주석을 적용하면 함수의 반환 값이 큐 메시지로 유지됩니다.
 
-- **명령형**: 메시지 값을 명시적으로 설정하려면 [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) 형식의 특정 매개 변수에 주석을 적용합니다. 여기서 `T`는 POJO 또는 네이티브 Java 형식입니다. 이 구성을 사용 하 여 메서드에 값을 전달 하면 `setValue` 값이 큐 메시지로 유지 됩니다.
+- **명령형**: 메시지 값을 명시적으로 설정하려면 [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) 형식의 특정 매개 변수에 주석을 적용합니다. 여기서 `T`는 POJO 또는 네이티브 Java 형식입니다. 이 구성을 사용하여 `setValue` 메서드에 값을 전달하면 값이 큐 메시지로 유지됩니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-출력 큐 항목은 `context.bindings.<NAME>` `<NAME>` *function.js에* 정의 된 이름과 일치 하는를 통해 사용할 수 있습니다. 큐 항목 페이로드에 문자열 또는 JSON 직렬화 가능 개체를 사용할 수 있습니다.
+출력 큐 항목은 `context.bindings.<NAME>`를 통해 사용할 수 있습니다. 여기에서 `<NAME>`는 *function.json* 에 정의된 이름과 일치합니다. 큐 항목 페이로드에 문자열 또는 JSON 직렬화 가능 개체를 사용할 수 있습니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-`Push-OutputBinding`function.js파일의 바인딩 매개 변수에 지정 된 이름과 일치 하는 인수를 전달 하 여 큐 메시지에 대 한 출력을 사용할 수 있습니다 `name` . 
+큐 메시지에 대한 출력은 *function.json* 파일에서 바인딩의 `name` 매개 변수에 지정된 이름과 일치하는 인수를 전달하는 `Push-OutputBinding`을 통해 사용할 수 있습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-함수에서 큐 메시지를 출력 하는 두 가지 옵션은 다음과 같습니다.
+함수에서 큐 메시지를 출력하는 두 가지 옵션이 있습니다.
 
-- **반환 값**: *function.json* 의 `name` 속성을 `$return`으로 설정합니다. 이 구성을 사용 하면 함수의 반환 값이 큐 저장소 메시지로 유지 됩니다.
+- **반환 값**: *function.json* 의 `name` 속성을 `$return`으로 설정합니다. 이 구성을 사용하면 함수의 반환 값이 Queue Storage 메시지로 유지됩니다.
 
-- **명령형**: [출력](/python/api/azure-functions/azure.functions.out) 형식으로 선언된 매개 변수의 [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) 메서드에 값을 전달합니다. 에 전달 된 값은 `set` 큐 저장소 메시지로 유지 됩니다.
+- **명령형**: [출력](/python/api/azure-functions/azure.functions.out) 형식으로 선언된 매개 변수의 [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) 메서드에 값을 전달합니다. `set`에 전달되는 값은 Queue Storage 메시지로 유지됩니다.
 
 ---
 
@@ -494,7 +494,7 @@ C# 및 C# 스크립트에서 다음 형식 중 하나를 사용하여 여러 큐
 
 ## <a name="next-steps"></a>다음 단계
 
-- [큐 저장소 데이터 변경 내용으로 함수 실행 (트리거)](./functions-bindings-storage-queue-trigger.md)
+- [Queue Storage 데이터 변경 내용으로 함수 실행(트리거)](./functions-bindings-storage-queue-trigger.md)
 
 <!-- LINKS -->
 

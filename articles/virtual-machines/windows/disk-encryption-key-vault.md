@@ -1,6 +1,6 @@
 ---
-title: Windows VM에서 Azure Disk Encryption에 대 한 키 자격 증명 모음 만들기 및 구성
-description: 이 문서에서는 Windows VM에서 Azure Disk Encryption 사용할 키 자격 증명 모음을 만들고 구성 하는 단계를 제공 합니다.
+title: Windows VM에서 Azure Disk Encryption을 위한 키 자격 증명 모음 만들기 및 구성
+description: 이 문서는 Windows VM에서 Azure Disk Encryption과 함께 사용할 키 자격 증명 모음을 만들고 구성하는 단계를 설명합니다.
 ms.service: virtual-machines
 ms.subservice: disks
 ms.collection: windows
@@ -10,13 +10,13 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: af48bd74bbc38b1cd9b4d3b0f127e7bdf5d3e037
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102555451"
 ---
-# <a name="create-and-configure-a-key-vault-for-azure-disk-encryption-on-a-windows-vm"></a>Windows VM에서 Azure Disk Encryption에 대 한 키 자격 증명 모음 만들기 및 구성
+# <a name="create-and-configure-a-key-vault-for-azure-disk-encryption-on-a-windows-vm"></a>Windows VM에서 Azure Disk Encryption을 위한 키 자격 증명 모음을 만들고 구성하기
 
 Azure Disk Encryption은 Azure Key Vault를 사용하여 키 디스크 암호화 키와 비밀을 제어하고 관리합니다.  키 자격 증명 모음에 대한 자세한 내용은 [Azure Key Vault 시작](../../key-vault/general/overview.md) 및 [키 자격 증명 모음 보안](../../key-vault/general/secure-your-key-vault.md)을 참조하세요. 
 
@@ -26,7 +26,7 @@ Azure Disk Encryption은 Azure Key Vault를 사용하여 키 디스크 암호화
 Azure Disk Encryption을 위한 키 자격 증명 모음 만들기 및 구성은 다음과 같이 세 단계로 이루어져 있습니다.
 
 > [!Note]
-> Azure Key Vault 액세스 정책 설정에서 옵션을 선택 하 여 볼륨 암호화를 위한 Azure Disk Encryption에 대 한 액세스를 사용 하도록 설정 해야 합니다. 키 자격 증명 모음에서 방화벽을 사용 하도록 설정한 경우 주요 자격 증명 모음에서 네트워킹 탭으로 이동 하 여 Microsoft 신뢰할 수 있는 서비스에 대 한 액세스를 사용 하도록 설정 해야 합니다. 
+> Azure Key Vault 액세스 정책 설정에 있는 옵션을 선택하여 볼륨 암호화를 위해 Azure Disk Encryption에 대한 액세스를 사용하도록 설정해야 합니다. 키 자격 증명 모음에서 방화벽을 사용하도록 설정한 경우, 키 자격 증명 모음의 네트워킹 탭으로 이동하여 Microsoft Trusted Services에 대한 액세스를 사용하도록 설정해야 합니다. 
 
 1. 필요한 경우 리소스 그룹 만들기.
 2. 키 자격 증명 모음 만들기. 

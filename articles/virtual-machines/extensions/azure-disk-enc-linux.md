@@ -1,5 +1,5 @@
 ---
-title: Linux에 대 한 Azure Disk Encryption
+title: Linux용 Azure Disk Encryption
 description: 가상 머신 확장을 사용하여 Linux용 Azure Disk Encryption을 가상 머신에 배포합니다.
 ms.topic: article
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.author: ejarvi
 ms.date: 03/19/2020
 ms.collection: linux
 ms.openlocfilehash: 7c79391e3459804a4b5ce72c2230d17af3269641
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102566263"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Linux용 Azure Disk Encryption(Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
@@ -23,7 +23,7 @@ Azure Disk Encryption은 Linux에서 dm-crypt 서브 시스템을 활용하여 [
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-필수 구성 요소의 전체 목록은 [Linux vm에 대 한 Azure Disk Encryption](../linux/disk-encryption-overview.md), 특히 다음 섹션을 참조 하세요.
+필수 구성 요소의 전체 목록은 [Linux VM용 Azure Disk Encryption](../linux/disk-encryption-overview.md), 특히 다음 섹션을 참조하세요.
 
 - [지원되는 VM 및 운영 체제](../linux/disk-encryption-overview.md#supported-vms-and-operating-systems)
 - [추가 VM 요구 사항](../linux/disk-encryption-overview.md#additional-vm-requirements)
@@ -32,15 +32,15 @@ Azure Disk Encryption은 Linux에서 dm-crypt 서브 시스템을 활용하여 [
 
 ## <a name="extension-schema"></a>확장 스키마
 
-Azure Disk Encryption (ADE)에는 두 가지 버전의 확장 스키마가 있습니다.
-- v. 1.1-AAD (Azure Active Directory) 속성을 사용 하지 않는 최신 권장 스키마
-- v2.0-AAD (Azure Active Directory) 속성이 필요한 이전 스키마입니다. 
+Azure Disk Encryption(ADE)에는 두 가지 버전의 확장 스키마가 있습니다.
+- v1.1 - AAD(Azure Active Directory) 속성을 사용하지 않는 최신 권장 스키마
+- v0.1 - AAD(Azure Active Directory) 속성이 필요한 이전 스키마 
 
-대상 스키마를 선택 하려면 속성을 `typeHandlerVersion` 사용 하려는 스키마 버전과 동일 하 게 설정 해야 합니다.
+대상 스키마를 선택하려면 `typeHandlerVersion` 속성을 사용하려는 스키마 버전과 동일하게 설정해야 합니다.
 
-### <a name="schema-v11-no-aad-recommended"></a>Schema v1.0: AAD 없음 (권장)
+### <a name="schema-v11-no-aad-recommended"></a>스키마 v1.1: AAD 없음(권장)
 
-V 1.1 스키마는 권장 되며 AAD (Azure Active Directory) 속성은 필요 하지 않습니다.
+v1.1 스키마가 권장되며 AAD(Azure Active Directory) 속성은 필요하지 않습니다.
 
 ```json
 {
@@ -69,9 +69,9 @@ V 1.1 스키마는 권장 되며 AAD (Azure Active Directory) 속성은 필요 �
 ```
 
 
-### <a name="schema-v01-with-aad"></a>Schema v 0.1: AAD 사용 
+### <a name="schema-v01-with-aad"></a>스키마 v0.1: AAD 사용 
 
-0.1 스키마에는 `AADClientID` 및 중 하나가 필요 합니다 `AADClientSecret` `AADClientCertificate` .
+0\.1 스키마에는 `AADClientID`와 `AADClientSecret` 또는 `AADClientCertificate` 중 하나가 필요합니다.
 
 `AADClientSecret`사용:
 
@@ -145,30 +145,30 @@ V 1.1 스키마는 권장 되며 AAD (Azure Active Directory) 속성은 필요 �
 | (0.1 스키마) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
 | (0.1 스키마) AADClientSecret | password | 문자열 |
 | (0.1 스키마) AADClientCertificate | thumbprint | 문자열 |
-| 필드 (0.1 스키마) 전달 | password | 문자열 |
+| (선택 사항)(0.1 스키마) 암호 | password | 문자열 |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON 사전 |
 | EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | 문자열 | 
-| (옵션-기본 RSA-OAEP) KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | 문자열 |
+| (선택 사항 - 기본 RSA-OAEP) KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | 문자열 |
 | KeyVaultURL | url | 문자열 |
 | KeyVaultResourceId | url | 문자열 |
-| 필드 하면 keyencryptionkeyurl | url | 문자열 |
-| 필드 KekVaultResourceId | url | 문자열 |
-| 필드 SequenceVersion | uniqueidentifier | 문자열 |
+| (선택 사항) KeyEncryptionKeyURL | url | 문자열 |
+| (선택 사항) KekVaultResourceId | url | 문자열 |
+| (선택 사항) SequenceVersion | uniqueidentifier | 문자열 |
 | VolumeType | OS, Data, All | 문자열 |
 
 ## <a name="template-deployment"></a>템플릿 배포
 
-Schema v 1.1을 기반으로 하는 템플릿 배포의 예는 Azure 빠른 시작 템플릿 [201-실행](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)
+스키마 v1.1을 기반으로 하는 템플릿 배포의 예는 Azure 빠른 시작 템플릿 [201-encrypt-running-linux-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)를 참조하세요.
 
-Schema v 0.1을 기반으로 하는 템플릿 배포의 예는 Azure 빠른 시작 템플릿 [201-암호화-실행-linux-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)을 참조 하세요.
+스키마 v0.1을 기반으로 하는 템플릿 배포의 예는 Azure 빠른 시작 템플릿 [201-encrypt-running-linux-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)을 참조하세요.
 
 >[!WARNING]
 > - 이전에 VM을 암호화하기 위해 Azure AD에서 Azure Disk Encryption을 사용한 적이 있다면 VM을 암호화하는 데 이 옵션을 계속 사용해야 합니다.
-> - Linux OS 볼륨을 암호화하는 경우, VM은 사용할 수 없는 것으로 간주해야 합니다. 암호화 프로세스 중에 액세스해야 할 모든 열린 파일을 차단하는 문제를 방지하려면 암호화가 진행 중일 때 SSH 로그인을 하지 말 것을 적극 권장합니다. 진행률을 확인 하려면 [AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) PowerShell cmdlet 또는 [vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) CLI 명령을 사용 합니다. 이 프로세스는 30GB OS 볼륨을 처리하는 데 몇 시간이 걸리고 데이터 볼륨을 암호화하는 데 추가 시간이 걸릴 수 있습니다. 데이터 볼륨 암호화 시간은 encrypt format all 옵션이 사용되지 않는 한 데이터 볼륨의 크기 및 수량에 비례합니다. 
+> - Linux OS 볼륨을 암호화하는 경우, VM은 사용할 수 없는 것으로 간주해야 합니다. 암호화 프로세스 중에 액세스해야 할 모든 열린 파일을 차단하는 문제를 방지하려면 암호화가 진행 중일 때 SSH 로그인을 하지 말 것을 적극 권장합니다. 진행률을 확인하려면 [Get-AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) PowerShell cmdlet을 사용하거나 [vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) CLI 명령을 사용합니다. 이 프로세스는 30GB OS 볼륨을 처리하는 데 몇 시간이 걸리고 데이터 볼륨을 암호화하는 데 추가 시간이 걸릴 수 있습니다. 데이터 볼륨 암호화 시간은 encrypt format all 옵션이 사용되지 않는 한 데이터 볼륨의 크기 및 수량에 비례합니다. 
 > - Linux VM에서 암호화 사용 안 함은 데이터 볼륨에 대해서만 지원됩니다. OS 볼륨이 암호화된 경우 이 설정은 데이터 또는 OS 볼륨에서 지원되지 않습니다. 
 
 >[!NOTE]
-> 또한 `VolumeType` 매개 변수를 All로 설정 하는 경우 데이터 디스크는 적절히 탑재 된 경우에만 암호화 됩니다.
+> 또한 `VolumeType` 매개 변수를 All로 설정하면 데이터 디스크가 적절히 탑재된 경우에만 암호화됩니다.
 
 ## <a name="troubleshoot-and-support"></a>문제 해결 및 지원
 
@@ -180,9 +180,9 @@ Schema v 0.1을 기반으로 하는 템플릿 배포의 예는 Azure 빠른 시�
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/community/)에서 Azure 전문가에게 문의할 수 있습니다. 
 
-또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원](https://azure.microsoft.com/support/options/) 으로 이동 하 여 지원 받기를 선택 합니다. Azure 지원 사용에 대 한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조 하세요.
+또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원](https://azure.microsoft.com/support/options/)으로 이동하여 지원받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * VM 확장에 대한 자세한 내용은 [Linux용 가상 머신 확장 및 기능 개요](features-linux.md)를 참조하세요.
-* Linux의 Azure Disk Encryption에 대 한 자세한 내용은 [linux virtual machines](../../security/fundamentals/azure-disk-encryption-vms-vmss.md#linux-virtual-machines)를 참조 하세요.
+* Linux용 Azure Disk Encryption에 대한 자세한 내용은 [Linux 가상 머신](../../security/fundamentals/azure-disk-encryption-vms-vmss.md#linux-virtual-machines)을 참조하세요.

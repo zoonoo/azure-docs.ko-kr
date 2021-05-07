@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: banders
-ms.openlocfilehash: cf5772e9cf08eaa7f34acd59a9c96da6f20cd03d
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 96c37ded2750ad3e4882b203d71c75c9f4608e9d
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131414"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285912"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Microsoft 고객 계약 Azure 크레딧 잔액 추적
 
@@ -33,7 +33,7 @@ Microsoft 고객 계약에 대한 청구 계정에서 크레딧이 청구 프로
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Cost Management + 청구**를 검색합니다.
+2. **Cost Management + 청구** 를 검색합니다.
 
     ![Cost Management + Billing에 대한 포털 내 검색을 보여주는 스크린샷.](./media/mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
@@ -45,7 +45,7 @@ Microsoft 고객 계약에 대한 청구 계정에서 크레딧이 청구 프로
     >
     > Azure Portal은 사용자가 액세스한 마지막 청구 범위를 기억했다가 다음에 Cost Management + 청구 페이지로 이동하면 해당 범위를 표시합니다. 이전에 Cost Management + 청구 페이지를 방문한 경우 청구 범위 페이지가 표시되지 않습니다. 이런 경우, [올바른 범위](#check-access-to-a-microsoft-customer-agreement)에 있는지 확인하십시오. 그렇지 않으면, [범위를 전환](view-all-accounts.md#switch-billing-scope-in-the-azure-portal)하여 Microsoft 고객 계약에 대한 청구 계정을 선택하십시오.
 
-3. 왼쪽에서 **결제 방법**을 선택한 다음, **Azure 크레딧**을 선택합니다.
+3. 왼쪽에서 **결제 방법** 을 선택한 다음, **Azure 크레딧** 을 선택합니다.
 
    ![예상 잔액 및 현재 잔액의 스크린샷.](./media/mca-check-azure-credits-balance/mca-payment-methods.png)
 
@@ -274,7 +274,7 @@ API 응답은 청구 프로필에 대한 Azure 크레딧 목록을 반환합니�
 
 ### <a name="get-transactions-that-affected-credit-balance"></a>크레딧 잔액에 영향을 주는 트랜잭션 가져오기
 
-`<billingProfileId>`를 첫 번째 단계(```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```)에서 복사한 `id`로 바꿔서 다음 요청을 수행합니다. 필요한 기간에 대한 트랜잭션을 가져오려면 **startDate** 및 **endDate**를 전달해야 합니다.
+`<billingProfileId>`를 첫 번째 단계(```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```)에서 복사한 `id`로 바꿔서 다음 요청을 수행합니다. 필요한 기간에 대한 트랜잭션을 가져오려면 **startDate** 및 **endDate** 를 전달해야 합니다.
 
 ```json
 GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/events?api-version=2019-10-01&startDate=2018-10-01T00:00:00.000Z&endDate=2019-10-11T12:00:00.000Z?api-version=2019-10-01

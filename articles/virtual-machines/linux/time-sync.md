@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: cynthn
 ms.openlocfilehash: 18c8570a8066985cab5263c4779787062dc32d75
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102552646"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Azure에서 Linux VM의 시간 동기화
@@ -65,13 +65,13 @@ Azure 호스트는 GPS 안테나가 있는 Microsoft 소유의 Stratum 1 디바�
 - NTP 서버에서 시간을 가져오는 1차로서 NTP. 예를 들어 Ubuntu 16.04 LTS Marketplace 이미지는 **ntp.ubuntu.com** 을 사용합니다.
 - VM이 유지 관리를 위해 일시 중지된 후 VM에 호스트 시간을 통신하고 수정하는 데 사용되는 2차로서 VMICTimeSync 서비스. Azure 호스트는 정확한 시간을 유지하기 위해 Microsoft 소유의 Stratum 1 디바이스를 사용합니다.
 
-최신 Linux 배포판에서 VMICTimeSync 서비스는 PTP (Precision Time Protocol) 하드웨어 클록 원본을 제공 하지만 이전 배포는이 클록 원본을 제공 하지 않을 수 있으며 호스트에서 시간을 가져오기 위해 NTP로 대체 합니다.
+최신 Linux 배포판에서는 VMICTimeSync 서비스는 PTP(Precision Time Protocol) 하드웨어 클록 원본을 제공하지만 이전 배포에서는 이 클록 원본을 제공하지 않을 수 있으며 호스트에서 시간을 가져오기 위해 NTP로 대체합니다.
 
 NTP가 올바르게 동기화하고 있는지 확인하려면 `ntpq -p` 명령을 실행합니다.
 
 ### <a name="host-only"></a>호스트 전용 
 
-time.windows.com 및 ntp.ubuntu.com과 같은 NTP 서버는 공용이므로 NTP 서버와 시간을 동기화하려면 인터넷을 통해 트래픽을 보내야 합니다. 패킷 지연의 변화는 시간 동기화의 품질에 부정적인 영향을 줄 수 있습니다. 호스트 전용 동기화로 전환 하 여 NTP를 제거 하면 시간 동기화 결과를 향상 시킬 수 있습니다.
+time.windows.com 및 ntp.ubuntu.com과 같은 NTP 서버는 공용이므로 NTP 서버와 시간을 동기화하려면 인터넷을 통해 트래픽을 보내야 합니다. 패킷 지연의 변화는 시간 동기화의 품질에 부정적인 영향을 줄 수 있습니다. 호스트 전용 동기화로 전환하여 NTP를 제거하면 시간 동기화 결과를 개선할 수 있습니다.
 
 기본 구성을 사용하는 시간 동기화 문제를 겪는 경우 호스트 전용 시간 동기화로 전환하는 것이 합리적입니다. 이 방법이 VM에서 시간 동기화를 향상시키는지 확인하려면 호스트 전용 동기화를 사용해 보세요. 
 
@@ -113,9 +113,9 @@ root        391      2  0 17:52 ?        00:00:00 [hv_balloon]
 ```
 
 
-### <a name="check-for-ptp-clock-source"></a>PTP 클록 소스 확인
+### <a name="check-for-ptp-clock-source"></a>PTP 클록 원본 확인
 
-최신 버전의 Linux, PTP(Precision Time Protocol) 시계 원본은 VMICTimeSync 공급자의 일부로 사용할 수 있습니다. 이전 버전의 Red Hat Enterprise Linux 또는 CentOS 7.x에서 [Linux 통합 서비스](https://github.com/LIS/lis-next)를 다운로드하여 업데이트된 드라이버를 설치하는 데 사용할 수 있습니다. PTP 클록 원본을 사용할 수 있는 경우 Linux 장치는/dev/ptp *x* 형식이 됩니다. 
+최신 버전의 Linux, PTP(Precision Time Protocol) 시계 원본은 VMICTimeSync 공급자의 일부로 사용할 수 있습니다. 이전 버전의 Red Hat Enterprise Linux 또는 CentOS 7.x에서 [Linux 통합 서비스](https://github.com/LIS/lis-next)를 다운로드하여 업데이트된 드라이버를 설치하는 데 사용할 수 있습니다. PTP 클록 원본을 사용할 수 있는 경우 Linux 디바이스는 /dev/ptp *x* 형식이 됩니다. 
 
 사용 가능한 PTP 시계 원본을 확인합니다.
 
@@ -133,27 +133,27 @@ cat /sys/class/ptp/ptp0/clock_name
 
 ### <a name="chrony"></a>chrony
 
-Ubuntu 19.10 이상 버전, Red Hat Enterprise Linux 및 CentOS .x에서 [chrony](https://chrony.tuxfamily.org/) 는 PTP 원본 클록을 사용 하도록 구성 됩니다. Chrony 대신 이전 버전의 Linux 릴리스에서는 PTP (Network Time Protocol daemon)를 사용 합니다 .이 디먼은 PTP 원본을 지원 하지 않습니다. 이러한 릴리스에서 PTP를 사용 하도록 설정 하려면 다음 코드를 사용 하 여 chrony를 수동으로 설치 하 고 구성 해야 합니다 (chrony).
+Ubuntu 19.10 이상 버전, Red Hat Enterprise Linux 및 CentOS 8.x, [chrony](https://chrony.tuxfamily.org/)는 PTP 원본 클록을 사용하도록 구성됩니다. Chrony가 아닌 이전 버전의 Linux 릴리스에서는 NTPD(Network Time Protocol Daemon)를 사용하며, 이는 PTP 원본을 지원하지 않습니다. 해당 릴리스에서 PTP를 사용하도록 설정하려면 다음 코드를 사용하여 chrony.conf에서 Chrony를 수동으로 설치하고 구성해야 합니다.
 
 ```bash
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 ```
 
-Ubuntu 및 NTP에 대 한 자세한 내용은 [시간 동기화](https://ubuntu.com/server/docs/network-ntp)를 참조 하세요.
+Ubuntu 및 NTP에 대한 자세한 내용은 [시간 동기화](https://ubuntu.com/server/docs/network-ntp)를 참조하세요.
 
-Red Hat 및 NTP에 대 한 자세한 내용은 [Ntp 구성](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_ntpd#s1-Configure_NTP)을 참조 하세요. 
+Red Hat 및 NTP에 대한 자세한 내용은 [NTP 구성](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_ntpd#s1-Configure_NTP)을 참조하세요. 
 
-Chrony에 대 한 자세한 내용은 [Chrony 사용](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_the_chrony_suite#sect-Using_chrony)을 참조 하세요.
+Chrony에 대한 자세한 내용은 [chrony 사용](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_the_chrony_suite#sect-Using_chrony)을 참조하세요.
 
-Chrony 및 VMICTimeSync 원본을 동시에 사용 하도록 설정 하는 경우 다른 원본을 백업으로 설정 하는 것을 **선호** 하는 것으로 표시할 수 있습니다. NTP 서비스는 오랜 기간이 지난 후에만 시계의 큰 불일치(skew)를 업데이트하므로 VMICTimeSync는 일시 중지된 VM 이벤트에서 NTP 기반 도구만 사용하는 경우보다 훨씬 더 빠르게 시계를 복구합니다.
+Chrony 및 VMICTimeSync 원본이 동시에 사용 설정된 경우에는 한 원본을 **선호** 로 표시하여 다른 원본을 자동으로 백업으로 설정할 수 있습니다. NTP 서비스는 오랜 기간이 지난 후에만 시계의 큰 불일치(skew)를 업데이트하므로 VMICTimeSync는 일시 중지된 VM 이벤트에서 NTP 기반 도구만 사용하는 경우보다 훨씬 더 빠르게 시계를 복구합니다.
 
-기본적으로 chronyd는 시스템 클록을 가속화 하거나 느리게 하 여 시간 드리프트를 수정 합니다. 드리프트가 너무 커지면 chrony는 드리프트를 수정 하지 못합니다. 이를 해결 하기 위해 `makestep` **/etc/chrony.conf** 의 매개 변수를 변경 하 여 드리프트가 지정 된 임계값을 초과 하는 경우 시간 동기화를 강제로 수행할 수 있습니다.
+기본적으로 chronyd는 시스템 클록을 가속화하거나 느리게 하여 시간 드리프트를 수정합니다. 드리프트가 너무 커지면 Chrony는 드리프트를 수정하지 못합니다. 이를 해결하기 위해 드리프트가 지정된 임계값을 초과하는 경우 시간 동기화를 강제로 수행하도록 **/etc/chrony.conf** 의 `makestep` 매개 변수를 변경할 수 있습니다.
 
  ```bash
 makestep 1.0 -1
 ```
 
-여기서 chrony는 드리프트가 1 초 보다 큰 경우 시간 업데이트를 강제로 수행 합니다. 변경 내용을 적용 하려면 chronyd 서비스를 다시 시작 합니다.
+여기서 Chrony는 드리프트가 1초보다 큰 경우 시간 업데이트를 강제로 수행합니다. 변경 내용을 적용하려면 chronyd 서비스를 다시 시작합니다.
 
 ```bash
 systemctl restart chronyd
@@ -161,7 +161,7 @@ systemctl restart chronyd
 
 ### <a name="systemd"></a>systemd 
 
-19.10 이전 SUSE 및 Ubuntu 릴리스에서는 [systemd](https://www.freedesktop.org/wiki/Software/systemd/)를 사용 하 여 시간 동기화를 구성 합니다. Ubuntu에 대 한 자세한 내용은 [시간 동기화](https://help.ubuntu.com/lts/serverguide/NTP.html)를 참조 하세요. SUSE에 대 한 자세한 내용은 [SUSE Linux Enterprise Server 12 SP3 릴리스](https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP3/#InfraPackArch.ArchIndependent.SystemsManagement)정보의 4.5.8 섹션을 참조 하세요.
+19.10 이전 SUSE 및 Ubuntu 릴리스에서는 [systemd](https://www.freedesktop.org/wiki/Software/systemd/)를 사용하여 시간 동기화를 구성합니다. Ubuntu에 대한 자세한 내용은 [시간 동기화](https://help.ubuntu.com/lts/serverguide/NTP.html)를 참조하세요. SUSE에 대한 자세한 내용은 [SUSE Linux Enterprise Server 12 SP3 릴리스 정보](https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP3/#InfraPackArch.ArchIndependent.SystemsManagement)의 4.5.8 섹션을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

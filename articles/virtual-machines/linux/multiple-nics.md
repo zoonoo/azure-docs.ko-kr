@@ -1,5 +1,5 @@
 ---
-title: 여러 Nic를 사용 하 여 Azure에서 Linux VM 만들기
+title: 여러 NIC를 사용하여 Azure에서 Linux VM 만들기
 description: Azure CLI 또는 Resource Manager 템플릿을 사용하여 여러 NIC가 연결된 Linux VM을 만드는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
 ms.openlocfilehash: c0eea74890665297a0d450c8afd0a5d60dd1ae00
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102551813"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>여러 네트워크 인터페이스 카드를 사용하여 Azure에서 Linux 가상 머신을 만드는 방법
@@ -169,7 +169,7 @@ Azure Resource Manager 템플릿은 선언적 JSON 파일을 사용하여 환경
 
 [*복사* 를 사용하여 여러 인스턴스 만들기](../../azure-resource-manager/templates/copy-resources.md)에 대해 자세히 읽어보세요. 
 
-또한를 사용 하 여 `copyIndex()` 리소스 이름에 번호를 추가 하 여, 등을 만들 수 있습니다 `myNic1` `myNic2` . 다음은 인덱스 값을 추가 하는 예를 보여 줍니다.
+또한 `copyIndex()`를 사용하여 리소스 이름에 숫자를 추가하면 `myNic1`, `myNic2` 등을 만들 수 있습니다. 다음은 인덱스 값을 추가하는 예시를 보여 줍니다.
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 

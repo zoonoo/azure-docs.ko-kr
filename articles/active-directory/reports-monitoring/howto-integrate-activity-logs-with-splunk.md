@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor를 사용 하 여 Splunk 통합 | Microsoft Docs
-description: Azure Monitor를 사용 하 여 Splunk와 Azure Active Directory 로그를 통합 하는 방법에 대해 알아봅니다.
+title: Azure Monitor를 사용한 Splunk 통합 | Microsoft Docs
+description: Azure Monitor를 사용하여 Splunk와 Azure Active Directory 로그를 통합하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,23 +18,23 @@ ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: afb6a597d4fd58646f56e271cb6027fb46db1e26
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102634229"
 ---
-# <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>방법: Azure Monitor를 사용 하 여 Splunk와 Azure Active Directory 로그 통합
+# <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Azure Monitor를 사용한 Splunk와 Azure Active Directory 로그 통합 방법
 
 이 문서에서는 Azure Monitor를 사용하여 Splunk와 Azure Active Directory(Azure AD) 로그를 통합하는 방법을 알아봅니다. 먼저 Azure 이벤트 허브에 로그를 라우트한 다음, Splunk와 이벤트 허브를 통합합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 기능을 사용하려면 다음이 필요합니다.
 
 - Azure AD 활동 로그를 포함하는 Azure 이벤트 허브입니다. [활동 로그를 이벤트 허브로 스트림](./tutorial-azure-monitor-stream-logs-to-event-hub.md)하는 방법을 알아봅니다. 
 
--  [Microsoft 클라우드 서비스에 대 한 Splunk 추가 기능](https://splunkbase.splunk.com/app/3110/#/details)입니다. 
+-  [Microsoft Cloud Services를 위한 Splunk 추가 기능](https://splunkbase.splunk.com/app/3110/#/details). 
 
 ## <a name="integrate-azure-active-directory-logs"></a>Azure Active Directory 로그 통합 
 

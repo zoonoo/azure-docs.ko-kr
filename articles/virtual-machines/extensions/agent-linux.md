@@ -9,10 +9,10 @@ author: amjads1
 ms.collection: linux
 ms.date: 10/17/2016
 ms.openlocfilehash: e8851ddd5211536394614727d990a2b52d32bfcc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102565380"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Azure Linux 에이전트 이해 및 사용
@@ -24,7 +24,7 @@ Microsoft Azure Linux 에이전트(waagent)는 Linux 및 FreeBSD 프로비저닝
 > 
 > 
 
-* **이미지 프로 비전**
+* **이미지 프로비전**
   
   * 사용자 계정 만들기
   * SSH 인증 유형 구성
@@ -53,7 +53,7 @@ Microsoft Azure Linux 에이전트(waagent)는 Linux 및 FreeBSD 프로비저닝
 * **VM 확장**
   
   * 소프트웨어 및 구성 자동화를 사용하도록 Microsoft 및 Partner에서 작성된 구성 요소를 Linux VM(IaaS)에 삽입
-  * VM 확장 참조 구현 [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  * [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)에서 VM 확장 참조 구현
 
 ## <a name="communication"></a>통신
 플랫폼에서 에이전트로의 정보 흐름은 다음 두 채널을 통해 진행됩니다.
@@ -65,7 +65,7 @@ Microsoft Azure Linux 에이전트(waagent)는 Linux 및 FreeBSD 프로비저닝
 다음 시스템은 테스트를 거쳐 Azure Linux 에이전트와 동작하는 것으로 알려져 있습니다.
 
 > [!NOTE]
-> 이 목록은 [지원 되](../linux/endorsed-distros.md)는 배포판의 공식 목록과 다를 수 있습니다.
+> 이 목록은 [지원되는 배포판](../linux/endorsed-distros.md)의 공식 목록과 다를 수 있습니다.
 > 
 > 
 
@@ -93,7 +93,7 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
 * 네트워크 도구: ip-route
 * UDF 파일 시스템 탑재에 대한 커널 지원
 
-VM에 IP 주소 168.63.129.16에 대 한 액세스 권한이 있는지 확인 합니다. 자세한 내용은 [IP 주소 168.63.129.16?](../../virtual-network/what-is-ip-address-168-63-129-16.md)을 참조 하세요.
+VM에 IP 주소 168.63.129.16에 대한 액세스 권한이 있는지 확인합니다. 자세한 내용은 [IP 주소 168.63.129.16이란?](../../virtual-network/what-is-ip-address-168-63-129-16.md) 페이지를 참조하세요.
 
 
 ## <a name="installation"></a>설치
@@ -274,7 +274,7 @@ Default: n
 ```
 설정한 경우 스왑 파일(/swapfile)이 리소스 디스크에 만들어져서 시스템 스왑 공간에 추가됩니다.
 
-**ResourceDisk:**  
+**ResourceDisk.SwapSizeMB:**  
 ```txt
 Type: Integer  
 Default: 0
@@ -331,13 +331,13 @@ Ubuntu 클라우드 이미지는 [cloud-init](https://launchpad.net/ubuntu/+sour
 * **Provisioning.Enabled** 프로비전 작업을 수행하기 위해 cloud-init을 사용하는 Ubuntu 클라우드 이미지에서 기본값은 "n"입니다.
 * 다음 구성 매개 변수는 cloud-init을 사용하여 리소스 디스크와 swap 공간을 관리하는 Ubuntu 클라우드 이미지에 적용되지 않습니다.
   
-  * **ResourceDisk. 형식**
-  * **ResourceDisk. 파일 시스템**
-  * **ResourceDisk. 탑재 지점**
-  * **ResourceDisk**
+  * **ResourceDisk.Format**
+  * **ResourceDisk.Filesystem**
+  * **ResourceDisk.MountPoint**
+  * **ResourceDisk.EnableSwap**
   * **ResourceDisk.SwapSizeMB**
 
 * 프로비전 중에 Ubuntu 클라우드 이미지에서 리소스 디스크 탑재 지점 및 스왑 공간을 구성하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
   
   * [Ubuntu Wiki: Swap 파티션 구성](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
-  * [Azure 가상 컴퓨터에 사용자 지정 데이터 삽입](../windows/tutorial-automate-vm-deployment.md)
+  * [Azure Virtual Machine에 사용자 지정 데이터 삽입](../windows/tutorial-automate-vm-deployment.md)

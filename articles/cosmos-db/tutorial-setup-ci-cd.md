@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB 에뮬레이터 빌드 작업을 사용 하 여 CI/CD 파이프라인 설정
+title: Azure Cosmos DB 에뮬레이터 빌드 작업을 사용하여 CI/CD 파이프라인 설정
 description: Cosmos DB 에뮬레이터 빌드 작업을 사용하여 Azure DevOps에서 빌드 및 릴리스 워크플로를 설정하는 방법에 대한 자습서
 author: deborahc
 ms.service: cosmos-db
@@ -9,24 +9,24 @@ ms.author: dech
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c7246511a88e2d2756a8ef56c5adf51ddbfd3e58
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102560534"
 ---
-# <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Azure DevOps의 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용 하 여 CI/CD 파이프라인 설정
+# <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Azure Cosmos DB 에뮬레이터 빌드 작업을 사용하여 Azure DevOps에서 CI/CD 파이프라인 설정
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB 에뮬레이터는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공합니다. 이 에뮬레이터를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 애플리케이션을 테스트할 수 있습니다. 
 
-Azure DevOps에 대 한 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용 하면 CI 환경에서 동일한 작업을 수행할 수 있습니다. 빌드 작업을 사용하면 빌드 및 릴리스 워크플로의 일부로 에뮬레이터에 대한 테스트를 실행할 수 있습니다. 이 작업은 에뮬레이터가 이미 실행 중인 Docker 컨테이너를 스핀업하고, 빌드 정의의 나머지 부분에서 사용할 수 있는 엔드포인트를 제공합니다. 별도 컨테이너에서 실행되는 필요한 만큼 많은 에뮬레이터의 인스턴스를 만들고 시작할 수 있습니다. 
+Azure DevOps에 대한 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용하면 CI 환경에서와 동일한 작업을 수행할 수 있습니다. 빌드 작업을 사용하면 빌드 및 릴리스 워크플로의 일부로 에뮬레이터에 대한 테스트를 실행할 수 있습니다. 이 작업은 에뮬레이터가 이미 실행 중인 Docker 컨테이너를 스핀업하고, 빌드 정의의 나머지 부분에서 사용할 수 있는 엔드포인트를 제공합니다. 별도 컨테이너에서 실행되는 필요한 만큼 많은 에뮬레이터의 인스턴스를 만들고 시작할 수 있습니다. 
 
 이 문서에서는 Cosmos DB 에뮬레이터 빌드 작업을 사용하여 테스트를 실행하는 ASP.NET 애플리케이션에 대해 Azure DevOps에서 CI 파이프라인을 설정하는 방법을 설명합니다. 유사한 방법을 사용하여 Node.js 또는 Python 애플리케이션에 대한 CI 파이프라인을 설정할 수 있습니다. 
 
 ## <a name="install-the-emulator-build-task"></a>에뮬레이터 빌드 작업 설치
 
-빌드 작업을 사용하려면 먼저 Azure DevOps 조직에 설치해야 합니다. [Marketplace](https://marketplace.visualstudio.com/items?itemName=azure-cosmosdb.emulator-public-preview)에서 **Azure Cosmos DB 에뮬레이터** 확장을 찾고, **무료 다운로드** 를 클릭합니다.
+빌드 작업을 사용하려면 먼저 Azure DevOps 조직에 설치해야 합니다. [Marketplace](https://marketplace.visualstudio.com/items?itemName=azure-cosmosdb.emulator-public-preview)에서 **Azure Cosmos DB 에뮬레이터** 확장을 찾고, **평가판 다운로드** 를 클릭합니다.
 
 :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_1.png" alt-text="Azure DevOps Marketplace에서 Azure Cosmos DB 에뮬레이터 빌드 작업 찾기 및 설치":::
 
@@ -49,12 +49,12 @@ Azure DevOps에 대 한 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용 
 
    :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png" alt-text="팀 프로젝트, 리포지토리 및 빌드 파이프라인에 대한 분기 선택":::
 
-3. 마지막으로, 빌드 파이프라인에 대해 원하는 템플릿을 선택합니다. 이 자습서에서는 **ASP.NET** 템플릿을 선택합니다. 이제 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용 하도록 설정할 수 있는 빌드 파이프라인이 있습니다. 
+3. 마지막으로, 빌드 파이프라인에 대해 원하는 템플릿을 선택합니다. 이 자습서에서는 **ASP.NET** 템플릿을 선택합니다. 이제 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용하도록 설정할 수 있는 빌드 파이프라인이 있습니다. 
 
 > [!NOTE]
 > CI의 일부로 이전 작업에서 수동으로 설치가 완료되지 않은 경우 이 CI에 대해 선택할 에이전트 풀에 Windows용 Docker가 설치되어 있어야 합니다. 에이전트 풀 선택에 대한 자세한 내용은 [Microsoft에 호스트된 에이전트](/azure/devops/pipelines/agents/hosted?tabs=yaml) 문서를 참조하세요. `Hosted VS2017`로 시작하는 것이 좋습니다.
 
-Azure Cosmos DB 에뮬레이터는 현재 호스트 된 VS2019 agent 풀을 지원 하지 않습니다. 그러나 에뮬레이터에는 이미 VS2019가 설치되어 있으며 다음 PowerShell cmdlet으로 에뮬레이터를 시작하여 사용할 수 있습니다. VS2019를 사용할 때 문제가 발생하면 [Azure DevOps](https://developercommunity.visualstudio.com/spaces/21/index.html) 팀에 문의하세요.
+Azure Cosmos DB 에뮬레이터는 현재 호스트된 VS2019 에이전트 풀을 지원하지 않습니다. 그러나 에뮬레이터에는 이미 VS2019가 설치되어 있으며 다음 PowerShell cmdlet으로 에뮬레이터를 시작하여 사용할 수 있습니다. VS2019를 사용할 때 문제가 발생하면 [Azure DevOps](https://developercommunity.visualstudio.com/spaces/21/index.html) 팀에 문의하세요.
 
 ```powershell
 Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
@@ -166,15 +166,15 @@ Visual Studio 테스트 작업의 실행 옵션으로 이동합니다. **설정 
 
 이제 빌드를 **저장하고 큐에 대기** 시킵니다. 
 
-:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_1.png" alt-text="스크린샷 & 큐 저장이 선택 된 빌드를 보여 줍니다.":::
+:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_1.png" alt-text="저장 및 큐가 선택된 빌드를 보여 주는 스크린샷.":::
 
 빌드가 시작되면 Cosmos DB 에뮬레이터 작업이 에뮬레이터가 설치된 Docker 이미지를 끌어오기 시작합니다. 
 
-:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_4.png" alt-text="다운 된 Cosmos D B 에뮬레이터 작업을 보여 주는 스크린샷":::
+:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_4.png" alt-text="풀다운된 Cosmos DB 에뮬레이터 작업을 보여 주는 스크린샷.":::
 
 빌드가 완료된 후에 테스트가 통과되고 빌드 작업에서 Cosmos DB 에뮬레이터에 대해 모두 실행됩니다.
 
-:::image type="content" source="./media/tutorial-setup-ci-cd/buildComplete_1.png" alt-text="요약 탭의 진행 값을 보여 주는 스크린샷":::
+:::image type="content" source="./media/tutorial-setup-ci-cd/buildComplete_1.png" alt-text="요약 탭의 진행 값을 보여 주는 스크린샷.":::
 
 ## <a name="next-steps"></a>다음 단계
 

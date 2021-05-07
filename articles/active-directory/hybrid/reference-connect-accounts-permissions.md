@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1f7466931537745fb188a3bdb05646bff19912e8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103466255"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: 계정 및 사용 권한
@@ -44,7 +44,7 @@ Azure AD Connect를 실행하는 데 사용되는 이러한 세 가지 계정 �
 
 - **AD DS Enterprise 관리자 계정**: 필요에 따라 위의 "AD DS 커넥터 계정"을 만드는 데 사용됩니다.
 
-- **Azure AD 전역 관리자 계정**: Azure AD Connect 계정을 만들고 Azure AD를 구성하는 데 사용됩니다.  Azure Portal에서 전역 관리자 계정을 볼 수 있습니다.  [AZURE AD 역할 할당 나열](../../active-directory/roles/view-assignments.md)을 참조 하세요.
+- **Azure AD 전역 관리자 계정**: Azure AD Connect 계정을 만들고 Azure AD를 구성하는 데 사용됩니다.  Azure Portal에서 전역 관리자 계정을 볼 수 있습니다.  [Azure AD 역할 할당 나열](../../active-directory/roles/view-assignments.md)을 참조하세요.
 
 - **SQL SA 계정(선택 사항)** : SQL Server의 전체 버전을 사용할 때 ADSync 데이터베이스를 만드는 데 사용됩니다.  이 SQL Server는 Azure AD Connect 설치의 로컬 또는 원격일 수 있습니다.  이 계정은 엔터프라이즈 관리자와 동일한 계정일 수 있습니다.  이제 SQL 관리자가 대역 외에서 데이터베이스를 프로비전한 후 데이터베이스 소유권이 있는 Azure AD Connect 관리자가 설치할 수 있습니다.  이에 대한 내용은 [SQL 위임된 관리자 권한을 사용하여 Azure AD Connect 설치](how-to-connect-install-sql-delegation.md)를 참조하세요.
 
@@ -115,7 +115,7 @@ AD DS Connector 계정은 Windows Server AD에서 읽고 쓰기 위해 만들어
 
 다음은 사용자 지정 설치 마법사 페이지, 수집되는 자격 증명 및 용도를 요약한 것입니다.
 
-![사용자 지정 설치 마법사 페이지를 보여 주는 스크린샷](./media/reference-connect-accounts-permissions/customize.png)
+![사용자 지정 설치 마법사 페이지를 보여 주는 스크린샷.](./media/reference-connect-accounts-permissions/customize.png)
 
 | 마법사 페이지 | 수집되는 자격 증명 | 필요한 사용 권한 | 용도 |
 | --- | --- | --- | --- |
@@ -149,7 +149,7 @@ AD DS Connector 계정은 Windows Server AD에서 읽고 쓰기 위해 만들어
 | Exchange 메일 공용 폴더 |공용 폴더의 [Exchange Mail 공용 폴더](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder)에서 설명하는 특성에 대한 읽기 권한 | 
 | 비밀번호 쓰기 저장 |사용자에 대한 [암호 관리 시작](../authentication/tutorial-enable-sspr-writeback.md)에 설명된 특성에 사용 권한을 작성합니다. |
 | 디바이스 쓰기 저장 |[디바이스 쓰기 저장](how-to-connect-device-writeback.md)에 설명한 대로 PowerShell 스크립트에 부여된 사용 권한입니다. |
-| 그룹 쓰기 저장 |Exchange가 설치 된 포리스트에 **Microsoft 365 그룹** 을 쓰기 저장 (writeback) 할 수 있습니다.|
+| 그룹 쓰기 저장 |Exchange가 설치된 포리스트에 **Microsoft 365 그룹** 을 쓰기 저장할 수 있습니다.|
 
 ## <a name="upgrade"></a>업그레이드
 Azure AD Connect의 한 버전에서 새 릴리스로 업그레이드하는 경우 다음 권한이 필요합니다.
@@ -208,7 +208,7 @@ Connect의 2017년 3월 이전 빌드를 사용하는 경우에는 서비스 계
 #### <a name="virtual-service-account"></a>가상 서비스 계정
 가상 서비스 계정은 암호가 없고 Windows에 의해 관리되는 특수한 유형의 계정입니다.
 
-![VSA (가상 서비스 계정)를 보여 주는 스크린샷](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
+![VSA(가상 서비스 계정)를 보여 주는 스크린샷.](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
 
 VSA는 동기화 엔진과 SQL이 동일한 서버에 있는 시나리오에서 사용됩니다. 원격 SQL을 사용하는 경우 대신 그룹 관리 서비스 계정을 사용하는 것이 좋습니다.
 
@@ -241,7 +241,7 @@ VSA는 동기화 엔진과 SQL이 동일한 서버에 있는 시나리오에서 
 ### <a name="azure-ad-connector-account"></a>Azure AD Connect 계정
 Azure AD의 계정은 동기화 서비스의 사용에 생성됩니다. 이 계정은 표시 이름으로 식별할 수 있습니다.
 
-![Azure AD 계정을 보여 주는 스크린샷](./media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png)
+![Azure AD 계정을 보여 주는 스크린샷.](./media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png)
 
 계정을 사용하는 서버의 이름은 사용자 이름의 두 번째 부분에서 식별할 수 있습니다. 그림에서 서버 이름은 DC1입니다. 준비 서버가 있는 경우 각 서버는 고유한 계정을 포함합니다.
 

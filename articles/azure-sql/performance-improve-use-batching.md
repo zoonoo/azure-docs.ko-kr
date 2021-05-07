@@ -1,6 +1,6 @@
 ---
-title: 일괄 처리를 사용 하 여 응용 프로그램 성능을 개선 하는 방법
-description: 이 항목에서는 데이터베이스 작업을 일괄 처리 하 여 Azure SQL Database 및 Azure SQL Managed Instance 응용 프로그램의 속도와 확장성을 대폭 개선 하는 증거를 제공 합니다. 이러한 일괄 처리 기술은 모든 SQL database에서 작동 하지만 아티클의 초점은 Azure에 있습니다.
+title: 애플리케이션 성능을 개선하기 위해 일괄 처리를 사용하는 방법
+description: 이 토픽에서는 데이터베이스 작업을 일괄 처리하면 Azure SQL Database 및 Azure SQL Managed Instance 애플리케이션의 속도와 스케일링 성능이 대폭 향상된다는 증거를 제공합니다. 해당 일괄 처리 기법은 SQL 데이터베이스에 적용되지만, 이 문서는 Azure에 중점을 두었습니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,30 +12,30 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
 ms.openlocfilehash: 7f45e7d1515f0d6fc4467b36d95242ef8697c75d
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105641394"
 ---
-# <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>일괄 처리를 사용 하 여 Azure SQL Database 및 Azure SQL Managed Instance 응용 프로그램 성능을 개선 하는 방법
+# <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>일괄 처리를 사용하여 Azure SQL Database 및 Azure SQL Managed Instance 애플리케이션 성능을 개선하는 방법
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-Azure SQL Database 및 Azure SQL Managed Instance에 대 한 일괄 처리 작업을 수행 하면 응용 프로그램의 성능과 확장성이 크게 향상 됩니다. 이 문서의 첫 번째 부분에서는 이러한 이점을 이해 하기 위해 Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스에 대 한 순차적 및 일괄 처리 요청을 비교 하는 몇 가지 샘플 테스트 결과에 대해 설명 합니다. 문서의 나머지 부분은 Azure 애플리케이션에서 일괄 처리를 성공적으로 사용하는데 도움이 되는 기법, 시나리오, 고려 사항을 보여줍니다.
+Azure SQL Database 및 Azure SQL Managed Instance에 관해 일괄 처리 작업을 수행하면 애플리케이션의 성능 및 스케일링 성능이 상당히 향상됩니다. 장점을 이해할 수 있도록, 이 문서의 첫 번째 부분에서는 Azure SQL Managed Instance 또는 Azure SQL Database의 데이터베이스에 대한 순차적인 요청과 일괄 처리된 요청을 비교하는 샘플 테스트 결과를 설명합니다. 문서의 나머지 부분은 Azure 애플리케이션에서 일괄 처리를 성공적으로 사용하는데 도움이 되는 기법, 시나리오, 고려 사항을 보여줍니다.
 
-## <a name="why-is-batching-important-for-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance에 대 한 일괄 처리가 중요 한 이유는 무엇 인가요?
+## <a name="why-is-batching-important-for-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance에 일괄 처리가 중요한 이유는 무엇인가요?
 
 원격 서비스에 대한 호출 일괄 처리는 성능 및 확장성 향상을 위해 잘 알려진 전략입니다. 직렬화, 네트워크 전송, 역직렬화 같은 원격 서비스와의 모든 트랜잭션에는 고정 처리 비용이 있습니다. 다수의 분리된 트랜잭션을 하나의 배치로 패키징하면 이러한 비용이 최소화됩니다.
 
-이 문서에서는 다양 한 일괄 처리 전략 및 시나리오를 검토 하려고 합니다. 이러한 전략은 SQL Server를 사용 하는 온-프레미스 응용 프로그램에도 중요 하지만 Azure SQL Database 및 Azure SQL Managed Instance의 일괄 처리 사용을 강조 표시 하는 몇 가지 이유가 있습니다.
+이 문서에서는 몇 가지 일괄 처리 전략 및 시나리오를 살펴보고자 합니다. 해당 전략은 SQL Server를 사용하는 온-프레미스 애플리케이션에도 중요하지만, Azure SQL Database 및 Azure SQL Managed Instance에 관한 일괄 처리 사용을 강조하는 이유가 몇 가지 있습니다.
 
-* Azure SQL Database 및 Azure SQL Managed Instance에 액세스할 때 네트워크 대기 시간이 더 길어질 수 있습니다. 특히 동일한 Microsoft Azure 데이터 센터 외부에서 Azure SQL Database 또는 Azure SQL Managed Instance에 액세스 하는 경우에 해당 합니다.
-* Azure SQL Database 및 Azure SQL Managed Instance의 다중 테 넌 트 특성은 데이터 액세스 계층의 효율성이 데이터베이스의 전반적인 확장성과 관련이 있음을 의미 합니다. 미리 정의 된 할당량을 초과 하는 사용량에 대 한 응답으로 Azure SQL Database 및 Azure SQL Managed Instance는 처리량을 줄이거나 제한 예외로 응답할 수 있습니다. 일괄 처리와 같은 효율성을 통해 이러한 한도에 도달 하기 전에 더 많은 작업을 수행할 수 있습니다.
+* 같은 Microsoft Azure 데이터 센터 외부에서 Azure SQL Database 또는 Azure SQL Managed Instance에 액세스하는 경우 특히, Azure SQL Database 및 Azure SQL Managed Instance에 액세스할 때 네트워크 대기 시간이 더 길어질 수 있습니다.
+* Azure SQL Database 및 Azure SQL Managed Instance의 다중 테넌트 특징은 데이터 액세스 계층의 효율이 데이터베이스의 전반적인 스케일링 성능과 상관 관계가 있다는 것을 의미합니다. 미리 정의된 할당량을 초과하는 사용량에 대해 Azure SQL Database 및 Azure SQL Managed Instance는 처리량을 낮추거나 제한 예외로 응답할 수 있습니다. 일괄 처리와 같은 효율성을 통해 해당 한도에 도달하기 전에 더 많은 작업을 수행할 수 있습니다.
 * 일괄 처리는 다수의 데이터베이스(분할)를 사용하는 아키텍처에 대해서도 효과적입니다. 각 데이터베이스 단위와의 상호 작용 효율은 전반적인 확장성에 있어 여전히 주요 요인입니다.
 
-Azure SQL Database 또는 Azure SQL Managed Instance를 사용 하는 경우의 이점 중 하나는 데이터베이스를 호스팅하는 서버를 관리할 필요가 없다는 것입니다. 하지만 관리되는 인프라는 사용자가 데이터베이스 최적화에 대해 달리 생각해봐야 한다는 것을 의미하기도 합니다. 더 이상은 데이터베이스 하드웨어 또는 네트워크 인프라 개선에만 기대를 걸 수 없습니다. Microsoft Azure는 이러한 환경을 제어합니다. 사용자가 제어할 수 있는 주요 영역은 응용 프로그램이 Azure SQL Database 및 Azure SQL Managed Instance와 상호 작용 하는 방법입니다. 일괄 처리는 이러한 최적화 중 하나입니다.
+Azure SQL Database 및 Azure SQL Managed Instance를 사용하는 장점 중 하나는 데이터베이스를 호스트하는 서버를 관리하지 않아도 된다는 것입니다. 하지만 관리되는 인프라는 사용자가 데이터베이스 최적화에 대해 달리 생각해봐야 한다는 것을 의미하기도 합니다. 더 이상은 데이터베이스 하드웨어 또는 네트워크 인프라 개선에만 기대를 걸 수 없습니다. Microsoft Azure는 이러한 환경을 제어합니다. 사용자가 제어할 수 있는 주요 영역은 애플리케이션이 Azure SQL Database 및 Azure SQL Managed Instance와 상호 작용하는 방식입니다. 일괄 처리는 이러한 최적화 중 하나입니다.
 
-이 문서의 첫 번째 부분에서는 Azure SQL Database 또는 Azure SQL Managed Instance를 사용 하는 .NET 응용 프로그램의 다양 한 일괄 처리 기술을 살펴봅니다. 마지막 두 세션은 일괄 처리 지침 및 시나리오를 포함합니다.
+이 문서의 첫 번째 부분에서는 Azure SQL Database 또는 Azure SQL Managed Instance를 사용하는 .NET 애플리케이션의 다양한 일괄 처리 기술을 살펴봅니다. 마지막 두 세션은 일괄 처리 지침 및 시나리오를 포함합니다.
 
 ## <a name="batching-strategies"></a>일괄 처리 전략
 
@@ -93,13 +93,13 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-트랜잭션이 양쪽 예제에 실제로 사용되고 있습니다. 첫 번째 예제에서 각각의 개별 호출은 암시적 트랜잭션입니다. 두 번째 예제에서 명시적 트랜잭션이 모든 호출을 래핑합니다. [미리 쓰기 트랜잭션 로그](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15&preserve-view=true#WAL) 설명에 따라 로그 기록은 트랜잭션이 커밋될 때 디스크에 플러시됩니다. 따라서 트랜잭션에 더 많은 호출을 포함시켜서, 트랜잭션 로그에 대한 쓰기를 트랜잭션이 커밋될 때까지 지연시킬 수 있습니다. 실제로 서버의 트랜잭션 로그에 대 한 쓰기 일괄 처리를 사용 하도록 설정 합니다.
+트랜잭션이 양쪽 예제에 실제로 사용되고 있습니다. 첫 번째 예제에서 각각의 개별 호출은 암시적 트랜잭션입니다. 두 번째 예제에서 명시적 트랜잭션이 모든 호출을 래핑합니다. [미리 쓰기 트랜잭션 로그](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15&preserve-view=true#WAL) 설명에 따라 로그 기록은 트랜잭션이 커밋될 때 디스크에 플러시됩니다. 따라서 트랜잭션에 더 많은 호출을 포함시켜서, 트랜잭션 로그에 대한 쓰기를 트랜잭션이 커밋될 때까지 지연시킬 수 있습니다. 사실상, 서버의 트랜잭션 로그에 쓰기에 대해 일괄 처리를 사용하는 것입니다.
 
-다음 표에는 몇 가지 임시 테스트 결과가 나와 있습니다. 테스트는 동일한 순차적 삽입을 트랜잭션을 포함한 상태와 그렇지 않은 상태로 수행하였습니다. 보다 다양한 견해를 위해, 첫 번째 테스트는 랩톱에서 Microsoft Azure의 데이터베이스에 대해 원격으로 실행했습니다. 두 번째 테스트는 동일한 Microsoft Azure 데이터 센터(미국 서부) 내에 상주하는 클라우드 서비스 및 데이터베이스에서 실행했습니다. 다음 테이블은 트랜잭션 유 무 상태에서 순차적인 삽입의 소요 시간(밀리초)를 보여줍니다.
+다음 테이블은 임시 테스팅 결과를 보여 줍니다. 테스트는 동일한 순차적 삽입을 트랜잭션을 포함한 상태와 그렇지 않은 상태로 수행하였습니다. 보다 다양한 견해를 위해, 첫 번째 테스트는 랩톱에서 Microsoft Azure의 데이터베이스에 대해 원격으로 실행했습니다. 두 번째 테스트는 동일한 Microsoft Azure 데이터 센터(미국 서부) 내에 상주하는 클라우드 서비스 및 데이터베이스에서 실행했습니다. 다음 테이블은 트랜잭션 유 무 상태에서 순차적인 삽입의 소요 시간(밀리초)를 보여줍니다.
 
-**온-프레미스에서 Azure로**:
+**온-프레미스에서 Azure**:
 
-| 작업 | 트랜잭션 없음 (밀리초) | 트랜잭션(밀리초) |
+| 작업 | 트랜잭션 없음(밀리초) | 트랜잭션(밀리초) |
 | --- | --- | --- |
 | 1 |130 |402 |
 | 10 |1208 |1226 |
@@ -108,7 +108,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 **Azure에서Azure(동일한 데이터 센터)**:
 
-| 작업 | 트랜잭션 없음 (밀리초) | 트랜잭션(밀리초) |
+| 작업 | 트랜잭션 없음(밀리초) | 트랜잭션(밀리초) |
 | --- | --- | --- |
 | 1 |21 |26 |
 | 10 |220 |56 |
@@ -118,7 +118,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 > [!NOTE]
 > 결과가 기준은 아닙니다. [이 문서의 타이밍 결과에 대한 정보](#note-about-timing-results-in-this-article)를 참조하세요.
 
-이전 테스트 결과에 따르면, 단일 작업을 트랜잭션에 래핑하면 성능이 실제로 감소합니다. 하지만 단일 트랜잭션에 포함하는 작업의 수를 증가시키면, 성능 향상이 더 두드러집니다. 모든 작업이 Microsoft Azure 데이터 센터 내에서 발생하는 경우에는 성능 차이가 더 현저하게 나타납니다. Microsoft Azure 데이터 센터 외부에서 Azure SQL Database 또는 Azure SQL Managed Instance를 사용 하는 경우의 대기 시간이 증가 함에 따라 트랜잭션을 사용 하는 성능이 향상 되었습니다.
+이전 테스트 결과에 따르면, 단일 작업을 트랜잭션에 래핑하면 성능이 실제로 감소합니다. 하지만 단일 트랜잭션에 포함하는 작업의 수를 증가시키면, 성능 향상이 더 두드러집니다. 모든 작업이 Microsoft Azure 데이터 센터 내에서 발생하는 경우에는 성능 차이가 더 현저하게 나타납니다. Microsoft Azure 데이터 센터 외부에서 Azure SQL Database 및 Azure SQL Managed Instance를 사용하여 증가하는 대기 시간은 트랜잭션 사용으로 인한 성능 향상을 무색하게 만듭니다.
 
 트랜잭션 사용을 통해 성능을 향상시킬 수 있지만 계속해서 [트랜잭션 및 연결에 대한 모범 사례](/previous-versions/sql/sql-server-2008-r2/ms187484(v=sql.105))를 살펴보겠습니다. 트랜잭션을 최대한 짧게 유지하고 작업이 완료된 후에는 데이터베이스 연결을 닫습니다. 이전 예제의 using 문은 후속 코드 블록이 완료되면 연결이 닫히도록 합니다.
 
@@ -169,7 +169,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-이전 예에서 **SqlCommand** 개체는 테이블 반환 매개 변수 **\@ TestTvp** 의 행을 삽입 합니다. 이전에 만든 **DataTable** 개체는 **SqlCommand.Parameters.Add** 메서드로 이 매개 변수에 할당됩니다. 삽입을 하나의 호출로 일괄 처리하면 순차적인 삽입의 성능을 상당히 향상시킵니다.
+이전 예제에서 **SqlCommand** 개체는 테이블 반환 매개 변수 **\@TestTvp** 의 행을 삽입합니다. 이전에 만든 **DataTable** 개체는 **SqlCommand.Parameters.Add** 메서드로 이 매개 변수에 할당됩니다. 삽입을 하나의 호출로 일괄 처리하면 순차적인 삽입의 성능을 상당히 향상시킵니다.
 
 이전 예제를 더욱 향상시키려면 텍스트 기반 명령 대신 저장 프로시저를 사용합니다. 다음 Transact-SQL 명령은 **SimpleTestTableType** 테이블 반환 매개 변수를 받아들이는 저장 프로시저를 만듭니다.
 
@@ -191,11 +191,11 @@ SqlCommand cmd = new SqlCommand("sp_InsertRows", connection);
 cmd.CommandType = CommandType.StoredProcedure;
 ```
 
-대부분의 경우 테이블 반환 매개 변수는 다른 일괄 처리 기법과 동등하거나 그 보다 뛰어난 성능을 갖습니다. 테이블 반환 매개 변수는 다른 옵션에 비해 융통성이 많기 때문에 더 좋을 수 있습니다. 예를 들어 SQL 대량 복사와 같은 다른 기법은 새 행의 삽입만을 허용합니다. 하지만 테이블 반환 매개 변수를 사용하면 저장 프로시저의 논리를 사용하여 업데이트되는 행과 삽입되는 행을 결정할 수 있습니다. 지정 된 행을 삽입, 업데이트 또는 삭제 해야 하는지 여부를 나타내는 "작업" 열을 포함 하도록 테이블 형식을 수정할 수도 있습니다.
+대부분의 경우 테이블 반환 매개 변수는 다른 일괄 처리 기법과 동등하거나 그 보다 뛰어난 성능을 갖습니다. 테이블 반환 매개 변수는 다른 옵션에 비해 융통성이 많기 때문에 더 좋을 수 있습니다. 예를 들어 SQL 대량 복사와 같은 다른 기법은 새 행의 삽입만을 허용합니다. 하지만 테이블 반환 매개 변수를 사용하면 저장 프로시저의 논리를 사용하여 업데이트되는 행과 삽입되는 행을 결정할 수 있습니다. 지정된 행이 삽입될지, 업데이트될지 또는 삭제될지를 나타내는 “작업” 열을 포함하도록 테이블 형식이 수정될 수도 있습니다.
 
-다음 표에서는 테이블 반환 매개 변수 사용에 대 한 임시 테스트 결과를 밀리초 단위로 보여 줍니다.
+다음 테이블은 테이블 반환 매개 변수 사용에 대한 임시 테스트 결과를 밀리초 단위로 보여 줍니다.
 
-| 작업 | 온-프레미스에서 Azure로 (ms) | Azure 동일한 데이터 센터(밀리초) |
+| 작업 | 온-프레미스에서 Azure(밀리초) | Azure 동일한 데이터 센터(밀리초) |
 | --- | --- | --- |
 | 1 |124 |32 |
 | 10 |131 |25 |
@@ -212,7 +212,7 @@ cmd.CommandType = CommandType.StoredProcedure;
 
 ### <a name="sql-bulk-copy"></a>SQL 대량 복사
 
-SQL 대량 복사는 대량의 데이터를 대상 데이터베이스에 삽입하는 또 다른 방법입니다. NET 애플리케이션은 **SqlBulkCopy** 클래스를 사용하여 대량 삽입 작업을 수행할 수 있습니다. **SqlBulkCopy** 는 명령줄 도구 **Bcp.exe** 또는 Transact-SQL 문 **BULK INSERT** 와 기능면에서 유사합니다. 다음 코드 예에서는 원본 **DataTable** 테이블의 행을 대상 테이블 MyTable에 대량 복사 하는 방법을 보여 줍니다.
+SQL 대량 복사는 대량의 데이터를 대상 데이터베이스에 삽입하는 또 다른 방법입니다. NET 애플리케이션은 **SqlBulkCopy** 클래스를 사용하여 대량 삽입 작업을 수행할 수 있습니다. **SqlBulkCopy** 는 명령줄 도구 **Bcp.exe** 또는 Transact-SQL 문 **BULK INSERT** 와 기능면에서 유사합니다. 다음 코드 예제는 원본 **DataTable** 테이블의 행을 MyTable이라는 대상 테이블로 대량 복사하는 방법을 보여 줍니다.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -231,9 +231,9 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 테이블 반환 매개 변수보다 대량 복사를 선호하는 경우도 있습니다. [테이블 반환 매개 변수](/sql/relational-databases/tables/use-table-valued-parameters-database-engine) 문서에서 테이블 반환 매개 변수와 BULK INSERT 작업의 비교 테이블을 참고하세요.
 
-다음 임시 테스트 결과는 **SqlBulkCopy** (밀리초)로 일괄 처리의 성능을 보여 줍니다.
+다음 임시 테스트 결과는 **SqlBulkCopy** 를 통한 일괄 처리 성능을 밀리초 단위로 보여 줍니다.
 
-| 작업 | 온-프레미스에서 Azure로 (ms) | Azure 동일한 데이터 센터(밀리초) |
+| 작업 | 온-프레미스에서 Azure(밀리초) | Azure 동일한 데이터 센터(밀리초) |
 | --- | --- | --- |
 | 1 |433 |57 |
 | 10 |441 |32 |
@@ -244,11 +244,11 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 > [!NOTE]
 > 결과가 기준은 아닙니다. [이 문서의 타이밍 결과에 대한 정보](#note-about-timing-results-in-this-article)를 참조하세요.
 
-소규모 배치에서는, 테이블 반환 매개 변수가 **SqlBulkCopy** 클래스보다 성능이 뛰어납니다. 그러나 **SqlBulkCopy** 는 1000 및 1만 행 테스트에 대 한 테이블 반환 매개 변수 보다 12-31% 더 빠른 속도로 수행 되었습니다. 테이블 반환 매개 변수처럼 **SqlBulkCopy** 역시 일괄 처리된 삽입의 좋은 옵션이며, 비일괄 처리 작업의 성능과 비교하면 특히 그렇습니다.
+소규모 배치에서는, 테이블 반환 매개 변수가 **SqlBulkCopy** 클래스보다 성능이 뛰어납니다. 하지만 1,000개 및 10,000개 행에 대한 테스트의 경우 **SqlBulkCopy** 가 테이블 반환 매개 변수보다 12-31% 더 빠르게 수행됩니다. 테이블 반환 매개 변수처럼 **SqlBulkCopy** 역시 일괄 처리된 삽입의 좋은 옵션이며, 비일괄 처리 작업의 성능과 비교하면 특히 그렇습니다.
 
-ADO.NET의 대량 복사에 대 한 자세한 내용은 [대량 복사 작업](/dotnet/framework/data/adonet/sql/bulk-copy-operations-in-sql-server)을 참조 하세요.
+ADO.NET에서 대량 복사에 대한 자세한 내용은 [대량 복사 작업](/dotnet/framework/data/adonet/sql/bulk-copy-operations-in-sql-server)을 참조하세요.
 
-### <a name="multiple-row-parameterized-insert-statements"></a>여러 행 매개 변수가 있는 INSERT 문
+### <a name="multiple-row-parameterized-insert-statements"></a>여러 행의 매개 변수가 있는 INSERT 문
 
 소규모 배치에 대한 한 가지 대안은 여러 행을 삽입하는 매개 변수가 있는 대량 INSERT 문을 생성하는 것입니다. 다음 코드 예제는 이러한 기법을 보여줍니다.
 
@@ -274,7 +274,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 이 예제는 기본적인 개념을 보여주기 위한 것입니다. 보다 현실적인 시나리오는 필요한 엔터티를 이어서 쿼리 문자열과 명령 매개 변수를 동시에 구성합니다. 쿼리 매개 변수는 총 2100개로 제한되기 때문에, 이러한 방식으로 처리되는 행의 총 수가 제한됩니다.
 
-다음 임시 테스트 결과는 이러한 insert 문의 성능 (밀리초)을 보여 줍니다.
+다음 임시 테스트 결과는 이런 형식으로 된 Insert 문의 성능을 밀리초 단위로 보여 줍니다.
 
 | 작업 | 테이블 반환 매개 변수(밀리초) | 단일 문 INSERT(밀리초) |
 | --- | --- | --- |
@@ -293,7 +293,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 ### <a name="entity-framework"></a>Entity Framework
 
-[Entity Framework Core](/ef/efcore-and-ef6/#saving-data) 에서 일괄 처리를 지원 합니다.
+[Entity Framework Core](/ef/efcore-and-ef6/#saving-data)에서 일괄 처리를 지원합니다.
 
 ### <a name="xml"></a>XML
 
@@ -309,7 +309,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 ## <a name="batching-considerations"></a>일괄 처리 고려 사항
 
-다음 섹션에서는 Azure SQL Database 및 Azure SQL Managed Instance 응용 프로그램에서 일괄 처리를 사용 하는 방법에 대 한 자세한 지침을 제공 합니다.
+다음 섹션은 Azure SQL Database 및 Azure SQL Managed Instance 애플리케이션에서 일괄 처리를 사용하는 것에 대해 더 많은 참고 자료를 제공합니다.
 
 ### <a name="tradeoffs"></a>균형 유지
 
@@ -331,9 +331,9 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 > [!NOTE]
 > 결과가 기준은 아닙니다. [이 문서의 타이밍 결과에 대한 정보](#note-about-timing-results-in-this-article)를 참조하세요.
 
-1000개 행에 대한 최고의 성능은 모두를 한꺼번에 제출하는 것이라는 사실을 볼 수 있습니다. 다른 테스트 (여기에 표시 되지 않음)에서 1만 행 일괄 처리를 두 개의 5000 일괄 처리로 나누는 약간의 성능 향상이 있었습니다. 하지만 이 테스트에 대한 테이블 스키마가 상대적으로 간단하기 때문에, 이러한 결론을 검증하기 위해서는 사용자의 데이터 및 배치 크기에 대한 테스트를 수행해야 합니다.
+1000개 행에 대한 최고의 성능은 모두를 한꺼번에 제출하는 것이라는 사실을 볼 수 있습니다. 다른 테스트(여기에 표시되지 않은)에서는 10,000개 행의 배치 하나를 5,000개 행의 배치 2개로 나눈 경우에 약간의 성능 향상이 있었습니다. 하지만 이 테스트에 대한 테이블 스키마가 상대적으로 간단하기 때문에, 이러한 결론을 검증하기 위해서는 사용자의 데이터 및 배치 크기에 대한 테스트를 수행해야 합니다.
 
-고려해 야 할 또 다른 요인은 전체 일괄 처리가 너무 커지면 Azure SQL Database 또는 Azure SQL Managed Instance에서 일괄 처리 커밋을 제한 하 고 거부할 수 있다는 것입니다. 최고의 결과를 위해서는 사용자의 특정한 시나리오를 테스트하여 이상적인 배치 규모가 있는가를 판단합니다. 런타임에 배치 규모를 구성할 수 있도록 하여 성능 또는 오류를 기반으로 신속한 조정이 가능하도록 합니다.
+또 다른 요인 고려 사항은 전체 배치가 너무 커지면 Azure SQL Database 및 Azure SQL Managed Instance가 흐름을 제한하고 배치 커밋을 거부할 수 있다는 점입니다. 최고의 결과를 위해서는 사용자의 특정한 시나리오를 테스트하여 이상적인 배치 규모가 있는가를 판단합니다. 런타임에 배치 규모를 구성할 수 있도록 하여 성능 또는 오류를 기반으로 신속한 조정이 가능하도록 합니다.
 
 마지막으로 배치의 규모를 일괄 처리와 관련된 위험과 비교 평가합니다. 일시적인 오류 또는 역할 실패가 발생하는 경우에는 작업을 재시도하거나 배치의 데이터가 손실되어 발생하는 결과를 고려합니다.
 
@@ -368,17 +368,17 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 데이터 베이스 성능에 대한 전형적인 지침은 일괄 처리에도 영향을 미칩니다. 예를 들어, 기본 키가 크거나 비클러스터형 인덱스가 많은 테이블에 대한 삽입 성능은 감소됩니다.
 
-테이블 반환 매개 변수가 저장 프로시저를 사용하는 경우에는 프로시저의 시작에 **SET NOCOUNT ON** 명령을 사용할 수 있습니다. 이 명령문은 프로시저에서 영향을 받은 행의 수에 대한 반환을 억제합니다. 하지만 테스트에서는 **SET NOCOUNT ON** 의 사용이 효과가 없거나 성능을 감소시켰습니다. 테스트 저장 프로시저는 간단하게 테이블 반환 매개 변수의 **INSERT** 명령 하나만 포함했습니다. 이 명령문은 더 복잡한 저장 프로시저에 유용할 수 있습니다. 하지만 저장 프로시저에 **SET NOCOUNT on** 을 추가 하면 성능이 자동으로 향상 된다고 가정해 서는 안 됩니다. 효과를 이해하려면 **SET NOCOUNT ON** 문을 포함한 상태와 그렇지 않은 상태로 사용자의 저장 프로시저를 테스트해야 합니다.
+테이블 반환 매개 변수가 저장 프로시저를 사용하는 경우에는 프로시저의 시작에 **SET NOCOUNT ON** 명령을 사용할 수 있습니다. 이 명령문은 프로시저에서 영향을 받은 행의 수에 대한 반환을 억제합니다. 하지만 테스트에서는 **SET NOCOUNT ON** 의 사용이 효과가 없거나 성능을 감소시켰습니다. 테스트 저장 프로시저는 간단하게 테이블 반환 매개 변수의 **INSERT** 명령 하나만 포함했습니다. 이 명령문은 더 복잡한 저장 프로시저에 유용할 수 있습니다. 하지만 저장 프로시저에 **SET NOCOUNT ON** 을 추가한다고 해서 자동으로 성능이 향상될 것이라고 가정하지 마세요. 효과를 이해하려면 **SET NOCOUNT ON** 문을 포함한 상태와 그렇지 않은 상태로 사용자의 저장 프로시저를 테스트해야 합니다.
 
 ## <a name="batching-scenarios"></a>일괄 처리 시나리오
 
-다음 섹션은 세 개의 애플리케이션 시나리오에서 테이블 반환 매개 변수를 사용하는 방법을 설명합니다. 첫 번째 시나리오는 버퍼링과 일괄 처리가 함께 작업할 수 있는 방법을 보여줍니다. 두 번째 시나리오는 하나의 저장 프로시저 호출로 마스터-세부 정보 작업 수행하여 성능을 향상시킵니다. 마지막 시나리오에서는 "UPSERT" 작업에서 테이블 반환 매개 변수를 사용 하는 방법을 보여 줍니다.
+다음 섹션은 세 개의 애플리케이션 시나리오에서 테이블 반환 매개 변수를 사용하는 방법을 설명합니다. 첫 번째 시나리오는 버퍼링과 일괄 처리가 함께 작업할 수 있는 방법을 보여줍니다. 두 번째 시나리오는 하나의 저장 프로시저 호출로 마스터-세부 정보 작업 수행하여 성능을 향상시킵니다. 마지막 시나리오는 “UPSERT” 작업에서 테이블 반환 매개 변수를 사용하는 방법을 보여 줍니다.
 
 ### <a name="buffering"></a>버퍼링
 
 일괄 처리가 확실히 적합할 만한 시나리오가 있기는 하지만 지연 처리를 통한 일괄 처리를 활용할 수 있는 시나리오는 많이 있습니다. 하지만 지연 처리는 예기치 않은 오류가 발생하면 데이터가 손실되는 등의 큰 위험이 수반됩니다. 이러한 위험을 이해하고 그에 따른 결과를 고려하는 것이 중요합니다.
 
-예를 들어, 각 사용자의 탐색 내역을 추적하는 애플리케이션을 생각해 보겠습니다. 각 페이지 요청에서 응용 프로그램은 사용자의 페이지 보기를 기록 하는 데이터베이스 호출을 수행할 수 있습니다. 하지만 사용자의 탐색 활동을 버퍼링 한 다음이 데이터를 데이터베이스에 일괄 전송 하 여 더 높은 성능과 확장성을 달성할 수 있습니다. 경과 시간 및/또는 버퍼 크기에 따라서 데이터베이스 업데이트를 트리거할 수 있습니다. 예를 들어, 20초 후에 배치가 처리되도록 하거나 버퍼의 항목이 1000개에 도달하면 배치가 처리되도록 규칙을 지정할 수 있습니다.
+예를 들어, 각 사용자의 탐색 내역을 추적하는 애플리케이션을 생각해 보겠습니다. 각 페이지 요청에 대해, 애플리케이션은 사용자의 페이지 보기를 기록하기 위한 데이터베이스 호출을 만들 수 있습니다. 하지만 사용자의 검색 작업을 버퍼링한 후 이 데이터를 데이터베이스에 일괄 처리해서 보내면 더 높은 성능과 스케일링 성능을 달성할 수 있습니다. 경과 시간 및/또는 버퍼 크기에 따라서 데이터베이스 업데이트를 트리거할 수 있습니다. 예를 들어, 20초 후에 배치가 처리되도록 하거나 버퍼의 항목이 1000개에 도달하면 배치가 처리되도록 규칙을 지정할 수 있습니다.
 
 다음 코드 예제는 모니터링 클래스에 의해 발생한 버퍼 이벤트를 처리하기 위해 [Reactive Extensions - Rx](/previous-versions/dotnet/reactive-extensions/hh242985(v=vs.103)) 를 사용합니다. 버퍼가 차거나 제한 시간에 도달하면, 사용자 데이터 배치는 테이블 반환 매개 변수와 함께 데이터베이스로 전송됩니다.
 
@@ -476,7 +476,7 @@ public class NavHistoryDataMonitor
 
 ### <a name="master-detail"></a>마스터-세부 정보
 
-테이블 반환 매개 변수는 간단한 INSERT 시나리오에 유용합니다. 하지만 두 개 이상의 테이블이 연관되는 일괄 처리 삽입은 더 어려울 수 있습니다. "마스터/세부 정보" 시나리오는 좋은 예입니다. 마스터 테이블은 기본 엔터티를 식별합니다. 하나 이상의 세부 정보 테이블은 엔터티에 대한 데이터를 더 많이 저장합니다. 이 시나리오에서 외래 키 관계는 고유 마스터 엔터티에 세부 정보의 관계를 적용합니다. PurchaseOrder 테이블의 간소화된 버전 및 그와 연결된 OrderDetail 테이블을 생각해 보겠습니다. 다음 Transact-SQL은 4개의 열 즉 OrderID, OrderDate, CustomerID, Status를 포함하는 PurchaseOrder 테이블을 생성합니다.
+테이블 반환 매개 변수는 간단한 INSERT 시나리오에 유용합니다. 하지만 두 개 이상의 테이블이 연관되는 일괄 처리 삽입은 더 어려울 수 있습니다. “마스터/세부 정보” 시나리오가 좋은 예입니다. 마스터 테이블은 기본 엔터티를 식별합니다. 하나 이상의 세부 정보 테이블은 엔터티에 대한 데이터를 더 많이 저장합니다. 이 시나리오에서 외래 키 관계는 고유 마스터 엔터티에 세부 정보의 관계를 적용합니다. PurchaseOrder 테이블의 간소화된 버전 및 그와 연결된 OrderDetail 테이블을 생각해 보겠습니다. 다음 Transact-SQL은 4개의 열 즉 OrderID, OrderDate, CustomerID, Status를 포함하는 PurchaseOrder 테이블을 생성합니다.
 
 ```sql
 CREATE TABLE [dbo].[PurchaseOrder](
@@ -602,7 +602,7 @@ exec sp_InsertOrdersBatch @orders, @details
 
 ### <a name="upsert"></a>UPSERT
 
-다른 일괄 작업 시나리오는 동시에 기존 행을 업데이트하고 새 행을 삽입하는 작업을 포함합니다. 이 작업을 "UPSERT" (업데이트 + 삽입) 작업이 라고도 합니다. 이 작업에 INSERT 및 UPDATE에 대한 호출을 따로 생성하기 보다는 MERGE 문이 가장 적합합니다. MERGE 문은 삽입과 업데이트 작업을 단일 호출로 수행할 수 있습니다.
+다른 일괄 작업 시나리오는 동시에 기존 행을 업데이트하고 새 행을 삽입하는 작업을 포함합니다. 이 작업은 경우에 따라 “UPSERT”(업데이트 + 삽입) 작업이라고 합니다. 이 작업에 INSERT 및 UPDATE에 대한 호출을 따로 생성하기 보다는 MERGE 문이 가장 적합합니다. MERGE 문은 삽입과 업데이트 작업을 단일 호출로 수행할 수 있습니다.
 
 테이블 반환 매개 변수가 MERGE 문과 함께 사용되어 업데이트와 삽입을 수행할 수 있습니다. 예를 들어 EmployeeID, FirstName, LastName, SocialSecurityNumber 열을 포함하는 간소화된 Employee 테이블이 있습니다.
 
@@ -649,7 +649,7 @@ WHEN NOT MATCHED THEN
 
 다음 목록은 이 문서에 논의된 일괄 작업 권장 사항에 대한 요약을 제공합니다.
 
-* 버퍼링 및 일괄 처리를 사용 하 여 Azure SQL Database 및 Azure SQL Managed Instance 응용 프로그램의 성능과 확장성을 향상 시킵니다.
+* Azure SQL Database 및 Azure SQL Managed Instance 애플리케이션의 성능과 스케일링 성능을 높이려면 버퍼링 및 일괄 처리를 사용합니다.
 * 일괄 처리/버퍼링과 복원력 사이의 균형 유지(상쇄)를 이해합니다. 역할에 오류가 발생하면, 중요한 비즈니스 데이터를 처리하지 않은 배치 파일을 손실할 위험이 일괄 처리 성능의 이점을 능가합니다.
 * 대기 시간을 줄이기 위해 단일 데이터 센터 내에 데이터베이스에 대한 모든 호출을 유지하도록 시도합니다.
 * 단일 일괄 처리 기법을 선택하는 경우, 테이블 반환 매개 변수가 최고의 성능 및 유연성을 제공합니다.
@@ -661,11 +661,11 @@ WHEN NOT MATCHED THEN
 * Batch 크기 지침:
   * 사용자의 애플리케이션 및 비즈니스 요구 사항에 합당한 최대 배치 크기를 사용합니다.
   * 대형 배치의 성능 향상과 임시 오류 또는 치명적인 오류의 위험 사이에서 균형을 유지합니다. 재시도 또는 배치 파일에 포함된 데이터 손실의 결과(대가)는 무엇인가요?
-  * 가장 큰 일괄 처리 크기를 테스트 하 여 Azure SQL Database 또는 Azure SQL Managed Instance에서 거부 하지 않는지 확인 합니다.
+  * Azure SQL Database 또는 Azure SQL Managed Instance가 일괄 처리를 거부하지 않는지 확인하기 위해 큰 규모의 일괄 처리를 테스트합니다.
   * 배치 크기 또는 버퍼링 시간대와 같이 일괄 처리를 제어하는 구성 설정을 만듭니다. 이러한 설정은 유연성을 제공합니다. 클라우드 서비스를 다시 배포하지 않고도 프로덕션에서 일괄 처리 동작을 변경할 수 있습니다.
 * 단일 데이터베이스의 단일 테이블에서 작동하는 배치를 병렬로 실행하지 않도록 합니다. 그렇게 하는 경우에는 여러 작업자 스레드의 단일 배치를 나누고 테스트를 실행하여 이상적인 스레드의 개수를 판단합니다. 스레드가 지정되지 않으면 더 많은 스레드가 성능을 높이기 보다는 감소시킵니다.
 * 보다 많은 시나리오에 일괄 처리를 구현하는 방법으로 크기 및 시간에 따른 버퍼링을 고려합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서는 일괄 처리와 관련된 데이터베이스 디자인과 코딩 기법이 애플리케이션 성능과 확장성을 향상시킬 수 있는 방법에 중점을 두고 있습니다. 하지만 이것은 사용자의 전반적인 전략 중 한 가지 요소에 불과합니다. 성능 및 확장성을 개선 하는 방법에 대 한 자세한 내용은 [데이터베이스 성능 지침](database/performance-guidance.md) 과 [탄력적 풀에 대 한 가격 및 성능 고려 사항](database/elastic-pool-overview.md)을 참조 하세요.
+이 문서는 일괄 처리와 관련된 데이터베이스 디자인과 코딩 기법이 애플리케이션 성능과 확장성을 향상시킬 수 있는 방법에 중점을 두고 있습니다. 하지만 이것은 사용자의 전반적인 전략 중 한 가지 요소에 불과합니다. 성능과 스케일링 성능을 개선하는 방법을 더 보려면 [데이터베이스 성능 참고 자료](database/performance-guidance.md) 및 [탄력적 풀의 가격 및 성능 고려 사항](database/elastic-pool-overview.md)을 참조하세요.

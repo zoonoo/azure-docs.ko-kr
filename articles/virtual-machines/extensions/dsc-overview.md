@@ -19,22 +19,22 @@ ms.date: 07/13/2020
 ms.author: magoedte
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: dcdc325633aff5ab828cb1c82f4bb2d8becee967
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102560041"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure 필요한 상태 구성 확장 처리기 소개
 
 Azure VM 에이전트 및 연결된 확장은 Microsoft Azure 인프라 서비스의 일부입니다. VM 확장 기능은 VM 기능을 확장하고 다양한 VM 관리 작업을 단순화하는 소프트웨어 구성 요소입니다.
 
-Azure DSC (필요한 상태 구성) 확장의 주요 사용 사례는 VM을 [dsc (Azure Automation 상태 구성) 서비스로](../../automation/automation-dsc-overview.md)부트스트랩 하는 것입니다.
-이 서비스는 VM 구성의 지속적인 관리와 Azure 모니터링과 같은 다른 운영 도구와의 통합을 포함 하는 [이점을](/powershell/scripting/dsc/managing-nodes/metaConfig#pull-service) 제공 합니다.
-확장을 사용 하 여 VM을 서비스에 등록 하면 Azure 구독에서 작동 하는 유연한 솔루션을 제공 합니다.
+Azure DSC(Desired State Configuration) 확장의 주요 사용 사례는 VM을 [Azure Automation DSC(State Configuration) 서비스](../../automation/automation-dsc-overview.md)로 부트스트랩하는 것입니다.
+이 서비스는 VM 구성의 지속적인 관리와 Azure Monitoring과 같은 다른 운영 도구와의 통합을 비롯한 [이점](/powershell/scripting/dsc/managing-nodes/metaConfig#pull-service)을 제공합니다.
+확장을 사용하여 VM을 서비스에 등록하면 Azure 구독에서 작동하는 유연한 솔루션을 제공합니다.
 
 DSC 확장은 Automation DSC 서비스와 별도로 사용할 수 있습니다.
-그러나 이렇게 하면 VM에 대 한 구성만 푸시 됩니다.
+그러나 이렇게 하면 구성이 VM에만 푸시됩니다.
 VM에서 로컬이 아닌 진행 중인 보고를 사용할 수 없습니다.
 
 이 문서에서는 두 가지 시나리오, 즉 Automation 온보딩을 위해 DSC 확장을 사용하는 경우와 Azure SDK를 사용하여 VM에 구성을 할당하기 위한 도구로 DSC 확장을 사용하는 경우에 대한 정보를 제공합니다.
@@ -49,10 +49,10 @@ VM에서 로컬이 아닌 진행 중인 보고를 사용할 수 없습니다.
 이 가이드에서는 다음과 같은 개념에 익숙하다고 가정합니다.
 
 - **구성**: DSC 구성 문서입니다.
-- **노드**: DSC 구성에 대한 대상입니다. 이 문서에서 *노드* 는 항상 Azure VM을 참조 합니다.
+- **노드**: DSC 구성에 대한 대상입니다. 이 문서에서 *노드* 는 항상 Azure VM을 나타냅니다.
 - **구성 데이터**: 구성에 대한 환경 데이터를 포함하는 .psd1 파일입니다.
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>Architecture
 
 Azure DSC 확장은 Azure VM 에이전트 프레임워크를 사용하여 Azure VM에서 실행되는 DSC 구성을 제공하고 적용하며 보고합니다. DSC 확장은 구성 문서 및 매개 변수 집합을 허용합니다. 파일을 제공하지 않으면 확장에 [기본 구성 스크립트](#default-configuration-script)가 포함됩니다. 기본 구성 스크립트는 [로컬 구성 관리자](/powershell/scripting/dsc/managing-nodes/metaConfig)에서 메타데이터를 설정하는 데만 사용됩니다.
 
@@ -62,30 +62,30 @@ Azure DSC 확장은 Azure VM 에이전트 프레임워크를 사용하여 Azure 
 - **wmfVersion** 속성을 지정한 경우 VM의 OS와 호환되지 않을 경우를 제외하고 해당 버전의 WMF가 설치됩니다.
 - **wmfVersion** 속성을 지정하지 않은 경우 WMF의 적용 가능한 최신 버전이 설치됩니다.
 
-WMF를 설치하려면 컴퓨터를 다시 시작해야 합니다. 다시 시작한 후에 확장은 **modulesUrl** 속성(제공된 경우)에 지정된 .zip 파일을 다운로드합니다. 이 위치가 Azure Blob Storage인 경우 **sasToken** 속성에 SAS 토큰을 지정하여 파일에 액세스할 수 있습니다. .Zip을 다운로드 하 고 압축을 푼 후에는 **Configurationfunction** 에 정의 된 구성 함수를 실행 하 여 .mof ([MOF(Managed Object Format)](/windows/win32/wmisdk/managed-object-format--mof-)) 파일을 생성 합니다. 그런 다음, 확장은 생성된 .mof 파일을 사용하여 `Start-DscConfiguration -Force`를 실행합니다. 확장은 출력을 캡처하고 Azure 상태 채널에 작성합니다.
+WMF를 설치하려면 컴퓨터를 다시 시작해야 합니다. 다시 시작한 후에 확장은 **modulesUrl** 속성(제공된 경우)에 지정된 .zip 파일을 다운로드합니다. 이 위치가 Azure Blob Storage인 경우 **sasToken** 속성에 SAS 토큰을 지정하여 파일에 액세스할 수 있습니다. .zip을 다운로드하고 압축을 푼 후에 **configurationFunction** 에 정의된 구성 함수를 실행하여 .mof([MOF(Managed Object Format)](/windows/win32/wmisdk/managed-object-format--mof-)) 파일을 생성합니다. 그런 다음, 확장은 생성된 .mof 파일을 사용하여 `Start-DscConfiguration -Force`를 실행합니다. 확장은 출력을 캡처하고 Azure 상태 채널에 작성합니다.
 
 ### <a name="default-configuration-script"></a>기본 구성 스크립트
 
 Azure DSC 확장에는 Azure Automation DSC 서비스에 VM을 온보딩할 때 사용할 수 있도록 기본 구성 스크립트가 포함되어 있습니다. 스크립트 매개 변수는 [로컬 구성 관리자](/powershell/scripting/dsc/managing-nodes/metaConfig)의 구성 가능한 속성과 정렬됩니다. 스크립트 매개 변수에 대해서는 [Desired State Configuration 확장과 Azure Resource Manager 템플릿](dsc-template.md)에서 [기본 구성 스크립트](dsc-template.md#default-configuration-script)를 참조하세요. 전체 스크립트에 대해서는 [GitHub의 Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true)을 참조하세요.
 
-## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>DSC (Azure Automation 상태 구성) 서비스로 등록 하는 방법에 대 한 정보
+## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>Azure Automation DSC(State Configuration) 서비스에 등록하는 방법에 대한 정보
 
-DSC 확장을 사용 하 여 상태 구성 서비스에 노드를 등록 하는 경우 세 가지 값을 제공 해야 합니다.
+DSC 확장을 사용하여 노드를 State Configuration 서비스에 등록하는 경우 세 가지 값을 제공해야 합니다.
 
-- RegistrationUrl-Azure Automation 계정의 https 주소
-- RegistrationKey-서비스에 노드를 등록 하는 데 사용 되는 공유 암호
-- NodeConfigurationName-서버 역할을 구성 하기 위해 서비스에서 끌어올 노드 구성 (MOF)의 이름
+- RegistrationUrl - Azure Automation 계정의 https 주소
+- RegistrationKey - 서비스에 노드를 등록하는 데 사용되는 공유 암호
+- NodeConfigurationName - 서버 역할을 구성하기 위해 서비스에서 가져올 노드 구성(MOF)의 이름
 
-이 정보는 Azure Portal에서 볼 수도 있고 PowerShell을 사용할 수도 있습니다.
+이 정보는 Azure Portal에서 보거나 PowerShell을 사용할 수 있습니다.
 
 ```powershell
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
 ```
 
-노드 구성 이름에 대해 노드 구성이 Azure 상태 구성에 있는지 확인 합니다.  그렇지 않은 경우 확장 배포는 실패를 반환 합니다.  또한 구성이 아니라 *노드 구성* 의 이름을 사용 하 고 있는지도 확인 해야 합니다.
-구성은 [노드 구성 (MOF 파일)을 컴파일하](../../automation/automation-dsc-compile.md)는 데 사용 되는 스크립트에 정의 됩니다.
-이름은 항상 구성 후에 마침표 `.` 와 특정 컴퓨터 이름으로 구성 됩니다 `localhost` .
+노드 구성 이름에 대해 노드 구성이 Azure State Configuration에 있는지 확인합니다.  없는 경우 확장 배포는 오류를 반환합니다.  또한 구성이 아니라 ‘노드 구성’의 이름을 사용하고 있는지도 확인합니다.
+구성은 [노드 구성(MOF 파일)을 컴파일](../../automation/automation-dsc-compile.md)하는 데 사용되는 스크립트에 정의됩니다.
+이름은 항상 구성 뒤에 마침표(`.`)와 `localhost` 또는 특정 컴퓨터 이름이 옵니다.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Resource Manager 템플릿의 DSC 확장
 
@@ -118,7 +118,7 @@ Resource Manager DSC 확장 cmdlet에 대한 중요 정보:
 
 Azure DSC 확장은 DSC 구성 문서를 사용하여 배포하는 동안 Azure VM을 직접 구성할 수 있습니다. 이 단계에서는 노드가 Automation에 등록되지 않습니다. 노드는 중앙 집중식으로 관리되지 *않습니다*.
 
-다음 예제에서는 구성의 간단한 예제를 보여줍니다. 구성을 iisInstall.ps1로 로컬로 저장 합니다.
+다음 예제에서는 구성의 간단한 예제를 보여줍니다. 구성을 로컬에 iisInstall.ps1로 저장합니다.
 
 ```powershell
 configuration IISInstall
@@ -134,7 +134,7 @@ configuration IISInstall
 }
 ```
 
-다음 명령은 지정 된 VM에 iisInstall.ps1 스크립트를 추가 합니다. 또한 이 명령은 구성을 실행한 후 상태를 다시 보고합니다.
+다음 명령을 실행하면 지정된 VM에 iisInstall.ps1 스크립트가 배치됩니다. 또한 이 명령은 구성을 실행한 후 상태를 다시 보고합니다.
 
 ```powershell
 $resourceGroup = 'dscVmDemo'
@@ -148,9 +148,9 @@ Set-AzVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 배포
 
-Azure CLI를 사용 하 여 기존 가상 머신에 DSC 확장을 배포할 수 있습니다.
+Azure CLI를 사용하여 DSC 확장을 기존 가상 머신에 배포할 수 있습니다.
 
-Windows를 실행 하는 가상 컴퓨터의 경우:
+Windows를 실행하는 가상 머신:
 
 ```azurecli
 az vm extension set \
@@ -162,7 +162,7 @@ az vm extension set \
   --settings '{}'
 ```
 
-Linux를 실행 하는 가상 머신의 경우:
+Linux를 실행하는 가상 머신:
 
 ```azurecli
 az vm extension set \
@@ -187,11 +187,11 @@ az vm extension set \
 
 - **구성 모듈 또는 스크립트**: 이 필드는 필수입니다(양식이 [기본 구성 스크립트](#default-configuration-script)에 대해 업데이트되지 않음). 구성 모듈 및 스크립트에는 구성 스크립트가 있는 .ps1 파일 또는 루트에 .ps1 구성 스크립트가 있는 .zip 파일이 필요합니다. .zip 파일을 사용하는 경우 모든 종속 리소스를 .zip의 모듈 폴더에 포함해야 합니다. Azure PowerShell SDK에 포함된 **Publish-AzureVMDscConfiguration -OutputArchivePath** cmdlet을 사용하여 .zip 파일을 만들 수 있습니다. .zip 파일은 사용자 Blob Storage로 업로드되고 SAS 토큰에 의해 보호됩니다.
 
-- **구성의 모듈 정규화 된 이름**: ps1 파일에 여러 구성 함수를 포함할 수 있습니다. 구성 .ps1 스크립트의 이름 뒤에 \\ 및 구성 함수의 이름을 입력합니다. 예를 들어, .ps1 스크립트 이름이 configuration.ps1이고 구성이 **IisInstall** 이면 **configuration.ps1\IisInstall** 을 입력합니다.
+- **구성의 모듈 정규화된 이름**: .ps1 파일에 여러 개의 구성 함수를 포함할 수 있습니다. 구성 .ps1 스크립트의 이름 뒤에 \\ 및 구성 함수의 이름을 입력합니다. 예를 들어, .ps1 스크립트 이름이 configuration.ps1이고 구성이 **IisInstall** 이면 **configuration.ps1\IisInstall** 을 입력합니다.
 
 - **구성 인수**: 구성 함수가 인수를 사용하는 경우 **argumentName1=value1,argumentName2=value2** 형식으로 여기에 입력합니다. 이 형식은 PowerShell cmdlet 또는 Resource Manager 템플릿에서 구성 인수가 수락되는 형식과는 다릅니다.
 
-- **구성 데이터 PSD1 파일**: 구성에에서 구성 데이터 파일이 필요한 경우 `.psd1` 이 필드를 사용 하 여 데이터 파일을 선택 하 고 사용자 blob 저장소에 업로드 합니다. 구성 데이터 파일은 Blob Storage의 SAS 토큰에 의해 보호됩니다.
+- **구성 데이터 PSD1 파일**: 구성에 `.psd1`의 구성 데이터 파일이 필요한 경우 이 필드를 사용하여 데이터 파일을 선택하고 사용자 Blob Storage에 업로드합니다. 구성 데이터 파일은 Blob Storage의 SAS 토큰에 의해 보호됩니다.
 
 - **WMF 버전**: VM에 설치해야 하는 WMF(Windows Management Framework)의 버전을 지정합니다. 이 속성을 최신으로 설정하면 WMF의 가장 최신 버전이 설치됩니다. 현재, 이 속성에 대해 사용할 수 있는 값은 4.0, 5.0, 5.1 및 최신뿐입니다. 가능한 값은 업데이트에 따라 달라집니다. 기본값은 **latest** 입니다.
 

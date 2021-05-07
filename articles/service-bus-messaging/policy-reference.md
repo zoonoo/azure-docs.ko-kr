@@ -1,18 +1,18 @@
 ---
 title: Azure Service Bus Messaging에 대한 기본 제공 정책 정의
 description: Azure Service Bus Messaging에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 04/21/2021
+ms.date: 04/28/2021
 ms.topic: reference
 author: spelluru
 ms.author: spelluru
 ms.service: service-bus-messaging
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 74350b1951834a9fc68ff90bbfa4ea2a6ae4cb31
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: c5f74118d0cd245cfa2ea86f681b9e5f30385bf0
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107869452"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108181199"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-service-bus-messaging"></a>Azure Service Bus Messaging에 대한 Azure Policy 기본 제공 정의
 

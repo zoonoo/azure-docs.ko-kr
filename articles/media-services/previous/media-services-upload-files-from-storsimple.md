@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 0521904f0ed46b4c5309e5f9df980b1cd7d7d858
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103009031"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Azure StorSimple의 Azure Media Services 계정에 파일 업로드 
@@ -34,7 +34,7 @@ ms.locfileid: "103009031"
 
 ## <a name="overview"></a>개요
 
-Media Services에서 자산에 디지털 파일을 업로드합니다. 자산은 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 닫힌 캡션 파일 (및 이러한 파일에 대 한 메타 데이터)을 포함할 수 있습니다. 파일이 업로드 되 면 추가 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전 하 게 저장 됩니다.
+Media Services에서 자산에 디지털 파일을 업로드합니다. 자산에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙, 선택 자막 파일(및 해당 파일에 대한 메타데이터)이 포함될 수 있습니다. 파일이 업로드되면 이후 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다.
 
 [Azure StorSimple](../../storsimple/index.yml)은 클라우드 스토리지를 온-프레미스 솔루션의 확장으로 사용하여 자동으로 온-프레미스 솔루션 및 클라우드 스토리지에서 데이터를 계층화합니다. StorSimple 디바이스는 데이터를 클라우드로 보내기 전에 중복을 제거하고 압축하여 큰 파일을 클라우드에 효율적으로 전송하게 됩니다. [StorSimple 데이터 관리자](../../storsimple/storsimple-data-manager-overview.md) 서비스는 StorSimple에서 데이터를 추출하고 AMS 자산으로 제공할 수 있는 API를 제공합니다.
 
@@ -49,7 +49,7 @@ Media Services에서 자산에 디지털 파일을 업로드합니다. 자산은
 
 ## <a name="see-also"></a>참고 항목
 
-[.NET SDK를 사용 하 여 Data Manager 작업 트리거](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
+[.NET SDK를 사용하여 데이터 관리자에서 작업 실행](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

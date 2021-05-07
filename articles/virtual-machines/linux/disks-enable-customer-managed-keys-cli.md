@@ -1,6 +1,6 @@
 ---
-title: Azure CLI-SSE 관리 디스크를 사용 하 여 고객 관리 키를 사용 하도록 설정
-description: Azure CLI를 사용 하 여 관리 디스크에서 고객이 관리 하는 키를 사용 하도록 설정 합니다.
+title: Azure CLI - SSE 관리 디스크를 사용하여 고객 관리형 키를 사용하도록 설정
+description: Azure CLI를 사용하여 관리 디스크에서 고객 관리형 키를 사용하도록 설정합니다.
 author: roygara
 ms.date: 08/24/2020
 ms.topic: how-to
@@ -8,15 +8,15 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.openlocfilehash: fe0fef8c52a913f18faeb8cdad4a68776d8a6277
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102562591"
 ---
-# <a name="use-the-azure-cli-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Azure CLI를 사용 하 여 관리 디스크에 대해 고객이 관리 하는 키를 사용 하 여 서버 쪽 암호화를 사용 하도록 설정 합니다.
+# <a name="use-the-azure-cli-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Azure CLI를 사용하여 관리 디스크에 대해 고객 관리형 키를 이용하여 서버 쪽 암호화를 사용하도록 설정합니다.
 
-Azure 디스크 저장소를 사용 하면 관리 디스크에 대해 SSE (서버 쪽 암호화)를 사용 하는 경우 (선택 하는 경우) 사용자 고유의 키를 관리할 수 있습니다. 고객 관리 키 및 기타 관리 되는 디스크 암호화 유형에 대 한 SSE 개념 정보는 디스크 암호화 문서의 [고객 관리 키](../disk-encryption.md#customer-managed-keys) 섹션을 참조 하세요.
+Azure Disk Storage를 사용하면 관리 디스크에 대해 SSE(서버 쪽 암호화)를 사용하도록 선택하는 경우 자체 키를 관리할 수 있습니다. 고객 관리형 키 및 기타 관리 디스크 암호화 유형에 대한 SSE 개념 정보는 디스크 암호화 문서의 [고객 관리형 키](../disk-encryption.md#customer-managed-keys) 섹션을 참조하세요.
 
 ## <a name="restrictions"></a>제한
 
@@ -28,11 +28,11 @@ Azure 디스크 저장소를 사용 하면 관리 디스크에 대해 SSE (서�
 
 ## <a name="set-up-your-azure-key-vault-and-diskencryptionset"></a>Azure Key Vault 및 DiskEncryptionSet 설정
 
-먼저 Azure Key Vault 및 diskencryptionset 리소스를 설정 해야 합니다.
+먼저 Azure Key Vault 및 diskencryptionset 리소스를 설정해야 합니다.
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault](../../../includes/virtual-machines-disks-encryption-create-key-vault-cli.md)]
 
-이러한 리소스를 만들고 구성 했으므로 이제 이러한 리소스를 사용 하 여 관리 디스크를 보호할 수 있습니다. 다음 링크에는 관리 디스크를 보호 하는 데 사용할 수 있는 각각의 시나리오를 포함 하는 예제 스크립트가 포함 되어 있습니다.
+리소스를 만들고 구성한 후 해당 리소스를 사용하여 관리 디스크를 보호할 수 있습니다. 다음 링크에는 관리 디스크를 보호하는 데 사용할 수 있는 각각의 시나리오를 포함하는 예제 스크립트가 포함되어 있습니다.
 
 ## <a name="examples"></a>예제
 
@@ -123,7 +123,7 @@ az disk-encryption-set update -n keyrotationdes -g keyrotationtesting --key-url 
 [!INCLUDE [virtual-machines-disks-encryption-status-cli](../../../includes/virtual-machines-disks-encryption-status-cli.md)]
 
 > [!IMPORTANT]
-> 고객 관리형 키는 Azure AD(Azure Active Directory)의 기능 중 하나인 Azure 리소스에 대한 관리 ID를 사용합니다. 고객 관리형 키를 구성하는 경우 관리 ID가 내부적으로 리소스에 자동으로 할당됩니다. 이후에 구독, 리소스 그룹 또는 관리 디스크를 Azure AD 디렉터리 간에 이동 하는 경우 관리 디스크와 연결 된 관리 되는 id가 새 테 넌 트로 전송 되지 않으므로 고객 관리 키가 더 이상 작동 하지 않을 수 있습니다. 자세한 정보는 [Azure AD 디렉터리 간에 구독 전송](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)을 참조하세요.
+> 고객 관리형 키는 Azure AD(Azure Active Directory)의 기능 중 하나인 Azure 리소스에 대한 관리 ID를 사용합니다. 고객 관리형 키를 구성하는 경우 관리 ID가 내부적으로 리소스에 자동으로 할당됩니다. 이후에 구독, 리소스 그룹 또는 관리 디스크를 Azure AD 디렉터리 간에 이동하는 경우, 관리 디스크와 연결된 관리 ID는 새로운 테넌트로 전송되지 않으므로 고객 관리형 키가 더 이상 작동하지 않을 수 있습니다. 자세한 정보는 [Azure AD 디렉터리 간에 구독 전송](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

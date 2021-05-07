@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
 ms.openlocfilehash: b86559422b6efeed666a3ae35022563a66d9c7e6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104597323"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Cloud for Customer(C4C) 간에 데이터 복사
@@ -21,7 +21,7 @@ ms.locfileid: "104597323"
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 SAP Cloud for Customer(C4C) 간에 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 >[!TIP]
->SAP 데이터 통합 시나리오에 대 한 ADF의 전반적인 지원에 대 한 자세한 내용은 [Azure Data Factory 백서를 사용 하 여 sap 데이터 통합](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 에서 각 sap 커넥터, comparsion 및 지침에 대 한 자세한 소개를 참조 하세요.
+>SAP 데이터 통합 시나리오에서 ADF의 전반적인 지원에 대해 자세히 알아보려면 [Azure Data Factory를 사용하여 SAP 데이터 통합 백서](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf)에서 각 SAP 커넥터에 대한 자세한 소개, 비교, 지침을 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -44,7 +44,7 @@ SAP Cloud for Customer에서 지원되는 모든 싱크 데이터 저장소로 �
 
 다음은 SAP Cloud for Customer 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **SapCloudForCustomer**. | 예 |
 | url | SAP C4C OData 서비스의 URL입니다. | 예 |
@@ -81,7 +81,7 @@ SAP Cloud for Customer에서 지원되는 모든 싱크 데이터 저장소로 �
 
 SAP Cloud for Customer에서 데이터를 복사하려면 데이터 세트의 type 속성을 **SapCloudForCustomerResource** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **SapCloudForCustomerResource** |예 |
 | 경로 | SAP C4C OData 엔터티의 경로를 지정합니다. |예 |
@@ -113,11 +113,11 @@ SAP Cloud for Customer에서 데이터를 복사하려면 데이터 세트의 ty
 
 SAP Cloud for Customer에서 데이터를 복사하려면 복사 작업의 원본 형식을 **SapCloudForCustomerSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **SapCloudForCustomerSource**  | 예 |
 | Query | 데이터를 읽을 사용자 지정 OData 쿼리를 지정합니다. | 예 |
-| httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 지정 하지 않으면 기본값은 **00:30:00** (30 분)입니다. | 예 |
+| httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 지정하지 않으면 기본값은 **00:30:00**(30분)입니다. | 예 |
 
 특정 날짜에 대한 데이터를 가져오는 샘플 쿼리: `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 
@@ -157,12 +157,12 @@ SAP Cloud for Customer에서 데이터를 복사하려면 복사 작업의 원�
 
 SAP Cloud for Customer로 데이터를 복사하려면 복사 작업의 싱크 형식을 **SapCloudForCustomerSink** 로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **SapCloudForCustomerSink**  | 예 |
 | writeBehavior | 작업의 쓰기 동작입니다. “Insert”, “Update”가 될 수 있습니다. | 아니요. 기본값은 “Insert”입니다. |
 | writeBatchSize | 쓰기 작업의 일괄 처리 크기입니다. 최상의 성능을 얻기 위한 일괄 처리 크기는 테이블이나 서버에 따라 다를 수 있습니다. | 아니요. 기본값은 10입니다. |
-| maxConcurrentConnections |작업을 실행 하는 동안 데이터 저장소에 설정 된 동시 연결의 상한입니다. 동시 연결 수를 제한 하려는 경우에만 값을 지정 합니다.| 예 |
+| maxConcurrentConnections |활동 실행 중에 데이터 저장소에 설정된 동시 연결 수의 상한입니다. 동시 연결 수를 제한하려는 경우에만 값을 지정합니다.| 예 |
 
 **예:**
 

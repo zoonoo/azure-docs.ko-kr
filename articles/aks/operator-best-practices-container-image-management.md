@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: 1d2f5465356a94b9ad7014e75aa6fe1515411a81
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102564920"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 컨테이너 이미지 관리 및 보안에 대한 모범 사례
@@ -23,7 +23,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 개발 및 실행할 �
 
 [클러스터 보안][best-practices-cluster-security] 및 [Pod 보안][best-practices-pod-security]에 대한 모범 사례를 참조할 수도 있습니다.
 
-[Security Center의 컨테이너 보안][security-center-containers] 을 사용 하 여 컨테이너에서 취약점을 검색 하는 데 도움이 될 수도 있습니다.  또한 취약점 으로부터 이미지 및 레지스트리를 보호 하는 데 도움이 되는 Security Center와 [통합 Azure Container Registry][security-center-acr] 있습니다.
+[Security Center의 컨테이너 보안][security-center-containers]을 사용하여 컨테이너에서 취약점을 검색할 수도 있습니다.  또한 Security Center와의 [Azure Container Registry 통합][security-center-acr]도 취약점으로부터 이미지 및 레지스트리를 보호하는 데 도움이 됩니다.
 
 ## <a name="secure-the-images-and-run-time"></a>이미지 및 런타임 보호
 

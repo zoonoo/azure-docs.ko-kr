@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
 ms.openlocfilehash: 677f4df0873f8b72d40dd373035111e2e0002491
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102549233"
 ---
 # <a name="dcsv2-series"></a>DCsv2 시리즈
@@ -21,13 +21,13 @@ DCsv2 시리즈는 퍼블릭 클라우드에서 처리되는 동안 데이터 �
 
 사용 사례로는 기밀 단체 데이터 공유, 사기 감지, 자금 세탁 방지, 블록체인, 비밀 사용 분석, 인텔리전스 분석 및 기밀 기계 학습이 있습니다.
 
-[Premium Storage](premium-storage-performance.md): 지원 되는 *<br> 
- [Premium Storage 캐싱](premium-storage-performance.md): 지원 되는 <br> 
- [실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않는 <br> 
- [메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않는 <br> 
- [VM 생성 지원](generation-2.md): 2 세대 <br> 
- [가속화 된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨 (* 최소 4 개 vcpu * 필요) <br>
-[삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 됨 <br>
+[Premium Storage](premium-storage-performance.md): 지원됨 *<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원됨<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 안 됨<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 안 됨<br>
+[VM 세대 지원](generation-2.md): 2세대<br>
+[가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨(* vCPU 최소 4개 필요*) <br>
+[임시 OS 디스크](ephemeral-os-disks.md): 지원됨 <br>
 
 *Standard_DC8_v2 제외 <br>
 
@@ -39,7 +39,7 @@ DCsv2 시리즈는 퍼블릭 클라우드에서 처리되는 동안 데이터 �
 | Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128                                                                                         | 2   | 168                                         |
 
 - DCsv2 시리즈 VM은 [2세대 VM](./generation-2.md#creating-a-generation-2-vm)이며 `Gen2` 이미지만 지원합니다.
-- 현재 [여기](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all)에 나열 된 지역에서 사용할 수 있습니다.
+- 현재 [여기](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all)에 나열된 지역에서 사용할 수 있습니다.
 - 이전 세대의 기밀 컴퓨팅 VM: [DC 시리즈](sizes-previous-gen.md#preview-dc-series)
 - [Azure Portal](./linux/quick-create-portal.md) 또는 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview)를 사용하여 DCsv2 VM 만들기
 
@@ -56,7 +56,7 @@ DCsv2 시리즈는 퍼블릭 클라우드에서 처리되는 동안 데이터 �
 
 가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
 
-디스크 유형에 대 한 자세한 정보: [디스크 유형](./disks-types.md#ultra-disk)
+디스크 유형에 대한 자세한 정보: [디스크 유형](./disks-types.md#ultra-disk)
 
 ## <a name="next-steps"></a>다음 단계
 

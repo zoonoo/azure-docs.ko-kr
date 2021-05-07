@@ -1,6 +1,6 @@
 ---
-title: PowerShell을 사용 하 여 다른 갤러리에서 이미지 복사
-description: Azure PowerShell를 사용 하 여 다른 갤러리에서 이미지를 복사 합니다.
+title: PowerShell을 사용하여 다른 갤러리에서 이미지 복사
+description: Azure PowerShell을 사용하여 다른 갤러리에서 이미지를 복사합니다.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -10,36 +10,36 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: d9bbe40e35bdad6fac5c5ccb0b15b909e77b938c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102564019"
 ---
-# <a name="copy-an-image-from-another-gallery-using-powershell"></a>PowerShell을 사용 하 여 다른 갤러리에서 이미지 복사
+# <a name="copy-an-image-from-another-gallery-using-powershell"></a>PowerShell을 사용하여 다른 갤러리에서 이미지 복사
 
-조직에 여러 갤러리가 있는 경우 다른 갤러리에 저장 된 이미지에서 이미지를 만들 수 있습니다. 예를 들어 새 이미지를 만들고 테스트 하기 위한 개발 및 테스트 갤러리가 있을 수 있습니다. 프로덕션 환경에서 사용할 준비가 되 면이 예제를 사용 하 여 프로덕션 갤러리에 복사할 수 있습니다. [Azure CLI](image-version-another-gallery-cli.md)를 사용 하 여 다른 갤러리의 이미지에서 이미지를 만들 수도 있습니다.
+조직에 여러 갤러리가 있는 경우 다른 갤러리에 저장된 이미지로부터 이미지를 만들 수 있습니다. 예를 들어 새 이미지를 만들고 테스트하기 위해 개발 및 테스트 갤러리를 사용할 수 있습니다. 프로덕션 환경에서 사용할 준비가 되면 이 예제를 사용하여 프로덕션 갤러리에 복사할 수 있습니다. [Azure CLI](image-version-another-gallery-cli.md)를 사용하여 다른 갤러리의 이미지로부터 이미지를 만들 수도 있습니다.
 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서를 완료 하려면 기존 원본 갤러리, 이미지 정의 및 이미지 버전이 있어야 합니다. 대상 갤러리도 있어야 합니다. 
+이 문서를 완료하려면 기존 원본 갤러리, 이미지 정의, 이미지 버전이 있어야 합니다. 대상 갤러리도 있어야 합니다. 
 
-원본 이미지 버전은 대상 갤러리가 있는 지역에 복제 되어야 합니다. 
+원본 이미지 버전은 대상 갤러리가 있는 지역에 복제되어야 합니다. 
 
 대상 갤러리에 새 이미지 정의와 이미지 버전이 만들어집니다.
 
 
-이 문서를 진행할 때 필요한 경우 리소스 이름을 바꿉니다.
+이 문서를 진행하며 필요한 경우 리소스 이름을 바꿉니다.
 
 
 ## <a name="get-the-source-image"></a>원본 이미지 가져오기 
 
-대상 갤러리에서 복사본을 만들 수 있도록 원본 이미지 정의의 정보가 필요 합니다.
+대상 갤러리에서 복사본을 만들 수 있으려면 원본 이미지 정의의 정보가 필요합니다.
 
-[AzResource](/powershell/module/az.resources/get-azresource) cmdlet을 사용 하 여 기존 갤러리, 이미지 정의 및 이미지 버전에 대 한 정보를 나열 합니다.
+[Get-AzResource](/powershell/module/az.resources/get-azresource) cmdlet을 사용하여 기존 갤러리, 이미지 정의, 이미지 버전에 대한 정보를 나열합니다.
 
-결과는 형식 `gallery\image definition\image version` 입니다.
+결과는 `gallery\image definition\image version` 형식입니다.
 
 ```azurepowershell-interactive
 Get-AzResource `
@@ -47,7 +47,7 @@ Get-AzResource `
    Format-Table -Property Name,ResourceGroupName
 ```
 
-필요한 정보가 모두 있으면 [AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion)을 사용 하 여 원본 이미지 버전의 ID를 가져올 수 있습니다. 이 예제에서는 `1.0.0` `myImageDefinition` `myGallery` 리소스 그룹의 원본 갤러리에서 정의의 이미지 버전을 가져옵니다 `myResourceGroup` .
+필요한 정보가 모두 있으면 [Get-AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion)을 사용하여 원본 이미지 버전의 ID를 가져올 수 있습니다. 이 예제에서는 `myResourceGroup` 리소스 그룹에 있는 `myGallery` 원본 갤러리에서 `myImageDefinition` 정의의 `1.0.0` 이미지 버전을 가져옵니다.
 
 ```azurepowershell-interactive
 $sourceImgVer = Get-AzGalleryImageVersion `
@@ -60,7 +60,7 @@ $sourceImgVer = Get-AzGalleryImageVersion `
 
 ## <a name="create-the-image-definition"></a>이미지 정의 만들기 
 
-원본의 이미지 정의와 일치 하는 새 이미지 정의를 만들어야 합니다. [AzGalleryImageDefinition](/powershell/module/az.compute/get-azgalleryimagedefinition)를 사용 하 여 이미지 정의를 다시 만드는 데 필요한 모든 정보를 볼 수 있습니다.
+원본의 이미지 정의와 일치하는 새 이미지 정의를 만들어야 합니다. [Get-AzGalleryImageDefinition](/powershell/module/az.compute/get-azgalleryimagedefinition)을 사용하여 이미지 정의를 다시 만드는 데 필요한 모든 정보를 볼 수 있습니다.
 
 ```azurepowershell-interactive
 Get-AzGalleryImageDefinition `
@@ -70,7 +70,7 @@ Get-AzGalleryImageDefinition `
 ```
 
 
-출력은 다음과 같이 표시됩니다.
+출력은 다음과 비슷할 것입니다.
 
 ```output
 {
@@ -100,10 +100,10 @@ Get-AzGalleryImageDefinition `
 }
 ```
 
-대상 갤러리에서 [AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion) cmdlet 및 위의 출력 정보를 사용 하 여 새 이미지 정의를 만듭니다.
+대상 갤러리에서 [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion) cmdlet 및 위의 출력 정보를 사용하여 새 이미지 정의를 만듭니다.
 
 
-이 *예제에서 이미지* 정의의 이름은 *mydestinationgallery* 라는 갤러리에 있습니다.
+이 예의 경우 *myDestinationGallery* 라는 갤러리에서 이미지 정의에 *myDestinationImgDef* 라는 이름이 지정됩니다.
 
 
 ```azurepowershell-interactive
@@ -123,11 +123,11 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
 
 ## <a name="create-the-image-version"></a>이미지 버전 만들기
 
-[AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion)를 사용 하 여 이미지 버전을 만듭니다. `--managed-image`대상 갤러리에서 이미지 버전을 만들기 위해 매개 변수에서 원본 이미지의 ID를 전달 해야 합니다. 
+[New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion)을 사용하여 이미지 버전을 만듭니다. 대상 갤러리에서 이미지 버전을 만들기 위해 `--managed-image`매개 변수에서 원본 이미지의 ID를 전달해야 합니다. 
 
 이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch*.
 
-이 예에서는 *Mydestinationgallery* 리소스 그룹  의 *mydestinationgallery* 로 대상 갤러리의 이름이 지정 됩니다. 이 이미지의 버전은 *1.0.0* *이며 미국* *서 부* 지역에 2 개의 복제본과 2 개의 복제본을 만듭니다. 
+이 예에서 ‘미국 서부’ 위치에 있는 *myDestinationRG* 리소스 그룹의 대상 갤러리 이름이 *myDestinationGallery* 로 지정됩니다. 이미지 버전은 *1.0.0* 이며 ‘미국 중남부’ 지역에서 복제본 1개, ‘미국 서부’ 지역에서 복제본 2개를 만듭니다.   
 
 
 ```azurepowershell-interactive
@@ -162,8 +162,8 @@ $job.State
 
 ## <a name="next-steps"></a>다음 단계
 
-[일반화](vm-generalized-image-version-powershell.md) 된 이미지 버전 또는 [특수](vm-specialized-image-version-powershell.md) 이미지 버전에서 VM을 만듭니다.
+[일반화](vm-generalized-image-version-powershell.md)된 이미지 버전 또는 [특화](vm-specialized-image-version-powershell.md)된 이미지 버전에서 VM을 만듭니다.
 
-[Azure 이미지 작성기 (미리 보기)](./image-builder-overview.md) 는 이미지 버전 생성을 자동화 하는 데 도움이 될 수 있으며, [기존 이미지 버전에서 새 이미지 버전](./linux/image-builder-gallery-update-image-version.md)을 업데이트 하 고 만드는 데에도 사용할 수 있습니다. 
+[Azure Image Builder(미리 보기)](./image-builder-overview.md)는 이미지 버전 생성을 자동화하는 데 도움이 되며, [기존 이미지 버전에서 새 이미지를 생성](./linux/image-builder-gallery-update-image-version.md)하고 업데이트하는 데도 사용할 수 있습니다. 
 
-구매 계획 정보를 제공 하는 방법에 대 한 자세한 내용은 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](marketplace-images.md)을 참조 하세요.
+구매 계획 정보에 대한 자세한 내용은 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](marketplace-images.md)을 참조하세요.

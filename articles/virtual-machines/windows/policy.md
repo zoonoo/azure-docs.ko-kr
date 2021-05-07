@@ -1,5 +1,5 @@
 ---
-title: Azure에서 Windows Vm에 대 한 정책으로 보안 적용
+title: Azure에서 Windows VM에 정책을 사용하여 보안 적용
 description: Azure Resource Manager Windows Virtual Machine에 정책을 적용하는 방법
 author: mimckitt
 manager: vashan
@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 08/02/2017
 ms.author: mimckitt
 ms.openlocfilehash: 4a4e54510c4683dc1be9da09b96d6289136a26f1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102550266"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Windows VM에 정책 적용

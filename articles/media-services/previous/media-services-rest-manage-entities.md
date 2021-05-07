@@ -1,6 +1,6 @@
 ---
 title: REST를 사용하여 Media Services 엔터티 관리 | Microsoft Docs
-description: 이 문서에서는 REST API를 사용 하 여 Media Services 엔터티를 관리 하는 방법을 보여 줍니다.
+description: 이 문서에서는 REST API를 사용하여 Media Services 엔터티를 관리하는 방법을 알아봅니다.
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 2821c4c2b13edaf5dfb34664c4b9f78ab56d98a7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103015559"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>REST를 사용하여 Media Services 엔터티 관리

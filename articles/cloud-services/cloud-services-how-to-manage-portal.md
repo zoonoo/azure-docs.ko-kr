@@ -9,16 +9,16 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: a1b37ed1d15282224cc7de61ec6f8a98a4bbf732
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102610504"
 ---
-# <a name="manage-cloud-services-classic-in-the-azure-portal"></a>Azure Portal에서 Cloud Services (클래식) 관리
+# <a name="manage-cloud-services-classic-in-the-azure-portal"></a>Azure Portal에서 Cloud Services(클래식) 관리
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 Azure Portal의 **Cloud Services** 영역에서 다음을 수행할 수 있습니다.
 
@@ -85,7 +85,7 @@ Azure Portal의 **Cloud Services** 영역에서 다음을 수행할 수 있습�
 
 게스트 OS 업데이트 및 서비스 복구 작업으로 인해 배포 교환이 실패할 수도 있습니다. 자세한 내용은 [클라우드 서비스 배포 문제 해결](cloud-services-troubleshoot-deployment-problems.md)을 참조하세요.
 
-**교환에 응용 프로그램에 대 한 가동 중지 시간이 발생 하나요? 어떻게 처리 해야 하나요?**
+**교환으로 인해 애플리케이션에 대한 가동 중지 시간이 발생하나요? 이를 어떻게 처리해야 하나요?**
 
 이전 섹션에서 설명한 대로 배포 교환은 Azure Load Balancer에서의 구성 변경일 뿐이므로, 일반적으로 빠릅니다. 경우에 따라 10초 이상 걸리며 일시적인 연결 오류가 발생할 수 있습니다. 고객에게 미치는 영향을 최소화하려면 [고객 재시도 논리](/azure/architecture/best-practices/transient-faults) 구현을 고려해 보세요.
 
@@ -126,5 +126,5 @@ Azure Portal의 **Cloud Services** 영역에서 다음을 수행할 수 있습�
 ## <a name="next-steps"></a>다음 단계
 * [클라우드 서비스의 일반 구성](cloud-services-how-to-configure-portal.md)
 * [클라우드 서비스를 배포](cloud-services-how-to-create-deploy-portal.md)하는 방법을 알아봅니다.
-* [사용자 지정 도메인 이름을](cloud-services-custom-domain-name-portal.md)구성 합니다.
-* [TLS/SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)를 구성 합니다.
+* [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)구성
+* [TLS/SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)를 구성합니다.

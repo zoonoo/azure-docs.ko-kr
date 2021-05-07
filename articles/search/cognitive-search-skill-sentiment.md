@@ -1,7 +1,7 @@
 ---
 title: 감성 인식 기술
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search의 AI 보강 파이프라인 텍스트에서 긍정 네거티브 감정 점수를 추출 합니다.
+description: Azure Cognitive Search의 AI 보강 파이프라인 텍스트에서 긍정-네거티브 감정 점수를 추출합니다.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: 6519cd952bd1265b4daad3b77b29aabd47ea4cc5
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102547478"
 ---
 # <a name="sentiment-cognitive-skill"></a>감성 인식 기술
@@ -29,7 +29,7 @@ ms.locfileid: "102547478"
 Microsoft.Skills.Text.SentimentSkill
 
 ## <a name="data-limits"></a>데이터 제한
-레코드의 최대 크기는에 따라 측정 되는 5000 자 여야 합니다 [`String.Length`](/dotnet/api/system.string.length) . 감성 분석기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md)을 사용합니다.
+레코드의 최대 크기는 [`String.Length`](/dotnet/api/system.string.length)에 의해 측정된 대로 5,000자여야 합니다. 감성 분석기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md)을 사용합니다.
 
 
 ## <a name="skill-parameters"></a>기술 매개 변수
@@ -42,14 +42,14 @@ Microsoft.Skills.Text.SentimentSkill
 
 ## <a name="skill-inputs"></a>기술 입력 
 
-| 입력 이름 | 설명 |
+| 입력 이름 | Description |
 |--------------------|-------------|
 | `text` | 분석할 텍스트입니다.|
 | `languageCode`    |  (선택 사항) 레코드의 언어를 나타내는 문자열입니다. 이 매개 변수를 지정하지 않을 경우 기본값은 “en”입니다. <br/>[지원되는 언어 전체 목록](../cognitive-services/text-analytics/language-support.md)을 참조합니다.|
 
 ## <a name="skill-outputs"></a>기술 출력
 
-| 출력 이름 | 설명 |
+| 출력 이름 | Description |
 |--------------------|-------------|
 | `score` | 분석된 텍스트의 감성를 나타내는 0과 1 사이의 값입니다. 값 0에 가까우면 부정적 감정이고, 0.5에 가까우면 중립적 감성이고, 1에 가까우면 긍정적인 감성입니다.|
 
@@ -111,8 +111,8 @@ Microsoft.Skills.Text.SentimentSkill
 ```
 
 ## <a name="warning-cases"></a>경고 사례
-텍스트가 비어 있으면 경고가 생성 되 고 감정 점수가 반환 되지 않습니다.
-언어가 지원 되지 않으면 경고가 생성 되 고 감정 점수가 반환 되지 않습니다.
+텍스트가 비어 있으면 경고가 생성되고 감정 점수가 반환되지 않습니다.
+언어가 지원되지 않으면 경고가 생성되고 감정 점수가 반환되지 않습니다.
 
 ## <a name="see-also"></a>참고 항목
 

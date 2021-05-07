@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 351407a74f37df24f4d70384d49840e8e6b77dc6
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 9f9626ebdcc52f9aeb2b9283dac6c5790e3df8cf
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144406"
+ms.locfileid: "108179963"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 스토리지 파일 쿼리
 
@@ -95,9 +95,6 @@ WITH (
 ## <a name="schema-inference"></a>스키마 유추
 
 `OPENROWSET` 문에서 WITH 절을 생략하면 기본 파일에서 스키마를 자동으로 검색(유추)하도록 서비스에 지시할 수 있습니다.
-
-> [!NOTE]
-> 이는 현재 PARQUET 파일 형식에만 적용됩니다.
 
 ```sql
 SELECT * FROM

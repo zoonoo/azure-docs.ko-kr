@@ -1,5 +1,5 @@
 ---
-title: NVIDIA GPU 드라이버 확장-Azure Windows Vm
+title: NVIDIA GPU 드라이버 확장 - Azure Windows VM
 description: Windows를 실행하는 N 시리즈 컴퓨팅 VM에 NVIDIA GPU 드라이버를 설치하는 Microsoft Azure 확장입니다.
 services: virtual-machines
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: akjosh
 ms.openlocfilehash: 7cd2c5e54ccb81294a93c0ecebaa174df8d14011
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102559667"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Windows용 NVIDIA GPU 드라이버 확장
@@ -39,7 +39,7 @@ ms.locfileid: "102559667"
 
 | 배포 | 버전 |
 |---|---|
-| 윈도우 10 | 핵심 |
+| Windows 10 | 핵심 |
 | Windows Server 2016 | 핵심 |
 | Windows Server 2012 R2 | 핵심 |
 

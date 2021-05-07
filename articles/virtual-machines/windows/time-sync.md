@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
 ms.openlocfilehash: 85abc77757d31f3b1054a0670ea3f65a4fcb2e52
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102555961"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Azure의 Windows VM에 대한 시간 동기화
@@ -61,14 +61,14 @@ Azure에 호스팅된 Windows VM에 대한 시간 동기화를 구성할 수 있
 - time.windows.com에서 정보를 가져오는 NtpClient 공급자.
 - VM이 유지 관리를 위해 일시 중지된 후 VM에 호스트 시간을 통신하고 수정하는 데 사용되는 VMICTimeSync 서비스. Azure 호스트는 정확한 시간을 유지하기 위해 Microsoft 소유의 Stratum 1 디바이스를 사용합니다.
 
-w32time은 계층 수준, 루트 지연, 루트 분산, 시간 오프셋의 우선 순위로 시간 공급자를 사용합니다. 대부분의 경우 Azure VM의 w32time은 평가로 인해 두 시간 원본을 비교 하 여 호스트 시간을 선호 합니다. 
+w32time은 계층 수준, 루트 지연, 루트 분산, 시간 오프셋의 우선 순위로 시간 공급자를 사용합니다. 대부분의 경우 Azure VM에서 w32time은 두 가지 시간 원본을 비교하는 평가 때문에 호스트 시간을 선호합니다. 
 
 도메인에 연결된 머신의 경우 도메인 자체가 시간 동기화 계층 구조를 설정하지만 포리스트 루트는 임의 위치에서 여전히 시간이 걸리며 다음 고려 사항은 여전히 유효합니다.
 
 
 ### <a name="host-only"></a>호스트 전용 
 
-Time.windows.com는 공용 NTP 서버 이므로 시간을 동기화 하면 인터넷을 통해 트래픽을 전송 해야 하며, 다양 한 패킷 지연이 발생 하면 시간 동기화의 품질에 부정적인 영향을 줄 수 있습니다. 호스트 전용 동기화로 전환 하 여 time.windows.com를 제거 하면 시간 동기화 결과를 향상 시킬 수 있습니다.
+time.windows.com은 퍼블릭 NTP 서버이므로, 시간을 동기화하려면 인터넷을 통해 트래픽을 전송해야 하며, 다양한 패킷 지연이 시간 동기화의 품질을 떨어뜨릴 수 있습니다. 호스트 전용 동기화로 전환하여 time.windows.com을 제거하면 시간 동기화 결과를 향상할 수 있습니다.
 
 기본 구성을 사용하는 시간 동기화 문제를 겪는 경우 호스트 전용 시간 동기화로 전환하는 것이 합리적입니다. 이 방법이 VM에서 시간 동기화를 향상시키는지 확인하려면 호스트 전용 동기화를 사용해 보세요. 
 
@@ -116,8 +116,8 @@ w32tm /query /source
 
 확인할 수 있는 출력 및 해당 의미는 다음과 같습니다.
     
-- **time.windows.com** - w32time은 기본 구성의 time.windows.com에서 시간을 가져옵니다. 시간 동기화 품질은 인터넷 연결에 따라 달라지며 패킷 지연의 영향을 받습니다. 이는 물리적 컴퓨터에서 얻게 되는 일반적인 출력입니다.
-- **VM IC 시간 동기화 공급자** - VM은 호스트에서 시간을 동기화합니다. 이것은 Azure에서 실행 되는 가상 컴퓨터에서 얻을 수 있는 일반적인 출력입니다. 
+- **time.windows.com** - w32time은 기본 구성의 time.windows.com에서 시간을 가져옵니다. 시간 동기화 품질은 인터넷 연결에 따라 달라지며 패킷 지연의 영향을 받습니다. 이는 물리적 머신에서 일반적으로 얻을 수 있는 출력입니다.
+- **VM IC 시간 동기화 공급자** - VM은 호스트에서 시간을 동기화합니다. 이는 Azure에서 실행되는 가상 머신에서 일반적으로 얻을 수 있는 출력입니다. 
 - *도메인 서버* - 현재 머신은 도메인에 있으며 해당 도메인은 시간 동기화 계층 구조를 정의합니다.
 - *기타 일부 서버* - w32time은 해당 다른 서버에서 시간을 가져오도록 명시적으로 구성되었습니다. 시간 동기화 품질은 이 시간 서버 품질에 따라 달라집니다.
 - **로컬 CMOS 시계** - 시계가 동기화되지 않았습니다. w32time이 다시 부팅 뒤 시작할 충분한 시간이 없는 경우 또는 모든 구성된 시간 원본을 사용할 수 없는 경우 이 출력을 얻을 수 있습니다.
@@ -148,7 +148,7 @@ net stop w32time && net start w32time
 
 ## <a name="windows-server-2012-and-r2-vms"></a>Windows Server 2012 및 R2 VM 
 
-Windows Server 2012 및 Windows 2012 Server 2008 r 2에는 시간 동기화에 대 한 기본 설정이 다릅니다. 기본적으로 w32time은 정확한 시간으로 서비스의 낮은 오버 헤드를 선호 하는 방식으로 구성 됩니다. 
+Windows Server 2012와 Windows Server 2012 R2는 시간 동기화에 대한 기본 설정이 다릅니다. 기본적으로 w32time은 정확한 시간보다 낮은 서비스 오버헤드를 선호하는 방식으로 구성됩니다. 
 
 정확한 시간을 선호하는 최신 기본값을 사용하기 위해 Windows Server 2012 및 2012 R2 배포로 이동하려는 경우 다음 설정을 적용할 수 있습니다.
 
@@ -161,7 +161,7 @@ reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\w32time\Config /v U
 w32tm /config /update
 ```
 
-W32time이 새 폴링 간격을 사용할 수 있도록 하려면 NtpServers를 사용 하는 것으로 표시 해야 합니다. 서버에 0x1 Bitflag 마스크로 주석이 표시되는 경우에는 이 메커니즘을 재정의하고 w32time은 대신 SpecialPollInterval을 사용합니다. 지정된 NTP 서버는 0x8 플래그를 사용하거나 전혀 플래그를 사용하지 않아야 합니다.
+w32time이 새 폴링 간격을 사용할 수 있으려면 NtpServers가 이를 사용하는 것으로 표시되어야 합니다. 서버에 0x1 Bitflag 마스크로 주석이 표시되는 경우에는 이 메커니즘을 재정의하고 w32time은 대신 SpecialPollInterval을 사용합니다. 지정된 NTP 서버는 0x8 플래그를 사용하거나 전혀 플래그를 사용하지 않아야 합니다.
 
 사용된 NTP 서버에 사용되고 있는 플래그를 확인합니다.
 
@@ -174,6 +174,6 @@ w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
 시간 동기화에 대한 자세한 세부 정보에 대한 링크는 다음과 같습니다.
 
 - [Windows 시간 서비스 도구 및 설정](/windows-server/networking/windows-time-service/windows-time-service-tools-and-settings)
-- [Windows Server 2016 개선 사항 ](/windows-server/networking/windows-time-service/windows-server-2016-improvements)
+- [Windows Server 2016 개선 사항](/windows-server/networking/windows-time-service/windows-server-2016-improvements)
 - [Windows Server 2016의 정확한 시간](/windows-server/networking/windows-time-service/accurate-time)
 - [정확도가 높은 환경에 맞게 Windows 시간 서비스를 구성할 수 있는 지원 범위](/windows-server/networking/windows-time-service/support-boundary)

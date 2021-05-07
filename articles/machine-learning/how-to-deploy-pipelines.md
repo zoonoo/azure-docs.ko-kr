@@ -1,7 +1,7 @@
 ---
 title: ML 파이프라인 게시
 titleSuffix: Azure Machine Learning
-description: 기계 학습 파이프라인과 Python 용 Azure Machine Learning SDK를 사용 하 여 기계 학습 워크플로를 실행 합니다.
+description: 기계 학습 파이프라인과 Python용 Azure Machine Learning SDK를 사용하여 기계 학습 워크플로를 실행합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,31 +12,31 @@ ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1
 ms.openlocfilehash: efedb21a1ec1ed53a8c6bfadf337d23a89c04383
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102520179"
 ---
-# <a name="publish-and-track-machine-learning-pipelines"></a>Machine learning 파이프라인 게시 및 추적
+# <a name="publish-and-track-machine-learning-pipelines"></a>기계 학습 파이프라인 게시 및 추적
 
 
 
-이 문서에서는 동료 또는 고객과 machine learning 파이프라인을 공유 하는 방법을 보여 줍니다.
+이 문서에서는 동료 또는 고객과 기계 학습 파이프라인을 공유하는 방법을 보여 줍니다.
 
-Machine learning 파이프라인은 기계 학습 작업에 다시 사용할 수 있는 워크플로입니다. 파이프라인의 장점 중 하나는 공동 작업입니다. 또한 새 버전에서 작업 하는 동안 고객이 현재 모델을 사용할 수 있도록 파이프라인의 버전을 지정할 수 있습니다. 
+기계 학습 파이프라인은 기계 학습 작업에 재사용 가능한 워크플로입니다. 파이프라인의 이점 중 하나는 협업입니다. 또한 새 버전을 만드는 동안 고객이 현재 모델을 사용할 수 있도록 파이프라인의 버전을 관리할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* 모든 파이프라인 리소스를 저장할 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md) 을 만듭니다.
+* 모든 파이프라인 리소스를 수용할 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 
-* Azure Machine Learning SDK를 설치 하거나 SDK가 이미 설치 된 [Azure Machine Learning 계산 인스턴스](concept-compute-instance.md) 를 사용 하도록 [개발 환경을 구성](how-to-configure-environment.md) 합니다.
+* Azure Machine Learning SDK를 설치하거나 SDK가 이미 설치된 [Azure Machine Learning 컴퓨팅 인스턴스](concept-compute-instance.md)를 사용하도록 [개발 환경을 구성](how-to-configure-environment.md)합니다.
 
-* 다음 [자습서: 일괄 처리 점수 매기기를 위한 Azure Machine Learning 파이프라인 빌드](tutorial-pipeline-batch-scoring-classification.md)와 같은 기계 학습 파이프라인을 만들고 실행 합니다. 기타 옵션은 [AZURE MACHINE LEARNING SDK를 사용 하 여 machine learning 파이프라인 만들기 및 실행](./how-to-create-machine-learning-pipelines.md) 을 참조 하세요.
+* [자습서: 일괄 처리 채점용 Azure Machine Learning 파이프라인 빌드](tutorial-pipeline-batch-scoring-classification.md)에 따라 기계 학습 파이프라인을 만들고 실행합니다. 다른 옵션은 [Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행](./how-to-create-machine-learning-pipelines.md)을 참조하세요.
 
 ## <a name="publish-a-pipeline"></a>파이프라인 게시
 
-파이프라인을 실행 한 후에는 다른 입력으로 실행 되도록 파이프라인을 게시할 수 있습니다. 매개 변수를 허용 하기 위해 이미 게시 된 파이프라인의 REST 끝점의 경우에는 `PipelineParameter` 다른 인수에 대해 개체를 사용 하도록 파이프라인을 구성 해야 합니다.
+파이프라인을 실행한 후에는 다른 입력으로 실행되도록 파이프라인을 게시할 수 있습니다. 매개 변수를 허용하는 이미 게시된 파이프라인의 REST 엔드포인트의 경우에는 다른 인수에 `PipelineParameter` 개체를 사용하도록 파이프라인을 구성해야 합니다.
 
 1. 파이프라인 매개 변수를 만들려면 기본값으로 [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter) 개체를 사용합니다.
 
@@ -71,12 +71,12 @@ Machine learning 파이프라인은 기계 학습 작업에 다시 사용할 수
 
 ## <a name="run-a-published-pipeline"></a>게시된 파이프라인 실행
 
-게시된 모든 파이프라인에는 REST 엔드포인트가 있습니다. 파이프라인 끝점을 사용 하 여 Python이 아닌 클라이언트를 비롯 한 모든 외부 시스템에서 파이프라인 실행을 트리거할 수 있습니다. 이 엔드포인트는 일괄 처리 채점 및 다시 학습 시나리오에서 “관리되는 반복 가능성”을 지원합니다.
+게시된 모든 파이프라인에는 REST 엔드포인트가 있습니다. 파이프라인 엔드포인트를 사용하면 Python이 아닌 클라이언트를 비롯한 모든 외부 시스템에서 파이프라인 실행을 트리거할 수 있습니다. 이 엔드포인트는 일괄 처리 채점 및 다시 학습 시나리오에서 “관리되는 반복 가능성”을 지원합니다.
 
 > [!IMPORTANT]
-> Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 파이프라인에 대 한 액세스를 관리 하는 경우 [파이프라인 시나리오에 대 한 사용 권한을 설정 합니다 (학습 또는 점수 매기기)](how-to-assign-roles.md#common-scenarios).
+> Azure RBAC(역할 기반 액세스 제어)를 사용하여 [파이프라인에 대한 액세스를 관리하는 경우 파이프라인 시나리오(학습 또는 채점)에 대한 사용 권한을 설정](how-to-assign-roles.md#common-scenarios)합니다.
 
-이전 파이프라인의 실행을 호출 하려면 Azure Active Directory 인증 헤더 토큰이 필요 합니다. 이러한 토큰을 가져오는 방법은 [Azurecliauthentication 클래스](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication) 참조 및 [Azure Machine Learning 노트북의 인증](https://aka.ms/pl-restep-auth) 에 설명 되어 있습니다.
+이전 파이프라인의 실행을 호출하려면 Azure Active Directory 인증 헤더 토큰이 필요합니다. 토큰을 가져오는 방법은 [AzureCliAuthentication 클래스](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication) 참조 및 [Azure Machine Learning에서의 인증](https://aka.ms/pl-restep-auth) Notebook에 설명되어 있습니다.
 
 ```python
 from azureml.pipeline.core import PublishedPipeline
@@ -88,19 +88,19 @@ response = requests.post(published_pipeline1.endpoint,
                                "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
-`json`POST 요청에 대 한 인수에는 키의 경우 `ParameterAssignments` 파이프라인 매개 변수 및 해당 값이 포함 된 사전이 포함 되어야 합니다. 또한 인수에는 `json` 다음 키가 포함 될 수 있습니다.
+POST 요청에 대한 `json` 인수에는 `ParameterAssignments` 키의 경우 파이프라인 매개 변수 및 해당 값이 포함된 사전이 있어야 합니다. 또한 `json` 인수에는 다음 키가 포함될 수 있습니다.
 
-| 키 | 설명 |
+| 키 | Description |
 | --- | --- | 
-| `ExperimentName` | 이 끝점과 연결 된 실험의 이름입니다. |
-| `Description` | 끝점을 설명 하는 자유형 텍스트 | 
-| `Tags` | 요청에 레이블을 지정 하 고 주석을 추가 하는 데 사용할 수 있는 자유형 키-값 쌍  |
-| `DataSetDefinitionValueAssignments` | 사전 학습 없이 데이터 집합을 변경 하는 데 사용 되는 사전 (아래 설명 참조) | 
-| `DataPathAssignments` | 사전 학습 없이 datapaths를 변경 하는 데 사용 되는 사전 (아래 설명 참조) | 
+| `ExperimentName` | 이 엔드포인트와 연동된 실험의 이름 |
+| `Description` | 엔드포인트를 설명하는 자유 형식 텍스트 | 
+| `Tags` | 요청에 레이블을 지정하고 주석을 추가하는 데 사용할 수 있는 자유 형식의 키-값 쌍  |
+| `DataSetDefinitionValueAssignments` | 재학습 없이 데이터 세트를 변경하는 데 사용되는 사전(아래 설명 참조) | 
+| `DataPathAssignments` | 재학습 없이 데이터 경로를 변경하는 데 사용되는 사전(아래 설명 참조) | 
 
-### <a name="run-a-published-pipeline-using-c"></a>C를 사용 하 여 게시 된 파이프라인 실행 # 
+### <a name="run-a-published-pipeline-using-c"></a>C#을 사용하여 게시된 파이프라인 실행 
 
-다음 코드에서는 c #에서 비동기적으로 파이프라인을 호출 하는 방법을 보여 줍니다. 부분 코드 조각은 호출 구조만 보여 주고 Microsoft 샘플의 일부가 아닙니다. 전체 클래스 또는 오류 처리는 표시 되지 않습니다. 
+다음 코드에서는 C#에서 비동기적으로 파이프라인을 호출하는 방법을 보여 줍니다. 부분 코드 조각은 호출 구조만 보여 주며 Microsoft 샘플의 일부가 아닙니다. 전체 클래스나 오류 처리는 표시되지 않습니다. 
 
 ```csharp
 [DataContract]
@@ -153,9 +153,9 @@ using (HttpClient client = new HttpClient())
 }
 ```
 
-### <a name="run-a-published-pipeline-using-java"></a>Java를 사용 하 여 게시 된 파이프라인 실행
+### <a name="run-a-published-pipeline-using-java"></a>Java를 사용하여 게시된 파이프라인 실행
 
-다음 코드에서는 인증을 요구 하는 파이프라인에 대 한 호출을 보여 줍니다 ( [Azure Machine Learning 리소스 및 워크플로에 대 한 인증 설정](how-to-setup-authentication.md)참조). 파이프라인을 공개적으로 배포 하는 경우를 생성 하는 호출이 필요 하지 않습니다 `authKey` . 부분 코드 조각은 Java 클래스 및 예외 처리 상용구를 표시 하지 않습니다. 이 코드는 `Optional.flatMap` 빈를 반환할 수 있는 함수를 연결 하는 데를 사용 합니다 `Optional` . 를 사용 하면 `flatMap` 코드를 단축 하 고 명확 하 게 `getRequestBody()` 할 수 있지만 숨깁니다 예외를 허용 합니다.
+다음 코드에서는 인증을 요구하는 파이프라인에 대한 호출을 보여 줍니다([Azure Machine Learning 리소스 및 워크플로에 대한 인증 설정](how-to-setup-authentication.md) 참조). 파이프라인을 공개적으로 배포하는 경우 `authKey`를 생성하는 호출이 필요하지 않습니다. 부분 코드 조각은 Java 클래스 및 예외 처리 상용구를 표시하지 않습니다. 이 코드는 빈 `Optional`을 반환할 수 있는 연결 함수로 `Optional.flatMap`을 사용합니다. `flatMap`을 사용하면 코드를 단축하고 명확하게 할 수 있지만 `getRequestBody()`는 예외를 무효화합니다.
 
 ```java
 import java.net.URI;
@@ -237,11 +237,11 @@ class AuthenticationBody {
 }
 ```
 
-### <a name="changing-datasets-and-datapaths-without-retraining"></a>다시 학습 없이 데이터 집합 및 datapaths 변경
+### <a name="changing-datasets-and-datapaths-without-retraining"></a>재학습 없이 데이터 세트 및 데이터 경로 변경
 
-다른 데이터 집합 및 datapaths에 대해 학습 하 고 유추 하려고 할 수 있습니다. 예를 들어, 더 작은 데이터 집합을 학습 하 고 전체 데이터 집합에 대 한 유추를 수행할 수 있습니다. 요청의 인수에서 키를 사용 하 여 데이터 집합을 전환 `DataSetDefinitionValueAssignments` `json` 합니다. Datapaths를로 전환 `DataPathAssignments` 합니다. 두 방법의 기술은 비슷합니다.
+다른 데이터 세트 및 데이터 경로를 기반으로 학습하고 유추하는 것이 좋은 경우도 있습니다. 예를 들어 학습은 더 작은 데이터 세트를 대상으로 하고 유추는 전체 데이터 세트를 대상으로 하는 것이 좋을 수도 있습니다. 요청의 `json` 인수에 `DataSetDefinitionValueAssignments` 키를 사용하여 데이터 세트를 전환합니다. `DataPathAssignments`를 사용하여 데이터 경로를 전환합니다. 두 방법은 비슷합니다.
 
-1. 파이프라인 정의 스크립트에서 `PipelineParameter` 데이터 집합에 대 한를 만듭니다. `DatasetConsumptionConfig`에서 또는를 만듭니다 `DataPath` `PipelineParameter` .
+1. 파이프라인 정의 스크립트에서 데이터 세트를 위한 `PipelineParameter`를 만듭니다. `PipelineParameter`에서 `DatasetConsumptionConfig` 또는 `DataPath`를 만듭니다.
 
     ```python
     tabular_dataset = Dataset.Tabular.from_delimited_files('https://dprepdata.blob.core.windows.net/demo/Titanic.csv')
@@ -249,7 +249,7 @@ class AuthenticationBody {
     tabular_ds_consumption = DatasetConsumptionConfig("tabular_dataset", tabular_pipeline_param)
     ```
 
-1. ML 스크립트에서 다음을 사용 하 여 동적으로 지정 된 데이터 집합에 액세스 합니다 `Run.get_context().input_datasets` .
+1. ML 스크립트에서 `Run.get_context().input_datasets`를 사용하여 동적으로 지정된 데이터 세트에 액세스합니다.
 
     ```python
     from azureml.core import Run
@@ -259,9 +259,9 @@ class AuthenticationBody {
     # ... etc ...
     ```
 
-    ML 스크립트는 () `DatasetConsumptionConfig` 의 값이 아니라 ()에 대해 지정 된 값에 액세스 합니다 `tabular_dataset` `PipelineParameter` `tabular_ds_param` .
+    ML 스크립트는 `PipelineParameter`(`tabular_ds_param`)가 아닌 `DatasetConsumptionConfig`(`tabular_dataset`)에 지정된 값에 액세스합니다.
 
-1. 파이프라인 정의 스크립트에서를 매개 변수로로 설정 합니다 `DatasetConsumptionConfig` `PipelineScriptStep` .
+1. 파이프라인 정의 스크립트에서 `PipelineScriptStep`에 대한 매개 변수로 `DatasetConsumptionConfig`를 설정합니다.
 
     ```python
     train_step = PythonScriptStep(
@@ -275,7 +275,7 @@ class AuthenticationBody {
     pipeline = Pipeline(workspace=ws, steps=[train_step])
     ```
 
-1. 추론 REST 호출에서 데이터 집합을 동적으로 전환 하려면 다음을 사용 합니다 `DataSetDefinitionValueAssignments` .
+1. 추론 REST 호출에서 데이터 세트를 동적으로 전환하려면 `DataSetDefinitionValueAssignments`를 사용합니다.
     
     ```python
     tabular_ds1 = Dataset.Tabular.from_delimited_files('path_to_training_dataset')
@@ -293,11 +293,11 @@ class AuthenticationBody {
                                     }}}})
     ```
 
-노트북 [보여주는 데이터 집합 및 PipelineParameter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb) 및 [보여주는 데이터 경로 및 PipelineParameter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-datapath-and-pipelineparameter.ipynb) 에는이 기술의 전체 예제가 포함 되어 있습니다.
+[Showcasing Dataset and PipelineParameter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb)(Dataset 및 PipelineParameter 표시) 및 [Showcasing DataPath and PipelineParameter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-datapath-and-pipelineparameter.ipynb)(DataPath 및 PipelineParameter 표시) Notebook에는 이 방법의 예제 전체가 수록되어 있습니다.
 
-## <a name="create-a-versioned-pipeline-endpoint"></a>버전 지정 파이프라인 끝점 만들기
+## <a name="create-a-versioned-pipeline-endpoint"></a>버전이 지정된 파이프라인 엔드포인트 만들기
 
-게시 된 여러 파이프라인이 있는 파이프라인 끝점을 만들 수 있습니다. 이 기법은 ML 파이프라인을 반복 하 고 업데이트할 때 고정 REST 끝점을 제공 합니다.
+배후에 게시된 파이프라인이 여러 개 있는 파이프라인 엔드포인트를 만들 수 있습니다. 이 방법은 ML 파이프라인을 반복하고 업데이트할 때 고정된 REST 엔드포인트를 제공합니다.
 
 ```python
 from azureml.pipeline.core import PipelineEndpoint
@@ -307,9 +307,9 @@ pipeline_endpoint = PipelineEndpoint.publish(workspace=ws, name="PipelineEndpoin
                                             pipeline=published_pipeline, description="Test description Notebook")
 ```
 
-## <a name="submit-a-job-to-a-pipeline-endpoint"></a>파이프라인 끝점에 작업 제출
+## <a name="submit-a-job-to-a-pipeline-endpoint"></a>파이프라인 엔드포인트에 작업 제출
 
-파이프라인 끝점의 기본 버전에 작업을 제출할 수 있습니다.
+파이프라인 엔드포인트의 기본 버전에 작업을 제출할 수 있습니다.
 
 ```python
 pipeline_endpoint_by_name = PipelineEndpoint.get(workspace=ws, name="PipelineEndpointTest")
@@ -324,7 +324,7 @@ run_id = pipeline_endpoint_by_name.submit("PipelineEndpointExperiment", pipeline
 print(run_id)
 ```
 
-REST API를 사용 하 여 동일한 작업을 수행할 수 있습니다.
+REST API를 사용하여 동일한 작업을 수행할 수 있습니다.
 
 ```python
 rest_endpoint = pipeline_endpoint_by_name.endpoint
@@ -335,35 +335,35 @@ response = requests.post(rest_endpoint,
                                "ParameterAssignments": {"1": "united", "2":"city"}})
 ```
 
-## <a name="use-published-pipelines-in-the-studio"></a>스튜디오에서 게시 된 파이프라인 사용
+## <a name="use-published-pipelines-in-the-studio"></a>스튜디오에서 게시된 파이프라인 사용
 
-또한 스튜디오에서 게시 된 파이프라인을 실행할 수 있습니다.
+스튜디오에서 게시된 파이프라인을 실행할 수도 있습니다.
 
 1. [Azure Machine Learning Studio](https://ml.azure.com)에 로그인합니다.
 
-1. [작업 영역을 봅니다](how-to-manage-workspace.md#view).
+1. [작업 영역을 확인](how-to-manage-workspace.md#view)합니다.
 
-1. 왼쪽에서 **끝점** 을 선택 합니다.
+1. 왼쪽에서 **엔드포인트** 를 선택합니다.
 
-1. 위쪽에서 **파이프라인 끝점** 을 선택 합니다.
- ![machine learning 게시 된 파이프라인 목록](./media/how-to-create-your-first-pipeline/pipeline-endpoints.png)
+1. 위쪽에서 **파이프라인 엔드포인트** 를 선택합니다.
+ ![게시된 기계 학습 파이프라인 목록](./media/how-to-create-your-first-pipeline/pipeline-endpoints.png)
 
-1. 파이프라인 끝점의 이전 실행 결과를 실행, 사용 또는 검토 하려면 특정 파이프라인을 선택 합니다.
+1. 파이프라인 엔드포인트의 이전 실행 결과를 실행, 사용 또는 검토하려면 특정 파이프라인을 선택합니다.
 
-## <a name="disable-a-published-pipeline"></a>게시 된 파이프라인 사용 안 함
+## <a name="disable-a-published-pipeline&quot;></a>게시된 파이프라인 사용 안 함
 
-게시 된 파이프라인 목록에서 파이프라인을 숨기려면 스튜디오 또는 SDK에서 파이프라인을 사용 하지 않도록 설정 합니다.
+게시된 파이프라인 목록에서 파이프라인을 숨기려면 스튜디오 또는 SDK에서 파이프라인을 사용하지 않도록 설정합니다.
 
 ```python
 # Get the pipeline by using its ID from Azure Machine Learning studio
-p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
+p = PublishedPipeline.get(ws, id=&quot;068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-에서 다시 사용 하도록 설정할 수 있습니다 `p.enable()` . 자세한 내용은 [PublishedPipeline 클래스](/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline) 참조를 참조 하세요.
+`p.enable()`을 사용하면 이를 다시 사용하도록 설정할 수 있습니다. 자세한 내용은 [PublishedPipeline 클래스](/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline) 참조를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [GitHub의 Jupyter 노트북](https://aka.ms/aml-pipeline-readme)을 사용하여 기계 학습 파이프라인을 추가로 살펴봅니다.
-- [Azureml-파이프라인-코어](/python/api/azureml-pipeline-core/) 패키지 및 azureml- [파이프라인 단계](/python/api/azureml-pipeline-steps/) 패키지에 대 한 SDK 참조 도움말을 참조 하세요.
-- 파이프라인 디버깅 및 문제 해결에 대 한 팁은 [방법을](how-to-debug-pipelines.md) 참조 하세요.
+- [azureml-pipelines-core](/python/api/azureml-pipeline-core/) 패키지 및 [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/) 패키지에 대한 SDK 참조 도움말을 확인하세요.
+- 파이프라인 디버깅 및 문제 해결에 대한 팁은 [방법](how-to-debug-pipelines.md)을 참조하세요.

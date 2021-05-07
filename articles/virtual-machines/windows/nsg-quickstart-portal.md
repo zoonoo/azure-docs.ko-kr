@@ -1,6 +1,6 @@
 ---
 title: Azure Portal을 사용하여 VM에 포트 열기
-description: Azure Portal를 사용 하 여 VM에 대 한 포트를 열고 끝점을 만드는 방법에 대해 알아봅니다.
+description: Azure Portal을 사용하여 VM에 포털을 여는 방법/엔드포인트를 생성하는 방법에 대해 알아보기
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: networking
@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 05/27/2020
 ms.author: cynthn
 ms.openlocfilehash: 28b3ee98d44e1567d9e25cf9237015396975ab01
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102550453"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신에 대한 포털을 여는 방법

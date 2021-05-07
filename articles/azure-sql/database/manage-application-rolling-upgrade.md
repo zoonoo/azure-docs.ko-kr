@@ -1,6 +1,6 @@
 ---
 title: 애플리케이션 롤링 업그레이드
-description: Azure SQL Database 지역에서 복제를 사용 하 여 클라우드 응용 프로그램의 롤링 업그레이드를 지 원하는 방법을 알아봅니다.
+description: Azure SQL Database 지역에서 복제를 사용하여 클라우드 애플리케이션의 롤링 업그레이드를 지원하는 방법 알아보기
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
 ms.openlocfilehash: b7d21852ad684782fa1cb917442fee236d3c882b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102502147"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>SQL Database 활성 지역 복제를 사용하여 클라우드 애플리케이션의 롤링 업그레이드 관리
@@ -40,7 +40,7 @@ Azure SQL Database의 [활성 지역 복제](auto-failover-group-overview.md)를
 > [!NOTE]
 > 이러한 준비 단계는 전체 액세스 모드에서 작동할 수 있는 프로덕션 환경에 영향을 주지 않습니다.
 
-![다이어그램은 클라우드 재해 복구에 대 한 SQL Database 지역에서 복제 구성을 보여 줍니다.](./media/manage-application-rolling-upgrade/option1-1.png)
+![클라우드 재해 복구를 위한 SQL Database 지역에서 복제 구성을 보여 주는 다이어그램.](./media/manage-application-rolling-upgrade/option1-1.png)
 
 준비 단계가 완료되면 애플리케이션이 실제 업그레이드할 준비가 된 것입니다. 다음 다이어그램에서는 업그레이드 프로세스와 관련된 단계를 보여 줍니다.
 
@@ -48,7 +48,7 @@ Azure SQL Database의 [활성 지역 복제](auto-failover-group-overview.md)를
 2. 계획된 종료 모드를 사용하여 보조 데이터베이스의 연결을 끊습니다(4). 이 작업으로 주 데이터베이스의 완전히 동기화된 독립 복사본이 만들어집니다. 이 데이터베이스가 업그레이드됩니다.
 3. 보조 데이터베이스를 읽기-쓰기 모드로 설정하고 업그레이드 스크립트를 실행합니다(5).
 
-![다이어그램은 업그레이드 스크립트를 실행 하는 클라우드 재해 복구에 대 한 지역에서 복제 구성을 SQL Database 보여 줍니다.](./media/manage-application-rolling-upgrade/option1-2.png)
+![업그레이드 스크립트를 실행하는 클라우드 재해 복구를 위한 SQL Database 지역에서 복제 구성을 보여 주는 다이어그램.](./media/manage-application-rolling-upgrade/option1-2.png)
 
 업그레이드가 성공적으로 완료되면 이제 프로덕션 환경이 되는 업그레이드된 복사본 애플리케이션으로 전환할 수 있습니다. 전환에는 다음 다이어그램에 설명된 대로 몇 가지 단계가 더 포함됩니다.
 
@@ -67,7 +67,7 @@ Azure SQL Database의 [활성 지역 복제](auto-failover-group-overview.md)를
 > [!NOTE]
 > 전환 작업을 아직 수행하지 않았으므로 롤백에서는 DNS를 변경할 필요가 없습니다.
 
-![다이어그램은 스테이징 환경을 서비스 해제 하 여 클라우드 재해 복구에 대 한 지역에서 복제 구성을 SQL Database 보여 줍니다.](./media/manage-application-rolling-upgrade/option1-4.png)
+![스테이징 환경이 해제된 클라우드 재해 복구를 위한 SQL Database 지역에서 복제 구성을 보여 주는 다이어그램.](./media/manage-application-rolling-upgrade/option1-4.png)
 
 이 옵션의 핵심 이점은 일련의 간단한 단계에 따라 단일 지역의 애플리케이션을 업그레이드할 수 있다는 것입니다. 업그레이드의 달러 비용은 상대적으로 낮습니다. 
 
@@ -98,7 +98,7 @@ Azure SQL Database의 [활성 지역 복제](auto-failover-group-overview.md)를
 > [!NOTE]
 > 이러한 준비 단계는 프로덕션 환경의 애플리케이션에 영향을 주지 않습니다. 읽기-쓰기 모드에서 정상적으로 작동합니다.
 
-![다이어그램은 완전히 동기화 된 응용 프로그램 복사본을 사용 하 여 클라우드 재해 복구에 대 한 지역에서 복제 구성을 SQL Database 보여 줍니다.](./media/manage-application-rolling-upgrade/option2-1.png)
+![완전히 동기화된 애플리케이션 복사본을 사용하여 클라우드 재해 복구를 위한 SQL Database 지역에서 복제 구성을 보여 주는 다이어그램.](./media/manage-application-rolling-upgrade/option2-1.png)
 
 준비 단계가 완료되면 스테이징 환경을 업그레이드할 준비가 된 것입니다. 다음 다이어그램에서는 업그레이드 단계를 보여 줍니다.
 
@@ -110,7 +110,7 @@ ALTER DATABASE <Prod_DB>
 SET (ALLOW_CONNECTIONS = NO)
 ```
 
-2. 보조 (11)의 연결을 해제 하 여 지역에서 복제를 종료 합니다. 이 작업으로 프로덕션 데이터베이스의 완전히 동기화된 독립 복사본이 생성됩니다. 이 데이터베이스가 업그레이드됩니다. 다음 예에서는 Transact-sql을 사용 하지만 [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary) 도 사용할 수 있습니다. 
+2. 보조(11) 연결을 해제하여 지역에서 복제를 종료합니다. 이 작업으로 프로덕션 데이터베이스의 완전히 동기화된 독립 복사본이 생성됩니다. 이 데이터베이스가 업그레이드됩니다. 다음 예에서는 Transact-SQL을 사용하지만, [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary)도 사용할 수 있습니다. 
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication
@@ -120,14 +120,14 @@ REMOVE SECONDARY ON SERVER <Partner-Server>
 
 3. `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net` 및 스테이징 주 데이터베이스에 대해 업그레이드 스크립트를 실행합니다(12). 데이터베이스 변경 내용이 스테이징 보조 데이터베이스에 자동으로 복제됩니다.
 
-![다이어그램은 데이터베이스 변경 내용을 준비로 복제 하 여 클라우드 재해 복구에 대 한 지역에서 복제 구성을 SQL Database 보여 줍니다.](./media/manage-application-rolling-upgrade/option2-2.png)
+![데이터베이스 변경 사항이 스테이징에 복제된 클라우드 재해 복구를 위한 SQL Database 지역에서 복제 구성을 보여 주는 다이어그램.](./media/manage-application-rolling-upgrade/option2-2.png)
 
 업그레이드가 정상적으로 완료되면 이제 사용자를 애플리케이션의 V2 버전으로 전환할 준비가 된 것입니다. 다음 다이어그램은 관련 단계를 보여 줍니다.
 
 1. 주 지역(13)과 백업 지역(14)에서 웹앱의 프로덕션 및 스테이징 환경 간 전환 작업을 활성화합니다. 이제 애플리케이션 V2 버전이 프로덕션 환경이 되고, 백업 지역에는 중복 복사본이 생성됩니다.
 2. V1 애플리케이션이 더 이상 필요하지 않으면(15 및 16) 스테이징 환경을 서비스 해제할 수 있습니다.
 
-![다이어그램은 스테이징 환경의 선택적 서비스 해제를 사용 하 여 클라우드 재해 복구를 위한 지역에서 복제 구성을 SQL Database 보여 줍니다.](./media/manage-application-rolling-upgrade/option2-3.png)
+![스테이징 환경의 선택적 해제를 사용하는 클라우드 재해 복구를 위한 SQL Database 지역에서 복제 구성을 보여 주는 다이어그램.](./media/manage-application-rolling-upgrade/option2-3.png)
 
 업그레이드 스크립트의 오류 등으로 인해 업그레이드 프로세스가 실패하면 스테이징 환경은 불일치 상태로 간주합니다. 애플리케이션을 업그레이드 전 상태로 롤백하려면 프로덕션 환경에서 애플리케이션의 V1 버전을 사용하여 애플리케이션 상태를 되돌립니다. 이때 수행해야 하는 단계는 다음 다이어그램에 나와 있습니다.
 
@@ -139,7 +139,7 @@ REMOVE SECONDARY ON SERVER <Partner-Server>
 > [!NOTE]
 > 전환 작업을 수행하지 않았으므로 롤백에서는 DNS를 변경할 필요가 없습니다.
 
-![다이어그램은 업그레이드 프로세스를 롤백하는 클라우드 재해 복구에 대 한 지역에서 복제 구성을 SQL Database 보여 줍니다.](./media/manage-application-rolling-upgrade/option2-4.png)
+![업그레이드 프로세스가 롤백된 클라우드 재해 복구를 위한 SQL Database 지역에서 복제 구성을 보여 주는 다이어그램.](./media/manage-application-rolling-upgrade/option2-4.png)
 
 이 옵션의 핵심 이점 은 업그레이드하는 동안 비즈니스 연속성을 손상시키지 않고 애플리케이션 및 해당 지역 중복 복사본 모두를 병렬로 업그레이드할 수 있다는 것입니다.
 
@@ -152,7 +152,7 @@ REMOVE SECONDARY ON SERVER <Partner-Server>
 ## <a name="next-steps"></a>다음 단계
 
 * 비즈니스 연속성의 개요 및 시나리오를 보려면 [비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md)를 참조하세요.
-* 활성 지역 복제를 Azure SQL Database 하는 방법에 대 한 자세한 내용은 [활성 지역 복제를 사용 하 여 읽기 가능한 보조 데이터베이스 만들기](active-geo-replication-overview.md)를 참조 하세요.
+* Azure SQL Database 활성 지역 복제에 대해 알아보려면 [활성 지역 복제를 사용하여 읽기 가능한 보조 데이터베이스 만들기](active-geo-replication-overview.md)를 참조하세요.
 * Azure SQL Database 자동 장애 조치(failover) 그룹에 대해 알아보려면 [자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스에서 조정된 투명 장애 조치(failover) 수행](auto-failover-group-overview.md)을 참조하세요.
 * Azure App Service의 스테이징 환경에 대해 알아보려면 [Azure App Service에서 스테이징 환경 설정](../../app-service/deploy-staging-slots.md)을 참조하세요.
 * Azure Traffic Manager 프로필에 대해 알아보려면 [Azure Traffic Manager 프로필 관리](../../traffic-manager/traffic-manager-manage-profiles.md)를 참조하세요.

@@ -1,6 +1,6 @@
 ---
-title: Kubernetes 워크 로드에 대 한 워크 로드 보호
-description: Azure Security Center의 Kubernetes 워크 로드 보호 보안 권장 사항 집합을 사용 하는 방법에 대해 알아봅니다.
+title: Kubernetes 워크로드에 대한 워크로드 보호
+description: Kubernetes 워크로드 보호에 관한 Azure Security Center의 여러 보안 권장 사항을 사용하는 방법에 대해 알아봅니다.
 services: security-center
 author: memildin
 manager: rkarlin
@@ -9,25 +9,25 @@ ms.topic: how-to
 ms.date: 03/17/2021
 ms.author: memildin
 ms.openlocfilehash: eacca5573c672e9f4485c26b1b580ee4c982c5d2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104580756"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Kubernetes 워크로드 보호
 
-이 페이지에서는 Kubernetes 워크 로드 보호 전용의 보안 권장 사항 집합 Azure Security Center 사용 하는 방법을 설명 합니다.
+이 페이지에서는 Kubernetes 워크로드 보호에 특정한 Azure Security Center의 여러 보안 권장 사항을 사용하는 방법을 설명합니다.
 
-[Kubernetes 허용 제어를 사용 하 여 작업 보호 모범 사례](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control) 에서 이러한 기능에 대해 자세히 알아보세요.
+[Kubernetes 허용 제어를 사용한 워크로드 보호 모범 사례](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)에서 해당 기능에 대해 자세히 알아보세요.
 
-Security Center는 Azure Defender를 사용 하도록 설정 하는 경우 더 많은 컨테이너 보안 기능을 제공 합니다. 특히:
+Security Center는 Azure Defender를 사용하도록 설정하는 경우 더 많은 컨테이너 보안 기능을 제공합니다. 특히:
 
-- 컨테이너 [레지스트리에 대 한 Azure Defender의](defender-for-container-registries-introduction.md) 취약성에 대 한 컨테이너 레지스트리를 검색 합니다.
-- [Kubernetes 용 Azure Defender](defender-for-kubernetes-introduction.md) K8s 클러스터에 대 한 실시간 위협 검색 경고 가져오기
+- [컨테이너 레지스트리용 Azure Defender](defender-for-container-registries-introduction.md)로 컨테이너 레지스트리의 취약성을 검사합니다.
+- [Kubernetes용 Azure Defender](defender-for-kubernetes-introduction.md) K8s 클러스터에 대한 실시간 위협 탐지 경고를 가져옵니다.
 
 > [!TIP]
-> Kubernetes 클러스터 및 노드에 대해 나타날 수 있는 *모든* 보안 권장 사항의 목록은 권장 사항 참조 표의 [compute 섹션](recommendations-reference.md#recs-compute) 을 참조 하십시오.
+> Kubernetes 클러스터 및 노드에 대해 표시될 수 있는 *모든* 보안 권장 사항의 목록은 권장 사항 참조 표의 [컴퓨팅 섹션](recommendations-reference.md#recs-compute)을 참조하세요.
 
 
 
@@ -37,56 +37,56 @@ Security Center는 Azure Defender를 사용 하도록 설정 하는 경우 더 �
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|Free|
-|필요한 역할 및 권한:|할당을 편집 하기 위한 **소유자** 또는 **보안 관리자**<br>권장 사항을 보려면 **판독기**|
-|환경 요구 사항:|Kubernetes v 1.14 이상이 필요 합니다.<br>클러스터에 PodSecurityPolicy 리소스 (이전 PSP 모델)가 없음<br>Windows 노드가 지원 되지 않습니다.|
+|필요한 역할 및 권한:|할당을 편집하기 위한 **소유자** 또는 **보안 관리자**<br>권장 사항을 보기 위한 **읽기 권한자**|
+|환경 요구 사항:|Kubernetes v1.14 이상이 필요합니다.<br>클러스터에 PodSecurityPolicy 리소스(이전 PSP 모델)가 없습니다.<br>Windows 노드는 지원되지 않습니다.|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
 |||
 
 
-## <a name="set-up-your-workload-protection"></a>워크 로드 보호 설정
+## <a name="set-up-your-workload-protection"></a>워크로드 보호 설정
 
-Azure Security Center **에는 Kubernetes 용 Azure Policy 추가 기능** 을 설치한 경우 사용할 수 있는 권장 구성 번들이 포함 되어 있습니다.
+Azure Security Center에는 **Kubernetes용 Azure Policy 추가 기능** 을 설치한 경우 사용할 수 있는 권장 사항 번들이 포함되어 있습니다.
 
-### <a name="step-1-deploy-the-add-on"></a>1 단계: 추가 기능 배포
+### <a name="step-1-deploy-the-add-on"></a>1단계: 추가 기능 배포
 
-권장 사항을 구성 하려면  **Kubernetes에 대 한 Azure Policy 추가 기능** 을 설치 합니다. 
+권장 사항을 구성하려면 **Kubernetes용 Azure Policy 추가 기능** 을 설치합니다. 
 
-- [Log Analytics 에이전트 및 확장의 자동 프로 비전 사용](security-center-enable-data-collection.md#auto-provision-mma)에 설명 된 대로이 추가 기능을 자동으로 배포할 수 있습니다. 추가 기능에 대한 자동 프로비저닝이 "켜기"로 설정하면 모든 기존 및 향후 클러스터(추가 기능 설치 요구 사항 충족)에서 확장이 기본적으로 사용하도록 설정됩니다.
+- [Log Analytics 에이전트 및 확장의 자동 프로비저닝 사용](security-center-enable-data-collection.md#auto-provision-mma)에 설명된 대로 이 추가 기능을 자동 배포할 수 있습니다. 추가 기능에 대한 자동 프로비저닝이 "켜기"로 설정하면 모든 기존 및 향후 클러스터(추가 기능 설치 요구 사항 충족)에서 확장이 기본적으로 사용하도록 설정됩니다.
 
-    :::image type="content" source="media/defender-for-kubernetes-usage/policy-add-on-auto-provision.png" alt-text="Security Center의 자동 프로 비전 도구를 사용 하 여 Kubernetes 용 정책 추가 기능 설치":::
+    :::image type="content" source="media/defender-for-kubernetes-usage/policy-add-on-auto-provision.png" alt-text="Security Center의 자동 프로비저닝 도구를 사용하여 Kubernetes용 정책 추가 기능 설치":::
 
-- 추가 기능을 수동으로 배포 하려면:
+- 추가 기능을 수동으로 배포하려면:
 
-    1. 권장 사항 페이지에서 "**Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야** 합니다." 라는 권장 사항을 검색 합니다. 
+    1. 권장 사항 페이지에서 "**클러스터에 Kubernetes용 Azure Policy 추가 기능을 설치하고 사용하도록 설정해야 함**"이라는 권장 사항을 검색합니다. 
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes.png" alt-text="권장 사항 * * Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다. * *":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes.png" alt-text="권장 사항 **클러스터에 Kubernetes용 Azure Policy 추가 기능을 설치하고 사용하도록 설정해야 함**":::
 
         > [!TIP]
-        > 권장 사항은 다섯 가지 보안 제어에 포함 되며, 다음 단계에서 어떤 것을 선택 하 든 중요 하지 않습니다.
+        > 이 권장 사항은 다섯 가지 보안 제어에 포함되며, 다음 단계에서 어떤 것을 선택해도 상관없습니다.
 
-    1. 보안 제어에서 권장 사항을 선택 하 여 추가 기능을 설치할 수 있는 리소스를 확인 합니다.
-    1. 관련 클러스터를 선택 하 고 **재구성** 합니다.
+    1. 보안 제어에서 권장 사항을 선택하여 추가 기능을 설치할 수 있는 리소스를 확인합니다.
+    1. 관련 클러스터를 선택하고 **수정** 합니다.
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Kubernetes에 대 한 * * Azure Policy 추가 기능에 대 한 권장 사항 정보 페이지를 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다. * *":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="**클러스터에 Kubernetes용 Azure Policy 추가 기능을 설치하고 사용하도록 설정해야 함**에 대한 권장 사항 세부 정보 페이지":::
 
-### <a name="step-2-view-and-configure-the-bundle-of-13-recommendations"></a>2 단계: 13 개 권장 구성의 번들 보기 및 구성
+### <a name="step-2-view-and-configure-the-bundle-of-13-recommendations"></a>2단계: 13개 권장 사항 번들 보기 및 구성
 
-1. 추가 기능 설치가 완료 Security Center 되 고 약 30 분 후에는 다음과 같은 권장 사항에 대 한 클러스터의 상태를 표시 합니다 .이에 대 한 자세한 내용은 각각 관련 보안 제어에서 다음과 같이 표시 됩니다.
+1. 추가 기능 설치가 완료되고 약 30분 후에 Security Center에는 다음과 같은 권장 사항에 대한 클러스터의 상태가 표시되며, 각각 관련 보안 제어에 다음과 같이 표시됩니다.
 
     > [!TIP]
-    > 일부 권장 사항에는 Azure Policy를 통해 효율적으로 사용 하기 위해 사용자 지정 해야 하는 매개 변수가 있습니다. 예를 들어 권장 구성 **컨테이너 이미지를 신뢰할 수 있는 레지스트리 에서만 배포 해야** 하는 경우 신뢰할 수 있는 레지스트리를 정의 해야 합니다.
+    > 일부 권장 사항에는 효과적으로 사용하기 위해 Azure Policy를 통해 사용자 지정해야 하는 매개 변수가 있습니다. 예를 들어 **신뢰할 수 있는 레지스트리의 컨테이너 이미지만 배포해야 함** 이라는 권장 사항의 이점을 활용하려면 신뢰할 수 있는 레지스트리를 정의해야 합니다.
     > 
-    > 구성이 필요한 권장 구성에 필요한 매개 변수를 입력 하지 않으면 작업은 비정상으로 표시 됩니다.
+    > 구성이 필요한 권장 사항에 필요한 매개 변수를 입력하지 않으면 워크로드가 비정상으로 표시됩니다.
 
-    | 권장 사항 이름                                                         | 보안 컨트롤                         | 구성 필요 |
+    | 권장 사항 이름                                                         | 보안 컨트롤                         | 구성이 필요함 |
     |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | 컨테이너 CPU 및 메모리 한도를 적용해야 함                          | DDoS 공격 으로부터 응용 프로그램 보호 | 아니요                     |
-    | 권한 있는 컨테이너를 피해야 함                                     | 액세스 및 사용 권한 관리            | 아니요                     |
-    | 변경 불가능한(읽기 전용) 루트 파일 시스템을 컨테이너에 적용해야 함     | 액세스 및 사용 권한 관리            | 아니요                     |
-    | 권한 상승을 포함하는 컨테이너를 사용하지 않아야 함                       | 액세스 및 사용 권한 관리            | 아니요                     |
-    | 컨테이너를 루트 사용자로 실행하지 않아야 함                           | 액세스 및 사용 권한 관리            | 아니요                     |
-    | 중요한 호스트 네임스페이스를 공유하는 컨테이너를 사용하지 않아야 함              | 액세스 및 사용 권한 관리            | 아니요                     |
-    | 컨테이너에 대해 최소 권한 Linux 기능을 적용 해야 함       | 액세스 및 사용 권한 관리            | **예**                |
+    | 컨테이너 CPU 및 메모리 한도를 적용해야 함                          | DDoS 공격으로부터 애플리케이션 보호 | 예                     |
+    | 권한 있는 컨테이너를 피해야 함                                     | 액세스 및 사용 권한 관리            | 예                     |
+    | 변경 불가능한(읽기 전용) 루트 파일 시스템을 컨테이너에 적용해야 함     | 액세스 및 사용 권한 관리            | 예                     |
+    | 권한 상승을 포함하는 컨테이너를 사용하지 않아야 함                       | 액세스 및 사용 권한 관리            | 예                     |
+    | 컨테이너를 루트 사용자로 실행하지 않아야 함                           | 액세스 및 사용 권한 관리            | 예                     |
+    | 중요한 호스트 네임스페이스를 공유하는 컨테이너를 사용하지 않아야 함              | 액세스 및 사용 권한 관리            | 예                     |
+    | 최소 권한 Linux 기능을 컨테이너에 적용해야 함       | 액세스 및 사용 권한 관리            | **예**                |
     | Pod HostPath 볼륨 탑재 사용은 알려진 목록으로 제한되어야 함    | 액세스 및 사용 권한 관리            | **예**                |
     | 컨테이너는 허용되는 포트에서만 수신 대기해야 함                              | 무단 네트워크 액세스 제한     | **예**                |
     | 서비스는 허용되는 포트에서만 수신 대기해야 함                                | 무단 네트워크 액세스 제한     | **예**                |
@@ -96,43 +96,43 @@ Azure Security Center **에는 Kubernetes 용 Azure Policy 추가 기능** 을 �
     |||
 
 
-1. 매개 변수가 포함 된 권장 사항을 사용자 지정 해야 합니다. 매개 변수를 설정 합니다.
+1. 매개 변수가 포함된 권장 사항을 사용자 지정해야 하는 경우 다음과 같이 매개 변수를 설정합니다.
 
-    1. Security Center의 메뉴에서 **보안 정책** 을 선택 합니다.
+    1. Security Center의 메뉴에서 **보안 정책** 을 선택합니다.
     1. 관련 구독을 선택합니다.
-    1. **Security Center 기본 정책** 섹션에서 **유효 정책 보기** 를 선택 합니다.
-    1. "ASC Default"를 선택 합니다.
-    1. **매개 변수** 탭을 열고 필요에 따라 값을 수정 합니다.
+    1. **Security Center 기본 정책** 섹션에서 **실제 정책 보기** 를 선택합니다.
+    1. "ASC 기본값"을 선택합니다.
+    1. **매개 변수** 탭을 열고 필요에 따라 값을 수정합니다.
     1. **검토 후 저장** 을 선택합니다.
     1. **저장** 을 선택합니다.
 
 
-1. 권장 사항을 적용 하려면 다음을 수행 합니다. 
+1. 권장 사항을 적용하려면 다음을 수행합니다. 
 
-    1. 권장 사항 세부 정보 페이지를 열고 **거부** 를 선택 합니다.
+    1. 권장 사항 세부 정보 페이지를 열고 **거부** 를 선택합니다.
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Azure Policy 매개 변수에 대 한 Deny 옵션":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Azure Policy 매개 변수에 대한 거부 옵션":::
 
-        그러면 범위를 설정 하는 창이 열립니다. 
+        그러면 범위를 설정하는 창이 열립니다. 
 
-    1. 범위를 설정 했으면 **거부로 변경** 을 선택 합니다.
+    1. 범위를 설정했으면 **거부로 변경** 을 선택합니다.
 
-1. 클러스터에 적용 되는 권장 사항을 확인 하려면 다음을 수행 합니다.
+1. 클러스터에 적용되는 권장 사항을 확인하려면 다음을 수행합니다.
 
-    1. Security Center의 [자산 인벤토리](asset-inventory.md) 페이지를 열고 리소스 종류 필터를 사용 하 여 **서비스를 Kubernetes**.
+    1. Security Center의 [자산 인벤토리](asset-inventory.md) 페이지를 열고 **Kubernetes 서비스** 에 리소스 종류 필터를 사용합니다.
 
-    1. 사용 가능한 권장 사항을 조사 하 고 검토할 클러스터를 선택 합니다. 
+    1. 조사할 클러스터를 선택하고 클러스터에 사용 가능한 권장 사항을 검토합니다. 
 
-1. 워크 로드 보호 집합에서 권장 사항을 볼 때 클러스터와 함께 나열 된 영향을 받는 pod ("Kubernetes components") 수가 표시 됩니다. 특정 pod 목록을 보려면 클러스터를 선택 하 고 **작업 수행** 을 선택 합니다.
+1. 워크로드 보호 집합에서 권장 사항을 볼 때 클러스터와 함께 나열된 영향을 받는 Pod("Kubernetes 구성 요소") 수가 표시됩니다. 특정 Pod 목록을 보려면 클러스터를 선택하고 **작업 수행** 을 선택합니다.
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="K8s 권장 사항에 대해 영향을 받는 pod 보기"::: 
+    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="K8s 권장 사항에 대해 영향을 받는 Pod 보기"::: 
 
-1. 적용을 테스트 하려면 아래의 두 Kubernetes 배포를 사용 합니다.
+1. 적용을 테스트하려면 아래의 두 Kubernetes 배포를 사용합니다.
 
-    - 하나는 작업 보호 권장 구성의 번들을 준수 하는 정상적인 배포에 대 한 것입니다.
-    - 다른 *하나* 는 권장 사항을 준수 하지 않는 비정상 배포를 위한 것입니다.
+    - 하나는 워크로드 보호 권장 사항의 번들을 준수하는 정상적인 배포에 대한 것입니다.
+    - 다른 하나는 권장 사항을 준수하지 *않는* 비정상적인 배포에 대한 것입니다.
 
-    예제. yaml 파일을 있는 그대로 배포 하거나 고유한 워크 로드를 수정 하기 위한 참조로 사용 (step VIII)  
+    예제 .yaml 파일을 있는 그대로 배포하거나 고유한 워크로드를 수정하기 위한 참조로 사용합니다(8단계).  
 
 
 ## <a name="healthy-deployment-example-yaml-file"></a>정상적인 배포 예제. yaml 파일
@@ -186,7 +186,7 @@ spec:
     targetPort: 80
 ```
 
-## <a name="unhealthy-deployment-example-yaml-file"></a>비정상 배포 예제. yaml 파일
+## <a name="unhealthy-deployment-example-yaml-file"></a>비정상적인 배포 예제. yaml 파일
 
 ```yml
 apiVersion: apps/v1
@@ -249,10 +249,10 @@ spec:
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Kubernetes 워크 로드 보호를 구성 하는 방법을 배웠습니다. 
+이 문서에서는 Kubernetes 워크로드 보호를 구성하는 방법을 살펴보았습니다. 
 
-기타 관련 자료는 다음 페이지를 참조 하세요. 
+기타 관련 자료는 다음 페이지를 참조하세요. 
 
-- [계산에 대 한 Security Center 권장 사항](recommendations-reference.md#recs-compute)
-- [AKS 클러스터 수준에 대 한 경고](alerts-reference.md#alerts-akscluster)
-- [컨테이너 호스트 수준에 대 한 경고](alerts-reference.md#alerts-containerhost)
+- [컴퓨팅에 대한 Security Center 권장 사항](recommendations-reference.md#recs-compute)
+- [AKS 클러스터 수준에 대한 경고](alerts-reference.md#alerts-akscluster)
+- [컨테이너 호스트 수준에 대한 경고](alerts-reference.md#alerts-containerhost)

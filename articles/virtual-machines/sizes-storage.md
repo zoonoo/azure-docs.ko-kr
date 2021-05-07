@@ -1,6 +1,6 @@
 ---
-title: Azure VM 크기-저장소 | Microsoft Docs
-description: Azure의 가상 컴퓨터에 사용할 수 있는 다양 한 저장소 최적화 크기를 나열 합니다. 이 시리즈의 크기에 대한 스토리지 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
+title: Azure VM 크기 - 스토리지 | Microsoft Docs
+description: Azure의 가상 머신에 사용할 수 있는 다양한 스토리지 최적화 크기를 나열합니다. 이 시리즈의 크기에 대한 스토리지 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
 ms.subservice: vm-sizes-storage
 documentationcenter: ''
 author: sasha-melamed
@@ -10,17 +10,17 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
 ms.openlocfilehash: d97fe6cda1134d45468e257965fd5e28fe170e6f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102561027"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>스토리지 최적화 가상 컴퓨터 크기
 
-저장소에 최적화 된 VM 크기는 높은 디스크 처리량 및 IO를 제공 하며 빅 데이터, SQL, NoSQL 데이터베이스, 데이터 웨어하우징 및 대규모 트랜잭션 데이터베이스에 적합 합니다.  예로는 Cassandra, MongoDB, Cloudera 및 Redis가 있습니다. 이 문서에서는 각 최적화 된 크기에 대 한 로컬 저장소 처리량 및 네트워크 대역폭 뿐만 아니라 vCPUs, 데이터 디스크 및 Nic의 수에 대 한 정보를 제공 합니다.
+스토리지 최적화 VM 크기는 높은 디스크 처리량 및 IO를 제공하며 빅 데이터, SQL, NoSQL 데이터베이스, 데이터 웨어하우징 및 대형 트랜잭션 데이터베이스에 이상적입니다.  예를 들어 Cassandra, MongoDB, Cloudera, Redis가 있습니다. 이 문서에서는 각 최적화 크기에 대한 로컬 스토리지 처리량 및 네트워크 대역폭뿐 아니라 vCPU, 데이터 디스크, NIC 수에 대한 정보를 제공합니다.
 
-[Lsv2 시리즈](lsv2-series.md) 는 높은 처리량, 짧은 대기 시간, [AMD epyc<sup>TM</sup> 7551 프로세서](https://www.amd.com/en/products/epyc-7000-series) 에서 실행 되는 로컬 NVMe 저장소를 2.55 ghz의 모든 코어 부스트와 3.0 g h z의 최대 상승 기능으로 제공 합니다. Lsv2 시리즈 VM은 동시 다중 스레딩 구성을 통해 8~80vCPU 크기로 제공됩니다.  vCPU당 8GiB 메모리, 8vCPU당 1.92TB NVMe SSD M.2 디바이스 한 대가 있으며, L80s v2에서 최대 19.2TB(10x1.92TB)를 사용할 수 있습니다.
+[Lsv2 시리즈](lsv2-series.md)는 처리량이 많고, 대기 시간이 짧으며, 모든 코어 부스트가 2.55GHz이고 최대 부스트가 3.0GHz인 [AMD EPYC<sup>TM</sup> 7551 프로세서](https://www.amd.com/en/products/epyc-7000-series)에서 실행되는 직접 매핑된 로컬 NVMe 스토리지가 특징입니다. Lsv2 시리즈 VM은 동시 다중 스레딩 구성을 통해 8~80vCPU 크기로 제공됩니다.  vCPU당 8GiB 메모리, 8vCPU당 1.92TB NVMe SSD M.2 디바이스 한 대가 있으며, L80s v2에서 최대 19.2TB(10x1.92TB)를 사용할 수 있습니다.
 
 ## <a name="other-sizes"></a>기타 크기
 
@@ -35,6 +35,6 @@ ms.locfileid: "102561027"
 
 [ACU(Azure 컴퓨팅 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.
 
-[Windows](windows/storage-performance.md) 또는 [Linux](linux/storage-performance.md)용 Lsv2 시리즈 가상 머신에서 성능을 최적화 하는 방법에 대해 알아봅니다.
+[Windows](windows/storage-performance.md) 또는 [Linux](linux/storage-performance.md)용 Lsv2 시리즈 가상 머신에서 성능을 최적화하는 방법에 대해 알아봅니다.
 
-Azure에서 Vm의 이름을 지정 하는 방법에 대 한 자세한 내용은 [azure virtual machine 크기 명명 규칙](./vm-naming-conventions.md)을 참조 하세요.
+Azure가 VM의 이름을 지정하는 방법에 대한 자세한 내용은 [Azure 가상 머신 크기 명명 규칙](./vm-naming-conventions.md)을 참조하세요.

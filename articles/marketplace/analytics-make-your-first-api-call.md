@@ -1,6 +1,6 @@
 ---
-title: 상용 marketplace 분석 데이터에 액세스 하기 위한 첫 번째 API 호출 만들기
-description: 상용 marketplace 분석 데이터에 액세스 하기 위해 API를 사용 하는 방법에 대 한 예입니다.
+title: 상업용 Marketplace 분석 데이터에 액세스하기 위한 첫 번째 API 호출 수행
+description: 상업용 Marketplace 분석 데이터에 액세스하기 위해 API를 사용하는 방법을 배우는 예제입니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
@@ -8,21 +8,21 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 9e5fbdfca80d19f026a014a89ffbf137bacb521c
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105639585"
 ---
-# <a name="make-your-first-api-call-to-access-commercial-marketplace-analytics-data"></a>상용 marketplace 분석 데이터에 액세스 하기 위한 첫 번째 API 호출 만들기
+# <a name="make-your-first-api-call-to-access-commercial-marketplace-analytics-data"></a>상업용 Marketplace 분석 데이터에 액세스하기 위한 첫 번째 API 호출 수행
 
-상용 marketplace 분석 데이터에 액세스 하기 위한 Api 목록은 [상업용 marketplace 분석 데이터에 액세스 하기 위한 api](analytics-available-apis.md)를 참조 하세요. 첫 번째 API 호출을 수행 하기 전에 [사전 요구](analytics-prerequisites.md) 사항을 충족 하 여 상업적 marketplace 분석 데이터에 프로그래밍 방식으로 액세스 해야 합니다.
+상업용 Marketplace 분석 데이터에 액세스하기 위한 API 목록은 [상업용 Marketplace 분석 데이터에 액세스하기 위한 API](analytics-available-apis.md)를 참조하세요. 첫 번째 API를 호출하기 전에 상업용 Marketplace 분석 데이터에 대한 프로그래매틱 액세스를 위한 [필수 구성 요소](analytics-prerequisites.md)를 충족했는지 확인합니다.
 
 ## <a name="token-generation"></a>토큰 생성
 
-메서드를 호출 하기 전에 먼저 Azure Active Directory (Azure AD) 액세스 토큰을 가져와야 합니다. API에서 각 메서드의 인증 헤더에 Azure AD 액세스 토큰을 전달 해야 합니다. 액세스 토큰을 가져온 후 만료 되기 전에 사용 하는 데 60 분이 있습니다. 토큰이 만료 되 면 토큰을 새로 고치고 API에 대 한 추가 호출에 계속 사용할 수 있습니다.
+메서드를 호출하기 전에 먼저 Azure AD(Azure Active Directory) 액세스 토큰을 가져와야 합니다. API에서 각 메서드의 인증 헤더에 Azure AD 액세스 토큰을 전달해야 합니다. 액세스 토큰을 얻은 후 만료되기 전에 60분 동안 사용할 수 있습니다. 토큰이 만료되고 나면 토큰을 새로 고치고 나중에 API를 호출할 때 계속 사용할 수 있습니다.
 
-토큰을 생성 하는 방법에 대 한 예제 요청은 아래를 참조 하세요. 토큰을 생성 하는 데 필요한 세 가지 값은 `clientId` , `clientSecret` 및 `tenantId` 입니다. `resource`매개 변수는로 설정 해야 합니다 `https://graph.windows.net` .
+토큰을 생성하는 방법에 관한 샘플 요청은 아래를 참조하세요. 토큰을 생성하는 데 필요한 세 가지 값은 `clientId`, `clientSecret` 및 `tenantId`입니다. `resource` 매개 변수는 `https://graph.windows.net`로 설정해야 합니다.
 
 ***요청 예제***:
 
@@ -50,29 +50,29 @@ curl --location --request POST 'https://login.microsoftonline.com/{TenantId}/oau
 }
 ```
 
-응용 프로그램에 대 한 Azure AD 토큰을 얻는 방법에 대 한 자세한 내용은 [스토어 서비스를 사용 하 여 분석 데이터 액세스](/windows/uwp/monetize/access-analytics-data-using-windows-store-services#step-2-obtain-an-azure-ad-access-token)를 참조 하세요.
+애플리케이션용 Azure AD 토큰을 얻는 방법에 관한 자세한 내용은 [저장소 서비스를 사용하여 분석 데이터에 액세스](/windows/uwp/monetize/access-analytics-data-using-windows-store-services#step-2-obtain-an-azure-ad-access-token)를 참조하세요.
 
-## <a name="programmatic-api-call"></a>프로그래밍 방식 API 호출
+## <a name="programmatic-api-call"></a>프로그래매틱 API 호출
 
-이전 섹션에 설명 된 대로 Azure AD 토큰을 가져온 후에는 다음 단계에 따라 첫 번째 프로그래밍 방식 액세스 보고서를 만듭니다.
+이전 섹션에서 설명한 대로 Azure AD 토큰을 얻은 후, 다음 단계에 따라 첫 번째 프로그래매틱 액세스 보고서를 만듭니다.
 
-다음 데이터 집합 (datasetName)에서 데이터를 다운로드할 수 있습니다.
+다음 데이터 세트(datasetName)에서 데이터를 다운로드할 수 있습니다.
 
 - ISVCustomer
 - ISVMarketplaceInsights
 - ISVUsage
 - ISVOrder
 
-다음 섹션에서는 `OrderId` ISVOrder 데이터 집합에서 프로그래밍 방식으로 액세스 하는 방법에 대 한 예제를 제공 합니다.
+다음 섹션에서는 ISVOrder 데이터 세트에서 `OrderId`에 대한 프로그래매틱 액세스 방법의 예를 살펴봅니다.
 
-### <a name="step-1-make-a-rest-call-using-the-get-datasets-api"></a>1 단계: 데이터 집합 가져오기 API를 사용 하 여 REST 호출
+### <a name="step-1-make-a-rest-call-using-the-get-datasets-api"></a>1단계: 데이터 세트 가져오기 API를 사용하여 REST 호출
 
-API 응답은 보고서를 다운로드할 수 있는 데이터 집합 이름을 제공 합니다. 특정 데이터 집합의 경우 API 응답은 사용자 지정 보고서 템플릿에 사용할 수 있는 선택 가능한 열 목록도 제공 합니다. 다음 표를 참조 하 여 열의 이름을 가져올 수도 있습니다.
+API 응답은 보고서를 다운로드할 수 있는 데이터 세트 이름을 제공합니다. 특정 데이터 세트의 경우 API 응답은 사용자 지정 보고서 템플릿에 사용할 수 있는 선택 가능한 열 목록도 제공합니다. 다음 표를 참조하여 열의 이름도 가져올 수 있습니다.
 
-- [주문 정보 테이블](orders-dashboard.md#orders-details-table)
-- [사용 정보 테이블](usage-dashboard.md#usage-details-table)
+- [주문 세부 정보 표](orders-dashboard.md#orders-details-table)
+- [사용량 세부 정보 표](usage-dashboard.md#usage-details-table)
 - [고객 정보 표](customer-dashboard.md#customer-details-table)
-- [Marketplace insights 정보 테이블](insights-dashboard.md#marketplace-insights-details-table)
+- [Marketplace 인사이트 세부 정보 테이블](insights-dashboard.md#marketplace-insights-details-table)
 
 ***요청 예제***:
 
@@ -127,9 +127,9 @@ curl
 }
 ```
 
-### <a name="step-2-create-the-custom-query"></a>2 단계: 사용자 지정 쿼리 만들기
+### <a name="step-2-create-the-custom-query"></a>2단계: 사용자 지정 쿼리 만들기
 
-이 단계에서는 주문 보고서의 주문 ID를 사용 하 여 원하는 보고서에 대 한 사용자 지정 쿼리를 만듭니다. `timespan`쿼리에 지정 되지 않은 경우 기본값은 6 개월입니다.
+이 단계에서는 주문 보고서의 주문 ID를 사용하여 원하는 보고서의 사용자 지정 쿼리를 생성합니다. 쿼리에 지정되지 않으면 기본값 `timespan`은 6개월입니다.
 
 ***요청 예제***:
 
@@ -169,11 +169,11 @@ curl
 }
 ```
 
-쿼리가 성공적으로 실행 되 면 보고서를 `queryId` 생성 하는 데 사용 해야 하는이 생성 됩니다.
+쿼리가 성공적으로 실행되면 보고서를 생성하는 데 사용해야 하는 `queryId`가 생성됩니다.
 
-### <a name="step-3-execute-test-query-api"></a>3 단계: 테스트 쿼리 API 실행
+### <a name="step-3-execute-test-query-api"></a>3단계: 테스트 쿼리 API 실행
 
-이 단계에서는 테스트 쿼리 API를 사용 하 여 생성 된 쿼리에 대 한 상위 100 행을 가져옵니다.
+이 단계에서는 테스트 쿼리 API를 사용하여 생성된 쿼리의 상위 100개 행을 가져옵니다.
 
 ***요청 예제***:
 
@@ -230,9 +230,9 @@ curl
 }
 ```
 
-### <a name="step-4-create-the-report"></a>4 단계: 보고서 만들기
+### <a name="step-4-create-the-report"></a>4단계: 보고서 만들기
 
-이 단계에서는 이전에 생성 된를 사용 `QueryId` 하 여 보고서를 만듭니다.
+이 단계에서는 이전에 생성된 `QueryId`를 사용하여 보고서를 만듭니다.
 
 ***요청 예제***:
 
@@ -256,16 +256,16 @@ curl
 
 <br>
 
-_**표 1:이 요청 예제에 사용 된 매개 변수에 대 한 설명**_
+_**표1: 이 요청 예에 사용된 매개 변수 설명**_
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | ------------ | ------------- |
-| `Description` | 생성 되는 보고서에 대 한 간략 한 설명을 제공 합니다. |
-| `QueryId` | `queryId`2 단계: 사용자 지정 쿼리 만들기에서 쿼리를 만들 때 생성 된입니다. |
-| `StartTime` | 첫 번째 보고서 실행이 시작 된 시간입니다. |
-| `RecurrenceInterval` | 보고서를 만드는 동안 제공 된 되풀이 간격입니다. |
-| `RecurrenceCount` | 보고서를 만드는 동안 제공 된 되풀이 횟수입니다. |
-| `Format` | CSV 및 TSV 파일 형식이 지원 됩니다. |
+| `Description` | 생성되는 보고서에 관한 간략한 설명을 제공합니다. |
+| `QueryId` | 2단계: 사용자 지정 쿼리 만들기에서 쿼리를 만들 때 생성된 `queryId`입니다. |
+| `StartTime` | 첫 번째 보고서 실행이 시작된 시간입니다. |
+| `RecurrenceInterval` | 보고서를 만드는 동안 제공된 되풀이 간격입니다. |
+| `RecurrenceCount` | 보고서를 만드는 동안 제공된 되풀이 수입니다. |
+| `Format` | CSV 및 TSV 파일 형식이 지원됩니다. |
 |||
 
 ***응답 예제***:
@@ -296,11 +296,11 @@ _**표 1:이 요청 예제에 사용 된 매개 변수에 대 한 설명**_
 }
 ```
 
-성공적으로 실행 되 면 `reportId` 보고서의 다운로드를 예약 하는 데 사용 해야 하는이 생성 됩니다.
+성공적으로 실행되면 보고서의 다운로드를 예약하는 데 사용해야 하는 `reportId`가 생성됩니다.
 
-### <a name="step-5-execute-report-executions-api"></a>5 단계: 보고서 실행 API 실행
+### <a name="step-5-execute-report-executions-api"></a>5단계: 보고서 실행 API 실행
 
-이제 보고서의 보안 위치 (URL)를 가져오기 위해 보고서 실행 API를 실행 합니다.
+보고서의 보안 위치(URL)를 가져오기 위해 이제 보고서 실행 API를 실행합니다.
 
 ***요청 예제***:
 
@@ -337,5 +337,5 @@ Curl
 
 ## <a name="next-steps"></a>다음 단계
 
-- [SWAGGER API URL](https://swagger.io/docs/specification/api-host-and-base-path/) 을 통해 api를 사용해 볼 수 있습니다.
+- [Swagger API URL](https://swagger.io/docs/specification/api-host-and-base-path/)을 통해 API를 사용해 볼 수 있음
 - [프로그래밍 방식 액세스 페러다임](analytics-programmatic-access.md)
