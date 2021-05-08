@@ -8,14 +8,14 @@ ms.author: nilsp
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 08/11/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 7ed27eba66b3d18bed8017934fce85928b961392
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: how-to
+ms.custom: devx-track-python
+ms.openlocfilehash: cb455eb5eaf91377ca8dedc827ff89113f51b71a
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102520050"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107884897"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>경고 및 디버깅을 위해 Application Insights에서 기계 학습 파이프라인 로그 파일 수집
 
@@ -24,7 +24,7 @@ ms.locfileid: "102520050"
 
 로그를 한 곳에 배치하면 예외 및 오류 메시지에 대한 기록이 제공됩니다. Application Insights는 Azure Alerts와 통합되기 때문에 Application Insights 쿼리를 기반으로 경고를 만들 수도 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 단계에 따라 [Azure Machine Learning](./how-to-manage-workspace.md) 작업 영역을 만들고 [첫 번째 파이프라인을 만듭니다](./how-to-create-machine-learning-pipelines.md).
 * [개발 환경을 구성](./how-to-configure-environment.md)하여 Azure Machine Learning SDK를 설치합니다.

@@ -4,24 +4,24 @@ titleSuffix: Azure Machine Learning
 description: Azure Machine Learning에 이미 배포된 웹 서비스를 새로 고치는 방법에 대해 알아봅니다. 모델, 환경, 항목 스크립트 등의 설정을 업데이트할 수 있습니다.
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.custom: deploy
-ms.openlocfilehash: da018f212844e1587ad0e434902e49765f72e521
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a586d29fd25ee7332f11737345aef8209de8824
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102520100"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107889343"
 ---
 # <a name="update-a-deployed-web-service"></a>배포된 웹 서비스 업데이트
 
 이 문서에서는 Azure Machine Learning을 사용하여 배포된 웹 서비스를 업데이트하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 Azure Machine Learning을 사용하여 웹 서비스를 이미 배포했다고 가정합니다. 웹 서비스를 배포하는 방법을 알아보려면 [다음 단계](how-to-deploy-and-where.md)를 따르세요.
 
@@ -86,7 +86,7 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 >
 > 새 항목 스크립트나 환경을 사용하도록 서비스를 업데이트하려면 [유추 구성 파일](./reference-azure-machine-learning-cli.md#inference-configuration-schema)을 만들고 `ic` 매개 변수를 사용하여 해당 파일을 지정합니다.
 
-자세한 내용은 [az ml service update](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-update) 설명서를 참조하세요.
+자세한 내용은 [az ml service update](/cli/azure/ml/service#az_ml_service_update) 설명서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

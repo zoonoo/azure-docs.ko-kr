@@ -1,18 +1,18 @@
 ---
 title: Azure Service Bus 메시지 순서 지정 및 타임스탬프 | Microsoft Docs
-description: 이 문서에서는 Azure Service Bus 메시지의 시퀀싱 및 순서 지정 (타임 스탬프 포함)을 유지 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure Service Bus 메시지의 시퀀싱 및 순서 지정(타임스탬프 사용)을 유지하는 방법을 설명합니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: fdb18802e576ad114fd3f783d5efd7bb826a5f94
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.date: 04/14/2021
+ms.openlocfilehash: 3d5300568232afae1238445113d60eda8cdb2f1b
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85341178"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107497101"
 ---
 # <a name="message-sequencing-and-timestamps"></a>메시지 순서 지정 및 타임스탬프
 
-순서 지정과 타임스탬프는 수신 또는 탐색된 메시지의 [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) 및 [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) 속성을 통해 모든 Service Bus 엔터티 및 표면에서 항상 사용되는 두 가지 기능입니다.
+시퀀싱과 타임스탬프는 수신되거나 탐색된 메시지의 `SequenceNumber` 및 `EnqueuedTimeUtc` 속성을 통해 모든 Service Bus 엔터티 및 표면에서 항상 사용되는 두 가지 기능입니다.
 
 메시지의 절대적 순서가 중대하거나 소비자가 메시지에 대해 신뢰할 수 있는 고유 식별자를 필요로 할 경우 Broker가 메시지에 gap-free를 스탬프하여 큐나 토픽에 상대적인 시퀀스 번호를 증대할 수 있습니다. 분할된 엔터티의 경우 시퀀스 번호는 파티션에 상대적으로 발생됩니다.
 
@@ -30,7 +30,11 @@ ms.locfileid: "85341178"
 
 예약된 메시지는 정의된 큐에 넣기 시간이 되어야 큐에 구체화됩니다. 이 시간 이전에는 예약된 메시지를 취소할 수 있습니다. 취소는 메시지를 삭제합니다.
 
-일반 보내기 경로를 통해 메시지를 보낼 때 [ScheduledEnqueueTimeUtc](/dotnet/api/microsoft.azure.servicebus.message.scheduledenqueuetimeutc) 속성을 설정하거나, [ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) API를 통해 명시적으로 메시지를 예약할 수 있습니다. 후자의 경우 예약된 메시지의 **SequenceNumber** 를 즉시 반환하므로 사용자가 나중에 필요한 경우 예약된 메시지를 취소하는 데 사용할 수 있습니다. 예약된 메시지와 해당 시퀀스 번호도 [메시지 찾아보기](message-browsing.md)로 검색할 수 있습니다.
+다음 두 가지 방법으로 모든 클라이언트를 사용하여 메시지를 예약할 수 있습니다.
+- 일반 보내기 API를 사용하지만 보내기 전에 메시지에서 `ScheduledEnqueueTimeUtc` 속성을 설정합니다.
+- 메시지 예약 API를 사용하여 일반 메시지와 예약된 시간을 모두 전달합니다. 그러면 예약된 메시지의 **SequenceNumber** 가 반환되어 나중에 필요한 경우 예약된 메시지를 취소하는 데 사용할 수 있습니다. 
+
+예약된 메시지와 해당 시퀀스 번호도 [메시지 찾아보기](message-browsing.md)로 검색할 수 있습니다.
 
 예약된 메시지의 **SequenceNumber** 는 메시지가 이 상태인 동안만 유효합니다. 메시지가 활성 상태로 전환되면 메시지는 현재 인스턴스의 큐에 넣어진 것처럼 큐에 추가되며 새 **SequenceNumber** 를 포함합니다.
 

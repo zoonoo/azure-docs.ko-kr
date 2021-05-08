@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: 4f6187ccb143f065fed236495128add7a2ab1ee4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d70580a34e832d6465571adbc8f0524abeba609a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928524"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767928"
 ---
 # <a name="reservation-recommendations"></a>예약 권장 사항
 
@@ -65,5 +65,5 @@ Azure RI(reserved instance) 구매 권장 사항은 Azure Consumption [예약 �
 - 7일 간의 조회 기간을 사용하는 경우 VM이 하루 이상 종료될 때 권장 사항을 얻지 못할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-
+- [REST API를 사용하여 예약 권장 사항](/rest/api/consumption/reservationrecommendations/list)을 가져옵니다.
 - [Azure 예약 할인이 가상 머신에 적용되는 방법](../manage/understand-vm-reservation-charges.md)에 대해 알아봅니다.

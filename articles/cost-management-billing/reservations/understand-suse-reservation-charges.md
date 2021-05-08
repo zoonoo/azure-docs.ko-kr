@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 03/25/2021
 ms.author: banders
-ms.openlocfilehash: 2c17b2f9dc12fa7bff2dae8603bcf95a3a8ddfa0
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 8bf53715b7f19c44d9114150e617f903cd05a51e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350843"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566318"
 ---
 # <a name="azure-software-plan-discount"></a>Azure 소프트웨어 요금제 할인
 
@@ -63,55 +63,37 @@ Reserved VM Instances와 같이 SUSE 요금제 구매는 인스턴스 크기 유
 
 ### <a name="suse-linux-enterprise-server-for-hpc-priority"></a>SUSE Linux Enterprise Server for HPC 우선 순위
 
-Azure Portal Marketplace 이름:
-
-- SLES 12 SP3 for HPC(우선 순위)
-
 |SUSE VM | MeterId| 비율| 예제 VM 크기|
 | -------| ------------------------| --- |--- |
-|SLES for HPC 1-2 vCPU|e275a668-ce79-44e2-a659-f43443265e98|1|D2s_v3|
-|SLES for HPC 3-4 vCPU|e531e1c0-09c9-4d83-b7d0-a2c6741faa22|2|D4s_v3|
-|SLES for HPC 5+ vCPU|4edcd5a5-8510-49a8-a9fc-c9721f501913|2.6|D8s_v3|
+|SUSE Linux Enterprise Server for HPC 우선 순위 vCPU 1~2개|e275a668-ce79-44e2-a659-f43443265e98|1|D2s_v3|
+|SUSE Linux Enterprise Server for HPC 우선 순위 vCPU 3~4개|e531e1c0-09c9-4d83-b7d0-a2c6741faa22|2|D4s_v3|
+|SUSE Linux Enterprise Server for HPC 우선 순위 vCPU 5개 이상|4edcd5a5-8510-49a8-a9fc-c9721f501913|2.6|D8s_v3|
 
 ### <a name="suse-linux-enterprise-server-for-hpc-standard"></a>SUSE Linux Enterprise Server for HPC Standard
 
-Azure Portal Marketplace 이름:
-
-- SLES 12 SP3 for HPC
-
 |SUSE VM | MeterId | 비율|예제 VM 크기|
 | ------- | --- | ------------------------| --- |
-|SLES for HPC 1-2 vCPU |8c94ad45-b93b-4772-aab1-ff92fcec6610|1|D2s_v3|
-|SLES for HPC 3-4 vCPU|4ed70d2d-e2bb-4dcd-b6fa-42da71861a1c|1.92308|D4s_v3|
-|SLES for HPC 5+ vCPU |907a85de-024f-4dd6-969c-347d47a1bdff|2.92308|D8s_v3|
+|SUSE Linux Enterprise Server for HPC 표준 vCPU 1~2개 |8c94ad45-b93b-4772-aab1-ff92fcec6610|1|D2s_v3|
+|SUSE Linux Enterprise Server for HPC 표준 vCPU 3~4개|4ed70d2d-e2bb-4dcd-b6fa-42da71861a1c|1.92308|D4s_v3|
+|SUSE Linux Enterprise Server for HPC 표준 vCPU 5개 이상 |907a85de-024f-4dd6-969c-347d47a1bdff|2.92308|D8s_v3|
 
-### <a name="suse-linux-enterprise-server-for-sap-priority"></a>SUSE Linux Enterprise Server for SAP 우선 순위
+### <a name="suse-linux-enterprise-server-for-sap-standard"></a>SUSE Linux Enterprise Server for SAP 표준
 
-Azure Portal Marketplace 이름:
-
-- SLES for SAP 15(우선 순위)
-- SLES for SAP 12 SP3(우선 순위)
-- SLES for SAP 12 SP2(우선 순위)
+SUSE Linux Enterprise Server for SAP 표준의 이전 이름은 SUSE Linux Enterprise Server for SAP 우선 순위였습니다.
 
 |SUSE VM | MeterId | 비율|예제 VM 크기|
 | ------- |------------------------| --- | --- |
-|SLES for SAP 우선 순위 1-2 vCPU|497fe0b6-fa3c-4e3d-a66b-836097244142|1|D2s_v3|
-|SLES for SAP 우선 순위 3-4 vCPU |847887de-68ce-4adc-8a33-7a3f4133312f|2|D4s_v3|
-|SLES for SAP 우선 순위 5+ vCPU |18ae79cd-dfce-48c9-897b-ebd3053c6058|2.41176|D8s_v3|
+|SUSE Linux Enterprise Server for SAP 표준 vCPU 1~2개|497fe0b6-fa3c-4e3d-a66b-836097244142|1|D2s_v3|
+|SUSE Linux Enterprise Server for SAP 표준 vCPU 3~4개 |847887de-68ce-4adc-8a33-7a3f4133312f|2|D4s_v3|
+|SUSE Linux Enterprise Server for SAP 표준 vCPU 5개 이상 |18ae79cd-dfce-48c9-897b-ebd3053c6058|2.41176|D8s_v3|
 
 ### <a name="suse-linux-enterprise-server-standard"></a>SUSE Linux Enterprise Server Standard
 
-Azure Portal Marketplace 이름:
-
-- SLES 15
-- SLES 15(표준)
-- SLES 12 SP3(표준)
-
 |SUSE VM | MeterId | 비율|예제 VM 크기|
 | ------- |------------------------| --- |--- |
-|SLES 1-2 코어 vCPU |4b2fecfc-b110-4312-8f9d-807db1cb79ae|1|D2s_v3|
-|SLES 3-4 코어 vCPU |0c3ebb4c-db7d-4125-b45a-0534764d4bda|1.92308|D4s_v3|
-|SLES 5+ vCPU |7b349b65-d906-42e5-833f-b2af38513468|2.30769| D8s_v3|
+|SUSE Linux Enterprise Server 표준 core vCPU 1~2개 |4b2fecfc-b110-4312-8f9d-807db1cb79ae|1|D2s_v3|
+|SUSE Linux Enterprise Server 표준 core vCPU 3~4개 |0c3ebb4c-db7d-4125-b45a-0534764d4bda|1.92308|D4s_v3|
+|SUSE Linux Enterprise Server 표준 vCPUs 5개 이상 |7b349b65-d906-42e5-833f-b2af38513468|2.30769| D8s_v3|
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 

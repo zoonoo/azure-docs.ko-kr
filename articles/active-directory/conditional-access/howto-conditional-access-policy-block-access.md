@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e0801daa5bf83889be87987d440e377287b5ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c792888b65f331332c320deecbcd2b5f8d7e2ee3
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92366193"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175769"
 ---
 # <a name="conditional-access-block-access"></a>조건부 액세스: 액세스 차단
 
@@ -79,6 +79,9 @@ Microsoft 365 사용자를 위한 다단계 인증 또는 호환 디바이스를
    1. **선택** 을 선택합니다.
 1. 설정을 확인하고 **정책 사용** 을 **보고 전용** 으로 설정합니다.
 1. **만들기** 를 선택하여 정책을 사용하도록 만듭니다.
+
+> [!NOTE]
+> 조건부 액세스 정책은 1단계 인증이 완료된 후에 적용됩니다. 조건부 액세스는 DoS(서비스 거부) 공격과 같은 시나리오에 대한 조직의 최전방 방어선으로 사용하기 위해 개발된 것은 아니지만, 이러한 이벤트의 신호를 사용하여 액세스를 결정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

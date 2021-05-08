@@ -1,21 +1,21 @@
 ---
-title: Azure 구독의 청구 소유권 얻기
-description: 다른 사용자에게 Azure 구독의 청구 소유권을 요청하는 방법을 알아봅니다.
+title: Microsoft 고객 계약에 대한 Azure 구독 청구 소유권 이전
+description: Azure 구독의 청구 소유권을 이전하는 방법을 알아봅니다.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/09/2020
+ms.date: 04/08/2021
 ms.author: banders
-ms.openlocfilehash: ca55773b2deb74ea0647ed33df4040065762f94a
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 4cfb5c0b746ab8cf4ebb26ee0f755b34b6289982
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938480"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481432"
 ---
-# <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>다른 계정에서 Azure 구독의 청구 소유권 얻기
+# <a name="transfer-azure-subscription-billing-ownership-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 Azure 구독 청구 소유권 이전
 
 기존 청구 소유자가 조직을 떠나거나 청구 계정을 통해 구독 요금을 지불하려는 경우 Azure 구독의 소유권을 가져올 수 있습니다. 소유권을 획득하면 구독 청구 책임이 사용자 계정에 전송됩니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "96938480"
     [![전송 요청 선택을 보여주는 스크린샷](./media/mca-request-billing-ownership/mca-select-transfer-requests.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests.png#lightbox)
 1. 청구 소유권 요청 대상 사용자의 이메일 주소를 입력합니다. **요청 보내기** 를 선택합니다.  
     [![전송 요청 전송을 보여주는 스크린샷](./media/mca-request-billing-ownership/mca-send-transfer-requests.png)](./media/mca-request-billing-ownership/mca-send-transfer-requests.png#lightbox)
-1. 사용자는 전송 요청을 검토하는 지침이 포함된 이메일을 받습니다.  
+1. 사용자는 이전 요청을 검토하는 지침이 포함된 이메일을 받습니다.  
     ![전송 요청 이메일 검토를 보여 주는 스크린샷](./media/mca-request-billing-ownership/mca-review-transfer-request-email.png)
 1. 전송 요청을 승인하려면 사용자는 이메일의 링크를 선택하고 지침을 따릅니다.
     [![검토 전송 요청을 보여주는 스크린샷](./media/mca-request-billing-ownership/review-transfer-requests.png)](./media/mca-request-billing-ownership/review-transfer-requests.png#lightbox): 사용자가 Azure 제품을 전송하려는 청구 계정을 선택할 수 있습니다. 이를 선택하면 전송할 수 있는 적격 제품이 표시됩니다. **참고:** 사용하지 않도록 설정된 구독은 전송할 수 없으며, 해당하는 경우 "이전할 수 없는 Azure 제품" 목록에 표시됩니다. 전송될 Azure 제품이 선택되면 **유효성 검사** 를 선택합니다.

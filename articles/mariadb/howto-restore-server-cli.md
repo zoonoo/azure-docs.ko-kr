@@ -1,5 +1,5 @@
 ---
-title: 백업 및 복원-Azure CLI-Azure Database for MariaDB
+title: 백업 및 복원 - Azure CLI - Azure Database for MariaDB
 description: Azure CLI를 사용하여 Azure Database for MariaDB에서 서버를 백업 및 복원하는 방법을 알아봅니다.
 author: savjani
 ms.author: pariks
@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a6e46efd7f998437c3998df9a989ef9e1500e888
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: af197f2dd144e7541f669fdd67b58c38d91b4400
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98664837"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777134"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB에서 서버를 백업 및 복원하는 방법
 
@@ -21,13 +21,13 @@ Azure Database for MariaDB 서버는 정기적으로 백업되어 복원 기능�
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 요건
 
-- [Azure Database for MariaDB 서버와 데이터베이스가](quickstart-create-mariadb-server-database-using-azure-cli.md)필요 합니다.
+- [Azure Database for MariaDB 서버 및 데이터베이스](quickstart-create-mariadb-server-database-using-azure-cli.md)가 필요합니다.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-- 이 방법 가이드에는 Azure CLI 버전 2.0 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
+- 이 방법 가이드에는 Azure CLI 버전 2.0 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="set-backup-configuration"></a>백업 구성 설정
 
@@ -57,7 +57,7 @@ az mariadb server update --name mydemoserver --resource-group myresourcegroup --
 
 이전의 특정 시점으로 서버를 복원할 수 있습니다. 복원된 데이터는 새 서버에 복사되고 기존 서버는 그대로 유지됩니다. 예를 들어 테이블이 오늘 정오에 실수로 삭제된 경우 정오 바로 전 시간으로 복원할 수 있습니다. 그런 다음 서버의 복원된 복사본에서 누락된 테이블 및 데이터를 검색할 수 있습니다.
 
-서버를 복원하려면 Azure CLI [az mariadb server restore](/cli/azure/mariadb/server#az-mariadb-server-restore) 명령을 사용합니다.
+서버를 복원하려면 Azure CLI [az mariadb server restore](/cli/azure/mariadb/server#az_mariadb_server_restore) 명령을 사용합니다.
 
 ### <a name="run-the-restore-command"></a>복원 명령 실행
 
@@ -76,11 +76,11 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 | restore-point-in-time | 2018-03-13T13:59:00Z | 복원할 특정 시점을 선택합니다. 이 날짜 및 시간은 원본 서버의 백업 보존 기간 내에 있어야 합니다. ISO8601 날자 및 시간 형식을 사용합니다. 예를 들어 `2018-03-13T05:59:00-08:00`과 같이 현지 표준 시간대를 사용할 수 있습니다. UTC Zulu 형식을 사용할 수도 있습니다(예: `2018-03-13T13:59:00Z`). |
 | source-server | mydemoserver | 복원을 수행하려는 원본 서버의 이름 또는 ID입니다. |
 
-서버를 이전 시점으로 복원 하면 새 서버가 만들어집니다. 지정된 특정 시점의 원본 서버 및 해당 데이터베이스가 새 서버에 복사됩니다.
+서버를 이전 특정 시점으로 복원하는 경우 새 서버가 만들어집니다. 지정된 특정 시점의 원본 서버 및 해당 데이터베이스가 새 서버에 복사됩니다.
 
 복원된 서버에 대한 위치 및 가격 책정 계층 값은 원본 서버와 같게 유지됩니다. 
 
-복원 프로세스가 완료된 후 새 서버를 찾아 데이터가 예상대로 복원되었는지 확인합니다. 새 서버에는 복원이 시작 된 시점에 기존 서버에 유효한 동일한 서버 관리자 로그인 이름과 암호가 있습니다. 암호는 새 서버의 **개요** 페이지에서 변경할 수 있습니다.
+복원 프로세스가 완료된 후 새 서버를 찾아 데이터가 예상대로 복원되었는지 확인합니다. 새 서버에는 복원이 시작된 당시의 기존 서버에 유효한 동일한 서버 관리자 로그인 이름 및 암호가 있습니다. 암호는 새 서버의 **개요** 페이지에서 변경할 수 있습니다.
 
 복원 중에 만든 새 서버에는 원래 서버에 존재했던 VNet 서비스 엔드포인트가 없습니다. 이러한 규칙은 새 서버에 대해 개별적으로 설정돼야 합니다. 원본 서버의 방화벽 규칙이 복원됩니다.
 
@@ -121,12 +121,12 @@ az mariadb server georestore --resource-group newresourcegroup --name mydemoserv
 
 지역 복원으로 새 서버를 만들 때 원본 서버와 동일한 스토리지 크기 및 가격 책정 계층을 상속합니다. 만드는 동안 이러한 값을 변경할 수 없습니다. 새 서버를 만든 후에 스토리지 크기를 확장할 수 있습니다.
 
-복원 프로세스가 완료된 후 새 서버를 찾아 데이터가 예상대로 복원되었는지 확인합니다. 새 서버에는 복원이 시작 된 시점에 기존 서버에 유효한 동일한 서버 관리자 로그인 이름과 암호가 있습니다. 암호는 새 서버의 **개요** 페이지에서 변경할 수 있습니다.
+복원 프로세스가 완료된 후 새 서버를 찾아 데이터가 예상대로 복원되었는지 확인합니다. 새 서버에는 복원이 시작된 당시의 기존 서버에 유효한 동일한 서버 관리자 로그인 이름 및 암호가 있습니다. 암호는 새 서버의 **개요** 페이지에서 변경할 수 있습니다.
 
 복원 중에 만든 새 서버에는 원래 서버에 존재했던 VNet 서비스 엔드포인트가 없습니다. 이러한 규칙은 새 서버에 대해 개별적으로 설정돼야 합니다. 원본 서버의 방화벽 규칙이 복원됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 서비스의 [백업](concepts-backup.md) 에 대 한 자세한 정보
-- [복제본](concepts-read-replicas.md) 에 대해 알아보기
-- [비즈니스 연속성](concepts-business-continuity.md) 옵션에 대 한 자세한 정보
+- 서비스의 [백업](concepts-backup.md)에 대해 자세히 알아보기
+- [복제본](concepts-read-replicas.md)에 대해 알아보기
+- [비즈니스 연속성](concepts-business-continuity.md) 옵션에 대해 자세히 알아보기
