@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services 개발 환경 설정 | Microsoft Docs
-description: 이 문서에서는 Azure Media Services를 사용 하 여 개발할 수 있도록 환경을 설정 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure Media Services를 사용하여 개발용 환경을 설정하는 방법을 설명합니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 99bab73cabfb0cbe59461c424b5857ace07212dd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103013094"
 ---
 # <a name="set-up-your-media-services-development-environment"></a>Media Services 개발 환경 설정 

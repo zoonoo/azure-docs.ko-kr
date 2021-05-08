@@ -1,6 +1,6 @@
 ---
 title: Azure 주문형 스트리밍 작업으로 Postman 컬렉션 가져오기
-description: Azure Media Services REST Api를 호출 하는 그룹화 된 HTTP 요청이 포함 된 Postman 컬렉션에 대해 알아봅니다.
+description: Azure Media Services REST API를 호출하는 그룹화된 HTTP 요청이 포함된 Postman 컬렉션에 대해 알아봅니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 64e7dd754f09a60163decfd419ce6c2cd2c6182d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103007807"
 ---
 # <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>주문형 스트리밍 작업으로 Postman 컬렉션 가져오기

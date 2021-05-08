@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 5f4bb3c9b23ffd68939f1088b1252c6e31c1dad7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103010510"
 ---
 # <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>Azure Portal에서 Media Encoder Standard를 사용하여 자산 인코딩
@@ -26,11 +26,11 @@ ms.locfileid: "103010510"
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조 하세요. 
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
 > 
 > 
 
-Azure Media Services에서 작업하는 가장 일반적인 시나리오 중 하나는 클라이언트에 적응 비트 전송률 스트리밍을 제공하는 것입니다. Media Services는 Apple HLS(HTTP 라이브 스트리밍), Microsoft 부드러운 스트리밍, HTTP를 통한 동적 적응 스트리밍(DASH, MPEG-DASH라고도 함)과 같은 적응 비트 전송률 스트리밍을 지원합니다. 적응 비트 전송률 스트리밍을 위한 비디오를 준비하려면 먼저 원본 비디오를 다중 비트 전송률 파일로 인코딩합니다. Media Encoder Standard를 사용 하 여 비디오를 인코딩할 수 있습니다.  
+Azure Media Services에서 작업하는 가장 일반적인 시나리오 중 하나는 클라이언트에 적응 비트 전송률 스트리밍을 제공하는 것입니다. Media Services는 Apple HLS(HTTP 라이브 스트리밍), Microsoft 부드러운 스트리밍, HTTP를 통한 동적 적응 스트리밍(DASH, MPEG-DASH라고도 함)과 같은 적응 비트 전송률 스트리밍을 지원합니다. 적응 비트 전송률 스트리밍을 위한 비디오를 준비하려면 먼저 원본 비디오를 다중 비트 전송률 파일로 인코딩합니다. Media Encoder Standard를 사용하여 비디오를 인코딩할 수 있습니다.  
 
 Media Services는 동적 패키징을 제공합니다. 동적 패키징을 사용하여 이러한 스트리밍 형식으로 다시 패키징하지 않고 HLS, 부드러운 스트리밍 및 MPEG-DASH 형식으로 다중 비트 전송률 MP4를 제공할 수 있습니다. 동적 패키징을 사용하는 경우 단일 스토리지 형식으로 파일을 저장하고 요금을 지불할 수 있습니다. Media Services는 클라이언트의 요청에 따라 적절한 응답을 빌드하고 제공합니다.
 

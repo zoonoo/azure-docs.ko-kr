@@ -6,18 +6,18 @@ author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
 ms.openlocfilehash: 8b3b1d39766d556b820f21c1775210611b995d92
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103199895"
 ---
 # <a name="log-analytics-agent-overview"></a>Log Analytics 에이전트 개요
 
-Azure Log Analytics 에이전트는 모든 클라우드 및 온-프레미스 컴퓨터의 Windows 및 Linux 가상 컴퓨터 및 [System Center Operations Manager](/system-center/scom/) 에서 모니터링 하는 원격 분석을 수집 하 고 Azure Monitor의 Log Analytics 작업 영역에 수집 된 데이터를 보냅니다. Log Analytics 에이전트는 또한 [VM insights](../vm/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml), [Azure Automation](../../automation/automation-intro.md)등의 Azure Monitor에서 정보 및 기타 서비스를 지원 합니다. 이 문서에서는 에이전트, 시스템 및 네트워크 요구 사항 및 배포 방법에 대 한 자세한 개요를 제공 합니다.
+Azure Log Analytics 에이전트는 모든 클라우드, 온-프레미스 머신 및 [System Center Operations Manager](/system-center/scom/)에서 모니터링하는 Windows 및 Linux 가상 머신의 원격 분석을 수집하고 Azure Moniter의 Log Analytics 작업 영역으로 수집한 데이터를 보냅니다. Log Analytics 에이전트는 [VM 인사이트](../vm/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml), [Azure Automation](../../automation/automation-intro.md) 등의 Azure Monitor 내 기타 서비스와 인사이트도 지원합니다. 이 문서에서는 에이전트, 시스템 및 네트워크 요구 사항과 배포 모델을 상세히 살펴봅니다.
 
 > [!NOTE]
-> Log Analytics 에이전트가 Microsoft Monitoring Agent (MMA)로 참조 될 수도 있습니다.
+> Log Analytics 에이전트를 Microsoft Monitoring Agent(MMA)라고도 합니다.
 
 ## <a name="comparison-to-azure-diagnostics-extension"></a>Azure 진단 확장과 비교
 Azure Monitor의 [Azure 진단 확장](./diagnostics-extension-overview.md)을 사용하여 Azure 가상 머신의 게스트 운영 체제에서도 모니터링 데이터를 수집할 수 있습니다. 요구 사항에 따라 둘 중 하나 또는 모두를 사용하도록 선택할 수 있습니다. Azure Monitor 에이전트의 상세 비교는 [Azure Monitor 에이전트 개요](../agents/agents-overview.md)를 참조하세요. 
@@ -25,8 +25,8 @@ Azure Monitor의 [Azure 진단 확장](./diagnostics-extension-overview.md)을 �
 고려해야 할 주요 차이점은 다음과 같습니다.
 
 - Azure Diagnostics 확장은 Azure Virtual Machines에만 사용할 수 있습니다. Log Analytics 에이전트는 Azure, 다른 클라우드 환경 및 온-프레미스의 가상 머신에 사용할 수 있습니다.
-- Azure Diagnostics 확장은 Azure Storage, [Azure Monitor Metrics](../essentials/data-platform-metrics.md)(Windows만 해당) 및 Event Hubs로 데이터를 보냅니다. Log Analytics 에이전트는 [Azure Monitor 로그](../logs/data-platform-logs.md)에 데이터를 보냅니다.
-- [솔루션](../monitor-reference.md#insights-and-core-solutions), [VM 정보](../vm/vminsights-overview.md)및 기타 서비스 (예: [Azure Security Center](../../security-center/index.yml))에 Log Analytics 에이전트가 필요 합니다.
+- Azure Diagnostics 확장은 Azure Storage, [Azure Monitor Metrics](../essentials/data-platform-metrics.md)(Windows만 해당) 및 Event Hubs로 데이터를 보냅니다. Log Analytics 에이전트는 데이터를 [Azure Monitor 로그](../logs/data-platform-logs.md)에 보냅니다.
+- Log Analytics 에이전트는 [솔루션](../monitor-reference.md#insights-and-core-solutions), [VM 인사이트](../vm/vminsights-overview.md) 및 [Azure Security Center](../../security-center/index.yml) 등의 기타 서비스에 필요합니다.
 
 ## <a name="costs"></a>비용
 
@@ -34,7 +34,7 @@ Log Analytics 에이전트에 대한 비용은 없지만 데이터 수집에 대
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
- Log Analytics 에이전트에서 지 원하는 Windows 및 Linux 운영 체제 버전 목록은 [지원 되는 운영 체제](../agents/agents-overview.md#supported-operating-systems) 를 참조 하세요. 
+ Log Analytics 에이전트에서 지원하는 Windows 및 Linux 운영 체제 버전 목록은 [지원되는 운영 체제](../agents/agents-overview.md#supported-operating-systems)를 참조하세요. 
 
 ## <a name="data-collected"></a>수집되는 데이터
 
@@ -54,49 +54,49 @@ Log Analytics 에이전트는 Azure Monitor의 Log Analytics 작업 영역으로
 
 ## <a name="other-services"></a>기타 서비스
 
-Linux 및 Windows 용 에이전트는 Azure Monitor에 연결 하는 데만 사용할 수 있습니다. Azure Security Center 및 Azure 센티널와 같은 기타 서비스는 에이전트와 연결 된 Log Analytics 작업 영역을 사용 합니다. 또한이 에이전트는 Hybrid Runbook worker 역할 및 [변경 내용 추적](../../automation/change-tracking/overview.md), [업데이트 관리](../../automation/update-management/overview.md), [Azure Security Center](../../security-center/security-center-introduction.md)등의 기타 서비스를 호스트 하는 Azure Automation 지원 합니다. Hybrid Runbook Worker 역할에 대한 자세한 내용은 [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)를 참조하세요.  
+Linux 및 Windows용 에이전트는 Azure Monitor 연결에만 사용되지 않습니다. Azure Security Center 및 Azure Sentinel과 같은 기타 서비스도 에이전트 및 에이전트와 연결된 Log Analytics 작업 영역을 사용합니다. 에이전트는 [변경 내용 추적](../../automation/change-tracking/overview.md), [업데이트 관리](../../automation/update-management/overview.md), [Azure Security Center](../../security-center/security-center-introduction.md) 등의 Hybrid Runbook Worker 역할 및 기타 서비스를 호스트하도록 Azure Automation도 지원합니다. Hybrid Runbook Worker 역할에 대한 자세한 내용은 [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)를 참조하세요.  
 
 ## <a name="workspace-and-management-group-limitations"></a>작업 영역 및 관리 그룹 제한 사항
 
-Operations Manager 관리 그룹에 에이전트를 연결 하는 방법에 대 한 자세한 내용은 [Operations Manager 관리 그룹에 보고 하도록 에이전트 구성](../agents/agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group) 을 참조 하세요.
+Operations Manager 관리 그룹에 에이전트를 연결하는 방법에 대한 자세한 내용은 [에이전트에서 Operations Manager 관리 그룹에 보고하도록 구성](../agents/agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group)을 참조하세요.
 
-* Windows 에이전트는 System Center Operations Manager 관리 그룹에 연결 되어 있는 경우에도 최대 4 개의 작업 영역에 연결할 수 있습니다.
-* Linux 에이전트는 멀티 호 밍을 지원 하지 않으며 단일 작업 영역 또는 관리 그룹에만 연결할 수 있습니다.
+* Windows 에이전트는 System Center Operations Manager 관리 그룹에 연결되어 있는 경우에도 최대 4개의 작업 영역에 연결할 수 있습니다.
+* Linux 에이전트는 멀티호밍을 지원하지 않으며 단일 작업 영역 또는 관리 그룹에만 연결할 수 있습니다.
 
 ## <a name="security-limitations"></a>보안 제한 사항
 
-* Windows 및 Linux 에이전트는 [FIPS 140 표준을](/windows/security/threat-protection/fips-140-validation)지원 하지만 [다른 유형의 보안 강화는 지원 되지 않을 수 있습니다](../agents/agent-linux.md#supported-linux-hardening).
+* Windows 및 Linux 에이전트는 [FIPS 140 표준](/windows/security/threat-protection/fips-140-validation)을 지원하지만 [다른 유형의 보안 강화는 지원하지 않을 수 있습니다](../agents/agent-linux.md#supported-linux-hardening).
 
 ## <a name="installation-options"></a>설치 옵션
 
-요구 사항에 따라 Log Analytics 에이전트를 설치하고 머신을 Azure Monitor에 연결하는 방법에는 여러 가지가 있습니다. 다음 섹션에는 다양 한 유형의 가상 컴퓨터에 대 한 가능한 방법이 나와 있습니다.
+요구 사항에 따라 Log Analytics 에이전트를 설치하고 머신을 Azure Monitor에 연결하는 방법에는 여러 가지가 있습니다. 다음 섹션에는 다양한 유형의 가상 머신에서 사용할 수 있는 방법이 나와 있습니다.
 
 > [!NOTE]
-> Log Analytics 에이전트는 이미 구성 된 상태에서 컴퓨터를 복제 하는 것은 지원 되지 않습니다. 에이전트가 작업 영역에 이미 연결 되어 있는 경우에는 ' 골든 이미지 '에 대해 작동 하지 않습니다.
+> Log Analytics Agent가 이미 구성한 머신을 복제하는 것은 지원되지 않습니다. 에이전트가 작업 영역에 이미 연결되어 있는 경우에는 ‘최고 품질의 이미지’를 사용할 수 없습니다.
 
 ### <a name="azure-virtual-machine"></a>Azure 가상 머신
 
-- [VM insights](../vm/vminsights-enable-overview.md) 는 여러 가지 방법으로 에이전트를 대규모로 사용할 수 있도록 합니다. 여기에는 Log Analytics 에이전트와 종속성 에이전트가 설치 됩니다. 
-- 지원 되는 모든 Azure Vm 및 보안 취약점 및 위협에 대 한 모니터링을 사용 하도록 설정 하는 경우 생성 되는 새 Vm에서 [Log Analytics 에이전트를 프로 비전 할 수 Azure Security Center](../../security-center/security-center-enable-data-collection.md) .
-- [Windows](../../virtual-machines/extensions/oms-windows.md) 또는 [LINUX](../../virtual-machines/extensions/oms-linux.md) 용 Log Analytics VM 확장은 Azure Portal, Azure CLI, Azure PowerShell 또는 Azure Resource Manager 템플릿과 함께 설치할 수 있습니다.
-- [Azure Portal에서](../vm/quick-collect-azurevm.md?toc=%2fazure%2fazure-monitor%2ftoc.json)개별 Azure virtual machines를 수동으로 설치 합니다.
+- [VM 인사이트](../vm/vminsights-enable-overview.md)는 에이전트를 대규모로 사용할 수 있는 다양한 방법을 제공합니다. 여기에는 Log Analytics 에이전트와 Dependency 에이전트의 설치가 포함됩니다. 
+- 보안 취약점과 위협을 모니터링하도록 설정된 경우 Azure Security Center는 지원되는 모든 Azure VM과 새로 생성되는 VM에서 [Log Analytics 에이전트를 프로비저닝할 수 있습니다](../../security-center/security-center-enable-data-collection.md).
+- [Windows](../../virtual-machines/extensions/oms-windows.md) 또는 [Linux](../../virtual-machines/extensions/oms-linux.md) 용 Log Analytics VM 확장은 Azure Portal, Azure CLI, Azure PowerShell 또는 Azure Resource Manager 템플릿과 함께 설치할 수 있습니다.
+- [Azure Portal에서 수동으로](../vm/quick-collect-azurevm.md?toc=%2fazure%2fazure-monitor%2ftoc.json) 개별 Azure 가상 머신을 설치합니다.
 
 ### <a name="windows-virtual-machine-on-premises-or-in-another-cloud"></a>온-프레미스 또는 다른 클라우드의 Windows 가상 머신
 
-- [Azure Arc 사용 서버](../../azure-arc/servers/overview.md) 를 사용 하 여 Log Analytics VM 확장을 배포 하 고 관리 합니다.
-- 명령줄에서 에이전트를 [수동으로 설치](../agents/agent-windows.md) 합니다.
-- [AZURE AUTOMATION DSC](../agents/agent-windows.md#install-agent-using-dsc-in-azure-automation)를 사용 하 여 설치를 자동화 합니다.
-- [Azure Stack에서 리소스 관리자 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) 사용
+- [Azure Arc 지원 서버](../../azure-arc/servers/overview.md)를 사용하여 Log Analytics VM 확장을 배포하고 관리합니다.
+- 명령줄에서 에이전트를 [수동으로 설치](../agents/agent-windows.md)합니다.
+- [Azure Automation DSC](../agents/agent-windows.md#install-agent-using-dsc-in-azure-automation)를 사용하여 설치를 자동화합니다.
+- [Azure Stack을 사용한 Resource Manager 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) 사용
 
 ### <a name="linux-virtual-machine-on-premises-or-in-another-cloud"></a>온-프레미스 또는 다른 클라우드의 Linux 가상 머신
 
-- [Azure Arc 사용 서버](../../azure-arc/servers/overview.md) 를 사용 하 여 Log Analytics VM 확장을 배포 하 고 관리 합니다.
-- GitHub에 호스트 된 래퍼 스크립트를 호출 하는 에이전트를 [수동으로 설치](../vm/quick-collect-linux-computer.md) 합니다.
-- Azure Monitor와 [System Center Operations Manager](./om-agents.md) 를 통합 하 여 Windows 컴퓨터 보고에서 수집 된 데이터를 관리 그룹으로 전달 합니다.
+- [Azure Arc 지원 서버](../../azure-arc/servers/overview.md)를 사용하여 Log Analytics VM 확장을 배포하고 관리합니다.
+- GitHub에 호스트된 래퍼 스크립트를 호출하는 에이전트를 [수동으로 설치](../vm/quick-collect-linux-computer.md)합니다.
+- Windows 컴퓨터 보고에서 수집된 데이터를 관리 그룹에 전달하도록 [System Center Operations Manager](./om-agents.md)와 Azure Monitor를 통합합니다.
 
 ## <a name="workspace-id-and-key"></a>작업 영역 ID 및 키
 
-사용 되는 설치 방법에 관계 없이 에이전트가 연결 될 Log Analytics 작업 영역에 대 한 작업 영역 ID 및 키가 필요 합니다. Azure Portal의 **Log Analytics 작업 영역** 메뉴에서 작업 영역을 선택 합니다. 그런 다음 **설정** 섹션에서 **에이전트 관리** 를 선택 합니다. 
+설치 방법과 관계없이, 에이전트를 연결할 Log Analytics 작업 영역에 대한 작업 영역 ID 및 키가 필요합니다. Azure Portal의 **Log Analytics 작업 영역** 메뉴에서 작업 영역을 선택합니다. 그런 다음 **설정** 섹션에서 **에이전트 관리** 를 선택합니다. 
 
 [![작업 영역 세부 정보](media/log-analytics-agent/workspace-details.png)](media/log-analytics-agent/workspace-details.png#lightbox)
 
@@ -106,11 +106,11 @@ Azure Monitor 로그로 전송 중인 데이터를 보호하려면 적어도 TLS
 
 ## <a name="network-requirements"></a>네트워크 요구 사항
 
-Linux 및 Windows 용 에이전트는 TCP 포트 443을 통해 Azure Monitor 서비스로 아웃 바운드를 전달 합니다. 컴퓨터가 인터넷을 통해 통신 하기 위해 방화벽 또는 프록시 서버를 통해 연결 하는 경우 필요한 네트워크 구성을 이해 하려면 아래 요구 사항을 검토 하세요. IT 보안 정책이 네트워크의 컴퓨터에서 인터넷에 연결할 수 있도록 허용 하지 않는 경우 [Log Analytics 게이트웨이](gateway.md) 를 설정한 다음 게이트웨이를 통해 Azure Monitor에 연결 하도록 에이전트를 구성할 수 있습니다. 그러면 에이전트에서 구성 정보를 받고 수집 된 데이터를 보낼 수 있습니다.
+Linux 및 Windows용 에이전트는 TCP 포트 443을 통해 Azure Monitor 서비스로 아웃바운드 통신합니다. 머신이 인터넷을 통해 통신하기 위해 방화벽 또는 프록시 서버에 연결하는 경우 아래의 요구 사항을 검토하여 필요한 네트워크 구성을 파악하세요. IT 보안 정책에서 네트워크 컴퓨터의 인터넷 연결을 허용하지 않는 경우 [Log Analytics 게이트웨이](gateway.md)를 설정한 후 에이전트가 게이트웨이를 통해 Azure Monitor에 연결하도록 구성할 수 있습니다. 그러면 에이전트는 구성 정보를 수신하고 수집한 데이터를 보낼 수 있습니다.
 
 ![Log Analytics 에이전트 통신 다이어그램](./media/log-analytics-agent/log-analytics-agent-01.png)
 
-다음 표에서는 Linux 및 Windows 에이전트가 Azure Monitor 로그와 통신 하는 데 필요한 프록시 및 방화벽 구성 정보를 나열 합니다.
+다음 표에는 Linux 및 Windows 에이전트가 Azure Monitor 로그와 통신하는 데 필요한 프록시 및 방화벽 구성 정보가 나열되어 있습니다.
 
 ### <a name="firewall-requirements"></a>방화벽 요구 사항
 
@@ -123,7 +123,7 @@ Linux 및 Windows 용 에이전트는 TCP 포트 443을 통해 Azure Monitor 서
 
 Azure Government에 필요한 방화벽 정보는 [Azure Government 관리](../../azure-government/compare-azure-government-global-azure.md#azure-monitor)를 참조하세요. 
 
-Azure Automation Hybrid Runbook Worker를 사용 하 여 사용자 환경에서 runbook 또는 관리 기능을 사용 하기 위해 자동화 서비스에 연결 하 고 등록 하려는 경우에 [는 Hybrid Runbook Worker에 대 한 네트워크 구성](../../automation/automation-hybrid-runbook-worker.md#network-planning)에 설명 된 포트 번호 및 url에 대 한 액세스 권한이 있어야 합니다.
+Azure Automation Hybrid Runbook Worker를 사용하여 사용자 환경에서 Runbook이나 관리 기능을 사용하기 위해 Automation 서비스에 연결하고 등록하려면 [Hybrid Runbook Worker에 대한 네트워크 구성](../../automation/automation-hybrid-runbook-worker.md#network-planning)에 설명된 URL 및 포트 번호에 대한 액세스 권한이 있어야 합니다.
 
 ### <a name="proxy-configuration"></a>프록시 구성
 

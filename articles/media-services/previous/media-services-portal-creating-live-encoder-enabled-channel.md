@@ -1,5 +1,5 @@
 ---
-title: Azure Portal를 사용 하 여 다중 비트 전송률 스트림을 만드는 Azure Media Services를 사용 하 여 라이브 스트리밍 수행 Microsoft Docs
+title: Azure Media Services를 통해 라이브 스트리밍을 수행하여 Azure Portal로 다중 비트 전송률 스트림 만들기 | Microsoft Docs
 description: 이 자습서에서는 Azure 포털을 사용하여 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 채널을 만드는 단계를 안내합니다.
 services: media-services
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 36a4eb2856beb3ae2b0227e92f0db26e01a1b616
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103012754"
 ---
-# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Media Services를 사용 하 여 라이브 스트리밍을 수행 하 여 다중 비트 전송률 스트림을 만들 Azure Portal
+# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Media Services를 통해 라이브 스트리밍을 수행하여 Azure Portal로 다중 비트 전송률 스트림 만들기
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
@@ -47,8 +47,8 @@ ms.locfileid: "103012754"
 
 1. 비디오 카메라를 컴퓨터에 연결합니다. <br/>설치 아이디어는 [간단하고 이동 가능한 이벤트 비디오 기어 설정]( https://link.medium.com/KNTtiN6IeT)을 확인하세요.
 
-    카메라에 대 한 액세스 권한이 없는 경우 [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md) 와 같은 도구를 사용 하 여 비디오 파일에서 라이브 피드를 생성할 수 있습니다.
-1. RTMP 또는 부드러운 스트리밍 프로토콜 중 하나로 단일 비트 전송률 스트림을 출력할 수 있는 온-프레미스 라이브 인코더를 시작하고 구성합니다. 자세한 내용은 [Azure Media Services RTMP 지원 및 라이브 인코더](https://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요. <br/>또한 [OBS를 사용한 라이브 스트리밍 프로덕션](https://link.medium.com/ttuwHpaJeT)블로그를 확인 하세요.
+    카메라에 대한 액세스 권한이 없는 경우 [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md)와 같은 도구를 사용하여 비디오 파일에서 라이브 피드를 생성할 수 있습니다.
+1. RTMP 또는 부드러운 스트리밍 프로토콜 중 하나로 단일 비트 전송률 스트림을 출력할 수 있는 온-프레미스 라이브 인코더를 시작하고 구성합니다. 자세한 내용은 [Azure Media Services RTMP 지원 및 라이브 인코더](https://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요. <br/>또한 [OBS를 사용한 라이브 스트리밍 프로덕션](https://link.medium.com/ttuwHpaJeT) 블로그를 확인하세요.
 
     이 단계는 채널을 만든 후에도 수행할 수 있습니다.
 1. 채널을 만들고 시작합니다.
@@ -117,7 +117,7 @@ ms.locfileid: "103012754"
 
 채널을 만든 후 라이브 인코더에 제공할 수집 URL을 가져올 수 있습니다. 인코더는 이러한 URL을 사용하여 라이브 스트림을 입력합니다.
 
-![수집 url](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
+![수집 URL](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 ## <a name="create-and-manage-events"></a>이벤트 만들기 및 관리
 
@@ -190,7 +190,7 @@ ms.locfileid: "103012754"
 이벤트를 중단 및 삭제한 다음에도 자산을 삭제하지 않는 한 사용자는 주문형 비디오로 보관된 콘텐츠를 스트림할 수 있습니다.
 
 > [!WARNING]
-> 자산을 이벤트에서 사용 하는 경우 삭제 하면 **안 됩니다.** 이벤트를 먼저 삭제 해야 합니다.
+> 자산을 이벤트에서 사용하는 경우 삭제할 수 **없습니다**. 이벤트를 먼저 삭제해야 합니다.
 
 자산을 관리하려면 **설정** 을 선택하고 **자산** 을 클릭합니다.
 

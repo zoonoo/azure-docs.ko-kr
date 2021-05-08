@@ -1,6 +1,6 @@
 ---
 title: REST를 사용하여 Azure Media Services 계정에 파일 업로드 | Microsoft Docs
-description: REST를 사용 하 여 자산을 만들고 업로드 하 여 미디어 콘텐츠를 Media Services으로 가져오는 방법을 알아봅니다.
+description: REST를 사용하여 자산을 만들고 업로드하여 Media Services에 미디어 콘텐츠를 가져오는 방법에 대해 알아봅니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 9f27a427df07302840ce719d35c7876f9dc17dbf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103012941"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>REST를 사용하여 Media Services 계정에 파일 업로드
@@ -46,9 +46,9 @@ Media Services에서 자산에 디지털 파일을 업로드합니다. [자산](
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
-- [Azure Portal를 사용 하 여 Azure Media Services 계정을 만듭니다](media-services-portal-create-account.md).
+- [Azure Portal을 사용하여 Azure Media Services 계정을 만듭니다](media-services-portal-create-account.md).
 - [AAD 인증을 사용하여 Azure Media Services API 액세스 개요](media-services-use-aad-auth-to-access-ams-api.md) 문서를 검토합니다.
-- 또한 자세한 내용은 [AZURE AD 인증을 사용 하 여 REST를 사용 하 여 MEDIA SERVICES API에 액세스](./media-services-rest-connect-with-aad.md) 문서를 참조 하세요.
+- 자세한 내용은 [Azure AD 인증을 사용하여 REST로 Media Services API 액세스](./media-services-rest-connect-with-aad.md)를 참조하세요.
 - **Postman** 을 구성합니다([Media Services REST API 호출에 대해 Postman 구성](media-rest-apis-with-postman.md) 참조).
 
 ## <a name="considerations"></a>고려 사항
@@ -56,7 +56,7 @@ Media Services에서 자산에 디지털 파일을 업로드합니다. [자산](
 Media Services REST API를 사용할 때는 다음 사항을 고려해야 합니다.
  
 * Media Services REST API를 사용하여 엔터티에 액세스하는 경우 HTTP 요청에 특정 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요. <br/>이 자습서에서 사용된 Postman 컬렉션은 필요한 모든 헤더 설정을 처리합니다.
-* Media Services는 스트리밍 콘텐츠의 Url을 빌드할 때 IAssetFile.Name 속성의 값을 사용 합니다 (예: http://{AMSAccount}. windowsazure.mediaservices/{GUID}/{IAssetFile}/streamingParameters). 이러한 이유로 퍼센트 인코딩은 허용 되지 않습니다. **Name** 속성 값에는 !* '();:@&=+$,/?%#[]"와 같은 [퍼센트 인코딩 예약 문자](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
+* Media Services는 스트리밍 콘텐츠(예: http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.)를 위해 URL을 작성할 때 IAssetFile.Name 속성 값을 사용합니다. 해당 이유로 퍼센트 인코딩은 허용되지 않습니다. **Name** 속성 값에는 !* '();:@&=+$,/?%#[]"와 같은 [퍼센트 인코딩 예약 문자](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
 * 이름 길이는 260자보다 클 수 없습니다.
 * Media Services에서 처리를 위해 지원되는 최대 파일 크기에 제한이 있습니다. 파일 크기 제한에 대한 세부 정보는 [이](media-services-quotas-and-limitations.md) 문서를 참조하세요.
 
@@ -72,7 +72,7 @@ Media Services REST API를 사용할 때는 다음 사항을 고려해야 합니
 
     처음 5개 변수의 값을 가져오려면 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. 
 
-    ![오른쪽 위에서 선택 된 "코그" 아이콘 및 "관리 환경" 탭에서 선택 된 처음 5 개의 변수를 보여 주는 스크린샷](./media/media-services-rest-upload-files/postman-import-env.png)
+    ![오른쪽 상단에서 “톱니” 아이콘을 선택하고 “관리 환경” 탭에서 처음 5개의 변수를 선택한 화면 스크린샷.](./media/media-services-rest-upload-files/postman-import-env.png)
 2. **MediaFileName** 환경 변수의 값을 지정합니다.
 
     업로드할 미디어의 파일 이름을 지정합니다. 이 예제에서는 BigBuckBunny.mp4를 업로드하겠습니다. 
@@ -90,11 +90,11 @@ Media Services REST API를 사용할 때는 다음 사항을 고려해야 합니
         ]
     }
     ```
-4. **Postman** 창의 왼쪽에서 1을 클릭 **합니다. AAD Auth 토큰**  ->  **서비스 사용자에 대 한 Azure AD 토큰 가져오기를** 가져옵니다.
+4. **Postman** 창 왼쪽에서 **1. AAD 인증 토큰 가져오기** -> **서비스 주체에 대한 Azure AD 토큰 가져오기** 를 클릭합니다.
 
-    URL 부분은 **AzureADSTSEndpoint** 환경 변수로 채워집니다. 자습서의 앞부분에서 컬렉션을 지 원하는 환경 변수의 값을 설정 합니다.
+    URL 부분은 **AzureADSTSEndpoint** 환경 변수(자습서의 앞부분에서 컬렉션을 지원하는 환경 변수 값을 설정)로 채웁니다.
 
-    !["1"을 보여 주는 스크린샷 A D Auth 토큰 가져오기-"Postman" 창에서 선택한 서비스 주체에 대 한 Azure A D 토큰 가져오기 및 "보내기" 단추를 선택 합니다.](./media/media-services-rest-upload-files/postment-get-token.png)
+    ![“1. A A D 인증 토큰 가져오기 - 서비스 주체에 대한 Azure AD 토큰 가져오기”가 “Postman” 창에서 선택되고 “전송” 단추가 선택됨.](./media/media-services-rest-upload-files/postment-get-token.png)
 
 5. **보내기** 를 누릅니다.
 
@@ -113,10 +113,10 @@ Media Services REST API를 사용할 때는 다음 사항을 고려해야 합니
 
 ### <a name="create-an-access-policy"></a>액세스 정책 만들기
 
-1. Accesspolicy 업로드할 때 **accesspolicy**  ->  **만들기를** 선택 합니다.
+1. **AccessPolicy** -> **업로드에 대한 AccessPolicy 만들기** 를 선택합니다.
 2. **보내기** 를 누릅니다.
 
-    ![왼쪽 메뉴에서 "AccessPolicy-업로드할 AccessPolicy 만들기"를 선택 하 고 "보내기" 단추를 선택 하는 스크린샷](./media/media-services-rest-upload-files/postman-access-policy.png)
+    ![왼쪽 메뉴에서 “AccessPolicy - 업로드할 AccessPolicy 만들기”가 선택되고 “전송” 단추가 선택된 스크린샷.](./media/media-services-rest-upload-files/postman-access-policy.png)
 
     "test" 스크립트는 AccessPolicy Id를 가져와 해당 환경 변수를 설정합니다.
 
@@ -124,9 +124,9 @@ Media Services REST API를 사용할 때는 다음 사항을 고려해야 합니
 
 ### <a name="overview"></a>개요
 
-[자산은](/rest/api/media/operations/asset) 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 닫힌 캡션 파일을 포함 하 여 Media Services의 여러 형식 또는 개체 집합에 대 한 컨테이너입니다. REST API에서 자산을 만들려면 Media Services에 POST 요청을 보내고 자산에 대한 속성 정보를 요청 본문에 배치해야 합니다.
+[자산](/rest/api/media/operations/asset)은 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 자막 파일을 포함하여 여러 개체 유형이나 집합에 사용되는 컨테이너입니다. REST API에서 자산을 만들려면 Media Services에 POST 요청을 보내고 자산에 대한 속성 정보를 요청 본문에 배치해야 합니다.
 
-자산을 만들 때 추가할 수 있는 속성 중 하나는 **옵션** 입니다. **없음**(기본적으로 암호화가 사용되지 않음), **StorageEncrypted**(클라이언트 쪽 스토리지 암호화를 사용하여 미리 암호화된 콘텐츠의 경우), **CommonEncryptionProtected** 또는 **EnvelopeEncryptionProtected** 암호화 옵션 중 하나를 지정할 수 있습니다. 암호화된 자산이 있는 경우 배달 정책을 구성해야 합니다. 자세한 내용은 [자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)을 참조 하세요.
+자산을 만들 때 추가할 수 있는 속성 중 하나는 **옵션** 입니다. **없음**(기본적으로 암호화가 사용되지 않음), **StorageEncrypted**(클라이언트 쪽 스토리지 암호화를 사용하여 미리 암호화된 콘텐츠의 경우), **CommonEncryptionProtected** 또는 **EnvelopeEncryptionProtected** 암호화 옵션 중 하나를 지정할 수 있습니다. 암호화된 자산이 있는 경우 배달 정책을 구성해야 합니다. 자세한 내용은 [자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)을 참조하세요.
 
 자산이 암호화된 경우 **ContentKey** 를 만들고 자산에 연결해야 합니다([ContentKey를 만드는 방법](media-services-rest-create-contentkey.md) 문서의 설명 참조). 자산에 파일을 업로드한 후에는 **자산** 을 암호화하는 동안 얻은 값으로 **AssetFile** 엔터티의 암호화 속성을 업데이트해야 합니다. **MERGE** HTTP 요청을 사용하여 이를 수행합니다. 
 
@@ -134,10 +134,10 @@ Media Services REST API를 사용할 때는 다음 사항을 고려해야 합니
 
 ### <a name="create-an-asset"></a>자산 만들기
 
-1. 자산   ->  **자산 만들기** 를 선택 합니다.
+1. **자산** -> **자산 만들기** 를 선택합니다.
 2. **보내기** 를 누릅니다.
 
-    !["컬렉션" 메뉴에서 선택 된 "자산-자산 만들기" 및 "보내기" 단추를 선택 하는 스크린샷](./media/media-services-rest-upload-files/postman-create-asset.png)
+    ![“컬렉션” 메뉴에서 “자산 - 자산 만들기”와 “전송” 단추가 선택된 스크린샷.](./media/media-services-rest-upload-files/postman-create-asset.png)
 
     "test" 스크립트는 Asset Id를 가져와 해당 환경 변수를 설정합니다.
 
@@ -165,18 +165,18 @@ SAS URL의 형식은 다음과 같습니다.
 
 ### <a name="create-a-sas-locator"></a>SAS 로케이터 만들기
 
-1. **로케이터**  ->  **SAS 로케이터 만들기** 를 선택 합니다.
+1. **로케이터** -> **SAS 로케이터 만들기** 를 선택합니다.
 2. **보내기** 를 누릅니다.
 
     “test” 스크립트는 지정한 미디어 파일 이름 및 SAS 로케이터 정보에 따라 “업로드 URL”을 만들고 적절한 환경 변수를 설정합니다.
 
-    !["컬렉션" 메뉴에서 선택 하 고 "보내기" 단추를 선택 하 여 "로케이터 만들기 s 로케이터"를 보여 주는 스크린샷](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
+    ![“컬렉션” 메뉴에서 “로케이터 - S A S 로케이터 만들기”와 “전송” 단추가 선택된 스크린샷.](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
 
 ## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>업로드 URL을 사용하여 Blob Storage에 파일 업로드
 
 ### <a name="overview"></a>개요
 
-이제 업로드 URL이 있으므로 Azure Blob API로 일부 코드를 직접 작성하여 SAS 컨테이너에 파일을 업로드해야 합니다. 자세한 내용은 다음 아티클을 참조하세요.
+이제 업로드 URL이 있으므로 Azure Blob API로 일부 코드를 직접 작성하여 SAS 컨테이너에 파일을 업로드해야 합니다. 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure Storage REST API 사용](../../storage/common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Blob 배치](/rest/api/storageservices/put-blob)
@@ -197,13 +197,13 @@ SAS URL의 형식은 다음과 같습니다.
 4. **MediaFileName** 환경 변수에 지정한 이름을 가진 파일을 선택합니다.
 5. **보내기** 를 누릅니다.
 
-    !["(UploadU R L)" 탭이 선택 된 것을 보여 주는 스크린샷](./media/media-services-rest-upload-files/postman-upload-file.png)
+    ![“(UploadU R L)” 탭이 선택된 스크린샷.](./media/media-services-rest-upload-files/postman-upload-file.png)
 
 ##  <a name="create-a-metadata-in-the-asset"></a>자산에 메타데이터 만들기
 
 파일이 업로드되면 자산과 연관된 Blob Storage에 업로드한 미디어 파일에 대한 메타데이터를 자산에 만들어야 합니다.
 
-1. **Assetfiles**  ->  **CreateFileInfos** 를 선택 합니다.
+1. **AssetFiles** -> **CreateFileInfos** 를 선택합니다.
 2. **보내기** 를 누릅니다.
 
     ![파일 업로드](./media/media-services-rest-upload-files/postman-create-file-info.png)

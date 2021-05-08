@@ -1,6 +1,6 @@
 ---
 title: REST를 사용하여 콘텐츠 키 만들기 | Microsoft Docs
-description: 이 문서에서는 자산에 대 한 보안 액세스를 제공 하는 콘텐츠 키를 만드는 방법을 보여 줍니다.
+description: 이 문서에서는 자산에 대해 보안 액세스를 제공하는 콘텐츠 키를 만드는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: a9960ece05b7cab4ddd26fdac7516f4adbccf5b0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103017259"
 ---
 # <a name="create-content-keys-with-rest"></a>REST를 사용하여 콘텐츠 키 만들기
@@ -188,7 +188,7 @@ public enum ContentKeyType
     }
 ```
 
-다음 예제에서는 저장소 암호화에 대 한 **Contentkey** 집합 ("1")을 사용 하 여 **Contentkey** 를 만들고 **ProtectionKeyType** 가 "0"으로 설정 되어 보호 키 ID가 x.509 인증서 지문이 되도록 지정 하는 방법을 보여 줍니다.  
+다음 예제에서는 스토리지 암호화(&quot;1&quot;)에 대해 설정된 **ContentKeyType** 과 &quot;0&quot;으로 설정된 **ProtectionKeyType** 으로 **ContentKey** 를 만들어서 보호 키 ID가 X.509 인증서 지문임을 나타내는 방법을 보여줍니다.  
 
 요청
 

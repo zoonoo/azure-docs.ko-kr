@@ -10,19 +10,19 @@ ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-js
 ms.openlocfilehash: bbb996362df1f99a8702de310bc11f6828cc303a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103008453"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스팅
 
-*$web* 이라는 스토리지 컨테이너에서 직접 정적 콘텐츠(HTML, CSS, JavaScript 및 이미지 파일)를 사용할 수 있습니다. Azure Storage에서 콘텐츠를 호스팅하면 [Azure Functions](../../azure-functions/functions-overview.md) 및 기타 PaaS(Platform as a service) 서비스를 포함하는 서버리스 아키텍처를 사용할 수 있습니다. 정적 웹 사이트 호스팅 Azure Storage 웹 서버에서 콘텐츠를 렌더링 하지 않아도 되는 경우 유용한 옵션입니다.
+*$web* 이라는 스토리지 컨테이너에서 직접 정적 콘텐츠(HTML, CSS, JavaScript 및 이미지 파일)를 사용할 수 있습니다. Azure Storage에서 콘텐츠를 호스팅하면 [Azure Functions](../../azure-functions/functions-overview.md) 및 기타 PaaS(Platform as a service) 서비스를 포함하는 서버리스 아키텍처를 사용할 수 있습니다. Azure Storage 고정적인 웹 사이트 호스팅은 웹 서버에서 콘텐츠를 렌더링하지 않아도 되는 경우에 적합한 옵션입니다.
 
-[App Service 정적 Web Apps](https://azure.microsoft.com/services/app-service/static/) 는 정적 웹 사이트 호스팅을 Azure Storage 하는 데 적합 하며 웹 서버에서 콘텐츠를 렌더링 하지 않아도 되는 경우에도 적합 합니다. App Service 정적 Web Apps GitHub 원본에서 전역 배포로 완전히 관리 되는 CI/CD (지속적인 통합 및 지속적인 업데이트) 워크플로를 제공 합니다.
+[App Service Static Web Apps](https://azure.microsoft.com/services/app-service/static/)는 Azure Storage 고정적인 웹 사이트 호스팅의 훌륭한 대안이며 웹 서버에서 콘텐츠를 렌더링하지 않아도 되는 경우에도 적합합니다. App Service Static Web Apps는 GitHub 소스부터 전역 배포까지 완전 관리형 연속 통합 및 지속적인 업데이트(CI/CD) 워크플로를 제공합니다.
 
-웹 서버에서 콘텐츠를 렌더링 해야 하는 경우 [Azure App Service](https://azure.microsoft.com/services/app-service/)를 사용할 수 있습니다.
+웹 서버에서 콘텐츠를 렌더링해야 하는 경우에는 [Azure App Service](https://azure.microsoft.com/services/app-service/)를 사용할 수 있습니다.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -57,7 +57,7 @@ ms.locfileid: "103008453"
 서버에서 404 오류를 반환하는 경우, 웹 사이트를 사용하도록 설정할 때 오류 문서를 지정하지 않았으면, 사용자에게 기본 404 페이지가 반환됩니다.
 
 > [!NOTE]
-> [Azure Storage에 대 한 CORS (크로스-원본 자원 공유) 지원은](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) 정적 웹 사이트에서 지원 되지 않습니다.
+> 고정적인 웹사이트에서는 [Azure Storage에 대한 CORS(원본 간 리소스 공유)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)가 지원되지 않습니다.
 
 ### <a name="regional-codes"></a>지역 코드
 
@@ -85,7 +85,7 @@ ms.locfileid: "103008453"
 
 그러나 기본 Blob 서비스 엔드포인트 `https://contosoblobaccount.blob.core.windows.net/$web/index.html`에 대한 공용 액세스가 개인에서 공용으로 변경됩니다. 이제 사용자는 이들 두 엔드포인트 중 하나를 사용하여 해당 파일을 열 수 있습니다.
 
-저장소 계정에 대 한 공용 액세스를 사용 하지 않도록 설정 해도 해당 저장소 계정에서 호스팅되는 정적 웹 사이트에는 영향을 주지 않습니다. 자세한 내용은 [컨테이너 및 blob에 대 한 익명 공용 읽기 액세스 구성](anonymous-read-access-configure.md)을 참조 하세요.
+스토리지 계정에 대한 퍼블릭 액세스를 사용 중지해도 스토리지 계정에서 호스트되는 고정적인 웹 사이트에는 영향을 주지 않습니다. 자세한 내용은 [컨테이너 및 BLOB에 대한 익명 퍼블릭 읽기 권한 구성](anonymous-read-access-configure.md)을 참조하세요.
 
 ## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>정적 웹 사이트 URL에 사용자 지정 도메인 매핑
 
@@ -106,7 +106,7 @@ Azure Storage에서 기본적으로 지원하므로 사용자 지정 도메인�
 
 ## <a name="multi-region-website-hosting"></a>다중 지역 웹 사이트 호스팅
 
-여러 지역에서 웹 사이트를 호스팅하려면 지역 캐싱에 [Content Delivery Network](../../cdn/index.yml) 를 사용 하는 것이 좋습니다. 각 지역에서 서로 다른 콘텐츠를 제공 하려는 경우 [Azure Front 도어](../../frontdoor/index.yml) 를 사용 합니다. 또한 장애 조치 (failover) 기능을 제공 합니다. 사용자 지정 도메인을 사용 하려는 경우에는 [Azure Traffic Manager](../../traffic-manager/index.yml) 를 사용 하지 않는 것이 좋습니다. Azure Storage 사용자 지정 도메인 이름을 확인 하는 방법 때문에 문제가 발생할 수 있습니다.
+여러 지역에서 웹 사이트를 호스트하려면 지역 캐싱에 [Content Delivery Network](../../cdn/index.yml)를 사용하는 것이 좋습니다. 지역마다 다른 콘텐츠를 제공하려면 [Azure Front Door](../../frontdoor/index.yml)를 사용합니다. 장애 조치(failover) 기능도 제공됩니다. 사용자 지정 도메인을 사용하려면 [Azure Traffic Manager](../../traffic-manager/index.yml)를 사용하지 않는 것이 좋습니다. Azure Storage에서 사용자 지정 도메인 이름을 확인하는 방식으로 인해 문제가 발생할 수 있습니다.
 
 
 ## <a name="pricing"></a>가격 책정

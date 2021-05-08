@@ -1,19 +1,19 @@
 ---
-title: Azure CLI를 사용 하 여 AKS 클러스터에서 Windows Server 컨테이너 만들기
-description: Azure CLI를 사용 하 여 Kubernetes 클러스터를 신속 하 게 만들고 AKS (Azure Kubernetes Service)의 Windows Server 컨테이너에 응용 프로그램을 배포 하는 방법을 알아봅니다.
+title: Azure CLI를 사용하여 AKS 클러스터에 Windows Server 컨테이너 만들기
+description: Azure CLI를 사용하여 Kubernetes 클러스터를 빠르게 만들고 AKS(Azure Kubernetes Service)의 Windows Server 컨테이너에 애플리케이션을 배포하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
 ms.date: 07/16/2020
 ms.openlocfilehash: 13b4fbd21bb348d1ef79a3ca68128869115745cc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103200899"
 ---
-# <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Azure CLI를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
+# <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Azure CLI를 사용하여 AKS(Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
 
-AKS(Azure Kubernetes Service)는 클러스터를 빠르게 배포하고 관리할 수 있는 관리형 Kubernetes 서비스입니다. 이 문서에서는 Azure CLI를 사용 하 여 AKS 클러스터를 배포 합니다. 또한 Windows Server 컨테이너의 ASP.NET 샘플 응용 프로그램을 클러스터에 배포 합니다.
+AKS(Azure Kubernetes Service)는 클러스터를 빠르게 배포하고 관리할 수 있는 관리형 Kubernetes 서비스입니다. 이 문서에서는 Azure CLI를 사용하여 AKS 클러스터를 배포합니다. 또한 Windows Server 컨테이너의 ASP.NET 샘플 애플리케이션을 클러스터에 배포합니다.
 
 ![ASP.NET 샘플 응용 프로그램을 탐색하는 이미지](media/windows-container/asp-net-sample-app.png)
 
@@ -42,8 +42,8 @@ Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 �
 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 > [!NOTE]
-> 이 문서에서는이 자습서의 명령에 Bash 구문을 사용 합니다.
-> Azure Cloud Shell를 사용 하는 경우 Cloud Shell 창의 왼쪽 위에 있는 드롭다운이 **Bash** 로 설정 되었는지 확인 합니다.
+> 이 문서에서는 이 자습서의 명령에 대해 Bash 구문을 사용합니다.
+> Azure Cloud Shell을 사용하는 경우 Cloud Shell 창의 왼쪽 상단에 있는 드롭다운 메뉴가 **Bash** 로 설정되어 있어야 합니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -67,22 +67,22 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 
-Windows Server 컨테이너의 노드 풀을 지원하는 AKS 클러스터를 실행하려면 클러스터에서 [Azure CNI][azure-cni-about](고급) 네트워크 플러그인을 사용하는 네트워크 정책을 사용해야 합니다. 필요한 서브넷 범위 및 네트워크 고려 사항을 계획하는 데 도움이 되는 자세한 내용은 [Azure CNI 네트워킹 구성][use-advanced-networking]을 참조하세요. [Az aks create][az-aks-create] 명령을 사용 하 여 *myAKSCluster* 라는 aks 클러스터를 만듭니다. 이 명령은 필요한 네트워크 리소스 (존재 하지 않는 경우)를 만듭니다.
+Windows Server 컨테이너의 노드 풀을 지원하는 AKS 클러스터를 실행하려면 클러스터에서 [Azure CNI][azure-cni-about](고급) 네트워크 플러그인을 사용하는 네트워크 정책을 사용해야 합니다. 필요한 서브넷 범위 및 네트워크 고려 사항을 계획하는 데 도움이 되는 자세한 내용은 [Azure CNI 네트워킹 구성][use-advanced-networking]을 참조하세요. [az aks create][az-aks-create] 명령을 사용하여 *myAKSCluster* 라는 AKS 클러스터를 만듭니다. 이 명령은 필요한 네트워크 리소스를 만듭니다(없는 경우).
 
-* 클러스터는 두 개의 노드로 구성 됩니다.
-* `--windows-admin-password`및 `--windows-admin-username` 매개 변수는 클러스터에 생성 된 모든 windows server 컨테이너에 대 한 관리자 자격 증명을 설정 하며 [windows server 암호 요구 사항을][windows-server-password]충족 해야 합니다. *Windows-admin-password* 매개 변수를 지정 하지 않으면 값을 제공 하 라는 메시지가 표시 됩니다.
-* 노드 풀은를 사용 `VirtualMachineScaleSets` 합니다.
+* 클러스터는 두 개의 노드로 구성됩니다.
+* `--windows-admin-password`및 `--windows-admin-username` 매개 변수는 클러스터에 생성된 모든 Windows Server 컨테이너에 대한 관리자 자격 증명을 설정하며 [Windows Server 암호 요구 사항][windows-server-password]을 충족해야 합니다. *windows-admin-password* 매개 변수를 지정하지 않으면 값을 제공하라는 메시지가 표시됩니다.
+* 노드 풀은 `VirtualMachineScaleSets`를 사용합니다.
 
 > [!NOTE]
-> 클러스터가 안정적으로 작동 되도록 하려면 기본 노드 풀에서 2 개 이상의 노드를 실행 해야 합니다.
+> 클러스터를 안정적으로 작동하도록 하려면 기본 노드 풀에서 2개 이상의 노드를 실행해야 합니다.
 
-클러스터에서 Windows Server 컨테이너에 대 한 관리자 자격 증명으로 사용할 사용자 이름을 만듭니다. 다음 명령은 사용자 이름을 묻는 메시지를 표시 하 고 나중에 사용할 수 있도록 WINDOWS_USERNAME 설정 합니다 (이 문서의 명령은 BASH 셸에 입력 됨).
+클러스터에서 Windows Server 컨테이너에 대한 관리자 자격 증명으로 사용할 사용자 이름을 만듭니다. 다음 명령은 사용자 이름을 묻는 프롬프트를 표시하고 나중에 사용할 수 있도록 사용자 이름을 WINDOWS_USERNAME으로 설정합니다(이 문서의 명령은 BASH 셸에 입력됨).
 
 ```azurecli-interactive
 echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
 ```
 
-매개 변수를 지정할 수 있도록 클러스터를 만듭니다 `--windows-admin-username` . 다음 예제 명령은 이전 명령에서 설정한 *WINDOWS_USERNAME* 의 값을 사용 하 여 클러스터를 만듭니다. 또는 *WINDOWS_USERNAME* 를 사용 하는 대신 매개 변수에서 직접 다른 사용자 이름을 제공할 수 있습니다. 다음 명령을 통해 클러스터에서 Windows Server 컨테이너의 관리자 자격 증명에 대 한 암호를 만들라는 메시지가 표시 됩니다. 또는 *windows-admin-password* 매개 변수를 사용 하 여 해당 값을 직접 지정할 수 있습니다.
+`--windows-admin-username` 매개 변수를 지정하여 클러스터를 만듭니다. 다음 예제 명령은 이전 명령에서 설정한 *WINDOWS_USERNAME* 의 값을 사용하여 클러스터를 만듭니다. 또는 *WINDOWS_USERNAME* 을 사용하는 대신 매개 변수에 다른 사용자 이름을 직접 제공할 수 있습니다. 다음 명령도 클러스터에서 Windows Server 컨테이너의 관리자 자격 증명에 대한 암호를 만들라는 프롬프트를 표시합니다. 또는 *windows-admin-password* 매개 변수를 사용하여 해당 값을 직접 지정할 수 있습니다.
 
 ```azurecli-interactive
 az aks create \
@@ -97,13 +97,13 @@ az aks create \
 ```
 
 > [!NOTE]
-> 암호 유효성 검사 오류가 발생 하는 경우 설정 된 암호가 [Windows Server 암호 요구 사항을][windows-server-password]충족 하는지 확인 합니다. 암호가 요구 사항을 충족 하는 경우 다른 지역에 리소스 그룹을 만들어 보세요. 그런 다음 새 리소스 그룹을 사용 하 여 클러스터를 만들어 보세요.
+> 암호 유효성 검사 오류가 발생하는 경우 설정된 암호가 [Windows Server 암호 요구 사항][windows-server-password]을 충족하는지 확인합니다. 암호가 요구 사항을 충족하는 경우 다른 지역에 리소스 그룹을 만들어 봅니다. 그런 다음 새 리소스 그룹을 사용하여 클러스터를 만들어 봅니다.
 
 몇 분 후 명령이 완료되면 클러스터에 대한 JSON 형식 정보가 반환됩니다. 경우에 따라 클러스터를 프로비저닝하는 데 몇 분 이상 걸릴 수 있습니다. 이 경우 최대 10분이 허용됩니다.
 
 ## <a name="add-a-windows-server-node-pool"></a>Windows Server 노드 풀 추가
 
-기본적으로 AKS 클러스터는 Linux 컨테이너를 실행할 수 있는 노드 풀로 생성됩니다. 명령을 사용 하 여 `az aks nodepool add` Linux 노드 풀과 함께 Windows Server 컨테이너를 실행할 수 있는 추가 노드 풀을 추가 합니다.
+기본적으로 AKS 클러스터는 Linux 컨테이너를 실행할 수 있는 노드 풀로 생성됩니다. `az aks nodepool add` 명령을 사용하여 Linux 노드 풀과 함께 Windows Server 컨테이너를 실행할 수 있는 노드 풀을 추가합니다.
 
 ```azurecli
 az aks nodepool add \
@@ -114,7 +114,7 @@ az aks nodepool add \
     --node-count 1
 ```
 
-위의 명령은 *npwin* 이라는 새 노드 풀을 만들어 *myAKSCluster* 에 추가합니다. Windows Server 컨테이너를 실행 하기 위해 노드 풀을 만들 때 *노드-vm 크기* 의 기본값은 *Standard_D2s_v3* 입니다. *노드-vm 크기* 매개 변수를 설정 하도록 선택 하는 경우 [제한 된 vm 크기][restricted-vm-sizes]목록을 확인 하세요. 권장되는 최소 크기는 *Standard_D2s_v3* 입니다. 위의 명령은를 실행할 때 생성 되는 기본 vnet의 기본 서브넷도 사용 `az aks create` 합니다.
+위의 명령은 *npwin* 이라는 새 노드 풀을 만들어 *myAKSCluster* 에 추가합니다. Windows Server 컨테이너를 실행하기 위해 노드 풀을 만들 때 *node-vm-size* 의 기본값은 *Standard_D2s_v3* 입니다. *node-vm-size* 매개 변수를 설정하도록 선택하는 경우 [제한된 VM 크기][restricted-vm-sizes] 목록을 확인합니다. 권장되는 최소 크기는 *Standard_D2s_v3* 입니다. 또한 위 명령은 `az aks create`를 실행할 때 생성되는 기본 vnet의 기본 서브넷을 사용합니다.
 
 ## <a name="connect-to-the-cluster"></a>클러스터에 연결
 
@@ -239,7 +239,7 @@ sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ![ASP.NET 샘플 응용 프로그램을 탐색하는 이미지](media/windows-container/asp-net-sample-app.png)
 
 > [!Note]
-> 페이지를 로드 하려고 할 때 연결 시간 제한이 발생 하는 경우 샘플 앱은 다음 명령을 사용 하 여 준비 되었는지 확인 해야 합니다. [kubectl get pod--watch]. 경우에 따라 외부 IP 주소를 사용할 수 있을 때까지 Windows 컨테이너가 시작되지 않을 수 있습니다.
+> 페이지를 로드하려고 할 때 연결 시간 제한이 수신되면 다음 [kubectl get pods --watch] 명령을 사용하여 샘플 앱이 준비되었는지 확인해야 합니다. 경우에 따라 외부 IP 주소를 사용할 수 있을 때까지 Windows 컨테이너가 시작되지 않을 수 있습니다.
 
 ## <a name="delete-cluster"></a>클러스터 삭제
 
@@ -254,7 +254,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Kubernetes 클러스터를 배포 하 고 Windows Server 컨테이너에 ASP.NET 샘플 응용 프로그램을 배포 했습니다. 방금 만든 클러스터에 대한 [Kubernetes 웹 대시보드에 액세스][kubernetes-dashboard]합니다.
+이 문서에서는 Kubernetes 클러스터를 배포하고 Windows Server 컨테이너에 ASP.NET 샘플 애플리케이션을 배포했습니다. 방금 만든 클러스터에 대한 [Kubernetes 웹 대시보드에 액세스][kubernetes-dashboard]합니다.
 
 AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 연습해 보려면 Kubernetes 클러스터 자습서를 계속 진행합니다.
 

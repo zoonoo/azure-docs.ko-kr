@@ -16,10 +16,10 @@ ms.date: 3/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 885390d9246937247107128114e9242aa5e2dc01
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103015474"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>스토리지 암호화로 콘텐츠 암호화
@@ -27,7 +27,7 @@ ms.locfileid: "103015474"
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.   > 새 기능이 나 기능이 Media Services v2에 추가 되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.   > Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
 >
 
 이 문서에서는 AMS 스토리지 암호화에 대한 개요를 제공하며, 스토리지 암호화된 콘텐츠를 업로드하는 방법을 보여 줍니다.
@@ -47,7 +47,7 @@ Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체�
 
 ### <a name="storage-side-encryption"></a>스토리지 쪽 암호화
 
-|암호화 옵션|설명|Media Services v2|Media Services v3|
+|암호화 옵션|Description|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Media Services 스토리지 암호화|AES-256 암호화, Media Services에서 키 관리|지원<sup>(1)</sup>|지원되지 않음<sup>(2)</sup>|
 |[미사용 데이터에 대한 Storage 서비스 암호화](../../storage/common/storage-service-encryption.md)|Azure Storage가 제공하는 서버 쪽 암호화, Azure 또는 고객이 키 관리|지원됨|지원됨|
@@ -202,7 +202,7 @@ X.509 인증서를 검색한 다음 이 인증서의 공개 키를 사용하여 
 
 콘텐츠 키를 만들 때 설정해야 하는 값 중 하나가 이 유형입니다. 스토리지 암호화를 사용할 때 값은 '1'로 설정해야 합니다. 
 
-다음 예제에서는 저장소 암호화에 대 한 **Contentkey** 집합 ("1")을 사용 하 여 **Contentkey** 를 만들고 **ProtectionKeyType** 가 "0"으로 설정 되어 보호 키 ID가 x.509 인증서 지문이 되도록 지정 하는 방법을 보여 줍니다.  
+다음 예제에서는 스토리지 암호화(&quot;1&quot;)에 대해 설정된 **ContentKeyType** 과 &quot;0&quot;으로 설정된 **ProtectionKeyType** 으로 **ContentKey** 를 만들어서 보호 키 ID가 X.509 인증서 지문임을 나타내는 방법을 보여줍니다.  
 
 요청
 

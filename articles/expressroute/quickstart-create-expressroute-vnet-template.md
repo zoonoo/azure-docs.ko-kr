@@ -11,12 +11,12 @@ ms.service: expressroute
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: 3dc1d5f5ec3dfb004468deb2bec80927c7ec189d
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 6c31f55d5b208437170f9a69ff7bbe1d6b836201
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529882"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277447"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 프라이빗 피어링이 있는 ExpressRoute 회로 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "107529882"
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-expressroute-private-peering-vnet%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fexpressroute-private-peering-vnet%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 빠른 시작에서는 *Equinix* 를 서비스 공급자로 사용하여 ExpressRoute 회로를 만듭니다. 회로는 대역폭이 *50Mbps* 이고 피어링 위치가 *Washington DC* 인 *프리미엄 SKU* 를 사용합니다. 프라이빗 피어링은 *192.168.10.16/30* 및 *192.168.10.20/30* 의 기본 및 보조 서브넷에서 사용하도록 설정됩니다. 가상 네트워크도 *HighPerformance ExpressRoute 게이트웨이* 와 함께 생성됩니다.
 
-:::code language="json" source="~/quickstart-templates/101-expressroute-private-peering-vnet/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/expressroute-private-peering-vnet/azuredeploy.json":::
 
 템플릿에 여러 Azure 리소스가 정의되어 있습니다.
 
@@ -58,7 +58,7 @@ ExpressRoute와 관련된 더 많은 템플릿을 찾으려면 [Azure 빠른 시
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-expressroute-private-peering-vnet/azuredeploy.json"
+    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/expressroute-private-peering-vnet/azuredeploy.json"
 
     $resourceGroupName = "${projectName}rg"
 

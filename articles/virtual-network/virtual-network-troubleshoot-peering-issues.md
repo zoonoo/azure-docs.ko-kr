@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
 ms.openlocfilehash: 608f3d72aecb0c6d53325c0d082b1779822e9c80
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103200522"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>가상 네트워크 피어링 문제 해결
@@ -44,7 +44,7 @@ ms.locfileid: "103200522"
 >
 > * 기본 ILB(내부 부하 분산 장치) SKU를 초과하는 VM(가상 머신)
 > * Redis Cache(기본 ILB SKU 사용)
-> * Application gateway v1 (기본 ILB SKU 사용)
+> * 애플리케이션 게이트웨이 v1(기본 ILB SKU 사용)
 > * 가상 머신 확장 집합(기본 ILB SKU 사용)
 > * Azure Service Fabric 클러스터(기본 ILB SKU 사용)
 > * SQL Server Always On(기본 ILB SKU 사용)
@@ -133,7 +133,7 @@ NVA 디바이스 설정 및 라우팅 문제 해결에 도움이 필요한 경�
    4. 원본의 패킷이 도착하면 네트워킹 문제가 없는 것입니다. VM 방화벽과 해당 포트에서 수신 대기하는 애플리케이션을 모두 검사하여 구성 문제를 찾습니다.
 
    > [!Note]
-   > 다음 유형의 리소스는 글로벌 가상 네트워크 피어링(서로 다른 지역의 가상 네트워크)을 통해 연결할 수 없습니다.
+   > 다음 종류의 리소스는 글로벌 가상 네트워크 피어링(서로 다른 지역의 가상 네트워크)을 통해 연결할 수 없습니다.
    >
    > * 기본 ILB SKU 뒤의 VM
    > * Redis Cache(기본 ILB SKU 사용)

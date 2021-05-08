@@ -1,6 +1,6 @@
 ---
-title: Azure AD PowerShell을 사용 하 여 사용자 지정 역할 할당-Azure AD | Microsoft Docs
-description: Azure AD PowerShell을 사용 하 여 Azure AD 관리자 사용자 지정 역할의 멤버를 관리 합니다.
+title: Azure AD PowerShell을 사용하여 사용자 지정 역할 할당 - Azure AD | Microsoft Docs
+description: Azure AD PowerShell을 사용하여 Azure AD 관리자 사용자 지정 역할을 가진 구성원을 관리합니다.
 services: active-directory
 author: rolyon
 manager: daveba
@@ -14,25 +14,25 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9f0fb81a4daa57b473e8b2b4b937426eafbf903d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103014539"
 ---
-# <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Azure Active Directory에서 PowerShell을 사용 하 여 리소스 범위에 사용자 지정 역할 할당
+# <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Azure Active Directory에서 PowerShell을 사용하여 리소스 범위에서 사용자 지정 역할 할당
 
-이 문서에서는 Azure AD (Azure Active Directory)에서 조직 차원의 범위에 역할 할당을 만드는 방법을 설명 합니다. 조직 전체의 범위에서 역할을 할당 하면 Azure AD 조직에서 액세스 권한을 부여 합니다. 단일 Azure AD 리소스 범위를 사용 하 여 역할 할당을 만들려면 [사용자 지정 역할을 만들고 리소스 범위에서 할당 하는 방법](custom-create.md)을 참조 하세요. 이 문서에서는 [Azure Active Directory PowerShell 버전 2](/powershell/module/azuread/#directory_roles) 모듈을 사용 합니다.
+이 문서에서는 Azure AD(Azure Active Directory)에서 조직 전체 범위에 역할 할당을 만드는 방법을 설명합니다. 조직 전체의 범위에서 역할을 할당하면 Azure AD 조직 전체에 액세스 권한이 부여됩니다. 단일 Azure AD 리소스 범위를 사용하여 역할 할당을 만들려면 [사용자 지정 역할을 만들고 리소스 범위에 할당하는 방법](custom-create.md)을 참조하세요. 이 문서에서는 [Azure Active Directory PowerShell 버전 2](/powershell/module/azuread/#directory_roles) 모듈을 사용합니다.
 
-Azure AD 관리자 역할에 대 한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](permissions-reference.md)을 참조 하세요.
+Azure AD 관리자 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](permissions-reference.md)을 참조하세요.
 
 ## <a name="required-permissions"></a>필요한 사용 권한
 
-전역 관리자 계정을 사용 하 여 Azure AD 조직에 연결 하 여 역할을 할당 하거나 제거 합니다.
+전역 관리자 계정을 통해 Azure AD 조직에 연결하여 역할을 할당하거나 제거합니다.
 
 ## <a name="prepare-powershell"></a>PowerShell 준비
 
-[PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureADPreview)에서 Azure AD PowerShell 모듈을 설치 합니다. 그런 다음, 다음 명령을 사용하여 Azure AD PowerShell 미리 보기 모듈을 가져옵니다.
+[PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureADPreview)에서 Azure AD PowerShell 모듈을 설치합니다. 그런 다음, 다음 명령을 사용하여 Azure AD PowerShell 미리 보기 모듈을 가져옵니다.
 
 ``` PowerShell
 Import-Module -Name AzureADPreview
@@ -47,13 +47,13 @@ Get-Module -Name AzureADPreview
   Binary     2.0.0.115    AzureADPreview               {Add-AzureADMSAdministrati...}
 ```
 
-이제 모듈에서 cmdlet 사용을 시작할 수 있습니다. Azure AD 모듈의 cmdlet에 대 한 자세한 설명은 [AZURE ad 미리 보기 모듈](https://www.powershellgallery.com/packages/AzureADPreview)의 온라인 참조 설명서를 참조 하세요.
+이제 모듈에서 cmdlet 사용을 시작할 수 있습니다. Azure AD 모듈의 cmdlet에 대한 자세한 내용은 [Azure AD 미리 보기 모듈](https://www.powershellgallery.com/packages/AzureADPreview) 온라인 참조 문서를 참조하세요.
 
-## <a name="assign-a-directory-role-to-a-user-or-service-principal-with-resource-scope"></a>리소스 범위를 사용 하 여 사용자 또는 서비스 사용자에 게 디렉터리 역할 할당
+## <a name="assign-a-directory-role-to-a-user-or-service-principal-with-resource-scope"></a>리소스 범위를 사용하여 사용자 또는 서비스 주체에게 디렉터리 역할 할당
 
-1. Azure AD PowerShell (미리 보기) 모듈을 로드 합니다.
-1. 명령을 실행 하 여 로그인 `Connect-AzureAD` 합니다.
-1. 다음 PowerShell 스크립트를 사용 하 여 새 역할을 만듭니다.
+1. Azure AD PowerShell(미리 보기) 모듈을 로드합니다.
+1. `Connect-AzureAD` 명령을 실행하여 로그인합니다.
+1. 다음 PowerShell 스크립트를 사용하여 새 역할을 만듭니다.
 
 ``` PowerShell
 ## Assign a role to a user or service principal with resource scope
@@ -69,11 +69,11 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-사용자 대신 서비스 주체에 역할을 할당 하려면 [AzureADMSServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet을 사용 합니다.
+사용자 대신 서비스 주체에 역할을 할당하려면 [Get-AzureADMSServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet을 사용합니다.
 
 ## <a name="role-definitions"></a>역할 정의
 
-역할 정의 개체에는 기본 제공 또는 사용자 지정 역할의 정의와 해당 역할 할당에 의해 부여 된 사용 권한이 포함 됩니다. 이 리소스는 사용자 지정 역할 정의 및 기본 제공 디렉터리 역할 (roleDefinition 등가 형식으로 표시 됨)을 모두 표시 합니다. 현재 Azure AD 조직에는 최대 30 개의 고유한 사용자 지정 역할 정의를 정의할 수 있습니다.
+역할 정의 개체에는 기본 제공 또는 사용자 지정 역할의 정의와 해당 역할 할당에 의해 부여되는 권한이 포함됩니다. 이 리소스는 사용자 지정 역할 정의 및 기본 제공 디렉터리 역할(roleDefinition 해당 형식으로 표시됨)을 모두 표시합니다. 현재 Azure AD 조직에는 최대 30개의 고유한 사용자 지정 역할 정의를 정의할 수 있습니다.
 
 ### <a name="create-a-role-definition"></a>역할 정의 만들기
 
@@ -126,7 +126,7 @@ Remove-AzureADMSRoleDefinitions -Id c4e39bd9-1100-46d3-8c65-fb160da0071f
 
 ## <a name="role-assignments"></a>역할 할당
 
-역할 할당에는 지정 된 보안 주체 (사용자 또는 응용 프로그램 서비스 주체)를 역할 정의에 연결 하는 정보가 포함 됩니다. 필요한 경우 할당 된 사용 권한에 대해 단일 Azure AD 리소스의 범위를 추가할 수 있습니다.  역할 할당 범위 제한은 기본 제공 및 사용자 지정 역할에 대해 지원 됩니다.
+역할 할당에는 지정된 보안 주체(사용자 또는 애플리케이션 서비스 주체)를 역할 정의에 연결하는 정보가 포함됩니다. 필요한 경우 할당된 권한에 대해 단일 Azure AD 리소스의 범위를 추가할 수 있습니다.  역할 할당 범위 제한은 기본 제공 및 사용자 지정 역할에 대해 지원됩니다.
 
 ### <a name="create-a-role-assignment"></a>역할 할당 만들기
 
@@ -162,6 +162,6 @@ Remove-AzureADMSRoleAssignment -Id 'qiho4WOb9UKKgng_LbPV7tvKaKRCD61PkJeKMh7Y458-
 
 ## <a name="next-steps"></a>다음 단계
 
-- [AZURE AD 관리 역할 포럼](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032) 에서 microsoft와 공유
-- 역할 및 Azure AD 관리자 역할 할당에 대 한 자세한 내용은 [관리자 역할 할당](permissions-reference.md) 을 참조 하세요.
-- 기본 사용자 권한의 경우 [기본 게스트 및 멤버 사용자 권한 비교](../fundamentals/users-default-permissions.md) 를 참조 하세요.
+- [Azure AD 관리 역할 포럼](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)에서 경험을 자유롭게 공유하세요.
+- 역할 및 Azure AD 관리자 역할 할당에 대한 자세한 내용은 [관리자 역할 할당](permissions-reference.md)을 참조하세요.
+- 기본 사용자 권한의 경우 [기본 게스트 및 멤버 사용자 권한 비교](../fundamentals/users-default-permissions.md)를 참조하세요.

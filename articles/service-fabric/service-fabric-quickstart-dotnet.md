@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 Service Fabric 안정적인 서비스 �
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 15e2180e44acaa5ebefb403b2da3755396a45ba4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 665376a7616e146dbbf86caf0b4a2b62de7e5506
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96575893"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136898"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>빠른 시작: Service Fabric에 .NET 안정적인 서비스 애플리케이션 배포
 
@@ -114,7 +114,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="debug-in-visual-studio"></a>Visual Studio에서 디버그
 
-애플리케이션은 정상적으로 실행되지만 디버거를 사용하여 애플리케이션의 주요 부분이 어떻게 작동하는지 확인할 수 있습니다. Visual Studio에서 애플리케이션을 디버깅할 때 로컬 Service Fabric 개발 클러스터를 사용합니다. 사용자 시나리오에 맞게 디버깅 환경을 조정할 수 있습니다. 이 애플리케이션에서는 신뢰할 수 있는 사전을 사용하여 데이터가 백 엔드 서비스에 저장됩니다. Visual Studio는 디버거를 중지하는 경우 기본값에 대해 애플리케이션을 제거합니다. 애플리케이션을 제거하면 백 엔드 서비스의 데이터도 제거됩니다. 디버깅 세션 간에 데이터를 유지하려면 **애플리케이션 디버그 모드** 를 Visual Studio에서 **Voting** 프로젝트의 속성으로 변경할 수 있습니다.
+애플리케이션은 정상적으로 실행되지만 디버거를 사용하여 애플리케이션의 주요 부분이 어떻게 작동하는지 확인할 수 있습니다. Visual Studio에서 애플리케이션을 디버깅할 때 로컬 Service Fabric 개발 클러스터를 사용합니다. 사용자 시나리오에 맞게 디버깅 환경을 조정할 수 있습니다. 이 애플리케이션에서는 신뢰할 수 있는 사전을 사용하여 데이터가 백 엔드 서비스에 저장됩니다. Visual Studio는 디버거를 중지하는 경우 기본값에 대해 애플리케이션을 제거합니다. 애플리케이션을 제거하면 백 엔드 서비스의 데이터도 제거됩니다. 디버깅 세션 간에 데이터를 유지하려면 *투표* 프로젝트 **속성** 을 열고 [**애플리케이션 디버그 모드**](service-fabric-manage-application-in-visual-studio.md#to-set-the-application-debug-mode-property)를 *자동 업그레이드* 로 변경합니다.
 
 코드에서 수행되는 작업을 살펴보려면 다음 단계를 완료합니다.
 
@@ -159,7 +159,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
     ![[버전 변경] 대화 상자](./media/service-fabric-quickstart-dotnet/change-version.png)
 7. **Service Fabric 애플리케이션 게시** 대화 상자에서 **애플리케이션 업그레이드** 확인란을 선택합니다.
-8.  **대상 프로필** 을 **PublishProfiles\Local.5Node.xml** 로 변경하고 **연결 엔드포인트** 가 **로컬 클러스터** 로 설정되어 있는지 확인합니다. 
+8.  **대상 프로필** 을 **PublishProfiles\Local.5Node.xml** 로 변경하고 **연결 엔드포인트** 가 **로컬 클러스터** 로 설정되어 있는지 확인합니다.
 9. **애플리케이션 업그레이드** 를 선택합니다.
 
     ![게시 대화 상자 업그레이드 설정](./media/service-fabric-quickstart-dotnet/upgrade-app.png)

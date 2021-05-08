@@ -1,6 +1,6 @@
 ---
 title: H264 단일 비트 전송률 720p Media Encoder Standard 사전 설정-Azure | Microsoft Docs
-description: 이 문서에서는 Media Encoder Standard H264 단일 비트 전송률 720p 태스크 사전 설정에 대 한 개요를 제공 합니다.
+description: 이 문서에서는 Media Encoder Standard 형식 H264 Single Bitrate 720p 작업 미리 설정에 대한 개요를 제공합니다.
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 2f772d8d881f64e91c4cb047b7587bd1f83b9b23
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103011751"
 ---
 # <a name="h264-single-bitrate-720p"></a>H264 단일 비트 전송률 720p

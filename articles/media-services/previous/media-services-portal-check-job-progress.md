@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: b59d64607c60b9b09e5c962cd706e7e00404266b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103008335"
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Azure 포털을 통해 인코딩 작업 진행 상태 모니터링
@@ -34,7 +34,7 @@ ms.locfileid: "103008335"
 
 인코딩 작업의 진행 상태를 모니터링하려면 페이지 맨 위에 있는 **설정** 을 클릭한 후 **작업** 을 선택합니다.
 
-!["설정" 메뉴에서 선택한 "작업"을 보여 주는 스크린샷](./media/media-services-portal-vod-get-started/media-services-jobs.png)
+![“설정” 메뉴에서 “작업”을 선택한 모습을 보여 주는 스크린샷.](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
 작업을 클릭하면 자세한 내용을 확인할 수 있습니다.
 

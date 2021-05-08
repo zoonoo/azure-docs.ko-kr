@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 03/08/2021
-ms.openlocfilehash: 36bda5d241a1d383e7773abeda8a9889fb24086e
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 7acf7e8dc9f90c50f3c7d5555e6fe37260b35c93
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133028"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103022153"
 ---
 # <a name="notifying-microsoft-regarding-the-publisher-agreement"></a>게시자 계약에 대해 Microsoft에 알림
 
@@ -45,4 +45,4 @@ ms.locfileid: "108133028"
 ## <a name="next-steps"></a>다음 단계
 
 - 궁금한 점이 있을 경우 지원 담당자가 연락을 드립니다.
-- [Microsoft 게시자 계약](/legal/marketplace/msft-publisher-agreement)(PDF)을 검토합니다.
+- [Microsoft 게시자 계약](https://go.microsoft.com/fwlink/?LinkID=699560)(PDF)을 검토합니다.
