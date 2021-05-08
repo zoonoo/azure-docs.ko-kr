@@ -1,6 +1,6 @@
 ---
 title: Azure Disk Encryption 샘플 스크립트
-description: 이 문서는 Linux Vm에 대 한 Microsoft Azure 디스크 암호화에 대 한 부록입니다.
+description: 이 문서는 Linux VM용 Microsoft Azure Disk Encryption에 대한 부록입니다.
 author: msmbaldwin
 ms.service: virtual-machines
 ms.subservice: disks
@@ -10,26 +10,26 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurepowershell
 ms.openlocfilehash: f11677d9ebc31f1c1f7cc6332b07b69f8e35ad52
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102561180"
 ---
-# <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Linux Vm에 대 한 Azure Disk Encryption 샘플 스크립트
+# <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Linux VM에 대한 Azure Disk Encryption 샘플 스크립트
 
-이 문서에서는 미리 암호화 된 Vhd 및 기타 작업을 준비 하기 위한 샘플 스크립트를 제공 합니다.  
+이 문서에서는 미리 암호화된 VHD 및 기타 작업을 준비하기 위한 샘플 스크립트를 제공합니다.  
 
 > [!NOTE]
-> 모든 스크립트는 명시 된 경우를 제외 하 고 최신 버전이 아닌 ADE 버전을 참조 합니다.
+> 모든 스크립트는 달리 명시된 경우를 제외하면 AAD가 아닌 ADE 최신 버전을 참조합니다.
 
 ## <a name="sample-powershell-scripts-for-azure-disk-encryption"></a>Azure Disk Encryption용 샘플 PowerShell 스크립트 
 
 - **구독에서 암호화된 VM 모두 나열**
   
-  [이 PowerShell 스크립트](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/Find_1passAdeVersion_VM.ps1)를 사용 하 여 구독에 있는 모든 리소스 그룹에서 모든 ADE 암호화 vm 및 확장 버전을 찾을 수 있습니다.
+  [이 PowerShell 스크립트](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/Find_1passAdeVersion_VM.ps1)를 사용하여 구독에 있는 리소스 그룹 전체에서 모든 ADE 암호화 VM 및 확장 버전을 찾을 수 있습니다.
 
-  또는 이러한 cmdlet은 모든 ADE 암호화 Vm (확장 버전이 아님)을 표시 합니다.
+  아니면 cmdlet이 모든 ADE 암호화 VM(확장 버전 제외)을 표시합니다.
 
    ```azurepowershell-interactive
    $osVolEncrypted = {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).OsVolumeEncrypted}
@@ -37,9 +37,9 @@ ms.locfileid: "102561180"
    Get-AzVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
    ```
 
-- **구독의 모든 암호화 된 VMSS 인스턴스를 나열 합니다.**
+- **구독에 있는 암호화된 VMSS 인스턴스 모두 나열**
     
-    [이 PowerShell 스크립트](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/Find_1passAdeVersion_VMSS.ps1)를 사용 하 여 구독에 있는 모든 리소스 그룹에서 모든 ADE 암호화 vmss 인스턴스와 확장 버전을 찾을 수 있습니다.
+    [이 PowerShell 스크립트](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/Find_1passAdeVersion_VMSS.ps1)를 사용하여 구독에 있는 모든 리소스 그룹에서 모든 ADE 암호화 VMSS 인스턴스 및 확장 버전을 찾을 수 있습니다.
 
 - **키 자격 증명 모음에서 VM 암호화에 사용된 디스크 암호화 비밀 모두 나열** 
 
@@ -53,25 +53,25 @@ Azure Disk Encryption에 대한 필수 구성 요소에 이미 익숙한 경우 
 다음 표는 PowerShell 스크립트에서 사용할 수 있는 매개 변수를 보여줍니다. 
 
 
-|매개 변수|설명|필수?|
+|매개 변수|Description|필수?|
 |------|------|------|
-|$resourceGroupName| KeyVault가 속해 있는 리소스 그룹의 이름입니다.  이 이름을 가진 새 리소스 그룹이 없는 경우 생성됩니다.| 참|
-|$keyVaultName|암호화 키가 배치된 KeyVault의 이름입니다. 이 이름을 가진 새 자격 증명 모음이 없는 경우 생성됩니다.| 참|
-|$location|KeyVault의 위치입니다. 암호화할 KeyVault 및 VM이 동일한 위치에 있는지 확인합니다. `Get-AzLocation`을 사용하여 위치 목록을 가져옵니다.|참|
-|$subscriptionId|사용할 Azure 구독의 식별자입니다.  구독 ID는 `Get-AzSubscription`을 사용하여 가져올 수 있습니다.|참|
-|$aadAppName|KeyVault에 비밀을 쓰는 데 사용할 Azure AD 애플리케이션의 이름입니다. 이 이름을 가진 새 애플리케이션이 없는 경우 생성됩니다. 이 앱이 이미 있는 경우 스크립트에 aadClientSecret 매개 변수를 전달합니다.|거짓|
-|$aadClientSecret|이전에 만든 Azure AD 애플리케이션의 클라이언트 비밀입니다.|거짓|
-|$keyEncryptionKeyName|KeyVault의 선택적 키 암호화 키의 이름입니다. 이 이름을 가진 새 키가 없는 경우 생성됩니다.|거짓|
+|$resourceGroupName| KeyVault가 속해 있는 리소스 그룹의 이름입니다.  이 이름을 가진 새 리소스 그룹이 없는 경우 생성됩니다.| True|
+|$keyVaultName|암호화 키가 배치된 KeyVault의 이름입니다. 이 이름을 가진 새 자격 증명 모음이 없는 경우 생성됩니다.| True|
+|$location|KeyVault의 위치입니다. 암호화할 KeyVault 및 VM이 동일한 위치에 있는지 확인합니다. `Get-AzLocation`을 사용하여 위치 목록을 가져옵니다.|True|
+|$subscriptionId|사용할 Azure 구독의 식별자입니다.  구독 ID는 `Get-AzSubscription`을 사용하여 가져올 수 있습니다.|True|
+|$aadAppName|KeyVault에 비밀을 쓰는 데 사용할 Azure AD 애플리케이션의 이름입니다. 이 이름을 가진 새 애플리케이션이 없는 경우 생성됩니다. 이 앱이 이미 있는 경우 스크립트에 aadClientSecret 매개 변수를 전달합니다.|False|
+|$aadClientSecret|이전에 만든 Azure AD 애플리케이션의 클라이언트 비밀입니다.|False|
+|$keyEncryptionKeyName|KeyVault의 선택적 키 암호화 키의 이름입니다. 이 이름을 가진 새 키가 없는 경우 생성됩니다.|False|
 
 ### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Azure AD 앱 없이 VM을 암호화 또는 암호 해독
 
-- [기존 또는 실행 중인 Linux VM에서 디스크 암호화를 사용 하도록 설정](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
+- [기존 또는 실행 중인 Linux VM에서 디스크 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
 - [실행 중인 Linux VM에서 디스크 암호화 사용 안 함](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - 암호화 사용 안 함은 Linux VM용 데이터 볼륨에서만 허용됩니다.  
 
 ### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Azure AD 앱으로 VM을 암호화 또는 암호 해독(이전 릴리스)
  
-- [기존 또는 실행 중인 Linux VM에서 디스크 암호화를 사용 하도록 설정](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
+- [기존 또는 실행 중인 Linux VM에서 디스크 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
 
 
 -  [실행 중인 Linux VM에서 디스크 암호화 사용 안 함](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm) 
@@ -85,7 +85,7 @@ Azure Disk Encryption에 대한 필수 구성 요소에 이미 익숙한 경우 
 
 ### <a name="prerequisites-for-os-disk-encryption"></a>OS 디스크 암호화를 위한 필수 조건
 
-* VM은 [Azure Disk Encryption 지원 되는 운영 체제](disk-encryption-overview.md#supported-vms) 에 나열 된 대로 OS 디스크 암호화와 호환 되는 배포를 사용 해야 합니다. 
+* VM은 [Azure Disk Encryption가 지원되는 운영 체제](disk-encryption-overview.md#supported-vms)에 나열된 것과 같이 OS 디스크 암호화와 호환되는 배포를 사용해야 합니다. 
 * Azure Resource Manager의 Marketplace 이미지에서 VM을 만들어야 합니다.
 * 4GB 이상의 RAM이 있는 Azure VM(권장 크기는 7GB)이 있어야 합니다.
 * (RHEL 및 CentOS) SELinux를 사용하지 않도록 설정합니다. SELinux를 사용하지 않도록 설정하려면 VM에 대한 [SELinux 사용자 및 관리자 가이드](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux)에서 "4.4.2. SELinux 사용 안 함"을 참조하세요.
@@ -106,14 +106,14 @@ Azure Disk Encryption에 대한 필수 구성 요소에 이미 익숙한 경우 
 
 3. SSH 세션에서 로그아웃합니다.
 
-4. OS를 암호화 하려면 암호화를 사용 하도록 설정 하는 경우 볼륨을 **모두** 또는 **os** 로 지정 합니다.
+4. OS를 암호화하려면 암호화를 사용하도록 설정할 때 volumeType을 **All** 또는 **OS** 로 지정합니다.
 
    > [!NOTE]
    > `systemd` 서비스로 실행되지 않는 모든 사용자 공간 프로세스는 `SIGKILL`로 중지됩니다. VM을 다시 부팅합니다. 실행 중인 VM에서 OS 디스크 암호화를 사용할 경우 VM의 가동 중지 시간을 계획하세요.
 
 5. [다음 섹션](#monitoring-os-encryption-progress)의 지침에 따라 암호화 진행 상태를 주기적으로 모니터링합니다.
 
-6. "VMRestartPending"가 표시 되 Get-AzVmDiskEncryptionStatus 면 VM을 로그인 하거나 포털, PowerShell 또는 CLI를 사용 하 여 VM을 다시 시작 합니다.
+6. Get-AzVmDiskEncryptionStatus에 “VMRestartPending”이 표시된 후 VM에 로그인하거나 포털, PowerShell 또는 CLI를 사용하여 VM을 다시 시작합니다.
     ```powershell
     C:\> Get-AzVmDiskEncryptionStatus  -ResourceGroupName $ResourceGroupName -VMName $VMName
     -ExtensionName $ExtensionName
@@ -299,7 +299,7 @@ Azure로 작업할 암호화를 구성하려면 다음 단계를 수행합니다
    ```bash
     if [ 1 ]; then
    ```
-4. Ask.sh를 편집 하 고 "# Open LUKS device"에 추가 합니다.
+4. /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh를 편집하고 “# Open LUKS device”에 추가합니다.
 
     ```bash
     MountPoint=/tmp-keydisk-mount
@@ -380,7 +380,7 @@ Azure로 작업할 암호화를 구성하려면 다음 단계를 수행합니다
    ```bash
     if [ 1 ]; then
    ```
-4. Ask.sh를 편집 하 고 "# Open LUKS device" 뒤에 다음을 추가 합니다.
+4. /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh를 편집하고 “# Open LUKS device” 뒤에 다음을 추가합니다.
     ```bash
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
@@ -401,12 +401,12 @@ Azure로 작업할 암호화를 구성하려면 다음 단계를 수행합니다
     fi
     done
     ```    
-5. "/Usr/sbin/dracut-f-v"를 실행 하 여 initrd를 업데이트 합니다.
+5. “/usr/sbin/dracut -f -v”를 실행하여 initrd를 업데이트합니다.
 
     ![CentOS 7 설치 - /usr/sbin/dracut -f -v 실행](./media/disk-encryption/centos-encrypt-fig5.png)
 
 ## <a name="upload-encrypted-vhd-to-an-azure-storage-account"></a>Azure Storage 계정에 암호화된 VHD 업로드
-DM-Crypt 암호화를 사용 하도록 설정한 후에는 로컬 암호화 된 VHD를 저장소 계정에 업로드 해야 합니다.
+DM-Crypt 암호화를 사용하도록 설정한 후에는 로컬 암호화된 VHD를 스토리지 계정에 업로드해야 합니다.
 ```powershell
     Add-AzVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```
@@ -424,7 +424,7 @@ Azure AD 앱(이전 릴리스)을 사용하여 암호화하는 경우 이전에 
 ``` 
 
 ### <a name="disk-encryption-secret-not-encrypted-with-a-kek"></a>KEK로 암호화되지 않은 디스크 암호화 암호
-키 자격 증명 모음에서 비밀을 설정 하려면 [AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret)를 사용 합니다. 암호는 base64 문자열로 인코딩된 다음 키 자격 증명 모음에 업로드 됩니다. 또한 Key Vault에서 비밀을 만들 때 다음 태그가 설정되었는지 확인합니다.
+키 자격 증명 모음에서 비밀을 설정하려면 [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret)을 사용합니다. 암호는 base64 문자열로 인코딩된 후 키 자격 증명 모음으로 업로드됩니다. 또한 Key Vault에서 비밀을 만들 때 다음 태그가 설정되었는지 확인합니다.
 
 ```powershell
 
@@ -444,7 +444,7 @@ Azure AD 앱(이전 릴리스)을 사용하여 암호화하는 경우 이전에 
 [KEK를 사용하지 않고 OS 디스크를 연결](#without-using-a-kek)하기 위해 다음 단계에서 `$secretUrl`을 사용합니다.
 
 ### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>KEK로 암호화된 디스크 암호화 암호
-비밀을 Key Vault에 업로드하기 전에 주요 암호화 키를 사용하여 선택적으로 암호화할 수 있습니다. 먼저 래핑 [API](/rest/api/keyvault/wrapkey)를 사용하여 주요 암호화 키로 비밀을 암호화합니다. 이 wrap 작업의 출력은 base64 URL 인코딩 문자열로, cmdlet을 사용 하 여 암호로 업로드할 수 있습니다 [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) .
+비밀을 Key Vault에 업로드하기 전에 주요 암호화 키를 사용하여 선택적으로 암호화할 수 있습니다. 먼저 래핑 [API](/rest/api/keyvault/wrapkey)를 사용하여 주요 암호화 키로 비밀을 암호화합니다. 이 래핑 작업의 출력은 base64 URL 인코딩 문자열로, [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet을 사용하여 비밀로 업로드할 수 있습니다.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation

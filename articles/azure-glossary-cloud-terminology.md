@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
 ms.openlocfilehash: 785c87e8136430557af819cd8c7ab1db8f54c060
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102507724"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 용어집: Azure 플랫폼의 클라우드 용어 사전
@@ -30,11 +30,11 @@ Microsoft Azure 용어집은 Azure 플랫폼용 클라우드 용어의 간단한
 * [클라우드 컴퓨팅 용어](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - 업계의 일반적인 클라우드 용어
 
 ## <a name="account"></a>account
-Azure 구독에 액세스하고 구독을 관리하는 데 사용되는 계정입니다. 계정이 기존 회사, 학교 또는 개인 Microsoft 계정 일 수 있지만 Azure 계정 이라고 하기도 합니다. [평가판](https://azure.microsoft.com)에 등록할 때 Azure 구독을 관리하기 위해 계정을 만들 수도 있습니다.  
-Microsoft 365 계정 및 [로그인에 사용할 수 있는 계정을](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) [사용 하 여 Azure 구독에 등록](cost-management-billing/manage/microsoft-365-account-for-azure-subscription.md) 을 참조 하세요.
+Azure 구독에 액세스하고 구독을 관리하는 데 사용되는 계정입니다. Azure 계정이라 불리지만, 계정은 기존 회사, 학교나 개인 Microsoft 계정 중 하나일 수 있습니다. [평가판](https://azure.microsoft.com)에 등록할 때 Azure 구독을 관리하기 위해 계정을 만들 수도 있습니다.  
+[Microsoft 365 계정을 사용하여 Azure 구독에 등록](cost-management-billing/manage/microsoft-365-account-for-azure-subscription.md) 및 [로그인하는 데 사용할 수 있는 계정](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)을 참조하세요.
 
 ## <a name="api-app"></a>API 앱
-[App Service 앱](#app-service-app)에 대 한 다른 이름입니다.
+[App Service 앱](#app-service-app)의 다른 이름입니다.
 
 ## <a name="app-service-app"></a>App Service 앱
 [Azure App Service](app-service/overview.md)에서 웹 사이트 또는 웹 애플리케이션, 웹 API 또는 [모바일 앱 백 엔드](/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop)를 호스팅하기 위해 제공하는 컴퓨팅 리소스입니다. App Service 앱은 *App Services*, *웹앱*, *API 앱* 및 *모바일 앱* 이라고도 합니다.
@@ -46,12 +46,12 @@ Microsoft 365 계정 및 [로그인에 사용할 수 있는 계정을](active-di
 ## <a name="azure-classic-deployment-model"></a><a name="classic-model"></a>Azure 클래식 배포 모델
 Azure의 리소스를 배포하는 데 사용하는 두 [배포 모델](./azure-resource-manager/management/deployment-models.md) 중 하나입니다(새 모델은 Azure Resource Manager임). 일부 Azure 서비스는 Resource Manager 배포 모델만 지원하고 일부는 클래식 배포 모델만 지원하며 일부는 둘 모두를 지원합니다. 각 Azure 서비스에 대한 설명서에는 지원되는 모델이 지정되어 있습니다.
 
-## <a name="azure-command-line-interface-cli"></a><a name="cli"></a>Azure CLI (명령줄 인터페이스)
+## <a name="azure-command-line-interface-cli"></a><a name="cli"></a>Azure CLI(명령줄 인터페이스)
 Windows, macOS 및 Linux에서 Azure 서비스를 관리하는 데 사용할 수 있는 명령줄 인터페이스입니다.  일부 서비스 또는 서비스 기능은 PowerShell 또는 CLI를 통해서만 관리할 수 있습니다. [Azure CLI](/cli/azure)를 참조하세요.
 
 ## <a name="azure-powershell"></a><a name="powershell"></a>Azure PowerShell
 Windows PC에서 명령줄을 통해 Azure 서비스를 관리하는 명령줄 인터페이스입니다. 일부 서비스 또는 서비스 기능은 PowerShell 또는 CLI를 통해서만 관리할 수 있습니다.
-[Azure PowerShell 설치 및 구성 하는 방법을](/powershell/azure/) 참조 하세요.
+[Azure PowerShell 설치 및 구성 방법](/powershell/azure/)을 참조하세요.
 
 ## <a name="azure-resource-manager-deployment-model"></a><a name="arm-model"></a>Azure Resource Manager 배포 모델
 Microsoft Azure의 리소스를 배포하는 데 사용하는 두 [배포 모델](./azure-resource-manager/management/deployment-models.md) 중 하나입니다(다른 모델은 클래식 배포 모델임). 일부 Azure 서비스는 Resource Manager 배포 모델만 지원하고 일부는 클래식 배포 모델만 지원하며 일부는 둘 모두를 지원합니다. 각 Azure 서비스에 대한 설명서에는 지원되는 모델이 지정되어 있습니다.
@@ -75,7 +75,7 @@ Microsoft Azure의 리소스를 배포하는 데 사용하는 두 [배포 모델
 
 ## <a name="limits"></a>제한
 만들 수 있는 리소스 수 또는 도달할 수 있는 성능 벤치마크입니다. 제한은 일반적으로 구독, 서비스 및 제안에 연결됩니다.  
-[Azure 구독 및 서비스 제한, 할당량 및 제약 조건을](azure-resource-manager/management/azure-subscription-service-limits.md) 참조 하세요.
+[Azure 구독 및 서비스 제한, 할당량 및 제약 조건](azure-resource-manager/management/azure-subscription-service-limits.md)을 참조하세요.
 
 ## <a name="load-balancer"></a>부하 분산 장치
 들어오는 트래픽을 네트워크의 컴퓨터 간에 분산시키는 리소스입니다. Azure에서 부하 분산 장치는 부하 분산 장치 집합에 정의된 가상 머신에 트래픽을 분산시킵니다. [부하 분산 장치](load-balancer/load-balancer-overview.md) 는 인터넷에 연결되거나 내부에 있을 수 있습니다.  
@@ -114,22 +114,22 @@ Azure 솔루션에 속한 항목입니다. 각 Azure 서비스를 사용하면 �
 사용자, 그룹 및 서비스에 할당할 수 있는 액세스를 제어하는 방법입니다. 역할은 Azure 리소스에서 만들기, 관리 및 읽기와 같은 작업을 수행할 수 있습니다.  
 [RBAC: 기본 제공 역할](role-based-access-control/built-in-roles.md)을 참조하세요.
 
-## <a name="service-level-agreement-sla"></a><a name="sla"></a>SLA (서비스 수준 계약)
+## <a name="service-level-agreement-sla"></a><a name="sla"></a>SLA(서비스 수준 계약)
 작동 시간 및 연결에 대한 Microsoft의 정책을 설명하는 계약입니다. 각 Azure 서비스에는 특정 SLA가 있습니다.  
 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)을 참조하세요.
 
-## <a name="shared-access-signature-sas"></a><a name="sas"></a>공유 액세스 서명 (SAS)
+## <a name="shared-access-signature-sas"></a><a name="sas"></a>SAS(공유 액세스 서명)
 계정 키를 노출하지 않고 리소스에 대한 제한된 액세스 권한을 부여할 수 있는 서명입니다. 예를 들어 [Azure Storage는 SAS를 사용하여](./storage/common/storage-sas-overview.md) BLOB과 같은 개체에 대한 클라이언트 액세스 권한을 부여합니다. [IoT Hub는 SAS를 사용하여](iot-hub/iot-hub-devguide-security.md#security-tokens) 원격 분석을 보낼 수 있는 권한을 디바이스에 부여합니다.
 
 ## <a name="storage-account"></a>스토리지 계정 만들기
 Azure Storage의 Azure Blob, 큐, 테이블 및 파일 서비스에 대한 액세스 권한을 제공하는 계정입니다. 스토리지 계정 이름은 Azure Storage 데이터 개체의 고유한 네임스페이스를 정의합니다.  
-[Azure storage 계정 정보](./storage/common/storage-account-create.md) 를 참조 하세요.
+[Azure Storage 계정 정보](./storage/common/storage-account-create.md)를 참조하세요.
 
 ## <a name="subscription"></a>subscription
 Azure 서비스를 받을 수 있도록 하는, 고객과 Microsoft와의 계약입니다. 구독 가격 책정 및 관련 조건은 구독에 대해 선택된 제안에 따라 제어됩니다.
 [Microsoft 온라인 정기가입 계약](https://azure.microsoft.com/support/legal/subscription-agreement/) 및 [Azure 구독과 Azure Active Directory의 연관 관계](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
 
-## <a name="tag"></a>태그
+## <a name="tag"></a>tag
 관리 또는 청구에 대한 요구 사항에 따라 리소스를 분류할 수 있도록 하는 인덱싱 용어입니다. 복잡한 리소스 컬렉션이 있는 경우 태그를 사용하여 이러한 자산을 가장 적합한 방식으로 시각화할 수 있습니다. 예를 들어 조직에서 비슷한 역할을 제공하거나 동일한 부서에 속한 리소스를 태그로 지정할 수 있습니다.  
 [태그를 사용하여 Azure 리소스 구성](./azure-resource-manager/management/tag-resources.md)을 참조하세요.
 
@@ -147,7 +147,7 @@ Azure 서비스를 받을 수 있도록 하는, 고객과 Microsoft와의 계약
 [가상 머신 확장 및 기능 정보(Windows)](./virtual-machines/extensions/features-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [가상 머신 확장 및 기능 정보(Linux)](./virtual-machines/extensions/features-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 ## <a name="virtual-network"></a><a name="vnet"></a>가상 네트워크
-다른 모든 Azure 테넌트에서 격리된 Azure 리소스 간의 연결을 제공하는 네트워크입니다. [Azure VPN Gateway](vpn-gateway/vpn-gateway-about-vpngateways.md) 을 사용 하면 가상 네트워크와 가상 네트워크와 온-프레미스 네트워크 간에 연결을 설정할 수 있습니다. 사용자는 가상 네트워크 내부의 IP 주소 블록, DNS 설정, 보안 정책 및 경로 테이블을 완벽하게 제어할 수 있습니다.  
+다른 모든 Azure 테넌트에서 격리된 Azure 리소스 간의 연결을 제공하는 네트워크입니다. [Azure VPN Gateway](vpn-gateway/vpn-gateway-about-vpngateways.md)를 통해 가상 네트워크 간 연결과 가상 네트워크 및 온-프레미스 네트워크 간 연결을 설정할 수 있습니다. 사용자는 가상 네트워크 내부의 IP 주소 블록, DNS 설정, 보안 정책 및 경로 테이블을 완벽하게 제어할 수 있습니다.  
 [Virtual Network 개요](virtual-network/virtual-networks-overview.md)를 참조하세요.  
 
 ## <a name="web-app"></a>웹앱

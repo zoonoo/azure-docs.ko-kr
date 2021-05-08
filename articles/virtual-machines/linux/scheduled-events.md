@@ -11,10 +11,10 @@ ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
 ms.openlocfilehash: 8b4f8b064ab19a578ce5854697a1ed9bb0195759
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102505395"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata 서비스: Linux VM의 예약된 이벤트
@@ -56,12 +56,12 @@ Windows에서 예약된 이벤트에 대한 자세한 내용은 [Windows VM에 �
 - 독립 실행형 Virtual Machines
 - 클라우드 서비스의 모든 VM
 - 가용성 집합의 모든 VM
-- 가용성 영역에 있는 모든 Vm입니다. 
+- 가용성 영역의 모든 VM 
 - 확장 집합 배치 그룹의 모든 VM 
 
 > [!NOTE]
-> 가용성 영역에 있는 Vm과 관련 하 여 예약 된 이벤트는 영역의 단일 Vm으로 이동 합니다.
-> 예를 들어 가용성 집합에 100 Vm이 있고 그 중 하나에 대 한 업데이트가 있는 경우 예약 된 이벤트는 모든 100로 이동 하는 반면, 한 영역에 100 단일 Vm이 있는 경우 이벤트는 영향을 받는 VM 으로만 이동 합니다.
+> 가용성 영역에 있는 VM에 한정하여, 예약된 이벤트는 영역 내의 단일 VM으로 이동합니다.
+> 예를 들어 가용성 집합에 100개의 VM이 있고 그중 하나에 업데이트가 예정된 경우, 예약된 이벤트가 100개의 VM으로 이동하는 반면, 가용성 영역에 100개의 단일 VM이 있는 경우, 예약된 이벤트가 영향을 받는 VM으로만 이동합니다.
 
 따라서 이벤트의 `Resources` 필드를 확인하여 영향을 받는 VM을 식별합니다.
 
@@ -77,8 +77,8 @@ VNET 사용 VM의 경우 메타데이터 서비스를 정적 경로 조정 불�
 
 | 버전 | 릴리스 종류 | 영역 | 릴리스 정보 | 
 | - | - | - | - | 
-| 2019-08-01 | 일반 공급 | 모두 | <li> EventSource에 대 한 지원이 추가 됨 |
-| 2019-04-01 | 일반 공급 | 모두 | <li> 이벤트 설명에 대 한 지원이 추가 됨 |
+| 2019-08-01 | 일반 공급 | 모두 | <li> EventSource에 대한 지원이 추가됨 |
+| 2019-04-01 | 일반 공급 | 모두 | <li> Event Description에 대한 지원이 추가됨 |
 | 2019-01-01 | 일반 공급 | 모두 | <li> 가상 머신 확장 집합 EventType 'Terminate'에 대한 지원이 추가됨 |
 | 2017-11-01 | 일반 공급 | 모두 | <li> 스폿 VM 제거 EventType 'Preempt'에 대한 지원이 추가됨<br> | 
 | 2017-08-01 | 일반 공급 | 모두 | <li> IaaS VM의 리소스 이름에서 앞에 붙은 밑줄이 제거됨<br><li>모든 요청에 대해 메타데이터 헤더 요구 사항이 적용됨 | 
@@ -140,8 +140,8 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 | 리소스| 이 이벤트가 영향을 주는 리소스 목록입니다. 이 목록은 하나의 [업데이트 도메인](../availability.md)에서 컴퓨터를 포함하도록 보장하지만 UD의 모든 컴퓨터를 포함할 수는 없습니다. <br><br> 예제: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | 이 이벤트의 상태입니다. <br><br> 값 <ul><li>`Scheduled`: `NotBefore` 속성에 지정된 시간 이후 시작하도록 이 이벤트를 예약합니다.<li>`Started`: 이 이벤트가 시작되었습니다.</ul> `Completed` 또는 유사한 상태가 제공되지 않았습니다. 이벤트가 완료되면 더 이상 반환되지 않습니다.
 | NotBefore| 이 시간이 지난 후 이 이벤트가 시작될 수 있습니다. <br><br> 예제: <br><ul><li> 2016년 9월 19일 월요일 18:29:47 GMT  |
-| 설명 | 이 이벤트에 대 한 설명입니다. <br><br> 예제: <br><ul><li> 호스트 서버가 유지 관리 중입니다. |
-| EventSource | 이벤트의 개시자입니다. <br><br> 예제: <br><ul><li> `Platform`:이 이벤트는 플랫폼에 의해 시작 됩니다. <li>`User`:이 이벤트는 사용자가 시작 합니다. |
+| Description | 이 이벤트에 대한 설명. <br><br> 예: <br><ul><li> 호스트 서버가 유지 관리 중입니다. |
+| EventSource | 이벤트의 개시 장치입니다. <br><br> 예: <br><ul><li> `Platform`: 이 이벤트는 플랫폼에 의해 시작됩니다. <li>`User`: 이 이벤트는 사용자에 의해 시작됩니다. |
 
 ### <a name="event-scheduling"></a>이벤트 예약
 각 이벤트는 이벤트 유형에 따라 향후 최소한의 시간으로 예약됩니다. 이 시간은 이벤트의 `NotBefore` 속성에 반영됩니다. 
@@ -159,7 +159,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 
 ### <a name="polling-frequency"></a>폴링 빈도
 
-끝점은 원하는 만큼 자주 또는 자주 업데이트 하지 않는 방식으로 폴링할 수 있습니다. 그러나 요청 간의 시간이 길수록 예정 된 이벤트에 반응 하는 데 더 많은 시간이 소요 됩니다. 대부분의 이벤트에는 5 ~ 15 분의 사전 알림이 있습니다. 하지만 일부 경우에는 미리 알림이 30 초 정도 걸릴 수 있습니다. 완화 작업을 수행할 수 있는 시간이 충분 한지 확인 하려면 초당 한 번 서비스를 폴링하는 것이 좋습니다.
+원하는 빈도로 업데이트를 위해 엔드포인트를 폴링할 수 있습니다. 그러나 요청 간의 시간이 길수록 예정된 이벤트에 반응하는 데 더 많은 시간이 소요될 수 있습니다. 대부분의 이벤트는 5분에서 15분 정도의 사전 알림이 있지만, 어떤 경우에는 사전 알림이 30초 정도로 짧을 수도 있습니다. 완화 작업을 수행할 수 있는 시간을 충분히 확보하기 위해서, 1초에 한 번 서비스를 폴링하는 것이 좋습니다.
 
 ### <a name="start-an-event"></a>이벤트 시작 
 

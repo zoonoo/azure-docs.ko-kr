@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cynthn
 ms.openlocfilehash: 793bc5518664761a2a9b0cfd46e616d2fb72c3e6
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102562098"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>일반화된 VHD를 업로드하고 사용하여 Azure에서 새 VM 만들기
@@ -40,7 +40,7 @@ ms.locfileid: "102562098"
 
 1. Windows 가상 머신에 로그인
 1. 관리자로 명령 프롬프트 창을 엽니다. 
-1. Panther 디렉터리 (C:\Windows\Panther)를 삭제 합니다.
+1. panther 디렉터리(C:\Windows\Panther)를 삭제합니다.
 1. 디렉터리를 %windir%\system32\sysprep으로 변경한 다음, `sysprep.exe`를 실행합니다.
 1. **시스템 준비 도구** 대화 상자에서 **시스템 OOBE(첫 실행 경험) 입력** 을 선택하고 **일반화** 확인란을 선택했는지 확인합니다.
 1. **종료 옵션** 에서 **종료** 를 선택합니다.

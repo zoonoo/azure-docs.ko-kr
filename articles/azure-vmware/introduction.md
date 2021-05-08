@@ -3,12 +3,12 @@ title: 소개
 description: Azure에서 VMware 기반 워크로드를 배포하고 관리하는 Azure VMware 솔루션의 기능과 이점에 대해 알아봅니다. Azure VMware Solution SLA는 Azure VMware 관리 도구(vCenter Server 및 NSX Manager)를 99.9% 이상 사용할 수 있도록 보장합니다.
 ms.topic: overview
 ms.date: 04/20/2021
-ms.openlocfilehash: 9471aa2e427d28e0b8211dc8b25b2e61a4bfa8c4
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 8a75038d9552e62b1bc67265ff2965fea9d8b8d6
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752645"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950877"
 ---
 # <a name="what-is-azure-vmware-solution"></a>Azure VMware Solution이란?
 
@@ -40,7 +40,7 @@ vSAN 미사용 데이터 암호화는 기본적으로 사용하도록 설정되�
 
 ## <a name="host-and-software-lifecycle-maintenance"></a>호스트 및 소프트웨어 수명 주기 유지 관리
 
-Azure VMware Solution 프라이빗 클라우드 및 VMware 소프트웨어를 정기적으로 업그레이드하면 프라이빗 클라우드에서 최신 보안, 안정성 및 기능 집합이 실행됩니다. 자세한 내용은 [프라이빗 클라우드 업데이트 및 업그레이드](concepts-upgrades.md)를 참조하세요.
+Azure VMware Solution 프라이빗 클라우드 및 VMware 소프트웨어를 정기적으로 업그레이드하면 프라이빗 클라우드에서 최신 보안, 안정성 및 기능 집합이 실행됩니다. 자세한 내용은 [호스트 유지 관리 및 수명 주기 관리](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management)를 참조하세요.
 
 ## <a name="monitoring-your-private-cloud"></a>프라이빗 클라우드 모니터링
 

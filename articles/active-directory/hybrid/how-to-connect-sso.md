@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eeede88bfbe024a66e40270240d32488e581dd77
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102517704"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On
@@ -35,12 +35,12 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
 ![Seamless Single Sign-On](./media/how-to-connect-sso/sso1.png)
 
-## <a name="sso-via-primary-refresh-token-vs-seamless-sso"></a>기본 새로 고침 토큰과 원활한 SSO를 통한 SSO
+## <a name="sso-via-primary-refresh-token-vs-seamless-sso"></a>기본 새로 고침 토큰을 통한 SSO와 Seamless SSO 비교
 
-Windows 10, Windows Server 2016 이상 버전의 경우 기본 새로 고침 토큰 (PRT)을 통해 SSO를 사용 하는 것이 좋습니다. Windows 7 및 8.1의 경우 원활한 SSO를 사용 하는 것이 좋습니다.
-원활한 SSO는 사용자의 장치가 도메인에 가입 되어 있어야 하지만 Windows 10 [AZURE ad 조인 장치](../devices/concept-azure-ad-join.md) 또는 [하이브리드 Azure ad 조인 장치](../devices/concept-azure-ad-join-hybrid.md)에서 사용 되지 않습니다. Azure AD 조인, 하이브리드 Azure AD 조인 및 Azure AD 등록 장치에 대 한 SSO는 [주 새로 고침 토큰 (PRT)](../devices/concept-primary-refresh-token.md) 을 기반으로 작동 합니다.
+Windows 10, Windows Server 2016 이상 버전의 경우 기본 새로 고침 토큰(PRT)을 통해 SSO를 사용하는 것이 좋습니다. Windows 7 및 8.1의 경우 Seamless SSO를 사용하는 것이 좋습니다.
+Seamless SSO를 사용하려면 사용자의 디바이스가 도메인 조인 디바이스여야 하지만, Windows 10 [Azure AD 조인 디바이스](../devices/concept-azure-ad-join.md) 또는 [하이브리드 Azure AD 조인 디바이스](../devices/concept-azure-ad-join-hybrid.md)에서는 사용되지 않습니다. Azure AD 조인 디바이스, 하이브리드 Azure AD 조인 디바이스 및 Azure AD 등록 디바이스의 SSO는 [기본 새로 고침 토큰(PRT)](../devices/concept-primary-refresh-token.md)을 기반으로 작동합니다.
 
-PRT를 통한 SSO는 회사 또는 학교 계정을 추가 하 여 장치를 하이브리드 Azure ad 조인, Azure AD 조인 또는 개인 등록 장치에 대해 Azure AD에 등록 한 후 작동 합니다. PRT를 사용 하 여 Windows 10에서 SSO를 작동 하는 방법에 대 한 자세한 내용은 [prt (주 새로 고침 토큰) 및 AZURE AD](../devices/concept-primary-refresh-token.md) 를 참조 하세요.
+PRT를 통한 SSO는 디바이스가 회사 계정을 추가하거나 학교 계정을 추가하여 하이브리드 Azure AD 조인 디바이스, Azure AD 조인 또는 개인 등록 디바이스에 대해 Azure AD에 등록되면 작동합니다. SSO가 PRT를 사용하여 Windows 10에서 작동하는 방법은 [기본 새로 고침 토큰(PRT) 및 AZURE AD](../devices/concept-primary-refresh-token.md)를 참조하세요.
 
 
 ## <a name="key-benefits"></a>주요 이점
@@ -61,7 +61,7 @@ PRT를 통한 SSO는 회사 또는 학교 계정을 추가 하 여 장치를 하
 - 애플리케이션(예: `https://myapps.microsoft.com/contoso.com`)이 Azure AD 로그인 요청에서 테넌트를 식별하는 `domain_hint`(OpenID Connect) 또는 `whr`(SAML) 매개 변수 또는 사용자를 식별하는 `login_hint` 매개 변수를 전달하면, 사용자는 사용자 이름이나 암호를 입력하지 않고 자동으로 로그인됩니다.
 - 또한 애플리케이션(예: `https://contoso.sharepoint.com`)이 Azure AD의 공통 엔드포인트(즉, `https://login.microsoftonline.com/common/<...>`) 대신 Azure AD의 엔드포인트에 테넌트(즉, `https://login.microsoftonline.com/contoso.com/<..>` 또는 `https://login.microsoftonline.com/<tenant_ID>/<..>`)로 로그인 요청을 전송할 경우에도 사용자는 자동 로그온 환경을 사용할 수 있습니다.
 - 로그아웃이 지원됩니다. 따라서 사용자는 Seamless SSO를 사용하여 자동으로 로그인되는 대신, 로그인하는 데 사용할 다른 Azure AD 계정을 선택할 수 있습니다.
-- 16.0.8730 이상 버전을 사용 하는 Win32 클라이언트 (Outlook, Word, Excel 및 기타)는 비 대화형 흐름을 사용 하 여 지원 됩니다. Microsoft 365 OneDrive의 경우 자동 로그온 환경에 대해 [OneDrive 자동 구성 기능](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894)을 활성화해야 합니다.
+- 버전 16.0.8730.xxxx 이상의 Microsoft 365 Win32 클라이언트(Outlook, Word, Excel 등)는 비대화형 흐름을 사용하여 지원됩니다. OneDrive의 경우 자동 로그온 환경에 대해 [OneDrive 자동 구성 기능](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894)을 활성화해야 합니다.
 - Azure AD Connect를 통해 사용하도록 설정할 수 있습니다.
 - 무료 기능이며 이 기능을 사용하는 데는 Azure AD 유료 버전이 필요하지 않습니다.
 - Kerberos 인증이 가능한 플랫폼 및 브라우저에서 [최신 인증](/office365/enterprise/modern-auth-for-office-2013-and-2016)을 지원하는 웹 브라우저 기반 클라이언트 및 Office 클라이언트에서 지원됩니다.
@@ -69,20 +69,20 @@ PRT를 통한 SSO는 회사 또는 학교 계정을 추가 하 여 장치를 하
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |윈도우 10|예\*|예|예|예\*\*\*|해당 없음
-|Windows 8.1|예\*|예로\*\*\*|예|예\*\*\*|해당 없음
+|Windows 8.1|예\*|예*\*\*\*|예|예\*\*\*|해당 없음
 |Windows 8|예\*|해당 없음|예|예\*\*\*|해당 없음
 |Windows 7|예\*|해당 없음|예|예\*\*\*|해당 없음
 |Windows Server 2012 R2 이상|예\*\*|해당 없음|예|예\*\*\*|해당 없음
 |Mac OS X|해당 없음|해당 없음|예\*\*\*|예\*\*\*|예\*\*\*
 
 
-\*Internet Explorer 버전 10 이상이 필요 합니다.
+\*Internet Explorer 버전 10 이상이 필요합니다.
 
-\*\*Internet Explorer 버전 10 이상이 필요 합니다. 향상 된 보호 모드를 사용 하지 않습니다.
+\*\*Internet Explorer 버전 10 이상이 필요합니다. 향상된 보호 모드를 사용하지 않도록 설정합니다.
 
-\*\*\*[추가 구성이](how-to-connect-sso-quick-start.md#browser-considerations)필요 합니다.
+\*\*\*[추가 구성](how-to-connect-sso-quick-start.md#browser-considerations)이 필요합니다.
 
-\*\*\*\*Microsoft Edge 버전 77 이상이 필요 합니다.
+\*\*\*\*Microsoft Edge 버전 77 이상이 필요합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

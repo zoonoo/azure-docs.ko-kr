@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템
 ms.date: 04/22/2021
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: debe8e1f93148ab46a06eafd1b2671b560aa94db
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: c25107bf5701b4e730924417e01c5e2486317c8e
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107947918"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330947"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>ARM 템플릿을 사용하여 비규격 리소스를 식별하는 정책 할당 만들기
 
@@ -30,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 빠른 시작에서는 정책 할당을 만들고 관리 디스크를 사용하지 않는 VM 감사(_Audit VMs that do not use managed disks_)라는 기본 제공 정책 정의를 할당합니다. 사용 가능한 기본 제공 정책의 부분 목록은 [Azure Policy 샘플](./samples/index.md)을 참조하세요.
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/quickstarts/microsoft.authorization/azurepolicy-assign-builtinpolicy-resourcegroup/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/azurepolicy-assign-builtinpolicy-resourcegroup/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.authorization/azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json":::
 
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 다음 값을 선택하거나 입력합니다.
 
-   | Name | 값 |
+   | 속성 | 값 |
    |------|-------|
    | Subscription | Azure 구독을 선택합니다. |
    | Resource group | **새로 만들기** 를 선택하고 이름을 지정한 다음, **확인** 을 선택합니다. 스크린샷에서 리소스 그룹 이름은 _mypolicyquickstart\<Date in MMDD\>rg_ 입니다. |

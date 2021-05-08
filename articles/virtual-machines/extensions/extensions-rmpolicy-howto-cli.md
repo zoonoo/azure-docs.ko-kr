@@ -1,5 +1,5 @@
 ---
-title: Azure Policy를 사용 하 여 VM 확장 설치 제한 (Linux)
+title: Azure Policy를 사용하여 VM 확장 설치 제한(Linux)
 description: Azure Policy를 사용하여 VM 확장 배포를 제한합니다.
 ms.topic: article
 ms.service: virtual-machines
@@ -9,15 +9,15 @@ ms.author: amjads
 ms.collection: linux
 ms.date: 03/23/2018
 ms.openlocfilehash: 582f690c00ff8bdd06e4d2867724aa482bcacaf3
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102559973"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Azure Policy를 사용하여 Linux VM의 확장 설치 제한
 
-Linux Vm에서 특정 확장을 사용 하거나 설치 하지 못하도록 하려면 CLI를 사용 하 여 리소스 그룹 내의 Vm에 대 한 확장을 제한 하는 Azure Policy 정의를 만들 수 있습니다. 
+Linux VM에서 특정 확장을 사용하거나 설치하지 못하도록 하려면 CLI를 사용하여 리소스 그룹 내의 VM 확장을 제한하는 Azure Policy를 만들 수 있습니다. 
 
 이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 Azure Cloud Shell 내의 CLI를 사용합니다. Azure CLI를 로컬에서 실행하려면 버전 2.0.26 이상을 설치해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 

@@ -9,15 +9,15 @@ ms.subservice: confidential-computing
 ms.date: 4/17/2020
 ms.author: jencook
 ms.openlocfilehash: a5ecd3827bbdc12b098684f1feda2df652f11940
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102551915"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Azure 기밀 컴퓨팅 FAQ
 
-이 문서에서는 [Azure virtual machines에서 기밀 컴퓨팅 워크 로드](overview.md)실행에 대해 가장 일반적인 질문 중 일부에 대 한 답변을 제공 합니다.
+이 문서에서는 [Azure 가상 머신에서 기밀 컴퓨팅 워크로드 실행](overview.md)에 대한 가장 일반적인 질문 몇 가지에 대한 답변을 제공합니다.
 
 Azure 문제와 관련된 정보가 이 문서에 없을 경우 [MSDN 및 Stack Overflow에서 Azure 포럼](https://azure.microsoft.com/support/forums/)을 방문합니다. 이러한 포럼이나 [@AzureSupport Twitter](https://twitter.com/AzureSupport) 의 에 문제를 게시할 수 있습니다. Azure 지원 요청을 제출할 수도 있습니다. 지원 요청을 제출하려면 [Azure 지원 페이지](https://azure.microsoft.com/support/options/)에서 지원 받기를 선택합니다.
 
@@ -45,13 +45,13 @@ VM 옆의 정보 버블에 따라 다음과 같이 조치를 취해야 합니다
 
 [사용 가능한 지역](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)을 선택했는지 확인합니다. 또한 크기 선택기에서 "모든 필터 지우기"를 선택해야 합니다. 
 
-**Azure 기밀 컴퓨팅을 통해 가속화 된 네트워킹을 사용할 수 있나요?**
+**Azure 기밀 컴퓨팅을 통해 가속화된 네트워킹을 사용할 수 있나요?**
 
- 아니요. 가속 네트워킹은 DC-Series 또는 DCsv2-Series 가상 머신에서 지원 되지 않습니다. 기밀 컴퓨팅에서 실행 되는 기밀 컴퓨팅 가상 머신 배포 또는 Azure Kubernetes 서비스 클러스터 배포에 대해 가속화 된 네트워킹을 사용 하도록 설정할 수 없습니다.
+ 아니요. 가속화된 네트워킹은 DC-Series 또는 DCsv2-Series 가상 머신에서 지원되지 않습니다. 기밀 컴퓨팅에서 실행되는 기밀 컴퓨팅 가상 머신 배포 또는 Azure Kubernetes Service 클러스터 배포에는 가속화된 네트워킹을 사용하도록 설정할 수 없습니다.
 
-**이러한 컴퓨터에서 Azure 전용 호스트를 사용할 수 있나요?**
+**해당 머신에서 Azure Dedicated Host를 사용할 수 있나요?**
 
-예. Azure 전용 호스트는 DCsv2 시리즈 가상 머신을 지원 합니다. Azure 전용 호스트는 가상 컴퓨터를 실행 하는 단일 테 넌 트 물리적 서버를 제공 합니다. 일반적으로 사용자는 Azure 전용 호스트를 사용 하 여 물리적 보안, 데이터 무결성 및 모니터링에 대 한 규정 준수 요구 사항을 해결 합니다. 
+예. Azure Dedicated Host는 DCsv2-series 가상 머신을 지원합니다. Azure Dedicated Host는 가상 머신을 실행하는 물리적 단일 테넌트 서버를 제공합니다. 일반적으로 사용자는 Azure Dedicated Host를 사용하여 물리적 보안, 데이터 무결성 및 모니터링에 대한 규정 준수 요구 사항을 해결합니다. 
 
 **Azure Resource Manager 템플릿 배포 실패 오류 "승인된 표준 DcsV2 제품군 코어 할당을 초과하므로 작업을 완료할 수 없습니다."가 발생합니다.**
 
@@ -65,9 +65,9 @@ DC 시리즈 VM은 Intel SGX를 사용하는 이전 6코어 Intel 프로세서�
 
 아니요. 이번에는 일부 지역에서만 이러한 가상 머신을 사용할 수 있습니다. 사용 가능한 지역에 대한 최신 정보는 [지역별 제품 페이지](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)를 확인하세요. 
 
-**이러한 컴퓨터에서 하이퍼 스레딩을 해제 하 고 있습니까?**
+**해당 머신에는 하이퍼 스레딩이 해제되어 있나요?**
 
-모든 Azure 기밀 컴퓨팅 클러스터에 대해 하이퍼 스레딩을 사용할 수 없습니다.
+모든 Azure 기밀 컴퓨팅 클러스터는 하이퍼 스레딩을 사용하지 않도록 설정되어 있습니다.
 
 **DCsv2 가상 머신에 Open Enclave SDK를 설치하려면 어떻게 해야 하나요?**
    

@@ -1,6 +1,6 @@
 ---
-title: PowerShell을 사용 하 여 Key Vault 설정
-description: PowerShell을 사용 하 여 가상 컴퓨터에 사용할 Key Vault를 설정 하는 방법
+title: PowerShell을 사용하여 Key Vault 설정
+description: PowerShell을 사용하여 가상 머신에 사용할 Key Vault를 설정하는 방법.
 author: mimckitt
 ms.service: virtual-machines
 ms.subservice: security
@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 01/24/2017
 ms.author: mimckitt
 ms.openlocfilehash: 124ab121186ff7c9047515f2ee1ff51cee1114b8
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102557491"
 ---
-# <a name="set-up-key-vault-for-virtual-machines-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 가상 머신에 대 한 Key Vault 설정
+# <a name="set-up-key-vault-for-virtual-machines-using-azure-powershell"></a>Azure PowerShell을 사용하여 가상 머신에 대한 Key Vault 설정
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -51,7 +51,7 @@ CLI의 경우 먼저 주요 자격 증명 모음을 만든 다음 배포 정책�
 az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "EastAsia"
 ```
 
-그런 다음 템플릿 배포에 사용할 Key Vault를 사용 하도록 설정 하려면 다음 명령을 실행 합니다.
+그런 다음 템플릿 배포용 Key Vault를 사용하려면 다음 명령을 실행합니다.
 
 ```azurecli
 az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
@@ -74,4 +74,4 @@ az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 }
 ```
 
-템플릿을 사용 하 여 주요 자격 증명 모음을 만들 때 구성할 수 있는 다른 옵션은 [키 자격 증명 모음 만들기](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)를 참조 하세요.
+템플릿을 사용하여 주요 자격 증명 모음을 만들 때 구성할 수 있는 다른 옵션에 대해서는 [주요 자격 증명 모음 만들기](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)를 참조하세요.

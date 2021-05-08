@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: 4a5eb7c8d729fc0c3b95a61a4b8dbc8266d1eec3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100386665"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Business Warehouse에서 데이터 복사
@@ -23,11 +23,11 @@ ms.locfileid: "100386665"
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 SAP BW(Business Warehouse)에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 >[!TIP]
->SAP 데이터 통합 시나리오에 대 한 ADF의 전반적인 지원에 대 한 자세한 내용은 [Azure Data Factory 백서를 사용 하 여 sap 데이터 통합](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 에서 각 sap 커넥터, comparsion 및 지침에 대 한 자세한 소개를 참조 하세요.
+>SAP 데이터 통합 시나리오에서 ADF의 전반적인 지원에 대해 자세히 알아보려면 [Azure Data Factory를 사용하여 SAP 데이터 통합 백서](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf)에서 각 SAP 커넥터에 대한 자세한 소개, 비교, 지침을 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-이 SAP Business Warehouse 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
+SAP Business Warehouse 커넥터는 다음 작업을 지원합니다.
 
 - [지원되는 원본/싱크 매트릭스](copy-activity-overview.md)를 사용한 [복사 작업](copy-activity-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
@@ -40,12 +40,12 @@ SAP Business Warehouse에서 지원되는 모든 싱크 데이터 저장소로 �
 - MDX 쿼리를 사용하여 **InfoCubes 및 QueryCubes**(BEx 쿼리 포함)에서 데이터를 복사합니다.
 - 기본 인증을 사용하여 데이터를 복사합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 SAP Business Warehouse 커넥터를 사용 하려면 다음을 수행해야 합니다.
 
-- 자체 호스팅 Integration Runtime을 설정합니다. 자세한 내용은 [자체 호스팅 Integration Runtime](create-self-hosted-integration-runtime.md) 문서를 참조 하세요.
-- 통합 런타임 컴퓨터에 **SAP NetWeaver 라이브러리** 를 설치합니다. Sap 관리자 또는 sap [소프트웨어 다운로드 센터](https://support.sap.com/swdc)에서 직접 sap Netweaver 라이브러리를 가져올 수 있습니다. 최신 버전에 대한 다운로드 위치를 찾으려면 **SAP Note #1025361** 을 검색합니다. Integration Runtime 설치와 일치 하는 **64 비트** SAP NetWeaver 라이브러리를 선택 했는지 확인 합니다. 그런 다음 SAP Note에 따라 SAP NetWeaver RFC SDK에 포함된 모든 파일을 설치합니다. SAP NetWeaver 라이브러리는 SAP Client Tools 설치에도 포함됩니다.
+- 자체 호스팅 Integration Runtime을 설정합니다. 자세한 내용은 [자체 호스팅 Integration Runtime](create-self-hosted-integration-runtime.md)을 참조하세요.
+- 통합 런타임 컴퓨터에 **SAP NetWeaver 라이브러리** 를 설치합니다. SAP Netweaver 라이브러리는 SAP 관리자를 통해 구하거나 [SAP 소프트웨어 다운로드 센터](https://support.sap.com/swdc)에서 바로 구할 수 있습니다. 최신 버전에 대한 다운로드 위치를 찾으려면 **SAP Note #1025361** 을 검색합니다. Integration Runtime 설치와 일치하는 **64-비트** SAP NetWeaver 라이브러리를 선택해야 합니다. 그런 다음 SAP Note에 따라 SAP NetWeaver RFC SDK에 포함된 모든 파일을 설치합니다. SAP NetWeaver 라이브러리는 SAP Client Tools 설치에도 포함됩니다.
 
 >[!TIP]
 >SAP BW에 대한 연결 문제를 해결하려면 다음을 확인합니다.
@@ -62,7 +62,7 @@ SAP Business Warehouse에서 지원되는 모든 싱크 데이터 저장소로 �
 
 SAP BW(Business Warehouse) 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **SapBw** 로 설정해야 합니다. | 예 |
 | 서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | 예 |
@@ -101,9 +101,9 @@ SAP BW(Business Warehouse) 연결된 서비스에 다음 속성이 지원됩니�
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에는 SAP BW 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-SAP BW에서 데이터를 복사 하려면 데이터 집합의 type 속성을 **SapBwCube** 로 설정 합니다. 반면에 RelationalTable 형식의 SAP BW 데이터 세트에 대해 지원되는 type별 속성은 없습니다.
+SAP BW에서 데이터를 복사하려면 데이터 세트의 형식 속성을 **SapBwCube** 로 설정합니다. 반면에 RelationalTable 형식의 SAP BW 데이터 세트에 대해 지원되는 type별 속성은 없습니다.
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -128,11 +128,11 @@ SAP BW에서 데이터를 복사 하려면 데이터 집합의 type 속성을 **
 
 ### <a name="sap-bw-as-source"></a>SAP BW를 원본으로
 
-SAP BW에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 다음 속성을 지원 합니다.
+SAP BW에서 데이터를 복사하기 위해 복사 작업 **원본** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성은 **SapBwSource** 로 설정 해야 합니다. | 예 |
+| type | 복사 활동 원본의 형식 속성을 **SapBwSource** 로 설정해야 합니다. | 예 |
 | Query | SAP BW 인스턴스에서 데이터를 읽을 MDX 쿼리를 지정합니다. | 예 |
 
 **예:**

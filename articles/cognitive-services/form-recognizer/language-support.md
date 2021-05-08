@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 03/15/2021
+ms.date: 04/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: af264ceb174b0370bc098f0e996ddf6eb9aec93f
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: 761488e91b98eced4c059b50efe4805cff1a0d31
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103466867"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330141"
 ---
 # <a name="language-support-for-form-recognizer"></a>Form Recognizer에 대한 언어 지원
 
@@ -41,7 +41,7 @@ ms.locfileid: "103466867"
 |덴마크어 | `da` |  ✔ | |
 |네덜란드어 | `nl` |✔ | ✔ |
 |영어(인쇄 및 필기) | `en` |✔ | ✔ |
-|에스토니아어  |`crh`|  ✔ | |
+|에스토니아어  |`et`|  ✔ | |
 |피지어 |`fj`|  ✔ | |
 |필리핀어  |`fil`|  ✔ | |
 |핀란드어 | `fi` |  ✔ | |

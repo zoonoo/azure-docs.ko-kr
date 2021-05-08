@@ -1,6 +1,6 @@
 ---
-title: 'C #을 사용 하 여 Gen2 환경에서 데이터 쿼리-Azure Time Series Insights | Microsoft Docs'
-description: 'C #으로 작성 된 앱을 사용 하 여 Azure Time Series Insights Gen2 환경에서 데이터를 쿼리 하는 방법에 대해 알아봅니다.'
+title: C#을 사용하여 Gen2 환경에서 데이터 쿼리 - Azure Time Series Insights | Microsoft Docs
+description: C#으로 작성한 앱을 사용하여 Azure Time Series Insights Gen2 환경에서 데이터를 쿼리하는 방법을 알아봅니다.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
 ms.openlocfilehash: aecd18fd0d568904f9704b749525204ced05f3ef
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103463428"
 ---
-# <a name="query-data-from-the-azure-time-series-insights-gen2-environment-using-c-sharp"></a>C #을 사용 하 여 Azure Time Series Insights Gen2 환경에서 데이터 쿼리
+# <a name="query-data-from-the-azure-time-series-insights-gen2-environment-using-c-sharp"></a>C Sharp를 사용하여 Azure Time Series Insights Gen2 환경에서 데이터 쿼리
 
-이 c # 예제에서는 Azure Time Series Insights Gen2 환경에서 [Gen2 Data Access api](/rest/api/time-series-insights/reference-data-access-overview) 의 데이터를 쿼리 하는 방법을 보여 줍니다.
+해당 C# 예제에서는 Azure Time Series Insights Gen2 환경의 [Gen2 Data Access API](/rest/api/time-series-insights/reference-data-access-overview)에서 데이터를 쿼리하는 방법을 보여 줍니다.
 
 > [!TIP]
-> 에서 Gen2 c # 코드 샘플을 봅니다 [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen2-sample/csharp-tsi-gen2-sample) .
+> [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen2-sample/csharp-tsi-gen2-sample)에서 Gen2 C# 코드 샘플을 봅니다.
 
 ## <a name="summary"></a>요약
 
@@ -32,7 +32,7 @@ ms.locfileid: "103463428"
 * [Azure AutoRest](https://github.com/Azure/AutoRest)의 SDK 자동 생성 지원
 * [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)를 사용하여 Azure Active Directory를 통해 액세스 토큰을 획득하는 방법
 * 후속 데이터 액세스 API 요청의 `Authorization` 헤더에서 획득한 액세스 토큰을 전달하는 방법
-* 이 샘플에서는 다음에 대 한 HTTP 요청을 수행 하는 방법을 보여 주는 콘솔 인터페이스를 제공 합니다.
+* 이 샘플에서는 다음에 대한 HTTP 요청을 수행하는 방법을 보여 주는 콘솔 인터페이스를 제공합니다.
   * [Gen2 환경 API](/rest/api/time-series-insights/reference-environments-apis)
     * [Get Environments Availability API](/rest/api/time-series-insights/dataaccessgen2/query/getavailability) 및 [Get Event Schema API](/rest/api/time-series-insights/dataaccessgen2/query/geteventschema)
   * [Gen2 쿼리 API](/rest/api/time-series-insights/reference-query-apis)
@@ -48,9 +48,9 @@ ms.locfileid: "103463428"
 
 샘플 코드를 컴파일 및 실행하기 전에 다음 단계를 완료합니다.
 
-1. [Gen2 Azure Time Series Insights 환경을 프로 비전](./how-to-create-environment-using-portal.md) 합니다.
+1. [Gen2 Azure Time Series Insights](./how-to-create-environment-using-portal.md) 환경을 프로비저닝합니다.
 1. [인증 및 권한 부여](time-series-insights-authentication-and-authorization.md)에 설명된 대로 Azure Active Directory에 대한 Azure Time Series Insights 환경을 구성합니다.
-1. [Readme.md](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/Readme.md) 에 지정 된 대로 [GenerateCode.bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/GenerateCode.bat) 를 실행 하 여 Azure Time Series Insights Gen2 client 종속성을 생성 합니다.
+1. [Readme.md](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/Readme.md)에 지정된 대로 [GenerateCode.bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/GenerateCode.bat)을 실행하여 Azure Time Series Insights Gen2 클라이언트 종속성을 생성합니다.
 1. `TSIPreviewDataPlaneclient.sln` 솔루션을 열고 `DataPlaneClientSampleApp`를 Visual Studio의 기본 프로젝트로 설정합니다.
 1. [아래](#project-dependencies)에 설명된 단계를 사용하여 필요한 프로젝트 종속성을 설치하고 예제를 `.exe` 실행 파일로 컴파일합니다.
 1. `.exe` 파일을 두 번 클릭하여 실행합니다.
@@ -71,7 +71,7 @@ ms.locfileid: "103463428"
 
 ## <a name="c-sample-code"></a>C# 샘플 코드
 
-C # 샘플 코드에 액세스 하려면 [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen2-sample/csharp-tsi-gen2-sample) 리포지토리를 참조 하세요.
+C# 샘플 코드에 액세스하려면 [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen2-sample/csharp-tsi-gen2-sample) 리포지토리를 참조하세요.
 
 > [!NOTE]
 >
@@ -82,4 +82,4 @@ C # 샘플 코드에 액세스 하려면 [Azure Time Series Insights](https://gi
 
 * 쿼리에 대해 자세히 알아보려면 [Query API 참조](/rest/api/time-series-insights/reference-query-apis)를 참조하세요.
 
-* [클라이언트 SDK를 사용 하 여 JavaScript 앱을 연결 하 여](https://github.com/microsoft/tsiclient) Azure Time Series Insights 하는 방법을 참조 하세요.
+* [클라이언트 SDK를 사용하여 JavaScript 앱을](https://github.com/microsoft/tsiclient) Azure Time Series Insights에 연결하는 방법을 읽어보세요.

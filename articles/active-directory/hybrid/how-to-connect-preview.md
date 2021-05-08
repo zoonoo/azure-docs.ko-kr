@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d48cd8f95ecaf3e537a5221d766af150a51aa31
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102517687"
 ---
 # <a name="more-details-about-features-in-preview"></a>미리 보기 기능에 대한 자세한 내용
@@ -28,7 +28,7 @@ ms.locfileid: "102517687"
 
 ## <a name="azure-ad-connect-sync-v2-endpoint-api"></a>Azure AD Connect 동기화 V2 엔드포인트 API
 
-Azure AD Connect에 대한 새 엔드포인트(API)를 배포하여 Azure Active Directory에 대한 동기화 서비스 작업의 성능을 향상시켰습니다. 새 V2 엔드포인트를 활용하면 Azure AD로 내보내기 및 가져오기에 대한 성능이 크게 향상됩니다. 이 새 엔드포인트는 최대 250k의 멤버가 있는 그룹 동기화도 지원합니다. 또한이 끝점을 사용 하면 그룹 쓰기 저장을 사용 하도록 설정 된 경우 최대 구성원 한도를 포함 하지 않는 통합 그룹 Microsoft 365 온-프레미스 Active Directory에 다시 쓸 수 있습니다. 자세한 내용은 [Azure AD Connect Sync V2 ENDPOINT API](how-to-connect-sync-endpoint-api-v2.md)를 참조 하세요.
+Azure AD Connect에 대한 새 엔드포인트(API)를 배포하여 Azure Active Directory에 대한 동기화 서비스 작업의 성능을 향상시켰습니다. 새 V2 엔드포인트를 활용하면 Azure AD로 내보내기 및 가져오기에 대한 성능이 크게 향상됩니다. 이 새 엔드포인트는 최대 250k의 멤버가 있는 그룹 동기화도 지원합니다. 또한 이 엔드포인트를 사용하면 그룹 쓰기 저장이 사용하도록 설정된 경우 최대 멤버 자격 제한이 없는 Microsoft 365 통합 그룹을 온-프레미스 Active Directory에 쓰기 저장할 수 있습니다. 자세한 내용은 [Azure AD Connect 동기화 V2 엔드포인트 API](how-to-connect-sync-endpoint-api-v2.md)를 참조하세요.
 
 ## <a name="user-writeback"></a>사용자 쓰기 저장
 > [!IMPORTANT]

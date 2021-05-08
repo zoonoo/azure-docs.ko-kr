@@ -1,6 +1,6 @@
 ---
 title: SSIS Integration Runtime 관리 문제 해결
-description: 이 문서에서는 ssis Integration Runtime (SSIS IR)의 관리 문제에 대 한 문제 해결 지침을 제공 합니다.
+description: 이 문서에서는 SSIS IR(SSIS Integration Runtime)의 관리 이슈 해결에 대한 참고 자료를 제공합니다.
 ms.service: data-factory
 ms.topic: conceptual
 author: chinadragon0515
@@ -9,75 +9,75 @@ ms.reviewer: sawinark
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
 ms.openlocfilehash: 917bcce641cfd5178f868e4338354edb78062ab8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100361846"
 ---
-# <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Azure Data Factory에서 SSIS Integration Runtime 관리 문제 해결
+# <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Azure Data Factory에서 SSIS Integration Runtime 문제 해결
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 문서에서는 ssis IR이 라고도 하는 Azure IR (SQL Server Integration Services) Integration Runtime의 관리 문제에 대 한 문제 해결 지침을 제공 합니다.
+이 문서에서는 SSIS IR이라고도 하는 Azure SSIS IR(SQL Server Integration Services)의 관리 이슈 해결에 대한 참고 자료를 제공합니다.
 
 ## <a name="overview"></a>개요
 
-SSIS IR을 프로 비전 하거나 프로 비전 해제 하는 동안 문제가 발생 하면 Microsoft Azure Data Factory 포털 또는 PowerShell cmdlet에서 반환 된 오류에 오류 메시지가 표시 됩니다. 오류는 항상 자세한 오류 메시지와 함께 오류 코드 형식으로 표시 됩니다.
+SSIS IR을 프로비저닝하거나 프로비저닝을 해제하는 동안 이슈가 발생하면 Microsoft Azure Data Factory 포털 또는 PowerShell cmdlet에서 반환된 오류에 대한 메시지가 표시됩니다. 오류 메시지는 항상 오류에 대한 자세한 내용과 함께 오류 코드 형식으로 표시됩니다.
 
-오류 코드가 InternalServerError 인 경우 서비스에 일시적인 문제가 있으며 나중에 작업을 다시 시도해 야 합니다. 다시 시도 해도 도움이 되지 않으면 Azure Data Factory 지원 팀에 문의 하세요.
+오류 코드가 InternalServerError인 경우 서비스에 일시적으로 이슈가 발생한 것이므로 나중에 작업을 다시 시도해야 합니다. 다시 시도해도 문제가 계속될 경우, Azure Data Factory 지원 팀에 문의하세요.
 
-그렇지 않으면 세 가지 주요 외부 종속성으로 인해 오류가 발생할 수 있습니다. Azure SQL Database 또는 Azure SQL Managed Instance, 사용자 지정 설치 스크립트 및 가상 네트워크 구성입니다.
+그렇지 않으면 Azure SQL Database 또는 Azure SQL Managed Instance, 사용자 지정 설치 스크립트 및 가상 네트워크 구성이라는 세 가지 주요 외부 종속성으로 인해 오류가 발생할 수 있습니다.
 
-## <a name="sql-database-or-sql-managed-instance-issues"></a>SQL Database 또는 SQL Managed Instance 문제
+## <a name="sql-database-or-sql-managed-instance-issues"></a>SQL Database 또는 SQL Managed Instance
 
-Ssis 카탈로그 데이터베이스를 사용 하 여 SSIS IR을 프로 비전 하는 경우 SQL Database 또는 SQL Managed Instance 필요 합니다. SSIS IR은 SQL Database 또는 SQL Managed Instance에 액세스할 수 있어야 합니다. 또한 SQL Database 또는 SQL Managed Instance에 대 한 로그인 계정에는 SSISDB (SSIS 카탈로그 데이터베이스)를 만들 수 있는 권한이 있어야 합니다. 오류가 발생하는 경우 자세한 SQL 예외 메시지와 함께 오류 코드가 Data Factory 포털에 표시됩니다. 다음 목록의 정보를 사용하여 오류 코드 문제를 해결합니다.
+SSIS 카탈로그 데이터베이스를 사용하여 SSIS IR을 프로비저닝하는 경우 SQL Database 또는 SQL Managed Instance가 필요합니다. SSIS IR은 Azure SQL Database 서버 또는 SQL Managed Instance에 액세스할 수 있어야 합니다. 또한 SQL Database 또는 SQL Managed Instance의 로그인 계정에는 SSISDB(SSIS 카탈로그 데이터베이스)를 만들 수 있는 권한이 있어야 합니다. 오류가 발생하는 경우 자세한 SQL 예외 메시지와 함께 오류 코드가 Data Factory 포털에 표시됩니다. 다음 목록의 정보를 사용하여 오류 코드 문제를 해결합니다.
 
 ### <a name="azuresqlconnectionfailure"></a>AzureSqlConnectionFailure
 
 새 SSIS IR을 프로비전할 때 또는 IR을 실행하는 동안 이 이슈가 표시될 수 있습니다. IR을 프로비전하는 동안 이 오류가 발생하는 경우 오류 메시지에 다음과 같은 문제 중 하나를 나타내는 자세한 SqlException 메시지가 표시될 수 있습니다.
 
-* 네트워크 연결 이슈. SQL Database 또는 SQL Managed Instance에 대 한 호스트 이름을 액세스할 수 있는지 확인 합니다. 또한 방화벽 또는 NSG(네트워크 보안 그룹)가 서버에 대한 SSIS IR 액세스를 차단하고 있지 않은지 확인합니다.
+* 네트워크 연결 이슈. SQL Database 또는 SQL Managed Instance의 호스트 이름에 액세스할 수 있는지 확인합니다. 또한 방화벽 또는 NSG(네트워크 보안 그룹)가 서버에 대한 SSIS IR 액세스를 차단하고 있지 않은지 확인합니다.
 * SQL 인증 중에 로그인에 실패했습니다. 제공된 계정은 SQL Server 데이터베이스에 로그인할 수 없습니다. 올바른 사용자 계정을 제공해야 합니다.
 * Microsoft Azure AD(Active Directory) 인증 중에 로그인에 실패했습니다(관리 ID). AAD 그룹에 팩터리의 관리 ID를 추가하고 관리 ID에 카탈로그 데이터베이스 서버에 대한 액세스 권한이 있는지 확인합니다.
 * 연결 시간 제한. 이 오류는 항상 보안 관련 구성으로 인해 발생합니다. 다음을 수행하는 것이 좋습니다.
   1. 새 VM을 만듭니다.
-  1. IR이 가상 네트워크에 있는 경우 VM을 IR의 동일한 Microsoft Azure Virtual Network에 조인 합니다.
-  1. SSMS를 설치 하 고 SQL Database 또는 SQL Managed Instance 상태를 확인 합니다.
+  1. IR이 가상 네트워크에 있는 경우 VM을 IR의 동일한 Microsoft Azure Virtual Network에 참가합니다.
+  1. SSMS를 설치하고 SQL Database 또는 SQL Managed Instance 상태를 확인합니다.
 
-다른 문제가 있는 경우 자세한 SQL 예외 오류 메시지에 표시된 이슈를 해결합니다. 문제가 여전히 발생 하는 경우 SQL Database 또는 SQL Managed Instance 지원 팀에 문의 하세요.
+다른 문제가 있는 경우 자세한 SQL 예외 오류 메시지에 표시된 이슈를 해결합니다. 문제가 여전히 발생하는 경우 SQL Database 또는 SQL Managed Instance 지원 팀에 문의하세요.
 
-IR을 실행 하는 동안 오류가 발생 하는 경우 네트워크 보안 그룹 또는 방화벽 변경으로 인해 SSIS IR 작업자 노드가 SQL Database 또는 SQL Managed Instance에 액세스 하지 못할 수 있습니다. SSIS IR worker 노드가 SQL Database 또는 SQL Managed Instance에 액세스할 수 있도록 차단 해제 합니다.
+IR을 실행하는 동안 오류가 발생하는 경우 네트워크 보안 그룹 또는 방화벽 변경으로 인해 SSIS IR 작업자 노드가 Azure SQL Database 서버 또는 SQL Managed Instance에 액세스하지 못할 수 있습니다. SSIS IR 작업자 노드가 Azure SQL Database 또는 SQL Managed Instance에 액세스할 수 있도록 차단을 해제합니다.
 
 ### <a name="catalogcapacitylimiterror"></a>CatalogCapacityLimitError
 
-이러한 종류의 오류 메시지는 다음과 같습니다. "데이터베이스 ' SSISDB '는 크기 할당량에 도달 했습니다. 데이터를 분할 또는 삭제 하거나 인덱스를 삭제 하거나 설명서를 참조 하 여 가능한 해결 방법을 확인 하십시오. " 
+이런 종류의 오류 메시지는 “데이터베이스 SSISDB가 할당 크기에 도달. 데이터를 분할 또는 삭제, 인덱스를 삭제하거나 기타 해결 방법에 대한 설명서 참조”로 표시됩니다. 
 
 가능한 해결 방법은 다음과 같습니다.
-* SSISDB의 할당량 크기를 늘립니다.
+* SSISDB의 할당 크기를 늘립니다.
 * SSISDB의 구성을 변경하여 크기를 줄입니다.
-   * 보존 기간 및 프로젝트 버전 수를 줄입니다.
-   * 로그의 보존 기간을 줄입니다.
+   * 보존 기간 및 프로젝트 버전 수 줄이기
+   * 로그의 보존 기간 단축
    * 로그의 기본 수준 변경
 
 ### <a name="catalogdbbelongstoanotherir"></a>CatalogDbBelongsToAnotherIR
 
-이 오류는 SQL Database 또는 SQL Managed Instance에 이미 SSISDB가 있고 다른 IR에서 사용 하 고 있음을 의미 합니다. 다른 SQL Database 또는 SQL Managed Instance를 제공 하거나 기존 SSISDB를 삭제 하 고 새 IR을 다시 시작 해야 합니다.
+해당 오류는 SQL Database 또는 SQL Managed Instance에 이미 SSISDB가 있고 다른 IR에서 사용되고 있음을 의미합니다. 다른 SQL Database 또는 SQL Managed Instance를 제공하거나 기존 SSISDB를 삭제하고 새로운 IR을 다시 시작해야 합니다.
 
 ### <a name="catalogdbcreationfailure"></a>CatalogDbCreationFailure
 
 이 오류는 다음 이유 중 하나로 인해 발생할 수 있습니다.
 
 * SSIS IR에 대해 구성된 사용자 계정에는 데이터베이스를 만들 수 있는 권한이 없습니다. 사용자에게 데이터베이스를 만들 수 있는 권한을 부여할 수 있습니다.
-* 데이터베이스를 만드는 동안 실행 시간 초과 또는 DB 작업 시간 초과와 같은 시간 초과가 발생합니다. 나중에 작업을 다시 시도해야 합니다. 다시 시도가 작동 하지 않는 경우 SQL Database 또는 SQL Managed Instance 지원 팀에 문의 하세요.
+* 데이터베이스를 만드는 동안 실행 시간 초과 또는 DB 작업 시간 초과와 같은 시간 초과가 발생합니다. 나중에 작업을 다시 시도해야 합니다. 다시 시도가 작동하지 않는 경우 SQL Database 또는 SQL Managed Instance 지원 팀에 문의하세요.
 
-다른 이슈의 경우 SQL 예외 오류 메시지를 확인하고 오류 세부 정보에 설명된 이슈를 해결합니다. 문제가 여전히 발생 하는 경우 SQL Database 또는 SQL Managed Instance 지원 팀에 문의 하세요.
+다른 이슈의 경우 SQL 예외 오류 메시지를 확인하고 오류 세부 정보에 설명된 이슈를 해결합니다. 문제가 여전히 발생하는 경우 SQL Database 또는 SQL Managed Instance 지원 팀에 문의하세요.
 
 ### <a name="invalidcatalogdb"></a>InvalidCatalogDb
 
-이러한 종류의 오류 메시지는 "잘못 된 개체 이름 ' catalog.catalog_properties '입니다."와 같습니다. 이 경우 이름이 SSISDB 인 데이터베이스가 이미 있지만 SSIS IR을 통해 생성 되지 않았거나 마지막 SSIS IR 프로 비전에서 오류로 인해 데이터베이스가 잘못 된 상태에 있습니다. 이름이 SSISDB 인 기존 데이터베이스를 삭제 하거나 IR에 대 한 새 SQL Database 또는 SQL Managed Instance을 구성할 수 있습니다.
+이런 종류의 오류 메시지는 ‘잘못된 개체 이름 catalog.catalog_properties’로 표시됩니다. 이 경우 이름이 SSISDB인 데이터베이스가 이미 있지만 SSIS IR로 생성되지 않았거나 마지막 SSIS IR 프로비저닝 시 오류로 인해 데이터베이스가 잘못된 상태입니다. 이름이 SSISDB인 기존 데이터베이스를 삭제하거나 IR에 대한 새 SQL Database 또는 SQL Managed Instance을 구성할 수 있습니다.
 
-## <a name="custom-setup-issues"></a>사용자 지정 설치 문제
+## <a name="custom-setup-issues"></a>사용자 지정 설치 이슈
 
 사용자 지정 설정은 SSIS IR의 프로비전 또는 재구성 중에 자체 설정 단계를 추가하는 인터페이스를 제공합니다. 자세한 내용은 [Azure-SSIS Integration Runtime을 위한 사용자 지정 설정](./how-to-configure-azure-ssis-ir-custom-setup.md)을 참조하세요.
 
@@ -85,7 +85,7 @@ IR을 실행 하는 동안 오류가 발생 하는 경우 네트워크 보안 �
 
 SSIS IR은 정기적으로 업데이트되기 때문에 IR을 실행하는 동안 사용자 지정 설정 스크립트 컨테이너가 검사됩니다. 이렇게 업데이트하려면 컨테이너에 액세스하여 사용자 지정 설정 스크립트를 다운로드하고 다시 설치해야 합니다. 또한 이 프로세스에서 컨테이너에 액세스할 수 있는지 여부와 main.cmd 파일이 있는지 여부도 확인합니다.
 
-사용자 지정 설치를 포함 하는 모든 오류에 대해 CustomSetupScriptBlobContainerInaccessible 또는 CustomSetupScriptNotFound와 같은 하위 코드를 포함 하는 CustomSetupScriptFailure 오류 코드가 표시 됩니다.
+사용자 지정 설정을 포함하는 모든 오류의 경우 CustomSetupScriptBlobContainerInaccessible 또는 CustomSetupScriptNotFound와 같은 하위 코드를 포함하는 CustomSetupScriptFailure 오류 코드가 표시됩니다.
 
 ### <a name="customsetupscriptblobcontainerinaccessible"></a>CustomSetupScriptBlobContainerInaccessible
 
@@ -109,10 +109,10 @@ IR이 실행 중인 경우 IR을 중지하고 새 사용자 지정 설정 컨테
 
 이 오류는 사용자 지정 설정 실행 로그를 Blob 컨테이너에 업로드하지 못했음을 의미합니다. 이 문제는 SSIS IR이 Blob 컨테이너에 대한 쓰기 권한을 가지고 있지 않거나 스토리지 또는 네트워크 이슈 때문에 발생합니다. 사용자 지정 설정이 성공하면 이 오류가 SSIS 기능에 영향을 주지 않지만 로그가 누락됩니다. 다른 오류로 인해 사용자 지정 설정에 실패하고 로그가 업로드되지 않은 경우 분석을 위해 로그를 업로드할 수 있도록 먼저 이 오류를 보고합니다. 또한 이 이슈가 해결된 후 더 구체적인 이슈를 보고합니다. 다시 시도한 후에도 이 이슈가 해결되지 않으면 Azure Data Factory 지원 팀에 문의하세요.
 
-## <a name="virtual-network-configuration"></a>가상 네트워크 구성
+## <a name="virtual-network-configuration"></a>가상 네트워크(VNet) 구성
 
 SSIS IR을 Azure Virtual Network에 조인할 때 SSIS IR은 사용자 구독에 속한 가상 네트워크를 사용합니다. 자세한 내용은 [Azure-SSIS Integration Runtime을 가상 네트워크에 조인](./join-azure-ssis-integration-runtime-virtual-network.md)을 참조하세요.
-SSIS IR이 성공적으로 시작 된 후 네트워크 연결 문제가 발생 하는 경우 [연결 진단 도구](ssis-integration-runtime-diagnose-connectivity-faq.md) 를 사용 하 여 문제를 직접 진단할 수 있습니다.
+SSIS IR을 성공적으로 시작한 후 네트워크 연결 문제가 발생하는 경우 [연결 진단 도구](ssis-integration-runtime-diagnose-connectivity-faq.md)를 사용하여 문제를 직접 진단할 수 있습니다.
 Virtual Network 관련 이슈가 있는 경우 다음 오류 중 하나가 표시됩니다.
 
 ### <a name="invalidvnetconfiguration"></a>InvalidVnetConfiguration
@@ -121,7 +121,7 @@ Virtual Network 관련 이슈가 있는 경우 다음 오류 중 하나가 표�
 
 ### <a name="forbidden"></a>사용할 수 없음
 
-이러한 종류의 오류는 "SubnetId가 현재 계정에 대해 활성화 되어 있지 않습니다. Microsoft.Batch 리소스 공급자가 VNet의 동일한 구독에 등록 되어 있지 않습니다. "
+이런 종류의 오류는 “현재 계정에서 SubnetId를 사용할 수 없음. Microsoft.Batch 리소스 공급자가 동일한 VNet 구독에 등록되어 있지 않음”과 유사합니다.
 
 이러한 세부 정보는 Azure Batch가 가상 네트워크에 액세스할 수 없음을 의미합니다. Virtual Network와 동일한 구독에 Microsoft.Batch 리소스 공급자를 등록합니다.
 
@@ -129,14 +129,14 @@ Virtual Network 관련 이슈가 있는 경우 다음 오류 중 하나가 표�
 
 이러한 종류의 오류는 다음 중 하나와 유사할 수 있습니다. 
 
-- "지정 된 VNet이 없거나 Batch 서비스에 액세스할 수 없습니다."
-- "지정 된 서브넷 xxx가 없습니다."
+- ‘지정된 VNet이 없거나 Batch 서비스에서 액세스할 수 없음’
+- ‘지정된 서브넷(xxx) 없음’
 
 이러한 오류는 가상 네트워크가 없거나, Azure Batch 서비스에서 액세스할 수 없거나, 제공된 서브넷이 존재하지 않음을 의미합니다. 가상 네트워크 및 서브넷이 존재하고 Azure Batch에서 액세스할 수 있는지 확인합니다.
 
 ### <a name="misconfigureddnsserverornsgsettings"></a>MisconfiguredDnsServerOrNsgSettings
 
-이러한 종류의 오류 메시지는 다음과 같습니다. "VNet에서 Integration Runtime를 프로 비전 하지 못했습니다. DNS 서버 또는 NSG 설정이 구성 된 경우 DNS 서버에 액세스할 수 있고 NSG가 올바르게 구성 되어 있는지 확인 하십시오. "
+이런 종류의 오류 메시지는 “VNet에서 Integration Runtime 프로비저닝 실패. DNS 서버 또는 NSG 설정이 구성된 경우, DNS 서버 액세스 가능 여부 및 NSG가 올바르게 구성되었는지 확인”으로 표시됩니다.
 
 이 경우에는 사용자 지정된 DNS 서버 또는 NSG 설정 구성이 있을 수 있습니다. 그러면 SSIS IR에 필요한 Azure 서버 이름을 확인하거나 액세스할 수 없습니다. 자세한 내용은 [SSIS IR Virtual Network 구성](./join-azure-ssis-integration-runtime-virtual-network.md)을 참조하세요. 여전히 문제가 발생하는 경우 Azure Data Factory 지원 팀에 문의하세요.
 
@@ -158,35 +158,35 @@ SSIS IR을 중지하면 모든 Virtual Network 관련 리소스가 삭제됩니�
 
 ## <a name="static-public-ip-addresses-configuration"></a>고정 공용 IP 주소 구성
 
-Azure-SSIS IR를 Azure Virtual Network에 조인 하는 경우 IR이 특정 IP 주소에 대 한 액세스를 제한 하는 데이터 원본에 액세스할 수 있도록 IR에 대 한 고정 공용 IP 주소를 가져올 수도 있습니다. 자세한 내용은 [Azure-SSIS Integration Runtime을 가상 네트워크에 조인](./join-azure-ssis-integration-runtime-virtual-network.md)을 참조하세요.
+Azure-SSIS IR을 Azure Virtual Network에 참가하는 경우 IR이 특정 IP 주소에 대한 액세스를 제한하는 데이터 원본에 액세스할 수 있도록 IR에 대한 고정 공용 IP 주소를 가져올 수도 있습니다. 자세한 내용은 [Azure-SSIS Integration Runtime을 가상 네트워크에 조인](./join-azure-ssis-integration-runtime-virtual-network.md)을 참조하세요.
 
-위의 가상 네트워크 문제 외에도 고정 공용 IP 주소 관련 문제를 충족할 수 있습니다. 도움이 필요 하면 다음 오류를 확인 하십시오.
+위의 가상 네트워크 이슈 외에도 고정 공용 IP 주소 관련 이슈가 발생할 수 있습니다. 도움이 필요하면 다음 오류를 확인하세요.
 
 ### <a name="invalidpublicipspecified"></a><a name="InvalidPublicIPSpecified"></a>InvalidPublicIPSpecified
 
-이 오류는 Azure-SSIS IR를 시작할 때 다양 한 이유로 발생할 수 있습니다.
+해당 오류는 Azure-SSIS IR을 시작할 때 다양한 이유로 발생할 수 있습니다.
 
 | 오류 메시지 | 솔루션|
 |:--- |:--- |
-| 제공 된 고정 공용 IP 주소는 이미 사용 중입니다. Azure-SSIS Integration Runtime에 사용 되지 않는 두 개의 주소를 제공 하세요. | 사용 되지 않는 고정 공용 IP 주소를 두 개 선택 하거나 지정 된 공용 IP 주소에 대 한 현재 참조를 제거한 후 Azure-SSIS IR를 다시 시작 해야 합니다. |
-| 제공 된 고정 공용 IP 주소에 DNS 이름이 없습니다. Azure-SSIS Integration Runtime에 대 한 DNS 이름으로 두 개를 제공 하십시오. | 아래 그림에 나와 있는 것 처럼 Azure Portal에서 공용 IP 주소의 DNS 이름을 설정할 수 있습니다. 특정 단계는 다음과 같습니다. (1) Azure Portal을 열고이 공용 IP 주소의 리소스 페이지로 이동 합니다. (2) **구성** 섹션을 선택 하 고 DNS 이름을 설정한 다음 **저장** 단추를 클릭 합니다. (3) Azure-SSIS IR을 다시 시작 합니다. |
-| Azure-SSIS Integration Runtime에 대해 제공 된 VNet 및 고정 공용 IP 주소는 동일한 위치에 있어야 합니다. | Azure 네트워크 요구 사항에 따라 고정 공용 IP 주소와 가상 네트워크는 동일한 위치 및 구독에 있어야 합니다. 두 개의 유효한 고정 공용 IP 주소를 제공 하 고 Azure-SSIS IR를 다시 시작 하세요. |
-| 제공 된 고정 공용 IP 주소는 기본 IP 주소입니다. Azure-SSIS Integration Runtime에 대 한 두 가지 표준 이름을 제공 하세요. | 도움말은 [공용 IP 주소의 sku](../virtual-network/public-ip-addresses.md#sku) 를 참조 하세요. |
+| 제공된 고정 공용 IP 주소가 이미 사용 중입니다. Azure-SSIS Integration Runtime에 사용하지 않는 두 개의 주소를 제공하세요. | 사용하지 않는 고정 공용 IP 주소 두 개를 선택하거나 지정된 공용 IP 주소에 대한 현재 참조를 제거한 후 Azure-SSIS IR을 다시 시작해야 합니다. |
+| 제공된 고정 공용 IP 주소에 DNS 이름이 없습니다. Azure-SSIS IR에 대한 DNS 이름 두 개를 제시하세요. | 아래 그림처럼 Azure Portal에서 공용 IP 주소의 DNS 이름을 설정할 수 있습니다. 구체적인 단계는 다음과 같습니다. (1) Azure Portal을 열고 해당 공용 IP 주소의 리소스 페이지로 이동. (2) **구성** 섹션을 선택하고 DNS 이름을 설정한 다음 **저장** 버튼 클릭. (3) Azure-SSIS IR 다시 시작. |
+| Azure-SSIS IR에 제공된 VNet 및 고정 공용 IP 주소는 동일한 위치에 있어야 합니다. | Azure 네트워크 요구 사항에 따라 고정 공용 IP 주소와 가상 네트워크는 동일한 위치 및 구독에 있어야 합니다. 두 개의 유효한 고정 공용 IP 주소를 제공하고 Azure-SSIS IR을 다시 시작하세요. |
+| 제공된 고정 공용 IP 주소는 기본 IP 주소입니다. Azure-SSIS IR에 대해 IP 두 개의 표준 주소를 제공하세요. | 도움이 필요하면 [공용 IP 주소의 SKU](../virtual-network/public-ip-addresses.md#sku)를 참조하세요. |
 
 ![Azure-SSIS IR](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
 
 ### <a name="publicipresourcegrouplockedduringstart"></a>PublicIPResourceGroupLockedDuringStart
 
-프로 비전이 실패 하면 생성 된 모든 리소스가 삭제 됩니다. Azure-SSIS IR 그러나 구독 또는 리소스 그룹에 고정 공용 IP 주소를 포함 하는 리소스 삭제 잠금이 있는 경우 네트워크 리소스가 예상 대로 삭제 되지 않습니다. 오류를 해결 하려면 삭제 잠금을 제거 하 고 IR을 다시 시작 하세요.
+Azure SSIS IR의 프로비저닝이 실패하면 생성된 모든 리소스가 삭제됩니다. 그러나 구독 또는 리소스 그룹(고정 공용 IP 주소를 포함) 단계에서 리소스 삭제에 잠금이 설정되어 있는 경우 네트워크 리소스는 삭제되지 않습니다. 해당 오류를 해결하려면 삭제 잠금을 해지하고 IR을 다시 시작합니다.
 
 ### <a name="publicipresourcegrouplockedduringstop"></a>PublicIPResourceGroupLockedDuringStop
 
-Azure-SSIS IR를 중지 하면 공용 IP 주소를 포함 하는 리소스 그룹에 만들어진 모든 네트워크 리소스가 삭제 됩니다. 그러나 구독 또는 리소스 그룹 (고정 공용 IP 주소를 포함)에 리소스 삭제 잠금이 있는 경우 삭제는 실패할 수 있습니다. 삭제 잠금을 제거 하 고 IR을 다시 시작 하세요.
+Azure-SSIS IR을 중지하면 공용 IP 주소를 포함하는 리소스 그룹에 만들어진 모든 네트워크 리소스가 삭제됩니다. 그러나 구독 또는 리소스 그룹(고정 공용 IP 주소를 포함) 수준에서 리소스 삭제에 잠금이 설정되어 있는 경우 삭제에 실패할 수 있습니다. 해당 오류를 해결하려면 삭제 잠금을 제거하고 IR을 다시 시작합니다.
 
 ### <a name="publicipresourcegrouplockedduringupgrade"></a>PublicIPResourceGroupLockedDuringUpgrade
 
-Azure-SSIS IR은 정기적으로 자동으로 업데이트 됩니다. 업그레이드 하는 동안 새 IR 노드가 만들어지고 이전 노드가 삭제 됩니다. 또한 이전 노드에 대 한 생성 된 네트워크 리소스 (예: 부하 분산 장치 및 네트워크 보안 그룹)가 삭제 되 고 새 네트워크 리소스가 구독에 생성 됩니다. 이 오류는 구독 또는 리소스 그룹 (고정 공용 IP 주소 포함)에 대 한 삭제 잠금으로 인해 이전 노드에 대 한 네트워크 리소스를 삭제 하지 못했음을 의미 합니다. 이전 노드를 정리 하 고 이전 노드에 대 한 고정 공용 IP 주소를 해제할 수 있도록 삭제 잠금을 제거 하십시오. 그렇지 않으면 고정 공용 IP 주소를 해제할 수 없으며 IR을 추가로 업그레이드할 수 없게 됩니다.
+Azure SSIS IR은 정기적으로 자동 업데이트됩니다. 업그레이드하는 동안 새 IR 노드가 만들어지고 이전 노드는 삭제됩니다. 또한 이전 노드에 대해 생성된 네트워크 리소스(예: Load Balancer 및 네트워크 보안 그룹)가 삭제되고 새로운 네트워크 리소스가 구독에 생성됩니다. 해당 오류는 구독 또는 리소스 그룹(고정 공용 IP 주소 포함)의 삭제 잠금 설정으로 인해 이전 노드에 대한 네트워크 리소스를 삭제하지 못했음을 의미합니다. 이전 노드를 정리하고 이전 노드에 대한 고정 공용 IP 주소를 릴리스할 수 있도록 삭제 잠금을 제거하세요. 그렇지 않으면 고정 공용 IP 주소를 릴리스할 수 없고 IR을 추가로 업그레이드할 수 없게 됩니다.
 
 ### <a name="publicipnotusableduringupgrade"></a>PublicIPNotUsableDuringUpgrade
 
-사용자 고유의 고정 공용 IP 주소를 가져오려면 두 개의 공용 IP 주소를 제공 해야 합니다. 그 중 하나는 IR 노드를 즉시 만드는 데 사용 되 고 다른 하나는 IR을 업그레이드 하는 동안 사용 됩니다. 업그레이드 하는 동안 다른 공용 IP 주소를 사용할 수 없는 경우이 오류가 발생할 수 있습니다. 가능한 원인은  [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) 를 참조 하세요.
+사용자 고유의 고정 공용 IP 주소를 가져오려면 두 개의 공용 IP 주소를 제공해야 합니다. 그 중 하나는 IR 노드를 즉시 만드는 데 사용되고 다른 하나는 IR을 업그레이드하는 동안 사용됩니다. 업그레이드하는 동안 다른 공용 IP 주소를 사용할 수 없는 경우 해당 오류가 발생할 수 있습니다. 가능한 원인은  [InvalidPublicIPSpecified](#InvalidPublicIPSpecified)를 참조하세요.

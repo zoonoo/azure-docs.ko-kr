@@ -1,6 +1,6 @@
 ---
 title: Azure Lsv2 시리즈 가상 머신에서 성능 최적화 - 스토리지
-description: Linux 예제를 사용 하 여 Lsv2 시리즈 가상 머신에서 솔루션의 성능을 최적화 하는 방법에 대해 알아봅니다.
+description: Linux 예제를 사용하여 Lsv2 시리즈 가상 머신에서 솔루션의 성능을 최적화하는 방법을 알아봅니다.
 services: virtual-machines-linux
 author: laurenhughes
 ms.service: virtual-machines
@@ -12,17 +12,17 @@ ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
 ms.openlocfilehash: 99349654bb01f368a2a3a84c4ecc01f248b25175
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102552765"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-linux-virtual-machines"></a>Lsv2 시리즈 Linux 가상 머신에서 성능 최적화
 
 Lsv2 시리즈 가상 머신은 광범위한 애플리케이션과 업계에서 로컬 스토리지에 대한 높은 I/O와 처리량이 필요한 다양한 워크로드를 지원합니다.  Lsv2 시리즈는 빅 데이터, SQL, NoSQL 데이터베이스, 데이터 웨어하우징 및 Cassandra, MongoDB, Cloudera, Redis 등의 대규모 트랜잭션 데이터베이스에 적합합니다.
 
-Lsv2 시리즈 Virtual Machines(VM)의 디자인은 AMD EPYC™ 7551 프로세서를 최대화하여 프로세서, 메모리, NVMe 디바이스 및 VM 간에 최고의 성능을 제공합니다. Linux에서 파트너를 사용 하는 경우 Lsv2 시리즈 성능에 최적화 되어 있고 현재 다음을 포함 하는 Azure Marketplace 몇 가지 빌드를 사용할 수 있습니다.
+Lsv2 시리즈 Virtual Machines(VM)의 디자인은 AMD EPYC™ 7551 프로세서를 최대화하여 프로세서, 메모리, NVMe 디바이스 및 VM 간에 최고의 성능을 제공합니다. Linux에서 파트너와 함께 작업하는 경우, Lsv2 시리즈 성능에 최적화되어 있고 현재 다음을 포함하는 여러 빌드를 Azure Marketplace에서 사용할 수 있습니다.
 
 - Ubuntu 18.04
 - Ubuntu 16.04
@@ -36,9 +36,9 @@ Lsv2 시리즈 Virtual Machines(VM)의 디자인은 AMD EPYC™ 7551 프로세�
 
 Lsv2 시리즈 VM은 Zen 마이크로아키텍처를 기반으로 하는 AMD EYPC™ 서버 프로세서를 사용합니다. AMD는 온다이, 온패키지 및 멀티패키지 통신에 사용할 수 있는 NUMA 모델을 위한 확장 가능한 상호 연결로 Infinity Fabric(IF) for EYPC™를 개발했습니다. Intel의 최신 모놀리식 다이 프로세서에 사용되는 QPI(Quick-Path Interconnect) 및 UP(Ultra-Path Interconnect)와 비교하여, AMD의 “NUMA는 많고 다이는 작은” 아키텍처는 성능상의 이점과 문제를 모두 가져올 수 있습니다. 메모리 대역폭과 대기 시간 제약 조건의 실제 영향은 실행 중인 워크로드의 유형에 따라 달라질 수 있습니다.
 
-## <a name="tips-to-maximize-performance"></a>성능 최대화 팁
+## <a name="tips-to-maximize-performance"></a>성능 최대화를 위한 팁
 
-* 워크 로드에 대 한 사용자 지정 Linux GuestOS을 업로드 하는 경우 가속화 된 네트워킹은 기본적으로 **해제** 됩니다. 가속화 된 네트워킹을 사용 하도록 설정 하려는 경우 최적의 성능을 위해 VM을 만들 때 사용 하도록 설정 합니다.
+* 워크로드를 위한 사용자 지정 Linux GuestOS를 업로드하는 경우 가속화된 네트워킹은 기본적으로 **꺼집니다**. 가속화된 네트워킹을 사용하도록 설정하려는 경우 최적의 성능을 위해 VM을 만들 때 사용하도록 설정합니다.
 
 * Lsv2 시리즈 VM을 구동하는 하드웨어는 8개의 I/O QP(큐 쌍)가 있는 NVMe 디바이스를 활용합니다. 모든 NVMe 디바이스 I/O 큐는 실제로는 한 쌍(제출 큐와 완료 큐)입니다. NVMe 드라이버는 라운드 로빈 일정으로 I/O를 배포하여 이 8개의 I/O QP 사용률을 최적화하도록 설정되었습니다. 최대 성능을 얻으려면 이에 맞게 디바이스당 8개의 작업을 실행합니다.
 
@@ -94,20 +94,20 @@ Lsv2 시리즈 VM은 Zen 마이크로아키텍처를 기반으로 하는 AMD EYP
 * **단일 NVMe 디스크 오류로 인해 호스트의 모든 VM이 실패하나요?**  
    하드웨어 노드에서 디스크 오류가 감지되면 하드웨어가 실패 상태입니다. 이 경우 노드의 모든 VM이 자동으로 할당 취소되고 정상 노드로 이동됩니다. Lsv2 시리즈 VM의 경우 오류가 발생한 노드의 고객 데이터도 안전하게 지워지며 고객이 새 노드에 해당 데이터를 다시 만들어야 합니다. 앞에서 언급한 바와 같이 실패한 노드의 데이터가 다른 노드로 전송될 때 VM과 함께 사전에 이동된 후 Lsv2에서 라이브 마이그레이션을 사용할 수 있습니다.
 
-* **성능을 위해 rq_affinity를 조정 해야 하나요?**  
-   Rq_affinity 설정은 최대 IOPS (초당 입력/출력 작업 수)를 사용 하는 경우 약간 조정 됩니다. 다른 모든 항목이 제대로 작동 하는 경우에는 rq_affinity를 0으로 설정 하 여 차이가 있는지 확인 하십시오.
+* **성능을 위해 rq_affinity를 조정해야 하나요?**  
+   rq_affinity 설정은 최대 IOPS(초당 입출력 작업 수)를 사용하는 경우 크게 중요하지 않은 조정입니다. 다른 모든 항목이 제대로 작동하는 경우 rq_affinity를 0으로 설정하여 차이가 있는지 확인하세요.
 
-* **Blk_mq 설정을 변경 해야 하나요?**  
-   RHEL/CentOS 7.x는 NVMe 장치에 대해 blk-mq를 자동으로 사용 합니다. 구성 변경 이나 설정은 필요 하지 않습니다. Scsi_mod _blk_mq 설정은 SCSI에만 사용 되며, NVMe 장치는 게스트 Vm에 SCSI 장치로 표시 되기 때문에 Lsv2 Preview 중에 사용 되었습니다. 현재 NVMe 장치는 NVMe 장치로 표시 되므로 SCSI blk-mq 설정은 관련이 없습니다.
+* **blk_mq 설정을 변경해야 하나요?**  
+   RHEL/CentOS 7.x는 NVMe 디바이스에 blk-mq를 자동으로 사용합니다. 구성 변경이나 설정은 필요하지 않습니다. scsi_mod.use_blk_mq 설정은 SCSI에만 사용되며, NVMe 디바이스가 게스트 VM에서 SCSI 디바이스로 표시되었기 때문에 Lsv2 미리 보기 중에 사용되었습니다. 현재 NVMe 디바이스는 NVMe 디바이스로 표시되기 때문에 SCSI blk-mq 설정은 관련이 없습니다.
 
-* **"Fio"를 변경 해야 하나요?**  
-   L64v2 및 L80v2 VM 크기에서 ' fio '와 같은 성능 측정 도구를 사용 하 여 최대 IOPS를 얻으려면 각 NVMe 장치에서 "rq_affinity"을 0으로 설정 합니다.  예를 들어 다음 명령줄은 L80v2 VM의 모든 10 개 NVMe 장치에 대해 "rq_affinity"을 0으로 설정 합니다.
+* **“fio”를 변경해야 하나요?**  
+   L64v2 및 L80v2 VM 크기에서 ‘fio’와 같은 성능 측정 도구를 사용하여 최대 IOPS를 얻으려면 각 NVMe 디바이스에서 “rq_affinity”를 0으로 설정합니다.  예를 들어 다음 명령줄은 L80v2 VM에 있는 10개의 NVMe 디바이스 전체에 대해 “rq_affinity”를 0으로 설정합니다.
 
    ```console
    for i in `seq 0 9`; do echo 0 >/sys/block/nvme${i}n1/queue/rq_affinity; done
    ```
 
-   또한 i/o가 분할 안 함, 파일 시스템, RAID 0 구성 등을 포함 하지 않는 각 원시 NVMe 장치에 직접 수행 되는 경우 최상의 성능을 얻을 수 있습니다. 테스트 세션을 시작 하기 전에 `blkdiscard` 각 NVMe 장치에서를 실행 하 여 구성이 알려진 최신/정리 상태에 있는지 확인 합니다.
+   또한 분할, 파일 시스템, RAID 0 구성 등이 없는 각 원시 NVMe 디바이스에 I/O를 직접 수행하는 경우 최상의 성능을 얻을 수 있습니다. 테스트 세션을 시작하기 전에 각 NVMe 디바이스에서 `blkdiscard`를 실행하여 구성이 알려진 최신/정리 상태인지 확인합니다.
    
 ## <a name="next-steps"></a>다음 단계
 

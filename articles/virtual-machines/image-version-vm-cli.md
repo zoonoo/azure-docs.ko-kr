@@ -1,6 +1,6 @@
 ---
-title: Azure CLI를 사용 하 여 VM에서 이미지 만들기
-description: Azure의 VM에서 공유 이미지 갤러리에 이미지를 만드는 방법에 대해 알아봅니다.
+title: Azure CLI를 사용하여 VM에서 이미지 만들기
+description: Azure의 VM에서 Shared Image Gallery에 이미지를 만드는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -11,28 +11,28 @@ ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 7c35be8821b6763531b43ec85b10325e91f8bc5f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102556863"
 ---
-# <a name="create-an-image-version-from-a-vm-in-azure-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure의 VM에서 이미지 버전 만들기
+# <a name="create-an-image-version-from-a-vm-in-azure-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure의 VM에서 이미지 버전 만들기
 
-동일한 vm을 여러 개 만드는 데 사용 하려는 기존 VM이 있는 경우 해당 VM을 사용 하 여 Azure CLI를 사용 하 여 공유 이미지 갤러리에 이미지를 만들 수 있습니다. [Azure PowerShell](image-version-vm-powershell.md)를 사용 하 여 VM에서 이미지를 만들 수도 있습니다.
+기존 VM으로 동일한 VM을 여러 개 만들려는 경우, Azure CLI를 사용하여 Shared Image Gallery에 이미지를 만드는 데 해당 VM을 사용할 수 있습니다. 또한 [Azure PowerShell](image-version-vm-powershell.md)을 사용하여 VM에서 이미지를 만들 수 있습니다.
 
-**이미지 버전** 은 공유 이미지 갤러리를 사용할 때 VM을 만드는 데 사용 됩니다. 사용 환경에 필요한 만큼 여러 버전의 이미지를 가질 수 있습니다. 이미지 버전을 사용 하 여 VM을 만드는 경우 이미지 버전이 새 VM에 대 한 디스크를 만드는 데 사용 됩니다. 이미지 버전은 여러 번 사용할 수 있습니다.
+**이미지 버전** 은 Shared Image Gallery를 사용하는 중에 VM을 생성하는 데 사용됩니다. 사용 환경에 필요한 만큼 여러 버전의 이미지를 가질 수 있습니다. 이미지 버전을 사용하여 VM을 만들 때는 이미지 버전으로 새 VM의 디스크를 만듭니다. 이미지 버전은 여러 번 사용할 수 있습니다.
 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서를 완료 하려면 기존 공유 이미지 갤러리가 있어야 합니다. 
+이 문서를 완료하려면 기존 Shared Image Gallery가 있어야 합니다. 
 
-또한 Azure의 기존 VM이 갤러리와 동일한 지역에 있어야 합니다. 
+또한 Azure의 기존 VM이 갤러리와 동일한 영역에 있어야 합니다. 
 
-VM에 연결 된 데이터 디스크가 있는 경우 데이터 디스크 크기는 1TB를 넘을 수 없습니다.
+VM에 데이터 디스크가 연결된 경우 데이터 디스크 크기는 1TB를 초과할 수 없습니다.
 
-이 문서를 진행할 때 필요한 경우 리소스 이름을 바꿉니다.
+이 문서를 진행하며 필요한 경우 리소스 이름을 바꿉니다.
 
 ## <a name="get-information-about-the-vm"></a>VM 관련 정보 가져오기
 
@@ -100,11 +100,11 @@ az sig image-version create \
 > [!NOTE]
 > 동일한 관리형 이미지를 사용하여 다른 이미지 버전을 만들려면 먼저 해당 이미지 버전이 완전히 빌드되어 복제될 때까지 기다려야 합니다.
 >
-> `--storage-account-type  premium_lrs`이미지 버전을 만들 때를 추가 하 여, 또는 [영역 중복 저장소](../storage/common/storage-redundancy.md) 를 추가 하 여 Premium storage에 이미지를 저장할 수도 있습니다 `--storage-account-type  standard_zrs` .
+> 또한 이미지 버전을 만들 때 `--storage-account-type  premium_lrs`를 추가하여 프리미엄 스토리지에 추가하거나 `--storage-account-type  standard_zrs`를 추가하여 [영역 중복 스토리지](../storage/common/storage-redundancy.md)를 추가하여 이미지를 저장할 수도 있습니다.
 >
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI를 사용 하 여 [일반화 된 이미지](vm-generalized-image-version-cli.md) 에서 VM을 만듭니다.
+Azure CLI를 사용하여 [일반화된 이미지](vm-generalized-image-version-cli.md)에서 VM을 생성합니다.
 
-구매 계획 정보를 제공 하는 방법에 대 한 자세한 내용은 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](marketplace-images.md)을 참조 하세요.
+구매 계획 정보에 대한 자세한 내용은 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](marketplace-images.md)을 참조하세요.

@@ -2,19 +2,34 @@
 title: Azure Defender for IoT의 새로운 기능
 description: 이 문서에서는 최신 Defender for IoT 릴리스의 새로운 기능을 확인할 수 있습니다.
 ms.topic: overview
-ms.date: 04/19/2021
-ms.openlocfilehash: da5358ccf0f69ca2ba8f5722b75889b6b7c92c07
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.date: 04/25/2021
+ms.openlocfilehash: f7631caedcb26227abf65d6fad216fc629d41dd4
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752609"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987096"
 ---
-# <a name="whats-new-in-azure-defender-for-iot"></a>Azure Defender for IoT의 새로운 기능이란?
+# <a name="whats-new-in-azure-defender-for-iot"></a>Azure Defender for IoT의 새로운 기능이란?  
 
 이 문서에는 Defender for IoT의 새로운 기능과 향상된 기능이 나와 있습니다.
 
-언급된 기능은 미리 보기에 있습니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
+언급된 기능은 미리 보기에 있습니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 기타 법률 용어가 포함되어 있습니다.
+
+## <a name="versioning-and-support-for-azure-defender-for-iot"></a>Azure Defender for IoT 버전 관리 및 지원 
+
+다음에는 Defender for IoT의 지원, 주요 변경 정책, 현재 사용할 수 있는 Azure Defender for IoT의 버전이 나와 있습니다. 
+
+### <a name="servicing-information-and-timelines"></a>서비스 정보 및 타임라인 
+
+Microsoft는 분기별로 한 번 이상 Azure Defender for IoT 업데이트를 릴리스할 계획입니다. Azure Defender for IoT 센서 및 온-프레미스 관리 콘솔의 각 GA(일반 공급) 버전은 릴리스 후 최대 9개월 동안 지원됩니다. 수정 사항 및 새 기능은 현재 지원되고 있는 현재 GA 버전에 적용되며 이전 GA 버전에는 적용되지 않습니다.
+
+### <a name="versions-and-support-dates"></a>버전 및 지원 날짜
+
+| 버전 | 릴리스 날짜 | 지원 종료 날짜 |
+|--|--|--|
+| 10.0 | 2021년 1월 | 2021년 10월 |
+| 10.3 | 2021년 4월 | 2022년 2월 |
 
 ## <a name="april-2021"></a>2021년 4월
 
@@ -123,7 +138,7 @@ ms.locfileid: "107752609"
 이 버전에서 수행할 수 있는 작업은 다음과 같습니다.
 
 - SSL 인증서를 센서 및 온-프레미스 관리 콘솔에 직접 업로드합니다.
-- 온-프레미스 관리 콘솔과 연결된 센서 간, 그리고 관리 콘솔과 고가용성 관리 콘솔 간에 유효성 검사를 수행합니다. 유효성 검사는 만료 날짜, 루트 CA 인증 신뢰성 및 인증서 해지 목록을 기반으로 합니다.  유효성 검사가 실패하면 세션이 계속되지 않습니다.
+- 온-프레미스 관리 콘솔과 연결된 센서 간, 그리고 관리 콘솔과 고가용성 관리 콘솔 간에 유효성 검사를 수행합니다. 유효성 검사는 만료 날짜, 루트 CA 신뢰성 및 인증서 해지 목록을 기반으로 합니다.  유효성 검사가 실패하면 세션이 계속되지 않습니다.
 
 업그레이드의 경우
 

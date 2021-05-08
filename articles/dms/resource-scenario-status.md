@@ -1,7 +1,7 @@
 ---
 title: 데이터베이스 마이그레이션 시나리오 상태
 titleSuffix: Azure Database Migration Service
-description: Azure Database Migration Service에서 지 원하는 마이그레이션 시나리오의 상태에 대해 알아봅니다.
+description: Azure Database Migration Service에서 지원하는 마이그레이션 시나리오 상태에 대해 알아봅니다.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -12,34 +12,31 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: fc2ab86a318086750b11780a7802aa3591065264
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 35ef2ea3f03ca86aea34f736de4317d75a44ae59
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103463513"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330515"
 ---
-# <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Azure Database Migration Service에서 지 원하는 마이그레이션 시나리오의 상태
+# <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Azure Database Migration Service에서 지원하는 마이그레이션 시나리오 상태
 
-Azure Database Migration Service은 오프 라인 (일회성) 및 온라인 (연속 동기화) 마이그레이션 모두에 대해 서로 다른 마이그레이션 시나리오 (원본/대상 쌍)를 지원 하도록 설계 되었습니다. Azure Database Migration Service에서 제공 하는 시나리오 검사가 시간이 지남에 따라 확장 되 고 있습니다. 새로운 시나리오를 정기적으로 추가되고 있습니다. 이 문서에서는 Azure Database Migration Service에서 현재 지원 되는 마이그레이션 시나리오와 각 시나리오에 대 한 상태 (비공개 미리 보기, 공개 미리 보기 또는 일반 공급)를 식별 합니다.
+Azure Database Migration Service는 오프라인(일회성) 마이그레이션과 온라인(연속 동기화) 마이그레이션 모두를 위해 다른 마이그레이션 시나리오(원본/대상 쌍)를 지원하도록 디자인되었습니다. Azure Database Migration Service가 제공하는 시나리오 범위는 시간이 지날수록 확장되고 있습니다. 새로운 시나리오를 정기적으로 추가되고 있습니다. 이 문서는 현재 Azure Database Migration Service에서 지원하는 마이그레이션 시나리오와 상태(프라이빗 미리 보기, 퍼블릭 미리 보기 또는 일반 공급)를 설명합니다.
 
 ## <a name="offline-versus-online-migrations"></a>오프라인 및 온라인 마이그레이션
 
-Azure Database Migration Service를 사용 하 여 오프 라인 또는 온라인 마이그레이션 작업을 수행할 수 있습니다. *오프라인* 마이그레이션을 사용하는 경우 애플리케이션 가동 중지 시간이 마이그레이션 시작과 동시에 시작됩니다. 마이그레이션이 완료 될 때 새 환경으로 이동 하는 데 필요한 시간으로 가동 중지 시간을 제한 하려면 *온라인* 마이그레이션을 사용 합니다. 가동 중지 시간이 허용 되는지 여부를 확인 하기 위해 오프 라인 마이그레이션을 테스트 하는 것이 좋습니다. 그렇지 않은 경우 온라인 마이그레이션을 수행 합니다.
+Azure Database Migration Service를 사용하면, 오프라인 또는 온라인 마이그레이션을 수행할 수 있습니다. *오프라인* 마이그레이션을 사용하는 경우 애플리케이션 가동 중지 시간이 마이그레이션 시작과 동시에 시작됩니다. 마이그레이션이 완료될 때 새 환경으로 이동하는 데 필요한 시간 동안만 가동 중지하도록 제한하려면 ‘온라인’ 마이그레이션을 사용합니다. 오프라인 마이그레이션의 경우 테스트를 통해 가동 중지 시간이 용납 가능한 수준인지 확인하고, 허용할 수 없다면 온라인 마이그레이션을 수행하는 것이 좋습니다.
 
 ## <a name="migration-scenario-status"></a>마이그레이션 시나리오 상태
 
-Azure Database Migration Service에서 지 원하는 마이그레이션 시나리오의 상태는 시간에 따라 다릅니다. 일반적으로 시나리오는 **비공개 미리 보기** 에서 처음 릴리스 되었습니다. 비공개 미리 보기에 참여 하려면 고객이 [DMS preview 사이트](https://aka.ms/dms-preview)를 통해 추천을 제출 해야 합니다. 비공개 미리 보기 후에는 시나리오 상태가 **공개 미리 보기로** 변경 됩니다. Azure Database Migration Service 사용자는 사용자 인터페이스에서 직접 공개 미리 보기로 마이그레이션 시나리오를 사용해 볼 수 있습니다. 등록은 필요 하지 않습니다.  그러나 공개 미리 보기의 마이그레이션 시나리오는 모든 지역에서 사용 하지 못할 수 있으며 최종 릴리스 전에 추가 변경 사항이 발생할 수 있습니다. 공개 미리 보기 후에는 시나리오 상태가 **일반적으로 사용 가능** 으로 변경 됩니다. GA (일반 공급)는 최종 릴리스 상태 이며 기능이 완전 하 고 모든 사용자가 액세스할 수 있습니다.
+Azure Database Migration Service에서 지원하는 마이그레이션 시나리오 상태는 시간에 따라 달라집니다. 일반적으로 시나리오는 처음에 **프라이빗 미리 보기** 로 릴리스됩니다. 프라이빗 미리 보기 후에는 시나리오 상태가 **퍼블릭 미리 보기** 로 변경됩니다. Azure Database Migration Service 사용자는 직접 사용자 인터페이스에서 퍼블릭 미리 보기로 마이그레이션 시나리오를 사용해 볼 수 있습니다. 가입은 필요하지 않습니다.  그러나 모든 지역에서 퍼블릭 미리 보기로 마이그레이션 시나리오를 사용할 수 있는 것은 아니며, 최종 릴리스 전에 추가 변경 사항이 발생할 수 있습니다. 퍼블릭 미리 보기 후에는 시나리오 상태가 **일반 공급** 으로 변경됩니다. GA(일반 공급)는 최종 릴리스 상태이며 기능이 완전히 갖춰지고 모든 사용자가 액세스할 수 있습니다.
 
 ## <a name="migration-scenario-support"></a>마이그레이션 시나리오 지원
 
-다음 표에서는 Azure Database Migration Service을 사용할 때 지원 되는 마이그레이션 시나리오를 보여 줍니다.
+다음 표에서는 Azure Database Migration Service를 사용 시에 지원되는 마이그레이션 시나리오를 보여 줍니다.
 
 > [!NOTE]
-> 아래 지원 되는 것으로 나열 된 시나리오가 사용자 인터페이스 내에 표시 되지 않는 경우 [Azure 데이터베이스 마이그레이션](mailto:AskAzureDatabaseMigrations@service.microsoft.com) 별칭에 추가 정보를 문의 하세요.
-
-> [!IMPORTANT]
-> 비공개 미리 보기에서 Azure Database Migration Service에서 현재 지 원하는 모든 시나리오를 보려면 [DMS preview 사이트](https://aka.ms/dms-preview)를 참조 하십시오.
+> 아래에 지원되는 것으로 표시되는 시나리오가 사용자 인터페이스에 나타나지 않으면 [Azure Database Migrations에 문의](mailto:AskAzureDatabaseMigrations@service.microsoft.com)하여 추가 정보를 요청하세요.
 
 ### <a name="offline-one-time-migration-support"></a>오프라인(일회성) 마이그레이션 지원
 
@@ -56,11 +53,11 @@ Azure Database Migration Service에서 지 원하는 마이그레이션 시나�
 | **Azure SQL VM** | SQL Server | ✔ | GA |
 |   | Oracle | X |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **MySQL용 Azure DB** | MySQL | X |   |
+| **MySQL용 Azure DB** | MySQL | ✔ |   |
 |   | RDS MySQL | X |   |
-| **PostgreSQL 용 Azure DB-단일 서버** | PostgreSQL | X |
+| **Azure DB for PostgreSQL - 단일 서버** | PostgreSQL | X |
 |  | RDS PostgreSQL | X |   |
-| **Azure DB for PostgreSQL-Hyperscale (Citus)** | PostgreSQL | X |
+| **Azure DB for PostgreSQL - 하이퍼스케일(Citus)** | PostgreSQL | X |
 |  | RDS PostgreSQL | X |   |
 
 ### <a name="online-continuous-sync-migration-support"></a>온라인(연속 동기화) 마이그레이션 지원
@@ -80,11 +77,11 @@ Azure Database Migration Service에서 지 원하는 마이그레이션 시나�
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
 | **MySQL용 Azure DB** | MySQL | ✔ | GA |
 |   | RDS MySQL | ✔ | GA |
-| **PostgreSQL 용 Azure DB-단일 서버** | PostgreSQL | ✔ | GA |
-|   | PostgreSQL 용 Azure DB-단일 서버 | ✔ | GA |
+| **Azure DB for PostgreSQL - 단일 서버** | PostgreSQL | ✔ | GA |
+|   | Azure DB for PostgreSQL - 단일 서버 | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
-|   | Oracle | ✔ | 공개 미리 보기 (2021 년 5 월 1 일 이후에는 사용 되지 않음) |
-| **Azure DB for PostgreSQL-Hyperscale (Citus)** | PostgreSQL | ✔ | GA |
+|   | Oracle | ✔ | 퍼블릭 미리 보기(2021년 5월 1일 이후에는 사용되지 않음) |
+| **Azure DB for PostgreSQL - 하이퍼스케일(Citus)** | PostgreSQL | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
 
 > [!IMPORTANT]
@@ -93,4 +90,4 @@ Azure Database Migration Service에서 지 원하는 마이그레이션 시나�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Database Migration Service 및 지역 가용성에 대 한 개요는 [Azure Database Migration Service 이란?](dms-overview.md)문서를 참조 하세요.
+Azure Database Migration Service 및 지역별 가용성에 대한 개요는 [Azure Database Migration Service란?](dms-overview.md) 문서를 참조하세요.

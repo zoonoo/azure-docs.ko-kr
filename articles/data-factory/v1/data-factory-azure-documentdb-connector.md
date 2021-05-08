@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 robots: noindex
 ms.openlocfilehash: a90b26c677c3d53794bce3c2ff48c618415e4cf2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100379372"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Cosmos DB 간 데이터 이동
@@ -22,7 +22,7 @@ ms.locfileid: "100379372"
 > [!NOTE]
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우 [V2의 Azure Cosmos DB 커넥터](../connector-azure-cosmos-db.md)를 참조하세요.
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure Cosmos DB(SQL API) 간에 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 제공 하는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure Cosmos DB(SQL API) 간에 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
 
 모든 지원되는 원본 데이터 저장소에서 Azure Cosmos DB로 또는 Azure Cosmos DB에서 모든 지원되는 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본 또는 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요.
 
@@ -34,15 +34,15 @@ JSON 파일 또는 다른 Cosmos DB 컬렉션으로/에서 있는 그대로 데�
 ## <a name="getting-started"></a>시작
 다른 도구/API를 사용하여 Azure Cosmos DB 간에 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
 
-파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사** 를 사용 하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
+파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사** 를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
-또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API** 및 **REST API**. 복사 작업을 사용 하 여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 참조 하세요.
+또한 **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager 템플릿**, **.NET API**, **REST API** 를 사용하여 파이프라인을 만들 수 있습니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
-1. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결 하는 **연결 된 서비스** 를 만듭니다.
-2. 복사 작업에 대 한 입력 및 출력 데이터를 나타내는 데이터 **집합** 을 만듭니다.
-3. 데이터 집합을 입력으로 사용 하 고 데이터 집합을 출력으로 사용 하는 복사 작업을 사용 하 여 **파이프라인** 을 만듭니다.
+1. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결하는 **연결된 서비스** 를 만듭니다.
+2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 세트** 를 만듭니다.
+3. 입력으로 데이터 세트를, 출력으로 데이터 세트를 사용하는 복사 작업을 통해 **파이프라인** 을 만듭니다.
 
 마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다. 다른 곳에서 Cosmos DB로 또는 그 반대로 데이터를 복사하는 데 사용되는 Data Factory 엔터티의 JSON 정의가 포함된 샘플은 이 문서의 [JSON 예제](#json-examples) 섹션을 참조하세요.
 
@@ -56,7 +56,7 @@ JSON 파일 또는 다른 Cosmos DB 컬렉션으로/에서 있는 그대로 데�
 | type |형식 속성은 **DocumentDb** |예 |
 | connectionString |Azure Cosmos DB 데이터베이스에 연결하는 데 필요한 정보를 지정합니다. |예 |
 
-예제:
+예:
 
 ```JSON
 {
@@ -79,7 +79,7 @@ typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데�
 | --- | --- | --- |
 | collectionName |Cosmos DB 문서 컬렉션의 이름입니다. |예 |
 
-예제:
+예:
 
 ```JSON
 {
@@ -118,22 +118,22 @@ Azure Cosmos DB와 같은 스키마 없는 데이터 저장소의 경우 Data Fa
 
 | **속성** | **설명** | **허용된 값** | **필수** |
 | --- | --- | --- | --- |
-| Query |데이터를 읽는 쿼리를 지정합니다. |Azure Cosmos DB에서 지원하는 쿼리 문자열입니다. <br/><br/>예: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |아니요 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
-| nestingSeparator |문서가 중첩됨을 나타내는 특수 문자 |임의의 문자. <br/><br/>Azure Cosmos DB는 중첩된 구조를 허용하는 JSON 문서용 NoSQL 저장소입니다. Azure Data Factory를 통해 사용자는 위의 예제에서 "." 인 nestingSeparator를 통해 계층을 나타낼 수 있습니다. 구분 기호를 사용 하는 경우 복사 작업은 테이블 정의의 "Name. First", "Name. Middle" 및 "Name. Last"에 따라 3 개의 자식 요소가 있는 "Name" 개체를 먼저 생성 합니다. |아니요 |
+| Query |데이터를 읽는 쿼리를 지정합니다. |Azure Cosmos DB에서 지원하는 쿼리 문자열입니다. <br/><br/>예: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |예 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
+| nestingSeparator |문서가 중첩됨을 나타내는 특수 문자 |임의의 문자. <br/><br/>Azure Cosmos DB는 중첩된 구조를 허용하는 JSON 문서용 NoSQL 저장소입니다. Azure Data Factory를 사용하면 nestingSeparator, 즉 위 예제에서의 “.”를 통해 계층 구조를 표시할 수 있습니다. 테이블 정의에서 “Name.First”, “Name.Middle”, “Name.Last”에 따라 구분 기호를 사용한 복사 작업이 3개의 자식 요소(First, Middle, Last)가 있는 “Name” 개체를 생성합니다. |예 |
 
 **DocumentDbCollectionSink** 는 다음 속성을 지원합니다.
 
 | **속성** | **설명** | **허용된 값** | **필수** |
 | --- | --- | --- | --- |
 | nestingSeparator |중첩된 해당 문서를 나타내는 원본 열 이름에 특수 문자가 필요합니다. <br/><br/>위의 예에서 출력 테이블의 `Name.First`는 Cosmos DB 문서에서 다음 JSON 구조를 생성합니다.<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |중첩 수준을 구분하는데 사용되는 문자입니다.<br/><br/>기본값은 `.`.(점)입니다. |중첩 수준을 구분하는데 사용되는 문자입니다. <br/><br/>기본값은 `.`.(점)입니다. |
-| writeBatchSize |문서를 작성하는 Azure Cosmos DB 서비스에 대한 병렬 요청 수입니다.<br/><br/>이 속성을 사용하여 Cosmos DB 간 데이터를 복사하는 경우 성능을 미세 조정할 수 있습니다. Cosmos DB에 더 많은 병렬 요청이 전송되기 때문에 writeBatchSize 증가하는 경우 더 나은 성능을 기대할 수 있습니다. 그러나 "요청 빈도가 큼" 인 오류 메시지를 throw 할 수 있는 제한을 방지 해야 합니다.<br/><br/>제한은 문서 크기, 문서에서 용어 수, 대상 컬렉션의 인덱싱 정책 등을 비롯 한 여러 요소로 결정 됩니다. 복사 작업의 경우 더 나은 컬렉션 (예: S3)을 사용 하 여 가장 많은 처리량 (2500 요청 단위/초)을 사용할 수 있습니다. |정수 |아니요(기본값: 5) |
-| writeBatchTimeout |시간이 초과 되기 전에 완료하려는 작업을 위한 대기 시간입니다. |timespan<br/><br/> 예제: "00:30:00"(30분). |아니요 |
+| writeBatchSize |문서를 작성하는 Azure Cosmos DB 서비스에 대한 병렬 요청 수입니다.<br/><br/>이 속성을 사용하여 Cosmos DB 간 데이터를 복사하는 경우 성능을 미세 조정할 수 있습니다. Cosmos DB에 더 많은 병렬 요청이 전송되기 때문에 writeBatchSize 증가하는 경우 더 나은 성능을 기대할 수 있습니다. 하지만 “요청 빈도가 높습니다” 오류 메시지를 발생시킬 수 있는 제한은 피해야 합니다.<br/><br/>제한은 문서 크기, 문서 내의 용어 수, 대상 컬렉션의 인덱싱 정책 등을 비롯한 여러 요소로 결정됩니다. 복사 작업의 경우 더 나은 컬렉션(예: S3)을 사용하여 가장 많은 처리량(2,500개 요청 단위/초)을 달성할 수 있습니다. |정수 |아니요(기본값: 5) |
+| writeBatchTimeout |시간이 초과 되기 전에 완료하려는 작업을 위한 대기 시간입니다. |timespan<br/><br/> 예제: "00:30:00"(30분). |예 |
 
 ## <a name="importexport-json-documents"></a>JSON 문서 Import/Export
 이 Cosmos DB 커넥터를 사용하여 다음을 쉽게 수행할 수 있습니다.
 
 * Azure Blob, Azure Data Lake, 온-프레미스 파일 시스템 또는 기타 Azure Data Factory에서 지원하는 파일 기반 저장소 등 다양한 원본에서 Cosmos DB로 JSON 문서를 가져오기
-* Cosmos DB 컬렉션에서 다양 한 파일 기반 저장소로 JSON 문서를 내보냅니다.
+* Cosmos DB 컬렉션에서 다양한 파일 기반 저장소로 JSON 문서 내보내기
 * 두 Cosmos DB 컬렉션 간에 데이터를 있는 그대로 마이그레이션
 
 이러한 스키마 독립적 복사를 수행하려면
@@ -141,12 +141,12 @@ Azure Cosmos DB와 같은 스키마 없는 데이터 저장소의 경우 Data Fa
 * JSON 편집을 사용할 때 복사 작업에서 Cosmos DB 데이터 세트에서 "structure" 섹션을 지정하지 않고 Cosmos DB 원본/싱크에 대한 "nestingSeparator" 속성도 지정하지 않아야 합니다. JSON 파일에서 가져오거나 이 파일로 내보내려면 파일 저장소 데이터 세트에서 형식을 "JsonFormat"으로, 구성을 "filePattern"으로 지정한 후 나머지 형식 설정을 건너뜁니다. 자세한 내용은 [JSON 형식](data-factory-supported-file-and-compression-formats.md#json-format) 섹션을 참조하세요.
 
 ## <a name="json-examples"></a>JSON 예
-다음 예제에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)를 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공 합니다. Azure Cosmos DB 및 Azure Blob Storage 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 임의의 원본에서 **여기** 에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.
+다음 예에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. Azure Cosmos DB 및 Azure Blob Storage 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 임의의 원본에서 **여기** 에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.
 
 ## <a name="example-copy-data-from-azure-cosmos-db-to-azure-blob"></a>예제: Azure Cosmos DB에서 Azure Blob으로 데이터 복사
 아래 샘플은 다음을 보여줍니다.
 
-1. [DocumentDb](#linked-service-properties)형식의 연결 된 서비스입니다.
+1. [DocumentDb](#linked-service-properties)형식의 연결된 서비스입니다.
 2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
 3. [DocumentDbCollection](#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)입니다.
 4. [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
@@ -184,7 +184,7 @@ Azure Cosmos DB와 같은 스키마 없는 데이터 저장소의 경우 Data Fa
 
 예제는 Azure Cosmos DB 데이터베이스에 **사람** 이라는 컬렉션이 있다고 가정합니다.
 
-"External": "true"를 설정 하 고 externalData policy 정보를 지정 합니다 .이는 테이블이 data factory의 외부에 있고 data factory의 활동에 의해 생성 되지 않는 Azure Data Factory 서비스입니다.
+“external”: “true”를 설정하고 externalData 정책 정보를 지정하면 테이블이 데이터 팩터리의 외부에 있으며 데이터 팩터리의 활동에 의해 생성되지 않는다는 정보가 Azure Data Factory 서비스에 전달됩니다.
 
 ```JSON
 {
@@ -204,7 +204,7 @@ Azure Cosmos DB와 같은 스키마 없는 데이터 저장소의 경우 Data Fa
 }
 ```
 
-**Azure Blob 출력 데이터 집합:**
+**Azure Blob 출력 데이터 세트:**
 
 데이터는 시간 세분성으로 특정 날짜와 시간을 반영하는 blob에 대한 경로가 있는 새 blob로 매시간 복사됩니다.
 
@@ -243,7 +243,7 @@ Cosmos DB 데이터베이스의 사용자 컬렉션에서 샘플 JSON 문서:
 ```
 Cosmos DB는 계층적 JSON 문서에 대한 구문과 같이 SQL을 사용하여 쿼리 문서를 지원합니다.
 
-예제:
+예:
 
 ```sql
 SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person
@@ -329,7 +329,7 @@ SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as Mi
   }
 }
 ```
-**Azure Blob 입력 데이터 집합:**
+**Azure Blob 입력 데이터 세트:**
 
 ```JSON
 {
@@ -374,7 +374,7 @@ SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as Mi
 ```
 **Azure Cosmos DB 출력 데이터 세트:**
 
-이 샘플은 "Person" 이라는 컬렉션에 데이터를 복사 합니다.
+샘플은 “Person”이라는 컬렉션에 데이터를 복사합니다.
 
 ```JSON
 {
@@ -473,7 +473,7 @@ Cosmos DB에서 출력 JSON은 다음과 같습니다.
   "id": "a5e8595c-62ec-4554-a118-3940f4ff70b6"
 }
 ```
-Azure Cosmos DB는 중첩된 구조를 허용하는 JSON 문서용 NoSQL 저장소입니다. Azure Data Factory를 통해 사용자는 **nestingSeparator** 을 통해 계층을 나타낼 수 있습니다 .이 예제에서는 "."입니다. 구분 기호를 사용 하는 경우 복사 작업은 테이블 정의의 "Name. First", "Name. Middle" 및 "Name. Last"에 따라 3 개의 자식 요소가 있는 "Name" 개체를 먼저 생성 합니다.
+Azure Cosmos DB는 중첩된 구조를 허용하는 JSON 문서용 NoSQL 저장소입니다. Azure Data Factory를 사용하면 **nestingSeparator**, 이 예제에서는 “.”를 통해 계층 구조를 표시할 수 있습니다. 테이블 정의에서 “Name.First”, “Name.Middle”, “Name.Last”에 따라 구분 기호를 사용한 복사 작업이 3개의 자식 요소(First, Middle, Last)가 있는 “Name” 개체를 생성합니다.
 
 ## <a name="appendix"></a>부록
 1. **질문:** 복사 작업은 기존 레코드의 업데이트를 지원합니까?

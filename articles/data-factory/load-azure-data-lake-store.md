@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/18/2021
 ms.openlocfilehash: 1e75fc65b4afea9dc895580e4711e0050cb7c64f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101716417"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에 데이터 로드
@@ -84,11 +84,11 @@ Azure Data Factory를 사용하여 Data Lake Storage Gen1으로 데이터를 로
    2. **비밀 액세스 키** 값을 지정합니다.
    3. **마침** 을 선택합니다.
    
-      ![값을 입력할 수 있는 새 연결 된 서비스 창이 스크린샷에 표시 됩니다.](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
+      ![스크린샷은 값을 입력할 수 있는 새롭게 연결된 서비스 창을 보여 줍니다.](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
    
    4. 새 연결이 표시됩니다. **다음** 을 선택합니다.
    
-   ![새 연결을 보여 주는 스크린샷](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account-created.png)
+   ![스크린샷은 새 연결을 보여 줍니다.](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account-created.png)
    
 5. **입력 파일 또는 폴더 선택** 페이지에서, 복사하려는 폴더 및 파일로 이동합니다. 폴더/파일을 선택하고 **선택**, **다음** 을 차례로 선택합니다.
 
@@ -96,7 +96,7 @@ Azure Data Factory를 사용하여 Data Lake Storage Gen1으로 데이터를 로
 
 6. **재귀적으로 파일 복사** 및 **이진 복사**(있는 그대로 파일 복사) 옵션을 선택하여 복사 동작을 선택합니다. **다음** 을 선택합니다.
 
-    ![재귀적으로 파일 복사 및 이진 복사를 선택할 수 있는 입력 파일 또는 폴더를 선택 하는 방법을 보여 줍니다.](./media/load-data-into-azure-data-lake-store/specify-binary-copy.png)
+    ![스크린샷은 재귀적 파일 복사 및 이진 복사를 선택할 수 있는 입력 파일 또는 폴더를 선택을 보여 줍니다.](./media/load-data-into-azure-data-lake-store/specify-binary-copy.png)
     
 7. **대상 데이터 저장소** 페이지에서 **+ 새 연결 만들기** 를 클릭한 다음, **Azure Data Lake Storage Gen1** 을 선택하고 **계속** 을 선택합니다.
 
@@ -114,7 +114,7 @@ Azure Data Factory를 사용하여 Data Lake Storage Gen1으로 데이터를 로
    ![Data Lake Storage Gen1 계정 지정](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 9. **출력 파일 또는 폴더 선택** 페이지에서 출력 폴더 이름으로 **copyfroms3** 를 입력하고 **다음** 을 선택합니다. 
 
-    ![스크린샷 입력 한 폴더 경로를 표시 합니다.](./media/load-data-into-azure-data-lake-store/specify-adls-path.png)
+    ![스크린샷은 입력한 폴더 경로를 보여 줍니다.](./media/load-data-into-azure-data-lake-store/specify-adls-path.png)
 
 10. **설정** 페이지에서 **다음** 을 선택합니다.
 

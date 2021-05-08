@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 8aafb08ff0ccc9391071f796450e69f87de279ba
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102547835"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>핵심 문구 추출 인식 기술
@@ -41,7 +41,7 @@ Microsoft.Skills.Text.KeyPhraseExtractionSkill
 |---------------------|-------------|
 | `defaultLanguageCode` | (선택 사항) 명시적으로 언어를 지정하지 않은 문서에 적용할 언어 코드입니다.  기본 언어 코드가 지정되지 않은 경우 영어(en)가 기본 언어 코드로 사용됩니다. <br/> [지원되는 언어 전체 목록](../cognitive-services/text-analytics/language-support.md)을 참조합니다. |
 | `maxKeyPhraseCount`   | (선택 사항) 생성할 핵심 구문의 최대 수입니다. |
-| `modelVersion`   | 필드 Text Analytics 서비스를 호출할 때 사용할 모델의 버전입니다. 지정 되지 않은 경우 기본적으로 사용 가능한 최신 버전으로 지정 됩니다. 반드시 필요한 경우가 아니면이 값을 지정 하지 않는 것이 좋습니다. 자세한 내용은 [텍스트 분석 API의 모델 버전 관리](../cognitive-services/text-analytics/concepts/model-versioning.md) 를 참조 하세요. |
+| `modelVersion`   | (선택 사항) Text Analytics 서비스를 호출할 때 사용할 모델의 버전입니다. 지정되지 않은 경우 기본적으로 사용 가능한 최신 버전을 지정합니다. 필요한 경우가 아니면 이 값을 지정하지 않는 것이 좋습니다. 자세한 내용은 [Text Analytics API의 모델 버전 관리](../cognitive-services/text-analytics/concepts/model-versioning.md)를 참조하세요. |
 
 ## <a name="skill-inputs"></a>기술 입력
 
@@ -59,7 +59,7 @@ Microsoft.Skills.Text.KeyPhraseExtractionSkill
 
 ##  <a name="sample-definition"></a>샘플 정의
 
-다음 필드를 포함 하는 SQL 레코드를 고려 하십시오.
+다음 필드를 포함하는 SQL 레코드를 고려하세요.
 
 ```json
 {
@@ -68,7 +68,7 @@ Microsoft.Skills.Text.KeyPhraseExtractionSkill
 }
 ```
 
-그러면 기술 정의가 다음과 같이 표시 될 수 있습니다.
+그러면 기술 정의가 다음과 같이 표시될 수 있습니다.
 
 ```json
  {
@@ -94,9 +94,9 @@ Microsoft.Skills.Text.KeyPhraseExtractionSkill
 
 ##  <a name="sample-output"></a>샘플 출력
 
-위의 예제에서 기술 출력은 지정 된 이기 때문에 "document/myKeyPhrases" 라는 보강 트리의 새 노드에 기록 됩니다 `targetName` . 을 지정 하지 않으면 `targetName` "document/keyPhrases"이 됩니다.
+위의 예제에서 기술 출력은 지정된 `targetName`이기 때문에 “document/myKeyPhrases” 라는 보강 트리의 새 노드에 기록됩니다. `targetName`을 지정하지 않으면 “document/keyPhrases”에 기록됩니다.
 
-#### <a name="documentmykeyphrases"></a>문서/myKeyPhrases 
+#### <a name="documentmykeyphrases"></a>document/myKeyPhrases 
 ```json
             [
               "world’s glaciers", 
@@ -108,10 +108,10 @@ Microsoft.Skills.Text.KeyPhraseExtractionSkill
             ]
 ```
 
-"Document/myKeyPhrases"를 다른 기술에 대 한 입력으로 사용 하거나 [출력 필드 매핑의](cognitive-search-output-field-mapping.md)원본으로 사용할 수 있습니다.
+"Document/myKeyPhrases"를 다른 기술에 대한 입력으로 사용하거나 [출력 필드 매핑](cognitive-search-output-field-mapping.md)의 원본으로 사용할 수 있습니다.
 
 ## <a name="warnings"></a>경고
-지원 되지 않는 언어 코드를 제공 하면 경고가 생성 되 고 키 구가 추출 되지 않습니다.
+지원되지 않는 언어 코드를 입력하면 경고가 생성되고 핵심 구가 추출되지 않습니다.
 텍스트가 비어 있는 경우 경고가 생성됩니다.
 텍스트가 50,000자보다 큰 경우 처음 50,000자만 분석하고 경고를 발생합니다.
 
@@ -119,4 +119,4 @@ Microsoft.Skills.Text.KeyPhraseExtractionSkill
 
 + [기본 제공 기술](cognitive-search-predefined-skills.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
-+ [출력 필드 매핑을 정의 하는 방법](cognitive-search-output-field-mapping.md)
++ [출력 필드 매핑을 정의하는 방법](cognitive-search-output-field-mapping.md)

@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 03/02/2021
+ms.date: 04/07/2021
 ms.topic: how-to
-ms.openlocfilehash: 9c928040aa2ff5a6ebfb7102c03450d3d7297b59
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 12d0997e677bcca423f32951e99a6202855104ad
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101686481"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030869"
 ---
 # <a name="create-an-azure-arc-data-controller-in-the-azure-portal"></a>Azure Portal에서 Azure Arc 데이터 컨트롤러 만들기
 
@@ -22,45 +22,44 @@ ms.locfileid: "101686481"
 
 ## <a name="introduction"></a>소개
 
-Azure Portal를 사용 하 여 Azure Arc 데이터 컨트롤러를 만들 수 있습니다.
+Azure Portal을 사용하여 Azure Arc 데이터 컨트롤러를 만들 수 있습니다.
 
-Azure Arc의 많은 생성 환경은 만들거나 관리할 리소스가 Azure 인프라 외부에 있는 경우에도 Azure Portal에서 시작 합니다. 이러한 경우 사용자 환경 패턴은 특히, Azure와 사용자 환경 간에 직접 연결 되지 않는 경우 Azure Portal를 사용 하 여 스크립트를 생성 한 다음 사용자 환경에서 다운로드 하 여 실행 하 여 Azure에 보안 연결을 다시 설정 하는 것입니다. 예를 들어 Azure Arc 사용 서버는 [arc 사용 서버를 만들기](../servers/onboard-portal.md)위해이 패턴을 따릅니다.
+Azure Arc를 만드는 환경 대부분은 만들거나 관리할 리소스가 Azure 인프라 외부에 있는 경우에도 Azure Portal에서 시작합니다. 이러한 경우, 특히 Azure와 사용자 환경 간에 직접 연결되지 않은 경우 사용자 환경 패턴은 Azure Portal을 사용하여 스크립트를 생성한 다음, 사용자 환경에서 다운로드하고 실행하여 Azure에 대한 보안 연결을 다시 설정하는 것입니다. 예를 들어 Azure Arc 지원 서버는 이 패턴에 따라 [Arc 지원 서버를 만듭니다](../servers/onboard-portal.md).
 
-현재 미리 보기에서는 Azure Arc 사용 데이터 서비스의 간접 연결 모드만 지원 하기 위해 Azure Portal를 사용 하 여 Kubernetes 클러스터에 대해 다운로드 하 여 Azure Data Studio에서 실행할 수 있는 노트북을 생성할 수 있습니다. 나중에 직접 연결 모드를 사용할 수 있는 경우 Azure Portal에서 직접 데이터 컨트롤러를 프로 비전 할 수 있습니다. [연결 모드](connectivity.md)에 대 한 자세한 내용을 볼 수 있습니다.
+Azure Arc 지원 데이터 서비스의 간접 연결 모드를 사용하는 경우 Azure Portal을 사용하여 Notebook을 생성한 다음, Azure Data Studio에서 다운로드하여 Kubernetes 클러스터에 대해 실행할 수 있습니다. 
 
-## <a name="use-the-azure-portal-to-create-an-azure-arc-data-controller"></a>Azure Portal를 사용 하 여 Azure Arc 데이터 컨트롤러 만들기
+직접 연결 모드를 사용하는 경우 Azure Portal에서 직접 데이터 컨트롤러를 프로비저닝할 수 있습니다. [연결 모드](connectivity.md)에 대해 자세히 알아볼 수 있습니다.
 
-Azure Portal 및 Azure Data Studio를 사용 하 여 Azure Arc 데이터 컨트롤러를 만들려면 아래 단계를 따르세요.
+## <a name="use-the-azure-portal-to-create-an-azure-arc-data-controller"></a>Azure Portal을 사용하여 Azure Arc 데이터 컨트롤러 만들기
 
-1. 먼저 [Azure Portal marketplace](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/azure%20arc%20data%20controller)에 로그인 합니다.  Marketplace 검색 결과가 ' Azure Arc data controller '를 표시 하도록 필터링 됩니다.
-2. 첫 번째 단계에서 검색 조건을 입력 하지 않은 경우 검색 결과에를 입력 하 고 ' Azure Arc data controller '를 클릭 하세요.
-3. Marketplace에서 Azure Data Controller 타일을 선택 합니다.
-4. **만들기** 단추를 클릭합니다.
-5. Azure Arc 데이터 컨트롤러를 만들고 Azure Data Studio 및 kubectl와 같은 누락 된 필수 구성 요소 소프트웨어를 설치 하려면 요구 사항을 검토 하세요.
-6. **데이터 컨트롤러 세부 정보** 단추를 클릭 합니다.
-7. Azure Portal에서 만든 다른 리소스와 마찬가지로 구독, 리소스 그룹 및 Azure 위치를 선택 합니다. 이 경우 선택 하는 Azure 위치는 리소스에 대 한 메타 데이터가 저장 되는 위치입니다.  리소스 자체는 선택한 모든 인프라에 생성 됩니다. Azure 인프라에 있을 필요는 없습니다.
-8. 데이터 컨트롤러의 이름을 입력 합니다.
-9. 데이터 컨트롤러에 대 한 연결 모드를 선택 합니다. [연결 모드 및 요구 사항](./connectivity.md)에 대해 자세히 알아보세요. 
+다음 단계에 따라 Azure Portal 및 Azure Data Studio를 사용하여 Azure Arc 데이터 컨트롤러를 만듭니다.
 
-   > [!NOTE] 
-   > **직접** 연결 모드를 선택 하는 경우 서비스 주체 [만들기](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal)에 설명 된 대로 환경 변수를 통해 서비스 주체 자격 증명을 설정 해야 합니다. 
+1. 먼저, [Azure Portal Marketplace](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/azure%20arc%20data%20controller)에 로그인합니다.  Marketplace 검색 결과가 필터링되어 ‘Azure Arc 데이터 컨트롤러’를 표시합니다.
+1. 첫 번째 단계에서 검색 조건을 입력하지 않은 경우 검색 결과에 입력하고 ‘Azure Arc 데이터 컨트롤러’를 클릭합니다.
+1. Marketplace에서 Azure 데이터 컨트롤러 타일을 선택합니다.
+1. **만들기** 단추를 클릭합니다.
+1. 간접 연결 모드를 선택합니다. [연결 모드 및 요구 사항](./connectivity.md)에 대해 자세히 알아봅니다. 
+1. 요구 사항을 검토하여 Azure Arc 데이터 컨트롤러를 만들고 Azure Data Studio 및 kubectl 같이 누락된 필수 조건 소프트웨어를 설치합니다.
+1. **다음: 데이터 컨트롤러 세부 정보** 단추를 클릭합니다.
+1. Azure Portal에서 만든 다른 모든 리소스와 마찬가지로 구독, 리소스 그룹 및 Azure 위치를 선택합니다. 이 경우 선택하는 Azure 위치는 리소스에 대한 메타데이터가 저장될 위치입니다.  리소스 자체는 선택하는 모든 인프라에 생성됩니다. Azure 인프라에 있을 필요가 없습니다.
+1. 데이터 컨트롤러의 이름을 입력합니다.
 
-1. 배포 구성 프로필을 선택 합니다.
-1. **Azure Studio에서 열기** 단추를 클릭 합니다.
-1. 다음 화면에는 선택 항목에 대 한 요약과 생성 된 노트북이 표시 됩니다.  **프로 비전 된 노트북 다운로드** 단추를 클릭 하 여 노트북을 다운로드할 수 있습니다.
+1. 배포 구성 프로필을 선택합니다.
+1. **Azure Studio에서 열기** 단추를 클릭합니다.
+1. 다음 화면에는 선택 항목에 대한 요약과 생성되는 Notebook이 표시됩니다.  **프로비저닝 Notebook 다운로드** 단추를 클릭하여 Notebook을 다운로드할 수 있습니다.
 
    > [!IMPORTANT]
-   > Azure Red Hat OpenShift 또는 Red Hat OpenShift container platform에서 데이터 컨트롤러를 만들기 전에 보안 컨텍스트 제약 조건을 적용 해야 합니다. [OpenShift에서 Azure Arc 사용 데이터 서비스에 대 한 보안 컨텍스트 제약 조건 적용](how-to-apply-security-context-constraint.md)의 지침을 따릅니다.
+   > Azure Red Hat OpenShift 또는 Red Hat OpenShift 컨테이너 플랫폼에서 데이터 컨트롤러를 만들려면 먼저 보안 컨텍스트 제약 조건을 적용해야 합니다. [OpenShift에서 Azure Arc 지원 데이터 서비스에 보안 컨텍스트 제약 조건 적용](how-to-apply-security-context-constraint.md)의 지침을 따릅니다.
 
-1. Azure Data Studio에서 노트북을 열고 위쪽의 **모두 실행** 단추를 클릭 합니다.
-1. 노트북의 프롬프트 및 지침에 따라 데이터 컨트롤러 만들기를 완료 합니다.
+1. Azure Data Studio에서 Notebook을 열고 위쪽에 있는 **모두 실행** 단추를 클릭합니다.
+1. Notebook의 프롬프트 및 지침에 따라 데이터 컨트롤러 만들기를 완료합니다.
 
 ## <a name="monitoring-the-creation-status"></a>만들기 상태 모니터링
 
-컨트롤러를 만드는 과정을 완료 하는 데 몇 분 정도 걸립니다. 다음 명령을 사용 하 여 다른 터미널 창에서 진행률을 모니터링할 수 있습니다.
+컨트롤러 만들기를 완료하려면 몇 분 정도 걸립니다. 다음 명령을 사용하여 다른 터미널 창에서 진행률을 모니터링할 수 있습니다.
 
 > [!NOTE]
->  아래 예제 명령은 ' arc ' 라는 이름으로 데이터 컨트롤러 및 Kubernetes 네임 스페이스를 만들었다고 가정 합니다.  다른 네임 스페이스/데이터 컨트롤러 이름을 사용한 경우 ' arc '를 사용자의 이름으로 바꿀 수 있습니다.
+>  아래 예제 명령에서는 ‘arc’라는 이름으로 데이터 컨트롤러 및 Kubernetes 네임스페이스를 만들었다고 가정합니다.  다른 네임스페이스/데이터 컨트롤러 이름을 사용한 경우 ‘arc’를 해당 이름으로 바꿀 수 있습니다.
 
 ```console
 kubectl get datacontroller/arc --namespace arc
@@ -70,7 +69,7 @@ kubectl get datacontroller/arc --namespace arc
 kubectl get pods --namespace arc
 ```
 
-아래와 같은 명령을 실행 하 여 특정 pod의 생성 상태를 확인할 수도 있습니다.  이 기능은 문제를 해결 하는 데 특히 유용 합니다.
+아래와 같은 명령을 실행하여 특정 Pod의 만들기 상태를 확인할 수도 있습니다.  이 기능은 문제를 해결하는 데 특히 유용합니다.
 
 ```console
 kubectl describe po/<pod name> --namespace arc
@@ -79,6 +78,6 @@ kubectl describe po/<pod name> --namespace arc
 #kubectl describe po/control-2g7bl --namespace arc
 ```
 
-## <a name="troubleshooting-creation-problems"></a>생성 문제 해결
+## <a name="troubleshooting-creation-problems"></a>만들기 문제 해결
 
-만든 문제가 발생 하는 경우 [문제 해결 가이드](troubleshoot-guide.md)를 참조 하세요.
+만들기와 관련한 문제가 발생하는 경우 [문제 해결 가이드](troubleshoot-guide.md)를 참조하세요.

@@ -7,17 +7,17 @@ ms.topic: how-to
 ms.date: 01/25/2021
 ms.author: alkohli
 ms.openlocfilehash: 3292f337a39e2adb7dc5e78f12785ead8759f5d1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102611949"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>StorSimple용 Windows PowerShell을 사용하여 디바이스 관리
 
 ## <a name="overview"></a>개요
 
-StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 디바이스를 관리하는 데 사용할 수 있는 명령줄 인터페이스를 제공합니다. 이름에서 알 수 있듯이 제한된 Runspace에서 기본 제공되는 Windows PowerShell 기반의 명령줄 인터페이스입니다. 명령줄의 사용자 관점에서 제한된 Runspace는 Windows PowerShell의 제한된 버전으로 나타납니다. Windows PowerShell의 일부 기본 기능을 유지 하는 동안이 인터페이스에는 Microsoft Azure StorSimple 장치를 관리 하는 데 적합 한 다른 전용 cmdlet이 포함 되어 있습니다.
+StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 디바이스를 관리하는 데 사용할 수 있는 명령줄 인터페이스를 제공합니다. 이름에서 알 수 있듯이 제한된 Runspace에서 기본 제공되는 Windows PowerShell 기반의 명령줄 인터페이스입니다. 명령줄의 사용자 관점에서 제한된 Runspace는 Windows PowerShell의 제한된 버전으로 나타납니다. Windows PowerShell의 일부 기본 기능을 유지하는 동시에 이 인터페이스는 Microsoft Azure StorSimple 디바이스를 관리하기 위한 다른 전용 cmdlet을 포함합니다.
 
 이 문서에서는 이 인터페이스에 연결할 수 있는 방법을 포함하여 StorSimple용 Windows PowerShell 기능에 대해 설명하며 이 인터페이스를 사용하여 수행할 수 있는 단계별 절차 또는 워크플로에 대한 링크를 포함합니다. 워크플로에는 디바이스를 등록하고, 디바이스에서 네트워크 인터페이스를 구성하고, 디바이스가 유지 관리 모드에 있도록 요구하는 업데이트를 설치하고, 디바이스 상태를 변경하고, 발생할 수 있는 문제를 해결하는 방법이 포함됩니다.
 
@@ -48,7 +48,7 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 디바이스를 �
 #### <a name="to-configure-putty"></a>PuTTY를 구성하려면
 
 1. PuTTY **재구성** 대화 상자의 **범주** 창에서 **키보드** 를 선택합니다.
-2. 다음 옵션 (새 세션을 시작할 때 기본 설정)이 선택 되어 있는지 확인 합니다.
+2. 다음 옵션(새 세션을 시작할 때 기본 설정)이 선택되어 있는지 확인합니다.
    
    | 키보드 항목 | 선택 |
    | --- | --- |
@@ -89,15 +89,15 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 디바이스를 �
 
 다음 설정에서 선택할 수 있습니다.
 
-1. **모든 권한으로 로그인 합니다.**
-   이 옵션을 사용 하면 올바른 자격 증명을 사용 하 여 로컬 컨트롤러의 **SSAdminConsole** runspace에 연결할 수 있습니다. 로컬 컨트롤러는 StorSimple 디바이스의 직렬 콘솔을 통해 현재 액세스하는 컨트롤러입니다. 이 옵션을 사용하여 Microsoft 지원에서 가능한 디바이스 문제를 해결하기 위해 무제한 Runspace(지원 세션)에 액세스하도록 허용할 수도 있습니다. 옵션 1을 사용하여 로그온한 후 특정 cmdlet을 실행하여 Microsoft 지원 엔지니어가 무제한 Runspace에 액세스하도록 허용할 수 있습니다. 자세한 내용은 [지원 세션 시작](storsimple-8000-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple)을 참조하세요.
+1. **모든 권한으로 로그인.**
+   이 옵션을 선택하면 로컬 컨트롤러에서 적절한 자격 증명을 사용하여 **SSAdminConsole** runspace에 연결할 수 있습니다. 로컬 컨트롤러는 StorSimple 디바이스의 직렬 콘솔을 통해 현재 액세스하는 컨트롤러입니다. 이 옵션을 사용하여 Microsoft 지원에서 가능한 디바이스 문제를 해결하기 위해 무제한 Runspace(지원 세션)에 액세스하도록 허용할 수도 있습니다. 옵션 1을 사용하여 로그온한 후 특정 cmdlet을 실행하여 Microsoft 지원 엔지니어가 무제한 Runspace에 액세스하도록 허용할 수 있습니다. 자세한 내용은 [지원 세션 시작](storsimple-8000-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple)을 참조하세요.
    
-2. **모든 권한으로 피어 컨트롤러에 로그인 합니다.**
-   이 옵션은 옵션 1과 동일 합니다. 단, 적절 한 자격 증명을 사용 하 여 피어 컨트롤러의 **SSAdminConsole** runspace에 연결할 수 있습니다. StorSimple 디바이스는 능동-수동 구성으로 두 개의 컨트롤러를 포함하는 고가용성 디바이스이기 때문에 피어는 직렬 콘솔을 통해 액세스하는 디바이스의 다른 컨트롤러를 가리킵니다.
+2. **모든 권한으로 피어 컨트롤러에 로그인.**
+   이 옵션은 피어 컨트롤러에서 적절한 자격 증명을 사용하여 **SSAdminConsole** runspace에 연결할 수 있다는 점을 제외하면 옵션 1과 같습니다. StorSimple 디바이스는 능동-수동 구성으로 두 개의 컨트롤러를 포함하는 고가용성 디바이스이기 때문에 피어는 직렬 콘솔을 통해 액세스하는 디바이스의 다른 컨트롤러를 가리킵니다.
    옵션 1과 마찬가지로, 이 옵션을 사용하여 Microsoft 지원이 피어 컨트롤러의 무제한 Runspace에 액세스하도록 허용할 수도 있습니다.
 
-3. **제한 된 액세스로 연결 합니다.**
-   이 옵션은 제한 된 모드에서 Windows PowerShell 인터페이스에 액세스 하는 데 사용 됩니다. 액세스 자격 증명을 묻는 메시지가 표시되지 않습니다. 이 옵션은 옵션 1과 2에 비해 더 제한된 Runspace에 연결합니다.  이 runspace에서 수행할 *수 없는 옵션* 1을 통해 사용할 수 있는 작업 중 일부는 다음과 같습니다.
+3. **제한된 액세스 권한으로 연결.**
+   이 옵션은 제한된 모드로 Windows PowerShell 인터페이스에 액세스하는 데 사용됩니다. 액세스 자격 증명을 묻는 메시지가 표시되지 않습니다. 이 옵션은 옵션 1과 2에 비해 더 제한된 Runspace에 연결합니다.  이 runspace에서 수행할 수 ‘없는’ 옵션 1을 통해 사용할 수 있는 작업 중 일부는 다음과 같습니다.
    
    * 출하 시 설정으로 복원
    * 암호 변경
@@ -108,8 +108,8 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 디바이스를 �
      > [!NOTE]
      > 디바이스 관리자 암호를 잊어버렸으며 옵션 1 또는 2를 통해 연결할 수 없는 경우의 기본 옵션입니다.
 
-4. **언어 선택.**
-   이 옵션을 사용 하면 Windows PowerShell 인터페이스에서 표시 언어를 변경할 수 있습니다. 지원되는 언어는 영어, 일본어, 러시아어, 프랑스어, 한국어, 스페인어, 이탈리아어, 독일어, 중국어 및 포르투갈어입니다.
+4. **언어 변경.**
+   이 옵션을 사용하면 Windows PowerShell 인터페이스의 표시 언어를 변경할 수 있습니다. 지원되는 언어는 영어, 일본어, 러시아어, 프랑스어, 한국어, 스페인어, 이탈리아어, 독일어, 중국어 및 포르투갈어입니다.
 
 ## <a name="connect-remotely-to-storsimple-using-windows-powershell-for-storsimple"></a>StorSimple용 Windows PowerShell을 사용하여 StorSimple에 원격으로 연결
 
@@ -128,10 +128,10 @@ HTTP 또는 HTTPS를 사용하여 Windows PowerShell 원격을 통해 연결할 
 
 ## <a name="connection-security-considerations"></a>연결 보안 고려 사항
 
-StorSimple용 Windows PowerShell에 연결 하는 방법을 결정할 때 다음 요소를 고려 하십시오.
+StorSimple용 Windows PowerShell에 연결하는 방법을 결정하는 경우 다음 사항을 고려하세요.
 
 * 디바이스 직렬 콘솔에 직접 연결하는 것은 안전하지만 네트워크 스위치를 통해 직렬 콘솔에 연결하는 것은 안전하지 않습니다. 네트워크 스위치를 통해 디바이스 직렬에 연결할 때는 보안 위험에 주의하세요.
-* HTTP 세션을 통해 연결하는 경우 네트워크에서 직렬 콘솔을 통해 연결하는 것보다 보안이 강화될 수 있습니다. HTTP 세션은 가장 안전한 연결 방법이 아니지만 신뢰할 수 있는 네트워크에서 허용 됩니다.
+* HTTP 세션을 통해 연결하는 경우 네트워크에서 직렬 콘솔을 통해 연결하는 것보다 보안이 강화될 수 있습니다. HTTP 세션은 가장 안전한 연결 방법은 아니지만 신뢰할 수 있는 네트워크에서는 적합합니다.
 * HTTPS 세션을 통해 연결하는 것이 가장 안전하고 권장되는 옵션입니다.
 
 ## <a name="administer-your-storsimple-device-using-windows-powershell-for-storsimple"></a>StorSimple용 Windows PowerShell을 사용하여 StorSimple 디바이스 관리
@@ -155,7 +155,7 @@ StorSimple용 Windows PowerShell에 연결 하는 방법을 결정할 때 다음
 
 StorSimple용 Windows PowerShell에서 cmdlet 도움말을 사용할 수 있습니다. 시스템의 도움말을 업데이트하는 데 사용할 수 있는 이 도움말의 온라인 최신 버전도 제공됩니다.
 
-이 인터페이스에서 도움을 얻는 것은 Windows PowerShell에서 도움을 얻는 것과 비슷하지만 대부분의 도움말 관련 cmdlet이 작동 합니다. Windows PowerShell 온라인에 대한 도움말([Microsoft.PowerShell.Core](/powershell/module/Microsoft.PowerShell.Core/))을 찾을 수 있습니다.
+이 인터페이스에서 도움을 받는 방법은 Windows PowerShell에서 도움을 받는 방법과 유사하며 대부분의 도움말 관련 cmdlet이 작동합니다. Windows PowerShell 온라인에 대한 도움말([Microsoft.PowerShell.Core](/powershell/module/Microsoft.PowerShell.Core/))을 찾을 수 있습니다.
 
 <!--The following is a brief description of the types of Help for this Windows PowerShell interface, including how to update the Help. - OK to remove? Transition not needed.-->
 
@@ -173,7 +173,7 @@ Windows PowerShell 인터페이스에서 도움말을 쉽게 업데이트할 수
 1. **관리자 권한으로 실행** 옵션을 사용하여 Windows PowerShell을 시작합니다.
 2. 명령 프롬프트에 `Update-Help`를 입력합니다.
 3. 업데이트된 도움말 파일이 설치됩니다.
-4. 도움말 파일이 설치 되 면 다음을 입력 `Get-Help Get-Command` 하 여 도움말을 사용할 수 있는 cmdlet의 목록을 표시 합니다.
+4. 도움말 파일이 설치되면 `Get-Help Get-Command`를 입력하여 도움말을 사용할 수 있는 cmdlet 목록을 표시합니다.
 
 > [!NOTE]
 > Runspace에서 사용 가능한 모든 cmdlet의 목록을 가져오려면 해당 메뉴 옵션에 로그인한 다음 `Get-Command` cmdlet을 실행합니다.

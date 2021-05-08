@@ -1,5 +1,5 @@
 ---
-title: 내 앱 포털의 컬렉션(미리 보기) - Azure AD
+title: 내 앱 포털에서 앱을 컬렉션으로 구성 - Azure AD
 description: 내 앱에서 앱 컬렉션을 만들고, 편집하고, 삭제하고, 숨기고, 표시하는 방법을 알아봅니다.
 services: active-directory
 author: curtand
@@ -8,22 +8,20 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/19/2021
+ms.date: 04/07/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 843f957ef8871f6372c1b08a5534f6e90098cc85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ac5dede27262d3ce8bc44b4b278ed623063f8e1
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100095123"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209666"
 ---
-# <a name="user-collections-preview-in-my-apps"></a>내 앱의 사용자 컬렉션(미리 보기)
+# <a name="organize-apps-using-collections-from-my-apps"></a>내 앱 포털에서 컬렉션을 사용하여 앱 구성
 
 내 앱을 사용하면 한 곳에서 모든 회사 또는 학교 앱을 시작하고 관리할 수 있습니다. 컬렉션을 만들어 앱을 구성하고 필요한 앱을 보다 쉽게 찾을 수 있습니다.
-
-[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 이 문서에서는 다음을 수행하는 방법을 알아봅니다.
 
@@ -55,7 +53,7 @@ ms.locfileid: "100095123"
 
     :::image type="content" source="media/my-apps-portal-user-collections/3-add-apps.png" alt-text="목록에서 앱을 컬렉션에 추가":::
 
-1. 이후 앱의 순서를 바꾸거나 삭제할 수 있습니다. 또는 **앱 추가** 를 선택하여 컬렉션에 앱을 더 추가할 수 있습니다. 선택한 사항에 만족하면 **새로 만들기** 를 선택합니다.  
+1. **새로 만들기** 창에서 앱의 순서를 변경 또는 삭제하거나 **앱 추가** 를 선택하여 컬렉션에 앱을 추가할 수 있습니다. 선택한 사항에 만족하면 **새로 만들기** 를 선택합니다.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/4-create-button.png" alt-text="새로 만들기 단추를 선택하여 컬렉션을 내 앱에 저장":::
 

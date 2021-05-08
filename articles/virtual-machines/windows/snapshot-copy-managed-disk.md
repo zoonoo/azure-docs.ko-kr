@@ -1,6 +1,6 @@
 ---
-title: 포털 또는 PowerShell을 사용 하 여 가상 하드 드라이브의 스냅숏 만들기
-description: 포털 또는 PowerShell을 사용 하 여 백업으로 사용 하거나 문제를 해결 하기 위해 Azure VM의 복사본을 만드는 방법에 대해 알아봅니다.
+title: 포털 또는 PowerShell을 사용하여 가상 하드 드라이브의 스냅샷 만들기
+description: 포털 또는 PowerShell을 사용하여 백업 또는 문제 해결을 위해 사용할 Azure VM의 복사본을 만드는 방법을 알아봅니다.
 author: roygara
 manager: twooley
 ms.service: virtual-machines
@@ -10,13 +10,13 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.openlocfilehash: 9070b69ac4c6b85791ff3dd4662273e75a3cd22c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102556063"
 ---
-# <a name="create-a-snapshot-using-the-portal-or-powershell"></a>포털 또는 PowerShell을 사용 하 여 스냅숏 만들기
+# <a name="create-a-snapshot-using-the-portal-or-powershell"></a>포털 또는 PowerShell을 사용하여 스냅샷 만들기
 
 스냅샷은 VHD(가상 하드 드라이브)의 전체 읽기 전용 복사본입니다. 백업으로 사용 또는 VM(가상 머신) 문제 해결을 위해 OS 또는 데이터 디스크 VHD의 스냅샷을 만들 수 있습니다.
 
@@ -24,9 +24,9 @@ ms.locfileid: "102556063"
 
 ## <a name="use-the-azure-portal"></a>Azure Portal 사용 
 
-스냅숏을 만들려면 다음 단계를 완료 합니다. 
-1.  [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** 를 선택 합니다.
-2. **스냅숏** 을 검색 하 고 선택 합니다.
+스냅샷을 만들려면 다음 단계를 완료합니다. 
+1.  [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** 를 선택합니다.
+2. **스냅샷** 을 검색하고 선택합니다.
 3. **스냅샷** 창에서 만들기 **만들기** 를 선택합니다. **스냅샷 만들기** 창이 나타납니다.
 4. 스냅샷의 **이름** 을 입력합니다.
 5. 기존 [리소스 그룹](../../azure-resource-manager/management/overview.md#resource-groups)을 선택하거나 새 리소스 그룹의 이름을 입력합니다. 
@@ -37,7 +37,7 @@ ms.locfileid: "102556063"
 
 ## <a name="use-powershell"></a>PowerShell 사용
 
-다음 단계에서는 VHD 디스크를 복사 하 고 스냅숏 구성을 만드는 방법을 보여 줍니다. 그런 다음 [AzSnapshot](/powershell/module/az.compute/new-azsnapshot) cmdlet을 사용 하 여 디스크의 스냅숏을 만들 수 있습니다. 
+다음 단계에서는 VHD 디스크를 복사하고 스냅샷 구성을 만드는 방법을 보여 줍니다. 그런 다음 [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) cmdlet을 사용하여 디스크의 스냅샷을 만들 수 있습니다. 
 
  
 

@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub 장치 프로 비전 서비스를 사용 하 여 프로 비전 된 장치 프로 비전 해제
-description: Azure IoT Hub 장치 프로 비전 서비스 (DPS)를 사용 하 여 프로 비전 된 장치의 프로 비전을 해제 하는 방법
+title: Azure IoT Hub Device Provisioning Service로 프로비저닝된 디바이스의 프로비전을 해제
+description: Azure IoT Hub DPS(Device Provisioning Service)로 프로비저닝된 디바이스의 프로비전을 해제하는 방법
 author: wesmc7777
 ms.author: wesmc
 ms.date: 05/11/2018
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 7c91cd8cbb1a927a88f05fcea603c6a4ed6e1c14
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101719035"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>이전에 자동으로 프로비전된 디바이스의 프로비전을 해제하는 방법 
@@ -43,7 +43,7 @@ ms.locfileid: "101719035"
 
 
 ## <a name="enrollment-groups"></a>등록 그룹
-X.509 증명을 사용하면 등록 그룹을 통해 디바이스를 프로비전할 수도 있습니다. 등록 그룹은 중간 또는 루트 CA 인증서 중 하나인 서명 인증서로 구성되며, 인증서 체인에 해당 인증서가 있는 디바이스의 프로비전 서비스에 대한 액세스를 제어합니다. 프로 비전 서비스를 사용 하 여 등록 그룹 및 x.509 인증서에 대 한 자세한 내용은 [x.509 인증서 증명](concepts-x509-attestation.md)을 참조 하세요. 
+X.509 증명을 사용하면 등록 그룹을 통해 디바이스를 프로비전할 수도 있습니다. 등록 그룹은 중간 또는 루트 CA 인증서 중 하나인 서명 인증서로 구성되며, 인증서 체인에 해당 인증서가 있는 디바이스의 프로비전 서비스에 대한 액세스를 제어합니다. 프로비전 서비스를 사용하는 등록 그룹 및 X.509 인증서에 대한 자세한 내용은 [X.509 인증서](concepts-x509-attestation.md)를 참조하세요. 
 
 등록 그룹을 통해 프로비전된 디바이스 목록을 보려면 등록 그룹의 세부 정보를 확인하면 됩니다. 이는 각 디바이스가 프로비전된 IoT 허브를 이해하는 쉬운 방법입니다. 디바이스 목록을 보려면 다음을 수행합니다. 
 
@@ -57,7 +57,7 @@ X.509 증명을 사용하면 등록 그룹을 통해 디바이스를 프로비�
 등록 그룹에는 고려해야 할 다음 두 가지 시나리오가 있습니다.
 
 - 등록 그룹을 통해 프로비전된 모든 디바이스의 프로비전을 해제하려면:
-  1. 등록 그룹을 사용 하지 않도록 설정 하 여 서명 인증서를 허용 하지 않습니다. 
+  1. 등록 그룹을 사용하지 않도록 설정하여 서명 인증서를 허용하지 않습니다. 
   2. 해당 등록 그룹에 대해 프로비전된 디바이스 목록을 사용하여 해당 IoT Hub의 ID 레지스트리에서 각 디바이스를 사용하지 않도록 설정하거나 삭제합니다. 
   3. 해당 IoT 허브에서 모든 디바이스를 사용하지 않도록 설정하거나 삭제한 후 필요에 따라 등록 그룹을 삭제할 수 있습니다. 하지만 등록 그룹을 삭제하고 하나 이상의 디바이스에 대한 인증서 체인에서 상위에 있는 서명 인증서에 대해 사용하도록 설정된 등록 그룹이 있는 경우 해당 디바이스를 다시 등록할 수 있습니다. 
 

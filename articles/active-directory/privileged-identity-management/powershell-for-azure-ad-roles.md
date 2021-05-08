@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2774c63d34de3de951aa8076b56d203b976158ec
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102548753"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대한 PowerShell
@@ -30,7 +30,7 @@ ms.locfileid: "102548753"
 > [!Note]
 > 공식 PowerShell은 새 버전의 Azure AD Privileged Identity Management를 사용하는 경우에만 지원됩니다. Privileged Identity Management로 이동하여 빠른 시작 블레이드에 다음 배너가 있는지 확인하세요.
 > [![사용하는 Privileged Identity Management 버전 확인](media/pim-how-to-add-role-to-user/pim-new-version.png "Azure AD > Privileged Identity Management 선택")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox) 이 배너가 없으면 기다려주세요. 앞으로 몇 주 동안 업데이트된 환경을 출시하기 위한 작업을 진행하고 있습니다.
-> Privileged Identity Management PowerShell cmdlet은 Azure AD Preview 모듈을 통해 지원됩니다. 다른 모듈을 사용 중이고 해당 모듈이 오류 메시지를 반환하면 이 새 모듈로 시작하세요. 다른 모듈 위에 빌드된 프로덕션 시스템이 있는 경우에 문의 하세요 [pim_preview@microsoft.com](mailto:pim_preview@microsoft.com) .
+> Privileged Identity Management PowerShell cmdlet은 Azure AD Preview 모듈을 통해 지원됩니다. 다른 모듈을 사용 중이고 해당 모듈이 오류 메시지를 반환하면 이 새 모듈로 시작하세요. 다른 모듈을 기반으로 하는 프로덕션 시스템을 사용하는 경우 [pim_preview@microsoft.com](mailto:pim_preview@microsoft.com)으로 문의하세요.
 
 ## <a name="installation-and-setup"></a>설치 및 설정
 
@@ -49,12 +49,12 @@ ms.locfileid: "102548753"
     Connect-AzureAD -Credential $AzureAdCred
     ```
 
-1. **Azure Active Directory**  >  **속성**  >  **디렉터리 id** 로 이동 하 여 Azure AD 조직에 대 한 테 넌 트 ID를 찾습니다. cmdlet 섹션에서 resourceId를 입력해야 할 때마다 이 ID를 사용합니다.
+1. **Azure Active Directory** > **속성** > **디렉터리 ID** 로 이동하여 Azure AD 조직의 테넌트 ID를 찾습니다. cmdlet 섹션에서 resourceId를 입력해야 할 때마다 이 ID를 사용합니다.
 
     ![Azure AD 조직의 속성에서 조직 ID 찾기](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> 다음 섹션은 실행하는 데 도움이 되는 간단한 예제입니다. 에서 다음 cmdlet에 대 한 자세한 설명서를 찾을 수 있습니다 [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management) . 그러나 providerID 매개 변수에서 "azureResources"를 "aadRoles"로 바꾸어야 합니다. 또한 Azure AD 조직에 대 한 테 넌 트 ID를 resourceId 매개 변수로 사용 해야 합니다.
+> 다음 섹션은 실행하는 데 도움이 되는 간단한 예제입니다. 다음 cmdlet에 대한 자세한 설명서는 [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management)에서 찾을 수 있습니다. 하지만 providerID 매개 변수에서 "azureResources"를 "aadRoles"로 바꿔야 합니다. 또한 Azure AD 조직의 테넌트 ID를 resourceId 매개 변수로 사용해야 합니다.
 
 ## <a name="retrieving-role-definitions"></a>역할 정의 검색
 
@@ -140,7 +140,7 @@ Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq
 
 설정에는 네 가지 주요 개체가 있습니다. 이러한 개체 중 세 개만 현재 PIM에서 사용됩니다. UserMemberSettings는 활성화 설정이고, AdminEligibleSettings는 적격 할당에 대한 할당 설정이고, AdminmemberSettings는 활성 할당에 대한 할당 설정입니다.
 
-[![역할 설정을 가져오고 업데이트 합니다.](media/powershell-for-azure-ad-roles/get-update-role-settings-result.png)](media/powershell-for-azure-ad-roles/get-update-role-settings-result.png#lightbox)
+[![역할 설정을 가져오고 업데이트합니다.](media/powershell-for-azure-ad-roles/get-update-role-settings-result.png)](media/powershell-for-azure-ad-roles/get-update-role-settings-result.png#lightbox)
 
 역할 설정을 업데이트하려면 특정 역할의 기존 설정 개체를 가져와서 변경해야 합니다.
 

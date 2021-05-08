@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: danis
 ms.openlocfilehash: 276f5f4542ecea42c665764b8c4e5f66f2531126
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102552714"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Azure용 SLES 또는 openSUSE 가상 머신 준비
@@ -31,9 +31,9 @@ ms.locfileid: "102552714"
 ## <a name="use-suse-studio"></a>SUSE Studio 사용
 [SUSE Studio](https://studioexpress.opensuse.org/) 에서는 Azure와 Hyper-V용 SLES 및 openSUSE 이미지를 쉽게 만들고 관리할 수 있습니다. 고유한 SLES 및 openSUSE 이미지를 사용자 지정할 때는 이 방식을 사용하는 것이 좋습니다.
 
-사용자 고유의 VHD를 구축 하는 대신, SUSE는 [VM 센터](https://www.microsoft.com/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf)에서 SLES에 대 한 byos (사용자 고유의 구독 가져오기) 이미지를 게시 합니다.
+또한 SUSE는 [VM Depot](https://www.microsoft.com/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf)에 SLES용 BYOS(Bring Your Own Subscription) 이미지도 게시하므로 VHD를 직접 작성하는 대신 이 이미지를 사용할 수 있습니다.
 
-## <a name="prepare-suse-linux-enterprise-server-for-azure"></a>Azure에 대 한 SUSE Linux Enterprise Server 준비
+## <a name="prepare-suse-linux-enterprise-server-for-azure"></a>Azure용 SUSE Linux Enterprise Server 준비
 1. Hyper-V 관리자의 가운데 창에서 가상 머신을 선택합니다.
 2. **연결** 을 클릭하여 가상 머신 창을 엽니다.
 3. 업데이트를 다운로드하고 패키지를 설치할 수 있도록 SUSE Linux Enterprise 시스템을 등록합니다.
@@ -43,7 +43,7 @@ ms.locfileid: "102552714"
     # sudo zypper update
     ```
     
-5. Azure Linux 에이전트 및 클라우드 초기화 설치
+5. Azure Linux 에이전트 및 cloud-init를 설치합니다.
 
     ```console
     # SUSEConnect -p sle-module-public-cloud/15.2/x86_64  (SLES 15 SP2)
@@ -52,7 +52,7 @@ ms.locfileid: "102552714"
     # sudo zypper install cloud-init
     ```
 
-6. Waagent & cloud-init를 사용 하 여 부팅 시 시작
+6. waagent 및 cloud-init가 부팅 시 시작하도록 설정합니다.
 
     ```console
     # sudo chkconfig waagent on
@@ -64,7 +64,7 @@ ms.locfileid: "102552714"
     # cloud-init clean
     ```
 
-7. Waagent 및 클라우드 초기화 구성 업데이트
+7. waagent 및 cloud-init 구성을 업데이트합니다.
 
     ```console
     # sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
@@ -74,14 +74,14 @@ ms.locfileid: "102552714"
     # sudo sh -c 'printf "reporting:\n  logging:\n    type: log\n  telemetry:\n    type: hyperv" > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg'
     ```
 
-8. /Etc/default/grub 파일을 편집 하 여 콘솔 로그가 직렬 포트로 전송 되는지 확인 한 다음 grub2-grub2-mkconfig-o/boot/grub2/grub.cfg를 사용 하 여 주 구성 파일을 업데이트 합니다.
+8. /etc/default/grub 파일을 편집하여 콘솔 로그가 직렬 포트로 전송되는지 확인한 다음 grub2-mkconfig -o /boot/grub2/grub.cfg를 사용하여 주 구성 파일을 업데이트합니다.
 
     ```config-grub
     console=ttyS0 earlyprintk=ttyS0 rootdelay=300
     ```
     이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데 도움이 될 수 있습니다.
     
-9. /Etc/fstab 파일이 UUID를 사용 하 여 디스크를 참조 하는지 확인 합니다 (uuid).
+9. /etc/fstab 파일이 UUID(by-uuid)를 사용하여 디스크를 참조하는지 확인합니다.
          
 10. 이더넷 인터페이스에 대한 정적 규칙을 생성하지 않도록 방지하는 udev 규칙을 수정합니다. 이러한 규칙은 Microsoft Azure 또는 Hyper-V에서 가상 머신을 복제하는 경우 문제를 발생시킬 수 있습니다.
 
@@ -105,20 +105,20 @@ ms.locfileid: "102552714"
 
 13. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다. 보통 SSH 서버는 기본적으로 이와 같이 구성되어 있습니다.
 
-14. 구성 교환
+14. 스왑 구성
  
     운영 체제 디스크에 스왑 공간을 만들지 마세요.
 
-    이전에는 azure Linux 에이전트를 사용 하 여 Azure에서 가상 머신을 프로 비전 한 후 가상 머신에 연결 된 로컬 리소스 디스크를 사용 하 여 스왑 공간을 자동으로 구성 했습니다. 그러나이는 이제 클라우드 init에서 처리 됩니다. Linux 에이전트를 사용 하 여 리소스 디스크에서 스왑 파일을 만드는 형식을 지정 하지 않고 다음 매개 변수를 적절 하 게 수정 **해야 합니다** `/etc/waagent.conf` .
+    이전에는 Azure Linux 에이전트가 Azure에서 가상 머신을 프로비저닝한 후에 가상 머신에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있었습니다. 그러나 이제 해당 작업은 cloud-init에서 처리되므로, Linux 에이전트를 사용하여 리소스 디스크의 형식을 지정해 스왑 파일을 생성해서는 **안 되며**, `/etc/waagent.conf`에서 다음 매개 변수를 알맞게 수정합니다.
 
     ```console
     # sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
     # sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
     ```
 
-    탑재, 형식 지정 및 바꾸기를 원하는 경우 다음 중 하나를 수행할 수 있습니다.
-    * VM을 만들 때마다이를 클라우드 init 구성으로 전달 합니다.
-    * VM을 만들 때마다이를 수행 하는 이미지에 클라우드 init 지시어 구운를 사용 합니다.
+    스왑을 생성, 탑재, 형식 지정하고자 하는 경우 다음 방법 중 하나를 수행합니다.
+    * VM을 만들 때마다 cloud-init 구성으로 해당 작업을 전달합니다.
+    * VM이 생성될 때마다 해당 작업을 수행할 이미지에 베이킹된 cloud-init 지시문을 사용합니다.
 
         ```console
         cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
@@ -162,11 +162,11 @@ ms.locfileid: "102552714"
 2. **연결** 을 클릭하여 가상 머신 창을 엽니다.
 3. 셸에서 '`zypper lr`' 명령을 실행합니다. 이 명령에서 다음과 유사한 출력이 반환되는 경우 리포지토리가 예상대로 구성된 것입니다. 이 경우 아무 것도 조정할 필요가 없습니다(버전 번호는 다를 수 있음).
 
-   | # | Alias                 | Name                  | 사용 | 새로 고침
+   | # | Alias                 | 이름                  | 사용 | 새로 고침
    | - | :-------------------- | :-------------------- | :------ | :------
-   | 1 | 클라우드: Tools_13.1      | 클라우드: Tools_13.1      | 예     | 예
-   | 2 | openSUSE_13 openSUSE_13.1_OSS     | openSUSE_13 openSUSE_13.1_OSS     | 예     | 예
-   | 3 | openSUSE_13 openSUSE_13.1_Updates | openSUSE_13 openSUSE_13.1_Updates | 예     | 예
+   | 1 | Cloud:Tools_13.1      | Cloud:Tools_13.1      | 예     | 예
+   | 2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | 예     | 예
+   | 3 | openSUSE_13.1_Updates | openSUSE_13.1_Updates | 예     | 예
 
     명령이 "정의된 리포지토리가 없습니다..."를 반환하면 다음 명령을 사용하여 해당 리포지토리를 추가합니다.
 

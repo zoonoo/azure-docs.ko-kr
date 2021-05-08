@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 04/22/2021
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: 593ec6588e2f55cb9f379dcfac437956bcabc10b
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 1062c8dfe416af2d39063bf71f39d52e151e28d3
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107951355"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100096075"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-page"></a>내 로그인 페이지에서 최근 로그인 활동 보기 및 검색
 
@@ -29,18 +29,18 @@ ms.locfileid: "107951355"
 >[!Note]
 > 개인 Microsoft 계정으로 로그인하는 동안 오류가 표시되는 경우, 다음 URL 중 하나에서 조직의 도메인 이름(예: contoso.com) 또는 관리자의 조직 **테넌트 ID** 를 사용하여 로그인할 수 있습니다.
 >
->   - `https://myaccount.microsoft.com?tenantId=<your_domain_name>`
->   - `https://myaccount.microsoft.com?tenant=<your_tenant_ID>`
+>   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+>   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
 
 ## <a name="view-your-recent-sign-in-activity"></a>최근 로그인 활동 보기
 
 1. 회사 또는 학교 계정에 로그인한 다음, https://myaccount.microsoft.com/ 페이지로 이동합니다.
 
-1. 왼쪽 탐색 창에서 **내 로그인** 을 선택하거나 **내 로그인** 블록에서 **최근 활동 검토** 링크를 선택합니다.
+2. 왼쪽 탐색 창에서 **내 로그인** 을 선택하거나 **내 로그인** 블록에서 **최근 활동 검토** 링크를 선택합니다.
 
     ![강조 표시된 최근 활동 링크가 표시된 내 계정 페이지](media/my-account-portal/my-account-portal-sign-ins.png)
 
-1. 각 로그인 항목을 확장하고 검토하여 각 항목을 인식할 수 있는지 확인합니다. 친숙하지 않은 로그인 항목이 있으면 계정이 손상될 경우를 대비하여 암호를 변경하여 계정을 보호하세요.
+3. 각 로그인 항목을 확장하고 검토하여 각 항목을 인식할 수 있는지 확인합니다. 친숙하지 않은 로그인 항목이 있으면 계정이 손상될 경우를 대비하여 암호를 변경하여 계정을 보호하세요.
 
     ![확장 로그인 세부 정보가 포함된 최근 활동 페이지](media/my-account-portal-sign-ins-page/recent-activity.png)
 
@@ -74,51 +74,9 @@ ms.locfileid: "107951355"
 
 ![로그인을 시도했거나 시도하지 않았음을 확인하는 비정상적인 로그인 타일](media/my-account-portal-sign-ins-page/this-wasnt-me.png)
 
-## <a name="view-sign-in-activity-on-android"></a>Android에서 로그인 활동 보기
-
-보안 정보를 보거나 변경할 때마다 회사 또는 학교 계정에 로그인해야 계속 진행할 수 있습니다.
-
-1. Microsoft Authenticator 앱을 열고 직장 또는 학교 계정의 홈 페이지를 선택합니다.
-
-1. **최근 계정 작업** 을 선택합니다.
-
-    ![최근 로그인 활동 링크가 강조 표시된 직장 또는 학교 계정 홈페이지](media/my-account-portal-sign-ins-page/android-recent-activity.png)
-
-1. 로그인에 성공하면 각 로그인 항목을 확장하고 검토하여 각 항목을 인식할 수 있는지 확인합니다. 친숙하지 않은 로그인 항목이 있으면 계정이 손상될 경우를 대비하여 암호를 변경하여 계정을 보호하세요.
-
-    ![로그인 세부 정보가 포함된 최근 활동 페이지](media/my-account-portal-sign-ins-page/android-activity-page.png)
-
-## <a name="change-your-password-on-android"></a>Android에서 암호 변경
-
-관리자는 사용자가 인증 앱으로부터 암호를 재설정할 수 있도록 할 수 있습니다. 보안 정보를 보거나 변경하기 위해 로그인할 때마다 회사 또는 학교 계정에 로그인해야 계속 진행할 수 있습니다.
-
-1. Microsoft Authenticator 앱을 열고 직장 또는 학교 계정의 홈 페이지를 선택합니다.
-
-1. **암호 변경** 을 선택합니다.
-
-    ![암호 변경 링크가 강조 표시된 회사 또는 학교 계정 홈 페이지](media/my-account-portal-sign-ins-page/android-change-password.png)
-
-1. 로그인에 성공하면 **암호 변경** 페이지에서 암호 정보를 업데이트할 수 있습니다.
-
-    ![이전 및 새 암호 항목이 있는 최근 활동 페이지](media/my-account-portal-sign-ins-page/android-password-page.png)
-
-## <a name="update-security-info-on-android"></a>Android에서 보안 정보 업데이트
-
-보안 정보를 보거나 변경하기 위해 로그인할 때마다 회사 또는 학교 계정에 로그인해야 계속 진행할 수 있습니다.
-
-1. Microsoft Authenticator 앱을 열고 직장 또는 학교 계정의 홈 페이지를 선택합니다.
-
-1. **보안 정보 업데이트** 를 선택합니다.
-
-    ![보안 정보 업데이트 링크가 강조 표시된 회사 또는 학교 계정 홈 페이지](media/my-account-portal-sign-ins-page/android-update-security-info.png)
-
-1. 로그인에 성공하면 **보안 정보** 페이지의 보안 세부 정보를 업데이트할 수 있습니다.
-
-    ![보안 정보가 있는 최근 작업 페이지](media/my-account-portal-sign-ins-page/android-security-info-page.png)
-
 ## <a name="next-steps"></a>다음 단계
 
-최근 로그인 정보를 확인한 후 다음을 수행할 수 있습니다.
+최근 로그인 작업을 확인한 후에 다음을 수행할 수 있습니다.
 
 - [보안 정보](./security-info-setup-signin.md)를 보거나 관리합니다.
 

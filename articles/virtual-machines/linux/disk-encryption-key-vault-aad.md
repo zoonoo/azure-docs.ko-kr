@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 4f256ced9444a67d5e2618b6fd816cb811f2920a
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 20cb94dd8bfca6adeba151d2169b1896cc7ff5a3
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107818839"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102557882"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release-for-linux-vms"></a>Linux VM용 Azure AD(이전 릴리스)를 사용하여 Azure Disk Encryption을 위한 키 자격 증명 모음 만들기 및 구성
 
 **Azure Disk Encryption의 새 릴리스는 Azure AD 애플리케이션 매개 변수 제공에 대한 요구 사항을 제거하여 VM 디스크 암호화를 사용하도록 설정합니다. 새 릴리스를 사용하면 암호화 단계를 사용하는 동안 더 이상 Azure AD 자격 증명을 제공할 필요가 없습니다. 모든 새 VM은 새 릴리스를 사용하는 Azure AD 애플리케이션 매개 변수를 사용하지 않고 암호화되어야 합니다. 새 릴리스를 사용한 VM 디스크 암호화 사용에 관한 지침을 보려면 [Azure Disk Encryption](disk-encryption-overview.md)을 참조하세요. Azure AD 애플리케이션 매개 변수를 사용하여 이미 암호화된 VM도 여전히 지원되며 AAD 구문을 사용하여 계속 유지 관리되어야 합니다.**
 
-Azure Disk Encryption은 Azure Key Vault를 사용하여 키 디스크 암호화 키와 비밀을 제어하고 관리합니다.  키 자격 증명 모음에 대한 자세한 내용은 [Azure Key Vault 시작](../../key-vault/general/overview.md) 및 [키 자격 증명 모음 보안](../../key-vault/general/security-features.md)을 참조하세요. 
+Azure Disk Encryption은 Azure Key Vault를 사용하여 키 디스크 암호화 키와 비밀을 제어하고 관리합니다.  키 자격 증명 모음에 대한 자세한 내용은 [Azure Key Vault 시작](../../key-vault/general/overview.md) 및 [키 자격 증명 모음 보안](../../key-vault/general/secure-your-key-vault.md)을 참조하세요. 
 
 Azure AD(이전 릴리스)에서 Azure Disk Encryption과 함께 사용할 키 자격 증명 모음을 만들고 구성하는 과정은 다음 세 단계로 구성됩니다.
 
-1. 키 자격 증명 모음을 만듭니다. 
+1. 키 자격 증명 모음을 생성합니다. 
 2. Azure AD 애플리케이션 및 서비스 주체를 설정합니다.
 3. Azure AD 응용 프로그램에 대한 키 자격 증명 모음 액세스 정책을 설정합니다.
 4. 키 자격 증명 모음에 대한 고급 액세스 정책을 설정합니다.
@@ -38,7 +38,7 @@ Azure AD(이전 릴리스)에서 Azure Disk Encryption과 함께 사용할 키 �
 
 
 ## <a name="create-a-key-vault"></a>키 자격 증명 모음 만들기 
-Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/)와 통합되어 키 자격 증명 모음 구독에서 디스크 암호화 키 및 비밀을 제어하고 관리할 수 있습니다. Azure Disk Encryption에 대한 키 자격 증명 모음을 만들거나 기존 키 자격 증명 모음을 사용할 수 있습니다. 키 자격 증명 모음에 대한 자세한 내용은 [Azure Key Vault 시작](../../key-vault/general/overview.md) 및 [키 자격 증명 모음 보안](../../key-vault/general/security-features.md)을 참조하세요. Resource Manager 템플릿, Azure PowerShell 또는 Azure CLI를 사용하여 키 자격 증명 모음을 만들 수 있습니다. 
+Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/)와 통합되어 키 자격 증명 모음 구독에서 디스크 암호화 키 및 비밀을 제어하고 관리할 수 있습니다. Azure Disk Encryption에 대한 키 자격 증명 모음을 만들거나 기존 키 자격 증명 모음을 사용할 수 있습니다. 키 자격 증명 모음에 대한 자세한 내용은 [Azure Key Vault 시작](../../key-vault/general/overview.md) 및 [키 자격 증명 모음 보안](../../key-vault/general/secure-your-key-vault.md)을 참조하세요. Resource Manager 템플릿, Azure PowerShell 또는 Azure CLI를 사용하여 키 자격 증명 모음을 만들 수 있습니다. 
 
 
 >[!WARNING]
@@ -66,16 +66,16 @@ Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/documenta
 
 
 ### <a name="create-a-key-vault-with-azure-cli"></a><a name="bkmk_KVCLI"></a> Azure CLI를 사용하여 키 자격 증명 모음 만들기
-[az keyvault](/cli/azure/keyvault#commands) 명령을 사용하여 Azure CLI를 통해 키 자격 증명 모음을 관리할 수 있습니다. 키 자격 증명 모음을 만들려면 [az keyvault create](/cli/azure/keyvault#az_keyvault_create)를 사용합니다.
+[az keyvault](/cli/azure/keyvault#commands) 명령을 사용하여 Azure CLI를 통해 키 자격 증명 모음을 관리할 수 있습니다. 키 자격 증명 모음을 만들려면 [az keyvault create](/cli/azure/keyvault#az-keyvault-create)를 사용합니다.
 
-1. 필요한 경우 [az group create](/cli/azure/group#az_group_create)를 사용하여 새 리소스 그룹을 만듭니다. 위치를 나열하려면 [az account list-locations](/cli/azure/account#az_account_list)를 사용합니다. 
+1. 필요한 경우 [az group create](/cli/azure/group#az-group-create)를 사용하여 새 리소스 그룹을 만듭니다. 위치를 나열하려면 [az account list-locations](/cli/azure/account#az-account-list)를 사용합니다. 
      
      ```azurecli-interactive
      # To list locations: az account list-locations --output table
      az group create -n "MyKeyVaultResourceGroup" -l "East US"
      ```
 
-3. [az keyvault create](/cli/azure/keyvault#az_keyvault_create)를 사용하여 새 키 자격 증명 모음을 만듭니다.
+3. [az keyvault create](/cli/azure/keyvault#az-keyvault-create)를 사용하여 새 키 자격 증명 모음을 만듭니다.
     
      ```azurecli-interactive
      az keyvault create --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --location "East US"
@@ -151,7 +151,7 @@ Azure AD 애플리케이션에 자격 증명 모음의 키 또는 암호에 액�
      ```
 
 ### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-azure-cli"></a><a name="bkmk_KVAPCLI"></a> Azure CLI를 사용하여 Azure AD 응용 프로그램에 대한 키 자격 증명 모음 액세스 정책 설정
-[az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy)를 사용하여 액세스 정책을 설정합니다. 자세한 내용은 [CLI 2.0을 사용하여 Key Vault 관리](../../key-vault/general/manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret)를 참조하세요.
+[az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy)를 사용하여 액세스 정책을 설정합니다. 자세한 내용은 [CLI 2.0을 사용하여 Key Vault 관리](../../key-vault/general/manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret)를 참조하세요.
 
 다음 명령을 사용하여 비밀 및 래핑 키를 가져오려면 Azure CLI 액세스를 통해 만든 서비스 주체에게 액세스 권한을 부여합니다.
 
@@ -197,7 +197,7 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
      ```
 
 ### <a name="set-key-vault-advanced-access-policies-using-the-azure-cli"></a><a name="bkmk_KVperCLI"></a> Azure CLI를 사용하여 키 자격 증명 모음에 대한 고급 액세스 정책 설정
-[az keyvault update](/cli/azure/keyvault#az_keyvault_update)를 사용하여 키 자격 증명 모음에 대한 디스크 암호화를 사용하도록 설정합니다. 
+[az keyvault update](/cli/azure/keyvault#az-keyvault-update)를 사용하여 키 자격 증명 모음에 대한 디스크 암호화를 사용하도록 설정합니다. 
 
  - **디스크 암호화에 Key Vault 사용:** Enabled-for-disk-encryption이 필요합니다. 
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Portal의 특수 한 VHD에서 Windows VM 만들기
+title: Azure Portal의 특수한 VHD에서 Windows VM 만들기
 description: Azure Portal의 VHD에서 새 Windows VM을 만듭니다.
 author: cynthn
 ms.service: virtual-machines
@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 01/18/2019
 ms.author: cynthn
 ms.openlocfilehash: a93ab207960133ecbf5a68927c5d16a6daf94fd4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102562217"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Azure Portal을 사용하여 VHD에서 VM 만들기
@@ -26,14 +26,14 @@ Azure에서 VM(가상 머신)을 만드는 방법은 여러 가지가 있습니�
 
 - 클래식 VM 및 VHD를 사용하여 Resource Manager 배포 모델 및 관리 디스크를 사용하는 새 VM을 만듭니다. 최상의 결과를 위해 스냅샷을 만들기 전에 Azure Portal에서 클래식 VM을 **중지** 합니다.
  
-- 온-프레미스 VHD를 업로드하고 새 VM에 연결하여 온-프레미스 VHD에서 Azure VM을 만들 수 있습니다. PowerShell 또는 다른 도구를 사용하여 VHD를 스토리지 계정에 업로드한 다음, VHD에서 관리 디스크를 만듭니다. 자세한 내용은 [특수 한 VHD 업로드](create-vm-specialized.md#option-2-upload-a-specialized-vhd)를 참조 하세요. 
+- 온-프레미스 VHD를 업로드하고 새 VM에 연결하여 온-프레미스 VHD에서 Azure VM을 만들 수 있습니다. PowerShell 또는 다른 도구를 사용하여 VHD를 스토리지 계정에 업로드한 다음, VHD에서 관리 디스크를 만듭니다. 자세한 내용은 [특수 VHD 업로드](create-vm-specialized.md#option-2-upload-a-specialized-vhd)를 참조하세요. 
 
 > [!IMPORTANT]
 > 
-> 특수 한 디스크를 사용 하 여 새 VM을 만드는 경우 새 VM은 원래 VM의 컴퓨터 이름을 유지 합니다. 다른 컴퓨터 관련 정보 (예: CMID)도 유지 되며, 경우에 따라 중복 된 정보로 인해 문제가 발생할 수 있습니다. VM을 복사할 때 애플리케이션이 어떤 유형의 컴퓨터 관련 정보에 의존하는지 알아야 합니다.  
-> 따라서 여러 Vm을 만들려는 경우 특수 한 디스크를 사용 하지 마세요. 대신 대규모 배포의 경우 [이미지를 만든](capture-image-resource.md) 다음, [해당 이미지를 사용하여 여러 VM을 만듭니다](create-vm-generalized-managed.md).
+> 특수한 디스크를 사용하여 새 VM을 만드는 경우 새 VM은 원본 VM의 컴퓨터 이름을 그대로 유지합니다. 다른 컴퓨터 관련 정보(예: CMID)도 유지되며, 경우에 따라 이 중복된 정보로 인해 문제가 발생할 수 있습니다. VM을 복사할 때 애플리케이션이 어떤 유형의 컴퓨터 관련 정보에 의존하는지 알아야 합니다.  
+> 따라서 여러 VM을 만들려는 경우 특수 디스크를 사용하지 마세요. 대신 대규모 배포의 경우 [이미지를 만든](capture-image-resource.md) 다음, [해당 이미지를 사용하여 여러 VM을 만듭니다](create-vm-generalized-managed.md).
 
-단일 스냅숏 또는 VHD에서 20 개의 Vm에 대 한 동시 배포 수를 제한 하는 것이 좋습니다. 
+단일 스냅샷 또는 VHD에서 동시 배포 수를 20개의 VM으로 제한하는 것이 좋습니다. 
 
 ## <a name="copy-a-disk"></a>디스크 복사
 
@@ -50,7 +50,7 @@ Azure에서 VM(가상 머신)을 만드는 방법은 여러 가지가 있습니�
 9. 스냅샷이 만들어진 후 왼쪽 메뉴에서 **리소스 만들기** 를 선택합니다.
 10. 검색 상자에 **관리 디스크** 를 입력한 다음, 목록에서 **Managed Disks** 를 선택합니다.
 11. **Managed Disks** 페이지에서 **만들기** 를 선택합니다.
-12. 디스크의 **이름을** 입력 합니다.
+12. 디스크에 사용할 **이름** 을 입력합니다.
 13. 디스크에 대한 **리소스 그룹** 을 선택합니다. 기존 리소스 그룹을 사용하거나 새로 만들 수 있습니다. 이 선택 항목은 디스크에서 VM을 만드는 경우의 리소스 그룹으로 사용됩니다.
 14. **계정 유형** 의 경우 **표준(HDD)** 또는 **프리미엄(SSD)** 스토리지를 선택합니다.
 15. **원본 유형** 에서 **스냅샷** 을 선택했는지 확인합니다.

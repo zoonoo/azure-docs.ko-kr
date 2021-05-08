@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.openlocfilehash: 87aa1344b3fbe0d11c1c5cdfa8a56560d67eb54f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102555553"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>D: 드라이브를 Windows VM의 데이터 드라이브로 사용
@@ -29,7 +29,7 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 
 ## <a name="temporarily-move-pagefilesys-to-c-drive"></a> pagefile.sys를 C 드라이브로 임시 이동
 1. 가상 머신에 연결합니다. 
-2. **시작** 메뉴를 마우스 오른쪽 단추로 클릭 하 고 **시스템** 을 선택 합니다.
+2. **시작** 메뉴를 마우스 오른쪽 단추로 클릭하고 **시스템** 을 선택합니다.
 3. 왼쪽 메뉴에서 **고급 시스템 설정** 을 선택합니다.
 4. **성능** 섹션에서 **설정** 을 선택합니다.
 5. **고급** 탭을 선택합니다.
@@ -48,7 +48,7 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 6. 드라이브 문자에서 드라이브 **D** 를 선택한 후 **확인** 을 클릭합니다. 
 
 ## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>pagefile.sys를 임시 스토리지 드라이브로 다시 이동합니다.
-1. **시작** 메뉴를 마우스 오른쪽 단추로 클릭 하 고 **시스템** 을 선택 합니다.
+1. **시작** 메뉴를 마우스 오른쪽 단추로 클릭하고 **시스템** 을 선택합니다.
 2. 왼쪽 메뉴에서 **고급 시스템 설정** 을 선택합니다.
 3. **성능** 섹션에서 **설정** 을 선택합니다.
 4. **고급** 탭을 선택합니다.
@@ -59,4 +59,4 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 9. 가상 컴퓨터를 다시 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [추가 데이터 디스크를 연결](attach-managed-disk-portal.md)하 여 가상 컴퓨터에 사용할 수 있는 저장소를 늘릴 수 있습니다.
+* [추가 데이터 디스크를 연결](attach-managed-disk-portal.md)하여 가상 머신에서 사용할 수 있는 스토리지를 늘릴 수 있습니다.

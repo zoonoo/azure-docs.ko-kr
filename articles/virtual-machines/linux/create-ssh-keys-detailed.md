@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 07/31/2020
 ms.author: cynthn
 ms.openlocfilehash: 9d888de78432558cda8e08c3de91be9673231b47
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102554720"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>자세한 단계: Azure에서 Linux VM 인증을 위해 SSH 키 만들기 및 관리
 
-SSH (보안 셸) 키 쌍을 사용 하면 인증을 위해 SSH 키를 사용 하는 Linux 가상 컴퓨터를 만들 수 있습니다. 이 문서에서는 ssh 클라이언트 연결을 위해 SSH RSA 공개-개인 키 파일 쌍을 만들고 사용 하는 방법을 보여 줍니다.
+SSH(Secure Shell) 키 쌍을 사용하면 인증에 SSH 키를 사용하는 Linux 가상 머신을 만들 수 있습니다. 이 문서에서는 SSH 클라이언트 연결을 위해 SSH RSA 퍼블릭 및 프라이빗 키 파일 쌍을 만들고 사용하는 방법을 보여 줍니다.
 
 빠른 명령을 원하는 경우 [Azure에서 Linux VM용 SSH 퍼블릭 및 프라이빗 키 쌍을 만드는 방법](mac-create-ssh-keys.md)을 참조하세요.
 
-SSH 키를 만들고이 키를 사용 하 여 **windows** 컴퓨터에서에 연결 하려면 [Azure에서 windows를 사용 하 여 ssh 키를 사용 하는 방법](ssh-from-windows.md)을 참조 하세요. 또한 [Azure Portal](../ssh-keys-portal.md) 를 사용 하 여 포털에서 vm을 만들기 위한 SSH 키를 만들고 관리할 수 있습니다.
+SSH 키를 만들고 해당 키를 사용해 **Windows** 컴퓨터에 연결하려면 [Azure에서 Windows로 SSH 키를 사용하는 방법](ssh-from-windows.md)을 참조하세요. [Azure Portal](../ssh-keys-portal.md)을 사용하여 포털에서 VM 생성을 위한 SSH 키를 만들고 관리할 수도 있습니다.
 
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 
@@ -28,7 +28,7 @@ SSH 키를 만들고이 키를 사용 하 여 **windows** 컴퓨터에서에 연
 
 ## <a name="ssh-keys-use-and-benefits"></a>SSH 키 용도 및 이점
 
-공개 키를 지정하여 Azure VM을 만들 경우 Azure는 VM에서 공개 키(`.pub` 형식의)를 `~/.ssh/authorized_keys` 폴더에 복사합니다. `~/.ssh/authorized_keys`의 SSH 키는 SSH 연결에서 일치하는 해당 프라이빗 키를 입력하라는 챌린지를 클라이언트에 표시하는 데 사용됩니다. 인증에 SSH 키를 사용하는 Azure Linux VM에서 Azure는 암호 로그인을 허용하지 않고 SSH 키만 허용하도록 SSHD 서버를 구성합니다. SSH 키를 사용 하 여 Azure Linux VM을 만들면 VM 배포 보안을 유지 하 고 파일에서 암호를 사용 하지 않도록 설정 하는 일반적인 사후 배포 구성 단계를 줄일 수 있습니다 `sshd_config` .
+공개 키를 지정하여 Azure VM을 만들 경우 Azure는 VM에서 공개 키(`.pub` 형식의)를 `~/.ssh/authorized_keys` 폴더에 복사합니다. `~/.ssh/authorized_keys`의 SSH 키는 SSH 연결에서 일치하는 해당 프라이빗 키를 입력하라는 챌린지를 클라이언트에 표시하는 데 사용됩니다. 인증에 SSH 키를 사용하는 Azure Linux VM에서 Azure는 암호 로그인을 허용하지 않고 SSH 키만 허용하도록 SSHD 서버를 구성합니다. SSH 키를 사용하여 Azure Linux VM을 만들면 VM 배포 보안을 유지하고 `sshd_config` 파일에서 암호를 사용하지 않도록 설정하는 일반 사후 배포 구성 단계를 줄일 수 있습니다.
 
 SSH 키를 사용하지 않지 않더라도 Linux VM을 설정해 암호 인증을 사용할 수 있습니다. VM이 인터넷에 노출되지 않는 경우에는 암호만 사용 하는 것으로도 충분할 수 있습니다. 그렇지만 지속적으로 각 Linux VM에 대한 암호를 관리하고, 최소 암호 길이, 정기 업데이트 등 정상적 암호 정책 및 사례들을 유지 관리해야 합니다. 
 
@@ -40,7 +40,7 @@ SSH 키는 기본적으로 `~/.ssh` 디렉터리에 보관됩니다.  `~/.ssh` �
 
 ### <a name="basic-example"></a>기본 예제
 
-다음 `ssh-keygen` 명령은 기본적으로 디렉터리에 4096 비트 SSH RSA 공개 및 개인 키 파일을 생성 합니다 `~/.ssh` . SSH 키 쌍이 현재 위치에 있으면 이러한 파일은 덮어쓰여집니다.
+다음 `ssh-keygen` 명령은 기본적으로 `~/.ssh` 디렉터리에 4,096비트 SSH RSA 퍼블릭 및 프라이빗 키 파일을 생성합니다. SSH 키 쌍이 현재 위치에 있으면 이러한 파일은 덮어쓰여집니다.
 
 ```bash
 ssh-keygen -m PEM -t rsa -b 4096
@@ -185,7 +185,7 @@ ssh-add ~/.ssh/id_rsa
 
 ## <a name="use-ssh-copy-id-to-copy-the-key-to-an-existing-vm"></a>키를 기존 VM에 복사하는 데 ssh-copy-id 사용
 
-VM을 이미 만든 경우를 사용 하 여 Linux VM에 새 SSH 공개 키를 추가할 수 있습니다 `ssh-copy-id` .
+VM을 이미 만든 경우 `ssh-copy-id`를 사용하여 Linux VM에 새 SSH 퍼블릭 키를 추가할 수 있습니다.
 
 ```bash
 ssh-copy-id -i ~/.ssh/id_rsa.pub azureuser@myserver
@@ -209,7 +209,7 @@ touch ~/.ssh/config
 vim ~/.ssh/config
 ```
 
-VM 호스트에 대해 적절한 구성 설정을 추가합니다. 이 예제에서 VM 이름은 *myvm* 이 고 계정 이름은 *azureuser* 입니다.
+VM 호스트에 대해 적절한 구성 설정을 추가합니다. 이 예제에서 VM 이름은 *myvm* 이고 계정 이름은 *azureuser* 입니다.
 
 ```bash
 # Azure Keys

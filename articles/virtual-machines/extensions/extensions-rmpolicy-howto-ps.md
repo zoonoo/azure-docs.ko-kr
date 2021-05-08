@@ -1,5 +1,5 @@
 ---
-title: Azure Policy를 사용 하 여 VM 확장 설치 제한 (Windows)
+title: Azure Policy를 사용하여 VM 확장 설치(Windows)
 description: Azure Policy를 사용하여 확장 배포 제한
 ms.topic: article
 ms.service: virtual-machines
@@ -9,15 +9,15 @@ ms.author: amjads
 ms.collection: windows
 ms.date: 03/23/2018
 ms.openlocfilehash: 0587c2af8a90ce362fa6243e9da8a05734f0d8ec
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102559752"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Azure Policy를 사용하여 Windows VM의 확장 설치 제한
 
-Windows Vm에서 특정 확장을 사용 하거나 설치 하지 못하도록 하려면 PowerShell을 사용 하 여 리소스 그룹 내의 Vm에 대 한 확장을 제한 하는 Azure Policy 정의를 만들 수 있습니다. 
+Windows VM에서 특정 확장을 사용하거나 설치하지 못하도록 하려면 PowerShell을 사용하여 리소스 그룹 내의 VM 확장을 제한하는 Azure Policy 정의를 만들 수 있습니다. 
 
 이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 Cloud Shell 내의 Azure PowerShell을 사용합니다. 
 
@@ -135,7 +135,7 @@ $assignment
 
 ## <a name="test-the-policy"></a>정책 테스트
 
-정책을 테스트하려면 VM 액세스 확장을 사용합니다. 다음은 "AzVMAccessExtension: Resource ' myVMAccess '가 정책에 의해 허용 되지 않았습니다." 라는 메시지와 함께 실패 합니다.
+정책을 테스트하려면 VM 액세스 확장을 사용합니다. 다음은 실패하고 “Set-AzVMAccessExtension : Resource ‘myVMAccess’ was disallowed by policy” 메시지가 표시되어야 합니다.
 
 ```azurepowershell-interactive
 Set-AzVMAccessExtension `
@@ -145,7 +145,7 @@ Set-AzVMAccessExtension `
    -Location EastUS 
 ```
 
-포털에서 암호 변경은 실패하고 “정책 위반으로 인해 템플릿 배포에 실패했습니다.” 메시지를 출력하는 간단한 코드가 들어 있습니다.
+포털에서 암호 변경은 실패하고 “정책 위반으로 인해 템플릿 배포에 실패했습니다.” 메시지로 응답합니다.
 
 ## <a name="remove-the-assignment"></a>할당 제거
 

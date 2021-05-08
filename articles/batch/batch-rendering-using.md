@@ -6,16 +6,16 @@ ms.author: markscu
 ms.date: 03/12/2020
 ms.topic: how-to
 ms.openlocfilehash: dc3d2cc53b478b1ec955d8f4b3717b0407772849
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103496629"
 ---
 # <a name="using-azure-batch-rendering"></a>Azure Batch 렌더링 사용
 
 > [!IMPORTANT]
-> 렌더링 VM 이미지 및 사용 요금 청구 라이선스는 더 이상 사용 되지 [않으며 29 년 2 월 2024 일에 사용 중지 됩니다](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). 렌더링에 Batch를 사용 하려면 [사용자 지정 VM 이미지와 표준 응용 프로그램 라이선스를 사용 해야 합니다.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
+> 렌더링 VM 이미지 및 사용 요금 청구 라이선스는 [더 이상 사용되지 않으며 2024년 2월 29일에 지원이 종료](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/)됩니다. 렌더링에 Batch를 사용하려면 [사용자 지정 VM 이미지와 표준 애플리케이션 라이선싱을 사용해야 합니다.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 몇 가지 방법으로 Azure Batch 렌더링을 사용할 수 있습니다.
 

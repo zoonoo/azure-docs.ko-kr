@@ -1,19 +1,19 @@
 ---
 title: Microsoft 고객 계약에 대한 청구 설정 - Azure
-description: Microsoft 고객 계약에 대한 청구 계정을 설정하는 방법을 알아봅니다. 설치에 필요한 필수 구성 요소를 확인하고 사용 가능한 추가 리소스를 살펴봅니다.
+description: Microsoft 고객 계약에 대한 청구 계정을 설정하는 방법을 알아봅니다. 설정에 필요한 필수 구성 요소를 확인하고 사용 가능한 다른 리소스를 살펴봅니다.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 03/19/2021
 ms.author: banders
-ms.openlocfilehash: 7e930ca938b2531fb001c327132f79f703b2ea74
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 15aa3acab9fe98a4c2f5103ba211dde34220c54e
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316405"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255687"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 청구 계정 설정
 
@@ -49,31 +49,54 @@ ms.locfileid: "92316405"
 
 설정을 완료하려면 다음 액세스 권한이 필요합니다.
 
-- Microsoft 고객 계약에 서명할 때 만들어진 청구 프로필의 소유자. 청구 프로필에 대해 자세히 알아보려면 [청구 프로필 이해](../understand/mca-overview.md#billing-profiles)를 참조하세요.
-
+- Microsoft 고객 계약에 서명할 때 만들어진 청구 프로필의 소유자. 청구 프로필에 대해 자세히 알아보려면 [청구 프로필 이해](../understand/mca-overview.md#billing-profiles)를 참조하세요.  
+&mdash; 및 &mdash;
 - 갱신된 등록의 엔터프라이즈 관리자
+
+### <a name="start-migration-and-get-permission-needed-to-complete-setup"></a>마이그레이션을 시작하고 설정을 완료하는 데 필요한 사용 권한 가져오기
+
+다음 옵션을 사용하여 Microsoft 고객 계약의 EA 등록에 대한 마이그레이션 환경을 시작할 수 있습니다.
+
+
+- Microsoft 고객 계약에 서명할 때 전송된 이메일의 링크를 사용하여 Azure Portal에 로그인합니다.
+
+- 이메일이 없는 경우 다음 링크를 사용하여 로그인합니다. `enrollmentNumber`를 갱신된 기업계약의 등록 번호로 바꿉니다.
+
+  `https://portal.azure.com/#blade/Microsoft_Azure_EA/EATransitionToMCA/enrollmentId/<enrollmentNumber>`
+
+엔터프라이즈 관리자 역할과 청구 계정 소유자 역할 또는 청구 프로필 역할이 둘 다 있는 경우 Azure Portal에 다음 페이지가 표시됩니다. 전환을 위해 EA 등록 및 Microsoft 고객 계약 청구 계정을 계속 설정할 수 있습니다.
+
+:::image type="content" source="./media/mca-setup-account/setup-billing-account-page.png" alt-text="청구 계정 설정 페이지를 보여주는 스크린샷" lightbox="./media/mca-setup-account/setup-billing-account-page.png" :::
+
+기업 계약에 대한 엔터프라이즈 관리자 역할이 없거나 Microsoft 고객 계약에 대한 청구 프로필 소유자 역할을 보유하고 있지 않은 경우 다음 정보를 사용하여 설정을 완료하는 데 필요한 액세스 권한을 얻으세요.
 
 ### <a name="if-youre-not-an-enterprise-administrator-on-the-enrollment"></a>등록의 엔터프라이즈 관리자가 아닌 경우
 
-등록의 엔터프라이즈 관리자에게 청구 계정 설정을 완료해 달라고 요청할 수 있습니다.
+청구 계정 또는 청구 프로필 소유자 역할이 있지만 엔터프라이즈 관리자가 아닌 경우 Azure Portal에 다음 페이지가 표시됩니다.
 
-1. Microsoft 고객 계약에 서명할 때 전송된 이메일의 링크를 사용하여 Azure Portal에 로그인합니다.
+:::image type="content" source="./media/mca-setup-account/setup-billing-account-page-not-ea-administrator.png" alt-text="청구 계정 설정 페이지를 보여주는 스크린샷 - 전환을 위해 기업 계약 등록 준비." lightbox="./media/mca-setup-account/setup-billing-account-page-not-ea-administrator.png" :::
 
-2. 이메일이 없는 경우 다음 링크를 사용하여 로그인합니다. `<enrollmentNumber>`를 갱신된 기업계약의 등록 번호로 바꿉니다.
+다음과 같은 두 가지 옵션이 있습니다.
 
-   `https://portal.azure.com/#blade/Microsoft_Azure_EA/EATransitionToMCA/enrollmentId/<enrollmentNumber>`
+- 엔터프라이즈 관리자 역할을 부여받으려면 등록의 엔터프라이즈 관리자에게 문의하세요. 자세한 내용은 [다른 엔터프라이즈 관리자 만들기](ea-portal-administration.md#create-another-enterprise-administrator)를 참조하세요.
+-  엔터프라이즈 관리자에게 청구 계정 소유자 역할 또는 청구 프로필 소유자 역할을 부여할 수 있습니다. 자세한 내용은 [Azure Portal에서 청구 역할 관리](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)를 참조하세요.
 
-3. 요청을 보낼 엔터프라이즈 관리자를 선택합니다.
-
-   ![엔터프라이즈 관리자를 초대하는 방법을 보여주는 스크린샷](./media/mca-setup-account/ea-mca-invite-admins.png)
-
-4. **요청 보내기** 를 선택합니다.
-
-   관리자는 설치 완료 지침이 포함된 이메일을 받게 됩니다.
+엔터프라이즈 관리자 역할을 부여받았으면 청구 계정 설정 페이지에서 링크를 복사합니다. Microsoft 고객 계약을 계속 설정하려면 링크를 웹 브라우저에서 엽니다. 그렇지 않으면 엔터프라이즈 관리자에게 보냅니다.
 
 ### <a name="if-youre-not-an-owner-of-the-billing-profile"></a>청구 프로필의 소유자가 아닌 경우
 
-Microsoft 고객 계약에 서명한 조직 내 사용자는 청구 프로필에 소유자로 추가됩니다. 이 사용자에게 설정을 완료할 수 있도록 소유자로 추가해 달라고 요청합니다.
+엔터프라이즈 관리자이지만 Microsoft 고객 계약에 대한 청구 계정 소유자 역할 또는 청구 프로필 소유자 역할이 없으면 Azure Portal에 다음 페이지가 표시됩니다.
+
+올바른 Microsoft 고객 계약에 대한 청구 프로필 소유자 액세스 권한이 있고 다음 메시지가 표시되는 경우 조직의 올바른 테넌트에 있는지 확인합니다. 디렉터리를 변경해야 할 수도 있습니다.
+
+:::image type="content" source="./media/mca-setup-account/setup-billing-account-page-not-billing-account-profile-owner.png" alt-text="청구 계정 설정 페이지를 보여주는 스크린샷 - Microsoft 고객 계약 청구 계정." lightbox="./media/mca-setup-account/setup-billing-account-page-not-billing-account-profile-owner.png" :::
+
+다음과 같은 두 가지 옵션이 있습니다.
+
+- 기존 청구 계정 소유자에게 문의하여 청구 계정 소유자 역할 또는 청구 프로필 소유자 역할을 받습니다. 자세한 내용은 [Azure Portal에서 청구 역할 관리](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)를 참조하세요.
+- 기존 청구 계정 소유자에게 엔터프라이즈 관리자 역할을 부여합니다. 자세한 내용은 [다른 엔터프라이즈 관리자 만들기](ea-portal-administration.md#create-another-enterprise-administrator)를 참조하세요.
+
+청구 계정 소유자 역할 또는 청구 프로필 소유자 역할을 부여받았으면 청구 계정 설정 페이지에서 링크를 복사합니다. Microsoft 고객 계약을 계속 설정하려면 링크를 웹 브라우저에서 엽니다. 그렇지 않으면 청구 계정 소유자에게 링크를 보냅니다.
 
 ## <a name="understand-changes-to-your-billing-hierarchy"></a>달라지는 청구 계층 구조 이해
 
@@ -184,7 +207,7 @@ Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 설정된 Azure
 
     - 기업계약 계층 구조에 해당하는 청구 계층 구조가 새 청구 계정에 생성됩니다. 자세한 내용은 [달라지는 청구 계층 구조 이해](#understand-changes-to-your-billing-hierarchy)를 참조하세요.
     - 기업계약 등록의 관리자에게는 조직의 요금 청구를 계속 관리할 수 있도록 새 청구 계정에 대한 액세스 권한이 제공됩니다.
-    - Azure 구독에 대한 청구는 새 계정으로 전환됩니다. **전환 중에 Azure 서비스에 영향을 주지 않습니다. 서비스는 중단 없이 계속 실행됩니다** .
+    - Azure 구독에 대한 청구는 새 계정으로 전환됩니다. **전환 중에 Azure 서비스에 영향을 주지 않습니다. 서비스는 중단 없이 계속 실행됩니다**.
     - Azure Reservations가 있는 경우 혜택 또는 기간을 변경하지 않고 새 청구 계정으로 전환됩니다.
 
 4. **전환 상태** 페이지에서 전환 상태를 모니터링할 수 있습니다.

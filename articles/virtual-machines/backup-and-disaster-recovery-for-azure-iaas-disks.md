@@ -1,5 +1,5 @@
 ---
-title: Azure Vm의 IaaS 디스크에 대 한 백업 및 재해 복구
+title: Azure VM에서 IaaS 디스크에 대한 백업 및 재해 복구
 description: 이 문서에서는 Azure에서 IaaS 가상 머신 및 디스크의 백업 및 재해 복구를 계획하는 방법을 설명합니다. Managed Disks 및 Unmanaged Disks를 모두 다루고 있습니다.
 author: roygara
 ms.service: virtual-machines
@@ -8,10 +8,10 @@ ms.date: 07/19/2017
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: e5ae08c23748e55a8c3b75eb8fb9c112684f022e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102507909"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Azure IaaS 디스크에 대한 백업 및 재해 복구
@@ -104,7 +104,7 @@ IaaS 애플리케이션 데이터 문제도 발생할 수 있습니다. 애플�
 비관리 디스크의 경우 IaaS 디스크에 대해 로컬 중복 스토리지 유형을 사용할 수 있지만, 복구 서비스 자격 증명 모음에 대해 Azure Backup이 지역 중복 스토리지 옵션과 함께 사용되는지 확인합니다.
 
 > [!NOTE]
-> 관리 되지 않는 디스크에 대해 [지역 중복 저장소](../storage/common/storage-redundancy.md#geo-redundant-storage) 또는 [읽기 액세스 지역 중복 저장소](../storage/common/storage-redundancy.md#read-access-to-data-in-the-secondary-region)  옵션을 사용 하는 경우 여전히 백업 및 DR에 대 한 일관 된 스냅숏이 필요 합니다. [Azure Backup](https://azure.microsoft.com/services/backup/) 또는 [일관성 있는 스냅샷](#alternative-solution-consistent-snapshots) 중 하나를 사용합니다.
+> 비관리 디스크에 대해 [지역 중복 스토리지](../storage/common/storage-redundancy.md#geo-redundant-storage) 또는 [읽기 액세스 지역 중복 스토리지](../storage/common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) 옵션을 사용하는 경우에도 백업 및 DR에 대해 일관성 있는 스냅샷이 필요합니다. [Azure Backup](https://azure.microsoft.com/services/backup/) 또는 [일관성 있는 스냅샷](#alternative-solution-consistent-snapshots) 중 하나를 사용합니다.
 
  다음 표는 DR에 사용할 수 있는 솔루션의 요약입니다.
 
@@ -261,7 +261,7 @@ Azure에 있는 스토리지 계정의 경우 재해 복구와 관련하여 세 
 
 ## <a name="next-steps"></a>다음 단계
 
-[증분 스냅숏을 사용 하 여 Azure 관리 되지 않는 가상 머신 디스크 백업](linux/incremental-snapshots.md)을 참조 하세요.
+[증분 스냅샷을 사용하여 Azure 비관리형 가상 머신 디스크 백업](linux/incremental-snapshots.md)을 참조하세요.
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png

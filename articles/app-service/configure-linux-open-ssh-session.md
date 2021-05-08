@@ -1,6 +1,6 @@
 ---
-title: Linux 컨테이너에 대 한 SSH 액세스
-description: Azure App Service에서 Linux 컨테이너에 대 한 SSH 세션을 열 수 있습니다. 사용자 지정 Linux 컨테이너는 사용자 지정 이미지를 수정 하 여 지원 됩니다.
+title: Linux 컨테이너에 대한 SSH 액세스
+description: Azure App Service에서 Linux 컨테이너에 대한 SSH 세션을 열 수 있습니다. 사용자 지정 Linux 컨테이너는 사용자 지정 이미지를 일부 수정하여 지원됩니다.
 keywords: azure app service, 웹앱, linux, oss
 author: msangapu-msft
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
@@ -9,15 +9,15 @@ ms.date: 02/23/2021
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 8e9dd76b60d05b9fa5e3a4aaf7ccc6663f4a969b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101709039"
 ---
-# <a name="open-an-ssh-session-to-a-linux-container-in-azure-app-service"></a>Azure App Service에서 Linux 컨테이너에 대 한 SSH 세션을 엽니다.
+# <a name="open-an-ssh-session-to-a-linux-container-in-azure-app-service"></a>Azure App Service의 Linux 컨테이너에 대한 SSH 세션 열기
 
-[SSH(Secure Shell)](https://wikipedia.org/wiki/Secure_Shell)는 주로 명령줄 터미널에서 원격으로 관리 명령을 실행하는 데 사용합니다. Linux의 App Service는 앱 컨테이너에 SSH 지원을 제공 합니다. 
+[SSH(Secure Shell)](https://wikipedia.org/wiki/Secure_Shell)는 주로 명령줄 터미널에서 원격으로 관리 명령을 실행하는 데 사용합니다. App Service on Linux는 앱 컨테이너에 SSH 지원을 제공합니다. 
 
 ![Linux App Service SSH](./media/configure-linux-open-ssh-session/app-service-linux-ssh.png)
 
@@ -29,7 +29,7 @@ SSH 및 SFTP를 사용하여 로컬 개발 컴퓨터에서 직접 컨테이너�
 
 ## <a name="use-ssh-support-with-custom-docker-images"></a>사용자 지정 Docker 이미지를 사용한 SSH 지원 사용
 
-[사용자 지정 컨테이너에서 SSH 구성을](configure-custom-container.md#enable-ssh)참조 하세요.
+[사용자 지정 컨테이너에서 SSH 구성](configure-custom-container.md#enable-ssh)을 참조하세요.
 
 ## <a name="open-ssh-session-from-remote-shell"></a>원격 셸에서 SSH 세션 열기
 
@@ -41,7 +41,7 @@ TCP 터널링을 사용하여 인증된 WebSocket 연결을 통해 개발 컴퓨
 
 시작하려면 [Azure CLI](/cli/azure/install-azure-cli)를 설치해야 합니다. Azure CLI를 설치하지 않고 작동 방식을 확인하려면 [Azure Cloud Shell](../cloud-shell/overview.md)을 엽니다. 
 
-[az webapp 원격 연결 만들기](/cli/azure/ext/webapp/webapp/remote-connection#ext-webapp-az-webapp-remote-connection-create) 명령을 사용하여 앱에 원격 연결을 엽니다. _\<subscription-id>_ _\<group-name>_ \_ \<app-name> 앱에 대해, 및 _를 지정 합니다.
+[az webapp 원격 연결 만들기](/cli/azure/ext/webapp/webapp/remote-connection#ext-webapp-az-webapp-remote-connection-create) 명령을 사용하여 앱에 원격 연결을 엽니다. 앱에 대해 _\<subscription-id>_ , _\<group-name>_ 및 \_\<app-name>_을 지정합니다.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
@@ -51,7 +51,7 @@ az webapp create-remote-connection --subscription <subscription-id> --resource-g
 > 명령의 끝에 `&`은 Cloud Shell을 사용하는 경우 단지 편의를 위해 제공됩니다. 동일한 셸에서 다음 명령을 실행할 수 있도록 백그라운드에서 프로세스를 실행합니다.
 
 > [!NOTE]
-> 이 명령이 실패 하는 경우 다음 명령을 사용 하 여 [원격 디버깅](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0) 을 *사용 하지 않도록 설정* 해야 합니다.
+> 이 명령이 실패할 경우 다음 명령으로 [원격 디버깅](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0)을 ‘사용하지 않도록 설정’해야 합니다.
 >
 > ```azurecli-interactive
 > az webapp config set --resource-group <resource-group-name> -n <app-name> --remote-debugging-enabled=false
@@ -127,4 +127,4 @@ Load average: 0.07 0.04 0.08 4/765 45738
 * [VS Code의 Azure App Service에서 Node.js 앱의 원격 디버깅 소개](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0)
 * [빠른 시작: App Service에서 사용자 지정 컨테이너 실행](quickstart-custom-container.md?pivots=container-linux)
 * [Linux의 Azure App Service에서 Ruby 사용](quickstart-ruby.md)
-* [Azure App Service Web App for Containers FAQ](faq-app-service-linux.md)
+* [Containers용 Azure App Service Web App 관련 FAQ](faq-app-service-linux.md)

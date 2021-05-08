@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: b8733d499b2396160a73906f16a69291cf0b9d71
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103015423"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>REST를 사용하여 Azure Media Services 콘텐츠 게시
@@ -36,7 +36,7 @@ ms.locfileid: "103015423"
 
 주문형 스트리밍 로케이터는 점진적으로 다운로드할 수 있는 MP4 파일을 가리키는 URL을 작성하는 데 사용할 수도 있습니다.  
 
-이 문서에서는 자산을 게시하고 부드러운 MPEG DASH 및 HLS 스트리밍 URL을 빌드하기 위해 OnDemand 스트리밍 로케이터를 만드는 방법을 설명합니다. 또한 점진적 다운로드 Url을 작성 하는 방법을 보여 줍니다.
+이 문서에서는 자산을 게시하고 부드러운 MPEG DASH 및 HLS 스트리밍 URL을 빌드하기 위해 OnDemand 스트리밍 로케이터를 만드는 방법을 설명합니다. 또한 점진적 다운로드 URL을 작성하는 방법을 보여 줍니다.
 
 [다음](#types) 섹션에서는 REST 호출에 사용되는 값을 가진 열거형 유형을 보여 줍니다.   
 

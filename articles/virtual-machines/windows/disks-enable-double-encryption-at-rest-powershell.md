@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell-미사용 관리 디스크에서 이중 암호화 사용
-description: Azure PowerShell를 사용 하 여 관리 디스크 데이터에 대해 미사용 이중 암호화를 사용 하도록 설정 합니다.
+title: Azure PowerShell - 미사용 이중 암호화 사용 설정 - 관리 디스크
+description: Azure PowerShell을 사용하여 관리 디스크 데이터에 대해 미사용 데이터 이중 암호화를 사용하도록 설정합니다.
 author: roygara
 ms.date: 08/24/2020
 ms.topic: how-to
@@ -9,19 +9,19 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: cfef3925152c0b94a59c662443cf202724dadc0a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102549552"
 ---
-# <a name="use-the-azure-powershell-module-to-enable-double-encryption-at-rest-for-managed-disks"></a>Azure PowerShell 모듈을 사용 하 여 관리 디스크에 대 한 미사용 암호화를 사용 하도록 설정 합니다.
+# <a name="use-the-azure-powershell-module-to-enable-double-encryption-at-rest-for-managed-disks"></a>Azure PowerShell 모듈을 사용하여 관리 디스크에 대해 미사용 데이터 이중 암호화를 사용하도록 설정합니다.
 
-Azure 디스크 저장소는 관리 디스크에 대 한 미사용 암호화를 지원 합니다. 휴지 상태의 이중 암호화 및 기타 관리 되는 디스크 암호화 유형에 대 한 개념 정보는 디스크 암호화 문서의 [휴지 상태의 이중 암호화](../disk-encryption.md#double-encryption-at-rest) 섹션을 참조 하세요.
+Azure Disk Storage는 관리 디스크에 대해 미사용 데이터 이중 암호화를 지원합니다. 미사용 데이터 이중 암호화 및 기타 관리 디스크 암호화 유형에 대한 개념 정보는 디스크 암호화 문서의 [미사용 데이터 이중 암호화](../disk-encryption.md#double-encryption-at-rest) 섹션을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
-최신 [Azure PowerShell 버전](/powershell/azure/install-az-ps)을 설치 하 고 [AzAccount](/powershell/module/az.accounts/connect-azaccount)을 사용 하 여 Azure 계정에 로그인 합니다.
+최신 [Azure PowerShell 버전](/powershell/azure/install-az-ps)을 설치하고 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)를 사용하여 Azure 계정에 로그인합니다.
 
 ## <a name="getting-started"></a>시작
 
@@ -42,7 +42,7 @@ Azure 디스크 저장소는 관리 디스크에 대 한 미사용 암호화를 
     $key = Add-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName -Destination $keyDestination  
     ```
 
-1.  EncryptionType를 EncryptionAtRestWithPlatformAndCustomerKeys로 설정 하 여 DiskEncryptionSet를 만듭니다. Azure Resource Manager (ARM) 템플릿에서 API 버전 **2020-05-01** 을 사용 합니다. 
+1.  EncryptionType을 EncryptionAtRestWithPlatformAndCustomerKeys로 설정하여 DiskEncryptionSet를 만듭니다. Azure Resource Manager(ARM) 템플릿에서 API 버전 **2020-05-01** 을 사용합니다. 
     
     ```powershell
     New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName `
@@ -66,7 +66,7 @@ Azure 디스크 저장소는 관리 디스크에 대 한 미사용 암호화를 
 
 ## <a name="next-steps"></a>다음 단계
 
-이러한 리소스를 만들고 구성 했으므로 이제 이러한 리소스를 사용 하 여 관리 디스크를 보호할 수 있습니다. 다음 링크에는 관리 디스크를 보호 하는 데 사용할 수 있는 각각의 시나리오를 포함 하는 예제 스크립트가 포함 되어 있습니다.
+리소스를 만들고 구성한 후 해당 리소스를 사용하여 관리 디스크를 보호할 수 있습니다. 다음 링크에는 관리 디스크를 보호하는 데 사용할 수 있는 각각의 시나리오를 포함하는 예제 스크립트가 포함되어 있습니다.
 
-- [Azure PowerShell-서버 쪽 암호화 관리 디스크를 사용 하 여 고객 관리 키를 사용 하도록 설정 합니다.](disks-enable-customer-managed-keys-powershell.md)
+- [Azure PowerShell - 서버 측 암호화를 사용하여 고객 관리형 키 사용 - 관리 디스크](disks-enable-customer-managed-keys-powershell.md)
 - [Azure Resource Manager 템플릿 샘플](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/DoubleEncryption)

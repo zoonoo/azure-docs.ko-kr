@@ -1,6 +1,6 @@
 ---
-title: '온-프레미스 네트워크를 Azure virtual network에 연결: 사이트 간 VPN: PowerShell'
-description: PowerShell을 사용 하 여 공용 인터넷을 통해 온-프레미스 네트워크에서 Azure virtual network로 IPsec 사이트 간 VPN Gateway 연결을 만듭니다.
+title: '온-프레미스 네트워크를 Azure Virtual Network에 연결: 사이트 간 VPN: PowerShell'
+description: PowerShell을 사용하여 퍼블릭 인터넷을 통해 온-프레미스 네트워크에서 Azure Virtual Network에 IPsec 사이트 간 VPN Gateway 연결을 만듭니다.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 1488aa6f48c05a8c2dfa2c6162c1bd1df35d4f58
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100380499"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>PowerShell을 사용하여 사이트 간 VPN 연결로 VNet 만들기
@@ -23,7 +23,7 @@ ms.locfileid: "100380499"
 > * [Azure Portal](./tutorial-site-to-site-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-> * [Azure Portal (클래식)](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Azure Portal(클래식)](vpn-gateway-howto-site-to-site-classic-portal.md)
 > 
 >
 
@@ -129,7 +129,7 @@ New-AzResourceGroup -Name TestRG1 -Location 'East US'
    Set-AzVirtualNetwork -VirtualNetwork $vnet
    ```
 
-## <a name="2-create-the-local-network-gateway"></a>2. <a name="localnet"></a> 로컬 네트워크 게이트웨이 만들기
+## <a name="2-create-the-local-network-gateway"></a>2. <a name="localnet"></a>로컬 네트워크 게이트웨이 만들기
 
 LNG(로컬 네트워크 게이트웨이)는 일반적으로 온-프레미스 위치를 가리킵니다. 가상 네트워크 게이트웨이와 동일하지 않습니다. Azure가 참조할 수 있는 사이트 이름을 지정한 다음, 연결을 만들 온-프레미스 VPN 디바이스의 IP 주소를 지정합니다. 또한 VPN Gateway를 통해 VPN 디바이스로 라우팅될 IP 주소 접두사를 지정합니다. 사용자가 지정하는 주소 접두사는 온-프레미스 네트워크에 있는 접두사입니다. 온-프레미스 네트워크가 변경되면 이러한 접두사를 쉽게 업데이트할 수 있습니다.
 
@@ -168,7 +168,7 @@ VPN Gateway에는 공용 IP 주소가 있어야 합니다. 먼저 IP 주소 리�
 $gwpip= New-AzPublicIpAddress -Name VNet1GWPIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
 ```
 
-## <a name="4-create-the-gateway-ip-addressing-configuration"></a><a name="GatewayIPConfig"></a>4. 게이트웨이 IP 주소 지정 구성을 만듭니다.
+## <a name="4-create-the-gateway-ip-addressing-configuration"></a><a name="GatewayIPConfig"></a>4. 게이트웨이 IP 주소 지정 구성 만들기
 
 게이트웨이 구성은 사용할 공용 IP 주소 및 서브넷(‘GatewaySubnet’)을 정의합니다. 다음 예제를 사용하여 게이트웨이 구성을 만듭니다.
 
@@ -178,14 +178,14 @@ $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork
 $gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 ```
 
-## <a name="5-create-the-vpn-gateway"></a><a name="CreateGateway"></a>5. VPN gateway 만들기
+## <a name="5-create-the-vpn-gateway"></a><a name="CreateGateway"></a>5. VPN 게이트웨이 만들기
 
 가상 네트워크 VPN Gateway 만들기.
 
 다음 값을 사용합니다.
 
 * 사이트 간 구성에 대한 *-GatewayType* 은 *Vpn* 입니다. 게이트웨이 유형은 항상 구현하는 구성에 따라 다릅니다. 예를 들어 다른 게이트웨이 구성인 GatewayType ExpressRoute가 필요할 수 있습니다.
-* *-VpnType* 는 *경로 기반* (일부 설명서에서는 동적 게이트웨이 라고도 함) 또는 *Policybased* (일부 설명서에서는 정적 게이트웨이 라고 함) 일 수 있습니다. VPN Gateway 형식에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
+* *-VpnType* 은 *경로 기반*(일부 설명서에서는 동적 게이트웨이라고도 함)이거나 *정책 기반*(일부 설명서에서는 고정 게이트웨이라고도 함)일 수 있습니다. VPN Gateway 형식에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
 * 사용할 게이트웨이 SKU를 선택합니다. 특정 SKU에 대한 구성 제한이 있습니다. 자세한 내용은 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)를 참조하세요. -GatewaySku와 관련하여 VPN 게이트웨이를 만들 때 오류가 발생하면 최신 버전의 PowerShell cmdlet을 설치했는지 확인합니다.
 
 ```azurepowershell-interactive
@@ -196,7 +196,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 
 이 명령을 실행한 후 게이트웨이 구성이 완료될 때까지 최대 45분이 걸릴 수 있습니다.
 
-## <a name="6-configure-your-vpn-device"></a><a name="ConfigureVPNDevice"></a>6. VPN 장치 구성
+## <a name="6-configure-your-vpn-device"></a><a name="ConfigureVPNDevice"></a>6. VPN 디바이스 구성
 
 온-프레미스 네트워크에 대한 사이트 간 연결에는 VPN 디바이스가 필요합니다. 이 단계에서는 VPN 디바이스를 구성합니다. VPN 디바이스를 구성할 때 다음 항목이 필요합니다.
 
@@ -210,7 +210,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 [!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
 
-## <a name="7-create-the-vpn-connection"></a><a name="CreateConnection"></a>7. VPN 연결을 만듭니다.
+## <a name="7-create-the-vpn-connection"></a><a name="CreateConnection"></a>7. VPN 연결 생성
 
 다음으로 가상 네트워크 게이트웨이와 VPN 디바이스 사이에 사이트 간 VPN 연결을 만듭니다. 사용자 고유의 값으로 대체해야 합니다. 공유 키는 VPN 디바이스 구성에 사용한 값과 일치해야 합니다. 사이트 간 '-ConnectionType'은 **IPsec** 입니다.
 
@@ -250,9 +250,9 @@ VPN 연결을 확인하는 몇 가지 방법이 있습니다.
 
 [!INCLUDE [Modify gateway IP address](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
-## <a name="to-delete-a-gateway-connection"></a><a name="deleteconnection"></a>게이트웨이 연결을 삭제 하려면
+## <a name="to-delete-a-gateway-connection"></a><a name="deleteconnection"></a>게이트웨이 연결 삭제
 
-연결의 이름을 모르는 경우 ' AzVirtualNetworkGatewayConnection ' cmdlet을 사용 하 여 찾을 수 있습니다.
+연결의 이름을 모르는 경우 ‘Get-AzVirtualNetworkGatewayConnection’ cmdlet을 사용하여 찾을 수 있습니다.
 
 ```azurepowershell-interactive
 Remove-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 `
@@ -261,7 +261,7 @@ Remove-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 `
 
 ## <a name="next-steps"></a>다음 단계
 
-*  연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](../index.yml)를 참조 하세요.
+*  연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](../index.yml)를 참조하세요.
 * BGP에 대한 내용은 [BGP 개요](vpn-gateway-bgp-overview.md) 및 [BGP를 구성하는 방법](vpn-gateway-bgp-resource-manager-ps.md)을 참조하세요.
-* Azure Resource Manager 템플릿을 사용 하 여 사이트 간 VPN 연결을 만드는 방법에 대 한 자세한 내용은 [사이트 간 Vpn 연결 만들기](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/)를 참조 하세요.
-* Azure Resource Manager 템플릿을 사용 하 여 vnet 간 VPN 연결을 만드는 방법에 대 한 자세한 내용은 [HBase 지역 복제 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/)를 참조 하세요.
+* Azure Resource Manager 템플릿을 사용하여 사이트 간 VPN 연결을 만드는 방법은 [사이트 간 VPN 연결 만들기](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/)를 참조하세요.
+* Azure Resource Manager 템플릿을 사용하여 VNet 간 VPN 연결을 만드는 방법은 [HBase 지역 복제 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/)를 참조하세요.

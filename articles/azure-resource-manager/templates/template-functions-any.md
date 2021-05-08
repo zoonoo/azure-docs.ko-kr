@@ -1,6 +1,6 @@
 ---
-title: 템플릿 함수-any
-description: Bicep에서 형식을 변환 하는 데 사용할 수 있는 함수에 대해 설명 합니다.
+title: 템플릿 함수 - any
+description: Bicep에서 형식을 변환하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
 author: tfitzmac
 ms.author: tomfitz
@@ -8,17 +8,17 @@ ms.service: azure-resource-manager
 ms.subservice: templates
 ms.date: 03/02/2021
 ms.openlocfilehash: b0cb51c9a79d1100de7f1ef32fe326eddcdd6dcc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101745853"
 ---
-# <a name="any-function-for-bicep"></a>Bicep에 대 한 Any 함수
+# <a name="any-function-for-bicep"></a>Bicep의 Any 함수
 
-Bicep `any()` 는 Bicep 형식 시스템의 형식 오류를 해결 하기 위해 라는 함수를 지원 합니다. 제공 하는 값의 형식이 시스템에서 예상 하는 형식과 일치 하지 않는 경우이 함수를 사용 합니다. 예를 들어 속성에 숫자가 필요 하지만와 같이 문자열로 제공 해야 하는 경우 `'0.5'` 함수를 사용 `any()` 하 여 형식 시스템에서 보고 하는 오류를 표시 하지 않습니다.
+Bicep은 Bicep 형식 시스템의 형식 오류를 해결하기 위해 `any()`라는 함수를 지원합니다. 제공하는 값의 형식이 시스템에서 예상하는 형식과 일치하지 않는 경우 해당 함수를 사용합니다. 예를 들어 속성에 숫자가 필요하지만, `'0.5'`와 같이 문자열로 제공해야 하는 경우, `any()` 함수를 사용하여 형식 시스템에서 보고하는 오류를 표시하지 않습니다.
 
-이 함수는 Azure Resource Manager 템플릿 런타임에 존재 하지 않습니다. Bicep 에서만 사용 되며, 빌드된 템플릿에 대 한 JSON에서 내보내지 않습니다.
+해당 함수는 Azure Resource Manager 템플릿 런타임에는 존재하지 않습니다. Bicep에서만 사용되며, 빌드된 템플릿에 대한 JSON으로 내보내지 않습니다.
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
@@ -26,21 +26,21 @@ Bicep `any()` 는 Bicep 형식 시스템의 형식 오류를 해결 하기 위�
 
 `any(value)`
 
-모든 데이터 형식과 호환 되는 값을 반환 합니다.
+모든 데이터 형식과 호환되는 값을 반환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| 값 | 예 | 모든 형식 | 호환 되는 형식으로 변환할 값입니다. |
+| 값 | 예 | 모든 형식 | 호환되는 형식으로 변환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
-모든 데이터 형식과 호환 되는 폼의 값입니다.
+모든 데이터 형식과 호환되는 형태의 값입니다.
 
 ### <a name="examples"></a>예제
 
-다음 예제 템플릿에서는 함수를 사용 하 여 숫자 값을 문자열로 제공 하는 방법을 보여 줍니다 `any()` .
+다음 예제 템플릿에서는 `any()` 함수를 사용하여 숫자 값을 문자열로 제공하는 방법을 보여 줍니다.
 
 ```bicep
 resource wpAci 'microsoft.containerInstance/containerGroups@2019-12-01' = {
@@ -65,7 +65,7 @@ resource wpAci 'microsoft.containerInstance/containerGroups@2019-12-01' = {
 }
 ```
 
-함수는 Bicep에서 할당 된 값에 대해 작동 합니다. 다음 예에서는를 `any()` 삼항 식에 인수로 사용 합니다.  
+함수는 Bicep에서 할당된 값에 대해 작동합니다. 다음 예에서는 `any()`를 3개로 구성된 식에 인수로 사용합니다.  
 
 ```bicep
 publicIPAddress: any((pipId == '') ? null : {
@@ -75,8 +75,8 @@ publicIPAddress: any((pipId == '') ? null : {
 
 ## <a name="next-steps"></a>다음 단계
 
-함수를 좀 더 복잡 하 게 사용 하려면 `any()` 다음 예제를 참조 하세요.
+`any()` 함수의 더 복잡한 사용 방법은 다음 예제를 참조하세요.
 
-* [특정 이름을 필요로 하는 자식 리소스](https://github.com/Azure/bicep/blob/main/docs/examples/201/api-management-create-all-resources/main.bicep#L246)
-* [리소스 속성이 있는 경우에도 리소스의 형식에서 정의 되지 않습니다.](https://github.com/Azure/bicep/blob/main/docs/examples/201/log-analytics-with-solutions-and-diagnostics/main.bicep#L26)
+* [특정 이름이 필요한 자식 리소스](https://github.com/Azure/bicep/blob/main/docs/examples/201/api-management-create-all-resources/main.bicep#L246)
+* [리소스 종류가 있음에도 정의되지 않은 리소스 속성](https://github.com/Azure/bicep/blob/main/docs/examples/201/log-analytics-with-solutions-and-diagnostics/main.bicep#L26)
 

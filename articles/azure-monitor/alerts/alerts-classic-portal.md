@@ -1,24 +1,24 @@
 ---
-title: Azure Monitor를 사용 하 여 클래식 메트릭 경고 만들기 및 관리
-description: Azure Portal, CLI 또는 PowerShell을 사용 하 여 클래식 메트릭 경고 규칙을 만들고, 보고, 관리 하는 방법에 대해 알아봅니다.
+title: Azure Monitor를 사용하여 클래식 메트릭 경고 만들기 및 관리
+description: Azure Portal, CLI 또는 PowerShell을 사용하여 클래식 메트릭 경고 규칙을 만들고, 보고, 관리하는 방법을 알아봅니다.
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/14/2021
 ms.openlocfilehash: 854867bb6f40bdd8f0fac28e69d936a4027760b5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101714377"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 클래식 메트릭 경고 만들기, 보기 및 관리
 
 > [!WARNING]
-> 이 문서에서는 기존 클래식 메트릭 경고를 만드는 방법을 설명합니다. Azure Monitor는 이제 새로운 [거의 실시간 메트릭 경고 및 새로운 경고 환경을](./alerts-overview.md)지원 합니다. 클래식 경고는 공용 클라우드 사용자에 게 사용이 [중지](./monitoring-classic-retirement.md) 되지만 31 년 5 **월 2021** 일까 지 계속 사용 됩니다. Azure Government 클라우드 및 Azure 중국 21Vianet에 대 한 클래식 경고는 **2024 년 2 월 29 일** 에 사용 중지 됩니다.
+> 이 문서에서는 기존 클래식 메트릭 경고를 만드는 방법을 설명합니다. 이제 Azure Monitor는 [최신 근 실시간 메트릭 경고 및 새 경고 환경](./alerts-overview.md)을 지원합니다. 클래식 경고는 퍼블릭 클라우드 사용자에 대해 [사용 중지](./monitoring-classic-retirement.md)되었지만 **2021년 5월 31일** 까지는 제한적으로 사용할 수 있습니다. Azure Government 클라우드 및 Azure 중국 21Vianet에 대한 클래식 경고는 **2024년 2월 29일** 에 사용 중지됩니다.
 >
 
-Azure Monitor의 클래식 메트릭 경고를 사용하면 메트릭 중 하나가 임계값을 초과할 경우 알림을 받을 수 있습니다. 클래식 메트릭 경고는 무차원 메트릭에 대해서만 경고하는 이전 기능입니다. 클래식 메트릭 경고보다 향상된 기능을 가진, 메트릭 경고라는 최신 기능도 있습니다. [메트릭 경고 개요](./alerts-metric-overview.md)에서 새로운 메트릭 경고 기능에 대해 자세히 알아볼 수 있습니다. 이 문서에서는 Azure Portal, Azure CLI 및 PowerShell을 통해 클래식 메트릭 경고 규칙을 만들고, 보고, 관리 하는 방법을 설명 합니다.
+Azure Monitor의 클래식 메트릭 경고를 사용하면 메트릭 중 하나가 임계값을 초과할 경우 알림을 받을 수 있습니다. 클래식 메트릭 경고는 무차원 메트릭에 대해서만 경고하는 이전 기능입니다. 클래식 메트릭 경고보다 향상된 기능을 가진, 메트릭 경고라는 최신 기능도 있습니다. [메트릭 경고 개요](./alerts-metric-overview.md)에서 새로운 메트릭 경고 기능에 대해 자세히 알아볼 수 있습니다. 이 문서에서는 Azure Portal, Azure CLI 및 PowerShell을 통해 클래식 메트릭 경고 규칙을 만들고, 보고, 관리하는 방법을 설명합니다.
 
 ## <a name="with-azure-portal"></a>Azure Portal 사용
 
@@ -38,7 +38,7 @@ Azure Monitor의 클래식 메트릭 경고를 사용하면 메트릭 중 하나
 
 6. 경고가 발생하면 관리자 및 공동 관리자가 이메일 알림을 수신하게 하려면 **소유자에게 이메일 보내기...** 를 선택합니다.
 
-7. 경고가 발생하면 추가 이메일 주소에 알림을 보내려면 **추가 관리자 이메일** 필드에 해당 이메일 주소를 추가합니다. 전자 메일을 세미콜론으로 구분 하 여 *전자 메일 \@ contoso.com; email2 \@ contoso.com* 을 사용 합니다.
+7. 경고가 발생하면 추가 이메일 주소에 알림을 보내려면 **추가 관리자 이메일** 필드에 해당 이메일 주소를 추가합니다. 메일 주소가 여러 개인 경우 *email\@contoso.com;email2\@contoso.com* 처럼 세미콜론을 사용하여 구분할 수 있습니다.
 
 8. 경고가 발생할 때 URI를 호출하려면 **Webhook** 필드에 유효한 URI를 입력합니다.
 
@@ -130,7 +130,7 @@ az monitor alert delete --name <alert name> --resource-group <group name>
     Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. 클래식 경고 규칙은 PowerShell을 통해 더 이상 만들 수 없습니다. 경고 규칙을 만들려면 새 [' AzMetricAlertRule '](/powershell/module/az.monitor/add-azmetricalertrule) 명령을 사용 해야 합니다.
+8. 클래식 경고 규칙은 PowerShell을 통해 더 이상 만들 수 없습니다. 경고 규칙을 만들려면 새 [‘Add-AzMetricAlertRule’](/powershell/module/az.monitor/add-azmetricalertrule) 명령을 사용해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

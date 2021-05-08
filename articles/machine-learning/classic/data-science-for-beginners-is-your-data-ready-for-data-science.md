@@ -1,5 +1,5 @@
 ---
-title: 'ML Studio (클래식): 데이터 평가-Azure'
+title: 'ML 스튜디오(클래식): 데이터 평가 - Azure'
 description: 데이터 과학에 사용할 수 있는 데이터가 충족해야 하는 4가지 기준입니다. 이 비디오에는 기본 데이터 평가에 도움이 되는 몇 가지 구체적인 예제가 있습니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,10 +10,10 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: 07db1f1c8021759fbd5702ad9353f74fcd1524c9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100516977"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
@@ -99,7 +99,7 @@ ms.locfileid: "100516977"
 
 관련성이 있고, 연결되고, 정확하고, 충분한 데이터가 있으면 고품질의 데이터 과학을 수행하는 데 필요한 모든 재료를 갖추게 되는 것입니다.
 
-Microsoft Azure Machine Learning Studio (클래식)의 *초보자를 위한 데이터 과학* 의 다른 4 가지 비디오를 확인 하세요.
+Microsoft Azure Machine Learning 스튜디오(클래식)의 *초급자를 위한 데이터 과학* 에 포함된 네 개의 다른 비디오도 확인해보세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Machine Learning Studio(클래식)로 첫 번째 데이터 과학 실험 시도](create-experiment.md)

@@ -11,10 +11,10 @@ ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b60b447d8302b89813ca462c3220603ef926eb26
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102631186"
 ---
 # <a name="localization-string-ids"></a>지역화 문자열 ID
@@ -25,7 +25,7 @@ ms.locfileid: "102631186"
 
 ## <a name="sign-up-or-sign-in-page-elements"></a>등록 또는 로그인 페이지 요소
 
-ID가 인 콘텐츠 정의 `api.signuporsignin` 및 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)에 사용 되는 id는 다음과 같습니다.
+다음 ID는 ID가 `api.signuporsignin`인 콘텐츠 정의 및 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)에 사용됩니다.
 
 | ID | 기본값 | 페이지 레이아웃 버전 |
 | -- | ------------- | ------ |
@@ -33,40 +33,40 @@ ID가 인 콘텐츠 정의 `api.signuporsignin` 및 [자체 어설션된 기술 
 | **createaccount_intro** | 아직 계정이 없으세요? | `All` |
 | **button_signin** | 로그인 | `All` |
 | **social_intro** | 소셜 계정으로 로그인 | `All` |
-| **remember_me** |로그인 상태를 유지 합니다. | `All` |
+| **remember_me** |로그인 유지. | `All` |
 | **unknown_error** | 로그인하는 동안 문제가 발생했습니다. 나중에 다시 시도하세요. | `All` |
 | **divider_title** | 또는 | `All` |
 | **local_intro_email** | 기존 계정으로 로그인 | `< 2.0.0` |
 | **logonIdentifier_email** | 메일 주소 | `< 2.0.0` |
 | **requiredField_email** | 이메일을 입력하세요. | `< 2.0.0` |
 | **invalid_email** | 올바른 이메일 주소를 입력하세요. | `< 2.0.0` |
-| **email_pattern** | ^ [A-za-z0-9.! # $% & ' ' \* +/=? ^ \_ \` { \| } ~-] + @ [a-za-z0-9-] + (?: \\ . [ A-za-z0-9-] +) \* $ |`< 2.0.0` |
+| **email_pattern** | ^[a-zA-Z0-9.!#$%&''\*+/=?^\_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)\*$ | `< 2.0.0` |
 | **local_intro_username** | 사용자 이름으로 로그인 | `< 2.0.0` |
 | **logonIdentifier_username** | 사용자 이름 | `< 2.0.0` |
 | **requiredField_username** | 사용자 이름을 입력하세요. | `< 2.0.0` |
 | **password** | 암호 | `< 2.0.0` |
 | **requiredField_password** | 암호를 입력하세요. | `< 2.0.0` |
-| **createaccount_link** | 지금 등록하십시오. | `< 2.0.0` |
+| **createaccount_link** | 지금 가입하십시오. | `< 2.0.0` |
 | **cancel_message** | 사용자가 암호를 잊음 | `< 2.0.0` |
 | **invalid_password** | 입력한 암호의 형식이 잘못되었습니다. | `< 2.0.0` |
-| **createaccount_one_link** | 지금 등록하십시오. | `>= 2.0.0` |
-| **createaccount_two_links** | 또는을 사용 하 여 등록 {0}{1} | `>= 2.0.0` |
-| **createaccount_three_links** | {0}, 또는를 사용 하 여 등록 {1}{2} | `>= 2.0.0` |
-| **local_intro_generic** | 을 사용 하 여 로그인 {0} | `>= 2.1.0` |
-| **requiredField_generic** | 다음을 입력 하세요. {0} | `>= 2.1.0` |
-| **invalid_generic** | 올바른를 입력 하세요. {0} | `>= 2.1.1` |
-| **스타일** | 로그인 | `>= 2.1.1` |
+| **createaccount_one_link** | 지금 가입하십시오. | `>= 2.0.0` |
+| **createaccount_two_links** | {0} 또는 {1}로 가입 | `>= 2.0.0` |
+| **createaccount_three_links** | {0}, {1} 또는 {2}로 가입 | `>= 2.0.0` |
+| **local_intro_generic** | {0}으로 로그인 | `>= 2.1.0` |
+| **requiredField_generic** | 사용자의 {0}을 입력하세요. | `>= 2.1.0` |
+| **invalid_generic** | 유효한 {0}을 입력하세요. | `>= 2.1.1` |
+| **제목** | 로그인 | `>= 2.1.1` |
 
 
 > [!NOTE]
-> * 와 같은 자리 표시자 {0} 는 값을 사용 하 여 자동으로 채워집니다 `DisplayName` `ClaimType` . 
-> * 지역화 하는 방법에 대 `ClaimType` 한 자세한 내용은 [등록 또는 로그인 예](#signupsigninexample)를 참조 하세요.
+> * {0}과 같은 자리 표시자는 `ClaimType`의 `DisplayName` 값을 사용하여 자동으로 채워집니다. 
+> * `ClaimType`을 지역화하는 방법에 대한 자세한 내용은 [가입 또는 로그인 예](#signupsigninexample)를 참조하세요.
 
 다음 예제에서는 등록 또는 로그인 페이지의 몇 가지 사용자 인터페이스 요소 사용 방법을 보여 줍니다.
 
-:::image type="content" source="./media/localization-string-ids/localization-susi-2.png" alt-text="등록 또는 로그인 페이지 U X 요소를 표시 하는 스크린샷":::
+:::image type="content" source="./media/localization-string-ids/localization-susi-2.png" alt-text="가입 또는 로그인 페이지 U X 요소를 표시하는 스크린샷.":::
 
-### <a name="sign-up-or-sign-in-identity-providers"></a>등록 또는 로그인 id 공급자
+### <a name="sign-up-or-sign-in-identity-providers"></a>가입 또는 로그인 ID 공급자
 
 ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩니다. ID 공급자의 제목을 지역화하려는 경우 **ElementType** 은 `ClaimsProvider`로 설정하고 **StringId** 는 `ClaimsExchange`의 ID로 설정합니다.
 
@@ -107,7 +107,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 | **AADRequestsThrottled** | 현재 요청이 너무 많습니다. 잠시 기다린 후에 다시 시도하세요. |
 
 <a name="signupsigninexample"></a>
-### <a name="sign-up-or-sign-in-example"></a>등록 또는 로그인 예
+### <a name="sign-up-or-sign-in-example"></a>가입 또는 로그인 예
 
 ```xml
 <LocalizedResources Id="api.signuporsignin.en">
@@ -143,7 +143,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 
 ## <a name="sign-up-and-self-asserted-pages-user-interface-elements"></a>등록 및 자체 어설션된 페이지 사용자 인터페이스 요소
 
-다음은 ID가 인 콘텐츠 정의의 Id `api.localaccountsignup` 또는로 시작 하는 콘텐츠 정의 ( `api.selfasserted` 예: `api.selfasserted.profileupdate` 및) `api.localaccountpasswordreset` 및 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)입니다.
+아래에는 ID가 `api.localaccountsignup`인 콘텐츠 정의 또는 `api.selfasserted.profileupdate`과 `api.localaccountpasswordreset`, [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)과 같이 `api.selfasserted`로 시작하는 모든 콘텐츠 정의의 ID가 나와 있습니다.
 
 | ID | 기본값 |
 | -- | ------------- |
@@ -202,7 +202,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 
 ![등록 페이지 이메일 확인 UX 요소](./media/localization-string-ids/localization-email-verification.png)
 
-## <a name="sign-up-and-self-asserted-pages-example"></a>등록 및 자체 어설션된 페이지 예제
+## <a name="sign-up-and-self-asserted-pages-example"></a>가입 및 자체 어설션된 페이지 예
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -256,7 +256,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 
 ## <a name="phone-factor-authentication-page-user-interface-elements"></a>전화 인증 페이지 사용자 인터페이스 요소
 
-ID `api.phonefactor` 및 [phone 팩터 기술 프로필](phone-factor-technical-profile.md)의 콘텐츠 정의 id는 다음과 같습니다.
+아래에는 ID가 `api.phonefactor`인 콘텐츠 정의 및 [전화 단계 기술 프로필](phone-factor-technical-profile.md)에 대한 ID가 나와 있습니다.
 
 | ID | 기본값 |
 | -- | ------------- |
@@ -291,20 +291,20 @@ ID `api.phonefactor` 및 [phone 팩터 기술 프로필](phone-factor-technical-
 | **number_label** | 전화 번호 |
 | **error_tryagain** | 제공한 전화 번호가 통화 중이거나 사용될 수 없습니다. 번호를 확인 후 다시 시도하세요. |
 | **error_incorrect_code** | 입력한 확인 코드가 레코드와 일치하지 않습니다. 다시 시도하거나 새 코드를 요청하세요. |
-| **countryList** | [국가 목록을](#phone-factor-authentication-page-example)참조 하십시오. |
+| **countryList** | [국가 목록을](#phone-factor-authentication-page-example)참조하세요. |
 | **error_448** | 제공한 전화 번호에 연결할 수 없습니다. |
 | **error_449** | 사용자가 다시 시도 횟수를 초과했습니다. |
 | **verification_code_input_placeholder_text** | 확인 코드 |
 
 다음 예제에서는 MFA 등록 페이지의 몇 가지 사용자 인터페이스 요소 사용 방법을 보여 줍니다.
 
-![전화 요소 인증 등록 UX 요소](./media/localization-string-ids/localization-mfa1.png)
+![전화 단계 인증 등록 UX 요소](./media/localization-string-ids/localization-mfa1.png)
 
 다음 예제에서는 MFA 유효성 검사 페이지의 몇 가지 사용자 인터페이스 요소 사용 방법을 보여 줍니다.
 
-![전화 요소 인증 유효성 검사 UX 요소](./media/localization-string-ids/localization-mfa2.png)
+![전화 단계 인증 유효성 검사 UX 요소](./media/localization-string-ids/localization-mfa2.png)
 
-## <a name="phone-factor-authentication-page-example"></a>전화 요소 인증 페이지 예제
+## <a name="phone-factor-authentication-page-example"></a>전화 단계 인증 페이지 예제
 
 ```xml
 <LocalizedResources Id="api.phonefactor.en">
@@ -352,7 +352,7 @@ ID `api.phonefactor` 및 [phone 팩터 기술 프로필](phone-factor-technical-
 
 ## <a name="verification-display-control-user-interface-elements"></a>확인 표시 컨트롤 사용자 인터페이스 요소
 
-다음은 [페이지 레이아웃 버전이](page-layout.md) 2.1.0 이상인 [확인 표시 컨트롤](display-control-verification.md) 에 대 한 id입니다.
+아래에는 [페이지 레이아웃 버전](page-layout.md) 2.1.0 이상인 [확인 표시 컨트롤](display-control-verification.md)에 대한 ID가 나와 있습니다.
 
 | ID | 기본값 |
 | -- | ------------- |
@@ -366,7 +366,7 @@ ID `api.phonefactor` 및 [phone 팩터 기술 프로필](phone-factor-technical-
 |but_send_new_code | 새 코드 전송|
 |but_change_claims | 이메일 변경|
 
-참고: `intro_msg` 요소는 숨겨지고 자체 어설션된 페이지에 표시 되지 않습니다. 표시 하려면 CSS 스타일시트와 함께 [HTML customiztion](customize-ui-with-html.md) 을 사용 합니다. 예를 들면 다음과 같습니다.
+참고: `intro_msg` 요소는 숨겨져 있어서 자체 어설션된 페이지에 표시되지 않습니다. 표시하려면 CSS 스타일시트로 [HTML 사용자 지정](customize-ui-with-html.md)을 사용합니다. 예를 들면 다음과 같습니다.
     
 ```css
 .verificationInfoText div{display: block!important}
@@ -391,9 +391,9 @@ ID `api.phonefactor` 및 [phone 팩터 기술 프로필](phone-factor-technical-
 </LocalizedResources>
 ```
 
-## <a name="verification-display-control-user-interface-elements-deprecated"></a>확인 표시 컨트롤 사용자 인터페이스 요소 (사용 되지 않음)
+## <a name="verification-display-control-user-interface-elements-deprecated"></a>확인 표시 컨트롤 사용자 인터페이스 요소(사용되지 않음)
 
-다음은 [페이지 레이아웃 버전](page-layout.md) 2.0.0을 사용 하는 [확인 표시 컨트롤](display-control-verification.md) 에 대 한 id입니다.
+아래에는 [페이지 레이아웃 버전](page-layout.md) 2.0.0을 사용하는 [확인 표시 컨트롤](display-control-verification.md)에 대한 ID가 나와 있습니다.
 
 | ID | 기본값 |
 | -- | ------------- |
@@ -405,7 +405,7 @@ ID `api.phonefactor` 및 [phone 팩터 기술 프로필](phone-factor-technical-
 |verification_control_but_verify_code |코드 확인 |
 |verification_control_code_sent| 확인 코드를 보냈습니다. 확인 코드를 아래 입력란에 복사하세요. |
 
-### <a name="verification-display-control-example-deprecated"></a>확인 표시 제어 예제 (사용 되지 않음)
+### <a name="verification-display-control-example-deprecated"></a>확인 표시 컨트롤 예제(사용되지 않음)
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -421,16 +421,16 @@ ID `api.phonefactor` 및 [phone 팩터 기술 프로필](phone-factor-technical-
 </LocalizedResources>
 ```
 
-## <a name="restful-service-error-messages"></a>Restful service 오류 메시지
+## <a name="restful-service-error-messages"></a>Restful 서비스 오류 메시지
 
-[Restful service 기술 프로필](restful-technical-profile.md) 오류 메시지에 대 한 id는 다음과 같습니다.
+다음은 [Restful 서비스 기술 프로필](restful-technical-profile.md) 오류 메시지에 대한 ID입니다.
 
 | ID | 기본값 |
 | -- | ------------- |
-|DefaultUserMessageIfRequestFailed | Restful service 끝점에 대 한 연결을 설정 하지 못했습니다. Restful 서비스 URL: {0} |
+|DefaultUserMessageIfRequestFailed | Restful 서비스 엔드포인트에 대한 연결을 설정하지 못했습니다. Restful 서비스 URL: {0} |
 |UserMessageIfCircuitOpen | {0} Restful 서비스 URL: {1} |
-|UserMessageIfDnsResolutionFailed | Restful 서비스 끝점의 호스트 이름을 확인 하지 못했습니다. Restful 서비스 URL: {0} |
-|UserMessageIfRequestTimeout | 제한 시간 (초) 내에 restful 서비스 끝점에 대 한 연결을 설정 하지 못했습니다 {0} . Restful 서비스 URL: {1} |
+|UserMessageIfDnsResolutionFailed | Restful 서비스 엔드포인트의 호스트 이름을 확인하지 못했습니다. Restful 서비스 URL: {0} |
+|UserMessageIfRequestTimeout | 시간 제한 {0}초 내에 Restful 서비스 엔드포인트에 대한 연결을 설정하지 못했습니다. Restful 서비스 URL: {1} |
 
 
 ### <a name="restful-service-example"></a>Restful 서비스 예제
@@ -448,7 +448,7 @@ ID `api.phonefactor` 및 [phone 팩터 기술 프로필](phone-factor-technical-
 
 ## <a name="azure-ad-mfa-error-messages"></a>Azure AD MFA 오류 메시지
 
-다음은 [AZURE AD MFA 기술 프로필](multi-factor-auth-technical-profile.md) 오류 메시지의 id입니다.
+아래에는 [Azure AD MFA 기술 프로필](multi-factor-auth-technical-profile.md) 오류 메시지에 대한 ID가 나와 있습니다.
 
 | ID | 기본값 |
 | -- | ------------- |
@@ -476,15 +476,15 @@ ID `api.phonefactor` 및 [phone 팩터 기술 프로필](phone-factor-technical-
 
 ## <a name="azure-ad-sspr"></a>Azure AD SSPR
 
-다음은 [AZURE AD SSPR 기술 프로필](aad-sspr-technical-profile.md) 오류 메시지의 id입니다.
+아래에는 [Azure AD SSPR 기술 프로필](aad-sspr-technical-profile.md) 오류 메시지에 대한 ID가 나와 있습니다.
 
 | ID | 기본값 |
 | -- | ------------- |
-|UserMessageIfChallengeExpired | 코드가 만료 되었습니다.|
-|UserMessageIfInternalError | 전자 메일 서비스에서 내부 오류가 발생 했습니다. 나중에 다시 시도 하세요.|
-|UserMessageIfThrottled | 너무 많은 요청을 보냈습니다. 나중에 다시 시도 하세요.|
-|UserMessageIfVerificationFailedNoRetry | 최대 확인 시도 횟수를 초과 했습니다.|
-|UserMessageIfVerificationFailedRetryAllowed | 확인 하지 못했습니다. 다시 시도 하세요.|
+|UserMessageIfChallengeExpired | 만료된 코드입니다.|
+|UserMessageIfInternalError | 메일 서비스에서 내부 오류가 발생했습니다. 나중에 다시 시도하세요.|
+|UserMessageIfThrottled | 요청이 너무 많습니다. 나중에 다시 시도하세요.|
+|UserMessageIfVerificationFailedNoRetry | 최대 확인 시도 횟수를 초과했습니다.|
+|UserMessageIfVerificationFailedRetryAllowed | 확인하지 못했습니다. 다시 시도하세요.|
 
 
 ### <a name="azure-ad-sspr-example"></a>Azure AD SSPR 예제
@@ -513,7 +513,7 @@ ID `api.phonefactor` 및 [phone 팩터 기술 프로필](phone-factor-technical-
 |UserMessageIfInvalidCode |확인을 위해 제공한 일회용 암호가 잘못되었습니다. |
 |UserMessageIfVerificationFailedRetryAllowed |해당 코드가 잘못되었습니다. 나중에 다시 시도하세요. | 
 
-### <a name="one-time-password-example"></a>일회성 암호 예
+### <a name="one-time-password-example"></a>일회성 암호 예제
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -537,7 +537,7 @@ ID `api.phonefactor` 및 [phone 팩터 기술 프로필](phone-factor-technical-
 |DateTimeGreaterThan |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | 클레임 값을 비교하지 못했습니다. 제공된 왼쪽 피연산자가 오른쪽 피연산자보다 큽니다.|
 |UserMessageIfClaimsTransformationStringsAreNotEqual |[AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal) | StringComparison "OrdinalIgnoreCase"를 사용하여 클레임 값을 비교하지 못했습니다.|
 
-### <a name="claims-transformations-example"></a>클레임 변환 예
+### <a name="claims-transformations-example"></a>클레임 변환 예제
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -551,7 +551,7 @@ ID `api.phonefactor` 및 [phone 팩터 기술 프로필](phone-factor-technical-
 
 ## <a name="next-steps"></a>다음 단계
 
-지역화 예제는 다음 문서를 참조 하세요.
+지역화 예제는 다음 문서를 참조하세요.
 
-- [Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 언어 사용자 지정](language-customization.md)
-- [Azure Active Directory B2C에서 사용자 흐름을 사용 하 여 언어 사용자 지정](language-customization.md)
+- [Azure Active Directory B2C에서 사용자 지정 정책으로 언어 사용자 지정](language-customization.md)
+- [Azure Active Directory B2C에서 사용자 흐름으로 언어 사용자 지정](language-customization.md)

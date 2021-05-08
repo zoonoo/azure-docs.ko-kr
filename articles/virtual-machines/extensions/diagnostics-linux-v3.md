@@ -1,6 +1,6 @@
 ---
-title: Azure Compute-Linux 진단 확장 3.0
-description: Azure에서 실행 되는 Linux Vm에서 메트릭 및 로그 이벤트를 수집 하도록 Azure Linux 진단 확장 (꼬마) 3.0을 구성 하는 방법입니다.
+title: Azure Compute - Linux 진단 확장 3.0
+description: Azure에서 실행되는 Linux VM에서 메트릭 및 로그 이벤트를 수집하도록 Azure Linux 진단 확장(LAD) 3.0을 구성하는 방법입니다.
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
@@ -9,13 +9,13 @@ ms.author: amjads
 ms.collection: linux
 ms.date: 12/13/2018
 ms.openlocfilehash: d063aec3b093f00640d909a6ce3c2cde6d2d2420
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102547427"
 ---
-# <a name="use-linux-diagnostic-extension-30-to-monitor-metrics-and-logs"></a>Linux 진단 확장 3.0를 사용 하 여 메트릭 및 로그 모니터링
+# <a name="use-linux-diagnostic-extension-30-to-monitor-metrics-and-logs"></a>Linux 진단 확장 3.0을 사용하여 메트릭 및 로그 모니터링
 
 이 문서에서는 3.0 이상 버전의 Linux 진단 확장에 대해 설명합니다.
 
@@ -40,7 +40,7 @@ Linux 진단 확장을 통해 사용자는 Microsoft Azure에서 실행하는 Li
 Azure PowerShell cmdlet, Azure CLI 스크립트, ARM 템플릿 또는 Azure Portal을 통해 이 확장을 사용하도록 설정할 수 있습니다. 자세한 내용은 [확장 기능](features-linux.md)을 참조하세요.
 
 >[!NOTE]
->진단 VM 확장의 특정 구성 요소는 [LOG ANALYTICS VM 확장](./oms-linux.md)에도 제공 됩니다. 이 아키텍처 때문에 동일한 ARM 템플릿에서 두 확장을 모두 인스턴스화하면 충돌이 발생할 수 있습니다. 이러한 설치 시간 충돌을 방지 하려면 [ `dependsOn` 지시문](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) 을 사용 하 여 확장이 순차적으로 설치 되도록 합니다. 이러한 확장은 한 순서에 따라 설치할 수 있습니다.
+>진단 VM 확장의 특정 구성 요소는 [Log Analytics VM 확장](./oms-linux.md)에도 제공됩니다. 이 아키텍처로 인해 동일한 ARM 템플릿에서 두 확장을 모두 인스턴스화하면 충돌이 발생할 수 있습니다. 설치 시간 충돌을 방지하려면 [`dependsOn` 지시문](../../azure-resource-manager/templates/define-resource-dependency.md#dependson)을 사용하여 확장이 순차적으로 설치되도록 합니다. 확장은 어느 순서로든 설치할 수 있습니다.
 
 이러한 설치 지침 및 [다운로드 가능한 샘플 구성](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json)은 다음을 수행할 수 있도록 LAD 3.0을 구성합니다.
 
@@ -72,26 +72,26 @@ Debian 7과 같이 주 버전만 나와 있는 배포는 모든 부 버전에 �
 * **Azure Linux 에이전트 버전 2.2.0 이상**. 대부분의 Azure VM Linux 갤러리 이미지에는 2.2.7 이후 버전이 포함되어 있습니다. VM에 설치된 버전을 확인하려면 `/usr/sbin/waagent -version`을 실행합니다. VM이 게스트 에이전트의 이전 버전을 실행 중인 경우 [이 지침](./update-linux-agent.md)에 따라 업데이트합니다.
 * **Azure CLI** 머신에 [Azure CLI 환경을 설치](/cli/azure/install-azure-cli)합니다.
 * wget 명령. 아직 없는 경우 `sudo apt-get install wget`을 실행합니다.
-* 기존 Azure 구독 및 데이터를 저장할 기존 범용 저장소 계정.  범용 저장소 계정은 필요한 테이블 저장소를 지원 합니다.  Blob 저장소 계정이 작동 하지 않습니다.
+* 데이터를 저장할 기존 Azure 구독 및 기존 범용 스토리지 계정입니다.  범용 스토리지 계정은 필수 Table Storage를 지원합니다.  Blob Storage 계정이 작동하지 않습니다.
 * Python 2
 
 ### <a name="python-requirement"></a>Python 요구 사항
 
-Linux 진단 확장에는 Python 2가 필요 합니다. 가상 컴퓨터가 기본적으로 Python 2를 포함 하지 않는 배포판를 사용 하는 경우 설치 해야 합니다. 다음 샘플 명령은 다른 배포판에 Python 2를 설치 합니다.    
+Linux 진단 확장에는 Python 2가 필요합니다. 가상 머신이 기본적으로 Python 2를 포함하지 않는 배포판을 사용하는 경우 이를 설치해야 합니다. 다음 샘플 명령은 다른 배포판에 Python 2를 설치합니다.    
 
  - Red Hat, CentOS, Oracle: `yum install -y python2`
  - Ubuntu, Debian: `apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
-Python2 실행 파일은 *python* 으로 별칭을 지정 해야 합니다. 다음은이 별칭을 설정 하는 데 사용할 수 있는 한 가지 방법입니다.
+Python2 실행 파일은 *python* 으로 별칭을 지정해야 합니다. 다음은 이 별칭을 설정하는 데 사용할 수 있는 한 가지 방법입니다.
 
-1. 다음 명령을 실행 하 여 기존 별칭을 제거 합니다.
+1. 다음 명령을 실행하여 기존 별칭을 제거합니다.
  
     ```
     sudo update-alternatives --remove-all python
     ```
 
-2. 다음 명령을 실행 하 여 별칭을 만듭니다.
+2. 다음 명령을 실행하여 별칭을 만듭니다.
 
     ```
     sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
@@ -100,7 +100,7 @@ Python2 실행 파일은 *python* 으로 별칭을 지정 해야 합니다. 다�
 ### <a name="sample-installation"></a>샘플 설치
 
 > [!NOTE]
-> 샘플 중 하나에 대해 실행 하기 전에 첫 번째 섹션의 변수에 올바른 값을 입력 합니다. 
+> 두 샘플 중 하나에 대해 실행하기 전에 첫 번째 섹션의 변수에 올바른 값을 입력합니다. 
 
 이 예제에서 다운로드된 샘플 구성은 표준 데이터 집합을 수집하고 이를 테이블 스토리지로 보냅니다. 샘플 구성의 URL과 해당 내용은 변경될 수 있습니다. 대부분의 경우, 포털 설정 JSON 파일을 다운로드하고 필요에 따라 수정하면 매번 해당 URL을 다운로드하지 않고도 구성한 템플릿 또는 자동화에서 구성 파일의 사용자 지정 버전을 사용합니다.
 
@@ -133,7 +133,7 @@ my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_accoun
 # Finally tell Azure to install and enable the extension
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
-#### <a name="azure-cli-sample-for-installing-lad-30-extension-on-the-virtual-machine-scale-set-instance"></a>가상 머신 확장 집합 인스턴스에서 3.0 확장을 설치 하는 Azure CLI 샘플
+#### <a name="azure-cli-sample-for-installing-lad-30-extension-on-the-virtual-machine-scale-set-instance"></a>가상 머신 확장 집합 인스턴스에서 LAD 3.0 확장을 설치하는 Azure CLI 샘플
 
 ```azurecli
 #Set your Azure VMSS diagnostic variables correctly below
@@ -207,7 +207,7 @@ Set-AzVMExtension -ResourceGroupName $VMresourceGroup -VMName $vmName -Location 
 권장 사항:
 
 * 자동 부 버전 업그레이드를 사용하도록 설정하여 확장을 설치합니다.
-  * 클래식 배포 모델 Vm에서 Azure XPLAT CLI 또는 PowerShell을 통해 확장을 설치 하는 경우 ' 3. * '를 버전으로 지정 합니다.
+  * 클래식 배포 모델 VM에서는 Azure XPLAT CLI 또는 PowerShell을 통해 확장을 설치하는 경우 버전으로 '3.*'를 지정합니다.
   * Azure Resource Manager 배포 모델 VM에서는 VM 배포 템플릿에 '"autoUpgradeMinorVersion": true'를 포함합니다.
 * LAD 3.0에 대해 새 스토리지 계정 또는 다른 스토리지 계정을 사용합니다. LAD 2.3과 LAD 3.0 간에 다음과 같은 몇 가지 사소한 비호환성 문제가 있어 계정 공유에 문제가 발생합니다.
   * LAD 3.0은 syslog 이벤트를 이름이 다른 테이블에 저장합니다.
@@ -244,7 +244,7 @@ Azure Portal을 통해 필요한 SAS 토큰을 쉽게 생성할 수 있습니다
 1. 앞에서 설명한 대로 적절한 섹션을 만듭니다.
 1. "SAS 생성" 단추를 클릭합니다.
 
-:::image type="content" source="./media/diagnostics-linux/make_sas.png" alt-text="스크린샷은 A S를 생성 하는 공유 액세스 서명 페이지를 표시 합니다.":::
+:::image type="content" source="./media/diagnostics-linux/make_sas.png" alt-text="스크린샷은 S A S를 생성하는 공유 액세스 서명 페이지를 표시합니다.":::
 
 생성된 SAS를 storageAccountSasToken 필드에 복사하고 앞의 물음표("?")를 제거합니다.
 
@@ -497,7 +497,7 @@ sinks | (선택 사항) 원시 샘플 메트릭 결과가 게시되어야 하는
 로그 파일의 캡처를 제어합니다. LAD는 파일에 작성된 새 텍스트 줄을 캡처하여 테이블 행 및/또는 지정된 싱크(JsonBlob 또는 EventHub)에 기록합니다.
 
 > [!NOTE]
-> fileLogs는 라는 하위 구성 요소에 의해 캡처됩니다 `omsagent` . FileLogs를 수집 하려면 `omsagent` 사용자에 게 지정한 파일에 대 한 읽기 권한과 해당 파일에 대 한 경로의 모든 디렉터리에 대 한 실행 권한이 있는지 확인 해야 합니다. `sudo su omsagent -c 'cat /path/to/file'`을 (를) 설치한 후를 실행 하 여이를 확인할 수 있습니다.
+> fileLogs는 `omsagent`라는 LAD의 하위 구성 요소에 의해 캡처됩니다. fileLogs를 수집하려면 `omsagent` 사용자에게 지정한 파일에 대한 읽기 권한과 해당 파일에 대한 경로의 모든 디렉터리에 대한 실행 권한이 있는지 확인해야 합니다. 이는 LAD를 설치한 후 `sudo su omsagent -c 'cat /path/to/file'`을 실행하여 확인할 수 있습니다.
 
 ```json
 "fileLogs": [
@@ -511,7 +511,7 @@ sinks | (선택 사항) 원시 샘플 메트릭 결과가 게시되어야 하는
 
 요소 | 값
 ------- | -----
-파일 | 확인 및 캡처할 로그 파일의 전체 경로 이름입니다. 경로 이름은 단일 파일의 이름을 지정해야 합니다. 디렉터리 이름을 지정하거나 와일드카드를 포함할 수 없습니다. ' Omsagent ' 사용자 계정에는 파일 경로에 대 한 읽기 권한이 있어야 합니다.
+파일 | 확인 및 캡처할 로그 파일의 전체 경로 이름입니다. 경로 이름은 단일 파일의 이름을 지정해야 합니다. 디렉터리 이름을 지정하거나 와일드카드를 포함할 수 없습니다. ‘omsagent’ 사용자 계정에는 파일 경로에 대한 읽기 권한이 있어야 합니다.
 테이블 | (선택 사항) 보호되는 구성에서 지정된 대로, 파일의 “끝"에서 새 줄이 작성되고 지정된 스토리지 계정의 Azure Storage 테이블입니다.
 sinks | (선택 사항) 로그 줄이 전송되는 쉼표로 구분된 추가 싱크 이름 목록입니다.
 
@@ -567,7 +567,7 @@ PercentUsedSwap | 총 스왑 중 사용 중인 스왑 공간의 백분율
 
 ### <a name="builtin-metrics-for-the-network-class"></a>네트워크 클래스의 기본 제공 메트릭
 
-메트릭 네트워크 클래스는 부팅 이후 개별 네트워크 인터페이스의 네트워크 작업에 대 한 정보를 제공 합니다. LAD는 대역폭 메트릭을 노출하지 않으며 이는 호스트 메트릭에서 검색할 수 있습니다.
+메트릭의 네트워크 클래스는 부팅 이후 개별 네트워크 인터페이스의 네트워크 활동에 대한 정보를 제공합니다. LAD는 대역폭 메트릭을 노출하지 않으며 이는 호스트 메트릭에서 검색할 수 있습니다.
 
 counter | 의미
 ------- | -------
@@ -604,7 +604,7 @@ TransfersPerSecond | 초당 읽기 또는 쓰기 작업
 `"condition": "IsAggregate=True"`로 설정하면 모든 파일 시스템에서 집계된 값을 얻을 수 있습니다. `"condition": 'Name="/mnt"'`로 설정하면 특정 탑재된 파일 시스템(예: "/mnt")에 대한 값을 얻을 수 있습니다. 
 
 > [!NOTE]
-> JSON 대신 Azure Portal를 사용 하는 경우 올바른 조건 필드 형식은 Name = '/mnt '입니다.
+> JSON 대신 Azure Portal을 사용할 경우, 올바른 조건 필드 형식은 Name='/mnt'입니다.
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>디스크 클래스의 기본 제공 메트릭
 
@@ -625,21 +625,21 @@ WriteBytesPerSecond | 초당 쓴 바이트 수
 
 `"condition": "IsAggregate=True"`로 설정하면 모든 디스크에서 집계된 값을 얻을 수 있습니다. 특정 디바이스(예: /dev/sdf1)에 대한 정보를 얻으려면 `"condition": "Name=\\"/dev/sdf1\\""`를 설정합니다.
 
-## <a name="installing-and-configuring-lad-30"></a>3.0 설치 및 구성
+## <a name="installing-and-configuring-lad-30"></a>LAD 3.0 설치 및 구성
 
 ### <a name="azure-cli"></a>Azure CLI
 
-보호 된 설정이 ProtectedSettings.js파일에 있고 공용 구성 정보가 PublicSettings.js에 있는 경우 다음 명령을 실행 합니다.
+보호 설정이 ProtectedSettings.json 파일에 있고 퍼블릭 구성 정보가 PublicSettings.json 파일에 있는 경우 다음 명령을 실행합니다.
 
 ```azurecli
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-이 명령은 Azure CLI의 Azure 리소스 관리 모드를 사용 하 고 있다고 가정 합니다. 클래식 배포 모델(ASM) VM에 대한 LAD를 구성하려면 "asm" 모드(`azure config mode asm`)로 전환하고 명령에서 리소스 그룹 이름을 생략합니다. 자세한 내용은 [플랫폼 간 CLI 설명서](/cli/azure/authenticate-azure-cli)를 참조하세요.
+해당 명령은 Azure CLI의 Azure 리소스 관리 모드를 사용하고 있다고 가정합니다. 클래식 배포 모델(ASM) VM에 대한 LAD를 구성하려면 "asm" 모드(`azure config mode asm`)로 전환하고 명령에서 리소스 그룹 이름을 생략합니다. 자세한 내용은 [플랫폼 간 CLI 설명서](/cli/azure/authenticate-azure-cli)를 참조하세요.
 
 ### <a name="powershell"></a>PowerShell
 
-보호 된 설정이 `$protectedSettings` 변수에 있고 공용 구성 정보가 변수에 있는 경우 `$publicSettings` 다음 명령을 실행 합니다.
+보호 설정이 `$protectedSettings` 변수에 있고 퍼블릭 구성 정보가 `$publicSettings` 변수에 있는 경우 다음 명령을 실행합니다.
 
 ```powershell
 Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Location <vm_location> -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 3.0
@@ -650,11 +650,11 @@ Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Lo
 이전 정의를 기반으로 몇 가지 설명이 포함된 샘플 LAD 3.0 확장 구성이 나와 있습니다. 이 샘플을 사례에 적용하려면 사용자 고유의 스토리지 계정 이름, 계정 SAS 토큰 및 EventHubs SAS 토큰을 사용해야 합니다.
 
 > [!NOTE]
-> Azure CLI 또는 PowerShell을 사용 하 여를 설치 하는지 여부에 따라 공개 및 보호 된 설정을 제공 하는 방법은 서로 다릅니다. Azure CLI 사용 하는 경우 위의 샘플 명령과 함께 사용 하려면 다음 설정을 ProtectedSettings.js설정 하 고 PublicSettings.js합니다. PowerShell을 사용 하는 경우를 실행 하 여 및에 설정을 저장 `$protectedSettings` `$publicSettings` `$protectedSettings = '{ ... }'` 합니다.
+> LAD를 설치하기 위해 Azure CLI를 사용하는지 또는 PowerShell을 사용하는지 여부에 따라 퍼블릭 및 보호 설정을 제공하는 방법이 서로 달라집니다. Azure CLI를 사용하는 경우 위의 샘플 명령과 함께 사용하려면 다음 설정을 ProtectedSettings.json 및 PublicSettings.json에 저장합니다. PowerShell을 사용하는 경우 `$protectedSettings = '{ ... }'`를 실행하여 설정을 `$protectedSettings` 및 `$publicSettings`에 저장합니다.
 
 ### <a name="protected-settings"></a>보호 설정
 
-다음 보호 된 설정 구성:
+이 보호 설정은 다음을 구성합니다.
 
 * 스토리지 계정
 * 일치하는 계정 SAS 토큰
@@ -702,7 +702,7 @@ Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Lo
 }
 ```
 
-### <a name="public-settings"></a>공용 설정
+### <a name="public-settings"></a>퍼블릭 설정
 
 공용 설정으로 LAD는 다음을 수행합니다.
 
@@ -803,7 +803,7 @@ Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Lo
 
 Azure Portal을 사용하여 성능 데이터를 보거나 경고를 설정합니다.
 
-:::image type="content" source="./media/diagnostics-linux/graph_metrics.png" alt-text="선택한 메트릭에 사용 된 디스크 공간 및 결과 차트를 사용 하 여 Azure Portal를 보여 주는 스크린샷":::
+:::image type="content" source="./media/diagnostics-linux/graph_metrics.png" alt-text="스크린샷은 선택한 메트릭에 사용된 디스크 공간이 있는 Azure Portal 및 결과 차트를 보여 줍니다.":::
 
 `performanceCounters` 데이터는 항상 Azure Storage 테이블에 저장됩니다. Azure Storage API는 다양한 언어 및 플랫폼에 사용할 수 있습니다.
 
@@ -812,11 +812,11 @@ JsonBlob 싱크로 전송된 데이터는 [보호 설정](#protected-settings)�
 또한 다음 UI 도구를 사용하여 Azure Storage의 데이터에 액세스할 수 있습니다.
 
 * Visual Studio 서버 탐색기.
-* [Azure Storage 탐색기의 컨테이너와 테이블을 보여 주는 스크린샷](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer")
+* [스크린샷은 Azure Storage Explorer의 컨테이너와 테이블을 보여 줍니다.](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer")
 
 Microsoft Azure Storage Explorer의 이 스냅샷 세션은 테스트 VM에서 올바르게 구성된 LAD 3.0 확장에서 생성된 Azure Storage 테이블 및 컨테이너를 보여 줍니다. 이미지가 [샘플 LAD 3.0 구성](#an-example-lad-30-configuration)과 정확히 일치하지는 않습니다.
 
-:::image type="content" source="./media/diagnostics-linux/stg_explorer.png" alt-text="Azure Storage 탐색기를 보여 주는 스크린샷":::
+:::image type="content" source="./media/diagnostics-linux/stg_explorer.png" alt-text="스크린샷은 Azure Storage Explorer를 보여 줍니다.":::
 
 
 EventHubs 엔드포인트에 게시된 메시지를 사용하는 방법에 대해 알아보려면 관련 [EventHubs 설명서](../../event-hubs/event-hubs-about.md)를 참조하세요.

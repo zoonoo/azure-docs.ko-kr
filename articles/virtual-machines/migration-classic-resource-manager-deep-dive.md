@@ -1,6 +1,6 @@
 ---
 title: 플랫폼 지원 마이그레이션 도구입니다.
-description: 클래식 배포 모델에서 Azure Resource Manager에 대 한 리소스의 플랫폼 지원 마이그레이션에 대 한 기술 심층 소개.
+description: 플랫폼 지원 방식으로 클래식 배포 모델에서 Azure Resource Manager로 리소스를 마이그레이션하는 과정의 기술 정보입니다.
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: tagore
 ms.openlocfilehash: 43473b734968b25ca90bd8809c8291625011d46f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101667012"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보
 
 > [!IMPORTANT]
-> 현재 IaaS Vm의 90%가 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)를 사용 하 고 있습니다. 2020 년 2 월 28 일부 터 클래식 Vm은 더 이상 사용 되지 않으며 2023 년 3 월 1 일에 완전히 사용 중지 됩니다. 이 사용 중단 및 [영향](./classic-vm-deprecation.md#how-does-this-affect-me)에 대 한 [자세한 내용을 알아보세요]( https://aka.ms/classicvmretirement) .
+> 현재, IaaS VM 중 90%가 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)를 사용 중입니다. 2020년 2월 28일부로 클래식 VM은 사용되지 않으며 2023년 3월 1일부로 완전히 사용 중지됩니다. 사용 중지 및 [그 영향](./classic-vm-deprecation.md#how-does-this-affect-me)에 대한 [자세한 내용을 확인하세요]( https://aka.ms/classicvmretirement).
 
 Azure 클래식 배포 모델에서 Azure Resource Manager 배포 모델로 마이그레이션하는 방법을 자세하게 살펴보겠습니다. Azure 플랫폼에서 두 가지 배포 모델 간에 리소스를 마이그레이션하는 방법을 더욱 잘 이해할 수 있도록 리소스 및 기능 수준에서 리소스를 검토합니다. 자세한 내용은 서비스 발표 문서 [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](migration-classic-resource-manager-overview.md)을 읽어보세요.
 
@@ -47,7 +47,7 @@ Azure 클래식 배포 모델에서 Azure Resource Manager 배포 모델로 마�
 * 업무 외 시간 동안 마이그레이션을 계획하여 마이그레이션 중 발생할 수 있는 예기치 않은 오류를 해결할 수 있도록 계획하십시오.
 * 준비 단계가 완료된 후 쉽게 검증할 수 있도록 PowerShell, CLI(명령줄 인터페이스) 명령 또는 REST API를 사용하여 VM의 현재 구성을 다운로드합니다.
 * 마이그레이션을 시작하기 전에 자동화/운영 스크립트를 업데이트하여 리소스 관리자 배포 모델을 처리합니다. 경우에 따라 리소스가 준비됨 상태일 때 GET 작업을 실행할 수도 있습니다.
-* 클래식 배포 모델의 IaaS 리소스에 구성 된 azure RBAC (역할 기반 액세스 제어) 정책을 평가 하 고 마이그레이션이 완료 된 후에 계획 합니다.
+* 클래식 배포 모델의 IaaS 리소스에 구성된 Azure RBAC(Azure 역할 기반 액세스 제어) 정책을 평가하고, 마이그레이션이 완료된 후를 계획합니다.
 
 마이그레이션 워크플로는 다음과 같습니다.
 
@@ -151,7 +151,7 @@ Azure 클래식 배포 모델에서 Azure Resource Manager 배포 모델로 마�
 
 | 클래식 표현 | Resource Manager 표현 | 메모 |
 | --- | --- | --- |
-| 클라우드 서비스 이름 (호스팅된 서비스 이름) |DNS 이름 |마이그레이션하는 동안 명명 패턴 `<cloudservicename>-migrated`를 사용하여 모든 클라우드 서비스에 대한 새 리소스 그룹을 만듭니다. 이 리소스 그룹에는 모든 리소스가 포함됩니다. 클라우드 서비스 이름은 공용 IP 주소와 연결된 DNS 이름이 됩니다. |
+| 클라우드 서비스 이름(호스팅된 서비스 이름) |DNS 이름 |마이그레이션하는 동안 명명 패턴 `<cloudservicename>-migrated`를 사용하여 모든 클라우드 서비스에 대한 새 리소스 그룹을 만듭니다. 이 리소스 그룹에는 모든 리소스가 포함됩니다. 클라우드 서비스 이름은 공용 IP 주소와 연결된 DNS 이름이 됩니다. |
 | 가상 머신 |가상 머신 |VM 관련 속성은 변경되지 않고 마이그레이션됩니다. 컴퓨터 이름과 같은 특정 osProfile 정보는 클래식 배포 모델에 저장되지 않으며, 마이그레이션 후에도 비어 있습니다. |
 | VM에 연결된 디스크 리소스 |VM에 연결된 암시적 디스크 |Resource Manager 배포 모델에서는 디스크가 최상위 리소스로 모델링되지 않습니다. VM에서 암시적 디스크로 마이그레이션됩니다. 현재 VM에 연결되어 있는 디스크만 지원됩니다. 리소스 관리자 VM은 이제 클래식 배포 모델에서 스토리지 계정을 사용할 수 있으므로 디스크를 업데이트하지 않고도 쉽게 마이그레이션할 수 있습니다. |
 | VM 확장 |VM 확장 |클래식 배포 모델에서는 XML 확장을 제외한 모든 리소스 확장이 마이그레이션됩니다. |
