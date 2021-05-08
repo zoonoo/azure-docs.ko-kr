@@ -1,7 +1,7 @@
 ---
 title: 여러 IP 구성의 부하 분산 - Azure CLI
 titleSuffix: Azure Load Balancer
-description: 이 문서에서는 Azure CLI를 사용 하 여 기본 및 보조 IP 구성에서 부하 분산에 대해 알아봅니다.
+description: 이 문서에서는 Azure CLI를 사용하여 기본 IP 구성과 보조 IP 구성에 걸쳐 부하를 분산하는 방법에 대해 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: a2916f28be0b45eec6e9c1a85c0b8db3fb611381
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103417862"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>PowerShell을 사용하여 여러 IP 구성의 부하 분산
@@ -142,4 +142,4 @@ ms.locfileid: "103417862"
 
 ## <a name="next-steps"></a>다음 단계
 - Azure에서 부하 분산 서비스를 결합하는 방법에 대한 자세한 내용은 [Azure에서 부하 분산 서비스 사용](../traffic-manager/traffic-manager-load-balancing-azure.md)을 참조하세요.
-- Azure에서 다양 한 유형의 로그를 사용 하 여 [Azure Load Balancer에 대 한 Azure Monitor 로그](../load-balancer/load-balancer-monitor-log.md)에서 부하 분산 장치를 관리 하 고 문제를 해결 하는 방법에 대해 알아봅니다.
+- [Azure Load Balancer에 대한 Azure Monitor 로그](../load-balancer/load-balancer-monitor-log.md)를 통해 Azure에서 부하 분산 장치를 관리하고 문제를 해결하는 데 다양한 유형의 로그를 사용하는 방법에 대해 알아보세요.

@@ -1,165 +1,165 @@
 ---
 title: Splunk 통합 정보
-description: 네트워크의 보안 및 복원 력을 파악 하지 못하는 IoT 용 Defender는 iot 용 defender, IIoT 및 Splunk 용 ICS 위협 모니터링 응용 프로그램을 개발한 iot 용 defender와 Splunk에 대 한 통합 된 접근 방식을 사용 하도록 설정 하는에 대 한 기본 통합입니다.
+description: OT 네트워크의 보안 및 복원력에 대한 가시성 부족을 해결하기 위해 Defender for IoT는 Defender for IoT와 Splunk 간 기본 통합인 Splunk용 Defender for IoT, IIoT 및 ICS 위협 모니터링 애플리케이션을 개발하여 IT 및 OT 보안에 대한 통합 접근 방식을 구현했습니다.
 ms.date: 1/4/2021
 ms.topic: article
 ms.openlocfilehash: 28bdc6deaac09d795c45460bb211126a105b80c8
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104785923"
 ---
-# <a name="defender-for-iot-and-ics-threat-monitoring-application-for-splunk"></a>IoT 용 Defender 및 ICS 위협 모니터링 응용 프로그램 Splunk
+# <a name="defender-for-iot-and-ics-threat-monitoring-application-for-splunk"></a>Splunk용 Defender for IoT 및 ICS 위협 모니터링 애플리케이션
 
-IoT 용 Defender는 IIoT, ICS 및 SCADA 위험을 완화 하 고, ics를 인식 하는 자체 학습 엔진을 사용 하 여, 이미지 시간 보다 작은 시간 내에 ICS 장치, 취약성 및 위협에 대 한 즉각적인 통찰력을 제공 하 고, 에이전트, 규칙 또는 서명, 전문 기술 또는 환경에 대 한 사전 지식에 의존 하지 않습니다.
+Defender for IoT는 에이전트, 규칙 또는 서명, 전문 기술 또는 환경에 대한 사전 지식 없이 1시간 이내에 ICS 디바이스, 취약성 및 위협에 대한 즉각적인 통찰력을 제공하는 특허 받은 ICS 인식 자체 학습 엔진을 통해 IIoT, ICS 및 SCADA 위험을 완화합니다.
 
-네트워크의 보안 및 복원 력을 파악 하지 못하는 IoT 용 Defender는 iot 용 defender, IIoT 및 Splunk 용 ICS 위협 모니터링 응용 프로그램을 개발한 iot 용 defender와 Splunk에 대 한 통합 된 접근 방식을 사용 하도록 설정 하는에 대 한 기본 통합입니다.
+OT 네트워크의 보안 및 복원력에 대한 가시성 부족을 해결하기 위해 Defender for IoT는 Defender for IoT와 Splunk 간 기본 통합인 Splunk용 Defender for IoT, IIoT 및 ICS 위협 모니터링 애플리케이션을 개발하여 IT 및 OT 보안에 대한 통합 접근 방식을 구현했습니다.
 
 > [!Note]
-> CyberX에 대 한 참조는 IoT 용 Azure Defender를 참조 합니다.
+> CyberX에 대한 참조는 Azure Defender for IoT를 참조합니다.
 
-## <a name="about-the-splunk-application"></a>Splunk 응용 프로그램 정보
+## <a name="about-the-splunk-application"></a>Splunk 애플리케이션 정보
 
-응용 프로그램은 SOC 나 비정상 동작을 신속 하 게 검색 하기 위해 ICS 인식 동작 분석과 함께 산업 환경에 배포 된 특수 OT 프로토콜 및 IIoT 장치에 대 한 다차원 가시성을 갖춘 SOC 분석가를 제공 합니다. 또한 응용 프로그램은 하나의 회사 SOC 내에서 IT 및 OT 인시던트 응답을 모두 사용 하도록 설정 합니다. 이는 smart machines 및 실시간 인텔리전스와 같은 새 IIoT 이니셔티브를 지원 하기 위해 IT와 OT의 지속적인 수렴에 대해 고려해 야 하는 중요 한 과정입니다.
+이 애플리케이션은 SOC 분석가에게 산업 환경에 배포된 특수한 OT 프로토콜 및 IIoT 디바이스에 대한 다차원 가시성을 제공하며 ICS 인식 동작 분석으로 의심스러운 동작 또는 변칙적인 동작을 신속하게 검색합니다. 또한 이 애플리케이션을 통해 하나의 회사 SOC 내에서 IT 및 OT 인시던트에 모두 대응할 수 있습니다. 이는 스마트 머신, 실시간 인텔리전스 같은 새로운 IIoT 이니셔티브를 지원하기 위해 IT와 OT가 지속적으로 통합되고 있다는 점을 고려하면 중요한 발전입니다.
 
-Splunk 응용 프로그램을 로컬로 설치 하거나 클라우드에서 실행할 수 있습니다. IoT 용 Defender와의 통합은 두 배포를 모두 지원 합니다.
+Splunk 애플리케이션을 로컬로 설치하거나 클라우드에서 실행할 수 있습니다. Defender for IoT와의 통합은 두 배포를 모두 지원합니다.
 
 ## <a name="about-the-integration"></a>통합 정보
 
-네이티브 응용 프로그램을 통해 IoT 및 Splunk 용 Defender를 통합 하면 사용자가 다음을 수행할 수 있습니다.
+네이티브 애플리케이션을 통해 Defender for IoT와 Splunk를 통합하면 사용자에게 다음과 같은 이점을 제공합니다.
 
-- 산업 및 중요 인프라 조직이 사이버 위협에 대 한 감지, 조사 및 조치를 수행 하는 데 필요한 시간을 단축 합니다.
+- 산업 및 중요 인프라 조직이 사이버 위협을 탐지, 조사 및 대응하는 데 필요한 시간을 단축합니다.
 
-- 위험에 대 한 실시간 인텔리전스를 얻습니다.
+- OT 위험에 대한 실시간 인텔리전스를 얻을 수 있습니다.
 
-- Splunk 엔터프라이즈 보안 위협 인텔리전스 리포지토리를 사용 하 여 IoT 경고에 대 한 Defender의 상관 관계를 합니다.
+- Defender for IoT 경고와 Splunk 엔터프라이즈 보안 위협 인텔리전스 리포지토리를 연계합니다.
 
-- 단일 창에서 모니터링 하 고 응답 합니다.
+- 단일 창에서 모니터링하고 응답합니다.
 
-[:::image type="content" source="media/integration-splunk/splunk-mainpage-v2.png" alt-text="Splunk 도구의 기본 페이지입니다.":::](media/integration-splunk/splunk-mainpage-v2.png#lightbox)
+[:::image type="content" source="media/integration-splunk/splunk-mainpage-v2.png" alt-text="Splunk 도구의 기본 페이지.":::](media/integration-splunk/splunk-mainpage-v2.png#lightbox)
 
-:::image type="content" source="media/integration-splunk/alerts.png" alt-text="Splunk의 경고 페이지":::
+:::image type="content" source="media/integration-splunk/alerts.png" alt-text="Splunk의 경고 페이지.":::
 
-Splunk 관리자는 응용 프로그램을 통해 IoT에 대 한 Defender의 경고를 분석 하 고 다음과 같은 세부 정보를 포함 하 여 전체 보안 배포를 모니터링할 수 있습니다.
+이 애플리케이션을 사용하여 Splunk 관리자는 Defender for IoT가 전송하는 OT 경고를 분석하고 전체 OT 보안 배포를 모니터링하면서 다음과 같은 세부 정보를 확인할 수 있습니다.
 
-- 5 개 분석 엔진에서 경고를 검색 했습니다.
+- 5개 분석 엔진 중 경고를 검색한 엔진.
 
-- 경고를 생성 한 프로토콜입니다.
+- 경고를 생성한 프로토콜.
 
-- 경고를 생성 한 IoT 센서에 대 한 Defender.
+- 경고를 생성한 Defender for IoT 센서.
 
-- 경고의 심각도 수준입니다.
+- 경고의 심각도 수준.
 
-- 통신의 원본 및 대상입니다.
+- 통신의 원본 및 대상.
 
 ## <a name="requirements"></a>요구 사항
 
 ### <a name="version-requirements"></a>버전 요구 사항
 
-다음 버전은 요구 사항입니다.
+다음 버전이 필요합니다.
 
-- IoT 용 Defender 버전 2.4 이상
+- Defender for IoT 버전 2.4 이상.
 
-- 기능은 splunkbase 버전 11 이상
+- Splunkbase 버전 11 이상.
 
-- Splunk Enterprise 버전 7.2 이상
+- Splunk Enterprise 버전 7.2 이상.
   
 ## <a name="download-the-application"></a>애플리케이션 다운로드
 
-[기능은 splunkbase](https://splunkbase.splunk.com/app/4313/)에서 *Splunk 응용 프로그램에 대 한 CyberX ICS 위협 모니터링* 을 다운로드 합니다.
+[Splunkbase](https://splunkbase.splunk.com/app/4313/)에서 *CyberX ICS Threat Monitoring for Splunk Application* 을 다운로드합니다.
 
-## <a name="splunk-permission-requirements"></a>Splunk 권한 요구 사항
+## <a name="splunk-permission-requirements"></a>Splunk 사용 권한 요구 사항
 
-다음 Splunk 권한이 필요 합니다.
+다음 Splunk 사용 권한이 필요합니다.
 
-- *관리자* 사용자 역할 권한이 있는 모든 사용자입니다.
+- '관리자' 사용자 역할 권한이 있는 사용자
 
-## <a name="send-defender-for-iot-alerts-to-splunk"></a>Splunk에 IoT 경고를 위한 Defender 보내기
+## <a name="send-defender-for-iot-alerts-to-splunk"></a>Splunk에 Defender for IoT 경고 전송
 
-Defender for IoT 경고는 다음을 비롯 한 광범위 한 보안 이벤트에 대 한 정보를 제공 합니다.
+Defender for IoT 경고는 다음을 비롯한 광범위한 보안 이벤트에 대한 정보를 제공합니다.
 
-- 배운 기준 네트워크 작업의 편차입니다.
+- 학습된 기준 네트워크 활동의 편차.
 
-- 맬웨어 검색
+- 맬웨어 검색.
 
-- 의심 스러운 작업 변경 내용에 따라 검색 합니다.
+- 의심스러운 작업 변경 내용에 따른 검색.
 
-- 네트워크 비정상.
+- 네트워크 이상.
 
-- 프로토콜 사양의 프로토콜 편차입니다.
+- 프로토콜 사양의 프로토콜 편차.
 
-:::image type="content" source="media/integration-splunk/address-scan.png" alt-text="검색 화면입니다.":::
+:::image type="content" source="media/integration-splunk/address-scan.png" alt-text="검색 화면.":::
 
-Splunk 서버에 경고를 보내도록 IoT 용 Defender를 구성할 수 있습니다. 여기서 경고 정보는 Splunk Enterprise 대시보드에 표시 됩니다.
+Splunk 서버로 경고를 전송하도록 Defender for IoT를 구성할 수 있습니다. 경고 정보는 Splunk Enterprise 대시보드에 표시됩니다.
 
 :::image type="content" source="media/integration-splunk/alerts-and-details.png" alt-text="모든 경고 및 세부 정보를 봅니다.":::
 
-Splunk 서버에 전송 되는 경고 정보는 다음과 같습니다.
+Splunk 서버로 전송되는 경고 정보는 다음과 같습니다.
 
-- 경고의 날짜 및 시간입니다.
+- 경고의 날짜 및 시간
 
-- 이벤트를 감지한 IoT 엔진 (프로토콜 위반, 정책 위반, 맬웨어, 변칙 또는 운영 엔진)
+- 이벤트를 검색한 Defender for IoT 엔진: 프로토콜 위반, 정책 위반, 맬웨어, 변칙 또는 운영 엔진
 
-- 경고 제목입니다.
+- 경고 제목
 
-- 경고 메시지입니다.
+- 경고 메시지
 
-- 경고의 심각도 (경고, 부, 주 또는 중요)입니다.
+- 경고의 심각도: 경고, 경미, 중대 또는 위험
 
-- 원본 장치 이름입니다.
+- 원본 디바이스 이름
 
-- 원본 장치 IP 주소입니다.
+- 원본 디바이스 IP 주소
 
-- 대상 장치 이름입니다.
+- 대상 디바이스 이름
 
-- 대상 장치 IP 주소입니다.
+- 대상 디바이스 IP 주소
 
-- IoT 용 Defender 플랫폼 IP 주소 (호스트)
+- Defender for IoT 플랫폼 IP 주소(호스트)
 
-- IoT platform 어플라이언스 (원본 유형)의 Defender 이름입니다.
+- Defender for IoT 플랫폼 어플라이언스의 이름(원본 유형)
 
 샘플 출력은 다음과 같습니다.
 
 | Time | 이벤트 |
 |--|--|
-| 7/23/15<br />9:28: 오후 31.000 | **IoT 용 Defender 플랫폼 경고**: 장치가 PLC 명령에 의해 중지 되었습니다.<br /><br />**유형**: 운영 위반 <br /><br />**심각도**: 주 <br /><br />**원본 이름**: my_device1 <br /><br />**원본 IP**: 192.168.110.131 <br /><br />**대상 이름**: my_device2<br /><br /> **대상 IP**: 10.140.33.238 <br /><br />**메시지**: Stop PLC 명령을 사용 하 여 네트워크 장치를 중지 했습니다. 이 장치는 시작 명령이 전송 될 때까지 작동 하지 않습니다. 192.168.110.131가 PLC Stop 명령을 사용 하 여 10.140.33.238 (Siemens S7 device)에 의해 중지 되었습니다.<br /><br />**호스트**: 192.168.90.43 <br /><br />**Sourcetype**: Sensor_Agent |
+| 15/07/23<br />9:28:31.000 PM | **Defender for IoT 플랫폼 경고**: 디바이스가 PLC 명령을 사용하여 중지됨<br /><br />**유형**: 운영 위반 <br /><br />**심각도**: 중대 <br /><br />**원본 이름**: my_device1 <br /><br />**원본 IP**: 192.168.110.131 <br /><br />**대상 이름**: my_device2<br /><br /> **대상 IP**: 10.140.33.238 <br /><br />**메시지**: 네트워크 디바이스가 Stop PLC 명령을 사용하여 중지되었습니다. 이 디바이스는 Start 명령이 전송될 때까지 작동하지 않습니다. 10.140.33.238(Siemens S7 디바이스)이 PLC Stop 명령을 사용하여 192.168.110.131을 중지했습니다.<br /><br />**호스트**: 192.168.90.43 <br /><br />**원본 유형**: Sensor_Agent |
 
 ## <a name="define-alert-forwarding-rules"></a>경고 전달 규칙 정의
 
-IoT *전달 규칙* 에 Defender를 사용 하 여 Splunk 서버에 경고 정보를 보냅니다.
+Defender for IoT '전달 규칙'을 사용하여 Splunk 서버에 경고 정보를 전송합니다.
 
-옵션은 다음을 기반으로 경고 규칙을 사용자 지정 하는 데 사용할 수 있습니다.
+다음을 기반으로 경고 규칙을 사용자 지정하는 데 사용할 수 있는 옵션이 있습니다.
 
-- 검색 된 특정 프로토콜입니다.
+- 검색된 특정 프로토콜.
 
-- 이벤트의 심각도입니다.
+- 이벤트의 심각도.
 
-- 이벤트를 검색 하는 IoT 용 Defender 엔진입니다.
+- 이벤트를 검색하는 Defender for IoT 엔진.
 
-전달 규칙을 만들려면 다음을 수행 합니다.
+전달 규칙을 만들려면
 
-1. 센서 또는 온-프레미스 관리 콘솔 왼쪽 창에서 전달을 선택 **합니다.**
+1. 센서 또는 온-프레미스 관리 콘솔 왼쪽 창에서 **전달** 을 선택합니다.
 
-    :::image type="content" source="media/integration-splunk/forwarding.png" alt-text="파란색 단추 전달 만들기 경고를 선택 합니다.":::
+    :::image type="content" source="media/integration-splunk/forwarding.png" alt-text="파란색 단추 경고 전달 만들기를 선택합니다.":::
 
-1. **전달 규칙 만들기** 를 선택 합니다. **전달 규칙 만들기** 창에서 규칙 매개 변수를 정의 합니다.
+1. **전달 규칙 만들기** 를 선택합니다. **전달 규칙 만들기** 창에서 규칙 매개 변수를 정의합니다.
 
-    :::image type="content" source="media/integration-splunk/forwarding-rule.png" alt-text="전달 규칙에 대 한 규칙을 만듭니다.":::
+    :::image type="content" source="media/integration-splunk/forwarding-rule.png" alt-text="전달 규칙을 만듭니다.":::
 
     | 매개 변수 | Description |
     |--|--|
     | **이름** | 전달 규칙 이름입니다. |
-    | **심각도 선택** | 최소한의 보안 수준 인시던트를 전달 합니다. 예를 들어 Minor를 선택 하면이 심각도 수준 위의 사소한 경고 및 경고가 전달 됩니다. |
-    | **프로토콜** | 기본적으로 모든 프로토콜이 선택 됩니다. 특정 프로토콜을 선택 하려면 **특정** 을 선택 하 고이 규칙이 적용 되는 프로토콜을 선택 합니다. |
-    | **엔진** | 기본적으로 모든 보안 엔진이 포함 됩니다. 이 규칙이 적용 되는 특정 보안 엔진을 선택 하려면 **특정** 을 선택 하 고 엔진을 선택 합니다. |
-    | **시스템 알림** | 센서 온라인/오프 라인 상태를 전달 합니다. 이 옵션은 중앙 관리자에 로그인 한 경우에만 사용할 수 있습니다. |
+    | **심각도 선택** | 전달하려는 최소 보안 수준 인시던트입니다. 예를 들어 경미를 선택하면 경미한 경고 및 이 심각도 수준 이상의 모든 경고가 전달됩니다. |
+    | **프로토콜** | 기본적으로 모든 프로토콜이 선택되어 있습니다. 특정 프로토콜을 선택하려면 **특정** 을 선택하고 이 규칙이 적용되는 프로토콜을 선택합니다. |
+    | **엔진** | 기본적으로 모든 보안 엔진이 포함됩니다. 이 규칙이 적용되는 특정 보안 엔진을 선택하려면 **특정** 을 선택하고 엔진을 선택합니다. |
+    | **시스템 알림** | 센서 온라인/오프라인 상태를 전달합니다. 이 옵션은 중앙 관리자에 로그인한 경우에만 사용할 수 있습니다. |
 
-1. IoT에서 자산 정보를 Splunk으로 보내도록 지시 하려면 **작업** 을 선택한 다음 **Splunk 서버에 보내기를** 선택 합니다.
+1. Defender for IoT에게 자산 정보를 Splunk로 전송하도록 지시하려면 **작업** 을 선택한 다음 **Splunk 서버로 보내기** 를 선택합니다.
 
-1. 다음 Splunk 매개 변수를 입력 합니다.
+1. 다음 Splunk 매개 변수를 입력합니다.
 
-    :::image type="content" source="media/integration-splunk/parameters.png" alt-text="이 화면에 입력 해야 하는 Splunk 매개 변수입니다.":::
+    :::image type="content" source="media/integration-splunk/parameters.png" alt-text="이 화면에 입력해야 하는 Splunk 매개 변수입니다.":::
 
     | 매개 변수 | Description |
     |--|--|

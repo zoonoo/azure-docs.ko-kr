@@ -1,5 +1,5 @@
 ---
-title: 'ML Studio (클래식): 끝점 & 다중 모델 만들기-Azure'
+title: 'ML 스튜디오(클래식): 여러 모델 및 엔드포인트 만들기 - Azure'
 description: PowerShell을 사용하여 알고리즘은 동일하지만 다른 학습 데이터 세트로 여러 Machine Learning 모델 및 웹 서비스 엔드포인트를 만듭니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,25 +10,25 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
 ms.openlocfilehash: 35b5fe4556f1d557d3fc0420e9069f2fb510eec4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100520513"
 ---
-# <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>ML Studio (클래식) 및 PowerShell을 사용 하 여 한 실험에서 여러 웹 서비스 끝점 만들기
+# <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>ML 스튜디오(클래식) 및 PowerShell을 사용한 실험에서 여러 웹 서비스 엔드포인트 만들기
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-일반적인 기계 학습 문제는 동일한 학습 워크플로를 포함하고 동일한 알고리즘을 사용하지만 서로 다른 학습 데이터 세트를 입력으로 사용하려는 것입니다. 이 문서에서는 단일 실험을 사용 하 여 Azure Machine Learning Studio (클래식)의 규모에서이 작업을 수행 하는 방법을 보여 줍니다.
+일반적인 기계 학습 문제는 동일한 학습 워크플로를 포함하고 동일한 알고리즘을 사용하지만 서로 다른 학습 데이터 세트를 입력으로 사용하려는 것입니다. 이 문서에서는 단일 실험을 사용하여 Azure Machine Learning 스튜디오(클래식)에서 대규모로 이 작업을 수행하는 방법을 보여 줍니다.
 
 예를 들어, 글로벌 자전거 임대 프랜차이즈 업체를 소유하고 있다고 가정해 보겠습니다. 기록 데이터를 기반으로 임대 수요를 예측하는 회귀 모델을 구축하려고 합니다. 전 세계에 1,000개의 임대 위치가 있으며 각 위치에 대한 데이터 세트를 수집했습니다. 여기에는 각 위치와 관련된 날짜, 시간, 날씨 및 트래픽과 같은 중요한 특징이 포함됩니다.
 
 모든 위치의 모든 데이터 세트에 대한 병합된 버전을 사용하여 모델을 한 번 학습할 수 있습니다. 하지만 위치마다 환경이 고유하므로 각 위치에 대한 데이터 세트를 사용하여 회귀 모델을 별도로 학습하는 것이 더 나은 방법입니다. 이렇게 하면 학습된 각 모델이 서로 다른 저장소 크기, 볼륨, 지리, 인구, 자전거 친화적인 교통 환경 등을 고려할 수 있습니다.
 
-이는 최상의 방법일 수 있지만 각각 고유한 위치를 나타내는 Azure Machine Learning Studio (클래식)에서 1000 학습 실험을 만들지 않으려고 합니다. 이는 엄청난 작업일 뿐 아니라, 각 실험마다 학습 데이터 세트를 제외하고는 모든 구성 요소가 동일하므로 비효율적입니다.
+이것이 가장 좋은 방법일 수 있지만 Azure Machine Learning 스튜디오(클래식)에서 각각 고유한 위치를 나타내는 1,000개의 학습 실험을 만들고 싶지는 않을 것입니다. 이는 엄청난 작업일 뿐 아니라, 각 실험마다 학습 데이터 세트를 제외하고는 모든 구성 요소가 동일하므로 비효율적입니다.
 
-다행히 [Azure Machine Learning Studio (클래식)](./retrain-machine-learning-model.md) 재 학습 API를 사용 하 고 [Azure Machine Learning Studio (클래식) PowerShell](powershell-module.md)을 사용 하 여 작업을 자동화 하 여이 작업을 수행할 수 있습니다.
+다행히 [Azure Machine Learning 스튜디오(클래식) 다시 학습 API](./retrain-machine-learning-model.md)를 사용하고 [Azure Machine Learning 스튜디오(클래식) PowerShell](powershell-module.md)로 작업을 자동화하여 이 작업을 수행할 수 있습니다.
 
 > [!NOTE]
 > 샘플이 더 빨리 실행되도록 위치 수를 1,000개에서 10개로 줄입니다. 하지만 동일한 원리와 절차가 1,000개의 위치에 적용됩니다. 그러나 1,000개 데이터 세트에서 학습하려는 경우 다음 PowerShell 스크립트를 병렬로 실행하는 것이 좋습니다. 이 작업을 수행하는 방법은 이 문서의 범위를 벗어나는 내용이지만 인터넷에서 PowerShell 다중 스레딩의 예제를 찾을 수 있습니다.  
@@ -36,7 +36,7 @@ ms.locfileid: "100520513"
 > 
 
 ## <a name="set-up-the-training-experiment"></a>학습 실험 설정
-[Cortana Intelligence 갤러리](https://gallery.azure.ai)에 있는 예제 [학습 실험](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1)을 사용합니다. [Azure Machine Learning Studio (클래식)](https://studio.azureml.net) 작업 영역에서이 실험을 엽니다.
+[Cortana Intelligence 갤러리](https://gallery.azure.ai)에 있는 예제 [학습 실험](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1)을 사용합니다. [Azure Machine Learning 스튜디오(클래식)](https://studio.azureml.net) 작업 영역에서 이 실험을 엽니다.
 
 > [!NOTE]
 > 이 예제를 함께 수행하려면 무료 작업 영역보다는 표준 작업 영역을 사용하는 것이 좋습니다. 고객당 엔드포인트 하나(총 10개 엔드포인트)를 만들고 체험 작업 영역은 3개 엔드포인트로 제한되므로 이 경우 표준 작업 영역이 필요합니다.
@@ -45,15 +45,15 @@ ms.locfileid: "100520513"
 
 이 실험에서는 **데이터 가져오기** 모듈을 사용하여 Azure Storage 계정에서 학습 데이터 세트 *customer001.csv* 를 가져옵니다. 모든 자전거 임대 위치에서 학습 데이터 세트을 수집하고 이를 *rentalloc001.csv* 에서 *rentalloc10.csv* 까지 범위의 파일 이름으로 동일한 Blob Storage 위치에 저장한다고 가정해 보겠습니다.
 
-![판독기 모듈은 Azure blob에서 데이터를 가져옵니다.](./media/create-models-and-endpoints-with-powershell/reader-module.png)
+![Reader 모듈은 Azure Blob에서 데이터를 가져옵니다.](./media/create-models-and-endpoints-with-powershell/reader-module.png)
 
 **웹 서비스 출력** 모듈이 **모델 학습** 모듈에 추가되었습니다.
 이 실험을 웹 서비스로 배포할 때 해당 출력과 연결된 엔드포인트에서 학습된 모델을 .ilearner 파일 형식으로 반환합니다.
 
 또한 **데이터 가져오기** 모듈에서 사용하는 URL을 정의하는 웹 서비스 매개 변수를 설정합니다. 이렇게 하면 각 위치에 대한 모델을 학습하기 위한 개별 학습 데이터 세트를 지정하는 데 매개 변수를 사용할 수 있습니다.
-다른 방법으로 이 작업을 수행할 수도 있습니다. 웹 서비스 매개 변수와 함께 SQL 쿼리를 사용 하 여 Azure SQL Database의 데이터베이스에서 데이터를 가져올 수 있습니다. 또는 **웹 서비스 입력** 모듈을 사용하여 데이터 세트를 웹 서비스에 전달할 수 있습니다.
+다른 방법으로 이 작업을 수행할 수도 있습니다. 웹 서비스 매개 변수와 함께 SQL 쿼리를 사용하여 Azure SQL Database의 데이터베이스에서 데이터를 가져올 수 있습니다. 또는 **웹 서비스 입력** 모듈을 사용하여 데이터 세트를 웹 서비스에 전달할 수 있습니다.
 
-![학습 된 모델 모듈이 웹 서비스 출력 모듈에 출력 됩니다.](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
+![학습된 모델 모듈이 웹 서비스 출력 모듈에 출력됩니다.](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
 이제 학습 데이터 세트로 *rental001.csv* 기본값을 사용하여 이 학습 실험을 실행해 보겠습니다. **평가** 모듈의 출력을 보면(출력을 클릭하고 **시각화** 선택) *AUC* = 0.91이라는 적절한 성능을 보이는 것을 확인할 수 있습니다. 이제 이 학습 실험의 웹 서비스 출력을 배포할 준비가 되었습니다.
 
@@ -94,7 +94,7 @@ For ($i = 1; $i -le 10; $i++){
 
 이제 10개의 엔드포인트를 만들었고 모두 *customer001.csv* 에서 학습된 동일한 학습 모델을 포함합니다. Azure Portal에서 끝점을 볼 수 있습니다.
 
-![포털에서 학습 된 모델 목록 보기](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
+![포털에서 학습된 모델 목록 보기](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
 
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>PowerShell을 사용하여 별도의 학습 데이터 세트를 사용하도록 엔드포인트 업데이트
 다음 단계는 각 고객의 개별 데이터에서 고유하게 학습된 모델로 엔드포인트를 업데이트하는 것입니다. 하지만 먼저 **Bike Rental Training** 웹 서비스에서 이러한 모델을 생성해야 합니다. **Bike Rental Training** 웹 서비스를 다시 살펴보겠습니다. 10가지 서로 다른 모델을 생성하기 위해서는 10개의 서로 다른 학습 데이터 세트로 BES 엔드포인트를 10번 호출해야 합니다. **InovkeAmlWebServiceBESEndpoint** PowerShell cmdlet을 사용하여 이 작업을 수행합니다.

@@ -1,6 +1,6 @@
 ---
-title: 전용 SQL 풀에 대 한 REST Api를 사용 하 여 일시 중지, 다시 시작, 크기 조정 (이전의 SQL DW)
-description: REST Api를 통해 Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)의 계산 능력을 관리 합니다.
+title: 전용 SQL 풀(이전의 SQL DW)을 위한 REST API로 일시 중지, 다시 시작, 크기 조정
+description: REST API를 통해 Azure Synapse Analytics에서 전용 SQL 풀(이전의 SQL DW)의 컴퓨팅 능력을 관리합니다.
 services: synapse-analytics
 author: antvgski
 manager: craigg
@@ -12,15 +12,15 @@ ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: c04f61aaef5f5072ce0fb39ff111ba07ee151700
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100375904"
 ---
-# <a name="rest-apis-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀 용 REST Api (이전의 SQL DW)
+# <a name="rest-apis-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)을 위한 REST API
 
-Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)의 계산을 관리 하기 위한 REST Api입니다.
+Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)에 대한 컴퓨팅 관리를 위한 REST API
 
 ## <a name="scale-compute"></a>컴퓨팅 크기 조정
 
@@ -65,7 +65,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="get-maintenance-schedule"></a>유지 관리 일정 가져오기
 
-전용 SQL 풀에 대해 설정 된 유지 관리 일정 (이전의 SQL DW)을 확인 합니다.
+전용 SQL 풀(이전의 SQL DW)에 설정된 유지 관리 일정을 확인합니다.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
@@ -74,7 +74,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 ## <a name="set-maintenance-schedule"></a>유지 관리 일정 설정
 
-기존 전용 SQL 풀 (이전의 SQL DW)에서 유지 관리 일정을 설정 하 고 업데이트 합니다.
+기존 전용 SQL 풀(이전의 SQL DW)에서 유지 관리 일정을 설정하고 업데이트합니다.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1

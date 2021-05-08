@@ -1,7 +1,7 @@
 ---
 title: 이미지에서 텍스트 추출
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search 파이프라인에서 이미지의 텍스트 및 기타 정보를 처리 하 고 추출 합니다.
+description: Azure Cognitive Search 파이프라인에 있는 이미지에서 텍스트 및 기타 정보를 처리하고 추출합니다.
 manager: nitinme
 author: LuisCabrer
 ms.author: luisca
@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2e77bbd6e82d0d4a48b72e13e60b60608f2d7674
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103419594"
 ---
-# <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>AI 보강 시나리오에서 이미지의 정보를 처리 하 고 추출 하는 방법
+# <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>AI 보강 시나리오의 이미지에서 정보를 처리하고 추출하는 방법
 
-Azure Cognitive Search는 이미지 및 이미지 파일을 사용 하기 위한 몇 가지 기능을 제공 합니다. 문서를 해독하는 동안 *imageAction* 매개 변수를 사용하여 정지 신호에서 단어 "STOP"과 같은 영숫자 텍스트를 포함하는 사진이나 그림에서 텍스트를 추출할 수 있습니다. 기타 시나리오에는 민들레 사진의 "민들레" 또는 "노란색"과 같은 이미지의 텍스트 표현을 생성하는 방법이 포함됩니다. 또한 해당 크기와 같은 이미지에 대한 메타데이터를 추출할 수 있습니다.
+Azure Cognitive Search에는 이미지 및 이미지 파일에서 작동하는 몇 가지 기능이 있습니다. 문서를 해독하는 동안 *imageAction* 매개 변수를 사용하여 정지 신호에서 단어 "STOP"과 같은 영숫자 텍스트를 포함하는 사진이나 그림에서 텍스트를 추출할 수 있습니다. 기타 시나리오에는 민들레 사진의 "민들레" 또는 "노란색"과 같은 이미지의 텍스트 표현을 생성하는 방법이 포함됩니다. 또한 해당 크기와 같은 이미지에 대한 메타데이터를 추출할 수 있습니다.
 
-이 문서에서는 이미지 처리에 대해 자세히 설명 하 고 AI 보강 파이프라인에서 이미지를 사용 하는 방법에 대 한 지침을 제공 합니다.
+이 아티클에서는 이미지 처리에 대해 자세히 설명하고 AI 보강 파이프라인에서 이미지를 사용하는 방법에 대한 참고 자료를 제공합니다.
 
 <a name="get-normalized-images"></a>
 
@@ -28,20 +28,20 @@ Azure Cognitive Search는 이미지 및 이미지 파일을 사용 하기 위한
 
 문서 해독의 일환으로 이미지 파일이나 파일에 포함된 이미지를 처리하기 위한 새로운 인덱서 구성 매개 변수 집합이 있습니다. 이러한 매개 변수는 추가 다운스트림 처리를 위해 이미지를 정규화하는 데 사용됩니다. 이미지를 정규화하면 보다 일관되게 만들 수 있습니다. 큰 이미지는 사용 가능하도록 최대 높이 및 너비로 크기가 조정됩니다. 방향에 메타데이터를 제공하는 이미지의 경우 세로 로드를 위해 이미지 회전이 조정됩니다. 메타데이터 조정은 각 이미지에 대해 만든 복합 형식으로 캡처됩니다. 
 
-이미지 정규화를 해제할 수 없습니다. 이미지에서 기술을 반복하려면 정규화된 이미지를 사용하는 것이 좋습니다. 인덱서에 대해 이미지 정규화를 사용 하도록 설정 하려면 기술를 해당 인덱서에 연결 해야 합니다.
+이미지 정규화를 해제할 수 없습니다. 이미지에서 기술을 반복하려면 정규화된 이미지를 사용하는 것이 좋습니다. 인덱서에 대한 이미지 정규화를 사용하도록 설정하려면 기술 세트를 해당 인덱서에 연결해야 합니다.
 
-| 구성 매개 변수 | Description |
+| 구성 매개 변수 | 설명 |
 |--------------------|-------------|
-| imageAction   | 포함된 이미지 또는 이미지 파일이 있을 때 아무 작업도 수행하지 않아야 하는 경우 "없음"으로 설정합니다. <br/>정규화된 이미지의 배열을 문서 해독의 일부로 생성하려 "generateNormalizedImages"로 설정합니다.<br/>"GenerateNormalizedImagePerPage"로 설정 하 여 데이터 원본의 Pdf에 대해 각 페이지가 하나의 출력 이미지로 렌더링 되는 정규화 된 이미지 배열을 생성 합니다.  기능은 비 PDF 파일 형식에 대한 “generateNormalizedImages”와 동일합니다.<br/>“none”이 아닌 옵션의 경우 이미지가 *normalized_images* 필드에 공개됩니다. <br/>기본값은 "없음"입니다. 이 구성은 "dataToExtract"가 "contentAndMetadata"로 설정된 경우 Blob 데이터 원본에만 관련됩니다. <br/>지정 된 문서에서 최대 1000 개의 이미지가 추출 됩니다. 문서에 1000 개가 넘는 이미지가 있으면 첫 번째 1000이 추출 되 고 경고가 생성 됩니다. |
-|  normalizedImageMaxWidth | 정규화된 이미지의 최대 너비(픽셀 단위)가 생성되었습니다. 기본값은 2000입니다. 허용 되는 최대값은 1만입니다. | 
-|  normalizedImageMaxHeight | 정규화된 이미지의 최대 높이(픽셀 단위)가 생성되었습니다. 기본값은 2000입니다. 허용 되는 최대값은 1만입니다.|
+| imageAction   | 포함된 이미지 또는 이미지 파일이 있을 때 아무 작업도 수행하지 않아야 하는 경우 "없음"으로 설정합니다. <br/>정규화된 이미지의 배열을 문서 해독의 일부로 생성하려 "generateNormalizedImages"로 설정합니다.<br/>정규화된 이미지 배열을 생성하려면 “generateNormalizedImagePerPage”로 설정합니다. 여기서 데이터 원본에 있는 PDF의 경우 각 페이지가 하나의 출력 이미지로 렌더링됩니다.  기능은 비 PDF 파일 형식에 대한 “generateNormalizedImages”와 동일합니다.<br/>“none”이 아닌 옵션의 경우 이미지가 *normalized_images* 필드에 공개됩니다. <br/>기본값은 "없음"입니다. 이 구성은 "dataToExtract"가 "contentAndMetadata"로 설정된 경우 Blob 데이터 원본에만 관련됩니다. <br/>지정된 문서에서 최대 1000개의 이미지가 추출됩니다. 문서에 1000개가 넘는 이미지가 있을 경우, 첫 번째 1000이 추출되고 경고가 생성됩니다. |
+|  normalizedImageMaxWidth | 정규화된 이미지의 최대 너비(픽셀 단위)가 생성되었습니다. 기본값은 2000입니다. 최댓값은 10000입니다. | 
+|  normalizedImageMaxHeight | 정규화된 이미지의 최대 높이(픽셀 단위)가 생성되었습니다. 기본값은 2000입니다. 최댓값은 10000입니다.|
 
 > [!NOTE]
-> *Imageaction* 속성을 "none" 이외의 값으로 설정 하면 *parsingMode* 속성을 "default" 이외의 값으로 설정할 수 없습니다.  인덱서 구성에서 이러한 두 속성 중 하나를 기본이 아닌 값으로 설정할 수 있습니다.
+> *imageAction* 속성을 "없음" 이외의 값으로 설정하는 경우 *parsingMode* 속성을 "기본값" 이외의 값으로 설정할 수 없습니다.  인덱서 구성에서 이러한 두 속성 중 하나를 기본이 아닌 값으로 설정할 수 있습니다.
 
 **parsingMode** 매개 변수를 `json`(각 blob을 단일 문서로 인덱싱) 또는 `jsonArray`(blob에 JSON 배열이 포함되어 있고 각 배열 요소를 별도 문서로 처리해야 하는 경우)로 설정합니다.
 
-정규화된 이미지의 최대 너비와 높이에 대한 2000 픽셀이라는 기본값은 [OCR 기술](cognitive-search-skill-ocr.md) 및 [이미지 분석 기술](cognitive-search-skill-image-analysis.md)에서 지원하는 최대 크기에 기반합니다. [OCR 기술은](cognitive-search-skill-ocr.md) 영어가 아닌 언어의 경우 최대 너비와 높이를 4200, 영어의 경우 1만을 지원 합니다.  최대 한도를 늘리면 기술 정의 및 문서 언어에 따라 큰 이미지에서 처리가 실패할 수 있습니다. 
+정규화된 이미지의 최대 너비와 높이에 대한 2000 픽셀이라는 기본값은 [OCR 기술](cognitive-search-skill-ocr.md) 및 [이미지 분석 기술](cognitive-search-skill-image-analysis.md)에서 지원하는 최대 크기에 기반합니다. [OCR 기술](cognitive-search-skill-ocr.md)은 영어가 아닌 언어의 경우 4200, 영어의 경우 10000의 최대 너비 및 높이를 지원합니다.  최대 한도를 늘리면 기술 세트 정의 및 문서의 언어에 따라 큰 이미지 처리에 실패할 수 있습니다. 
 
 다음과 같이 [인덱서 정의](/rest/api/searchservice/create-indexer)에서 imageAction을 지정합니다.
 
@@ -61,7 +61,7 @@ Azure Cognitive Search는 이미지 및 이미지 파일을 사용 하기 위한
 
 *imageAction* 을 “none” 이외의 값으로 설정한 경우 새 *normalized_images* 필드에는 이미지 배열이 포함됩니다. 각 이미지는 다음 멤버가 포함된 복합 형식입니다.
 
-| 이미지 멤버       | Description                             |
+| 이미지 멤버       | 설명                             |
 |--------------------|-----------------------------------------|
 | 데이터               | JPEG 형식의 BASE64 인코딩된 정규화된 이미지 문자열입니다.   |
 | width              | 픽셀 단위로 정규화된 이미지의 너비입니다. |
@@ -70,7 +70,7 @@ Azure Cognitive Search는 이미지 및 이미지 파일을 사용 하기 위한
 | originalHeight      | 정규화 이전에 이미지의 원래 높이입니다. |
 | rotationFromOriginal |  정규화된 이미지를 만들기 위해 발생한 시계 반대 방향 회전입니다. 0도에서 360도 사이의 값입니다. 이 단계에서는 카메라 또는 스캐너에서 생성하는 이미지의 메타데이터를 읽습니다. 일반적으로 90도의 배수입니다. |
 | contentOffset | 이미지가 추출된 콘텐츠 필드 내의 문자 오프셋입니다. 이 필드는 포함된 이미지가 있는 파일에만 적용됩니다. |
-| pageNumber | 이미지를 추출 하거나 PDF에서 렌더링 하는 경우이 필드에는 1부터 시작 하 여 추출 되거나 렌더링 된 PDF의 페이지 번호가 포함 됩니다.  이미지가 PDF의 이미지가 아닌 경우이 필드는 0이 됩니다.  |
+| pageNumber | 이미지를 추출하거나 PDF에서 렌더링하는 경우, 해당 필드에는 1부터 시작되는 추출 또는 렌더링된 PDF 페이지 번호가 포함됩니다.  이미지가 PDF 이미지가 아닐 경우, 해당 필드는 0이 됩니다.  |
 
  *normalized_images* 샘플 값:
 ```json
@@ -96,7 +96,7 @@ Azure Cognitive Search는 이미지 및 이미지 파일을 사용 하기 위한
 
 ### <a name="image-analysis-skill"></a>이미지 분석 기술
 
-[이미지 분석 기술은](cognitive-search-skill-image-analysis.md) 이미지 내용에 따라 다양 한 시각적 기능 집합을 추출 합니다. 예를 들어 이미지에서 캡션을 생성하거나, 태그를 생성하거나, 유명인과 랜드마크를 식별할 수 있습니다.
+[이미지 분석 기술](cognitive-search-skill-image-analysis.md)은 이미지 콘텐츠를 기준으로 다양한 시각적 기능 집합을 추출합니다. 예를 들어 이미지에서 캡션을 생성하거나, 태그를 생성하거나, 유명인과 랜드마크를 식별할 수 있습니다.
 
 ### <a name="ocr-skill"></a>OCR 기술
 
@@ -215,11 +215,11 @@ merged_text 필드가 있으므로 인덱서 정의에서 검색 가능한 필�
 ```
 ## <a name="passing-images-to-custom-skills"></a>사용자 지정 기술에 이미지 전달
 
-이미지에서 작업 하는 데 사용자 지정 기술이 필요한 시나리오의 경우 사용자 지정 기술에 이미지를 전달 하 여 텍스트 또는 이미지를 반환할 수 있습니다. [Python 샘플](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing) 이미지 처리에서는 워크플로를 보여 줍니다. 다음 기술는 샘플에서 가져온 것입니다.
+이미지 작업에 사용자 지정 기술이 필요한 시나리오의 경우, 사용자 지정 기술에 이미지를 전달하여 텍스트 또는 이미지를 반환할 수 있습니다. [Python 샘플](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing) 이미지 처리로 워크플로를 보여 줍니다. 다음 기술 세트는 샘플에서 가져온 것입니다.
 
-다음 기술는 정규화 된 이미지 (문서를 크랙 하는 동안 가져옴)를 사용 하 고 이미지의 조각을 출력 합니다.
+다음 기술 세트는 정규화된 이미지(문서를 크래킹하는 동안 가져옴)를 사용하며 이미지 조각을 출력합니다.
 
-#### <a name="sample-skillset"></a>샘플 기술
+#### <a name="sample-skillset"></a>샘플 기술 세트
 ```json
 {
   "description": "Extract text from images and merge with content text to produce merged_text",
@@ -255,7 +255,7 @@ merged_text 필드가 있으므로 인덱서 정의에서 검색 가능한 필�
 
 #### <a name="custom-skill"></a>사용자 지정 기술
 
-사용자 지정 기술 자체는 기술 외부에 있습니다. 이 경우에는 먼저 사용자 지정 기술 형식으로 요청 레코드의 일괄 처리를 반복 하 고 b a s e 64로 인코딩된 문자열을 이미지로 변환 하는 Python 코드입니다.
+사용자 지정 기술 자체는 기술 세트 외부에 있습니다. 이 경우에는 Python 코드가 먼저 사용자 지정 기술 형식의 요청 레코드 일괄 처리를 반복한 다음 base64로 인코딩된 문자열을 이미지로 변환하게 됩니다.
 
 ```python
 # deserialize the request, for each item in the batch
@@ -268,7 +268,7 @@ for value in values:
   jpg_as_np = np.frombuffer(inputBytes, dtype=np.uint8)
   # you now have an image to work with
 ```
-마찬가지로 이미지를 반환 하는 경우의 속성을 사용 하 여 JSON 개체 내에 base64 인코딩 문자열을 반환 `$type` `file` 합니다.
+마찬가지로 이미지를 반환하려면, `file`의 `$type` 속성을 사용하여 JSON 개체 내에 base64 인코딩 문자열을 반환합니다.
 
 ```python
 def base64EncodeImage(image):
@@ -286,10 +286,10 @@ def base64EncodeImage(image):
 ```
 
 ## <a name="see-also"></a>참고 항목
-+ [인덱서 만들기 (REST)](/rest/api/searchservice/create-indexer)
++ [인덱서 만들기(REST)](/rest/api/searchservice/create-indexer)
 + [이미지 분석 기술](cognitive-search-skill-image-analysis.md)
 + [OCR 기술](cognitive-search-skill-ocr.md)
 + [텍스트 병합 기술](cognitive-search-skill-textmerger.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [보강 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)
-+ [사용자 지정 기술에 이미지를 전달 하는 방법](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing)
++ [사용자 지정 기술에 이미지를 전달하는 방법](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing)

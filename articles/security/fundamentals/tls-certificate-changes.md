@@ -10,27 +10,27 @@ ms.topic: article
 ms.date: 11/10/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 9e4edbcfd9e4180e727cd885902d9f0150a967ca
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100389402"
 ---
 # <a name="azure-tls-certificate-changes"></a>Azure TLS 인증서 변경  
 
-Microsoft는 다른 루트 CA(인증 기관)의 TLS 인증서를 사용하도록 Azure 서비스를 업데이트하 고 있습니다. 이 변경은 현재 CA 인증서가 CA/브라우저 포럼 기준 요구 사항 중 하나를 준수 하지 않으며 2021 년 2 월 15 일에 해지 되기 때문에 수행 됩니다.
+Microsoft는 다른 루트 CA(인증 기관)의 TLS 인증서를 사용하도록 Azure 서비스를 업데이트하 고 있습니다. 이와 같은 변경의 이유는 현재 CA 인증서가 CA/브라우저 포럼 기준 요구 사항 중 하나를 준수하지 않기 때문으로, 2021년 2월 15일에 철회됩니다.
 
 ## <a name="when-will-this-change-happen"></a>언제 변경되나요?
 
-기존 Azure 끝점은 2020 년 8 월 13 일 이후 단계적으로 전환 되었습니다. 새로 만든 모든 Azure TLS/SSL 엔드포인트에는 새로운 루트 CA에 연결하는 업데이트된 인증서가 포함되어 있습니다.
+기존 Azure 엔드포인트는 2020년 8월 13일 이후 단계적으로 전환되었습니다. 새로 만든 모든 Azure TLS/SSL 엔드포인트에는 새로운 루트 CA에 연결하는 업데이트된 인증서가 포함되어 있습니다.
 
-모든 Azure 서비스는 이러한 변경의 영향을 받습니다. 특정 서비스에 대 한 몇 가지 추가 정보는 다음과 같습니다.
+모든 Azure 서비스는 해당 변경의 영향을 받습니다. 특정 서비스에 대한 추가 세부 정보:
 
 - Azure AD([Azure Active Directory](../../active-directory/index.yml)) 서비스는 2020년 7월 7일에 이 전환을 시작했습니다.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) 및 [DPS](../../iot-dps/index.yml)는 Baltimore CyberTrust Root CA에 그대로 남아 있지만 중간 Ca는 변경됩니다. [자세한 내용을 보려면 여기를 클릭하세요](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
 - [Azure Storage](../../storage/index.yml)는 Baltimore CyberTrust Root CA에 그대로 남아 있지만 중간 CA는 변경됩니다. [자세한 내용을 보려면 여기를 클릭하세요](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
-- [Redis 용 Azure Cache](../../azure-cache-for-redis/index.yml) 는 Baltimore CYBERTRUST Root CA에 그대로 남아 있지만 중간 ca는 변경 됩니다. [자세한 내용을 보려면 여기를 클릭하세요](../../azure-cache-for-redis/cache-whats-new.md).
-- Azure Instance Metadata Service는 Baltimore CyberTrust Root CA에 그대로 남아 있지만 중간 Ca는 변경 됩니다. [자세한 내용을 보려면 여기를 클릭하세요](/answers/questions/172717/action-required-for-attested-data-tls-with-azure-i.html).
+- [Azure Cache for Redis](../../azure-cache-for-redis/index.yml)는 Baltimore CyberTrust Root CA에 그대로 남아 있지만 중간 CA는 변경됩니다. [자세한 내용을 보려면 여기를 클릭하세요](../../azure-cache-for-redis/cache-whats-new.md).
+- Azure Instance Metadata Service는 Baltimore CyberTrust Root CA에 그대로 남아 있지만 중간 CA는 변경됩니다. [자세한 내용을 보려면 여기를 클릭하세요](/answers/questions/172717/action-required-for-attested-data-tls-with-azure-i.html).
 
 > [!IMPORTANT]
 > 고객은 Azure 서비스에 연결을 시도할 때 연결 오류를 방지하려면 이 변경 후에 애플리케이션을 업데이트해야 할 수도 있습니다.
@@ -87,8 +87,8 @@ Azure 서비스에서 사용하는 TLS 인증서는 다음과 같은 루트 CA �
     - http://crl&#46;microsoft&#46;com
     - http://oneocsp&#46;microsoft&#46;com
     - http://ocsp&#46;msocsp&#46;com
-    - http://www&#46, microsoft&#46;com/pkiops
+    - http://www&#46;microsoft&#46;com/pkiops
 
 ## <a name="next-steps"></a>다음 단계
 
-추가 질문이 있는 경우 [지원](https://azure.microsoft.com/support/options/)센터에 문의 하세요.
+추가 문의는 [지원](https://azure.microsoft.com/support/options/)을 통해 하시기 바랍니다.

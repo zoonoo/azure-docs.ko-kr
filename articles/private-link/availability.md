@@ -1,6 +1,6 @@
 ---
-title: Azure 개인 링크 가용성
-description: 이 문서에서는 개인 링크를 지 원하는 Azure 서비스에 대해 알아봅니다.
+title: Azure Private Link 가용성
+description: 이 문서에서는 Private Link를 지원하는 Azure 서비스에 대해 알아봅니다.
 author: asudbring
 ms.author: allensu
 ms.service: private-link
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 3/15/2021
 ms.custom: template-concept,references_regions
 ms.openlocfilehash: 26485c84749b7d4c91159476b3f683c2b0f3831b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103555678"
 ---
-# <a name="azure-private-link-availability"></a>Azure 개인 링크 가용성
+# <a name="azure-private-link-availability"></a>Azure Private Link 가용성
 
 Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드포인트](private-endpoint-overview.md)를 통해 Azure PaaS Services(예: Azure Storage 및 SQL Database)와 Azure 호스팅 고객 소유/파트너 서비스에 액세스할 수 있습니다. 
 
@@ -23,7 +23,7 @@ Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드�
 
 ## <a name="service-availability"></a>서비스 가용성
 
-다음 표에서는 개인 링크 서비스와 해당 서비스를 사용할 수 있는 지역을 나열 합니다. 
+다음 표에는 Private Link 서비스 및 이러한 서비스를 사용할 수 있는 지역이 나열되어 있습니다. 
 
 ### <a name="ai--machine-learning"></a>AI + Machine Learning
 
@@ -40,12 +40,12 @@ Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드�
 | Azure Monitor <br/>(Log Analytics 및 Application Insights) | 모든 공용 지역      |  | GA   <br/> [Azure Monitor에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../azure-monitor/logs/private-link-security.md)   |
 |Azure 데이터 팩터리 | 모든 공용 지역<br/> Azure Government 지역<br/>모든 중국 지역    | 자격 증명을 Azure key vault에 저장해야 합니다.| GA   <br/> [Azure Data Factory에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../data-factory/data-factory-private-link.md)   |
 
-### <a name="compute"></a>Compute
+### <a name="compute"></a>컴퓨팅
 
 |지원되는 서비스  |사용 가능한 지역 | 기타 고려 사항 | 상태  |
 |:-------------------|:-----------------|:----------------|:--------|
 |Azure App Configuration | 모든 공용 지역      |  | 미리 보기  </br> [Azure App Configuration에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../azure-app-configuration/concept-private-endpoint.md) |
-|Azure 관리 디스크 | 모든 공용 지역<br/> Azure Government 지역<br/>모든 중국 지역    | [알려진 제한 사항 선택](../virtual-machines/disks-enable-private-links-for-import-export-portal.md#limitations) | GA   <br/> [Azure Managed Disks에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../virtual-machines/disks-enable-private-links-for-import-export-portal.md)   |
+|Azure Managed Disks | 모든 공용 지역<br/> Azure Government 지역<br/>모든 중국 지역    | [알려진 제한 사항에 따른 선택](../virtual-machines/disks-enable-private-links-for-import-export-portal.md#limitations) | GA   <br/> [Azure Managed Disks에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../virtual-machines/disks-enable-private-links-for-import-export-portal.md)   |
 
 ### <a name="containers"></a>컨테이너
 
@@ -91,7 +91,7 @@ Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드�
 |:-------------------|:-----------------|:----------------|:--------|
 |  Azure Key Vault         | 모든 공용 지역<br/> Azure Government 지역      |  | GA   <br/> [Azure Key Vault에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../key-vault/general/private-link-service.md)   |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 |지원되는 서비스  |사용 가능한 지역 | 기타 고려 사항 | 상태  |
 |:-------------------|:-----------------|:----------------|:--------|
 | Azure Blob 스토리지(Data Lake Storage Gen2 포함)       |  모든 공용 지역<br/> Azure Government 지역       |  계정 종류 범용 V2에서 지원 | GA <br/> [Blob 스토리지에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](tutorial-private-endpoint-storage-portal.md)  |
@@ -105,11 +105,11 @@ Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드�
 |지원되는 서비스  |사용 가능한 지역 | 기타 고려 사항 | 상태  |
 |:-------------------|:-----------------|:----------------|:--------|
 | Azure SignalR | 미국 동부, 미국 중남부,<br/>미국 서부 2, 모든 중국 지역      |  | 미리 보기   <br/> [Azure SignalR에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../azure-signalr/howto-private-endpoints.md)   |
-|Azure Web Apps | 모든 공용 지역<br/> 중국 북부 2 & 동부 2    | PremiumV2, PremiumV3 또는 함수 프리미엄 계획에서 지원됨  | GA   <br/> [Azure Web Apps에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](./tutorial-private-endpoint-webapp-portal.md)   |
+|Azure Web Apps | 모든 공용 지역<br/> 중국 북부 2 및 동부 2    | PremiumV2, PremiumV3 또는 함수 프리미엄 계획에서 지원됨  | GA   <br/> [Azure Web Apps에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](./tutorial-private-endpoint-webapp-portal.md)   |
 |Azure Search | 모든 공용 지역 <br/> Azure Government 지역 | 개인 모드 서비스에서 지원됨 | GA   <br/> [Azure Search에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../search/service-create-private-endpoint.md)    |
 |Azure Relay | 모든 공용 지역      |  | 미리 보기 <br/> [Azure Relay에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../azure-relay/private-link-service.md)  |
 
-### <a name="private-link-service-with-a-standard-load-balancer"></a>표준 부하 분산 장치를 사용 하는 개인 링크 서비스
+### <a name="private-link-service-with-a-standard-load-balancer"></a>표준 Load Balancer를 사용하는 Private Link 서비스
 
 |지원되는 서비스  |사용 가능한 지역 | 기타 고려 사항 | 상태  |
 |:-------------------|:-----------------|:----------------|:--------|
@@ -117,6 +117,6 @@ Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 개인 링크 서비스에 대 한 자세한 정보:
+Azure Private Link 서비스에 대해 자세히 알아봅니다.
 - [Azure Private Link란?](private-link-overview.md)
 - [Azure Portal을 사용하여 프라이빗 엔드포인트 만들기](create-private-endpoint-portal.md)

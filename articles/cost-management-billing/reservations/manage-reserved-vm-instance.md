@@ -8,12 +8,12 @@ ms.reviewer: yashesvi
 ms.topic: how-to
 ms.date: 04/21/2021
 ms.author: banders
-ms.openlocfilehash: 64a6b3a313f5078368563af29ab97a871b4c3ae0
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: e8a5e6d40b745efb7fcd50919cd27664b3406b7d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288673"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862852"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Azure 리소스에 대한 예약 관리
 
@@ -81,14 +81,8 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 
 ### <a name="how-billing-administrators-view-or-manage-reservations"></a>청구 관리자가 예약을 보거나 관리하는 방법
 
-청구 관리자는 다음 단계를 수행하여 모든 예약과 예약 트랜잭션을 보고 관리합니다.
-
-1. [Azure Portal](https://portal.azure.com)에 로그인하고 **Cost Management + Billing** 으로 이동합니다.
-    - EA 관리자인 경우 왼쪽 메뉴에서 **청구 범위** 를 선택한 다음, 청구 범위 목록에서 하나를 선택합니다.
-    - Microsoft 고객 계약 청구 프로필 소유자인 경우 왼쪽 메뉴에서 **청구 프로필** 을 선택합니다. 청구 프로필 목록에서 하나를 선택합니다.
-2. 왼쪽 메뉴에서 **제품 + 서비스** > **예약** 을 선택합니다.
-3. EA 등록 또는 청구 프로필에 대한 전체 예약 목록이 표시됩니다.
-4. 청구 관리자는 예약을 선택한 다음, 표시되는 창에서 **액세스 권한 부여** 를 선택하여 예약 소유권을 가져올 수 있습니다.
+1. **Cost Management + Billing** 으로 이동한 다음, 페이지 왼쪽에서 **예약 트랜잭션** 을 선택합니다.
+2. 필요한 청구 권한이 있는 경우 예약을 보고 관리할 수 있습니다. 예약이 표시되지 않으면 예약이 생성된 Azure AD 테넌트를 사용하여 로그인했는지 확인합니다.
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>단일 예약을 두 개의 예약으로 분할
 
@@ -188,3 +182,4 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
  - [예약 갱신](reservation-renew.md)
  - [테넌트 간 전송](troubleshoot-reservation-transfers-between-tenants.md)
  - [Azure 로그에서 예약 구매자 찾기](find-reservation-purchaser-from-logs.md)
+ - [예약 갱신](reservation-renew.md)

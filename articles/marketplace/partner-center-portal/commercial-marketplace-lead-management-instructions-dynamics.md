@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 03/30/2020
 ms.openlocfilehash: 067a30d8f16b06b1b29ad494363d180886d1ab8b
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105560083"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Dynamics 365 Customer Engagement에 대해 잠재 고객 관리 구성
@@ -27,7 +27,7 @@ ms.locfileid: "105560083"
 
 * Dynamics 365 Customer Engagement 인스턴스에 대한 관리자 권한 - 솔루션을 설치하는 데 필요.
 * 테넌트 관리자 권한 - 상업용 마켓플레이스 제품에서 잠재 고객을 보내는 데 사용되는 잠재 고객 서비스의 신규 서비스 계정을 만드는 데 필요.
-* 관리 포털에 액세스 합니다.
+* 관리 포털에 대한 액세스 권한.
 * Azure Portal에 대한 액세스 권한.
 
 ## <a name="install-the-solution"></a>솔루션 설치
@@ -157,11 +157,11 @@ Dynamics 365 Customer Engagement에 대해 Office 365를 구성하려면:
 
     ![보안 역할 창](media/commercial-marketplace-lead-management-instructions-dynamics/security-roles.png)
 
-1. 보안 역할에서 **핵심 레코드** 탭을 선택합니다. **사용자 엔터티 UI 설정** 항목을 검색합니다. 해당 하는 라디오 단추를 선택 하 여 해당 엔터티에 대 한 사용자 (1/4 노란색 원)에 대해 만들기, 읽기 및 쓰기 권한을 사용 하도록 설정 합니다.
+1. 보안 역할에서 **핵심 레코드** 탭을 선택합니다. **사용자 엔터티 UI 설정** 항목을 검색합니다. 해당 라디오 단추를 선택하여 해당 엔터티의 사용자(1/4 노란색 원)에 대해 만들기, 읽기, 쓰기 권한을 설정합니다.
 
     ![Microsoft Marketplace 리드 작성기 핵심 레코드 탭](media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer.png)
 
-1. **사용자 지정** 탭에서 **시스템 작업** 항목을 검색합니다. 해당 하는 라디오 단추를 선택 하 여 해당 엔터티에 대 한 읽기, 쓰기 및 추가 권한을 조직에 사용 하도록 설정 합니다 (녹색 라디오 단추).
+1. **사용자 지정** 탭에서 **시스템 작업** 항목을 검색합니다. 읽기, 쓰기, AppendTo 권한의 라디오 단추를 선택하여 해당 엔터티의 조직(단색 녹색 라디오 단추)에 대해 읽기, 쓰기, AppendTo 권한을 설정합니다.
 
     ![Microsoft Marketplace 잠재 고객 작성기 사용자 지정 탭](media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer-customization.png)
 

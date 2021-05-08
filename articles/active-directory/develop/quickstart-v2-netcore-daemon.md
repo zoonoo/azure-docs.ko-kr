@@ -13,12 +13,12 @@ ms.date: 10/05/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 1b539c168deab7c1893f071a2453be28310fc132
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: a31bf345f523eea940be5d56495890e8ab5c6dbd
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105022928"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861646"
 ---
 # <a name="quickstart-get-a-token-and-call-the-microsoft-graph-api-by-using-a-console-apps-identity"></a>빠른 시작: 콘솔 앱의 ID를 사용하여 토큰 가져오기 및 Microsoft Graph API 호출
 
@@ -30,9 +30,9 @@ ms.locfileid: "105022928"
 > ![이 빠른 시작에서 생성된 샘플 앱의 작동 방식을 보여 주는 다이어그램](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
 >
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작은 [.NET Core 3.1](https://www.microsoft.com/net/download/dotnet-core)이 필요하지만 .NET Core 5.0에서도 작동합니다.
+이 빠른 시작에는 [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)가 필요하지만 .NET 5.0 SDK에서도 작동합니다.
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-the-app"></a>앱 등록 및 다운로드
@@ -209,7 +209,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
- | 요소 | 설명 |
+ | 요소 | Description |
  |---------|---------|
  | `config.ClientSecret` | Azure Portal에서 애플리케이션에 대해 생성된 클라이언트 암호입니다. |
  | `config.ClientId` | Azure Portal에 등록된 애플리케이션의 애플리케이션(클라이언트) ID입니다. 이 값은 Azure Portal에 있는 앱의 **개요** 페이지에서 찾을 수 있습니다. |
@@ -226,7 +226,7 @@ result = await app.AcquireTokenForClient(scopes)
                   .ExecuteAsync();
 ```
 
-|요소| 설명 |
+|요소| Description |
 |---------|---------|
 | `scopes` | 요청된 범위를 포함합니다. 기밀 클라이언트의 경우 이 값은 `{Application ID URI}/.default`와 비슷한 형식을 사용해야 합니다. 이 형식은 요청된 범위가 Azure Portal에서 설정한 앱 개체에서 정적으로 정의된 범위임을 나타냅니다. Microsoft Graph에서 `{Application ID URI}`는 `https://graph.microsoft.com`을 가리킵니다. 사용자 지정 웹 API의 경우 `{Application ID URI}`는 Azure Portal의 **애플리케이션 등록(미리 보기)**  > **API 노출** 에서 정의합니다. |
 

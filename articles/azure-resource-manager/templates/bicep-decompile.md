@@ -1,36 +1,36 @@
 ---
 title: JSON과 Bicep 간에 템플릿 변환
-description: Azure Resource Manager 템플릿을 Bicep에서 JSON으로, JSON에서 Bicep로 변환 하는 명령에 대해 설명 합니다.
+description: Azure Resource Manager 템플릿을 Bicep에서 JSON으로 변환하고 JSON에서 Bicep으로 변환하는 명령을 설명합니다.
 ms.topic: conceptual
 ms.date: 03/12/2021
 ms.openlocfilehash: 6d242f5846996cd0f5b9510a1a2b9f2bf063a0c7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103422184"
 ---
 # <a name="converting-arm-templates-between-json-and-bicep"></a>JSON과 Bicep 간에 ARM 템플릿 변환
 
-이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)을 JSON에서 Bicep으로, Bicep에서 JSON으로 변환 하는 방법을 설명 합니다.
+이 문서에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 JSON에서 Bicep으로, Bicep에서 JSON으로 변환하는 방법을 설명합니다.
 
-변환 명령을 실행 하려면 [BICEP CLI가 설치](bicep-install.md) 되어 있어야 합니다.
+변환 명령을 실행하려면 [Bicep CLI 설치](bicep-install.md)가 되어 있어야 합니다.
 
-변환 명령은 기능적으로 동일한 템플릿을 생성 합니다. 그러나 구현에서 정확 하 게 일치 하지 않을 수 있습니다. 템플릿을 JSON에서 Bicep로 변환 하 고 다시 JSON으로 변환 하면 원래 템플릿과 구문이 다른 템플릿이 생성 될 수 있습니다. 배포 된 경우 변환 된 템플릿은 동일한 결과를 생성 합니다.
+변환 명령은 기능적으로 동일한 템플릿을 생성합니다. 그러나 구현은 정확하게 일치하지 않을 수 있습니다. 템플릿을 JSON에서 Bicep으로 변환한 다음 다시 JSON으로 변환하면 원래 템플릿과 구문이 다른 템플릿이 생성될 수 있습니다. 배포되었을 때, 변환된 템플릿은 동일한 결과를 생성합니다.
 
-## <a name="convert-from-json-to-bicep"></a>JSON에서 Bicep로 변환
+## <a name="convert-from-json-to-bicep"></a>JSON에서 Bicep으로 변환
 
-Bicep CLI는 기존 JSON 템플릿을 Bicep 파일로 디컴파일 하는 명령을 제공 합니다. JSON 파일을 디컴파일 하려면 다음을 사용 합니다.
+Bicep CLI는 기존 JSON 템플릿을 Bicep 파일로 디컴파일하는 명령을 제공합니다. JSON 파일을 디컴파일하려면 다음 명령을 사용합니다.
 
 ```azurecli
 bicep decompile mainTemplate.json
 ```
 
-이 명령은 Bicep 작성을 위한 시작점을 제공 합니다. 명령은 모든 템플릿에서 작동 하지 않습니다. 현재 중첩 된 템플릿은 ' inner ' 식 계산 범위를 사용 하는 경우에만 디컴파일된 수 있습니다. 복사 루프를 사용 하는 템플릿은 디컴파일된 수 없습니다.
+해당 명령은 Bicep 작성을 위한 시작점을 제공합니다. 명령이 모든 템플릿에서 작동하지는 않습니다. 현재 중첩된 템플릿은 ‘내부’식 평가 범위를 사용하는 경우에만 디컴파일할 수 있습니다. 복사 루프를 사용하는 템플릿은 디컴파일할 수 없습니다.
 
 ## <a name="convert-from-bicep-to-json"></a>Bicep에서 JSON으로 변환
 
-또한 Bicep CLI는 Bicep를 JSON으로 변환 하는 명령을 제공 합니다. JSON 파일을 작성 하려면 다음을 사용 합니다.
+Bicep CLI는 Bicep을 JSON으로 변환하는 명령도 제공합니다. JSON 파일을 빌드하려면 다음 명령을 사용합니다.
 
 ```azurecli
 bicep build mainTemplate.bicep
@@ -38,7 +38,7 @@ bicep build mainTemplate.bicep
 
 ## <a name="export-template-and-convert"></a>템플릿 내보내기 및 변환
 
-리소스 그룹에 대 한 템플릿을 내보낸 다음,이를 디컴파일 명령에 직접 전달할 수 있습니다. 다음 예제에서는 내보낸 템플릿을 디컴파일 하는 방법을 보여 줍니다.
+리소스 그룹의 템플릿을 내보낸 다음, 템플릿을 디컴파일 명령에 직접 전달할 수 있습니다. 다음 예시에서는 내보낸 템플릿을 디컴파일하는 방법을 보여 줍니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -56,16 +56,16 @@ bicep decompile main.json
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-포털을 통해 [템플릿을 내보냅니다](export-template-portal.md) .
+포털을 통해 [템플릿 내보내기](export-template-portal.md).
 
-`bicep decompile <filename>`다운로드 한 파일에서를 사용 합니다.
+다운로드한 파일에서 `bicep decompile <filename>`를 엽니다.
 
 ---
 
-## <a name="side-by-side-view"></a>Side-by-side 보기
+## <a name="side-by-side-view"></a>나란히 보기
 
-[Bicep 필드](https://aka.ms/bicepdemo) 를 사용 하면 동등한 JSON 및 Bicep 파일을 나란히 볼 수 있습니다. 샘플 템플릿을 선택 하 여 두 버전을 모두 볼 수 있습니다. 또는 `Decompile` 고유한 JSON 템플릿을 업로드 하 고 해당 하는 Bicep 파일을 보려면 선택 합니다.
+[Bicep 플레이그라운드](https://aka.ms/bicepdemo)를 사용하면 동등한 JSON 파일 및 Bicep 파일을 나란히 볼 수 있습니다. 샘플 템플릿을 선택하여 두 버전을 모두 볼 수 있습니다. 또는 `Decompile`를 선택하여 자기만의 JSON 템플릿을 업로드하고 동등한 Bicep 파일을 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Bicep에 대 한 자세한 내용은 [Bicep 자습서](./bicep-tutorial-create-first-bicep.md)를 참조 하십시오.
+Bicep에 대한 자세한 내용은 [Bicep 자습서](./bicep-tutorial-create-first-bicep.md)를 참조하세요.

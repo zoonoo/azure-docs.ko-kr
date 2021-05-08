@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 12/30/2020
 ms.author: abnarain
 ms.openlocfilehash: 101e55188b8021040e2fd6bd573c1c6330241e72
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100382806"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Azure Data Factory 문제 해결
@@ -127,9 +127,9 @@ ms.locfileid: "100382806"
 
 - **메시지**: `An error occurred while sending the request.`
 
-- **원인**: Databricks 서비스에 대 한 네트워크 연결이 중단 되었습니다.
+- **원인**: Databricks 서비스에 대한 네트워크 연결이 중단되었습니다.
 
-- **권장 사항**: 자체 호스팅 통합 런타임을 사용 하는 경우 통합 런타임 노드에서 네트워크 연결이 안정적인 지 확인 합니다. Azure integration runtime을 사용 하는 경우 다시 시도는 일반적으로 작동 합니다.
+- **권장 사항**: 자체 호스팅 통합 런타임을 사용하는 경우 통합 런타임 노드에서 네트워크 연결이 안정적인지 확인합니다. Azure 통합 런타임을 사용하는 경우 다시 시도하면 일반적으로 작동합니다.
  
 ## <a name="azure-data-lake-analytics"></a>Azure 데이터 레이크 분석
 
@@ -497,7 +497,7 @@ ms.locfileid: "100382806"
 
 - **메시지**: `There are duplicate files in the resource folder.`
 
-- **원인**: 이름이 같은 여러 파일이 folderPath의 다른 하위 폴더에 있습니다.
+- **원인**: 이름이 동일한 여러 파일이 folderPath의 여러 하위 폴더에 있습니다.
 
 - **권장 사항**: 사용자 지정 활동은 folderPath에서 폴더 구조를 평면화합니다. 폴더 구조를 유지해야 하는 경우 파일을 압축한 후 압축 풀기 명령을 사용하여 Azure Batch에서 압축을 풉니다.
    
@@ -527,7 +527,7 @@ ms.locfileid: "100382806"
 
 - **원인**: 이 오류를 초래한 서비스에 내부 문제가 발생했습니다.
 
-- **권장 사항**: 이 문제는 일시적일 수 있습니다. 잠시 후 작업을 다시 시도 하세요.
+- **권장 사항**: 이 문제는 일시적일 수 있습니다. 잠시 후 작업을 다시 시도하세요.
 
 ### <a name="error-code-207"></a>오류 코드: 207
 
@@ -950,15 +950,15 @@ ms.locfileid: "100382806"
 
 - **권장 사항**: HDInsight 주문형 연결 서비스에 대한 추가 저장소로 Azure Blob Storage 계정을 제공하세요.
 
-### <a name="ssl-error-when-adf-linked-service-using-hdinsight-esp-cluster"></a>HDInsight ESP 클러스터를 사용 하 여 ADF 연결 된 서비스에 대 한 SSL 오류
+### <a name="ssl-error-when-adf-linked-service-using-hdinsight-esp-cluster"></a>HDInsight ESP 클러스터를 사용하여 ADF 연결된 서비스에 대한 SSL 오류
 
 - **메시지**: `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
 
-- **원인**:이 문제는 시스템 신뢰 저장소와 관련 된 것일 수 있습니다.
+- **원인**:이 문제는 System Trust Store와 관련이 있을 수 있습니다.
 
-- **해결** 방법: **Microsoft Integration RUNTIME\4.0\SHARED\ODBC Drivers\Microsoft Hive ODBC Driver\lib** 경로로 이동 하 고 DriverConfiguration64.exe를 열어 설정을 변경할 수 있습니다.
+- **해결 방법**: **Microsoft Integration Runtime\4.0\Shared\ODBC Drivers\Microsoft Hive ODBC Driver\lib** 경로로 이동해 DriverConfiguration64.exe를 열어 설정을 변경할 수 있습니다.
 
-    ![시스템 신뢰 저장소 사용 선택을 취소 합니다.](./media/connector-troubleshoot-guide/system-trust-store-setting.png)
+    ![System Trust Store 사용 선택 취소](./media/connector-troubleshoot-guide/system-trust-store-setting.png)
 
 ## <a name="web-activity"></a>웹 작업
 
@@ -1015,17 +1015,17 @@ ms.locfileid: "100382806"
 
 ## <a name="general"></a>일반
 
-### <a name="activity-stuck-issue"></a>활동 중단 문제
+### <a name="activity-stuck-issue"></a>작업 중단 문제
 
-활동이 거의 진행 되지 않는 정상적인 실행 보다 훨씬 더 오래 실행 되는 것을 확인 하면 문제가 발생 한 것일 수 있습니다. 취소 하 고 도움이 되는지 다시 시도할 수 있습니다. 복사 작업 인 경우 [복사 작업 성능 문제 해결](copy-activity-performance-troubleshooting.md)에서 성능 모니터링 및 문제 해결에 대해 알아볼 수 있습니다. 데이터 흐름의 경우 [데이터 흐름 매핑 성능](concepts-data-flow-performance.md) 및 튜닝 가이드에서 알아보세요.
+작업이 거의 진행되지 않으며 정상적인 실행보다 훨씬 더 오래 실행되는 현상이 확인되는 경우 문제가 발생했을 수 있습니다. 취소하고 다시 시도한 후 작동 여부를 살피세요. 복사 작업인 경우 [복사 작업 성능 문제 해결](copy-activity-performance-troubleshooting.md)에서 성능 모니터링 및 문제 해결에 대해 알아볼 수 있습니다. 데이터 흐름의 경우 [매핑 데이터 흐름 성능](concepts-data-flow-performance.md) 및 튜닝 가이드에서 알아보세요.
 
 ### <a name="payload-is-too-large"></a>페이로드가 너무 큼
 
-**오류 메시지:**`The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
+**오류 메시지:** `The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
 
-**원인:** 각 작업 실행에 대 한 페이로드는 활동 구성, 연결 된 데이터 집합 및 연결 된 서비스 구성 (있는 경우) 및 활동 유형별 생성 된 일부 시스템 속성을 포함 합니다. 이러한 페이로드 크기의 제한은 [Data Factory 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) 섹션에 설명 된 대로 896 KB입니다.
+**원인:** 각 작업 실행에 대한 페이로드에는 활동 구성, 연결된 데이터 세트, 연결된 서비스 구성(있는 경우), 활동 유형별로 생성된 시스템 속성의 일부가 포함됩니다. 이러한 페이로드 크기의 제한은 [Data Factory 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) 섹션에 설명된 대로 896KB입니다.
 
-**권장 사항:** 이 제한은 업스트림 활동 출력 또는 외부에서 하나 이상의 큰 매개 변수 값을 전달 하는 경우, 특히 제어 흐름의 활동 간에 실제 데이터를 전달 하는 경우에 발생할 수 있습니다. 큰 매개 변수 값의 크기를 줄이거나 파이프라인 논리를 조정 하 여 활동 간에 이러한 값을 전달 하지 않고 활동 내에서 처리할 수 있는지 확인 합니다.
+**권장 사항:** 이 제한은 업스트림 활동 출력 또는 외부에서 하나 이상의 큰 매개 변수 값을 전달하는 경우, 특히 제어 흐름의 활동 간에 실제 데이터를 전달하는 경우에 발생할 가능성이 높습니다. 큰 매개 변수 값의 크기를 줄이거나 파이프라인 논리를 튜닝하여 활동 간에 이러한 값을 전달하지 않고 활동 내에서 처리할 수 있는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

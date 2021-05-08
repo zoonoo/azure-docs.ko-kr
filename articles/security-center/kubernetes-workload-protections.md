@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 03/17/2021
 ms.author: memildin
-ms.openlocfilehash: eacca5573c672e9f4485c26b1b580ee4c982c5d2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a6a9080a8957b56d12eca289a500fd45f0e709b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104580756"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310821"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Kubernetes 워크로드 보호
 
@@ -21,7 +21,7 @@ ms.locfileid: "104580756"
 
 [Kubernetes 허용 제어를 사용한 워크로드 보호 모범 사례](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)에서 해당 기능에 대해 자세히 알아보세요.
 
-Security Center는 Azure Defender를 사용하도록 설정하는 경우 더 많은 컨테이너 보안 기능을 제공합니다. 특히:
+Security Center는 Azure Defender를 사용하도록 설정하는 경우 더 많은 컨테이너 보안 기능을 제공합니다. 특히 다음 사항에 주의하세요.
 
 - [컨테이너 레지스트리용 Azure Defender](defender-for-container-registries-introduction.md)로 컨테이너 레지스트리의 취약성을 검사합니다.
 - [Kubernetes용 Azure Defender](defender-for-kubernetes-introduction.md) K8s 클러스터에 대한 실시간 위협 탐지 경고를 가져옵니다.
@@ -154,7 +154,6 @@ spec:
       labels:
         app: redis
       annotations:
-        apparmor.security.beta.kubernetes.io/pod: runtime/default
         container.apparmor.security.beta.kubernetes.io/redis: runtime/default
     spec:
       containers:

@@ -1,34 +1,35 @@
 ---
 title: NCas T4 v3 시리즈
-description: NCas T4 v3 시리즈 Vm에 대 한 사양입니다.
+description: NCas T4 v3 시리즈 VM의 사양입니다.
 ms.service: virtual-machines
 ms.subservice: vm-sizes-gpu
 author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: d73bd81f15263c79e16b574eb961d4ae0ac61175
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 2e10177de1a40bf7ece7acde43a91686bd4c98e5
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103417810"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306452"
 ---
 # <a name="ncast4_v3-series"></a>NCasT4_v3 시리즈 
 
-NCasT4_v3 시리즈 가상 머신은 [Nvidia Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) GPU 및 AMD Epyc 7V12 (로마) cpu로 구동 됩니다. Vm은 각각 16gb의 메모리를 포함 하는 최대 4 개의 NVIDIA T4 Gpu를 포함 하 고 있으며,이는 최대 64 비 다중 스레드 AMD EPYC 7V12 (로마) 프로세서 코어 및 440 GiB의 시스템 메모리입니다. 이러한 가상 머신은 AI 서비스를 배포 하는 데 적합 합니다. 예를 들어 사용자가 생성 한 요청의 실시간 추론 NVIDIA의 그리드 드라이버 및 가상 GPU 기술을 사용 하는 대화형 그래픽 및 시각화 작업에 적합 합니다. TensorRT, Caffe, ONNX 및 기타 프레임 워크를 기반으로 하는 표준 GPU 계산 워크 로드 또는 GPU 가속 그래픽 응용 프로그램을 기반으로 하는 OpenGL 및 DirectX는 NCasT4_v3 시리즈에서 사용자에 게 근접 한 경제적으로 배포할 수 있습니다.
+NCasT4_v3 시리즈 가상 머신은 [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) GPU 및 AMD EPYC 7V12(Rome) CPU로 구동됩니다. VM에는 최대 4개의 NVIDIA T4 GPU(각각 16GB 메모리 포함), 최대 64개의 비다중 스레드 AMD EPYC 7V12(Rome) 프로세서 코어 및 440GiB의 시스템 메모리가 탑재되어 있습니다. 이러한 가상 머신은 AI 서비스(예: 사용자 생성 요청에 대한 실시간 추론)를 배포하는 데 적합하며 NVIDIA의 GRID 드라이버 및 가상 GPU 기술을 사용하는 대화형 그래픽 및 시각화 워크로드에도 적합합니다. NCasT4_v3 시리즈에서는 TensorRT, Caffe, ONNX 및 기타 프레임워크를 기반으로 하는 표준 GPU 컴퓨팅 워크로드 또는 OpenGL 및 DirectX 기반의 GPU 가속 그래픽 애플리케이션을 사용자와 근접한 위치에서 경제적으로 배포할 수 있습니다.
 
 <br>
 
-[Acu](acu.md): 230-260<br>
-[Premium Storage](premium-storage-performance.md): 지원 됨<br>
-[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
-[실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
-[메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
-[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
-[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
-[삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 되지 않음 <br>
-Nvidia NVLink Interconnect: 지원 됨<br>
+[ACU](acu.md): 230-260<br>
+[Premium Storage](premium-storage-performance.md): 지원됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원됨<br>
+[Ultra Disks](disks-types.md#ultra-disk): 지원됨(가용성, 사용량 및 성능에 대한 [자세한 정보](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312)) <br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원되지 않음<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>
+[VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
+[가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨<br>
+[임시 OS 디스크](ephemeral-os-disks.md): 지원되지 않음 <br>
+NVIDIA NVLink Interconnect: 지원되지 않음<br>
 <br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
@@ -43,11 +44,11 @@ Nvidia NVLink Interconnect: 지원 됨<br>
 
 ## <a name="supported-operating-systems-and-drivers"></a>지원되는 운영 체제 및 드라이버
 
-Windows 또는 Linux를 실행 하는 Azure NCasT4_v3 시리즈 Vm의 GPU 기능을 활용 하려면 Nvidia GPU 드라이버를 설치 해야 합니다.
+Windows 또는 Linux를 실행하는 Azure NCasT4_v3 시리즈 VM의 GPU 기능을 최대한 활용하려면 NVIDIA GPU 드라이버를 설치해야 합니다.
 
-Nvidia GPU 드라이버를 수동으로 설치 하려면 지원 되는 운영 체제, 드라이버, 설치 및 확인 단계에 대해 [Windows 용 N 시리즈 GPU 드라이버 설치](./windows/n-series-driver-setup.md) 를 참조 하세요.
+NVIDIA GPU 드라이버를 수동으로 설치하려는 경우 지원되는 운영 체제, 드라이버, 설치 및 확인 단계는 [Windows용 N 시리즈 GPU 드라이버 설치](./windows/n-series-driver-setup.md)를 참조하세요.
 
-Azure Nvidia GPU 드라이버 확장은 NCasT4_v3 시리즈 Vm에 verda 드라이버를 배포 합니다. 그래픽 및 시각화 워크 로드의 경우 Azure에서 지원 되는 그리드 드라이버를 수동으로 설치 합니다.
+Azure NVIDIA GPU 드라이버 확장은 NCasT4_v3 시리즈 VM에 CUDA 드라이버를 배포합니다. 그래픽 및 시각화 워크로드를 위해서는 Azure에서 지원하는 GRID 드라이버를 수동으로 설치하세요.
 
 ## <a name="other-sizes"></a>기타 크기
 

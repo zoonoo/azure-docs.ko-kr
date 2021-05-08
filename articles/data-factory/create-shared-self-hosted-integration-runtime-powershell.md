@@ -8,10 +8,10 @@ author: nabhishek
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
 ms.openlocfilehash: 16feeb124859fa6199303d9d590fa0a286033ef9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100389436"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 자체 호스팅 Integration Runtime 공유 만들기
@@ -22,26 +22,26 @@ ms.locfileid: "100389436"
 
 ## <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 자체 호스팅 Integration Runtime 공유 만들기
 
-데이터 팩터리에 이미 설치한 기존의 자체 호스팅 통합 런타임 인프라를 재사용할 수 있습니다. 이렇게 다시 사용 하면 기존 공유 자체 호스팅 IR을 참조 하 여 다른 데이터 팩터리에 연결 된 자체 호스팅 통합 런타임을 만들 수 있습니다.
+데이터 팩터리에 이미 설치한 기존의 자체 호스팅 통합 런타임 인프라를 재사용할 수 있습니다. 이렇게 하면 기존 자체 호스팅 IR(공유됨)을 참조하여 다른 데이터 팩터리에서 연결된 자체 호스팅 통합 런타임을 만들 수 있습니다.
 
-이 기능에 대 한 소개와 데모를 보려면 다음 12 분 분량의 비디오를 시청 하세요.
+이 기능을 소개하는 다음 비디오를 12분 간 시청하세요.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
 
 ### <a name="terminology"></a>용어
 
-- **공유 ir**: 실제 인프라에서 실행 되는 원래의 자체 호스팅 IR입니다.  
-- **연결 된 ir**: 다른 공유 ir을 참조 하는 ir입니다. 연결 된 IR은 논리 IR 이며 다른 공유 자체 호스팅 IR 인프라를 사용 합니다.
+- **공유된 IR** - 물리적 인프라에서 실행되는 원래 자체 호스팅 IR입니다.  
+- **연결된 IR** - 다른 공유된 IR을 참조하는 IR입니다. 연결된 통합 런타임은 논리 IR이며, 다른 자체 호스팅 통합 런타임의 인프라를 사용합니다.
 
 ## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Azure Data Factory UI를 사용하여 공유되는 자체 호스팅 IR 만들기
 
 Azure Data Factory UI를 사용하여 공유되는 자체 호스팅 IR을 만들려면 다음 단계를 수행할 수 있습니다.
 
-1. 공유 되는 자체 호스팅 IR에서 **다른 데이터 팩터리에 대 한 권한 부여** 를 선택 하 고 "Integration runtime 설치" 페이지에서 연결 된 IR을 만들 데이터 팩터리를 선택 합니다.
+1. 공유할 자체 호스팅 IR에서 **다른 데이터 팩터리에 대한 권한 부여** 를 선택하고 ‘통합 런타임 설치’ 페이지에서 연결된 IR을 만들 데이터 팩터리를 선택합니다.
       
     ![공유 탭에서 권한을 부여하는 단추](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)  
     
-2. 공유할 자체 호스팅 IR의 위에 있는 "리소스 ID"를 복사 합니다.
+2. 공유할 자체 호스팅 IR의 위에 있는 ‘리소스 ID’를 복사합니다.
          
 3. 권한이 부여된 데이터 팩터리에서 연결된 자체 호스팅 IR을 새로 만들고 리소스 ID를 입력합니다.
       
@@ -164,7 +164,7 @@ Get-AzDataFactoryV2IntegrationRuntimeKey `
 #### <a name="create-another-data-factory"></a>다른 데이터 팩터리 만들기
 
 > [!NOTE]  
-> 이 단계는 선택 사항입니다. 공유하려는 데이터 팩터리가 이미 있는 경우 이 단계를 건너뜁니다. 그러나 다른 데이터 팩터리에 역할 할당을 추가 하거나 제거 하려면 `Microsoft.Authorization/roleAssignments/write` `Microsoft.Authorization/roleAssignments/delete` [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator) 또는 [소유자](../role-based-access-control/built-in-roles.md#owner)와 같은 및 사용 권한이 있어야 합니다.
+> 이 단계는 선택 사항입니다. 공유하려는 데이터 팩터리가 이미 있는 경우 이 단계를 건너뜁니다. 그러나 다른 데이터 팩터리에 역할 할당을 추가하거나 제거하려면 [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) 또는 [Owner](../role-based-access-control/built-in-roles.md#owner)와 같은 `Microsoft.Authorization/roleAssignments/write`과 `Microsoft.Authorization/roleAssignments/delete` 사용 권한이 있어야 합니다.
 
 ```powershell
 $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
@@ -225,33 +225,33 @@ Remove-AzDataFactoryV2IntegrationRuntime `
 
 ### <a name="monitoring"></a>모니터링
 
-#### <a name="shared-ir"></a>공유 IR
+#### <a name="shared-ir"></a>공유된 IR
 
-![공유 통합 런타임을 찾기 위한 선택 항목](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
+![공유된 통합 런타임을 찾기 위한 선택 항목](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
 
-![공유 통합 런타임 모니터링](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
+![공유된 통합 런타임 모니터링](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
 
-#### <a name="linked-ir"></a>연결 된 IR
+#### <a name="linked-ir"></a>연결된 IR
 
-![연결 된 통합 런타임을 찾기 위한 선택 항목](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
+![연결된 통합 런타임을 찾기 위한 선택 항목](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
 
-![연결 된 통합 런타임 모니터링](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
+![연결된 통합 런타임 모니터링](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
 
 
 ### <a name="known-limitations-of-self-hosted-ir-sharing"></a>자체 호스팅 IR 공유에 대해 알려진 제한 사항
 
-* 연결 된 IR이 생성 되는 데이터 팩터리에 [는 관리 id](../active-directory/managed-identities-azure-resources/overview.md)가 있어야 합니다. 기본적으로 Azure Portal 또는 PowerShell cmdlet에서 만든 데이터 팩터리에는 암시적으로 생성 된 관리 Id가 있습니다. 그러나 Azure Resource Manager 템플릿이나 SDK를 통해 데이터 팩터리를 만드는 경우 **Identity** 속성을 명시적으로 설정 해야 합니다. 이 설정을 사용 하면 리소스 관리자에서 관리 Id를 포함 하는 데이터 팩터리를 만듭니다.
+* 연결된 IR을 만드는 데이터 팩터리에는 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)가 있어야 합니다. 기본적으로 Azure Portal 또는 PowerShell cmdlet에서 만든 데이터 팩터리에서는 관리 ID가 암시로 생성됩니다. 그러나 데이터 팩터리가 Azure Resource Manager 템플릿 또는 SDK를 통해 생성되는 경우 **ID** 속성을 명시적으로 설정해야 합니다. 이 설정을 사용하면 리소스 관리자에서 관리 ID를 포함하는 데이터 팩터리를 만듭니다.
 
-* 이 기능을 지 원하는 Data Factory .NET SDK는 1.1.0 이상 버전 이어야 합니다.
+* 이 기능을 지원하는 Data Factory .NET SDK는 1.1.0 이상 버전이어야 합니다.
 
-* 권한을 부여 하려면 공유 IR이 존재 하는 데이터 팩터리에 소유자 역할 또는 상속 된 소유자 역할이 필요 합니다.
+* 권한을 부여하려면 사용자에게 Owner 역할 또는 공유된 IR이 있는 데이터 팩터리의 상속된 Owner 역할이 있어야 합니다.
 
-* 공유 기능은 동일한 Azure AD 테 넌 트 내의 데이터 팩터리에 대해서만 작동 합니다.
+* 공유 기능은 동일한 Azure AD 테넌트 내의 데이터 팩터리에 대해서만 작동합니다.
 
-* Azure AD [게스트 사용자](../active-directory/governance/manage-guest-access-with-access-reviews.md)의 경우 검색 키워드를 사용 하 여 모든 데이터 팩터리를 나열 하는 UI의 검색 기능이 작동 하지 않습니다. 그러나 게스트 사용자가 데이터 팩터리의 소유자 인 경우 검색 기능 없이 IR을 공유할 수 있습니다. IR을 공유 해야 하는 데이터 팩터리의 관리 되는 Id의 경우 **할당 권한** 상자에 관리 되는 id를 입력 하 고 Data Factory UI에서 **추가** 를 선택 합니다.
+* Azure AD [게스트 사용자](../active-directory/governance/manage-guest-access-with-access-reviews.md)의 경우 검색 키워드를 사용하여 모든 데이터 팩터리를 나열하는 UI의 검색 기능이 작동하지 않습니다. 그러나 게스트 사용자가 데이터 팩터리의 Owner인 경우 검색 기능 없이 IR을 공유할 수 있습니다. IR을 공유해야 하는 데이터 팩터리의 관리 ID일 경우 **할당 권한** 상자에 관리 ID를 입력하고 Data Factory UI에서 **추가** 를 선택합니다.
 
   > [!NOTE]
-  > 이 기능은 Data Factory v 2 에서만 사용할 수 있습니다.
+  > 이 기능은 Data Factory V2에서만 사용할 수 있습니다.
 
 
 ### <a name="next-steps"></a>다음 단계

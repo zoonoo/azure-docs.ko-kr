@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/19/2020
 ms.author: allensu
 ms.openlocfilehash: ba6710629f52abd13ef84f2a814c10c6dca18837
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105641744"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>지하철별 Azure CDN 검사 
@@ -44,10 +44,10 @@ ms.locfileid: "105641744"
 | 아프리카 | 카이로, 이집트<br />케이프타운, 남아프리카 공화국<br />남아프리카공화국 요하네스버그<br />라고스, 나이지리아<br />나이로비, 케냐 | 남아프리카공화국 요하네스버그 <br/> 나이로비, 케냐 | 남아프리카 |
 | 중동 | 두바이, 아랍에미리트<br />텔아비브, 이스라엘<br />이스탄불, 터키 | 무스카트, 오만<br />푸지라, 아랍에미리트 | 카타르<br />아랍에미리트 |
 | 인도 | 첸나이, 인도<br />하이데라바드, 인도<br />뭄바이, 인도<br />뉴델리, 인도 | 방갈로르, 인도<br />첸나이, 인도<br />뭄바이, 인도<br />뉴델리, 인도<br /> | 인도 |
-| 아시아 | 홍콩<br />오사카, 일본<br />Sakai, 일본<br />도쿄, 일본<br />콸라룸푸르, 말레이시아<br />Cyberjaya, 말레이시아<br />자카르타, 인도네시아<br />마닐라, 필리핀<br />싱가포르<br />부산, 대한민국<br />서울, 대한민국<br />타이베이, 대만<br />방콕, 태국<br />호 카이 호치민 시티, 베트남 | 홍콩<br />자카르타, 인도네시아<br />오사카, 일본<br />도쿄, 일본<br />싱가포르<br />서울, 대한민국<br />가오슝, 대만<br />타이베이, 대만 <br />마닐라, 필리핀 | 홍콩<br />인도네시아<br />이스라엘<br />일본<br />마카오<br />말레이시아<br />필리핀<br />싱가포르<br />대한민국<br />대만<br />태국<br />터키<br />베트남 |
+| 아시아 | 홍콩<br />오사카, 일본<br />사카이, 일본<br />도쿄, 일본<br />콸라룸푸르, 말레이시아<br />Cyberjaya, Malaysia<br />자카르타, 인도네시아<br />마닐라, 필리핀<br />싱가포르<br />부산, 대한민국<br />서울, 대한민국<br />타이베이, 대만<br />방콕, 태국<br />호치민 시, 베트남 | 홍콩<br />자카르타, 인도네시아<br />오사카, 일본<br />도쿄, 일본<br />싱가포르<br />서울, 대한민국<br />가오슝, 대만<br />타이베이, 대만 <br />마닐라, 필리핀 | 홍콩<br />인도네시아<br />이스라엘<br />일본<br />마카오<br />말레이시아<br />필리핀<br />싱가포르<br />대한민국<br />대만<br />태국<br />터키<br />베트남 |
 | 오스트레일리아 및 뉴질랜드 | 브리즈번, 오스트레일리아<br />멜버른, 오스트레일리아<br />퍼스, 오스트레일리아<br />시드니, 오스트레일리아<br />오클랜드, 뉴질랜드 | 멜버른, 오스트레일리아<br />시드니, 오스트레일리아<br />오클랜드, 뉴질랜드 | 오스트레일리아<br />뉴질랜드 |
 
 
 ## <a name="next-steps"></a>다음 단계
 
-* 허용 되는 목록에 대 한 최신 IP 주소를 가져오려면에 [지 노드 AZURE CDN API](/rest/api/cdn/cdn/edgenodes)를 참조 하세요.
+* 허용 목록에 대한 최신 IP 주소를 보려면 [Azure CDN 에지 노드 API](/rest/api/cdn/cdn/edgenodes)를 참조하세요.

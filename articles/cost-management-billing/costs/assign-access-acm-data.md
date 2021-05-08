@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: 660b5751e3b3cbc632331e99d797af3392a8aea4
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: cb54c5f7334120f6cd01ed1704939c5c1a55e7c6
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "91371969"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645292"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Cost Management 데이터에 대한 액세스 할당
 
@@ -39,9 +39,9 @@ Azure EA 구독의 비용 데이터를 보려면 사용자에게 적어도 다�
 | 청구 계정<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | 엔터프라이즈 관리자 | None | 기업계약의 모든 구독 |
 | department | [https://ea.azure.com](https://ea.azure.com/) | 부서 관리자 | **DA 요금 보기** 사용 | 부서에 연결된 등록 계정에 속하는 모든 구독 |
 | 등록 계정<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | 계정 소유자 | **AO 요금 보기** 사용 | 등록 계정의 모든 구독 |
-| 관리 그룹 | [https://portal.azure.com](https://portal.azure.com/) | Cost Management 읽기 권한자(또는 읽기 권한자) | **AO 요금 보기** 사용 | 관리 그룹 아래의 모든 구독 |
-| Subscription | [https://portal.azure.com](https://portal.azure.com/) | Cost Management 읽기 권한자(또는 읽기 권한자) | **AO 요금 보기** 사용 | 구독의 모든 리소스/리소스 그룹 |
-| Resource group | [https://portal.azure.com](https://portal.azure.com/) | Cost Management 읽기 권한자(또는 읽기 권한자) | **AO 요금 보기** 사용 | 리소스 그룹의 모든 리소스 |
+| 관리 그룹 | [https://portal.azure.com](https://portal.azure.com/) | Cost Management 읽기 권한자(또는 기여자) | **AO 요금 보기** 사용 | 관리 그룹 아래의 모든 구독 |
+| Subscription | [https://portal.azure.com](https://portal.azure.com/) | Cost Management 읽기 권한자(또는 기여자) | **AO 요금 보기** 사용 | 구독의 모든 리소스/리소스 그룹 |
+| Resource group | [https://portal.azure.com](https://portal.azure.com/) | Cost Management 읽기 권한자(또는 기여자) | **AO 요금 보기** 사용 | 리소스 그룹의 모든 리소스 |
 
 <sup>1</sup> 청구 계정은 기업 계약 또는 등록이라고도 합니다.
 
@@ -52,8 +52,8 @@ Azure EA 구독의 비용 데이터를 보려면 사용자에게 적어도 다�
 
 다른 Azure 구독의 비용 데이터를 보려면 사용자에게 적어도 다음 범위 중 하나 이상에 대한 읽기 액세스 권한이 있어야 합니다.
 
-- Azure 계정
 - 관리 그룹
+- 구독
 - Resource group
 
 파트너가 Microsoft 고객 계약을 체결한 후에는 다양한 범위를 사용할 수 있습니다. CSP 고객은 CSP 파트너가 사용하도록 설정된 경우 Cost Management 기능을 사용할 수 있습니다. 자세한 내용은 [파트너용 Azure Cost Management 시작](get-started-partners.md)을 참조하세요.

@@ -1,65 +1,65 @@
 ---
-title: Azure Key Vault에서 SQL TDE 사용
+title: Azure Key Vault로 SQL TDE 사용
 titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
-description: PowerShell 또는 Azure CLI를 사용 하 여 미사용 암호화를 위해 TDE (투명한 데이터 암호화) 사용을 시작 하도록 Azure SQL Database 및 Azure Synapse Analytics를 구성 하는 방법에 대해 알아봅니다.
+description: PowerShell 또는 Azure CLI를 통해 미사용 데이터 암호화에 TDE(투명한 데이터 암호화)를 사용하도록 Azure SQL Database 및 Azure Synapse Analytics를 구성하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
-author: jaszymas
-ms.author: jaszymas
+author: shohamMSFT
+ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 610f0a9692c18afbd7bb446959b09bac14d6f629
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.openlocfilehash: b82c42d27d05cd84cf7fc59b711c24794a8e2f17
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102507622"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314017"
 ---
-# <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell 및 Azure CLI: Azure Key Vault에서 고객이 관리 하는 키로 투명한 데이터 암호화 사용
+# <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell 및 Azure CLI: Azure Key Vault에서 고객 관리형 키로 투명한 데이터 암호화를 사용하도록 설정
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-이 문서에서는 Azure SQL Database 또는 Azure Synapse Analytics에서 TDE (Azure Key Vault 투명한 데이터 암호화)의 키를 사용 하는 방법을 안내 합니다. Azure Key Vault 통합으로 TDE - BYOK(Bring Your Own Key) 지원에 대해 자세히 알아보려면 [Azure Key Vault에서 고객 관리형 키로 TDE](transparent-data-encryption-byok-overview.md)를 참조하세요.
+이 문서에서는 Azure SQL Database 또는 Azure Synapse Analytics에서 TDE(투명한 데이터 암호화)에 대해 Azure Key Vault의 키를 사용하는 방법에 대해 설명합니다. Azure Key Vault 통합으로 TDE - BYOK(Bring Your Own Key) 지원에 대해 자세히 알아보려면 [Azure Key Vault에서 고객 관리형 키로 TDE](transparent-data-encryption-byok-overview.md)를 참조하세요.
 
 > [!NOTE] 
-> 이제 Azure SQL은 TDE 보호기로 관리 되는 HSM에 저장 된 RSA 키를 사용 하도록 지원 합니다. 이 기능은 **공개 미리 보기로** 제공 됩니다. Azure Key Vault 관리 되는 HSM은 FIPS 140-2 수준 3의 유효성을 검사 한 Hsm을 사용 하 여 클라우드 응용 프로그램에 대 한 암호화 키를 보호할 수 있도록 하는 완전히 관리 되 고 항상 사용 가능한 단일 테 넌 트 표준 호환 클라우드 서비스입니다. [관리 되는 hsm](../../key-vault/managed-hsm/index.yml)에 대해 자세히 알아보세요.
+> 이제 Azure SQL은 관리형 HSM에 저장된 RSA 키를 TDE 보호기로 사용하도록 지원합니다. 이 기능은 **퍼블릭 미리 보기** 상태입니다. Azure Key Vault 관리형 HSM은 FIPS 140-2 수준 3 유효성이 검사된 HSM을 사용하여 클라우드 애플리케이션용 암호화 키를 보호할 수 있는 완전 관리형 고가용 단일 테넌트 표준 규격 클라우드 서비스입니다. [관리형 HSM](../../key-vault/managed-hsm/index.yml)에 대해 자세히 알아봅니다.
 
 ## <a name="prerequisites-for-powershell"></a>PowerShell용 필수 구성 요소
 
 - Azure 구독 및 해당 구독에 대한 관리자 권한이 있어야 합니다.
 - [권장되는 선택 사항] TDE 보호기 키 자료의 로컬 복사본을 만들기 위한 HSM(하드웨어 보안 모듈) 또는 로컬 키 저장소가 있어야 합니다.
-- Azure PowerShell 설치 되 고 실행 중 이어야 합니다.
+- Azure PowerShell이 설치되어 작동해야 합니다.
 - TDE에 사용할 Azure Key Vault 및 키를 만듭니다.
   - [HSM(하드웨어 보안 모듈) 및 Key Vault 사용 지침](../../key-vault/keys/hsm-protected-keys.md)
     - 키 자격 증명 모음에는 TDE에 사용할 다음 속성이 있어야 합니다.
-  - [일시 삭제](../../key-vault/general/soft-delete-overview.md) 및 보호 제거
+  - [일시 삭제](../../key-vault/general/soft-delete-overview.md) 및 제거 보호
 - 키에는 TDE에 사용할 다음 특성이 있어야 합니다.
   - 만료 날짜 없음
   - 사용 안 함 없음
   - *가져오기*, *키 래핑*, *키 래핑 해제* 작업도 수행 가능
-- **(미리 보기)** 관리 되는 HSM 키를 사용 하려면 지침에 따라 [Azure CLI를 사용 하 여 관리 되는 hsm을 만들고 활성화](../../key-vault/managed-hsm/quick-create-cli.md) 합니다.
+- **(미리 보기)** 관리형 HSM 키를 사용하려면 지침에 따라 [Azure CLI를 사용하여 관리형 HSM을 만들고 활성화](../../key-vault/managed-hsm/quick-create-cli.md)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Az 모듈 설치 지침은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요. 특정 cmdlet에 대 한 자세한 내용은 [AzureRM](/powershell/module/AzureRM.Sql/)를 참조 하세요.
+Az 모듈 설치 지침은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요. 특정 cmdlet은 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)을 참조하세요.
 
-Key Vault에 대 한 자세한 내용은 [Key Vault powershell 지침](../../key-vault/secrets/quick-create-powershell.md) 및 [powershell에서 일시 삭제 Key Vault 사용 하는 방법](../../key-vault/general/key-vault-recovery.md)을 참조 하세요.
+Key Vault에 대한 자세한 내용은 [Key Vault의 PowerShell 지침](../../key-vault/secrets/quick-create-powershell.md) 및 [PowerShell에서 Key Vault 일시 삭제 사용하는 방법](../../key-vault/general/key-vault-recovery.md)을 참조하세요.
 
 > [!IMPORTANT]
 > PowerShell Azure RM(Resource Manager) 모듈은 여전히 지원되지만 향후 모든 개발은 Az.Sql 모듈을 위한 것입니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 계속 수신할 예정입니다.  Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다. 호환성에 대한 자세한 내용은 [새로운 Azure PowerShell Az 모듈 소개](/powershell/azure/new-azureps-module-az)를 참조하세요.
 
-## <a name="assign-an-azure-active-directory-azure-ad-identity-to-your-server"></a>서버에 Azure Active Directory (Azure AD) id 할당
+## <a name="assign-an-azure-active-directory-azure-ad-identity-to-your-server"></a>서버에 Azure AD(Azure Active Directory) ID 할당
 
-기존 [서버가](logical-servers.md)있는 경우 다음을 사용 하 여 서버에 Azure Active Directory (Azure AD) id를 추가 합니다.
+기존 [서버](logical-servers.md)가 있는 경우 다음과 같이 Azure AD(Azure Active Directory) ID를 서버에 추가합니다.
 
    ```powershell
    $server = Set-AzSqlServer -ResourceGroupName <SQLDatabaseResourceGroupName> -ServerName <LogicalServerName> -AssignIdentity
    ```
 
-서버를 만드는 경우에는 [AzSqlServer](/powershell/module/az.sql/new-azsqlserver) cmdlet을 태그 id와 함께 사용 하 여 서버 생성 중에 Azure AD id를 추가 합니다.
+서버를 만드는 경우 -Identity 태그가 있는 [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) cmdlet을 사용하여 서버를 만드는 동안 Azure AD ID를 추가합니다.
 
    ```powershell
    $server = New-AzSqlServer -ResourceGroupName <SQLDatabaseResourceGroupName> -Location <RegionName> `
@@ -68,24 +68,24 @@ Key Vault에 대 한 자세한 내용은 [Key Vault powershell 지침](../../key
 
 ## <a name="grant-key-vault-permissions-to-your-server"></a>서버에 Key Vault 권한 부여
 
-TDE에 대해 키를 사용 하기 전에 [AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet을 사용 하 여 서버에 키 자격 증명 모음에 대 한 액세스 권한을 부여 합니다.
+서버에서 키 자격 증명 모음의 키를 TDE에 사용하기 전에 [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet을 사용하여 해당 키 자격 증명 모음에 대한 액세스 권한을 서버에 부여합니다.
 
    ```powershell
    Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> `
        -ObjectId $server.Identity.PrincipalId -PermissionsToKeys get, wrapKey, unwrapKey
    ```
-관리 되는 HSM에서 서버에 권한을 추가 하려면 ' 관리 되는 HSM 암호화 서비스 암호화 ' 로컬 RBAC 역할을 서버에 추가 합니다. 이렇게 하면 서버에서 관리 되는 HSM의 키에 대 한 가져오기, 키 래핑, 키 래핑 작업을 수행할 수 있습니다.
-[관리 HSM에서 서버 액세스를 프로 비전 하는 방법에 대 한 지침](../../key-vault/managed-hsm/role-management.md)
+관리형 HSM의 서버에 권한을 추가하려면 ‘관리형 HSM Crypto Service 암호화’ 로컬 RBAC 역할을 서버에 추가합니다. 이렇게 하면 서버에서 관리형 HSM의 키에 대해 가져오기, 키 래핑, 키 래핑 해제 작업을 수행할 수 있습니다.
+[관리형 HSM에서 서버 액세스를 프로비저닝하는 방법에 대한 지침](../../key-vault/managed-hsm/role-management.md)
 
 ## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Key Vault 키를 서버에 추가하고 TDE 보호기를 설정합니다
 
-- [AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) cmdlet을 사용 하 여 key vault에서 키 ID를 검색 합니다.
-- [AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) cmdlet을 사용 하 여 Key Vault 서버에 키를 추가 합니다.
-- [AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet을 사용 하 여 모든 서버 리소스에 대 한 tde 보호기로 키를 설정 합니다.
-- [AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet을 사용 하 여 tde 보호기가 의도 한 대로 구성 되었는지 확인 합니다.
+- [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) cmdlet을 사용하여 키 자격 증명 모음에서 키 ID를 검색
+- [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) cmdlet을 사용하여 Key Vault의 키를 서버에 추가합니다.
+- [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet을 사용하여 키를 모든 서버 리소스에 대한 TDE 보호기로 설정합니다.
+- [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet을 사용하여 TDE 보호기가 의도한 대로 구성되었는지 확인합니다.
 
 > [!NOTE]
-> **(미리 보기)** 관리 되는 HSM 키의 경우 Az. Sql 2.11.1 버전의 PowerShell을 사용 합니다.
+> **(미리 보기)** 관리형 HSM 키의 경우 Az.Sql 2.11.1 버전의 PowerShell을 사용합니다.
 
 > [!NOTE]
 > 키 자격 증명 모음 이름과 키 이름을 결합한 길이는 94자를 초과할 수 없습니다.
@@ -93,7 +93,7 @@ TDE에 대해 키를 사용 하기 전에 [AzKeyVaultAccessPolicy](/powershell/m
 > [!TIP]
 > Key Vault의 KeyId 예제: <br/>https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
 >
-> 관리 되는 HSM의 예제 KeyId:<br/>https://contosoMHSM.managedhsm.azure.net/keys/myrsakey
+> 관리형 HSM의 KeyId 예제:<br/>https://contosoMHSM.managedhsm.azure.net/keys/myrsakey
 
 ```powershell
 # add the key from Key Vault to the server
@@ -109,7 +109,7 @@ Get-AzSqlServerTransparentDataEncryptionProtector -ResourceGroupName <SQLDatabas
 
 ## <a name="turn-on-tde"></a>TDE 설정
 
-[AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) cmdlet을 사용 하 여 tde를 설정 합니다.
+[Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) cmdlet을 사용하여 TDE를 해제합니다.
 
 ```powershell
 Set-AzSqlDatabaseTransparentDataEncryption -ResourceGroupName <SQLDatabaseResourceGroupName> `
@@ -120,7 +120,7 @@ Set-AzSqlDatabaseTransparentDataEncryption -ResourceGroupName <SQLDatabaseResour
 
 ## <a name="check-the-encryption-state-and-encryption-activity"></a>암호화 상태 및 암호화 작업 확인
 
-[AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) 를 사용 하 여 암호화 상태를 가져오고 [AzSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity) 를 사용 하 여 데이터베이스 또는 데이터 웨어하우스의 암호화 진행률을 확인 합니다.
+[Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption)을 사용하여 암호화 상태를 가져오고, [Get-AzSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity)를 사용하여 데이터베이스 또는 데이터 웨어하우스의 암호화 진행률을 확인합니다.
 
 ```powershell
 # get the encryption state
@@ -134,9 +134,9 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-필요한 버전의 Azure CLI (버전 2.0 이상)을 설치 하 고 Azure 구독에 연결 하려면 [Azure 플랫폼 간 Command-Line 설치 및 구성 2.0](/cli/azure/install-azure-cli)을 참조 하세요.
+Azure CLI에 요구되는 버전(버전 2.0 이상)을 설치하고 Azure 구독에 연결하려면 [Azure 플랫폼 간 CLI 2.0 설치 및 구성](/cli/azure/install-azure-cli)을 참조하세요.
 
-Key Vault에 대 한 자세한 내용은 [cli 2.0를 사용 하 여 Key Vault 관리](../../key-vault/general/manage-with-cli2.md) 및 [cli에서 일시 삭제 Key Vault 사용 하는 방법](../../key-vault/general/key-vault-recovery.md)을 참조 하세요.
+Key Vault에 대한 자세한 내용은 [CLI 2.0을 사용한 Key Vault 관리](../../key-vault/general/manage-with-cli2.md) 및 [CLI로 Key Vault 일시 삭제 사용하는 방법](../../key-vault/general/key-vault-recovery.md)을 참조하세요.
 
 ## <a name="assign-an-azure-ad-identity-to-your-server"></a>서버에 Azure AD ID 할당
 
@@ -197,21 +197,21 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-- [AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) cmdlet을 사용 하 여 tde를 해제 합니다.
+- TDE를 해제하려면 [Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) cmdlet을 사용합니다.
 
    ```powershell
    Set-AzSqlDatabaseTransparentDataEncryption -ServerName <LogicalServerName> -ResourceGroupName <SQLDatabaseResourceGroupName> `
       -DatabaseName <DatabaseName> -State "Disabled"
    ```
 
-- [AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet을 사용 하 여 서버에 추가 된 Key Vault 키 목록을 반환 합니다.
+- 서버에 추가된 Key Vault 키 목록을 반환하려면 [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet을 사용합니다.
 
    ```powershell
    # KeyId is an optional parameter, to return a specific key version
    Get-AzSqlServerKeyVaultKey -ServerName <LogicalServerName> -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-- [AzSqlServerKeyVaultKey](/powershell/module/az.sql/remove-azsqlserverkeyvaultkey) 를 사용 하 여 서버에서 Key Vault 키를 제거 합니다.
+- 서버에서 Key Vault 키를 제거하려면 [Remove-AzSqlServerKeyVaultKey](/powershell/module/az.sql/remove-azsqlserverkeyvaultkey)를 사용합니다.
 
    ```powershell
    # the key set as the TDE Protector cannot be removed
@@ -220,11 +220,11 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
 
 # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-- 일반 데이터베이스 설정은 [az sql](/cli/azure/sql)을 참조 하세요.
+- 일반 데이터베이스 설정은 [az sql](/cli/azure/sql)을 참조하세요.
 
-- 자격 증명 모음 키 설정에 대 한 자세한 내용은 [az sql server key](/cli/azure/sql/server/key)를 참조 하세요.
+- 자격 증명 모음 키 설정에 대한 자세한 내용은 [az sql server key](/cli/azure/sql/server/key)를 참조하세요.
 
-- TDE 설정에 대해서는 [az sql server TDE 키](/cli/azure/sql/server/tde-key) 및 [az sql db TDE](/cli/azure/sql/db/tde)를 참조 하세요.
+- TDE 설정에 대해서는 [az sql server tde-key](/cli/azure/sql/server/tde-key) 및 [az sql db tde](/cli/azure/sql/db/tde)를 참조하세요.
 
 * * *
 
@@ -232,7 +232,7 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
 
 문제가 발생하면 다음과 같이 확인합니다.
 
-- 키 자격 증명 모음을 찾을 수 없는 경우 올바른 구독에 있는지 확인 합니다.
+- 키 자격 증명 모음을 찾을 수 없으면 올바른 구독에 있는지 확인합니다.
 
    # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -254,5 +254,5 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
 
 ## <a name="next-steps"></a>다음 단계
 
-- 보안 요구 사항을 준수 하는 서버의 TDE 보호기를 회전 하는 방법에 대해 알아봅니다. [PowerShell을 사용 하 여 투명한 데이터 암호화 보호기를 회전](transparent-data-encryption-byok-key-rotation.md)합니다.
-- 보안 위험이 발생할 경우 잠재적으로 손상 된 TDE 보호기를 제거 하는 방법에 대해 알아보기: [잠재적으로 손상 된 키를 제거](transparent-data-encryption-byok-remove-tde-protector.md)합니다.
+- 보안 요구 사항에 맞게 서버의 TDE 보호기를 회전하는 방법을 알아봅니다([PowerShell을 사용하여 투명한 데이터 암호화 보호기 회전](transparent-data-encryption-byok-key-rotation.md)).
+- 보안 위험이 있는 경우 잠재적으로 손상될 수 있는 TDE 보호기를 제거하는 방법을 알아봅니다([잠재적으로 손상될 수 있는 키 제거](transparent-data-encryption-byok-remove-tde-protector.md)).
