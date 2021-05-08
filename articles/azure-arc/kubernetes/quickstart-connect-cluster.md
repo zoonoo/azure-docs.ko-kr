@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 03/03/2021
 ms.custom: template-quickstart, references_regions, devx-track-azurecli
 keywords: Kubernetes, Arc, Azure, 클러스터
-ms.openlocfilehash: 21ec5000ed7ef9df1805fa6ec43e20efc0f82182
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 8da5ba5c4408cb96008c3d9802ce3a5ccdc25f1f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481245"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140194"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>빠른 시작: Azure Arc에 기존 Kubernetes 클러스터 연결 
 
@@ -27,6 +27,11 @@ ms.locfileid: "107481245"
     * [Docker의 Kubernetes(KIND)](https://kind.sigs.k8s.io/)
     * [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) 또는 [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)용 Docker를 사용하여 Kubernetes 클러스터 만들기
     * [클러스터 API](https://cluster-api.sigs.k8s.io/user/quick-start.html)를 사용하는 자체 관리되는 Kubernetes 클러스터
+    * OpenShift 클러스터를 Azure Arc에 연결하려면 `az connectedk8s connect`를 실행하기 전에 클러스터에서 다음 명령을 한 번만 실행해야 합니다.
+        
+        ```console
+        oc adm policy add-scc-to-user privileged system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa
+        ```
 
     >[!NOTE]
     > 클러스터에는 운영 체제 및 아키텍처 유형 `linux/amd64`의 노드가 하나 이상 있어야 합니다. `linux/arm64` 노드만 있는 클러스터는 아직 지원되지 않습니다.
@@ -36,12 +41,14 @@ ms.locfileid: "107481245"
 
 * [Helm 3의 최신 릴리스](https://helm.sh/docs/intro/install)를 설치합니다.
 
-- 버전 >= 2.16.0으로 [Azure CLI 설치 또는 업그레이드](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* 버전 >= 2.16.0으로 [Azure CLI 설치 또는 업그레이드](/cli/azure/install-azure-cli)
 * `connectedk8s` Azure CLI 확장 버전 >= 1.0.0을 설치합니다.
   
   ```azurecli
   az extension add --name connectedk8s
   ```
+
+
 
 >[!TIP]
 > `connectedk8s` 확장이 이미 설치되어 있는 경우 다음 명령 - `az extension update --name connectedk8s`를 사용하여 최신 버전으로 업데이트합니다.
@@ -68,7 +75,7 @@ ms.locfileid: "107481245"
 | `https://mcr.microsoft.com`                                                                            | Azure Arc 에이전트의 컨테이너 이미지를 끌어오는 데 필요합니다.                                                                  |  
 | `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`, `https://wcus.his.arc.azure.com`, `https://scus.his.arc.azure.com`, `https://sea.his.arc.azure.com`, `https://uks.his.arc.azure.com`, `https://wus2.his.arc.azure.com`, `https://ae.his.arc.azure.com`, `https://eus2.his.arc.azure.com`, `https://ne.his.arc.azure.com` |  시스템 할당 MSI(관리 서비스 ID) 인증서를 가져오는 데 필요합니다.                                                                  |
 
-## <a name="register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes에 두 공급자 등록
+## <a name="register-providers-for-azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes에 공급자 등록
 
 1. 다음 명령을 입력합니다.
     ```azurecli

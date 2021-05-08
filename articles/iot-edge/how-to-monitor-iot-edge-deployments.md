@@ -11,10 +11,10 @@ ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
 ms.openlocfilehash: f4f2f8522f6d3d1039673803d946323deb485db9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103200259"
 ---
 # <a name="monitor-iot-edge-deployments"></a>IoT Edge 배포 모니터링
@@ -103,4 +103,4 @@ deployment show-metric 명령은 다음 매개 변수를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-IoT Edge 배포의 연결 및 상태에 대 한 모듈 쌍, 주로 IoT Edge 에이전트 및 IoT Edge 허브 런타임 모듈을 [모니터링](how-to-monitor-module-twins.md)하는 방법에 대해 알아봅니다.
+IoT Edge 배포의 연결 및 상태에 대해 [모듈 쌍(주로 IoT Edge 에이전트 및 IoT Edge 허브 런타임 모듈)을 모니터링](how-to-monitor-module-twins.md)하는 방법에 대해 알아봅니다.

@@ -17,10 +17,10 @@ ms.date: 03/15/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a3759bbe92a2de8515c7d812637acd88070f8d46
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103490911"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Azure에서 SAP ASCS/SCS 인스턴스의 Windows 장애 조치(Failover) 클러스터 및 파일 공유에 SAP NetWeaver 고가용성 설치
@@ -199,7 +199,7 @@ ms.locfileid: "103490911"
 
 이 문서에서는 SAP ASCS/SCS 인스턴스를 클러스터링하는 옵션으로 WSFC(Windows Server 장애 조치(failover) 클러스터) 및 스케일 아웃 파일 서버를 사용하여 Azure에 고가용성 SAP 시스템을 설치하고 구성하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 설치를 시작하기 전에 다음 문서를 검토하세요.
 
@@ -210,14 +210,14 @@ ms.locfileid: "103490911"
 * [Azure VM에서 SAP NetWeaver에 대한 고가용성][high-availability-guide]
 
 SAP에서 다음 실행 파일 및 DLL 파일이 필요합니다.
-* SAP 소프트웨어 프로 비전 관리자 (SWPM) 설치 도구 버전 SPS25 이상
-* SAP Kernel 7.49 이상
+* SAP SWPM(Software Provisioning Manager) 설치 도구 버전 SPS25 이상.
+* SAP 커널 7.49 이상
 
 > [!IMPORTANT]
 > 파일 공유를 사용한 SAP ASCS/SCS 인스턴스의 클러스터링은 SAP 커널 7.49 이상이 적용된 SAP NetWeaver 7.40 이상에서 지원됩니다.  
 >   
 > [!IMPORTANT]
-> 설치 프로그램은 다음 요구 사항을 충족 해야 합니다. SAP ASCS/SCS 인스턴스와 SOFS 공유를 별도의 클러스터에 배포 해야 합니다.    
+> 설정은 SAP ASCS/SCS 인스턴스와 SOFS 공유를 별도의 클러스터에 배포한다는 요구 사항을 충족해야 합니다.    
 >
 
 설정은 사용하는 DBMS(데이터베이스 관리 시스템)에 따라 다르므로 DBMS 설정에 대해서는 설명하지 않습니다. 그러나 다양한 DBMS 공급업체가 Azure에 대해 지원하는 기능을 통해 DBMS의 고가용성 문제가 해결된다고 가정합니다. 그러한 기능에는 SQL Server용 데이터베이스 미러링 또는 AlwaysOn, Oracle 데이터베이스용 Oracle Data Guard가 있습니다. 이 문서에서 사용하는 시나리오에서는 DBMS에 대해 추가 보호를 적용하지 않았습니다.
@@ -233,13 +233,13 @@ Azure에서 다양한 DBMS 서비스가 이러한 종류의 클러스터형 SAP 
 
 SOFS 클러스터에 다음 볼륨 및 파일 공유를 만듭니다.
 
-* `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\`SOFS 클러스터 공유 볼륨 (CSV)의 SAP GLOBALHOST 파일 구조
+* SOFS CSV(클러스터 공유 볼륨)의 SAP GLOBALHOST 파일 `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` 구조체
 
 * SAPMNT 파일 공유
 
 * 다음 항목에 대한 모든 권한을 가진 SAPMNT 파일 공유 및 폴더의 보안을 설정합니다.
-    * \<DOMAIN>\ SAP_ \<SID> _GlobalAdmin 사용자 그룹
-    * SAP ASCS/SCS 클러스터 노드 컴퓨터 개체 \<DOMAIN> \Clusternode1 $ 및 \<DOMAIN> \Clusternode1 $
+    * \<DOMAIN>\SAP_\<SID>_GlobalAdmin 사용자 그룹
+    * SAP ASCS/SCS 클러스터 노드 컴퓨터 개체 \<DOMAIN>\ClusterNode1$ 및 \<DOMAIN>\ClusterNode2$
 
 미러 복원 기능을 가진 CSV 볼륨을 만들려면 SOFS 클러스터 노드 중 하나에서 다음 PowerShell cmdlet을 실행합니다.
 
@@ -297,26 +297,26 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ## <a name="install-an-ascsscs-and-ers-instances-in-the-cluster"></a>클러스터에 ASCS/SCS 및 ERS 인스턴스 설치
 
-### <a name="install-an-ascsscs-instance-on-the-first-ascsscs-cluster-node"></a>첫 번째 ASCS/SCS 클러스터 노드에 ASCS/SCS 인스턴스를 설치 합니다.
+### <a name="install-an-ascsscs-instance-on-the-first-ascsscs-cluster-node"></a>첫 번째 ASCS/SCS 클러스터 노드에 ASCS/SCS 인스턴스 설치
 
-첫 번째 클러스터 노드에 SAP ASCS/SCS 인스턴스를 설치 합니다. 인스턴스를 설치하려면 SAP SWPM 설치 도구에서 다음으로 이동합니다.
+첫 번째 클러스터 노드에 SAP ASCS/SCS 인스턴스를 설치합니다. 인스턴스를 설치하려면 SAP SWPM 설치 도구에서 다음으로 이동합니다.
 
-**\<Product>** > **\<DBMS>** > **설치**  >  **응용 프로그램 서버 abap** (또는 **Java**) > **고가용성 시스템**  >  **ascs/SCS 인스턴스**  >  **첫 번째 클러스터 노드** 를 사용 합니다.
+**\<Product>**  >  **\<DBMS>**  > **설치** > **애플리케이션 서버 ABAP**(또는 **Java**) > **고가용성 시스템** > **ASCS/SCS 인스턴스** > **첫 번째 클러스터 노드**.
 
 ### <a name="add-a-probe-port"></a>프로브 포트 추가
 
 PowerShell을 사용하여 SAP 클러스터 리소스인 SAP-SID-IP 프로브 포트를 구성합니다. [이 문서][sap-high-availability-installation-wsfc-shared-disk-add-probe-port]에 설명된 대로 SAP ASCS/SCS 클러스터 노드 중 하나에서 이 구성을 실행합니다.
 
-### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>두 번째 ASCS/SCS 클러스터 노드에 ASCS/SCS 인스턴스를 설치 합니다.
+### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>두 번째 ASCS/SCS 클러스터 노드에 ASCS/SCS 인스턴스 설치
 
-두 번째 클러스터 노드에 SAP ASCS/SCS 인스턴스를 설치 합니다. 인스턴스를 설치하려면 SAP SWPM 설치 도구에서 다음으로 이동합니다.
+두 번째 클러스터 노드에 SAP ASCS/SCS 인스턴스를 설치합니다. 인스턴스를 설치하려면 SAP SWPM 설치 도구에서 다음으로 이동합니다.
 
-**\<Product>** > **\<DBMS>** > **설치**  >  **응용 프로그램 서버 abap** (또는 **Java**) > **고가용성 시스템**  >  **ascs/SCS 인스턴스**  >  **추가 클러스터 노드**.
+**\<Product>**  >  **\<DBMS>**  > **설치** > **애플리케이션 서버 ABAP**(또는 **Java**) > **고가용성 시스템** > **ASCS/SCS 인스턴스** > **추가 클러스터 노드**.
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>SAP ASCS/SCS 인스턴스 프로필 업데이트
 
-SAP ASCS/SCS 인스턴스 프로필 \<SID> _ascs/scs \<Nr>_ 의 매개 변수를 업데이트 \<Host> 합니다.
+SAP ASCS/SCS 인스턴스 프로필 \<SID>_ASCS/SCS\<Nr>_ \<Host>에서 매개 변수를 업데이트합니다.
 
 
 | 매개 변수 이름 | 매개 변수 값 |
@@ -325,8 +325,8 @@ SAP ASCS/SCS 인스턴스 프로필 \<SID> _ascs/scs \<Nr>_ 의 매개 변수를
 | enque/encni/set_so_keepalive  | **true** |
 | service/ha_check_node | **1** |
 
-매개 변수 `enque/encni/set_so_keepalive` 는 ENSA1를 사용 하는 경우에만 필요 합니다.  
-SAP ASCS/SCS 인스턴스를 다시 시작 합니다. `KeepAlive`SAP ascs/scs 클러스터 노드 둘 다에 대 한 매개 변수 설정 지침에 따라 [SAP ascs/scs 인스턴스의 클러스터 노드에 대 한 레지스트리 항목을 설정][high-availability-guide]합니다. 
+매개 변수 `enque/encni/set_so_keepalive`는 ENSA1을 사용하는 경우에만 필요합니다.  
+SAP ASCS/SCS 인스턴스를 다시 시작합니다. [SAP ASCS/SCS 인스턴스의 클러스터 노드에 대한 레지스트리 항목 설정][high-availability-guide] 지침을 따라 두 SAP ASCS/SCS 클러스터 노드에서 `KeepAlive` 매개 변수를 설정합니다. 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>DBMS 인스턴스 및 SAP 애플리케이션 서버 설치
 
@@ -341,6 +341,6 @@ SAP ASCS/SCS 인스턴스를 다시 시작 합니다. `KeepAlive`SAP ascs/scs �
 
 * [Windows Server 2016의 스토리지 공간 다이렉트][s2d-in-win-2016]
 
-* [응용 프로그램 데이터에 대 한 스케일 아웃 파일 서버 개요][sofs-overview]
+* [애플리케이션 데이터용 스케일 아웃 파일 서버 개요][sofs-overview]
 
 * [Windows Server 2016 스토리지의 새로운 기능][new-in-win-2016-storage]

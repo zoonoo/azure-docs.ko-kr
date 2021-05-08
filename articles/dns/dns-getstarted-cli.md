@@ -9,18 +9,20 @@ ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: rohink
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1929cd512d18d7fd234aff1f55814c423455e63b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 873b218c4186978225b9a8b5db5ef0c80e61bb28
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94561372"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949959"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure DNS 영역 및 레코드 만들기
 
 이 문서에서는 Windows, Mac 및 Linux에서 사용할 수 있는 Azure CLI를 사용하여 첫 번째 DNS 영역 및 레코드를 만드는 단계를 안내합니다. [Azure Portal](dns-getstarted-portal.md)이나 [Azure PowerShell](dns-getstarted-powershell.md)을 사용하여 이 단계를 수행할 수도 있습니다.
 
 DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. Azure DNS에서 도메인 호스팅을 시작하려면 해당 도메인 이름의 DNS 영역을 만들어야 합니다. 그러면 이 DNS 영역 안에 도메인의 각 DNS 레코드가 생성됩니다. 마지막으로 DNS 영역을 인터넷에 게시하려면 도메인에 대한 이름 서버를 구성해야 합니다. 아래에서는 이러한 각 단계에 대해 설명합니다.
+
+:::image type="content" source="media/dns-getstarted-portal/environment-diagram.png" alt-text="Azure Portal을 사용하는 DNS 배포 환경의 다이어그램." border="false":::
 
 Azure DNS는 프라이빗 DNS 영역도 지원합니다. 프라이빗 DNS 영역에 대해 자세히 알아보려면 [프라이빗 도메인에 Azure DNS 사용](private-dns-overview.md)을 참조하세요. 프라이빗 DNS 영역을 만드는 방법에 대한 예제는 [CLI를 사용하여 Azure DNS 프라이빗 영역 시작](./private-dns-getstarted-cli.md)을 참조하세요.
 
@@ -86,7 +88,7 @@ az network dns record-set list -g MyResourceGroup -z contoso.xyz
    nslookup www.contoso.xyz <name server name>
    ```
 
-   다음은 그 예입니다. 
+   다음은 그 예입니다.
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.

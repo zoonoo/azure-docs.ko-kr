@@ -5,18 +5,18 @@ description: Azure DNS에 DNS 영역 및 레코드를 만드는 방법을 알아
 services: dns
 author: rohinkoul
 ms.author: rohink
-ms.date: 10/20/2020
+ms.date: 04/23/2021
 ms.topic: quickstart
 ms.service: dns
 ms.custom:
 - devx-track-azurepowershell
 - mode-api
-ms.openlocfilehash: 9c457b435ca17ce9dc86e1a83a4d1a56d9623b17
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 431afacd8e8097a60c32e5e286026f33dbfa7d8c
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537873"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949995"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure DNS 영역 및 레코드 만들기
 
@@ -26,9 +26,11 @@ ms.locfileid: "107537873"
 
 DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. Azure DNS에서 도메인 호스팅을 시작하려면 해당 도메인 이름의 DNS 영역을 만들어야 합니다. 그러면 이 DNS 영역 안에 도메인의 각 DNS 레코드가 생성됩니다. 마지막으로 DNS 영역을 인터넷에 게시하려면 도메인에 대한 이름 서버를 구성해야 합니다. 아래에서는 이러한 각 단계에 대해 설명합니다.
 
+:::image type="content" source="media/dns-getstarted-portal/environment-diagram.png" alt-text="Azure PowerShell을 사용하는 DNS 배포 환경의 다이어그램." border="false":::
+
 Azure DNS는 프라이빗 도메인 만들기도 지원합니다. 첫 번째 프라이빗 DNS 영역 및 레코드를 만드는 방법에 대한 단계별 지침은 [PowerShell을 사용하여 Azure 프라이빗 DNS 영역 시작](private-dns-getstarted-powershell.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - 로컬로 설치된 Azure PowerShell 또는 Azure Cloud Shell
@@ -87,7 +89,7 @@ Get-AzDnsRecordSet -ZoneName contoso.xyz -ResourceGroupName MyResourceGroup
    nslookup www.contoso.xyz <name server name>
    ```
 
-   다음은 그 예입니다. 
+   다음은 그 예입니다.
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.

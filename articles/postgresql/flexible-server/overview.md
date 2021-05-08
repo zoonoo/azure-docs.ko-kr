@@ -6,15 +6,15 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 04/05/2021
-ms.openlocfilehash: 090d38a92da126cd4fd8423231f856d22ea9a64c
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.date: 04/22/2021
+ms.openlocfilehash: efa5502c89a68be05ef8f7dc1d3d57c57e732caa
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106839"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987077"
 ---
-# <a name="azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버
+# <a name="overview---azure-database-for-postgresql---flexible-server"></a>개요 - Azure Database for PostgreSQL - 유연한 서버
 
 PostgreSQL 커뮤니티 버전에서 제공하는 [Azure Database for PostgreSQL](../overview.md)은 세 가지 배포 모드로 사용할 수 있습니다.
 
@@ -85,6 +85,10 @@ Azure Database for PostgreSQL - 유연한 서버는 데이터베이스 관리 �
 ## <a name="monitoring-and-alerting"></a>모니터링 및 경고
 
 유연한 서버 서비스는 기본 제공 성능 모니터링 및 경고 기능을 갖추고 있습니다. 모든 Azure 메트릭의 빈도는 1분이고 각 메트릭은 30일의 기록을 제공합니다. 메트릭에 대한 경고를 구성할 수 있습니다. 서비스는 리소스 사용률을 모니터링하도록 호스트 서버 메트릭을 노출하고, 쿼리 로그를 느리게 구성할 수 있도록 합니다. 이러한 도구를 사용하여 워크로드를 신속하게 최적화하고 최적의 성능을 얻을 수 있도록 서버를 구성할 수 있습니다.
+
+## <a name="built-in-pgbouncer"></a>기본 제공 PgBouncer
+
+유연한 서버에는 연결 풀러인 PgBouncer가 기본 제공됩니다. 필요에 따라 PgBouncer를 사용하고 동일한 호스트 이름과 포트 6432를 사용해 PgBouncer를 통해 애플리케이션을 데이터베이스 서버에 연결할 수 있습니다.
 
 ## <a name="azure-regions"></a>Azure 지역
 

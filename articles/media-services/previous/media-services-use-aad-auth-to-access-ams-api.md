@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 3688f0f9266844ce584f3f2d2e1a7c39ed3e4f70
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103009018"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Azure AD 인증을 사용하여 Azure Media Services API 액세스 
@@ -29,12 +29,12 @@ ms.locfileid: "103009018"
 
 Azure Media Services API는 RESTful API입니다. 이 API와 REST API 또는 제공되는 클라이언트 SDK를 사용하여 미디어 리소스에 대한 작업을 수행할 수 있습니다. Azure Media Services는 Microsoft .NET용 Media Services 클라이언트 SDK를 제공합니다. Media Services 리소스 및 Media Services API에 액세스할 수 있는 권한을 부여하려면 먼저 인증을 거쳐야 합니다. 
 
-Media Services [은 Azure Active Directory (AZURE AD) 기반 인증](../../active-directory/fundamentals/active-directory-whatis.md)을 지원 합니다. Azure Media REST 서비스의 경우 REST API 요청을 하는 사용자 또는 애플리케이션이 리소스에 액세스하기 위해 **기여자** 또는 **소유자** 역할을 포함해야 합니다. 자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC) 란?](../../role-based-access-control/overview.md)을 참조 하세요.  
+Media Services는 [Azure AD(Azure Active Directory) 기반 인증](../../active-directory/fundamentals/active-directory-whatis.md)을 지원합니다. Azure Media REST 서비스의 경우 REST API 요청을 하는 사용자 또는 애플리케이션이 리소스에 액세스하기 위해 **기여자** 또는 **소유자** 역할을 포함해야 합니다. 자세한 내용은 [Azure RBAC(Azure 역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)을 참조하세요.  
 
 이 문서에서는 REST 또는 .NET API를 사용하여 Media Services API에 액세스하는 방법에 대한 개요를 제공합니다.
 
 > [!NOTE]
-> Access Control 권한 부여는 2018 년 6 월 1 일부 터 더 이상 사용 되지 않습니다.
+> Access Control 권한 부여는 2018년 6월 1일부로 지원이 중단되었습니다.
 
 ## <a name="access-control"></a>Access Control
 
@@ -49,7 +49,7 @@ Azure Media REST 요청이 성공하기 위해서는 호출하는 사용자에�
 Azure Media Services와 함께 Azure AD 인증을 사용할 때 두 가지 인증 옵션이 제공됩니다.
 
 - **사용자 인증**. Media Services 리소스와 상호 작용하는 데 앱을 사용하는 사용자를 인증합니다. 대화형 애플리케이션은 먼저 사용자에게 사용자의 자격 증명을 묻는 메시지를 표시합니다. 예제는 권한 있는 사용자가 인코딩 작업 또는 라이브 스트리밍을 모니터링하기 위해 사용한 관리 콘솔 앱입니다. 
-- **서비스 사용자 인증**. 서비스를 인증합니다. 이 인증 방법을 일반적으로 사용하는 애플리케이션은 디먼 서비스, 중간 계층 서비스 또는 예약된 작업을 실행하는 앱입니다. 예로는 웹앱, 함수 앱, 논리 앱, API 및 마이크로 서비스가 있습니다.
+- **서비스 주체 인증**. 서비스를 인증합니다. 이 인증 방법을 일반적으로 사용하는 애플리케이션은 디먼 서비스, 중간 계층 서비스 또는 예약된 작업을 실행하는 앱입니다. 예로는 웹앱, 함수 앱, 논리 앱, API 및 마이크로 서비스가 있습니다.
 
 ### <a name="user-authentication"></a>사용자 인증 
 
@@ -81,7 +81,7 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 두 가지 인�
        Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 둡니다.
    * Media Services 리소스 URI. 
 
-       이 URI는 동일한 Azure 환경 (예: https:/rest.media.azure.net)에 있는 Media Services 계정에 대해 동일 합니다 \/ .
+       이 URI는 동일한 Azure 환경(예: https:\//rest.media.azure.net )에 있는 Media Services 계정에 대해서는 동일합니다.
 
    * Media Services(원시) 애플리케이션 클라이언트 ID.
    * Media Services(원시) 애플리케이션 리디렉션 URI.
@@ -123,7 +123,7 @@ Azure AD 애플리케이션을 만든 후 다음 설정에 대한 값을 가져�
        Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 둡니다.
    * Media Services 리소스 URI. 
 
-       이 URI는 동일한 Azure 환경 (예: https:/rest.media.azure.net)에 있는 Media Services 계정에 대해 동일 합니다 \/ .
+       이 URI는 동일한 Azure 환경(예: https:\//rest.media.azure.net )에 있는 Media Services 계정에 대해서는 동일합니다.
 
    * REST Media Services의 리소스 URI.
 
@@ -158,4 +158,4 @@ Media Services .NET 클라이언트 SDK를 사용하지 않는 경우 1단계에
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Portal을 사용하여 [Azure AD 인증에 액세스하고 Azure Media Services API를 사용](media-services-portal-get-started-with-aad.md)합니다.
-* Azure AD 인증을 사용 하 여 [.net으로 AZURE MEDIA SERVICES API에 액세스](media-services-dotnet-get-started-with-aad.md)합니다.
+* Azure AD 인증을 사용하여 [.NET으로 Azure Media Services API에 액세스](media-services-dotnet-get-started-with-aad.md)합니다.

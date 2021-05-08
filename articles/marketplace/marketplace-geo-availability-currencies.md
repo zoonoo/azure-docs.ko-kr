@@ -1,5 +1,5 @@
 ---
-title: Microsoft 상업적 marketplace에 대 한 지리적 가용성 및 통화 지원
+title: Microsoft 상업용 Marketplace의 지리적 가용성 및 통화 지원
 description: 상업용 마켓플레이스의 트랜잭션에 대한 지리적 가용성 및 통화 지원
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,24 +8,24 @@ author: keferna
 ms.author: keferna
 ms.date: 03/08/2021
 ms.openlocfilehash: e583d39e2eed1b08dfeb17cafc1e12c583176d7b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103493036"
 ---
-# <a name="geographic-availability-and-currency-support-for-the-commercial-marketplace"></a>상업적 marketplace에 대 한 지리적 가용성 및 통화 지원
+# <a name="geographic-availability-and-currency-support-for-the-commercial-marketplace"></a>상업용 Marketplace의 지리적 가용성 및 통화 지원
 
-## <a name="supported-geographic-locations"></a>지원 되는 지리적 위치
+## <a name="supported-geographic-locations"></a>지원되는 지리적 위치
 
-상업용 마켓플레이스 제품은 고객의 청구 주소에서 정의된 대로 141개 지역에서 구매할 수 있으며 트랜잭션은 17개 통화로 완료할 수 있습니다. 다음 표에서는 지원 되는 각 지리적 위치, [ISO 3166 2 자리의 알파 코드](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)및 할당 된 통화를 나열 합니다.
+상업용 마켓플레이스 제품은 고객의 청구 주소에서 정의된 대로 141개 지역에서 구매할 수 있으며 트랜잭션은 17개 통화로 완료할 수 있습니다. 아래 표에는 지원되는 각 지리적 위치, 해당 [ISO 3166 2자리 알파 코드](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) 및 할당된 통화가 나와 있습니다.
 
-CSP는 최종 고객의 통화로 파트너 센터에서 제품을 구매 하 여 동일한 통화로 청구 될 수 있습니다. 이에 대 한 자세한 내용은 [다음 faq](https://partner.microsoft.com/resources/detail/eu-efta-change-of-partner-billing-currency-faq-pdf)를 참조 하세요.
+동일한 통화로 청구할 수 있도록 CSP는 최종 고객의 통화로 파트너 센터에서 제품을 구매합니다. 이에 대한 자세한 내용은 [FAQ](https://partner.microsoft.com/resources/detail/eu-efta-change-of-partner-billing-currency-faq-pdf)를 참조하세요.
 
-|   국가/지역 이름               |   ISO-2   |   통화</br>(모든 제안 형식)  |    통화</br>(컨설팅 서비스 제품에만 해당)    |
+|   국가/지역 이름               |   ISO-2   |   통화</br>(모든 제품 유형)  |    통화</br>(컨설팅 서비스 제품에만 해당)    |
 |-------------------------------------|-----------|--------------|---------------------------------------------|
 | 아프가니스탄                         | AF        | USD          | AFN, EUR, USD |
-| 알바니아                             | AL        | USD          | 모두, EUR, USD |
+| 알바니아                             | AL        | USD          | ALL, EUR, USD |
 | 알제리                             | DZ        | USD          | DZD, EUR, USD |
 | 안도라                             | AD        | EUR          | EUR, USD |
 | 앙골라                              | AO        | USD          | AOA, EUR, USD |
@@ -53,7 +53,7 @@ CSP는 최종 고객의 통화로 파트너 센터에서 제품을 구매 하 �
 | 케이맨 제도                      | KY        | USD          | EUR, KYD, USD |
 | 칠레                               | CL        | USD          | CLP, EUR, USD |
 | 중국\**                            | CN        | 해당 없음          | 해당 없음 |
-| 콜롬비아                            | CO        | USD          | 복사, EUR, USD |
+| 콜롬비아                            | CO        | USD          | COP, EUR, USD |
 | 코스타리카                          | CR        | USD          | CRC, EUR, USD |
 | 코트디부아르                       | CI        | USD          | EUR, USD, XOF |
 | 크로아티아                             | HR        | EUR          | EUR, HRK, USD |
@@ -63,7 +63,7 @@ CSP는 최종 고객의 통화로 파트너 센터에서 제품을 구매 하 �
 | 덴마크                             | DK        | DKK          | DKK, EUR, USD |
 | 도미니카 공화국                  | DO        | USD          | DOP, EUR, USD |
 | 에콰도르                             | EC        | USD          | EUR, USD |
-| 이집트                               | EG        | USD          | 안 면, EUR, USD |
+| 이집트                               | EG        | USD          | EGP, EUR, USD |
 | 엘살바도르                         | SV        | USD          | EUR, USD |
 | 에스토니아                             | EE        | EUR          | EUR, USD |
 | 에티오피아                            | ET        | USD          | ETB, EUR, USD |
@@ -73,7 +73,7 @@ CSP는 최종 고객의 통화로 파트너 센터에서 제품을 구매 하 �
 | 프랑스                              | FR        | EUR          | EUR, USD |
 | 조지아                             | GE        | USD          | EUR, GEL, USD |
 | 독일                             | DE        | EUR          | EUR, USD |
-| 가나                               | GH        | USD          | EUR, 이란, USD |
+| 가나                               | GH        | USD          | EUR, GHS, USD |
 | 그리스                              | GR        | EUR          | EUR, USD |
 | 과테말라                           | GT        | USD          | EUR, GTQ, USD |
 | 온두라스                            | HN        | USD          | EUR, HNL, USD |
@@ -109,8 +109,8 @@ CSP는 최종 고객의 통화로 파트너 센터에서 제품을 구매 하 �
 | 모나코                              | MC        | EUR          | EUR, USD |
 | 몽골                            | MN        | USD          | EUR, MNT, USD |
 | 몬테네그로                          | ME        | USD          | EUR, USD |
-| 모로코                             | MA        | USD          | EUR, 매드, USD |
-| 나미비아                             | 해당 없음        | USD          | EUR, 전, USD, ZAR |
+| 모로코                             | MA        | USD          | EUR, MAD, USD |
+| 나미비아                             | 해당 없음        | USD          | EUR, NAD, USD, ZAR |
 | 네팔                               | NP        | USD          | EUR, NPR, USD |
 | 네덜란드                         | NL        | EUR          | EUR, USD |
 | 뉴질랜드                         | NZ        | NZD          | EUR, NZD, USD |
@@ -123,19 +123,19 @@ CSP는 최종 고객의 통화로 파트너 센터에서 제품을 구매 하 �
 | 팔레스타인 자치 정부               | PS        | USD          | EUR, ILS, JOD, USD |
 | 파나마                              | PA        | USD          | EUR, PAB, USD |
 | 파라과이                            | PY        | USD          | EUR, PYG, USD |
-| 페루                                | PE        | USD          | EUR, 펜, USD |
+| 페루                                | PE        | USD          | EUR, PEN, USD |
 | 필리핀                         | PH        | USD          | EUR, PHP, USD |
 | 폴란드                              | PL        | EUR          | EUR, PLN, USD |
 | 포르투갈                            | PT        | EUR          | EUR, USD |
 | 푸에르토리코                         | PR        | USD          | EUR, USD |
 | 카타르                               | QA        | USD          | EUR, QAR, USD |
 | 루마니아                             | RO        | EUR          | EUR, RON, USD |
-| 러시아                              | RU        | RUB          | EUR, 된다는, USD |
+| 러시아                              | RU        | RUB          | EUR, RUB, USD |
 | 르완다                              | RW        | USD          | EUR, RWF, USD |
 | 세인트키츠 네비스               | KN        | USD          | EUR, USD, XCD |
-| 사우디아라비아                        | SA        | USD          | EUR, 특별 행정구, USD |
+| 사우디아라비아                        | SA        | USD          | EUR, SAR, USD |
 | 세네갈                             | SN        | USD          | EUR, USD, XOF |
-| 세르비아                              | RS        | USD          | EUR, .RSD, USD |
+| 세르비아                              | RS        | USD          | EUR, RSD, USD |
 | 싱가포르                           | SG        | USD          | BND, EUR, SGD, USD |
 | 슬로바키아                            | SK        | EUR          | EUR, USD |
 | 슬로베니아                            | SI        | EUR          | EUR, USD |
@@ -150,10 +150,10 @@ CSP는 최종 고객의 통화로 파트너 센터에서 제품을 구매 하 �
 | 태국                            | TH        | USD          | EUR, THB, USD |
 | 트리니다드 토바고                 | TT        | USD          | EUR, TTD, USD |
 | 튀니지                             | TN        | USD          | EUR, TND, USD |
-| 터키                              | TR        | USD          | EUR, 시도, USD |
+| 터키                              | TR        | USD          | EUR, TRY, USD |
 | 투르크메니스탄                        | TM        | USD          | EUR, TMT, USD |
 | 우간다                              | UG        | USD          | EUR, UGX, USD |
-| 우크라이나                             | UA        | USD          | EUR, 된다는, UAH, USD |
+| 우크라이나                             | UA        | USD          | EUR, RUB, UAH, USD |
 | 아랍에미리트                | AE        | USD          | AED, EUR, USD |
 | United Kingdom                      | GB        | GBP          | EUR, GBP, USD |
 | 미국                       | US        | USD          | EUR, USD |
@@ -168,36 +168,36 @@ CSP는 최종 고객의 통화로 파트너 센터에서 제품을 구매 하 �
 | 짐바브웨                            | ZW        | USD          | EUR, USD|
 |   |   |   |
 
-\* 브라질 고객의 경우, CSP (클라우드 솔루션 공급자)를 통한 상용 marketplace에서는 USD를 사용 합니다.
+\* 브라질 고객의 경우 CSP(Cloud Solution Providers)를 통한 상업용 Marketplace는 USD를 사용합니다.
 
 \** 무료 및 BYOL VM 이미지만 해당합니다.
 
-## <a name="how-we-convert-currency"></a>통화를 변환 하는 방법
+## <a name="how-we-convert-currency"></a>통화를 변환하는 방법
 
-모든 유료 제품 유형에 대해 USD로 가격을 입력 하거나 현지 통화로 가격을 업로드 하는 옵션을 선택할 수 있습니다. USD에 입력 된 가격은 페이지가 저장 될 때 자동으로 현지 통화로 변환 됩니다. 파트너 센터에서 사용 하는 요금은 매일 업데이트 됩니다. 가격을 내보내고 변환 된 항목을 검토할 수 있습니다.
+모든 유료 제품 유형에 대해 USD로 가격을 입력하거나 현지 통화로 가격을 업로드할 수 있습니다. USD로 입력된 가격은 페이지가 저장될 때 자동으로 현지 통화로 변환됩니다. 파트너 센터에서 사용하는 환율은 매일 업데이트됩니다. 가격을 내보내고 변환된 결과를 검토할 수 있습니다.
 
-게시 하기 전에 가격을 조정 하려면 가격 책정 스프레드시트를 내보내고 수정한 다음 변경 내용으로 업로드 하면 됩니다.
-
-> [!NOTE]
-> 요금제의 시장 가격은 게시 된 후에는 변경할 수 없습니다. 가격을 게시하기 직전에 가격이 적절한지 확인하려면 가격 책정 스프레드시트를 내보내고 각 시장의 가격을 검토합니다.
-
-제품 가격은 항상 현지 통화로 고객에 게 표시 됩니다. 파트너 센터에서 선택한 가격은 파트너 센터에 가격을 저장할 때의 환율에 따라 고객의 현지 통화로 변환 됩니다. 제품을 다시 게시 하지 않는 한 온라인 상점에서 고객에 게 표시 되는 가격은 변경 되지 않습니다.
-
-Microsoft는 현지 통화로 고객 으로부터 지불액을 받고 파트너 센터에서 선택한 통화로 사용자를 지불 합니다. Microsoft는 구매 날짜의 환율을 사용 하 여 고객 현지 통화를 변환 합니다.
+게시하기 전에 가격을 조정하려면 가격 책정 스프레드시트를 내보내고 수정한 다음 변경 내용으로 업로드합니다.
 
 > [!NOTE]
-> Microsoft는 Microsoft 국채 요금을 사용 하 여 제품 가격을 변환 합니다.
+> 플랜의 시장 가격이 게시된 후에는 변경할 수 없습니다. 가격을 게시하기 직전에 가격이 적절한지 확인하려면 가격 책정 스프레드시트를 내보내고 각 시장의 가격을 검토합니다.
 
-[![통화 변환 흐름입니다.](media/marketplace-geo-availability-currencies/currency-exchange-flow.png)](media/marketplace-geo-availability-currencies/currency-exchange-flow.png#lightbox)
+제품 가격은 고객에게 항상 현지 통화로 표시됩니다. 파트너 센터에서 선택한 가격은 파트너 센터에 가격을 저장할 당시 환율에 따라 고객의 현지 통화로 변환됩니다. 제품을 다시 게시하지 않는 한 온라인 상점에서 고객에게 표시되는 가격은 변경되지 않습니다.
+
+고객은 해당 현지 통화로 Microsoft에 지불하고, Microsoft는 사용자가 파트너 센터에서 선택한 통화로 사용자에게 지불합니다. Microsoft는 구매한 날의 환율을 사용하여 고객 현지 통화를 변환합니다.
+
+> [!NOTE]
+> Microsoft는 Microsoft Treasury 환율을 사용하여 제품 가격을 변환합니다.
+
+[![통화 변환 흐름](media/marketplace-geo-availability-currencies/currency-exchange-flow.png)](media/marketplace-geo-availability-currencies/currency-exchange-flow.png#lightbox)
 
 ## <a name="retrieving-currency-information-by-api"></a>API로 통화 정보 검색
 
-API를 사용 하 여 개별 가격 (설정 된 방법에 따라, 저장 된 날짜의 환율에 따라 영향을 받을 수 있음)은 API를 사용 하 여 검색할 수 있습니다. 통화 정보는 사용할 수 없습니다.
+API를 사용하여 개별 가격(설정된 방식에 따라 가격이 저장된 날의 환율에 영향을 받았을 수 있음)을 검색할 수 있으나 통화 정보는 검색할 수 없습니다.
 
-특정 제품 유형에 대 한 가격을 입력 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
+특정 제품 유형의 가격을 입력하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure 애플리케이션 제품 만들기](create-new-azure-apps-offer.md)
-- [Azure 컨테이너 제안 만들기](./create-azure-container-offer.md)
+- [Azure 컨테이너 제품 만들기](./create-azure-container-offer.md)
 - [Azure 가상 머신 제품 만들기](azure-vm-create.md)
 - [컨설팅 서비스 제품 만들기](./create-consulting-service-offer.md)
 - [Dynamics 365 for Customer Engagement 및 PowerApps 제품 만들기](partner-center-portal/create-new-customer-engagement-offer.md)

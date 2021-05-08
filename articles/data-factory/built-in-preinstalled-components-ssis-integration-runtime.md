@@ -8,10 +8,10 @@ ms.author: sawinark
 ms.custom: seo-lt-2019
 ms.date: 05/14/2020
 ms.openlocfilehash: 2f5ad8deb702e312f7dd7275128e8ca8098ab90c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100393788"
 ---
 # <a name="built-in-and-preinstalled-components-on-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime의 기본 제공 구성 요소 및 미리 설치된 구성 요소
@@ -24,7 +24,7 @@ ms.locfileid: "100393788"
 
 | Type | 이름 - 버전 - 플랫폼 |
 |------|---------------------------|
-| **기본 제공 클라이언트/드라이버/공급자** | *Access 데이터베이스 엔진 2016 재배포 가능 패키지* - RTM - X64<br/><br/>*Microsoft Analysis Management Objects* - 15.0.1000.81 - X64<br/><br/>*Microsoft Analysis Services OLEDB Provider* - 15.0.1000.81 - X64<br/><br/>*Microsoft SQL Server 2012 Native Client* -11.4.7462.6-X64<br/><br/>*Microsoft ODBC Driver 13 for SQL Server* - 14.0.900.902 - X64<br/><br/>*Microsoft OLEDB Driver 18 for SQL Server* - 18.1.0.0 - X64<br/><br/>*Microsoft OLEDB Provider for DB2* - 6.0 - X64<br/><br/>*SharePoint Online 클라이언트 구성 요소 SDK* - 15.4711.1001 - X64 |
+| **기본 제공 클라이언트/드라이버/공급자** | *Access 데이터베이스 엔진 2016 재배포 가능 패키지* - RTM - X64<br/><br/>*Microsoft Analysis Management Objects* - 15.0.1000.81 - X64<br/><br/>*Microsoft Analysis Services OLEDB Provider* - 15.0.1000.81 - X64<br/><br/>*Microsoft SQL Server 2012 Native Client* - 11.4.7462.6 - X64<br/><br/>*Microsoft ODBC Driver 13 for SQL Server* - 14.0.900.902 - X64<br/><br/>*Microsoft OLEDB Driver 18 for SQL Server* - 18.1.0.0 - X64<br/><br/>*Microsoft OLEDB Provider for DB2* - 6.0 - X64<br/><br/>*SharePoint Online 클라이언트 구성 요소 SDK* - 15.4711.1001 - X64 |
 
 ## <a name="built-in-and-preinstalled-connection-managers-on-azure-ssis-ir"></a>Azure-SSIS IR의 기본 제공 및 미리 설치된 연결 관리자
 

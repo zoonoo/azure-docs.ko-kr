@@ -6,10 +6,10 @@ ms.author: markscu
 ms.date: 03/12/2021
 ms.topic: how-to
 ms.openlocfilehash: a2e2cfb71999bd5ab83591448342d4bac1dabdd5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103496340"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch 렌더링 기능
@@ -18,18 +18,18 @@ ms.locfileid: "103496340"
 
 풀, 작업 및 태스크를 포함한 Batch 개념의 개요는 [이 문서](./batch-service-workflow-features.md)를 참조하세요.
 
-## <a name="batch-pools-using-custom-vm-images-and-standard-application-licensing"></a>사용자 지정 VM 이미지 및 표준 응용 프로그램 라이선스를 사용 하는 Batch 풀
+## <a name="batch-pools-using-custom-vm-images-and-standard-application-licensing"></a>사용자 지정 VM 이미지 및 표준 애플리케이션 라이선스를 사용하는 Batch 풀
 
-응용 프로그램의 다른 작업 및 유형과 마찬가지로 사용자 지정 VM 이미지는 필요한 렌더링 응용 프로그램 및 플러그 인을 사용 하 여 만들 수 있습니다. 사용자 지정 VM 이미지는 [공유 이미지 갤러리](../virtual-machines/shared-image-galleries.md) 에 배치 되며 [Batch 풀을 만드는 데 사용할 수 있습니다](batch-sig-images.md).
+애플리케이션의 다른 워크로드 및 유형과 마찬가지로 사용자 지정 VM 이미지는 필요한 렌더링 애플리케이션 및 플러그 인을 사용하여 만들 수 있습니다. 사용자 지정 VM 이미지는 [Shared Image Gallery](../virtual-machines/shared-image-galleries.md)에 배치되며 [Batch 풀을 만드는 데 사용할 수 있습니다](batch-sig-images.md).
 
-작업 명령줄 문자열은 사용자 지정 VM 이미지를 만들 때 사용 되는 응용 프로그램 및 경로를 참조 해야 합니다.
+작업 명령줄 문자열은 사용자 지정 VM 이미지를 만들 때 사용하는 애플리케이션 및 경로를 참조해야 합니다.
 
-대부분의 렌더링 응용 프로그램에는 라이선스 서버에서 가져온 라이선스가 필요 합니다. 기존 온-프레미스 라이선스 서버가 있으면 풀과 라이선스 서버가 모두 동일한 [가상 네트워크](../virtual-network/virtual-networks-overview.md)에 있어야 합니다. 또한 Batch 풀과 라이선스 서버 VM이 동일한 가상 네트워크에 있는 Azure VM에서 라이선스 서버를 실행할 수 있습니다.
+대부분의 렌더링 애플리케이션에는 라이선스 서버에서 가져온 라이선스가 필요합니다. 기존 온-프레미스 라이선스 서버가 있으면 풀과 라이선스 서버가 모두 동일한 [가상 네트워크](../virtual-network/virtual-networks-overview.md)에 있어야 합니다. 또한 Batch 풀과 라이선스 서버 VM이 동일한 가상 네트워크에 있는 Azure VM에서 라이선스 서버를 실행할 수 있습니다.
 
-## <a name="batch-pools-using-rendering-vm-images"></a>렌더링 VM 이미지를 사용 하는 Batch 풀
+## <a name="batch-pools-using-rendering-vm-images"></a>렌더링 VM 이미지를 사용하는 Batch 풀
 
 > [!IMPORTANT]
-> 렌더링 VM 이미지 및 사용 요금 청구 라이선스는 더 이상 사용 되지 [않으며 29 년 2 월 2024 일에 사용 중지 됩니다](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). 렌더링에 Batch를 사용 하려면 [사용자 지정 VM 이미지와 표준 응용 프로그램 라이선스를 사용 해야 합니다.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
+> 렌더링 VM 이미지 및 사용 요금 청구 라이선스는 [더 이상 사용되지 않으며 2024년 2월 29일에 지원이 종료](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/)됩니다. 렌더링에 Batch를 사용하려면 [사용자 지정 VM 이미지와 표준 애플리케이션 라이선싱을 사용해야 합니다.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 ### <a name="rendering-application-installation"></a>애플리케이션 설치 렌더링
 
@@ -75,7 +75,7 @@ Windows 이미지 및 CentOS 이미지가 있습니다.  [Azure Marketplace](htt
 |---------|---------|---------|
 |Autodesk 3ds Max 2021|3dsmaxcmdio.exe|3DSMAX_2021_EXEC|
 |Autodesk Maya 2020|render.exe|MAYA_2020_EXEC|
-|Chaos Group V-Ray 독립 실행형|vray.exe|VRAY_4 VRAY_4.10.03_EXEC|
+|Chaos Group V-Ray 독립 실행형|vray.exe|VRAY_4.10.03_EXEC|
 |Arnold 2020 명령줄|kick.exe|ARNOLD_2020_EXEC|
 |Blender|blender.exe|BLENDER_2018_EXEC|
 

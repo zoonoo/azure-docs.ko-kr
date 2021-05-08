@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 163bd7dbdac4de7b7d9c1657ac3debf45382a27a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 746845004a7a1baf1cafb872aae9322177879b6b
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027274"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011105"
 ---
 # <a name="about-transferring-billing-ownership-for-an-azure-subscription"></a>Azure 구독의 청구 소유권을 양도하는 방법 소개
 
@@ -30,16 +30,30 @@ EA(기업계약) 고객인 경우 엔터프라이즈 관리자가 계정 간에 
 
 계정의 대금 청구 관리자만 구독의 소유권을 양도할 수 있습니다.
 
-## <a name="determine-account-billing-administrator"></a>계정의 대금 청구 관리자 확인
+## <a name="determine-if-you-are-a-billing-administrator"></a>청구 관리자인지 확인
 
 <a name="whoisaa"></a>
 
-대금 청구 관리자는 계정의 청구를 관리하는 권한을 가진 사용자입니다. 이들에게는 [Azure Portal](https://portal.azure.com)에서 청구 정보에 액세스하고, 구독 만들기, 청구서 보기 및 결제, 결제 방법 업데이트와 같은 다양한 청구 작업을 수행할 수 있는 권한이 부여됩니다.
+전송을 수행하려면 계정의 청구를 관리할 수 있는 액세스 권한이 있는 사용자를 찾습니다. 이들에게는 [Azure Portal](https://portal.azure.com)에서 청구 정보에 액세스하고, 구독 만들기, 청구서 보기 및 결제, 결제 방법 업데이트와 같은 다양한 청구 작업을 수행할 수 있는 권한이 부여됩니다.
 
-자신이 대금 청구 관리자를 맡고 있는 계정을 확인하려면 [Azure Portal의 Cost Management + Billing 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview)를 방문하세요. 그런 다음, 왼쪽 창에서 **모든 청구 범위** 를 선택합니다. 구독 페이지에는 사용자가 대금 청구 관리자를 맡고 있는 모든 구독이 표시됩니다.
+### <a name="check-if-you-have-billing-access"></a>청구 액세스 권한이 있는지 확인
 
-구독의 계정 관리자를 잘 모를 경우 [Azure Portal의 구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)를 방문하세요. 그런 다음, 확인하려는 구독을 선택한 후 **설정** 에서 확인합니다. **속성** 을 선택하면 구독의 계정 관리자가 **계정 관리자** 상자에 표시됩니다.
+1. 청구 액세스 권한이 있는 계정을 확인하려면 [Azure Portal의 Cost Management + Billing 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview)에 방문합니다.
 
+2. 왼쪽 메뉴에서 **청구 계정** 을 선택합니다.
+
+3. **청구 범위** 목록 페이지에는 청구 정보에 대한 액세스 권한이 있는 모든 구독이 표시됩니다.
+
+### <a name="check-by-subscription"></a>구독별 확인
+
+1. 구독의 계정 관리자를 잘 모를 경우 [Azure Portal의 구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)를 방문하세요. 
+
+2. 확인하려는 구독을 선택합니다.
+
+3. **설정** 제목 아래에서 **속성** 을 선택합니다. 구독 계정 관리자가 누구인지 파악하려면 **계정 관리자** 상자를 참조하세요.
+
+   > [!NOTE]
+   > 모든 구독 유형에 속성이 표시되는 것은 아닙니다.
 
 ## <a name="supported-subscription-types"></a>지원되는 구독 유형
 

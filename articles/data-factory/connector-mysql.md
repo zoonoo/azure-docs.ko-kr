@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: jingwang
 ms.openlocfilehash: b6a2253a4a124fe5e3725863c799f91714e66cab
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100375258"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MySQL에서 데이터 복사
@@ -62,9 +62,9 @@ MySQL 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | Description | 옵션 | 필수 |
 |:--- |:--- |:--- |:--- |
-| SSLMode | 이 옵션은 MySQL에 연결할 때 드라이버에서 TLS 암호화 및 확인을 사용하는지 여부를 지정합니다. `SSLMode=<0/1/2/3/4>`예:,.| 사용 안 함(0) / 기본 설정(1) **(기본값)** / 필요(2) / VERIFY_CA(3) / VERIFY_IDENTITY(4) | 예 |
-| SSLCert | 클라이언트의 id를 증명 하는 데 사용 되는 SSL 인증서를 포함 하는 pem 파일의 전체 경로와 이름입니다. <br/> 이 인증서를 서버로 보내기 전에 암호화 하기 위한 개인 키를 지정 하려면 속성을 사용 `SSLKey` 합니다.| | 예, 양방향 SSL 확인을 사용 하는 경우입니다. |
-| SSLKey | 양방향 SSL 확인 중에 클라이언트 쪽 인증서를 암호화 하는 데 사용 되는 개인 키를 포함 하는 파일의 전체 경로 및 이름입니다.|  | 예, 양방향 SSL 확인을 사용 하는 경우입니다. |
+| SSLMode | 이 옵션은 MySQL에 연결할 때 드라이버에서 TLS 암호화 및 확인을 사용하는지 여부를 지정합니다. 예: `SSLMode=<0/1/2/3/4>`.| 사용 안 함(0) / 기본 설정(1) **(기본값)** / 필요(2) / VERIFY_CA(3) / VERIFY_IDENTITY(4) | 예 |
+| SSLCert | 클라이언트의 ID를 증명하는 데 사용되는 SSL 인증서를 포함하는 .pem 파일의 전체 경로와 이름입니다. <br/> 이 인증서를 서버로 보내기 전에 암호화하기 위한 프라이빗 키를 지정하려면 `SSLKey` 속성을 사용합니다.| | 예, 양방향 SSL 확인을 사용하는 경우라면 그렇습니다. |
+| SSLKey | 양방향 SSL 확인 중에 클라이언트 측 인증서를 암호화하는 데 사용되는 프라이빗 키를 포함한 파일의 전체 경로 및 이름입니다.|  | 예, 양방향 SSL 확인을 사용하는 경우라면 그렇습니다. |
 | UseSystemTrustStore | 이 옵션은 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 예를 들어 `UseSystemTrustStore=<0/1>;`| 사용(1) / 사용 안 함(0) **(기본값)** | 예 |
 
 **예:**

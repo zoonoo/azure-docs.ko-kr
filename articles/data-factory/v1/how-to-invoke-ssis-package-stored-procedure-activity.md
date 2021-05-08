@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 저장 프로시저 작업을 사용 하 여 SSIS 패키지 호출
+title: Azure Data Factory를 사용하여 SSIS 패키지 호출 - 저장 프로시저 작업
 description: 이 문서에서는 Azure Data Factory 파이프라인에서 저장 프로시저 작업을 사용하여 SSIS(SQL Server Integration Services) 패키지를 호출하는 방법에 대해 설명합니다.
 author: linda33wj
 ms.service: data-factory
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
 ms.openlocfilehash: 6c831fa1c6351840693f2b10a22f59c5cc424d0f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100392887"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 저장 프로시저 작업을 사용하여 SSIS 패키지 호출
@@ -20,12 +20,12 @@ ms.locfileid: "100392887"
 > [!NOTE]
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [저장 프로시저 작업을 사용하여 SSIS 패키지 호출](../how-to-invoke-ssis-package-stored-procedure-activity.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
-이 문서의 연습에서는 Azure SQL Database을 사용 합니다. Azure SQL Managed Instance를 사용할 수도 있습니다.
+이 문서의 연습에서는 Azure SQL Database를 사용합니다. Azure SQL Managed Instance를 사용할 수도 있습니다.
 
-### <a name="create-an-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임 만들기
+### <a name="create-an-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임 생성
 Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](../tutorial-deploy-ssis-packages-azure.md)의 단계별 지침에 따라 만듭니다. Data Factory 버전 1을 사용하여 Azure-SSIS 통합 런타임을 만들 수 없습니다. 
 
 ## <a name="azure-powershell"></a>Azure PowerShell
@@ -60,7 +60,7 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
     $DataFactoryName = "ADFTutorialFactory";
     ```
 
-5. 데이터 팩터리를 만들려면 $ResGrp 변수의 Location 및 ResourceGroupName 속성을 사용 하 여 다음과 같은 **AzDataFactory** cmdlet을 실행 합니다. 
+5. 데이터 팩터리를 만들려면 $ResGrp 변수의 Location 및 ResourceGroupName 속성을 사용하여 다음 **New-AzDataFactory** cmdlet을 실행합니다. 
     
     ```powershell       
     $df = New-AzDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
@@ -76,7 +76,7 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 * Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정은 **참여자** 또는 **소유자** 역할의 구성원이거나, 또는 Azure 구독의 **관리자** 이어야 합니다.
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Azure SQL Database 연결된 서비스 만들기
-SSIS 카탈로그를 호스트 하는 Azure SQL Database의 데이터베이스를 데이터 팩터리에 연결 하는 연결 된 서비스를 만듭니다. 데이터 팩터리는 이 연결된 서비스의 정보를 사용하여 SSISDB 데이터베이스에 연결하고 저장 프로시저를 실행하여 SSIS 패키지를 실행합니다. 
+연결된 서비스를 만들어 Azure SQL Database에서 SSIS 카탈로그를 호스트하는 데이터베이스를 데이터 팩터리에 연결합니다. 데이터 팩터리는 이 연결된 서비스의 정보를 사용하여 SSISDB 데이터베이스에 연결하고 저장 프로시저를 실행하여 SSIS 패키지를 실행합니다. 
 
 1. **C:\ADF\RunSSISPackage** 폴더에 다음 내용이 포함된 **AzureSqlDatabaseLinkedService.json** 이라는 JSON 파일을 만듭니다. 
 
@@ -95,7 +95,7 @@ SSIS 카탈로그를 호스트 하는 Azure SQL Database의 데이터베이스�
         }
     ```
 2. **Azure PowerShell** 에서 **C:\ADF\RunSSISPackage** 폴더로 전환합니다.
-3. **AzDataFactoryLinkedService** cmdlet을 실행 하 여 연결 된 서비스를 만듭니다. **AzureSqlDatabaseLinkedService**. 
+3. **New-AzDataFactoryLinkedService** cmdlet을 실행하여 연결된 서비스 **AzureSqlDatabaseLinkedService** 를 만듭니다. 
 
     ```powershell
     New-AzDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
@@ -120,7 +120,7 @@ SSIS 카탈로그를 호스트 하는 Azure SQL Database의 데이터베이스�
         }
     }
     ```
-2. **AzDataFactoryDataset** cmdlet을 실행 하 여 데이터 집합을 만듭니다. 
+2. **New-AzDataFactoryDataset** cmdlet을 실행하여 데이터 세트를 만듭니다. 
 
     ```powershell
     New-AzDataFactoryDataset $df -File ".\OutputDataset.json"
@@ -162,7 +162,7 @@ SSIS 카탈로그를 호스트 하는 Azure SQL Database의 데이터베이스�
     }    
     ```
 
-2. **RunSSISPackagePipeline** 파이프라인을 만들려면 **AzDataFactoryPipeline** cmdlet을 실행 합니다.
+2. **New-AzDataFactoryPipeline** cmdlet을 실행하여 **RunSSISPackagePipeline** 파이프라인을 만듭니다.
 
     ```powershell
     $DFPipeLine = New-AzDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
@@ -170,7 +170,7 @@ SSIS 카탈로그를 호스트 하는 Azure SQL Database의 데이터베이스�
 
 ### <a name="monitor-the-pipeline-run"></a>파이프라인 실행을 모니터링합니다.
 
-1. **AzDataFactorySlice** 를 실행 하 여 파이프라인의 출력 테이블인 출력 데이터 집합의 모든 조각에 대 한 세부 정보를 가져옵니다.
+1. **Get-AzDataFactorySlice** 를 실행하여 파이프라인의 출력 테이블인 출력 데이터 세트**의 모든 조각에 대한 세부 정보를 가져옵니다.
 
     ```powershell
     Get-AzDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
@@ -184,7 +184,7 @@ SSIS 카탈로그를 호스트 하는 Azure SQL Database의 데이터베이스�
 
     **준비** 상태 또는 **실패** 상태에 조각이 표시될 때가지 이 cmdlet을 계속 실행합니다. 
 
-    서버에서 SSISDB 데이터베이스에 대해 다음 쿼리를 실행 하 여 패키지가 실행 되었는지 확인할 수 있습니다. 
+    서버의 SSISDB 데이터베이스에 대해 다음 쿼리를 실행하여 패키지가 실행되었는지 확인할 수 있습니다. 
 
     ```sql
     select * from catalog.executions

@@ -1,7 +1,7 @@
 ---
-title: Mailjet를 사용 하 여 사용자 지정 전자 메일 확인
+title: Mailjet을 사용한 사용자 지정 메일 확인
 titleSuffix: Azure AD B2C
-description: Azure AD B2C 지원 응용 프로그램을 사용 하기 위해 등록할 때 고객에 게 전송 된 확인 전자 메일을 사용자 지정 하기 위해 Mailjet와 통합 하는 방법을 알아봅니다.
+description: 고객이 Azure AD B2C 지원 애플리케이션을 사용하기 위해 등록할 때 고객에게 전송되는 확인 메일을 사용자 지정하는 Mailjet과의 통합 방법을 알아봅니다.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,57 +12,57 @@ ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 48e823b19c1c6d30e73a7a673cbeab82a4d007a9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103489222"
 ---
-# <a name="custom-email-verification-with-mailjet"></a>Mailjet를 사용 하 여 사용자 지정 전자 메일 확인
+# <a name="custom-email-verification-with-mailjet"></a>Mailjet을 사용한 사용자 지정 메일 확인
 
-Azure Active Directory B2C (Azure AD B2C)의 사용자 지정 전자 메일을 사용 하 여 응용 프로그램을 사용 하기 위해 등록 하는 사용자에 게 사용자 지정 전자 메일을 보냅니다. [Displaycontrols](display-controls.md) (현재 미리 보기 상태) 및 타사 전자 메일 공급자 mailjet를 사용 하 여 사용자 고유의 전자 메일 템플릿 및 *의* 주소와 주체를 사용할 수 있을 뿐만 아니라 지역화 및 사용자 지정 OTP (일회용 암호) 설정을 지원할 수 있습니다.
+Azure Active Directory B2C(Azure AD B2C)에서 사용자 지정 메일을 사용하여 애플리케이션을 사용하기 위해 등록하는 사용자에게 사용자 지정 메일을 보냅니다. [DisplayControls](display-controls.md)(현재 미리 보기 상태) 및 타사 메일 공급자 Mailjet을 사용하면 사용자 고유의 메일 템플릿과 ‘보낸 사람:’ 주소 및 제목을 사용하고 지역화 및 사용자 지정 OTP(일회성 암호) 설정을 지원할 수 있습니다.
 
-사용자 지정 전자 메일을 확인 하려면 [Mailjet](https://Mailjet.com), [SendGrid](./custom-email-sendgrid.md)또는 [SparkPost](https://sparkpost.com)와 같은 타사 전자 메일 공급자, 사용자 지정 REST API 또는 HTTP 기반 메일 공급자 (자체 포함)를 사용 해야 합니다. 이 문서에서는 Mailjet를 사용 하는 솔루션을 설정 하는 방법을 설명 합니다.
+사용자 지정 메일 확인을 위해서는 [Mailjet](https://Mailjet.com), [SendGrid](./custom-email-sendgrid.md), [SparkPost](https://sparkpost.com)와 같은 타사 메일 공급자, 사용자 지정 REST API 또는 HTTP 기반 메일 공급자(자체 공급자 포함)를 사용해야 합니다. 이 문서에서는 Mailjet을 사용하는 솔루션 설정 방법을 설명합니다.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="create-a-mailjet-account"></a>Mailjet 계정 만들기
 
-아직 없는 경우 Mailjet 계정을 설정 하 여 시작 합니다 (Azure 고객은 200 메일/일 제한으로 6000 메일의 잠금을 해제할 수 있음). 
+아직 Mailjet 계정이 없는 경우 Mailjet 계정을 설정하여 시작합니다. Azure 고객은 6,000개의 메일(하루 200개 제한)을 잠금 해제할 수 있습니다. 
 
-1. [Mailjet 계정 만들기](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/)의 설치 지침을 따릅니다.
-1. 전자 메일을 보내고, 발신자 전자 메일 주소나 도메인을 [등록 하 고 유효성을 검사할](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/#how-to-configure-mailjet-for-use) 수 있습니다.
-2. [API 키 관리 페이지로](https://app.mailjet.com/account/api_keys)이동 합니다. 이후 단계에서 사용할 **API 키** 와 **비밀 키** 를 기록 합니다. 계정을 만들 때 두 키가 자동으로 생성 됩니다.  
+1. [Mailjet 계정 만들기](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/)의 설정 지침을 따릅니다.
+1. 메일을 보내려면 보낸 사람 메일 주소나 도메인을 [등록하고 유효성을 검사](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/#how-to-configure-mailjet-for-use)합니다.
+2. [API 키 관리 페이지](https://app.mailjet.com/account/api_keys)로 이동합니다. 이후 단계에서 사용할 **API 키** 와 **비밀 키** 를 기록합니다. 두 키는 계정을 만들 때 자동으로 생성됩니다.  
 
 ## <a name="create-azure-ad-b2c-policy-key"></a>Azure AD B2C 정책 키 만들기
 
-그런 다음 참조할 정책에 대 한 Azure AD B2C 정책 키에 Mailjet API 키를 저장 합니다.
+다음으로 Azure AD B2C 정책 키에 정책이 참조할 Mailjet API 키를 저장합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 디렉터리를 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
-1. **개요** 페이지에서 **Id 경험 프레임 워크** 를 선택 합니다.
+1. **개요** 페이지에서 **Identity Experience Framework** 를 선택합니다.
 1. **정책 키**, **추가** 를 차례로 선택합니다.
-1. **옵션** 에 대해 **수동** 을 선택 합니다.
+1. **옵션** 으로는 **수동** 을 선택합니다.
 1. 정책 키의 **이름** 을 입력합니다. 예들 들어 `MailjetApiKey`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
-1. **비밀** 에서 이전에 기록한 Mailjet **API 키** 를 입력 합니다.
+1. **비밀** 에 이전에 기록한 Mailjet **API 키** 를 입력합니다.
 1. **키 사용** 으로는 **서명** 을 선택합니다.
 1. **만들기** 를 선택합니다.
 1. **정책 키**, **추가** 를 차례로 선택합니다.
-1. **옵션** 에 대해 **수동** 을 선택 합니다.
+1. **옵션** 으로는 **수동** 을 선택합니다.
 1. 정책 키의 **이름** 을 입력합니다. 예들 들어 `MailjetSecretKey`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
-1. **비밀** 에서 이전에 기록한 Mailjet **비밀 키** 를 입력 합니다.
+1. **비밀** 에 이전에 기록한 Mailjet **비밀 키** 를 입력합니다.
 1. **키 사용** 으로는 **서명** 을 선택합니다.
 1. **만들기** 를 선택합니다.
 
 ## <a name="create-a-mailjet-template"></a>Mailjet 템플릿 만들기
 
-Mailjet 계정이 만들어지고 Mailjet API 키가 Azure AD B2C 정책 키에 저장 된 상태에서 Mailjet [동적 트랜잭션 템플릿을](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/)만듭니다.
+생성한 Mailjet 계정과 Azure AD B2C 정책 키에 저장된 Mailjet API 키로 Mailjet [동적 트랜잭션 템플릿](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/)을 만듭니다.
 
-1. Mailjet 사이트에서 [트랜잭션 템플릿](https://app.mailjet.com/templates/transactional) 페이지를 열고 **새 템플릿 만들기** 를 선택 합니다.
-1. **HTML로 코딩 하 여** 선택한 다음, **처음부터 코드** 를 선택 합니다.
-1. 과 같은 고유한 템플릿 이름을 입력 한 `Verification email` 다음 **만들기** 를 선택 합니다.
-1. HTML 편집기에서 다음 HTML 템플릿을 붙여넣거나 사용자 고유의를 사용 합니다. `{{var:otp:""}}`및 `{{var:email:""}}` 매개 변수는 일회성 암호 값 및 사용자 전자 메일 주소를 사용 하 여 동적으로 교체 됩니다.
+1. Mailjet 사이트에서 [트랜잭션 템플릿](https://app.mailjet.com/templates/transactional) 페이지를 열고 **새 템플릿 만들기** 를 선택합니다.
+1. **HTML로 코딩** 을 선택한 다음 **처음부터 코딩** 을 선택합니다.
+1. `Verification email`과 같은 고유한 템플릿 이름을 입력한 다음 **만들기** 를 선택합니다.
+1. HTML 편집기에서 다음 HTML 템플릿을 붙여넣거나 사용자 고유의 템플릿을 사용합니다. `{{var:otp:""}}` 매개 변수와 `{{var:email:""}}` 매개 변수는 일회성 암호 값 및 사용자 메일 주소로 동적으로 교체됩니다.
 
     ```HTML
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -158,20 +158,20 @@ Mailjet 계정이 만들어지고 Mailjet API 키가 Azure AD B2C 정책 키에 
     </html>
     ```
 
-1. 왼쪽 맨 위에 있는 **제목 편집** 을 확장 합니다.
-    1. **제목** 에 대해 제목의 기본값을 입력 합니다. Mailjet는 API에 주체 매개 변수가 포함 되지 않은 경우이 값을 사용 합니다.
-    1. **이름** 에 회사 이름을 입력 합니다.
-    1. **주소** 에서 전자 메일 주소를 선택 합니다.
+1. 왼쪽 맨 위에 있는 **제목 편집** 을 확장합니다.
+    1. **제목** 에는 제목의 기본값을 입력합니다. API에 제목 매개 변수가 포함되지 않은 경우 Mailjet은 해당 값을 사용합니다.
+    1. **이름** 에는 회사 이름을 입력합니다.
+    1. **주소** 에는 메일 주소를 선택합니다.
     1. **저장** 을 선택합니다.
-1. 오른쪽 맨 위에 있는 **저장 & 게시** 를 선택 하 고 **예, 변경 내용 게시** 를 클릭 합니다.
-1. 이후 단계에서 사용 하기 위해 만든 템플릿의 **템플릿 ID** 를 기록 합니다. [클레임 변환을 추가할](#add-the-claims-transformation)때이 ID를 지정 합니다.
+1. 오른쪽 상단에 있는 **저장 및 게시** 를 선택한 다음 **예, 변경 사항을 게시합니다** 를 선택합니다.
+1. 나중 단계에서 사용할 수 있도록 만든 템플릿의 **템플릿 ID** 를 기록합니다. [클레임 변환을 추가](#add-the-claims-transformation)할 때 해당 ID를 지정합니다.
 
 
-## <a name="add-azure-ad-b2c-claim-types"></a>Azure AD B2C 클레임 유형 추가
+## <a name="add-azure-ad-b2c-claim-types"></a>Azure AD B2C 클레임 형식 추가
 
-정책에서 내의 요소에 다음 클레임 유형을 추가 합니다 `<ClaimsSchema>` `<BuildingBlocks>` .
+정책에서 다음 클레임 형식을 `<BuildingBlocks>` 내의 `<ClaimsSchema>` 요소에 추가합니다.
 
-이러한 클레임 유형은 OTP (일회용 암호) 코드를 사용 하 여 전자 메일 주소를 생성 및 확인 하는 데 필요 합니다.
+해당 클레임 형식은 OTP(일회성 암호) 코드를 사용하여 메일 주소를 생성 및 확인하는 데 필요합니다.
 
 ```XML
 <!--
@@ -198,15 +198,15 @@ Mailjet 계정이 만들어지고 Mailjet API 키가 Azure AD B2C 정책 키에 
 
 ## <a name="add-the-claims-transformation"></a>클레임 변환 추가
 
-다음으로는 Mailjet로 전송 된 요청의 본문으로 사용할 JSON 문자열 클레임을 출력 하는 클레임 변환이 필요 합니다.
+다음으로 Mailjet으로 전송된 요청의 본문이 될 JSON 문자열 클레임을 출력하는 클레임 변환이 필요합니다.
 
-JSON 개체의 구조는 InputParameters의 점 표기법과 InputClaims의 TransformationClaimTypes Id로 정의 됩니다. 점 표기법의 숫자는 배열을 의미 합니다. 값은 InputClaims의 값과 InputParameters ' "Value" 속성에서 제공 됩니다. JSON 클레임 변환에 대 한 자세한 내용은 [json 클레임 변환](json-transformations.md)을 참조 하세요.
+JSON 개체의 구조는 InputParameters의 점 표기법의 ID와 InputClaims의 TransformationClaimTypes로 정의됩니다. 점 표기법의 숫자는 배열을 의미합니다. 값은 InputClaims의 값과 InputParameters의 “Value” 속성에서 가져옵니다. JSON 클레임 변환에 대한 자세한 내용은 [JSON 클레임 변환](json-transformations.md)을 참조하세요.
 
-내의 요소에 다음 클레임 변환을 추가 합니다 `<ClaimsTransformations>` `<BuildingBlocks>` . 클레임 변환 XML에 대 한 다음 업데이트를 수행 합니다.
+`<BuildingBlocks>` 내에서 `<ClaimsTransformations>` 요소에 다음 클레임 변환을 추가합니다. 클레임 변환 XML에 다음 사항을 업데이트합니다.
 
-* `Messages.0.TemplateID`InputParameter 값을 앞에서 [Mailjet 템플릿 만들기](#create-a-mailjet-template)에서 만든 MAILJET 트랜잭션 템플릿의 ID로 업데이트 합니다.
-* `Messages.0.From.Email`주소 값을 업데이트 합니다. 유효한 전자 메일 주소를 사용 하 여 확인 전자 메일이 스팸으로 표시 되는 것을 방지할 수 있습니다.
-* `Messages.0.Subject`제목 줄 입력 매개 변수의 값을 조직에 적절 한 제목 줄로 업데이트 합니다.
+* `Messages.0.TemplateID`InputParameter 값을 앞서 [Mailjet 템플릿 만들기](#create-a-mailjet-template)에서 만든 Mailjet 트랜잭션 템플릿 ID로 업데이트합니다.
+* `Messages.0.From.Email` 주소 값을 업데이트합니다. 확인 메일이 스팸으로 표시되지 않도록 유효한 메일 주소를 사용합니다.
+* `Messages.0.Subject` 제목 줄 입력 매개 변수의 값을 조직에 적절한 제목 줄로 업데이트합니다.
 
 ```XML
 <!-- 
@@ -240,7 +240,7 @@ JSON 개체의 구조는 InputParameters의 점 표기법과 InputClaims의 Tran
 
 ## <a name="add-datauri-content-definition"></a>DataUri 콘텐츠 정의 추가
 
-내의 클레임 변환 아래 `<BuildingBlocks>` 에서 다음 [contentdefinition](contentdefinitions.md) 을 추가 하 여 버전 2.1.2 데이터 URI를 참조 합니다.
+`<BuildingBlocks>` 내의 클레임 변환 아래에서 다음 [ContentDefinition](contentdefinitions.md)을 추가하여 버전 2.1.2 데이터 URI를 참조합니다.
 
 ```XML
 <!--
@@ -259,18 +259,18 @@ JSON 개체의 구조는 InputParameters의 점 표기법과 InputClaims의 Tran
 
 ## <a name="create-a-displaycontrol"></a>DisplayControl 만들기
 
-확인 표시 컨트롤은 사용자에 게 전송 되는 확인 코드를 사용 하 여 전자 메일 주소를 확인 하는 데 사용 됩니다.
+확인 표시 컨트롤은 사용자에게 전송되는 확인 코드로 메일 주소를 확인하는 데 사용됩니다.
 
-이 예제 표시 컨트롤은 다음으로 구성 됩니다.
+이 예제 표시 컨트롤은 다음과 같이 구성됩니다.
 
-1. `email`사용자의 주소 클레임 유형을 수집 합니다.
-1. 사용자가 `verificationCode` 사용자에 게 보낸 코드를 사용 하 여 클레임 형식을 제공할 때까지 기다립니다.
-1. `email`이 표시 컨트롤에 대 한 참조를 포함 하는 자체 어설션된 기술 프로필에를 반환 합니다.
-1. 작업을 사용 하 여 `SendCode` otp 코드를 생성 하 고 otp 코드가 포함 된 전자 메일을 사용자에 게 보냅니다.
+1. 사용자로부터 `email` 주소 클레임 형식을 수집합니다.
+1. 사용자에게 보낸 코드를 사용하여 사용자가 `verificationCode` 클레임 형식을 제공할 때까지 기다립니다.
+1. 해당 표시 컨트롤에 대한 참조를 포함하는 자체 어설션된 기술 프로필에 `email`을 반환합니다.
+1. `SendCode` 작업을 사용하여 OTP 코드를 생성하고 OTP 코드가 포함된 메일을 사용자에게 보냅니다.
 
-   ![확인 코드 전자 메일 보내기 작업](media/custom-email-mailjet/display-control-verification-email-action-01.png)
+   ![확인 코드 메일 보내기 작업](media/custom-email-mailjet/display-control-verification-email-action-01.png)
 
-콘텐츠 정의에서 여전히 내에 `<BuildingBlocks>` [VerificationControl](display-control-verification.md) 형식의 다음 [DisplayControl](display-controls.md) 를 정책에 추가 합니다.
+콘텐츠 정의에서 여전히 `<BuildingBlocks>` 내에 있는 [VerificationControl](display-control-verification.md) 형식의 다음 [DisplayControl](display-controls.md)을 정책에 추가합니다.
 
 ```XML
 <!--
@@ -305,9 +305,9 @@ JSON 개체의 구조는 InputParameters의 점 표기법과 InputClaims의 Tran
 
 ## <a name="add-otp-technical-profiles"></a>OTP 기술 프로필 추가
 
-`GenerateOtp`기술 프로필은 전자 메일 주소에 대 한 코드를 생성 합니다. `VerifyOtp`기술 프로필은 전자 메일 주소와 연결 된 코드를 확인 합니다. 형식의 구성과 일회용 암호의 만료를 변경할 수 있습니다. OTP 기술 프로필에 대 한 자세한 내용은 [일회용 암호 기술 프로필 정의](one-time-password-technical-profile.md)를 참조 하세요.
+`GenerateOtp` 기술 프로필은 메일 주소에 대한 코드를 생성합니다. `VerifyOtp` 기술 프로필은 메일 주소와 연결된 코드를 확인합니다. 일회성 암호의 형식 구성과 만료를 변경할 수 있습니다. OTP 기술 프로필에 대한 자세한 내용은 [일회성 암호 기술 프로필 정의](one-time-password-technical-profile.md)를 참조하세요.
 
-요소에 다음 기술 프로필을 추가 합니다 `<ClaimsProviders>` .
+다음 기술 프로필을 `<ClaimsProviders>` 요소에 추가합니다.
 
 ```XML
 <!--
@@ -353,9 +353,9 @@ JSON 개체의 구조는 InputParameters의 점 표기법과 InputClaims의 Tran
 
 ## <a name="add-a-rest-api-technical-profile"></a>REST API 기술 프로필 추가
 
-이 REST API 기술 프로필은 Mailjet 형식을 사용 하 여 전자 메일 콘텐츠를 생성 합니다. RESTful 기술 프로필에 대 한 자세한 내용은 [RESTful 기술 프로필 정의](restful-technical-profile.md)를 참조 하세요.
+해당 REST API 기술 프로필은 Mailjet 형식을 사용하여 메일 콘텐츠를 생성합니다. RESTful 기술 프로필에 대한 자세한 내용은 [RESTful 기술 프로필 정의](restful-technical-profile.md)를 참조하세요.
 
-OTP 기술 프로필과 마찬가지로 다음 기술 프로필을 요소에 추가 합니다 `<ClaimsProviders>` .
+OTP 기술 프로필과 마찬가지로 다음 기술 프로필을 `<ClaimsProviders>` 요소에 추가합니다.
 
 ```XML
 <ClaimsProvider>
@@ -385,11 +385,11 @@ OTP 기술 프로필과 마찬가지로 다음 기술 프로필을 요소에 추
 </ClaimsProvider>
 ```
 
-## <a name="make-a-reference-to-the-displaycontrol"></a>DisplayControl에 대 한 참조 만들기
+## <a name="make-a-reference-to-the-displaycontrol"></a>DisplayControl에 대한 참조 만들기
 
-마지막 단계에서 사용자가 만든 DisplayControl에 대 한 참조를 추가 합니다. 기존 `LocalAccountSignUpWithLogonEmail` 및 `LocalAccountDiscoveryUsingEmailAddress` 자체 어설션된 기술 프로필을 다음으로 바꿉니다. 이전 버전의 Azure AD B2C 정책을 사용한 경우 이러한 기술 프로필 `DisplayClaims` 은 DisplayControl .에 대 한 참조와 함께 사용 됩니다.
+마지막 단계로, 앞서 만든 DisplayControl에 대한 참조를 추가합니다. 기존의 자체 어설션된 `LocalAccountSignUpWithLogonEmail` 및 `LocalAccountDiscoveryUsingEmailAddress` 기술 프로필을 다음으로 바꿉니다. 이전 버전의 Azure AD B2C 정책을 사용한 경우, 해당 기술 프로필은 DisplayControl에 대한 참조와 함께 `DisplayClaims`를 사용합니다.
 
-자세한 내용은 [자체 어설션된 기술 프로필](restful-technical-profile.md) 및 [DisplayControl](display-controls.md)를 참조 하세요.
+자세한 내용은 [자체 어설션된 기술 프로필](restful-technical-profile.md) 및 [DisplayControl](display-controls.md)을 참조하세요.
 
 ```XML
 <ClaimsProvider>
@@ -428,14 +428,14 @@ OTP 기술 프로필과 마찬가지로 다음 기술 프로필을 요소에 추
 </ClaimsProvider>
 ```
 
-## <a name="optional-localize-your-email"></a>필드 전자 메일 지역화
+## <a name="optional-localize-your-email"></a>[선택 사항] 메일 지역화
 
-전자 메일을 지역화 하려면 Mailjet 또는 메일 공급자에 게 지역화 된 문자열을 보내야 합니다. 예를 들어 전자 메일의 제목, 본문, 코드 메시지 또는 서명을 지역화할 수 있습니다. 이렇게 하려면 [GetLocalizedStringsTransformation](string-transformations.md) 클레임 변환을 사용 하 여 지역화 된 문자열을 클레임 형식으로 복사할 수 있습니다. `GenerateEmailRequestBody`JSON 페이로드를 생성 하는 클레임 변환은 지역화 된 문자열을 포함 하는 입력 클레임을 사용 합니다.
+메일을 지역화하려면 Mailjet 또는 메일 공급자에 지역화된 문자열을 보내야 합니다. 예를 들어 메일의 제목, 본문, 코드 메시지 또는 서명을 지역화할 수 있습니다. 메일을 지역화하려면 [GetLocalizedStringsTransformation](string-transformations.md) 클레임 변환을 사용하여 지역화된 문자열을 클레임 형식으로 복사하면 됩니다. JSON 페이로드를 생성하는 `GenerateEmailRequestBody` 클레임 변환은 지역화된 문자열을 포함하는 입력 클레임을 사용합니다.
 
-1. 정책에서 다음 문자열 클레임을 정의 합니다. subject, message, codeIntro 및 signature
-1. [GetLocalizedStringsTransformation](string-transformations.md) 클레임 변환을 정의 하 여 1 단계의 클레임으로 지역화 된 문자열 값을 대체 합니다.
-1. `GenerateEmailRequestBody`다음 XML 코드 조각과 함께 입력 클레임을 사용 하도록 클레임 변환을 변경 합니다.
-1. Azure AD B2C에 의해 지역화 될 모든 문자열 대신 동적 매개 변수를 사용 하도록 Mailjet 템플릿을 업데이트 합니다.
+1. 정책에서 subject, message, codeIntro, signature와 같은 문자열 클레임을 정의합니다.
+1. [GetLocalizedStringsTransformation](string-transformations.md) 클레임 변환을 정의하여 지역화된 문자열 값을 1단계의 클레임으로 대체합니다.
+1. 다음 XML 코드 조각과 함께 입력 클레임을 사용하도록 `GenerateEmailRequestBody` 클레임 변환을 변경합니다.
+1. Azure AD B2C에서 지역화할 모든 문자열 대신 동적 매개 변수를 사용하도록 Mailjet 템플릿을 업데이트합니다.
 
     ```XML
     <ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
@@ -470,7 +470,7 @@ OTP 기술 프로필과 마찬가지로 다음 기술 프로필을 요소에 추
     </ClaimsTransformation>
     ```
 
-1. 다음 [지역화](localization.md) 요소를 추가 합니다.
+1. 다음 [지역화](localization.md) 요소를 추가합니다.
 
     ```xml
     <!--
@@ -502,7 +502,7 @@ OTP 기술 프로필과 마찬가지로 다음 기술 프로필을 요소에 추
     </BuildingBlocks> -->
     ```
 
-1. [Contentdefinitions](contentdefinitions.md) 요소를 업데이트 하 여 LocalizedResources 요소에 대 한 참조를 추가 합니다.
+1. [ContentDefinitions](contentdefinitions.md) 요소를 업데이트하여 LocalizedResources 요소에 대한 참조를 추가합니다.
 
     ```xml
     <!--
@@ -527,7 +527,7 @@ OTP 기술 프로필과 마찬가지로 다음 기술 프로필을 요소에 추
     </BuildingBlocks> -->
     ```
 
-1. 마지막으로 및 기술 프로필에 다음 입력 클레임 변환을 추가 `LocalAccountSignUpWithLogonEmail` `LocalAccountDiscoveryUsingEmailAddress` 합니다.
+1. 마지막으로 다음 입력 클레임 변환을 `LocalAccountSignUpWithLogonEmail` 및 `LocalAccountDiscoveryUsingEmailAddress` 기술 프로필에 추가합니다.
 
     ```xml
     <InputClaimsTransformations>
@@ -535,9 +535,9 @@ OTP 기술 프로필과 마찬가지로 다음 기술 프로필을 요소에 추
     </InputClaimsTransformations>
     ```
     
-## <a name="optional-localize-the-ui"></a>필드 UI 지역화
+## <a name="optional-localize-the-ui"></a>[선택 사항] UI 지역화
 
-Localization 요소를 사용하면 사용자 경험용 정책에서 여러 로캘이나 언어를 지원할 수 있습니다. 정책의 지역화 지원을 통해 [확인 표시 컨트롤 사용자 인터페이스 요소](localization-string-ids.md#verification-display-control-user-interface-elements)와 일회성 [암호 오류 메시지](localization-string-ids.md#one-time-password-error-messages)에 대 한 언어별 문자열을 제공할 수 있습니다. LocalizedResources에 다음 LocalizedString를 추가 합니다. 
+Localization 요소를 사용하면 사용자 경험용 정책에서 여러 로캘이나 언어를 지원할 수 있습니다. 정책의 지역화 지원을 통해 [확인 표시 컨트롤 사용자 인터페이스 요소](localization-string-ids.md#verification-display-control-user-interface-elements)와 [일회성 암호 오류 메시지](localization-string-ids.md#one-time-password-error-messages)에 대해 언어별 문자열을 제공할 수 있습니다. 다음 LocalizedString을 LocalizedResources에 추가합니다. 
 
 ```XML
 <LocalizedResources Id="api.custom-email.en">
@@ -568,11 +568,11 @@ Localization 요소를 사용하면 사용자 경험용 정책에서 여러 로�
 </LocalizedResources>
 ```
 
-지역화 된 문자열을 추가한 후 LocalAccountSignUpWithLogonEmail 및 LocalAccountDiscoveryUsingEmailAddress 기술 프로필에서 OTP 유효성 검사 오류 메시지 메타 데이터를 제거 합니다.
+지역화된 문자열을 추가한 후 LocalAccountSignUpWithLogonEmail 및 LocalAccountDiscoveryUsingEmailAddress 기술 프로필에서 OTP 유효성 검사 오류 메시지 메타데이터를 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-GitHub에 대 한 사용자 지정 전자 메일 확인 정책의 예를 찾을 수 있습니다.
+GitHub에서 사용자 지정 메일 확인 정책 예를 확인할 수 있습니다.
 
-- [사용자 지정 전자 메일 확인-DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
-- 사용자 지정 REST API 또는 HTTP 기반 SMTP 전자 메일 공급자를 사용 하는 방법에 대 한 자세한 내용은 [Azure AD B2C 사용자 지정 정책에서 RESTful 기술 프로필 정의](restful-technical-profile.md)를 참조 하세요.
+- [사용자 지정 메일 확인 - DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
+- 사용자 지정 REST API 또는 HTTP 기반 SMTP 메일 공급자를 사용하는 방법에 대한 자세한 내용은 [Azure AD B2C 사용자 지정 정책의 RESTful 기술 프로필 정의](restful-technical-profile.md)를 참조하세요.

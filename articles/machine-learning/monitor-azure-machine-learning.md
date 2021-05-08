@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
 ms.date: 10/01/2020
-ms.openlocfilehash: e5fd0fdd5a6f9a4a7537a844b096efdfef253638
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: a18ee02b5e91b628a25655949a652270bd7436c4
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816857"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "100575147"
 ---
 # <a name="monitor-azure-machine-learning"></a>Azure Machine Learning 모니터링
 
@@ -24,8 +24,8 @@ Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 �
 > [!TIP]
 > 이 문서의 정보는 Azure Machine Learning Service 및 연결된 Azure 서비스에 대한 모니터링을 설명하므로 주로 __관리자__ 를 위한 것입니다. __데이터 과학자__ 또는 __개발자__ 로서 '모델 학습 실행'과 관련된 정보를 모니터링하려는 경우 다음 문서를 참조하세요.
 >
-> * [학습 실행 시작, 모니터링 및 취소](how-to-track-monitor-analyze-runs.md)
-> * [학습 실행에 대한 메트릭 로그](how-to-log-view-metrics.md)
+> * [학습 실행 시작, 모니터링 및 취소](how-to-manage-runs.md)
+> * [학습 실행에 대한 메트릭 로그](how-to-track-experiments.md)
 > * [MLflow로 실험 추적](how-to-use-mlflow.md)
 > * [TensorBoard로 시각화 실행](how-to-monitor-tensorboard.md)
 >
@@ -69,7 +69,7 @@ Azure Portal, CLI 또는 PowerShell을 사용한 진단 설정 만들기의 자�
 
 Azure Machine Learning에 대해 다음 로그를 구성할 수 있습니다.
 
-| 범주 | Description |
+| 범주 | 설명 |
 |:---|:---|
 | AmlComputeClusterEvent | Azure Machine Learning 컴퓨팅 클러스터에서 발생한 이벤트입니다. |
 | AmlComputeClusterNodeEvent | Azure Machine Learning 컴퓨팅 클러스터 내의 노드에서 발생한 이벤트입니다. |
@@ -109,7 +109,7 @@ Azure Monitor Log Analytics를 사용하려면 진단 구성을 만들고 __Log 
 
 Azure Monitor 로그의 데이터는 각 테이블에 고유한 속성 집합이 있는 테이블에 저장됩니다. Azure Machine Learning은 다음 테이블에 데이터를 저장합니다.
 
-| 테이블 | Description |
+| 테이블 | 설명 |
 |:---|:---|
 | AmlComputeClusterEvent | Azure Machine Learning 컴퓨팅 클러스터에서 발생한 이벤트입니다. |
 | AmlComputeClusterNodeEvent | Azure Machine Learning 컴퓨팅 클러스터 내의 노드에서 발생한 이벤트입니다. |
@@ -165,7 +165,7 @@ Azure Monitor 로그의 데이터는 각 테이블에 고유한 속성 집합이
 
 다음 표에서는 Azure Machine Learning에 대한 일반적인 메트릭 경고 규칙과 권장 메트릭 경고 규칙을 보여 줍니다.
 
-| 경고 유형 | 조건 | Description |
+| 경고 유형 | 조건 | 설명 |
 |:---|:---|:---|
 | 모델 배포 실패 | 집계 유형: 합계, 연산자: 보다 큼, 임계값: 0 | 하나 이상의 모델 배포가 실패한 경우 |
 | 할당량 사용률 | 집계 유형: 평균, 연산자: 보다 큼, 임계값: 90| 할당량 사용률이 90%보다 큰 경우 |

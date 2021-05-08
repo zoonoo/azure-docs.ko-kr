@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services 개요 | Microsoft Docs
-description: Microsoft Azure Media Services는 개발자가 확장 가능한 미디어 관리 및 배달 애플리케이션을 빌드할 수 있는 확장 가능한 클라우드 기반 플랫폼입니다. 이 문서에서는 Azure Media Services에 대 한 개요를 제공 합니다.
+description: Microsoft Azure Media Services는 개발자가 확장 가능한 미디어 관리 및 배달 애플리케이션을 빌드할 수 있는 확장 가능한 클라우드 기반 플랫폼입니다. 이 문서에서는 Azure Media Services에 대해 간략히 설명합니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 6e68e53387aa50b99bab8ed4cdba7f1e97fc48c0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103008238"
 ---
 # <a name="azure-media-services-overview"></a>Azure Media Services 개요
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-> [!div class="op_single_selector" title1="사용 중인 Media Services의 버전을 선택 합니다."]
+> [!div class="op_single_selector" title1="사용 중인 Media Services의 버전을 선택합니다."]
 > * [버전 3](../latest/media-services-overview.md)
 > * [버전 2](media-services-overview.md)
 
@@ -42,9 +42,9 @@ Microsoft AMS(Azure Media Services)는 개발자가 확장 가능한 미디어 �
 
 비디오/이미지를 Media Services에 업로드하기 전에, Media Services와 Azure에서 데이터를 사용하고, 처리하고, 저장하는 데 대한 비디오/이미지에 포함된 개인(있는 경우)의 모든 필요한 동의(법에서 요구되는 경우)를 비롯하여 비디오/이미지를 사용할 수 있는 모든 적절한 권한이 있어야 합니다. 일부 관할 지역에서는 생체 데이터와 같은 특정 범주의 데이터를 수집하고 온라인으로 처리하고 저장하는 데 대해 특별한 법적 요구 사항이 적용될 수 있습니다. Media Services와 Azure를 특별한 법적 요구 사항이 적용되는 데이터를 처리하고 저장하는 데 사용하기 전에, 귀하에게 적용될 수 있는 이러한 법적 요구 사항을 반드시 준수해야 합니다.
 
-Media Services의 규정 준수, 개인 정보 보호 및 보안에 대해 알아보려면 Microsoft [보안 센터](https://www.microsoft.com/trust-center/?rtc=1)를 참조하세요. 데이터를 삭제 하는 방법을 비롯 하 여 Microsoft의 개인 정보 취급 방침, 데이터 처리 및 보존 방법에 대 한 자세한 내용은 Microsoft [개인 정보](https://privacy.microsoft.com/PrivacyStatement)취급 방침, [Online Services 약관](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("OST") 및 [데이터 처리 추 록](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA")을 참조 하세요. Media Services를 사용하면 OST, DPA 및 개인정보처리방침을 준수할 것에 동의하는 것입니다.
+Media Services의 규정 준수, 개인 정보 보호 및 보안에 대해 알아보려면 Microsoft [보안 센터](https://www.microsoft.com/trust-center/?rtc=1)를 참조하세요. Microsoft의 개인 정보 보호 의무, 데이터 삭제 방법을 비롯한 데이터 처리 및 보존 방식에 대한 자세한 내용은 Microsoft의 [개인정보처리방침](https://privacy.microsoft.com/PrivacyStatement), [Online Services 사용 약관](https://www.microsoft.com/licensing/product-licensing/products?rtc=1)(“OST”) 및 [Data Processing 추록](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67)(“DPA”)을 검토하세요. Media Services를 사용하면 OST, DPA 및 개인정보처리방침을 준수할 것에 동의하는 것입니다.
  
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Media Services 사용을 시작하려면 다음이 있어야 합니다.
 
@@ -53,7 +53,7 @@ Azure Media Services 사용을 시작하려면 다음이 있어야 합니다.
 * (선택 사항) 개발 환경 설정. 개발 환경에 .NET 또는 REST API를 선택합니다. 자세한 내용은 [환경 설정](media-services-dotnet-how-to-use.md)을 참조하세요.
 
     [프로그래밍 방식으로 AMS API에 연결](media-services-use-aad-auth-to-access-ams-api.md)하는 방법도 알아봅니다.
-* 시작된 상태에 있는 표준 또는 프리미엄 스트리밍 엔드포인트.  자세한 내용은 [스트리밍 끝점 관리](media-services-portal-manage-streaming-endpoints.md) 를 참조 하세요.
+* 시작된 상태에 있는 표준 또는 프리미엄 스트리밍 엔드포인트.  자세한 내용은 [스트리밍 엔드포인트 관리](media-services-portal-manage-streaming-endpoints.md)를 참조하세요.
 
 ## <a name="sdks-and-tools"></a>SDK 및 도구
 
@@ -61,11 +61,11 @@ Media Services 솔루션을 빌드하려면 다음을 사용할 수 있습니다
 
 * [Media Services REST API](/rest/api/media/operations/azure-media-services-rest-api-reference)
 * 사용 가능한 클라이언트 SDK 중 하나:
-    * .NET 용 Azure Media Services SDK
+    * .NET용 Azure Media Services SDK
     
         * [NuGet 패키지](https://www.nuget.org/packages/windowsazure.mediaservices/)
         * [GitHub 소스 코드](https://github.com/Azure/azure-sdk-for-media-services)
-    * [Java 용 AZURE SDK](https://github.com/Azure/azure-sdk-for-java)
+    * [Java용 Azure SDK](https://github.com/Azure/azure-sdk-for-java),
     * [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
     * [Node.js용 Azure Media Services](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Node.js SDK의 Microsoft가 아닌 타사 버전입니다. 커뮤니티에서 유지 관리하고 현재 AMS API를 100% 포함하지 않습니다).
 * 기존 도구:
@@ -86,8 +86,8 @@ Azure Media Services 개념은 [개념](media-services-concepts.md)을 참조하
 
 ## <a name="supported-scenarios-and-availability-of-media-services-across-data-centers"></a>지원되는 시나리오 및 데이터 센터에서 Media Services의 사용 가용성
 
-Azure 일반적인 시나리오에 대 한 자세한 내용은 [AMS 시나리오](scenarios-and-availability.md)를 참조 하세요.
-지역별 가용성에 대 한 자세한 내용은 [Media service availability](availability-regions-v-2.md)을 참조 하세요.
+일반적인 Azure 시나리오에 대한 자세한 내용은 [AMS 시나리오](scenarios-and-availability.md)를 참조하세요.
+지역별 가용성에 대한 자세한 내용은 [미디어 서비스 가용성](availability-regions-v-2.md)을 참조하세요.
 
 ## <a name="service-level-agreement-sla"></a>SLA(서비스 수준 계약)
 

@@ -1,5 +1,5 @@
 ---
-title: Square에서 데이터 복사 (미리 보기)
+title: Square에서 데이터 복사(미리 보기)
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Square에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 ms.author: jingwang
 author: linda33wj
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/03/2020
 ms.openlocfilehash: ac10e42d338e0ddd44cb3c07709645a69653808d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100384795"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Azure Data Factory(미리 보기)를 사용하여 Square에서 데이터 복사
@@ -24,7 +24,7 @@ ms.locfileid: "100384795"
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-이 정사각형 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
+Square 커넥터는 다음과 같은 작업을 지원합니다.
 
 - [지원되는 원본/싱크 매트릭스](copy-activity-overview.md)를 사용한 [복사 작업](copy-activity-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
@@ -43,26 +43,26 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 다음은 Square 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **Square** 로 설정해야 합니다. | 예 |
-| connectionProperties | 사각형에 연결 하는 방법을 정의 하는 속성 그룹입니다. | 예 |
-| ***에서 `connectionProperties` 다음을 수행 합니다.*** | | |
+| connectionProperties | Square에 연결하는 방법을 정의하는 속성 그룹입니다. | 예 |
+| ***`connectionProperties`*** 의 하위 속성: | | |
 | 호스트 | Square 인스턴스의 URL입니다. 즉, mystore.mysquare.com입니다.  | 예 |
 | clientId | Square 애플리케이션과 연결된 클라이언트 ID입니다.  | 예 |
 | clientSecret | Square 애플리케이션과 연결된 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| accessToken | Square에서 얻은 액세스 토큰입니다. 에서는 인증 된 사용자에 게 명시적 사용 권한을 요청 하 여 사각형 계정에 대 한 제한 된 액세스 권한을 부여 합니다. OAuth 액세스 토큰은 발급 된 후 30 일이 지나면 만료 되지만 새로 고침 토큰은 만료 되지 않습니다. 새로 고침 토큰을 사용 하 여 액세스 토큰을 새로 고칠 수 있습니다.<br>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다.  | 예 |
-| refreshToken | Square에서 얻은 새로 고침 토큰입니다. 현재 토큰이 만료 될 때 새 액세스 토큰을 가져오는 데 사용 됩니다.<br>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
-| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 아니요 |
-| usePeerVerification | TLS를 통해 연결할 때 서버의 id를 확인할 지 여부를 지정 합니다. 기본값은 true입니다.  | 아니요 |
+| accessToken | Square에서 가져온 액세스 토큰입니다. 인증된 사용자에게 명시적 사용 권한을 요청하여 Square 계정에 제한된 액세스 권한을 부여합니다. OAuth 액세스 토큰은 발급된 후 30일이 지나면 만료되지만 새로 고침 토큰은 만료되지 않습니다. 새로 고침 토큰을 사용하여 액세스 토큰을 새로 고칠 수 있습니다.<br>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다.  | 예 |
+| refreshToken | Square에서 가져온 새로 고침 토큰입니다. 현재 토큰이 만료될 때 새 액세스 토큰을 가져오는 데 사용됩니다.<br>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
+| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름을 서버의 호스트 이름과 일치시킬지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
+| usePeerVerification | TLS를 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
 
-Square는 **개인** 및 **OAuth** 라는 두 가지 유형의 액세스 토큰을 지원 합니다.
+Square는 **개인** 및 **OAuth** 라는 두 가지 형식의 액세스 토큰을 지원합니다.
 
-- 개인용 액세스 토큰은 사용자의 사각형 계정에서 리소스에 대 한 무제한 연결 API 액세스를 얻는 데 사용 됩니다.
-- OAuth 액세스 토큰은 모든 사각형 계정에 대 한 인증 된 범위 연결 API 액세스를 가져오는 데 사용 됩니다. 앱이 계정 소유자 대신 다른 Square 계정의 리소스에 액세스할 때 사용 합니다. OAuth 액세스 토큰을 사용 하 여 사용자의 사각형 계정에 있는 리소스에 액세스할 수도 있습니다.
+- 개인용 액세스 토큰은 사용자의 Square 계정에서 리소스에 대한 Connect API 무제한 액세스를 위해 사용됩니다.
+- OAuth 액세스 토큰은 모든 Square 계정에 대해, 인증을 받고 범위가 지정된 Connect API 액세스에 사용됩니다. 앱이 계정 소유자 대신 다른 Square 계정의 리소스에 액세스할 때 사용합니다. OAuth 액세스 토큰을 사용하여 사용자의 Square 계정에 있는 리소스에 액세스할 수도 있습니다.
 
-Data Factory에서, `accessToken` OAuth를 통한 인증에는 및가 필요 하지만 개인용 액세스 토큰을 통한 인증에만 필요 `accessToken` `refreshToken` 합니다. [여기](https://developer.squareup.com/docs/build-basics/access-tokens)에서 액세스 토큰을 검색 하는 방법을 알아봅니다.
+Data Factory에서 OAuth를 통한 인증에는 `accessToken`와 `refreshToken`가 필요하지만 개인용 액세스 토큰을 통한 인증에서는 `accessToken`만 필요합니다. [여기](https://developer.squareup.com/docs/build-basics/access-tokens)에서 액세스 토큰을 검색하는 방법을 알아보기.
 
 **예:**
 
@@ -102,9 +102,9 @@ Data Factory에서, `accessToken` OAuth를 통한 인증에는 및가 필요 하
 
 Square에서 데이터를 복사하려면 데이터 세트의 type 속성을 **SquareObject** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 type 속성은 **SquareObject** 로 설정 해야 합니다. | 예 |
+| type | 데이터 세트의 형식 속성은 **SquareObject** 로 설정해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -132,7 +132,7 @@ Square에서 데이터를 복사하려면 데이터 세트의 type 속성을 **S
 
 Square에서 데이터를 복사하려면 복사 작업의 원본 형식을 **SquareSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **SquareSource** 로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Business"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |

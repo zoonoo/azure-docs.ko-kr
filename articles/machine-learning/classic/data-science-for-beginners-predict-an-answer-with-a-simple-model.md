@@ -1,5 +1,5 @@
 ---
-title: 'ML Studio (클래식): 회귀 모델을 사용 하 여 답변 예측-Azure'
+title: 'ML 스튜디오(클래식): 회귀 모델을 사용하여 답변 예측 - Azure'
 description: 초급자를 위한 데이터 과학 비디오 4에는 가격을 예측하는 단순 회귀 모델을 만드는 방법이 나옵니다. 대상 데이터와 함께 선형 회귀가 포함됩니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,10 +10,10 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: c6d78b10b98abe33744673459b3d31d8941aac89
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100520411"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>단순 모델을 사용하여 답변 예측
@@ -125,7 +125,7 @@ ms.locfileid: "100520411"
 
 오늘은 선형 회귀를 수행하는 방법을 논의했으며 데이터를 사용해서 예측을 수행했습니다.
 
-Microsoft Azure Machine Learning Studio (클래식)에서 "초보자를 위한 데이터 과학"의 다른 비디오를 확인 하세요.
+Microsoft Azure Machine Learning 스튜디오(클래식)의 “초급자를 위한 데이터 과학”에 포함된 다른 비디오도 확인해보세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Machine Learning Studio(클래식)로 첫 번째 데이터 과학 실험 시도](create-experiment.md)

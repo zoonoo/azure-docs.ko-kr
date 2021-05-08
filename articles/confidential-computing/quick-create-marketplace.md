@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 6dbd6fb5c989e1e8b88bf752f5009bdbb62d8c39
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: be935dbd7e4559bcad8c5cf78622a5c63810f54c
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107535462"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812393"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-marketplace"></a>빠른 시작: Marketplace에서 Azure 기밀 컴퓨팅 VM 배포
 
@@ -144,11 +144,18 @@ wget -qO - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add 
 ```
 
 #### <a name="2-install-the-intel-sgx-dcap-driver"></a>2. Intel SGX DCAP 드라이버 설치
+일부 Ubuntu 버전에는 이미 Intel SGX 드라이버가 설치되어 있을 수 있습니다. 다음 명령을 사용하여 확인합니다. 
+
+```bash
+dmesg | grep -i sgx
+[  106.775199] sgx: intel_sgx: Intel SGX DCAP Driver {version}
+``` 
+출력이 비어 있으면 드라이버를 설치합니다. 
 
 ```bash
 sudo apt update
 sudo apt -y install dkms
-wget https://download.01.org/intel-sgx/sgx-dcap/1.4/linux/distro/ubuntuServer18.04/sgx_linux_x64_driver_1.21.bin -O sgx_linux_x64_driver.bin
+wget https://download.01.org/intel-sgx/sgx-dcap/1.7/linux/distro/ubuntu18.04-server/sgx_linux_x64_driver_1.35.bin -O sgx_linux_x64_driver.bin
 chmod +x sgx_linux_x64_driver.bin
 sudo ./sgx_linux_x64_driver.bin
 ```
@@ -159,7 +166,7 @@ sudo ./sgx_linux_x64_driver.bin
 #### <a name="3-install-the-intel-and-open-enclave-packages-and-dependencies"></a>3. Intel 및 Open Enclave 패키지 및 종속성 설치
 
 ```bash
-sudo apt -y install clang-7 libssl-dev gdb libsgx-enclave-common libsgx-enclave-common-dev libprotobuf10 libsgx-dcap-ql libsgx-dcap-ql-dev az-dcap-client open-enclave
+sudo apt -y install clang-8 libssl-dev gdb libsgx-enclave-common libprotobuf10 libsgx-dcap-ql libsgx-dcap-ql-dev az-dcap-client open-enclave
 ```
 
 > [!NOTE] 

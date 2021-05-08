@@ -7,16 +7,18 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/03/2021
 ms.author: duau
-ms.openlocfilehash: f76c48af4f5ebc8013daad457f9973cf7792c7c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e7572f5f39655cd6fae8a6528cacd2e074a002b
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102547998"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950409"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Route Server 만들기 및 구성
 
 이 문서는 Azure Portal을 사용하여 가상 네트워크에서 NVA(네트워크 가상 어플라이언스)와 피어링하도록 Azure Route Server를 구성하는 데 도움이 됩니다. Azure Route Server는 NVA에서 경로를 학습하고 가상 네트워크의 가상 머신에 대해 프로그래밍합니다. 또한 Azure Route Server는 NVA에 가상 네트워크 경로를 보급합니다. 자세한 내용은 [Azure Route Server](overview.md)를 읽어보세요.
+
+:::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Azure Portal을 사용하는 Route Server 배포 환경의 다이어그램." border="false":::
 
 > [!IMPORTANT]
 > Azure Route Server(미리 보기)는 현재 퍼블릭 미리 보기로 제공됩니다.

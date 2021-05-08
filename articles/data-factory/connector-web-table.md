@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용 하 여 웹 테이블에서 데이터 복사
+title: Azure Data Factory를 통한 웹 테이블 데이터 복사
 description: 웹 테이블의 데이터를 데이터 팩터리에서 싱크로 지원하는 데이터 저장소로 복사할 수 있는 Azure Data Factory의 웹 테이블 커넥터에 대해 알아봅니다.
 author: linda33wj
 ms.service: data-factory
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 1ab45868afd8d1b7ba1f61f5eaacca283817e6d6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100367013"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 웹 테이블의 데이터 복사
@@ -24,12 +24,12 @@ ms.locfileid: "100367013"
 이 웹 테이블 커넥터인 [REST 커넥터](connector-rest.md)와 [HTTP 커넥터](connector-http.md) 간의 차이점은 다음과 같습니다.
 
 - **웹 테이블 커넥터** 는 HTML 웹 페이지에서 테이블 콘텐츠를 추출합니다.
-- **REST 커넥터** 는 특히 RESTful api의 데이터 복사를 지원 합니다.
+- **REST 커넥터** 는 특히 RESTful API에서 데이터를 복사하는 것을 지원합니다.
 - **HTTP 커넥터** 는 일반적으로 모든 HTTP 엔드포인트에서 데이터를 검색합니다(예: 파일 다운로드). 
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-이 웹 테이블 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
+이 웹 테이블 커넥터는 다음과 같은 작업을 지원합니다.
 
 - [지원되는 원본/싱크 매트릭스](copy-activity-overview.md)를 사용한 [복사 작업](copy-activity-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
@@ -38,9 +38,9 @@ ms.locfileid: "100367013"
 
 특히 이 웹 테이블 커넥터는 **HTML 페이지에서 테이블 콘텐츠를 추출** 하도록 지원합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 웹 테이블 커넥터를 사용하려면 자체 호스팅 Integration Runtime을 설정해야 합니다. 자세한 내용은 [자체 호스팅 Integration Runtime](create-self-hosted-integration-runtime.md) 문서를 참조 하세요.
+이 웹 테이블 커넥터를 사용하려면 자체 호스팅 Integration Runtime을 설정해야 합니다. 자세한 내용은 [자체 호스팅 Integration Runtime](create-self-hosted-integration-runtime.md)을 참조하세요.
 
 ## <a name="getting-started"></a>시작
 
@@ -118,7 +118,7 @@ ms.locfileid: "100367013"
 
 웹 테이블에서 데이터를 복사하려면 복사 작업에서 원본 유형을 **WebSource** 로 설정합니다. 추가적인 속성은 지원되지 않습니다.
 
-**예제:**
+**예:**
 
 ```json
 "activities":[

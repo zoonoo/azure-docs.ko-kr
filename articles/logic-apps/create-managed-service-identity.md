@@ -1,53 +1,59 @@
 ---
 title: 관리되는 ID를 사용하여 인증
-description: 관리 id를 사용 하 여 자격 증명 또는 암호를 사용 하 여 로그인 하지 않고 Azure Active Directory로 보호 되는 리소스에 액세스
+description: 자격 증명 또는 비밀로 로그인하지 않고 관리 ID로 Azure Active Directory에 의해 보호되는 리소스에 액세스합니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 03/09/2021
-ms.openlocfilehash: b038a0530d392c80fc14d09486f298657fe0da17
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
-ms.translationtype: MT
+ms.date: 03/30/2021
+ms.openlocfilehash: dfd219b6fcfc01613d68a2bd439022651ed0bbe2
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889334"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110175"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Azure Logic Apps에서 관리 ID를 사용하여 Azure 리소스에 대한 액세스 인증
 
-Azure Active Directory (Azure AD)로 보호 되 고 id를 인증 하는 다른 리소스에 쉽게 액세스 하기 위해 논리 앱은 자격 증명, 비밀 또는 Azure AD 토큰 대신 [관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md) (이전의 관리 서비스 ID 또는 MSI)를 사용할 수 있습니다. Azure는 사용자를 위해이 id를 관리 하 고, 암호를 관리 하거나 Azure AD 토큰을 직접 사용할 필요가 없기 때문에 자격 증명을 보호 하는 데 도움이 됩니다.
+Azure AD(Azure Active Directory)로 보호되는 다른 리소스에 쉽게 액세스하여 ID를 인증하기 위해 논리 앱에서 자격 증명, 비밀 또는 Azure AD 토큰 대신 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)(이전의 관리 서비스 ID(MSI))를 사용할 수 있습니다. 비밀을 관리하거나 Azure AD 토큰을 직접 사용할 필요가 없기 때문에 Azure는 사용자를 위해 이 ID를 관리하고 자격 증명을 보호하는 데 도움이 됩니다.
 
-Azure Logic Apps는 [*시스템이 할당한*](../active-directory/managed-identities-azure-resources/overview.md) 관리 ID 및 [ *사용자가 할당한*](../active-directory/managed-identities-azure-resources/overview.md) 관리 ID를 모두 지원합니다. 논리 앱 또는 개별 연결은 시스템 할당 id 또는 *단일* 사용자 할당 id 중 하나를 사용할 수 있습니다 .이 id는 논리 앱의 그룹 전체에서 공유할 수 있지만 둘 다 사용할 수는 없습니다.
+Azure Logic Apps는 [*시스템이 할당한*](../active-directory/managed-identities-azure-resources/overview.md) 관리 ID 및 [ *사용자가 할당한*](../active-directory/managed-identities-azure-resources/overview.md) 관리 ID를 모두 지원합니다. 논리 앱 또는 개별 연결은 시스템이 할당한 ID 또는 ‘단일’ 사용자가 할당한 ID를 사용할 수 있습니다. ID를 논리 앱 그룹 간에 공유할 수 있지만 둘 다 공유할 수는 없습니다.
 
-## <a name="where-can-logic-apps-use-managed-identities"></a>논리 앱에서 관리 id를 사용할 수 있는 위치
+<a name="triggers-actions-managed-identity"></a>
 
-현재는 [특정 기본 제공 트리거와 작업](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) 및 Azure AD OAuth를 지 원하는 [특정 관리 되는 커넥터만](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) 인증을 위해 관리 id를 사용할 수 있습니다. 예를 들어, 다음과 같이 선택 합니다.
+## <a name="where-can-logic-apps-use-managed-identities"></a>논리 앱에서 관리 ID를 사용할 수 있는 위치
+
+현재는 [특정 기본 제공 트리거 및 작업](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) 및 Azure AD OAuth를 지원하는 [특정 관리형 커넥터](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)만 인증을 위해 관리 ID를 사용할 수 있습니다. 다음은 선택 영역의 예입니다.
+
+<a name="built-in-managed-identity"></a>
 
 **기본 제공 트리거 및 작업**
 
 * Azure API Management
 * Azure App Services
-* Azure 기능
+* Azure Functions
 * HTTP
-* HTTP + Webhook
+* HTTP + 웹후크
 
 > [!NOTE]
-> HTTP 트리거 및 작업은 시스템 할당 관리 id를 사용 하 여 Azure 방화벽 뒤에 Azure Storage 계정에 대 한 연결을 인증할 수 있지만 사용자 할당 관리 id를 사용 하 여 동일한 연결을 인증할 수는 없습니다.
+> HTTP 트리거와 작업은 시스템이 할당한 관리 ID로 Azure 방화벽 뒤 Azure Storage 계정 연결을 인증할 수는 있지만 사용자가 할당한 관리 ID로 동일한 연결을 인증할 수는 없습니다.
 
-**관리 되는 커넥터**
+<a name="managed-connectors-managed-identity"></a>
+
+**관리형 커넥터**
 
 * Azure Automation
 * Azure Event Grid
 * Azure Key Vault
-* Azure Resource Manager
+* Azure 리소스 관리자
 * Azure AD를 사용하는 HTTP
 
-관리 커넥터에 대 한 지원은 현재 미리 보기 상태입니다. 현재 목록은 트리거와 인증을 [지 원하는 동작에 대 한 인증 형식](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)을 참조 하세요.
+관리형 커넥터 지원은 현재 미리 보기 상태입니다. 현재 목록은 [트리거 인증 형식과 인증 지원 동작](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)을 참조하세요.
 
 이 문서에서는 논리 앱에 대해 두 가지 종류의 관리 ID를 설정하는 방법을 보여 줍니다. 자세한 내용은 다음 항목을 참조하세요.
 
 * [관리 ID를 지원하는 트리거 및 작업](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)
-* [논리 앱에 대 한 관리 id 제한](../logic-apps/logic-apps-limits-and-config.md#managed-identity)
+* [논리 앱 관리 ID 한도](../logic-apps/logic-apps-limits-and-config.md#managed-identity)
 * [관리 ID를 사용하여 Azure AD 인증을 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -58,7 +64,7 @@ Azure Logic Apps는 [*시스템이 할당한*](../active-directory/managed-ident
 
 * 액세스하려는 대상 Azure 리소스. 이 리소스에서는 논리 앱에서 대상 리소스에 대한 액세스를 인증하는 데 도움이 되는 관리 ID에 대한 역할을 추가합니다.
 
-* 트리거를 사용 하려는 논리 앱 [또는 관리 되는 id를 지 원하는 작업](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)입니다.
+* [관리 ID를 지원하는 트리거 또는 작업](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)을 사용하려는 논리 앱입니다.
 
 ## <a name="enable-managed-identity"></a>관리 ID 사용
 
@@ -89,7 +95,7 @@ Azure Logic Apps는 [*시스템이 할당한*](../active-directory/managed-ident
    > [!NOTE]
    > 하나의 관리 ID만 있을 수 있다는 오류가 표시되면 논리 앱이 이미 사용자가 할당한 ID와 연결되어 있습니다. 시스템이 할당한 ID를 추가하려면 먼저 논리 앱에서 사용자가 할당한 ID를 *제거* 해야 합니다.
 
-   이제 논리 앱이 Azure AD에 등록 되 고 개체 ID로 표시 되는 시스템 할당 id를 사용할 수 있습니다.
+   이제 논리 앱에서 시스템이 할당한 ID를 사용할 수 있으며, Azure Active Directory에 등록되고 개체 ID로 표시됩니다.
 
    ![시스템이 할당한 ID에 대한 개체 ID](./media/create-managed-service-identity/object-id-system-assigned-identity.png)
 
@@ -175,19 +181,19 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
 
    ![새 관리 ID 추가](./media/create-managed-service-identity/add-user-assigned-identity.png)
 
-1. 관리 id에 대 한 정보를 제공 하 고 **검토 + 만들기** 를 선택 합니다. 예를 들면 다음과 같습니다.
+1. 관리 ID에 대한 정보를 제공한 다음, **검토 + 만들기** 를 선택합니다. 예를 들면 다음과 같습니다.
 
    ![사용자가 할당한 관리 ID 만들기](./media/create-managed-service-identity/create-user-assigned-identity.png)
 
    | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
    | **구독** | 예 | <*Azure-subscription-name*> | 사용할 Azure 구독의 이름입니다. |
-   | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 사용할 리소스 그룹의 이름입니다. 새 그룹을 만들거나 기존 그룹을 선택합니다. 이 예에서는 라는 새 그룹을 만듭니다 `fabrikam-managed-identities-RG` . |
+   | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 사용할 리소스 그룹의 이름입니다. 새 그룹을 만들거나 기존 그룹을 선택합니다. 이 예제는 `fabrikam-managed-identities-RG`라는 새 리소스 그룹을 만듭니다. |
    | **지역** | 예 | <*Azure-region*> | 리소스에 대한 정보를 저장할 Azure 지역입니다. 이 예제에서는 “미국 서부”를 사용합니다. |
    | **이름** | 예 | <*user-assigned-identity-name*> | 사용자가 할당한 ID를 제공하는 이름입니다. 이 예에서는 `Fabrikam-user-assigned-identity`를 사용합니다. |
    |||||
 
-   이러한 세부 정보를 확인 한 후 Azure에서 관리 id를 만듭니다. 이제 사용자가 할당한 ID를 논리 앱에 추가할 수 있습니다. 사용자가 할당한 ID를 둘 이상 논리 앱에 추가할 수 없습니다.
+   세부 정보의 유효성을 검사한 후 Azure에서 관리 ID를 만듭니다. 이제 사용자가 할당한 ID를 논리 앱에 추가할 수 있습니다. 사용자가 할당한 ID를 둘 이상 논리 앱에 추가할 수 없습니다.
 
 1. Azure Portal의 Logic Apps 디자이너에서 논리 앱을 찾아서 엽니다.
 
@@ -216,7 +222,7 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
 
 * `type` 속성이 `UserAssigned`로 설정된 `identity` 개체
 
-* `userAssignedIdentities`사용자 할당 리소스 및 이름을 지정 하는 자식 개체입니다.
+* 사용자 할당 리소스 및 이름을 지정하는 자식 `userAssignedIdentities` 개체입니다.
 
 다음 예제에서는 HTTP PUT 요청에 대한 논리 앱 리소스 정의가 표시되며 매개 변수가 없는 `identity` 개체가 포함됩니다. PUT 요청 및 후속 GET 작업에 대한 응답에도 이 `identity` 개체가 있습니다.
 
@@ -313,7 +319,7 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
 
 ### <a name="assign-access-in-the-azure-portal"></a>Azure Portal에서 액세스 할당
 
-관리 id를 액세스할 수 있는 대상 Azure 리소스에서 대상 리소스에 대 한 id 역할 기반 액세스를 제공 합니다.
+관리 ID가 액세스할 수 있는 대상 Azure 리소스에서 대상 리소스에 대한 ID 역할 기반 액세스를 제공합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 관리 ID를 사용하여 액세스하려는 Azure 리소스로 이동합니다.
 
@@ -326,7 +332,7 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
 
 1. **역할 할당 추가** 아래에서 대상 리소스에 대한 필수 액세스 권한을 ID에 부여하는 **역할** 을 선택합니다.
 
-   이 항목의 예에서는 id에 [Azure Storage 컨테이너의 blob에 액세스할 수 있는 역할이](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)필요 하므로 관리 되는 id에 대 한 **저장소 blob 데이터 참가자** 역할을 선택 합니다.
+   이 토픽의 예제에서는 ID에 [Azure Storage 컨테이너의 BLOB에 액세스할 수 있는 역할](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)이 있어야 하므로 관리 ID에 대한 **Storage Blob 데이터 기여자** 역할을 선택합니다.
 
    !["Storage Blob 데이터 기여자" 역할 선택](./media/create-managed-service-identity/select-role-for-identity.png)
 
@@ -378,84 +384,35 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
 1. 아직 수행하지 않은 경우 [관리 ID를 지원하는 트리거 또는 작업](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)을 추가합니다.
 
    > [!NOTE]
-   > 일부 트리거 및 작업만 인증 유형을 추가할 수 있도록 지원합니다. 자세한 내용은 [트리거에 대 한 인증 유형 및 인증을 지 원하는 작업](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)을 참조 하세요.
+   > 일부 트리거 및 작업만 인증 유형을 추가할 수 있도록 지원합니다. 자세한 내용은 [트리거 인증 형식과 인증 지원 동작](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)을 참조하세요.
 
-1. 추가한 트리거 또는 작업에서 다음 단계를 수행 합니다.
+1. 추가한 트리거 또는 작업에서 다음 단계를 수행합니다.
 
-   * **관리 id 사용을 지 원하는 기본 제공 트리거 및 작업**
+   * **관리 ID 사용을 지원하는 기본 제공 트리거 및 작업**
 
-     1. 속성이 아직 표시 되지 않은 경우 **Authentication** 속성을 추가 합니다.
+     1. 속성이 아직 표시되지 않은 경우 **인증** 속성을 추가합니다.
 
-     1. **인증 유형** 아래에서 **관리 id** 를 선택 합니다.
+     1. **인증 유형** 에서 **관리 ID** 를 선택합니다.
 
-     자세한 내용은 [예: 관리 되는 id를 사용 하 여 기본 제공 트리거 또는 작업 인증](#authenticate-built-in-managed-identity)을 참조 하세요.
+     자세한 내용은 [예: 관리 ID로 기본 제공 트리거 또는 작업 인증](#authenticate-built-in-managed-identity)을 참조하세요.
  
-   * **관리 되는 커넥터 트리거 및 관리 id 사용을 지 원하는 작업**
+   * **관리 ID 사용을 지원하는 관리형 커넥터 트리거 및 작업**
 
-     1. 테 넌 트 선택 페이지에서 **관리 되는 id로 연결** 을 선택 합니다.
+     1. 테넌트 선택 페이지에서 **관리 ID로 연결** 을 선택합니다.
 
-     1. 다음 페이지에서 연결 이름을 제공 합니다.
+     1. 다음 페이지에서 연결 이름을 입력합니다.
 
-        기본적으로 논리 앱은 한 번에 하나의 관리 되는 id를 사용 하도록 지원 하므로 현재 사용 하도록 설정 된 관리 되는 id만 표시 됩니다. 예를 들면 다음과 같습니다.
+        기본값으로 논리 앱은 한 번에 하나의 관리 ID를 사용하도록 지원하므로 현재 사용하도록 설정된 관리 ID만 표시됩니다. 예를 들면 다음과 같습니다.
 
-        ![연결 이름 페이지 및 선택한 관리 id를 보여 주는 스크린샷](./media/create-managed-service-identity/system-assigned-managed-identity.png)
+        ![연결 이름 페이지 및 선택한 관리 ID를 보여 주는 스크린샷](./media/create-managed-service-identity/system-assigned-managed-identity.png)
 
-     자세한 내용은 [예제: 관리 되는 id를 사용 하 여 관리 되는 커넥터 트리거 또는 작업 인증](#authenticate-managed-connector-managed-identity)을 참조 하세요.
-
-### <a name="connections-that-use-managed-identities"></a>관리 되는 id를 사용 하는 연결
-
-관리 id를 사용 하는 연결은 관리 되는 id 에서만 작동 하는 특별 한 연결 형식입니다. 런타임에 연결에서는 논리 앱에서 사용 하도록 설정 된 관리 되는 id를 사용 합니다. 이 구성은 `parameters` `$connections` 사용자 할당 id를 사용 하는 경우 id의 리소스 id와 함께 연결의 리소스 id에 대 한 포인터를 포함 하는 개체를 포함 하는 논리 앱 리소스 정의의 개체에 저장 됩니다.
-
-이 예제에서는 논리 앱이 시스템 할당 관리 id를 사용 하도록 설정 하는 경우 구성의 모양을 보여 줍니다.
-
-```json
-"parameters": {
-   "$connections": {
-      "value": {
-         "<action-name>": {
-            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
-            "connectionName": "{connection-name}",
-            "connectionProperties": {
-               "authentication": {
-                  "type": "ManagedServiceIdentity"
-               }
-            },
-            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
-         }
-      }
-   }
-}
- ```
-
-이 예제에서는 논리 앱에서 사용자 할당 관리 id를 사용 하도록 설정할 때 구성의 모양을 보여 줍니다.
-
-```json
-"parameters": {
-   "$connections": {
-      "value": {
-         "<action-name>": {
-            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
-            "connectionName": "{connection-name}",
-            "connectionProperties": {
-               "authentication": {
-                  "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}",
-                  "type": "ManagedServiceIdentity"
-               }
-            },
-            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
-         }
-      }
-   }
-}
-```
-
-런타임 중에 Logic Apps 서비스는 논리 앱의 관리 되는 커넥터 트리거와 작업이 관리 되는 id를 사용 하도록 설정 되어 있는지, 그리고 모든 필요한 권한이 트리거 및 작업에 지정 된 대상 리소스에 액세스 하기 위해 관리 되는 id를 사용 하도록 설정 되었는지 여부를 확인 합니다. 성공 하면 Logic Apps 서비스에서 관리 되는 id와 연결 된 Azure AD 토큰을 검색 하 고이 id를 사용 하 여 대상 리소스에 대 한 액세스를 인증 하 고 트리거 및 작업에서 구성 된 작업을 수행 합니다.
+     자세한 내용은 [예: 관리 ID로 관리형 커넥터 트리거 또는 작업 인증](#authenticate-managed-connector-managed-identity)을 참조하세요.
 
 <a name="authenticate-built-in-managed-identity"></a>
 
-#### <a name="example-authenticate-built-in-trigger-or-action-with-a-managed-identity"></a>예: 관리 id를 사용 하 여 기본 제공 트리거 또는 작업 인증
+#### <a name="example-authenticate-built-in-trigger-or-action-with-a-managed-identity"></a>예: 관리 ID로 기본 제공 트리거 또는 작업 인증
 
-HTTP 트리거 또는 작업은 논리 앱에 대해 사용 하도록 설정한 시스템 할당 id를 사용할 수 있습니다. 일반적으로 HTTP 트리거 또는 작업에서 다음 속성을 사용하여 액세스하려는 리소스 또는 엔터티를 지정합니다.
+HTTP 트리거 또는 작업은 논리 앱에서 사용하도록 설정한 시스템이 할당한 ID를 사용할 수 있습니다. 일반적으로 HTTP 트리거 또는 작업에서 다음 속성을 사용하여 액세스하려는 리소스 또는 엔터티를 지정합니다.
 
 | 속성 | 필수 | Description |
 |----------|----------|-------------|
@@ -477,20 +434,20 @@ HTTP 트리거 또는 작업은 논리 앱에 대해 사용 하도록 설정한 
 |----------|----------|---------------|-------------|
 | **메서드** | 예 | `PUT`| Blob 스냅샷 작업에서 사용하는 HTTP 메서드 |
 | **URI** | 예 | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | 이 구문을 사용하는 Azure 글로벌(퍼블릭) 환경의 Azure Blob Storage 파일에 대한 리소스 ID |
-| **헤더** | Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r'}` | `x-ms-blob-type` `x-ms-version` `x-ms-date` Azure Storage 작업에는, 및 헤더 값이 필요 합니다. <p><p>**중요**: Azure Storage에 대한 나가는 HTTP 트리거 및 작업 요청에서 헤더에는 실행하려는 작업에 대한 `x-ms-version` 속성 및 API 버전이 필요합니다. 는 `x-ms-date` 현재 날짜 여야 합니다. 그렇지 않으면 논리 앱은 오류와 함께 실패 `403 FORBIDDEN` 합니다. 현재 날짜를 필수 형식으로 가져오려면 예제 값에 식을 사용할 수 있습니다. <p>자세한 내용은 다음 항목을 참조하세요. <p><p>- [요청 헤더 - Blob 스냅샷 ](/rest/api/storageservices/snapshot-blob#request) <br>- [Azure Storage 서비스에 대한 버전 관리](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
-| **쿼리** | Snapshot Blob 작업에만 해당 | `comp` = `snapshot` | 작업에 대 한 쿼리 매개 변수 이름 및 값입니다. |
+| **헤더** | Azure Storage용 | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r'}` | Azure Storage 작업에 필요한 `x-ms-blob-type`, `x-ms-version` 및 `x-ms-date` 헤더 값입니다. <p><p>**중요**: Azure Storage에 대한 나가는 HTTP 트리거 및 작업 요청에서 헤더에는 실행하려는 작업에 대한 `x-ms-version` 속성 및 API 버전이 필요합니다. `x-ms-date`는 현재 날짜여야 합니다. 그렇지 않으면 논리 앱은 `403 FORBIDDEN` 오류와 함께 실패합니다. 현재 날짜를 필수 형식으로 가져오려면 예제 값의 식을 사용할 수 있습니다. <p>자세한 내용은 다음 항목을 참조하세요. <p><p>- [요청 헤더 - Blob 스냅샷 ](/rest/api/storageservices/snapshot-blob#request) <br>- [Azure Storage 서비스에 대한 버전 관리](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+| **쿼리** | Blob 스냅샷 작업에만 해당 | `comp` = `snapshot` | 작업에 대한 쿼리 매개 변수 이름 및 값입니다. |
 |||||
 
 다음은 이러한 속성 값을 모두 보여 주는 HTTP 작업 예입니다.
 
 ![Azure 리소스에 액세스하기 위한 HTTP 작업 추가](./media/create-managed-service-identity/http-action-example.png)
 
-1. HTTP 작업을 추가한 후에는 HTTP 동작에 **Authentication** 속성을 추가 합니다. **새 매개 변수 추가** 목록에서 **인증** 을 선택합니다.
+1. HTTP 작업을 추가한 후에는 HTTP 동작에 **인증** 속성을 추가합니다. **새 매개 변수 추가** 목록에서 **인증** 을 선택합니다.
 
    ![HTTP 작업에 "인증" 속성 추가](./media/create-managed-service-identity/add-authentication-property.png)
 
    > [!NOTE]
-   > 일부 트리거 및 작업만 인증 유형을 추가할 수 있도록 지원합니다. 자세한 내용은 [트리거에 대 한 인증 유형 및 인증을 지 원하는 작업](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)을 참조 하세요.
+   > 일부 트리거 및 작업만 인증 유형을 추가할 수 있도록 지원합니다. 자세한 내용은 [트리거 인증 형식과 인증 지원 동작](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)을 참조하세요.
 
 1. **인증 유형** 목록에서 **관리 ID** 를 선택합니다.
 
@@ -526,29 +483,106 @@ HTTP 트리거 또는 작업은 논리 앱에 대해 사용 하도록 설정한 
 
 <a name="authenticate-managed-connector-managed-identity"></a>
 
-#### <a name="example-authenticate-managed-connector-trigger-or-action-with-a-managed-identity"></a>예: 관리 되는 id를 사용 하 여 관리 되는 커넥터 트리거 또는 작업 인증
+#### <a name="example-authenticate-managed-connector-trigger-or-action-with-a-managed-identity"></a>예: 관리 ID로 관리형 커넥터 트리거 또는 작업 인증
 
-**리소스 읽기** Azure Resource Manager 작업은 논리 앱에 대해 사용 하도록 설정 된 관리 되는 id를 사용할 수 있습니다. 이 예제에서는 시스템 할당 관리 id를 사용 하는 방법을 보여 줍니다.
+**리소스 읽기** Azure Resource Manager 작업은 논리 앱에서 사용하도록 설정된 관리 ID를 사용할 수 있습니다. 이 예에서는 시스템이 할당한 관리 ID를 사용하는 방법을 보여 줍니다.
 
-1. 워크플로에 작업을 추가한 후 테 넌 트 선택 페이지에서 **관리 되는 id로 연결** 을 선택 합니다.
+1. 워크플로에 작업을 추가한 후 테넌트 선택 페이지에서 **관리 ID로 연결** 을 선택합니다.
 
-   ![Azure Resource Manager 작업 및 "관리 되는 id를 사용 하 여 연결"을 선택 하는 스크린샷](./media/create-managed-service-identity/select-connect-managed-identity.png)
+   ![Azure Resource Manager 작업 및 ‘관리 ID로 연결’ 선택을 보여 주는 스크린샷](./media/create-managed-service-identity/select-connect-managed-identity.png)
 
-   이제 작업은 논리 앱에서 현재 사용 하도록 설정 된 관리 되는 id 유형을 포함 하는 관리 되는 id 목록을 사용 하 여 연결 이름 페이지를 표시 합니다.
+   이제 작업은 논리 앱에서 현재 사용하도록 설정된 관리 ID 유형을 포함하는 관리 ID 목록으로 연결 이름 페이지를 표시합니다.
 
-1. 연결 이름 페이지에서 연결의 이름을 제공 합니다. 관리 id 목록에서이 예의 **시스템 할당 관리 id** 인 관리 id를 선택 하 고 **만들기** 를 선택 합니다. 사용자 할당 관리 id를 사용 하도록 설정한 경우 대신 해당 id를 선택 합니다.
+1. 연결 이름 페이지에서 연결의 이름을 제공합니다. 관리 ID 목록에서 이 예의 **시스템이 할당한 관리 ID** 인 관리 ID를 선택하고 **만들기** 를 선택합니다. 사용자가 할당한 관리 ID를 사용하도록 설정한 경우 대신 해당 ID를 선택합니다.
 
-   ![연결 이름을 입력 하 고 "시스템 할당 관리 id"를 선택 하 여 Azure Resource Manager 작업을 보여 주는 스크린샷](./media/create-managed-service-identity/system-assigned-managed-identity.png)
+   ![연결 이름이 입력된 Azure Resource Manager와 선택된 ‘시스템이 할당한 관리 ID’를 보여 주는 스크린샷](./media/create-managed-service-identity/system-assigned-managed-identity.png)
 
-   관리 id를 사용 하도록 설정 하지 않으면 연결을 만들려고 할 때 다음과 같은 오류가 나타납니다.
+   관리 ID를 사용하도록 설정하지 않으면 연결할 때 다음과 같은 오류가 나타납니다.
 
-   *논리 앱에 관리 되는 id를 사용 하도록 설정한 다음 대상 리소스에서 id에 대 한 필요한 액세스 권한을 부여 해야 합니다.*
+   *논리 앱에 관리 ID를 사용하도록 설정한 다음 대상 리소스에서 ID에 필요한 액세스 권한을 부여해야 합니다.*
 
-   ![관리 id를 사용 하도록 설정 하지 않은 경우 오류가 발생 한 Azure Resource Manager 작업을 보여 주는 스크린샷](./media/create-managed-service-identity/system-assigned-managed-identity-disabled.png)
+   ![관리 ID를 사용하도록 설정하지 않아 오류가 발생한 Azure Resource Manager 작업을 보여 주는 스크린샷](./media/create-managed-service-identity/system-assigned-managed-identity-disabled.png)
 
-1. 연결을 성공적으로 만든 후 디자이너는 관리 되는 id 인증을 사용 하 여 동적 값, 콘텐츠 또는 스키마를 가져올 수 있습니다.
+1. 성공적으로 연결한 후 디자이너는 관리 ID 인증을 사용하여 동적 값, 콘텐츠 또는 스키마를 가져올 수 있습니다.
 
 1. 논리 앱을 원하는 방식으로 계속 빌드합니다.
+
+<a name="logic-app-resource-definition-connection-managed-identity"></a>
+
+### <a name="logic-app-resource-definition-and-connections-that-use-a-managed-identity"></a>관리 ID를 사용하는 논리 앱 리소스 정의 및 연결
+
+관리 ID를 사용하도록 설정하고 사용하는 연결은 관리 ID로만 작동하는 특수 연결 형식입니다. 런타임에 연결은 논리 앱에서 사용하도록 설정된 관리 ID를 사용합니다. 이 구성은 논리 앱 리소스 정의의 `parameters` 개체에 저장되며, 이것은 사용자 할당 ID를 사용하는 경우 ID의 리소스 ID와 함께 연결의 리소스 ID에 대한 포인터를 포함하는 `$connections` 개체를 포함합니다.
+
+이 예제에서는 논리 앱에서 시스템이 할당한 관리 ID를 사용하도록 설정할 때의 구성을 보여 줍니다.
+
+```json
+"parameters": {
+   "$connections": {
+      "value": {
+         "<action-name>": {
+            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+            "connectionName": "{connection-name}",
+            "connectionProperties": {
+               "authentication": {
+                  "type": "ManagedServiceIdentity"
+               }
+            },
+            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+         }
+      }
+   }
+}
+```
+
+이 예제에서는 논리 앱에서 사용자가 할당한 관리 ID를 사용하도록 설정할 때의 구성을 보여 줍니다.
+
+```json
+"parameters": {
+   "$connections": {
+      "value": {
+         "<action-name>": {
+            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+            "connectionName": "{connection-name}",
+            "connectionProperties": {
+               "authentication": {
+                  "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}",
+                  "type": "ManagedServiceIdentity"
+               }
+            },
+            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+         }
+      }
+   }
+}
+```
+
+런타임 중에 Logic Apps 서비스는 논리 앱의 관리형 커넥터 트리거와 작업이 관리 ID를 사용하도록 설정되어 있는지, 모든 필요한 권한이 관리 ID를 사용하여 트리거 및 작업에 지정된 대상 리소스에 액세스하도록 설정되었는지를 확인합니다. 성공하면 Logic Apps 서비스에서 관리 ID와 연결된 Azure AD 토큰을 검색하고, 이 ID로 대상 리소스에 대한 액세스를 인증하여 트리거 및 작업에서 구성된 작업을 수행합니다.
+
+<a name="arm-templates-connection-resource-managed-identity"></a>
+
+## <a name="arm-template-for-managed-connections-and-managed-identities"></a>관리형 연결 및 관리 ID를 위한 ARM 템플릿
+
+ARM 템플릿을 사용하여 배포를 자동화하고 논리 앱이 관리 ID를 사용하는 관리형 커넥터 트리거 또는 작업을 포함하면, 기본 연결 리소스 정의가 `parameterValueType` 속성을 포함하고 속성 값이 `Alternative`인지 확인합니다. 그렇지 않은 경우 ARM 배포는 인증을 위해 관리 ID를 사용하도록 연결을 설정하지 않으며 논리 앱의 워크플로에서 연결이 작동하지 않습니다. 이 요구 사항은 [ **관리 ID로 연결** 옵션](#authenticate-managed-connector-managed-identity)을 선택한 [특정 관리형 커넥터 트리거 및 작업](#managed-connectors-managed-identity)에만 적용됩니다.
+
+예를 들어, `parameterValueType` 속성을 정의에 포함하는 관리 ID를 사용하는 Azure Automation 작업용 기본 연결 리소스 정의는 다음과 같으며, 속성 값은 `Alternative`로 설정되어 있습니다.
+
+```json
+{
+    "type": "Microsoft.Web/connections",
+    "name": "[variables('automationAccountApiConnectionName')]",
+    "apiVersion": "2016-06-01",
+    "location": "[parameters('location')]",
+    "kind": "V1",
+    "properties": {
+        "api": {
+            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureautomation')]"
+        },
+        "customParameterValues": {},
+        "displayName": "[variables('automationAccountApiConnectionName')]",
+        "parameterValueType": "Alternative"
+    }
+},
+```
 
 <a name="remove-identity"></a>
 

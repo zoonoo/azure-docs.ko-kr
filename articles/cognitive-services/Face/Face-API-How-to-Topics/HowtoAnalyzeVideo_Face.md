@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 730946a0c581be4697c0f45c8bdeb1d38f0ca23d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d06396c869bb7e9dbfbf99109d0a857302d5e874
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856391"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136214"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>예제: 실시간으로 비디오를 분석하는 방법
 
@@ -160,7 +160,7 @@ while (true)
 1. [Azure 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다. 이미 있는 경우 다음 단계로 건너뛸 수 있습니다.
 2. Azure Portal에서 Computer Vision 및 Face용 리소스를 만들어 키와 엔드포인트를 가져옵니다. 설치 중에 체험 계층(F0)을 선택했는지 확인합니다.
    - [Computer Vision](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
-   - [Face](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace): 리소스를 배포한 후 **리소스로 이동**을 클릭하여 각 리소스에 대한 키와 엔드포인트를 수집합니다. 
+   - [Face](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace): 리소스를 배포한 후 **리소스로 이동** 을 클릭하여 각 리소스에 대한 키와 엔드포인트를 수집합니다. 
 3. [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub 리포지토리를 복제합니다.
 4. Visual Studio에서 샘플을 열고 샘플 애플리케이션을 빌드 및 실행합니다.
     - BasicConsoleSample의 경우 Face 키가 [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs)에 직접 하드 코딩되어 있습니다.
@@ -173,7 +173,7 @@ while (true)
 
 이 가이드에서는 Face, Computer Vision 및 Emotion API를 사용하여 라이브 비디오 스트림을 거의 실시간으로 실행하는 방법과 샘플 코드를 사용하여 시작하는 방법을 알아보았습니다.
 
-[GitHub 리포지토리](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)에서 자유롭게 피드백과 제안 사항을 보내주세요. 더 광범위한 API 피드백의 경우 [UserVoice 사이트](https://cognitive.uservoice.com/)를 이용하셔도 됩니다.
+[GitHub 리포지토리](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)에서 자유롭게 피드백과 제안 사항을 보내주세요. 더 광범위한 API 피드백의 경우 UserVoice 사이트를 이용하셔도 됩니다.
 
 ## <a name="related-topics"></a>관련 항목
 - [이미지에서 얼굴을 감지하는 방법](HowtoDetectFacesinImage.md)

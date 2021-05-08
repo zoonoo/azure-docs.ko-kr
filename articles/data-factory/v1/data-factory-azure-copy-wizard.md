@@ -8,10 +8,10 @@ ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0f95b0d62bc81a8dddc72239491a05ca78945490
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100393380"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Azure Data Factory 복사 마법사
@@ -42,7 +42,7 @@ Azure Data Factory 복사 마법사는 일반적으로 엔드투엔드 데이터
 입력 데이터의 스키마는 경우에 따라 출력 데이터의 스키마와 일치하지 않을 수 있습니다. 이 시나리오에서는 원본 스키마의 열을 대상 스키마의 열에 매핑해야 합니다.
 
 > [!TIP]
-> SQL Server 또는 Azure SQL Database에서 Azure Synapse Analytics로 데이터를 복사 하는 경우 대상 저장소에 테이블이 없으면 원본의 스키마를 사용 하 여 자동 테이블 만들기를 지원 Data Factory. [Azure Data Factory를 사용 하 여 Azure Synapse Analytics 간 데이터 이동](./data-factory-azure-sql-data-warehouse-connector.md)에서 자세히 알아보세요.
+> SQL Server 또는 Azure SQL Database에서 Azure Synapse Analytics으로 데이터를 복사할 때, 테이블이 대상 저장소에 없을 경우 Data Factory는 원본의 스키마를 사용하여 자동 테이블 만들기를 지원합니다. [Azure Data Factory를 사용하여 Azure Synapse Analytics 간 데이터 이동](./data-factory-azure-sql-data-warehouse-connector.md)에서 자세한 정보를 알아봅니다.
 
 드롭다운 목록을 사용하여 원본 스키마에서 대상 스키마의 열에 매핑할 열을 선택합니다. 복사 마법사는 열 매핑에 대한 패턴을 파악하려고 시도합니다. 나머지 열에도 동일한 패턴을 적용하므로 스키마 매핑을 완료하기 위해 각 열을 개별적으로 선택할 필요가 없습니다. 원하는 경우 드롭다운 목록을 사용하여 열을 하나씩 매핑하면 이러한 매핑을 무시할 수 있습니다. 열을 더 많이 매핑할수록 패턴이 더 정확하게 됩니다. 복사 마법사는 패턴을 지속적으로 업데이트하고, 궁극적으로는 도달하려는 열 매핑의 올바른 패턴에 도달합니다.     
 
@@ -85,45 +85,45 @@ Azure Data Factory 복사 마법사는 일반적으로 엔드투엔드 데이터
 
 ## <a name="troubleshooting"></a>문제 해결
 
-이 섹션에서는 Azure Data Factory의 복사 마법사에 대 한 일반적인 문제 해결 방법을 살펴봅니다.
+이 섹션에서는 Azure Data Factory의 복사 마법사에 대한 일반적인 문제 해결 방법을 살펴봅니다.
 
 > [!NOTE] 
-> 이러한 문제 해결 팁은 Data Factory 버전 1의 복사 마법사에 적용 됩니다. Data Factory v 2의 경우 문제 해결 가이드 [Azure Data Factory](../data-factory-ux-troubleshoot-guide.md)를 참조 하세요.
+> 해당 문제 해결 팁은 Data Factory의 버전 1 복사 마법사에 적용됩니다. Data Factory v2의 경우 [Azure Data Factory 문제 해결](../data-factory-ux-troubleshoot-guide.md)에서 문제 해결 가이드를 참조하세요.
 
-### <a name="error-code-unable-to-validate-in-copy-wizard"></a>오류 코드: 복사 마법사에서 유효성을 검사할 수 없습니다.
+### <a name="error-code-unable-to-validate-in-copy-wizard"></a>오류 코드: 복사 마법사에서 유효성을 검사할 수 없음
 
-- **증상**: 복사 마법사의 첫 번째 단계에서 "유효성을 검사할 수 없습니다." 라는 경고 메시지가 표시 됩니다.
-- **원인**: 모든 타사 쿠키를 사용 하지 않도록 설정 하는 경우 발생할 수 있습니다.
+- **증상**: 복사 마법사의 첫 번째 단계에서 “유효성을 검사할 수 없습니다”라는 경고 메시지가 표시됩니다.
+- **원인**: 모든 타사 쿠키를 사용하지 않도록 설정하는 경우 발생할 수 있습니다.
 - **해결 방법**: 
-    - Internet Explorer 또는 Microsoft Edge 브라우저를 사용 합니다.
-    - Chrome 브라우저를 사용 하는 경우 아래 지침에 따라 *microsoftonline.com* 및 *windows.net* 에 대 한 쿠키 예외를 추가 합니다.
+    - Internet Explorer 또는 Microsoft Edge 브라우저를 사용합니다.
+    - Chrome 브라우저를 사용하는 경우 아래 지침에 따라 *microsoftonline.com* 및 *windows.net* 를 쿠키 예외에 추가합니다.
         1.  Chrome 브라우저를 엽니다.
-        2.  오른쪽의 렌치 또는 세 줄을 클릭 합니다 (Google Chrome 사용자 지정 및 제어).
+        2.  오른쪽의 렌치 또는 세 줄을 클릭합니다(Google Chrome 사용자 지정 및 제어).
         3.  **설정** 을 클릭합니다.
-        4.  **쿠키** 를 검색 하거나 고급 설정에서 **개인 정보** 로 이동 합니다.
-        5.  **콘텐츠 설정** 을 선택 합니다.    
-        6.  **로컬 데이터를 설정할 수 있도록** 쿠키를 설정 해야 합니다 (권장).
-        7.  **예외 관리** 를 클릭 합니다. **호스트 이름 패턴** 아래에 다음을 입력 하 고 **허용** 이 동작 집합 인지 확인 합니다.
+        4.  **쿠키** 를 검색하거나 고급 설정에서 **개인 정보** 로 이동합니다.
+        5.  **콘텐츠 설정** 을 선택합니다.    
+        6.  쿠키를 **로컬 데이터 설정 허용(권장)** 으로 설정해야 합니다.
+        7.  **예외 관리** 를 클릭합니다. **호스트 이름 패턴** 아래에 다음을 입력하고 설정된 동작이 **허용** 인지 확인합니다.
             - login.microsoftonline.com
             - login.windows.net
-        8.  브라우저를 닫고 다시 합니다.
-    - Firefox 브라우저를 사용 하는 경우 아래 지침에 따라 쿠키 예외를 추가 합니다.
-        1. Firefox 메뉴에서 **도구**  >  **옵션** 으로 이동 합니다.
-        2. **개인정보 처리 방침** 에서  >  현재 설정이 **기록에 사용자 지정 설정을 사용** 하는 **것을** 볼 수 있습니다.
-        3. **타사 쿠키 수락** 에서 현재 설정이 **Never** 인 경우 오른쪽의 **예외** 를 클릭 하 여 다음 사이트를 추가 해야 합니다.
+        8.  브라우저를 닫고 재설치합니다.
+    - Firefox 브라우저를 사용하는 경우 아래 지침에 따라 쿠키 예외를 추가합니다.
+        1. Firefox 메뉴에서 **도구** > **옵션** 으로 이동합니다.
+        2. **개인 정보** > **기록** 에서, 현재 **사용자 지정 기록 설정 사용** 으로 설정된 것을 볼 수 있습니다.
+        3. **타사 쿠키 수락** 에서 현재 설정이 **안 함** 인 경우 오른쪽의 **예외** 를 클릭하여 다음 사이트를 추가해야 합니다.
             - https://login.microsoftonline.com
             - https://login.windows.net
-        4.  브라우저를 닫고 다시 합니다. 
+        4.  브라우저를 닫고 재설치합니다. 
 
 
-### <a name="error-code-unable-to-open-login-page-and-enter-password"></a>오류 코드: 로그인 페이지를 열고 암호를 입력할 수 없습니다.
+### <a name="error-code-unable-to-open-login-page-and-enter-password"></a>오류 코드: 로그인 페이지를 열고 암호를 입력할 수 없음
 
-- **증상**: 복사 마법사는 로그인 페이지로 리디렉션되고 로그인 페이지가 성공적으로 표시 되지 않습니다.
-- **원인**: 네트워크 환경을 office 네트워크에서 홈 네트워크로 변경한 경우이 문제가 발생할 수 있습니다. 브라우저에는 몇 가지 캐시가 있습니다. 
+- **증상**: 복사 마법사는 로그인 페이지로 리디렉션되지만 로그인 페이지가 성공적으로 표시되지 않습니다.
+- **원인**: 네트워크 환경을 사무실 네트워크에서 홈 네트워크로 변경한 경우 해당 문제가 발생할 수 있습니다. 브라우저에는 몇 가지 캐시가 있습니다. 
 - **해결 방법**: 
-    1.  브라우저를 닫고 다시 시도 하세요. 문제가 여전히 있는 경우 다음 단계로 이동 합니다.   
-    2.  Internet Explorer 브라우저를 사용 하는 경우 "Ctrl" + "Shift" + "P"를 눌러 개인 모드로 엽니다. Chrome 브라우저를 사용 하는 경우 incognito 모드에서 엽니다. ("Ctrl" + "shift" + "N")를 누릅니다. 문제가 여전히 있는 경우 다음 단계로 이동 합니다. 
-    3.  다른 브라우저를 사용 하십시오. 
+    1.  브라우저를 닫고 다시 시도하세요. 여전히 문제가 있는 경우 다음 단계로 이동합니다.   
+    2.  Internet Explorer 브라우저를 사용하는 경우 “Ctrl” + “Shift” + “P”를 눌러 프라이빗 모드로 엽니다. Chrome 브라우저를 사용하는 경우 “Ctrl” + “shift” + “N”을 눌러 시크릿 모드로 엽니다. 여전히 문제가 있는 경우 다음 단계로 이동합니다. 
+    3.  다른 브라우저를 사용하세요. 
 
 
 ## <a name="next-steps"></a>다음 단계

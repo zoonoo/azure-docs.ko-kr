@@ -8,52 +8,52 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
 ms.openlocfilehash: ee663423071458605f37f07293693dbc91f592bb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100362117"
 ---
 # <a name="transformation-with-azure-databricks"></a>Azure Databricks를 통한 변환
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 자습서에서는 Azure Data Factory의 **유효성 검사**, **데이터 복사** 및 **노트북** 작업을 포함 하는 종단 간 파이프라인을 만듭니다.
+이 자습서에서는 Azure Data Factory의 **유효성 검사**, **데이터 복사** 및 **Notebook** 작업을 포함하는 엔드투엔드 파이프라인을 만듭니다.
 
-- **유효성 검사** 를 사용 하면 복사 및 분석 작업을 트리거하기 전에 원본 데이터 집합이 다운스트림 사용에 대해 준비 됩니다.
+- **유효성 검사** 를 사용하면 복사 및 분석 작업을 트리거하기 전에 원본 데이터 세트가 다운스트림에 대한 사용 준비가 됩니다.
 
-- **데이터 복사** 는 Azure Databricks 노트북에서 dbfs로 탑재 된 싱크 저장소로 원본 데이터 집합을 복제 합니다. 이러한 방식으로 Spark에서 데이터 집합을 직접 사용할 수 있습니다.
+- **데이터 복사** 는 Azure Databricks Notebook에서 DBFS로 탑재된 싱크 스토리지로 원본 데이터 세트를 복제합니다. 해당 방식으로 Spark를 통해 데이터 세트를 직접 사용할 수 있습니다.
 
-- **노트북** 은 데이터 집합을 변환 하는 Databricks 노트북을 트리거합니다. 또한 처리 된 폴더 또는 Azure Azure Synapse Analytics에 데이터 집합을 추가 합니다.
+- **Notebook** 은 데이터 세트를 변환하는 Databricks Notebook을 트리거합니다. 또한 처리된 폴더 또는 Azure Synapse Analytics에 데이터 세트를 추가합니다.
 
-간단히 하기 위해이 자습서의 템플릿은 예약 된 트리거를 만들지 않습니다. 필요한 경우 하나를 추가할 수 있습니다.
+간단히 말해, 이 자습서의 템플릿은 예약된 트리거를 만들지 않습니다. 필요한 경우에는 추가할 수 있습니다.
 
 ![파이프라인 다이어그램](media/solution-template-Databricks-notebook/pipeline-example.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-- 싱크로 사용 하기 위해 라는 컨테이너가 있는 Azure Blob storage 계정 `sinkdata` .
+- `sinkdata`싱크로 사용이라는 컨테이너가 있는 Azure Blob Storage 계정
 
-  저장소 계정 이름, 컨테이너 이름 및 액세스 키를 적어 둡니다. 이러한 값은 나중에 템플릿에서 필요 합니다.
+  스토리지 계정 이름, 컨테이너 이름 및 액세스 키를 적어둡니다. 템플릿의 뒷부분에서 해당 값이 필요합니다.
 
-- Azure Databricks 작업 영역입니다.
+- Azure Databricks 작업 영역
 
-## <a name="import-a-notebook-for-transformation"></a>변환을 위해 노트북 가져오기
+## <a name="import-a-notebook-for-transformation"></a>변환을 위해 Notebook 가져오기
 
-Databricks 작업 영역으로 **변환** 노트북을 가져오려면 다음을 수행 합니다.
+Databricks 작업 영역으로 **변환** Notebook을 가져오려면 다음을 수행합니다.
 
-1. Azure Databricks 작업 영역에 로그인 하 고 **가져오기** 를 선택 합니다.
-       ![작업 영역을 가져오는 메뉴 명령 ](media/solution-template-Databricks-notebook/import-notebook.png) 작업 영역 경로는 표시 된 것과 다를 수 있지만 나중에 사용할 수 있습니다.
-1. **다음에서 가져오기: URL** 을 선택 합니다. 텍스트 상자에을 입력 `https://adflabstaging1.blob.core.windows.net/share/Transformations.html` 합니다.
+1. Azure Databricks 작업 영역에 로그인하고 **가져오기** 를 선택합니다.
+       ![작업 영역을 가져오는 메뉴 명령](media/solution-template-Databricks-notebook/import-notebook.png) 사용자의 작업 영역 경로는 표시된 것과 다를 수 있지만 나중을 위해 기억해두세요.
+1. **URL에서 가져오기** 를 선택합니다. 문자 상자에 `https://adflabstaging1.blob.core.windows.net/share/Transformations.html`을 입력합니다.
 
-   ![노트북 가져오기에 대 한 선택 항목](media/solution-template-Databricks-notebook/import-from-url.png)
+   ![Notebook 가져오기에 대한 선택 항목](media/solution-template-Databricks-notebook/import-from-url.png)
 
-1. 이제 저장소 연결 정보를 사용 하 여 **변환** 노트북을 업데이트 해 보겠습니다.
+1. 이제 스토리지 연결 정보를 사용하여 **변환** Notebook을 업데이트해 보겠습니다.
 
-   가져온 노트북에서 다음 코드 조각과 같이 **명령 5** 로 이동 합니다.
+   가져온 Notebook에서 다음의 코드 조각과 같이 **명령 5** 로 이동합니다.
 
-   - `<storage name>`및를 `<access key>` 사용자 고유의 저장소 연결 정보로 바꿉니다.
-   - 컨테이너에 저장소 계정을 사용 합니다 `sinkdata` .
+   - `<storage name>`과 `<access key>`를 사용자의 스토리지 연결 정보로 바꿉니다.
+   - `sinkdata`컨테이너에 스토리지 계정을 사용합니다.
 
     ```python
     # Supply storageName and accessKey values  
@@ -78,106 +78,106 @@ Databricks 작업 영역으로 **변환** 노트북을 가져오려면 다음을
     ```
 
 1. Databricks에 액세스할 Data Factory에 대해 **Databricks 액세스 토큰** 을 생성합니다.
-   1. Databricks 작업 영역에서 오른쪽 위에 있는 사용자 프로필 아이콘을 선택 합니다.
-   1. **사용자 설정** 을 선택 합니다.
-    ![사용자 설정에 대 한 메뉴 명령](media/solution-template-Databricks-notebook/user-setting.png)
-   1. **액세스 토큰** 탭에서 **새 토큰 생성** 을 선택 합니다.
+   1. Databricks 작업 영역에서 오른쪽 위에 있는 사용자 프로필 아이콘을 선택합니다.
+   1. **사용자 설정** 을 선택합니다.
+    ![사용자 설정에 대한 메뉴 명령](media/solution-template-Databricks-notebook/user-setting.png)
+   1. **액세스 토큰** 탭에서 **새 토큰 생성** 을 선택합니다.
    1. **생성** 을 선택합니다.
 
-    !["생성" 단추](media/solution-template-Databricks-notebook/generate-new-token.png)
+    ![‘생성’ 버튼](media/solution-template-Databricks-notebook/generate-new-token.png)
 
-   나중에 Databricks 연결 된 서비스를 만드는 데 사용 하기 위해 *액세스 토큰을 저장* 합니다. 액세스 토큰은와 유사 `dapi32db32cbb4w6eee18b7d87e45exxxxxx` 합니다.
+   나중에 Databricks에 연결된 서비스를 만드는 데 사용하기 위해 *액세스 토큰을 저장* 합니다. 액세스 토큰은 `dapi32db32cbb4w6eee18b7d87e45exxxxxx`과 유사합니다.
 
-## <a name="how-to-use-this-template"></a>이 템플릿을 사용 하는 방법
+## <a name="how-to-use-this-template"></a>이 템플릿을 사용하는 방법 알아보기
 
-1. **Azure Databricks 템플릿으로 변환** 으로 이동 하 고 다음 연결에 대 한 새 연결 된 서비스를 만듭니다.
+1. **Azure Databricks로 변환** 으로 이동하여 다음 연결에 대한 새 연결된 서비스를 만듭니다.
 
    ![연결 설정](media/solution-template-Databricks-notebook/connections-preview.png)
 
-    - 원본 **Blob 연결** -원본 데이터에 액세스 합니다.
+    - **원본 Blob 연결** -원본 데이터에 액세스합니다.
 
-       이 연습에서는 원본 파일을 포함 하는 공용 blob 저장소를 사용할 수 있습니다. 구성에 대 한 다음 스크린샷을 참조 합니다. 다음 **SAS URL** 을 사용 하 여 원본 저장소 (읽기 전용 액세스)에 연결 합니다.
+       이 연습에서는 원본 파일을 포함하는 공용 Blob Storage를 사용할 수 있습니다. 구성에 대한 다음 스크린샷을 참조합니다. 다음 **SAS URL** 을 사용하여 원본 스토리지(읽기 전용 액세스)에 연결합니다.
 
        `https://storagewithdata.blob.core.windows.net/data?sv=2018-03-28&si=read%20and%20list&sr=c&sig=PuyyS6%2FKdB2JxcZN0kPlmHSBlD8uIKyzhBWmWzznkBw%3D`
 
-        ![인증 방법 및 SAS URL에 대 한 선택 항목](media/solution-template-Databricks-notebook/source-blob-connection.png)
+        ![인증 방법 및 SAS URL에 대한 선택 항목](media/solution-template-Databricks-notebook/source-blob-connection.png)
 
-    - **대상 Blob 연결** -복사 된 데이터를 저장 합니다.
+    - **대상 Blob 연결** -복사된 데이터를 저장합니다.
 
-       **새 연결 된 서비스** 창에서 싱크 저장소 blob을 선택 합니다.
+       **새 연결된 서비스** 창에서 싱크 Storage Blob을 선택합니다.
 
-       ![새 연결 된 서비스로 싱크 저장소 blob](media/solution-template-Databricks-notebook/destination-blob-connection.png)
+       ![새 연결된 서비스로 싱크 Storage Blob](media/solution-template-Databricks-notebook/destination-blob-connection.png)
 
-    - **Azure Databricks** -Databricks 클러스터에 연결 합니다.
+    - **Azure Databricks** -Databricks 클러스터에 연결합니다.
 
-        이전에 생성 한 액세스 키를 사용 하 여 Databricks 연결 된 서비스를 만듭니다. *대화형 클러스터가* 있는 경우 선택 하도록 선택할 수 있습니다. 이 예에서는 **새 작업 클러스터** 옵션을 사용 합니다.
+        이전에 생성한 액세스 키를 사용하여 Databricks로 연결된 서비스를 만듭니다. *대화형 클러스터* 가 있는 경우 선택할 수 있습니다. 이 예제에서는 **새 작업 클러스터** 옵션을 사용합니다.
 
-        ![클러스터에 연결 하기 위한 선택 항목](media/solution-template-Databricks-notebook/databricks-connection.png)
+        ![프라이빗 클러스터에 연결하기 위한 선택 항목](media/solution-template-Databricks-notebook/databricks-connection.png)
 
-1. **이 템플릿 사용** 을 선택합니다. 파이프라인이 생성 된 것을 볼 수 있습니다.
+1. **이 템플릿 사용** 을 선택합니다. 만들어진 파이프라인을 볼 수 있습니다.
 
     ![파이프라인 만들기](media/solution-template-Databricks-notebook/new-pipeline.png)
 
 ## <a name="pipeline-introduction-and-configuration"></a>파이프라인 소개 및 구성
 
-새 파이프라인에서 대부분의 설정은 기본값을 사용 하 여 자동으로 구성 됩니다. 파이프라인의 구성을 검토 하 고 필요한 변경 작업을 수행 합니다.
+새 파이프라인에서 대부분의 설정은 기본값을 사용하여 자동으로 구성됩니다. 파이프라인의 구성을 검토하고 필요한 변경 작업을 수행합니다.
 
-1. **유효성 검사** 작업 **가용성 플래그** 에서 원본 **데이터 집합** 값이 이전에 만든으로 설정 되어 있는지 확인 합니다 `SourceAvailabilityDataset` .
+1. **유효성 검사** 작업 **가용성 플래그** 에서 원본 **데이터 세트** 값이 `SourceAvailabilityDataset`이전에 만든 것으로 설정되어 있는지 확인합니다.
 
-   ![원본 데이터 집합 값](media/solution-template-Databricks-notebook/validation-settings.png)
+   ![원본 데이터 세트 값](media/solution-template-Databricks-notebook/validation-settings.png)
 
-1. **데이터 복사** 작업 **파일-blob** 에서 **원본** 및 **싱크** 탭을 선택 합니다. 필요한 경우 설정을 변경 합니다.
+1. **데이터** 작업 **파일을 Blob으로 복사** 에서 **원본** 및 **싱크** 탭을 선택합니다. 필요한 경우 설정을 변경합니다.
 
-   - **원본** 탭 ![ 원본 탭](media/solution-template-Databricks-notebook/copy-source-settings.png)
+   - **원본** 탭 ![원본 탭](media/solution-template-Databricks-notebook/copy-source-settings.png)
 
    - **싱크** 탭 ![ 싱크 탭](media/solution-template-Databricks-notebook/copy-sink-settings.png)
 
-1. **노트북** 활동 **변환** 에서 필요에 따라 경로와 설정을 검토 하 고 업데이트 합니다.
+1. **Notebook** 활동 **변환** 에서 필요에 따라 경로와 설정을 검토하고 업데이트합니다.
 
-   **Databricks 연결 된 서비스** ![ 는 Databricks 연결 된 서비스에 대해 채워진 값과 같이 이전 단계의 값으로 미리 채워야 합니다.](media/solution-template-Databricks-notebook/notebook-activity.png)
+   **Databricks 연결된 서비스** 는 ![Databricks 연결된 서비스에 대해 채워진 값](media/solution-template-Databricks-notebook/notebook-activity.png)에 표시된 것처럼 이전 단계의 값으로 미리 채워야 합니다.
 
-   **노트북** 설정을 확인 하려면:
+   **Notebook** 설정을 확인하기 위해서 다음을 수행합니다.
   
-    1. **설정** 탭을 선택 합니다. **전자 필기장 경로** 의 경우 기본 경로가 올바른지 확인 합니다. 올바른 전자 필기장 경로를 찾아서 선택 해야 할 수 있습니다.
+    1. **설정** 탭을 선택합니다. **Notebook 경로** 에서 기본 경로가 올바른지 확인합니다. 올바른 Notebook 경로를 찾아서 선택해야 할 수 있습니다.
 
-       ![전자 필기장 경로](media/solution-template-Databricks-notebook/notebook-settings.png)
+       ![Notebook 경로](media/solution-template-Databricks-notebook/notebook-settings.png)
 
-    1. **기본 매개 변수** 선택기를 확장 하 고 다음 스크린샷에 표시 된 것과 일치 하는 매개 변수를 확인 합니다. 이러한 매개 변수는 Data Factory에서 Databricks 노트북으로 전달 됩니다.
+    1. **기본 매개 변수** 선택기를 확장하고 다음 스크린샷에 표시된 것과 일치하는 매개 변수를 확인합니다. 해당 매개 변수는 Data Factory에서 Databricks Notebook으로 전달됩니다.
 
        ![기본 매개 변수](media/solution-template-Databricks-notebook/base-parameters.png)
 
-1. **파이프라인 매개 변수가** 다음 스크린샷에 표시 된 것과 일치 하는지 확인 합니다. ![ 파이프라인 매개 변수](media/solution-template-Databricks-notebook/pipeline-parameters.png)
+1. **파이프라인 매개 변수가** 다음 스크린샷에 표시된 것과 일치하는지 확인합니다. ![파이프라인 매개 변수](media/solution-template-Databricks-notebook/pipeline-parameters.png)
 
-1. 데이터 집합에 연결 합니다.
+1. 데이터 세트에 연결합니다.
 
     >[!NOTE]
-    >아래 데이터 집합에서 파일 경로가 템플릿에 자동으로 지정 되었습니다. 변경 해야 하는 경우 연결 오류가 발생 하는 경우 **컨테이너** 와 **디렉터리** 에 대 한 경로를 지정 해야 합니다.
+    >아래 데이터 세트에서 파일 경로가 템플릿에 자동으로 지정되었습니다. 변경이 필요한 경우, 연결 오류가 발생할 수 있으므로 **컨테이너** 와 **디렉터리** 에 대한 경로를 지정했는지 확인합니다.
 
-   - **SourceAvailabilityDataset** -원본 데이터를 사용할 수 있는지 확인 합니다.
+   - **SourceAvailabilityDataset** -원본 데이터를 사용할 수 있는지 확인합니다.
 
-     ![SourceAvailabilityDataset에 대 한 연결 된 서비스 및 파일 경로 선택](media/solution-template-Databricks-notebook/source-availability-dataset.png)
+     ![SourceAvailabilityDataset에 대한 연결된 서비스 및 파일 경로 선택 항목](media/solution-template-Databricks-notebook/source-availability-dataset.png)
 
-   - **Sourcefilesdataset** -원본 데이터에 액세스 합니다.
+   - **SourceFilesDataset** -원본 데이터에 액세스합니다.
 
-       ![SourceFilesDataset의 연결 된 서비스 및 파일 경로에 대 한 선택](media/solution-template-Databricks-notebook/source-file-dataset.png)
+       ![SourceFilesDataset에 대한 연결된 서비스 및 파일 경로에 대한 선택 항목](media/solution-template-Databricks-notebook/source-file-dataset.png)
 
-   - **Destinationfilesdataset** -데이터를 싱크 대상 위치로 복사 합니다. 다음 값을 사용합니다.
+   - **DestinationFilesDataset** -데이터를 싱크 대상 위치로 복사합니다. 다음 값을 사용합니다.
 
-     -   -  `sinkBlob_LS` 이전 단계에서 만든 연결 된 서비스입니다.
+     - 이전 단계에서 만든 **연결된 서비스** - `sinkBlob_LS`
 
-     - **파일 경로**  -  `sinkdata/staged_sink` 입니다.
+     - **파일 경로** - `sinkdata/staged_sink`
 
-       ![DestinationFilesDataset의 연결 된 서비스 및 파일 경로에 대 한 선택 항목](media/solution-template-Databricks-notebook/destination-dataset.png)
+       ![DestinationFilesDataset의 연결된 서비스 및 파일 경로에 대한 선택 항목](media/solution-template-Databricks-notebook/destination-dataset.png)
 
-1. **디버그** 를 선택 하 여 파이프라인을 실행 합니다. Databricks 로그에 대 한 링크를 통해 더 자세한 Spark 로그를 확인할 수 있습니다.
+1. **디버그** 를 선택하여 파이프라인을 실행합니다. 자세한 Spark 로그를 보려면 Databricks 로그 링크를 확인합니다.
 
     ![출력에서 Databricks 로그에 연결](media/solution-template-Databricks-notebook/pipeline-run-output.png)
 
-    Azure Storage 탐색기를 사용 하 여 데이터 파일을 확인할 수도 있습니다.
+    Azure Storage Explorer를 사용하여 데이터 파일을 확인할 수도 있습니다.
 
     > [!NOTE]
-    > Data Factory 파이프라인 실행과의 상관 관계를 위해이 예제에서는 파이프라인 실행 ID를 데이터 팩터리에 있는 출력 폴더에 추가 합니다. 이렇게 하면 각 실행에 의해 생성 된 파일을 추적 하는 데 도움이 됩니다.
-    > ![추가 된 파이프라인 실행 ID](media/solution-template-Databricks-notebook/verify-data-files.png)
+    > Data Factory 파이프라인 실행과 상관관계 지정을 위해 이 예제에서는 Data Factory의 파이프라인 실행 ID를 출력 폴더에 추가합니다. 이렇게 하면 각 실행에 의해 생성된 파일을 추적하는 데 도움이 됩니다.
+    > ![추가된 파이프라인 실행 ID](media/solution-template-Databricks-notebook/verify-data-files.png)
 
 ## <a name="next-steps"></a>다음 단계
 

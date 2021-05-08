@@ -4,10 +4,10 @@ description: Azure에서 이벤트 허브의 활동 로그 및 진단 로그를 
 ms.topic: article
 ms.date: 02/25/2021
 ms.openlocfilehash: 5067a2962693ee1c1955aa90e61b43358495585a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104602607"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Azure 이벤트 허브에 대한 진단 로그 설정
@@ -45,7 +45,7 @@ Event Hubs는 다음 범주에 대한 진단 로그를 캡처합니다.
 | 범주 | Description | 
 | -------- | ----------- | 
 | 보관 로그 | [Event Hubs 캡처](event-hubs-capture-overview.md) 작업에 대한 정보, 특히 캡처 오류와 관련된 로그를 캡처합니다. |
-| 작업 로그 | Azure Event Hubs 네임스페이스에서 수행되는 모든 관리 작업을 캡처합니다. Azure Event Hubs에서 수행 되는 대량의 데이터 작업으로 인해 데이터 작업이 캡처되지 않습니다. |
+| 작업 로그 | Azure Event Hubs 네임스페이스에서 수행되는 모든 관리 작업을 캡처합니다. 데이터 작업은 Azure Event Hubs에서 수행되는 대량의 데이터 작업으로 인해 캡처되지 않습니다. |
 | 자동 크기 조정 로그 | Event Hubs 네임스페이스에서 수행된 자동 확장 작업을 캡처합니다. |
 | Kafka 코디네이터 로그 | Event Hubs와 관련된 Kafka 코디네이터 작업을 캡처합니다. |
 | Kafka 사용자 오류 로그 | Event Hubs에서 호출되는 Kafka API에 대한 정보를 캡처합니다. |
@@ -59,7 +59,7 @@ Event Hubs는 다음 범주에 대한 진단 로그를 캡처합니다.
 
 보관 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-속성 | 설명
+Name | 설명
 ------- | -------
 `TaskName` | 실패한 작업에 대한 설명
 `ActivityId` | 추적에 사용되는 내부 ID
@@ -97,14 +97,14 @@ Event Hubs는 다음 범주에 대한 진단 로그를 캡처합니다.
 
 작업 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-속성 | 설명
+Name | 설명
 ------- | -------
 `ActivityId` | 추적 목적으로 사용되는 내부 ID |
-`EventName` | 작업 이름입니다. 이 요소에 대 한 값 목록은 [이벤트 이름을](#event-names) 참조 하십시오. |
+`EventName` | 작업 이름입니다. 이 요소에 대한 값 목록은 [이벤트 이름](#event-names)을 참조하세요. |
 `resourceId` | Azure Resource Manager 리소스 ID |
 `SubscriptionId` | 구독 ID |
 `EventTimeString` | 작업 시간 |
-`EventProperties` |작업에 대 한 속성입니다. 이 요소는 다음 예제와 같이 이벤트에 대 한 자세한 정보를 제공 합니다. |
+`EventProperties` |작업에 대한 속성입니다. 이 요소는 다음 예제와 같이 이벤트에 대한 자세한 정보를 제공합니다. |
 `Status` | 작업 상태입니다. 이 값은 **Succeeded** 또는 **Failed** 일 수 있습니다.  |
 `Caller` | 작업 호출자(Azure Portal 또는 관리 클라이언트) |
 `Category` | OperationalLogs |
@@ -127,7 +127,7 @@ Example:
 ```
 
 ### <a name="event-names"></a>이벤트 이름
-이벤트 이름은 다음 열거형에서 작업 유형 + 리소스 유형으로 채워집니다. `Create Queue`, `Retrieve Event Hu` 또는 `Delete Rule`). 
+이벤트 이름은 다음 열거형에서 작업 유형 + 리소스 종류로 채워집니다. `Create Queue`, `Retrieve Event Hu` 또는 `Delete Rule`). 
 
 | 작업 유형 | 리소스 종류 | 
 | -------------- | ------------- | 
@@ -136,7 +136,7 @@ Example:
 ## <a name="autoscale-logs-schema"></a>자동 크기 조정 로그 스키마
 자동 크기 조정 로그 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| 속성 | 설명 |
+| Name | 설명 |
 | ---- | ----------- | 
 | `TrackingId` | 추적 목적으로 사용되는 내부 ID |
 | `ResourceId` | Azure Resource Manager 리소스 ID입니다. |
@@ -155,7 +155,7 @@ Example:
 ## <a name="kafka-coordinator-logs-schema"></a>Kafka 코디네이터 로그 스키마
 Kafka 코디네이터 로그 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| 속성 | 설명 |
+| Name | 설명 |
 | ---- | ----------- | 
 | `RequestId` | 추적 목적으로 사용되는 요청 ID |
 | `ResourceId` | Azure Resource Manager 리소스 ID |
@@ -183,7 +183,7 @@ Kafka 코디네이터 로그 JSON에는 다음 표에 나열된 요소가 포함
 ## <a name="kafka-user-error-logs-schema"></a>Kafka 사용자 오류 로그 스키마
 Kafka 사용자 오류 로그 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| 속성 | 설명 |
+| Name | 설명 |
 | ---- | ----------- |
 | `TrackingId` | 추적 목적으로 사용되는 추적 ID입니다. |
 | `NamespaceName` | 네임스페이스 이름 |
@@ -197,7 +197,7 @@ Kafka 사용자 오류 로그 JSON에는 다음 표에 나열된 요소가 포�
 ## <a name="event-hubs-virtual-network-connection-event-schema"></a>Event Hubs 가상 네트워크 연결 이벤트 스키마
 Event Hubs VNet(가상 네트워크) 연결 이벤트 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| 속성 | 설명 |
+| Name | 설명 |
 | ---  | ----------- | 
 | `SubscriptionId` | Azure 구독 ID |
 | `NamespaceName` | 네임스페이스 이름 |
@@ -207,7 +207,7 @@ Event Hubs VNet(가상 네트워크) 연결 이벤트 JSON에는 다음 표에 �
 | `Count` | 지정된 작업의 발생 수 |
 | `ResourceId` | Azure Resource Manager 리소스 ID입니다. |
 
-가상 네트워크 로그는 네임 스페이스에서 **선택한 네트워크** 또는 **특정 ip 주소** (ip 필터 규칙)의 액세스를 허용 하는 경우에만 생성 됩니다. 이러한 기능을 사용 하 여 네임 스페이스에 대 한 액세스를 제한 하지 않고, Event Hubs 네임 스페이스에 연결 하는 클라이언트의 IP 주소를 추적 하는 가상 네트워크 로그를 계속 가져오려는 경우 다음 해결 방법을 사용할 수 있습니다. [IP 필터링을 사용 하도록 설정](event-hubs-ip-filtering.md)하 고 주소 지정 가능한 총 IPv4 범위 (1.0.0.0/1-255.0.0.0/1)를 추가 합니다. Event Hubs IP 필터링은 IPv6 범위를 지원 하지 않습니다. 로그에 IPv6 형식의 개인 끝점 주소가 표시 될 수 있습니다. 
+가상 네트워크 로그는 네임스페이스에서 **선택한 네트워크** 또는 **특정 IP 주소**(IP 필터 규칙)의 액세스를 허용하는 경우에만 생성됩니다. 해당 기능을 사용하여 네임스페이스에 대한 액세스를 제한하지 않고, Event Hubs 네임스페이스에 연결하는 클라이언트의 IP 주소를 추적하는 가상 네트워크 로그를 계속 가져오려는 경우 다음 해결 방법을 사용할 수 있습니다. [IP 필터링을 사용하도록 설정](event-hubs-ip-filtering.md)하고 주소 지정 가능한 총 IPv4 범위(1.0.0.0/1 - 255.0.0.0/1)를 추가합니다. Event Hubs IP 필터링은 IPv6 범위를 지원하지 않습니다. 로그에 IPv6 형식의 프라이빗 엔드포인트 주소가 표시될 수 있습니다. 
 
 ### <a name="example"></a>예제
 
@@ -227,7 +227,7 @@ Event Hubs VNet(가상 네트워크) 연결 이벤트 JSON에는 다음 표에 �
 ## <a name="customer-managed-key-user-logs"></a>고객 관리형 키 사용자 로그
 고객 관리형 키 사용자 로그 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| 속성 | 설명 |
+| Name | 설명 |
 | ---- | ----------- | 
 | `Category` | 메시지의 범주 유형입니다. **오류** 및 **정보** 중 하나입니다. |
 | `ResourceId` | Azure 구독 ID 및 네임스페이스 이름을 포함하는 내부 리소스 ID |

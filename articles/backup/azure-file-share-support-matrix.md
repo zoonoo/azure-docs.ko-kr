@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
 ms.openlocfilehash: 38c066c20399b39d676fb0c25aa158993258b979
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100370991"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Azure 파일 공유 백업에 대한 지원 매트릭스
@@ -16,22 +16,22 @@ ms.locfileid: "100370991"
 [Azure Backup 서비스](./backup-overview.md)를 사용하여 Azure 파일 공유를 백업할 수 있습니다. 이 문서에서는 Azure Backup을 사용하여 Azure 파일 공유를 백업할 때의 지원 설정을 요약해서 설명합니다.
 
 > [!NOTE]
-> Azure Backup 현재 NFS 공유를 지원 하지 않습니다.
+> Azure Backup은 현재 NFS 공유를 지원하지 않습니다.
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-### <a name="ga-regions-for-azure-file-shares-backup"></a>Azure 파일 공유에 대 한 GA 지역 백업
+### <a name="ga-regions-for-azure-file-shares-backup"></a>Azure 파일 공유 백업의 GA 하위 지역
 
-Azure 파일 공유 백업은 독일 중부 (소 버린), 독일 북동쪽 (소 버린), 중국 동부, 중국 동부 2, 중국 북부, 중국 북부 2 US Gov 아이오와를 **제외한** 모든 지역에서 사용할 수 있습니다.
+Azure 파일 공유 백업은 독일 중부(자치주), 독일 북동부(자치주), 중국 동부, 중국 동부 2, 중국 북부, 중국 북부 2, US Gov 아이오와를 **제외한** 모든 하위 지역에서 사용할 수 있습니다.
 
 ## <a name="supported-storage-accounts"></a>지원되는 스토리지 계정
 
 | 스토리지 계정 세부 정보 | 지원                                                      |
 | ------------------------ | ------------------------------------------------------------ |
-| 계정 종류            | Azure Backup는 범용 v1, 범용 v2 및 file storage 유형 저장소 계정에 있는 Azure 파일 공유를 지원 합니다. |
+| 계정 종류            | Azure Backup은 범용 v1, 범용 v2 및 파일 스토리지 유형 스토리지 계정에 있는 Azure 파일 공유를 지원합니다. |
 | 성능              | Azure Backup은 표준 및 Premium Storage 계정 모두에서 파일 공유를 지원합니다. |
-| 복제              | 모든 복제 유형을 사용 하는 저장소 계정의 Azure 파일 공유는 지원 됩니다. |
-| 방화벽 사용         | Microsoft Azure 서비스에서 저장소 계정에 액세스할 수 있도록 허용 하는 방화벽 규칙을 사용 하는 저장소 계정의 Azure 파일 공유가 지원 됩니다.|
+| 복제              | 모든 복제 유형을 사용하는 스토리지 계정의 Azure 파일 공유가 지원됩니다. |
+| 방화벽 사용         | Microsoft Azure 서비스에서 스토리지 계정으로 액세스할 수 있도록 허용하는 방화벽 규칙을 통해 스토리지 계정에 대한 Azure 파일 공유를 지원합니다.|
 
 ## <a name="supported-file-shares"></a>지원되는 파일 공유
 
@@ -46,10 +46,10 @@ Azure 파일 공유 백업은 독일 중부 (소 버린), 독일 북동쪽 (소 
 
 | 설정                                                      | 제한 |
 | ------------------------------------------------------------ | ----- |
-| 매일 자격 증명 모음 당 보호할 수 있는 파일 공유의 최대 수| 200   |
+| 자격 증명 모음 당 보호할 수 있는 하루 최대 파일 공유 수| 200   |
 | 하루에 자격 증명 모음당 등록할 수 있는 최대 스토리지 계정 수 | 50    |
 | 자격 증명 모음 당 보호할 수 있는 최대 파일 공유 수 | 2000   |
-| 자격 증명 모음 당 등록할 수 있는 최대 저장소 계정 수 | 200   |
+| 자격 증명 모음 당 등록할 수 있는 최대 스토리지 계정 수 | 200   |
 
 ## <a name="backup-limits"></a>Backup 제한
 

@@ -3,18 +3,18 @@ title: '자습서: 위치에 대한 경로 찾기 | Microsoft Azure Maps'
 description: 관심 지점까지의 경로를 찾는 방법에 대한 자습서. 주소 좌표를 설정하는 방법을 참조하고 Azure Maps Route 서비스를 쿼리하여 지점으로 가는 방향을 확인합니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/01/2020
+ms.date: 04/26/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 1f1647766eeae917f7a2266ebb8f00fdfab3452e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 222f54157732013309532a1ab38f3f2f8747908e
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102210583"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326528"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>자습서: Azure Maps Route Service 및 지도 컨트롤을 사용하여 경로 방향을 표시하는 방법
 
