@@ -16,10 +16,10 @@ ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4c27895c5163d59ca785aa15fa3739359e5be457
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101666598"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Azure에서 SAP HANA 인프라 구성 및 작업
@@ -135,7 +135,7 @@ Azure VM에서 스케일 아웃 구성 배포를 위한 최소 OS 릴리스는 S
 
 스케일 아웃 구성의 단일 노드에 대한 일반적인 기본 설계는 다음과 같습니다.
 
-![스케일 아웃 구성의 단일 노드에 대 한 일반적인 기본 디자인을 보여 주는 다이어그램입니다.](media/hana-vm-operations/scale-out-basics-anf-shared.PNG)
+![스케일 아웃 구성의 단일 노드에 대한 일반적인 기본 설계를 보여 주는 다이어그램](media/hana-vm-operations/scale-out-basics-anf-shared.PNG)
 
 SAP HANA 스케일 아웃에 대한 VM 노드의 기본 구성은 다음과 같습니다.
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: af3f54778882df9aaa06297f291c12a0f4b1577c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bc35f79bae0cd75b24b119e951f27b289ebef704
+ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046048"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108007361"
 ---
 # <a name="register-and-scan-sap-ecc-source-preview"></a>SAP ECC 원본 등록 및 검사(미리 보기)
 
@@ -35,7 +35,7 @@ SAP ECC 원본은 SAP ECC 인스턴스에서 메타데이터를 추출할 수 �
 
     :::image type="content" source="media/register-scan-sapecc-source/requirement.png" alt-text="필수 구성 요소" border="true":::
 
-5.  커넥터가 Java Connector(JCo) 3.0 API를 사용하여 SAP에서 메타데이터를 읽습니다. 따라서 Java Connector가 자체 호스팅 통합 런타임이 설치된 가상 머신에서 사용 가능해야 합니다.
+5.  커넥터에서 [SAP Java Connector(JCo)](https://support.sap.com/en/product/connectors/jco.html) 3.0 API를 사용하여 SAP에서 메타데이터를 읽습니다. 따라서 Java Connector가 자체 호스팅 통합 런타임이 설치된 가상 머신에서 사용 가능해야 합니다.
     환경에 대해 올바른 JCo 배포를 사용하고 있는지 확인합니다. 예를 들어 Microsoft Windows 컴퓨터의 경우 sapjco3.jar 및 sapjco3.dll 파일을 사용할 수 있어야 합니다.
 
     > [!Note] 

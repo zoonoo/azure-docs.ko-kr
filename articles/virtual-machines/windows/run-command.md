@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: carmonm
 ms.openlocfilehash: e2cd8ee4095db235215a2beaa68975e819b474c1
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102560687"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>실행 명령을 사용하여 Windows VM에서 PowerShell 스크립트 실행
@@ -41,7 +41,7 @@ ms.locfileid: "102560687"
 * 실행 중인 스크립트는 취소할 수 없습니다.
 * 스크립트를 실행할 수 있는 최대 시간은 90분입니다. 그 후에는 시간이 초과됩니다.
 * 스크립트의 결과를 반환하려면 VM에서의 아웃바운드 연결이 필요합니다.
-* VM 에이전트를 중지 하거나 업데이트 하는 스크립트를 실행 하는 것은 권장 되지 않습니다. 이를 통해 전환 상태에서 확장이 시간 초과로 전환 될 수 있습니다.
+* VM 에이전트를 중지하거나 업데이트하는 스크립트를 실행하는 것은 권장하지 않습니다. 그로 인해 확장이 전환 상태로 유지되어 시간 제한이 발생할 수 있습니다.
 
 > [!NOTE]
 > 제대로 작동하려면 실행 명령이 Azure 공용 IP 주소에 연결(포트 443)되어야 합니다. 확장이 이러한 엔드포인트에 대해 액세스 권한이 없는 경우 스크립트는 성공적으로 실행되지만 결과를 반환하지는 않습니다. 가상 머신에서 트래픽을 차단하는 경우 `AzureCloud` 태그를 사용하여 Azure 공용 IP 주소로 트래픽을 허용하도록 [서비스 태그](../../virtual-network/network-security-groups-overview.md#service-tags)를 사용할 수 있습니다.
@@ -105,7 +105,7 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 ## <a name="limiting-access-to-run-command"></a>명령 실행에 대한 액세스 제한
 
-실행 명령을 나열 하거나 명령의 세부 정보를 표시 하려면 `Microsoft.Compute/locations/runCommands/read` 구독 수준에 대 한 권한이 필요 합니다. 기본 제공 [Reader](../../role-based-access-control/built-in-roles.md#reader) 역할 및 상위 수준에 이 권한이 있습니다.
+실행 명령을 나열하거나 명령의 세부 정보를 표시하려면 구독 수준에서 `Microsoft.Compute/locations/runCommands/read` 권한이 필요합니다. 기본 제공 [Reader](../../role-based-access-control/built-in-roles.md#reader) 역할 및 상위 수준에 이 권한이 있습니다.
 
 명령을 실행하려면 `Microsoft.Compute/virtualMachines/runCommand/action` 권한이 필요합니다. [Virtual Machine 기여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) 역할 및 상위 수준에 이 권한이 있습니다.
 

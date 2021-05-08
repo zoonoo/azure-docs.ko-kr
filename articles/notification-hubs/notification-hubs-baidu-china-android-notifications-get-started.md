@@ -16,10 +16,10 @@ ms.reviewer: jowargo
 ms.lastreviewed: 06/19/2019
 ms.custom: devx-track-java, devx-track-csharp
 ms.openlocfilehash: 098fb0ed967dcacac24ce3abfd4843f9fe14ff49
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101727178"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Baidu를 사용하여 Notification Hubs 시작
@@ -43,7 +43,7 @@ Google Play 및 FCM(Firebase Cloud Messaging)은 중국에서 사용할 수 없�
 시작하려면 다음을 수행합니다.
 
 1. Baidu 계정을 만듭니다.
-2. Baidu 클라우드 푸시 프로젝트를 만들고 API 키와 비밀 키를 적어 둡니다.
+2. Baidu 클라우드 푸시 프로젝트를 만들고 API 키와 비밀 키를 기록해 둡니다.
 
 ## <a name="configure-a-new-notification-hub"></a>새 알림 허브 구성
 
@@ -69,7 +69,7 @@ Google Play 및 FCM(Firebase Cloud Messaging)은 중국에서 사용할 수 없�
 
 2. 애플리케이션 이름을 입력하고 Minimum Required SDK 버전이 API 16: Android 4.1인지 확인합니다. **또한 패키지 이름(应用包名)이 Baidu 클라우드 푸시 포털과 동일한지 확인하세요.**
 
-    ![Azure Notification Hubs-Baidu Min SDK1 ](./media/notification-hubs-baidu-get-started/AndroidMinSDK.png) ![ azure Notification Hubs-BAIDU min SDK2](./media/notification-hubs-baidu-get-started/AndroidMinSDK2.png)
+    ![Azure Notification Hubs - Baidu Min SDK1](./media/notification-hubs-baidu-get-started/AndroidMinSDK.png) ![Azure Notification Hubs - Baidu Min SDK2](./media/notification-hubs-baidu-get-started/AndroidMinSDK2.png)
 
 3. 다음을 클릭하고 만들기 작업 창이 표시될 때까지 마법사를 계속 진행합니다. 빈 작업이 선택되었는지 확인하고 마침을 선택하여 새로운 Android 애플리케이션을 만듭니다.
 
@@ -416,8 +416,8 @@ Google Play 및 FCM(Firebase Cloud Messaging)은 중국에서 사용할 수 없�
 
 다음 화면과 같이 알림 허브 구성 화면의 **보내기** 단추를 사용하여 [Azure Portal]에서 알림 수신을 신속하게 테스트할 수 있습니다.
 
-![빨간색 및 빨간색 화살표를 가리키는 빨간색 화살표와 함께 표시 되 ](./media/notification-hubs-baidu-get-started/BaiduTestSendButton.png)
- ![ 는 테스트 보내기 옵션을 사용 하는 Azure Portal의 스크린샷 Azure Portal의 Baidu 테스트 보내기 페이지에 대 한 스크린샷](./media/notification-hubs-baidu-get-started/BaiduTestSend.png)
+![Azure Portal에서 테스트 보내기가 빨간색 윤곽선과 빨간색 화살표로 표시된 스크린샷](./media/notification-hubs-baidu-get-started/BaiduTestSendButton.png)
+![Azure Portal의 Baidu 테스트 보내기 페이지 스크린샷](./media/notification-hubs-baidu-get-started/BaiduTestSend.png)
 
 푸시 알림은 일반적으로 호환 라이브러리를 사용하는 Mobile Services 또는 ASP.NET과 같은 백 엔드 서비스에서 전송됩니다. 백 엔드에 라이브러리를 사용할 수 없는 경우 직접 REST API를 사용하여 알림 메시지를 보낼 수도 있습니다.
 
@@ -426,7 +426,7 @@ Google Play 및 FCM(Firebase Cloud Messaging)은 중국에서 사용할 수 없�
 다음은 알림을 보내기 위한 다양한 접근 방법입니다.
 
 * **REST 인터페이스**: [REST 인터페이스](/previous-versions/azure/reference/dn223264(v=azure.100))를 사용하여 백 엔드 플랫폼에서 알림을 지원할 수 있습니다.
-* **Microsoft Azure Notification Hubs .NET SDK**: Visual Studio 용 Nuget 패키지 관리자에서 [설치-패키지 Microsoft. Azure. notificationhubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 실행 합니다.
+* **Microsoft Azure Notification Hubs .NET SDK**: Visual Studio용 Nuget 패키지 관리자에서 [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 실행합니다.
 * **Node.js**: [Node.js에서 Notification Hubs 사용 방법](notification-hubs-nodejs-push-notification-tutorial.md)
 * **Mobile Apps**: Notification Hubs와 통합된 Azure App Service Mobile Apps 백 엔드에서 알림을 보내는 방법에 대한 예제는 [Mobile Apps에 푸시 알림 추가](/previous-versions/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push)를 참조하세요.
 * **Java / PHP**: REST API를 사용하여 알림을 보내는 방법에 대한 예는 "Java/PHP에서 Notification Hubs를 사용하는 방법"([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md))을 참조하세요.
@@ -437,7 +437,7 @@ Google Play 및 FCM(Firebase Cloud Messaging)은 중국에서 사용할 수 없�
 
 1. 새 Visual C# 콘솔 애플리케이션을 만듭니다.
 
-    ![콘솔 응용 프로그램 Visual c # 옵션이 강조 표시 된 새 프로젝트 대화 상자의 스크린샷](./media/notification-hubs-baidu-get-started/ConsoleProject.png)
+    ![콘솔 애플리케이션 Visual C# 옵션이 강조 표시된 새 프로젝트 대화 상자 스크린샷](./media/notification-hubs-baidu-get-started/ConsoleProject.png)
 
 2. 패키지 관리자 콘솔 창에서 **기본 프로젝트** 를 새 콘솔 애플리케이션 프로젝트로 설정한 다음, 콘솔 창에서 다음 명령을 실행합니다.
 
@@ -447,7 +447,7 @@ Google Play 및 FCM(Firebase Cloud Messaging)은 중국에서 사용할 수 없�
 
     이 명령은 [Microsoft.Azure.Notification Hubs NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 사용하는 Azure Notification Hubs SDK에 대한 참조를 추가합니다.
 
-    ![알림 허브로 보내기 옵션이 빨간색 원으로 둘러싸인 패키지 관리자 콘솔 대화 상자의 스크린샷](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
+    ![알림 허브로 보내기 옵션이 빨간색 원으로 표시된 패키지 관리자 콘솔 대화 상자 스크린샷](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
 3. `Program.cs` 파일을 열고 다음 using 문을 추가합니다.
 
@@ -460,7 +460,7 @@ Google Play 및 FCM(Firebase Cloud Messaging)은 중국에서 사용할 수 없�
     ```csharp
     private static async void SendNotificationAsync()
     {
-        NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("DefaultFullSharedAccessSignatureSASConnectionString", "NotificationHubName");
+        NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("DefaultFullSharedAccessSignatureSASConnectionString&quot;, &quot;NotificationHubName");
         string message = "{\"title\":\"((Notification title))\",\"description\":\"Hello from Azure\"}";
         var result = await hub.SendBaiduNativeNotificationAsync(message);
     }

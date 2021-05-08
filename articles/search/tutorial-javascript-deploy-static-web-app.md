@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: devx-track-js
 ms.devlang: javascript
-ms.openlocfilehash: a49ede283899cec42898672f5a376221265dea10
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c3f4d883dcc9b79ddab77bb8779e52e629226631
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104723519"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950367"
 ---
 # <a name="3---deploy-the-search-enabled-website"></a>3 - 검색 사용 웹 사이트 배포
 
@@ -62,17 +62,20 @@ Static Web App은 샘플 리포지토리의 포크를 사용하여 GitHub에서 
 
 1. 이 쿼리 키를 유지합니다. 다음 섹션에서 사용해야 합니다. 쿼리 키는 인덱스를 쿼리할 수 있습니다. 
 
-## <a name="add-configuration-settings-in-visual-studio-code"></a>Visual Studio Code에서 구성 설정 추가
+## <a name="add-configuration-settings-in-azure-portal"></a>Azure Portal에 구성 설정 추가
 
 검색 비밀이 설정에 있을 때까지 Azure 함수 앱에서 검색 데이터를 반환하지 않습니다. 
 
-1. 작업 막대에서 **Azure** 를 선택한 다음, 사이드바에서 **Static Web Apps** 를 선택합니다. 
-1. **애플리케이션 설정** 이 표시될 때까지 새 Static Web App을 펼칩니다.
-1. 마우스 오른쪽 단추로 **애플리케이션 설정** 을 클릭한 다음, **새 설정 추가** 를 선택합니다.
+1. 작업 표시줄에서 **Azure** 를 선택합니다. 
+1. 정적 웹앱 리소스를 마우스 오른쪽 단추로 클릭한 다음, **포털에서 열기** 를 선택합니다.
 
-    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-static-web-app-configure-settings.png" alt-text="마우스 오른쪽 단추로 **애플리케이션 설정**을 클릭한 다음, **새 설정 추가**를 선택합니다.":::
+    :::image type="content" source="media/tutorial-javascript-static-web-app/open-static-web-app-in-azure-portal.png" alt-text="JavaScript 정적 웹앱 리소스를 마우스 오른쪽 단추로 클릭한 다음, 포털에서 열기를 선택합니다.":::
 
-1. 다음 설정을 추가합니다.
+1. **구성** 을 선택한 다음, **+ 추가** 를 선택합니다.
+
+    :::image type="content" source="media/tutorial-javascript-static-web-app/add-new-application-setting-to-static-web-app-in-portal.png" alt-text="구성을 선택한 다음, JavaScript 앱에 추가를 선택합니다.":::
+
+1. 다음 각 설정을 추가합니다.
 
     |설정|검색 리소스 값|
     |--|--|
@@ -80,6 +83,17 @@ Static Web App은 샘플 리포지토리의 포크를 사용하여 GitHub에서 
     |SearchServiceName|검색 리소스 이름|
     |SearchIndexName|`good-books`|
     |SearchFacets|`authors*,language_code`|
+
+    Azure Cognitive Search에는 문자열에 수행되는 컬렉션과는 다른 여러 가지 필터링 구문 컬렉션이 필요합니다. 필드 이름 뒤에 `*`를 추가하여 필드가 `Collection(Edm.String)` 형식임을 나타냅니다. 이렇게 하면 Azure Function에서 필터를 올바르게 쿼리에 추가할 수 있습니다.
+
+1. **저장** 을 선택하여 설정을 저장합니다. 
+
+    :::image type="content" source="media/tutorial-javascript-static-web-app/save-new-application-setting-to-static-web-app-in-portal.png" alt-text="저장을 선택하여 설정을 저장합니다.":::
+
+1. VS Code로 돌아갑니다. 
+1. 정적 웹앱을 새로 고쳐 정적 웹앱 애플리케이션 설정을 확인합니다. 
+
+    :::image type="content" source="media/tutorial-javascript-static-web-app/visual-studio-code-extension-fresh-resource.png" alt-text="정적 웹앱을 새로 고쳐 정적 웹앱 애플리케이션 설정을 확인합니다.":::
 
 ## <a name="use-search-in-your-static-web-app"></a>Static Web App에서 검색 사용
 

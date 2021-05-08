@@ -15,12 +15,12 @@ ms.custom:
 - azure-synapse
 - devx-track-azurepowershell
 - mode-api
-ms.openlocfilehash: 65bf509c8eb654a9f7712fdf7b94ff7fa26a3d32
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 38f3f3e3c227b9a2abb6bd82c9711a9f6a03292f
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537451"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108161594"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 전용 SQL 풀(이전의 SQL DW) 만들기
 
@@ -115,7 +115,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 
 다음 예제에서는 이전에 정의된 변수를 사용하여 전용 SQL 풀(이전의 SQL DW)을 만듭니다.  여기서는 서비스 목표를 전용 SQL 풀(이전의 SQL DW)을 저렴하게 시작하기 좋은 DW100c로 지정합니다.
 
-```Powershell
+```powershell
 New-AzSqlDatabase `
     -ResourceGroupName $resourcegroupname `
     -ServerName $servername `

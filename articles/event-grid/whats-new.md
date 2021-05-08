@@ -2,13 +2,13 @@
 title: 새로운 기능은 무엇입니까? 릴리스 정보 - Azure Event Grid
 description: Azure Event Grid의 최신 릴리스 정보, 알려진 문제, 버그 수정, 사용되지 않는 기능, 예정된 변경 내용 등을 알아봅니다.
 ms.topic: overview
-ms.date: 07/23/2020
-ms.openlocfilehash: f135b25f28002c037dd24fa0cb3bb7476a06309f
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.date: 04/27/2021
+ms.openlocfilehash: ccb8df774838a1b71ddec08394d7487bf3176039
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389590"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135926"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>Azure Event Grid의 새로운 기능
 
@@ -35,7 +35,7 @@ Azure Event Grid는 지속적인 향상되고 있습니다. 최신 개발 정보
         - StringNotEndsWith
         - NumberInRange
         - NumberNotInRange
-        - IsNull
+        - IsNullOrUndefined
         - IsNotNull
 - [사용자 지정 토픽 및 도메인에 대한 Event Grid 스키마를 CloudEvents 1.0 스키마 변환으로 허용](cloudevents-schema.md#configure-event-grid-for-cloudevents)
         

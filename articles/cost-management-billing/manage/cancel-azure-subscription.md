@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 03/31/2021
 ms.author: banders
-ms.openlocfilehash: 0d0dd5342cfc57da776e38ddef3df3b9c2199ac2
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b20134cbfb85c2dcaef1227e6390c8c6047ad5be
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735778"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109393"
 ---
 # <a name="cancel-your-azure-subscription"></a>Azure 구독 취소
 
@@ -76,6 +76,10 @@ Azure 웹 사이트, Azure Portal을 통해 지원 플랜을 구입했거나 Mic
 1. Azure Portal의 [구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) 페이지에서 구독을 선택합니다.
 1. 삭제할 구독을 선택합니다.
 1. **개요** 를 선택한 다음, **구독 삭제** 를 선택합니다.
+
+## <a name="delete-other-subscriptions"></a>기타 구독 삭제
+
+수동으로 삭제할 수 있는 유일한 구독 유형은 평가판 구독입니다. 종량제 구독을 포함한 다른 모든 구독 유형은 [구독 취소](#cancel-subscription-in-the-azure-portal) 프로세스를 통해서만 삭제됩니다. 즉, 평가판 구독이 아니면 구독을 직접 삭제할 수 없습니다. 그러나 구독을 취소하면 구독을 즉시 삭제하도록 요청하는 [Azure 지원 요청](https://go.microsoft.com/fwlink/?linkid=2083458)을 만들 수 있습니다.
 
 ## <a name="reactivate-a-subscription"></a>구독 다시 활성화
 

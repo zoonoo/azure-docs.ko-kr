@@ -1,7 +1,7 @@
 ---
-title: Azure Machine learning을 사용 하 여 데이터 암호화
+title: Azure Machine Learning을 사용하여 데이터 암호화
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 계산 및 데이터 저장소에서 미사용 및 전송 중인 데이터 암호화를 제공 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning 컴퓨팅 및 데이터 저장소가 미사용 암호화와 전송 중 암호화를 제공하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,33 +11,33 @@ author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
 ms.openlocfilehash: 13d5c02fbb4ae06c7a5279ab7c5d3af90c263f71
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102521070"
 ---
-# <a name="data-encryption-with-azure-machine-learning"></a>Azure Machine Learning 사용 하 여 데이터 암호화
+# <a name="data-encryption-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 데이터 암호화
 
-Azure Machine Learning은 모델을 학습 하 고 유추를 수행할 때 다양 한 Azure 데이터 저장소 서비스 및 계산 리소스를 사용 합니다. 이러한 각각은 미사용 데이터 및 전송 중인 데이터에 대 한 암호화를 제공 하는 방법에 대 한 자체 스토리가 있습니다. 이 문서에서는 시나리오에 가장 적합 한 각 항목에 대해 알아봅니다.
+Azure Machine Learning은 모델을 학습하고 유추를 수행할 때 다양한 Azure 데이터 스토리지 서비스 및 컴퓨팅 리소스를 사용합니다. 각 서비스 및 리소스에는 미사용 데이터 및 전송 중 데이터에 대한 암호화를 제공하는 고유한 방법이 있습니다. 이 문서에서는 각 항목에 대해 살펴보고 시나리오에 가장 적합한 항목이 무엇인지 알아봅니다.
 
 > [!IMPORTANT]
-> __학습__ 중에 프로덕션 등급 암호화의 경우 계산 클러스터 Azure Machine Learning를 사용 하는 것이 좋습니다. __유추__ 중 프로덕션 등급 암호화의 경우 Azure Kubernetes Service를 사용 하는 것이 좋습니다.
+> __학습__ 중의 프로덕션 등급 암호화의 경우 Azure Machine Learning 컴퓨팅 클러스터를 사용하는 것이 좋습니다. __유추__ 중 프로덕션 등급 암호화의 경우 Azure Kubernetes Service를 사용하는 것이 좋습니다.
 >
-> Azure Machine Learning 계산 인스턴스는 개발/테스트 환경입니다. 이를 사용 하는 경우 파일 공유에 전자 필기장 및 스크립트와 같은 파일을 저장 하는 것이 좋습니다. 데이터를 데이터 저장소에 저장 해야 합니다.
+> Azure Machine Learning 컴퓨팅 인스턴스는 개발/테스트 환경입니다. 이를 사용하는 경우 파일 공유에 Notebook 및 스크립트와 같은 파일을 저장하는 것이 좋습니다. 데이터는 데이터 저장소에 저장해야 합니다.
 
 ## <a name="encryption-at-rest"></a>휴지 상태의 암호화
 
 > [!IMPORTANT]
-> 작업 영역에 중요한 데이터가 포함된 경우 작업 영역을 만드는 동안 [hbi_workspace 플래그](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)를 설정하는 것이 좋습니다. `hbi_workspace`작업 영역을 만들 때만 플래그를 설정할 수 있습니다. 기존 작업 영역에 대해서는 변경할 수 없습니다.
+> 작업 영역에 중요한 데이터가 포함된 경우 작업 영역을 만드는 동안 [hbi_workspace 플래그](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)를 설정하는 것이 좋습니다. `hbi_workspace` 플래그는 작업 영역을 만들 때만 설정할 수 있습니다. 기존 작업 영역의 경우 변경할 수 없습니다.
 
-`hbi_workspace`플래그는 [microsoft에서 진단 목적으로 수집](#microsoft-collected-data) 하 고 [microsoft에서 관리 하는 환경에서 추가 암호화](../security/fundamentals/encryption-atrest.md)를 사용 하도록 설정 하는 데이터의 양을 제어 합니다. 또한 다음 작업을 수행할 수 있습니다.
+`hbi_workspace` 플래그는 [진단 목적으로 Microsoft가 수집하는 데이터](#microsoft-collected-data) 양을 제어하고 [Microsoft 관리형 환경에서 추가 암호화](../security/fundamentals/encryption-atrest.md)가 가능하도록 설정합니다. 또한 다음과 같은 작업도 수행할 수 있습니다.
 
-* 해당 구독에 이전 클러스터를 만들지 않은 경우 Azure Machine Learning 계산 클러스터에서 로컬 스크래치 디스크의 암호화를 시작 합니다. 그렇지 않으면 컴퓨팅 클러스터의 스크래치 디스크를 암호화가 가능하도록 지원 티켓을 생성해야 합니다. 
+* 해당 구독에서 이전 클러스터를 만들지 않은 경우 Azure Machine Learning 컴퓨팅 클러스터에서 로컬 스크래치 디스크 암호화를 시작합니다. 그렇지 않으면 컴퓨팅 클러스터의 스크래치 디스크를 암호화가 가능하도록 지원 티켓을 생성해야 합니다. 
 * 실행 사이에 로컬 스크래치 디스크를 정리합니다
-* 키 자격 증명 모음을 사용 하 여 저장소 계정, 컨테이너 레지스트리 및 SSH 계정에 대 한 자격 증명을 실행 계층에서 계산 클러스터로 안전 하 게 전달 합니다.
+* 키 자격 증명 모음을 사용하여 스토리지 계정, 컨테이너 레지스트리 및 SSH 계정의 자격 증명을 실행 레이어에서 컴퓨팅 클러스터로 안전하게 전달합니다.
 * IP 필터링이 가능하도록 설정하여 AzureMachineLearningService 이외의 외부 서비스에서 기본 배치 풀을 호출할 수 없도록 합니다.
-* 계산 인스턴스는 HBI 작업 영역에서 지원 되지 않습니다.
+* 컴퓨팅 인스턴스는 HBI 작업 영역에서 지원되지 않습니다.
 
 ### <a name="azure-blob-storage"></a>Azure Blob 스토리지
 
@@ -53,13 +53,13 @@ Azure Blob Storage에 저장된 데이터에 자체 키를 사용하는 방법�
 
 ### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Azure Machine Learning은 Azure Cosmos DB 인스턴스에 메타 데이터를 저장 합니다. 이 인스턴스는 Azure Machine Learning으로 관리되는 Microsoft 구독과 연결되어 있습니다. Azure Cosmos DB에 저장된 모든 데이터는 Microsoft 관리형 키를 사용하여 미사용 상태에서 암호화됩니다.
+Azure Machine Learning은 Azure Cosmos DB 인스턴스에 메타데이터를 저장합니다. 이 인스턴스는 Azure Machine Learning으로 관리되는 Microsoft 구독과 연결되어 있습니다. Azure Cosmos DB에 저장된 모든 데이터는 Microsoft 관리형 키를 사용하여 미사용 상태에서 암호화됩니다.
 
 자체(고객 관리형) 키를 사용하여 Azure Cosmos DB 인스턴스를 암호화하려면 작업 영역에서 사용할 전용 Cosmos DB 인스턴스를 만들면 됩니다. 실행 기록 정보와 같은 데이터를 Microsoft 구독에서 호스트되는 다중 테넌트 Cosmos DB 인스턴스 외부에 저장하려는 경우에는 이 방법을 사용하는 것이 좋습니다. 
 
 고객 관리형 키를 사용하여 구독에서 Cosmos DB 인스턴스를 프로비저닝하려면 다음 작업을 수행합니다.
 
-* 아직 수행 하지 않은 경우 MachineLearning 및 Microsoft.DocumentDB 리소스 공급자를 구독에 등록 합니다.
+* 구독에 Microsoft.MachineLearning 및 Microsoft.DocumentDB 리소스 공급자가 아직 등록되지 않은 경우 등록합니다.
 
 * Azure Machine Learning 작업 영역을 만들 때는 다음 매개 변수를 사용합니다. 두 매개 변수 모두 필수이며 SDK, CLI, REST API 및 Resource Manager 템플릿에서 지원됩니다.
 
@@ -83,14 +83,14 @@ Cosmos DB의 고객 관리형 키에 대한 자세한 내용은 [Azure Cosmos DB
 자체(고객 관리형) 키를 사용하여 Azure Container Registry를 암호화하려면 작업 영역을 프로비저닝하는 동안 자체 ACR을 생성하여 첨부하거나 작업 영역을 프로비저닝할 때 생성되는 기본 인스턴스를 암호화해야 합니다.
 
 > [!IMPORTANT]
-> Azure Machine Learning Azure Container Registry에서 관리자 계정을 사용 하도록 설정 해야 합니다. 컨테이너 레지스트리를 만들 때 기본적으로이 설정은 사용 되지 않습니다. 관리자 계정을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [관리자 계정](../container-registry/container-registry-authentication.md#admin-account)을 참조 하십시오.
+> Azure Machine Learning의 경우 Azure Container Registry에서 관리자 계정을 사용하도록 설정해야 합니다. 기본적으로 컨테이너 레지스트리를 만들 때 이 설정은 사용하도록 설정되어 있지 않습니다. 관리자 계정을 사용하도록 설정하는 방법에 대한 자세한 내용은 [관리자 계정](../container-registry/container-registry-authentication.md#admin-account)을 참조하세요.
 >
 > 작업 영역에 대해 Azure Container Registry가 만들어지면 이를 삭제하지 마세요. 삭제하면 Azure Machine Learning 작업 영역이 중단됩니다.
 
 기존 Azure Container Registry를 사용하여 작업 영역을 만드는 예는 다음 문서를 참조하세요.
 
 * [Azure CLI를 사용하여 Azure Machine Learning의 작업 영역 만들기](how-to-manage-workspace-cli.md)
-* [PYTHON SDK를 사용 하 여 작업 영역을 만듭니다](how-to-manage-workspace.md?tabs=python#create-a-workspace).
+* [Python SDK을 사용하여 작업 영역 만들기](how-to-manage-workspace.md?tabs=python#create-a-workspace).
 * [Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning의 작업 영역 만들기](how-to-create-workspace-template.md)
 
 ### <a name="azure-container-instance"></a>Azure Container Instance
@@ -140,7 +140,7 @@ Azure Databricks는 Azure Machine Learning 파이프라인에서 사용할 수 �
 
 Azure Machine Learning은 TLS를 사용하여 다양한 Azure Machine Learning 마이크로서비스 간의 내부 통신을 보호합니다. 모든 Azure Storage 액세스는 보안 채널을 통해 수행됩니다.
 
-점수 매기기 끝점에 대 한 외부 호출을 보호 하기 위해 Azure Machine Learning는 TLS를 사용 합니다. 자세한 내용은 [TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호](./how-to-secure-web-service.md)를 참조하세요.
+채점 엔드포인트에 대한 외부 호출을 보호하기 위해 Azure Machine Learning은 TLS를 사용합니다. 자세한 내용은 [TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호](./how-to-secure-web-service.md)를 참조하세요.
 
 ## <a name="data-collection-and-handling"></a>데이터 수집 및 처리
 
@@ -166,7 +166,7 @@ Azure HDInsight 및 VM과 같은 컴퓨팅 대상에 대한 SSH 암호 및 키�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure storage에 연결](how-to-access-data.md)
+* [Azure Storage에 연결](how-to-access-data.md)
 * [데이터 저장소에서 데이터 가져오기](how-to-create-register-datasets.md)
 * [데이터에 연결](how-to-connect-data-ui.md)
 * [데이터 세트로 학습](how-to-train-with-datasets.md)

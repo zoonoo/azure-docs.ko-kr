@@ -1,5 +1,5 @@
 ---
-title: 'ML Studio (클래식): API Management를 사용 하 여 웹 서비스 관리-Azure'
+title: 'ML 스튜디오(클래식): API Management를 사용하여 웹 서비스 관리 - Azure'
 description: API Management를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대한 가이드입니다. 사용자 액세스, 사용량 제한 및 대시보드 모니터링을 정의하여 REST API 엔드포인트를 관리합니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
 ms.openlocfilehash: 293643ab5354c51142baaf281b1845cfc9fa6f23
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100518031"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>API Management를 사용하여 Azure Machine Learning Studio(클래식) 웹 서비스 관리
@@ -50,7 +50,7 @@ API Management 인스턴스를 사용하여 Azure Machine Learning 웹 서비스
 
 새 서비스를 만드는 데에는 최대 30분이 걸릴 수 있습니다.
 
-![스크린샷 서비스를 만드는 데 필요한 옵션을 포함 하는 P I 관리 서비스 대화 상자를 표시 합니다.](./media/manage-web-service-endpoints-using-api-management/create-service.png)
+![서비스를 만드는 데 필요한 옵션을 포함 하는 API Management 서비스 대화 상자를 보여 주는 스크린샷.](./media/manage-web-service-endpoints-using-api-management/create-service.png)
 
 
 ## <a name="create-the-api"></a>API 만들기
@@ -87,12 +87,12 @@ API를 만들려면:
 2. **URL 템플릿** 에서 "`/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}`"를 입력합니다.
 3. **표시 이름** 을 입력합니다(이 예제에서는 "RRS 실행" 사용).
 
-   ![표시 이름을 입력할 수 있는 서명 페이지를 보여 주는 스크린샷](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
+   ![표시 이름을 입력할 수 있는 서명 페이지를 보여 주는 스크린샷.](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
 
 4. 왼쪽의 **응답** > **추가** 를 클릭하여 **200 확인** 을 선택합니다.
 5. **저장** 을 클릭하여 이 작업을 저장합니다.
 
-   ![스크린샷은 저장 단추가 있는 R R S 실행 페이지 작업을 보여 줍니다.](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
+   ![저장 단추가 있는 RRS 실행 페이지 작업을 보여 주는 스크린샷.](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
 
 ## <a name="add-bes-operations"></a>BES 작업 추가
 
@@ -141,15 +141,15 @@ API를 만들려면:
 
 1. **개발자 포털** 을 클릭합니다.
 
-   ![개발자 포털 링크를 보여 주는 스크린샷](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
+   ![개발자 포털 링크를 보여 주는 스크린샷.](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
 
 2. 맨 위 메뉴에서 **API** 를 클릭하고 **AzureML 데모 API** 를 클릭하여 사용 가능한 작업을 확인합니다.
 
-   ![스크린샷은 Azure M L Demo A P I 링크를 보여 줍니다.](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
+   ![Azure ML 데모 API 링크를 보여 주는 스크린샷.](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
 
 3. 작업에 대해 **RRS 실행** 을 선택합니다. **사용해 보세요.** 를 클릭합니다.
 
-   ![스크린샷-r R S 실행을 선택한 후 사용해 보기 단추를 클릭 하 여 Azure M L Demo A P I 대화 상자를 표시 합니다.](./media/manage-web-service-endpoints-using-api-management/try-it.png)
+   ![RRS 게시 실행을 선택한 후 사용해 보기 단추를 클릭하여 Azure ML 데모 API 대화 상자를 보여 주는 스크린샷.](./media/manage-web-service-endpoints-using-api-management/try-it.png)
 
 4. **요청 매개 변수** 에 **작업 영역** 및 **서비스** 를 입력하고, **apiversion** 에 "2.0을 입력하고, **세부 정보** 에 "true"를 입력합니다. AzureML 웹 서비스 대시보드에서 **작업 영역** 및 **서비스** 를 찾을 수 있습니다(부록 A에서 **웹 서비스 테스트** 참조).
 
@@ -157,15 +157,15 @@ API를 만들려면:
 
    **요청 본문** 에 `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`를 입력합니다.
 
-   ![스크린샷은 Azure M L 데모 A P I 요청 매개 변수, 요청 헤더, 요청 본문 및 권한 부여를 보여줍니다.](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
+   ![Azure ML 데모 API 요청 매개 변수, 요청 헤더, 요청 본문, 권한 부여를 보여 주는 스크린샷.](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
 
 5. **보내기** 를 클릭합니다.
 
-   ![스크린샷에서 보내기 단추를 표시 합니다.](./media/manage-web-service-endpoints-using-api-management/send.png)
+   ![보내기 단추를 보여 주는 스크린샷.](./media/manage-web-service-endpoints-using-api-management/send.png)
 
 작업 호출 후에는 개발자 포털에 백 엔드 서비스의 **요청된 URL** 및 **응답 상태**, **응답 헤더**, **응답 콘텐츠** 가 표시됩니다.
 
-![스크린샷 응답 상태, 응답 대기 시간, 응답 헤더 및 응답 콘텐츠를 표시 하는 개발자 포털을 보여 줍니다.](./media/manage-web-service-endpoints-using-api-management/response-status.png)
+![응답 상태, 응답 대기 시간, 응답 헤더, 응답 콘텐츠를 표시하는 개발자 포털을 보여 주는 스크린샷.](./media/manage-web-service-endpoints-using-api-management/response-status.png)
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>부록 A - 간단한 AzureML 웹 서비스 만들기 및 테스트
 ### <a name="creating-the-experiment"></a>실험 만들기
@@ -177,11 +177,11 @@ API를 만들려면:
 
 먼저 선택한 브라우저를 사용하여 [https://studio.azureml.net/](https://studio.azureml.net/)으로 이동하고 자격 증명을 입력하여 로그인합니다. 그리고 새 실험을 만듭니다.
 
-![스크린샷은 실험을 선택 하 고 텍스트를 검색 하는 새 페이지를 표시 합니다.](./media/manage-web-service-endpoints-using-api-management/search-experiment-templates.png)
+![선택된 실험과 텍스트 검색을 포함하는 새 페이지를 보여 주는 스크린샷.](./media/manage-web-service-endpoints-using-api-management/search-experiment-templates.png)
 
 실험 이름을 **SimpleFeatureHashingExperiment** 로 바꿉니다. **저장된 데이터 세트** 를 확장하고 **Amazon의 도서 리뷰** 를 실험으로 끌어서 놓습니다.
 
-![스크린 샷에서 왼쪽에 있는 샘플 및 오른쪽에 있는 SimpleFeatureHashingExperiment 창에 항목을 끌어 놓는 명령이 표시 됩니다.](./media/manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png)
+![왼쪽에 위치한 샘플 및 항목을 이곳으로 끌어 오라는 지침이 있는 오른쪽에 위치한 SimpleFeatureHashingExperiment 창을 보여 주는 스크린샷.](./media/manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png)
 
 **데이터 변환** 및 **조작** 을 확장하고 **데이터 세트의 열 선택** 을 실험으로 끌어서 놓습니다. **Amazon의 도서 리뷰** 를 **데이터 세트의 열 선택** 에 연결합니다.
 
@@ -193,53 +193,53 @@ API를 만들려면:
 
 **텍스트 분석** 을 확장하고 **기능 해싱** 을 실험으로 끌어서 놓습니다. **데이터 세트의 열 선택** 을 **기능 해싱** 에 연결합니다.
 
-![작업 영역에 추가 되는 기능 해시 항목을 보여 주는 스크린샷](./media/manage-web-service-endpoints-using-api-management/connect-project-columns.png)
+![작업 영역에 추가되는 기능 해싱 항목을 보여 주는 스크린샷.](./media/manage-web-service-endpoints-using-api-management/connect-project-columns.png)
 
 **해싱 비트 크기** 로 **3** 을 입력합니다. 8(23)개 열이 생성됩니다.
 
-![스크린샷 선택한 기능 해시가 있는 속성을 보여 줍니다. 해시 비트 크기를 입력할 수 있습니다.](./media/manage-web-service-endpoints-using-api-management/hashing-bitsize.png)
+![기능 해싱이 선택되어 해싱 비트 크기를 입력할 수 있는 속성을 보여 주는 스크린샷.](./media/manage-web-service-endpoints-using-api-management/hashing-bitsize.png)
 
 이때 **실행** 을 클릭하여 실험을 테스트할 수 있습니다.
 
-![스크린샷 실행 단추를 표시 합니다.](./media/manage-web-service-endpoints-using-api-management/run.png)
+![실행 단추를 보여 주는 스크린샷.](./media/manage-web-service-endpoints-using-api-management/run.png)
 
 ### <a name="create-a-web-service"></a>웹 서비스 만들기
 이제 웹 서비스를 만듭니다. **웹 서비스** 를 확장하고 **입력** 을 실험으로 끌어서 놓습니다. **입력** 을 **기능 해싱** 에 연결합니다. **출력** 을 실험으로 끌어서 놓습니다. **출력** 을 **기능 해싱** 에 연결합니다.
 
-![지정 된 변경을 수행한 후의 작업 영역을 보여 주는 스크린샷](./media/manage-web-service-endpoints-using-api-management/output-to-feature-hashing.png)
+![지정된 변경 내용을 수행한 후의 작업 영역을 보여 주는 스크린샷.](./media/manage-web-service-endpoints-using-api-management/output-to-feature-hashing.png)
 
 **웹 서비스 게시** 를 클릭합니다.
 
-![웹 서비스 게시 단추를 보여 주는 스크린샷](./media/manage-web-service-endpoints-using-api-management/publish-web-service.png)
+![웹 서비스 게시 단추를 보여 주는 스크린샷.](./media/manage-web-service-endpoints-using-api-management/publish-web-service.png)
 
 **예** 를 클릭하여 실험을 게시합니다.
 
-![스크린샷 확인 메시지 및 게시 옵션을 보여 줍니다.](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
+![확인 메시지 및 게시 여부 옵션을 보여 주는 스크린샷.](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>웹 서비스 테스트
 AzureML 웹 서비스는 RSS(요청/응답 서비스) 및 BES(일괄 처리 실행 서비스) 엔드포인트로 구성됩니다. RSS는 동기 실행에 사용됩니다. BES는 비동기 작업 실행에 사용됩니다. 아래 샘플 Python 소스로 웹 서비스를 테스트하려면 Python용 Azure SDK를 다운로드해야 할 수 있습니다( [Python을 설치하는 방법](/azure/developer/python/azure-sdk-install) 참조).
 
 또한 다음 샘플 원본에 대한 실험의 **workspace**, **service** 및 **api_key** 가 필요합니다. 웹 서비스 대시보드에서 실험의 **요청/응답** 또는 **Batch 실행** 을 클릭하여 workspace 및 service를 찾을 수 있습니다.
 
-![스크린샷에는 작업 영역 및 서비스 값을 찾을 수 있는 요청 창이 표시 됩니다.](./media/manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
+![작업 영역 및 서비스 값을 찾을 수 있는 요청 창을 보여 주는 스크린샷.](./media/manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
 
 웹 서비스 대시보드에서 실험을 클릭하여 **api_key** 를 찾을 수 있습니다.
 
-![스크린샷에서 A P I 키를 찾을 수 있는 웹 서비스 대시보드의 실험을 보여 줍니다.](./media/manage-web-service-endpoints-using-api-management/find-api-key.png)
+![API 키를 찾을 수 있는 웹 서비스 대시보드의 실험을 보여 주는 스크린샷.](./media/manage-web-service-endpoints-using-api-management/find-api-key.png)
 
 #### <a name="test-rrs-endpoint"></a>RRS 엔드포인트 테스트
 ##### <a name="test-button"></a>테스트 단추
 RRS 엔드포인트를 테스트하는 간편한 방법은 웹 서비스 대시보드에서 **테스트** 를 클릭하는 것입니다.
 
-![스크린샷 테스트 단추가 있는 웹 서비스 대시보드의 실험을 보여 줍니다.](./media/manage-web-service-endpoints-using-api-management/test.png)
+![테스트 단추가 있는 웹 서비스 대시보드의 실험을 보여 주는 스크린샷.](./media/manage-web-service-endpoints-using-api-management/test.png)
 
 **col2** 로 **This is a good day** 를 입력합니다. 확인 표시를 클릭합니다.
 
-![스크린샷은 예를 들어 좋은 날 처럼 텍스트를 입력할 수 있는 예측할 데이터 입력 대화 상자를 표시 합니다.](./media/manage-web-service-endpoints-using-api-management/enter-data.png)
+![예를 들어 This is a good day처럼 텍스트를 입력할 수 있는 예측할 데이터 입력 대화 상자를 보여 주는 스크린샷.](./media/manage-web-service-endpoints-using-api-management/enter-data.png)
 
 다음과 같이 표시됩니다.
 
-![스크린 샷은 실험의 결과를 보여 줍니다 .이는 올바른 날짜와 여러 자릿수의 따옴표입니다.](./media/manage-web-service-endpoints-using-api-management/sample-output.png)
+![실험의 결과인 This is a good day 여러 자릿수의 따옴표를 보여 주는 스크린샷.](./media/manage-web-service-endpoints-using-api-management/sample-output.png)
 
 ##### <a name="sample-code"></a>샘플 코드
 RRS를 테스트하는 또 다른 방법은 클라이언트 코드를 사용하는 것입니다. 대시보드에서 **요청/응답** 을 클릭하고 아래쪽으로 스크롤하면 C#, Python 및 R에 대한 샘플 코드가 표시됩니다. 요청 URI, 헤더 및 본문을 포함한 RRS 요청 구문도 표시됩니다.

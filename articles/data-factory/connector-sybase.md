@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: jingwang
 ms.openlocfilehash: 2ef63eded5403c1cf5faddec71ed3503c3ae2138
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100384812"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Sybase에서 데이터 복사
@@ -23,7 +23,7 @@ ms.locfileid: "100384812"
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-이 Sybase 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
+Sybase 커넥터는 다음과 같은 작업을 지원합니다.
 
 - [지원되는 원본/싱크 매트릭스](copy-activity-overview.md)를 사용한 [복사 작업](copy-activity-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
@@ -32,16 +32,16 @@ Sybase 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 
 특히 이 Sybase 커넥터는 다음을 지원합니다.
 
-- SAP Sybase SQL의 모든 위치 (GLOBAL.ASA) **버전 16 이상**
+- SAP Sybase SQL Anywhere(ASA) **버전 16 이상**
 - **Basic** 또는 **Windows** 인증을 사용한 데이터 복사
 
-Sybase IQ 및 ASE는 지원 되지 않습니다. 대신 Sybase 드라이버와 일반 ODBC 커넥터를 사용할 수 있습니다.
+Sybase IQ와 ASE는 지원하지 않습니다. 대신 일반 ODBC 커넥터를 Sybase 드라이버와 함께 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 Sybase 커넥터를 사용하려면 다음을 수행해야 합니다.
 
-- 자체 호스팅 Integration Runtime을 설정합니다. 자세한 내용은 [자체 호스팅 Integration Runtime](create-self-hosted-integration-runtime.md) 문서를 참조 하세요.
+- 자체 호스팅 Integration Runtime을 설정합니다. 자세한 내용은 [자체 호스팅 Integration Runtime](create-self-hosted-integration-runtime.md)을 참조하세요.
 - Integration Runtime 컴퓨터에 [Sybase iAnywhere.Data.SQLAnywhere 데이터 공급자](https://go.microsoft.com/fwlink/?linkid=324846) 16 이상을 설치합니다.
 
 ## <a name="getting-started"></a>시작
@@ -93,11 +93,11 @@ Sybase 연결된 서비스에 다음 속성이 지원됩니다.
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에는 Sybase 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Sybase에서 데이터를 복사 하기 위해 지원 되는 속성은 다음과 같습니다.
+Sybase에서 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 type 속성은 **SybaseTable** 로 설정 해야 합니다. | 예 |
+| type | 데이터 세트의 형식 속성을 **SybaseTable** 로 설정해야 합니다. | 예 |
 | tableName | Sybase 데이터베이스의 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -125,11 +125,11 @@ Sybase에서 데이터를 복사 하기 위해 지원 되는 속성은 다음과
 
 ### <a name="sybase-as-source"></a>Sybase를 원본으로
 
-Sybase에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹션에서 다음 속성이 지원 됩니다.
+Sybase에서 데이터를 복사하기 위해 복사 작업 **원본** 섹션에서 지원되는 속성은 다음과 같습니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성은 **Sybasesource** 로 설정 해야 합니다. | 예 |
+| type | 복사 작업 원본의 형식 속성은 **SybaseSource** 으로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예:**

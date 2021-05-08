@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 281da27ce95649e85dae5d0795bb743f21fdb578
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d94da9792d40a389e3981163e565d85d82a9cdc9
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102631747"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831243"
 ---
 # <a name="use-source-control-integration"></a>원본 제어 통합 사용
 
@@ -30,7 +31,7 @@ Azure Automation은 3가지 유형의 소스 제어를 지원합니다.
 
 * 소스 제어 리포지토리(GitHub 또는 Azure Repos)
 * [실행 계정](automation-security-overview.md#run-as-accounts)
-* 이 [ `AzureRM.Profile` 모듈](/powershell/module/azurerm.profile/) 은 Automation 계정으로 가져와야 합니다. 해당 Az module ( `Az.Accounts` )은 Automation 소스 제어에서 작동 하지 않습니다.
+* [`AzureRM.Profile` 모듈](/powershell/module/azurerm.profile/)은 Automation 계정으로 가져와야 합니다. 해당 Az 모듈(`Az.Accounts`)은 Automation 원본 제어에서 작동하지 않습니다.
 
 > [!NOTE]
 > 소스 제어 동기화 작업은 사용자 Automation 계정에서 실행되며 다른 Automation 작업과 동일한 요금으로 청구됩니다.
@@ -116,7 +117,7 @@ New-AzAutomationSourceControl -Name SCReposTFVC -RepoUrl https://dev.azure.com/<
 |`repo:status`     | 커밋 상태 액세스         |
 |`repo_deployment`      | 배포 상태 액세스         |
 |`public_repo`     | 공용 리포지토리 액세스         |
-|`repo:invite` | 액세스 저장소 초대 |
+|`repo:invite` | 리포지토리 초대 액세스 |
 |`security_events` | 읽기 및 쓰기 보안 이벤트 |
 |**`admin:repo_hook`**     |         |
 |`write:repo_hook`     | 리포지토리 후크 쓰기         |
@@ -209,4 +210,4 @@ New-AzAutomationSourceControl -Name SCReposTFVC -RepoUrl https://dev.azure.com/<
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Automation에서 소스 제어를 통합하려면 [Azure Automation: Azure Automation에서 소스 제어 통합](https://azure.microsoft.com/blog/azure-automation-source-control-13/)을 참조하세요.  
-* Visual Studio Codespaces runbook 소스 제어를 통합 하는 방법에 대 한 자세한 내용은 [Azure Automation: Visual Studio Codespaces를 사용 하 여 Runbook 원본 제어 통합](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)을 참조 하세요.
+* Visual Studio Codespaces Runbook 원본 제어를 통합하는 방법에 대한 자세한 내용은 [Azure Automation: Visual Studio Codespaces를 사용한 Runbook 원본 제어 통합](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)을 참조하세요.

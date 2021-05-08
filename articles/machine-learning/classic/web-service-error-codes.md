@@ -1,5 +1,5 @@
 ---
-title: 'ML Studio (클래식): REST API 오류 코드-Azure'
+title: 'ML 스튜디오(클래식): REST API 오류 코드 - Azure'
 description: 이러한 오류 코드는 Azure Machine Learning 웹 서비스의 작업에서 반환될 수 있습니다.
 keywords: ''
 services: machine-learning
@@ -12,24 +12,24 @@ ms.subservice: studio-classic
 ms.topic: reference
 ms.date: 11/16/2016
 ms.openlocfilehash: c5a457a673500c542dd6130d5cfadd73ab677f7b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100518354"
 ---
-# <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Azure Machine Learning Studio (클래식) REST API 오류 코드
+# <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Azure Machine Learning 스튜디오(클래식) REST API 오류 코드
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
-Azure Machine Learning Studio (클래식) 웹 서비스에 대 한 작업에 의해 반환 되는 오류 코드는 다음과 같습니다.
+다음 오류 코드는 Azure Machine Learning 스튜디오(클래식) 웹 서비스의 작업에서 반환될 수 있습니다.
  
 ## <a name="badargument-http-status-code-400"></a>BadArgument(HTTP 상태 코드 400)
  
 잘못된 인수가 제공되었습니다.
  
-이 오류 클래스는 어딘가에 제공된 인수가 잘못되었다는 의미입니다. 웹 서비스에 전달된 내용에 대한 Azure Storage의 위치 또는 자격 증명일 수 있습니다. "세부 정보" 섹션의 오류 "코드" 필드를 확인 하 여 잘못 된 특정 인수를 진단 하십시오.
+이 오류 클래스는 어딘가에 제공된 인수가 잘못되었다는 의미입니다. 웹 서비스에 전달된 내용에 대한 Azure Storage의 위치 또는 자격 증명일 수 있습니다. 구체적으로 어떤 특정 인수가 잘못되었는지 진단하려면 “세부 정보” 섹션의 오류 “코드” 필드를 살펴보세요.
  
 | 오류 코드 | 사용자 메시지 |
 | ---------- |--------------|
@@ -67,7 +67,7 @@ Azure Machine Learning Studio (클래식) 웹 서비스에 대 한 작업에 의
 | MissingWebServicePackage | 웹 서비스 패키지가 제공되지 않았습니다. 유효한 웹 서비스 패키지를 제공하고 다시 시도하세요. |
 | MissingWorkspaceId | 작업 영역 ID가 제공되지 않았습니다. 유효한 작업 영역 ID를 제공하고 다시 시도하세요. |
 | ModelConfigurationInvalid | 모델 패키지에 모델 구성이 잘못되었습니다. 모델 구성에 출력 엔드포인트 정의, std 오류 엔드포인트, std 출력 엔드포인트가 포함되었는지 확인하고 다시 시도하세요. |
-| ModelPackageIdInvalid | 모델 패키지 Id가 잘못 되었습니다. 모델 패키지 Id가 올바른지 확인 한 후 다시 시도 하십시오. |
+| ModelPackageIdInvalid | 모델 패키지 ID가 잘못되었습니다. 모델 패키지 ID가 올바른지 확인하고 다시 시도하세요. |
 | RequestBodyInvalid | 요청 본문이 제공되지 않았거나 요청 본문을 역직렬화하는 동안 오류가 발생했습니다. |
 | RequestIsEmpty | 요청이 제공되지 않았습니다. 유효한 요청을 제공하고 다시 시도하세요. |
 | UnexpectedParameter | 예기치 않은 매개 변수가 제공되었습니다. 모든 매개 변수 이름의 철자가 올바른지, 예상된 매개 변수가 전달되는지 확인하고 다시 시도하세요. |

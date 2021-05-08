@@ -3,12 +3,12 @@ title: 미디어 청사진 샘플 제어
 description: 미디어 청사진 샘플의 제어 매핑입니다. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
 ms.date: 04/13/2021
 ms.topic: sample
-ms.openlocfilehash: 4c04c661d7dd8b2b07a05c20524258d6bb887e62
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: f2750f4733a3a815236778c846bde4e186f30512
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376701"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108161324"
 ---
 # <a name="control-mapping-of-the-media-blueprint-sample"></a>미디어 청사진 샘플의 제어 매핑
 
@@ -229,13 +229,13 @@ ms.locfileid: "107376701"
 - 가상 머신 확장 집합의 OS 취약성을 감사하여 공격으로부터 보호합니다.
 
 > [!NOTE]
-> 특정 Azure Policy 정의의 가용성은 Azure Government 및 기타 국가 클라우드에 따라 다를 수 있습니다. 
+> 특정 Azure Policy 정의의 가용성은 Azure Government 및 기타 국가 클라우드에 따라 다를 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 미디어 청사진 샘플의 제어 매핑을 검토했습니다. 이번에는 다음 문서를 참조하여 이 샘플의 개요 및 배포 방법을 알아보세요.
 
-> [!div class="next step action"]
+> [!div class="nextstepaction"]
 > [Media 청사진 - 컨트롤 매핑](./control-mapping.md)
 > [Media 청사진 - 배포 단계](./deploy.md)
 
