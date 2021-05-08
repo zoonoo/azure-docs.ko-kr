@@ -1,22 +1,22 @@
 ---
 title: Azure Marketplace에서 파트너 센터를 사용하여 Azure IoT Edge 모듈 제품 만들기
-description: 파트너 센터를 사용 하 여 Azure Marketplace에서 IoT Edge 모듈 제품을 만들고 구성 하 고 게시 하는 방법에 대해 알아봅니다.
+description: Azure Marketplace에서 파트너 센터를 사용하여 IoT Edge 모듈 제품을 만들고 구성하고 게시하는 방법을 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 23af7b3f7cfd5ec0531c5cac73cf8a334ef4aa62
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 12600cadaa84ae116818eec06459d5db0c05304a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99096443"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773423"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>IoT Edge 모듈 제품 만들기
 
-이 문서에서는 Azure Marketplace에 IoT(사물 인터넷) Edge 모듈 제품을 만들어 게시하는 방법을 설명합니다. 시작하기 전에 [파트너 센터에서 상업용 Marketplace 계정을 만듭니다](create-account.md)(아직 만들지 않은 경우). 계정이 상업용 마켓플레이스 프로그램에 등록되어 있는지 확인합니다.
+이 문서에서는 Azure Marketplace에 IoT(사물 인터넷) Edge 모듈 제품을 만들어 게시하는 방법을 설명합니다. 시작하기 전에 [파트너 센터에서 상업용 Marketplace 계정을 만듭니다](../create-account.md)(아직 만들지 않은 경우). 계정이 상업용 마켓플레이스 프로그램에 등록되어 있는지 확인합니다.
 
 ## <a name="create-a-new-offer"></a>새 제안 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "99096443"
     ![왼쪽 탐색 메뉴를 보여 줍니다.](./media/new-offer-iot-edge.png)
 
 > [!IMPORTANT]
-> 제품을 게시 한 후에는 제품을 다시 게시 한 후에만 파트너 센터에서 해당 제품에 대 한 편집 내용이 온라인 매장에 표시 됩니다. 변경을 수행한 후에는 항상 다시 게시해야 합니다.
+> 제품이 게시된 후 파트너 센터에서 해당 제품에 대해 편집한 내용이 온라인 저장소에 표시되려면 제품을 다시 게시해야 합니다. 변경을 수행한 후에는 항상 다시 게시해야 합니다.
 
 ### <a name="offer-id-and-alias"></a>제품 ID 및 별칭
 
@@ -91,12 +91,12 @@ ms.locfileid: "99096443"
 
 #### <a name="category"></a>Category
 
-범주 및 하위 범주를 선택 하 여 제품을 적절 한 마켓플레이스 검색 영역에 넣습니다. 제품 설명에서 제품이 해당 범주를 지원하는 방법을 설명해야 합니다. 선택:
+범주와 하위 범주를 선택하여 제품을 적절한 마켓플레이스 검색 영역에 배치합니다. 제품 설명에서 제품이 해당 범주를 지원하는 방법을 설명해야 합니다. 선택:
 
-- 기본 및 보조 범주 (선택 사항)를 포함 하 여 적어도 하나 이상의 범주입니다.
-- 각 주 및/또는 보조 범주에 대해 최대 두 개의 하위 범주 제안에 적용 되는 하위 범주가 없으면 **해당 없음** 을 선택 합니다.
+- 기본 및 보조 범주(선택 사항)를 포함하여 하나 이상의 범주 및 최대 두 개의 범주
+- 각 기본 및/또는 보조 범주에 대해 최대 두 개의 하위 범주 제품에 적용되는 하위 범주가 없으면 **해당 없음** 을 선택합니다.
 
-[제품 목록 모범 사례](../gtm-offer-listing-best-practices.md)에서 범주 및 하위 범주의 전체 목록을 참조 하세요. Marketplace에서 IoT Edge 모듈은  **사물 인터넷**  >  **IoT Edge 모듈** 범주 아래에 항상 표시 됩니다   .
+[제품 목록 모범 사례](../gtm-offer-listing-best-practices.md)에서 범주와 하위 범주의 전체 목록을 참조하세요. 마켓플레이스에서 IoT Edge 모듈은 항상  **사물 인터넷** >  **IoT Edge 모듈**  범주 아래에 표시됩니다.
 
 #### <a name="legal"></a>법적 정보
 
@@ -170,9 +170,9 @@ IoT Edge 모듈 제품에는 설명의 맨 아래에 다음과 같은 최소 하
 제품에 대한 추가 온라인 문서를 제공합니다. 최대 25개의 링크를 추가할 수 있습니다. 링크를 추가하려면 **+ 링크 추가** 를 선택하고 다음 필드를 완료합니다.
 
 - **제목** - 제품의 세부 정보 페이지에 제목이 고객에게 표시됩니다.
-- **링크(URL)** - 고객이 온라인 설명서를 볼 수 있는 링크를 입력합니다. 링크는 또는로 시작 해야 합니다 `http://` `https://` .
+- **링크(URL)** - 고객이 온라인 설명서를 볼 수 있는 링크를 입력합니다. 링크는 `http://` 또는 `https://`로 시작해야 합니다.
 
- [Azure IoT 디바이스 카탈로그](https://catalog.azureiotsolutions.com/)에서 설명서에 하나 이상의 링크 및 호환 IoT Edge 디바이스에 하나의 링크를 추가해야 합니다.
+ [Azure IoT 디바이스 카탈로그](https://devicecatalog.azure.com/)에서 설명서에 하나 이상의 링크 및 호환 IoT Edge 디바이스에 하나의 링크를 추가해야 합니다.
 
 ### <a name="contact-information"></a>연락처 정보
 
@@ -201,13 +201,13 @@ IoT Edge 모듈 제품에는 설명의 맨 아래에 다음과 같은 최소 하
 
 #### <a name="store-logos"></a>스토어 로고
 
-**큰** 크기의 로고에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작고** **중간** 로고를 만듭니다. 필요에 따라 나중에 다른 이미지로 바꿀 수 있습니다.
+**큰** 크기 로고의 경우 PNG 파일을 제공합니다. 파트너 센터는 이를 사용하여 **작은** 로고와 **중간** 로고를 만듭니다. 나중에 선택적으로 다른 이미지로 바꿀 수 있습니다.
 
-- **큼** (216 x 216에서 350 x 350 px, required)
-- **중간** (90 x 90 px, 선택 사항)
-- **작음** (48 x 48 px, 선택 사항)
+- **크게**(216 x 216~350 x 350px, 필수)
+- **보통**(90 x 90px, 선택 사항)
+- **작게**(48 x 48px, 선택 사항)
 
-이러한 로고는 목록의 다른 위치에서 사용 됩니다.
+이러한 로고는 목록의 여러 위치에서 사용됩니다.
 
 [!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
@@ -223,49 +223,49 @@ IoT Edge 모듈 제품에는 설명의 맨 아래에 다음과 같은 최소 하
 
 #### <a name="marketplace--examples"></a>Marketplace 예
 
-Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음과 같습니다.
+다음은 Azure Marketplace에 제품 정보가 어떻게 표시되는지 보여 주는 예입니다.
 
-:::image type="content" source="media/example-iot-azure-marketplace-offer.png" alt-text="이 제품이 Azure Marketplace 표시 되는 방식을 보여 줍니다.":::
+:::image type="content" source="media/example-iot-azure-marketplace-offer.png" alt-text="이 제품이 Azure Marketplace에 어떻게 표시되는지 보여 줍니다.":::
 
-#### <a name="call-out-descriptions"></a>호출 설명
+#### <a name="call-out-descriptions"></a>설명
 
-1. 크게 로고
+1. 큰 로고
 2. 범주
-3. 지원 주소 (링크)
+3. 지원 주소(링크)
 4. 사용 약관
-5. 개인 정보 취급 방침 주소 (링크)
+5. 개인 정보 취급 방침 주소(링크)
 6. Name
 7. 요약
-8. 설명
+8. Description
 9. 유용한 링크
 10. 스크린샷/비디오
 
-<br>다음은 Azure Marketplace 검색 결과에 제품 정보가 표시 되는 방법의 예입니다.
+<br>다음은 Azure Marketplace 검색 결과에 제품 정보가 어떻게 표시되는지 보여 주는 예입니다.
 
-:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="이 제품이 Azure Marketplace 검색 결과에 표시 되는 방식을 보여 줍니다.":::
+:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="이 제품이 Azure Marketplace 검색 결과에 어떻게 표시되는지 보여 줍니다.":::
 
-#### <a name="call-out-descriptions"></a>호출 설명
+#### <a name="call-out-descriptions"></a>설명
 
 1. 작은 로고
 2. Offer name
 3. 검색 결과 요약
 
-<br>다음은 Azure Portal에서 제공 정보를 표시 하는 방법의 예입니다.
+<br>다음은 Azure Portal에 제품 정보가 어떻게 표시되는지 보여 주는 예입니다.
 
-:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="이 제품이 Azure Portal 표시 되는 방식을 보여 줍니다.":::
+:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="해당 제품이 Azure Portal에 어떻게 표시되는지 보여 줍니다.":::
 
-#### <a name="call-out-descriptions"></a>호출 설명
+#### <a name="call-out-descriptions"></a>설명
 
 1. Name
-2. 설명
+2. Description
 3. 유용한 링크
 4. 스크린샷
 
-<br>Azure Portal 검색 결과에 제품 정보가 표시 되는 방법의 예는 다음과 같습니다.
+<br>다음은 Azure Portal 검색 결과에 제품 정보가 어떻게 표시되는지 보여 주는 예입니다.
 
-:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="이 제품이 Azure Portal 검색 결과에 표시 되는 방식을 보여 줍니다.":::
+:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="이 제품이 Azure Portal 검색 결과에 어떻게 표시되는지 보여 줍니다.":::
 
-#### <a name="call-out-descriptions"></a>호출 설명
+#### <a name="call-out-descriptions"></a>설명
 
 1. 작은 로고
 2. Offer name
@@ -291,15 +291,15 @@ Azure 구독 ID GUID와 각각에 대한 선택적 설명과 함께 미리 보�
 
 ## <a name="plan-overview"></a>계획 개요
 
-이 탭에서 파트너 센터의 동일한 제품 내에서 다른 계획 옵션을 제공할 수 있습니다. 요금제 (이전의 Sku)는 글로벌 클라우드, 정부 클라우드 및 계획에서 참조 하는 이미지와 같은 사용 가능한 클라우드 측면에서 다를 수 있습니다. Marketplace에서 제품을 나열하려면 하나 이상의 계획을 설정해야 합니다.
+이 탭에서 파트너 센터의 동일한 제품 내에서 다른 계획 옵션을 제공할 수 있습니다. 계획(이전의 SKU라고 함)은 글로벌 클라우드, 정부 클라우드 및 계획에서 참조하는 이미지와 같이 사용 가능한 클라우드 측면에서 다를 수 있습니다. Marketplace에서 제품을 나열하려면 하나 이상의 계획을 설정해야 합니다.
 
-각 제품에 대해 최대 100 요금제를 만들 수 있습니다. 최대 45 개는 개인 일 수 있습니다. [Microsoft 상업적 marketplace에서 비공개 제품](../private-offers.md)의 비공개 요금제에 대해 자세히 알아보세요.
+각 제품에 대해 최대 100개의 계획을 만들 수 있습니다.이 중 최대 45개는 프라이빗이 될 수 있습니다. [Microsoft 상업용 Marketplace의 프라이빗 제품](../private-offers.md)에서 프라이빗 계획에 대해 자세히 알아봅니다.
 
 플랜을 만들면 **플랜 개요** 탭에 다음과 같은 항목이 표시됩니다.
 
 - 플랜 이름
 - 가격 책정 모델
-- Azure 지역 (글로벌 또는 정부)
+- Azure 지역(글로벌 또는 거버넌스)
 - 현재 게시 상태
 - 모든 사용 가능한 작업
 
@@ -327,16 +327,16 @@ Azure 구독 ID GUID와 각각에 대한 선택적 설명과 함께 미리 보�
 
 #### <a name="azure-regions"></a>Azure 지역
 
-IoT Edge 모듈 제공에 대 한 모든 계획은 **Azure Global** 에서 자동으로 제공 됩니다.  요금제를 사용 하는 모든 글로벌 Azure 지역에서 고객은 요금제를 사용할 수 있습니다. 자세한 내용은 [지리적 가용성 및 통화 지원](../marketplace-geo-availability-currencies.md)을 참조하세요.
+IoT Edge 모듈 제품에 대한 모든 계획은 **Azure Global** 에서 자동으로 제공됩니다.  마켓플레이스를 사용하는 모든 글로벌 Azure 지역의 고객이 계획을 사용할 수 있습니다. 자세한 내용은 [지리적 가용성 및 통화 지원](../marketplace-geo-availability-currencies.md)을 참조하세요.
 
-[Azure Government](../../azure-government/documentation-government-welcome.md) 옵션을 선택 하 여 솔루션을 여기에 표시 합니다. 이는 미국 연방, 주, 지방 또는 부족 정부 기관과 여기서 일할 자격이 있는 파트너의 고객에 대한 액세스를 제어하는 정부 커뮤니티 클라우드입니다. 게시자는 이 클라우드 커뮤니티에 대한 모든 규정 준수 제어, 보안 조치 및 모범 사례를 담당해야 합니다. Azure Government는 물리적으로 격리되어 미국에만 있는 데이터 센터와 네트워크를 사용합니다. 결과와 다를 수 있으므로 Azure Government에 [게시](../../azure-government/documentation-government-manage-marketplace-partners.md)하기 전에 해당 영역 내에서 솔루션을 테스트하고 확인합니다. 솔루션을 준비하고 테스트 하려면 [Microsoft Azure Government 평가판](https://azure.microsoft.com/global-infrastructure/government/request/)에서 평가판 계정을 요청합니다.
+솔루션을 여기에 표시하려면 [Azure Government](../../azure-government/documentation-government-welcome.md) 옵션을 선택합니다. 이는 미국 연방, 주, 지방 또는 부족 정부 기관과 여기서 일할 자격이 있는 파트너의 고객에 대한 액세스를 제어하는 정부 커뮤니티 클라우드입니다. 게시자는 이 클라우드 커뮤니티에 대한 모든 규정 준수 제어, 보안 조치 및 모범 사례를 담당해야 합니다. Azure Government는 물리적으로 격리되어 미국에만 있는 데이터 센터와 네트워크를 사용합니다. 결과와 다를 수 있으므로 Azure Government에 [게시](../../azure-government/documentation-government-manage-marketplace-partners.md)하기 전에 해당 영역 내에서 솔루션을 테스트하고 확인합니다. 솔루션을 준비하고 테스트 하려면 [Microsoft Azure Government 평가판](https://azure.microsoft.com/global-infrastructure/government/request/)에서 평가판 계정을 요청합니다.
 
 > [!NOTE]
-> 계획을 게시 하 고 특정 지역에서 사용할 수 있게 되 면 해당 지역을 제거할 수 없습니다.
+> 계획이 게시되고 특정 지역에서 사용할 수 있으면 해당 지역을 제거할 수 없습니다.
 
 #### <a name="azure-government-certifications"></a>Azure Government 인증
 
-이 옵션은 **Azure 지역** 에서 **Azure Government** 선택 된 경우에만 표시 됩니다.
+이 옵션은 **Azure 지역** 에서 **Azure Government** 를 선택하는 경우에만 표시됩니다.
 
 Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용되는 데이터를 처리합니다. 예를 들어 FedRAMP, NIST 800.171(DIB), ITAR, IRS 1075, DoD L4 및 CJIS가 있습니다. 이러한 프로그램에 대한 인증을 알리려면 인증을 설명하는 최대 100개의 링크를 제공할 수 있습니다. 이러한 링크는 프로그램의 목록에 직접 연결하거나 자신의 웹 사이트에 연결할 수 있습니다. 이러한 링크는 Azure Government 고객만 볼 수 있습니다.
 
@@ -346,7 +346,7 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 
 ### <a name="plan-name"></a>계획 이름
 
-계획을 만들 때 지정한 이름으로 미리 채워집니다. 필요에 따라 이 이름을 변경할 수 있습니다. 최대 50자까지 지정할 수 있습니다. 이 이름은 Azure Marketplace 및 Azure Portal에서이 계획의 제목으로 표시 됩니다. 플랜을 사용할 준비가 되면 기본 모듈 이름으로 사용됩니다.
+계획을 만들 때 지정한 이름으로 미리 채워집니다. 필요에 따라 이 이름을 변경할 수 있습니다. 최대 50자까지 지정할 수 있습니다. 이 이름은 Azure Marketplace 및 Azure Portal에서 이 계획의 제목으로 표시됩니다. 플랜을 사용할 준비가 되면 기본 모듈 이름으로 사용됩니다.
 
 ### <a name="plan-summary"></a>플랜 요약
 
@@ -360,21 +360,21 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 
 #### <a name="plan-examples"></a>계획 예제
 
-다음은 Azure Marketplace 계획 세부 정보에 대 한 예입니다. 나열 된 가격은 예를 들기 위한 것 이며 실제 비용을 반영 하지는 않습니다.
+다음은 Azure Marketplace 계획 세부 정보의 예입니다(모든 나열된 가격은 예시용이며 실제 비용을 반영하지 않음).
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Azure Marketplace 계획 정보를 보여 줍니다.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Azure Marketplace 계획 세부 정보를 보여 줍니다.":::
 
-#### <a name="call-out-descriptions"></a>호출 설명
+#### <a name="call-out-descriptions"></a>설명
 
 1. Offer name
 2. 플랜 이름
 3. 플랜 설명
 
-<br>다음은 Azure Portal 계획 정보에 대 한 예입니다. 나열 된 가격은 예를 들기 위한 것 이며 실제 비용을 반영 하지는 않습니다.
+<br>다음은 Azure Portal 계획 정보의 예입니다(모든 나열된 가격은 예시용이며 실제 비용을 반영하지 않음).
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Azure Portal 계획 정보를 보여 줍니다.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Azure Portal 계획 세부 정보를 보여 줍니다.":::
 
-#### <a name="call-out-descriptions"></a>호출 설명
+#### <a name="call-out-descriptions"></a>설명
 
 1. Offer name
 2. 플랜 이름
@@ -393,7 +393,7 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 
 ## <a name="technical-configuration"></a>기술 구성
 
-**IoT Edge 모듈** 제품 유형은 IoT Edge 디바이스에서 실행되는 특정 유형의 컨테이너입니다. **기술 구성** 탭에서는 고객이 모듈을 쉽게 사용할 수 있도록 하는 구성 설정과 함께 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)내의 컨테이너 이미지 리포지토리에 대 한 참조 정보를 제공 합니다.
+**IoT Edge 모듈** 제품 유형은 IoT Edge 디바이스에서 실행되는 특정 유형의 컨테이너입니다. **기술 구성** 탭에서는 고객이 모듈을 쉽게 사용할 수 있도록 하는 구성 설정과 함께 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) 내 컨테이너 이미지 리포지토리에 대한 참조 정보를 제공합니다.
 
 제품이 게시된 후에는 IoT Edge 컨테이너 이미지가 특정 공용 컨테이너 레지스트리의 Azure Marketplace로 복사됩니다. Azure 사용자의 모듈 사용에 대한 모든 요청은 프라이빗 컨테이너 레지스트리가 아닌 Azure Marketplace 공용 컨테이너 레지스트리에서 제공됩니다.
 
@@ -411,19 +411,19 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 
 **Azure Container Registry 이름**: 컨테이너 이미지를 포함하는 [Azure Container Registry](../../container-registry/container-registry-intro.md)의 이름을 제공합니다. 컨테이너 레지스트리는 앞에서 제공한 Azure 리소스 그룹에 있어야 합니다. 전체 로그인 서버 이름이 아닌 레지스트리 이름만 제공합니다. 이름에서 **azurecr.io** 를 생략해야 합니다. Azure Portal의 [컨테이너 레지스트리 페이지](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries)에서 레지스트리 이름을 찾을 수 있습니다.
 
-**Azure Container Registry에 대 한 관리자 사용자 이름**: 컨테이너 이미지를 포함 하는 Azure Container Registry에 연결 된 [관리자 사용자 이름을](../../container-registry/container-registry-authentication.md#admin-account)제공 합니다. 회사에서 레지스트리에 액세스할 수 있도록 하려면 사용자 이름 및 암호가 필요합니다. 관리 사용자 이름 및 암호를 가져오려면 Azure CLI(명령줄 인터페이스)를 사용하여 **admin enabled** 속성을 **True** 로 설정합니다. 필요에 따라 Azure Portal에서 **관리 사용자** 를 **사용** 으로 설정할 수 있습니다.
+**Azure Container Registry에 대한 관리 사용자 이름**: 컨테이너 이미지가 있는 Azure Container Registry와 관련된 [관리 사용자 이름](../../container-registry/container-registry-authentication.md#admin-account)을 제공합니다. 회사에서 레지스트리에 액세스할 수 있도록 하려면 사용자 이름 및 암호가 필요합니다. 관리 사용자 이름 및 암호를 가져오려면 Azure CLI(명령줄 인터페이스)를 사용하여 **admin enabled** 속성을 **True** 로 설정합니다. 필요에 따라 Azure Portal에서 **관리 사용자** 를 **사용** 으로 설정할 수 있습니다.
 
 :::image type="content" source="media/example-iot-update-container-registry.png" alt-text="컨테이너 레지스트리 업데이트 대화 상자를 보여 줍니다.":::
 
-#### <a name="call-out-description"></a>호출 설명
+#### <a name="call-out-description"></a>설명
 
 1. 관리 사용자
 
-<br>**Azure Container Registry에 대한 암호**: Azure Container Registry와 연결되고 컨테이너 이미지가 있는 관리 사용자 이름의 암호를 제공합니다. 회사에서 레지스트리에 액세스할 수 있도록 하려면 사용자 이름 및 암호가 필요합니다. **Container Registry** > **액세스 키** 로 이동하거나 Azure CLI에서 [show 명령](/cli/azure/acr/credential#az-acr-credential-show)을 사용하여 Azure Portal의 암호를 가져올 수 있습니다.
+<br>**Azure Container Registry에 대한 암호**: Azure Container Registry와 연결되고 컨테이너 이미지가 있는 관리 사용자 이름의 암호를 제공합니다. 회사에서 레지스트리에 액세스할 수 있도록 하려면 사용자 이름 및 암호가 필요합니다. **Container Registry** > **액세스 키** 로 이동하거나 Azure CLI에서 [show 명령](/cli/azure/acr/credential#az_acr_credential_show)을 사용하여 Azure Portal의 암호를 가져올 수 있습니다.
 
-:::image type="content" source="media/example-iot-access-keys.png" alt-text="Azure Portal의 선택 키 화면을 보여 줍니다.":::
+:::image type="content" source="media/example-iot-access-keys.png" alt-text="Azure Portal의 액세스 키 화면을 보여 줍니다.":::
 
-#### <a name="call-out-descriptions"></a>호출 설명
+#### <a name="call-out-descriptions"></a>설명
 
 1. 액세스 키
 2. 사용자 이름
@@ -432,7 +432,7 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 **Azure Container Registry 내 리포지토리 이름입니다**. 이미지를 포함하는 Azure Container Registry 리포지토리의 이름을 제공합니다. 레지스트리에 이미지를 푸시할 때 리포지토리의 이름을 지정합니다. [Container Registry](https://azure.microsoft.com/services/container-registry/) > **리포지토리 페이지** 로 이동하여 리포지토리의 이름을 찾을 수 있습니다. 자세한 내용은 [Azure Portal에서 컨테이너 레지스트리 리포지토리 보기](../../container-registry/container-registry-repositories.md)를 참조하세요. 이름이 설정되면 변경할 수 없습니다. 계정의 각 제품마다 고유한 이름을 사용합니다.
 
 > [!NOTE]
-> Edge 모듈 인증에 대 한 암호화 된 Azure Container Registry 지원 하지 않습니다. 암호화를 사용 하지 않고 Azure Container Registry를 만들어야 합니다.
+> Edge 모듈 인증에 대해 암호화된 Azure Container Registry는 지원되지 않습니다. 암호화를 사용하지 않고 Azure Container Registry를 만들어야 합니다.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>제품의 새 버전에 대한 이미지 태그
 
@@ -446,7 +446,7 @@ IoT Edge 모듈을 배포하는 가장 일반적인 설정을 정의합니다. �
 
 **기본 경로**. IoT Edge 허브는 모듈, IoT Hub 및 디바이스 간의 통신을 관리합니다. 모듈과 IoT Hub 간에 데이터 입력 및 출력에 대한 경로를 설정할 수 있습니다. 이를 통해 메시지를 처리하거나 추가 코드를 작성하기 위한 추가 서비스 없이 필요한 곳으로 메시지를 보낼 수 있습니다. 경로는 이름/값 쌍을 사용하여 생성됩니다. 최대 5개의 기본 경로 이름을 각각 최대 512자까지 정의할 수 있습니다.
 
-경로 값에 올바른 [경로 구문을](../../iot-edge/module-composition.md#declare-routes)사용 해야 합니다. (일반적으로 $upstream에서/message/*로 정의 됨) 즉, 모듈에서 전송하는 모든 메시지가 IoT Hub으로 이동합니다. 모듈을 참조하려면 공백 및 특수 문자 없이 **제품 이름** 이 될 해당 기본 모듈 이름을 사용합니다. 아직 알려지지 않은 다른 모듈을 참조하려면 <FROM_MODULE_NAME> 규칙을 사용하여 고객이 이 정보를 업데이트해야 한다는 것을 알도록 합니다. IoT Edge 경로에 대 한 자세한 내용은 [선언 경로](../../iot-edge/module-composition.md#declare-routes)를 참조 하세요.
+경로 값에 올바른 [경로 구문](../../iot-edge/module-composition.md#declare-routes)을 사용해야 합니다(일반적으로 FROM/message/* INTO $upstream으로 정의됨). 즉, 모듈에서 전송하는 모든 메시지가 IoT Hub으로 이동합니다. 모듈을 참조하려면 공백 및 특수 문자 없이 **제품 이름** 이 될 해당 기본 모듈 이름을 사용합니다. 아직 알려지지 않은 다른 모듈을 참조하려면 <FROM_MODULE_NAME> 규칙을 사용하여 고객이 이 정보를 업데이트해야 한다는 것을 알도록 합니다. IoT Edge 경로에 대한 자세한 내용은 [경로 선언](../../iot-edge/module-composition.md#declare-routes)을 참조하세요.
 
 예를 들어 모듈 ContosoModule에서 ContosoInput에 대한 입력을 수신하고 ContosoOutput에서 데이터를 출력하는 경우 다음과 같은 두 가지 기본 경로를 정의하는 것이 좋습니다.
 
@@ -455,21 +455,21 @@ IoT Edge 모듈을 배포하는 가장 일반적인 설정을 정의합니다. �
 - 이름 #2: FromContosoModuleToCloud
 - 값 #2: FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream
 
-**기본 모듈 쌍 desired 속성** 입니다. 모듈 쌍은 desired 속성을 비롯하여 모듈 인스턴스에 대한 상태 정보를 저장하는 IoT Hub의 JSON 문서입니다. 원하는 속성은 reported 속성과 함께 모듈 구성 또는 조건을 동기화하는 데 사용됩니다. 솔루션 백 엔드에서 desired 속성을 설정하고, 모듈에서 이 속성을 읽을 수 있습니다. 모듈은 desired 속성에서 변경 알림을 받을 수 있습니다. Desired 속성은 최대 5 개의 이름/값 쌍을 사용 하 여 생성 되며 각 기본값은 512 자 미만 이어야 합니다. 최대 5개의 이름/값 쌍 desired 속성을 정의할 수 있습니다. 쌍 desired 속성의 값은 최대 4개 수준의 중첩된 계층 구조의 배열이 없는 이스케이프되지 않은 유효한 JSON이어야 합니다. 기본값에 필요한 매개 변수가 적합하지 않은 시나리오에서(예: 고객 서버의 IP 주소) 매개 변수를 기본값으로 추가할 수 있습니다. 쌍 desired 속성에 대해 자세히 알아보려면 [desired 속성 정의 또는 업데이트](../../iot-edge/module-composition.md#define-or-update-desired-properties)를 참조 하세요.
+**기본 모듈 쌍 desired 속성** 입니다. 모듈 쌍은 desired 속성을 비롯하여 모듈 인스턴스에 대한 상태 정보를 저장하는 IoT Hub의 JSON 문서입니다. 원하는 속성은 reported 속성과 함께 모듈 구성 또는 조건을 동기화하는 데 사용됩니다. 솔루션 백 엔드에서 desired 속성을 설정하고, 모듈에서 이 속성을 읽을 수 있습니다. 모듈은 desired 속성에서 변경 알림을 받을 수 있습니다. desired 속성은 최대 5개의 이름/값 쌍을 사용하여 생성되며 각 기본값은 512자 미만이어야 합니다. 최대 5개의 이름/값 쌍 desired 속성을 정의할 수 있습니다. 쌍 desired 속성의 값은 최대 4개 수준의 중첩된 계층 구조의 배열이 없는 이스케이프되지 않은 유효한 JSON이어야 합니다. 기본값에 필요한 매개 변수가 적합하지 않은 시나리오에서(예: 고객 서버의 IP 주소) 매개 변수를 기본값으로 추가할 수 있습니다. 쌍 desired 속성에 대한 자세한 내용은 [desired 속성 정의 또는 업데이트](../../iot-edge/module-composition.md#define-or-update-desired-properties)를 참조하세요.
 
 예를 들어 모듈이 쌍 desired 속성을 사용하여 동적으로 구성할 수 있는 새로 고침 빈도를 지원하는 경우 다음 기본 쌍 desired 속성을 정의하는 것이 좋습니다.
 
 - 이름 #1: RefreshRate
 - 값 #1: 60
 
-**기본 환경 변수**. 환경 변수는 구성 프로세스를 돕는 모듈에 보충 정보를 제공합니다. 환경 변수는 이름/값 쌍을 사용하여 만들어집니다. 각 기본 환경 변수 이름 및 값은 512 자 미만 이어야 하며 최대 5 개까지 정의할 수 있습니다. 기본값에 필요한 매개 변수가 적합하지 않은 경우(예: 고객 서버의 IP 주소) 매개 변수를 기본값으로 추가합니다.
+**기본 환경 변수**. 환경 변수는 구성 프로세스를 돕는 모듈에 보충 정보를 제공합니다. 환경 변수는 이름/값 쌍을 사용하여 만들어집니다. 각 기본 환경 변수 이름 및 값은 512자 미만이어야 하며 최대 5개까지 정의할 수 있습니다. 기본값에 필요한 매개 변수가 적합하지 않은 경우(예: 고객 서버의 IP 주소) 매개 변수를 기본값으로 추가합니다.
 
 예를 들어 모듈을 시작하기 전에 사용 약관에 동의해야 하는 경우 다음 환경 변수를 정의할 수 있습니다.
 
 - 이름 #1: ACCEPT_EULA
 - 값 #1: Y
 
-**기본 컨테이너 만들기 옵션**. 컨테이너 만들기 옵션을 사용하여 IoT Edge 모듈 Docker 컨테이너를 만듭니다. IoT Edge는 Docker 엔진 API 만들기 컨테이너 옵션을 지원합니다. [컨테이너 나열](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList)에 있는 모든 옵션을 확인하세요. 만들기 옵션 필드는 유효한 JSON, 이스케이프 되지 않음 및 512 자 미만 이어야 합니다.
+**기본 컨테이너 만들기 옵션**. 컨테이너 만들기 옵션을 사용하여 IoT Edge 모듈 Docker 컨테이너를 만듭니다. IoT Edge는 Docker 엔진 API 만들기 컨테이너 옵션을 지원합니다. [컨테이너 나열](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList)에 있는 모든 옵션을 확인하세요. 만들기 옵션 필드는 유효한 JSON이고 이스케이프되지 않아야 하며 512자 미만이어야 합니다.
 
 예를 들어 모듈에 포트 바인딩이 필요한 경우 다음 만들기 옵션을 정의합니다.
 
@@ -491,7 +491,7 @@ IoT Edge 모듈을 배포하는 가장 일반적인 설정을 정의합니다. �
 
 게시하기 위해 제품을 제출하려면 **게시** 를 선택합니다.
 
-Microsoft에서 제품의 미리 보기 버전이 검토 및 승인 준비가 되었음을 알려 주는 메일을 보내 드립니다. 공개에 제품을 게시 하려면 파트너 센터로 이동 하 여 **라이브** 를 선택 합니다.
+Microsoft에서 제품의 미리 보기 버전이 검토 및 승인 준비가 되었음을 알려 주는 메일을 보내 드립니다. 제품을 공개하려면 파트너 센터로 이동하여 **라이브 상태로 전환** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

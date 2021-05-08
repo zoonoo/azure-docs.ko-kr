@@ -1,6 +1,6 @@
 ---
 title: azcopy | Microsoft Docs
-description: 이 문서에서는 azcopy 명령에 대 한 참조 정보를 제공 합니다.
+description: 이 문서는 azcopy 명령에 관한 참조 정보를 제공합니다.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -8,41 +8,41 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 19d5a5214ae4d2d6c0a18b68863211aa1f6573c6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: b3b4f7737320cc0359192f947271a0f4beb3c478
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98878989"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503000"
 ---
 # <a name="azcopy"></a>azcopy
 
-AzCopy는 Azure Storage 데이터를 이동 하거나 외부로 이동 하는 명령줄 도구입니다.
+AzCopy는 데이터를 Azure Storage 안이나 밖으로 이동하는 명령줄 도구입니다. AzCopy를 다운로드하고 스토리지 서비스에 인증 자격 증명을 제공하는 방법에 관해 알아보려면 [AzCopy 시작](storage-use-azcopy-v10.md) 문서를 참조하세요.
 
 ## <a name="synopsis"></a>개요
 
-명령의 일반적인 형식은 `azcopy [command] [arguments] --[flag-name]=[flag-value]` 입니다.
+명령의 일반적인 형식은 `azcopy [command] [arguments] --[flag-name]=[flag-value]`입니다.
 
-문제를 보고 하거나 도구에 대해 자세히 알아보려면를 참조 하십시오 [https://github.com/Azure/azure-storage-azcopy](https://github.com/Azure/azure-storage-azcopy) .
+문제를 신고하거나 도구에 관해 자세히 알아보려면 [https://github.com/Azure/azure-storage-azcopy](https://github.com/Azure/azure-storage-azcopy) 링크를 참조하세요.
 
 ## <a name="related-conceptual-articles"></a>관련 개념 문서
 
 - [AzCopy 시작](storage-use-azcopy-v10.md)
-- [AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송](./storage-use-azcopy-v10.md#transfer-data)
+- [자습서: AzCopy를 사용하여 클라우드 스토리지로 온-프레미스 데이터 마이그레이션](storage-use-azcopy-migrate-on-premises-data.md)
+- [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](./storage-use-azcopy-v10.md#transfer-data)
 - [AzCopy 및 File Storage를 사용하여 데이터 전송](storage-use-azcopy-files.md)
-- [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)
 
 ## <a name="options"></a>옵션
 
-**--상한** (float)은 전송 율 (메가 비트/초)을 대문자로 처리 합니다. 순간 처리량은 cap와 약간 다를 수 있습니다. 이 옵션을 0으로 설정 하거나 생략 하면 처리량이 생략 되지 않습니다.
+**--cap-mbps**(float): 전송 속도(Mbps)의 한도를 지정합니다. 시간 경과별 처리량은 한도와 약간 다를 수 있습니다. 이 옵션이 0으로 설정되거나 생략되는 경우 처리량이 제한되지 않습니다.
 
-**--도움말** Azcopy에 대 한 도움말
+**--help**: azcopy의 도움말입니다.
       
-**--출력 형식**  (문자열) 명령 출력의 형식입니다. 텍스트, json 등을 선택할 수 있습니다. 기본값은 `text`입니다. (기본값 `text` )
+**--output-type**(string): 명령의 출력 형식입니다. text, json을 선택할 수 있습니다. 기본값은 `text`입니다. (기본값 `text`)
 
-**--trusted-microsoft-접미사** (string)는 Azure Active Directory 로그인 토큰이 전송 될 수 있는 추가 도메인 접미사를 지정 합니다.  기본값은 '*. core.windows.net;* 입니다. core.chinacloudapi.cn; *. core.cloudapi.de;*. core.usgovcloudapi.net '. 여기에 나열 된 Any는 기본값에 추가 됩니다. 보안을 위해 여기에 Microsoft Azure 도메인만 배치 해야 합니다. 여러 항목을 세미콜론으로 구분 합니다.
+**--trusted-microsoft-suffixes**(string): Azure Active Directory 로그인 토큰이 전송될 수 있는 추가 도메인 접미사를 지정합니다.  기본값은 ‘ *.core.windows.net;* .core.chinacloudapi.cn; *.core.cloudapi.de;* .core.usgovcloudapi.net’입니다. 여기에 나열된 항목은 모두 기본값에 추가됩니다. 보안을 위해 여기에는 Microsoft Azure 도메인만 배치해야 합니다. 여러 항목은 세미콜론으로 구분합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [AzCopy 시작](storage-use-azcopy-v10.md)
 - [azcopy bench](storage-ref-azcopy-bench.md)

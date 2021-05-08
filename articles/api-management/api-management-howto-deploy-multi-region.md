@@ -1,54 +1,54 @@
 ---
-title: Azure API Management 서비스를 여러 Azure 지역에 배포
+title: 여러 Azure 지역에 Azure API Management 서비스 배포
 titleSuffix: Azure API Management
 description: 여러 Azure 지역에 Azure API Management 서비스 인스턴스를 배포하는 방법에 대해 알아봅니다.
-services: api-management
-documentationcenter: ''
 author: mikebudzynski
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 04/20/2020
+ms.topic: how-to
+ms.date: 04/13/2021
 ms.author: apimpm
-ms.openlocfilehash: 427ebfe865002612be2f9aeb9db416f5c2f41e52
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 9546813173e72b1f264c3668ee889bbeea07ce7f
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88065457"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534093"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>여러 Azure 지역에 Azure API Management 서비스 인스턴스를 배포하는 방법
 
-Azure API Management는 여러 지역 배포를 지원 하므로 API 게시자는 지원 되는 여러 Azure 지역에서 단일 Azure API Management 서비스를 배포할 수 있습니다. 다중 지역 기능을 사용 하면 지리적으로 분산 된 API 소비자가 받은 요청 대기 시간을 줄이고 한 지역이 오프 라인 상태가 되는 경우 서비스 가용성을 향상 시킬 수 있습니다.
+Azure API Management는 다중 지역 배포를 지원하므로 API 게시자는 원하는 수의 지원되는 Azure 지역에 단일 Azure API Management 서비스를 배포할 수 있습니다. 다중 지역 기능을 사용하면 지리적으로 분산된 API 소비자가 느끼는 요청 대기 시간을 줄일 수 있으며 한 지역이 오프라인으로 전환되는 경우 서비스 가용성이 개선됩니다.
 
-새 Azure API Management 서비스에는 처음에 하나의 장치만 단일 Azure 지역 (주 지역 [)에 포함][unit] 됩니다. 기본 또는 보조 지역에 추가 단위를 추가할 수 있습니다. API Management 게이트웨이 구성 요소는 선택한 모든 기본 및 보조 지역에 배포 됩니다. 들어오는 API 요청은 자동으로 가장 가까운 지역으로 전달 됩니다. 지역이 오프 라인 상태가 되 면 API 요청은 실패 한 영역 주위에 자동으로 가장 가까운 다음 게이트웨이로 라우팅됩니다.
+새 Azure API Management 서비스는 처음에 단일 Azure 지역인 주 지역에 [단위][unit]를 하나만 포함합니다. 주 지역 또는 보조 지역에 추가 단위를 추가할 수 있습니다. API Management 게이트웨이 구성 요소는 선택한 모든 주 지역 및 보조 지역에 배포됩니다. 들어오는 API 요청은 자동으로 가장 가까운 지역으로 전달됩니다. 지역이 오프라인으로 전환되면 API 요청은 자동으로 실패한 지역 주위에 있는 가장 가까운 다음 게이트웨이로 라우팅됩니다.
 
 > [!NOTE]
-> API Management의 게이트웨이 구성 요소만 모든 지역에 배포 됩니다. 서비스 관리 구성 요소 및 개발자 포털은 주 지역 에서만 호스팅됩니다. 따라서 주 지역 가동 중단이 발생 하는 경우에는 기본 지역이 다시 온라인 상태가 될 때까지 개발자 포털에 액세스 하 고 구성을 변경 하는 기능 (예: Api 추가, 정책 적용)이 손상 됩니다. 주 지역은 오프 라인 상태 이지만 보조 지역은 사용 가능한 최신 구성을 사용 하 여 API 트래픽을 계속 제공 합니다.
+> API Management의 게이트웨이 구성 요소만 모든 지역에 배포됩니다. 서비스 관리 구성 요소 및 개발자 포털은 주 지역에서만 호스트됩니다. 따라서 주 지역이 중단되는 경우에는 주 지역이 다시 온라인으로 전환될 때까지 개발자 포털에 대한 액세스 및 구성을 변경하는 기능(예: API 추가, 정책 적용)이 손상됩니다. 주 지역이 오프라인 상태인 동안 사용 가능한 보조 지역은 사용 가능한 최신 구성을 사용하여 API 트래픽을 계속 제공합니다. 필요에 따라 [영역 중복](zone-redundancy.md)을 사용하여 주 지역 또는 보조 지역의 가용성 및 복원력을 개선할 수 있습니다.
 
 >[!IMPORTANT]
-> 단일 지역에 고객 데이터를 저장할 수 있도록 하는 기능은 현재 아시아 태평양 지역의 동남 아시아 지역 (싱가포르) 에서만 사용할 수 있습니다. 다른 모든 지역의 경우 고객 데이터는 지역에 저장됩니다.
+> 단일 지역에 고객 데이터를 저장할 수 있는 기능은 현재 아시아 태평양 지역의 동남 아시아 지역(싱가포르)에서만 사용할 수 있습니다. 다른 모든 지역의 경우 고객 데이터는 지역에 저장됩니다.
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
-## <a name="deploy-api-management-service-to-a-new-region"></a><a name="add-region"> </a>새 지역에 API Management 서비스 배포
 
-> [!NOTE]
-> 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [API Management 서비스 인스턴스 만들기][create an api management service instance]를 참조하세요.
+## <a name="prerequisites"></a>필수 요건
 
-1. Azure Portal에서 API Management 서비스로 이동 하 고 메뉴에서 **위치** 항목을 클릭 합니다.
-2. 위쪽 막대에서 **+ 추가** 를 클릭 합니다.
-3. 드롭다운 목록에서 위치를 선택 하 고 슬라이더를 사용 하 여 단위 수를 설정 합니다.
-4. **추가** 단추를 클릭 하 여 확인 합니다.
-5. 모든 위치를 구성할 때까지이 프로세스를 반복 합니다.
-6. 위쪽 막대에서 **저장** 을 클릭 하 여 배포 프로세스를 시작 합니다.
+* 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [API Management 서비스 인스턴스 만들기](get-started-create-service-instance.md)를 참조하세요. 프리미엄 서비스 계층을 선택합니다.
+* API Management 인스턴스가 [가상 네트워크](api-management-using-with-vnet.md)에 배포되는 경우 추가하려는 위치에서 가상 네트워크, 서브넷 및 공용 IP 주소를 설정해야 합니다.
+
+## <a name="deploy-api-management-service-to-an-additional-location"></a><a name="add-region"> </a>추가 위치에 API Management 서비스 배포
+
+1. Azure Portal에서 API Management 서비스로 이동하고 메뉴에서 **API** 를 선택합니다.
+1. 위쪽 막대에서 **+ 추가** 를 선택합니다.
+1. 드롭다운 목록에서 위치를 선택합니다.
+1. 해당 위치에서 배율 **[단위](upgrade-and-scale.md)** 수를 선택합니다.
+1. 필요에 따라 [**가용성 영역**](zone-redundancy.md)을 사용하도록 설정합니다.
+1. API Management 인스턴스가 [가상 네트워크](api-management-using-with-vnet.md)에 배포된 경우 해당 위치에서 가상 네트워크 설정을 구성합니다. 해당 위치에서 사용할 수 있는 기존 가상 네트워크, 서브넷 및 공용 IP 주소를 선택합니다.
+1. **추가** 를 선택하여 확인합니다.
+1. 모든 위치를 구성할 때까지 이 프로세스를 반복합니다.
+1. 위쪽 막대에서 **저장** 을 선택하여 배포 프로세스를 시작합니다.
 
 ## <a name="delete-an-api-management-service-location"></a><a name="remove-region"> </a>API Management 서비스 위치 삭제
 
-1. Azure Portal에서 API Management 서비스로 이동 하 고 메뉴에서 **위치** 항목을 클릭 합니다.
+1. Azure Portal에서 API Management 서비스로 이동하고 메뉴에서 **위치** 항목을 클릭합니다.
 2. 제거할 위치에 대해 테이블의 오른쪽 끝에 있는 **...** 단추를 사용하여 상황에 맞는 메뉴를 엽니다. **삭제** 옵션을 선택합니다.
 3. 삭제를 확인하고 **저장** 을 클릭하여 변경 내용을 적용합니다.
 
@@ -97,17 +97,17 @@ Azure API Management는 백 엔드 서비스 URL을 하나만 제공합니다. �
     ```
 
 > [!TIP]
-> [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)를 사용 하 여 백 엔드 서비스를 시작 하 고, API 호출을 Traffic Manager에 전달 하 고, 라우팅을 자동으로 확인 하도록 할 수도 있습니다.
+> [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)를 사용하여 백 엔드 서비스를 진행하고, API 호출을 Traffic Manager에 전달하고, Traffic Manager가 라우팅을 자동으로 확인하도록 할 수도 있습니다.
 
-## <a name="use-custom-routing-to-api-management-regional-gateways"></a><a name="custom-routing"> </a>사용자 지정 라우팅을 사용 하 여 지역 게이트웨이 API Management
+## <a name="use-custom-routing-to-api-management-regional-gateways"></a><a name="custom-routing"> </a>API Management 지역 게이트웨이에 대한 사용자 지정 라우팅 사용
 
-API Management는 [가장 짧은 대기 시간](../traffic-manager/traffic-manager-routing-methods.md#performance)을 기준으로 요청을 지역 _게이트웨이로_ 라우팅합니다. API Management에서이 설정을 재정의할 수는 없지만 사용자 지정 라우팅 규칙으로 자신의 Traffic Manager를 사용할 수 있습니다.
+API Management는 [가장 짧은 대기 시간](../traffic-manager/traffic-manager-routing-methods.md#performance)을 기준으로 요청을 지역 ‘게이트웨이’로 라우팅합니다. API Management에서 이 설정을 재정의할 수는 없지만 사용자 지정 라우팅 규칙을 통해 고유한 Traffic Manager를 사용할 수 있습니다.
 
-1. 사용자 고유의 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)를 만듭니다.
-1. 사용자 지정 도메인을 사용 하는 경우 API Management 서비스 대신 [Traffic Manager와 함께 사용](../traffic-manager/traffic-manager-point-internet-domain.md) 합니다.
-1. [Traffic Manager에서 API Management 국가별 끝점을 구성](../traffic-manager/traffic-manager-manage-endpoints.md)합니다. 지역 끝점은의 URL 패턴 `https://<service-name>-<region>-01.regional.azure-api.net` (예:)을 따릅니다 `https://contoso-westus2-01.regional.azure-api.net` .
-1. [Traffic Manager에서 API Management 지역별 상태 끝점을 구성](../traffic-manager/traffic-manager-monitoring.md)합니다. 지역별 상태 끝점은의 URL 패턴 `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef` (예:)을 따릅니다 `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef` .
-1. Traffic Manager의 [라우팅 메서드를](../traffic-manager/traffic-manager-routing-methods.md) 지정 합니다.
+1. 고유한 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)를 만듭니다.
+1. 사용자 지정 도메인을 사용하는 경우 API Management 서비스 대신 [Traffic Manager에서 사용](../traffic-manager/traffic-manager-point-internet-domain.md)합니다.
+1. [Traffic Manager에서 API Management 지역별 엔드포인트를 구성](../traffic-manager/traffic-manager-manage-endpoints.md)합니다. 지역별 엔드포인트는 `https://<service-name>-<region>-01.regional.azure-api.net`의 URL 패턴을 따릅니다(예: `https://contoso-westus2-01.regional.azure-api.net`).
+1. [Traffic Manager에서 API Management 지역별 상태 엔드포인트를 구성](../traffic-manager/traffic-manager-monitoring.md)합니다. 지역별 상태 엔드포인트는 `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`의 URL 패턴을 따릅니다(예: `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`).
+1. Traffic Manager의 [라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md)을 지정합니다.
 
 [create an api management service instance]: get-started-create-service-instance.md
 [get started with azure api management]: get-started-create-service-instance.md

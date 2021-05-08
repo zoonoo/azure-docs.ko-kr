@@ -1,6 +1,6 @@
 ---
-title: 보안 질문 인증 방법-Azure Active Directory
-description: Azure Active Directory에서 보안 질문을 사용 하 여 로그인 이벤트를 개선 하 고 보안을 유지 하는 방법에 대해 알아봅니다.
+title: 보안 질문 인증 방법 - Azure Active Directory
+description: Azure Active Directory의 보안 질문을 사용하여 로그인 이벤트를 더 발전시키고 안전하게 만드는 방법에 대해 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -10,14 +10,14 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7229dabd690e5932fbd297992e09782eda85a002
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 841391778e0fb8c00f503aa0cc79b5562661e309
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96744145"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530341"
 ---
-# <a name="authentication-methods-in-azure-active-directory---security-questions"></a>Azure Active Directory의 인증 방법-보안 질문
+# <a name="authentication-methods-in-azure-active-directory---security-questions"></a>Azure Active Directory의 인증 방법 - 보안 질문
 
 로그인 이벤트 중에는 본인 확인 질문을 인증 방법으로 사용하지 않습니다. 대신 SSPR(셀프 서비스 암호 재설정) 프로세스 중에는 본인 확인 질문을 사용하여 누구인지 확인할 수 있습니다. 관리자 계정은 SSPR에서 본인 확인 질문을 확인 방법으로 사용할 수 없습니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "96744145"
 
 ## <a name="predefined-questions"></a>미리 정의된 질문
 
-다음의 미리 정의된 본인 확인 질문은 SSPR에서 확인 방법으로 사용할 수 있습니다. 이러한 모든 보안 질문은 사용자의 브라우저 로캘을 기반으로 하는 Microsoft 365 언어의 전체 집합으로 변환 되 고 지역화 됩니다.
+다음의 미리 정의된 본인 확인 질문은 SSPR에서 확인 방법으로 사용할 수 있습니다. 본인 확인 질문은 모두 사용자의 브라우저 로캘을 기반으로 하여 Microsoft 365 언어의 전체 집합으로 번역 및 지역화됩니다.
 
 * 배우자/파트너를 처음 만난 도시는 어디인가요?
 * 부모님이 처음 만난 도시는 어디인가요?
@@ -89,11 +89,11 @@ ms.locfileid: "96744145"
 
 ## <a name="next-steps"></a>다음 단계
 
-시작 하려면 [SSPR (셀프 서비스 암호 재설정)에 대 한 자습서][tutorial-sspr]를 참조 하세요.
+시작하려면 [SSPR(셀프 서비스 암호 재설정)에 대한 자습서][tutorial-sspr]를 참조하세요.
 
 SSPR 개념에 대한 자세한 내용은 [Azure AD 셀프 서비스 암호 재설정 작동 방법][concept-sspr]을 참조하세요.
 
-[Microsoft Graph REST API 베타](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta)를 사용 하 여 인증 방법 구성에 대해 자세히 알아보세요.
+[Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview)를 사용하는 인증 구성 방법에 대해 자세히 알아봅니다.
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

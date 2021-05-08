@@ -7,26 +7,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 03/19/2021
+ms.date: 04/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: e37ff8a003bc10d69fd32794f26acfa8f5326423
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 606755333856f6dd97ab6c5158ac67f122a1237d
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107073618"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516467"
 ---
-<!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
 > [!IMPORTANT]
 >
-> * 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다. 아래의 참조 설명서를 참조하세요. 
+> * 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다. 아래의 참조 설명서를 참조하세요.
 
 [참조 설명서](/python/api/azure-ai-formrecognizer) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [패키지(PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
@@ -49,7 +48,7 @@ pip install azure-ai-formrecognizer --pre
 ```
 
 > [!NOTE]
-> Form Recognizer 3.1.0 SDK는 _API 버전 2.1 미리 보기.2_ 를 반영합니다. _API 버전 2.1 미리 보기.3_ 에 대해 [**REST API**](../../quickstarts/client-library.md)를 사용하세요.
+> Form Recognizer 3.1.0b4는 최신 SDK 미리 보기 버전이며 _API 버전 2.1 preview.3_ 을 반영합니다.
 
 #### <a name="v20"></a>[v2.0](#tab/ga)
 
@@ -71,7 +70,7 @@ pip install azure-ai-formrecognizer
 > [!TIP]
 > 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/FormRecognizerQuickstart.py)에서 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다.
 
-리소스의 Azure 엔드포인트 및 키에 대한 변수를 만듭니다. 
+리소스의 Azure 엔드포인트 및 키에 대한 변수를 만듭니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_creds)]
 
@@ -111,8 +110,9 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 * [영수증 분석](#analyze-receipts)
 * [명함 분석](#analyze-business-cards)
 * [송장 분석](#analyze-invoices)
-* [사용자 지정 모델 학습](#train-a-custom-model)
+* [ID 문서 분석](#analyze-identity-documents)
 * [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
+* [사용자 지정 모델 학습](#train-a-custom-model)
 * [사용자 지정 모델 관리](#manage-your-custom-models)
 
 #### <a name="v20"></a>[v2.0](#tab/ga)
@@ -137,8 +137,9 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 학습 및 테스트 데이터에 대한 참조를 URL에 추가해야 합니다.
 
 * [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
-  
+
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL 검색":::
+
 * 아래 샘플에 포함된 샘플 양식 및 영수증 이미지([GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)에서도 사용 가능)를 사용하거나 위의 단계를 사용하여 Blob 스토리지에 있는 개별 문서의 SAS URL을 가져올 수 있습니다. 
 
 > [!NOTE]
@@ -178,16 +179,89 @@ Confidence score: 1.0
 
 ```
 
+## <a name="analyze-receipts"></a>영수증 분석
+
+이 섹션에서는 사전 학습된 영수증 모델을 사용하여 미국 영수증의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 영수증 분석에 대한 자세한 내용은 [영수증 개념 가이드](../../concept-receipts.md)를 참조하세요. URL에서 영수증을 분석하려면 `begin_recognize_receipts_from_url` 메서드를 사용합니다.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_receipts)]
+
+> [!TIP]
+> 로컬 영수증 이미지를 분석할 수도 있습니다. [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient) 메서드(예: `begin_recognize_receipts`)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)의 샘플 코드를 참조하세요.
+
+### <a name="output"></a>출력
+
+```console
+ReceiptType: Itemized has confidence 0.659
+MerchantName: Contoso Contoso has confidence 0.516
+MerchantAddress: 123 Main Street Redmond, WA 98052 has confidence 0.986
+MerchantPhoneNumber: None has confidence 0.99
+TransactionDate: 2019-06-10 has confidence 0.985
+TransactionTime: 13:59:00 has confidence 0.968
+Receipt Items:
+...Item #1
+......Name: 8GB RAM (Black) has confidence 0.916
+......TotalPrice: 999.0 has confidence 0.559
+...Item #2
+......Quantity: None has confidence 0.858
+......Name: SurfacePen has confidence 0.858
+......TotalPrice: 99.99 has confidence 0.386
+Subtotal: 1098.99 has confidence 0.964
+Tax: 104.4 has confidence 0.713
+Total: 1203.39 has confidence 0.774
+```
+
+## <a name="analyze-business-cards"></a>명함 분석
+
+#### <a name="v21-preview"></a>[v2.1 미리 보기](#tab/preview)
+
+이 섹션에서는 사전 학습된 모델을 사용하여 영문 명함의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 명함 분석에 대한 자세한 내용은 [명함 개념 가이드](../../concept-business-cards.md)를 참조하세요. 
+
+URL에서 명함을 분석하려면 `begin_recognize_business_cards_from_url` 메서드를 사용합니다.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_bc)]
+
+> [!TIP]
+> 또한 로컬 명함 이미지를 분석할 수도 있습니다. [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient) 메서드(예: `begin_recognize_business_cards`)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)의 샘플 코드를 참조하세요.
+
+#### <a name="v20"></a>[v2.0](#tab/ga)
+
+> [!IMPORTANT]
+> 이 기능은 선택한 API 버전에서 사용할 수 없습니다.
+
+---
+
 ## <a name="analyze-invoices"></a>송장 분석
 
 #### <a name="v21-preview"></a>[v2.1 미리 보기](#tab/preview)
 
-이 섹션에서는 사전 학습된 모델을 사용하여 판매 청구서의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 청구서 분석에 대한 자세한 내용은 [청구서 개념 가이드](../../concept-invoices.md)를 참조하세요. URL에서 청구서를 분석하려면 `begin_recognize_invoices_from_url` 메서드를 사용합니다. 
+이 섹션에서는 사전 학습된 모델을 사용하여 판매 청구서의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 청구서 분석에 대한 자세한 내용은 [청구서 개념 가이드](../../concept-invoices.md)를 참조하세요. 
+
+URL에서 청구서를 분석하려면 `begin_recognize_invoices_from_url` 메서드를 사용합니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_invoice)]
 
 > [!TIP]
 > 로컬 청구서 이미지를 분석할 수도 있습니다. [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient) 메서드(예: `begin_recognize_invoices`)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)의 샘플 코드를 참조하세요.
+
+#### <a name="v20"></a>[v2.0](#tab/ga)
+
+> [!IMPORTANT]
+> 이 기능은 선택한 API 버전에서 사용할 수 없습니다.
+
+---
+
+## <a name="analyze-identity-documents"></a>ID 문서 분석
+
+#### <a name="v21-preview"></a>[v2.1 미리 보기](#tab/preview)
+
+이 섹션에서는 Form Recognizer에서 미리 빌드된 ID 모델을 사용하여 정부에서 발행한 신분증(예: 전 세계에서의 여권 및 미국 운전 면허증)에서 핵심 정보를 분석하고 추출하는 방법을 보여 줍니다. 청구서 분석 방법에 대한 자세한 내용은 [미리 빌드된 ID 모델 개념 가이드](../../concept-identification-cards.md)를 참조하세요.
+
+URL에서 ID 문서를 분석하려면 `begin_recognize_id_documents_from_url` 메서드를 사용합니다.
+
+:::code language="python" source="~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py" id="snippet_id":::
+
+> [!TIP]
+> ID 문서 이미지도 분석할 수 있습니다. [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python&preserve-view=true#methods) 메서드(예: `begin_recognize_id_documents`)를 _참조_ 하세요. _또_ 한 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)의 샘플 코드를 참조하세요.
 
 #### <a name="v20"></a>[v2.0](#tab/ga)
 
@@ -210,7 +284,6 @@ Confidence score: 1.0
 다음 코드는 `begin_training` 함수와 학습 클라이언트를 사용하여 지정된 문서 세트에 대한 모델을 학습합니다. 반환되는 `CustomFormModel` 개체는 모델에서 분석할 수 있는 양식 유형과 각 양식 유형에서 추출할 수 있는 필드에 대한 정보를 포함합니다. 다음 코드 블록은 이 정보를 콘솔에 출력합니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_train)]
-
 
 ### <a name="output"></a>출력
 
@@ -304,7 +377,6 @@ Document errors: []
 > [!TIP]
 > 로컬 이미지를 분석할 수도 있습니다. [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient) 메서드(예: `begin_recognize_custom_forms`)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)의 샘플 코드를 참조하세요.
 
-
 ### <a name="output"></a>출력
 
 이전 예제의 모델을 사용하면 다음 출력이 제공됩니다.
@@ -328,58 +400,10 @@ Field 'Tax' has label 'Tax' with value 'None' and a confidence score of None
 Field 'Total' has label 'Total' with value 'None' and a confidence score of None
 ```
 
-## <a name="analyze-receipts"></a>영수증 분석
-
-이 섹션에서는 사전 학습된 영수증 모델을 사용하여 미국 영수증의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 영수증 분석에 대한 자세한 내용은 [영수증 개념 가이드](../../concept-receipts.md)를 참조하세요. URL에서 영수증을 분석하려면 `begin_recognize_receipts_from_url` 메서드를 사용합니다. 
-
-[!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_receipts)]
-
-> [!TIP]
-> 로컬 영수증 이미지를 분석할 수도 있습니다. [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient) 메서드(예: `begin_recognize_receipts`)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)의 샘플 코드를 참조하세요.
-
-### <a name="output"></a>출력
-
-```console
-ReceiptType: Itemized has confidence 0.659
-MerchantName: Contoso Contoso has confidence 0.516
-MerchantAddress: 123 Main Street Redmond, WA 98052 has confidence 0.986
-MerchantPhoneNumber: None has confidence 0.99
-TransactionDate: 2019-06-10 has confidence 0.985
-TransactionTime: 13:59:00 has confidence 0.968
-Receipt Items:
-...Item #1
-......Name: 8GB RAM (Black) has confidence 0.916
-......TotalPrice: 999.0 has confidence 0.559
-...Item #2
-......Quantity: None has confidence 0.858
-......Name: SurfacePen has confidence 0.858
-......TotalPrice: 99.99 has confidence 0.386
-Subtotal: 1098.99 has confidence 0.964
-Tax: 104.4 has confidence 0.713
-Total: 1203.39 has confidence 0.774
-```
-
-## <a name="analyze-business-cards"></a>명함 분석
-
-#### <a name="v21-preview"></a>[v2.1 미리 보기](#tab/preview)
-
-이 섹션에서는 사전 학습된 모델을 사용하여 영문 명함의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 명함 분석에 대한 자세한 내용은 [명함 개념 가이드](../../concept-business-cards.md)를 참조하세요. URL에서 명함을 분석하려면 `begin_recognize_business_cards_from_url` 메서드를 사용합니다. 
-
-[!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_bc)]
-
-> [!TIP]
-> 또한 로컬 명함 이미지를 분석할 수도 있습니다. [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient) 메서드(예: `begin_recognize_business_cards`)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)의 샘플 코드를 참조하세요.
-
-#### <a name="v20"></a>[v2.0](#tab/ga)
-
-> [!IMPORTANT]
-> 이 기능은 선택한 API 버전에서 사용할 수 없습니다.
-
----
 
 ## <a name="manage-your-custom-models"></a>사용자 지정 모델 관리
 
-이 섹션에서는 계정에 저장된 사용자 지정 모델을 관리하는 방법을 보여 줍니다. 
+이 섹션에서는 계정에 저장된 사용자 지정 모델을 관리하는 방법을 보여 줍니다.
 
 ### <a name="check-the-number-of-models-in-the-formrecognizer-resource-account"></a>FormRecognizer 리소스 계정의 모델 수 확인
 

@@ -1,166 +1,165 @@
 ---
 title: Azure Key Vault 복구 개요 | Microsoft Docs
-description: Key Vault 복구 기능은 키 자격 증명 모음에 저장 된 키 자격 증명 모음 및 암호, 키 및 인증서를 실수로 또는 악의적으로 삭제할 수 없도록 설계 되었습니다.
+description: Key Vault 복구 기능은 키 자격 증명 모음과 키 자격 증명 모음에 저장된 비밀, 키, 인증서를 실수나 고의로 삭제하지 못하도록 하기 위해 설계되었습니다.
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
-manager: rkarlin
 ms.date: 09/30/2020
-ms.openlocfilehash: a8e8e791f0dbe18322ad43364ae4ffd09b430caf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: c3ffbba9546ada54a42c3f2c2aa5d98da599b353
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98790387"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749737"
 ---
-# <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>일시 삭제 및 보호 제거를 사용 하 여 복구 관리 Azure Key Vault
+# <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>일시 삭제 및 제거 방지를 통한 Azure Key Vault 복구 관리
 
-이 문서에서는 Azure Key Vault, 일시 삭제 및 보호 제거의 두 가지 복구 기능에 대해 설명 합니다. 이 문서에서는 이러한 기능에 대해 간략하게 설명 하 고 Azure Portal, Azure CLI 및 Azure PowerShell를 통해 이러한 기능을 관리 하는 방법을 보여 줍니다.
+이 문서에서는 Azure Key Vault의 두 가지 복구 기능인 일시 삭제와 제거 방지에 관해 설명합니다. 이 문서에서는 이러한 기능의 개요를 제공하고 Azure Portal, Azure CLI, Azure PowerShell을 통해 해당 기능을 관리하는 방법을 설명합니다.
 
-Key Vault에 대 한 자세한 내용은을 참조 하십시오.
+Key Vault에 대한 자세한 내용은 다음을 참조하세요.
 - [Key Vault 개요](overview.md)
-- [Azure Key Vault 키, 암호 및 인증서 개요](about-keys-secrets-certificates.md)
+- [Azure Key Vault 키, 비밀 및 인증서 개요](about-keys-secrets-certificates.md)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/dotnet)
-* [PowerShell 모듈](/powershell/azure/install-az-ps)입니다.
+* [PowerShell 모듈](/powershell/azure/install-az-ps)
 * [Azure CLI](/cli/azure/install-azure-cli)
 * Key Vault - [Azure Portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md) 또는 [Azure PowerShell](../general/quick-create-powershell.md)을 사용하여 만들 수 있습니다.
-* 일시 삭제 된 자격 증명 모음에 대 한 작업을 수행 하려면 사용자에 게 구독 수준에서 다음 사용 권한이 필요 합니다.
+* 일시 삭제된 자격 증명 모음에 대한 작업을 수행하려면 사용자에게 구독 수준의 다음 사용 권한이 필요합니다.
 
-  | 사용 권한 | 설명 |
+  | 사용 권한 | Description |
   |---|---|
   |Microsoft.KeyVault/locations/deletedVaults/read|일시 삭제된 한 Key Vault의 속성을 봅니다.|
   |Microsoft.KeyVault/locations/deletedVaults/purge/action|일시 삭제된 Key Vault를 제거합니다.|
 
 
-## <a name="what-are-soft-delete-and-purge-protection"></a>일시 삭제 및 보호 제거 란?
+## <a name="what-are-soft-delete-and-purge-protection"></a>일시 삭제와 제거 방지 소개
 
-[일시 삭제](soft-delete-overview.md) 및 보호 제거는 두 가지 주요 자격 증명 모음 복구 기능입니다.
+[일시 삭제](soft-delete-overview.md)와 제거 방지는 두 가지 키 자격 증명 모음 복구 기능입니다.
 
 > [!IMPORTANT]
-> 키 자격 증명 모음 및 자격 증명을 실수로 삭제 하지 않도록 보호 하려면 일시 삭제를 설정 하는 것이 중요 합니다. 그러나 일시 삭제를 설정 하는 것은 응용 프로그램 논리를 변경 하거나 서비스 사용자에 게 추가 권한을 제공 해야 할 수 있으므로 주요 변경 내용으로 간주 됩니다. 아래 지침을 사용 하 여 일시 삭제를 설정 하기 전에이 문서를 사용 하 여 응용 프로그램이 변경 내용과 호환 되는지 확인 하세요 [ .](soft-delete-change.md)
+> 키 자격 증명 모음과 인증서를 실수로 삭제하지 못하게 하려면 일시 삭제를 설정하는 것이 중요합니다. 그러나 일시 삭제를 설정하는 것은 애플리케이션 로직을 변경하거나 서비스 주체에 추가 권한을 부여해야 할 수 있으므로 호환성이 손상되는 변경으로 간주됩니다. 아래 지침에 따라 일시 삭제를 설정하기 전에 [**여기** 에서 이 문서를 참조하여 애플리케이션이 변경 내용과 호환되는지 확인하세요.](soft-delete-change.md)
 
-**일시 삭제** 는 key vault 내에서 저장 된 키 자격 증명 모음 및 키, 암호 및 인증서를 실수로 삭제 하지 않도록 설계 되었습니다. 휴지통 같은 일시 삭제를 생각해 봅니다. 키 자격 증명 모음 또는 주요 자격 증명 모음 개체를 삭제 하는 경우 사용자 구성 가능한 보존 기간 또는 기본값 90 일에 대해 복구 가능한 상태로 유지 됩니다. 일시 삭제 된 상태의 키 자격 증명 모음은 영구적으로 삭제 되는 것을 의미 하는 **지울** 수도 있습니다. 이를 통해 키 자격 증명 모음 및 주요 자격 증명 모음 개체를 같은 이름으로 다시 만들 수 있습니다. 키 자격 증명 모음 및 개체를 복구 하 고 삭제 하려면 상승 된 액세스 정책 권한이 필요 합니다. **일시 삭제를 사용 하도록 설정한 후에는 사용 하지 않도록 설정할 수 없습니다.**
+**일시 삭제** 는 키 자격 증명 모음과 키 자격 증명 모음 내에 저장된 키, 비밀, 인증서를 실수로 삭제하지 못하도록 하기 위해 설계되었습니다. 일시 삭제는 휴지통과 유사합니다. 키 자격 증명 모음이나 키 자격 증명 모음 개체를 삭제하면 해당 항목은 사용자가 구성 가능한 보존 기간이나 기본값인 90일 동안 복구 가능한 상태로 유지됩니다. 일시 삭제된 상태의 키 자격 증명 모음은 **제거** 하여 영구적으로 삭제할 수도 있습니다. 제거하면 키 자격 증명 모음과 키 자격 증명 모음 개체를 같은 이름으로 다시 만들 수 있습니다. 키 자격 증명 모음 및 개체를 복구하고 삭제하려면 상승된 액세스 정책 권한이 필요합니다. **일시 삭제를 사용하도록 설정한 후에는 사용하지 않도록 설정할 수 없습니다.**
 
-**주요 자격 증명 모음 이름은 전역적으로 고유** 하므로 일시 삭제 된 상태에서 키 자격 증명 모음과 동일한 이름으로 key vault를 만들 수 없습니다. 마찬가지로 키, 암호 및 인증서의 이름은 키 자격 증명 모음 내에서 고유 합니다. 일시 삭제 된 상태에서 다른 이름과 동일한 이름으로 비밀, 키 또는 인증서를 만들 수 없습니다.
+**키 자격 증명 모음 이름은 전역적으로 고유** 하므로 일시 삭제된 상태의 키 자격 증명 모음과 동일한 이름으로 키 자격 증명 모음을 만들 수 없습니다. 마찬가지로 키, 비밀, 인증서의 이름은 키 자격 증명 모음 내에서 고유합니다. 따라서 일시 삭제된 상태의 다른 항목과 동일한 이름으로 비밀, 키, 인증서를 만들 수 없습니다.
 
-**보호 제거** 는 악의적인 참가자가 키 자격 증명 모음, 키, 암호 및 인증서를 삭제할 수 없도록 설계 되었습니다. 이를 시간 기반 잠금을 사용 하는 휴지통으로 간주 합니다. 구성 가능한 보존 기간 동안 언제 든 지 항목을 복구할 수 있습니다. **보존 기간이 경과할 때까지 키 자격 증명 모음을 영구적으로 삭제 하거나 제거할 수 없습니다.** 보존 기간이 경과 하면 주요 자격 증명 모음 또는 주요 자격 증명 모음 개체가 자동으로 제거 됩니다.
+**제거 방지** 는 악의적인 내부자가 키 자격 증명 모음, 키, 비밀, 인증서를 삭제하지 못하도록 하기 위해 설계되었습니다. 시간 기준 잠금이 설정된 휴지통으로 볼 수 있습니다. 구성 가능한 보존 기간 동안 언제든지 항목을 복구할 수 있습니다. **보존 기간이 경과할 때까지 키 자격 증명 모음을 영구적으로 삭제하거나 제거할 수는 없습니다.** 보존 기간이 경과하면 키 자격 증명 모음 또는 키 자격 증명 모음 개체가 자동으로 제거됩니다.
 
 > [!NOTE]
-> 제거 방지는 관리자 역할이 나 사용 권한이 제거 방지를 재정의, 사용 안 함 또는 우회 할 수 없도록 설계 되었습니다. **제거 보호를 사용 하도록 설정한 후에는 Microsoft를 포함 한 모든 사용자가 사용 하지 않도록 설정 하거나 재정의할 수 없습니다.** 즉, 키 자격 증명 모음 이름을 다시 사용 하기 전에 삭제 된 key vault를 복구 하거나 보존 기간이 경과할 때까지 기다려야 합니다.
+> 제거 방지는 관리자 역할이나 사용 권한이 있는 사용자가 제거 방지를 재정의하거나 사용하지 않도록 설정하거나 우회하지 못하도록 하기 위해 설계되었습니다. **제거 방지를 사용하도록 설정한 후에는 Microsoft를 포함한 누구도 사용하지 않도록 설정하거나 재정의할 수 없습니다.** 즉, 삭제된 키 자격 증명 모음을 복구하거나 보존 기간이 경과될 때까지 기다린 이후에야 키 자격 증명 모음 이름을 다시 사용할 수 있습니다.
 
-일시 삭제에 대 한 자세한 내용은 [Azure Key Vault 일시 삭제 개요](soft-delete-overview.md) 를 참조 하세요.
+일시 삭제에 대한 자세한 내용은 [Azure Key Vault soft-delete overview](soft-delete-overview.md)(Azure Key Vault 일시 삭제 개요)를 참조하세요.
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
-## <a name="verify-if-soft-delete-is-enabled-on-a-key-vault-and-enable-soft-delete"></a>일시 삭제가 키 자격 증명 모음에 사용 하도록 설정 되어 있는지 확인 하 고 일시 삭제를 사용 하도록 설정 합니다.
+## <a name="verify-if-soft-delete-is-enabled-on-a-key-vault-and-enable-soft-delete"></a>키 자격 증명 모음에서 일시 삭제가 사용하도록 설정되어 있는지 확인하고 일시 삭제를 사용하도록 설정
 
 1. Azure 포털에 로그인합니다.
 1. 키 자격 증명 모음을 선택합니다.
-1. "속성" 블레이드를 클릭 합니다.
-1. 일시 삭제 옆의 라디오 단추가 "복구 사용"으로 설정 되어 있는지 확인 합니다.
-1. 키 자격 증명 모음에서 일시 삭제를 사용 하도록 설정 하지 않은 경우 라디오 단추를 클릭 하 여 일시 삭제를 사용 하도록 설정 하 고 "저장"을 클릭 합니다.
+1. “속성” 블레이드를 클릭합니다.
+1. 일시 삭제 옆의 라디오 단추가 “복구 사용”으로 설정되어 있는지 확인합니다.
+1. 키 자격 증명 모음에서 일시 삭제를 사용하도록 설정하지 않은 경우 라디오 단추를 클릭하여 일시 삭제를 사용하도록 설정하고 “저장”을 클릭합니다.
 
-:::image type="content" source="../media/key-vault-recovery-1.png" alt-text="속성에서 일시 삭제는 사용 하도록 설정 하는 값과 마찬가지로 강조 표시 됩니다.":::
+:::image type="content" source="../media/key-vault-recovery-1.png" alt-text="속성에서 일시 삭제가 강조 표시되어 있음(사용하도록 설정된 것을 나타냄)":::
 
-## <a name="grant-access-to-a-service-principal-to-purge-and-recover-deleted-secrets"></a>서비스 주체에 게 삭제 된 비밀을 제거 하 고 복구 하는 액세스 권한 부여
+## <a name="grant-access-to-a-service-principal-to-purge-and-recover-deleted-secrets"></a>서비스 주체에 삭제된 비밀을 제거하고 복구하는 액세스 권한 부여
 
 1. Azure 포털에 로그인합니다.
 1. 키 자격 증명 모음을 선택합니다.
-1. "액세스 정책" 블레이드를 클릭 합니다.
-1. 테이블에서 액세스 권한을 부여 하려는 보안 주체의 행을 찾거나 새 보안 주체를 추가 합니다.
-1. 키, 인증서 및 비밀에 대 한 드롭다운을 클릭 합니다.
-1. 드롭다운 아래로 스크롤하고 "복구" 및 "제거"를 클릭 합니다.
-1. 또한 보안 주체에는 대부분의 작업을 수행 하는 get 및 list 기능이 필요 합니다.
+1. “액세스 정책” 블레이드를 클릭합니다.
+1. 테이블에서 액세스 권한을 부여하려는 보안 주체의 행을 찾거나 새 보안 주체를 추가합니다.
+1. 키, 인증서, 비밀의 드롭다운을 클릭합니다.
+1. 드롭다운의 아래로 스크롤하고 “복구” 및 “제거”를 클릭합니다.
+1. 보안 주체가 대부분의 작업을 수행하기 위해서는 가져오기 및 나열 기능도 필요합니다.
 
-:::image type="content" source="../media/key-vault-recovery-2.png" alt-text="왼쪽 탐색 창에 액세스 정책이 강조 표시 됩니다. 액세스 정책에서 비밀 위치 드롭다운 목록이 표시 되 고, 가져오기, 나열, 복구 및 제거의 네 가지 항목이 선택 됩니다.":::
+:::image type="content" source="../media/key-vault-recovery-2.png" alt-text="왼쪽 탐색 창에 액세스 정책이 강조 표시되어 있습니다. 액세스 정책에서 비밀 위치 드롭다운 목록이 표시되고 가져오기, 나열, 복구, 제거의 네 가지 항목이 선택되어 있습니다.":::
 
-## <a name="list-recover-or-purge-a-soft-deleted-key-vault"></a>일시 삭제 된 키 자격 증명 모음 나열, 복구 또는 제거
+## <a name="list-recover-or-purge-a-soft-deleted-key-vault"></a>일시 삭제된 키 자격 증명 모음 나열, 복구, 제거
 
 1. Azure 포털에 로그인합니다.
-1. 페이지 맨 위에 있는 검색 표시줄을 클릭 합니다.
-1. "최근 서비스"에서 "Key Vault"을 클릭 합니다. 개별 키 자격 증명 모음을 클릭 하지 마십시오.
-1. 화면 위쪽에서 "삭제 된 자격 증명 모음 관리" 옵션을 클릭 합니다.
-1. 컨텍스트 창이 화면 오른쪽에 열립니다.
+1. 페이지 맨 위에 있는 검색 창을 클릭합니다.
+1. “최근 서비스”에서 “Key Vault”를 클릭합니다. 개별 키 자격 증명 모음을 클릭하지 마세요.
+1. 화면 위쪽에서 “삭제된 자격 증명 모음 관리” 옵션을 클릭합니다.
+1. 그러면 화면 오른쪽에 컨텍스트 창이 열립니다.
 1. 구독을 선택합니다.
-1. 키 자격 증명 모음이 일시 삭제 된 경우 오른쪽의 컨텍스트 창에 표시 됩니다.
-1. 자격 증명 모음이 너무 많은 경우에는 컨텍스트 창의 맨 아래에서 "더 로드"를 클릭 하거나 CLI 또는 PowerShell을 사용 하 여 결과를 가져올 수 있습니다.
-1. 복구 하거나 제거 하려는 자격 증명 모음을 찾았으면 옆의 확인란을 선택 합니다.
-1. 주요 자격 증명 모음을 복구 하려는 경우 상황에 맞는 창 맨 아래에 있는 복구 옵션을 선택 합니다.
-1. 키 자격 증명 모음을 영구적으로 삭제 하려면 제거 옵션을 선택 합니다.
+1. 키 자격 증명 모음이 일시 삭제된 경우 오른쪽의 컨텍스트 창에 표시됩니다.
+1. 자격 증명 모음이 너무 많은 경우에는 컨텍스트 창의 맨 아래에서 “추가 로드”를 클릭하거나 CLI 또는 PowerShell을 사용하여 결과를 가져올 수 있습니다.
+1. 복구하거나 제거하려는 자격 증명 모음을 찾으면 옆의 확인란을 선택합니다.
+1. 주요 자격 증명 모음을 복구하려는 경우 컨텍스트 창 맨 아래에 있는 복구 옵션을 선택합니다.
+1. 키 자격 증명 모음을 영구적으로 삭제하려는 경우 제거 옵션을 선택합니다.
 
-:::image type="content" source="../media/key-vault-recovery-3.png" alt-text="키 자격 증명 모음에서 삭제 된 자격 증명 모음 관리 옵션이 강조 표시 됩니다.":::
+:::image type="content" source="../media/key-vault-recovery-3.png" alt-text="키 자격 증명 모음에서 삭제된 자격 증명 모음 관리 옵션이 강조 표시되어 있습니다.":::
 
-:::image type="content" source="../media/key-vault-recovery-4.png" alt-text="삭제 된 키 자격 증명 모음 관리에서 나열 된 key vault만 강조 표시 되 고 선택 되며 복구 단추가 강조 표시 됩니다.":::
+:::image type="content" source="../media/key-vault-recovery-4.png" alt-text="삭제된 키 자격 증명 모음 관리에서 나열된 키 자격 증명 모음만 강조 표시 및 선택되어 있고 복구 단추가 강조 표시되어 있습니다.":::
 
-## <a name="list-recover-or-purge-soft-deleted-secrets-keys-and-certificates"></a>일시 삭제 된 비밀, 키 및 인증서 나열, 복구 또는 제거
+## <a name="list-recover-or-purge-soft-deleted-secrets-keys-and-certificates"></a>일시 삭제된 비밀, 키, 인증서 나열, 복구, 제거
 
 1. Azure 포털에 로그인합니다.
 1. 키 자격 증명 모음을 선택합니다.
-1. 관리 하려는 비밀 유형 (키, 비밀 또는 인증서)에 해당 하는 블레이드를 선택 합니다.
-1. 화면 위쪽에서 "삭제 된 키, 비밀 또는 인증서"를 클릭 합니다.
-1. 컨텍스트 창은 화면 오른쪽에 표시 됩니다.
-1. 비밀, 키 또는 인증서가 목록에 표시 되지 않는 경우 일시 삭제 된 상태가 아닙니다.
-1. 관리 하려는 비밀, 키 또는 인증서를 선택 합니다.
-1. 컨텍스트 창의 맨 아래에서 복구 또는 제거 옵션을 선택 합니다.
+1. 관리하려는 비밀 유형(키, 비밀, 인증서)에 해당하는 블레이드를 선택합니다.
+1. 화면 위쪽에서 “삭제된 키, 비밀, 인증서 관리”를 클릭합니다.
+1. 화면 오른쪽에 컨텍스트 창이 표시됩니다.
+1. 비밀, 키, 인증서가 목록에 표시되지 않는 경우 일시 삭제된 상태가 아닙니다.
+1. 관리하려는 비밀, 키, 인증서를 선택합니다.
+1. 컨텍스트 창의 맨 아래에서 복구 또는 제거 옵션을 선택합니다.
 
-:::image type="content" source="../media/key-vault-recovery-5.png" alt-text="키의 경우 삭제 된 키 관리 옵션이 강조 표시 됩니다.":::
+:::image type="content" source="../media/key-vault-recovery-5.png" alt-text="키에서 삭제된 키 관리 옵션이 강조 표시되어 있습니다.":::
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-## <a name="key-vault-cli"></a>Key Vault (CLI)
+## <a name="key-vault-cli"></a>키 자격 증명 모음(CLI)
 
-* 키 자격 증명 모음에서 일시 삭제를 사용 하도록 설정 했는지 확인
+* 키 자격 증명 모음에서 일시 삭제가 사용하도록 설정되어 있는지 확인
 
     ```azurecli
     az keyvault show --subscription {SUBSCRIPTION ID} -g {RESOURCE GROUP} -n {VAULT NAME}
     ```
 
-* 키 자격 증명 모음에 대해 일시 삭제를 사용 하도록 설정
+* 키 자격 증명 모음에서 일시 삭제를 사용하도록 설정
 
-    모든 새 키 자격 증명 모음은 일시 삭제를 기본적으로 사용 하도록 설정 합니다. 일시 삭제를 사용 하도록 설정 하지 않은 키 자격 증명 모음이 현재 있는 경우 다음 명령을 사용 하 여 일시 삭제를 사용 하도록 설정 합니다.
+    모든 새 키 자격 증명 모음에서 일시 삭제가 기본적으로 사용하도록 설정됩니다. 현재 일시 삭제가 사용하도록 설정되지 않는 키 자격 증명 모음을 사용하는 경우 다음 명령을 사용하여 일시 삭제를 사용하도록 설정합니다.
 
     ```azurecli
     az keyvault update --subscription {SUBSCRIPTION ID} -g {RESOURCE GROUP} -n {VAULT NAME} --enable-soft-delete true
     ```
 
-* 키 자격 증명 모음 삭제 (일시 삭제를 사용 하는 경우 복구 가능)
+* 키 자격 증명 모음 삭제(일시 삭제를 사용하도록 설정한 경우 복구 가능)
 
     ```azurecli
     az keyvault delete --subscription {SUBSCRIPTION ID} -g {RESOURCE GROUP} -n {VAULT NAME}
     ```
 
-* 일시 삭제 된 키 자격 증명 모음 모두 나열
+* 일시 삭제된 키 자격 증명 모음 모두 나열
 
     ```azurecli
     az keyvault list-deleted --subscription {SUBSCRIPTION ID} --resource-type vault
     ```
 
-* 일시 삭제 된 키 복구-자격 증명 모음
+* 일시 삭제된 키 자격 증명 모음 복구
 
     ```azurecli
     az keyvault recover --subscription {SUBSCRIPTION ID} -n {VAULT NAME}
     ```
 
-* 일시 삭제 된 key vault를 제거 합니다 **(경고! 이 작업은 키 자격 증명 모음을 영구적으로 삭제 합니다.)**
+* 일시 삭제된 키 자격 증명 모음 제거 **(경고! 이 작업을 수행하면 키 자격 증명 모음이 영구적으로 삭제됩니다.)**
 
     ```azurecli
     az keyvault purge --subscription {SUBSCRIPTION ID} -n {VAULT NAME}
     ```
 
-* 키 자격 증명 모음에서 제거 방지 사용
+* 키 자격 증명 모음에서 제거 방지를 사용하도록 설정
 
     ```azurecli
     az keyvault update --subscription {SUBSCRIPTION ID} -g {RESOURCE GROUP} -n {VAULT NAME} --enable-purge-protection true
     ```
 
-## <a name="certificates-cli"></a>인증서 (CLI)
+## <a name="certificates-cli"></a>인증서(CLI)
 
-* 인증서를 제거 하 고 복구할 수 있는 액세스 권한 부여
+* 인증서를 제거하고 복구할 수 있는 액세스 권한 부여
 
     ```azurecli
     az keyvault set-policy --upn user@contoso.com --subscription {SUBSCRIPTION ID} -g {RESOURCE GROUP} -n {VAULT NAME}  --certificate-permissions recover purge
@@ -172,27 +171,27 @@ Key Vault에 대 한 자세한 내용은을 참조 하십시오.
     az keyvault certificate delete --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME} --name {CERTIFICATE NAME}
     ```
 
-* 삭제 된 인증서 나열
+* 삭제된 인증서 나열
 
     ```azurecli
     az keyvault certificate list-deleted --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME}
     ```
 
-* 삭제 된 인증서 복구
+* 삭제된 인증서 복구
 
     ```azurecli
     az keyvault certificate recover --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME} --name {CERTIFICATE NAME}
     ```
 
-* 일시 삭제 된 인증서를 제거 합니다 **(경고! 이 작업을 수행 하면 인증서가 영구적으로 삭제 됩니다.)**
+* 일시 삭제된 인증서 제거 **(경고! 이 작업을 수행하면 인증서가 영구적으로 삭제됩니다.)**
 
     ```azurecli
     az keyvault certificate purge --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME} --name {CERTIFICATE NAME}
     ```
 
-## <a name="keys-cli"></a>키 (CLI)
+## <a name="keys-cli"></a>키(CLI)
 
-* 키 제거 및 복구에 대 한 액세스 권한 부여
+* 키를 제거하고 복구할 수 있는 액세스 권한 부여
 
     ```azurecli
     az keyvault set-policy --upn user@contoso.com --subscription {SUBSCRIPTION ID} -g {RESOURCE GROUP} -n {VAULT NAME}  --key-permissions recover purge
@@ -210,21 +209,21 @@ Key Vault에 대 한 자세한 내용은을 참조 하십시오.
     az keyvault key list-deleted --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME}
     ```
 
-* 삭제 된 키 복구
+* 삭제된 키 복구
 
     ```azurecli
     az keyvault key recover --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME} --name {KEY NAME}
     ```
 
-* 일시 삭제 된 키를 제거 합니다 **(경고! 이 작업을 수행 하면 키가 영구적으로 삭제 됨)**
+* 일시 삭제된 키 제거 **(경고! 이 작업을 수행하면 키가 영구적으로 삭제됩니다.)**
 
     ```azurecli
     az keyvault key purge --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME} --name {KEY NAME}
     ```
 
-## <a name="secrets-cli"></a>비밀 (CLI)
+## <a name="secrets-cli"></a>비밀(CLI)
 
-* 비밀을 제거 하 고 복구할 수 있는 액세스 권한 부여
+* 비밀을 제거하고 복구할 수 있는 액세스 권한 부여
 
     ```azurecli
     az keyvault set-policy --upn user@contoso.com --subscription {SUBSCRIPTION ID} -g {RESOURCE GROUP} -n {VAULT NAME}  --secret-permissions recover purge
@@ -236,19 +235,19 @@ Key Vault에 대 한 자세한 내용은을 참조 하십시오.
     az keyvault secret delete --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME} --name {SECRET NAME}
     ```
 
-* 삭제 된 암호 나열
+* 삭제된 비밀 나열
 
     ```azurecli
     az keyvault secret list-deleted --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME}
     ```
 
-* 삭제 된 비밀 복구
+* 삭제된 비밀 복구
 
     ```azurecli
     az keyvault secret recover --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME} --name {SECRET NAME}
     ```
 
-* 일시 삭제 된 비밀 제거 **(경고! 이 작업을 수행 하면 비밀이 영구적으로 삭제 됨)**
+* 일시 삭제된 비밀 제거 **(경고! 이 작업을 수행하면 비밀이 영구적으로 삭제됩니다.)**
 
     ```azurecli
     az keyvault secret purge --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME} --name {SECRET NAME}
@@ -256,9 +255,9 @@ Key Vault에 대 한 자세한 내용은을 참조 하십시오.
 
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-## <a name="key-vault-powershell"></a>Key Vault (PowerShell)
+## <a name="key-vault-powershell"></a>키 자격 증명 모음(PowerShell)
 
-* 키 자격 증명 모음에서 일시 삭제를 사용 하도록 설정 했는지 확인
+* 키 자격 증명 모음에서 일시 삭제가 사용하도록 설정되어 있는지 확인
 
     ```powershell
     Get-AzKeyVault -VaultName "ContosoVault"
@@ -270,25 +269,25 @@ Key Vault에 대 한 자세한 내용은을 참조 하십시오.
     Remove-AzKeyVault -VaultName 'ContosoVault'
     ```
 
-* 일시 삭제 된 키 자격 증명 모음 모두 나열
+* 일시 삭제된 키 자격 증명 모음 모두 나열
 
     ```powershell
     Get-AzKeyVault -InRemovedState
     ```
 
-* 일시 삭제 된 키 복구-자격 증명 모음
+* 일시 삭제된 키 자격 증명 모음 복구
 
     ```powershell
     Undo-AzKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG -Location westus
     ```
 
-* 일시 삭제 된 키 자격 증명 모음 **을 제거 합니다 (경고! 이 작업은 키 자격 증명 모음을 영구적으로 삭제 합니다.)**
+* 일시 삭제된 키 자격 증명 모음 제거 **(경고! 이 작업을 수행하면 키 자격 증명 모음이 영구적으로 삭제됩니다.)**
 
     ```powershell
     Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location westus
     ```
 
-* 키 자격 증명 모음에서 제거 방지 사용
+* 키 자격 증명 모음에서 제거 방지를 사용하도록 설정
 
     ```powershell
     ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true"
@@ -296,9 +295,9 @@ Key Vault에 대 한 자세한 내용은을 참조 하십시오.
     Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
     ```
 
-## <a name="certificates-powershell"></a>인증서 (PowerShell)
+## <a name="certificates-powershell"></a>인증서(PowerShell)
 
-* 인증서를 복구 및 제거할 수 있는 권한 부여
+* 인증서를 복구하고 제거할 수 있는 권한 부여
 
     ```powershell
     Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToCertificates recover,purge
@@ -310,27 +309,27 @@ Key Vault에 대 한 자세한 내용은을 참조 하십시오.
   Remove-AzKeyVaultCertificate -VaultName ContosoVault -Name 'MyCert'
   ```
 
-* 키 자격 증명 모음에서 삭제 된 모든 인증서 나열
+* 키 자격 증명 모음의 삭제된 인증서 모두 표시
 
   ```powershell
   Get-AzKeyVaultCertificate -VaultName ContosoVault -InRemovedState
   ```
 
-* 삭제 된 상태의 인증서 복구
+* 삭제된 상태의 인증서 복구
 
   ```powershell
   Undo-AzKeyVaultCertificateRemoval -VaultName ContosoVault -Name 'MyCert'
   ```
 
-* 일시 삭제 된 인증서를 제거 합니다 **(경고! 이 작업을 수행 하면 인증서가 영구적으로 삭제 됩니다.)**
+* 일시 삭제된 인증서 제거 **(경고! 이 작업을 수행하면 인증서가 영구적으로 삭제됩니다.)**
 
   ```powershell
   Remove-AzKeyVaultcertificate -VaultName ContosoVault -Name 'MyCert' -InRemovedState
   ```
 
-## <a name="keys-powershell"></a>키 (PowerShell)
+## <a name="keys-powershell"></a>키(PowerShell)
 
-* 키 복구 및 제거 권한 부여
+* 키를 복구하고 제거할 수 있는 권한 부여
 
     ```powershell
     Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToKeys recover,purge
@@ -342,51 +341,51 @@ Key Vault에 대 한 자세한 내용은을 참조 하십시오.
   Remove-AzKeyVaultKey -VaultName ContosoVault -Name 'MyKey'
   ```
 
-* 키 자격 증명 모음에서 삭제 된 모든 인증서 나열
+* 키 자격 증명 모음의 삭제된 인증서 모두 표시
 
   ```powershell
   Get-AzKeyVaultKey -VaultName ContosoVault -InRemovedState
   ```
 
-* 일시 삭제 된 키를 복구 하려면
+* 일시 삭제된 키 복구
 
     ```powershell
     Undo-AzKeyVaultKeyRemoval -VaultName ContosoVault -Name ContosoFirstKey
     ```
 
-* 일시 삭제 된 키를 제거 합니다 **(경고! 이 작업을 수행 하면 키가 영구적으로 삭제 됨)**
+* 일시 삭제된 키 제거 **(경고! 이 작업을 수행하면 키가 영구적으로 삭제됩니다.)**
 
     ```powershell
     Remove-AzKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemovedState
     ```
 
-## <a name="secrets-powershell"></a>비밀 (PowerShell)
+## <a name="secrets-powershell"></a>비밀(PowerShell)
 
-* 암호를 복구 및 제거할 수 있는 권한 부여
+* 비밀을 복구하고 제거할 수 있는 권한 부여
 
     ```powershell
     Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToSecrets recover,purge
     ```
 
-* SQLPassword 라는 암호를 삭제 합니다.
+* SQLPassword라는 비밀 삭제
 
   ```powershell
   Remove-AzKeyVaultSecret -VaultName ContosoVault -name SQLPassword
   ```
 
-* 키 자격 증명 모음에서 삭제 된 모든 암호 나열
+* 키 자격 증명 모음의 삭제된 비밀 모두 표시
 
   ```powershell
   Get-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState
   ```
 
-* 삭제 된 상태의 비밀 복구
+* 삭제된 상태의 비밀 복구
 
   ```powershell
   Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
   ```
 
-* 삭제 된 상태의 비밀 제거 **(경고! 이 작업을 수행 하면 키가 영구적으로 삭제 됨)**
+* 삭제된 상태의 비밀 제거 **(경고! 이 작업을 수행하면 키가 영구적으로 삭제됩니다.)**
 
   ```powershell
   Remove-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
@@ -395,10 +394,10 @@ Key Vault에 대 한 자세한 내용은을 참조 하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PowerShell cmdlet Azure Key Vault](/powershell/module/az.keyvault)
-- [Key Vault Azure CLI 명령](/cli/azure/keyvault)
+- [Azure Key Vault PowerShell cmdlets](/powershell/module/az.keyvault)
+- [Key Vault Azure CLI commands](/cli/azure/keyvault)(Key Vault Azure CLI 명령)
 - [Azure Key Vault 백업](backup.md)
 - [키 자격 증명 모음 로깅을 사용하는 방법](howto-logging.md)
-- [Key vault에 대한 액세스 보안](secure-your-key-vault.md)
+- [Key vault에 대한 액세스 보안](security-overview.md)
 - [Azure Key Vault 개발자 가이드](developers-guide.md)
-- [주요 자격 증명 모음을 사용 하는 모범 사례](security-overview.md)
+- [Best practices to use a key vault](security-overview.md)(키 자격 증명 모음 사용에 관한 모범 사례)

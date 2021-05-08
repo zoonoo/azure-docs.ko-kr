@@ -7,12 +7,12 @@ ms.subservice: workloads
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 037ac972dca49484f7b8c0ad8eed6942c901b997
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.openlocfilehash: 1cffc36cbd4f24bbcbb5996a323ffa963e311693
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102562931"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530960"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Microsoft Azure의 Cloud Foundry에 첫 번째 앱 배포
 
@@ -27,11 +27,11 @@ Azure에 Cloud Foundry 환경을 만들기 위한 여러 가지 옵션이 있습
 - [BOSH](https://bosh.io) 디렉터, Cloud Foundry 환경의 배포를 조정하는 VM을 설정하여 [오픈 소스 Cloud Foundry 패키지를 직접 배포][oss-cf-bosh]합니다.
 
 > [!IMPORTANT] 
-> Azure Marketplace에서 PCF를 배포하는 경우 Pivotal 앱 관리자에 액세스하는 데 필요한 SYSTEMDOMAINURL 및 관리자 자격 증명을 적어 둡니다. 둘은 마켓플레이스 배포 가이드에 설명되어 있습니다. 이 자습서를 완료하는 데 필요합니다. Marketplace 배포의 경우 SYSTEMDOMAINURL은 형식 `https://system.*ip-address*.cf.pcfazure.com` 입니다.
+> Azure Marketplace에서 PCF를 배포하는 경우 Pivotal 앱 관리자에 액세스하는 데 필요한 SYSTEMDOMAINURL 및 관리자 자격 증명을 적어 둡니다. 둘은 마켓플레이스 배포 가이드에 설명되어 있습니다. 이 자습서를 완료하는 데 필요합니다. 마켓플레이스 배포의 경우 SYSTEMDOMAINURL은 `https://system.*ip-address*.cf.pcfazure.com` 형식입니다.
 
 ## <a name="connect-to-the-cloud-controller"></a>Cloud Controller에 연결
 
-Cloud Controller는 애플리케이션 배포 및 관리를 위한 Cloud Foundry 환경에 대한 기본 진입점입니다. 핵심 CCAPI(Cloud Controller API)는 REST API이지만 다양한 도구를 통해 액세스할 수 있습니다. 이 경우 [Cloud Foundry CLI][cf-cli]를 통해 상호 작용합니다. Linux, macOS 또는 Windows에 CLI를 설치할 수 있지만 설치 하지 않는 것이 좋습니다. [Azure Cloud Shell][cloudshell-docs]에 미리 설치 되어 있습니다.
+Cloud Controller는 애플리케이션 배포 및 관리를 위한 Cloud Foundry 환경에 대한 기본 진입점입니다. 핵심 CCAPI(Cloud Controller API)는 REST API이지만 다양한 도구를 통해 액세스할 수 있습니다. 이 경우 [Cloud Foundry CLI][cf-cli]를 통해 상호 작용합니다. Linux, macOS 또는 Windows에 CLI를 설치할 수 있지만 전혀 설치하지 않으려는 경우 [Azure Cloud Shell][cloudshell-docs]에 사전 설치할 수 있습니다.
 
 로그인하려면 마켓플레이스 배포에서 가져온 SYSTEMDOMAINURL 앞에 `api`를 추가합니다. 기본 배포는 자체 서명된 인증서를 사용하므로 `skip-ssl-validation` 스위치를 포함해야 합니다.
 
@@ -64,7 +64,7 @@ cf target -o testorg -s dev
 이제 애플리케이션을 배포할 때 새 조직 및 공간에 자동으로 만들어집니다. 현재 새 조직/공간에 앱이 없는지 확인하려면 `cf apps`를 다시 입력합니다.
 
 > [!NOTE] 
-> 조직 및 공백과이를 사용 하 여 Cloud Foundry RBAC (역할 기반 액세스 제어)를 Cloud Foundry 하는 방법에 대 한 자세한 내용은 [Cloud Foundry 설명서][cf-orgs-spaces-docs]를 참조 하세요.
+> 조직과 공간 및 Cloud Foundry RBAC(Cloud Foundry 역할 기반 액세스 제어)에 사용할 수 있는 방법에 관한 자세한 내용은 [Cloud Foundry 설명서][cf-orgs-spaces-docs]를 참조하세요.
 
 ## <a name="deploy-an-application"></a>애플리케이션 배포
 
@@ -144,7 +144,7 @@ cf scale -i 2 hello-spring-cloud
 [pcf-azuremarketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry
 [pcf-custom]: https://docs.pivotal.io/pivotalcf/1-10/customizing/azure.html
 [oss-cf-bosh]: https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs
-[pcf-azuremarketplace-pivotaldocs]: https://docs.pivotal.io/pivotalcf/customizing/pcf_azure.html
+[pcf-azuremarketplace-pivotaldocs]: https://docs.pivotal.io/ops-manager/2-10/install/pcf_azure.html
 [cf-cli]: https://github.com/cloudfoundry/cli
 [cloudshell-docs]: ../cloud-shell/overview.md
 [cf-orgs-spaces-docs]: https://docs.cloudfoundry.org/concepts/roles.html

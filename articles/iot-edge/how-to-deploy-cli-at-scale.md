@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 7b12b6c1cdc85eaba531f34b23aa74bee6b38f7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c502a9c02160c5a92d78ccdbb0532e6f173122da
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103201116"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479511"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Azure CLI를 사용하여 대규모 IoT Edge 모듈 배포 및 모니터링
 
@@ -191,7 +191,7 @@ Azure CLI를 사용하여 모듈을 배포하려면 배포 매니페스트를 �
 
 다른 매개 변수뿐만 아니라 배포 매니페스트로 구성된 배포를 만들어 대상 디바이스에 모듈을 배포합니다.
 
-[az iot edge deployment create](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-create) 명령을 사용하여 배포를 만듭니다.
+[az iot edge deployment create](/cli/azure/iot/edge/deployment) 명령을 사용하여 배포를 만듭니다.
 
 ```azurecli
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
@@ -224,7 +224,7 @@ Azure CLI를 사용하여 배포를 모니터링하려면 [IoT Edge 배포 모�
 
 배포 매니페스트에 정의된 모듈과 경로를 포함하는 배포 콘텐츠는 업데이트할 수 없습니다. 배포 콘텐츠를 업데이트하려면 우선 순위가 더 높은 동일한 디바이스를 대상으로 하는 새 배포를 만들어 이 작업을 수행합니다. 대상 조건, 레이블, 메트릭 및 우선 순위를 포함하여 기존 모듈의 특정 속성을 수정할 수 있습니다.
 
-[az iot edge deployment update](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-update) 명령을 사용하여 배포를 업데이트합니다.
+[az iot edge deployment update](/cli/azure/iot/edge/deployment) 명령을 사용하여 배포를 업데이트합니다.
 
 ```azurecli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
@@ -245,7 +245,7 @@ deployment update 명령은 다음 매개 변수를 사용합니다.
 
 배포를 삭제하면 모든 디바이스에서 다음으로 우선 순위가 가장 높은 배포가 적용됩니다. 디바이스에서 다른 배포의 대상 조건을 충족하지 않으면 배포를 삭제해도 모듈이 제거되지 않습니다.
 
-[az iot edge deployment delete](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-delete) 명령을 사용하여 배포를 삭제합니다.
+[az iot edge deployment delete](/cli/azure/iot/edge/deployment) 명령을 사용하여 배포를 삭제합니다.
 
 ```azurecli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name]

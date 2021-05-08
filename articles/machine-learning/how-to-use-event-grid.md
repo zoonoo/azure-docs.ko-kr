@@ -5,18 +5,18 @@ description: Azure Machine Learning에서 이벤트 중심 애플리케이션, �
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 9dc7c0a476f57048c7caefb6001918d314c991ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8294ecb255578305c868188575d5fa33e3b29b42
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102209699"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107884519"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Azure Machine Learning 이벤트(미리 보기)를 기반으로 애플리케이션, 프로세스 또는 CI/CD 워크플로 트리거
 

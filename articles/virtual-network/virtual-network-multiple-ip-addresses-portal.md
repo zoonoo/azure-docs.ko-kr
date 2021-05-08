@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: allensu
-ms.openlocfilehash: a0dab64aac8bc5fa68a53fad6cd8e6f6bb4bac03
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 050d3ac23562e7822d186a16675d03c1b9dc670b
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98217144"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739209"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신에 여러 IP 주소 할당
 
@@ -40,20 +40,20 @@ ms.locfileid: "98217144"
 
 1. https://portal.azure.com의 Azure Portal로 이동한 후 필요한 경우 로그인합니다.
 2. 포털에서 **더 많은 서비스** 를 클릭하고 필터 상자에 *가상 머신* 를 입력하고 **가상 머신** 를 클릭합니다.
-3. **가상 머신** 창에서 IP 주소를 추가할 VM을 클릭합니다. **네트워킹** 탭으로 이동 합니다. 페이지에서 **네트워크 인터페이스** 를 클릭 합니다. 아래 그림에 표시 된 것과 같습니다. 
+3. **가상 머신** 창에서 IP 주소를 추가할 VM을 클릭합니다. **네트워킹** 탭으로 이동합니다. 이 페이지에서 **네트워크 인터페이스** 를 클릭합니다. 아래 그림을 참조하세요. 
 
 
     ![VM에 공용 IP 주소 추가](./media/virtual-network-multiple-ip-addresses-portal/figure200319.png)
-4. **네트워크 인터페이스** 창에서 **IP 구성을** 클릭 합니다.
+4. **네트워크 인터페이스** 창에서 **IP 구성** 을 클릭합니다.
 
-5. 선택한 NIC에 대해 표시되는 창에서 **IP 구성** 을 클릭합니다. 추가 **를 클릭 하** 고, 추가 하려는 IP 주소 유형에 따라 뒤에 나오는 섹션 중 하나의 단계를 완료 한 후 **확인** 을 클릭 합니다. 
+5. 선택한 NIC에 대해 표시되는 창에서 **IP 구성** 을 클릭합니다. **추가** 를 클릭하고, 추가하려는 IP 주소의 유형에 따라 이어지는 섹션 중 하나의 단계를 완료하고, **확인** 을 클릭합니다. 
 
 ### <a name="add-a-private-ip-address"></a>개인 IP 주소 추가
 
 새 개인 IP 주소를 추가하려면 다음 단계를 완료합니다.
 
-1. 이 문서의 [핵심 단계](#coreadd) 섹션에 있는 단계를 완료 하 고 VM 네트워크 인터페이스의 **IP 구성** 섹션에 있는지 확인 합니다.  기본값으로 표시 된 서브넷을 검토 합니다 (예: 10.0.0.0/24).
-2. **추가** 를 클릭합니다. 표시 되는 **ip 구성 추가** 창에서 최종 8 진수의 새 숫자를 선택 하 여 새 *고정* 개인 ip 주소를 사용 하 여 *IPConfig-4* 라는 IP 구성을 만든 다음 **확인** 을 클릭 합니다.  (10.0.0.0/24 서브넷의 경우 예제 IP가 *10.0.0.7* 입니다.)
+1. 이 문서의 [핵심 단계](#coreadd) 섹션에 나오는 단계를 완료합니다. 현재 VM 네트워크 인터페이스의 **IP 구성** 섹션에 있는지 확인하세요.  기본값으로 표시되는 서브넷을 검토합니다(예: 10.0.0.0/24).
+2. **추가** 를 클릭합니다. 표시되는 **IP 구성 추가** 창에서 마지막 8진수로 새 숫자를 선택하여 새로운 *고정* 개인 IP 주소를 갖는 IP 구성을 만들고 이름을 *IPConfig-4* 로 지정한 다음 **확인** 을 클릭합니다.  (10.0.0.0/24 서브넷의 IP는 *10.0.0.7* 일 수 있습니다.)
 
     > [!NOTE]
     > 고정 IP 주소를 추가할 경우 NIC가 연결된 서브넷의 사용하지 않은 유효한 주소를 지정해야 합니다. 선택한 주소를 사용할 수 없는 경우 포털에 IP 주소로 X가 표시되며 다른 주소를 선택해야 합니다.
@@ -75,7 +75,7 @@ ms.locfileid: "98217144"
 공용 IP 주소는 공용 IP 주소 리소스에 대한 한 가지 설정입니다. IP 구성에 연결하려는 IP 구성에 현재 연결되어 있지 않은 공용 IP 주소 리소스가 있는 경우 다음 단계를 건너뛰고 필요에 따라 이어지는 섹션 중 하나에 나와 있는 단계를 완료합니다. 사용 가능한 공용 IP 주소 리소스가 없는 경우 다음 단계를 완료하여 리소스를 하나 만듭니다.
 
 1. https://portal.azure.com의 Azure Portal로 이동한 후 필요한 경우 로그인합니다.
-3. 포털에서 **리소스 만들기**  >  **네트워킹**  >  **공용 IP 주소** 를 클릭 합니다.
+3. 포털에서 **리소스 만들기** > **네트워킹** > **공용 IP 주소** 를 클릭합니다.
 4. 다음 그림과 같이 표시되는 **공용 IP 주소 만들기** 창에서 **이름** 을 입력하고 **IP 주소 할당** 형식, **구독**, **리소스 그룹** 및 **위치** 를 선택한 다음, **만들기** 를 클릭합니다.
 
     ![공용 IP 주소 리소스 만들기](./media/virtual-network-multiple-ip-addresses-portal/figure5.png)
@@ -102,6 +102,9 @@ ms.locfileid: "98217144"
 5. **저장** 을 클릭하면 창이 닫힙니다. 기존 공용 IP 주소가 없는 경우 이 문서의 [공용 IP 주소 리소스 만들기](#create-public-ip) 섹션에 나와 있는 단계를 완료하여 주소를 하나 만들 수 있습니다.
 3. 새 IP 구성을 검토합니다.
 4. **추가** 를 클릭하여 다른 IP 구성을 추가하거나 열려 있는 모든 블레이드를 닫아 IP 주소 추가를 완료할 수 있습니다. 운영 체제에 공용 IP 주소를 추가하지 마세요.
+
+> [!NOTE]
+> IP 주소 구성을 변경한 후에는 VM을 다시 시작해야 VM에 변경 사항이 적용됩니다.
 
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

@@ -1,0 +1,110 @@
+---
+title: 쿼리 저장소 - Azure Database for PostgreSQL - 유연한 서버
+description: 이 문서에서는 Azure Database for PostgreSQL - 유연한 서버의 쿼리 저장소 기능을 설명합니다.
+author: ssen-msft
+ms.author: ssen
+ms.service: postgresql
+ms.topic: conceptual
+ms.date: 04/01/2021
+ms.openlocfilehash: 6ab2ea6f6544bcf561e92f00b5afee693393c157
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107558663"
+---
+# <a name="monitor-performance-with-query-store"></a>쿼리 저장소를 사용하여 성능 모니터링
+**적용 대상:**  Azure Database for PostgreSQL - 유연한 서버 버전 11 이상
+
+Azure Database for PostgreSQL의 쿼리 저장소 기능은 시간 경과에 따라 쿼리 성능을 추적하는 방법을 제공합니다. 쿼리 저장소는 가장 오래 실행되고 리소스를 가장 많이 사용하는 쿼리를 신속하게 찾도록 지원하여 성능 문제 해결을 단순화합니다. 쿼리 저장소는 쿼리 및 런타임 통계의 기록을 자동으로 캡처하고 검토를 위해 보존합니다. 시간별 사용 패턴을 볼 수 있도록 데이터를 시간별로 분할합니다. 모든 사용자, 데이터베이스 및 쿼리에 대한 데이터는 Azure Database for PostgreSQL 인스턴스의 **azure_sys** 라는 데이터베이스에 저장됩니다.
+
+> [!IMPORTANT]
+> **azure_sys** 데이터베이스 또는 해당 스키마를 수정하지 마세요. 이렇게 하면 쿼리 저장소 및 관련 성능 기능이 제대로 작동하지 않습니다.
+## <a name="enabling-query-store"></a>쿼리 저장소 사용
+쿼리 저장소는 옵트인 기능이므로 서버에서 기본적으로 사용하도록 설정되지 않습니다. 쿼리 저장소는 지정된 서버의 모든 데이터베이스에 대해 전역으로 사용하거나 사용하지 않도록 설정되며 데이터베이스별로 켜거나 끌 수 없습니다.
+### <a name="enable-query-store-using-the-azure-portal"></a>Azure Portal을 통해 쿼리 저장소 사용
+1. Azure Portal에 로그인하고 Azure Database for PostgreSQL 서버를 선택합니다.
+2. 메뉴의 **설정** 섹션에서 **서버 매개 변수** 를 선택합니다.
+3. `pg_qs.query_capture_mode` 매개 변수를 검색합니다.
+4. 값을 `TOP` 또는 `ALL`로 설정하고 **저장** 합니다.
+데이터의 첫 번째 배치가 azure_sys 데이터베이스에서 지속되는 데 최대 20분이 걸립니다.
+## <a name="information-in-query-store"></a>쿼리 저장소의 정보
+쿼리 저장소에는 하나의 저장소가 있습니다.
+- 쿼리 실행 통계 정보를 지속하기 위한 런타임 통계 저장소.
+
+쿼리 저장소 사용에 대한 일반적인 시나리오는 다음과 같습니다.
+- 지정된 기간에 쿼리가 실행된 횟수를 확인하는 경우
+- 전체 기간에 대한 쿼리의 평균 실행 시간을 비교하여 큰 델타를 확인하는 경우
+- 지난 몇 시간 동안 가장 오래 실행된 쿼리 식별 공간 사용량을 최소화하기 위해 런타임 통계 저장소의 런타임 실행 통계는 구성 가능한 고정된 기간 동안 집계됩니다. 이러한 저장소의 정보는 보기를 사용하여 쿼리할 수 있습니다.
+## <a name="access-query-store-information"></a>쿼리 저장소 정보 액세스
+쿼리 저장소 데이터는 Postgres 서버의 azure_sys 데이터베이스에 저장됩니다. 다음 쿼리는 쿼리 저장소의 쿼리에 대한 정보를 반환합니다.
+```sql
+SELECT * FROM query_store.qs_view; 
+``` 
+
+## <a name="configuration-options"></a>구성 옵션
+쿼리 저장소를 사용하도록 설정하면 데이터가 15분 집계 창에 저장되고 각 창에는 최대 500개의 고유 쿼리가 포함됩니다. 다음 옵션은 쿼리 저장소 매개 변수를 구성하는 데 사용할 수 있습니다.
+
+| **매개 변수** | **설명** | **기본값** | **Range**|
+|---|---|---|---|
+| pg_qs.query_capture_mode | 추적되는 문을 설정합니다. | 없음 | none, top, all |
+| pg_qs.max_query_text_length | 저장할 수 있는 최대 쿼리 길이를 설정합니다. 더 긴 쿼리는 잘립니다. | 6000 | 100 - 10K |
+| pg_qs.retention_period_in_days | 보존 기간을 설정합니다. | 7 | 1 - 30 |
+| pg_qs.track_utility | 유틸리티 명령을 추적할지 여부를 설정합니다. | On | on, off |
+
+[Azure Portal](howto-configure-server-parameters-using-portal.md)을 사용하여 매개 변수에 대한 다른 값을 가져오거나 설정합니다.
+
+## <a name="views-and-functions"></a>보기 및 함수
+다음 보기 및 함수를 사용하여 쿼리 저장소를 보고 관리합니다. PostgreSQL 공용 역할의 사용자는 이러한 보기를 사용하여 쿼리 저장소의 데이터를 볼 수 있습니다. 이러한 보기는 **azure_sys** 데이터베이스에서만 사용 가능합니다.
+쿼리는 리터럴 및 상수를 제거한 후 구조를 확인하여 정규화됩니다. 리터럴 값을 제외하고 두 쿼리가 동일한 경우에는 동일한 queryId를 사용하게 됩니다.
+### <a name="query_storeqs_view"></a>query_store.qs_view
+이 보기는 쿼리 저장소의 모든 데이터를 반환합니다. 각 고유 데이터베이스 ID, 사용자 ID 및 쿼리 ID에 대한 하나의 행이 있습니다. 
+
+|**이름**   |**형식** | **참조**  | **설명**|
+|---|---|---|---|
+|runtime_stats_entry_id |bigint | | runtime_stats_entries 테이블의 ID|
+|user_id    |oid    |pg_authid.oid  |문을 실행한 사용자의 OID|
+|db_id  |oid    |pg_database.oid    |문이 실행된 데이터베이스의 OID|
+|query_id   |bigint  || 문의 구문 분석 트리에서 계산된 내부 해시 코드|
+|query_sql_text |Varchar(10000)  || 대표 문의 텍스트. 동일한 구조의 서로 다른 쿼리가 함께 클러스터되고, 이 텍스트는 클러스터에 있는 첫 번째 쿼리의 텍스트입니다.|
+|plan_id    |bigint |   |이 쿼리에 해당하는 계획의 ID로, 아직 사용할 수 없음|
+|start_time |timestamp  ||  쿼리는 시간 버킷별로 집계되며 버킷의 시간 범위는 기본적으로 15분입니다. 이는 이 항목의 시간 버킷에 해당하는 시작 시간.|
+|end_time   |timestamp  ||  이 항목의 시간 버킷에 해당하는 종료 시간.|
+|calls  |bigint  || 쿼리 실행 횟수|
+|total_time |double precision   ||  총 쿼리 실행 시간(밀리초)|
+|min_time   |double precision   ||  최소 쿼리 실행 시간(밀리초)|
+|max_time   |double precision   ||  최대 쿼리 실행 시간(밀리초)|
+|mean_time  |double precision   ||  평균 쿼리 실행 시간(밀리초)|
+|stddev_time|   double precision    ||  쿼리 실행 시간(밀리초)의 표준 편차 |
+|rows   |bigint ||  문이 영향을 미치거나 검색하는 총 행 수|
+|shared_blks_hit|   bigint  ||  문을 통해 공유되는 총 블록 캐시 적중 수|
+|shared_blks_read|  bigint  ||  문이 읽은 총 공유 블록 수|
+|shared_blks_dirtied|   bigint   || 문에 의해 변경된 총 공유 블록 수 |
+|shared_blks_written|   bigint  ||  문이 쓴 총 공유 블록 수|
+|local_blks_hit|    bigint ||   문에 의한 총 로컬 블록 캐시 적중 수|
+|local_blks_read|   bigint   || 문이 읽은 총 로컬 블록 수|
+|local_blks_dirtied|    bigint  ||  문에 의해 변경된 총 로컬 블록 수|
+|local_blks_written|    bigint  ||  문이 쓴 총 로컬 블록 수|
+|temp_blks_read |bigint  || 문이 읽은 총 임시 블록 수|
+|temp_blks_written| bigint   || 문이 쓴 총 임시 블록 수|
+|blk_read_time  |double precision    || 문이 블록을 읽는 데 사용한 총 시간(밀리초)(track_io_timing이 사용하도록 설정된 경우, 이외의 경우에는 0)|
+|blk_write_time |double precision    || 문이 블록을 쓰는 데 사용한 총 시간(밀리초)(track_io_timing이 사용하도록 설정된 경우, 이외의 경우에는 0)|
+    
+### <a name="query_storequery_texts_view"></a>query_store.query_texts_view
+이 보기는 쿼리 저장소의 쿼리 텍스트 데이터를 반환합니다. 각 고유 query_text에 대한 하나의 행이 있습니다.
+
+| **이름** | **형식** | **설명** |
+|--|--|--|
+| query_text_id | bigint | query_texts 테이블의 ID |
+| query_sql_text | Varchar(10000) | 대표 문의 텍스트. 동일한 구조의 서로 다른 쿼리가 함께 클러스터되고, 이 텍스트는 클러스터에 있는 첫 번째 쿼리의 텍스트입니다. |
+
+### <a name="functions"></a>Functions
+`qs_reset`은 쿼리 저장소가 지금까지 수집한 모든 통계를 무시합니다. 이 함수는 서버 관리자 역할만 실행할 수 있습니다.
+
+`staging_data_reset`은 쿼리 저장소가 메모리에서 수집한 모든 통계(즉, 아직 데이터베이스로 플러시되지 않은 메모리의 데이터)를 무시합니다. 이 함수는 서버 관리자 역할만 실행할 수 있습니다.
+
+## <a name="limitations-and-known-issues"></a>제한 사항 및 알려진 문제
+- PostgreSQL 서버에서 default_transaction_read_only 매개 변수가 설정되어 있으면 쿼리 저장소가 데이터를 캡처하지 않습니다.
+## <a name="next-steps"></a>다음 단계
+- [쿼리 저장소가 특히 유용할 수 있는 시나리오](concepts-query-store-scenarios.md)에 대해 자세히 알아보세요.
+- [쿼리 저장소 사용 모범 사례](concepts-query-store-best-practices.md)에 대해 자세히 알아보세요.

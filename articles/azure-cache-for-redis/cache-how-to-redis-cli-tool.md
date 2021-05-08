@@ -1,25 +1,25 @@
 ---
-title: Redis 용 Azure Cache에서 redis 사용
-description: Redis 용 Azure Cache for client와 상호 작용 하기 위한 명령줄 도구로 *redis-cli.exe* 를 사용 하는 방법에 대해 알아봅니다.
+title: Azure Cache for Redis에서 redis-cli 사용
+description: '*redis-cli.exe* 를 명령줄 도구로 사용하여 Azure Cache for Redis 클라이언트와 상호 작용하는 방법을 알아봅니다.'
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: e4f5fc7290b45f65067f6711f70476e13a010223
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 042db51ab51e9da586f028b8aa99e66ffaa36639
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102183389"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775676"
 ---
-# <a name="use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Redis 용 Azure Cache와 함께 Redis 명령줄 도구 사용
+# <a name="use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Azure Cache for Redis에서 Redis 명령줄 도구 사용
 
 *redis-cli.exe* 는 Azure Cache for Redis 클라이언트와 상호 작용하는 데 인기 있는 명령줄 도구입니다. 이 도구는 Azure Cache for Redis에도 사용할 수 있습니다.
 
 이 도구는 [Windows용 Redis 명령줄 도구](https://github.com/MSOpenTech/redis/releases/)를 다운로드하여 Windows 플랫폼에 대해 사용할 수 있습니다. 
 
-다른 플랫폼에서 명령줄 도구를 실행 하려면에서 Redis 용 Azure Cache를 다운로드 [https://redis.io/download](https://redis.io/download) 합니다.
+다른 플랫폼에서 이 명령줄 도구를 실행하려면 [https://redis.io/download](https://redis.io/download)에서 Azure Cache for Redis 다운로드하세요.
 
 ## <a name="gather-cache-access-information"></a>캐시 액세스 정보 수집
 
@@ -27,7 +27,7 @@ ms.locfileid: "102183389"
 
 캐시에 액세스하는 데 필요한 정보를 다음 세 가지 방법으로 수집할 수 있습니다.
 
-1. Azure CLI([az redis list-keys](/cli/azure/redis#az-redis-list-keys) 사용)
+1. Azure CLI([az redis list-keys](/cli/azure/redis#az_redis_list_keys) 사용)
 2. Azure PowerShell([Get-AzRedisCacheKey](/powershell/module/az.rediscache/Get-AzRedisCacheKey) 사용)
 3. Azure Portal 사용.
 
@@ -38,9 +38,9 @@ ms.locfileid: "102183389"
 
 ## <a name="enable-access-for-redis-cliexe"></a>redis-cli.exe에 대한 액세스 사용
 
-Redis 용 Azure Cache를 사용 하 여 TLS 포트 (6380)만 기본적으로 사용 하도록 설정 되어 있습니다. `redis-cli.exe`명령줄 도구는 TLS를 지원 하지 않습니다. 두 가지 구성 옵션을 사용할 수 있습니다.
+Azure Cache for Redis를 사용하면 기본적으로 TLS 포트(6380)만 사용할 수 있습니다. `redis-cli.exe` 명령줄 도구는 TLS를 지원하지 않습니다. 두 가지 구성 옵션을 사용할 수 있습니다.
 
-1. [비 TLS 포트 사용 (6379)](cache-configure.md#access-ports)  -  이 구성에서는 TCP를 통해 액세스 키가 일반 텍스트로 전송 되므로 **이 구성은 사용 하지 않는 것이 좋습니다** . 이 변경으로 인해 캐시에 대한 액세스가 손상될 수 있습니다. 테스트 캐시에 액세스하는 경우에만 이 시나리오를 고려할 수 있습니다.
+1. [비 TLS 포트(6379) 사용](cache-configure.md#access-ports) - **권장되지 않는 구성입니다**. 이 구성에서는 액세스 키가 일반 텍스트로 TCP를 통해 전송되기 때문입니다. 이 변경으로 인해 캐시에 대한 액세스가 손상될 수 있습니다. 테스트 캐시에 액세스하는 경우에만 이 시나리오를 고려할 수 있습니다.
 
 2. [stunnel](https://www.stunnel.org/downloads.html) 다운로드 및 설치 -
 
@@ -48,7 +48,7 @@ Redis 용 Azure Cache를 사용 하 여 TLS 포트 (6380)만 기본적으로 사
 
     작업 표시줄에서 stunnel 서버의 아이콘을 마우스 오른쪽 단추로 클릭하고 **로그 창 표시** 를 클릭합니다.
 
-    Stunnel 로그 창 메뉴에서 **구성**  >  **편집 구성** 을 클릭 하 여 현재 구성 파일을 엽니다.
+    stunnel 로그 창 메뉴에서 **구성** > **구성 편집** 클릭하여 현재 구성 파일을 엽니다.
 
     **서비스 정의** 섹션 아래에서 *redis-cli.exe* 에 대해 다음 항목을 추가합니다. `yourcachename` 대신 실제 캐시 이름을 삽입합니다. 
 
@@ -61,7 +61,7 @@ Redis 용 Azure Cache를 사용 하 여 TLS 포트 (6380)만 기본적으로 사
 
     구성 파일을 저장하고 닫습니다. 
   
-    Stunnel 로그 창 메뉴에서 **구성**  >  **다시 로드 구성** 을 클릭 합니다.
+    stunnel 로그 창 메뉴에서 **구성** > **구성 재로드** 를 클릭합니다.
 
 
 ## <a name="connect-using-the-redis-command-line-tool"></a>Redis 명령줄 도구를 사용하여 연결합니다.
@@ -72,9 +72,9 @@ stunnel을 사용하는 경우 *redis-cli.exe* 를 실행하고 *포트* 및 *�
 redis-cli.exe -p 6380 -a YourAccessKey
 ```
 
-![캐시에 대 한 연결이 성공 했음을 보여 주는 스크린샷](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
+![캐시에 연결했음을 보여 주는 스크린샷](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
-**비보안** TLS 이외의 포트를 사용 하 여 테스트 캐시를 사용 하는 경우를 실행 하 `redis-cli.exe` 고 *호스트 이름*, *포트* 및 *액세스 키* (기본 또는 보조)를 전달 하 여 테스트 캐시에 연결 합니다.
+**보안되지 않는** 비 TLS 포트에 테스트 캐시를 사용하는 경우 `redis-cli.exe`를 실행하고 *호스트 이름*, *포트*, *액세스 키*(기본 또는 보조)를 전달하여 테스트 캐시에 연결합니다.
 
 ```
 redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey

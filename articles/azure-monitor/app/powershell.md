@@ -3,12 +3,13 @@ title: PowerShell 사용하여 Azure Application Insights 자동화 | Microsoft 
 description: Azure Resource Manager 템플릿을 사용하여 PowerShell에서 리소스, 경고 및 가용성 테스트 생성 및 관리를 자동화합니다.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: c2e3d33be487b6a92cb7038d814e17fcd5a10064
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 60417e829297eb9a7ad4e244523c546dcaff053d
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100589806"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318606"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>PowerShell을 사용하여 Application Insights 리소스 관리
 

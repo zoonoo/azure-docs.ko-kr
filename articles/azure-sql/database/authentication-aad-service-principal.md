@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 02/11/2021
-ms.openlocfilehash: 68267cdedd2f0b64549791866e8750cf42928ab4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 17e846c7435e2f1cc77c5915f7e0b308c3706f96
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103201237"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775424"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Azure SQL을 사용하는 Azure Active Directory 서비스 주체
 
@@ -72,7 +72,7 @@ Azure AD 애플리케이션 대신 SQL Database 또는 Azure Synapse에서 Azure
     - 서버 ID가 서버에 할당되었는지 확인하려면 Get-AzSqlServer 명령을 실행합니다.
 
     > [!NOTE]
-    > CLI 명령을 사용하여 서버 ID를 할당할 수도 있습니다. 자세한 내용은 [az sql server create](/cli/azure/sql/server#az-sql-server-create) 및 [az sql server update](/cli/azure/sql/server#az-sql-server-update)를 참조하세요.
+    > CLI 명령을 사용하여 서버 ID를 할당할 수도 있습니다. 자세한 내용은 [az sql server create](/cli/azure/sql/server#az_sql_server_create) 및 [az sql server update](/cli/azure/sql/server#az_sql_server_update)를 참조하세요.
 
 2. 서버에 생성되거나 할당된 서버 ID에 Azure AD [**디렉터리 읽기 권한자**](../../active-directory/roles/permissions-reference.md#directory-readers) 권한을 부여합니다.
     - 이 권한을 부여하려면 [Azure AD 관리자 프로비저닝(SQL Managed Instance)](authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-managed-instance) 문서에 나오는 SQL Managed Instance에 사용된 설명을 따르세요.
@@ -94,7 +94,7 @@ Azure AD 애플리케이션 대신 SQL Database 또는 Azure Synapse에서 Azure
       - 위 오류의 경우 [Azure SQL 논리 서버에 ID를 할당](authentication-aad-service-principal-tutorial.md#assign-an-identity-to-the-azure-sql-logical-server)하고 [SQL 논리 서버 ID에 디렉터리 읽기 권한자 권한을 할당](authentication-aad-service-principal-tutorial.md#assign-directory-readers-permission-to-the-sql-logical-server-identity)하는 단계를 따릅니다.
     > [!NOTE]
     > 위에 표시된 오류 메시지는 Azure AD 애플리케이션 지원과 관련해 누락된 설정 요구 사항을 명확하게 파악해서 기능 GA 이전에 변경할 예정입니다.
-- Azure AD 애플리케이션을 SQL Managed Instance에 대한 Azure AD 관리자로 설정하는 기능은 CLI 명령을 사용하고 [Az.Sql 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) 이상에서 PowerShell 명령을 사용하는 경우에만 지원됩니다. 자세한 내용은 [az sql mi ad-admin create](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-create) 및 [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) 명령을 참조하세요. 
+- Azure AD 애플리케이션을 SQL Managed Instance에 대한 Azure AD 관리자로 설정하는 기능은 CLI 명령을 사용하고 [Az.Sql 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) 이상에서 PowerShell 명령을 사용하는 경우에만 지원됩니다. 자세한 내용은 [az sql mi ad-admin create](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_create) 및 [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) 명령을 참조하세요. 
     - Azure Portal을 사용하여 SQL Managed Instance에 대한 Azure AD 관리자를 설정하려는 경우 Azure AD 그룹을 만드는 것이 좋습니다. 그런 다음 서비스 주체(Azure AD 애플리케이션)를 이 그룹에 추가하고 이 그룹을 SQL Managed Instance에 대한 Azure AD 관리자로 설정합니다.
     - SQL Database 및 Azure Synapse에 대한 Azure AD 관리자로 서비스 주체(Azure AD 애플리케이션)를 설정하는 기능은 Azure Portal, [PowerShell](authentication-aad-configure.md?tabs=azure-powershell#powershell-for-sql-database-and-azure-synapse) 및 [CLI](authentication-aad-configure.md?tabs=azure-cli#powershell-for-sql-database-and-azure-synapse) 명령을 사용하여 지원됩니다.
 - 다른 Azure AD 테넌트의 서비스 주체를 통해 Azure AD 애플리케이션을 사용하면 다른 테넌트에서 만든 SQL Database 또는 SQL Managed Instance에 액세스할 수 없게 됩니다. 이 애플리케이션에 할당된 서비스 주체는 SQL 논리 서버 또는 Managed Instance와 동일한 테넌트의 서비스 주체여야 합니다.

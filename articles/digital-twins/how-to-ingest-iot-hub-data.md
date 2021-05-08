@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: de16932f1f77e569302b222fe2948de3046fabd6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b69ba164a7bd0edecf427866cd3e872a65e41355
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104950599"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208746"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Azure Digital Twins로 IoT Hub 원격 분석 수집
 
@@ -26,7 +26,7 @@ Azure Digital Twins로 데이터를 수집하는 프로세스는 [Azure Function
 
 이 예를 계속하기 전에 다음 리소스를 필수 구성 요소로 설정해야 합니다.
 * **IoT Hub**. 지침은 [이 IoT Hub 빠른 시작](../iot-hub/quickstart-send-telemetry-cli.md)의 *IoT Hub 만들기* 섹션을 참조하세요.
-* 디바이스 원격 분석을 수신하는 **Azure Digital Twins 인스턴스**. 자세한 내용은 [*방법: Azure Digital Twins 인스턴스 및 인증 설정*](./how-to-set-up-instance-portal.md)을 참조하세요.
+* 디바이스 원격 분석을 수신하는 **Azure Digital Twins 인스턴스**. 자세한 내용은 [방법: Azure Digital Twins 인스턴스 및 인증 설정](./how-to-set-up-instance-portal.md)을 참조하세요.
 
 ### <a name="example-telemetry-scenario"></a>원격 분석 시나리오 예제
 
@@ -45,7 +45,7 @@ Azure Digital Twins로 데이터를 수집하는 프로세스는 [Azure Function
 
 이 섹션에서는 Azure Digital Twins에서 자동 온도 조절기 디바이스를 나타내고 IoT Hub 정보로 업데이트되는 [디지털 트윈](concepts-twins-graph.md)을 설정합니다.
 
-자동 온도 조절기 형식 트윈을 만들려면 먼저 자동 온도 조절기 [모델](concepts-models.md)을 인스턴스에 업로드해야 합니다. 이 모델은 자동 온도 조절기의 속성을 설명하고 나중에 트윈을 만드는 데 사용됩니다. 
+자동 온도 조절기 형식 트윈을 만들려면 먼저 자동 온도 조절기 [모델](concepts-models.md)을 인스턴스에 업로드해야 합니다. 이 모델은 자동 온도 조절기의 속성을 설명하고 나중에 트윈을 만드는 데 사용됩니다.
 
 [!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 
@@ -88,7 +88,7 @@ az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id t
 
 #### <a name="step-1-create-a-function-app-project"></a>1단계: 함수 앱 프로젝트 만들기
 
-먼저 Visual Studio에서 새 함수 앱 프로젝트를 만듭니다. 이 작업을 수행하는 방법에 대한 지침은 *방법: 데이터 처리를 위한 함수 설정* 문서의 [**Visual Studio에서 함수 앱 만들기**](how-to-create-azure-function.md#create-a-function-app-in-visual-studio) 섹션을 참조하세요.
+먼저 Visual Studio에서 새 함수 앱 프로젝트를 만듭니다. 이 작업을 수행하는 방법에 대한 지침은 방법: 데이터 처리를 위한 함수 설정 문서의 *[Visual Studio에서 함수 앱 만들기](how-to-create-azure-function.md#create-a-function-app-in-visual-studio)* 섹션을 참조하세요.
 
 #### <a name="step-2-fill-in-function-code"></a>2단계: 함수 코드 입력
 
@@ -107,17 +107,17 @@ az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id t
 
 *IoTHubtoTwins.cs* 함수를 사용하여 프로젝트를 Azure의 함수 앱에 게시합니다.
 
-이 작업을 수행하는 방법에 대한 지침은 *방법: 데이터 처리를 위한 함수 설정* 문서의 [**Azure에 함수 앱 게시**](how-to-create-azure-function.md#publish-the-function-app-to-azure) 섹션을 참조하세요.
+이 작업을 수행하는 방법에 대한 지침은 방법: 데이터 처리를 위한 함수 설정 문서의 *[Azure에 함수 앱 게시](how-to-create-azure-function.md#publish-the-function-app-to-azure)* 섹션을 참조하세요.
 
 #### <a name="step-4-configure-the-function-app"></a>4단계: 함수 앱 구성
 
-다음으로, 함수에 대한 **액세스 역할을 할당** 하고 **애플리케이션 설정을 구성** 하여 Azure Digital twins 인스턴스에 액세스할 수 있도록 합니다. 이 작업을 수행하는 방법에 대한 지침은 *방법: 데이터 처리를 위한 함수 설정* 문서의 [**함수 앱에 대한 보안 액세스 설정**](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) 섹션을 참조하세요.
+다음으로, 함수에 대한 **액세스 역할을 할당** 하고 **애플리케이션 설정을 구성** 하여 Azure Digital twins 인스턴스에 액세스할 수 있도록 합니다. 이 작업을 수행하는 방법에 대한 지침은 방법: 데이터 처리를 위한 함수 설정 문서의 *[함수 앱에 대한 보안 액세스 설정](how-to-create-azure-function.md#set-up-security-access-for-the-function-app)* 섹션을 참조하세요.
 
 ## <a name="connect-your-function-to-iot-hub"></a>함수를 IoT Hub에 연결
 
 이 섹션에서는 IoT 허브 디바이스 데이터의 이벤트 대상으로 함수를 설정합니다. 이렇게 하면 IoT Hub의 자동 온도 조절기 디바이스에 있는 데이터가 처리를 위해 Azure 함수에 전송됩니다.
 
-[Azure Portal](https://portal.azure.com/)에서 [*필수 구성 요소*](#prerequisites) 섹션에서 만든 IoT Hub 인스턴스로 이동합니다. **이벤트** 아래에서 함수에 대한 구독을 만듭니다.
+[Azure Portal](https://portal.azure.com/)에서 [필수 구성 요소](#prerequisites) 섹션에서 만든 IoT Hub 인스턴스로 이동합니다. **이벤트** 아래에서 함수에 대한 구독을 만듭니다.
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="이벤트 구독을 추가하는 것을 보여 주는 Azure Portal의 스크린샷.":::
 
@@ -146,11 +146,11 @@ _만들기_ 단추를 선택하여 이벤트 구독을 만듭니다.
 
 ## <a name="send-simulated-iot-data"></a>시뮬레이트된 IoT 데이터 보내기
 
-새 수신 함수를 테스트하려면 [*자습서: 엔드투엔드 솔루션 연결*](./tutorial-end-to-end.md)에서 디바이스 시뮬레이터를 사용합니다. 이 자습서는 C#으로 작성된 샘플 프로젝트를 기반으로 합니다. 이 샘플 코드는 다음 위치에 있습니다. [Azure Digital Twins 엔드투엔드 샘플](/samples/azure-samples/digital-twins-samples/digital-twins-samples). 해당 리포지토리에서 **DeviceSimulator** 프로젝트를 사용하게 됩니다.
+새 수신 함수를 테스트하려면 [자습서: 엔드투엔드 솔루션 연결](./tutorial-end-to-end.md)에서 디바이스 시뮬레이터를 사용합니다. 이 자습서는 C#으로 작성된 샘플 프로젝트를 기반으로 합니다. 이 샘플 코드는 다음 위치에 있습니다. [Azure Digital Twins 엔드투엔드 샘플](/samples/azure-samples/digital-twins-samples/digital-twins-samples). 해당 리포지토리에서 **DeviceSimulator** 프로젝트를 사용하게 됩니다.
 
 엔드투엔드 자습서에서 다음 단계를 완료합니다.
-1. [*IoT Hub에 시뮬레이션된 디바이스 등록*](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)
-2. [*시뮬레이션 구성 및 실행*](./tutorial-end-to-end.md#configure-and-run-the-simulation)
+1. [IoT Hub에 시뮬레이션된 디바이스 등록](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)
+2. [시뮬레이션 구성 및 실행](./tutorial-end-to-end.md#configure-and-run-the-simulation)
 
 ## <a name="validate-your-results"></a>결과 유효성 검사
 
@@ -189,4 +189,4 @@ az dt twin query -q "select * from digitaltwins" -n {digital_twins_instance_name
 ## <a name="next-steps"></a>다음 단계
 
 Azure Digital Twins를 사용한 데이터 수신 및 송신에 대해 알아봅니다.
-* [*개념: 다른 서비스와 통합*](concepts-integration.md)
+* [개념: 다른 서비스와 통합](concepts-integration.md)

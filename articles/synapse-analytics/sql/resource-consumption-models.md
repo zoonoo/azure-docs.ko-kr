@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 03144d478be0053ac77709132b08cdf17b062fb0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ddd49f26194c52cf0218f21d915ff078aee70c6b
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666289"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164672"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Synapse SQL 리소스 사용
 
@@ -72,7 +72,7 @@ CREATE DATABASE mySQLDW
 - Gen1 데이터 웨어하우스는 DWU(데이터 웨어하우스 단위)로 측정됩니다.
 - Gen2 데이터 웨어하우스는 cDWU(컴퓨팅 데이터 웨어하우스 단위)로 측정됩니다.
 
-DWU 및 cDWU 모두 컴퓨팅을 확장 또는 축소할 수 있고 데이터 웨어하우스를 사용할 필요가 없는 경우 컴퓨팅을 일시 중지할 수 있습니다. 이러한 작업은 모두 주문형 작업입니다. Gen2는 컴퓨팅 노드에서 로컬 디스크 기반 캐시를 사용하여 성능을 향상시킵니다. 시스템의 크기를 조정하거나 시스템을 일시 중지할 경우 캐시가 무효화되므로 최적의 성능을 얻으려면 캐시 준비 시간이 필요합니다.  
+DWU 및 cDWU 모두 컴퓨팅을 확장 또는 축소할 수 있고 데이터 웨어하우스를 사용할 필요가 없는 경우 컴퓨팅을 일시 중지할 수 있습니다. 이러한 작업은 모두 주문형 작업입니다. Gen2는 컴퓨팅 노드에서 로컬 디스크 기반 캐시를 사용하여 성능을 향상시킵니다. 시스템의 크기를 조정하거나 시스템을 일시 중지할 경우 캐시가 무효화되므로 최적의 성능을 얻으려면 캐시 준비 시간이 필요합니다.
 
 데이터 웨어하우스 단위를 늘리면 계산 리소스가 선형적으로 증가됩니다. Gen2는 최상의 쿼리 성능과 최고의 확장성을 제공합니다. 또한 Gen2 시스템은 캐시를 최대한 활용합니다.
 
@@ -137,7 +137,7 @@ DWU를 변경하는 방법은 다음과 같습니다.
 
 DWU를 변경하려면 [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet을 사용합니다. 다음 예제에서는 MyServer에서 호스트되는 MySQLDW 데이터베이스에 대한 서비스 수준 목표를 DW1000으로 설정합니다.
 
-```Powershell
+```powershell
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
@@ -152,7 +152,7 @@ DWU를 변경하려면
 1. 서버와 연결된 마스터 데이터베이스에 연결합니다.
 2. [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest&preserve-view=true) TSQL 문을 사용합니다. 다음 예제에서는 MySQLDW 데이터베이스에 대한 서비스 수준 목표를 DW1000c로 설정합니다.
 
-```Sql
+```sql
 ALTER DATABASE MySQLDW
 MODIFY (SERVICE_OBJECTIVE = 'DW1000c')
 ;
@@ -208,7 +208,7 @@ AND       major_resource_id = 'MySQLDW'
 
 ### <a name="the-scaling-workflow"></a>크기 조정 워크플로
 
-크기 조정 작업을 시작할 때 시스템은 먼저 열려 있는 모든 세션을 종료하고 일관된 상태를 유지하도록 열려 있는 모든 트랜잭션을 롤백합니다. 크기 조정 작업의 경우 이 트랜잭션 롤백을 완료한 후에만 크기 조정이 수행됩니다.  
+크기 조정 작업을 시작할 때 시스템은 먼저 열려 있는 모든 세션을 종료하고 일관된 상태를 유지하도록 열려 있는 모든 트랜잭션을 롤백합니다. 크기 조정 작업의 경우 이 트랜잭션 롤백을 완료한 후에만 크기 조정이 수행됩니다.
 
 - 확장 작업의 경우 시스템에서는 모든 컴퓨팅 노드를 분리하고 추가 컴퓨팅 노드를 프로비저닝한 다음, 스토리지 계층에 다시 연결합니다.
 - 축소 작업의 경우 시스템에서는 모든 컴퓨팅 노드를 분리한 다음, 필요한 노드만 스토리지 계층에 다시 연결합니다.

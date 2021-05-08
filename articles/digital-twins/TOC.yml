@@ -41,6 +41,12 @@
       href: concepts-query-language.md
     - name: 쿼리 단위
       href: concepts-query-units.md
+    - name: 개발자 인터페이스
+      items:
+        - name: API 및 SDK
+          href: concepts-apis-sdks.md
+        - name: CLI 명령 집합
+          href: concepts-cli.md
     - name: 다른 서비스와 통합
       href: concepts-integration.md
     - name: 이벤트 알림
@@ -55,8 +61,6 @@
   items:
     - name: 배포
       items:
-        - name: Azure Digital Twins CLI 사용
-          href: how-to-use-cli.md
         - name: 인스턴스 및 인증 설정
           items:
             - name: 포털 버전
@@ -99,8 +103,6 @@
           href: how-to-query-graph.md
     - name: 클라이언트 앱 개발
       items:
-        - name: API 및 SDK 사용
-          href: how-to-use-apis-sdks.md
         - name: Postman으로 요청하기
           href: how-to-use-postman.md
         - name: Azure SignalR 서비스와 통합
