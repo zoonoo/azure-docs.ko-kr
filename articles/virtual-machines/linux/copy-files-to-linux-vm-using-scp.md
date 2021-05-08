@@ -1,5 +1,5 @@
 ---
-title: SCP를 사용 하 여 Azure Linux Vm 간에 파일 이동
+title: SCP를 사용하여 Azure Linux VM 간에 파일 이동
 description: SCP 및 SSH 키 쌍을 사용하여 Azure에서 Linux VM 간에 안전하게 파일을 이동합니다.
 author: cynthn
 ms.service: virtual-machines
@@ -10,10 +10,10 @@ ms.date: 07/12/2017
 ms.author: cynthn
 ms.subservice: disks
 ms.openlocfilehash: 83b57055ee7a3fedab014abeab96520c3877b843
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102558443"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>SCP를 사용하여 Linux VM 간에 파일 이동
@@ -66,7 +66,7 @@ scp ~/.azure/config azureuser@myserver.eastus.cloudapp.com:/home/azureuser/confi
 scp -r azureuser@myserver.eastus.cloudapp.com:/home/azureuser/logs/. /tmp/
 ```
 
-`-r`플래그는 명령에 나열 된 디렉터리의 지점에서 파일 및 디렉터리를 재귀적으로 복사 하도록 SCP에 지시 합니다.  또한 명령줄 구문은 `cp` 복사 명령과 비슷합니다.
+`-r` 플래그는 명령에 나열된 디렉터리의 시점부터 파일 및 디렉터리를 재귀적으로 복사하도록 SCP에 지시합니다.  또한 명령줄 구문은 `cp` 복사 명령과 비슷합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

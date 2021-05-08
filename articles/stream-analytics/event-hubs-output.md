@@ -1,25 +1,25 @@
 ---
-title: Azure Stream Analytics에서 출력 Event Hubs
-description: 이 문서에서는 Azure Stream Analytics에서 Azure Event Hubs로 데이터를 출력 하는 방법을 설명 합니다.
+title: Azure Stream Analytics의 Event Hubs 출력
+description: 이 문서에서는 Azure Stream Analytics에서 Azure Event Hubs로 데이터를 출력하는 방법을 설명합니다.
 author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 02abdd752528ce28642b6228648062ed961d5ae3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102452393"
 ---
-# <a name="event-hubs-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 출력 Event Hubs
+# <a name="event-hubs-output-from-azure-stream-analytics"></a>Azure Stream Analytics의 Event Hubs 출력
 
 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) 서비스는 확장성이 뛰어난 게시-구독 이벤트 수집기입니다. 초당 수 백만의 이벤트를 수집할 수 있습니다. 이벤트 허브를 출력으로 사용하는 한 가지 경우는 Stream Analytics 작업의 출력이 다른 스트리밍 작업의 입력이 되는 경우입니다. 최대 메시지 크기 및 일괄 처리 크기 최적화에 대한 자세한 내용은 [출력 일괄 처리 크기](#output-batch-size) 섹션을 참조하세요.
 
 ## <a name="output-configuration"></a>출력 구성
 
-다음 표에서는 이벤트 허브에서 출력으로 데이터 스트림을 구성 하는 데 필요한 매개 변수를 포함 합니다.
+다음 표는 이벤트 허브에서 출력으로 데이터 스트림을 구성하는 데 필요한 매개 변수를 보여 줍니다.
 
 | 속성 이름 | Description |
 | --- | --- |
@@ -37,17 +37,17 @@ ms.locfileid: "102452393"
 
 ## <a name="partitioning"></a>분할
 
-분할은 파티션 정렬에 따라 달라 집니다. 이벤트 허브 출력의 파티션 키가 업스트림(이전) 쿼리 단계와 동일하게 맞춰지면 기록기 수는 이벤트 허브 출력의 파티션 수와 같습니다. 각 기록기는 [EventHubSender 클래스](/dotnet/api/microsoft.servicebus.messaging.eventhubsender)를 사용하여 이벤트를 특정 파티션에 보냅니다. 이벤트 허브 출력의 파티션 키가 업스트림(이전) 쿼리 단계와 동일하게 맞춰지지 않으면 기록기의 수는 이전 단계의 파티션 수와 같습니다. 각 기록기는 **EventHubClient** 의 [SendBatchAsync 클래스](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync)를 사용하여 이벤트를 모든 출력 파티션에 보냅니다. 
+분할은 파티션 맞춤에 따라 달라집니다. 이벤트 허브 출력의 파티션 키가 업스트림(이전) 쿼리 단계와 동일하게 맞춰지면 기록기 수는 이벤트 허브 출력의 파티션 수와 같습니다. 각 기록기는 [EventHubSender 클래스](/dotnet/api/microsoft.servicebus.messaging.eventhubsender)를 사용하여 이벤트를 특정 파티션에 보냅니다. 이벤트 허브 출력의 파티션 키가 업스트림(이전) 쿼리 단계와 동일하게 맞춰지지 않으면 기록기의 수는 이전 단계의 파티션 수와 같습니다. 각 기록기는 **EventHubClient** 의 [SendBatchAsync 클래스](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync)를 사용하여 이벤트를 모든 출력 파티션에 보냅니다. 
 
 ## <a name="output-batch-size"></a>출력 일괄 처리 크기
 
-최대 메시지 크기는 256 KB 또는 메시지당 1mb입니다. 자세한 내용은 [Event Hubs 제한](../event-hubs/event-hubs-quotas.md)을 참조 하세요. 입/출력 분할이 정렬되지 않은 경우 각 이벤트는 `EventData`에 개별적으로 압축되어 최대 메시지 크기까지 일괄 처리 방식으로 보내집니다. [사용자 지정 메타데이터 속성](#custom-metadata-properties-for-output)이 사용되는 경우에도 마찬가지입니다. 입/출력 분할이 정렬되는 경우 여러 이벤트가 최대 메시지 크기까지 단일 `EventData` 인스턴스에 압축되어 보내집니다.
+최대 메시지 크기는 256KB 또는 메시지 당 1MB입니다. 자세한 내용은 [Event Hubs 제한](../event-hubs/event-hubs-quotas.md)을 참조하세요. 입/출력 분할이 정렬되지 않은 경우 각 이벤트는 `EventData`에 개별적으로 압축되어 최대 메시지 크기까지 일괄 처리 방식으로 보내집니다. [사용자 지정 메타데이터 속성](#custom-metadata-properties-for-output)이 사용되는 경우에도 마찬가지입니다. 입/출력 분할이 정렬되는 경우 여러 이벤트가 최대 메시지 크기까지 단일 `EventData` 인스턴스에 압축되어 보내집니다.
 
 ## <a name="custom-metadata-properties-for-output"></a>출력에 대한 사용자 지정 메타데이터 속성
 
 쿼리 열을 사용자 속성으로 나가는 메시지에 첨부할 수 있습니다. 이러한 열은 페이로드로 이동하지 않습니다. 속성은 출력 메시지에서 사전 형식으로 제공됩니다. *키* 는 열 이름이고 *값* 은 속성 사전의 열 값입니다. 레코드 및 배열을 제외한 모든 Stream Analytics 데이터 형식이 지원됩니다.
 
-다음 예제에서는 `DeviceId` 및 필드가 `DeviceStatus` 메타 데이터에 추가 됩니다.
+다음 예제에서는 `DeviceId` 필드와 `DeviceStatus` 필드가 메타데이터에 추가됩니다.
 
 1. 다음 쿼리를 사용합니다.
 
@@ -55,15 +55,15 @@ ms.locfileid: "102452393"
    select *, DeviceId, DeviceStatus from iotHubInput
    ```
 
-1. `DeviceId,DeviceStatus`출력에서 속성 열로 구성 합니다.
+1. 출력에서 `DeviceId,DeviceStatus`를 속성 열로 구성합니다.
 
    :::image type="content" source="media/event-hubs-output/property-columns.png" alt-text="속성 열":::
 
-다음 이미지는 [Service Bus 탐색기](https://github.com/paolosalvatori/ServiceBusExplorer)를 사용 하 여 EventHub에서 검사 된 예상 출력 메시지 속성입니다.
+다음 이미지는 [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)를 사용하여 EventHub에서 검사한 예상 출력 메시지 속성입니다.
 
 :::image type="content" source="media/event-hubs-output/custom-properties.png" alt-text="이벤트 사용자 지정 속성":::
 
 ## <a name="next-steps"></a>다음 단계
 
-* [관리 되는 id를 사용 하 여 Azure Stream Analytics 작업에서 이벤트 허브에 액세스 (미리 보기)](event-hubs-managed-identity.md)
+* [관리 ID를 사용하여 Azure Stream Analytics 작업에서 Event Hub에 액세스(미리 보기)](event-hubs-managed-identity.md)
 * [빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-portal.md)

@@ -1,7 +1,7 @@
 ---
 title: Azure Data Factory에서의 반복적인 개발 및 디버깅
 description: ADF UX에서 Data Factory 파이프라인을 반복적으로 개발하고 디버그하는 방법을 알아봅니다.
-ms.date: 02/23/2021
+ms.date: 04/21/2021
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -9,12 +9,12 @@ documentationcenter: ''
 ms.workload: data-services
 author: kromerm
 ms.author: makromer
-ms.openlocfilehash: ef47d311f5f096db962ea27792e7871dbf0ef81a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f233609bb6c25aaea158420ea92c67db0a2db90
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101712966"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107896737"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Azure Data Factory를 사용한 반복적인 개발 및 디버깅
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

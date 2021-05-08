@@ -1,7 +1,7 @@
 ---
 title: 엔터티 인식 기술
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search의 보강 파이프라인에 있는 텍스트에서 다양 한 유형의 엔터티를 추출 합니다.
+description: Azure Cognitive Search의 보강 파이프라인에 있는 텍스트에서 다양한 형식의 엔터티를 추출합니다.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: 3300d68c6356cb7cdd56a9ad79eb0ac011942eb2
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102547903"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>엔터티 인식 기술
@@ -38,9 +38,9 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 | 매개 변수 이름     | Description |
 |--------------------|-------------|
 | `categories`    | 추출되어야 하는 범주 배열입니다.  가능한 범주 형식: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. 범주가 제공되지 않으면 모든 형식이 반환됩니다.|
-| `defaultLanguageCode` |    입력 텍스트의 언어 코드입니다. 지원 되는 언어는 다음과 `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans` 같습니다. 모든 언어에 대해 모든 엔터티 범주가 지원 되는 것은 아닙니다. 아래 참고를 참조 하세요.|
-| `minimumPrecision` | 0과 1 사이의 값입니다. 출력의 신뢰도 점수가 `namedEntities` 이 값 보다 낮으면 엔터티가 반환 되지 않습니다. 기본값은 0입니다. |
-| `includeTypelessEntities` | `true`현재 범주에 맞지 않는 잘 알려진 엔터티를 인식 하려면로 설정 합니다. 인식 된 엔터티는 `entities` 복합 출력 필드에서 반환 됩니다. 예를 들어 "Windows 10"은 잘 알려진 엔터티 (a 제품) 이지만 "제품"은 지원 되는 범주가 아니므로이 엔터티는 엔터티 출력 필드에 포함 됩니다. 기본값은 `false` |
+| `defaultLanguageCode` |    입력 텍스트의 언어 코드입니다. 다음 언어가 지원됩니다. `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans` 모든 엔터티 범주가 모든 언어로 지원되는 것은 아닙니다. 아래를 참고하세요.|
+| `minimumPrecision` | 0과 1 사이의 값입니다. `namedEntities` 출력의 신뢰도 점수가 이 값보다 낮으면 엔터티가 반환되지 않습니다. 기본값은 0입니다. |
+| `includeTypelessEntities` | 현재 범주에 맞지 않는 잘 알려진 엔터티를 인식하려면 `true`로 설정합니다. 인식된 엔터티는 `entities` 복합 출력 필드에서 반환됩니다. 예를 들어 "Windows 10"은 잘 알려진 엔터티(제품)이지만 "제품"은 지원되는 범주가 아니므로 이 엔터티는 엔터티 출력 필드에 포함됩니다. 기본값은 `false` |
 
 
 ## <a name="skill-inputs"></a>기술 입력
@@ -53,7 +53,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 ## <a name="skill-outputs"></a>기술 출력
 
 > [!NOTE]
-> 모든 엔터티 범주가 모든 언어로 지원되는 것은 아닙니다. `"Person"`, `"Location"` 및 `"Organization"` 엔터티 범주 형식은 위의 전체 언어 목록에 대해 지원 됩니다. _De_, _en_, _es_, _fr_ 및 _zh-cn hans_ 만 `"Quantity"` , `"Datetime"` , 및 형식의 추출을 지원 `"URL"` `"Email"` 합니다. 자세한 내용은 [텍스트 분석 API에 대 한 언어 및 지역 지원](../cognitive-services/text-analytics/language-support.md)을 참조 하세요.  
+> 모든 엔터티 범주가 모든 언어로 지원되는 것은 아닙니다. `"Person"`, `"Location"`, `"Organization"` 엔터티 범주 형식은 위 언어 전체 목록에 대해 지원됩니다. _de_, _en_, _es_, _fr_, _zh-hans_ 만 `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"` 형식의 추출을 지원합니다. 자세한 내용은 [Text Analytics API에 대한 언어 및 지역 지원](../cognitive-services/text-analytics/language-support.md)을 참조하세요.  
 
 | 출력 이름      | 설명                   |
 |---------------|-------------------------------|
@@ -64,7 +64,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 | `dateTimes`  | 각 문자열이 DateTime(텍스트에 표시되는 대로) 값을 나타내는 경우 문자열 배열입니다. |
 | `urls` | 각 문자열이 URL을 나타내는 경우 문자열 배열입니다. |
 | `emails` | 각 문자열이 메일을 나타내는 경우 문자열 배열입니다. |
-| `namedEntities` | 다음 필드가 포함된 복합 형식의 배열입니다. <ul><li>category</li> <li>값 (실제 엔터티 이름)</li><li>오프셋(텍스트에 발견된 위치)</li><li>신뢰도 (더 높은 값은 실제 엔터티입니다.)</li></ul> |
+| `namedEntities` | 다음 필드가 포함된 복합 형식의 배열입니다. <ul><li>category</li> <li>값(실제 엔터티 이름)</li><li>오프셋(텍스트에 발견된 위치)</li><li>신뢰도(값이 클수록 실제 엔터티에 가까움)</li></ul> |
 | `entities` | 다음 필드와 함께 텍스트에서 추출된 엔터티에 대한 풍부한 정보가 포함된 복합 형식의 배열입니다. <ul><li> name(실제 엔터티 이름. “정규화된” 형식을 나타냄)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl(엔터티에 대한 Wikipedia 페이지 링크)</li><li>bingId</li><li>type(인식된 엔터티의 범주)</li><li>subType(특정 범주에서만 사용 가능, 더 세부적인 엔터티 형식 보기를 제공함)</li><li> matches(포함된 복합 컬렉션)<ul><li>text(엔터티의 원시 텍스트)</li><li>offset(발견된 위치)</li><li>length(원시 엔터티 텍스트의 길이)</li></ul></li></ul> |
 
 ##    <a name="sample-definition"></a>샘플 정의
@@ -187,10 +187,10 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 }
 ```
 
-이 기술 출력의 엔터티에 대해 반환 되는 오프셋은 [텍스트 분석 API](../cognitive-services/text-analytics/overview.md)에서 직접 반환 됩니다. 즉, 원본 문자열을 인덱싱하는 데 사용 하는 경우에는 .Net에서 [쌍인지](/dotnet/api/system.globalization.stringinfo) 클래스를 사용 하 여 올바른 콘텐츠를 추출 해야 합니다.  [자세한 내용은 여기를 참조 하세요.](../cognitive-services/text-analytics/concepts/text-offsets.md)
+이 출력값에서 엔터티에 대해 반환되는 오프셋은 [Text Analytics API](../cognitive-services/text-analytics/overview.md)에서 직접 반환되며, 이는 원래 문자열에 인덱싱하는 데 사용할 경우 올바른 콘텐츠를 추출하기 위해 .NET에서 [StringInfo](/dotnet/api/system.globalization.stringinfo) 클래스를 사용해야 한다는 의미입니다.  [자세한 내용은 여기에서 찾을 수 있습니다.](../cognitive-services/text-analytics/concepts/text-offsets.md)
 
 ## <a name="warning-cases"></a>경고 사례
-문서에 대 한 언어 코드가 지원 되지 않는 경우 경고가 반환 되 고 엔터티가 추출 되지 않습니다.
+문서의 언어 코드가 지원되지 않는 경우 경고가 반환되고 엔터티가 추출되지 않습니다.
 
 ## <a name="see-also"></a>참고 항목
 

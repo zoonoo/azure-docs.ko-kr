@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 0d425111e151d60ab38a60e38cd1805cef39f606
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 26b5331aa9242978f0f097c8e90bc807fc65f745
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641767"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531942"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory Authentication 관리 작업 참조 가이드
 
@@ -281,7 +281,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
    
    b. 아래 단계에 따라 잠글 전환 시간 프레임을 계획합니다.
    
-   다. 레거시 인증에 대한 강한 종속성이 있는 레거시 애플리케이션을 식별합니다. 아래 3단계를 참조하세요.
+   c. 레거시 인증에 대한 강한 종속성이 있는 레거시 애플리케이션을 식별합니다. 아래 3단계를 참조하세요.
 
 2. 더 많은 노출을 피하기 위해 레거시 인증을 사용하지 않는 사용자에 대해 원본(예: Exchange 사서함)에서 레거시 프로토콜을 사용하지 않게 설정합니다.
 3. 나머지 계정(서비스 계정과 다른 사용자의 ID가 가장 적합)의 경우 [조건부 액세스를 사용하여 레거시 프로토콜](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417) 사후 인증을 제한합니다.
@@ -365,8 +365,8 @@ Azure AD에 대한 로그인 작업, 감사 및 위험 이벤트에 액세스하
 
 #### <a name="logs-recommended-reading"></a>로그 권장 읽기
 
-- [Azure Active Directory 감사 API 참조](/graph/api/resources/directoryaudit?view=graph-rest-beta)
-- [Azure Active Directory 로그인 활동 보고서 API 참조](/graph/api/resources/signin?view=graph-rest-beta)
+- [Azure Active Directory 감사 API 참조](/graph/api/resources/directoryaudit)
+- [Azure Active Directory 로그인 활동 보고서 API 참조](/graph/api/resources/signin)
 - [인증서와 함께 Azure AD Reporting API를 사용하여 데이터 가져오기](../reports-monitoring/tutorial-access-api-with-certificates.md)
 - [Azure Active Directory Identity Protection를 위한 Microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md)
 - [Office 365 Management Activity API 참조](/office/office-365-management-api/office-365-management-activity-api-reference)

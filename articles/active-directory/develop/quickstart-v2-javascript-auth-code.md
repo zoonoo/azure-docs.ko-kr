@@ -12,20 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 1e99e8ff25d895ba2248ddd1ba2520e9f14871a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ba36b80fc6a521b22dc812bdf67c3985a455ff4
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105022809"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071897"
 ---
-# <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow-with-pkce"></a>빠른 시작: PKCE를 통해 인증 코드 흐름을 사용하여 사용자를 로그인하고 JavaScript SPA에서 액세스 토큰을 가져옵니다. 
+# <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow-with-pkce"></a>빠른 시작: PKCE를 통해 인증 코드 흐름을 사용하여 사용자를 로그인하고 JavaScript SPA에서 액세스 토큰을 가져옵니다.
 
-이 빠른 시작에서는 PKCE(Proof Key for Code Exchange)를 통해 인증 코드 흐름을 사용하여 JavaScript SPA(단일 페이지 애플리케이션)에서 사용자를 로그인하고 Microsoft Graph를 호출할 수 있는 방법을 보여주는 코드 샘플을 다운로드하고 실행합니다. 코드 샘플은 Microsoft Graph API 또는 웹 API를 호출하기 위한 액세스 토큰을 가져오는 방법을 보여줍니다. 
+이 빠른 시작에서는 PKCE(Proof Key for Code Exchange)를 통해 인증 코드 흐름을 사용하여 JavaScript SPA(단일 페이지 애플리케이션)에서 사용자를 로그인하고 Microsoft Graph를 호출할 수 있는 방법을 보여주는 코드 샘플을 다운로드하고 실행합니다. 코드 샘플은 Microsoft Graph API 또는 웹 API를 호출하기 위한 액세스 토큰을 가져오는 방법을 보여줍니다.
 
 자세한 내용은 [샘플 작동 방식](#how-the-sample-works)을 참조하세요.
-
-이 빠른 시작에서는 인증 코드 흐름과 함께 MSAL.js v2를 사용합니다. 암시적 흐름과 함께 MSAL.js v1을 사용하는 비슷한 빠른 시작은 [빠른 시작: JavaScript 단일 페이지 앱에서 사용자 로그인](./quickstart-v2-javascript.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -84,10 +82,10 @@ ms.locfileid: "105022809"
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-javascript-app"></a>3단계: JavaScript 앱 구성
 >
-> *app* 폴더에서 *authConfig.js* 파일을 열고 `msalConfig` 개체에서 `clientID`, `authority` 및 `redirectUri` 값을 업데이트합니다.
+> *app* 폴더에서 *authConfig.js* 파일을 연 다음, `msalConfig` 개체에서 `clientID`, `authority` 및 `redirectUri` 값을 업데이트합니다.
 >
 > ```javascript
-> // Config object to be passed to Msal on creation
+> // Config object to be passed to MSAL on creation
 > const msalConfig = {
 >   auth: {
 >     clientId: "Enter_the_Application_Id_Here",
@@ -107,13 +105,13 @@ ms.locfileid: "105022809"
 
 > [!div renderon="docs"]
 >
-> 여기에 설명한 대로 `msalConfig` 섹션에서 값을 수정합니다.
+> `msalConfig` 섹션에서 값을 수정합니다.
 >
 > - `Enter_the_Application_Id_Here`는 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다.
 >
 >    **애플리케이션(클라이언트) ID** 값을 찾으려면 Azure Portal에서 앱 등록의 **개요** 페이지로 이동합니다.
-> - `Enter_the_Cloud_Instance_Id_Here`는 Azure 클라우드의 인스턴스입니다. 주 또는 글로벌 Azure 클라우드의 경우 `https://login.microsoftonline.com/`을 입력합니다. **국가별** 클라우드(예제: 중국)의 경우 [국가별 클라우드](authentication-national-cloud.md)를 참조하세요.
-> - `Enter_the_Tenant_info_here`는 다음 중 하나로 설정됩니다.
+> - `Enter_the_Cloud_Instance_Id_Here`는 Azure 클라우드 인스턴스입니다. 주 또는 글로벌 Azure 클라우드의 경우 `https://login.microsoftonline.com/`을 입력합니다. **국가별** 클라우드(예제: 중국)의 경우 [국가별 클라우드](authentication-national-cloud.md)를 참조하세요.
+> - `Enter_the_Tenant_info_here`는 다음 중 하나일 수 있습니다.
 >   - 애플리케이션에서 *이 조직 디렉터리의 계정* 을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름** 으로 바꿉니다. 예들 들어 `contoso.microsoft.com`입니다.
 >
 >    **디렉터리(테넌트) ID** 값을 찾으려면 Azure Portal에서 앱 등록의 **개요** 페이지로 이동합니다.
@@ -133,11 +131,12 @@ ms.locfileid: "105022809"
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>3단계: 앱이 구성되었고 실행할 준비가 되었습니다.
+>
 > 앱 속성 값을 사용하여 프로젝트를 구성했습니다.
 
 > [!div renderon="docs"]
 >
-> 그런 다음, 동일한 폴더에서 *graphConfig.js* 파일을 편집하고 `apiConfig` 개체에서 `graphMeEndpoint` 및 `graphMailEndpoint` 값을 업데이트합니다.
+> 다음으로, *graphConfig.js* 파일을 열어 `apiConfig` 개체에서 `graphMeEndpoint` 및 `graphMailEndpoint` 값을 업데이트합니다.
 >
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
@@ -154,9 +153,9 @@ ms.locfileid: "105022809"
 >
 > [!div renderon="docs"]
 >
-> `Enter_the_Graph_Endpoint_Here`는 API 호출이 수행될 엔드포인트입니다. 기본(글로벌) Microsoft Graph API 서비스의 경우 `https://graph.microsoft.com/`(후행 슬래시 포함)을 입력합니다. 국가별 클라우드의 Microsoft Graph에 대한 자세한 내용은 [국가별 클라우드 배포](/graph/deployments)를 참조하세요.
+> `Enter_the_Graph_Endpoint_Here`는 API 호출이 수행되는 엔드포인트입니다. 기본(글로벌) Microsoft Graph API 서비스의 경우 `https://graph.microsoft.com/`(후행 슬래시 포함)을 입력합니다. 국가별 클라우드의 Microsoft Graph에 대한 자세한 내용은 [국가별 클라우드 배포](/graph/deployments)를 참조하세요.
 >
-> 기본(글로벌) Microsoft Graph API 서비스를 사용 중이면 *graphConfig.js* 파일의 `graphMeEndpoint` 및 `graphMailEndpoint` 값이 다음과 비슷해야 합니다.
+> 기본(전체) Microsoft Graph API 서비스를 사용하는 경우 *graphConfig.js* 파일의 `graphMeEndpoint` 및 `graphMailEndpoint` 값이 다음과 비슷해야 합니다.
 >
 > ```javascript
 > graphMeEndpoint: "https://graph.microsoft.com/v1.0/me",
@@ -165,18 +164,20 @@ ms.locfileid: "105022809"
 >
 > #### <a name="step-4-run-the-project"></a>4단계: 프로젝트 실행
 
-Node.js를 사용하여 웹 서버에서 프로젝트 실행:
+Node.js를 사용하여 웹 서버에서 프로젝트를 실행합니다.
 
 1. 서버를 시작하려면 프로젝트의 디렉터리 내에서 다음 명령을 실행합니다.
+
     ```console
     npm install
     npm start
     ```
-1. [https://www.microsoft.com]\(`http://localhost:3000/`) 로 이동합니다.
+
+1. `http://localhost:3000/` 으로 이동합니다.
 
 1. **로그인** 을 선택하여 로그인 프로세스를 시작한 다음, Microsoft Graph API를 호출합니다.
 
-    사용자가 처음으로 로그인하면 애플리케이션이 사용자 프로필에 액세스하고 로그인할 수 있도록 동의하라는 메시지가 표시됩니다. 성공적으로 로그인한 후에는 사용자 프로필 정보가 페이지에 표시되어야 합니다.
+    사용자가 처음으로 로그인하면 애플리케이션이 사용자 프로필에 액세스하고 로그인할 수 있도록 동의하라는 메시지가 표시됩니다. 성공적으로 로그인하면 사용자 프로필 정보가 페이지에 표시됩니다.
 
 ## <a name="more-information"></a>자세한 정보
 
@@ -184,7 +185,7 @@ Node.js를 사용하여 웹 서버에서 프로젝트 실행:
 
 ![단일 페이지 애플리케이션의 인증 코드 흐름을 보여주는 다이어그램.](media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png)
 
-### <a name="msaljs"></a>msal.js
+### <a name="msaljs"></a>MSAL.js
 
 MSAL.js 라이브러리는 사용자를 로그인하고 Microsoft ID 플랫폼으로 보호되는 API 액세스에 사용되는 토큰을 요청합니다. 샘플의 *index.html* 파일에는 라이브러리에 대한 참조가 포함되어 있습니다.
 

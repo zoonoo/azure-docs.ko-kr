@@ -1,6 +1,6 @@
 ---
-title: Azure Maps Creator (미리 보기) 실내 맵에 대 한 동적 스타일 구현
-description: 작성자 (미리 보기) 실내 지도에 대해 동적 스타일을 구현 하는 방법을 알아봅니다.
+title: Azure Maps Creator(미리 보기) 실내 맵을 위한 동적 스타일 구현
+description: Creator(미리 보기) 실내 맵을 위한 동적 스타일 구현 방법 알아보기
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 12/07/2020
@@ -9,13 +9,13 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: a23c492d4a81703c0dc6612928a56b5b31d52cae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101726321"
 ---
-# <a name="implement-dynamic-styling-for-creator-preview-indoor-maps"></a>작성자 (미리 보기) 실내 지도에 대 한 동적 스타일 구현
+# <a name="implement-dynamic-styling-for-creator-preview-indoor-maps"></a>Creator(미리 보기) 실내 맵을 위한 동적 스타일 구현
 
 > [!IMPORTANT]
 > Azure Maps Creator 서비스는 현재 공개 미리 보기로 제공됩니다.
@@ -78,7 +78,7 @@ map.events.add("click", function(e){
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. **POST** 요청의 **헤더** 에서 `Content-Type`을 `application/json`으로 설정합니다. **POST** 요청의 **본문** 에서 기능 업데이트를 사용 하 여 다음 원시 JSON을 작성 합니다. 게시된 타임스탬프가 동일한 기능 `ID`에 대한 이전 기능 상태 업데이트 요청에 사용된 타임스탬프보다 이후일 경우에만 업데이트가 저장됩니다. "occupied" `keyName`을 전달하여 값을 업데이트합니다.
+3. **POST** 요청의 **헤더** 에서 `Content-Type`을 `application/json`으로 설정합니다. **POST** 요청의 **본문** 에서 기능 업데이트를 사용하여 다음 원시 JSON을 작성합니다. 게시된 타임스탬프가 동일한 기능 `ID`에 대한 이전 기능 상태 업데이트 요청에 사용된 타임스탬프보다 이후일 경우에만 업데이트가 저장됩니다. "occupied" `keyName`을 전달하여 값을 업데이트합니다.
 
     ```json
     {
@@ -108,7 +108,7 @@ map.events.add("click", function(e){
 
 ### <a name="visualize-dynamic-styles-on-a-map"></a>지도에서 동적 스타일 시각화
 
-이전에 브라우저에서 연 웹 애플리케이션이 이제 지도 기능의 업데이트된 상태를 반영합니다. `UNIT27`(142)는 녹색으로 표시 되 고 `UNIT26` (143)는 빨강으로 표시 됩니다.
+이전에 브라우저에서 연 웹 애플리케이션이 이제 지도 기능의 업데이트된 상태를 반영합니다. `UNIT27`(142)은 녹색으로 표시되고 `UNIT26`(143)은 빨간색으로 표시됩니다.
 
 ![녹색으로 표시된 빈 공간과 빨간색으로 표시된 사용 중인 공간](./media/indoor-map-dynamic-styling/room-state.png)
 
@@ -119,7 +119,7 @@ map.events.add("click", function(e){
 자세한 정보는 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [실내 매핑을 위한 작성자 (미리 보기)](creator-indoor-maps.md)
+> [실내 매핑을 위한 Creator(미리 보기)](creator-indoor-maps.md)
 
 이 문서에서 언급한 API에 대한 참조를 확인하세요.
 

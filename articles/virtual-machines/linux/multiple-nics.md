@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: c0eea74890665297a0d450c8afd0a5d60dd1ae00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b08e8ebbba3ba91c1c1aa0f135c4cba37ba038b1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102551813"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769916"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>여러 네트워크 인터페이스 카드를 사용하여 Azure에서 Linux 가상 머신을 만드는 방법
 
@@ -183,7 +183,7 @@ Azure Resource Manager 템플릿은 선언적 JSON 파일을 사용하여 환경
 
 이전 단계에서는 가상 네트워크 및 서브넷을 만들고, NIC를 연결한 후 VM을 만들었습니다. SSH 트래픽을 허용하는 공용 IP 주소 및 네트워크 보안 그룹 규칙은 만들어지지 않았습니다. 여러 NIC에 대한 게스트 OS를 구성하려면 원격 연결을 허용하고 VM에서 로컬로 명령을 실행해야 합니다.
 
-SSH 트래픽을 허용하려면 다음과 같이 [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다.
+SSH 트래픽을 허용하려면 다음과 같이 [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다.
 
 ```azurecli
 az network nsg rule create \
@@ -194,7 +194,7 @@ az network nsg rule create \
     --destination-port-ranges 22
 ```
 
-[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)를 사용하여 공용 IP 주소를 만들고 [az network nic ip-config update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update)를 사용하여 첫 번째 NIC에 할당합니다.
+[az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create)를 사용하여 공용 IP 주소를 만들고 [az network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)를 사용하여 첫 번째 NIC에 할당합니다.
 
 ```azurecli
 az network public-ip create --resource-group myResourceGroup --name myPublicIP
@@ -206,7 +206,7 @@ az network nic ip-config update \
     --public-ip myPublicIP
 ```
 
-VM의 공용 IP 주소를 보려면 다음과 같이 [az vm show](/cli/azure/vm#az-vm-show)를 사용합니다.
+VM의 공용 IP 주소를 보려면 다음과 같이 [az vm show](/cli/azure/vm#az_vm_show)를 사용합니다.
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv

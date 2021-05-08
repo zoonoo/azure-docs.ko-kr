@@ -1,71 +1,71 @@
 ---
-title: 'Azure Functions를 사용 하 여 c # 클래스 라이브러리 함수 개발'
-description: 'C #을 사용 하 여 Azure Functions 런타임과 함께 in-process를 실행 하는 클래스 라이브러리로 코드를 개발 하 고 게시 하는 방법을 이해 합니다.'
+title: Azure Functions를 사용하여 C# 클래스 라이브러리 함수 개발
+description: C#을 사용하여 Azure Functions 런타임과 함께 In Process를 실행하는 클래스 라이브러리로 코드를 개발하고 게시하는 방법을 이해합니다.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
 ms.openlocfilehash: c7d14599ec1ebbcb94e0c0f3985a3b857f9353dc
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102563883"
 ---
-# <a name="develop-c-class-library-functions-using-azure-functions"></a>Azure Functions를 사용 하 여 c # 클래스 라이브러리 함수 개발
+# <a name="develop-c-class-library-functions-using-azure-functions"></a>Azure Functions를 사용하여 C# 클래스 라이브러리 함수 개발
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 
 이 문서는 .NET 클래스 라이브러리의 C#을 사용하여 Azure Functions를 개발하는 방법을 소개합니다.
 
 >[!IMPORTANT]
->이 문서에서는 런타임과 함께 in-process를 실행 하는 .NET 클래스 라이브러리 함수를 지원 합니다. 함수는 c # 함수를 in-process로 실행 하 고 런타임과 분리 하 여 .NET 5.x도 지원 합니다. 자세히 알아보려면 [.net isolated 프로세스 함수](dotnet-isolated-process-guide.md)를 참조 하세요.
+>이 문서에서는 런타임과 함께 In Process를 실행하는 .NET 클래스 라이브러리 함수를 지원합니다. Functions는 C# 함수를 Out Of Process로, 런타임에서 격리하여 실행하는 방식으로 .NET 5.x도 지원합니다. 자세히 알아보려면 [.NET 격리된 프로세스 함수](dotnet-isolated-process-guide.md)를 참조하세요.
 
-C # 개발자는 다음 문서 중 하나에 관심이 있을 수도 있습니다.
+C# 개발자라면 다음과 같은 문서를 참조할 수도 있습니다.
 
 | 시작 | 개념| 단계별 학습/샘플 |
 |--| -- |--| 
-| <ul><li>[Visual Studio 사용](functions-create-your-first-function-visual-studio.md)</li><li>[Visual Studio Code 사용](create-first-function-vs-code-csharp.md)</li><li>[명령줄 도구 사용](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[호스팅 옵션](functions-scale.md)</li><li>[성능 &nbsp; 고려 사항](functions-best-practices.md)</li><li>[Visual Studio 개발](functions-develop-vs.md)</li><li>[종속성 주입](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[서버리스 애플리케이션 만들기](/learn/paths/create-serverless-applications/)</li><li>[C# 샘플](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
+| <ul><li>[Visual Studio 사용](functions-create-your-first-function-visual-studio.md)</li><li>[Visual Studio Code 사용](create-first-function-vs-code-csharp.md)</li><li>[명령줄 도구 사용](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[호스팅 옵션](functions-scale.md)</li><li>[성능&nbsp;고려 사항](functions-best-practices.md)</li><li>[Visual Studio 개발](functions-develop-vs.md)</li><li>[종속성 주입](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[서버리스 애플리케이션 만들기](/learn/paths/create-serverless-applications/)</li><li>[C# 샘플](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
 
 Azure Functions는 C# 및 C# 스크립트 프로그래밍 언어를 지원합니다. [Azure Portal에서 C#을 사용하는 방법](functions-create-function-app-portal.md)에 대한 지침은 [C# 스크립트(.csx) 개발자 참조](functions-reference-csharp.md)를 참조하세요.
 
 ## <a name="supported-versions"></a>지원되는 버전
 
-함수 런타임의 버전은 특정 버전의 .NET에서 작동 합니다. 함수 버전에 대해 자세히 알아보려면 [Azure Functions 런타임 버전 개요](functions-versions.md) 를 참조 하세요.
+Functions 런타임 버전은 .NET의 특정 버전과 호환됩니다. Functions 버전에 대해 자세히 알아보려면 [Azure Functions 런타임 버전 개요](functions-versions.md)를 참조하세요.
 
-다음 표에서는 특정 버전의 함수에서 사용할 수 있는 .NET Core 또는 .NET Framework의 가장 높은 수준을 보여 줍니다. 
+다음 표에서는 특정 버전의 Functions에서 사용할 수 있는 가장 높은 수준의 .NET Core 또는 .NET Framework를 보여 줍니다. 
 
-| 함수 런타임 버전 | 최대 .NET 버전 |
+| Functions 런타임 버전 | 최대 .NET 버전 |
 | ---- | ---- |
-| 함수 3(sp3) | .NET Core 3.1<br/>.NET 5.0<sup>1</sup> |
+| Functions 3.x | .NET Core 3.1<br/>.NET 5.0<sup>1</sup> |
 | Functions 2.x | .NET Core 2.2<sup>2</sup> |
 | Functions 1.x | .NET Framework 4.7 |
 
-<sup>1</sup> 은 [Out-of-process](dotnet-isolated-process-guide.md)를 실행 해야 합니다.  
-<sup>2</sup> 자세한 내용은 [함수 v2. x 고려 사항](#functions-v2x-considerations)을 참조 하세요.   
+<sup>1</sup> [Out Of Process](dotnet-isolated-process-guide.md)를 실행해야 합니다.  
+<sup>2</sup> 자세한 내용은 [Functions v2.x 고려 사항](#functions-v2x-considerations)을 참조하세요.   
 
-특정 이전 부 버전의 제거를 포함 하 여 Azure Functions 릴리스에 대 한 최신 소식을 보려면 [Azure App Service 공지](https://github.com/Azure/app-service-announcements/issues)를 모니터링 하세요.
+특정한 이전 부 버전의 삭제를 비롯하여 Azure Functions 릴리스에 대한 최신 소식을 보려면 [Azure App Service 공지](https://github.com/Azure/app-service-announcements/issues)를 주기적으로 확인하세요.
 
-### <a name="functions-v2x-considerations"></a>함수 v2. x 고려 사항
+### <a name="functions-v2x-considerations"></a>Functions v2.x 고려 사항
 
-최신 2.x 버전 ()을 대상으로 하는 함수 앱 `~2` 은 .Net Core 3.1에서 실행 되도록 자동으로 업그레이드 됩니다. .Net Core 버전 간의 주요 변경 사항으로 인해 .net Core 2.2에 대해 개발 되 고 컴파일된 모든 앱은 .NET Core 3.1로 안전 하 게 업그레이드할 수 있습니다. 함수 앱을에 고정 하 여이 업그레이드를 옵트아웃 (opt out) 할 수 있습니다 `~2.0` . 또한 함수는 호환 되지 않는 Api를 검색 하 고 `~2.0` .Net Core 3.1에서 잘못 된 실행을 방지 하기 위해 앱을에 고정할 수 있습니다. 
+최신 2.x 버전(`~2`)을 대상으로 하는 함수 앱은 .Net Core 3.1에서 실행되도록 자동으로 업그레이드됩니다. .Net Core 버전 간에는 호환성이 손상되는 변경이 이루어졌기 때문에, .NET Core 2.2에 대해 개발되고 컴파일된 모든 앱을 .NET Core 3.1로 안전하게 업그레이드할 수 있는 것은 아닙니다. 함수 앱을 `~2.0`에 고정하여 해당 업그레이드를 옵트아웃할 수 있습니다. 또한 Functions는 호환되지 않는 API를 검색하고 .NET Core 3.1에서 잘못된 실행이 발생하는 것을 방지하기 위해 앱을 `~2.0`에 고정할 수 있습니다. 
 
 >[!NOTE]
->함수 앱이에 고정 되어 `~2.0` 있는 경우이 버전 대상을로 변경 하면 `~2` 함수 앱이 중단 될 수 있습니다. ARM 템플릿을 사용 하 여 배포 하는 경우 템플릿에서 버전을 확인 합니다. 이 경우 버전을 다시 대상으로 변경 `~2.0` 하 고 호환성 문제를 해결 합니다. 
+>함수 앱이 `~2.0`에 고정되어 있는 경우 버전 대상을 `~2`로 변경하면 함수 앱이 중단될 수 있습니다. ARM 템플릿을 사용하여 배포하는 경우 템플릿에서 버전을 확인하세요. 이 문제가 발생하는 경우 버전을 다시 대상 `~2.0`으로 변경하고 호환성 문제를 해결하세요. 
 
-을 대상으로 하는 함수 앱은 `~2.0` .Net Core 2.2에서 계속 실행 됩니다. 이 버전의 .NET Core는 더 이상 보안 및 기타 유지 관리 업데이트를 받지 않습니다. 자세히 알아보려면 [이 알림 페이지](https://github.com/Azure/app-service-announcements/issues/266)를 참조 하세요. 
+`~2.0`을 대상으로 하는 함수 앱은 .NET Core 2.2에서 계속 실행됩니다. 해당 버전의 .NET Core는 더 이상 보안 및 기타 유지 관리 업데이트를 받지 않습니다. 자세한 내용은 [공지 페이지](https://github.com/Azure/app-service-announcements/issues/266)를 참조하세요. 
 
-가능 하면 신속 하 게 .NET Core 3.1과 호환 되도록 함수를 사용 해야 합니다. 이러한 문제를 해결 한 후 버전을 다시로 변경 `~2` 하거나로 업그레이드 `~3` 합니다. 함수 런타임의 대상 버전에 대해 자세히 알아보려면 [Azure Functions runtime 버전을 대상으로 지정 하는 방법](set-runtime-version.md)을 참조 하세요.
+최대한 빨리 함수가 .NET Core 3.1과 호환되도록 해야 합니다. 해당 문제를 해결한 다음 버전을 다시 `~2`로 변경하거나 `~3`으로 업그레이드합니다. Functions 런타임이 대상으로 하는 버전에 대해 자세히 알아보려면 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md)을 참조하세요.
 
-프리미엄 또는 전용 (App Service) 계획으로 Linux에서 실행 하는 경우 사이트 구성 설정을로 설정 하 여 특정 이미지를 대상으로 지정 하는 방법에 대 한 `linuxFxVersion` `DOCKER|mcr.microsoft.com/azure-functions/dotnet:2.0.14786-appservice` 자세한 `linuxFxVersion` 내용은 [linux의 수동 버전 업데이트](set-runtime-version.md#manual-version-updates-on-linux)를 참조 하세요.
+프리미엄 또는 전용(App Service) 요금제로 Linux에서 실행하는 경우 `linuxFxVersion` 사이트 구성 설정을 `DOCKER|mcr.microsoft.com/azure-functions/dotnet:2.0.14786-appservice`로 설정하여 특정 이미지를 대신 대상으로 지정하는 방식으로 버전을 고정하세요. `linuxFxVersion`을 설정하는 방법을 알아보려면 [Linux의 수동 버전 업데이트](set-runtime-version.md#manual-version-updates-on-linux)를 참조하세요.
 
 ## <a name="functions-class-library-project"></a>Functions 클래스 라이브러리 프로젝트
 
 Visual Studio에서 **Azure Functions** 프로젝트 템플릿은 다음 파일이 포함된 C# 클래스 라이브러리 프로젝트를 만듭니다.
 
 * [host.json](functions-host-json.md) -로컬로 또는 Azure에서 실행될 경우 프로젝트의 모든 함수에 영향을 주는 구성 설정을 저장합니다.
-* [local.settings.json](functions-run-local.md#local-settings-file) - 로컬로 실행될 때 사용되는 앱 설정 및 연결 문자열을 저장합니다. 이 파일은 암호를 포함하며 Azure의 함수 앱에 게시되지 않습니다. 대신, [함수 앱에 앱 설정을 추가](functions-develop-vs.md#function-app-settings)합니다.
+* [local.settings.json](functions-run-local.md#local-settings-file) - 로컬로 실행될 때 사용되는 앱 설정 및 연결 문자열을 저장합니다. 이 파일은 암호를 포함하며 Azure의 함수 앱에 게시되지 않습니다. 대신 [앱 설정을 함수 앱에 추가](functions-develop-vs.md#function-app-settings)합니다.
 
-프로젝트를 빌드하면 빌드 출력 디렉터리에 다음 예제와 같은 폴더 구조가 생성 됩니다.
+프로젝트를 빌드할 때 빌드 출력 디렉터리에 다음 예제와 같은 폴더 구조가 생성됩니다.
 
 ```
 <framework.version>
@@ -100,26 +100,26 @@ public static class SimpleExample
 } 
 ```
 
-`FunctionName` 특성은 메서드를 함수 진입점으로 표시합니다. 이름은 프로젝트 내에서 고유 해야 하 고, 문자로 시작 하 고, 문자, 숫자, 및 문자 ( `_` `-` 최대 127 자)를 포함 해야 합니다. 프로젝트 템플릿에서 `Run` 메서드를 자주 만들지만, 유효한 C# 이름은 모두 메서드 이름이 될 수 있습니다.
+`FunctionName` 특성은 메서드를 함수 진입점으로 표시합니다. 이름은 프로젝트 내에서 고유해야 하고, 문자로 시작해야 하고, 문자, 숫자, `_`, `-`만 포함해야 하며 허용되는 최대 길이는 127자입니다. 프로젝트 템플릿에서 `Run` 메서드를 자주 만들지만, 유효한 C# 이름은 모두 메서드 이름이 될 수 있습니다.
 
 트리거 특성은 트리거 유형을 지정하고, 입력 데이터를 메서드 매개 변수에 바인딩합니다. 예제 함수는 큐 메시지에 의해 트리거되며, 큐 메시지는 `myQueueItem` 매개 변수의 메서드에 전달됩니다.
 
 ## <a name="method-signature-parameters"></a>메서드 서명 매개 변수
 
-트리거 특성에 사용되는 매개 변수 이외의 매개 변수가 메서드 서명에 포함될 수 있습니다. 포함할 수 있는 다른 매개 변수는 다음과 같습니다.
+트리거 특성에 사용되는 매개 변수 이외의 매개 변수가 메서드 서명에 포함될 수 있습니다. 다음은 포함할 수 있는 기타 매개 변수 중 일부입니다.
 
 * 특성으로 데코레이팅하여 표시된 [입력 및 출력 바인딩](functions-triggers-bindings.md).  
 * [로깅](#logging)에 대한 `ILogger` 또는 `TraceWriter`([버전 1.x 전용](functions-versions.md#creating-1x-apps)) 매개 변수.
 * [정상 종료](#cancellation-tokens)를 위한 `CancellationToken` 매개 변수.
 * 트리거 메타데이터를 가져오는 [바인딩 식](./functions-bindings-expressions-patterns.md) 매개 변수.
 
-함수 시그니처의 매개 변수 순서는 중요 하지 않습니다. 예를 들어, 다른 바인딩 전후에 트리거 매개 변수를 추가하고, 트리거 또는 바인딩 매개 변수 전후에 로거 매개 변수를 추가할 수 있습니다.
+함수 시그니처에서 매개 변수의 순서는 중요하지 않습니다. 예를 들어, 다른 바인딩 전후에 트리거 매개 변수를 추가하고, 트리거 또는 바인딩 매개 변수 전후에 로거 매개 변수를 추가할 수 있습니다.
 
 ### <a name="output-bindings"></a>출력 바인딩
 
-함수는 출력 매개 변수를 사용 하 여 정의 된 0 개 또는 하나의 출력 바인딩을 가질 수 있습니다. 
+함수는 출력 매개 변수를 사용하여 정의된 0개 또는 1개의 출력 바인딩을 가질 수 있습니다. 
 
-다음 예제에서는 라는 출력 큐 바인딩을 추가 하 여 앞의 예제를 수정 합니다 `myQueueItemCopy` . 함수는 함수를 트리거하는 메시지의 내용을 다른 큐의 새 메시지에 씁니다.
+다음 예제에서는 `myQueueItemCopy`라는 이름의 출력 큐 바인딩을 추가하여 이전 예제를 수정합니다. 이 함수는 함수를 다른 큐의 새 메시지로 트리거하는 메시지 콘텐츠를 씁니다.
 
 ```csharp
 public static class SimpleExampleWithOutput
@@ -136,7 +136,7 @@ public static class SimpleExampleWithOutput
 }
 ```
 
-출력 바인딩에 할당 된 값은 함수가 종료 될 때 기록 됩니다. 여러 출력 매개 변수에 값을 할당 하기만 하면 함수에서 둘 이상의 출력 바인딩을 사용할 수 있습니다. 
+출력 바인딩에 할당된 값은 함수가 종료될 때 쓰입니다. 여러 출력 매개 변수에 값을 할당하기만 하면 함수에서 둘 이상의 출력 바인딩을 사용할 수 있습니다. 
 
 바인딩 참조 문서(예: [스토리지 큐](functions-bindings-storage-queue.md))는 트리거, 입력 또는 출력 바인딩 특성에 사용할 수 있는 매개 변수 형식을 설명합니다.
 
@@ -163,7 +163,7 @@ public static class BindingExpressionsExample
 
 빌드 프로세스는 build 폴더의 function 폴더에 *function.json* 파일을 만듭니다. 앞에서 설명한 대로 이 파일은 직접 편집할 수 없습니다. 이 파일을 편집하여 바인딩 구성을 변경하거나 함수를 사용하지 않도록 설정할 수 없습니다. 
 
-이 파일의 목적은 [소비 계획에 대 한 크기 조정을 결정](event-driven-scaling.md)하는 데 사용할 수 있도록 크기 조정 컨트롤러에 정보를 제공 하는 것입니다. 이러한 이유로 파일에는 입력/출력 바인딩이 아닌 트리거 정보만 있습니다.
+이 파일은 [사용 플랜에 대한 크기 결정](event-driven-scaling.md)에 사용하기 위해 크기 조정 컨트롤러에 정보를 제공하는 데 필요합니다. 이와 같은 이유로 이 파일에는 트리거 정보만 있고 입출력 바인딩은 없습니다.
 
 생성된 *function.json* 파일에는 바인딩에 *function.json* 구성 대신 .NET 특성을 사용하도록 런타임에 지시하는 `configurationSource` 속성이 포함되어 있습니다. 예를 들면 다음과 같습니다.
 
@@ -188,9 +188,9 @@ public static class BindingExpressionsExample
 
 *function.json* 파일 생성은 [Microsoft\.NET\.Sdk\.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions) NuGet 패키지에서 수행됩니다. 
 
-버전 1.x 및 2.x의 Functions 런타임 둘 다에 동일한 패키지가 사용됩니다. 대상 프레임워크가 1.x 프로젝트와 2.x 프로젝트에서 구분되는 측면입니다. 다음은 동일한 패키지를 사용 하 여 서로 다른 대상 프레임 워크를 표시 하는 *.csproj* 파일의 관련 부분입니다 `Sdk` .
+버전 1.x 및 2.x의 Functions 런타임 둘 다에 동일한 패키지가 사용됩니다. 대상 프레임워크가 1.x 프로젝트와 2.x 프로젝트에서 구분되는 측면입니다. 다음은 *.csproj* 파일의 관련 부분으로, 동일한 `Sdk` 패키지를 가진 다른 대상 프레임워크를 보여 줍니다.
 
-# <a name="v2x"></a>[v2. x +](#tab/v2)
+# <a name="v2x"></a>[v2.x+](#tab/v2)
 
 ```xml
 <PropertyGroup>
@@ -215,7 +215,7 @@ public static class BindingExpressionsExample
 ---
 
 
-`Sdk` 패키지 종속성에는 트리거 및 바인딩이 있습니다. 1.x 프로젝트는 1.x 트리거와 바인딩이 .NET Framework 대상으로 하는 반면, 2.x 트리거와 바인딩은 .NET Core를 대상으로 하기 때문에 1. x 트리거 및 바인딩을 참조 합니다.
+`Sdk` 패키지 종속성에는 트리거 및 바인딩이 있습니다. 해당 트리거 및 바인딩은 .NET Framework를 대상으로 하므로 1.x 프로젝트는 1.x 트리거 및 바인딩을 참조하지만, 2.x 트리거 및 바인딩을 .NET Core를 대상으로 합니다.
 
 `Sdk` 패키지는 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json)에도 종속되며, [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage)에는 간접적으로 종속됩니다. 이러한 종속성 때문에 프로젝트는 대상이 되는 Functions 런타임 버전에서 작동하는 패키지 버전을 사용하게 됩니다. 예를 들어, `Newtonsoft.Json`에는 .NET Framework 4.6.1용 버전 11이 있지만, .NET Framework 4.6.1을 대상으로 하는 Functions 런타임은 `Newtonsoft.Json` 9.0.1과만 호환됩니다. 따라서 해당 프로젝트의 함수 코드도 `Newtonsoft.Json` 9.0.1을 사용해야 합니다.
 
@@ -233,11 +233,11 @@ npm을 사용하여 핵심 도구를 설치하는 경우 Visual Studio에서 사
 
 ## <a name="readytorun"></a>ReadyToRun
 
-함수 앱을 [ReadyToRun 이진](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images)파일로 컴파일할 수 있습니다. ReadyToRun는 [소비 계획](consumption-plan.md)에서 실행 될 때 [콜드 시작](event-driven-scaling.md#cold-start) 의 영향을 줄이는 데 도움이 되는 시작 성능을 향상 시킬 수 있는 사전 컴파일 형태입니다.
+함수 앱을 [ReadyToRun 이진 파일](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images)로 컴파일할 수 있습니다. ReadyToRun은 [사용 플랜](consumption-plan.md)에서 실행할 때 [콜드 부팅](event-driven-scaling.md#cold-start)의 영향을 줄이는 데 도움이 되도록 시작 성능을 개선할 수 있는 사전 컴파일 형식입니다.
 
-ReadyToRun는 .NET 3.0에서 사용할 수 있으며 [Azure Functions 런타임의 버전 3.0](functions-versions.md)이 필요 합니다.
+ReadyToRun은 .NET 3.0에서 사용할 수 있으며 [Azure Functions 런타임 버전 3.0](functions-versions.md)이 필요합니다.
 
-프로젝트를 ReadyToRun로 컴파일하려면 및 요소를 추가 하 여 프로젝트 파일을 `<PublishReadyToRun>` 업데이트 `<RuntimeIdentifier>` 합니다. 다음은 Windows 32 비트 함수 앱에 게시 하기 위한 구성입니다.
+프로젝트를 ReadyToRun으로 컴파일하려면 `<PublishReadyToRun>` 및 `<RuntimeIdentifier>` 요소를 추가하여 프로젝트 파일을 업데이트합니다. 다음은 Windows 32비트 함수 앱에 게시하기 위한 구성입니다.
 
 ```xml
 <PropertyGroup>
@@ -249,9 +249,9 @@ ReadyToRun는 .NET 3.0에서 사용할 수 있으며 [Azure Functions 런타임�
 ```
 
 > [!IMPORTANT]
-> ReadyToRun는 현재 크로스 컴파일을 지원 하지 않습니다. 배포 대상과 동일한 플랫폼에서 앱을 빌드해야 합니다. 또한 함수 앱에 구성 된 "비트"에 주의 해야 합니다. 예를 들어 Azure의 함수 앱이 Windows 64 비트인 경우를 `win-x64` [런타임 식별자](/dotnet/core/rid-catalog)로 사용 하 여 windows에서 앱을 컴파일해야 합니다.
+> ReadyToRun은 현재 교차 컴파일을 지원하지 않습니다. 배포 대상과 동일한 플랫폼에서 앱을 빌드해야 합니다. 또한 함수 앱에 구성된 “비트 수”에 주의를 기울여야 합니다. 예를 들어 Azure의 함수 앱이 Windows 64비트인 경우 [런타임 식별자](/dotnet/core/rid-catalog)로 `win-x64`를 사용하여 Windows에서 앱을 컴파일해야 합니다.
 
-명령줄에서 ReadyToRun를 사용 하 여 앱을 빌드할 수도 있습니다. 자세한 내용은의 옵션을 참조 하세요 `-p:PublishReadyToRun=true` [`dotnet publish`](/dotnet/core/tools/dotnet-publish) .
+명령줄에서 ReadyToRun을 사용하여 앱을 빌드할 수도 있습니다. 자세한 내용은 [`dotnet publish`](/dotnet/core/tools/dotnet-publish)의 `-p:PublishReadyToRun=true` 옵션을 참조하세요.
 
 ## <a name="supported-types-for-bindings"></a>바인딩에 대해 지원되는 형식
 
@@ -339,13 +339,13 @@ public static class CancellationTokenExample
 
 ## <a name="logging"></a>로깅
 
-함수 코드에서 Application Insights 추적으로 표시 되는 로그에 출력을 쓸 수 있습니다. 로그에 쓰는 권장 방법은 일반적으로 이름이 인 [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger)형식의 매개 변수를 포함 하는 것입니다 `log` . 사용 되는 함수 런타임의 버전 1.x는 `TraceWriter` Application Insights에도 기록 하지만 구조적 로깅은 지원 하지 않습니다. `Console.Write`이 데이터는 Application Insights에 의해 캡처되지 않으므로를 사용 하 여 로그를 작성 하지 마세요. 
+함수 코드로 Application Insights에서 traces로 표시되는 로그에 출력을 작성할 수 있습니다. 로그에 작성하는 경우 일반적으로 이름이 `log`인 [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger)형식의 매개 변수를 포함하는 것이 좋습니다. Functions 런타임의 버전 1.x는 `TraceWriter`를 사용하며, 이는 Application Insights에도 작성하지만 구조적 로깅은 지원하지 않습니다. 해당 데이터는 Application Insights에 의해 캡처되지 않으므로 `Console.Write`를 사용하여 로그를 작성하지 마세요. 
 
 ### <a name="ilogger"></a>ILogger
 
-함수 정의에서 [구조적 로깅을](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)지 원하는 [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) 매개 변수를 포함 합니다.
+함수 정의에서 [구조적 로깅](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)을 지원하는 [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) 매개 변수를 포함합니다.
 
-`ILogger` 개체를 사용하여 로그를 생성하는 `Log<level>`[ILogger의 확장 메서드](/dotnet/api/microsoft.extensions.logging.loggerextensions#methods)를 호출합니다. 다음 코드는 `Information` 범주를 사용 하 여 로그를 작성 합니다 `Function.<YOUR_FUNCTION_NAME>.User.` .
+`ILogger` 개체를 사용하여 로그를 생성하는 `Log<level>`[ILogger의 확장 메서드](/dotnet/api/microsoft.extensions.logging.loggerextensions#methods)를 호출합니다. 다음 코드는 범주가 `Function.<YOUR_FUNCTION_NAME>.User.`인 `Information` 로그를 작성합니다.
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -353,7 +353,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
     logger.LogInformation("Request for item with key={itemKey}.", id);
 ```
 
-함수를 구현 하는 방법에 대 한 자세한 `ILogger` 내용은 [원격 분석 데이터 수집](functions-monitoring.md#collecting-telemetry-data)을 참조 하세요. 접두사가 접두사로 붙은 범주는 `Function` 인스턴스를 사용 하 고 있다고 가정 `ILogger` 합니다. 대신를 사용 하도록 선택 하 `ILogger<T>` 는 경우 범주 이름은 대신을 기반으로 할 수 있습니다 `T` .  
+Functions 구현 방법에 대한 자세한 `ILogger` 내용은 [원격 분석 데이터 수집](functions-monitoring.md#collecting-telemetry-data)을 참조하세요. `Function` 접두사가 붙은 범주는 `ILogger` 인스턴스를 사용하고 있다고 가정합니다. 대신 `ILogger<T>`를 사용하도록 선택하는 경우 범주 이름은 대신 `T`를 기반으로 할 수 있습니다.  
 
 ### <a name="structured-logging"></a>구조적 로깅
 
@@ -386,7 +386,7 @@ logger.LogInformation("partitionKey={partitionKey}, rowKey={rowKey}", partitionK
 }
 ```
 
-### <a name="log-custom-telemetry"></a><a name="log-custom-telemetry-in-c-functions"></a>사용자 지정 원격 분석 로그
+### <a name="log-custom-telemetry"></a><a name="log-custom-telemetry-in-c-functions">로그 사용자 지정 원격 분석</a>
 
 함수에서 Application Insights로 사용자 지정 원격 분석 데이터를 전송하는 데 사용할 수 있는 Application Insights SDK의 Functions 관련 버전 [Microsoft.Azure.WebJobs.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights)가 있습니다. 명령 프롬프트에서 다음 명령을 사용하여 이 패키지를 설치합니다.
 
@@ -408,9 +408,9 @@ Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -Version <VE
 
 다음 C# 예제에서는 [사용자 지정 원격 분석 API](../azure-monitor/app/api-custom-events-metrics.md)를 사용합니다. 이 예제는 .NET 클래스 라이브러리용이지만 Application Insights 코드는 C# 스크립트와 동일합니다.
 
-# <a name="v2x"></a>[v2. x +](#tab/v2)
+# <a name="v2x"></a>[v2.x+](#tab/v2)
 
-런타임 2.x 이상 버전에서는 원격 분석 데이터와 현재 작업 간의 상관 관계를 자동으로 지정하는 Application Insights의 새 기능이 사용됩니다. 작업 `Id`, `ParentId` 또는 `Name` 필드를 수동으로 설정할 필요가 없습니다.
+런타임 2.x 이상 버전에서는 원격 분석 데이터와 현재 작업 간의 상관관계를 자동으로 지정하는 Application Insights의 새 기능이 사용됩니다. 작업 `Id`, `ParentId` 또는 `Name` 필드를 수동으로 설정할 필요가 없습니다.
 
 ```cs
 using System;
@@ -478,9 +478,9 @@ namespace functionapp0915
 }
 ```
 
-이 예에서 사용자 지정 메트릭 데이터는 customMetrics 테이블로 전송 되기 전에 호스트에 의해 집계 됩니다. 자세히 알아보려면 Application Insights의 [Getmetric](../azure-monitor/app/api-custom-events-metrics.md#getmetric) 설명서를 참조 하세요. 
+이 예제에서 사용자 지정 메트릭 데이터는 customMetrics 테이블로 전송되기 전에 호스트에 의해 집계됩니다. 자세히 알아보려면 Application Insights의 [GetMetric](../azure-monitor/app/api-custom-events-metrics.md#getmetric) 문서를 참조하세요. 
 
-로컬로 실행 하는 경우 `APPINSIGHTS_INSTRUMENTATIONKEY` 파일 [ 의local.settings.js](functions-run-local.md#local-settings-file) 에 Application Insights 키를 사용 하 여 설정을 추가 해야 합니다.
+로컬로 실행하는 경우 Application Insights 키를 사용하여 [local.settings.json](functions-run-local.md#local-settings-file) 파일에 `APPINSIGHTS_INSTRUMENTATIONKEY` 설정을 추가해야 합니다.
 
 
 # <a name="v1x"></a>[v1.x](#tab/v1)
@@ -567,7 +567,7 @@ namespace functionapp0915
 
 `TrackRequest` 또는 `StartOperation<RequestTelemetry>`를 호출하지 마세요. 함수 호출에 대한 요청이 중복으로 표시됩니다.  Functions 런타임에서 자동으로 요청을 추적합니다.
 
-`telemetryClient.Context.Operation.Id`를 설정하지 마십시오. 이 전역 설정은 여러 함수가 동시에 실행될 때 잘못된 상관 관계를 유발합니다. 대신 새로운 원격 분석 인스턴스(`DependencyTelemetry`, `EventTelemetry`)를 만들고 해당하는 `Context` 속성을 수정합니다. 그런 다음, 원격 분석 인스턴스를 `TelemetryClient`의 해당 `Track` 메서드(`TrackDependency()`, `TrackEvent()`, `TrackMetric()`)에 전달합니다. 이 방법을 사용하면 원격 분석 데이터가 현재 함수 호출에 대해 올바른 상관 관계 세부 정보를 가질 수 있습니다.
+`telemetryClient.Context.Operation.Id`를 설정하지 마세요. 이 전역 설정은 여러 함수가 동시에 실행될 때 잘못된 상관관계를 유발합니다. 대신 새로운 원격 분석 인스턴스(`DependencyTelemetry`, `EventTelemetry`)를 만들고 해당하는 `Context` 속성을 수정합니다. 그런 다음, 원격 분석 인스턴스를 `TelemetryClient`의 해당 `Track` 메서드(`TrackDependency()`, `TrackEvent()`, `TrackMetric()`)에 전달합니다. 이 방법을 사용하면 원격 분석 데이터가 현재 함수 호출에 대해 올바른 상관관계 세부 정보를 가질 수 있습니다.
 
 
 ## <a name="environment-variables"></a>환경 변수
@@ -641,7 +641,7 @@ public static class IBinderExample
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs)는 [Storage Blob](functions-bindings-storage-blob.md) 입력 또는 출력 바인딩을 정의하며, [TextWriter](/dotnet/api/system.io.textwriter)는 지원되는 출력 바인딩 형식입니다.
 
-### <a name="multiple-attributes-example"></a>여러 특성 예제
+### <a name="multiple-attributes-example"></a>다중 특성 예제
 
 앞의 예제에서는 함수 앱의 주 Storage 계정 연결 문자열(`AzureWebJobsStorage`)에 대한 앱 설정을 가져옵니다. [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)를 추가하고 `BindAsync<T>()`에 특성 배열을 전달하여 스토리지 계정에 사용할 사용자 지정 앱 설정을 지정할 수 있습니다. `IBinder`가 아닌 `Binder` 매개 변수를 사용합니다.  예를 들면 다음과 같습니다.
 

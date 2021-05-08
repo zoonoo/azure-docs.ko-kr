@@ -1,6 +1,6 @@
 ---
-title: AMD GPU 드라이버 확장-Azure Windows Vm
-description: NVv4 시리즈 Vm에서 Windows를 실행 하는 AMD GPU 드라이버를 설치 하는 Microsoft Azure 확장입니다.
+title: AMD GPU 드라이버 확장 - Azure Windows VM
+description: Windows를 실행하는 NVv4 시리즈 VM에 AMD GPU 드라이버를 설치하기 위한 Microsoft Azure 확장입니다.
 services: virtual-machines-windows
 author: vikancha-MSFT
 manager: jkabat
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
 ms.openlocfilehash: 42dac9edc91d7cb935e8c20398c4d31343b358e1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102559684"
 ---
-# <a name="amd-gpu-driver-extension-for-windows"></a>Windows 용 AMD GPU 드라이버 확장
+# <a name="amd-gpu-driver-extension-for-windows"></a>Windows용 AMD GPU 드라이버 확장
 
-이 문서에서는 Windows [NVv4 시리즈](../nvv4-series.md) VM에서 AMD GPU 드라이버를 배포 하기 위한 VM 확장에 대 한 개요를 제공 합니다. 이 확장을 사용 하 여 AMD 드라이버를 설치 하는 경우 [amd End-User 사용권 계약](https://amd.com/radeonsoftwarems)의 약관에 동의 하 고 동의 하는 것입니다. 설치 프로세스 중에 드라이버 설치를 완료하기 위해 VM이 다시 부팅될 수 있습니다.
+이 문서에서는 Windows [NVv4 시리즈](../nvv4-series.md) VM에 AMD GPU 드라이버를 배포하기 위한 VM 확장에 대한 개요를 제공합니다. 이 확장을 사용하여 AMD 드라이버를 설치하면 [AMD 최종 사용자 사용권 계약](https://amd.com/radeonsoftwarems)을 수락하고 이에 동의하게 됩니다. 설치 프로세스 중에 드라이버 설치를 완료하기 위해 VM이 다시 부팅될 수 있습니다.
 
 드라이버의 수동 설치 및 현재 지원되는 버전에 대한 지침은 [여기](../windows/n-series-amd-driver-setup.md)에서 확인할 수 있습니다.
 
@@ -34,13 +34,13 @@ ms.locfileid: "102559684"
 | 배포 | 버전 |
 |---|---|
 | Windows 10 EMS | 빌드 1903 |
-| 윈도우 10 | 빌드 1809 |
+| Windows 10 | 빌드 1809 |
 | Windows Server 2016 | 핵심 |
 | Windows Server 2019 | 핵심 |
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
-AMD GPU 드라이버의 Microsoft Azure 확장을 사용 하려면 대상 VM이 인터넷에 연결 되어 있고 액세스 권한이 있어야 합니다.
+AMD GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM이 인터넷에 연결되어 있고 액세스 권한이 있어야 합니다.
 
 ## <a name="extension-schema"></a>확장 스키마
 

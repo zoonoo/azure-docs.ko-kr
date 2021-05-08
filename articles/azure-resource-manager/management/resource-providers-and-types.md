@@ -3,13 +3,13 @@ title: 리소스 공급자 및 종류
 description: Azure Resource Manager를 지원하는 리소스 공급자에 대해 설명합니다. 리소스를 호스트할 수 있는 스키마, 사용 가능한 API 버전 및 지역에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 03/15/2021
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 584f3065d0e696f2ee379a8cf6c048994a1e68d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: d5936e1e4c80869495d5b71023e26264dc9a2cde
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103493138"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319200"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 리소스 공급자 및 종류
 
@@ -45,7 +45,7 @@ Azure Portal, Azure PowerShell 또는 Azure CLI를 통해 해당 단계를 수�
 
 구독에 해당 리소스 공급자의 리소스 종류가 아직 포함되어 있으면 해당 리소스 공급자를 등록 취소할 수 없습니다.
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure Portal
 
 ### <a name="register-resource-provider"></a>리소스 공급자 등록
 

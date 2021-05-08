@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: 0012c3d208998786ef5aa34320f3bccc4e51ebe6
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: fb13e5015a589efc575d5a7bbb8b662fc23b72be
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782786"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076404"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>자습서: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호
 
@@ -249,6 +249,9 @@ az webapp config connection-string delete --resource-group myResourceGroup --nam
 ![솔루션 탐색기에서 게시](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
 게시 페이지에서 **게시** 를 클릭합니다. 
+
+> [!IMPORTANT]
+> 앱 서비스 이름이 기존 [앱 등록](../active-directory/manage-apps/add-application-portal.md)과 일치하지 않는지 확인합니다. 이로 인해 보안 주체 ID가 충돌합니다.
 
 **[자습서: Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드](tutorial-dotnetcore-sqldb-app.md)** 를 진행 중이었다면 다음 명령으로 Git을 사용하여 변경 내용을 게시합니다.
 

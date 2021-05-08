@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 12/17/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7e74a58a14bdcc2a6fe1e9f86305aae415c6abf7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1c2ebd04fa227bf20570bfee90a97711a0458177
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97674517"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318570"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Azure CLI 및 REST API에서 읽기 복제본 만들기 및 관리
 
@@ -62,7 +62,7 @@ Azure CLI를 사용하여 읽기 복제본을 생성하고 관리할 수 있습�
 
 ### <a name="create-a-read-replica"></a>읽기 복제본 만들기
 
-[az postgres server replica create](/cli/azure/postgres/server/replica#az-postgres-server-replica-create) 명령에는 다음 매개 변수가 필요합니다.
+[az postgres server replica create](/cli/azure/postgres/server/replica#az_postgres_server_replica_create) 명령에는 다음 매개 변수가 필요합니다.
 
 | 설정 | 예제 값 | Description  |
 | --- | --- | --- |
@@ -93,14 +93,14 @@ az postgres server replica create --name mydemoserver-replica --source-server my
 > 주 서버 설정을 새 값으로 업데이트하기 전에 복제본 설정을 같거나 큰 값으로 업데이트합니다. 이렇게 하면 복제본이 마스터에 대한 변경 내용을 유지할 수 있습니다.
 
 ### <a name="list-replicas"></a>복제본 목록
-[az postgres server replica list](/cli/azure/postgres/server/replica#az-postgres-server-replica-list) 명령을 사용하여 주 서버의 복제본 목록을 볼 수 있습니다.
+[az postgres server replica list](/cli/azure/postgres/server/replica#az_postgres_server_replica_list) 명령을 사용하여 주 서버의 복제본 목록을 볼 수 있습니다.
 
 ```azurecli-interactive
 az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>복제본 서버로의 복제 중지
-[az postgres server replica stop](/cli/azure/postgres/server/replica#az-postgres-server-replica-stop) 명령을 사용하여 주 서버와 읽기 복제본 간의 복제를 중지할 수 있습니다.
+[az postgres server replica stop](/cli/azure/postgres/server/replica#az_postgres_server_replica_stop) 명령을 사용하여 주 서버와 읽기 복제본 간의 복제를 중지할 수 있습니다.
 
 주 서버와 읽기 복제본에 대한 복제를 중지한 경우 실행 취소할 수 없습니다. 읽기 복제본은 읽기 및 쓰기를 둘 다 지원하는 독립 실행형 서버가 됩니다. 독립 실행형 서버를 다시 복제본으로 만들 수 없습니다.
 
@@ -109,7 +109,7 @@ az postgres server replica stop --name mydemoserver-replica --resource-group myr
 ```
 
 ### <a name="delete-a-primary-or-replica-server"></a>주 서버 또는 복제 서버 삭제
-주 서버 또는 복제 서버를 삭제하려면 [az postgres server delete](/cli/azure/postgres/server#az-postgres-server-delete) 명령을 사용합니다.
+주 서버 또는 복제 서버를 삭제하려면 [az postgres server delete](/cli/azure/postgres/server#az_postgres_server_delete) 명령을 사용합니다.
 
 주 서버를 삭제하면 모든 읽기 복제본에 대한 복제가 중지됩니다. 그러면 읽기 복제본은 읽기와 쓰기를 모두 지원하는 독립 실행형 서버가 됩니다.
 
@@ -142,14 +142,14 @@ az postgres server delete --name myserver --resource-group myresourcegroup
    }
    ```
 
-2. [서버를 다시 시작하여](/rest/api/postgresql/servers/restart) 변경 내용을 적용합니다.
+2. [서버를 다시 시작하여](/rest/api/postgresql/singleserver/servers/restart) 변경 내용을 적용합니다.
 
    ```http
    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/restart?api-version=2017-12-01
    ```
 
 ### <a name="create-a-read-replica"></a>읽기 복제본 만들기
-[CREATE API](/rest/api/postgresql/servers/create)를 사용하여 읽기 복제본을 만들 수 있습니다.
+[CREATE API](/rest/api/postgresql/singleserver/servers/create)를 사용하여 읽기 복제본을 만들 수 있습니다.
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{replicaName}?api-version=2017-12-01
@@ -177,14 +177,14 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 > 주 서버 설정을 새 값으로 업데이트하기 전에 복제본 설정을 같거나 큰 값으로 업데이트합니다. 이렇게 하면 복제본이 마스터에 대한 변경 내용을 유지할 수 있습니다.
 
 ### <a name="list-replicas"></a>복제본 목록
-[복제본 목록 API](/rest/api/postgresql/replicas/listbyserver)를 사용하여 주 서버의 복제본 목록을 볼 수 있습니다.
+[복제본 목록 API](/rest/api/postgresql/singleserver/replicas/listbyserver)를 사용하여 주 서버의 복제본 목록을 볼 수 있습니다.
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/Replicas?api-version=2017-12-01
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>복제본 서버로의 복제 중지
-[업데이트 API](/rest/api/postgresql/servers/update)를 사용하여 주 서버와 읽기 복제본 간의 복제를 중지할 수 있습니다.
+[업데이트 API](/rest/api/postgresql/singleserver/servers/update)를 사용하여 주 서버와 읽기 복제본 간의 복제를 중지할 수 있습니다.
 
 주 서버와 읽기 복제본에 대한 복제를 중지한 경우 실행 취소할 수 없습니다. 읽기 복제본은 읽기 및 쓰기를 둘 다 지원하는 독립 실행형 서버가 됩니다. 독립 실행형 서버를 다시 복제본으로 만들 수 없습니다.
 
@@ -201,7 +201,7 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 ```
 
 ### <a name="delete-a-primary-or-replica-server"></a>주 서버 또는 복제 서버 삭제
-주 서버 또는 복제 서버를 삭제하려면 [API 삭제](/rest/api/postgresql/servers/delete)를 사용합니다.
+주 서버 또는 복제 서버를 삭제하려면 [API 삭제](/rest/api/postgresql/singleserver/servers/delete)를 사용합니다.
 
 주 서버를 삭제하면 모든 읽기 복제본에 대한 복제가 중지됩니다. 그러면 읽기 복제본은 읽기와 쓰기를 모두 지원하는 독립 실행형 서버가 됩니다.
 

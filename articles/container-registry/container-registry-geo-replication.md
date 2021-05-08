@@ -1,15 +1,15 @@
 ---
 title: 레지스트리 지역 복제
-description: 레지스트리가 다중 마스터 지역 복제본을 사용하여 여러 지역에 서비스를 제공할 수 있는 지리적 복제 Azure 컨테이너 레지스트리 만들기 및 관리를 시작합니다. 지역에서 복제는 프리미엄 서비스 계층의 기능입니다.
+description: 레지스트리가 다중 마스터 지역 복제본을 사용하여 여러 지역에 서비스를 제공할 수 있는 지리적 복제 Azure 컨테이너 레지스트리 만들기 및 관리를 시작합니다. 지역 복제는 프리미엄 서비스 계층 기능입니다.
 author: stevelas
 ms.topic: article
 ms.date: 07/21/2020
 ms.author: stevelas
 ms.openlocfilehash: 4e82be0e81e5e8c0182e061a0fba0f880bd45cc6
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102632393"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure Container Registry의 지리적 복제
@@ -18,11 +18,11 @@ ms.locfileid: "102632393"
 
 지리적 복제된 레지스트리는 다음과 같은 이점을 제공합니다.
 
-* 단일 레지스트리, 이미지 및 태그 이름을 여러 지역에서 사용할 수 있습니다.
-* 네트워크 닫기 레지스트리 액세스를 사용 하 여 지역 배포의 성능 및 안정성 향상
-* 컨테이너 호스트와 동일 하거나 가까운 지역의 복제 된 로컬 레지스트리에서 이미지 계층을 당겨 데이터 전송 비용을 줄입니다.
+* 여러 지역에서 단일 레지스트리, 이미지, 태그 이름 사용 가능
+* 네트워크 닫기 레지스트리 액세스를 사용하여 지역 배포의 성능 및 안정성 향상
+* 컨테이너 호스트와 동일하거나 가까운 지역의 복제된 로컬 레지스트리에서 이미지 계층을 풀하여 데이터 전송 비용을 줄입니다.
 * 여러 지역의 레지스트리를 단일 지점에서 관리
-* 지역 가동 중단이 발생 하는 경우 레지스트리 복원 력
+* 지역 가동 중단이 발생하는 경우 레지스트리 복원력
 
 > [!NOTE]
 > 둘 이상의 Azure 컨테이너 레지스트리에서 컨테이너 이미지 복사본을 유지해야 하는 경우 Azure Container Registry가 [이미지 가져오기](container-registry-import-images.md)도 지원합니다. 예를 들어 Docker 명령을 사용할 필요 없이 DevOps 워크플로에서 개발 레지스트리의 이미지를 프로덕션 레지스트리로 가져올 수 있습니다.
@@ -57,12 +57,12 @@ docker push contosowesteu.azurecr.io/public/products/web:1.2
 Azure Container Registry의 지리적 복제 기능을 사용하면 다음과 같은 이점을 누릴 수 있습니다.
 
 * 모든 지역에서 단일 레지스트리 관리: `contoso.azurecr.io`
-* 모든 지역이 동일한 이미지 URL을 사용 하므로 이미지 배포의 단일 구성을 관리 합니다. `contoso.azurecr.io/public/products/web:1.2`
-* 단일 레지스트리로 푸시하면 ACR이 지역 복제를 관리합니다. ACR은 고유한 레이어만 복제 하므로 지역 간에 데이터 전송이 줄어듭니다. 
-* 특정 복제본의 이벤트를 알리도록 지역 [웹 후크](container-registry-webhook.md) 를 구성 합니다.
-* 지역 가동 중단에 탄력적으로 사용할 수 있는 고가용성 레지스트리를 제공 합니다.
+* 모든 지역이 동일한 이미지 URL을 사용하므로 이미지 배포의 단일 구성을 관리합니다. `contoso.azurecr.io/public/products/web:1.2`
+* 단일 레지스트리로 푸시하면 ACR이 지역 복제를 관리합니다. ACR은 고유한 레이어만 복제하므로 지역 간 데이터 전송이 줄어듭니다. 
+* 특정 복제본 이벤트를 알리도록 지역 [웹후크](container-registry-webhook.md)를 구성할 수 있습니다.
+* 지역 가동 중단에 대해 복원력이 있는 고가용성 레지스트리를 제공합니다.
 
-또한 Azure Container Registry는 Azure 지역 내에서 복원 력 및 고가용성 Azure 컨테이너 레지스트리를 만들기 위한 [가용성 영역](zone-redundancy.md) 을 지원 합니다. 지역 내 중복성에 대 한 가용성 영역을 조합 하 고 여러 지역에서 지역에서 복제를 조합 하 여 레지스트리의 안정성과 성능을 향상 시킵니다.
+또한 Azure Container Registry는 Azure 지역 내에서 복원력 있고 가용성이 높은 Azure 컨테이너 레지스트리를 만들 수 있도록 [가용성 영역](zone-redundancy.md)을 지원합니다. 지역 내 중복도에 대한 가용성 영역, 여러 지역 전반의 지역 복제를 조합하여 레지스트리의 안정성과 성능을 향상합니다.
 
 ## <a name="configure-geo-replication"></a>지역에서 복제 구성
 
@@ -100,7 +100,7 @@ ACR이 구성된 복제본 사이의 이미지 동기화를 시작합니다. 동
 * 지역 복제된 레지스트리에서 이미지를 푸시 또는 풀하면 백그라운드의 Azure Traffic Manager는 네트워크 지연 시간 측면에서 가장 가까운 지역에 있는 레지스트리로 요청을 보냅니다.
 * 가장 가까운 Azure 지역에 이미지 또는 태그 업데이트를 푸시한 후 Azure Container Registry가 매니페스트 및 레이어를 사용자가 옵트인한 나머지 Azure 지역에 복제할 때까지 어느 정도 시간이 걸립니다. 큰 이미지는 작은 이미지보다 복제 시간이 오래 걸립니다. 이미지 및 태그는 최종 일관성 모델을 사용하여 복제 지역에서 동기화됩니다.
 * 지역 복제 레지스트리에 푸시 업데이트를 사용하는 워크플로를 관리하려면 푸시 이벤트에 응답하는 [webhook](container-registry-webhook.md)를 구성하는 것이 좋습니다. 지역 복제된 Azure 지역에서 완료되는 푸시 이벤트를 추적하도록 지역 복제된 레지스트리 내부에 지역별 webhook를 설정할 수 있습니다.
-* 콘텐츠 계층을 나타내는 blob을 제공 하기 위해 Azure Container Registry는 데이터 끝점을 사용 합니다. 각 레지스트리의 지역 복제된 지역에서 레지스트리에 대해 [전용 데이터 엔드포인트](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints)를 사용하도록 설정할 수 있습니다. 이러한 엔드포인트를 사용하면 엄격하게 범위가 지정된 방화벽 액세스 규칙을 구성할 수 있습니다. 문제 해결을 위해 필요에 따라 복제 된 데이터를 유지 하는 동안 [복제에 대 한 라우팅을 사용 하지 않도록 설정할](#temporarily-disable-routing-to-replication) 수 있습니다.
+* 콘텐츠 계층을 나타내는 블롭을 제공하기 위해 Azure Container Registry는 데이터 엔드포인트를 사용합니다. 각 레지스트리의 지역 복제된 지역에서 레지스트리에 대해 [전용 데이터 엔드포인트](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints)를 사용하도록 설정할 수 있습니다. 이러한 엔드포인트를 사용하면 엄격하게 범위가 지정된 방화벽 액세스 규칙을 구성할 수 있습니다. 문제 해결을 위해 복제된 데이터를 유지하는 동안 필요에 따라 [복제에 대한 라우팅 사용하지 않을](#temporarily-disable-routing-to-replication) 수 있습니다.
 * 가상 네트워크의 프라이빗 엔드포인트를 사용하여 레지스트리에 [프라이빗 링크](container-registry-private-link.md)를 구성하는 경우 각 지역 복제된 지역에서 전용 데이터 엔드포인트가 기본적으로 사용되도록 설정됩니다. 
 
 ## <a name="delete-a-replica"></a>복제본 삭제
@@ -132,11 +132,11 @@ az acr replication delete --name eastus --registry myregistry
 
 이미지를 푸시할 때 가장 가까운 복제본에 대한 DNS 확인을 최적화하려면 Azure 외부에서 작업할 때 푸시 작업의 원본과 동일한 Azure 지역 또는 가장 가까운 지역의 지역 복제 레지스트리를 구성합니다.
 
-### <a name="temporarily-disable-routing-to-replication"></a>일시적으로 복제에 대 한 라우팅을 사용 하지 않도록 설정
+### <a name="temporarily-disable-routing-to-replication"></a>일시적으로 복제에 대한 라우팅 사용을 비활성화
 
-지역에서 복제 된 레지스트리를 사용 하 여 작업 문제를 해결 하려면 하나 이상의 복제에 대 한 Traffic Manager 라우팅을 일시적으로 사용 하지 않도록 설정 하는 것이 좋습니다. Azure CLI 버전 2.8부터 `--region-endpoint-enabled` 복제 된 지역을 만들거나 업데이트할 때 옵션 (미리 보기)을 구성할 수 있습니다. 복제의 옵션을로 설정 하는 경우에 `--region-endpoint-enabled` `false` 는 더 이상 docker 밀어넣기 또는 끌어오기 요청을 해당 지역으로 라우트 하지 Traffic Manager. 기본적으로 모든 복제에 대 한 라우팅은 사용 하도록 설정 되며, 모든 복제에 대 한 데이터 동기화는 라우팅이 사용 되는지 여부에 관계 없이 수행 됩니다.
+지역에서 복제된 레지스트리를 사용하여 작업 문제를 해결하려면, 하나 이상의 복제에 대한 Traffic Manager 라우팅을 일시적으로 사용하지 않도록 설정하는 것이 좋습니다. Azure CLI 버전 2.8부터 복제된 지역을 만들거나 업데이트할 때 `--region-endpoint-enabled` 옵션(미리 보기)을 구성할 수 있습니다. 복제의 `--region-endpoint-enabled` 옵션을 `false`로 설정할 때 Traffic Manager는 해당 지역으로 Docker 밀어넣기 또는 끌어오기 요청을 라우트하지 않습니다. 기본적으로 모든 복제에 대한 라우팅은 사용하도록 설정되며, 모든 복제에 대한 데이터 동기화는 라우팅의 사용 여부에 관계없이 수행됩니다.
 
-기존 복제에 대 한 라우팅을 사용 하지 않도록 설정 하려면 먼저 [az acr replication list][az-acr-replication-list] 를 실행 하 여 레지스트리의 복제를 나열 합니다. 그런 다음 [az acr replication update][az-acr-replication-update] 를 실행 하 고 `--region-endpoint-enabled false` 특정 복제에 대해를 설정 합니다. 예를 들어 *myregistry* 의 *westus* 복제에 대 한 설정을 구성 하려면 다음을 수행 합니다.
+기존 복제에 대한 라우팅을 사용하지 않도록 설정하려면 먼저 [az acr replication list][az-acr-replication-list]를 실행하여 레지스트리의 복제를 나열합니다. 그다음 특정 복제에 대한 [az acr replication update][az-acr-replication-update]를 실행하고 `--region-endpoint-enabled false`를 설정합니다. 예를 들어 *myregistry* 의 *westus* 복제에 대한 설정을 구성하려면 다음을 수행합니다.
 
 ```azurecli
 # Show names of existing replications
@@ -148,7 +148,7 @@ az acr replication update --name westus \
   --region-endpoint-enabled false
 ```
 
-복제에 대 한 라우팅을 복원 하려면:
+복제에 대한 라우팅을 복원하려면 다음을 수행합니다.
 
 ```azurecli
 az acr replication update --name westus \

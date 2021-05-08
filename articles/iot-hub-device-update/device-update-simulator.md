@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 90e72bd12d9115e5ff95213428ae4ac37979dcf3
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 77bfab51cf7ccc9ec6ffe3b0018c0a488b601a0a
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106120098"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070212"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-ubuntu-1804-x64-simulator-reference-agent"></a>Ubuntu(18.04 x64) 시뮬레이터 참조 에이전트를 사용하는 Azure IoT Hub용 디바이스 업데이트 자습서
 
@@ -30,7 +30,7 @@ IoT Hub용 디바이스 업데이트는 이미지 기반 및 패키지 기반의
 > * 이미지 업데이트 배포
 > * 업데이트 배포 모니터링
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 * 아직 수행하지 않은 경우 IoT Hub 구성을 포함하여 [디바이스 업데이트 계정 및 인스턴스](create-device-update-account.md)를 만듭니다.
 
 ### <a name="download-and-install"></a>다운로드 및 설치
@@ -112,7 +112,7 @@ Azure IoT Hub용 디바이스 업데이트 소프트웨어에는 다음 사용 �
 
 1. Azure Portal에서 디바이스 업데이트 IoT Hub를 시작합니다.
 2. 새 디바이스를 만듭니다.
-3. 페이지 왼쪽에서 '탐색기' > 'IoT 디바이스'로 이동하여 "새로 만들기"를 선택합니다.
+3. 페이지 왼쪽에서 'IoT 디바이스'로 이동 > "새로 만들기"를 선택합니다.
 4. '디바이스 ID' 아래에 디바이스 이름을 입력합니다. - "키 자동 생성" 확인란이 선택되어 있는지 확인하세요.
 5. '저장'을 선택합니다.
 6. 이제 '디바이스' 페이지로 돌아가면 만든 디바이스가 목록에 표시됩니다. 해당 디바이스를 선택합니다.

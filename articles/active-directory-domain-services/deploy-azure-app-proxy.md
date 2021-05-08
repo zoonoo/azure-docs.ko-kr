@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 8305b2190cf3b157973f5844c3237ffe73adba66
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 70951dc1c1934bcbb2721512175e7d314168ce91
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96619919"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175463"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리되는 도메인의 내부 애플리케이션에 안전하게 액세스할 수 있도록 Azure AD 애플리케이션 프록시 배포
 
@@ -113,7 +113,7 @@ Set-ADComputer appserver.aaddscontoso.com -PrincipalsAllowedToDelegateToAccount 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure AD DS와 통합된 Azure AD 애플리케이션 프록시를 사용하여 사용자가 액세스할 수 있도록 애플리케이션을 게시합니다. 자세한 내용은 [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](../active-directory/manage-apps/application-proxy-add-on-premises-application.md)를 참조하세요.
+Azure AD DS와 통합된 Azure AD 애플리케이션 프록시를 사용하여 사용자가 액세스할 수 있도록 애플리케이션을 게시합니다. 자세한 내용은 [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](../active-directory/app-proxy/application-proxy-add-on-premises-application.md)를 참조하세요.
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
@@ -121,5 +121,5 @@ Azure AD DS와 통합된 Azure AD 애플리케이션 프록시를 사용하여 �
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
 [azure-bastion]: ../bastion/tutorial-create-host-portal.md
-[Get-ADComputer]: /powershell/module/addsadministration/get-adcomputer
-[Set-ADComputer]: /powershell/module/addsadministration/set-adcomputer
+[Get-ADComputer]: /powershell/module/activedirectory/get-adcomputer
+[Set-ADComputer]: /powershell/module/activedirectory/set-adcomputer

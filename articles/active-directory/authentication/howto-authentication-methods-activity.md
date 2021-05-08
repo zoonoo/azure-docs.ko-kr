@@ -11,12 +11,12 @@ author: sopand
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a1cb71917fdb30ffccda21bedffe1c7f2a428c1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 699ff88e4181dada5eacaa3f13469722cdf7ceaa
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557958"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530450"
 ---
 # <a name="authentication-methods-activity"></a>인증 방법 작업 
 
@@ -42,7 +42,7 @@ ms.locfileid: "105557958"
 
  사용량 및 인사이트에 액세스하려면 Azure AD Premium P1 또는 P2 라이선스가 필요합니다. Azure AD Multi-Factor Authentication 및 SSPR(셀프 서비스 암호 재설정) 라이선스 정보는 [Azure Active Directory 가격 책정 사이트](https://azure.microsoft.com/pricing/details/active-directory/)에서 찾을 수 있습니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 인증 방법 사용 및 인사이트에 액세스하려면 다음을 수행합니다.
 
@@ -107,7 +107,7 @@ ms.locfileid: "105557958"
 등록 세부 정보 보고서에는 각 사용자에 대해 다음 정보가 표시됩니다.
 
 - 사용자 계정 이름
-- 이름
+- 속성
 - MFA 사용 가능(사용 가능, 사용 불가능)
 - Passwordless 가능(사용 가능, 사용 불가능)
 - SSPR 등록됨(등록됨, 등록되지 않음)
@@ -139,6 +139,6 @@ ms.locfileid: "105557958"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [인증 방법 사용 보고서 API로 작업](/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
+- [인증 방법 사용 보고서 API로 작업](/graph/api/resources/authenticationmethods-usage-insights-overview)
 - [조직에 대한 인증 방법 선택](concept-authentication-methods.md)
 - [결합된 등록 환경](concept-registration-mfa-sspr-combined.md)

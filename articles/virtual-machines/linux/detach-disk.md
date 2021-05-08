@@ -10,10 +10,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 29a2cbbf2c390b81aa62b064a7cf93decbaa7457
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102565991"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Linux 가상 머신에서 데이터 디스크를 분리하는 방법
@@ -109,12 +109,12 @@ az vm disk detach \
 
 1. 왼쪽 메뉴에서 **Virtual Machines** 을 선택합니다.
 1. 가상 컴퓨터 블레이드에서 **디스크** 를 선택합니다.
-1. **디스크 블레이드에서 분리할** 데이터 디스크의 오른쪽 끝에 있는 **X** 단추를 선택 하 여 디스크를 분리 합니다.
-1. 디스크가 제거 된 후 블레이드 위쪽에서 **저장** 을 선택 합니다.
+1. 디스크를 분리하려면 **디스크** 블레이드에서 분리할 데이터 디스크의 맨 오른쪽에 있는 **X** 단추를 선택합니다.
+1. 디스크를 제거한 후에 블레이드 상단에서 **저장** 을 선택합니다.
 
-디스크가 스토리지에 유지되지만 더 이상 가상 머신에 연결되어 있지 않습니다. 디스크가 삭제 되지 않습니다.
+디스크가 스토리지에 유지되지만 더 이상 가상 머신에 연결되어 있지 않습니다. 디스크가 삭제되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 데이터 디스크를 다시 사용하려는 경우 [다른 VM에 연결](add-disk.md)할 수 있습니다.
 
-디스크를 삭제 하 여 더 이상 저장소 비용이 발생 하지 않도록 하려면 연결 [되지 않은 Azure 관리 및 비관리 디스크 찾기 및 삭제-Azure Portal](../disks-find-unattached-portal.md)를 참조 하세요.
+디스크를 삭제하여 더 이상 스토리지 비용이 발생하지 않도록 하려면 [연결되지 않은 Azure 관리 및 비관리 디스크 찾기 및 삭제 - Azure Portal](../disks-find-unattached-portal.md)을 참조하세요.

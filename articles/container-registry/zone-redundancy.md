@@ -1,54 +1,54 @@
 ---
 title: 고가용성을 위한 영역 중복 레지스트리
-description: Azure Container Registry에서 영역 중복성을 사용 하도록 설정 하는 방법에 대해 알아봅니다. Azure 가용성 영역에서 컨테이너 레지스트리 또는 복제를 만듭니다. 영역 중복성은 프리미엄 서비스 계층의 기능입니다.
+description: Azure Container Registry에서 영역 중복을 사용하도록 설정하는 방법에 대해 알아봅니다. Azure 가용성 영역에 컨테이너 레지스트리 또는 복제를 만듭니다. 영역 중복은 프리미엄 서비스 계층의 기능입니다.
 ms.topic: article
 ms.date: 02/23/2021
-ms.custom: references_regions
-ms.openlocfilehash: a190ea68f41196fb11c20259b9953f516d6f5370
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 731962437c4890c665513241e756dbbc2acfc5de
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102203864"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891593"
 ---
-# <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>복원 력 및 고가용성을 위해 Azure Container Registry에서 영역 중복성 사용
+# <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>복원력 및 고가용성을 위해 Azure Container Registry에서 영역 중복 사용
 
-하나 이상의 Azure 지역에서 레지스트리 데이터를 복제 하 여 가용성을 제공 하 고 지역 운영에 대 한 대기 시간을 줄이는 [지역 복제](container-registry-geo-replication.md)외에도 Azure Container Registry 선택적 *영역 중복성* 을 지원 합니다. [영역 중복성](../availability-zones/az-overview.md#availability-zones) 은 특정 지역의 레지스트리 또는 복제 리소스 (복제본)에 대 한 복원 력 및 고가용성을 제공 합니다.
+Azure Container Registry는 하나 이상의 Azure 지역에서 레지스트리 데이터를 복제하여 가용성을 제공하고 지역 운영의 대기 시간을 줄이는 [지역에서 복제](container-registry-geo-replication.md) 외에도 선택적 ‘영역 중복’을 지원합니다. [영역 중복](../availability-zones/az-overview.md#availability-zones)은 특정 지역의 레지스트리 또는 복제 리소스(복제본)에 복원력 및 고가용성을 제공합니다.
 
-이 문서에서는 Azure CLI, Azure Portal 또는 Azure Resource Manager 템플릿을 사용 하 여 영역 중복 컨테이너 레지스트리 또는 복제본을 설정 하는 방법을 보여 줍니다. 
+이 문서에서는 Azure CLI, Azure Portal 또는 Azure Resource Manager 템플릿을 사용하여 영역 중복 컨테이너 레지스트리 또는 복제본을 설정하는 방법을 보여 줍니다. 
 
-영역 중복성은 프리미엄 컨테이너 레지스트리 서비스 계층의 **미리 보기** 기능입니다. 레지스트리 서비스 계층 및 제한에 대한 자세한 내용은 [Azure Container Registry 서비스 계층](container-registry-skus.md)을 참조하세요.
+영역 중복은 프리미엄 컨테이너 레지스트리 서비스 계층의 **미리 보기** 기능입니다. 레지스트리 서비스 계층 및 제한에 대한 자세한 내용은 [Azure Container Registry 서비스 계층](container-registry-skus.md)을 참조하세요.
 
 ## <a name="preview-limitations"></a>미리 보기 제한 사항
 
-* 현재 미국 동부, 미국 동부 2, 미국 서 부 2, 북부 유럽, 유럽 서부, 일본 동부 지역에서 지원 됩니다.
-* 가용성 영역에 대 한 지역 변환은 현재 지원 되지 않습니다. 지역에서 가용성 영역 지원을 사용 하도록 설정 하려면 원하는 지역에 레지스트리를 만들어야 합니다. 가용성 영역 지원을 사용 하도록 설정 하거나 가용성 영역 지원을 사용 하도록 설정 하 여 복제 된 영역을 추가 해야 합니다.
-* 영역 중복성은 지역에서 사용 하지 않도록 설정할 수 없습니다.
-* [ACR 작업](container-registry-tasks-overview.md) 은 아직 가용성 영역을 지원 하지 않습니다.
+* 현재 미국 동부, 미국 동부 2, 미국 서부 2, 북유럽, 서유럽, 일본 동부 지역에서 지원됩니다.
+* 가용성 영역으로의 지역 변환은 현재 지원되지 않습니다. 지역에서 가용성 영역 지원을 사용하도록 설정하려면 가용성 영역 지원을 사용하도록 설정하여 레지스트리를 원하는 지역에 만들거나, 가용성 영역 지원을 사용하도록 설정하여 복제된 지역을 추가해야 합니다.
+* 영역 중복은 지역에서 사용하지 않도록 설정할 수 없습니다.
+* [ACR 작업](container-registry-tasks-overview.md)은 아직 가용성 영역을 지원하지 않습니다.
 
-## <a name="about-zone-redundancy"></a>영역 중복성 정보
+## <a name="about-zone-redundancy"></a>영역 중복 정보
 
-Azure [가용성 영역](../availability-zones/az-overview.md) 을 사용 하 여 azure 지역 내에서 복원 력 및 고가용성 azure container registry를 만듭니다. 예를 들어 조직은 지역 내에서 고가용성을 제공 하는 동시에 다른 [지원 되는 azure 리소스](../availability-zones/az-region.md) 를 사용 하 여 영역 중복 azure container registry를 설정 하 여 데이터 상주 또는 기타 규정 준수 요구 사항을 충족할 수 있습니다.
+Azure [가용성 영역](../availability-zones/az-overview.md)을 사용하여 Azure 지역 내에서 복원력 있고 가용성이 높은 Azure Container Registry를 만듭니다. 예를 들어 조직은 다른 [지원되는 Azure 리소스](../availability-zones/az-region.md)에서 영역 중복 Azure Container Registry를 설정하여 데이터 보존 및 기타 준수 요구 사항을 충족하면서 지역 내에서 고가용성을 제공할 수 있습니다.
 
-또한 Azure Container Registry는 여러 지역에 걸쳐 서비스를 복제 하는 [지역에서 복제](container-registry-geo-replication.md)를 지원 하 여 중복성 및 집약성이 다른 위치에 있는 리소스를 계산할 수 있도록 합니다. 지역 내 중복성에 대 한 가용성 영역을 조합 하 고 여러 지역에서 지역에서 복제를 조합 하 여 레지스트리의 안정성과 성능을 향상 시킵니다.
+또한 Azure Container Registry는 여러 지역에서 서비스를 복제하는 [지역에서 복제](container-registry-geo-replication.md)를 지원하여 다른 위치의 컴퓨팅 리소스에 중복성 및 위치를 사용하도록 설정합니다. 지역 내 중복성을 위한 가용성 영역과 여러 지역 간의 지역에서 복제를 조합하면 레지스트리의 안정성과 성능이 향상됩니다.
 
-가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다. 각 영역에는 독립 된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터가 있습니다. 영역 중복성에 대해 구성 된 경우 레지스트리 (또는 다른 지역에 있는 레지스트리 복제본)가 해당 지역의 모든 가용성 영역에 복제 되므로 데이터 센터 오류가 발생 하는 경우에도 사용할 수 있습니다.
+가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다. 각 영역에는 독립적인 전원, 냉각 및 네트워킹을 갖춘 데이터 센터가 하나 이상 있습니다. 영역 중복을 위해 구성된 경우 레지스트리(또는 다른 지역의 레지스트리 복제본)는 해당 지역의 모든 가용성 영역에서 복제되어 데이터 센터 오류가 발생하는 경우에도 사용할 수 있도록 유지됩니다.
 
-## <a name="create-a-zone-redundant-registry---cli"></a>영역 중복 레지스트리 만들기-CLI
+## <a name="create-a-zone-redundant-registry---cli"></a>영역 중복 레지스트리 만들기 - CLI
 
-Azure CLI를 사용 하 여 영역 중복성을 사용 하려면 버전 2.17.0 이상 또는 Azure Cloud Shell Azure CLI 필요 합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+Azure CLI를 사용하여 영역 중복을 사용하도록 설정하려면 Azure CLI 버전 2.17.0 이상 또는 Azure Cloud Shell이 필요합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-필요한 경우 [az group create](/cli/azure/group#az_group_create) 명령을 실행 하 여 레지스트리에 대 한 리소스 그룹을 만듭니다.
+필요한 경우 [az group create](/cli/azure/group#az_group_create) 명령을 실행하여 레지스트리에 대한 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name <resource-group-name> --location <location>
 ```
 
-### <a name="create-zone-enabled-registry"></a>영역 사용 레지스트리 만들기
+### <a name="create-zone-enabled-registry"></a>영역 지원 레지스트리 만들기
 
-[Az acr create](/cli/azure/acr#az_acr_create) 명령을 실행 하 여 프리미엄 서비스 계층에서 영역 중복 레지스트리를 만듭니다. Azure Container Registry에 대 한 [가용성 영역을 지 원하는](../availability-zones/az-region.md) 지역을 선택 합니다. 다음 예제에서 영역 중복성은 *e미국* 지역에서 사용 하도록 설정 됩니다. `az acr create`자세한 레지스트리 옵션은 명령 도움말을 참조 하세요.
+[az acr create](/cli/azure/acr#az_acr_create) 명령을 실행하여 프리미엄 서비스 계층에 영역 중복 레지스트리를 만듭니다. Azure Container Registry에 대해 [가용성 영역을 지원](../availability-zones/az-region.md)하는 지역을 만듭니다. 다음 예제에서는 *eastus* 지역에서 영역 중복을 사용하도록 설정합니다. 더 많은 레지스트리 옵션은 `az acr create` 명령을 참조하세요.
 
 ```azurecli
 az acr create \
@@ -59,7 +59,7 @@ az acr create \
   --sku Premium
 ```
 
-명령 출력에서 `zoneRedundancy` 레지스트리에 대 한 속성을 확인 합니다. 사용 하도록 설정 되 면 레지스트리가 영역 중복 됩니다.
+명령 출력에서 레지스트리의 `zoneRedundancy` 속성을 확인합니다. 사용하도록 설정하면 레지스트리가 영역 중복됩니다.
 
 ```JSON
 {
@@ -70,7 +70,7 @@ az acr create \
 
 ### <a name="create-zone-redundant-replication"></a>영역 중복 복제 만들기
 
-[Az acr replication create](/cli/azure/acr/replication#az_acr_replication_create) 명령을 실행 하 여 *westus2* 과 같은 Azure Container Registry의 [가용성 영역을 지 원하는](../availability-zones/az-region.md) 지역에 영역 중복 레지스트리 복제본을 만듭니다. 
+[az acr replication create](/cli/azure/acr/replication#az_acr_replication_create) 명령을 실행하여 Azure Container Registry에 대해 [가용성 영역을 지원](../availability-zones/az-region.md)하는 지역(예: *westus2*)에 영역 중복 레지스트리 복제본을 만듭니다. 
 
 ```azurecli
 az acr replication create \
@@ -80,7 +80,7 @@ az acr replication create \
   --zone-redundancy enabled
 ```
  
-명령 출력에서 `zoneRedundancy` 복제본에 대 한 속성을 확인 합니다. 사용 하도록 설정 하면 복제본이 영역 중복입니다.
+명령 출력에서 복제본의 `zoneRedundancy` 속성을 확인합니다. 사용하도록 설정하면 복제본이 영역 중복됩니다.
 
 ```JSON
 {
@@ -89,32 +89,32 @@ az acr replication create \
 }
 ```
 
-## <a name="create-a-zone-redundant-registry---portal"></a>영역 중복 레지스트리 만들기-포털
+## <a name="create-a-zone-redundant-registry---portal"></a>영역 중복 레지스트리 만들기 - 포털
 
 1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 1. **리소스 만들기** > **컨테이너** > **컨테이너 레지스트리** 를 선택합니다.
-1. **기본 사항** 탭에서 리소스 그룹을 선택 하거나 만들고 고유한 레지스트리 이름을 입력 합니다. 
-1. **위치** 에서 *미국 동부* 와 같이 Azure Container Registry에 대 한 영역 중복성을 지 원하는 지역을 선택 합니다.
+1. **기본 사항** 탭에서 리소스 그룹을 선택하거나 만들고, 고유한 레지스트리 이름을 입력합니다. 
+1. **위치** 에서 Azure Container Registry에 대해 영역 중복을 지원하는 지역(예: ‘미국 동부’)을 선택합니다.
 1. **SKU** 에서 **프리미엄** 을 선택합니다.
-1. **가용성 영역** 에서 **사용** 을 선택 합니다.
-1. 필요에 따라 추가 레지스트리 설정을 구성한 다음 **검토 + 만들기** 를 선택 합니다.
+1. **가용성 영역** 에서 **사용** 을 선택합니다.
+1. 필요에 따라 추가 레지스트리 설정을 구성한 다음, **검토 + 만들기** 를 선택합니다.
 1. **만들기** 를 선택하여 레지스트리 인스턴스를 배포합니다.
 
-    :::image type="content" source="media/zone-redundancy/enable-availability-zones-portal.png" alt-text="Azure Portal에서 영역 중복성 사용":::
+    :::image type="content" source="media/zone-redundancy/enable-availability-zones-portal.png" alt-text="Azure Portal에서 영역 중복 사용":::
 
-영역 중복 복제를 만들려면 다음을 수행 합니다.
+영역 중복 복제를 만들려면 다음을 수행합니다.
 
-1. 프리미엄 계층 컨테이너 레지스트리로 이동 하 고 **복제** 를 선택 합니다.
-1. 표시 되는 맵에 Azure Container Registry에 대 한 영역 중복성을 지 원하는 지역에서 녹색 육각형을 선택 합니다 (예: **미국 서 부 2**). 또는 **+ 추가** 를 선택 합니다.
-1. **복제 만들기** 창에서 **위치** 를 확인 합니다. **가용성 영역** 에서 **사용** 을 선택 하 고 **만들기** 를 선택 합니다.
+1. 프리미엄 계층 컨테이너 레지스트리로 이동하고 **복제** 를 선택합니다.
+1. 맵이 표시되면 Azure Container Registry에 대해 영역 중복을 지원하는 지역(예: **미국 서부 2**)에서 녹색 육각형을 선택합니다. 또는 **+ 추가** 를 선택합니다.
+1. **복제 만들기** 창에서 **위치** 를 확인합니다. **가용성 영역** 에서 **사용** 을 선택한 다음, **만들기** 를 선택합니다.
 
-    :::image type="content" source="media/zone-redundancy/enable-availability-zones-replication-portal.png" alt-text="Azure Portal에서 영역 중복 복제를 사용 하도록 설정":::
+    :::image type="content" source="media/zone-redundancy/enable-availability-zones-replication-portal.png" alt-text="Azure Portal에서 영역 중복 복제 사용":::
 
-## <a name="create-a-zone-redundant-registry---template"></a>영역 중복 레지스트리 만들기-템플릿
+## <a name="create-a-zone-redundant-registry---template"></a>영역 중복 레지스트리 만들기 - 템플릿
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-필요한 경우 [az group create](/cli/azure/group#az_group_create) 명령을 실행 하 여 *에서는 eastus* 와 같이 Azure Container Registry에 대 한 [가용성 영역을 지 원하는](../availability-zones/az-region.md) 지역에 레지스트리에 대 한 리소스 그룹을 만듭니다. 이 지역은 템플릿에서 레지스트리 위치를 설정 하는 데 사용 됩니다.
+필요한 경우 [az group create](/cli/azure/group#az_group_create) 명령을 실행하여 Azure Container Registry에 대해 [가용성 영역을 지원](../availability-zones/az-region.md)하는 지역(예: *eastus*)의 레지스트리에 대한 리소스 그룹을 만듭니다. 이 지역은 템플릿에서 레지스트리 위치를 설정하는 데 사용됩니다.
 
 ```azurecli
 az group create --name <resource-group-name> --location eastus
@@ -122,7 +122,7 @@ az group create --name <resource-group-name> --location eastus
 
 ### <a name="deploy-the-template"></a>템플릿 배포 
 
-다음 리소스 관리자 템플릿을 사용 하 여 영역 중복 지역에서 복제 된 레지스트리를 만들 수 있습니다. 기본적으로 템플릿은 레지스트리에서 영역 중복성을 사용 하도록 설정 합니다. 
+다음 Resource Manager 템플릿을 사용하여 영역 중복, 지역 복제 레지스트리를 만들 수 있습니다. 기본적으로 템플릿은 레지스트리 및 지역 복제본에서 영역 중복을 사용하도록 설정합니다. 
 
 다음 내용을 새 파일에 복사하고 `registryZone.json`과 같은 파일 이름을 사용하여 저장합니다.
 
@@ -220,10 +220,10 @@ az group create --name <resource-group-name> --location eastus
   }
 ```
 
-다음 [az deployment group create](/cli/azure/group/deployment#az_group_deployment_create) 명령을 실행 하 여 이전 템플릿 파일을 사용 하 여 레지스트리를 만듭니다. 표시 되는 경우 다음을 제공 합니다.
+다음 [az deployment group create](/cli/azure/group/deployment#az_group_deployment_create) 명령을 실행하여 이전 템플릿 파일로 레지스트리를 만듭니다. 표시된 위치에 다음을 제공합니다.
 
-* 고유한 레지스트리 이름 또는 매개 변수 없이 템플릿을 배포 하 고 고유한 이름을 만듭니다.
-* 가용성 영역을 지 원하는 복제본의 위치 (예: *westus2* )
+* 고유한 레지스트리 이름, 매개 변수 없이 템플릿을 배포면 자동으로 고유한 이름 생성
+* 가용성 영역을 지원하는 복제본의 위치(예: *westus2*)
 
 ```azurecli
 az deployment group create \
@@ -232,7 +232,7 @@ az deployment group create \
   --parameters acrName=<registry-name> acrReplicaLocation=<replica-location>
 ```
 
-명령 출력에서 `zoneRedundancy` 레지스트리 및 복제본에 대 한 속성을 확인 합니다. 사용 하도록 설정 된 경우 각 리소스는 영역 중복입니다.
+명령 출력에서 레지스트리 및 복제본의 `zoneRedundancy` 속성을 확인합니다. 사용하도록 설정하면 각 리소스가 영역 중복됩니다.
 
 ```JSON
 {
@@ -243,5 +243,5 @@ az deployment group create \
 
 ## <a name="next-steps"></a>다음 단계
 
-* [가용성 영역을 지 원하는 지역](../availability-zones/az-region.md)에 대해 자세히 알아보세요.
-* Azure에서 [안정성](/azure/architecture/framework/resiliency/overview) 을 위한 빌드에 대해 자세히 알아보세요.
+* [가용성 영역을 지원하는 지역](../availability-zones/az-region.md)에 대해 자세히 알아봅니다.
+* Azure에서 [안정성](/azure/architecture/framework/resiliency/overview)을 보장하도록 빌드하는 방법을 자세히 알아봅니다.

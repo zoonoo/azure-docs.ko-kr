@@ -1,22 +1,22 @@
 ---
-title: Azure CLI 스크립트 샘플-논리 앱 만들기
-description: Azure CLI Logic Apps 확장을 통해 논리 앱을 만드는 샘플 스크립트입니다.
+title: Azure CLI 스크립트 샘플 - 논리 앱 만들기
+description: Azure CLI에서 Logic Apps 확장을 통해 논리 앱을 만드는 샘플 스크립트입니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/30/2020
-ms.openlocfilehash: a4553ceee482fb232e9ab56deca650be93f9dc6b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 8086ce0e5964d4e37a5ffc3082d5f2856058e4e5
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218046"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875488"
 ---
-# <a name="azure-cli-script-sample---create-a-logic-app"></a>Azure CLI 스크립트 샘플-논리 앱 만들기
+# <a name="azure-cli-script-sample---create-a-logic-app"></a>Azure CLI 스크립트 샘플 - 논리 앱 만들기
 
-이 스크립트는 [Azure CLI Logic Apps 확장](/cli/azure/ext/logic/logic)()을 통해 샘플 논리 앱을 만듭니다 `az logic` . Azure CLI를 통해 논리 앱을 만들고 관리 하는 방법에 대 한 자세한 내용은 [Azure CLI의 Logic Apps 빠른](quickstart-logic-apps-azure-cli.md)시작을 참조 하세요.
+이 스크립트는 [Azure CLI Logic Apps 확장](/cli/azure/logic)(`az logic`)을 통해 샘플 논리 앱을 만듭니다. Azure CLI를 통해 논리 앱을 만들고 관리하는 방법에 대한 자세한 가이드는 [Azure CLI의 Logic Apps 빠른 시작](quickstart-logic-apps-azure-cli.md)을 참조하세요.
 
 > [!WARNING]
 > Azure CLI Logic Apps 확장은 현재 *실험 단계* 이며 *고객 지원에서 다루지 않습니다*. 특히 프로덕션 환경에서 이 확장을 사용하도록 선택하는 경우 이 CLI 확장을 주의해서 사용해야 합니다.
@@ -26,8 +26,8 @@ ms.locfileid: "102218046"
 * 활성 구독이 있는 Azure 계정. Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 로컬 컴퓨터에 설치된 [Azure CLI](/cli/azure/install-azure-cli)
 * 컴퓨터에 설치된 [Logic Apps Azure CLI 확장](/cli/azure/azure-cli-extensions-list). 이 확장을 설치하려면 `az extension add --name logic` 명령을 사용합니다.
-* 논리 앱에 대 한 [워크플로 정의](quickstart-logic-apps-azure-cli.md#workflow-definition) 입니다. 이 JSON 파일은 [워크플로 정의 언어 스키마](logic-apps-workflow-definition-language.md)를 따라야 합니다.
-* 논리 앱과 동일한 리소스 그룹에서 지원 되는 [Logic Apps 커넥터](../connectors/apis-list.md) 를 통해 전자 메일 계정에 대 한 API 연결 이 예제에서는 [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md) 커넥터를 사용 하지만 [Outlook.com](../connectors/connectors-create-api-outlook.md)와 같은 다른 커넥터를 사용할 수도 있습니다.
+* 논리 앱의 [워크플로 정의](quickstart-logic-apps-azure-cli.md#workflow-definition). 이 JSON 파일은 [워크플로 정의 언어 스키마](logic-apps-workflow-definition-language.md)를 따라야 합니다.
+* 논리 앱과 동일한 리소스 그룹에서 지원되는 [Logic Apps 커넥터](../connectors/apis-list.md)를 통해 메일 계정에 API 연결. 이 예제에서는 [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md) 커넥터를 사용하지만 [Outlook.com](../connectors/connectors-create-api-outlook.md)과 같은 다른 커넥터를 사용할 수도 있습니다.
 
 ### <a name="prerequisite-check"></a>필수 구성 요소 확인
 
@@ -41,23 +41,23 @@ ms.locfileid: "102218046"
 
 ### <a name="sample-workflow-explanation"></a>샘플 워크플로 설명
 
-이 예제 워크플로 정의 파일은 [Azure Portal에 대 한 Logic Apps 빠른](quickstart-create-first-logic-app-workflow.md)시작과 동일한 기본 논리 앱을 만듭니다. 
+이 예제 워크플로 정의 파일은 [Azure Portal의 Logic Apps 빠른 시작](quickstart-create-first-logic-app-workflow.md)과 동일한 기본 논리 앱을 만듭니다. 
 
 이 샘플 워크플로는 다음과 같습니다. 
 
-1. `$schema`논리 앱에 대 한 스키마를 지정 합니다.
+1. 논리 앱의 `$schema` 스키마를 지정합니다.
 
-1. 트리거 목록에서 논리 앱에 대 한 트리거를 정의 `triggers` 합니다. 트리거는 `recurrence` 3 시간 마다 () 되풀이 됩니다. `When_a_feed_item_is_published`지정 된 RSS 피드 ()에 대해 새 피드 항목이 게시 될 때 () 작업이 트리거됩니다 `feedUrl` .
+1. 트리거 목록 `triggers`에서 논리 앱의 트리거를 정의합니다. 트리거는 3시간마다 되풀이됩니다(`recurrence`). 지정된 RSS 피드(`feedUrl`)의 새 피드 항목이 게시될 때(`When_a_feed_item_is_published`) 작업이 트리거됩니다.
 
-1. 작업 목록에서 논리 앱에 대 한 작업을 정의 `actions` 합니다. 작업은 `Send_an_email_(V2)` 작업 입력의 본문 섹션 ()에 지정 된 대로 RSS 피드 항목의 세부 정보가 포함 된 전자 메일 ()을 Microsoft 365 통해 보냅니다 () `body` `inputs` .
+1. 작업 목록 `actions`에서 논리 앱의 작업을 정의합니다. 작업은 작업 입력(`inputs`)의 본문 섹션(`body`)에 지정된 대로 Microsoft 365를 통해 RSS 피드 항목의 세부 정보가 포함된 메일을 보냅니다(`Send_an_email_(V2)`).
 
 ## <a name="sample-workflow-definition"></a>샘플 워크플로 정의
 
-샘플 스크립트를 실행 하기 전에 먼저 샘플 [워크플로 정의](#prerequisites)를 만들어야 합니다.
+샘플 스크립트를 실행하려면 먼저 샘플 [워크플로 정의](#prerequisites)를 만들어야 합니다.
 
-1. 컴퓨터에 JSON 파일을 만듭니다 `testDefinition.json` . 
+1. 컴퓨터에서 JSON 파일 `testDefinition.json`을 만듭니다. 
 
-1. 다음 콘텐츠를 JSON 파일에 복사 합니다. 
+1. JSON 파일에 다음 내용을 복사합니다. 
     ```json
     
     {
@@ -134,22 +134,22 @@ ms.locfileid: "102218046"
     
     ```
 
-1. 자리 표시자 값을 사용자의 고유한 정보로 업데이트 합니다.
+1. 자리 표시자 값은 자신의 정보로 업데이트합니다.
 
-    1. 자리 표시자 전자 메일 주소 ( `"To": "test@example.com"` )를 바꿉니다. Logic Apps 커넥터와 호환 되는 전자 메일 주소를 사용 해야 합니다. 자세한 내용은 [필수 구성 요소](#prerequisites)를 참조 하세요.
+    1. 자리 표시자 메일 주소(`"To": "test@example.com"`)를 바꿉니다. Logic Apps 커넥터와 호환되는 메일 주소를 사용해야 합니다. 자세한 내용은 [필수 조건](#prerequisites)을 참조하세요.
 
-    1. 다른 메일 커넥터를 사용 하는 경우 추가 커넥터 세부 정보를 Office 365 Outlook 커넥터를 사용 하 여 바꿉니다.
+    1. Office 365 Outlook 커넥터가 아닌 다른 메일 커넥터를 사용하는 경우 추가 커넥터 정보를 바꿉니다.
 
-    1. 연결 `00000000-0000-0000-0000-000000000000` 매개 변수 ()에서 연결 식별자 (및)에 대 한 자리 표시자 구독 값 ()을 `connectionId` `id` `$connections` 사용자 고유의 구독 값으로 바꿉니다.
+    1. 연결 매개 변수(`$connections`) 아래에서 연결 ID(`connectionId` 및 `id`)의 자리 표시자 구독 값(`00000000-0000-0000-0000-000000000000`)을 자신의 구독 값으로 바꿉니다.
 
 1. 변경 내용을 저장합니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
 > [!NOTE]
-> 이 샘플은 셸에 대해 작성 되었습니다 `bash` . Windows PowerShell 또는 명령 프롬프트와 같은 다른 셸에서이 샘플을 실행 하려면 스크립트를 수정 해야 할 수 있습니다.
+> 이 샘플은 `bash` 셸용으로 작성되었습니다. Windows PowerShell, 명령 프롬프트 등과 같은 다른 셸에서 이 샘플을 실행하려면 스크립트를 수정해야 할 수 있습니다.
 
-이 샘플 스크립트를 실행 하기 전에 다음 명령을 실행 하 여 Azure에 연결 합니다.
+이 샘플 스크립트를 실행하기 전에 다음 명령을 실행하여 Azure에 연결합니다.
 
 ```azurecli-interactive
 
@@ -157,7 +157,7 @@ az login
 
 ```
 
-그런 다음 워크플로 정의를 만든 디렉터리로 이동 합니다. 예를 들어 데스크톱에서 워크플로 정의 JSON 파일을 만든 경우 다음을 수행 합니다.
+그런 다음 워크플로 정의를 만든 디렉터리로 이동합니다. 예를 들어 워크플로 정의 JSON 파일을 바탕 화면에 만든 경우 다음을 실행합니다.
 
 ```azurecli
 
@@ -165,7 +165,7 @@ cd ~/Desktop
 
 ```
 
-그런 다음이 스크립트를 실행 하 여 논리 앱을 만듭니다. 
+그런 다음 이 스크립트를 실행하여 논리 앱을 만듭니다. 
 
 ```azurecli-interactive
 
@@ -183,7 +183,7 @@ az logic workflow create --resource-group "testResourceGroup" --location "westus
 
 ### <a name="clean-up-deployment"></a>배포 정리
 
-샘플 스크립트 사용을 완료 한 후 다음 명령을 실행 하 여 논리 앱을 포함 하 여 리소스 그룹 및 모든 중첩 된 리소스를 제거 합니다.
+샘플 스크립트 사용을 마쳤으면 다음 명령을 실행하여 논리 앱을 포함하여 리소스 그룹과 모든 중첩 리소스를 제거합니다.
 
 ```azurecli-interactive
 
@@ -193,13 +193,13 @@ az group delete --name testResourceGroup --yes
 
 ## <a name="script-explanation"></a>스크립트 설명
 
-이 샘플 스크립트는 다음 명령을 사용 하 여 새 리소스 그룹 및 논리 앱을 만듭니다.
+이 샘플 스크립트는 다음 명령을 사용하여 새 리소스 그룹과 논리 앱을 만듭니다.
 
 | 명령 | 메모 |
 | ------- | ----- |
-| [`az group create`](/cli/azure/group#az-group-create) | 논리 앱의 리소스가 저장 되는 리소스 그룹을 만듭니다. |
-| [`az logic workflow create`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create) | 매개 변수에 정의 된 워크플로를 기반으로 논리 앱을 만듭니다 `--definition` . |
-| [`az group delete`](/cli/azure/vm/extension) | 리소스 그룹 및 모든 중첩 된 리소스를 삭제 합니다. |
+| [`az group create`](/cli/azure/group#az_group_create) | 논리 앱의 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [`az logic workflow create`](/cli/azure/logic/workflow#az_logic_workflow_create) | `--definition` 매개 변수에 정의된 워크플로를 기반으로 논리 앱을 만듭니다. |
+| [`az group delete`](/cli/azure/vm/extension) | 리소스 그룹과 모든 중첩 리소스를 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
