@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: f2a8368a5473a3f3d2f679b2be696ca04bc6e5e4
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 2e0a04cef7952822931887f038410ff867cc2afe
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070770"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286729"
 ---
 # <a name="whats-new-in-computer-vision"></a>Computer Vision의 새로운 기능
 
@@ -26,8 +26,8 @@ ms.locfileid: "108070770"
 ### <a name="computer-vision-v32-ga"></a>Computer Vision v3.2 GA
 
 이제 Computer Vision API v3.2는 다음과 같은 업데이트를 통해 일반 공급됩니다.
-* 향상된 이미지 태깅 모델: 시각적 콘텐츠를 분석하고 이미지에 표시된 개체, 작업 및 콘텐츠에 따라 관련 태그를 생성합니다. 이는 [태그 이미지 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200)를 통해 사용할 수 있습니다. 자세히 알아보려면 이미지 분석 [방법 가이드](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) 및 [개요](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-image-analysis)를 참조하세요.
-* 업데이트된 콘텐츠 조정 모델: 성인 콘텐츠 유무를 검색하고 성인, 외설 및 유혈 콘텐츠가 포함된 이미지를 필터링하는 플래그를 제공합니다. 이는 [분석 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b)를 통해 사용할 수 있습니다. 자세히 알아보려면 이미지 분석 [방법 가이드](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) 및 [개요](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-image-analysis)를 참조하세요.
+* 향상된 이미지 태깅 모델: 시각적 콘텐츠를 분석하고 이미지에 표시된 개체, 작업 및 콘텐츠에 따라 관련 태그를 생성합니다. 이는 [태그 이미지 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200)를 통해 사용할 수 있습니다. 자세히 알아보려면 이미지 분석 [방법 가이드](./vision-api-how-to-topics/howtocallvisionapi.md) 및 [개요](./overview-image-analysis.md)를 참조하세요.
+* 업데이트된 콘텐츠 조정 모델: 성인 콘텐츠 유무를 검색하고 성인, 외설 및 유혈 콘텐츠가 포함된 이미지를 필터링하는 플래그를 제공합니다. 이는 [분석 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b)를 통해 사용할 수 있습니다. 자세히 알아보려면 이미지 분석 [방법 가이드](./vision-api-how-to-topics/howtocallvisionapi.md) 및 [개요](./overview-image-analysis.md)를 참조하세요.
 * 중국어 간체 및 번체, 일본어, 한국어 및 라틴어를 포함한 [73개 언어에 사용할 수 있는 OCR(Read)](./language-support.md#optical-character-recognition-ocr).
 * [OCR(Read)](./overview-ocr.md)은 온-프레미스 배포를 위해 [Distroless 컨테이너](./computer-vision-how-to-install-containers.md?tabs=version-3-2)로도 사용할 수 있습니다.
 

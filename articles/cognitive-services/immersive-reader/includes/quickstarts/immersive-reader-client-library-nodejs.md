@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js
-ms.openlocfilehash: ffef03457f9d3faf385bd0a924474dfa6efc4121
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: b1899c9e5a441ff73fb4a27b4e02fd9cfe7e7d95
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102619243"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108157685"
 ---
 [몰입형 리더](https://www.onenote.com/learningtools)는 새 리더, 언어 학습자 및 학습 차이(예: 난독증)가 있는 사람들을 위해 독해력을 향상시키기 위해 입증된 기술을 구현하는 포괄적으로 설계된 도구입니다. 애플리케이션에서 몰입형 리더를 사용하여 텍스트를 분리하여 포커스를 개선하고, 자주 사용되는 단어에 대한 그림을 표시하고, 품사를 강조 표시하고, 선택한 텍스트를 소리내어 읽고, 단어와 구문을 실시간으로 번역하는 등의 작업을 수행할 수 있습니다.
 
@@ -98,7 +98,7 @@ router.get('/GetTokenAndSubdomain', function(req, res) {
                 resource: 'https://cognitiveservices.azure.com/'
             }
         },
-        function(err, resp, tokenResult) {
+        function(err, res, tokenResult) {
             if (err) {
                 console.log(err);
                 return res.status(500).send('CogSvcs IssueToken error');

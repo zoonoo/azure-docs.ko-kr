@@ -2,13 +2,13 @@
 title: 자습서 - Azure Portal을 사용하여 새 정책 할당
 description: 이 자습서에서는 Azure Portal을 사용하여 비규격 리소스를 식별하는 Azure Policy 할당을 만듭니다.
 ms.topic: tutorial
-ms.date: 10/07/2020
-ms.openlocfilehash: 9a07e490525ce532f8f843b30b3b83715e65ce3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/21/2021
+ms.openlocfilehash: 20cb8125a157a3ce97c88278c99f90936b449b65
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91826589"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831657"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>자습서: 비준수 리소스를 식별하는 정책 할당 만들기
 
@@ -16,7 +16,7 @@ Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 
 
 이 프로세스가 끝나면 Windows 또는 Linux용 Log Analytics 에이전트가 설치되지 않은 머신을 성공적으로 식별할 수 있습니다. 이 가상 머신은 정책 할당을 _비준수_ 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -95,9 +95,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 범위에 정책 정의를 할당하고 규정 준수 보고서를 평가했습니다. 정책 정의는 범위 내 모든 리소스가 규정을 준수하는지 확인하고, 규정을 준수하지 않는 리소스를 파악합니다. 이제 VM용 Azure Monitor를 사용하여 Azure Arc 지원 서버 머신을 모니터링할 준비가 되었습니다.
+이 자습서에서는 범위에 정책 정의를 할당하고 규정 준수 보고서를 평가했습니다. 정책 정의는 범위 내 모든 리소스가 규정을 준수하는지 확인하고, 규정을 준수하지 않는 리소스를 파악합니다. 이제 [VM 인사이트](../../../azure-monitor/vm/vminsights-overview.md)를 사용하여 Azure Arc 지원 서버 머신을 모니터링할 수 있습니다.
 
 머신에서 성능, 실행 중인 프로세스 및 해당 종속성을 모니터링하고 확인하는 방법을 알아보려면 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [VM용 Azure Monitor 사용](tutorial-enable-vm-insights.md)
+> [VM 인사이트 사용](tutorial-enable-vm-insights.md)

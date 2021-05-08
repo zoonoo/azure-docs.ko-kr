@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/02/2021
+ms.date: 04/25/2021
 ms.author: jeedes
-ms.openlocfilehash: ba6eb0a1b607fc05c4d0c660dd3d7016f81ef4b3
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 28e77ecafc32f5b71ff2141aadb00ab484e0067a
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449507"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001955"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone-single-sign-on"></a>자습서: Cornerstone Single Sign-On과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -42,7 +42,17 @@ ms.locfileid: "106449507"
 
 * Cornerstone Single Sign-On에서 **SP** 시작 SSO를 지원합니다.
 * Cornerstone Single Sign-On에서 [자동화된 사용자 프로비저닝](cornerstone-ondemand-provisioning-tutorial.md)을 지원합니다.
+* 이 특정 목록에서 제품을 하나 또는 여러 개 통합하는 경우 갤러리에서 이 Cornerstone OnDemand Single Sign-On 앱을 사용해야 합니다.
 
+    다음에 대한 솔루션을 제공합니다.
+
+    1. 학습 관리(LMS)
+    2. 성능 관리(EPM)
+    3. 연속 계획
+    4. 모집(ATS)
+    5. 확장된 Enterprise
+    6. 인적 자원
+    7. 직원 콘텐츠
 
 ## <a name="adding-cornerstone-single-sign-on-from-the-gallery"></a>갤러리에서 Cornerstone Single Sign-On 추가
 

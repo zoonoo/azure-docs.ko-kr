@@ -8,12 +8,12 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c799e38092c5983b4ad0e3daea6aae99934c7302
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 59b2e3d5ccefaa9740359891815d83ddd14ad09d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200892"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140808"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Azure IoT Hub에 다운스트림 디바이스 인증
 
@@ -76,7 +76,7 @@ Visual Studio Code용 Azure Portal, Azure CLI 또는 IoT 확장을 사용하여 
    >
    >환경 변수 **AuthenticationMode** 를 **CloudAndScope** 값으로 설정하여 이전 동작으로 다시 이동하도록 IoT Edge 허브를 구성할 수 있습니다.
 
-[Azure CLI용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)을 사용하여 동일한 작업을 수행할 수도 있습니다. 다음 예제에서는 [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) 명령을 사용하여 대칭 키 인증을 사용하는 새 IoT 디바이스를 만들고 부모 디바이스를 할당합니다.
+[Azure CLI용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)을 사용하여 동일한 작업을 수행할 수도 있습니다. 다음 예제에서는 [az iot hub device-identity](/cli/azure/iot/hub/device-identity) 명령을 사용하여 대칭 키 인증을 사용하는 새 IoT 디바이스를 만들고 부모 디바이스를 할당합니다.
 
 ```azurecli
 az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
@@ -125,13 +125,13 @@ X.509 자체 서명 인증(지문 인증이라고도 함)의 경우 다운스트
 
 5. 선호하는 언어에 따라 IoT 애플리케이션에서 X.509 인증서를 참조할 수 있는 방법에 대한 샘플을 검토합니다.
 
-   * C#: [Azure IoT Hub의 X.509 보안 설정](../iot-hub/iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates)
+   * C#: [Azure IoT Hub의 X.509 보안 설정](../iot-hub/tutorial-x509-scripts.md)
    * C: [iotedge_downstream_device_sample.c](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iotedge_downstream_device_sample)
    * Node.js: [simple_sample_device_x509](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device_x509.js)
    * Java: [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
    * Python: [send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/send_message_x509.py)
 
-[Azure CLI용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)을 사용하여 동일한 디바이스 만들기 작업을 수행할 수 있습니다. 다음 예제에서는 [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) 명령을 사용하여 X.509 자체 서명 인증을 사용하는 새 IoT 디바이스를 만들고 부모 디바이스를 할당합니다.
+[Azure CLI용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)을 사용하여 동일한 디바이스 만들기 작업을 수행할 수 있습니다. 다음 예제에서는 [az iot hub device-identity](/cli/azure/iot/hub/device-identity) 명령을 사용하여 X.509 자체 서명 인증을 사용하는 새 IoT 디바이스를 만들고 부모 디바이스를 할당합니다.
 
 ```azurecli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
@@ -143,19 +143,19 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
 
 X.509 CA(인증 기관) 서명 인증의 경우 IoT Hub에 등록된 루트 CA 인증서를 사용하여 다운스트림 디바이스에 대한 인증서에 서명해야 합니다. 루트 CA 인증서 또는 해당 중간 인증서에 의해 발급된 인증서를 사용하는 모든 디바이스는 인증이 허용됩니다.
 
-이 섹션은 IoT Hub 문서 [Azure IoT Hub에서 X.509 보안 설정](../iot-hub/iot-hub-security-x509-get-started.md)에 설명된 지침을 기반으로 합니다.
+이 섹션은 IoT Hub 문서 [Azure IoT Hub에서 X.509 보안 설정](../iot-hub/tutorial-x509-scripts.md)에 설명된 지침을 기반으로 합니다.
 
 1. CA 인증서를 사용하여 다운스트림 디바이스에 대해 두 개의 디바이스 인증서(기본 및 보조)를 만듭니다.
 
    X.509 인증서를 만들 인증 기관이 없는 경우 IoT Edge 데모 인증서 스크립트를 사용하여 [다운스트림 디바이스 인증서 만들기](how-to-create-test-certificates.md#create-downstream-device-certificates)가 가능합니다. CA 서명 인증서를 만들기 위해 다음 단계를 수행합니다. 게이트웨이 디바이스에 대한 인증서를 생성한 것과 같은 루트 CA 인증서를 사용합니다.
 
-2. Azure IoT Hub에서 X.509 보안 설정의 [IoT 허브에 X.509 CA 인증서 등록](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) 섹션에 설명된 지침을 따릅니다. 이 섹션에서는 다음 단계를 수행합니다.
+2. Azure IoT Hub에서 X.509 보안 설정의 [IoT 허브에 X.509 CA 인증서 등록](../iot-hub/tutorial-x509-scripts.md) 섹션에 설명된 지침을 따릅니다. 이 섹션에서는 다음 단계를 수행합니다.
 
    1. 루트 CA 인증서를 업로드합니다. 데모 인증서를 사용하는 경우 루트 CA는 **\<path>/certs/azure-iot-test-only.root.ca.cert.pem** 입니다.
 
    2. 해당 루트 CA 인증서를 소유하고 있는지 확인합니다.
 
-3. Azure IoT Hub에서 X.509 보안 설정의 [IoT 허브용 X.509 디바이스 만들기](../iot-hub/iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub) 섹션에 설명된 지침을 따릅니다. 이 섹션에서는 다음 단계를 수행합니다.
+3. Azure IoT Hub에서 X.509 보안 설정의 [IoT 허브용 X.509 디바이스 만들기](../iot-hub/tutorial-x509-scripts.md) 섹션에 설명된 지침을 따릅니다. 이 섹션에서는 다음 단계를 수행합니다.
 
    1. 새 디바이스를 추가합니다. **디바이스 ID** 에 소문자 이름을 입력하고 인증 유형 **X.509 CA 서명** 을 선택합니다.
 
@@ -169,13 +169,13 @@ X.509 CA(인증 기관) 서명 인증의 경우 IoT Hub에 등록된 루트 CA �
 
 6. 선호하는 언어에 따라 IoT 애플리케이션에서 X.509 인증서를 참조할 수 있는 방법에 대한 샘플을 검토합니다.
 
-   * C#: [Azure IoT Hub의 X.509 보안 설정](../iot-hub/iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates)
+   * C#: [Azure IoT Hub의 X.509 보안 설정](../iot-hub/tutorial-x509-scripts.md)
    * C: [iotedge_downstream_device_sample.c](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iotedge_downstream_device_sample)
    * Node.js: [simple_sample_device_x509](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device_x509.js)
    * Java: [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
    * Python: [send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/send_message_x509.py)
 
-[Azure CLI용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)을 사용하여 동일한 디바이스 만들기 작업을 수행할 수 있습니다. 다음 예제에서는 [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) 명령을 사용하여 X.509 CA 서명 인증을 사용하는 새 IoT 디바이스를 만들고 부모 디바이스를 할당합니다.
+[Azure CLI용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)을 사용하여 동일한 디바이스 만들기 작업을 수행할 수 있습니다. 다음 예제에서는 [az iot hub device-identity](/cli/azure/iot/hub/device-identity) 명령을 사용하여 X.509 CA 서명 인증을 사용하는 새 IoT 디바이스를 만들고 부모 디바이스를 할당합니다.
 
 ```azurecli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
@@ -208,7 +208,7 @@ HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
-부모/자식 관계를 이용하면 게이트웨이를 연결 호스트로 직접 호출하여 연결 문자열을 단순화할 수 있습니다. 예:
+부모/자식 관계를 이용하면 게이트웨이를 연결 호스트로 직접 호출하여 연결 문자열을 단순화할 수 있습니다. 예를 들어:
 
 ```console
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz

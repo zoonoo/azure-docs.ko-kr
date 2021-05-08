@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 08/31/2020
-ms.openlocfilehash: ab6607175c596a0d82cf75f0ad786a76e85b6959
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 9787fd244ffe18bcaa37bcc28392d29c9e8768d4
+ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102612153"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108006905"
 ---
 # <a name="tutorial-create-an-faq-bot-with-azure-bot-service"></a>자습서: Azure Bot Service로 FAQ 봇 만들기
 QnA Maker 및 Azure [Bot Service](https://azure.microsoft.com/services/bot-service/)를 사용하여 코드 없이 FAQ 봇을 만듭니다.
@@ -81,3 +81,8 @@ QnA Maker 및 Azure [Bot Service](https://azure.microsoft.com/services/bot-servi
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="테스트 웹 채팅에 사용자 쿼리를 입력합니다.":::
 1. 추가 [지원 채널](/azure/bot-service/bot-service-manage-channels)에서 봇을 강화합니다.
+
+   * Bot Service 리소스에서 **채널** 을 클릭합니다.
+
+   >[!div class="mx-imgBorder"]
+   >![팀과의 통합 스크린샷](../media/qnamaker-tutorial-updates/connect-with-teams.png)

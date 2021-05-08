@@ -16,12 +16,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: e72af412f61f2084fb78907c15a92a22b9e3bc99
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 22f8be9ed487681c4029890fe9136731ddfc4fc3
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567182"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108147286"
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub에 대한 액세스 제어
 
@@ -99,7 +99,7 @@ HTTPS는 **권한 부여** 요청 헤더에서 유효한 토큰을 포함하여 
 
 사용자 이름(DeviceId는 대/소문자 구분): `iothubname.azure-devices.net/DeviceId`
 
-암호(CLI 확장 명령 [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-generate-sas-token) 또는 [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)를 사용하여 SAS 토큰을 생성할 수 있음):
+암호(CLI 확장 명령 [az iot hub generate-sas-token](/cli/azure/iot/hub#az_iot_hub_generate_sas_token) 또는 [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)를 사용하여 SAS 토큰을 생성할 수 있음):
 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -303,7 +303,7 @@ device1의 모든 기능에 액세스 권한을 부여하는 결과는 다음과
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> CLI 확장 명령 [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-generate-sas-token) 또는 [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)를 사용하여 SAS 토큰을 생성할 수 있습니다.
+> CLI 확장 명령 [az iot hub generate-sas-token](/cli/azure/iot/hub#az_iot_hub_generate_sas_token) 또는 [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)를 사용하여 SAS 토큰을 생성할 수 있습니다.
 
 ### <a name="use-a-shared-access-policy"></a>공유 액세스 정책 사용
 
@@ -381,7 +381,7 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 * **CA 서명 X.509 인증서**. 디바이스를 식별하고 IoT Hub에서 디바이스 인증을 받으려면 CA(인증 기관)에서 생성 및 서명한 X.509 인증서를 사용할 수 있습니다. 지문 또는 CA 인증을 사용합니다.
 
-* **자체 생성 및 자체 서명 X-509 인증서**. 디바이스 제조업체 또는 사내 배포자는 이러한 인증서를 생성하고 디바이스에 해당 프라이빗 키(및 인증서)를 저장할 수 있습니다. 이러한 용도로 [OpenSSL](https://www.openssl.org/) 및 [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) 유틸리티와 같은 도구를 사용할 수 있습니다. 지문 인증만 사용합니다.
+* **자체 생성 및 자체 서명 X-509 인증서**. 디바이스 제조업체 또는 사내 배포자는 이러한 인증서를 생성하고 디바이스에 해당 프라이빗 키(및 인증서)를 저장할 수 있습니다. 이러한 용도로 [OpenSSL](https://www.openssl.org/) 및 [Windows SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) 유틸리티와 같은 도구를 사용할 수 있습니다. 지문 인증만 사용합니다.
 
 디바이스는 인증을 위해 X.509 인증서 또는 보안 토큰 중 하나만 사용할 수 있습니다. X.509 인증서 인증을 사용하면 기존 인증서가 만료될 때 인증서 롤오버를 처리할 전략이 있는지 확인합니다.
 
@@ -390,13 +390,13 @@ X.509 CA(인증 기관) 인증을 사용하는 디바이스에 대한 다음 기
 * HTTPS, Websocket을 통한 MQTT 및 Websocket 프로토콜을 통한 AMQP
 * 파일 업로드(모든 프로토콜)
 
-인증 기관을 사용한 인증에 대한 자세한 내용은 [X.509 CA 인증서를 사용한 디바이스 인증](iot-hub-x509ca-overview.md)을 참조하세요. IoT 허브에서 인증 기관을 업로드하고 확인하는 방법에 대한 자세한 내용은 [Azure IoT 허브에서 X.509 보안 설정](iot-hub-security-x509-get-started.md)을 참조하세요.
+인증 기관을 사용한 인증에 대한 자세한 내용은 [X.509 CA 인증서를 사용한 디바이스 인증](iot-hub-x509ca-overview.md)을 참조하세요. IoT 허브에서 인증 기관을 업로드하고 확인하는 방법에 대한 자세한 내용은 [Azure IoT 허브에서 X.509 보안 설정](./tutorial-x509-scripts.md)을 참조하세요.
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>디바이스에 대해 X.509 인증서 등록
 
 [C#용 Azure IoT 서비스 SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service)(버전 1.0.8 이상)는 인증에 X.509 인증서를 사용하는 디바이스의 등록을 지원합니다. 디바이스 가져오기/내보내기 같은 기타 API에서도 X.509 인증서를 지원합니다.
 
-CLI 확장 명령 [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity)를 사용하여 디바이스에 대한 X.509 인증서를 구성할 수도 있습니다.
+CLI 확장 명령 [az iot hub device-identity](/cli/azure/iot/hub/device-identity)를 사용하여 디바이스에 대한 X.509 인증서를 구성할 수도 있습니다.
 
 ### <a name="c-support"></a>C\# 지원
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 28c54865ab9c2876d998896f5f536a11088962f8
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 90ff0a42a9d82fc0bf4f9235e235c774a2d0e75d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107566429"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146566"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 OPENROWSET를 사용하는 방법
 
@@ -227,6 +227,7 @@ CSV 파서 버전 2.0 세부 정보:
 - 최대 행 크기 제한은 8MB입니다.
 - 다음 옵션은 지원되지 않습니다. DATA_COMPRESSION.
 - 따옴표로 묶인 빈 문자열("")은 빈 문자열로 해석됩니다.
+- DATEFORMAT SET 옵션은 적용되지 않습니다.
 - DATE 데이터 형식에 지원되는 형식: YYYY-MM-DD
 - TIME 데이터 형식에 지원되는 형식: HH:MM:SS[.fractional seconds]
 - DATETIME2 데이터 형식에 지원되는 형식: YYYY-MM-DD HH:MM:SS[.fractional seconds]
@@ -256,7 +257,7 @@ Parquet 파일에는 읽을 열 메타데이터가 포함되어 있으며, 형�
 CSV 파일의 경우 열 이름은 헤더 행에서 읽을 수 있습니다. HEADER_ROW 인수를 사용하여 헤더 행이 있는지 여부를 지정할 수 있습니다. HEADER_ROW = FALSE이면 C1, C2, ... Cn의 제네릭 열 이름이 사용됩니다. 여기서 n은 파일의 열 수입니다. 데이터 형식은 처음 100개의 데이터 행에서 유추됩니다. 샘플은 [스키마를 지정하지 않고 CSV 파일 읽기](#read-csv-files-without-specifying-schema)를 확인하세요.
 
 > [!IMPORTANT]
-> 정보가 부족하여 적절한 데이터 형식을 유추할 수 없고 더 큰 데이터 형식이 대신 사용되는 경우가 있습니다. 이는 성능 오버헤드를 발생시키며, 특히 varchar(8000)로 유추되는 문자 열에 중요합니다. 최적의 성능을 위해 [유추된 데이터 형식을 확인](best-practices-sql-on-demand.md#check-inferred-data-types)하고 [적절한 데이터 형식을 사용](best-practices-sql-on-demand.md#use-appropriate-data-types)하세요.
+> 정보가 부족하여 적절한 데이터 형식을 유추할 수 없고 더 큰 데이터 형식이 대신 사용되는 경우가 있습니다. 이는 성능 오버헤드를 발생시키며, 특히 varchar(8000)로 유추되는 문자 열에 중요합니다. 최적의 성능을 위해 [유추된 데이터 형식을 확인](./best-practices-serverless-sql-pool.md#check-inferred-data-types)하고 [적절한 데이터 형식을 사용](./best-practices-serverless-sql-pool.md#use-appropriate-data-types)하세요.
 
 ### <a name="type-mapping-for-parquet"></a>Parquet에 대한 형식 매핑
 
@@ -403,4 +404,4 @@ AS [r]
 
 ## <a name="next-steps"></a>다음 단계
 
-더 많은 샘플을 보려면 [쿼리 데이터 스토리지 빠른 시작](query-data-storage.md)을 참조하여 `OPENROWSET`를 사용하여 [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md) 및 [JSON](query-json-files.md) 파일 형식을 읽는 방법을 알아보세요. 최적의 성능을 얻으려면 [모범 사례](best-practices-sql-on-demand.md)를 확인하세요. [CETAS](develop-tables-cetas.md)를 사용하여 쿼리 결과를 Azure Storage에 저장하는 방법도 알아볼 수 있습니다.
+더 많은 샘플을 보려면 [쿼리 데이터 스토리지 빠른 시작](query-data-storage.md)을 참조하여 `OPENROWSET`를 사용하여 [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md) 및 [JSON](query-json-files.md) 파일 형식을 읽는 방법을 알아보세요. 최적의 성능을 얻으려면 [모범 사례](./best-practices-serverless-sql-pool.md)를 확인하세요. [CETAS](develop-tables-cetas.md)를 사용하여 쿼리 결과를 Azure Storage에 저장하는 방법도 알아볼 수 있습니다.

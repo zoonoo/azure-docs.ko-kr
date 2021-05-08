@@ -6,13 +6,13 @@ ms.author: sidram
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/22/2020
-ms.openlocfilehash: e5157a02f97370b20db85bf5e3e8aae98a2d8668
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/21/2021
+ms.openlocfilehash: 413ce025438b368035e945d2ac4e6e68f878a299
+ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101709294"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107992099"
 ---
 # <a name="overview-of-azure-stream-analytics-cluster"></a>Azure Stream Analytics 클러스터의 개요
 
@@ -68,7 +68,7 @@ Stream Analytics 클러스터는 선택한 SU 용량을 기준으로 요금이 �
 
 ### <a name="which-inputs-and-outputs-can-i-privately-connect-to-from-my-stream-analytics-cluster"></a>Stream Analytics 클러스터에서 개인적으로 연결할 수 있는 입력 및 출력은 무엇인가요?
 
-Stream Analytics는 다양한 입력 및 출력 형식을 지원합니다. 작업에서 입력 및 출력 리소스에 액세스할 수 있도록 클러스터에 [프라이빗 엔드포인트를 만들](private-endpoints.md) 수 있습니다. 현재 Azure SQL Database, Azure Storage, Azure Data Lake Storage Gen2, Azure Event Hub 및 Azure Service Bus는 지원되는 서비스이며, 다른 유형은 곧 추가될 예정입니다. 
+Stream Analytics는 다양한 입력 및 출력 형식을 지원합니다. 작업에서 입력 및 출력 리소스에 액세스할 수 있도록 클러스터에 [프라이빗 엔드포인트를 만들](private-endpoints.md) 수 있습니다. 현재 Azure SQL Database, Azure Synapse Analytics, Azure Storage, Azure Data Lake Storage Gen2, Azure Event Hub, Azure IoT Hubs, Azure Function 및 Azure Service Bus는 관리형 프라이빗 엔드포인트를 만들 수 있도록 지원되는 서비스입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

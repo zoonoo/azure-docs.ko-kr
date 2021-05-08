@@ -11,12 +11,12 @@ ms.custom:
 - mqtt
 - device-developer
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: bbf94b6e000d5c082debd6a0d41a8d62b8b3f26e
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 479c12ca00614b2d34bd08f41e3451826a253035
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491103"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001822"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application"></a>자습서: 클라이언트 애플리케이션을 만들어 Azure IoT Central 애플리케이션에 연결
 
@@ -83,7 +83,7 @@ IoT Central 자습서 세트를 계속 진행하고 IoT Central 솔루션 빌드
 > [!div class="nextstepaction"]
 > [게이트웨이 디바이스 템플릿 만들기](./tutorial-define-gateway-device-type.md)
 
-디바이스 개발자로서, Java를 사용하여 디바이스를 만드는 방법의 기본 사항을 배웠으므로 이제 다음 단계를 수행하는 것이 좋습니다.
+디바이스 개발자로서 디바이스를 만드는 방법의 기본 사항을 배웠습니다. 이제 다음 단계를 수행하는 것이 좋습니다.
 
 * 디바이스 코드를 구현할 때 디바이스 템플릿의 역할을 자세히 알아보려면 [디바이스 템플릿이란?](./concepts-device-templates.md)을 참조하세요.
 * IoT Central에 디바이스를 등록하는 방법과 IoT Central에서 디바이스 연결을 보호하는 방법에 대한 자세한 내용은 [Azure IoT Central에 연결](./concepts-get-connected.md)을 참조하세요.

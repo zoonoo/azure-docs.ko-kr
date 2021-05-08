@@ -3,18 +3,18 @@ title: 자습서 - Azure Cost Management에서 내보낸 데이터 만들기 및
 description: 이 문서에서는 내보낸 Azure Cost Management 데이터를 외부 시스템에서 사용할 수 있도록 만들고 관리하는 방법을 보여줍니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/7/2020
+ms.date: 04/26/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: e3c1fa071cd23b871f754e89d6f17eb2cc44b394
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 37804be38918713cdfa7aea59763054e444daa7e
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400355"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108015720"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>자습서: 내보낸 데이터 만들기 및 관리
 
@@ -33,11 +33,14 @@ Azure Storage로의 Azure 비용 데이터 예약된 내보내기를 만드는 �
 > * 데이터가 수집되는지 확인
 
 ## <a name="prerequisites"></a>필수 구성 요소
+
 데이터 내보내기는 [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/) 및 [Microsoft 고객 계약](get-started-partners.md) 고객을 포함한 다양한 종류의 Azure 계정에 사용할 수 있습니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요. 다음 Azure 사용 권한 또는 범위는 사용자 및 그룹별 데이터 내보내기에 대해 구독별로 지원됩니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 
-- 소유자 – 구독에 대한 예약된 내보내기를 만들고, 수정하거나 삭제할 수 있습니다.
-- 기여자 – 자신의 예약된 내보내기를 만들고, 수정하거나 삭제할 수 있습니다. 다른 사용자가 만든 예약된 내보내기의 이름을 수정할 수 있습니다.
-- 읽기 권한자 - 사용 권한이 있는 내보내기를 예약할 수 있습니다.
+- 소유자 - 구독에 대한 예약된 내보내기를 생성, 수정 또는 삭제할 수 있습니다.
+- 기여자 - 자신의 예약된 내보내기를 생성, 수정 또는 삭제할 수 있습니다. 다른 사용자가 만든 예약된 내보내기의 이름을 수정할 수 있습니다.
+- 읽기 권한자 - 권한이 있는 내보내기를 예약할 수 있습니다.
+
+기업계약 및 Microsoft 고객 계약 범위에 대한 내보내기를 구성하는 데 필요한 액세스 등 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 
 Azure Storage 계정의 경우:
 - 내보내기에 대한 사용 권한과 상관 없이 구성된 스토리지 계정을 변경하려면 쓰기 사용 권한이 필요합니다.
@@ -64,9 +67,9 @@ Azure Storage 계정의 경우:
     - **분할상환 비용(사용량 및 구매)** - Azure 예약과 같은 구매 분할상환 비용을 내보내려면 선택합니다.
 1. **내보내기 유형** 에서 선택합니다.
     - **월간 누계 비용 매일 내보내기** - 월간 누계 비용에 대한 새로운 내보내기 파일을 매일 제공합니다. 최신 데이터는 이전의 매일 내보내기에서 집계됩니다.
-    - **지난 7일 동안의 주간 비용 내보내기** – 선택한 내보내기 시작일로부터 지난 7일 동안 발생한 비용의 주간 내보내기를 만듭니다.
-    - **지난달 비용의 월간 내보내기** – 내보내기를 만든 현재 달에 비해 지난 달의 비용에 대한 내보내기를 제공합니다. 앞으로 진행하면 일정은 매월 5일에 이전 달의 비용으로 내보내기를 실행합니다.
-    - **일회성 내보내기** – Azure Blob 스토리지로 내보낼 기록 데이터의 날짜 범위를 선택할 수 있습니다. 선택한 날부터 최대 90일의 기록 비용을 내보낼 수 있습니다. 이 내보내기는 즉시 실행되며 2시간 이내에 스토리지 계정에서 사용할 수 있습니다.
+    - **지난 7일 동안의 주간 비용 내보내기** - 선택한 내보내기 시작일로부터 지난 7일 동안 발생한 비용의 주간 내보내기를 만듭니다.
+    - **지난 달 비용의 월간 내보내기** - 내보내기를 만든 현재 달과 비교한 지난 달의 비용에 대한 내보내기를 제공합니다. 앞으로 진행하면 일정은 매월 5일에 이전 달의 비용으로 내보내기를 실행합니다.
+    - **일회성 내보내기** - Azure Blob Storage로 내보낼 기록 데이터의 날짜 범위를 선택할 수 있습니다. 선택한 날부터 최대 90일의 기록 비용을 내보낼 수 있습니다. 이 내보내기는 즉시 실행되며 2시간 이내에 스토리지 계정에서 사용할 수 있습니다.
         내보내기 유형에 따라 시작 날짜를 선택하거나 **From** 및 **To** 날짜를 선택합니다.
 1. Azure 스토리지 계정에 대한 구독을 지정한 다음, 리소스 그룹을 선택하거나 새로 만듭니다.
 1. 스토리지 계정 이름을 선택하거나 새로 만듭니다.
@@ -81,11 +84,13 @@ Azure Storage 계정의 경우:
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
+프로그래밍 방식으로 내보내기를 만든 경우 스토리지 계정이 있는 구독과 함께 `Microsoft.CostManagementExports` 리소스 공급자를 수동으로 등록해야 합니다. Azure Portal을 사용하여 내보내기를 만들면 등록이 자동으로 수행됩니다. 리소스 공급자를 등록하는 방법에 대한 자세한 내용은 [리소스 공급자 등록](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)을 참조하세요.
+
 Azure CLI에 대한 환경 준비하는 것으로 시작합니다.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-1. 로그인한 후 현재 내보내기를 보려면 [az costmanagement export list](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_list) 명령을 사용합니다.
+1. 로그인한 후 현재 내보내기를 보려면 [az costmanagement export list](/cli/azure/costmanagement/export#az_costmanagement_export_list) 명령을 사용합니다.
 
    ```azurecli
    az costmanagement export list --scope "subscriptions/00000000-0000-0000-0000-000000000000"
@@ -108,7 +113,7 @@ Azure CLI에 대한 환경 준비하는 것으로 시작합니다.
    az storage account create --resource-group TreyNetwork --name cmdemo
    ```
 
-1. [az costmanagement export create](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_create) 명령을 실행하여 내보내기를 만듭니다.
+1. [az costmanagement export create](/cli/azure/costmanagement/export#az_costmanagement_export_create) 명령을 실행하여 내보내기를 만듭니다.
 
    ```azurecli
    az costmanagement export create --name DemoExport --type ActualCost \
@@ -122,14 +127,14 @@ Azure CLI에 대한 환경 준비하는 것으로 시작합니다.
 
    이 예에서는 `MonthToDate`를 사용합니다. 내보내기는 월간 누계 비용에 대해 매일 내보내기 파일을 만듭니다. 최신 데이터는 이번 달 이전 매일 내보내기에서 집계됩니다.
 
-1. 내보내기 작업에 대한 세부 정보를 보려면 [az costmanagement export show](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_show) 명령을 사용합니다.
+1. 내보내기 작업에 대한 세부 정보를 보려면 [az costmanagement export show](/cli/azure/costmanagement/export#az_costmanagement_export_show) 명령을 사용합니다.
 
    ```azurecli
    az costmanagement export show --name DemoExport \
       --scope "subscriptions/00000000-0000-0000-0000-000000000000"
    ```
 
-1. [az costmanagement export update](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_update) 명령을 사용하여 내보내기를 업데이트합니다.
+1. [az costmanagement export update](/cli/azure/costmanagement/export#az_costmanagement_export_update) 명령을 사용하여 내보내기를 업데이트합니다.
 
    ```azurecli
    az costmanagement export update --name DemoExport
@@ -141,13 +146,15 @@ Azure CLI에 대한 환경 준비하는 것으로 시작합니다.
 >[!NOTE]
 >처음에는 내보내기가 실행될 때까지 12~24시간이 걸릴 수 있습니다. 그러나 내보낸 파일에 데이터가 표시되기까지는 더 오래 걸릴 수 있습니다.
 
-[az costmanagement export delete](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_delete) 명령을 사용하여 내보내기를 삭제할 수 있습니다.
+[az costmanagement export delete](/cli/azure/costmanagement/export#az_costmanagement_export_delete) 명령을 사용하여 내보내기를 삭제할 수 있습니다.
 
 ```azurecli
 az costmanagement export delete --name DemoExport --scope "subscriptions/00000000-0000-0000-0000-000000000000"
 ```
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+프로그래밍 방식으로 내보내기를 만든 경우 스토리지 계정이 있는 구독과 함께 `Microsoft.CostManagementExports` 리소스 공급자를 수동으로 등록해야 합니다. Azure Portal을 사용하여 내보내기를 만들면 등록이 자동으로 수행됩니다. 리소스 공급자를 등록하는 방법에 대한 자세한 내용은 [리소스 공급자 등록](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)을 참조하세요.
 
 Azure PowerShell에 대한 환경을 준비하는 것으로 시작합니다.
 

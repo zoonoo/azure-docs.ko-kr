@@ -4,31 +4,31 @@ description: 이 문서에서는 구독의 여러 작업 영역과 특정 App In
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/22/2020
-ms.openlocfilehash: 57ed43b25c9031138a91f0870d316e1ae7a07a5b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.date: 04/11/2021
+ms.openlocfilehash: 19cc85751fc5e4a165b646ac89d9d6b6e90c4408
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102030970"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379556"
 ---
 # <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>작업 영역 및 앱에 걸쳐 있는 Azure Monitor에서 로그 쿼리 수행
 
-Azure Monitor 로그는 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독에서 여러 Log Analytics 작업 영역 및 Application Insights 앱에 대 한 쿼리를 지원 합니다. 이를 통해 시스템 차원의 데이터 보기가 가능합니다.
+Azure Monitor 로그는 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 여러 Log Analytics 작업 영역 및 Application Insights 앱에서 쿼리를 지원합니다. 이를 통해 시스템 차원의 데이터 보기가 가능합니다.
 
-여러 작업 영역 및 앱에 저장 된 데이터를 쿼리 하는 방법에는 다음 두 가지가 있습니다.
-1. 작업 영역 및 앱 세부 정보를 지정 하 여 명시적으로 이 기법은이 문서에 자세히 설명 되어 있습니다.
-2. [리소스 컨텍스트 쿼리](./design-logs-deployment.md#access-mode)를 암시적으로 사용 합니다. 특정 리소스, 리소스 그룹 또는 구독의 컨텍스트에서 쿼리하면 해당 리소스에 대 한 데이터를 포함 하는 모든 작업 영역에서 관련 데이터가 인출 됩니다. 앱에 저장 된 Application Insights 데이터는 인출 되지 않습니다.
+여러 작업 영역 및 앱에 저장된 데이터는 두 가지 방법으로 쿼리할 수 있습니다.
+1. 작업 영역 및 앱 세부 정보를 명시적으로 지정. 이 기술은 이 문서에서 자세히 설명합니다.
+2. [리소스-컨텍스트 쿼리](./design-logs-deployment.md#access-mode)를 암시적으로 사용. 특정 리소스, 리소스 그룹 또는 구독의 컨텍스트에서 쿼리하면 해당 리소스에 대한 데이터가 포함된 모든 작업 영역에서 관련 데이터를 가져옵니다. 앱에 저장된 Application Insights 데이터는 가져오지 않습니다.
 
 > [!IMPORTANT]
-> [작업 영역 기반 Application Insights 리소스](../app/create-workspace-resource.md)를 사용하는 경우 원격 분석은 다른 모든 로그 데이터와 함께 Log Analytics 작업 영역에 저장됩니다. Workspace () 식을 사용 하 여 여러 작업 영역에 응용 프로그램을 포함 하는 쿼리를 작성 합니다. 동일한 작업 영역에 있는 여러 응용 프로그램의 경우에는 상호 작업 영역 쿼리가 필요 하지 않습니다.
+> [작업 영역 기반 Application Insights 리소스](../app/create-workspace-resource.md)를 사용하는 경우 원격 분석은 다른 모든 로그 데이터와 함께 Log Analytics 작업 영역에 저장됩니다. workspace() 식을 사용하여 여러 작업 영역에 애플리케이션을 포함하는 쿼리를 작성합니다. 동일한 작업 영역에 있는 여러 애플리케이션의 경우 작업 영역 간 쿼리가 필요하지 않습니다.
 
 
-## <a name="cross-resource-query-limits"></a>리소스 간 쿼리 제한 
+## <a name="cross-resource-query-limits"></a>리소스 간 쿼리 한도 
 
-* 단일 쿼리에 포함할 수 있는 Application Insights 리소스 및 Log Analytics 작업 영역의 수는 100 개로 제한 됩니다.
-* 뷰 디자이너에서는 리소스 간 쿼리가 지원되지 않습니다. Log Analytics에서 쿼리를 작성 하 고 Azure 대시보드에 고정 하 여 [로그 쿼리를 시각화할](../visualize/tutorial-logs-dashboards.md)수 있습니다. 
-* 로그 경고의 리소스 간 쿼리는 현재 [SCHEDULEDQUERYRULES API](/rest/api/monitor/scheduledqueryrules)에서만 지원 됩니다. 레거시 Log Analytics Alerts API를 사용 하는 경우 [현재 api로 전환](../alerts/alerts-log-api-switch.md)해야 합니다.
+* 단일 쿼리에 포함할 수 있는 Application Insights 리소스 및 Log Analytics 작업 영역의 수는 100개로 제한됩니다.
+* 뷰 디자이너에서는 리소스 간 쿼리가 지원되지 않습니다. Log Analytics에서 쿼리를 작성하고 Azure 대시보드에 고정하여 [로그 쿼리를 시각화](../visualize/tutorial-logs-dashboards.md)하거나 [통합 문서](../visualize/workbooks-overview.md)에 포함할 수 있습니다.
+* 로그 경고의 리소스 간 쿼리는 현재 [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules)에서만 지원됩니다. 레거시 Log Analytics 경고 API를 사용하는 경우 [현재 API로 전환](../alerts/alerts-log-api-switch.md)해야 합니다.
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Log Analytics 작업 영역 전체 및 Application Insights 쿼리
@@ -41,15 +41,17 @@ Azure Monitor 로그는 동일한 리소스 그룹, 다른 리소스 그룹 또�
 
 * 리소스 이름 - 사람이 읽을 수 있는 작업 영역 이름이며 *구성 요소 이름* 이라고도 합니다. 
 
+    >[!IMPORTANT]
+    >앱 및 작업 영역 이름이 고유하지 않기 때문에 이 식별자가 모호할 수 있습니다. 따라서 정규화된 이름, 작업 영역 ID 또는 Azure 리소스 ID로 참조하는 것이 좋습니다.
+
     `workspace("contosoretail-it").Update | count`
 
-* 정규화 된 이름-구독 이름, 리소스 그룹 및 구성 요소 이름이 *subscriptionName/resourceGroup/componentName* 형식으로 구성 된 작업 영역의 "전체 이름"입니다. 
+* 정규화된 이름 - *subscriptionName/resourceGroup/componentName* 형식의 구독 이름, 리소스 그룹 및 구성 요소 이름으로 구성된 작업 영역의 “전체 이름”입니다. 
 
     `workspace('contoso/contosoretail/contosoretail-it').Update | count`
 
     >[!NOTE]
-    >Azure 구독 이름은 고유하지 않기 때문에 이 식별자는 모호할 수 있습니다. 
-    >
+    >Azure 구독 이름은 고유하지 않기 때문에 이 식별자는 모호할 수 있습니다.
 
 * 작업 영역 ID - 작업 영역 ID는 GUID(Globally Unique Identifier)로 나타낸 각 작업 영역에 할당된 변경되지 않는 고유한 식별자입니다.
 
@@ -72,7 +74,7 @@ Application Insights에서 애플리케이션 식별은 *app(Identifier)* 식으
     `app("fabrikamapp")`
 
     >[!NOTE]
-    >이름을 기준으로 응용 프로그램을 식별 하면 액세스 가능한 모든 구독에서 고유성이 가정 됩니다. 지정된 이름의 애플리케이션이 여러 개 있으면 모호성으로 인해 쿼리가 실패합니다. 이런 경우 다른 식별자 중 하나를 사용해야 합니다.
+    >애플리케이션을 이름으로 식별하면 액세스 가능한 모든 구독에서 고유한 것으로 가정합니다. 지정된 이름의 애플리케이션이 여러 개 있으면 모호성으로 인해 쿼리가 실패합니다. 이런 경우 다른 식별자 중 하나를 사용해야 합니다.
 
 * 정규화된 이름 - 구독 이름, 리소스 그룹 및 구성 요소 이름이 *subscriptionName/resourceGroup/componentName* 형식으로 구성된 앱의 "전체 이름"입니다. 
 
@@ -134,7 +136,7 @@ applicationsScoping
 ```
 
 >[!NOTE]
-> 작업 영역 및 응용 프로그램을 포함 하 여 경고 규칙 리소스의 액세스 유효성 검사는 경고 생성 시 수행 되므로이 메서드는 로그 경고와 함께 사용할 수 없습니다. 경고를 만든 후 함수에 새 리소스를 추가 하는 것은 지원 되지 않습니다. 로그 경고에 리소스 범위를 지정 하는 함수를 사용 하려면 포털에서 또는 리소스 관리자 템플릿을 사용 하 여 범위 리소스를 업데이트 해야 합니다. 또는 로그 경고 쿼리에 리소스 목록을 포함할 수 있습니다.
+> 작업 영역 및 애플리케이션을 포함한 경고 규칙 리소스의 액세스 유효성 검사는 경고 생성 시 수행되므로, 이 메서드는 로그 경고와 함께 사용할 수 없습니다. 경고를 만든 후에는 함수에 새 리소스를 추가할 수 없습니다. 로그 경고에서 리소스 범위를 지정하는 함수를 사용하려면 포털이나 Resource Manager 템플릿에서 경고 규칙을 편집하여 범위가 지정된 리소스를 업데이트해야 합니다. 또는 로그 경고 쿼리에 리소스 목록을 포함할 수 있습니다.
 
 
 ![Timechart](media/cross-workspace-query/chart.png)

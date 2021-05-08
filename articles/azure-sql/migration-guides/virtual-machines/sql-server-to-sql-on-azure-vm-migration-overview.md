@@ -1,6 +1,6 @@
 ---
-title: Azure VM에서 SQL Server SQL Server (마이그레이션 개요)
-description: SQL Server를 Azure Vm에서 SQL Server로 마이그레이션하려는 여러 마이그레이션 전략에 대해 알아봅니다.
+title: SQL Server에서 Azure VM의 SQL Server로(마이그레이션 개요)
+description: SQL Server를 Azure VM의 SQL Server로 마이그레이션하려고 할 때 사용할 수 있는 다양한 마이그레이션 전략에 관해 알아봅니다.
 ms.custom: ''
 ms.service: virtual-machines-sql
 ms.subservice: migration-guide
@@ -10,158 +10,158 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 2702451aa3645b2702f8f38c37574a6601249dac
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
-ms.translationtype: MT
+ms.openlocfilehash: b3f81b9c6855522718f69f76adfd5fe9a3c6059c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105641406"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136250"
 ---
-# <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>마이그레이션 개요: Azure Vm에서 SQL Server으로 SQL Server
+# <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>마이그레이션 개요: SQL Server에서 Azure VM의 SQL Server로
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
 
-SQL Server를 Azure Virtual Machines (Vm)에서 SQL Server로 마이그레이션하는 다양 한 마이그레이션 전략에 대해 알아봅니다. 
+SQL Server를 Azure VMs(Virtual Machines)의 SQL Server로 마이그레이션하는 다양한 마이그레이션 전략에 관해 알아봅니다. 
 
-온-프레미스 또는에서 실행 중인 SQL Server를 마이그레이션할 수 있습니다.
+온-프레미스 또는 다음에서 실행 중인 SQL Server를 마이그레이션할 수 있습니다.
 
 - Virtual Machines의 SQL Server  
-- Amazon Web Services (AWS) EC2 
-- AWS RDS (Amazon 관계형 데이터베이스 서비스) 
-- 계산 엔진 (Google Cloud Platform GCP)
+- AWS(Amazon Web Services) EC2 
+- AWS RDS(Amazon Relational Database Service) 
+- 컴퓨팅 엔진(Google Cloud Platform - GCP)
 
-다른 마이그레이션 가이드는 [데이터베이스 마이그레이션](https://docs.microsoft.com/data-migration)을 참조하세요. 
+다른 마이그레이션 가이드는 [데이터베이스 마이그레이션](/data-migration)을 참조하세요. 
 
 ## <a name="overview"></a>개요
 
-OS 제어와 함께 친숙 한 SQL Server 환경을 사용 하 고 기본 제공 VM 고가용성, [자동화 된 백업](../../virtual-machines/windows/automated-backup.md)및 [자동화 된 패치와](../../virtual-machines/windows/automated-patching.md)같은 클라우드 제공 기능을 활용 하려는 경우 [Azure Virtual Machines (vm)에서 SQL Server](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) 로 마이그레이션합니다. 
+OS 제어와 함께 익숙한 SQL Server 환경을 사용하고 기본 제공 VM 고가용성, [자동화된 백업](../../virtual-machines/windows/automated-backup.md), [자동화된 패치](../../virtual-machines/windows/automated-patching.md)와 같은 클라우드 제공 기능을 사용하려면 [Azure VMs(Virtual Machines)의 SQL Server](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)로 마이그레이션합니다. 
 
-[Azure 하이브리드 혜택 라이선스 모델](../../virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md) 을 사용 하 여 라이선스를 [확보 하거나 무료 보안 업데이트](../../virtual-machines/windows/sql-server-2008-extend-end-of-support.md)를 통해 SQL Server 2008 및 SQL Server 2008 r 2에 대 한 지원을 확장 하 여 비용을 절감할 수 있습니다. 
+[Azure 하이브리드 혜택 라이선스 모델](../../virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md)을 통해 사용자 라이선스를 가져와 비용을 절감하거나 [무료 보안 업데이트](../../virtual-machines/windows/sql-server-2008-extend-end-of-support.md)를 받아 SQL Server 2008 및 SQL Server 2008 R2에 대한 지원을 확장합니다. 
 
 
-## <a name="choose-appropriate-target"></a>적절 한 대상 선택
+## <a name="choose-appropriate-target"></a>적절한 대상 선택
 
-Azure Virtual Machines 다양 한 Azure 지역에서 실행 되며 다양 한 [컴퓨터 크기](../../../virtual-machines/sizes.md) 와 [저장소 옵션도](../../../virtual-machines/disks-types.md)제공 합니다. SQL Server 워크 로드에 대 한 VM 및 저장소의 올바른 크기를 결정할 때 [Azure Virtual Machines의 SQL Server에 대 한 성능 지침](../../virtual-machines/windows/performance-guidelines-best-practices.md#vm-size-guidance)을 참조 하세요. 워크 로드에 대 한 VM 크기 및 저장소 요구 사항을 확인 합니다. Performance-Based [Azure Migrate 평가](../../../migrate/concepts-assessment-calculation.md#types-of-assessments)를 통해 크기를 조정 하는 것이 좋습니다. 이 옵션을 사용할 수 없는 경우에는 [성능을 위한 고유한 기준선](https://azure.microsoft.com/services/virtual-machines/sql-server/)을 만드는 방법에 대 한 다음 문서를 참조 하세요.
+Azure Virtual Machines는 Azure의 여러 지역에서 실행되며 다양한 [머신 크기](../../../virtual-machines/sizes.md) 및 [스토리지 옵션](../../../virtual-machines/disks-types.md)도 제공합니다. SQL Server 워크로드에 올바른 VM 및 스토리지 크기를 결정할 때 [Azure Virtual Machines의 SQL Server에 대한 성능 지침](../../virtual-machines/windows/performance-guidelines-best-practices-checklist.md#vm-size)을 참조하세요. 워크로드에 맞는 VM 크기 및 스토리지 요구 사항을 확인합니다. 성능 기반 [Azure Migrate 평가](../../../migrate/concepts-assessment-calculation.md#types-of-assessments)를 통해 크기를 조정하는 것이 좋습니다. 이 옵션을 사용할 수 없는 경우 [성능을 위한 고유 기준](https://azure.microsoft.com/services/virtual-machines/sql-server/)을 만드는 방법에 관한 다음 문서를 참조하세요.
 
-VM에서 SQL Server를 올바르게 설치 하 고 구성 하는 것도 고려해 야 합니다. 올바른 버전, 버전 및 운영 체제를 사용 하 여 SQL Server VM를 만들 수 있도록 [AZURE SQL 가상 컴퓨터 이미지 갤러리](../../virtual-machines/windows/create-sql-vm-portal.md) 를 사용 하는 것이 좋습니다. 그러면 자동 백업 및 자동화 된 패치 같은 기능을 사용할 수 있도록 자동으로 SQL Server [리소스 공급자](../../virtual-machines/windows/create-sql-vm-portal.md) 를 사용 하 여 Azure VM을 등록 합니다.
+VM에서 SQL Server를 올바르게 설치하고 구성하는 것도 고려해야 합니다. [Azure SQL 가상 머신 이미지 갤러리](../../virtual-machines/windows/create-sql-vm-portal.md)를 사용하면 적합한 버전, 에디션 및 운영 체제로 SQL Server VM을 만들 수 있기 때문에 해당 갤러리를 사용하는 것이 좋습니다. 그러면 자동화된 백업 및 자동화된 패치와 같은 기능을 사용할 수 있도록 SQL Server [리소스 공급자](../../virtual-machines/windows/create-sql-vm-portal.md)에 자동으로 Azure VM도 등록합니다.
 
 ## <a name="migration-strategies"></a>마이그레이션 전략
 
-Azure Vm에서 사용자 데이터베이스를 SQL Server 인스턴스로 마이그레이션하는 마이그레이션 전략에는 **마이그레이션, 마이그레이션** 및 **이동** 이라는 두 가지가 있습니다. 
+사용자 데이터베이스를 Azure VM의 SQL Server 인스턴스로 마이그레이션하는 두 가지 마이그레이션 전략은 **마이그레이션** 과 **리프트 앤 시프트** 입니다. 
 
-비즈니스에 적합 한 접근 방식은 일반적으로 다음 요소에 따라 달라 집니다. 
+비즈니스에 적합한 접근 방식은 일반적으로 다음 요소에 따라 달라집니다. 
 
-- 마이그레이션의 크기 및 규모
+- 마이그레이션 크기 및 규모
 - 마이그레이션 속도
-- 코드 변경에 대 한 응용 프로그램 지원
-- SQL Server 버전, 운영 체제 또는 둘 다를 변경 해야 합니다.
+- 애플리케이션의 코드 변경 지원
+- SQL Server 버전, 운영 체제 또는 둘 다 변경해야 합니다.
 - 기존 제품의 지원 가능성 수명 주기
-- 마이그레이션 중 응용 프로그램 가동 중지 시간에 대 한 창
+- 마이그레이션 중 애플리케이션 가동 중지 시간
 
-:::image type="content" source="media/sql-server-to-sql-on-azure-vm-individual-databases-guide/virtual-machine-migration-downtime.png" alt-text="가상 컴퓨터 마이그레이션 가동 중지 시간":::
+:::image type="content" source="media/sql-server-to-sql-on-azure-vm-individual-databases-guide/virtual-machine-migration-downtime.png" alt-text="가상 머신 마이그레이션 가동 중지 시간":::
 
-다음 표에서는 두 마이그레이션 전략의 차이점을 설명 합니다.
+다음 표에서는 두 마이그레이션 전략의 차이점을 설명합니다.
 <br />
 
 | **마이그레이션 전략** | **설명** | **사용하는 경우** |
 | --- | --- | --- |
-| **리프트 & shift** | 리프트 앤 시프트 마이그레이션 전략을 사용 하 여 실제 또는 가상 SQL Server 전체를 현재 위치에서 운영 체제 또는 SQL Server 버전을 변경 하지 않고 Azure VM의 SQL Server 인스턴스로 이동 합니다. 리프트 앤 시프트 마이그레이션을 완료 하려면 [Azure Migrate](../../../migrate/migrate-services-overview.md)를 참조 하세요. <br /><br /> 원본 서버는 온라인 및 서비스 요청을 유지 하는 반면, 원본 및 대상 서버는 거의 원활한 마이그레이션을 위해 데이터를 동기화 합니다. | 데이터 센터 종료와 같은 시나리오에도 적용 되는 단일에서 매우 큰 마이그레이션에 사용 합니다. <br /><br /> 사용자 SQL 데이터베이스 또는 응용 프로그램에 대 한 코드 변경을 최소화 하 여 전반적인 마이그레이션을 더 빠르게 수행할 수 있습니다. <br /><br />[SSIS](/sql/integration-services/sql-server-integration-services), [SSRS](/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports), [SSAS](/analysis-services/analysis-services-overview)등의 비즈니스 인텔리전스 서비스를 마이그레이션하는 데 필요한 추가 단계는 없습니다. |
-|**마이그레이션** | 대상 SQL Server 및/또는 운영 체제 버전을 업그레이드 하려는 경우 마이그레이션 전략을 사용 합니다. <br /> <br /> Azure Marketplace에서 Azure VM을 선택 하거나 원본 SQL Server 버전과 일치 하는 준비 된 SQL Server 이미지를 선택 합니다. | 최신 버전의 SQL Server에서 사용 가능한 기능을 사용 하거나 더 이상 지원 하지 않는 레거시 SQL Server 및/또는 OS 버전을 업그레이드 해야 하는 경우에 사용 합니다.  <br /> <br /> SQL Server 업그레이드를 지원 하기 위해 일부 응용 프로그램 또는 사용자 데이터베이스를 변경 해야 할 수 있습니다. <br /><br />마이그레이션 범위에서 [비즈니스 인텔리전스](#business-intelligence) 서비스를 마이그레이션하기 위한 추가 고려 사항이 있을 수 있습니다. |
+| **리프트 앤 시프트** | 리프트 앤 시프트 마이그레이션 전략을 사용하여 운영 체제 또는 SQL Server 버전을 변경하지 않고 전체 실제 또는 가상 SQL Server를 현재 위치에서 Azure VM의 SQL Server 인스턴스로 이동합니다. 리프트 앤 시프트 마이그레이션을 완료하려면 [Azure Migrate](../../../migrate/migrate-services-overview.md)를 참조하세요. <br /><br /> 원본 서버는 온라인 상태를 유지하고 요청을 서비스하는 반면, 원본과 대상 서버는 거의 원활한 마이그레이션을 위해 데이터를 동기화합니다. | 단일 마이그레이션부터 대규모 마이그레이션까지 사용하며, 데이터 센터 종료와 같은 시나리오에도 적용됩니다. <br /><br /> 사용자 SQL 데이터베이스 또는 애플리케이션에 필요한 코드 변경이 없거나 최소한이므로, 전체 마이그레이션이 빨라집니다. <br /><br />[SSIS](/sql/integration-services/sql-server-integration-services), [SSRS](/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) 및 [SSAS](/analysis-services/analysis-services-overview)와 같은 비즈니스 인텔리전스 서비스를 마이그레이션하는 데 추가 단계가 필요하지 않습니다. |
+|**마이그레이션** | 대상 SQL Server 및/또는 운영 체제 버전을 업그레이드하려는 경우 마이그레이션 전략을 사용합니다. <br /> <br /> Azure Marketplace에서 Azure VM을 선택하거나 원본 SQL Server 버전과 일치하는 준비된 SQL Server 이미지를 선택합니다. | 최신 버전의 SQL Server에서 사용할 수 있는 기능을 사용해야 하거나 사용하려는 경우 또는 더는 지원되지 않는 레거시 SQL Server 및/또는 OS 버전을 업그레이드해야 하는 경우에 사용합니다.  <br /> <br /> SQL Server 업그레이드를 지원하기 위해 일부 애플리케이션 또는 사용자 데이터베이스 변경이 필요할 수 있습니다. <br /><br />마이그레이션 범위에 있는 경우 [비즈니스 인텔리전스](#business-intelligence) 서비스 마이그레이션에 관한 추가 고려 사항이 있을 수 있습니다. |
 
 
 ## <a name="lift-and-shift"></a>리프트 앤 시프트  
 
-다음 표에서는 SQL Server 데이터베이스를 Azure Vm에서 SQL Server로 마이그레이션하는 **리프트 및 시프트** 마이그레이션 전략에 대해 자세히 설명 합니다.
+다음 표에는 SQL Server 데이터베이스를 Azure VM의 SQL Server로 마이그레이션하기 위해 **리프트 앤 시프트** 마이그레이션 전략에 사용할 수 있는 방법이 자세히 나와 있습니다.
 <br />
 
 |**방법** | **최소 원본 버전** | **최소 대상 버전** | **원본 백업 크기 제약 조건** |  **참고** |
 | --- | --- | --- | --- | --- |
-| [Azure Migrate](../../../migrate/index.yml) | SQL Server 2008 SP4| SQL Server 2008 SP4| [Azure VM 스토리지 제한](../../../index.yml) |  기존 SQL Server를 Azure VM에서 SQL Server 인스턴스로 이동 합니다. 최대 35000 Vm의 마이그레이션 워크 로드를 확장할 수 있습니다. <br /><br /> 원본 서버는 서버 데이터 동기화 중 온라인 상태에서 요청을 처리 하 여 가동 중지 시간을 최소화 합니다. <br /><br /> **자동화 & 스크립팅**: [Azure에 대 한 확장 된 마이그레이션 및 계획의](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale) [Azure Site Recovery 스크립트](../../../migrate/how-to-migrate-at-scale.md) 및 예제|
+| [Azure Migrate](../../../migrate/index.yml) | SQL Server 2008 SP4| SQL Server 2008 SP4| [Azure VM 스토리지 제한](../../../index.yml) |  기존 SQL Server를 현재 상태 그대로 Azure VM의 SQL Server 인스턴스로 이동합니다. 최대 35,000개 VM의 마이그레이션 워크로드를 스케일링할 수 있습니다. <br /><br /> 원본 서버는 서버 데이터를 동기화하는 중에 온라인 상태를 유지하고 요청을 처리하므로, 가동 중지 시간을 최소화합니다. <br /><br /> **자동화 및 스크립팅**: [Azure Site Recovery 스크립트](../../../migrate/how-to-migrate-at-scale.md) 및 [Azure의 스케일링된 마이그레이션 및 계획 예제](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)|
 
-## <a name="migrate"></a>마이그레이션  
+## <a name="migrate"></a>Migrate  
 
-설치의 용이성 때문에 권장 되는 마이그레이션 방법은 네이티브 SQL Server [백업을](/sql/t-sql/statements/backup-transact-sql) 로컬로 수행 하 고 파일을 Azure에 복사 하는 것입니다. 이 메서드는 2008 이상의 데이터베이스 백업 (>1tb)부터 시작 하 여 모든 버전의 SQL Server에 대해 더 큰 데이터베이스 (>1tb)를 지원 합니다. 그러나 SQL Server 2014에서 시작 하 고 1TB 보다 작고 Azure에 대 한 연결이 좋은 데이터베이스의 경우 [URL에 백업 SQL Server](/sql/relational-databases/backup-restore/sql-server-backup-to-url) 하는 것이 더 나은 방법입니다. 
+설치가 쉽기 때문에 권장되는 마이그레이션 접근 방식은 원시 SQL Server [백업](/sql/t-sql/statements/backup-transact-sql)을 로컬로 가져온 다음, 파일을 Azure에 복사하는 것입니다. 이 방법은 2008부터 모든 버전의 SQL Server에 대해 더 큰 데이터베이스(1TB 초과)와 더 큰 데이터베이스 백업(1TB 초과)을 지원합니다. 그러나 SQL Server 2014부터 시작하고 1TB 미만이며 Azure에 대한 연결이 안정된 데이터베이스의 경우 [URL에 SQL Server 백업](/sql/relational-databases/backup-restore/sql-server-backup-to-url)이 더 나은 접근 방식입니다. 
 
-SQL Server 데이터베이스를 Azure Vm의 SQL Server 인스턴스로 마이그레이션하는 경우에는 응용 프로그램 가동 중지 시간에 영향을 주므로 대상 서버에 대 한 조치를 수행 해야 하는 경우에 적합 한 접근 방식을 선택 하는 것이 중요 합니다.
+SQL Server 데이터베이스를 Azure VM의 SQL Server 인스턴스로 마이그레이션할 때 애플리케이션 가동 중지 시간에 영향을 미치므로 대상 서버로 전환해야 할 때 적합한 접근 방식을 선택하는 것이 중요합니다.
 
-다음 표에서는 SQL Server 데이터베이스를 Azure Vm에서 SQL Server로 마이그레이션하는 데 사용할 수 있는 모든 방법을 자세히 설명 합니다.
+다음 표에서는 SQL Server 데이터베이스를 Azure VM의 SQL Server로 마이그레이션하는 데 사용할 수 있는 모든 방법을 자세히 설명합니다.
 <br />
 
 |**방법** | **최소 원본 버전** | **최소 대상 버전** | **원본 백업 크기 제약 조건** | **참고** |
 | --- | --- | --- | --- | --- |
-| **[파일에 백업](sql-server-to-sql-on-azure-vm-individual-databases-guide.md#migrate)** | SQL Server 2008 SP4 | SQL Server 2008 SP4| [Azure VM 스토리지 제한](../../../index.yml) |  이는 컴퓨터 간에 데이터베이스를 이동 하기 위한 간단 하 고 잘 테스트 된 기술입니다. 압축을 사용 하 여 전송에 대 한 백업 크기를 최소화 합니다. <br /><br /> **자동화 & 스크립팅**: [transact-sql (T-sql)](/sql/t-sql/statements/backup-transact-sql) 및 [AzCopy to Blob storage](../../../storage/common/storage-use-azcopy-v10.md)  |
-| **[URL에 백업](/sql/relational-databases/backup-restore/sql-server-backup-to-url)** | SQL Server 2012 SP1 CU2 | SQL Server 2012 SP1 CU2| SQL Server 2016의 경우 12.8 TB, 그렇지 않으면 1tb | Azure storage를 사용 하 여 VM으로 백업 파일을 이동 하는 대체 방법입니다. 압축을 사용 하 여 전송에 대 한 백업 크기를 최소화 합니다. <br /><br /> **자동화 & 스크립팅**:  [t-sql 또는 유지 관리 계획](/sql/relational-databases/backup-restore/sql-server-backup-to-url) |
-| **[DMA(Database Migration Assistant)](/sql/dma/dma-overview)** | SQL Server 2005| SQL Server 2008 SP4| [Azure VM 스토리지 제한](../../../index.yml) |  [DMA](/sql/dma/dma-overview) 는 온-프레미스 SQL Server을 평가 하 고 SQL Server의 이후 버전으로 원활 하 게 업그레이드 하거나 azure vm, Azure SQL Database 또는 azure SQL Managed Instance의 SQL Server로 마이그레이션합니다. <br /><br /> Filestream 사용 사용자 데이터베이스에서 사용 하면 안 됩니다.<br /><br /> 또한 DMA에는 [SQL 및 Windows 로그인](/sql/dma/dma-migrateserverlogins) 을 마이그레이션하고 [SSIS 패키지](/sql/dma/dma-assess-ssis)를 평가 하는 기능이 포함 되어 있습니다. <br /><br /> **자동화 & 스크립팅**: [명령줄 인터페이스](/sql/dma/dma-commandline) |
-| **[분리 및 연결](../../virtual-machines/windows/migrate-to-vm-from-sql-server.md#detach-and-attach-from-a-url)** | SQL Server 2008 SP4 | SQL Server 2014 | [Azure VM 스토리지 제한](../../../index.yml) | [Azure Blob storage 서비스를 사용 하 여 이러한 파일을 저장](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure) 하 고 azure VM의 SQL Server 인스턴스에 연결 하는 경우이 방법을 사용 합니다. 특히 매우 큰 데이터베이스에서 또는 백업 및 복원 시간이 너무 긴 경우 유용 합니다. <br /><br /> **자동화 & 스크립팅**:  [t-sql](/sql/relational-databases/databases/detach-a-database#TsqlProcedure) 및 [Blob 저장소에 대 한 AzCopy](../../../storage/common/storage-use-azcopy-v10.md)|
-|**[로그 전달](sql-server-to-sql-on-azure-vm-individual-databases-guide.md#migrate)** | SQL Server 2008 SP4 (Windows에만 해당) | SQL Server 2008 SP4 (Windows에만 해당) | [Azure VM 스토리지 제한](../../../index.yml) | 로그 전달은 온-프레미스의 트랜잭션 로그 파일을 Azure VM의 SQL Server 인스턴스로 복제 합니다. <br /><br /> 이는 장애 조치 (failover) 중에 최소의 가동 중지 시간을 제공 하며, Always On 가용성 그룹 설정 보다 구성 오버 헤드가 적습니다. <br /><br /> **자동화 & 스크립팅**: [t-sql](/sql/database-engine/log-shipping/log-shipping-tables-and-stored-procedures)  |
-| **[분산 가용성 그룹](../../virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md#hybrid-it-disaster-recovery-solutions)** | SQL Server 2016| SQL Server 2016 | [Azure VM 스토리지 제한](../../../index.yml) |  [분산 가용성 그룹](/sql/database-engine/availability-groups/windows/distributed-availability-groups) 은 두 개의 개별 가용성 그룹에 걸쳐 있는 특수 한 유형의 가용성 그룹입니다. 분산 가용성 그룹에 참여 하는 가용성 그룹은 동일한 위치에 있을 필요가 없으며 도메인 간 지원을 포함 합니다. <br /><br /> 이 메서드는 가동 중지 시간을 최소화 하 고 가용성 그룹이 온-프레미스로 구성 된 경우 사용 합니다. <br /><br /> **자동화 & 스크립팅**: [t-sql](/sql/t-sql/statements/alter-availability-group-transact-sql)  |
+| **[파일에 백업](sql-server-to-sql-on-azure-vm-individual-databases-guide.md#migrate)** | SQL Server 2008 SP4 | SQL Server 2008 SP4| [Azure VM 스토리지 제한](../../../index.yml) |  머신 간에 데이터베이스를 이동하는 간단하고 검증된 방법입니다. 압축을 사용하여 전송할 백업 크기를 최소화합니다. <br /><br /> **자동화 및 스크립팅**: [T-SQL(Transact-SQL)](/sql/t-sql/statements/backup-transact-sql) 및 [Blob Storage에 AzCopy](../../../storage/common/storage-use-azcopy-v10.md)  |
+| **[URL에 백업](/sql/relational-databases/backup-restore/sql-server-backup-to-url)** | SQL Server 2012 SP1 CU2 | SQL Server 2012 SP1 CU2| SQL Server 2016의 경우 12.8TB, 그렇지 않으면 1TB | Azure Storage를 사용하여 VM에 백업 파일을 이동하는 대체 방법입니다. 압축을 사용하여 전송할 백업 크기를 최소화합니다. <br /><br /> **자동화 및 스크립팅**: [T-SQL 또는 유지 관리 플랜](/sql/relational-databases/backup-restore/sql-server-backup-to-url) |
+| **[DMA(Database Migration Assistant)](/sql/dma/dma-overview)** | SQL Server 2005| SQL Server 2008 SP4| [Azure VM 스토리지 제한](../../../index.yml) |  [DMA](/sql/dma/dma-overview)는 온-프레미스에서 SQL Server를 평가한 다음, 최신 버전의 SQL Server로 원활하게 업그레이드하거나 Azure VM, Azure SQL Database 또는 Azure SQL Managed Instance의 SQL Server로 마이그레이션합니다. <br /><br /> 파일 스트림 지원 사용자 데이터베이스에서 사용하지 않아야 합니다.<br /><br /> DMA에는 [SQL 및 Windows 로그인](/sql/dma/dma-migrateserverlogins)을 마이그레이션하고 [SSIS 패키지](/sql/dma/dma-assess-ssis)를 평가하는 기능도 포함되어 있습니다. <br /><br /> **자동화 및 스크립팅**: [명령줄 인터페이스](/sql/dma/dma-commandline) |
+| **[분리 및 연결](../../virtual-machines/windows/migrate-to-vm-from-sql-server.md#detach-and-attach-from-a-url)** | SQL Server 2008 SP4 | SQL Server 2014 | [Azure VM 스토리지 제한](../../../index.yml) | [Azure Blob Storage 서비스를 사용하여 이 파일을 저장](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure)하고 Azure VM의 SQL Server 인스턴스에 연결하려는 경우 이 방법을 사용하고, 데이터베이스가 매우 크거나 백업 및 복원 시간이 너무 길 때 특히 유용합니다. <br /><br /> **자동화 및 스크립팅**: [T-SQL](/sql/relational-databases/databases/detach-a-database#TsqlProcedure) 및 [Blob Storage에 AzCopy](../../../storage/common/storage-use-azcopy-v10.md)|
+|**[로그 전달](sql-server-to-sql-on-azure-vm-individual-databases-guide.md#migrate)** | SQL Server 2008 SP4(Windows만 해당) | SQL Server 2008 SP4(Windows만 해당) | [Azure VM 스토리지 제한](../../../index.yml) | 로그 전달은 온-프레미스의 트랜잭션 로그 파일을 Azure VM의 SQL Server 인스턴스로 복제합니다. <br /><br /> 그러면 장애 조치(failover) 중 가동 중지 시간을 최소화하고 Always On 가용성 그룹을 설정하는 것보다 구성 오버헤드가 적습니다. <br /><br /> **자동화 및 스크립팅**: [T-SQL](/sql/database-engine/log-shipping/log-shipping-tables-and-stored-procedures)  |
+| **[분산형 가용성 그룹](../../virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md#hybrid-it-disaster-recovery-solutions)** | SQL Server 2016| SQL Server 2016 | [Azure VM 스토리지 제한](../../../index.yml) |  [분산 가용성 그룹](/sql/database-engine/availability-groups/windows/distributed-availability-groups)은 별도의 두 가용성 그룹에 걸쳐 있는 특별한 형식의 가용성 그룹입니다. 분산 가용성 그룹에 참여하는 가용성 그룹은 같은 위치에 있을 필요가 없으며 도메인 간 지원을 포함합니다. <br /><br /> 이 방법은 가동 중지 시간을 최소화하는 데 사용하며 온-프레미스에 가용성 그룹을 구성한 경우 사용합니다. <br /><br /> **자동화 및 스크립팅**: [T-SQL](/sql/t-sql/statements/alter-availability-group-transact-sql)  |
 | | | | | |
 
 &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
  
 > [!TIP]
-> 네트워크 옵션을 제한 하지 않는 대량 데이터 전송의 경우 [연결이 제한 된 대량 데이터 전송](../../../storage/common/storage-solution-large-dataset-low-network.md)을 참조 하세요.
+> 네트워크 옵션이 제한되거나 없는 대용량 데이터 전송의 경우 [연결이 제한된 대용량 데이터 전송](../../../storage/common/storage-solution-large-dataset-low-network.md)을 참조하세요.
 > 
 
 ### <a name="considerations"></a>고려 사항
 
-다음은 마이그레이션 방법을 검토할 때 고려해 야 할 주요 사항 목록입니다.
+다음은 마이그레이션 방법을 검토할 때 고려해야 할 주요 사항 목록입니다.
 
-- 최적의 데이터 전송 성능을 위해 압축 된 백업 파일을 사용 하 여 Azure VM의 SQL Server 인스턴스로 데이터베이스와 파일을 마이그레이션합니다. 대용량 데이터베이스의 경우 백업 및 전송 중에 성능 향상을 위해 [백업 파일을 더 작은 파일로 분할](/sql/relational-databases/backup-restore/back-up-files-and-filegroups-sql-server) 합니다. 
-- SQL Server 2014 이상에서 마이그레이션하는 경우 [백업을 암호화](/sql/relational-databases/backup-restore/backup-encryption) 하 여 네트워크 전송 중 데이터를 보호 하는 것이 좋습니다.
-- 데이터베이스를 마이그레이션하는 동안 가동 중지 시간을 최소화 하려면 가용성 그룹 Always On 옵션을 사용 합니다. 
-- 가용성 그룹을 구성 하는 오버 헤드 없이 가동 중지 시간을 최소화 하려면 로그 전달 옵션을 사용 합니다. 
-- 네트워크 옵션을 사용 하지 않도록 제한 된 경우 백업 및 복원과 같은 오프 라인 마이그레이션 방법 또는 Azure에서 사용할 수 있는 [디스크 전송 서비스](../../../storage/common/storage-solution-large-dataset-low-network.md) 를 사용 합니다.
-- 또한 Azure VM에서 SQL Server의 SQL Server 버전을 변경 하려면 [SQL Server 버전 변경](../../virtual-machines/windows/change-sql-server-edition.md)을 참조 하세요.
+- 최적의 데이터 전송 성능을 위해 압축된 백업 파일을 사용하여 데이터베이스 및 파일을 Azure VM의 SQL Server 인스턴스로 마이그레이션합니다. 대용량 데이터베이스의 경우 백업 및 전송 중에 성능 향상을 위해 압축을 수행하는 외에도, [백업 파일을 더 작은 파일로 분할](/sql/relational-databases/backup-restore/back-up-files-and-filegroups-sql-server)합니다. 
+- SQL Server 2014 이상에서 마이그레이션하는 경우 [백업을 암호화](/sql/relational-databases/backup-restore/backup-encryption)하여 네트워크 전송 중 데이터를 보호하는 것이 좋습니다.
+- 데이터베이스를 마이그레이션하는 동안 가동 중지 시간을 최소화하려면 Always On 가용성 그룹 옵션을 사용합니다. 
+- 가용성 그룹을 구성하는 오버헤드 없이 가동 중지 시간을 최소화하려면 로그 전달 옵션을 사용합니다. 
+- 네트워크 옵션을 사용하지 않도록 제한된 경우 백업 및 복원과 같은 오프라인 마이그레이션 방법 또는 Azure에서 사용할 수 있는 [디스크 전송 서비스](../../../storage/common/storage-solution-large-dataset-low-network.md)를 사용합니다.
+- 또한 Azure VM에서 SQL Server의 SQL Server 버전을 변경하려면 [SQL Server 버전 변경](../../virtual-machines/windows/change-sql-server-edition.md)을 참조하세요.
 
 ## <a name="business-intelligence"></a>비즈니스 인텔리전스 
 
-사용자 데이터베이스 마이그레이션의 범위 밖에 서 SQL Server 비즈니스 인텔리전스 서비스를 마이그레이션할 때 추가 고려 사항이 있을 수 있습니다. 
+사용자 데이터베이스 마이그레이션의 범위 밖에서 SQL Server 비즈니스 인텔리전스 서비스를 마이그레이션할 때 추가 고려 사항이 있을 수 있습니다. 
 
-이러한 서비스에는 다음이 포함됩니다.
+이러한 서비스는 다음과 같습니다.
 
-- [**SSIS(SQL Server Integration Services)**](/sql/integration-services/install-windows/upgrade-integration-services)
-- [**SSRS(SQL Server Reporting Services)**](/sql/reporting-services/install-windows/upgrade-and-migrate-reporting-services)
+- [**SSIS(SQL Server Integration Services)** ](/sql/integration-services/install-windows/upgrade-integration-services)
+- [**SSRS(SQL Server Reporting Services)** ](/sql/reporting-services/install-windows/upgrade-and-migrate-reporting-services)
 - [**SSAS(SQL Server Analysis Services)**](/sql/database-engine/install-windows/upgrade-analysis-services)
 
 ## <a name="supported-versions"></a>지원되는 버전
 
-Azure Vm에서 SQL Server 데이터베이스를 SQL Server으로 마이그레이션하기 위해 준비할 때 지원 되는 SQL Server 버전을 고려해 야 합니다. Azure Vm에서 현재 지원 되는 SQL Server 버전 목록은 [Azure vm의 SQL Server](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms)를 참조 하세요.
+Azure VM에서 SQL Server 데이터베이스를 SQL Server로 마이그레이션하기 위해 준비할 때 지원되는 SQL Server 버전을 고려해야 합니다. Azure VM에서 현재 지원되는 SQL Server 버전 목록은 [Azure VM의 SQL Server](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms)를 참조하세요.
 
 ## <a name="migration-assets"></a>마이그레이션 자산 
 
-추가 지원이 필요한 경우 실제 마이그레이션 프로젝트용으로 개발 된 다음 리소스를 참조 하세요.
+추가 지원이 필요하면 실제 마이그레이션 프로젝트용으로 개발된 다음 리소스를 참조하세요.
 
 |자산  |Description  |
 |---------|---------|
 |[데이터 워크로드 평가 모델 및 도구](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Data%20Workload%20Assessment%20Model%20and%20Tool)| 이 도구는 권장되는 “최적의” 대상 플랫폼, 클라우드 준비 상태 및 애플리케이션/데이터베이스 수정 수준을 지정된 워크로드에 제공합니다. 또한 자동화되고 균일한 대상 플랫폼 결정 프로세스를 제공하여 대규모 자산 평가를 가속화하는 데 도움이 되는 간단한 원클릭 계산 및 보고서 생성 기능을 제공합니다.|
-|[Logman를 사용 하 여 Perfmon 데이터 수집 자동화](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|마이그레이션 대상 권장 사항에 도움이 되는 기준 성능을 이해 하기 위해 데이터를 수집 하는 도구입니다. 이 도구는 logman.exe을 사용 하 여 원격 SQL Server에 설정 된 성능 카운터를 만들고, 시작 하 고, 중지 하 고, 삭제 하는 명령을 만듭니다.|
-|[Azure에서 SQL Server 배포](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/SQL%20Server%20Deployment%20in%20Azure%20.pdf)|이 지침 백서는 기능 비교, 고가용성 및 백업/저장소 고려 사항을 포함 하 여 SQL Server 워크 로드를 Azure로 이동 하는 다양 한 옵션을 검토 하는 데 도움이 됩니다. |
-|[Azure 가상 컴퓨터에 온-프레미스 SQL Server](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/OnPremise%20SQL%20Server%20to%20Azure%20VM.pdf)|이 백서에서는 Azure 가상 머신에서 샘플 스크립트를 사용 하 여 온-프레미스 SQL Server에서 SQL Server로 데이터베이스를 백업 및 복원 하는 단계를 간략하게 설명 합니다.|
-|[다중 SQL-VM-VNet-ILB](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/ARM%20Templates/Multiple-SQL-VM-VNet-ILB)|이 백서에서는 SQL Server Always On 가용성 그룹 구성에서 여러 Azure 가상 머신을 설정 하는 단계를 간략하게 설명 합니다.|
-|[지역별 울트라 SSD를 지 원하는 Azure virtual machines](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Find%20Azure%20VMs%20supporting%20Ultra%20SSD)|이러한 PowerShell 스크립트는 울트라 Ssd를 지 원하는 Azure virtual machines를 지 원하는 지역 목록을 검색 하는 프로그래밍 방식의 옵션을 제공 합니다.|
+|[Logman을 사용하는 Perfmon 데이터 수집 자동화](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|마이그레이션 대상 권장 사항에 도움이 되는 기준 성능을 이해하기 위해 Perform 데이터를 수집하는 도구입니다. 이 도구는 logman.exe를 사용하여 원격 SQL Server에 설정된 성능 카운터를 생성, 시작, 중지 및 삭제하는 명령을 만듭니다.|
+|[Azure에 SQL Server 배포](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/SQL%20Server%20Deployment%20in%20Azure%20.pdf)|이 참고 자료 백서는 기능 비교, 고가용성 및 백업/스토리지 고려 사항을 포함하여 SQL Server 워크로드를 Azure로 이동하는 다양한 옵션을 검토하는 데 도움이 됩니다. |
+|[Azure 가상 머신의 온-프레미스 SQL Server](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/OnPremise%20SQL%20Server%20to%20Azure%20VM.pdf)|이 백서에서는 Azure 가상 머신에서 샘플 스크립트를 사용하여 온-프레미스 SQL Server에서 SQL Server로 데이터베이스를 백업 및 복원하는 단계를 간략하게 설명합니다.|
+|[Multiple-SQL-VM-VNet-ILB](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/ARM%20Templates/Multiple-SQL-VM-VNet-ILB)|이 백서에서는 SQL Server Always On 가용성 그룹 구성에서 여러 Azure 가상 머신을 설정하는 단계를 간략하게 설명합니다.|
+|[지역별 울트라 SSD를 지원하는 Azure VM(가상 머신)](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Find%20Azure%20VMs%20supporting%20Ultra%20SSD)|이 PowerShell 스크립트에서는 울트라 SSD를 지원하는 Azure 가상 머신을 지원하는 지역 목록을 검색하는 프로그래매틱 옵션을 제공합니다.|
 
-데이터 SQL 엔지니어링 팀은 이러한 리소스를 개발 했습니다. 이 팀의 핵심 기본은 Microsoft의 Azure 데이터 플랫폼으로 데이터 플랫폼 마이그레이션 프로젝트에 대 한 복잡 한 현대화의 차단을 해제 하 고 가속화 하는 것입니다.
+데이터 SQL 엔지니어링 팀이 이러한 리소스를 개발했습니다. 이 팀의 핵심 선언은 Microsoft의 Azure 데이터 플랫폼으로의 데이터 플랫폼 마이그레이션 프로젝트에 대한 복잡한 현대화의 장애물을 제거하고 속도를 높이는 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Vm에서 SQL Server 데이터베이스를 SQL Server으로 마이그레이션하기 시작 하려면 [개별 데이터베이스 마이그레이션 가이드](sql-server-to-sql-on-azure-vm-individual-databases-guide.md)를 참조 하세요. 
+SQL Server 데이터베이스를 Azure VM의 SQL Server로 마이그레이션하려면 [개별 데이터베이스 마이그레이션 가이드](sql-server-to-sql-on-azure-vm-individual-databases-guide.md)를 참조하세요. 
 
-- 다양 한 데이터베이스 및 데이터 마이그레이션 시나리오와 전문 작업을 지 원하는 데 사용할 수 있는 Microsoft 및 타사 서비스 및 도구에 대 한 매트릭스는 [데이터 마이그레이션을 위한 서비스 및 도구](../../../dms/dms-tools-matrix.md) 문서를 참조 하세요.
+- 다양한 데이터베이스 및 데이터 마이그레이션 시나리오와 특수 작업을 지원하는 데 사용할 수 있는 Microsoft와 타사의 서비스 및 도구 표는 [Service and tools for data migration](../../../dms/dms-tools-matrix.md)(데이터 마이그레이션을 위한 서비스 및 도구) 문서를 참조하세요.
 
-- Azure SQL에 대 한 자세한 내용은 다음을 참조 하세요.
+- Azure SQL에 관한 자세한 내용은 다음을 참조하세요.
    - [배포 옵션](../../azure-sql-iaas-vs-paas-what-is-overview.md)
    - [Azure VM의 SQL Server](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
    - [Azure 총 소유 비용 계산기](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 
-- 클라우드 마이그레이션의 프레임 워크 및 채택 주기에 대해 자세히 알아보려면 다음을 참조 하세요.
+- 클라우드 마이그레이션의 프레임워크 및 채택 주기에 관해 자세히 알아보려면 다음을 참조하세요.
    -  [Azure용 클라우드 채택 프레임워크](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
-   -  [작업의 비용 및 크기 조정 작업에 대 한 모범 사례 Azure로 마이그레이션](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Azure로 마이그레이션된 워크로드의 비용 계산 및 크기 조정 모범 사례](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
-- 라이선스에 대 한 자세한 내용은 다음을 참조 하세요.
-   - [Azure 하이브리드 혜택를 사용 하 여 사용자 고유의 라이선스 가져오기](../../virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md)
-   - [SQL Server 2008 및 SQL Server 2008 R2에 대 한 무료 지원 받기](../../virtual-machines/windows/sql-server-2008-extend-end-of-support.md)
+- 라이선스에 관한 자세한 내용은 다음을 참조하세요.
+   - [Azure 하이브리드 혜택을 사용하여 사용자 라이선스 가져오기](../../virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md)
+   - [SQL Server 2008 및 SQL Server 2008 R2에 관한 무료 지원 확장 받기](../../virtual-machines/windows/sql-server-2008-extend-end-of-support.md)
 
 
-- 응용 프로그램 액세스 계층을 평가 하려면 [데이터 액세스 마이그레이션 도구 키트 (미리 보기)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) 를 참조 하세요.
-- 데이터 액세스 계층 A/B 테스트를 수행 하는 방법에 대 한 자세한 내용은 [데이터베이스 실험 도우미](/sql/dea/database-experimentation-assistant-overview)를 참조 하세요.
+- 애플리케이션 액세스 레이어를 평가하려면 [데이터 액세스 마이그레이션 도구 키트(미리 보기)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)를 참조하세요.
+- 데이터 액세스 레이어 A/B 테스트를 수행하는 방법에 관한 자세한 내용은 [데이터베이스 실험 도우미](/sql/dea/database-experimentation-assistant-overview)를 참조하세요.

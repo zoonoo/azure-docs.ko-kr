@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 77fdaf297fff0e145b1dd53908887bc14f9d3f14
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 26aefab9b4637c3f3f6b0f0d1195068e2cd770ab
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491137"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001823"
 ---
 <!-- All needs updating -->
 Azure IoT Central 애플리케이션의 운영자는 다음을 수행할 수 있습니다.
@@ -36,7 +36,7 @@ Azure IoT Central 애플리케이션의 운영자는 다음을 수행할 수 있
 
 1. **온도 조절** 디바이스 템플릿에서 **클라우드 속성** 을 선택합니다.
 
-1. **클라우드 속성 추가** 를 선택합니다. *고객 이름* 을 **표시 이름** 으로 입력하고 **스키마** 로 **문자열** 을 선택합니다. 그런 다음 **저장** 을 선택합니다.
+1. **클라우드 속성 추가** 를 선택합니다. *고객 이름* 을 **표시 이름** 으로 입력하고 항목을 확장한 다음, **문자열** 을 **스키마** 로 선택합니다. 그런 다음 **저장** 을 선택합니다.
 
 **Get Max-Min report** 명령이 IoT Central 애플리케이션에 표시되는 방식을 사용자 지정하려면 다음을 수행합니다.
 
@@ -82,7 +82,7 @@ Azure IoT Central 애플리케이션의 운영자는 다음을 수행할 수 있
 
     :::image type="content" source="media/iot-central-monitor-thermostat/update-properties.png" alt-text="디바이스 속성 업데이트":::
 
-* **명령** 페이지에서 명령을 호출합니다.
+* **명령** 페이지에서 명령을 호출합니다. 상태 보고서 명령을 실행하는 경우 **다음 이후** 매개 변수를 실행하기 전에 이 매개 변수의 날짜와 시간을 선택합니다.
 
     :::image type="content" source="media/iot-central-monitor-thermostat/call-command.png" alt-text="명령 호출":::
 

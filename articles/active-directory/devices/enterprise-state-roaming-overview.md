@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c22baf0a08718883f0c0c9844cc395f607b5b20d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5cd64a9372f8f987ae79ed6c2927d179d71d141c
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "77194282"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286585"
 ---
 # <a name="what-is-enterprise-state-roaming"></a>엔터프라이즈 상태 로밍이란?
 
@@ -31,7 +31,7 @@ Windows 10에서는 [Azure Active Directory(Azure AD)](../fundamentals/active-di
 | 아티클 | Description |
 | --- | --- |
 | [Azure Active Directory에서 엔터프라이즈 상태 로밍 활성화](enterprise-state-roaming-enable.md) |엔터프라이즈 상태 로밍은 프리미엄 Azure Active Directory(Azure AD)를 구독하는 모든 조직에 제공됩니다. Azure AD 구독을 가져오는 방법에 대한 자세한 내용은 [Azure AD 제품](https://azure.microsoft.com/services/active-directory) 페이지를 참조하세요. |
-| [설정 및 데이터 로밍 FAQ](enterprise-state-roaming-faqs.md) |이 문서에서는 설정 및 앱 데이터 동기화에 대한 IT 관리자의 질문에 답변합니다. |
+| [설정 및 데이터 로밍 FAQ](enterprise-state-roaming-faqs.yml) |이 문서에서는 설정 및 앱 데이터 동기화에 대한 IT 관리자의 질문에 답변합니다. |
 | [설정 동기화에 대한 그룹 정책 및 MDM 설정](enterprise-state-roaming-group-policy-settings.md) |Windows 10은 설정 동기화를 제한하는 그룹 정책 및 MDM(모바일 디바이스 관리) 정책 설정을 제공합니다. |
 | [Windows 10 로밍 설정 참조](enterprise-state-roaming-windows-settings-reference.md) |Windows 10에서 로밍되거나 백업되는 모든 설정의 전체 목록입니다. |
 | [문제 해결](enterprise-state-roaming-troubleshooting.md) |문제 해결을 위한 몇 가지 기본 단계를 살펴보며 알려진 문제 목록이 포함되어 있습니다. |

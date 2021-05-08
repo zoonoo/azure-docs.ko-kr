@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/25/2021
 ms.author: memildin
 zone_pivot_groups: manage-asc-initiatives
-ms.openlocfilehash: a901e71da640f8413e5714ad59073324f582c1b9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 1231d4b14d4beb2b4e167b3e7572428ec99c8e54
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102441060"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140284"
 ---
 # <a name="create-custom-security-initiatives-and-policies"></a>사용자 지정 보안 이니셔티브 및 정책 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "102441060"
 [Azure Policy 설명서](../governance/policy/concepts/definition-structure.md#definition-location)에 설명된 대로 관리 그룹 또는 구독을 사용자 지정 이니셔티브의 위치로 지정해야 합니다. 
 
 > [!TIP]
-> 이 페이지의 주요 개념에 대 한 개요는 [보안 정책, 이니셔티브 및 권장 사항 이란?](security-policy-concept.md)을 참조 하세요.
+> 이 페이지의 주요 개념에 대한 개요는 [보안 정책, 이니셔티브 및 권장 사항이란?](security-policy-concept.md)을 참조하세요.
 
 ::: zone pivot="azure-portal"
 
@@ -43,7 +43,7 @@ ms.locfileid: "102441060"
 
 1. 보안 정책 페이지의 사용자 지정 이니셔티브에서 **사용자 지정 이니셔티브 추가** 를 클릭합니다.
 
-    [![사용자 지정 이니셔티브 추가를 클릭 합니다.](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
+    [![사용자 지정 이니셔티브 추가 클릭](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
 
     다음 페이지가 나타납니다.
 
@@ -78,7 +78,7 @@ ms.locfileid: "102441060"
 
 ::: zone pivot="rest-api"
 
-## <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>REST API를 사용 하 여 Azure Policy에서 보안 정책 구성
+## <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>REST API를 사용하여 Azure Policy에서 보안 정책 구성
 
 Azure Policy와 네이티브 통합의 일환으로, Azure Security Center를 사용하면 Azure Policy의 REST API를 활용하여 정책 할당을 생성할 수 있습니다. 다음 지침은 기존 할당에 대한 사용자 지정은 물론 정책 할당 생성 과정을 안내합니다. 
 
@@ -86,21 +86,21 @@ Azure Policy의 중요 개념:
 
 - **정책 정의** 는 규칙입니다. 
 
-- **이니셔티브** 는 정책 정의 (규칙)의 컬렉션입니다. 
+- **이니셔티브** 는 정책 정의(규칙) 컬렉션입니다. 
 
-- **할당** 은 특정 범위 (관리 그룹, 구독 등)에 대 한 이니셔티브 또는 정책의 응용 프로그램입니다. 
+- **할당** 은 특정 범위(관리 그룹, 구독 등)에 이니셔티브 또는 정책을 적용하는 것입니다. 
 
-Security Center에는 모든 보안 정책을 포함 하는 기본 제공 이니셔티브 인 Azure 보안 벤치 마크가 있습니다. Azure 리소스에 대 한 Security Center의 정책을 평가 하려면 평가 하려는 관리 그룹 또는 구독에 대 한 할당을 만들어야 합니다.
+Security Center에는 모든 보안 정책을 포함하는 기본 제공 이니셔티브인 [Azure Security Benchmark](/security/benchmark/azure/introduction)가 있습니다. Azure 리소스에 대한 Security Center의 정책을 평가하려면 평가하려는 관리 그룹 또는 구독에 할당을 만들어야 합니다.
 
-기본 제공 이니셔티브에는 모든 Security Center의 정책이 기본적으로 사용하도록 설정되어 있습니다. 기본 제공 이니셔티브에서 특정 정책을 사용 하지 않도록 선택할 수 있습니다. 예를 들어 **웹 응용 프로그램 방화벽** 을 제외한 모든 Security Center 정책을 적용 하려면 정책 효과 매개 변수의 값을 **사용 안 함으로** 변경 합니다.
+기본 제공 이니셔티브에는 모든 Security Center의 정책이 기본적으로 사용하도록 설정되어 있습니다. 기본 제공 이니셔티브에서 특정 정책을 사용하지 않도록 설정할 수 있습니다. 예를 들어 정책의 효과 매개 변수 값을 **사용 안 함** 로 변경하면, **웹 애플리케이션 방화벽** 을 제외한 모든 Security Center의 정책을 적용할 수 있습니다.
 
 ## <a name="api-examples"></a>API 예제
 
 다음 예제에서 다음 변수를 바꿉니다.
 
-- **{scope}** 정책을 적용 중인 관리 그룹 또는 구독의 이름을 입력 합니다.
-- **{policyAssignmentName}** 관련 정책 할당의 이름을 입력 합니다.
-- **{name}** 사용자의 이름을 입력 하거나 정책 변경을 승인한 관리자의 이름을 입력 합니다.
+- **{scope}** : 정책을 적용할 관리 그룹 또는 구독의 이름을 입력합니다.
+- **{policyAssignmentName}** : 관련 정책 할당의 이름을 입력합니다.
+- **{name}** : 사용자의 이름을 입력하거나 정책 변경을 승인한 관리자의 이름을 입력합니다.
 
 이 예제는 구독 또는 관리 그룹에 기본 제공 Security Center 이니셔티브를 할당하는 방법을 보여줍니다.
  
@@ -181,7 +181,7 @@ Security Center에는 모든 보안 정책을 포함 하는 기본 제공 이니
 ::: zone-end
 
 
-## <a name="enhance-your-custom-recommendations-with-detailed-information"></a>세부 정보를 사용 하 여 사용자 지정 권장 사항 향상
+## <a name="enhance-your-custom-recommendations-with-detailed-information"></a>세부 정보를 사용하여 사용자 지정 권장 사항 향상
 
 Azure Security Center에서 제공하는 기본 제공 권장 사항에는 심각도 수준과 수정 지침 등의 세부 정보가 포함됩니다. Microsoft Azure Portal이나 권장 사항에 액세스하는 모든 위치에 표시되도록 이러한 유형의 정보를 사용자 지정 권장 사항에 추가하려면 REST API를 사용해야 합니다. 
 

@@ -12,12 +12,12 @@ ms.service: notification-hubs
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: a328d6b8942c3209e13dc91a2fb892e98e3016f6
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: a887821cf468fd0cd5cd3b8a5a044466d1e130c4
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107533477"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279481"
 ---
 # <a name="quickstart-create-a-notification-hub-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 알림 허브 만들기
 
@@ -29,7 +29,7 @@ Azure Notification Hubs는 알림을 모든 백 엔드(클라우드 또는 온-�
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-notification-hub%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.notificationhubs%2Fnotification-hub%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-notification-hub/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-notification-hub/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.notificationhubs/notification-hub/azuredeploy.json":::
 
 * [Microsoft.NotificationHubs/namespaces](/azure/templates/microsoft.notificationhubs/namespaces)
 * [Microsoft.NotificationHubs/namespaces/notificationHubs](/azure/templates/microsoft.notificationhubs/namespaces/notificationhubs)
@@ -48,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 템플릿은 Notification Hubs 네임스페이스 이름을 매개 변수로 사용합니다. 그런 다음, 템플릿은 해당 이름으로 네임스페이스를 만들고 해당 네임스페이스 내에 **MyHub** 라는 알림 허브를 만듭니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-notification-hub%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.notificationhubs%2Fnotification-hub%2Fazuredeploy.json)
 
 ## <a name="review-deployed-resources"></a>배포된 리소스 검토
 

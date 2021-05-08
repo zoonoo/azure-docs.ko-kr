@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 41f6db8cf2454c224addac525e9d039954a95712
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30c3ecb64b8fdb2ff1bf3569803b07d9f0646347
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104601502"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138070"
 ---
 # <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>자습서: Dropbox Business와 Azure Active Directory 통합
 
@@ -85,6 +85,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     
      b. **식별자(엔터티 ID)** 텍스트 상자에 값을 `Dropbox`로 입력합니다.
     
+    다. **회신 URL** 필드에 `https://www.dropbox.com/saml_login`을 입력합니다.
     > [!NOTE]
     > **Dropbox Sign SSO ID** 는 Dropbox 사이트의 Dropbox > 관리 콘솔 > 설정 > Single Sign-On > SSO 로그인 URL에서 찾을 수 있습니다.
 

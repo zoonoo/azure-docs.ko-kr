@@ -6,14 +6,14 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 02/09/2021
+ms.date: 04/21/2021
 ms.author: banders
-ms.openlocfilehash: 717cf5acb63ee04852ccbb9aae2f7aed2b3c179a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 64a6b3a313f5078368563af29ab97a871b4c3ae0
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392275"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288673"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Azure 리소스에 대한 예약 관리
 
@@ -57,8 +57,8 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 
 기본적으로 다음 사용자는 예약을 보고 관리할 수 있습니다.
 
-- 예약을 구매하는 사용자와 예약 구매에 사용한 청구 구독의 계정 관리자가 예약 주문에 추가됩니다.
-- 기업계약 및 Microsoft 고객 계약 청구 관리자.
+- 예약한 사람과 청구 구독 계정 소유자는 예약 구매에 대한 Azure RBAC 액세스 권한을 얻습니다.
+-  기업계약 및 Microsoft 고객 계약 청구 기여자는 Cost Management + Billing > 예약 트랜잭션 > 파란색 배너를 선택하여 모든 예약을 관리할 수 있습니다.
 
 다른 사용자가 예약을 관리할 수 있게 하려면 다음 두 가지 옵션을 사용하면 됩니다.
 
@@ -81,8 +81,14 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 
 ### <a name="how-billing-administrators-view-or-manage-reservations"></a>청구 관리자가 예약을 보거나 관리하는 방법
 
-1. **Cost Management + Billing** 으로 이동한 다음, 페이지 왼쪽에서 **예약 트랜잭션** 을 선택합니다.
-2. 필요한 청구 권한이 있는 경우 예약을 보고 관리할 수 있습니다. 예약이 표시되지 않으면 예약이 생성된 Azure AD 테넌트를 사용하여 로그인했는지 확인합니다.
+청구 관리자는 다음 단계를 수행하여 모든 예약과 예약 트랜잭션을 보고 관리합니다.
+
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 **Cost Management + Billing** 으로 이동합니다.
+    - EA 관리자인 경우 왼쪽 메뉴에서 **청구 범위** 를 선택한 다음, 청구 범위 목록에서 하나를 선택합니다.
+    - Microsoft 고객 계약 청구 프로필 소유자인 경우 왼쪽 메뉴에서 **청구 프로필** 을 선택합니다. 청구 프로필 목록에서 하나를 선택합니다.
+2. 왼쪽 메뉴에서 **제품 + 서비스** > **예약** 을 선택합니다.
+3. EA 등록 또는 청구 프로필에 대한 전체 예약 목록이 표시됩니다.
+4. 청구 관리자는 예약을 선택한 다음, 표시되는 창에서 **액세스 권한 부여** 를 선택하여 예약 소유권을 가져올 수 있습니다.
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>단일 예약을 두 개의 예약으로 분할
 
@@ -177,23 +183,8 @@ EA(기업계약) 고객인 경우 조직에서 예약을 사용하는 방법을 
 ## <a name="next-steps"></a>다음 단계
 
 Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
-
-- [Azure 예약이란?](save-compute-costs-reservations.md)
-
-서비스 계획 구입:
-- [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../../virtual-machines/prepay-reserved-vm-instances.md)
-- [Azure SQL Database 예약 용량을 사용하여 SQL Database 컴퓨팅 리소스 요금 선결제](../../azure-sql/database/reserved-capacity-overview.md)
-- [Azure Cosmos DB 예약된 용량을 사용하여 Azure Cosmos DB 리소스 요금 선결제](../../cosmos-db/cosmos-db-reserved-capacity.md)
-
-소프트웨어 요금제 구입:
-- [Azure Reservations에서 Red Hat 소프트웨어 요금제에 대한 선불](../../virtual-machines/linux/prepay-suse-software-charges.md)
-- [Azure Reservations에서 SUSE 소프트웨어 요금제에 대한 선불](../../virtual-machines/linux/prepay-suse-software-charges.md)
-
-할인 및 사용량 이해:
-- [VM 예약 할인이 적용되는 방식 이해](../manage/understand-vm-reservation-charges.md)
-- [Red Hat Enterprise Linux 소프트웨어 요금제 할인이 적용되는 방식 이해](understand-rhel-reservation-charges.md)
-- [SUSE Linux Enterprise 소프트웨어 요금제 할인이 적용되는 방식 이해](understand-suse-reservation-charges.md)
-- [예약 할인이 적용되는 방식 이해](understand-reservation-charges.md)
-- [종량제 구독의 예약 사용량 이해](understand-reserved-instance-usage.md)
-- [엔터프라이즈 등록에서 예약 사용량 이해](understand-reserved-instance-usage-ea.md)
-- [예약에 포함되지 않는 Windows 소프트웨어 비용](reserved-instance-windows-software-costs.md)
+ - [예약 사용률 보기](reservation-utilization.md)
+ - [교환 및 환불](exchange-and-refund-azure-reservations.md)
+ - [예약 갱신](reservation-renew.md)
+ - [테넌트 간 전송](troubleshoot-reservation-transfers-between-tenants.md)
+ - [Azure 로그에서 예약 구매자 찾기](find-reservation-purchaser-from-logs.md)
