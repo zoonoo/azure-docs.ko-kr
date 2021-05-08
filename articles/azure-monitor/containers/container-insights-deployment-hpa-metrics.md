@@ -1,39 +1,39 @@
 ---
-title: 컨테이너 insights를 사용 하 여 배포 & HPA 메트릭 | Microsoft Docs
-description: 이 문서에서는 컨테이너 insights를 사용 하 여 수집 되는 HPA (수평 pod autoscaler) 메트릭의 & 배포에 대해 설명 합니다.
+title: 컨테이너 인사이트를 사용하는 배포 및 HPA 메트릭 | Microsoft Docs
+description: 이 문서에서는 컨테이너 인사이트를 사용하여 수집되는 배포 및 HPA(Horizontal Pod Autoscaler) 메트릭에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 08/09/2020
 ms.openlocfilehash: c8bb100b756ea92d73e1c3a698f119b4f8157930
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101717709"
 ---
-# <a name="deployment--hpa-metrics-with-container-insights"></a>컨테이너 insights를 사용 하 여 배포 & HPA 메트릭
+# <a name="deployment--hpa-metrics-with-container-insights"></a>컨테이너 인사이트를 사용하는 배포 및 HPA 메트릭
 
-에이전트 버전 *ciprod08072020* 부터 컨테이너 insights-통합 에이전트가 이제 Hpa & 배포에 대 한 메트릭을 수집 합니다.
+에이전트 버전 *ciprod08072020* 부터 컨테이너 인사이트 통합 에이전트가 이제 배포 및 HPA에 대한 메트릭을 수집합니다.
 
 ## <a name="deployment-metrics"></a>배포 메트릭
 
-컨테이너 insights는 다음 메트릭을 60 초 간격으로 수집 하 고 **InsightMetrics** 테이블에 저장 하 여 배포 모니터링을 자동으로 시작 합니다.
+컨테이너 인사이트는 배포 모니터링을 자동으로 시작하여 다음 메트릭을 60초 간격으로 수집하고 **InsightMetrics** 테이블에 저장합니다.
 
-|메트릭 이름 |메트릭 차원 (태그) |설명 |
+|메트릭 이름 |메트릭 차원(태그) |Description |
 |------------|------------------------|------------|
-|kube_deployment_status_replicas_ready |container.azm.ms/clusterId, container.azm.ms/clusterName, creationTime, deployment, deploymentStrategy, k8sNamespace, spec_replicas, status_replicas_available, status_replicas_updated (updatedReplicas) | 이 배포의 대상으로 지정 된 준비 된 pod의 총 수입니다 (readyReplicas). 다음은이 메트릭의 차원입니다. <ul> <li> 배포-배포의 이름 </li> <li> k8sNamespace-배포의 Kubernetes 네임 스페이스 </li> <li> deploymentStrategy-pod을 새 항목으로 대체 하는 데 사용할 배포 전략 (사양. 형식)</li><li> creationTime-배포 만들기 타임 스탬프 </li> <li> spec_replicas-원하는 pod (spec)의 수 </li> <li>status_replicas_available-이 배포의 대상으로 지정 된 사용 가능한 총 pod 수 (최소 minReadySeconds) (availableReplicas)</li><li>status_replicas_updated-원하는 템플릿 사양 (updatedReplicas)이 있는이 배포의 대상으로 지정 된 종료 되지 않은 pod의 총 수입니다. </li></ul>|
+|kube_deployment_status_replicas_ready |container.azm.ms/clusterId, container.azm.ms/clusterName, creationTime, deployment, deploymentStrategy, k8sNamespace, spec_replicas, status_replicas_available, status_replicas_updated(status.updatedReplicas) | 이 배포의 대상으로 지정된 지원 Pod의 총 수입니다(status.readyReplicas). 다음은 이 메트릭의 차원입니다. <ul> <li> 배포 - 배포의 이름 </li> <li> k8sNamespace - 배포의 Kubernetes 네임스페이스 </li> <li> deploymentStrategy - Pod를 새 것으로 대체하는 데 사용할 배포 전략(spec.strategy.type)</li><li> creationTime - 배포 생성 타임스탬프 </li> <li> spec_replicas - 원하는 Pod의 수(spec.replicas) </li> <li>status_replicas_available - 이 배포의 대상으로 지정된 사용 가능한 총 Pod 수(최소한 minReadySeconds 지원)(status.availableReplicas)</li><li>status_replicas_updated - 원하는 템플릿 사양이 있는 이 배포의 대상으로 지정된 종료되지 않은 Pod의 총 수(status.updatedReplicas) </li></ul>|
 
 ## <a name="hpa-metrics"></a>HPA 메트릭
 
-컨테이너 insights는 다음 메트릭을 60 초 간격으로 수집 하 고 **InsightMetrics** 테이블에 저장 하 여 hpa 모니터링을 자동으로 시작 합니다.
+컨테이너 인사이트는 HPA 모니터링을 자동으로 시작하여 다음 메트릭을 60초 간격으로 수집하고 **InsightMetrics** 테이블에 저장합니다.
 
-|메트릭 이름 |메트릭 차원 (태그) |설명 |
+|메트릭 이름 |메트릭 차원(태그) |Description |
 |------------|------------------------|------------|
-|kube_hpa_status_current_replicas |container.azm.ms/clusterId, container.azm.ms/clusterName, creationTime, hpa, k8sNamespace, lastScaleTime, spec_max_replicas, spec_min_replicas, status_desired_replicas, targetKind, targetName | 이 autoscaler에서 관리 하는 pod의 현재 복제본 수 ()입니다. 다음은이 메트릭의 차원입니다. <ul> <li> hpa-HPA의 이름 </li> <li> HPA에 대 한 k8sNamespace-Kubernetes 네임 스페이스 </li> <li> lastScaleTime HPA pod의 수를 마지막으로 조정한 시간 (lastScaleTime)</li><li> creationTime-HPA 만들기 타임 스탬프 </li> <li> spec_max_replicas-autoscaler (spec 복제본)에서 설정할 수 있는 pod 수에 대 한 상한 </li> <li> autoscaler 확장 될 수 있는 복제본 수의 하한값 ()입니다. spec_min_replicas </li><li>이 autoscaler에서 관리 하는 pod 복제본 수 status_desired_replicas (desiredReplicas)</li><li>targetKind-HPA의 대상 종류 (scaleTargetRef) </li><li>targetName-HPA 대상의 이름 (spec.scaleTargetRef.name) </li></ul>|
+|kube_hpa_status_current_replicas |container.azm.ms/clusterId, container.azm.ms/clusterName, creationTime, hpa, k8sNamespace, lastScaleTime, spec_max_replicas, spec_min_replicas, status_desired_replicas, targetKind, targetName | 이 Autoscaler에서 관리하는 Pod의 현재 복제본 수(status.currentReplicas). 다음은 이 메트릭의 차원입니다. <ul> <li> hpa - HPA의 이름 </li> <li> k8sNamespace - HPA의 Kubernetes 네임스페이스 </li> <li> lastScaleTime - HPA Pod의 수를 마지막으로 스케일링한 시간(status.lastScaleTime)</li><li> creationTime - HPA 생성 타임스탬프 </li> <li> spec_max_replicas - Autoscaler에서 설정할 수 있는 Pod 수의 상한값(spec.maxReplicas) </li> <li> spec_min_replicas - Autoscaler에서 스케일 다운할 수 있는 복제본 수의 하한값(spec.minReplicas) </li><li>status_desired_replicas - 해당 Autoscaler에서 관리되는 Pod 복제본 수(status.desiredReplicas) 지정</li><li>targetKind - HPA 대상의 종류(spec.scaleTargetRef.kind) </li><li>targetName - HPA 대상의 이름(spec.scaleTargetRef.name) </li></ul>|
 
-## <a name="deployment--hpa-charts"></a>HPA 차트 & 배포 
+## <a name="deployment--hpa-charts"></a>배포 및 HPA 차트 
 
-컨테이너 insights에는 테이블 앞부분에 나열 된 메트릭에 대 한 미리 구성 된 차트가 모든 클러스터에 대 한 통합 문서로 포함 되어 있습니다. 왼쪽 창에서 **통합** 문서를 선택 하 고 & HPA 통합 문서 **보기** 드롭다운 목록에서 **HPA** 를 AKS 클러스터에서 직접 배포 & 배포를 찾을 수 있습니다.
+컨테이너 인사이트에는 테이블에 앞서 나열된 메트릭에 대해 미리 구성된 차트가 모든 클러스터에 대한 통합 문서로 포함되어 있습니다. 인사이트에서 왼쪽 창의 **통합 문서** 를 선택하고 드롭다운 목록에서 **통합 문서 보기** 를 선택하여 AKS 클러스터에서 바로 배포 및 HPA 통합 문서, **배포 및 HPA** 를 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Kubernetes의 Kube 메트릭을](https://github.com/kubernetes/kube-state-metrics/tree/master/docs) 검토 하 여 Kube 상태 메트릭에 대해 자세히 알아보세요.
+- [Kubernetes에서 Kube 상태 메트릭](https://github.com/kubernetes/kube-state-metrics/tree/master/docs)을 검토하여 Kube 상태 메트릭에 대해 자세히 알아보세요.

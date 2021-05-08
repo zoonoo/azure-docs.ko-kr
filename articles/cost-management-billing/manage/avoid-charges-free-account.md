@@ -6,18 +6,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 03/30/2021
 ms.author: banders
-ms.openlocfilehash: dfbfa6c97ef23976ed791fb04482346d9f336bfe
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 426d7f5ee117b346280a712cc9f71ab0e617d64f
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584039"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220741"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>Azure 체험 계정으로 요금 청구 방지
 
-적격한 신규 사용자는 [Azure 체험 계정](https://azure.microsoft.com/free/)을 사용하여 처음 30일 동안 $200의 Azure 크레딧과 12개월 동안 제한된 수량의 무료 서비스를 받을 수 있습니다. 평가판 서비스의 한도에 대해 알아보려면 [Azure 체험 계정 FAQ](https://azure.microsoft.com/free/free-account-faq/)를 참조하세요. 만료되지 않은 크레딧을 보유하거나 제한 내에서 무료 서비스만 사용하는 경우 요금이 청구되지 않습니다.
+적격한 신규 사용자는 [Azure 체험 계정](https://azure.microsoft.com/free/)을 사용하여 첫 30일 동안 청구 통화로 USD200 Azure 크레딧과 12개월 동안 제한된 수량의 무료 서비스를 받을 수 있습니다. 평가판 서비스의 한도에 대해 알아보려면 [Azure 체험 계정 FAQ](https://azure.microsoft.com/free/free-account-faq/)를 참조하세요. 만료되지 않은 크레딧을 보유하거나 제한 내에서 무료 서비스만 사용하는 경우 요금이 청구되지 않습니다.
 
 Azure 무료 계정에 요금이 부과되는 몇 가지 이유를 알아보겠습니다.
 

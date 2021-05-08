@@ -3,12 +3,12 @@ title: Azure Data Box를 사용하여 오프라인 백업
 description: Azure Data Box를 사용하여 MARS 에이전트에서 Recovery Services 자격 증명 모음에 대량의 초기 백업 데이터를 오프라인으로 시드하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: e789b6c9f4ff2e8cd168e6b5c138d423911d4743
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78adc479ce5733e208d2334d30d7b88e4edf8d6b
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96752586"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576094"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Data Box를 사용한 Azure Backup 오프라인 백업
 
@@ -56,7 +56,7 @@ Azure Data Box를 사용하여 MARS 에이전트에서 데이터를 시드하는
 >[!IMPORTANT]
 >단일 서버의 초기 백업 데이터는 단일 Azure Data Box 인스턴스 또는 Azure Data Box 디스크에 포함되어야 하며, 동일한 SKU 또는 다른 SKU의 여러 디바이스 간에 공유할 수 없습니다. 하지만 Azure Data Box 디바이스는 여러 서버의 초기 백업을 포함할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 요건
 
 ### <a name="azure-subscription-and-required-permissions"></a>Azure 구독 및 필요한 권한
 
@@ -292,7 +292,7 @@ Data Box 작업을 만들 구독에서 관리자 액세스 권한이 있는 다�
 
 오프라인 백업을 구성하려는 서버에서 다음 작업을 수행합니다.
 
-1. **컴퓨터 인증서 관리 애플리케이션** > **개인** 탭으로 이동하여 이름이 `CB_AzureADCertforOfflineSeeding_<ResourceId>`인 인증서를 찾습니다.
+1. **컴퓨터 인증서 관리 애플리케이션** > **개인** 탭으로 이동하여 이름이 `CB_AzureADCertforOfflineSeeding_<Timestamp>`인 인증서를 찾습니다.
 
 2. 해당 인증서를 선택하고 **모든 작업** 을 마우스 오른쪽 단추를 클릭하여 비공개 키 없이 .cer 형식으로 **내보내기** 를 선택합니다.
 

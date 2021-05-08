@@ -5,15 +5,15 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 03/15/2018
 ms.openlocfilehash: 416b77fd86316acb8098531257e12b591a0ff052
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101710178"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 할당량 및 한도 조정
 
-ADLA(Azure Data Lake Analytics) 계정에서 할당량 및 한도를 조정하고 늘리는 방법을 알아봅니다. 이러한 제한을 알면 사용자의 U-SQL 작업 동작을 이해 하는 데 도움이 됩니다. 모든 할당량 한도는 소프트 한도이며, Azure Support에 문의하면 최대 한도를 늘릴 수 있습니다.
+ADLA(Azure Data Lake Analytics) 계정에서 할당량 및 한도를 조정하고 늘리는 방법을 알아봅니다. 이 한도를 알면 U-SQL 작업 동작을 이해하는 데 도움이 됩니다. 모든 할당량 한도는 소프트 한도이며, Azure Support에 문의하면 최대 한도를 늘릴 수 있습니다.
 
 ## <a name="azure-subscriptions-limits"></a>Azure 구독 한도
 
@@ -28,7 +28,7 @@ ADLA(Azure Data Lake Analytics) 계정에서 할당량 및 한도를 조정하�
 
 ## <a name="default-adla-account-limits"></a>기본 ADLA 계정 한도
 
-**계정 당 최대 au (분석 단위) 수:** 250, 기본 32
+**계정당 최대 AU(분석 단위) 수:** 250, 기본 32
 
 이는 계정에서 동시에 실행할 수 있는 AU의 최대 개수입니다. 모든 작업에서 실행 중인 총 AU 수가 이 한도를 초과하면 최신 작업이 자동으로 큐에 대기됩니다. 예를 들면 다음과 같습니다.
 
@@ -37,9 +37,9 @@ ADLA(Azure Data Lake Analytics) 계정에서 할당량 및 한도를 조정하�
 
     ![Azure Data Lake Analytics 한도 및 할당량 페이지](./media/data-lake-analytics-quota-limits/adjust-quota-limits.png)
 
-**작업당 최대 au (분석 단위) 수:** 250, 기본 32
+**작업당 최대 AU(분석 단위) 수:** 250, 기본 32
 
-각 개별 작업을 계정에 할당할 수 있는 최대 au 수입니다. 제출자가 작업당 더 많은 AU를 제공하는 컴퓨팅 정책(작업 제출 한도)의 영향을 받지 않는 한 이 한도보다 많이 할당된 작업은 거부됩니다. 이 값의 상한은 계정에 대한 AU 한도입니다.
+계정에서 개별 작업에 할당될 수 있는 AU의 최대 개수입니다. 제출자가 작업당 더 많은 AU를 제공하는 컴퓨팅 정책(작업 제출 한도)의 영향을 받지 않는 한 이 한도보다 많이 할당된 작업은 거부됩니다. 이 값의 상한은 계정에 대한 AU 한도입니다.
 
 **계정당 동시 U-SQL 작업의 최대 수:** 20.
 
@@ -58,13 +58,13 @@ Azure 제한에 대한 자세한 정보는 [Azure 서비스 관련 제한 설명
 
 1. Azure Portal에서 지원 요청을 엽니다.
 
-   ![Azure Data Lake Analytics 포털-도움말 및 지원](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-help-support.png)
+   ![Azure Data Lake Analytics 포털 - 도움말 및 지원](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-help-support.png)
 
    ![Azure Data Lake Analytics 포털 새 지원 요청](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request.png)
 
 2. 문제 유형을 **할당량** 으로 선택합니다.
 
-3. **구독** 을 선택 합니다 ("평가판" 구독이 아닌지 확인).
+3. **구독** 을 선택합니다("평가판" 구독이 아닌지 확인).
 
 4. 할당량 유형을 **Data Lake Analytics** 로 선택합니다.
 
@@ -72,7 +72,7 @@ Azure 제한에 대한 자세한 정보는 [Azure 서비스 관련 제한 설명
 
 5. 문제 페이지에 요청한 증가 한도 및 이 추가 용량이 필요한 이유에 대한 **세부 정보** 를 설명하세요.
 
-   ![Azure Data Lake Analytics 지원 요청 정보](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-details.png)
+   ![Azure Data Lake Analytics 지원 요청 세부 정보](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-details.png)
 
 6. 연락처 정보를 확인하고 지원 요청을 만듭니다.
 
@@ -82,4 +82,4 @@ Microsoft에서 요청을 검토하고 최대한 빨리 비즈니스 요구를 �
 
 - [Microsoft Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
 - [Azure PowerShell을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-powershell.md)
-- [Azure Portal를 사용 하 여 Azure Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Azure Portal을 사용하여 Azure Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

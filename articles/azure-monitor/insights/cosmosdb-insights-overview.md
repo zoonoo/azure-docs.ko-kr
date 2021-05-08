@@ -6,10 +6,10 @@ ms.author: lagayhar
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: d88bf65f1bd94e29bd9f60f5597d655f0040623b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101725803"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Monitor 살펴보기
@@ -97,41 +97,41 @@ Azure Cosmos DB 리소스 중 하나의 옆에 있는 드롭다운 화살표를 
 
 ## <a name="view-from-an-azure-cosmos-db-resource"></a>Azure Cosmos DB 리소스에서 보기
 
-1. 기존 Azure Cosmos DB 계정을 검색 하거나 선택 합니다.
+1. 기존 Azure Cosmos DB 계정을 검색하거나 선택합니다.
 
-:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-search.png" alt-text="Azure Cosmos DB를 검색 합니다." border="true":::
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-search.png" alt-text="Azure Cosmos DB 검색" border="true":::
 
-2. Azure Cosmos DB 계정으로 이동한 후 모니터링 섹션에서 **Insights (미리 보기)** 또는 **통합 문서** 를 선택 하 여 처리량, 요청, 저장소, 가용성, 대기 시간, 시스템 및 계정 관리에 대 한 추가 분석을 수행 합니다.
+2. Azure Cosmos DB 계정으로 이동한 후 모니터링 섹션에서 **인사이트(미리 보기)** 또는 **통합 문서** 를 선택하여 처리량, 요청, 스토리지, 가용성, 대기 시간, 시스템, 계정 관리에 대한 추가 분석을 수행합니다.
 
-:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-overview.png" alt-text="Cosmos DB Insights 개요." border="true":::
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-overview.png" alt-text="Cosmos DB 인사이트 개요" border="true":::
 
 ### <a name="time-range"></a>시간 범위
 
-기본적으로 **시간 범위** 필드는 **최근 24 시간 동안의** 데이터를 표시 합니다. 시간 범위를 수정 하 여 최근 5 분에서 지난 7 일간의 모든 데이터를 표시할 수 있습니다. 시간 범위 선택기에는 시작/종료 날짜를 입력 하 여 선택한 계정에 대해 사용 가능한 데이터를 기반으로 사용자 지정 시간 프레임을 볼 수 있는 **사용자 지정** 모드도 포함 되어 있습니다.
+기본적으로 **시간 범위** 필드는 **최근 24시간** 동안의 데이터를 표시합니다. 시간 범위를 수정하여 최근 5분에서 최근 7일까지 중 원하는 데이터를 표시할 수 있습니다. 시간 범위 선택기에는 시작/종료 날짜를 입력하여 선택한 계정에서 사용 가능한 데이터를 기반으로 사용자 지정 시간 프레임을 볼 수 있는 **사용자 지정** 모드도 포함되어 있습니다.
 
-:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-time-range.png" alt-text="Cosmos DB 시간 범위입니다." border="true":::
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-time-range.png" alt-text="Cosmos DB 시간 범위" border="true":::
 
-### <a name="insights-overview"></a>Insights 개요
+### <a name="insights-overview"></a>인사이트 개요
 
-**개요** 탭은 선택한 Azure Cosmos DB 계정에 대해 다음과 같은 가장 일반적인 메트릭을 제공 합니다.
+**개요** 탭은 선택한 Azure Cosmos DB 계정에 대해 다음과 같은 가장 일반적인 메트릭을 제공합니다.
 
 * 총 요청 수
-* 실패 한 요청 (429s)
-* 정규화 된 r 사용 (최대)
-* 데이터 & 인덱스 사용
-* 컬렉션 별 계정 메트릭 Cosmos DB
+* 실패한 요청(429)
+* 정규화된 RU 사용량(최대)
+* 데이터 및 인덱스 사용량
+* 컬렉션별 Cosmos DB 계정 메트릭
 
-**총 요청:** 이 그래프는 상태 코드 별로 세분화 된 계정에 대 한 총 요청 보기를 제공 합니다. 그래프의 아래쪽에 있는 단위는 해당 기간에 대 한 총 요청의 합계입니다.
+**총 요청:** 이 그래프는 계정에 대한 총 요청을 상태 코드별로 분류하여 보여 줍니다. 그래프 하단의 단위는 해당 기간 중 총 요청의 합계입니다.
 
-:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-total-requests.png" alt-text="총 요청 그래프를 Cosmos DB 합니다." border="true":::
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-total-requests.png" alt-text="Cosmos DB 총 요청 그래프" border="true":::
 
-**실패 한 요청 (429s)**:이 그래프는 상태 코드 429의 실패 한 요청에 대 한 보기를 제공 합니다. 그래프의 아래쪽에 있는 단위는 해당 기간에 대해 실패 한 총 요청 수의 합계입니다.
+**실패한 요청(429)** : 이 그래프는 상태 코드 429의 실패한 요청을 보여 줍니다. 그래프 하단의 단위는 해당 기간 중 실패한 총 요청 수의 합계입니다.
 
-:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-429.png" alt-text="실패 한 요청 그래프를 Cosmos DB 합니다." border="true":::
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-429.png" alt-text="Cosmos DB 실패 요청 그래프" border="true":::
 
-정규화 된 기능 사용 **(max)**:이 그래프는 지정 된 기간 동안 정규화 된 사용 단위 중 0-100%의 최대 비율을 제공 합니다.
+**정규화된 RU 사용량(최대)** : 이 그래프는 지정된 기간 동안 정규화된 RU 사용량 단위 중 0~100%의 최대 비율을 보여 줍니다.
 
-:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-normalized-ru.png" alt-text="정규화 된 사용을 Cosmos DB 합니다." border="true":::
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-normalized-ru.png" alt-text="Cosmos DB 정규화된 RU 사용량" border="true":::
 
 ## <a name="pin-export-and-expand"></a>고정, 내보내기 및 확장
 
@@ -159,7 +159,7 @@ Azure Cosmos DB 리소스 중 하나의 옆에 있는 드롭다운 화살표를 
 
 ## <a name="troubleshooting"></a>문제 해결
 
-문제 해결 지침은 전용 통합 문서 기반 insights [문제 해결 문서](troubleshoot-workbooks.md)를 참조 하세요.
+문제 해결 지침은 전용 통합 문서 기반 인사이트 [문제 해결 문서](troubleshoot-workbooks.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,12 +6,12 @@ ms.author: andyriv
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0d70ed8b906c171c001c5bda81a79ca9b65febac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 083c7bf6edc7da1fd617487e91b0a3848fb401fe
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101658881"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107811816"
 ---
 # <a name="microsoft-connected-cache-preview-deployment-scenario-sample-microsoft-connected-cache-within-an-azure-iot-edge-for-industrial-iot-configuration"></a>Microsoft 연결된 캐시 미리 보기 배포 시나리오 샘플: 산업용 IoT 구성을 위해 Azure IoT Edge 내에서 Microsoft 연결된 캐시
 
@@ -35,8 +35,8 @@ ISA 95 규격 네트워크 내에서 Microsoft 연결된 캐시 배포를 구성
 
 3. OT 프록시가 허용 목록에 L4 MCC FQDN/IP 주소를 추가해야 합니다.
 
-Microsoft 연결된 캐시가 제대로 작동하는지 확인하려면 모듈을 호스트하는 IoT Edge 디바이스의 터미널 또는 네트워크의 모든 디바이스에서 다음 명령을 실행합니다.
+Microsoft 연결된 캐시가 제대로 작동하는지 확인하려면 모듈을 호스트하는 IoT Edge 디바이스의 터미널 또는 네트워크의 모든 디바이스에서 다음 명령을 실행합니다. \<Azure IoT Edge Gateway IP\>를 IoT Edge 게이트웨이의 IP 주소나 호스트 이름으로 바꿉니다. 이 보고서의 표시 유형에 대한 자세한 내용은 환경 변수 세부 정보를 참조하세요.
 
 ```bash
-    wget "http://<L3 IoT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com
+    wget http://<L3 IoT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com
 ```

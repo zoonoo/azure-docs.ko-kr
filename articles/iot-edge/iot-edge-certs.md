@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: ffe2f2b7f94d546cdfe393170da2fd2ca6ac0149
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c54f935ed05451df5922ff1a3d564c775703700
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103490996"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029355"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Azure IoT Edge에서 인증서를 사용하는 방법 이해
 
@@ -25,7 +25,7 @@ IoT Edge 인증서는 모듈 및 다운스트림 IoT 디바이스에서 [IoT Edg
 >[!NOTE]
 >이 문서에서는 IoT Edge 디바이스에 있는 다양한 구성 요소 간 또는 IoT Edge 디바이스와 리프 디바이스 간 연결을 보호하는 데 사용되는 인증서에 대해 설명합니다. 인증서를 사용하여 IoT Edge 디바이스를 IoT Hub에 인증할 수도 있습니다. 해당 인증서는 다른 인증서이며 이 문서에서는 설명하지 않습니다. 인증서를 사용하여 디바이스를 인증하는 방법에 대한 자세한 내용은 [X.509 인증서를 사용하여 IoT Edge 디바이스 만들기 및 프로비저닝](how-to-auto-provision-x509-certs.md)을 참조하세요.
 
-이 문서에서는 프로덕션, 개발 및 테스트 시나리오에서 IoT Edge 인증서의 작동 방식을 설명합니다. 스크립트는 다르지만(PowerShell 대 bash), 개념은 Linux와 Windows 간에 동일합니다.
+이 문서에서는 프로덕션, 개발 및 테스트 시나리오에서 IoT Edge 인증서의 작동 방식을 설명합니다.
 
 ## <a name="iot-edge-certificates"></a>IoT Edge 인증서
 

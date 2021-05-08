@@ -1,42 +1,42 @@
 ---
 title: Azure Data Factory의 이진 형식
-description: 이 항목에서는 Azure Data Factory에서 이진 형식을 처리 하는 방법에 대해 설명 합니다.
+description: 이 항목에서는 Azure Data Factory에서 이진 형식을 처리하는 방법에 대해 설명합니다.
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jingwang
 ms.openlocfilehash: cc5b54e99584b74b287fa66deba1694419b46b16
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100393686"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Azure Data Factory의 이진 형식
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-다음 커넥터에 대해 이진 형식이 지원 됩니다. [Amazon S3](connector-amazon-simple-storage-service.md), [azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [파일 시스템](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [SFTP](connector-sftp.md).
+이진 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [SFTP](connector-sftp.md) 커넥터에 적용됩니다.
 
-[복사 작업](copy-activity-overview.md), [GetMetadata 작업](control-flow-get-metadata-activity.md)또는 [삭제 작업](delete-activity.md)에서 이진 데이터 집합을 사용할 수 있습니다. 이진 데이터 집합을 사용 하는 경우 ADF는 파일 콘텐츠를 구문 분석 하지 않고 그대로 처리 합니다. 
+[복사 작업](copy-activity-overview.md), [GetMetadata 작업](control-flow-get-metadata-activity.md) 또는 [삭제 작업](delete-activity.md)에서 이진 데이터 세트를 사용할 수 있습니다. 이진 데이터 세트를 사용하는 경우 ADF는 파일 콘텐츠를 구문 분석하지 않고 그대로 처리합니다. 
 
 >[!NOTE]
->복사 작업에서 이진 데이터 집합을 사용 하는 경우 이진 데이터 집합에서 이진 데이터 집합 으로만 복사할 수 있습니다.
+>복사 작업에서 이진 데이터 세트를 사용하는 경우 이진 데이터 세트에서 이진 데이터 세트로만 복사할 수 있습니다.
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 이진 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 이진 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-| 속성         | 설명                                                  | 필수 |
+| 속성         | Description                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | 데이터 집합의 type 속성은 **Binary** 로 설정 되어야 합니다. | 예      |
-| 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는의 고유한 위치 유형 및 지원 되는 속성이 있습니다 `location` . **커넥터 문서-> 데이터 집합 속성 섹션에서 세부 정보를 참조 하세요**. | 예      |
-| 압축 | 파일 압축을 구성 하는 속성의 그룹입니다. 작업 실행 중 압축/압축 해제를 수행 하려는 경우이 섹션을 구성 합니다. | 예 |
-| type | 이진 파일을 읽고 쓰는 데 사용 되는 압축 코덱입니다. <br>허용 되는 값은 **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **Tar** 또는 **TarGzip** 입니다. <br>**참고** 복사 작업을 사용 하 여 **ZipDeflate** / **TarGzip** / **Tar** 파일의 압축을 풀고 파일 기반 싱크 데이터 저장소에 쓸 때 기본적으로 파일은 폴더로 추출 됩니다. 즉 `<path specified in dataset>/<folder named as source compressed file>/` , `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` [복사 작업 원본](#binary-as-source) 에서를 사용 하 여 압축 된 파일의 이름을 폴더 구조로 유지할지 여부를 제어 합니다.| 아니요       |
-| 수준 | 압축 비율입니다. 복사 작업 싱크에서 데이터 집합을 사용 하는 경우에 적용 됩니다.<br>허용 되는 값은 **최적** 또는 **가장 빠릅니다**.<br>- **가장 빠름:** 압축 작업은 결과 파일이 최적으로 압축 되지 않은 경우에도 최대한 빨리 완료 되어야 합니다.<br>- **최적**: 작업을 완료 하는 데 시간이 더 오래 걸리는 경우에도 압축 작업을 최적으로 압축 해야 합니다. 자세한 내용은 [압축 수준](/dotnet/api/system.io.compression.compressionlevel) 항목을 참조하세요. | 아니요       |
+| type             | 데이터 세트의 형식 속성을 **이진** 으로 설정해야 합니다. | 예      |
+| 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location` 아래에 고유의 위치 형식 및 지원되는 속성이 있습니다. **자세한 내용은 커넥터 문서 ->데이터 세트 속성 섹션을 참조하세요**. | 예      |
+| 압축 | 파일 압축을 구성하는 속성 그룹입니다. 작업 실행 중 압축/압축 풀기를 수행하려는 경우 이 섹션을 구성합니다. | 예 |
+| type | 이진 파일을 읽고/쓰는 데 사용되는 압축 코덱입니다. <br>허용 값은 **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **Tar** 또는 **TarGzip** 입니다. <br>**참고** 복사 작업을 통해 **ZipDeflate** / **TarGzip** / **Tar** 파일의 압축을 풀고 파일 기반 싱크 데이터 저장소에 쓸 때, 기본적으로 파일은 `<path specified in dataset>/<folder named as source compressed file>/`과 같이 폴더로 추출됩니다. 즉, [복사 작업 원본](#binary-as-source)에서 `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder`를 사용하여 압축된 파일의 이름을 폴더 구조로 유지할지 여부를 제어합니다.| 예       |
+| 수준 | 압축 비율입니다. 복사 작업 싱크에서 데이터 세트를 사용하는 경우에 적용됩니다.<br>허용 값은 **최적** 또는 **가장 빠름** 입니다.<br>- **가장 빠름:** 결과 파일이 최적으로 압축되지 않은 경우에도 압축 작업을 최대한 빨리 완료해야 합니다.<br>- **최적**: 작업이 완료되는 데 시간이 오래 걸리더라도 최적으로 압축해야 합니다. 자세한 내용은 [압축 수준](/dotnet/api/system.io.compression.compressionlevel) 항목을 참조하세요. | 예       |
 
-다음은 Azure Blob Storage에서 이진 데이터 집합의 예입니다.
+다음은 Azure Blob Storage에서의 이진 데이터 세트의 예입니다.
 
 ```json
 {
@@ -63,29 +63,29 @@ ms.locfileid: "100393686"
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 
-작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인](concepts-pipelines-activities.md) 문서를 참조하세요. 이 섹션에서는 이진 원본 및 싱크에서 지 원하는 속성의 목록을 제공 합니다.
+작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인](concepts-pipelines-activities.md) 문서를 참조하세요. 이 섹션에서는 이진 원본 및 싱크에서 지원하는 속성 목록을 제공합니다.
 
 >[!NOTE]
->복사 작업에서 이진 데이터 집합을 사용 하는 경우 이진 데이터 집합에서 이진 데이터 집합 으로만 복사할 수 있습니다.
+>복사 작업에서 이진 데이터 세트를 사용하는 경우 이진 데이터 세트에서 이진 데이터 세트로만 복사할 수 있습니다.
 
-### <a name="binary-as-source"></a>소스로 이진
+### <a name="binary-as-source"></a>이진을 원본으로
 
-복사 작업 ***\* 원본 \**** 섹션에서 지원 되는 속성은 다음과 같습니다.
+복사 작업 ***\*원본\**** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 복사 작업 원본의 type 속성을 **Binarysource** 로 설정 해야 합니다. | 예      |
-| formatSettings | 속성 그룹입니다. 아래의 **이진 읽기 설정** 표를 참조 하세요. | 아니요       |
-| 나이 설정 | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는의 고유한 지원 읽기 설정이 `storeSettings` 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아니요       |
+| type          | 복사 작업 원본의 형식 속성은 **BinarySource** 로 설정해야 합니다. | 예      |
+| formatSettings | 속성 그룹입니다. 아래의 **이진 읽기 설정** 표를 참조하세요. | 예       |
+| storeSettings | 데이터 저장소에서 데이터를 읽는 방법에 대한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings` 아래에 고유의 지원되는 읽기 설정이 있습니다. **자세한 내용은 커넥터 문서 -> 복사 작업 속성 섹션을 참조하세요**. | 예       |
 
-다음에서 지원 되는 **이진 읽기 설정** `formatSettings` :
+`formatSettings` 아래에서 지원되는 **이진 읽기 설정** 은 다음과 같습니다.
 
-| 속성      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | FormatSettings의 유형을 **Binaryreadsettings** 로 설정 해야 합니다. | 예      |
-| compressionProperties | 지정 된 압축 코덱에 대 한 데이터의 압축을 푸는 방법에 대 한 속성 그룹입니다. | 아니요       |
-| preserveZipFileNameAsFolder<br>(*의 `compressionProperties` -> `type` 경우 `ZipDeflateReadSettings`*) | **ZipDeflate** 압축을 사용 하 여 입력 데이터 집합을 구성할 때 적용 됩니다. 원본 zip 파일 이름을 복사 중에 폴더 구조로 유지할지 여부를 나타냅니다.<br>-True로 설정 하면 **(기본값)** Data Factory 압축을 푼 파일을에 씁니다 `<path specified in dataset>/<folder named as source zip file>/` .<br>- **False** 로 설정 하면 압축을 푼 파일을에 직접 Data Factory 씁니다 `<path specified in dataset>` . 경쟁 또는 예기치 않은 동작을 방지 하기 위해 다른 원본 zip 파일에 중복 된 파일 이름이 없는지 확인 합니다.  | 아니요 |
-| preserveCompressionFileNameAsFolder<br>(*`compressionProperties` -> `type` `TarGZipReadSettings` 또는 `TarReadSettings`*) | **TarGzip** / **Tar** 압축을 사용 하 여 입력 데이터 집합을 구성할 때 적용 됩니다. 원본 압축 파일 이름을 복사 중에 폴더 구조로 유지할지 여부를 나타냅니다.<br>- **True (기본값)** 로 설정 하면 압축 해제 되는 파일을에 Data Factory 씁니다 `<path specified in dataset>/<folder named as source compressed file>/` . <br>- **False** 로 설정 하면 압축 해제 한 파일을에 직접 쓸 Data Factory `<path specified in dataset>` . 경쟁 또는 예기치 않은 동작을 방지 하기 위해 다른 원본 파일에 중복 된 파일 이름이 없는지 확인 합니다. | 아니요 |
+| type          | FormatSettings의 유형을 **Binaryreadsettings** 로 설정해야 합니다. | 예      |
+| compressionProperties | 지정된 압축 코덱에 대한 데이터의 압축을 푸는 방법에 대한 속성 그룹입니다. | 예       |
+| preserveZipFileNameAsFolder<br>( *`compressionProperties`->`type`아래 `ZipDeflateReadSettings`* 으로) | **ZipDeflate** 압축을 사용하여 입력 데이터 세트를 구성할 때 적용됩니다. 복사 중에 원본 zip 파일 이름을 폴더 구조로 유지할지 여부를 나타냅니다.<br>- **True(기본값)** 로 설정하면 Data Factory는 `<path specified in dataset>/<folder named as source zip file>/`에 압축을 푼 파일을 씁니다.<br>- **False** 로 설정하면 Data Factory가 압축을 푼 파일을 `<path specified in dataset>`에 직접 씁니다. 레이싱 또는 예기치 않은 동작을 방지하기 위해 다른 원본 zip 파일에 중복된 파일 이름이 없는지 확인합니다.  | 예 |
+| preserveCompressionFileNameAsFolder<br>( *`compressionProperties`->`type` 아래 `TarGZipReadSettings` 또는 `TarReadSettings`* 으로) | 입력 데이터 세트가 **TarGzip**/**Tar** 압축을 사용하여 구성될 때 적용됩니다. 복사 중에 원본 압축 파일 이름을 폴더 구조로 유지할지 여부를 나타냅니다.<br>- **True(기본값)** 로 설정하면 Data Factory는 `<path specified in dataset>/<folder named as source compressed file>/`에 압축을 푼 파일을 씁니다. <br>- **False** 로 설정하면 Data Factory가 압축 해제한 파일을 직접 `<path specified in dataset>`에 씁니다. 레이싱 또는 예기치 않은 동작을 방지하기 위해 다른 원본 파일에 중복된 파일 이름이 없는지 확인합니다. | 예 |
 
 ```json
 "activities": [
@@ -115,14 +115,14 @@ ms.locfileid: "100393686"
 ]
 ```
 
-### <a name="binary-as-sink"></a>싱크로 이진 파일
+### <a name="binary-as-sink"></a>이진을 싱크로
 
-복사 작업 ***\* 싱크 \**** 섹션에서 지원 되는 속성은 다음과 같습니다.
+복사 작업 ***\*싱크\**** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 복사 작업 원본의 type 속성은 **Binarysink** 로 설정 되어야 합니다. | 예      |
-| 나이 설정 | 데이터 저장소에 데이터를 쓰는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는의 고유한 지원 쓰기 설정이 `storeSettings` 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아니요       |
+| type          | 복사 작업 원본의 형식 속성은 **BinarySink** 로 설정해야 합니다. | 예      |
+| storeSettings | 데이터 저장소에 데이터를 쓰는 방법에 대한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings` 아래에 고유의 지원되는 쓰기 설정이 있습니다. **자세한 내용은 커넥터 문서 -> 복사 작업 속성 섹션을 참조하세요**. | 예       |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,6 +1,6 @@
 ---
 title: Media Services v2에서 v3 마이그레이션 샘플 비교
-description: Azure Media Services v 2와 v3 간의 코드 차이점을 비교 하는 데 도움이 되는 샘플 집합입니다.
+description: Azure Media Services v2와 v3 간의 코드 차이점을 비교하는 데 도움이 되는 샘플 세트입니다.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
@@ -10,10 +10,10 @@ ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
 ms.openlocfilehash: feb2c83ee7edc3ab22b7b8031e6eb07ef65f9908
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105558944"
 ---
 # <a name="media-services-migration-code-sample-comparison"></a>Media Services 마이그레이션 코드 샘플 비교
@@ -22,17 +22,17 @@ ms.locfileid: "105558944"
 
 <hr color="#5ea0ef" size="10">
 
-## <a name="compare-the-sdks"></a>Sdk 비교
+## <a name="compare-the-sdks"></a>SDK 비교
 
-몇 가지 코드 샘플을 사용 하 여 Sdk 간에 작업을 수행 하는 방법을 비교할 수 있습니다.
+몇 가지 코드 샘플을 사용하여 SDK 간에 작업을 수행하는 방법을 비교할 수 있습니다.
 
 ## <a name="samples-for-comparison"></a>비교를 위한 샘플
 
-다음 표는 일반적인 시나리오에 대 한 v2와 v3의 비교에 대 한 샘플 목록입니다.
+다음 표는 일반적인 시나리오에 대한 v2와 v3의 비교 샘플 목록입니다.
 
 |시나리오|v2 API|v3 API|
 |---|---|---|
 |자산 만들기 및 파일 업로드 |[v2 .NET 예제](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[v3 .NET 예제](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |작업 제출|[v2 .NET 예제](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[v3 .NET 예제](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>먼저 변환을 만든 후 작업을 제출하는 방법을 보여줍니다.|
-|AES 암호화를 사용하여 자산 게시 |1. 만들기 `ContentKeyAuthorizationPolicyOption`<br/>2. 만들기 `ContentKeyAuthorizationPolicy`<br/>3. 만들기 `AssetDeliveryPolicy`<br/>4. `Asset` 콘텐츠 만들기 및 업로드 또는 제출 `Job` 및 사용 `OutputAsset`<br/>5. `AssetDeliveryPolicy` 와 연결 `Asset`<br/>6. 만들기 `ContentKey`<br/>7. 연결 `ContentKey` 대상 `Asset`<br/>8. 만들기 `AccessPolicy`<br/>9. 만들기 `Locator`<br/><br/>[v2 .NET 예제](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. 만들기 `ContentKeyPolicy`<br/>2. 만들기 `Asset`<br/>3. 콘텐츠를 업로드 하거나 다음 `Asset` 으로 사용 `JobOutput`<br/>4. 만들기 `StreamingLocator`<br/><br/>[v3 .NET 예제](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
-|작업 세부 정보 가져오기 및 작업 관리 |[V2를 사용 하 여 작업 관리](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[V3로 작업 관리](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
+|AES 암호화를 사용하여 자산 게시 |1. `ContentKeyAuthorizationPolicyOption` 만들기<br/>2. `ContentKeyAuthorizationPolicy` 만들기<br/>3. `AssetDeliveryPolicy` 만들기<br/>4. `Asset` 만들기 및 콘텐츠 업로드 또는 `Job` 제출 및 `OutputAsset` 사용<br/>5. `AssetDeliveryPolicy`를 `Asset`과 연결<br/>6. `ContentKey` 만들기<br/>7. `ContentKey`를 `Asset`에 연결<br/>8. `AccessPolicy` 만들기<br/>9. `Locator` 만들기<br/><br/>[v2 .NET 예제](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. `ContentKeyPolicy` 만들기<br/>2. `Asset` 만들기<br/>3. 콘텐츠를 업로드하거나 `Asset`을 `JobOutput`으로 사용<br/>4. `StreamingLocator` 만들기<br/><br/>[v3 .NET 예제](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
+|작업 세부 정보 가져오기 및 작업 관리 |[V2를 사용하여 작업 관리](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[V3로 작업 관리](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|

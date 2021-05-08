@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: b73e7f8c13f621bc359a2ae79a725829420a3ecc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 23d95e02c74918de711b18c7580c3774b19c6227
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102455598"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229435"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Azure Cosmos DB용 Advanced Threat Protection(미리 보기)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -44,7 +44,7 @@ Azure Cosmos DB용 Advanced Threat Protection은 비정상적이며 유해할 �
 
 다음 섹션에서 설명하는 여러 가지 방법으로 지능형 위협 방지를 구성할 수 있습니다.
 
-### <a name="portal"></a>[포털](#tab/azure-portal)
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. [https://portal.azure.com](https://portal.azure.com/)에서 Azure Portal을 시작합니다.
 
@@ -57,14 +57,14 @@ Azure Cosmos DB용 Advanced Threat Protection은 비정상적이며 유해할 �
     * **Advanced Threat Protection** 옵션을 클릭하여 **ON** 으로 설정합니다.
     * **저장** 을 클릭하여 새로운 또는 업데이트된 Advanced Threat Protection 정책을 저장합니다.   
 
-### <a name="rest-api"></a>[REST API](#tab/rest-api)
+# <a name="rest-api"></a>[REST API](#tab/rest-api)
 
 Rest API 명령을 사용하여 특정 Azure Cosmos DB 계정에 대한 Advanced Threat Protection 설정을 만들거나, 업데이트하거나, 가져옵니다.
 
 * [Advanced Threat Protection - 만들기](/rest/api/securitycenter/advancedthreatprotection/create)
 * [Advanced Threat Protection - 가져오기](/rest/api/securitycenter/advancedthreatprotection/get)
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 다음 PowerShell cmdlet을 사용합니다.
 
@@ -72,12 +72,12 @@ Rest API 명령을 사용하여 특정 Azure Cosmos DB 계정에 대한 Advanced
 * [Advanced Threat Protection 가져오기](/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
 * [Advanced Threat Protection 사용 안 함](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
-### <a name="arm-template"></a>[ARM 템플릿](#tab/arm-template)
+# <a name="arm-template"></a>[ARM 템플릿](#tab/arm-template)
 
 ARM(Azure Resource Manager) 템플릿을 사용하여 Advanced Threat Protection이 활성화된 Cosmos DB를 설정합니다.
 자세한 내용은 [Advanced Threat Protection을 사용하여 CosmosDB 계정 만들기](https://azure.microsoft.com/resources/templates/201-cosmosdb-advanced-threat-protection-create-account/)를 참조하세요.
 
-### <a name="azure-policy"></a>[Azure Policy](#tab/azure-policy)
+# <a name="azure-policy"></a>[Azure Policy](#tab/azure-policy)
 
 Azure Policy를 사용하여 Cosmos DB에 대한 Advanced Threat Protection을 활성화합니다.
 

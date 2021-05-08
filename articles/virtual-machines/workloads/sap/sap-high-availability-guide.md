@@ -1,6 +1,6 @@
 ---
 title: SAP NetWeaver에 대한 Azure Virtual Machines 고가용성
-description: 이 문서에서는 SAP NetWeaver에 대 한 고가용성 Azure Virtual Machines에 대해 알아봅니다.
+description: 본 문서에서는 SAP NetWeaver에 대한 고가용성 Azure Virtual Machines에 대해 알아봅니다.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -17,13 +17,13 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 67b472d1629c2b59f80d36aaf43df1e783d2ffa4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101666799"
 ---
-# <a name="high-availability-azure-virtual-machines-for-sap-netweaver"></a>SAP NetWeaver에 대 한 고가용성 Azure Virtual Machines
+# <a name="high-availability-azure-virtual-machines-for-sap-netweaver"></a>SAP NetWeaver에 대한 고가용성 Azure Virtual Machines
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -320,7 +320,7 @@ SAP 애플리케이션 서버 인스턴스를 호스트하는 모든 가상 머�
 * 모든 가상 머신이 동일한 업그레이드 도메인에 속하는지 여부. 예를 들어 업그레이드 도메인은 가상 머신이 계획된 유지 관리 가동 중지 시간 동안 동시에 업데이트되지 않는지 확인합니다.
 * 모든 가상 머신이 동일한 장애 도메인에 속하는지 여부. 예를 들어 장애 도메인은 어떤 단일 장애 지점도 모든 가상 머신의 가용성에 영향을 주지 않도록 가상 머신이 배포되어 있는지 확인합니다.
 
-방법 [virtual machines의 가용성 관리] [. /manage-availability.md]입니다.
+[가상 머신의 가용성 관리] 방법을 [../manage-availability.md]에서 자세히 알아보세요.
 
 비관리 디스크에만 해당하는 설명: Azure Storage 계정은 잠재적인 단일 실패 지점일 수 있으므로 둘 이상의 가상 머신이 배포될 둘 이상의 Azure Storage 계정이 있어야 합니다. 이상적인 설치에서는 SAP 대화 상자 인스턴스를 실행하는 각 가상 컴퓨터의 디스크를 다른 스토리지 계정에 배포합니다.
 
@@ -591,7 +591,7 @@ ASCS/SCS 다중 SID 템플릿을 설정하려면 [ASCS/SCS 다중 SID 템플릿]
 2. 사용 중인 네트워크의 종류에 따라 설정을 선택합니다. 자세한 내용은 다음 리소스를 참조하세요.
    * 온-프레미스 DNS 서버의 IP 주소를 추가합니다.  
    Azure에서 실행되는 가상 머신으로 온-프레미스 DNS 서버를 확장할 수 있습니다. 이 시나리오에서는 DNS 서비스를 실행하는 Azure Virtual Machines의 IP 주소를 추가할 수 있습니다.
-   * Azure에서 격리 된 VM 배포: DNS 서버 역할을 하는 동일한 Virtual Network 인스턴스에 추가 가상 컴퓨터를 배포 합니다. DNS 서비스를 실행하도록 설정한 Azure Virtual Machines의 IP 주소를 추가합니다.
+   * Azure에서 격리된 VM 배포의 경우: DNS 서버 역할을 하는 동일한 가상 네트워크 인스턴스에 추가 가상 머신을 배포합니다. DNS 서비스를 실행하도록 설정한 Azure Virtual Machines의 IP 주소를 추가합니다.
 
    ![그림 12: Azure Virtual Network에 대해 DNS 서버 구성][sap-ha-guide-figure-3001]
 

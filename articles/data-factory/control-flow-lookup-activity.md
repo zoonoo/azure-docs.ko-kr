@@ -7,28 +7,28 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/25/2021
 ms.openlocfilehash: 4b2fb49899b6a676520fe0912dd122dd72cce023
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101712915"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory에서 조회 작업
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-조회 작업은 Azure Data Factory에서 지원하는 데이터 원본에서 데이터 세트를 검색할 수 있습니다. 이를 사용 하 여 개체 이름을 하드 코딩 하는 대신 후속 작업에서 작업할 개체를 동적으로 결정할 수 있습니다. 개체의 예로는 파일과 테이블이 있습니다.
+조회 작업은 Azure Data Factory에서 지원하는 데이터 원본에서 데이터 세트를 검색할 수 있습니다. 개체 이름을 하드 코딩하는 대신, 후속 작업에서 작동할 개체를 동적으로 결정하는 데 사용할 수 있습니다. 개체의 예로는 파일과 테이블이 있습니다.
 
-조회 작업은 구성 파일 또는 테이블의 내용을 읽고 반환합니다. 쿼리 또는 저장 프로시저를 실행한 결과도 반환합니다. 출력은 단일 값 또는 특성의 배열이 될 수 있습니다 .이는 후속 복사, 변환 또는 ForEach 활동과 같은 제어 흐름 작업에서 사용 될 수 있습니다.
+조회 작업은 구성 파일 또는 테이블의 내용을 읽고 반환합니다. 쿼리 또는 저장 프로시저를 실행한 결과도 반환합니다. 출력은 싱글톤 값 또는 특성의 배열일 수 있으며 해당 출력은 후속 복사, 변환 또는 ForEach 작업과 같은 제어 흐름 작업에서 사용될 수 있습니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
 다음 사항에 유의하세요.
 
-- 조회 작업은 최대 **5000 개의 행** 을 반환할 수 있습니다. 결과 집합에 추가 레코드가 포함 되어 있으면 첫 번째 5000 행이 반환 됩니다.
-- 조회 작업 출력은 최대 **4mb** 의 크기를 지원 하며, 크기가 제한을 초과 하는 경우 작업은 실패 합니다. 
-- 시간 제한 이전의 조회 작업에 가장 긴 기간은 **24 시간** 입니다.
-- 쿼리 또는 저장 프로시저를 사용 하 여 데이터를 조회 하는 경우 정확히 하나의 결과 집합을 반환 해야 합니다. 그렇지 않으면 조회 작업이 실패 합니다.
+- 조회 작업은 최대 **5,000개의 행** 을 반환할 수 있습니다. 결과 집합에 더 많은 레코드가 있으면 처음 5000행이 반환됩니다.
+- 조회 작업 출력은 최대 **4MB** 의 크기를 지원하며 크기가 제한을 초과하면 작업은 실패합니다. 
+- 시간 제한 전까지 가능한 최대 조회 작업 기간은 **24시간** 입니다.
+- 쿼리 또는 저장 프로시저를 사용하여 데이터를 조회하는 경우 정확히 하나의 결과 집합을 반환하는지 확인해야 합니다. 그렇지 않으면 조회 작업이 실패합니다.
 
 다음은 조회 작업에 지원되는 데이터 원본입니다. 
 
@@ -55,7 +55,7 @@ ms.locfileid: "101712915"
 
 ## <a name="type-properties"></a>형식 속성
 
-Name | 설명 | Type | 필수 여부
+Name | Description | Type | 필수 여부
 ---- | ----------- | ---- | --------
 데이터 세트 | 조회를 위한 데이터 세트 참조를 제공합니다. 자세한 내용은 해당하는 각 커넥터 문서의 **데이터 세트 속성** 섹션에서 확인하세요. | 키/값 쌍 | 예
 source | 복사 작업 원본과 동일한 데이터 세트 관련 원본 속성을 포함하고 있습니다. 자세한 내용은 해당하는 각 커넥터 문서의 **복사 작업 속성** 섹션에서 확인하세요. | 키/값 쌍 | 예
@@ -71,7 +71,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 
 조회 결과는 작업 실행 결과의 `output` 섹션에 반환됩니다.
 
-* **`firstRowOnly`가 `true`(기본값)로 설정되면** 출력 형식은 다음 코드와 같습니다. 조회 결과는 고정된 `firstRow` 키 아래에 있습니다. 후속 작업에서 결과를 사용 하려면 패턴을 사용  `@{activity('LookupActivity').output.firstRow.table}` 합니다.
+* **`firstRowOnly`가 `true`(기본값)로 설정되면** 출력 형식은 다음 코드와 같습니다. 조회 결과는 고정된 `firstRow` 키 아래에 있습니다. 결과를 후속 작업에 사용하려면 `@{activity('LookupActivity').output.firstRow.table}` 패턴을 사용합니다.
 
     ```json
     {
@@ -106,7 +106,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 
 ## <a name="example"></a>예제
 
-이 예제에서 파이프라인에는 두 가지 작업 ( **조회** 및 **복사**)이 포함 되어 있습니다. 복사 작업은 Azure SQL Database 인스턴스의 SQL 테이블에서 Azure Blob 저장소로 데이터를 복사 합니다. SQL 테이블의 이름은 Blob Storage의 JSON 파일에 저장됩니다. 조회 작업은 런타임 시 테이블 이름을 조회합니다. JSON은 이 방법을 사용하여 동적으로 수정됩니다. 따라서 사용자가 파이프라인 또는 데이터 세트를 다시 배포할 필요가 없습니다. 
+이 예제에서 파이프라인은 **조회** 및 **복사** 작업을 포함하고 있습니다. 복사 작업은 Azure SQL Database 인스턴스의 SQL 테이블에서 Azure Blob 스토리지로 데이터를 복사합니다. SQL 테이블의 이름은 Blob Storage의 JSON 파일에 저장됩니다. 조회 작업은 런타임 시 테이블 이름을 조회합니다. JSON은 이 방법을 사용하여 동적으로 수정됩니다. 따라서 사용자가 파이프라인 또는 데이터 세트를 다시 배포할 필요가 없습니다. 
 
 이 예제는 첫 번째 행만 조회합니다. 모든 행을 조회하고 결과를 ForEach 작업과 연결하려면 [Azure Data Factory를 사용하여 여러 테이블 대량 복사](tutorial-bulk-copy.md)의 샘플을 참조하세요.
 
@@ -114,7 +114,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 ### <a name="pipeline"></a>파이프라인
 
 - 조회 작업은 Azure Blob Storage의 위치를 참조하는 **LookupDataset** 를 사용하도록 구성됩니다. 조회 작업은 이 위치에 있는 JSON 파일에서 SQL 테이블의 이름을 읽습니다. 
-- 복사 작업은 조회 작업의 출력 (SQL 테이블의 이름)을 사용 합니다. **SourceDataset** 의 **tableName** 속성은 조회 작업의 출력을 사용하도록 구성됩니다. 복사 작업은 SQL 테이블의 데이터를 Azure Blob Storage의 위치로 복사합니다. 위치는 **SinkDataset** 속성을 통해 지정합니다. 
+- 복사 작업은 SQL 테이블의 이름인 조회 작업의 출력을 사용합니다. **SourceDataset** 의 **tableName** 속성은 조회 작업의 출력을 사용하도록 구성됩니다. 복사 작업은 SQL 테이블의 데이터를 Azure Blob Storage의 위치로 복사합니다. 위치는 **SinkDataset** 속성을 통해 지정합니다. 
 
 ```json
 {
@@ -243,7 +243,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 
 ### <a name="lookup-dataset"></a>조회 데이터 세트
 
-**조회** 데이터 집합은 **AzureBlobStorageLinkedService** 형식으로 지정 된 Azure Storage 조회 폴더에 있는 파일 **에 대 한sourcetable.js** 입니다. 
+**lookup** 데이터 세트는 **AzureBlobStorageLinkedService** 형식으로 지정된 Azure Storage 조회 폴더의 **sourcetable.json** 파일입니다. 
 
 ```json
 {
@@ -305,7 +305,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 
 ### <a name="sink-dataset-for-copy-activity"></a>복사 작업의 **Sink** 데이터 세트
 
-복사 작업은 SQL 테이블의 데이터를 Azure Storage에 있는 **csv** 폴더의 **filebylookup.csv** 파일에 복사합니다. 파일은 **AzureBlobStorageLinkedService** 속성에 의해 지정 됩니다. 
+복사 작업은 SQL 테이블의 데이터를 Azure Storage에 있는 **csv** 폴더의 **filebylookup.csv** 파일에 복사합니다. 이 파일은 **AzureBlobStorageLinkedService** 속성을 통해 지정합니다. 
 
 ```json
 {
@@ -345,7 +345,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 
 ### <a name="sourcetablejson"></a>sourcetable.json
 
-파일 **의sourcetable.js** 에 대해 다음 두 종류의 형식을 사용할 수 있습니다.
+**sourcetable.json** 파일에 대해 다음 두 종류의 형식을 사용할 수 있습니다.
 
 #### <a name="set-of-objects"></a>개체의 집합
 
@@ -385,7 +385,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 
 | 제한 사항 | 해결 방법 |
 |---|---|
-| 조회 작업에는 최대 5000 행이 있고 최대 크기는 4mb입니다. | 최대 행 수 또는 최대 크기를 초과하지 않는 데이터를 검색하는 내부 파이프라인을 통해 외부 파이프라인을 반복하는 두 수준의 파이프라인을 설계합니다. |
+| 조회 작업에는 최대 5,000개의 행 및 최대 4MB의 크기가 있습니다. | 최대 행 수 또는 최대 크기를 초과하지 않는 데이터를 검색하는 내부 파이프라인을 통해 외부 파이프라인을 반복하는 두 수준의 파이프라인을 설계합니다. |
 | | |
 
 ## <a name="next-steps"></a>다음 단계

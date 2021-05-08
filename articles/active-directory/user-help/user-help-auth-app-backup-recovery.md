@@ -12,10 +12,10 @@ ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: e7608196c962a6918a90b91457f856f3e11b04f0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91530904"
 ---
 # <a name="back-up-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱을 사용하여 계정 자격 증명 백업 및 복구
@@ -73,31 +73,31 @@ Microsoft Authenticator 앱은 계정 자격 증명과 계정 순서 같은 관�
 
 복구를 마친 후 Microsoft Authenticator 앱의 개인 Microsoft 계정 확인 코드가 기존 장치와 새 장치 간에 다를 수 있습니다. 디바이스마다 고유의 자격 증명이 있기 때문에 코드가 다르지만, 연결된 전화를 사용하여 로그인할 때 둘 다 유효하며 정상적으로 작동합니다.
 
-## <a name="recover-accounts-requiring-more-verification"></a>더 많은 확인이 필요한 계정 복구
+## <a name="recover-accounts-requiring-more-verification"></a>추가 확인이 필요한 계정 복구
 
 개인, 회사 또는 학교 계정에 푸시 알림을 사용하는 경우 정보를 복구하려면 추가 확인을 제공해야 한다는 내용의 경고가 화면에 표시됩니다. 푸시 알림은 사용자의 특정 디바이스에 연결된 자격 증명을 사용해야 하고 어떤 경우에도 네트워크를 통해 전송되지 않으므로 디바이스에 자격 증명을 만들려면 사용자의 신분을 증명해야 합니다.
 
 개인 Microsoft 계정의 경우 대체 이메일 또는 전화 번호와 함께 암호를 입력하여 신분을 증명할 수 있습니다. 회사 또는 학교 계정의 경우 계정 공급자가 제공한 QR 코드를 검사해야 합니다.
 
-### <a name="to-provide-more-verification-for-personal-accounts"></a>개인 계정에 대 한 추가 확인을 제공 하려면
+### <a name="to-provide-more-verification-for-personal-accounts"></a>개인 계정에 대한 추가 확인을 제공하려면
 
-1. Microsoft Authenticator 앱의 **계정** 화면에서 복구 하려는 계정을 탭 하 여 계정의 전체 화면 보기를 엽니다.
+1. Microsoft Authenticator 앱의 **계정** 화면에서 복구하려는 계정을 탭하여 계정의 전체 화면 보기를 엽니다.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png" alt-text="사용 가능한 계정 타일이 있는 Microsoft Authenticator 앱을 보여 주는 스크린샷" border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png" alt-text="사용 가능한 계정 타일이 표시된 Microsoft Authenticator 앱 스크린샷" border="true":::
 
-1. 복구 하는 계정에 대 한 타일을 탭 한 다음 복구에 로그인 하는 옵션을 탭 합니다. 암호를 입력 한 다음 추가 확인으로 전자 메일 주소 또는 전화 번호를 확인 합니다.
+1. 복구할 계정의 타일을 탭한 다음, 복구를 위해 로그인 옵션을 탭합니다. 암호를 입력하고 추가 확인으로 메일 주소 또는 전화 번호를 제공합니다.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="일회성 암호 코드 Microsoft Authenticator 보여 주는 스크린샷" border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Microsoft Authenticator 일회성 암호 코드 스크린샷" border="true":::
 
-### <a name="to-provide-more-verification-for-work-or-school-accounts"></a>회사 또는 학교 계정에 대 한 추가 확인을 제공 하려면
+### <a name="to-provide-more-verification-for-work-or-school-accounts"></a>회사 또는 학교 계정에 대한 추가 확인을 제공하려면
 
-1. Microsoft Authenticator 앱의 **계정** 화면에서 복구 하려는 계정을 탭 하 여 계정의 전체 화면 보기를 엽니다.
+1. Microsoft Authenticator 앱의 **계정** 화면에서 복구하려는 계정을 탭하여 계정의 전체 화면 보기를 엽니다.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="사용 가능한 계정 타일을 보여 주는 Microsoft Authenticator 앱" border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="사용 가능한 계정 타일이 표시된 Microsoft Authenticator 앱" border="true":::
 
-1. 전체 화면 보기에서 QR 코드를 스캔 하는 옵션을 탭 하 여 전체 복구 합니다.
+1. 전체 화면 보기에서 QR 코드를 스캔하여 전체 복구 옵션을 탭합니다.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="인증자는 1 회 암호를 확인 코드로 표시 합니다." border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="Authenticator에서 일회성 암호를 확인 코드로 제공함" border="true":::
 
 >[!NOTE]
 >QR 코드 및 이 코드를 가져오는 방법에 대한 자세한 내용은 관리자가 보안 정보를 켰는지 여부에 따라 [Microsoft Authenticator 앱 시작](./user-help-auth-app-download-install.md) 또는 [Authenticator 앱을 사용하도록 보안 정보 설정](./security-info-setup-auth-app.md)을 참조하세요.
@@ -118,7 +118,7 @@ Microsoft Authenticator 앱은 계정 자격 증명과 계정 순서 같은 관�
 
 - **기존 Microsoft Authenticator 계정**: Microsoft Authenticator 앱에서 이미 계정을 설정한 경우 앱이 백업된 계정을 복구할 수 없습니다. 계정을 복구하지 못하게 하는 이유는 계정 세부 정보를 오래된 정보로 덮어쓰지 않게 방지하기 위함입니다. 이 경우 Authenticator 앱의 기존 계정에서 기존 계정 정보를 모두 제거해야 백업을 복구할 수 있습니다.
 
-- **백업이 만료됨**: 백업 정보가 만료된 경우 Microsoft 복구 계정에 다시 로그인하여 정보를 새로 고치라는 메시지가 표시될 수 있습니다. 복구 계정은 처음에 백업을 저장하는 데 사용한 개인 Microsoft 계정입니다. 로그인이 필요한 경우 메뉴 또는 작업 모음에 빨간색 점이 표시 되거나 백업에서 복원을 완료 하기 위해 로그인 하 라는 느낌표 아이콘이 표시 됩니다. 적절 한 아이콘을 선택 하면 정보를 업데이트 하기 위해 다시 로그인 하 라는 메시지가 표시 됩니다.
+- **백업이 만료됨**: 백업 정보가 만료된 경우 Microsoft 복구 계정에 다시 로그인하여 정보를 새로 고치라는 메시지가 표시될 수 있습니다. 복구 계정은 처음에 백업을 저장하는 데 사용한 개인 Microsoft 계정입니다. 로그인이 필요한 경우 메뉴 또는 작업 모음에 빨간색 점이 표시되거나 백업에서 복원을 완료하기 위해 로그인하라는 느낌표 아이콘이 표시됩니다. 해당 아이콘을 선택하면 정보를 업데이트하기 위해 다시 로그인하라는 메시지가 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

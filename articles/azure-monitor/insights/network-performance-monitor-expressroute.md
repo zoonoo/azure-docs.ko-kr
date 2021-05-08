@@ -6,16 +6,16 @@ author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
 ms.openlocfilehash: 0b005e46e9f9a740fee153e063bebf108c22b303
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101725699"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute 모니터
 
 > [!IMPORTANT]
-> 2021 년 7 월 1 일부 터는 기존 작업 영역에 새 테스트를 추가 하거나 네트워크 성능 모니터에서 새 작업 영역을 사용 하도록 설정할 수 없습니다. 1 월 2021 일 이전에 만든 테스트를 계속 사용할 수 있습니다. 현재 워크 로드에 대 한 서비스 중단을 최소화 하려면 2024 년 2 월 29 일 이전에 Azure Network Watcher에서 [네트워크 성능 모니터의 테스트를 새 연결 모니터로 마이그레이션합니다](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) .
+> 2021년 7월 1일부터는 기존 작업 영역에 새 테스트를 추가하거나 네트워크 성능 모니터에서 새 작업 영역을 사용하도록 설정할 수 없습니다. 2021년 7월 1일 이전에 만든 테스트는 계속 사용할 수 있습니다. 현재 워크로드에 대한 서비스 중단의 영향을 최소화하려면 2024년 2월 29일 이전에 [테스트를 네트워크 성능 모니터에서 Azure Network Watcher의 새로운 연결 모니터로 마이그레이션](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md)합니다.
 
 [네트워크 성능 모니터](network-performance-monitor.md)의 Azure ExpressRoute 모니터 기능을 사용하여 Azure ExpressRoute를 통한 지사와 Azure 간의 엔드투엔드 연결 및 성능을 모니터링할 수 있습니다. 주요 이점은 다음과 같습니다. 
 
@@ -59,7 +59,7 @@ NSG에 대한 자세한 내용은  [네트워크 보안 그룹](../../virtual-
 3. 이 연결에 대한 상태 이벤트를 만들려는 경우 **이 피어링에 상태 모니터링 사용** 을 선택합니다. 
 4. 모니터링 조건을 선택합니다. 임계값을 입력하여 상태 이벤트 생성에 대한 사용자 지정 임계값을 설정할 수 있습니다. 조건 값이 피어링 연결의 선택된 임계값을 초과할 경우 상태 이벤트가 생성됩니다. 
 5. **에이전트 추가** 를 선택하여 이 피어링 연결을 모니터링하는 데 사용할 모니터링 에이전트를 선택합니다. 에이전트를 연결의 양쪽 끝에 추가했는지 확인합니다. 이 피어링에 연결된 가상 네트워크에 하나 이상의 에이전트가 필요합니다. 이 피어링에 연결된 하나 이상의 온-프레미스 에이전트가 필요합니다. 
-6. **저장** 을 선택 하 여 구성을 저장 합니다. 
+6. **저장** 을 선택하여 구성을 저장합니다. 
 
    ![ExpressRoute 모니터링 구성](media/network-performance-monitor-expressroute/expressroute-configure-discovery.png)
 
@@ -111,7 +111,7 @@ NSG에 대한 자세한 내용은  [네트워크 보안 그룹](../../virtual-
 
 알림 코드를 확인하고 **LogAnalytics** 를 통해 알림 코드에 대한 경고를 설정할 수 있습니다. **NPM 진단** 페이지에서 트리거된 모든 진단 메시지에 대한 설명을 확인할 수 있습니다.
 
-| 알림 코드(로그) | 설명 |
+| 알림 코드(로그) | Description |
 | --- | --- |
 | 5501 | ExpressRoute 회로의 보조 연결을 통해 트래버스할 수 없음 |
 | 5502 | ExpressRoute 회로의 기본 연결을 통해 트래버스할 수 없음 |

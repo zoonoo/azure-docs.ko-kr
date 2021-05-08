@@ -7,7 +7,7 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 04/15/2021
 ms.custom:
 - amqp
 - mqtt
@@ -16,12 +16,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: 3ddc8c78bac47ed85266037341328585e3c7cb1c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: e72af412f61f2084fb78907c15a92a22b9e3bc99
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97825127"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567182"
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub에 대한 액세스 제어
 
@@ -383,14 +383,14 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 * **자체 생성 및 자체 서명 X-509 인증서**. 디바이스 제조업체 또는 사내 배포자는 이러한 인증서를 생성하고 디바이스에 해당 프라이빗 키(및 인증서)를 저장할 수 있습니다. 이러한 용도로 [OpenSSL](https://www.openssl.org/) 및 [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) 유틸리티와 같은 도구를 사용할 수 있습니다. 지문 인증만 사용합니다.
 
-디바이스는 인증을 위해 X.509 인증서 또는 보안 토큰 중 하나만 사용할 수 있습니다. X.509 인증서 인증을 사용 하 여 기존 인증서가 만료 될 때 인증서 롤오버를 처리 하는 전략이 있는지 확인 합니다.
+디바이스는 인증을 위해 X.509 인증서 또는 보안 토큰 중 하나만 사용할 수 있습니다. X.509 인증서 인증을 사용하면 기존 인증서가 만료될 때 인증서 롤오버를 처리할 전략이 있는지 확인합니다.
 
-X.509 CA 인증을 사용 하는 장치에 대해서는 다음 기능이 지원 되지 않습니다.
+X.509 CA(인증 기관) 인증을 사용하는 디바이스에 대한 다음 기능은 아직 일반 공급되지 않으며 [미리 보기 모드를 사용하도록 설정해야 합니다.](iot-hub-preview-mode.md)
 
 * HTTPS, Websocket을 통한 MQTT 및 Websocket 프로토콜을 통한 AMQP
-* 파일 업로드 (모든 프로토콜)
+* 파일 업로드(모든 프로토콜)
 
-인증 기관을 사용한 인증에 대한 자세한 내용은 [X.509 CA 인증서를 사용한 디바이스 인증](iot-hub-x509ca-overview.md)을 참조하세요. IoT hub를 사용 하 여 인증 기관을 업로드 하 고 확인 하는 방법에 대 한 자세한 내용은 [Azure iot hub에서 x.509 보안 설정](iot-hub-security-x509-get-started.md)을 참조 하세요.
+인증 기관을 사용한 인증에 대한 자세한 내용은 [X.509 CA 인증서를 사용한 디바이스 인증](iot-hub-x509ca-overview.md)을 참조하세요. IoT 허브에서 인증 기관을 업로드하고 확인하는 방법에 대한 자세한 내용은 [Azure IoT 허브에서 X.509 보안 설정](iot-hub-security-x509-get-started.md)을 참조하세요.
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>디바이스에 대해 X.509 인증서 등록
 

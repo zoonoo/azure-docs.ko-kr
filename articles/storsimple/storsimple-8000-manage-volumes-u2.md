@@ -1,5 +1,5 @@
 ---
-title: StorSimple 볼륨 관리 (업데이트 3)
+title: StorSimple 볼륨 관리(업데이트 3)
 description: StorSimple 볼륨을 추가, 수정, 모니터링 및 삭제하는 방법 및 필요에 따라 이를 오프라인으로 전환하는 방법을 설명합니다.
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/09/2017
 ms.author: alkohli
 ms.openlocfilehash: 3d649b54b544c120198963f8094764e9590e20b2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100547643"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>StorSimple 디바이스 관리자 서비스를 사용하여 볼륨 관리(업데이트 3 이후)
@@ -112,11 +112,11 @@ StorSimple 8000 시리즈 디바이스를 배포하는 동안 [볼륨을 만들�
       
        8100 디바이스에 8.5TB(최대 허용 크기)의 로컬 고정 볼륨을 프로비전하면 해당 디바이스에서 사용 가능한 로컬 공간이 모두 소진됩니다. 따라서 계층화된 볼륨의 작업 집합을 호스트할 로컬 공간이 디바이스에 없기 때문에 더 이상 계층화된 볼륨을 만들 수 없습니다. 기존 계층화된 볼륨도 사용 가능한 공간에 영향을 줍니다. 예를 들어 대략 106TB의 계층화된 볼륨이 있는 8100 디바이스에서는 로컬 고정 볼륨에 대해 4TB의 공간만 사용할 수 있습니다.
 
-    6. **연결 된 호스트** 필드에서 화살표를 클릭 한 다음 연결 하려는 각 ACR을 선택 합니다. **연결된 호스트** 블레이드에서 기존 ACR을 선택하거나 새 ACR을 추가합니다. 새 ACR을 선택하는 경우 ACR의 **이름** 을 입력하고 Windows 호스트의 IQN(**iSCSI Qualified Name**)을 입력합니다. IQN이 없는 경우 Windows Server 호스트의 IQN 가져오기로 이동합니다.<!--Please verify: Is new ACR capability still available? Are the labels and controls the same?--> 
+    6. **연결된 호스트** 필드에서 화살표를 클릭한 다음 연결하려는 각 ACR을 선택합니다. **연결된 호스트** 블레이드에서 기존 ACR을 선택하거나 새 ACR을 추가합니다. 새 ACR을 선택하는 경우 ACR의 **이름** 을 입력하고 Windows 호스트의 IQN(**iSCSI Qualified Name**)을 입력합니다. IQN이 없는 경우 Windows Server 호스트의 IQN 가져오기로 이동합니다.<!--Please verify: Is new ACR capability still available? Are the labels and controls the same?--> 
 
-        ![연결 된 호스트 추가](./media/storsimple-8000-manage-volumes-u2/add-volume-02.png)<!--New graphic. Source: add-volume-connected host-->
+        ![연결된 호스트 추가](./media/storsimple-8000-manage-volumes-u2/add-volume-02.png)<!--New graphic. Source: add-volume-connected host-->
 
-   7. 설정을 마치면 **만들기** 를 클릭 합니다. 
+   7. 설정을 마치면 **만들기** 를 클릭합니다. 
 
       지정한 설정으로 볼륨이 만들어집니다. 새 볼륨을 사용할 준비가 되었습니다.
 
@@ -145,7 +145,7 @@ StorSimple 8000 시리즈 디바이스를 배포하는 동안 [볼륨을 만들�
 
     ![볼륨을 오프라인으로 전환하는 영향 검토](./media/storsimple-8000-manage-volumes-u2/modify-volume-05.png)
 
-4. 볼륨이 오프라인 상태가 되면(볼륨 상태에 표시된 대로) 볼륨을 선택하고 마우스 오른쪽 단추로 클릭하여 상황에 맞는 메뉴를 호출합니다. **볼륨 수정** 을 선택 합니다.
+4. 볼륨이 오프라인 상태가 되면(볼륨 상태에 표시된 대로) 볼륨을 선택하고 마우스 오른쪽 단추로 클릭하여 상황에 맞는 메뉴를 호출합니다. **볼륨 수정** 을 선택합니다.
 
     ![볼륨 수정 선택](./media/storsimple-8000-manage-volumes-u2/modify-volume-09.png)
 
@@ -157,15 +157,15 @@ StorSimple 8000 시리즈 디바이스를 배포하는 동안 [볼륨을 만들�
    3. **프로비전된 용량** 을 늘립니다. **프로비전된 용량** 은 늘릴 수만 있으며 만든 후에는 볼륨을 축소할 수 없습니다.
    4. **연결된 호스트** 에서 ACR을 수정할 수 있습니다. ACR을 수정하려면 볼륨은 오프라인 상태여야 합니다.
 
-       ![볼륨을 오프 라인 상태로 만드는 경우의 영향 검토 2](./media/storsimple-8000-manage-volumes-u2/modify-volume-11.png)<!--Legacy screen doesn't match step. New graphic needed?-->
+       ![볼륨을 오프라인으로 전환하는 영향 검토 2](./media/storsimple-8000-manage-volumes-u2/modify-volume-11.png)<!--Legacy screen doesn't match step. New graphic needed?-->
 
 6. **저장** 을 클릭하여 변경 내용을 저장합니다. 확인 메시지가 표시되면 **예** 를 클릭합니다. Azure 포털에 볼륨 업데이트 중 메시지가 표시됩니다. 볼륨이 성공적으로 업데이트되면 성공 메시지가 표시됩니다.
 
-    ![볼륨을 오프 라인 상태로 만들기의 영향 검토 3](./media/storsimple-8000-manage-volumes-u2/modify-volume-05.png)<!--Updated graphic. Source: modify-volume-save-->
+    ![볼륨을 오프라인으로 전환하는 영향 검토 3](./media/storsimple-8000-manage-volumes-u2/modify-volume-05.png)<!--Updated graphic. Source: modify-volume-save-->
 
 7. 볼륨을 확장하는 경우 Windows 호스트 컴퓨터에서 다음 단계를 완료합니다.
    
-   1. **컴퓨터 관리**  -> **디스크 관리** 로 이동 합니다.
+   1. **컴퓨터 관리** ->**디스크 관리** 로 이동합니다.
    2. **디스크 관리** 를 마우스 오른쪽 단추로 클릭하고 **디스크 다시 검사** 를 선택합니다.
    3. 디스크 목록에서 업데이트한 볼륨을 선택하고 마우스 오른쪽 단추를 클릭한 다음 **볼륨 확장** 을 선택합니다. 볼륨 확장 마법사가 시작됩니다. **다음** 을 클릭합니다.
    4. 기본값을 그대로 적용하여 마법사를 완료합니다. 마법사가 완료되면 볼륨에 증가된 크기가 표시되어야 합니다.
@@ -217,7 +217,7 @@ StorSimple 8000 시리즈 디바이스를 배포하는 동안 [볼륨을 만들�
 
 1. StorSimple Device Manager 서비스로 이동한 다음, **디바이스** 를 클릭합니다. 디바이스의 테이블 형식 목록에서 수정하려는 볼륨이 있는 디바이스를 선택합니다. **설정 > 볼륨** 을 클릭합니다.
 
-    ![볼륨 블레이드 2로 이동](./media/storsimple-8000-manage-volumes-u2/modify-volume-02.png)
+    ![볼륨 블레이드로 이동 2](./media/storsimple-8000-manage-volumes-u2/modify-volume-02.png)
 
 3. 볼륨의 테이블 형식 목록에서 볼륨을 선택하고 마우스 오른쪽 단추로 클릭하여 상황에 맞는 메뉴 호출합니다. **수정** 을 선택합니다.
 
@@ -251,7 +251,7 @@ StorSimple 8000 시리즈 디바이스를 배포하는 동안 [볼륨을 만들�
    
     1. StorSimple Device Manager 서비스로 이동한 다음, **디바이스** 를 클릭합니다. 디바이스의 테이블 형식 목록에서 수정하려는 볼륨이 있는 디바이스를 선택합니다. **설정 > 볼륨** 을 클릭합니다.
 
-        ![볼륨 블레이드 3으로 이동](./media/storsimple-8000-manage-volumes-u2/modify-volume-02.png)
+        ![볼륨 블레이드로 이동 3](./media/storsimple-8000-manage-volumes-u2/modify-volume-02.png)
 
     2. 볼륨의 테이블 형식 목록에서 볼륨을 선택하고 마우스 오른쪽 단추로 클릭하여 상황에 맞는 메뉴 호출합니다. **오프라인으로 전환** 을 선택하여 오프라인 상태를 수정할 볼륨을 선택합니다.
 
@@ -259,7 +259,7 @@ StorSimple 8000 시리즈 디바이스를 배포하는 동안 [볼륨을 만들�
 
 3. **오프라인으로 전환** 블레이드에서 볼륨을 오프라인으로 전환하는 영향을 검토하고 해당하는 확인란을 선택합니다. **오프라인으로 전환** 을 클릭합니다. 
 
-    ![볼륨을 오프 라인으로 전환 하는 경우의 영향 검토 4](./media/storsimple-8000-manage-volumes-u2/modify-volume-05.png)
+    ![볼륨을 오프라인으로 전환하는 영향 검토 4](./media/storsimple-8000-manage-volumes-u2/modify-volume-05.png)
       
       볼륨이 오프라인 상태가 되면 알림이 표시됩니다. 볼륨 상태도 오프라인으로 업데이트됩니다.
       
@@ -279,7 +279,7 @@ StorSimple 8000 시리즈 디바이스를 배포하는 동안 [볼륨을 만들�
 
 1. StorSimple Device Manager 서비스로 이동한 다음, **디바이스** 를 클릭합니다. 디바이스의 테이블 형식 목록에서 수정하려는 볼륨이 있는 디바이스를 선택합니다. **설정 > 볼륨** 을 클릭합니다.
 
-    ![볼륨 블레이드 4로 이동](./media/storsimple-8000-manage-volumes-u2/modify-volume-02.png)
+    ![볼륨 블레이드로 이동 4](./media/storsimple-8000-manage-volumes-u2/modify-volume-02.png)
 
 3. 삭제하려는 볼륨의 상태를 확인합니다. 삭제하려는 볼륨이 오프라인 상태가 아니면 먼저 오프라인으로 전환합니다. [볼륨을 오프라인으로 전환](#take-a-volume-offline)단계를 따릅니다.
 4. 볼륨이 오프라인 상태가 된 후에 볼륨을 선택하고, 마우스 오른쪽 단추를 클릭하여 상황에 맞는 메뉴를 호출하고, **삭제** 를 선택합니다.
@@ -315,7 +315,7 @@ StorSimple 8000 시리즈 디바이스를 배포하는 동안 [볼륨을 만들�
 2. 볼륨의 테이블 형식 목록에서 볼륨을 선택하고 마우스 오른쪽 단추로 클릭하여 상황에 맞는 메뉴 호출합니다. **수정** 을 선택합니다.
 3. **볼륨 수정** 블레이드의 **모니터링** 에서 **사용** 또는 **사용 안 함** 을 선택하여 모니터링을 사용하거나 사용하지 않습니다.
 
-    ! [모니터링 사용 안 함] (./media/storsimple-8000-manage-volumes-u2/monitor-volume-0 1.png) 
+    ![Disable monitoring](./media/storsimple-8000-manage-volumes-u2/monitor-volume-0 1.png) 
 
 4. **저장** 을 클릭하고 확인하라는 메시지가 표시되면 **예** 를 클릭합니다. Azure Portal에서는 볼륨을 업데이트하기 위한 알림을 표시한 다음 볼륨이 성공적으로 업데이트된 후에 성공 메시지를 표시합니다.
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jingwang
 ms.openlocfilehash: 974682aa9e9bebd6e2d17237decd8389174ff28d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100383673"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Concur에서 데이터 복사(미리 보기)
@@ -24,7 +24,7 @@ ms.locfileid: "100383673"
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-이 Concur 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
+이 Concur 커넥터는 다음과 같은 작업을 지원합니다.
 
 - [지원되는 원본/싱크 매트릭스](copy-activity-overview.md)를 사용한 [복사 작업](copy-activity-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
@@ -44,21 +44,21 @@ Concur에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복�
 
 다음은 Concur 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **Concur** 로 설정해야 합니다. | 예 |
-| connectionProperties | Concur에 연결 하는 방법을 정의 하는 속성 그룹입니다. | 예 |
-| ***에서 `connectionProperties` 다음을 수행 합니다.*** | | |
-| authenticationType | 허용 되는 값은 `OAuth_2.0_Bearer` 및 `OAuth_2.0` (레거시)입니다. OAuth 2.0 인증 옵션은 2017 년 2 월부터 사용 되지 않는 이전 Concur API와 함께 작동 합니다. | 예 |
-| host | Concur 서버의 끝점 (예:) `implementation.concursolutions.com` 입니다.  | 예 |
-| baseUrl | Concur의 인증 URL의 기본 URL입니다. | 인증의 경우 예 `OAuth_2.0_Bearer` |
-| clientId | Concur App Management에서 제공 하는 응용 프로그램 클라이언트 ID입니다.  | 예 |
-| clientSecret | 클라이언트 ID에 해당 하는 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 인증의 경우 예 `OAuth_2.0_Bearer` |
-| 사용자 이름 | Concur service에 액세스 하는 데 사용 하는 사용자 이름입니다. | 예 |
+| connectionProperties | Concur에 연결하는 방법을 정의하는 속성 그룹입니다. | 예 |
+| ***`connectionProperties`*** 의 하위 속성: | | |
+| authenticationType | 사용 가능한 값은 `OAuth_2.0_Bearer` 및 `OAuth_2.0`입니다(레거시). OAuth 2.0 인증 옵션은 2017년 2월부터 사용되지 않는 이전 Concur API와 호환됩니다. | 예 |
+| host | Concur 서버의 엔드포인트(예: `implementation.concursolutions.com`)입니다.  | 예 |
+| baseUrl | Concur의 권한 부여 URL의 기본 URL입니다. | `OAuth_2.0_Bearer` 인증의 경우 예 |
+| clientId | Concur App Management에서 제공하는 애플리케이션 클라이언트 ID입니다.  | 예 |
+| clientSecret | 클라이언트 ID에 해당하는 클라이언트 비밀입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | `OAuth_2.0_Bearer` 인증의 경우 예 |
+| 사용자 이름 | Concur 서비스에 액세스하는 데 사용되는 사용자 이름입니다. | 예 |
 | password | username 필드에서 제공한 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
-| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 아니요 |
-| usePeerVerification | TLS를 통해 연결할 때 서버의 id를 확인할 지 여부를 지정 합니다. 기본값은 true입니다.  | 예 |
+| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
+| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름을 서버의 호스트 이름과 일치시킬지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
+| usePeerVerification | TLS를 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
 
 **예:**
 
@@ -91,9 +91,9 @@ Concur에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복�
 } 
 ```
 
-**예 (레거시):**
+**예(레거시):**
 
-다음은 인증을 사용 하지 않고 레거시 연결 된 서비스 모델입니다 `connectionProperties` `OAuth_2.0` .
+다음은 `connectionProperties` 및 `OAuth_2.0` 인증을 사용하지 않고 레거시 연결된 서비스 모델입니다.
 
 ```json
 {
@@ -118,9 +118,9 @@ Concur에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복�
 
 Concur에서 데이터를 복사하려면 데이터 세트의 type 속성을 **ConcurObject** 로 설정합니다. 이 형식의 데이터 세트에는 추가적인 형식별 속성이 없습니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 type 속성은 **ConcurObject** 로 설정 해야 합니다. | 예 |
+| type | 데이터 세트의 형태 속성을 **ConcurObject** 로 설정해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 
@@ -149,7 +149,7 @@ Concur에서 데이터를 복사하려면 데이터 세트의 type 속성을 **C
 
 Concur에서 데이터를 복사하려면 복사 작업의 원본 형식을 **ConcurSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **ConcurSource** 로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Opportunities where Id = xxx "` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |

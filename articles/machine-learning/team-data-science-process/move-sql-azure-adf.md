@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 팀 데이터 과학 프로세스를 사용 하 여 SQL Database 데이터 SQL Server
+title: Azure Data Factory를 사용하여 SQL Server 데이터를 SQL Database로 이동 - 팀 데이터 과학 프로세스
 description: 온-프레미스와 클라우드의 데이터베이스 간에 데이터를 매일 이동하는 두 데이터 마이그레이션 활동으로 구성된 ADF 파이프라인을 설정합니다.
 services: machine-learning
 author: marktab
@@ -12,15 +12,15 @@ ms.date: 09/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e477e4bb3b31477f9407e981d4c8da2340411f55
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102615740"
 ---
-# <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SQL Database SQL Server 데이터베이스에서 데이터 이동
+# <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Azure Data Factory를 사용하여 SQL Server 데이터베이스에서 SQL Database로 데이터 이동
 
-이 문서에서는 Azure Data Factory (ADF)를 사용 하 여 Azure Blob Storage를 통해 SQL Server 데이터베이스에서 Azure SQL Database로 데이터를 이동 하는 방법을 보여 줍니다 .이 방법은 복제 된 준비 복사본의 이점을 제공 하는 지원 되는 레거시 방법 이지만 [최신 옵션에 대 한 데이터 마이그레이션 페이지를 살펴보는 것](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1)이 좋습니다.
+이 문서에서는 ADF(Azure Data Factory)를 사용하여 Azure Blob Storage를 통해 SQL Server 데이터베이스에서 Azure SQL Database로 데이터를 이동하는 방법을 보여 줍니다. 이것은 복제된 준비 복사본의 장점을 가진 지원되는 레거시 방식이지만, [최신 옵션을 보려면 데이터 마이그레이션 페이지를 살펴보는 것이 좋습니다](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
 
 Azure SQL Database로 데이터를 이동하는 다양한 옵션을 요약한 표는 [Azure Machine Learning을 위해 Azure SQL Database로 데이터 이동](move-sql-azure.md)을 참조하세요.
 
@@ -32,27 +32,27 @@ ADF와 함께 기존 데이터 처리 서비스는 가용성이 높고 클라우
 다음 경우에 ADF 사용을 고려합니다.
 
 * 온-프레미스 및 클라우드 리소스 둘 다에 액세스하는 하이브리드 시나리오에서 데이터를 지속적으로 마이그레이션해야 하는 경우
-* 데이터에 변환이 필요 하거나 마이그레이션할 때 비즈니스 논리를 추가 해야 하는 경우
+* 마이그레이션 중에 데이터에 비즈니스 논리를 추가했거나 데이터 변환이 필요한 경우.
 
 ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스크립트를 사용하여 작업 예약 및 모니터링이 가능합니다. 또한 복잡한 작업을 지원하는 기타 기능도 포함하고 있습니다. ADF에 대한 자세한 내용은 [Azure 데이터 팩터리(ADF)](https://azure.microsoft.com/services/data-factory/)를 참조하세요.
 
 ## <a name="the-scenario"></a><a name="scenario"></a>시나리오
-두 가지 데이터 마이그레이션 작업을 구성하는 ADF 파이프라인을 설정했습니다. SQL Server 데이터베이스와 Azure SQL Database 간에 매일 데이터를 이동 합니다. 두 활동은 다음과 같습니다.
+두 가지 데이터 마이그레이션 작업을 구성하는 ADF 파이프라인을 설정했습니다. 이들은 함께 SQL Server 데이터베이스와 Azure SQL Database 간에 매일 데이터를 이동시킵니다. 두 활동은 다음과 같습니다.
 
 * SQL Server 데이터베이스에서 Azure Blob Storage 계정으로 데이터 복사
-* Azure Blob Storage 계정에서 Azure SQL Database로 데이터를 복사 합니다.
+* Azure Blob Storage 계정에서 Azure SQL Database로 데이터를 복사합니다.
 
 > [!NOTE]
-> 여기에 나와 있는 단계는 ADF 팀에서 제공 하는 보다 자세한 자습서에서 조정 되었습니다. [SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터 복사](../../data-factory/tutorial-hybrid-copy-portal.md) 해당 항목의 관련 섹션에 대 한 참조는 적절 한 경우 제공 됩니다.
+> 여기에 나오는 단계는 ADF 팀이 제공한 더 자세한 자습서 [SQL Server 데이터베이스에서 Azure Blob Storage로 데이터 복사](../../data-factory/tutorial-hybrid-copy-portal.md)를 인용하여 새롭게 구성하였습니다. 적절한 경우 해당 항목의 관련 섹션을 참조합니다.
 >
 >
 
 ## <a name="prerequisites"></a><a name="prereqs"></a>필수 조건
 이 자습서에서는 사용자가 다음을 보유하고 있다고 가정합니다.
 
-* **Azure 구독**. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
-* **Azure 저장소 계정**. 이 자습서에서는 데이터 저장을 위해 Azure Storage 계정을 사용합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조하세요. 스토리지 계정을 만든 후에는 스토리지 액세스에 사용되는 계정 키를 확보해야 합니다. [저장소 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조 하세요.
-* **Azure SQL Database** 에 대한 액세스. Azure SQL Database를 설정 해야 하는 경우 [Microsoft Azure SQL Database 시작](../../azure-sql/database/single-database-create-quickstart.md) 항목에서 Azure SQL Database의 새 인스턴스를 프로 비전 하는 방법에 대 한 정보를 제공 합니다.
+* **Azure 구독**. 구독이 없는 경우 [평가판](https://azure.microsoft.com/pricing/free-trial/) 사용을 등록할 수 있습니다.
+* **Azure Storage 계정**. 이 자습서에서는 데이터 저장을 위해 Azure Storage 계정을 사용합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조하세요. 스토리지 계정을 만든 후에는 스토리지 액세스에 사용되는 계정 키를 확보해야 합니다. [스토리지 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조하세요.
+* **Azure SQL Database** 에 대한 액세스. Azure SQL Database를 설정해야 하는 경우 [Microsoft Azure SQL Database 시작](../../azure-sql/database/single-database-create-quickstart.md) 항목에서 Azure SQL Database 새 인스턴스를 프로비저닝하는 방법에 대해 알아봅니다.
 * 로컬로 설치 및 구성된 **Azure PowerShell** . 자세한 내용은 [Azure PowerShell 설치 및 구성법](/powershell/azure/)을 참조하세요.
 
 > [!NOTE]
@@ -63,15 +63,15 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 ## <a name="upload-the-data-to-your-sql-server-instance"></a><a name="upload-data"></a> SQL Server 인스턴스에 데이터 업로드
 [NYC Taxi 데이터 세트](https://chriswhong.com/open-data/foil_nyc_taxi/)를 사용하여 마이그레이션 프로세스를 시연합니다. 해당 게시물에서 설명한 것처럼 NYC Taxi 데이터 세트는 Azure Blob Storage [NYC Taxi 데이터](https://www.andresmh.com/nyctaxitrips/)에서 제공됩니다. 데이터에는 두 개 파일이 있습니다. trip_data.csv 파일에는 여정 세부 정보가 들어 있고 trip_far.csv 파일에는 각 여정에 대한 요금 세부 정보가 들어 있습니다. 이러한 파일의 샘플 및 설명은 [NYC Taxi Trips 데이터 세트 설명](sql-walkthrough.md#dataset)에 제공됩니다.
 
-자신의 데이터 세트에 여기에 제공된 절차를 도입하거나 NYC Taxi 데이터 세트를 사용하여 설명된 대로 단계를 따릅니다. SQL Server 데이터베이스에 NYC Taxi 데이터 집합을 업로드 하려면 [SQL Server 데이터베이스로 대량 데이터 가져오기](sql-walkthrough.md#dbload)에 설명 된 절차를 따르세요.
+자신의 데이터 세트에 여기에 제공된 절차를 도입하거나 NYC Taxi 데이터 세트를 사용하여 설명된 대로 단계를 따릅니다. NYC Taxi 데이터 세트를 SQL Server 데이터베이스에 업로드하려면 [SQL Server 데이터베이스로 대량 데이터 가져오기](sql-walkthrough.md#dbload)에 설명된 절차를 따릅니다.
 
-## <a name="create-an-azure-data-factory"></a><a name="create-adf"></a> Azure Data Factory 만들기
+## <a name="create-an-azure-data-factory"></a><a name="create-adf"></a> Azure 데이터 팩터리 만들기
 [Azure Portal](https://portal.azure.com/)에서 새 Azure Data Factory 및 리소스 그룹을 만들기 위한 지침은 [Azure Data Factory 만들기](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory)에서 제공됩니다. 새 ADF 인스턴스의 이름은 *adfdsp* 이고 생성된 리소스 그룹은 *adfdsprg* 입니다.
 
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Azure Data Factory 통합 런타임 설치 및 구성
-Integration Runtime는 여러 네트워크 환경에서 데이터 통합 기능을 제공 하기 위해 Azure Data Factory에서 사용 하는 고객이 관리 하는 데이터 통합 인프라입니다. 이전에는 이 런타임을 “데이터 관리 게이트웨이”라고 했습니다.
+Integration Runtime은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 고객 관리형 데이터 통합 인프라입니다. 이전에는 이 런타임을 “데이터 관리 게이트웨이”라고 했습니다.
 
-설정 하려면 [파이프라인 만들기에 대 한 지침을 따르세요](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline) .
+설정하려면 [파이프라인 생성 지침 준수](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline)
 
 ## <a name="create-linked-services-to-connect-to-the-data-resources"></a><a name="adflinkedservices"></a>데이터 리소스에 연결할 연결된 서비스 만들기
 연결된 서비스는 Azure 데이터 팩터리가 데이터 리소스에 연결하기 위해 필요한 정보를 정의합니다. 이 시나리오에는 연결된 서비스가 필요한 3개의 리소스가 있습니다.
@@ -93,7 +93,7 @@ Integration Runtime는 여러 네트워크 환경에서 데이터 통합 기능�
 
 테이블에서 JSON 기반 정의는 다음 이름을 사용합니다.
 
-* SQL Server의 **테이블 이름은** *nyctaxi_data*
+* SQL Server의 **테이블 이름** 은 *nyctaxi_data* 임
 * Azure Blob Storage 계정의 **컨테이너 이름** 은 *containername*
 
 이 ADF 파이프라인에는 3개의 테이블 정의가 필요합니다.
@@ -108,7 +108,7 @@ Integration Runtime는 여러 네트워크 환경에서 데이터 통합 기능�
 >
 
 ### <a name="sql-on-premises-table"></a><a name="adf-table-onprem-sql"></a>SQL 온-프레미스 테이블
-SQL Server에 대 한 테이블 정의는 다음 JSON 파일에 지정 되어 있습니다.
+SQL Server에 대한 테이블 정의는 다음 JSON 파일에 지정됩니다.
 
 ```json
 {
@@ -136,7 +136,7 @@ SQL Server에 대 한 테이블 정의는 다음 JSON 파일에 지정 되어 �
 }
 ```
 
-여기서는 열 이름이 포함되지 않았습니다. 여기에 포함 하 여 열 이름을 선택할 수 있습니다. 자세한 내용은 [ADF 설명서](../../data-factory/copy-activity-overview.md) 항목을 참조 하세요.
+여기서는 열 이름이 포함되지 않았습니다. 여기에 열 이름을 포함하여 열 이름을 선택할 수 있습니다(자세한 내용은 [ADF 설명서](../../data-factory/copy-activity-overview.md) 토픽 참조).
 
 테이블의 JSON 정의를 *onpremtabledef.json* 파일로 복사하고 알려진 위치에 저장합니다(여기서는 *C:\temp\onpremtabledef.json* 으로 간주). 다음 Azure PowerShell cmdlet을 사용하여 ADF에 테이블을 만듭니다.
 
@@ -312,4 +312,4 @@ Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactor
 
 파이프라인이 실행된 후에는 blob에 대해 선택한 컨테이너에 표시된 데이터를 하루에 한 개 파일로 볼 수 있습니다.
 
-ADF에서 제공 하는 기능을 활용 하 여 데이터를 증분식으로 파이프 하지 않았습니다. 이 작업을 수행하는 방법 및 ADF에서 제공하는 기타 기능에 대한 자세한 내용은 [ADF 설명서](https://azure.microsoft.com/services/data-factory/)를 참조하세요.
+데이터를 증분 방식으로 파이프하는 ADF 제공 기능을 활용하지 않았습니다. 이 작업을 수행하는 방법 및 ADF에서 제공하는 기타 기능에 대한 자세한 내용은 [ADF 설명서](https://azure.microsoft.com/services/data-factory/)를 참조하세요.

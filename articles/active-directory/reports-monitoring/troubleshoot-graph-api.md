@@ -17,16 +17,16 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abc8badf261e631dd6ceb7af9a6a0cb3676ae25d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 445514297550210d80cd50895201d1129fac4f20
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96017596"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533694"
 ---
 # <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Azure Active Directory Reporting API에서 오류 해결
 
-이 문서에서는 Microsoft Graph API를 사용 하 여 활동 보고서에 액세스 하는 동안 발생할 수 있는 일반적인 오류 메시지와 해결 단계를 나열 합니다.
+이 문서에는 Microsoft Graph API 및 해결 단계를 사용하여 작업 보고서에 액세스하는 동안 발생할 수 있는 일반적인 오류 메시지가 나와 있습니다.
 
 ### <a name="500-http-internal-server-error-while-accessing-microsoft-graph-v2-endpoint"></a>Microsoft Graph V2 엔드포인트에 액세스하는 동안 500 HTTP 내부 서버 오류 발생
 
@@ -44,11 +44,11 @@ API를 사용하여 감사 로그 또는 로그인에 액세스하는 동안 이
 
 [Azure Active Directory reporting API에 액세스하기 위한 필수 구성 요소](howto-configure-prerequisites-for-reporting-api.md)의 단계에 따라 애플리케이션이 적합한 권한 집합으로 실행되고 있는지 확인합니다. 
 
-### <a name="error-application-missing-microsoft-graph-api-read-all-audit-log-data-permission"></a>오류: 응용 프로그램에 Microsoft Graph API ' 모든 감사 로그 데이터 읽기 ' 권한이 없습니다.
+### <a name="error-application-missing-microsoft-graph-api-read-all-audit-log-data-permission"></a>오류: 애플리케이션에 Microsoft Graph API ‘모든 감사 로그 데이터 읽기’ 권한이 없음
 
 [Azure Active Directory reporting API에 액세스하기 위한 필수 구성 요소](howto-configure-prerequisites-for-reporting-api.md)의 단계에 따라 애플리케이션이 적합한 권한 집합으로 실행되고 있는지 확인합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-[감사 API 참조 사용](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
- [로그인 활동 보고서 API 참조 사용](/graph/api/resources/signin?view=graph-rest-beta)
+[감사 API 참조 사용](/graph/api/resources/directoryaudit)
+[로그인 작업 보고서 API 참조 사용](/graph/api/resources/signin)

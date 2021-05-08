@@ -1,6 +1,6 @@
 ---
-title: Azure Marketplace에 대 한 Azure 가상 머신 이미지 테스트
-description: Azure Marketplace에서 Azure virtual machine 제품을 테스트 하 고 제출 하는 방법에 대해 알아봅니다.
+title: Azure Marketplace에 대한 Azure 가상 머신 이미지 테스트
+description: Azure Marketplace에서 Azure 가상 머신 제품을 테스트하고 제출하는 방법에 대해 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -8,38 +8,38 @@ author: kriti-ms
 ms.author: krsh
 ms.date: 03/10/2021
 ms.openlocfilehash: 467b7d605b57c479d84fc995b4e0dc53b3ac5275
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105558298"
 ---
-# <a name="test-a-virtual-machine-image"></a>가상 컴퓨터 이미지 테스트
+# <a name="test-a-virtual-machine-image"></a>가상 머신 이미지 테스트
 
-이 항목에서는 Azure Marketplace에 배포할 VM (가상 컴퓨터) 이미지를 테스트 하는 단계에 대해 설명 합니다.
+이 토픽에서는 Azure Marketplace에 배포할 VM(가상 머신) 이미지를 테스트하는 단계에 대해 설명합니다.
 
 ## <a name="deploy-an-azure-vm"></a>Azure VM 배포
 
-공유 이미지 갤러리 이미지에서 VM을 배포 하려면 다음을 수행 합니다.
+Shared Image Gallery 이미지에서 VM을 배포하려면 다음을 수행합니다.
 
-1. 공유 이미지 갤러리 이미지 버전으로 이동 합니다.
-1. VM 만들기를 클릭 합니다.
-1. 가상 컴퓨터 이름을 지정 하 고 VM 크기를 선택 합니다.
-1. 검토 + 만들기를 클릭합니다. 유효성 검사를 통과 한 후 만들기를 클릭 합니다.
+1. Shared Image Gallery 이미지 버전으로 이동합니다.
+1. VM 만들기를 클릭합니다.
+1. 가상 머신 이름을 제공하고 VM 크기를 선택합니다.
+1. 검토 + 만들기를 클릭합니다. 유효성 검사를 통과하면 만들기를 클릭합니다.
 
 > [!NOTE]
-> Vhd 파일에서 VM을 만들어야 하는 경우 다음 문서의 지침을 따르세요. [Azure Resource Manager 템플릿 준비](#connect-the-certification-tool-to-a-vm-image) 또는 [PowerShell을 사용 하 여 Azure VM 배포](#how-to-use-powershell-to-consume-the-self-test-api)를 참조 하세요.
+> Vhd 파일에서 VM을 만들어야 하는 경우, 다음 문서의 지침을 따르세요. [Azure Resource Manager 템플릿 준비](#connect-the-certification-tool-to-a-vm-image) 또는 [PowerShell을 사용하여 Azure VM 배포](#how-to-use-powershell-to-consume-the-self-test-api)를 참조하세요.
 
 이 문서에서는 상업용 Marketplace에서 VM(가상 머신) 이미지를 테스트하고 제출하여 최신 Azure Marketplace 게시 요구 사항을 충족하도록 하는 방법을 설명합니다.
 
 VM 제품을 제출하기 전에 다음 단계를 완료합니다.
 
-- 일반화 된 이미지를 사용 하 여 Azure VM을 배포 합니다. [승인 된 기본을 사용 하 여 가상 머신 만들기](azure-vm-create-using-approved-base.md) 또는 [고유한 이미지를 사용 하 여 가상 머신 만들기를](azure-vm-create-using-own-image.md)참조 하세요.
+- 일반화된 이미지를 사용하여 Azure VM을 배포합니다. [승인된 기본을 사용하여 가상 머신 만들기](azure-vm-create-using-approved-base.md) 또는 [고유한 이미지를 사용하여 가상 머신 만들기](azure-vm-create-using-own-image.md)를 참조하세요.
 - 유효성 검사를 실행합니다.
 
 ## <a name="run-validations"></a>유효성 검사 실행
 
-배포 된 이미지에 대해 유효성 검사를 실행 하는 방법에는 두 가지가 있습니다.
+배포된 이미지에 대해 유효성 검사를 실행하는 방법에는 다음 두 가지가 있습니다.
 
 ### <a name="use-certification-test-tool-for-azure-certified"></a>Azure Certified용 인증 테스트 도구 사용
 
@@ -50,47 +50,47 @@ Azure 인증 테스트 도구는 로컬 Windows 머신에서 실행되지만 Azu
 1. 가장 최근의 [Azure Certified용 인증 테스트 도구](https://www.microsoft.com/download/details.aspx?id=44299)를 다운로드하여 설치합니다.
 2. 인증 도구를 연 다음, **새 테스트 시작** 을 선택합니다.
 3. 테스트 정보 화면에서 테스트 실행에 대한 **테스트 이름** 이름을 입력합니다.
-4. VM에 대 한 플랫폼을 **Windows Server** 또는 **Linux** 중에서 선택 합니다. 플랫폼 선택은 나머지 옵션에 영향을 줍니다.
+4. VM의 플랫폼(**Windows Server** 또는 **Linux**)을 선택합니다. 플랫폼 선택은 나머지 옵션에 영향을 줍니다.
 5. VM에서 이 데이터베이스 서비스를 사용하는 경우 **Azure SQL Database 테스트** 확인란을 선택합니다.
 
 #### <a name="connect-the-certification-tool-to-a-vm-image"></a>VM 이미지에 인증 도구 연결
 
 1. SSH 인증 모드로 암호 인증 또는 키 파일 인증을 선택합니다.
-2. 암호 기반 인증을 사용 하는 경우 **VM DNS 이름**, **사용자 이름** 및 **암호** 에 대 한 값을 입력 합니다. 기본 SSH 포트 번호를 변경할 수도 있습니다.
+2. 암호 기반 인증을 사용하는 경우 **VM DNS 이름**, **사용자 이름** 및 **암호** 에 대한 값을 입력합니다. 기본 SSH 포트 번호를 변경할 수도 있습니다.
 
-    :::image type="content" source="media/vm/azure-vm-cert-2.png" alt-text="VM 테스트 정보를 선택 하는 방법을 보여 줍니다.":::
+    :::image type="content" source="media/vm/azure-vm-cert-2.png" alt-text="VM 테스트 정보를 선택하는 방법을 보여 줍니다.":::
 
 3. 키 파일 기반 인증을 사용하는 경우 VM DNS Name, 사용자 이름 및 프라이빗 키 위치에 대한 값을 입력합니다. 암호를 제공하거나 기본 SSH 포트 번호를 변경할 수도 있습니다.
 4. 정규화된 VM DNS 이름을 입력합니다(예: MyVMName.Cloudapp.net).
-5. **사용자 이름** 및 **암호** 를 입력 합니다.
+5. **사용자 이름** 및 **암호** 를 입력합니다.
 
-    :::image type="content" source="media/vm/azure-vm-cert-4.png" alt-text="VM 사용자 이름 및 암호를 선택 하는 방법을 보여 줍니다.":::
+    :::image type="content" source="media/vm/azure-vm-cert-4.png" alt-text="VM 사용자 이름 및 암호를 선택하는 방법을 보여 줍니다.":::
 
-6. **새로 만들기** 를 선택합니다.
+6. **다음** 을 선택합니다.
 
 #### <a name="run-a-certification-test"></a>인증 테스트 실행
 
-인증 도구에서 VM 이미지에 대 한 매개 변수 값을 지정한 후 연결 테스트를 선택 하 여 VM에 대 한 올바른 연결을 만듭니다. 연결이 확인되면 **다음** 을 선택하여 테스트를 시작합니다. 테스트가 완료 되 면 결과는 테이블에 표시 됩니다. 상태 열에는 각 테스트에 대한 (통과/실패/경고)가 표시됩니다. 테스트 중 하나라도 실패하면 이미지가 인증되지 않습니다. 이 경우 요구 사항과 오류 메시지를 검토하고, 제안된 변경을 수행한 다음, 테스트를 다시 실행합니다.
+인증 도구에서 VM 이미지에 대한 매개 변수 값을 제공한 후 연결 테스트를 선택하여 VM에 대한 유효한 연결을 만듭니다. 연결이 확인되면 **다음** 을 선택하여 테스트를 시작합니다. 테스트가 완료되면 테스트 결과가 테이블에 표시됩니다. 상태 열에는 각 테스트에 대한 (통과/실패/경고)가 표시됩니다. 테스트 중 하나라도 실패하면 이미지가 인증되지 않습니다. 이 경우 요구 사항과 오류 메시지를 검토하고, 제안된 변경을 수행한 다음, 테스트를 다시 실행합니다.
 
 자동화된 테스트가 완료되면 질문서 화면의 두 탭인 일반 평가 및 커널 사용자 지정에서 VM 이미지에 대한 추가 정보를 제공하고 다음을 선택합니다.
 
-마지막 화면에서 Linux VM 이미지에 대 한 SSH 액세스 정보와 같은 추가 정보를 제공 하 고, 예외를 찾고 있는 경우 실패 한 평가에 대 한 설명을 제공할 수 있습니다.
+마지막 화면에서는 Linux VM 이미지에 대한 SSH 액세스 정보 및 예외를 찾는 경우 실패한 평가에 대한 설명과 같은 추가 정보를 제공할 수 있습니다.
 
 마지막으로, 보고서 생성을 선택하여 실행된 테스트 사례에 대한 테스트 결과 및 로그 파일과 질문서에 대한 답변을 다운로드합니다.
 > [!Note]
-> VM에 설치 된 방화벽과 같은 소프트웨어가 있는 경우 vm을 잠가야 하는 시나리오가 소수의 게시자에 게 있습니다. 이 경우 [인증 된 테스트 도구](https://aka.ms/AzureCertificationTestTool) 를 여기에서 다운로드 하 고 파트너 센터 [지원](https://aka.ms/marketplacepublishersupport)에서 보고서를 제출 합니다.
+> VM에 설치된 방화벽과 같은 소프트웨어가 있는 경우 VM을 잠가야 하는 시나리오가 소수의 게시자에게 있습니다. 이 경우 [인증된 테스트 도구](https://aka.ms/AzureCertificationTestTool)를 여기에서 다운로드하고 파트너 센터 [지원](https://aka.ms/marketplacepublishersupport)에서 보고서를 제출합니다.
 
-## <a name="how-to-use-powershell-to-consume-the-self-test-api"></a>PowerShell을 사용 하 여 Self-Test API를 사용 하는 방법
+## <a name="how-to-use-powershell-to-consume-the-self-test-api"></a>PowerShell을 사용하여 Self-Test API를 사용하는 방법
 
 ### <a name="on-linux-os"></a>Linux OS
 
-PowerShell에서 API를 호출 합니다.
+PowerShell에서 API 호출:
 
-1. Invoke-WebRequest 명령을 사용 하 여 API를 호출 합니다.
+1. Invoke-WebRequest 명령을 사용하여 API를 호출합니다.
 2. 다음 코드 예제와 화면 캡처와 같이 메서드는 Post이고 콘텐츠 형식은 JSON입니다.
 3. JSON 형식으로 본문 매개 변수를 지정합니다.
 
-다음 예제에서는 API에 대 한 PowerShell 호출을 보여 줍니다.
+다음 예제에서는 API에 대한 PowerShell 호출을 보여 줍니다.
 
 ```POWERSHELL
 $accesstoken = "token"
@@ -122,9 +122,9 @@ $uri = "URL"
 $res = (Invoke-WebRequest -Method "Post" -Uri $uri -Body $body -ContentType "application/json" -Headers $headers).Content
 ```
 
-<br>PowerShell에서 API를 호출 하는 예제는 다음과 같습니다.
+<br>다음은 PowerShell의 API 호출 예제입니다.
 
-[![PowerShell에서 API를 호출 하기 위한 화면 예제입니다.](media/vm/call-api-in-powershell.png)](media/vm/call-api-in-powershell.png#lightbox)
+[![PowerShell에서 API를 호출하는 화면 예제입니다.](media/vm/call-api-in-powershell.png)](media/vm/call-api-in-powershell.png#lightbox)
 
 <br>앞의 예제를 사용하여 JSON을 검색하고 이를 구문 분석하여 다음 세부 정보를 얻습니다.
 
@@ -145,23 +145,23 @@ For ($i = 0; $i -lt $actualresult.Tests.Length; $i++) {
 }
 ```
 
-<br>표시 되는이 샘플 화면은 `$res.Content` JSON 형식의 테스트 결과에 대 한 세부 정보를 표시 합니다.
+<br>이 샘플 화면에는 JSON 형식의 테스트 결과를 보여 주는 `$res.Content`가 있습니다.
 
-[![테스트 결과의 세부 정보를 사용 하 여 PowerShell에서 API를 호출 하기 위한 화면 예제입니다.](media/vm/call-api-in-powershell-details.png)](media/vm/call-api-in-powershell-details.png#lightbox)
+[![테스트 결과의 세부 정보를 사용하여 PowerShell에서 API를 호출하기 위한 화면 예제입니다.](media/vm/call-api-in-powershell-details.png)](media/vm/call-api-in-powershell-details.png#lightbox)
 
-<br>다음은 온라인 JSON 뷰어에서 볼 때 표시 되는 JSON 테스트 결과의 예입니다 (예: [Code Beautify](https://codebeautify.org/jsonviewer) 또는 [json 뷰어](https://jsonformatter.org/json-viewer)).
+<br>다음은 온라인 JSON 뷰어(예: [Code Beautify](https://codebeautify.org/jsonviewer) 또는 [json 뷰어](https://jsonformatter.org/json-viewer))에 표시되는 JSON 테스트 결과의 예입니다.
 
-![온라인 JSON 뷰어에서 테스트 결과가 더 많이 있습니다.](media/vm/test-results-json-viewer-1.png)
+![온라인 JSON 뷰어에 테스트 결과가 더 많이 있습니다.](media/vm/test-results-json-viewer-1.png)
 
 ### <a name="on-windows-os"></a>Windows OS
 
-PowerShell에서 API를 호출 합니다.
+PowerShell에서 API 호출:
 
-1. Invoke-WebRequest 명령을 사용 하 여 API를 호출 합니다.
-2. 다음 코드 예제 및 샘플 화면에 표시 된 것 처럼 메서드는 Post이 고 콘텐츠 형식은 JSON입니다.
-3. JSON 형식으로 본문 매개 변수를 만듭니다.
+1. Invoke-WebRequest 명령을 사용하여 API를 호출합니다.
+2. 다음 코드 예제와 샘플 화면과 같이 메서드는 Post이고 콘텐츠 형식은 JSON입니다.
+3. Body 매개 변수를 JSON 형식으로 만듭니다.
 
-이 코드 샘플은 API에 대 한 PowerShell 호출을 보여 줍니다.
+이 코드 샘플에서는 API에 대한 PowerShell 호출을 보여 줍니다.
 
 ```PowerShell
 $accesstoken = "Get token for your Client AAD App"
@@ -181,15 +181,15 @@ $res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "appl
 $Content = $res | ConvertFrom-Json
 ```
 
-다음 샘플 화면은 PowerShell에서 API를 호출 하는 예제를 보여 줍니다.
+다음 샘플 화면은 PowerShell에서 API를 호출하는 예제를 보여 줍니다.
 
 **SSH 키 사용**:
 
- :::image type="content" source="media/vm/call-api-with-ssh-key.png" alt-text="SSH 키를 사용 하 여 PowerShell에서 API 호출":::
+ :::image type="content" source="media/vm/call-api-with-ssh-key.png" alt-text="SSH 키를 사용하여 PowerShell에서 API 호출":::
 
-**암호 사용**:
+**암호 있음**:
 
- :::image type="content" source="media/vm/call-api-with-password.png" alt-text="PowerShell에서 암호를 사용 하 여 API 호출":::
+ :::image type="content" source="media/vm/call-api-with-password.png" alt-text="PowerShell에서 암호를 사용하여 API 호출":::
 
 <br>앞의 예제를 사용하여 JSON을 검색하고 이를 구문 분석하여 다음 세부 정보를 얻습니다.
 
@@ -210,21 +210,21 @@ For ($i = 0; $i -lt $actualresult.Tests.Length; $i++) {
 }
 ```
 
-<br>이 화면에는 `$res.Content` JSON 형식의 테스트 결과에 대 한 세부 정보가 표시 됩니다.
+<br>이 화면에는 JSON 형식의 테스트 결과에 대한 세부 정보가 표시되는 `$res.Content`가 있습니다.
 
- :::image type="content" source="media/vm/test-results-json-format.png" alt-text="JSON 형식의 테스트 결과에 대 한 세부 정보입니다.":::
+ :::image type="content" source="media/vm/test-results-json-format.png" alt-text="JSON 형식의 테스트 결과에 대한 세부 정보입니다.":::
 
-<br>다음은 온라인 JSON 뷰어에서 표시 되는 테스트 결과의 예입니다 (예: [Code Beautify](https://codebeautify.org/jsonviewer) 또는 [JSON 뷰어](https://jsonformatter.org/json-viewer)).
+<br>다음은 온라인 JSON 뷰어(예: [Code Beautify](https://codebeautify.org/jsonviewer) 또는 [json 뷰어](https://jsonformatter.org/json-viewer))에 표시되는 테스트 결과의 예입니다.
 
-![온라인 JSON 뷰어에서 테스트 결과](media/vm/test-results-json-viewer-2.png)
+![온라인 JSON 뷰어의 테스트 결과입니다.](media/vm/test-results-json-viewer-2.png)
 
-## <a name="how-to-use-curl-to-consume-the-self-test-api-on-linux-os"></a>Linux OS에서 Self-Test API를 사용 하기 위해 말아 넘기기를 사용 하는 방법
+## <a name="how-to-use-curl-to-consume-the-self-test-api-on-linux-os"></a>Linux OS에서 Self-Test API를 소비하기 위해 curl을 사용하는 방법
 
-이 예제에서 말아 넘기기는 Azure Active Directory 및 Self-Host VM에 대 한 POST API 호출을 수행 하는 데 사용 됩니다.
+이 예제에서, curl을 Azure Active Directory 및 자체 호스트 VM에 대한 POST API 호출을 수행하는 데 사용됩니다.
 
-1. Azure AD 토큰을 요청 하 여 자체 호스트 VM에 인증
+1. Azure AD 토큰을 요청하여 자체 호스트 VM에 인증
 
-   올바른 값이 말아 넘기기 요청에서 대체 되는지 확인 합니다.
+   올바른 값이 curl 요청에서 대체되는지 확인합니다.
 
    ```JSON
    curl --location --request POST 'https://login.microsoftonline.com/{TENANT_ID}/oauth2/token' \
@@ -235,7 +235,7 @@ For ($i = 0; $i -lt $actualresult.Tests.Length; $i++) {
    --data-urlencode 'resource=https://management.core.windows.net'
    ```
 
-   요청의 응답 예는 다음과 같습니다.
+   다음은 요청의 응답 예제입니다.
 
    ```JSON
    {
@@ -249,9 +249,9 @@ For ($i = 0; $i -lt $actualresult.Tests.Length; $i++) {
    }
    ```
 
-2. 자체 테스트 VM에 대 한 요청 제출
+2. 자체 테스트 VM에 대한 요청 제출
 
-   전달자 토큰 및 매개 변수가 올바른 값으로 대체 되는지 확인 합니다.
+   전달자 토큰 및 매개 변수가 올바른 값으로 대체되는지 확인합니다.
 
    ```JSON
    curl --location --request POST 'https://isvapp.azurewebsites.net/selftest-vm' \
@@ -269,7 +269,7 @@ For ($i = 0; $i -lt $actualresult.Tests.Length; $i++) {
    }'
    ```
 
-   자체 테스트 VM api 호출의 예제 응답
+   자체 테스트 VM API 호출의 예제 응답
 
    ```JSON
    {

@@ -1,6 +1,6 @@
 ---
-title: 웹 SDK 지원 브라우저 | Microsoft Azure 맵
-description: Azure Maps 웹 SDK가 브라우저를 지원 하는지 확인 하는 방법을 알아봅니다. 지원 되는 브라우저 목록을 봅니다. 레거시 브라우저에서 map services를 사용 하는 방법에 대해 알아봅니다.
+title: 웹 SDK 지원 브라우저 | Microsoft Azure Maps
+description: Azure Maps 웹 SDK가 브라우저를 지원하는지 확인하는 방법을 알아봅니다. 지원되는 브라우저 목록을 봅니다. 레거시 브라우저에서 맵 서비스를 사용하는 방법에 대해 알아봅니다.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 03/25/2019
@@ -9,15 +9,15 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: 6321b96cb3db570102f138dcfd949d9c32daedbc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100384472"
 ---
 # <a name="web-sdk-supported-browsers"></a>웹 SDK 지원 브라우저
 
-Azure Maps 웹 SDK는 [atlas. isSupported](/javascript/api/azure-maps-control/atlas#issupported-boolean-)라는 도우미 함수를 제공 합니다. 이 함수는 지도 컨트롤 로드 및 렌더링을 지 원하는 데 필요한 최소 WebGL 기능 집합이 웹 브라우저에 있는지 여부를 검색 합니다. 함수를 사용 하는 방법의 예는 다음과 같습니다.
+Azure Maps 웹 SDK는 [atlas.isSupported](/javascript/api/azure-maps-control/atlas#issupported-boolean-)라는 도우미 함수를 제공합니다. 이 함수는 지도 컨트롤 로드 및 렌더링을 지원하는 데 필요한 최소 WebGL 기능 집합이 웹 브라우저에 있는지 여부를 검색합니다. 함수 사용 방법의 예는 다음과 같습니다.
 
 ```JavaScript
 if (!atlas.isSupported()) {
@@ -31,53 +31,53 @@ if (!atlas.isSupported()) {
 
 ## <a name="desktop"></a>데스크톱
 
-Azure Maps 웹 SDK는 다음 데스크톱 브라우저를 지원 합니다.
+Azure Maps 웹 SDK는 다음 데스크톱 브라우저를 지원합니다.
 
-- Microsoft Edge (현재 및 이전 버전)
-- Google Chrome (현재 및 이전 버전)
-- Mozilla Firefox (현재 및 이전 버전)
-- Apple Safari (macOS X) (현재 버전 및 이전 버전)
+- Microsoft Edge(현재 및 이전 버전)
+- Google Chrome(현재 및 이전 버전)
+- Mozilla Firefox(현재 및 이전 버전)
+- Apple Safari(macOS X)(현재 및 이전 버전)
 
-또한이 문서의 뒷부분에 있는 [레거시 브라우저 대상](#Target-Legacy-Browsers) 을 참조 하세요.
+이 문서의 뒷부분에 있는 [대상 레거시 브라우저](#Target-Legacy-Browsers)도 참조하세요.
 
 ## <a name="mobile"></a>모바일
 
-Azure Maps 웹 SDK는 다음과 같은 모바일 브라우저를 지원 합니다.
+Azure Maps 웹 SDK는 다음과 같은 모바일 브라우저를 지원합니다.
 
 - Android
-  - Android 6.0 이상 버전의 Chrome 최신 버전
-  - Android 6.0 이상 버전의 Chrome 웹 보기
+  - Android 6.0 및 그 이후 버전의 Chrome 현재 버전
+  - Android 6.0 및 그 이후 버전의 Chrome WebView
 - iOS
-  - IOS의 현재 및 이전 주 버전의 모바일 Safari
-  - 현재 및 이전 주 버전의 iOS에 대 한 UIWebView 보기 및 WKWebView
-  - IOS 용 Chrome의 현재 버전
+  - iOS 현재 및 이전 주 버전의 모바일 Safari
+  - iOS 현재 및 이전 주 버전의 UIWebView와 WKWebView
+  - iOS용 Chrome의 현재 버전
 
 > [!TIP]
-> 웹 보기 컨트롤을 사용 하 여 모바일 응용 프로그램 내에 맵을 포함 하는 경우 Azure Content Delivery Network에서 호스트 되는 SDK 버전을 참조 하는 대신 [Azure Maps 웹 SDK의 npm 패키지](https://www.npmjs.com/package/azure-maps-control) 를 사용 하는 것이 좋습니다. 이 방법은 SDK가 이미 사용자의 장치에 있고 런타임에 다운로드할 필요가 없기 때문에 로드 시간이 줄어듭니다.
+> WebView 컨트롤을 사용하여 모바일 애플리케이션 내에 맵을 포함하는 경우 Azure Content Delivery Network에서 호스트되는 SDK 버전을 참조하는 대신 [Azure Maps 웹 SDK의 npm 패키지](https://www.npmjs.com/package/azure-maps-control)를 사용하는 것이 좋습니다. 이 방법은 SDK가 이미 사용자의 디바이스에 있고 런타임을 다운로드할 필요가 없기 때문에 로드 시간이 줄어듭니다.
 
 ## <a name="nodejs"></a>Node.js
 
-다음 웹 SDK 모듈은 Node.js 에서도 지원 됩니다.
+다음 웹 SDK 모듈은 Node.js에서도 지원됩니다.
 
-- 서비스 모듈 ([설명서](how-to-use-services-module.md)  |  [npm 모듈](https://www.npmjs.com/package/azure-maps-rest))
+- 서비스 모듈([설명서](how-to-use-services-module.md) | [npm 모듈](https://www.npmjs.com/package/azure-maps-rest))
 
 ## <a name="target-legacy-browsers"></a><a name="Target-Legacy-Browsers"></a>대상 레거시 브라우저
 
-WebGL을 지원 하지 않거나 제한적 으로만 지원 되는 이전 브라우저를 대상으로 지정할 수 있습니다. 이러한 경우 [Leaflet](https://leafletjs.com/)와 같은 오픈 소스 맵 컨트롤과 함께 Azure Maps 서비스를 사용 하는 것이 좋습니다. 다음은 오픈 소스 [Azure Maps Leaflet 플러그 인](https://github.com/azure-samples/azure-maps-leaflet)을 사용 하는 예제입니다.
+WebGL을 지원하지 않거나 제한적으로만 지원하는 구형 브라우저를 대상으로 지정할 수 있습니다. 이러한 경우 [Leaflet](https://leafletjs.com/)과 같은 오픈 소스 지도 컨트롤과 함께 Azure Maps 서비스 사용을 권합니다. 다음은 오픈 소스 [Azure Maps Leaflet 플러그 인](https://github.com/azure-samples/azure-maps-leaflet)을 사용하는 예제입니다.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Azure Maps + Leaflet" src="//codepen.io/azuremaps/embed/GeLgyx/?height=500&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-CodePen에서 Pen <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + Leaflet</a> () Azure Maps ()를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a>
+<a href='https://codepen.io'>CodePen</a>에서 Azure Maps의 <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + Leaflet</a> 펜(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)을 참조하세요.
 </iframe>
 
-Leaflet에서 Azure Maps를 사용 하는 추가 코드 샘플은 [여기](https://azuremapscodesamples.azurewebsites.net/?search=leaflet)에서 찾을 수 있습니다.
+Leaflet에서 Azure Maps를 사용하는 추가 코드 샘플은 [여기](https://azuremapscodesamples.azurewebsites.net/?search=leaflet)에서 찾을 수 있습니다.
 
 Azure Maps 팀에서 플러그 인을 만든 몇 가지 인기 있는 오픈 소스 맵 컨트롤은 [다음](open-source-projects.md#third-part-map-control-plugins)과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Maps 웹 SDK에 대해 자세히 알아보세요.
+Azure Maps 웹 SDK에 대한 자세한 정보를 알아봅니다.
 
 [지도 컨트롤](how-to-use-map-control.md)
 

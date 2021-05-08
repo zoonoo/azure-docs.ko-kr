@@ -1,18 +1,15 @@
 ---
 title: Azure Site Recovery의 VMware VM 재해 복구 아키텍처
 description: 이 문서에서는 Azure Site Recovery를 사용하여 온-프레미스 VMware VM과 Azure 간 재해 복구를 설정할 때 사용되는 구성 요소 및 아키텍처를 간략하게 설명합니다.
-author: rayne-wiselman
 ms.service: site-recovery
-services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
-ms.author: raynew
-ms.openlocfilehash: 5cf4dc5123040fd2af8efe54153867a8709fe1ef
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 24333ccc5096e7f04f016444de2b0a7e13ae7bfa
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97652231"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579813"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware와 Azure 간 재해 복구 아키텍처
 
@@ -25,16 +22,16 @@ ms.locfileid: "97652231"
 
 **구성 요소** | **요구 사항** | **세부 정보**
 --- | --- | ---
-**Azure** | Azure 구독, 캐시, 관리 디스크 및 Azure 네트워크에 대 한 Azure Storage 계정 | 온-프레미스 Vm에서 복제 된 데이터는 Azure storage에 저장 됩니다. 장애 조치를 온-프레미스에서 Azure로 실행할 때 복제된 데이터를 사용하여 Azure VM을 만듭니다. Azure VM을 만들 때 Azure 가상 네트워크에 연결합니다.
+**Azure** | Azure 구독, 캐시에 대한 Azure Storage 계정, 관리 디스크 및 Azure 네트워크입니다. | 온-프레미스 VM에서 복제된 데이터는 Azure Storage에 저장됩니다. 장애 조치를 온-프레미스에서 Azure로 실행할 때 복제된 데이터를 사용하여 Azure VM을 만듭니다. Azure VM을 만들 때 Azure 가상 네트워크에 연결합니다.
 **구성 서버 컴퓨터** | 단일 온-프레미스 컴퓨터입니다. 다운로드한 OVF 템플릿에서 배포할 수 있는 VMware VM으로 실행하는 것이 좋습니다.<br/><br/> 이 컴퓨터는 구성 서버, 프로세스 서버 및 마스터 대상 서버를 포함하는 모든 온-프레미스 Site Recovery 구성 요소를 실행합니다. | **구성 서버**: 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다.<br/><br/> **프로세스 서버**: 기본적으로 구성 서버에 설치됩니다. 복제 데이터를 수신하고, 캐싱, 압축 및 암호화를 사용하여 최적화하며, Azure Storage로 보냅니다. 또한 프로세스 서버는 복제하려는 VM에 Azure Site Recovery 모바일 서비스를 설치하고, 온-프레미스 컴퓨터의 자동 검색을 수행합니다. 배포가 늘어나면 프로세스 서버로 실행하는 별도의 프로세스 서버를 추가하여 더 큰 복제 트래픽을 처리할 수 있습니다.<br/><br/> **마스터 대상 서버**: 기본적으로 구성 서버에 설치됩니다. Azure에서 장애 복구(Failback) 중에 복제 데이터를 처리합니다. 대규모 배포의 경우 장애 복구를 위해 추가적인 별도의 마스터 대상 서버를 추가할 수 있습니다.
 **VMware 서버** | VMware VM은 온-프레미스 vSphere ESXi 서버에서 호스트됩니다. 호스트를 관리하려면 vCenter 서버를 사용하는 것이 좋습니다. | Site Recovery 배포 중에 VMware 서버를e Recovery Services 자격 증명 모음에 추가합니다.
-**복제된 컴퓨터** | 복제한 각 VMware VM에 모바일 서비스가 설치됩니다. | 프로세스 서버에서 자동 설치를 수행할 수 있도록 하는 것이 좋습니다. 또는 서비스를 수동으로 설치 하거나 자동화 된 배포 방법 (예: Configuration Manager)을 사용할 수 있습니다.
+**복제된 컴퓨터** | 복제한 각 VMware VM에 모바일 서비스가 설치됩니다. | 프로세스 서버에서 자동 설치를 수행할 수 있도록 하는 것이 좋습니다. 또는 서비스를 수동으로 설치하거나 Configuration Manager와 같이 자동화된 배포 방법을 사용할 수 있습니다.
 
-![VMware에서 Azure로 복제 아키텍처 관계를 보여 주는 다이어그램](./media/vmware-azure-architecture/arch-enhanced.png)
+![VMware에서 Azure로 복제 아키텍처 관계를 보여주는 다이어그램입니다.](./media/vmware-azure-architecture/arch-enhanced.png)
 
-## <a name="set-up-outbound-network-connectivity"></a>아웃 바운드 네트워크 연결 설정
+## <a name="set-up-outbound-network-connectivity"></a>아웃바운드 네트워크 연결 설정
 
-Site Recovery가 예상 대로 작동 하려면 아웃 바운드 네트워크 연결을 수정 하 여 환경을 복제할 수 있도록 해야 합니다.
+Site Recovery가 예상대로 작동하려면 아웃바운드 네트워크 연결을 수정하여 환경 복제를 허용해야 합니다.
 
 > [!NOTE]
 > Site Recovery는 인증 프록시를 사용하여 네트워크 연결을 제어하도록 지원하지 않습니다.
@@ -47,52 +44,52 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | 스토리지                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 합니다. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Site Recovery 서비스 URL에 대한 권한 부여 및 인증을 제공합니다. |
-| 복제               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | VM이 Site Recovery 서비스와 통신할 수 있도록 합니다. |
+| 복제               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.us`   | VM이 Site Recovery 서비스와 통신할 수 있도록 합니다. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | VM이 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 합니다. |
 
-온-프레미스 Azure Site Recovery 인프라와 Azure 서비스 간의 통신을 위해 필터링 할 Url의 전체 목록은 [전제 조건 문서에서 네트워크 요구 사항 섹션](vmware-azure-deploy-configuration-server.md#prerequisites)을 참조 하세요.
+온-프레미스 Azure Site Recovery 인프라와 Azure 서비스 간의 통신을 위해 필터링할 URL의 전체 목록은 [필수 구성 요소 문서의 네트워크 요구 사항 섹션](vmware-azure-deploy-configuration-server.md#prerequisites)을 참조하세요.
 
 ## <a name="replication-process"></a>복제 프로세스
 
 1. VM에 대해 복제를 사용하도록 설정하면 지정된 복제 정책을 사용하여 Azure Storage에 초기 복제가 시작됩니다. 다음 사항에 유의하세요.
     - VMware VM의 경우 복제는 VM에서 실행 중인 모바일 서비스 에이전트를 사용하여 블록 수준에서 거의 지속적으로 이루어집니다.
     - 복제 정책 설정이 적용됩니다.
-        - **RPO 임계값** 입니다. 이 설정은 복제에 영향을 주지 않습니다. 모니터링에 도움이 됩니다. 현재 RPO가 지정 임계값 한도를 초과하는 경우 이벤트가 발생하고 선택적으로 메일이 전송됩니다.
-        - **복구 지점 보존**. 이 설정은 중단이 발생하는 경우 얼마나 오래전으로 되돌아갈지 지정합니다. Premium Storage의 최대 보존 기간은 24시간입니다. 표준 스토리지의 경우는 72시간입니다. 
-        - **앱 일치 스냅샷**. 앱 요구 사항에 따라 1 ~ 12 시간 마다 앱 일치 스냅숏을 만들 수 있습니다. 스냅샷은 표준 Azure Blob 스냅샷입니다. VM에서 실행되는 모바일 에이전트는 이 설정에 따라 VSS 스냅샷을 요청하며 이 특정 시점을 복제 스트림의 애플리케이션 일치 지점으로 북마크합니다.
+        - **RPO 임계값**: 이 설정은 복제에 영향을 주지 않습니다. 모니터링에 도움이 됩니다. 현재 RPO가 지정 임계값 한도를 초과하는 경우 이벤트가 발생하고 선택적으로 메일이 전송됩니다.
+        - **복구 지점 보존**: 이 설정은 중단이 발생하는 경우 얼마나 오래전으로 되돌아갈지 지정합니다. Premium Storage의 최대 보존 기간은 24시간입니다. 표준 스토리지의 경우는 72시간입니다. 
+        - **앱 일치 스냅샷**. 앱의 요구 사항에 따라 1시간에서 12시간마다 앱 일치 스냅샷을 만들 수 있습니다. 스냅샷은 표준 Azure Blob 스냅샷입니다. VM에서 실행되는 모바일 에이전트는 이 설정에 따라 VSS 스냅샷을 요청하며 이 특정 시점을 복제 스트림의 애플리케이션 일치 지점으로 북마크합니다.
 
-2. 트래픽은 인터넷을 통해 Azure Storage 공용 엔드포인트에 복제됩니다. 또는 [Microsoft 피어 링](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)과 함께 Azure express 경로를 사용할 수 있습니다. 온-프레미스 사이트에서 Azure로의 사이트 간 VPN(가상 사설망)을 통한 트래픽 복제는 지원되지 않습니다.
-3. 초기 복제 작업을 수행 하면 복제 사용 시 컴퓨터의 전체 데이터가 Azure로 전송 됩니다. 초기 복제가 완료되면 Azure에 대한 델타 변경 내용의 복제가 시작됩니다. 머신의 추적된 변경 내용이 프로세스 서버로 전송됩니다.
+2. 트래픽은 인터넷을 통해 Azure Storage 공용 엔드포인트에 복제됩니다. 또는 Azure ExpressRoute와 [Microsoft 피어링](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)을 함께 사용할 수도 있습니다. 온-프레미스 사이트에서 Azure로의 사이트 간 VPN(가상 사설망)을 통한 트래픽 복제는 지원되지 않습니다.
+3. 초기 복제 작업을 수행하면 복제 사용 설정 시 컴퓨터의 전체 데이터가 Azure로 전송됩니다. 초기 복제가 완료되면 Azure에 대한 델타 변경 내용의 복제가 시작됩니다. 머신의 추적된 변경 내용이 프로세스 서버로 전송됩니다.
 4. 다음과 같이 통신이 발생합니다.
 
     - VM은 복제 관리를 위해 HTTPS 443 인바운드 포트에 대한 온-프레미스 구성 서버와 통신합니다.
     - 구성 서버는 HTTPS 443 아웃바운드 포트를 통해 Azure를 사용하는 복제를 오케스트레이션합니다.
     - VM은 HTTPS 9443 인바운드 포트의 프로세스 서버(구성 서버 컴퓨터에서 실행)로 복제 데이터를 전송합니다. 이 포트는 수정할 수 있습니다.
-    - 프로세스 서버는 복제 데이터를 수신 하 고, 최적화 하 고, 암호화 하 고 포트 443 아웃 바운드를 통해 Azure storage로 보냅니다.
-5. 복제 데이터 로그는 먼저 Azure의 캐시 저장소 계정에 저장 됩니다. 이러한 로그는 처리 되 고 데이터는 Azure 관리 디스크 (asr seed disk)에 저장 됩니다. 이 디스크에는 복구 지점이 생성 됩니다.
+    - 프로세스 서버는 복제 데이터를 수신하고, 이를 최적화 및 암호화하며, 443 아웃바운드 포트를 통해 Azure Storage로 보냅니다.
+5. 복제 데이터 로그는 먼저 Azure의 캐시 저장소 계정으로 이동합니다. 이러한 로그는 처리되고 데이터는 Azure 관리 디스크(시드 디스크라고 함)에 저장됩니다. 이 디스크에는 복구 지점이 만들어집니다.
 
-![VMware에서 Azure로 복제 프로세스를 표시 하는 다이어그램입니다.](./media/vmware-azure-architecture/v2a-architecture-henry.png)
+![VMware에서 Azure로의 복제 프로세스를 표시하는 다이어그램입니다.](./media/vmware-azure-architecture/v2a-architecture-henry.png)
 
 ## <a name="resynchronization-process"></a>다시 동기화 프로세스
 
-1. 경우에 따라서 초기 복제 또는 델타 변경 내용을 전송 하는 동안 원본 컴퓨터와 프로세스 서버 간 또는 프로세스 서버와 Azure 간의 네트워크 연결에 문제가 있을 수 있습니다. 이러한 방법 중 하나를 통해 Azure로 데이터를 전송 하는 동안 오류가 발생할 수 있습니다.
-2. 데이터 무결성 문제를 방지 하 고 데이터 전송 비용을 최소화 하기 위해 컴퓨터를 다시 동기화 하도록 컴퓨터를 표시 Site Recovery.
-3. 또한 원본 컴퓨터와 Azure에 저장 된 데이터 간의 일관성을 유지 하기 위해 다음과 같은 상황에서 컴퓨터를 다시 동기화 하도록 표시할 수 있습니다.
-    - 컴퓨터가 강제 종료 되는 경우
-    - 컴퓨터에서 디스크 크기 조정과 같이 구성 변경을 수행 하는 경우 (디스크 크기를 2tb에서 4 TB로 수정)
-4. 다시 동기화는 델타 데이터만 Azure에 보냅니다. 원본 컴퓨터와 Azure에 저장 된 데이터 간의 데이터 체크섬을 계산 하 여 온-프레미스와 Azure 간의 데이터 전송을 최소화 합니다.
-5. 기본적으로 다시 동기화는 업무 시간 이외에 실행되도록 예약됩니다. 일정대로 기본 다시 동기화 시간까지 기다릴 수 없으면 수동으로 VM을 다시 동기화할 수 있습니다. 이렇게 하려면 Azure Portal로 이동 하 고 VM > 다시 **동기화** 를 선택 합니다.
-6. 업무 시간 외에 기본 다시 동기화가 실패 하 고 수동 개입이 필요한 경우 Azure Portal에서 특정 컴퓨터에 오류가 생성 됩니다. 오류를 해결 하 고 다시 동기화를 수동으로 트리거할 수 있습니다.
-7. 다시 동기화가 완료 되 면 델타 변경 내용의 복제가 다시 시작 됩니다.
+1. 경우에 따라서는 초기 복제 또는 델타 변경 내용 전송 중에 원본 컴퓨터와 프로세스 서버 간 또는 프로세스 서버와 Azure 간의 네트워크 연결에 문제가 있을 수 있습니다. 이들 중 어떤 문제든 Azure로의 데이터 전송이 잠시 실패하는 원인이 될 수 있습니다.
+2. 데이터 무결성 문제를 방지하고 데이터 전송 비용을 최소화하기 위해 Site Recovery는 다시 동기화할 컴퓨터를 표시합니다.
+3. 또한 원본 컴퓨터와 Azure에 저장된 데이터 간의 일관성을 유지하기 위해 다음과 같은 상황에서 컴퓨터를 다시 동기화하도록 표시될 수 있습니다.
+    - 컴퓨터가 강제 종료되는 경우
+    - 컴퓨터에서 디스크 크기 조정과 같은 구성 변경을 수행하는 경우(디스크 크기를 2TB에서 4TB로 수정)
+4. 다시 동기화할 때는 델타 데이터만 Azure에 전송됩니다. 온-프레미스와 Azure 간의 데이터 전송은 원본 컴퓨터와 Azure에 저장된 데이터 간의 데이터 체크섬 계산을 통해 최소화됩니다.
+5. 기본적으로 다시 동기화는 업무 시간 이외에 실행되도록 예약됩니다. 일정대로 기본 다시 동기화 시간까지 기다릴 수 없으면 수동으로 VM을 다시 동기화할 수 있습니다. 이렇게 하려면 Azure Portal에서 VM > **다시 동기화** 를 선택합니다.
+6. 업무 시간이 아닐 때 기본적인 다시 동기화가 실패하고 수동 개입이 필요한 경우 Azure Portal의 특정 컴퓨터에서 오류가 생성됩니다. 오류를 해결하고 다시 동기화를 수동으로 트리거할 수 있습니다.
+7. 다시 동기화가 완료되면 델타 변경 내용의 복제가 다시 시작됩니다.
 
 ## <a name="replication-policy"></a>복제 정책 
 
 Azure VM 복제를 활성화하면 기본적으로 Site Recovery는 표에 요약된 기본 설정을 사용하여 새 복제 정책을 만듭니다.
 
-**정책 설정** | **세부 정보** | **기본값**
+**정책 설정** | **세부 정보** | **기본**
 --- | --- | ---
 **복구 지점 보존** | Site Recovery에서 복구 지점을 유지하는 기간을 지정합니다. | 24시간
-**앱 일치 스냅샷 빈도** | Site Recovery에서 앱 일치 스냅샷을 만드는 주기입니다. | 4 시간 마다
+**앱 일치 스냅샷 빈도** | Site Recovery에서 앱 일치 스냅샷을 만드는 주기입니다. | 4시간마다
 
 ### <a name="managing-replication-policies"></a>복제 정책 관리
 
@@ -131,7 +128,7 @@ Site Recovery는 다음과 같이 스냅샷을 생성합니다.
 
 **설명** | **세부 정보** | **권장**
 --- | --- | ---
-앱 일치 복구 지점은 앱 일치 스냅샷에서 생성됩니다.<br/><br/> 앱 일치 스냅샷은 크래시 일관성 스냅샷의 모든 정보와 메모리의 모든 데이터 및 진행 중인 트랜잭션을 포함합니다. | 앱 일치 스냅샷은 VSS(볼륨 섀도 복사본 서비스)를 사용합니다.<br/><br/>   1) Azure Site Recovery Microsoft SQL의 트랜잭션 로그 백업 시간 및 시퀀스 번호를 변경 하지 않는 복사 전용 백업 (VSS_BT_COPY) 방법을 사용 합니다. </br></br> 2) 스냅숏이 시작 될 때 VSS는 볼륨에서 쓰기 (소) 작업을 수행 합니다.<br/><br/>   3) 소를 수행 하기 전에 VSS는 메모리 상주 데이터를 디스크에 플러시하는 데 필요한 모든 앱을 컴퓨터에 알립니다.<br/><br/>   4) VSS는 백업/재해 복구 앱 (이 경우 Site Recovery)에서 스냅숏 데이터를 읽고 계속 진행할 수 있도록 합니다. | 앱 일치 스냅샷은 지정하는 빈도에 따라 생성됩니다. 이 빈도는 항상 복구 지점 유지에 대한 설정보다 작아야 합니다. 예를 들어 24시간의 기본 설정을 사용하여 복구 지점을 보존하는 경우 빈도를 24시간 미만으로 설정해야 합니다.<br/><br/>크래시 일관성 스냅샷보다 더 복잡하며 완료하는 데 시간이 더 걸립니다.<br/><br/> 복제에 대해 활성화된 VM에서 실행되는 앱의 성능에 영향을 미칩니다. 
+앱 일치 복구 지점은 앱 일치 스냅샷에서 생성됩니다.<br/><br/> 앱 일치 스냅샷은 크래시 일관성 스냅샷의 모든 정보와 메모리의 모든 데이터 및 진행 중인 트랜잭션을 포함합니다. | 앱 일치 스냅샷은 VSS(볼륨 섀도 복사본 서비스)를 사용합니다.<br/><br/>   1) Azure Site Recovery는 Microsoft SQL의 트랜잭션 로그 백업 시간과 시퀀스 번호가 변경되지 않는 복사 전용 백업(VSS_BT_COPY) 방법을 사용합니다. </br></br> 2) 스냅샷이 시작되면 VSS는 볼륨에 COW(기록 중 복사) 작업을 수행합니다.<br/><br/>   3) COW를 수행하기 전에 VSS는 컴퓨터의 모든 앱에 해당 메모리 상주 데이터를 디스크에 플러시해야 함을 알립니다.<br/><br/>   4) 그런 다음, VSS는 백업/재해 복구 앱(이 경우 Site Recovery)에서 스냅샷 데이터를 읽고 진행하도록 허용합니다. | 앱 일치 스냅샷은 지정하는 빈도에 따라 생성됩니다. 이 빈도는 항상 복구 지점 유지에 대한 설정보다 작아야 합니다. 예를 들어 24시간의 기본 설정을 사용하여 복구 지점을 보존하는 경우 빈도를 24시간 미만으로 설정해야 합니다.<br/><br/>크래시 일관성 스냅샷보다 더 복잡하며 완료하는 데 시간이 더 걸립니다.<br/><br/> 복제에 대해 활성화된 VM에서 실행되는 앱의 성능에 영향을 미칩니다. 
 
 ## <a name="failover-and-failback-process"></a>장애 조치 및 장애 복구 프로세스
 
@@ -155,7 +152,7 @@ Site Recovery는 다음과 같이 스냅샷을 생성합니다.
     
  
 
-![Azure에서 VMware 장애 복구를 보여 주는 다이어그램](./media/vmware-azure-architecture/enhanced-failback.png)
+![Azure로부터의 VMware 장애 복구를 보여주는 다이어그램](./media/vmware-azure-architecture/enhanced-failback.png)
 
 
 ## <a name="next-steps"></a>다음 단계

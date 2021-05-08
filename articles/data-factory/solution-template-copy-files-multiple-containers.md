@@ -1,6 +1,6 @@
 ---
 title: 여러 컨테이너의 파일 복사
-description: Azure Data Factory를 사용 하 여 솔루션 템플릿을 사용 하 여 여러 컨테이너의 파일을 복사 하는 방법을 알아봅니다.
+description: Azure Data Factory를 사용해 솔루션 템플릿을 이용하여 여러 컨테이너의 파일을 복사하는 방법을 알아봅니다.
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
@@ -8,45 +8,45 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
 ms.openlocfilehash: ec7af1e81e0b295491420597636c8443f4d36512
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100376091"
 ---
-# <a name="copy-multiple-folders-with-azure-data-factory"></a>Azure Data Factory를 사용 하 여 여러 폴더 복사
+# <a name="copy-multiple-folders-with-azure-data-factory"></a>Azure Data Factory를 사용한 여러 폴더 복사
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 문서에서는 여러 복사 작업을 사용 하 여 파일 기반 저장소 간에 컨테이너 또는 폴더를 복사 하는 방법에 대해 설명 합니다. 각 복사 작업은 단일 컨테이너 또는 폴더를 복사 해야 합니다. 
+이 문서에서는 여러 복사 작업을 사용하여 파일 기반 저장소 간에 컨테이너 또는 폴더를 복사하는 방법에 대해 설명합니다. 각 복사 작업은 단일 컨테이너 또는 폴더를 복사해야 합니다. 
 
 > [!NOTE]
-> 단일 컨테이너에서 파일을 복사 하려면 [데이터 복사 도구](copy-data-tool.md) 를 사용 하 여 단일 복사 작업으로 파이프라인을 만드는 것이 더 효율적입니다. 이 문서에서는 이러한 간단한 시나리오에 대 한 템플릿이 필요 합니다.
+> 단일 컨테이너에서 파일을 복사하려는 경우 [데이터 복사 도구](copy-data-tool.md)를 사용하여 단일 복사 작업으로 파이프라인을 만들면 더 효율적입니다. 이 문서에서 설명하는 템플릿은 해당 시나리오에 필요한 기능 이상을 제공합니다.
 
 ## <a name="about-this-solution-template"></a>이 솔루션 템플릿 정보
 
-이 템플릿은 원본 저장소 저장소의 지정 된 부모 폴더에서 폴더를 열거 합니다. 그런 다음 각 폴더를 대상 저장소에 복사 합니다.
+이 템플릿은 원본 스토리지 저장소의 지정된 부모 폴더에서 폴더를 열거합니다. 그런 다음 각 폴더를 대상 저장소에 복사합니다.
 
 이 템플릿은 다음 세 가지 작업을 포함합니다.
-- **GetMetadata** 는 원본 저장소 저장소를 검색 하 고 지정 된 부모 폴더에서 하위 폴더 목록을 가져옵니다.
-- **ForEach** **GetMetadata** 작업에서 하위 폴더 목록을 가져온 다음 목록을 반복 하 고 각 폴더를 복사 작업에 전달 합니다.
-- **복사** 는 원본 저장소 저장소의 각 폴더를 대상 저장소에 복사 합니다.
+- **GetMetadata** 는 원본 스토리지 저장소를 검색하고 지정된 부모 폴더에서 하위 폴더 목록을 가져옵니다.
+- **ForEach** 는 **GetMetadata** 작업에서 하위 폴더 명단을 가져오고 명단을 반복하고 각 폴더를 복사 작업에 전달합니다.
+- **복사** 는 원본 스토리지 저장소의 각 폴더를 대상 저장소로 복사합니다.
 
 템플릿은 다음 매개 변수를 정의합니다.
-- *Sourcefilefolder* 는 데이터 원본 저장소의 부모 폴더 경로에 속합니다. *sourcefilefolder/sourcefilefolder* 는 하위 폴더의 목록을 가져올 수 있습니다. 
-- *Sourcefiledirectory* 는 데이터 원본 저장소의 부모 폴더 경로에 속합니다. *sourcefiledirectory/sourcefiledirectory* 는 하위 폴더의 목록을 가져올 수 있습니다. 
-- *Destinationfilefolder* 는 부모 폴더 경로입니다. *destinationfilefolder/destinationfilefolder* 는 파일이 대상 저장소로 복사 됩니다. 
-- *Destinationfiledirectory* 는 파일이 대상 저장소로 복사 되는 *destinationfiledirectory/destinationfiledirectory* 의 부모 폴더 경로에 속합니다. 
+- *SourceFileFolder* 는 데이터 원본 저장소의 부모 폴더 경로에 속합니다. *SourceFileFolder/SourceFileDirectory* 는 하위 폴더의 목록을 가져올 수 있습니다. 
+- *SourceFileDirectory* 는 데이터 원본 저장소의 부모 폴더 경로에 속합니다. *SourceFileFolder/SourceFileDirectory* 는 하위 폴더의 목록을 가져올 수 있습니다. 
+- *DestinationFileFolder* 는 파일이 대상 저장소로 복사되는 *DestinationFileFolder/DestinationFileDirectory* 의 부모 폴더 경로에 속합니다. 
+- *DestinationFileDirectory* 는 파일이 대상 저장소로 복사되는 *DestinationFileFolder/DestinationFileDirectory* 의 부모 폴더 경로에 속합니다. 
 
-저장소 저장소의 루트 폴더에 있는 여러 컨테이너를 복사 하려는 경우 네 가지 매개 변수를 모두로 입력할 수 있습니다 */* . 이렇게 하면 저장소 저장소 간의 모든 것을 복제 합니다.
+스토리지 저장소의 루트 폴더에 있는 여러 컨테이너를 복사하려는 경우 네 가지 매개 변수를 모두 */* 로 입력할 수 있습니다. 이렇게 하면 스토리지 저장소 사이의 모든 것을 복사합니다.
 
 ## <a name="how-to-use-this-solution-template"></a>이 솔루션 템플릿을 사용하는 방법
 
-1. **파일 저장 템플릿 간에 여러 파일 복사 컨테이너** 로 이동 합니다. 원본 저장소 저장소에 대 한 **새** 연결을 만듭니다. 원본 저장소 저장소는에서 여러 컨테이너의 파일을 복사 하려는 위치입니다.
+1. **파일 저장 템플릿 간에 여러 파일 복사 컨테이너** 로 이동합니다. 원본 스토리지 저장소에 대한 **새 연결** 을 만듭니다. 원본 스토리지 저장소는 여러 컨테이너에서 파일을 복사하려는 위치입니다.
 
     ![원본에 대한 새 연결 만들기](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image1.png)
 
-2. 대상 저장소 저장소에 대 한 **새** 연결을 만듭니다.
+2. 대상 스토리지 저장소에 대한 **새 연결** 을 만듭니다.
 
     ![대상에 대한 새 연결 만들기](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png)
 
@@ -54,7 +54,7 @@ ms.locfileid: "100376091"
 
     ![이 템플릿 사용](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
     
-4. 다음 예제와 같이 파이프라인이 표시 됩니다.
+4. 다음 예제와 같이 파이프라인이 표시됩니다.
 
     ![파이프라인 표시](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
 
@@ -68,6 +68,6 @@ ms.locfileid: "100376091"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Data Factory 있는 컨트롤 테이블을 사용 하 여 데이터베이스에서 대량 복사](solution-template-bulk-copy-with-control-table.md)
+- [Azure Data Factory의 컨트롤 테이블을 사용하여 데이터베이스에서 대량 복사](solution-template-bulk-copy-with-control-table.md)
 
 - [Azure Data Factory를 사용하여 여러 컨테이너에서 파일 복사](solution-template-copy-files-multiple-containers.md)

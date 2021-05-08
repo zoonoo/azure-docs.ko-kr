@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 스크립트를 통해 Azure Stack Edge Pro GPU 장치에 Vm 배포
-description: Azure PowerShell 스크립트를 사용 하 여 Azure Stack Edge Pro 장치에서 Vm (가상 머신)을 만들고 관리 하는 방법을 설명 합니다.
+title: Azure PowerShell 스크립트를 통해 Azure Stack Edge Pro GPU 디바이스에 VM 배포
+description: Azure PowerShell 스크립트를 사용하여 Azure Stack Edge Pro 디바이스에서 VM(가상 머신)을 만들고 관리하는 방법을 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,29 +9,29 @@ ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: alkohli
 ms.openlocfilehash: 36c7078a79cf8b0b7414c5031acb79b9a2c2453c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102630489"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell-script"></a>Azure PowerShell 스크립트를 통해 Azure Stack Edge Pro GPU 장치에 Vm 배포
+# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell-script"></a>Azure PowerShell 스크립트를 통해 Azure Stack Edge Pro GPU 디바이스에 VM 배포
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-이 자습서에서는 Azure PowerShell 스크립트를 사용 하 여 Azure Stack Edge Pro 장치에서 VM을 만들고 관리 하는 방법을 설명 합니다.
+이 자습서에서는 Azure PowerShell 스크립트를 사용하여 Azure Stack Edge Pro 디바이스에서 VM을 만들고 관리하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-이 스크립트를 사용 하 여 Azure Stack Edge Pro 장치에서 VM 만들기 및 관리를 시작 하기 전에 다음 단계에 나열 된 필수 구성 요소를 완료 했는지 확인 해야 합니다.
+이 스크립트를 사용하여 Azure Stack Edge Pro 디바이스에서 VM을 만들고 관리하기 전에, 다음 단계에 나와 있는 사전 요구 사항을 완료했는지 확인해야 합니다.
 
-### <a name="for-azure-stack-edge-pro-device-via-the-local-web-ui"></a>로컬 웹 UI를 통해 Azure Stack Edge Pro 장치
+### <a name="for-azure-stack-edge-pro-device-via-the-local-web-ui"></a>로컬 웹 UI를 통한 Azure Stack Edge Pro 디바이스의 경우
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-vm-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
 
 ### <a name="for-your-windows-client"></a>Windows 클라이언트의 경우
 
-1. 다음을 수정 했는지 확인 합니다. 
+1. 다음을 수정했는지 확인합니다. 
 
     - 클라이언트의 호스트 파일 또는
     - DNS 서버 구성
@@ -50,38 +50,38 @@ ms.locfileid: "102630489"
         <device IP> management.<appliance name>.<DNS domain>
         <device IP> <storage name>.blob.<appliance name>.<DNS domain>
         ```
-        저장소 계정에 대해 스크립트에서 나중에 새 저장소 계정을 만드는 데 사용할 이름을 제공할 수 있습니다. 스크립트는 해당 저장소 계정이 기존 인지 확인 하지 않습니다.
+        스토리지 계정의 경우, 스크립트에서 나중에 새 스토리지 계정을 만드는 데 사용할 이름을 제공할 수 있습니다. 스크립트에서는 해당 스토리지 계정이 존재하는지 여부를 확인하지 않습니다.
 
     3. 다음 이미지를 참조하세요. **호스트** 파일을 저장합니다.
 
         ![메모장의 hosts 파일](media/azure-stack-edge-gpu-deploy-virtual-machine-cli-python/hosts-screenshot-boxed.png)
 
-2. 이 절차에서 사용 되는 [PowerShell 스크립트를 다운로드](https://aka.ms/ase-vm-powershell) 합니다.
+2. 이 프로시저에 사용된 [PowerShell 스크립트를 다운로드](https://aka.ms/ase-vm-powershell)합니다.
 
-3. Windows 클라이언트에서 PowerShell 5.0 이상을 실행 하 고 있는지 확인 합니다.
+3. Windows 클라이언트에서 PowerShell 5.0 이상을 실행하고 있는지 확인합니다.
 
-4. `Azure.Storage Module version 4.5.0`가 시스템에 설치 되어 있는지 확인 합니다. [PowerShell 갤러리](https://www.powershellgallery.com/packages/Azure.Storage/4.5.0)에서이 모듈을 가져올 수 있습니다. 이 모듈을 설치 하려면 다음을 입력 합니다.
+4. `Azure.Storage Module version 4.5.0`이 시스템에 설치되어 있는지 확인합니다. [PowerShell 갤러리](https://www.powershellgallery.com/packages/Azure.Storage/4.5.0)에서 이 모듈을 가져올 수 있습니다. 이 모듈을 설치하려면 다음을 입력합니다.
 
     `Install-Module -Name Azure.Storage -RequiredVersion 4.5.0`
 
-    설치 된 모듈의 버전을 확인 하려면 다음을 입력 합니다.
+    설치된 모듈 버전을 확인하려면 다음을 입력합니다.
 
     `Get-InstalledModule -name Azure.Storage`
 
-    다른 버전 모듈을 제거 하려면 다음을 입력 합니다.
+    다른 버전 모듈을 제거하려면 다음을 입력합니다.
 
     `Uninstall-Module -Name Azure.Storage`
 
-5. Windows 클라이언트에 [AzCopy 10을 다운로드](../storage/common/storage-use-azcopy-v10.md#download-azcopy) 합니다. 스크립트를 실행 하는 동안 매개 변수로 전달 하므로이 위치를 기록해 둡니다.
+5. Windows 클라이언트에 [AzCopy 10을 다운로드](../storage/common/storage-use-azcopy-v10.md#download-azcopy)합니다. 스크립트를 실행하는 동안 매개 변수로 이를 전달하므로 이 위치를 기록해 둡니다.
 
-6. Windows 클라이언트에서 TLS 1.2 이상을 실행 하 고 있는지 확인 합니다.
+6. Windows 클라이언트에서 TLS 1.2 이상을 실행하고 있는지 확인합니다.
 
 
 ## <a name="create-a-vm"></a>VM 만들기
 
 1. PowerShell을 관리자 권한으로 실행합니다.
-1. 클라이언트에서 스크립트를 다운로드 한 폴더로 이동 합니다.
-1. 스크립트를 실행 하기 전에 장치의 로컬 Azure Resource Manager에 연결 되어 있고 연결이 만료 되지 않았는지 확인 합니다.
+1. 클라이언트에 스크립트를 다운로드한 폴더로 이동합니다.
+1. 스크립트를 실행하기 전에 디바이스의 로컬 Azure Resource Manager에 연결되어 있으며 연결이 만료되지 않았는지 확인합니다.
 
     ```powershell
     PS C:\windows\system32> login-AzureRMAccount -EnvironmentName aztest1 -TenantId c0257de7-538f-415c-993a-1b87a031879d
@@ -97,13 +97,13 @@ ms.locfileid: "102630489"
  
     `.\ArmPowershellClient.ps1 -NicPrivateIp <Private IP> -VHDPath <Path> -VHDFile <VHD File, with extension> -StorageAccountName <Name> -OS <Windows/Linux> -VMSize <Supported VM Size> -VMUserName <Username to be used to sign in to VM> -VMPassword <Password for the VM> --AzCopy10Path <Absolute Path>`
 
-    IP를 VM에 동적으로 할당 하려면 매개 변수를 생략 합니다 `-NicPrivateIp` .
+    IP를 VM에 동적으로 할당하려면 `-NicPrivateIp` 매개 변수를 생략합니다.
 
-    Windows VM 및 Linux VM을 만들기 위해 스크립트를 실행 하는 경우의 예는 다음과 같습니다.
+    Windows VM 및 Linux VM을 만들기 위해 스크립트를 실행하는 경우의 예는 다음과 같습니다.
 
     **Windows VM의 경우:**
 
-    다음은 생성 된 Windows VM에 대 한 샘플 출력입니다.
+    다음은 생성된 Windows VM에 대한 샘플 출력입니다.
 
     ```powershell
     PS C:\Users\v2> .\ArmPowershellClient.ps1 -VHDPath \\asefs\Logs\vmvhd -VHDFile WindowsServer2016Datacenter.vhd -StorageAccountName myasesatest -OS Windows -VMSize Standard_D1_v2 -VMUserName Administrator -VMPassword Password1 -AzCopy10Path C:\Users\AzCopy10\AzCopy.exe
@@ -299,7 +299,7 @@ ms.locfileid: "102630489"
 
     **Linux VM의 경우:**
 
-    Linux VM을 만드는 데 사용 된 명령의 샘플은 다음과 같습니다.
+    Linux VM을 만드는 데 사용된 명령 샘플은 다음과 같습니다.
 
     ```powershell
     .\ArmPowershellClient.ps1 -VHDPath \\asefs\Logs\vmvhd -VHDFile ubuntu13.vhd -StorageAccountName myasesatest -OS Linux -VMSize Standard_D1_v2 -VMUserName Administrator -VMPassword Password1 -AzCopy10Path C:\Users\AzCopy10\AzCopy.exe
@@ -307,15 +307,15 @@ ms.locfileid: "102630489"
     ```
 
   
-1. Vm을 성공적으로 만들었으면 이러한 Vm이 Azure Portal의 가상 머신 목록에 표시 됩니다. Azure Portal에서 장치에 대 한 Azure Stack Edge 리소스에서 Vm을 보려면 **edge 서비스 > Virtual machines** 로 이동 합니다. 
+1. VM이 성공적으로 생성되었으면 해당 VM이 Azure Portal의 가상 머신 목록에 표시되어야 합니다. Azure Portal 내 디바이스의 Azure Stack Edge 리소스에서 VM을 보려면 **에지 서비스 > 가상 머신** 로 이동합니다. 
 
-    ![가상 컴퓨터 목록 보기](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell-script/list-virtual-machine-1.png)
+    ![가상 머신 목록 보기](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell-script/list-virtual-machine-1.png)
 
-    VM의 세부 정보를 보려면 VM 이름을 선택 합니다. 이 VM에 대 한 IP의 동적 할당을 확인 합니다.
+    VM 세부 정보를 보려면 VM 이름을 선택합니다. 이 VM에 대한 IP 동적 할당을 확인합니다.
 
     ![VM 세부 정보 보기](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell-script/view-virtual-machine-details-1.png)
 
-1. 스크립트에서 만든 리소스를 정리 하려면 다음 명령을 사용 합니다.
+1. 스크립트에서 만든 리소스를 정리하려면 다음 명령을 사용합니다.
     
     ```powershell
     Get-AzureRmVM | Remove-AzureRmVM -Force
@@ -328,4 +328,4 @@ ms.locfileid: "102630489"
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure PowerShell cmdlet을 사용 하 여 Vm 배포](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md)
+[Azure PowerShell cmdlets를 사용한 VM 배포](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md)

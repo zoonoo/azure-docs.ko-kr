@@ -1,14 +1,14 @@
 ---
 title: ISO 27001 ASE/SQL 워크로드 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플의 배포 단계입니다.
-ms.date: 02/05/2021
+ms.date: 04/23/2021
 ms.topic: sample
-ms.openlocfilehash: 5c329a9d7175772e80ea6d9d8da3baf85ce0d170
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a2bc0d0b206ae9fa484c73f1b67c14b115f20883
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104669647"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949077"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플 배포
 
@@ -93,7 +93,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
      - **조직 이름**: 조직에 대한 짧은 이름을 입력합니다. 이 속성은 주로 리소스 이름을 지정하기 위해 사용됩니다.
      - **Shared Service 구독 ID**: [ISO 27001 Shared Services](../iso27001-shared/index.md) 청사진 샘플이 할당된 구독 ID입니다.
      - **기본 서브넷 주소 접두사**: 가상 네트워크 기본 서브넷에 대한 CIDR 표기법입니다.
-       기본값은 _10.1.0.0/16_ 입니다.
+       기본값은 _10.1.0.0/24_ 입니다.
      - **워크로드 위치**: 아티팩트를 배포하는 위치를 결정합니다. 일부 서비스는 모든 위치에서 사용할 수 없습니다. 이러한 서비스를 배포하는 아티팩트는 해당 아티팩트를 배포하는 위치에 대한 매개 변수 옵션을 제공합니다.
 
    - 아티팩트 매개 변수
@@ -120,21 +120,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |네트워크 리소스 그룹|Resource group|위치|**잠김** - 청사진 매개 변수를 사용합니다.|
 |네트워크 보안 그룹 템플릿|Resource Manager 템플릿|로그 보존(일)|데이터 보존 기간(일)입니다. 기본값은 _365_ 입니다.|
 |Virtual Network 및 경로 테이블 템플릿|Resource Manager 템플릿|Azure Firewall 프라이빗 IP|[Azure Firewall](../../../../firewall/overview.md)의 프라이빗 IP를 구성합니다. _ISO 27001: Shared Services_ 아티팩트 매개 변수 **Azure Firewall 서브넷 주소 접두사** 에 정의된 CIDR 표기법의 일부여야 합니다. 기본값은 _10.0.4.4_ 입니다.|
-|Virtual Network 및 경로 테이블 템플릿|Resource Manager 템플릿|Shared services 구독 ID|워크로드와 Shared Services 간에 VNET 피어링을 사용하도록 설정하는 데 사용되는 값입니다.|
 |Virtual Network 및 경로 테이블 템플릿|Resource Manager 템플릿|Virtual Network 주소 접두사|가상 네트워크에 대한 CIDR 표기법입니다. 기본값은 _10.1.0.0/16_ 입니다.|
-|Virtual Network 및 경로 테이블 템플릿|Resource Manager 템플릿|기본 서브넷 주소 접두사|가상 네트워크 기본 서브넷에 대한 CIDR 표기법입니다. 기본값은 _10.1.0.0/16_ 입니다.|
 |Virtual Network 및 경로 테이블 템플릿|Resource Manager 템플릿|ADDS IP 주소|첫 번째 ADDS VM의 IP 주소입니다. 이 값은 사용자 지정 VNET DNS로 사용됩니다.|
+|Virtual Network 및 경로 테이블 템플릿|Resource Manager 템플릿|로그 보존(일)|데이터 보존 기간(일)입니다. 기본값은 _365_ 입니다.|
+|Virtual Network 및 경로 테이블 템플릿|Resource Manager 템플릿|Virtual Network 피어링 이름|워크로드와 Shared Services 간에 VNET 피어링을 사용하도록 설정하는 데 사용되는 값입니다.|
 |주요 자격 증명 모음 리소스 그룹|Resource group|Name|**잠김** - **조직 이름** 을 `-workload-kv-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
 |주요 자격 증명 모음 리소스 그룹|Resource group|위치|**잠김** - 청사진 매개 변수를 사용합니다.|
 |Key Vault 템플릿|Resource Manager 템플릿|AAD 개체 ID|Key Vault 인스턴스에 액세스해야 하는 계정의 AAD 개체 ID입니다. 기본값은 없으며 비워 둘 수 없습니다. Azure Portal에서 이 값을 찾으려면 _서비스_ 아래에서 "사용자"를 검색하여 선택합니다. _이름_ 상자를 사용하여 계정 이름을 필터링하고 해당 계정을 선택합니다. _사용자 프로필_ 페이지에서 _개체 ID_ 옆의 “복사하려면 클릭” 아이콘을 선택합니다.|
 |Key Vault 템플릿|Resource Manager 템플릿|로그 보존(일)|데이터 보존 기간(일)입니다. 기본값은 _365_ 입니다.|
 |Key Vault 템플릿|Resource Manager 템플릿|Key Vault SKU|생성된 Key Vault의 SKU를 지정합니다. 기본값은 _프리미엄_ 입니다.|
 |Key Vault 템플릿|Resource Manager 템플릿|Azure SQL Server 관리 사용자 이름|Azure SQL Server에 액세스하는 데 사용되는 사용자 이름입니다. **Azure SQL Database 템플릿** 의 동일한 속성 값과 일치해야 합니다. 기본값은 _sql-admin-user_ 입니다.|
+|Key Vault 템플릿|Resource Manager 템플릿|Azure SQL Server 관리자 암호|Azure SQL Server 관리 사용자 이름의 암호|
 |Azure SQL Database 리소스 그룹|Resource group|Name|**잠김** - **조직 이름** 을 `-workload-azsql-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
 |Azure SQL Database 리소스 그룹|Resource group|위치|**잠김** - 청사진 매개 변수를 사용합니다.|
 |Azure SQL Database 템플릿|Resource Manager 템플릿|Azure SQL Server 관리 사용자 이름|Azure SQL Server에 대한 사용자 이름입니다. **Key Vault 템플릿** 의 동일한 속성 값과 일치해야 합니다. 기본값은 _sql-admin-user_ 입니다.|
 |Azure SQL Database 템플릿|Resource Manager 템플릿|Azure SQL Server 관리자 암호(Key Vault 리소스 ID)|Key Vault의 리소스 ID입니다. "/subscriptions/{subscriptionId}/resourceGroups/{orgName}-workload-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv"를 사용하고 `{subscriptionId}`를 구독 ID로, `{orgName}`을 **조직 이름** 청사진 매개 변수로 바꿉니다.|
 |Azure SQL Database 템플릿|Resource Manager 템플릿|Azure SQL Server 관리자 암호(Key Vault 비밀 이름)|SQL Server 관리자의 사용자 이름입니다. **Key Vault 템플릿** 속성 **Azure SQL Server 관리 사용자 이름** 의 값과 일치해야 합니다.|
+|Azure SQL Database 템플릿|Resource Manager 템플릿|Azure SQL Server 관리자 암호(Key Vault 비밀 버전)|Key Vault 비밀 버전(새 배포의 경우 비워 둠)|
 |Azure SQL Database 템플릿|Resource Manager 템플릿|로그 보존(일)|데이터 보존 기간(일)입니다. 기본값은 _365_ 입니다.|
 |Azure SQL Database 템플릿|Resource Manager 템플릿|AAD 관리자 개체 ID|Active Directory 관리자로 할당될 사용자의 AAD 개체 ID입니다. 기본값은 없으며 비워 둘 수 없습니다. Azure Portal에서 이 값을 찾으려면 _서비스_ 아래에서 "사용자"를 검색하여 선택합니다. _이름_ 상자를 사용하여 계정 이름을 필터링하고 해당 계정을 선택합니다. _사용자 프로필_ 페이지에서 _개체 ID_ 옆의 “복사하려면 클릭” 아이콘을 선택합니다.|
 |Azure SQL Database 템플릿|Resource Manager 템플릿|AAD 관리자 로그인|현재 Microsoft 계정(예: live.com 또는 outlook.com)을 관리자로 설정할 수 없습니다. 조직 내의 사용자 및 보안 그룹만 관리자로 설정할 수 있습니다. 기본값은 없으며 비워 둘 수 없습니다. Azure Portal에서 이 값을 찾으려면 _서비스_ 아래에서 "사용자"를 검색하여 선택합니다. _이름_ 상자를 사용하여 계정 이름을 필터링하고 해당 계정을 선택합니다. _사용자 프로필_ 페이지에서 _사용자 이름_ 을 복사합니다.|

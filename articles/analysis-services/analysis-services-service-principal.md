@@ -4,15 +4,16 @@ description: Azure Analysis Services 관리 작업을 자동화하기 위해 서
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 04/27/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b04b9ababfe0e4c2a60d14044b9d3ee120837dc5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 20902ca35cd734fd4485f59d560c605b507558d3
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96491046"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130164"
 ---
 # <a name="automation-with-service-principals"></a>서비스 사용자를 사용한 자동화
 
@@ -38,7 +39,7 @@ Analysis Services에서 서비스 사용자는 일반적인 작업을 자동화�
 
 ## <a name="add-service-principals-to-server-admin-role"></a>서버 관리자 역할에 서비스 사용자 추가
 
-Analysis Services 서버 관리 작업에 서비스 사용자를 사용하려면 먼저 서버 관리자 역할에 추가해야 합니다. 서비스 사용자는 서버 관리자 역할에 직접 추가 해야 합니다. 보안 그룹에 서비스 사용자를 추가한 다음 해당 보안 그룹을 서버 관리자 역할에 추가 하는 것은 지원 되지 않습니다. 자세히 알아보려면 [서버 관리자 역할에 서비스 사용자 추가](analysis-services-addservprinc-admins.md)를 참조하세요.
+Analysis Services 서버 관리 작업에 서비스 사용자를 사용하려면 먼저 서버 관리자 역할에 추가해야 합니다. 서비스 주체를 서버 관리자 역할에 직접 추가해야 합니다. 서비스 주체를 보안 그룹에 추가한 다음 해당 보안 그룹을 서버 관리자 역할에 추가할 수는 없습니다. 자세히 알아보려면 [서버 관리자 역할에 서비스 사용자 추가](analysis-services-addservprinc-admins.md)를 참조하세요.
 
 ## <a name="service-principals-in-connection-strings"></a>연결 문자열의 서비스 사용자
 

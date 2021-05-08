@@ -7,25 +7,25 @@ ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
 ms.openlocfilehash: b71657f67c1b9c623d6d48f33b986ac43533cca6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100373019"
 ---
 #  <a name="data-consistency-verification-in-copy-activity"></a>복사 활동의 데이터 일관성 확인
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-원본 저장소에서 대상 저장소로 데이터를 이동하는 경우 Azure Data Factory 복사 활동은 추가적인 데이터 일관성 확인을 수행하여 데이터가 원본 저장소에서 대상 저장소로 복사될 뿐 아니라 원본 저장소와 대상 저장소 간에 일관된 것으로 확인되는지 확인하는 옵션을 제공합니다. 데이터를 이동 하는 동안 일관 되지 않은 파일이 발견 되 면 복사 작업을 중단 하거나, 내결함성을 사용 하도록 설정 하 여 일관 되지 않은 파일을 건너뛸 수 있습니다. 복사 작업에서 세션 로그 설정을 사용 하 여 건너뛴 파일 이름을 가져올 수 있습니다. 자세한 내용은 [복사 작업에서 세션 로그](copy-activity-log.md) 를 참조할 수 있습니다.
+원본 저장소에서 대상 저장소로 데이터를 이동하는 경우 Azure Data Factory 복사 활동은 추가적인 데이터 일관성 확인을 수행하여 데이터가 원본 저장소에서 대상 저장소로 복사될 뿐 아니라 원본 저장소와 대상 저장소 간에 일관된 것으로 확인되는지 확인하는 옵션을 제공합니다. 데이터 이동 중에 일관되지 않은 파일이 발견되면 복사 작업을 중단하거나, 일관되지 않은 파일을 건너뛰도록 내결함성 설정을 사용하도록 설정하여 나머지를 계속 복사합니다. 복사 작업에서 세션 로그 설정을 사용하도록 설정하여 건너뛴 파일 이름을 가져올 수 있습니다. 자세한 내용은 [복사 작업의 세션 로그](copy-activity-log.md)를 참조하세요.
 
-## <a name="supported-data-stores-and-scenarios"></a>지원 되는 데이터 저장소 및 시나리오
+## <a name="supported-data-stores-and-scenarios"></a>지원되는 데이터 저장소 및 시나리오
 
--   FTP, sFTP 및 HTTP를 제외한 모든 커넥터에서 데이터 일관성 확인을 지원 합니다. 
--   데이터 일관성 확인은 준비 복사 시나리오에서 지원 되지 않습니다.
--   이진 파일을 복사 하는 경우 복사 작업에 ' PreserveHierarchy ' 동작이 설정 된 경우에만 데이터 일관성 확인을 사용할 수 있습니다.
--   데이터 일관성 확인을 사용 하도록 설정 된 단일 복사 작업에서 여러 이진 파일을 복사 하는 경우에는 내결함성을 사용 하지 않도록 설정 하 여 복사 작업을 중단 하거나 나머지를 계속 복사할 수 있습니다. 
--   데이터 일관성 확인을 사용 하는 단일 복사 작업에서 테이블을 복사 하는 경우 원본에서 읽은 행 수가 대상에 복사 된 행 수와 생략 된 호환 되지 않는 행 수에 차이가 있으면 복사 작업이 실패 합니다.
+-   FTP, sFTP, HTTP를 제외한 모든 연결에서 데이터 일관성 확인을 지원합니다. 
+-   준비 복사 시나리오에서는 데이터 일관성 확인을 지원하지 않습니다.
+-   이진 파일을 복사하는 경우, 데이터 일관성 확인은 복사 작업에 'PreserveHierarchy' 동작이 설정된 경우에만 사용할 수 있습니다.
+-   데이터 일관성 확인을 사용하도록 설정된 단일 복사 작업의 이진 파일 여러 개를 복사하는 경우, 일관성 없는 파일을 건너뛰도록 하는 내결함성 설정을 사용하여 해당 복사 작업을 취소할 지 나머지를 계속해서 복사할 지를 선택할 수 있는 옵션을 사용할 수 있습니다. 
+-   데이터 일관성 확인을 사용하도록 설정된 단일 복사 작업의 테이블을 복사하는 경우, 원본에서 읽은 행 개수가 대상으로 복사된 행 개수에 호환되지 않는 건너뛴 행 개수를 더한 값과 다르면 복사 작업이 실패합니다.
 
 
 ## <a name="configuration"></a>구성
@@ -69,15 +69,15 @@ ms.locfileid: "100373019"
 
 속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | -------- 
-validateDataConsistency | 이 속성에 대해 true를 설정 하는 경우 이진 파일을 복사할 때 복사 작업은 원본 및 대상 저장소 간에 데이터 일관성을 유지 하기 위해 원본 저장소에서 대상 저장소로 복사 된 각 이진 파일에 대 한 파일 크기, lastModifiedDate 및 MD5 체크섬을 확인 합니다. 테이블 형식 데이터를 복사 하는 경우 복사 작업은 작업이 완료 된 후 총 행 수를 확인 하 여 원본에서 읽은 총 행 수가 대상에 복사 된 행 수와 생략 된 호환 되지 않는 행 수를 더한 값과 동일한 지 확인 합니다. 이 옵션을 사용하도록 설정하면 복사 성능에 영향을 줍니다.  | True<br/>False(기본값) | 예
-dataInconsistency | SkipErrorFile 속성 모음 내에서 키-값 쌍 중 하나를 선택 하 여 일관 되지 않은 파일을 건너뛸지 여부를 결정 합니다. <br/> -True: 일관 되지 않은 파일을 건너뛰어 나머지를 복사 하려고 합니다.<br/> -False: 일치 하지 않는 파일이 발견 되 면 복사 작업을 중단 하려고 합니다.<br/>이 속성은 이진 파일을 복사 하 고 validateDataConsistency를 True로 설정한 경우에만 유효 합니다.  | True<br/>False(기본값) | 예
+validateDataConsistency | 이 속성에 true를 설정하면 이진 파일을 복사하는 경우의 복사 작업은 원본 저장소에서 대상 저장소로 복사된 각 이진 파일의 파일 크기, lastModifiedDate 및 MD5 체크섬을 확인하여 원본 저장소와 대상 저장소 간 데이터 일관성을 확인합니다. 테이블 형식 데이터를 복사하는 경우, 원본에서 읽은 전체 행 개수가 대상으로 복사된 행 개수에 호환되지 않는 건너뛴 행 개수를 더한 값과 같은지 확인하기 위해 복사 작업은 작업 완료 후에 전체 행 개수를 확인합니다. 이 옵션을 사용하도록 설정하면 복사 성능에 영향을 줍니다.  | True<br/>False(기본값) | 예
+dataInconsistency | skipErrorFile 속성 모음 내에서 키-값 쌍 중 하나를 선택하여 일관되지 않은 파일을 건너뛸지 여부를 결정합니다. <br/> \- True: 일관되지 않은 파일을 건너뛰고 나머지를 복사하려고 합니다.<br/> - False: 일관되지 않은 파일이 발견되면 복사 작업을 중단하려고 합니다.<br/>이 속성은 이진 파일을 복사할 때 validateDataConsistency를 True로 설정한 경우에만 유효합니다.  | True<br/>False(기본값) | 예
 logSettings | 세션 로그에서 건너뛴 파일을 기록할 수 있도록 지정할 수 있는 속성 그룹입니다. | | 예
 linkedServiceName | 세션 로그 파일을 저장할 [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties)의 연결된 서비스입니다. | 로그 파일을 저장하는 데 사용되는 인스턴스를 참조하는 `AzureBlobStorage` 또는 `AzureBlobFS` 형식의 연결된 서비스 이름입니다. | 예
 경로 | 로그 파일의 경로입니다. | 로그 파일을 저장할 경로를 지정합니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 예
 
 >[!NOTE]
->- 또는 Azure Blob 또는 Azure Data Lake Storage Gen2에서 이진 파일을 복사 하는 경우 ADF는 [Azure BLOB API](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy&preserve-view=true) 및 [Azure Data Lake Storage Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/update#request-headers)를 활용 하 여 수준 MD5 체크섬 확인을 차단 합니다. ContentMD5 on 파일이 Azure Blob에 있거나 데이터 원본으로 Azure Data Lake Storage Gen2 경우 ADF는 파일을 읽은 후에도 파일 수준 MD5 체크섬 확인을 수행 합니다. Azure Blob 또는 Azure Data Lake Storage Gen2 데이터 대상으로 파일을 복사 하 고 나면 ADF가 데이터 일관성 확인을 위해 다운스트림 응용 프로그램에서 추가로 사용 될 수 있는 Azure Blob 또는 Azure Data Lake Storage Gen2에 ContentMD5을 기록 합니다.
->- ADF는 저장소 저장소 간에 이진 파일을 복사할 때 파일 크기를 확인 합니다.
+>- 이진 파일을 Azure Blob이나 Azure Data Lake Storage Gen2에서 복사하거나 해당 위치로 복사하는 경우, ADF는 [Azure Blob API](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy&preserve-view=true)와 [Azure Data Lake Storage Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/update#request-headers)를 사용하여 차단 수준 MD5 체크섬 확인을 실행합니다. 파일의 ContentMD5가 Azure Blob 또는 Azure Data Lake Storage Gen2에 데이터 원본으로 존재하는 경우, ADF는 해당 파일도 마찬가지로 읽은 후에 파일 수준 MD5 체크섬 확인을 실행합니다. Azure Blob 또는 Azure Data Lake Storage Gen2를 데이터 대상으로 하여 파일을 복사한 후, ADF는 ContentMD5를 Azure Blob 또는 Azure Data Lake Storage Gen2에 기록하여 데이터 일관성 확인을 위해 다운스트림 애플리케이션에서 이것을 사용할 수 있도록 합니다.
+>- 스토리지 저장소 간의 이진 파일 복사 시 ADF는 파일 크기 확인을 실행합니다.
 
 ## <a name="monitoring"></a>모니터링
 

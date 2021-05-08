@@ -1,5 +1,5 @@
 ---
-title: Azure Portal를 사용 하 여 배열로 영역 설정 VM 만들기
+title: Azure Portal을 사용하여 영역 VM 만들기
 description: Azure Portal을 사용하여 가용성 영역에서 Windows VM 만들기
 documentationcenter: virtual-machines
 author: mimckitt
@@ -10,15 +10,15 @@ ms.author: mimckitt
 ms.reviewer: cynthn
 ms.custom: ''
 ms.openlocfilehash: 7c7f135d4033a31f855342c172d73f51478931ab
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102501688"
 ---
-# <a name="create-a-virtual-machine-in-an-availability-zone-using-the-azure-portal"></a>Azure Portal를 사용 하 여 가용성 영역에서 가상 머신 만들기
+# <a name="create-a-virtual-machine-in-an-availability-zone-using-the-azure-portal"></a>Azure Portal을 사용하여 가용성 영역에서 가상 머신 만들기
 
-이 문서는 Azure Portal을 사용하여 Azure 가용성 영역에서 가상 머신을 만드는 단계를 안내합니다. [가용성 영역은](../../availability-zones/az-overview.md) Azure 지역에서 물리적으로 별도 영역입니다. 가용성 영역을 사용하여 가능성이 적은 실패 또는 전체 데이터 센터의 손실로부터 앱 및 데이터를 보호합니다.
+이 문서는 Azure Portal을 사용하여 Azure 가용성 영역에서 가상 머신을 만드는 단계를 안내합니다. [가용성 영역](../../availability-zones/az-overview.md)은 Azure 지역에서 물리적으로 별도 영역입니다. 가용성 영역을 사용하여 가능성이 적은 실패 또는 전체 데이터 센터의 손실로부터 앱 및 데이터를 보호합니다.
 
 가용성 영역을 사용하려면 [지원되는 Azure 지역](../../availability-zones/az-region.md)에 가상 머신을 만들어야 합니다.
 
@@ -40,7 +40,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
     ![VM 크기 선택](./media/create-portal-availability-zone/create-windows-vm-portal-sizes.png)  
 
-5. **설정**  >  **고가용성** 에서 **사용 가능 영역** 드롭다운 목록에서 번호가 매겨진 영역 중 하나를 선택 하 고 나머지 기본값을 유지 하 고 **확인** 을 클릭 합니다.
+5. **설정** > **고가용성** 아래의 **가용성 영역** 드롭다운에서 번호가 매겨진 영역 중 하나를 선택하고 나머지 기본값을 유지하고 **확인** 을 클릭합니다.
 
     ![가용성 영역 선택](./media/create-portal-availability-zone/create-windows-vm-portal-availability-zone.png)
 
@@ -68,4 +68,4 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 가용성 영역에서 VM을 만드는 방법을 배웠습니다. Azure Vm의 [가용성](../availability.md) 에 대해 자세히 알아보세요.
+이 문서에서는 가용성 영역에서 VM을 만드는 방법을 배웠습니다. Azure VM의 [가용성](../availability.md)에 대해 자세히 알아보세요.
