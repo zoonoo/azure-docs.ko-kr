@@ -8,14 +8,14 @@ ms.subservice: core
 ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q2
-ms.openlocfilehash: 4c03016d003978b3c56361595bec7c559205574b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: how-to
+ms.custom: devx-track-python, contperf-fy21q2
+ms.openlocfilehash: 84338f81f5f75665c0aa874a0da16786887b4422
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102520883"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897436"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Azure Machine Learning을 사용하는 보충 학습(미리 보기)
 
@@ -426,7 +426,7 @@ run.wait_for_completion()
 
 스튜디오에서 추가 실행 정보를 보려면 **Azure Machine Learning Studio에서 실행을 확인하려면 여기를 클릭하세요.** 를 선택합니다. 이 정보는 실행이 진행 중이거나 완료된 후에 액세스할 수 있습니다.
 
-![실행 세부 정보 위젯을 보여 주는 선 그래프](./media/how-to-use-reinforcement-learning/pong-run-details-widget.png)
+![실행 세부 정보 위젯을 보여주는 선 그래프](./media/how-to-use-reinforcement-learning/pong-run-details-widget.png)
 
 **episode_reward_mean** 도표에서는 교육 기간당 득점한 평균 점수를 보여 줍니다. 처음에는 학습 에이전트에서 비효율적으로 수행되어 한 점의 점수도 득점하지 못한 채 시합에서 패했음을 알 수 있습니다(-21의 reward_mean으로 표시됨). 학습 에이전트는 100회 반복 내에서 평균 18점으로 컴퓨터 상대를 이기는 방법을 학습했습니다.
 

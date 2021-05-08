@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 4fdc222fa20aef6639bf6d5d485f7dcf6b6ca535
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f80e78da5c7d226c704c8b13fc496e416f5d0f0d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641133"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108125592"
 ---
 # <a name="efficiently-scale-out-a-custom-skill"></a>사용자 지정 기술을 효율적으로 스케일 아웃
 
@@ -22,11 +22,11 @@ ms.locfileid: "105641133"
 * 컨테이너화된 간단한 AI 기술을 위한 Azure Webapps
 * 더 복잡하거나 더 대규모인 기술을 위한 Azure Kubernetes Service.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 + 사용자 지정 기술이 구현해야 하는 입출력 인터페이스에 대한 소개는 [사용자 지정 기술 인터페이스](cognitive-search-custom-skill-interface.md)를 검토합니다.
 
-+ 환경을 설정합니다. Visual Studio Code 및 Python 확장을 사용하여 서버리스 Azure 함수를 설정하려면 [관련 자습서 전체](/azure/azure-functions/create-first-function-vs-code-python)를 참조할 수 있습니다.
++ 환경을 설정합니다. Visual Studio Code 및 Python 확장을 사용하여 서버리스 Azure 함수를 설정하려면 [관련 자습서 전체](../azure-functions/create-first-function-vs-code-python.md)를 참조할 수 있습니다.
 
 ## <a name="skillset-configuration"></a>기술 세트 구성
 

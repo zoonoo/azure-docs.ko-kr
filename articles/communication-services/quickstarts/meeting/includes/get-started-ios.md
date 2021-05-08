@@ -1,19 +1,19 @@
 ---
-title: 빠른 시작 - Azure Communication Services를 사용하여 iOS 앱에 Teams 미팅 참가 추가
+title: 빠른 시작 - Azure Communication Services를 사용하여 iOS 앱에 Microsoft Teams 미팅 참가 추가
 description: 이 빠른 시작에서는 iOS용 Azure Communication Services Teams 포함 라이브러리를 사용하는 방법을 알아봅니다.
 author: palatter
 ms.author: palatter
 ms.date: 01/25/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 4d28864d41d6540afc87126daf589ed2929f891d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 222ae284f77950c729a6a790e2ad29453a9ce34a
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104803872"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903172"
 ---
-이 빠른 시작에서는 iOS용 Azure Communication Services Teams 포함 라이브러리를 사용하여 Teams 미팅에 참가하는 방법에 대해 알아봅니다.
+이 빠른 시작에서는 iOS용 Azure Communication Services Teams Embed 라이브러리를 사용하여 Microsoft Teams 미팅에 참가하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -46,7 +46,7 @@ platform :ios, '12.0'
 use_frameworks!
 
 target 'TeamsEmbedGettingStarted' do
-    pod 'AzureCommunication', '~> 1.0.0-beta.8'
+    pod 'AzureCommunication', '~> 1.0.0-beta.11'
 end
 
 azure_libs = [
@@ -76,10 +76,6 @@ end
 프로젝트 트리의 `Info.plist` 항목을 마우스 오른쪽 단추로 클릭하고 **다음 형식으로 열기** > **소스 코드** 를 선택합니다. 최상위 `<dict>` 섹션에 다음 줄을 추가한 다음, 파일을 저장합니다.
 
 ```xml
-<key>NSBluetoothAlwaysUsageDescription</key>
-<string></string>
-<key>NSBluetoothPeripheralUsageDescription</key>
-<string></string>
 <key>NSCameraUsageDescription</key>
 <string></string>
 <key>NSContactsUsageDescription</key>
@@ -90,10 +86,10 @@ end
 
 ### <a name="add-the-teams-embed-framework"></a>Teams 포함 프레임워크 추가
 
-1. 프레임워크를 다운로드합니다.
+1. [`MicrosoftTeamsSDK` iOS 패키지](https://github.com/Azure/communication-teams-embed/releases)를 다운로드합니다.
 2. 프로젝트 루트에서 `Frameworks` 폴더를 만듭니다. 예: `\TeamsEmbedGettingStarted\Frameworks\`
-3. 다운로드한 `TeamsAppSDK.framework` 및 `MeetingUIClient.framework` 프레임워크를 이 폴더에 복사합니다.
-4. `TeamsAppSDK.framework` 및 `MeetingUIClient.framework`를 일반 탭 아래의 프로젝트 대상에 추가합니다. 프레임워크 파일로 이동하여 추가하려면 `Add Other` -> `Add Files...`를 사용합니다.
+3. 다운로드한 `TeamsAppSDK.framework` 및 `MeetingUIClient.framework`, 릴리스 번들에서 제공된 기타 프레임워크를 이 폴더에 복사합니다.
+4. 프레임워크를 일반 탭 아래의 프로젝트 대상에 추가합니다. `Add Other` -> `Add Files...`를 사용하여 프레임워크 파일로 이동하고 추가합니다.
 
 :::image type="content" source="../media/ios/xcode-add-frameworks.png" alt-text="Xcode에서 추가된 프레임워크를 보여주는 스크린샷":::
 
@@ -103,33 +99,10 @@ end
 
 ### <a name="turn-off-bitcode"></a>Bitcode 해제
 
-프로젝트 빌드 설정에서 `Enable Bitcode` 옵션을 `No`로 설정합니다. 설정을 찾기 위해 필터를 `basic`에서 `all`로 변경했습니다. 오른쪽의 검색 창을 사용할 수도 있습니다.
+프로젝트 `Build Settings`에서 `Enable Bitcode` 옵션을 `No`로 설정합니다. 설정을 찾으려면 필터를 `Basic`에서 `All`로 변경해야 합니다. 그러면 오른쪽 검색 창을 사용할 수도 있습니다.
 
 :::image type="content" source="../media/ios/xcode-bitcode-option.png" alt-text="Xcode에서 BitCode 옵션을 보여주는 스크린샷":::
 
-### <a name="add-framework-signing-script"></a>프레임워크 서명 스크립트 추가
-
-앱 대상, `Build Phases` 탭을 차례로 선택합니다. 그런 다음, `+`, `New Run Script Phase`를 차례로 클릭합니다. 이 새 단계가 `Embed Frameworks` 단계 이후에 발생하는지 확인합니다.
-
-
-
-:::image type="content" source="../media/ios/xcode-build-script.png" alt-text="Xcode에서 빌드 스크립트 추가를 보여주는 스크린샷":::
-
-```bash
-#!/bin/sh
-if [ -d "${TARGET_BUILD_DIR}"/"${PRODUCT_NAME}".app/Frameworks/TeamsAppSDK.framework/Frameworks ]; then
-    pushd "${TARGET_BUILD_DIR}"/"${PRODUCT_NAME}".app/Frameworks/TeamsAppSDK.framework/Frameworks
-    for EACH in *.framework; do
-        echo "-- signing ${EACH}"
-        /usr/bin/codesign --force --deep --sign "${EXPANDED_CODE_SIGN_IDENTITY}" --entitlements "${TARGET_TEMP_DIR}/${PRODUCT_NAME}.app.xcent" --timestamp=none $EACH
-        echo "-- moving ${EACH}"
-        mv -nv ${EACH} ../../
-    done
-    rm -rf "${TARGET_BUILD_DIR}"/"${PRODUCT_NAME}".app/Frameworks/TeamsAppSDK.framework/Frameworks
-    popd
-    echo "BUILD DIR ${TARGET_BUILD_DIR}"
-fi
-```
 
 ### <a name="turn-on-voice-over-ip-background-mode"></a>Voice over IP 백그라운드 모드 설정
 
@@ -218,9 +191,14 @@ Azure Communication Services Teams 포함 라이브러리의 주요 기능 중 �
 | Name                                  | 설명                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | MeetingUIClient | MeetingUIClient는 Teams 포함 라이브러리의 주 진입점입니다. |
+| MeetingUIClientMeetingJoinOptions | MeetingUIClientMeetingJoinOptions는 표시 이름과 같은 구성 가능한 옵션에 사용됩니다. |
+| MeetingUIClientGroupCallJoinOptions | MeetingUIClientMeetingJoinOptions는 표시 이름과 같은 구성 가능한 옵션에 사용됩니다. |
+| MeetingUIClientTeamsMeetingLinkLocator | MeetingUIClientTeamsMeetingLinkLocator는 미팅에 참가할 수 있도록 미팅 URL을 설정하는 데 사용됩니다. |
+| MeetingUIClientGroupCallLocator | MeetingUIClientGroupCallLocator는 가입할 수 있는 그룹 ID를 설정하는 데 사용됩니다. |
+| MeetingUIClientCallState | MeetingUIClientCallState는 통화 상태 변경사항을 보고하는 데 사용됩니다. 옵션은 다음과 같습니다. `connecting`, `waitingInLobby`, `connected` 및 `ended`. |
 | MeetingUIClientDelegate | MeetingUIClientDelegate는 통화 상태 변경과 같은 이벤트를 받는 데 사용됩니다. |
-| MeetingJoinOptions | MeetingJoinOptions는 표시 이름과 같은 구성 가능한 옵션에 사용됩니다. | 
-| CallState | CallState는 통화 상태 변경 내용을 보고하는 데 사용됩니다. 옵션은 connecting, waitingInLobby, connected 및 ended입니다. |
+| MeetingUIClientIdentityProviderDelegate | MeetingUIClientIdentityProviderDelegate는 사용자 세부 정보를 미팅 중인 사용자에게 매핑하는 데 사용됩니다. |
+| MeetingUIClientUserEventDelegate | MeetingUIClientUserEventDelegate는 UI의 사용자 동작에 대한 정보를 제공합니다. |
 
 ## <a name="create-and-authenticate-the-client"></a>클라이언트 만들기 및 인증
 
@@ -229,7 +207,7 @@ Azure Communication Services Teams 포함 라이브러리의 주요 기능 중 �
 ```swift
 do {
     let communicationTokenRefreshOptions = CommunicationTokenRefreshOptions(initialToken: "<USER_ACCESS_TOKEN>", refreshProactively: true, tokenRefresher: fetchTokenAsync(completionHandler:))
-    let credential = try CommunicationTokenCredential(with: communicationTokenRefreshOptions)
+    let credential = try CommunicationTokenCredential(withOptions: communicationTokenRefreshOptions)
     meetingUIClient = MeetingUIClient(with: credential)
 }
 catch {
@@ -244,7 +222,7 @@ catch {
 `fetchTokenAsync` 메서드를 만듭니다. 그런 다음, 사용자 토큰을 가져오는 `fetchToken` 논리를 추가합니다.
 
 ```swift
-private func fetchTokenAsync(completionHandler: @escaping TokenRefreshOnCompletion) {
+private func fetchTokenAsync(completionHandler: @escaping TokenRefreshHandler) {
     func getTokenFromServer(completionHandler: @escaping (String) -> Void) {
         completionHandler("<USER_ACCESS_TOKEN>")
     }
@@ -258,13 +236,13 @@ private func fetchTokenAsync(completionHandler: @escaping TokenRefreshOnCompleti
 
 ## <a name="join-a-meeting"></a>미팅에 참가
 
-`joinMeeting` 메서드는 *미팅 참가* 단추를 탭하면 수행되는 작업으로 설정됩니다. `MeetingUIClient`를 사용하여 미팅에 참가하도록 구현을 업데이트합니다.
+`join` 메서드는 *미팅 참가* 단추를 탭하면 수행되는 작업으로 설정됩니다. `MeetingUIClient`를 사용하여 미팅에 참가하도록 구현을 업데이트합니다.
 
 ```swift
 private func joinMeeting() {
-    let meetingJoinOptions = MeetingJoinOptions(displayName: "John Smith")
-        
-    meetingUIClient?.join(meetingUrl: "<MEETING_URL>", meetingJoinOptions: meetingJoinOptions, completionHandler: { (error: Error?) in
+    let meetingJoinOptions = MeetingUIClientMeetingJoinOptions(displayName: "John Smith", enablePhotoSharing: true, enableNamePlateOptionsClickDelegate: true)
+    let meetingLocator = MeetingUIClientTeamsMeetingLinkLocator(meetingLink: "<MEETING_URL>")
+    meetingUIClient?.join(meetingLocator: meetingLocator, joinCallOptions: meetingJoinOptions, completionHandler: { (error: Error?) in
         if (error != nil) {
             print("Join meeting failed: \(error!)")
         }
@@ -272,12 +250,12 @@ private func joinMeeting() {
 }
 ```
 
-`<MEETING URL>`을 Teams 미팅 링크로 바꿉니다.
+`<MEETING URL>`을 Microsoft Teams 미팅 링크로 바꿉니다.
 
-### <a name="get-a-teams-meeting-link"></a>Teams 미팅 링크 가져오기
+### <a name="get-a-microsoft-teams-meeting-link"></a>Microsoft Teams 미팅 링크 가져오기
 
-Teams 미팅 링크는 Graph API를 사용하여 검색할 수 있습니다. 자세한 내용은 [Graph 설명서](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)에서 설명하고 있습니다.
-Communication Services Calling SDK는 전체 Teams 미팅 링크를 수락합니다. 이 링크는 [`joinWebUrl` 속성](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)에서 액세스할 수 있는 `onlineMeeting` 리소스의 일부로 반환됩니다. Teams 미팅 초대 자체의 **미팅 조인** URL에서 필요한 미팅 정보를 가져올 수도 있습니다.
+Graph API를 사용하여 Microsoft Teams 미팅 링크를 검색할 수 있습니다. 자세한 내용은 [Graph 설명서](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)에서 설명하고 있습니다.
+Communication Services Calling SDK는 전체 Microsoft Teams 미팅 링크를 수락합니다. 이 링크는 [`joinWebUrl` 속성](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)에서 액세스할 수 있는 `onlineMeeting` 리소스의 일부로 반환됩니다. Teams 미팅 초대 자체의 **미팅 조인** URL에서 필요한 미팅 정보를 가져올 수도 있습니다.
 
 ## <a name="run-the-code"></a>코드 실행
 
@@ -300,48 +278,6 @@ Microsoft Teams SDK는 100개가 넘는 문자열과 리소스를 지원합니�
 2. 패키지에 포함된 Localizations.zip의 압축을 풉니다.
 3. 앱에서 지원하는 항목에 따라 압축을 푼 폴더의 지역화 폴더를 TeamsAppSDK.framework의 루트에 복사합니다.
 
-## <a name="preparation-for-app-store-upload"></a>App Store 업로드 준비
-
-보관의 경우 프레임워크에서 i386 및 x86_64 아키텍처를 제거합니다.
-
-애플리케이션을 보관하려면 스크립트를 제거하는 `i386` 및 `x86_64` 아키텍처를 프레임워크 코드 서명 단계 앞의 빌드 단계에 추가합니다.
-
-프로젝트 탐색기에서 프로젝트를 선택합니다. 편집기 창에서 빌드 단계로 이동하고, + 서명 → 새 실행 스크립트 만들기 단계를 차례로 클릭합니다.
-
-```bash
-echo "Target architectures: $ARCHS"
-APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
-find "$APP_PATH" -name '*.framework' -type d | while read -r FRAMEWORK
-do
-FRAMEWORK_EXECUTABLE_NAME=$(defaults read "$FRAMEWORK/Info.plist" CFBundleExecutable)
-FRAMEWORK_EXECUTABLE_PATH="$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME"
-echo "Executable is $FRAMEWORK_EXECUTABLE_PATH"
-echo $(lipo -info "$FRAMEWORK_EXECUTABLE_PATH")
-FRAMEWORK_TMP_PATH="$FRAMEWORK_EXECUTABLE_PATH-tmp"
-# remove simulator's archs if location is not simulator's directory
-case "${TARGET_BUILD_DIR}" in
-*"iphonesimulator")
-    echo "No need to remove archs"
-    ;;
-*)
-    if $(lipo "$FRAMEWORK_EXECUTABLE_PATH" -verify_arch "i386") ; then
-    lipo -output "$FRAMEWORK_TMP_PATH" -remove "i386" "$FRAMEWORK_EXECUTABLE_PATH"
-    echo "i386 architecture removed"
-    rm "$FRAMEWORK_EXECUTABLE_PATH"
-    mv "$FRAMEWORK_TMP_PATH" "$FRAMEWORK_EXECUTABLE_PATH"
-    fi
-    if $(lipo "$FRAMEWORK_EXECUTABLE_PATH" -verify_arch "x86_64") ; then
-    lipo -output "$FRAMEWORK_TMP_PATH" -remove "x86_64" "$FRAMEWORK_EXECUTABLE_PATH"
-    echo "x86_64 architecture removed"
-    rm "$FRAMEWORK_EXECUTABLE_PATH"
-    mv "$FRAMEWORK_TMP_PATH" "$FRAMEWORK_EXECUTABLE_PATH"
-    fi
-    ;;
-esac
-echo "Completed for executable $FRAMEWORK_EXECUTABLE_PATH"
-echo $(lipo -info "$FRAMEWORK_EXECUTABLE_PATH")
-done
-```
 
 ## <a name="sample-code"></a>샘플 코드
 

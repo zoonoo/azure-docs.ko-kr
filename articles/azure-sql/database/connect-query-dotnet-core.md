@@ -12,17 +12,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 1d25f43ef5a694d8b94710055bf1be72a7fcb45c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 221b69d428556b031efd3bd91e16d12cfeb71393
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97705220"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874804"
 ---
 # <a name="quickstart-use-net-core-c-to-query-a-database"></a>빠른 시작: .NET Core(C#)를 사용하여 데이터베이스 쿼리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-이 빠른 시작에서는 [.NET Core](https://www.microsoft.com/net/) 및 C# 코드를 사용하여 데이터베이스에 연결합니다. 그런 다음, Transact-SQL 문을 실행하여 데이터를 쿼리합니다.
+이 빠른 시작에서는 [.NET Core](https://dotnet.microsoft.com) 및 C# 코드를 사용하여 데이터베이스에 연결합니다. 그런 다음, Transact-SQL 문을 실행하여 데이터를 쿼리합니다.
 
 > [!TIP]
 > 다음 Microsoft Learn 모듈을 사용하면 [Azure SQL Database의 데이터베이스를 쿼리하는 ASP.NET 애플리케이션을 개발하고 구성](/learn/modules/develop-app-that-queries-azure-sql/)하는 방법을 무료로 배울 수 있습니다.
@@ -32,7 +32,7 @@ ms.locfileid: "97705220"
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [해당 운영 체제용 .NET Core](https://www.microsoft.com/net/core)가 설치됨
+- [운영 체제의 .NET Core SDK](https://dotnet.microsoft.com/download)가 설치되었습니다.
 - 쿼리를 실행할 수 있는 데이터베이스입니다. 
 
   [!INCLUDE[create-configure-database](../includes/create-configure-database.md)]

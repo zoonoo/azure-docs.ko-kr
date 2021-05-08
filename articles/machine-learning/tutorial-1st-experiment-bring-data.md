@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 02/11/2021
 ms.custom: tracking-python, contperf-fy21q3
-ms.openlocfilehash: 503d1d1220cd4704a6e70d0b7e575a70275e5e4d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e664b08f7ca487236e5e2780d183c19d342a915b
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936838"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107888029"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>자습서: 사용자 고유의 데이터 사용(4/4부)
 
@@ -235,7 +235,7 @@ python 06-run-pytorch-data.py
 
 ### <a name="inspect-the-log-file"></a><a name="inspect-log"></a> 로그 파일 검사
 
-스튜디오에서 이전 URL 출력을 선택하여 실험 실행으로 이동한 다음, **출력 + 로그** 로 이동합니다. `70_driver_log.txt` 파일을 선택합니다. 다음 출력이 표시됩니다.
+스튜디오에서 이전 URL 출력을 선택하여 실험 실행으로 이동한 다음, **출력 + 로그** 로 이동합니다. `70_driver_log.txt` 파일을 선택합니다. 다음 출력이 표시될 때까지 로그 파일을 아래로 스크롤합니다.
 
 ```txt
 Processing 'input'.

@@ -3,18 +3,18 @@ title: 빠른 시작 - 비용 분석을 사용하여 Azure 비용 살펴보기
 description: 이 빠른 시작에서는 비용 분석을 사용하여 Azure 조직 비용을 탐색하고 분석하는 데 도움이 되는 정보를 제공합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2021
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.custom: contperf-fy21q2
-ms.openlocfilehash: 83f2d87e3f4a03ff17526ea5706e4f87b8f39487
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.custom: contperf-fy21q2, devx-track-azurecli
+ms.openlocfilehash: 9769b6ecb04ca513c4b48ec3d0ca32bdd3c64b5f
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882452"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107887114"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>빠른 시작: 비용 분석을 사용하여 비용 탐색 및 분석
 
@@ -68,11 +68,9 @@ Azure Cost Management 데이터에 액세스하는 방법에 대한 정보는 [�
 
 ### <a name="understand-forecast"></a>예측 이해
 
-비용 예측에는 선택한 기간에 대한 예상 비용의 예측이 표시됩니다. 모델은 시계열 회귀 모델을 기반으로 합니다. 비용을 정확하게 예측하려면 10일 이상의 최근 비용 및 사용 현황 데이터가 필요합니다. 지정된 기간 동안 예측 모델에는 예측 기간 동안 동일한 학습 데이터 부분이 필요합니다. 예를 들어, 3개월 프로젝션에는 최소 3개월 동안의 최근 비용 및 사용 현황 데이터가 필요합니다.
+최근 사용량에 따라 비용 예측에는 선택한 기간의 예상 비용 예측이 표시됩니다. 예산을 비용 분석에 설정하면 예상 비용이 예산 임계값을 초과할 가능성이 있는 시점을 볼 수 있습니다. 예측 모델은 최대 1년 동안의 향후 비용을 예측할 수 있습니다. 필터를 선택하여 선택한 차원의 세분화된 예측 비용을 봅니다.
 
-이 모델은 1년 동안 비용을 프로젝션하는 데 최대 6개월 분량의 학습 데이터를 사용합니다. 최소한의 예측을 변경하려면 7일 간의 학습 데이터가 필요합니다. 예측은 비용 및 사용 패턴에서 급증 및 급감과 같은 극적인 변화를 기반으로 합니다. 예측은 **그룹별** 속성의 각 항목에 대한 개별 프로젝션을 생성하지 않습니다. 누적된 총 비용에 대한 예측만 제공합니다. 여러 통화를 사용하는 경우 모델은 USD로만 비용 예측을 제공합니다.
-
-모델에는 데이터 급감 및 급증이 사용되기 때문에 예약 인스턴스와 같은 대량 구매를 수행하면 예측이 인위적으로 팽창됩니다. 예측 기간 및 구매 규모는 예측이 영향을 받는 기간에 영향을 줍니다. 지출이 안정화되면 예측이 정상으로 돌아옵니다.
+예측 모델은 시계열 회귀 모델을 기반으로 합니다. 비용을 정확하게 예측하려면 10일 이상의 최근 비용 및 사용 현황 데이터가 필요합니다. 지정된 기간 동안 예측 모델에는 예측 기간 동안 동일한 학습 데이터 부분이 필요합니다. 예를 들어, 3개월 프로젝션에는 최소 3개월 동안의 최근 비용 및 사용 현황 데이터가 필요합니다.
 
 ## <a name="customize-cost-views"></a>비용 보기 사용자 지정
 
@@ -171,7 +169,7 @@ Azure CLI에 대한 환경 준비하는 것으로 시작합니다.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-로그인한 후 [az costmanagement query](/cli/azure/ext/costmanagement/costmanagement#ext_costmanagement_az_costmanagement_query) 명령을 사용하여 구독에 대한 월간 누계 사용 정보를 쿼리합니다.
+로그인한 후 [az costmanagement query](/cli/azure/costmanagement#az_costmanagement_query) 명령을 사용하여 구독에 대한 월간 누계 사용 정보를 쿼리합니다.
 
 ```azurecli
 az costmanagement query --timeframe MonthToDate --type Usage \
@@ -188,7 +186,7 @@ az costmanagement query --timeframe MonthToDate --type Usage \
 
 **--dataset-filter** 매개 변수는 JSON 문자열 또는 `@json-file`을 사용합니다.
 
-[az costmanagement export](/cli/azure/ext/costmanagement/costmanagement/export) 명령을 사용하여 사용량 데이터를 Azure 스토리지 계정으로 내보낼 수도 있습니다. 여기에서 데이터를 다운로드할 수 있습니다.
+[az costmanagement export](/cli/azure/costmanagement/export) 명령을 사용하여 사용량 데이터를 Azure 스토리지 계정으로 내보낼 수도 있습니다. 여기에서 데이터를 다운로드할 수 있습니다.
 
 1. 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다. 리소스 그룹을 만들려면 [az group create](/cli/azure/group#az_group_create) 명령을 실행합니다.
 
@@ -202,7 +200,7 @@ az costmanagement query --timeframe MonthToDate --type Usage \
    az storage account create --resource-group TreyNetwork --name cmdemo
    ```
 
-1. [az costmanagement export create](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_create) 명령을 실행하여 내보내기를 만듭니다.
+1. [az costmanagement export create](/cli/azure/costmanagement/export#az_costmanagement_export_create) 명령을 실행하여 내보내기를 만듭니다.
 
    ```azurecli
    az costmanagement export create --name DemoExport --type Usage \

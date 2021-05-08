@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1c7aa4d2300a6dee44da067b122fc7af97f7aa9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc182be0d92f3b15d1546017a164d0a6061e4bbf
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96172859"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175823"
 ---
 # <a name="windows-authentication---kerberos-constrained-delegation-with-azure-active-directory"></a>Windows 인증 - Azure Active Directory를 사용하는 Kerberos 제한 위임
 
@@ -54,5 +54,5 @@ IWA(Windows 통합 인증)를 사용하는 온-프레미스 KCD 애플리케이�
 
 * [애플리케이션 프록시를 사용하여 앱에 Single Sign-On에 대한 Kerberos 제한된 위임](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md) 
 
-* [Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가](../manage-apps/application-proxy-add-on-premises-application.md)
+* [Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가](../app-proxy/application-proxy-add-on-premises-application.md)
 

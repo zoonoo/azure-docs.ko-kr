@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 02/12/2021
+ms.date: 04/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: 3b365e347802824e855797afb8c68e5249bf0adb
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 772cc22a0f8163e0d99599ebf1f4cdfd1ab1d103
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106579625"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108128196"
 ---
 # <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm-through-a-browser"></a>자습서: Bastion을 구성하고 브라우저를 통해 Windows VM에 연결
 
@@ -22,6 +22,7 @@ ms.locfileid: "106579625"
 
 > [!div class="checklist"]
 > * VNet에 대한 베스천 호스트 만들기
+> * 가상 머신에서 공용 IP 주소 제거
 > * Windows 가상 머신에 연결
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
@@ -55,7 +56,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. **만들기** 를 선택합니다.
 1. **Bastion 만들기** 페이지에서 새 Bastion 리소스를 구성합니다.
 
-   :::image type="content" source="./media/tutorial-create-host-portal/bastion-basics.png" alt-text="베스천 호스트 만들기" lightbox="./media/tutorial-create-host-portal/bastion-basics.png":::
+   :::image type="content" source="./media/tutorial-create-host-portal/create.png" alt-text="Bastion 포털 만들기 페이지의 스크린샷" lightbox="./media/tutorial-create-host-portal/create-expand.png":::
 
     * **구독**: 새 Bastion 리소스를 만드는 데 사용할 Azure 구독입니다.
     * **리소스 그룹**: 새 Bastion 리소스가 만들어질 Azure 리소스 그룹입니다. 기존 리소스 그룹이 없는 경우 새 리소스 그룹을 만들 수 있습니다.
@@ -68,14 +69,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
          * 서브넷은 /27 이상이어야 합니다.
 
       추가 필드는 입력하지 않아도 됩니다. **확인** 을 선택한 다음, 페이지 맨 위에서 **Bastion 만들기** 를 선택하여 Bastion 구성 페이지로 돌아갑니다.
-    * **공용 IP 주소**: 포트 443을 통해 RDP/SSH에 액세스할 Bastion 리소스의 공용 IP입니다. 새 공용 IP를 만듭니다. 공용 IP 주소는 만들려는 Bastion 리소스와 동일한 지역에 있어야 합니다. 이 IP 주소는 연결하려는 VM과 아무 관련이 없습니다. Bastion 호스트 리소스에 사용할 공용 IP입니다.
+    * **공용 IP 주소**: 포트 443을 통해 RDP/SSH에 액세스할 Bastion 리소스의 공용 IP 주소입니다. 새 공용 IP 주소를 만듭니다. 공용 IP 주소는 만들려는 Bastion 리소스와 동일한 지역에 있어야 합니다. 이 IP 주소는 연결하려는 VM과 아무 관련이 없습니다. Bastion 호스트 리소스의 공용 IP 주소입니다.
     * **공용 IP 주소 이름**: 공용 IP 주소 리소스의 이름입니다. 이 자습서에서는 기본 설정을 그대로 사용해도 됩니다.
     * **공용 IP 주소 SKU**: 이 설정은 기본적으로 **표준** 으로 미리 채워져 있습니다. Azure Bastion은 표준 공용 IP SKU만 사용/지원합니다.
     * **할당**: 이 설정은 기본적으로 **정적** 으로 미리 채워져 있습니다.
 
 1. 설정 지정을 마쳤으면, **검토 + 만들기** 를 선택합니다. 그러면 값의 유효성이 검사됩니다. 유효성 검사를 통과하면 Bastion 리소스를 만들 수 있습니다.
-1. **만들기** 를 선택합니다.
+
+   :::image type="content" source="./media/tutorial-create-host-portal/validation.png" alt-text="유효성 검사 페이지의 스크린샷":::
+1. 설정을 검토합니다. 다음으로, 페이지 아래에 있는 **만들기** 를 선택합니다.
 1. 배포가 진행되고 있음을 알리는 메시지가 표시됩니다. 리소스가 생성되면 이 페이지에 상태가 표시됩니다. Bastion 리소스가 생성되고 배포될 때까지 약 5분 정도 걸립니다.
+
+## <a name="remove-a-vm-public-ip-address"></a>VM 공용 IP 주소 제거
+
+[!INCLUDE [Remove a public IP address from a VM](../../includes/bastion-remove-ip.md)]
 
 ## <a name="connect-to-a-vm"></a>VM에 연결
 
@@ -91,7 +98,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Bastion 호스트를 만들고 가상 네트워크에 연결한 다음, Windows VM에 연결했습니다. Azure Bastion 서브넷에서 네트워크 보안 그룹을 사용하도록 선택할 수 있습니다. 이렇게 하려면 다음 항목을 참조하세요.
+이 자습서에서는 Bastion 호스트를 만들고 가상 네트워크에 연결했습니다. 그런 다음, VM에서 공용 IP 주소를 제거하고 연결했습니다. Azure Bastion 서브넷에서 네트워크 보안 그룹을 사용하도록 선택할 수 있습니다. 이렇게 하려면 다음 항목을 참조하세요.
 
 > [!div class="nextstepaction"]
 > [NSG 사용](bastion-nsg.md)

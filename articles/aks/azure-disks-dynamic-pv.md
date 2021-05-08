@@ -1,23 +1,23 @@
 ---
 title: 동적으로 Azure 디스크 볼륨 만들기
 titleSuffix: Azure Kubernetes Service
-description: Azure Kubernetes 서비스 (AKS)에서 Azure 디스크로 영구적 볼륨을 동적으로 만드는 방법에 대해 알아봅니다.
+description: AKS(Azure Kubernetes Service)에서 Azure 디스크를 사용하여 영구 볼륨을 동적으로 만드는 방법 알아보기
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: ad51bfdf8c494e763921de880926b839cdb7be62
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 066a52024e91610882889bb7fbe6b20efa262b71
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96021642"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776144"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure 디스크를 사용하여 영구 볼륨을 동적으로 만들어 사용
 
 영구적 볼륨은 Kubernetes Pod와 함께 사용하기 위해 프로비전된 스토리지 부분을 나타냅니다. 하나 이상의 Pod에서 영구적 볼륨을 사용할 수 있으며 동적 또는 정적으로 프로비전할 수 있습니다. 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에서 한 Pod에 사용할 Azure 디스크가 포함된 영구 볼륨을 동적으로 만드는 방법을 설명합니다.
 
 > [!NOTE]
-> Azure 디스크는 AKS의 한 노드에서 사용할 수 있도록 하는 *액세스 모드* 유형 *readwriteonce* 로만 탑재할 수 있습니다. 여러 노드에 걸쳐 영구적 볼륨을 공유 해야 하는 경우 [Azure Files][azure-files-pvc]를 사용 합니다.
+> Azure 디스크는 *액세스 모드* 형식 *ReadWriteOnce* 만 사용하여 탑재할 수 있으며, 이렇게 탑재한 디스크는 AKS의 한 노드에서 사용 가능합니다. 여러 노드에서 영구 볼륨을 공유해야 하는 경우에는 [Azure Files][azure-files-pvc]를 사용하세요.
 
 Kubernetes 볼륨에 대한 자세한 내용은 [AKS의 애플리케이션에 대한 스토리지 옵션][concepts-storage]을 참조하세요.
 
@@ -27,22 +27,22 @@ Kubernetes 볼륨에 대한 자세한 내용은 [AKS의 애플리케이션에 �
 
 또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
-## <a name="built-in-storage-classes"></a>기본 제공 저장소 클래스
+## <a name="built-in-storage-classes"></a>기본 제공 스토리지 클래스
 
 스토리지 클래스를 사용하여 영구적 볼륨에서 스토리지 단위를 동적으로 생성되는 방법을 정의합니다. Kubernetes 스토리지 클래스에 대한 자세한 내용은 [Kubernetes 스토리지 클래스][kubernetes-storage-classes]를 참조하세요.
 
-각 AKS 클러스터에는 Azure 디스크와 함께 작동 하도록 구성 된 4 개의 미리 생성 된 저장소 클래스가 포함 됩니다.
+각 AKS 클러스터에는 4개의 미리 만들어진 스토리지 클래스가 포함되며, 그중 2개는 Azure 디스크를 사용하도록 구성됩니다.
 
-* *기본* 저장소 클래스는 표준 SSD Azure 디스크를 프로 비전 합니다.
-    * Standard storage는 표준 Ssd에서 지원 되며 안정적인 성능을 제공 하면서도 비용 효율적인 저장소를 제공 합니다. 
+* *default* 스토리지 클래스는 표준 SSD Azure 디스크를 프로비저닝합니다.
+    * 표준 스토리지는 표준 SSD의해 지원되며 안정적인 성능을 제공하면서도 비용 효율적인 스토리지를 제공합니다. 
 * *managed-premium* 스토리지 클래스는 프리미엄 Azure 디스크를 프로비전합니다.
     * 프리미엄 디스크는 SSD 기반 고성능의 대기 시간이 짧은 디스크에서 지원합니다. 프로덕션 워크로드를 실행하는 VM에 완벽한 디스크입니다. 클러스터의 AKS 노드가 Premium Storage를 사용하는 경우 *managed-premium* 클래스를 선택합니다.
     
-기본 저장소 클래스 중 하나를 사용 하는 경우 저장소 클래스를 만든 후에는 볼륨 크기를 업데이트할 수 없습니다. 저장소 클래스를 만든 후 볼륨 크기를 업데이트 하려면 `allowVolumeExpansion: true` 기본 저장소 클래스 중 하나에 줄을 추가 하거나 사용자 지정 저장소 클래스를 직접 만들 수 있습니다. 데이터 손실을 방지 하기 위해 PVC의 크기를 줄이는 것은 지원 되지 않습니다. 명령을 사용 하 여 기존 저장소 클래스를 편집할 수 있습니다 `kubectl edit sc` . 
+기본 스토리지 클래스 중 하나를 사용하는 경우 스토리지 클래스를 만든 후에는 볼륨 크기를 업데이트할 수 없습니다. 스토리지 클래스를 만든 후 볼륨 크기를 업데이트하려면 기본 스토리지 클래스 중 하나에 `allowVolumeExpansion: true` 줄을 추가하거나 사용자 지정 스토리지 클래스를 만들 수 있습니다. 데이터 손실을 방지하기 위해 PVC의 크기를 줄이는 것은 지원되지 않습니다. `kubectl edit sc` 명령을 사용하여 기존 스토리지 클래스를 편집할 수 있습니다. 
 
-예를 들어 크기가 4 TiB 디스크를 사용 하려는 경우 디스크 `cachingmode: None` [캐싱이 4 TiB 이상 디스크에 대해 지원 되지](../virtual-machines/premium-storage-performance.md#disk-caching)않기 때문에을 정의 하는 저장소 클래스를 만들어야 합니다.
+예를 들어 크기가 4TiB인 디스크를 사용하려는 경우 [디스크 캐싱이 4TiB 이상인 디스크에 대해 지원되지 않으므로](../virtual-machines/premium-storage-performance.md#disk-caching) `cachingmode: None`을 정의하는 스토리지 클래스를 만들어야 합니다.
 
-저장소 클래스 및 사용자 고유의 저장소 클래스 만들기에 대 한 자세한 내용은 [AKS의 응용 프로그램에 대 한 저장소 옵션][storage-class-concepts]을 참조 하세요.
+스토리지 클래스 및 자체 스토리지 클래스 만들기에 대한 자세한 내용은 [AKS의 애플리케이션에 대한 스토리지 옵션][storage-class-concepts]을 참조하세요.
 
 [kubectl get sc][kubectl-get] 명령을 사용하여 미리 생성된 스토리지 클래스를 확인합니다. 다음 예제에서는 AKS 클러스터 내에서 사용할 수 있는 미리 생성된 스토리지 클래스를 보여 줍니다.
 
@@ -55,7 +55,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 ```
 
 > [!NOTE]
-> 영구 볼륨 클레임은 GiB로 지정되지만 Azure 관리 디스크는 특정 크기에 대한 SKU로 청구됩니다. 이러한 Sku는 32GiB에서 S4 또는 P4 디스크의 범위를 S80 또는 P80 디스크 (미리 보기)에 32TiB 합니다. 프리미엄 관리 디스크의 처리량 및 IOPS 성능은 SKU 및 AKS 클러스터에서 노드의 인스턴스 크기에 따라 달라집니다. 자세한 내용은 [Managed Disks의 가격 책정 및 성능][managed-disk-pricing-performance]을 참조하세요.
+> 영구 볼륨 클레임은 GiB로 지정되지만 Azure 관리 디스크는 특정 크기에 대한 SKU로 청구됩니다. 이러한 SKU의 범위는 32GiB(S4 또는 P4 디스크)~32TiB(S80 또는 P80 디스크) 사이입니다(미리 보기). 프리미엄 관리 디스크의 처리량 및 IOPS 성능은 SKU 및 AKS 클러스터에서 노드의 인스턴스 크기에 따라 달라집니다. 자세한 내용은 [Managed Disks의 가격 책정 및 성능][managed-disk-pricing-performance]을 참조하세요.
 
 ## <a name="create-a-persistent-volume-claim"></a>영구적 볼륨 클레임 만들기
 
@@ -153,7 +153,7 @@ Events:
 ```
 
 ## <a name="use-ultra-disks"></a>Ultra Disks 사용
-Ultra disk를 활용 하려면 [Azure Kubernetes 서비스 (AKS)에서 Ultra Disks 사용](use-ultra-disks.md)을 참조 하세요.
+Ultra Disk를 활용하려면 [AKS(Azure Kubernetes Service)에서 Ultra Disks 사용](use-ultra-disks.md)을 참조하세요.
 
 ## <a name="back-up-a-persistent-volume"></a>영구적 볼륨 백업
 
@@ -263,7 +263,7 @@ Volumes:
 Azure 디스크를 사용하는 Kubernetes 영구적 볼륨에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure 디스크에 대 한 Kubernetes 플러그 인][azure-disk-volume]
+> [Azure 디스크용 Kubernetes 플러그 인][azure-disk-volume]
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
@@ -277,21 +277,21 @@ Azure 디스크를 사용하는 Kubernetes 영구적 볼륨에 대해 자세히 
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/disks-types.md
-[az-disk-list]: /cli/azure/disk#az-disk-list
-[az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
-[az-disk-create]: /cli/azure/disk#az-disk-create
-[az-disk-show]: /cli/azure/disk#az-disk-show
+[az-disk-list]: /cli/azure/disk#az_disk_list
+[az-snapshot-create]: /cli/azure/snapshot#az_snapshot_create
+[az-disk-create]: /cli/azure/disk#az_disk_create
+[az-disk-show]: /cli/azure/disk#az_disk_show
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register

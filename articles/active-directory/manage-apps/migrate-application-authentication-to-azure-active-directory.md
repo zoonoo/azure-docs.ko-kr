@@ -12,12 +12,12 @@ ms.date: 02/05/2021
 ms.author: iangithinji
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7e4a92f84cdbc0061509fa710de148e9e9f2b52
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 736f21927b6a76be5f5d849099db465fcc9835cf
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125160"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318966"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Azure Active Directory에 애플리케이션 인증 마이그레이션
 
@@ -83,7 +83,7 @@ Azure AD에는 [전체 ID 관리 기능 도구 모음](../fundamentals/active-di
 
 **Azure AD를 사용하여 다음과 같은 방법으로 인프라 비용을 줄일 수 있습니다.**
 
-- [Azure AD 애플리케이션 프록시](./application-proxy.md)를 사용하여 온-프레미스 애플리케이션에 대한 안전한 원격 액세스를 제공합니다.
+- [Azure AD 애플리케이션 프록시](../app-proxy/application-proxy.md)를 사용하여 온-프레미스 애플리케이션에 대한 안전한 원격 액세스를 제공합니다.
 
 - [신뢰할 수 있는 유니버설 ID 공급자로 Azure AD를 설정](../hybrid/plan-connect-user-signin.md#choosing-the-user-sign-in-method-for-your-organization)하여 테넌트의 온-프레미스 자격 증명 접근 방식에서 앱을 분리합니다.
 
@@ -288,7 +288,7 @@ D
 
 Azure AD는 이러한 앱에 대해 앱을 전혀 건드리지 않고 최신 Azure AD 보안 및 거버넌스 기능(예: [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md), [조건부 액세스](../conditional-access/overview.md), [ID 보호](../identity-protection/index.yml), [위임된 애플리케이션 액세스](./access-panel-manage-self-service-access.md), [액세스 검토](../governance/manage-user-access-with-access-reviews.md#create-and-perform-an-access-review))을 사용하도록 할 수 있으므로 레거시 앱에 뛰어난 혜택을 제공할 수 있습니다.
 
-사용자가 신속하게 마이그레이션되도록 간단한 인증(예: Password Vaulting) 방법을 사용하는 Azure AD [애플리케이션 프록시](./application-proxy-configure-single-sign-on-password-vaulting.md) 또는 이미 배포했을 수 있는 애플리케이션 배달 컨트롤러와 함께 [파트너 통합](https://azure.microsoft.com/services/active-directory/sso/secure-hybrid-access/)을 통해 **이러한 앱을 클라우드로 확장** 하여 시작합니다.
+사용자가 신속하게 마이그레이션되도록 간단한 인증(예: Password Vaulting) 방법을 사용하는 Azure AD [애플리케이션 프록시](../app-proxy/application-proxy-configure-single-sign-on-password-vaulting.md) 또는 이미 배포했을 수 있는 애플리케이션 배달 컨트롤러와 함께 [파트너 통합](https://azure.microsoft.com/services/active-directory/sso/secure-hybrid-access/)을 통해 **이러한 앱을 클라우드로 확장** 하여 시작합니다.
 
 ### <a name="new-line-of-business-lob-apps"></a>새 LOB(기간 업무) 앱
 
@@ -477,7 +477,7 @@ Azure AD에서 지원하는 앱 및 리소스에는 다음 두 가지 주요 범
 
 - **Saas 애플리케이션** – 엔드투엔드 프로세스를 안내하는 [수백 개의 SaaS 앱 자습서](../saas-apps/tutorial-list.md) 및 전체 [Azure AD SSO 배포 계획](https://aka.ms/ssodeploymentplan) 목록을 참조하세요.
 
-- **온-프레미스에서 실행되는 애플리케이션** - [Azure AD 애플리케이션 프록시](./application-proxy.md)에 대해 알아보고 전체 [Azure AD 애플리케이션 프록시 배포 계획](https://aka.ms/AppProxyDPDownload)을 사용하여 빠르게 진행하세요.
+- **온-프레미스에서 실행되는 애플리케이션** - [Azure AD 애플리케이션 프록시](../app-proxy/application-proxy.md)에 대해 알아보고 전체 [Azure AD 애플리케이션 프록시 배포 계획](https://aka.ms/AppProxyDPDownload)을 사용하여 빠르게 진행하세요.
 
 - **개발 중인 앱** – 단계별 [통합](../develop/quickstart-register-app.md) 및 [등록](../develop/quickstart-register-app.md) 지침을 읽어 보세요.
 
@@ -505,7 +505,7 @@ Azure AD에서 지원하는 앱 및 리소스에는 다음 두 가지 주요 범
 | **SAML 기반 SSO** | **Single Sign-On** 에 있는 [SAML 설정 테스트](./debug-saml-sso-issues.md) 단추를 사용합니다. |
 | **암호 기반 SSO** | [MyApps 보안 로그인 확장](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension)을 다운로드하고 설치합니다. 이 확장을 사용하면 SSO 프로세스를 사용해야 하는 조직의 클라우드 앱을 시작할 수 있습니다. |
 
-|  **[애플리케이션 프록시](./application-proxy.md)** | 커넥터가 실행 중이고 애플리케이션에 할당되었는지 확인합니다. 자세한 내용은 [애플리케이션 프록시 문제 해결 가이드](./application-proxy-troubleshoot.md)를 참조하세요. |
+|  **[애플리케이션 프록시](../app-proxy/application-proxy.md)** | 커넥터가 실행 중이고 애플리케이션에 할당되었는지 확인합니다. 자세한 내용은 [애플리케이션 프록시 문제 해결 가이드](../app-proxy/application-proxy-troubleshoot.md)를 참조하세요. |
 
 ### <a name="troubleshoot"></a>문제 해결
 
@@ -553,7 +553,7 @@ Azure AD에서 지원하는 앱 및 리소스에는 다음 두 가지 주요 범
 
 **검색할 수 있는 앱 만들기**
 
-**사용자에게 [MyApps](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) 포털 환경을 지정합니다**. 여기에서 모든 클라우드 기반 앱, [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md)를 사용하여 사용 가능하도록 설정한 앱 및 [애플리케이션 프록시](./application-proxy.md)를 사용하는 앱에 액세스할 수 있는 권한이 제공된 앱에 액세스할 수 있습니다.
+**사용자에게 [MyApps](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) 포털 환경을 지정합니다**. 여기에서 모든 클라우드 기반 앱, [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md)를 사용하여 사용 가능하도록 설정한 앱 및 [애플리케이션 프록시](../app-proxy/application-proxy.md)를 사용하는 앱에 액세스할 수 있는 권한이 제공된 앱에 액세스할 수 있습니다.
 
 
 사용자에게 앱을 검색하는 방법에 대해 안내할 수 있습니다.
@@ -581,7 +581,7 @@ Azure AD에서 지원하는 앱 및 리소스에는 다음 두 가지 주요 범
 
 - **앱을 검색하고 가장 최근에 사용된 앱을 표시하도록 합니다.**
 
-- [애플리케이션 프록시에서](./application-proxy.md) 구성한 **내부 URL을 적절한 외부 URL로 자동으로 변환** 합니다. 이제 사용자는 어디에 있든 관계 없이 익숙한 링크를 사용할 수 있습니다.
+- [애플리케이션 프록시에서](../app-proxy/application-proxy.md) 구성한 **내부 URL을 적절한 외부 URL로 자동으로 변환** 합니다. 이제 사용자는 어디에 있든 관계 없이 익숙한 링크를 사용할 수 있습니다.
 
 **사용자가 Office.com에서 앱을 열 수 있도록 합니다.**
 
