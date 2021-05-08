@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 10ab1c487095fe1587a3c665d8a06e0d5cbab7e0
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: df2f3593f904c5c6c6c9af0ae635a2e152f9eb82
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275892"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871078"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>빠른 시작: .NET용 Azure Storage SDK v11을 사용하여 큐 관리
 
@@ -31,19 +31,19 @@ ms.locfileid: "106275892"
 
 ### <a name="windows"></a>Windows
 
-- [Windows용 .NET Core](https://www.microsoft.com/net/download/windows) 또는 [.NET Framework](https://www.microsoft.com/net/download/windows)(Windows용 Visual Studio에 포함)를 설치합니다.
+- [Windows용 .NET Core SDK](https://dotnet.microsoft.com/download) 또는 [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework)(Windows용 Visual Studio에 포함)를 설치합니다.
 - [Windows용 Visual Studio](https://www.visualstudio.com/)를 설치합니다. .NET Core를 사용하는 경우 Visual Studio는 선택 사항입니다.
 
 .NET Core와 .NET Framework 중에서 선택하는 방법에 대한 내용은 [서버 앱에 .NET Core와 .NET Framework 중에서 무엇을 사용할지 선택하는 방법](/dotnet/standard/choosing-core-framework-server)을 참조하세요.
 
 ### <a name="linux"></a>Linux
 
-- [Linux용 .NET Core](https://www.microsoft.com/net/download/linux) 설치
+- [Linux용 .NET Core SDK](/dotnet/core/install/linux)를 설치합니다.
 - 필요에 따라 [Visual Studio Code](https://www.visualstudio.com/) 및 [C# 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) 설치
 
 ### <a name="macos"></a>macOS
 
-- [macOS용 .NET Core](https://www.microsoft.com/net/download/macos)를 설치합니다.
+- [macOS용 .NET Core SDK](https://dotnet.microsoft.com/download)를 설치합니다.
 - 필요에 따라 [Mac용 Visual Studio](https://www.visualstudio.com/vs/visual-studio-mac/) 설치
 
 ## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
@@ -283,4 +283,4 @@ Azure Queue Storage를 사용하는 .NET 개발에 대한 다음 추가 리소�
 > [!div class="nextstepaction"]
 > [Azure Queue Storage로 애플리케이션 간 통신](/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
 
-- .NET Core에 대해 자세히 알아보려면 [10분 안에 .NET 시작](https://www.microsoft.com/net/learn/get-started/)을 참조하세요.
+- .NET Core에 대해 자세히 알아보려면 [10분 안에 .NET 시작](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro)을 참조하세요.

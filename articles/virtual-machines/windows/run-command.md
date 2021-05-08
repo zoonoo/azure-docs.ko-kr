@@ -8,14 +8,13 @@ author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
-ms.custom: devx-track-azurecli
 manager: carmonm
-ms.openlocfilehash: e2cd8ee4095db235215a2beaa68975e819b474c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3911966b2e56c57aa6da74f93ef133cd942f29f4
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560687"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108069366"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>실행 명령을 사용하여 Windows VM에서 PowerShell 스크립트 실행
 
@@ -66,7 +65,7 @@ The entity was not found in this Azure location
 
 ## <a name="azure-cli"></a>Azure CLI
 
-다음 예제는 [az vm run-command](/cli/azure/vm/run-command#az-vm-run-command-invoke) 명령을 사용하여 Azure Windows VM에서 셸 스크립트를 실행합니다.
+다음 예제는 [az vm run-command](/cli/azure/vm/run-command#az_vm_run_command_invoke) 명령을 사용하여 Azure Windows VM에서 셸 스크립트를 실행합니다.
 
 ```azurecli-interactive
 # script.ps1

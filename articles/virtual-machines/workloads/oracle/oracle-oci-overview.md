@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/01/2020
 ms.author: kegorman
 ms.openlocfilehash: b27db94775e2ba8275dbdab4bf5bd61cc0fdf5c8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101666878"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Microsoft Azure와 Oracle 클라우드 인프라를 통합하는 Oracle 애플리케이션 솔루션
@@ -29,7 +29,7 @@ Oracle 솔루션을 완전히 Azure 인프라에 배포하는 데 관심이 있�
 
 클라우드 간 연결은 OCI에서 호스팅되는 데이터베이스 서비스의 이점을 누리는 동시에 Azure Virtual Machines에서 Oracle의 업계 최고 애플리케이션 및 사용자 지정 애플리케이션을 실행할 수 있는 솔루션을 제공합니다. 
 
-2020 년 5 월을 기반으로 다음 응용 프로그램은 클라우드 간 구성에서 인증 됩니다.
+2020년 5월부로 다음 애플리케이션은 클라우드 간 구성에서 인증됩니다.
 
 * E-Business Suite
 * JD Edwards EnterpriseOne
@@ -49,7 +49,7 @@ Oracle 솔루션을 완전히 Azure 인프라에 배포하는 데 관심이 있�
 * Azure 캐나다 중부(CanadaCentral) 및 OCI 토론토(캐나다 남동쪽)
 * Azure 서유럽(WestEurope) 및 OCI 암스테르담(네덜란드 북서부)
 * Azure 일본 동부(JapanEast) 및 OCI 도쿄(일본 동부)
-* Azure 미국 서 부 (WestUS) & OCI San Jose (미국 서 부)
+* Azure 미국 서부(WestUS) 및 OCI 산호세(미국 서부)
 
 ## <a name="networking"></a>네트워킹
 

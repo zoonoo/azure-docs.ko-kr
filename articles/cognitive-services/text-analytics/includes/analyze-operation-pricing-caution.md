@@ -7,14 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 01/20/2021
+ms.date: 04/19/2021
 ms.author: aahi
-ms.openlocfilehash: ce0c6292f4d4517ba68b2d52ed6e2261f42ce19a
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.custom: references_regions
+ms.openlocfilehash: 9b5c30651f6ed3a4b6fc04ef369368ae63bc492f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090720"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765142"
 ---
 > [!CAUTION]
-> Analyze(분석) 작업을 사용하려면 Azure 리소스에서 S 표준 가격 책정 계층을 사용하고 있는지 확인합니다.
+> * Analyze(분석) 작업을 사용하려면 Azure 리소스에서 S 표준 가격 책정 계층을 사용하고 있는지 확인합니다.
+> * 분석 작업은 미국 서부 2, 미국 동부 2, 미국 중부, 북유럽 및 서유럽 지역에서만 사용할 수 있습니다.

@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 01/19/2020
+ms.date: 04/20/2021
 ms.author: banders
-ms.openlocfilehash: 0c69e9533130d6ca70c57422c7cdd5fc75adff72
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: edc1a80687f768723a3a218ecaa1f6459cd484ed
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683720"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763562"
 ---
 # <a name="get-enterprise-agreement-and-microsoft-customer-agreement-reservation-costs-and-usage"></a>기업계약과 Microsoft 고객 계약 예약 비용 및 사용량 가져오기
 
@@ -95,7 +95,6 @@ Azure Portal에서 [Cost Management + 청구](https://portal.azure.com/#blade/Mi
 ![Azure Portal에서 CSV 사용량 데이터 파일을 다운로드하는 위치를 보여주는 예제](./media/understand-reserved-instance-usage-ea/portal-download-csv.png)
 4. **사용량 및 요금 다운로드** 의 **사용량 세부 정보 버전 2** 에서 **모든 요금(사용량 및 구매)** 을 선택한 다음, [다운로드]를 클릭합니다. **분할 상환 요금(사용량 및 구매)** 반복
 
-다운로드한 CSV 파일에는 실제 비용과 분할 상환 비용이 포함되어 있습니다.
 
 ## <a name="common-cost-and-usage-tasks"></a>일반적인 비용 및 사용량 작업
 
@@ -158,8 +157,7 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure 예약이란?](save-compute-costs-reservations.md)
 - [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../../virtual-machines/prepay-reserved-vm-instances.md)
-- [Azure SQL Database 예약 용량을 사용하여 SQL Database 컴퓨팅 리소스 요금 선결제](../../azure-sql/database/reserved-capacity-overview.md)
-- [Azure Reservations 관리](manage-reserved-vm-instance.md)
 - [예약 할인이 적용되는 방식 이해](../manage/understand-vm-reservation-charges.md)
-- [종량제 구독의 예약 사용량 이해](understand-reserved-instance-usage.md)
 - [예약에 포함되지 않는 Windows 소프트웨어 비용](reserved-instance-windows-software-costs.md)
+- [서비스 주체를 사용하여 비용 데이터 가져오기](../manage/assign-roles-azure-service-principals.md)
+- [Cost Management 내보내기 사용](../costs/tutorial-export-acm-data.md)

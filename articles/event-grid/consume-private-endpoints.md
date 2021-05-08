@@ -3,12 +3,12 @@ title: 프라이빗 링크 서비스를 사용하여 이벤트 제공
 description: 이 문서에서는 프라이빗 링크 서비스를 사용하여 이벤트를 전달할 수 없는 제한 사항을 해결하는 방법에 관해 설명합니다.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: 9df78e1cc7734ba9e455ed686286658006f9445e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 75ae8ff2c341048c39156e43da3615788e9d0f0a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629294"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309434"
 ---
 # <a name="deliver-events-using-private-link-service"></a>프라이빗 링크 서비스를 사용하여 이벤트 제공
 현재 [프라이빗 엔드포인트](../private-link/private-endpoint-overview.md)를 사용하여 이벤트를 전달할 수 없습니다. 즉, 전달된 이벤트 트래픽이 개인 IP 공간을 벗어나지 않아야 하는 엄격한 네트워크 격리 요구 사항이 있는 경우 지원되지 않습니다. 
@@ -36,7 +36,7 @@ ms.locfileid: "105629294"
 관리 ID를 사용하여 Service Bus 네임스페이스의 Service Bus 큐 또는 토픽에 이벤트를 제공하려면 다음 단계를 따릅니다.
 
 1. 시스템 할당 ID 사용: [시스템 토픽](enable-identity-system-topics.md), [사용자 지정 토픽 및 도메인](enable-identity-custom-topics-domains.md). 
-1. Service Bus 네임스페이스의 [**Azure Service Bus 데이터 보낸 사람**](/service-bus-messaging/service-bus-managed-service-identity#azure-built-in-roles-for-azure-service-bus) 역할에 ID 추가
+1. Service Bus 네임스페이스의 [**Azure Service Bus 데이터 보낸 사람**](../service-bus-messaging/service-bus-managed-service-identity.md#azure-built-in-roles-for-azure-service-bus) 역할에 ID 추가
 1. [Service Bus 네임스페이스에서 **신뢰할 수 있는 Microsoft 서비스에서 이 방화벽을 우회하도록 허용** 설정을 사용으로 설정](../service-bus-messaging/service-bus-service-endpoints.md#trusted-microsoft-services)합니다. 
 1. 시스템 할당 ID를 사용하도록 Service Bus 큐 또는 토픽을 엔드포인트로 사용하는 [이벤트 구독을 구성](managed-service-identity.md)합니다.
 

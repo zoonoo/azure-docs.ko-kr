@@ -1,6 +1,6 @@
 ---
-title: 목록 옵션 소개-Microsoft 상업적 marketplace
-description: 이 문서에서는 Microsoft AppSource 및 Azure Marketplace 게시 된 제품에 대 한 옵션을 나열 합니다.
+title: 목록 옵션 소개-Microsoft 상업용 마켓플레이스
+description: 이 문서는 Microsoft AppSource 및 Azure Marketplace에 게시된 제품에 대한 옵션 목록을 제공합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -8,83 +8,83 @@ author: trkeya
 ms.author: trkeya
 ms.date: 01/14/2021
 ms.openlocfilehash: 2433e62fd1dbf35748483b40958fc3367532102a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100099237"
 ---
 # <a name="introduction-to-listing-options"></a>목록 옵션 소개
 
-제품 유형을 만들 때 하나 이상의 목록 옵션을 선택 합니다. 이러한 옵션은 고객에 게 온라인 상점에서 제품 목록 페이지에 표시 되는 단추를 결정 합니다. 목록 옵션에는 _무료 평가판_, _시험_ 사용, _연락_ 및 _지금 받기_ 가 포함 됩니다.
+제품 유형을 만들 때 하나 이상의 목록 옵션을 선택합니다. 이 옵션은 고객이 온라인 상점에서 제품 목록 페이지에서 보게 되는 버튼을 결정합니다. 목록 옵션에는 _평가판_, _시험 사용_, _연락처_ , _바로 구매_ 등이 있습니다.
 
-다음 표에서는 각 제품 유형에 사용할 수 있는 목록 옵션을 보여 줍니다.
+다음 테이블은 각 제품 유형에 사용할 수 있는 목록 옵션을 보여 줍니다.
 
-| 제품 유형 | 무료 평가판 | 시험 사용 | 연락처 | 지금 받기 `*` |
+| 제품 유형 | 무료 평가판 | 시험 사용 | 연락처 | `*`바로 구매 |
 | ------------ | ------------- | ------------- | ------------- | ------------- |
-| Azure 애플리케이션 (관리 되는 앱) |   | &#10004; |   | &#10004; |
-| Azure 애플리케이션 (솔루션 템플릿) |  |  |  | &#10004; |
+| Azure 애플리케이션(관리형 앱) |   | &#10004; |   | &#10004; |
+| Azure 애플리케이션(솔루션 템플릿) |  |  |  | &#10004; |
 | 컨설팅 서비스 |  |  | &#10004; |  |
 | Azure 컨테이너 |  |  |  | &#10004; |
-| Dynamics 365 비즈니스 중부 | &#10004; | &#10004; | &#10004; | &#10004; |
-| Dynamics 365 고객 Engagement & PowerApps | &#10004; | &#10004; | &#10004; | &#10004; |
-| 운영을 위한 Dynamics 365 | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dynamics 365 business central | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dynamics 365 Customer Engagement & PowerApps | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dynamics 365 for operations | &#10004; | &#10004; | &#10004; | &#10004; |
 | IoT Edge 모듈 |  |  |  | &#10004; |
-| 관리 서비스 |  |  |  | &#10004; |
+| 관리형 서비스 |  |  |  | &#10004; |
 | Power BI App |  |  |  | &#10004; |
 | Azure Virtual Machine | &#10004; | &#10004; |  | &#10004; |
 | SaaS(Software as a Service) | &#10004; | &#10004; | &#10004; | &#10004; |
 ||||||
 
-지금 가져오기 목록에 &#42;에는 지금 가져오기 (무료), BYOL (사용자 라이선스 필요), 구독 및 사용량 기반 가격 책정이 포함 됩니다. 자세한 내용은 [지금 가져오기](#get-it-now)를 참조 하세요.
+&#42; 바로 구매 목록에는 평가판 지금 받기, BYOL(사용자 라이선스 필요), 구독, 사용량 기반 가격 책정이 포함됩니다. 자세한 내용은 [바로 구매](#get-it-now)를 참조하세요.
 
-## <a name="changing-offer-type"></a>제안 유형 변경
+## <a name="changing-offer-type"></a>제품 유형 변경
 
 [!INCLUDE [change-offer-type](./includes/change-offer-type.md)]
 
 ## <a name="free-trial"></a>무료 평가판
 
-상업적 marketplace를 사용 하 여 검색 기능을 개선 하 고 솔루션의 평가판 환경을 자동으로 프로 비전 합니다. 이를 통해 잠재 고객은 제품 유형에 따라 30 일에서 6 개월까지 무료로 SaaS (software as a service), IaaS 또는 Microsoft 앱 내 경험을 사용할 수 있습니다.
+상업용 마켓플레이스를 사용하여 검색 기능을 개선하고 솔루션의 평가판 프로비저닝을 자동화합니다. 이를 통해 잠재 고객은 제품 유형에 따라 30일에서 6개월 간 SaaS(서비스 제공 소프트웨어), IaaS(서비스 제공 인프라) 또는 Microsoft 앱의 평가판을 체험해 볼 수 있습니다.
 
-고객은 제품의 목록 페이지에서 _무료 평가판_ 단추를 사용 하 여 제품을 사용해 볼 수 있습니다. 동일한 제품 내에서 여러 요금제에 대 한 무료 평가판을 제공 하는 경우 고객은 다른 계획의 무료 평가판으로 전환할 수 있지만 평가 기간이 다시 시작 되지는 않습니다.
+고객은 제품 목록 페이지에서 _평가판_ 버튼을 사용하여 제품을 사용해 볼 수 있습니다. 동일한 제품 내에서 여러 요금제에 대한 평가판을 제공하는 경우, 고객은 다른 계획의 평가판으로 전환할 수 있지만 평가 기간이 다시 시작되지는 않습니다.
 
-Virtual machine 제품의 경우 고객은 평가 기간 동안 제품 사용에 대 한 Azure 인프라 비용을 청구 합니다. 평가판 기간이 만료 되 면 평가 기간이 끝나기 전에 취소 하지 않는 한, 표준 요금을 기준으로 시도한 마지막 요금제에 대 한 요금이 자동으로 청구 됩니다.
+가상 머신 제품의 경우, 평가판 기간 동안 제품 사용에 대해 고객에게 Azure 인프라 비용이 청구됩니다. 평가판 기간 종료 전에 취소하지 않는 경우, 평가판 기간 종료와 동시에 표준 요금 기준으로 마지막 사용한 요금제에 해당하는 요금이 자동으로 청구됩니다.
 
 ## <a name="test-drive"></a>시험 사용
 
-고객은 제품의 목록 페이지에서 _드라이브 시험_ 사용 단추를 사용 하 여 고정 된 시간 동안 미리 구성 된 환경에 액세스할 수 있습니다. 테스트 드라이브에 대해 자세히 알아보려면 [테스트 드라이브인 무엇 인가요?](what-is-test-drive.md) 를 참조 하세요.
+고객은 제품의 목록 페이지에서 _시험 사용_ 버튼을 사용하여 고정된 시간 동안 미리 구성된 환경에 액세스할 수 있습니다. 시험 사용에 대한 자세한 내용은 [시험 사용이란?](what-is-test-drive.md)을 참조하세요.
 
 > [!TIP]
-> 시험 사용은 평가판과 다릅니다. 시험 사용, 평가판 또는 둘 다를 제공할 수 있습니다. 사용자는 일정 기간 동안 고객에 게 솔루션을 제공 합니다. 그러나 테스트 드라이브에는 실제 구현 시나리오에서 설명 하는 제품의 주요 기능 및 이점에 대 한 실습 자체 기반 둘러보기도 포함 되어 있습니다.
+> 시험 사용은 평가판과 다릅니다. 시험 사용, 평가판 또는 둘 다 제공할 수 있습니다. 둘 다 일정 기간 동안 고객에게 솔루션을 제공합니다. 하지만 시험 사용에는 실제 구현 시나리오에서 입증된 제품의 주요 기능과 이점에 대한 실습 중심의 자기 주도형 체험도 포함됩니다.
 
 ## <a name="contact-me"></a>연락처
 
-응용 프로그램 또는 서비스를 간단히 나열 합니다. 고객은 제품의 목록 페이지에서 _연락처_ 단추를 사용 하 여 제품에 대 한 연결을 요청 합니다.
+애플리케이션 또는 서비스를 간단히 나열합니다. 고객은 제품의 목록 페이지에서 _연락처_ 버튼을 사용하여 제품에 대한 연결을 요청합니다.
 
-## <a name="get-it-now"></a>지금 받기
+## <a name="get-it-now"></a>바로 구매
 
-이 목록 옵션에는 불가능 제품 (구독 및 사용자 기반 가격 책정)이 포함 되 고, 사용자 고유의 라이선스가 제공 되며, 지금 (무료)으로 전환 됩니다. 불가능 제안은 상업적 marketplace를 통해 판매 됩니다. Microsoft가 청구 및 수금을 담당합니다. 고객은 _지금 가져오기 단추_ 를 사용 하 여 제품을 가져옵니다.
+이 목록 옵션에는 거래 가능 제품(구독 및 사용자 기반 가격 책정), 사용자 라이선스 필요 제품, 평가판 받기가 포함됩니다. 거래 가능 제품은 상업용 마켓플레이스를 통해 판매됩니다. Microsoft가 청구 및 수금을 담당합니다. 고객은 _바로 구매 버튼_ 을 사용하여 제품을 구매합니다.
 
-현재 목록에 표시 옵션은 제품 유형에 따라 다음과 같은 가격 책정 옵션을 포함할 수 있습니다.
+바로 구매 목록 옵션은 제품 유형에 따라 다음과 같은 가격 책정 옵션을 포함할 수 있습니다.
 
-- 지금 받기 (무료)
+- 평가판 지금 받기
 - BYOL(사용자 라이선스 필요)
 - Subscription
 - 사용량 기반 가격 책정
 
-이 표에서는 현재 목록에 포함 된 추가 가격 옵션을 지 원하는 제품 유형을 보여 줍니다.
+이 테이블은 지금 받기 목록 옵션에 포함된 추가 가격 옵션을 지원하는 제품 유형을 보여 줍니다.
 
-| 제품 유형 | 지금 받기 (무료) | BYOL | Subscription | 사용량 기반 가격 책정 |
+| 제품 유형 | 평가판 지금 받기 | BYOL | Subscription | 사용량 기반 가격 책정 |
 | ------------ | ------------- | ------------- | ------------- | ------------- |
-| Azure 애플리케이션 (관리 되는 앱) |   |   | &#10004; | &#10004; |
-| Azure 애플리케이션 (솔루션 템플릿) | &#10004; |   |   |   |
+| Azure 애플리케이션(관리형 앱) |   |   | &#10004; | &#10004; |
+| Azure 애플리케이션(솔루션 템플릿) | &#10004; |   |   |   |
 | 컨설팅 서비스 |   |   |   |   |
 | Azure 컨테이너 | &#10004;<sup>1</sup> | &#10004;<sup>1</sup> |   |   |
-| Dynamics 365 비즈니스 중부 | &#10004; |   |   |   |
-| Dynamics 365 고객 Engagement & PowerApps | &#10004; |   |   |   |
-| 운영을 위한 Dynamics 365 | &#10004; |   |   |   |
+| Dynamics 365 business central | &#10004; |   |   |   |
+| Dynamics 365 Customer Engagement & PowerApps | &#10004; |   |   |   |
+| Dynamics 365 for operations | &#10004; |   |   |   |
 | IoT Edge 모듈 | &#10004;<sup>1</sup> | &#10004;<sup>1</sup> |   |   |
-| 관리 서비스 |   | &#10004; |   |   |
+| 관리형 서비스 |   | &#10004; |   |   |
 | Power BI App | &#10004; |   |   |   |
 | Azure Virtual Machine |   | &#10004; |   | &#10004;<sup>2</sup> |
 | SaaS(Software as a Service) | &#10004; |   | &#10004; | &#10004; |
@@ -92,54 +92,54 @@ Virtual machine 제품의 경우 고객은 평가 기간 동안 제품 사용에
 
 **범례**
 
-<sup>1</sup> **계획 개요** 탭의 **가격 책정 모델** 열에는 _Free_ 또는 _byol_ 이 표시 되지만 선택할 수는 없습니다.
+<sup>1</sup> **계획 개요** 탭의 **가격 책정 모델** 열에는 _평가판_ 또는 _BYOL_ 이 표시되나, 선택할 수는 없습니다.
 
-시간당 <sup>2 개의</sup> 가격이 책정 되며 매달 요금이 청구 됩니다.
+<sup>2</sup>시간당 가격이 책정되며 매달 요금이 청구됩니다.
 
-### <a name="get-it-now-free"></a>지금 받기 (무료)
+### <a name="get-it-now-free"></a>평가판 지금 받기
 
-이 목록 옵션을 사용 하 여 응용 프로그램을 무료로 제공할 수 있습니다. 고객은 _지금 가져오기_ 단추를 사용 하 여 무료 제품을 얻을 수 있습니다.
+이 목록 옵션을 통해 애플리케이션의 평가판을 제공할 수 있습니다. 고객은 _바로 구매_ 버튼을 사용하여 평가판을 받을 수 있습니다.
 
 > [!NOTE]
-> 지금 받기 (무료) 제품은 불가능 제품의 Marketplace 보상 혜택을 받을 자격이 없습니다. Storefront를 통한 트랜잭션은 없으므로 "평가판"으로 분류 됩니다. 아래의 [Marketplace 보상](#marketplace-rewards) 을 참조 하세요.
+> 평가판 제품에는 거래 가능 제품의 Marketplace Rewards 혜택이 적용되지 않습니다. 상점을 통한 트랜잭션이 없으므로 ‘평가판’으로 분류됩니다. 아래의 [Marketplace Rewards](#marketplace-rewards)를 참조하세요.
 
 ### <a name="bring-your-own-license-byol"></a>BYOL(사용자 라이선스 필요)
 
-이 목록 옵션을 사용 하면 고객이 상용 marketplace 외부에서 구매한 라이선스를 사용 하 여 제품을 배포할 수 있습니다. 이 옵션은 온-프레미스에서 클라우드로의 마이그레이션에 적합 합니다. 고객이 미리 구매한 라이선스를 사용 하 여 제품을 구매 하려면 _지금 가져오기_ 단추를 사용 합니다.
+이 목록 옵션을 사용하면 고객이 상업용 마켓플레이스 외부에서 구매한 라이선스를 사용하여 제품을 배포할 수 있습니다. 해당 옵션은 온-프레미스에서 클라우드로 마이그레이션하기에 적합합니다. 고객이 미리 구매한 라이선스를 사용하여 제품을 구매하려면 _바로 구매_ 버튼을 사용합니다.
 
 > [!NOTE]
-> BYOL 제품은 불가능 제품에 대 한 Marketplace 보상 혜택을 받을 자격이 없습니다. 고객은 파트너 로부터 라이선스를 획득 해야 하 고 상업적 marketplace storefront을 통한 트랜잭션은 없으므로 "목록"으로 분류 됩니다. 아래의 [Marketplace 보상](#marketplace-rewards) 을 참조 하세요.
+> BYOL 제품에는 거래 가능 제품에 대한 Marketplace Rewards 혜택이 적용되지 않습니다. 상업용 마켓플레이스 상점을 통한 트랜잭션이 없으므로 ‘목록’으로 분류됩니다. 아래의 [Marketplace Rewards](#marketplace-rewards)를 참조하세요.
 
 ### <a name="subscription"></a>Subscription
 
-이러한 제품 유형에 대 한 정액 요금을 부과할 수 있습니다.
+다음 제품 유형에 대해 정액 요금을 부과할 수 있습니다.
 
-- Azure 애플리케이션 (관리 되는 앱)는 월간 구독 지원을 제공 합니다.
-- SaaS는 월별 구독과 연간 구독을 모두 지원 합니다.
+- Azure 애플리케이션(관리형 앱)은 월간 구독 지원을 제공합니다.
+- SaaS는 월별 구독과 연간 구독을 모두 지원합니다.
 
 ### <a name="usage-based-pricing"></a>사용량 기반 가격 책정
 
-다음 제품 유형은 사용량 기반 가격 책정을 지원 합니다.
+다음 제품 유형은 사용량 기반 가격 책정을 지원합니다.
 
-- Azure 애플리케이션 (관리 되는 앱)은 요금제 청구를 지원 합니다. 자세한 내용은 [관리 되는 응용 프로그램 요금제 청구](partner-center-portal/azure-app-metered-billing.md)를 참조 하세요.
-- SaaS 제품은 데이터 요금 청구 및 사용자 단위 (사용자 단위) 가격 책정을 지원 합니다. 요금제에 대 한 자세한 내용은 [상용 marketplace 계량 서비스를 사용 하 여 SaaS에 대 한 요금제 청구](partner-center-portal/saas-metered-billing.md)를 참조 하세요.
-- Azure 가상 머신은 코어, 코어 크기 및 시장 당 코어 및 코어 크기 가격 책정에 따라 지원을 제공 합니다. 이러한 가격 책정 옵션은 시간당 가격이 책정 되며 매달 청구 됩니다.
+- Azure 애플리케이션(관리형 앱)은 요금제 청구를 지원합니다. 자세한 내용은 [관리형 애플리케이션 요금제 청구](partner-center-portal/azure-app-metered-billing.md)를 참조하세요.
+- SaaS 제품은 요금제 청구 및 사용자 단위 가격 책정을 지원합니다. 요금제에 대한 자세한 내용은 [상업용 마켓플레이스 계량 서비스를 사용하여 SaaS 요금제 청구](partner-center-portal/saas-metered-billing.md)를 참조하세요.
+- Azure 가상 머신은 코어별, 코어 크기별, 및 시장별 코어 크기 가격 책정에 따라 지원합니다. 이 가격 책정 옵션에서는 시간당 가격이 책정되며 매월 청구됩니다.
 
-불가능 제품을 만들 때 제품 유형을 선택 하 고 제품을 만들기 전에 가격 책정, 청구, 청구서 및 지급 고려 사항을 이해 하는 것이 중요 합니다. 자세히 알아보려면 [상업적 marketplace 온라인 상점](overview.md#commercial-marketplace-online-stores)을 참조 하세요.
+거래 가능 제품을 만들 때 제품 유형을 선택하고 제품을 만들기 전에 가격 책정, 청구, 청구서 및 지급 고려 사항을 이해하는 것이 중요합니다. 자세한 정보는 [상업용 마켓플레이스 온라인 상점](overview.md#commercial-marketplace-online-stores)을 참조하세요.
 
-## <a name="sample-offer"></a>샘플 제안
+## <a name="sample-offer"></a>샘플 제품
 
-제품을 게시 한 후에는 선택한 목록 옵션이 온라인 상점에서 목록 페이지의 왼쪽 위 모서리에 단추로 나타납니다. 예를 들어 다음 화면에는 **지금 가져오기** 및 **시험** 사용 단추를 사용 하 여 Microsoft AppSource 온라인 스토어의 제품 목록 페이지가 표시 됩니다.
+제품을 게시한 후에는 선택한 목록 옵션이 온라인 상점에서 목록 페이지의 왼쪽 위 모서리에 버튼으로 나타납니다. 예를 들어 다음 화면에는 **바로 구매** 와 **시험 사용** 버튼을 사용하여 Microsoft AppSource 온라인 스토어의 제품 목록 페이지가 표시됩니다.
 
-:::image type="content" source="media/listing-options.png" alt-text="연락처 및 드라이브 테스트 단추를 사용 하 여 제품에 대 한 목록 페이지를 보여 줍니다.":::
+:::image type="content" source="media/listing-options.png" alt-text="연락처와 시험 사용 버튼을 사용하여 제품에 대한 목록 페이지를 보여 줍니다.":::
 
-## <a name="listing-and-pricing-options-by-online-store"></a>온라인 스토어 별 목록 및 가격 옵션
+## <a name="listing-and-pricing-options-by-online-store"></a>온라인 스토어별 목록 및 가격 옵션
 
-다양 한 조건에 따라 제품이 Azure Marketplace, Microsoft AppSource 또는 온라인 매장 모두에 표시 되는지 여부를 결정 합니다. 두 온라인 상점 간의 차이점에 대 한 자세한 내용은 [상용 marketplace online 스토어](overview.md#commercial-marketplace-online-stores)를 참조 하세요.
+다양한 조건에 따라 제품이 Azure Marketplace, Microsoft AppSource 또는 온라인 매장 모두에 표시되는지 여부를 결정합니다. 두 온라인 상점 간의 차이점에 대한 자세한 내용은 [상업용 마켓플레이스 온라인 스토어](overview.md#commercial-marketplace-online-stores)를 참조하세요.
 
-다음 표에서는 다양 한 제안 유형 및 추가 기능에 사용할 수 있는 옵션과 제품이 나열 될 수 있는 온라인 상점을 보여 줍니다.
+다음 테이블은 다양한 제품 유형 및 추가 기능에 사용할 수 있는 옵션과 제품을 나열할 수 있는 온라인 상점을 보여 줍니다.
 
-| 제안 형식 및 추가 기능 | 연락처 | 무료 평가판 | 지금 받기 (무료) | BYOL | 지금 가져오기 (Transact-sql) |
+| 제품 유형 및 추가 기능 | 연락처 | 무료 평가판 | 평가판 지금 받기 | BYOL | 바로 구매(트랜잭션) |
 | ------------ | ------------- | ------------- | ------------- | ------------- | ------------- |
 | Azure Virtual Machine |   |   |   | Azure Marketplace | Azure Marketplace |
 | Azure 애플리케이션 |   |   | Azure Marketplace | Azure Marketplace | Azure Marketplace |
@@ -147,26 +147,26 @@ Virtual machine 제품의 경우 고객은 평가 기간 동안 제품 사용에
 | IoT Edge 모듈 |   |   | Azure Marketplace | Azure Marketplace |   |
 | 관리되는 서비스 |   |   |   | Azure Marketplace |   |
 | 컨설팅 서비스 | 온라인 상점 모두 |   |   |   |   |
-| SaaS  | 온라인 상점 모두 | 온라인 상점 모두 | 온라인 상점 모두 |   | 두 온라인 매장 모두 &#42; |
+| SaaS  | 온라인 상점 모두 | 온라인 상점 모두 | 온라인 상점 모두 |   | 온라인 상점 모두 &#42; |
 | Microsoft 365 앱 | AppSource | AppSource |   |   | AppSource &#42;&#42; |
-| Dynamics 365 비즈니스 중부 | AppSource | AppSource |   |   |   |
-| PowerApps & 고객 계약에 대 한 Dynamics 365 | AppSource | AppSource |   |   |   |
-| 운영을 위한 Dynamics 365 | AppSource | AppSource |   |   |   |
+| Dynamics 365 business central | AppSource | AppSource |   |   |   |
+| Dynamics 365 for Customer Engagements & PowerApps | AppSource | AppSource |   |   |   |
+| Dynamics 365 for operations | AppSource | AppSource |   |   |   |
 | Power BI App |   |   | AppSource |   |   |
 |||||||
 
-AppSource의 &#42; SaaS 불가능 제품은 현재 신용 카드만 제공 합니다.
+&#42; AppSource 내 SaaS 거래 가능 제품은 현재 신용 카드로만 가능합니다.
 
-&#42;&#42; Microsoft 365 추가 기능은 무료로 설치할 수 있으며 SaaS 제품을 사용 하 여 수익 화할 수 있습니다. 자세한 내용은 [Microsoft 상업용 Marketplace를 통해 Office 365 추가 기능으로 수익 창출](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace)을 참조하세요.
+&#42;&#42; SaaS 제품을 사용하여 Microsoft 365 추가 기능을 자유롭게 설치하고 수익을 창출할 수 있습니다. 자세한 내용은 [Microsoft 상업용 Marketplace를 통해 Office 365 추가 기능으로 수익 창출](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace)을 참조하세요.
 
 ## <a name="marketplace-rewards"></a>Marketplace Rewards
 
-Marketplace 보상은 선택한 목록 옵션에 따라 차별화 됩니다. 자세히 알아보려면 [상용 marketplace 혜택](gtm-your-marketplace-benefits.md)을 참조 하세요.
+Marketplace Rewards는 선택한 목록 옵션에 따라 차별화됩니다. 자세한 정보는 [상업용 마켓플레이스의 이점](gtm-your-marketplace-benefits.md)을 참조하세요.
 
-제품이 불가능 인 경우 청구 된 판매를 늘리면 혜택을 받을 수 있습니다.
+제품이 거래 가능한 경우 청구된 판매를 늘리면 혜택을 받을 수 있습니다.
 
-불가능 없는 제품은 무료 평가판의 연결 여부에 따라 혜택을 얻을 수 있습니다.
+거래 불가능 제품은 평가판의 연결 여부에 따라 혜택을 얻을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 만들 제품 유형을 선택 하려면 [제품 유형별 게시 가이드](publisher-guide-by-offer-type.md)를 참조 하세요.
+- 만들 제품 유형을 선택하려면 [제품 유형별 게시 안내](publisher-guide-by-offer-type.md)를 참조하세요.

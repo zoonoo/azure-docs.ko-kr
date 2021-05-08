@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 06/26/2018
 ms.author: allensu
-ms.openlocfilehash: 90fcba21ad6f44b5a420cb15b95ef278f9b5b9b0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 00964a49940b208144167e9fe1ff4248f46e35fa
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211079"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763202"
 ---
-# <a name="route-traffic-for-high-availability-of-applications---azure-cli"></a>응용 프로그램의 고가용성을 위해 트래픽 라우팅-Azure CLI
+# <a name="route-traffic-for-high-availability-of-applications---azure-cli"></a>애플리케이션 고가용성을 위해 트래픽 라우팅 - Azure CLI
 
 이 스크립트는 리소스 그룹, 2개 App Service 계획, 2개 웹앱, Traffic Manager 프로필 및 2개 Traffic Manager 엔드포인트를 만듭니다. Traffic Manager는 주 지역인 한 지역의 애플리케이션 및 주 지역의 애플리케이션을 사용할 수 없을 때 보조 지역으로 트래픽을 전달합니다. 스크립트를 실행하기 전에 MyWebApp, MyWebAppL1 및 MyWebAppL2 값을 Azure에서 고유한 값으로 변경해야 합니다. 스크립트를 실행한 후에는 mywebapp.trafficmanager.net URL을 사용하여 주 지역의 응용 프로그램에 액세스할 수 있습니다.
 
@@ -49,7 +49,7 @@ az group delete --name myResourceGroup2 --yes
 |---|---|
 | [az group create](/cli/azure/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az appservice plan create](/cli/azure/appservice/plan) | App Service 계획을 만듭니다. Azure 웹앱에 대한 서버 팜과 비슷합니다. |
-| [az webapp create](/cli/azure/webapp#az-webapp-create) | App Service 계획 내에서 Azure 웹앱을 만듭니다. |
+| [az webapp create](/cli/azure/webapp#az_webapp_create) | App Service 계획 내에서 Azure 웹앱을 만듭니다. |
 | [az network traffic-manager profile create](/cli/azure/network/traffic-manager/profile) | Azure Traffic Manager 프로필을 만듭니다. |
 | [az network traffic-manager endpoint create](/cli/azure/network/traffic-manager/endpoint) | Azure Traffic Manager 프로필에 엔드포인트를 추가합니다. |
 

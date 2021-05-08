@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: fe5a2114a99b7867ac5e51b6bf9ec542ad47ca13
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: b1889a693c08ce78a8bd06b6fe348c0c67bf3812
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257894"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103465677"
 ---
 # <a name="tutorial-for-configuring-saviynt-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 Saviynt를 구성하기 위한 자습서
 
@@ -54,7 +54,7 @@ Saviynt 통합에는 다음 구성 요소가 포함됩니다.
 
 ![Saviynt 아키텍처 다이어그램을 보여 주는 이미지](./media/partner-saviynt/saviynt-architecture-diagram.png)
 
-|단계 | Description |
+|단계 | 설명 |
 |:-----| :-----------|
 | 1. | 위임된 관리자는 Saviynt를 통해 Azure AD B2C 사용자 관리 작업을 시작합니다.
 | 2. | Saviynt는 권한 부여 엔진을 사용하여 위임된 관리자가 특정 작업을 수행할 수 있는지 확인합니다.
@@ -131,10 +131,10 @@ Saviynt 애플리케이션 테넌트를 찾아보고 사용자 수명 주기 관
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 문서를 참조하세요.
+추가 정보를 얻으려면 다음 문서를 검토하세요.
 
 - [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C에서 사용자 지정 정책 시작](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
+- [Azure AD B2C에서 사용자 지정 정책 시작](./custom-policy-get-started.md?tabs=applications)
 
 - [웹 API 애플리케이션 생성](./add-web-api-application.md)

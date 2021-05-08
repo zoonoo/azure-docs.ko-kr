@@ -10,12 +10,12 @@ ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5b6bd16eacf4b1bbb7b93f5500813e7fa9dc7eef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f6a1d315342ea98ccaf1382630eccca876ada3f1
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100095847"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870196"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Blob 버전 관리 설정 및 관리
 
@@ -54,7 +54,7 @@ Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI를 사용하여 스토리지 계정에 대한 Blob 버전 관리를 사용하려면, 먼저 Azure CLI 버전 2.2.0 이상을 설치합니다. 그런 다음, 다음 예제와 같이 [az storage account blob-service-properties update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) 명령을 호출하여 버전 관리를 사용합니다. 꺾쇠 괄호로 묶인 값을 다음과 같이 고유한 값으로 바꿔야 합니다.
+Azure CLI를 사용하여 스토리지 계정에 대한 Blob 버전 관리를 사용하려면, 먼저 Azure CLI 버전 2.2.0 이상을 설치합니다. 그런 다음, 다음 예제와 같이 [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) 명령을 호출하여 버전 관리를 사용합니다. 꺾쇠 괄호로 묶인 값을 다음과 같이 고유한 값으로 바꿔야 합니다.
 
 ```azurecli
 az storage account blob-service-properties update \

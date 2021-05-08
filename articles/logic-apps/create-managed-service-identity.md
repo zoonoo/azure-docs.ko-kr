@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
 ms.date: 03/30/2021
-ms.openlocfilehash: dfd219b6fcfc01613d68a2bd439022651ed0bbe2
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 8e081257d70c9bc9c9f75df18b30f8dcf119e48e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110175"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763346"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Azure Logic Apps에서 관리 ID를 사용하여 Azure 리소스에 대한 액세스 인증
 
@@ -312,7 +312,7 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
 * [Azure Portal](#azure-portal-assign-access)
 * [Azure Resource Manager 템플릿](../role-based-access-control/role-assignments-template.md)
 * Azure PowerShell([New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)) - 자세한 내용은 [Azure RBAC 및 Azure PowerShell을 사용하여 역할 할당 추가](../role-based-access-control/role-assignments-powershell.md)를 참조하세요.
-* Azure CLI([az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)) - 자세한 내용은 [Azure RBAC 및 Azure CLI를 사용하여 역할 할당 추가](../role-based-access-control/role-assignments-cli.md)를 참조하세요.
+* Azure CLI([az role assignment create](/cli/azure/role/assignment#az_role_assignment_create)) - 자세한 내용은 [Azure RBAC 및 Azure CLI를 사용하여 역할 할당 추가](../role-based-access-control/role-assignments-cli.md)를 참조하세요.
 * [Azure REST API](../role-based-access-control/role-assignments-rest.md)
 
 <a name="azure-portal-assign-access"></a>
@@ -434,7 +434,7 @@ HTTP 트리거 또는 작업은 논리 앱에서 사용하도록 설정한 시�
 |----------|----------|---------------|-------------|
 | **메서드** | 예 | `PUT`| Blob 스냅샷 작업에서 사용하는 HTTP 메서드 |
 | **URI** | 예 | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | 이 구문을 사용하는 Azure 글로벌(퍼블릭) 환경의 Azure Blob Storage 파일에 대한 리소스 ID |
-| **헤더** | Azure Storage용 | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r'}` | Azure Storage 작업에 필요한 `x-ms-blob-type`, `x-ms-version` 및 `x-ms-date` 헤더 값입니다. <p><p>**중요**: Azure Storage에 대한 나가는 HTTP 트리거 및 작업 요청에서 헤더에는 실행하려는 작업에 대한 `x-ms-version` 속성 및 API 버전이 필요합니다. `x-ms-date`는 현재 날짜여야 합니다. 그렇지 않으면 논리 앱은 `403 FORBIDDEN` 오류와 함께 실패합니다. 현재 날짜를 필수 형식으로 가져오려면 예제 값의 식을 사용할 수 있습니다. <p>자세한 내용은 다음 항목을 참조하세요. <p><p>- [요청 헤더 - Blob 스냅샷 ](/rest/api/storageservices/snapshot-blob#request) <br>- [Azure Storage 서비스에 대한 버전 관리](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+| **헤더** | Azure Storage용 | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r')}` | Azure Storage 작업에 필요한 `x-ms-blob-type`, `x-ms-version` 및 `x-ms-date` 헤더 값입니다. <p><p>**중요**: Azure Storage에 대한 나가는 HTTP 트리거 및 작업 요청에서 헤더에는 실행하려는 작업에 대한 `x-ms-version` 속성 및 API 버전이 필요합니다. `x-ms-date`는 현재 날짜여야 합니다. 그렇지 않으면 논리 앱은 `403 FORBIDDEN` 오류와 함께 실패합니다. 현재 날짜를 필수 형식으로 가져오려면 예제 값의 식을 사용할 수 있습니다. <p>자세한 내용은 다음 항목을 참조하세요. <p><p>- [요청 헤더 - Blob 스냅샷 ](/rest/api/storageservices/snapshot-blob#request) <br>- [Azure Storage 서비스에 대한 버전 관리](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
 | **쿼리** | Blob 스냅샷 작업에만 해당 | `comp` = `snapshot` | 작업에 대한 쿼리 매개 변수 이름 및 값입니다. |
 |||||
 

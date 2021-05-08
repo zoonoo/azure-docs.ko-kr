@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 11/19/2020
 ms.author: nanditav
 ms.reviewer: jrasnick
-ms.openlocfilehash: 71249534c6a088088213659b5a45e042229721c7
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: d4bc59a9bd5299698bff9949aaaa881fbdf385ee
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107813185"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100526275"
 ---
 # <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Azure Synapse Analytics 작업 영역에 대한 암호화
 
@@ -53,11 +53,11 @@ Azure 서비스에 대한 첫 번째 암호화 레이어는 플랫폼 관리형 
 
 ### <a name="key-access-and-workspace-activation"></a>키 액세스 및 작업 영역 활성화
 
-고객 관리형 키를 사용하는 Azure Synapse 암호화 모델은 필요에 따라 Azure Key Vault에서 키에 액세스하여 암호화하고 암호를 해독하는 작업 영역을 포함합니다. 액세스 정책 또는 [Azure Key Vault RBAC 액세스](../../key-vault/general/rbac-guide.md)를 통해 작업 영역에서 키에 액세스할 수 있습니다. Azure Key Vault 액세스 정책을 통해 권한을 부여하는 경우, 정책 생성 중에 [‘애플리케이션 전용’](../../key-vault/general/security-features.md#key-vault-authentication-options) 옵션을 선택합니다(작업 영역의 관리 ID를 선택하고 권한 있는 애플리케이션으로 추가하지 않음).
+고객 관리형 키를 사용하는 Azure Synapse 암호화 모델은 필요에 따라 Azure Key Vault에서 키에 액세스하여 암호화하고 암호를 해독하는 작업 영역을 포함합니다. 액세스 정책 또는 [Azure Key Vault RBAC 액세스](../../key-vault/general/rbac-guide.md)를 통해 작업 영역에서 키에 액세스할 수 있습니다. Azure Key Vault 액세스 정책을 통해 권한을 부여하는 경우, 정책 생성 중에 [‘애플리케이션 전용’](../../key-vault/general/secure-your-key-vault.md#key-vault-authentication-options) 옵션을 선택합니다(작업 영역의 관리 ID를 선택하고 권한 있는 애플리케이션으로 추가하지 않음).
 
  작업 영역을 활성화하려면 먼저 자격 증명 모음에 필요한 사용 권한을 작업 영역 관리 ID에 부여해야 합니다. 작업 영역 활성화에 대한 단계적 접근 방식은 작업 영역의 데이터가 고객 관리형 키를 통해 암호화되도록 합니다. 전용 SQL 풀에 대해 암호화를 사용하거나 사용하지 않도록 설정할 수 있으며, 각 풀은 기본적으로 암호화를 사용하지 않도록 설정되어 있습니다.
 
-#### <a name="permissions"></a>사용 권한
+#### <a name="permissions"></a>권한
 
 미사용 데이터를 암호화하거나 암호를 해독하려면 작업 영역 관리 ID에 다음 사용 권한이 있어야 합니다.
 * WrapKey(새 키를 만들 때 Key Vault에 키를 삽입)

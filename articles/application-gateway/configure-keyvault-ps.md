@@ -1,19 +1,20 @@
 ---
 title: Key Vault 인증서를 사용하여 TLS 종료 구성 - PowerShell
 titleSuffix: Azure Application Gateway
-description: Azure PowerShell 스크립트를 사용 하 여 TLS/SSL 종료 인증서용 application gateway와 key vault를 통합 하는 방법에 대해 알아봅니다.
+description: Azure PowerShell 스크립트를 사용하여 TLS/SSL 종료 인증서용 애플리케이션 게이트웨이와 키 자격 증명 모음을 통합하는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: aaaeed9d8d6a2d84fa13f495f581dc1f5fdc19e2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b39ea6835844c21679f6fa026e9a2439032ef329
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91323427"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108317796"
 ---
 # <a name="configure-tls-termination-with-key-vault-certificates-using-azure-powershell"></a>Azure PowerShell을 사용하여 Key Vault 인증서로 TLS 종료 구성
 
@@ -61,7 +62,7 @@ $identity = New-AzUserAssignedIdentity -Name "appgwKeyVaultIdentity" `
 ### <a name="create-a-key-vault-policy-and-certificate-to-be-used-by-the-application-gateway"></a>애플리케이션 게이트웨이에서 사용할 키 자격 증명 모음, 정책 및 인증서 만들기
 
 ```azurepowershell
-$keyVault = New-AzKeyVault -Name $kv -ResourceGroupName $rgname -Location $location -EnableSoftDelete 
+$keyVault = New-AzKeyVault -Name $kv -ResourceGroupName $rgname -Location $location
 Set-AzKeyVaultAccessPolicy -VaultName $kv -PermissionsToSecrets get -ObjectId $identity.PrincipalId
 
 $policy = New-AzKeyVaultCertificatePolicy -ValidityInMonths 12 `
@@ -72,8 +73,6 @@ $certificate = Add-AzKeyVaultCertificate -VaultName $kv -Name "cert1" -Certifica
 $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
-> [!NOTE]
-> TLS 종료가 제대로 작동하려면 -EnableSoftDelete 플래그를 사용해야 합니다. [포털을 통해 Key Vault 일시 삭제](../key-vault/general/soft-delete-overview.md#soft-delete-behavior)를 구성하는 경우 보존 기간은 기본값인 90일로 유지되어야 합니다. Application Gateway는 아직 다른 보존 기간을 지원하지 않습니다. 
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 

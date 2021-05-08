@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 83743a6985bef8ce6c03e01ed8d10aa740852106
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101668816"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>HANA 쪽에서 모니터링 및 문제 해결
@@ -35,7 +35,7 @@ SAP HANA 성능과 관련된 적용 가능한 FAQ는 다음 SAP 참고 사항에
 
 ## <a name="sap-hana-alerts"></a>SAP HANA 경고
 
-첫 번째 단계로 현재 SAP HANA 경고 로그를 확인합니다. SAP HANA Studio에서 **관리 콘솔: 경고: 표시: 모든 경고** 로 이동 합니다. 이 탭에서는 최소 및 최대 임계값 설정 범위에 속하지 않는 특정 값(사용 가능한 실제 메모리, CPU 사용률 등)에 대한 모든 SAP HANA 경고를 표시합니다. 기본적으로 검사는 15분마다 자동으로 새로 고쳐집니다.
+첫 번째 단계로 현재 SAP HANA 경고 로그를 확인합니다. SAP HANA Studio에서 **관리 콘솔: 경고: 표시: 모든 경고** 로 이동합니다. 이 탭에서는 최소 및 최대 임계값 설정 범위에 속하지 않는 특정 값(사용 가능한 실제 메모리, CPU 사용률 등)에 대한 모든 SAP HANA 경고를 표시합니다. 기본적으로 검사는 15분마다 자동으로 새로 고쳐집니다.
 
 ![SAP HANA Studio에서 [관리 콘솔: 경고: 표시: 모든 경고]로 이동합니다.](./media/troubleshooting-monitoring/image1-show-alerts.png)
 
@@ -62,7 +62,7 @@ SAP HANA 성능과 관련된 적용 가능한 FAQ는 다음 SAP 참고 사항에
 
 ![로드 그래프는 높은 CPU 사용량 또는 과거의 높은 사용량을 표시할 수 있습니다.](./media/troubleshooting-monitoring/image4-load-graph.png)
 
-높은 CPU 사용률으로 인해 트리거되는 경고는 특정 트랜잭션 실행, 데이터 로드, 응답 하지 않는 작업, 장기 실행 SQL 문, 잘못 된 쿼리 성능 (예: HANA 큐브의 BW 사용) 등 여러 가지 원인으로 인해 발생할 수 있습니다.
+CPU 사용률로 인해 트리거 되는 경고는 특정 트랜잭션 실행, 응답하지 않는 작업, 장기 실행 SQL 문 및 잘못된 쿼리 성능(예: HANA 큐브의 BW)을 비롯한 다른 여러 가지 원인으로 발생할 수 있습니다.
 
 자세한 문제 해결 단계는 [SAP HANA 문제 해결: CPU 관련 원인 및 솔루션](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) 사이트를 참조하세요.
 
@@ -105,9 +105,9 @@ SAP HANA 데이터베이스에 의해 할당된 메모리 양이 예상보다 �
 
 자세한 문제 해결 단계는 [SAP HANA 문제 해결: 네트워킹 성능 및 연결 문제](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) 사이트를 참조하세요.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>스토리지
 
-최종 사용자 관점에서 응용 프로그램 (또는 전체 시스템)이 느리게를 실행 하거나, 응답 하지 않거나, i/o 성능에 문제가 있는 경우 응답을 중지 하는 것 처럼 보일 수도 있습니다. SAP HANA Studio의 **볼륨** 탭에서 연결된 볼륨 및 각 서비스에서 사용하는 볼륨을 확인할 수 있습니다.
+I/O 성능 문제가 있는 경우 최종 사용자의 관점에서 애플리케이션(또는 전체 시스템)이 느리게 실행되고 응답성이 우수하지 않으며 반응이 없는 것처럼 보일 수 있습니다. SAP HANA Studio의 **볼륨** 탭에서 연결된 볼륨 및 각 서비스에서 사용하는 볼륨을 확인할 수 있습니다.
 
 ![SAP HANA Studio의 [볼륨] 탭에서 연결된 볼륨 및 각 서비스에서 사용하는 볼륨을 확인할 수 있습니다.](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
 
@@ -123,7 +123,7 @@ HANA\_Configuration\_Minichecks를 통해 SAP HANA 상태 검사를 수행합니
 
 [SAP 참고 사항 #1969700 - SAP HANA에 대한 SQL 문 컬렉션](https://launchpad.support.sap.com/#/notes/1969700)을 참조하고 참고 사항에 연결된 SQL Statements.zip 파일을 다운로드합니다. 로컬 하드 드라이브에서 이.zip 파일을 저장합니다.
 
-SAP HANA Studio의 **시스템 정보** 탭에서 **이름** 열을 마우스 오른쪽 단추로 클릭 하 고 **SQL 문 가져오기** 를 선택 합니다.
+SAP HANA Studio의 **시스템 정보** 탭에서 **이름** 열을 마우스 오른쪽 단추로 클릭하고 **가져오기 SQL 문** 을 선택합니다.
 
 ![SAP HANA Studio의 [시스템 정보] 탭에서 [이름] 열을 마우스 오른쪽 단추로 클릭하고 [가져오기 SQL 문]을 선택합니다.](./media/troubleshooting-monitoring/image7-import-statements-a.png)
 
@@ -135,7 +135,7 @@ SAP HANA Studio의 **시스템 정보** 탭에서 **이름** 열을 마우스 �
 
 ![입력 매개 변수(수정 섹션)을 변경한 다음 실행할 수 있도록 전체 SQL 문이 열립니다.](./media/troubleshooting-monitoring/image8-import-statements-b.png)
 
-또 다른 예는 **복제: 개요** 아래에서 문을 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴에서 **실행** 을 선택 합니다.
+또 다른 예는 **복제: 개요** 아래에서 문을 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴에서 **실행** 을 선택합니다.
 
 ![또 다른 예는 [복제: 개요] 아래에서 문을 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴에서 [실행]을 선택합니다.](./media/troubleshooting-monitoring/image9-import-statements-c.png)
 

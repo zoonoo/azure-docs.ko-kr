@@ -1,193 +1,193 @@
 ---
-title: ARM 템플릿 faq (질문과 대답)
-description: Azure Resource Manager 템플릿에 대 한 FAQ (질문과 대답) (ARM 템플릿).
+title: ARM 템플릿 자주 묻는 질문(FAQ)
+description: Azure Resource Manager 템플릿(ARM 템플릿)에 대한 자주 묻는 질문(FAQ)
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: tomfitz
 author: tfitzmac
 ms.openlocfilehash: e64253aa79cfaeb2655bb091d038dc7c98b198bd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103419408"
 ---
-# <a name="frequently-asked-questions-about-arm-templates"></a>ARM 템플릿에 대 한 질문과 대답
+# <a name="frequently-asked-questions-about-arm-templates"></a>ARM 템플릿에 대한 자주 묻는 질문(FAQ)
 
-이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)에 대해 자주 묻는 질문에 답변 합니다.
+이 아티클에서는 Azure Resource Manager 템플릿(ARM 템플릿)에 대한 자주 묻는 질문에 답변합니다.
 
 ## <a name="getting-started"></a>시작
 
-* **ARM 템플릿 이란 무엇 이며 사용 해야 하는 이유는 무엇 인가요?**
+* **ARM 템플릿이란 무엇이며 사용해야 하는 이유는 무엇인가요?**
 
-  ARM 템플릿은 Azure에 배포 하려는 항목을 정의 하는 JSON 파일입니다. 템플릿을 통해 Azure에 대 한 코드 인프라 솔루션을 구현할 수 있습니다. 조직은 필요한 인프라를 반복적이 고 안정적으로 다양 한 환경에 배포할 수 있습니다.
+  ARM 템플릿은 Azure에 배포하려는 항목을 정의하는 JSON 파일입니다. 템플릿을 통해 Azure에 대한 코드 인프라 솔루션을 구현할 수 있습니다. 조직은 필요한 인프라를 반복적, 안정적으로 다양한 환경에 배포할 수 있습니다.
 
-  ARM 템플릿을 통해 Azure 인프라를 관리 하는 방법에 대 한 자세한 내용은 [arm 템플릿 이란?](overview.md) 을 참조 하세요.
+  ARM 템플릿을 통해 Azure 인프라를 관리하는 방법에 대한 자세한 내용은 [ARM 템플릿이란?](overview.md)을 참조하세요.
 
-* **템플릿을 시작 어떻게 할까요??**
+* **템플릿은 어떻게 시작하나요?**
 
-  ARM 템플릿 제작을 간소화 하려면 올바른 도구가 필요 합니다. [Visual Studio Code](https://code.visualstudio.com/) 및 [Azure Resource Manager 도구 확장](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)을 설치 하는 것이 좋습니다. 이러한 도구에 대 한 간략 한 소개는 빠른 시작 [: Visual Studio Code를 사용 하 여 ARM 템플릿 만들기](quickstart-create-templates-use-visual-studio-code.md)를 참조 하세요.
+  ARM 템플릿 제작을 간소화하려면 알맞은 도구가 필요합니다. [Visual Studio Code](https://code.visualstudio.com/) 및 [Azure Resource Manager 도구 확장](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)을 설치하는 것이 좋습니다. 관련 도구를 설치해야 하는 경우 [빠른 시작: Visual Studio Code를 사용하여 ARM 템플릿 만들기](quickstart-create-templates-use-visual-studio-code.md)를 참조하세요.
 
-  ARM 템플릿을 만드는 방법에 대 한 자세한 내용은 [arm 템플릿에서 초보자를 위한 자습서 시리즈](template-tutorial-create-first-template.md)를 시작 하세요. 이러한 자습서에서는 ARM 템플릿을 생성 하는 과정을 단계별로 안내 합니다. 템플릿의 다양 한 섹션과이를 함께 사용 하는 방법에 대해 알아봅니다. 이 콘텐츠는 [Microsoft Learn 모듈로](/learn/modules/authoring-arm-templates/)도 제공 됩니다.
+  ARM 템플릿을 만드는 방법에 대한 자세한 내용은 [초보자를 위한 ARM 템플릿 자습서 시리즈](template-tutorial-create-first-template.md)를 시작하세요. 해당 자습서에서는 ARM 템플릿을 생성하는 프로세스를 단계별로 안내합니다. 템플릿의 다양한 섹션과 함께 사용하는 방법에 대해 알아봅니다. 이 콘텐츠는 [Microsoft Learn 모듈](/learn/modules/authoring-arm-templates/)로도 제공됩니다.
 
-* **ARM 템플릿 또는 Terraform을 사용 하 여 Azure에 배포 해야 하나요?**
+* **ARM 템플릿 또는 Terraform을 사용하여 Azure에 배포해야 하나요?**
 
-  가장 적합 한 옵션을 사용 하세요. 두 서비스 모두 Azure에 대 한 배포를 자동화 하는 데 도움이 됩니다.
+  가장 마음에 드는 옵션을 사용하세요. 두 서비스 모두 Azure에 대한 배포 자동화를 지원합니다.
 
-  다른 인프라 코드 서비스에서 ARM 템플릿을 사용할 경우의 이점이 있다고 생각 합니다. 이러한 이점에 대 한 자세한 내용은 [ARM 템플릿 선택 이유](overview.md#why-choose-arm-templates) 를 참조 하세요.
+  그 외 코드로서의 인프라 서비스에서 ARM 템플릿을 사용할 경우에도 혜택이 있다고 생각합니다. 관련 혜택에 대한 자세한 내용은 [왜 ARM 템플릿을 선택해야 하는가?](overview.md#why-choose-arm-templates)를 참조하세요.
 
-## <a name="build-2020"></a>빌드 2020
+## <a name="build-2020"></a>Build 2020
 
-* **Microsoft Build 2020에서 프레젠테이션을 누락 했습니다. 프레젠테이션을 볼 수 있나요?**
+* **Microsoft Build 2020에서의 프레젠테이션을 놓쳤습니다. 프레젠테이션을 볼 수 있나요?**
 
-  예, [언제 든 지 시청](https://mybuild.microsoft.com/sessions/82984db4-37a4-4ed3-bf8b-13298841ed18?source=sessions)하세요.
+  예, [언제든지 시청](https://mybuild.microsoft.com/sessions/82984db4-37a4-4ed3-bf8b-13298841ed18?source=sessions)하세요.
 
-* **빌드 시 발표 한 새로운 기능에 대 한 자세한 정보는 어디서 얻을 수 있나요?**
+* **Build에서 발표한 새로운 기능에 대한 자세한 정보는 어디서 얻을 수 있나요?**
 
-  작업 중인 기능에 대 한 일반적인 내용은 [Azure Advisor 배포 Yammer 그룹](https://aka.ms/ARMMeet)을 참여 하세요.
+  작업 중인 기능에 대한 일반적인 내용을 알아보려면 [Azure Advisors Deployments Yammer 그룹](https://aka.ms/ARMMeet)에 참여하세요.
 
-  새 템플릿 언어에 대해 알아보려면 [알림에 등록](https://aka.ms/armLangUpdates)합니다.
+  새 템플릿 언어에 대해 알아보려면 [알림 설정에 등록](https://aka.ms/armLangUpdates)합니다.
 
-  템플릿 사양에 대 한 자세한 내용은 [Azure Resource Manager 템플릿 사양 (미리 보기)](template-specs.md)을 참조 하세요.
+  템플릿 사양에 대해 알아보려면 [Azure Resource Manager 템플릿 사양(미리 보기)](template-specs.md)을 참조하세요.
 
 ## <a name="creating-and-testing-templates"></a>템플릿 만들기 및 테스트
 
-* **ARM 템플릿에 대 한 모범 사례에 대 한 자세한 내용은 어디서 확인할 수 있나요?**
+* **ARM 템플릿과 관련된 모범 사례에 대한 자세한 내용은 어디서 확인할 수 있나요?**
 
-  템플릿을 구현 하는 방법에 대 한 권장 사항은 [ARM 템플릿 모범 사례](template-best-practices.md)를 참조 하세요. 템플릿을 만든 후 [ARM 테스트 도구 키트](https://github.com/azure/arm-ttk)를 실행 합니다. 템플릿이 권장 사례와 일치 하는지 여부를 확인 합니다.
+  템플릿 구현 방법에 대한 권장 사항은 [ARM 템플릿 모범 사례](template-best-practices.md)를 참조하세요. 템플릿을 만든 후 [ARM 테스트 도구 키트](https://github.com/azure/arm-ttk)를 실행합니다. 템플릿과 권장 사례와의 일치 여부를 확인합니다.
 
-* **포털을 통해 내 환경을 설정 했습니다. 기존 리소스 그룹에서 템플릿을 가져오는 방법이 있나요?**
+* **포털을 통해 내 환경을 설정했습니다. 기존 리소스 그룹에서 템플릿을 가져오는 방법이 있나요?**
 
-  예, 리소스 그룹에서 [템플릿을 내보낼](export-template-portal.md) 수 있습니다. 내보낸 템플릿은 템플릿에 대 한 학습을 위한 좋은 출발점 이지만 프로덕션 환경에서 사용 하기 전에 수정 해야 할 수도 있습니다.
+  예, 리소스 그룹에서 [템플릿 내보내기](export-template-portal.md)를 할 수 있습니다. 템플릿 내보내기는 템플릿 관련 학습을 위한 좋은 출발점이 될 수 있지만, 프로덕션 환경에서 사용하기 전에 수정해야 할 수도 있습니다.
 
   템플릿을 내보낼 때 템플릿에 포함할 리소스를 선택할 수 있습니다.
 
-* **ARM 템플릿에서 리소스 그룹을 만들고 여기에 리소스를 배포할 수 있나요?**
+* **ARM 템플릿에서 리소스 그룹을 만들고 리소스를 배포할 수 있나요?**
 
-  예, Azure 구독 수준에서 템플릿을 배포할 때 템플릿에서 리소스 그룹을 만들 수 있습니다. 리소스 그룹을 만들고 리소스를 배포 하는 방법에 대 한 예제는 [리소스 그룹 및 리소스](deploy-to-subscription.md#resource-groups)를 참조 하세요.
+  예, Azure 구독 수준에서 템플릿을 배포할 때 템플릿에서 리소스 그룹을 만들 수 있습니다. 리소스 그룹을 만들고 리소스를 배포하는 방법에 대한 예제는 [리소스 그룹 및 리소스](deploy-to-subscription.md#resource-groups)를 참조하세요.
 
 * **ARM 템플릿에서 구독을 만들 수 있나요?**
 
-  예, 자세한 내용은 [프로그래밍 방식으로 최신 api를 사용 하 여 Azure 구독 만들기](../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md)를 참조 하세요.
+  예, 자세한 내용은 [최신 API를 사용하여 프로그래밍 방식으로 Azure 구독 만들기](../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md)를 참조하세요.
 
-* **템플릿을 배포 하기 전에 테스트 하려면 어떻게 해야 하나요?**
+* **템플릿을 배포하기 전에 테스트하려면 어떻게 해야 하나요?**
 
-  [ARM 테스트 도구 키트](https://github.com/azure/arm-ttk) 와 템플릿에서 [가상 작업](template-deploy-what-if.md) 을 배포 하기 전에 실행 하는 것이 좋습니다. 테스트 도구 키트는 템플릿이 모범 사례를 사용 하는지 여부를 확인 합니다. 템플릿을 구현 하는 방법을 향상 시킬 수 있는 변경 내용을 식별 하는 경우 경고를 제공 합니다.
+  배포하기 전에 [ARM 테스트 도구 키트](https://github.com/azure/arm-ttk)와 템플릿에서 [가상 작업](template-deploy-what-if.md)을 실행하는 것을 권장합니다. 테스트 도구 키트는 템플릿의 모범 사례 사용 여부를 확인합니다. 템플릿을 구현한 방법을 향상할 수 있는 변경 내용을 식별하게 될 경우, 경고를 제공합니다.
 
-  가상 작업에서는 템플릿이 사용자 환경에 적용 하는 변경 내용을 보여 줍니다. 배포 되기 전에 의도 하지 않은 변경 내용을 볼 수 있습니다. 는 실행 전 유효성 검사 중에 검색할 수 있는 오류도 반환 합니다. 예를 들어 템플릿에 구문 오류가 있는 경우 해당 오류를 반환 합니다. 또한 배포 된 리소스의 최종 상태에 대해 확인할 수 있는 모든 오류를 반환 합니다. 예를 들어 템플릿에서 이미 사용 중인 이름으로 저장소 계정을 배포 하는 경우에는에서 해당 오류를 반환 합니다.
+  가상 작업에서는 템플릿이 사용자 환경에 적용하는 변경 내용을 보여 줍니다. 배포되기 전에 의도하지 않은 변경 내용을 볼 수 있습니다. 가상으로 실행 전 유효성 검사 중에 검색할 수 있는 오류도 반환합니다. 예를 들어 템플릿에 구문 오류가 있을 경우, 해당 오류를 반환합니다. 또한 배포된 리소스의 최종 상태에 대해 확인할 수 있는 모든 오류를 반환합니다. 예를 들어 템플릿에서 이미 사용 중인 이름으로 스토리지 계정을 배포하는 경우, 가상으로 해당 오류를 반환합니다.
 
-* **각 리소스 유형에 사용할 수 있는 속성에 대 한 정보는 어디서 찾을 수 있나요?**
+* **각 리소스 종류에 사용할 수 있는 속성에 대한 정보는 어디서 찾을 수 있나요?**
 
-  VS Code는 리소스 속성을 사용 하기 위한 intellisense를 제공 합니다. 속성 및 설명에 대 한 [템플릿 참조](/azure/templates/) 를 볼 수도 있습니다.
+  VS Code는 리소스 속성을 사용하기 위한 intellisense를 제공합니다. 속성 및 설명에 대한 [템플릿 참조](/azure/templates/)를 볼 수도 있습니다.
 
-* **리소스 유형의 인스턴스를 여러 개 만들어야 합니다. 내 템플릿에서 반복기를 만들 어떻게 할까요? 있나요?**
+* **리소스 종류의 인스턴스를 여러 개 만들어야 합니다. 내 템플릿에서 반복기를 어떻게 만들 수 있나요?**
 
-  Copy 요소를 사용 하 여 둘 이상의 인스턴스를 지정 합니다. [리소스](copy-resources.md), [속성](copy-properties.md), [변수](copy-variables.md)및 [출력](copy-outputs.md)에 대 한 복사를 사용할 수 있습니다.
+  Copy 요소를 사용하여 둘 이상의 인스턴스를 지정합니다. [리소스](copy-resources.md), [속성](copy-properties.md), [변수](copy-variables.md)및 [출력](copy-outputs.md)에 대한 복사를 사용할 수 있습니다.
 
 ## <a name="template-language"></a>템플릿 언어
 
-* **새 템플릿 언어로 작업 하 고 있습니다. 이에 대 한 자세한 내용은 어디서 확인할 수 있나요?**
+* **새 템플릿 언어로 작업하고 있습니다. 이에 관한 자세한 내용은 어디서 확인할 수 있나요?**
 
-  새 언어에 대 한 자세한 내용은 [Bicep (미리 보기) 란?](bicep-overview.md)을 참조 하세요.
+  새 언어에 대한 자세한 내용은 [Bicep(미리 보기)이란?](bicep-overview.md)을 참조하세요.
 
-* **YAML에서 템플릿 만들기를 지원 하기 위한 계획이 있나요?**
+* **YAML에서 템플릿 만들기를 지원하기 위한 계획이 있나요?**
 
-  현재는 YAML을 지원할 계획이 없습니다. 새 템플릿 언어가 YAML 또는 JSON 보다 사용 하기 쉬운 솔루션을 제공 하는 것으로 생각 합니다.
+  현재는 YAML을 지원할 계획이 없습니다. 새 템플릿 언어가 YAML 또는 JSON보다 사용하기 쉬운 솔루션을 제공한다고 생각하고 있습니다.
 
-* **새 템플릿 언어가 출시 된 후에도 여전히 JSON에서 템플릿을 작성할 수 있나요?**
+* **새 템플릿 언어가 출시된 후에도 여전히 JSON에서 템플릿을 작성할 수 있나요?**
 
   예, JSON 템플릿을 계속 사용할 수 있습니다.
 
-* **JSON 템플릿을 새 템플릿 언어로 변환 하는 도구를 제공 하나요?**
+* **JSON 템플릿을 새 템플릿 언어로 변환하는 도구를 제공하나요?**
 
-  예. [JSON과 Bicep 간에 ARM 템플릿 변환](bicep-decompile.md)을 참조 하세요.
+  예. [JSON과 Bicep 간의 ARM 템플릿 변환](bicep-decompile.md)을 참조하세요.
 
 ## <a name="template-specs"></a>템플릿 사양
 
-* **템플릿 사양의 preview 릴리스를 시작 하려면 어떻게 해야 하나요?**
+* **템플릿 사양의 미리 보기 릴리스를 시작하려면 어떻게 해야 하나요?**
 
-  최신 버전의 PowerShell 또는 Azure CLI를 설치 합니다. Azure PowerShell의 경우 [버전 5.0.0 이상](/powershell/azure/install-az-ps)을 사용합니다. Azure CLI의 경우 [버전 2.14.2 이상](/cli/azure/install-azure-cli)을 사용합니다.
+  최신 버전의 PowerShell 또는 Azure CLI를 설치합니다. Azure PowerShell의 경우 [버전 5.0.0 이상](/powershell/azure/install-az-ps)을 사용합니다. Azure CLI의 경우 [버전 2.14.2 이상](/cli/azure/install-azure-cli)을 사용합니다.
 
-* **템플릿 사양 및 Azure 청사진은 어떻게 관련 되나요?**
+* **템플릿 사양 및 Azure Blueprints는 어떤 관련이 있나요?**
 
-  Azure 청사진은 리소스를 리소스로 바꿔 구현에서 템플릿 사양을 사용 `blueprint definition` `template spec` 합니다. 청사진 정의를 템플릿 사양으로 변환 하는 마이그레이션 경로를 제공 하지만 청사진 정의 Api는 계속 지원 됩니다. 리소스에 대 한 변경 내용이 없습니다 `blueprint assignment` . 청사진은 Azure에서 관리 되는 환경을 구성 하기 위한 사용자 환경으로 유지 됩니다.
+  Azure Blueprints는 `blueprint definition` 리소스를 `template spec` 리소스로 바꿔 구현에서 템플릿 사양을 사용합니다. 청사진 정의를 템플릿 사양으로 변환하는 마이그레이션 경로를 제공하지만 청사진 정의 API는 계속 지원됩니다. `blueprint assignment` 리소스에 대한 변경 사항이 없습니다. 청사진은 Azure에서 관리되는 환경을 구성하기 위한 사용자 환경으로 유지됩니다.
 
-* **템플릿 사양이 연결 된 템플릿을 바꾸시겠습니까?**
+* **템플릿 사양이 연결된 템플릿을 바꾸나요?**
 
-  아니요. 하지만 템플릿 사양은 연결 된 템플릿에서 잘 작동 하도록 설계 되었습니다. 부모 템플릿을 배포 하기 전에 연결 된 템플릿을 공개적으로 액세스할 수 있는 끝점으로 이동할 필요가 없습니다. 대신 템플릿 사양을 만들 때 부모 템플릿과 해당 아티팩트를 함께 패키지할 수 있습니다.
+  아니요. 템플릿 사양은 연결된 템플릿에서 잘 작동하도록 설계되었습니다. 부모 템플릿을 배포하기 전에 연결된 템플릿을 공개적으로 액세스 가능한 엔드포인트로 이동할 필요가 없습니다. 대신 템플릿 사양을 만들 때 부모 템플릿과 해당 아티팩트를 함께 패키지할 수 있습니다.
 
-* **구독에서 템플릿 사양을 공유할 수 있나요?**
+* **구독 전반에서 템플릿 사양을 공유할 수 있나요?**
 
-  예, 사용자가 템플릿 사양에 대 한 읽기 권한이 있는 한 구독에서 사용할 수 있습니다. 테 넌 트 간에는 템플릿 사양을 사용할 수 없습니다.
+  예, 사용자가 템플릿 사양에 대한 읽기 권한이 있는 한, 구독 전반에서 사용할 수 있습니다. 템플릿 사양은 테넌트 간 교차 사용할 수 없습니다.
 
 ## <a name="scripts-in-templates"></a>템플릿의 스크립트
 
-* **템플릿에서 불가능 한 작업을 수행 하기 위해 템플릿에 스크립트를 포함할 수 있나요?**
+* **템플릿에서 불가능한 작업을 수행할 수 있도록 템플릿에 스크립트를 포함할 수 있나요?**
 
-  예, [배포 스크립트](deployment-script-template.md)를 사용 합니다. 템플릿에 Azure PowerShell 또는 Azure CLI 스크립트를 포함할 수 있습니다. 이 기능은 미리 보기 상태입니다.
+  예, [배포 스크립트](deployment-script-template.md)를 사용하세요. 템플릿에 Azure PowerShell 또는 Azure CLI 스크립트를 포함할 수 있습니다. 이 기능은 미리 보기 상태입니다.
 
-* **사용자 지정 스크립트 확장 및 DSC (필요한 상태 구성)를 계속 사용할 수 있나요?**
+* **사용자 지정 스크립트 확장 및 DSC(필요한 상태 구성)를 계속 사용할 수 있나요?**
 
-  이러한 옵션은 계속 사용할 수 있으며 변경 되지 않습니다. 배포 스크립트는 VM 게스트와 관련 되지 않은 작업을 수행 하도록 설계 되었습니다. VM의 호스트 운영 체제에서 스크립트를 실행 해야 하는 경우 사용자 지정 스크립트 확장 및/또는 DSC를 선택 하는 것이 더 좋습니다. 그러나 배포 스크립트에는 제한 시간을 설정 하는 것과 같은 장점이 있습니다.
+  관련 옵션은 계속 사용할 수 있으며 변경되지 않습니다. 배포 스크립트는 VM 게스트와 관련되지 않은 작업을 수행하도록 설계되었습니다. VM의 호스트 운영 체제에서 스크립트를 실행해야 하는 경우 사용자 지정 스크립트 확장 및/또는 DSC를 선택하는 것이 더 좋습니다. 그러나 배포 스크립트에는 시간 제한 설정과 같은 장점이 있습니다.
 
-* **Azure Government에서 배포 스크립트가 지원 되나요?**
+* **Azure Government에서 배포 스크립트가 지원되나요?**
 
   예, US Gov 애리조나 및 US Gov 버지니아의 배포 스크립트를 사용할 수 있습니다.
 
 ## <a name="preview-changes-before-deployment"></a>배포 전 변경 내용 미리 보기
 
-* **템플릿을 배포 하기 전에 수행 되는 변경 내용을 미리 볼 수 있나요?**
+* **템플릿을 배포하기 전에 수행되는 변경 내용을 미리 볼 수 있나요?**
 
-  예, 가상의 [기능](template-deploy-what-if.md)을 사용 합니다. 환경의 현재 상태를 평가 하 고 배포 후 존재 하는 상태와 비교 합니다. 요약 된 변경 내용을 검토 하 여 템플릿에 예기치 않은 결과가 포함 되지 않도록 할 수 있습니다.
+  예, [가상 기능](template-deploy-what-if.md)을 사용하세요. 환경의 현재 상태를 평가하고 배포 후 나타나게 될 상태와 비교합니다. 요약된 변경 내용을 검토하여 템플릿에 예기치 않은 결과가 포함되지 않도록 할 수 있습니다.
 
-* **모든 기능을 증분 모드와 전체 모드로 사용할 수 있나요?**
+* **가상을 증분 모드와 전체 모드로 사용할 수 있나요?**
 
-  예, 두 [배포 모드가](deployment-modes.md) 지원 됩니다. 증분 모드 사용에 대 한 예제는 [what-if 작업 실행](template-deploy-what-if.md#run-what-if-operation)을 참조 하세요. 전체 모드를 사용 하는 예제는 [삭제 확인](template-deploy-what-if.md#confirm-deletion)을 참조 하세요.
+  예, [배포 모드](deployment-modes.md) 전부 지원됩니다. 증분 모드 사용에 대한 예제는 [가상 작업 실행](template-deploy-what-if.md#run-what-if-operation)을 참조하세요. 전체 모드를 사용하는 예제는 [삭제 확인](template-deploy-what-if.md#confirm-deletion)을 참조하세요.
 
-* **연결 된 템플릿에 대 한 작업을 수행 하나요?**
+* **가상으로 연결된 템플릿도 작업할 수 있나요?**
 
-  예, 가상에서 부모 템플릿 및 연결 된 템플릿의 상태를 평가 합니다.
+  예, 가상에서 부모 템플릿 및 연결된 템플릿 상태를 평가합니다.
 
-* **Azure 파이프라인에서 무엇을 사용할 수 있나요?**
+* **Azure Pipeline에서 가상을 사용할 수 있나요?**
 
-  예, 가상의 경우 파이프라인을 계속 해야 하는지 확인 하는 데 사용할 수 있습니다.
+  예, 파이프라인을 지속해야 하는지 확인하는 데 가상을 사용할 수 있습니다.
 
-* **-If를 사용 하는 경우 내 템플릿에 없는 속성의 변경 내용이 표시 됩니다. 이 "노이즈"가 필요 한가요?**
+* **가상을 사용하는 경우 내 템플릿에 없는 속성의 변경 내용이 표시됩니다. 이 "노이즈"가 필요한가요?**
 
-  노이즈를 줄이기 위해 노력 하 고 있습니다. GitHub 리포지토리에서 문제를 제출 하 여 개선 하는 데 도움을 주세요. https://aka.ms/WhatIfIssues
+  노이즈를 줄이기 위해 노력하고 있습니다. 여기 GitHub 리포지토리에서 문제를 제출해 개선에 도움을 주실 수 있습니다. https://aka.ms/WhatIfIssues
 
 ## <a name="template-visualizer"></a>템플릿 시각화 도우미
 
-* **내 ARM 템플릿 및 해당 리소스를 시각화 하는 방법이 있나요?**
+* **내 ARM 템플릿 및 해당 리소스를 시각화할 수 있는 방법이 있나요?**
 
-  ARM 템플릿을 시각화 하는 뛰어난 작업을 수행 하는 [커뮤니티 제공 VS Code 확장이](https://aka.ms/ARMVisualizer) 있습니다. 배포 하는 리소스와 둘 간의 관계를 보여 줍니다.
+  ARM 템플릿의 시각화 작업을 탁월하게 수행하는 [커뮤니티 제공 VS Code 확장](https://aka.ms/ARMVisualizer)이 있습니다. 배포하는 리소스와 해당 리소스 간의 관계를 보여 줍니다.
 
 * **VS Code 외부에서 템플릿 시각화 도우미를 사용할 수 있나요?**
 
-  포털에서 템플릿 시각화를 미리 보는 중인 경우 자세한 내용은 [빌드에서이 짧은 세션](https://mybuild.microsoft.com/sessions/0525094b-1fd2-4f69-bfd6-6d2fff6ffe5f?source=sessions)을 시청 하세요.
+  포털에서 템플릿 시각화 도우미의 미리 보기가 진행될 경우 자세한 내용은 [빌드의 짧은 세션](https://mybuild.microsoft.com/sessions/0525094b-1fd2-4f69-bfd6-6d2fff6ffe5f?source=sessions)을 시청하세요.
 
 ## <a name="deployment-limits"></a>배포 제한
 
-* **단일 배포 작업에서에 배포할 수 있는 리소스 그룹은 몇 개입니까?**
+* **단일 배포 작업에서 최대한 배포할 수 있는 리소스 그룹은 몇 개인가요?**
 
-  이전에는이 한도는 5 개의 리소스 그룹 이었습니다. 최근 800 리소스 그룹으로 늘어났습니다. 자세한 내용은 [구독 수준에서 리소스 그룹 및 리소스 만들기](deploy-to-subscription.md)를 참조 하세요.
+  이전 한도는 리소스 그룹 5개였습니다. 최근 리소스 그룹 800개로 늘어났습니다. 더 자세한 내용은 [구독 수준에서 리소스 그룹 및 리소스 만들기](deploy-to-subscription.md)를 참조하세요.
 
-* **배포 기록에서 800 배포로 제한 되는 것에 대 한 오류가 발생 했습니다. 제가 뭘 해야 하나요?**
+* **배포 기록에서 800 배포 제한에 관한 오류가 발생했습니다. 어떻게 해야 하나요?**
 
-  리소스 그룹에 대 한 배포 기록이 유지 되는 방식을 변경 하는 중입니다. 이전에이 오류를 방지 하려면이 기록에서 배포를 수동으로 삭제 해야 했습니다. 6 월 2020부터 제한에 도달 하면 자동으로 기록에서 배포를 삭제 합니다. 자세한 내용은 [배포 기록에서 자동 삭제](deployment-history-deletions.md)를 참조하세요.
+  리소스 그룹에 대한 배포 기록 유지 방식을 변경하는 중입니다. 이전에 해당 오류를 방지하려면 이 기록에서 배포를 수동으로 삭제해야 했습니다. 2020년 6월부터 제한에 도달하면 자동으로 기록에서 배포를 삭제하게 됩니다. 자세한 내용은 [배포 기록에서 자동 삭제](deployment-history-deletions.md)를 참조하세요.
 
-  기록에서 배포를 삭제 해도 배포 된 리소스에는 영향을 주지 않습니다.
+  배포 기록에서 항목을 삭제해도 배포된 리소스에는 영향을 주지 않습니다.
 
 ## <a name="templates-and-devops"></a>템플릿 및 DevOps
 
 * **ARM 템플릿을 Azure Pipelines에 통합할 수 있나요?**
 
-  예. 템플릿 및 파이프라인을 사용 하는 방법에 대 한 설명은 [자습서: arm 템플릿의 연속 통합 Azure Pipelines](deployment-tutorial-pipeline.md) 및 [arm 템플릿을 Azure Pipelines와 통합](add-template-to-azure-pipelines.md)을 참조 하세요.
+  예. 템플릿 및 Pipelines를 사용하는 방법에 대한 설명은 [자습서: ARM 템플릿과 Azure Pipelines의 연속 통합](deployment-tutorial-pipeline.md) 및 [ARM 템플릿과 Azure Pipelines와의 통합](add-template-to-azure-pipelines.md)을 참조하세요.
 
-* **GitHub 작업을 사용 하 여 템플릿을 배포할 수 있나요?**
+* **GitHub Actions를 사용하여 템플릿을 배포할 수 있나요?**
 
-  예, [GitHub 작업을 사용 하 여 ARM 템플릿 배포](deploy-github-actions.md)를 참조 하세요.
+  예, [GitHub Actions 를 사용하여 ARM 템플릿 배포하기](deploy-github-actions.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-ARM 템플릿에 대 한 소개는 [arm 템플릿 이란?](overview.md)을 참조 하세요.
+ARM 템플릿에 대한 소개는 [ARM 템플릿이란?](overview.md)을 참조하세요.

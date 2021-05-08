@@ -1,5 +1,5 @@
 ---
-title: 'ML Studio (클래식): Azure AI Gallery 데이터 관리-Azure'
+title: 'ML 스튜디오(클래식): Azure AI Gallery 데이터 관리 - Azure'
 description: 인터페이스 또는 AI Gallery 카탈로그 API를 사용하여 Azure AI Gallery에서 제품 내 사용자 데이터를 내보내고 삭제할 수 있습니다. 이 문서에서 그 방법을 보여줍니다.
 services: machine-learning
 ms.service: machine-learning
@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: mldocs
 ms.openlocfilehash: 3461b8026079d089bacca9f12aa94e13f5cb2874
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100519238"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Azure AI Gallery에서 제품 내 사용자 데이터 보기 및 삭제
@@ -46,10 +46,10 @@ https://catalog.cortanaanalytics.com/entities에서 액세스할 수 있는 AI G
 
 1. [Azure AI Gallery](https://gallery.azure.ai/)에 로그인합니다.
 2. 오른쪽 위 모서리에서 프로필 사진을 클릭한 다음, 계정 이름을 클릭하여 프로필 페이지를 로드합니다.
-3. 주소 표시줄의 URL은 `authorId=` 뒤에 나오는 영숫자 ID를 표시합니다. 예를 들어 URL의 경우: \
+3. 주소 표시줄의 URL은 `authorId=` 뒤에 나오는 영숫자 ID를 표시합니다. 예를 들어 다음과 같습니다. URL:\
     `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
 
-    작성자 ID: \
+    작성자 ID:\
     `99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
 
 ### <a name="get-your-access-token"></a>액세스 토큰 가져오기
@@ -62,7 +62,7 @@ https://catalog.cortanaanalytics.com/entities에서 액세스할 수 있는 AI G
 2.    오른쪽 위 모서리에서 프로필 사진을 클릭한 다음, 계정 이름을 클릭하여 프로필 페이지를 로드합니다.
 3.    F12 키를 눌러 브라우저 [개발자 도구] 창을 열고, [네트워크] 탭을 선택한 다음, 페이지를 새로 고칩니다. 
 4. 필터 텍스트 상자에서 *catalog* 문자열을 입력하여 해당 문자열에 대한 요청을 필터링합니다.
-5.    URL에 대 한 요청에서 `https://catalog.cortanaanalytics.com/entities` GET 요청을 찾고 *헤더* 탭을 선택 합니다. *요청 헤더* 섹션까지 아래로 스크롤합니다.
+5.    URL `https://catalog.cortanaanalytics.com/entities` 요청에서 GET 요청을 찾고 *헤더* 탭을 선택합니다. *요청 헤더* 섹션까지 아래로 스크롤합니다.
 6.    `DataLabAccessToken` 헤더 아래에 영숫자 토큰이 있습니다. 데이터 보안을 유지하려면 이 토큰을 공유하지 마세요.
 
 ### <a name="view-user-information"></a>사용자 정보 보기

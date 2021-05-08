@@ -3,12 +3,12 @@ title: 기능 개요 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs의 기능 및 용어에 대한 정보를 제공합니다.
 ms.topic: article
 ms.date: 03/15/2021
-ms.openlocfilehash: 4fdcee27cd414069572e996f31de37d1ae641d13
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: da59d62cb7060389ea94b3af5e6f66a4b6347d7d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988445"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104602624"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Azure Event Hubs의 기능 및 용어
 
@@ -149,7 +149,7 @@ Azure SDK에서 제공하는 일부 클라이언트는 각 파티션에 단일 �
 파티션에 연결할 때 일반적으로 임대 메커니즘을 사용하여 판독기 연결을 특정 파티션으로 조정합니다. 이러한 방식으로, 소비자 그룹의 모든 파티션에 활성 판독기가 하나만 있을 수 있습니다. 인텔리전트 소비자 에이전트 역할을 하는 Event Hubs SDK 내에서 클라이언트를 사용하여 판독기의 검사점 설정, 임대 및 관리를 간소화합니다. 이러한 항목은 다음과 같습니다.
 
 - .NET용 [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient)
-- Java용 [EventProcessorClient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/main/java/com/azure/messaging/eventhubs/EventProcessorClient.java)
+- Java용 [EventProcessorClient](/java/api/com.azure.messaging.eventhubs.eventprocessorclient)
 - Python용 [EventHubConsumerClient](/python/api/azure-eventhub/azure.eventhub.aio.eventhubconsumerclient)
 - JavaScript/TypeScript용 [EventHubConsumerClient](/javascript/api/@azure/event-hubs/eventhubconsumerclient)
 
@@ -177,5 +177,5 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 방문하세요.
     - [JavaScript](event-hubs-node-get-started-send.md)
 * [Event Hubs 프로그래밍 가이드](event-hubs-programming-guide.md)
 * [Event Hubs의 가용성 및 일관성](event-hubs-availability-and-consistency.md)
-* [Event Hubs FAQ](event-hubs-faq.yml)
+* [Event Hubs FAQ](event-hubs-faq.md)
 * [Event Hubs 샘플](event-hubs-samples.md)

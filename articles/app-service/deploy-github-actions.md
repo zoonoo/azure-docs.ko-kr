@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 1ed2b007ae00516a030e67b7f6abacbd00a8d403
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c17b18f42a5b07252874aef812a50746e069c1a9
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772886"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209736"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>GitHub Actions를 사용하여 App Service에 배포
 
@@ -24,7 +24,7 @@ ms.locfileid: "107772886"
 - GitHub 계정. 없는 경우 [평가판](https://github.com/join)에 등록하세요.  
 - 작동하는 Azure App Service 앱입니다. 
     - .NET: [Azure에서 ASP.NET Core 웹앱 만들기](quickstart-dotnetcore.md)
-    - ASP.NET: [Azure에서 ASP.NET Framework 웹앱 만들기](quickstart-dotnet-framework.md)
+    - ASP.NET: [Azure에서 ASP.NET Framework 웹앱 만들기](./quickstart-dotnetcore.md?tabs=netframework48)
     - JavaScript: [Azure App Service에서 Node.js 웹앱 만들기](quickstart-nodejs.md)  
     - Java: [Azure App Service에서 Java 앱 만들기](quickstart-java.md)
     - Python: [Azure App Service에서 Python 앱 만들기](quickstart-python.md)
@@ -235,7 +235,7 @@ NuGet 종속성을 복원하고 `run`을 사용하여 msbuild를 실행할 수 �
   run: nuget restore
 
 - name: Add msbuild to PATH
-  uses: microsoft/setup-msbuild@v1.0.0
+  uses: microsoft/setup-msbuild@v1.0.2
 
 - name: Run msbuild
   run: msbuild .\SampleWebApplication.sln
@@ -359,7 +359,7 @@ jobs:
       run: nuget restore
   
     - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.0
+      uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Run MSBuild
       run: msbuild .\SampleWebApplication.sln
@@ -581,7 +581,7 @@ jobs:
       run: nuget restore
   
     - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.0
+      uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Run MSBuild
       run: msbuild .\SampleWebApplication.sln

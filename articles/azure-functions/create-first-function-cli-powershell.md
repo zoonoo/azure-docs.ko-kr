@@ -6,12 +6,13 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-powershell
 - devx-track-azurecli
-ms.openlocfilehash: abbe3b9ed4d9a8c9bf30c6be3e6980228d319090
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+- devx-track-azurepowershell
+ms.openlocfilehash: 441cc17099379366755a6c1e41c7f544215dc19d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97937232"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107866182"
 ---
 # <a name="quickstart-create-a-powershell-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 PowerShell 함수 만들기
 
@@ -37,7 +38,7 @@ ms.locfileid: "97937232"
 
     + [Azure CLI](/cli/azure/install-azure-cli) 버전 2.4 이상.
 
-+ [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
++ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
 
 ### <a name="prerequisite-check"></a>필수 구성 요소 확인
 

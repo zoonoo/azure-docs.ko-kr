@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.author: alsin
-ms.openlocfilehash: b79e061ae00c42ed2ec2ac39f5653a868f09a15f
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 02c122486ad9ca702e518445761fef05675c9067
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107368528"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209700"
 ---
 # <a name="automanage-accounts"></a>Automanage 계정
 
@@ -46,7 +46,7 @@ ARM 템플릿을 사용하여 Automanage 계정을 만들려면 다음 두 단�
 1. Automanage 계정 만들기
 1. 계정에 작업을 수행할 수 있는 충분한 권한 부여
     1. 이 단계에 대해 만든 계정의 개체 ID가 필요합니다.
-        1. 계정 서비스 주체(개체 ID 포함)의 세부 정보를 찾는 단계는 [여기](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-view-managed-identity-service-principal-portal#view-the-service-principal)에서 확인할 수 있습니다.
+        1. 계정 서비스 주체(개체 ID 포함)의 세부 정보를 찾는 단계는 [여기](../active-directory/managed-identities-azure-resources/how-to-view-managed-identity-service-principal-portal.md#view-the-service-principal)에서 확인할 수 있습니다.
     1. 서비스 주체를 찾았으면 **개체 ID** 를 복사합니다. 아래에서 권한을 위임하는 데 필요하므로 저장해 둡니다.
 
 #### <a name="1-create-automanage-account-does-not-grant-permissions-to-it"></a>1. Automanage 계정을 만듭니다(이 계정에는 권한을 부여하지 않음).

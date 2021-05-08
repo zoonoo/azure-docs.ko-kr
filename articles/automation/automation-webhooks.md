@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 03/18/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 338fb56c4af5c24b7b746ffd6508c2fe7d52b131
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: cd3d903aead4877fac9e5472f1ac9d579da979d2
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830199"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209574"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>웹후크에서 Runbook 시작
 
@@ -138,7 +138,7 @@ http://<Webhook Server>/token?=<Token Value>
 
 ### <a name="use-a-webhook-from-an-arm-template"></a>ARM 템플릿에서 웹후크 사용
 
-[ARM(Azure Resource Manager) 템플릿에서](/azure/azure-resource-manager/templates/overview) 자동화 웹후크를 호출할 수도 있습니다. ARM 템플릿은 `POST` 요청을 발행하고 다른 클라이언트와 마찬가지로 반환 코드를 받습니다. [웹후크 사용](#use-a-webhook)을 참조하세요.
+[ARM(Azure Resource Manager) 템플릿에서](../azure-resource-manager/templates/overview.md) 자동화 웹후크를 호출할 수도 있습니다. ARM 템플릿은 `POST` 요청을 발행하고 다른 클라이언트와 마찬가지로 반환 코드를 받습니다. [웹후크 사용](#use-a-webhook)을 참조하세요.
 
    > [!NOTE]
    > 보안상의 이유로 URI는 처음 템플릿이 배포될 때만 반환됩니다.

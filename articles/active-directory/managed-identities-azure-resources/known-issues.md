@@ -18,10 +18,10 @@ ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 3f1be2e64435cb0bcdb369a398a9a65fc3714fb2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100008539"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID 관련 FAQ 및 알려진 문제
@@ -33,36 +33,36 @@ ms.locfileid: "100008539"
 > [!NOTE]
 > Azure 리소스에 대한 관리 ID는 이전에 MSI(관리 서비스 ID)로 알려진 서비스에 대한 새 이름입니다.
 
-### <a name="how-can-you-find-resources-that-have-a-managed-identity"></a>관리 되는 id가 있는 리소스는 어떻게 찾을 수 있나요?
+### <a name="how-can-you-find-resources-that-have-a-managed-identity"></a>관리 ID가 있는 리소스는 어떻게 찾을 수 있나요?
 
-다음 Azure CLI 명령을 사용 하 여 시스템 할당 관리 id가 있는 리소스 목록을 찾을 수 있습니다. 
+다음 Azure CLI 명령을 사용하여 시스템 할당 관리 ID가 있는 리소스 목록을 찾을 수 있습니다. 
 
 ```azurecli-interactive
 az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table
 ```
 
-### <a name="do-managed-identities-have-a-backing-app-object"></a>관리 id에 지원 앱 개체가 있나요?
+### <a name="do-managed-identities-have-a-backing-app-object"></a>관리 ID에 지원 앱 개체가 있나요?
 
-아니요. 관리 되는 id와 Azure AD 앱 등록은 디렉터리에서 동일 하지 않습니다. 
+아니요. 디렉터리 상 관리 ID와 Azure AD App Registrations는 동일하지 않습니다. 
 
-응용 프로그램 개체와 서비스 주체 개체 라는 두 가지 구성 요소가 앱 등록. Azure 리소스에 대 한 관리 되는 Id에는 서비스 주체 개체와 같은 구성 요소 중 하나만 있습니다. 
+앱 등록은 애플리케이션 개체와 서비스 주체의 두 가지 구성 요소로 이루어집니다. Azure 리소스용 관리 ID의 구성 요소는 Service Principal Object뿐입니다. 
 
-관리 id에는 디렉터리에 응용 프로그램 개체가 없으므로 MS graph에 대해 앱 사용 권한을 부여 하는 데 일반적으로 사용 됩니다. 대신 관리 되는 id에 대 한 MS graph 권한은 서비스 사용자에 게 직접 부여 해야 합니다.  
+관리 ID는 디렉터리에 일반적으로 MS 그래프의 앱 사용 권한 부여에 사용되는 애플리케이션 개체를 가지고 있지 않습니다. 대신 관리 ID의 MS 그래프 권한을 직접 서비스 주체에게 부여해야 합니다.  
 
-### <a name="can-the-same-managed-identity-be-used-across-multiple-regions"></a>동일한 관리 id를 여러 지역에서 사용할 수 있나요?
+### <a name="can-the-same-managed-identity-be-used-across-multiple-regions"></a>동일한 관리 ID를 여러 하위 지역에서 사용할 수 있나요?
 
-즉, 예를 들어 둘 이상의 Azure 지역에서 사용자 할당 관리 id를 사용할 수 있습니다. 더 긴 대답은 사용자 할당 관리 id가 지역 리소스로 생성 되는 반면, Azure AD에서 만든 연결 된 SPN ( [서비스 주체](../develop/app-objects-and-service-principals.md#service-principal-object) )은 전 세계에서 사용할 수 있다는 것입니다. 모든 Azure 지역에서 서비스 주체를 사용할 수 있으며 해당 가용성은 Azure AD의 가용성에 따라 달라 집니다. 예를 들어 South-Central 지역에서 사용자 할당 관리 id를 만들었으며 해당 지역을 사용할 수 없게 되는 경우이 문제는 관리 되는 id 자체의 [제어 평면](../../azure-resource-manager/management/control-plane-and-data-plane.md) 작업에만 영향을 줍니다.  관리 되는 id를 사용 하도록 이미 구성 된 리소스에서 수행 하는 작업은 영향을 받지 않습니다.
+간단히 말하자면 그렇습니다. 둘 이상의 Azure 지역에서 사용자 할당 관리 ID를 사용할 수 있습니다. 자세히 말하면, 사용자 할당 관리 ID는 하위 지역 리소스로 만들지만 Azure AD에서 만든 연결된 [서비스 주체](../develop/app-objects-and-service-principals.md#service-principal-object)(SPN)는 전 세계에서 사용 가능합니다. 모든 Azure지역에서 서비스 주체를 쓸 수 있으며 서비스 주체의 가용성은 Azure AD의 가용성에 기인합니다. 예를 들어, 중남부 지역에서 사용자 할당 관리 ID를 만들었는데 해당 하위 지역을 사용할 수 없게 되면, 관련 문제는 관리 ID 자체의 [컨트롤 플레인](../../azure-resource-manager/management/control-plane-and-data-plane.md) 작업에만 영향을 줍니다.  관리 ID를 사용하도록 이미 구성된 리소스에서 수행하는 작업은 영향을 받지 않습니다.
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>Azure 리소스에 대한 관리 ID가 Azure Cloud Services에서 작동하나요?
 
 아니요. Azure 리소스에 대한 관리 ID는 Azure Cloud Services에서 지원될 예정이 없습니다.
 
-### <a name="what-is-the-credential-associated-with-a-managed-identity-how-long-is-it-valid-and-how-often-is-it-rotated"></a>관리 id와 연결 된 자격 증명은 무엇 인가요? 유효 기간은 얼마나 걸립니까? 얼마나 자주 회전 하나요?
+### <a name="what-is-the-credential-associated-with-a-managed-identity-how-long-is-it-valid-and-how-often-is-it-rotated"></a>관리 ID와 연결된 자격 증명은 무엇인가요? 유효 기간은 얼마나 되며 얼마나 자주 회전하나요?
 
 > [!NOTE]
-> 관리 id를 인증 하는 방법은 예 고 없이 변경 될 수 있는 내부 구현 세부 정보입니다.
+> 관리 ID 인증 방법은 예고 없이 변경될 수 있는 내부 구현 세부 정보입니다.
 
-관리 되는 id는 인증서 기반 인증을 사용 합니다. 관리 되는 각 id의 자격 증명은 90 일의 만료 이며 45 일 후에 롤업 됩니다.
+관리 ID는 인증서 기반 인증을 사용합니다. 각 관리 ID 자격 증명은 90일 후에 만료되며 45일 후에 롤업됩니다.
 
 ### <a name="what-is-the-security-boundary-of-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID의 보안 경계란 무엇인가요?
 
@@ -76,9 +76,9 @@ ID의 보안 경계는 연결되는 리소스입니다. 예를 들어, Azure 리
 
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>구독을 다른 디렉터리로 이동하면 관리 ID가 자동으로 다시 생성되나요?
 
-아니요. 구독을 다른 디렉터리로 이동 하는 경우 수동으로 다시 만들고 Azure 역할 할당을 다시 부여 해야 합니다.
+아니요. 구독을 다른 디렉터리로 이동하면 관리 ID를 수동으로 다시 만들고 다시 Azure 역할 할당을 해야 합니다.
 - 시스템에서 할당된 관리 ID: 비활성화하거나 재활성화합니다. 
-- 사용자 할당 관리 id의 경우: 삭제 하 고 다시 만든 다음 필요한 리소스 (예: 가상 머신)에 다시 연결 합니다.
+- 사용자 할당 관리 ID: 삭제한 후 다시 만들어서 필요한 리소스(예: 가상 머신)에 다시 연결합니다.
 
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>관리 ID를 사용하여 다른 디렉터리/테넌트의 리소스에 액세스할 수 있나요?
 
@@ -89,14 +89,14 @@ ID의 보안 경계는 연결되는 리소스입니다. 예를 들어, Azure 리
 - 시스템이 할당한 관리형 ID: 리소스에 대한 쓰기 권한이 필요합니다. 예를 들어 가상 머신의 경우 Microsoft.Compute/virtualMachines/write가 필요합니다. 이 작업은 [Virtual Machine 기여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)와 같은 리소스별 기본 제공 역할에 포함됩니다.
 - 사용자가 할당한 관리형 ID: 리소스에 대한 쓰기 권한이 필요합니다. 예를 들어 가상 머신의 경우 Microsoft.Compute/virtualMachines/write가 필요합니다. 관리 ID에 대한 [관리 ID 운영자](../../role-based-access-control/built-in-roles.md#managed-identity-operator) 역할 할당도 필요합니다.
 
-### <a name="how-do-i-prevent-the-creation-of-user-assigned-managed-identities"></a>사용자 할당 관리 id 생성을 방지 하는 어떻게 할까요?
+### <a name="how-do-i-prevent-the-creation-of-user-assigned-managed-identities"></a>사용자 할당 관리 ID를 만들지 못하게 하려면 어떻게 해야 하나요?
 
-사용자가 [Azure Policy](../../governance/policy/overview.md) 를 사용 하 여 사용자 할당 관리 id를 만들지 못하게 할 수 있습니다.
+[Azure Policy](../../governance/policy/overview.md)를 사용하여 사용자들이 사용자 할당 관리 ID를 만들지 못하게 할 수 있습니다.
 
-- [Azure Portal](https://portal.azure.com) 로 이동 하 고 **정책** 으로 이동 합니다.
-- **정의** 선택
-- **+ 정책 정의** 를 선택 하 고 필요한 정보를 입력 합니다.
-- 정책 규칙 섹션에서 붙여넣기
+- [Azure Portal](https://portal.azure.com)로 탐색하여 **정책** 으로 이동합니다.
+- **정의** 를 선택합니다.
+- **+ 정책 정의** 를 선택하고 필요한 정보를 입력합니다.
+- 정책 규칙 섹션에 붙여넣습니다.
 
 ```json
 {
@@ -115,18 +115,18 @@ ID의 보안 경계는 연결되는 리소스입니다. 예를 들어, Azure 리
 
 ```
 
-정책을 만든 후 사용 하려는 리소스 그룹에 할당 합니다.
+정책을 만든 후 사용하려는 리소스 그룹에 할당합니다.
 
-- 리소스 그룹으로 이동 합니다.
-- 테스트에 사용 하는 리소스 그룹을 찾습니다.
-- 왼쪽 메뉴에서 **정책** 을 선택 합니다.
-- **정책 할당** 선택
-- **기본 사항** 섹션에서 다음을 제공 합니다.
-    - **범위** 테스트에 사용 하는 리소스 그룹
+- 리소스 그룹으로 이동합니다.
+- 테스트에 사용할 리소스 그룹을 찾습니다.
+- 왼쪽 메뉴의 **정책** 을 선택합니다.
+- **정책 할당** 을 선택합니다.
+- **기본** 섹션에서 다음을 제공합니다.
+    - **범위** 테스트에 사용할 리소스 그룹
     - **정책 정의**: 이전에 만든 정책입니다.
-- 다른 모든 설정은 기본값으로 유지 하 고 **검토 + 만들기** 를 선택 합니다.
+- 다른 모든 설정은 기본값으로 유지하고 **검토 + 만들기** 를 선택합니다.
 
-이 시점에서 리소스 그룹에 사용자 할당 관리 id를 만들려고 하면 실패 합니다.
+이 시점에서는 리소스 그룹에 사용자 할당 관리 ID를 만들 수 없습니다.
 
   ![정책 위반](./media/known-issues/policy-violation.png)
 
@@ -171,7 +171,7 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 다른 디렉터리로 이동한 구독의 관리 ID에 대한 해결 방법:
 
  - 시스템에서 할당된 관리 ID: 비활성화하거나 재활성화합니다. 
- - 사용자 할당 관리 id의 경우: 삭제 하 고 다시 만든 다음 필요한 리소스 (예: 가상 머신)에 다시 연결 합니다.
+ - 사용자 할당 관리 ID: 삭제한 후 다시 만들어서 필요한 리소스(예: 가상 머신)에 다시 연결합니다.
 
 자세한 내용은 [다른 Azure AD 디렉터리로 Azure 구독 양도](../../role-based-access-control/transfer-subscription.md)를 참조하세요.
 

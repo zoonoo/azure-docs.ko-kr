@@ -1,6 +1,6 @@
 ---
 title: Azure CDN 엔드포인트에 자산 미리 로드 | Microsoft Docs
-description: Azure Content Delivery Network 끝점에서 캐시 된 콘텐츠를 미리 로드 하는 방법을 알아봅니다. 이 기능은 제품의 특정 버전에서 사용할 수 있습니다.
+description: Azure Content Delivery Network 엔드포인트에서 캐시된 콘텐츠를 미리 로드하는 방법 알아보기. 이 기능은 특정 버전 제품에서만 사용할 수 있습니다.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 02/12/2018
 ms.author: allensu
 ms.openlocfilehash: 186ded90b504420a2f315d054551d97821cf8465
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100385050"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Azure CDN 엔드포인트에 자산 미리 로드
@@ -67,6 +67,6 @@ ms.locfileid: "100385050"
 > 
 
 ## <a name="see-also"></a>참고 항목
-* [Azure CDN 끝점을 제거 합니다.](cdn-purge-endpoint.md)
+* [Azure CDN 엔드포인트 제거](cdn-purge-endpoint.md)
 * [Azure CDN REST API 참조: 엔드포인트에서 콘텐츠 미리 로드](/rest/api/cdn/cdn/endpoints/loadcontent)
 * [Azure CDN REST API 참조: 엔드포인트에서 콘텐츠 제거](/rest/api/cdn/cdn/endpoints/purgecontent)
