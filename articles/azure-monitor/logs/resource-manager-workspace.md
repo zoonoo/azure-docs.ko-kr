@@ -5,12 +5,13 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: 5c1ef7d8de32564e2b1d3b1578fcd72cefde0327
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c050ae9eb67276ff873864b6ab49ed50afad210f
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102047148"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319416"
 ---
 # <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>Azure Monitor의 Log Analytics 작업 영역에 대한 Resource Manager 템플릿 샘플
 이 문서에는 Azure Monitor에서 Log Analytics 작업 영역을 만들고 구성하기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
@@ -681,7 +682,7 @@ ms.locfileid: "102047148"
                         ]
                     }
                     },
-                    "extractionType": "DateTime"
+                    "extractionType&quot;: &quot;DateTime"
                 }
                 ]
             }

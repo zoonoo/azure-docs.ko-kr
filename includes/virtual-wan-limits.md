@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/26/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 85c66aa6a8f0cb0efa231acee44f8fa02169d27b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b19bf7faa454c812a5a83bc5a4d5349d32632094
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88602525"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108213070"
 ---
 | 리소스 |  제한 |
 | --- | --- |
@@ -25,7 +25,7 @@ ms.locfileid: "88602525"
 | 허브당 지점 및 사이트 간 사용자| 10000 |
 | Virtual WAN 사용자 VPN(지점 및 사이트 간) 게이트웨이별 총 처리량 | 20Gbps |
 | Virtual WAN ExpressRoute 게이트웨이별 총 처리량 | 20Gbps |
-| 허브당 ExpressRoute 회로 연결 | 4 |
+| 허브당 ExpressRoute 회로 연결 | 8 |
 | 허브당 VNet 연결  | 500 - Virtual WAN의 총 허브 수 |
 | Virtual WAN Hub Router별 총 처리량 | VNet 간 전송용 50Gbps |
 | 단일 Virtual WAN 허브에 연결된 모든 VNet의 VM 워크로드 | 2000 

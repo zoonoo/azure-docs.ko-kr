@@ -9,12 +9,12 @@ ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: eb5cbc2f2db0ba9f92a637c7e9a905d2f746880a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 66e1e561c14b169d41028e151ac054888830b881
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200831"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481976"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>대칭 키 증명을 사용하여 IoT Edge 디바이스 만들기 및 프로비저닝
 
@@ -30,7 +30,7 @@ Edge를 사용하지 않는 디바이스와 마찬가지로 [Device Provisioning
 
 대칭 키 증명은 Device Provisioning Service 인스턴스로 디바이스를 인증하는 간단한 방법입니다. 이 증명 방법은 디바이스 프로비저닝을 처음 사용하는 개발자나 엄격한 보안 요구 사항이 없는 개발자를 위한 "Hello World" 환경을 나타냅니다. [TPM](../iot-dps/concepts-tpm-attestation.md) 또는 [X.509 인증서](../iot-dps/concepts-x509-attestation.md)를 사용하는 디바이스 증명은 더욱 안전하며, 보다 엄격한 보안 요구 사항에 사용해야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 활성 IoT Hub
 * 실제 또는 가상 디바이스
@@ -75,7 +75,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태** 를 선언할 
    1. 등록이 IoT Edge 디바이스에 대한 것이라고 선언하려면 **True** 를 선택합니다. 그룹 등록의 경우 모든 디바이스가 IoT Edge 디바이스여야 하며, 그렇지 않은 경우 어떤 디바이스도 등록할 수 없습니다.
 
       > [!TIP]
-      > Azure CLI에서 [등록](/cli/azure/ext/azure-iot/iot/dps/enrollment) 또는 [등록 그룹](/cli/azure/ext/azure-iot/iot/dps/enrollment-group)을 만들고, **edge-enabled** 플래그를 사용하여 디바이스 또는 디바이스 그룹이 IoT Edge 디바이스임을 지정할 수 있습니다.
+      > Azure CLI에서 [등록](/cli/azure/iot/dps/enrollment) 또는 [등록 그룹](/cli/azure/iot/dps/enrollment-group)을 만들고, **edge-enabled** 플래그를 사용하여 디바이스 또는 디바이스 그룹이 IoT Edge 디바이스임을 지정할 수 있습니다.
 
    1. Device Provisioning Service의 할당 정책에서 **허브에 디바이스를 할당하는 방법** 의 기본값을 사용하거나 이 등록과 관련된 다른 값을 선택합니다.
 
@@ -203,7 +203,7 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 해당 구�
 
 1. `scope_id`, `registration_id` 및 `symmetric_key`의 값을 DPS 및 디바이스 정보로 업데이트합니다.
 
-1. 필요에 따라 `always_reprovision_on_startup` 또는 `dynamic_reprovisioning` 줄을 사용하여 디바이스의 다시 프로비저닝 동작을 구성합니다. 시작 시 디바이스가 다시 프로비저닝되도록 설정되어 있는 경우 항상 먼저 DPS를 사용하여 프로비저닝을 시도하며, 실패하는 경우 프로비저닝 백업으로 대체합니다. 디바이스가 동적으로 다시 프로비저닝하도록 설정된 경우 다시 프로비저닝하는 이벤트가 감지되면 IoT Edge가 다시 시작되며 다시 프로비저닝됩니다. 자세한 내용은 [IoT Hub 디바이스 다시 프로비저닝 개념](../iot-dps/concepts-device-reprovision.md)을 참조하세요.
+1. 필요에 따라 `always_reprovision_on_startup` 또는 `dynamic_reprovisioning` 줄을 사용하여 디바이스의 다시 프로비저닝 동작을 구성합니다. 시작 시 디바이스가 다시 프로비저닝되도록 설정되어 있는 경우 항상 먼저 DPS를 사용하여 프로비저닝을 시도한 다음, 실패하는 경우 프로비저닝 백업으로 대체합니다. 디바이스가 동적으로 다시 프로비저닝되도록 설정된 경우 다시 프로비저닝 이벤트가 감지되면 IoT Edge가 다시 시작되고 다시 프로비저닝됩니다. 자세한 내용은 [IoT Hub 디바이스 다시 프로비저닝 개념](../iot-dps/concepts-device-reprovision.md)을 참조하세요.
 
 1. 디바이스에서 한 모든 구성 변경을 선택하도록 IoT Edge 런타임을 다시 시작합니다.
 
@@ -349,7 +349,7 @@ Get-Service iotedge
 iotedge list
 ```
 
-Device Provisioning Service에서 만든 개별 등록이 사용되었는지 확인할 수 있습니다. Azure Portal에서 Device Provisioning Service 인스턴스로 이동합니다. 만든 개별 등록의 등록 세부 정보를 엽니다. 등록 상태가 **할당됨** 이며 디바이스 ID가 나열된 것을 확인할 수 있습니다.
+Device Provisioning Service에서 만든 개별 등록이 사용되었는지 확인할 수 있습니다. Azure Portal에서 Device Provisioning Service 인스턴스로 이동합니다. 만든 개별 등록의 등록 세부 정보를 엽니다. 등록 상태가 **할당됨** 이고 디바이스 ID가 나열된 것을 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

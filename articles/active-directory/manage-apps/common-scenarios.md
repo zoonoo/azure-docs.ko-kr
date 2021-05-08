@@ -11,12 +11,12 @@ ms.date: 03/02/2019
 ms.author: iangithinji
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1acfff8a9152c767b61463bed0165d5ae390f649
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 9ad4cb5cdee3af68f7212b696dec10980ee89818
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375001"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318912"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Azure AD를 사용하여 애플리케이션 관리 중앙 집중화
 
@@ -77,7 +77,7 @@ ID는 보안의 핵심입니다. ID가 손상되면 너무 늦지 않게 도미�
 
 |기능  |Description|권장 |
 |---------|---------|---------|
-|애플리케이션 프록시|요즈음 직원은 어디서나 언제든지 어느 디바이스에서나 생산성을 높이기를 원합니다. 클라우드 및 회사 앱 온-프레미스에서 SaaS 앱에 액세스해야 합니다. Azure AD 애플리케이션 프록시를 사용하면 비싸고 복잡한 VPN(가상 사설망) 또는 DMZ(경계 네트워크) 없이 견고한 액세스가 가능합니다.|온-프레미스 앱에 대한 [원격 액세스](./application-proxy.md)를 설정합니다. |
+|애플리케이션 프록시|요즈음 직원은 어디서나 언제든지 어느 디바이스에서나 생산성을 높이기를 원합니다. 클라우드 및 회사 앱 온-프레미스에서 SaaS 앱에 액세스해야 합니다. Azure AD 애플리케이션 프록시를 사용하면 비싸고 복잡한 VPN(가상 사설망) 또는 DMZ(경계 네트워크) 없이 견고한 액세스가 가능합니다.|온-프레미스 앱에 대한 [원격 액세스](../app-proxy/application-proxy.md)를 설정합니다. |
 |F5, Akamai, Zscaler|기존 네트워킹 및 배달 컨트롤러를 사용하여 비즈니스 프로세스에 여전히 중요 하지만 이전에는 Azure AD로 보호할 수 없었는 레거시 애플리케이션을 쉽게 보호할 수 있습니다. 이러한 애플리케이션을 보호하는 데 필요한 모든 조건은 이미 충족되었을 것입니다.| Akamai, Citrix, F5 또는 Zscaler를 사용하고 있나요? 당사의 [미리 빌드된 솔루션](./secure-hybrid-access.md)을 살펴보세요. | 
 
 ## <a name="related-articles"></a>관련 문서

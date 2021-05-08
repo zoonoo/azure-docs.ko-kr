@@ -8,21 +8,21 @@ ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.date: 08/03/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: larryfr
-ms.custom: how-to, tracking-python, deploy
-ms.openlocfilehash: 9de971639e22f9656ea75dc64993ac5881efbffb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: tracking-python, deploy
+ms.openlocfilehash: aae0194269d79371189998268bd87b9ea4a6b4d4
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102609416"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107885545"
 ---
 # <a name="continuously-deploy-models"></a>지속적으로 모델 배포
 
 이 문서에서는 Azure DevOps에서 지속적인 배포를 사용하여 등록된 모델의 새 버전을 자동으로 확인하고 새 모델을 프로덕션으로 푸시하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 Azure Machine Learning 작업 영역에 모델을 이미 등록했다고 가정합니다. scikit-learn 모델을 학습하고 등록하는 방법에 대한 예제는 [이 자습서](how-to-train-scikit-learn.md)를 참조하세요.
 

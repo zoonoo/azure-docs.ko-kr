@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 03/03/2021
+ms.date: 04/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celested
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 6325a890ea297a3aa2bdad76a1d95c10448a7b61
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cc163f02873cf1827af515791e254261149fc4f9
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033916"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124440"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 흐름에 조건부 액세스 추가
 
@@ -161,9 +161,78 @@ Azure AD 조건부 액세스 정책을 추가한 후 사용자 흐름 또는 사
 
 언제든지 개별 사용자에게 여러 조건부 액세스 정책을 적용할 수 있습니다. 이 경우 가장 엄격한 액세스 제어 정책이 우선적으로 적용됩니다. 예를 들어 한 정책에서 MFA(다단계 인증)를 요구하는 경우 다른 정책에서 액세스를 차단하면 사용자가 차단됩니다.
 
+## <a name="conditional-access-template-1-sign-in-risk-based-conditional-access"></a>조건부 액세스 템플릿 1: 로그인 위험 기반 조건부 액세스
+
+대부분의 사용자는 추적 가능한 일반 동작을 갖고 있으며, 정상 범위를 벗어나면 사용자가 로그인하도록 허용하는 것이 위험할 수 있습니다. 해당 사용자를 차단하거나 다단계 인증을 수행하여 본인이 맞는지 증명하도록 요청하는 것이 좋습니다.
+
+로그인 위험은 ID 소유자가 지정된 인증 요청에 권한을 부여하지 않았을 가능성을 나타냅니다. P2 라이선스가 있는 조직은 [Azure AD ID 보호 로그인 위험 검색](../active-directory/identity-protection/concept-identity-protection-risks.md#sign-in-risk)을 통합하여 조건부 액세스 정책을 만들 수 있습니다. [B2C에 대한 ID 보호 검색 제한 사항](./identity-protection-investigate-risk.md?pivots=b2c-user-flow#service-limitations-and-considerations)을 참조하세요.
+
+위험이 감지되면 사용자는 다단계 인증을 수행하여 위험한 로그인 이벤트를 자동으로 수정하고 닫을 수 있으므로 관리자에게 불필요한 업무 부담이 발생하지 않게 됩니다.
+
+조직은 로그인 위험이 중간 또는 높음인 경우 다음 옵션 중 하나를 선택하여 MFA(다단계 인증)가 필요한 로그인 위험 기반 조건부 액세스 정책을 사용하도록 설정해야 합니다.
+
+### <a name="enable-with-conditional-access-policy"></a>조건부 액세스 정책을 통해 사용
+
+1. **Azure Portal** 에 로그인합니다.
+2. **Azure AD B2C** > **보안** > **조건부 액세스** 로 이동합니다.
+3. **새 정책** 을 선택합니다.
+4. 정책에 이름을 지정합니다. 조직에서 정책 이름에 의미 있는 표준을 만드는 것이 좋습니다.
+5. **할당** 에서 **사용자 및 그룹** 을 선택합니다.
+   1. **포함** 에서 **모든 사용자** 를 선택합니다.
+   2. **제외** 에서 **사용자 및 그룹** 을 선택하고 조직의 응급 액세스 또는 비상 계정을 선택합니다. 
+   3. **완료** 를 선택합니다.
+6. **클라우드 앱 또는 작업** > **포함** 에서 **모든 클라우드 앱** 을 선택합니다.
+7. **조건** > **로그인 위험** 에서 **구성** 을 **예** 로 설정합니다. **이 정책을 적용할 로그인 위험 수준 선택** 에서 
+   1. **높음** 및 **중간** 을 선택합니다.
+   2. **완료** 를 선택합니다.
+8. **액세스 제어** > **권한 부여** 에서 **액세스 권한 부여**, **다단계 인증 요구**, **선택** 을 차례로 선택합니다.
+9. 설정을 확인하고 **정책 사용** 을 **켜기** 로 설정합니다.
+10. **만들기** 를 선택하여 정책을 만들어 사용하도록 설정합니다.
+
+### <a name="enable-with-conditional-access-apis"></a>조건부 액세스 API를 통해 사용
+
+조건부 액세스 API를 사용하여 로그인 위험 기반 조건부 액세스 정책을 만들려면 [조건부 액세스 API](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api)의 문서를 참조하세요.
+
+다음 템플릿을 사용하여 보고 전용 모드에서 표시 이름이 "CA002: Require MFA for medium+ sign-in risk"인 조건부 액세스 정책을 만들 수 있습니다.
+
+```json
+{
+    "displayName": "Template 1: Require MFA for medium+ sign-in risk",
+    "state": "enabledForReportingButNotEnforced",
+    "conditions": {
+        "signInRiskLevels": [ "high" ,
+            "medium"
+        ],
+        "applications": {
+            "includeApplications": [
+                "All"
+            ]
+        },
+        "users": {
+            "includeUsers": [
+                "All"
+            ],
+            "excludeUsers": [
+                "f753047e-de31-4c74-a6fb-c38589047723"
+            ]
+        }
+    },
+    "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+            "mfa"
+        ]
+    }
+}
+```
+
 ## <a name="enable-multi-factor-authentication-optional"></a>다단계 인증 사용(선택 사항)
 
-사용자 흐름에 조건부 액세스를 추가할 때 **MFA(다단계 인증)** 를 사용하는 것이 좋습니다. 사용자는 SMS 또는 음성을 통해 일회용 코드를 사용하거나, 다단계 인증을 위해 이메일을 통해 일회용 암호를 사용할 수 있습니다. MFA 설정은 조건부 액세스 설정과 독립적입니다. 조건부 액세스 설정에 관계없이 MFA를 항상 요구하도록 MFA를 **항상 설정됨** 으로 설정할 수 있습니다. 또는 활성 조건부 액세스 정책에 필요한 경우에만 MFA를 요구하도록 MFA를 **조건부** 로 설정할 수 있습니다.
+사용자 흐름에 조건부 액세스를 추가할 때 **MFA(다단계 인증)** 를 사용하는 것이 좋습니다. 사용자는 SMS 또는 음성을 통해 일회용 코드를 사용하거나, 다단계 인증을 위해 이메일을 통해 일회용 암호를 사용할 수 있습니다. MFA 설정은 조건부 액세스 설정과 독립적입니다. 다음 MFA 옵션 중에서 선택할 수 있습니다.
+
+   - **꺼짐** -MFA는 로그인 중에 적용되지 않으며 등록 또는 로그인하는 동안 사용자에게 MFA에 등록하라는 메시지가 표시되지 않습니다.
+   - **항상 설정됨** - 조건부 액세스 설정에 관계없이 MFA가 항상 필요합니다. 사용자가 아직 MFA에 등록하지 않은 경우 로그인하는 동안 등록하라는 메시지가 표시됩니다. 등록하는 동안 사용자에게 MFA에 등록하라는 메시지가 표시됩니다.
+   - **조건부(미리 보기)** - 활성 조건부 액세스 정책이 필요한 경우에만 MFA가 필요합니다. 조건부 액세스 평가 결과가 위험 없는 MFA 챌린지이면 로그인 중에 MFA가 적용됩니다. 위험 *및* MFA에 등록하지 않은 사용자로 인해 결과가 MFA 챌린지이면 로그인이 차단됩니다. 등록하는 동안 사용자에게 MFA에 등록하라는 메시지가 표시되지 않습니다.
 
 > [!IMPORTANT]
 > 조건부 액세스 정책이 MFA를 사용하여 액세스 권한을 부여하고 사용자가 전화 번호를 등록하지 않은 경우 사용자가 차단될 수 있습니다.
@@ -184,9 +253,9 @@ Azure AD 조건부 액세스 정책을 추가한 후 사용자 흐름 또는 사
  
    ![속성에서 MFA 및 조건부 액세스 구성](media/conditional-access-user-flow/add-conditional-access.png)
 
-1. **다단계 인증** 섹션에서 원하는 **MFA 방법** 을 선택한 다음, **MFA 적용** 아래에서 **조건부(추천)** 를 선택합니다.
+1. **다단계 인증** 섹션에서 원하는 **방법 유형** 을 선택한 다음, **MFA 적용** 에서 **조건부(미리 보기)** 를 선택합니다.
  
-1. **조건부 액세스** 섹션에서 **조건부 액세스 정책 적용** 확인란을 선택합니다.
+1. **조건부 액세스(미리 보기)** 섹션에서 **조건부 액세스 정책 적용** 확인란을 선택합니다.
 
 1. **저장** 을 선택합니다.
 

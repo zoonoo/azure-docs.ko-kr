@@ -17,13 +17,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 07/13/2020
 ms.author: magoedte
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: dcdc325633aff5ab828cb1c82f4bb2d8becee967
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d1c67c5ed59b66b8fce84ccff1c01f2dc28b22f0
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560041"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071868"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure 필요한 상태 구성 확장 처리기 소개
 
@@ -39,7 +39,7 @@ VM에서 로컬이 아닌 진행 중인 보고를 사용할 수 없습니다.
 
 이 문서에서는 두 가지 시나리오, 즉 Automation 온보딩을 위해 DSC 확장을 사용하는 경우와 Azure SDK를 사용하여 VM에 구성을 할당하기 위한 도구로 DSC 확장을 사용하는 경우에 대한 정보를 제공합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - **로컬 컴퓨터**: Azure VM 확장과 상호 작용하려면 Azure Portal 또는 Azure PowerShell SDK를 사용해야 합니다.
 - **게스트 에이전트**: DSC 구성을 통해 구성된 Azure VM은 WMF(Windows Management Framework) 4.0 이상을 지원하는 OS여야 합니다. 지원되는 OS 버전의 전체 목록은 [DSC 확장 버전 기록](../../automation/automation-dsc-extension-history.md)을 참조하세요.
@@ -52,7 +52,7 @@ VM에서 로컬이 아닌 진행 중인 보고를 사용할 수 없습니다.
 - **노드**: DSC 구성에 대한 대상입니다. 이 문서에서 *노드* 는 항상 Azure VM을 나타냅니다.
 - **구성 데이터**: 구성에 대한 환경 데이터를 포함하는 .psd1 파일입니다.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>아키텍처
 
 Azure DSC 확장은 Azure VM 에이전트 프레임워크를 사용하여 Azure VM에서 실행되는 DSC 구성을 제공하고 적용하며 보고합니다. DSC 확장은 구성 문서 및 매개 변수 집합을 허용합니다. 파일을 제공하지 않으면 확장에 [기본 구성 스크립트](#default-configuration-script)가 포함됩니다. 기본 구성 스크립트는 [로컬 구성 관리자](/powershell/scripting/dsc/managing-nodes/metaConfig)에서 메타데이터를 설정하는 데만 사용됩니다.
 
