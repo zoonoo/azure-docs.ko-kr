@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 69355b58e36f435b5b5dbe94af72d55d9806b156
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 49def79c467aa8f2b3fda9688dc77fcb003a34a5
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100557182"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256568"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Strata를 사용하여 온-프레미스 애플리케이션을 보호하는 Azure AD B2C 확장을 위한 자습서
 
@@ -29,7 +29,7 @@ Maverics Identity Orchestrator는 온-프레미스 애플리케이션을 보호�
 
 - **간편한 구성**: Azure AD B2C는 Maverics Identity Orchestrator SAML 또는 OIDC 커넥터를 Azure AD B2C에 연결하는 간단한 단계별 사용자 인터페이스를 제공합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 위해 필요한 사항:
 
@@ -57,7 +57,7 @@ Strata의 Maverics 통합은 다음 구성 요소를 포함합니다.
 
 ![이미지는 하이브리드 앱에 액세스할 수 있도록 설정하는 Strata Maverics와 Azure AD B2C의 통합 아키텍처를 보여 줍니다.](./media/partner-strata/strata-architecture-diagram.png)
 
-| 단계 | 설명 |
+| 단계 | Description |
 |:-------|:---------------|
 | 1. | 사용자가 온-프레미스 호스트된 애플리케이션에 대한 액세스를 요청합니다. Maverics Identity Orchestrator는 애플리케이션에 대한 사용자의 요청을 프록시합니다.|
 | 2. | Orchestrator에서 사용자의 인증 상태를 확인합니다. 세션 토큰이 수신되지 않거나 제공된 세션 토큰이 유효하지 않은 경우 인증을 위해 사용자를 Azure AD B2C로 보냅니다.|
@@ -344,4 +344,4 @@ appgateways:
 
 - [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C에서 사용자 지정 정책 시작하기](./custom-policy-get-started.md?tabs=applications)
+- [Azure AD B2C의 사용자 지정 정책 시작하기](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

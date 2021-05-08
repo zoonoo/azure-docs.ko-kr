@@ -1,7 +1,7 @@
 ---
-title: Azure Active Directory B2C로 Saviynt 구성에 대 한 자습서
+title: Azure Active Directory B2C로 Saviynt를 구성하기 위한 자습서
 titleSuffix: Azure AD B2C
-description: 응용 프로그램 간 통합을 위한 Saviynt를 사용 하 여 IT 현대화을 간소화 하 고 보안, 거 버 넌 스 및 규정 준수를 강화 하는 Azure Active Directory B2C 자습서입니다. 
+description: 애플리케이션 간 통합을 위해 Saviynt로 Azure Active Directory B2C를 구성하여 IT 현대화를 간소화하고 보안, 거버넌스 및 규정 준수를 강화하도록 하는 자습서입니다. 
 services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
@@ -11,113 +11,113 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: b1889a693c08ce78a8bd06b6fe348c0c67bf3812
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: fe5a2114a99b7867ac5e51b6bf9ec542ad47ca13
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103465677"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257894"
 ---
-# <a name="tutorial-for-configuring-saviynt-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 Saviynt 구성에 대 한 자습서
+# <a name="tutorial-for-configuring-saviynt-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 Saviynt를 구성하기 위한 자습서
 
-이 샘플 자습서에서는 AD (Azure Active Directory) B2C를 [Saviynt](https://saviynt.com/integrations/azure-ad/for-b2c/)와 통합 하는 방법에 대 한 지침을 제공 합니다. Saviynt의 Security Manager 플랫폼은 단일 통합 플랫폼에서 오늘날의 비즈니스 요구에 대 한 가시성, 보안 및 거 버 넌 스를 제공 합니다. Saviynt는 응용 프로그램 위험과 거 버 넌 스, 인프라 관리, 권한 있는 계정 관리 및 고객 위험 분석을 통합 합니다.
+이 샘플 자습서에서는 AD(Azure Active Directory) B2C를 [Saviynt](https://saviynt.com/integrations/azure-ad/for-b2c/)와 통합하는 방법에 대한 지침을 제공합니다. Saviynt의 Security Manager 플랫폼은 단일 통합 플랫폼으로 오늘날의 비즈니스에서 요구하는 가시성, 보안 및 거버넌스를 제공합니다. Saviynt는 애플리케이션 리스크 및 거버넌스, 인프라 관리, 권한 계정 관리, 고객 위험 분석을 통합합니다.
 
-이 샘플 자습서에서는 Saviynt를 설정 하 여 Azure AD B2C 사용자에 게 위임 된 관리에 대 한 세분화 된 액세스 제어를 제공 합니다. Saviynt 사용자가 Azure AD B2C를 관리할 수 있는 권한이 있는지 확인 하려면 다음을 확인 합니다.
+이 샘플 자습서에서는 Azure AD B2C 사용자에게 위임 관리를 기반으로 세분화된 액세스 제어를 제공하도록 Saviynt를 설정합니다. Saviynt는 사용자에게 Azure AD B2C 사용자를 관리할 권한이 있는지 확인하기 위해 다음 검사를 수행합니다.
 
-- 사용자가 특정 작업을 수행할 수 있는지 확인 하는 기능 수준 보안입니다. 예를 들어 사용자를 만들고, 사용자를 업데이트 하 고, 사용자 암호를 다시 설정 하는 등의 방법을 사용 합니다.
+- 사용자가 특정 작업을 수행할 수 있는지 여부를 결정하는 기능 수준 보안입니다. 예를 들어 사용자 만들기, 사용자 업데이트, 사용자 암호 재설정 등이 있습니다.
 
-- 사용자 관리 작업을 수행 하는 동안 사용자가 다른 사용자의 특정 특성을 읽고 쓸 수 있는지 여부를 결정 하는 필드 수준 보안입니다. 예를 들어 지원 센터 에이전트는 전화 번호를 업데이트 하 고 다른 모든 특성은 읽기 전용으로 설정할 수 있습니다.
+- 사용자가 사용자 관리 작업 중에 다른 사용자의 특정 속성을 읽거나 쓸 수 있는지 여부를 결정하는 필드 수준 보안입니다. 예를 들어 지원 센터 에이전트는 전화 번호만 업데이트할 수 있으며 다른 모든 특성에 대해서는 읽기만 가능합니다.
 
-- 사용자가 특정 사용자에 대해 특정 작업을 수행할 수 있는지 여부를 확인 하는 데이터 수준 보안 예를 들어 영국 지역의 지원 센터 관리자는 영국 사용자만 관리할 수 있습니다.
+- 사용자가 특정 사용자에 대해 특정 작업을 수행할 수 있는지 여부를 결정하는 데이터 수준 보안입니다. 예를 들어 영국 지역의 지원 센터 관리자는 영국 사용자만 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-시작 하려면 다음이 필요 합니다.
+시작하려면 다음이 필요합니다.
 
 - Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 
-- [Azure AD B2C 테 넌 트](./tutorial-create-tenant.md)입니다. 테 넌 트는 Azure 구독에 연결 됩니다.
+- [Azure AD B2C 테넌트](./tutorial-create-tenant.md). 테넌트는 Azure 구독에 연결됩니다.
 
 - Saviynt [구독](https://saviynt.com/contact-us/)
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-Saviynt 통합에는 다음 구성 요소가 포함 됩니다.
+Saviynt 통합에는 다음 구성 요소가 포함됩니다.
 
-- [Azure AD B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) – 고객이 등록 하 고 로그인 하 여 프로필을 관리 하는 방법에 대 한 사용자 지정 제어를 지 원하는 b2b (기업 간 id)입니다.
+- [Azure AD B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) – 고객이 가입하고, 로그인하고, 프로필을 관리하는 방법을 사용자 지정 컨트롤할 수 있도록 하는 서비스형 비즈니스 대 고객 ID입니다.
 
-- [Saviynt](https://saviynt.com/integrations/azure-ad/for-b2c/) – 사용자 수명 주기 관리에 대 한 세분화 된 위임 된 관리 및 Azure AD B2C 사용자의 액세스 관리를 제공 하는 id 거 버 넌 스 플랫폼입니다.  
+- [Saviynt](https://saviynt.com/integrations/azure-ad/for-b2c/) – Azure AD B2C 사용자의 액세스 거버넌스 및 사용자 수명 주기 관리를 위해 세분화된 위임 관리를 제공하는 ID 거버넌스 플랫폼입니다.  
 
-- [MICROSOFT GRAPH api](/graph/use-the-api) –이 api는 Azure AD B2C에서 Azure AD B2C 사용자 및 해당 액세스를 관리 하기 위해 Saviynt에 대 한 인터페이스를 제공 합니다.
+- [Microsoft Graph API](/graph/use-the-api) – 해당 API는 Azure AD B2C 사용자 및 Azure AD B2C에서 사용자의 액세스를 관리하기 위해 Saviynt용 인터페이스를 제공합니다.
 
-다음 아키텍처 다이어그램에서는 구현을 보여 줍니다.
+다음 다이어그램은 아키텍처 구현을 보여 줍니다.
 
 ![Saviynt 아키텍처 다이어그램을 보여 주는 이미지](./media/partner-saviynt/saviynt-architecture-diagram.png)
 
 |단계 | Description |
 |:-----| :-----------|
-| 1. | 위임 된 관리자는 Saviynt를 통해 Azure AD B2C 사용자 관리 작업을 시작 합니다.
-| 2. | Saviynt는 위임 된 관리자가 특정 작업을 수행할 수 있는 경우 해당 권한 부여 엔진을 사용 하 여 확인 합니다.
-| 3. | Saviynt의 권한 부여 엔진은 권한 부여 성공/실패 응답을 보냅니다.
-| 4. | Saviynt를 사용 하면 위임 된 관리자가 필요한 작업을 수행할 수 있습니다.
-| 5. | Saviynt 사용자 특성과 함께 Microsoft Graph API를 호출 하 여에서 사용자를 관리 Azure AD B2C
-| 6. | Microsoft Graph API는 Azure AD B2C에서 사용자를 생성/업데이트/삭제 합니다.
+| 1. | 위임된 관리자는 Saviynt를 통해 Azure AD B2C 사용자 관리 작업을 시작합니다.
+| 2. | Saviynt는 권한 부여 엔진을 사용하여 위임된 관리자가 특정 작업을 수행할 수 있는지 확인합니다.
+| 3. | Saviynt의 권한 부여 엔진은 권한 부여 성공/실패 응답을 전송합니다.
+| 4. | Saviynt는 위임된 관리자가 필요한 작업을 수행하도록 합니다.
+| 5. | Saviynt는 Azure AD B2C에서 사용자를 관리하기 위해 사용자 특성과 함께 Microsoft Graph API를 호출
+| 6. | 그러면 Microsoft Graph API가 Azure AD B2C에서 사용자를 생성/업데이트/삭제합니다.
 | 7. | Azure AD B2C는 성공/실패 응답을 보냅니다.
-| 8. | 그러면 Microsoft Graph API가 Saviynt에 대 한 응답을 반환 합니다.
+| 8. | 그러면 Microsoft Graph API가 Saviynt로 응답을 반환합니다.
 
-## <a name="onboard-with-saviynt"></a>Saviynt으로 등록
+## <a name="onboard-with-saviynt"></a>Saviynt으로 온보딩
 
-1. Saviynt 계정을 만들려면 [Saviynt](https://saviynt.com/contact-us/) 에 문의 하세요.
+1. Saviynt 계정을 만들려면 [Saviynt](https://saviynt.com/contact-us/)에 문의
 
-2. 위임 된 관리 정책을 만들고 사용자를 다양 한 역할을 가진 위임 된 관리자로 할당 합니다.
+2. 위임 관리 정책을 만들고 사용자에게 위임된 관리자의 다양한 역할을 할당합니다.
 
-## <a name="configure-azure-ad-b2c-with-saviynt"></a>Saviynt를 사용 하 여 Azure AD B2C 구성
+## <a name="configure-azure-ad-b2c-with-saviynt"></a>Saviynt로 Azure AD B2C 구성
 
-### <a name="create-an-azure-ad-application-for-saviynt"></a>Saviynt에 대 한 Azure AD 응용 프로그램 만들기
+### <a name="create-an-azure-ad-application-for-saviynt"></a>Saviynt용 Azure AD 애플리케이션 만들기
 
 1. [Azure Portal](https://portal.azure.com/#home)에 로그인합니다.
 
 2. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 
-3. Azure Portal에서 **Azure AD B2C** 를 검색 하 고 선택 합니다.
+3. Azure Portal에서 **Azure AD B2C** 를 검색하여 선택합니다.
 
-4. **앱 등록**  >  **새 등록** 을 선택 합니다.
+4. **앱 등록** > **새 등록** 을 선택합니다.
 
-5. 응용 프로그램의 이름을 입력 합니다. 예를 들어 Saviynt를 선택 하 고 **만들기** 를 선택 합니다.
+5. 애플리케이션의 이름을 입력합니다. 예를 들어 Saviynt라고 입력하고 **만들기** 를 선택합니다.
 
-6. **API 권한** 으로 이동 하 고 **+ 권한 추가를 선택 합니다.**
+6. **API 사용 권한** 으로 이동하여 **+ 사용 권한 추가** 를 선택합니다.
 
-7. API 사용 권한 요청 페이지가 나타납니다. **Microsoft api** 탭을 선택 하 고 자주 사용 하는 microsoft api로 **Microsoft Graph** 을 선택 합니다.
+7. API 사용 권한 요청 페이지가 나타납니다. **Microsoft APIs** 탭을 선택하고 일반적으로 사용되는 Microsoft API인 **Microsoft Graph** 를 선택합니다.
 
-8. 다음 페이지로 이동 하 여 **응용 프로그램 사용 권한** 을 선택 합니다.
+8. 다음 페이지로 이동하여 **애플리케이션 사용 권한** 을 선택합니다.
 
-9. **디렉터리** 를 선택 하 고 **디렉터리** 를 선택 합니다. All 및 **디렉터리. ReadWrite. 모든** 확인란을 선택 합니다.
+9. **디렉터리** 를 선택하고 **Directory.Read.All** 및 **Directory.ReadWrite.All** 확인란을 선택합니다.
 
-10. **권한 추가** 를 선택 합니다. 추가 된 사용 권한을 검토 합니다.
+10. **사용 권한 추가** 를 선택합니다. 추가된 사용 권한을 검토합니다.
 
-11. **기본 디렉터리 저장에 대 한 관리자 동의 부여를** 선택  >  합니다.
+11. **기본 디렉터리에 대한 관리자 동의 부여** > **저장** 을 선택합니다.
 
-12. **인증서 및 비밀** 으로 이동 하 고 **+ 클라이언트 암호 추가** 를 선택 합니다. 클라이언트 암호 설명을 입력 하 고 만료 옵션을 선택한 다음 **추가** 를 선택 합니다.
+12. **인증서 및 암호** 로 이동하고 **+ 클라이언트 암호 추가** 를 선택합니다. 클라이언트 암호 설명을 입력하고 만료 옵션을 선택한 다음 **추가** 를 선택합니다.
 
-13. 비밀 키가 생성 되 고 클라이언트 암호 섹션에 표시 됩니다.
+13. 비밀 키가 생성되고 클라이언트 암호 섹션에 표시됩니다.
 
     >[!NOTE]
-    > 클라이언트 암호는 나중에 필요 합니다.
+    > 나중에 클라이언트 암호가 필요합니다.
 
-14. **개요** 로 이동 하 여 **클라이언트 Id** 및 **테 넌 트 id** 를 가져옵니다.
+14. **개요** 로 이동하여 **클라이언트 ID** 및 **테넌트 ID** 를 가져옵니다.
 
-15. Saviynt에서 설정을 완료 하려면 테 넌 트 ID, 클라이언트 ID 및 클라이언트 암호가 필요 합니다.
+15. Saviynt의 설정을 완료하려면 테넌트 ID, 클라이언트 ID, 클라이언트 암호가 필요합니다.
 
-### <a name="enable-saviynt-to-delete-users"></a>Saviynt를 사용 하 여 사용자 삭제
+### <a name="enable-saviynt-to-delete-users"></a>Saviynt를 통해 사용자 삭제
 
-아래 단계에서는 Saviynt를 사용 하 여 Azure AD B2C에서 사용자 삭제 작업을 수행 하는 방법을 설명 합니다.
+다음 단계에서는 Saviynt를 사용하여 Azure AD B2C에서 사용자 삭제 작업을 수행하는 방법을 설명합니다.
 
 >[!NOTE]
->[관리자 역할에 서비스 주체에 대 한 액세스 권한을 부여 하기 전에 위험을 평가 합니다.](../active-directory/develop/app-objects-and-service-principals.md)
+>[서비스 주체에 관리자 역할 액세스 권한을 부여하기 전에 위험을 평가합니다.](../active-directory/develop/app-objects-and-service-principals.md)
 
-1. Windows 워크스테이션/서버에 최신 버전의 MSOnline PowerShell 모듈을 설치 합니다.
+1. Windows 워크스테이션/서버에 최신 버전의 MSOnline PowerShell 모듈을 설치합니다.
 
-2. AzureAD PowerShell 모듈에 연결 하 고 다음 명령을 실행 합니다.
+2. AzureAD PowerShell 모듈에 연결하고 다음 명령을 실행합니다.
 
 ```powershell
 Connect-msolservice #Enter Admin credentials of the Azure portal
@@ -127,14 +127,14 @@ Add-MsolRoleMember -RoleName "Company Administrator" -RoleMemberType ServicePrin
 
 ## <a name="test-the-solution"></a>솔루션 테스트
 
-Saviynt 응용 프로그램 테 넌 트로 이동 하 여 사용자 수명 주기 관리 및 액세스 관리 사용 사례를 테스트 합니다.
+Saviynt 애플리케이션 테넌트를 찾아보고 사용자 수명 주기 관리 및 액세스 거버넌스 사용 사례를 테스트합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 문서를 참조 하세요.
+자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C에서 사용자 지정 정책 시작](./custom-policy-get-started.md?tabs=applications)
+- [Azure AD B2C에서 사용자 지정 정책 시작](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 
-- [Web API 응용 프로그램 만들기](./add-web-api-application.md)
+- [웹 API 애플리케이션 생성](./add-web-api-application.md)

@@ -1,6 +1,6 @@
 ---
-title: Akamai 보안 이벤트 수집기를 Azure 센티널에 연결 | Microsoft Docs
-description: Akamai Security Events connector를 사용 하 여 Akamai 솔루션의 보안 로그를 Azure 센티널로 가져오는 방법에 대해 알아봅니다. 통합 문서에서 Akamai 데이터를 보고, 경고를 생성 하 고, 조사를 개선 합니다.
+title: Akamai 보안 이벤트 수집기를 Azure Sentinel에 연결 | Microsoft Docs
+description: Akamai 보안 이벤트 커넥터를 사용하여 Akamai 솔루션의 보안 로그를 Azure Sentinel로 가져오는 방법에 대해 알아봅니다. 통합 문서에서 Akamai 데이터를 보고, 경고를 만들고, 조사를 개선합니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,62 +15,62 @@ ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
 ms.openlocfilehash: 8aa5a52a06713b4f00b43205a57148049a8ef8da
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101711963"
 ---
-# <a name="connect-your-akamai-security-events-collector-to-azure-sentinel"></a>Akamai 보안 이벤트 수집기를 Azure 센티널에 연결
+# <a name="connect-your-akamai-security-events-collector-to-azure-sentinel"></a>Akamai 보안 이벤트 수집기를 Azure Sentinel에 연결
 
 > [!IMPORTANT]
-> Akamai 보안 이벤트 커넥터는 현재 **미리 보기로** 제공 됩니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 추가 약관은 [Microsoft Azure 미리 보기에](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 대 한 추가 사용 약관을 참조 하세요.
+> Akamai 보안 이벤트 커넥터는 현재 **미리 보기** 로 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-이 문서에서는 Akamai 보안 이벤트 수집기를 Azure 센티널에 연결 하는 방법을 설명 합니다. Akamai 보안 이벤트 데이터 커넥터를 사용 하면 Azure 센티널에 Akamai 로그를 쉽게 연결할 수 있으므로 통합 문서에서 데이터를 보고, 쿼리 하 여 사용자 지정 경고를 만들고, 조사를 개선 하는 데 통합할 수 있습니다. Akamai 보안 이벤트 수집기와 Azure 센티널을 통합 하면 CEF 형식의 Syslog, Linux 기반 로그 전달자 및 Log Analytics 에이전트가 사용 됩니다. 또한 Kusto 함수를 기반으로 하는 사용자 지정 작성 로그 파서를 사용 합니다.
+이 문서에서는 Akamai 보안 이벤트 수집기를 Azure Sentinel에 연결하는 방법을 설명합니다. Akamai 보안 이벤트 데이터 커넥터를 사용하면 Azure Sentinel에 Akamai 로그를 쉽게 연결할 수 있으므로, 통합 문서에서 데이터를 보거나 해당 데이터를 쿼리하여 사용자 지정 알림을 만들고, 데이터를 통합하여 조사를 개선할 수 있습니다. Akamai 보안 이벤트 수집기와 Azure Sentinel을 통합하면 CEF 형식의 Syslog, Linux 기반 로그 전달자 및 Log Analytics 에이전트를 사용하게 됩니다. 또한 Kusto 함수를 기반으로 하는 사용자 지정으로 빌드된 로그 파서를 사용합니다.
 
 > [!NOTE]
-> 데이터는 Azure 센티널을 실행 하는 작업 영역의 지리적 위치에 저장 됩니다.
+> 데이터는 지리적으로 Azure Sentinel을 실행하는 작업 영역이 있는 위치에 저장됩니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
+- Azure Sentinel 작업 영역에 대한 읽기 및 쓰기 권한이 있어야 합니다.
 
-- 작업 영역에 대 한 공유 키에 대 한 읽기 권한이 있어야 합니다. [작업 영역 키에 대해 자세히 알아보세요](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
+- 작업 영역용 공유 키에 대한 읽기 권한이 있어야 합니다. [작업 영역 키에 대해 자세히 알아보세요](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
-## <a name="send-akamai-security-events-logs-to-azure-sentinel"></a>Akamai 보안 이벤트 로그를 Azure 센티널에 보내기
+## <a name="send-akamai-security-events-logs-to-azure-sentinel"></a>Akamai 보안 이벤트 로그를 Azure Sentinel에 전송하기
 
-Azure 센티널로 로그를 가져오려면 Akamai 보안 이벤트 수집기에서 CEF 형식의 Syslog 메시지를 Linux 기반 로그 전달 서버 (rsyslog 또는 Syslog를 실행)로 보내도록 구성 합니다. 이 서버에는 Log Analytics 에이전트가 설치 되 고 에이전트가 Azure 센티널 작업 영역으로 로그를 전달 합니다.
+Azure Sentinel로 로그를 가져오려면 Akamai 보안 이벤트 수집기가 CEF 형식의 Syslog 메시지를 Linux 기반 로그 전달 서버(rsyslog 또는 Syslog를 실행)로 전송하도록 구성합니다. 이 서버에는 Log Analytics 에이전트가 설치되어 있으며, 에이전트는 Azure Sentinel 작업 영역으로 로그를 전달합니다.
 
-1. Azure 센티널 탐색 메뉴에서 **데이터 커넥터** 를 선택 합니다.
+1. Azure Sentinel 탐색 메뉴에서 **데이터 커넥터** 를 선택합니다.
 
-1. **데이터 커넥터** 갤러리에서 **Akamai 보안 이벤트 (미리 보기)** 를 선택한 다음 **커넥터 페이지를 엽니다**.
+1. **데이터 커넥터** 갤러리에서 **Akamai 보안 이벤트(미리 보기)** 를 선택한 다음 **커넥터 페이지를 엽니다**.
 
 1. **지침** 탭의 **구성** 아래에 있는 지침을 따르세요.
 
-    1. **1. Linux Syslog 에이전트 구성** -로그 전달 자가 아직 실행 되지 않은 경우 또는 다른 것이 필요한 경우이 단계를 수행 합니다. 크기 조정 정보, 자세한 지침 및 심층 설명에 대해서는 1 단계: Azure 센티널 설명서에 [로그 전달자 배포](connect-cef-agent.md) 를 참조 하세요.
+    1. **1. Linux Syslog 에이전트 구성** - 실행 중인 로그 전달자가 없는 경우, 또는 다른 로그 전달자가 필요한 경우 이 단계를 수행합니다. 크기 조정 정보, 자세한 지침 및 심도 있는 설명은 Azure Sentinel 설명서의 [1단계: 로그 전달자 배포](connect-cef-agent.md)를 참조하세요.
 
-    1. **2 미만. CEF (Common Event Format) 로그를 Syslog 에이전트로 전달** -Akamai의 지침에 따라 [siem 통합을 구성](https://developer.akamai.com/tools/integrations/siem) 하 고 [cef 커넥터를 설정](https://developer.akamai.com/tools/integrations/siem/siem-cef-connector)합니다. 이 커넥터는 SIEM OPEN API를 사용 하 여 Akamai 솔루션의 보안 이벤트를 거의 실시간으로 수신 하 고 JSON에서 CEF 형식으로 변환 합니다.
+    1. **2. Common Event Format(CEF) 로그를 Syslog 에이전트로 전달** - Akamai 지침에 따라 [SIEM 통합을 구성](https://developer.akamai.com/tools/integrations/siem)하고 [CEF 커넥터를 설정](https://developer.akamai.com/tools/integrations/siem/siem-cef-connector)합니다. 해당 커넥터는 SIEM OPEN API를 사용하여 Akamai 솔루션의 보안 이벤트를 거의 실시간으로 수신하고 JSON에서 CEF 형식으로 변환합니다.
     
-        이 구성에는 다음 요소가 포함 되어야 합니다.
+        이 구성은 다음 요소를 포함해야 합니다.
     
         - 로그 대상 – 로그 전달 서버의 호스트 이름 및/또는 IP 주소
-        - 프로토콜 및 포트 – TCP 514 (그렇지 않은 경우 로그 전달 서버에서 syslog 디먼의 병렬 변경을 수행 해야 합니다.)
+        - 프로토콜 및 포트 – TCP 514(다른 프로토콜 및 포트가 권장되는 경우 로그 전달 서버의 syslog 디먼에서 병렬 변경을 수행해야 함)
         - 로그 형식 – CEF
-        - 로그 형식-모두 사용 가능
+        - 로그 유형 - 모두 사용 가능
 
-    1. **3. 연결 유효성 검사** -커넥터 페이지에서 명령을 복사 하 고 로그 전달자에서 실행 하 여 데이터 수집을 검증 합니다. 자세한 지침 및 설명은 3 단계: Azure 센티널 설명서에서 [연결 유효성 검사](connect-cef-verify.md) 를 참조 하세요.
+    1. **3. 연결 유효성 검사** - 커넥터 페이지에서 명령을 복사하고 로그 전달자에서 실행하는 방식으로 데이터 수집을 확인합니다. 자세한 지침 및 설명은 Azure Sentinel 설명서의 [3단계: 연결 유효성 검사](connect-cef-verify.md)를 참조하세요.
 
-        로그가 Log Analytics 나타날 때까지 최대 20 분이 걸릴 수 있습니다.
+        로그가 Log Analytics에 표시될 때까지 최대 20분이 걸릴 수 있습니다.
 
 ## <a name="find-your-data"></a>데이터 찾기
 
-연결이 설정 되 면 데이터는 **로그** 의 **Azure 센티널** 섹션 아래 *CommonSecurityLog* 테이블에 표시 됩니다.
+연결이 성공적으로 설정되면 데이터는 **Azure Sentinel** 섹션에 있는 *CommonSecurityLog* 테이블의 **로그** 에 표시됩니다.
 
-이 데이터 커넥터는 정상적으로 작동 하기 위해 Kusto 함수를 기반으로 하는 파서에 종속 됩니다. 다음 단계를 사용 하 여 쿼리 및 통합 문서에서 사용할 **AkamaiSIEMEvent** Kusto 함수를 설정 합니다.
+이 데이터 커넥터는 정상적으로 작동하기 위해 Kusto 함수를 기반으로 하는 파서를 사용합니다. 다음 단계를 따라 쿼리 및 통합 문서에서 사용할 **AkamaiSIEMEvent** Kusto 함수를 설정합니다.
 
-1. Azure 센티널 탐색 메뉴에서 **로그** 를 선택 합니다.
+1. Azure Sentinel 탐색 메뉴에서 **로그** 를 선택합니다.
 
-1. 다음 쿼리를 복사 하 여 쿼리 창에 붙여넣습니다.
+1. 다음 쿼리를 복사하여 쿼리 창에 붙여 넣습니다.
     ```kusto
     CommonSecurityLog 
     | where DeviceVendor == 'Akamai'
@@ -158,28 +158,28 @@ Azure 센티널로 로그를 가져오려면 Akamai 보안 이벤트 수집기�
             , Custom
     ```
 
-1. **저장** 드롭다운을 클릭 하 고 **저장** 을 클릭 합니다. **저장** 패널에서
+1. **저장** 드롭다운을 클릭한 다음 **저장** 을 클릭합니다. **저장** 패널에서
 
-    1. **이름** 아래에 **AkamaiSIEMEvent** 을 입력 합니다.
+    1. **이름** 으로 **AkamaiSIEMEvent** 를 입력합니다.
 
-    1. 다른 **이름으로 저장** 에서 **함수** 를 선택 합니다.
+    1. **다른 이름으로 저장** 에서 **함수** 를 선택합니다.
 
-    1. **함수 별칭** 아래에서 **AkamaiSIEMEvent** 을 입력 합니다.
+    1. **함수 별칭** 으로 **AkamaiSIEMEvent** 를 입력합니다.
 
-    1. **범주** 아래에서 **함수** 를 입력 합니다.
+    1. **범주** 로 **함수** 를 입력합니다.
 
     1. **저장** 을 클릭합니다.
 
-    일반적으로 함수 앱은 활성화 하는 데 10 ~ 15 분이 걸립니다.
+    일반적으로 함수 앱이 활성화되려면 10~15분이 걸립니다.
 
-이제 `AkamaiSIEMEvent` 쿼리 창의 맨 위 줄에를 입력 하 여 Akamai 데이터를 쿼리할 준비가 되었습니다.
+이제 Akamai 데이터를 쿼리할 준비가 되었습니다. 쿼리 창 상단에 `AkamaiSIEMEvent`를 입력하면 됩니다.
 
-자세한 쿼리 샘플은 커넥터 페이지의 **다음 단계** 탭을 참조 하세요.
+더 많은 쿼리 샘플은 커넥터 페이지의 **다음 단계** 탭을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Akamai 보안 이벤트를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 Akamai 보안 이벤트를 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [데이터 및 잠재적 위협에 대 한 가시성을 확보](quickstart-get-visibility.md)하는 방법을 알아보세요.
+- [데이터에 대한 가시성을 얻고 잠재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
 - [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
 - [통합 문서를 사용](tutorial-monitor-your-data.md)하여 데이터를 모니터링합니다.

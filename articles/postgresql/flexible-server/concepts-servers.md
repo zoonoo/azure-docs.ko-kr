@@ -1,28 +1,28 @@
 ---
-title: Azure Database for PostgreSQL의 서버-유연한 서버 (미리 보기)
-description: 이 문서에서는 Azure Database for PostgreSQL 유연한 서버를 구성 하 고 관리 하기 위한 고려 사항 및 지침을 제공 합니다.
+title: Azure Database for PostgreSQL의 서버 - 유연한 서버(미리 보기)
+description: 이 문서에서는 Azure Database for PostgreSQL - 유연한 서버 구성 및 관리를 위한 고려 사항 및 지침을 제공합니다.
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 60edbcf97b43747246e84517cc65bb0dca4ff546
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105626846"
 ---
-# <a name="servers---azure-database-for-postgresql---flexible-server"></a>서버-Azure Database for PostgreSQL-유연한 서버
+# <a name="servers---azure-database-for-postgresql---flexible-server"></a>서버 - Azure Database for PostgreSQL - 유연한 서버
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
 
-이 문서에서는 Azure Database for PostgreSQL 유연한 서버를 사용 하기 위한 고려 사항 및 지침을 제공 합니다.
+이 문서에서는 Azure Database for PostgreSQL - 유연한 서버를 사용할 때의 고려 사항 및 지침을 제공합니다.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>Azure Database for PostgreSQL 서버란?
 
-Azure Database for PostgreSQL-유연한 서버 배포 옵션의 서버는 여러 데이터베이스에 대 한 중앙 관리 지점입니다. 온-프레미스 환경에서도 익숙할 수 있는 동일한 PostgreSQL 서버 구문입니다. 특히, PostgreSQL 서비스는 관리되며, 성능 보장을 제공하고, 서버 수준에서 액세스 권한 및 기능을 노출합니다.
+Azure Database for PostgreSQL - 유연한 서버 배포 옵션의 서버는 여러 데이터베이스의 중앙 관리 지점입니다. 온-프레미스 환경에서도 익숙할 수 있는 동일한 PostgreSQL 서버 구문입니다. 특히, PostgreSQL 서비스는 관리되며, 성능 보장을 제공하고, 서버 수준에서 액세스 권한 및 기능을 노출합니다.
 
 PostgreSQL용 Azure 데이터베이스 서버:
 
@@ -36,13 +36,13 @@ PostgreSQL용 Azure 데이터베이스 서버:
 - 여러 버전으로 제공됩니다. 자세한 내용은 [지원되는 PostgreSQL 데이터베이스 버전](concepts-supported-versions.md)을 참조하세요.
 - 사용자가 확장할 수 있습니다. 자세한 내용은 [PostgreSQL 확장](concepts-extensions.md)을 참조하세요.
 
-PostgreSQL 서버용 Azure Database 내에서 하나 이상의 데이터베이스를 만들 수 있습니다. 서버당 단일 데이터베이스를 만들어 모든 리소스를 활용하도록 하거나 여러 데이터베이스를 만들어 리소스를 공유하도록 할 수 있습니다. 가격은 가격 책정 계층, vCore, 스토리지(GB)의 구성에 따라 서버별로 구성됩니다. 자세한 내용은 [Compute And Storage options](concepts-compute-storage.md)을 참조 하세요.
+PostgreSQL 서버용 Azure Database 내에서 하나 이상의 데이터베이스를 만들 수 있습니다. 서버당 단일 데이터베이스를 만들어 모든 리소스를 활용하도록 하거나 여러 데이터베이스를 만들어 리소스를 공유하도록 할 수 있습니다. 가격은 가격 책정 계층, vCore, 스토리지(GB)의 구성에 따라 서버별로 구성됩니다. 자세한 내용은 [컴퓨팅 및 스토리지 옵션](concepts-compute-storage.md)을 참조하세요.
 
-## <a name="how-do-i-connect-and-authenticate-to-the-database-server"></a>데이터베이스 서버에 연결 하 고 인증을 어떻게 할까요? 하 시겠습니까?
+## <a name="how-do-i-connect-and-authenticate-to-the-database-server"></a>데이터베이스 서버에 연결하고 인증하려면 어떻게 할까요?
 
 다음과 같은 요소를 활용하면 데이터베이스에 안전하게 액세스할 수 있습니다.
 
-| 보안 개념 | 설명 |
+| 보안 개념 | Description |
 | :-- | :-- |
 | **인증 및 권한 부여** | PostgreSQL용 Azure 데이터베이스 서버는 네이티브 PostgreSQL 인증을 지원합니다. 서버의 관리자 로그인을 사용하여 서버에 연결하고 인증을 받을 수 있습니다. |
 | **프로토콜** | 이 서비스는 PostgreSQL에서 사용되는 메시지 기반 프로토콜을 지원합니다. |
@@ -71,5 +71,5 @@ Azure Database for PostgreSQL에서 구성 가능한 매개 변수는 Postgres�
 ## <a name="next-steps"></a>다음 단계
 
 - 서비스 개요를 보려면 [PostgreSQL용 Azure 데이터베이스 개요](overview.md)를 참조하세요.
-- **구성** 에 따른 특정 리소스 할당량 및 제한 사항에 대 한 자세한 내용은 [Compute and Storage options](concepts-compute-storage.md)을 참조 하세요.
+- **구성** 에 따른 특정 리소스 할당량 및 제한에 관한 자세한 내용은 [컴퓨팅 및 스토리지 옵션](concepts-compute-storage.md)을 참조하세요.
 - [Azure Portal](howto-configure-server-parameters-using-portal.md) 또는 [Azure CLI](howto-configure-server-parameters-using-cli.md)를 통해 서버 매개 변수를 보고 편집합니다.

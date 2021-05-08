@@ -1,6 +1,6 @@
 ---
 title: Azure 미디어 분석으로 얼굴 편집 | Microsoft Docs
-description: Azure Media Redactor는 클라우드에서 확장성 있는 얼굴 편집을 제공 하는 Azure 미디어 분석 미디어 프로세서입니다. 이 문서에서는 Azure 미디어 분석을 사용 하 여 얼굴을 교정 하는 방법을 보여 줍니다.
+description: Azure Media Redactor는 클라우드에서 스케일링 가능한 얼굴 편집 기능을 제공하는 Azure 미디어 분석의 미디어 프로세서입니다. 이 문서에서는 Azure Media Analytics로 얼굴을 편집하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -15,10 +15,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7d416810f6a39fb36bfa3c5225301fe87fdd128c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103013468"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Azure 미디어 분석으로 얼굴 편집
@@ -38,13 +38,13 @@ ms.locfileid: "103013468"
 완전 자동 모드 외에, ID 목록을 통해 검색한 얼굴을 선택/선택 취소할 수 있는 2단계 워크플로가 있습니다. 또한 MP는 프레임별 임의 조정을 위해 JSON 형식의 메타데이터 파일을 사용합니다. 이 워크플로는 **분석** 및 **편집** 모드로 분할됩니다. 두 모드를 하나의 작업에서 두 작업을 실행하는 단일 단계로 결합할 수 있습니다. 이러한 모드를 **결합된** 모드라고 합니다.
 
    > [!NOTE]
-   > 얼굴 탐지기 미디어 프로세서는 6 월 2020 [Azure Media Services 레거시 구성 요소](./legacy-components.md)를 기준으로 사용 되지 않습니다. Azure Media Services v3 API를 사용 하는 것이 좋습니다.
+   > 얼굴 탐지 미디어 프로세서는 2020년 6월부로 [Azure Media Services 레거시 구성 요소](./legacy-components.md)의 지원이 중단되었습니다. Azure Media Services v3 API를 사용하는 것이 좋습니다.
 
 ### <a name="combined-mode"></a>결합된 모드
 
 이 모드는 수동 입력 없이 자동으로 편집된 mp4를 생성합니다.
 
-| 단계 | 파일 이름 | 참고 |
+| 단계 | 파일 이름 | 메모 |
 | --- | --- | --- |
 | 입력 자산 |foo.bar |WMV, MOV 또는 MP4 형식의 동영상 |
 | 입력 구성 |작업 구성 사전 설정 |{'version':'1.0', 'options': {'mode':'combined'}} |
@@ -54,7 +54,7 @@ ms.locfileid: "103013468"
 
 2단계 워크플로의 **분석** 단계는 동영상 입력을 사용하여 얼굴 위치의 JSON 파일과 검색된 각 얼굴의 jpg 이미지를 생성합니다.
 
-| 단계 | 파일 이름 | 참고 |
+| 단계 | 파일 이름 | 메모 |
 | --- | --- | --- |
 | 입력 자산 |foo.bar |WMV, MPV 또는 MP4 형식의 동영상 |
 | 입력 구성 |작업 구성 사전 설정 |{'version':'1.0', 'options': {'mode':'analyze'}} |
@@ -120,7 +120,7 @@ ms.locfileid: "103013468"
 
 분석 단계의 출력에는 원본 동영상이 포함되지 않습니다. 동영상을 편집 모드 작업의 입력 자산으로 업로드하고 기본 파일로 선택해야 합니다.
 
-| 단계 | 파일 이름 | 참고 |
+| 단계 | 파일 이름 | 메모 |
 | --- | --- | --- |
 | 입력 자산 |foo.bar |WMV, MPV 또는 MP4 형식의 동영상. 1단계와 동일한 동영상입니다. |
 | 입력 자산 |foo_annotations.json |1단계의 주석 메타데이터 파일 및 수정 사항(선택 사항) |
@@ -204,7 +204,7 @@ IDList에서 하나의 ID가 선택된 출력입니다.
 
 ### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-개발 환경을 설정 하 고 [.net을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다.
+개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다.
 
 #### <a name="example"></a>예제
 

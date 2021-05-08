@@ -1,5 +1,5 @@
 ---
-title: 서버 개념-Azure Database for MySQL
+title: 서버 개념 - Azure Database for MySQL
 description: 이 항목에서는 MySQL용 Azure 데이터베이스 서버를 사용할 때의 고려 사항 및 지침을 제공합니다.
 author: savjani
 ms.author: pariks
@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: cb8394de49c2c5daeae156a9316466928eded148
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105628478"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>MySQL용 Azure 데이터베이스의 서버 개념
@@ -38,7 +38,7 @@ Azure Database for MySQL 서버 내에서 하나 이상의 데이터베이스를
 
 다음과 같은 요소가 데이터베이스에 안전하게 액세스할 수 있도록 도와줍니다.
 
-| 보안 개념 | 설명     |
+| 보안 개념 | Description     |
 | :-- | :-- |
 | **인증 및 권한 부여** | MySQL용 Azure 데이터베이스 서버는 네이티브 MySQL 인증을 지원합니다. 서버의 관리자 로그인을 사용하여 서버에 연결하고 인증을 받을 수 있습니다. |
 | **프로토콜** | 이 서비스는 MySQL에서 사용되는 메시지 기반 프로토콜을 지원합니다. |
@@ -48,30 +48,30 @@ Azure Database for MySQL 서버 내에서 하나 이상의 데이터베이스를
 
 ## <a name="stopstart-an-azure-database-for-mysql"></a>Azure Database for MySQL 중지/시작
 
-Azure Database for MySQL 사용 하지 않을 때 서버를 **중지** 하 고 작업을 다시 시작할 때 서버를 **시작** 하는 기능을 제공 합니다. 이는 기본적으로 데이터베이스 서버에 대 한 비용을 절감 하 고 사용 하는 경우에만 리소스에 대 한 비용을 지불 합니다. 이는 개발-테스트 워크 로드에 대해 매우 중요 하 고 하루 중에만 서버를 사용 하는 경우에도 더욱 중요 합니다. 서버를 중지 하면 모든 활성 연결이 삭제 됩니다. 나중에 서버를 다시 온라인 상태로 전환 하려는 경우 [Azure Portal](how-to-stop-start-server.md) 또는 [CLI](how-to-stop-start-server.md)를 사용할 수 있습니다.
+Azure Database for MySQL은 사용하지 않을 때 서버를 **중지** 하고 작업을 재개할 때 서버를 **시작** 하는 기능을 제공합니다. 기본적으로 데이터베이스 서버의 비용을 절감하고, 사용 중일 때만 리소스에 대한 비용을 지불하기 위해 수행됩니다. 개발-테스트 워크로드와 하루 중 일부만 서버를 사용할 때 더 중요합니다. 서버를 중지하면 모든 활성 연결이 삭제됩니다. 나중에 서버를 다시 온라인으로 전환하려는 경우 [Azure Portal](how-to-stop-start-server.md) 또는 [CLI](how-to-stop-start-server.md)를 사용할 수 있습니다.
 
-서버가 **중지** 됨 상태 이면 서버의 계산에는 요금이 청구 되지 않습니다. 그러나 서버가 다시 시작 될 때 데이터 파일을 사용할 수 있도록 서버의 저장소가 남아 있으므로 저장소는 계속 청구 됩니다.
+서버가 **중지됨** 상태이면 서버 컴퓨팅에 요금이 청구되지 않습니다. 그러나 서버가 다시 시작될 때 데이터 파일을 사용할 수 있도록 서버의 스토리지가 그대로 남아 있기 때문에 스토리지 비용이 계속 청구됩니다.
 
 > [!IMPORTANT]
-> 서버를 **중지** 하면 스트레치에서 다음 7 일 동안 해당 상태가 유지 됩니다. 이 시간 동안 수동으로 **시작** 하지 않는 경우 서버는 7 일이 끝날 때 자동으로 시작 됩니다. 서버를 사용 하지 않는 경우 다시 **중지** 하도록 선택할 수 있습니다.
+> 서버를 **중지** 하면 스트레치에서 다음 7일 동안 해당 상태로 유지됩니다. 이 시간 동안 수동으로 **시작** 하지 않는 경우 서버는 7일이 끝날 때 자동으로 시작됩니다. 서버를 사용하지 않는 경우 다시 **중지** 하도록 선택할 수 있습니다.
 
-서버를 중지 하는 동안 서버에서 관리 작업을 수행할 수 없습니다. 서버에서 구성 설정을 변경 하려면 [서버를 시작](how-to-stop-start-server.md)해야 합니다.
+서버가 중지된 동안에는 서버에서 관리 작업을 수행할 수 없습니다. 서버에서 구성 설정을 변경하려면 [서버를 시작](how-to-stop-start-server.md)해야 합니다.
 
 ### <a name="limitations-of-stopstart-operation"></a>중지/시작 작업의 제한 사항
-- 읽기 복제본 구성 (원본 및 복제본 모두)에서 지원 되지 않습니다.
+- 읽기 복제본 구성(원본 및 복제본 모두)에서는 지원되지 않습니다.
 
 ## <a name="how-do-i-manage-a-server"></a>서버는 어떻게 관리해야 하나요?
 
-Azure Portal 또는 Azure CLI를 사용 하 여 Azure Database for MySQL 서버에 대 한 만들기, 삭제, 서버 매개 변수 구성 (my.cnf), 크기 조정, 네트워킹, 보안, 고가용성, 백업 & 복원, 모니터링 등을 관리할 수 있습니다. 또한 서버에서 슈퍼 사용자 권한이 지원 되지 않기 때문에 필요한 특정 데이터베이스 관리 작업을 수행 하는 Azure Database for MySQL에는 다음 저장 프로시저를 사용할 수 있습니다.
+Azure Portal 또는 Azure CLI를 사용하여 Azure Database for MySQL 서버 만들기, 삭제, 서버 매개 변수 구성(my.cnf), 스케일링, 네트워킹, 보안, 고가용성, 백업 및 복원, 모니터링을 관리할 수 ​​있습니다. 또한 서버에서 SUPER 사용자 권한이 지원되지 않기 때문에 필요한 특정 데이터베이스 관리 작업을 수행하기 위해 Azure Database for MySQL에서 다음 저장 프로시저를 사용할 수 있습니다.
 
 |**저장 프로시저 이름**|**입력 매개 변수**|**출력 매개 변수**|**사용 정보**|
 |-----|-----|-----|-----|
-|*mysql.az_kill*|processlist_id|해당 없음|Command와 동일 [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) 합니다. 는 연결을 실행 하는 문을 종료 한 후 제공 된 processlist_id 연결 된 연결을 종료 합니다.|
-|*mysql.az_kill_query*|processlist_id|해당 없음|Command와 동일 [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) 합니다. 는 연결이 현재 실행 중인 문을 종료 합니다. 연결 자체의 활성 상태를 유지 합니다.|
-|*mysql.az_load_timezone*|해당 없음|해당 없음|매개 변수를 명명 된 값으로 설정할 수 있도록 [표준 시간대 테이블](howto-server-parameters.md#working-with-the-time-zone-parameter) 을 로드 `time_zone` 합니다 (예: "US/태평양").|
+|*mysql.az_kill*|processlist_id|해당 없음|[`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) 명령과 같습니다. 연결이 실행 중인 명령문을 종료한 후 제공된 processlist_id와 관련된 연결을 종료합니다.|
+|*mysql.az_kill_query*|processlist_id|해당 없음|[`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) 명령과 같습니다. 연결이 현재 실행 중인 명령문을 종료합니다. 연결 자체를 활성 상태로 유지합니다.|
+|*mysql.az_load_timezone*|해당 없음|해당 없음|[표준 시간대 표](howto-server-parameters.md#working-with-the-time-zone-parameter)를 로드하여 `time_zone` 매개 변수를 명명된 값으로 설정할 수 있습니다(예: “미국/태평양”).|
 
 ## <a name="next-steps"></a>다음 단계
 
 - 서비스 개요를 보려면 [MySQL용 Azure 데이터베이스 개요](./overview.md)를 참조하세요.
-- **가격 책정 계층** 에 따른 특정 리소스 할당량 및 제한 사항에 대 한 자세한 내용은 [가격 책정](./concepts-pricing-tiers.md) 계층을 참조 하세요.
+- **가격 책정 계층** 에 따른 특정 리소스 할당량 및 제한 사항에 관한 자세한 내용은 [가격 책정 계층](./concepts-pricing-tiers.md)을 참조하세요.
 - 서비스 연결에 대한 자세한 내용은 [MySQL용 Azure 데이터베이스에 대한 연결 라이브러리](./concepts-connection-libraries.md)를 참조하세요.

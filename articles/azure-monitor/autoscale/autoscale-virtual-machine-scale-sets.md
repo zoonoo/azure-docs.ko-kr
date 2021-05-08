@@ -10,10 +10,10 @@ ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 26cfdf05847b01d28a8574483acc89cfeced0ffa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101717743"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Resource Manager 템플릿을 사용하여 VM Scale Sets에 대한 고급 자동 크기 조정 구성
@@ -63,7 +63,7 @@ ms.locfileid: "101717743"
 
 6. 편집을 클릭합니다. 자동 크기 조정 설정의 '프로필' 요소를 다음 구성으로 **대체** 합니다.
 
-    ![스크린샷에는 profiles 요소가 표시 됩니다.](media/autoscale-virtual-machine-scale-sets/profiles.png)
+    ![스크린샷은 프로필 요소를 보여 줍니다.](media/autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {

@@ -1,6 +1,6 @@
 ---
-title: InfiniBand 드라이버 확장-Azure Windows Vm
-description: H-및 N 시리즈 계산 Vm에 InfiniBand 드라이버를 설치 하는 데 필요한 확장을 Windows를 실행 합니다. Microsoft Azure
+title: InfiniBand 드라이버 확장 - Azure Windows VM
+description: Windows를 실행하는 H 시리즈 및 N 시리즈 컴퓨팅 VM에 InfiniBand 드라이버를 설치하기 위한 Microsoft Azure 확장입니다.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -15,27 +15,27 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: amverma
 ms.openlocfilehash: 81720c18ce858cd5667413a9d39afdadc95acb23
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102559701"
 ---
-# <a name="infiniband-driver-extension-for-windows"></a>Windows 용 InfiniBand 드라이버 확장
+# <a name="infiniband-driver-extension-for-windows"></a>Windows용 InfiniBand 드라이버 확장
 
-이 확장은 InfiniBand ND 드라이버 (SR-IOV를 사용 하지 않는 경우) 및 OFED 드라이버 (SR-IOV 사용) (' r ' 크기) [H 시리즈](../sizes-hpc.md) 및 [N 시리즈](../sizes-gpu.md) vm (Windows 실행)을 설치 합니다. VM 제품군에 따라 확장은 연결-X NIC에 적절 한 드라이버를 설치 합니다.
+이 확장은 Windows를 실행하는 [H 시리즈](../sizes-hpc.md) 및 [N 시리즈](../sizes-gpu.md) VM에 InfiniBand ND 드라이버(SR-IOV를 사용하지 않는 경우) 및 OFED 드라이버(SR-IOV를 사용하는 경우)(‘r’ 크기)를 설치합니다. VM 제품군에 따라 확장은 Connect-X NIC에 적절한 드라이버를 설치합니다.
 
-[Linux vm](hpc-compute-infiniband-linux.md)에 대 한 InfiniBand 드라이버를 설치 하는 데에도 확장을 사용할 수 있습니다.
+[Linux VM](hpc-compute-infiniband-linux.md)용 InfiniBand 드라이버를 설치하기 위한 확장도 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="operating-system"></a>운영 체제
 
-이 확장은 특정 OS 버전의 드라이버 지원에 따라 다음 OS 배포판을 지원합니다. 원하는 H 및 N 시리즈 VM 크기에 적합 한 InfiniBand NIC를 확인 합니다.
+이 확장은 특정 OS 버전의 드라이버 지원에 따라 다음 OS 배포판을 지원합니다. 원하는 H 시리즈 및 N 시리즈 VM 크기에 적합한 InfiniBand NIC를 확인합니다.
 
 | 배포 | InfiniBand NIC 드라이버 |
 |---|---|
-| 윈도우 10 | CX5, CX6 |
+| Windows 10 | CX5, CX6 |
 | Windows Server 2019 | CX5, CX6 |
 | Windows Server 2016 | CX3-Pro, CX5, CX6 |
 | Windows Server 2012 R2 | CX3-Pro, CX5, CX6 |
@@ -43,7 +43,7 @@ ms.locfileid: "102559701"
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
-InfiniBand 드라이버를 Microsoft Azure 확장 하려면 대상 VM이에 연결 되어 있고 인터넷에 액세스할 수 있어야 합니다.
+InfiniBand 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM이 인터넷에 연결되어 있고 액세스 권한이 있어야 합니다.
 
 ## <a name="extension-schema"></a>확장 스키마
 
@@ -139,7 +139,7 @@ az vm extension set \
 
 ### <a name="add-extension-to-a-virtual-machine-scale-set"></a>가상 머신 확장 집합에 확장 추가
 
-다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹에 배포 된 *myvmss* 라는 기존 가상 머신 확장 집합의 모든 RDMA 지원 vm에 최신 버전 1.2 InfiniBandDriverWindows 확장을 설치 합니다.
+다음 예제에서는 *myResourceGroup* 이라는 리소스 그룹에 배포된 *myVMSS* 라는 기존 가상 머신 확장 집합의 모든 RDMA 지원 VM에 최신 버전 1.2 InfiniBandDriverWindows 확장을 설치합니다.
 
   ```powershell
   $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
@@ -163,7 +163,7 @@ Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtens
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-확장 실행 출력은 다음 파일에 기록 됩니다. 설치 상태를 추적 하 고 오류를 해결 하려면이 파일을 참조 하세요.
+확장 실행 출력은 다음 파일에 기록됩니다. 설치 상태를 추적하고 오류를 해결하려면 이 파일을 참조하세요.
 
 ```cmd
 C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.InfiniBandDriverWindows\
@@ -171,22 +171,22 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.InfiniBandDriverWindows\
 
 ### <a name="exit-codes"></a>종료 코드
 
-다음 표에서는 확장 설치 프로세스의 종료 코드를 기반으로 하는 의미와 권장 작업에 대해 설명 합니다.
+다음 표에서는 확장 설치 프로세스의 종료 코드에 따른 의미와 권장 사항에 대해 설명합니다.
 
 | 오류 코드 | 의미 | 가능한 작업 |
 | :---: | --- | --- |
 | 0 | 작업이 성공했습니다. |
 | 3010 | 작업이 성공했습니다. 다시 부팅해야 합니다. |
-| 100 | 작업이 지원되지 않거나 완료할 수 없습니다. | 가능한 원인: PowerShell 버전이 지원 되지 않습니다. VM 크기가 InfiniBand 사용 VM이 아니고 데이터 다운로드에 실패 했습니다. 로그 파일을 확인하여 오류의 원인을 파악합니다. |
+| 100 | 작업이 지원되지 않거나 완료할 수 없습니다. | 가능한 원인: PowerShell 버전이 지원되지 않습니다. VM 크기가 InfiniBand 사용 VM이 아니며, 데이터를 다운로드하지 못했습니다. 로그 파일을 확인하여 오류의 원인을 파악합니다. |
 | 240, 840 | 작업 시간이 초과되었습니다. | 작업을 다시 시도합니다. |
 | -1 | 예외가 발생했습니다. | 로그 파일을 확인하여 예외의 원인을 파악합니다. |
 
 ### <a name="support"></a>지원
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/community/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)를 통해 지원 인시던트를 파일에 추가할 수 있습니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/community/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)를 통해 지원 인시던트를 제출할 수 있습니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-InfiniBand 사용 (' r ' 크기)에 대 한 자세한 내용은 [H 시리즈](../sizes-hpc.md) 및 [N 시리즈](../sizes-gpu.md) vm을 참조 하세요.
+InfiniBand 사용(‘r’ 크기)에 대한 자세한 내용은 [H 시리즈](../sizes-hpc.md) 및 [N 시리즈](../sizes-gpu.md) VM을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Linux Vm 확장 및 기능에 대 한 자세한 정보](features-linux.md)
+> [Linux VM 확장 및 기능에 대한 자세한 정보](features-linux.md)

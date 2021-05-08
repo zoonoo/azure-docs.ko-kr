@@ -5,23 +5,25 @@ description: 이 단계별 빠른 시작 가이드를 통해 Azure Portal을 사
 services: dns
 author: rohinkoul
 ms.author: rohink
-ms.date: 10/20/2020
+ms.date: 04/23/2021
 ms.topic: quickstart
 ms.service: dns
 ms.custom:
 - mode-portal
-ms.openlocfilehash: d08c5768c2c400ff3d842f58081a58708bfc28db
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: f72dd2be2277754100693c2ebb1ef8658ca6f39a
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537781"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949413"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure DNS 영역 및 레코드 만들기
 
 공용 도메인에서 호스트 이름을 확인하기 위한 Azure DNS를 구성할 수 있습니다. 예를 들어 도메인 이름 등록 기관에서 *contoso.xyz* 도메인 이름을 구입한 경우, *contoso.xyz* 도메인을 호스팅하고 *`www.contoso.xyz`* 를 웹 서버 또는 웹앱의 IP 주소로 확인하도록 Azure DNS를 구성할 수 있습니다.
 
 이 빠른 시작에서는 테스트 도메인을 만든 다음, *www* 를 *10.10.10.10* IP 주소로 확인하는 주소 레코드를 만듭니다.
+
+:::image type="content" source="media/dns-getstarted-portal/environment-diagram.png" alt-text="Azure Portal을 사용하는 DNS 배포 환경의 다이어그램." border="false":::
 
 >[!IMPORTANT]
 >이 빠른 시작에 나오는 모든 이름 및 IP 주소는 예제일 뿐이며 실제 시나리오를 나타내지 않습니다.
@@ -34,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 모든 포털 단계를 위해 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -99,7 +101,7 @@ DNS 영역 내에서 도메인에 대한 DNS 항목 또는 레코드를 만듭�
    nslookup www.contoso.xyz <name server name>
    ```
 
-   다음은 그 예입니다. 
+   다음은 그 예입니다.
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.

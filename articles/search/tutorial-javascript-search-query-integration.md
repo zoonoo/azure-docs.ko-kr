@@ -1,7 +1,7 @@
 ---
 title: 'JavaScript 자습서: 검색 통합 하이라이트'
 titleSuffix: Azure Cognitive Search
-description: 검색 사용 웹 사이트에서 사용되는 JavaScript SDK 검색 쿼리 이해
+description: 이 치트 시트를 사용하면 검색 사용 웹 사이트에서 사용되는 JavaScript SDK 검색 통합 쿼리를 이해할 수 있습니다.
 manager: nitinme
 author: diberry
 ms.author: diberry
@@ -10,16 +10,20 @@ ms.topic: tutorial
 ms.date: 03/09/2021
 ms.custom: devx-track-js
 ms.devlang: javascript
-ms.openlocfilehash: cf4e1b1ecf209b587a45ca4c43607bfa95155aee
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: f6c23c7b0870fe8caed1f82e8ce102539aa2e950
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104723501"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950228"
 ---
-# <a name="4---search-integration-highlights"></a>4 - 검색 통합 하이라이트
+# <a name="4---javascript-search-integration-cheat-sheet"></a>4 - JavaScript 검색 통합 치트 시트
 
 이전 단원에서는 정적 웹앱에 검색을 추가했습니다. 이 단원에서는 통합을 설정하는 필수 단계를 중점적으로 설명합니다. 검색을 JavaScript 앱에 통합하는 방법에 대한 참고 자료 시트를 찾고 있는 경우 이 문서에서는 알아야 할 사항을 설명합니다.
+
+다음 애플리케이션을 사용할 수 있습니다. 
+* [샘플](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website)
+* [데모 웹 사이트 - aka.ms/azs-good-books](https://aka.ms/azs-good-books)
 
 ## <a name="azure-sdk-azuresearch-documents"></a>Azure SDK @azure/search-documents 
 

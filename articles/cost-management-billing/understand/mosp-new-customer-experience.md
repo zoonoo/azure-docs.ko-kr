@@ -6,14 +6,14 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/11/2021
+ms.date: 03/31/2021
 ms.author: banders
-ms.openlocfilehash: 887b7013eb3060020a39d2df0082768b8185bdde
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 4f7179a5ad35b4d3ca9a92119fb7b492e2aff779
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575469"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122529"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>업데이트된 Azure 청구 계정 시작
 
@@ -26,11 +26,11 @@ ms.locfileid: "99575469"
 
 다음 다이어그램은 이전 청구 계정과 새 청구 계정을 비교합니다.
 
-![이전 계정과 새 계정의 청구 계층 구조를 비교하는 다이어그램](./media/mosp-new-customer-experience/comparison-old-new-account.png)
+:::image type="content" source="./media/mosp-new-customer-experience/comparison-old-new-account.png" alt-text="이전 계정과 새 계정의 청구 계층 구조를 비교해서 보여주는 다이어그램." border="false" lightbox="./media/mosp-new-customer-experience/comparison-old-new-account.png":::
 
 새 청구 계정에는 청구서 및 결제 방법을 관리하는 데 사용되는 하나 이상의 청구 프로필이 포함되어 있습니다. 각 청구 프로필에는 청구 프로필의 청구에 명시된 비용을 정리할 수 있는 하나 이상의 청구서 섹션이 있습니다.
 
-![새 청구 계층 구조를 보여주는 다이어그램](./media/mosp-new-customer-experience/new-billing-account-hierarchy.png)
+:::image type="content" source="./media/mosp-new-customer-experience/new-billing-account-hierarchy.png" alt-text="새 청구 계층 구조를 보여주는 다이어그램." border="false" lightbox="./media/mosp-new-customer-experience/new-billing-account-hierarchy.png":::
 
 청구 계정의 역할에는 가장 높은 수준의 사용 권한이 있습니다. 이러한 역할은 청구서를 확인하고, 전체 조직의 비용을 추적해야 하는 재무 또는 IT 관리자와 같은 사용자 또는 계정에 서명한 개인에게 할당되어야 합니다. 자세한 내용은 [청구 계정 역할 및 작업](../manage/understand-mca-roles.md#billing-account-roles-and-tasks)을 참조하세요. 계정이 업데이트되면 이전 청구 계정에서 계정 관리자 역할이 할당된 사용자에게 새 계정의 소유자 역할이 부여됩니다.
 
@@ -60,7 +60,21 @@ ms.locfileid: "99575469"
 
 **보다 예측 가능한 월간 청구 기간** - 새 계정의 청구 기간은 Azure 사용을 가입하는 날짜에 관계 없이 해당 월의 1일에 시작하여 말일에 끝납니다. 매월 1일에 청구서가 생성되며, 이전 달의 모든 요금이 포함됩니다.
 
-**여러 구독에 대한 단일 월별 청구서 제공** - 구독마다 월별 청구서를 받을 수도 있고 여러 구독에 대한 단일 청구서를 받을 수도 있습니다.
+**여러 구독에 대해 단일 월별 청구서 받기** -기존 계정에서 각 Azure 구독에 대한 청구서를 받습니다. 계정이 업데이트되는 경우 기존 동작이 유지되지만 여러 구독의 요금을 단일 청구서에 유연하게 통합할 수 있습니다. 계정을 업데이트한 후 아래 단계에 따라 단일 청구서에 요금을 통합합니다.
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. **Cost Management + 청구** 를 검색합니다.  
+   ![Cost Management + Billing에 대한 Azure Portal 내 검색을 보여 주는 스크린샷](./media/mosp-new-customer-experience/billing-search-cost-management-billing.png)
+3. 화면 왼쪽에서 **Azure 구독** 을 선택합니다. 
+4. 요금을 지불하는 Azure 구독이 표에 나열됩니다. 구독에 대해 청구되는 청구 프로필은 청구 프로필 열에서 확인할 수 있습니다. 구독 요금은 청구 프로필에 대한 청구서에 표시됩니다. 모든 구독에 대한 요금을 단일 청구서에 통합하려면 모든 구독을 단일 청구 프로필에 연결해야 합니다.  
+    :::image type="content" source="./media/mosp-new-customer-experience/list-azure-subscriptions.png" alt-text="Azure 구독 목록을 보여주는 스크린샷" lightbox="./media/mosp-new-customer-experience/list-azure-subscriptions.png" :::
+5. 사용하려는 청구 프로필을 선택합니다. 
+6. 5단계에서 선택한 청구 프로필에 연결되지 않은 구독을 선택합니다. 구독에 대해 줄임표(...)를 클릭합니다. **청구서 섹션 변경** 을 선택합니다.  
+    :::image type="content" source="./media/mosp-new-customer-experience/select-change-invoice-section.png" alt-text="청구서 섹션을 변경하는 옵션을 보여주는 스크린샷" lightbox="./media/mosp-new-customer-experience/select-change-invoice-section-zoomed-in.png" :::
+7. 5단계에서 선택한 청구 프로필을 선택합니다.  
+    :::image type="content" source="./media/mosp-new-customer-experience/change-invoice-section.png" alt-text="청구서 섹션을 변경하는 방법을 보여주는 스크린샷" lightbox="./media/mosp-new-customer-experience/change-invoice-section-zoomed-in.png" :::
+8. **변경** 을 선택합니다.
+9. 다른 모든 구독에 대해 6~8단계를 반복합니다. 
 
 **Azure 구독, 지원 플랜 및 Azure Marketplace 제품에 대한 단일 월별 청구서 제공** - Azure 구독 사용 요금, 지원 플랜 및 Azure Marketplace 구매를 포함하여 모든 요금에 대한 단일 월별 청구서를 받게 됩니다.
 
@@ -98,6 +112,12 @@ ms.locfileid: "99575469"
 
 새 환경에서는 매월 9일 전후로 청구서가 생성되며 이전 달의 모든 요금이 청구서에 포함됩니다. 이 날짜와 이전 계정에서 청구서가 생성되는 날짜가 서로 다를 수 있습니다. 청구서를 다른 사람과 공유하는 경우 변경된 날짜를 알려주어야 합니다.
 
+
+**마이그레이션 후 첫 달의 청구서**
+
+계정 업데이트 날짜를 기준으로 기존의 미청구 요금이 확정되며, 일반적으로 청구서를 받는 날에 이러한 요금에 대한 청구서를 받게 됩니다. 예를 들어 John은 청구 기간이 매월 5일부터 다음 달 4일까지인 Azure sub 01과 청구 기간이 매월 10일부터 다음 달 9일까지인 Azure sub 02, 두 개의 Azure 구독이 있습니다. John은 일반적으로 매월 5일에 두 가지 Azure 구독 모두에 대한 청구서를 받습니다. 이제 John의 계정이 4월 4일에 업데이트되면 3월 5일부터 4월 4일까지 Azure sub 01의 요금과 3월 10일부터 4월 4일까지 Azure sub 02의 요금이 확정됩니다. John은 4월 5일에 각 구독에 하나씩 두 개의 청구서를 받게 됩니다. 계정이 업데이트된 후 John의 청구 기간은 달력 월을 기준으로 하며 해당 월 1일부터 해당 월 말일까지 발생한 모든 요금을 포함합니다.  이전 달의 요금 청구서는 매월 9일에 제공됩니다. 따라서 위의 예에서 John은 5월 5일에 4월 5일부터 4월 30일까지의 청구 기간에 대한 또 다른 청구서를 받게 됩니다. 
+
+
 **새로운 청구 및 비용 관리 API**
 
 Cost Management 또는 청구 API를 사용하여 청구 또는 비용 데이터를 쿼리하고 업데이트하는 경우 새 API를 사용해야 합니다. 아래 표에는 새 청구 계정에서 작동하지 않는 API 및 새 청구 계정에서 변경해야 하는 내용이 나열되어 있습니다.
@@ -106,6 +126,7 @@ Cost Management 또는 청구 API를 사용하여 청구 또는 비용 데이터
 |---------|---------|
 |[청구 계정 - 나열](/rest/api/billing/2019-10-01-preview/billingaccounts/list) | 청구 계정 - 나열 API에서 이전 청구 계정의 agreementType은 **MicrosoftOnlineServiceProgram** 이고, 새 청구 계정의 agreementType은 **MicrosoftCustomerAgreement** 입니다. agreementType을 사용하는 경우 업데이트하세요. |
 |[청구서 - 청구 구독별 나열](/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | 이 API는 계정이 업데이트되기 전에 생성된 청구서만 반환합니다. 새 청구 계정에서 생성된 청구서를 가져오려면 [청구서 - 청구서 계정별 나열](/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount) API를 사용해야 합니다. |
+
 
 ## <a name="cost-management-updates-after-account-update"></a>계정 업데이트 후 Cost Management가 업데이트됨
 
@@ -141,7 +162,7 @@ Azure 청구 계정에서 다음과 같은 업데이트된 기능을 사용할 �
 
 예를 들어 이전 계정의 청구 기간이 11월 24일~12월 23일이었다면 업그레이드 후에는 11월 1일~11월30일, 12월 1일~12월 31일 등으로 청구 기간이 변경됩니다.
 
-:::image type="content" source="./media/mosp-new-customer-experience/billing-periods.png" alt-text="이전 청구 기간과 새 청구 기간을 비교하여 보여 주는 이미지" lightbox="./media/mosp-new-customer-experience/billing-periods.png" :::
+:::image type="content" source="./media/mosp-new-customer-experience/billing-periods.png" alt-text="이전 청구 기간과 새 청구 기간을 비교해서 보여주는 스크린샷" lightbox="./media/mosp-new-customer-experience/billing-periods.png" :::
 
 #### <a name="budgets"></a>예산
 
@@ -156,7 +177,7 @@ Azure 청구 계정에서 다음과 같은 업데이트된 기능을 사용할 �
 
 예를 들어 청구 기간이 12월 23일~1월 22일일 경우 내보낸 CSV 파일에 해당 기간의 비용 및 사용량 데이터가 포함됩니다. 업데이트 후에는 해당 월에 대한 데이터가 내보내기에 포함됩니다. 예를 들면 1월 1일~1월 31일 등입니다.
 
-:::image type="content" source="./media/mosp-new-customer-experience/export-amortized-costs.png" alt-text="이전 내보내기 정보와 새 내보내기 정보를 비교하여 보여 주는 이미지" lightbox="./media/mosp-new-customer-experience/export-amortized-costs.png" :::
+:::image type="content" source="./media/mosp-new-customer-experience/export-amortized-costs.png" alt-text="이전 내보내기 정보와 새 내보내기 정보를 비교해서 보여주는 스크린샷" lightbox="./media/mosp-new-customer-experience/export-amortized-costs.png" :::
 
 ## <a name="additional-information"></a>추가 정보
 

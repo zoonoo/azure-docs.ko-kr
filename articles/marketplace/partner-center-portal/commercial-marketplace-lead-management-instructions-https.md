@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 03/30/2020
-ms.openlocfilehash: 5bea2cf256e30bd896957bbee0e0ad824057a569
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/09/2021
+ms.openlocfilehash: 0da1fd7b98b86ebd75926cc8a2d2bb5294d048ca
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98247185"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308194"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>HTTPS 엔드포인트를 사용하여 상업용 Marketplace 잠재 고객 관리
 
@@ -31,13 +31,13 @@ CRM(고객 관계 관리) 시스템이 Microsoft AppSource 및 Azure Marketplace
 
     ![내 흐름에 로그인](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-1. **+ 새로 만들기** 에서 **+ 즉시 - 새로 시작** 을 선택합니다.
+1. **+ 새로 만들기** 에서 **+ Instant cloud flow**(+ 인스턴트 클라우드 흐름)를 선택합니다.
 
-    ![내 흐름 + 자동 - 새로 시작](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-create-fromblank.png)
+    ![내 흐름 + 자동 - 새로 시작](./media/commercial-marketplace-lead-management-instructions-https/https-my-flows-create-from-blank.png)
 
 1. 흐름의 이름을 지정한 다음, **이 흐름을 트리거하는 방법** 을 선택하고 **HTTP 요청을 받을 때** 를 선택합니다.
 
-    ![자동화된 흐름 창 건너뛰기 단추 빌드](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
+    ![자동화된 흐름 창 건너뛰기 단추 빌드](./media/commercial-marketplace-lead-management-instructions-https/https-my-flows-pick-request-trigger.png)
 
 1. 흐름 단계를 클릭하여 확장합니다.
 
@@ -132,14 +132,18 @@ CRM(고객 관계 관리) 시스템이 Microsoft AppSource 및 Azure Marketplace
     ```
 
 >[!NOTE]
->구성의 이 시점에서 CRM 시스템에 연결하거나 이메일 알림을 구성할 수 있습니다. 선택한 내용에 따라 나머지 지침을 따릅니다.
+>구성의 이 시점에서 CRM 시스템에 연결하거나 메일 알림을 구성할 수 있습니다. 선택한 내용에 따라 나머지 지침을 따릅니다.
 
 ### <a name="connect-to-a-crm-system"></a>CRM 시스템에 연결
 
 1. **+ 새 단계** 를 선택합니다.
-1. **커넥터 및 작업 검색** 이 표시된 곳에서 검색하여 선택한 CRM 시스템을 선택합니다. 작업이 표시된 **작업** 탭에서 작업을 선택하여 새 레코드를 만듭니다. 다음 화면은 **새 레코드 만들기(Dynamics 365)** 를 예제로 보여 줍니다.
+1. **커넥터 및 작업 검색** 이 표시된 곳에서 검색하여 선택한 CRM 시스템을 선택합니다. 다음 화면에서는 새 레코드 만들기(Common Data Service)를 예제로 보여 줍니다.
 
     ![새 레코드 만들기](./media/commercial-marketplace-lead-management-instructions-https/create-new-record.png)
+
+1. **새 레코드 만들기** 작업이 있는 **작업 탭** 을 선택합니다.
+
+    ![새 레코드 만들기 선택](./media/commercial-marketplace-lead-management-instructions-https/select-create-new-record.png)
 
 1. CRM 시스템과 연결된 **조직 이름** 을 입력합니다. **엔터티 이름** 드롭다운 목록에서 **잠재 고객** 을 선택합니다.
 

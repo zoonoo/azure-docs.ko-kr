@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: cb7500489cc4516b8cf44dd029c0831103dc53a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: add2a4aba1f7664b919e88992b2a1d71e8291b53
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103007937"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226772"
 ---
 # <a name="microsoft-azure-media-services-common-scenarios"></a>Microsoft Azure Media Services 일반적인 시나리오
 
@@ -49,7 +49,7 @@ Microsoft AMS(Azure Media Services)는 다양한 클라이언트(예: TV, PC 및
 
 [![개발 시 Azure Media Services 개체 데이터 모델에 가장 일반적으로 사용되는 개체 중 일부를 보여 주는 다이어그램.](./media/media-services-overview/media-services-overview-object-model-small.png)](./media/media-services-overview/media-services-overview-object-model.png#lightbox)
 
-전체 모델은 [여기](https://media.windows.net/API/$metadata?api-version=2.15)서 볼 수 있습니다 .  
+전체 모델은 [여기](https://m.eet.com/media/1170326/ms-part1.pdf)서 볼 수 있습니다 .  
 
 ## <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>스토리지에서 콘텐츠 보호 및 암호화하지 않고 스트리밍 미디어 배달(암호화되지 않음)
 

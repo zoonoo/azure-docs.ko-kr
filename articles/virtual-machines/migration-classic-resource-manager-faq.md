@@ -1,6 +1,6 @@
 ---
-title: 클래식에서 Azure Resource Manager 마이그레이션에 대한 질문과 대답
-description: 클래식에서 Azure Resource Manager로 마이그레이션하는 방법에 대 한 질문과 대답입니다.
+title: 클래식에서 Azure Resource Manager 마이그레이션에 대한 자주 묻는 질문
+description: 클래식에서 Azure Resource Manager로의 마이그레이션에 대한 자주 묻는 질문입니다.
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
@@ -10,24 +10,24 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
 ms.openlocfilehash: 034f09a8b616450e472dcc11427191f187cf489f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102615162"
 ---
-# <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>클래식에서 Azure Resource Manager 마이그레이션에 대한 질문과 대답
+# <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>클래식에서 Azure Resource Manager 마이그레이션에 대한 자주 묻는 질문
 
 > [!IMPORTANT]
-> 현재 IaaS Vm의 90%가 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)를 사용 하 고 있습니다. 2020 년 2 월 28 일부 터 클래식 Vm은 더 이상 사용 되지 않으며 2023 년 3 월 1 일에 완전히 사용 중지 됩니다. 이 사용 중단 및 [영향](./classic-vm-deprecation.md#how-does-this-affect-me)에 대 한 [자세한 내용을 알아보세요]( https://aka.ms/classicvmretirement) .
+> 현재 IaaS VM의 90%가 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)를 사용하고 있습니다. 2020년 2월 28일부터 클래식 VM은 더 이상 사용되지 않으며 2023년 3월 1일에 완전히 사용 중지될 예정입니다. 사용 중지 및 [그 영향](./classic-vm-deprecation.md#how-does-this-affect-me)에 대한 [자세한 내용을 확인하세요]( https://aka.ms/classicvmretirement).
 
-## <a name="what-is-azure-service-manager-and-what-does-it-mean-by-classic"></a>Azure Service Manager 란 무엇 이며 클래식에서 의미 하는 것은 무엇 인가요?
+## <a name="what-is-azure-service-manager-and-what-does-it-mean-by-classic"></a>Azure Service Manager란 무엇이며 클래식은 무엇을 의미하나요?
 
-IaaS VM (클래식)의 "클래식" 이라는 단어는 ASM (Azure Service Manager)에서 관리 하는 Vm을 나타냅니다. ASM (azure Service Manager)은 Vm 만들기, 관리, 삭제 및 기타 제어 평면 작업 수행을 담당 하는 Azure의 이전 제어 평면입니다. 
+IaaS VM(클래식)의 “클래식”이라는 단어는 ASM(Azure Service Manager)에서 관리하는 VM을 나타냅니다. ASM(Azure Service Manager)은 VM 만들기, 관리, 삭제, 기타 컨트롤 플레인 작업 수행을 담당하던 Azure의 이전 컨트롤 플레인입니다. 
 
 ## <a name="what-is-azure-resource-manager"></a>Azure Resource Manager란?
 
-[Azure Resource Manager](../azure-resource-manager/management/overview.md) 은 vm 만들기, 관리, 삭제 및 기타 제어 평면 작업 수행을 담당 하는 Azure의 최신 제어 평면입니다. 
+[Azure Resource Manager](../azure-resource-manager/management/overview.md)는 VM 만들기, 관리, 삭제, 기타 컨트롤 플레인 작업 수행을 담당하는 Azure의 최신 컨트롤 플레인입니다. 
 
 ## <a name="what-is-the-time-required-for-migration"></a>마이그레이션에 필요한 기간은 얼마인가요?
 
@@ -35,7 +35,7 @@ IaaS VM (클래식)의 "클래식" 이라는 단어는 ASM (Azure Service Manage
 
 ## <a name="what-is-the-definition-of-a-new-customer-on-iaas-vms-classic"></a>IaaS VM(클래식)에서 새 고객의 정의는 무엇인가요?
 
-2 월 2020 (사용 중단 시작 전 한 달)의 구독에 IaaS Vm (클래식)이 없는 고객은 새 고객으로 간주 됩니다. 
+2020년 2월 중(사용 중단을 시작하기 1개월 전) 구독에 IaaS VM(클래식)이 없는 고객은 새 고객으로 간주됩니다. 
 
 ## <a name="what-is-the-definition-of-an-existing-customer-on-iaas-virtual-machines-classic"></a>IaaS VM(클래식)에서 기존 고객의 정의는 무엇인가요?
 
@@ -43,7 +43,7 @@ IaaS VM (클래식)의 "클래식" 이라는 단어는 ASM (Azure Service Manage
 
 ## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>"NewClassicVMCreationNotAllowedForSubscription"이라는 오류가 발생하는 이유는 무엇인가요?
 
-사용 중지 프로세스의 일부로 IaaS VM(클래식)은 새 고객에게 더 이상 제공되지 않습니다. 귀하는 새 고객으로 식별되었으며 따라서 귀하의 작업은 권한이 부여되지 않았습니다. Azure Resource Manager를 사용 하는 것이 좋습니다. Azure Resource Manager를 사용 하 여 Azure Vm을 사용할 수 없는 경우 지원에 문의 하 여 허용 목록에 구독을 추가 하세요.
+사용 중지 프로세스의 일부로 IaaS VM(클래식)은 새 고객에게 더 이상 제공되지 않습니다. 귀하는 새 고객으로 식별되었으며 따라서 귀하의 작업은 권한이 부여되지 않았습니다. Azure Resource Manager를 사용하는 것이 좋습니다. Azure Resource Manager를 통해 Azure VM을 사용할 수 없는 경우 지원에 문의하여 허용 목록에 구독을 추가하세요.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>이 마이그레이션 계획이 Azure 가상 머신에서 실행되는 기존 서비스 또는 애플리케이션에 영향을 미치나요? 
 
@@ -77,17 +77,17 @@ Cloud Services(클래식), 스토리지 계정(클래식) 등 다른 클래식 �
 
 ## <a name="what-if-i-had-configured-azure-role-based-access-control-policies-for-my-classic-iaas-resources"></a>클래식 IaaS 리소스에 대해 Azure 역할 기반 액세스 제어 정책을 구성한 경우 어떻게 되나요? 
 
-마이그레이션 중에는 리소스가 클래식에서 Resource Manager로 전환됩니다. 따라서 마이그레이션 후에 수행 해야 하는 Azure RBAC 정책 업데이트를 계획 하는 것이 좋습니다.
+마이그레이션 중에는 리소스가 클래식에서 Resource Manager로 전환됩니다. 따라서 마이그레이션 후 필요한 Azure RBAC 정책 업데이트를 계획하는 것이 좋습니다.
 
 ## <a name="i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>자격 증명 모음에 내 클래식 VM을 백업했습니다. 클래식 모드에서 Resource Manager 모드로 내 VM을 마이그레이션하고 Recovery Services 자격 증명 모음에서 보호할 수 있나요?
 
 클래식 모드에서 Resource Manager 모드로 VM을 이동하는 경우 마이그레이션 이전에 생성된 백업은 새로 마이그레이션된 Resource Manager VM으로 마이그레이션되지 않습니다. 하지만 클래식 VM의 백업을 보관하려는 경우 마이그레이션 전에 다음 단계를 수행하세요. 
 
-1. Recovery Services 자격 증명 모음에서 **Backup 항목** 블레이드로 이동 하 고 VM을 선택 합니다. 
-2. 백업 중지를 클릭 합니다. 드롭다운 메뉴에서 "백업 데이터 유지"를 선택 합니다.
+1. Recovery Services 자격 증명 모음에서 **백업 항목** 블레이드로 이동하고 VM을 선택합니다. 
+2. 백업 중지를 클릭합니다. 드롭다운 메뉴에서 “백업 데이터 유지”를 선택합니다.
 
 > [!NOTE]
-> 이 옵션은 VM을 보호 하는 이후 모든 백업 작업을 중지 합니다. 그러나 Azure Backup 서비스에서 백업 된 복구 지점은 유지 됩니다.  자격 증명 모음에서 복구 지점이 유지 되도록 요금을 지불 해야 합니다 (자세한 내용은 [Azure Backup 가격](https://azure.microsoft.com/pricing/details/backup/) 정보 참조). 필요한 경우 VM을 복원할 수 있습니다. VM 보호를 다시 시작 하기로 결정 한 경우 *백업 다시 시작* 옵션을 사용할 수 있습니다.
+> 해당 옵션은 VM을 보호하는 앞으로의 모든 백업 작업을 중지합니다. 그러나 Azure Backup 서비스에서 백업된 복구 지점은 유지됩니다.  자격 증명 모음에서 복구 지점을 유지하려면 요금을 지불해야 합니다. 자세한 내용은 [Azure Backup 가격 책정](https://azure.microsoft.com/pricing/details/backup/)을 참조하세요. 복구 지점을 유지하면 필요할 때 VM을 복원할 수 있습니다. VM 보호를 계속하기로 결정한 경우 ‘백업 다시 시작’ 옵션을 사용할 수 있습니다.
 >
 >
 

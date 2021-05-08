@@ -10,12 +10,12 @@ ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.custom:
 - mode-portal
-ms.openlocfilehash: f43229570f6bab942cc57a2ea3be163d37f02f89
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 1ae6631c3f6ee71d7a09832956c7e687ceca22b6
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536178"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819055"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure 기밀 컴퓨팅 VM 배포
 
@@ -62,7 +62,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 
 1. 가상 머신에 사용할 운영 체제 이미지를 구성합니다.
 
-    * **이미지 선택**: 이 자습서에서는 Ubuntu 18.04 LTS를 선택합니다. Windows Server 2019, Windows Server 2016 또는 Ubuntu 16.04 LTS를 선택할 수도 있습니다. 이 작업을 수행하도록 선택하면 이에 따라 이 자습서에서 적절하게 리디렉션됩니다.
+    * **이미지 선택**: 이 자습서에서는 Ubuntu 18.04 LTS를 선택합니다. Windows Server 2019, Windows Server 2016 또는 Ubuntu 20.04 LTS를 선택할 수도 있습니다. 이 작업을 수행하도록 선택하면 이에 따라 이 자습서에서 적절하게 리디렉션됩니다.
     
     * **2세대 이미지 전환**: 기밀 컴퓨팅 가상 머신은 [2세대](../virtual-machines/generation-2.md) 이미지에서만 실행됩니다. 선택한 이미지가 2세대 이미지인지 확인합니다. 가상 머신을 구성하고 있는 위의 **고급** 탭을 클릭합니다. "VM 세대"라는 섹션을 찾을 때까지 아래로 스크롤합니다. [2세대]를 선택한 다음, **기본** 탭으로 돌아갑니다.
     
@@ -79,7 +79,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
     ![DCsv2 시리즈 VM](media/quick-create-portal/dcsv2-virtual-machines.png)
 
     > [!TIP]
-    > **DC1s_v2**, **DC2s_v2**, **DC4s_V2** 및 **DC8_v2** 크기가 표시됩니다. 이러한 크기는 현재 기밀 컴퓨팅을 지원하는 유일한 가상 머신 크기입니다. [자세히 알아보기](virtual-machine-solutions.md).
+    > **DC1s_v2**, **DC2s_v2**, **DC4s_V2** 및 **DC8_v2** 크기가 표시됩니다. 이러한 크기는 현재 Intel SGX 기밀 컴퓨팅을 지원하는 유일한 가상 머신 크기입니다. [자세히 알아보기](virtual-machine-solutions.md).
 
 1. 다음 정보를 입력합니다.
 
@@ -166,11 +166,18 @@ wget -qO - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add 
 ```
 
 #### <a name="2-install-the-intel-sgx-dcap-driver"></a>2. Intel SGX DCAP 드라이버 설치
+일부 Ubuntu 버전에는 이미 Intel SGX 드라이버가 설치되어 있을 수 있습니다. 다음 명령을 사용하여 확인합니다. 
+
+```bash
+dmesg | grep -i sgx
+[  106.775199] sgx: intel_sgx: Intel SGX DCAP Driver {version}
+``` 
+출력이 비어 있으면 드라이버를 설치합니다. 
 
 ```bash
 sudo apt update
 sudo apt -y install dkms
-wget https://download.01.org/intel-sgx/sgx-dcap/1.9/linux/distro/ubuntu18.04-server/sgx_linux_x64_driver_1.36.2.bin -O sgx_linux_x64_driver.bin
+wget https://download.01.org/intel-sgx/sgx-dcap/1.7/linux/distro/ubuntu18.04-server/sgx_linux_x64_driver_1.35.bin -O sgx_linux_x64_driver.bin
 chmod +x sgx_linux_x64_driver.bin
 sudo ./sgx_linux_x64_driver.bin
 ```
@@ -180,8 +187,9 @@ sudo ./sgx_linux_x64_driver.bin
 
 #### <a name="3-install-the-intel-and-open-enclave-packages-and-dependencies"></a>3. Intel 및 Open Enclave 패키지 및 종속성 설치
 
+
 ```bash
-sudo apt -y install clang-7 libssl-dev gdb libsgx-enclave-common libsgx-enclave-common-dev libprotobuf10 libsgx-dcap-ql libsgx-dcap-ql-dev az-dcap-client open-enclave
+sudo apt -y install clang-8 libssl-dev gdb libsgx-enclave-common libprotobuf10 libsgx-dcap-ql libsgx-dcap-ql-dev az-dcap-client open-enclave
 ```
 
 > [!NOTE] 
