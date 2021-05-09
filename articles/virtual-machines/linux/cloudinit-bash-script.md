@@ -1,5 +1,5 @@
 ---
-title: Cloud init를 사용 하 여 Azure의 Linux VM에서 bash 스크립트 실행
+title: cloud-init를 사용하여 Azure의 Linux VM에서 bash 스크립트 실행
 description: Azure CLI에서 cloud-init를 사용하여 생성 중인 Linux VM에서 bash 스크립트를 실행하는 방법
 author: rickstercdn
 ms.service: virtual-machines
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.openlocfilehash: 1dabd7db85d4222ca2e9f8387b716af291ee6a69
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102559429"
 ---
 # <a name="use-cloud-init-to-run-a-bash-script-in-a-linux-vm-in-azure"></a>cloud-init를 사용하여 Azure의 Linux VM에서 bash 스크립트 실행

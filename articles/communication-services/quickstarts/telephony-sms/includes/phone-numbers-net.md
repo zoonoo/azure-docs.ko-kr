@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: 0bfb23977f6553568da24df614621bdf1eb9d06d
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: f5f9f30103381a8e91cd38bb7fa3547e6ca4c97e
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106112896"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108157611"
 ---
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - 운영 체제에 대한 최신 버전의 [.NET Core 클라이언트 라이브러리](https://dotnet.microsoft.com/download/dotnet-core)
@@ -38,7 +38,7 @@ dotnet build
 애플리케이션 디렉터리에 있는 동안 `dotnet add package` 명령을 사용하여 .NET 패키지용 Azure Communication PhoneNumbers 클라이언트 라이브러리를 설치합니다.
 
 ```console
-dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.6
+dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0
 ```
 
 **Program.cs** 의 맨 위에 `using` 지시어를 추가하여 네임스페이스를 포함합니다.

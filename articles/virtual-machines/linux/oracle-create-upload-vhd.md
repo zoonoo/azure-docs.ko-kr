@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: danis
 ms.openlocfilehash: 9984589b19f15ab00e895bca75c295a92a68d0fe
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102557797"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Azure용 Oracle Linux 가상 머신 준비
@@ -217,7 +217,7 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
     sudo systemctl enable waagent
     ```
 
-13. 프로 비전을 처리 하기 위해 클라우드 초기화를 설치 합니다.
+13. 프로비저닝을 처리하기 위해 cloud-init 설치
 
     ```console
     yum install -y cloud-init cloud-utils-growpart gdisk hyperv-daemons
@@ -260,16 +260,16 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
 
 14. 스왑 구성은 운영 체제 디스크에 스왑 공간을 만들지 않습니다.
 
-    이전에는 azure Linux 에이전트를 사용 하 여 Azure에서 가상 머신을 프로 비전 한 후 가상 머신에 연결 된 로컬 리소스 디스크를 사용 하 여 스왑 공간을 자동으로 구성 했습니다. 그러나이는 이제 클라우드 init에서 처리 됩니다. Linux 에이전트를 사용 하 여 리소스 디스크에서 스왑 파일을 만드는 형식을 지정 하지 않고 다음 매개 변수를 적절 하 게 수정 **해야 합니다** `/etc/waagent.conf` .
+    이전에는 Azure Linux 에이전트가 Azure에서 가상 머신을 프로비저닝한 후에 가상 머신에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있었습니다. 그러나 이제 해당 작업은 cloud-init에서 처리되므로, Linux 에이전트를 사용하여 리소스 디스크의 형식을 지정해 스왑 파일을 생성해서는 **안 되며**, `/etc/waagent.conf`에서 다음 매개 변수를 알맞게 수정합니다.
 
     ```console
     sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
     sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
     ```
 
-    탑재, 형식 지정 및 바꾸기를 원하는 경우 다음 중 하나를 수행할 수 있습니다.
-    * VM을 만들 때마다 클라우드 init 구성으로이를 전달 합니다.
-    * VM을 만들 때마다이를 수행 하는 이미지에 클라우드 init 지시어 구운를 사용 합니다.
+    스왑을 생성, 탑재, 형식 지정하고자 하는 경우 다음 방법 중 하나를 수행합니다.
+    * VM을 만들 때마다 cloud-init 구성으로 해당 작업을 전달합니다.
+    * VM이 생성될 때마다 해당 작업을 수행할 이미지에 베이킹된 cloud-init 지시문을 사용합니다.
 
         ```console
         cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF

@@ -4,13 +4,14 @@ services: azure-dev-spaces
 ms.date: 07/24/2019
 ms.topic: conceptual
 description: AKS 클러스터에서 Azure Dev Spaces를 사용하도록 설정하고 클라이언트 쪽 도구를 설치하는 방법을 알아봅니다.
+ms.custom: devx-track-azurecli
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.openlocfilehash: 177496a53d204306b2b655b8736ce063dedf0f61
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 079a9e1b28b315457ac20d3aa9e7d29ce28fa077
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102202249"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505363"
 ---
 # <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>AKS 클러스터에서 Azure Dev Spaces 사용 및 클라이언트 쪽 도구 설치
 
@@ -18,7 +19,7 @@ ms.locfileid: "102202249"
 
 이 문서에서는 AKS 클러스터에서 Azure Dev Spaces를 사용하도록 설정하고 클라이언트 쪽 도구를 설치하는 여러 가지 방법을 보여 줍니다.
 
-## <a name="enable-azure-dev-spaces-using-the-cli"></a>CLI를 사용 하 여 Azure Dev Spaces 사용
+## <a name="enable-azure-dev-spaces-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Dev Spaces 사용
 
 CLI를 사용하여 Dev Spaces를 사용하도록 설정하려면 다음이 필요합니다.
 * Azure 구독 Azure 구독이 없는 경우 [체험 계정][az-portal-create-account]을 만들 수 있습니다.
@@ -59,7 +60,7 @@ Azure Dev Spaces 클라이언트 쪽 도구를 사용하여 로컬 머신에서 
 * [Visual Studio 2019][visual-studio]에서 Azure Development 워크로드를 설치합니다.
 * [Windows][cli-win], [Mac][cli-mac]또는 [Linux][cli-linux] CLI를 다운로드하여 설치합니다.
 
-## <a name="remove-azure-dev-spaces-using-the-cli"></a>CLI를 사용 하 여 Azure Dev Spaces 제거
+## <a name="remove-azure-dev-spaces-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Dev Spaces 제거
 
 AKS 클러스터에서 Azure Dev Spaces를 제거하려면 `azds remove` 명령을 사용합니다.
 
@@ -67,7 +68,7 @@ AKS 클러스터에서 Azure Dev Spaces를 제거하려면 `azds remove` 명령�
 azds remove -g MyResourceGroup -n MyAKS
 ```
 
-아래 예제 출력에서는 *MyAKS* 클러스터에서 Azure Dev Spaces를 제거 하는 방법을 보여 줍니다.
+아래 예제 출력에서는 *MyAKS* 클러스터에서 Azure Dev Spaces를 제거하는 방법을 보여 줍니다.
 
 ```azurecli
 $ azds remove -g MyResourceGroup -n MyAKS

@@ -1,6 +1,6 @@
 ---
-title: Mv2 시리즈-Azure Virtual Machines
-description: Mv2 시리즈 Vm에 대 한 사양입니다.
+title: Mv2 시리즈 - Azure Virtual Machines
+description: Mv2 시리즈 VM의 사양입니다.
 author: ayshakeen
 ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
@@ -8,36 +8,36 @@ ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
 ms.openlocfilehash: b15fdc3826a72e9cfb039b6b2994179ab9565404
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102562523"
 ---
 # <a name="mv2-series"></a>Mv2 시리즈
 
-Mv2 시리즈는 2.5 GHz의 모든 코어 기본 주파수와 3.8 g h z의 최대 터보 주파수를 사용 하 여 하이퍼 스레드 Intel® Xeon® 플래티넘 8180M 2.5 g h z (Skylake) 프로세서에서 실행 되는 높은 처리량, 짧은 대기 시간 플랫폼을 갖추고 있습니다. 모든 Mv2 시리즈 가상 머신 크기는 standard 및 premium 영구 디스크를 모두 사용할 수 있습니다. Mv2 시리즈 인스턴스는 메모리 내 데이터베이스 및 워크 로드를 지원 하기 위해 뛰어난 계산 성능을 제공 하는 메모리 액세스에 최적화 된 VM 크기 이며, 관계형 데이터베이스 서버, 큰 캐시 및 메모리 내 분석에 적합 한 높은 메모리 대 CPU 비율을 제공 합니다.
+Mv2 시리즈는 하이퍼 스레드 Intel® Xeon® 플래티넘 8180M 2.5GHz(Skylake) 프로세서에서 실행되는, 높은 처리량과 낮은 대기 시간을 가진 플랫폼을 갖추고 있으며 2.5GHz의 전체 코어 기본 주파수와 3.8GHz의 최대 터보 주파수를 자랑합니다. 모든 Mv2 시리즈 가상 머신 크기에서 표준 및 프리미엄 영구적 디스크를 모두 사용할 수 있습니다. Mv2 시리즈 인스턴스는 메모리에 최적화된 VM 크기로, 탁월한 컴퓨팅 성능을 바탕으로 대규모 메모리 내 데이터베이스 및 워크로드를 지원하며, 메모리 대 CPU 비율이 높아 관계형 데이터베이스 서버, 대규모 캐시, 메모리 내 분석에 적합합니다.
 
-Mv2 시리즈 VM의 기능 Intel® Hyper-Threading 기술
+Mv2 시리즈 VM은 Intel® 하이퍼 스레딩 기술 제공
 
-[Premium Storage](premium-storage-performance.md): 지원 됨<br>
-[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
-[실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
-[메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
-[VM 생성 지원](generation-2.md): 2 세대<br>
-[쓰기 가속기](./how-to-enable-write-accelerator.md): 지원 됨<br>
-[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
-[삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 되지 않음 <br>
+[Premium Storage](premium-storage-performance.md): 지원됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원됨<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원되지 않음<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>
+[VM 생성 지원](generation-2.md): 2세대<br>
+[쓰기 가속기](./how-to-enable-write-accelerator.md): 지원됨<br>
+[가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨<br>
+[임시 OS 디스크](ephemeral-os-disks.md): 지원되지 않음 <br>
 <br>
 
-|크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 | 예상 네트워크 대역폭 (Mbps) |
+|크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 | 예상 네트워크 대역폭(Mbps) |
 |---|---|---|---|---|---|---|---|---|
-| Standard_M208ms_v2<sup>1</sup> | 208 | 5700 | 4096 | 64 | 8만/800 (7040) | 4만/1000 | 8 | 16000 |
-| Standard_M208s_v2<sup>1</sup> | 208 | 2850 | 4096 | 64 | 8만/800 (7040) | 4만/1000 | 8 | 16000 |
-| Standard_M416ms_v2<sup>1</sup> | 416 | 11400 | 8192 | 64 | 25만/1600 (14080) | 8만/2000 | 8 | 32000 |
-| Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8192 | 64 | 25만/1600 (14080) | 8만/2000 | 8 | 32000 |
+| Standard_M208ms_v2<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80000/800(7040) | 40000/1000 | 8 | 16000 |
+| Standard_M208s_v2<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80000/800(7040) | 40000/1000 | 8 | 16000 |
+| Standard_M416ms_v2<sup>1</sup> | 416 | 11400 | 8192 | 64 | 250000/1600(14080) | 80000/2000 | 8 | 32000 |
+| Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8192 | 64 | 250000/1600(14080) | 80000/2000 | 8 | 32000 |
 
-<sup>1</sup> Mv2 시리즈 vm은 2 세대 전용 이며 지원 되는 2 세대 이미지의 하위 집합을 지원 합니다. Mv2 시리즈에 대해 지원 되는 이미지의 전체 목록에 대해서는 아래를 참조 하세요. Linux를 사용 하는 경우 이미지를 찾고 선택 하는 방법에 대 한 지침은 [Azure의 2 세대 vm에 대 한 지원](./generation-2.md) 을 참조 하세요. Windows를 사용 하는 경우 이미지를 찾고 선택 하는 방법에 대 한 지침은 [Azure의 2 세대 vm에 대 한 지원](./generation-2.md) 을 참조 하세요. 
+<sup>1</sup> Mv2 시리즈 VM은 2세대 전용으로, 2세대에서 지원하는 이미지의 하위 집합을 지원합니다. Mv2 시리즈에 대해 지원되는 이미지의 전체 목록은 아래를 참조하세요. Linux를 사용하는 경우 이미지를 찾고 선택하는 방법에 대한 지침은 [Azure의 2세대 VM 지원](./generation-2.md)을 참조하세요. Windows를 사용하는 경우 이미지를 찾고 선택하는 방법에 대한 지침은 [Azure의 2세대 VM 지원](./generation-2.md)을 참조하세요. 
 
 - Windows Server 2019 이상
 - SUSE Linux Enterprise Server 12 SP4 이상 또는 SUSE Linux Enterprise Server 15 SP1 이상
@@ -59,7 +59,7 @@ Mv2 시리즈 VM의 기능 Intel® Hyper-Threading 기술
 
 가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
 
-디스크 유형에 대 한 자세한 정보: [디스크 유형](./disks-types.md#ultra-disk)
+디스크 유형에 대한 자세한 정보: [디스크 유형](./disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -8,12 +8,12 @@ ms.date: 03/08/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: c676b92fd07c6e444aa22f25c48fdb1b1957ca7a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7c1e265f473c1c6fb70fd97416722e7b863c429b
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103493767"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503561"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -38,9 +38,9 @@ ms.locfileid: "103493767"
 ## <a name="related-conceptual-articles"></a>관련 개념 문서
 
 - [AzCopy 시작](storage-use-azcopy-v10.md)
-- [AzCopy 및 Blob Storage를 사용하여 데이터 전송](./storage-use-azcopy-v10.md#transfer-data)
+- [자습서: AzCopy를 사용하여 클라우드 스토리지로 온-프레미스 데이터 마이그레이션](storage-use-azcopy-migrate-on-premises-data.md)
+- [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](./storage-use-azcopy-v10.md#transfer-data)
 - [AzCopy 및 File Storage를 사용하여 데이터 전송](storage-use-azcopy-files.md)
-- [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)
 
 ## <a name="advanced"></a>고급
 
@@ -307,7 +307,7 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 **--include-after** 문자열: 지정된 날짜/시간 이후에 수정된 파일만 포함합니다. 값은 ISO8601 형식이어야 합니다. 표준 시간대가 지정되지 않은 경우 이 값은 AzCopy를 실행하는 머신의 현지 표준 시간대에 있는 것으로 간주됩니다. 예를 들어 `2020-08-19T15:04:00Z`는 UTC 시간을 나타내며 `2020-08-19`는 현지 표준 시간대로 자정(00:00)을 나타냅니다. AzCopy 10.5에서는 이 플래그는 폴더가 아닌 파일에 적용되므로 이 플래그를 `--preserve-smb-info` 또는 `--preserve-smb-permissions`와 함께 사용할 때에는 폴더 속성이 복사되지 않습니다.
 
- **--include-before** 문자열: 지정된 날짜/시간 이전에 수정된 파일만 포함합니다. 값은 ISO8601 형식이어야 합니다. 표준 시간대가 지정되지 않은 경우 이 값은 AzCopy를 실행하는 머신의 현지 표준 시간대에 있는 것으로 간주됩니다. 예: `2020-08-19T15:04:00Z`는 UTC 시간을 나타내며 `2020-08-19`는 현지 표준 시간대로 자정(00:00)을 나타냅니다. AzCopy 10.7에서는 이 플래그는 폴더가 아닌 파일에 적용되므로 이 플래그를 `--preserve-smb-info` 또는 `--preserve-smb-permissions`와 함께 사용할 때에는 폴더 속성이 복사되지 않습니다.
+ **--include-before** 문자열: 지정된 날짜/시간 이전에 수정된 파일만 포함합니다. 값은 ISO8601 형식이어야 합니다. 표준 시간대가 지정되지 않은 경우 이 값은 AzCopy를 실행하는 머신의 현지 표준 시간대에 있는 것으로 간주됩니다. 예를 들어 `2020-08-19T15:04:00Z`는 UTC 시간을 나타내며 `2020-08-19`는 현지 표준 시간대로 자정(00:00)을 나타냅니다. AzCopy 10.7에서는 이 플래그는 폴더가 아닌 파일에 적용되므로 이 플래그를 `--preserve-smb-info` 또는 `--preserve-smb-permissions`와 함께 사용할 때에는 폴더 속성이 복사되지 않습니다.
 
 **--include-attributes** 문자열: (Windows에만 해당)해당 특성이 특성 목록과 일치하는 파일을 포함합니다. 예: A;S;R
 
@@ -351,10 +351,10 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 **--cap-mbps float**: 전송 속도(초당 메가비트)의 한도를 지정합니다. 시간 경과별 처리량은 한도와 약간 다를 수 있습니다. 이 옵션이 0으로 설정되거나 생략되는 경우 처리량이 제한되지 않습니다.
 
-**--output-type** 문자열: 명령의 출력 형식입니다. text, json 등을 선택할 수 있습니다. 기본값은 `text`입니다. (기본값 "text")
+**--output-type** 문자열   명령의 출력 형식입니다. text, json 등을 선택할 수 있습니다. 기본값은 `text`입니다. (기본값 "text")
 
-**--trusted-microsoft-suffixes** 문자열: Azure Active Directory 로그인 토큰이 전송될 수 있는 추가 도메인 접미사를 지정합니다.  기본값은 `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`입니다. 여기에 나열된 항목은 모두 기본값에 추가됩니다. 보안을 위해 여기에는 Microsoft Azure 도메인만 배치해야 합니다. 여러 항목은 세미콜론으로 구분됩니다.
+**--trusted-microsoft-suffixes** 문자열: Azure Active Directory 로그인 토큰이 전송될 수 있는 추가 도메인 접미사를 지정합니다.  기본값은 `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`입니다. 여기에 나열된 항목은 모두 기본값에 추가됩니다. 보안을 위해 여기에는 Microsoft Azure 도메인만 배치해야 합니다. 여러 항목은 세미콜론으로 구분합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [azcopy](storage-ref-azcopy.md)

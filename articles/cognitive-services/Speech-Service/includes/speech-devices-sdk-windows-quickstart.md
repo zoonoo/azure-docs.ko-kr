@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 7ff53a700ab1b158d94af84907940f56afa74eb5
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: bf99f6bb41405df497b22dd220093815f4194f4d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99214515"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108157614"
 ---
 이 빠른 시작에서는 Windows용 Speech Devices SDK를 사용하여 음성 지원 제품을 빌드하거나 [대화 전사](../conversation-transcription.md) 디바이스로 사용하는 방법을 알아봅니다. 대화 전사의 경우 [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)만 지원됩니다. 다른 음성의 경우 마이크 배열 기하 도형을 제공하는 선형 마이크 배열이 지원됩니다.
 
@@ -33,8 +33,6 @@ ms.locfileid: "99214515"
 * Java용 [Speech Devices SDK](https://aka.ms/sdsdk-download-JRE)의 최신 버전을 다운로드하고 작업 디렉터리에 .zip을 추출합니다.
    > [!NOTE]
    > 이 빠른 시작에서는 앱이 C:\SDSDK\JRE-Sample-Release로 추출되었다고 가정합니다.
-
-현재 대화 전사는 "미국 중부" 및 "동아시아" 지역에서 "en-US" 및 "zh-CN"에 대해서만 사용할 수 있습니다. 대화 전사를 사용하려면 이 지역 중 한 곳에 음성 키가 있어야 합니다.
 
 의도를 사용하려는 경우 [LUIS(Language Understanding Service)](../../luis/luis-how-to-azure-subscription.md) 구독이 필요합니다. LUIS와 의도 인식에 대해 자세히 알아보려면 [LUIS, C#을 통해 음성 의도 인식](../how-to-recognize-intents-from-speech-csharp.md)을 참조하세요. [샘플 LUIS 모델](https://aka.ms/sdsdk-luis)은 이 앱에서 사용할 수 있습니다.
 

@@ -10,15 +10,13 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: 287520f2964fba7c3c3804853e9356a8c77b2d06
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 84bb00b6ef5d0bf68a55b7eba70ccb8eb697a571
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106498841"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108313638"
 ---
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-android-ios.md)]
-
 Azure Communication Services **iOS용 그룹 통화 주인공 샘플** 은 Communication Services 통화 iOS SDK를 사용하여 음성 및 비디오가 포함된 그룹 통화 환경을 구축하는 방법을 보여 줍니다. 이 샘플 빠른 시작에서는 샘플을 설정하고 실행하는 방법에 대해 알아봅니다. 상황에 맞는 샘플 개요가 제공됩니다.
 
 ## <a name="download-code"></a>코드 다운로드
@@ -110,4 +108,4 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 
 - [Azure Communication GitHub](https://github.com/Azure/communication) - 공식 GitHub 페이지에서 더 많은 예제 및 정보 찾기
 - [샘플](./../overview.md) - 샘플 개요 페이지에서 추가 샘플과 예제를 찾아보세요.
-- [Azure Communication 기능 호출](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) - iOS sdk 호출에 대한 자세한 내용은 [Azure Communication iOS 호출 SDK](https://github.com/Azure/Communication/releases/)를 참조하세요.
+- [Azure Communication 기능 호출](../../concepts/voice-video-calling/calling-sdk-features.md) - iOS sdk 호출에 대한 자세한 내용은 [Azure Communication iOS 호출 SDK](https://github.com/Azure/Communication/releases/)를 참조하세요.

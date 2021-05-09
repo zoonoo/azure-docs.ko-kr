@@ -10,16 +10,16 @@ ms.custom: mvc
 ms.date: 04/01/2021
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: b56031d131743a3dc8c97bcd3e85d4653cdd2833
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: a9df83535bf0ee7a6c484a7682392d2ad0ef59f7
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107484186"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815327"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm"></a>Azure Key Vault 관리형 HSM이란?
 
-Azure Key Vault 관리형 HSM은 **FIPS 140-2 수준 3** 유효성이 검사된 HSM을 사용하여 클라우드 애플리케이션용 암호화 키를 보호할 수 있는 완전 관리형 고가용 단일 테넌트 표준 규격 클라우드 서비스입니다.  
+Azure Key Vault 관리형 HSM은 **FIPS 140-2 수준 3** 유효성이 검사된 HSM을 사용하여 클라우드 애플리케이션용 암호화 키를 보호할 수 있는 완전 관리형 고가용 단일 테넌트 표준 규격 클라우드 서비스입니다. 가격 책정 정보는 [Azure Key Vault 가격 책정 페이지](https://azure.microsoft.com/pricing/details/key-vault/)의 관리형 HSM 풀 섹션을 참조하세요. 
 
 ## <a name="why-use-managed-hsm"></a>관리형 HSM을 사용하는 이유
 

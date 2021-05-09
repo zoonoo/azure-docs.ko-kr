@@ -10,13 +10,13 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 41030582c03c41089e4b4cde80caeecfad6fb6bf
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: e703a8f91f18467660ef7e1b91fdb034feeb00b1
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076206"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102549535"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Windows VM용 Azure Diagnostics 확장
 
@@ -24,7 +24,7 @@ ms.locfileid: "108076206"
 
 Azure Diagnostics VM 확장을 사용하면 Windows VM에서 모니터링 데이터(예: 성능 카운터 및 이벤트 로그)를 수집할 수 있습니다. 수집하려는 데이터와 데이터를 저장할 위치(예: Azure Storage 계정 또는 Azure Event Hub)를 세분화하여 지정할 수 있습니다. 이 데이터를 사용하여 Azure Portal에서 차트를 작성하거나 메트릭 경고를 만들 수도 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="operating-system"></a>운영 체제
 

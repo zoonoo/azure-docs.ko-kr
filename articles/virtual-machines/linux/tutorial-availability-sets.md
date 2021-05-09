@@ -1,6 +1,6 @@
 ---
 title: Azure CLI를 사용하여 가용성 집합에 VM 배포
-description: 이 자습서에서는 Azure CLI를 사용하여 가용성 집합에서 고가용성 가상 머신을 배포하는 방법을 알아보세요.
+description: Azure CLI를 사용하여 가용성 집합에서 고가용성 가상 머신을 배포하는 방법을 알아보세요.
 documentationcenter: ''
 services: virtual-machines
 author: mimckitt
@@ -10,12 +10,12 @@ ms.date: 3/8/2021
 ms.author: mimckitt
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 7c45f08a339ca8878bb9e2840faa8a412f3e60e0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 21f7d3e6f624c3a8e550a33293b46284bf5c5815
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765974"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816299"
 ---
 # <a name="create-and-deploy-virtual-machines-in-an-availability-set-using-azure-cli"></a>Azure CLI를 사용하여 가용성 집합에서 가상 머신 만들기 및 배포
 

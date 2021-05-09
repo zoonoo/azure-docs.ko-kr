@@ -3,18 +3,18 @@ title: 빠른 시작 - 대칭 키를 통해 C#을 사용하여 Azure IoT Hub에 
 description: 이 빠른 시작에서는 DPS(Device Provisioning Service)용 C# 디바이스 SDK를 사용하여 IoT 허브에 대칭 키 디바이스를 프로비저닝합니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 10/21/2020
+ms.date: 04/23/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc
-ms.openlocfilehash: f97840a05115bf5659a6f7579b72786e890051a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e67616c2c92676c3af79e3040bc09d3b1b87a11b
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92429291"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988301"
 ---
 # <a name="quickstart-provision-a-symmetric-key-device-using-c"></a>빠른 시작: C#을 사용하여 대칭 키 디바이스 프로비저닝
 
@@ -34,7 +34,7 @@ ms.locfileid: "92429291"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Windows 기반 머신에 [.NET Core 2.1 SDK](https://www.microsoft.com/net/download/windows) 이상이 설치되어 있는지 확인합니다.
+* Windows 기반 머신에 [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download) 이상이 설치되어 있는지 확인합니다.
 
 * 최신 버전의 [Git](https://git-scm.com/download/) 설치
 
@@ -61,7 +61,7 @@ ms.locfileid: "92429291"
 
 4. 등록을 저장하면 **기본 키** 및 **보조 키** 가 생성되고 등록 항목에 추가됩니다. 대칭 키 디바이스 등록이 *개별 등록* 탭의 *등록 ID* 열 아래에 **symm-key-csharp-device-01** 로 표시됩니다. 
 
-5. 등록을 열고 생성된 **기본 키** 및 **보조 키** 의 값을 복사합니다. 디바이스 프로비저닝 샘플 코드와 함께 사용하기 위해 환경 변수를 추가할 때 이 키 값과 **등록 ID** 를 사용합니다.
+5. 등록을 열고 생성된 **기본 키** 의 값을 복사합니다. 나중에 디바이스 프로비저닝 샘플 코드를 실행할 때 이 키 값과 **등록 ID** 를 사용합니다.
 
 
 
@@ -77,92 +77,62 @@ ms.locfileid: "92429291"
 
 <a id="firstbootsequence"></a>
 
-## <a name="prepare-the-device-provisioning-code"></a>디바이스 프로비저닝 코드 준비
+## <a name="run-the-device-provisioning-code"></a>디바이스 프로비저닝 코드 실행
 
-이 섹션에서는 대칭 키 디바이스를 프로비저닝하기 위해 디바이스 프로비저닝 샘플 코드에 대한 매개 변수로 사용되는 다음 4개의 환경 변수를 추가합니다. 
+이 섹션에서는 DPS 리소스에 등록하기 위한 대칭 키 디바이스로 디바이스 프로비저닝 샘플 코드를 인증하는 세 개의 매개 변수를 사용하여 디바이스 프로비저닝 샘플을 실행합니다. 이러한 세 개 매개 변수는 다음과 같습니다.
 
-* `DPS_IDSCOPE`
-* `PROVISIONING_REGISTRATION_ID`
-* `PRIMARY_SYMMETRIC_KEY`
-* `SECONDARY_SYMMETRIC_KEY`
+* ID 범위
+* 개별 등록에 대한 등록 ID.
+* 개별 등록에 대한 기본 대칭 키.
 
-프로비저닝 코드는 디바이스를 인증하기 위해 이러한 변수에 따라 DPS 인스턴스에 연결됩니다. 그러면 디바이스는 개별 등록 구성에 따라 DPS 인스턴스에 이미 연결된 IoT 허브에 할당됩니다. 프로비저닝되면 샘플 코드는 일부 테스트 원격 분석을 IoT 허브로 보냅니다.
+프로비저닝 코드는 디바이스를 인증하기 위해 이러한 매개 변수에 따라 DPS 리소스에 연결합니다. 그러면 디바이스는 개별 등록 구성에 따라 DPS 인스턴스에 이미 연결된 IoT 허브에 할당됩니다. 프로비전되면 샘플 코드는 테스트 원격 분석 메시지를 IoT 허브로 보냅니다.
 
-1. [Azure Portal](https://portal.azure.com)의 디바이스 프로비저닝 서비스 메뉴에서 **개요** 를 선택하고 _서비스 엔드포인트_ 및 _ID 범위_ 를 복사합니다. `PROVISIONING_HOST` 및 `DPS_IDSCOPE` 환경 변수에 대해 이러한 값을 사용합니다.
-
-    ![서비스 정보](./media/quick-create-device-symmetric-key-csharp/extract-dps-endpoints.png)
+1. [Azure Portal](https://portal.azure.com)의 디바이스 프로비저닝 서비스 메뉴에서 **개요** 를 선택하고 **ID 범위** 값을 복사합니다. 이 값은 샘플 코드를 실행할 때 `IdScope` 매개 변수에 사용합니다.
 
 2. 명령 프롬프트를 열고 복제된 샘플 리포지토리에서 *SymmetricKeySample* 로 이동합니다.
 
     ```cmd
-    cd provisioning\Samples\device\SymmetricKeySample
+    cd azure-iot-samples-csharp\provisioning\Samples\device\SymmetricKeySample
     ```
 
-3. *SymmetricKeySample* 폴더의 텍스트 편집기에서 *Program.cs* 를 열고 `individualEnrollmentPrimaryKey` 및 `individualEnrollmentSecondaryKey` 문자열을 설정하는 코드 줄을 찾습니다. 키를 하드 코딩하는 대신 환경 변수를 사용하도록 이러한 코드 줄을 다음과 같이 업데이트합니다.
+3. *SymmetricKeySample* 폴더의 *Parameters.cs* 를 텍스트 편집기에서 엽니다. 이 파일은 샘플에서 지원하는 매개 변수를 보여줍니다. 이 문서에서는 샘플을 실행할 때 처음 세 개의 필수 매개 변수만 사용합니다. 이 파일의 코드를 살펴보세요. 변경할 필요는 없습니다.
  
-    ```csharp
-        //These are the two keys that belong to your individual enrollment. 
-        // Leave them blank if you want to try this sample for an individual enrollment instead
-        //private const string individualEnrollmentPrimaryKey = "";
-        //private const string individualEnrollmentSecondaryKey = "";
-
-        private static string individualEnrollmentPrimaryKey = Environment.GetEnvironmentVariable("PRIMARY_SYMMETRIC_KEY");;
-        private static string individualEnrollmentSecondaryKey = Environment.GetEnvironmentVariable("SECONDARY_SYMMETRIC_KEY");;
-    ```
-
-    또한 `registrationId` 문자열을 설정하는 코드 줄을 찾아 다음과 같이 환경 변수를 사용하도록 업데이트합니다.
-
-    ```csharp
-        //This field is mandatory to provide for this sample
-        //private static string registrationId = "";
-
-        private static string registrationId = Environment.GetEnvironmentVariable("PROVISIONING_REGISTRATION_ID");;
-    ```
-
-    *Program.cs* 에 변경 내용을 저장합니다.
-
-3. 명령 프롬프트에서 이전 섹션의 개별 등록에서 복사한 등록 ID 범위, 등록 ID, 기본 및 보조 대칭 키에 대한 환경 변수를 추가합니다.  
-
-    다음 명령은 명령 구문을 표시하는 예제입니다. 올바른 값을 사용해야 합니다.
-
+    | 매개 변수                         | 필수 | 설명     |
+    | :-------------------------------- | :------- | :-------------- |
+    | `--s` 또는 `--IdScope`              | True     | DPS 인스턴스의 ID 범위 |
+    | `--i` 또는 `--Id`                   | True     | 개별 등록을 사용할 때의 등록 ID 또는 그룹 등록을 사용할 때 원하는 디바이스 ID. |
+    | `--p` 또는 `--PrimaryKey`           | True     | 개인 등록 또는 그룹 등록의 기본 키. |
+    | `--e` 또는 `--EnrollmentType`       | 거짓    | 등록 유형: `Individual` 또는 `Group`. 기본값은 `Individual`입니다. |
+    | `--g` 또는 `--GlobalDeviceEndpoint` | 거짓    | 디바이스에서 연결할 전역 엔드포인트. 기본값은 `global.azure-devices-provisioning.net`입니다. |
+    | `--t` 또는 `--TransportType`        | 거짓    | 디바이스 프로비저닝 인스턴스와 통신하는 데 사용할 전송. 기본값은 `Mqtt`입니다. 가능한 값은 `Mqtt`, `Mqtt_WebSocket_Only`, `Mqtt_Tcp_Only`, `Amqp`, `Amqp_WebSocket_Only`, `Amqp_Tcp_only` 및 `Http1`입니다.|
+     
+4. *SymmetricKeySample* 폴더의 *ProvisioningDeviceClientSample.cs* 를 텍스트 편집기에서 엽니다. 이 파일은 대칭 키 디바이스를 프로비전하기 위해 [SecurityProviderSymmetricKey](/dotnet/api/microsoft.azure.devices.shared.securityprovidersymmetrickey?view=azure-dotnet&preserve-view=true) 클래스와 [ProvisioningDeviceClient](/dotnet/api/microsoft.azure.devices.provisioning.client.provisioningdeviceclient?view=azure-dotnet&preserve-view=true) 클래스가 어떻게 함께 사용되는지 보여줍니다. 이 파일의 코드를 살펴보세요.  변경할 필요는 없습니다.
+ 
+5. 세 가지 예제 매개 변수를 바꾼 후 다음 명령을 사용해서 샘플 코드를 빌드하고 실행합니다. ID 범위, 등록 ID(Enrollment Registration ID) 및 등록 기본 키에 올바른 값을 사용합니다.
+    
     ```console
-    set DPS_IDSCOPE=0ne00000A0A
-    ```
-
-    ```console
-    set PROVISIONING_REGISTRATION_ID=symm-key-csharp-device-01
-    ```
-
-    ```console
-    set PRIMARY_SYMMETRIC_KEY=sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
-    ```
-
-    ```console
-    set SECONDARY_SYMMETRIC_KEY=Zx8/eE7PUBmnouB1qlNQxI7fcQ2HbJX+y96F1uCVQvDj88jFL+q6L9YWLLi4jqTmkRPOulHlSbSv2uFgj4vKtw==
-    ```
+    dotnet run --s 0ne00000A0A --i symm-key-csharp-device-01 --p sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
+    ```    
 
 
-4. 다음 명령을 사용하여 샘플 코드를 빌드하고 실행합니다.
-
-    ```console
-    dotnet run
-    ```
-
-5. 예상 출력은 개별 등록 설정에 따라 디바이스가 할당된 연결된 IoT 허브를 표시하는 다음과 유사하게 표시됩니다. "TestMessage" 문자열 예제는 테스트로 허브에 전송됩니다.
+6. 예상 출력은 다음과 비슷하며, 개별 등록 설정에 따라 디바이스가 할당된 연결된 IoT 허브를 보여줍니다. "TestMessage" 문자열 예제는 테스트로 허브에 전송됩니다.
 
     ```output
-    D:\azure-iot-samples-csharp\provisioning\Samples\device\SymmetricKeySample>dotnet run
-    RegistrationID = symm-key-csharp-device-01
-    ProvisioningClient RegisterAsync . . . Assigned
-    ProvisioningClient AssignedHub: docs-test-iot-hub.azure-devices.net; DeviceID: csharp-device-01
-    Creating Symmetric Key DeviceClient authentication
-    DeviceClient OpenAsync.
-    DeviceClient SendEventAsync.
-    DeviceClient CloseAsync.
-    Enter any key to exit
+    D:\azure-iot-samples-csharp\provisioning\Samples\device\SymmetricKeySample>dotnet run --s 0ne00000A0A --i symm-key-csharp-device-01 --p sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
+
+    Initializing the device provisioning client...
+    Initialized for registration Id symm-key-csharp-device-01.
+    Registering with the device provisioning service...
+    Registration status: Assigned.
+    Device csharp-device-01 registered to ExampleIoTHub.azure-devices.net.
+    Creating symmetric key authentication for IoT Hub...
+    Testing the provisioned device with IoT Hub...
+    Sending a telemetry message...
+    Finished.
+    Enter any key to exit.
     ```
     
-6. Azure Portal에서 프로비저닝 서비스와 연결된 IoT 허브로 이동하여 **IoT 디바이스** 블레이드를 엽니다. 허브에 대칭 키 디바이스를 성공적으로 프로비저닝한 후 디바이스 ID는 **사용** 으로 *상태* 와 함께 표시됩니다. 디바이스 샘플 코드를 실행하기 전에 블레이드가 이미 열려 있으면 위쪽의 **새로 고침** 단추를 눌러야 할 수도 있습니다. 
+7. Azure Portal에서 프로비저닝 서비스와 연결된 IoT 허브로 이동하여 **IoT 디바이스** 블레이드를 엽니다. 허브에 대칭 키 디바이스를 성공적으로 프로비저닝한 후 디바이스 ID는 **사용** 으로 *상태* 와 함께 표시됩니다. 디바이스 샘플 코드를 실행하기 전에 블레이드가 이미 열려 있으면 위쪽의 **새로 고침** 단추를 눌러야 할 수도 있습니다. 
 
     ![디바이스가 IoT Hub에 등록됨](./media/quick-create-device-symmetric-key-csharp/hub-registration-csharp.png) 
 

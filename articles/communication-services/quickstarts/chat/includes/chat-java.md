@@ -10,17 +10,17 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: e5b5433be4a95a9df9d3b3527473c3004d24acac
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 21e3650b71eea858f776bc6c96a6c0bff9c10154
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107327579"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108313461"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [JDK(Java Development Kit)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install), 버전 8 이상.
+- [JDK(Java Development Kit)](/azure/developer/java/fundamentals/java-jdk-install), 버전 8 이상.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - 배포된 Communication Services 리소스 및 연결 문자열 [Communication Services 리소스 만들기](../../create-communication-resource.md)
 - [사용자 액세스 토큰](../../access-tokens.md). 범위를 "채팅"으로 설정하고 토큰 문자열과 userId 문자열을 기록해 둡니다.

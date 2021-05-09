@@ -1,6 +1,6 @@
 ---
-title: CLI를 사용 하 여 Azure Key Vault 설정
-description: Azure CLI를 사용 하 여 가상 머신에 대 한 Key Vault를 설정 하는 방법
+title: CLI를 사용하여 Azure Key Vault 설정
+description: Azure CLI를 사용하여 가상 머신용 Key Vault를 설정하는 방법
 author: mimckitt
 ms.service: virtual-machines
 ms.subservice: security
@@ -10,10 +10,10 @@ ms.date: 02/24/2017
 ms.author: mimckitt
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 84a88c9c563141d6e6e9ba1584d577addcade8fe
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102565226"
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신용 Key Vault를 설정하는 방법

@@ -1,6 +1,6 @@
 ---
 title: 공유 갤러리를 사용하여 VM 이미지 공유
-description: 공유 이미지 갤러리를 사용 하 여 조직 전체에서 Linux VM 이미지를 공유 하는 방법을 알아봅니다.
+description: 공유 이미지 갤러리를 사용하여 조직 전반에서 Linux VM 이미지를 공유하는 방법을 알아봅니다.
 author: axayjo
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -10,10 +10,10 @@ ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.openlocfilehash: 32b4cf1555a2d0e074ae1551a5c0085f2758fa2b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102609144"
 ---
 # <a name="shared-image-galleries-overview"></a>공유 이미지 갤러리 개요
@@ -104,7 +104,7 @@ Shared Image Gallery는 두 가지 운영 체제 상태를 지원합니다. 일�
 
 ## <a name="regional-support"></a>국가별 지원
 
-모든 공용 지역은 대상 지역이 될 수 있지만 특정 지역에서는 고객이 액세스 권한을 얻기 위해 요청 프로세스를 통과 해야 합니다. 오스트레일리아 중부 또는 오스트레일리아 중부 2와 같은 지역에 대 한 허용 목록에 구독을 추가 하도록 요청 하려면 [액세스 요청](/troubleshoot/azure/general/region-access-request-process) 을 제출 합니다.
+모든 퍼블릭 지역은 대상 지역이 될 수 있지만, 특정 지역에서는 고객이 액세스 권한을 얻기 위해 요청 프로세스를 거쳐야 합니다. 오스트레일리아 중부 또는 오스트레일리아 중부 2와 같은 지역의 허용 목록에 구독을 추가하도록 요청하려면 [액세스 요청](/troubleshoot/azure/general/region-access-request-process)을 제출합니다.
 
 ## <a name="limits"></a>제한 
 
@@ -122,8 +122,8 @@ Shared Image Gallery를 사용하여 리소스를 배포할 때 구독당 제한
 
 이제 Shared Image Gallery를 사용하면 가상 머신 확장 집합에 최대 1,000개의 VM 인스턴스를 배포할 수 있습니다(관리형 이미지는 600개까지). 이미지 복제본은 보다 나은 배포 성능, 안정성 및 일관성을 제공합니다.   지역에 필요한 규모에 따라 각 대상 지역에 서로 다른 복제본 수를 설정할 수 있습니다. 각 복제본은 이미지의 전체 복사본이기 때문에 이렇게 하면 복제본을 추가할 때마다 선형적으로 배포를 확장할 수 있습니다. 두 개의 이미지 또는 지역이 똑같지는 않지만, 지역에서 복제본을 사용하는 방법에 대한 일반적인 지침은 다음과 같습니다.
 
-- 가상 머신 확장 집합 배포의 경우-동시에 만드는 20 개의 Vm 마다 하나의 복제본을 유지 하는 것이 좋습니다. 예를 들어 한 지역에서 동일한 이미지를 사용하여 동시에 120개의 VM을 만드는 경우 이미지 복제본을 6개 이상 유지하는 것이 좋습니다. 
-- 가상 머신 확장 집합 배포-최대 600 인스턴스를 포함 하는 모든 확장 집합 배포에 대해 하나 이상의 복제본을 유지 하는 것이 좋습니다. 예를 들어 한 지역에서 동일한 이미지를 사용하여 동시에 5개의 확장 집합을 만들고 확장 집합마다 VM 600개를 배포하는 경우 이미지 복제본을 5개 이상 유지하는 것이 좋습니다. 
+- 가상 머신 확장 집합이 아닌 배포의 경우 - 동시에 20개의 VM을 만들 때마다 복제본 하나를 유지하는 것이 좋습니다. 예를 들어 한 지역에서 동일한 이미지를 사용하여 동시에 120개의 VM을 만드는 경우 이미지 복제본을 6개 이상 유지하는 것이 좋습니다. 
+- 가상 머신 확장 집합 배포의 경우 - 최대 600개 인스턴스를 배포하는 확장 집합마다 하나 이상의 복제본을 유지하는 것이 좋습니다. 예를 들어 한 지역에서 동일한 이미지를 사용하여 동시에 5개의 확장 집합을 만들고 확장 집합마다 VM 600개를 배포하는 경우 이미지 복제본을 5개 이상 유지하는 것이 좋습니다. 
 
 이미지 크기, 콘텐츠, OS 형식 등의 요소를 감안하여 항상 복제본 수를 초과 프로비저닝하는 것이 좋습니다.
 
@@ -146,16 +146,16 @@ Shared Image Gallery를 사용하여 리소스를 배포할 때 구독당 제한
 
 ## <a name="access"></a>액세스 권한
 
-Shared Image Gallery, 이미지 정의 및 이미지 버전은 모두 리소스이므로 기본 제공되는 네이티브 Azure RBAC 컨트롤을 사용하여 공유할 수 있습니다. Azure RBAC를 사용 하 여 다른 사용자, 서비스 주체 및 그룹에 이러한 리소스를 공유할 수 있습니다. 리소스가 생성된 테넌트 외부의 개별 리소스에 대한 액세스를 공유할 수도 있습니다. 사용자에게 공유 이미지 버전에 대한 액세스 권한이 부여되면 사용자는 VM 또는 Virtual Machine Scale Set를 배포할 수 있습니다.  사용자가 액세스할 수 있는 항목을 이해하는 데 도움이 되는 공유 행렬은 다음과 같습니다.
+Shared Image Gallery, 이미지 정의 및 이미지 버전은 모두 리소스이므로 기본 제공되는 네이티브 Azure RBAC 컨트롤을 사용하여 공유할 수 있습니다. Azure RBAC를 사용하면 다른 사용자, 서비스 주체, 그룹에 리소스를 공유할 수 있습니다. 리소스가 생성된 테넌트 외부의 개별 리소스에 대한 액세스를 공유할 수도 있습니다. 사용자에게 공유 이미지 버전에 대한 액세스 권한이 부여되면 사용자는 VM 또는 Virtual Machine Scale Set를 배포할 수 있습니다.  사용자가 액세스할 수 있는 항목을 이해하는 데 도움이 되는 공유 행렬은 다음과 같습니다.
 
 | 공유한 항목     | 공유 이미지 갤러리 | 이미지 정의 | 이미지 버전 |
 |----------------------|----------------------|--------------|----------------------|
 | 공유 이미지 갤러리 | 예                  | 예          | 예                  |
 | 이미지 정의     | 예                   | 예          | 예                  |
 
-최상의 환경을 위해 갤러리 수준에서 공유하는 것이 좋습니다. 개별 이미지 버전을 공유하는 것은 좋지 않습니다. Azure RBAC에 대 한 자세한 내용은 [azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조 하세요.
+최상의 환경을 위해 갤러리 수준에서 공유하는 것이 좋습니다. 개별 이미지 버전을 공유하는 것은 좋지 않습니다. Azure RBAC에 대한 자세한 내용은 [Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
-다중 테넌트 앱 등록을 사용하여 테넌트 간에도 이미지를 대규모로 공유할 수 있습니다. 테 넌 트 간에 이미지를 공유 하는 방법에 대 한 자세한 내용은 [Azure CLI](./linux/share-images-across-tenants.md) 또는 [PowerShell](./windows/share-images-across-tenants.md)을 사용 하 여 "Azure 테 넌 트에서 갤러리 VM 이미지 공유"를 참조 하세요.
+다중 테넌트 앱 등록을 사용하여 테넌트 간에도 이미지를 대규모로 공유할 수 있습니다. 테넌트 간에 이미지를 공유하는 방법에 대한 자세한 내용은 [Azure CLI](./linux/share-images-across-tenants.md) 또는 [PowerShell](./windows/share-images-across-tenants.md)을 사용하여 “Azure 테넌트 간 갤러리 VM 이미지 공유”를 참조하세요.
 
 ## <a name="billing"></a>결제
 공유 이미지 갤러리 서비스 사용에 대한 추가 비용은 없습니다. 다음 리소스에 대한 비용이 청구됩니다.
@@ -317,11 +317,11 @@ CLI에서 일반적인 복제본 수를 지정하려면 `az sig image-version cr
 
 예, OS 유형, Hyper-V 생성 및 데이터 디스크 레이아웃이 이미지 간에 일치한다면 확장 집합 이미지 참조를 관리형 이미지에서 Shared Image Gallery 이미지로 업데이트할 수 있습니다.
 
-## <a name="troubleshoot-shared-image-gallery-issues"></a>공유 이미지 갤러리 문제 해결
-공유 이미지 갤러리 리소스에 대 한 작업을 수행 하는 동안 문제가 발생 한 경우 [문제 해결 가이드](troubleshooting-shared-images.md)에서 일반적인 오류 목록을 참조 하십시오.
+## <a name="troubleshoot-shared-image-gallery-issues"></a>Shared Image Gallery 문제 해결
+Shared Image Gallery 리소스에 대한 작업을 수행하는 동안 문제가 발생한 경우 [문제 해결 가이드](troubleshooting-shared-images.md)에서 일반적인 오류 목록을 참조하세요.
 
-또한 `azure-virtual-machines-images` [Q&A](/answers/topics/azure-virtual-machines-images.html)를 사용 하 여 질문을 게시 하 고 태그를 지정할 수 있습니다.
+또한 [Q&A](/answers/topics/azure-virtual-machines-images.html)에서 `azure-virtual-machines-images`에 대한 질문을 게시하고 태그를 지정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure CLI](shared-images-cli.md) 또는 [PowerShell](shared-images-powershell.md)을 사용 하 여 공유 이미지를 배포 하는 방법을 알아봅니다.
+[Azure CLI](shared-images-cli.md) 또는 [PowerShell](shared-images-powershell.md)을 사용하여 공유 이미지를 배포하는 방법을 알아봅니다.

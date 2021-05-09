@@ -1,6 +1,6 @@
 ---
-title: PowerShell-패키지를 사용 하 여 VM 이미지를 만드는 방법
-description: Azure에서 패키지를 사용 하 여 가상 머신의 이미지를 만드는 방법에 대해 알아봅니다.
+title: PowerShell - Packer를 사용하여 VM 이미지를 만드는 방법
+description: Azure에서 Packer 및 PowerShell을 사용하여 가상 머신의 이미지를 만드는 방법에 대해 알아보기
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -10,16 +10,16 @@ ms.workload: infrastructure
 ms.date: 08/05/2020
 ms.author: cynthn
 ms.openlocfilehash: a2cd6152f9c8e75223fcf1aab77fee7700223979
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102561010"
 ---
-# <a name="powershell-how-to-use-packer-to-create-virtual-machine-images-in-azure"></a>PowerShell: Azure에서 패키지를 사용 하 여 가상 머신 이미지를 만드는 방법
+# <a name="powershell-how-to-use-packer-to-create-virtual-machine-images-in-azure"></a>PowerShell: Azure에서 Packer를 사용하여 가상 머신 이미지를 만드는 방법
 Azure의 각 VM(가상 머신)은 Windows 배포판 및 OS 버전을 정의하는 이미지에서 만들어집니다. 이미지는 사전 설치된 애플리케이션 및 구성을 포함할 수 있습니다. Azure Marketplace는 가장 일반적인 OS 및 애플리케이션 환경에 대한 다양한 자사 및 타사 이미지를 제공하거나 사용자 요구에 맞게 사용자 지정 이미지를 만들 수 있습니다. 이 문서에는 오픈 소스 도구 [Packer](https://www.packer.io/)를 사용하여 Azure에서 사용자 지정 이미지를 정의하고 빌드하는 방법을 자세히 설명합니다.
 
-이 문서는 [1.6.1 버전을](https://www.packer.io/docs/install) 사용 하 여 8/5/2020에서 마지막으로 테스트 되었습니다.
+이 문서는 [Packer](https://www.packer.io/docs/install) 1.6.1 버전을 사용하여 2020년 8월 5일에 마지막으로 테스트되었습니다.
 
 > [!NOTE]
 > 이제 Azure에는 고유한 사용자 지정 이미지를 정의하고 만드는 데 필요한 Azure Image Builder(미리 보기) 서비스가 있습니다. Azure Image Builder는 Packer를 기반으로 빌드되므로 기존 Packer 셸 프로비저닝 프로그램 스크립트도 사용할 수 있습니다. Azure Image Builder를 시작하려면 [Azure Image Builder를 사용하여 Windows VM 만들기](image-builder.md)를 참조하세요.
@@ -27,7 +27,7 @@ Azure의 각 VM(가상 머신)은 Windows 배포판 및 OS 버전을 정의하�
 ## <a name="create-azure-resource-group"></a>Azure 리소스 그룹 만들기
 빌드 프로세스 동안 Packer는 원본 VM을 빌드하므로 임시 Azure 리소스를 만듭니다. 이미지로 사용하기 위해 해당 원본 VM을 캡처하려면 리소스 그룹을 정의해야 합니다. Packer 빌드 프로세스의 출력은 이 리소스 그룹에 저장됩니다.
 
-[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예에서는 *e미국* 위치에 *myPackerGroup* 이라는 리소스 그룹을 만듭니다.
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myPackerGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell
 $rgName = "myPackerGroup"
@@ -38,7 +38,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 ## <a name="create-azure-credentials"></a>Azure 자격 증명 만들기
 Packer는 서비스 사용자를 사용하여 Azure를 인증합니다. Azure 서비스 사용자는 앱, 서비스 및 Packer와 같은 자동화 도구를 사용할 수 있는 보안 ID입니다. 서비스 주체가 Azure에서 수행할 수 있는 작업에 대한 사용 권한은 사용자가 제어하고 정의합니다.
 
-[AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal)를 사용 하 여 서비스 주체를 만듭니다. `-DisplayName` 값은 고유해야 합니다. 필요에 따라 사용자의 값으로 바꿉니다.  
+[New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal)을 사용하여 서비스 주체 만들기 `-DisplayName` 값은 고유해야 합니다. 필요에 따라 사용자의 값으로 바꿉니다.  
 
 ```azurepowershell
 $sp = New-AzADServicePrincipal -DisplayName "PackerSP$(Get-Random)"
@@ -122,7 +122,7 @@ Get-AzSubscription
 
 이 템플릿은 Windows Server 2016 VM을 빌드하고 IIS를 설치한 다음 Sysprep을 사용하여 VM을 일반화합니다. IIS 설치는 PowerShell 프로비저너를 사용하여 추가 명령을 실행하는 방법을 보여줍니다. 그런 다음, 최종 Packer 이미지에는 필요한 소프트웨어 설치 및 구성이 포함됩니다.
 
-Windows 게스트 에이전트는 Sysprep 프로세스에 참여 합니다. 에이전트가 완전히 설치 되어 있어야 VM을 sysprep 된 수 있습니다. 이를 확인 하려면 sysprep.exe를 실행 하기 전에 모든 에이전트 서비스가 실행 중 이어야 합니다. 위의 JSON 코드 조각은 PowerShell provisioner에서이 작업을 수행 하는 한 가지 방법을 보여 줍니다. 이 코드 조각은 기본 인 에이전트를 설치 하도록 VM이 구성 된 경우에만 필요 합니다.
+Windows 게스트 에이전트는 Sysprep 프로세스에 참여합니다. 에이전트가 완전히 설치되어 있어야 VM을 sysprep할 수 있습니다. 에이전트가 완전히 설치되어 있는지 확인하려면 sysprep.exe를 실행하기 전에 모든 에이전트 서비스가 실행 중이어야 합니다. 위의 JSON 코드 조각에서 PowerShell 프로비저닝 프로그램에서 이 작업을 수행하는 한 가지 방법을 확인할 수 있습니다. 이 코드 조각은 VM이 에이전트를 설치하도록 구성된 경우(기본값)에만 필요합니다.
 
 
 ## <a name="build-packer-image"></a>Packer 이미지 작성

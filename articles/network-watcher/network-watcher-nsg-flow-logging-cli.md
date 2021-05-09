@@ -3,21 +3,18 @@ title: NSG 흐름 로그 관리 - Azure CLI
 titleSuffix: Azure Network Watcher
 description: 이 페이지에서는 Azure CLI를 사용하여 Azure Network Watcher의 네트워크 보안 그룹 흐름 로그를 관리하는 방법을 설명합니다.
 services: network-watcher
-documentationcenter: na
 author: damendo
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: a25d14660e5006aca2913053b17852c752c786d0
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: db928c18d3e7a9ed5eab941cca47b46ab476e02c
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107535259"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162368"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Azure CLI를 사용하여 네트워크 보안 그룹 흐름 로그 구성
 
@@ -29,7 +26,7 @@ ms.locfileid: "107535259"
 
 네트워크 보안 그룹 흐름 로그는 네트워크 보안 그룹을 통해 수신 및 송신 IP 트래픽에 대한 정보를 볼 수 있는 Network Watcher의 기능입니다. 이러한 흐름 로그는 json 형식으로 작성되고 트래픽이 허용되거나 거부된 경우 각 규칙을 기준으로 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 NIC, 흐름에 대한 5개의 튜플 정보(원본/대상 IP, 원본/대상 포트, 프로토콜)를 보여줍니다.
 
-이 문서의 단계를 수행하려면 [Mac, Linux 및 Windows용 Azure 명령줄 인터페이스를 설치(CLI)](/cli/azure/install-azure-cli)해야 합니다. 모든 흐름 로그 명령의 자세한 사양은 [여기](https://docs.microsoft.com/cli/azure/network/watcher/flow-log?view=azure-cli-latest)에서 확인할 수 있습니다.
+이 문서의 단계를 수행하려면 [Mac, Linux 및 Windows용 Azure 명령줄 인터페이스를 설치(CLI)](/cli/azure/install-azure-cli)해야 합니다. 모든 흐름 로그 명령의 자세한 사양은 [여기](/cli/azure/network/watcher/flow-log)에서 확인할 수 있습니다.
 
 ## <a name="register-insights-provider"></a>Insights 공급자 등록
 

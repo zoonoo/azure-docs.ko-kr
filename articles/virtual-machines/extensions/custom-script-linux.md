@@ -1,5 +1,5 @@
 ---
-title: Azure에서 Linux Vm에 대 한 사용자 지정 스크립트 확장 실행
+title: Azure에서 Linux VM의 사용자 지정 스크립트 확장 실행
 description: 사용자 지정 스크립트 확장 v2를 사용하여 Linux VM 구성 작업 자동화
 ms.topic: article
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ author: amjads1
 ms.collection: linux
 ms.date: 04/25/2018
 ms.openlocfilehash: 094e5f4b1bf1611f2d418d3a7b8db15ec5d58878
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102563577"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 2 사용
@@ -32,14 +32,14 @@ ms.locfileid: "102563577"
 
 ### <a name="operating-system"></a>운영 체제
 
-Linux 용 사용자 지정 스크립트 확장은 지원 되는 확장의 확장 OS에서 실행 됩니다. 자세한 내용은이 [문서](../linux/endorsed-distros.md)를 참조 하세요.
+Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확장에서 실행됩니다. 자세한 내용은 이 [문서](../linux/endorsed-distros.md)를 참조하세요.
 
 ### <a name="script-location"></a>스크립트 위치
 
 확장은 Azure Blob Storage 자격 증명을 사용하여 Azure Blob Storage에 액세스하는 데 사용할 수 있습니다. 또는 스크립트 위치가 VM에서 해당 엔드포인트(예: GitHub, 내부 파일 서버 등)로 라우팅할 수 있는 모든 위치가 될 수 있습니다.
 
 ### <a name="internet-connectivity"></a>인터넷 연결
-외부 스크립트(예: GitHub 또는 Azure Storage)를 다운로드해야 하는 경우 추가 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 예를 들어 스크립트가 Azure Storage에 있는 경우 [저장소](../../virtual-network/network-security-groups-overview.md#service-tags)에 대 한 AZURE Nsg 서비스 태그를 사용 하 여 액세스를 허용할 수 있습니다.
+외부 스크립트(예: GitHub 또는 Azure Storage)를 다운로드해야 하는 경우 추가 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 예를 들어 스크립트가 Azure Storage에 있으면 [Storage](../../virtual-network/network-security-groups-overview.md#service-tags)에 Azure NSG 서비스 태그를 사용하여 액세스하도록 허용할 수 있습니다.
 
 스크립트가 로컬 서버에 있으면 추가 방화벽/네트워크 보안 그룹 포트도 열어야 합니다.
 
@@ -49,15 +49,15 @@ Linux 용 사용자 지정 스크립트 확장은 지원 되는 확장의 확장
 * 스크립트를 실행할 때 사용자 입력이 필요하지 않도록 합니다.
 * 스크립트를 실행하는 데 허용되는 시간은 90분입니다. 더 오래 걸리면 확장을 프로비전하는 데 실패합니다.
 * 스크립트 내에 재부팅을 배치하지 않습니다. 그렇지 않으면 설치되는 다른 확장에 문제가 발생하고 재부팅 후 다시 시작하면 확장이 계속 실행되지 않습니다. 
-* VM 에이전트를 중지 하거나 업데이트 하는 스크립트를 실행 하는 것은 권장 되지 않습니다. 이로 인해 확장이 전환 상태로 유지 되 고 시간이 초과 될 수 있습니다.
-* 다시 부팅 해야 하는 스크립트가 있는 경우 응용 프로그램을 설치 하 고 스크립트를 실행 합니다. Cron 작업을 사용 하거나 DSC, Chef, 퍼핏 확장 등의 도구를 사용 하 여 다시 부팅을 예약 해야 합니다.
-* 확장은 스크립트를 한 번만 실행합니다. 부팅할 때마다 스크립트를 실행하려는 경우 [cloud-init 이미지](../linux/using-cloud-init.md)를 사용하고 [부팅 단위 스크립트](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) 모듈을 사용할 수 있습니다. 또는 스크립트를 사용 하 여 SystemD 서비스 단위를 만들 수 있습니다.
-* VM에는 하나의 확장 버전만 적용할 수 있습니다. 두 번째 사용자 지정 스크립트를 실행 하기 위해 새 구성으로 기존 확장을 업데이트할 수 있습니다. 또는 사용자 지정 스크립트 확장을 제거 하 고 업데이트 된 스크립트를 사용 하 여 다시 적용할 수 있습니다.
+* VM 에이전트를 중지하거나 업데이트하는 스크립트를 실행하는 것은 권장하지 않습니다. 그로 인해 확장이 전환 상태로 유지되어 시간 제한이 발생할 수 있습니다.
+* 스크립트를 통해 다시 부팅한 다음, 애플리케이션을 설치하고 스크립트를 실행합니다. cron 작업을 사용하여 다시 부팅을 예약하거나 DSC, Chef, Puppet 확장과 같은 도구를 사용해야 합니다.
+* 확장은 스크립트를 한 번만 실행합니다. 부팅할 때마다 스크립트를 실행하려는 경우 [cloud-init 이미지](../linux/using-cloud-init.md)를 사용하고 [부팅 단위 스크립트](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) 모듈을 사용할 수 있습니다. 또는 SystemD 서비스 단위를 만드는 스크립트를 사용할 수 있습니다.
+* VM에는 하나의 확장 버전만 적용할 수 있습니다. 두 번째 사용자 지정 스크립트를 실행하기 위해서는 새 구성으로 기존 확장을 업데이트할 수 있습니다. 또는 사용자 지정 스크립트 확장을 제거하고 업데이트된 스크립트를 사용하여 다시 적용할 수 있습니다.
 * 스크립트가 실행될 시기를 예약하려면 Cron 작업을 만드는 확장을 사용해야 합니다. 
 * 스크립트를 실행하는 경우 Azure Portal 또는 CLI에서 ‘전환 중’ 확장 상태만 표시됩니다. 실행 중인 스크립트의 상태 업데이트를 더 자주 수행하려는 경우 사용자 고유의 솔루션을 만들어야 합니다.
-* 사용자 지정 스크립트 확장은 기본적으로 프록시 서버를 지원 하지 않지만 스크립트 내의 프록시 서버를 지 원하는 파일 전송 도구 (예: *말아 넘기기*)를 사용할 수 있습니다. 
+* 사용자 지정 스크립트 확장이 고유하게 프록시 서버를 지원하지는 않지만 *Curl* 과 같은 스크립트 내에서 프록시 서버를 지원하는 파일 전송 도구를 사용할 수 있습니다. 
 * 스크립트 또는 명령에서 사용할 수 있는 기본 디렉터리가 아닌 위치를 알고 있어야 하고, 이를 처리할 논리가 있어야 합니다.
-*  프로덕션 VMSS 인스턴스에 사용자 지정 스크립트를 배포할 때 json 템플릿을 통해 배포 하 고 SAS 토큰을 제어 하는 스크립트 저장소 계정을 저장 하는 것이 좋습니다. 
+*  프로덕션 VMSS 인스턴스에 사용자 지정 스크립트를 배포할 때는 json 템플릿을 통해 배포하고 SAS 토큰을 제어할 수 있는 스크립트 스토리지 계정을 저장하는 것이 좋습니다. 
 
 
 ## <a name="extension-schema"></a>확장 스키마
@@ -122,7 +122,7 @@ Linux 용 사용자 지정 스크립트 확장은 지원 되는 확장의 확장
 | managedIdentity(예) | { } 또는 { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" } 또는 { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" } | json 개체 |
 
 ### <a name="property-value-details"></a>속성 값 세부 정보
-* `apiVersion`: 다음 명령을 사용 하 여 Azure CLI [리소스 탐색기](https://resources.azure.com/) 또는에서 가장 최신 apiVersion를 찾을 수 있습니다. `az provider list -o json`
+* `apiVersion`: 다음 명령 `az provider list -o json`을 사용하여 [리소스 탐색기](https://resources.azure.com/) 또는 Azure CLI에서 가장 최신 apiVersion을 찾을 수 있습니다.
 * `skipDos2Unix`: (옵션, 부울) 스크립트 기반 파일 URL 또는 스크립트의 dos2unix 변환을 건너뜁니다.
 * `timestamp`: (옵션, 32비트 정수) 이 필드는 이 필드의 값을 변경하여 스크립트의 다시 실행을 트리거하는 데만 사용합니다.  모든 정수 값을 사용할 수 있습니다. 단, 이전 값과 달라야 합니다.
 * `commandToExecute`: (스크립트를 설정하지 않은 경우 **필수**, 문자열) 실행할 진입점 스크립트입니다. 명령에 암호와 같은 기밀 정보가 포함되는 경우 이 필드를 대신 사용합니다.
@@ -208,7 +208,7 @@ CustomScript는 다음 알고리즘을 사용하여 스크립트를 실행합니
 > [!NOTE]
 > 이 속성은 보호 설정에서만 지정 **해야 합니다**.
 
-CustomScript (버전 2.1 이상)는 "fileUris" 설정에 제공 된 Url에서 파일을 다운로드 하 [는 관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 를 지원 합니다. 사용자가 SAS 토큰 또는 스토리지 계정 키와 같은 비밀을 전달하지 않아도 CustomScript가 Azure Storage 프라이빗 Blob 또는 컨테이너에 액세스할 수 있습니다.
+CustomScript(버전 2.1 이상)는 “fileUris” 설정에 제공된 URL에서 파일을 다운로드하기 위한 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 지원합니다. 사용자가 SAS 토큰 또는 스토리지 계정 키와 같은 비밀을 전달하지 않아도 CustomScript가 Azure Storage 프라이빗 Blob 또는 컨테이너에 액세스할 수 있습니다.
 
 이 기능을 사용하려면 사용자는 CustomScript를 실행해야 하는 VM 또는 VMSS에 [system-assigned](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) 또는 [user-assigned](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-user-assigned-identity) ID를 추가하고 [Azure Storage 컨테이너 또는 Blob에 대한 관리 ID 액세스 권한을 부여](../../active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage.md#grant-access)해야 합니다.
 
@@ -411,7 +411,7 @@ Azure 스크립트 확장은 여기에서 찾을 수 있는 로그를 생성합�
 /var/log/azure/custom-script/handler.log
 ```
 
-개별 실행을 확인 해야 합니다. 다음과 같이 표시 됩니다.
+다음과 유사한 개별 실행을 찾아야 합니다.
 
 ```output
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=start
@@ -444,7 +444,7 @@ time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=
 * 파일 및 해당 결과를 다운로드하는 확장.
 * 실행되는 명령 및 결과.
 
-Azure CLI를 사용 하 여로 전달 된 실제 인수를 포함 하 여 사용자 지정 스크립트 확장의 실행 상태를 검색할 수도 있습니다 `commandToExecute` .
+Azure CLI를 사용하여 `commandToExecute`로 전달된 실제 인수를 포함하여 사용자 지정 스크립트 확장의 실행 상태를 검색할 수도 있습니다.
 
 ```azurecli
 az vm extension list -g myResourceGroup --vm-name myVM

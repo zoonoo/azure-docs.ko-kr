@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 0504467e387c0875a8e00bd1cf638ec437232092
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: a015ba06be6a10985a4771e842a6d910dd4cd9ab
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554901"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108157501"
 ---
 Azure Communication Services **그룹 통화 주인공 샘플** 은 Communication Services 통화 웹 SDK를 사용하여 그룹 통화 환경을 만드는 방법을 보여줍니다.
 
@@ -48,7 +48,7 @@ Azure Communication Services **그룹 통화 주인공 샘플** 은 Communicatio
 - **사이드바**: 헤더의 컨트롤을 사용하여 사이드바를 전환하면 참가자 및 설정 정보가 사이드바에 표시됩니다. 오른쪽 위 모서리에서 'X'를 사용하여 구성 요소를 해제할 수 있습니다. 참가자 사이드바에는 참가자 목록과 추가 사용자를 채팅에 초대하는 링크가 표시됩니다. 설정 사이드바에서는 마이크 및 카메라 설정을 구성할 수 있습니다.
 
 > [!NOTE]
-> Web Calling SDK의 제한 사항에 따라 하나의 원격 비디오 스트림도 렌더링됩니다. 자세한 내용은 [Calling SDK 스트림 지원 호출](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features#calling-sdk-streaming-support)을 참조하세요.
+> Web Calling SDK의 제한 사항에 따라 하나의 원격 비디오 스트림도 렌더링됩니다. 자세한 내용은 [Calling SDK 스트림 지원 호출](../../concepts/voice-video-calling/calling-sdk-features.md#calling-sdk-streaming-support)을 참조하세요.
 
 아래에는 샘플을 설정하기 위한 필수 구성 요소 및 설정 단계가 자세히 설명되어 있습니다.
 

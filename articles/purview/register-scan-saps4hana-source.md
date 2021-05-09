@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 7e00332eca076b55a884682240ef26ea3a4546d1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e7030d1b692777b7497ffe464a70d3a80cab9647
+ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046065"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107992362"
 ---
 # <a name="register-and-scan-a-sap-s4hana-source-preview"></a>SAP S/4HANA 원본 등록 및 검사(미리 보기)
 
@@ -35,7 +35,7 @@ SAP S/4HANA 원본은 SAP S/4HANA 인스턴스에서 메타데이터를 추출�
 
     :::image type="content" source="media/register-scan-saps4hana-source/requirement.png" alt-text="필수 구성 요소" border="true":::
 
-5.  커넥터가 Java Connector(JCo) 3.0 API를 사용하여 SAP에서 메타데이터를 읽습니다. 따라서 Java Connector가 자체 호스팅 통합 런타임이 설치된 가상 머신에서 사용 가능해야 합니다.
+5.  커넥터에서 [SAP Java Connector(JCo)](https://support.sap.com/en/product/connectors/jco.html) 3.0 API를 사용하여 SAP에서 메타데이터를 읽습니다. 따라서 Java Connector가 자체 호스팅 통합 런타임이 설치된 가상 머신에서 사용 가능해야 합니다.
     환경에 대해 올바른 JCo 배포를 사용하고 있는지 확인합니다. 예를 들어 Microsoft Windows 컴퓨터의 경우 sapjco3.jar 및 sapjco3.dll 파일을 사용할 수 있어야 합니다.
 
     > [!Note] 

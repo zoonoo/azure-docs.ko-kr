@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: batch
 documentationcenter: ''
@@ -10,15 +10,15 @@ ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.date: 02/16/2021
+ms.date: 04/23/2021
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: baf146bdd89d45c5d7e1ed359822a35d383b7b6c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3100e84255f95b2154f7e8d0ce47024546383da4
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103561920"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107990459"
 ---
 ### <a name="general-requirements"></a>일반 요구 사항
 
@@ -87,7 +87,7 @@ Batch는 자체 NSG를 구성하므로 가상 네트워크 서브넷 수준에�
 ### <a name="pools-in-the-cloud-services-configuration"></a>Cloud Services 구성의 풀
 
 > [!WARNING]
-> 클라우드 서비스 구성 풀은 사용되지 않습니다. 대신 Virtual Machine 구성 풀을 사용하세요.
+> Cloud Services 구성 풀은 [사용되지 않습니다](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). 대신 Virtual Machine 구성 풀을 사용하세요.
 
 **VNet 지원** -클래식 VNet 전용
 

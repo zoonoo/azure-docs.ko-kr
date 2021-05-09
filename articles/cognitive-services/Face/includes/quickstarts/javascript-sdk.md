@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/05/2020
 ms.author: v-jawe
-ms.openlocfilehash: 8f968572a357bb3c98d9c3133a7ec0a0a94dbf93
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3873a15c6a56d6ee4944cc596f447c966c275950
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105958144"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108313441"
 ---
 ## <a name="quickstart-face-client-library-for-javascript"></a>빠른 시작: JavaScript용 Face 클라이언트 라이브러리
 
@@ -178,7 +178,7 @@ URL은 샘플 이미지 폴더를 가리킵니다. UUID는 만들 PersonGroup의
 ### <a name="create-a-persongroup"></a>PersonGroup 만들기
 
 코드는 다음과 같습니다.
-- [PersonGroup](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/persongroup) 만들기
+- [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup) 만들기
 - 이전에 정의한 `AddFacesToPersonGroup`을 호출하여 **PersonGroup** 에 얼굴을 추가합니다.
 - **PersonGroup** 을 학습합니다.
 - **PersonGroup** 의 얼굴을 식별합니다.

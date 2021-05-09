@@ -6,21 +6,16 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 38194ed7290d6cd9c4889d27ff458f950603c5be
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 84abd3d617c059c1bbc9565d0b8a23840f81f60d
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "106073005"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108313550"
 ---
 이 빠른 시작에서는 Android용 Azure Communication Services Calling SDK를 사용하여 통화를 시작하는 방법에 대해 알아봅니다.
 
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-android-ios.md)]
-
-> [!NOTE]
-> 이 문서에서는 Calling SDK의 버전 1.0.0-beta.8을 사용합니다.
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android 스튜디오](https://developer.android.com/studio)(Android 애플리케이션 만들기용)
@@ -262,13 +257,13 @@ private void getAllPermissions() {
 
 ## <a name="object-model"></a>개체 모델
 
-Azure Communication Services Calling SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
+Azure Communication Services 통화 SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
 | 이름                                  | 설명                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | CallClient| CallClient는 Calling SDK의 주 진입점입니다.|
 | CallAgent | CallAgent는 통화를 시작하고 관리하는 데 사용됩니다. |
-| CommunicationUserCredential | CommunicationUserCredential은 CallAgent를 인스턴스화하기 위한 토큰 자격 증명으로 사용됩니다.|
+| CommunicationTokenCredential | CommunicationTokenCredential은 CallAgent를 인스턴스화하기 위한 토큰 자격 증명으로 사용됩니다.|
 | CommunicationIdentifier | CommunicationIdentifier는 호출에 포함될 수 있는 다른 유형의 참가자로 사용됩니다.|
 
 ## <a name="create-an-agent-from-the-user-access-token"></a>사용자 액세스 토큰에서 에이전트 만들기

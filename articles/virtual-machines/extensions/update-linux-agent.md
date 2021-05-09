@@ -9,10 +9,10 @@ ms.author: amjads
 ms.collection: linux
 ms.date: 08/02/2017
 ms.openlocfilehash: a274435d6e0fc32bdf5b2ab04702ed971d7c5175
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102558987"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>VM에서 Azure Linux 에이전트를 업데이트하는 방법
@@ -25,7 +25,7 @@ Azure Linux VM에서 [Azure Linux 에이전트](https://github.com/Azure/WALinux
 항상 Linux 배포판 리포지토리의 패키지에 대해 먼저 확인해야 합니다. 사용 가능한 패키지는 최신 버전이 아닐 수도 있지만 자동 업데이트를 사용하면 Linux 에이전트에서 항상 최신 업데이트를 가져올 수 있습니다. 패키지 관리자에서 설치 문제가 있는 경우 배포판 공급 업체에서 지원을 검색해야 합니다.
 
 > [!NOTE]
-> 자세한 내용은 [보증 Linux 배포판 In Azure를](../linux/endorsed-distros.md) 참조 하세요.
+> 자세한 내용은 [Azure 보증 Linux 배포판](../linux/endorsed-distros.md)을 참조하세요.
 
 계속하기 전에 [Azure의 가상 머신 에이전트에 대한 최소 버전 지원](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)을 확인합니다.
 
@@ -50,7 +50,7 @@ sudo apt-get -qq update
 sudo apt-get install walinuxagent
 ```
 
-자동 업데이트를 사용 하도록 설정 했는지 확인 합니다. 먼저 활성화되었는지 확인합니다.
+자동 업데이트를 사용하도록 설정했는지 확인 먼저 활성화되었는지 확인합니다.
 
 ```bash
 cat /etc/waagent.conf
@@ -69,13 +69,13 @@ AutoUpdate.Enabled=y
 sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
-14.04에 대 한 waagengt 서비스 다시 시작
+14.04에 대한 waagengt 서비스 다시 시작
 
 ```bash
 initctl restart walinuxagent
 ```
 
-16.04/17.04에 대해 waagent 서비스를 다시 시작 합니다.
+16.04/17.04에 대한 waagent 서비스 다시 시작
 
 ```bash
 systemctl restart walinuxagent.service
@@ -150,7 +150,7 @@ sudo yum check-update WALinuxAgent
 sudo yum install WALinuxAgent  
 ```
 
-자동 업데이트를 사용 하도록 설정 했는지 확인 합니다. 먼저 활성화되었는지 확인합니다.
+자동 업데이트를 사용하도록 설정했는지 확인 먼저 활성화되었는지 확인합니다.
 
 ```bash
 cat /etc/waagent.conf
@@ -185,7 +185,7 @@ sudo systemctl restart waagent.service
 zypper info python-azure-agent
 ```
 
-사용 가능한 업데이트를 확인 합니다. 위의 출력에서 패키지가 최신 상태인지 표시합니다.
+사용 가능한 업데이트를 확인합니다. 위의 출력에서 패키지가 최신 상태인지 표시합니다.
 
 최신 패키지 버전 설치
 
@@ -267,7 +267,7 @@ sudo systemctl restart waagent.service
 
 ## <a name="debian"></a>Debian
 
-### <a name="debian-7-jesse-debian-7-stretch"></a>Debian 7 "Jesse"/Debian 7 "Stretch"
+### <a name="debian-7-jesse-debian-7-stretch"></a>Debian 7 “Jesse”/ Debian 7 “Stretch”
 
 현재 패키지 버전 확인
 
@@ -287,7 +287,7 @@ sudo apt-get -qq update
 sudo apt-get install waagent
 ```
 
-에이전트 자동 업데이트 사용이 버전의 Debian에는 버전 >= 2.0.16이 없으므로 해당 버전에서 자동 업데이트를 사용할 수 없습니다. 위 명령의 출력에서 패키지가 최신 상태인지 표시합니다.
+에이전트 자동 업데이트 사용 설정이 Debian 버전에는 2.0.16 이상의 버전이 없으므로 자동 업데이트를 사용할 수 없습니다. 위 명령의 출력에서 패키지가 최신 상태인지 표시합니다.
 
 ### <a name="debian-8-jessie--debian-9-stretch"></a>Debian 8 “Jessie” / Debian 9 “Stretch”
 
@@ -309,7 +309,7 @@ sudo apt-get -qq update
 sudo apt-get install waagent
 ```
 
-먼저 자동 업데이트를 사용 하도록 설정 되어 있는지 확인 하 고, 사용 하도록 설정 되어 있는지 확인 합니다.
+먼저 자동 업데이트를 사용하도록 설정했는지 확인합니다.
 
 ```bash
 cat /etc/waagent.conf
@@ -397,13 +397,13 @@ cd WALinuxAgent-2.2.14
 
 ### <a name="2-install-the-azure-linux-agent"></a>2. Azure Linux 에이전트 설치
 
-버전 2.2. x의 경우 다음을 사용 합니다. 패키지를 먼저 설치 해야 할 수 있습니다 `setuptools` . [여기](https://pypi.python.org/pypi/setuptools)를 참조 하십시오. 다음을 실행합니다.
+버전 2.2.x의 경우 다음을 사용합니다. 먼저 `setuptools` 패키지를 설치해야 할 수 있습니다. [여기](https://pypi.python.org/pypi/setuptools)를 참조하세요. 다음을 실행합니다.
 
 ```bash
 sudo python setup.py install
 ```
 
-자동 업데이트를 사용 하도록 설정 했는지 확인 합니다. 먼저 활성화되었는지 확인합니다.
+자동 업데이트를 사용하도록 설정했는지 확인 먼저 활성화되었는지 확인합니다.
 
 ```bash
 cat /etc/waagent.conf
@@ -422,7 +422,7 @@ AutoUpdate.Enabled=y
 sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
-### <a name="3-restart-the-waagent-service"></a>3. waagent 서비스를 다시 시작 합니다.
+### <a name="3-restart-the-waagent-service"></a>3. waagent 서비스 다시 시작
 대부분의 Linux 배포판:
 
 ```bash

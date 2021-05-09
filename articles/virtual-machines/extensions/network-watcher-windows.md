@@ -9,10 +9,10 @@ ms.author: amjads
 ms.collection: windows
 ms.date: 02/14/2017
 ms.openlocfilehash: d336a39714712e5436086e22ad24fc942a7d850a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102563543"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Windows용 Network Watcher 에이전트 가상 머신 확장
@@ -28,7 +28,7 @@ ms.locfileid: "102563543"
 
 ### <a name="operating-system"></a>운영 체제
 
-Windows 용 Network Watcher Agent 확장은 Windows Server 2008 R2, 2012, 2012 R2, 2016 및 2019 릴리스에 대해 실행할 수 있습니다. Nano Server는 현재 지원되지 않습니다.
+Windows용 Network Watcher 에이전트 확장은 Windows Server 2008 R2, 2012, 2012 R2, 2016, 2019 릴리스에 대해 실행할 수 있습니다. Nano Server는 현재 지원되지 않습니다.
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
@@ -62,7 +62,7 @@ Windows 용 Network Watcher Agent 확장은 Windows Server 2008 R2, 2012, 2012 R
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | 게시자 | Microsoft.Azure.NetworkWatcher |
-| 형식 | NetworkWatcherAgentWindows |
+| type | NetworkWatcherAgentWindows |
 | typeHandlerVersion | 1.4 |
 
 

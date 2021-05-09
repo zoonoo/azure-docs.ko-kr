@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0706fad1e5340625c32eab691ac3e4d58eeafc9f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6fad9356d3379e76aa259d67711d18f14a4e266f
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103012121"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505278"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Azure Active Directory의 관리 단위 관리
 
@@ -33,7 +33,7 @@ Azure Active Directory(Azure AD)의 보다 세부적인 관리 제어를 위해 
     
     b. 애플리케이션 목록에서 **Graph 탐색기** 를 선택합니다.
     
-    다. **권한** 창에서 **Graph 탐색기에 대한 관리자 동의 허용** 을 선택합니다.
+    c. **권한** 창에서 **Graph 탐색기에 대한 관리자 동의 허용** 을 선택합니다.
 
     ![“Graph 탐색기에 대한 관리자 동의 허용” 링크를 보여 주는 스크린샷.](./media/admin-units-manage/select-graph-explorer.png)
 
@@ -100,7 +100,7 @@ Azure AD에서 관리 역할의 범위 단위로 더 이상 필요하지 않은 
 
 ```powershell
 $adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
-Remove-AzureADMSAdministrativeUnit -ObjectId $adminUnitObj.ObjectId
+Remove-AzureADMSAdministrativeUnit -Id $adminUnitObj.Id
 ```
 
 특정 환경의 필요에 따라 따옴표 안의 값을 수정할 수 있습니다.

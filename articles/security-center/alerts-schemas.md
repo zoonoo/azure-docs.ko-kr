@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center 경고에 대 한 스키마
-description: 이 문서에서는 Azure Security Center에서 보안 경고에 사용 하는 다양 한 스키마에 대해 설명 합니다.
+title: Azure Security Center 경고에 대한 스키마
+description: 이 문서에서는 Azure Security Center에서 보안 경고에 사용하는 다양한 스키마에 대해 설명합니다.
 services: security-center
 author: memildin
 manager: rkarlin
@@ -12,56 +12,56 @@ ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
 ms.openlocfilehash: 55f8d37d435aa8adeb4d97246ce7b2c7811140be
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102558001"
 ---
 # <a name="security-alerts-schemas"></a>보안 경고 스키마
 
-구독에서 Azure Defender를 사용 하는 경우 리소스에 대 한 위협을 검색할 Security Center 때 보안 경고가 표시 됩니다.
+구독에서 Azure Defender를 사용하는 경우 Security Center에서 리소스에 대한 위협을 감지하면 보안 경고가 표시됩니다.
 
-Azure Security Center의 **위협 방지** 페이지에서 또는 다음과 같은 외부 도구를 통해 이러한 보안 경고를 볼 수 있습니다.
+Azure Security Center의 **위협 방지** 페이지에서 또는 다음과 같은 외부 도구를 통해 이러한 보안 경고를 확인할 수 있습니다.
 
-- [Azure 센티널](../sentinel/index.yml) -Microsoft의 클라우드 기본 siem. 센티널 커넥터는 Azure Security Center에서 경고를 가져오고 Azure 센티널의 [Log Analytics 작업 영역](../azure-monitor/logs/quick-create-workspace.md) 으로 보냅니다.
-- 타사 SIEMs- [Azure Event Hubs](../event-hubs/index.yml)에 데이터를 보냅니다. 그런 다음 이벤트 허브 데이터를 타사 SIEM과 통합 합니다. [SIEM, SOAR 또는 IT 서비스 관리 솔루션에 대한 경고 스트리밍](export-to-siem.md)에서 자세히 알아봅니다.
-- [REST API](/rest/api/securitycenter/) -REST API를 사용 하 여 경고에 액세스 하는 경우 [온라인 경고 API 설명서](/rest/api/securitycenter/alerts)를 참조 하세요.
+- [Azure Sentinel](../sentinel/index.yml) - Microsoft의 클라우드 네이티브 SIEM. Sentinel Connector는 Azure Security Center에서 경고를 수신하여 Azure Sentinel의 [Log Analytics 작업 영역](../azure-monitor/logs/quick-create-workspace.md)으로 전송합니다.
+- 타사 SIEM - [Azure Event Hubs](../event-hubs/index.yml)로 데이터를 전송합니다. 그런 다음 Event Hub 데이터를 타사 SIEM과 통합합니다. [SIEM, SOAR 또는 IT 서비스 관리 솔루션에 대한 경고 스트리밍](export-to-siem.md)에서 자세히 알아봅니다.
+- [REST API](/rest/api/securitycenter/) - REST API를 사용하여 경고에 액세스하는 경우 [온라인 경고 API 문서](/rest/api/securitycenter/alerts)를 참조하세요.
 
-프로그래밍 방법을 사용 하 여 경고를 사용 하는 경우 적절 한 스키마를 사용 하 여 관련 필드를 찾아야 합니다. 또한 이벤트 허브로 내보내거나 일반 HTTP 커넥터를 사용 하 여 워크플로 자동화를 트리거하기를 시도 하는 경우 스키마를 사용 하 여 JSON 개체를 올바르게 구문 분석 합니다.
+프로그래매틱 방식을 통해 경고를 사용하는 경우 적절한 스키마를 사용하여 관련 필드를 찾아야 합니다. 또한 Event Hub로 내보내거나 일반 HTTP 커넥터를 사용하여 Workflow Automation 트리거를 시도하는 경우 스키마를 사용하여 JSON 개체를 올바르게 구문 분석합니다.
 
 >[!IMPORTANT]
-> 이러한 각 시나리오 마다 스키마가 약간 다르므로 아래에서 관련 탭을 선택 해야 합니다.
+> 시나리오마다 스키마가 약간 다르므로 아래에서 관련 탭을 선택해야 합니다.
 
 
 ## <a name="the-schemas"></a>스키마 
 
 
-### <a name="workflow-automation-and-continuous-export-to-event-hub"></a>[워크플로 자동화 및 이벤트 허브로 연속 내보내기](#tab/schema-continuousexport)
+### <a name="workflow-automation-and-continuous-export-to-event-hub"></a>[워크플로 자동화 및 Event Hub로 연속 내보내기](#tab/schema-continuousexport)
 
-### <a name="sample-json-for-alerts-sent-to-logic-apps-event-hub-and-third-party-siems"></a>Logic Apps, 이벤트 허브 및 타사 SIEMs로 전송 되는 경고에 대 한 샘플 JSON
+### <a name="sample-json-for-alerts-sent-to-logic-apps-event-hub-and-third-party-siems"></a>Logic Apps, Event Hub, 타사 SIEM으로 전송되는 경고에 대한 샘플 JSON
 
-아래에 전달 된 경고 이벤트의 스키마를 찾을 수 있습니다.
+아래에서 전달된 경고 이벤트의 스키마를 찾을 수 있습니다.
 
-- Security Center의 워크플로 자동화에서 구성 된 Azure 논리 앱 인스턴스
-- Security Center의 연속 내보내기 기능을 사용 하는 Azure 이벤트 허브
+- Security Center의 워크플로 자동화에서 구성된 Azure 논리 앱 인스턴스
+- Security Center의 연속 내보내기 기능을 사용하는 Azure Event Hub
 
-Workflow automation 기능에 대 한 자세한 내용은 [Security Center 트리거에 대 한 응답 자동화](workflow-automation.md)를 참조 하세요.
+워크플로 자동화 기능에 대한 자세한 내용은 [Security Center 트리거에 대한 응답 자동화](workflow-automation.md)를 참조하세요.
 
-연속 내보내기에 대 한 자세한 내용은 [데이터 Security Center 연속 내보내기](continuous-export.md)를 참조 하세요.
+연속 내보내기에 대한 자세한 내용은 [Security Center 데이터 연속 내보내기](continuous-export.md)를 참조하세요.
 
 [!INCLUDE [Workflow schema](../../includes/security-center-alerts-schema-workflow-automation.md)]
 
 
 
 
-### <a name="azure-sentinel-and-log-analytics-workspaces"></a>[Azure 센티널 및 Log Analytics 작업 영역](#tab/schema-sentinel)
+### <a name="azure-sentinel-and-log-analytics-workspaces"></a>[Azure Sentinel 및 Log Analytics 작업 영역](#tab/schema-sentinel)
 
-센티널 커넥터는 Azure Security Center에서 경고를 가져오고 Azure 센티널의 Log Analytics 작업 영역으로 보냅니다. 
+Sentinel Connector는 Azure Security Center에서 경고를 수신하여 Azure Sentinel의 Log Analytics 작업 영역으로 전송합니다. 
 
-Security Center 경고를 사용 하 여 센티널 사례 또는 인시던트를 만들려면 아래에 표시 된 해당 경고에 대 한 스키마가 필요 합니다. 
+Security Center 경고를 사용하여 Sentinel 사례 또는 인시던트를 만들려면 아래에 표시된 경고에 대한 스키마가 필요합니다. 
 
-Azure 센티널에 대 한 자세한 내용은 [설명서](../sentinel/index.yml)를 참조 하세요.
+Azure Sentinel에 관한 자세한 내용은 [문서](../sentinel/index.yml)를 참조하세요.
 
 [!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-log-analytics-workspace.md)]
 
@@ -70,14 +70,14 @@ Azure 센티널에 대 한 자세한 내용은 [설명서](../sentinel/index.yml
 
 ### <a name="azure-activity-log"></a>[Azure 활동 로그](#tab/schema-activitylog)
 
-Azure Security Center는 생성 된 보안 경고를 Azure 활동 로그의 이벤트로 감사 합니다.
+Azure Security Center는 생성된 보안 경고를 Azure 활동 로그의 이벤트로 감사합니다.
 
-다음과 같이 경고 활성화 이벤트를 검색 하 여 활동 로그에서 보안 경고 이벤트를 볼 수 있습니다.
+다음과 같이 경고 활성화 이벤트를 검색하여 활동 로그에서 보안 경고 이벤트를 볼 수 있습니다.
 
-[![활동 로그에서 활성화 경고 이벤트를 검색 하는 중](media/alerts-schemas/sample-activity-log-alert.png)](media/alerts-schemas/sample-activity-log-alert.png#lightbox)
+[![활동 로그에서 활성화 경고 이벤트 검색](media/alerts-schemas/sample-activity-log-alert.png)](media/alerts-schemas/sample-activity-log-alert.png#lightbox)
 
 
-### <a name="sample-json-for-alerts-sent-to-azure-activity-log"></a>Azure 활동 로그로 전송 되는 경고에 대 한 샘플 JSON
+### <a name="sample-json-for-alerts-sent-to-azure-activity-log"></a>Azure 활동 로그로 전송되는 경고 샘플 JSON
 
 ```json
 {
@@ -142,27 +142,27 @@ Azure Security Center는 생성 된 보안 경고를 Azure 활동 로그의 이�
 
 |필드|Description|
 |----|----|
-|**채널이**|상수, "Operation"|
+|**channels**|상수, ‘Operation’|
 |**correlationId**|Azure Security Center 경고 ID|
 |**description**|경고에 대한 설명|
-|**eventDataId**|CorrelationId 참조|
-|**eventName**|Value 및 localizedValue 하위 필드에는 경고 표시 이름이 포함 됩니다.|
-|**category**|Value 및 localizedValue 하위 필드는 상수 "보안"입니다.|
-|**eventTimestamp**|경고가 생성 된 시간에 대 한 UTC 타임 스탬프|
-|**ID**|정규화 된 경고 ID|
-|**level**|상수, "정보"|
-|**operationId**|CorrelationId 참조|
-|**operationName**|값 필드는 상수-"Microsoft. 보안/위치/경고/활성화/동작" 이며, 지역화 된 값은 "경고 활성화" (잠재적으로 사용자 로캘과 함께 지역화 될 수 있음)입니다.|
-|**resourceGroupName**|리소스 그룹 이름을 포함 합니다.|
-|**resourceProviderName**|Value 및 localizedValue 하위 필드는 상수-"Microsoft. 보안"입니다.|
-|**resourceType**|Value 및 localizedValue 하위 필드는 상수-"Microsoft. 보안/위치/경고"입니다.|
-|**resourceId**|정규화 된 Azure 리소스 ID|
-|**status**|Value 및 localizedValue 하위 필드는 상수 "Active"입니다.|
-|**하위 상태**|Value 및 localizedValue 하위 필드는 비어 있습니다.|
-|**submissionTimestamp**|활동 로그에 대 한 이벤트 전송의 UTC 타임 스탬프입니다.|
-|**subscriptionId**|손상 된 리소스의 구독 ID입니다.|
-|**properties**|경고와 관련 된 추가 속성의 JSON 모음입니다. 이는 경고 간에 변경 될 수 있지만 모든 경고에는 다음 필드가 표시 됩니다.<br>-심각도: 공격의 심각도<br>-compromisedEntity: 손상 된 리소스의 이름입니다.<br>-remediationSteps: 수행할 재구성 단계 배열<br>-의도: 경고의 kill 체인 의도입니다. 가능한 의도는 [의도 테이블](alerts-reference.md#intentions) 에 설명 되어 있습니다.|
-|**relatedEvents**|상수-빈 배열|
+|**eventDataId**|correlationId 참조|
+|**eventName**|value 및 localizedValue 하위 필드에는 경고 표시 이름 포함|
+|**category**|value 및 localizedValue 하위 필드는 상수 - ‘Security’|
+|**eventTimestamp**|경고가 생성된 시점의 UTC 타임스탬프|
+|**id**|정규화된 경고 ID|
+|**level**|상수, ‘Informational’|
+|**operationId**|correlationId 참조|
+|**operationName**|값 필드는 상수 - ‘Microsoft.Security/locations/alerts/activate/action’이며, 로컬화된 값은 ‘Activate Alert’(사용자 로캘에 따라 로컬화될 수 있음)|
+|**resourceGroupName**|리소스 그룹 이름 포함|
+|**resourceProviderName**|value 및 localizedValue 하위 필드는 상수 - ‘Microsoft.Security’|
+|**resourceType**|value 및 localizedValue 하위 필드는 상수 - ‘Microsoft.Security/locations/alerts’|
+|**resourceId**|정규화된 Azure 리소스 ID|
+|**status**|value 및 localizedValue 하위 필드는 상수 - ‘Active’|
+|**subStatus**|value 및 localizedValue 하위 필드는 비어 있음|
+|**submissionTimestamp**|활동 로그에 대한 이벤트 제출의 UTC 타임스탬프|
+|**subscriptionId**|손상된 리소스의 구독 ID|
+|**properties**|경고와 관련된 추가 속성의 JSON 모음. 경고마다 달라질 수 있지만 모든 경고에는 다음 필드가 표시됩니다.<br>- severity – 공격의 심각도<br>- compromisedEntity: 손상된 리소스의 이름<br>- remediationSteps: 수행할 수정 단계<br>- intent: 경고의 종료 체인 의도. 가능한 의도는 [의도 테이블](alerts-reference.md#intentions)을 참조하세요.|
+|**relatedEvents**|상수 - 빈 배열|
 |||
 
 
@@ -171,20 +171,20 @@ Azure Security Center는 생성 된 보안 경고를 Azure 활동 로그의 이�
 
 ### <a name="ms-graph-api"></a>[MS Graph API](#tab/schema-graphapi)
 
-Microsoft Graph은 Microsoft 365의 데이터 및 인텔리전스에 대 한 게이트웨이입니다. Microsoft 365, Windows 10 및 Enterprise Mobility + Security에서 엄청난 양의 데이터에 액세스 하는 데 사용할 수 있는 통합 프로그래밍 모델을 제공 합니다. Microsoft Graph의 다양 한 데이터를 사용 하 여 수백만 명의 사용자와 상호 작용 하는 조직과 소비자를 위한 앱을 빌드할 수 있습니다.
+Microsoft Graph는 Microsoft 365의 데이터 및 인텔리전스에 대한 게이트웨이입니다. Microsoft 365, Windows 10, Enterprise Mobility + Security에서 방대한 양의 데이터에 액세스하는 데 사용할 수 있는 통합 프로그래밍 기능 모델을 제공합니다. Microsoft Graph의 풍부한 데이터를 사용하여 수백만 명의 사용자와 상호작용하는 조직 및 소비자용 앱을 빌드합니다.
 
-MS Graph로 전송 되는 보안 경고에 대 한 스키마 및 JSON 표현은 [Microsoft Graph 설명서](/graph/api/resources/alert)에서 사용할 수 있습니다.
+MS Graph로 전송되는 보안 경고에 대한 스키마 및 JSON 표현은 [Microsoft Graph 문서](/graph/api/resources/alert)를 참조하세요.
 
 ---
 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 보안 경고 정보를 보낼 때 Azure Security Center의 위협 방지 도구에서 사용 하는 스키마에 대해 설명 했습니다.
+이 문서에서는 보안 경고 정보를 전송할 때 Azure Security Center의 위협 방지 도구에서 사용하는 스키마에 대해 설명했습니다.
 
-외부 Security Center에서 보안 경고에 액세스 하는 방법에 대 한 자세한 내용은 다음 페이지를 참조 하세요.
+외부 Security Center에서 보안 경고에 액세스하는 방법에 대한 자세한 내용은 다음 페이지를 참조하세요.
 
-- [Azure 센티널](../sentinel/index.yml) -Microsoft의 클라우드-기본 siem
-- [Azure Event Hubs](../event-hubs/index.yml) -Microsoft의 완전히 관리 되는 실시간 데이터 수집 서비스
+- [Azure Sentinel](../sentinel/index.yml) - Microsoft의 클라우드 네이티브 SIEM
+- [Azure Event Hubs](../event-hubs/index.yml) - Microsoft의 완전 관리형 실시간 데이터 수집 서비스
 - [Security Center 데이터 연속 내보내기](continuous-export.md)
-- [Log Analytics 작업 영역](../azure-monitor/logs/quick-create-workspace.md) -데이터 및 구성 정보를 포함 하는 컨테이너 Log Analytics 작업 영역에 로그 데이터를 저장 Azure Monitor
+- [Log Analytics 작업 영역](../azure-monitor/logs/quick-create-workspace.md) - Azure Monitor는 데이터 및 구성 정보가 포함된 컨테이너인 Log Analytics 작업 영역에 로그 데이터를 저장합니다.

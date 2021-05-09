@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: b8733d499b2396160a73906f16a69291cf0b9d71
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 650c0847942635e2a6a901db40ed0e51e9412057
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103015423"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600049"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>REST를 사용하여 Azure Media Services 콘텐츠 게시
 
@@ -49,7 +49,7 @@ ms.locfileid: "103015423"
 AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. 
 
 >[!NOTE]
->https://media.windows.net에 연결하면 다른 Media Services URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
+>`https://media.windows.net`에 연결하면 다른 Media Services URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
 
 ## <a name="create-an-ondemand-streaming-locator"></a>주문형 스트리밍 로케이터 만들기
 OnDemand 스트리밍 로케이터를 만들고 URL을 가져오려면 다음을 수행해야 합니다.
@@ -206,7 +206,7 @@ public enum LocatorType
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 [Media Services Operations REST API 개요](media-services-rest-how-to-use.md)
 
 [자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)

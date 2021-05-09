@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: apedward
-ms.openlocfilehash: 4283bccf543dc496342d64cc0e7b898a4f279866
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 259d430c79cccef3cd5c581c9a60fa00edf159ec
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2021
-ms.locfileid: "108141634"
+ms.locfileid: "108162278"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-with-azure-devops"></a>자습서: Azure DevOps를 사용하여 Azure Static Web Apps 게시
 
@@ -87,20 +87,19 @@ ms.locfileid: "108141634"
 
     ```yaml
     trigger:
-      - main
-    
+    - main
+
     pool:
       vmImage: ubuntu-latest
-    
+
     steps:
       - checkout: self
         submodules: true
-
       - task: AzureStaticWebApp@0
         inputs:
-          app_location: "/" 
-          api_location: "api"
-          output_location: ""
+          app_location: '/'
+          api_location: 'api'
+          output_location: ''
         env:
           azure_static_web_apps_api_token: $(deployment_token)
     ```
@@ -112,33 +111,33 @@ ms.locfileid: "108141634"
 
     `azure_static_web_apps_api_token` 값은 자체적으로 관리되며 수동으로 구성됩니다.
 
-1. **변수** 를 선택합니다.
+2. **변수** 를 선택합니다.
 
-1. 새 변수를 만듭니다.
+3. 새 변수를 만듭니다.
 
-1. 변수 이름을 **deployment_token** 으로 지정합니다(워크플로의 이름과 일치).
+4. 변수 이름을 **deployment_token** 으로 지정합니다(워크플로의 이름과 일치).
 
-1. 이전에 텍스트 편집기에 붙여넣은 배포 토큰을 복사합니다.
+5. 이전에 텍스트 편집기에 붙여넣은 배포 토큰을 복사합니다.
 
-1. _값_ 상자에서 배포 토큰을 붙여넣습니다.
+6. _값_ 상자에서 배포 토큰을 붙여넣습니다.
 
     :::image type="content" source="media/publish-devops/variable-token.png" alt-text="변수 토큰":::
 
-1. **이 값을 비밀로 유지** 를 선택합니다.
+7. **이 값을 비밀로 유지** 를 선택합니다.
 
-1. **확인** 을 선택합니다.
+8. **확인** 을 선택합니다.
 
-1. **저장** 을 선택하여 파이프라인 YAML로 돌아갑니다.
+9. **저장** 을 선택하여 파이프라인 YAML로 돌아갑니다.
 
-1. **저장 및 실행** 을 선택하여 _저장 및 실행_ 대화 상자를 엽니다.
+10. **저장 및 실행** 을 선택하여 _저장 및 실행_ 대화 상자를 엽니다.
 
     :::image type="content" source="media/publish-devops/save-and-run.png" alt-text="파이프라인":::
 
-1. **저장 및 실행** 을 선택하여 파이프라인을 실행합니다.
+11. **저장 및 실행** 을 선택하여 파이프라인을 실행합니다.
 
-1. 배포가 성공적으로 완료되면 배포 구성에 대한 링크가 포함된 Azure Static Web Apps **개요** 로 이동합니다. 이제 _원본_ 링크에서 Azure DevOps 리포지토리의 분기 및 위치를 가리키는 방법을 확인합니다.
+12. 배포가 성공적으로 완료되면 배포 구성에 대한 링크가 포함된 Azure Static Web Apps **개요** 로 이동합니다. 이제 _원본_ 링크에서 Azure DevOps 리포지토리의 분기 및 위치를 가리키는 방법을 확인합니다.
 
-1. **URL** 을 선택하여 새로 배포된 웹 사이트를 표시합니다.
+13. **URL** 을 선택하여 새로 배포된 웹 사이트를 표시합니다.
 
     :::image type="content" source="media/publish-devops/deployment-location.png" alt-text="배포 위치":::
 

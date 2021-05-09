@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: 33c767d847d9e70e95b3ee1648be7852aa5cec98
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74df338fd888bd7f654ddfc2fc5f9dddf10e84ab
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100522889"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107598417"
 ---
 # <a name="upgrade-public-ip-addresses"></a>공용 IP 주소 업그레이드
 
@@ -146,7 +146,7 @@ Azure Resource Manager의 새 리소스 그룹은 마이그레이션된 예약�
 ## <a name="limitations"></a>제한 사항
 
 * 기본 공용 IP를 업그레이드하기 위해 Azure 리소스에 연결할 수 없습니다.  공용 IP 연결을 해제하는 방법에 대한 자세한 내용은 [이 페이지](./virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address)를 참조하세요.  마찬가지로 예약된 IP를 마이그레이션하기 위해 클라우드 서비스에 연결할 수 없습니다.  예약된 IP 연결을 해제하는 방법에 대한 자세한 내용은 [이 페이지](./remove-public-ip-address-vm.md)를 참조하세요.  
-* 기본 SKU에서 표준 SKU로 업그레이드된 공용 IP는 [가용성 영역](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)이 없으므로 영역 중복 또는 영역에 해당하는 Azure 리소스에 연결할 수 없습니다.  이는 가용성 영역을 제공하는 지역에만 적용됩니다.
+* 기본에서 표준 SKU로 업그레이드된 공용 IP는 [가용성 영역](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)을 보장하지 않습니다.  IP 주소를 연결할 리소스를 선택할 때는 기억하세요.
 * 표준에서 기본으로의 다운그레이드는 불가능합니다.
 
 ## <a name="next-steps"></a>다음 단계
