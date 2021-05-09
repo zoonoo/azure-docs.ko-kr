@@ -8,12 +8,12 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: ea8d6b860e242eaa6b281c92552ed93926b92802
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 6fd070417cfa20c1a8f50c79915f4fcb2ec361f3
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070734"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279828"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 Azure Database for MySQL 서버 프로비전
 
@@ -94,10 +94,10 @@ Azure Database for MySQL 서버에 대한 JSON 템플릿 참조를 가져오려�
 +   `resources/properties/virtualNetworkSubnetId` - Azure MySQL 서버를 배치해야 할 VNet에서 서브넷의 Azure 식별자를 지정합니다. 
 +   `tags(optional)` - 선택적 태그가 청구 등에 대한 리소스를 분류하는 데 사용할 키 값 쌍이 되도록 지정합니다.
 
-조직의 Azure Database for MySQL 배포를 자동화하기 위해 Azure Resource Manager 템플릿을 빌드하려는 경우 먼저 Azure Quickstart GitHub Gallery의 [Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) 샘플에서 시작하고 그 위에 빌드하는 것이 좋습니다. 
+조직의 Azure Database for MySQL 배포를 자동화하기 위해 Azure Resource Manager 템플릿을 빌드하려는 경우 먼저 Azure Quickstart GitHub Gallery의 [Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.dbformysql/managed-mysql-with-vnet/azuredeploy.json) 샘플에서 시작하고 그 위에 빌드하는 것이 좋습니다. 
 
 Azure Resource Manager 템플릿에 익숙치 않은데 시도하려는 경우 이러한 단계를 따라 시작할 수 있습니다.
-+   Azure 빠른 시작 갤러리에서 [Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) 샘플을 복제 또는 다운로드합니다.  
++   Azure 빠른 시작 갤러리에서 [Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.dbformysql/managed-mysql-with-vnet/azuredeploy.json) 샘플을 복제 또는 다운로드합니다.  
 +   사용자 기본 설정에 따라 매개 변수 값을 업데이트하려면 azuredeploy.parameters.json을 수정한 다음, 파일을 저장합니다. 
 +   Azure CLI를 통해 다음 명령을 사용하여 Azure MySQL 서버 만들기
 

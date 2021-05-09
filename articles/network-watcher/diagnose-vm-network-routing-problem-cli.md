@@ -1,13 +1,12 @@
 ---
-title: VM 네트워크 라우팅 문제 진단-Azure CLI
+title: VM 네트워크 라우팅 문제 진단 - Azure CLI
 titleSuffix: Azure Network Watcher
-description: 이 문서에서는 Azure Network Watcher의 다음 홉 기능을 사용 하 여 가상 머신 네트워크 라우팅 문제를 진단 하는 데 Azure CLI를 사용 하는 방법을 알아봅니다.
+description: 이 문서에서는 Azure Network Watcher의 다음 홉 기능을 사용하여 가상 머신 네트워크 라우팅 문제를 진단하기 위해 Azure CLI를 사용하는 방법에 대해 알아봅니다.
 services: network-watcher
 documentationcenter: network-watcher
 author: damendo
 editor: ''
 tags: azure-resource-manager
-Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
 ms.assetid: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -17,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 5dac16e5cc1e88d833bf6d3c2660570fcf8b8e9e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 2ca7a3b25b1355e21782c1d9f736d20a14cbd4ac
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102216958"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785454"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>가상 머신 네트워크 라우팅 문제 진단 - Azure CLI
 
@@ -34,17 +33,17 @@ ms.locfileid: "102216958"
 
 - 이 문서에는 Azure CLI 버전 2.0 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다. 
 
-- 이 문서의 Azure CLI 명령은 Bash 셸에서 실행 되도록 형식이 지정 되어 있습니다.
+- 이 문서에서 Azure CLI 명령은 Bash 셸에서 실행하도록 형식이 지정됩니다.
 
 ## <a name="create-a-vm"></a>VM 만들기
 
-VM을 만들려면 먼저 VM이 포함될 리소스 그룹을 만들어야 합니다. [az group create](/cli/azure/group#az-group-create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
+VM을 만들려면 먼저 VM이 포함될 리소스 그룹을 만들어야 합니다. [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-[az vm create](/cli/azure/vm#az-vm-create)로 VM을 만듭니다. 또한 기본 키 위치에 SSH 키가 없는 경우 해당 명령이 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다. 다음 예제에서는 *myVm* 이라는 VM을 만듭니다.
+[az vm create](/cli/azure/vm#az_vm_create)로 VM을 만듭니다. 또한 기본 키 위치에 SSH 키가 없는 경우 해당 명령이 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다. 다음 예제에서는 *myVm* 이라는 VM을 만듭니다.
 
 ```azurecli-interactive
 az vm create \
@@ -62,7 +61,7 @@ Network Watcher와의 네트워크 통신을 테스트하려면 먼저 테스트
 
 ### <a name="enable-network-watcher"></a>네트워크 감시자 사용
 
-미국 동부 지역에서 이미 Network Watcher를 사용하도록 설정한 경우, [다음 홉 사용](#use-next-hop)으로 건너뜁니다. [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) 명령을 사용하여 미국 동부 지역의 네트워크 감시자를 만듭니다.
+미국 동부 지역에서 이미 Network Watcher를 사용하도록 설정한 경우, [다음 홉 사용](#use-next-hop)으로 건너뜁니다. [az network watcher configure](/cli/azure/network/watcher#az_network_watcher_configure) 명령을 사용하여 미국 동부 지역의 네트워크 감시자를 만듭니다.
 
 ```azurecli-interactive
 az network watcher configure \
@@ -73,7 +72,7 @@ az network watcher configure \
 
 ### <a name="use-next-hop"></a>다음 홉 사용
 
-Azure에서는 기본 대상에 대한 경로를 자동으로 만듭니다. 기본 경로를 재정의하는 사용자 지정 경로를 만들 수 있습니다. 경우에 따라 사용자 지정 경로로 인해 통신이 실패할 수 있습니다. VM에서 라우팅을 테스트하려면 [az network watcher show-next-hop](/cli/azure/network/watcher#az-network-watcher-show-next-hop)을 사용하여 트래픽의 대상이 특정 주소로 지정되는 경우 다음 라우팅 홉을 확인합니다.
+Azure에서는 기본 대상에 대한 경로를 자동으로 만듭니다. 기본 경로를 재정의하는 사용자 지정 경로를 만들 수 있습니다. 경우에 따라 사용자 지정 경로로 인해 통신이 실패할 수 있습니다. VM에서 라우팅을 테스트하려면 [az network watcher show-next-hop](/cli/azure/network/watcher#az_network_watcher_show_next_hop)을 사용하여 트래픽의 대상이 특정 주소로 지정되는 경우 다음 라우팅 홉을 확인합니다.
 
 VM에서 www.bing.com 에 대한 IP 주소 중 하나로 아웃바운드 통신을 테스트합니다.
 
@@ -87,7 +86,7 @@ az network watcher show-next-hop \
   --out table
 ```
 
-몇 초 후에는 **nextHopType** 가 **인터넷** 임을 알리고 **routeTableId** **시스템 경로** 인지를 알 수 있습니다. 이 출력 결과를 통해 대상에 대한 유효한 경로가 있음을 알 수 있습니다.
+몇 초 후에 결과는 **nextHopType** 이 **인터넷** 이며, **routeTableId** 가 **시스템 경로** 임을 알려줍니다. 이 출력 결과를 통해 대상에 대한 유효한 경로가 있음을 알 수 있습니다.
 
 VM에서 172.31.0.100으로 아웃바운드 통신을 테스트합니다.
 
@@ -105,7 +104,7 @@ az network watcher show-next-hop \
 
 ## <a name="view-details-of-a-route"></a>경로의 세부 정보 보기
 
-추가로 라우팅을 분석하려면 [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table) 명령으로 네트워크 인터페이스에 대한 유효 경로를 검토합니다.
+추가로 라우팅을 분석하려면 [az network nic show-effective-route-table](/cli/azure/network/nic#az_network_nic_show_effective_route_table) 명령으로 네트워크 인터페이스에 대한 유효 경로를 검토합니다.
 
 ```azurecli-interactive
 az network nic show-effective-route-table \
@@ -155,7 +154,7 @@ az network nic show-effective-route-table \
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az-group-delete)를 사용하여 리소스 그룹 및 해당 그룹에 포함된 모든 리소스를 제거할 수 있습니다.
+더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az_group_delete)를 사용하여 리소스 그룹 및 해당 그룹에 포함된 모든 리소스를 제거할 수 있습니다.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes

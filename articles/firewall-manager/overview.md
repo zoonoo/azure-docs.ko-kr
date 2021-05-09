@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 03/29/2021
+ms.date: 04/29/2021
 ms.author: victorh
-ms.openlocfilehash: 6725bea562d3e7841b5ab82acc0a54f91f0488b4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a9f63b41afebc12566c8cc2e04664850203f1e5a
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732927"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279931"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Azure Firewall Manager란?
 
@@ -76,7 +76,7 @@ Azure Firewall 정책은 여러 지역에 걸쳐 사용할 수 있습니다. 예
 
 Azure Firewall Manager에는 다음과 같이 알려진 문제가 있습니다.
 
-|문제  |설명  |완화 방법  |
+|문제  |Description  |완화 방법  |
 |---------|---------|---------|
 |트래픽 분할|Microsoft 365 및 Azure Public PaaS 트래픽 분할은 현재 지원되지 않습니다. 따라서 V2I 또는 B2I에 대해 타사 공급자를 선택하면 모든 Azure Public PaaS 및 Microsoft 365 트래픽도 파트너 서비스를 통해 전송됩니다.|허브에서 트래픽 분할을 조사 중입니다.
 |지역당 하나의 보안 가상 허브|지역당 둘 이상의 보안 가상 허브를 가질 수 없습니다.|한 지역에 여러 가상 WAN을 만듭니다.|
@@ -88,7 +88,6 @@ Azure Firewall Manager에는 다음과 같이 알려진 문제가 있습니다.
 |대량 IP 주소 추가 실패|여러 공용 IP 주소를 추가하면 보안 허브 방화벽이 실패한 상태가 됩니다.|더 작은 공용 IP 주소 증분을 추가합니다. 예를 들어 한 번에 10개를 추가합니다.|
 |DDoS Protection 표준은 보안 가상 허브에서 지원되지 않습니다.|DDoS Protection 표준은 vWAN과 통합되지 않습니다.|조사|
 |활동 로그가 완전히 지원되지 않습니다.|방화벽 정책은 현재 활동 로그를 지원하지 않습니다.|조사|
-|Firewall Policy를 사용하도록 방화벽을 마이그레이션할 때 일부 방화벽 설정이 마이그레이션되지 않음|Azure Firewall Policy로 마이그레이션하면 가용성 영역 및 SNAT 프라이빗 주소가 마이그레이션되지 않습니다.|조사| 
 
 ## <a name="next-steps"></a>다음 단계
 
