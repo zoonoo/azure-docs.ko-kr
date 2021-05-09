@@ -1,14 +1,14 @@
 ---
 title: Azure Resource Graph 개요
 description: Azure Resource Graph 서비스를 통해 구독 및 테넌트에 걸쳐 대규모의 복잡한 리소스를 쿼리하는 방법을 이해합니다.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: overview
-ms.openlocfilehash: b5df124d07b8ecfb20f5dec08830d8156e8df2cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfbd0aad0ddc7a6b5aa0ccb78429c82f6aa33b3d
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98919144"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326060"
 ---
 # <a name="what-is-azure-resource-graph"></a>Azure Resource Graph란?
 

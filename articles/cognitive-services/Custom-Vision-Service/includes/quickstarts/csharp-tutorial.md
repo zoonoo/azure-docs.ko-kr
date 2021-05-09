@@ -4,12 +4,12 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 09/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b247613ba02f897d2c0b02fc12ecd4a974cffdf4
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 667f81196c81f2b3e345faf9034a8a47ff07072c
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106112973"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107931770"
 ---
 .NET용 Custom Vision 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 이미지 분류 모델을 빌드하기 위한 예제 코드를 사용해 봅니다. 프로젝트를 만들고, 태그를 추가하고, 프로젝트를 학습하고, 프로젝트의 예측 엔드포인트 URL을 사용하여 프로그래밍 방식으로 테스트합니다. 자체 이미지 인식 앱을 빌드하기 위한 템플릿으로 이 예제를 사용할 수 있습니다.
 
@@ -98,9 +98,9 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.CustomVision.Predict
 > [!IMPORTANT]
 > Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Custom Vision 리소스가 성공적으로 배포되면 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. 리소스의 **키 및 엔드포인트** 페이지에서 키 및 엔드포인트를 찾을 수 있습니다. 학습 리소스에 대한 API 엔드포인트와 함께 학습 및 예측 리소스 모두에 대한 키를 가져와야 합니다.
 >
-> 리소스의 **속성** 탭에서 **구독 ID** 로 나열된 예측 리소스 ID 값을 찾을 수 있습니다.
+> Azure Portal에 있는 리소스의 **속성** 탭에서 **리소스 ID** 로 나열된 예측 리소스 ID를 찾을 수 있습니다.
 > 
-> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 자세한 내용은 Cognitive Services [보안](../../../cognitive-services-security.md) 문서를 참조하세요.
+> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 자세한 내용은 [Cognitive Services 보안](../../../cognitive-services-security.md) 문서를 참조하세요.
 
 애플리케이션의 **Main** 메서드에서 이 빠른 시작에 사용된 메서드에 대한 호출을 추가합니다. 이러한 기능은 나중에 구현합니다.
 
@@ -175,7 +175,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.CustomVision.Predict
 
 ## <a name="publish-the-current-iteration"></a>현재 반복 게시
 
-다음 메서드는 모델의 현재 반복을 쿼리에 사용할 수 있도록 합니다. 모델 이름을 참조로 사용하여 예측 요청을 보낼 수 있습니다. `predictionResourceId`에 대한 고유한 값을 입력해야 합니다. Azure Portal에 있는 리소스의 **개요** 탭에서 **구독 ID** 로 나열된 예측 리소스 ID를 찾을 수 있습니다.
+다음 메서드는 모델의 현재 반복을 쿼리에 사용할 수 있도록 합니다. 모델 이름을 참조로 사용하여 예측 요청을 보낼 수 있습니다. `predictionResourceId`에 대한 고유한 값을 입력해야 합니다. Azure Portal에 있는 리소스의 **속성** 탭에서 **리소스 ID** 로 나열된 예측 리소스 ID를 찾을 수 있습니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_publish)]
 

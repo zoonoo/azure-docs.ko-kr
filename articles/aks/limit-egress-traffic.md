@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 01/12/2021
 author: palma21
-ms.openlocfilehash: 39c0877b96a3e8c6c716c1ab9ae7ba11575990a0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4c14d77ba87ab4bd3f4465d915b911a1d44aefab
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765596"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166454"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터 노드의 송신 트래픽 제어
 
@@ -23,7 +23,7 @@ AKS 클러스터는 가상 네트워크에 배포됩니다. 이 네트워크는 
 
 관리와 운영을 목적으로 AKS 클러스터의 노드는 특정 포트와 FQDN(정규화된 도메인 이름)에 액세스해야 합니다. 이러한 엔드포인트는 노드가 API 서버와 통신하거나 핵심 Kubernetes 클러스터 구성 요소 및 노드 보안 업데이트를 다운로드 및 설치하는 데 필요합니다. 예를 들어 클러스터는 MCR(Microsoft Container Registry)에서 기본 시스템 컨테이너 이미지를 가져와야 합니다.
 
-AKS 아웃바운드 종속성은 FQDN으로 거의 완전히 정의되며 뒤에 고정 주소가 없습니다. 고정 주소가 없으면 네트워크 보안 그룹을 사용하여 ASE 클러스터의 아웃바운드 트래픽을 잠글 수 없습니다. 
+AKS 아웃바운드 종속성은 FQDN으로 거의 완전히 정의되며 뒤에 고정 주소가 없습니다. 고정 주소가 없으면 네트워크 보안 그룹을 사용하여 ASE 클러스터의 아웃바운드 트래픽을 잠글 수 없습니다.
 
 기본적으로 AKS 클러스터에는 무제한 아웃바운드(송신) 인터넷 액세스가 있습니다. 이러한 수준의 네트워크 액세스가 있으면 사용자가 실행하는 노드와 서비스는 필요할 때마다 외부 리소스에 액세스할 수 있습니다. 송신 트래픽을 제한하려면 정상적인 클러스터 유지 관리 작업을 유지할 수 있도록 제한된 수의 포트 및 주소에 액세스할 수 있어야 합니다. 아웃바운드 주소를 보호하는 가장 간단한 솔루션은 도메인 이름에 따라 아웃바운드 트래픽을 제어할 수 있는 방화벽 디바이스를 사용하는 것입니다. 예를 들어 Azure Firewall은 대상의 FQDN을 기반으로 아웃바운드 HTTP 및 HTTPS 트래픽을 제한할 수 있습니다. 이러한 필수 포트와 주소를 허용하도록 기본 방화벽 및 보안 규칙을 구성할 수도 있습니다.
 
@@ -37,10 +37,9 @@ AKS 클러스터에는 다음과 같은 네트워크 및 FQDN/애플리케이션
 * IP 주소 종속성은 HTTP/S가 아닌 트래픽(TCP 및 UDP 모두)에 대한 것입니다.
 * FQDN HTTP/HTTPS 엔드포인트는 방화벽 디바이스에 배치할 수 있습니다.
 * 와일드카드 HTTP/HTTPS 엔드포인트는 몇 가지 한정자를 기반으로 하여 AKS에 따라 달라질 수 있는 종속성입니다.
-* AKS는 허용 컨트롤러를 사용하여 kube-system 및 gatekeeper-system 아래의 모든 배포에 FQDN을 환경 변수로 삽입합니다. 여기서 노드와 API 서버 간의 모든 시스템 통신이 API 서버 IP가 아닌 API 서버 FQDN을 사용합니다. 
+* AKS는 허용 컨트롤러를 사용하여 kube-system 및 gatekeeper-system 아래의 모든 배포에 FQDN을 환경 변수로 삽입합니다. 여기서 노드와 API 서버 간의 모든 시스템 통신이 API 서버 IP가 아닌 API 서버 FQDN을 사용합니다.
 * API 서버와 통신해야 하는 앱이나 솔루션이 있는 경우 **추가** 네트워크 규칙을 추가하여 *API 서버 IP의 포트 443에 TCP 통신* 을 허용해야 합니다.
 * 드문 경우지만 API 서버 IP가 변경될 수 있는 유지 관리 작업이 있는 경우가 있습니다. API 서버 IP를 변경할 수 있는 계획된 유지 관리 작업은 항상 미리 전달됩니다.
-
 
 ### <a name="azure-global-required-network-rules"></a>Azure 글로벌 필수 네트워크 규칙
 
@@ -54,7 +53,7 @@ AKS 클러스터에는 다음과 같은 네트워크 및 FQDN/애플리케이션
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | 사용자 지정 DNS 서버를 사용하는 경우 클러스터 노드에서 액세스할 수 있는지 확인해야 합니다. |
 | **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | API 서버에 액세스하는 Pod/배포를 실행하는 경우 필요하며 해당 Pod/배포는 API IP를 사용합니다. [프라이빗 클러스터](private-clusters.md)에는 필요하지 않습니다.  |
 
-### <a name="azure-global-required-fqdn--application-rules"></a>Azure 글로벌 필수 FQDN/애플리케이션 규칙 
+### <a name="azure-global-required-fqdn--application-rules"></a>Azure 글로벌 필수 FQDN/애플리케이션 규칙
 
 다음 FQDN/애플리케이션 규칙이 필요합니다.
 
@@ -108,7 +107,7 @@ AKS 클러스터에는 다음과 같은 네트워크 및 FQDN/애플리케이션
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | 사용자 지정 DNS 서버를 사용하는 경우 클러스터 노드에서 액세스할 수 있는지 확인해야 합니다. |
 | **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | API 서버에 액세스하는 Pod/배포를 실행하는 경우 필요하며 해당 Pod/배포는 API IP를 사용합니다.  |
 
-### <a name="azure-us-government-required-fqdn--application-rules"></a>Azure 미국 정부 필수 FQDN/애플리케이션 규칙 
+### <a name="azure-us-government-required-fqdn--application-rules"></a>Azure 미국 정부 필수 FQDN/애플리케이션 규칙
 
 다음 FQDN/애플리케이션 규칙이 필요합니다.
 
@@ -144,7 +143,7 @@ GPU를 사용하는 AKS 클러스터에는 다음 FQDN/애플리케이션 규칙
 | **`us.download.nvidia.com`**            | **`HTTPS:443`** | 이 주소는 GPU 기반 노드에서 올바른 드라이버 설치 및 작동에 사용됩니다. |
 | **`apt.dockerproject.org`**             | **`HTTPS:443`** | 이 주소는 GPU 기반 노드에서 올바른 드라이버 설치 및 작동에 사용됩니다. |
 
-## <a name="windows-server-based-node-pools"></a>Windows Server 기반 노드 풀 
+## <a name="windows-server-based-node-pools"></a>Windows Server 기반 노드 풀
 
 ### <a name="required-fqdn--application-rules"></a>필수 FQDN/애플리케이션 규칙
 
@@ -190,7 +189,7 @@ Windows Server 기반 노드 풀을 사용하려면 다음 FQDN/애플리케이�
 |----------------------------------------------------------------------------------|----------|---------|------|
 | [서비스 태그](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureDevSpaces`**  | TCP           | 443      | 이 엔드포인트는 Azure Monitor 및 Log Analytics에 메트릭 데이터와 로그를 전송하는 데 사용됩니다. |
 
-#### <a name="required-fqdn--application-rules"></a>필수 FQDN/애플리케이션 규칙 
+#### <a name="required-fqdn--application-rules"></a>필수 FQDN/애플리케이션 규칙
 
 Azure Dev Spaces를 사용하도록 설정된 AKS 클러스터에는 다음 FQDN/애플리케이션 규칙이 필요합니다.
 
@@ -200,10 +199,9 @@ Azure Dev Spaces를 사용하도록 설정된 AKS 클러스터에는 다음 FQDN
 | `gcr.io` | **`HTTPS:443`** | 이 주소는 Helm/Tiller 이미지를 끌어오는 데 사용됩니다. |
 | `storage.googleapis.com` | **`HTTPS:443`** | 이 주소는 Helm/Tiller 이미지를 끌어오는 데 사용됩니다. |
 
-
 ### <a name="azure-policy"></a>Azure Policy
 
-#### <a name="required-fqdn--application-rules"></a>필수 FQDN/애플리케이션 규칙 
+#### <a name="required-fqdn--application-rules"></a>필수 FQDN/애플리케이션 규칙
 
 Azure Policy를 사용하도록 설정된 AKS 클러스터에는 다음 FQDN/애플리케이션 규칙이 필요합니다.
 
@@ -215,7 +213,7 @@ Azure Policy를 사용하도록 설정된 AKS 클러스터에는 다음 FQDN/애
 | **`raw.githubusercontent.com`**               | **`HTTPS:443`** | 이 주소는 Azure Policy가 올바르게 작동하도록 GitHub에서 기본 제공 정책을 끌어오는 데 사용됩니다. |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | 원격 분석 데이터를 Application Insights 엔드포인트로 보내는 Azure Policy 추가 기능입니다. |
 
-#### <a name="azure-china-21vianet-required-fqdn--application-rules"></a>Azure 중국 21Vianet 필수 FQDN/애플리케이션 규칙 
+#### <a name="azure-china-21vianet-required-fqdn--application-rules"></a>Azure 중국 21Vianet 필수 FQDN/애플리케이션 규칙
 
 Azure Policy를 사용하도록 설정된 AKS 클러스터에는 다음 FQDN/애플리케이션 규칙이 필요합니다.
 
@@ -235,7 +233,7 @@ Azure Policy를 사용하도록 설정된 AKS 클러스터에는 다음 FQDN/애
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Azure Firewall을 사용하여 송신 트래픽 제한
 
-Azure Firewall은 이 구성을 단순화하기 위해 Azure Kubernetes Service(`AzureKubernetesService`) FQDN 태그를 제공합니다. 
+Azure Firewall은 이 구성을 단순화하기 위해 Azure Kubernetes Service(`AzureKubernetesService`) FQDN 태그를 제공합니다.
 
 > [!NOTE]
 > FQDN 태그에는 위에 나열된 모든 FQDN이 포함되며 자동으로 최신 상태를 유지합니다.
@@ -258,9 +256,7 @@ Azure Firewall은 이 구성을 단순화하기 위해 Azure Kubernetes Service(
 * 내부 트래픽
   * 필요에 따라 [공용 부하 분산 장치](load-balancer-standard.md)와 함께 또는 대신 내부 트래픽에 대해 [내부 부하 분산 장치](internal-lb.md)를 사용할 수 있으며, 자체 서브넷에서도 격리할 수 있습니다.
 
-
 아래 단계에서는 Azure Firewall의 `AzureKubernetesService` FQDN 태그를 사용하여 AKS 클러스터의 아웃바운드 트래픽을 제한하고 방화벽을 통해 퍼블릭 인바운드 트래픽을 구성하는 방법의 예제를 제공합니다.
-
 
 ### <a name="set-configuration-via-environment-variables"></a>환경 변수를 통한 구성 설정
 
@@ -326,7 +322,6 @@ Azure Firewall 인바운드 및 아웃바운드 규칙을 구성해야 합니다
 
 ![방화벽 및 UDR](media/limit-egress-traffic/firewall-udr.png)
 
-
 > [!IMPORTANT]
 > 클러스터나 애플리케이션이 동일하거나 소규모 대상 하위 집합으로 향하는 많은 수의 아웃바운드 연결을 생성하는 경우, 프런트 엔드 IP당 포트 수가 최대가 되지 않도록 더 많은 방화벽 프런트 엔드 IP가 필요할 수 있습니다.
 > 여러 IP로 Azure Firewall을 만드는 방법에 대한 자세한 내용은 [**여기**](../firewall/quick-create-multiple-ip-template.md)를 참조하세요.
@@ -338,6 +333,7 @@ az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
 ```
 
 Azure Firewall을 만들려면 미리 보기 CLI 확장을 등록합니다.
+
 ```azurecli
 # Install Azure Firewall preview CLI extension
 
@@ -347,6 +343,7 @@ az extension add --name azure-firewall
 
 az network firewall create -g $RG -n $FWNAME -l $LOC --enable-dns-proxy true
 ```
+
 이제 이전에 만든 IP 주소를 방화벽 프런트 엔드에 할당할 수 있습니다.
 
 > [!NOTE]
@@ -448,7 +445,7 @@ az role assignment create --assignee $APPID --scope $VNETID --role "Network Cont
 필요한 자세한 사용 권한을 [여기](kubernetes-service-principal.md#delegate-access-to-other-azure-resources)에서 확인할 수 있습니다.
 
 > [!NOTE]
-> kubenet 네트워크 플러그인을 사용하는 경우, kubenet에 필요한 경로 규칙을 추가하려면 경로 테이블이 필요하기 때문에 AKS 서비스 주체 또는 관리 ID 권한을 미리 생성된 경로 테이블에 부여해야 합니다. 
+> kubenet 네트워크 플러그인을 사용하는 경우, kubenet에 필요한 경로 규칙을 추가하려면 경로 테이블이 필요하기 때문에 AKS 서비스 주체 또는 관리 ID 권한을 미리 생성된 경로 테이블에 부여해야 합니다.
 > ```azurecli-interactive
 > RTID=$(az network route-table show -g $RG -n $FWROUTE_TABLE_NAME --query id -o tsv)
 > az role assignment create --assignee $APPID --scope $RTID --role "Network Contributor"
@@ -466,7 +463,6 @@ SUBNETID=$(az network vnet subnet show -g $RG --vnet-name $VNET_NAME --name $AKS
 
 > [!IMPORTANT]
 > 제한 사항을 포함한 아웃바운드 유형 UDR에 대한 자세한 내용은 [**송신 아웃바운드 유형 UDR**](egress-outboundtype.md#limitations)을 참조하세요.
-
 
 > [!TIP]
 > [**프라이빗 클러스터**](private-clusters.md)와 같은 클러스터 배포에 추가 기능을 추가할 수 있습니다. 
@@ -499,16 +495,16 @@ CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 
 # Add to AKS approved list
 az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
-
 ```
 
- [az aks get-credentials][az-aks-get-credentials] 명령을 사용하여 새로 생성된 Kubernetes 클러스터에 연결하도록 `kubectl`을 구성합니다. 
+[az aks get-credentials][az-aks-get-credentials] 명령을 사용하여 새로 생성된 Kubernetes 클러스터에 연결하도록 `kubectl`을 구성합니다.
 
- ```azurecli
- az aks get-credentials -g $RG -n $AKSNAME
- ```
+```azurecli
+az aks get-credentials -g $RG -n $AKSNAME
+```
 
 ### <a name="deploy-a-public-service"></a>공용 서비스 배포
+
 이제 이 클러스터에 서비스 공개 및 애플리케이션 배포를 시작할 수 있습니다. 이 예제에서는 공용 서비스를 제공하지만 [내부 부하 분산 장치](internal-lb.md)를 통해 내부 서비스를 제공하도록 선택할 수도 있습니다.
 
 ![공용 서비스 DNAT](media/limit-egress-traffic/aks-create-svc.png)
@@ -740,7 +736,6 @@ kubectl apply -f example.yaml
 > [!IMPORTANT]
 > Azure Firewall을 사용하여 송신 트래픽을 제한하고 UDR(사용자 정의 경로)을 만들어서 모든 송신 트래픽을 강제로 적용하는 경우에는 수신 트래픽을 올바르게 허용하도록 방화벽에서 적절한 DNAT 규칙을 만들어야 합니다. UDR과 함께 Azure Firewall을 사용하면 비대칭 라우팅으로 인해 수신 설정이 손상됩니다. (AKS 서브넷에 방화벽의 개인 IP 주소로 이동하는 기본 경로가 있는데, 공용 부하 분산 장치 - 수신 또는 LoadBalancer 유형의 Kubernetes 서비스를 사용하는 경우 문제가 발생합니다.) 이 경우 들어오는 부하 분산 장치 트래픽은 해당 공용 IP 주소를 통해 수신되지만 반환 경로는 방화벽의 개인 IP 주소를 거칩니다. 방화벽은 상태를 저장하고 방화벽이 설정된 세션을 인식하지 못하므로 반환 패킷을 삭제합니다. Azure Firewall을 수신 또는 서비스 부하 분산 장치와 통합하는 방법을 알아보려면 [Azure Firewall을 Azure 표준 Load Balancer와 통합](../firewall/integrate-lb.md)을 참조하세요.
 
-
 인바운드 연결을 구성하려면 Azure Firewall에 DNAT 규칙을 작성해야 합니다. 클러스터에 대한 연결을 테스트하기 위해 내부 서비스에서 노출되는 내부 IP로 라우팅하는 방화벽 프런트 엔드 공용 IP 주소에 대한 규칙이 정의됩니다.
 
 액세스할 방화벽의 포트인 대상 주소를 사용자 지정할 수 있습니다. 변환된 주소는 내부 부하 분산 장치의 IP 주소여야 합니다. 변환된 포트는 Kubernetes 서비스에 대해 노출된 포트여야 합니다.
@@ -762,11 +757,13 @@ voting-storage     ClusterIP      10.41.221.201   <none>        3306/TCP       9
 ```
 
 다음을 실행하여 서비스 IP를 가져옵니다.
+
 ```bash
 SERVICE_IP=$(kubectl get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
 ```
 
 다음을 실행하여 NAT 규칙을 추가합니다.
+
 ```azurecli
 az network firewall nat-rule create --collection-name exampleset --destination-addresses $FWPUBLIC_IP --destination-ports 80 --firewall-name $FWNAME --name inboundrule --protocols Any --resource-group $RG --source-addresses '*' --translated-port 80 --action Dnat --priority 100 --translated-address $SERVICE_IP
 ```
@@ -777,9 +774,7 @@ az network firewall nat-rule create --collection-name exampleset --destination-a
 
 그러면 AKS Voting 앱이 표시됩니다. 이 예제에서는 방화벽 공용 IP가 `52.253.228.132`였습니다.
 
-
 ![스크린샷은 고양이, 개, 다시 설정 버튼과 총계가 있는 A K S Voting 앱을 보여줍니다.](media/limit-egress-traffic/aks-vote.png)
-
 
 ### <a name="clean-up-resources"></a>리소스 정리
 
@@ -791,7 +786,7 @@ az group delete -g $RG
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 클러스터의 송신 트래픽을 제한하는 경우 허용할 포트와 주소를 알아보았습니다. 또한 Azure Firewall을 사용하여 아웃바운드 트래픽을 보호하는 방법도 살펴보았습니다. 
+이 문서에서는 클러스터의 송신 트래픽을 제한하는 경우 허용할 포트와 주소를 알아보았습니다. 또한 Azure Firewall을 사용하여 아웃바운드 트래픽을 보호하는 방법도 살펴보았습니다.
 
 필요한 경우 [아웃바운드 유형 `userDefinedRoute`문서 ](egress-outboundtype.md)에 따라 위의 단계를 일반화하여 선호하는 송신 솔루션으로 트래픽을 전달할 수 있습니다.
 

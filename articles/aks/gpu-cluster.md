@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 08/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: d7e312f049acc0b74aa0a253864bfce6100044bd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 5e36465c307443c8e6f135c5937bddbbb079b60e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96929143"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783164"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 계산 집약적 워크로드에 GPU 사용
 
@@ -20,25 +20,25 @@ GPU(그래픽 처리 장치)는 그래픽 및 시각화 워크로드 같은 계�
 > [!NOTE]
 > GPU 지원 VM에는 더 높은 가격 및 지역 가용성에 맞는 특별한 하드웨어가 포함되어 있습니다. 자세한 내용은 [가격 책정][azure-pricing] 도구 및 [지역 가용성][azure-availability]을 참조하세요.
 
-현재 GPU 사용 노드 풀을 사용 하는 것은 Linux 노드 풀에만 사용할 수 있습니다.
+현재 Linux 노드 풀에서만 GPU 사용 노드 풀을 사용할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에서는 GPU를 지원하는 노드가 포함된 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터에서 Kubernetes 1.10 이상을 실행해야 합니다. 이러한 요구 사항을 충족하는 AKS 클러스터가 필요한 경우 이 문서의 첫 번째 섹션인 [AKS 클러스터 만들기](#create-an-aks-cluster)를 참조하세요.
 
-또한 Azure CLI 버전 2.0.64 이상이 설치 및 구성 되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure CLI 버전 2.0.64 이상이 설치되고 구성되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 
-최소 요구 사항(GPU 지원 노드 및 Kubernetes 버전 1.10 이상)을 충족하는 AKS 클러스터가 필요한 경우 다음 단계를 완료합니다. 이러한 요구 사항을 충족 하는 AKS 클러스터가 이미 있는 경우 [다음 섹션으로 건너뜁니다](#confirm-that-gpus-are-schedulable).
+최소 요구 사항(GPU 지원 노드 및 Kubernetes 버전 1.10 이상)을 충족하는 AKS 클러스터가 필요한 경우 다음 단계를 완료합니다. 이러한 요구 사항을 충족하는 AKS 클러스터가 이미 있는 경우, [다음 섹션으로 건너뜁니다](#confirm-that-gpus-are-schedulable).
 
-먼저 [az group create][az-group-create] 명령을 사용 하 여 클러스터에 대 한 리소스 그룹을 만듭니다. 다음 예제는 *eastus* 지역에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
+먼저, [az group create][az-group-create] 명령을 사용하여 클러스터에 대한 리소스 그룹을 만듭니다. 다음 예제는 *eastus* 지역에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-이제 [az AKS create][az-aks-create] 명령을 사용 하 여 AKS 클러스터를 만듭니다. 다음 예에서는 크기의 단일 노드를 사용 하 여 클러스터를 만듭니다 `Standard_NC6` .
+이제 [az aks create][az-aks-create] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 단일 노드의 크기가 `Standard_NC6`인 클러스터를 만듭니다.
 
 ```azurecli-interactive
 az aks create \
@@ -48,15 +48,15 @@ az aks create \
     --node-count 1
 ```
 
-[Az AKS get 자격 증명][az-aks-get-credentials] 명령을 사용 하 여 AKS 클러스터에 대 한 자격 증명을 가져옵니다.
+[az aks get-credentials][az-aks-get-credentials] 명령을 사용하여 AKS 클러스터의 자격 증명을 가져옵니다.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## <a name="install-nvidia-device-plugin"></a>NVIDIA 장치 플러그 인 설치
+## <a name="install-nvidia-device-plugin"></a>NVIDIA 디바이스 플러그 인 설치
 
-노드의 Gpu를 사용 하려면 먼저 NVIDIA 장치 플러그 인에 대 한 DaemonSet를 배포 해야 합니다. 이 DaemonSet는 각 노드에서 Pod를 실행하여 GPU에 필요한 드라이버를 제공합니다.
+노드의 GPU를 사용하려면 먼저 NVIDIA 장치 플러그 인에 DaemonSet를 배포해야 합니다. 이 DaemonSet는 각 노드에서 Pod를 실행하여 GPU에 필요한 드라이버를 제공합니다.
 
 먼저, *gpu-resources* 같은 [kubectl create namespace][kubectl-create] 명령을 사용하여 네임스페이스를 만듭니다.
 
@@ -64,7 +64,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 kubectl create namespace gpu-resources
 ```
 
-*nvidia-device-plugin-ds.yaml* 이라는 파일을 만들고 다음 YAML 매니페스트를 붙여넣습니다. 이 매니페스트는 [Kubernetes 프로젝트에 대 한 NVIDIA 장치 플러그 인의][nvidia-github]일부로 제공 됩니다.
+*nvidia-device-plugin-ds.yaml* 이라는 파일을 만들고 다음 YAML 매니페스트를 붙여넣습니다. 이 매니페스트는 [Kubernetes 프로젝트에 대한 NVIDIA 장치 플러그 인][nvidia-github]의 일부로 제공 됩니다.
 
 ```yaml
 apiVersion: apps/v1
@@ -112,7 +112,7 @@ spec:
             path: /var/lib/kubelet/device-plugins
 ```
 
-이제 다음 예제 출력과 같이 [kubectl apply][kubectl-apply] 명령을 사용 하 여 DaemonSet를 만들고 NVIDIA 장치 플러그 인이 성공적으로 만들어졌는지 확인 합니다.
+이제 다음 예제 출력과 같이 [kubectl apply][kubectl-apply] 명령을 사용하여 DaemonSet를 만들고 NVIDIA 장치 플러그 인이 성공적으로 만들어졌는지 확인합니다.
 
 ```console
 $ kubectl apply -f nvidia-device-plugin-ds.yaml
@@ -120,12 +120,12 @@ $ kubectl apply -f nvidia-device-plugin-ds.yaml
 daemonset "nvidia-device-plugin" created
 ```
 
-## <a name="use-the-aks-specialized-gpu-image-preview"></a>AKS 특수 GPU 이미지 (미리 보기) 사용
+## <a name="use-the-aks-specialized-gpu-image-preview"></a>AKS 전용 GPU 이미지 사용(미리 보기)
 
-이러한 단계를 수행 하는 대신, AKS는 [Kubernetes에 대 한 NVIDIA 장치 플러그 인][nvidia-github]을 이미 포함 하 고 있는 완전히 구성 된 AKS 이미지를 제공 합니다.
+이러한 단계 대신, AKS는 [Kubernetes용 NVIDIA 장치 플러그 인][nvidia-github]을 이미 포함하고 있는 완전히 구성된 AKS 이미지를 제공합니다.
 
 > [!WARNING]
-> 새 AKS 특수 GPU 이미지를 사용 하 여 클러스터에 대 한 NVIDIA 장치 플러그 인 데몬 집합을 수동으로 설치 해서는 안 됩니다.
+> 새로운 AKS 전용 GPU 이미지를 사용해 클러스터에 NVIDIA 플러그 인 디먼 세트를 수동으로 설치해서는 안 됩니다.
 
 
 `GPUDedicatedVHDPreview` 기능을 등록합니다.
@@ -134,19 +134,19 @@ daemonset "nvidia-device-plugin" created
 az feature register --name GPUDedicatedVHDPreview --namespace Microsoft.ContainerService
 ```
 
-상태가 **등록됨** 으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature#az-feature-list) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+상태가 **등록됨** 으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature#az_feature_list) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/GPUDedicatedVHDPreview')].{Name:name,State:properties.state}"
 ```
 
-상태가 등록됨으로 표시되면 [az provider register](/cli/azure/provider#az-provider-register) 명령을 사용하여 `Microsoft.ContainerService` 리소스 공급자 등록 상태를 새로 고칩니다.
+상태가 등록됨으로 표시되면 [az provider register](/cli/azure/provider#az_provider_register) 명령을 사용하여 `Microsoft.ContainerService` 리소스 공급자 등록 상태를 새로 고칩니다.
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
 ```
 
-Aks-preview CLI 확장을 설치 하려면 다음 Azure CLI 명령을 사용 합니다.
+aks-preview CLI 확장을 설치하려면 다음 Azure CLI 명령을 사용합니다.
 
 ```azurecli
 az extension add --name aks-preview
@@ -158,29 +158,29 @@ aks-preview CLI 확장을 업데이트하려면 다음 Azure CLI 명령을 사�
 az extension update --name aks-preview
 ```
 
-### <a name="use-the-aks-specialized-gpu-image-on-new-clusters-preview"></a>새 클러스터에서 AKS 특수 GPU 이미지 사용 (미리 보기)    
+### <a name="use-the-aks-specialized-gpu-image-on-new-clusters-preview"></a>새로운 클러스터에서 AKS 전용 GPU 이미지 사용(미리 보기)    
 
-클러스터를 만들 때 AKS 특수 GPU 이미지를 사용 하도록 클러스터를 구성 합니다. `--aks-custom-headers`새 클러스터의 gpu 에이전트 노드에 대 한 플래그를 사용 하 여 AKS 특수 gpu 이미지를 사용 합니다.
+클러스터를 만들 때 AKS 전용 GPU 이미지를 사용하도록 클러스터를 구성합니다. `--aks-custom-headers`새 클러스터에서 GPU 에이전트 노드에 대한 플래그를 사용하여 AKS 전용 GPU 이미지를 사용합니다.
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
 ```
 
-일반 AKS 이미지를 사용 하 여 클러스터를 만들려는 경우 사용자 지정 태그를 생략 하 여 수행할 수 있습니다 `--aks-custom-headers` . 아래와 같이 특수화 된 GPU 노드 풀을 추가 하도록 선택할 수도 있습니다.
+일반 AKS 이미지를 사용하는 클러스터를 만들려는 경우 사용자 지정 `--aks-custom-headers` 태그를 생략하여 수행할 수 있습니다. 아래와 같이 특수한 GPU 노드 풀을 추가하도록 선택할 수도 있습니다.
 
 
-### <a name="use-the-aks-specialized-gpu-image-on-existing-clusters-preview"></a>기존 클러스터에서 AKS 특수 GPU 이미지 사용 (미리 보기)
+### <a name="use-the-aks-specialized-gpu-image-on-existing-clusters-preview"></a>기존 클러스터에서 AKS 전용 GPU 이미지 사용(미리 보기)
 
-AKS 특수 GPU 이미지를 사용 하도록 새 노드 풀을 구성 합니다. `--aks-custom-headers`새 노드 풀의 gpu 에이전트 노드에 대 한 플래그 플래그를 사용 하 여 AKS 특수 gpu 이미지를 사용 합니다.
+AKS 전용 GPU 이미지를 사용하도록 새 노드 풀을 구성합니다. 새 노드 풀에서 GPU 에이전트 노드에 `--aks-custom-headers` 플래그를 사용하여 AKS 전용 GPU 이미지를 사용합니다.
 
 ```azurecli
 az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
 ```
 
-일반 AKS 이미지를 사용 하 여 노드 풀을 만들려면 사용자 지정 태그를 생략 하 여이 작업을 수행할 수 있습니다 `--aks-custom-headers` . 
+일반 AKS 이미지를 사용하는 노드 풀을 만들려는 경우 사용자 지정 `--aks-custom-headers` 태그를 생략하여 수행할 수 있습니다. 
 
 > [!NOTE]
-> GPU sku가 2 세대 가상 컴퓨터를 필요로 하는 경우 다음을 만들 수 있습니다.
+> GPU sku에 2세대 가상 컴퓨터가 필요한 경우 다음을 통해 만들 수 있습니다.
 > ```azurecli
 > az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6s_v2 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true,usegen2vm=true
 > ```
@@ -255,7 +255,7 @@ GPU가 실제로 작동하는 모습을 보려면 적절한 리소스 요청을 
 *samples-tf-mnist-demo.yaml* 이라는 파일을 만들고 다음 YAML 매니페스트를 붙여넣습니다. 다음 작업 매니페스트에는 `nvidia.com/gpu: 1`의 리소스 제한이 포함되어 있습니다.
 
 > [!NOTE]
-> 드라이버를 호출할 때 버전 불일치 오류가 발생 하는 경우, 예를 들어, verda 드라이버 버전은 verda 런타임 버전용으로 충분 하지 않은 경우 NVIDIA 드라이버 매트릭스 호환성 차트를 검토 합니다. [https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
+> 드라이버를 호출할 때 CUDA 드라이버 버전이 CUDA 런타임 버전에 적합하지 않다는 버전 불일치 오류가 발생하는 경우, NVIDIA 드라이버 행렬 호환성 차트([https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html))를 검토합니다.
 
 ```yaml
 apiVersion: batch/v1
@@ -289,7 +289,7 @@ kubectl apply -f samples-tf-mnist-demo.yaml
 
 ## <a name="view-the-status-and-output-of-the-gpu-enabled-workload"></a>GPU 지원 워크로드의 상태 및 출력 보기
 
-[kubectl get jobs][kubectl-get] 명령과 `--watch` 인수를 사용하여 작업 진행 상태를 모니터링합니다. 처음으로 이미지를 끌어와서 데이터 세트를 처리하는 경우 몇 분 정도 걸릴 수 있습니다. *완료* 열에 *1/1* 이 표시 되 면 작업이 성공적으로 완료 된 것입니다. Ctrl + `kubetctl --watch` *C* 를 눌러 명령을 종료 합니다.
+[kubectl get jobs][kubectl-get] 명령과 `--watch` 인수를 사용하여 작업 진행 상태를 모니터링합니다. 처음으로 이미지를 끌어와서 데이터 세트를 처리하는 경우 몇 분 정도 걸릴 수 있습니다. *COMPLETIONS* 열에 *1/1* 이 표시되면 작업이 성공적으로 완료된 것입니다. *Ctrl+C* 를 눌러 명령`kubetctl --watch`을 종료합니다.
 
 ```console
 $ kubectl get jobs samples-tf-mnist-demo --watch
@@ -300,7 +300,7 @@ samples-tf-mnist-demo   0/1           3m29s      3m29s
 samples-tf-mnist-demo   1/1   3m10s   3m36s
 ```
 
-GPU 사용 워크 로드의 출력을 보려면 먼저 [kubectl get pod][kubectl-get] 명령을 사용 하 여 pod의 이름을 가져옵니다.
+GPU 지원 워크로드의 출력을 보려면 먼저 [kubectl get pods][kubectl-get] 명령을 사용하여 Pod 이름을 가져와야 합니다.
 
 ```console
 $ kubectl get pods --selector app=samples-tf-mnist-demo
@@ -413,9 +413,9 @@ Kubernetes에서 ML(머신 러닝) 워크로드를 실행하는 방법에 대한
 [nvidia-github]: https://github.com/NVIDIA/k8s-device-plugin
 
 <!-- LINKS - internal -->
-[az-group-create]: /cli/azure/group#az-group-create
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-group-create]: /cli/azure/group#az_group_create
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [aks-spark]: spark-job.md
 [gpu-skus]: ../virtual-machines/sizes-gpu.md
 [install-azure-cli]: /cli/azure/install-azure-cli
