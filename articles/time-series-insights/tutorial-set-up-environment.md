@@ -1,21 +1,21 @@
 ---
 title: '자습서: Gen2 환경 설정 - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: '자습서: Azure Time Series Insights Gen2에서 환경을 설정하는 방법에 대해 알아봅니다.'
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: riserrad
+ms.author: riserrad
+manager: edett
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 02/25/2021
+ms.date: 04/23/2021
 ms.custom: seodec18
-ms.openlocfilehash: 76a33bdb773645c9e8f97a47b1378d813b165631
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3994802e82b126f426a75a26d399f6f86e21797
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103464246"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107952015"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>자습서: Azure Time Series Insights Gen2 환경 설정
 
@@ -36,7 +36,7 @@ ms.locfileid: "103464246"
 
 아직 Azure 구독이 없는 경우 [평가판 Azure 구독](https://azure.microsoft.com/free/)에 등록합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 적어도 Azure 구독에 대한 **기여자** 역할이 있어야 합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
@@ -113,19 +113,18 @@ ms.locfileid: "103464246"
    | **IoT Hub 이름** | 디바이스 시뮬레이터에 대해 만든 IoT Hub 이름을 선택합니다. |
    | **Iot Hub 액세스 정책** | **iothubowner** 를 선택합니다. |
    | **IoT Hub 소비자 그룹** | **새로 만들기** 를 선택하고, 고유한 이름을 입력한 다음, **+ 추가** 를 선택합니다. 소비자 그룹은 Azure Time Series Insights Gen2에서 고유한 값이어야 합니다. |
+   | **시작 옵션** | **지금 시작** 을 선택합니다. |
    | **타임스탬프 속성** | 이 값을 사용하여 들어오는 원격 분석 데이터의 **Timestamp**(타임스탬프) 속성을 식별합니다. 이 자습서에서는 이 상자를 비워 둡니다. 이 시뮬레이터는 Azure Time Series Insights Gen2가 기본값을 지정한 IoT Hub에서 들어오는 타임스탬프를 사용합니다. |
 
-1. **검토 + 만들기** 를 선택합니다.
-
-   [![만든 IoT 허브를 이벤트 원본으로 구성합니다.](media/tutorial-set-up-environment/configure-event-source.png)](media/tutorial-set-up-environment/configure-event-source.png#lightbox)
+   :::image type="content" source="media/tutorial-set-up-environment/configure-event-source.png" alt-text="만든 IoT 허브를 이벤트 원본으로 구성합니다" lightbox="media/tutorial-set-up-environment/configure-event-source.png":::.
 
 1. **검토 + 만들기** 를 선택합니다.
 
-    [![만들기 단추가 있는 + 만들기 페이지를 검토합니다.](media/tutorial-set-up-environment/environment-confirmation.png)](media/tutorial-set-up-environment/environment-confirmation.png#lightbox)
+   :::image type="content" source="media/tutorial-set-up-environment/environment-confirmation.png" alt-text="만들기 단추가 있는 + 만들기 페이지를 검토합니다" lightbox="media/tutorial-set-up-environment/environment-confirmation.png":::.
 
-    다음과 같이 배포 상태를 검토할 수 있습니다.
+   다음과 같이 배포 상태를 검토할 수 있습니다.
 
-    [![배포가 완료되었다는 알림.](media/tutorial-set-up-environment/deployment-notification.png)](media/tutorial-set-up-environment/deployment-notification.png#lightbox)
+   [![배포가 완료되었다는 알림.](media/tutorial-set-up-environment/deployment-notification.png)](media/tutorial-set-up-environment/deployment-notification.png#lightbox)
 
 1. 배포 세부 정보를 확장합니다.
 

@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 53b5add7526b0c20487e8fe3adb0b8ebe207a2ce
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 4f2f0678b421ac6965b2848cc25564b4e95c7c6b
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102200035"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567067"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>웹 애플리케이션에서 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
@@ -25,23 +25,11 @@ ms.locfileid: "102200035"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-## <a name="what-you-learn"></a>학습 내용
+이 문서에서는 로컬 컴퓨터에서 실행되는 node.js 웹앱을 사용하여 IoT 허브에서 수신하는 실시간 센서 데이터를 시각화하는 방법을 알아봅니다. 웹앱을 로컬로 실행한 후에는 필요에 따라 Azure App Service에서 웹앱을 호스트하는 단계를 수행할 수 있습니다. Power BI를 사용하여 IoT Hub의 데이터를 시각화하려면 [Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화](iot-hub-live-data-visualization-in-power-bi.md)를 참조하세요.
 
-이 자습서에서는 로컬 컴퓨터에서 실행되는 node.js 웹앱을 사용하여 IoT Hub에서 수신하는 실시간 센서 데이터를 시각화하는 방법을 알아봅니다. 웹앱을 로컬로 실행한 후에는 필요에 따라 Azure App Service에서 웹앱을 호스트하는 단계를 수행할 수 있습니다. Power BI를 사용하여 IoT Hub의 데이터를 시각화하려면 [Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화](iot-hub-live-data-visualization-in-power-bi.md)를 참조하세요.
+## <a name="prerequisites"></a>사전 요구 사항
 
-## <a name="what-you-do"></a>수행할 작업
-
-* 웹 애플리케이션에서 센서 데이터를 읽는 데 사용할 IoT Hub에 소비자 그룹을 추가합니다.
-* GitHub에서 웹앱 코드 다운로드
-* 웹앱 코드 검사
-* 웹앱에 필요한 IoT Hub 아티팩트를 포함하도록 환경 변수 구성
-* 개발 머신에서 웹앱 실행
-* 웹 페이지를 열어 IoT Hub에서 실시간 온도 및 습도 데이터 확인
-* (선택 사항) Azure CLI를 사용하여 Azure App Service에서 웹앱 호스트
-
-## <a name="what-you-need"></a>필요한 항목
-
-* [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 디바이스 자습서(예: [Node.js를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)) 중 하나를 완료합니다. 이러한 자습서는 다음 요구 사항을 충족합니다.
+* [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 디바이스 자습서 중 하나를 완료합니다. 예를 들어 [node.js를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)로 이동하거나 [원격 분석 전송](quickstart-send-telemetry-dotnet.md) 빠른 시작 중 하나로 이동할 수 있습니다. 이러한 문서는 다음 요구 사항을 다룹니다.
 
   * 활성 Azure 구독
   * 구독 중인 IoT Hub
@@ -184,7 +172,7 @@ set EventHubConsumerGroup=YourConsumerGroupName
 
 5. App Service에 코드를 배포하려면 [사용자 수준 배포 자격 증명](../app-service/deploy-configure-credentials.md)을 사용합니다. 사용자 수준 배포 자격 증명은 Azure 자격 증명과는 다르며 웹앱에 대한 Git 로컬 및 FTP 배포에 사용됩니다. 설정되면 Azure 계정의 모든 구독에 있는 모든 App Service 앱에서 유효합니다. 사용자 수준 배포 자격 증명을 이전에 설정한 경우 해당 자격 증명을 사용할 수 있습니다.
 
-   이전에 사용자 수준 배포 자격 증명을 설정하지 않았거나 암호를 기억할 수 없는 경우 다음 명령을 실행합니다. 배포 사용자 이름은 Azure 내에서 고유 해야 하며 \@ 로컬 Git 푸시에 대 한 ' ' 기호를 포함 하지 않아야 합니다. 암호를 묻는 메시지가 표시되면 암호를 입력하고 새 암호를 확인합니다. 암호는 글자, 숫자, 기호의 세 가지 요소 중 두 가지를 사용하고 8자 이상이어야 합니다.
+   이전에 사용자 수준 배포 자격 증명을 설정하지 않았거나 암호를 기억할 수 없는 경우 다음 명령을 실행합니다. 배포 사용자 이름은 Azure 내에서 고유해야 하며 로컬 Git 푸시에 대해 ‘\@’ 기호를 포함하면 안 됩니다. 암호를 묻는 메시지가 표시되면 암호를 입력하고 새 암호를 확인합니다. 암호는 글자, 숫자, 기호의 세 가지 요소 중 두 가지를 사용하고 8자 이상이어야 합니다.
 
    ```azurecli-interactive
    az webapp deployment user set --user-name <your deployment user name>
@@ -196,13 +184,13 @@ set EventHubConsumerGroup=YourConsumerGroupName
    az webapp deployment source config-local-git -n <your web app name> -g <your resource group name>
    ```
 
-7. App Service에서 웹앱에 대한 Git 리포지토리를 참조하는 복제본에 원격 기능을 추가합니다. 의 \<Git clone URL\> 경우 이전 단계에서 반환 된 URL을 사용 합니다. 명령 창에서 다음 명령을 실행합니다.
+7. App Service에서 웹앱에 대한 Git 리포지토리를 참조하는 복제본에 원격 기능을 추가합니다. \<Git clone URL\>의 경우 이전 단계에서 반환된 URL을 사용합니다. 명령 창에서 다음 명령을 실행합니다.
 
    ```cmd
    git remote add webapp <Git clone URL>
    ```
 
-8. App Service에 코드를 배포하려면 명령 창에 다음 명령을 입력합니다. 자격 증명을 묻는 메시지가 표시되면 5단계에서 만든 사용자 수준 배포 자격 증명을 입력합니다. App Service 원격의 주 분기로 푸시 해야 합니다.
+8. App Service에 코드를 배포하려면 명령 창에 다음 명령을 입력합니다. 자격 증명을 묻는 메시지가 표시되면 5단계에서 만든 사용자 수준 배포 자격 증명을 입력합니다. App Service 원격의 기본 분기로 푸시하는지 확인합니다.
 
     ```cmd
     git push webapp main:main
