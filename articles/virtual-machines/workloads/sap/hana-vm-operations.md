@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4c27895c5163d59ca785aa15fa3739359e5be457
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd70bccde30c2b844cfa6188a3fb06a075558a91
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666598"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143002"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Azure에서 SAP HANA 인프라 구성 및 작업
 이 문서에서는 Azure VM(Virtual Machines)에 배포된 SAP HANA 시스템 운영 및 Azure 인프라 구성을 위한 지침을 제공합니다. 또한 M128s VM SKU용 SAP HANA 스케일 아웃을 위한 구성 정보가 포함됩니다. 이 문서는 다음 내용을 포함하는 표준 SAP 설명서를 대체하기 위한 것이 아닙니다.
@@ -290,9 +290,9 @@ SAP HANA 스케일 아웃과 마찬가지로, /hana/shared 디렉터리는 SAP H
 ### <a name="back-up-and-restore-operations-on-azure-vms"></a>Azure VM의 백업 및 복원 작업
 다음 문서에서는 SAP HANA 배포를 백업 및 복원하는 방법을 설명합니다.
 
-- [SAP HANA 백업 개요](./sap-hana-backup-guide.md)
-- [SAP HANA 파일 수준 백업](./sap-hana-backup-file-level.md)
-- [SAP HANA 스토리지 스냅샷 벤치마크](./sap-hana-backup-guide.md)
+- [SAP HANA 백업 개요](../../../backup/sap-hana-db-about.md)
+- [SAP HANA 파일 수준 백업](../../../backup/sap-hana-db-about.md)
+- [SAP HANA 스토리지 스냅샷 벤치마크](../../../backup/sap-hana-db-about.md)
 
 
 ### <a name="start-and-restart-vms-that-contain-sap-hana"></a>SAP HANA를 포함하는 VM 시작 및 다시 시작

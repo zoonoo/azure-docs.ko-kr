@@ -1,23 +1,23 @@
 ---
-title: CLI를 사용 하 여 HTTP에서 HTTPS로 리디렉션
+title: CLI를 사용하여 HTTP에서 HTTPS로 리디렉션
 titleSuffix: Azure Application Gateway
-description: Azure CLI를 사용 하 여 HTTP에서 HTTPS로 리디렉션을 만들고 TLS 종료를 위한 인증서를 추가 하는 방법을 알아봅니다.
+description: Azure CLI를 사용하여 HTTP에서 HTTPS로의 리디렉션을 만들고 TLS 종료를 위한 인증서를 추가하는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: victorh
-ms.openlocfilehash: 0d56a1c46f251307755416ef44991ac6f809f330
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: e66eca305433a89496f72aac667512efd418a369
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94566744"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784770"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Azure CLI를 사용하여 HTTP 및 HTTPS 간의 리디렉션으로 애플리케이션 게이트웨이 만들기
 
-Azure CLI를 사용 하 여 TLS/SSL 종료를 위한 인증서로 [응용 프로그램 게이트웨이](overview.md) 를 만들 수 있습니다. 라우팅 규칙은 애플리케이션 게이트웨이에서 HTTP 트래픽을 HTTPS 포트로 리디렉션하는 데 사용됩니다. 이 예제에서는 두 개의 가상 머신 인스턴스를 포함하는 애플리케이션 게이트웨이의 백 엔드 풀에 대한 [가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)도 만듭니다.
+Azure CLI를 사용하여 TLS/SSL 종료를 위한 인증서로 [애플리케이션 게이트웨이](overview.md)를 만들 수 있습니다. 라우팅 규칙은 애플리케이션 게이트웨이에서 HTTP 트래픽을 HTTPS 포트로 리디렉션하는 데 사용됩니다. 이 예제에서는 두 개의 가상 머신 인스턴스를 포함하는 애플리케이션 게이트웨이의 백 엔드 풀에 대한 [가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)도 만듭니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -83,7 +83,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Application Gateway 만들기
 
-[az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create)를 사용하여 *myAppGateway* 라는 애플리케이션 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 
+[az network application-gateway create](/cli/azure/network/application-gateway#az_network_application_gateway_create)를 사용하여 *myAppGateway* 라는 애플리케이션 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 
 
 애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myAGPublicIPAddress* 에 할당됩니다. 이 예제에서는 애플리케이션 게이트웨이 만들 때 사용자가 만든 인증서 및 해당 암호를 연결합니다. 
 
@@ -118,7 +118,7 @@ az network application-gateway create \
 
 ### <a name="add-the-http-port"></a>HTTP 포트 추가
 
-[az network application-gateway frontend-port create](/cli/azure/network/application-gateway/frontend-port#az-network-application-gateway-frontend-port-create)를 사용하여 애플리케이션 게이트웨이에 HTTP 포트를 추가할 수 있습니다.
+[az network application-gateway frontend-port create](/cli/azure/network/application-gateway/frontend-port#az_network-application_gateway_frontend_port_create)를 사용하여 애플리케이션 게이트웨이에 HTTP 포트를 추가할 수 있습니다.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -130,7 +130,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-the-http-listener"></a>HTTP 수신기 추가
 
-[az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create)를 사용하여 애플리케이션 게이트웨이에 *myListener* 라는 수신기를 추가할 수 있습니다.
+[az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az_network_application_gateway_http_listener_create)를 사용하여 애플리케이션 게이트웨이에 *myListener* 라는 수신기를 추가할 수 있습니다.
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -143,7 +143,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>리디렉션 구성 추가
 
-[az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create)를 사용하여 애플리케이션 게이트웨이에 HTTP 및 HTTPS 간의 리디렉션 구성을 추가합니다.
+[az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az_network_application_gateway_redirect_config_create)를 사용하여 애플리케이션 게이트웨이에 HTTP 및 HTTPS 간의 리디렉션 구성을 추가합니다.
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -158,7 +158,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-the-routing-rule"></a>라우팅 규칙 추가
 
-[az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create)를 사용하여 애플리케이션 게이트웨이에 리디렉션 구성을 포함하는 *rule2* 라는 라우팅 규칙을 추가합니다.
+[az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az_network_application_gateway_rule_create)를 사용하여 애플리케이션 게이트웨이에 리디렉션 구성을 포함하는 *rule2* 라는 라우팅 규칙을 추가합니다.
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -172,7 +172,7 @@ az network application-gateway rule create \
 
 ## <a name="create-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 만들기
 
-이 예제에서는 애플리케이션 게이트웨이의 백 엔드 풀에 서버를 제공하는 *myvmss* 라는 가상 머신 확장 집합을 만듭니다. 확장 집합의 가상 머신은 *myBackendSubnet* 및 *appGatewayBackendPool* 에 연결됩니다. 확장 집합을 만들려면 [az vmss create](/cli/azure/vmss#az-vmss-create)를 사용합니다.
+이 예제에서는 애플리케이션 게이트웨이의 백 엔드 풀에 서버를 제공하는 *myvmss* 라는 가상 머신 확장 집합을 만듭니다. 확장 집합의 가상 머신은 *myBackendSubnet* 및 *appGatewayBackendPool* 에 연결됩니다. 확장 집합을 만들려면 [az vmss create](/cli/azure/vmss#az_vmss_create)를 사용합니다.
 
 ```azurecli-interactive
 az vmss create \
@@ -217,7 +217,7 @@ az network public-ip show \
 
 ![보안 경고](./media/redirect-http-to-https-cli/application-gateway-secure.png)
 
-자체 서명 된 인증서를 사용 하는 경우 보안 경고를 수락 하려면 **세부 정보** 를 선택한 다음 **웹 페이지로 이동** 합니다. 그러면 보안 NGINX 사이트가 다음 예제와 같이 표시됩니다.
+자체 서명된 인증서를 사용하는 경우 보안 경고를 받으려면 **세부 정보**, **웹 페이지로 이동** 을 차례로 선택합니다. 그러면 보안 NGINX 사이트가 다음 예제와 같이 표시됩니다.
 
 ![애플리케이션 게이트웨이의 기준 URL 테스트](./media/redirect-http-to-https-cli/application-gateway-nginxtest.png)
 

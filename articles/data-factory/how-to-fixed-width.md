@@ -1,17 +1,17 @@
 ---
 title: Azure Data Factory에서 매핑 데이터 흐름을 사용한 고정 길이 텍스트 파일 처리
 description: 매핑 데이터 흐름을 사용하여 Azure Data Factory에서 고정 길이 텍스 파일을 처리하는 방법에 대해 알아보기.
-author: balakreshnan
+author: kromerm
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 8/18/2019
 ms.author: makromer
-ms.openlocfilehash: 2297364e8f1a531b4512f2497bc4d99963d61179
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0f8c1cf8535d35d5141a589670a8281ddba75385
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100386206"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906119"
 ---
 # <a name="process-fixed-length-text-files-by-using-data-factory-mapping-data-flows"></a>Data Factory 매핑 데이터 흐름을 사용하여 고정 길이 텍스트 파일 처리
 

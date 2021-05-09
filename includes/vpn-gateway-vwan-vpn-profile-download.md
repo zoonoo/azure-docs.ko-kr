@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,27 +8,27 @@ ms.topic: include
 ms.date: 02/08/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f3eb2d9469ab3a3d2c1d09e4adc3ee2cb1f86e6e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: a5ae81cde28efbf57965beda2f82915854579e43
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99979075"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106073209"
 ---
-## <a name="extract-the-zip-file"></a>Zip 파일의 압축을 풉니다.
+## <a name="extract-the-zip-file"></a>ZIP 파일 추출
 
 zip 파일의 압축을 풉니다. 이 파일에는 다음 폴더가 포함됩니다.
 
 * AzureVPN
 * 일반
-* OpenVPN (게이트웨이에서 **Azure 인증서** 또는 **RADIUS 인증** 설정으로 openvpn을 사용 하도록 설정한 경우) 구성에 해당 하는 적절 한 문서를 선택 하 여 테 넌 트를 만듭니다.
+* OpenVPN(게이트웨이에서 **Azure 인증서** 또는 **RADIUS 인증** 설정으로 OpenVPN을 사용하도록 설정한 경우). 구성에 해당하는 적절한 문서를 선택하여 테넌트를 만듭니다.
 
-  * [VPN Gateway-테 넌 트를 만듭니다](../articles/vpn-gateway/openvpn-azure-ad-tenant.md).
-  * [가상 WAN-테 넌 트를 만듭니다](../articles/virtual-wan/openvpn-azure-ad-tenant.md).
+  * [VPN Gateway - 테넌트를 만듭니다](../articles/vpn-gateway/openvpn-azure-ad-tenant.md).
+  * [Virtual WAN - 테넌트를 만듭니다](../articles/virtual-wan/openvpn-azure-ad-tenant.md).
 
 ## <a name="retrieve-information"></a>정보 검색
 
-**Azurevpn** 폴더에서 **_azurevpnconfig.xml_** 파일로 이동 하 여 메모장에서 엽니다. 다음 태그 사이에 있는 텍스트를 기록해 둡니다.
+**AzureVPN** 폴더에서 **_azurevpnconfig.xml_** 파일로 이동하여 메모장에서 엽니다. 다음 태그 사이에 있는 텍스트를 기록해 둡니다.
 
 ```
 <audience>          </audience>
@@ -42,11 +42,11 @@ zip 파일의 압축을 풉니다. 이 파일에는 다음 폴더가 포함됩�
 
 연결을 추가할 때 이전 단계에서 수집한 정보를 사용하여 프로필 세부 사항 페이지에 사용합니다. 필드는 다음 정보에 해당합니다.
 
-* **대상:** 토큰이 사용 되는 받는 사람 리소스를 식별 합니다.
-* **발급자:** Azure AD 테 넌 트 뿐만 아니라 토큰을 내보낸 STS (보안 토큰 서비스)를 식별 합니다.
-* **테 넌 트:** 토큰을 발급 한 디렉터리 테 넌 트의 변경할 수 없는 고유 식별자를 포함 합니다.
-* **FQDN:** Azure VPN gateway의 FQDN (정규화 된 도메인 이름)입니다.
-* **Serversecret:** VPN gateway 미리 공유한 키입니다.
+* **대상:** 토큰의 의도된 수신자 리소스를 식별합니다.
+* **발급자:** Azure AD 테넌트뿐만 아니라 토큰을 내보낸 STS(보안 토큰 서비스)를 식별합니다.
+* **테넌트:** 토큰을 발급한 디렉터리 테넌트에 대한 변경 불가능한 고유 식별자를 포함합니다.
+* **FQDN:** Azure VPN 게이트웨이의 FQDN(정규화된 도메인 이름).
+* **ServerSecret:** VPN 게이트웨이에 미리 공유한 키.
 
 ## <a name="folder-contents"></a>폴더 내용
 

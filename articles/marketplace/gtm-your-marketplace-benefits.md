@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/09/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 58e55527c84db0c368e676f2bf1314dca32e78db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc156afa2c5b5143e1543ef58203d6dea5d046c3
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102631055"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108145000"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>상업용 Marketplace 혜택
 
@@ -100,7 +100,7 @@ Rewards 혜택 외에도, Microsoft AppSource에 게시된 Dynamics 제품을 �
 
 ### <a name="publisher-agreement"></a>게시자 계약
 
-이 페이지에 설명된 모든 활동은 Microsoft [게시자 계약](https://go.microsoft.com/fwlink/?LinkID=699560)의 적용을 받으며 상업용 혜택 프로그램 추록에 따릅니다.
+이 페이지에 설명된 모든 활동은 Microsoft [게시자 계약](/legal/marketplace/msft-publisher-agreement)의 적용을 받으며 상업용 혜택 프로그램 추록에 따릅니다.
 
 ### <a name="cancellation-policy"></a>취소 정책
 
@@ -130,4 +130,4 @@ Microsoft는 다음과 같은 게시자에 대한 Marketplace Rewards를 철회�
 - [파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)에 로그인하여 제품을 만들거나 구성합니다.
 - [파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)의 Marketplace Rewards 혜택을 활성화합니다.
 - [제공되는 셀프 서비스 리소스](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)를 검토합니다.
-- [Microsoft AppSource 및 Azure Marketplace 커뮤니티 포럼](https://aka.ms/MarketplaceCommunity)에 가입하고 관련 항목에 대해 알아보거나 토론에 참여하세요.
+- [Microsoft AppSource 및 Azure Marketplace 커뮤니티 포럼](https://aka.ms/MarketplaceCommunity)에 등록하고 관련 항목에 대해 알아보거나 토론에 참여하세요.

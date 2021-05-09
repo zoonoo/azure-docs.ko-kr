@@ -4,14 +4,17 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 40d9f03526e5232c0a7b33f64ff35a8501702609
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
-ms.translationtype: MT
+ms.openlocfilehash: 45a772b4a1d65b67f918107fd33135a56f6302f2
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107749"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "106073318"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-android-ios.md)]
+
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
@@ -23,7 +26,7 @@ ms.locfileid: "105107749"
 ### <a name="install-the-package"></a>패키지 설치
 
 > [!NOTE]
-> 이 문서에서는 호출 SDK의 버전 1.0.0-beta. 8을 사용 합니다.
+> 이 문서에서는 Calling SDK의 버전 1.0.0-beta.8을 사용합니다.
 
 프로젝트 수준 build.gradle을 찾고, `mavenCentral()`을 `buildscript` 및 `allprojects` 아래의 리포지토리 목록에 추가해야 합니다.
 ```groovy
@@ -58,11 +61,11 @@ dependencies {
 
 ## <a name="object-model"></a>개체 모델
 
-다음 클래스와 인터페이스는 SDK를 호출 하는 Azure Communication Services의 주요 기능 중 일부를 처리 합니다.
+Azure Communication Services Calling SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
 | 이름                                  | 설명                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient| CallClient는 호출 SDK의 기본 진입점입니다.|
+| CallClient| CallClient는 Calling SDK의 주 진입점입니다.|
 | CallAgent | CallAgent는 통화를 시작하고 관리하는 데 사용됩니다. |
 | CommunicationTokenCredential | CommunicationTokenCredential은 CallAgent를 인스턴스화하기 위한 토큰 자격 증명으로 사용됩니다.|
 | CommunicationIdentifier | CommunicationIdentifier는 통화에 포함될 수 있는 다른 유형의 참가자로 사용됩니다.|
@@ -223,7 +226,7 @@ Firebase Cloud Messaging 서비스에서 알림 메시지를 받으려면 Androi
 
 푸시 알림을 등록하려면 애플리케이션이 디바이스 등록 토큰을 사용하여 *CallAgent* 인스턴스에서 `registerPushNotification()`을 호출해야 합니다.
 
-장치 등록 토큰을 가져오려면 섹션에 다음 줄을 추가 하 여 Firebase SDK를 응용 프로그램 모듈의 *gradle* 파일에 추가 합니다 ( `dependencies` 아직 없는 경우).
+디바이스 등록 토큰을 가져오려면 `dependencies` 섹션에서 다음 줄을 추가하여(아직 없는 경우) Firebase SDK를 애플리케이션 모듈의 *build.gradle* 파일에 추가합니다.
 
 ```
     // Add the SDK for Firebase Cloud Messaging
@@ -243,7 +246,7 @@ Firebase Cloud Messaging 서비스에서 알림 메시지를 받으려면 Androi
 apply plugin: 'com.google.gms.google-services'
 ```
 
-도구 모음에서 *지금 동기화* 를 선택합니다. 다음 코드 조각을 추가 하 여 클라이언트 응용 프로그램 인스턴스에 대 한 Firebase Cloud Messaging SDK에서 생성 된 장치 등록 토큰을 가져옵니다. 인스턴스에 대 한 주 활동의 헤더에 아래 가져오기를 추가 해야 합니다. 코드 조각이 토큰을 검색하는 데 필요합니다.
+도구 모음에서 *지금 동기화* 를 선택합니다. 다음 코드 조각을 추가하여 클라이언트 애플리케이션 인스턴스에 대한 Firebase Cloud Messaging SDK에서 생성한 디바이스 등록 토큰을 가져옵니다. 인스턴스에 대한 주 활동의 헤더에 아래 가져오기를 추가해야 합니다. 코드 조각이 토큰을 검색하는 데 필요합니다.
 
 ```
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -271,7 +274,7 @@ import com.google.firebase.iid.InstanceIdResult;
                     }
                 });
 ```
-들어오는 통화 푸시 알림에 대 한 호출 서비스 SDK에 장치 등록 토큰을 등록 합니다.
+수신 통화 푸시 알림에 대한 Calling Services SDK에 디바이스 등록 토큰을 등록합니다.
 
 ```java
 String deviceRegistrationToken = "<Device Token from previous section>";
@@ -287,7 +290,7 @@ catch(Exception e) {
 
 수신 통화 푸시 알림을 받으려면 페이로드가 있는 *CallAgent* 인스턴스에서 *handlePushNotification()* 을 호출합니다.
 
-Firebase 클라우드 메시징에서 페이로드를 가져오려면 *FirebaseMessagingService* Firebase SDK 클래스를 확장 하 고 메서드를 재정의 하는 새 서비스 (파일 > > 새 서비스 > 서비스)를 만들어 시작 `onMessageReceived` 합니다. 이 메서드는 Firebase Cloud Messaging에서 애플리케이션에 푸시 알림을 전달할 때 호출되는 이벤트 처리기입니다.
+Firebase Cloud Messaging에서 페이로드를 가져오려면 *FirebaseMessagingService* Firebase SDK 클래스를 확장하는 새 서비스를 만들고(파일 > 새로 만들기 > 서비스 > 서비스) `onMessageReceived` 메서드를 재정의합니다. 이 메서드는 Firebase Cloud Messaging에서 애플리케이션에 푸시 알림을 전달할 때 호출되는 이벤트 처리기입니다.
 
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -317,7 +320,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         </service>
 ```
 
-- 페이로드를 검색 한 후에는 *Callagent* 인스턴스에서 *handlepushnotification* 메서드를 호출 하 여 처리할 내부 *IncomingCallInformation* 개체로 구문 분석 되도록 *통신 서비스* SDK에 전달할 수 있습니다. `CallAgent` 인스턴스는 `CallClient` 클래스에서 `createCallAgent(...)` 메서드를 호출하여 만듭니다.
+- 페이로드를 검색한 후에는 *CallAgent* 인스턴스에서 *handlePushNotification* 메서드를 호출하여 처리되는 내부 *IncomingCallInformation* 개체로 구문 분석될 *Communication Services* SDK에 전달할 수 있습니다. `CallAgent` 인스턴스는 `CallClient` 클래스에서 `createCallAgent(...)` 메서드를 호출하여 만듭니다.
 
 ```java
 try {

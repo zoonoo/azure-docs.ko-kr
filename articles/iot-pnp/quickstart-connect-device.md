@@ -7,13 +7,13 @@ ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 590a6d48d12555d0a857e60352c0e0d6f367c04a
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+zone_pivot_groups: programming-languages-set-twenty-seven
+ms.openlocfilehash: d0b589d1ce1a7603c61ced2be9fb47abeaa39e0a
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057340"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278153"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-linux-or-windows-to-iot-hub"></a>빠른 시작: Linux 또는 Windows에서 실행되는 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 IoT Hub에 연결
 
@@ -21,11 +21,15 @@ ms.locfileid: "106057340"
 
 [!INCLUDE [iot-pnp-connect-device-c](../../includes/iot-pnp-connect-device-c.md)]
 
+[!INCLUDE [iot-pnp-clean-resources-short](../../includes/iot-pnp-clean-resources-short.md)]
+
 :::zone-end
 
 :::zone pivot="programming-language-csharp"
 
 [!INCLUDE [iot-pnp-connect-device-csharp](../../includes/iot-pnp-connect-device-csharp.md)]
+
+[!INCLUDE [iot-pnp-clean-resources-short](../../includes/iot-pnp-clean-resources-short.md)]
 
 :::zone-end
 
@@ -33,11 +37,15 @@ ms.locfileid: "106057340"
 
 [!INCLUDE [iot-pnp-connect-device-java](../../includes/iot-pnp-connect-device-java.md)]
 
+[!INCLUDE [iot-pnp-clean-resources-short](../../includes/iot-pnp-clean-resources-short.md)]
+
 :::zone-end
 
 :::zone pivot="programming-language-javascript"
 
 [!INCLUDE [iot-pnp-connect-device-node](../../includes/iot-pnp-connect-device-node.md)]
+
+[!INCLUDE [iot-pnp-clean-resources-short](../../includes/iot-pnp-clean-resources-short.md)]
 
 :::zone-end
 
@@ -45,11 +53,15 @@ ms.locfileid: "106057340"
 
 [!INCLUDE [iot-pnp-connect-device-python](../../includes/iot-pnp-connect-device-python.md)]
 
+[!INCLUDE [iot-pnp-clean-resources-short](../../includes/iot-pnp-clean-resources-short.md)]
+
 :::zone-end
 
-## <a name="clean-up-resources"></a>리소스 정리
+:::zone pivot="programming-language-embedded-c"
 
-빠른 시작 및 자습서를 완료한 경우 [리소스 정리](set-up-environment.md#clean-up-resources)를 참조하세요.
+[!INCLUDE [iot-pnp-connect-device-embedded-c](../../includes/iot-pnp-connect-device-embedded-c.md)]
+
+:::zone-end
 
 ## <a name="next-steps"></a>다음 단계
 

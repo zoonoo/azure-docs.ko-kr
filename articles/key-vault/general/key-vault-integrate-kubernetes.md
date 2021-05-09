@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: 6cf76e980fab4e5be3f8c2c6d72baff05ab03815
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 5afa90e948a4153f2a27b97d619830586aecfa11
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108390"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107905255"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>자습서: Kubernetes에서 비밀 저장소 CSI 드라이버에 대한 Azure Key Vault 공급자 구성 및 실행
 
@@ -296,11 +296,7 @@ kubectl exec nginx-secrets-store-inline -- cat /mnt/secrets-store/secret1
 비밀의 콘텐츠가 표시되는지 확인합니다.
 
 ## <a name="resources"></a>리소스
-[Azure Key Vault 정보](overview.md)
-[Azure Key Vault 개발자 가이드](developers-guide.md)
-[CSI 비밀 드라이버](https://secrets-store-csi-driver.sigs.k8s.io/introduction.html)
+- [Azure Key Vault 정보](overview.md)
+- [Azure Key Vault 개발자 가이드](developers-guide.md)
+- [CSI 비밀 드라이버](https://azure.github.io/secrets-store-csi-driver-provider-azure/)
 
-
-키 자격 증명 모음을 복구할 수 있도록 하려면 다음을 참조하세요.
-> [!div class="nextstepaction"]
-> [일시 삭제 설정](./key-vault-recovery.md)
