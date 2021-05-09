@@ -6,14 +6,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 1/21/2021
+ms.date: 04/30/2021
 ms.author: cavoeg
-ms.openlocfilehash: f571deaa0b67e9be7b8ce3f01d87f5c955f7140d
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 14328179a297ebcc3994bf627b1690195774b2b1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319074"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108741134"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>FHIR 용 Azure API에 대 한 질문과 대답
 
@@ -49,10 +49,6 @@ Azure 용 FHIR 서버를 실행 하면 기본 서비스에 직접 액세스할 �
 
 개발 관점에서 관리 되는 서비스에만 적용 되지 않는 모든 기능은 처음에는 Azure 용 오픈 소스 Microsoft FHIR 서버에 배포 됩니다. 오픈 소스에서 유효성을 검사 한 후에는 FHIR 솔루션에 대 한 PaaS Azure API로 릴리스됩니다. 오픈 소스와 PaaS의 릴리스 간 시간은 기능의 복잡성과 기타 로드맵 우선 순위에 따라 달라 집니다. 이는 FHIR 용 Azure IoT 커넥터 (미리 보기)와 같은 모든 서비스에 대해 동일한 프로세스입니다.
 
-### <a name="where-can-i-see-what-is-releasing-into-the-azure-api-for-fhir"></a>Azure API for FHIR에 릴리스 되는 항목은 어디에서 확인할 수 있나요?
-
-Azure API for FHIR에 릴리스 하는 항목 중 일부를 보려면 오픈 소스 FHIR 서버 [릴리스](https://github.com/microsoft/fhir-server/releases) 를 참조 하세요. 11 월 2020부터 오픈 소스 항목이 관리 서비스로 릴리스되는 경우 Azure-API-FHIR로 태그가 지정 된 항목을 포함 합니다. 이러한 기능은 일반적으로 2 주 후에 오픈 소스의 릴리스 페이지에 제공 됩니다. 자신의 환경에서 테스트 하려는 경우 [여기] 빌드를 테스트 하는 방법에 대 한 지침도 포함 되어 https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) 있습니다. 관리 되는 추가 서비스 업데이트를 가장 잘 공유 하는 방법을 평가 하 고 있습니다.
-
 ### <a name="in-which-regions-is-azure-api-for-fhir-available"></a>어떤 지역이 Azure API for FHIR을 사용할 수 있나요?
 
 현재 [여러 지리적 지역](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia)에서 공개 및 정부에 대 한 일반 공급이 있습니다. Microsoft의 정부 클라우드 서비스에 대 한 자세한 내용은 [FedRAMP에서 Azure 서비스](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md)를 확인 하세요.
@@ -82,7 +78,7 @@ FHIR 용 인증 및 Azure API. SMART에 대해 자세히 알아보려면 [스마
 
 ### <a name="what-is-the-limit-on-_count"></a>_Count에 대 한 제한은 무엇 인가요?
 
-_Count에 대 한 현재 제한은 100입니다. _Count를 100 이상으로 설정 하면 100 레코드만 표시 되는 번들에 경고가 표시 됩니다.
+_Count에 대 한 현재 제한은 1000입니다. _Count를 1000 이상으로 설정 하면 1000 레코드만 표시 된다는 경고가 번들에 표시 됩니다.
 
 ### <a name="are-there-any-limitations-on-the-group-export-functionality"></a>그룹 내보내기 기능에 제한이 있나요?
 

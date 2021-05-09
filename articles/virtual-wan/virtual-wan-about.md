@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: overview
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7f8bc4cadc720c7ac02a7246e741552e81eb3876
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: ab54192480a1c36a27c175254d6d4d275b67c8b7
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057153"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835329"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Azure Virtual WAN이란?
 
@@ -73,7 +73,7 @@ Virtual WAN에서 허용하는 연결 유형은 사이트 간 VPN, 사용자 VPN
 
 사이트 간 IPsec/IKE(IKEv2) 연결을 통해 Azure의 리소스에 연결할 수 있습니다. 자세한 내용은 [Virtual WAN을 사용하여 사이트 간 연결 만들기](virtual-wan-site-to-site-portal.md)를 참조하세요. 
 
-이 연결 유형에는 VPN 디바이스 또는 Virtual WAN 파트너 디바이스가 필요합니다. Virtual WAN 파트너는 디바이스 정보를 Azure로 내보내고, Azure 구성을 다운로드하고, Azure Virtual WAN 허브에 대한 연결을 설정하는 기능인 연결 자동화를 제공합니다. 사용 가능한 파트너와 위치의 목록은 [Virtual WAN 파트너 및 위치](virtual-wan-locations-partners.md) 문서를 참조하세요. VPN/SD-WAN 디바이스 공급자가 위에 언급된 링크에 없는 경우 [Virtual WAN을 사용하여 사이트 간 연결 만들기](virtual-wan-site-to-site-portal.md) 단계별 지침에 따라 간단히 연결을 설정할 수 있습니다.
+이 연결 유형에는 VPN 디바이스 또는 Virtual WAN 파트너 디바이스가 필요합니다. Virtual WAN 파트너는 디바이스 정보를 Azure로 내보내고, Azure 구성을 다운로드하고, Azure Virtual WAN 허브에 대한 연결을 설정하는 기능인 연결 자동화를 제공합니다. 사용 가능한 파트너와 위치의 목록은 [Virtual WAN 파트너 및 위치](virtual-wan-locations-partners.md) 문서를 참조하세요. VPN/SD-WAN 디바이스 공급자가 위에 언급된 링크에 없는 경우 [Virtual WAN을 사용하여 사이트 간 연결 만들기](virtual-wan-site-to-site-portal.md) 단계별 지침에 따라 연결을 설정하기만 하면 됩니다.
 
 ### <a name="user-vpn-point-to-site-connections"></a><a name="uservpn"></a>사용자 VPN(지점 및 사이트 간) 연결
 
