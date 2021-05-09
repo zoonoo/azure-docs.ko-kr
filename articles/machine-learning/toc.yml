@@ -12,30 +12,31 @@
     - name: 아키텍처 및 용어
       displayName: 'architecture, concepts, definitions, glossary'
       href: concept-azure-machine-learning-architecture.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: 시작할 ML 리소스 만들기
+      href: quickstart-create-resources.md
 - name: 자습서
   expanded: true
   items:
     - name: Python 시작(1일차)
       expanded: true
       items:
-        - name: 1. 로컬 컴퓨터 설정
-          href: tutorial-1st-experiment-sdk-setup-local.md
-        - name: 2. "Hello world"
+        - name: 1. "Hello world"
           href: tutorial-1st-experiment-hello-world.md
-        - name: 3. 모델 학습
+        - name: 2. 모델 학습
           href: tutorial-1st-experiment-sdk-train.md
-        - name: 4. 사용자 데이터 가져오기
+        - name: 3. 사용자 데이터 가져오기
           href: tutorial-1st-experiment-bring-data.md
     - name: Jupyter Notebook
       items:
         - name: 이미지 분류(MNIST 데이터)
           items:
-            - name: 1. 컴퓨팅 인스턴스 설정
-              href: tutorial-1st-experiment-sdk-setup.md
-            - name: 2. 모델 학습
+            - name: 1. 모델 학습
               displayName: build modeling
               href: tutorial-train-models-with-aml.md
-            - name: 3. 모델 배포
+            - name: 2. 모델 배포
               href: tutorial-deploy-models-with-aml.md
         - name: 자동화된 ML을 사용하는 회귀(뉴욕시 택시 데이터)
           items:
@@ -234,8 +235,8 @@
               href: how-to-access-azureml-behind-firewall.md
         - name: 데이터 보호
           items:
-            - name: 복원력 향상
-              displayName: 'high availability, disaster recovery'
+            - name: 장애 조치(failover) 및 재해 복구
+              displayName: high availability
               href: how-to-high-availability-machine-learning.md
             - name: 스토리지 액세스 키 다시 생성
               href: how-to-change-storage-access-key.md

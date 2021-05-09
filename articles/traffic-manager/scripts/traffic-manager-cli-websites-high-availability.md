@@ -1,5 +1,5 @@
 ---
-title: HA 응용 프로그램에 대 한 트래픽 라우팅-Azure CLI-Traffic Manager
+title: 애플리케이션의 HA에 대한 트래픽 라우팅 - Azure CLI - Traffic Manager
 description: Azure CLI 스크립트 샘플 - 애플리케이션 고가용성을 위한 트래픽 라우팅
 services: traffic-manager
 documentationcenter: traffic-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: duau
-ms.openlocfilehash: abac2e5b1fcba65db92edd2bcc2f390ec0114f59
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 151cfc4ffb984b25902ae6d5dd69516a5e974c93
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98185348"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788352"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-cli"></a>Azure CLI를 사용하여 애플리케이션 고가용성을 위해 트래픽 라우팅
 
@@ -51,7 +51,7 @@ az group delete --name myResourceGroup2 --yes
 |---|---|
 | [az group create](/cli/azure/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az appservice plan create](/cli/azure/appservice/plan) | App Service 계획을 만듭니다. Azure 웹앱에 대한 서버 팜과 비슷합니다. |
-| [az webapp web create](/cli/azure/webapp#az-webapp-create) | App Service 계획 내에서 Azure 웹앱을 만듭니다. |
+| [az webapp web create](/cli/azure/webapp#az_webapp_create) | App Service 계획 내에서 Azure 웹앱을 만듭니다. |
 | [az network traffic-manager profile create](/cli/azure/network/traffic-manager/profile) | Azure Traffic Manager 프로필을 만듭니다. |
 | [az network traffic-manager endpoint create](/cli/azure/network/traffic-manager/endpoint) | Azure Traffic Manager 프로필에 엔드포인트를 추가합니다. |
 

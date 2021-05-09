@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 01/03/2021
 ms.author: memildin
-ms.openlocfilehash: dcbb4977e1bfd17f0cbed61abf9ba335615b7799
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fbd7b13e07a19c75c4f41ff4f3e2bdc66e585c9e
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443763"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903527"
 ---
 # <a name="permissions-in-azure-security-center"></a>Azure Security Center의 권한
 
@@ -39,7 +39,7 @@ Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성�
 | 이니셔티브 추가/할당(규정 준수 표준 포함)                                                                           | -                             | -              | -                                                      | -                        | ✔                 |
 | Azure Defender 사용/사용 안 함                                                                                                               | -                             | ✔             | -                                                      | -                        | ✔                 |
 | 자동 프로비저닝 사용/사용 안 함                                                                                                            | -                             | ✔             | -                                                      | ✔                       | ✔                  |
-| 리소스에 보안 권장 사항 적용</br> (및 [빠른 수정](security-center-remediate-recommendations.md#quick-fix-remediation) 사용) | -                             | -              | ✔                                                     | ✔                        | ✔                 |
+| 리소스에 보안 권장 사항 적용</br> (및 [픽스](security-center-remediate-recommendations.md#fix-button)사용) | -                             | -              | ✔                                                     | ✔                        | ✔                 |
 | 경고 해제                                                                                                                                | -                             | ✔             | -                                                      | ✔                       | ✔                  |
 | 경고 및 권장 사항 보기                                                                                                               | ✔                            | ✔              | ✔                                                     | ✔                        | ✔                 |
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: efa9465adc13b50e6ae12628d21347152c3fc2c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 02742610f6febd832470307a5000526cadb3ecbd
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104578722"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166148"
 ---
 # <a name="quickstart-aspnet-core-web-app-that-signs-in-users-and-calls-microsoft-graph-on-their-behalf"></a>빠른 시작: 사용자를 로그인하고 사용자를 대신하여 Microsoft Graph를 호출하는 ASP.NET Core 웹앱
 
-이 빠른 시작에서는 ASP.NET Core 웹앱이 모든 Azure AD(Azure Active Directory) 조직에서 사용자를 로그인하고 Microsoft Graph를 호출하는 방법을 보여주는 코드 샘플을 다운로드하고 실행합니다.  
+이 빠른 시작에서는 ASP.NET Core 웹앱이 모든 Azure AD(Azure Active Directory) 조직에서 사용자를 로그인하고 Microsoft Graph를 호출하는 방법을 보여주는 코드 샘플을 다운로드하고 실행합니다.
 
 자세한 내용은 [샘플 작동 방식](#how-the-sample-works)을 참조하세요.
 
@@ -108,7 +108,7 @@ ms.locfileid: "104578722"
 >       - 애플리케이션이 **모든 조직 디렉터리의 계정** 을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
 >       - 애플리케이션이 **모든 Microsoft 계정 사용자** 를 지원하는 경우 이 값을 `common`으로 둡니다.
 >    - `Enter_the_Client_Secret_Here`를 이전 단계에서 만들고 기록한 **클라이언트 암호** 로 바꿉니다.
-> 
+>
 > 이 빠른 시작에서는 *appsettings.json* 파일에서 다른 값을 변경하지 마세요.
 >
 > #### <a name="step-4-build-and-run-the-application"></a>4단계: 애플리케이션 빌드 및 실행
@@ -128,6 +128,7 @@ ms.locfileid: "104578722"
 이 섹션에서는 사용자를 로그인하고 사용자를 대신하여 Microsoft Graph API를 호출하는 데 필요한 코드의 개요를 제공합니다. 이 개요는 코드가 작동하는 방식과 주요 인수를 이해하려는 경우뿐만 아니라 기존 ASP.NET Core 애플리케이션에 로그인을 추가하고 Microsoft Graph를 호출하려는 경우에도 유용할 수 있습니다. [MSAL.NET](msal-overview.md)의 래퍼인 [Microsoft.Identity.Web](microsoft-identity-web.md)을 사용합니다.
 
 ### <a name="how-the-sample-works"></a>샘플 작동 방법
+
 ![이 빠른 시작에서 생성된 샘플 앱의 작동 방식 표시](media/quickstart-v2-aspnet-core-webapp-calls-graph/aspnetcorewebapp-intro.svg)
 
 ### <a name="startup-class"></a>시작 클래스
@@ -200,7 +201,7 @@ app.UseEndpoints(endpoints =>
 
 컨트롤러의 클래스 또는 하나 이상의 메서드에 `[Authorize]` 특성을 적용하여 컨트롤러 또는 해당 메서드를 보호할 수 있습니다. 이 `[Authorize]` 특성은 인증된 사용자만 허용하여 액세스를 제한합니다. 사용자가 아직 인증되지 않은 경우 컨트롤러에 액세스하기 위해 인증 챌린지를 시작할 수 있습니다. 이 빠른 시작에서는 구성 파일에서 범위를 읽습니다.
 
-```CSharp
+```csharp
 [AuthorizeForScopes(ScopeKeySection = "DownstreamApi:Scopes")]
 public async Task<IActionResult> Index()
 {
@@ -209,7 +210,7 @@ public async Task<IActionResult> Index()
 
     return View();
 }
- ```
+```
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

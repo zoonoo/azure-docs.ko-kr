@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: Azure CLI를 사용하여 공유 쿼리 만들기'
 description: 이 빠른 시작에서는 단계에 따라 Azure CLI에 대한 Resource Graph 확장을 사용하도록 설정하고 공유 쿼리를 만듭니다.
-ms.date: 02/05/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: 2befc2b6895cd9d2c797fc8ed0e28a27eb6e73e8
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 62904a10beef9118056f34ff830f266156f42590
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107870556"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326042"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Resource Graph 공유 쿼리 만들기
 

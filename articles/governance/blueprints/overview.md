@@ -1,14 +1,14 @@
 ---
 title: Azure Blueprints 개요
 description: Azure Blueprints 서비스를 통해 Azure 환경에서 아티팩트를 만들고 정의하고 배포하는 방법을 알아봅니다.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: overview
-ms.openlocfilehash: f4ba77f5fcb376bf600d94997b0d6ba569f04f82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 263bd0120ea80340f20ae29db0d0c4d8310f74a9
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98919345"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324373"
 ---
 # <a name="what-is-azure-blueprints"></a>Azure Blueprints란?
 
@@ -126,10 +126,10 @@ Blueprints에서는 정책/이니셔티브 또는 ARM 템플릿에 매개 변수
 
 |Object|필드|허용되는 문자|최대 길이|
 |-|-|-|-|
-|청사진|Name|문자, 숫자, 하이픈 및 마침표|48|
+|청사진|속성|문자, 숫자, 하이픈 및 마침표|48|
 |청사진|버전|문자, 숫자, 하이픈 및 마침표|20|
-|청사진 할당|Name|문자, 숫자, 하이픈 및 마침표|90|
-|청사진 아티팩트|Name|문자, 숫자, 하이픈 및 마침표|48|
+|청사진 할당|속성|문자, 숫자, 하이픈 및 마침표|90|
+|청사진 아티팩트|속성|문자, 숫자, 하이픈 및 마침표|48|
 
 ## <a name="video-overview"></a>비디오 개요
 
