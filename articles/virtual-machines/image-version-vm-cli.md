@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7c35be8821b6763531b43ec85b10325e91f8bc5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7bfe8b1255c88878c2dc4661e9daa3e16397e9f4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556863"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792276"
 ---
 # <a name="create-an-image-version-from-a-vm-in-azure-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure의 VM에서 이미지 버전 만들기
 
@@ -36,13 +36,13 @@ VM에 데이터 디스크가 연결된 경우 데이터 디스크 크기는 1TB�
 
 ## <a name="get-information-about-the-vm"></a>VM 관련 정보 가져오기
 
-[az vm list](/cli/azure/vm#az-vm-list)를 사용하여 사용할 수 있는 VM 목록을 볼 수 있습니다. 
+[az vm list](/cli/azure/vm#az_vm_list)를 사용하여 사용할 수 있는 VM 목록을 볼 수 있습니다. 
 
 ```azurecli-interactive
 az vm list --output table
 ```
 
-VM 이름과 해당 VM이 속한 리소스 그룹을 알고 있으면 [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view)를 사용하여 VM ID를 가져옵니다. 
+VM 이름과 해당 VM이 속한 리소스 그룹을 알고 있으면 [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view)를 사용하여 VM ID를 가져옵니다. 
 
 ```azurecli-interactive
 az vm get-instance-view -g MyResourceGroup -n MyVm --query id
@@ -59,7 +59,7 @@ az vm get-instance-view -g MyResourceGroup -n MyVm --query id
 
 이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](./shared-image-galleries.md#image-definitions)를 참조하세요.
 
-[az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create)를 사용하여 갤러리에서 이미지 정의를 만듭니다.
+[az sig image-definition create](/cli/azure/sig/image-definition#az_sig_image_definition_create)를 사용하여 갤러리에서 이미지 정의를 만듭니다.
 
 다음 예제에서는 이미지 정의의 이름이 *myImageDefinition* 이며 [특수](./shared-image-galleries.md#generalized-and-specialized-images) Linux OS 이미지에 대한 것입니다. Windows OS를 사용하여 이미지에 대한 정의를 만들려면 `--os-type Windows`를 사용합니다. 
 
@@ -78,7 +78,7 @@ az sig image-definition create \
 
 ## <a name="create-the-image-version"></a>이미지 버전 만들기
 
-[az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create)을 사용하여 VM에서 이미지 버전을 만듭니다.  
+[az image gallery create-image-version](/cli/azure/sig/image-version#az_sig_image_version_create)을 사용하여 VM에서 이미지 버전을 만듭니다.  
 
 이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch* 입니다.
 

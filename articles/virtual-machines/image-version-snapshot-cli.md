@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: c809edd3699d0b9827fe15da53d5d18b12cbe6e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2dc6d99b8b1c913479fc584b52f6ff919dfac675
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556964"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792294"
 ---
 # <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Azure CLI를 사용하여 Shared Image Gallery에서 관리 디스크 또는 스냅샷에서 이미지 만들기
 
@@ -35,13 +35,13 @@ ms.locfileid: "102556964"
 
 ## <a name="find-the-snapshot-or-managed-disk"></a>스냅샷 또는 관리 디스크 찾기 
 
-[az snapshot list](/cli/azure/snapshot#az-snapshot-list)를 사용하여 리소스 그룹에서 사용할 수 있는 스냅샷 목록을 볼 수 있습니다. 
+[az snapshot list](/cli/azure/snapshot#az_snapshot_list)를 사용하여 리소스 그룹에서 사용할 수 있는 스냅샷 목록을 볼 수 있습니다. 
 
 ```azurecli-interactive
 az snapshot list --query "[].[name, id]" -o tsv
 ```
 
-스냅샷 대신 관리 디스크를 사용할 수도 있습니다. 관리 디스크를 가져오려면 [az disk list](/cli/azure/disk#az-disk-list)를 사용합니다. 
+스냅샷 대신 관리 디스크를 사용할 수도 있습니다. 관리 디스크를 가져오려면 [az disk list](/cli/azure/disk#az_disk_list)를 사용합니다. 
 
 ```azurecli-interactive
 az disk list --query "[].[name, id]" -o tsv
@@ -56,7 +56,7 @@ az disk list --query "[].[name, id]" -o tsv
 
 이미지 정의를 만들려면 이미지 갤러리에 대한 정보가 필요합니다.
 
-[az sig list](/cli/azure/sig#az-sig-list)를 사용하여 사용 가능한 이미지 갤러리에 대한 정보를 나열합니다. 나중에 사용할 갤러리 이름이 어느 리소스 그룹에 있는지 확인합니다.
+[az sig list](/cli/azure/sig#az_sig_list)를 사용하여 사용 가능한 이미지 갤러리에 대한 정보를 나열합니다. 나중에 사용할 갤러리 이름이 어느 리소스 그룹에 있는지 확인합니다.
 
 ```azurecli-interactive 
 az sig list -o table
@@ -71,7 +71,7 @@ az sig list -o table
 
 이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](./shared-image-galleries.md#image-definitions)를 참조하세요.
 
-[az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create)를 사용하여 갤러리에서 이미지 정의를 만듭니다.
+[az sig image-definition create](/cli/azure/sig/image-definition#az_sig_image_definition_create)를 사용하여 갤러리에서 이미지 정의를 만듭니다.
 
 다음 예제에서는 이미지 정의의 이름이 *myImageDefinition* 이며 [특수](./shared-image-galleries.md#generalized-and-specialized-images) Linux OS 이미지에 대한 것입니다. Windows OS를 사용하여 이미지에 대한 정의를 만들려면 `--os-type Windows`를 사용합니다. 
 
@@ -95,7 +95,7 @@ az sig image-definition create \
 
 ## <a name="create-the-image-version"></a>이미지 버전 만들기
 
-[az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create)을 사용하여 이미지 버전을 만듭니다. 
+[az image gallery create-image-version](/cli/azure/sig/image-version#az_sig_image_version_create)을 사용하여 이미지 버전을 만듭니다. 
 
 이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch*.
 

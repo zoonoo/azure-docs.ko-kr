@@ -2,19 +2,26 @@
 title: 자습서 - Azure VMware Solution 프라이빗 클라우드 배포
 description: Azure VMware Solution 프라이빗 클라우드를 만들고 배포하는 방법 알아보기
 ms.topic: tutorial
-ms.date: 02/22/2021
-ms.openlocfilehash: 89a44ce7e5910609068f72c321971ced2e3646b4
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.date: 04/23/2021
+ms.openlocfilehash: cdbd00473890e22c08ebf57f7c6f54f6eef188bb
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374848"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107945834"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud"></a>자습서: Azure VMware Solution 프라이빗 클라우드 배포
 
-Azure VMware Solution은 vSphere 클러스터를 Azure에 배포할 수 있는 기능을 제공합니다. 최소 초기 배포는 세 개의 호스트입니다. 클러스터당 최대 16개의 호스트를 한 번에 하나씩 추가할 수 있습니다.
+Azure VMware Solution 프라이빗은 vSphere 클러스터를 Azure에 배포할 수 있는 기능을 제공합니다. 기본적으로 생성된 프라이빗 클라우드마다 vSAN 클러스터가 하나 있습니다. 클러스터를 추가, 삭제 및 스케일링할 수 있습니다.  클러스터당 최소 호스트 수는 3개입니다. 클러스터당 최대 16개까지 호스트를 한 번에 하나씩 추가할 수 있습니다. 프라이빗 클라우드당 최대 클러스터 수는 4개입니다.  Azure VMware Solution의 초기 배포에는 호스트가 3개 있습니다. 
 
-Azure VMware Solution에서는 시작 시 온-프레미스 vCenter를 사용하여 프라이빗 클라우드를 관리할 수 없으므로 추가 구성이 필요합니다. 이러한 절차 및 관련 사전 요구 사항은 이 자습서에서 다룹니다.
+평가판 클러스터는 평가용으로 제공되며 호스트 3개로 제한됩니다. 프라이빗 클라우드당 평가판 클러스터가 하나 있습니다. 평가 기간 중 단일 호스트를 기준으로 평가판 클러스터를 스케일링할 수 있습니다.
+
+vSphere와 NSX-T Manager를 사용하여 클러스터 구성 또는 작업의 다른 대부분의 측면을 관리합니다. vSAN에서 클러스터의 각 호스트에 있는 모든 로컬 스토리지를 제어합니다.
+
+>[!TIP]
+>초기 배포 수를 초과해야 하는 경우 언제든지 나중에 클러스터를 확장하고 클러스터를 추가할 수 있습니다.
+
+Azure VMware Solution에서는 시작 시에 온-프레미스 vCenter를 사용하여 프라이빗 클라우드를 관리할 수 없으므로 추가 구성이 필요합니다. 이러한 절차 및 관련 사전 요구 사항은 이 자습서에서 다룹니다.
 
 이 자습서에서 학습할 방법은 다음과 같습니다.
 
@@ -27,54 +34,12 @@ Azure VMware Solution에서는 시작 시 온-프레미스 vCenter를 사용하�
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - 프라이빗 클라우드를 만들 수 있는 적절한 관리 권한 및 사용 권한 구독에서 최소 기여자 수준이어야 합니다.
 - [계획](production-ready-deployment-steps.md) 문서에서 수집한 정보에 따라 Azure VMware Solution을 배포합니다.
-- [자습서: 네트워크 검사 목록](tutorial-network-checklist.md)에서 설명한 대로 적절한 네트워킹이 구성되어 있는지 확인합니다.
-- 호스트가 프로비저닝되고 Microsoft.AVS 리소스 공급자가 [호스트 요청 및 Microsoft.AVS 리소스 공급자 활성화](enable-azure-vmware-solution.md)에 설명된 대로 등록되었습니다.
+- [네트워크 계획 검사 목록](tutorial-network-checklist.md)의 설명대로 적절한 네트워킹이 구성되어 있는지 확인합니다.
+- 호스트가 프로비전되고 Microsoft.AVS 리소스 공급자가 [호스트 요청 및 Microsoft.AVS 리소스 공급자 사용](enable-azure-vmware-solution.md)의 설명대로 등록되었습니다.
 
 ## <a name="create-a-private-cloud"></a>프라이빗 클라우드 만들기
 
-Azure VMware Solution 프라이빗 클라우드는 [Azure Portal](#azure-portal) 또는 [Azure CLI](#azure-cli)를 사용하여 만들 수 있습니다.
-
-### <a name="azure-portal"></a>Azure portal
-
 [!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
-
-### <a name="azure-cli"></a>Azure CLI
-
-Azure VMware Solution 프라이빗 클라우드를 만드는 Azure Portal 대신 Azure Cloud Shell을 사용하여 Azure CLI를 사용할 수 있습니다.  Azure VMware Solution에서 사용할 수 있는 명령 목록은 [Azure VMware 명령](/cli/azure/ext/vmware/vmware)을 참조하세요.
-
-#### <a name="open-azure-cloud-shell"></a>Azure Cloud Shell 열기
-
-코드 블록의 오른쪽 위 모서리에서 **시도** 를 선택합니다. 또한 [https://shell.azure.com/bash](https://shell.azure.com/bash)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사** 를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, **Enter** 키를 눌러 실행합니다.
-
-#### <a name="create-a-resource-group"></a>리소스 그룹 만들기
-
-['az group create'](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
-
-```azurecli-interactive
-
-az group create --name myResourceGroup --location eastus
-```
-
-#### <a name="create-a-private-cloud"></a>프라이빗 클라우드 만들기
-
-리소스 그룹 및 프라이빗 클라우드에 대한 이름, 위치 및 클러스터 크기를 제공합니다.
-
-| 속성  | 설명  |
-| --------- | ------------ |
-| **-g**(리소스 그룹 이름)     | 프라이빗 클라우드 리소스에 대한 리소스 그룹의 이름입니다.        |
-| **-n**(프라이빗 클라우드 이름)     | Azure VMware Solution 프라이빗 클라우드의 이름입니다.        |
-| **--위치**     | 프라이빗 클라우드에 사용되는 위치입니다.         |
-| **--클러스터 크기**     | 클러스터의 크기입니다. 최솟값은 3입니다.         |
-| **--네트워크 블록**     | 프라이빗 클라우드에 사용할 CIDR IP 주소 네트워크 블록입니다. 주소 블록은 구독과 온-프레미스 네트워크에 있는 다른 가상 네트워크에서 사용되는 주소 블록과 겹칠 수 없습니다.        |
-| **--sku** | SKU 값: AV36 |
-
-```azurecli-interactive
-az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22 --sku AV36
-```
-
-## <a name="azure-vmware-commands"></a>Azure VMware 명령
-
-Azure VMware Solution에서 사용할 수 있는 명령 목록은 [Azure VMware 명령](/cli/azure/ext/vmware/vmware)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

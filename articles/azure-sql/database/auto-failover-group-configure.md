@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/14/2019
-ms.openlocfilehash: a2f0cb683669aa092493c8080d5e4646cf9706c3
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 1fb8cb39921d9da32e1d5b0b37ca58315e057de1
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107477938"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891017"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Azure SQL Database에 대한 장애 조치(failover) 그룹 구성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "107477938"
 
 Azure Portal 또는 PowerShell을 사용하여 장애 조치 그룹을 만들고 단일 데이터베이스를 추가합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 다음 필수 구성 요소를 고려합니다.
 
@@ -196,7 +196,7 @@ PowerShell을 사용하여 장애 조치(failover) 그룹의 장애 조치를 �
 
 Azure Portal 또는 PowerShell을 사용하여 장애 조치 그룹을 만들고 탄력적 풀을 추가합니다.  
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 다음 필수 구성 요소를 고려합니다.
 
@@ -350,7 +350,7 @@ Azure Portal 또는 PowerShell을 사용하여 Azure SQL Managed Instance의 두
 
 성능 상의 이유로 두 관리형 인스턴스를 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)에 배포합니다. 지리적으로 쌍을 이루는 지역에 상주하는 관리되는 인스턴스는 쌍을 이루지 않는 지역에 비해 훨씬 더 나은 성능을 제공합니다. 
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 다음 필수 구성 요소를 고려합니다.
 

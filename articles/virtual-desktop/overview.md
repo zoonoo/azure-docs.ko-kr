@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 7e14dbf5aab68f5ea2d96274606306378feedad2
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: a6d98f827c39f973714441e308dcc4f2bd061c9b
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445995"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835581"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Windows Virtual Desktop이란?
 
@@ -91,7 +91,7 @@ Windows Virtual Desktop에 대해 만드는 Azure 가상 머신은 다음과 같
 >[!NOTE]
 >Azure 구독이 필요한 경우에는 [1개월 평가판에 가입](https://azure.microsoft.com/free/)하면 됩니다. Azure 평가판 버전을 사용하는 경우 Windows Server Active Directory와 Azure Active Directory가 동기화 상태를 유지하도록 Azure AD Domain Services를 사용해야 합니다.
 
-Windows Virtual Desktop 배포가 의도한 대로 작동하도록 차단해야 하는 URL 목록은 [Safe URL 목록](safe-url-list.md)을 참조하세요.
+Windows Virtual Desktop 배포가 의도한 대로 작동하게 하려면 차단해야 하는 URL 목록은 [필수 URL 목록](safe-url-list.md)을 참조하세요.
 
 Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스크톱과 앱, 그리고 Microsoft가 Azure에 서비스로 호스팅하는 관리 솔루션으로 구성됩니다. 데스크톱과 앱을 모든 Azure 지역의 VM(가상 머신)에 배포할 수 있으며, 이러한 VM의 관리 솔루션과 데이터는 미국에 상주합니다. 따라서 미국으로 데이터가 전송될 수 있습니다.
 
