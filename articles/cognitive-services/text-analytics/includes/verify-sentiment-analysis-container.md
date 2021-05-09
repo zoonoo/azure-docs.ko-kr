@@ -1,7 +1,7 @@
 ---
 title: 감정 분석 컨테이너 인스턴스 확인
 titleSuffix: Azure Cognitive Services
-description: 감정 분석 컨테이너 인스턴스를 확인 하는 방법에 대해 알아봅니다.
+description: 감정 분석 컨테이너 인스턴스를 확인하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,22 +11,22 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: d0a5e09f1d697c2f5f842edfb06be4b13229d095
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96009887"
 ---
 ### <a name="verify-the-sentiment-analysis-container-instance"></a>감정 분석 컨테이너 인스턴스 확인
 
-1. **개요** 탭을 선택 하 고 IP 주소를 복사 합니다.
-1. 새 브라우저 탭을 열고 IP 주소를 입력 합니다. 예를 들어를 입력 `http://<IP-address>:5000 (http://55.55.55.55:5000` 합니다. 컨테이너의 홈 페이지가 표시 됩니다. 그러면 컨테이너가 실행 중임을 알 수 있습니다.
+1. **개요** 탭을 선택하고 IP 주소를 복사합니다.
+1. 새 브라우저 탭을 열고 IP 주소를 입력합니다. 예를 들어 `http://<IP-address>:5000 (http://55.55.55.55:5000`을 입력합니다. 컨테이너가 실행 중임을 알려주는 컨테이너의 홈페이지가 표시됩니다.
 
-    ![컨테이너 홈 페이지를 확인 하 여 실행 중인지 확인 합니다.](../media/how-tos/container-instance/swagger-docs-on-container.png)
+    ![컨테이너 홈페이지를 확인하여 실행 중인지 확인합니다.](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
-1. **서비스 API 설명** 링크를 선택 하 여 컨테이너의 Swagger 페이지로 이동 합니다.
+1. **서비스 API 설명** 링크를 선택하여 컨테이너의 Swagger 페이지로 이동합니다.
 
-1. **POST** api 중 하나를 선택 하 고 **사용해 보기** 를 선택 합니다. 이 예제 입력을 포함 하는 매개 변수가 표시 됩니다.
+1. **POST** API 중 하나를 선택하고 **사용해 보기** 를 선택합니다. 이 예제 입력을 포함하는 매개 변수가 표시됩니다.
 
     ```json
     {
@@ -64,13 +64,13 @@ ms.locfileid: "96009887"
     }
     ```
 
-1. **Showstats** 를로 설정 `true` 합니다.
+1. **showStats** 를 `true`로 설정합니다.
 
-1. **실행** 을 선택 하 여 텍스트의 감정 확인 합니다.
+1. **실행** 을 선택하여 텍스트의 감정을 확인합니다.
 
-    컨테이너에 패키지 된 모델은 0에서 1 사이의 점수를 생성 합니다. 여기서 0은 음수 감정이 고 1은 양의 감정입니다.
+    컨테이너에 패키징된 모델은 0에서 1 사이의 점수를 생성합니다. 여기서 0은 부정적인 감정이고 1은 긍정적인 감정입니다.
 
-    반환 되는 JSON 응답에는 업데이트 된 텍스트 입력에 대 한 감정 포함 됩니다.
+    반환되는 JSON 응답에는 업데이트된 텍스트 입력에 대한 감정이 포함됩니다.
 
     ```json
     {
@@ -94,4 +94,4 @@ ms.locfileid: "96009887"
     }
     ```
 
-이제 `id` 응답 페이로드의 JSON 데이터 문서를 원래 요청 페이로드 문서와의 상관 관계를 지정할 수 있습니다 `id` . 이상 점수는 `0.98` 매우 긍정적인 감정 나타냅니다.
+이제 응답 페이로드의 JSON 데이터 문서 `id`를 원래 요청 페이로드 문서 `id`와 연관시킬 수 있습니다. `0.98`을 초과하는 점수는 매우 긍정적인 감정을 나타냅니다.

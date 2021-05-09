@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 08/18/2020
-ms.openlocfilehash: 90267f2b75b7b9c1e77a45d7e3faa4b0bf6dd63a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 492571ac76acfcf388954a4b714b6603aced7338
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91708546"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107672"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge 모듈
 
@@ -30,7 +30,7 @@ ms.locfileid: "91708546"
 
 ## <a name="what-is-an-iot-edge-module"></a>IoT Edge 모듈 소개
 
-Azure IoT Edge를 사용하면 에지에서 비즈니스 논리를 모듈 형태로 배포하고 관리할 수 있습니다. Azure IoT Edge 모듈은 IoT Edge에서 관리 되는 가장 작은 계산 단위 이며 Microsoft 서비스 (예: Azure Stream Analytics), 타사 서비스 또는 고유한 솔루션 관련 코드를 포함할 수 있습니다. IoT Edge 모듈에 대한 자세한 내용은 [Azure IoT Edge 모듈 이해](../iot-edge/iot-edge-modules.md)를 참조하세요.
+Azure IoT Edge를 사용하면 에지에서 비즈니스 논리를 모듈 형태로 배포하고 관리할 수 있습니다. Azure IoT Edge 모듈은 IoT Edge가 관리하는 최소 계산 단위이며 Microsoft 서비스(예: Azure Stream Analytics), 타사 서비스 또는 고유한 솔루션별 코드를 포함할 수 있습니다. IoT Edge 모듈에 대한 자세한 내용은 [Azure IoT Edge 모듈 이해](../iot-edge/iot-edge-modules.md)를 참조하세요.
 
 **컨테이너 제품 유형과 IoT Edge 모듈 제품 유형 간의 차이점**
 
@@ -40,7 +40,7 @@ IoT Edge 모듈 제품 유형은 IoT Edge 디바이스에서 실행되는 특정
 
 **올바른 온라인 저장소 선택**
 
-IoT Edge 모듈은 Azure Marketplace에만 게시 됩니다. AppSource는 적용 되지 않습니다. 온라인 상점 간의 차이점에 대 한 자세한 내용은 [게시 옵션 결정](determine-your-listing-type.md)을 참조 하세요.
+IoT Edge 모듈은 Azure Marketplace에만 게시되며 AppSource는 적용되지 않습니다. 온라인 상점 간의 차이점에 대한 자세한 내용은 [게시 옵션 결정](determine-your-listing-type.md)을 참조하세요.
 
 **청구 옵션**
 
@@ -58,12 +58,12 @@ IoT Edge 모듈 제품에는 Microsoft Azure Marketplace 계약 및 정책의 �
 
 IoT Edge 모듈을 Azure Marketplace에 게시하려면 다음 필수 구성 요소를 갖춰야 합니다.
 
-- 파트너 센터에 액세스합니다. 자세한 내용은 [파트너 센터에서 상용 마켓플레이스 계정 만들기](partner-center-portal/create-account.md)를 참조 하세요.
+- 파트너 센터에 액세스합니다. 자세한 내용은 [파트너 센터에서 상업용 Marketplace 계정 만들기](create-account.md)를 참조하세요.
 - Azure Container Registry에서 IoT Edge 모듈 호스팅
 - 다음과 같은 IoT Edge 모듈 메타데이터 준비(아래 목록에는 일부 메타데이터만 나와 있음)
     - 제목
     - 설명(HTML 형식)
-    - 로고 이미지 (48 x 48 (선택 사항), 90 x 90 (선택 사항) 및 216 x 216에서 350 x 350 px까지 모두 PNG 형식으로)
+    - 로고 이미지(48 x 48(선택 사항), 90 x 90(선택 사항) 및 216 x 216 ~ 350 x 350픽셀 크기, 모두 PNG 형식)
     - 사용 약관 및 개인정보처리방침
     - 기본 모듈 구성(경로, 원하는 속성 쌍, createOptions, 환경 변수)
     - 문서화
@@ -76,4 +76,4 @@ IoT Edge 모듈 인증을 받고 Azure Marketplace에 모듈을 게시하기 위
 ## <a name="next-steps"></a>다음 단계
 
 - 제품을 만들거나 완성할 수 있도록 [파트너 센터에 로그인](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)합니다.
-- 파트너 센터에서 [IoT Edge 모듈 제품을 만듭니다](./partner-center-portal/azure-iot-edge-module-creation.md) .
+- 파트너 센터에서 [IoT Edge 모듈 제품을 만듭니다](./partner-center-portal/azure-iot-edge-module-creation.md).
