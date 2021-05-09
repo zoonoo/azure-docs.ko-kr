@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/24/2021
+ms.date: 04/28/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 531a7c88e9b5375429efcd33fe51d761fe78d85f
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
-ms.translationtype: MT
+ms.openlocfilehash: 7651a30c4361fd7a91fee14213ad4383cb14700c
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105034834"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108174480"
 ---
-|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[권한 있는 IP 범위는 Kubernetes Services에 정의되어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0e246bcf-5f6f-4f87-bc6f-775d4712c7ea) |특정 범위의 IP 주소에만 API 액세스 권한을 부여하여 Kubernetes Service Management API에 대한 액세스를 제한합니다. 허용된 네트워크의 애플리케이션만 클러스터에 액세스할 수 있도록 인증된 IP 범위에 대한 액세스를 제한하는 것이 좋습니다. |감사, 사용 안 함 |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableIpRanges_KubernetesService_Audit.json) |
 |[Azure Kubernetes Service 프라이빗 클러스터를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F040732e8-d947-40b8-95d6-854c95024bf8) |API 서버와 노드 풀 간의 네트워크 트래픽이 개인 네트워크에만 유지되도록 프라이빗 클러스터 기능을 Azure Kubernetes Service 클러스터에 사용하도록 설정합니다. 이는 다양한 규정 및 업계 규정 준수 표준의 공통 요구 사항입니다. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_PrivateCluster_Deny.json) |
@@ -43,7 +43,7 @@ ms.locfileid: "105034834"
 |[Kubernetes 클러스터는 HTTPS를 통해서만 액세스할 수 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d) |HTTPS를 사용하여 인증을 보장하고, 네트워크 계층 도청 공격으로부터 전송 중인 데이터를 보호합니다. 이 기능은 현재 AKS(Kubernetes Service)로 일반 공급되며, AKS 엔진 및 Azure Arc 지원 Kubernetes에서 미리 보기로 제공됩니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc)을 방문하세요. |감사, 거부, 사용 안 함 |[6.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/IngressHttpsOnly.json) |
 |[Kubernetes 클러스터는 자동 탑재 API 자격 증명을 사용하지 않도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F423dd1ba-798e-40e4-9c4d-b6902674b423) |잠재적으로 손상된 Pod 리소스가 Kubernetes 클러스터에 대해 API 명령을 실행할 수 없도록 자동 탑재 API 자격 증명을 사용하지 않도록 설정합니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/BlockAutomountToken.json) |
 |[Kubernetes 클러스터는 컨테이너 권한 상승을 허용해서는 안 됨](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) |컨테이너가 Kubernetes 클러스터 루트로의 권한 상승을 통해 실행되는 것을 허용하지 않습니다. 이 권장 사항은 Kubernetes 환경의 보안을 향상시키기 위한 CIS 5.2.5의 일부입니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerNoPrivilegeEscalation.json) |
-|[Kubernetes 클러스터는 CAP_SYS_ADMIN 보안 기능을 부여 하면 안 됩니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd2e7ea85-6b44-4317-a0be-1b951587f626) |컨테이너의 공격 노출 영역을 줄이려면 CAP_SYS_ADMIN Linux 기능을 제한합니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerDisallowedSysAdminCapability.json) |
+|[Kubernetes 클러스터는 CAP_SYS_ADMIN 보안 기능을 부여하지 않아야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd2e7ea85-6b44-4317-a0be-1b951587f626) |컨테이너의 공격 노출 영역을 줄이려면 CAP_SYS_ADMIN Linux 기능을 제한합니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerDisallowedSysAdminCapability.json) |
 |[Kubernetes 클러스터는 특정 보안 기능을 사용하지 않아야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa27c700f-8a22-44ec-961c-41625264370b) |Kubernetes 클러스터의 특정 보안 기능을 차단하여 Pod 리소스에 대해 부여되지 않은 권한을 방지합니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerDisallowedCapabilities.json) |
 |[Kubernetes 클러스터는 기본 네임스페이스를 사용하지 않아야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9f061a12-e40d-4183-a00e-171812443373) |Kubernetes 클러스터에서 기본 네임스페이스를 사용하여 ConfigMap, Pod, Secret, Service 및 ServiceAccount 리소스 종류에 대한 무단 액세스를 방지합니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/BlockDefaultNamespace.json) |
 |[Kubernetes 클러스터는 내부 부하 분산 장치를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3fc4dc25-5baf-40d8-9b05-7fe74c1bc64e) |내부 부하 분산 장치를 사용하여 Kubernetes 클러스터와 동일한 가상 네트워크에서 실행되는 애플리케이션에서만 Kubernetes 서비스에 액세스할 수 있게 합니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[6.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/LoadbalancerNoPublicIPs.json) |

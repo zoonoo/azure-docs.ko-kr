@@ -1,18 +1,18 @@
 ---
 title: Azure Cognitive Search에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Cognitive Search에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 04/21/2021
+ms.date: 04/28/2021
 ms.topic: sample
 author: HeidiSteen
 ms.author: heidist
 ms.service: search
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: a8f452703826a68fde8c1b931ab8be7cbeeca6f1
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: fcd4b8aaa9cb749e808d94e7dc2beb8e228b6240
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107861946"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108179381"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-cognitive-search"></a>Azure Cognitive Search에 대한 Azure Policy 규정 준수 컨트롤
 

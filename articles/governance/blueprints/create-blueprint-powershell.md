@@ -1,16 +1,16 @@
 ---
 title: '빠른 시작: PowerShell로 청사진 만들기'
 description: 이 빠른 시작에서는 Azure Blueprints를 사용하여 PowerShell을 통해 아티팩트를 만들고 정의하고 배포합니다.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom:
 - mode-api
-ms.openlocfilehash: 29c43da0c1467c74ddc85a447a0cf9addb574c7e
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 8c568e223e12a6315e7fa5e63431f8102211f71a
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538893"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108323414"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>빠른 시작: PowerShell로 Azure Blueprint 정의 및 할당
 

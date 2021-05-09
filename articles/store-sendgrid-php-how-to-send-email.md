@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
-ms.openlocfilehash: b3a9fee09d1eac6fb4d716af83c348cb2c21f7a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed13dd922595a051db77426281f062efd5176f57
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96023791"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166731"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>PHP에서 SendGrid 메일 서비스를 사용하는 방법
 
@@ -28,6 +28,7 @@ ms.locfileid: "96023791"
 **전자 메일 작성**, **전자 메일 보내기**, **첨부 파일 추가** 등의 시나리오를 다룹니다. SendGrid 및 전자 메일 보내기에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
 
 ## <a name="what-is-the-sendgrid-email-service"></a>SendGrid 전자 메일 서비스 정의
+
 SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 신뢰할 만한 [트랜잭션 전자 메일 배달], 확장성 및 실시간 분석을 제공하는 [클라우드 기반 전자 메일 서비스]입니다. 일반적인 SendGrid 사용 시나리오는 다음과 같습니다.
 
 * 고객에게 확인 메일 자동으로 보내기
@@ -118,6 +119,7 @@ SendGrid SMTP API를 사용하여 메일을 보내려면 PHP 애플리케이션�
 ```
 
 ### <a name="web-api"></a>Web API
+
 PHP의 [curl 함수][curl function] 를 사용하여 SendGrid 웹 API를 사용하여 전자 메일을 보냅니다.
 
 ```php
@@ -309,7 +311,7 @@ SendGrid는 *필터* 사용을 통해 추가 전자 메일 기능을 제공합�
 php composer.phar require sendgrid/sendgrid 2.1.1
 ```
 
-### <a name="example"></a>예제  
+### <a name="example"></a>예제
 
 ```php
 <?php
@@ -404,7 +406,7 @@ php composer.phar require sendgrid/sendgrid 2.1.1
  $response = $sendgrid->send($email);
 
  print_r($response);
- ```
+```
 
 ## <a name="next-steps"></a>다음 단계
 

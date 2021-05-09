@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: a34881901fd8642fff9ac37512cd2ef260ad9d1c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: eb6f3c6a1463e2a3b71057145a6df770ea880b9d
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98954222"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108181169"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Workday 구성
 
@@ -137,8 +137,8 @@ Workday에서 Active Directory로 사용자 프로비저닝을 수행하도록 �
    * 통합에 적합한 보안 그룹 유형을 선택하려면 Workday 통합 파트너에게 문의하세요.
    * 그룹 유형을 알고 있으면 드롭다운에서 **통합 시스템 보안 그룹(비제한형)** 또는 **통합 시스템 보안 그룹(제한형)** 을 선택합니다 **.**
 
-     > [!div class="mx-imgBorder"]
-     >![보안 그룹 만들기](./media/workday-inbound-tutorial/wd_isu_04.png "보안 그룹 만들기")
+     > [!div class="mx-imgBorder&quot;]
+     >![보안 그룹 만들기](./media/workday-inbound-tutorial/wd_isu_04.png &quot;보안 그룹 만들기")
 
 3. 보안 그룹 생성이 완료되면 멤버를 보안 그룹에 할당할 수 있는 페이지가 표시됩니다. 이전 단계에서 만든 새 통합 시스템 사용자를 이 보안 그룹에 추가합니다. ‘제한형’ 보안 그룹을 사용하는 경우 적절한 조직 범위도 선택해야 합니다.
 
@@ -183,7 +183,7 @@ Workday에서 Active Directory로 사용자 프로비저닝을 수행하도록 �
 
 1. **확인** 을 클릭하고 다음 화면에서 **완료** 하여 구성을 완료합니다. 
 
-### <a name="configuring-business-process-security-policy-permissions"></a>비즈니스 프로세스 보안 정책 권한 구성
+### <a name="configuring-business-process-security-policy-permissions&quot;></a>비즈니스 프로세스 보안 정책 권한 구성
 
 이 단계에서는 보안 그룹에 대한 작업자 데이터에 “비즈니스 프로세스 보안” 정책 권한을 부여합니다. 
 
@@ -194,8 +194,8 @@ Workday에서 Active Directory로 사용자 프로비저닝을 수행하도록 �
 
 1. 검색 상자에 **비즈니스 프로세스 정책** 을 입력한 다음, **비즈니스 프로세스 보안 정책 편집** 작업 링크를 클릭합니다.  
 
-   >[!div class="mx-imgBorder"]
-   >![검색 상자의 "비즈니스 프로세스 정책" 및 선택한 "비즈니스 프로세스 보안 정책 편집 - 작업"을 보여 주는 스크린샷](./media/workday-inbound-tutorial/wd_isu_12.png "비즈니스 프로세스 보안 정책")  
+   >[!div class=&quot;mx-imgBorder&quot;]
+   >![검색 상자의 &quot;비즈니스 프로세스 정책&quot; 및 선택한 &quot;비즈니스 프로세스 보안 정책 편집 - 작업&quot;을 보여 주는 스크린샷](./media/workday-inbound-tutorial/wd_isu_12.png &quot;비즈니스 프로세스 보안 정책")  
 
 2. **비즈니스 프로세스 유형** 텍스트 상자에서 *연락처* 를 검색하고 **회사 연락처 변경** 비즈니스 프로세스를 선택하고 **확인** 을 클릭합니다.
 
@@ -557,7 +557,7 @@ Workday 프로비저닝 앱 구성이 완료되고 [주문형 프로비저닝](.
 
 #### <a name="how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent"></a>프로비전 에이전트가 Azure AD 테넌트와 통신할 수 있고 에이전트에 필요한 포트를 차단하는 방화벽이 없는지 확인하려면 어떻게 할까요?
 
-필요한 모든 [포트](../manage-apps/application-proxy-add-on-premises-application.md#open-ports)가 열려 있는지 확인할 수도 있습니다.
+필요한 모든 [포트](../app-proxy/application-proxy-add-on-premises-application.md#open-ports)가 열려 있는지 확인할 수도 있습니다.
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>단일 프로비전 에이전트가 여러 AD 도메인을 프로비전하도록 구성할 수 있나요?
 

@@ -3,12 +3,12 @@ title: PCI-DSS v3.2.1 청사진 샘플 제어
 description: Azure Policy 및 Azure RBAC에 대한 지불 카드 업계 데이터 보안 표준 v3.2.1 청사진 샘플의 제어 매핑입니다.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 028981e7c6fc6e3886781d33079dcdfa0aebcc39
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 7011f0b55e73f193fb85881ed18812de97876fda
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386086"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166670"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>PCI-DSS v3.2.1 청사진 샘플의 제어 매핑
 
@@ -65,7 +65,7 @@ Azure 구독 소유자가 한 명만 있으면 관리 중복이 허용되지 않
 
 이 청사진은 소유자, 쓰기 및/또는 읽기 권한이 있는 외부 계정과 다단계 인증을 사용하도록 설정되지 않은 소유자 및/또는 쓰기 권한이 있는 직원 계정을 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 권한 있는 액세스 권한을 제한하고 제어하는 데 도움이 됩니다. Azure RBAC(Azure 역할 기반 액세스 제어)는 Azure 리소스에 대한 액세스 권한이 있는 사용자를 관리하는 데 도움이 됩니다. 사용자 지정 Azure RBAC 규칙은 오류가 발생할 가능성이 높기 때문에 사용자 지정 Azure RBAC 규칙이 구현되는 경우를 이해하면 어떤 구현이 필요하고 적절한지 확인하는 데 도움이 될 수 있습니다. 또한 이 청사진은 SQL Server에 대한 Azure Active Directory 인증 사용을 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. Azure Active Directory 인증을 사용하면 권한 관리가 간소화되고 데이터베이스 사용자 및 기타 Microsoft  
 서비스의 ID 관리가 중앙 집중화됩니다.
- 
+
 - 소유자 권한이 있는 외부 계정은 구독에서 제거해야 합니다.
 - 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.
 - 읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.

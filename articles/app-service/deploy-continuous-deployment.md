@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/12/2021
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 52f0db739cff9614dc4e9f5ef71d582e926fc65a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 633d62fc69c516b482d5749a07052337dc71f567
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103470271"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789486"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Azure App Service에 지속적인 배포
 
@@ -119,7 +119,7 @@ GitHub Actions 빌드 공급자는 [GitHub의 CI/CD](#configure-deployment-sourc
 
 이 선택적 구성은 생성된 워크플로 파일의 게시 프로필로 기본 인증을 대체합니다.
 
-1. [Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 명령을 사용하여 서비스 주체를 생성할 수 있습니다. 다음 예제에서는 *\<subscription-id>* , *\<group-name>* 및 *\<app-name>* 값을 사용자 고유의 값으로 바꿉니다.
+1. [Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) 명령을 사용하여 서비스 주체를 생성할 수 있습니다. 다음 예제에서는 *\<subscription-id>* , *\<group-name>* 및 *\<app-name>* 값을 사용자 고유의 값으로 바꿉니다.
 
     ```azurecli-interactive
     az ad sp create-for-rbac --name "myAppDeployAuth" --role contributor \

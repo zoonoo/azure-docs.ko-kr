@@ -3,12 +3,12 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 09/15/2020
-ms.openlocfilehash: c28cfbbdff9e3fbf6cfe8d53ab7529c2ce9bd96e
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 5bd83dce0fa7154d14c22b1d1076e3bd1c7bcc76
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725155"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107931713"
 ---
 .NET용 Custom Vision 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 개체 검색 모델을 빌드하기 위한 예제 코드를 사용해 보세요. 프로젝트를 만들고, 태그를 추가하고, 샘플 이미지에서 프로젝트를 학습하고, 프로젝트의 예측 엔드포인트 URL을 사용하여 프로그래밍 방식으로 테스트합니다. 자체 이미지 인식 앱을 빌드하기 위한 템플릿으로 이 예제를 사용합니다.
 
@@ -172,7 +172,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.CustomVision.Predict
 
 ## <a name="publish-the-current-iteration"></a>현재 반복 게시
 
-다음 메서드는 모델의 현재 반복을 쿼리에 사용할 수 있도록 합니다. 모델 이름을 참조로 사용하여 예측 요청을 보낼 수 있습니다. `predictionResourceId`에 대한 고유한 값을 입력해야 합니다. Azure Portal에 있는 리소스의 **개요** 탭에서 **구독 ID** 로 나열된 예측 리소스 ID를 찾을 수 있습니다.
+다음 메서드는 모델의 현재 반복을 쿼리에 사용할 수 있도록 합니다. 모델 이름을 참조로 사용하여 예측 요청을 보낼 수 있습니다. `predictionResourceId`에 대한 고유한 값을 입력해야 합니다. Azure Portal에 있는 리소스의 **속성** 탭에서 **리소스 ID** 로 나열된 예측 리소스 ID를 찾을 수 있습니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ObjectDetection/Program.cs?name=snippet_publish)]
 

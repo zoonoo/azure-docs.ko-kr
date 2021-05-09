@@ -10,12 +10,13 @@ ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: e18825da64d0d200f55ce72985ac843b93b1e612
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e1262b70bae92f7cbc511067f37687240fb2e602
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96618793"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108285919"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Azure Active Directory Domain Services 관리형 도메인 만들기
 
@@ -23,7 +24,7 @@ Azure AD DS(Azure Active Directory Domain Services)는 Windows Server Active Dir
 
 이 문서에서는 Azure Resource Manager 템플릿을 사용하여 관리되는 도메인을 만드는 방법을 보여줍니다. 지원 리소스는 Azure PowerShell을 사용하여 생성됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서를 완료하려면 다음 리소스가 필요합니다.
 

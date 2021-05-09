@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 7a88d8a0065ca7f5cb054d23295e5cfbc23489ca
-ms.sourcegitcommit: 91361cbe8fff7c866ddc4835251dcbbe2621c055
+ms.openlocfilehash: fb46adc6de32befd554047eded18ca16ab76dde1
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "105728592"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286765"
 ---
 # <a name="quickstart-handle-sms-events-for-delivery-reports-and-inbound-messages"></a>빠른 시작: 배달 보고서 및 인바운드 메시지에 대한 SMS 이벤트 처리
 
@@ -65,7 +65,7 @@ Azure Portal에서 다음을 수행합니다.
 
 **시스템 항목 이름** 을 제공하라는 메시지가 표시되면 고유한 문자열을 자유롭게 제공합니다. 이 필드는 사용자 환경에 영향을 주지 않으며 내부 원격 분석 용도로 사용됩니다.
 
-[Azure Communication Services에서 지원하는 이벤트](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services)의 전체 목록을 확인하세요.
+[Azure Communication Services에서 지원하는 이벤트](../../../event-grid/event-schema-communication-services.md)의 전체 목록을 확인하세요.
 
 :::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="선택한 SMS 받음 및 SMS 전송 보고서 받음 이벤트 유형을 보여 주는 스크린샷":::
 
@@ -90,7 +90,7 @@ Azure Portal에서 다음을 수행합니다.
 - Communication Services 전화 번호에서 문자 메시지를 받으면 `SMS Received` 이벤트가 생성됩니다. 이벤트를 트리거하려면 메시지를 휴대폰에서 Communication Services 리소스에 연결된 전화 번호로 보내기만 하면 됩니다.
 - Communication Services 전화 번호를 사용하여 사용자에게 SMS를 보내면 `SMS Delivery Report Received` 이벤트가 생성됩니다. 이벤트를 트리거하려면 [SMS 보냄](../telephony-sms/send.md) 옵션에서 `Delivery Report`를 사용하도록 설정해야 합니다. `Delivery Report`를 사용하여 메시지를 휴대폰에 보내보세요. 이 작업이 완료되면 Azure 계정에서 몇 USD 센트 이하의 작은 비용이 발생합니다.
 
-[Azure Communication Services에서 지원하는 이벤트](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services)의 전체 목록을 확인하세요.
+[Azure Communication Services에서 지원하는 이벤트](../../../event-grid/event-schema-communication-services.md)의 전체 목록을 확인하세요.
 
 ### <a name="receiving-sms-events"></a>SMS 이벤트 받기
 
@@ -100,7 +100,7 @@ Azure Portal에서 다음을 수행합니다.
 
 :::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="SMS 전송 보고서 이벤트에 대한 Event Grid 스키마가 표시된 스크린샷":::
 
-[이벤트 스키마 및 기타 이벤트 개념](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services)에 대해 자세히 알아보세요.
+[이벤트 스키마 및 기타 이벤트 개념](../../../event-grid/event-schema-communication-services.md)에 대해 자세히 알아보세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -3,12 +3,12 @@ title: 자습서 - 프라이빗 클라우드에 액세스
 description: Azure VMware Solution 프라이빗 클라우드에 액세스하는 방법 알아보기
 ms.topic: tutorial
 ms.date: 03/13/2021
-ms.openlocfilehash: f2af1cffda08bf4b9c62e63f32d36cc9bbd7024a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d2046acaf483022f977559fe74254ca58b8c42ea
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103494396"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107945650"
 ---
 # <a name="tutorial-access-an-azure-vmware-solution-private-cloud"></a>자습서: Azure VMware Solution 프라이빗 클라우드에 액세스
 
@@ -24,7 +24,31 @@ Azure VMware Solution을 사용하면 온-프레미스 vCenter에서 프라이�
 
 ## <a name="create-a-new-windows-virtual-machine"></a>새 Windows 가상 머신 만들기
 
-[!INCLUDE [create-avs-jump-box-steps](includes/create-jump-box-steps.md)]
+1. 리소스 그룹에서 **+ 추가** 를 선택하고, **Microsoft Windows 10** 을 검색하여 선택한 다음, **만들기** 를 선택합니다.
+
+   :::image type="content" source="media/tutorial-access-private-cloud/ss8-azure-w10vm-create.png" alt-text="점프 상자에 새 Windows 10 VM을 추가하는 방법의 스크린샷" border="true":::
+
+1. 필드에서 필요한 정보를 입력한 다음, **검토 + 만들기** 를 선택합니다. 
+
+   필드에 대한 자세한 내용은 다음 표를 참조하세요.
+
+   | 필드 | 값 |
+   | --- | --- |
+   | **구독** | 값은 리소스 그룹에 속하는 구독으로 미리 채워져 있습니다. |
+   | **리소스 그룹** | 값은 이전 자습서에서 만든 현재 리소스 그룹에 대해 미리 채워져 있습니다.  |
+   | **가상 머신 이름** | VM에 대한 고유한 이름을 입력합니다. |
+   | **지역** | VM의 지리적 위치를 선택합니다. |
+   | **가용성 옵션** | 선택된 기본값을 그대로 둡니다. |
+   | **이미지** | VM 이미지를 선택합니다. |
+   | **크기** | 기본 크기 값을 그대로 둡니다. |
+   | **인증 유형**  | **암호** 를 선택합니다. |
+   | **사용자 이름** | VM에 로그온하기 위한 사용자 이름을 입력합니다. |
+   | **암호** | VM에 로그온하기 위한 암호를 입력합니다. |
+   | **암호 확인** | VM에 로그온하기 위한 암호를 입력합니다. |
+   | **퍼블릭 인바운드 포트** | **없음** 을 선택합니다. [없음]이 선택되면 [JIT 액세스](../security-center/security-center-just-in-time.md#jit-configure)를 사용하여 VM에 액세스하려는 경우에만 VM에 대한 액세스를 제어할 수 있습니다. 또는 네트워크 포트를 노출하지 않고 인터넷에서 안전하게 점프 상자 서버에 액세스하려는 경우 [Azure Bastion](../bastion/tutorial-create-host-portal.md)을 사용할 수 있습니다.  |
+
+
+1. 유효성 검사가 통과되면 **만들기** 를 선택하여 가상 머신 만들기 프로세스를 시작합니다.
 
 ## <a name="connect-to-the-local-vcenter-of-your-private-cloud"></a>프라이빗 클라우드의 로컬 vCenter에 연결
 

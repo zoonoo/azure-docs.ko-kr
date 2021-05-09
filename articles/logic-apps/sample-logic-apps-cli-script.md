@@ -7,16 +7,16 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/30/2020
-ms.openlocfilehash: 8086ce0e5964d4e37a5ffc3082d5f2856058e4e5
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: b81d9b4a637965dd103d8fa89305424686a0c72c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107875488"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789918"
 ---
 # <a name="azure-cli-script-sample---create-a-logic-app"></a>Azure CLI 스크립트 샘플 - 논리 앱 만들기
 
-이 스크립트는 [Azure CLI Logic Apps 확장](/cli/azure/logic)(`az logic`)을 통해 샘플 논리 앱을 만듭니다. Azure CLI를 통해 논리 앱을 만들고 관리하는 방법에 대한 자세한 가이드는 [Azure CLI의 Logic Apps 빠른 시작](quickstart-logic-apps-azure-cli.md)을 참조하세요.
+이 스크립트는 [Azure CLI Logic Apps 확장](/cli/azure/ext/logic/logic)(`az logic`)을 통해 샘플 논리 앱을 만듭니다. Azure CLI를 통해 논리 앱을 만들고 관리하는 방법에 대한 자세한 가이드는 [Azure CLI의 Logic Apps 빠른 시작](quickstart-logic-apps-azure-cli.md)을 참조하세요.
 
 > [!WARNING]
 > Azure CLI Logic Apps 확장은 현재 *실험 단계* 이며 *고객 지원에서 다루지 않습니다*. 특히 프로덕션 환경에서 이 확장을 사용하도록 선택하는 경우 이 CLI 확장을 주의해서 사용해야 합니다.
@@ -198,7 +198,7 @@ az group delete --name testResourceGroup --yes
 | 명령 | 메모 |
 | ------- | ----- |
 | [`az group create`](/cli/azure/group#az_group_create) | 논리 앱의 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [`az logic workflow create`](/cli/azure/logic/workflow#az_logic_workflow_create) | `--definition` 매개 변수에 정의된 워크플로를 기반으로 논리 앱을 만듭니다. |
+| [`az logic workflow create`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create) | `--definition` 매개 변수에 정의된 워크플로를 기반으로 논리 앱을 만듭니다. |
 | [`az group delete`](/cli/azure/vm/extension) | 리소스 그룹과 모든 중첩 리소스를 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계

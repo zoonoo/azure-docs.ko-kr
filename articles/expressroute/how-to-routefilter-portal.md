@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/15/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: d142028d197f9e279b5f1e05757946dc40d2c153
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 64a721514783c0cda1d4c2a859e25ed6589653b8
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92109139"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107931022"
 ---
 # <a name="tutorial-configure-route-filters-for-microsoft-peering-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Microsoft 피어링에 대한 경로 필터 구성
 
@@ -48,7 +48,7 @@ Microsoft 피어링이 ExpressRoute 회로에 구성되면 Microsoft Edge 라우
 경로 필터를 Microsoft 365 서비스에 연결하려면 ExpressRoute를 통해 Microsoft 365 서비스를 사용할 수 있는 권한이 부여되어야 합니다. ExpressRoute를 통해 Microsoft 365 서비스를 사용할 수 있는 권한이 부여되지 않으면 경로 필터를 연결하는 작업이 실패합니다. 권한 부여 프로세스에 대한 자세한 내용은 [Microsoft 365용 Azure ExpressRoute](/microsoft-365/enterprise/azure-expressroute)를 참조하세요.
 
 > [!IMPORTANT]
-> 경로 필터를 정의하지 않은 경우에도 2017년 8월 1일 이전에 구성된 ExpressRoute 회로의 Microsoft 피어링에는 Microsoft 피어링을 통해 보급된 모든 서비스 접두사가 포함됩니다. 2017년 8월 1일 이후에 구성되는 ExpressRoute 회로의 Microsoft 피어링에는 경로 필터를 회로에 연결할 때까지 접두사가 보급되지 않습니다.
+> 경로 필터를 정의하지 않은 경우에도 2017년 8월 1일 이전에 구성된 ExpressRoute 회로의 Microsoft 피어링에는 Microsoft 피어링을 통해 보급된 모든 Microsoft Office 서비스 접두사가 포함됩니다. 2017년 8월 1일 이후에 구성되는 ExpressRoute 회로의 Microsoft 피어링에는 경로 필터를 회로에 연결할 때까지 접두사가 보급되지 않습니다.
 > 
 
 ## <a name="prerequisites"></a>필수 구성 요소

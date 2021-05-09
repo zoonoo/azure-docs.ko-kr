@@ -9,16 +9,14 @@ ms.author: rifox
 ms.date: 03/12/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 185cd5d33b15c4c1976fa82ccc75dcd661a36449
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 3c6464ff23b269b738023b8f8e187d9123da70ca
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107737535"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290455"
 ---
 # <a name="samples"></a>샘플
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include-android-ios.md)]
 
 Azure Communication Services에는 사용자 고유의 애플리케이션 또는 사용 사례를 만들기 전에 ACS 서비스 및 기능을 테스트하는 데 사용할 수 있는 많은 샘플이 있습니다.
 
