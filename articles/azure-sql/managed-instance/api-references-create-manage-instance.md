@@ -4,19 +4,18 @@ description: Azure SQL Managed Instance의 관리형 인스턴스 만들기 및 
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
-ms.custom: devx-track-azurecli
 ms.devlang: ''
 ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 148b24aea42072f1901c76c7a09a126340ef9951
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 571e48b7090f9ad6d74c672d84df3546f2bfa0a2
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784374"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070356"
 ---
 # <a name="managed-api-reference-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대한 관리 API 참조
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,7 +37,7 @@ Azure PowerShell을 사용하여 Managed Instance를 만들고 관리하려면 �
 > [!TIP]
 > PowerShell 예제 스크립트는 [빠른 시작 스크립트: PowerShell 라이브러리를 이용한 관리형 인스턴스 만들기](/archive/blogs/sqlserverstorageengine/quick-start-script-create-azure-sql-managed-instance-using-powershell)를 참조하세요.
 
-| Cmdlet | Description |
+| Cmdlet | 설명 |
 | --- | --- |
 |[New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance)|관리형 인스턴스를 만듭니다. |
 |[Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance)|관리형 인스턴스 관련 정보를 반환합니다.|
@@ -58,7 +57,7 @@ Azure PowerShell을 사용하여 Managed Instance를 만들고 관리하려면 �
 > [!TIP]
 > Azure CLI 빠른 시작을 보려면 [Azure CLI를 사용하여 SQL Managed Instance 작업](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44)을 참조하세요.
 
-| Cmdlet | Description |
+| Cmdlet | 설명 |
 | --- | --- |
 |[az sql mi create](/cli/azure/sql/mi#az_sql_mi_create) |관리형 인스턴스를 만듭니다.|
 |[az sql mi list](/cli/azure/sql/mi#az_sql_mi_list)|사용 가능한 관리형 인스턴스를 나열합니다.|
@@ -83,7 +82,7 @@ Azure PowerShell을 사용하여 Managed Instance를 만들고 관리하려면 �
 > [!IMPORTANT]
 > Transact-SQL을 사용하여 관리형 인스턴스를 만들거나 삭제할 수 없습니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 |[CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?preserve-view=true&view=azuresqldb-mi-current)|SQL Managed Instance에서 새 인스턴스 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결해야 합니다.|
 | [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-mi-current) |SQL Managed Instance에서 인스턴스 데이터베이스를 수정합니다.|
@@ -92,7 +91,7 @@ Azure PowerShell을 사용하여 Managed Instance를 만들고 관리하려면 �
 
 관리형 인스턴스를 만들고 구성하려면 다음 REST API 요청을 사용합니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 |[Managed Instances - Create 또는 Update](/rest/api/sql/managedinstances/createorupdate)|관리형 인스턴스를 만들거나 업데이트합니다.|
 |[Managed Instances - Delete](/rest/api/sql/managedinstances/delete)|관리형 인스턴스를 삭제합니다.|

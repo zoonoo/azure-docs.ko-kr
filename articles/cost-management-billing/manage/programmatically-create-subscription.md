@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 03/11/2021
 ms.reviewer: andalmia
 ms.author: banders
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 546ed24b5f9e7892f40c9d425b668f60ad705f8f
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ce08ebf473b11eecae327c7de050c791f5bc1b1a
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493891"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379012"
 ---
 # <a name="create-azure-subscriptions-programmatically"></a>프로그래밍 방식으로 Azure 구독 만들기
 
@@ -36,9 +36,9 @@ REST API를 사용하여 다른 계약 유형에 대한 추가 구독을 프로�
 - [MCA 구독 만들기](programmatically-create-subscription-microsoft-customer-agreement.md)
 - [MPA 구독 만들기](programmatically-create-subscription-microsoft-partner-agreement.md)
 
-[미리 보기 API](programmatically-create-subscription-preview.md)를 사용하는 경우에도 계속해서 구독을 만들 수 있습니다. 
+또한 이 문서에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 구독을 만드는 방법을 보여 줍니다. ARM 템플릿을 사용하면 구독 생성 프로세스를 자동화할 수 있습니다.
 
-또한 [ARM 템플릿을 사용하여 구독을 생성](create-subscription-template.md)할 수 있습니다. ARM 템플릿은 REST API를 사용하여 구독 생성 프로세스를 자동화하는 데 도움이 됩니다. 
+[미리 보기 API](programmatically-create-subscription-preview.md)를 사용하는 경우에도 이 API를 사용하여 계속 구독을 만들 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

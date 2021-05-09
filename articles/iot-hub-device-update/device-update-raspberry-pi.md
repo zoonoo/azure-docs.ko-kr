@@ -1,17 +1,17 @@
 ---
 title: Raspberry Pi 3 B+ 참조 Yocto 이미지를 사용하는 Azure IoT Hub에 대한 디바이스 업데이트 자습서 | Microsoft Docs
 description: Raspberry Pi 3 B+ 참조 Yocto 이미지를 사용하는 Azure IoT Hub에 대한 디바이스 업데이트를 시작합니다.
-author: valls
+author: ValOlson
 ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 143a7c411bea6a451645c860b7b5d12d2aa8d9f5
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: c330cc4e5721fab9d7336fd5b111d8cef67e170c
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121339"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070230"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-raspberry-pi-3-b-reference-image"></a>Raspberry Pi 3 B+ 참조 Yocto 이미지를 사용하는 Azure IoT Hub에 대한 디바이스 업데이트 자습서
 
@@ -19,7 +19,7 @@ IoT Hub에 대한 디바이스 업데이트는 이미지 기반 및 패키지 �
 
 이미지 업데이트는 디바이스의 최종 상태에서 더 높은 수준의 신뢰도를 제공합니다. 일반적으로 사전 프로덕션 환경과 프로덕션 환경 간에 이미지 업데이트 결과를 복제하는 것이 더 쉽습니다. 패키지 및 해당 종속성과 동일한 문제를 일으키지 않기 때문입니다. 원자성 특성 때문에 A/B 장애 조치(failover) 모델을 쉽게 채택할 수 있습니다.
 
-이 자습서에서는 IoT Hub에 대한 디바이스 업데이트를 사용하여 엔드투엔드 이미지 기반 업데이트를 완료하는 단계를 안내합니다. 
+이 자습서에서는 Raspberry Pi 3 B+ 보드에서 Device Update for IoT Hub를 사용하여 엔드투엔드 이미지 기반 업데이트를 완료하는 단계를 설명합니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -35,7 +35,7 @@ IoT Hub에 대한 디바이스 업데이트는 이미지 기반 및 패키지 �
 
 ## <a name="download-image"></a>이미지 다운로드
 
-지정된 [디바이스 업데이트 GitHub 릴리스](https://github.com/Azure/iot-hub-device-update/releases)에서는 세 개의 이미지를 "자산"의 일부로 사용할 수 있습니다. 기본 이미지(adu-base-image) 및 하나의 업데이트 이미지(adu-update-image)가 제공되므로 디바이스에서 SD 카드를 플래시하지 않고도 다른 버전으로 출시할 수 있습니다. 이렇게 하려면 가져오기의 일부로 IoT Hub에 대한 디바이스 업데이트 서비스에 업데이트 이미지를 업로드해야 합니다.
+[디바이스 업데이트 GitHub 릴리스 페이지](https://github.com/Azure/iot-hub-device-update/releases)의 "자산"에 샘플 이미지가 있습니다. swUpdate 파일은 Raspberry Pi B3+ 보드에서 플래시할 수 있는 기본 이미지이며 .gz 파일은 Device Update for IoT Hub를 통해 가져올 업데이트입니다. 
 
 ## <a name="flash-sd-card-with-image"></a>이미지를 사용하여 SD 카드 플래시
 
@@ -75,19 +75,21 @@ Azure IoT Hub에 대한 디바이스 업데이트 소프트웨어에는 다음 �
    * [IoT Hub에 대한 디바이스 업데이트 라이선스](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
    * [배달 최적화 클라이언트 라이선스](https://github.com/microsoft/do-client/blob/main/LICENSE)
    
-에이전트를 사용하기 전에 사용 조건을 읽어보세요. 설치 및 사용하면 이러한 사용 조건에 동의하게 됩니다. 사용 조건에 동의하지 않는 경우 IoT Hub에 대한 디바이스 업데이트 에이전트를 사용하지 마세요.
+에이전트를 사용하기 전에 사용 조건을 읽어보세요. 설치 및 사용하면 이러한 사용 조건에 동의하게 됩니다. 사용 조건에 동의하지 않는 경우 IoT Hub 에이전트에 대한 디바이스 업데이트를 사용하지 마세요.
 
-## <a name="create-device-in-iot-hub-and-get-connection-string"></a>IoT Hub에서 디바이스를 만들고 연결 문자열을 가져옵니다.
+## <a name="create-device-or-module-in-iot-hub-and-get-connection-string"></a>IoT Hub에서 디바이스나 모듈 만들기 및 연결 문자열 가져오기
 
 이제 디바이스를 Azure IoT Hub에 추가해야 합니다.  Azure IoT Hub 내에서 디바이스에 대한 연결 문자열이 생성됩니다.
 
 1. Azure Portal에서 Azure IoT Hub를 시작합니다.
 2. 새 디바이스를 만듭니다.
-3. 페이지 왼쪽에서 '탐색기' > 'IoT 디바이스'로 이동하여 "새로 만들기"를 선택합니다.
+3. 페이지 왼쪽에서 'IoT 디바이스'로 이동 > "새로 만들기"를 선택합니다.
 4. '디바이스 ID' 아래에 디바이스 이름을 입력합니다. - "키 자동 생성" 확인란이 선택되어 있는지 확인하세요.
 5. '저장'을 선택합니다.
-6. 이제 '디바이스' 페이지로 돌아가면 만든 디바이스가 목록에 표시됩니다. 해당 디바이스를 선택합니다.
-7. 디바이스 보기에서 '기본 연결 문자열' 옆의 '복사' 아이콘을 선택합니다.
+6. 이제 '디바이스' 페이지로 돌아가면 만든 디바이스가 목록에 표시됩니다. 
+7. 디바이스 연결 문자열을 가져옵니다.
+    - 옵션 1 모듈 ID로 디바이스 업데이트 에이전트 사용: 동일한 '디바이스' 페이지 맨 위에 있는 '+ 모듈 ID 추가'를 클릭합니다. 이름이 'IoTHubDeviceUpdate'인 새 디바이스 업데이트 모듈을 만들고 사용 사례에 적용되는 다른 옵션을 선택한 다음, '저장'을 클릭합니다. 새로 만든 '모듈'을 클릭하고 모듈 보기에서 '기본 연결 문자열' 옆에 있는 '복사' 아이콘을 선택합니다.
+    - 옵션 2 디바이스 ID로 디바이스 업데이트 에이전트 사용: 디바이스 보기에서 '기본 연결 문자열' 옆에 있는 '복사' 아이콘을 선택합니다.
 8. 아래 단계에서 나중에 사용할 복사한 문자를 임의 위치에 붙여넣습니다.
    **복사된 이 문자열은 디바이스 연결 문자열입니다**.
 
@@ -110,9 +112,9 @@ Azure IoT Hub에 대한 디바이스 업데이트 소프트웨어에는 다음 �
 
 ## <a name="connect-the-device-in-device-update-iot-hub"></a>디바이스 업데이트 IoT Hub에서 디바이스 연결
 
-1. 페이지 왼쪽에서 '탐색기' 아래의 'IoT 디바이스'를 선택합니다.
+1. 페이지 왼쪽에서 'IoT 디바이스'를 선택합니다.
 2. 디바이스 이름을 사용하여 링크를 선택합니다.
-3. 페이지 맨 위에서 '디바이스 쌍'을 선택합니다.
+3. IoT 디바이스 ID를 사용하여 디바이스 업데이트에 직접 연결할 경우 페이지 맨 위에 있는 '디바이스 쌍'을 선택합니다. 그렇지 않으면 위에서 만든 모듈을 선택하고 '모듈 쌍'을 클릭합니다.
 4. 디바이스 쌍 속성의 '보고됨' 섹션에서 Linux 커널 버전을 찾습니다.
 디바이스 업데이트에서 업데이트를 받지 않은 새 디바이스의 경우 [DeviceManagement:DeviceInformation:1.swVersion](device-update-plug-and-play.md) 값은 디바이스에서 실행되는 펌웨어 버전을 나타냅니다.  업데이트가 디바이스에 적용되면 디바이스 업데이트는 [AzureDeviceUpdateCore:ClientMetadata:4.installedUpdateId](device-update-plug-and-play.md) 속성 값을 사용하여 디바이스에서 실행되는 펌웨어 버전을 나타냅니다.
 5. 기본 이미지와 업데이트 이미지 파일의 이름에는 버전 번호가 있습니다.

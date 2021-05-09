@@ -1,5 +1,5 @@
 ---
-title: 여러 Nic를 사용 하는 Azure에서 Windows Vm 만들기 및 관리
+title: Azure에서 여러 NIC를 사용하는 Windows VM 만들기 및 관리
 description: Azure PowerShell 또는 Resource Manager 템플릿을 사용하여 여러 NIC가 연결된 Windows VM을 만들고 관리하는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
 ms.openlocfilehash: 2664d175818a6e29dcd3f704c6938987bae050cd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102555179"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>여러 NIC가 있는 Windows 가상 컴퓨터 만들기 및 관리
@@ -25,7 +25,7 @@ Azure의 VM(가상 머신)에는 여러 가상 NIC(네트워크 인터페이스 
  
 
 ## <a name="create-a-vm-with-multiple-nics"></a>여러 NIC를 사용하여 VM 만들기
-먼저 리소스 그룹을 만듭니다. 다음 예에서는 *E미국* 위치에 *myresourcegroup* 이라는 리소스 그룹을 만듭니다.
+먼저 리소스 그룹을 만듭니다. 다음 예제에서는 *EastUs* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```powershell
 New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"

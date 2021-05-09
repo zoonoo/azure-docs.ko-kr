@@ -1,24 +1,18 @@
 ---
 title: '자습서: 규정 준수 검사 - Azure Security Center'
 description: '자습서: Azure Security Center를 사용하여 규정 준수를 개선하는 방법을 알아봅니다.'
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 5f50c4dc-ea42-418d-9ea8-158ffeb93706
 ms.service: security-center
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/10/2021
+ms.date: 04/21/2021
 ms.author: memildin
-ms.openlocfilehash: 284a7f532ed918397fe1cfcf3458bbc6fb0bdd32
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 06a42629df1f22eeb7a90ef5ce4da2ef53162391
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739011"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123162"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>자습서: 규정 준수 개선
 
@@ -26,7 +20,7 @@ Azure Security Center를 통해 **규정 준수 대시보드** 를 사용하여 
 
 Security Center는 하이브리드 클라우드 환경을 지속적으로 평가하여 구독에 적용되는 표준의 제어 및 모범 사례에 따라 위험 요인을 분석합니다. 대시보드는 이러한 표준 준수 상태를 반영합니다. 
 
-Azure 구독에서 Security Center를 사용하도록 설정하면 [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)가 해당 구독에 자동으로 할당됩니다. 널리 인정받는 이 벤치마크는 클라우드 중심 보안에 초점을 맞춘 [CIS(Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) 및 [NIST(National Institute of Standards and Technology)](https://www.nist.gov/)의 컨트롤을 기반으로 합니다.
+Azure 구독에서 Security Center를 사용하도록 설정하면 [Azure Security Benchmark](/security/benchmark/azure/introduction)가 해당 구독에 자동으로 할당됩니다. 널리 인정받는 이 벤치마크는 클라우드 중심 보안에 초점을 맞춘 [CIS(Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) 및 [NIST(National Institute of Standards and Technology)](https://www.nist.gov/)의 컨트롤을 기반으로 합니다.
 
 규정 준수 대시보드에는 선택한 표준 및 규정에 대한 환경 내의 모든 평가 상태가 표시됩니다. 권장 사항에 따라 작업하고 환경에서 위험 요소를 줄임에 따라 규정 준수 상태가 개선됩니다.
 
@@ -135,14 +129,15 @@ Security Center의 워크플로 자동화 기능은 규정 준수 평가 중 하
 - [규정 준수 데이터가 포함된 보고서를 PDF 이외의 형식으로 다운로드하려면 어떻게 해야 하나요?](#how-can-i-download-a-report-with-compliance-data-in-a-format-other-than-pdf)
 - [규정 준수 대시보드의 일부 정책에 대한 예외를 어떻게 만들 수 있나요?](#how-can-i-create-exceptions-for-some-of-the-policies-in-the-regulatory-compliance-dashboard)
 - [규정 준수 대시보드를 사용하려면 어떤 Azure Defender 플랜 또는 라이선스가 필요한가요?](#what-azure-defender-plans-or-licenses-do-i-need-to-use-the-regulatory-compliance-dashboard)
+- [무슨 벤치마크나 표준을 사용하는지 알아보려면 어떻게 할까요?](#how-do-i-know-which-benchmark-or-standard-to-use)
 
 ### <a name="what-standards-are-supported-in-the-compliance-dashboard"></a>규정 준수 대시보드에서 지원되는 표준은 무엇인가요?
 기본적으로 규정 준수 대시보드는 Azure Security Benchmark를 표시합니다. Azure Security Benchmark는 일반적인 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침입니다. [Azure Security Benchmark 소개](../security/benchmarks/introduction.md)에서 자세히 알아보세요.
 
 다른 표준을 준수하는지 추적하려면 대시보드에 명시적으로 추가해야 합니다.
  
-Azure CIS 1.1.0(신규), NIST SP 800-53 R4, NIST SP 800-171 R2, SWIFT CSP CSCF-v2020, 영국 공식 및 영국 NHS, HIPAA HITRUST, 캐나다 연방 PBMM, ISO 27001, SOC2-TSP 및 PCI DSS 3.2.1과 같은 표준을 추가할 수 있습니다.  
- 
+Azure CIS 1.3.0, NIST SP 800-53, NIST SP 800-171, SWIFT CSP CSCF-v2020, 영국 공식 및 영국 NHS, HIPAA, 캐나다 연방 PBMM, ISO 27001, SOC2-TSP 및 PCI-DSS 3.2.1과 같은 기타 표준을 추가할 수 있습니다.  
+
 더 많은 표준이 대시보드에 추가되고 [규정 준수 대시보드에서 표준 집합 사용자 지정](update-regulatory-compliance-packages.md) 정보에 포함됩니다.
 
 ### <a name="why-do-some-controls-appear-grayed-out"></a>일부 컨트롤이 회색으로 표시되는 이유는 무엇인가요?
@@ -195,7 +190,12 @@ Security Center에 기본 제공되고 보안 점수에 포함된 정책의 경�
 Azure 리소스 유형에서 사용하도록 설정된 Azure Defender 패키지가 있는 경우 Security Center에서 모든 데이터와 함께 규정 준수 대시보드에 액세스할 수 있습니다.
 
 
+### <a name="how-do-i-know-which-benchmark-or-standard-to-use"></a>무슨 벤치마크나 표준을 사용하는지 알아보려면 어떻게 할까요?
+ASB([Azure Security Benchmark](/security/benchmark/azure/introduction))는 Microsoft에서 정의한 보안 권장 사항과 모범 사례의 정식 집합으로, [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/) 및 [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)을 비롯한 일반적인 규정 준수 제어 프레임워크를 따릅니다. ASB는 매우 포괄적인 벤치마크이며 다양한 Azure 서비스의 최신 보안 기능을 권장하도록 설계되었습니다. 보안 상태를 극대화하고 규정 준수 상태를 업계 표준으로 조정할 수 있는 고객은 ASB를 사용하는 것이 좋습니다.
 
+[CIS Benchmark](https://www.cisecurity.org/benchmark/azure/)는 독립 엔터티(CIS(인터넷 보안 센터))에서 작성되며 핵심 Azure 서비스의 하위 집합에 대한 권장 사항을 포함합니다. Microsoft는 CIS를 사용하여 Azure의 최신 개선 사항과 함께 권장 사항이 최신 상태로 유지되도록 노력하고 있습니다. 하지만 권장 사항이 뒤쳐져 오래되는 경우도 있습니다. 그럼에도 불구하고 일부 고객은 초기 및 기본 보안 기준으로 CIS의 타사 평가를 이 목적으로 사용하려고 합니다.
+
+Azure Security Benchmark가 출시되었으므로 많은 고객이 CIS 벤치마크의 대체로 Azure Security Benchmark를 사용하기로 결정했습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

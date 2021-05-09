@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/26/2021
 ms.author: jushiman
 ms.openlocfilehash: a9c832d9a5e90cb2c9ffcbe8a26cdb08ebcddfcc
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102553122"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2세대 VM 지원
@@ -79,13 +79,13 @@ Azure는 현재 온-프레미스 Hyper-V가 2세대 VM에 대해 지원하는 �
 
 | 2세대 기능                | 온-프레미스 Hyper-V | Azure |
 |-------------------------------------|---------------------|-------|
-| 보안 부팅                         | :heavy_check_mark:  | 신뢰할 수 있는 시작 (미리 보기)   |
+| 보안 부팅                         | :heavy_check_mark:  | 신뢰할 수 있는 시작(미리 보기)   |
 | 보호된 VM                         | :heavy_check_mark:  | :x:   |
-| vTPM                                | :heavy_check_mark:  | 신뢰할 수 있는 시작 (미리 보기)  |
-| VBS(가상화 기반 보안) | :heavy_check_mark:  | 신뢰할 수 있는 시작 (미리 보기)   |
+| vTPM                                | :heavy_check_mark:  | 신뢰할 수 있는 시작(미리 보기)  |
+| VBS(가상화 기반 보안) | :heavy_check_mark:  | 신뢰할 수 있는 시작(미리 보기)   |
 | VHDX 형식                         | :heavy_check_mark:  | :x:   |
 
-자세한 내용은 [신뢰할 수 있는 시작 (미리 보기)](trusted-launch.md)을 참조 하세요.
+자세한 내용은 [신뢰할 수 있는 시작(미리 보기)](trusted-launch.md)을 참조하세요.
 
 ## <a name="features-and-capabilities"></a>특징과 기능
 
@@ -122,13 +122,13 @@ Azure Portal에서 2세대(Gen2) VM을 만드는 단계는 아래와 같습니�
 
 1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 1. **리소스 만들기** 를 선택합니다.
-1. 왼쪽의 Azure Marketplace에서 **모두 보기** 를 클릭 합니다.
+1. 왼쪽의 Azure Marketplace에서 **모두 보기** 를 클릭합니다.
 1. Gen2를 지원하는 이미지를 선택합니다.
 1. **만들기** 를 클릭합니다.
 1. **고급** 탭의 **VM 생성** 섹션에서 **Gen 2** 옵션을 선택합니다.
 1. **기본 사항** 탭의 **인스턴스 세부 정보** 에서 **크기** 로 이동하여 **VM 크기 선택** 블레이드를 엽니다.
 1. [지원되는 2세대 VM](#generation-2-vm-sizes)을 선택합니다.
-1. 페이지의 나머지 부분을 진행 하 여 VM 만들기를 완료 합니다.
+1. 페이지의 나머지 부분을 진행하여 VM 만들기를 완료합니다.
 
 ![1세대 또는 2세대 VM 선택](./media/generation-2/gen1-gen2-select.png)
 
@@ -192,7 +192,7 @@ az vm image list --publisher Canonical --sku gen2 --output table --all
 
 * **OS 디스크 크기를 늘리는 방법은 무엇인가요?**  
 
-  2 개 보다 큰 OS 디스크는 2 세대 Vm에 새로 TiB. 기본적으로 OS 디스크는 2 세대 Vm에 대해 2 TiB 작습니다. 최대 4 TiB의 권장까지 디스크 크기를 늘릴 수 있습니다. Azure CLI 또는 Azure Portal을 사용하여 OS 디스크 크기를 늘립니다. 프로그래밍 방식으로 디스크를 확장 하는 방법에 대 한 자세한 내용은 [Windows](./windows/expand-os-disk.md) 또는 [Linux](./linux/resize-os-disk-gpt-partition.md)용 **디스크 크기 조정** 을 참조 하세요.
+  2TiB보다 큰 OS 디스크는 2세대 VM의 새로운 특징입니다. 기본적으로 OS 디스크의 크기는 2세대 VM에서 2TiB보다 작습니다. 디스크 크기는 최대 권장 용량인 4TiB까지 늘릴 수 있습니다. Azure CLI 또는 Azure Portal을 사용하여 OS 디스크 크기를 늘립니다. 프로그래밍 방식으로 디스크를 확장하는 방법에 대한 자세한 내용은 [Windows](./windows/expand-os-disk.md) 또는 [Linux](./linux/resize-os-disk-gpt-partition.md)용 **디스크 크기 조정** 을 참조하세요.
 
   Azure Portal에서 OS 디스크 크기를 늘리려면 다음을 수행하세요.
 
@@ -202,13 +202,13 @@ az vm image list --publisher Canonical --sku gen2 --output table --all
   1. **디스크** 섹션에서 **구성** 을 선택하고 **크기** 를 원하는 값으로 업데이트합니다.
   1. VM 속성 페이지로 돌아가서 VM을 **시작** 합니다.
   
-  2 TiB 보다 큰 OS 디스크에 대 한 경고가 표시 될 수 있습니다. 이 경고는 2세대 VM에는 적용되지 않습니다. 그러나 4 TiB 보다 큰 OS 디스크 크기는 지원 되지 않습니다.
+  2TiB보다 큰 OS 디스크에 대한 경고가 표시될 수 있습니다. 이 경고는 2세대 VM에는 적용되지 않습니다. 그러나 4TiB보다 큰 OS 디스크는 지원되지 않습니다.
 
 * **2세대 VM은 가속화된 네트워킹을 지원하나요?**  
     예. 자세한 내용은 [가속화된 네트워킹을 사용하여 VM 만들기](../virtual-network/create-vm-accelerated-networking-cli.md)를 참조하세요.
 
-* **2 세대 Vm은 Azure에서 보안 부팅 또는 vTPM을 지원 하나요?**
-    VTPM 및 보안 부팅은 2 세대 Vm에 대 한 신뢰할 수 있는 시작 (미리 보기)의 기능입니다. 자세한 내용은 [신뢰할 수 있는 시작](trusted-launch.md)을 참조 하세요.
+* **2세대 VM은 Azure에서 보안 부팅 또는 vTPM을 지원하나요?**
+    VTPM 및 보안 부팅은 모두 2세대 VM에 대한 신뢰할 수 있는 시작(미리 보기) 기능입니다. 자세한 내용은 [신뢰할 수 있는 시작](trusted-launch.md)을 참조하세요.
     
 * **VHDX는 2세대에서 지원되나요?**  
     아니요. 2세대 VM은 VHD만 지원합니다.
@@ -228,6 +228,6 @@ az vm image list --publisher Canonical --sku gen2 --output table --all
 
 ## <a name="next-steps"></a>다음 단계
 
-Gen 2 Vm을 사용 하 여 [신뢰할 수 있는 시작 (미리 보기)](trusted-launch-portal.md) 에 대해 자세히 알아보세요.
+2세대 VM을 사용한 [신뢰할 수 있는 시작(미리 보기)](trusted-launch-portal.md)에 대해 자세히 알아보세요.
 
 [Hyper-V의 2세대 가상 머신](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)에 대해 알아봅니다.

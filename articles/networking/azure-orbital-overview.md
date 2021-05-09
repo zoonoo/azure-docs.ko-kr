@@ -7,12 +7,12 @@ ms.service: vnf-manager
 ms.topic: overview
 ms.date: 09/22/2020
 ms.author: wamota
-ms.openlocfilehash: 05f3b5b461e42c29a12f126928f69069b45007d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e0365af4ab4dd5fd6b25ac464d0cc34001701490
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97797274"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108073020"
 ---
 # <a name="what-is-azure-orbital-preview"></a>Azure Orbital이란? (미리 보기)
 
@@ -117,4 +117,5 @@ Azure Orbital 고객을 위해 [Kubos](https://www.kubos.com/)와 협력하여 �
 
 ## <a name="next-steps"></a>다음 단계
 
-미리 보기에 대한 자세한 내용을 원하거나 미리 보기에 참여하는 데 관심이 있는 경우 [여기](https://aka.ms/iaminterested)에 있는 연락처 양식을 채우거나 이메일을 [MSAzureOrbital@microsoft.com](mailto:MSAzureOrbital@microsoft.com)으로 보내주세요.
+- 미리 보기에 대한 자세한 내용을 원하거나 미리 보기에 참여하는 데 관심이 있는 경우 [여기](https://aka.ms/iaminterested)에 있는 연락처 양식을 채우거나 이메일을 [MSAzureOrbital@microsoft.com](mailto:MSAzureOrbital@microsoft.com)으로 보내주세요.
+- [Azure Orbital을 사용하여 위성과 통신하는 방법 알아보기 - 비디오](https://www.youtube.com/watch?v=MqgjSBKAxIg)

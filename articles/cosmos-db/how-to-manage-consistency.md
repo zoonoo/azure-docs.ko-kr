@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB에서 일관성 관리
-description: Azure Portal, .NET SDK, Java SDK 및 기타 다양 한 Sdk를 사용 하 여 Azure Cosmos DB에서 일관성 수준을 구성 하 고 관리 하는 방법을 알아봅니다.
+description: Azure Portal, .NET SDK, Java SDK 및 기타 다양한 SDK를 사용하여 Azure Cosmos DB에서 일관성 수준을 구성하고 관리하는 방법을 알아봅니다.
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
-ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: b0c03c2f5313605fbdf288a9262df0852e066efd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: b7cab67b49196a3d50ce5483282971bbb7b9ece1
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93333480"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483268"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준 관리
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "93333480"
 
 # <a name="cli"></a>[CLI](#tab/cli)
 
-세션 일관성을 사용 하 여 Cosmos 계정을 만든 다음 기본 일관성을 업데이트 합니다.
+세션 일관성을 사용하여 Cosmos 계정을 만든 다음 기본 일관성을 업데이트합니다.
 
 ```azurecli
 # Create a new account with Session consistency
@@ -46,7 +46,7 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName --def
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-세션 일관성을 사용 하 여 Cosmos 계정을 만든 다음 기본 일관성을 업데이트 합니다.
+세션 일관성을 사용하여 Cosmos 계정을 만든 다음 기본 일관성을 업데이트합니다.
 
 ```azurepowershell-interactive
 # Create a new account with Session consistency
@@ -65,7 +65,7 @@ Update-AzCosmosDBAccount -ResourceGroupName $resourceGroupName `
 클라이언트는 서비스에서 설정한 기본 일관성 수준을 재정의할 수 있습니다. 일관성 수준을 요청별로 설정할 수 있으며, 이렇게 하면 계정 수준에서 설정된 기본 일관성 수준이 재정의됩니다.
 
 > [!TIP]
-> 일관성은 요청 수준 에서만 **완화할** 수 있습니다. 더 약한에서 더 강력한 일관성으로 이동 하려면 Cosmos 계정에 대 한 기본 일관성을 업데이트 합니다.
+> 일관성은 요청 수준에서만 **완화** 될 수 있습니다. 약한 일관성에서 강력한 일관성으로 이동하려면 Cosmos 계정에 대한 기본 일관성을 업데이트합니다.
 
 ### <a name="net-sdk"></a><a id="override-default-consistency-dotnet"></a>.NET SDK
 
@@ -111,11 +111,11 @@ var response = await client.GetContainer(databaseName, containerName)
 
 --- 
 
-### <a name="java-v2-sdks"></a><a id="override-default-consistency-javav2"></a> Java V2 Sdk
+### <a name="java-v2-sdks"></a><a id="override-default-consistency-javav2"></a> Java V2 SDK
 
 # <a name="async"></a>[Async](#tab/api-async)
 
-Async Java V2 SDK (Maven:: azure-cosmosdb)
+AsyncÂ JavaÂ V2Â SDKÂ(MavenÂ com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Override consistency at the client level
@@ -131,7 +131,7 @@ AsyncDocumentClient client =
 
 # <a name="sync"></a>[동기화](#tab/api-sync)
 
-Java V2 SDK 동기화 (Maven:: azure-documentdb)
+SyncÂ JavaÂ V2Â SDKÂ(MavenÂ com.microsoft.azure::azure-documentdb)
 
 ```java
 // Override consistency at the client level
@@ -212,11 +212,11 @@ ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(sa
 
 --- 
 
-### <a name="java-v2-sdks"></a><a id="utilize-session-tokens-javav2"></a>Java V2 Sdk
+### <a name="java-v2-sdks"></a><a id="utilize-session-tokens-javav2"></a>Java V2 SDK
 
 # <a name="async"></a>[Async](#tab/api-async)
 
-Async Java V2 SDK (Maven:: azure-cosmosdb)
+AsyncÂ JavaÂ V2Â SDKÂ(MavenÂ com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Get session token from response
@@ -240,7 +240,7 @@ Observable<ResourceResponse<Document>> readObservable = client.readDocument(docu
 
 # <a name="sync"></a>[동기화](#tab/api-sync)
 
-Java V2 SDK 동기화 (Maven:: azure-documentdb)
+SyncÂ JavaÂ V2Â SDKÂ(MavenÂ com.microsoft.azure::azure-documentdb)
 
 ```java
 // Get session token from response
@@ -281,7 +281,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>PBS(확률적 제한된 부실) 메트릭 모니터링
 
-최종 일관성은 어떻게 최종인가요? 평균적인 사례의 경우 버전 기록 및 시간과 관련하여 부실 범위를 제공할 수 있습니다. [**PBS(확률적 제한된 부실)**](https://pbs.cs.berkeley.edu/) 메트릭은 부실의 확률을 수량화하여 메트릭으로 표시하려고 시도합니다. PBS 메트릭을 보려면 Azure Portal에서 Cosmos 계정으로 이동합니다. **메트릭** 창을 열고 **일관성** 탭을 선택 합니다. **작업을 기반으로 하는 강력한 일관성 읽기의 확률** 이라는 그래프를 확인 합니다 (PBS 참조).
+최종 일관성은 어떻게 최종인가요? 평균적인 사례의 경우 버전 기록 및 시간과 관련하여 부실 범위를 제공할 수 있습니다. [**PBS(확률적 제한된 부실)**](https://pbs.cs.berkeley.edu/) 메트릭은 부실의 확률을 수량화하여 메트릭으로 표시하려고 시도합니다. PBS 메트릭을 보려면 Azure Portal에서 Cosmos 계정으로 이동합니다. **메트릭** 창을 열고 **일관성** 탭을 선택하고 **워크로드를 기반으로 하는 일관된 읽기가 발생할 가능성(PBS 참조)** 이라는 그래프를 살펴봅니다.
 
 :::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Azure Portal의 PBS 그래프":::
 

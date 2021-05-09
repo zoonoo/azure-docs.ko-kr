@@ -14,12 +14,12 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: iangithinji
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9b7f312781fd4f14c5e403ad72e5978f4d01487
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 9c895d77b9c6ab48c60b7a337dd8c44414d8d9b5
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379328"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318516"
 ---
 # <a name="application-management-best-practices"></a>애플리케이션 관리 모범 사례
 
@@ -48,11 +48,11 @@ ms.locfileid: "107379328"
 | 권장 | 주석 |
 | --- | --- |
 | 내부 리소스에 대한 원격 액세스에 애플리케이션 프록시 사용 | 애플리케이션 프록시는 원격 사용자에게 내부 리소스에 대한 액세스 권한을 부여하여 VPN 또는 역방향 프록시에 대한 필요성을 대체하는 데 권장됩니다. 대기 시간이 길어질 수 있으므로 회사 네트워크 내에서 리소스에 액세스하는 용도는 아닙니다.
-| 사용자 지정 도메인 사용 | 사용자의 URL과 애플리케이션 간의 URL이 네트워크 내부 또는 외부에서 작동하도록 애플리케이션의 사용자 지정 도메인을 설정합니다([사용자 지정 도메인 구성](application-proxy-configure-custom-domain.md) 참조). 또한 브랜딩을 제어하고 URL을 사용자 지정할 수도 있습니다.  사용자 지정 도메인 이름을 사용하는 경우 Microsoft 외의 신뢰할 수 있는 인증 기관에서 공용 인증서를 획득하도록 계획합니다. Azure 애플리케이션 프록시는 표준, ([와일드카드](application-proxy-wildcard.md)) 또는 SAN 기반 인증서를 지원합니다. ([애플리케이션 프록시 계획](application-proxy-deployment-plan.md)을 참조하세요.) |
-| 애플리케이션 프록시 배포 전 사용자 동기화 | 애플리케이션 프록시를 배포하기 전에 온-프레미스 디렉터리에서 사용자 ID를 동기화하거나 Azure AD에서 직접 만들어야 합니다. ID 동기화를 사용하면 Azure AD가 사용자에게 App Proxy 게시 애플리케이션에 대한 액세스 권한을 부여하기 전에 미리 인증할 수 있습니다. 또한 SSO(Single Sign-On)를 수행하는 데 필요한 사용자 ID 정보를 확인할 수도 있습니다. ([애플리케이션 프록시 계획](application-proxy-deployment-plan.md)을 참조하세요.) |
-| 고가용성 및 부하 분산을 위한 팁 따르기 | 사용자, 애플리케이션 프록시 커넥터, 백 엔드 앱 서버 간에 트래픽이 흐르는 방식을 알아보고 성능과 부하 분산의 최적화 팁을 확인하려면 [애플리케이션 프록시 커넥터와 애플리케이션의 고가용성 및 부하 분산](application-proxy-high-availability-load-balancing.md)을 참조하세요. |
-| 여러 커넥터 사용 | 복원력, 가용성, 규모를 키울 수 있도록 애플리케이션 프록시 커넥터를 2개 이상 사용합니다([애플리케이션 프록시 커넥터](application-proxy-connectors.md) 참조). 커넥터 그룹을 만들고 각 커넥터 그룹에 커넥터가 2개 이상 있는지 확인합니다(커넥터 3개가 최적임). |
-| 애플리케이션 서버에 가까운 커넥터 서버를 찾아 동일한 도메인에 있는지 확인합니다. | 성능을 최적화하려면 애플리케이션 서버와 가까운 커넥터 서버를 물리적으로 찾습니다([네트워크 토폴로지 고려 사항](application-proxy-network-topology.md) 참조). 또한 커넥터 서버와 웹 애플리케이션 서버는 동일한 Active Directory 도메인에 속하거나 트러스팅 도메인에 걸쳐 있어야 합니다. 이 구성은 IWA(Windows 통합 인증) 및 KCD(Kerberos 제한 위임)를 사용하는 SSO에 필요합니다. 서버가 서로 다른 도메인에 있는 경우 SSO에 대한 리소스 기반 위임을 사용해야 합니다([애플리케이션 프록시를 사용하는 Single Sign-On의 KCD](application-proxy-configure-single-sign-on-with-kcd.md) 참조). |
-| 커넥터에 대한 자동 업데이트 사용 | 최신 기능 및 버그 수정을 위해 커넥터에 대해 자동 업데이트를 사용하도록 설정합니다. Microsoft에서는 최신 커넥터 버전 및 이전 버전을 직접 지원합니다. [애플리케이션 프록시 릴리스 버전 기록](application-proxy-release-version-history.md)을 참조하세요. |
-| 온-프레미스 프록시 바이패스 | 더 쉽게 유지 관리하려면 커넥터가 온-프레미스 프록시를 바이패스하여 Azure 서비스에 직접 연결하도록 구성합니다. ([애플리케이션 프록시 커넥터 및 프록시 서버](application-proxy-configure-connectors-with-proxy-servers.md) 참조) |
-| 웹 애플리케이션 프록시에서 Azure AD 애플리케이션 프록시 사용 | 대부분의 온-프레미스 시나리오에서 Azure AD 애플리케이션 프록시를 사용합니다. 웹 애플리케이션 프록시는 AD FS용 프록시 서버가 필요하고 Azure Active Directory에서 사용자 지정 도메인을 사용할 수 없는 시나리오에서만 사용할 수 있습니다. ([애플리케이션 프록시 마이그레이션](application-proxy-migration.md) 참조) |
+| 사용자 지정 도메인 사용 | 사용자의 URL과 애플리케이션 간의 URL이 네트워크 내부 또는 외부에서 작동하도록 애플리케이션의 사용자 지정 도메인을 설정합니다([사용자 지정 도메인 구성](../app-proxy/application-proxy-configure-custom-domain.md) 참조). 또한 브랜딩을 제어하고 URL을 사용자 지정할 수도 있습니다.  사용자 지정 도메인 이름을 사용하는 경우 Microsoft 외의 신뢰할 수 있는 인증 기관에서 공용 인증서를 획득하도록 계획합니다. Azure 애플리케이션 프록시는 표준, ([와일드카드](../app-proxy/application-proxy-wildcard.md)) 또는 SAN 기반 인증서를 지원합니다. ([애플리케이션 프록시 계획](../app-proxy/application-proxy-deployment-plan.md)을 참조하세요.) |
+| 애플리케이션 프록시 배포 전 사용자 동기화 | 애플리케이션 프록시를 배포하기 전에 온-프레미스 디렉터리에서 사용자 ID를 동기화하거나 Azure AD에서 직접 만들어야 합니다. ID 동기화를 사용하면 Azure AD가 사용자에게 App Proxy 게시 애플리케이션에 대한 액세스 권한을 부여하기 전에 미리 인증할 수 있습니다. 또한 SSO(Single Sign-On)를 수행하는 데 필요한 사용자 ID 정보를 확인할 수도 있습니다. ([애플리케이션 프록시 계획](../app-proxy/application-proxy-deployment-plan.md)을 참조하세요.) |
+| 고가용성 및 부하 분산을 위한 팁 따르기 | 사용자, 애플리케이션 프록시 커넥터, 백 엔드 앱 서버 간에 트래픽이 흐르는 방식을 알아보고 성능과 부하 분산의 최적화 팁을 확인하려면 [애플리케이션 프록시 커넥터와 애플리케이션의 고가용성 및 부하 분산](../app-proxy/application-proxy-high-availability-load-balancing.md)을 참조하세요. |
+| 여러 커넥터 사용 | 복원력, 가용성, 규모를 키울 수 있도록 애플리케이션 프록시 커넥터를 2개 이상 사용합니다([애플리케이션 프록시 커넥터](../app-proxy/application-proxy-connectors.md) 참조). 커넥터 그룹을 만들고 각 커넥터 그룹에 커넥터가 2개 이상 있는지 확인합니다(커넥터 3개가 최적임). |
+| 애플리케이션 서버에 가까운 커넥터 서버를 찾아 동일한 도메인에 있는지 확인합니다. | 성능을 최적화하려면 애플리케이션 서버와 가까운 커넥터 서버를 물리적으로 찾습니다([네트워크 토폴로지 고려 사항](../app-proxy/application-proxy-network-topology.md) 참조). 또한 커넥터 서버와 웹 애플리케이션 서버는 동일한 Active Directory 도메인에 속하거나 트러스팅 도메인에 걸쳐 있어야 합니다. 이 구성은 IWA(Windows 통합 인증) 및 KCD(Kerberos 제한 위임)를 사용하는 SSO에 필요합니다. 서버가 서로 다른 도메인에 있는 경우 SSO에 대한 리소스 기반 위임을 사용해야 합니다([애플리케이션 프록시를 사용하는 Single Sign-On의 KCD](../app-proxy/application-proxy-configure-single-sign-on-with-kcd.md) 참조). |
+| 커넥터에 대한 자동 업데이트 사용 | 최신 기능 및 버그 수정을 위해 커넥터에 대해 자동 업데이트를 사용하도록 설정합니다. Microsoft에서는 최신 커넥터 버전 및 이전 버전을 직접 지원합니다. [애플리케이션 프록시 릴리스 버전 기록](../app-proxy/application-proxy-release-version-history.md)을 참조하세요. |
+| 온-프레미스 프록시 바이패스 | 더 쉽게 유지 관리하려면 커넥터가 온-프레미스 프록시를 바이패스하여 Azure 서비스에 직접 연결하도록 구성합니다. ([애플리케이션 프록시 커넥터 및 프록시 서버](../app-proxy/application-proxy-configure-connectors-with-proxy-servers.md) 참조) |
+| 웹 애플리케이션 프록시에서 Azure AD 애플리케이션 프록시 사용 | 대부분의 온-프레미스 시나리오에서 Azure AD 애플리케이션 프록시를 사용합니다. 웹 애플리케이션 프록시는 AD FS용 프록시 서버가 필요하고 Azure Active Directory에서 사용자 지정 도메인을 사용할 수 없는 시나리오에서만 사용할 수 있습니다. ([애플리케이션 프록시 마이그레이션](../app-proxy/application-proxy-migration.md) 참조) |

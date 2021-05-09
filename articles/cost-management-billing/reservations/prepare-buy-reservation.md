@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 04/12/2021
 ms.author: banders
-ms.openlocfilehash: a70d434b06fd19071f3576f9333579e0bd2b85e7
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: b2cdb106ab1c77c23626258f7e0708a20ffd3c4e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574977"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772256"
 ---
 # <a name="buy-a-reservation"></a>예약 구입
 
@@ -35,8 +35,8 @@ EA(기업계약) 고객은 EA Portal에서 **예약 인스턴스 추가** 옵션
 
 요구 사항에 따라 예약 범위를 지정하는 세 가지 옵션이 있습니다.
 
-- **단일 리소스 그룹 범위** — 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다.
-- **단일 구독 범위** — 선택한 구독의 일치하는 리소스에만 예약 할인을 적용합니다.
+- **단일 리소스 그룹 범위** - 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다.
+- **단일 구독 범위** - 선택한 구독의 일치하는 리소스에만 예약 할인을 적용합니다.
 - **공유 범위** - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다.
     - 기업계약 고객의 경우 청구 컨텍스트는 등록입니다. 예약 공유 범위에는 등록 시 여러 Active Directory 테넌트가 포함됩니다.
     - Microsoft 고객 계약 고객의 경우 청구 범위는 청구 프로필입니다.
@@ -44,9 +44,9 @@ EA(기업계약) 고객은 EA Portal에서 **예약 인스턴스 추가** 옵션
 
 사용 요금에 예약 할인을 적용할 때 Azure는 다음과 같은 순서로 예약을 처리합니다.
 
-1. 리소스 그룹으로 범위가 지정된 예약
-2. 단일 범위 예약
-3. 공유 범위 예약
+1. 단일 리소스 그룹 범위를 사용하여 예약
+2. 단일 구독 범위를 사용하여 예약
+3. 공유 범위(여러 구독)를 사용하여 예약(앞에서 설명됨)
 
 예약을 구매한 후 언제든지 범위를 업데이트할 수 있습니다. 업데이트하려면 예약으로 이동하고, **구성** 을 클릭하여 예약 범위를 다시 지정합니다. 예약 범위 재지정은 상거래 트랜잭션이 아닙니다. 따라서 예약 기간이 변경되지 않았습니다. 범위 업데이트에 대한 자세한 내용은 [예약을 구매한 후 범위 업데이트](manage-reserved-vm-instance.md#change-the-reservation-scope)를 참조하세요.
 
@@ -133,4 +133,8 @@ EA 구독을 사용하는 고객의 경우:
 
 ## <a name="next-steps"></a>다음 단계
 
+- [예약 사용 권한에 대해 자세히 알아보기](view-reservations.md)
 - [Azure 리소스에 대한 예약 관리](manage-reserved-vm-instance.md)
+- [REST API를 사용하여 자동화](/rest/api/reserved-vm-instances/reservationorder)
+- [Azure PowerShell을 사용하여 자동화](/powershell/module/az.reservations)
+- [CLI를 사용하여 자동화](/cli/azure/reservations)

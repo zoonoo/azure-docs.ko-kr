@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.custom: how-to, data4ml
 ms.date: 05/14/2020
 ms.openlocfilehash: 2eec512af9b139b2707c435fd0c78b7d50ac1b11
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102521053"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>레이블이 있는 Azure Machine Learning 데이터 세트 만들기 및 탐색
@@ -22,7 +22,7 @@ ms.locfileid: "102521053"
 
 ## <a name="what-are-datasets-with-labels"></a>레이블이 있는 데이터 세트란? 
 
-레이블이 지정 된 데이터 집합으로 레이블이 있는 Azure Machine Learning 데이터 집합을 참조 합니다. 레이블이 지정 된 데이터 집합의 이러한 특정 데이터 집합 형식은 Azure Machine Learning 데이터 레이블 지정 프로젝트의 출력 으로만 생성 됩니다. [이러한 단계](how-to-create-labeling-projects.md)를 사용하여 데이터 레이블 지정 프로젝트를 만듭니다. Machine Learning은 이미지 분류(다중 레이블 또는 다중 클래스) 및 경계 상자와 함께 개체 식별을 위한 데이터 레이블 지정 프로젝트를 지원합니다.
+레이블이 있는 Azure Machine Learning 데이터 세트를 레이블이 지정된 데이터 세트라고 부릅니다. 해당 특정 데이터 세트 형식의 레이블이 지정된 데이터 세트는 Azure Machine Learning 데이터 레이블 지정 프로젝트의 출력으로만 생성됩니다. [이러한 단계](how-to-create-labeling-projects.md)를 사용하여 데이터 레이블 지정 프로젝트를 만듭니다. Machine Learning은 이미지 분류(다중 레이블 또는 다중 클래스) 및 경계 상자와 함께 개체 식별을 위한 데이터 레이블 지정 프로젝트를 지원합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -41,7 +41,7 @@ ms.locfileid: "102521053"
  COCO 파일은 *export/coco* 내의 폴더에 있는 Azure Machine Learning 작업 영역의 기본 Blob 저장소에 만들어집니다. 
  
 >[!NOTE]
->개체 검색 프로젝트에서 COCO 파일의 내보낸 "bbox": [x, y, width, height] "값은 정규화 됩니다. 1로 확장 됩니다. 예: 640x480 픽셀 이미지에서 60 너비가 30 픽셀인 (10, 10) 위치에 있는 경계 상자는 (0.015625)로 주석이 추가 됩니다. 0.02083, 0.046875, 0.125). Coordintes는 정규화 되므로 모든 이미지에 대해 ' 0.0 '을 "width" 및 "height"로 표시 합니다. 실제 너비와 높이는 OpenCV 또는 Pillow (PIL)와 같은 Python 라이브러리를 사용 하 여 가져올 수 있습니다.
+>개체 감지 프로젝트에서 COCO 파일의 내보낸 “bbox”: [x, y, width, height] "값은 정규화되며 1로 스케일링됩니다. 예: 640x480 픽셀 이미지에서 (10, 10) 위치에 있는 너비가 30 픽셀, 높이가 60 픽셀인 경계 상자는 (0.015625. 0.02083, 0.046875, 0.125)로 주석이 추가됩니다. 좌표가 정규화되므로 모든 이미지에 대해 ‘0.0’을 “너비” 및 “높이”로 표시합니다. 실제 너비와 높이는 OpenCV 또는 Pillow(PIL)와 같은 Python 라이브러리를 사용하여 가져올 수 있습니다.
 
 ### <a name="azure-machine-learning-dataset"></a>Azure Machine Learning 데이터 세트
 
@@ -64,11 +64,11 @@ pip install azureml-contrib-dataset
 >[!NOTE]
 >서비스 개선을 위해 노력하므로 azureml.contrib 네임스페이스는 자주 변경됩니다. 따라서 이 네임 스페이스의 모든 것을 미리 보기로 간주하므로 Microsoft에서 완벽히 지원하지 않아도 됩니다.
 
-Azure Machine Learning pandas 데이터 프레임로 변환할 때 파일 스트림에 대해 다음과 같은 파일 처리 옵션을 제공 합니다.
+Azure Machine Learning은 pandas 데이터 프레임으로 변환할 때 파일 스트림에 대해 다음과 같은 파일 처리 옵션을 제공합니다.
 * 다운로드: 데이터 파일을 로컬 경로로 다운로드합니다.
 * 탑재: 탑재 지점에 데이터 파일을 탑재합니다. 탑재는 Azure Machine Learning Notebook VM 및 Azure Machine Learning 컴퓨팅을 포함한 Linux 기반 컴퓨팅에서만 작동합니다.
 
-다음 코드에서 `animal_labels` 데이터 집합은 이전에 작업 영역에 저장 된 레이블 지정 프로젝트의 출력입니다.
+다음 코드에서 `animal_labels` 데이터 세트는 이전에 작업 영역에 저장된 레이블 지정 프로젝트의 출력입니다.
 
 ```Python
 import azureml.core
@@ -92,7 +92,7 @@ imgplot = plt.imshow(img)
 
 `azureml-contrib-dataset` 클래스에서도 [to_torchvision()](/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset#to-torchvision--) 메서드를 사용하여 레이블이 지정된 데이터 세트를 Torchvision 데이터 세트에 로드할 수 있습니다. 이 방법을 사용하려면 [PyTorch](https://pytorch.org/)가 설치되어 있어야 합니다. 
 
-다음 코드에서 `animal_labels` 데이터 집합은 이전에 작업 영역에 저장 된 레이블 지정 프로젝트의 출력입니다.
+다음 코드에서 `animal_labels` 데이터 세트는 이전에 작업 영역에 저장된 레이블 지정 프로젝트의 출력입니다.
 
 ```python
 import azureml.core

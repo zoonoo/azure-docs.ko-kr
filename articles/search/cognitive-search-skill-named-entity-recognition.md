@@ -1,7 +1,7 @@
 ---
 title: 명명된 엔터티 인식 기술
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search AI 보강 파이프라인의 텍스트에서 사람, 위치 및 조직에 대 한 명명 된 엔터티를 추출 합니다.
+description: Azure Cognitive Search AI 보강 파이프라인의 텍스트에서 사람, 위치 및 조직에 대해 명명된 엔터티를 추출합니다.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: e598f16c6b441cf986c7ac82d67c037f75be8982
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102547444"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>명명된 엔터티 인식 기술
@@ -20,7 +20,7 @@ ms.locfileid: "102547444"
 **명명된 엔터티 인식** 기술은 텍스트에서 명명된 엔터티를 추출합니다. 사용 가능한 엔터티는 `person`, `location` 및 `organization` 형식을 포함합니다.
 
 > [!IMPORTANT]
-> 명명 된 엔터티 인식 기술은 이제 [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)로 대체 되었습니다. 2019 년 2 월 15 일에 중지 된 지원은 2019 년 5 월 2 일에 제품에서 제거 되었습니다. 지원 [되지 않는 인식 검색 기술](cognitive-search-skill-deprecated.md) 의 권장 사항에 따라 지원 되는 기술로 마이그레이션합니다.
+> 명명된 엔터티 인식 기술은 [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)로 대체되어 사용되지 않습니다. 지원은 2019년 2월 15일에 중지되었으며 API는 2019년 5월 2일에 제품에서 제거되었습니다. [사용되지 않는 인지 검색 기술](cognitive-search-skill-deprecated.md)의 권장 사항에 따라 지원되는 기술로 마이그레이션하세요.
 
 > [!NOTE]
 > 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출하는 경우와 Azure Cognitiv Search에서 문서 크래킹 단계의 일부로 이미지를 추출하는 경우에는 요금이 부과됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
@@ -46,14 +46,14 @@ Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 입력 이름      | 설명                   |
+| 입력 이름      | Description                   |
 |---------------|-------------------------------|
 | languageCode  | 선택 사항입니다. 기본값은 `"en"`입니다.  |
 | text          | 분석할 텍스트입니다.          |
 
 ## <a name="skill-outputs"></a>기술 출력
 
-| 출력 이름     | 설명                   |
+| 출력 이름     | Description                   |
 |---------------|-------------------------------|
 | persons      | 각 문자열이 사람 이름을 나타내는 경우 문자열 배열입니다. |
 | 위치  | 각 문자열이 위치를 나타내는 경우 문자열 배열입니다. |
@@ -151,7 +151,7 @@ Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 
 ## <a name="warning-cases"></a>경고 사례
-문서에 대 한 언어 코드가 지원 되지 않는 경우 경고가 반환 되 고 엔터티가 추출 되지 않습니다.
+문서의 언어 코드가 지원되지 않는 경우 경고가 반환되고 엔터티가 추출되지 않습니다.
 
 ## <a name="see-also"></a>참고 항목
 

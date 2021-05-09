@@ -1,20 +1,20 @@
 ---
 title: 최신 API를 사용하여 프로그래밍 방식으로 Azure 기업계약 구독 만들기
-description: 최신 버전의 REST API, Azure CLI 및 Azure PowerShell을 사용하여 프로그래밍 방식으로 Azure 기업계약 구독을 만드는 방법을 알아봅니다.
+description: 최신 버전의 REST API, Azure CLI, Azure PowerShell 및 Azure Resource Manager 템플릿을 사용하여 프로그래밍 방식으로 Azure 기업계약 구독을 만드는 방법을 알아봅니다.
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 03/29/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 4de89892d27bb811be6670c1a14ca85859342ecc
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: e57f385dce6446ebb3aa2df0ceb48f97a7e0c2f4
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102218913"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877908"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>최신 API를 사용하여 프로그래밍 방식으로 Azure 기업계약 구독 만들기
 
@@ -31,7 +31,8 @@ ms.locfileid: "102218913"
 구독을 만들려면 등록 계정에 대한 소유자 역할이 있어야 합니다. 역할을 얻는 방법은 두 가지입니다.
 
 * 등록의 엔터프라이즈 관리자는 귀하를 [계정 소유자로 만들 수](https://ea.azure.com/helpdocs/addNewAccount) 있고(로그인 필요) 그러면 귀하가 등록 계정의 소유자가 됩니다.
-* 등록 계정의 기존 소유자가 [액세스 권한을 부여](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put)할 수 있습니다. 마찬가지로, EA 구독을 만들 서비스 주체를 사용하려면 [해당 서비스 주체에게 구독을 만들 수 있는 권한을 부여](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put)해야 합니다. 
+* 등록 계정의 기존 소유자가 [액세스 권한을 부여](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put)할 수 있습니다. 마찬가지로, EA 구독을 만들 서비스 주체를 사용하려면 [해당 서비스 주체에게 구독을 만들 수 있는 권한을 부여](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put)해야 합니다.  
+    SPN을 사용하여 구독을 만드는 경우 [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) 또는 [Azure CLI](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_list)를 사용하여 Azure AD 애플리케이션 등록의 ObjectId를 서비스 사용자 ObjectId로 사용합니다.
   > [!NOTE]
   > 올바른 API 버전을 사용하여 등록 계정 소유자 권한을 부여했는지 확인합니다. 이 문서 및 여기에서 설명하는 API에는 [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put) API를 사용합니다. 최신 API를 사용하도록 마이그레이션하는 경우 [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put)를 사용하여 소유자 권한을 다시 부여해야 합니다. [2015-07-01 버전](grant-access-to-create-subscription.md)으로 만든 이전 구성은 최신 API에서 사용하도록 자동으로 변환되지 않습니다.
 
@@ -41,7 +42,7 @@ ms.locfileid: "102218913"
 
 다음 명령을 실행하려면 기본적으로 구독이 생성되는 디렉터리인 계정 소유자의 *홈 디렉터리* 에 로그인해야 합니다.
 
-### <a name="rest"></a>[REST (영문)](#tab/rest-getEnrollments)
+### <a name="rest"></a>[REST (영문)](#tab/rest)
 
 액세스 권한이 있는 모든 등록 계정을 나열하도록 요청합니다.
 
@@ -93,15 +94,11 @@ GET https://management.azure.com/providers/Microsoft.Billing/billingaccounts/?ap
 
 청구 범위와 `id`의 값은 동일합니다. 등록 계정의 `id`는 구독 요청이 시작되는 청구 범위입니다. 구독을 만들기 위해 문서의 뒷부분에서 사용하는 필수 매개 변수이므로 ID를 알고 있어야 합니다.
 
-<!-- 
-### [PowerShell](#tab/azure-powershell-getEnrollments)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
+이 값을 가져오려면 Azure CLI 또는 REST API를 사용하십시오.
 
--->
-
-
-### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli-getEnrollments)
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 액세스 권한이 있는 모든 등록 계정을 나열하도록 요청합니다.
 
@@ -159,6 +156,7 @@ we're still working on enabling PowerShell SDK for billing APIs. Check back soon
     "type": "Microsoft.Billing/billingAccounts"
   },
 ```
+
 청구 범위와 `id`의 값은 동일합니다. 등록 계정의 `id`는 구독 요청이 시작되는 청구 범위입니다. 구독을 만들기 위해 문서의 뒷부분에서 사용하는 필수 매개 변수이므로 ID를 알고 있어야 합니다.
 
 ---
@@ -167,7 +165,7 @@ we're still working on enabling PowerShell SDK for billing APIs. Check back soon
 
 다음 예에서는 이전 단계에서 선택한 등록 계정에 *Dev Team Subscription* 이라는 구독을 만듭니다. 
 
-### <a name="rest"></a>[REST (영문)](#tab/rest-EA)
+### <a name="rest"></a>[REST (영문)](#tab/rest)
 
 PUT API를 호출하여 구독 만들기 요청/별칭을 만듭니다.
 
@@ -227,14 +225,14 @@ GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sample
 
 진행 중 상태는 `provisioningState` 아래에 `Accepted` 상태로 반환됩니다.
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell-EA)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 `New-AzSubscriptionAlias` cmdlet을 포함하는 최신 버전의 모듈을 설치하려면 `Install-Module Az.Subscription`을 실행합니다. 최신 버전의 PowerShellGet을 설치하려면 [PowerShellGet 모듈 가져오기](/powershell/scripting/gallery/installing-psget)를 참조하세요.
 
 청구 범위 `"/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321"`를 사용하여 다음 [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscription) 명령을 실행합니다. 
 
 ```azurepowershell-interactive
-New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321" -Workload 'Production"
+New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321" -Workload "Production"
 ```
 
 명령의 응답에 subscriptionId가 포함됩니다.
@@ -251,11 +249,11 @@ New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Sub
 }
 ```
 
-### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli-EA)
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 먼저 `az extension add --name account` 및 `az extension add --name alias`를 실행하여 확장을 설치합니다.
 
-다음 [az account alias create](/cli/azure/ext/account/account/alias#ext_account_az_account_alias_create) 명령을 실행하고 `enrollmentAccounts` 중 하나의 `billing-scope` 및 `id`를 입력합니다. 
+다음 [az account alias create](/cli/azure/account/alias#az_account_alias_create) 명령을 실행하고 `enrollmentAccounts` 중 하나의 `billing-scope` 및 `id`를 입력합니다. 
 
 ```azurecli-interactive
 az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/1234567/enrollmentAccounts/654321" --display-name "Dev Team Subscription" --workload "Production"
@@ -277,6 +275,113 @@ az account alias create --name "sampleAlias" --billing-scope "/providers/Microso
 
 ---
 
+## <a name="use-arm-template"></a>ARM 템플릿 사용
+
+이전 섹션에서는 PowerShell, CLI 또는 REST API를 사용하여 구독을 만드는 방법을 살펴보았습니다. 자동으로 구독을 만들어야 하는 경우 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하는 것이 좋습니다.
+
+다음 템플릿에서 구독을 만듭니다. `billingScope`에 등록 계정 ID를 제공합니다. `targetManagementGroup`에 구독을 만들려는 관리 그룹을 제공합니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "subscriptionAliasName": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide a name for the alias. This name will also be the display name of the subscription."
+            }
+        },
+        "billingScope": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the full resource ID of billing scope to use for subscription creation."
+            }
+        },
+        "targetManagementGroup": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the ID of the target management group to place the subscription."
+            }
+        }
+    },
+    "resources": [
+        {
+            "scope": "/", 
+            "name": "[parameters('subscriptionAliasName')]",
+            "type": "Microsoft.Subscription/aliases",
+            "apiVersion": "2020-09-01",
+            "properties": {
+                "workLoad": "Production",
+                "displayName": "[parameters('subscriptionAliasName')]",
+                "billingScope": "[parameters('billingScope')]",
+                "managementGroupId": "[tenantResourceId('Microsoft.Management/managementGroups/', parameters('targetManagementGroup'))]"
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+[관리 그룹 수준](../../azure-resource-manager/templates/deploy-to-management-group.md)에서 템플릿을 배포합니다.
+
+### <a name="rest"></a>[REST (영문)](#tab/rest)
+
+```json
+PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/mg1/providers/Microsoft.Resources/deployments/exampledeployment?api-version=2020-06-01
+```
+
+다음 요청 본문을 사용합니다.
+
+```json
+{
+  "location": "eastus",
+  "properties": {
+    "templateLink": {
+      "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json"
+    },
+    "parameters": {
+      "subscriptionAliasName": {
+        "value": "sampleAlias"
+      },
+      "billingScope": {
+        "value": "/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321"
+      },
+      "targetManagementGroup": {
+        "value": "mg2"
+      }
+    },
+    "mode": "Incremental"
+  }
+}
+```
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+New-AzManagementGroupDeployment `
+  -Name exampledeployment `
+  -Location eastus `
+  -ManagementGroupId mg1 `
+  -TemplateFile azuredeploy.json `
+  -subscriptionAliasName sampleAlias `
+  -billingScope "/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321" `
+  -targetManagementGroup mg2
+```
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az deployment mg create \
+  --name exampledeployment \
+  --location eastus \
+  --management-group-id mg1 \
+  --template-file azuredeploy.json \
+  --parameters subscriptionAliasName='sampleAlias' billingScope='/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321' targetManagementGroup=mg2
+```
+
+---
+
 ## <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Azure 엔터프라이즈 구독 생성 API의 제한 사항
 
 - 오직 Azure 엔터프라이즈 구독만이 이 API를 사용하여 생성됩니다.
@@ -289,3 +394,4 @@ az account alias create --name "sampleAlias" --billing-scope "/providers/Microso
 
 * 구독을 만들었으므로 다른 사용자 및 서비스 주체에게 해당 기능을 부여할 수 있습니다. 자세한 내용은 [Azure 엔터프라이즈 구독 만들기에 대한 액세스 권한 부여(미리 보기)](grant-access-to-create-subscription.md)를 참조하세요.
 * 관리 그룹을 사용하여 여러 구독을 관리하는 방법에 대한 자세한 내용은 [Azure 관리 그룹으로 리소스 구성](../../governance/management-groups/overview.md)을 참조하세요.
+* 구독의 관리 그룹을 변경하려면 [구독 이동](../../governance/management-groups/manage.md#move-subscriptions)을 참조하세요.

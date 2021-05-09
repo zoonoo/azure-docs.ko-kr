@@ -1,20 +1,20 @@
 ---
 title: Azure에서 자동 크기 조정 시작
-description: Azure에서 리소스 웹 앱, 클라우드 서비스, 가상 머신 또는 가상 머신 확장 집합의 크기를 조정 하는 방법에 대해 알아봅니다.
+description: Azure에서 리소스 웹앱, 클라우드 서비스, 가상 머신 또는 가상 머신 확장 집합을 스케일링하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: edc58ed4af3475a45804e3833424bec79d50ff89
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105641547"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure에서 자동 크기 조정 시작
 이 문서에서는 Microsoft Azure Portal에서 리소스에 대한 자동 크기 조정을 설정하는 방법에 대해 설명합니다.
 
-Azure Monitor 자동 크기 조정은 [가상 머신 확장 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service Web Apps](https://azure.microsoft.com/services/app-service/web/)및 [API Management 서비스](../../api-management/api-management-key-concepts.md)에만 적용 됩니다.
+Azure Monitor 자동 스케일링은 [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), [API Management](../../api-management/api-management-key-concepts.md) 서비스에만 적용됩니다.
 
 ## <a name="discover-the-autoscale-settings-in-your-subscription"></a>구독에서 자동 크기 조정 설정 검색
 
@@ -22,7 +22,7 @@ Azure Monitor 자동 크기 조정은 [가상 머신 확장 집합](https://azur
 
 Azure Monitor에서 자동 크기 조정을 적용할 수 있는 리소스를 모두 검색할 수 있습니다. 단계별 연습을 진행하려면 다음 단계를 수행합니다.
 
-1. Azure Portal를 엽니다 [.][1]
+1. [Azure Portal][1]을 엽니다.
 1. 왼쪽 창에서 Azure Monitor 아이콘을 클릭합니다.
   ![Azure Monitor 열기][2]
 1. **자동 크기 조정** 을 클릭하여 자동 크기 조정을 적용할 수 있는 모든 리소스와 해당 리소스의 현재 자동 크기 조정 상태를 확인합니다.
@@ -59,7 +59,7 @@ Azure Monitor에서 자동 크기 조정을 적용할 수 있는 리소스를 �
    ![CPU 기준 크기 조정][8]
 1. **저장** 을 클릭합니다.
 
-지금까지 이제 CPU 사용량을 기준으로 웹앱의 크기를 자동으로 조정하는 첫 번째 크기 조정 설정을 성공적으로 만들었습니다.
+축하합니다! 이제 CPU 사용량을 기준으로 웹앱의 크기를 자동으로 조정하는 첫 번째 크기 조정 설정을 성공적으로 만들었습니다.
 
 > [!NOTE]
 > 가상 머신 확장 집합 또는 Cloud Service 역할의 크기 조정을 시작하려는 경우에도 동일한 단계를 적용할 수 있습니다.
@@ -115,27 +115,27 @@ CPU 기준 크기 조정 외에도 특정 날짜에 대한 크기 조정을 다�
 
 ### <a name="cool-down-period-effects"></a>휴지 기간 효과
 
-자동 크기 조정은 쿨 다운 기간을 사용 하 여 인스턴스를 빠르게 repetative 하는 "플 래핑"을 방지 합니다.  자세한 내용은 [자동 크기 조정 평가 단계](autoscale-understanding-settings.md#autoscale-evaluation)를 참조 하세요.  플 래핑 및 자동 크기 조정 엔진을 모니터링 하는 방법에 대 한 다른 중요 한 정보는 [자동 크기 조정 모범 사례](autoscale-best-practices.md#choose-the-thresholds-carefully-for-all-metric-types) 및 자동 [크기 조정 문제 해결](autoscale-troubleshoot.md) 에서 각각 찾을 수 있습니다. 
+자동 스케일링은 휴지 기간을 사용하여 인스턴스의 신속하고 반복적인 스케일 업과 스케일 다운인 ‘플래핑’을 방지합니다.  자세한 내용은 [자동 스케일링 평가 단계](autoscale-understanding-settings.md#autoscale-evaluation)를 참조하세요.  플래핑 및 자동 스케일링 엔진 모니터링 방법에 관한 기타 중요한 정보는 각각 [자동 스케일링 모범 사례](autoscale-best-practices.md#choose-the-thresholds-carefully-for-all-metric-types) 및 [자동 스케일링 문제 해결](autoscale-troubleshoot.md)에서 찾을 수 있습니다. 
 
-## <a name="route-traffic-to-healthy-instances-app-service"></a>정상적인 인스턴스로 트래픽 라우팅 (App Service)
+## <a name="route-traffic-to-healthy-instances-app-service"></a>정상적인 인스턴스로 트래픽 라우팅(App Service)
 
 <a id="health-check-path"></a>
 
-Azure 웹 앱이 여러 인스턴스로 확장 되는 경우 인스턴스에 대 한 상태 검사를 수행 하 여 트래픽을 정상 인스턴스로 라우트할 App Service 있습니다. 자세한 내용은 [App Service 상태 검사에 대 한이 문서](../../app-service/monitor-instances-health-check.md)를 참조 하세요.
+Azure 웹앱이 여러 인스턴스로 스케일 아웃될 때 App Service는 인스턴스에서 상태 확인을 수행하여 정상 인스턴스로 트래픽을 라우팅할 수 있습니다. 자세한 내용은 [App Service Health 검사에 관한 문서](../../app-service/monitor-instances-health-check.md)를 참조하세요.
 
-## <a name="moving-autoscale-to-a-different-region"></a>자동 크기 조정을 다른 지역으로 이동
-이 섹션에서는 Azure 자동 크기 조정을 동일한 구독 및 리소스 그룹의 다른 지역으로 이동 하는 방법을 설명 합니다. REST API를 사용 하 여 자동 크기 조정 설정을 이동할 수 있습니다.
-### <a name="prerequisite"></a>필수 조건
-1. 구독 및 리소스 그룹을 사용할 수 있고 원본 및 대상 지역의 세부 정보가 동일한 지 확인 합니다.
-1. [이동 하려는 azure 지역](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all)에서 azure 자동 크기 조정을 사용할 수 있는지 확인 합니다.
+## <a name="moving-autoscale-to-a-different-region"></a>자동 스케일링을 다른 지역으로 이동
+이 섹션에서는 Azure 자동 스케일링을 같은 구독 및 리소스 그룹의 다른 지역으로 이동하는 방법을 설명합니다. REST API를 사용하여 자동 스케일링 설정을 이동할 수 있습니다.
+### <a name="prerequisite"></a>필수 요소
+1. 구독 및 리소스 그룹을 사용할 수 있고 원본과 대상 지역의 세부 정보가 같은지 확인합니다.
+1. [이동하려는 Azure 지역](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all)에서 Azure 자동 스케일링을 사용할 수 있는지 확인합니다.
 
 ### <a name="move"></a>이동
-[REST API](/rest/api/monitor/autoscalesettings/createorupdate) 를 사용 하 여 새 환경에서 자동 크기 조정 설정을 만듭니다. 대상 지역에 생성 되는 자동 크기 조정 설정은 원본 지역의 자동 크기 조정 설정의 복사본입니다.
+[REST API](/rest/api/monitor/autoscalesettings/createorupdate)를 사용하여 새 환경에서 자동 스케일링 설정을 만듭니다. 대상 지역에 생성되는 자동 스케일링 설정은 원본 지역의 자동 스케일링 설정의 복사본입니다.
 
-원본 지역의 자동 크기 조정 설정과 연결 하 여 만든 [진단 설정은](../essentials/diagnostic-settings.md) 이동할 수 없습니다. Autosale 설정 만들기가 완료 된 후 대상 지역에서 진단 설정을 다시 만들어야 합니다. 
+원본 지역의 자동 스케일링 설정과 연결하여 만든 [진단 설정](../essentials/diagnostic-settings.md)은 이동할 수 없습니다. 자동 스케일링 설정 만들기가 완료된 후 대상 지역에서 진단 설정을 다시 만들어야 합니다. 
 
-### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Azure 지역에서 리소스 이동에 대 한 자세한 정보
-Azure에서 지역과 재해 복구 간에 리소스를 이동 하는 방법에 대 한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md) 을 참조 하세요.
+### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Azure 지역 간 리소스 이동에 관한 자세한 내용
+지역 간에 리소스를 이동하는 방법과 Azure의 재해 복구에 관한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - [구독의 모든 자동 크기 조정 엔진 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

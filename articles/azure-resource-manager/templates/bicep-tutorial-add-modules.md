@@ -5,12 +5,13 @@ author: mumian
 ms.date: 03/25/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8c7ab1038cbe62d6f15faf56796193df12b38546
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0149858e4e63e4110af2a18a31b9c66a99ff79c9
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568769"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318589"
 ---
 # <a name="tutorial-add-modules-to-azure-resource-manager-bicep-file"></a>자습서: Azure Resource Manager Bicep 파일에 모듈 추가
 
@@ -111,8 +112,8 @@ Azure Portal에서 리소스 그룹을 탐색하여 배포를 확인할 수 있�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽 메뉴에서 **리소스 그룹** 을 선택합니다.
-1. 이 자습서에서 배포한 두 가지 새 리소스 그룹이 보입니다.
-1. 리소스 그룹을 선택하고 배포된 리소스를 살펴봅니다. 해당 환경에 대한 매개 변수 파일에 지정한 값과 일치하는 것을 확인합니다.
+1. 이 자습서에는 배포한 새 리소스 그룹이 표시됩니다.
+1. 리소스 그룹을 선택하고 배포된 리소스를 살펴봅니다. 템플릿 파일에서 지정한 값과 일치하는지 확인합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

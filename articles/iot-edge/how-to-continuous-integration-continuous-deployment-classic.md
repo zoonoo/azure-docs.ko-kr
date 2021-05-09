@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 218c0f345e4ea453a2300b3de85ac8856a09c6ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f7c28ecbaa58731c528a9ecb5f869eba2bc0c99f
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199283"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484424"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Azure IoT Edge 디바이스에 연속 통합 및 지속적인 배포(클래식 편집기)
 
@@ -40,7 +40,7 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업과 함께 Azure IoT Edge 
 * [환경 변수](/azure/devops/pipelines/process/variables?tabs=classic#environment-variables)
 * [출력 변수](/azure/devops/pipelines/process/variables?tabs=classic#use-output-variables-from-tasks)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Repos 리포지토리. 이 리포지토리가 없는 경우 [프로젝트에서 새 Git 리포지토리를 만들](/azure/devops/repos/git/create-new-repo) 수 있습니다. 이 문서의 경우 **IoTEdgeRepo** 라는 리포지토리를 만들었습니다.
 * 리포지토리에 커밋되고 푸시된 IoT Edge 솔루션. 이 문서를 테스트하기 위한 새 샘플 솔루션을 만들려면 [Visual Studio Code에서 모듈 개발 및 디버그](how-to-vs-code-develop-module.md) 또는 [Visual Studio에서 C# 모듈 개발 및 디버그](./how-to-visual-studio-develop-module.md)의 단계를 따릅니다. 이 문서에서는 **filtermodule** 이라는 모듈에 대한 코드를 포함하는 **IoTEdgeSolution** 이라는 리포지토리에 솔루션을 만들었습니다.
@@ -162,7 +162,7 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업과 함께 Azure IoT Edge 
 >[!NOTE]
 >파이프라인에서 **계층화된 배포** 를 사용하려는 경우, Azure DevOps의 Azure IoT Edge 작업에서는 아직 계층화된 배포를 지원하지 않습니다.
 >
->그러나 [Azure DevOps에서 Azure CLI 작업](/azure/devops/pipelines/tasks/deploy/azure-cli)을 사용하여 배포를 계층화된 배포로 만들 수 있습니다. **인라인 스크립트** 값의 경우 [az iot edge deployment create 명령](/cli/azure/ext/azure-iot/iot/edge/deployment)을 사용할 수 있습니다.
+>그러나 [Azure DevOps에서 Azure CLI 작업](/azure/devops/pipelines/tasks/deploy/azure-cli)을 사용하여 배포를 계층화된 배포로 만들 수 있습니다. **인라인 스크립트** 값의 경우 [az iot edge deployment create 명령](/cli/azure/iot/edge/deployment)을 사용할 수 있습니다.
 >
 >   ```azurecli-interactive
 >   az iot edge deployment create -d {deployment_name} -n {hub_name} --content modules_content.json --layered true

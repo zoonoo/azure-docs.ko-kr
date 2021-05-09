@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 06/06/2020
 ms.author: danis
 ms.openlocfilehash: 92ceecd16a428593764fe5ab6478cc4ea7ab91d7
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102554618"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Azure용 Ubuntu 가상 머신 준비
 
 
-이제 Ubuntu는에서 다운로드할 공식 Azure Vhd를 게시 [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/) 합니다. Azure에 대해 특수한 사용자 고유의 Ubuntu 이미지를 빌드해야 하는 경우 아래 수동 절차 대신 이러한 알려진 작업 VHD를 시작하고 필요에 따라 사용자 지정하는 것이 좋습니다. 최신 이미지 릴리스는 항상 다음 위치에서 제공됩니다.
+이제 Ubuntu는 [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/)에서 다운로드할 수 있도록 공식 Azure VHD를 게시합니다. Azure에 대해 특수한 사용자 고유의 Ubuntu 이미지를 빌드해야 하는 경우 아래 수동 절차 대신 이러한 알려진 작업 VHD를 시작하고 필요에 따라 사용자 지정하는 것이 좋습니다. 최신 이미지 릴리스는 항상 다음 위치에서 제공됩니다.
 
-* Ubuntu 16.04/Xenial: [ubuntu-16.04-cloudimg-disk1. .vmdk](https://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vmdk)
-* Ubuntu 18.04/Bionic: [Bionic-cloudimg-.vmdk](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vmdk)
+* Ubuntu 16.04/Xenial: [ubuntu-16.04-server-cloudimg-amd64-disk1.vmdk](https://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vmdk)
+* Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64.vmdk](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vmdk)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 이 문서에서는 가상 하드 디스크에 Ubuntu Linux 운영 체제를 이미 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있습니다(예: Hyper-V와 같은 가상화 솔루션). 자세한 내용은 [Hyper-V 역할 설치 및 Virtual Machine 구성](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11))을 참조하십시오.
@@ -28,14 +28,14 @@ ms.locfileid: "102554618"
 **Ubuntu 설치 참고 사항**
 
 * Azure용 Linux를 준비하는 방법에 대한 추가 팁은 [일반 Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes) 을 참조하세요.
-* VHDX 형식은 Azure에서 지원되지 않습니다. **고정된 VHD** 만 지원됩니다.  Hyper-v 관리자 또는 cmdlet을 사용 하 여 디스크를 VHD 형식으로 변환할 수 있습니다 `Convert-VHD` .
+* VHDX 형식은 Azure에서 지원되지 않습니다. **고정된 VHD** 만 지원됩니다.  Hyper-V 관리자 또는 `Convert-VHD` cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
 * Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다. 원하는 경우에는 데이터 디스크에서 [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) 또는 [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid)를 사용할 수 있습니다.
-* OS 디스크에서 스왑 파티션 또는 스왑를 구성 하지 않습니다. 클라우드 초기화 프로 비전 에이전트를 구성 하 여 임시 리소스 디스크에서 스왑 파일 또는 스왑 파티션을 만들 수 있습니다. 여기에 대한 자세한 내용은 아래 단계에서 확인할 수 있습니다.
+* OS 디스크에 스왑 파티션 또는 스왑 파일을 구성하지 마세요. 임시 리소스 디스크에 스왑 파일 또는 스왑 파티션을 생성하도록 cloud-init 프로비저닝 에이전트를 구성할 수 있습니다. 여기에 대한 자세한 내용은 아래 단계에서 확인할 수 있습니다.
 * Azure의 모든 VHD는 가상 크기가 1MB 단위로 조정되어야 합니다. 원시 디스크에서 VHD로 변환할 때 변환하기 전에 원시 디스크 크기가 1MB의 배수인지 확인해야 합니다. 자세한 내용은 [Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes)을 참조하세요.
 
 ## <a name="manual-steps"></a>수동 단계
 > [!NOTE]
-> Azure에 대 한 사용자 지정 Ubuntu 이미지를 만들기 전에 미리 작성 된 이미지와 테스트 된 이미지를 대신 사용 하는 것을 고려 하세요 [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/) .
+> Azure에 대해 고유한 사용자 지정 Ubuntu 이미지를 만들기 전에 [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/)에서 미리 빌드되고 테스트된 이미지를 사용하는 것을 고려하세요.
 > 
 > 
 
@@ -43,7 +43,7 @@ ms.locfileid: "102554618"
 
 2. **연결** 을 클릭하여 가상 머신 창을 엽니다.
 
-3. Ubuntu의 Azure 리포지토리를 사용 하려면 이미지의 현재 리포지토리를 바꿉니다.
+3. Ubuntu의 Azure 리포지토리를 사용하도록 이미지의 현재 리포지토리를 바꿉니다.
 
     `/etc/apt/sources.list`를 편집하기 전에 백업을 만드는 것이 좋습니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "102554618"
     # sudo apt-get update
     ```
 
-4. Ubuntu Azure 이미지는 이제 [azure 맞춤형 커널을](https://ubuntu.com/blog/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)사용 하 고 있습니다. 다음 명령을 실행 하 여 운영 체제를 최신 Azure 맞춤형 커널로 업데이트 하 고 Azure Linux 도구 (Hyper-v 종속성 포함)를 설치 합니다.
+4. 이제 Ubuntu Azure 이미지가 [Azure 맞춤형 커널](https://ubuntu.com/blog/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)을 사용하고 있습니다. 다음 명령을 실행하여 운영 체제를 최신 Azure 맞춤형 커널로 업데이트하고 Azure Linux 도구(Hyper-v 종속성 포함)를 설치합니다.
 
     Ubuntu 16.04 및 Ubuntu 18.04:
 
@@ -81,7 +81,7 @@ ms.locfileid: "102554618"
 
 6. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.  보통 SSH 서버는 기본적으로 이와 같이 구성되어 있습니다.
 
-7. 클라우드 초기화 (프로 비전 에이전트)와 Azure Linux 에이전트 (게스트 확장 처리기)를 설치 합니다. 클라우드 초기화는 netplan을 사용 하 여 프로 비전 중에 시스템 네트워크 구성 및 각 후속 부팅을 구성 합니다.
+7. cloud-init(프로비저닝 에이전트)와 Azure Linux 에이전트(게스트 확장 처리기)를 설치합니다. 프로비저닝되고 이후에 부팅되는 도중에 Cloud-init은 netplan을 사용하여 시스템 네트워크 구성을 구성합니다.
 
     ```console
     # sudo apt update
@@ -91,7 +91,7 @@ ms.locfileid: "102554618"
    > [!Note]
    >  `walinuxagent` 패키지는 `NetworkManager` 및 `NetworkManager-gnome` 패키지가 설치되어 있는 경우 이러한 패키지를 제거할 수 있습니다.
 
-8. Azure에서 클라우드 초기화 프로 비전과 충돌할 수 있는 기본 configs 및 잔여 netplan 아티팩트를 제거 합니다.
+8. Azure에서 cloud-init 프로비저닝과 충돌할 수 있는 cloud-init 기본 구성 및 나머지 netplan 아티팩트를 제거합니다.
 
     ```console
     # rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg
@@ -99,7 +99,7 @@ ms.locfileid: "102554618"
     # rm -f /etc/netplan/*.yaml
     ```
 
-9. Azure 데이터 원본을 사용 하 여 시스템을 프로 비전 하도록 클라우드 초기화 구성:
+9. Azure 데이터 소스를 사용하여 시스템을 프로비저닝하도록 cloud-init을 구성합니다.
 
     ```console
     # cat > /etc/cloud/cloud.cfg.d/90_dpkg.cfg << EOF
@@ -132,7 +132,7 @@ ms.locfileid: "102554618"
     EOF
     ```
 
-10. 클라우드 init를 사용 하 여 프로 비전을 수행 하도록 Azure Linux 에이전트를 구성 합니다. 이러한 옵션에 대 한 자세한 내용은 [WALinuxAgent 프로젝트](https://github.com/Azure/WALinuxAgent) 를 참조 하세요.
+10. cloud-init를 사용하여 프로비저닝하도록 Azure Linux 에이전트를 구성합니다. 해당 옵션에 대한 자세한 내용은 [WALinuxAgent 프로젝트](https://github.com/Azure/WALinuxAgent)를 참조하세요.
 
     ```console
     sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
@@ -150,7 +150,7 @@ ms.locfileid: "102554618"
     EOF
     ```
 
-11. 클라우드 초기화 및 Azure Linux 에이전트 런타임 아티팩트 및 로그를 정리 합니다.
+11. Cloud-init과 Azure Linux 에이전트 런타임 아티팩트 및 로그를 정리합니다.
 
     ```console
     # sudo cloud-init clean --logs --seed
@@ -163,10 +163,10 @@ ms.locfileid: "102554618"
 12. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
     > [!NOTE]
-    > `sudo waagent -force -deprovision+user`이 명령은 시스템을 정리 하 고 다시 프로 비전 하는 데 적합 하도록 합니다. `+user`옵션은 마지막으로 프로 비전 된 사용자 계정 및 연결 된 데이터를 삭제 합니다.
+    > `sudo waagent -force -deprovision+user` 명령은 시스템을 정리하고 다시 프로비저닝하기에 적합하도록 합니다. `+user` 옵션은 마지막으로 프로비저닝된 사용자 계정 및 관련 데이터를 삭제합니다.
 
     > [!WARNING]
-    > 위의 명령을 사용 하 여 프로 비전 해제 하는 것은 이미지가 모든 중요 한 정보를 제거 하 고 재배포에 적합 하다는 것을 보장 하지 않습니다.
+    > 위의 명령을 사용하여 프로비저닝을 해제하더라도 이미지에서 중요한 정보가 모두 지워져 다시 배포하기에 적합해진다고 보증할 수는 없습니다.
 
     ```console
     # sudo waagent -force -deprovision+user
@@ -177,7 +177,7 @@ ms.locfileid: "102554618"
 
 13. Hyper-V 관리자에서 **작업 -> 종료** 를 클릭합니다.
 
-14. Azure는 고정 크기 Vhd만 허용 합니다. VM의 OS 디스크가 고정 크기의 VHD가 아닌 경우 `Convert-VHD` PowerShell cmdlet을 사용 하 여 옵션을 지정 합니다 `-VHDType Fixed` . 다음에 대 한 문서를 확인 하세요. `Convert-VHD` [변환-VHD](/powershell/module/hyper-v/convert-vhd).
+14. Azure는 고정 크기의 VHD만 허용합니다. VM의 OS 디스크가 고정 크기의 VHD가 아닌 경우 `Convert-VHD` PowerShell cmdlet을 사용하여 `-VHDType Fixed` 옵션을 지정합니다. 여기에서 `Convert-VHD`에 대한 문서를 확인하세요: [변환-VHD](/powershell/module/hyper-v/convert-vhd).
 
 
 ## <a name="next-steps"></a>다음 단계

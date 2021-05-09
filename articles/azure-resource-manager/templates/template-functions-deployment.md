@@ -1,20 +1,20 @@
 ---
-title: 템플릿 함수-배포
-description: 배포 정보를 검색 하기 위해 Azure Resource Manager 템플릿 (ARM 템플릿)에서 사용할 수 있는 함수에 대해 설명 합니다.
+title: 템플릿 함수 - 배포
+description: Azure Resource Manager 템플릿(ARM 템플릿)에서 배포 정보를 검색하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.openlocfilehash: a9a073284c62efac4e77f8f9b35e8730c350e5f1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101722724"
 ---
-# <a name="deployment-functions-for-arm-templates"></a>ARM 템플릿에 대 한 배포 함수
+# <a name="deployment-functions-for-arm-templates"></a>ARM 템플릿의 배포 함수
 
-리소스 관리자는 Azure Resource Manager 템플릿 (ARM 템플릿)의 현재 배포와 관련 된 값을 가져오기 위한 다음 함수를 제공 합니다.
+Resource Manager는 Azure Resource Manager 템플릿(ARM 템플릿)의 현재 배포와 관련된 값을 가져오기 위한 다음 함수를 제공합니다.
 
-* [배포가](#deployment)
+* [deployment](#deployment)
 * [environment](#environment)(환경)
 * [parameters](#parameters)
 * [variables](#variables)
@@ -31,13 +31,13 @@ ms.locfileid: "101722724"
 
 ### <a name="return-value"></a>반환 값
 
-이 함수는 배포하는 동안 전달되는 개체를 반환합니다. 반환 된 개체의 속성은 다음 여부에 따라 달라 집니다.
+이 함수는 배포하는 동안 전달되는 개체를 반환합니다. 반환된 개체의 속성은 다음 여부에 따라 달라집니다.
 
 * 템플릿 또는 템플릿 사양 배포
-* 로컬 파일인 템플릿 배포 또는 URI를 통해 액세스 되는 원격 파일인 템플릿 배포
-* 리소스 그룹에 배포 하거나 다른 범위 ([Azure 구독](deploy-to-subscription.md), [관리 그룹](deploy-to-management-group.md)또는 [테 넌 트](deploy-to-tenant.md)) 중 하나에 배포
+* 로컬 파일인 템플릿 배포 또는 URI를 통해 액세스할 수 있는 원격 파일인 템플릿 배포
+* 리소스 그룹에 배포 또는 기타 범위([Azure 구독](deploy-to-subscription.md), [관리 그룹](deploy-to-management-group.md) 또는 [테넌트](deploy-to-tenant.md)) 중 하나에 배포
 
-리소스 그룹에 로컬 템플릿을 배포할 때: 함수는 다음 형식을 반환 합니다.
+리소스 그룹에 로컬 템플릿을 배포하는 경우: 함수가 다음 형식을 반환합니다.
 
 ```json
 {
@@ -59,7 +59,7 @@ ms.locfileid: "101722724"
 }
 ```
 
-리소스 그룹에 원격 템플릿을 배포할 때: 함수는 다음 형식을 반환 합니다.
+리소스 그룹에 원격 템플릿을 배포하는 경우: 함수가 다음 형식을 반환합니다.
 
 ```json
 {
@@ -84,7 +84,7 @@ ms.locfileid: "101722724"
 }
 ```
 
-리소스 그룹에 템플릿 사양을 배포할 때: 함수는 다음 형식을 반환 합니다.
+리소스 그룹에 템플릿 사양을 배포하는 경우: 함수가 다음 형식을 반환합니다.
 
 ```json
 {
@@ -109,7 +109,7 @@ ms.locfileid: "101722724"
 }
 ```
 
-Azure 구독, 관리 그룹 또는 테 넌 트에 배포 하는 경우 반환 개체는 속성을 포함 합니다 `location` . 로컬 템플릿 또는 외부 템플릿을 배포할 때 위치 속성이 포함됩니다. 형식:
+Azure 구독, 관리 그룹 또는 테넌트에 배포하는 경우 반환 개체에는 `location` 속성이 포함됩니다. 로컬 템플릿 또는 외부 템플릿을 배포할 때 위치 속성이 포함됩니다. 형식:
 
 ```json
 {
@@ -209,11 +209,11 @@ output deploymentOutput object = deployment()
 
 `environment()`
 
-배포에 사용 되는 Azure 환경에 대 한 정보를 반환 합니다.
+배포에 사용되는 Azure 환경에 대한 정보를 반환합니다.
 
 ### <a name="return-value"></a>반환 값
 
-이 함수는 현재 Azure 환경에 대 한 속성을 반환 합니다. 다음 예제에서는 글로벌 Azure에 대 한 속성을 보여 줍니다. 소 버린 클라우드는 약간 다른 속성을 반환할 수 있습니다.
+이 함수는 현재 Azure 환경에 대한 속성을 반환합니다. 다음 예제는 전체 Azure에 대한 속성을 보여 줍니다. 소버린 클라우드가 반환하는 속성은 약간 다를 수 있습니다.
 
 ```json
 {
@@ -251,7 +251,7 @@ output deploymentOutput object = deployment()
 
 ### <a name="example"></a>예제
 
-다음 예제 템플릿에서는 환경 개체를 반환 합니다.
+다음 예제 템플릿은 환경 개체를 반환합니다.
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -277,7 +277,7 @@ output environmentOutput object = environment()
 
 ---
 
-위의 예제는 글로벌 Azure에 배포 된 경우 다음 개체를 반환 합니다.
+위의 예제는 전체 Azure에 배포되는 경우 다음 개체를 반환합니다.
 
 ```json
 {
@@ -452,7 +452,7 @@ output crossOutput string = crossParameter
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | stringOutput | String | 옵션 1 |
 | intOutput | Int | 1 |
@@ -460,7 +460,7 @@ output crossOutput string = crossParameter
 | arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | 옵션 1 |
 
-매개 변수 사용에 대 한 자세한 내용은 [ARM 템플릿의 매개 변수](template-parameters.md)를 참조 하세요.
+매개 변수에 대한 자세한 내용은 [ARM 템플릿의 매개 변수](template-parameters.md)를 참조하세요.
 
 ## <a name="variables"></a>variables
 
@@ -470,7 +470,7 @@ output crossOutput string = crossParameter
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | variableName |예 |String |반환할 변수의 이름입니다. |
 
@@ -590,15 +590,15 @@ output exampleOutput4 object = var4
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | exampleOutput1 | String | myVariable |
 | exampleOutput2 | Array | [1, 2, 3, 4] |
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {“property1”: “value1”, “property2”: “value2”} |
 
-변수를 사용 하는 방법에 대 한 자세한 내용은 [ARM 템플릿의 변수](template-variables.md)를 참조 하세요.
+변수를 사용하는 방법에 대한 자세한 내용은 [ARM 템플릿의 변수](template-variables.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* ARM 템플릿의 섹션에 대 한 설명은 [arm 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* ARM 템플릿의 섹션에 대한 설명은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하세요.

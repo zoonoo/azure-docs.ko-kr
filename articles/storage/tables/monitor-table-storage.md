@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 11439afbe7bceb17dff5393d248c6c9f5d3f6b53
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d2973d95cf797123e02fd48dc2dfab1b172e05f5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767838"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "102499472"
 ---
 # <a name="monitoring-azure-table-storage"></a>Azure Table Storage 모니터링
 
@@ -98,7 +98,7 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 �
 
 #### <a name="archive-logs-to-a-storage-account"></a>스토리지 계정에 로그 보관
 
-로그를 스토리지 계정에 보관하도록 선택하는 경우 스토리지 계정으로 보내는 로그의 양에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조하세요.
+스토리지 계정에 로그를 보관하도록 선택하는 경우 스토리지 계정으로 전송되는 로그의 양에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조하세요.
 
 1. **스토리지 계정에 보관** 확인란을 선택하고 **구성** 단추를 클릭합니다.
 
@@ -114,7 +114,7 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 �
 
 #### <a name="stream-logs-to-azure-event-hubs"></a>Azure Event Hubs로 로그 스트리밍
 
-로그를 이벤트 허브로 스트림하도록 선택하는 경우 이벤트 허브로 보내는 로그의 양에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조하세요.
+로그를 이벤트 허브로 스트리밍하도록 선택하면 이벤트 허브로 전송되는 로그의 양에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조하세요.
 
 1. **이벤트 허브로 스트리밍** 확인란을 선택하고 **구성** 단추를 클릭합니다.
 
@@ -134,13 +134,13 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 �
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-1. Windows PowerShell 명령 창을 열고, `Connect-AzAccount` 명령을 사용하여 Azure 구독에 로그인합니다. 그런 다음 화면에 나타나는 지침에 따릅니다.
+1. Windows PowerShell 명령 창을 열고 `Connect-AzAccount` 명령을 사용하여 Azure 구독에 로그인합니다. 그런 다음 화면에 나타나는 지침에 따릅니다.
 
    ```powershell
    Connect-AzAccount
    ```
 
-2. 활성 구독을 로깅을 사용하도록 설정하려는 스토리지 계정에 대한 구독으로 설정합니다.
+2. 로깅을 사용하도록 설정하려는 스토리지 계정의 구독으로 활성 구독을 설정합니다.
 
    ```powershell
    Set-AzContext -SubscriptionId <subscription-id>
@@ -148,7 +148,7 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 �
 
 #### <a name="archive-logs-to-a-storage-account"></a>스토리지 계정에 로그 보관
 
-로그를 스토리지 계정에 보관하도록 선택하는 경우 스토리지 계정으로 보내는 로그의 양에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조하세요.
+스토리지 계정에 로그를 보관하도록 선택하는 경우 스토리지 계정으로 전송되는 로그의 양에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조하세요.
 
 `StorageAccountId` 매개 변수와 함께 [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet을 사용하여 로그를 사용하도록 설정합니다.
 
@@ -158,7 +158,7 @@ Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccoun
 
 이 코드 조각의 `<storage-service-resource--id>` 자리 표시자를 Table 서비스의 리소스 ID로 바꿉니다. 리소스 ID는 Azure Portal에서 스토리지 계정의 **속성** 페이지를 열어 확인할 수 있습니다.
 
-**Category** 매개 변수의 값으로 `StorageRead`, `StorageWrite` 및 `StorageDelete`를 사용할 수 있습니다.
+**Category** 매개 변수의 값으로 `StorageRead`, `StorageWrite`, `StorageDelete`를 사용할 수 있습니다.
 
 [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
@@ -170,7 +170,7 @@ Azure Storage에 리소스 로그를 보관하는 방법에 대한 자세한 내
 
 #### <a name="stream-logs-to-an-event-hub"></a>이벤트 허브에 로그 스트림
 
-로그를 이벤트 허브로 스트림하도록 선택하는 경우 이벤트 허브로 보내는 로그의 양에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조하세요.
+로그를 이벤트 허브로 스트리밍하도록 선택하면 이벤트 허브로 전송되는 로그의 양에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조하세요.
 
 `EventHubAuthorizationRuleId` 매개 변수와 함께 [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet을 사용하여 로그를 사용하도록 설정합니다.
 
@@ -212,9 +212,9 @@ Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <
 
 #### <a name="archive-logs-to-a-storage-account"></a>스토리지 계정에 로그 보관
 
-로그를 스토리지 계정에 보관하도록 선택하는 경우 스토리지 계정으로 보내는 로그의 양에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조하세요.
+스토리지 계정에 로그를 보관하도록 선택하는 경우 스토리지 계정으로 전송되는 로그의 양에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조하세요.
 
-[az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) 명령을 사용하여 로그를 사용하도록 설정합니다.
+[az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 명령을 사용하여 로그를 사용하도록 설정합니다.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
@@ -232,9 +232,9 @@ az monitor diagnostic-settings create --name <setting-name> --storage-account <s
 
 #### <a name="stream-logs-to-an-event-hub"></a>이벤트 허브에 로그 스트림
 
-로그를 이벤트 허브로 스트림하도록 선택하는 경우 이벤트 허브로 보내는 로그의 양에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조하세요.
+로그를 이벤트 허브로 스트리밍하도록 선택하면 이벤트 허브로 전송되는 로그의 양에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조하세요.
 
-[az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) 명령을 사용하여 로그를 사용하도록 설정합니다.
+[az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 명령을 사용하여 로그를 사용하도록 설정합니다.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
@@ -246,7 +246,7 @@ az monitor diagnostic-settings create --name <setting-name> --event-hub <event-h
 
 #### <a name="send-logs-to-log-analytics"></a>Log Analytics에 로그 보내기
 
-[az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) 명령을 사용하여 로그를 사용하도록 설정합니다.
+[az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 명령을 사용하여 로그를 사용하도록 설정합니다.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
@@ -317,7 +317,7 @@ Azure Table Storage를 비롯한 모든 Azure Monitor 지원 메트릭의 목록
 
 #### <a name="list-the-account-level-metric-definition"></a>계정 수준 메트릭 정의 나열
 
-스토리지 계정 또는 Table Storage 서비스의 메트릭 정의를 나열할 수 있습니다. [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions) 명령을 사용합니다.
+스토리지 계정 또는 Table Storage 서비스의 메트릭 정의를 나열할 수 있습니다. [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) 명령을 사용합니다.
  
 이 예제에서는 `<resource-ID>` 자리 표시자를 전체 스토리지 계정의 리소스 ID 또는 Table Storage 서비스의 리소스 ID로 바꿉니다. 리소스 ID는 Azure Portal에서 스토리지 계정의 **속성** 페이지에서 확인할 수 있습니다.
 
@@ -327,7 +327,7 @@ Azure Table Storage를 비롯한 모든 Azure Monitor 지원 메트릭의 목록
 
 #### <a name="read-account-level-metric-values"></a>계정 수준 메트릭 값 읽기
 
-스토리지 계정 또는 Table Storage 서비스의 메트릭 값을 읽을 수 있습니다. [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) 명령을 사용합니다.
+스토리지 계정 또는 Table Storage 서비스의 메트릭 값을 읽을 수 있습니다. [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) 명령을 사용합니다.
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
@@ -543,7 +543,7 @@ Azure Monitor 로그 쿼리를 사용하여 Log Analytics 작업 영역으로 �
 다음 쿼리를 **로그 검색창** 에 입력하면 Table Storage를 모니터링하는 데 도움이 됩니다. 이러한 쿼리는 [새 언어](../../azure-monitor/logs/log-query-overview.md)에서 작동합니다.
 
 > [!IMPORTANT]
-> 스토리지 계정 리소스 그룹 메뉴에서 **로그** 를 선택하면 현재 리소스 그룹으로 설정된 쿼리 범위가 포함된 Log Analytics가 열립니다. 즉, 로그 쿼리에는 해당 리소스 그룹의 데이터만 포함됩니다. 다른 서비스 또는 다른 Azure 리소스의 데이터를 포함하는 쿼리를 실행하려면 **Azure Monitor** 메뉴에서 **로그** 를 선택합니다. 자세한 내용은 [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](../../azure-monitor/logs/scope.md)를 참조하세요.
+> 스토리지 계정 리소스 그룹 메뉴에서 **로그** 를 선택하면 현재 리소스 그룹으로 쿼리 범위가 설정된 상태로 Log Analytics가 열립니다. 즉, 로그 쿼리에는 해당 리소스 그룹의 데이터만 포함됩니다. 다른 Azure 서비스의 데이터 또는 다른 리소스의 데이터를 포함하는 쿼리를 실행하려면 **Azure Monitor** 메뉴에서 **로그** 를 선택합니다. 자세한 내용은 [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](../../azure-monitor/logs/scope.md)를 참조하세요.
 
 다음 쿼리를 사용하여 Azure Storage 계정을 모니터링할 수 있습니다.
 

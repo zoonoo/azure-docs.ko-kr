@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Backup 서비스를 사용하여 Azure �
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.openlocfilehash: e7735c4240529cc6fc9bb6470934dd335d22aa77
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101719613"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Azure VM에서 SAP HANA 데이터베이스 백업
@@ -29,7 +29,7 @@ SAP HANA 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보존
 
 >[!NOTE]
 >**Azure VM의 SQL Server 일시 삭제 및 Azure VM 워크로드의 SAP HANA 일시 삭제** 는 이제 미리 보기로 제공됩니다.<br>
->미리 보기에 등록 하려면에 의견을 보내 주세요 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
+>미리 보기에 가입하려면 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)으로 문의해 주세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -92,7 +92,7 @@ Azure Firewall을 사용하는 경우 *AzureBackup* [Azure Firewall FQDN 태그]
 Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업하는 경우 VM의 백업 확장에서 HTTPS API를 사용하여 관리 명령을 Azure Backup에 보내고 데이터를 Azure Storage에 보냅니다. 백업 확장도 인증에 Azure AD를 사용합니다. HTTP 프록시를 통해 이 세 가지 서비스에 대한 백업 확장 트래픽을 라우팅합니다. 필요한 서비스에 대한 액세스를 허용하려면 위에서 언급한 IP 및 FQDN 목록을 사용하세요. 인증된 프록시 서버는 지원되지 않습니다.
 
 > [!NOTE]
-> 서비스 수준 프록시는 지원 되지 않습니다. 즉, 일부 또는 선택 된 서비스 (Azure backup 서비스) 에서만 프록시를 통해 트래픽을 지원 하지 않습니다. 전체 데이터 또는 트래픽은 프록시로 라우팅할 수 있습니다.
+> 서비스 수준 프록시는 지원되지 않습니다. 즉, 일부 또는 선택한 서비스(Azure Backup 서비스)의 프록시를 통한 트래픽은 지원되지 않습니다. 전체 데이터 또는 트래픽은 프록시를 통해 라우팅하는 경우가 아니면 라우팅할 수 없습니다.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -116,7 +116,7 @@ Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업하는 경우 V
 
 이제 백업을 사용하도록 설정합니다.
 
-1. 2 단계에서 **백업 구성** 을 선택 합니다.
+1. 2단계에서 **백업 구성** 을 선택합니다.
 
     ![백업 구성](./media/backup-azure-sap-hana-database/configure-backup.png)
 2. **백업할 항목 선택** 에서 보호하려는 모든 데이터베이스 > **확인** 을 차례로 선택합니다.
@@ -125,7 +125,7 @@ Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업하는 경우 V
 3. **백업 정책** > **백업 정책 선택** 에서 아래의 지침에 따라 데이터베이스에 대한 새 백업 정책을 만듭니다.
 
     ![백업 정책 선택](./media/backup-azure-sap-hana-database/backup-policy.png)
-4. 정책을 만든 후 **백업** 메뉴에서 **백업 사용** 을 선택 합니다.
+4. 정책이 만들어지면 **백업** 메뉴에서 **백업 사용** 을 선택합니다.
 
     ![백업 사용](./media/backup-azure-sap-hana-database/enable-backup.png)
 5. 포털의 **알림** 영역에서 백업 구성 진행률을 추적합니다.
@@ -181,7 +181,7 @@ Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업하는 경우 V
 
 1. **확인** 을 선택하여 정책을 저장하고 주 **백업 정책** 메뉴로 돌아갑니다.
 1. **로그 백업** 을 선택하여 트랜잭션 로그 백업 정책을 추가합니다.
-    * **로그 백업** 에서 **사용** 을 선택합니다.  SAP HANA는 모든 로그 백업을 관리 하므로이를 비활성화할 수 없습니다.
+    * **로그 백업** 에서 **사용** 을 선택합니다.  SAP HANA에서 모든 로그 백업을 관리하므로 이 기능을 사용하지 않도록 설정할 수 없습니다.
     * 빈도 및 보존 컨트롤을 설정합니다.
 
     > [!NOTE]
@@ -191,18 +191,18 @@ Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업하는 경우 V
 1. 백업 정책 정의가 완료되면 **확인** 을 선택합니다.
 
 > [!NOTE]
-> 각 로그 백업은 이전의 전체 백업에 연결되어 복구 체인을 형성합니다. 이 전체 백업은 마지막 로그 백업의 보존 기간이 만료될 때까지 유지됩니다. 따라서 모든 로그가 복구될 수 있도록 전체 백업이 추가 기간 동안 보존될 수 있습니다. 사용자에 게 주간 전체 백업, 일별 차등 및 2 시간 로그가 있다고 가정해 보겠습니다. 모든 항목은 30일 동안 유지됩니다. 그러나 매주 전체 백업을 사용할 수 있는 경우, 즉 30 ~ 7 일 후에만 매주 전체를 정리/삭제할 수 있습니다. 예를 들어 매주 전체 백업은 11 월 16 일에 발생 합니다. 보존 정책에 따라이는 Dec 년 12 월까지 유지 되어야 합니다. 이 전체 백업에 대한 마지막 로그 백업은 예약된 다음 전체 백업일(11월 22일) 이전에 실행됩니다. 이 로그는 12월 22일까지 사용할 수 있으며, 11월 16일 전체 백업본은 그때까지 삭제할 수 없습니다. 따라서 11월 16일 전체 백업본은 12월 22일까지 유지됩니다.
+> 각 로그 백업은 이전의 전체 백업에 연결되어 복구 체인을 형성합니다. 이 전체 백업은 마지막 로그 백업의 보존 기간이 만료될 때까지 유지됩니다. 따라서 모든 로그가 복구될 수 있도록 전체 백업이 추가 기간 동안 보존될 수 있습니다. 사용자에게 주별 전체 백업, 일별 차등 및 2시간 로그가 있다고 가정해 보겠습니다. 모든 항목은 30일 동안 유지됩니다. 하지만 다음 전체 백업이 실행된 후(즉, 30 + 7일 후)에만 주별 전체 백업을 완전히 정리/삭제할 수 있습니다. 예를 들어 주별 전체 백업이 11월 16일에 실행되고 보존 정책에 따라 12월 16일까지 유지된다고 가정하겠습니다. 이 전체 백업에 대한 마지막 로그 백업은 예약된 다음 전체 백업일(11월 22일) 이전에 실행됩니다. 이 로그는 12월 22일까지 사용할 수 있으며, 11월 16일 전체 백업본은 그때까지 삭제할 수 없습니다. 따라서 11월 16일 전체 백업본은 12월 22일까지 유지됩니다.
 
 ## <a name="run-an-on-demand-backup"></a>주문형 백업 실행
 
 백업은 정책 일정에 따라 실행됩니다. 다음과 같이 주문형 백업을 실행할 수 있습니다.
 
-1. 자격 증명 모음 메뉴에서 **백업 항목** 을 선택 합니다.
-2. **백업 항목** 에서 SAP HANA 데이터베이스를 실행 하는 VM을 선택한 다음 **지금 백업** 을 선택 합니다.
-3. **지금 백업** 에서 수행할 백업 유형을 선택 합니다. 그런 다음 **확인** 을 선택합니다. 이 백업은이 백업 항목과 연결 된 정책에 따라 보존 됩니다.
+1. 자격 증명 모음 메뉴에서 **백업 항목** 을 선택합니다.
+2. **백업 항목** 에서 SAP HANA 데이터베이스를 실행하는 VM을 선택하고 **지금 백업** 을 선택합니다.
+3. **지금 백업** 에서 수행할 백업 유형을 선택합니다. 그런 다음, **확인** 을 선택합니다. 이 백업은 이 백업 항목과 연결된 정책에 따라 보존됩니다.
 4. 포털 알림을 모니터링합니다. 자격 증명 모음 대시보드 > **백업 작업** > **진행 중** 에서 작업 진행률을 모니터링할 수 있습니다. 데이터베이스의 크기에 따라 초기 백업을 만드는 데 시간이 걸릴 수 있습니다.
 
-기본적으로 요청 시 백업의 보존은 45 일입니다.
+기본적으로 요청 시 백업의 보존은 45일입니다.
 
 ## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Azure Backup이 설정된 데이터베이스에서 SAP HANA Studio 백업 실행
 
@@ -213,13 +213,13 @@ Microsoft Azure Backup으로 백업 중인 데이터베이스의 로컬 백업(H
 1. 이렇게 하려면 **systemdb** > **구성** > **데이터베이스 선택** > **필터(로그)** 를 두 번 클릭합니다.
 1. **enable_auto_log_backup** 을 **아니요** 로 설정합니다.
 1. **log_backup_using_backint** 를 **False** 로 설정합니다.
-1. **Catalog_backup_using_backint** 을 **False** 로 설정 합니다.
+1. **catalog_backup_using_backint** 를 **False** 로 설정합니다.
 1. 데이터베이스의 주문형 전체 백업을 수행합니다.
 1. 전체 백업 및 카탈로그 백업이 완료될 때까지 기다립니다.
 1. 이전 설정을 Azure에 대한 설정으로 되돌립니다.
     * **enable_auto_log_backup** 을 **예** 로 설정합니다.
     * **log_backup_using_backint** 를 **True** 로 설정합니다.
-    * **Catalog_backup_using_backint** 를 **True** 로 설정 합니다.
+    * **catalog_backup_using_backint** 를 **True** 로 설정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

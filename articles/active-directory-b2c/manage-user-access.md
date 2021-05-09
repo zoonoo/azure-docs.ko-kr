@@ -11,10 +11,10 @@ ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 0ee26e7fe74d87f7b20f9a28b049b8043b376273
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102518060"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 액세스 관리
@@ -83,7 +83,7 @@ ms.locfileid: "102518060"
 - 사용자가 성인으로 알려지면 디렉터리 특성인 **ageGroup** 의 값을 **Adult** 로 업데이트합니다.
 - 사용자가 미성년자인 것으로 확인되면 **ageGroup** 디렉터리 특성을 **Minor** 값으로 업데이트하고 **consentProvidedForMinor** 를 적절하게 설정합니다.
 
-## <a name="minor-calculation-rules"></a>사소한 계산 규칙
+## <a name="minor-calculation-rules"></a>미성년자 계산 규칙
 
 나이 제한에는 두 개의 나이 값이 포함됩니다. 즉, 누군가가 더 이상 미성년자로 간주되지 않는 나이와 보호자의 동의를 받아야 하는 미성년자의 나이입니다. 다음 표에는 미성년자 및 보호자의 동의가 필요한 미성년자를 정의하는 데 사용되는 나이 규칙이 나와 있습니다.
 
@@ -160,7 +160,7 @@ ms.locfileid: "102518060"
 
 ![권장 수락 사용자 흐름을 보여 주는 순서도 다이어그램](./media/manage-user-access/user-flow.png)
 
-다음은 클레임의 날짜 기반 사용 약관에 대 한 예입니다. `extension_termsOfUseConsentDateTime`클레임이 보다 오래 된 경우 `2025-01-15T00:00:00` `termsOfUseConsentRequired` 부울 클레임을 확인 하 고 자체 어설션된 화면을 표시 하 여 새 수락을 강제로 적용 합니다. 
+다음은 클레임의 날짜 기반 사용 약관 동의의 예입니다. `extension_termsOfUseConsentDateTime` 클레임이 `2025-01-15T00:00:00`보다 오래된 경우 `termsOfUseConsentRequired` 부울 클레임을 확인하고 자체 어설션된 화면을 표시하여 새 수락을 강제로 적용합니다. 
 
 ```xml
 <ClaimsTransformations>
@@ -183,7 +183,7 @@ ms.locfileid: "102518060"
 </ClaimsTransformations>
 ```
 
-다음은 클레임에 대 한 버전 기반 사용 약관의 예입니다. `extension_termsOfUseConsentVersion`클레임이와 같지 않으면 `V1` `termsOfUseConsentRequired` 부울 클레임을 확인 하 고 자체 어설션된 화면을 표시 하 여 새 수락을 강제로 적용 합니다.
+다음은 클레임의 버전 기반 사용 약관 동의의 예입니다. `extension_termsOfUseConsentVersion` 클레임이 `V1`과 같지 않으면 `termsOfUseConsentRequired` 부울 클레임을 확인하고 자체 어설션된 화면을 표시하여 새 수락을 강제로 적용합니다.
 
 ```xml
 <ClaimsTransformations>
@@ -221,6 +221,6 @@ ms.locfileid: "102518060"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD B2C에서 나이 제어를 사용 하도록 설정](age-gating.md)합니다.
+- [Azure AD B2C에서 나이 제한을 사용하도록 설정합니다](age-gating.md).
 - 사용자 데이터를 삭제하고 내보내는 방법을 알아보려면 [사용자 데이터 관리](manage-user-data.md)를 참조하세요.
 - 사용 약관 프롬프트를 구현하는 예제 사용자 지정 정책은 [B2C IEF 사용자 지정 정책 - ‘사용 약관’ 프롬프트를 사용하여 가입 및 로그인](https://github.com/azure-ad-b2c/samples/tree/master/policies/sign-in-sign-up-versioned-tou)을 참조하세요.

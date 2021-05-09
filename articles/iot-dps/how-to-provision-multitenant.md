@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub 장치 프로 비전 서비스에서 배포할지에에 대 한 장치를 프로 비전 하는 방법
-description: DPS (장치 프로 비전 서비스) 인스턴스를 사용 하 여 배포할지에 용 장치를 프로 비전 하는 방법
+title: Azure IoT Hub Device Provisioning Service에서 다중 테넌시를 위한 디바이스를 프로비저닝하는 방법
+description: Device Provisioning Service(DPS) 인스턴스를 사용하여 다중 테넌시를 위한 디바이스를 프로비저닝하는 방법
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/10/2019
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: eebcfb98d4e155ca965b9e4c68a862afa08a46ca
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101727433"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>다중 테넌트를 지원하기 위해 장치를 프로비전하는 방법 
 
-이 문서에서는 [할당 정책](concepts-service.md#allocation-policy)을 사용 하 여 여러 대칭 키 장치를 IoT hub 그룹에 안전 하 게 프로 비전 하는 방법을 보여 줍니다. 프로 비전 서비스에서 정의 된 할당 정책은 다양 한 할당 시나리오를 지원 합니다. 가장 일반적인 두 가지 시나리오는 다음과 같습니다.
+이 문서에서는 [할당 정책](concepts-service.md#allocation-policy)을 사용하여 여러 대칭 키 디바이스를 IoT Hub 그룹에 안전하게 프로비저닝하는 방법을 보여 줍니다. 프로비저닝 서비스에서 정의된 할당 정책은 다양한 할당 시나리오를 지원합니다. 가장 일반적인 두 가지 시나리오는 다음과 같습니다.
 
 * **지리적 위치/지리적 대기 시간**: 여러 위치 간에 디바이스를 이동하면서, 각 위치에 가장 가까운 IoT Hub로 디바이스를 프로비전하여 네트워크 대기 시간이 짧아집니다. 이 시나리오에서는 지역에 걸쳐 있는 IoT Hub 그룹이 등록을 위해 선택됩니다. 이러한 등록에 대해 **최저 대기 시간** 할당 정책이 선택되었습니다. 이 정책에 따라 Device Provisioning Service는 디바이스 대기 시간을 평가하고 IoT Hub 그룹 중에서 가장 가까운 IoT Hub를 확인합니다. 
 
@@ -188,7 +188,7 @@ ms.locfileid: "101727433"
 
 이 섹션에서는 각 VM에서 Azure IoT C SDK를 복제합니다. SDK에는 각 지역의 테넌트 디바이스 프로비저닝을 시뮬레이트하는 샘플이 포함되어 있습니다.
 
-1. 각 VM에 대해 다음 명령을 사용 하 여 **cmake**, **g + +**, **gcc** 및 [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) 를 설치 합니다.
+1. 각 VM에 대해 다음 명령을 사용하여 **CMake**, **g++** , **gcc**, [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)을 설치합니다.
 
     ```bash
     sudo apt-get update
@@ -418,7 +418,7 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> 다시 프로 비전에 대 한 자세한 내용은 [IoT Hub Device 다시 프로 비전 개념](concepts-device-reprovision.md) 을 참조 하세요.
+> 재프로비저닝에 대한 자세한 내용은 [IoT Hub 디바이스 재프로비저닝 개념](concepts-device-reprovision.md)을 참조하세요.
 
 > [!div class="nextstepaction"]
-> 프로 비전 해제에 대 한 자세한 내용은 [이전에 자동으로 프로 비전 된 장치의 프로 비전](how-to-unprovision-devices.md) 을 해제 하는 방법을 참조 하세요.
+> 프로비전 해제에 대한 자세한 내용은 [이전에 자동 프로비저닝된 디바이스의 프로비전을 해제하는 방법](how-to-unprovision-devices.md)을 참조하세요.

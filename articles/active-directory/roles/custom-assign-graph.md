@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 67e77c2dd08386279beeb06ff9081fa2669afa73
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102487837"
 ---
 # <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Azure Active Directory에서 Microsoft Graph API를 사용하여 사용자 지정 관리자 역할 할당 
@@ -26,7 +26,7 @@ Microsoft Graph API를 사용하여 사용자 계정에 역할을 할당하는 �
 
 ## <a name="required-permissions"></a>필요한 사용 권한
 
-전역 관리자 또는 권한 있는 역할 관리자 계정을 사용 하 여 Azure AD 조직에 연결 하 여 역할을 할당 하거나 제거 합니다.
+전역 관리자 또는 권한 있는 역할 관리자 계정을 사용하여 Azure AD 조직에 연결하여 역할을 할당하거나 제거합니다.
 
 ## <a name="post-operations-on-roleassignment"></a>RoleAssignment에 대한 POST 작업
 
@@ -55,7 +55,7 @@ Content-type: application/json
 HTTP/1.1 201 Created
 ```
 
-### <a name="example-2-create-a-role-assignment-where-the-principal-or-role-definition-does-not-exist"></a>예 2: 주 역할 또는 역할 정의가 없는 역할 할당 만들기
+### <a name="example-2-create-a-role-assignment-where-the-principal-or-role-definition-does-not-exist"></a>예제 2: 보안 주체 또는 역할 정의가 없는 역할 할당 만들기
 
 POST
 
@@ -78,7 +78,7 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ``` HTTP
 HTTP/1.1 404 Not Found
 ```
-### <a name="example-3-create-a-role-assignment-on-a-single-resource-scope"></a>예제 3: 단일 리소스 범위에 대 한 역할 할당 만들기
+### <a name="example-3-create-a-role-assignment-on-a-single-resource-scope"></a>예제 3: 단일 리소스 범위에 대한 역할 할당 만들기
 
 POST
 
@@ -102,7 +102,7 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 HTTP/1.1 201 Created
 ```
 
-### <a name="example-4-create-an-administrative-unit-scoped-role-assignment-on-a-built-in-role-definition-which-is-not-supported"></a>예 4: 지원 되지 않는 기본 제공 역할 정의에 대 한 관리 단위 범위 역할 할당 만들기
+### <a name="example-4-create-an-administrative-unit-scoped-role-assignment-on-a-built-in-role-definition-which-is-not-supported"></a>예제 4: 지원되지 않는 기본 제공 역할 정의에 대한 관리 단위 범위 역할 할당 만들기
 
 POST
 
@@ -136,11 +136,11 @@ HTTP/1.1 400 Bad Request
 }
 ```
 
-관리 단위 범위 지정에는 기본 제공 역할의 하위 집합만 사용할 수 있습니다. 관리 단위에 대해 지원 되는 기본 제공 역할 목록은 [이 설명서](admin-units-assign-roles.md) 를 참조 하세요.
+관리 단위 범위로는 기본 제공 역할의 하위 집합만 사용할 수 있습니다. 관리 단위에 대해 지원되는 기본 제공 역할 목록은 [이 문서](admin-units-assign-roles.md)를 참조하세요.
 
 ## <a name="get-operations-on-roleassignment"></a>RoleAssignment에 대한 GET 작업
 
-### <a name="example-5-get-role-assignments-for-a-given-principal"></a>예 5: 지정 된 보안 주체에 대 한 역할 할당 가져오기
+### <a name="example-5-get-role-assignments-for-a-given-principal"></a>예제 5: 지정된 보안 주체에 대한 역할 할당 가져오기
 
 GET
 
@@ -170,7 +170,7 @@ HTTP/1.1 200 OK
 }
 ```
 
-### <a name="example-6-get-role-assignments-for-a-given-role-definition"></a>예 6: 지정 된 역할 정의에 대 한 역할 할당을 가져옵니다.
+### <a name="example-6-get-role-assignments-for-a-given-role-definition"></a>예제 6: 지정된 역할 정의에 대한 역할 할당 가져오기
 
 GET
 
@@ -194,7 +194,7 @@ HTTP/1.1 200 OK
 }
 ```
 
-### <a name="example-7-get-a-role-assignment-by-id"></a>예 7: ID로 역할 할당을 가져옵니다.
+### <a name="example-7-get-a-role-assignment-by-id"></a>예제 7: ID별 역할 할당 가져오기
 
 GET
 
@@ -214,7 +214,7 @@ HTTP/1.1 200 OK
 }
 ```
 
-### <a name="example-8-get-role-assignments-for-a-given-scope"></a>예 8: 지정 된 범위에 대 한 역할 할당 가져오기
+### <a name="example-8-get-role-assignments-for-a-given-scope"></a>예제 8: 지정된 범위에 대한 역할 할당 가져오기
 
 
 GET
@@ -247,7 +247,7 @@ HTTP/1.1 200 OK
 
 ## <a name="delete-operations-on-roleassignment"></a>RoleAssignment에 대한 DELETE 작업
 
-### <a name="example-9-delete-a-role-assignment-between-a-user-and-a-role-definition"></a>예 9: 사용자와 역할 정의 간의 역할 할당을 삭제 합니다.
+### <a name="example-9-delete-a-role-assignment-between-a-user-and-a-role-definition"></a>예제 9: 사용자와 역할 정의 간에 역할 할당 삭제
 
 Delete
 
@@ -260,7 +260,7 @@ DELETE https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 HTTP/1.1 204 No Content
 ```
 
-### <a name="example-10-delete-a-role-assignment-that-no-longer-exists"></a>예 10: 더 이상 존재 하지 않는 역할 할당 삭제
+### <a name="example-10-delete-a-role-assignment-that-no-longer-exists"></a>예제 10: 더 이상 존재하지 않는 역할 할당 삭제
 
 Delete
 
@@ -274,7 +274,7 @@ DELETE https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 HTTP/1.1 404 Not Found
 ```
 
-### <a name="example-11-delete-a-role-assignment-between-self-and-global-administrator-role-definition"></a>예 11: 자체 및 전역 관리자 역할 정의 간의 역할 할당 삭제
+### <a name="example-11-delete-a-role-assignment-between-self-and-global-administrator-role-definition"></a>예제 11: 자체 역할 정의와 전역 관리자 역할 정의 간에 역할 할당 삭제
 
 Delete
 
@@ -300,10 +300,10 @@ HTTP/1.1 400 Bad Request
 }
 ```
 
-테 넌 트에 전역 관리자가 없는 시나리오를 방지 하기 위해 사용자는 자신의 전역 관리자 역할을 삭제할 수 없습니다. 자신에 게 할당 된 다른 역할은 제거할 수 있습니다.
+테넌트에 전역 관리자가 없는 시나리오를 방지하기 위해, 사용자는 자신의 전역 관리자 역할을 삭제할 수 없습니다. 자신에게 할당된 다른 역할은 제거할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [AZURE AD 관리 역할 포럼](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032) 에서 자유롭게 공유 하세요.
-* 역할 및 관리자 역할 할당에 대 한 자세한 내용은 [관리자 역할 할당](permissions-reference.md) 을 참조 하세요.
-* 기본 사용자 권한의 경우 [기본 게스트 및 멤버 사용자 권한 비교](../fundamentals/users-default-permissions.md) 를 참조 하세요.
+* 언제든지 [Azure AD 관리 역할 포럼](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)에서 경험을 공유하세요.
+* 역할 및 관리자 역할 할당에 대한 자세한 내용은 [관리자 역할 할당](permissions-reference.md)을 참조하세요.
+* 기본 사용자 권한의 경우 [기본 게스트 및 멤버 사용자 권한 비교](../fundamentals/users-default-permissions.md)를 참조하세요.

@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 04/08/2021
 ms.author: banders
-ms.openlocfilehash: 996c974473c53833dd26abae2fb61585999f33b4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ff53131f3078b33b7e7d853c1fca891b0b86d792
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050446"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484604"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Microsoft 고객 계약 청구서의 용어
 
@@ -29,6 +29,18 @@ ms.locfileid: "102050446"
 ## <a name="billing-period"></a>청구 기간
 
 청구서는 월 단위로 제공됩니다. [Azure Portal](https://portal.azure.com/)의 청구 프로필 속성 아래에서 *청구서 날짜* 를 확인하면 매달 청구서를 받는 날짜를 알 수 있습니다. 청구 기간 종료 날짜와 청구서 날짜 사이에 발생하는 요금은 다음 청구 기간에 속하기 때문에 다음 달 청구서에 포함됩니다. 각 청구서의 청구 기간 시작 및 종료 날짜는 **청구 요약** 위의 청구서 PDF에 나열됩니다.
+
+EA에서 Microsoft 고객 계약으로 마이그레이션하면 EA에 대한 청구서를 마이그레이션 날짜까지 계속 받게 됩니다. Microsoft 고객 계약에 대한 새 청구서는 마이그레이션한 후 그 달의 5일차에 생성됩니다. 첫 번째 청구서에는 마이그레이션 날짜부터의 부분 요금이 표시됩니다. 이후 청구서는 매달 생성되며 각 월의 모든 요금이 표시됩니다.
+
+### <a name="changes-for-pay-as-you-go-subscriptions"></a>종량제 구독 변경 내용
+
+구독이 전환, 전송 또는 취소되면 마지막에 생성된 청구서에는 이전 청구 기간 및 완료되지 않은 새로운 청구 기간에 대한 요금이 포함됩니다.
+
+예를 들면 다음과 같습니다.
+
+종량제 구독 청구 기간이 매월 8일부터 7일까지라고 가정해 보겠습니다. 구독은 11월 16일에 Microsoft 고객 계약으로 전송되었습니다. 마지막 종량제 청구서에는 2020년 10월 8일부터 2020년 11월 7일까지의 요금이 청구됩니다. 또한 2020년 11월 8일부터 2020년 11월 16일까지의 Microsoft 고객 계약에 대한 새로운 부분 청구 기간에 대한 요금이 청구됩니다. 다음은 예제 이미지입니다.
+
+:::image type="content" source="./media/mca-understand-your-invoice/last-invoice-billing-cycle.png" alt-text="마지막 청구 기간을 보여주는 청구서의 예제 이미지입니다." lightbox="./media/mca-understand-your-invoice/last-invoice-billing-cycle.png" :::
 
 ## <a name="invoice-terms-and-descriptions"></a>청구서 용어 및 설명
 

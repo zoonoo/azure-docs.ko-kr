@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b2c77c20bfb6fff60f2242d1ac2dad7b3fc9f6fe
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 5c299bc88331c05c89273756ebaf377ee1378199
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107796289"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124458"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure 파일 동기화 프록시 및 방화벽 설정
 Azure 파일 동기화는 온-프레미스 서버를 Azure Files에 연결하여, 다중 사이트 동기화 및 클라우드 계층화 기능을 사용하도록 설정합니다. 따라서 온-프레미스 서버가 인터넷에 연결되어야 합니다. IT 관리자는 서버가 Azure 클라우드 서비스에 연결하는 최상의 경로를 결정해야 합니다.
@@ -41,7 +41,7 @@ Azure 파일 동기화 에이전트는 Azure에 대해 [ExpressRoute](../../expr
 
 Azure 파일 동기화는 Azure로 연결될 수 있는 모든 방식에 작동하며, 대역폭, 대기 시간과 같은 다양한 네트워크 특성에 맞게 자동으로 조정되고 미세 조정을 위한 관리 제어 기능을 제공합니다. 현재는 일부 기능을 사용할 수 없습니다. 특정 동작을 구성하려는 경우 [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage?category_id=180670)를 통해 알려주세요.
 
-## <a name="proxy"></a>Proxy (프록시)
+## <a name="proxy"></a>프록시
 Azure 파일 동기화는 앱별 및 머신 차원의 프록시 설정을 지원합니다.
 
 **앱별 프록시 설정** 을 통해 Azure 파일 동기화 트래픽에 대한 프록시를 적절하게 구성할 수 있습니다. 앱별 프록시 설정은 에이전트 버전 4.0.1.0 이상에서 지원되며 에이전트 설치 중 또는 Set-StorageSyncProxyConfiguration PowerShell cmdlet을 사용하여 구성될 수 있습니다.
@@ -97,7 +97,7 @@ Set-StorageSyncProxyConfiguration -Address $Address -Port $Port -ProxyCredential
 2. WinHTTP 프록시 설정을 지정합니다. 
 
    > [!Note]  
-   > 프록시 서버를 사용하도록 Windows Server를 구성하는 방법에는 여러 가지(WPAD, PAC 파일, netsh 등)가 있습니다. 아래 단계는 netsh를 사용하여 프록시 설정을 구성하는 방법을 설명하지만 [Windows의 프록시 서버 설정 구성](https://docs.microsoft.com/troubleshoot/windows-server/networking/configure-proxy-server-settings) 설명서에 나열된 모든 방법이 지원됩니다.
+   > 프록시 서버를 사용하도록 Windows Server를 구성하는 방법에는 여러 가지(WPAD, PAC 파일, netsh 등)가 있습니다. 아래 단계는 netsh를 사용하여 프록시 설정을 구성하는 방법을 설명하지만 [Windows의 프록시 서버 설정 구성](/troubleshoot/windows-server/networking/configure-proxy-server-settings) 설명서에 나열된 모든 방법이 지원됩니다.
 
 
    - 관리자 권한 명령 프롬프트 또는 PowerShell에서 다음 명령을 실행하여 기존 프록시 설정을 확인합니다.   
@@ -119,7 +119,7 @@ Set-StorageSyncProxyConfiguration -Address $Address -Port $Port -ProxyCredential
 
 다음 표에서는 통신에 필요한 도메인에 대해 설명합니다.
 
-| 서비스 | 공용 클라우드 엔드포인트 | Azure Government 엔드포인트 | 사용 |
+| 서비스 | 공용 클라우드 엔드포인트 | Azure Government 엔드포인트 | 사용량 |
 |---------|----------------|---------------|------------------------------|
 | **Azure Resource Manager** | `https://management.azure.com` | https://management.usgovcloudapi.net | 초기 서버 등록 호출을 포함하는 모든 사용자 호출(예: PowerShell)은 이 URL로 이동되거나 이 URL을 통해 이동됩니다. |
 | **Azure Active Directory** | https://login.windows.net<br>`https://login.microsoftonline.com` | https://login.microsoftonline.us | Azure Resource Manager 호출은 인증된 사용자가 수행해야 합니다. 성공하기 위해 이 URL이 사용자 인증에 사용됩니다. |
@@ -147,7 +147,7 @@ BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 스�
 | 공용 | 캐나다 동부 | https:\//canadaeast01.afs.azure.net<br>https:\//kailani-cae.one.microsoft.com | 캐나다 중부 | https:\//tm-canadaeast01.afs.azure.net<br>https:\//tm-kailani.cae.one.microsoft.com |
 | 공용 | 인도 중부 | https:\//centralindia01.afs.azure.net<br>https:\//kailani-cin.one.microsoft.com | 인도 남부 | https:\//tm-centralindia01.afs.azure.net<br>https:\//tm-kailani-cin.one.microsoft.com |
 | 공용 | 미국 중부 | https:\//centralus01.afs.azure.net<br>https:\//kailani-cus.one.microsoft.com | 미국 동부 2 | https:\//tm-centralus01.afs.azure.net<br>https:\//tm-kailani-cus.one.microsoft.com |
-| 공용 | 동아시아 | https:\//eastasia01.afs.azure.net<br>https:\//kailani11.one.microsoft.com | 동남 아시아 | https:\//tm-eastasia01.afs.azure.net<br>https:\//tm-kailani11.one.microsoft.com |
+| 공용 | 동아시아 | https:\//eastasia01.afs.azure.net<br>https:\//kailani11.one.microsoft.com | 동남아시아 | https:\//tm-eastasia01.afs.azure.net<br>https:\//tm-kailani11.one.microsoft.com |
 | 공용 | 미국 동부 | https:\//eastus01.afs.azure.net<br>https:\//kailani1.one.microsoft.com | 미국 서부 | https:\//tm-eastus01.afs.azure.net<br>https:\//tm-kailani1.one.microsoft.com |
 | 공용 | 미국 동부 2 | https:\//eastus201.afs.azure.net<br>https:\//kailani-ess.one.microsoft.com | 미국 중부 | https:\//tm-eastus201.afs.azure.net<br>https:\//tm-kailani-ess.one.microsoft.com |
 | 공용 | 독일 북부 | https:\//germanynorth01.afs.azure.net | 독일 중서부 | https:\//tm-germanywestcentral01.afs.azure.net |
@@ -160,7 +160,7 @@ BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 스�
 | 공용 | 북유럽 | https:\//northeurope01.afs.azure.net<br>https:\//kailani7.one.microsoft.com | 서유럽 | https:\//tm-northeurope01.afs.azure.net<br>https:\//tm-kailani7.one.microsoft.com |
 | 공용 | 미국 중남부 | https:\//southcentralus01.afs.azure.net | 미국 중북부 | https:\//tm-southcentralus01.afs.azure.net |
 | 공용 | 인도 남부 | https:\//southindia01.afs.azure.net<br>https:\//kailani-sin.one.microsoft.com | 인도 중부 | https:\//tm-southindia01.afs.azure.net<br>https:\//tm-kailani-sin.one.microsoft.com |
-| 공용 | 동남 아시아 | https:\//southeastasia01.afs.azure.net<br>https:\//kailani10.one.microsoft.com | 동아시아 | https:\//tm-southeastasia01.afs.azure.net<br>https:\//tm-kailani10.one.microsoft.com |
+| 공용 | 동남아시아 | https:\//southeastasia01.afs.azure.net<br>https:\//kailani10.one.microsoft.com | 동아시아 | https:\//tm-southeastasia01.afs.azure.net<br>https:\//tm-kailani10.one.microsoft.com |
 | 공용 | 스위스 북부 | https:\//switzerlandnorth01.afs.azure.net<br>https:\//tm-switzerlandnorth01.afs.azure.net | 스위스 서부 | https:\//switzerlandwest01.afs.azure.net<br>https:\//tm-switzerlandwest01.afs.azure.net |
 | 공용 | 스위스 서부 | https:\//switzerlandwest01.afs.azure.net<br>https:\//tm-switzerlandwest01.afs.azure.net | 스위스 북부 | https:\//switzerlandnorth01.afs.azure.net<br>https:\//tm-switzerlandnorth01.afs.azure.net |
 | 공용 | 영국 남부 | https:\//uksouth01.afs.azure.net<br>https:\//kailani-uks.one.microsoft.com | 영국 서부 | https:\//tm-uksouth01.afs.azure.net<br>https:\//tm-kailani-uks.one.microsoft.com |

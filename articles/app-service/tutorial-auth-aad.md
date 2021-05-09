@@ -4,15 +4,15 @@ description: App Service 인증 및 권한 부여를 사용하여 원격 API에 
 keywords: App Service, Azure App Service, authN, authZ, 보호, 보안, 다중 계층, Azure Active Directory, Azure AD
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/29/2020
+ms.date: 04/26/2021
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: e35a4abbcaf0cd2298d55c06de0ecfbef0dff354
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c0a232dc0541ea8626cdb40a9b3497a686a5ee11
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765794"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074548"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여
 
@@ -240,23 +240,21 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
 :::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="예제 리소스 그룹 및 선택한 백 엔드 앱의 관리 페이지에 대한 개요를 보여주는 리소스 그룹 창의 스크린샷.":::
 
-백 엔드 앱의 왼쪽 메뉴에서 **인증/권한 부여** 을 선택하고 **설정** 을 선택하여 App Service 인증을 사용하도록 설정합니다.
+백 엔드 앱 왼쪽 메뉴에서 **인증** 을 선택한 다음, **ID 공급자 추가** 를 클릭합니다.
 
-**요청이 인증되지 않은 경우 수행할 작업** 에서 **Azure Active Directory로 로그인** 을 선택합니다.
+**ID 공급자 추가** 페이지에서 **ID 공급자** 로 **Microsoft** 를 선택하여 Microsoft 및 Azure AD ID에 로그인합니다.
 
-**인증 공급자** 에서 **Azure Active Directory** 를 선택합니다.
+**앱 등록** > **앱 등록 유형** 에 대해 **새 앱 등록 만들기** 를 선택합니다.
+
+**앱 등록** > **지원 계정 유형** 에 대해 **현재 테넌트-단일 테넌트** 를 선택합니다.
+
+**App Service 인증 설정** 섹션에서 **인증** 을 **인증 필요** 로 설정하고 **인증되지 않은 요청** 을 **HTTP 302 리디렉션 찾음: 웹 사이트에 권장됨** 으로 설정합니다.
+
+**ID 공급자 추가** 페이지의 맨 아래에서 **추가** 를 클릭하여 웹앱에 대한 인증을 사용하도록 설정합니다.
 
 :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="선택된 인증/권한 부여 및 오른쪽 메뉴에서 선택한 설정을 보여주는 백 엔드 앱의 왼쪽 메뉴 스크린샷.":::
 
-**기본** 을 선택하고 기본 설정을 그대로 사용하여 새 AD 앱을 만든 후 **확인** 을 선택합니다.
-
-**인증/권한 부여** 페이지에서 **저장** 을 선택합니다.
-
-`Successfully saved the Auth Settings for <back-end-app-name> App` 메시지가 포함된 알림이 표시되면 포털 페이지를 새로 고칩니다.
-
-**Azure Active Directory** 를 다시 선택한 다음, **Azure AD 앱** 을 선택합니다.
-
-Azure AD 애플리케이션의 **클라이언트 ID** 를 메모장에 복사합니다. 이 값은 나중에 필요합니다.
+**인증** 페이지가 열립니다. Azure AD 애플리케이션의 **클라이언트 ID** 를 메모장에 복사합니다. 이 값은 나중에 필요합니다.
 
 :::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Azure AD 앱을 보여주는 Azure Active Directory 설정 창과 복사할 클라이언트 ID를 보여주는 Azure AD 애플리케이션의 스크린샷.":::
 
