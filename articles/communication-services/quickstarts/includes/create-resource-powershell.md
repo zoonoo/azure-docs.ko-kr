@@ -1,15 +1,15 @@
 ---
-ms.openlocfilehash: cc628b1f1fcae5e837f7f61db584c8747100f353
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 340635f273c20c9d8b42fde0c07a7aa97d9f348a
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644747"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293262"
 ---
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/dotnet/).
-- [Azure Az PowerShell 모듈](https://docs.microsoft.com/powershell/azure/) 설치
+- [Azure Az PowerShell 모듈](/powershell/azure/) 설치
 
 ## <a name="create-azure-communication-resource"></a>Azure Communication 리소스 만들기
 

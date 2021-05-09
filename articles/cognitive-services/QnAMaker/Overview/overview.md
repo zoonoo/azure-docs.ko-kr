@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 01/22/2021
 ms.custom: cog-serv-seo-aug-2020
 keywords: qna maker, 낮은 코드 채팅 봇, 멀티 턴 대화
-ms.openlocfilehash: 8df9daa213156fc38ed08bced44ea919da95e6a4
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 84678e0472284f6a9acfec53fbe31ff550775446
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104869211"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292669"
 ---
 # <a name="what-is-qna-maker"></a>QnA Maker란?
 
@@ -20,7 +20,7 @@ QnA Maker는 데이터를 통해 자연스러운 대화형 계층을 만들 수 
 
 QnA Maker는 소셜 미디어 애플리케이션, 채팅 봇 및 음성 지원 데스크톱 애플리케이션을 포함하는 대화형 클라이언트 애플리케이션을 빌드하는 데 주로 사용됩니다.
 
-QnA Maker는 고객 데이터를 저장하지 않습니다. 모든 고객 데이터(질문과 대답 및 채팅 로그)는 고객이 종속 서비스 인스턴스를 배포하는 지역에 저장됩니다. 종속 서비스에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/plan?tabs=v1)를 참조하세요.
+QnA Maker는 고객 데이터를 저장하지 않습니다. 모든 고객 데이터(질문과 대답 및 채팅 로그)는 고객이 종속 서비스 인스턴스를 배포하는 지역에 저장됩니다. 종속 서비스에 대한 자세한 내용은 [여기](../concepts/plan.md?tabs=v1)를 참조하세요.
 
 ## <a name="when-to-use-qna-maker"></a>QnA Maker를 사용하는 경우
 

@@ -1,14 +1,14 @@
 ---
 title: 시작 쿼리 샘플
 description: Azure Resource Graph를 사용하여 리소스 개수 계산, 리소스 정렬 또는 특정 태그를 포함한 일부 시작 쿼리를 실행합니다.
-ms.date: 02/04/2021
+ms.date: 05/01/2021
 ms.topic: sample
-ms.openlocfilehash: f3ff78f52f84ad4fac74fa6e7b04de3e645a2fff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 52744c3d1e83874d4ac469a93eef86ae12155b5a
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821368"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326006"
 ---
 # <a name="starter-resource-graph-query-samples"></a>스타터 Resource Graph 쿼리 샘플
 

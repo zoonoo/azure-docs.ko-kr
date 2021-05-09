@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 6e62859a95556b35540478fbcd5aef6418954afb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 489eea73f5630653a624bcf56025a13c04d8dba7
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92510375"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331883"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-simplenexus"></a>자습서: SimpleNexus와 Azure Active Directory 통합
 
@@ -106,7 +106,7 @@ SimpleNexus에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://simplenexus.com/<companyname>` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [SimpleNexus 클라이언트 지원 팀](https://simplenexus.com/sn/contact-us/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [SimpleNexus 클라이언트 지원 팀](https://www.simplenexus.com/contact-us/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML** 을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -124,7 +124,7 @@ SimpleNexus에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 ### <a name="configure-simplenexus-single-sign-on"></a>SimpleNexus Single Sign-On 구성
 
-**SimpleNexus** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 과 적절히 복사한 URL을 [SimpleNexus 지원 팀](https://simplenexus.com/sn/contact-us/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**SimpleNexus** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 과 적절히 복사한 URL을 [SimpleNexus 지원 팀](https://www.simplenexus.com/contact-us/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 

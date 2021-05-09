@@ -9,12 +9,12 @@ ms.date: 03/29/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 324ca849e0f9c1282dc4b47ceba4654c76c07b35
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: fef8859e01b019cb174faee160bdfda135a23c4b
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107870826"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293335"
 ---
 # <a name="programmatically-create-azure-subscriptions-for-a-microsoft-customer-agreement-with-the-latest-apis"></a>최신 API를 사용하여 프로그래밍 방식으로 Microsoft 고객 계약에 대한 Azure 구독 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "107870826"
 
 구독을 만들려면 청구서 섹션에 대한 소유자, 기여자 또는 Azure 구독 생성자 역할이 있거나 청구 프로필에 대한 소유자나 기여자 역할 또는 청구 계정이 있어야 합니다. 동일한 역할을 SPN(서비스 사용자 이름)에 부여할 수도 있습니다. 역할 및 권한을 할당하는 방법에 대한 자세한 내용은 [구독 청구 역할 및 작업](understand-mca-roles.md#subscription-billing-roles-and-tasks)을 참조하세요.
 
-SPN을 사용하여 구독을 만드는 경우 [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) 또는 [Azure CLI](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_list)를 사용하여 Azure AD 애플리케이션 등록의 ObjectId를 서비스 사용자 ObjectId로 사용합니다. 
+SPN을 사용하여 구독을 만드는 경우 [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true) 또는 [Azure CLI](/cli/azure/ad/sp?view=azure-cli-latest&preserve-view=true#az_ad_sp_list)를 사용하여 Azure AD 애플리케이션 등록의 ObjectId를 서비스 사용자 ObjectId로 사용합니다. 
 
 Microsoft 고객 계약 계정에 대한 액세스 권한이 있는지 여부를 모르는 경우 [Microsoft 고객 계약에 대한 액세스 권한 확인](../understand/mca-overview.md#check-access-to-a-microsoft-customer-agreement)을 참조하세요.
 

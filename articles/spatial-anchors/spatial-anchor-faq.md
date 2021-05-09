@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: fc92543f5954cda9db42e53cab18db1d8f3366c3
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 73971d4e7b7e05a03ed0490ff013977e57721b8d
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107284207"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107896624"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Azure Spatial Anchors에 대한 FAQ
 
@@ -88,7 +88,7 @@ Azure Spatial Anchors는 [Azure 서비스 계약 및 조건](https://go.microsof
 
 **Q: Azure Spatial Anchors를 사용할 수 있는 지역은 어떻게 되나요?**
 
-**A:** Azure Spatial Anchors는 현재 미국 서부 2, 미국 동부, 미국 동부 2, 미국 중남부, 서유럽, 북유럽, 영국 남부 및 오스트레일리아 동부에서 사용할 수 있습니다. 향후에 추가 지역이 제공될 것입니다.
+**A:** Azure Spatial Anchors는 현재 미국 서부 2, 미국 동부, 미국 동부 2, 미국 중남부, 서유럽, 북유럽, 영국 남부, 오스트레일리아 동부, 동남 아시아 및 한국 중부에서 사용할 수 있습니다. 향후에 추가 지역이 제공될 것입니다.
 
 즉, 이 서비스에서 지원하는 컴퓨팅과 스토리지가 모두 이러한 지역에 있습니다. 다시 말하면, 클라이언트의 위치에는 제한이 없습니다. 
 

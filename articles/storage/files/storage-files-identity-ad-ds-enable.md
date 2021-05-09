@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 5ee4481b3151e28d5d37760e486a43adbc194994
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2be762adfeb296546a289e745794e53e4ee16a09
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553224"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107895850"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>1부: Azure 파일 공유에 대한 AD DS 인증 사용 설정 
 
@@ -41,27 +41,30 @@ cmdlet에서 만든 AD DS 계정은 스토리지 계정을 나타냅니다. 암�
 PowerShell에서 실행하기 전에 아래 매개 변수에서 자리 표시자 값을 고유한 값으로 바꿉니다.
 > [!IMPORTANT]
 > 도메인 가입 cmdlet은 AD의 스토리지 계정(파일 공유)을 나타내는 AD 계정을 만듭니다. 컴퓨터 계정 또는 서비스 로그온 계정으로 등록하도록 선택할 수 있습니다. 자세한 내용은 [FAQ](./storage-files-faq.md#security-authentication-and-access-control)를 참조하세요. 컴퓨터 계정의 경우 AD에 기본 암호 만료 기간이 30일로 설정되어 있습니다. 마찬가지로, 서비스 로그온 계정에는 AD 도메인 또는 OU(조직 구성 단위)에 대한 기본 암호 만료 기간이 설정되어 있을 수 있습니다.
-> 두 계정 유형 모두 AD 환경에 구성된 암호 만료 기간을 확인하고 최대 암호 사용 기간 전에 AD 계정의 [스토리지 계정 ID 암호를 업데이트](storage-files-identity-ad-ds-update-password.md)하도록 계획하는 것이 좋습니다. [AD에서 새 AD OU(조직 구성 단위)를 만들고](/powershell/module/addsadministration/new-adorganizationalunit) 이에 따라 [컴퓨터 계정](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)) 또는 서비스 로그온 계정에 대한 암호 만료 정책을 사용하지 않도록 설정할 수 있습니다. 
+> 두 계정 유형 모두 AD 환경에 구성된 암호 만료 기간을 확인하고 최대 암호 사용 기간 전에 AD 계정의 [스토리지 계정 ID 암호를 업데이트](storage-files-identity-ad-ds-update-password.md)하도록 계획하는 것이 좋습니다. [AD에서 새 AD OU(조직 구성 단위)를 만들고](/powershell/module/activedirectory/new-adorganizationalunit) 이에 따라 [컴퓨터 계정](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)) 또는 서비스 로그온 계정에 대한 암호 만료 정책을 사용하지 않도록 설정할 수 있습니다. 
 
 ```PowerShell
-#Change the execution policy to unblock importing AzFilesHybrid.psm1 module
+# Change the execution policy to unblock importing AzFilesHybrid.psm1 module
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 
 # Navigate to where AzFilesHybrid is unzipped and stored and run to copy the files into your path
 .\CopyToPSPath.ps1 
 
-#Import AzFilesHybrid module
+# Import AzFilesHybrid module
 Import-Module -Name AzFilesHybrid
 
-#Login with an Azure AD credential that has either storage account owner or contributer Azure role assignment
+# Login with an Azure AD credential that has either storage account owner or contributer Azure role assignment
+# If you are logging into an Azure environment other than Public (ex. AzureUSGovernment) you will need to specify that.
+# See https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-ps
+# for more information.
 Connect-AzAccount
 
-#Define parameters
+# Define parameters, $StorageAccountName currently has a maximum limit of 15 characters
 $SubscriptionId = "<your-subscription-id-here>"
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
 
-#Select the target subscription for the current session
+# Select the target subscription for the current session
 Select-AzSubscription -SubscriptionId $SubscriptionId 
 
 # Register the target storage account with your active directory environment under the target OU (for example: specify the OU with Name as "UserAccounts" or DistinguishedName as "OU=UserAccounts,DC=CONTOSO,DC=COM"). 
@@ -89,7 +92,7 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 
 ### <a name="checking-environment"></a>환경 확인
 
-먼저, 환경의 상태를 확인해야 합니다. 특히 [Active Directory PowerShell](/powershell/module/addsadministration/)이 설치되어 있고 셸이 관리자 권한으로 실행되고 있는지 확인해야 합니다. 그런 다음 [Az.Storage 2.0 모듈](https://www.powershellgallery.com/packages/Az.Storage/2.0.0)이 설치되어 있는지 확인하고, 그렇지 않으면 설치합니다. 해당 검사를 완료한 후 AD DS를 확인하여 이미 SPN/UPN을 사용하여 “cifs/your-storage-account-name-here.file.core.windows.net”으로 생성된 [컴퓨터 계정](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory)(기본값) 또는 [서비스 로그온 계정](/windows/win32/ad/about-service-logon-accounts)이 있는지 확인합니다. 계정이 존재하지 않는 경우 다음 섹션에 설명된 대로 계정을 만듭니다.
+먼저, 환경의 상태를 확인해야 합니다. 특히 [Active Directory PowerShell](/powershell/module/activedirectory/)이 설치되어 있고 셸이 관리자 권한으로 실행되고 있는지 확인해야 합니다. 그런 다음 [Az.Storage 2.0 모듈](https://www.powershellgallery.com/packages/Az.Storage/2.0.0)이 설치되어 있는지 확인하고, 그렇지 않으면 설치합니다. 해당 검사를 완료한 후 AD DS를 확인하여 이미 SPN/UPN을 사용하여 “cifs/your-storage-account-name-here.file.core.windows.net”으로 생성된 [컴퓨터 계정](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory)(기본값) 또는 [서비스 로그온 계정](/windows/win32/ad/about-service-logon-accounts)이 있는지 확인합니다. 계정이 존재하지 않는 경우 다음 섹션에 설명된 대로 계정을 만듭니다.
 
 ### <a name="creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>수동으로 AD에서 스토리지 계정을 나타내는 ID 만들기
 

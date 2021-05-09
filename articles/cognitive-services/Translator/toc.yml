@@ -136,6 +136,10 @@
           href: custom-translator/what-is-bleu-score.md
         - name: 고객 관리형 키
           href: encrypt-data-at-rest.md
+    - name: 참조
+      items:
+        - name: 릴리스 정보
+          href: custom-translator/release-notes.md
 - name: 문서 번역
   items:
     - name: 문서 번역이란?

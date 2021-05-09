@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 7d2a21a30cefbc6e83e48c29d81191323387b8f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a328115c606cb4bface2d3dc7b8f0c502d063e9f
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101705546"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987437"
 ---
 # <a name="quickstart-create-and-provision-an-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>빠른 시작: IoT Hub Device Provisioning Service용 C# 디바이스 SDK를 사용하여 X.509 디바이스 만들기 및 프로비전
 
@@ -22,7 +22,7 @@ ms.locfileid: "101705546"
 
 이러한 단계에서는 [C#용 Azure IoT 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp)에서 디바이스 코드를 사용하여 X.509 디바이스를 프로비저닝하는 방법을 보여줍니다. 이 문서에서는 Device Provisioning Service를 사용하여 IoT Hub에 연결하기 위해 개발 머신에서 디바이스 샘플 코드를 실행합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 자동 프로비저닝 프로세스에 익숙하지 않은 경우 [프로비저닝](about-iot-dps.md#provisioning-process) 개요를 검토하세요. 계속하기 전에 [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md)의 단계를 완료해야 합니다.
 
@@ -45,7 +45,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
     git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     ```
 
-1. 머신에 [.NET Core 3.0.0 SDK 이상](https://www.microsoft.com/net/download/windows)이 설치되어 있는지 확인합니다. 다음 명령을 사용하여 버전을 확인할 수 있습니다.
+1. 컴퓨터에 [.NET Core 3.1 SDK 이상](https://dotnet.microsoft.com/download)이 설치되어 있는지 확인합니다. 다음 명령을 사용하여 버전을 확인할 수 있습니다.
 
     ```bash
     dotnet --info
@@ -169,7 +169,6 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 디바이스 클라이언트 샘플을 계속해서 작업하고 탐색할 계획인 경우 이 빠른 시작에서 만든 리소스를 정리하지 마세요. 계속하지 않으려는 경우 다음 단계를 사용하여 이 빠른 시작에서 만든 모든 리소스를 삭제합니다.
 
 1. 컴퓨터에서 디바이스 클라이언트 샘플 출력 창을 닫습니다.
-1. 컴퓨터에서 TPM 시뮬레이터 창을 닫습니다.
 1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스** 를 선택한 다음, Device Provisioning Service를 선택합니다. **개요** 블레이드의 위쪽에서, 창 맨 위에 있는 **삭제** 를 누릅니다.  
 1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스** 를 선택한 다음, 사용자의 IoT 허브를 선택합니다. **개요** 블레이드의 위쪽에서, 창 맨 위에 있는 **삭제** 를 누릅니다.  
 

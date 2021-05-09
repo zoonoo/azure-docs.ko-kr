@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: mazha
 ms.custom: devx-track-js
-ms.openlocfilehash: 386a424e45d1b718b68cbbf53322fd704317a06b
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 607ba08f0d1d8ea08b30efa420bb2fde55da97b0
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285227"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123756"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Azure CDN 개발 시작
 > [!div class="op_single_selector"]
@@ -349,8 +349,8 @@ function cdnDelete() {
 
 ## <a name="next-steps"></a>다음 단계
 
-JavaScript용 Azure CDN SDK에 대한 참조를 보려면 [참조](https://docs.microsoft.com/javascript/api/@azure/arm-cdn)를 봅니다.
+JavaScript용 Azure CDN SDK에 대한 참조를 보려면 [참조](/javascript/api/@azure/arm-cdn)를 봅니다.
 
-JavaScript용 Azure SDK에 대한 추가 설명서를 찾으려면 [전체 참조](https://docs.microsoft.com/javascript/api/?view=azure-node-latest)를 봅니다.
+JavaScript용 Azure SDK에 대한 추가 설명서를 찾으려면 [전체 참조](/javascript/api/?view=azure-node-latest)를 봅니다.
 
 [PowerShell](cdn-manage-powershell.md)을 사용하여 CDN 리소스를 관리합니다.

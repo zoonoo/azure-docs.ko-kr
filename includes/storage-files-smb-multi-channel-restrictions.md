@@ -5,18 +5,17 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 09/16/2020
+ms.date: 04/26/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 06db7bcb5698f152dd5062762fdb3d59ae326e22
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 04ded4340eef0bfe5bc91ee2e3f2552975df2e05
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102603373"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108065652"
 ---
 Azure 파일 공유에 대한 SMB 다중 채널에는 현재 다음과 같은 제한 사항이 있습니다.
-- 로컬 중복 FileStorage 계정에서만 사용할 수 있습니다.
 - Windows 클라이언트에서만 지원됩니다. 
 - 채널의 최대 수는 4개입니다.
 - SMB Direct는 지원되지 않습니다.

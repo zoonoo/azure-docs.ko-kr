@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 64ff778f9735c690f4622402ef2e3124185fa3ea
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 45528c95fd4ce60e267870798585428e9b2bf44b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877098"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135026"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>IntelliJ를 사용하여 Azure Spring Cloud 애플리케이션 배포
 
@@ -20,13 +20,13 @@ ms.locfileid: "104877098"
 
 Azure Spring Cloud용 IntelliJ 플러그 인은 IntelliJ IDEA의 애플리케이션 배포를 지원합니다.  
 
-이 예제를 실행하기 전에 [기본 빠른 시작](spring-cloud-quickstart.md)을 시도해 볼 수 있습니다.
+이 예제를 실행하기 전에 [기본 빠른 시작](./quickstart.md)을 시도해 볼 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 * [IntelliJ IDEA, Community/Ultimate Edition, 버전 2020.1/2020.2](https://www.jetbrains.com/idea/download/#section=windows)
 
 ## <a name="install-the-plug-in"></a>플러그 인 설치
-IntelliJ **플러그 인** UI에서 Azure Toolkit for IntelliJ IDEA 3.43.0을 추가할 수 있습니다.
+IntelliJ **플러그 인** UI에서 Azure Toolkit for IntelliJ IDEA 3.51.0을 추가할 수 있습니다.
 
 1. IntelliJ를 시작합니다.  이전에 프로젝트를 연 경우 프로젝트를 닫아 시작 대화 상자를 표시합니다. 오른쪽 아래 링크에서 **구성** 을 선택한 다음, **플러그 인** 을 클릭하여 플러그 인 구성 대화 상자를 열고 **디스크에서 플러그 인 설치** 를 선택합니다.
 

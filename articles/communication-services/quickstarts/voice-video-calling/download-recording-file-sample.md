@@ -9,12 +9,12 @@ ms.author: joseys
 ms.date: 04/14/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 493a35a627f458fe649931d9fabc175b0affc3a6
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 486dbc4e3bafe34fad9f6eeb00460ee6b9bf5613
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107730366"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292813"
 ---
 # <a name="record-and-download-calls-with-event-grid"></a>Event Grid를 사용하여 통화 녹화 및 다운로드
 
@@ -64,7 +64,7 @@ public async Task<ActionResult> PostAsync([FromBody] object request)
 ```
 
 
-위의 코드는 `Microsoft.Azure.EventGrid` NuGet 패키지에 따라 달라집니다. Event Grid 엔드포인트 유효성 검사에 대해 자세히 알아보려면 [엔드포인트 유효성 검사 문서](https://docs.microsoft.com/azure/event-grid/receive-events#endpoint-validation)를 참조하세요.
+위의 코드는 `Microsoft.Azure.EventGrid` NuGet 패키지에 따라 달라집니다. Event Grid 엔드포인트 유효성 검사에 대해 자세히 알아보려면 [엔드포인트 유효성 검사 문서](../../../event-grid/receive-events.md#endpoint-validation)를 참조하세요.
 
 그런 다음, 이 웹후크로 `recording` 이벤트를 구독합니다.
 
@@ -218,6 +218,6 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 다음 문서를 참조하세요.
 
-- [웹 통화 샘플](https://docs.microsoft.com/azure/communication-services/samples/web-calling-sample) 확인
-- [통화 SDK 기능](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-web)에 대해 알아보기
-- [호출 작동 방식](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/about-call-types)에 대해 자세히 알아보기
+- [웹 통화 샘플](../../samples/web-calling-sample.md) 확인
+- [통화 SDK 기능](./calling-client-samples.md?pivots=platform-web)에 대해 알아보기
+- [호출 작동 방식](../../concepts/voice-video-calling/about-call-types.md)에 대해 자세히 알아보기

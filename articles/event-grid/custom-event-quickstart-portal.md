@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: 웹 엔드포인트에 사용자 지정 이벤트 보내기 - Event Grid, Azure Portal'
 description: '빠른 시작: Azure Event Grid 및 Azure Portal을 사용하여 사용자 지정 토픽을 게시하고 해당 토픽에 대한 이벤트를 구독합니다. 이벤트는 웹 애플리케이션에서 처리합니다.'
-ms.date: 07/07/2020
+ms.date: 04/22/2021
 ms.topic: quickstart
-ms.openlocfilehash: 592e2d6b7393da8cb55a457b022d6c2358048cfe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91ac5cfd65910a6297f78f34943331d5b911559b
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96013669"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107895746"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>빠른 시작: Azure Portal 및 Event Grid를 사용하여 사용자 지정 이벤트를 웹 엔드포인트로 라우팅
 
@@ -24,7 +24,7 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문
 Event Grid 항목은 이벤트를 게시하는 사용자 정의 엔드포인트를 제공합니다. 
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. 항목의 검색 창에 **Event Grid 토픽** 을 입력한 다음, 드롭다운 목록에서 **Event Grid 항목** 을 선택합니다. 
+2. 토픽의 검색 창에 **Event Grid 토픽** 을 입력한 다음, 드롭다운 목록에서 **Event Grid 토픽** 을 선택합니다. 
 
     :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Event Grid 토픽 검색 및 선택":::
 3. **Event Grid 항목** 페이지의 도구 모음에 있는 **+ 추가** 를 선택합니다. 
@@ -200,3 +200,11 @@ Event Grid 항목을 구독하여 Event Grid에 추적하려는 이벤트와 이
 - [Blob Storage 이벤트를 사용자 지정 웹 엔드포인트로 라우팅](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 - [Azure Event Grid 및 Logic Apps를 사용하여 가상 머신 변경 모니터링](monitor-virtual-machine-changes-event-grid-logic-app.md)
 - [데이터 웨어하우스로 빅 데이터 스트림](event-grid-event-hubs-integration.md)
+
+서로 다른 프로그래밍 언어를 사용하여 Event Grid에서 이벤트를 게시하고 사용하는 방법을 알아보려면 다음 샘플을 참조하세요. 
+
+- [.NET에 대한 Azure Event Grid 샘플](/samples/azure/azure-sdk-for-net/azure-event-grid-sdk-samples/)
+- [Java에 대한 Azure Event Grid 샘플](/samples/azure/azure-sdk-for-java/eventgrid-samples/)
+- [Python에 대한 Azure Event Grid 샘플](/samples/azure/azure-sdk-for-python/eventgrid-samples/)
+- [JavaScript에 대한 Azure Event Grid 샘플](/samples/azure/azure-sdk-for-js/eventgrid-javascript/)
+- [TypeScript에 대한 Azure Event Grid 샘플](/samples/azure/azure-sdk-for-js/eventgrid-typescript/)

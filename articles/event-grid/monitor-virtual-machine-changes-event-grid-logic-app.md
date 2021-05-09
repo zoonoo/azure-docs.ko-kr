@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: estfan, LADocs
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 1a5d8c36382433024efd1f1cc6ba9fd878d28ddc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a170b062127f55ece83dd717d8bd7a00e6531b9b
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92329528"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897003"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>자습서: Azure Event Grid 및 Logic Apps를 사용하여 가상 머신 변경 모니터링
 
@@ -66,7 +66,7 @@ Azure 리소스 또는 타사 리소스에서 발생하는 특정 이벤트를 �
 
    ![이름, 구독, 리소스 그룹 및 위치와 같은 세부 정보를 표시하는 논리 앱 만들기 메뉴의 스크린샷](./media/monitor-virtual-machine-changes-event-grid-logic-app/create-logic-app-for-event-grid.png)
 
-   | 속성 | 필수 | 값 | 설명 |
+   | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
    | **이름** | 예 | <*logic-app-name*> | 논리 앱의 고유한 이름을 제공합니다. |
    | **구독** | 예 | <*Azure-subscription-name*> | 이 자습서의 모든 서비스에 대해 동일한 Azure 구독을 선택합니다. |
@@ -101,7 +101,7 @@ Azure 리소스 또는 타사 리소스에서 발생하는 특정 이벤트를 �
 
    ![리소스 이벤트가 발생할 때 트리거에 대한 자세한 정보 편집기를 보여 주는 Logic Apps 디자이너의 스크린샷](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
 
-   | 속성 | 필수 | 값 | 설명 |
+   | 속성 | 필수 | 값 | Description |
    | -------- | -------- | ----- | ----------- |
    | **구독** | 예 | <*event-publisher-Azure-subscription-name*> | *이벤트 게시자* 와 연결된 Azure 구독의 이름을 선택합니다. 이 자습서에서는 가상 머신에 대한 Azure 구독 이름을 선택합니다. |
    | **리소스 종류** | 예 | <*event-publisher-Azure-resource-type*> | 이벤트 게시자의 Azure 리소스 종류를 선택합니다. Azure 리소스 종류에 대한 자세한 내용은 [Azure 리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md)을 참조하세요. 이 자습서에서는 Azure 리소스 그룹을 모니터링하는 `Microsoft.Resources.ResourceGroups` 값을 선택합니다. |
@@ -264,3 +264,11 @@ Azure 리소스 또는 타사 리소스에서 발생하는 특정 이벤트를 �
 ## <a name="next-steps"></a>다음 단계
 
 * [Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](../event-grid/custom-event-quickstart.md)
+
+서로 다른 프로그래밍 언어를 사용하여 Event Grid에서 이벤트를 게시하고 사용하는 방법을 알아보려면 다음 샘플을 참조하세요. 
+
+- [.NET에 대한 Azure Event Grid 샘플](/samples/azure/azure-sdk-for-net/azure-event-grid-sdk-samples/)
+- [Java에 대한 Azure Event Grid 샘플](/samples/azure/azure-sdk-for-java/eventgrid-samples/)
+- [Python에 대한 Azure Event Grid 샘플](/samples/azure/azure-sdk-for-python/eventgrid-samples/)
+- [JavaScript에 대한 Azure Event Grid 샘플](/samples/azure/azure-sdk-for-js/eventgrid-javascript/)
+- [TypeScript에 대한 Azure Event Grid 샘플](/samples/azure/azure-sdk-for-js/eventgrid-typescript/)

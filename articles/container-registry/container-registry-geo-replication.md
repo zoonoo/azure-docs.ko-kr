@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: 4e82be0e81e5e8c0182e061a0fba0f880bd45cc6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d36cf1c5ed8c916962ae0b621548a593d2fe0a97
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102632393"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331847"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure Container Registry의 지리적 복제
 
@@ -66,7 +66,7 @@ Azure Container Registry의 지리적 복제 기능을 사용하면 다음과 �
 
 ## <a name="configure-geo-replication"></a>지역에서 복제 구성
 
-지도에서 해당 지역을 클릭하여 간편하게 지리적 복제를 구성할 수 있습니다. Azure CLI에서 [az acr replication](/cli/azure/acr/replication) 명령을 비롯한 도구를 사용하여 지역 복제를 관리하거나 [Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication)을 사용하여 지역 복제가 가능한 레지스트리를 배포할 수도 있습니다.
+지도에서 해당 지역을 클릭하여 간편하게 지리적 복제를 구성할 수 있습니다. Azure CLI에서 [az acr replication](/cli/azure/acr/replication) 명령을 비롯한 도구를 사용하여 지역 복제를 관리하거나 [Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/)을 사용하여 지역 복제가 가능한 레지스트리를 배포할 수도 있습니다.
 
 지역 복제는 [프리미엄 레지스트리](container-registry-skus.md)의 기능입니다. Basic 및 Standard 레지스트리를 사용 중인 경우, [Azure Portal](https://portal.azure.com)에서 Premium으로 변경할 수 있습니다.
 
@@ -105,7 +105,7 @@ ACR이 구성된 복제본 사이의 이미지 동기화를 시작합니다. 동
 
 ## <a name="delete-a-replica"></a>복제본 삭제
 
-레지스트리에 대한 복제본을 구성한 후 더 이상 필요하지 않은 경우 언제든지 삭제할 수 있습니다. Azure Portal 또는 Azure CLI에서 [az acr replication delete](/cli/azure/acr/replication#az-acr-replication-delete) 명령과 같은 기타 도구를 사용하여 복제본을 삭제합니다.
+레지스트리에 대한 복제본을 구성한 후 더 이상 필요하지 않은 경우 언제든지 삭제할 수 있습니다. Azure Portal 또는 Azure CLI에서 [az acr replication delete](/cli/azure/acr/replication#az_acr_replication_delete) 명령과 같은 기타 도구를 사용하여 복제본을 삭제합니다.
 
 Azure Portal에서 복제본을 삭제하려면 다음을 수행합니다.
 
@@ -163,5 +163,5 @@ az acr replication update --name westus \
 > [!div class="nextstepaction"]
 > [Azure Container Registry의 지리적 복제](container-registry-tutorial-prepare-registry.md)
 
-[az-acr-replication-list]: /cli/azure/acr/replication#az-acr-replication-list
-[az-acr-replication-update]: /cli/azure/acr/replication#az-acr-replication-update
+[az-acr-replication-list]: /cli/azure/acr/replication#az_acr_replication_list
+[az-acr-replication-update]: /cli/azure/acr/replication#az_acr_replication_update

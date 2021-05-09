@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-azcli-net-ps
-ms.openlocfilehash: aabb8bdf4105702aa623c45bc291770b05b8279e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: aa5d24229bae0e459471dc40ca375d42ccc1405c
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726774"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293249"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>빠른 시작: Communication Services 리소스 만들기 및 관리
 
@@ -52,7 +52,7 @@ Communication Services 리소스로 이동한 후 탐색 메뉴에서 **키** �
 
 리소스 그룹 또는 특정 리소스에 대한 키와 같은 Azure CLI를 사용하여 키 정보에 액세스할 수도 있습니다. 
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli)를 설치하고 다음 명령을 사용하여 로그인합니다. Azure 계정과 연결하려면 자격 증명을 제공해야 합니다.
+[Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli)를 설치하고 다음 명령을 사용하여 로그인합니다. Azure 계정과 연결하려면 자격 증명을 제공해야 합니다.
 ```azurecli
 az login
 ```

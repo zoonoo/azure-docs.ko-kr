@@ -7,12 +7,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 5b7fd8e8cd5bd3ab0f15115365ed057fc67f1204
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ec48e23d2752d14b3bb77dab2625e81f8a6d0db7
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604433"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292741"
 ---
 # <a name="quickstart-add-11-video-calling-to-your-app-javascript"></a>빠른 시작: 1:1 영상 통화를 앱에 추가(JavaScript)
 
@@ -126,7 +126,7 @@ let rendererRemote;
 ```
 ## <a name="object-model"></a>개체 모델
 
-Azure Communication Services Calling SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
+Azure Communication Services 통화 SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
 | 이름      | 설명 | 
 | :---        |    :----   |
@@ -337,7 +337,6 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 다음 문서를 참조하세요.
 
-- [웹 통화 샘플](https://docs.microsoft.com/azure/communication-services/samples/web-calling-sample) 확인
-- [통화 SDK 기능](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-web)에 대해 알아보기
-- [호출 작동 방식](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/about-call-types)에 대해 자세히 알아보기
-
+- [웹 통화 샘플](../../samples/web-calling-sample.md) 확인
+- [통화 SDK 기능](./calling-client-samples.md?pivots=platform-web)에 대해 알아보기
+- [호출 작동 방식](../../concepts/voice-video-calling/about-call-types.md)에 대해 자세히 알아보기

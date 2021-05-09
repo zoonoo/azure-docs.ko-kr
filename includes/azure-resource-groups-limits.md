@@ -4,12 +4,12 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 09/01/2020
 ms.author: tomfitz
-ms.openlocfilehash: 543aa50d72de5a06a9a1c7ac88ac5ecae993bc9d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c29abc456c5825a2f22b20a4893bb14eb09058af
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98697890"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107984392"
 ---
 | 리소스 | 제한 |
 | --- | --- |
@@ -35,6 +35,8 @@ ms.locfileid: "98697890"
 | 템플릿 식 |24,576개 문자 |
 | 내보낸 템플릿의 리소스 |200 |
 | 템플릿 크기 |4MB |
-| 매개 변수 파일 크기 |64KB |
+| 매개 변수 파일 크기 |4MB |
 
 중첩된 템플릿을 사용하여 일부 템플릿 제한을 초과할 수 있습니다. 자세한 내용은 [Azure 리소스를 배포할 때 연결된 템플릿 사용](../articles/azure-resource-manager/templates/linked-templates.md)을 참조하세요. 매개 변수, 변수 또는 출력의 수를 줄이려면 개체에 여러 값을 결합할 수 있습니다. 자세한 내용은 [매개 변수로 개체 사용](/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters)을 참조하세요.
+
+총 요청 크기가 너무 크면 4 MB 미만의 템플릿이나 매개 변수 파일에 오류가 발생할 수 있습니다. 큰 요청이 방지되도록 템플릿을 간소화하는 방법에 대한 자세한 내용은 [작업 크기 초과에 대한 오류 해결](../articles/azure-resource-manager/templates/error-job-size-exceeded.md)을 참조하세요.

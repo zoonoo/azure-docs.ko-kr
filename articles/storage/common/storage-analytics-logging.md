@@ -9,12 +9,12 @@ ms.date: 01/29/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: a5d1d6af68fcbd6a5822b2652ee79c464d02241f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d48ab6223485807400b6749bcf72691261405495
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200774"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134558"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure 스토리지 분석 로깅
 
@@ -35,7 +35,7 @@ REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식
  서비스 엔드포인트에 대한 요청이 있는 경우에만 로그 항목이 만들어집니다. 예를 들어 스토리지 계정의 활동이 Blob 엔드포인트에는 있지만 테이블 또는 큐 엔드포인트에는 없는 경우 Blob service와 관련된 로그만 만들어집니다.
 
 > [!NOTE]
->  스토리지 분석 로깅은 현재 Blob, 큐 및 Table Service에서만 사용할 수 있습니다. 스토리지 분석 로깅은 프리미엄 성능 [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) 계정에도 사용할 수 있습니다. 그러나 프리미엄 성능을 사용하는 범용 v2 계정에는 사용할 수 없습니다.
+>  스토리지 분석 로깅은 현재 Blob, 큐 및 Table Service에서만 사용할 수 있습니다. 스토리지 분석 로깅은 프리미엄 성능 [BlockBlobStorage](./storage-account-create.md) 계정에도 사용할 수 있습니다. 그러나 프리미엄 성능을 사용하는 범용 v2 계정에는 사용할 수 없습니다.
 
 ## <a name="requests-logged-in-logging"></a>로깅에 로그인된 요청
 ### <a name="logging-authenticated-requests"></a>인증된 요청 로깅
@@ -115,7 +115,7 @@ REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식
 
  `https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log`
 
- 스토리지 요청이 기록되면 생성되는 로그 이름과 요청한 작업이 완료된 시간 간의 상관관계가 지정됩니다. 예를 들어 GetBlob 요청이 2011년 7월 31일 오후 6:30에 완료되었으면 다음 접두사를 사용해서 로그가 기록됩니다. `blob/2011/07/31/1800/`
+ 스토리지 요청이 기록되면 생성되는 로그 이름과 요청한 작업이 완료된 시간 간의 상관 관계가 지정됩니다. 예를 들어 GetBlob 요청이 2011년 7월 31일 오후 6:30에 완료되었으면 다음 접두사를 사용해서 로그가 기록됩니다. `blob/2011/07/31/1800/`
 
 ### <a name="log-metadata"></a>로그 메타데이터
 
