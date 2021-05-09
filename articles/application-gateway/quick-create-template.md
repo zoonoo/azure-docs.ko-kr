@@ -8,16 +8,13 @@ ms.author: victorh
 ms.date: 01/20/2021
 ms.topic: quickstart
 ms.service: application-gateway
-ms.custom:
-- mvc
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: dd100361ba5d4ff175e340ced782999e52c720c4
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: devx-track-azurepowershell - mvc - subject-armqs - mode-arm
+ms.openlocfilehash: 09efb78251e6ca385a2bd45be722aa267736d318
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538443"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321324"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---arm-template"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - ARM 템플릿
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: b-juche
-ms.openlocfilehash: 5e7f71f91e5778b4f096bb760bfe5a0a89b5cbcb
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a0080687d65c7165b0c2a463229a9a817fb045e0
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107764282"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288181"
 ---
 # <a name="what-changing-to-volume-hard-quota-means-for-your-azure-netapp-files-service"></a>볼륨 하드 할당량 변경이 Azure NetApp Files 서비스에 미치는 영향
 
@@ -160,7 +160,7 @@ ANFCapacityManager를 설치한 후 다음 동작을 예상할 수 있습니다.
 
 ##### <a name="portal"></a>포털 
 
-필요에 따라 [볼륨의 크기를 변경](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-volume)할 수 있습니다. 볼륨의 용량 소비는 해당 풀의 프로비전된 용량에 대해 계산됩니다.
+필요에 따라 [볼륨의 크기를 변경](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-volume-using-the-azure-portal)할 수 있습니다. 볼륨의 용량 소비는 해당 풀의 프로비전된 용량에 대해 계산됩니다.
 
 1. NetApp 계정 관리 블레이드에서 **볼륨** 을 클릭합니다.  
 2. 상황에 맞는 메뉴를 표시하려면 크기를 조정하려는 볼륨 이름을 마우스 오른쪽 단추를 클릭하거나 볼륨의 행의 끝에 있는 `…` 아이콘을 클릭합니다. 
@@ -170,7 +170,7 @@ ANFCapacityManager를 설치한 후 다음 동작을 예상할 수 있습니다.
 
    ![볼륨 할당량 업데이트 창을 보여 주는 스크린샷입니다.](../media/azure-netapp-files/hard-quota-update-volume-quota.png) 
 
-경우에 따라 호스팅 용량 풀에 볼륨 크기를 조정할 수 있는 충분한 용량이 없습니다. 그러나 1TiB씩 증가하거나 감소하여 [용량 풀 크기를 변경](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-the-capacity-pool)할 수 있습니다. 용량 풀 크기는 4TiB 미만일 수 없습니다. *용량 풀 크기를 조정하면 구매한 Azure NetApp Files 용량을 변경합니다.*
+경우에 따라 호스팅 용량 풀에 볼륨 크기를 조정할 수 있는 충분한 용량이 없습니다. 그러나 1TiB씩 증가하거나 감소하여 [용량 풀 크기를 변경](azure-netapp-files-resize-capacity-pools-or-volumes.md#resizing-the-capacity-pool-or-a-volume-using-azure-cli)할 수 있습니다. 용량 풀 크기는 4TiB 미만일 수 없습니다. *용량 풀 크기를 조정하면 구매한 Azure NetApp Files 용량을 변경합니다.*
 
 1. NetApp 계정 관리 블레이드에서 크기를 조정하려는 용량 풀을 클릭합니다.
 2. 상황에 맞는 메뉴를 표시하려면 용량 풀 이름을 마우스 오른쪽 단추를 클릭하거나, 용량 풀의 행의 끝에 있는 `…` 아이콘을 클릭합니다.

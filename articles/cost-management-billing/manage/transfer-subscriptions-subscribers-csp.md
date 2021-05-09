@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/11/2021
+ms.date: 04/15/2021
 ms.author: banders
-ms.openlocfilehash: 63fbf76b2211e530707f3598d176b646c317cc53
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 687db46ea2f6c9c4fae6e5355e3236cde3d7a401
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100363052"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567250"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>구독자와 CSP 간에 Azure 구독 전송
 
@@ -21,7 +21,7 @@ ms.locfileid: "100363052"
 
 전송 요청을 시작하기 전에 유지하려는 비용 및 청구 정보를 다운로드하거나 내보내야 합니다. 청구 및 사용률 정보는 구독과 함께 전송되지 않습니다. 비용 관리 데이터 내보내기에 대한 자세한 내용은 [내보낸 데이터 만들기 및 관리](../costs/tutorial-export-acm-data.md)를 참조하세요. 청구서 및 사용량 데이터 다운로드에 대한 자세한 내용은 [Azure 청구서 및 일간 사용량 데이터 다운로드 또는 보기](download-azure-invoice-daily-usage-date.md)를 참조하세요.
 
-기존 예약이 있는 경우 구독을 전송한 후에는 적용이 중지됩니다. 구독을 전송하기 전에 [모든 예약을 취소하고 환불](../reservations/exchange-and-refund-azure-reservations.md)해야 합니다.
+기존 예약이 있으면 구독을 전송한 후 90일 동안 적용이 중지됩니다. 90일 유예 기간 후에 청구되지 않도록 구독을 전송하기 전에 [예약을 취소하고 환불](../reservations/exchange-and-refund-azure-reservations.md)해야 합니다.
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>CSP 파트너에게 EA 구독 전송
 
@@ -55,9 +55,9 @@ ms.locfileid: "100363052"
 
 ## <a name="transfer-csp-subscription-to-other-offer"></a>CSP 구독을 다른 제품으로 전송
 
-다른 구독을 CSP 파트너에서 다른 Azure 제품으로 전송하려면 구독자가 원본 CSP 구독과 대상 구독 간에 리소스를 이동해야 합니다.
+다른 구독을 CSP 파트너에서 다른 Azure 제품으로 전송하려면 구독자가 원본 CSP 구독과 대상 구독 간에 리소스를 이동해야 합니다. 파트너와 고객이 수행하는 작업이며 Microsoft 담당자가 수행하지 않습니다.
 
-1. 대상 Azure 구독을 만듭니다.
+1. 고객이 대상 Azure 구독을 만듭니다.
 1. 원본 및 대상 구독이 동일한 Azure Active Directory(Azure AD) 테넌트에 있는지 확인합니다. Azure AD 테넌트 변경에 대한 자세한 내용은 [Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
     CSP 구독에는 디렉터리 변경 옵션이 지원되지 않습니다. 예를 들어 CSP에서 종량제 구독으로 전송하고 있습니다. 디렉터리와 일치하도록 종량제 구독의 디렉터리를 변경해야 합니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "100363052"
     >  - 구독을 다른 디렉터리에 연결하면 [Azure RBAC](../../role-based-access-control/role-assignments-portal.md)를 사용하여 역할이 할당된 사용자가 액세스 권한을 잃게 됩니다. 서비스 관리자 및 공동 관리자를 비롯한 클래식 구독 관리자도 액세스 권한을 잃게 됩니다.
     >  - 구독을 다른 디렉터리와 연결하는 경우에도 구독에서 정책 할당이 제거됩니다.
 
-1. 양도하는 데 사용하는 사용자 계정에는 두 구독 모두에 대한 [Azure RBAC](add-change-subscription-administrator.md) 소유자 액세스 권한이 있어야 합니다.
+1. 양도하는 데 사용하는 고객 사용자 계정에는 두 구독 모두에 대한 [Azure RBAC](add-change-subscription-administrator.md) 소유자 액세스 권한이 있어야 합니다.
 1. 시작하기 전에 모든 Azure 리소스를 원본 구독에서 대상 구독으로 이동할 수 있는지 [유효성을 검사](/rest/api/resources/resources/validatemoveresources)합니다.
     > [!IMPORTANT]
     >  - 일부 Azure 리소스는 구독 간에 이동할 수 없습니다. 이동할 수 있는 Azure 리소스의 전체 목록을 보려면 [리소스에 대한 이동 작업 지원](../../azure-resource-manager/management/move-support-resources.md)을 참조하세요.

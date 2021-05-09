@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 998657c1e183d1b0dd0d533bb763ee7c13a3f474
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: a0584bea6fab1d49c552785d093e7e2df823b11b
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904193"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205830"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>자습서: 엔드투엔드 솔루션 빌드
 
@@ -72,9 +72,9 @@ _**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창에서 도구 
 SetupBuildingScenario
 ```
 
-Azure Digital Twins에서 이름이 각각 *floor1*, *room21*, *thermostat67* 인 층, 방, 온도 센서, 이렇게 3개의 [**디지털 트윈**](concepts-twins-graph.md)이 만들어지고 연결됨에 따라 일련의 확인 메시지가 출력됩니다. 이러한 디지털 트윈은 실제 환경에 존재하는 엔터티를 나타냅니다.
+Azure Digital Twins에서 이름이 각각 floor1, *room21*, *thermostat67* 인 층, 방, 온도 센서, 이렇게 3개의 *[디지털 트윈](concepts-twins-graph.md)* 이 만들어지고 연결됨에 따라 일련의 확인 메시지가 출력됩니다. 이러한 디지털 트윈은 실제 환경에 존재하는 엔터티를 나타냅니다.
 
-이들 엔터티는 관계를 통해 다음과 같은 [**트윈 그래프**](concepts-twins-graph.md)에 연결됩니다. 트윈 그래프는 엔터티가 서로 상호 작용하고 관련되는 방식을 포함하여 환경 전체를 나타냅니다.
+이들 엔터티는 관계를 통해 다음과 같은 [트윈 그래프](concepts-twins-graph.md)에 연결됩니다. 트윈 그래프는 엔터티가 서로 상호 작용하고 관련되는 방식을 포함하여 환경 전체를 나타냅니다.
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-graph.png" alt-text="floor1에 room21이 있고, room21에 thermostat67이 있음을 보여주는 그래프" border="false":::
 
@@ -129,7 +129,7 @@ Azure Digital Twins 인스턴스에 액세스하기 위해 함수 앱에 대해 
 
 #### <a name="assign-access-role"></a>액세스 역할 할당
 
-첫 번째 설정은 Azure Digital Twins 인스턴스의 **Azure Digital Twins 데이터 소유자** 역할을 함수 앱에 부여합니다. 이 역할은 인스턴스에서 여러 데이터 평면 활동을 수행하려는 모든 사용자 또는 함수에 필요합니다. 보안 및 역할 할당에 대해 [*개념: Azure Digital Twins 솔루션 보안*](concepts-security.md)에서 자세히 알아보세요. 
+첫 번째 설정은 Azure Digital Twins 인스턴스의 **Azure Digital Twins 데이터 소유자** 역할을 함수 앱에 부여합니다. 이 역할은 인스턴스에서 여러 데이터 평면 활동을 수행하려는 모든 사용자 또는 함수에 필요합니다. 보안 및 역할 할당에 대해 [개념: Azure Digital Twins 솔루션 보안](concepts-security.md)에서 자세히 알아보세요. 
 
 1. 다음 명령을 사용하여 함수에 대한 시스템 관리 ID의 세부 정보를 확인합니다. 출력에서 **principalId** 필드를 기록해 둡니다.
 
@@ -156,7 +156,7 @@ Azure Digital Twins 인스턴스에 액세스하기 위해 함수 앱에 대해 
 
 #### <a name="configure-application-settings"></a>애플리케이션 설정 구성
 
-두 번째 설정은 Azure Digital Twins 인스턴스의 URL을 사용하여 함수에 대한 **환경 변수** 를 만듭니다. 함수 코드는 이를 사용하여 인스턴스를 참조합니다. 환경 변수에 대한 자세한 내용은 [*함수 앱 관리*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal)를 참조하세요. 
+두 번째 설정은 Azure Digital Twins 인스턴스의 URL을 사용하여 함수에 대한 **환경 변수** 를 만듭니다. 함수 코드는 이를 사용하여 인스턴스를 참조합니다. 환경 변수에 대한 자세한 내용은 [함수 앱 관리](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal)를 참조하세요. 
 
 아래 명령을 실행하여 자리 표시자를 리소스 세부 정보로 채웁니다.
 
@@ -171,7 +171,7 @@ Azure 함수에 대한 설정 목록이 출력됩니다. 여기에는 이제 **A
 
 Azure Digital Twins 그래프는 실제 디바이스의 원격 분석에 의해 구동됩니다. 
 
-이 단계에서는 [IoT Hub](../iot-hub/about-iot-hub.md)에 등록된 시뮬레이션된 자동 온도 조절기 디바이스를 Azure Digital Twins에서 이를 나타내는 디지털 트윈에 연결합니다. 시뮬레이션된 디바이스가 원격 분석을 내보내면 디지털 트윈에서 해당 업데이트를 트리거하는 *ProcessHubToDTEvents* Azure 함수를 통해 데이터가 전달됩니다. 이러한 방식으로 디지털 트윈은 실제 디바이스의 데이터를 사용하여 최신 상태로 유지됩니다. Azure Digital Twins에서 이벤트 데이터를 한 곳에서 다른 곳으로 전달하는 프로세스를 [**라우팅 이벤트**](concepts-route-events.md)라고 합니다.
+이 단계에서는 [IoT Hub](../iot-hub/about-iot-hub.md)에 등록된 시뮬레이션된 자동 온도 조절기 디바이스를 Azure Digital Twins에서 이를 나타내는 디지털 트윈에 연결합니다. 시뮬레이션된 디바이스가 원격 분석을 내보내면 디지털 트윈에서 해당 업데이트를 트리거하는 *ProcessHubToDTEvents* Azure 함수를 통해 데이터가 전달됩니다. 이러한 방식으로 디지털 트윈은 실제 디바이스의 데이터를 사용하여 최신 상태로 유지됩니다. Azure Digital Twins에서 이벤트 데이터를 한 곳에서 다른 곳으로 전달하는 프로세스를 [라우팅 이벤트](concepts-route-events.md)라고 합니다.
 
 이 이벤트는 엔드투엔드 시나리오의 다음 부분(**화살표 B**)에서 발생합니다.
 
@@ -439,4 +439,4 @@ ObserveProperties thermostat67 Temperature room21 Temperature
 다음으로, 개념 설명서를 통해 자습서에서 작업한 요소에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [*개념: 사용자 지정 모델*](concepts-models.md)
+> [개념: 사용자 지정 모델](concepts-models.md)

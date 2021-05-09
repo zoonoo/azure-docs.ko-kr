@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: a77476086d6100cbaf49d54791972940cca0644f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3427dfafe1918590f215793acbae3d5fd290e604
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708937"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205236"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Azure Application Gateway로 HTTP 요청 및 응답 헤더 다시 쓰기 - Azure Portal
 
@@ -131,4 +131,4 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
 
 ## <a name="next-steps"></a>다음 단계
 
-몇 가지 일반적인 사용 사례를 설정하는 방법에 대한 자세한 내용은 [공용 헤더 다시 쓰기 시나리오](./rewrite-http-headers.md)를 참조하세요.
+몇 가지 일반적인 사용 사례를 설정하는 방법에 대한 자세한 내용은 [공용 헤더 다시 쓰기 시나리오](./rewrite-http-headers-url.md)를 참조하세요.

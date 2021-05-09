@@ -5,31 +5,29 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 4/23/2021
+ms.date: 05/03/2021
 ms.author: cavoeg
-ms.openlocfilehash: 1482bd7f054c75c4f26b77907d50a6471c389d68
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: d61e886771fb3bc667ff9e219de736c03e591ba7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108322573"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108765200"
 ---
 # <a name="defining-custom-search-parameters"></a>사용자 지정 검색 매개 변수 정의
 
-FHIR 사양은 리소스와 관련 된 모든 리소스 및 검색 매개 변수에 대 한 검색 매개 변수 집합을 정의 합니다. 그러나 사양에 정의 되지 않은 리소스의 필드를 표준 검색 매개 변수로 검색 하려는 경우가 있습니다. 이 문서에서는 FHIR 서버에서 사용할 사용자 고유의 [검색 매개 변수](https://www.hl7.org/fhir/searchparameter.html) 를 정의 하는 방법을 설명 합니다.
+FHIR 사양은 리소스와 관련 된 모든 리소스 및 검색 매개 변수에 대 한 검색 매개 변수 집합을 정의 합니다. 그러나 FHIR 사양에 의해 정의 되지 않은 리소스의 요소를 표준 검색 매개 변수로 검색 하려는 경우가 있습니다. 이 문서에서는 FHIR 용 Azure API에서 사용할 고유한 [검색 매개 변수](https://www.hl7.org/fhir/searchparameter.html) 를 정의 하는 방법을 설명 합니다.
 
 > [!NOTE]
-> 검색 매개 변수를 만들거나, 업데이트 하거나, 삭제할 때마다 데이터베이스에서 변경 내용을 설정 하기 위해 [인덱스 작업](how-to-run-a-reindex.md) 을 실행 해야 합니다.
-
-> [!Warning]
-> 검색 매개 변수를 업데이트 하거나 삭제 하는 경우에는 [재 인덱스 작업](how-to-run-a-reindex.md)을 즉시 실행 해야 합니다. 변경 내용에 대 한 인덱싱이 필요 하기 때문에 여전히 활성 상태로 표시 되는 업데이트 또는 삭제 검색 매개 변수를 사용 하 여 데이터베이스의 비정상 상태가 발생할 수 있습니다. 
+> 검색 매개 변수를 생성, 업데이트 또는 삭제할 때마다 검색 매개 변수를 프로덕션에서 사용할 수 있도록 [인덱스 작업](how-to-run-a-reindex.md) 을 실행 해야 합니다. 아래에서는 전체 FHIR 서버를 인덱스를 만들기 전에 검색 매개 변수를 테스트 하는 방법을 간략하게 설명 합니다.
 
 ## <a name="create-new-search-parameter"></a>새 검색 매개 변수 만들기
 
-새 검색 매개 변수를 만들려면 `POST` 데이터베이스에 대 한 새 검색 매개 변수를 만듭니다. 아래 코드 예제에서는 환자 리소스에 [US Core 경합 검색 매개 변수](http://hl7.org/fhir/us/core/STU3.1.1/SearchParameter-us-core-race.html) 를 추가 하는 방법을 보여 줍니다.
+새 검색 매개 변수를 만들려면 `POST` `SearchParameter` 데이터베이스에 대 한 리소스를 만듭니다. 아래 코드 예제에서는 [미국 코어 경합 SearchParameter](http://hl7.org/fhir/us/core/STU3.1.1/SearchParameter-us-core-race.html) 를 리소스에 추가 하는 방법을 보여 줍니다 `Patient` .
 
-```json
-POST {fhirurl}/SearchParameter
+```rest
+POST {{FHIR_URL}}/SearchParameter
+
 {
   "resourceType" : "SearchParameter",
   "id" : "us-core-race",
@@ -72,37 +70,94 @@ POST {fhirurl}/SearchParameter
 ``` 
 
 > [!NOTE]
-> 새 검색 매개 변수는 FHIR 서버에 게시 하 고 데이터베이스를 다시 인덱싱 한 후 기능 문에 표시 됩니다. 다시 [인덱싱 작업](how-to-run-a-reindex.md)을 실행할 때까지 사용할 수 없습니다. 지금은 검색 매개 변수가 지원 되는지 데이터베이스 내에서 지원 되는지 여부를 확인 하는 유일한 방법입니다. 검색 매개 변수를 검색 하 여 검색 매개 변수를 찾을 수 있지만이 매개 변수를 기능 문에 표시 하지 않으면 다시 인덱싱 작업을 실행 합니다. 여러 검색 매개 변수를 게시 한 후에는 인덱스 작업을 트리거할 수 있습니다.
+> 데이터베이스에 검색 매개 변수를 게시 **하 고** 데이터베이스의 인덱스를 다시 만들면 새 검색 매개 변수가 FHIR 서버의 기능 설명에 표시 됩니다. `SearchParameter`검색 매개 변수가 FHIR 서버에서 지원 되는지 확인 하는 유일한 방법은 기능 설명의를 보는 것입니다. 검색 매개 변수를 검색 하 여 검색 매개 변수를 찾을 수 있지만 기능 문에서이를 볼 수 없는 경우에도 검색 매개 변수를 인덱싱합니다. 여러 검색 매개 변수를 게시 한 후에는 인덱스 작업을 트리거할 수 있습니다.
 
-중요 한 필드 설명:
+의 중요 한 요소 `SearchParameter` :
 
-* **url**: 검색 매개 변수를 설명 하는 고유 키입니다. HL7와 같은 많은 조직에서는 위에서 설명한 대로 미국 코어 경합 검색 매개 변수에서 정의 하는 Url에 대해 표준 형식을 사용 합니다.
+* **url**: 검색 매개 변수를 설명 하는 고유 키입니다. HL7와 같은 대부분의 조직에서는 위에서 설명한 대로 미국 코어 경합 검색 매개 변수에서 정의한 검색 매개 변수에 표준 URL 형식을 사용 합니다.
 
-* **code**: 여기에 있는 값은 검색할 때 사용할 것입니다. 위의 예에서는로 검색 `GET {FHIR URL}/Patient?race=2028-9` 하 여 모든 아시아 환자을 가져옵니다. 이 값은 적용 되는 리소스에 대해 고유 해야 합니다.
+* **code**: **코드** 에 저장 된 값은 검색할 때 사용 하는 값입니다. 위의 예에서는로 검색 `GET {FHIR_URL}/Patient?race=<code>` 하 여 특정 레이스의 모든 환자를 가져옵니다. 코드는 검색 매개 변수가 적용 되는 리소스에 대해 고유 해야 합니다.
 
-* **base**: 검색 매개 변수가 적용 되는 리소스를 설명 합니다. 모든 리소스에 적용 되는 경우에만 리소스를 사용할 수 있습니다. 그렇지 않으면 관련 된 모든 리소스를 나열할 수 있습니다.
+* **base**: 검색 매개 변수가 적용 되는 리소스를 설명 합니다. 검색 매개 변수가 모든 리소스에 적용 되는 경우를 사용할 수 있습니다. `Resource` 그렇지 않으면 관련 된 모든 리소스를 나열할 수 있습니다.
  
-* **유형**: 검색 매개 변수의 데이터 형식을 설명 합니다.
+* **유형**: 검색 매개 변수의 데이터 형식을 설명 합니다. 유형은 FHIR 용 Azure API에 대 한 지원에 의해 제한 됩니다. 즉, 특수 형식의 검색 매개 변수를 정의 하거나 지원 되는 조합이 아니면 [복합 검색 매개 변수](overview-of-search.md) 를 정의할 수 없습니다.
 
-* **식**: 검색 매개 변수를 설명 하는 경우 사양에는 기술적으로 필요 하지 않은 경우에도 식을 포함 해야 합니다. 이는 식이나 xpath 구문이 필요 하 고 FHIR 용 Azure API는 현재 xpath 구문을 무시 하기 때문입니다. 검색 값을 찾는 방법에 대해 설명 합니다. 
+* **식**: 검색 값을 계산 하는 방법을 설명 합니다. 검색 매개 변수를 설명 하는 경우 사양에 필요 하지 않은 경우에도 식을 포함 해야 합니다. 이는 식이나 xpath 구문이 필요 하 고 FHIR 용 Azure API는 xpath 구문을 무시 하기 때문입니다.
 
-> [!NOTE]
-> "형식"은 FHIR 용 Azure API에 대 한 지원으로 제한 됩니다. 즉, 특수 형식의 검색 매개 변수를 정의 하거나, 지원 되는 형식이 아니면 [복합 검색 매개 변수](overview-of-search.md) 를 정의할 수 없습니다.
+## <a name="test-search-parameters"></a>테스트 검색 매개 변수
 
-검색 매개 변수를 추가한 후에는 검색 매개 변수를 FHIR 서버에서 사용할 수 있도록 인덱스 작업을 실행 하거나 예약 합니다.
+인덱스 다시 만들기 작업을 실행할 때까지 프로덕션에서 검색 매개 변수를 사용할 수는 없지만 전체 데이터베이스를 다시 인덱싱 전에 검색 매개 변수를 테스트 하는 방법에는 몇 가지가 있습니다. 
+
+먼저 새 검색 매개 변수를 테스트 하 여 반환 되는 값을 확인할 수 있습니다. 해당 ID를 입력 하 여 특정 리소스 인스턴스에 대해 아래 명령을 실행 하면 검색 매개 변수 이름 및 특정 환자에 대해 저장 된 값을 사용 하 여 값 쌍의 목록을 다시 가져올 수 있습니다. 여기에는 리소스에 대 한 모든 검색 매개 변수가 포함 되며 사용자가 만든 검색 매개 변수를 찾기 위해 스크롤할 수 있습니다. 이 명령을 실행 해도 FHIR 서버의 동작은 변경 되지 않습니다. 
+
+```rest
+GET https://{{FHIR_URL}}/{{RESOURCE}}/{{RESOUCE_ID}}/$reindex
+
+```
+예를 들어 환자에 대 한 모든 검색 매개 변수를 찾으려면 다음을 수행 합니다.
+
+```rest
+GET https://{{FHIR_URL}}/Patient/{{PATIENT_ID}}/$reindex
+
+```
+
+결과는 다음과 같습니다.
+
+```json
+{
+  "resourceType": "Parameters",
+  "id": "8be24e78-b333-49da-a861-523491c3437a",
+  "meta": {
+    "versionId": "1"
+  },
+  "parameter": [
+    {
+      "name": "deceased",
+      "valueString": "http://hl7.org/fhir/special-values|false"
+    },
+    {
+      "name": "language",
+      "valueString": "urn:ietf:bcp:47|en-US"
+    },
+    {
+      "name": "race",
+      "valueString": "2028-9"
+    },
+...
+```
+검색 매개 변수가 예상 대로 표시 되는 것을 확인 한 후에는 요소를 사용 하 여 검색을 테스트 하기 위해 단일 리소스의 인덱스를 만들 수 있습니다. 먼저 단일 리소스를 인덱스 합니다.
+
+```rest
+POST https://{{FHIR_URL}/{{RESOURCE}}/{{RESOURCE_ID}}/$reindex
+```
+
+이를 실행 하 여 해당 리소스 유형에 대해 정의한 특정 리소스에 대 한 검색 매개 변수의 인덱스를 설정 합니다. 그러면 FHIR 서버에 대 한 업데이트가 수행 됩니다. 이제 partial 인덱스 사용 헤더를 검색 하 고 true로 설정할 수 있습니다. 즉, 해당 형식의 모든 리소스가 인덱싱되지 않은 경우에도 검색 매개 변수가 인덱싱되는 결과가 반환 됩니다. 
+
+위의 예를 계속 진행 하면 미국 코어 레이스를 사용 하기 위해 1 환자를 인덱싱할 수 있습니다 `SearchParameter` .
+
+```rest
+POST https://{{FHIR_URL}/Patient/{{PATIENT_ID}}/$reindex
+```
+
+그런 다음 특정 레이스를 포함 하는 환자를 검색 합니다.
+
+```rest
+GET https://{{FHIR_URL}}/Patient?race=2028-9
+x-ms-use-partial-indices: true
+```
+
+테스트를 완료 하 고 검색 매개 변수가 예상 대로 작동 하는 것이 충족 되 면, 검색 매개 변수를 프로덕션 사용 사례에 대 한 FHIR 서버에서 사용할 수 있도록 다시 인덱싱 작업을 실행 하거나 예약 합니다.
 
 ## <a name="update-a-search-parameter"></a>검색 매개 변수 업데이트
 
-검색 매개 변수를 업데이트 하려면를 사용 `PUT` 하 여 새 버전의 검색 매개 변수를 만듭니다.
-
-`PUT {fhirurl}/SearchParameter/{SearchParameter ID}`
-
-`SearchParameter ID`요청 본문의 ID 필드 `PUT` 와 호출에를 포함 해야 합니다 `PUT` .
+검색 매개 변수를 업데이트 하려면를 사용 `PUT` 하 여 새 버전의 검색 매개 변수를 만듭니다. `SearchParameter ID` `id` 요청 본문의 요소 `PUT` 와 호출에를 포함 해야 합니다 `PUT` .
 
 > [!NOTE]
-> 검색 매개 변수의 ID를 모르는 경우 검색할 수 있습니다. 를 사용 하면 `GET {fhirurl}/SearchParameter` 사용자 지정 검색 매개 변수가 모두 반환 되 고 검색 매개 변수를 스크롤하여 필요한 검색 매개 변수를 찾을 수 있습니다. 검색을 이름으로 제한할 수도 있습니다. 아래 예제에서는를 사용 하 여 이름을 검색할 수 있습니다 `USCoreRace: GET {fhirurl}/SearchParameter?name=USCoreRace` .
+> 검색 매개 변수의 ID를 모르는 경우 검색할 수 있습니다. 를 사용 하면 `GET {{FHIR_URL}}/SearchParameter` 사용자 지정 검색 매개 변수가 모두 반환 되 고 검색 매개 변수를 스크롤하여 필요한 검색 매개 변수를 찾을 수 있습니다. 검색을 이름으로 제한할 수도 있습니다. 아래 예제에서는를 사용 하 여 이름을 검색할 수 있습니다 `USCoreRace: GET {{FHIR_URL}}/SearchParameter?name=USCoreRace` .
 
-```json
+```rest
+PUT {{FHIR_ULR}}/SearchParameter/{SearchParameter ID}
+
 {
   "resourceType" : "SearchParameter",
   "id" : "SearchParameter ID",
@@ -146,21 +201,23 @@ POST {fhirurl}/SearchParameter
 
 결과가 업데이트 되 `SearchParameter` 고 버전이 증가 합니다.
 
-  > [!Warning]
-> 데이터베이스에 이미 인덱싱되는 SearchParameters를 업데이트할 때는 주의 해야 합니다. 기존 SearchParameter의 동작을 변경 하면 예상 되는 동작에 영향을 줄 수 있습니다. 
+> [!Warning]
+> 데이터베이스에 이미 인덱싱되는 SearchParameters를 업데이트할 때는 주의 해야 합니다. 기존 SearchParameter의 동작을 변경 하면 예상 되는 동작에 영향을 줄 수 있습니다. 인덱스 작업을 즉시 실행 하는 것이 좋습니다.
 
 ## <a name="delete-a-search-parameter"></a>검색 매개 변수 삭제
 
 검색 매개 변수를 삭제 해야 하는 경우 다음을 사용 합니다.
 
-`Delete {fhirurl}/SearchParameter/{SearchParameter ID}`
+```rest
+Delete {{FHIR_URL}}/SearchParameter/{SearchParameter ID}
+```
 
 > [!Warning]
-> 데이터베이스에 이미 인덱싱되는 SearchParameters를 삭제할 때는 주의 해야 합니다. 기존 SearchParameter의 동작을 변경 하면 예상 되는 동작에 영향을 줄 수 있습니다.
+> 데이터베이스에 이미 인덱싱되는 SearchParameters를 삭제할 때는 주의 해야 합니다. 기존 SearchParameter의 동작을 변경 하면 예상 되는 동작에 영향을 줄 수 있습니다. 인덱스 작업을 즉시 실행 하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 검색 매개 변수를 만드는 방법을 알아보았습니다. 작업을 인덱스를 만드는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
+이 문서에서는 검색 매개 변수를 만드는 방법을 알아보았습니다. 다음으로 FHIR 서버를 다시 인덱싱 하는 방법을 배울 수 있습니다.
 
 >[!div class="nextstepaction"]
->[인덱스 작업을 실행 하는 방법](how-to-run-a-reindex.md)
+>[재색인 작업 실행 방법](how-to-run-a-reindex.md)

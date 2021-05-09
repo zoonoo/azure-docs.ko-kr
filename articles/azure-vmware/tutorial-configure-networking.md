@@ -2,17 +2,18 @@
 title: 자습서 - Azure에서 VMware 프라이빗 클라우드에 대한 네트워킹 구성
 description: Azure에서 프라이빗 클라우드를 배포하는 데 필요한 네트워킹을 만들고 구성하는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.date: 03/13/2021
-ms.openlocfilehash: c609d191191cd9de111e83fe62761b149405cccc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: contperf-fy21q4
+ms.date: 04/23/2021
+ms.openlocfilehash: 13f74c6120bd78127a2989218b3d535989bb7861
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103494367"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107945691"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>자습서: Azure에서 VMware 프라이빗 클라우드에 대한 네트워킹 구성
 
-Azure VMware Solution 프라이빗 클라우드에는 Azure Virtual Network가 필요합니다. Azure VMware Solution가 온-프레미스 vCenter를 지원하지 않으므로 온-프레미스 환경과 통합하기 위한 추가 단계가 필요합니다. ExpressRoute 회로와 가상 네트워크 게이트웨이도 설정해야 합니다.
+Azure VMware Solution 프라이빗 클라우드에는 Azure Virtual Network가 필요합니다. Azure VMware Solution에서 온-프레미스 vCenter를 지원하지 않으므로 온-프레미스 환경과 통합하려면 추가 단계가 필요합니다. ExpressRoute 회로와 가상 네트워크 게이트웨이도 설정해야 합니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -20,10 +21,7 @@ Azure VMware Solution 프라이빗 클라우드에는 Azure Virtual Network가 �
 > * 가상 네트워크 만들기
 > * 가상 네트워크 게이트웨이 만들기
 > * 게이트웨이에 ExpressRoute 회로 연결
-> * vCenter 및 NSX 관리자 URL 찾기
 
-## <a name="prerequisites"></a>필수 구성 요소 
-[Azure VMware Solution 프라이빗 클라우드](tutorial-create-private-cloud.md)를 만든 가상 네트워크 
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
@@ -88,14 +86,6 @@ Azure VMware Solution 프라이빗 클라우드에는 Azure Virtual Network가 �
 [!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-vnet.md)]
 
 
-## <a name="locate-the-urls-for-vcenter-and-nsx-manager"></a>vCenter 및 NSX 관리자 URL 찾기
-
-vCenter 및 NSX 관리자에 로그인하려면 vCenter 웹 클라이언트 및 NSX-T 관리자 사이트에 대한 URL이 필요합니다. 
-
-Azure VMware Solution 프라이빗 클라우드로 이동하여 **관리** 아래에서 **ID** 를 선택합니다. 여기서 필요한 정보를 찾을 수 있습니다.
-
-:::image type="content" source="./media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="vCenter와 NSX-T 자격 증명 및 웹 클라이언트 URL의 스크린샷." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
-
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 다음 작업 방법을 알아보았습니다.
@@ -104,7 +94,7 @@ Azure VMware Solution 프라이빗 클라우드로 이동하여 **관리** 아�
 > * 가상 네트워크 만들기
 > * 가상 네트워크 게이트웨이 만들기
 > * 게이트웨이에 ExpressRoute 회로 연결
-> * vCenter 및 NSX 관리자 URL 찾기
+
 
 다음 자습서를 계속 진행하여 vCenter에서 VM에 사용되는 NSX-T 네트워크 세그먼트를 만드는 방법을 알아봅니다.
 

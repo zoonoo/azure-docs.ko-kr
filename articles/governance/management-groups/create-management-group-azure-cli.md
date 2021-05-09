@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: Azure CLI를 사용하여 관리 그룹 만들기'
 description: 이 빠른 시작에서는 Azure CLI를 사용하여 리소스를 리소스 계층 구조로 구성하는 관리 그룹을 만듭니다.
-ms.date: 02/05/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fe38882bd3b025635662e228ae919a24b03dee78
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f626ce795db7f4470f1a6b8b418eca48fcef4736
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99592469"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108323306"
 ---
 # <a name="quickstart-create-a-management-group-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 관리 그룹 만들기
 
