@@ -2,22 +2,22 @@
 title: Azure AD 내 앱에서 애플리케이션에 로그인할 때의 문제 해결
 description: Azure AD 내 앱에서 애플리케이션에 로그인할 때의 문제 해결
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a54c7d6cc4ccf1d9f42702be030598ad1edfab24
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e0a1522c03e37db5f381bc800171c93b3ffe29b4
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103225152"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108289177"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Azure AD 내 앱에서 애플리케이션에 로그인할 때의 문제 해결
 
@@ -196,7 +196,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 11. 딥 링크를 확인하려는 애플리케이션을 선택합니다.
 12. **사용자 액세스 URL** 레이블을 찾습니다. 딥 링크가 이 URL과 일치해야 합니다.
 
-## <a name="contact-support"></a>기술 지원 서비스에 문의하십시오.
+## <a name="contact-support"></a>지원에 문의
 가능한 경우 다음 정보로 지원 티켓을 엽니다.
 -   상관 관계 오류 ID
 -   UPN(사용자 전자 메일 주소)

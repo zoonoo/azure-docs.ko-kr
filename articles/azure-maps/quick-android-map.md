@@ -3,19 +3,19 @@ title: '빠른 시작: Azure Maps를 사용하여 Android 앱 만들기 | Micros
 description: '빠른 시작: Azure Maps Android SDK를 사용하여 Android 앱을 만드는 방법을 알아봅니다.'
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/10/2020
+ms.date: 04/26/2021
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: mvc
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 3c0f95c1252b6895b4604d14e5565395beab8952
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 2a67f432b126fb164b1b099b772646a679c28837
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039651"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108323498"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-maps"></a>빠른 시작: Azure Maps를 사용하여 Android 앱 만들기
 
@@ -49,7 +49,7 @@ ms.locfileid: "102039651"
     * *라이선스* 및 *개인정보처리방침* 을 읽고 조건에 동의하는 확인란을 선택합니다.
     * **만들기** 단추를 클릭합니다.
 
-    ![포털에서 Maps 계정 만들기](media/quick-android-map/create-account.png)
+    :::image type="content" source="./media/quick-demo-map-app/create-account.png" alt-text="포털에서 Maps 계정 만들기":::
 
 ## <a name="get-the-primary-key-for-your-account"></a>사용자 계정에 대한 기본 키 가져오기
 

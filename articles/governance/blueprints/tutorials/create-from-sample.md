@@ -1,14 +1,14 @@
 ---
 title: '자습서: 새 환경에 대한 청사진 샘플'
 description: 이 자습서에서는 청사진 샘플을 사용하여 두 개의 리소스 그룹을 설정하고 각각의 역할 할당을 구성하는 청사진 정의를 만듭니다.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: tutorial
-ms.openlocfilehash: aea3760128221d42e092e4ca45200874d54da54a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 50871c14ed8357e46e49a599065f878253c860df
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821584"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324440"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>자습서: 청사진 샘플을 사용하여 환경 만들기
 

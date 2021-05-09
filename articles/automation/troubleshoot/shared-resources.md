@@ -6,12 +6,12 @@ ms.subservice: ''
 ms.date: 01/27/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b497b0a8f34b4310e3f11beed982c4453fc79159
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 36f8b9d8fc890eb486ec59b972cc2fdf52ae0c80
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830829"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166058"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>공유 리소스 문제 해결
 
@@ -97,20 +97,20 @@ Automation 계정에서 AzureRM 모듈을 업데이트하려면 계정이 영숫
 
 업데이트 프로세스가 일시 중단되면 `SimultaneousModuleImportJobCount` 매개 변수를 **Update-AzureModules.ps1** 스크립트에 추가하고 10(기본값)보다 낮은 값을 제공합니다. 이 논리를 구현하는 경우 3 또는 5의 값으로 시작해 보세요. `SimultaneousModuleImportJobCount`는 Azure 모듈을 업데이트하는 데 사용되는 **Update-AutomationAzureModulesForAccount** 시스템 Runbook의 매개 변수입니다. 이렇게 조정하면 업데이트 프로세스가 더 오래 실행되지만 완료될 가능성이 더 높아집니다. 다음 예제에서는 매개 변수 및 Runbook에서 매개 변수를 삽입할 위치를 보여줍니다.
 
- ```powershell
-         $Body = @"
-            {
-               "properties":{
-               "runbook":{
-                   "name":"Update-AutomationAzureModulesForAccount"
-               },
-               "parameters":{
-                    ...
-                    "SimultaneousModuleImportJobCount":"3",
-                    ... 
-               }
-              }
-           }
+```powershell
+$Body = @"
+   {
+      "properties":{
+      "runbook":{
+            "name":"Update-AutomationAzureModulesForAccount"
+      },
+      "parameters":{
+            ...
+            "SimultaneousModuleImportJobCount":"3",
+            ... 
+      }
+      }
+   }
 "@
 ```
 

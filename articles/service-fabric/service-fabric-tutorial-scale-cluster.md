@@ -3,13 +3,13 @@ title: Azure에서 Service Fabric 클러스터 크기 조정
 description: 이 자습서에서는 Azure에서 Service Fabric 클러스터의 크기를 확장 및 축소하는 방법과 남은 리소스를 정리하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: cdc7ba8d6c83ae72ffb8f1afae3954b3a46dc6ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc
+ms.openlocfilehash: 3072caa1bacf31b1c02ab7ca8720d190736ad3ff
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821693"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287269"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터 크기 조정
 

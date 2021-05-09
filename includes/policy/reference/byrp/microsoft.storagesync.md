@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/21/2021
+ms.date: 04/28/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 871a648eada2e710604d5fb42ea83a8559049b6a
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 6dbc91d7aa171bc647b503527ce4ed75dd44808d
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107876024"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108181285"
 ---
-|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure 파일 동기화는 프라이빗 링크를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d320205-c6a1-4ac6-873d-46224024e8e2) |표시된 Storage Sync Service 리소스의 프라이빗 엔드포인트를 만들면 인터넷에서 액세스할 수 있는 퍼블릭 엔드포인트를 사용하지 않고 조직 네트워크의 개인 IP 주소 공간 내에서 Storage Sync Service 리소스를 처리할 수 있습니다. 프라이빗 엔드포인트를 자체적으로 만든다고 해서 퍼블릭 엔드포인트가 비활성화되지 않습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_PrivateEndpoint_AuditIfNotExists.json) |
 |[프라이빗 엔드포인트를 사용하여 Azure 파일 동기화 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb35dddd9-daf7-423b-8375-5a5b86806d5a) |표시된 Storage Sync Service 리소스에 대해 프라이빗 엔드포인트가 배포됩니다. 이렇게 하면 인터넷에 액세스할 수 있는 퍼블릭 엔드포인트를 통하지 않고 조직 네트워크의 개인 IP 주소 공간 내에서 Storage Sync Service 리소스 주소를 지정할 수 있습니다. 하나 이상의 프라이빗 엔드포인트가 자체적으로 있다고 하더라도 퍼블릭 엔드포인트가 비활성화되지는 않습니다. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_PrivateEndpoint_DeployIfNotExists.json) |

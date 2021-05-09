@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/6/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b64ee4d1538276bbbcab3fe09054f399ad20c162
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20afd0a696a2bbeda0e2fa8bb114ecb8b5b6a76b
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94616552"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205542"
 ---
 # <a name="troubleshooting-azure-digital-twins-resource-health"></a>Azure Digital Twins 문제 해결: 리소스 상태
 
@@ -32,13 +32,13 @@ Azure Resource Health를 사용하여 Azure Digital Twins 인스턴스가 실행
 
     :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="'리소스 상태' 페이지를 보여 주는 스크린샷. 지난 9일 동안의 일별 보고서를 표시하는 '상태 기록' 섹션이 있습니다. 매일 '사용 가능' 상태를 표시합니다.":::
 
-위의 이미지에서 이 인스턴스는 *사용 가능* 으로 표시되며 지난 9일 동안의 상태였습니다. *사용 가능* 상태 및 표시될 수 있는 기타 상태 유형에 대한 자세한 내용은 [*Azure Resource Health 개요*](../service-health/resource-health-overview.md)를 참조하세요.
+위의 이미지에서 이 인스턴스는 *사용 가능* 으로 표시되며 지난 9일 동안의 상태였습니다. *사용 가능* 상태 및 표시될 수 있는 기타 상태 유형에 대한 자세한 내용은 [Azure Resource Health 개요](../service-health/resource-health-overview.md)를 참조하세요.
 
-또한 [*Azure Resource Health에서 리소스 유형 및 상태 검사*](../service-health/resource-health-checks-resource-types.md)에서 다양한 유형의 Azure 리소스에 대한 리소스 상태를 확인하는 다양한 검사에 대해 자세히 알아볼 수 있습니다.
+또한 [Azure Resource Health에서 리소스 유형 및 상태 검사](../service-health/resource-health-checks-resource-types.md)에서 다양한 유형의 Azure 리소스에 대한 리소스 상태를 확인하는 다양한 검사에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 다음 문서에서 Azure Digital Twins 인스턴스를 모니터링하는 다른 방법에 대해 알아보세요.
-* [*문제 해결: Azure Monitor의 메트릭 보기*](troubleshoot-metrics.md)
-* [*문제 해결: 진단 설정*](troubleshoot-diagnostics.md)
-* [*문제 해결: 경고 설정*](troubleshoot-alerts.md)
+* [문제 해결: Azure Monitor의 메트릭 보기](troubleshoot-metrics.md)
+* [문제 해결: 진단 설정](troubleshoot-diagnostics.md)
+* [문제 해결: 경고 설정](troubleshoot-alerts.md)

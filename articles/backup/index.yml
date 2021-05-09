@@ -6,15 +6,15 @@ metadata:
   description: Azure Backup 서비스는 데이터를 백업하고 Microsoft Azure 클라우드에서 복구할 수 있는 간단하고, 안전하며, 비용 효율적인 솔루션을 제공합니다.
   ms.service: backup
   ms.topic: landing-page
-  author: dcurwin
-  ms.author: dacurwin
+  author: v-amallick
+  ms.author: v-amallick
   ms.date: 12/01/2019
-  ms.openlocfilehash: ed8bd35ec93c8f61bdf9bb974446337159f6ddb0
-  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.openlocfilehash: bb23dc8b692bfbbad6d44fb0dc78929da4485b63
+  ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/03/2021
-  ms.locfileid: "101703820"
+  ms.lasthandoff: 04/15/2021
+  ms.locfileid: "107518990"
 landingContent:
 - title: Azure Backup에 대해 알아보기
   linkLists:
@@ -84,7 +84,7 @@ landingContent:
       url: backup-azure-vm-backup-faq.yml
     - text: Azure VM 백업 관리
       url: backup-azure-manage-vms.md
-- title: Azure Managed Disks 백업(미리 보기 상태)
+- title: Azure Managed Disks 백업
   linkLists:
   - linkListType: concept
     links:
@@ -95,7 +95,7 @@ landingContent:
     - text: Azure Managed Disks 백업
       url: backup-managed-disks.md
     - text: FAQ - Azure Managed Disks
-      url: disk-backup-faq.md
+      url: disk-backup-faq.yml
     - text: Azure Managed Disks 백업 문제 해결
       url: disk-backup-troubleshoot.md
 - title: Azure VM의 SQL Server 백업
@@ -105,7 +105,7 @@ landingContent:
     - text: Azure VM의 SQL Server 백업 정보
       url: backup-azure-sql-database.md
     - text: FAQ - Azure VM의 SQL Server 백업
-      url: faq-backup-sql-server.md
+      url: faq-backup-sql-server.yml
     - text: Azure VM의 SQL Server 데이터베이스 백업
       url: backup-sql-server-database-azure-vms.md
     - text: 백업한 SQL Server 데이터베이스 관리 및 모니터링
@@ -119,7 +119,7 @@ landingContent:
     - text: 백업한 SAP HANA 데이터베이스 관리 및 모니터링
       url: sap-hana-db-manage.md
     - text: FAQ - Azure VM의 SAP HANA 데이터베이스 백업
-      url: sap-hana-faq-backup-azure-vm.md
+      url: sap-hana-faq-backup-azure-vm.yml
     - text: Azure VM의 SAP HANA 데이터베이스 백업에 대한 지원 매트릭스
       url: sap-hana-backup-support-matrix.md
 - title: Azure 파일 공유 백업
@@ -129,7 +129,7 @@ landingContent:
     - text: Azure 파일 공유 백업 및 복원
       url: backup-afs.md
     - text: FAQ - Azure Files 백업
-      url: backup-azure-files-faq.md
+      url: backup-azure-files-faq.yml
 - title: MARS(Microsoft Azure Recovery Services) 에이전트를 사용하여 백업
   linkLists:
   - linkListType: concept
@@ -141,7 +141,7 @@ landingContent:
     - text: MARS 에이전트 지원 매트릭스
       url: backup-support-matrix-mars-agent.md
     - text: FAQ - MARS 에이전트
-      url: backup-azure-file-folder-backup-faq.md
+      url: backup-azure-file-folder-backup-faq.yml
 - title: MABS(Microsoft Azure Backup Server) 및 DPM을 사용하여 백업
   linkLists:
   - linkListType: concept
@@ -151,7 +151,7 @@ landingContent:
     - text: MABS/DPM 지원 매트릭스
       url: backup-support-matrix-mabs-dpm.md
     - text: FAQ - MABS 및 DPM
-      url: backup-azure-dpm-azure-server-faq.md
+      url: backup-azure-dpm-azure-server-faq.yml
     - text: MABS 설치 및 업그레이드
       url: backup-azure-microsoft-azure-backup.md
 - title: 규모에 맞게 관리
