@@ -4,12 +4,13 @@ description: Cloud Services, Virtual Machines 및 Web Apps의 자동 크기 조�
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
-ms.openlocfilehash: 4b763f39d3b88a7884e89dddbc2c483c1bb84d31
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8a3c8b06862c4a429d0e8974c8e3e00113ac5915
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101717777"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108316860"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor 자동 크기 조정 공용 메트릭
 
@@ -20,6 +21,7 @@ Azure Monitor 자동 크기 조정을 사용하여 원격 분석 데이터(메�
 Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 및 [API Management 서비스](../../api-management/api-management-key-concepts.md)에만 적용됩니다. 다른 Azure 서비스에는 다른 크기 조정 방법이 사용됩니다.
 
 ## <a name="compute-metrics-for-resource-manager-based-vms"></a>Resource Manager 기반 VM용 메트릭 컴퓨팅
+
 기본적으로 Resource Manager 기반 Virtual Machines 및 Virtual Machine Scale Sets는 기본(호스트 수준) 메트릭을 내보냅니다. 또한 Azure VM 및 VMSS용 진단 데이터 수집을 구성하면 Azure 진단 확장은 게스트 OS 성능 카운터(일반적으로 "게스트 OS 메트릭"이라고 함)도 내보냅니다.  자동 크기 조정 규칙에서 이러한 모든 메트릭을 사용합니다.
 
 `Get MetricDefinitions` API/PoSH/CLI를 사용하여 VMSS 리소스에 사용할 수 있는 메트릭을 볼 수 있습니다.
@@ -31,12 +33,14 @@ VM 규모 집합을 사용 중인데 특정 메트릭이 목록에 표시되지 
 위 경우 중 하나가 해당되면 PowerShell에 대한 [PowerShell을 사용하여 Windows를 실행하는 가상 머신에서 Azure Diagnostics를 사용하도록 설정](../../virtual-machines/extensions/diagnostics-windows.md)을 검토하여 메트릭을 사용하도록 Azure VM 진단 확장을 구성 및 업데이트합니다. 이 문서에는 샘플 진단 구성 파일도 포함되어 있습니다.
 
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Resource Manager 기반 Windows 및 Linux VM용 호스트 메트릭
+
 기본적으로 Windows 및 Linux 인스턴스 모두 Azure VM 및 VMSS용으로 다음 호스트 수준 메트릭을 내보냅니다. 이러한 메트릭은 Azure VM을 설명하지만 게스트 VM에 설치된 에이전트를 통하는 대신 Azure VM 호스트에서 수집됩니다. 자동 크기 조정 규칙에서 이러한 메트릭을 사용할 수 있습니다.
 
 - [Resource Manager 기반 Windows 및 Linux VM용 호스트 메트릭](../essentials/metrics-supported.md#microsoftcomputevirtualmachines)
 - [Resource Manager 기반 Windows 및 Linux VM Scale Sets용 호스트 메트릭](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
 ### <a name="guest-os-metrics-for-resource-manager-based-windows-vms"></a>Resource Manager 기반 Windows VM을 위한 게스트 OS 메트릭
+
 Azure에서 VM을 만들 때 진단 확장을 사용하여 진단을 사용하도록 설정합니다. 진단 확장을 사용하여 VM 내에서 가져온 메트릭 집합을 내보냅니다. 즉, 기본적으로 내보내지 않도록 메트릭의 자동 크기 조정을 해제할 수 있습니다.
 
 PowerShell에서 다음 명령을 사용하여 메트릭 목록을 생성할 수 있습니다.
@@ -78,6 +82,7 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \LogicalDisk(_Total)\Free Megabytes |개수 |
 
 ### <a name="guest-os-metrics-linux-vms"></a>게스트 OS 메트릭 Linux VM
+
 Azure에서 VM을 만들 때 진단 확장을 사용하여 기본적으로 진단을 사용하도록 설정합니다.
 
 PowerShell에서 다음 명령을 사용하여 메트릭 목록을 생성할 수 있습니다.
@@ -130,9 +135,11 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \NetworkInterface\TotalCollisions |개수 |
 
 ## <a name="commonly-used-app-service-server-farm-metrics"></a>일반적으로 사용되는 App Service(서버 팜) 메트릭
+
 Http 큐 길이와 같이 공용 웹 서버 메트릭을 기반으로 자동 크기 조정을 수행할 수도 있습니다. 메트릭 이름은 **HttpQueueLength** 입니다.  다음 섹션에는 사용 가능한 서버 팜(App Service) 메트릭이 나열되어 있습니다.
 
 ### <a name="web-apps-metrics"></a>Web Apps 메트릭
+
 PowerShell에서 다음 명령을 사용하여 Web Apps 메트릭 목록을 생성할 수 있습니다.
 
 ```
@@ -151,6 +158,7 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | BytesSent |바이트 |
 
 ## <a name="commonly-used-storage-metrics"></a>일반적으로 사용되는 Storage 메트릭
+
 스토리지 큐의 메시지 수인 스토리지 큐 길이의 크기를 조정할 수 있습니다. 스토리지 큐 길이는 특수한 메트릭이고 임계값은 인스턴스당 메시지 수입니다. 예를 들어 인스턴스가 두 개이고 임계값이 100으로 설정된 경우 큐에서 총 메시지 수가 200일 때 크기가 조정됨을 의미합니다. 인스턴스당 메시지는 100개, 120개 및 80개, 또는 최대 200개 이상을 추가하는 임의의 기타 조합이 될 수 있습니다.
 
 Azure Portal의 **설정** 블레이드에서 이 설정을 구성합니다. VM Scale Sets의 경우 *metricName* 을 *ApproximateMessageCount* 로 사용하고 스토리지 큐 ID를 *metricResourceUri* 로 전달하도록 Resource Manager 템플릿에서 자동 크기 조정 설정을 업데이트할 수 있습니다.
@@ -161,7 +169,7 @@ Azure Portal의 **설정** 블레이드에서 이 설정을 구성합니다. VM 
 "metricName": "ApproximateMessageCount",
 "metricNamespace": "",
 "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
- ```
+```
 
 (클래식이 아닌) 스토리지 계정의 경우 metricTrigger는 다음을 포함합니다.
 
@@ -172,6 +180,7 @@ Azure Portal의 **설정** 블레이드에서 이 설정을 구성합니다. VM 
 ```
 
 ## <a name="commonly-used-service-bus-metrics"></a>자주 사용되는 Service Bus 메트릭
+
 Service Bus 큐의 메시지 수인 Service Bus 큐 길이의 크기를 조정할 수 있습니다. Service Bus 큐 길이는 특수한 메트릭이고 임계값은 인스턴스당 메시지 수입니다. 예를 들어 인스턴스가 두 개이고 임계값이 100으로 설정된 경우 큐에서 총 메시지 수가 200일 때 크기가 조정됨을 의미합니다. 인스턴스당 메시지는 100개, 120개 및 80개, 또는 최대 200개 이상을 추가하는 임의의 기타 조합이 될 수 있습니다.
 
 VM Scale Sets의 경우 *metricName* 을 *ApproximateMessageCount* 로 사용하고 스토리지 큐 ID를 *metricResourceUri* 로 전달하도록 Resource Manager 템플릿에서 자동 크기 조정 설정을 업데이트할 수 있습니다.
@@ -184,5 +193,4 @@ VM Scale Sets의 경우 *metricName* 을 *ApproximateMessageCount* 로 사용하
 
 > [!NOTE]
 > Service Bus의 경우 리소스 그룹 개념이 없지만 Azure Resource Manager가 지역마다 기본 리소스 그룹을 만듭니다. 리소스 그룹은 일반적으로 'Default-ServiceBus-[region]' 형식입니다. 예를 들어 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast' 등입니다.
->
->
+

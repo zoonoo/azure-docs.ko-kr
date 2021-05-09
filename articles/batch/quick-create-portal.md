@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - mode-portal
-ms.openlocfilehash: 3333097b4bd55173725aa33bc4bfbae318510cf1
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: a01400e494d673fc59737007d4461b3e2a3ded25
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538534"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165680"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 첫 번째 Batch 작업 실행
 
@@ -60,7 +60,7 @@ Azure Portal을 사용하여 Batch 계정, 컴퓨팅 노드 풀(가상 머신) �
   
    |설정  |값  |
    |---------|---------|
-   |**노드 가격 책정 계층**     |표준 A1|
+   |**노드 가격 책정 계층**     |Standard_A1_v2|
    |**대상 전용 노드**     |2|
 
 1. 나머지 설정은 기본값으로 유지하고 **확인** 을 선택하여 풀을 만듭니다.

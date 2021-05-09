@@ -3,18 +3,18 @@ title: Azure EA Portal 관리
 description: 이 문서에서는 관리자가 Azure EA Portal에서 수행하는 일반적인 작업에 대해 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/13/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 3ce13a103b605ea7b6066e8b2868fa974f4e64e5
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 787f902311437e6ca8a679299ef7a28b34cee4ab
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050569"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728413"
 ---
 # <a name="azure-ea-portal-administration"></a>Azure EA Portal 관리
 
@@ -36,7 +36,9 @@ ms.locfileid: "99050569"
 
 ### <a name="create-another-enterprise-administrator"></a>다른 엔터프라이즈 관리자 만들기
 
-다른 엔터프라이즈 관리자를 추가하는 방법은 다음과 같습니다.
+시나리오에 따라 다음 옵션 중 하나를 선택합니다.
+
+#### <a name="if-youre-already-an-enterprise-administrator"></a>엔터프라이즈 관리자인 경우
 
 1. [Azure Enterprise Portal](https://ea.azure.com)에 로그인합니다.
 1. **관리** > **등록 세부 정보** 로 이동합니다.
@@ -44,7 +46,11 @@ ms.locfileid: "99050569"
 
 회사, 학교 또는 Microsoft 계정처럼 사용자의 이메일 주소와 기본 인증 방법이 있는지 확인합니다.
 
-엔터프라이즈 관리자가 아닌 경우 등록에 추가해 달라고 엔터프라이즈 관리자에게 요청하세요. 등록에 추가되면 활성화 이메일을 받게 됩니다.
+#### <a name="if-youre-not-an-enterprise-administrator"></a>엔터프라이즈 관리자가 아닌 경우
+
+엔터프라이즈 관리자가 아니면 등록에 추가해 달라고 엔터프라이즈 관리자에게 요청하세요. 엔터프라이즈 관리자는 이전 단계를 수행하여 엔터프라이즈 관리자로 추가합니다. 등록에 추가되면 활성화 이메일을 받게 됩니다.
+
+#### <a name="if-your-enterprise-administrator-cant-help-you"></a>엔터프라이즈 관리자가 도와줄 수 없는 경우
 
 엔터프라이즈 관리자의 도움을 받을 수 없는 경우 [Azure 엔터프라이즈 Portal 지원 요청](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c)을 작성합니다. 다음 정보를 지정합니다.
 
@@ -418,51 +424,6 @@ Azure Enterprise 사용자는 Microsoft 계정(MSA 또는 Live ID)에서 회사 
 1. 이제 Microsoft 계정은 활성 구독에서 구속되지 않으므로 삭제할 수 있습니다.
 1. 삭제된 계정은 과거의 청구 이유로 인해 포털에서 비활성 상태로 유지됩니다.  활성 계정만 표시하는 확인란을 선택하여 보기에서 필터링할 수 있습니다.
 
-## <a name="account-subscription-ownership-faq"></a>계정 구독 소유권 FAQ
-
-이 문서에서는 계정 구독 소유권과 관련된 일반적인 질문에 답변합니다.
-
-### <a name="can-i-associate-my-existing-azure-account-to-azure-ea-enrollment"></a>기존 Azure 계정을 Azure EA 등록에 연결할 수 있나요?
-
-예. 계정 소유자로 있는 모든 Azure 구독이 기업계약으로 변환됩니다. Visual Studio, AzurePass, MPN, BizSpark 등과 같이 월간 크레딧을 사용하는 구독이 여기에 포함됩니다. 이러한 구독을 변환하면 월간 크레딧이 손실됩니다.
-
-### <a name="how-many-azure-account-owners-can-you-have-per-subscription"></a>구독당 Azure 계정 소유자의 수는 어떻게 되나요?
-
-구독당 하나의 계정 소유자만 허용됩니다.  [Azure Portal](https://portal.azure.com) 페이지의 왼쪽 위 모서리에 있는 구독 탭에서 [역할 기반 액세스] 또는 [액세스 제어(IAM)]를 사용하여 추가 역할을 추가할 수 있습니다.
-
-### <a name="is-it-possible-to-transfer-subscription-ownership-to-another-account"></a>구독 소유권을 다른 계정으로 양도할 수 있나요?
-
-네, 구독 소유권을 다른 계정으로 양도할 수 있습니다. 예를 들어 계정 A에 세 개의 구독이 있는 경우 엔터프라이즈 관리자는 한 구독을 계정 B로, 한 구독을 계정 C로, 한 구독을 계정 D로 양도하거나 모든 구독을 계정 E로 양도할 수 있습니다.
-
-구독을 양도하는 방법은 다음과 같습니다.
-
-1. Azure Enterprise Portal에서 **관리** > **계정** 을 선택합니다.
-1. 맨 오른쪽에 있는 **계정** 을 마우스로 가리키면 **소유권 양도**(사람 아이콘) 및 **구독 양도**(목록 아이콘) 옵션이 표시됩니다. 두 옵션은 활성 계정에만 표시됩니다.
-
-### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>한 Azure 계정 소유자가 둘 이상의 부서에 나열될 수 있나요?
-
-아니요, 계정 소유자는 단일 부서에만 연결할 수 있습니다. 이 정책은 Azure EA Portal의 EA 등록계약에 따라 조정되는 부서와 관련된 비용/지출을 정확하게 모니터링하고 할당하는 데 도움이 됩니다.
-
-### <a name="can-an-azure-account-owner-be-listed-as-a-security-group"></a>Azure 계정 소유자는 보안 그룹으로 나열할 수 있나요?
-
-아니요, 구독 소유자는 고유한 MSA(Microsoft 계정) 또는 Azure AD(Azure Active Directory) 인증이어야 합니다. 조직 내에서의 양도를 처리하기 위해 일반 계정을 만들고 Azure AD를 사용하여 구독 액세스를 관리하는 것이 좋습니다.
-
-### <a name="can-an-individual-user-own-multiple-subscriptions"></a>개별 사용자가 여러 구독을 소유할 수 있나요?
-
-Azure 계정 소유자는 개수에 제한 없이 구독을 만들고 관리할 수 있습니다.
-
-### <a name="how-can-i-accessview-all-my-organizations-subscriptions"></a>내 조직의 모든 구독에 액세스하고 이를 확인하려면 어떻게 해야 하나요?
-
-현재 이 작업은 정책을 통해 수행해야 합니다. 즉, 계정은 만들어진 모든 구독에 대해 역할 기반 액세스를 사용하는 구독 역할에 추가되어야 합니다.
-
-### <a name="where-do-i-go-to-create-a-subscription"></a>구독을 만들려면 어떻게 해야 하나요?
-
-엔터프라이즈 Azure(EA) 제안 구독을 만들려면 먼저 Azure EA Portal에서 EA 등록계약의 관리자가 계정을 계정 소유자 역할에 추가해야 합니다. 그런 다음, Azure EA Portal에 로그인하여 EA 제안 유형 구독을 만들 수 있는 권한을 얻어야 합니다. 첫 번째 EA 구독은 EA Portal의 구독 탭에 있는 '+ 구독 추가' 링크에서 만드는 것이 좋습니다.  그러나 권한이 계정에 부여되면 portal.azure.com 페이지의 왼쪽 위 모서리에 있는 구독 탭에서 구독을 더 쉽게 만들 수 있습니다. 여기서는 단일 단계에서 구독을 만들고 구독 이름을 바꿀 수 있습니다.
-
-### <a name="who-can-create-a-subscription"></a>누가 구독을 만들 수 있나요?
-
-엔터프라이즈 Azure 제안 유형 구독을 만들려면 [EA Portal](https://ea.azure.com)에서 계정 소유자 역할에 대한 권한이 있어야 합니다.
-
 ## <a name="azure-ea-term-glossary"></a>Azure EA 사용 약관 용어집
 
 - **계정**: Azure Enterprise Portal의 조직 구성 단위입니다. 구독을 관리하고 보고하는 데 사용됩니다.
@@ -504,3 +465,4 @@ Azure 계정 소유자는 개수에 제한 없이 구독을 만들고 관리할 
 
 - [가상 머신 예약](ea-portal-vm-reservations.md)을 통해 비용을 절감하는 방법에 대해 알아보세요.
 - Azure EA Portal 이슈를 해결하는 데 도움이 필요한 경우 [Azure EA Portal 액세스 문제 해결](ea-portal-troubleshoot.md)을 참조하세요.
+- EA 구독 소유권에 대한 질문은 [Cost Management + Billing FAQ](../cost-management-billing-faq.yml)를 참조하세요.

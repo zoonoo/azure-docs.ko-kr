@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 03/29/2021
 ms.author: pafarley
-ms.openlocfilehash: 407ef167ca05f08d349a017c60164e2fe67977a6
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 0af6c97d6179a645b078f2335ff38f48890c42a3
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107327764"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728197"
 ---
 <a name="HOLTop"></a>
 
@@ -79,7 +79,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
 > [!TIP]
 > 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs)에서 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다.
 
-프로젝트 디렉터리의 선호하는 편집기 또는 IDE에서 *ComputerVisionQuickstart.cs* 파일을 엽니다. 다음 `using` 지시문을 추가합니다.
+선호하는 편집기 또는 IDE에서 프로젝트 디렉터리의 *Program.cs* 파일을 엽니다. 다음 `using` 지시문을 추가합니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_using)]
 
@@ -150,19 +150,19 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_visualfeatures)]
 
-다음 코드 블록 중 하나를 **AnalyzeImageUrl** 메서드에 삽입하여 해당 기능을 구현합니다. 끝에 닫는 대괄호를 추가해야 합니다.
-
-```csharp
-}
-```
-
-### <a name="analyze"></a>분석
+### <a name="call-the-analyze-api"></a>Analyze API 호출
 
 **AnalyzeImageAsync** 메서드는 추출된 모든 정보를 포함하고 있는 **ImageAnalysis** 개체를 반환합니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_analyze_call)]
 
 다음 섹션에서는 이 정보를 자세히 구문 분석하는 방법을 보여줍니다.
+
+다음 코드 블록을 **AnalyzeImageUrl** 메서드에 삽입하여 위에서 요청한 시각적 기능에서 데이터를 구문 분석합니다. 끝에 닫는 대괄호를 추가해야 합니다.
+
+```csharp
+}
+```
 
 ### <a name="get-image-description"></a>이미지 설명 가져오기
 

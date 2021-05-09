@@ -1,0 +1,469 @@
+### YamlMime:FAQ
+metadata:
+  title: Cost Management + Billing 질문과 대답(FAQ)
+  titleSuffix: Azure Cost Management + Billing
+  description: 자주 묻는 질문과 대답입니다.
+  author: bandersmsft
+  ms.reviewer: adwise
+  ms.service: cost-management-billing
+  ms.topic: conceptual
+  ms.date: 04/15/2021
+  ms.author: banders
+  ms.openlocfilehash: e96ba3c42ddce1ed12ad560b2d73b99a35c61f8b
+  ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 04/19/2021
+  ms.locfileid: "107730692"
+title: Azure Cost Management + Billing 질문과 대답(FAQ)
+summary: ''
+sections:
+- name: 일반 청구 관련 질문
+  questions:
+  - question: Azure 청구 지원에 문의하려면 어떻게 해야 하나요?
+    answer: >
+      [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)에서 지원 요청을 만듭니다.
+  - question: 청구서를 결제하려면 어떻게 해야 하나요?
+    answer: >
+      [Azure 구독 미납액 해결](manage/resolve-past-due-balance.md)을 참조하세요.
+  - question: 내 청구서를 보려면 어떻게 해야 하나요?
+    answer: >
+      [Microsoft Azure 청구서 보기 및 다운로드](understand/download-azure-invoice.md)를 참조하세요.
+  - question: 비용이 청구되는 이유가 무엇인가요? Azure 체험 계정이 있습니다.
+    answer: >
+      무료 서비스에는 제한이 있습니다. 이러한 무료 제한을 초과했을 가능성이 많습니다. [Azure 체험 계정으로 비용 청구 방지](manage/avoid-charges-free-account.md)를 참조하세요.
+  - question: 청구서 내용을 이해하려면 어떻게 해야 하나요?
+    answer: >
+      Azure 웹 사이트를 통해 Azure 구독을 구매한 경우 [개별 azure 구독 청구서 검토](understand/review-individual-bill.md)를 참조하세요.
+  - question: 신속하게 요금을 확인하려면 어떻게 해야 하나요?
+    answer: >
+      [비용 분석 기능을 통해 비용 검색 및 분석](costs/quick-acm-cost-analysis.md)을 참조하세요.
+  - question: 예기치 않은 비용이 청구되었습니다. 청구된 요금을 파악하려면 어떻게 해야 하나요?
+    answer: >
+      [예기치 않은 요금 분석](understand/analyze-unexpected-charges.md)을 참조하세요.
+  - question: Azure 구독을 취소하려면 어떻게 해야 하나요?
+    answer: >
+      [Azure 구독 취소](manage/cancel-azure-subscription.md)를 참조하세요.
+- name: Cost Management 관련 질문
+  questions:
+  - question: 비용을 확인하기 위한 액세스는 어떻게 설정하나요?
+    answer: >
+      [Cost Management 데이터에 대한 액세스 할당](costs/assign-access-acm-data.md)을 참조하세요.
+  - question: Cost Management에서 지원되는 파트너 제품은 무엇인가요?
+    answer: >
+      Azure 플랜 고객을 대상으로 하는 파트너의 경우 Cost Management를 이용할 수 있습니다. 정책 설정을 사용하도록 지정하면 파트너 고객이 본인의 비용 정보를 볼 수 있습니다. 자세한 내용은 [파트너용 Azure Cost Management 시작](costs/get-started-partners.md)을 참조하세요. 기존 CSP는 Cost Management에서 지원되지 않습니다.
+  - question: 예상 비용을 확인하려면 어떻게 해야 하나요?
+    answer: >
+      Azure Portal에서 **Cost Management + 청구** > **Cost Management** > **비용 분석** 으로 이동합니다. 기본 보기에서 맨 위 차트에는 실제/분할 상환 비용 및 예상 비용 섹션이 있습니다. 차트의 단색은 실제/분할 상환 비용을 나타냅니다. 음영 처리된 색은 예상 비용을 나타냅니다.
+  - question: Azure 서비스의 비용 내역을 확인하려면 어떻게 해야 하나요?
+    answer: >
+      Azure Portal에서 **Cost Management + Billing** > **Cost Management** > **비용 분석** 으로 이동합니다. **서비스별 비용** 을 선택한 다음, **서비스 계층** 별로 그룹화합니다. 보기를 **테이블** 로 변경합니다.
+  - question: 청구서 비용을 확인하려면 어떻게 해야 하나요?
+    answer: >
+      Azure Portal에서 분석할 청구서 범위의 비용 분석으로 이동합니다. **청구서 세부 정보** 보기를 선택합니다. 청구서 세부 정보에는 청구서에 표시된 요금이 나타납니다.
+  - question: 태그 비용을 확인하려면 어떻게 해야 하나요?
+    answer: >
+      Azure Portal에서 **Cost Management + 청구** > **Cost Management** > **비용 분석** 으로 이동합니다. 태그에 사용할 **그룹화 기준** 을 선택합니다. 태그는 구매, 구독과 연결되지 않은 테넌트 리소스, 리소스 그룹에 배포되지 않은 구독 리소스 또는 클래식 리소스에 사용할 수 없습니다. 일부 서비스는 사용량 데이터에 태그를 포함하지 않습니다. 자세한 내용은 [Azure 리소스에 대한 태그 지원](../azure-resource-manager/management/tag-support.md)을 참조하세요.
+  - question: EA 등록 비용을 확인하려면 어떻게 해야 하나요?
+    answer: >
+      Azure Portal에서 **Cost Management + Billing** > 개요로 이동합니다. **내역** 링크를 선택합니다.
+  - question: Cost Management에서 AWS 비용을 확인하려면 어떻게 해야 하나요?
+    answer: >
+      [AWS 비용 및 사용량 보고서 통합 설정 및 구성](costs/aws-integration-set-up-configure.md)을 참조하세요.
+  - question: 예산을 세우려면 어떻게 해야 하나요?
+    answer: >
+      [Azure 예산 세우기 및 관리](costs/tutorial-acm-create-budgets.md) 자습서를 참조하세요.
+  - question: 특정 필터 또는 태그에 대한 예산을 세우려면 어떻게 해야 하나요?
+    answer: >
+      예산 세우기 창에서 세우려는 예산 범위를 선택합니다. **필터 추가** 를 선택하여 이 예산에 추가하려는 필터 또는 태그를 선택합니다. 자세한 내용은 [Azure 예산 세우기 및 관리](costs/tutorial-acm-create-budgets.md#create-a-budget-in-the-azure-portal)를 참조하세요.
+  - question: 비용 관리 데이터를 내보내려면 어떻게 해야 하나요?
+    answer: >
+      [내보내는 데이터를 만들고 관리](costs/tutorial-export-acm-data.md) 자습서를 참조하세요.
+  - question: 내 테넌트에 Azure 구독이 없는 경우에 비용 관리 데이터를 파트너로 내보내려면 어떻게 해야 하나요?
+    answer: >
+      [Azure Storage 계정 SAS 키와 함께 비용 데이터 내보내기](costs/export-cost-data-storage-account-sas-key.md) 문서를 참조하세요.
+  - question: CSP 파트너의 경우 Azure 플랜의 기존 CSP 제품에서 Cost Management가 지원되나요?
+    answer: "[새 상거래 환경](https://www.microsoft.com/licensing/news/new-azure-experience-in-csp)에서 기존 CSP 고객을 Azure 플랜으로 전환하려고 하는 점을 고려할 때 Azure 플랜을 구독한 고객의 직접 파트너 및 간접 공급자의 경우에만 Azure Cost Management를 이용할 수 있습니다. \n"
+  - question: CSP 파트너(전역 관리자)가 Azure 플랜의 최종 고객 및 재판매인의 구독 범위에서 비용 표시 정책을 사용하도록 설정하려면 어떻게 해야 하나요?
+    answer: >
+      구독 시 Azure RBAC 사용자에 대한 소매 요금에서 Azure에서 사용하는 서비스에 대한 비용 표시 정책을 사용하도록 설정하려면 [고객 테넌트 구독에 Cost Management 사용](costs/get-started-partners.md#enable-cost-management-for-customer-tenant-subscriptions)을 참조하세요. 직접 파트너 또는 간접 공급자의 전역 관리자는 정책에 관계 없이 고객 테넌트의 비용을 볼 수 있습니다.
+  - question: 비용을 취소하려면 어떻게 해야 하나요?
+    answer: >
+      Cost Management에서 비용을 할당하면 비용 분석에서 구독, 리소스 그룹 또는 태그의 비용을 각각 확인할 수 있습니다. 자세한 내용은 [Azure 비용 할당 규칙 만들기 및 관리](costs/allocate-costs.md)를 참조하세요.
+  - question: Power BI로 비용을 볼 수 있나요?
+    answer: >
+      예. [Power BI Desktop을 사용하여 Cost Management 데이터에 연결](/power-bi/connect-data/desktop-connect-azure-cost-management)하거나 [EA용 Cost Management Power BI 앱](costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md)을 사용하면 됩니다.
+  - question: Cost Management에서 지원되는 제품 유형은 무엇인가요?
+    answer: >
+      [지원되는 Microsoft Azure 제품](/costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers)을 참조하세요.
+  - question: Azure Cost Management에서 비용 및 사용량 데이터를 얼마나 빨리 확인할 수 있나요?
+    answer: >
+      [비용, 사용량 데이터 업데이트 및 보존](/costs/understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention)을 참조하세요.
+  - question: Azure Cost Management에서 모든 비용 관련 정보를 찾을 수 있나요?
+    answer: >
+      [Cost Management에 포함된 비용](costs/understand-cost-mgt-data.md#costs-included-in-cost-management)을 참조하세요.
+  - question: 할당된 비용은 예산 및 예측 보기에 포함되나요?
+    answer: >
+      <a name="budgets-forecast"></a>예. 할당된 비용은 예산 및 예측에 포함되고 지원됩니다. 예산 및 예측 보기에는 비용 할당 규칙에서 구성된 대로 할당된 비용이 표시됩니다.
+  - question: 비용 할당 규칙을 삭제하면 어떻게 되나요?
+    answer: >
+      <a name="delete-rule"></a>비용 할당 규칙을 삭제하면 대상에 할당되는 모든 미해결 및 현재 청구 월 비용이 제거됩니다. 비용 할당 규칙이 수개월 동안 적용되었다면 할당 데이터의 이전 월 기록은 할당 규칙에서 원래 설정된 대로 유지됩니다.
+  - question: 등록 관리자 또는 청구 계정 관리자가 비용 할당 규칙을 만들어야 하는 이유는 무엇인가요?
+    answer: >
+      <a name="why-admin"></a>비용 할당 규칙은 등록 범위(기업계약) 또는 청구 계정 범위(Microsoft 고객 계약)에서 생성됩니다. 이러한 범위에서 변경 작업을 수행하려면 청구 관리자 권한이 필요합니다.
+  - question: 비용 할당 원본 및 대상이 규칙당 25개로 제한되는 이유는 무엇인가요?
+    answer: >
+      <a name="source-target-rule-limit"></a>이 제한은 적절한 비용 할당 성능 및 확장성을 보장하기 위해 미리 보기에 적용되는 제한입니다. 비용 할당이 GA(일반 공급)로 전환될 때 이 제한이 상향 조정되거나 제거될 가능성이 높습니다.
+  - question: 비용 할당 규칙(원본/대상)이 겹치면 어떻게 되나요?
+    answer: >
+      <a name="rule-overlap"></a>원본 또는 대상이 겹치는 규칙은 권장하지 않습니다. 비용 할당 규칙은 만든 날짜 순으로 적용되므로 비용 할당 규칙이 겹치면 만든 날짜가 가장 빠른 할당 규칙이 우선 적용됩니다.
+- name: Cost Management + Billing API 관련 질문
+  questions:
+  - question: EA Reporting API는 언제 사용 중단될 예정인가요?
+    answer: >
+      Cost Management + Billing 팀에서는 아직 이 API의 사용 중단 일정을 발표하지 않았습니다. 이 API는 더 이상 개발되지 않습니다. 사용자는 이 API로부터 마이그레이션하는 데 필요한 작업을 계획하는 것이 좋습니다.
+  - question: EA Reporting API로부터 마이그레이션은 어떻게 해야 하나요? 어떤 새 API를 호출해야 하는지요?
+    answer: >
+      [EA Reporting에서 Azure Resource Manager API로 마이그레이션](costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md)을 참조하세요.
+  - question: Usage Details API 시간 초과가 발생하는 이유가 무엇인가요?
+    answer: >
+      Usage Details 데이터 세트는 매우 커질 수 있습니다(수 GB 이상). 요청하는 데이터 세트의 크기가 클수록 서비스에서 데이터를 보내기 전에 데이터를 컴파일하는 데 걸리는 시간이 길어집니다. 지연으로 인해 페이지가 매겨진 [JSON Usage Details API](/rest/api/consumption/usagedetails/list)와 같은 동기 API 솔루션은 데이터를 제공하기 전에 시간 초과될 수 있습니다. 시간 초과가 발생하거나 많은 양의 사용량 정보를 자주 가져와야 하는 프로세스가 있는 경우, [내보내기를 사용하여 대규모 사용량 데이터 세트 반복 검색](costs/ingest-azure-usage-at-scale.md)을 참조하세요.
+  - question: EA Reporting API에서 Microsoft Customer Agreement API로 마이그레이션은 어떻게 해야 하나요?
+    answer: >
+      [Enterprise Agreement API에서 Microsoft Customer Agreement API로 마이그레이션](costs/migrate-cost-management-api.md)을 참조하세요.
+- name: Azure 예약 관련 질문
+  questions:
+  - question: 예약 요금을 보려면 어떻게 해야 하나요?
+    answer: >
+      Azure Portal에서 **Cost Management + 청구** > **Cost Management** > **비용 분석** 으로 이동합니다. **가격 책정 모델: 예약** 에 대한 필터를 추가합니다. 범위 아래에 표시된 비용 옆에 있는 아래쪽 화살표 기호를 클릭하고 **실제 비용** 또는 **분할 상환 비용** 메트릭을 선택합니다.
+  - question: 예약 절감액은 어떻게 확인하나요?
+    answer: >
+      절감액은 몇 가지 방법으로 확인할 수 있습니다.
+
+      -  EA 고객인 경우 EA용 Azure Cost Management Power BI 앱을 통해 [RI 절감액 보고서](/costs/analyze-cost-data-azure-cost-management-power-bi-template-app#reports-available-with-the-app.md)를 볼 수 있습니다.
+
+      -  사용량 및 요금 데이터 파일을 통해 수동으로 [예약 절감액을 파악](reservations/understand-reserved-instance-usage-ea.md#determine-reservation-savings)할 수 있습니다.
+  - question: 예약 미달 사용은 어떻게 확인하나요?
+    answer: >
+      Azure Portal에 로그인합니다. 모든 서비스 > **예약** 을 선택하고 예약에 대한 **사용률(%)** 을 기록합니다. 예약을 선택합니다. 시간별 예약 사용 추세를 검토합니다. 자세한 내용은 [Azure Portal에서 예약 사용 보기](reservations/manage-reserved-vm-instance.md?toc=/azure/cost-management-billing/reservations/toc.json#view-reservation-use-in-the-azure-portal)를 참조하세요. 또한 [비용 분석에서 사용하지 않는 예약 비용을 볼](costs/cost-analysis-common-uses.md#view-unused-ri-costs-in-cost-analysis) 수도 있습니다.
+  - question: 취소할 예약 비용은 어떻게 확인할 수 있나요?
+    answer: >
+      자세한 내용은 [Azure 예약 비용 취소](reservations/charge-back-usage.md?toc=/azure/cost-management-billing/reservations/toc.json)를 참조하세요.
+  - question: 스폿 VM에서 발생하는 요금은 어떻게 확인할 수 있나요?
+    answer: >
+      [스폿 VM 요금 보기](/costs/cost-analysis-common-uses.md#view-your-spot-vm-charges)를 참조하세요.
+  - question: 예약 정보 보고서는 어떻게 가져오나요?
+    answer: >
+      API 설명서를 읽고 [예약 정보 보고서를 생성](/rest/api/cost-management/generatereservationdetailsreport)합니다.
+- name: Azure EA(기업계약) 및 EA Portal 관련 질문
+  questions:
+  - question: 내 등록에 SPN 사용 권한을 할당하려면 어떻게 해야 하나요?
+    answer: >
+      [EA SPN에 역할 할당](manage/assign-roles-azure-service-principals.md)을 참조하세요.
+  - question: 활성화 이메일이 오지 않는 이유가 무엇인가요?
+    answer: >
+      Azure EA Portal의 활성화 이메일은 *waep@microsoft.com* 에서 전송됩니다. 활성화 이메일을 받지 못한 경우 이메일에 대해 스팸 또는 정크 메일 폴더를 확인하세요. _Invitation to View/Manage the Microsoft Azure service_subject_ 로 전송됩니다. 새로 추가된 모든 EA 관리자에게 전송됩니다.
+
+
+      이미 EA 관리자로 설정된 경우에는 Azure EA Portal에 로그인하기 위해 활성화 이메일을 받을 때까지 기다릴 필요가 없습니다. [https://ea.azure.com](https://ea.azure.com )으로 이동하여 이메일 주소(회사, 학교 또는 Microsoft 계정)와 암호를 사용하여 로그인할 수 있습니다.
+  - question: 새 EA 관리자를 내 등록에 추가하려면 어떻게 해야 하나요?
+    answer: >
+      기존 엔터프라이즈 관리자는 새 엔터프라이즈 관리자를 추가할 수 있습니다. EA 관리자인 경우 EA Portal에 로그인하고, **관리** 를 클릭하고, 오른쪽 위 모서리에서 **+ 관리자 추가** 를 클릭하여 새 EA 관리자를 추가하세요. 사용자의 이메일 주소와 선호하는 로그인 방법(예: 회사/학교 인증 또는 Microsoft Live ID 사용)을 사용하여 사용자를 추가할 수 있는지 확인합니다.
+
+
+      EA 관리자가 아닌 경우 회사의 EA 관리자에게 연락하여 등록에 추가되도록 요청하세요. 사용자가 등록에 추가되면 해당 사용자는 활성화 이메일을 받게 됩니다.
+
+
+      그러나 EA 관리자가 도움을 줄 수 없는 경우 사용자가 다음을 제공할 수 있으면 해당 사용자를 대신하여 추가할 수 있습니다.
+
+      - 등록 번호
+
+      - 추가할 이메일 주소 및 인증 유형(회사/학교/MS)
+
+      - EA 관리자의 이메일 승인
+
+
+      필요한 정보가 모두 있으면 요청을 [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport)에 제출하세요.
+  - question: 등록에서 첫 번째 EA 관리자를 업데이트하려면 어떻게 해야 하나요?
+    answer: >
+      첫 번째 EA 관리자는 포털에서 알림 연락처 및 온라인 관리자를 업데이트하여 볼륨 라이선싱 서비스 센터에서 업데이트할 수 있습니다. EA Portal에서 업데이트하는 데 약 24시간이 걸립니다. 업데이트되면 새 EA 관리자가 활성화 이메일을 받게 됩니다.
+
+
+      VLSC 포털 액세스 권한이 없거나 초기 EA 관리자가 더 이상 등록을 관리할 수 없고 EA Portal에 액세스할 수 없는 경우 요청을 [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport)에 제출하여 업데이트를 요청하고 다음 정보를 제공하세요.
+
+      - 등록 번호
+
+      - 추가할 이메일 주소 및 인증 유형(회사/학교/MS)
+
+      - 초기 EA 관리자를 변경하는 이유
+
+      - 초기 EA 관리자의 이메일 승인
+  - question: 현재 EA 관리자가 더 이상 회사에 있지 않습니다.   어떻게 해야 합니까?
+    answer: >
+      EA 등록에는 여러 EA 관리자가 있을 수 있으며, 다른 EA 관리자에게 연락하여 새 EA 관리자/계정 소유자/부서 관리자를 추가할 수 있습니다. 그러나 회사의 EA 관리자가 누구인지 확실하지 않거나 사용할 수 있는 다른 EA 관리자가 등록에 없는 경우 다음 정보를 사용하여 Microsoft에 문의하세요.
+
+      - 등록 번호
+
+      - 추가할 이메일 주소 및 인증 유형(회사/학교/MS)
+
+      - 현재 EA 관리자가 더 이상 회사에 있다는 정보 제공
+
+
+      다른 EA 관리자가 등록에 있는 경우 EA 관리자에게 연락하여 등록에 대한 관리 변경을 승인하도록 요청하세요.
+  - question: 내 등록이 보류 중 상태로 표시됩니다. 이 등록을 활성화하려면 어떻게 해야 하나요?
+    answer: >
+      초기 EA 관리자가 이전에 등록에 로그온하지 않은 경우 등록은 보류 중 상태가 됩니다. EA 관리자인 경우 Azure EA Portal에 로그인하세요. 모든 등록 번호가 포함된 방문 페이지에서 보류 중인 등록이 표시되지 않을 수 있습니다. EA Portal의 오른쪽 위 모서리에 있는 "활성" 상자를 선택 취소하세요. 그러면 보류 중인 등록이 표시됩니다. 정보에 액세스하려면 등록을 클릭하세요. 등록의 [관리] 페이지에 도달하면 상태가 [보류 중]에서 [활성]으로 업데이트됩니다.
+  - question: 내 계정이 보류 중 상태로 유지되는 이유는 무엇인가요?
+    answer: >
+      새 AO(계정 소유자)가 처음으로 등록에 추가되면 상태가 항상 "보류 중"으로 표시됩니다. 활성화 환영 이메일을 받으면 AO가 로그인하여 계정을 활성화할 수 있습니다. 로그인하면 계정 상태가 "보류 중"에서 "활성"으로 업데이트됩니다.
+  - question: Azure EA Portal에 로그인할 때 오류 메시지가 표시되는 이유가 무엇인가요?
+    answer: "로그인하는 동안 Azure EA Portal에서 오류 메시지가 발생할 수 있는 몇 가지 이유가 있습니다. 다음 문제 해결 단계를 수행하세요.\n\n 1. [https://ea.azure.com](https://ea.azure.com)에서 올바른 EA Portal URL을 사용하고 있는지 확인합니다.\n 1. Azure EA Portal에 대한 액세스 권한이 회사 계정, 학교 계정 또는 Microsoft Live ID로 추가되었는지 확인합니다. 회사 계정을 사용하는 경우 회사 이메일과 회사 암호를 입력하세요. Microsoft Live ID를 사용하는 경우 Live ID 이메일과 Microsoft Live ID 암호를 입력하세요. Microsoft Live ID 암호를 잊어버린 경우 [https://account.live.com/password/reset](https://account.live.com/password/reset)에서 다시 설정하세요.\n 1. 이전/기존 세션의 쿠키 또는 캐시가 유지되지 않도록 프라이빗 브라우저를 사용하여 로그인하는 것이 좋습니다. 캐시를 지우고 프라이빗 검색 모드/시크릿 창을 사용하여 [https://ea.azure.com](https://ea.azure.com)을 엽니다.\n 1. Microsoft 계정을 사용할 때 [잘못된 사용자] 오류가 발생하는 경우 여러 Microsoft 계정이 있고 로그인하려는 계정이 기본 별칭이 아니기 때문일 수 있습니다. 기본 별칭을 확인하려면 account.live.com으로 이동합니다.\n     - \"사용자 정보\" > \"로그인 이메일 또는 전화 번호 관리\"로 이동합니다.\n     - 화면의 프롬프트 지시에 따라 대체 이메일 주소를 확인하고 중요한 정보에 액세스하는 코드를 얻습니다.\n     - 보안 코드를 입력합니다.\n     - 나중에 2단계 인증을 설정하려면 \"나중에 설정\"을 선택합니다.\n     - 그러면 보유한 계정 별칭이 표시되는 \"계정 별칭 관리\" 페이지로 이동합니다. 기본 별칭이 Azure EA Portal에 로그인하는 데 사용하는 별칭인지 다시 확인합니다. 그렇지 않으면 기본 별칭으로 설정하거나 EA Portal에 대한 기본 별칭을 대신 사용할 수 있습니다.\n \n 위의 문제 해결 단계가 실패한 경우 다음과 같은 정보가 포함된 요청을 [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport)에 제출하세요.\n   - 사용된 브라우저 및 버전\n   - 오류 메시지의 스크린샷\n   - 오류를 표시하는 페이지의 URL  \n   - 오류가 발생한 날짜, 시간 및 표준 시간대\n\n- 로그 파일을 가져오는 경우에도 도움이 됩니다. 아래 정보를 사용하여 네트워크 추적을 캡처하는 단계는 다음과 같습니다.\n\n1. Internet Explorer를 엽니다.\n1. F12 키를 누릅니다. 그러면 IE의 아래쪽에 상자가 열립니다.\n1. **네트워크** 탭을 선택합니다.\n1. **캡처 시작** 을 클릭합니다.\n1. 오류가 발생하는 작업을 수행합니다.\n1. 오류가 발생하면 **캡처 중지** 를 클릭합니다.\n1. 파일을 저장하고 지원 요청에 정보를 포함시킵니다.\n1. 등록 번호와 이메일 주소를 지원 요청에 제공해야 합니다.\n"
+  - question: 회사/학교 계정과 Microsoft 계정의 차이점은 무엇인가요?
+    answer: >
+      **Microsoft 계정:** [https://signup.live.com](https://signup.live.com)의 Live ID에 연결된 계정입니다.
+
+
+      **회사/학교 계정:** 클라우드에 페더레이션된 활성 디렉터리를 설정하고 모든 계정이 단일 테넌트에 있는 회사에서만 사용할 수 있습니다. 회사의 내부 활성 디렉터리가 클라우드에 페더레이션되면 사용자를 회사/학교 권한 부여 형식으로 추가할 수 있습니다.
+
+
+      2016년 9월부터 Microsoft는 더 이상 주소가 지정된 회사 또는 학교 이메일을 Microsoft 계정으로 등록할 수 없습니다. 자세한 내용은 [https://blogs.technet.microsoft.com/enterprisemobility/2016/09/15/cleaning-up-the-azure-ad-and-microsoft-account-overlap/](https://blogs.technet.microsoft.com/enterprisemobility/2016/09/15/cleaning-up-the-azure-ad-and-microsoft-account-overlap/) 자료를 참조하세요.
+
+
+      조직이 클라우드에 페더레이션되지 않으면 회사 또는 학교 이메일 주소를 사용할 수 없습니다. 새 이메일 주소를 등록하거나 만들고, 이를 Microsoft 계정으로 대신 등록하세요.
+  - question: Azure EA Portal의 암호를 잊어버렸습니다.   어떻게 해야 합니까?
+    answer: >
+      Microsoft Live ID 암호를 잊어버린 경우 [https://account.live.com/password/reset](https://account.live.com/password/reset)에서 다시 설정하세요.
+
+
+      회사 암호를 잊어버린 경우 회사의 IT 관리자에게 문의하세요.
+  - question: 유효한 회사 계정 또는 학교 계정이 있는데 EA Portal에 이를 추가할 수 없는 이유가 무엇인가요?
+    answer: >
+      다른 테넌트의 회사 또는 학교 계정이 있는 경우 등록 세부 정보 페이지의 권한 부여 수준을 "회사 또는 학교 계정 교차 테넌트"로 변경하면 계정을 추가할 수 있습니다.
+  - question: 실수로 기존 Azure 계정을 Azure EA 등록에 연결했습니다. 그 결과, 월간 크레딧이 손실되었습니다. 월간 크레딧을 돌려받을 수 있나요?
+    answer: >
+      Visual Studio 구독과 동일한 자격 증명을 사용하여 Azure EA 계정 소유자로 로그인한 경우에는 다음 작업 중 하나를 수행하여 개별 Visual Studio 구독 Azure 혜택을 복구할 수 있습니다.
+
+
+      - 연결된 Azure 구독을 제거하거나 이전한 후 Azure Enterprise Portal에서 계정 소유자를 삭제합니다. 그런 다음, 개별 Visual Studio Azure 혜택에 새로 가입합니다.
+
+      - VLSC의 관리 사이트에서 Visual Studio 구독자를 삭제하고, 이번에는 다른 자격 증명을 사용하는 계정에 구독을 다시 할당합니다. 그런 다음, 개별 Visual Studio Azure 혜택에 새로 가입합니다.
+  - question: 어떤 유형의 구독을 만들어야 하나요?
+    answer: >
+      Azure Enterprise Portal은 기업 고객을 위한 다음 두 가지 유형의 구독을 제공합니다.
+
+
+      - Microsoft Azure 엔터프라이즈 - 적합한 용도:
+
+      - 모든 프로덕션 사용
+
+      - 인프라 지출을 기준으로 하는 최상의 가격
+
+
+      자세한 내용은 [Azure 영업 팀에 문의](https://azure.microsoft.com/pricing/enterprise-agreement/)하세요.
+
+
+      - Enterprise 개발/테스트 - 적합한 용도:
+
+      - 모든 팀 개발/테스트 워크로드
+
+      - 중간 수준 이상의 개별 개발/테스트 워크로드
+
+      - 특수 MSDN 이미지 및 우선 서비스 요금에 액세스
+
+
+      자세한 내용은 [Enterprise 개발/테스트 제품](https://azure.microsoft.com/offers/ms-azr-0148p/)을 참조하세요.
+  - question: 구독 이름이 제품 이름과 동일합니다. 구독 이름을 조직에 유의미한 이름으로 변경해야 하나요?
+    answer: >
+      구독을 만들 때 이름은 기본적으로 고객이 선택한 제품 형식으로 지정됩니다. 구독을 쉽게 추적할 수 있도록 구독 이름을 변경하는 것이 좋습니다.
+
+
+      이름을 변경하는 방법은 다음과 같습니다.
+
+
+      1. [https://account.windowsazure.com](https://account.windowsazure.com)에 로그인합니다.
+
+      1. 구독 목록을 선택합니다.
+
+      1. 편집하려는 구독을 선택합니다.
+
+      1. **구독 관리** 아이콘을 선택합니다.
+
+      1. 구독 세부 정보를 편집합니다.
+  - question: 비용 센터에서 발생한 비용을 추적하려면 어떻게 해야 하나요?
+    answer: >
+      비용 센터에서 발생한 비용을 추적하려면 다음 수준 중 하나에서 비용 센터를 정의해야 합니다.
+
+
+      - department
+
+      - 계정
+
+      - Subscription
+
+
+      요구 사항에 따라, 동일한 비용 센터를 사용하여 특정 비용 센터와 관련된 사용량과 비용을 추적할 수 있습니다.
+
+
+      예를 들어 여러 부서가 관련된 특수 프로젝트의 비용을 추적하려면 구독 수준에서 비용 센터를 사용하여 사용량과 비용을 추적하는 것이 좋습니다.
+
+
+      서비스 수준에서는 비용 센터를 정의할 수 없습니다. 서비스 수준에서 사용량을 추적하려면 서비스 수준에서 사용할 수 있는 _태그_ 기능을 사용하면 됩니다.
+  - question: 조직 내 부서별로 사용량 및 지출을 추적하려면 어떻게 할까요?
+    answer: >
+      Azure EA 등록에서 필요한 만큼 부서를 만들 수 있습니다. 사용량을 올바르게 추적하려면 부서 간에 구독을 공유하면 안 됩니다.
+
+
+      부서 및 구독을 만든 후에는 사용량 보고서에서 데이터를 볼 수 있습니다. 이 정보는 부서 수준에서 사용량을 추적하고 비용 및 지출을 관리하는 데 도움이 됩니다.
+
+
+      Reporting API를 통해 사용량 데이터에 액세스할 수도 있습니다. 자세한 내용 및 샘플 코드는 [Azure 엔터프라이즈 REST API](manage/ea-portal-rest-apis.md)를 참조하세요.
+  - question: 지출 할당량을 설정하고 한도에 도달하면 경고를 받을 수 있나요?
+    answer: >
+      부서 수준에서 지출 할당량을 설정하면 지출 한도가 정의된 할당량의 50%, 75%, 90%, 100%에 도달할 때마다 시스템에서 자동으로 알려줍니다.
+
+
+      지출 할당량을 정의하려면 부서를 선택하고 편집 아이콘을 선택합니다. 지출 한도 정보를 편집한 후 **저장** 을 선택합니다.
+  - question: 리소스 그룹을 사용하여 Azure RBAC를 구현하고 사용량을 추적했습니다. 관련 사용량 세부 정보를 어떻게 볼 수 있나요?
+    answer: >
+      _리소스 그룹_ 및 _태그_ 를 사용하는 경우 이 정보는 서비스 수준에서 추적되며, 세부 사용량 다운로드(CSV) 파일에서 이 정보에 액세스할 수 있습니다. Azure Enterprise Portal에서 [사용량 현황 보고서 다운로드](https://ea.azure.com/report/downloadusage)를 참조하세요.
+
+
+      API를 통해 사용량에 액세스할 수도 있습니다. 자세한 내용 및 샘플 코드는 [Azure 엔터프라이즈 REST API](manage/ea-portal-rest-apis.md)를 참조하세요.
+
+
+      > [!NOTE]
+
+      > Azure Resource Manager 작업을 지원하는 리소스에만 태그를 적용할 수 있습니다. 클래식 배포 모델을 통해(예: 클래식 포털을 통해) 가상 머신, 가상 네트워크 또는 스토리지를 만든 경우 해당 리소스에 태그를 적용할 수 없습니다. 태그를 지원하려면 Resource Manager를 통해 이러한 리소스를 다시 배포해야 합니다. 다른 모든 리소스는 태그 지정을 지원합니다.
+  - question: Power BI를 사용하여 분석을 수행할 수 있나요?
+    answer: >
+      예. [Power BI Desktop용 Azure Cost Management 커넥터](/power-bi/connect-data/desktop-connect-azure-cost-management)를 사용하면 Azure 지출을 보다 잘 파악할 수 있는 사용자 지정된 강력한 시각화와 보고서를 만들 수 있습니다. EA(기업계약) 고객은 [Azure Cost Management 템플릿 앱](costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md)을 활용할 수도 있습니다. Azure Cost Management 템플릿 앱에는 비용 절감을 위해 모니터링 비용, 서비스 사용량 추세 및 비용 최적화 옵션 파악에 도움이 되는 미리 생성된 보고서가 함께 제공됩니다.               Power BI 보고는 청구 정보를 볼 수 있는 Azure EA 직접 고객, 파트너 및 간접 고객에게 제공됩니다.
+  - question: 기존 Azure 계정을 Azure EA 등록에 연결할 수 있나요?
+    answer: >
+      예. 계정 소유자로 있는 모든 Azure 구독이 기업계약으로 변환됩니다. Visual Studio, AzurePass, MPN, BizSpark 등과 같이 월간 크레딧을 사용하는 구독이 여기에 포함됩니다. 이러한 구독을 변환하면 월간 크레딧이 손실됩니다.
+  - question: 구독당 Azure 계정 소유자의 수는 어떻게 되나요?
+    answer: >
+      구독당 하나의 계정 소유자만 허용됩니다.  [Azure Portal](https://portal.azure.com) 페이지의 왼쪽 위 모서리에 있는 구독 탭에서 [역할 기반 액세스] 또는 [액세스 제어(IAM)]를 사용하여 추가 역할을 추가할 수 있습니다.
+  - question: 구독 소유권을 다른 계정으로 양도할 수 있나요?
+    answer: >
+      네, 구독 소유권을 다른 계정으로 양도할 수 있습니다. 예를 들어 계정 A에 세 개의 구독이 있는 경우 엔터프라이즈 관리자는 한 구독을 계정 B로, 한 구독을 계정 C로, 한 구독을 계정 D로 양도하거나 모든 구독을 계정 E로 양도할 수 있습니다.
+
+
+      구독을 양도하는 방법은 다음과 같습니다.
+
+
+      1. Azure Enterprise Portal에서 **관리** > **계정** 을 선택합니다.
+
+      1. 맨 오른쪽에 있는 **계정** 을 마우스로 가리키면 **소유권 양도**(사람 아이콘) 및 **구독 양도**(목록 아이콘) 옵션이 표시됩니다. 두 옵션은 활성 계정에만 표시됩니다.
+  - question: 한 Azure 계정 소유자가 둘 이상의 부서에 나열될 수 있나요?
+    answer: >
+      아니요, 계정 소유자는 단일 부서에만 연결할 수 있습니다. 이 정책은 Azure EA Portal의 EA 등록계약에 따라 조정되는 부서와 관련된 비용/지출을 정확하게 모니터링하고 할당하는 데 도움이 됩니다.
+  - question: Azure 계정 소유자는 보안 그룹으로 나열할 수 있나요?
+    answer: >
+      아니요, 구독 소유자는 고유한 MSA(Microsoft 계정) 또는 Azure AD(Azure Active Directory) 인증이어야 합니다. 조직 내에서의 양도를 처리하기 위해 일반 계정을 만들고 Azure AD를 사용하여 구독 액세스를 관리하는 것이 좋습니다.
+  - question: 개별 사용자가 여러 구독을 소유할 수 있나요?
+    answer: >
+      Azure 계정 소유자는 개수에 제한 없이 구독을 만들고 관리할 수 있습니다.
+  - question: 내 조직의 모든 구독에 액세스하고 이를 확인하려면 어떻게 해야 하나요?
+    answer: >
+      현재 이 작업은 정책을 통해 수행해야 합니다. 즉, 계정은 만들어진 모든 구독에 대해 역할 기반 액세스를 사용하는 구독 역할에 추가되어야 합니다.
+  - question: 구독을 만들려면 어떻게 해야 하나요?
+    answer: >
+      엔터프라이즈 Azure(EA) 제안 구독을 만들려면 먼저 Azure EA Portal에서 EA 등록계약의 관리자가 계정을 계정 소유자 역할에 추가해야 합니다. 그런 다음, Azure EA Portal에 로그인하여 EA 제안 유형 구독을 만들 수 있는 권한을 얻어야 합니다. 첫 번째 EA 구독은 EA Portal의 구독 탭에 있는 '+ 구독 추가' 링크에서 만드는 것이 좋습니다.  그러나 권한이 계정에 부여되면 portal.azure.com 페이지의 왼쪽 위 모서리에 있는 구독 탭에서 구독을 더 쉽게 만들 수 있습니다. 여기서는 단일 단계에서 구독을 만들고 구독 이름을 바꿀 수 있습니다.
+  - question: 누가 구독을 만들 수 있나요?
+    answer: >
+      엔터프라이즈 Azure 제안 유형 구독을 만들려면 [EA Portal](https://ea.azure.com)에서 계정 소유자 역할에 대한 권한이 있어야 합니다.
+  - question: 비용이 $0로 표시되는 이유가 무엇인가요?
+    answer: >
+      **직접 등록** 고객의 경우 엔터프라이즈 관리자는 계정 소유자 및 부서 관리자에게 사용량 보고서에 대한 비용/가격 책정 정보에 대한 액세스 권한을 부여할 수 있습니다. 다음 단계를 수행하세요.
+
+
+      1. Azure Enterprise Portal의 왼쪽 탐색 영역에서 **관리** 를 선택합니다.
+
+      1. DA(부서 관리자) 요금 보기 옆에 있는 파란색 연필을 선택합니다.
+
+      1. **사용** 를 선택하고 저장합니다.
+
+      1. AO(계정 소유자) 요금 보기 옆에 있는 파란색 연필을 선택합니다.
+
+      1. **사용** 를 선택하고 저장합니다.
+
+
+      > [!NOTE]
+
+      > 계정 소유자 또는 부서 관리자인 경우 엔터프라이즈 관리자에게 문의하여 가격 책정 기능을 사용하도록 설정합니다.
+
+
+      **간접 등록** 고객의 경우 파트너에게 문의하여 가격 책정 기능을 사용하도록 설정했는지 확인합니다. 파트너만 이 작업을 수행할 수 있습니다. 사용하도록 설정되면 엔터프라이즈 관리자가 등록에 대한 비용과 가격 책정을 볼 수 있습니다.
+
+
+      계정 소유자 또는 부서 관리자의 요금 보기 기능을 사용하도록 설정하려면 파트너가 **직접 등록** 의 단계를 수행합니다.
+  - question: 사용량 세부 정보 보고서에 SKU 정보가 없는 이유는 무엇인가요?
+    answer: >
+      사용량 세부 정보 보고서에는 SKU 정보가 포함되지 않습니다. 그러나 이 보고서에는 사용량 정보가 포함되어 있으므로 가격표 보고서를 다운로드하여 SKU 정보를 얻을 수 있습니다.
+  - question: Azure Marketplace의 총 금액이 사용 요약 및 세부 정보 보고서와 일치하지 않는 이유는 무엇인가요?
+    answer: >
+      Azure Marketplace 요금 보고서에는 사용량 기준 요금만 표시됩니다. 일회성 요금은 표시되지 않습니다. 최신의 사용량 기준 요금과 일회성 요금에 대해서는 사용 요약 페이지를 참조하세요.
+  - question: API 보고서에 정보가 없는 이유는 무엇인가요?
+    answer: >
+      API 키는 6개월마다 만료됩니다. 문제가 있는 경우 엔터프라이즈 관리자가 새 API 키를 생성해야 합니다. API 보고서 FAQ의 단계를 수행해야 합니다.
+  - question: Power BI 보고서가 작동하지 않는 이유는 무엇인가요?
+    answer: >
+      Power BI 관련 문제의 경우 [Power BI 지원 팀](https://support.powerbi.com)을 통해 티켓을 기록하세요.
+  - question: 보고서에 리소스 태그가 표시되지 않는 이유가 무엇인가요?
+    answer: >
+      리소스 태그는 Azure Portal에서 관리됩니다. [Azure Portal](https://portal.azure.com)에서 Azure 구독 팀에 문의할 수 있습니다. [Azure 지원 요청을 만드는 방법](../azure-portal/supportability/how-to-create-azure-support-request.md) 문서의 단계를 수행합니다.
+  - question: 리소스 요금이 매일 변경되는 이유는 무엇인가요?
+    answer: >
+      자세한 사용량 보고서에 표시된 리소스 요율은 계산된 값입니다. 이는 서비스에 대해 청구된 월간 평균 요율을 나타냅니다. 리소스 요율은 서비스 단위에 대한 월간 약정 및 월간 초과분 요금의 평균에서 계산됩니다. 약정 및 초과분 요율에 대해 청구되는 사용량 부분은 해당 월의 마감 날짜로 변경됩니다. 따라서 나열된 리소스 요율도 해당 월 중에 변경됩니다. 해당 월이 끝난 후 5일째에 리소스 요금이 잠깁니다.
+  - question: Azure Marketplace 서비스와 Azure EA 선불로 변경된 사항은 무엇인가요?
+    answer: >
+      2018년 3월 1일부터 일부 타사 재판매인 서비스에서 Azure EA 선불을 사용합니다. 이전에는 Azure RI(예약 VM 인스턴스)를 제외한 서비스에 대한 요금이 Azure EA 선불 이외의 금액으로 청구되었으며, 청구서가 별도로 발부되었습니다.
+
+
+      타사 게시 Azure Marketplace 서비스 중 일부를 포함하도록 Azure 선불 사용을 확장했습니다. Azure EA 선불을 Azure Marketplace의 이러한 서비스에 사용하면 구매 및 결제 관리를 간소화할 수 있습니다.
+
+
+      이 변경은 고객이 다른 방법으로 사전 Azure 선불을 이용하기를 원했기 때문에 이루어졌습니다. 이 변경은 고객이 자주 요청했으며, 대부분의 Azure Marketplace 고객에게 영향을 주었습니다.
+  - question: EA 계약자인데 Azure Marketplace 구매 시 Azure 선불을 사용하려면 어떻게 해야 하나요?
+    answer: >
+      더 간단한 청구 환경을 받을 수 있고, Azure EA 선불을 더 효율적으로 사용할 수 있습니다. Azure 선불에는 이러한 서비스가 포함되므로 Azure EA 선불의 유용성이 더 높아집니다.
+  - question: Azure EA 선불을 사용하는 Azure Marketplace 서비스는 무엇이며, 어떻게 알 수 있나요?
+    answer: >
+      Azure EA 선불을 사용하는 서비스를 구입하면 Azure Marketplace에 대한 고지 사항이 표시됩니다. Red Hat, SUSE, Autodesk 및 Oracle에서 게시한 일부 서비스가 지원됩니다. 현재 다른 당사자가 게시한 비슷한 이름의 서비스는 Azure 선불에서 공제되지 않습니다. 이 프로그램에 참여하는 제품의 전체 목록은 [Azure 선불을 사용하는 타사 서비스](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment)를 참조하세요.
+  - question: Azure Marketplace 구매 시 Azure EA 선불이 소진되면 어떻게 되나요?
+    answer: >
+      모든 Azure 선불을 소진하여 초과분으로 이동하는 경우 이러한 서비스와 관련된 요금은 다른 소비 서비스와 함께 다음 초과분 청구서에 표시됩니다. 2018년 3월 1일 변경 전에 이러한 요금은 다른 Azure Marketplace 서비스에서 청구되었습니다.
+  - question: 모든 Azure Marketplace에서 Azure EA 선불을 사용하지 않는 이유는 무엇인가요?
+    answer: >
+      Azure EA 선불과 관련하여 최상의 고객 환경을 제공하기 위해 열심히 노력하고 있습니다. Azure EA 선불이 최근 변경됨에 따라 많은 고객과 Azure Marketplace의 총 지출 중 상당 부분이 영향을 받게 되었습니다. 나중에 다른 서비스가 추가될 수 있습니다.
+  - question: Azure Marketplace 서비스 및 Azure EA 선불 변경 사항이 간접 등록과 파트너에 어떤 영향을 주게 되나요?
+    answer: >
+      간접 등록 고객 또는 파트너에게는 아무 영향을 주지 않습니다. 이러한 서비스는 다른 사용 서비스와 동일한 파트너 가격 인상 기능을 따릅니다. 요금이 다른 청구서에 표시되고 요금 지불은 고객의 Azure EA 선불에서 나온다는 것이 유일한 변경입니다.
+  - question: Azure EA 선불을 사용하는 Azure Marketplace 서비스를 확인하려면 어떻게 해야 하나요?
+    answer: >
+      특정 Azure Marketplace 제품은 Azure 선불 자금을 사용할 수 있습니다. 이 프로그램에 참여하는 제품의 전체 목록은 [Azure 선불을 사용하는 타사 서비스](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment)를 참조하세요.
+- name: 파트너 관련 질문
+  questions:
+  - question: 파트너 ID를 연결할 수 있는 사용자는 누구인가요?
+    answer: >
+      고객의 Power Apps 리소스에 작업하는 파트너 조직의 모든 사용자는 파트너 ID를 계정에 연결할 수 있습니다. PAL의 연결은 프로젝트를 시작할 때 수행하는 것이 가장 좋습니다. 하지만 고객의 디렉터리에서 액세스할 수 있는 경우에도 이를 수행할 수 있습니다.
+  - question: 파트너 ID가 연결된 후에 파트너 ID를 변경할 수 있나요?
+    answer: >
+      예. 연결된 파트너 ID를 변경하거나, 추가하거나, 제거할 수 있습니다. 회사 직원이 퇴사할 때가 이러한 경우의 한 가지 예일 수 있습니다. 또 다른 예는 고객과의 프로젝트나 계약이 종료될 때입니다.
+  - question: 사용자가 둘 이상의 고객 테넌트에 계정을 보유한 경우에 어떻게 되나요?
+    answer: >
+      파트너 ID와 계정 간의 연결은 고객 테넌트 각각에 수행됩니다. 각 고객 테넌트에서 파트너 ID를 연결합니다.
+  - question: 다른 파트너 또는 고객이 파트너 ID에 대한 연결을 편집하거나 제거할 수 있나요?
+    answer: >
+      링크는 사용자 계정 수준에서 연결됩니다. 사용자만이 파트너 ID에 대한 연결을 편집하고 제거할 수 있습니다. 고객 및 다른 파트너는 파트너 ID에 대한 연결을 변경할 수 없습니다.
+  - question: 회사에 여러 개의 MPN ID가 있는 경우 어떤 MPN ID를 사용해야 하나요?
+    answer: >
+      파트너 프로필에 표시된 **관련 MPN ID** 를 사용해야 합니다. 일반적으로 조직과의 로컬 계정 ID 연결입니다.
+  - question: PAL을 고객에게 어떻게 설명해야 할까요?
+    answer: >
+      Microsoft는 PAL(파트너 관리자 링크)을 통해 고객이 비즈니스 목표를 달성하고 클라우드에서 가치를 실현할 수 있도록 돕는 파트너를 파악하고 인식합니다. 고객은 먼저 자신의 Power Apps 리소스에 대한 액세스 권한을 파트너에게 제공해야 합니다. 액세스 권한이 부여되면 파트너의 MPN ID(Microsoft 파트너 네트워크 ID)가 연결됩니다. 이 연결을 통해 Microsoft는 서비스 공급자를 파악하고 고객을 가장 잘 지원하는 데 필요한 도구와 프로그램을 구체화할 수 있습니다.
+  - question: PAL은 어떤 데이터를 수집하나요?
+    answer: >
+      기존 자격 증명에 대한 PAL 연결은 새로운 고객 데이터를 Microsoft에 제공하지 않습니다. 이러한 연결은 파트너가 고객의 Power Apps 환경에 적극적으로 참여하는 부분에 대한 정보를 Microsoft에 제공합니다. Microsoft는 고객이 파트너에게 제공하는 계정 사용 권한(Power Apps 역할) 및 범위(테넌트, 리소스 그룹, 리소스)에 따라 고객 환경에서 파트너 조직으로 사용량과 영향을 귀속시킬 수 있습니다.
+  - question: PAL 연결은 고객 Power Apps 환경의 보안에 영향을 미치나요?
+    answer: PAL 연결을 하면 이미 프로비전된 자격 증명에 파트너의 MPN ID만이 추가됩니다. 사용 권한(Power Apps 역할)은 변경되지 않으며, 추가적인 Power Apps 서비스 데이터가 파트너 또는 Microsoft에 제공되지 않습니다.

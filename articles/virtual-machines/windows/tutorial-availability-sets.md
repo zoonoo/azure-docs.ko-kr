@@ -9,12 +9,12 @@ ms.date: 3/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 178a29ea37195ddd2013ca5220663a75132beb24
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b6ca281733a68b02c4fcfa6429da58e36661923
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555910"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164600"
 ---
 # <a name="create-and-deploy-virtual-machines-in-an-availability-set-using-azure-powershell"></a>Azure PowerShell을 사용하여 가용성 집합에서 가상 머신 만들기 및 배포
 
@@ -96,6 +96,12 @@ for ($i=1; $i -le 2; $i++)
 **리소스 그룹** > **myResourceGroupAvailability** > **myAvailabilitySet** 으로 차례로 이동하여 포털에서 가용성 집합을 살펴보면 VM이 2개의 장애 및 업데이트 도메인에 배포되는 방식을 확인할 수 있습니다.
 
 ![포털의 가용성 집합](./media/tutorial-availability-sets/fd-ud.png)
+
+> [!NOTE]
+> 특정 상황에서는 동일한 AvailabilitySet의 두 VM이 같은 FaultDomain을 공유할 수 있습니다. 가용성 집합으로 이동하고 장애 도메인 열을 확인하여 이 내용을 확인할 수 있습니다. 이것은 VM을 배포할 때의 다음 순서 때문일 수 있습니다.
+> 1. 첫 번째 VM 배포
+> 1. 첫 번째 VM 중지/할당 취소
+> 1. 이 상황에서 두 번째 VM을 배포하면 두 번째 VM의 OS 디스크가 첫 번째 VM과 동일한 장애 도메인에 만들어질 수 있고 이 때문에 두 번째 VM도 같은 FaultDomain에 연결됩니다. 이 문제를 방지하려면 배포 사이에 VM을 중지/할당 취소하지 않는 것이 좋습니다.
 
 ## <a name="check-for-available-vm-sizes"></a>사용 가능한 VM 크기 확인 
 

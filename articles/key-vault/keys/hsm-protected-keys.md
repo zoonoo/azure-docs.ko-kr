@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/24/2021
 ms.author: ambapat
-ms.openlocfilehash: 171e0c03dc6f246d0f56d11f793ca711b0082f49
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 5f2ae71162d0fff99459f492f9a56a2e38c4fb06
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588295"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108015810"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Key Vault로 HSM 보호 키 가져오기
 
@@ -33,18 +33,19 @@ ms.locfileid: "107588295"
 
 |공급업체 이름|공급업체 유형|지원되는 HSM 모델|지원되는 HSM 키 전송 방법|
 |---|---|---|---|
-|[nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|제조업체,<br/>서비스로 제공되는 HSM|<ul><li>HSM의 nShield 제품군</li><li>서비스로 제공되는 nShield</ul>|**방법 1:** [nCipher BYOK](hsm-protected-keys-ncipher.md)(사용되지 않음). 이 방법은 <strong>2021년 6월 30일</strong> 이후 지원되지 않습니다.<br/>**방법 2:** [새로운 BYOK 방법 사용](hsm-protected-keys-byok.md)(권장)|
-|Thales|제조업체|<ul><li>펌웨어 버전 7.3 이상을 사용하는 Luna HSM 7 제품군</li></ul>| [새로운 BYOK 방법 사용](hsm-protected-keys-byok.md)|
-|Fortanix|제조업체,<br/>서비스로 제공되는 HSM|<ul><li>SDKMS(자체 방어 키 관리 서비스)</li><li>Equinix SmartKey</li></ul>|[새로운 BYOK 방법 사용](hsm-protected-keys-byok.md)|
-|Marvell|제조업체|다음을 사용하는 모든 LiquidSecurity HSM<ul><li>펌웨어 버전 2.0.4 이상</li><li>펌웨어 버전 3.2 이상</li></ul>|[새로운 BYOK 방법 사용](hsm-protected-keys-byok.md)|
 |Cryptomathic|ISV(엔터프라이즈 키 관리 시스템)|다음을 포함한 여러 HSM 브랜드 및 모델<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>자세한 내용은 [Cryptomathic 사이트](https://www.cryptomathic.com/azurebyok) 참조|[새로운 BYOK 방법 사용](hsm-protected-keys-byok.md)|
+|Entrust|제조업체,<br/>서비스로 제공되는 HSM|<ul><li>HSM의 nShield 제품군</li><li>서비스로 제공되는 nShield</ul>|[새로운 BYOK 방법 사용](hsm-protected-keys-byok.md)|
+|Fortanix|제조업체,<br/>서비스로 제공되는 HSM|<ul><li>SDKMS(자체 방어 키 관리 서비스)</li><li>Equinix SmartKey</li></ul>|[새로운 BYOK 방법 사용](hsm-protected-keys-byok.md)|
+|IBM|제조업체|IBM 476x, CryptoExpress|[새로운 BYOK 방법 사용](hsm-protected-keys-byok.md)|
+|Marvell|제조업체|다음을 사용하는 모든 LiquidSecurity HSM<ul><li>펌웨어 버전 2.0.4 이상</li><li>펌웨어 버전 3.2 이상</li></ul>|[새로운 BYOK 방법 사용](hsm-protected-keys-byok.md)|
+|[nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|제조업체,<br/>서비스로 제공되는 HSM|<ul><li>HSM의 nShield 제품군</li><li>서비스로 제공되는 nShield</ul>|**방법 1:** [nCipher BYOK](hsm-protected-keys-ncipher.md)(사용되지 않음). 이 방법은 <strong>2021년 6월 30일</strong> 이후 지원되지 않습니다.<br/>**방법 2:** [새로운 BYOK 방법 사용](hsm-protected-keys-byok.md)(권장)<br/>위 Entrust 행을 참조하세요.|
 |Securosys SA|제조업체,<br/>서비스로 제공되는 HSM|Primus HSM 제품군, Securosys 클라우드 HSM|[새로운 BYOK 방법 사용](hsm-protected-keys-byok.md)|
 |StorMagic|ISV(엔터프라이즈 키 관리 시스템)|다음을 포함한 여러 HSM 브랜드 및 모델<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>[자세한 내용은 StorMagic 사이트](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)를 참조하세요.|[새로운 BYOK 방법 사용](hsm-protected-keys-byok.md)|
-|IBM|제조업체|IBM 476x, CryptoExpress|[새로운 BYOK 방법 사용](hsm-protected-keys-byok.md)|
+|Thales|제조업체|<ul><li>펌웨어 버전 7.3 이상을 사용하는 Luna HSM 7 제품군</li></ul>| [새로운 BYOK 방법 사용](hsm-protected-keys-byok.md)|
 |Utimaco|제조업체,<br/>서비스로 제공되는 HSM|u.trust Anchor, CryptoServer|[새로운 BYOK 방법 사용](hsm-protected-keys-byok.md)|
 |||||
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Key Vault 보안 개요](../general/security-overview.md)를 검토하여 키의 보안, 내구성 및 모니터링을 확보합니다.
+* [Key Vault 보안 개요](../general/security-features.md)를 검토하여 키의 보안, 내구성 및 모니터링을 확보합니다.
 * 새 BYOK 방법에 대한 자세한 내용은 [BYOK 사양](./byok-specification.md)을 참조하세요.

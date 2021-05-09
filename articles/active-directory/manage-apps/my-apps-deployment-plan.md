@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/29/2020
 ms.author: baselden
-ms.openlocfilehash: 9f05e14de9d6ebe76f722d1e4b21bc2085a74888
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 8cf1a671eeb4861919a389b02f45fee998d880e3
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125139"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108317220"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Azure Active Directory 내 앱 구성 계획
 
@@ -138,7 +138,7 @@ SSO에 대한 SaaS(Software as a Service) 애플리케이션을 구성하는 방
 
 #### <a name="plan-for-mobile-access"></a>모바일 액세스 계획
 
-암호 기반 SSO를 사용하거나 [Microsoft Azure AD 애플리케이션 프록시](../manage-apps/application-proxy.md)를 사용하여 액세스하는 애플리케이션의 경우 Microsoft Edge 모바일을 사용해야 합니다. 다른 애플리케이션의 경우 모든 모바일 브라우저를 사용할 수 있습니다. 
+암호 기반 SSO를 사용하거나 [Microsoft Azure AD 애플리케이션 프록시](../app-proxy/application-proxy.md)를 사용하여 액세스하는 애플리케이션의 경우 Microsoft Edge 모바일을 사용해야 합니다. 다른 애플리케이션의 경우 모든 모바일 브라우저를 사용할 수 있습니다. 
 
 ### <a name="linked-sso"></a>연결된 SSO
 
@@ -256,4 +256,4 @@ Azure AD는 30일 동안 대부분의 감사 데이터를 유지합니다. Azure
 
 [Azure AD Multi-Factor Authentication 배포 계획](../authentication/howto-mfa-getstarted.md)
 
-[애플리케이션 프록시 배포 계획](application-proxy-deployment-plan.md)
+[애플리케이션 프록시 배포 계획](../app-proxy/application-proxy-deployment-plan.md)

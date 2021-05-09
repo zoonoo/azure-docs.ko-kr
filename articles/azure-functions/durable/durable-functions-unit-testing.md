@@ -3,12 +3,12 @@ title: Azure Durable Functions 단위 테스트
 description: Durable Functions를 단위 테스트하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: fe5a25e0296eb183ef2426e12f7bdee35633ec78
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 3d3b89337d4643b59d37ebe0aaeaf6f207bf053e
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076635"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165446"
 ---
 # <a name="durable-functions-unit-testing"></a>Durable Functions 단위 테스트
 
@@ -38,7 +38,7 @@ ms.locfileid: "106076635"
 * [IDurableOrchestrationContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext)
 
 * [IDurableActivityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableactivitycontext)
-  
+
 * [IDurableEntityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableentitycontext)
 
 이러한 인터페이스는 Durable Functions에서 지원하는 다양한 트리거 및 바인딩과 함께 사용할 수 있습니다. Azure Functions를 실행하는 경우 함수 런타임은 이러한 인터페이스의 구체적인 구현을 사용하여 함수 코드를 실행합니다. 유닛 테스트의 경우 이러한 인터페이스의 모의 버전을 전달하여 비즈니스 논리를 테스트할 수 있습니다.
@@ -95,7 +95,7 @@ durableClientMock
 ```csharp
 // Mock ILogger
 var loggerMock = new Mock<ILogger>();
-```  
+```
 
 이제 `Run` 메서드는 단위 테스트에서 호출됩니다.
 
@@ -110,7 +110,7 @@ var result = await HttpStart.Run(
     durableClientMock.Object,
     functionName,
     loggerMock.Object);
- ```
+```
 
  마지막 단계는 출력을 예상 값과 비교하는 것입니다.
 
@@ -183,5 +183,5 @@ Assert.Equal("Hello London!", result[2]);
 
 > [!div class="nextstepaction"]
 > [xUnit에 대해 자세히 알아보기](https://xunit.net/docs/getting-started/netcore/cmdline)
-> 
+>
 > [moq에 대해 자세히 알아보기 ](https://github.com/Moq/moq4/wiki/Quickstart)

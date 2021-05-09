@@ -3,12 +3,13 @@ title: Azure Monitor에서 활동 로그 경고 만들기, 보기 및 관리
 description: Azure Portal, Azure Resource Manager 템플릿 및 Azure PowerShell을 사용하여 활동 로그 경고를 만듭니다.
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.openlocfilehash: 26ca755f6675fa19c3b122c3528e05d1e8d76845
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0961b091f87120d8bfed885b000c380862a4074c
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102045533"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108317274"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기  
 
@@ -26,10 +27,10 @@ ms.locfileid: "102045533"
 - 범위의 구독이 경고가 생성된 구독과 다르지 않습니다.
 - 조건은 경고가 구성된 수준/상태/호출자/리소스 그룹/리소스 ID/리소스 종류/이벤트 범주여야 합니다.
 - 하나의 "allOf" 조건만 사용할 수 있습니다.
-- ' AnyOf '을 사용 하 여 여러 필드에 대해 여러 조건을 허용할 수 있습니다. 예를 들어 "status" 또는 "하위 상태" 필드가 특정 값과 같은 경우에는 여러 개의 조건을 사용할 수 있습니다. 현재 ' AnyOf ' 사용은 ARM 템플릿 배포를 사용 하 여 경고 규칙을 만드는 것으로 제한 됩니다.
-- ' ContainsAny '을 사용 하 여 동일한 필드의 여러 값을 허용할 수 있습니다. 예를 들어 "operation"이 ' delete ' 또는 ' 수정 ' 인 경우입니다. 현재 ' ContainsAny ' 사용은 ARM 템플릿 배포를 사용 하 여 경고 규칙을 만드는 것으로 제한 됩니다.
+- 'AnyOf'를 사용하여 여러 필드에 대해 여러 조건을 허용할 수 있습니다(예: "status" 또는 "subStatus" 필드가 특정 값과 같은 경우). 현재 'AnyOf' 사용은 ARM 템플릿 배포를 사용하여 경고 규칙을 만드는 것으로 제한됩니다.
+- 'ContainsAny'를 사용하여 동일한 필드에 여러 값을 허용할 수 있습니다(예: "operation"이 'delete' 또는 'modify'인 경우). 현재 'ContainsAny' 사용은 ARM 템플릿 배포를 사용하여 경고 규칙을 만드는 것으로 제한됩니다.
 - 범주가 "관리"인 경우, 앞에 나온 조건 중 하나 이상을 경고에 지정해야 합니다. 활동 로그에서 이벤트가 생성될 때마다 활성화되는 경고를 만들 필요는 없습니다.
-- 활동 로그의 경고 범주에 있는 이벤트에 대 한 경고를 만들 수 없습니다.
+- 활동 로그의 경고 범주에서는 이벤트에 대한 경고를 만들 수 없습니다.
 
 ## <a name="azure-portal"></a>Azure portal
 
@@ -112,7 +113,7 @@ Azure Portal를 사용하여 활동 로그 경고 규칙을 만들고 수정할 
 
 1. Azure Portal에서 **모니터** > **경고** 를 선택합니다. 창의 왼쪽 상단에서 **경고 규칙 관리** 를 선택합니다.
 
-    ![강조 표시 된 검색 상자가 있는 활동 로그를 보여 주는 스크린샷](media/alerts-activity-log/manage-alert-rules.png)
+    ![강조 표시된 검색 상자가 있는 활동 로그를 보여 주는 스크린샷](media/alerts-activity-log/manage-alert-rules.png)
 
     사용 가능한 규칙 목록이 나타납니다.
 
@@ -206,7 +207,7 @@ Azure Resource Manager 템플릿을 사용하여 활동 로그 경고 규칙을 
   > [!NOTE]
   > 
   > 가장 높은 수준의 활동 로그 경고를 구독으로 정의할 수 있습니다.
-  > 즉, 두 구독에 대해 경고를 정의 하는 옵션은 없으므로 구독 당 경고를 정의 해야 합니다.
+  > 즉, 두 구독에 대해 경고를 정의하는 옵션은 없으므로 구독당 하나의 경고를 정의해야 합니다.
 
 다음 필드는 조건 필드의 Azure Resource Manager 템플릿에서 사용할 수 있는 옵션입니다. “Resource Health”, “Advisor” 및 “Service Health”에는 특수 필드에 대한 추가 속성 필드가 있습니다. 
 1. resourceId:  경고가 생성되어야 하는 활동 로그 이벤트에서 영향을 받는 리소스의 리소스 ID입니다.
@@ -276,13 +277,13 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActi
 
 새로운 활동 로그 경고 규칙을 만들려면 다음 명령을 순서대로 사용합니다.
 
-1. [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): 새로운 활동 로그 경고 규칙 리소스를 만듭니다.
+1. [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az_monitor_activity_log_alert_create): 새로운 활동 로그 경고 규칙 리소스를 만듭니다.
 1. [az monitor activity-log alert scope](/cli/azure/monitor/activity-log/alert/scope): 생성된 활동 로그 경고 규칙에 대한 범위를 추가합니다.
 1. [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): 활동 로그 경고 규칙에 작업 그룹을 추가합니다.
 
-하나의 활동 로그 경고 규칙 리소스를 검색하려면 Azure CLI 명령 [az monitor activity-log alert show](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
-)를 사용합니다. 리소스 그룹의 모든 활동 로그 경고 규칙 리소스를 보려면 [az monitor activity-log alert list](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)를 사용합니다.
-Azure CLI 명령 [az monitor activity-log alert delete](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete)를 사용하여 활동 로그 경고 규칙 리소스를 제거할 수 있습니다.
+하나의 활동 로그 경고 규칙 리소스를 검색하려면 Azure CLI 명령 [az monitor activity-log alert show](/cli/azure/monitor/activity-log/alert#az_monitor_activity_log_alert_show
+)를 사용합니다. 리소스 그룹의 모든 활동 로그 경고 규칙 리소스를 보려면 [az monitor activity-log alert list](/cli/azure/monitor/activity-log/alert#az_monitor_activity_log_alert_list)를 사용합니다.
+Azure CLI 명령 [az monitor activity-log alert delete](/cli/azure/monitor/activity-log/alert#az_monitor_activity_log_alert_delete)를 사용하여 활동 로그 경고 규칙 리소스를 제거할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

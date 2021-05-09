@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 65ceca7ee0a6482e489ca768b9b33981d313c3db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e0299a6fc7de0592397c20ec5c434fc2ebbcb28d
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101658032"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108206514"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>빠른 시작: Azure Cosmos DB의 MongoDB API를 사용하여 .NET 웹앱 빌드 
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -23,7 +23,6 @@ ms.locfileid: "101658032"
 > * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.JS](create-mongodb-nodejs.md)
-> * [Python](./mongodb-introduction.md)
 > * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-go.md)
 >  
