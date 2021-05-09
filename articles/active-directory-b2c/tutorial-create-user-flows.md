@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/08/2021
+ms.date: 04/26/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e41c1e74dbe428ee38d4480a1587050b7f96a55f
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: fa1250189c5ba11426ac993bed8fde398ae37ea2
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226229"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001469"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 사용자 흐름 만들기
 
@@ -39,10 +39,10 @@ ms.locfileid: "107226229"
 
 ::: zone pivot="b2c-user-flow"
 > [!IMPORTANT]
-> 사용자 흐름 버전을 참조하는 방법이 변경되었습니다. 이전에는 V1(프로덕션 준비) 버전과 V1.1 및 V2(미리 보기) 버전을 제공했습니다. 이제 사용자 흐름은 **추천**(차세대 미리 보기) 및 **표준**(일반 공급) 버전으로 통합되었습니다. 모든 V1.1 및 V2 레거시 미리 보기 사용자 흐름은 **2021년 8월 1일** 에 사용 중단될 예정입니다. 자세한 내용은 [Azure AD B2C의 사용자 흐름 버전](user-flow-versions.md)을 참조하세요.
+> 사용자 흐름 버전을 참조하는 방법이 변경되었습니다. 이전에는 V1(프로덕션 준비) 버전과 V1.1 및 V2(미리 보기) 버전을 제공했습니다. 이제 사용자 흐름을 최신 기능이 포함된 **권장** 사용자 흐름 및 **표준(레거시)** 사용자 흐름 등 두 가지 버전으로 통합했습니다. 퍼블릭 클라우드에서 모든 레거시 미리 보기 사용자 흐름(V1.1 및 V2)은 **2021년 8월 1일** 에 사용 중단될 예정입니다. 자세한 내용은 [Azure AD B2C의 사용자 흐름 버전](user-flow-versions.md)을 참조하세요. *이러한 변경 사항은 Azure 퍼블릭 클라우드에만 적용됩니다. 다른 환경에서는 [레거시 사용자 흐름 버전 관리](user-flow-versions-legacy.md)를 계속 사용합니다.* 
 ::: zone-end
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ::: zone pivot="b2c-user-flow"
 - Azure 구독에 연결된 [Azure AD B2C 테넌트](tutorial-create-tenant.md)가 아직 없으면 만듭니다.
@@ -50,9 +50,11 @@ ms.locfileid: "107226229"
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
 - Azure 구독에 연결된 [Azure AD B2C 테넌트](tutorial-create-tenant.md)가 아직 없으면 만듭니다.
 - 생성된 테넌트에 [애플리케이션을 등록](tutorial-register-applications.md)하여 Azure AD B2C와 통신할 수 있도록 합니다.
-- [Facebook 계정을 사용한 가입 및 로그인 설정](identity-provider-facebook.md)의 단계를 완료하여 Facebook 애플리케이션을 구성합니다. Facebook 애플리케이션은 사용자 지정 정책을 사용하는 데 필요하지 않지만 이 연습에서 사용자 지정 정책에 소셜 로그인을 사용하도록 설정하는 방법을 보여 주기 위해 사용되었습니다.
+- [Facebook 애플리케이션을 만듭니다](identity-provider-facebook.md#create-a-facebook-application). [Facebook 계정으로 등록 및 로그인 설정](identity-provider-facebook.md) 문서의 필수 구성 요소 및 초기화 단계를 건너뜁니다. Facebook 애플리케이션은 사용자 지정 정책을 사용하는 데 필요하지 않지만 이 연습에서 사용자 지정 정책에 소셜 로그인을 사용하도록 설정하는 방법을 보여 주기 위해 사용되었습니다.
+
 ::: zone-end
 
 ::: zone pivot="b2c-user-flow"

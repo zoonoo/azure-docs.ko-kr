@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 03/19/2021
+ms.date: 04/14/2021
 ms.custom: devx-track-java
 ms.author: lajanuar
-ms.openlocfilehash: a709f82b04ed5c1fe70f6927b33605cfff20ed6b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: cd5e6383e71e3f37a26b866156b64c86302f6990
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104761229"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516403"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -40,7 +40,7 @@ ms.locfileid: "104761229"
 
 ### <a name="create-a-new-gradle-project"></a>새 Gradle 프로젝트 만들기
 
-콘솔 창(예: cmd, PowerShell 또는 Bash)에서 앱에 대한 새 디렉터리를 만들고 이 디렉터리로 이동합니다. 
+콘솔 창(예: cmd, PowerShell 또는 Bash)에서 앱에 대한 새 디렉터리를 만들고 이 디렉터리로 이동합니다.
 
 ```console
 mkdir myapp && cd myapp
@@ -74,12 +74,12 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0-beta.1")
+    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0-beta.3")
 }
 ```
 
 > [!NOTE]
-> Form Recognizer 3.1.0 SDK는 _API 버전 2.1 미리 보기.2_ 를 반영합니다. _API 버전 2.1 미리 보기.3_ 에 대해 [**REST API**](../../quickstarts/client-library.md)를 사용하세요.
+> Form Recognizer 3.1.0-beta.3 SDK는 _API 버전 2.1-preview.3_ 을 반영합니다.
 
 #### <a name="v20"></a>[v2.0](#tab/ga)
 
@@ -95,12 +95,12 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.0.0")
+    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0-beta.3")
 }
 ```
 
 > [!NOTE]
-> Form Recognizer 3.0.0 SDK는 API v2.0을 반영합니다.
+> Form Recognizer 3.0.0 SDK는 API v2.1-preview.3을 반영합니다.
 
 ---
 
@@ -126,14 +126,14 @@ mkdir -p src/main/java
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Form Recognizer 리소스가 성공적으로 배포된 경우 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키 및 엔드포인트를 찾을 수 있습니다. 
+> Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Form Recognizer 리소스가 성공적으로 배포된 경우 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키 및 엔드포인트를 찾을 수 있습니다.
 >
 > 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 자세한 내용은 Cognitive Services [보안](../../../cognitive-services-security.md) 문서를 참조하세요.
 
 애플리케이션의 **main** 메서드에서 이 빠른 시작에서 사용되는 메서드에 대한 호출을 추가합니다. 나중에 이를 정의합니다. 또한 학습 및 테스트 데이터에 대한 참조를 URL에 추가해야 합니다.
 
 * [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
-  
+
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL 검색":::
 * 테스트할 양식의 URL을 가져오려면 위의 단계를 따라 Blob Storage에 있는 개별 문서의 SAS URL을 가져오면 됩니다. 또는 다른 위치에 있는 문서의 URL을 가져옵니다.
 * 위의 방법을 사용하여 영수증 이미지의 URL도 가져올 수 있습니다.
@@ -162,7 +162,7 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 
 * 사용자 지정 양식을 분석하도록 학습된 사용자 지정 모델을 사용하여 양식 필드 및 콘텐츠를 인식합니다.  이러한 값은 `RecognizedForm` 개체의 컬렉션에서 반환됩니다. 예제 [사용자 지정 양식 분석](#analyze-forms-with-a-custom-model)을 참조하세요.
 * 모델을 학습하지 않고도 테이블, 줄 및 단어를 비롯한 양식 콘텐츠를 인식합니다.  양식 콘텐츠는 `FormPage` 개체의 컬렉션에서 반환됩니다. 예제 [레이아웃 분석](#analyze-layout)을 참조하세요.
-* Form Recognizer 서비스에서 미리 학습된 영수증 모델을 사용하여 미국 영수증에서 공통 필드를 인식합니다.  이러한 필드 및 메타데이터는 `RecognizedForm` 개체의 컬렉션에서 반환됩니다. 예제 [영수증 분석](#analyze-receipts)을 참조하세요.
+* Form Recognizer 서비스에서 미리 학습된 모델을 사용하여 미국 영수증, 명함, 청구서 및 ID 문서에서 공통 필드를 인식합니다.
 
 ### <a name="formtrainingclient"></a>FormTrainingClient
 
@@ -187,6 +187,7 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 * [영수증 분석](#analyze-receipts)
 * [명함 분석](#analyze-business-cards)
 * [송장 분석](#analyze-invoices)
+* [ID 문서 분석](#analyze-identity-documents)
 * [사용자 지정 모델 학습](#train-a-custom-model)
 * [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
 * [사용자 지정 모델 관리](#manage-your-custom-models)
@@ -199,7 +200,6 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 * [사용자 지정 모델 학습](#train-a-custom-model)
 * [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
 * [사용자 지정 모델 관리](#manage-your-custom-models)
-
 
 ---
 
@@ -241,6 +241,65 @@ Cell has text 4/16/2018.
 Cell has text $89,024.34.
 Cell has text ET.
 ```
+## <a name="analyze-receipts"></a>영수증 분석
+
+이 섹션에서는 사전 학습된 영수증 모델을 사용하여 미국 영수증의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 영수증 분석에 대한 자세한 내용은 [영수증 개념 가이드](../../concept-receipts.md)를 참조하세요.
+
+URI를 통해 영수증을 분석하려면 **beginRecognizeReceiptsFromUrl** 메서드를 사용합니다.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_call)]
+
+> [!TIP]
+> 로컬 영수증 이미지를 분석할 수도 있습니다. [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) 메서드(예: **beginRecognizeReceipts**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)의 샘플 코드를 참조하세요.
+
+그러면 제출된 문서의 각 페이지당 하나씩 **RecognizedReceipt** 개체 컬렉션이 반환됩니다. 다음 코드 블록은 영수증에서 반복되고 콘솔에 세부 정보를 출력합니다.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_print)]
+
+다음 코드 블록은 영수증에서 검색된 개별 항목에서 반복되고 콘솔에 세부 정보를 출력합니다.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_print_items)]
+
+### <a name="output"></a>출력
+
+```console
+Analyze receipt...
+----------- Recognized Receipt page 0 -----------
+Merchant Name: Contoso Contoso, confidence: 0.62
+Merchant Address: 123 Main Street Redmond, WA 98052, confidence: 0.99
+Transaction Date: 2020-06-10, confidence: 0.90
+Receipt Items:
+Name: Cappuccino, confidence: 0.96s
+Quantity: null, confidence: 0.957s]
+Total Price: 2.200000, confidence: 0.95
+Name: BACON & EGGS, confidence: 0.94s
+Quantity: null, confidence: 0.927s]
+Total Price: null, confidence: 0.93
+```
+
+## <a name="analyze-business-cards"></a>명함 분석
+
+#### <a name="v21-preview"></a>[v2.1 미리 보기](#tab/preview)
+
+이 섹션에서는 사전 학습된 모델을 사용하여 영문 명함의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 명함 분석에 대한 자세한 내용은 [명함 개념 가이드](../../concept-business-cards.md)를 참조하세요.
+
+URL에서 명함을 분석하려면 `beginRecognizeBusinessCardsFromUrl` 메서드를 사용합니다.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_call)]
+
+> [!TIP]
+> 또한 로컬 명함 이미지를 분석할 수도 있습니다. [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) 메서드(예: **beginRecognizeBusinessCards**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)의 샘플 코드를 참조하세요.
+
+반환된 값은 문서의 각 명함에 하나씩 있는 **RecognizedForm** 개체의 컬렉션입니다. 다음 코드는 지정된 URI에서 명함을 처리하고 주요 필드와 값을 콘솔에 출력합니다.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_print)]
+
+#### <a name="v20"></a>[v2.0](#tab/ga)
+
+> [!IMPORTANT]
+> 이 기능은 선택한 API 버전에서 사용할 수 없습니다.
+
+---
 
 ## <a name="analyze-invoices"></a>송장 분석
 
@@ -248,7 +307,7 @@ Cell has text ET.
 
 이 섹션에서는 사전 학습된 모델을 사용하여 판매 청구서의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 청구서 분석에 대한 자세한 내용은 [청구서 개념 가이드](../../concept-invoices.md)를 참조하세요.
 
-URL에서 청구서를 분석하려면 `beginRecognizeInvoicesFromUrl` 메서드를 사용합니다. 
+URL에서 청구서를 분석하려면 `beginRecognizeInvoicesFromUrl` 메서드를 사용합니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_call)]
 
@@ -258,6 +317,30 @@ URL에서 청구서를 분석하려면 `beginRecognizeInvoicesFromUrl` 메서드
 반환된 값은 문서의 각 송장에 하나씩 있는 **RecognizedForm** 개체의 컬렉션입니다. 다음 코드는 지정된 URI에서 송장을 처리하고 주요 필드와 값을 콘솔에 출력합니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_print)]
+
+#### <a name="v20"></a>[v2.0](#tab/ga)
+
+> [!IMPORTANT]
+> 이 기능은 선택한 API 버전에서 사용할 수 없습니다.
+
+---
+
+## <a name="analyze-identity-documents"></a>ID 문서 분석
+
+#### <a name="v21-preview"></a>[v2.1 미리 보기](#tab/preview)
+
+이 섹션에서는 Form Recognizer에서 미리 빌드된 ID 모델을 사용하여 정부에서 발행한 신분증(예: 전 세계에서의 여권 및 미국 운전 면허증)에서 핵심 정보를 분석하고 추출하는 방법을 보여 줍니다. ID 문서 분석 방법에 대한 자세한 내용은 [미리 빌드된 ID 모델 개념 가이드](../../concept-identification-cards.md)를 참조하세요.
+
+URI에서 ID 문서를 분석하려면 `beginRecognizeIdDocumentsFromUrl` 메서드를 사용합니다.
+
+:::code language="java" source="~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java" id="snippet_id_call":::
+
+> [!TIP]
+> 로컬 ID 문서 이미지도 분석할 수 있습니다. [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) 메서드(예:**beginRecognizeIdDocuments**)를 참조하세요. 또한 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)의 샘플 코드를 참조하세요.
+
+다음 코드는 지정된 URI에서 ID 문서를 처리하고 주요 필드와 값을 콘솔에 출력합니다.
+
+:::code language="java" source="~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java" id="snippet_id_print":::
 
 #### <a name="v20"></a>[v2.0](#tab/ga)
 
@@ -277,7 +360,7 @@ URL에서 청구서를 분석하려면 `beginRecognizeInvoicesFromUrl` 메서드
 
 학습 문서에 수동으로 레이블을 지정하지 않고 사용자 지정 양식에서 발견된 모든 필드와 값을 분석하도록 사용자 지정 모델을 학습시킬 수 있습니다.
 
-다음 메서드는 지정된 문서 세트를 모델에 학습시키고 모델의 상태를 콘솔에 출력합니다. 
+다음 메서드는 지정된 문서 세트를 모델에 학습시키고 모델의 상태를 콘솔에 출력합니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_train_call)]
 
@@ -288,7 +371,6 @@ URL에서 청구서를 분석하려면 `beginRecognizeInvoicesFromUrl` 메서드
 마지막으로, 이 메서드는 모델의 고유 ID를 반환합니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_train_return)]
-
 
 ### <a name="output"></a>출력
 
@@ -349,7 +431,7 @@ The model found field 'field-6' with label: VAT ID
 > [!IMPORTANT]
 > 이 시나리오를 구현하려면 해당 ID를 아래 메서드에 전달할 수 있도록 모델을 이미 학습시킨 상태여야 합니다. [모델 학습](#train-a-model-without-labels) 섹션을 참조하세요.
 
-**beginRecognizeCustomFormsFromUrl** 메서드를 사용합니다. 
+**beginRecognizeCustomFormsFromUrl** 메서드를 사용합니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_call)]
 
@@ -376,65 +458,7 @@ Field 'field-5' has label 'Charges' with a confidence score of 1.00.
 Field 'field-6' has label 'VAT ID' with a confidence score of 1.00.
 ```
 
-## <a name="analyze-receipts"></a>영수증 분석
 
-이 섹션에서는 사전 학습된 영수증 모델을 사용하여 미국 영수증의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 영수증 분석에 대한 자세한 내용은 [영수증 개념 가이드](../../concept-receipts.md)를 참조하세요.
-
-URI를 통해 영수증을 분석하려면 **beginRecognizeReceiptsFromUrl** 메서드를 사용합니다. 
-
-[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_call)]
-
-> [!TIP]
-> 로컬 영수증 이미지를 분석할 수도 있습니다. [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) 메서드(예: **beginRecognizeReceipts**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)의 샘플 코드를 참조하세요.
-
-그러면 제출된 문서의 각 페이지당 하나씩 **RecognizedReceipt** 개체 컬렉션이 반환됩니다. 다음 코드 블록은 영수증에서 반복되고 콘솔에 세부 정보를 출력합니다.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_print)]
-
-다음 코드 블록은 영수증에서 검색된 개별 항목에서 반복되고 콘솔에 세부 정보를 출력합니다.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_print_items)]
-
-### <a name="output"></a>출력 
-
-```console
-Analyze receipt...
------------ Recognized Receipt page 0 -----------
-Merchant Name: Contoso Contoso, confidence: 0.62
-Merchant Address: 123 Main Street Redmond, WA 98052, confidence: 0.99
-Transaction Date: 2020-06-10, confidence: 0.90
-Receipt Items:
-Name: Cappuccino, confidence: 0.96s
-Quantity: null, confidence: 0.957s]
-Total Price: 2.200000, confidence: 0.95
-Name: BACON & EGGS, confidence: 0.94s
-Quantity: null, confidence: 0.927s]
-Total Price: null, confidence: 0.93
-```
-
-## <a name="analyze-business-cards"></a>명함 분석
-
-#### <a name="v21-preview"></a>[v2.1 미리 보기](#tab/preview)
-
-이 섹션에서는 사전 학습된 모델을 사용하여 영문 명함의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 명함 분석에 대한 자세한 내용은 [명함 개념 가이드](../../concept-business-cards.md)를 참조하세요.
-
-URL에서 명함을 분석하려면 `beginRecognizeBusinessCardsFromUrl` 메서드를 사용합니다. 
-
-[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_call)]
-
-> [!TIP]
-> 또한 로컬 명함 이미지를 분석할 수도 있습니다. [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) 메서드(예: **beginRecognizeBusinessCards**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)의 샘플 코드를 참조하세요.
-
-반환된 값은 문서의 각 명함에 하나씩 있는 **RecognizedForm** 개체의 컬렉션입니다. 다음 코드는 지정된 URI에서 명함을 처리하고 주요 필드와 값을 콘솔에 출력합니다.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_print)]
-
-#### <a name="v20"></a>[v2.0](#tab/ga)
-
-> [!IMPORTANT]
-> 이 기능은 선택한 API 버전에서 사용할 수 없습니다.
-
----
 
 ## <a name="manage-custom-models"></a>사용자 지정 모델 관리
 
@@ -450,7 +474,7 @@ URL에서 명함을 분석하려면 `beginRecognizeBusinessCardsFromUrl` 메서�
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_count)]
 
 
-#### <a name="output"></a>출력 
+#### <a name="output"></a>출력
 
 ```console
 The account has 12 custom models, and we can have at most 250 custom models
@@ -463,7 +487,7 @@ The account has 12 custom models, and we can have at most 250 custom models
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_list)]
 
 
-#### <a name="output"></a>출력 
+#### <a name="output"></a>출력
 
 이 응답은 가독성을 위해 잘렸습니다.
 

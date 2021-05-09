@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 65eb4e8fefb74219c927fe507baceca7c55462be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f44d3eb84715233e6d9aa4a1d06d626d162973ee
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101095711"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205272"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Visual Studio를 사용하여 Azure App Service에서 앱 문제 해결
 ## <a name="overview"></a>개요
@@ -29,7 +29,7 @@ ms.locfileid: "101095711"
 Visual Studio Ultimate가 있으면 디버깅에 [IntelliTrace](/visualstudio/debugger/intellitrace) 를 사용할 수도 있습니다. IntelliTrace는 이 자습서에서 다루지 않습니다.
 
 ## <a name="prerequisites"></a><a name="prerequisites"></a>필수 조건
-이 자습서에서는 [Azure App Service에서 ASP.NET 앱 만들기](quickstart-dotnet-framework.md)에서 설정한 개발 환경, 웹 프로젝트 및 App Service 앱을 사용합니다. WebJobs 섹션의 경우 [Azure WebJobs SDK 시작][GetStartedWJ]에서 만든 애플리케이션이 필요합니다.
+이 자습서에서는 [Azure App Service에서 ASP.NET 앱 만들기](./quickstart-dotnetcore.md?tabs=netframework48)에서 설정한 개발 환경, 웹 프로젝트 및 App Service 앱을 사용합니다. WebJobs 섹션의 경우 [Azure WebJobs SDK 시작][GetStartedWJ]에서 만든 애플리케이션이 필요합니다.
 
 이 사용설명서에 제시된 코드 샘플은 C# MVC 웹 애플리케이션용이지만 문제 해결 절차는 Visual Basic 및 Web Forms 애플리케이션에도 동일하게 적용됩니다.
 
@@ -51,7 +51,7 @@ Visual Studio를 사용하면 [Azure Portal](https://go.microsoft.com/fwlink/?Li
 
     Visual Studio에서 Azure 리소스에 연결하는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 2. **서버 탐색기** 에서 **Azure** 를 확장한 후 **App Service** 를 확장합니다.
-3. [Azure App Service에서 ASP.NET 앱 만들기](quickstart-dotnet-framework.md)에서 만든 앱을 포함하는 리소스 그룹을 확장한 후 앱 노드를 마우스 오른쪽 단추로 클릭하고 **설정 보기** 를 클릭합니다.
+3. [Azure App Service에서 ASP.NET 앱 만들기](./quickstart-dotnetcore.md?tabs=netframework48)에서 만든 앱을 포함하는 리소스 그룹을 확장한 후 앱 노드를 마우스 오른쪽 단추로 클릭하고 **설정 보기** 를 클릭합니다.
 
     ![서버 탐색기에서 설정 보기](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
@@ -108,9 +108,9 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 원격 디버깅은 Visual Studio의 Express Edition에서 작동하지 않습니다.
 
-이 섹션에서는 [Azure App Service에서 ASP.NET 앱 만들기](quickstart-dotnet-framework.md)에서 만든 프로젝트를 사용하여 원격으로 디버그하는 방법을 보여 줍니다.
+이 섹션에서는 [Azure App Service에서 ASP.NET 앱 만들기](./quickstart-dotnetcore.md?tabs=netframework48)에서 만든 프로젝트를 사용하여 원격으로 디버그하는 방법을 보여 줍니다.
 
-1. [Azure App Service에서 ASP.NET 앱 만들기](quickstart-dotnet-framework.md)에서 만든 웹 프로젝트를 엽니다.
+1. [Azure App Service에서 ASP.NET 앱 만들기](./quickstart-dotnetcore.md?tabs=netframework48)에서 만든 웹 프로젝트를 엽니다.
 
 1. *Controllers\HomeController.cs* 를 엽니다.
 
@@ -129,7 +129,7 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 를 클릭합니다.
 
-1. **프로필** 드롭다운 목록에서 [Azure App Service에서 ASP.NET 앱 만들기](quickstart-dotnet-framework.md)에서 사용한 것과 동일한 프로필을 선택합니다. 그런 후 설정을 클릭합니다.
+1. **프로필** 드롭다운 목록에서 [Azure App Service에서 ASP.NET 앱 만들기](./quickstart-dotnetcore.md?tabs=netframework48)에서 사용한 것과 동일한 프로필을 선택합니다. 그런 후 설정을 클릭합니다.
 
 1. **게시** 대화 상자에서 **설정** 탭을 클릭한 다음, **구성** 을 **디버그** 로 변경하고 **저장** 을 클릭합니다.
 
@@ -264,7 +264,7 @@ App Service 앱에서 실행하는 ASP.NET 애플리케이션은 다음과 같�
 ## <a name="create-and-view-application-trace-logs"></a><a name="apptracelogs"></a>애플리케이션 추적 로그 만들기 및 보기
 이 섹션에서는 다음 작업을 수행합니다.
 
-* [Azure 및 ASP.NET 시작](quickstart-dotnet-framework.md)에서 만든 웹 프로젝트에 추적 문을 추가합니다.
+* [Azure 및 ASP.NET 시작](./quickstart-dotnetcore.md?tabs=netframework48)에서 만든 웹 프로젝트에 추적 문을 추가합니다.
 * 프로젝트를 로컬로 실행하는 경우 로그 보기
 * Azure에서 실행하는 애플리케이션에서 생성된 로그 보기
 

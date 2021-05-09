@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/11/2021
+ms.date: 04/27/2021
 ms.author: jeedes
-ms.openlocfilehash: a1e62dfd89ccd23ef950767d883fde80f1a5ca26
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 98e6290041573adb4dba0dced5268caacae47017
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104953241"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162811"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-truechoice"></a>자습서: TrueChoice와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -90,19 +90,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. TrueChoice 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
-    ![이미지](common/default-attributes.png)
-
-1. 위에서 언급한 특성 외에도 TrueChoice 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
-    
-    | Name |  원본 특성|
-    | ----------------- | --------- |
-    | country | user.country |
-    | name | user.displayname |
-    |
+    ![이미지](./media/truechoice-tutorial/default-attributes.png)
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL** 을 복사한 후 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/copy-metadataurl.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.

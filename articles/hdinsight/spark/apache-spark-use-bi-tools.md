@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc,seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 3e0632b2ad1ac237d8899e9d3bdc7f1d3350fa76
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a5a70d16ad0fd2805871ef4c08d2891082dd2916
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057935"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163052"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>자습서: HDInsight에서 Power BI를 사용하여 Apache Spark 데이터 분석
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. Jupyter Notebook에서 다음 코드를 붙여넣은 다음, **SHIFT + ENTER** 를 누릅니다. 코드가 테이블의 존재 여부를 확인합니다.
 
-    ```PySpark
+    ```pyspark
     %%sql
     SHOW TABLES
     ```
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 2. 빈 셀에 다음 코드를 붙여넣은 다음 **Shift + Enter** 를 누릅니다. 코드가 테이블의 데이터를 확인합니다.
 
-    ```PySpark
+    ```pyspark
     %%sql
     SELECT * FROM hvac LIMIT 10
     ```
@@ -72,11 +72,11 @@ Spark를 사용하는 첫 번째 단계는 Power BI Desktop에서 클러스터�
 
 2. **홈** 탭에서 **데이터 가져오기** > **자세히...** 로 이동합니다.
 
-    :::image type="content" source="./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png " alt-text="HDInsight Apache Spark에서 Power BI Desktop으로 데이터 가져오기" border="true":::er="true":::
+    :::image type="content" source="./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png " alt-text="HDInsight Apache Spark에서 Power BI Desktop으로 데이터 가져오기" border="true":::
 
 3. 검색 상자에 `Spark`를 입력하고 **Azure HDInsight Spark** 를 선택한 후 **연결** 을 선택합니다.
 
-    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png " alt-text="Apache Spark BI에서 Power BI로 데이터 가져오기" border="true":::er="true":::
+    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png " alt-text="Apache Spark BI에서 Power BI로 데이터 가져오기" border="true":::
 
 4. **서버** 텍스트 상자에 클러스터 URL(`mysparkcluster.azurehdinsight.net` 형식)을 입력합니다.
 
@@ -88,7 +88,7 @@ Spark를 사용하는 첫 번째 단계는 Power BI Desktop에서 클러스터�
 
 7. `hvac` 테이블을 선택하고 데이터의 미리 보기를 확인하기 위해 기다린 후 **로드** 를 선택합니다.
 
-    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png " alt-text="Spark 클러스터 사용자 이름 및 암호" border="true":::d" border="true":::
+    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png " alt-text="Spark 클러스터 사용자 이름 및 암호" border="true":::
 
     Power BI Desktop에 Spark 클러스터에 연결하고 `hvac` 테이블에서 데이터를 로드하는 데 필요한 정보가 있습니다. 테이블 및 해당 열이 **필드** 창에 표시됩니다.
 
@@ -98,17 +98,17 @@ Spark를 사용하는 첫 번째 단계는 Power BI Desktop에서 클러스터�
 
     2. **BuildingID** 필드를 **축** 으로 끌어 놓고, **ActualTemp** 및 **TargetTemp** 필드를 **값** 으로 끌어 놓습니다.
 
-        :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png " alt-text="값 열 추가" border="true":::t="add value columns" border="true":::
+        :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png " alt-text="값 열 추가" border="true":::
 
         다이어그램은 다음과 같이 표시됩니다.
 
-        :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png " alt-text="영역 그래프 합계" border="true":::lt-text="area graph sum" border="true":::
+        :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png " alt-text="영역 그래프 합계" border="true":::
 
         기본적으로 시각화에서는 **ActualTemp** 및 **TargetTemp** 의 합계를 보여 줍니다. 시각화 창에서 **ActualTemp** 및 **TragetTemp** 옆에 있는 아래쪽 화살표를 선택하면 **Sum** 이 선택된 것을 볼 수 있습니다.
 
     3. 시각화 창에서 **ActualTemp** 및 **TragetTemp** 옆에 있는 아래쪽 화살표를 선택하고 **Average** 를 선택하여 각 건물에 대한 실제 온도와 대상 온도 간의 평균을 구합니다.
 
-        :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png " alt-text="값의 평균" border="true":::t="average of values" border="true":::
+        :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png " alt-text="평균값" border="true":::
 
         데이터 시각화는 스크린샷의 데이터 시각화와 비슷해야 합니다. 커서를 시각화 위로 이동하면 관련 데이터와 함께 도구 설명이 나타납니다.
 
@@ -128,11 +128,11 @@ Power BI 서비스를 사용하면 조직 전체에서 보고서 및 대시보�
 
 1. 데이터 세트 및 보고서를 게시하려는 작업 영역을 선택한 다음, **선택** 을 선택합니다. 다음 이미지에서 기본 **내 작업 영역** 이 선택됩니다.
 
-    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png " alt-text="데이터 세트 및 보고서를 게시할 작업 영역 선택" border="true":::ue":::
+    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png " alt-text="데이터 세트 및 보고서를 게시할 작업 영역 선택" border="true":::
 
 1. 게시에 성공한 후 **Power BI에서 'BuildingTemperature.pbix' 열기** 를 선택합니다.
 
-    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png " alt-text="자격 증명 입력을 클릭하여 성공 게시" border="true":::er="true":::
+    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png " alt-text="자격 증명 입력을 클릭하여 성공 게시" border="true":::
 
 1. Power BI 서비스에서 **자격 증명 입력** 을 선택합니다.
 
@@ -140,7 +140,7 @@ Power BI 서비스를 사용하면 조직 전체에서 보고서 및 대시보�
 
 1. **자격 증명 편집** 을 선택합니다.
 
-    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png " alt-text="Power BI 서비스에서 자격 증명 편집" border="true":::e" border="true":::
+    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png " alt-text="Power BI 서비스에서 자격 증명 편집" border="true":::
 
 1. HDInsight 로그인 계정 정보를 입력한 다음, **로그인** 을 선택합니다. 기본 계정 이름은 *admin* 입니다.
 
@@ -148,7 +148,7 @@ Power BI 서비스를 사용하면 조직 전체에서 보고서 및 대시보�
 
 1. 왼쪽 창에서 **작업 영역** > **내 작업 영역** > **보고서** 로 이동한 다음, **BuildingTemperature** 를 선택합니다.
 
-    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png " alt-text="왼쪽 창의 보고서 아래에 나열된 보고서" border="true":::order="true":::
+    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png " alt-text="왼쪽 창의 보고서 아래에 나열된 보고서" border="true":::
 
     왼쪽 창의 **데이터 세트** 아래에 나열된 **BuildingTemperature** 도 표시됩니다.
 
@@ -156,7 +156,7 @@ Power BI 서비스를 사용하면 조직 전체에서 보고서 및 대시보�
 
 1. 시각화 위로 커서를 이동한 다음, 오른쪽 위 모서리의 핀 고정 아이콘을 선택합니다.
 
-    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png " alt-text="Power BI 서비스의 보고서" border="true":::service" border="true":::
+    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png " alt-text="Power BI 서비스의 보고서" border="true":::
 
 1. "새 대시보드"를 선택하고, 이름 `Building temperature`를 입력한 다음, **고정** 을 선택합니다.
 

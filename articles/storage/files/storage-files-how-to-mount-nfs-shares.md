@@ -1,23 +1,23 @@
 ---
-title: Azure NFS 파일 공유 탑재-Azure Files
-description: 네트워크 파일 시스템 공유를 탑재 하는 방법에 대해 알아봅니다.
+title: Azure NFS 파일 공유 탑재 - Azure Files
+description: 네트워크 파일 시스템 공유를 탑재하는 방법을 알아봅니다.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2020
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 8a993d9c1de35132198de5e3becc4f16d6a2a437
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 4369619cd83dffe36cf156f523a951e1360438db
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96621300"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717080"
 ---
-# <a name="how-to-mount-an-nfs-file-share"></a>NFS 파일 공유를 탑재 하는 방법
+# <a name="how-to-mount-an-nfs-file-share"></a>NFS 파일 공유를 탑재하는 방법
 
-[Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 SMB (서버 메시지 블록 프로토콜) 또는 NFS (네트워크 파일 시스템) 프로토콜을 사용 하 여 Linux 배포판에 탑재할 수 있습니다. 이 문서는 NFS를 탑재 하는 방법에 중점을 두었습니다. SMB 탑재에 대 한 자세한 내용은 [Linux에서 Azure Files 사용](storage-how-to-use-files-linux.md)을 참조 하세요. 사용 가능한 각 프로토콜에 대 한 자세한 내용은 [Azure 파일 공유 프로토콜](storage-files-compare-protocols.md)을 참조 하세요.
+[Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 SMB(서버 메시지 블록) 프로토콜 또는 NFS(네트워크 파일 시스템) 프로토콜을 사용하여 Linux 배포에 탑재할 수 있습니다. 이 문서에서는 NFS를 사용하여 탑재하는 방법을 설명합니다. SMB를 사용하여 탑재하는 방법은 [Linux에서 Azure Files 사용](storage-how-to-use-files-linux.md)을 참조하세요. 각 프로토콜에 대한 자세한 내용은 [Azure 파일 공유 프로토콜](storage-files-compare-protocols.md)을 참조하세요.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -32,38 +32,38 @@ ms.locfileid: "96621300"
 - [NFS 공유를 만듭니다](storage-files-how-to-create-nfs-shares.md).
 
     > [!IMPORTANT]
-    > NFS 공유는 신뢰할 수 있는 네트워크 에서만 액세스할 수 있습니다. NFS 공유에 대 한 연결은 다음 원본 중 하나에서 시작 해야 합니다.
+    > NFS 공유는 신뢰할 수 있는 네트워크에서만 액세스할 수 있습니다. NFS 공유에 대한 연결은 다음 원본 중 하나에서 시작해야 합니다.
 
-- 다음 네트워킹 솔루션 중 하나를 사용 합니다.
-    - [개인 끝점을 만들거나](storage-files-networking-endpoints.md#create-a-private-endpoint) (권장) [공용 끝점에 대 한 액세스를 제한](storage-files-networking-endpoints.md#restrict-public-endpoint-access)합니다.
-    - [Azure Files와 함께 사용 하기 위해 Linux에서 지점 및 사이트 간 (P2S) VPN을 구성](storage-files-configure-p2s-vpn-linux.md)합니다.
-    - [Azure Files와 함께 사용 하기 위해 사이트 간 VPN을 구성](storage-files-configure-s2s-vpn.md)합니다.
-    - [Express](../../expressroute/expressroute-introduction.md)경로를 구성 합니다.
+- 다음 네트워킹 솔루션 중 하나를 사용합니다.
+    - [프라이빗 엔드포인트 만들기](storage-files-networking-endpoints.md#create-a-private-endpoint)(권장) 또는 [퍼블릭 엔드포인트에 대한 액세스 제한](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
+    - [Azure Files에서 사용할 P2S(지점 및 사이트 간) VPN을 Linux에 구성](storage-files-configure-p2s-vpn-linux.md).
+    - [Azure Files에서 사용할 사이트 간 VPN 구성](storage-files-configure-s2s-vpn.md).
+    - [ExpressRoute](../../expressroute/expressroute-introduction.md) 구성.
 
-## <a name="disable-secure-transfer"></a>보안 전송 사용 안 함
+## <a name="disable-secure-transfer"></a>보안 전송을 사용하지 않도록 설정
 
-1. Azure Portal에 로그인 하 여 만든 NFS 공유를 포함 하는 저장소 계정에 액세스 합니다.
+1. Azure Portal에 로그인한 다음 앞에서 만든 NFS 공유를 포함하는 스토리지 계정에 액세스합니다.
 1. **Configuration(구성)** 을 선택합니다.
-1. **보안 전송 필요** 에 대해 **사용 안 함** 을 선택 합니다.
+1. **보안 전송 필요** 로 **사용 안 함** 을 선택합니다.
 1. **저장** 을 선택합니다.
 
-    :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="보안 전송이 사용 하지 않도록 설정 된 저장소 계정 구성 화면의 스크린샷":::
+    :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="보안 전송이 사용하지 않도록 설정된 스토리지 계정 구성 화면 스크린샷.":::
 
 ## <a name="mount-an-nfs-share"></a>NFS 공유 탑재
 
-1. 파일 공유를 만든 후 공유를 선택 하 고 **Linux에서 연결** 을 선택 합니다.
-1. 사용할 탑재 경로를 입력 한 다음 스크립트를 복사 합니다.
-1. 클라이언트에 연결 하 고 제공 된 탑재 스크립트를 사용 합니다.
+1. 파일 공유를 만든 후에 해당 공유를 선택하고 **Linux에서 연결** 을 선택합니다.
+1. 사용하려는 탑재 경로를 입력한 다음 스크립트를 복사합니다.
+1. 클라이언트 연결하고, 제공된 탑재 스크립트를 사용합니다.
 
-    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="파일 공유 연결 블레이드의 스크린샷":::
+    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="파일 공유 연결 블레이드의 스크린샷.":::
 
-이제 NFS 공유를 탑재 했습니다.
+이제 NFS 공유가 탑재되었습니다.
 
 ### <a name="validate-connectivity"></a>연결 유효성 검사
 
-마운트가 실패 한 경우 개인 끝점이 올바르게 설정 되지 않았거나 액세스할 수 없는 것일 수 있습니다. 연결 확인에 대 한 자세한 내용은 네트워킹 끝점 문서의 [연결 확인](storage-files-networking-endpoints.md#verify-connectivity) 섹션을 참조 하세요.
+탑재에 실패한 경우 프라이빗 엔드포인트가 올바르게 설정되지 않았거나 액세스 가능하지 않은 상태일 수 있습니다. 연결을 확인하는 방법은 네트워킹 엔드포인트 문서의 [연결 확인](storage-files-networking-endpoints.md#verify-connectivity) 섹션을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Files 배포에 대 한 계획](storage-files-planning.md)문서를 Azure Files에 대해 자세히 알아보세요.
-- 문제가 발생 하는 경우 [AZURE NFS 파일 공유 문제 해결](storage-troubleshooting-files-nfs.md)을 참조 하세요.
+- [Azure Files 배포에 대한 계획](storage-files-planning.md) 문서에서 Azure Files에 대해 자세히 알아봅니다.
+- 문제가 발생하면 [Azure NFS 파일 공유 문제 해결](storage-troubleshooting-files-nfs.md)을 참조하세요.
