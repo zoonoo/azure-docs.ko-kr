@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 3336a086fbe8f4291f752836a610cd80b773ec2d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee2bd4ab66b7a67be04c1a710caa12c57c705d19
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98790819"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209970"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Azure Digital Twins 고가용성 및 재해 복구
 
@@ -24,7 +24,7 @@ Azure Digital Twins는 다음과 같은 기능 옵션을 지원합니다.
 * *지역 내 HA* – 서비스의 작동 시간을 제공하는 기본 제공 중복성
 * *지역 간 DR* – 예기치 않은 데이터 센터 오류가 발생하는 경우 지리적으로 쌍을 이루는 Azure 지역으로 장애 조치(Failover)
 
-[*모범 사례*](#best-practices) 섹션에서도 HA/DR을 위한 설계에 대한 일반적인 Azure 지침을 확인할 수 있습니다.
+[모범 사례](#best-practices) 섹션에서도 HA/DR을 위한 설계에 대한 일반적인 Azure 지침을 확인할 수 있습니다.
 
 ## <a name="intra-region-ha"></a>역내 HA
  
@@ -65,12 +65,12 @@ Service Health 이벤트를 보려면...
 ## <a name="best-practices"></a>모범 사례
 
 HA/DR에 대한 모범 사례는 이 항목에 대한 다음 Azure 지침을 참조하세요. 
-* [*Azure 비즈니스 연속성 기술 지침*](/azure/architecture/framework/resiliency/overview) 문서는 비즈니스 연속성과 재해 복구에 대해 고민해 볼 수 있는 일반 프레임워크를 설명합니다. 
-* [*Azure 애플리케이션에 대한 재해 복구 및 고가용성*](/azure/architecture/framework/resiliency/backup-and-recovery) 문서는 Azure 애플리케이션에서 HA(고가용성) 및 DR(재해 복구)을 수행하는 전략에 대한 아키텍처 지침을 제공합니다.
+* [Azure 비즈니스 연속성 기술 지침](/azure/architecture/framework/resiliency/overview) 문서는 비즈니스 연속성과 재해 복구에 대해 고민해 볼 수 있는 일반 프레임워크를 설명합니다. 
+* [Azure 애플리케이션에 대한 재해 복구 및 고가용성](/azure/architecture/framework/resiliency/backup-and-recovery) 문서는 Azure 애플리케이션에서 HA(고가용성) 및 DR(재해 복구)을 수행하는 전략에 대한 아키텍처 지침을 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계 
 
 Azure Digital Twins 솔루션 시작하기에 대해 자세히 알아봅니다.
  
-* [*Azure Digital Twins란?*](overview.md)
-* [*빠른 시작 - 샘플 시나리오 살펴보기*](quickstart-adt-explorer.md)
+* [Azure Digital Twins란?](overview.md)
+* [빠른 시작 - 샘플 시나리오 살펴보기](quickstart-azure-digital-twins-explorer.md)

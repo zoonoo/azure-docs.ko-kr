@@ -12,12 +12,12 @@ ms.date: 7/10/2020
 ms.author: iangithinji
 ms.reviewer: luleonpla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcd137030e4e1f3e88f47ec5ba78b3bde08fe068
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 7e8cf0459ecdf93251d1d59a9396b6ee11b7701c
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107373982"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108160820"
 ---
 # <a name="take-action-on-overprivileged-or-suspicious-applications-in-azure-active-directory"></a>Azure Active Directory에서 권한 초과 또는 의심스러운 애플리케이션에 대한 조치 수행
 
@@ -32,14 +32,13 @@ ms.locfileid: "107373982"
 애플리케이션에 대한 액세스를 제한하려면 사용자 할당이 필요하며, 애플리케이션에 사용자 또는 그룹을 할당해야 합니다.  자세한 내용은 [사용자 및 그룹을 할당하는 메서드](./assign-user-or-group-access-portal.md)를 참조하세요.
 
 Azure AD 포털에 액세스하여 작업을 수행할 상황별 PowerShell 스크립트를 가져올 수 있습니다.
- 
+
 1. 전역 관리자, 애플리케이션 관리자 또는 클라우드 애플리케이션 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **Enterprise 애플리케이션** 을 선택합니다.
 3. 액세스를 제한할 애플리케이션을 선택합니다.
 4. **권한** 을 선택합니다. 명령 모음에서 **사용 권한 검토** 를 선택합니다.
 
 ![사용 권한 검토 창의 스크린샷.](./media/manage-application-permissions/review-permissions.png)
-
 
 ## <a name="control-access-to-an-application"></a>애플리케이션에 대한 액세스 제어
 
@@ -86,8 +85,7 @@ PowerShell 스크립트를 사용하여 이 애플리케이션에 부여된 모�
 
 또는 애플리케이션을 사용하지 않도록 설정하여 사용자의 액세스를 차단하고 애플리케이션이 데이터에 액세스하는 것을 방지합니다.
 
-
-## <a name="disable-a-malicious-application"></a>악성 애플리케이션 사용 안 함 
+## <a name="disable-a-malicious-application"></a>악성 애플리케이션 사용 안 함
 
 애플리케이션을 사용하지 않도록 설정하여 사용자의 액세스를 차단하고 애플리케이션이 데이터에 액세스하는 것을 방지하는 것이 좋습니다. 애플리케이션을 삭제하면 이후 사용자가 애플리케이션에 다시 동의하고 데이터에 대한 액세스 권한을 부여할 수 있습니다.
 
@@ -98,7 +96,6 @@ PowerShell 스크립트를 사용하여 이 애플리케이션에 부여된 모�
 
 ### <a name="powershell-commands"></a>PowerShell 명령
 
-
 서비스 주체 개체 ID를 가져옵니다.
 
 1. 전역 관리자, 애플리케이션 관리자 또는 클라우드 애플리케이션 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
@@ -106,12 +103,14 @@ PowerShell 스크립트를 사용하여 이 애플리케이션에 부여된 모�
 3. 액세스를 제한할 애플리케이션을 선택합니다.
 4. **속성** 을 선택하고 개체 ID를 복사합니다.
 
-```powershell
-$sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
-$sp.ObjectId
-```
+   ```powershell
+   $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
+   $sp.ObjectId
+   ```
+
 애플리케이션에 할당된 모든 사용자를 제거합니다.
- ```powershell
+
+```powershell
 Connect-AzureAD
 
 # Get Service Principal using objectId
@@ -128,7 +127,7 @@ $assignments | ForEach-Object {
         Remove-AzureADGroupAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.ObjectId
     }
 }
- ```
+```
 
 애플리케이션에 부여된 모든 권한을 철회합니다.
 
@@ -154,7 +153,9 @@ $spApplicationPermissions | ForEach-Object {
     Remove-AzureADServiceAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.objectId
 }
 ```
+
 새로 고침 토큰을 무효화합니다.
+
 ```powershell
 Connect-AzureAD
 
@@ -169,7 +170,9 @@ $assignments | ForEach-Object {
     Revoke-AzureADUserAllRefreshToken -ObjectId $_.PrincipalId
 }
 ```
+
 ## <a name="next-steps"></a>다음 단계
+
 - [애플리케이션에 대한 동의를 관리하고 동의 요청 평가](manage-consent-requests.md)
 - [사용자 동의 구성](configure-user-consent.md)
 - [관리자 동의 워크플로 구성](configure-admin-consent-workflow.md)

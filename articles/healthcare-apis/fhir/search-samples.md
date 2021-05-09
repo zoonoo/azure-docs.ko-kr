@@ -1,29 +1,26 @@
 ---
-title: FHIR 용 Azure API에 대 한 검색 예제
+title: Azure API for FHIR 검색 예
 description: 다른 검색 매개 변수, 한정자 및 기타 FHIR 검색 도구를 사용 하 여 검색 하는 방법
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 04/20/2021
-ms.author: ginle
-ms.openlocfilehash: edbbfe81b4926689e0a431a28ac91e9f07e8e944
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.date: 05/03/2021
+ms.author: cavoeg
+ms.openlocfilehash: 33dcd9ace7af6d4ff820654fef20aa0a5aa3ff9d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108322596"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756794"
 ---
 # <a name="fhir-search-examples"></a>FHIR 검색 예제
 
-다음은 검색 매개 변수 및 한정자, 체인 및 역방향 체인 검색, 복합 검색, 검색 결과에 대 한 다음 항목 집합 보기, POST 요청으로 검색 등의 작업을 수행 하는 몇 가지 예입니다. 검색에 대 한 자세한 내용은 [FHIR 검색 개요](overview-of-search.md)를 참조 하세요.
+다음은 검색 매개 변수 및 한정자, 체인 및 역방향 체인 검색, 복합 검색, 검색 결과에 대 한 다음 항목 집합 보기, 요청을 검색 하는 등의 몇 가지 예입니다 `POST` . 검색에 대 한 자세한 내용은 [FHIR 검색 개요](overview-of-search.md)를 참조 하세요.
    
 ## <a name="search-result-parameters"></a>검색 결과 매개 변수
 
 ### <a name="_include"></a>_include
-
-> [!NOTE]
-> **_include** 및 **_revinclude** 은 100 항목으로 제한 됩니다.
 
 `_include` 리소스에서 지정 된 매개 변수를 포함 하는 리소스를 검색 합니다. 예를 들어, `MedicationRequest` 특정 환자에 대 한 규정에 대 한 정보를 포함 하는 리소스를 찾을 수 있도록 리소스를 검색할 수 있습니다 `reference` . 매개 변수는 `patient` 다음과 같습니다.
 
@@ -31,6 +28,9 @@ ms.locfileid: "108322596"
  GET [your-fhir-server]/MedicationRequest?_include=MedicationRequest:patient
 
 ```
+
+> [!NOTE]
+> **_include** 및 **_revinclude** 은 100 항목으로 제한 됩니다.
 
 ### <a name="_revinclude"></a>_revinclude
 
@@ -84,7 +84,7 @@ GET [your-fhir-server]/Patient?name:exact=Jon
 이 요청은 `Patient` 이름이와 정확히 동일한 리소스를 반환 `Jon` 합니다. 리소스가 또는와 같은 이름으로 환자 된 경우 `Jonathan` `joN` 검색은 지정 된 값과 정확 하 게 일치 하지 않으므로 리소스를 무시 하 고 건너뜁니다.
 
 ### <a name="contains"></a>: contains
-`:contains` 는 `string` 매개 변수에 사용 되며 검색 중인 필드 내의 문자열에서 지정 된 값과 부분적으로 일치 하는 리소스를 검색 합니다. `contains` 는 대/소문자를 구분 하지 않으며 문자 연결을 허용 합니다. 다음은 그 예입니다.
+`:contains` 는 `string` 매개 변수에 사용 되며 검색 중인 필드 내의 문자열에서 지정 된 값과 부분적으로 일치 하는 리소스를 검색 합니다. `contains` 는 대/소문자를 구분 하지 않으며 문자 연결을 허용 합니다. 예를 들면 다음과 같습니다.
 
 ```rest
 GET [your-fhir-server]/Patient?address:contains=Meadow

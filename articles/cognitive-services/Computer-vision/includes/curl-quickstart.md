@@ -7,16 +7,16 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: quickstart
-ms.date: 12/02/2020
+ms.topic: include
+ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 01149eed5cc4195ca501507e7fe1d66fffecb84d
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 2f01b1d222470c49505638be64180948b6f7e046
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107327636"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728261"
 ---
 광학 인식 REST API를 사용하여 인쇄 및 필기 텍스트를 읽을 수 있습니다.
 
@@ -37,6 +37,8 @@ ms.locfileid: "107327636"
 
 OCR 서비스는 이미지 속의 시각적 텍스트를 읽고 문자 스트림으로 변환할 수 있습니다. 텍스트 인식에 대한 자세한 내용은 [OCR(광학 인식) 개요](../overview-ocr.md)를 참조하세요.
 
+### <a name="call-the-read-api"></a>읽기 API 호출
+
 샘플을 만들고 실행하려면 다음 단계를 수행합니다.
 
 1. 다음 명령을 텍스트 편집기에 복사합니다.
@@ -53,6 +55,8 @@ curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/r
 ```
 
 응답에는 값이 고유한 URL인 `Operation-Location` 헤더가 포함됩니다. 이 URL을 사용하여 읽기 작업의 결과를 쿼리할 수 있습니다. URL은 48시간 후에 만료됩니다.
+
+### <a name="get-read-results"></a>읽기 결과 가져오기
 
 1. 다음 명령을 텍스트 편집기에 복사합니다.
 1. URL을 이전 단계에서 복사한 `Operation-Location` 값으로 바꿉니다.
@@ -131,7 +135,9 @@ curl -v -X GET "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/re
 
 ## <a name="next-steps"></a>다음 단계
 
-OCR API를 자세히 살펴봅니다. API를 사용하여 신속하게 실험하려면 [API 테스트 콘솔 열기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005/console)를 사용하세요.
+이 빠른 시작에서는 Read REST API를 호출하는 방법을 알아보았습니다. 다음으로, Read API 기능에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [OCR API 살펴보기](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
+>[읽기 API 호출](../Vision-API-How-to-Topics/call-read-api.md)
+
+* [OCR 개요](../overview-ocr.md)

@@ -6,14 +6,14 @@ ms.date: 08/18/2020
 ms.author: inhenkel
 ms.custom: dotnet
 ms.openlocfilehash: dcd2cda3bad2a13a83c5f3f6700e5a57471e2065
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88653891"
 ---
 <!--Create a media services asset REST-->
 
-다음 Azure .NET 명령은 새 Media Services 자산을 만듭니다. `subscriptionID`, 및 값을 `resourceGroup` `amsAccountName` 현재 작업 중인 값으로 바꿉니다. 여기에서 설정 하 여 자산 이름을 지정 `assetName` 합니다.
+다음 Azure .NET 명령은 새 Media Services 자산을 만듭니다. `subscriptionID`, `resourceGroup` 및 `amsAccountName` 값을 현재 작업 중인 값으로 바꿉니다. 여기에서 `assetName`을 설정하여 자산 이름을 지정합니다.
 
 [!code-csharp[Main](../../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]

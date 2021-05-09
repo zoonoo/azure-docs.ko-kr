@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
 zone_pivot_groups: acs-azp-java-net-python-csharp-js
-ms.openlocfilehash: 19bb79f9a4deaebfacc75918c46a5516d2d398be
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 269967db4daed2bb3c42e668e2b36d74f8b0f45c
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107498199"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107904589"
 ---
 # <a name="quickstart-manage-phone-numbers"></a>빠른 시작: 전화 번호 관리
 

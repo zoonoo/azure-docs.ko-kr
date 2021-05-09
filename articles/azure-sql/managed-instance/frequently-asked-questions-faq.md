@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 9faaf79958443c252a8d913fbd7448389c610e09
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 16f937286b967aaea8ec6a16e97835b2de5a0331
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105628580"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765506"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL Managed Instance FAQ(질문과 대답)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -94,7 +94,7 @@ Azure SQL Managed Instance 및 SQL Server 사이의 구문 및 동작 차이점�
 
 **관리형 인스턴스는 어떻게 스케일링할 수 있나요?**
 
-[Azure portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [Azure CLI](/cli/azure/sql/mi#az-sql-mi-update) 또는 [ARM 템플릿](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates)에서 관리형 인스턴스를 스케일링할 수 있습니다.
+[Azure portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [Azure CLI](/cli/azure/sql/mi#az_sql_mi_update) 또는 [ARM 템플릿](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates)에서 관리형 인스턴스를 스케일링할 수 있습니다.
 
 **Managed Instance를 한 지역에서 다른 지역으로 이동할 수 있나요?**
 
@@ -102,7 +102,7 @@ Azure SQL Managed Instance 및 SQL Server 사이의 구문 및 동작 차이점�
 
 **Managed Instance는 어떻게 삭제할 수 있나요?**
 
-Azure Portal, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance), [Azure CLI](/cli/azure/sql/mi#az-sql-mi-delete) 또는 [Resource Manager REST API](/rest/api/sql/managedinstances/delete)를 통해 Managed Instance를 삭제할 수 있습니다.
+Azure Portal, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance), [Azure CLI](/cli/azure/sql/mi#az_sql_mi_delete) 또는 [Resource Manager REST API](/rest/api/sql/managedinstances/delete)를 통해 Managed Instance를 삭제할 수 있습니다.
 
 **인스턴스를 만들거나 업데이트 또는 데이터베이스를 복원하려면 시간이 얼마나 걸리나요?**
 

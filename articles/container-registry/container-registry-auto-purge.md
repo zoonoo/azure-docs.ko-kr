@@ -3,12 +3,12 @@ title: 태그 및 매니페스트 제거
 description: 제거 명령을 사용하여 연령 및 태그 필터를 기준으로 Azure 컨테이너 레지스트리에서 여러 태그와 매니페스트를 삭제하고 필요에 따라 제거 작업을 예약합니다.
 ms.topic: article
 ms.date: 02/19/2021
-ms.openlocfilehash: 2dedfdd6eba73b7573743eba60294ac2231ffc56
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 562d1940459cb1594b7cd9aca2af280b05a4e419
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101722231"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784194"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Azure 컨테이너 레지스트리에서 자동으로 이미지 제거
 
@@ -44,8 +44,8 @@ Azure CLI 명령을 사용하여 단일 이미지 태그나 매니페스트를 �
 
 * `--untagged` - 연결된 태그를 포함하지 않는 매니페스트(‘태그가 지정되지 않은 매니페스트’)를 삭제하도록 지정합니다.
 * `--dry-run` - 데이터를 삭제하지 않도록 지정하지만, 출력은 이 플래그 없이 명령이 실행될 때와 같습니다. 이 매개 변수는 보존하려는 데이터를 실수로 삭제하지 않도록 제거 명령을 테스트하는 데 유용합니다.
-* `--keep` -삭제 된 최신 태그의 최신 x 수를 유지 하도록 지정 합니다.
-* `--concurrency` -동시에 처리할 제거 작업 수를 지정 합니다. 이 매개 변수를 제공 하지 않으면 기본값이 사용 됩니다.
+* `--keep` - 최신 순으로 보존할 삭제 예정 태그의 개수를 지정합니다.
+* `--concurrency` - 동시에 처리할 제거 작업 수를 지정합니다. 이 매개 변수를 제공하지 않으면 기본값이 사용됩니다.
 
 추가 매개 변수의 경우 `acr purge --help`를 실행합니다. 
 
@@ -179,7 +179,6 @@ Azure Container Registry에서 [이미지 데이터를 삭제](container-registr
 
 <!-- LINKS - Internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-acr-run]: /cli/azure/acr#az-acr-run
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-task-show]: /cli/azure/acr/task#az-acr-task-show
-
+[az-acr-run]: /cli/azure/acr#az_acr_run
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-acr-task-show]: /cli/azure/acr/task#az_acr_task_show

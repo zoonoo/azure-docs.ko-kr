@@ -7,12 +7,12 @@ ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5446f8481439dabffe67f9b00b5f65b1da495746
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 28eedc02adad479a20bc54fb8b342035f3d5cb15
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742656"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108325772"
 ---
 # <a name="quickstart-set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>빠른 시작: IoT 플러그 앤 플레이 빠른 시작 및 자습서에 사용할 환경 설정
 
@@ -22,9 +22,7 @@ IoT 플러그 앤 플레이 빠른 시작 및 자습서를 완료하려면 먼�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-Azure CLI를 로컬에 설치해야 하는 요구 사항을 피하려면, Azure Cloud Shell을 사용하여 클라우드 서비스를 설정하면 됩니다.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
 ## <a name="create-the-resources"></a>리소스 만들기
 

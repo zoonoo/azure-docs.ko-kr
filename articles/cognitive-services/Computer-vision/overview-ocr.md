@@ -11,18 +11,16 @@ ms.topic: overview
 ms.date: 03/29/2021
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: da4ada8b505c747d24738e175a1701b5ea73b4e4
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 9eb35c892db113807d3c401306485a836a1d970b
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536740"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107947432"
 ---
 # <a name="what-is-optical-character-recognition"></a>OCR(광학 문자 인식)이란?
 
-OCR(광학 인식) 서비스를 사용하면 문서&mdash;송장, 청구서, 재무 보고서, 문서 등과 함께 도로 표지판 및 제품 사진과 같은 이미지에서 인쇄되거나 필기된 텍스트를 추출할 수 있습니다. 딥 러닝 기반 모델을 사용하고 다양한 표면 및 배경의 텍스트로 작업합니다.
-
-OCR API는 [여러 언어](./language-support.md)로 인쇄된 텍스트 추출을 지원합니다. [빠른 시작](./quickstarts-sdk/client-library.md)을 따라 시작하세요.
+OCR(광학 문자 인식)을 사용하면 문서&mdash;송장, 청구서, 재무 보고서, 문서 등과 함께 도로 표지판 및 제품 사진과 같은 이미지에서 인쇄되거나 필기된 텍스트를 추출할 수 있습니다. Microsoft OCR 기술은 [여러 언어](./language-support.md)로 인쇄된 텍스트 추출을 지원합니다. [빠른 시작](./quickstarts-sdk/client-library.md)을 따라 시작하세요.
 
 ![OCR 데모](./Images/ocr-demo.gif)
 
@@ -32,8 +30,11 @@ OCR API는 [여러 언어](./language-support.md)로 인쇄된 텍스트 추출�
 <!--* The [conceptual articles](Vision-API-How-to-Topics/call-read-api.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions. -->
 
-## <a name="supported-languages"></a>지원되는 언어
-OCR API는 인쇄 스타일 텍스트에 대해 총 73개 언어를 지원합니다. [OCR 지원 언어](./language-support.md#optical-character-recognition-ocr)의 전체 목록을 참조하세요. 필기 스타일 OCR은 영어 전용으로 지원됩니다.
+## <a name="read-api"></a>읽기 API 
+
+Computer Vision [읽기 API](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)는 이미지 및 다중 페이지 PDF 문서에서 인쇄된 텍스트(여러 언어로), 필기 텍스트(영어 전용), 숫자 및 통화 기호를 추출하는 Azure의 최신 OCR 기술([새로운 기능](./whats-new.md))입니다. 여러 언어가 혼합된 텍스트를 많이 사용한 이미지 및 다중 페이지 PDF에서 텍스트를 추출하는 데 최적화되어 있습니다. 동일한 이미지나 문서에서 인쇄된 텍스트와 필기 텍스트를 모두 검색하는 것을 지원합니다.
+
+![OCR이 이미지 및 문서를 추출된 텍스트가 포함된 구조화된 출력으로 변환하는 방식](./Images/how-ocr-works.svg)
 
 ## <a name="input-requirements"></a>입력 요구 사항
 
@@ -43,13 +44,10 @@ OCR API는 인쇄 스타일 텍스트에 대해 총 73개 언어를 지원합니
 * PDF 및 TIFF 파일의 경우 최대 2000페이지(무료 계층의 경우 처음 두 페이지만)가 처리됩니다.
 * 파일 크기는 50MB(무료 계층의 경우 4MB) 미만이어야 하며, 크기는 최소 50 x 50픽셀 및 최대 1만 x 1만 픽셀 이상이어야 합니다. 
 
-## <a name="read-api"></a>읽기 API 
+## <a name="supported-languages"></a>지원되는 언어
+Read API는 인쇄 스타일 텍스트에 총 73개 언어를 지원합니다. [OCR 지원 언어](./language-support.md#optical-character-recognition-ocr)의 전체 목록을 참조하세요. 필기 스타일 OCR은 영어 전용으로 지원됩니다.
 
-Computer Vision [읽기 API](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)는 이미지 및 다중 페이지 PDF 문서에서 인쇄된 텍스트(여러 언어로), 필기 텍스트(영어 전용), 숫자 및 통화 기호를 추출하는 Azure의 최신 OCR 기술([새로운 기능](./whats-new.md))입니다. 여러 언어가 혼합된 텍스트를 많이 사용한 이미지 및 다중 페이지 PDF에서 텍스트를 추출하는 데 최적화되어 있습니다. 동일한 이미지나 문서에서 인쇄된 텍스트와 필기 텍스트를 모두 검색하는 것을 지원합니다.
-
-![OCR이 이미지 및 문서를 추출된 텍스트가 포함된 구조화된 출력으로 변환하는 방식](./Images/how-ocr-works.svg)
-
-### <a name="key-features"></a>주요 특징
+## <a name="key-features"></a>주요 특징
 
 Read API에는 다음 기능이 포함됩니다. 
 

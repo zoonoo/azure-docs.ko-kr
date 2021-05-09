@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 7b7adde8a6e60042bec7695e4553d6470e548316
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: df89335880802680e6074c467227ca49a841d5ca
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055691"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108016656"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼에 애플리케이션 등록
 
@@ -129,6 +129,7 @@ Microsoft ID 플랫폼은 등록된 애플리케이션에 대해서만 IAM(ID �
 1. **추가** 를 선택합니다.
 1. 클라이언트 애플리케이션 코드에서 사용할 *비밀 값을 기록* 합니다. 이 비밀 값은 이 페이지에서 나가면 *다시 표시되지 않습니다*.
 
+보안상의 이유로 Microsoft는 24개월보다 긴 클라이언트 암호 생성을 제한하며 12개월 미만의 값으로 설정하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

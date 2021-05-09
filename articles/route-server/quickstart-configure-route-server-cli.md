@@ -7,16 +7,18 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: e9c583db7493afc04b2c66553801f62d364b0a80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dce3dd10843bc6abf2878600ad1aba17a4318c80
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419611"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017940"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Route Server 만들기 및 구성 
 
 이 문서는 Azure CLI를 사용하여 가상 네트워크의 NVA(네트워크 가상 어플라이언스)와 피어링되도록 Azure Route Server를 구성하는 데 유용합니다. Azure Route Server는 NVA에서 경로를 학습하고 가상 네트워크의 가상 머신에 대해 프로그래밍합니다. 또한 NVA로 가상 네트워크 경로를 보급합니다. 자세한 내용은 [Azure Route Server](overview.md)를 읽어보세요.
+
+:::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Azure CLI를 사용하는 Route Server 배포 환경의 다이어그램." border="false":::
 
 > [!IMPORTANT]
 > Azure Route Server(미리 보기)는 현재 퍼블릭 미리 보기로 제공됩니다.
@@ -94,7 +96,7 @@ az network routeserver create -n "myRouteServer" -g "RouteServerRG" --hosted-sub
 
 ```azurecli-interactive 
 
-az network routeserver peering create --routeserver-name "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA1_name" 
+az network routeserver peering create --routeserver "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA1_name" 
 
 ``` 
 
@@ -104,7 +106,7 @@ az network routeserver peering create --routeserver-name "myRouteServer" -g "Rou
 
 ```azurecli-interactive 
 
-az network routeserver peering create --routeserver-name "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA2_name" 
+az network routeserver peering create --routeserver "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA2_name" 
 ``` 
 
 ## <a name="complete-the-configuration-on-the-nva"></a>NVA에 대한 구성 완료 
@@ -169,7 +171,7 @@ Azure Route Server가 더 이상 필요하지 않은 경우 다음 명령을 사
 1. 다음 명령을 사용하여 Azure Route Server와 NVA 간의 BGP 피어링을 제거합니다.
 
 ```azurecli-interactive
-az network routeserver peering delete --routeserver-name "myRouteServer" -g "RouteServerRG" -n "NVA2_name" 
+az network routeserver peering delete --routeserver "myRouteServer" -g "RouteServerRG" -n "NVA2_name" 
 ``` 
 
 2. 다음 명령을 사용하여 Azure Route Server를 제거합니다. 
