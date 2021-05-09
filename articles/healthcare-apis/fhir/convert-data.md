@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 01/19/2021
 ms.author: ranku
-ms.openlocfilehash: 2a34cfee57ecc1870c420c4c0f3c9261aa02f192
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: c796b72da15cb6278c355ed86fdf9eaaf54ca2be
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103490928"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108794498"
 ---
 # <a name="how-to-convert-data-to-fhir-preview"></a>데이터를 FHIR로 변환하는 방법(미리 보기)
 
@@ -95,12 +95,13 @@ Visual Studio Code용 [FHIR Converter 확장](https://marketplace.visualstudio.c
 
 ## <a name="host-and-use-templates"></a>템플릿 호스트 및 사용
 
-ACR에서 고유한 템플릿 복사본을 호스트하는 것이 좋습니다. 사용자의 템플릿 사본을 호스팅하고 $convert-data 작업에서 이를 사용하는 데는 네 가지 단계가 있습니다.
+ACR에서 고유한 템플릿 복사본을 호스트하는 것이 좋습니다. 템플릿의 고유한 복사본을 호스팅하고 $convert-data 작업에서 템플릿을 사용하는 데는 네 가지 단계가 있습니다.
 
 1. Azure Container Registry로 템플릿을 푸시합니다.
 1. Azure API for FHIR 인스턴스에서 관리 ID를 사용합니다.
 1. Azure API for FHIR 관리 ID에 ACR 액세스를 제공합니다.
 1. Azure API for FHIR에서 ACR 서버 등록
+1. 필요에 따라 보안 액세스를 위해 ACR 방화벽을 구성합니다.
 
 ### <a name="push-templates-to-azure-container-registry"></a>Azure Container Registry로 템플릿 푸시
 
@@ -125,13 +126,13 @@ Azure API for FHIR 서비스 인스턴스에 AcrPull 역할을 부여합니다.
 
 ### <a name="register-the-acr-servers-in-azure-api-for-fhir"></a>Azure API for FHIR에서 ACR 서버 등록
 
-Azure Portal를 사용 하거나 CLI를 사용 하 여 ACR 서버를 등록할 수 있습니다.
+Azure Portal 또는 CLI를 사용하여 ACR 서버를 등록할 수 있습니다.
 
-#### <a name="registering-the-acr-server-using-azure-portal"></a>Azure Portal를 사용 하 여 ACR 서버 등록
-FHIR 인스턴스의 Azure API에서 _데이터 변환_ 아래의 _아티팩트_ 블레이드로 이동 합니다. 현재 등록 된 ACR 서버 목록이 표시 됩니다. _추가_ 를 클릭 하 고 드롭다운에서 레지스트리 서버를 선택 합니다. 등록을 적용 하려면 [ _저장_ ]을 클릭 해야 합니다. 변경 내용을 적용 하 고 인스턴스를 다시 시작 하는 데 몇 분 정도 걸릴 수 있습니다.
+#### <a name="registering-the-acr-server-using-azure-portal"></a>Azure Portal 사용하여 ACR 서버 등록
+Azure API for FHIR 인스턴스의 데이터 _변환_ 아래에서 _아티팩트_ 블레이드로 이동합니다. 현재 등록된 ACR 서버 목록이 표시됩니다. _추가를_ 선택한 다음, 드롭다운 에서 레지스트리 서버를 선택합니다. 등록을 적용하려면 _저장을_ 선택해야 합니다. 변경을 적용하고 인스턴스를 다시 시작하는 데 몇 분 정도 걸릴 수 있습니다.
 
-#### <a name="registering-the-acr-server-using-cli"></a>CLI를 사용 하 여 ACR 서버 등록
-Azure API for FHIR에 최대 20개의 ACR 서버를 등록할 수 있습니다.
+#### <a name="registering-the-acr-server-using-cli"></a>CLI를 사용하여 ACR 서버 등록
+Azure API for FHIR 최대 20명의 ACR 서버를 등록할 수 있습니다.
 
 필요한 경우 Azure PowerShell에서 Healthcareapis CLI를 설치합니다.
 
@@ -152,6 +153,46 @@ az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io" --resource-gr
 ```powershell
 az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.azurecr.io" --resource-group fhir-test --resource-name fhirtest2021
 ```
+### <a name="configure-acr-firewall"></a>ACR 방화벽 구성
+
+포털에서 Azure Storage 계정의 **네트워킹을** 선택합니다.
+
+   :::image type="content" source="media/convert-data/networking-container-registry.png" alt-text="컨테이너 레지스트리.":::
+
+
+**선택한 네트워크** 를 선택합니다. 
+
+**방화벽** 섹션 아래의 **주소 범위** 상자에서 IP 주소를 지정합니다. IP 범위를 추가하여 인터넷 또는 온-프레미스 네트워크에서의 액세스를 허용합니다. 
+
+아래 표에서 Azure API for FHIR 서비스가 프로비전되는 Azure 지역의 IP 주소를 찾을 수 있습니다.
+
+|**Azure 지역**         |**공용 IP 주소** |
+|:----------------------|:-------------------|
+| 오스트레일리아 동부       | 20.53.44.80       |
+| 캐나다 중부       | 20.48.192.84      |
+| 미국 중부           | 52.182.208.31     |
+| 미국 동부              | 20.62.128.148     |
+| 미국 동부 2            | 20.49.102.228     |
+| 미국 동부 2 EUAP       | 20.39.26.254      |
+| 독일 북부        | 51.116.51.33      |
+| 독일 중서부 | 51.116.146.216    |
+| 일본 동부           | 20.191.160.26     |
+| 한국 중부        | 20.41.69.51       |
+| 미국 중북부     | 20.49.114.188     |
+| 북유럽         | 52.146.131.52     |
+| 남아프리카 북부   | 102.133.220.197   |
+| 미국 중남부     | 13.73.254.220     |
+| 동남 아시아       | 23.98.108.42      |
+| 스위스 북부    | 51.107.60.95      |
+| 영국 남부             | 51.104.30.170     |
+| 영국 서부              | 51.137.164.94     |
+| 미국 중서부      | 52.150.156.44     |
+| 서유럽          | 20.61.98.66       |
+| 미국 서부 2            | 40.64.135.77      |
+
+
+> [!NOTE]
+> 위의 단계는 FHIR 데이터를 내보내는 방법 문서에 설명 된 구성 단계와 유사 합니다.  자세한 내용은 [보안 내보내기를 참조하세요Azure Storage](https://docs.microsoft.com/azure/healthcare-apis/fhir/export-data#secure-export-to-azure-storage)
 
 ### <a name="verify"></a>확인
 
