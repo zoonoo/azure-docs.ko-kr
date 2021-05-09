@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2021
 ms.author: apimpm
-ms.openlocfilehash: 85abf30d792b24b92685e191f5b460a42dc29142
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 6f074ff389971fa56da7838a9a46ec5c4d42dc5a
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101688419"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739101"
 ---
 # <a name="api-management-cross-domain-policies"></a>도메인 정책 간 API Management
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](./api-management-policies.md)을 참조하세요.
@@ -51,25 +51,25 @@ ms.locfileid: "101688419"
 
 ### <a name="elements"></a>요소
 
-|이름|설명|필수|
+|이름|Description|필수|
 |----------|-----------------|--------------|
 |cross-domain|루트 요소입니다. 자식 요소는 [Adobe 도메인 간 정책 파일 사양](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)을 준수해야 합니다.|예|
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
 - **정책 섹션:** inbound
 - **정책 범위:** 모든 범위
 
-## <a name="cors"></a><a name="CORS"></a> 용
+## <a name="cors"></a><a name="CORS"></a> CORS
 `cors` 정책은 CORS(Cross-Origin Resource Sharing) 지원을 작업 또는 API에 추가하여 브라우저 기반 클라이언트의 도메인 간 호출을 허용합니다. 
 
 > [!NOTE]
-> 요청이 API에 정의 된 OPTIONS 메서드를 사용 하는 작업과 일치 하는 경우 CORS 정책과 연결 된 이전 요청 처리 논리가 실행 되지 않습니다. 따라서 이러한 작업을 사용 하 여 사용자 지정 사전 처리 논리를 구현할 수 있습니다.
+> 요청이 API에 정의된 OPTIONS 메서드를 사용하는 작업과 일치하는 경우 CORS 정책과 연결된 이전 요청 처리 논리가 실행되지 않습니다. 따라서 이러한 작업을 사용하여 사용자 지정 사전 처리 논리를 구현할 수 있습니다.
 
 CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 요청(즉, 웹 페이지의 JavaScript에서 다른 도메인으로 실행한 XMLHttpRequests 호출)을 허용할지 여부를 결정할 수 있습니다. 따라서 동일 원본의 요청만 허용하는 것보다 유연성이 더 뛰어나며 모든 원본 간 요청을 허용하는 것보다 보안도 더 높아집니다.
 
-개발자 포털에서 대화형 콘솔을 사용 하도록 설정 하려면 CORS 정책을 적용 해야 합니다. 자세한 내용은 [개발자 포털 설명서](./api-management-howto-developer-portal.md#cors) 를 참조 하세요.
+개발자 포털에서 대화형 콘솔을 사용하도록 설정하려면 CORS 정책을 적용해야 합니다. 자세한 내용은 [개발자 포털 문서](./developer-portal-faq.md#cors)를 참조하세요.
 
 ### <a name="policy-statement"></a>정책 문
 
@@ -125,26 +125,26 @@ CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 �
 
 ### <a name="elements"></a>요소
 
-|이름|설명|필수|기본값|
+|이름|Description|필수|기본값|
 |----------|-----------------|--------------|-------------|
 |cors|루트 요소입니다.|예|해당 없음|
 |allowed-origins|도메인 간 요청에 대해 허용되는 원본을 설명하는 `origin` 요소를 포함합니다. `allowed-origins`는 모든 원본을 허용하도록 `*`를 지정하는 단일 `origin` 요소 또는 URI를 포함하는 하나 이상의 `origin` 요소를 포함할 수 있습니다.|예|해당 없음|
 |원본|값은 모든 원본을 허용하는 `*`이거나 단일 원본을 지정하는 URI일 수 있습니다. URI에는 체계, 호스트 및 포트가 포함되어야 합니다.|예|URI에서 포트를 생략하면 HTTP에 포트 80이 사용되고 HTTPS에 포트 443이 사용됩니다.|
-|allowed-methods|GET 또는 POST 이외의 메서드가 허용되는 경우 이 요소가 필요합니다. 지원되는 HTTP 동사를 지정하는 `method`를 포함합니다. 값은 `*` 모든 메서드를 나타냅니다.|아니요|이 섹션이 없으면 GET 및 POST가 지원됩니다.|
-|method|HTTP 동사를 지정합니다.|`allowed-methods` 섹션이 있는 경우 하나 이상의 `method` 요소가 필요합니다.|해당 없음|
+|allowed-methods|GET 또는 POST 이외의 메서드가 허용되는 경우 이 요소가 필요합니다. 지원되는 HTTP 동사를 지정하는 `method`를 포함합니다. `*` 값은 모든 메서드를 나타냅니다.|아니요|이 섹션이 없으면 GET 및 POST가 지원됩니다.|
+|메서드(method)|HTTP 동사를 지정합니다.|`allowed-methods` 섹션이 있는 경우 하나 이상의 `method` 요소가 필요합니다.|해당 없음|
 |allowed-headers|이 요소는 요청에 포함할 수 있는 헤더 이름을 지정하는 `header` 요소를 포함합니다.|아니요|해당 없음|
 |expose-headers|이 요소는 클라이언트가 액세스할 수 있는 헤더 이름을 지정하는 `header` 요소를 포함합니다.|아니요|해당 없음|
 |header|헤더 이름을 지정합니다.|섹션이 있는 경우 `allowed-headers` 또는 `expose-headers`에 하나 이상의 `header` 요소가 필요합니다.|해당 없음|
 
 ### <a name="attributes"></a>특성
 
-|Name|설명|필수|기본값|
+|Name|Description|필수|기본값|
 |----------|-----------------|--------------|-------------|
-|allow-credentials|실행 `Access-Control-Allow-Credentials` 전 응답의 헤더는이 특성의 값으로 설정 되 고 도메인 간 요청에서 자격 증명을 제출 하는 클라이언트의 기능에 영향을 줍니다.|아니요|false|
-|종료-일치 하지 않는 요청|이 특성은 CORS 정책 설정과 일치 하지 않는 크로스-원본 요청 처리를 제어 합니다. OPTIONS 요청이 미리 비행 된 요청으로 처리 되 고 CORS 정책 설정과 일치 하지 않는 경우: 특성이로 설정 되 면 `true` 빈 200 OK 응답을 사용 하 여 즉시 요청을 종료 합니다. 특성이로 설정 된 경우 인바운드 `false` 요소의 직계 자식인 다른 범위 내 CORS 정책에 대 한 인바운드를 확인 하 고 적용 합니다.  CORS 정책을 찾지 못한 경우 빈 200 OK 응답을 사용 하 여 요청을 종료 합니다. GET 또는 HEAD 요청에 원본 헤더가 포함 된 경우 (따라서 원본 간 요청으로 처리 됨) CORS 정책 설정과 일치 하지 않습니다. 특성이로 설정 된 경우 `true` 빈 200 OK 응답을 사용 하 여 즉시 요청을 종료 합니다. 특성이로 설정 된 경우 `false` 요청을 정상적으로 계속할 수 있으며 응답에 CORS 헤더를 추가 하지 않습니다.|아니요|true|
-|preflight-result-max-age|실행 전 `Access-Control-Max-Age` 응답의 헤더는이 특성의 값으로 설정 되 고, 사전 진행 된 응답을 캐시 하는 사용자 에이전트의 기능에 영향을 줍니다.|아니요|0|
+|allow-credentials|사전 응답의 `Access-Control-Allow-Credentials` 헤더가 이 특성의 값으로 설정되고 도메인 간 요청에서 자격 증명을 제출하는 클라이언트 기능에 영향을 줍니다.|아니요|false|
+|terminate-unmatched-request|이 특성은 CORS 정책 설정과 일치하지 않는 교차 원본 요청 처리를 제어합니다. OPTIONS 요청이 사전 요청으로 처리되고 CORS 정책 설정과 일치하지 않는 경우: 특성이 `true`로 설정되면 빈 200 OK 응답으로 즉시 요청을 종료합니다. 특성이 `false`로 설정된 경우 인바운드 요소의 직계 자식 요소인 다른 범위 내 CORS 정책에 대한 인바운드를 확인하고 적용합니다.  CORS 정책을 찾지 못한 경우 빈 200 OK 응답으로 요청을 종료합니다. GET 또는 HEAD 요청에 원본 헤더가 포함되고(따라서 원본 간 요청으로 처리됨) CORS 정책 설정과 일치하지 않는 경우: 특성이 `true`로 설정된 경우 빈 200 OK 응답으로 즉시 요청을 종료합니다. 특성이 `false`로 설정된 경우 정상적으로 요청을 계속할 수 있으며 응답에 CORS 헤더를 추가하지 않습니다.|아니요|true|
+|preflight-result-max-age|사전 응답의 `Access-Control-Max-Age` 헤더가 이 특성 값으로 설정되고 사전 응답을 캐싱하는 사용자 에이전트 기능에 영향을 줍니다.|아니요|0|
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
 - **정책 섹션:** inbound
@@ -171,17 +171,17 @@ CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 �
 
 ### <a name="elements"></a>요소
 
-|이름|설명|필수|
+|이름|Description|필수|
 |----------|-----------------|--------------|
 |jsonp|루트 요소입니다.|예|
 
 ### <a name="attributes"></a>특성
 
-|Name|설명|필수|기본값|
+|Name|Description|필수|기본값|
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|함수가 상주하는 정규화된 도메인 이름이 접두사로 지정된 도메인 간 JavaScript 함수 호출|예|해당 없음|
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
 - **정책 섹션:** outbound

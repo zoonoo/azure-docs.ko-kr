@@ -1,24 +1,23 @@
 ---
 title: Azure Key Vault 고객 데이터 기능 - Azure Key Vault | Microsoft Docs
-description: 자격 증명 모음, 키, 암호, 인증서 및 관리 되는 저장소 계정을 만들거나 업데이트 하는 동안 Azure Key Vault 받는 고객 데이터에 대해 알아봅니다.
+description: 자격 증명 모음, 키, 비밀, 인증서 및 관리형 스토리지 계정의 생성 또는 업데이트 과정에서 Azure Key Vault에서 수신하는 고객 데이터에 관해 알아봅니다.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8806ff41edabcd3c0875d3c02360dc9a275e3878
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 4d45c019a6ba073d7553c09784736959faf89d27
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96460826"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749783"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault 고객 데이터 기능
 
-자격 증명 모음, 관리 되는 HSM 풀, 키, 암호, 인증서 및 관리 되는 저장소 계정을 만들거나 업데이트 하는 동안 고객 데이터를 수신 Azure Key Vault. 이 고객 데이터는 Azure Portal과 REST API를 통해 직접 표시됩니다. 고객 데이터는 데이터를 포함하는 개체를 업데이트하거나 삭제하여 편집 또는 삭제될 수 있습니다.
+Azure Key Vault는 자격 증명 모음, 관리형 HSM 풀, 키, 비밀, 인증서 및 관리형 스토리지 계정의 생성 또는 업데이트 과정에서 고객 데이터를 수신합니다. 이 고객 데이터는 Azure Portal과 REST API를 통해 직접 표시됩니다. 고객 데이터는 데이터를 포함하는 개체를 업데이트하거나 삭제하여 편집 또는 삭제될 수 있습니다.
 
 사용자 또는 애플리케이션에서 Key Vault에 액세스하는 경우 시스템 액세스 로그가 생성됩니다. 고객은 Azure Insights를 통해 자세한 액세스 로그를 사용할 수 있습니다.
 
@@ -40,7 +39,7 @@ ms.locfileid: "96460826"
 
 자격 증명 모음, 키, 비밀, 인증서 및 관리되는 스토리지 계정을 만드는 데 사용된 동일한 REST API, 포털 환경 및 SDK는 이러한 개체를 업데이트 및 삭제할 수도 있습니다.
 
-일시 삭제를 사용 하면 삭제 후 90 일간 삭제 된 데이터를 복구할 수 있습니다. 일시 삭제를 사용 하는 경우 제거 작업을 수행 하 여 보존 기간이 90 일 전에 영구적으로 삭제 될 수 있습니다. 자격 증명 모음 또는 구독이 제거 작업을 차단하도록 구성된 경우 예약된 보존 기간이 경과될 때까지 데이터를 영구적으로 삭제할 수 없습니다.
+일시 삭제를 사용하면 삭제 후 90일 동안 삭제된 데이터를 복구할 수 있습니다. 일시 삭제를 사용할 경우 제거 작업을 수행하여 90일 보존 기간 전에 데이터를 영구적으로 삭제할 수 있습니다. 자격 증명 모음 또는 구독이 제거 작업을 차단하도록 구성된 경우 예약된 보존 기간이 경과될 때까지 데이터를 영구적으로 삭제할 수 없습니다.
 
 ## <a name="exporting-customer-data"></a>고객 데이터 내보내기
 

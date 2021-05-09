@@ -11,12 +11,12 @@ ms.custom: mvc, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 737810a7d07d0d97b2e42acffa17fdd32986c48b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4ed332e9aa0048c87329ce25d0a63b619d2a196
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93421093"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070583"
 ---
 # <a name="tutorial-protect-and-grant-access-to-a-nodejs-web-api-from-a-single-page-application-with-azure-ad-b2c"></a>자습서: Azure AD B2C를 사용하여 단일 페이지 애플리케이션에서 Node.js 웹 API를 보호하고 액세스 권한 부여
 
@@ -112,7 +112,7 @@ app.use((req, res, next) => {
 
 SPA의 설정을 변경하려면 다음을 수행합니다.
 
-1. 이전 자습서에서 다운로드하거나 복제한 [active-directory-b2c-javascript-msal-singlepageapp][github-js-spa] 프로젝트에서 *JavaScriptSPA* 폴더 내부의 *apiConfig.js* 파일을 엽니다.
+1. 이전 자습서에서 다운로드하거나 복제한 [ms-identity-b2c-javascript-spa][github-js-spa] 프로젝트의 *앱* 폴더에 있는 *apiConfig.js* 파일을 엽니다.
 1. 앞에서 만든 *demo.read* 범위의 URI와 웹 API의 URL을 사용하여 샘플을 구성합니다.
     1. `apiConfig` 정의에서 `b2cScopes` 값을 *demo.read* 범위의 전체 URI(앞에서 적어 둔 **범위** 값)로 바꿉니다.
     1. `webApi` 값의 도메인을 이전 단계에서 웹 API 애플리케이션을 등록할 때 추가한 리디렉션 URI로 변경합니다.
@@ -202,4 +202,4 @@ SPA의 설정을 변경하려면 다음을 수행합니다.
 > [Azure Active Directory B2C에서 사용할 수 있는 애플리케이션 유형 >](application-types.md)
 
 <!-- Links - EXTERNAL -->
-[github-js-spa]: https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp
+[github-js-spa]: https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa

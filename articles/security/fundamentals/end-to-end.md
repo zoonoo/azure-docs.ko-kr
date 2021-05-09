@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/07/2021
 ms.author: terrylan
-ms.openlocfilehash: 3ea3c2bcb878dbd8a712e6076dda09853f55e297
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 7612732f01075759d76c2bce5e8c710afc676642
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310345"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132866"
 ---
 # <a name="end-to-end-security-in-azure"></a>Azure 엔드투엔드 보안
 Azure를 애플리케이션과 서비스에 사용하는 가장 좋은 이유 중 하나는 광범위한 보안 도구와 기능을 활용한다는 점입니다. 이러한 도구 및 기능을 통해 안전한 Azure 플랫폼에서 안전한 솔루션을 만들 수 있습니다. Microsoft Azure는 고객 데이터의 기밀성, 무결성 및 가용성을 제공하는 한편 투명한 책임도 가능하게 합니다.
@@ -72,10 +72,10 @@ Azure를 애플리케이션과 서비스에 사용하는 가장 좋은 이유 �
 | **데이터 및 애플리케이션** |  |
 | [Azure Backup](../../backup/backup-overview.md) | 데이터를 백업하고 Microsoft Azure 클라우드에서 복구할 수 있는 간단하고, 안전하며, 비용 효율적인 솔루션을 제공합니다. |
 | [Azure Storage 서비스 암호화](../../storage/common/storage-service-encryption.md) | 데이터를 저장하기 전에 자동으로 암호화하고, 데이터를 검색할 때 자동으로 암호 해독할 수 있습니다. |
-| [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) | 조직에서 콘텐츠에 레이블을 적용하여 문서 및 이메일을 검색, 분류 및 보호할 수 있도록 하는 클라우드 기반 솔루션입니다. |
+| [Azure Information Protection](/azure/information-protection/what-is-information-protection) | 조직에서 콘텐츠에 레이블을 적용하여 문서 및 이메일을 검색, 분류 및 보호할 수 있도록 하는 클라우드 기반 솔루션입니다. |
 | [API Management](../../api-management/api-management-key-concepts.md) | 기존 백 엔드 서비스를 위해 일관된 최신 API 게이트웨이를 빠르게 만드는 방법입니다. |
 | [Azure 기밀 컴퓨팅](../../confidential-computing/overview.md) | 이것을 사용하여 클라우드에서 처리하는 동안 중요한 데이터를 격리할 수 있습니다. |
-| [Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops) | 개발 프로젝트에서 Azure DevOps에 저장된 보안 및 거버넌스 기술, 운영 관행 및 규정 준수 정책의 여러 계층을 활용할 수 있습니다. |
+| [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) | 개발 프로젝트에서 Azure DevOps에 저장된 보안 및 거버넌스 기술, 운영 관행 및 규정 준수 정책의 여러 계층을 활용할 수 있습니다. |
 | **고객 액세스** |  |
 | [Azure Active Directory External Identities](../../active-directory/external-identities/compare-with-b2c.md) | Azure AD의 외부 ID를 사용하여 조직 외부 사용자가 앱과 리소스에 액세스하도록 허용하는 동시에 원하는 모든 ID를 사용하여 로그인하도록 할 수 있습니다. |
 |  | [Azure AD B2B](../../active-directory/external-identities/what-is-b2b.md) 협업을 통해 외부 사용자와 앱과 리소스를 공유할 수 있습니다. |
@@ -90,9 +90,9 @@ Azure를 애플리케이션과 서비스에 사용하는 가장 좋은 이유 �
 | [Azure Defender](../../security-center/azure-defender.md) | Azure, 하이브리드 리소스, 워크로드에 고급 지능형 보호를 제공합니다. Security Center의 Azure Defender 대시보드는 사용자 환경에 대한 클라우드 워크로드 보호 기능의 가시성 및 제어 기능을 제공합니다. |
 | [Azure Sentinel](../../sentinel/overview.md) | 확장 가능한 클라우드 네이티브, SIEM(보안 정보 이벤트 관리) 및 SOAR(보안 오케스트레이션 자동화 응답) 솔루션입니다. Sentinel은 엔터프라이즈 전반에 지능적인 보안 분석 및 위협 인텔리전스를 제공하며, 경고 검색, 위협 가시성, 주도적 헌팅 및 위협 대응을 위한 단일 솔루션을 제공합니다. |
 | **ID&nbsp;&&nbsp;액세스&nbsp;관리** |  |
-| [Microsoft 365 Defender](https://docs.microsoft.com/microsoft-365/security/defender/microsoft-365-defender) | 엔드포인트, ID, 메일 및 애플리케이션 전반에서 감지, 방지, 조사, 응답을 기본적으로 조정하여 정교한 공격에 대비한 통합 보호를 제공하는 통합된 위반 전후 엔터프라이즈 방어 도구 모음입니다. |
-|  | [Microsoft Defender For Endpoint](https://docs.microsoft.com/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint.md)는 엔터프라이즈 네트워크가 고급 위협을 방지, 검색, 조사 및 대응하는 데 도움이 되도록 설계된 엔터프라이즈 엔드포인트 보안 플랫폼입니다. |
-|  | [Microsoft Defender for Identity](https://docs.microsoft.com/defender-for-identity/what-is)는 온-프레미스 Active Directory 신호를 활용하여 고급 위협, 손상된 ID 및 사용자의 조직을 대상으로 한 악의적인 내부자 작업을 식별하고 검색하고 조사하는 클라우드 기반 보안 솔루션입니다. |
+| [Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-defender) | 엔드포인트, ID, 메일 및 애플리케이션 전반에서 감지, 방지, 조사, 응답을 기본적으로 조정하여 정교한 공격에 대비한 통합 보호를 제공하는 통합된 위반 전후 엔터프라이즈 방어 도구 모음입니다. |
+|  | [Microsoft Defender For Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint)는 엔터프라이즈 네트워크가 고급 위협을 방지, 검색, 조사 및 대응하는 데 도움이 되도록 설계된 엔터프라이즈 엔드포인트 보안 플랫폼입니다. |
+|  | [Microsoft Defender for Identity](/defender-for-identity/what-is)는 온-프레미스 Active Directory 신호를 활용하여 고급 위협, 손상된 ID 및 사용자의 조직을 대상으로 한 악의적인 내부자 작업을 식별하고 검색하고 조사하는 클라우드 기반 보안 솔루션입니다. |
 | [Azure AD ID 보호](../../active-directory/identity-protection/howto-identity-protection-configure-notifications.md) | 사용자 위험 및 위험 검색을 관리하는 데 도움이 되는 두 가지 유형의 자동화된 알림 이메일을 보냅니다(감지된 위험 사용자 이메일과 주간 요약 이메일). |
 | **인프라 및 네트워크** |  |
 | [IoT용 Azure Defender](../../defender-for-iot/overview.md) | IoT/OT 디바이스, 취약성 및 위협을 식별하는 통합 보안 솔루션입니다. 기존 IoT/OT 디바이스를 보호해야 하든 아니면 새로운 IoT 혁신의 보안을 구축해야 하든, 이 솔루션은 전체 IoT/OT 환경을 보호합니다. |
@@ -101,7 +101,7 @@ Azure를 애플리케이션과 서비스에 사용하는 가장 좋은 이유 �
 | **데이터 및 애플리케이션** |  |
 | [컨테이너 레지스트리용 Azure Defender](../../security-center/defender-for-container-registries-introduction.md) | Azure Resource Manager 기반 Azure Container Registry 레지스트리의 이미지를 검사하고 이미지의 취약성에 대한 보다 심층적인 가시성을 제공하는 취약성 검사기가 포함되어 있습니다. |
 | [Kubernetes용 Azure Defender](../../security-center/defender-for-kubernetes-introduction.md) | AKS(Azure Kubernetes Service)에서 검색한 로그를 통해 AKS 관리형 서비스를 모니터링하여 클러스터 수준 위협 방지를 제공합니다. |
-| [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) | 여러 클라우드에서 작동하는 CASB(Cloud Access Security Broker)입니다. 다양한 가시성, 데이터 이동 제어 및 정교한 분석을 제공하여 모든 클라우드 서비스에서의 사이버 위협을 식별하고 대처합니다. |
+| [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) | 여러 클라우드에서 작동하는 CASB(Cloud Access Security Broker)입니다. 다양한 가시성, 데이터 이동 제어 및 정교한 분석을 제공하여 모든 클라우드 서비스에서의 사이버 위협을 식별하고 대처합니다. |
 
 ## <a name="investigate-and-respond"></a>조사 및 대응
 
@@ -112,11 +112,11 @@ Azure를 애플리케이션과 서비스에 사용하는 가장 좋은 이유 �
 | [Azure Sentinel](../../sentinel/hunting.md) | 조직의 데이터 원본에서 보안 위협을 헌팅하는 강력한 검색 및 쿼리 도구입니다. |
 | [Azure&nbsp;모니터&nbsp;로그&nbsp;및&nbsp;메트릭](../../azure-monitor/overview.md) | 클라우드 및 온-프레미스 환경에서 원격 분석의 수집, 분석 및 작업에 대한 포괄적인 솔루션을 제공합니다. Azure Monitor는 다양한 원본의 [데이터를 수집하여](../../azure-monitor/data-platform.md#observability-data-in-azure-monitor) 분석, 시각화 및 경고 생성에 사용할 수 있는 공통 데이터 플랫폼으로 집계합니다. |
 | **ID&nbsp;&&nbsp;액세스&nbsp;관리** |  |
-| [Azure&nbsp;AD&nbsp;보고서&nbsp;및&nbsp;모니터링](https://docs.microsoft.com/azure/active-directory/reports-monitoring/) | [Azure AD 보고서](../../active-directory/reports-monitoring/overview-reports.md)는 환경에서 작업의 포괄적인 보기를 제공합니다. |
+| [Azure&nbsp;AD&nbsp;보고서&nbsp;및&nbsp;모니터링](../../active-directory/reports-monitoring/index.yml) | [Azure AD 보고서](../../active-directory/reports-monitoring/overview-reports.md)는 환경에서 작업의 포괄적인 보기를 제공합니다. |
 |  | [Azure AD 모니터링](../../active-directory/reports-monitoring/overview-monitoring.md)을 사용하여 Azure AD 활동 로그를 다른 엔드포인트로 라우팅할 수 있습니다.|
 | [Azure AD PIM 감사 기록](../../active-directory/privileged-identity-management/pim-how-to-use-audit-log.md) | 권한이 있는 모든 역할에 대해 지난 30일 이내에 모든 역할 할당 및 활성화를 표시합니다. |
 | **데이터 및 애플리케이션** |  |
-| [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/investigate) | 클라우드 환경에서 발생하는 일에 대해 더 자세히 알 수 있는 도구를 제공합니다. |
+| [Microsoft Cloud App Security](/cloud-app-security/investigate) | 클라우드 환경에서 발생하는 일에 대해 더 자세히 알 수 있는 도구를 제공합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,6 +1,6 @@
 ---
-title: 로그인에 Azure VM에서 관리 되는 id 사용-Azure 고급
-description: Azure 리소스에 대 한 azure VM 관리 id를 사용 하는 방법에 대 한 단계별 지침과 예제를 사용 하 여 스크립트 클라이언트 로그인 및 리소스 액세스를 지원 합니다.
+title: Azure VM에 로그인 시 관리 ID 사용 - Azure ADV
+description: 스크립트 클라이언트 로그인 및 리소스 액세스를 위해 Azure 리소스 서비스 주체의 Azure VM 관리 ID를 사용하는 단계별 지침 및 예입니다.
 services: active-directory
 documentationcenter: ''
 author: barclayn
@@ -15,22 +15,22 @@ ms.workload: identity
 ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 61e83bd27c9434c4222e0161e3b643b183d1aa84
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: eb8a9ce7d0591824e3b9e77b7411e397c5d3161b
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99090963"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108075555"
 ---
-# <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>로그인을 위해 Azure VM에서 Azure 리소스에 대 한 관리 되는 id를 사용 하는 방법 
+# <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>로그인을 위해 Azure VM에서 Azure 리소스에 대한 관리 ID를 사용하는 방법 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 이 문서에서는 Azure 리소스 서비스 주체의 관리 ID를 사용한 로그인에 대한 PowerShell 및 CLI 스크립트 예제 및 오류 처리와 같은 중요한 항목에 대한 지침을 제공합니다.
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -42,7 +42,7 @@ ms.locfileid: "99090963"
 
 ## <a name="overview"></a>개요
 
-Azure 리소스에 대 한 관리 되는 id는 VM에서 [azure 리소스에 대 한 관리 되는 id를 사용 하도록 설정할 때 생성](overview.md) 되는 [서비스 주체 개체](../develop/developer-glossary.md#service-principal-object) 를 제공 합니다. 서비스 주체는 Azure 리소스에 액세스 권한을 부여하고 로그인 및 리소스 액세스를 위한 스크립트/명령줄에 의한 ID로 사용될 수 있습니다. 일반적으로 고유한 ID 하에서 보호된 리소스에 액세스하기 위해 스크립트 클라이언트는 다음을 수행해야 합니다.  
+Azure 리소스에 대한 관리 ID는 VM에서 [Azure 리소스에 대한 관리 ID를 사용하도록 설정할 때 만들어지는](overview.md) [서비스 주체 개체](../develop/developer-glossary.md#service-principal-object)를 제공합니다. 서비스 주체는 Azure 리소스에 액세스 권한을 부여하고 로그인 및 리소스 액세스를 위한 스크립트/명령줄에 의한 ID로 사용될 수 있습니다. 일반적으로 고유한 ID 하에서 보호된 리소스에 액세스하기 위해 스크립트 클라이언트는 다음을 수행해야 합니다.  
 
    - Azure AD에서 기밀/웹 클라이언트 애플리케이션으로 등록하고 동의합니다.
    - 앱의 자격 증명(스크립트에 포함됨)을 사용하여 해당 서비스 주체 하에 로그인합니다.
@@ -88,9 +88,9 @@ Azure AD를 지원하고 Azure 리소스의 관리 ID 및 해당하는 리소스
 다음과 같은 응답은 Azure 리소스의 VM 관리 ID가 올바르게 구성되지 않았음을 나타낼 수 있습니다.
 
 - PowerShell: *Invoke-WebRequest: 원격 서버에 연결할 수 없습니다.*
-- CLI: *MSI: `http://localhost:50342/oauth2/token` ' HTTPConnectionPool (host = ' localhost ', port = 50342) 오류가 발생 하 여에서 토큰을 검색 하지 못했습니다.* 
+- CLI: *MSI: 'HTTPConnectionPool(host='localhost', port=50342) 오류를 표시하여 `http://localhost:50342/oauth2/token`에서 토큰을 검색하지 못했습니다.* 
 
-이러한 오류 중 하나를 수신 하면 [Azure Portal](https://portal.azure.com) 에서 Azure VM으로 돌아가서 **id** 페이지로 이동 하 여 **시스템 할당** 됨이 "예"로 설정 되었는지 확인 합니다.
+이러한 오류 중 하나가 발생하면 [Azure Portal](https://portal.azure.com)의 Azure VM으로 돌아가서 **ID** 페이지로 이동하여 **시스템 할당** 이 "예"로 설정되었는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

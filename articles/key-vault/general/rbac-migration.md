@@ -3,18 +3,17 @@ title: Azure 역할 기반 액세스 제어로 마이그레이션 | Microsoft Do
 description: 자격 증명 모음 액세스 정책에서 Azure 역할로 마이그레이션하는 방법을 알아봅니다.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e7a8fd53e78e1aeab9db5af0432d0c3f1d786823
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a369ed26ca91dbf951b28b99250c6307608c5eb3
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100526955"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749081"
 ---
 # <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-permission-model"></a>자격 증명 모음 액세스 정책에서 Azure 역할 기반 액세스 제어 권한 모델로 마이그레이션
 

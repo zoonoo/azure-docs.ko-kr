@@ -1,21 +1,20 @@
 ---
 title: Key Vault .NET 2.x API 릴리스 정보 | Microsoft Docs
-description: '이전 버전의 Azure Key Vault 용으로 작성 된 앱을 업데이트 하 여 c # 및 .NET 용 Azure Key Vault 라이브러리의 2.0 버전을 사용 하는 방법에 대해 알아봅니다.'
+description: 이전 버전의 Azure Key Vault용으로 작성된 앱을 업데이트하여 C# 및 .NET용 Azure Key Vault 라이브러리의 2.0 버전을 사용하는 방법을 알아봅니다.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 editor: bryanla
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 018570019b306dced76760fefa4441ee7d86ad2a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: b923cc289dc0229f18eba144b09ceb34e0edea4e
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96013958"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751889"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2.0 - 릴리스 정보 및 마이그레이션 가이드
 다음 정보는 C# 및 .NET용 Azure Key Vault 라이브러리 2.0 버전으로 마이그레이션하는 데 도움이됩니다.  이전 버전용으로 작성된 앱은 최신 버전을 지원하도록 업데이트해야 합니다.  이러한 변경 사항은 **Key Vault 인증서** 와 같이 새롭고 향상된 기능을 완벽하게 지원하는 데 필요합니다.
@@ -90,8 +89,8 @@ Key Vault 인증서는 x509 인증서를 관리하고 다음 동작을 지원합
 
 ## <a name="class-changes"></a>클래스 변경
 
-* 가 수 **Xepoch** 클래스가 제거 되었습니다.
-* **Base64UrlConverter** 클래스의 이름이 **Base64UrlJsonConverter** 로 바뀌었습니다.
+* **UnixEpoch** 클래스가 제거되었습니다.
+* **Base64UrlConverter** 클래스 이름을 **Base64UrlJsonConverter** 로 변경합니다.
 
 ## <a name="other-changes"></a>기타 변경 내용
 
@@ -99,7 +98,7 @@ Key Vault 인증서는 x509 인증서를 관리하고 다음 동작을 지원합
 
 ## <a name="microsoftazuremanagementkeyvault-nuget"></a>Microsoft.Azure.Management.KeyVault NuGet
 
-* *자격 증명 모음* 을 반환 하는 작업의 경우 반환 형식은 **자격 증명 모음** 속성을 포함 하는 클래스 였습니다. 반환 유형은 이제 *자격 증명 모음* 입니다.
+* *자격 증명 모음* 을 반환하는 작업의 경우 반환 형식은 **자격 증명 모음** 속성을 포함하는 클래스였습니다. 반환 유형은 이제 *자격 증명 모음* 입니다.
 * *PermissionsToKeys* 및 *PermissionsToSecrets* 는 이제 *Permissions.Keys* 및 *Permissions.Secrets* 입니다.
 * 특정 반환 형식 변경 내용은 제어 평면에도 적용됩니다.
 

@@ -12,12 +12,12 @@ ms.date: 08/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d2eaf1dce432821dcfc693dc69dcf975a3d8be8d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1f79eee17a78bd5cfc9024a333142deaaa44b3e2
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92503864"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071139"
 ---
 # <a name="tutorial-register-a-single-page-application-spa-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 SPA(단일 페이지 애플리케이션) 등록
 
@@ -34,12 +34,12 @@ Azure AD B2C는 단일 페이지 애플리케이션에서 사용자를 로그인
 
 이 방법을 사용하는 것이 **좋습니다**. 수명이 제한된 새로 고침 토큰을 사용하면 애플리케이션이 Safari ITP와 같은 [최신 브라우저 쿠키 프라이버시 제한](../active-directory/develop/reference-third-party-cookies-spas.md)에 맞게 조정됩니다.
 
-이 흐름을 활용하기 위해, 애플리케이션에서 이를 지원하는 인증 라이브러리(예: [MSAL.js 2.x](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa))를 사용할 수 있습니다. 
+이 흐름을 활용하려면 애플리케이션에서 이를 지원하는 인증 라이브러리(예: [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser))를 사용하면 됩니다. 
 
 ![단일 페이지 애플리케이션 인증](./media/tutorial-single-page-app/spa-app-auth.svg)
 
 ### <a name="implicit-grant-flow"></a>암시적 권한 부여 흐름
-- [OAuth 2.0 암시적 흐름](implicit-flow-single-page-application.md). [MSAL.js 1.x](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) 같은 일부 프레임워크는 암시적 권한 부여 흐름만 지원합니다. 암시적 권한 부여 흐름을 사용하면 애플리케이션에서 **ID** 및 **액세스** 토큰을 얻을 수 있습니다. 권한 부여 코드 흐름과 달리, 암시적 허용 흐름은 **새로 고침 토큰** 을 반환하지 않습니다. 
+- [OAuth 2.0 암시적 흐름](implicit-flow-single-page-application.md). [MSAL.js 1.X](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)와 같은 일부 프레임워크에서는 암시적 권한 부여 흐름만 지원합니다. 암시적 권한 부여 흐름을 사용하면 애플리케이션에서 **ID** 및 **액세스** 토큰을 얻을 수 있습니다. 권한 부여 코드 흐름과 달리, 암시적 허용 흐름은 **새로 고침 토큰** 을 반환하지 않습니다. 
 
 ![단일 페이지 애플리케이션 암시적](./media/tutorial-single-page-app/spa-app.svg)
 

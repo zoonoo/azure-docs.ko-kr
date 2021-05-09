@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 12/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: ae5887657e7657e60348217c21aa0ed17f9f4b07
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ff26289962aa06f9638644e28da23b646554281
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97606303"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865318"
 ---
 # <a name="what-is-azure-time-series-insights-gen2"></a>Azure Time Series Insights Gen2란?
 
@@ -86,6 +86,21 @@ Azure Time Series Insights Gen2는 데이터 처리, 스토리지(데이터 및 
 | 거의 실시간 데이터 검색 | [Azure Time Series Insights Gen2 탐색기](./concepts-ux-panels.md) 사용자 환경은 수집 파이프라인을 통한 모든 데이터 스트리밍에 대해 시각화를 제공합니다. 이벤트 원본을 연결하면 이벤트 데이터를 보고 탐색하고 쿼리할 수 있습니다. 이러한 방식으로, 디바이스에서 예상대로 데이터를 내보내는지 여부를 확인할 수 있습니다. IoT 자산의 상태, 생산성 및 전반적인 효율성을 모니터링할 수도 있습니다. |
 | 확장성 및 통합 | Power BI 커넥터 통합은 **내보내기** 옵션을 통해 시계열 탐색기 사용자 환경에서 직접 사용할 수 있으므로, 고객이 사용자 환경에서 만든 시계열 쿼리를 Power BI 데스크톱에 직접 내보내고 다른 BI 분석과 함께 시계열 차트를 볼 수 있습니다. 이를 통해 IoT 시계열을 비롯한 다양한 데이터 원본에 대해 단일 창구를 제공함으로써 Power BI 분야에 투자한 산업용 IoT 엔터프라이즈를 대상으로 하는 새로운 차원의 시나리오가 가능해집니다. |
 | Azure Time Series Insights Gen2 플랫폼에 빌드된 사용자 지정 애플리케이션 | Azure Time Series Insights Gen2는 [JavaScript SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)를 지원합니다. SDK는 풍부한 컨트롤 및 간소화된 쿼리 액세스를 제공합니다. SDK를 사용하여 비즈니스 요구에 맞는 사용자 지정 IoT 애플리케이션을 Azure Time Series Insights Gen2에 빌드할 수 있습니다. Azure Time Series Insights Gen2 [쿼리 API](./concepts-query-overview.md)를 직접 사용하여 사용자 지정 IoT 애플리케이션에 데이터를 제공할 수도 있습니다. |
+
+## <a name="region-availability"></a>지역 가용성
+
+[지역별 Azure 글로벌 인프라 제품](https://azure.microsoft.com/global-infrastructure/services/?products=time-series-insights) 페이지에 방문하여 Azure Time Series Insights를 사용할 수 있는 위치를 알아봅니다.
+
+Azure Time Series Insights는 단일 지역에 상주합니다. 그러나 데이터가 지역 외부로 복제되지 않는 다음 지역을 제외하고 고객이 서비스 인스턴스를 배포하는 지역 외부에 고객 데이터를 저장/처리합니다.
+
+* 동아시아
+* 동남아시아
+*   오스트레일리아 남동부
+*   서유럽
+*   영국 남부
+*   미국 서부
+*   프랑스 중부
+*   캐나다 중부
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,12 +5,12 @@ ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: contperf-fy21q3, devx-track-azurecli
-ms.openlocfilehash: 03f19d1922c011c1b5304b66488e9fa8de703bf9
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 69f8518482830f143776dc9d11480a1c818f2fc6
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107478319"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107886206"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Azure Kubernetes Service에 Hyperledger Fabric 컨소시엄 배포
 
@@ -277,7 +277,7 @@ orderer 조직의 클라이언트에서 다음 명령을 사용하여 orderer �
 ./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY --ordererOrg $ORDERER_ORG_NAME
 ```
 
-`<anchorPeersList>`는 앵커 피어로 설정할 피어 노드의 공백으로 구분된 목록입니다. 예를 들면 다음과 같습니다.
+`<anchorPeersList>`는 앵커 피어로 설정할 피어 노드의 공백으로 구분된 목록입니다. 예를 들어:
 
   - peer1 노드만 앵커 피어로 설정하려는 경우 `<anchorPeersList>`를 `"peer1"`으로 설정합니다.
   - peer1과 peer3 노드 모두를 앵커 피어로 설정하려는 경우 `<anchorPeersList>`를 `"peer1" "peer3"`로 설정합니다.
@@ -334,7 +334,7 @@ CHANNEL_NAME=<channelName>
 
 `--collections-config` 플래그를 사용하여 컬렉션의 구성 JSON 파일을 전달할 수도 있습니다. 또는 전용 트랜잭션에 사용되는 chaincode를 인스턴스화하는 동안 `-t` 플래그를 사용하여 임시 인수를 설정합니다.
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```bash
 ./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath>
@@ -342,7 +342,7 @@ CHANNEL_NAME=<channelName>
 ```
 
 `<collectionConfigJSONFilePath>`파트는 프라이빗 데이터 chaincode의 인스턴스화에 대해 정의된 컬렉션을 포함하는 JSON 파일 경로입니다. 다음 경로에서 *azhlfTool* 디렉터리에 관한 샘플 컬렉션의 구성 JSON 파일을 찾을 수 있습니다. `./samples/chaincode/src/private_marbles/collections_config.json`
-문자열 형식에서 유효한 JSON 파일로 `<transientArgs>`를 전달합니다. 특수 문자를 피합니다. `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
+문자열 형식에서 유효한 JSON 파일로 `<transientArgs>`를 전달합니다. 특수 문자를 피합니다. 예: `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
 > 채널의 아무 피어 조직에서 명령을 한 번 실행합니다. 트랜잭션이 성공적으로 orderer에 전송된 후 orderer는 이 트랜잭션을 채널의 모든 피어 조직에 배포합니다. 그런 다음 chaincode는 채널에 있는 모든 피어 조직의 모든 피어 노드에서 인스턴스화됩니다.  

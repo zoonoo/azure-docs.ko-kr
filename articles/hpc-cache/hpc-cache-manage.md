@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: b34beb65bb8c4136887651d8365c937b17718572
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a831aa7b2f3b0d438d9db8fefa3d26428fea3680
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103471888"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862600"
 ---
 # <a name="manage-your-cache"></a>캐시 관리
 
@@ -60,13 +60,13 @@ Azure Portal의 캐시 개요 페이지에는 캐시에 대한 프로젝트 세�
 
 [Azure HPC Cache용 Azure CLI 설정](./az-cli-prerequisites.md).
 
-[Az hpc cache stop](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-stop) 명령을 사용하여 캐시를 임시로 일시 중단합니다. 이 작업은 캐시 상태가 **정상** 또는 **저하** 인 경우에만 유효합니다.
+[Az hpc cache stop](/cli/azure/hpc-cache#az_hpc_cache_stop) 명령을 사용하여 캐시를 임시로 일시 중단합니다. 이 작업은 캐시 상태가 **정상** 또는 **저하** 인 경우에만 유효합니다.
 
 캐시는 중지하기 전에 해당 콘텐츠를 스토리지 대상에 자동으로 플러시합니다. 이 프로세스는 다소 시간이 걸릴 수 있지만 데이터 일관성을 보장합니다.
 
 작업이 완료되면 캐시 상태가 **중지됨** 으로 변경됩니다.
 
-[az hpc-cache start](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-start)를 사용하여 중지된 캐시를 다시 활성화합니다.
+[az hpc-cache start](/cli/azure/hpc-cache#az_hpc_cache_start)를 사용하여 중지된 캐시를 다시 활성화합니다.
 
 시작 또는 중지 명령을 발행하면 작업이 완료될 때까지 명령줄에 “실행 중” 상태 메시지가 표시됩니다.
 
@@ -115,9 +115,9 @@ $ az hpc-cache start --name doc-cache0629
 
 [Azure HPC Cache용 Azure CLI 설정](./az-cli-prerequisites.md).
 
-[az hpc-cache flush](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-flush)를 사용하여 캐시에서 변경된 모든 데이터를 스토리지 대상에 쓰도록 강제 실행합니다.
+[az hpc-cache flush](/cli/azure/hpc-cache#az_hpc_cache_flush)를 사용하여 캐시에서 변경된 모든 데이터를 스토리지 대상에 쓰도록 강제 실행합니다.
 
-예:
+예제:
 
 ```azurecli
 $ az hpc-cache flush --name doc-cache0629 --resource-group doc-rg
@@ -163,9 +163,9 @@ $
 
 [Azure HPC Cache용 Azure CLI 설정](./az-cli-prerequisites.md).
 
-Azure CLI에서 새 소프트웨어 정보는 캐시 상태 보고서의 끝에 포함됩니다. ([az hpc-cache show](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-show)를 사용하여 확인합니다.) 메시지에서 “upgradeStatus” 문자열을 찾습니다.
+Azure CLI에서 새 소프트웨어 정보는 캐시 상태 보고서의 끝에 포함됩니다. ([az hpc-cache show](/cli/azure/hpc-cache#az_hpc_cache_show)를 사용하여 확인합니다.) 메시지에서 “upgradeStatus” 문자열을 찾습니다.
 
-[az hpc-cache upgrade-firmware](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-upgrade-firmware)를 사용하여 업데이트가 있는 경우 적용합니다.
+[az hpc-cache upgrade-firmware](/cli/azure/hpc-cache#az_hpc_cache_upgrade-firmware)를 사용하여 업데이트가 있는 경우 적용합니다.
 
 업데이트를 사용할 수 없는 경우에는 이 작업이 적용되지 않습니다.
 
@@ -227,9 +227,9 @@ Microsoft 서비스 및 지원에서 요청하는 경우 이 컨트롤을 사용
 
 [Azure HPC Cache용 Azure CLI 설정](./az-cli-prerequisites.md).
 
-Azure CLI 명령 [az hpc-cache delete](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-delete)를 사용하여 캐시를 영구적으로 제거합니다.
+Azure CLI 명령 [az hpc-cache delete](/cli/azure/hpc-cache#az_hpc_cache_delete)를 사용하여 캐시를 영구적으로 제거합니다.
 
-예:
+예제:
 ```azurecli
 $ az hpc-cache delete --name doc-cache0629
  - Running ..

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39eec4fb6e9907b36908a87c09aceabd0dd1a678
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 8c18dd231a708030e3a454ab8708e3f0f11dbecf
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075169"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861826"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>자습서: 사용자가 Azure Active Directory 셀프 서비스 암호 재설정을 사용하여 계정의 잠금을 해제하거나 암호를 다시 설정할 수 있도록 설정
 
@@ -37,7 +37,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사�
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
-* Azure AD 체험 또는 평가판 이상의 라이선스가 사용하도록 설정되어 작동하는 Azure AD 테넌트. 체험 계층에서 SSPR은 Azure AD의 클라우드 사용자에 대해서만 작동합니다.
+* Azure AD 체험 또는 평가판 이상의 라이선스가 사용하도록 설정되어 작동하는 Azure AD 테넌트. 체험 계층에서 SSPR은 Azure AD의 클라우드 사용자에 대해서만 작동합니다. 암호 변경은 무료 계층에서 지원되지만 암호 재설정은 지원되지 않습니다. 
     * 이 시리즈의 이후 자습서에서는 온-프레미스 비밀번호 쓰기 저장을 위한 Azure AD Premium P1 또는 평가판 라이선스가 필요합니다.
     * 필요한 경우 [Azure 체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * *글로벌 관리자* 권한이 있는 계정

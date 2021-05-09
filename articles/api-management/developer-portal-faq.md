@@ -9,13 +9,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/15/2021
 ms.author: apimpm
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: afe41f7db56be5de56831d039a1161f1ee2c69f5
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: b4413bc53cf5c86c311d049046db790582737ca4
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285271"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107741318"
 ---
 # <a name="api-management-developer-portal---frequently-asked-questions"></a>API Management 개발자 포털 - 질문과 대답
 
@@ -135,7 +134,7 @@ API Management 서비스가 VNet에 있는 경우 [VNet 연결 질문](#do-i-nee
 
 ## <a name="whats-the-browser-support-for-the-portal"></a>포털에 대해 어떤 브라우저가 지원되나요?
 
-| 브라우저                     | 지원 여부       |
+| 브라우저                     | 지원됨       |
 |-----------------------------|-----------------|
 | Apple Safari                | 예<sup>1</sup> |
 | Google Chrome               | 예<sup>1</sup> |
