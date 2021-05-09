@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: alkohli
 ms.openlocfilehash: ca060e75e50a3e2327fc0516c3cfc9550afbf90f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96582759"
 ---
-1. [PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)합니다.
-2. 를 사용 `Get-HcsApplianceInfo` 하 여 장치에 대 한 정보를 가져옵니다.
+1. [PowerShell 인터페이스에 연결하세요](#connect-to-the-powershell-interface).
+2. `Get-HcsApplianceInfo`를 사용하여 디바이스에 대한 정보를 가져옵니다.
 
-    다음 예에서는이 cmdlet을 사용 하는 방법을 보여 줍니다.
+    다음 예제에서는 이 cmdlet의 사용법을 보여줍니다.
 
     ```
     [10.100.10.10]: PS>Get-HcsApplianceInfo
@@ -43,16 +43,16 @@ ms.locfileid: "96582759"
     IsRegistered                  : False
     ```
 
-    몇 가지 중요 한 장치 정보를 요약 하는 표는 다음과 같습니다.
+    몇 가지 중요한 디바이스 정보를 요약하는 표는 다음과 같습니다.
 
     | 매개 변수 | Description |
     |-----------|-------------|
-    | FriendlyName                   | 장치를 배포 하는 동안 로컬 웹 UI를 통해 구성 된 장치의 이름입니다. 기본 친숙한 이름은 디바이스 일련 번호입니다.  |
-    | SerialNumber                   | 장치 일련 번호는 팩터리에서 할당 된 고유 번호입니다.                                                                             |
-    | 모델                          | 장치에 대 한 모델입니다. 모델은 Data Box Gateway의 가상입니다.                   |
-    | FriendlySoftwareVersion        | 디바이스 소프트웨어 버전에 해당하는 친숙한 문자열입니다. Preview를 실행 하는 시스템의 경우 소프트웨어 버전은 1902 Data Box Edge 됩니다. |
-    | HcsVersion                     | 사용자 디바이스에서 실행되는 HCS 소프트웨어 버전입니다. 예를 들어 Data Box Edge 1902에 해당 하는 HCS software 버전은 1.4.771.324입니다.            |
-    | LocalCapacityInMb              | 장치의 총 로컬 용량 (Mbps)입니다.                                                                                                        |
-    | IsRegistered 됨                   | 이 값은 장치가 서비스로 활성화 되어 있는지 여부를 나타냅니다.                                                                                         |
+    | FriendlyName                   | 디바이스를 배포하는 동안 로컬 웹 UI를 통해 구성된 디바이스의 친숙한 이름입니다. 기본 친숙한 이름은 디바이스 일련 번호입니다.  |
+    | SerialNumber                   | 디바이스 일련 번호는 팩터리에서 할당된 고유 번호입니다.                                                                             |
+    | 모델                          | 디바이스의 모델입니다. 모델은 Data Box Gateway의 가상 모델입니다.                   |
+    | FriendlySoftwareVersion        | 디바이스 소프트웨어 버전에 해당하는 친숙한 문자열입니다. 미리 보기를 실행하는 시스템의 경우 친숙한 소프트웨어 버전은 Data Box Edge 1902입니다. |
+    | HcsVersion                     | 사용자 디바이스에서 실행되는 HCS 소프트웨어 버전입니다. 예를 들어 Data Box Edge 1902에 해당하는 HCS 소프트웨어 버전은 1.4.771.324입니다.            |
+    | LocalCapacityInMb              | 디바이스의 총 로컬 용량(메가비트)입니다.                                                                                                        |
+    | IsRegistered                   | 이 값은 디바이스가 서비스로 활성화되었는지 여부를 나타냅니다.                                                                                         |
 
 

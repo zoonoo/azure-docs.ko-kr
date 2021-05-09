@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,16 +9,16 @@ ms.date: 02/10/2021
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 91dc6ba0bcd455aefe9de2efdff2feb20938152d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100376391"
 ---
 ### <a name="step-1-navigate-to-the-virtual-network-gateway"></a>1단계: 가상 네트워크 게이트웨이로 이동
 
 1. [Azure Portal](https://portal.azure.com)에서 **모든 리소스** 로 이동합니다. 
-2. 가상 네트워크 게이트웨이 페이지를 열려면 가상 네트워크 게이트웨이로 이동 하 고 클릭 하 여 선택 합니다. 
+2. 가상 네트워크 게이트웨이 페이지를 열려면 가상 네트워크 게이트웨이로 이동하고 클릭하여 선택합니다. 
 
 ### <a name="step-2-delete-connections"></a>2단계: 연결 삭제
 

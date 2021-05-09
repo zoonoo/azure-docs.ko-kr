@@ -4,17 +4,17 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 8872ebc45294487f1a22c3417b308fe6267df613
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "77594156"
 ---
 ```bash
 kubectl describe pod -l "app=voting-analytics, version=1.0" -n voting | egrep "istio-proxy:|voting-analytics:" -A2
 ```
 
-`istio-proxy`컨테이너는 다음 예제 출력과 같이 구성 요소와의 네트워크 트래픽을 관리 하는 Istio에 의해 자동으로 삽입 됩니다.
+`istio-proxy` 컨테이너는 다음 예제 출력과 같이 구성 요소에서 또는 구성 요소로 네트워크 트래픽을 관리하는 Istio에서 자동으로 삽입됩니다.
 
 ```console
   voting-analytics:

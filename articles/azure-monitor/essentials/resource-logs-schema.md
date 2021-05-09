@@ -3,12 +3,12 @@ title: Azure 리소스 로그 지원 서비스 및 스키마
 description: Azure 리소스 로그에 대해 지원되는 서비스 및 이벤트 스키마에 대해 알아봅니다.
 ms.topic: reference
 ms.date: 04/07/2020
-ms.openlocfilehash: 09415353d93313f1b3c4844202b59f577ef3838d
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: d219153f9d1dfbcd05cbe28a5ac0609a156c68a9
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105768"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142570"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Azure 리소스 로그에 대한 공통 및 서비스별 스키마
 
@@ -83,7 +83,7 @@ ms.locfileid: "107105768"
 | Service Bus |[Azure Service Bus 로그](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Azure SQL Database 로깅](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[작업 로그](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
-| 스토리지 | [Blob](/azure/storage/blobs/monitor-blob-storage-reference#resource-logs-preview), [파일](/azure/storage/files/storage-files-monitoring-reference#resource-logs-preview), [큐](/azure/storage/queues/monitor-queue-storage-reference#resource-logs-preview), [테이블](/azure/storage/tables/monitor-table-storage-reference#resource-logs-preview) |
+| Storage | [Blob](../../storage/blobs/monitor-blob-storage-reference.md#resource-logs-preview), [파일](../../storage/files/storage-files-monitoring-reference.md#resource-logs-preview), [큐](../../storage/queues/monitor-queue-storage-reference.md#resource-logs-preview), [테이블](../../storage/tables/monitor-table-storage-reference.md#resource-logs-preview) |
 | Traffic Manager | [Traffic Manager 로그 스키마](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | 가상 네트워크 | 스키마를 사용할 수 없음 |
 | Virtual Network 게이트웨이 | 스키마를 사용할 수 없음 |

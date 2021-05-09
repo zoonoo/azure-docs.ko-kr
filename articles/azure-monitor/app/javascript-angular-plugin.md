@@ -1,6 +1,6 @@
 ---
-title: Application Insights JavaScript SDK의 각도 플러그 인
-description: Application Insights JavaScript SDK에 대해 각도 플러그 인을 설치 하 고 사용 하는 방법입니다.
+title: Application Insights JavaScript SDK에 대한 Angular 플러그 인
+description: Application Insights JavaScript SDK에 대한 Angular 플러그 인을 설치하고 사용하는 방법입니다.
 services: azure-monitor
 author: lgayhardt
 ms.workload: tbd
@@ -8,25 +8,26 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: lagayhar
-ms.openlocfilehash: d45d8bed328dc91dfeeabd6ce878074fa1218623
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 7ac83d0c43026b431370fab1d8c49aec1adf6659
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101737021"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312725"
 ---
-# <a name="angular-plugin-for-application-insights-javascript-sdk"></a>Application Insights JavaScript SDK의 각도 플러그 인
+# <a name="angular-plugin-for-application-insights-javascript-sdk"></a>Application Insights JavaScript SDK에 대한 Angular 플러그 인
 
-Application Insights JavaScript SDK의 각도 플러그 인은 다음을 사용 합니다.
+Application Insights JavaScript SDK에 대한 Angular 플러그 인은 다음을 지원합니다.
 
-- 라우터 변경 내용 추적
+- 라우터 변경 추적
+- 확인되지 않은 예외 추적
 
 > [!WARNING]
-> 각도 플러그 인은 ECMAScript 3 (ES3)과 호환 되지 않습니다.
+> Angular 플러그 인은 ES3(ECMAScript 3)과 호환되지 않습니다.
 
 ## <a name="getting-started"></a>시작
 
-Npm 패키지를 설치 합니다.
+npm 패키지 설치:
 
 ```bash
 npm install @microsoft/applicationinsights-angularplugin-js
@@ -34,7 +35,7 @@ npm install @microsoft/applicationinsights-angularplugin-js
 
 ## <a name="basic-usage"></a>기본적인 사용 방법
 
-앱의 항목 구성 요소에서 Application Insights의 인스턴스를 설정 합니다.
+앱의 항목 구성 요소에서 Application Insights의 인스턴스를 설정합니다.
 
 ```js
 import { Component } from '@angular/core';
@@ -64,7 +65,25 @@ export class AppComponent {
 }
 ```
 
+확인되지 않은 예외를 추적하려면 `app.module.ts`에서 ApplicationinsightsAngularpluginErrorService를 설정합니다.
+
+```js
+import { ApplicationinsightsAngularpluginErrorService } from '@microsoft/applicationinsights-angularplugin-js';
+
+@NgModule({
+  ...
+  providers: [
+    {
+      provide: ErrorHandler,
+      useClass: ApplicationinsightsAngularpluginErrorService
+    }
+  ]
+  ...
+})
+export class AppModule { }
+```
+
 ## <a name="next-steps"></a>다음 단계
 
-- JavaScript SDK에 대해 자세히 알아보려면 [Application Insights JAVASCRIPT sdk 설명서](javascript.md) 를 참조 하세요.
-- [GitHub의 각도 플러그 인](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-angularplugin-js)
+- JavaScript SDK에 대해 자세히 알아보려면 [Application Insights JavaScript SDK 설명서](javascript.md)를 참조하세요.
+- [GitHub의 Angular 플러그 인](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-angularplugin-js)

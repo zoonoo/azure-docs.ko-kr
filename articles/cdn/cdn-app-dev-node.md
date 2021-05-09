@@ -1,6 +1,6 @@
 ---
 title: Node.js용 Azure CDN SDK 시작하기 | Microsoft Docs
-description: Azure CDN 프로필 및 끝점의 생성 및 관리를 자동화 하는 방법을 보여 주는 간단한 Node.js 콘솔 응용 프로그램을 만드는 방법에 대해 알아봅니다.
+description: Azure CDN 프로필 및 엔드포인트의 생성 및 관리를 자동화하는 방법을 보여주는 간단한 Node.js 콘솔 애플리케이션을 만드는 방법을 알아봅니다.
 services: cdn
 documentationcenter: nodejs
 author: zhangmanling
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/23/2017
+ms.date: 04/02/2021
 ms.author: mazha
 ms.custom: devx-track-js
-ms.openlocfilehash: f5d5c7a6e1f6993b19f38db2ae846b213a1d553e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 386a424e45d1b718b68cbbf53322fd704317a06b
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95993366"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285227"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Azure CDN 개발 시작
 > [!div class="op_single_selector"]
@@ -29,14 +29,10 @@ ms.locfileid: "95993366"
 > 
 > 
 
-[Node.js용 Azure CDN SDK](https://www.npmjs.com/package/azure-arm-cdn) 를 사용하여 CDN 프로필과 엔드포인트의 생성 및 관리를 자동화할 수 있습니다.  이 자습서에서는 여러 가지 사용 가능한 작업을 보여주는 간단한 Node.js 콘솔 애플리케이션을 살펴봅니다.  이 자습서는 Node.js용 Azure CDN SDK의 모든 측면을 상세하게 설명하지 않습니다.
+[JavaScript용 Azure CDN SDK](https://www.npmjs.com/package/@azure/arm-cdn)를 사용하여 CDN 프로필과 엔드포인트의 생성 및 관리를 자동화할 수 있습니다.  이 자습서에서는 여러 가지 사용 가능한 작업을 보여주는 간단한 Node.js 콘솔 애플리케이션을 살펴봅니다.  이 자습서는 JavaScript용 Azure CDN SDK의 모든 측면을 상세하게 설명하지 않습니다.
 
-이 자습서를 완료하려면 [Node.js](https://www.nodejs.org) **4.x.x** 이상을 설치하고 구성해야 합니다.  원하는 텍스트 편집기를 사용하여 Node.js 애플리케이션을 만들 수 있습니다.  이 자습서를 작성하려면 [Visual Studio 코드](https://code.visualstudio.com)를 사용합니다.  
+이 자습서를 완료하려면 [Node.js](https://www.nodejs.org) **6.x.x** 이상이 이미 설치 및 구성되어 있어야 합니다.  원하는 텍스트 편집기를 사용하여 Node.js 애플리케이션을 만들 수 있습니다.  이 자습서를 작성하려면 [Visual Studio 코드](https://code.visualstudio.com)를 사용합니다.  
 
-> [!TIP]
-> [이 자습서에서 완성된 프로젝트](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) 는 MSDN에서 다운로드할 수 있습니다.
-> 
-> 
 
 [!INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
@@ -53,11 +49,11 @@ npm init
 
 ![NPM init 출력](./media/cdn-app-dev-node/cdn-npm-init.png)
 
-프로젝트는 *packages.json* 파일을 사용하여 초기화됩니다.  이 프로젝트에서는 NPM 패키지에 포함된 일부 Azure 라이브러리를 사용할 것입니다.  Node.js용 Azure 클라이언트 런타임(ms-rest-azure) 및 Node.js용 Azure CDN 클라이언트 라이브러리(azure-arm-cd)를 사용할 것입니다.  해당 사항을 종속성으로 프로젝트에 추가하겠습니다.
+프로젝트는 *packages.json* 파일을 사용하여 초기화됩니다.  이 프로젝트에서는 NPM 패키지에 포함된 일부 Azure 라이브러리를 사용할 것입니다.  Node.js(@azure/ms-rest-nodeauth)의 Azure Active Directory 인증용 라이브러리 및 JavaScript(@azure/arm-cdn)용 Azure CDN 클라이언트 라이브러리를 사용합니다.  해당 사항을 종속성으로 프로젝트에 추가하겠습니다.
 
 ```console
-npm install --save ms-rest-azure
-npm install --save azure-arm-cdn
+npm install --save @azure/ms-rest-nodeauth
+npm install --save @azure/arm-cdn
 ```
 
 패키지 설치가 완료된 후에 *package.json* 파일은 이 예제와 유사하게 표시됨(버전 번호가 달라질 수 있음):
@@ -74,8 +70,8 @@ npm install --save azure-arm-cdn
   "author": "Cam Soper",
   "license": "MIT",
   "dependencies": {
-    "azure-arm-cdn": "^0.2.1",
-    "ms-rest-azure": "^1.14.4"
+    "@azure/arm-cdn": "^5.2.0",
+    "@azure/ms-rest-nodeauth": "^3.0.0"
   }
 }
 ```
@@ -88,8 +84,8 @@ npm install --save azure-arm-cdn
 1. 다음을 사용하여 위쪽에 있는 NPM 패키지에 "requires"를 추가합니다.
    
     ``` javascript
-    var msRestAzure = require('ms-rest-azure');
-    var cdnManagementClient = require('azure-arm-cdn');
+    var msRestAzure = require('@azure/ms-rest-nodeauth');
+    const { CdnManagementClient } = require('@azure/arm-cdn');
     ```
 2. 메서드가 사용할 몇 가지 상수를 정의해야 합니다.  다음을 추가합니다.  **&lt;꺽쇠 괄호&gt;** 를 포함한 자리 표시자를 필요에 따라 고유 값으로 교체합니다.
    
@@ -108,23 +104,9 @@ npm install --save azure-arm-cdn
    
     ``` javascript
     var credentials = new msRestAzure.ApplicationTokenCredentials(clientId, tenantId, clientSecret);
-    var cdnClient = new cdnManagementClient(credentials, subscriptionId);
+    var cdnClient = new CdnManagementClient(credentials, subscriptionId);
     ```
-   
-    개별 사용자 인증을 사용한다면 다음 두 줄은 약간 다르게 표시됩니다.
-   
-   > [!IMPORTANT]
-   > 서비스 주체가 아닌 개별 사용자 인증을 사용할 경우에만 다음 코드 샘플을 사용하세요.  개별 사용자 자격 증명을 보호하고 보안 상태를 유지하도록 주의합니다.
-   > 
-   > 
-   
-    ``` javascript
-    var credentials = new msRestAzure.UserTokenCredentials(clientId, 
-        tenantId, '<username>', '<password>', '<redirect URI>');
-    var cdnClient = new cdnManagementClient(credentials, subscriptionId);
-    ```
-   
-    **&lt; 꺾쇠 괄호 &gt;** 안의 항목을 올바른 정보로 바꾸어야 합니다.  `<redirect URI>`의 경우 Azure AD에서 애플리케이션을 등록할 때 입력한 리디렉션 URI를 사용합니다.
+
 4. Node.js 콘솔 애플리케이션에서는 몇 가지 명령줄 매개 변수를 사용하려고 합니다.  적어도 하나의 매개 변수가 전달되었는지 유효성을 검사해 보겠습니다.
    
    ```javascript
@@ -237,7 +219,7 @@ function cdnList(){
         case "endpoints":
             requireParms(3);
             console.log("Listing endpoints...");
-            cdnClient.endpoints.listByProfile(parms[2], resourceGroupName, callback);
+            cdnClient.endpoints.listByProfile(resourceGroupName, parms[2], callback);
             break;
 
         default:
@@ -280,7 +262,7 @@ function cdnCreateProfile() {
         }
     };
 
-    cdnClient.profiles.create(parms[2], standardCreateParameters, resourceGroupName, callback);
+    cdnClient.profiles.create( resourceGroupName, parms[2], standardCreateParameters, callback);
 }
 
 // create endpoint <profile name> <endpoint name> <origin hostname>        
@@ -295,7 +277,7 @@ function cdnCreateEndpoint() {
         }]
     };
 
-    cdnClient.endpoints.create(parms[3], endpointProperties, parms[2], resourceGroupName, callback);
+    cdnClient.endpoints.create(resourceGroupName, parms[2], parms[3], endpointProperties, callback);
 }
 ```
 
@@ -308,7 +290,7 @@ function cdnPurge() {
     requireParms(4);
     console.log("Purging endpoint...");
     var purgeContentPaths = [ parms[3] ];
-    cdnClient.endpoints.purgeContent(parms[2], parms[1], resourceGroupName, purgeContentPaths, callback);
+    cdnClient.endpoints.purgeContent(resourceGroupName, parms[2], parms[3], purgeContentPaths, callback);
 }
 ```
 
@@ -324,14 +306,14 @@ function cdnDelete() {
         case "profile":
             requireParms(3);
             console.log("Deleting profile...");
-            cdnClient.profiles.deleteIfExists(parms[2], resourceGroupName, callback);
+            cdnClient.profiles.deleteMethod(resourceGroupName, parms[2], callback);
             break;
 
         // delete endpoint <profile name> <endpoint name>
         case "endpoint":
             requireParms(4);
             console.log("Deleting endpoint...");
-            cdnClient.endpoints.deleteIfExists(parms[3], parms[2], resourceGroupName, callback);
+            cdnClient.endpoints.deleteMethod(resourceGroupName, parms[2], parms[3], callback);
             break;
 
         default:
@@ -366,11 +348,9 @@ function cdnDelete() {
 ![프로필 삭제](./media/cdn-app-dev-node/cdn-delete-profile.png)
 
 ## <a name="next-steps"></a>다음 단계
-이 연습에서 작성된 프로젝트를 보려면 [샘플을 다운로드하세요](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
 
-Node.js용 Azure CDN SDK에 대한 참조를 보려면 [참조](https://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/)를 봅니다.
+JavaScript용 Azure CDN SDK에 대한 참조를 보려면 [참조](https://docs.microsoft.com/javascript/api/@azure/arm-cdn)를 봅니다.
 
-Node.js용 Azure SDK에 대한 추가 설명서를 찾으려면 [전체 참조](https://azure.github.io/azure-sdk-for-node/)를 봅니다.
+JavaScript용 Azure SDK에 대한 추가 설명서를 찾으려면 [전체 참조](https://docs.microsoft.com/javascript/api/?view=azure-node-latest)를 봅니다.
 
 [PowerShell](cdn-manage-powershell.md)을 사용하여 CDN 리소스를 관리합니다.
-

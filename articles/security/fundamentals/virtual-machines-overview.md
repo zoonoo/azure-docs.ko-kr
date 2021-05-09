@@ -1,5 +1,5 @@
 ---
-title: Azure Vm에 사용 되는 보안 기능
+title: Azure VM에서 사용되는 보안 기능
 titleSuffix: Azure security
 description: 이 문서에서는 Azure Virtual Machines에서 사용할 수 있는 핵심 Azure 보안 기능의 개요를 제공합니다.
 services: security
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: 036a1d3f8cad4ba9cda03a9001cfec1bb7de86b0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 51b04feffd887fd86157d029168bc53546adfeeb
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101715040"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208170"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure Virtual Machines 보안 개요
-이 문서에서는 가상 컴퓨터에서 사용할 수 있는 핵심 Azure 보안 기능의 개요를 제공 합니다.
+이 문서에서는 가상 머신에서 사용할 수 있는 핵심 Azure 보안 기능의 개요를 제공합니다.
 
 Azure Virtual Machines를 사용하여 다양한 컴퓨팅 솔루션을 민첩하게 배포할 수 있습니다. 이 서비스는 Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP 및 Azure BizTalk Services를 지원합니다. 따라서 거의 모든 운영 체제에 모든 워크로드와 언어를 배포할 수 있습니다.
 
@@ -46,30 +46,30 @@ Azure Cloud Services 및 Virtual Machines를 위한 Microsoft 맬웨어 방지 �
 
 Azure용 Microsoft 맬웨어 방지 프로그램은 애플리케이션 및 테넌트 환경을 위한 단일 에이전트 솔루션으로, 사용자의 개입 없이 백그라운드에서 실행되도록 설계됩니다. 맬웨어 방지 프로그램 모니터링을 포함하여 기본 보안 또는 고급 사용자 지정 구성을 사용하여 애플리케이션 워크로드의 필요에 따라 보호를 배포할 수 있습니다.
 
-[Azure 용 Microsoft 맬웨어 방지](antimalware.md) 및 사용 가능한 핵심 기능에 대해 자세히 알아보세요.
+[Azure용 Microsoft Antimalware](antimalware.md) 및 사용 가능한 핵심 기능에 대해 자세히 알아보세요.
 
 가상 머신을 보호하는 맬웨어 방지 소프트웨어에 대해 자세히 알아보세요.
 
 * [Azure Virtual Machines에 맬웨어 방지 솔루션 배포](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [Windows VM에서 추세 마이크로 심층 Security를 서비스로 설치 및 구성 하는 방법](/previous-versions/azure/virtual-machines/extensions/trend)
+* [Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법](/previous-versions/azure/virtual-machines/extensions/trend)
 * [Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법](../../virtual-machines/extensions/symantec.md)
 * [Azure Marketplace의 보안 솔루션](https://azure.microsoft.com/marketplace/?term=security)
 
-더욱 강력한 보호를 위해 [Windows Defender Advanced Threat Protection](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection)을 사용하는 것이 좋습니다. Windows Defender ATP를 사용하여 다음을 달성합니다.
+더욱 강력한 보호를 위해 [Windows Defender Advanced Threat Protection](/mem/configmgr/protect/deploy-use/defender-advanced-threat-protection)을 사용하는 것이 좋습니다. Windows Defender ATP를 사용하여 다음을 달성합니다.
 
-* [공격 노출 영역 축소](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
+* [공격 표면 감소](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
 * [차세대 보호](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
 * [엔드포인트 보호 및 응답](/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
 * [자동화된 조사 및 수정](/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
 * [보안 점수](/windows/security/threat-protection/microsoft-defender-atp/tvm-microsoft-secure-score-devices)
-* [고급 구하기](/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
+* [고급 사냥](/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
 * [관리 및 API](/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Microsoft Threat Protection](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
 
 자세한 정보:
 
 * [WDATP 시작](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)  
-* [WDATP 기능의 개요](/windows/security/threat-protection/windows-defender-atp/overview)  
+* [WDATP 기능의 개요](/microsoft-365/security/defender-endpoint/whats-new-in-microsoft-defender-atp)  
 
 ## <a name="hardware-security-module"></a>하드웨어 보안 모듈
 
@@ -84,7 +84,7 @@ Azure용 Microsoft 맬웨어 방지 프로그램은 애플리케이션 및 테�
 
 ## <a name="virtual-machine-disk-encryption"></a>가상 머신 디스크 암호화
 
-Azure Disk Encryption은 Windows 및 Linux 가상 머신 디스크를 암호화하는 새 기능입니다. Azure Disk Encryption는 Windows의 업계 표준 [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) 기능과 Linux의 [dm-자리](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 사용 하 여 OS 및 데이터 디스크에 대 한 볼륨 암호화를 제공 합니다.
+Azure Disk Encryption은 Windows 및 Linux 가상 머신 디스크를 암호화하는 새 기능입니다. Azure Disk Encryption은 업계 표준인 Windows의 [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) 기능과 Linux의 [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 사용하여 OS 및 데이터 디스크를 위한 볼륨 암호화를 제공합니다.
 
 또한 이 솔루션은 고객이 Key Vault 구독에서 디스크 암호화 키 및 암호를 관리 및 제어할 수 있도록 Azure Key Vault와 통합됩니다. 가상 머신 디스크에 있는 모든 데이터가 미사용 시 Azure Storage에 암호화되도록 합니다.
 
@@ -100,7 +100,7 @@ Azure Backup은 자본 투자 없이 최소의 비용으로 애플리케이션 �
 자세한 정보:
 
 * [Azure Backup이란?](../../backup/backup-overview.md)
-* [Azure Backup 서비스 FAQ](../../backup/backup-azure-backup-faq.md)
+* [Azure Backup 서비스 FAQ](../../backup/backup-azure-backup-faq.yml)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 
@@ -118,7 +118,7 @@ Site Recovery:
 
 * [Azure Site Recovery란?](../../site-recovery/site-recovery-overview.md)
 * [Azure Site Recovery 작동 방식](../../site-recovery/azure-to-azure-architecture.md)
-* [Azure Site Recovery에서 보호 하는 작업은 무엇입니까?](../../site-recovery/site-recovery-workload.md)
+* [Azure Site Recovery로 보호되는 작업은 무엇입니까?](../../site-recovery/site-recovery-workload.md)
 
 ## <a name="virtual-networking"></a>가상 네트워킹
 
@@ -130,7 +130,7 @@ Azure 가상 네트워크는 물리적 Azure 네트워크 패브릭 위에 구�
 
 * [Azure 네트워크 보안 개요](network-overview.md)
 * [Virtual Network 개요](../../virtual-network/virtual-networks-overview.md)
-* [엔터프라이즈 시나리오용 네트워킹 기능 및 파트너 관계](https://azure.microsoft.com/blog/networking-enterprise/)
+* [네트워킹 기능 및 엔터프라이즈 시나리오에 대한 파트너 관계](https://azure.microsoft.com/blog/networking-enterprise/)
 
 ## <a name="security-policy-management-and-reporting"></a>보안 정책 관리 및 보고
 
@@ -158,9 +158,9 @@ Azure Virtual Machines는 FISMA, FedRAMP, HIPAA, PCI DSS Level 1 및 기타 주�
 
 ## <a name="confidential-computing"></a>기밀 컴퓨팅
 
-기밀 컴퓨팅은 기술적으로 가상 컴퓨터 보안의 일부가 아니지만 가상 컴퓨터 보안의 항목은 "계산" 보안의 상위 수준에 속합니다. 기밀 컴퓨팅은 "compute" 보안 범주에 속합니다.
+기밀 컴퓨팅은 엄밀히 말하면 가상 머신 보안의 일부가 아니지만, 가상 머신 보안이라는 주제는 “컴퓨팅” 보안이라는 더 높은 수준의 주제에 속합니다. 기밀 컴퓨팅은 “컴퓨팅” 보안의 범주 내에 속합니다.
 
-기밀 컴퓨팅을 사용 하면 데이터가 "명확" 하 여 효율적인 처리에 필요한 경우 데이터는 아래 그림에 표시 된 것 처럼 신뢰할 수 있는 실행 환경  https://en.wikipedia.org/wiki/Trusted_execution_environment (enclave이 라고도 함) 내에서 보호 됩니다.  
+기밀 컴퓨팅은 데이터가 효율적인 처리에 필요한 “해제 상태”에 있는 경우 데이터가 TEE(Trusted Execution Environment https://en.wikipedia.org/wiki/Trusted_execution_environment - enclave라고도 알려짐) 내에서 보호되도록 합니다. 예제는 아래 그림에 나와 있습니다.  
 
 TEE는 디버거를 사용해도 외부에서 내부의 데이터 또는 작업을 볼 수 있는 방법이 없도록 합니다. 권한 있는 코드만 데이터에 액세스할 수 있도록 합니다. 코드가 변경되거나 변조되는 경우 작업이 거부되고 환경이 비활성화됩니다. TEE는 코드를 실행하는 동안 이러한 보호를 적용합니다.
 
@@ -171,4 +171,4 @@ TEE는 디버거를 사용해도 외부에서 내부의 데이터 또는 작업�
 
 ## <a name="next-steps"></a>다음 단계
 
-Vm 및 운영 체제에 대 한 [보안 모범 사례](iaas.md) 를 알아봅니다.
+VM 및 운영 체제에 대한 [보안 모범 사례](iaas.md)를 알아봅니다.

@@ -1,7 +1,7 @@
 ---
-title: 파일 포함
+title: 포함 파일
 titleSuffix: Azure
-description: 파일 포함
+description: 포함 파일
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,13 +9,13 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 526d8a6a103e7623bac459004bf9ac79e4927541
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "81686974"
 ---
-1. 선택한 직접 피어 링에 대 한 연결을 봅니다.
+1. 선택한 직접 피어링에 대한 연결을 봅니다.
     ```powershell
     $directPeering.Connections
 
@@ -31,7 +31,7 @@ ms.locfileid: "81686974"
     SessionStateV6              : None
     ConnectionState             : Active
     ```
-1. 피어 링 서비스에 사용 하려는 연결을 선택 합니다. 이 예에서는 사용 가능한 연결만 사용 합니다.
+1. Peering Service에 사용할 연결을 선택합니다. 이 예제에서는 사용 가능한 연결만 사용합니다.
     ```powershell
     $directPeering.Connections[1] = $directPeering.Connections[1] | Set-AzPeeringDirectConnectionObject -UseForPeeringService $true
 
@@ -47,7 +47,7 @@ ms.locfileid: "81686974"
     SessionStateV6              : None
     ConnectionState             : Active
     ```
-1. 이제 다음 명령을 사용 하 여 직접 피어 링에 대 한 변경 내용을 저장 합니다.
+1. 이제 다음 명령을 사용하여 직접 피어링에 대한 변경 내용을 저장합니다.
     ```powershell
     $directPeering | Update-AzPeering
     ```

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/16/2020
 ms.author: alkohli
 ms.openlocfilehash: 27503d1d60d961bac6dd41ebfe4fb083948cb251
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96581934"
 ---
 디바이스의 성능을 모니터링하거나 일부 인스턴스에서 디바이스 문제를 해결하기 위해 메트릭을 볼 수도 있습니다.
@@ -29,11 +29,11 @@ ms.locfileid: "96581934"
 
 3. 드롭다운 목록에서 디바이스를 모니터링할 메트릭을 선택합니다. 이러한 메트릭의 전체 목록은 [디바이스의 메트릭](#metrics-on-your-device)을 참조하세요.
 
-4. 드롭다운 목록에서 메트릭이 선택되면 집계도 정의할 수 있습니다. 집계는 지정된 기간 동안 집계된 실제 값을 나타냅니다. 집계 된 값은 평균, 최소값 또는 최대값 일 수 있습니다. 평균, 최대 또는 최소에서 집계를 선택합니다.
+4. 드롭다운 목록에서 메트릭이 선택되면 집계도 정의할 수 있습니다. 집계는 지정된 기간 동안 집계된 실제 값을 나타냅니다. 집계된 값은 평균, 최솟값 또는 최댓값이 될 수 있습니다. 평균, 최대 또는 최소에서 집계를 선택합니다.
 
     ![차트 보기](media/data-box-gateway-view-metrics/view-metrics-view-chart.png)
 
-5. 선택한 메트릭에 여러 인스턴스가 있으면 분할 옵션을 사용할 수 있습니다. **분할 적용** 을 선택 하 고 분석 결과를 보려는 값을 선택 합니다.
+5. 선택한 메트릭에 여러 인스턴스가 있으면 분할 옵션을 사용할 수 있습니다. **분할 적용** 을 선택한 다음, 분석 결과를 확인하려는 값을 선택합니다.
 
     ![분할 적용](media/data-box-gateway-view-metrics/view-metrics-apply-splitting.png)
 

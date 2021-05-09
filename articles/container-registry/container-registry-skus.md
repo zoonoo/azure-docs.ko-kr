@@ -1,14 +1,14 @@
 ---
 title: 레지스트리 서비스 계층 및 기능
-description: Azure Container Registry의 기본, 표준 및 프리미엄 서비스 계층 ()의 기능 및 제한 (할당량)에 대해 알아봅니다.
+description: Azure Container Registry의 기본, 표준 및 프리미엄 서비스 계층(SKU)에 있는 기능 및 제한(할당량)에 대해 알아봅니다.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: b55fc16dcd6dcb544ed4597ce4bdc6ba17b52646
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 323d36fe022d8b8e9618b8beb1facae93d22df4e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98015670"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781256"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Azure Container Registry 서비스 계층
 
@@ -24,15 +24,15 @@ Azure Container Registry는 다중 서비스 계층(SKU라고도 함)에서 사�
 
 ## <a name="service-tier-features-and-limits"></a>서비스 계층 기능 및 한도
 
-다음 표에서는 Basic, Standard 및 Premium 서비스 계층의 기능 및 레지스트리 제한에 대해 자세히 설명 합니다.
+다음 표에서는 기본, 표준 및 프리미엄 서비스 계층의 기능 및 레지스트리 제한에 대해 자세히 설명합니다.
 
 [!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
 ## <a name="changing-tiers"></a>계층 변경
 
-Azure CLI를 사용하거나 Azure Portal에서 레지스트리의 서비스 계층을 변경할 수 있습니다. 전환 하는 계층에 필요한 최대 저장소 용량이 있으면 계층 간에 자유롭게 이동할 수 있습니다. 
+Azure CLI를 사용하거나 Azure Portal에서 레지스트리의 서비스 계층을 변경할 수 있습니다. 전환하는 계층에 필요한 최대 스토리지 용량이 있는 한 계층 간에 자유롭게 이동할 수 있습니다. 
 
-서비스 계층 간에 이동할 때 레지스트리 작업에 영향을 주지 않거나 레지스트리 작업에 영향을 주지 않습니다.
+서비스 계층 간에 이동할 때 레지스트리 가동 중지 시간이나 레지스트리 작업에 영향을 주지 않습니다.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -73,7 +73,7 @@ GitHub에서 [ACR 로드맵][acr-roadmap]에 방문하여 예정된 서비스 �
 [container-registry-uservoice]: https://feedback.azure.com/forums/903958-azure-container-registry
 
 <!-- LINKS - Internal -->
-[az-acr-update]: /cli/azure/acr#az-acr-update
+[az-acr-update]: /cli/azure/acr#az_acr_update
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-storage]: container-registry-storage.md
 [container-registry-delete]: container-registry-delete.md

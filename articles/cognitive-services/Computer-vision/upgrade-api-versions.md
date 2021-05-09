@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7a05b04872b4f957e879d93972edc45e2932d059
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 3ff345131f6a589db8c758ea4346b77f49c1a9a3
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364093"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139420"
 ---
 # <a name="upgrade-from-read-v2x-to-read-v3x"></a>Read v2.x에서 Read v3.x로 업그레이드
 
@@ -27,7 +27,7 @@ ms.locfileid: "107364093"
 
 |제품 유형| 버전 | 3\.x API 경로의 버전 문자열 |
 |:-----|:----|:----|
-|서비스 | Read 3.0 또는 3.1 | 각각 **v3.0** 또는 **v3.1** |
+|서비스 | Read 3.0, 3.1 또는 3.2 | 각각 **v3.0**, **v3.1** 또는 **v3.2** |
 |서비스 | Read 3.2 미리 보기 | **v3.2-preview.1** |
 |컨테이너 | Read 3.0 미리 보기 또는 Read 3.1 미리 보기 | 각각 **v3.0** 또는 **v3.1-preview.2** |
 

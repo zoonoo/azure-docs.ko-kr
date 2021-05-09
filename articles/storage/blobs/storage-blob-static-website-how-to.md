@@ -7,17 +7,17 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 2ba0e836f1be97681d677158f5cb81c5b033e915
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-js
+ms.openlocfilehash: aaa73eaf95001d23efd09419d6ff3bb46ae005be
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103008504"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140068"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스트
 
-[범용 V2](../common/storage-account-create.md) 또는 [BlockBlobStorage](storage-blob-create-account-block-blob.md) 계정의 컨테이너에서 직접 고정적인 콘텐츠(HTML, CSS, JavaScript, 이미지 파일)를 제공할 수 있습니다. 자세한 내용은 [Azure Storage에서 정적 웹 사이트 호스팅](storage-blob-static-website.md)을 참조하세요.
+[범용 V2](../common/storage-account-create.md) 또는 [BlockBlobStorage](../common/storage-account-create.md) 계정의 컨테이너에서 직접 고정적인 콘텐츠(HTML, CSS, JavaScript, 이미지 파일)를 제공할 수 있습니다. 자세한 내용은 [Azure Storage에서 정적 웹 사이트 호스팅](storage-blob-static-website.md)을 참조하세요.
 
 이 문서에서는 Azure Portal, Azure CLI 또는 PowerShell을 사용하여 정적 웹 사이트 호스팅을 사용하도록 설정하는 방법을 보여 줍니다.
 

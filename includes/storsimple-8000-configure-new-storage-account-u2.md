@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 9f1c30b303bd1fe02e0685c7d848be92073ca2f6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96016875"
 ---
 #### <a name="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service"></a>StorSimple Device Manager 서비스와 동일한 Azure 구독에 있는 스토리지 계정 자격 증명을 추가하려면
 
 1. StorSimple 디바이스 관리자 서비스로 이동합니다. **구성** 섹션에서 **Storage 계정 자격 증명** 을 클릭합니다.
 
-    ![저장소 계정 자격 증명으로 이동](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct1.png)
+    ![스토리지 계정 자격 증명으로 이동](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct1.png)
 
 2. **Storage 계정 자격 증명** 블레이드에서 **+ 추가** 를 클릭합니다.
 
@@ -39,5 +39,5 @@ ms.locfileid: "96016875"
 
 새로 만든 Storage 계정 자격 증명이 **Storage 계정 자격 증명** 목록 아래에 표시됩니다.
 
-![저장소 계정 자격 증명 나열](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct6.png)
+![스토리지 계정 자격 증명 나열](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct6.png)
 

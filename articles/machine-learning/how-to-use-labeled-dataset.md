@@ -6,15 +6,15 @@ author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, data4ml
+ms.topic: how-to
+ms.custom: data4ml
 ms.date: 05/14/2020
-ms.openlocfilehash: 2eec512af9b139b2707c435fd0c78b7d50ac1b11
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7fc4a36cc8fedaa5de704f668f8b15aecac98cd7
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102521053"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140518"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>레이블이 있는 Azure Machine Learning 데이터 세트 만들기 및 탐색
 
@@ -118,5 +118,3 @@ imgplot = plt.imshow(gray_image)
 ```
 
 ## <a name="next-steps"></a>다음 단계
-
-* 전체 학습 샘플은 [레이블 Notebook이 있는 데이터 세트](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/labeled-datasets/labeled-datasets.ipynb)를 참조하세요.

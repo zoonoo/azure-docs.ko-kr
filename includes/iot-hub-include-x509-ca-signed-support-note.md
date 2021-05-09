@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: iot-hub
 author: robinsh
 ms.service: iot-hub
@@ -9,17 +9,17 @@ ms.date: 11/25/2020
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 4c2b680f4bc1816e58f37d2633f36792abd6b9e4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96615795"
 ---
 > [!IMPORTANT]
-> X.509 인증 기관 (CA) 인증을 사용 하는 장치에 대 한 다음 기능은 아직 일반적으로 사용할 수 없으며 [미리 보기 모드를 사용 하도록 설정 해야 합니다](../articles/iot-hub/iot-hub-preview-mode.md).
+> X.509 CA(인증 기관) 인증을 사용하는 디바이스에 대한 다음 기능은 아직 일반적으로 사용할 수 없으며 [미리 보기 모드를 사용하도록 설정해야 합니다](../articles/iot-hub/iot-hub-preview-mode.md).
 >
-> - HTTPS, Websocket을 통한 MQTT 및 Websocket 프로토콜을 통한 AMQP
-> - 파일 업로드 (모든 프로토콜)
+> - HTTPS, WebSocket을 통한 MQTT 및 WebSocket 프로토콜을 통한 AMQP.
+> - 파일 업로드(모든 프로토콜).
 >
-> 일반적으로 x.509 지문 인증을 사용 하는 장치에서 사용할 수 있습니다. IoT Hub 사용 하는 x.509 인증에 대 한 자세한 내용은 [지원 되는 x.509 인증서](../articles/iot-hub/iot-hub-devguide-security.md#supported-x509-certificates)를 참조 하세요.  
+> 일반적으로 X.509 지문 인증을 사용하는 디바이스에서 사용할 수 있습니다. IoT Hub를 사용하는 X.509 인증에 대해 자세히 알아보려면 [지원되는 X.509 인증서](../articles/iot-hub/iot-hub-devguide-security.md#supported-x509-certificates)를 참조하세요.  
 >

@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: machine-learning
 author: sdgilley
 ms.service: machine-learning
@@ -10,12 +10,12 @@ ms.custom: include file
 ms.topic: include
 ms.date: 08/24/2020
 ms.openlocfilehash: dda9a9ae00ac06ec650830d47f9a9742dd0d2f7b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "89146705"
 ---
 > [!NOTE]
-> Azure Machine Learning 계산 클러스터는 **시스템에 할당 된 id** 또는 **여러 사용자 할당** id를 동시에 지원 하지는 않습니다.
+> Azure Machine Learning 컴퓨팅 클러스터는 **하나의 시스템 할당 ID** 또는 **여러 사용자 할당 ID**(둘 다를 동시에 지원하지 않음)만 지원합니다.
 > 

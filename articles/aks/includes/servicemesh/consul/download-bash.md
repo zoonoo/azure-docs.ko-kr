@@ -4,13 +4,13 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 4e35f8cbf6c32bdfd100b651ab10e3248f8b8b2d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86244137"
 ---
-Linux의 bash 기반 셸, Linux 또는 MacOS [용 Windows 하위 시스템][install-wsl] 에서를 사용 하 여 다음과 `curl` 같이 Consul 투구 차트 릴리스를 다운로드 합니다.
+Linux, [Linux용 Windows 하위 시스템][install-wsl], MacOS의 bash 기반 셸에서 `curl`을 사용하여 다음과 같이 Consul Helm 차트 릴리스를 다운로드합니다.
 
 ```bash
 # Specify the Consul Helm chart version that will be leveraged throughout these instructions

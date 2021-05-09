@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: amishu
 ms.openlocfilehash: 58d547995d39505da18a6bca1a6c3925b95252a6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "97978837"
 ---
-압축 된 오디오 입력을 허용 하도록 Speech SDK를 구성 하려면 또는을 만듭니다 `PullAudioInputStream` `PushAudioInputStream` . 그런 다음 스트림 `AudioConfig` 클래스의 인스턴스에서를 만들어 스트림의 압축 형식을 지정 합니다.
+압축된 오디오 입력을 허용하도록 Speech SDK를 구성하려면 `PullAudioInputStream` 또는 `PushAudioInputStream`을 만듭니다. 그런 다음, 스트림 클래스의 인스턴스에서 `AudioConfig`를 만들어 스트림의 압축 형식을 지정합니다.
 
-사용 사례가 파일에 대해를 사용 하는 경우를 가정해 보겠습니다 `PullStream` `MP3` . 코드는 다음과 같습니다.
+사용 사례가 `MP3` 파일에 대해 `PullStream`을 사용하는 경우를 가정해 보겠습니다. 코드는 다음과 같이 표시될 수 있습니다.
 
 ```python
 

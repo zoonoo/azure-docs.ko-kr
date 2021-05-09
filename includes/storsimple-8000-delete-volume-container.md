@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: storsimple
 author: alkohli
 ms.service: storsimple
@@ -9,10 +9,10 @@ ms.date: 02/09/2021
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: 386a39d76bf47da45f07054124886e174104849e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100545416"
 ---
 볼륨 컨테이너를 삭제하려면
@@ -37,4 +37,4 @@ ms.locfileid: "100545416"
 
 삭제된 볼륨 컨테이너를 반영하도록 볼륨 컨테이너 목록이 업데이트됩니다.
 
-![볼륨 컨테이너 페이지의 스크린샷 볼륨 컨테이너의 테이블 형식 목록에 삭제 된 컨테이너가 더 이상 포함 되지 않습니다.](./media/storsimple-8000-delete-volume-container/delete-volume-container-05.png)
+![볼륨 컨테이너 페이지의 스크린샷. 볼륨 컨테이너의 테이블 형식 목록에는 삭제된 컨테이너가 더 이상 포함되지 않습니다.](./media/storsimple-8000-delete-volume-container/delete-volume-container-05.png)

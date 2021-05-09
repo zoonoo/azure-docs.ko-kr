@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: 442fa1c76d4667a54f1c13b411b1c052c9a5b134
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 31b051c37d4fbf1c73c8711e3e9a330cacc1c26d
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566645"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107904355"
 ---
 # <a name="azure-cosmos-db-emulator---release-notes-and-download-information"></a>Azure Cosmos DB Emulator - 릴리스 정보 및 다운로드 정보
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,6 +26,10 @@ ms.locfileid: "105566645"
 |**시작**|[Azure Cosmos DB Emulator를 사용하여 로컬로 개발](local-emulator.md)|
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="21113-21-april-2021"></a>2.11.13(2021년 4월 21일)
+
+ - 이 릴리스는 로컬 데이터 탐색기 콘텐츠를 최신 Azure Portal 버전으로 업데이트하고 새 MongoDB 엔드포인트 구성 "4.0"을 추가합니다.
 
 ### <a name="21111-22-february-2021"></a>2.11.11(2021년 2월 22일)
 

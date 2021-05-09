@@ -2,21 +2,21 @@
 title: AD FS에서 Azure Active Directory로 애플리케이션 인증 이동
 description: Azure Active Directory를 사용하여 AD FS(Active Directory Federation Services)를 대체하고 사용자에게 모든 애플리케이션에 대한 Single Sign-On을 제공하는 방법을 알아봅니다.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 03/01/2021
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: baselden
-ms.openlocfilehash: ee1d863ccb974b30213179a1aba9e27d5a3a2bda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e9bedc63a3b1d53222c732b6611d132249b07c6
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103418470"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108320802"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Active Directory Federation Services에서 Azure Active Directory로 애플리케이션 인증 이동
 
@@ -48,7 +48,7 @@ ID 및 액세스 관리를 위한 단일 제어 평면을 제공하므로 모든
 
 자세한 내용은 다음을 참조하세요.
 
-* [Azure AD 애플리케이션 프록시를 사용하여 원격 사용자용 온-프레미스 앱 게시](what-is-application-proxy.md)
+* [Azure AD 애플리케이션 프록시를 사용하여 원격 사용자용 온-프레미스 앱 게시](../app-proxy/what-is-application-proxy.md)
 * [애플리케이션 관리란?](what-is-application-management.md)
 * [애플리케이션을 Azure AD로 마이그레이션하기 위한 AD FS 애플리케이션 활동 보고서](migrate-adfs-application-activity.md)
 * [Azure AD Connect Health를 사용하여 AD FS 모니터링](../hybrid/how-to-connect-health-adfs.md)
@@ -120,7 +120,7 @@ SAML 기반 SSO에 맞게 SaaS 애플리케이션을 구성하려면 [빠른 시
 
 Azure AD에서 대부분의 SaaS 애플리케이션을 구성할 수 있습니다. Microsoft에는 [Azure AD 앱 갤러리](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps)에 SaaS 앱에 대해 미리 구성된 연결이 많기 때문에 더 쉽게 전환할 수 있습니다. SAML 2.0 애플리케이션은 Azure AD 앱 갤러리를 통하거나 [비갤러리 애플리케이션](add-application-portal.md)으로 Azure AD와 통합할 수 있습니다.
 
-OAuth 2.0 또는 OpenID Connect를 사용하는 앱은 [앱 등록](../develop/quickstart-register-app.md)으로 Azure AD와 유사하게 통합할 수 있습니다. 레거시 프로토콜을 사용하는 앱은 [Azure AD 애플리케이션 프록시](application-proxy.md)를 사용하여 Azure AD에 인증할 수 있습니다.
+OAuth 2.0 또는 OpenID Connect를 사용하는 앱은 [앱 등록](../develop/quickstart-register-app.md)으로 Azure AD와 유사하게 통합할 수 있습니다. 레거시 프로토콜을 사용하는 앱은 [Azure AD 애플리케이션 프록시](../app-proxy/application-proxy.md)를 사용하여 Azure AD에 인증할 수 있습니다.
 
 SaaS 앱을 온보딩하는 데 문제가 있는 경우 [SaaS 애플리케이션 통합 지원 별칭](mailto:SaaSApplicationIntegrations@service.microsoft.com)에 문의할 수 있습니다.
 
@@ -177,7 +177,7 @@ Azure AD SAML 토큰 암호화 및 구성 방법에 대한 자세한 내용은 [
 
 다음 토큰의 클레임 기능이 필요한 앱은 현재 마이그레이션할 수 없습니다.
 
-* Azure AD 디렉터리가 아닌 특성 저장소의 클레임(해당 데이터가 Azure AD에 동기화되지 않은 경우). 자세한 내용은 [Azure AD 동기화 API 개요](/graph/api/resources/synchronization-overview?view=graph-rest-beta)를 참조하세요.
+* Azure AD 디렉터리가 아닌 특성 저장소의 클레임(해당 데이터가 Azure AD에 동기화되지 않은 경우). 자세한 내용은 [Azure AD 동기화 API 개요](/graph/api/resources/synchronization-overview)를 참조하세요.
 * 디렉터리 다중 값 특성의 발급. 예를 들어 현재는 프록시 주소에 대해 다중 값 클레임을 발급할 수 없습니다.
 
 ## <a name="map-app-settings-from-ad-fs-to-azure-ad"></a>AD FS에서 Azure AD로 앱 설정 매핑
@@ -414,7 +414,7 @@ Azure Portal에서 신뢰할 수 있는 위치에 대해 제외 옵션을 구성
 | OAuth/OpenID Connect| **엔터프라이즈 애플리케이션 > 권한** 을 선택하고 앱의 사용자 설정에서 애플리케이션에 동의했는지 확인합니다.|
 | SAML 기반 SSO | **Single Sign-On** 에 있는 [SAML 설정 테스트](debug-saml-sso-issues.md) 단추를 사용합니다. |
 | 암호 기반 SSO |  [MyApps 보안 로그인](../user-help/my-apps-portal-end-user-access.md)[-](../user-help/my-apps-portal-end-user-access.md)[확장](../user-help/my-apps-portal-end-user-access.md)을 다운로드하고 설치합니다. 해당 확장을 사용하면 SSO 프로세스를 사용해야 하는 조직의 클라우드 앱을 시작할 수 있습니다. |
-| 애플리케이션 프록시 | 커넥터가 실행 중이고 애플리케이션에 할당되었는지 확인합니다. 자세한 내용은 [애플리케이션 프록시 문제 해결 가이드](application-proxy-troubleshoot.md)를 참조하세요. |
+| 애플리케이션 프록시 | 커넥터가 실행 중이고 애플리케이션에 할당되었는지 확인합니다. 자세한 내용은 [애플리케이션 프록시 문제 해결 가이드](../app-proxy/application-proxy-troubleshoot.md)를 참조하세요. |
 
 > [!NOTE]
 > 이전 AD FS 환경의 쿠키는 사용자 머신에 유지됩니다. 사용자가 새 Azure AD 로그인 대신 이전 AD FS 로그인 환경으로 이동할 수 있으므로 해당 쿠키는 마이그레이션 문제를 일으킬 수 있습니다. 사용자 브라우저 쿠키를 수동으로 삭제하거나 스크립트를 사용하여 삭제해야 할 수 있습니다. System Center Configuration Manager나 유사한 플랫폼을 사용할 수도 있습니다.

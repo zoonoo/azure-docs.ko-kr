@@ -4,12 +4,12 @@ description: BYOK(Bring Your Own Key)를 통해 AKS OS 및 데이터 디스크�
 services: container-service
 ms.topic: article
 ms.date: 09/01/2020
-ms.openlocfilehash: 4b1c311132cc812ccb2bbbc95c4b7414b108008c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c5c555d7eb5142f5f41f65b24f754c65450a2713
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102499206"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776194"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure 디스크에 BYOK(Bring Your Own Key) 사용
 
@@ -19,7 +19,7 @@ Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화�
 * 데이터 디스크 암호화 지원은 Kubernetes 버전 1.17 이상을 실행하는 AKS 클러스터로 제한됩니다.
 * AKS 클러스터를 만들 때만 고객 관리형 키를 사용하여 OS 및 데이터 디스크를 암호화할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 * Key Vault를 사용하여 관리 디스크를 암호화할 때 *Azure Key Vault* 에 일시 삭제 및 제거 방지를 사용하도록 설정해야 합니다.
 * Azure CLI 버전 2.11.1 이상이 필요합니다.
 
@@ -148,8 +148,8 @@ kubectl apply -f byok-azure-disk.yaml
 <!-- LINKS - external -->
 
 <!-- LINKS - internal -->
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [best-practices-security]: ./operator-best-practices-cluster-security.md
 [byok-azure-portal]: ../storage/common/customer-managed-keys-configure-key-vault.md
 [customer-managed-keys-windows]: ../virtual-machines/disk-encryption.md#customer-managed-keys

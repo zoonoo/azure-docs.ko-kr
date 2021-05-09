@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 746198f87e23cd7aca2a3177c23974917cb4b12a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96027234"
 ---
 #### <a name="to-create-a-new-service"></a>새 서비스를 만들려면
@@ -19,9 +19,9 @@ ms.locfileid: "96027234"
 
     ![StorSimple 디바이스 관리자 만들기](./media/storsimple-8000-create-new-service/createssdevman1.png)
 
-    _StorSimple 실제_ 를 검색합니다. **StorSimple 실제 디바이스 시리즈** 를 선택하여 클릭한 후 **만들기** 를 클릭합니다. 또는 Azure Portal 클릭 **+** 한 다음 **저장소** 아래에서 **StorSimple 물리적 장치 시리즈** 를 클릭 합니다.
+    _StorSimple 실제_ 를 검색합니다. **StorSimple 실제 디바이스 시리즈** 를 선택하여 클릭한 후 **만들기** 를 클릭합니다. 또는 Azure Portal에서 **+** 를 클릭한 다음 **스토리지** 아래에서 **StorSimple 실제 디바이스 시리즈** 를 클릭합니다.
 
-    ![StorSimple 장치 관리자 2 만들기](./media/storsimple-8000-create-new-service/createssdevman11.png)
+    ![StorSimple 디바이스 관리자 2 만들기](./media/storsimple-8000-create-new-service/createssdevman11.png)
 
 3. **StorSimple 디바이스 관리자** 블레이드에서 다음 단계를 수행합니다.
 
@@ -42,8 +42,8 @@ ms.locfileid: "96027234"
 
    7. **만들기** 를 클릭하여 StorSimple 디바이스 관리자를 만듭니다.
 
-       ![StorSimple 장치 관리자 3 만들기](./media/storsimple-8000-create-new-service/createssdevman2.png)
+       ![StorSimple 디바이스 관리자 3 만들기](./media/storsimple-8000-create-new-service/createssdevman2.png)
 
 서비스 생성은 몇 분 정도가 소요됩니다. 서비스가 성공적으로 만들어지면 알림이 표시되고 새 서비스 블레이드가 열립니다.
 
-![StorSimple 장치 관리자 4 만들기](./media/storsimple-8000-create-new-service/createssdevman5.png)
+![StorSimple 디바이스 관리자 4 만들기](./media/storsimple-8000-create-new-service/createssdevman5.png)

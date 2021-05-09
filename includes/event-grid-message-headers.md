@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -9,14 +9,14 @@ ms.date: 11/19/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: c37e2c28eb6aee9edf4bdd97066ce5f15e7447c1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96005636"
 ---
 ## <a name="message-headers"></a>메시지 헤더
-메시지 헤더에 표시 되는 속성은 다음과 같습니다.
+다음은 메시지 헤더에서 수신되는 속성입니다.
 
 | 속성 이름 | Description |
 | ------------- | ----------- | 

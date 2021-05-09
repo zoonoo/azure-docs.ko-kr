@@ -4,19 +4,19 @@ description: Azure Synapse Analytics에서 Azure Data Lake Storage Gen2로 데�
 services: synapse-analytics
 author: djpmsft
 ms.service: synapse-analytics
+ms.subservice: pipeline
 ms.topic: conceptual
-ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: fbc4f11b450a645002daedc800d4fed74ed37a3d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: e3024fe1a8fe524a1deddef23a67d86a600b9394
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98219575"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567607"
 ---
-# <a name="ingest-data-into-azure-data-lake-storage-gen2"></a>데이터를 Azure Data Lake Storage Gen2 수집 
+# <a name="ingest-data-into-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에 데이터 수집 
 
 이 문서에서는 Azure Synapse Analytics를 사용하여 Azure Data Lake Gen2 스토리지 계정의 한 위치에서 다른 위치로 데이터를 수집하는 방법을 알아봅니다.
 
@@ -32,23 +32,23 @@ Azure Synapse Analytics에서 연결된 서비스는 다른 서비스에 대한 
 1. Azure Synapse Analytics UX를 열고 **관리** 탭으로 이동합니다.
 1. **외부 연결** 에서 **연결된 서비스** 를 선택합니다.
 1. 연결된 서비스를 추가하려면 **새로 만들기** 를 선택합니다.
-1. 목록에서 Azure Data Lake Storage Gen2 타일을 선택 하 고 **계속** 을 선택 합니다.
-1. 인증 자격 증명을 입력합니다. 계정 키, 서비스 주체 및 관리 ID는 현재 지원되는 인증 유형입니다. 연결 테스트를 선택 하 여 자격 증명이 올바른지 확인 합니다. 
+1. 목록에서 Azure Data Lake Storage Gen2 타일을 선택하고 **계속** 을 선택합니다.
+1. 인증 자격 증명을 입력합니다. 계정 키, 서비스 주체 및 관리 ID는 현재 지원되는 인증 유형입니다. 연결 테스트를 선택하여 자격 증명이 올바른지 확인합니다. 
 1. 작업을 완료하면 **만들기** 를 선택합니다.
 
 ## <a name="create-pipeline"></a>파이프라인 만들기
 
-파이프라인에는 일련의 활동을 실행하기 위한 논리적 흐름이 포함됩니다. 이 섹션에서는 Azure Data Lake Gen 2에서 전용 SQL 풀로 데이터를 수집 하는 복사 작업이 포함 된 파이프라인을 만듭니다.
+파이프라인에는 일련의 활동을 실행하기 위한 논리적 흐름이 포함됩니다. 이 섹션에서는 Azure Data Lake Gen2에서 전용 SQL 풀로 데이터를 수집하는 복사 작업이 포함된 파이프라인을 만듭니다.
 
-1. **오케스트레이션** 탭으로 이동 합니다. 파이프라인 헤더 옆에 있는 더하기 아이콘을 선택 하 고 **파이프라인** 을 선택 합니다.
+1. **오케스트레이션** 탭으로 이동합니다. 파이프라인 헤더 옆에 있는 더하기 아이콘을 선택하고 **파이프라인** 을 선택합니다.
 1. **이동 및 변환** 에 있는 작업 창에서 **데이터 복사** 를 파이프라인 캔버스로 끕니다.
-1. 복사 활동을 선택 하 고 **원본** 탭으로 이동 합니다. 새로 **만들기를 선택 하** 여 새 원본 데이터 집합을 만듭니다.
-1. 데이터 저장소로 Azure Data Lake Storage Gen2를 선택 하 고 계속을 선택 합니다.
-1. 형식으로 DelimitedText를 선택 하 고 계속을 선택 합니다.
+1. 복사 작업을 선택하고, **원본** 탭으로 이동합니다. **새로 만들기** 를 선택하여 새 원본 데이터 세트를 만듭니다.
+1. Azure Data Lake Storage Gen2를 데이터 저장소로 선택하고 계속을 선택합니다.
+1. 형식으로 DelimitedText를 선택하고 계속을 선택합니다.
 1. 설정 속성 창에서 만든 ADLS 연결 서비스를 선택합니다. 원본 데이터의 파일 경로를 지정하고 첫 번째 행에 머리글이 있는지 여부를 지정합니다. 파일 저장소나 샘플 파일에서 스키마를 가져올 수 있습니다. 마치면 확인을 선택합니다.
-1. **싱크** 탭으로 이동 합니다. 새로 **만들기를 선택 하** 여 새 싱크 데이터 집합을 만듭니다.
-1. 데이터 저장소로 Azure Data Lake Storage gen2를 선택 하 고 계속을 선택 합니다.
-1. 형식으로 DelimitedText를 선택 하 고 계속을 선택 합니다.
+1. **싱크** 탭으로 이동하고, **새로 만들기** 를 선택하여 새 싱크 데이터 세트를 만듭니다.
+1. Azure Data Lake Storage gen2를 데이터 저장소로 선택하고 계속을 선택합니다.
+1. 형식으로 DelimitedText를 선택하고 계속을 선택합니다.
 1. 설정 속성 창에서 만든 ADLS 연결 서비스를 선택합니다. 데이터를 쓸 폴더의 경로를 지정합니다. 마치면 확인을 선택합니다.
 
 ## <a name="debug-and-publish-pipeline"></a>파이프라인 디버그 및 게시
@@ -72,4 +72,4 @@ Azure Synapse Analytics에서 연결된 서비스는 다른 서비스에 대한 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Synapse Analytics의 데이터 통합에 대 한 자세한 내용은 [수집 data into a 전용 SQL pool](data-integration-sql-pool.md) 문서를 참조 하세요.
+Azure Synapse Analytics의 데이터 통합에 대한 자세한 내용은 [전용 SQL 풀로 데이터 수집](data-integration-sql-pool.md) 문서를 참조하세요.

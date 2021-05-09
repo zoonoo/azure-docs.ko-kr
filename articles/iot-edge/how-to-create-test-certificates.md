@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d8cf3dbe9d1dc2ad329a0b5ab8fa9554c85ae55c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: adfb46894e769a23a2ac48bdb4ac3e432d9cebce
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199087"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139060"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>데모 인증서를 만들어 IoT Edge 디바이스 기능 테스트
 
@@ -38,7 +38,7 @@ IoT Edge 시나리오를 테스트하기 위한 데모 인증서를 만들려면
    * 게이트웨이 시나리오에서 IoT Edge 디바이스에 대한 [IoT Edge 디바이스 CA 인증서를 만듭니다](#create-iot-edge-device-ca-certificates).
    * 게이트웨이 시나리오에서 다운스트림 디바이스를 인증하기 위한 [다운스트림 디바이스 인증서를 만듭니다](#create-downstream-device-certificates).
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Git이 설치된 개발 머신
 
@@ -299,7 +299,7 @@ IoT 디바이스에는 IoT Hub를 사용하여 인증할 수 있도록 디바이
 
 1. 인증서 생성 스크립트 및 루트 CA 인증서가 있는 작업 디렉터리로 이동합니다.
 
-2. 다운스트림 디바이스에 대해 두 개의 인증서(기본 및 보조)를 만듭니다. 사용하기 쉬운 명명 규칙의 예로는 IoT 디바이스 이름으로 인증서를 만든 다음 기본 또는 보조 레이블을 만드는 것입니다. 예를 들면 다음과 같습니다.
+2. 다운스트림 디바이스에 대해 두 개의 인증서(기본 및 보조)를 만듭니다. 사용하기 쉬운 명명 규칙의 예로는 IoT 디바이스 이름으로 인증서를 만든 다음 기본 또는 보조 레이블을 만드는 것입니다. 예를 들어:
 
    ```PowerShell
    New-CACertsDevice "<device name>-primary"
@@ -329,7 +329,7 @@ IoT 디바이스에는 IoT Hub를 사용하여 인증할 수 있도록 디바이
 
 1. 인증서 생성 스크립트 및 루트 CA 인증서가 있는 작업 디렉터리로 이동합니다.
 
-2. 다운스트림 디바이스에 대해 두 개의 인증서(기본 및 보조)를 만듭니다. 사용하기 쉬운 명명 규칙의 예로는 IoT 디바이스 이름으로 인증서를 만든 다음 기본 또는 보조 레이블을 만드는 것입니다. 예를 들면 다음과 같습니다.
+2. 다운스트림 디바이스에 대해 두 개의 인증서(기본 및 보조)를 만듭니다. 사용하기 쉬운 명명 규칙의 예로는 IoT 디바이스 이름으로 인증서를 만든 다음 기본 또는 보조 레이블을 만드는 것입니다. 예를 들어:
 
    ```bash
    ./certGen.sh create_device_certificate "<device name>-primary"
@@ -361,7 +361,7 @@ IoT 디바이스에는 IoT Hub를 사용하여 인증할 수 있도록 디바이
 그런 다음 루트 CA 인증서를 소유하고 있음을 IoT Hub에 증명하기 위한 확인 작업을 수행합니다.
 마지막으로 IoT Hub로 인증할 수 있도록 IoT 디바이스에 넣을 디바이스 인증서를 만들기 위해 동일한 루트 CA 인증서를 사용합니다.
 
-이 섹션의 인증서는 [Azure IoT Hub에서 X.509 보안 설정](../iot-hub/iot-hub-security-x509-get-started.md)의 단계에 사용됩니다.
+이 섹션의 인증서는 [Azure IoT Hub에서 X.509 보안 설정](../iot-hub/tutorial-x509-scripts.md)의 단계에 사용됩니다.
 
 #### <a name="windows"></a>Windows
 
