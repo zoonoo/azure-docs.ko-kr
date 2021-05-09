@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6e595f7ff313ff85a12209e8c124b9aa376b20b6
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: d30ab051e58573daefd16f178feb4fc94f2ec83f
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739749"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835473"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>자습서: Azure Remote Rendering 및 모델 스토리지 보안
 
@@ -405,8 +405,10 @@ Unity 편집기에서 AAD 인증이 활성화되면 애플리케이션을 시작
     **AADAuthentication** 구성 요소에는 보기 컨트롤러가 있으므로, 세션 권한 부여 모달 패널 뒤에 프롬프트를 표시하도록 자동으로 연결됩니다.
 1. **AppMenu** 의 오른쪽 패널에 있는 지침을 따르세요.
     다음과 유사한 내용이 표시되어야 합니다. ![AppMenu 오른쪽에 표시되는 명령 패널을 보여주는 그림.](./media/device-flow-instructions.png)
-    보조 디바이스(또는 동일한 디바이스의 브라우저)에서 제공된 코드를 입력하고 자격 증명을 사용하여 로그인하면 요청 애플리케이션(여기서는 Unity 편집기)에 액세스 토큰이 반환됩니다.
-1. 이 시점 이후로 애플리케이션의 모든 것이 정상적으로 진행됩니다. 스테이지가 예상대로 진행되지 않으면 Unity 콘솔에서 오류를 확인합니다.
+    
+    보조 디바이스(또는 동일한 디바이스의 브라우저)에서 제공된 코드를 입력하고 자격 증명을 사용하여 로그인하면 액세스 토큰이 요청 애플리케이션(여기서는 Unity 편집기)에 반환됩니다.
+
+이 시점 이후로 애플리케이션의 모든 것이 정상적으로 진행됩니다. 스테이지가 예상대로 진행되지 않으면 Unity 콘솔에서 오류를 확인합니다.
 
 ## <a name="build-to-device"></a>디바이스에 빌드
 

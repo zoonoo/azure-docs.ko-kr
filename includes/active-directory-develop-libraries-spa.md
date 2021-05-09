@@ -1,28 +1,28 @@
 ---
-ms.openlocfilehash: a393cf978318c39081805cae7e38c3386ff156f5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 05fc91667f34262c6b510c0e1464d3e5fad339bc
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103010707"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107590145"
 ---
-| 언어/프레임 워크 | 프로젝트 설정<br/>GitHub                                                                                                    | 패키지                                                                      | 도달<br/>시작됨                             | 사용자 로그인                                         | 웹 Api 액세스                                                 | 일반적으로 사용 가능 (GA) *또는*<br/>공개 미리 보기<sup>1</sup> |
+| 언어 / 프레임워크 | 프로젝트 설정<br/>GitHub                                                                                                    | 패키지                                                                      | 가져오기<br/>시작됨                             | 사용자 로그인                                         | 웹 API 액세스                                                 | GA(일반 공급) *또는*<br/>공개 미리 보기<sup>1</sup> |
 |----------------------|--------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|:-----------------------------------------------:|:-----------------------------------------------------:|:---------------------------------------------------------------:|:------------------------------------------------------------:|
-| Angular              | [Msal 각도 v2](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)<sup>2</sup>         | [@azure/msal-angular](https://www.npmjs.com/package/@azure/msal-angular)     | —                                               | ![라이브러리에서 사용자 로그인에 대 한 ID 토큰을 요청할 수 있습니다.][y] | ![라이브러리는 보호 된 웹 Api에 대 한 액세스 토큰을 요청할 수 있습니다.][y] | 퍼블릭 미리 보기                                               |
-| Angular              | [Msal 각도](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/msal-angular-v1/lib/msal-angular)<sup>3</sup> | [@azure/msal-angular](https://www.npmjs.com/package/@azure/msal-angular)     |[자습서](../articles/active-directory/develop/tutorial-v2-angular.md)| ![라이브러리에서 사용자 로그인에 대 한 ID 토큰을 요청할 수 있습니다.][y] | ![라이브러리는 보호 된 웹 Api에 대 한 액세스 토큰을 요청할 수 있습니다.][y] | GA                                                           |
-| AngularJS            | [Msal AngularJS](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angularjs)<sup>3</sup>         | [@azure/msal-angularjs](https://www.npmjs.com/package/@azure/msal-angularjs) | —                                               | ![라이브러리에서 사용자 로그인에 대 한 ID 토큰을 요청할 수 있습니다.][y] | ![라이브러리는 보호 된 웹 Api에 대 한 액세스 토큰을 요청할 수 있습니다.][y] | 퍼블릭 미리 보기                                               |
-| JavaScript           | [MSAL.js v2](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)<sup>2</sup>              | [@azure/msal-browser](https://www.npmjs.com/package/@azure/msal-browser)     | [자습서](../articles/active-directory/develop/tutorial-v2-javascript-auth-code.md) | ![라이브러리에서 사용자 로그인에 대 한 ID 토큰을 요청할 수 있습니다.][y] | ![라이브러리는 보호 된 웹 Api에 대 한 액세스 토큰을 요청할 수 있습니다.][y] | GA                                                           |
-|JavaScript|[MSAL.js 1.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)<sup>3</sup> | [@azure/msal-core](https://www.npmjs.com/package/@azure/msal-core)    | [자습서](../articles/active-directory/develop/tutorial-v2-javascript-spa.md)| ![라이브러리에서 사용자 로그인에 대 한 ID 토큰을 요청할 수 있습니다.][y] | ![라이브러리는 보호 된 웹 Api에 대 한 액세스 토큰을 요청할 수 있습니다.][y] | GA                                                           |
-| React                | [Msal 반응](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react)<sup>2</sup>                 | [@azure/msal-react](https://www.npmjs.com/package/@azure/msal-react)         | —                                               | ![라이브러리에서 사용자 로그인에 대 한 ID 토큰을 요청할 수 있습니다.][y] | ![라이브러리는 보호 된 웹 Api에 대 한 액세스 토큰을 요청할 수 있습니다.][y] | 퍼블릭 미리 보기                                               |
+| Angular              | [MSAL Angular v2](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)<sup>2</sup>         | [msal-angular](https://www.npmjs.com/package/@azure/msal-angular)     | —                                               | ![라이브러리에서 사용자 로그인에 대한 ID 토큰을 요청할 수 있습니다.][y] | ![라이브러리는 보호된 웹 API에 대한 액세스 토큰을 요청할 수 있습니다.][y] | 퍼블릭 미리 보기                                               |
+| Angular              | [MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/msal-angular-v1/lib/msal-angular)<sup>3</sup> | [msal-angular](https://www.npmjs.com/package/@azure/msal-angular)     |[자습서](../articles/active-directory/develop/tutorial-v2-angular.md)| ![라이브러리에서 사용자 로그인에 대한 ID 토큰을 요청할 수 있습니다.][y] | ![라이브러리는 보호된 웹 API에 대한 액세스 토큰을 요청할 수 있습니다.][y] | GA                                                           |
+| AngularJS            | [MSAL AngularJS](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angularjs)<sup>3</sup>         | [msal-angularjs](https://www.npmjs.com/package/@azure/msal-angularjs) | —                                               | ![라이브러리에서 사용자 로그인에 대한 ID 토큰을 요청할 수 있습니다.][y] | ![라이브러리는 보호된 웹 API에 대한 액세스 토큰을 요청할 수 있습니다.][y] | 퍼블릭 미리 보기                                               |
+| JavaScript           | [MSAL.js v2](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)<sup>2</sup>              | [msal-browser](https://www.npmjs.com/package/@azure/msal-browser)     | [자습서](../articles/active-directory/develop/tutorial-v2-javascript-auth-code.md) | ![라이브러리에서 사용자 로그인에 대한 ID 토큰을 요청할 수 있습니다.][y] | ![라이브러리는 보호된 웹 API에 대한 액세스 토큰을 요청할 수 있습니다.][y] | GA                                                           |
+|JavaScript|[MSAL.js 1.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)<sup>3</sup> | [msal-core](https://www.npmjs.com/package/@azure/msal-core)    | [자습서](../articles/active-directory/develop/tutorial-v2-javascript-spa.md)| ![라이브러리에서 사용자 로그인에 대한 ID 토큰을 요청할 수 있습니다.][y] | ![라이브러리는 보호된 웹 API에 대한 액세스 토큰을 요청할 수 있습니다.][y] | GA                                                           |
+| React                | [MSAL React](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react)<sup>2</sup>                 | [msal-react](https://www.npmjs.com/package/@azure/msal-react)         | —                                               | ![라이브러리에서 사용자 로그인에 대한 ID 토큰을 요청할 수 있습니다.][y] | ![라이브러리는 보호된 웹 API에 대한 액세스 토큰을 요청할 수 있습니다.][y] | 퍼블릭 미리 보기                                               |
 <!--
 | Vue | [Vue MSAL]( https://github.com/mvertopoulos/vue-msal) | [vue-msal]( https://www.npmjs.com/package/vue-msal) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | -- |
 -->
 
-<sup>1</sup> [Microsoft Azure 미리 보기의 추가 사용 약관][preview-tos] 은 *공개 미리 보기로* 제공 되는 라이브러리에 적용 됩니다.
+<sup>1</sup> [Microsoft Azure 미리 보기의 추가 사용 약관][preview-tos]은 *공개 미리 보기* 로 제공되는 라이브러리에 적용됩니다.
 
-<sup>2</sup> pcke만 사용 하는 [인증 코드 흐름][auth-code-flow] (권장) 
+<sup>2</sup> PCKE에만 사용하는 [인증 코드 흐름][auth-code-flow](권장). 
 
-<sup>3</sup> [암시적 부여 흐름][implicit-flow] 에만 해당 합니다.
+<sup>3</sup> [암시적 부여 흐름][implicit-flow] 전용.
 
 <!--Image references-->
 

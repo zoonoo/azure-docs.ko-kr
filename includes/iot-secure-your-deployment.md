@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96010704"
 ---
 이 문서에서는 Azure IoT 기반 IoT(사물 인터넷) 인프라를 보호하기 위한 세부 정보를 제공합니다. 또한 각 구성 요소의 구성 및 배포에 대한 구현 수준의 세부 정보에 연결됩니다. 그밖에도 다양한 경쟁 방법 간을 비교하고 선택 항목을 제공합니다.
@@ -77,15 +77,15 @@ IoT Hub와의 보안 TLS 연결을 설정하는 동안 IoT 디바이스는 디�
 
 ## <a name="securing-the-connection"></a>연결 보안
 
-IoT 디바이스와 IoT Hub 간 인터넷 연결은 TLS(전송 계층 보안) 표준을 사용하여 보안이 유지됩니다. Azure IoT는 [tls 1.2](https://tools.ietf.org/html/rfc5246), tls 1.1 및 tls 1.0를이 순서로 지원 합니다. TLS 1.0에 대한 지원은 이전 버전과의 호환성을 위해서만 제공됩니다. [IoT Hub에서 tls 지원을](../articles/iot-hub/iot-hub-tls-support.md) 확인 하 여 보안을 제공 하므로 tls 1.2를 사용 하도록 허브를 구성 하는 방법을 확인 합니다.
+IoT 디바이스와 IoT Hub 간 인터넷 연결은 TLS(전송 계층 보안) 표준을 사용하여 보안이 유지됩니다. Azure IoT는 [TLS 1.2](https://tools.ietf.org/html/rfc5246), TLS 1.1 및 TLS 1.0을 순서대로 지원합니다. TLS 1.0에 대한 지원은 이전 버전과의 호환성을 위해서만 제공됩니다. [IoT Hub에서 TLS 지원](../articles/iot-hub/iot-hub-tls-support.md)을 확인하여 TLS 1.2(최고의 보안을 제공하므로)를 사용하도록 허브를 구성하는 방법을 확인합니다.
 
 ## <a name="securing-the-cloud"></a>클라우드 보안
 
 Azure IoT Hub에서는 각 보안 키에 대해 [액세스 제어 정책](../articles/iot-hub/iot-hub-devguide-security.md)을 정의할 수 있습니다. 또한 다음 권한 집합을 사용하여 각 IoT Hub의 엔드포인트에 대한 액세스 권한을 부여합니다. 사용 권한은 기능에 따라 IoT Hub에 대한 액세스를 제한합니다.
 
-* **RegistryRead**. ID 레지스트리에 대한 읽기 액세스 권한을 부여합니다. 자세한 내용은 [id 레지스트리](../articles/iot-hub/iot-hub-devguide-identity-registry.md)를 참조 하세요.
+* **RegistryRead**. ID 레지스트리에 대한 읽기 액세스 권한을 부여합니다. 자세한 내용은 [ID 레지스트리](../articles/iot-hub/iot-hub-devguide-identity-registry.md)를 참조하세요.
 
-* **RegistryReadWrite**. ID 레지스트리에 대한 읽기 및 쓰기 액세스 권한을 부여합니다. 자세한 내용은 [id 레지스트리](../articles/iot-hub/iot-hub-devguide-identity-registry.md)를 참조 하세요.
+* **RegistryReadWrite**. ID 레지스트리에 대한 읽기 및 쓰기 액세스 권한을 부여합니다. 자세한 내용은 [ID 레지스트리](../articles/iot-hub/iot-hub-devguide-identity-registry.md)를 참조하세요.
 
 * **ServiceConnect**. 클라우드 서비스 지향 통신 및 모니터링 중인 엔드포인트에 대한 액세스를 부여합니다. 예를 들어 디바이스-클라우드 메시지를 받고 클라우드-디바이스 메시지를 보내며 해당 전달 승인을 검색할 수 있는 권한을 백 엔드 클라우드 서비스에 부여합니다.
 
@@ -107,7 +107,7 @@ Azure IoT Hub를 통해 수집된 데이터는 Azure Stream Analytics, Azure Blo
 
 * [Logic Apps](https://azure.microsoft.com/services/app-service/logic/): Azure App Service의 Logic Apps 기능을 통해 IoT 솔루션을 기존의 LOB(기간 업무) 시스템에 통합하고 워크플로 프로세스를 자동화할 수 있습니다. Logic Apps를 사용하면 개발자는 트리거부터 시작하여 비즈니스 프로세스와 통합할 강력한 커넥터를 사용하는 규칙 및 작업으로 이루어진 일련의 단계를 수행하는 워크플로를 설계할 수 있습니다. Logic Apps는 SaaS, 클라우드 기반 및 온-프레미스 애플리케이션의 방대한 생태계에 즉시 연결을 제공합니다.
 
-* [Azure Blob storage](https://azure.microsoft.com/services/storage/): 장치가 클라우드로 전송 하는 데이터에 대 한 안정적이 고 경제적인 클라우드 저장소입니다.
+* [Azure Blob Storage](https://azure.microsoft.com/services/storage/): 디바이스가 클라우드로 전송하는 데이터에 대한 안정적이고 경제적인 클라우드 스토리지입니다.
 
 ## <a name="conclusion"></a>결론
 

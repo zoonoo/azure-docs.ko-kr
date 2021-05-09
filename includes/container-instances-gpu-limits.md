@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 01/31/2020
 ms.author: danlep
 ms.openlocfilehash: ad52317319a2da973c0cc1cdf34a1ada01238d95
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87387094"
 ---
-### <a name="maximum-resources-per-sku"></a>SKU 당 최대 리소스
+### <a name="maximum-resources-per-sku"></a>SKU당 최대 리소스
 
-| OS | GPU SKU | GPU 수 | 최대 CPU | 최대 메모리 (GB) | 스토리지(GB) |
+| OS | GPU SKU | GPU 수 | 최대 CPU | 최대 메모리(GB) | 스토리지(GB) |
 | --- | --- | --- | --- | --- | --- |
 | Linux | K80 | 1 | 6 | 56 | 50 |
 | Linux | K80 | 2 | 12 | 112 | 50 |

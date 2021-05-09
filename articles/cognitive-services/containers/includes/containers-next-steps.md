@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 3820d1d42449fe962c151655768c4aa063eb9529
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "80876092"
 ---
 ## <a name="next-steps"></a>다음 단계 
 
-Azure Cognitive Services 컨테이너를 사용 하 여 계속 작업 하겠습니다.
+Azure Cognitive Services 컨테이너를 사용하여 계속 작업하겠습니다.
 
 > [!div class="nextstepaction"]
-> [더 많은 Cognitive Services 컨테이너 사용](../../cognitive-services-container-support.md)
+> [추가 Cognitive Services 컨테이너 사용](../../cognitive-services-container-support.md)

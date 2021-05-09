@@ -4,12 +4,12 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 12/09/2020
 ms.topic: include
-ms.openlocfilehash: 269cae85c0f007c487f063b1f7ca7ea4dca15376
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: cc022470bf9ff799d6396f871f4a6c224d01a295
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105105338"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107931611"
 ---
 Custom Vision REST API를 시작합니다. API를 호출하고 이미지 분류 모델을 빌드하려면 다음 단계를 수행합니다. 프로젝트를 만들고, 태그를 추가하고, 프로젝트를 학습하고, 프로젝트의 예측 엔드포인트 URL을 사용하여 프로그래밍 방식으로 테스트합니다. 자체 이미지 인식 앱을 빌드하기 위한 템플릿으로 이 예제를 사용합니다.
 
@@ -175,7 +175,7 @@ JSON 응답에는 반복 ID(`"id"`)를 비롯하여 학습된 프로젝트에 �
 * `{projectId}`는 고유한 프로젝트 ID로 바꿉니다.
 * `{iterationId}`를 이전 단계에서 반환된 ID로 바꿉니다.
 * `{publishedName}`은 예측 모델에 할당하려는 이름으로 바꿉니다.
-* `{predictionId}`는 고유한 예측 리소스 ID로 바꿉니다. Azure Portal에 있는 예측 리소스의 **개요** 탭에서 **구독 ID** 로 나열된 예측 리소스 ID를 찾을 수 있습니다.
+* `{predictionId}`는 고유한 예측 리소스 ID로 바꿉니다. Azure Portal에 있는 리소스의 **속성** 탭에서 **리소스 ID** 로 나열된 예측 리소스 ID를 찾을 수 있습니다.
 * 필요한 경우 다른 URL 매개 변수를 사용합니다. [Publish Iteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fdded5) API를 참조하세요.
 
 ## <a name="test-the-prediction-endpoint"></a>예측 엔드포인트 테스트

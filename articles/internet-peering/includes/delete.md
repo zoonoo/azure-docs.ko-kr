@@ -1,7 +1,7 @@
 ---
-title: 파일 포함
+title: 포함 파일
 titleSuffix: Azure
-description: 파일 포함
+description: 포함 파일
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 2d3f866064790fb3936fb76c1deef15ee2a38773
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "81678617"
 ---
-지금은 프로 비전 해제가 Azure Portal 또는 PowerShell을 사용 하 여 지원 되지 않습니다. 프로 비전을 해제 하려면 [Microsoft 피어 링](mailto:peeringexperience@microsoft.com)에 문의 하세요.
+현재 Azure Portal 또는 PowerShell을 사용하여 프로비저닝을 해제하는 것은 지원되지 않습니다. 프로비저닝을 해제하려면 [Microsoft 피어링](mailto:peeringexperience@microsoft.com)에 문의하세요.

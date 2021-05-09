@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: normesta
 ms.openlocfilehash: 9b18687c0a6f3e48d94431e88be8ae8137c9dcdb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96011155"
 ---
 | 속성 | Description |
@@ -21,7 +21,7 @@ ms.locfileid: "96011155"
 |**etag** | 반환된 개체의 ETag 식별자로, 따옴표로 묶여 있습니다. 예: `0x8D101F7E4B662C4`  |
 |**serverLatencyMs** | 요청된 작업을 수행하는 데 걸린 총 시간으로 밀리초 단위입니다. 이 값은 네트워크 대기 시간(수신 요청을 읽는 시간과 요청자에게 응답을 보내는 시간)은 포함하지 않습니다. 예: `22` |
 |**serviceType** | 이 요청과 연관된 서비스입니다. 예: `blob`, `table`, `files` 또는 `queue`. |
-|**operationCount** | 요청에 관련된 각 로깅된 작업의 수입니다. 이 수는 인덱스 `0`에서 시작합니다. 일부 요청에는 두 개 이상의 작업이 필요 합니다. 대부분의 요청에서는 하나의 작업만 수행합니다. 예: `1` |
+|**operationCount** | 요청에 관련된 각 로깅된 작업의 수입니다. 이 수는 인덱스 `0`에서 시작합니다. 일부 요청에는 둘 이상의 작업이 필요합니다. 대부분의 요청에서는 하나의 작업만 수행합니다. 예: `1` |
 |**requestHeaderSize** | 요청 헤더의 크기로, 바이트 단위입니다. 예: `578` <br>요청이 실패할 경우 이 값은 비어 있을 수 있습니다. |
 |**requestBodySize** | 스토리지 서비스에서 읽은 요청 패킷의 크기로, 바이트 단위입니다. <br> 예: `0` <br>요청이 실패할 경우 이 값은 비어 있을 수 있습니다.  |
 |**responseHeaderSize** | 응답 헤더의 크기로, 바이트 단위입니다. 예: `216` <br>요청이 실패할 경우 이 값은 비어 있을 수 있습니다.  |

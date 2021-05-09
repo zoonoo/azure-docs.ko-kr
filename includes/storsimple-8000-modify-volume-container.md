@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/09/2021
 ms.author: alkohli
 ms.openlocfilehash: 71f18cf8448060385ea38be9b2719b1ed545c5d2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100545421"
 ---
 > [!NOTE] 
@@ -16,7 +16,7 @@ ms.locfileid: "100545421"
 
 #### <a name="to-modify-a-volume-container"></a>볼륨 컨테이너를 수정하려면
 
-1. StorSimple 장치 관리자 서비스로 이동한 다음 **관리 > 볼륨 컨테이너** 로 이동 합니다.
+1. StorSimple 디바이스 관리자 서비스로 이동한 다음, **관리 > 볼륨 컨테이너** 로 이동합니다.
 
 2. 테이블 형식의 볼륨 컨테이너 목록에서 수정하려는 볼륨 컨테이너를 선택합니다. **장치** 페이지에서 장치를 선택하고 두 번 클릭한 다음 **볼륨 컨테이너** 탭을 클릭합니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "100545421"
 
     ![볼륨 컨테이너 수정](./media/storsimple-8000-modify-volume-container/modify-volume-container-01.png)
 
-4. **볼륨 컨테이너 수정** 블레이드에서 다음 단계를 수행 합니다.
+4. **볼륨 컨테이너 수정** 블레이드에서 다음 단계를 수행합니다.
    
    1. 지정한 후에는 볼륨 컨테이너와 연결된 이름, 암호화 키 및 스토리지 계정을 변경할 수 없습니다. 연결된 대역폭 설정을 변경합니다.<!--STEPS NEED WORK. Updated screen doesn't show alternative to Unlimited or subsequent steps if they customize bandwidth. Can we talk them through this (briefly)?-->
       

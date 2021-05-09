@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/29/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 946ff043828034340ae3273fc0629e32de755540
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: faab8aa124ca2f290938cb6cff0a2f4d072caffd
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96027680"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106073335"
 ---
 ## <a name="create-a-self-signed-root-certificate"></a><a name="rootcert"></a>자체 서명된 루트 인증서 만들기
 
@@ -22,7 +22,7 @@ New-SelfSignedCertificate cmdlet을 사용하여 자체 서명된 루트 인증�
 1. Windows 10 또는 Windows Server 2016을 실행하는 컴퓨터에서 상승된 권한으로 Windows PowerShell 콘솔을 엽니다. 이 예제는 Azure Cloud Shell "시도"에서는 작동하지 않습니다. 이 예제는 로컬에서 실행해야 합니다.
 1. 다음 예제를 사용하여 자체 서명된 루트 인증서를 만듭니다. 다음 예제에서는 'Certificates-Current User\Personal\Certificates'에 자동으로 설치된 'P2SRootCert'라는 자체 서명된 루트 인증서를 만듭니다. *certmgr.msc* 또는 *사용자 인증서 관리* 를 열어 인증서를 볼 수 있습니다.
 
-   Cmdlet을 사용 하 여 로그인 `Connect-AzAccount` 합니다. 그런 다음 필요한 수정 작업을 수행 하 여 다음 예제를 실행 합니다.
+   `Connect-AzAccount` cmdlet을 사용하여 로그인합니다. 그런 다음, 필요한 수정 사항을 적용하여 다음 예제를 실행합니다.
 
    ```powershell
    $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
@@ -31,7 +31,7 @@ New-SelfSignedCertificate cmdlet을 사용하여 자체 서명된 루트 인증�
    -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
    ```
 
-1. PowerShell 콘솔을 열어 두고 다음 단계를 진행 하 여 클라이언트 인증서를 생성 합니다.
+1. PowerShell 콘솔을 열어 두고 다음 단계를 진행하여 클라이언트 인증서를 생성합니다.
 
 ## <a name="generate-a-client-certificate"></a><a name="clientcert"></a>클라이언트 인증서 생성
 
@@ -41,9 +41,9 @@ New-SelfSignedCertificate cmdlet을 사용하여 자체 서명된 루트 인증�
 
 예제에서는 New-SelfSignedCertificate cmdlet을 사용하여 1년 후에 만료되는 클라이언트 인증서를 생성합니다. 클라이언트 인증서에 대해 다른 만료 값을 설정하는 등의 추가 매개 변수 정보는 [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate)를 참조하세요.
 
-### <a name="example-1---powershell-console-session-still-open"></a>예제 1-PowerShell 콘솔 세션이 아직 열려 있습니다.
+### <a name="example-1---powershell-console-session-still-open"></a>예제 1 - PowerShell 콘솔 세션이 여전히 열려 있습니다.
 
-자체 서명된 루트 인증서를 만든 후에 PowerShell 콘솔을 닫지 않은 경우 이 예제를 사용합니다. 이 예제는 이전 섹션에서 계속되며 선언된 ‘$cert’ 변수를 사용합니다. 자체 서명 된 루트 인증서를 만든 후 PowerShell 콘솔을 닫았거나 새 PowerShell 콘솔 세션에서 추가 클라이언트 인증서를 만든 경우 [예제 2](#ex2)의 단계를 사용 합니다.
+자체 서명된 루트 인증서를 만든 후에 PowerShell 콘솔을 닫지 않은 경우 이 예제를 사용합니다. 이 예제는 이전 섹션에서 계속되며 선언된 ‘$cert’ 변수를 사용합니다. 자체 서명된 루트 인증서를 만든 후 PowerShell 콘솔을 종료했거나 새 PowerShell 콘솔 세션에서 추가 클라이언트 인증서를 생성하려는 경우 [예제 2](#ex2)의 단계를 사용합니다.
 
 샘플을 수정 및 실행하여 클라이언트 인증서를 생성합니다. 다음 예제를 수정하지 않고 실행할 경우 결과적으로 'P2SChildCert'라는 클라이언트 인증서가 만들어집니다.  자식 인증서에 다른 이름을 지정하려는 경우 CN 값을 수정합니다. 이 예제를 실행하는 경우는 TextExtension을 변경하지 마세요. 생성하는 클라이언트 인증서는 컴퓨터의 'Certificates - Current User\Personal\Certificates'에 자동으로 설치됩니다.
 
@@ -55,7 +55,7 @@ New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature 
 -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
 ```
 
-### <a name="example-2---new-powershell-console-session"></a><a name="ex2"></a>예 2-새 PowerShell 콘솔 세션
+### <a name="example-2---new-powershell-console-session"></a><a name="ex2"></a>예제 2 - 새 PowerShell 콘솔 세션
 
 추가 클라이언트 인증서를 만들거나 자체 서명된 루트 인증서를 만드는 데 사용한 것과 동일한 PowerShell 세션을 사용하지 않을 경우 다음 단계를 사용합니다.
 

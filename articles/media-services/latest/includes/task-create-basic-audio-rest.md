@@ -6,15 +6,15 @@ ms.date: 11/19/2020
 ms.author: inhenkel
 ms.custom: REST
 ms.openlocfilehash: def2553ddc71f008c5d2b902d04f587ef8d26889
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95996907"
 ---
 <!--Create a basic audio transform REST-->
 
-다음 Azure REST 명령은 기본 오디오 변환을 만듭니다. `subscriptionID`, 및 값을 `resourceGroup` `accountName` 현재 작업 중인 값으로 바꿉니다. 을 설정 하 여 변환 이름을 지정 `transformName` 합니다.
+다음 Azure REST 명령은 기본 오디오 변환을 만듭니다. `subscriptionID`, `resourceGroup` 및 `accountName` 값을 현재 작업 중인 값으로 바꿉니다. `transformName`을 설정하여 변환 이름을 지정합니다.
 
 ```REST
 

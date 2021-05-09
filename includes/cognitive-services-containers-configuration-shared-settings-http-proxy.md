@@ -5,18 +5,18 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: 7f51b7fe95445cbd3a8aff530f89ce55b5abfb1e
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105630092"
 ---
 아웃바운드 요청을 만들기 위한 HTTP 프록시를 구성해야 하는 경우 다음 두 인수를 사용합니다.
 
-| 이름 | 데이터 형식 | Description |
+| Name | 데이터 형식 | Description |
 |--|--|--|
 |HTTP_PROXY|문자열|사용할 프록시(예: `http://proxy:8888`)<br>`<proxy-url>`|
-|HTTP_PROXY_CREDS|문자열|프록시를 인증 하는 데 필요한 모든 자격 증명 (예:) `username:password` . 이 값은 **소문자** 여야 합니다. |
+|HTTP_PROXY_CREDS|문자열|프록시를 인증하는 데 필요한 자격 증명(예: `username:password`). 이 값은 **소문자여야 합니다**. |
 |`<proxy-user>`|문자열|프록시 사용자입니다.|
 |`<proxy-password>`|문자열|프록시에 대해 `<proxy-user>`에 연결된 암호입니다.|
 ||||

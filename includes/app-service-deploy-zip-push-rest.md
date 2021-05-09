@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/12/2019
 ms.author: cephalin
 ms.openlocfilehash: 92e39f128e90ba83a919388e217f0edc86f81770
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96018443"
 ---
 ## <a name="deploy-zip-file-with-rest-apis"></a><a name="rest"></a>REST API를 사용하여 ZIP 파일 배포 
@@ -33,7 +33,7 @@ curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deploymen
 
 ### <a name="with-powershell"></a>PowerShell 사용
 
-다음 예제에서는 [AzWebapp](/powershell/module/az.websites/publish-azwebapp) 를 사용 하 여 .zip 파일을 업로드 합니다. `<group-name>`, `<app-name>` 및 `<zip-file-path>` 자리 표시자를 바꿉니다.
+다음 예제에서는 [Publish-AzWebapp](/powershell/module/az.websites/publish-azwebapp)을 사용하여 .zip 파일을 업로드합니다. `<group-name>`, `<app-name>` 및 `<zip-file-path>` 자리 표시자를 바꿉니다.
 
 ```powershell
 Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <zip-file-path>
@@ -41,7 +41,7 @@ Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <
 
 이 요청은 업로드된 .zip 파일에서 푸시 배포를 트리거합니다. 
 
-현재 및 과거 배포를 검토하려면 다음 명령을 실행합니다. 다시,, `<deployment-user>` `<deployment-password>` 및 `<app-name>` 자리 표시자를 바꿉니다.
+현재 및 과거 배포를 검토하려면 다음 명령을 실행합니다. 다시 `<deployment-user>`, `<deployment-password>` 및 `<app-name>` 자리 표시자를 바꿉니다.
 
 ```bash
 $username = "<deployment-user>"

@@ -1,28 +1,28 @@
 ---
-title: Android 용 Azure Communication Services 팀 포함 사용
-description: 이 개요에서는 Android 용 Azure Communication Services 팀 포함 라이브러리를 사용 하는 방법에 대해 알아봅니다.
+title: Android용 Azure Communication Services Teams Embed 사용
+description: 이 개요에서는 Android용 Azure Communication Services Teams Embed 라이브러리를 사용하는 방법을 알아봅니다.
 author: palatter
 ms.author: palatter
 ms.date: 24/02/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.openlocfilehash: 711c738adaaad8aff1e1f56b537b41a846e528db
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104803682"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
 - 호출 클라이언트를 사용하도록 설정하는 `User Access Token`입니다. [`User Access Token`를 가져오는 방법](../../access-tokens.md)에 대한 자세한 정보
-- [응용 프로그램에 팀 포함을 추가](../getting-started-with-teams-embed.md) 하기 위한 빠른 시작을 완료 합니다.
+- [애플리케이션에 Teams Embed 추가 시작](../getting-started-with-teams-embed.md)에 대한 빠른 시작을 완료합니다.
 
-## <a name="teams-embed-events"></a>팀 포함 이벤트
+## <a name="teams-embed-events"></a>Teams Embed 이벤트
 
-를 `MeetingEventListener` 클래스에 추가 합니다.
+클래스에 `MeetingEventListener`를 추가합니다.
 
 ```java
 public class MainActivity extends AppCompatActivity implements MeetingEventListener {
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements MeetingEventListe
     private MeetingUIClient meetingUIClient;
 ```
 
-에서을 `MeetingEventListener` 설정 `this` 합니다.
+`this`에서 `MeetingEventListener`를 설정합니다.
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ private void createMeetingClient() {
 }
 ```
 
-`onCallStateChanged`및 메서드를 구현 `onRemoteParticipantCountChanged` 합니다.
+`onCallStateChanged` 및 `onRemoteParticipantCountChanged` 메서드를 구현합니다.
 
 ```java
 @Override
@@ -78,9 +78,9 @@ public void onRemoteParticipantCountChanged(int newCount) {
 }
 ```
 
-## <a name="assigning-avatars-for-users"></a>사용자에 대 한 아바타 할당
+## <a name="assigning-avatars-for-users"></a>사용자에 대한 아바타 할당
 
-를 `MeetingIdentityProvider` 클래스에 추가 합니다.
+클래스에 `MeetingIdentityProvider`를 추가합니다.
 
 ```java
 public class MainActivity extends AppCompatActivity implements MeetingIdentityProvider {
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements MeetingIdentityPr
     private MeetingUIClient meetingUIClient;
 ```
 
-에서을 `MeetingIdentityProvider` 설정 `this` 합니다.
+`this`에서 `MeetingIdentityProvider`를 설정합니다.
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
@@ -109,7 +109,7 @@ private void createMeetingClient() {
 }
 ```
 
-각각 `userMri` 을 해당 아바타에 매핑합니다.
+각 `userMri`를 해당 아바타에 매핑합니다.
 
 ```java
 @Override

@@ -3,17 +3,17 @@ title: Azure IoT Hub DPS(Device Provisioning Service)에서 사용자 지정 할
 description: Azure IoT Hub DPS(Device Provisioning Service)에서 사용자 지정 할당 정책 사용을 위한 자습서
 author: wesmc7777
 ms.author: wesmc
-ms.date: 09/23/2020
+ms.date: 04/23/2021
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f19f43b89cd2527a67827d7434f2e054ee40001e
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 823c154a07fed2bc3734993c25accb37aa33a228
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227384"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107929942"
 ---
 # <a name="tutorial-use-custom-allocation-policies-with-device-provisioning-service-dps"></a>자습서: DPS(Device Provisioning Service)에서 사용자 지정 할당 정책 사용
 
@@ -207,11 +207,30 @@ ms.locfileid: "107227384"
 * **contoso-toaster-007**
 * **contoso-heatpump-088**
 
-**KEY** 변수 값을 앞서 등록 그룹을 만든 후에 적어둔 **기본 키** 로 바꿉니다. 아래 코드와 함께 표시된 키 값과 출력은 예시일 뿐입니다.
 
-#### <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure CLI에 대한 IoT 확장에서는 파생된 디바이스 키를 생성할 수 있는 [`compute-device-key`](/cli/azure/iot/dps?view=azure-cli-latest&preserve-view=true#az_iot_dps_compute_device_key) 명령을 제공합니다. 이 명령은 Windows 기반 시스템이나 Linux 시스템의 PowerShell 또는 Bash 셸에서 사용할 수 있습니다.
+
+`--key` 인수 값을 등록 그룹의 **기본 키** 로 바꿉니다.
+
+```azurecli
+az iot dps compute-device-key --key oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA== --registration-id contoso-toaster-007
+
+"JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs="
+```
+
+```azurecli
+az iot dps compute-device-key --key oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA== --registration-id contoso-heatpump-088
+
+"6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg="
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하여 다음 예제에 표시된 대로 파생된 디바이스 키를 생성할 수 있습니다.
+
+**KEY** 변수 값을 앞서 등록 그룹을 만든 후에 적어둔 **기본 키** 로 바꿉니다. 아래 코드와 함께 표시된 키 값과 출력은 예시일 뿐입니다.
 
 ```powershell
 $KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
@@ -234,9 +253,12 @@ contoso-toaster-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
 contoso-heatpump-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
 ```
 
-#### <a name="bash"></a>[Bash](#tab/bash)
+# <a name="bash"></a>[Bash](#tab/bash)
 
 Linux 워크스테이션을 사용하는 경우 openssl을 사용하여 다음 Bash 예제에 표시된 대로 파생된 디바이스 키를 생성할 수 있습니다.
+
+**KEY** 변수 값을 앞서 등록 그룹을 만든 후에 적어둔 **기본 키** 로 바꿉니다. 아래 코드와 함께 표시된 키 값과 출력은 예시일 뿐입니다.
+
 
 ```bash
 KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==

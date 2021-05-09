@@ -8,12 +8,12 @@ ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 28cda9fb6997500f6cd7c4c4349635e7b7a36398
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 11679cde2bcd98cbc40b5f181eb0a460cd1889c7
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504280"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108325700"
 ---
 # <a name="tutorial-create-and-configure-a-time-series-insights-gen2-environment"></a>자습서: Time Series Insights Gen2 환경 만들기 및 구성
 
@@ -38,10 +38,6 @@ ms.locfileid: "106504280"
 * Azure IoT Hub -
 * IoT 허브에 연결된 DPS(Device Provisioning Service) 인스턴스. DPS 인스턴스에는 IoT 플러그 앤 플레이 디바이스에 대한 개별 디바이스 등록이 있어야 합니다.
 * 시뮬레이션된 데이터를 스트림하는 단일 구성 요소 디바이스 또는 다중 구성 요소 디바이스에서 IoT 허브에 연결
-
-Azure CLI를 로컬에 설치해야 하는 요구 사항을 방지하기 위해 Azure Cloud Shell을 사용하여 클라우드 서비스를 설정할 수 있습니다.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prepare-your-event-source"></a>이벤트 원본 준비
 

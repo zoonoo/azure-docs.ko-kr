@@ -1,18 +1,15 @@
 ---
-title: Azure Site Recovery의 hyper-v 재해 복구 아키텍처
+title: Azure Site Recovery의 Hyper-V 재해 복구 아키텍처
 description: 이 문서에서는 Azure Site Recovery 서비스를 사용한 온-프레미스 Hyper-V VM(VMM 없음)과 Azure 간 재해 복구를 배포할 때 사용되는 구성 요소 및 아키텍처를 간략하게 설명합니다.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: c5025b83619b505728bfdf5c4e1ccc81d3bb225e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 73771a70bfe14e46fb08db75fd4baa522caaadb8
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97654764"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579607"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V와 Azure 간 재해 복구 아키텍처
 
@@ -36,7 +33,7 @@ Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) �
 
 **Hyper-V에서 Azure로 아키텍처(VMM 없음)**
 
-![VMM을 사용 하지 않고 온-프레미스 Hyper-v 사이트에서 Azure로 아키텍처를 보여 주는 다이어그램](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
+![VMM이 없는 Azure 아키텍처에 대한 온-프레미스 Hyper-V 사이트를 보여주는 다이어그램.](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
 ## <a name="architectural-components---hyper-v-with-vmm"></a>아키텍처 구성 요소 - VMM 있는 Hyper-V
@@ -53,11 +50,11 @@ Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) �
 
 **Hyper-V에서 Azure로 아키텍처(VMM 있음)**
 
-![VMM을 사용 하 여 온-프레미스 Hyper-v 사이트에서 Azure로 아키텍처를 보여 주는 다이어그램](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
+![VMM이 있는 Azure 아키텍처에 대한 온-프레미스 Hyper-V 사이트를 보여주는 다이어그램.](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
 
-## <a name="set-up-outbound-network-connectivity"></a>아웃 바운드 네트워크 연결 설정
+## <a name="set-up-outbound-network-connectivity"></a>아웃바운드 네트워크 연결 설정
 
-Site Recovery가 예상 대로 작동 하려면 아웃 바운드 네트워크 연결을 수정 하 여 환경을 복제할 수 있도록 해야 합니다.
+Site Recovery가 예상대로 작동하려면 아웃바운드 네트워크 연결을 수정하여 환경 복제를 허용해야 합니다.
 
 > [!NOTE]
 > Site Recovery는 인증 프록시를 사용하여 네트워크 연결을 제어하도록 지원하지 않습니다.
@@ -76,7 +73,7 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 
 ## <a name="replication-process"></a>복제 프로세스
 
-![Hyper-v에서 Azure로 복제 프로세스를 보여 주는 다이어그램](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
+![Hyper-V에서 Azure로의 복제 프로세스를 보여주는 다이어그램](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
 
 **복제 및 복구 프로세스**
 
@@ -86,12 +83,12 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 1. Azure Portal 또는 온-프레미스에서 Hyper-V VM에 대한 보호를 사용하도록 설정하면 **보호 활성화** 가 시작됩니다.
 2. 이 작업은 사용자가 구성한 설정으로 Azure에 대한 복제를 설정하기 위해 [CreateReplicationRelationship](/windows/win32/hyperv_v2/createreplicationrelationship-msvm-replicationservice) 메서드를 호출하기 전에 해당 컴퓨터가 전제 조건에 부합하는지 확인합니다.
 3. 작업은 [StartReplication](/windows/win32/hyperv_v2/startreplication-msvm-replicationservice) 메서드를 호출하여 초기 복제를 시작하여 전체 VM 복제를 초기화하고 Azure로 VM의 가상 디스크를 전송합니다.
-4. **작업 탭에서** 작업을 모니터링할 수 있습니다.      ![작업 탭 ](media/hyper-v-azure-architecture/image1.png) 의 작업 목록 스크린샷 ![추가 세부 정보를 포함 하는 보호 사용 화면의 스크린샷](media/hyper-v-azure-architecture/image2.png)
+4. **작업** 탭에서 작업을 모니터링할 수 있습니다. ![작업 탭에 있는 작업 목록의 스크린샷.](media/hyper-v-azure-architecture/image1.png) ![추가 세부 정보가 있는 보호 사용 화면의 스크린샷.](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>초기 데이터 복제
 
-1. 초기 복제가 트리거될 때 [HYPER-V VM 스냅숏](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560637(v=ws.10)) 스냅숏이 생성 됩니다.
+1. 초기 복제가 트리거되면 [Hyper-V VM 스냅샷](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560637(v=ws.10))이 생성됩니다.
 2. VM의 가상 하드 디스크는 모두 Azure에 복사될 때까지 하나씩 복제됩니다. 이 작업은 VM 크기 및 네트워크 대역폭에 따라 시간이 오래 걸릴 수 있습니다. 네트워크 대역폭을 높이는 [한 방법을 알아봅니다](https://support.microsoft.com/kb/3056159).
 3. 초기 복제 진행 중에 디스크가 변경될 경우, Hyper-V 복제 로그(.hrl)로 Hyper-V 복제본 복제 추적자가 이러한 변경 내용을 추적합니다. 이러한 로그 파일은 디스크와 동일한 폴더에 있습니다. 각 디스크에는 보조 스토리지로 전송되는 .hrl 파일이 연결되어 있습니다. 초기 복제 진행 중에는 스냅샷과 로그 파일이 디스크 리소스를 사용합니다.
 4. 초기 복제가 완료되면 VM 스냅샷은 삭제됩니다.
@@ -123,7 +120,7 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 2. 다시 동기화를 마치면 일반 델타 복제가 다시 시작됩니다.
 3. 일정대로 기본 다시 동기화 시간까지 기다릴 수 없으면 수동으로 VM을 다시 동기화할 수 있습니다. 시스템이 중단이 발생한 경우를 예로 들 수 있습니다. 이렇게 하려면 Azure Portal에서 **VM > 다시 동기화** 를 선택합니다.
 
-    ![다시 동기화 옵션을 보여 주는 스크린샷](./media/hyper-v-azure-architecture/image4-site.png)
+    ![다시 동기화 옵션을 보여주는 스크린샷.](./media/hyper-v-azure-architecture/image4-site.png)
 
 
 ### <a name="retry-process"></a>다시 시도 프로세스
@@ -148,7 +145,7 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 
 1. Azure에서 온-프레미스 사이트로 계획된 장애 조치를 시작합니다.
     - **가동 중지 시간 최소화**: 이 옵션을 사용하면 Site Recovery가 장애 조치 전에 데이터를 동기화합니다. 변경된 데이터 블록을 확인하고 온-프레미스 사이트에 다운로드하며 Azure VM은 그 동안에도 계속 실행되어 가동 중지 시간을 최소화합니다. 장애 조치 완료를 수동으로 지정해야 하는 경우 Azure VM이 종료되고 최종 델타 변경 내용이 복사되며 장애 조치가 시작됩니다.
-    - **전체 다운로드**:이 옵션을 사용 하면 장애 조치 (failover) 중 데이터가 동기화 됩니다. 이 옵션은 전체 디스크를 다운로드합니다. 체크섬을 계산하지 않아 더 빠르지만 가동 중지 시간은 더 늘어납니다. 상당 시간 동안 복제본 Azure VM을 실행하였거나 온-프레미스 VM이 삭제된 경우에 이 옵션을 사용합니다.
+    - **전체 다운로드**:이 옵션에서는 장애 조치 중에 데이터가 동기화됩니다. 이 옵션은 전체 디스크를 다운로드합니다. 체크섬을 계산하지 않아 더 빠르지만 가동 중지 시간은 더 늘어납니다. 상당 시간 동안 복제본 Azure VM을 실행하였거나 온-프레미스 VM이 삭제된 경우에 이 옵션을 사용합니다.
     - **VM 만들기**: 동일한 VM으로 또는 대체 VM으로 장애 복구하도록 선택할 수 있습니다. VM이 없는 경우 Site Recovery가 이를 만들도록 지정할 수 있습니다.
 
 2. 초기 동기화가 완료되면 장애 조치를 완료하도록 선택합니다. 완료되면 온-프레미스 VM에 로그온하여 모든 것이 기대한 대로 작동하는지 확인할 수 있습니다. Azure Portal에서 Azure VM이 중지된 것을 확인할 수 있습니다.

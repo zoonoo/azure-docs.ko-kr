@@ -1,28 +1,28 @@
 ---
-title: IOS에 대 한 Azure Communication Services 팀 포함 사용
-description: 이 개요에서는 Azure Communication Services 팀에서 iOS 용 라이브러리 포함 라이브러리를 사용 하는 방법을 알아봅니다.
+title: iOS용 Azure Communication Services Teams Embed 사용
+description: 이 개요에서는 iOS용 Azure Communication Services Teams Embed 라이브러리를 사용하는 방법을 알아봅니다.
 author: palatter
 ms.author: palatter
 ms.date: 24/02/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.openlocfilehash: 0a1dd8f69cb79e42e56ab44981820e31abf204e1
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104803688"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
 - 호출 클라이언트를 사용하도록 설정하는 `User Access Token`입니다. [`User Access Token`를 가져오는 방법](../../access-tokens.md)에 대한 자세한 정보
-- [응용 프로그램에 팀 포함을 추가](../getting-started-with-teams-embed.md) 하기 위한 빠른 시작을 완료 합니다.
+- [애플리케이션에 Teams Embed 추가 시작](../getting-started-with-teams-embed.md)에 대한 빠른 시작을 완료합니다.
 
-## <a name="teams-embed-events"></a>팀 포함 이벤트
+## <a name="teams-embed-events"></a>Teams Embed 이벤트
 
-를 `MeetingUIClientDelegate` 클래스에 추가 합니다.
+클래스에 `MeetingUIClientDelegate`를 추가합니다.
 
 ```swift
 class ViewController: UIViewController, MeetingUIClientDelegate {
@@ -40,7 +40,7 @@ override func viewDidLoad() {
 }
 ```
 
-`didUpdateCallState`및 함수를 구현 `didUpdateRemoteParticipantCount` 합니다.
+`didUpdateCallState` 및 `didUpdateRemoteParticipantCount` 함수를 구현합니다.
 
 ```swift
     func meetingUIClient(didUpdateCallState callState: CallState) {
@@ -61,9 +61,9 @@ override func viewDidLoad() {
     }
 ```
 
-## <a name="assigning-avatars-for-users"></a>사용자에 대 한 아바타 할당
+## <a name="assigning-avatars-for-users"></a>사용자에 대한 아바타 할당
 
-를 `MeetingUIClientIdentityProviderDelegate` 클래스에 추가 합니다.
+클래스에 `MeetingUIClientIdentityProviderDelegate`를 추가합니다.
 
 ```swift
 class ViewController: UIViewController, MeetingUIClientIdentityProviderDelegate {
@@ -71,7 +71,7 @@ class ViewController: UIViewController, MeetingUIClientIdentityProviderDelegate 
     private var meetingClient: MeetingUIClient?
 ```
 
-모임에 `MeetingUIClientIdentityProviderDelegate` `self` 참여 하기 전에를로 설정 합니다.
+모임에 조인하기 전에 `MeetingUIClientIdentityProviderDelegate`를 `self`로 설정합니다.
 
 ```swift
 private func joinMeeting() {
@@ -86,7 +86,7 @@ private func joinMeeting() {
 }
 ```
 
-각각에 `userMri` 해당 하는 아바타를 매핑합니다.
+각 `userMri`를 해당 아바타로 매핑합니다.
 
 ```swift
     func avatarFor(userIdentifier: String, completionHandler: @escaping (UIImage?) -> Void) {

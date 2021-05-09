@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.author: laobri
 author: lobrien
 ms.date: 8/25/2020
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q1
-ms.openlocfilehash: efedb21a1ec1ed53a8c6bfadf337d23a89c04383
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: how-to
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: f8ed4a498029b00922219ffdc22ec2db3a1490e8
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102520179"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107889397"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>기계 학습 파이프라인 게시 및 추적
 
@@ -26,7 +26,7 @@ ms.locfileid: "102520179"
 
 기계 학습 파이프라인은 기계 학습 작업에 재사용 가능한 워크플로입니다. 파이프라인의 이점 중 하나는 협업입니다. 또한 새 버전을 만드는 동안 고객이 현재 모델을 사용할 수 있도록 파이프라인의 버전을 관리할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 모든 파이프라인 리소스를 수용할 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 

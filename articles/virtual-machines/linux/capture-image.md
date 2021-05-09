@@ -9,12 +9,12 @@ ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
 ms.collection: linux
-ms.openlocfilehash: 8e81c204c1f05b7fc6bdf1efc7060e2094c648e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dddbad2403734bc749497a7acca16b2a5b6076f4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102630625"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792258"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>가상 머신 또는 VHD의 관리형 이미지를 만드는 방법
 
@@ -32,7 +32,7 @@ Azure에서 사용할 VM(가상 머신)의 복사본을 여러 개 만들려면 
 
 * 관리 디스크를 사용하여 Resource Manager 배포 모델에서 만든 Azure VM. Linux VM을 만들지 않은 경우 [포털](quick-create-portal.md), [Azure CLI](quick-create-cli.md) 또는 [Resource Manager 템플릿](create-ssh-secured-vm-from-template.md)을 사용할 수 있습니다. 필요에 따라 VM을 구성합니다. 예를 들어 [데이터 디스크를 추가하고](add-disk.md), 업데이트를 적용하고, 애플리케이션을 설치합니다. 
 
-* 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index#az-login)을 사용하여 Azure 계정에 로그인해야 합니다.
+* 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인해야 합니다.
 
 ## <a name="prefer-a-tutorial-instead"></a>대신 자습서를 선호하나요?
 
@@ -77,7 +77,7 @@ Azure CLI를 사용하여 VM을 일반화된 항목으로 표시하고 이미지
 
     일반화된 VM은 더 이상 다시 시작할 수 없습니다.
 
-3. 이제 [az image create](/cli/azure/image#az-image-create)로 VM 리소스의 이미지를 만듭니다. 다음 예제에서는 *myVM* 이라는 VM 리소스를 사용하여 *myResourceGroup* 이라는 리소스 그룹에서 *myImage* 라는 이미지를 만듭니다.
+3. 이제 [az image create](/cli/azure/image#az_image_create)로 VM 리소스의 이미지를 만듭니다. 다음 예제에서는 *myVM* 이라는 VM 리소스를 사용하여 *myResourceGroup* 이라는 리소스 그룹에서 *myImage* 라는 이미지를 만듭니다.
    
     ```azurecli
     az image create \
@@ -106,7 +106,7 @@ az vm create \
 
 ### <a name="creating-the-vm-in-another-resource-group"></a>다른 리소스 그룹에서 VM 만들기 
 
-구독 내 모든 리소스 그룹의 이미지에서 VM을 만들 수 있습니다. 이미지와 다른 리소스 그룹에 VM을 만들려면 이미지에 완전한 리소스 ID를 지정합니다. [az image list](/cli/azure/image#az-image-list)를 사용하여 이미지 목록을 봅니다. 다음 예제와 유사하게 출력됩니다.
+구독 내 모든 리소스 그룹의 이미지에서 VM을 만들 수 있습니다. 이미지와 다른 리소스 그룹에 VM을 만들려면 이미지에 완전한 리소스 ID를 지정합니다. [az image list](/cli/azure/image#az_image_list)를 사용하여 이미지 목록을 봅니다. 다음 예제와 유사하게 출력됩니다.
 
 ```json
 "id": "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage",
@@ -114,7 +114,7 @@ az vm create \
    "name": "myImage",
 ```
 
-다음 예제에서는 이미지 리소스 ID를 지정하여 원본 이미지가 아닌 리소스 그룹에 VM을 만드는 [az vm create](/cli/azure/vm#az-vm-create)를 사용합니다.
+다음 예제에서는 이미지 리소스 ID를 지정하여 원본 이미지가 아닌 리소스 그룹에 VM을 만드는 [az vm create](/cli/azure/vm#az_vm_create)를 사용합니다.
 
 ```azurecli
 az vm create \
@@ -128,7 +128,7 @@ az vm create \
 
 ## <a name="step-4-verify-the-deployment"></a>4단계: 배포 확인
 
-생성한 가상 머신에 SSH를 실행하여 배포를 확인하고 새 VM 사용을 시작합니다. SSH를 통해 연결하려면 [az vm show](/cli/azure/vm#az-vm-show)로 VM의 IP 주소 또는 FQDN을 찾습니다.
+생성한 가상 머신에 SSH를 실행하여 배포를 확인하고 새 VM 사용을 시작합니다. SSH를 통해 연결하려면 [az vm show](/cli/azure/vm#az_vm_show)로 VM의 IP 주소 또는 FQDN을 찾습니다.
 
 ```azurecli
 az vm show \

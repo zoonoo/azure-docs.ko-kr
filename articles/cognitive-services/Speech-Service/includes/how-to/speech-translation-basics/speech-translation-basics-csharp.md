@@ -6,17 +6,17 @@ ms.date: 04/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 798db8e438a78fb818bd0af18f84c87c1f9ceb84
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105104058"
 ---
-음성 서비스의 핵심 기능 중 하나는 휴먼 음성을 인식 하 고 다른 언어로 번역 하는 기능입니다. 이 빠른 시작에서는 앱 및 제품에서 음성 SDK를 사용 하 여 고품질 음성 번역을 수행 하는 방법에 대해 알아봅니다. 이 빠른 시작은 다음을 비롯 한 항목을 다룹니다.
+Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 다른 언어로 번역하는 기능입니다. 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성 번역을 수행하는 방법을 알아봅니다. 이 빠른 시작에서는 다음 토픽을 다룹니다.
 
-* 음성 텍스트 변환
-* 여러 대상 언어로 음성 변환
-* 직접 음성-음성 변환 수행
+* 음성을 텍스트로 번역
+* 음성을 여러 대상 언어로 번역
+* 음성을 음성으로 직접 번역
 
 ## <a name="skip-to-samples-on-github"></a>GitHub의 샘플로 건너뛰기
 
@@ -28,11 +28,11 @@ ms.locfileid: "105104058"
 
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 
-작업을 수행하려면 먼저 음성 SDK를 설치해야 합니다. 플랫폼에 따라 _SPEECH Sdk 정보_ 문서의 <a href="/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">음성 sdk 가져오기</a> 섹션에 나오는 지침을 따릅니다.
+작업을 수행하려면 먼저 음성 SDK를 설치해야 합니다. 플랫폼에 따라 _Speech SDK 정보_ 문서의 <a href="/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Speech SDK 가져오기</a> 섹션에 나오는 지침을 따릅니다.
 
 ## <a name="import-dependencies"></a>종속성 가져오기
 
-이 문서의 예제를 실행 하려면 `using` *Program .cs* 파일의 맨 위에 다음 문을 포함 합니다.
+이 문서의 예제를 실행하려면 다음 *Program.cs* 파일 맨 위에 다음 `using` 문을 포함시킵니다.
 
 ```csharp
 using System;
@@ -45,9 +45,9 @@ using Microsoft.CognitiveServices.Speech.Audio;
 using Microsoft.CognitiveServices.Speech.Translation;
 ```
 
-## <a name="sensitive-data-and-environment-variables"></a>중요 한 데이터 및 환경 변수
+## <a name="sensitive-data-and-environment-variables"></a>중요한 데이터 및 환경 변수
 
-이 문서의 예제 소스 코드는 음성 리소스 구독 키 및 지역과 같은 중요 한 데이터를 저장 하는 환경 변수에 따라 달라 집니다. 클래스에는 `Program` `static readonly string` 호스트 컴퓨터 환경 변수에서 할당 된 두 값, 즉 및가 포함 되어 있습니다 `SPEECH__SUBSCRIPTION__KEY` `SPEECH__SERVICE__REGION` . 이러한 필드는 모두 클래스 범위에 있으므로 클래스의 메서드 본문 내에서 액세스할 수 있습니다. 환경 변수에 대 한 자세한 내용은 [환경 변수 및 응용 프로그램 구성](../../../../cognitive-services-security.md#environment-variables-and-application-configuration)을 참조 하세요.
+이 문서의 예제 소스 코드는 음성 리소스 구독 키 및 지역과 같은 중요한 데이터 저장을 위한 환경 변수에 따라 달라집니다. `Program` 클래스에는 호스트 머신 환경 변수에서 할당된 두 개의 `static readonly string` 값, 즉 `SPEECH__SUBSCRIPTION__KEY` 및 `SPEECH__SERVICE__REGION`이 포함되어 있습니다. 이러한 필드는 모두 클래스 범위에 있으므로 클래스의 메서드 본문 내에서 액세스할 수 있습니다. 환경 변수에 대한 자세한 내용은 [환경 변수 및 애플리케이션 구성](../../../../cognitive-services-security.md#environment-variables-and-application-configuration)을 참조하세요.
 
 ```csharp
 public class Program
@@ -99,7 +99,7 @@ public class Program
 
 ## <a name="change-source-language"></a>소스 언어 변경
 
-음성 번역의 일반적인 작업 중 하나는 입력 (또는 원본) 언어를 지정 하는 것입니다. 입력 언어를 이탈리아어로 변경하는 방법을 살펴보겠습니다. 코드에서 인스턴스와 상호 작용 하 여 [`SpeechTranslationConfig`][config] 속성에 할당 `SpeechRecognitionLanguage` 합니다.
+음성 번역에 대한 공통 작업 중 하나는 입력(또는 원본) 언어를 지정하는 것입니다. 입력 언어를 이탈리아어로 변경하는 방법을 살펴보겠습니다. 코드에서 [`SpeechTranslationConfig`][config] 인스턴스와 상호 작용하여 `SpeechRecognitionLanguage` 속성에 할당합니다.
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -116,7 +116,7 @@ static async Task TranslateSpeechAsync()
 
 ## <a name="add-translation-language"></a>번역 언어 추가
 
-음성 번역의 또 다른 일반적인 작업은 대상 번역 언어를 지정 하는 것이 고, 적어도 하나는 필요 하지만 다중 항목은 지원 되는 것입니다. 다음 코드 조각은 프랑스어와 독일어를 모두 번역 언어 대상으로 설정 합니다.
+음성 번역의 또 다른 공통 작업은 대상 번역 언어를 지정하는 것입니다. 대상 언어는 최소 하나 이상을 지정해야 하며, 여러 언어가 지원됩니다. 다음 코드 조각은 프랑스어와 독일어를 모두 번역 언어 대상으로 설정합니다.
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -132,11 +132,11 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-에 대 한 모든 호출 [`AddTargetLanguage`][addlang] 에서 새 대상 번역 언어를 지정 합니다. 즉, 소스 언어에서 음성이 인식 될 때 각 대상 변환은 결과 변환 작업의 일부로 사용할 수 있습니다.
+[`AddTargetLanguage`][addlang]에 대한 모든 호출에서 새 대상 번역 언어가 지정됩니다. 즉, 소스 언어에서 음성이 인식될 때 각 대상 번역은 번역 작업의 일부로 사용할 수 있습니다.
 
-## <a name="initialize-a-translation-recognizer"></a>변환 인식기 초기화
+## <a name="initialize-a-translation-recognizer"></a>번역 인식기 초기화
 
-[`SpeechTranslationConfig`][config]를 만든 후에 수행할 단계는 [`TranslationRecognizer`][recognizer] 초기화입니다. [`TranslationRecognizer`][recognizer]를 초기화할 때 `translationConfig`를 전달해야 합니다. 구성 개체는 음성 서비스에서 요청을 확인 하는 데 필요한 자격 증명을 제공 합니다.
+[`SpeechTranslationConfig`][config]를 만든 후에 수행할 단계는 [`TranslationRecognizer`][recognizer] 초기화입니다. [`TranslationRecognizer`][recognizer]를 초기화할 때 `translationConfig`를 전달해야 합니다. 구성 개체는 음성 서비스가 요청의 유효성을 검사하는 데 필요한 자격 증명을 제공합니다.
 
 디바이스의 기본 마이크를 사용하여 음성을 인식하는 경우 [`TranslationRecognizer`][recognizer]가 다음과 같이 생겼습니다.
 
@@ -160,7 +160,7 @@ static async Task TranslateSpeechAsync()
 > [!TIP]
 > [오디오 입력 디바이스의 디바이스 ID를 가져오는 방법을 알아봅니다](../../../how-to-select-audio-input-devices.md).
 
-먼저 다음과 같이 개체를 참조 합니다 `AudioConfig` .
+먼저, 다음과 같이 `AudioConfig` 개체를 참조합니다.
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -198,7 +198,7 @@ static async Task TranslateSpeechAsync()
 
 ## <a name="translate-speech"></a>음성 변환
 
-음성 번역을 위해 음성 SDK는 마이크 또는 오디오 파일 입력을 사용 합니다. 음성 인식은 음성 번역 전에 발생 합니다. 모든 개체가 초기화 된 후에는 recognize 함수를 호출 하 고 결과를 가져옵니다.
+음성 번역을 위해 Speech SDK는 마이크 또는 오디오 파일 입력을 사용합니다. 음성 인식은 음성 번역 전에 이루어집니다. 모든 개체가 초기화된 후에는 recognize-once 함수를 호출하고 결과를 가져옵니다.
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -228,18 +228,18 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-음성 텍스트에 대 한 자세한 내용은 [음성 인식의 기본 사항](../../../get-started-speech-to-text.md)을 참조 하세요.
+음성 텍스트 변환에 대한 자세한 내용은 [음성 인식의 기본 사항](../../../get-started-speech-to-text.md)을 참조하세요.
 
 ## <a name="synthesize-translations"></a>번역 합성
 
-음성 인식 및 번역이 성공적으로 완료 되 면 결과에 사전에 있는 모든 번역이 포함 됩니다. [`Translations`][translations]사전 키는 대상 번역 언어이 고 값은 번역 된 텍스트입니다. 인식 된 음성을 번역 한 후 다른 언어로 합성 (음성-음성) 할 수 있습니다.
+음성 인식 및 번역이 성공적으로 완료되면 해당 결과에 사전에 있는 모든 번역이 포함됩니다. [`Translations`][translations] 사전 키는 대상 번역 언어이고 값은 번역된 텍스트입니다. 인식된 음성은 번역한 다음, 다른 언어로 합성(음성-음성 번역)할 수 있습니다.
 
 ### <a name="event-based-synthesis"></a>이벤트 기반 합성
 
-`TranslationRecognizer`개체는 이벤트를 노출 합니다 `Synthesizing` . 이벤트는 여러 번 발생 하며, 번역 인식 결과에서 합성 된 오디오를 검색 하는 메커니즘을 제공 합니다. 여러 언어로 번역 하는 경우 [수동 합성](#manual-synthesis)을 참조 하세요. 을 할당 하 여 합성 음성을 지정 하 [`VoiceName`][voicename] 고 이벤트에 대 한 이벤트 처리기를 제공 하 여 `Synthesizing` 오디오를 가져옵니다. 다음 예제에서는 변환 된 오디오를 *.wav* 파일로 저장 합니다.
+`TranslationRecognizer` 개체는 `Synthesizing` 이벤트를 노출합니다. 이벤트는 여러 번 발생하며, 번역 인식 결과에서 합성된 오디오를 검색할 수 있는 메커니즘을 제공합니다. 여러 언어로 번역하는 경우 [수동 합성](#manual-synthesis)을 참조하세요. [`VoiceName`][voicename]을 할당하여 합성 음성을 지정하고 `Synthesizing` 이벤트에 대한 이벤트 처리기를 제공하여 오디오를 가져옵니다. 다음 예제에서는 번역된 오디오를 *.wav* 파일로 저장합니다.
 
 > [!IMPORTANT]
-> 이벤트 기반 합성은 단일 번역 에서만 작동 하며 여러 대상 번역 언어를 추가 **하지** 않습니다. 또한는 [`VoiceName`][voicename] 대상 번역 언어와 동일한 언어 여야 합니다. 예를 들어는 `"de"` 에 매핑할 수 있습니다 `"de-DE-Hedda"` .
+> 이벤트 기반 합성은 단일 번역에서만 작동하며 여러 대상 번역 언어를 추가하지 **않습니다**. 또한 [`VoiceName`][voicename]은 대상 번역 언어와 동일한 언어여야 합니다. 예를 들어 `"de"`는 `"de-DE-Hedda"`에 매핑할 수 있습니다.
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -282,7 +282,7 @@ static async Task TranslateSpeechAsync()
 
 ### <a name="manual-synthesis"></a>수동 합성
 
-[`Translations`][translations]사전을 사용 하 여 번역 텍스트에서 오디오를 합성할 수 있습니다. 각 번역을 반복 하 고 번역을 합성 합니다. 인스턴스를 만들 때 `SpeechSynthesizer` 개체의 `SpeechConfig` [`SpeechSynthesisVoiceName`][speechsynthesisvoicename] 속성을 원하는 음성으로 설정 해야 합니다. 다음 예제에서는 5 개의 언어로 변환 하 고 각 번역은 해당 신경망에서 오디오 파일로 합성 됩니다.
+[`Translations`][translations] 사전을 사용하여 번역 텍스트에서 오디오를 합성할 수 있습니다. 각 번역을 반복하고 번역을 합성합니다. `SpeechSynthesizer` 인스턴스를 만들 때 `SpeechConfig` 개체의 [`SpeechSynthesisVoiceName`][speechsynthesisvoicename] 속성을 원하는 음성으로 설정해야 합니다. 다음 예제에서는 5개의 언어로 번역되고 각 번역은 해당 인공신경망 언어에서 오디오 파일로 합성됩니다.
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -333,7 +333,7 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-음성 합성에 대 한 자세한 내용은 [음성 합성의 기본 사항](../../../get-started-text-to-speech.md)을 참조 하세요.
+음성 합성에 대한 자세한 내용은 [음성 합성의 기본 사항](../../../get-started-text-to-speech.md)을 참조하세요.
 
 [config]: /dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig
 [audioconfig]: /dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig

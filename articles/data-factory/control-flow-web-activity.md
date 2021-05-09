@@ -1,17 +1,17 @@
 ---
 title: Azure Data Factory에서 웹 작업
 description: Data Factory에서 지원하는 제어 흐름 작업 중 하나인 웹 작업을 사용하여 파이프라인에서 REST 엔드포인트를 호출하는 방법을 알아봅니다.
-author: dcstwh
-ms.author: weetok
+author: nabhishek
+ms.author: abnarain
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: e4578b41e5cbb62c8a1bfa0c48d4fd60d042a506
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 23b28b54e42b03007492424a58b6234ccc5233ce
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100361522"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906677"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data Factory에서 웹 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -72,14 +72,14 @@ ms.locfileid: "100361522"
 -------- | ----------- | -------------- | --------
 name | 웹 작업의 이름입니다. | String | 예
 type | **WebActivity** 로 설정해야 합니다. | String | 예
-메서드 | 대상 엔드포인트에 대한 Rest API 메서드입니다. | 문자열입니다. <br/><br/>지원되는 형식: "GET", "POST", "PUT" | 예
-url | 대상 엔드포인트 및 경로입니다. | 문자열(또는 resultType 문자열이 있는 식). 활동이 엔드포인트에서 응답을 수신하지 않는 경우 오류가 발생하여 1분에 시간이 초과됩니다. | 예
+메서드(method) | 대상 엔드포인트에 대한 Rest API 메서드입니다. | 문자열입니다. <br/><br/>지원되는 형식: "GET", "POST", "PUT" | 예
+url | 대상 엔드포인트 및 경로입니다. | 문자열(또는 resultType 문자열이 있는 식). 활동이 엔드포인트에서 응답을 수신하지 않는 경우 오류가 발생하여 1분에 시간이 초과됩니다. | Yes
 headers | 요청에 전송되는 헤더입니다. 예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 문자열(또는 resultType 문자열이 있는 식) | 예, Content-Type 헤더가 필요합니다. `"headers":{ "Content-Type":"application/json"}`
 본문 | 엔드포인트에 전송된 페이로드를 나타냅니다.  | 문자열(또는 resultType 문자열이 있는 식). <br/><br/>[요청 페이로드 스키마](#request-payload-schema) 섹션에서 요청 페이로드의 스키마를 참조하세요. | POST/PUT 메서드에 필요합니다.
-인증 | 엔드포인트를 호출하는 데 사용되는 인증 방법입니다. 지원되는 형식은 "Basic" 또는 "ClientCertificate"입니다. 자세한 내용은 [인증](#authentication) 섹션을 참조하세요. 인증이 필요 없는 경우 이 속성을 제외합니다. | 문자열(또는 resultType 문자열이 있는 식) | 예
-datasets | 엔드포인트에 전달되는 데이터 세트의 목록입니다. | 데이터 세트 참조의 배열입니다. 빈 배열일 수 있습니다. | 예
+인증 | 엔드포인트를 호출하는 데 사용되는 인증 방법입니다. 지원되는 형식은 "Basic" 또는 "ClientCertificate"입니다. 자세한 내용은 [인증](#authentication) 섹션을 참조하세요. 인증이 필요 없는 경우 이 속성을 제외합니다. | 문자열(또는 resultType 문자열이 있는 식) | No
+datasets | 엔드포인트에 전달되는 데이터 세트의 목록입니다. | 데이터 세트 참조의 배열입니다. 빈 배열일 수 있습니다. | Yes
 linkedServices | 엔드포인트에 전달되는 연결된 서비스 목록입니다. | 연결된 서비스 참조의 배열입니다. 빈 배열일 수 있습니다. | 예
-connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](./concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임(데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 해당 속성을 지정하지 않으면 서비스는 기본 Azure 통합 런타임을 사용합니다. | 통합 런타임 참조입니다. | 예 
+connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](./concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임(데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 해당 속성을 지정하지 않으면 서비스는 기본 Azure 통합 런타임을 사용합니다. | 통합 런타임 참조입니다. | No 
 
 > [!NOTE]
 > 웹 작업이 호출하는 REST 엔드포인트는 JSON 형식의 응답을 반환해야 합니다. 활동이 엔드포인트에서 응답을 수신하지 않는 경우 오류가 발생하여 1분에 시간이 초과됩니다.
@@ -98,7 +98,7 @@ connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임
 
 다음은 웹 작업에서 지원되는 인증 유형입니다.
 
-### <a name="none"></a>없음
+### <a name="none"></a>None
 
 인증이 필요 없는 경우 "authentication" 속성을 포함하지 않습니다.
 
