@@ -8,12 +8,12 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 174ec8c42ea17ccae04769d7c0baaa91b8e7025b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65022d98c7ee7e90d8f1fe5b6854605c841ad05b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102517874"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530318"
 ---
 # <a name="cloud-sync-troubleshooting"></a>클라우드 동기화 관련 문제 해결
 
@@ -22,7 +22,7 @@ ms.locfileid: "102517874"
 
 ## <a name="common-troubleshooting-areas"></a>일반적인 문제 해결 영역
 
-|이름|Description|
+|속성|설명|
 |-----|-----|
 |[에이전트 문제](#agent-problems)|에이전트가 올바르게 설치되었는지와 Azure AD(Azure Active Directory)와 통신하는지 확인합니다.|
 |[개체 동기화 문제](#object-synchronization-problems)|프로비저닝 로그를 사용하여 개체 동기화 문제를 해결합니다.|
@@ -197,7 +197,7 @@ Azure Portal를 사용하여 프로비저닝 작업을 다시 시작합니다. �
 
   ![프로비저닝 다시 시작](media/how-to-troubleshoot/quarantine-3.png)
 
-- Microsoft Graph를 사용하여 [프로비저닝 작업을 다시 시작](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta)합니다. 다시 시작하는 작업을 완전히 제어할 수 있습니다. 다음을 지우도록 선택할 수 있습니다.
+- Microsoft Graph를 사용하여 [프로비저닝 작업을 다시 시작](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true)합니다. 다시 시작하는 작업을 완전히 제어할 수 있습니다. 다음을 지우도록 선택할 수 있습니다.
   - 에스크로: 격리 상태에 도달할 때까지 누적되는 에스크로 카운터를 다시 시작하려는 경우.
   - 격리: 격리에서 애플리케이션을 제거하려는 경우.
   - 워터마크. 

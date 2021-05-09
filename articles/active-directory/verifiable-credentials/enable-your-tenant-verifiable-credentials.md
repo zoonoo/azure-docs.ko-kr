@@ -10,12 +10,12 @@ ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: cd39f6c484ebe116918611bb1d543c1919a3cb0a
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: c289e69345b2fe537fd80f2cd8b59bc13ce8287b
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222948"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017304"
 ---
 # <a name="tutorial---configure-your-azure-active-directory-to-issue-verifiable-credentials-preview"></a>자습서 - 확인 가능한 자격 증명을 발급하도록 Azure Active Directory 구성(미리 보기)
 
@@ -92,7 +92,7 @@ ms.locfileid: "106222948"
 
 ## <a name="create-a-modified-rules-and-display-file"></a>수정된 규칙 및 디스플레이 파일 만들기
 
-이 섹션에서는 샘플 발급자 앱의 규칙 및 디스플레이 파일을 사용하고, 이를 약간 수정하여 테넌트의 첫 번째 확인 가능한 자격 증명을 만듭니다.
+이 섹션에서는 [샘플 발급자 앱](https://github.com/Azure-Samples/active-directory-verifiable-credentials/)의 규칙 및 디스플레이 파일을 사용하고 이를 약간 수정하여 테넌트의 첫 번째 확인 가능한 자격 증명을 만듭니다.
 
 1. 규칙 및 디스플레이 json 파일을 모두 임시 폴더에 복사하고 이름을 **MyFirstVC-display.json** 및 **MyFirstVC-rules.json** 으로 각각 바꿉니다. 두 파일은 **issuer\issuer_config** 에서 모두 찾을 수 있습니다.
 
@@ -125,16 +125,16 @@ ms.locfileid: "106222948"
       
     ```
 
-이제 type 필드를 "MyFirstVC"로 변경하겠습니다. 
+   이제 type 필드를 "MyFirstVC"로 변경하겠습니다. 
 
-  ```json
-   "type": ["MyFirstVC"]
+   ```json
+    "type": ["MyFirstVC"]
   
-  ```
+   ```
 
-이 변경 사항을 저장합니다.
+   이 변경 사항을 저장합니다.
 
- >[!NOTE]
+   >[!NOTE]
    > 자습서의 이 시점에서는 **"configuration"** 또는 **"client_id"** 를 변경하지 않습니다. [시작](get-started-verifiable-credentials.md)에서 사용한 Microsoft B2C 테넌트를 계속 사용합니다. Azure AD는 다음 자습서에서 사용합니다.
 
 3. 코드 편집기에서 MyFirstVC-display.json 파일을 엽니다.
@@ -172,17 +172,22 @@ ms.locfileid: "106222948"
       }
    ```
 
-확인 가능한 자격 증명이 샘플 코드 버전과 다르게 보이도록 몇 가지를 수정해 보겠습니다. 
-    
-```json
-     "card": {
-        "title": "My First VC",
-        "issuedBy": "Your Issuer Name",
-        "backgroundColor": "#ffffff",
-        "textColor": "#000000",
-```
+   확인 가능한 자격 증명이 샘플 코드 버전과 다르게 보이도록 몇 가지를 수정해 보겠습니다. 
 
-이 변경 사항을 저장합니다.
+    ```json
+         "card": {
+            "title": "My First VC",
+            "issuedBy": "Your Issuer Name",
+            "backgroundColor": "#ffffff",
+            "textColor": "#000000",
+          }
+    ```
+ 
+   >[!NOTE]
+   > 자격 증명을 읽고 액세스할 수 있게 하려면 [대비 비율](https://www.w3.org/WAI/WCAG21/Techniques/general/G18)이 최소 4.5:1 이상인 텍스트와 배경색을 선택하는 것이 좋습니다.  
+
+   이 변경 사항을 저장합니다.
+
 ## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 확인 가능한 자격 증명을 처음 만들기 전에, 구성 및 규칙 파일을 보관할 수 있는 Blob Storage 컨테이너를 만들어야 합니다.
@@ -296,7 +301,7 @@ ms.locfileid: "106222948"
     node app.js
     ```
 
-6. 다른 명령 프롬프트를 사용하여 ngrok를 실행하고 URL을 8081에 설정합니다.
+6. 다른 명령 프롬프트를 사용하여 ngrok를 실행해 URL을 8081에 설정합니다. [ngrok npm 패키지](https://www.npmjs.com/package/ngrok/)를 사용하여 ngrok를 전역으로 설치할 수 있습니다.
 
     ```terminal
     ngrok http 8081

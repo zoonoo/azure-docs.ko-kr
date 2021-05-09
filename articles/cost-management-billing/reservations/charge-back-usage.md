@@ -5,14 +5,14 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 02/10/2021
+ms.date: 03/10/2021
 ms.author: banders
-ms.openlocfilehash: 4fb15a7e677d566454d5d487c1cf69767d7f3a30
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4059318e6b8052f3b0221c87e8a357cfc8679e44
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368747"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532765"
 ---
 # <a name="charge-back-azure-reservation-costs"></a>Azure Reservation 비용 차지백
 
@@ -33,7 +33,7 @@ ms.locfileid: "100368747"
 
 [![차니백에 사용할 수 있는 예약 리소스 비용을 보여 주는 예제](./media/charge-back-usage/amortized-reservation-costs.png)](./media/charge-back-usage/amortized-reservation-costs.png#lightbox)
 
-Azure Portal에서 예약 사용률 비용을 보는 방법을 보여 주는 비디오는 다음과 같습니다.
+다음은 Azure Portal의 구독, 리소스 그룹 및 리소스 수준에서 예약 사용 비용을 보는 방법을 보여주는 비디오입니다.
 
  > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4sQOw] 
 

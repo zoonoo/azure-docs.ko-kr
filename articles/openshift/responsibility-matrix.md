@@ -7,12 +7,12 @@ ms.date: 4/12/2021
 author: sakthi-vetrivel
 ms.author: suvetriv
 keywords: aro, openshift, az aro, red hat, cli, RACI, 지원
-ms.openlocfilehash: 477fe40dc565bf5e20627b4f4cd0d53273240ec3
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 4bb00cb533d0065a992831f09ed8280c96efcdee
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319614"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537017"
 ---
 # <a name="overview-of-responsibilities-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift에 대한 책임 개요
 
@@ -583,7 +583,7 @@ ID 및 액세스 관리에는 적절한 개인만 클러스터, 애플리케이�
 
 <li>고객이 운영자 또는 외부 이미지를 사용하여 Red Hat, 커뮤니티, 타사, 자체 또는 기타 서비스를 클러스터에 추가하는 경우 고객은 이러한 서비스에 대한 책임이 있으며 문제 해결을 위해 적절한 공급자(Red Hat 포함)를 사용합니다.
 
-<li>제공된 도구 및 기능을 사용하여 <a href="https://docs.openshift.com/aro/4/architecture/understanding-development.html#application-types">구성 및 배포</a>, <a href="https://docs.openshift.com/aro/4/applications/deployments/deployment-strategies.html">최신 상태 유지</a>, <a href="https://docs.openshift.com/dedicated/4/applications/working-with-quotas.html"> 리소스 요청 및 제한 설정 </a>, <a href="https://docs.openshift.com/dedicated/4/getting_started/scaling-your-cluster.html">앱을 실행하는 데 충분한 리소스를 갖도록 클러스터 크기 조정</a>, <a href="https://docs.openshift.com/dedicated/4/administering_a_cluster/cluster-admin-role.html">권한 설정</a>, 다른 서비스와 통합, <a href="https://docs.openshift.com/aro/4/openshift_images/images-understand.html">고객이 배포하는 모든 이미지 스트림 또는 템플릿 관리</a>, <a href="https://docs.openshift.com/dedicated/4/cloud_infrastructure_access/dedicated-understanding-aws.html">외부 서비스</a>, 데이터 저장, 백업 및 복원, 고가용성 및 복원력 있는 워크로드 관리 작업을 수행할 수 있습니다.
+<li>제공된 도구 및 기능을 사용하여 <a href="https://docs.openshift.com/aro/4/architecture/understanding-development.html#application-types">구성 및 배포</a>, <a href="https://docs.openshift.com/aro/4/applications/deployments/deployment-strategies.html">최신 상태 유지</a>, <a href="https://docs.openshift.com/aro/4/applications/working-with-quotas.html"> 리소스 요청 및 제한 설정 </a>, <a href="https://docs.openshift.com/aro/4/getting_started/scaling-your-cluster.html">앱을 실행하는 데 충분한 리소스를 갖도록 클러스터 크기 조정</a>, <a href="https://docs.openshift.com/aro/4/administering_a_cluster/">권한 설정</a>, 다른 서비스와 통합, <a href="https://docs.openshift.com/aro/4/openshift_images/images-understand.html">고객이 배포하는 모든 이미지 스트림 또는 템플릿 관리</a>, <a href="https://docs.openshift.com/aro/4/cloud_infrastructure_access">외부 서비스</a>, 데이터 저장, 백업 및 복원, 고가용성 및 복원력 있는 워크로드 관리 작업을 수행할 수 있습니다.
 
 <li>메트릭을 수집하고 경고를 만드는 소프트웨어 설치 및 운영을 포함하여 Azure Red Hat OpenShift에서 실행되는 애플리케이션 모니터링에 대한 책임을 유지 관리합니다.
 </li>

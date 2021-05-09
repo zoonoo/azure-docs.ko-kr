@@ -7,13 +7,13 @@ ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.topic: article
 ms.date: 02/23/2021
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 8e9dd76b60d05b9fa5e3a4aaf7ccc6663f4a969b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 0220c16d7ea3673f55d57ec4c4e0d29b30672683
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101709039"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017664"
 ---
 # <a name="open-an-ssh-session-to-a-linux-container-in-azure-app-service"></a>Azure App Service의 Linux 컨테이너에 대한 SSH 세션 열기
 
@@ -41,7 +41,7 @@ TCP 터널링을 사용하여 인증된 WebSocket 연결을 통해 개발 컴퓨
 
 시작하려면 [Azure CLI](/cli/azure/install-azure-cli)를 설치해야 합니다. Azure CLI를 설치하지 않고 작동 방식을 확인하려면 [Azure Cloud Shell](../cloud-shell/overview.md)을 엽니다. 
 
-[az webapp 원격 연결 만들기](/cli/azure/ext/webapp/webapp/remote-connection#ext-webapp-az-webapp-remote-connection-create) 명령을 사용하여 앱에 원격 연결을 엽니다. 앱에 대해 _\<subscription-id>_ , _\<group-name>_ 및 \_\<app-name>_을 지정합니다.
+[az webapp 원격 연결 만들기](/cli/azure/webapp/remote-connection#az_webapp_remote_connection_create) 명령을 사용하여 앱에 원격 연결을 엽니다. 앱에 대해 _\<subscription-id>_ , _\<group-name>_ 및 \_\<app-name>_을 지정합니다.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &

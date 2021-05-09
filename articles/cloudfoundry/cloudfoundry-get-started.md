@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure에서 Cloud Foundry 시작
+title: Microsoft Azure의 Cloud Foundry 시작
 description: Microsoft Azure에서 OSS 또는 Pivotal Cloud Foundry 실행
 author: seanmck
 ms.service: virtual-machines
@@ -7,12 +7,12 @@ ms.subservice: workloads
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: d3b13dffcf251f79a04182d32f23fd40e6ed6044
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.openlocfilehash: 2f80f07cad0e82ee35fe71223e1282ea24f791bb
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102562897"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530922"
 ---
 # <a name="cloud-foundry-on-azure"></a>Azure의 Cloud Foundry
 
@@ -39,7 +39,7 @@ Microsoft는 다음과 같은 커뮤니티 채널을 통해 OSS CF에 대한 최
 
 Pivotal Cloud Foundry는 독점적인 관리 도구 및 엔터프라이즈 지원과 더불어 OSS 배포판과 동일한 핵심 플랫폼을 포함합니다. PCF를 Azure에서 실행하려면 Pivotal로부터 라이선스를 취득해야 합니다. Azure Marketplace의 PCF 제품에는 90일 평가판 라이선스가 포함됩니다.
 
-이 도구는 Cloud Foundry Foundation의 배포 및 관리를 간소화하는 웹 애플리케이션인 [Pivotal Operations Manager](https://docs.pivotal.io/pivotalcf/customizing/)와 사용자 및 애플리케이션 관리를 위한 웹 애플리케이션인 [Pivotal Apps Manager](https://docs.pivotal.io/pivotalcf/console/)를 포함합니다.
+이 도구는 Cloud Foundry Foundation의 배포 및 관리를 간소화하는 웹 애플리케이션인 [Pivotal Operations Manager](https://docs.pivotal.io/ops-manager/2-10/install/)와 사용자 및 애플리케이션 관리를 위한 웹 애플리케이션인 [Pivotal Apps Manager](https://docs.pivotal.io/pivotalcf/console/)를 포함합니다.
 
 위에 나열된 OSS CF에 대한 지원 채널 외에도 PCF 라이선스를 취득하면 Pivotal에 지원을 요청할 수 있습니다. Microsoft와 Pivotal에는 두 회사 중 어느 곳에라도 지원을 요청하면 문제의 소재에 따라 적절하게 질의가 전달될 수 있는 지원 워크플로가 설정되어 있습니다.
 

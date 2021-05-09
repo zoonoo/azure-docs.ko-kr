@@ -13,12 +13,12 @@ ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 74cbbf13b3ecb0b784138df69a8436930c2766ef
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 1c8ea1580047910cb2d6634aad885d61e99113f3
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130902"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529972"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 On-Behalf-Of 흐름
 
@@ -60,7 +60,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 
 공유 암호를 사용할 경우 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
 
-| 매개 변수 | 형식 | Description |
+| 매개 변수 | Type | Description |
 | --- | --- | --- |
 | `grant_type` | 필수 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 `urn:ietf:params:oauth:grant-type:jwt-bearer`여야 합니다. |
 | `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지가 앱에 할당한 애플리케이션(클라이언트) ID입니다. |
@@ -92,7 +92,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 
 인증서를 사용한 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
 
-| 매개 변수 | 형식 | Description |
+| 매개 변수 | Type | Description |
 | --- | --- | --- |
 | `grant_type` | 필수 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 `urn:ietf:params:oauth:grant-type:jwt-bearer`여야 합니다. |
 | `client_id` | 필수 |  [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지가 앱에 할당한 애플리케이션(클라이언트) ID입니다. |
@@ -196,7 +196,7 @@ Authorization: Bearer eyJ0eXAiO ... 0X2tnSQLEANnSPHY0gKcgw
 
 SAML 어설션에 대한 서비스 간 요청에는 다음 매개 변수가 포함됩니다.
 
-| 매개 변수 | 형식 | Description |
+| 매개 변수 | Type | Description |
 | --- | --- | --- |
 | grant_type |required | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer** 이어야 합니다. |
 | 어설션 |required | 요청에 사용된 액세스 토큰 값입니다.|
@@ -211,7 +211,7 @@ SAML 어설션에 대한 서비스 간 요청에는 다음 매개 변수가 포�
 - **OBO 호출에 기반한 SAML 어설션에 대한 SubjectConfirmationData**: 대상 애플리케이션에서 **SubjectConfirmationData** 의 받는 사람 값이 필요한 경우 이 값은 리소스 애플리케이션 구성의 비 와일드카드 회신 URL이어야 합니다.
 - **SubjectConfirmationData 노드**: 이 노드는 SAML 응답의 일부가 아니므로 **InResponseTo** 특성을 포함할 수 없습니다. SAML 토큰을 수신하는 애플리케이션은 **InResponseTo** 특성이 없는 SAML 어설션을 수락할 수 있어야 합니다.
 
-- **동의**: OAuth 흐름에서 사용자 데이터가 포함된 SAML 토큰을 받으려면 동의를 부여해야 합니다. 사용 권한 및 관리자 동의를 가져오는 방법에 대한 내용은 [Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의](../azuread-dev/v1-permissions-consent.md)를 참조하세요.
+- **동의**: OAuth 흐름에서 사용자 데이터가 포함된 SAML 토큰을 받으려면 동의를 부여해야 합니다. 사용 권한 및 관리자 동의를 가져오는 방법에 대한 내용은 [Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent)를 참조하세요.
 
 ### <a name="response-with-saml-assertion"></a>SAML 어설션을 사용하여 응답
 

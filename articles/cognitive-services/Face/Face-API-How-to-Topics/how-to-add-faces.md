@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3643fad1c9e821a78df6d78edeede2341ec79ea8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad669f700fdad6df7306403b3b487d86d6724d10
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303764"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108016980"
 ---
 # <a name="add-faces-to-a-persongroup"></a>PersonGroup에 얼굴 추가
 
@@ -61,7 +61,7 @@ static async Task WaitCallLimitPerSecondAsync()
 
 ## <a name="step-2-authorize-the-api-call"></a>2단계: API 호출 권한 부여
 
-클라이언트 라이브러리를 사용하는 경우 구독 키를 **FaceClient** 클래스의 생성자에 전달해야 합니다. 다음은 그 예입니다.
+클라이언트 라이브러리를 사용하는 경우 구독 키를 **FaceClient** 클래스의 생성자에 전달해야 합니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 private readonly IFaceClient faceClient = new FaceClient(
@@ -83,7 +83,7 @@ _timeStampQueue.Enqueue(DateTime.UtcNow);
 await faceClient.LargePersonGroup.CreateAsync(personGroupId, personGroupName);
 ```
 
-## <a name="step-4-create-the-persons-for-the-persongroup"></a>4단계: PersonGroup에 대한 사람 만들기
+## <a name="step-4-create-the-persons-for-the-persongroup"></a>4단계: PersonGroup에 사람 만들기
 
 사람이 동시에 만들어지고 호출 제한을 초과하지 않기 위해 `await WaitCallLimitPerSecondAsync()`도 적용됩니다.
 
@@ -136,7 +136,8 @@ Parallel.For(0, PersonCount, async i =>
 - [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API를 사용하여 사람을 만듭니다.
 - [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API를 사용하여 사람에 얼굴을 추가합니다.
 
-## <a name="related-topics"></a>관련 항목
+## <a name="next-steps"></a>다음 단계
 
-- [이미지에서 얼굴 감지](HowtoDetectFacesinImage.md)
-- [대규모 기능 사용](how-to-use-large-scale.md)
+이 가이드에서는 **PersonGroup** 에 얼굴 데이터를 추가하는 방법을 알아봤습니다. 다음으로, 향상된 데이터 구조인 **PersonDirectory** 를 사용하여 얼굴 데이터로 더 많은 작업을 수행하는 방법을 알아봅니다.
+
+- [PersonDirectory 구조 사용](use-persondirectory.md)

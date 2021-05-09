@@ -8,45 +8,65 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: cynthn
-ms.openlocfilehash: b3435d1dabf604cf7a1394c14ee62d65b923714b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.openlocfilehash: 8def06990b72d6e08127e8c4f16e0dfd87905d4f
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102565940"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565188"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Azure에서 Linux VHD 다운로드
 
-이 문서에서는 Azure Portal를 사용 하 여 Azure에서 Linux VHD (가상 하드 디스크) 파일을 다운로드 하는 방법에 대해 알아봅니다. 
+이 문서에서는 Azure Portal을 사용하여 Azure에서 Linux VHD(가상 하드 디스크) 파일을 다운로드하는 방법을 알아봅니다. 
 
 ## <a name="stop-the-vm"></a>VM을 중지합니다.
 
-실행 중인 VM에 연결된 경우 Azure에서 VHD는 다운로드할 수 없습니다. VHD를 다운로드 하려면 VM을 중지 해야 합니다. 
+실행 중인 VM에 연결된 경우 Azure에서 VHD는 다운로드할 수 없습니다. VM을 계속 실행하려면 [스냅샷을 만든 다음 스냅샷을 다운로드](#alternative-snapshot-the-vm-disk)할 수 있습니다.
+
+VM을 중지하려면:
 
 1.  [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2.  왼쪽 메뉴에서 **Virtual Machines** 를 선택 합니다.
+2.  왼쪽 메뉴에서 **Virtual Machines** 를 선택합니다.
 3.  목록에서 VM을 선택합니다.
-4.  VM에 대 한 페이지에서 **중지** 를 선택 합니다.
+4.  VM 페이지에서 **중지** 를 선택합니다.
 
-    :::image type="content" source="./media/download-vhd/export-stop.PNG" alt-text="VM을 중지 하는 메뉴 단추를 표시 합니다.":::
+    :::image type="content" source="./media/download-vhd/export-stop.PNG" alt-text="VM을 중지하는 메뉴 단추를 표시합니다.":::
+
+### <a name="alternative-snapshot-the-vm-disk"></a>대안: VM 디스크 스냅샷 만들기
+
+다운로드할 디스크의 스냅샷을 만듭니다.
+
+1. [포털](https://portal.azure.com)에서 VM을 선택합니다.
+2. 왼쪽 메뉴에서 **디스크** 를 선택한 다음 스냅샷을 만들 디스크를 선택합니다. 디스크의 세부 정보가 표시됩니다.  
+3. 페이지 위에 있는 메뉴에서 **스냅샷 만들기** 를 선택합니다. **스냅샷 만들기** 페이지가 열립니다.
+4. **이름** 에서 스냅샷의 이름을 입력합니다. 
+5. **스냅샷 유형** 에 대해 **전체** 또는 **증분** 을 선택합니다.
+6. 완료되면 **검토 + 만들기** 를 선택합니다.
+
+스냅샷은 곧 만들어지며 다른 VM을 다운로드하거나 만드는 데 사용될 수 있습니다.
+
+> [!NOTE]
+> VM을 먼저 중지하지 않으면 스냅샷이 정리되지 않습니다. 스냅샷은 VM의 전원을 껐다가 켜거나 VM이 스냅샷이 만들어진 시점에서 중단된 것과 동일한 상태가 됩니다.  일반적으로 안전하지만 당시 실행중인 애플리케이션이 충돌 방지 기능이 없으면 문제가 발생할 수 있습니다.
+>  
+> 이 방법은 단일 OS 디스크가 있는 VM에만 권장됩니다. 하나 이상의 데이터 디스크가 있는 VM은 다운로드하기 전에 또는 OS 디스크 및 각 데이터 디스크에 대한 스냅샷을 만들기 전에 중지해야 합니다.
 
 ## <a name="generate-sas-url"></a>SAS URL 생성
 
 VHD 파일을 다운로드하려면 [SAS(공유 액세스 서명)](../../storage/common/storage-sas-overview.md?toc=/azure/virtual-machines/windows/toc.json) URL을 생성해야 합니다. URL이 생성될 때 만료 시간이 URL에 할당됩니다.
 
-1. VM에 대 한 페이지의 메뉴에서 **디스크** 를 선택 합니다.
-2. VM에 대 한 운영 체제 디스크를 선택 하 고 **디스크 내보내기** 를 선택 합니다.
-1. 필요한 경우 URL의 값을 업데이트 하 여 다운로드를 완료 하는 데 충분 한 시간을 제공 합니다 **(초)** . 기본값은 3600 초 (1 시간)입니다.
-3. **URL 생성** 을 선택 합니다.
+1. VM 페이지 메뉴에서 **디스크** 를 선택합니다.
+2. VM에 대한 운영 체제 디스크를 선택한 다음 **디스크 내보내기** 를 선택합니다.
+1. 필요한 경우 **URL 만료(초)** 값을 업데이트하여 다운로드를 완료하는 데 충분한 시간을 제공합니다. 기본값은 3600초(1시간)입니다.
+3. **URL 생성** 을 선택합니다.
  
       
 ## <a name="download-vhd"></a>VHD 다운로드
 
-1.  생성 된 URL에서 **VHD 파일 다운로드** 를 선택 합니다.
+1.  생성된 URL에서 **VHD 파일 다운로드** 를 선택합니다.
 
-    :::image type="content" source="./media/download-vhd/export-download.PNG" alt-text="VHD를 다운로드 하는 단추를 표시 합니다.":::
+    :::image type="content" source="./media/download-vhd/export-download.PNG" alt-text="VHD 다운로드 단추를 표시합니다.":::
 
-2.  다운로드를 시작 하려면 브라우저에서 **저장** 을 선택 해야 할 수도 있습니다. VHD 파일에 대한 기본 이름은 *abcd* 입니다.
+2.  다운로드를 시작하려면 브라우저에서 **저장** 을 선택해야 합니다. VHD 파일에 대한 기본 이름은 *abcd* 입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
