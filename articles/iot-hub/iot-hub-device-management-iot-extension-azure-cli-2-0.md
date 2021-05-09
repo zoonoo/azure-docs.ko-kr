@@ -10,52 +10,44 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 499c0c065cb38313c98ed9412ab1f08d70dbc654
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: a5bc7e195efd62f430fdf2aa0cb606dbcff79528
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199529"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567199"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Azure CLI용 IoT 확장을 사용하여 Azure IoT Hub 디바이스 관리
 
 ![엔드투엔드 다이어그램](media/iot-hub-get-started-e2e-diagram/2.png)
 
-[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
+이 문서에서는 개발 머신에서 다양한 관리 옵션으로 Azure CLI용 IoT 확장을 사용하는 방법에 대해 알아봅니다. [Azure CLI용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)은 [Azure CLI](/cli/azure/overview)의 기능에 추가되는 오픈 소스 IoT 확장입니다. Azure CLI에는 Azure Resource Manager 및 관리 엔드포인트와 상호 작용하기 위한 명령이 포함되어 있습니다. 예를 들어 Azure CLI를 사용하여 Azure VM 또는 IoT 허브를 만들 수 있습니다. CLI 확장을 사용하면 Azure 서비스는 Azure CLI를 확대하여, 사용자에게 추가적인 서비스별 기능에 대한 액세스 권한을 부여할 수 있습니다. IoT 확장은 IoT 개발자가 명령줄을 통해 모든 IoT Hub, IoT Edge, IoT Hub Device Provisioning Service 기능에 액세스할 수 있도록 합니다.
 
-[Azure CLI에 대 한 iot 확장](https://github.com/Azure/azure-iot-cli-extension) 은 [Azure CLI](/cli/azure/overview)의 기능에 추가 되는 오픈 소스 IoT 확장입니다. Azure CLI에는 Azure Resource Manager 및 관리 끝점과 상호 작용 하기 위한 명령이 포함 되어 있습니다. 예를 들어 Azure CLI를 사용하여 Azure VM 또는 IoT 허브를 만들 수 있습니다. CLI 확장을 사용하면 Azure 서비스는 Azure CLI를 확대하여, 사용자에게 추가적인 서비스별 기능에 대한 액세스 권한을 부여할 수 있습니다. IoT 확장은 IoT 개발자에 게 모든 IoT Hub, IoT Edge 및 IoT Hub Device Provisioning Service 기능에 대 한 명령줄 액세스를 제공 합니다.
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
-[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
-
-| 관리 옵션          | 작업  |
+| 관리 옵션          | Task  |
 |----------------------------|-----------|
 | 직접 메서드             | 메시지 보내기 시작 또는 중지, 디바이스 다시 부팅 등의 디바이스 작업을 수행합니다.                                        |
 | Twin desired 속성    | 디바이스를 특정 상태(예: LED를 녹색으로 설정 또는 원격 분석 전송 간격을 30 분으로 설정)로 지정합니다.         |
 | Twin reported 속성   | 디바이스의 보고된 상태를 가져옵니다. 예를 들어 디바이스에서 지금 LED가 깜박이고 있다고 보고합니다.                                    |
 | Twin tags                  | 클라우드에서 디바이스 전용 메타데이터를 저장합니다. 예를 들어 자동 판매기의 배포 위치입니다.                         |
-| 디바이스 쌍 쿼리        | 모든 장치 쌍을 쿼리하여 사용할 수 있는 장치를 식별 하는 등 임의의 조건으로 해당 쌍을 검색 합니다. |
+| 디바이스 쌍 쿼리        | 모든 디바이스 쌍을 쿼리하여 사용할 수 있는 디바이스를 식별하는 등 임의의 조건에 해당하는 디바이스 쌍을 검색합니다. |
 
 이러한 옵션을 사용하는 방법에 대한 차이점과 지침에 대한 자세한 내용은 [디바이스-클라우드 통신 지침](iot-hub-devguide-d2c-guidance.md) 및 [클라우드-디바이스 통신 지침](iot-hub-devguide-c2d-guidance.md)을 참조하세요.
 
 디바이스 쌍은 디바이스의 상태 정보(메타데이터, 상태 및 조건)를 저장하는 JSON 문서입니다. IoT Hub는 여기에 연결하는 각 디바이스에 대해 하나의 디바이스 쌍을 유지합니다. 디바이스 쌍에 대한 자세한 내용은 [디바이스 쌍 시작](iot-hub-node-node-twin-getstarted.md)을 참조하세요.
 
-## <a name="what-you-learn"></a>학습 내용
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-개발 컴퓨터에서 다양 한 관리 옵션을 사용 하 여 Azure CLI에 대 한 IoT 확장을 사용 하는 방법을 알아봅니다.
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="what-you-do"></a>수행할 작업
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-다양한 관리 옵션을 사용하여 Azure CLI 및 Azure CLI용 IoT 확장을 실행합니다.
+## <a name="prerequisites"></a>필수 요건
 
-## <a name="what-you-need"></a>필요한 항목
+* [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 디바이스 자습서 중 하나를 완료합니다. 예를 들어 [node.js를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)로 이동하거나 [원격 분석 전송](quickstart-send-telemetry-dotnet.md) 빠른 시작 중 하나로 이동할 수 있습니다. 이러한 문서는 다음 요구 사항을 다룹니다.
 
-* [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 디바이스 자습서(예: [Node.js를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)) 중 하나를 완료합니다. 이러한 항목에는 다음 요구 사항이 포함 됩니다.
-
-  - 활성화된 Azure 구독.
-  - 구독 중인 Azure IoT Hub
-  - 메시지를 Azure IoT Hub로 보내는 클라이언트 애플리케이션
+  * 활성화된 Azure 구독.
+  * 구독 중인 Azure IoT Hub
+  * 메시지를 Azure IoT Hub로 보내는 클라이언트 애플리케이션
 
 * 이 자습서를 진행하는 동안 디바이스가 클라이언트 애플리케이션을 사용해서 실행되고 있어야 합니다.
 
@@ -103,7 +95,7 @@ az iot hub device-twin update -n <your hub name> \
 az iot hub device-twin show -n <your hub name> -d <your device id>
 ```
 
-보고 된 쌍 속성 중 하나는 장치 앱에서 보고 된 속성 집합을 마지막으로 업데이트 한 시간을 표시 하는 $metadata $lastUpdated입니다.
+트윈 reported 속성 중 하나는 $metadata.$lastUpdated로서, 디바이스 앱이 해당 reported 속성 집합을 업데이트한 마지막 시간을 나타냅니다.
 
 ## <a name="device-twin-tags"></a>디바이스 쌍 태그
 

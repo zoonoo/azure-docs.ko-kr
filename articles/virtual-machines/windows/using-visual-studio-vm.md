@@ -1,21 +1,21 @@
 ---
 title: Azure 가상 머신에서 Visual Studio 사용
 description: Azure 가상 머신에서 Visual Studio를 사용합니다.
-author: cathysull
-manager: cathys
+author: andysterland
+manager: andster
 ms.service: virtual-machines
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.author: cathys
+ms.author: andster
 keywords: visualstudio
-ms.openlocfilehash: a6acf27743f17941e14adc3f6deea903f4f5ca87
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b37c8bde959822dfcb1b3db2ec96b377217d2bfc
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562081"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138214"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure의 Visual Studio 이미지
 미리 구성된 Azure VM(가상 머신)에서 Visual Studio를 사용하면 아무 작업도 하지 않고 실행 중인 개발 환경으로 빠르고 쉽게 이동할 수 있습니다. 다양한 Visual Studio 구성이 적용된 시스템 이미지를 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure)에서 사용할 수 있습니다.
@@ -44,7 +44,7 @@ Azure를 처음 사용하세요? [평가판 Azure 계정을 만듭니다](https:
 ## <a name="what-features-are-installed"></a>어떤 기능이 설치되나요?
 각 이미지는 해당 Visual Studio 에디션에 대해 권장되는 기능 집합을 포함합니다. 일반적으로 설치에는 다음이 포함됩니다.
 
-* 해당 워크로드의 권장되는 선택적 구성 요소를 포함하는 모든 사용 가능한 워크로드
+* 해당 워크로드의 권장되는 선택적 구성 요소를 포함하는 모든 사용 가능한 워크로드. Visual Studio에 포함된 워크로드, 구성 요소 및 SDK에 대한 자세한 내용은 [Visual Studio 설명서](/visualstudio/install/workload-and-component-ids)에서 확인할 수 있습니다.
 * .NET 4.6.2 및 4.7.NET SDK, 대상 지정 팩 및 개발자 도구
 * Visual F#
 * Visual Studio용 GitHub 확장

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 05/29/2020
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2, devx-track-js
-ms.openlocfilehash: 44530577972839aacb803d1722fa97716088fa0d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0eb06e756601f987b9a0f652f13943ea876252df
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91325439"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107929474"
 ---
 # <a name="quickstart-use-nodejs-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: Node.js를 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스 쿼리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -114,6 +114,34 @@ Azure SQL Database의 데이터베이스에 연결하는 데 필요한 연결 �
         encrypt: true
       }
     };
+    
+    /* 
+        //Use Azure VM Managed Identity to connect to the SQL database
+        const connection = new Connection({
+        server: process.env["db_server"],
+        authentication: {
+            type: 'azure-active-directory-msi-vm',
+        },
+        options: {
+            database: process.env["db_database"],
+            encrypt: true,
+            port: 1433
+        }
+    });
+        //Use Azure App Service Managed Identity to connect to the SQL database
+        const connection = new Connection({
+        server: process.env["db_server"],
+        authentication: {
+            type: 'azure-active-directory-msi-app-service',
+        },
+        options: {
+            database: process.env["db_database"],
+            encrypt: true,
+            port: 1433
+        }
+    });
+
+    */
 
     const connection = new Connection(config);
 
@@ -153,6 +181,9 @@ Azure SQL Database의 데이터베이스에 연결하는 데 필요한 연결 �
       connection.execSql(request);
     }
     ```
+
+> [!NOTE]
+> 관리 ID를 인증에 사용하는 방법에 대한 자세한 내용은 자습서를 완료하여 [관리 ID를 통해 데이터에 액세스](../../app-service/app-service-web-tutorial-connect-msi.md)합니다.
 
 > [!NOTE]
 > 이 코드 예제는 Azure SQL Database에서 **AdventureWorksLT** 샘플 데이터베이스를 사용합니다.

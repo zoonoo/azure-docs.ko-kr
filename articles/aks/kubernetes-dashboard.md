@@ -6,35 +6,35 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: acaeaa2e5338c86fa59d0e2941719f8fa2708ef1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 0d872a60c4aea89e621fe25ade45697244a74fa8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102176824"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779726"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Kubernetes 웹 대시보드에 액세스
 
 Kubernetes에는 기본 관리 작업에 사용할 수 있는 웹 대시보드가 포함됩니다. 이 대시보드를 사용하면 애플리케이션의 기본 상태와 메트릭을 보고 서비스를 작성 및 배포하며 기존 애플리케이션을 편집할 수 있습니다. 이 문서에서는 Azure CLI를 사용하여 Kubernetes 대시보드에 액세스하는 방법을 보여준 후 일부 기본적인 대시보드 작업 과정을 안내합니다.
 
-Kubernetes 대시보드에 대한 자세한 내용은 [Kubernetes 웹 UI 대시보드][kubernetes-dashboard]를 참조하세요. AKS는 버전 2.0 이상의 오픈 소스 대시보드를 사용 합니다.
+Kubernetes 대시보드에 대한 자세한 내용은 [Kubernetes 웹 UI 대시보드][kubernetes-dashboard]를 참조하세요. AKS는 오픈 소스 대시보드 버전 2.0 이상을 사용합니다.
 
 > [!WARNING]
-> **AKS 대시보드 추가 기능이 사용 중단 되도록 설정 되었습니다. 대신 [Azure Portal (미리 보기)에서 Kubernetes 리소스 뷰][kubernetes-portal] 를 사용 합니다.** 
-> * Kubernetes 대시보드는 1.18 미만의 Kubernetes 버전을 실행 하는 클러스터에 대해 기본적으로 사용 하도록 설정 됩니다.
-> * Kubernetes 1.18 이상에서 만든 모든 새 클러스터에 대해 기본적으로 대시보드 추가 기능이 사용 하지 않도록 설정 됩니다. 
- > * Kubernetes 1.19부터 미리 보기에서 AKS은 더 이상 관리 되는 kube 추가 기능을 설치 하는 것을 지원 하지 않습니다. 
- > * 추가 기능이 사용 하도록 설정 된 기존 클러스터는 영향을 받지 않습니다. 사용자는 계속 해 서 사용자가 설치한 소프트웨어로 오픈 소스 대시보드를 수동으로 설치할 수 있습니다.
+> **AKS 대시보드 추가 기능은 사용 중단될 예정입니다. 대신 [Azure Portal의 Kubernetes 리소스 보기(미리 보기)][kubernetes-portal]를 사용하세요.** 
+> * Kubernetes 대시보드는 1.18 미만의 Kubernetes 버전을 실행하는 클러스터에 대해 기본적으로 사용 설정됩니다.
+> * Kubernetes 1.18 이상에서 만든 모든 새 클러스터의 경우 기본적으로 대시보드 추가 기능이 사용하지 않도록 설정됩니다. 
+ > * Kubernetes 1.19부터 미리 보기로 제공되는 AKS는 더 이상 관리되는 Kube 대시보드 추가 기능 설치를 지원하지 않습니다. 
+ > * 추가 기능이 사용 설정된 기존 클러스터는 영향을 받지 않습니다. 사용자는 계속해서 사용자가 설치한 소프트웨어로 오픈 소스 대시보드를 수동으로 설치할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에 자세히 설명 된 단계에서는 AKS 클러스터를 만들고 `kubectl` 클러스터와의 연결을 설정 했다고 가정 합니다. AKS 클러스터를 만들어야 하는 경우 [빠른 시작: Azure CLI을 사용 하 여 Azure Kubernetes Service 클러스터 배포][aks-quickstart]를 참조 하세요.
+이 문서에 설명된 단계에서는 AKS 클러스터를 만들고 클러스터와 `kubectl` 연결을 설정했다고 가정합니다. AKS 클러스터를 만들어야 하는 경우 [빠른 시작: Azure CLI를 사용하여 Azure Kubernetes Service 클러스터 배포][aks-quickstart]를 참조하세요.
 
-또한 Azure CLI 버전 2.6.0 이상이 설치 및 구성 되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure CLI 버전 2.6.0 이상이 설치되고 구성되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="disable-the-kubernetes-dashboard"></a>Kubernetes 대시보드 사용 안 함
 
-Kube-dashboard 추가 기능은 **K8s 1.18 보다 오래 된 클러스터에서 기본적으로 사용 하도록 설정** 됩니다. 다음 명령을 실행 하 여 추가 기능을 사용 하지 않도록 설정할 수 있습니다.
+Kube 대시보드 추가 기능은 **K8s 1.18 이전 버전의 클러스터에서 기본적으로 사용하도록 설정** 됩니다. 다음 명령을 실행하여 사용하지 않을 수 있습니다.
 
 ``` azurecli
 az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
@@ -43,10 +43,10 @@ az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
 ## <a name="start-the-kubernetes-dashboard"></a>Kubernetes 대시보드 시작
 
 > [!WARNING]
-> AKS 대시보드 추가 기능은 버전 1.19 +에서 더 이상 사용 되지 않습니다. 대신 [Azure Portal (미리 보기)에서 Kubernetes 리소스 뷰][kubernetes-portal] 를 사용 하세요. 
-> * 이제 다음 명령을 실행 하면 버전 1.19 이상에 대 한 kubernetes 대시보드 대신 Azure Portal 리소스 뷰가 열립니다.
+> AKS 대시보드 추가 기능은 버전 1.19 이상에서 더 이상 사용되지 않습니다. 대신 [Azure Portal의 Kubernetes 리소스 보기(미리 보기)][kubernetes-portal]를 사용합니다. 
+> * 이제 다음 명령을 실행하면 버전 1.19 이상에 대한 Kubernetes 대시보드 대신 Azure Portal 리소스 보기가 열립니다.
 
-클러스터에서 Kubernetes 대시보드를 시작 하려면 [az aks browse][az-aks-browse] 명령을 사용 합니다. 이 명령을 사용 하려면 클러스터에 kube 추가 기능을 설치 해야 합니다 .이 추가 기능은 Kubernetes 1.18 보다 오래 된 버전을 실행 하는 클러스터에 기본적으로 포함 되어 있습니다.
+Kubernetes 대시보드를 시작하려면 클러스터에서 [az aks browse][az-aks-browse] 명령을 사용합니다. 이 명령을 사용하려면 클러스터에 Kube 대시보드 추가 기능을 설치해야 합니다. 이 추가 기능은 Kubernetes 1.18 이전 버전을 실행하는 클러스터에 기본적으로 포함되어 있습니다.
 
 다음 예제에서는 *myResourceGroup* 리소스 그룹에 *myAKSCluster* 라는 클러스터의 대시보드를 엽니다.
 
@@ -57,9 +57,9 @@ az aks browse --resource-group myResourceGroup --name myAKSCluster
 이 명령은 개발 시스템과 Kubernetes API 사이에 프록시를 만들고 웹 브라우저에서 Kubernetes 대시보드를 엽니다. 웹 브라우저가 Kubernetes 대시보드에서 열리지 않는 경우 Azure CLI에 표시된 URL 주소(일반적으로 `http://127.0.0.1:8001`)를 복사하여 붙여넣으세요.
 
 > [!NOTE]
-> 에서 대시보드가 표시 되지 않으면 `http://127.0.0.1:8001` 다음 주소로 수동으로 라우팅할 수 있습니다. 1.16 이상의 클러스터에는 https를 사용 하 고 별도의 끝점이 필요 합니다.
+> `http://127.0.0.1:8001`에서 대시보드가 표시되지 않는 경우 다음 주소로 수동으로 라우팅할 수 있습니다. 1\.16 이상의 클러스터에는 https를 사용하고 별도의 엔드포인트가 필요합니다.
 > * K8s 1.16 이상: `http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
-> * K8s 1.15 이상: `http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard:/proxy`
+> * K8s 1.15 이하: `http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard:/proxy`
 
 <!--
 ![The login page of the Kubernetes web dashboard](./media/kubernetes-dashboard/dashboard-login.png)
@@ -103,36 +103,36 @@ After you choose a method to sign in, the Kubernetes dashboard is displayed. If 
 > For more information on using the different authentication methods, see the Kubernetes dashboard wiki on [access controls][dashboard-authentication].
 -->
 
-## <a name="sign-in-to-the-dashboard-kubernetes-116"></a>대시보드에 로그인 (kubernetes 1.16 +)
+## <a name="sign-in-to-the-dashboard-kubernetes-116"></a>대시보드에 로그인(Kubernetes 1.16 이상)
 
 > [!IMPORTANT]
-> Kubernetes 대시보드 또는 Kubernetes v 1.16 + [의 v 1.10.1](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) 에서 서비스 계정 "Kubernetes-대시보드"는 [해당 릴리스의 보안 수정](https://github.com/kubernetes/dashboard/pull/3400)으로 인해 더 이상 리소스를 검색 하는 데 사용할 수 없습니다. 따라서 인증 정보가 없는 요청은 [401 권한 없음 오류](https://github.com/Azure/AKS/issues/1573#issuecomment-703040998)를 반환 합니다. 서비스 계정에서 검색 된 전달자 토큰은이 [Kubernetes 대시보드 예제](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui)와 같이 여전히 사용할 수 있지만이는 이전 버전과 비교 하 여 대시보드 추가 기능에 대 한 로그인 흐름에 영향을 줍니다.
+> [Kubernetes 대시보드 v1.10.1](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) 또는 Kubernetes v1.16 이상 서비스 계정 기준으로 [해당 릴리스의 보안 수정](https://github.com/kubernetes/dashboard/pull/3400)으로 인해 "kubernetes-dashboard"를 사용하여 리소스를 검색할 수 없습니다. 따라서 인증 정보가 없는 요청은 [401 unauthorized error](https://github.com/Azure/AKS/issues/1573#issuecomment-703040998)를 반환합니다. 서비스 계정에서 검색한 전달자 토큰을 이 [Kubernetes 대시보드 예제](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui)에 사용할 수는 있지만 이전 버전에 비해 대시보드 추가 기능의 로그인 흐름에 영향을 미칩니다.
 >
->1.16 이전 버전을 실행 하는 경우에도 "kubernetes" 서비스 계정에 권한을 부여할 수 있지만 **권장 되지는 않습니다**.
+>1\.16 이전 버전을 실행하는 경우 "kubernetes-dashboard" 서비스 계정에 권한을 부여할 수 있지만 **권장되지는 않습니다**.
 > ```console
 > kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
 > ```
 
-제공 된 초기 화면에는 kubeconfig 또는 토큰이 필요 합니다. 두 옵션 모두 대시보드에 해당 리소스를 표시 하려면 리소스 권한이 필요 합니다.
+표시되는 초기 화면에서 kubeconfig 또는 토큰이 필요합니다. 두 가지 모두 대시보드에 해당 리소스를 표시하려면 리소스 권한이 필요합니다.
 
 ![로그인 화면](./media/kubernetes-dashboard/login.png)
 
-**Kubeconfig 사용**
+**kubeconfig 사용**
 
-Azure AD를 사용 하도록 설정 된 azure ad 및 비 Azure AD 사용 클러스터의 경우 kubeconfig를 전달할 수 있습니다. 액세스 토큰이 유효한 지 확인 합니다. 토큰이 만료 된 경우 kubectl를 통해 토큰을 새로 고칠 수 있습니다.
+Azure AD 사용 또는 비 Azure AD 사용 클러스터 모두 kubeconfig를 전달할 수 있습니다. 액세스 토큰이 유효한지 확인합니다. 토큰이 만료된 경우 kubectl을 통해 토큰을 새로 고칠 수 있습니다.
 
-1. Admin kubeconfig을로 설정 합니다. `az aks get-credentials -a --resource-group <RG_NAME> --name <CLUSTER_NAME>`
-1. 선택 `Kubeconfig` 하 고 클릭 `Choose kubeconfig file` 하 여 파일 선택기 열기
-1. Kubeconfig 파일 선택 (기본값은 $HOME/.kube/config)
+1. `az aks get-credentials -a --resource-group <RG_NAME> --name <CLUSTER_NAME>`으로 관리자 kubeconfig를 설정
+1. `Kubeconfig`를 선택하고 `Choose kubeconfig file`을 클릭하여 파일 선택기 열기
+1. kubeconfig 파일 선택(기본값은 $HOME/.kube/config)
 1. `Sign In`을 클릭합니다.
 
 **토큰 사용**
 
-1. **비 AZURE AD를 사용할 수 있는 클러스터** 의 경우를 실행 `kubectl config view` 하 고 클러스터의 사용자 계정과 연결 된 토큰을 복사 합니다.
-1. 로그인에서 토큰 옵션에 붙여넣습니다.    
+1. **비 Azure AD 사용 클러스터** 의 경우 `kubectl config view`를 실행하고 클러스터의 사용자 계정과 연결된 토큰을 복사합니다.
+1. 로그인 시 토큰 옵션에 붙여넣습니다.    
 1. `Sign In`을 클릭합니다.
 
-Azure AD 사용 클러스터의 경우 다음 명령을 사용 하 여 AAD 토큰을 검색 합니다. 명령에서 리소스 그룹 및 클러스터 이름을 바꾼 유효성을 검사 합니다.
+Azure AD 사용 클러스터의 경우 다음 명령을 사용하여 AAD 토큰을 검색합니다. 명령에서 바꾼 리소스 그룹 및 클러스터 이름의 유효성을 검사합니다.
 
 ```
 ## Update <RESOURCE_GROUP and <AKS_NAME> with your input.
@@ -140,13 +140,13 @@ Azure AD 사용 클러스터의 경우 다음 명령을 사용 하 여 AAD 토�
 kubectl config view -o jsonpath='{.users[?(@.name == "clusterUser_<RESOURCE GROUP>_<AKS_NAME>")].user.auth-provider.config.access-token}'
 ```
 
-성공적으로 완료 되 면 아래와 유사한 페이지가 표시 됩니다.
+성공적으로 완료되면 아래와 유사한 페이지가 표시됩니다.
 
 ![Kubernetes 웹 대시보드의 개요 페이지](./media/kubernetes-dashboard/dashboard-overview.png)
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
 
-다음 단계를 수행 하려면 사용자에 게 해당 리소스에 대 한 사용 권한이 있어야 합니다. 
+다음 단계를 수행하려면 사용자에게 해당 리소스에 대한 권한이 있어야 합니다. 
 
 Kubernetes 대시보드가 관리 작업의 복잡도를 줄일 수 있는 방법을 보기 위해 애플리케이션을 작성해 보겠습니다. 텍스트 입력, YAML 파일을 제공하거나 그래픽 마법사를 통해 Kubernetes 대시보드에서 애플리케이션을 작성할 수 있습니다.
 
@@ -209,8 +209,8 @@ Kubernetes 대시보드에 대한 자세한 내용은 [Kubernetes 웹 UI 대시�
 [aad-cluster]: ./azure-ad-integration-cli.md
 [aks-quickstart]: ./kubernetes-walkthrough.md
 [aks-service-accounts]: ./concepts-identity.md#kubernetes-service-accounts
-[az-account-get-access-token]: /cli/azure/account#az-account-get-access-token
-[az-aks-browse]: /cli/azure/aks#az-aks-browse
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-account-get-access-token]: /cli/azure/account#az_account_get-access-token
+[az-aks-browse]: /cli/azure/aks#az_aks_browse
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [install-azure-cli]: /cli/azure/install-azure-cli
 [kubernetes-portal]: ./kubernetes-portal.md

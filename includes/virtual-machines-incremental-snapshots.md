@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: storage
 author: roygara
 ms.service: storage
@@ -9,14 +9,14 @@ ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: a662598efdca05769c7da9fbeecdf692dccdacb5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96027409"
 ---
 ## <a name="overview"></a>개요
-Azure Storage는 Blob의 스냅샷을 만드는 기능을 제공합니다. 스냅샷은 해당 시점에 Blob 상태를 캡처합니다. 이 문서에서는 스냅샷을 사용하여 가상 머신 디스크의 백업을 유지 관리할 수 있는 시나리오에 대해 설명합니다. Azure Backup 및 복구 서비스를 사용하지 않도록 선택하고 가상 컴퓨터 디스크에 대한 사용자 지정 백업 전략을 만들 때 이 방법론을 사용할 수 있습니다. 비즈니스 또는 중요 업무용 워크 로드를 실행 하는 가상 머신의 경우 백업 전략의 일부로 [Azure Backup](../articles/backup/backup-azure-vms-introduction.md) 를 사용 하는 것이 좋습니다.  
+Azure Storage는 Blob의 스냅샷을 만드는 기능을 제공합니다. 스냅샷은 해당 시점에 Blob 상태를 캡처합니다. 이 문서에서는 스냅샷을 사용하여 가상 머신 디스크의 백업을 유지 관리할 수 있는 시나리오에 대해 설명합니다. Azure Backup 및 복구 서비스를 사용하지 않도록 선택하고 가상 컴퓨터 디스크에 대한 사용자 지정 백업 전략을 만들 때 이 방법론을 사용할 수 있습니다. 비즈니스 또는 중요 업무용 워크로드를 실행하는 가상 머신의 경우 백업 전략의 일부로 [Azure Backup](../articles/backup/backup-azure-vms-introduction.md)을 사용하는 것이 좋습니다.  
 
 Azure 가상 머신 디스크는 Azure Storage에 페이지 Blob으로 저장됩니다. 이 문서에서 가상 머신 디스크에 대한 백업 전략을 설명했으므로 페이지 Blob의 컨텍스트에서 스냅샷을 참조합니다. 스냅샷에 대한 자세한 내용은 [Blob의 스냅샷 만들기](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)를 참조하세요.
 
