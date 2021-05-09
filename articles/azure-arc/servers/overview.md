@@ -2,14 +2,14 @@
 title: Azure Arc 지원 서버 개요
 description: Azure Arc 지원 서버를 사용하여 Azure 리소스처럼 Azure 외부에 호스팅되는 머신을 관리하는 방법에 대해 알아봅니다.
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데이트 관리, 변경 내용 추적, 인벤토리, Runbook, Python, 그래픽, 하이브리드
-ms.date: 02/18/2021
+ms.date: 04/21/2021
 ms.topic: overview
-ms.openlocfilehash: 863cab073018c5a592cba6e94451a9af038ebd52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 324f6cc29bd9e4eca1a20413032c213c2618a11e
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023336"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831999"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Azure Arc 지원 서버란?
 
@@ -25,9 +25,9 @@ Azure Arc 지원 서버에 머신을 연결하면 다음과 같은 구성 관리
 
 - [서버용 Azure Defender](../../security-center/defender-for-servers-introduction.md)를 사용하도록 설정한 서버의 경우, Azure Automation [변경 내용 추적 및 인벤토리](../../automation/change-tracking/overview.md) 및 [Azure Security Center 파일 무결성 모니터링](../../security-center/security-center-file-integrity-monitoring.md)을 사용하여 모니터링되는 서버에 설치된 소프트웨어, Microsoft 서비스, Windows 레지스트리 및 파일, Linux 디먼에 대한 구성 변경을 보고합니다.
 
-- 연결된 머신 게스트 운영 체제 성능을 모니터링하고 애플리케이션 구성 요소를 검색하여 [VM용 Azure Monitor](../../azure-monitor/vm/vminsights-overview.md)를 통해 애플리케이션에서 통신하는 다른 리소스의 프로세스 및 종속성을 모니터링합니다.
+- 연결된 머신 게스트 운영 체제 성능을 모니터링하고 애플리케이션 구성 요소를 검색하여 애플리케이션에서 [VM 인사이트](../../azure-monitor/vm/vminsights-overview.md)를 사용해 통신하는 다른 리소스의 프로세스와 종속성을 모니터링합니다.
 
-- 비 Azure Windows 또는 Linux 머신에 대해 지원되는 [Azure VM 확장](manage-vm-extensions.md)을 사용하여 Azure Automation [상태 구성](../../automation/automation-dsc-overview.md) 및 Azure Monitor Log Analytics 작업 영역과 같은 다른 Azure 서비스와의 배포를 간소화합니다. 여기에는 사용자 지정 스크립트 확장을 사용하여 배포 후 구성 또는 소프트웨어 설치를 수행하는 작업이 포함됩니다.
+- 비 Azure Windows 또는 Linux 머신에 지원되는 [Azure VM 확장](manage-vm-extensions.md)을 사용하여 Azure Automation [State Configuration](../../automation/automation-dsc-overview.md) 및 Azure Monitor Log Analytics 작업 영역과 같은 다른 Azure 서비스를 사용한 배포를 간소화합니다. 여기에는 사용자 지정 스크립트 확장을 사용하여 배포 후 구성 또는 소프트웨어 설치를 수행하는 작업이 포함됩니다.
 
 - Azure Automation의 [업데이트 관리](../../automation/update-management/overview.md)를 사용하여 Windows 및 Linux 서버의 운영 체제 업데이트를 관리합니다.
 

@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ms.openlocfilehash: 9942056e59a46c61b4e9da32aab191d4b72db968
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c50ff2e1a8e63fd775b7b09863ffcd9d832d8683
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "92461762"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205722"
 ---
 # <a name="azure-digital-twins-customer-data-request-features"></a>Azure Digital Twins 고객 데이터 요청 기능
 
@@ -25,7 +25,7 @@ Azure Digital Twins에서 *디지털 트윈* 이라는 디지털 표현은 실�
 
 Azure Digital Twins의 많은 디지털 트윈은 개인 엔터티를 직접 나타내지 않습니다. 일반적으로 표시되는 개체는 사무실 회의실이거나 공장 바닥일 수 있습니다. 그러나 사용자는 일부 엔터티를 개인적으로 식별 가능한 것으로 간주할 수 있으며, 재량에 따라 디지털 트윈을 개인과 연결하는 자체 자산 또는 인벤토리 추적 방법을 유지할 수 있습니다. Azure Digital Twins는 디지털 트윈과 연결된 모든 데이터를 개인 데이터인 것처럼 관리 및 저장합니다.
 
-데이터 주체 요청에서 참조될 수 있는 개인 데이터를 확인, 내보내기 및 삭제하기 위해 Azure Digital Twins 관리자는 사용자 및 역할에 대해 [**Azure Portal**](https://portal.azure.com/) 또는 디지털 트윈에 대해 [**Azure DIGITAL Twins REST API**](/rest/api/azure-digitaltwins/)를 사용할 수 있습니다. Azure Portal 및 REST API는 사용자가 이러한 데이터 주체 요청을 처리하는 다양한 방법을 제공합니다.
+데이터 주체 요청에서 참조될 수 있는 개인 데이터를 확인, 내보내기 및 삭제하기 위해 Azure Digital Twins 관리자는 사용자 및 역할에 대해 [Azure Portal](https://portal.azure.com/) 또는 디지털 트윈에 대해 [Azure DIGITAL Twins REST API](/rest/api/azure-digitaltwins/)를 사용할 수 있습니다. Azure Portal 및 REST API는 사용자가 이러한 데이터 주체 요청을 처리하는 다양한 방법을 제공합니다.
 
 ## <a name="identifying-customer-data"></a>고객 데이터 식별
 

@@ -15,12 +15,12 @@ ms.custom:
 - azure-synapse
 - devx-track-azurepowershell
 - mode-api
-ms.openlocfilehash: be82b6dcc17c2850b9a35085316cd0905a5b6b75
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 3b7fdd7e496e6736772b220e59d627e96ffd4a10
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107566803"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163700"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 전용 SQL 풀(이전의 SQL DW)에서 컴퓨팅 일시 중지 및 다시 시작
 
@@ -72,19 +72,19 @@ Set-AzContext -SubscriptionName "MySubscription"
 
 비용을 절약하기 위해 필요에 따라 컴퓨팅 리소스를 일지 중지 및 다시 시작할 수 있습니다. 예를 들어, 밤 시간과 주말에 데이터베이스를 사용하지 않으려면 해당 시간에 일시 중지했다가 주간에 다시 시작할 수 있습니다.
 
->[!NOTE]
->데이터베이스를 일시 중지하는 동안 컴퓨팅 리소스에 대한 요금이 부과되지 않습니다. 그러나 스토리지에 대한 비용은 계속 청구됩니다.
+> [!NOTE]
+> 데이터베이스를 일시 중지하는 동안 컴퓨팅 리소스에 대한 요금이 부과되지 않습니다. 그러나 스토리지에 대한 비용은 계속 청구됩니다.
 
 데이터베이스를 일시 중지하려면 [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet을 사용합니다. 다음 예제에서는 **sqlpoolservername** 이라는 서버에 호스트된 **mySampleDataWarehouse** 라는 SQL 풀을 일시 중지합니다. 서버는 이름이 **myResourceGroup** 인 Azure 리소스 그룹 내에 있습니다.
 
-```Powershell
+```powershell
 Suspend-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "sqlpoolservername" –DatabaseName "mySampleDataWarehouse"
 ```
 
 다음 예제에서는 데이터베이스를 $database 개체로 검색합니다. 그런 다음, 개체를 [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)에 파이프합니다. 결과는 resultDatabase 개체에 저장됩니다. 마지막 명령은 결과를 보여 줍니다.
 
-```Powershell
+```powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "sqlpoolservername" –DatabaseName "mySampleDataWarehouse"
 $resultDatabase = $database | Suspend-AzSqlDatabase
@@ -95,14 +95,14 @@ $resultDatabase
 
 데이터베이스를 시작하려면 [Resume-AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet을 사용합니다. 다음 예제에서는 **sqlpoolservername** 이라는 서버에 호스트된 **mySampleDataWarehouse** 라는 데이터베이스를 시작합니다. 서버는 이름이 **myResourceGroup** 인 Azure 리소스 그룹 내에 있습니다.
 
-```Powershell
+```powershell
 Resume-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "sqlpoolservername" -DatabaseName "mySampleDataWarehouse"
 ```
 
 다음 예제에서는 데이터베이스를 $database 개체로 검색합니다. 그런 다음, 개체를 [Resume-AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)에 파이프하고 결과를 $resultDatabase에 저장합니다. 마지막 명령은 결과를 보여 줍니다.
 
-```Powershell
+```powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "sqlpoolservername" –DatabaseName "mySampleDataWarehouse"
 $resultDatabase = $database | Resume-AzSqlDatabase
@@ -113,7 +113,7 @@ $resultDatabase
 
 전용 SQL 풀(이전의 SQL DW)의 상태를 확인하려면 [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/Get-AzSqlDatabaseActivity?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet을 사용합니다.
 
-```Powershell
+```powershell
 Get-AzSqlDatabaseActivity -ResourceGroupName "myResourceGroup" -ServerName "sqlpoolservername" -DatabaseName "mySampleDataWarehouse"
 ```
 

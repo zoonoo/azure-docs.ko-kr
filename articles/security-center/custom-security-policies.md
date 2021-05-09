@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/25/2021
 ms.author: memildin
 zone_pivot_groups: manage-asc-initiatives
-ms.openlocfilehash: 1231d4b14d4beb2b4e167b3e7572428ec99c8e54
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: a41696ba92757550f9cbaa08ccf78d9a5da528d2
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140284"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718902"
 ---
 # <a name="create-custom-security-initiatives-and-policies"></a>사용자 지정 보안 이니셔티브 및 정책 만들기
 
@@ -90,7 +90,7 @@ Azure Policy의 중요 개념:
 
 - **할당** 은 특정 범위(관리 그룹, 구독 등)에 이니셔티브 또는 정책을 적용하는 것입니다. 
 
-Security Center에는 모든 보안 정책을 포함하는 기본 제공 이니셔티브인 [Azure Security Benchmark](/security/benchmark/azure/introduction)가 있습니다. Azure 리소스에 대한 Security Center의 정책을 평가하려면 평가하려는 관리 그룹 또는 구독에 할당을 만들어야 합니다.
+Security Center에는 모든 보안 정책을 포함하는 기본 제공 이니셔티브인 [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)가 있습니다. Azure 리소스에 대한 Security Center의 정책을 평가하려면 평가하려는 관리 그룹 또는 구독에 할당을 만들어야 합니다.
 
 기본 제공 이니셔티브에는 모든 Security Center의 정책이 기본적으로 사용하도록 설정되어 있습니다. 기본 제공 이니셔티브에서 특정 정책을 사용하지 않도록 설정할 수 있습니다. 예를 들어 정책의 효과 매개 변수 값을 **사용 안 함** 로 변경하면, **웹 애플리케이션 방화벽** 을 제외한 모든 Security Center의 정책을 적용할 수 있습니다.
 

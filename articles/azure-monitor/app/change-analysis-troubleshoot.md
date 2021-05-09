@@ -5,12 +5,13 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 02/11/2021
-ms.openlocfilehash: 7200978ce31a47f7bd0d023cecf359b10a1c96de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 91a7cc4b96dcff7a20afccfe5995574b89a8e87b
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100521085"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315708"
 ---
 # <a name="troubleshoot-application-change-analysis-preview"></a>애플리케이션 변경 분석 문제 해결(미리 보기)
 

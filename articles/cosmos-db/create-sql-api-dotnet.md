@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/07/2021
 ms.custom: devx-track-dotnet, devx-track-azurecli
-ms.openlocfilehash: 21b2459294b3465ba147cb454b93ac0da0081c5d
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: a805e26ef3776be7bb97c93d23b5c83e1dfc67af
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107480888"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001937"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>빠른 시작: .NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 리소스 관리
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "107480888"
 
 .NET용 Azure Cosmos DB SQL API 클라이언트 라이브러리를 시작합니다. 이 문서의 단계에 따라 .NET 패키지를 설치하고, 앱을 빌드하고, Azure Cosmos DB에 저장된 데이터에 대해 기본 CRUD 작업용 예제 코드를 사용해 봅니다. 
 
-Azure Cosmos DB는 모든 규모의 개방형 API를 포함하는 Microsoft의 빠른 NoSQL 데이터베이스입니다. Azure Cosmos DB를 사용하여 키/값, 문서 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. .NET용 Azure Cosmos DB SQL API 클라이언트 라이브러리를 사용하여 다음 작업을 수행합니다.
+Azure Cosmos DB는 모든 규모의 개방형 API가 포함된 Microsoft의 고속 NoSQL 데이터베이스입니다. Azure Cosmos DB를 사용하여 키/값, 문서 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. .NET용 Azure Cosmos DB SQL API 클라이언트 라이브러리를 사용하여 다음 작업을 수행합니다.
 
 * Azure Cosmos 데이터베이스 및 컨테이너 만들기
 * 컨테이너에 샘플 데이터 추가

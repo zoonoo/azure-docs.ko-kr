@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4948e17d1e0e782a8fa18c3eb5a2185e816a459a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d8b32413d59abce8bc9d6d523071a701368511fc
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102631407"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163664"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-templates"></a>템플릿을 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -42,7 +42,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
    - [Azure Marketplace의 사용자 지정 템플릿](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)을 사용하여 템플릿을 처음부터 만들거나 기존의 공통 템플릿 또는 [빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 기반으로 템플릿을 만듭니다.
    - [원본 배포](../../azure-resource-manager/templates/export-template-portal.md) 또는 [배포의 현재 상태](../../azure-resource-manager/templates/export-template-portal.md)에서 템플릿을 내보내 기존 리소스 그룹에서 템플릿을 파생합니다.
    - 로컬 [JSON 편집기(예: VS Code)](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)를 사용하는 경우 PowerShell 또는 CLI를 사용하여 템플릿을 업로드하고 배포합니다.
-   - Visual Studio [Azure 리소스 그룹 프로젝트](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md)를 사용하여 템플릿을 만들고 배포합니다.  
+   - Visual Studio [Azure 리소스 그룹 프로젝트](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md)를 사용하여 템플릿을 만들고 배포합니다.
 
 선택한 옵션에 관계 없이 초기 배포 및 재배포 시 템플릿 구문은 동일합니다. 새 VM이나 기본 VM에서 시스템 또는 사용자 할당 관리 ID를 사용하도록 설정하는 작업은 동일한 방식으로 수행됩니다. 또한 기본적으로 Azure Resource Manager는 배포에 대해 [증분 업데이트](../../azure-resource-manager/templates/deployment-modes.md)를 수행합니다.
 
@@ -58,17 +58,15 @@ VM에서 시스템 할당 관리 ID를 사용하도록 설정하려면 계정에
 
 2. 시스템 할당 관리 ID를 사용하도록 설정하려면 편집기에 템플릿을 로드하고 `resources` 섹션 내에서 관심이 있는 `Microsoft.Compute/virtualMachines` 리소스를 찾아서 `"type": "Microsoft.Compute/virtualMachines"` 속성과 같은 수준으로 `"identity"` 속성을 추가합니다. 다음 구문을 사용합니다.
 
-   ```JSON
+   ```json
    "identity": {
        "type": "SystemAssigned"
    },
    ```
 
-
-
 3. 완료되면 템플릿의 `resource` 섹션에 다음 섹션을 추가해야 하며 이는 다음과 유사해야 합니다.
 
-   ```JSON
+   ```json
     "resources": [
         {
             //other resource provider properties...
@@ -95,7 +93,7 @@ VM의 시스템 할당 ID에 역할을 할당하려면 계정에 [사용자 액�
 
    `parameters` 섹션 아래에 다음을 추가합니다.
 
-    ```JSON
+    ```json
     "builtInRoleType": {
         "type": "string",
         "defaultValue": "Reader"
@@ -107,13 +105,13 @@ VM의 시스템 할당 ID에 역할을 할당하려면 계정에 [사용자 액�
 
     `variables` 섹션 아래에 다음을 추가합니다.
 
-    ```JSON
+    ```json
     "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
     ```
 
     `resources` 섹션 아래에 다음을 추가합니다.
 
-    ```JSON
+    ```json
     {
         "apiVersion": "2017-09-01",
         "type": "Microsoft.Authorization/roleAssignments",
@@ -135,7 +133,7 @@ VM에서 시스템 할당 관리 ID를 제거하려면 계정에 [가상 머신 
 
 1. Azure에 로컬로 로그인하든지 또는 Azure Portal을 통해 로그인하든지 상관없이 VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다.
 
-2. 템플릿을 [편집기](#azure-resource-manager-templates)에 로드하고 `resources` 섹션 내에서 관심 있는 `Microsoft.Compute/virtualMachines` 리소스를 찾습니다. VM에 시스템 할당 관리 ID만 있는 경우, ID 형식을 `None`으로 변경하여 VM을 사용하지 않도록 설정할 수 있습니다.  
+2. 템플릿을 [편집기](#azure-resource-manager-templates)에 로드하고 `resources` 섹션 내에서 관심 있는 `Microsoft.Compute/virtualMachines` 리소스를 찾습니다. VM에 시스템 할당 관리 ID만 있는 경우, ID 형식을 `None`으로 변경하여 VM을 사용하지 않도록 설정할 수 있습니다.
 
    **Microsoft.Compute/virtualMachines API 버전 2018-06-01**
 
@@ -143,27 +141,27 @@ VM에서 시스템 할당 관리 ID를 제거하려면 계정에 [가상 머신 
 
    **Microsoft.Compute/virtualMachines API 버전 2018-06-01**
 
-   `apiVersion`이 `2017-12-01`이고 VM에 시스템 할당 ID와 사용자 할당 관리 ID가 둘 다 있는 경우, ID 유형에서 `SystemAssigned`를 제거하고 사용자 할당 관리 ID의 `identityIds` 배열과 함께 `UserAssigned`를 유지합니다.  
+   `apiVersion`이 `2017-12-01`이고 VM에 시스템 할당 ID와 사용자 할당 관리 ID가 둘 다 있는 경우, ID 유형에서 `SystemAssigned`를 제거하고 사용자 할당 관리 ID의 `identityIds` 배열과 함께 `UserAssigned`를 유지합니다.
 
 다음 예제에서는 사용자 할당 관리 ID가 없는 VM에서 시스템 할당 관리 ID를 제거하는 방법을 보여줍니다.
 
- ```JSON
- {
-     "apiVersion": "2018-06-01",
-     "type": "Microsoft.Compute/virtualMachines",
-     "name": "[parameters('vmName')]",
-     "location": "[resourceGroup().location]",
-     "identity": {
-         "type": "None"
-     }
- }
- ```
+```json
+{
+    "apiVersion": "2018-06-01",
+    "type": "Microsoft.Compute/virtualMachines",
+    "name": "[parameters('vmName')]",
+    "location": "[resourceGroup().location]",
+    "identity": {
+        "type": "None"
+    }
+}
+```
 
 ## <a name="user-assigned-managed-identity"></a>사용자 할당 관리 ID
 
 이 섹션에서는 Azure Resource Manager 템플릿을 사용하여 Azure VM에 사용자 할당 관리 ID를 할당합니다.
 
-> [!Note]
+> [!NOTE]
 > Azure Resource Manager 템플릿을 사용하여 사용자 할당 관리 ID를 만들려면 [사용자 할당 관리 ID 만들기](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity)를 참조하세요.
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-azure-vm"></a>Azure VM에 사용자 할당 관리 ID 할당
@@ -176,7 +174,7 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
 
    `apiVersion`이 `2018-06-01`이고 사용자 할당 관리 ID가 `userAssignedIdentities` 사전 형식으로 저장되는 경우에는 템플릿의 `variables` 섹션에 정의된 변수에 `<USERASSIGNEDIDENTITYNAME>` 값이 저장되어야 합니다.
 
-   ```JSON
+   ```json
     {
         "apiVersion": "2018-06-01",
         "type": "Microsoft.Compute/virtualMachines",
@@ -195,7 +193,7 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
 
    `apiVersion`이 `2017-12-01`이고 사용자 할당 관리 ID가 `identityIds` 배열에 저장되는 경우에는 템플릿의 `variables` 섹션에 정의된 변수에 `<USERASSIGNEDIDENTITYNAME>` 값이 저장되어야 합니다.
 
-   ```JSON
+   ```json
    {
        "apiVersion": "2017-12-01",
        "type": "Microsoft.Compute/virtualMachines",
@@ -212,9 +210,9 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
 
 3. 완료되면 템플릿의 `resource` 섹션에 다음 섹션을 추가해야 하며 이는 다음과 유사해야 합니다.
 
-   **Microsoft.Compute/virtualMachines API 버전 2018-06-01**    
+   **Microsoft.Compute/virtualMachines API 버전 2018-06-01**
 
-   ```JSON
+   ```json
      "resources": [
         {
             //other resource provider properties...
@@ -231,9 +229,10 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
         }
     ] 
    ```
+
    **Microsoft.Compute/virtualMachines API 버전 2017-12-01**
 
-   ```JSON
+   ```json
    "resources": [
         {
             //other resource provider properties...

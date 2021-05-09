@@ -12,12 +12,12 @@ ms.date: 4/6/2021
 ms.author: iangithinji
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 941bf61f3387abf19be58bdd4d8861ab123e244f
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: dda21b70d7e65915b1ecd92de8a3ebcf2ac52059
+ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376582"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108006947"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>테넌트 제한을 사용하여 SaaS 클라우드 애플리케이션에 대한 액세스 관리
 
@@ -41,7 +41,7 @@ ms.locfileid: "107376582"
 
 3. **클라이언트 소프트웨어**: 테넌트 제한을 지원하기 위해 클라이언트 소프트웨어는 Azure AD에서 직접 토큰을 요청해야 하므로 프록시 인프라에서 트래픽을 가로챌 수 있습니다. 최신 인증(예: OAuth 2.0)을 사용하는 Office 클라이언트와 마찬가지로 브라우저 기반 Microsoft 365 애플리케이션도 현재 테넌트 제한을 지원합니다.
 
-4. **최신 인증**: 클라우드 서비스는 테넌트 제한을 사용하고 허용되지 않는 모든 테넌트로의 액세스를 차단하기 위해 최신 인증을 사용해야 합니다. Microsoft 365 클라우드 서비스는 기본적으로 최신 인증 프로토콜을 사용하도록 구성해야 합니다. 최신 인증에 대한 Microsoft 365 지원과 관련된 최신 정보는 [업데이트된 Office 365 최신 인증](https://www.microsoft.com/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)을 참조하세요.
+4. **최신 인증**: 클라우드 서비스는 테넌트 제한을 사용하고 허용되지 않는 모든 테넌트로의 액세스를 차단하기 위해 최신 인증을 사용해야 합니다. Microsoft 365 클라우드 서비스는 기본적으로 최신 인증 프로토콜을 사용하도록 구성해야 합니다. 최신 인증에 대한 Microsoft 365 지원과 관련된 최신 정보는 [업데이트된 Office 365 최신 인증](https://docs.microsoft.com/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016?view=o365-worldwide)을 참조하세요.
 
 다음 다이어그램은 고급 트래픽 흐름을 보여 줍니다. 테넌트 제한에서는 Microsoft 365 클라우드 서비스에 대한 트래픽이 아닌 Azure AD에 대한 트래픽에만 TLS 검사가 필요합니다. Azure AD에서 인증을 받으려는 트래픽 볼륨이 일반적으로 Exchange Online 및 SharePoint Online과 같은 SaaS 애플리케이션에 대한 트래픽 볼륨보다 훨씬 작기 때문에 이러한 구분이 필요합니다.
 

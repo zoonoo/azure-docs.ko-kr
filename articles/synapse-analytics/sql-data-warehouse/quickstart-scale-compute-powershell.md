@@ -14,12 +14,12 @@ ms.custom:
 - seo-lt-2019
 - devx-track-azurepowershell
 - mode-api
-ms.openlocfilehash: 73718f0e8e82e7d35ed1ced98f45c1e125a55a00
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 4a178c1104870eb59634537ee659925bdb6abda3
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534244"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163682"
 ---
 # <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 전용 SQL 풀(이전의 SQL DW)에 대한 컴퓨팅 크기 조정
 
@@ -74,7 +74,7 @@ Set-AzContext -SubscriptionName "MySubscription"
 
 데이터 웨어하우스 단위를 변경하려면 [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet을 사용합니다. 다음 예제에서는 **sqlpoolservername** 서버의 리소스 그룹 **resourcegroupname** 에서 호스트되는 데이터베이스 **mySampleDataWarehouse** 에 대해 데이터 웨어하우스 단위를 DW300c로 설정합니다.
 
-```Powershell
+```powershell
 Set-AzSqlDatabase -ResourceGroupName "resourcegroupname" -DatabaseName "mySampleDataWarehouse" -ServerName "sqlpoolservername" -RequestedServiceObjectiveName "DW300c"
 ```
 
@@ -127,4 +127,4 @@ $database | Select-Object DatabaseName,Status
 지금까지 전용 SQL 풀(이전의 SQL DW)에 대한 컴퓨팅을 확장하는 방법을 알아보았습니다. 전용 SQL 풀(이전의 SQL DW)에 대해 자세히 알아보려면 데이터 로드에 대한 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
->[전용 SQL 풀에 데이터 로드](load-data-from-azure-blob-storage-using-copy.md)
+> [전용 SQL 풀에 데이터 로드](load-data-from-azure-blob-storage-using-copy.md)

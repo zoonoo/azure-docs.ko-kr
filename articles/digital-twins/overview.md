@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: d03a4865c8db52f74f4130c458fec3028f5b95a4
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: a64564887fa2738fd3c0586d1040be3c95193927
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481670"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205794"
 ---
 # <a name="what-is-azure-digital-twins"></a>Azure Digital Twins란?
 
@@ -30,7 +30,7 @@ Azure Digital Twins에서 제공하는 기능에 대한 요약은 다음과 같�
 
 ### <a name="open-modeling-language"></a>오픈 모델링 언어
 
-Azure Digital Twins에서 [**모델**](concepts-models.md)이라는 사용자 지정 쌍 유형을 사용하여 실제 환경에서 사람, 장소 및 사물을 나타내는 디지털 엔터티를 정의합니다. 
+Azure Digital Twins에서 [모델](concepts-models.md)이라는 사용자 지정 쌍 유형을 사용하여 실제 환경에서 사람, 장소 및 사물을 나타내는 디지털 엔터티를 정의합니다. 
 
 이러한 모델 정의를 비즈니스를 설명하는 특수 어휘로 간주할 수 있습니다. 예를 들어 빌딩 관리 솔루션의 경우 "빌딩", "플로어" 및 "엘리베이터"와 같은 모델을 정의할 수 있습니다. 그런 다음 이러한 모델을 기반으로 한 **디지털 쌍** 을 만들어 특정 환경을 나타낼 수 있습니다.
 
@@ -46,7 +46,7 @@ DTDL은 [IoT PnP(플러그 앤 플레이)](../iot-pnp/overview-iot-plug-and-play
 
 Azure Digital Twins의 디지털 모델은 실제 세계의 실시간, 최신 표현입니다. 사용자 지정 DTDL 모델에서 관계를 사용하 여 사용자 환경을 나타내는 **실시간 그래프** 에 쌍을 연결합니다.
 
-샘플 애플리케이션 [**Azure Digital Twins 탐색기**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)의 도움을 통해 Azure Digital Twins 그래프의 시각화를 볼 수 있습니다.
+샘플 애플리케이션 [Azure Digital Twins 탐색기](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)의 도움을 통해 Azure Digital Twins 그래프의 시각화를 볼 수 있습니다.
 
 샘플 시각화의 모양은 다음과 같습니다.
 
@@ -102,6 +102,6 @@ Azure Digital Twins를 사용하는 완전한 솔루션은 다음과 같은 부�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 다음 빠른 시작을 사용하여 Azure Digital Twins 작업을 자세히 살펴보세요. [*빠른 시작: 샘플 시나리오 살펴보기*](quickstart-azure-digital-twins-explorer.md).
+* 다음 빠른 시작을 사용하여 Azure Digital Twins 작업을 자세히 살펴보세요. [빠른 시작: 샘플 시나리오 살펴보기](quickstart-azure-digital-twins-explorer.md).
 
-* 또는 Azure Digital Twins 개념에 대해 [*개념: 사용자 지정 모델*](concepts-models.md)에서 자세히 알아보세요.
+* 또는 Azure Digital Twins 개념에 대해 [개념: 사용자 지정 모델](concepts-models.md)에서 자세히 알아보세요.
