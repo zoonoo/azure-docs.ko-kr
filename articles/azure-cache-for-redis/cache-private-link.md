@@ -1,5 +1,5 @@
 ---
-title: Azure 개인 링크를 사용 하는 azure Cache for Redis (미리 보기)
+title: Azure 개인 링크를 사용 하는 azure Cache for Redis
 description: Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 Azure Cache에 대해 개인적이 고 안전 하 게 연결 하는 네트워크 인터페이스입니다. 이 문서에서는 Azure Portal를 사용 하 여 Azure 캐시, Azure Virtual Network 및 개인 끝점을 만드는 방법에 대해 설명 합니다.
 author: curib
 ms.author: cauribeg
@@ -13,7 +13,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 03/19/2021
 ms.locfileid: "97007588"
 ---
-# <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Azure 개인 링크를 사용 하는 azure Cache for Redis (공개 미리 보기)
+# <a name="azure-cache-for-redis-with-azure-private-link"></a>Azure 개인 링크를 사용 하는 azure Cache for Redis
 이 문서에서는 Azure Portal를 사용 하 여 개인 끝점이 있는 Redis 인스턴스에 대 한 가상 네트워크 및 Azure Cache를 만드는 방법에 대해 알아봅니다. Redis 인스턴스에 대 한 기존 Azure 캐시에 개인 끝점을 추가 하는 방법에 대해서도 알아봅니다.
 
 Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 Azure Cache에 대해 개인적이 고 안전 하 게 연결 하는 네트워크 인터페이스입니다. 
