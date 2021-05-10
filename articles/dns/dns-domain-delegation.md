@@ -4,15 +4,15 @@ description: 도메인 위임을 변경하고 Azure DNS 이름 서버를 사용�
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.date: 2/19/2019
+ms.date: 04/19/2021
 ms.author: rohink
 ms.topic: conceptual
-ms.openlocfilehash: 9304556edb5e6207296d8ee4e8392e345869cb92
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4753b07cc2f3ccd998c26a3392eb08c8761dd6f7
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "76939044"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738849"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Azure DNS를 사용하여 DNS 영역 위임
 
@@ -68,4 +68,3 @@ PC 또는 모바일 디바이스의 DNS 클라이언트는 일반적으로 재�
 ## <a name="next-steps"></a>다음 단계
 
 [Azure DNS에 도메인을 위임](dns-delegate-domain-azure-dns.md)하는 방법을 알아봅니다.
-

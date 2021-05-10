@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -9,10 +9,10 @@ ms.date: 02/04/2021
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 49e35687820679a1c06cf19e7a26b3b04a1e1318
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100363250"
 ---
 ## <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
@@ -23,8 +23,8 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 | ---------- | ----------- |
 | Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | 큐 또는 구독에 활성 메시지가 있고 수신 대기 중인 수신기가 없는 경우 발생합니다. |
 | Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | 배달 못한 편지 큐에 활성 메시지가 있고 수신 대기 중인 수신기가 없는 경우 발생합니다. |
-| ServiceBus. ActiveMessagesAvailablePeriodicNotifications | 큐 또는 구독에 활성 메시지가 있는 경우 해당 특정 큐 또는 구독에 활성 수신기가 있는 경우에도 주기적으로 발생 합니다. |
-| ServiceBus. DeadletterMessagesAvailablePeriodicNotifications | 큐 또는 구독의 배달 못 한 편지 엔터티에 메시지가 있는 경우 해당 특정 큐 또는 구독의 배달 못 한 편지 엔터티에 활성 수신기가 있는 경우에도 주기적으로 발생 합니다. | 
+| Microsoft.ServiceBus.ActiveMessagesAvailablePeriodicNotifications | 큐 또는 구독에 활성 메시지가 있는 경우 해당 특정 큐 또는 구독에 활성 수신기가 있는 경우에도 주기적으로 발생합니다. |
+| Microsoft.ServiceBus.DeadletterMessagesAvailablePeriodicNotifications | 큐 또는 구독의 배달 못한 편지 엔터티에 메시지가 있는 경우 해당 특정 큐 또는 구독에 배달 못한 편지에 대한 활성 수신기가 있는 경우에도 주기적으로 발생합니다. | 
 
 ## <a name="example-event"></a>예제 이벤트
 
@@ -53,9 +53,9 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 }]
 ```
 
-#### <a name="deadletter-messages-available-with-no-listener"></a>수신기 없이 사용할 수 있는 배달 못한 편지 메시지
+#### <a name="deadletter-messages-available-with-no-listener"></a>수신기 없이 사용 가능한 배달 못한 편지 메시지
 
-배달 못한 편지 큐 이벤트의 스키마는 유사 합니다. 배달 못한 편지 큐 마다 메시지와 활성 수신자가 없는 이벤트를 하나 이상 가져옵니다.
+배달 못한 편지 큐 이벤트에 대한 스키마 역시 비슷합니다. 배달 못한 편지 큐마다 메시지는 있고 활성 수신기는 없는 이벤트가 하나 이상 발생합니다.
 
 ```json
 [{
@@ -78,7 +78,7 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 ```
 
 #### <a name="active-messages-available-periodic-notifications"></a>활성 메시지 사용 가능한 정기 알림
-특정 큐 또는 구독에 활성 메시지가 있는 경우에도 해당 특정 큐 또는 구독에 활성 메시지가 있는 경우이 이벤트가 정기적으로 생성 됩니다.
+특정 큐 또는 구독에 활성 메시지가 있는 경우 해당 특정 큐 또는 구독에 활성 메시지가 있는 경우에도 이 이벤트가 정기적으로 발생합니다.
 
 ```json
 [{
@@ -100,8 +100,8 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 }]
 ```
 
-#### <a name="deadletter-messages-available-periodic-notifications"></a>배달 못한 편지 메시지의 사용 가능한 정기 알림
-특정 큐 또는 구독의 배달 못한 편지 엔터티에 활성 수신기가 있는 경우에도이 이벤트는 특정 큐 또는 구독에 대 한 배달 못한 편지 메시지가 있는 경우 주기적으로 생성 됩니다.
+#### <a name="deadletter-messages-available-periodic-notifications"></a>배달 못한 편지 메시지 사용 가능한 정기 알림
+특정 큐 또는 구독에 활성 메시지가 있는 경우 해당 특정 큐 또는 구독의 배달 못한 편지 엔터티에 배달 못한 편지 메시지가 있는 경우에도 이 이벤트가 정기적으로 발생합니다.
 
 ```json
 [{
@@ -147,9 +147,9 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 }]
 ```
 
-#### <a name="deadletter-messages-available-with-no-listener"></a>수신기 없이 사용할 수 있는 배달 못한 편지 메시지
+#### <a name="deadletter-messages-available-with-no-listener"></a>수신기 없이 사용 가능한 배달 못한 편지 메시지
 
-배달 못한 편지 큐 이벤트의 스키마는 유사 합니다. 배달 못한 편지 큐 마다 메시지와 활성 수신자가 없는 이벤트를 하나 이상 가져옵니다.
+배달 못한 편지 큐 이벤트에 대한 스키마 역시 비슷합니다. 배달 못한 편지 큐마다 메시지는 있고 활성 수신기는 없는 이벤트가 하나 이상 발생합니다.
 
 ```json
 [{
@@ -171,7 +171,7 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 ```
 
 #### <a name="active-messages-available-periodic-notifications"></a>활성 메시지 사용 가능한 정기 알림
-특정 큐 또는 구독에 활성 메시지가 있는 경우에도 해당 특정 큐 또는 구독에 활성 메시지가 있는 경우이 이벤트가 정기적으로 생성 됩니다.
+특정 큐 또는 구독에 활성 메시지가 있는 경우 해당 특정 큐 또는 구독에 활성 메시지가 있는 경우에도 이 이벤트가 정기적으로 발생합니다.
 
 ```json
 [{
@@ -192,8 +192,8 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 }]
 ```
 
-#### <a name="deadletter-messages-available-periodic-notifications"></a>배달 못한 편지 메시지의 사용 가능한 정기 알림
-특정 큐 또는 구독의 배달 못한 편지 엔터티에 활성 수신기가 있는 경우에도이 이벤트는 특정 큐 또는 구독에 대 한 배달 못한 편지 메시지가 있는 경우 주기적으로 생성 됩니다.
+#### <a name="deadletter-messages-available-periodic-notifications"></a>배달 못한 편지 메시지 사용 가능한 정기 알림
+특정 큐 또는 구독에 활성 메시지가 있는 경우 해당 특정 큐 또는 구독의 배달 못한 편지 엔터티에 배달 못한 편지 메시지가 있는 경우에도 이 이벤트가 정기적으로 발생합니다.
 
 ```json
 [{
@@ -223,7 +223,7 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 # <a name="event-grid-event-schema"></a>[Event Grid 이벤트 스키마](#tab/event-grid-event-schema)
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
 | `topic` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -238,7 +238,7 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
 | `source` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -252,7 +252,7 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
 | `namespaceName` | 문자열 | 리소스가 있는 Service Bus 네임스페이스입니다. |
 | `requestUri` | 문자열 | 이벤트를 내보내는 특정 큐 또는 구독의 URI입니다. |

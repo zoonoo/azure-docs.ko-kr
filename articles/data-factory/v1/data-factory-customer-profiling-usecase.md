@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: b8193039edd21db5a52eabca37c1e61880e49cfe
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104779752"
 ---
 # <a name="use-case---customer-profiling"></a>사용 사례 - 고객 프로파일링
@@ -34,7 +34,7 @@ Contoso의 목표는 플레이어의 게임 기록을 기반으로 상향 판매
 3. **샘플 파이프라인** 블레이드에서 배포할 **고객 프로파일링** 을 클릭합니다.
 
     ![샘플 파이프라인 블레이드](./media/data-factory-samples/SampleTile.png)
-4. 샘플에 대한 구성 설정을 지정합니다. 예를 들어 Azure storage 계정 이름 및 키, 논리적 SQL server 이름, 데이터베이스, 사용자 ID, 암호 등이 있습니다.
+4. 샘플에 대한 구성 설정을 지정합니다. 예를 들어 Azure Storage 계정 이름과 키, 논리적 SQL Server 이름, 데이터베이스, 사용자 ID, 암호 등입니다.
 
     ![샘플 블레이드](./media/data-factory-samples/SampleBlade.png)
 5. 구성 설정 지정을 마쳤으면 **만들기** 를 클릭하여 샘플 파이프라인 및 파이프라인에서 사용되는 연결된 서비스/테이블을 만듭니다/배포합니다.

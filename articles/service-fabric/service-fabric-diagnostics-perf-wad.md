@@ -1,13 +1,13 @@
 ---
-title: Windows Azure 진단를 사용 하 여 성능 모니터링
+title: Windows Azure Diagnostics를 사용하여 성능 모니터링
 description: Windows Azure Diagnostics를 사용하여 Azure Service Fabric 클러스터에 대한 성능 카운터를 수집합니다.
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.openlocfilehash: 6803494d29bf97336e30128f9f5ad20ec73ce202
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105627407"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Windows Azure Diagnostics 확장을 사용하여 성능 모니터링
@@ -187,9 +187,9 @@ WAD를 통해 성능 카운터를 수집하려면 클러스터의 Resource Manag
     New-AzResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-1. 업그레이드가 롤아웃을 완료하면(첫 번째 배포인지 여부 및 리소스 그룹의 크기에 따라 15-45분 소요) WAD는 성능 카운터를 수집하고 클러스터와 연결된 스토리지 계정에서 WADPerformanceCountersTable이라는 표로 보내야 합니다. [리소스 관리자 템플릿에 AI 싱크를 추가](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)하 여 Application Insights에서 성능 카운터를 확인 합니다.
+1. 업그레이드가 롤아웃을 완료하면(첫 번째 배포인지 여부 및 리소스 그룹의 크기에 따라 15-45분 소요) WAD는 성능 카운터를 수집하고 클러스터와 연결된 스토리지 계정에서 WADPerformanceCountersTable이라는 표로 보내야 합니다. [Resource Manager 템플릿에 AI 싱크를 추가](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)하여 Application Insights에서 성능 카운터를 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 클러스터에 대한 더 많은 성능 카운터를 수집합니다. 수집해야 하는 카운터 목록은 [성능 메트릭](service-fabric-diagnostics-event-generation-perf.md)을 참조하세요.
 * [Windows VM 및 Azure Resource Manager 템플릿으로 모니터링 및 진단을 사용](../virtual-machines/extensions/diagnostics-template.md)하여 진단 데이터를 보내는 추가 스토리지 계정 구성을 포함한 `WadCfg`에 대한 추가 수정을 수행합니다.
-* [Diagnostics.wadcfg builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) 를 방문 하 여 처음부터 템플릿을 빌드하고 구문이 올바른지 확인 합니다. https://azure.github.io/azure-diagnostics-tools/config-builder/)템플릿을 처음부터 작성 하 고 구문이 올바른지 확인 합니다.
+* [WadCfg 작성기](https://azure.github.io/azure-diagnostics-tools/config-builder/)를 방문하여 처음부터 새로 템플릿을 빌드하고 구문이 올바른지 확인합니다(처음부터 새로 템플릿을 빌드하고 구문이 올바른지 확인하기 위한 https://azure.github.io/azure-diagnostics-tools/config-builder/) ).

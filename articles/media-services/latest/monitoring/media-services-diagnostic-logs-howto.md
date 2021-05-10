@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor를 통해 진단 로그 모니터링
-description: 이 문서에서는 Azure Monitor를 통해 진단 로그를 라우팅하고 표시 하는 방법을 보여 줍니다.
+description: 이 문서에서는 Azure Monitor를 통해 진단 로그를 라우팅하고 보는 방법을 보여줍니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -14,32 +14,32 @@ ms.topic: how-to
 ms.date: 03/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0719fede4147943e76ddfea1c5e77388c7c5cc9f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: b21d7a5eef36a4aa2deac4d1005a7b82ab06687b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609741"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138934"
 ---
-# <a name="monitor-media-services-diagnostic-logs"></a>진단 로그 Media Services 모니터링
+# <a name="monitor-media-services-diagnostic-logs"></a>Media Services 진단 로그 모니터링
 
 [!INCLUDE [media services api v3 logo](../includes/v3-hr.md)]
 
-[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview.md) 를 사용 하면 응용 프로그램의 작동 방식을 이해 하는 데 도움이 되는 메트릭 및 진단 로그를 모니터링할 수 있습니다. 이 기능에 대 한 자세한 설명 및 Azure Media Services 메트릭과 진단 로그를 사용 하려는 이유를 보려면 [Media Services 메트릭 및 진단 로그 모니터링](monitor-media-services.md)을 참조 하세요.
+[Azure Monitor](../../../azure-monitor/overview.md)를 사용하면 애플리케이션의 성능을 파악하는 데 도움이 되는 메트릭 및 진단 로그를 모니터링할 수 있습니다. 이 기능에 대한 자세한 설명을 보고 Azure Media Services 메트릭 및 진단 로그를 사용하는 이유를 알아보려면 [Media Services 메트릭 및 진단 로그 모니터링](monitor-media-services.md)을 참조하세요.
 
-이 문서에서는 저장소 계정에 데이터를 라우팅하는 방법을 보여 주고 데이터를 확인 합니다.
+이 문서에서는 데이터를 스토리지 계정으로 라우팅한 다음, 데이터를 보는 방법을 보여줍니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [Media Services 계정 만들기](../create-account-howto.md)
-- [모니터 Media Services](monitor-media-services.md)를 검토 합니다.
+- [Media Services 계정 만들기](../account-create-how-to.md)
+- [Media Services 모니터링](monitor-media-services.md)을 검토합니다.
 
-## <a name="route-data-to-the-storage-account-using-the-portal"></a>포털을 사용 하 여 저장소 계정에 데이터 라우팅
+## <a name="route-data-to-the-storage-account-using-the-portal"></a>포털을 사용하여 스토리지 계정에 데이터 라우팅
 
 1. Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
-1. 에서 Media Services 계정으로 이동 하 고 **모니터** 에서 **진단 설정** 을 클릭 합니다. 여기에 Azure Monitor를 통해 모니터링 데이터를 생성하는 구독에 있는 모든 리소스 목록이 표시됩니다.
+1. Media Services 계정으로 이동하고 **모니터** 에서 **진단 설정** 을 클릭합니다. 여기에 Azure Monitor를 통해 모니터링 데이터를 생성하는 구독에 있는 모든 리소스 목록이 표시됩니다.
 
-    ![모니터링 섹션에서 진단 설정을 강조 표시 하는 스크린샷](../media/media-services-diagnostic-logs/logs01.png)
+    ![모니터링 섹션의 진단 설정이 강조 표시된 스크린샷.](../media/media-services-diagnostic-logs/logs01.png)
 
 1. **진단 설정 추가** 를 클릭합니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "104609741"
 
 1. 표시된 섹션에서 설정에 **이름** 을 지정하고 **스토리지 계정에 보관** 상자를 선택합니다.
 
-    로그를 전송 하려는 저장소 계정을 선택 하 고 **확인** 을 누릅니다.
+    로그를 보낼 스토리지 계정을 선택하고 **확인** 을 누릅니다.
 1. **로그** 및 **메트릭** 아래의 상자를 모두 선택합니다. 리소스 종류에 따라 이러한 옵션 중 하나를 포함할 수 있습니다. 이 확인란에 따라 선택한 대상(이 경우, 스토리지 계정)으로 보내지는 해당 리소스 종류에서 사용할 수 있는 로그 및 메트릭 데이터의 범주가 달라집니다.
 
    ![진단 설정 섹션](../media/media-services-diagnostic-logs/logs02.png)
@@ -56,9 +56,9 @@ ms.locfileid: "104609741"
 
 이제 리소스의 모니터링 데이터가 스토리지 계정으로 이동합니다.
 
-## <a name="route-data-to-the-storage-account-using-the-azure-cli"></a>Azure CLI를 사용 하 여 저장소 계정에 데이터 라우팅
+## <a name="route-data-to-the-storage-account-using-the-azure-cli"></a>Azure CLI를 사용하여 스토리지 계정에 데이터 라우팅
 
-저장소 계정에서 진단 로그의 저장소를 사용 하도록 설정 하려면 다음 `az monitor diagnostic-settings` Azure CLI 명령을 실행 합니다.
+스토리지 계정에서 진단 로그의 스토리지를 사용하려면 다음 `az monitor diagnostic-settings` Azure CLI 명령을 실행합니다.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -76,7 +76,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name amsv3diagnostic \
@@ -86,7 +86,7 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
     --logs '[{"category": "KeyDeliveryRequests",  "enabled": true, "retentionPolicy": {"days": 3, "enabled": true }}]'
 ```
 
-## <a name="view-data-in-the-storage-account-using-the-portal"></a>포털을 사용 하 여 저장소 계정에서 데이터 보기
+## <a name="view-data-in-the-storage-account-using-the-portal"></a>포털을 사용하여 스토리지 계정의 데이터 보기
 
 이전 단계를 수행했다면 데이터가 스토리지 계정으로 이동하기 시작했습니다.
 
@@ -94,14 +94,14 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
 
 1. 포털의 왼쪽 탐색 모음에서 찾아 **스토리지 계정** 섹션으로 이동합니다.
 1. 이전 섹션에서 만든 스토리지 계정을 식별하고 클릭합니다.
-1. **Blob** 을 클릭 한 다음 **keydeliveryrequests** 라는 레이블이 지정 된 컨테이너에서를 클릭 합니다. 로그를 포함 하는 컨테이너입니다. 모니터링 데이터는 리소스 ID를 기준으로 한 다음 날짜 및 시간을 기준으로 컨테이너로 분류 됩니다.
+1. **Blob** 을 클릭한 다음, **insights-logs-keydeliveryrequests** 로 표시된 컨테이너를 클릭합니다. 로그가 들어 있는 컨테이너입니다. 모니터링 데이터는 리소스 ID별로 컨테이너로 분류된 후 날짜 및 시간별로 분류됩니다.
 1. 리소스 ID, 날짜 및 시간에 해당하는 컨테이너를 클릭하여 PT1H.json 파일로 이동합니다. PT1H.json 파일을 클릭하고 **다운로드** 를 클릭합니다.
 
  이제 스토리지 계정에 저장된 JSON 이벤트를 볼 수 있습니다.
 
-### <a name="examples-of-pt1hjson"></a>PT1H.js의 예
+### <a name="examples-of-pt1hjson"></a>PT1H.json의 예
 
-#### <a name="clear-key-delivery-log"></a>키 배달 로그 지우기
+#### <a name="clear-key-delivery-log"></a>키 전달 로그 지우기
 
 ```json
 {
@@ -139,7 +139,7 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
 }
 ```
 
-#### <a name="widevine-encrypted-key-delivery-log"></a>암호화 된 키 배달 로그
+#### <a name="widevine-encrypted-key-delivery-log"></a>Widevine으로 암호화된 키 전달 로그
 
 ```json
 {
@@ -181,11 +181,11 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
 
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
-* [Azure Monitor 메트릭](https://docs.microsoft.com/azure/azure-monitor/data-platform.md)
-* [진단 로그 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/essentials/platform-logs-overview.md)
-* [Azure 리소스에서 로그 데이터를 수집 하 고 사용 하는 방법](https://docs.microsoft.com/azure/azure-monitor/essentials/platform-logs-overview.md)
+* [Azure Monitor 메트릭](../../../azure-monitor/data-platform.md)
+* [Azure Monitor 진단 로그](../../../azure-monitor/essentials/platform-logs-overview.md)
+* [Azure 리소스에서 로그 데이터를 수집하고 소비하는 방법](../../../azure-monitor/essentials/platform-logs-overview.md)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -2,27 +2,27 @@
 title: 전용 SQL 풀 Azure Advisor 권장 사항
 description: Synapse SQL 권장 사항 및 생성 방법에 대해 알아보기
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 06/26/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 698c14d23e8e64c777260410c625129cd87d49b3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: b418b46199c524ca92d60dece6031073938e159b
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104585709"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568423"
 ---
-# <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대 한 Azure Advisor 권장 사항
+# <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대한 Azure Advisor 권장 사항
 
-이 문서에서는 Azure Advisor에서 사용할 수 있는 전용 SQL 풀 권장 사항을 설명 합니다.  
+이 문서에서는 Azure Advisor에서 사용할 수 있는 전용 SQL 풀 권장 사항에 대해 설명합니다.  
 
-전용 SQL 풀은 데이터 웨어하우스 작업이 성능에 대해 일관 되 게 최적화 되도록 권장 사항을 제공 합니다. 권장 사항은 [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)와 긴밀하게 통합되어 [Azure Portal](https://aka.ms/Azureadvisor) 내에서 직접 모범 사례를 제공합니다. 전용 SQL 풀은 일별 흐름에서 활성 워크 로드에 대 한 원격 분석 및 표면 권장 사항을 수집 합니다. 지원되는 권장 시나리오 및 권장 조치를 적용하는 방법이 아래에 설명되어 있습니다.
+전용 SQL 풀은 데이터 웨어하우스 워크로드가 지속적으로 성능에 최적화되도록 권장 사항을 제공합니다. 권장 사항은 [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)와 긴밀하게 통합되어 [Azure Portal](https://aka.ms/Azureadvisor) 내에서 직접 모범 사례를 제공합니다. 전용 SQL 풀은 일별 흐름에서 활성 워크로드에 대한 원격 분석 및 표면 권장 사항을 수집합니다. 지원되는 권장 시나리오 및 권장 조치를 적용하는 방법이 아래에 설명되어 있습니다.
 
 지금 [권장 사항](https://aka.ms/Azureadvisor)을 확인할 수 있습니다. 
 
@@ -71,6 +71,6 @@ Advisor는 테이블 액세스 빈도, 평균으로 반환되는 행 및 데이�
 
 tempdb 경합이 높은 경우 쿼리 성능이 저하될 수 있습니다.  Tempdb 경합은 사용자 정의 임시 테이블을 통해 또는 많은 양의 데이터 이동이 있을 때 발생할 수 있습니다. 이 시나리오에서는 추가 tempdb 할당을 위해 크기를 조정하고 [리소스 클래스 및 워크로드를 관리](./sql-data-warehouse-workload-management.md)하여 쿼리에 더 많은 메모리를 제공할 수 있습니다. 
 
-## <a name="data-loading-misconfiguration"></a>데이터 로드 잘못 구성
+## <a name="data-loading-misconfiguration"></a>데이터 로드 구성 오류
 
-대기 시간을 최소화 하려면 항상 전용 SQL 풀과 동일한 지역의 저장소 계정에서 데이터를 로드 해야 합니다. [높은 처리량 데이터 수집을 위해 COPY 문을](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) 사용 하 고 준비 된 파일을 저장소 계정에 분할 하 여 처리량을 최대화 합니다. COPY 문을 사용할 수 없는 경우 더 나은 처리량을 위해 일괄 처리 크기가 높은 SqlBulkCopy API 또는 bcp를 사용할 수 있습니다. 추가 데이터 로드 지침은 다음 [설명서](./guidance-for-loading-data.md)를 참조 하세요.
+대기 시간을 최소화하려면 항상 전용 SQL 풀과 동일한 지역의 스토리지 계정에서 데이터를 로드해야 합니다. [높은 처리량 데이터 수집을 위한 COPY 문](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true)을 사용하고 스테이징한 파일을 스토리지 계정에 분할하여 처리량을 최대화합니다. COPY 문을 사용할 수 없는 경우 더 나은 처리량을 위해 더 큰 일괄 처리 크기를 지정하여 SqlBulkCopy API 또는 bcp를 사용할 수 있습니다. 추가 데이터 로드 지침에 대해서는 다음 [설명서](./guidance-for-loading-data.md)를 참조하세요.

@@ -1,26 +1,26 @@
 ---
-title: 전용 SQL 풀에 대 한 지속적인 통합 및 배포
-description: Azure Pipelines를 사용한 연속 통합 및 배포에 대 한 기본 제공 지원을 통해 Azure Synapse Analytics의 전용 SQL 풀에 대 한 엔터프라이즈급 데이터베이스 DevOps 환경
+title: 전용 SQL 풀에 대한 연속 통합 및 배포
+description: Azure Pipelines를 사용한 연속 통합 및 배포를 기본적으로 지원하는 Azure Synapse Analytics의 전용 SQL 풀을 위한 엔터프라이즈급 데이터베이스 DevOps 환경입니다.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql-dw
 ms.date: 02/04/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: d43039c98e991cd23a8e5c4fb866a8e3dcab6fc2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 95bf3a8c614b8b7c0269257cb62b3c3a0f60be13
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104585641"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568287"
 ---
-# <a name="continuous-integration-and-deployment-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀에 대 한 연속 통합 및 배포
+# <a name="continuous-integration-and-deployment-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대한 연속 통합 및 배포
 
-이 간단한 자습서에서는 SSDT(SQL Server Data Tools) 데이터베이스 프로젝트를 Azure DevOps와 통합하고, Azure Pipelines를 활용하여 지속적인 통합 및 배포를 설정하는 방법에 대해 간략히 설명합니다. 이 자습서는 데이터 웨어하우징에 대 한 연속 통합 및 배포 파이프라인을 구축 하는 두 번째 단계입니다.
+이 간단한 자습서에서는 SSDT(SQL Server Data Tools) 데이터베이스 프로젝트를 Azure DevOps와 통합하고, Azure Pipelines를 활용하여 지속적인 통합 및 배포를 설정하는 방법에 대해 간략히 설명합니다. 이 자습서는 데이터 웨어하우징에 대한 지속적인 통합 및 배포 파이프라인을 빌드하는 두 번째 단계입니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -42,15 +42,15 @@ ms.locfileid: "104585641"
 
       ![YAML](./media/sql-data-warehouse-continuous-integration-and-deployment/3-yaml-file.png "YAML")
 
-이 시점에서는 소스 제어 리포지토리 주 분기에 대 한 체크 인이 데이터베이스 프로젝트의 성공적인 Visual Studio 빌드를 자동으로 트리거하는 간단한 환경을 만들었습니다. 로컬 데이터베이스 프로젝트를 변경 하 고 주 분기에 대 한 변경 내용을 체크 인하여 자동화가 종단 간 작업을 수행 하는지 확인 합니다.
+이 시점에서 원본 제어 리포지토리 주 분기에 대한 체크 인에서 데이터베이스 프로젝트의 성공적인 Visual Studio 빌드를 자동으로 트리거하는 간단한 환경이 있습니다. 로컬 데이터베이스 프로젝트를 변경하고 주 분기에서 변경 내용을 체크 인하여 자동화가 엔드투엔드 방식으로 작동하는지 확인합니다.
 
-## <a name="continuous-deployment-with-the-azure-synapse-analytics-or-database-deployment-task"></a>Azure Synapse Analytics (또는 데이터베이스) 배포 작업을 사용한 연속 배포
+## <a name="continuous-deployment-with-the-azure-synapse-analytics-or-database-deployment-task"></a>Azure Synapse Analytics(또는 Database) 배포 작업을 사용한 연속 배포
 
 1. [Azure SQL Database 배포 작업](/azure/devops/pipelines/targets/azure-sqldb)을 사용하여 새 작업을 추가하고, 대상 데이터 웨어하우스에 연결하는 데 필요한 필드를 채웁니다. 이 작업이 실행되면 이전 빌드 프로세스에서 생성된 DACPAC가 대상 데이터 웨어하우스에 배포됩니다. [Azure Synapse Analytics 배포 작업](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment)을 사용할 수도 있습니다.
 
       ![배포 작업](./media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "배포 작업")
 
-2. 자체 호스팅 에이전트를 사용 하는 경우 Azure Synapse Analytics에 올바른 SqlPackage.exe를 사용 하도록 환경 변수를 설정 해야 합니다. 경로는 다음과 같습니다.
+2. 자체 호스팅 에이전트를 사용하는 경우 Azure Synapse Analytics에 올바른 SqlPackage.exe를 사용하도록 환경 변수를 설정해야 합니다. 경로는 다음과 같습니다.
 
       ![환경 변수](./media/sql-data-warehouse-continuous-integration-and-deployment/5-environment-variable-preview.png "환경 변수")
 
@@ -60,7 +60,7 @@ ms.locfileid: "104585641"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [전용 sql 풀 (이전의 SQL DW) 아키텍처](massively-parallel-processing-mpp-architecture.md) 탐색
-- [전용 sql 풀 빠르게 만들기 (이전의 SQL DW)](create-data-warehouse-portal.md)
+- [전용 SQL 풀(이전의 SQL DW) 아키텍처](massively-parallel-processing-mpp-architecture.md) 살펴보기
+- 빠르게 [전용 SQL 풀(이전의 SQL DW) 만들기](create-data-warehouse-portal.md)
 - [샘플 데이터 로드](./load-data-from-azure-blob-storage-using-copy.md)
 - [비디오](sql-data-warehouse-videos.md) 살펴보기

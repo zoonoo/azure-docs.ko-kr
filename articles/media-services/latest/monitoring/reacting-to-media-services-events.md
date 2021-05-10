@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services 이벤트에 대응
-description: 이 문서에서는 Azure Event Grid를 사용 하 여 Media Services 이벤트를 구독 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure Event Grid를 사용하여 Media Services 이벤트를 구독하는 방법을 설명합니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: inhenkel
 ms.openlocfilehash: 9bed493ca37d21d0c3e5c289bb8c26607975bdc6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104609721"
 ---
 # <a name="handling-event-grid-events"></a>Event Grid 이벤트 처리
@@ -26,7 +26,7 @@ Media Services 이벤트를 사용하면 애플리케이션이 최신 서버리�
 
 Media Services 이벤트의 가용성은 Event Grid [가용성](../../../event-grid/overview.md)과 연관되어 있으며, Event Grid가 사용 가능하면 다른 지역에서도 사용 가능해집니다.  
 
-## <a name="media-services-events-and-schemas"></a>이벤트 및 스키마 Media Services
+## <a name="media-services-events-and-schemas"></a>Media Services 이벤트 및 스키마
 
 Event Grid는 [이벤트 구독](../../../event-grid/concepts.md#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다. Media Services 이벤트에는 데이터 변경에 대응하는 데 필요한 모든 정보가 포함되어 있습니다. Media Services 이벤트는 eventType 속성이 "Microsoft.Media"로 시작하는 것으로 식별할 수 있습니다.
 
@@ -42,9 +42,9 @@ Media Services 이벤트를 처리하는 애플리케이션은 아래 권장되�
 * "제목" 접두사 및 접미사 일치를 사용하여 이벤트를 특정 이벤트로 제한합니다.
 
 > [!NOTE]
-> 이벤트는 [SLA (Event Grid Service Level Agreement(서비스 수준 약정))](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/)의 영향을 받습니다. Api를 사용 하 여 이벤트 알림을 받으려면 [.NET sdk](https://github.com/Azure-Samples/media-services-v3-dotnet) 또는 [Java sdk](https://github.com/Azure-Samples/media-services-v3-java)를 사용 하 여 이벤트를 사용 하는 방법에 대 한 예제를 참조 하세요.
+> 이벤트에는 Event Grid [SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/)가 적용됩니다. API를 사용하여 이벤트 알림을 받으려면 [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet) 또는 [Java SDK](https://github.com/Azure-Samples/media-services-v3-java)를 사용하여 이벤트를 사용하는 방법에 대한 예제를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [이벤트 모니터링-포털](../monitor-events-portal-how-to.md)
+* [이벤트 모니터링 - Portal](../monitor-events-portal-how-to.md)
 * [이벤트 모니터링 - CLI](../job-state-events-cli-how-to.md)

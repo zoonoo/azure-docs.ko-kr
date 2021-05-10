@@ -4,10 +4,10 @@ description: Azure Functions 앱 설정 또는 환경 변수에 대한 참조 �
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.openlocfilehash: 327f120d387a3a08f0de9db2da718d530346e545
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104773082"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
@@ -19,48 +19,48 @@ ms.locfileid: "104773082"
 [host.json](functions-host-json.md) 파일과 [local.settings.json](functions-run-local.md#local-settings-file) 파일에는 다른 전역 구성 옵션이 있습니다.
 
 > [!NOTE]  
-> 응용 프로그램 설정을 사용 하 여 파일 자체에서 host.js를 변경할 필요 없이 값 설정에 대 한 host.js를 재정의할 수 있습니다. 이 기능은 특정 환경에 대 한 설정에서 특정 host.js를 구성 하거나 수정 해야 하는 경우에 유용 합니다. 이렇게 하면 프로젝트를 다시 게시 하지 않고도 설정 host.js을 변경할 수 있습니다. 자세한 내용은 [ 참조에서host.js문서](functions-host-json.md#override-hostjson-values)를 참조 하세요. 함수 앱 설정을 변경하려면 함수 앱을 다시 시작해야 합니다.
+> 애플리케이션 설정을 사용하여 host.json 파일 자체를 변경할 필요 없이 host.json 설정 값을 재정의할 수 있습니다. 이 기능은 특정 환경에 대한 특정 host.json 설정을 구성하거나 수정해야 하는 경우에 유용합니다. 이렇게 하면 프로젝트를 다시 게시하지 않고도 host.json 설정을 변경할 수 있습니다. 자세한 내용은 [host.json 참조 문서](functions-host-json.md#override-hostjson-values)를 참조하세요. 함수 앱 설정을 변경하려면 함수 앱을 다시 시작해야 합니다.
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
-Application Insights에 대 한 계측 키입니다. 또는 중 하나만 사용 `APPINSIGHTS_INSTRUMENTATIONKEY` `APPLICATIONINSIGHTS_CONNECTION_STRING` 합니다. 소 버린 클라우드에서 Application Insights 실행 되는 경우을 사용 `APPLICATIONINSIGHTS_CONNECTION_STRING` 합니다. 자세한 내용은 [Azure Functions에 대 한 모니터링을 구성 하는 방법](configure-monitoring.md)을 참조 하세요. 
+Application Insights에 대한 계측 키입니다. `APPINSIGHTS_INSTRUMENTATIONKEY` 또는 `APPLICATIONINSIGHTS_CONNECTION_STRING` 중 하나만 사용합니다. 소버린 클라우드에서 Application Insights가 실행되는 경우 `APPLICATIONINSIGHTS_CONNECTION_STRING`을 사용합니다. 자세한 내용은 [Azure Functions에 대한 모니터링을 구성하는 방법](configure-monitoring.md)을 참조하세요. 
 
 |키|샘플 값|
 |---|------------|
-|APPINSIGHTS_INSTRUMENTATIONKEY|55555555-af77-484b-9032-64f83b83bb|
+|APPINSIGHTS_INSTRUMENTATIONKEY|55555555-af77-484b-9032-64f83bb83bb|
 
 ## <a name="applicationinsights_connection_string"></a>APPLICATIONINSIGHTS_CONNECTION_STRING
 
-Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_CONNECTION_STRING` `APPINSIGHTS_INSTRUMENTATIONKEY` 다음과 같은 경우에는 대신를 사용 합니다.
+Application Insights에 대한 연결 문자열입니다. 다음과 같은 경우에는 `APPINSIGHTS_INSTRUMENTATIONKEY` 대신 `APPLICATIONINSIGHTS_CONNECTION_STRING`을 사용합니다.
 
-+ 함수 앱에 연결 문자열을 사용 하 여 지원 되는 추가 된 사용자 지정이 필요한 경우 
-+ Application Insights 인스턴스가 소 버린 클라우드에서 실행 되는 경우 사용자 지정 끝점이 필요 합니다.
++ 함수 앱에 연결 문자열을 사용하여 지원되는 추가된 사용자 지정이 필요한 경우 
++ Application Insights 인스턴스가 소버린 클라우드에서 실행되며 사용자 지정 엔드포인트가 필요한 경우
 
-자세한 내용은 [연결 문자열](../azure-monitor/app/sdk-connection-string.md)을 참조 하세요. 
+자세한 내용은 [연결 문자열](../azure-monitor/app/sdk-connection-string.md)을 참조하세요. 
 
 |키|샘플 값|
 |---|------------|
-|APPLICATIONINSIGHTS_CONNECTION_STRING|InstrumentationKey = [key]; IngestionEndpoint = [url]; LiveEndpoint = [url]; ProfilerEndpoint = [url]; SnapshotEndpoint = [url];|
+|APPLICATIONINSIGHTS_CONNECTION_STRING|InstrumentationKey=[key];IngestionEndpoint=[url];LiveEndpoint=[url];ProfilerEndpoint=[url];SnapshotEndpoint=[url];|
 
 ## <a name="azure_function_proxy_disable_local_call"></a>AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
 
-기본적으로 [함수 프록시](functions-proxies.md) 는 바로 가기를 사용 하 여 프록시의 API 호출을 동일한 함수 앱의 함수로 직접 보냅니다. 이 바로 가기는 새 HTTP 요청을 만드는 대신 사용 됩니다. 이 설정을 사용 하면 바로 가기 동작을 사용 하지 않도록 설정할 수 있습니다.
+기본적으로 [함수 프록시](functions-proxies.md)는 바로 가기를 사용하여 프록시에서 동일한 함수 앱의 함수로 API 호출을 직접 보냅니다. 이 바로 가기는 새 HTTP 요청을 만드는 대신 사용됩니다. 이 설정을 사용하면 바로 가기 동작을 사용하지 않도록 설정할 수 있습니다.
 
 |키|값|Description|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|지역 함수 앱의 함수를 가리키는 백 엔드 URL을 사용 하는 호출은 함수로 직접 전송 되지 않습니다. 대신 요청은 함수 앱에 대 한 HTTP 프런트 엔드로 다시 전달 됩니다.|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|지역 함수 앱의 함수를 가리키는 백 엔드 URL을 사용 하는 호출은 함수로 직접 전달 됩니다. 기본값입니다. |
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|로컬 함수 앱에서 함수를 가리키는 백 엔드 URL을 사용하는 호출은 해당 함수로 직접 전달되지 않습니다. 대신, 요청은 함수 앱에 대한 HTTP 프런트 엔드로 다시 전달됩니다.|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|로컬 함수 앱에서 함수를 가리키는 백 엔드 URL을 사용하는 호출은 해당 함수로 직접 전달됩니다. 이것은 기본값입니다. |
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
-이 설정은 문자를 `%2F` 백 엔드 URL에 삽입할 때 경로 매개 변수에서 슬래시로 디코딩되는 지 여부를 제어 합니다. 
+이 설정은 백 엔드 URL로 삽입될 때 `%2F` 문자가 경로 매개 변수에서 슬래시로 디코딩되는지 여부를 제어합니다. 
 
 |키|값|Description|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|인코딩된 슬래시가 있는 경로 매개 변수는 디코딩됩니다. |
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|모든 경로 매개 변수는 기본 동작인 변경 되지 않은 상태로 전달 됩니다. |
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|인코딩된 슬래시를 사용하는 경로 매개 변수는 디코딩됩니다. |
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|모든 경로 매개 변수는 기본 동작인 변경되지 않은 상태로 전달됩니다. |
 
-예를 들어 도메인의 함수 앱에 대 한 proxies.js파일을 살펴보겠습니다 `myfunction.com` .
+예를 들어 `myfunction.com` 도메인의 함수 앱에 대한 proxies.json 파일을 살펴보겠습니다.
 
 ```JSON
 {
@@ -76,26 +76,26 @@ Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_
 }
 ```
 
-`AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES`가로 설정 되 면 `true` URL은 `example.com/api%2ftest` 로 확인 `example.com/api/test` 됩니다. 기본적으로 URL은 변경 되지 않고 그대로 유지 됩니다 `example.com/test%2fapi` . 자세한 내용은 [함수 프록시](functions-proxies.md)를 참조 하세요.
+`AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES`가 `true`로 설정되면 URL은 `example.com/api%2ftest`를 `example.com/api/test`로 확인합니다. 기본적으로 URL은 변경되지 않고 `example.com/test%2fapi` 그대로 유지됩니다. 자세한 내용은 [함수 프록시](functions-proxies.md)를 참조하세요.
 
 ## <a name="azure_functions_environment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
-버전 2.x 이상 버전의 함수 런타임에서는 런타임 환경에 따라 앱 동작을 구성 합니다. 초기화 하는 동안이 값을 읽고 임의의 값으로 설정할 수 있습니다. 런타임에는, 및의 값만 `Development` `Staging` `Production` 허용 됩니다. Azure에서 실행 하는 경우이 응용 프로그램 설정이 표시 되지 않으면 환경을로 간주 합니다 `Production` . `ASPNETCORE_ENVIRONMENT`Azure에서 런타임 환경을 이외의 항목으로 변경 해야 하는 경우 대신이 설정을 사용 `Production` 합니다. Azure Functions Core Tools `AZURE_FUNCTIONS_ENVIRONMENT` `Development` 로컬 컴퓨터에서 실행 되는 경우로 설정 되며,이는 파일의 local.settings.js에서 재정의할 수 없습니다. 자세히 알아보려면 [환경 기반 시작 클래스 및 메서드](/aspnet/core/fundamentals/environments#environment-based-startup-class-and-methods)를 참조 하세요.
+버전 2.x 이상 버전의 함수 런타임에서는 런타임 환경을 기준으로 앱 동작을 구성합니다. 초기화하는 동안 이 값을 읽고 임의의 값으로 설정할 수 있습니다. 런타임에는 `Development` `Staging` 및 `Production` 값만 허용됩니다. Azure에서 실행되는 경우 이 애플리케이션 설정이 표시되지 않으면 환경이 `Production`으로 간주됩니다. Azure의 런타임 환경을 `Production` 이외의 항목으로 변경해야 하는 경우 `ASPNETCORE_ENVIRONMENT` 대신 이 설정을 사용합니다. Azure Functions Core Tools는 로컬 컴퓨터에서 실행되는 경우 `AZURE_FUNCTIONS_ENVIRONMENT`을 `Development`로 설정하며, 이 값은 local.settings.json 파일에서 재정의할 수 없습니다. 자세히 알아보려면 [환경 기반 시작 클래스 및 메서드](/aspnet/core/fundamentals/environments#environment-based-startup-class-and-methods)를 참조하세요.
 
 ## <a name="azurefunctionsjobhost__"></a>AzureFunctionsJobHost__\*
 
-버전 2.x 이상 버전의 함수 런타임에서는 응용 프로그램 설정이 현재 환경의 설정 [ 에host.js](functions-host-json.md) 를 재정의할 수 있습니다. 이러한 재정의는 이라는 응용 프로그램 설정으로 표현 됩니다 `AzureFunctionsJobHost__path__to__setting` . 자세한 내용은 [값에 대 한 host.js재정의](functions-host-json.md#override-hostjson-values)를 참조 하세요.
+버전 2.x 이상 버전의 Functions 런타임에서는 애플리케이션 설정이 현재 환경의 [host.json](functions-host-json.md) 설정을 재정의할 수 있습니다. 이러한 재정의는 `AzureFunctionsJobHost__path__to__setting`이라는 애플리케이션 설정으로 표현됩니다. 자세한 내용은 [host.json 값 재정의](functions-host-json.md#override-hostjson-values)를 참조하세요.
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
-로그를 저장하고 포털의 **모니터** 탭에 표시하기 위한 선택적인 스토리지 계정 연결 문자열입니다. 이 설정은 Azure Functions 런타임의 버전 1.x를 대상으로 하는 앱에만 유효 합니다. 스토리지 계정은 Blob, 큐 및 테이블을 지원하는 범용 계정이어야 합니다. 자세한 내용은 [스토리지 계정 요구 사항](storage-considerations.md#storage-account-requirements)을 참조하세요.
+로그를 저장하고 포털의 **모니터** 탭에 표시하기 위한 선택적인 스토리지 계정 연결 문자열입니다. 이 설정은 Azure Functions 런타임의 버전 1.x를 대상으로 하는 앱에만 유효합니다. 스토리지 계정은 Blob, 큐 및 테이블을 지원하는 범용 계정이어야 합니다. 자세한 내용은 [스토리지 계정 요구 사항](storage-considerations.md#storage-account-requirements)을 참조하세요.
 
 |키|샘플 값|
 |---|------------|
 |AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>|
 
 > [!NOTE]
-> 성능 및 환경을 향상 시키기 위해 런타임 버전 2.x 이상 버전에서는 대신 모니터링을 위해 APPINSIGHTS_INSTRUMENTATIONKEY 및 App Insights를 사용 `AzureWebJobsDashboard` 합니다.
+> 성능 및 환경을 향상시키기 위해 런타임 2.x 이상 버전에서는 모니터링을 위해 `AzureWebJobsDashboard` 대신 APPINSIGHTS_INSTRUMENTATIONKEY 및 App Insights를 사용합니다.
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
@@ -135,7 +135,7 @@ Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
-Azure Functions 런타임은 일반 작업에 대해이 저장소 계정 연결 문자열을 사용 합니다. 이 저장소 계정에는 키 관리, 타이머 트리거 관리 및 Event Hubs 검사점이 포함 됩니다. 스토리지 계정은 Blob, 큐 및 테이블을 지원하는 범용 계정이어야 합니다. [스토리지 계정](functions-infrastructure-as-code.md#storage-account) 및 [스토리지 계정 요구 사항](storage-considerations.md#storage-account-requirements)을 참조하세요.
+Azure Functions 런타임은 일반 작업을 위해 이 스토리지 계정 연결 문자열을 사용합니다. 이 스토리지 계정은 키 관리, 타이머 트리거 관리 및 Event Hubs 검사점 등에 사용됩니다. 스토리지 계정은 Blob, 큐 및 테이블을 지원하는 범용 계정이어야 합니다. [스토리지 계정](functions-infrastructure-as-code.md#storage-account) 및 [스토리지 계정 요구 사항](storage-considerations.md#storage-account-requirements)을 참조하세요.
 
 |키|샘플 값|
 |---|------------|
@@ -151,7 +151,7 @@ TypeScript에 사용되는 컴파일러의 경로입니다. 필요한 경우 기
 
 ## <a name="function_app_edit_mode"></a>FUNCTION\_APP\_EDIT\_MODE
 
-Azure Portal에서 편집할 수 있는지 여부를 지정 합니다. 유효한 값은 "readwrite"및 "readonly"입니다.
+Azure Portal에서 편집할 수 있는지 여부를 지정합니다. 유효한 값은 "readwrite"및 "readonly"입니다.
 
 |키|샘플 값|
 |---|------------|
@@ -159,36 +159,36 @@ Azure Portal에서 편집할 수 있는지 여부를 지정 합니다. 유효한
 
 ## <a name="functions_extension_version"></a>FUNCTIONS\_EXTENSION\_VERSION
 
-함수 앱을 호스트 하는 함수 런타임의 버전입니다. 주 버전을 포함 하는 물결표 ( `~` )는 해당 주 버전의 최신 버전 (예: "~ 3")을 사용 함을 의미 합니다. 동일한 주 버전의 새 버전을 사용할 수 있으면 함수 앱에 자동으로 설치됩니다. 앱을 특정 버전에 고정 하려면 전체 버전 번호 (예: "3.0.12345")를 사용 합니다. 기본값은 "~ 3"입니다. 값이 `~1`이면 앱을 런타임의 버전 1.x로 고정합니다. 자세한 내용은 [Azure Functions 런타임 버전 개요](functions-versions.md)를 참조하세요.
+이 함수 앱을 호스트하는 Functions 런타임의 버전입니다. 주 버전의 물결표(`~`)는 해당 주 버전의 최신 버전(예: "~3")을 사용한다는 의미입니다. 동일한 주 버전의 새 버전을 사용할 수 있으면 함수 앱에 자동으로 설치됩니다. 앱을 특정 버전으로 고정하려면 전체 버전 번호(예: "3.0.12345")를 사용합니다. 기본값은 "~3"입니다. 값이 `~1`이면 앱을 런타임의 버전 1.x로 고정합니다. 자세한 내용은 [Azure Functions 런타임 버전 개요](functions-versions.md)를 참조하세요.
 
 |키|샘플 값|
 |---|------------|
 |FUNCTIONS\_EXTENSION\_VERSION|~3|
 
-## <a name="functions_v2_compatibility_mode"></a>함수 \_ V2 \_ 호환성 \_ 모드
+## <a name="functions_v2_compatibility_mode"></a>FUNCTIONS\_V2\_COMPATIBILITY\_MODE
 
-이 설정을 사용 하 여 함수 앱을 버전 2.x 런타임의 버전 2.x 호환 모드에서 실행할 수 있습니다. [함수 앱을 버전 2.x에서 2.x로 업그레이드 하는](functions-versions.md#migrating-from-2x-to-3x)경우 문제가 발생 하는 경우에만이 설정을 사용 합니다. 
+이 설정을 사용하여 함수 앱이 버전 3.x 런타임의 버전 2.x 호환 모드에서 실행되도록 할 수 있습니다. [함수 앱을 런타임의 버전 2.x에서 3.x로 업그레이드하는 경우](functions-versions.md#migrating-from-2x-to-3x) 문제가 발생할 때만 이 설정을 사용합니다. 
 
 >[!IMPORTANT]
-> 이 설정은 응용 프로그램이 버전 3.x에서 올바르게 실행 되도록 업데이트 하는 동안 단기 해결 방법 으로만 사용 됩니다. 이 설정은 2.x [런타임이 지원](functions-versions.md)되는 경우에만 지원 됩니다. 이 설정을 사용 하지 않고 앱이 버전 3(sp3)에서 실행 되지 않도록 하는 문제가 발생 하는 경우 [문제를 보고](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md)하세요.
+> 이 설정은 앱이 버전 3.x에서 올바르게 실행되도록 업데이트하는 동안 단기 해결 방법으로만 사용됩니다. 이 설정은 [2.x 런타임이 지원](functions-versions.md)되기만 하면 지원됩니다. 이 설정을 사용하지 않고 앱이 버전 3.x에서 실행되지 않도록 하는 문제가 발생하는 경우 [문제를 보고](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md)하세요.
 
-에서는 [함수 \_ 확장 \_ 버전이](functions-app-settings.md#functions_extension_version) 로 설정 되어야 `~3` 합니다.
-
-|키|샘플 값|
-|---|------------|
-|함수 \_ V2 \_ 호환성 \_ 모드|true|
-
-## <a name="functions_worker_process_count"></a>함수 \_ 작업자 \_ 프로세스 \_ 수
-
-기본값을 사용 하 여 언어 작업자 프로세스의 최대 수를 지정 합니다 `1` . 허용 되는 최대 값은 `10` 입니다. 함수 호출은 언어 작업자 프로세스 간에 균등 하 게 분산 됩니다. 언어 작업자 프로세스는 함수 작업자 프로세스 수로 설정 된 개수 \_ \_ 에 도달할 때까지 10 초 마다 생성 됩니다 \_ . 여러 언어 작업자 프로세스를 사용 하는 것은 [크기 조정과](functions-scale.md)동일 하지 않습니다. 작업에 CPU 바인딩과 i/o 바인딩된 호출이 혼합 되어 있는 경우이 설정을 사용 하는 것이 좋습니다. 이 설정은 모든 non-.NET 언어에 적용 됩니다.
+[FUNCTIONS\_EXTENSION\_VERSION](functions-app-settings.md#functions_extension_version)을 `~3`으로 설정해야 합니다.
 
 |키|샘플 값|
 |---|------------|
-|함수 \_ 작업자 \_ 프로세스 \_ 수|2|
+|FUNCTIONS\_V2\_COMPATIBILITY\_MODE|true|
+
+## <a name="functions_worker_process_count"></a>FUNCTIONS\_WORKER\_PROCESS\_COUNT
+
+기본값 `1`을 사용하여 언어 작업자 프로세스의 최대 수를 지정합니다. 허용된 최대 값은 `10`입니다. 함수 호출은 언어 작업자 프로세스 간에 균등하게 분산됩니다. 언어 작업자 프로세스는 FUNCTIONS\_WORKER\_PROCESS\_COUNT에 의해 설정된 수에 도달할 때까지 10초마다 생성됩니다. 여러 언어 작업자 프로세스를 사용하는 것은 [스케일링](functions-scale.md)과 동일하지 않습니다. 워크로드에 CPU 바인딩 및 I/O 바인딩 호출이 혼합되어 있는 경우 이 설정을 사용하는 것이 좋습니다. 이 설정은 .NET 이외의 모든 언어에 적용됩니다.
+
+|키|샘플 값|
+|---|------------|
+|FUNCTIONS\_WORKER\_PROCESS\_COUNT|2|
 
 ## <a name="functions_worker_runtime"></a>FUNCTIONS\_WORKER\_RUNTIME
 
-함수 앱에 로드할 언어 작업자 런타임입니다.  이는 응용 프로그램에서 사용 되는 언어에 해당 합니다 (예: `dotnet` ). Azure Functions 런타임의 버전 2.x부터 지정 된 함수 앱은 단일 언어만 지원할 수 있습니다.   
+함수 앱에 로드할 언어 작업자 런타임입니다.  이것은 애플리케이션(예: `dotnet`)에 사용되는 언어에 해당합니다. Azure Functions 런타임의 버전 2.x부터 지정된 함수 앱은 단일 언어만 지원할 수 있습니다.   
 
 |키|샘플 값|
 |---|------------|
@@ -198,58 +198,58 @@ Azure Portal에서 편집할 수 있는지 여부를 지정 합니다. 유효한
 
 | 값 | 언어 |
 |---|---|
-| `dotnet` | [C#(클래스 라이브러리)](functions-dotnet-class-library.md)<br/>[C # (스크립트)](functions-reference-csharp.md) |
+| `dotnet` | [C#(클래스 라이브러리)](functions-dotnet-class-library.md)<br/>[C#(스크립트)](functions-reference-csharp.md) |
 | `dotnet-isolated` | [C#(격리된 프로세스)](dotnet-isolated-process-guide.md) |
 | `java` | [Java](functions-reference-java.md) |
 | `node` | [JavaScript](functions-reference-node.md)<br/>[TypeScript](functions-reference-node.md#typescript) |
 | `powershell` | [PowerShell](functions-reference-powershell.md) |
 | `python` | [Python](functions-reference-python.md) |
 
-## <a name="pip_extra_index_url"></a>PIP \_ 추가 \_ 인덱스 \_ URL
+## <a name="pip_extra_index_url"></a>PIP\_EXTRA\_INDEX\_URL
 
-이 설정의 값은 Python 앱에 대 한 사용자 지정 패키지 인덱스 URL을 나타냅니다. 추가 패키지 인덱스에 있는 사용자 지정 종속성을 사용 하 여 원격 빌드를 실행 해야 하는 경우이 설정을 사용 합니다.   
+이 설정의 값은 Python 앱에 대한 사용자 지정 패키지 인덱스 URL을 나타냅니다. 추가 패키지 인덱스에 있는 사용자 지정 종속성을 사용하여 원격 빌드를 실행해야 하는 경우 이 설정을 사용합니다.   
 
 |키|샘플 값|
 |---|------------|
-|PIP \_ 추가 \_ 인덱스 \_ URL|http://my.custom.package.repo/simple |
+|PIP\_EXTRA\_INDEX\_URL|http://my.custom.package.repo/simple |
 
-자세한 내용은 Python 개발자 참조의 [사용자 지정 종속성](functions-reference-python.md#remote-build-with-extra-index-url) 을 참조 하세요.
+자세한 내용은 Python 개발자 참조의 [사용자 지정 종속성](functions-reference-python.md#remote-build-with-extra-index-url)을 참조하세요.
 
-## <a name="python_threadpool_thread_count"></a>PYTHON \_ THREADPOOL \_ 스레드 \_ 수
+## <a name="python_threadpool_thread_count"></a>PYTHON\_THREADPOOL\_THREAD\_COUNT
 
-Python 언어 작업자에서 함수 호출을 실행 하는 데 사용 하는 최대 스레드 수를 지정 합니다 .이 값은 `1` python 버전 및 아래에 대 한 기본값입니다 `3.8` . Python 버전 `3.9` 이상의 경우 값은로 설정 됩니다 `None` . 이 설정은 실행 중에 설정 되는 스레드 수를 보장 하지 않습니다. 설정은 Python이 스레드 수를 지정 된 값으로 확장할 수 있도록 합니다. 설정은 Python 함수 앱에만 적용 됩니다. 또한이 설정은 동기 함수 호출에 적용 되 고 코 루틴에는 적용 되지 않습니다.
+Python 언어 작업자에서 함수 호출을 실행하는 데 사용하는 최대 스레드 수를 지정합니다. Python 버전 `3.8` 이하의 경우 기본값은 `1`입니다. Python 버전 `3.9` 이상의 경우 이 값은 `None`으로 설정됩니다. 이 설정은 실행 중에 지정되는 스레드 수를 보장하지 않습니다. 이 설정은 Python이 스레드 수를 지정된 값으로 확장할 수 있도록 합니다. 이 설정은 Python 함수 앱에만 적용됩니다. 또한 이 설정은 코루틴에는 적용되지 않지만 동기 함수 호출에 적용됩니다.
 
 |키|샘플 값|최댓값|
 |---|------------|---------|
-|PYTHON \_ THREADPOOL \_ 스레드 \_ 수|2|32|
+|PYTHON\_THREADPOOL\_THREAD\_COUNT|2|32|
 
-## <a name="scale_controller_logging_enabled"></a>크기 조정 \_ 컨트롤러 \_ 로깅 \_ 사용
+## <a name="scale_controller_logging_enabled"></a>\_CONTROLLER\_LOGGING\_ENABLED
 
 _이 설정은 현재 미리 보기로 있습니다._  
 
-이 설정은 Azure Functions 크기 조정 컨트롤러의 로깅을 제어 합니다. 자세한 내용은 [컨트롤러 로그 크기 조정](functions-monitoring.md#scale-controller-logs)을 참조 하세요.
+이 설정은 Azure Functions 스케일링 컨트롤러의 로깅을 제어합니다. 자세한 내용은 [스케일링 컨트롤러 로그](functions-monitoring.md#scale-controller-logs)를 참조하세요.
 
 |키|샘플 값|
 |-|-|
-|SCALE_CONTROLLER_LOGGING_ENABLED|AppInsights: 자세한 정보 표시|
+|SCALE_CONTROLLER_LOGGING_ENABLED|AppInsights:Verbose|
 
-이 키의 값은 다음과 같이 정의 된 형식으로 제공 됩니다 `<DESTINATION>:<VERBOSITY>` .
+이 키의 값은 다음과 같이 정의된 `<DESTINATION>:<VERBOSITY>` 형식으로 제공됩니다.
 
 [!INCLUDE [functions-scale-controller-logging](../../includes/functions-scale-controller-logging.md)]
 
-## <a name="website_contentazurefileconnectionstring"></a>웹 사이트 \_ CONTENTAZUREFILECONNECTIONSTRING
+## <a name="website_contentazurefileconnectionstring"></a>WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
-Windows에서 실행 되는 이벤트 기반 확장 계획에 함수 앱 코드와 구성이 저장 되는 저장소 계정에 대 한 연결 문자열입니다. 자세한 내용은 [함수 앱 만들기](functions-infrastructure-as-code.md#windows)를 참조 하세요.
+Windows에서 실행되는 이벤트 기반 스케일링 플랜에 함수 앱 코드와 구성이 저장되는 스토리지 계정에 대한 연결 문자열입니다. 자세한 내용은 [함수 앱 만들기](functions-infrastructure-as-code.md#windows)를 참조하세요.
 
 |키|샘플 값|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
 
-프리미엄 계획에 배포 하거나 Windows에서 실행 중인 소비 계획에 배포 하는 경우에만 사용 됩니다. Linux를 실행 하는 사용 제한을 계획에 대해서는 지원 되지 않습니다. 이 설정을 변경 하거나 제거 하면 함수 앱이 시작 되지 않을 수 있습니다. 자세히 알아보려면 [이 문제 해결 문서](functions-recover-storage-account.md#storage-account-application-settings-were-deleted)를 참조 하세요. 
+프리미엄 플랜 또는 Windows에서 실행 중인 사용량 과금제에 배포하는 경우에만 사용됩니다. Linux를 실행하는 사용량 과금제에 대해서는 지원되지 않습니다. 이 설정을 변경하거나 제거하면 함수 앱이 시작되지 않을 수 있습니다. 자세히 알아보려면 [이 문제 해결 문서](functions-recover-storage-account.md#storage-account-application-settings-were-deleted)를 참조하세요. 
 
-## <a name="website_contentovervnet"></a>웹 사이트 \_ CONTENT과잉 VNET
+## <a name="website_contentovervnet"></a>WEBSITE\_CONTENTOVERVNET
 
-프리미엄 요금제에만 해당 합니다. 값을 `1` 사용 하면 저장소 계정이 가상 네트워크로 제한 된 경우 함수 앱의 크기를 조정할 수 있습니다. 저장소 계정을 가상 네트워크로 제한할 때이 설정을 사용 하도록 설정 해야 합니다. 자세히 알아보려면 [가상 네트워크로 저장소 계정 제한](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network)을 참조 하세요.
+프리미엄 플랜에만 해당합니다. `1` 값을 사용하면 스토리지 계정이 가상 네트워크로 제한된 경우 함수 앱을 스케일링할 수 있습니다. 스토리지 계정을 가상 네트워크로 제한할 때 이 설정을 사용하도록 설정해야 합니다. 자세히 알아보려면 [가상 네트워크로 스토리지 계정 제한](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network)을 참조하세요.
 
 |키|샘플 값|
 |---|------------|
@@ -257,30 +257,30 @@ Windows에서 실행 되는 이벤트 기반 확장 계획에 함수 앱 코드�
 
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 
-Windows에서 이벤트 기반 크기 조정 계획의 함수 앱 코드와 구성에 대 한 파일 경로입니다. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. 기본값은 함수 앱 이름으로 시작하는 고유한 문자열입니다. [함수 앱 만들기](functions-infrastructure-as-code.md#windows)를 참조하세요.
+Windows의 이벤트 기반 스케일링 플랜에서 함수 앱 코드와 구성에 대한 파일 경로입니다. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. 기본값은 함수 앱 이름으로 시작하는 고유한 문자열입니다. [함수 앱 만들기](functions-infrastructure-as-code.md#windows)를 참조하세요.
 
 |키|샘플 값|
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
 
-프리미엄 계획에 배포 하거나 Windows에서 실행 중인 소비 계획에 배포 하는 경우에만 사용 됩니다. Linux를 실행 하는 사용 제한을 계획에 대해서는 지원 되지 않습니다. 이 설정을 변경 하거나 제거 하면 함수 앱이 시작 되지 않을 수 있습니다. 자세히 알아보려면 [이 문제 해결 문서](functions-recover-storage-account.md#storage-account-application-settings-were-deleted)를 참조 하세요.
+프리미엄 플랜 또는 Windows에서 실행 중인 사용량 과금제에 배포하는 경우에만 사용됩니다. Linux를 실행하는 사용량 과금제에 대해서는 지원되지 않습니다. 이 설정을 변경하거나 제거하면 함수 앱이 시작되지 않을 수 있습니다. 자세히 알아보려면 [이 문제 해결 문서](functions-recover-storage-account.md#storage-account-application-settings-were-deleted)를 참조하세요.
 
-Azure Resource Manager를 사용 하 여 배포 하는 동안 함수 앱을 만드는 경우 템플릿에 WEBSITE_CONTENTSHARE를 포함 하지 마십시오. 이 응용 프로그램 설정은 배포 중에 생성 됩니다. 자세히 알아보려면 [함수 앱에 대 한 리소스 배포 자동화](functions-infrastructure-as-code.md#windows)를 참조 하세요.   
+Azure Resource Manager를 사용하여 배포하는 동안 함수 앱을 만드는 경우 템플릿에 WEBSITE_CONTENTSHARE를 포함하지 마세요. 이 애플리케이션 설정은 배포 중에 생성됩니다. 자세히 알아보려면 [함수 앱에 대한 리소스 배포 자동화](functions-infrastructure-as-code.md#windows)를 참조하세요.   
 
-## <a name="website_dns_server"></a>웹 사이트 \_ DNS \_ 서버
+## <a name="website_dns_server"></a>WEBSITE\_DNS\_SERVER
 
-IP 주소를 확인할 때 앱에서 사용 하는 DNS 서버를 설정 합니다. 이 설정은 [Azure DNS 개인 영역](functions-networking-options.md#azure-dns-private-zones) 및 [개인 끝점과](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network)같은 특정 네트워킹 기능을 사용할 때 필요 합니다.   
+IP 주소를 확인할 때 앱에서 사용하는 DNS 서버를 설정합니다. 이 설정은 [Azure DNS 프라이빗 영역](functions-networking-options.md#azure-dns-private-zones) 및 [프라이빗 엔드포인트](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network) 같은 특정 네트워킹 기능을 사용할 때 필요합니다.   
 
 |키|샘플 값|
 |---|------------|
-|웹 사이트 \_ DNS \_ 서버|168.63.129.16|
+|WEBSITE\_DNS\_SERVER|168.63.129.16|
 
 ## <a name="website_max_dynamic_application_scale_out"></a>WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT
 
-앱이 확장할 수 있는 최대 인스턴스 수입니다. 기본값은 무제한입니다.
+앱이 스케일링될 수 있는 최대 인스턴스 수입니다. 기본값은 무제한입니다.
 
 > [!IMPORTANT]
-> 이 설정은 미리 보기로 제공 됩니다.  [Function max scale out에 대 한 응용 프로그램 속성이](./event-driven-scaling.md#limit-scale-out) 추가 되었으며 확장을 제한 하는 데 권장 되는 방법입니다.
+> 이 설정은 미리 보기로 제공됩니다.  [app property for function max scale out](./event-driven-scaling.md#limit-scale-out)이 추가되었으며, 스케일링을 제한하는 권장 방법입니다.
 
 |키|샘플 값|
 |---|------------|
@@ -288,12 +288,12 @@ IP 주소를 확인할 때 앱에서 사용 하는 DNS 서버를 설정 합니�
 
 ## <a name="website_node_default_version"></a>WEBSITE\_NODE\_DEFAULT_VERSION
 
-_Windows만 해당합니다._  
-Windows에서 함수 앱을 실행할 때 사용할 Node.js 버전을 설정 합니다. 물결표 (~)를 사용 하 여 런타임에서 대상 주 버전의 사용 가능한 최신 버전을 사용 하도록 해야 합니다. 예를 들어로 설정 하면 `~10` 최신 버전의 Node.js 10이 사용 됩니다. 주 버전의 대상이 물결표 인 경우 부 버전을 수동으로 업데이트 하지 않아도 됩니다. 
+_Windows만 해당._  
+Windows에서 함수 앱을 실행할 때 사용할 Node.js 버전을 설정합니다. 물결표(~)를 사용하여 런타임에서 대상 주 버전의 사용 가능한 최신 버전을 사용하도록 해야 합니다. 예를 들어 `~10`으로 설정하면 최신 버전의 Node.js 10이 사용됩니다. 물결표를 사용하여 주 버전을 대상으로 지정하면 부 버전을 수동으로 업데이트할 필요가 없습니다. 
 
 |키|샘플 값|
 |---|------------|
-|WEBSITE\_NODE\_DEFAULT_VERSION|~ 10|
+|WEBSITE\_NODE\_DEFAULT_VERSION|~10|
 
 ## <a name="website_run_from_package"></a>WEBSITE\_RUN\_FROM\_PACKAGE
 
@@ -305,24 +305,24 @@ Windows에서 함수 앱을 실행할 때 사용할 Node.js 버전을 설정 합
 
 유효한 값은 배포 패키지 파일의 위치를 확인하는 URL이거나 `1`입니다. `1`로 설정하면 패키지는 `d:\home\data\SitePackages` 폴더에 있어야 합니다. 이 설정으로 zip 배포를 사용하면 패키지가 자동으로 이 위치에 업로드됩니다. 미리 보기에서 이 설정은 `WEBSITE_RUN_FROM_ZIP`으로 명명되었습니다. 자세한 내용은 [패키지 파일에서 Functions 실행](run-functions-from-deployment-package.md)을 참조하세요.
 
-## <a name="website_time_zone"></a>웹 사이트 \_ 표준 \_ 시간대
+## <a name="website_time_zone"></a>WEBSITE\_TIME\_ZONE
 
-함수 앱에 대 한 표준 시간대를 설정할 수 있습니다. 
+함수 앱에 대한 표준 시간대를 설정할 수 있습니다. 
 
 |키|OS|샘플 값|
 |---|--|------------|
-|웹 사이트 \_ 표준 \_ 시간대|Windows|동부 표준시|
-|웹 사이트 \_ 표준 \_ 시간대|Linux|아메리카/New_York|
+|WEBSITE\_TIME\_ZONE|Windows|동부 표준시|
+|WEBSITE\_TIME\_ZONE|Linux|America/New_York|
 
 [!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
 
-## <a name="website_vnet_route_all"></a>웹 \_ 사이트 \_ VNET \_ 모두 라우팅
+## <a name="website_vnet_route_all"></a>WEBSITE\_VNET\_ROUTE\_ALL
 
-앱의 모든 아웃 바운드 트래픽이 가상 네트워크를 통해 라우팅되도록 할지 여부를 나타냅니다. 설정 값은 `1` 모든 트래픽이 가상 네트워크를 통해 라우팅되고 있음을 나타냅니다. [지역 가상 네트워크 통합](functions-networking-options.md#regional-virtual-network-integration)의 기능을 사용 하는 경우이 설정을 사용 해야 합니다. 또한 [가상 네트워크 NAT 게이트웨이가 고정 아웃 바운드 IP 주소를 정의 하는 데 사용](functions-how-to-use-nat-gateway.md)되는 경우에도 사용 됩니다. 
+앱의 모든 아웃바운드 트래픽이 가상 네트워크를 통해 라우팅되도록 할지 여부를 나타냅니다. 설정 값 `1`은 모든 트래픽이 가상 네트워크를 통해 라우팅되고 있음을 나타냅니다. [지역 가상 네트워크 통합](functions-networking-options.md#regional-virtual-network-integration)의 기능을 사용하는 경우 이 설정을 사용해야 합니다. 또한 [가상 네트워크 NAT 게이트웨이가 고정 아웃바운드 IP 주소를 정의하는 데 사용](functions-how-to-use-nat-gateway.md)되는 경우에도 사용됩니다. 
 
 |키|샘플 값|
 |---|------------|
-|웹 \_ 사이트 \_ VNET \_ 모두 라우팅|1|
+|WEBSITE\_VNET\_ROUTE\_ALL|1|
 
 ## <a name="next-steps"></a>다음 단계
 

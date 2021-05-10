@@ -1,14 +1,14 @@
 ---
 title: OS 및 런타임 패치 주기
-description: OS 및 런타임, 앱의 런타임 및 패치 수준, 업데이트 공지를 가져오는 방법 Azure App Service 업데이트 하는 방법에 대해 알아봅니다.
+description: Azure App Service에서 OS 및 런타임을 업데이트하는 방법, 앱의 런타임 및 패치 수준, 업데이트 공지를 가져오는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 8b876760ee2bafc855345878a28c38ec3b35daad
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105047884"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Azure App Service의 OS 및 런타임 패치
@@ -51,7 +51,7 @@ Azure는 App Service 리소스를 실행하는 2개의 수준, 즉 물리적 서
 
 ### <a name="new-patch-updates"></a>새 패치 업데이트
 
-.NET, PHP, Java SDK 또는 Tomcat 버전에 대 한 패치 업데이트는 기존 설치를 최신 버전으로 덮어써서 자동으로 적용 됩니다. Node.js 패치 업데이트는 기존 버전과 병렬로 설치됩니다(다음 섹션의 주 및 부 버전과 유사). 새 Python 패치 버전은 [사이트 확장](https://azure.microsoft.com/blog/azure-web-sites-extensions/)을 통해 기본 제공 python 설치와 함께 수동으로 설치할 수 있습니다.
+.NET, PHP, Java SDK 또는 Tomcat 버전에 대한 패치 업데이트는 기존 설치를 새 버전으로 덮어쓰는 방법으로 자동으로 적용됩니다. Node.js 패치 업데이트는 기존 버전과 병렬로 설치됩니다(다음 섹션의 주 및 부 버전과 유사). 새 Python 패치 버전은 [사이트 확장](https://azure.microsoft.com/blog/azure-web-sites-extensions/)을 통해 기본 제공된 Python 설치와 함께 설치될 수 있습니다.
 
 ### <a name="new-major-and-minor-versions"></a>새 주 버전 및 부 버전
 
@@ -81,7 +81,7 @@ az webapp config set --java-version 1.8 --java-container Tomcat --java-container
 | .NET 버전 | `https://<appname>.scm.azurewebsites.net/DebugConsole`의 명령 프롬프트에서 다음 명령을 실행합니다. <br>`reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full"` |
 | .NET Core 버전 | `https://<appname>.scm.azurewebsites.net/DebugConsole`의 명령 프롬프트에서 다음 명령을 실행합니다. <br> `dotnet --version` |
 | PHP 버전 | `https://<appname>.scm.azurewebsites.net/DebugConsole`의 명령 프롬프트에서 다음 명령을 실행합니다. <br> `php --version` |
-| 기본 Node.js 버전 | [Cloud Shell](../cloud-shell/overview.md)에서 다음 명령을 실행 합니다. <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
+| 기본 Node.js 버전 | [Cloud Shell](../cloud-shell/overview.md)에서 다음 명령을 실행합니다. <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
 | Python 버전 | `https://<appname>.scm.azurewebsites.net/DebugConsole`의 명령 프롬프트에서 다음 명령을 실행합니다. <br> `python --version` |  
 | Java 버전 | `https://<appname>.scm.azurewebsites.net/DebugConsole`의 명령 프롬프트에서 다음 명령을 실행합니다. <br> `java -version` |  
 

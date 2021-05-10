@@ -17,17 +17,17 @@ ms.date: 08/10/2020
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 408e972eb5950baa75fa1bdf33fb2cd507154bcb
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105612843"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: 버전 릴리스 내역
 Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect Health를 정기적으로 업데이트합니다. 이 문서는 출시된 버전 및 기능을 나열합니다.  
 
 > [!NOTE]
-> 새 버전이 출시 되 면 Connect Health agent가 자동으로 업데이트 됩니다. Azure Portal에서 자동 업그레이드 설정을 사용 하도록 설정 했는지 확인 하세요.
+> 새 버전이 출시되면 Connect Health 에이전트가 자동으로 업데이트됩니다. Azure Portal에서 자동 업그레이드 설정을 사용하도록 설정했는지 확인하세요.
 >
 
 동기화용 Azure AD Connect Health는 Azure AD Connect 설치와 통합됩니다. [Azure AD Connect 릴리스 기록](./reference-connect-version-history.md)에 대해 자세히 알아보고 기능 피드백의 경우 [Connect Health 사용자 의견 채널](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)에서 투표하세요.
@@ -35,63 +35,63 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 ## <a name="march-2021"></a>2021년 3월
 **에이전트 업데이트**
 
-- AD FS에 대 한 Azure AD Connect Health 에이전트 (버전 3.1.95.0)
+- AD FS용 Azure AD Connect Health Agent(버전 3.1.95.0)
 
-  - 로그인 이벤트 중에는 NT4 형식이 지정 된 사용자 이름을 UPN으로 확인 하도록 수정 합니다.
-  - 수정 하 여 전용 오류 코드가 있는 잘못 된 응용 프로그램 식별자 시나리오를 식별 합니다.
-  - OAuth 클라이언트 식별자에 대 한 새 속성을 추가 하도록 변경 합니다.
-  - 특정 로그인 시나리오에 대 한 Azure AD Sign-In 보고서의 **프로토콜** 및 **인증 유형** 필드에 올바른 값을 표시 하도록 수정 합니다.
-  - 요청 순서에 따라 Azure AD Sign-In 보고서의 IP 체인 필드에 IP 주소를 표시 하도록 수정 합니다.
-  - 로그인 중에 보조 인증이 요청 되었는지 여부를 구분 하기 위해 새 필드를 도입 하도록 변경 합니다.
-  - Azure AD Sign-In 보고서에 표시할 AD FS 응용 프로그램 식별자 속성을 수정 합니다.
+  - 로그인 이벤트 중에는 NT4 형식의 사용자 이름을 UPN으로 확인하기 위한 수정 사항입니다.
+  - 전용 오류 코드가 있는 잘못된 애플리케이션 식별자 시나리오를 식별하기 위한 수정 사항입니다.
+  - OAuth 클라이언트 식별자에 대한 새 속성을 추가하기 위한 변경 사항입니다.
+  - 특정 로그인 시나리오에 대한 Azure AD 로그인 보고서의 **프로토콜** 및 **인증 유형** 필드에 올바른 값을 표시하기 위한 수정 사항입니다.
+  - 요청 순서에 따라 Azure AD 로그인 보고서의 IP 체인 필드에 IP 주소를 표시하기 위한 수정 사항입니다.
+  - 로그인 중에 보조 인증이 요청되었는지 여부를 구분하기 위해 새 필드를 도입하기 위한 변경 사항입니다.
+  - Azure AD 로그인 보고서에 표시할 AD FS 애플리케이션 식별자 속성에 대한 수정 사항입니다.
 
 ## <a name="april-2020"></a>2020년 4월
 **에이전트 업데이트**
 
-- AD FS에 대 한 Azure AD Connect Health 에이전트 (버전 3.1.77.0)
+- AD FS용 Azure AD Connect Health Agent(버전 3.1.77.0)
 
-   - 경고가 잘못 보고 된 "AD FS 서비스에 대 한 SPN (서비스 사용자 이름)이 잘못 되었습니다." 경고에 대 한 버그 수정
+   - 잘못 보고된 "AD FS 서비스에 대한 SPN(서비스 사용자 이름)이 잘못됨" 경고에 대한 버그 수정 내용입니다.
 
 
 ## <a name="july-2019"></a>2019년 7월
 **에이전트 업데이트**
-* AD FS에 대 한 Azure AD Connect Health 에이전트 (버전 3.1.59.0) 
+* AD FS용 Azure AD Connect Health Agent(버전 3.1.59.0) 
    1. TestWindowsTransport의 텍스트 변경
-   2. AD FS RP 업로드에 대 한 변경 내용
+   2. AD FS RP 업로드에 대한 변경 내용
    
-* AD FS에 대 한 Azure AD Connect Health 에이전트 (버전 3.1.56.0) 
-   1. CheckOffice365Endpoints test에서 TestWindowsTransport test 추가 및 WsTrust 끝점 검사 제거
+* AD FS용 Azure AD Connect Health Agent(버전 3.1.56.0) 
+   1. CheckOffice365Endpoints 테스트에서 TestWindowsTransport 테스트 추가 및 WsTrust 엔드포인트 검사 제거
    2. OS 및 .NET 정보 기록
    3. RP 구성 메시지 업로드 크기를 1MB로 늘립니다.
    4. 버그 수정
    
-* AD DS에 대 한 Azure AD Connect Health 에이전트 (버전 3.1.56.0) 
+* AD DS용 Azure AD Connect Health 에이전트(버전 3.1.56.0) 
    1. OS 및 .NET 정보 기록 
    2. 버그 수정
 
 ## <a name="may-2019"></a>2019년 5월
 **에이전트 업데이트:** 
-* AD FS에 대 한 Azure AD Connect Health 에이전트 (버전 3.1.51.0) 
-   1. 동일한 클라이언트 요청 id를 공유 하는 여러 로그인을 구분 하기 위한 버그 수정
-   2. 언어 지역화 서버에서 잘못 된 사용자 이름/암호 오류를 구문 분석 하기 위한 버그 수정   
+* AD FS용 Azure AD Connect Health Agent(버전 3.1.51.0) 
+   1. 동일한 client-request-id를 공유하는 여러 로그인을 구분하기 위한 버그 수정 사항입니다.
+   2. 언어 지역화 서버의 잘못된 사용자 이름/암호 오류를 구문 분석하기 위한 버그 수정 사항   
 
 ## <a name="april-2019"></a>2019년 4월
 **에이전트 업데이트:** 
-* AD FS에 대 한 Azure AD Connect Health 에이전트 (버전 3.1.46.0) 
-   1. ADFS에 대 한 중복 된 SPN 경고 프로세스 확인 수정
+* AD FS용 Azure AD Connect Health Agent(버전 3.1.46.0) 
+   1. ADFS에 대한 중복된 SPN 경고 프로세스 확인 문제 수정
 
 ## <a name="march-2019"></a>2019년 3월
 **에이전트 업데이트:** 
-* AD DS에 대 한 Azure AD Connect Health 에이전트 (버전 3.1.41.0)  
+* AD DS용 Azure AD Connect Health 에이전트(버전 3.1.41.0)  
    1. .NET 버전 컬렉션
-   2. 특정 범주가 누락 된 경우 성능 카운터 수집 개선
-   3. 여러 모니터링 에이전트 인스턴스 생성 방지를 위한 버그 수정
+   2. 특정 범주가 누락된 경우 성능 카운터 수집 기능 개선
+   3. 여러 모니터링 에이전트 인스턴스의 생성을 방지하기 위한 버그 수정 사항
 
-* AD FS에 대 한 Azure AD Connect Health 에이전트 (버전 3.1.41.0) 
-   1. ADFSToolBox를 사용 하 여 AD FS 테스트 스크립트 통합 및 업그레이드
+* AD FS용 Azure AD Connect Health Agent(버전 3.1.41.0) 
+   1. ADFSToolBox를 사용하여 AD FS 테스트 스크립트 통합 및 업그레이드
    2. .NET 버전 컬렉션 구현
-   3. 특정 범주가 누락 된 경우 성능 카운터 수집 개선
-   4. 여러 모니터링 에이전트 인스턴스 생성 방지를 위한 버그 수정
+   3. 특정 범주가 누락된 경우 성능 카운터 수집 기능 개선
+   4. 여러 모니터링 에이전트 인스턴스의 생성을 방지하기 위한 버그 수정 사항
 
 
 ## <a name="november-2018"></a>2018년 11월
@@ -107,12 +107,12 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 * AD FS용 Azure AD Connect Health Agent(버전 3.1.24.0)  
    1. TLS(전송 계층 보안) 프로토콜 버전 1.2 규정 준수 및 적용
    2. 지역화된 운영 체제에 대한 테스트 ADFSRequestToken 지원
-   3. 진단 에이전트 이벤트 처리기 잠금 문제를 해결 합니다.
+   3. 진단 에이전트 EventHandler 잠금 문제 해결
    4. 상태 에이전트 등록 버그 수정
 
 ## <a name="august-2018"></a>2018년 8월 
 *  Azure AD Connect 버전 1.1.880.0과 함께 출시된 동기화용 Azure AD Connect Health Agent(버전 3.1.7.0)    
-   1. [.NET FRAMEWORK KB 릴리스를 사용 하는 모니터링 에이전트의 높은 CPU 문제](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync) 에 대 한 핫픽스
+   1. [.NET Framework 기술 자료 릴리스를 사용한 모니터링 에이전트에서 나타나는 높은 CPU 문제](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)에 대한 핫픽스
 
 ## <a name="june-2018"></a>2018년 6월 
 **새로운 미리 보기 기능:** 
@@ -120,10 +120,10 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 
 **에이전트 업데이트:** 
 * AD DS용 Azure AD Connect Health 에이전트(버전 3.1.7.0)    
-  1. [.NET FRAMEWORK KB 릴리스를 사용 하는 모니터링 에이전트의 높은 CPU 문제](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync) 에 대 한 핫픽스
+  1. [.NET Framework 기술 자료 릴리스를 사용한 모니터링 에이전트에서 나타나는 높은 CPU 문제](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)에 대한 핫픽스
    
 * AD FS용 Azure AD Connect Health Agent(버전 3.1.7.0)  
-  1. [.NET FRAMEWORK KB 릴리스를 사용 하는 모니터링 에이전트의 높은 CPU 문제](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync) 에 대 한 핫픽스
+  1. [.NET Framework 기술 자료 릴리스를 사용한 모니터링 에이전트에서 나타나는 높은 CPU 문제](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)에 대한 핫픽스
   2. ADFS Server 2016 보조 서버에서 수정 결과 테스트
    
 * AD FS용 Azure AD Connect Health Agent(버전 3.1.2.0)  
@@ -178,7 +178,7 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 **에이전트 업데이트:**
 
  * Azure AD Connect 버전 1.1.649.0과 함께 출시된 동기화용 Azure AD Connect Health Agent(버전 3.0.129.0)
-<br></br> 동기화를 위해 Azure AD Connect와 Azure AD Connect Health 에이전트 간의 버전 호환성 문제가 해결 되었습니다. 이 문제는 1.1.647.0 버전으로 현재 위치의 업그레이드를 Azure AD Connect 수행 하는 고객에 게 영향을 주지만 현재 상태 에이전트 버전 3.0.127.0을가지고 있습니다. 업그레이드 후에 상태 에이전트는 더 이상 Azure AD Connect 동기화 서비스에 대한 상태 데이터를 Azure AD 상태 서비스로 전송할 수 없습니다. 이 수정 프로그램을 적용하면 상태 에이전트 버전 3.0.129.0이 Azure AD Connect의 현재 위치 업그레이드 동안 설치됩니다. 상태 에이전트 3.0.129.0은 Azure AD Connect 버전 1.1.649.0과 호환성 문제가 없습니다.
+<br></br> Azure AD Connect 및 동기화용 Azure AD Connect Health Agent 간의 버전 호환성 문제가 해결되었습니다. 이 문제는 Azure AD Connect를 버전 1.1.647.0으로 현재 위치 업그레이드를 수행하려고 하며 현재 상태 에이전트 버전 3.0.127.0이 있는 고객에게 영향을 미칩니다. 업그레이드 후에 상태 에이전트는 더 이상 Azure AD Connect 동기화 서비스에 대한 상태 데이터를 Azure AD 상태 서비스로 전송할 수 없습니다. 이 수정 프로그램을 적용하면 상태 에이전트 버전 3.0.129.0이 Azure AD Connect의 현재 위치 업그레이드 동안 설치됩니다. 상태 에이전트 3.0.129.0은 Azure AD Connect 버전 1.1.649.0과 호환성 문제가 없습니다.
 
 ## <a name="july-2017"></a>2017년 7월
 **에이전트 업데이트:**
@@ -224,7 +224,7 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 ## <a name="july-2016"></a>2016년 7월
 **새로운 미리 보기 기능:**
 
-* [AD DS에 대 한 Azure AD Connect Health](how-to-connect-health-adds.md)입니다.
+* [AD DS용 Azure AD Connect Health](how-to-connect-health-adds.md)
 
 ## <a name="january-2016"></a>2016년 1월
 **에이전트 업데이트:**
@@ -238,7 +238,7 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 ## <a name="november-2015"></a>2015년 11월
 **새로운 기능:**
 
-* Azure [RBAC (역할 기반 액세스 제어)](how-to-connect-health-operations.md#manage-access-with-azure-rbac) 에 대 한 지원
+* [Azure RBAC(Azure 역할 기반 액세스 제어)](how-to-connect-health-operations.md#manage-access-with-azure-rbac) 지원
 
 **새로운 미리 보기 기능:**
 

@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
 ms.openlocfilehash: 6f7e74a4e3a0ad208ea832798748adf7a15dfc89
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103417727"
 ---
-압축 된 오디오 처리는 [GStreamer](https://gstreamer.freedesktop.org)을 사용 하 여 구현 됩니다. 라이선스 때문에 GStreamer 이진이 컴파일되지 않고 음성 SDK로 연결 되지 않습니다. 대신, Android 용으로 미리 빌드된 이진 파일을 사용 해야 합니다. 미리 빌드된 라이브러리를 다운로드 하려면 [Android 개발용 설치](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c)를 참조 하세요.
+압축된 오디오 처리는 [GStreamer](https://gstreamer.freedesktop.org)를 사용하여 구현됩니다. 라이선스 때문에 GStreamer 이진 파일이 컴파일되지 않고 Speech SDK로 연결되지 않습니다. 대신, Android용으로 미리 빌드된 이진 파일을 사용해야 합니다. 미리 빌드된 라이브러리를 다운로드하려면 [Android 개발용 설치](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c)를 참조하세요.
 
-`libgstreamer_android.so`은 필수입니다. 아래의 Android.mk 파일에서 모든 GStreamer 플러그 인이에 연결 되어 있는지 확인 `libgstreamer_android.so` 합니다. Gstreamer 버전 1.18.3에서 최신 음성 SDK (1.16.0 이상)를 사용 하는 경우 `libc++_shared.so` android ndk에서 제공 해야 합니다.
+`libgstreamer_android.so`은 필수입니다. 아래의 Android.mk 파일에서 모든 GStreamer 플러그 인이 `libgstreamer_android.so`에 연결되어 있어야 합니다. GStreamer 버전 1.18.3에서 최신 Speech SDK(1.16.0 이상)를 사용하는 경우 `libc++_shared.so`가 Android NDK에 있어야 합니다.
 
 ```makefile
 GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 \
@@ -21,7 +21,7 @@ GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 \
     opus wavparse alaw mulaw flac
 ```
 
-예제 `Android.mk` 및 `Application.mk` 파일은 아래에 제공 되어 있습니다. 공유 개체를 만들려면 다음 단계를 수행 `gstreamer` `libgstreamer_android.so` 합니다.
+예제 `Android.mk` 및 `Application.mk` 파일은 아래에 제공되어 있습니다. 이 단계를 따라 `gstreamer` 공유 개체 `libgstreamer_android.so`를 만듭니다.
 
 ```makefile
 # Android.mk
@@ -77,7 +77,7 @@ APP_PLATFORM = android-21
 APP_BUILD_SCRIPT = Android.mk
 ```
 
-`libgstreamer_android.so`Ubuntu 16.04 또는 18.04에서 다음 명령을 사용 하 여 빌드할 수 있습니다. 다음 명령줄은 [ANDROID NDK b16b](https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip) 의 [GStreamer android version 1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/gstreamer-1.0-android-universal-1.14.4.tar.bz2) 에 대해서만 테스트 되었습니다.
+Ubuntu 16.04 또는 18.04에서 다음 명령을 사용하여 `libgstreamer_android.so`를 빌드할 수 있습니다. 다음 명령줄은 [Android NDK b16b.](https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip)를 사용하는 [GStreamer Android 버전 1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/gstreamer-1.0-android-universal-1.14.4.tar.bz2)에서만 테스트되었습니다.
 
 ```sh
 # Assuming wget and unzip already installed on the system
@@ -109,4 +109,4 @@ ndk-build -C $(pwd)/gstreamer "NDK_APPLICATION_MK=Application.mk" APP_ABI=armeab
 #ndk-build -C $(pwd)/gstreamer "NDK_APPLICATION_MK=Application.mk" APP_ABI=x86 NDK_LIBS_OUT=$(pwd)
 ```
 
-공유 개체 ( `libgstreamer_android.so` )가 빌드된 후에는 응용 프로그램 개발자가 Android 앱에 공유 개체를 저장 해야 합니다. 그러면이 개체를 SPEECH SDK에서 로드할 수 있습니다.
+공유 개체(`libgstreamer_android.so`)가 빌드된 후에는 애플리케이션 개발자가 Android 앱에 공유 개체를 배치해야 합니다. 그러면 이 개체를 Speech SDK에서 로드할 수 있습니다.

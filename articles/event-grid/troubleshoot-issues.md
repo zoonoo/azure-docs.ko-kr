@@ -1,41 +1,41 @@
 ---
 title: Event Grid 문제 해결
-description: 이 문서에서는 Azure Event Grid 문제를 해결 하는 다양 한 방법을 제공 합니다.
+description: 이 문서에서는 Azure Event Grid 문제를 해결하는 다양한 방법을 제공합니다.
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.openlocfilehash: d30b8464de90474ad74853cc423de700b41226a4
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104720562"
 ---
 # <a name="troubleshoot-azure-event-grid-issues"></a>Azure Event Grid 문제 해결
-이 문서에서는 Azure Event Grid 문제를 해결 하는 데 도움이 되는 정보를 제공 합니다. 
+이 문서에서는 Azure Event Grid 문제를 해결하는 데 도움이 되는 정보를 제공합니다. 
 
 ## <a name="diagnostic-logs"></a>진단 로그
-게시 및 배달 실패 로그를 캡처하고 볼 수 있도록 Event Grid 토픽 또는 도메인에 대 한 진단 설정을 사용 하도록 설정 합니다. 자세한 내용은 [진단 로그](enable-diagnostic-logs-topic.md)를 참조 하세요.
+게시 및 배달 오류 로그를 캡처하고 볼 수 있도록 Event Grid 토픽 또는 도메인에 대한 진단 설정을 사용하도록 설정합니다. 자세한 내용은 [진단 로그](enable-diagnostic-logs-topic.md)를 참조하세요.
 
 ## <a name="metrics"></a>메트릭
-토픽 및 구독에 대 한 메트릭을 확인 하 고이에 대 Event Grid 한 경고를 만들 수 있습니다. 자세한 내용은 [Event Grid 메트릭](monitor-event-delivery.md)을 참조 하세요.
+Event Grid 토픽 및 구독에 대한 메트릭을 확인하고 이에 대한 경고를 만들 수 있습니다. 자세한 내용은 [Event Grid 메트릭](monitor-event-delivery.md)을 참조하세요.
 
 ## <a name="alerts"></a>경고
-Azure Event Grid 메트릭 및 활동 로그 작업에 대 한 경고를 만듭니다. 자세한 내용은 [Event Grid 메트릭 및 활동 로그에 대 한 경고](set-alerts.md)를 참조 하세요.
+Azure Event Grid 메트릭 및 활동 로그 작업에 대한 경고를 만듭니다. 자세한 내용은 [Event Grid 메트릭 및 활동 로그에 대한 경고](set-alerts.md)를 참조하세요.
 
 ## <a name="subscription-validation-issues"></a>구독 유효성 검사 문제
-이벤트 구독을 만드는 동안 제공 된 끝점의 유효성 검사가 실패 했다는 오류 메시지가 표시 될 수 있습니다. 구독 유효성 검사 문제를 해결 하려면 [구독 유효성 검사 Event Grid 문제 해결](troubleshoot-subscription-validation.md)을 참조 하세요. 
+이벤트 구독을 만드는 동안 제공된 엔드포인트의 유효성 검사가 실패했다는 오류 메시지가 표시될 수 있습니다. 구독 유효성 검사 문제를 해결하려면 [Event Grid 구독 유효성 검사 문제 해결](troubleshoot-subscription-validation.md)을 참조하세요. 
 
 ## <a name="network-connectivity-issues"></a>네트워크 연결 문제
-클라이언트 응용 프로그램에서 Event Grid 토픽/도메인에 연결할 수 없는 다양 한 이유가 있습니다. 발생 하는 연결 문제는 영구적 이거나 일시적일 수 있습니다. 이러한 문제를 해결 하는 방법에 대 한 자세한 내용은 [연결 문제 해결](troubleshoot-network-connectivity.md)을 참조 하세요.
+클라이언트 애플리케이션에서 Event Grid 토픽/도메인에 연결할 수 없는 다양한 이유가 있습니다. 발생하는 연결 문제는 영구적이거나 일시적일 수 있습니다. 이러한 문제를 해결하는 방법에 대한 자세한 내용은 [연결 문제 해결](troubleshoot-network-connectivity.md)을 참조하세요.
 
 ## <a name="error-codes"></a>오류 코드
-400, 409 및 403와 같은 오류 코드를 포함 하는 오류 메시지가 표시 되 면 [Event Grid 오류 문제 해결](troubleshoot-errors.md)을 참조 하세요. 
+400, 409 및 403과 같은 오류 코드를 함 하는 오류 메시지가 표시되면 [Event Grid 오류 문제 해결](troubleshoot-errors.md)을 참조하세요. 
 
-## <a name="distributed-tracing-net"></a>분산 추적 (.NET)
-Event Grid .NET 라이브러리는 추적 배포를 지원 합니다. 추적 배포에 대 한 [CloudEvents 사양의 지침](https://github.com/cloudevents/spec/blob/master/extensions/distributed-tracing.md) 을 준수 하기 위해 라이브러리는 `traceparent` 분산 추적을 사용 하는 `tracestate` 경우의 [extensionattributes](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventgrid/Azure.Messaging.EventGrid/src/Customization#L126) 에 및를 설정 `CloudEvent` 합니다. 응용 프로그램에서 분산 추적을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 Azure SDK [분산 추적 설명서](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Diagnostics.md#Distributed-tracing)를 참조 하세요.
+## <a name="distributed-tracing-net"></a>분산 추적(.NET)
+Event Grid .NET 라이브러리는 분산 추적을 지원합니다. 분산 추적에 대한 [CloudEvents 사양 지침](https://github.com/cloudevents/spec/blob/master/extensions/distributed-tracing.md)을 준수하기 위해 라이브러리는 분산 추적을 사용하도록 설정한 경우 `CloudEvent`의 [ExtensionAttributes](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventgrid/Azure.Messaging.EventGrid/src/Customization#L126)에서 `traceparent` 및 `tracestate`를 설정합니다. 애플리케이션에서 분산 추적을 사용하도록 설정하는 방법에 대한 자세한 내용은 Azure SDK [분산 추적 설명서](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Diagnostics.md#Distributed-tracing)를 참조하세요.
 
 ### <a name="sample"></a>샘플
-[줄 카운터 샘플](/samples/azure/azure-sdk-for-net/line-counter/)을 참조 하세요. 이 샘플 앱에서는 저장소, Event Hubs 및 Event Grid 클라이언트를 ASP.NET Core 통합, 분산 추적 및 호스팅된 서비스와 함께 사용 하는 방법을 보여 줍니다. 이를 통해 사용자는 파일 이름을 포함 하는 Event Hubs 이벤트를 트리거하는 blob에 파일을 업로드할 수 있습니다. Event Hubs 프로세서는 이벤트를 받은 다음 앱에서 blob을 다운로드 하 고 파일의 줄 수를 계산 합니다. 앱은 줄 수를 포함 하는 페이지에 대 한 링크를 표시 합니다. 링크를 클릭 하면 Event Grid를 사용 하 여 파일 이름을 포함 하는 CloudEvent이 게시 됩니다.
+[줄 카운터 샘플](/samples/azure/azure-sdk-for-net/line-counter/)을 참조하세요. 이 샘플 앱에서는 스토리지, Event Hubs 및 Event Grid 클라이언트를 ASP.NET Core 통합, 분산 추적 및 호스트된 서비스와 함께 사용하는 방법을 보여 줍니다. 이를 통해 사용자는 Blob에 파일을 업로드할 수 있으며 이 경우 파일 이름을 포함하는 Event Hubs 이벤트가 트리거됩니다. Event Hubs 프로세서가 이벤트를 받으면 앱은 Blob을 다운로드하고 파일의 줄 수를 계산합니다. 앱은 줄 수를 포함하는 페이지에 대한 링크를 표시합니다. 이 링크를 클릭하면 Event Grid를 사용하여 파일 이름을 포함하는 CloudEvent가 게시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 도움이 더 필요한 경우 [Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-eventgrid)에 문제를 게시하거나 [지원 티켓](https://azure.microsoft.com/support/options/)을 여세요. 

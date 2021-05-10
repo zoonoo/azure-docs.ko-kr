@@ -1,5 +1,5 @@
 ---
-title: CLI를 사용 하 여 여러 웹 사이트 호스트
+title: CLI를 사용하여 여러 웹 사이트를 호스트
 titleSuffix: Azure Application Gateway
 description: Azure CLI를 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 350962aed89d04c5508e7b2c50e8a838cd5a7174
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: cb924ab1f8947fefc83ed35a409628a576fad4b9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94566149"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772681"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Azure CLI를 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 만들기
 
@@ -77,7 +77,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Application Gateway 만들기
 
-[az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create)를 사용하여 애플리케이션 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myAGPublicIPAddress* 에 할당됩니다. 
+[az network application-gateway create](/cli/azure/network/application-gateway#az_network_application_gateway_create)를 사용하여 애플리케이션 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myAGPublicIPAddress* 에 할당됩니다. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -105,7 +105,7 @@ az network application-gateway create \
 
 ### <a name="add-the-backend-pools"></a>백 엔드 풀 추가
 
-[Az network application 게이트웨이 address pool create](/cli/azure/network/application-gateway/address-pool#az-network-application-gateway-address-pool-create) 를 사용 하 여 백 엔드 서버를 포함 하는 데 필요한 백 엔드 풀을 추가 합니다.
+[az network application-gateway address-pool create](/cli/azure/network/application-gateway/address-pool#az_network_application_gateway_address-pool_create) 명령을 사용하여 백 엔드 서버를 포함하는 데 필요한 백 엔드 풀 추가
 ```azurecli-interactive
 az network application-gateway address-pool create \
   --gateway-name myAppGateway \
@@ -120,11 +120,11 @@ az network application-gateway address-pool create \
 
 ### <a name="add-listeners"></a>수신기 추가
 
-[Az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create)를 사용 하 여 트래픽을 라우팅하는 데 필요한 수신기를 추가 합니다.
+[az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az_network_application_gateway_http_listener_create)를 사용하여 트래픽을 라우팅하는 데 필요한 수신기를 추가합니다.
 
 >[!NOTE]
-> Application Gateway 또는 WAF v2 SKU를 사용 하 여 수신기 당 호스트 이름을 5 개까지 구성할 수 있으며 호스트 이름에 와일드 카드 문자를 사용할 수도 있습니다. 자세한 내용은 [수신기의 와일드 카드 호스트 이름](multiple-site-overview.md#wildcard-host-names-in-listener-preview) 을 참조 하세요.
->Azure CLI를 사용 하 여 수신기에서 여러 호스트 이름 및 와일드 카드 문자를 사용 하려면 대신를 사용 해야 `--host-names` `--host-name` 합니다. 호스트 이름을 사용 하 여 최대 5 개의 호스트 이름을 공백으로 구분 된 값으로 지정할 수 있습니다. 예를 들어 `--host-names "*.contoso.com *.fabrikam.com"`
+> Application Gateway 또는 WAF v2 SKU를 사용하여 수신기당 호스트 이름을 5개까지 구성할 수 있으며, 호스트 이름에 와일드카드 문자를 사용할 수도 있습니다. 자세한 내용은 [수신기의 와일드카드 호스트 이름](multiple-site-overview.md#wildcard-host-names-in-listener-preview)을 참조하세요.
+>Azure CLI를 사용하여 수신기에서 여러 호스트 이름 및 와일드카드 문자를 사용하려면 `--host-name` 대신 `--host-names`를 사용해야 합니다. host-names를 사용하여 최대 5개의 호스트 이름을 공백으로 구분된 값으로 지정할 수 있습니다. 예를 들어 `--host-names "*.contoso.com *.fabrikam.com"`
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -146,9 +146,9 @@ az network application-gateway http-listener create \
 
 ### <a name="add-routing-rules"></a>라우팅 규칙 추가
 
-규칙은 나열 된 순서 대로 처리 됩니다. 특이성에 관계 없이 일치 하는 첫 번째 규칙을 사용 하 여 트래픽을 전송 합니다. 예를 들어 기본 수신기를 사용하는 규칙과 다중 사이트 수신기를 사용하는 규칙이 둘 다 같은 포트에 있는 경우 다중 사이트 규칙이 예상대로 작동하려면 다중 사이트 수신기를 사용하는 규칙은 기본 수신기를 사용하는 규칙 앞에 나열되어야 합니다. 
+규칙은 나열된 순서대로 처리됩니다. 트래픽은 특이성에 관계없이 일치하는 첫 번째 규칙을 사용하여 전달됩니다. 예를 들어 기본 수신기를 사용하는 규칙과 다중 사이트 수신기를 사용하는 규칙이 둘 다 같은 포트에 있는 경우 다중 사이트 규칙이 예상대로 작동하려면 다중 사이트 수신기를 사용하는 규칙은 기본 수신기를 사용하는 규칙 앞에 나열되어야 합니다. 
 
-이 예제에서는 두 개의 새 규칙을 만들고 응용 프로그램 게이트웨이를 배포할 때 생성 된 기본 규칙을 삭제 합니다. [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create)를 사용하여 규칙을 추가할 수 있습니다.
+이 예제에서는 애플리케이션 게이트웨이가 배포되었을 때 두 개의 새 규칙을 만들고 생성된 기본 규칙을 삭제합니다. [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az_network_application_gateway_rule_create)를 사용하여 규칙을 추가할 수 있습니다.
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -225,7 +225,7 @@ done
 
 ## <a name="create-a-cname-record-in-your-domain"></a>도메인에서 CNAME 레코드 만들기
 
-애플리케이션 게이트웨이가 해당 공용 IP 주소로 생성된 후 DNS 주소를 가져와 도메인에서 CNAME 레코드를 만드는 데 사용할 수 있습니다. [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show)를 사용하여 애플리케이션 게이트웨이의 DNS 주소를 가져올 수 있습니다. DNSSettings의 *fqdn* 값을 복사하여 만드는 CNAME 레코드의 값으로 사용합니다. 
+애플리케이션 게이트웨이가 해당 공용 IP 주소로 생성된 후 DNS 주소를 가져와 도메인에서 CNAME 레코드를 만드는 데 사용할 수 있습니다. [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show)를 사용하여 애플리케이션 게이트웨이의 DNS 주소를 가져올 수 있습니다. DNSSettings의 *fqdn* 값을 복사하여 만드는 CNAME 레코드의 값으로 사용합니다. 
 
 ```azurecli-interactive
 az network public-ip show \
@@ -235,7 +235,7 @@ az network public-ip show \
   --output tsv
 ```
 
-A 레코드를 사용 하는 것은 application gateway를 다시 시작할 때 VIP가 변경 될 수 있기 때문에 권장 되지 않습니다.
+A 레코드를 사용할 경우 애플리케이션 게이트웨이를 다시 시작할 때 VIP가 변경될 수 있으므로 권장되지 않습니다.
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 

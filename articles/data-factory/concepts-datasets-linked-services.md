@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/24/2020
 ms.openlocfilehash: 167fb0014f2f0a9e7a2530fe276289f94347146e
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104785787"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure 데이터 팩터리의 데이터 세트
@@ -32,7 +32,7 @@ Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduct
 
 데이터 세트를 만들기 전에 [**연결된 서비스**](concepts-linked-services.md)를 만들어 데이터 저장소를 Data Factory에 연결해야 합니다. 연결된 서비스는 Data Factory에서 외부 리소스에 연결하는 데 필요한 연결 정보를 정의하는 연결 문자열과 같습니다. 데이터 세트는 연결된 데이터 저장소 내의 데이터 구조를 나타내고, 연결된 서비스는 데이터 원본에 연결을 정의한다고 생각하시면 됩니다. 예를 들어 Azure Storage 연결된 서비스는 스토리지 계정을 데이터 팩터리에 연결합니다. Azure Blob 데이터 세트는 Blob 컨테이너 및 처리할 입력 Blob이 포함된 Azure Storage 계정 내의 폴더를 나타냅니다.
 
-샘플 시나리오는 다음과 같습니다. Blob 저장소에서 SQL Database로 데이터를 복사 하려면 두 개의 연결 된 서비스 Azure Blob Storage와 Azure SQL Database를 만듭니다. 그런 다음 두 개의 데이터 집합을 만듭니다. 구분 된 텍스트 데이터 집합은 (Azure Blob Storage 연결 된 서비스를 참조 하 고, 텍스트 파일은 원본으로 가정), Azure SQL 테이블 데이터 집합 (Azure SQL Database 연결 된 서비스를 나타냄)을 만듭니다. Azure Blob Storage 및 Azure SQL Database 연결 된 서비스에는 런타임에를 사용 하 여 Azure Storage 및 Azure SQL Database에 연결 하는 데 사용 Data Factory는 연결 문자열이 포함 되어 있습니다. 구분 기호로 분리 된 텍스트 데이터 집합은 blob 저장소의 입력 blob을 포함 하는 blob 컨테이너 및 blob 폴더를 형식 관련 설정과 함께 지정 합니다. Azure SQL Table 데이터 세트는 데이터를 복사할 Azure SQL Database의 SQL 테이블을 지정합니다.
+샘플 시나리오는 다음과 같습니다. 데이터베이스를 Blob 스토리지에서 SQL 데이터베이스로 복사하려면 두 개의 연결된 서비스, 즉 Azure Blob Storage 및 Azure SQL Database를 만듭니다. 그런 다음, 두 개의 데이터 세트, 즉 구분된 텍스트 데이터 세트(Azure Blob Storage 연결된 서비스를 나타냄, 텍스트 파일을 원본으로 사용하는 경우) 및 Azure SQL 테이블 데이터 세트(Azure SQL Database 연결된 서비스를 나타냄)를 만듭니다. Azure Blob Storage 및 Azure SQL Database 연결된 서비스에는 Data Factory가 런타임에 Azure Storage 및 Azure SQL Database 각각에 연결하는 데 사용하는 연결 문자열이 포함되어 있습니다. 구분된 텍스트 데이터 세트는 Blob 스토리지의 입력 Blob과 형식 관련 설정을 포함하는 Blob 컨테이너 및 Blob 폴더를 지정합니다. Azure SQL Table 데이터 세트는 데이터를 복사할 Azure SQL Database의 SQL 테이블을 지정합니다.
 
 다음 다이어그램에서는 Data Factory의 파이프라인, 활동, 데이터 세트 및 연결된 서비스 간의 관계를 보여 줍니다.
 
@@ -66,21 +66,21 @@ Data Factory의 데이터 세트는 다음과 같이 JSON 형식으로 정의됩
 속성 | Description | 필수 |
 -------- | ----------- | -------- |
 name | 데이터 세트의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  예 |
-type | 데이터 세트의 형식입니다. Data Factory에서 지 원하는 형식 (예: DelimitedText, AzureSqlTable) 중 하나를 지정 합니다. <br/><br/>자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | 예 |
-스키마 | 데이터 집합의 스키마는 실제 데이터 형식과 모양을 나타냅니다. | 예 |
-typeProperties | 형식 속성은 각 형식 마다 다릅니다. 지원되는 형식 및 해당 속성에 대한 자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | 예 |
+type | 데이터 세트의 형식입니다. Data Factory에서 지원하는 형식(예: DelimitedText, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | 예 |
+스키마 | 데이터 세트의 스키마로, 실제 데이터 형식과 모양을 나타냅니다. | 예 |
+typeProperties | 형식 속성은 형식마다 다릅니다. 지원되는 형식 및 해당 속성에 대한 자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | 예 |
 
-데이터 집합의 스키마를 가져올 때 **스키마 가져오기** 단추를 선택 하 고 원본 또는 로컬 파일에서 가져오기를 선택 합니다. 대부분의 경우 소스에서 직접 스키마를 가져옵니다. 그러나 로컬 스키마 파일(Parquet 파일 또는 헤더가 포함된 CSV)이 이미 있는 경우에는 해당 파일의 스키마를 기반으로 Data Factory를 지정할 수 있습니다.
+데이터 세트의 스키마를 가져오는 경우 **스키마 가져오기** 단추를 선택하고 소스 또는 로컬 파일에서 가져오기를 선택합니다. 대부분의 경우 소스에서 직접 스키마를 가져옵니다. 그러나 로컬 스키마 파일(Parquet 파일 또는 헤더가 포함된 CSV)이 이미 있는 경우에는 해당 파일의 스키마를 기반으로 Data Factory를 지정할 수 있습니다.
 
-복사 작업에서 데이터 집합은 원본 및 싱크에 사용 됩니다. 데이터 집합에 정의 된 스키마는 참조로 선택 사항입니다. 원본과 싱크 간에 열/필드 매핑을 적용 하려면 [스키마 및 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조 하세요.
+복사 작업에서 데이터 세트는 소스 및 싱크에 사용됩니다. 데이터 세트에 정의된 스키마는 참조로 선택 가능합니다. 원본과 싱크 간에 열/필드 매핑을 적용하려면 [스키마 및 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
 데이터 흐름에서 데이터 세트는 소스 및 싱크 변환에 사용됩니다. 데이터 세트는 기본 데이터 스키마를 정의합니다. 데이터에 스키마가 없는 경우 소스 및 싱크에 대해 스키마 드리프트를 사용할 수 있습니다. 데이터 세트의 메타데이터가 소스 변환에서 소스 ‘프로젝션’으로 나타납니다. 소스 변환의 프로젝션은 정의된 이름 및 형식을 사용하여 데이터 흐름 데이터를 나타냅니다.
 
 ## <a name="dataset-type"></a>데이터 세트 형식
 
-Azure Data Factory는 사용 하는 데이터 저장소에 따라 다양 한 유형의 데이터 집합을 지원 합니다. [커넥터 개요](connector-overview.md) 문서에서 Data Factory 지원 되는 데이터 저장소 목록을 찾을 수 있습니다. 데이터 저장소를 클릭 하 여 연결 된 서비스 및 데이터 집합을 만드는 방법을 알아보세요.
+Azure Data Factory는 사용하는 데이터 저장소에 따라 다양한 형식의 데이터 세트를 지원합니다. Data Factory에서 지원하는 데이터 저장소 목록은 [커넥터 개요](connector-overview.md) 문서에서 찾을 수 있습니다. 해당 데이터 저장소에 대해 연결된 서비스 및 데이터 세트를 만드는 방법을 알아보려면 데이터 저장소를 클릭합니다.
 
-예를 들어, 구분 기호로 분리 된 텍스트 데이터 집합의 경우 데이터 집합 형식은 다음 JSON 샘플과 같이 **DelimitedText** 로 설정 됩니다.
+예를 들어, 구분된 텍스트 데이터 세트의 경우 데이터 세트 형식은 다음 JSON 샘플과 같이 **DelimitedText** 로 설정됩니다.
 
 ```json
 {

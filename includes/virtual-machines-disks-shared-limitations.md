@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,37 +9,37 @@ ms.date: 09/30/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 22a1a4b99717df32a40ea69ebb65a3a8e14ee2b4
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102510764"
 ---
-공유 디스크를 사용 하도록 설정 하는 것은 디스크 형식의 하위 집합에만 사용할 수 있습니다. 현재는 ultra disks 및 premium Ssd만 공유 디스크를 사용 하도록 설정할 수 있습니다. 공유 디스크를 사용할 수 있는 관리 되는 각 디스크에는 디스크 유형별로 구성 된 다음과 같은 제한 사항이 적용 됩니다.
+공유 디스크 활성화는 디스크 유형의 하위 집합에서만 사용할 수 있습니다. 현재는 울트라 디스크와 프리미엄 SSD만 공유 디스크를 활성화할 수 있습니다. 공유 디스크를 사용할 수 있는 각 관리 디스크에는 디스크 유형별로 구성된 다음 제한 사항이 적용됩니다.
 
 ### <a name="ultra-disks"></a>Ultra disks
 
-Ultra disks에는 공유 디스크와 상관 없이 별도의 제한 사항 목록이 있습니다. Ultra disk 제한 사항은 [Azure ultra Disks 사용](../articles/virtual-machines/disks-enable-ultra-ssd.md)을 참조 하세요.
+Ultra disks에는 공유 디스크와 무관한 별도의 제한 사항 목록이 있습니다. Ultra disk 제한 사항은 [Azure ultra disks 사용](../articles/virtual-machines/disks-enable-ultra-ssd.md)을 참조하세요.
 
-울트라 디스크를 공유 하는 경우 다음과 같은 추가 제한 사항이 있습니다.
+Ultra disks를 공유하는 경우 다음과 같은 추가 제한 사항이 있습니다.
 
-- 현재 Azure Resource Manager 또는 SDK 지원으로 제한 되어 있습니다. 
-- 일부 버전의 Windows Server 장애 조치 (failover) 클러스터에서는 기본 디스크만 사용할 수 있습니다. 자세한 내용은 [장애 조치 (Failover) 클러스터링 하드웨어 요구 사항 및 저장소 옵션](/windows-server/failover-clustering/clustering-requirements)을 참조 하세요.
+- 현재 Azure Resource Manager 또는 SDK 지원으로 제한되어 있습니다. 
+- 일부 버전의 Windows Server 장애 조치(failover) 클러스터에서는 기본 디스크만 사용할 수 있습니다. 자세한 내용은 [장애 조치(Failover) 클러스터링 하드웨어 요구 사항 및 스토리지 옵션](/windows-server/failover-clustering/clustering-requirements)을 참조하세요.
 
-공유 ultra disks는 기본적으로 ultra disks를 지 원하는 모든 지역에서 사용할 수 있으며, 사용 하기 위해 액세스에 등록 하지 않아도 됩니다.
+공유 ultra disks는 기본적으로 ultra disks를 지원하는 모든 지역에서 사용 가능하며, 사용을 위한 액세스 등록이 필요 없습니다.
 
 ### <a name="premium-ssds"></a>프리미엄 SSD
 
-- 현재 Azure Resource Manager 또는 SDK 지원으로 제한 되어 있습니다. 
-- OS 디스크가 아닌 데이터 디스크에 대해서만 사용할 수 있습니다.
-- 에서 premium Ssd에는 **읽기 전용** 호스트 캐싱을 사용할 수 없습니다 `maxShares>1` .
-- 에서 premium Ssd에 대해 디스크 버스트를 사용할 수 없습니다 `maxShares>1` .
-- Azure 공유 디스크를 사용 하 여 가용성 집합 및 가상 머신 확장 집합을 사용 하는 경우 공유 데이터 디스크에 대해 가상 머신 장애 도메인의 [저장소 장애 도메인 맞춤이](../articles/virtual-machines/availability.md) 적용 되지 않습니다.
-- [PPG (근접 배치 그룹)](../articles/virtual-machines/windows/proximity-placement-groups.md)를 사용 하는 경우 디스크를 공유 하는 모든 가상 머신은 동일한 ppg의 일부 여야 합니다.
-- 일부 버전의 Windows Server 장애 조치 (failover) 클러스터에서는 기본 디스크만 사용할 수 있습니다. 자세한 내용은 [장애 조치 (Failover) 클러스터링 하드웨어 요구 사항 및 저장소 옵션](/windows-server/failover-clustering/clustering-requirements)을 참조 하세요.
+- 현재 Azure Resource Manager 또는 SDK 지원으로 제한되어 있습니다. 
+- OS 디스크가 아닌 데이터 디스크에서만 사용할 수 있습니다.
+- `maxShares>1`인 프리미엄 SSD에는 **ReadOnly** 호스트 캐싱을 사용할 수 없습니다.
+- `maxShares>1`인 프리미엄 SSD에는 디스크 버스팅을 사용할 수 없습니다.
+- Azure 공유 디스크와 함께 가용성 집합과 가상 머신 확장 집합을 사용하는 경우 공유 데이터 디스크에 대해 가상 머신 장애 도메인과의 [스토리지 장애 도메인 정렬](../articles/virtual-machines/availability.md)이 적용되지 않습니다.
+- [PPG(근접 배치 그룹)](../articles/virtual-machines/windows/proximity-placement-groups.md)를 사용하는 경우 디스크를 공유하는 모든 가상 머신은 동일한 PPG에 속해야 합니다.
+- 일부 버전의 Windows Server 장애 조치(failover) 클러스터에서는 기본 디스크만 사용할 수 있습니다. 자세한 내용은 [장애 조치(Failover) 클러스터링 하드웨어 요구 사항 및 스토리지 옵션](/windows-server/failover-clustering/clustering-requirements)을 참조하세요.
 - Azure Site Recovery 지원은 아직 사용할 수 없습니다.
-- Azure Backup는 [Azure Disk Backup (미리 보기)](../articles/backup/disk-backup-overview.md)을 통해 사용할 수 있습니다.
+- Azure Backup은 [Azure Disk Backup(미리 보기)](../articles/backup/disk-backup-overview.md)을 통해 사용할 수 있습니다.
 
-#### <a name="regional-availability"></a>지역별 가용성
+#### <a name="regional-availability"></a>국가별 가용성
 
-공유 premium Ssd는 관리 디스크를 사용할 수 있는 모든 지역에서 사용할 수 있습니다.
+관리 디스크를 사용할 수 있는 모든 지역에서 공유 프리미엄 SSD를 사용할 수 있습니다.

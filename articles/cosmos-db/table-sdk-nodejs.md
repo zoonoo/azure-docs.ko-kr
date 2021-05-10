@@ -1,6 +1,6 @@
 ---
 title: Node.js용 Azure Cosmos DB Table API
-description: 릴리스 날짜, 사용 중지 날짜 및 각 버전 간의 변경 내용을 포함 하 Node.js에 대 한 Azure Cosmos DB Table API에 대해 모두 알아봅니다.
+description: 릴리스 날짜, 사용 중지 날짜 및 각 버전의 변경 내용을 포함하여 Node.js용 Azure Cosmos DB Table API에 대해 자세히 알아봅니다.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: nodejs
@@ -9,10 +9,10 @@ ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
 ms.openlocfilehash: 7a8880512fa2f22208ad98aa4c53d3a5c568e840
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104595674"
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Node.js용 Azure Cosmos DB Table API: 릴리스 정보 및 리소스
