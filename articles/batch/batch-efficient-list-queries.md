@@ -5,20 +5,20 @@ ms.topic: how-to
 ms.date: 06/18/2020
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 3a767cc8ae3c8c48e1e40e0735c33fa807ba0015
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88933517"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>쿼리를 만들어서 효율적으로 Batch 리소스 나열
 
 거의 모든 Batch 애플리케이션은 정기적으로 Batch 서비스를 쿼리하는 특정 형식의 모니터링 또는 다른 작업을 수행해야 합니다. 예를 들어 대기 중인 태스크가 작업에 남아 있는지 여부를 확인하려면 작업의 모든 태스크에 대한 데이터를 가져와야 합니다. 풀의 노드 상태를 확인하려면 풀의 모든 노드에서 데이터를 가져와야 합니다. 이 문서에서는 가장 효율적인 방법으로 이러한 쿼리를 실행하는 방법에 대해 설명합니다.
 
-[Batch .net](/dotnet/api/microsoft.azure.batch) 라이브러리를 사용 하 여 작업, 태스크, 계산 노드 및 기타 리소스를 쿼리할 때 서비스에서 반환 되는 데이터의 양을 줄여 응용 프로그램의 성능을 Azure Batch 향상 시킬 수 있습니다.
+[Batch .NET](/dotnet/api/microsoft.azure.batch) 라이브러리를 사용하여 작업, 태스크, 컴퓨팅 노드, 기타 리소스를 쿼리할 때 서비스에서 반환되는 데이터 양을 줄여 Azure Batch 애플리케이션의 성능을 높일 수 있습니다.
 
 > [!NOTE]
-> Batch 서비스는 작업의 태스크 수를 계산 하 고 Batch 풀에서 계산 노드를 계산 하는 일반적인 시나리오에 대 한 API 지원을 제공 합니다. 목록 쿼리를 사용하는 대신, [Get Task Counts](/rest/api/batchservice/job/gettaskcounts) 및 [List Pool Node Counts](/rest/api/batchservice/account/listpoolnodecounts) 연산을 호출할 수 있습니다. 이러한 작업은 목록 쿼리 보다 더 효율적 이지만 항상 최신 상태가 아닐 수 있는 더 제한적인 정보를 반환 합니다. 자세한 내용은 [상태별 작업 및 계산 노드 수](batch-get-resource-counts.md)를 참조 하세요.
+> Batch 서비스는 작업 내 태스크 개수를 계산하고 Batch 풀의 컴퓨팅 노드 개수를 계산하는 일반적인 시나리오에 대한 API 지원을 제공합니다. 목록 쿼리를 사용하는 대신, [Get Task Counts](/rest/api/batchservice/job/gettaskcounts) 및 [List Pool Node Counts](/rest/api/batchservice/account/listpoolnodecounts) 연산을 호출할 수 있습니다. 이 작업은 목록 쿼리보다 더 효율적이지만 최신 상태가 아닐 수도 있는 더 제한적인 정보를 반환합니다. 자세한 내용은 [상태별 태스크 및 컴퓨팅 노드 개수 계산](batch-get-resource-counts.md)을 참조하세요.
 
 ## <a name="specify-a-detail-level"></a>세부 정보 수준 지정
 
@@ -57,7 +57,7 @@ IPagedEnumerable<CloudTask> completedTasks =
 
 ### <a name="filter"></a>Assert
 
-filter 문자열은 반환되는 항목 수를 줄이는 식입니다. 예를 들어 작업에 대해 실행 중인 작업만 나열 하거나 작업을 실행할 준비가 된 계산 노드만 나열할 수 있습니다.
+filter 문자열은 반환되는 항목 수를 줄이는 식입니다. 예를 들어 작업과 관련해서 실행 중인 태스크만 나열하거나 태스크를 실행할 준비가 된 컴퓨팅 노드만 나열할 수 있습니다.
 
 filter 문자열은 하나 이상의 식으로 구성된 문자열로 구성됩니다. 식은 속성 이름, 연산자, 값으로 이루어져 있습니다. 각 속성에 대해 지원되는 연산자의 경우처럼 지정할 수 있는 속성은 쿼리한 항목 마다 고유합니다.  `and` 및 `or` 논리 연산자를 사용하면 여러 식을 결합할 수 있습니다.
 
@@ -65,13 +65,13 @@ filter 문자열은 하나 이상의 식으로 구성된 문자열로 구성됩�
 
 ### <a name="select"></a>선택
 
-select 문자열은 각 항목에 대해 반환되는 속성 값을 제한합니다. 쉼표로 구분 된 속성 이름 목록을 지정 하면 쿼리 결과의 항목에 대해 해당 속성 값만 반환 됩니다. 쿼리 하는 엔터티 형식에 대 한 속성을 지정할 수 있습니다.
+select 문자열은 각 항목에 대해 반환되는 속성 값을 제한합니다. 쉼표로 구분된 속성 이름 목록을 지정하면 쿼리 결과의 항목에 대해 해당 속성 값만 반환됩니다. 쿼리하는 엔터티 형식의 모든 속성을 지정할 수 있습니다.
 
 `id, state, stateTransitionTime` select 문자열 예제는 각 태스크에 대해 반환되어야 하는 세 가지 속성 값만 지정하고 있습니다.
 
 ### <a name="expand"></a>Expand
 
-expand 문자열은 특정 정보를 얻는 데 필요한 API 호출 수를 줄입니다. expand 문자열을 사용하면 단일 API 호출로 각 항목에 대한 자세한 정보를 얻을 수 있습니다. 먼저 엔터티 목록을 가져온 다음 목록의 각 항목에 대 한 정보를 요청 하는 대신 확장 문자열을 사용 하 여 단일 API 호출에서 동일한 정보를 가져와 API 호출을 줄임으로써 성능을 향상 시킬 수 있습니다.
+expand 문자열은 특정 정보를 얻는 데 필요한 API 호출 수를 줄입니다. expand 문자열을 사용하면 단일 API 호출로 각 항목에 대한 자세한 정보를 얻을 수 있습니다. 엔터티 목록을 먼저 가져온 다음, 목록의 각 항목에 대한 정보를 요청하는 대신 expand 문자열을 사용하여 단일 API 호출로 동일한 정보를 가져오면 API 호출이 감소하여 성능이 향상됩니다.
 
 select 문자열과 마찬가지로 expand 문자열은 목록 쿼리 결과에서 특정 데이터의 포함 여부를 제어합니다. 모든 속성이 필요하며 select 문자열을 지정하지 않은 경우, 통계 정보를 가져오려면 expand 문자열을 사용 *해야 합니다* . select 문자열을 사용하여 속성 하위 집합을 가져올 경우 select 문자열에서 `stats` 를 지정할 수 있으며 expand 문자열을 지정하지 않아도 됩니다.
 
@@ -84,7 +84,7 @@ expand 문자열은 작업 목록, 작업 일정, 태스크 및 풀에서 사용
 
 ### <a name="rules-for-filter-select-and-expand-strings"></a>filter, select, expand 문자열 규칙
 
-- Batch [.net](/dotnet/api/microsoft.azure.batch) 또는 다른 batch sdk 중 하나를 사용 하는 경우에도 filter, select 및 expand 문자열의 속성 이름은 [batch REST](/rest/api/batchservice/) API에서와 동일 하 게 나타나야 합니다.
+- [Batch .NET](/dotnet/api/microsoft.azure.batch)이나 다른 Batch SDK 중 하나를 사용하는 경우에도 filter, select, expand 문자열의 속성 이름이 [Batch REST](/rest/api/batchservice/) API에서와 동일하게 표시되어야 합니다.
 - 모든 속성 이름은 대/소문자를 구분하지만, 속성 값은 대/소문자를 구분하지 않습니다.
 - 날짜/시간 문자열은 두 형식 중 하나가 될 수 있으며 `DateTime`으로 시작해야 합니다.
   
@@ -97,9 +97,9 @@ expand 문자열은 작업 목록, 작업 일정, 태스크 및 풀에서 사용
 
 [Batch .NET](/dotnet/api/microsoft.azure.batch) API 안에서 [ODATADetailLevel](/dotnet/api/microsoft.azure.batch.odatadetaillevel) 클래스를 filter, select 및 expand 문자열에 사용하여 작업을 나열합니다. ODataDetailLevel 클래스에는 생성자 내에 지정되어 있거나 개체에 직접 설정된 세 개의 공용 문자열 속성이 있습니다. ODataDetailLevel 개체를 [ListPools](/dotnet/api/microsoft.azure.batch.pooloperations), [ListJobs](/dotnet/api/microsoft.azure.batch.joboperations) 및 [ListTasks](/dotnet/api/microsoft.azure.batch.joboperations)와 같은 다양한 목록 작업에 매개 변수로 전달합니다.
 
-- [ODATADetailLevel](/dotnet/api/microsoft.azure.batch.odatadetaillevel.filterclause): 반환 되는 항목 수를 제한 합니다.
-- [ODATADetailLevel 절](/dotnet/api/microsoft.azure.batch.odatadetaillevel.selectclause): 각 항목에 대해 반환 되는 속성 값을 지정 합니다.
-- [ODATADetailLevel](/dotnet/api/microsoft.azure.batch.odatadetaillevel.expandclause): 각 항목에 대 한 별도의 호출 대신 단일 API 호출의 모든 항목에 대 한 데이터를 검색 합니다.
+- [ODATADetailLevel.FilterClause](/dotnet/api/microsoft.azure.batch.odatadetaillevel.filterclause): 반환되는 항목 수를 제한합니다.
+- [ODATADetailLevel.SelectClause](/dotnet/api/microsoft.azure.batch.odatadetaillevel.selectclause): 각 항목과 함께 반환되는 속성 값을 지정합니다.
+- [ODATADetailLevel.ExpandClause](/dotnet/api/microsoft.azure.batch.odatadetaillevel.expandclause): 각 항목을 개별적으로 호출하는 대신 단일 API 호출로 모든 항목의 데이터를 검색합니다.
 
 다음 코드 조각에서는 풀의 특정 집합에 대한 통계에 대해 Batch 서비스를 효율적으로 쿼리하기 위해 Batch .NET API를 사용합니다. 이 시나리오에서 Batch 사용자는 테스트 및 프로덕션 풀을 가집니다. 테스트 풀 ID는 "test"를 접두사로 사용하고 프로덕션 풀 ID는 "prod"를 접두사로 사용합니다. 이 코드 조각에서 *myBatchClient* 는 다음과 같은 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) 클래스의 인스턴스를 적절하게 초기화합니다.
 
@@ -139,7 +139,7 @@ filter, select 및 expand 문자열의 속성 이름은 이름과 대소문자 �
 ### <a name="mappings-for-filter-strings"></a>filter 문자열 매핑
 
 - **.NET 목록 메서드**: 이 열의 각 .NET API 메서드는 [ODATADetailLevel](/dotnet/api/microsoft.azure.batch.odatadetaillevel) 개체를 매개 변수로 수락합니다.
-- **REST 목록 요청**: 이 열에 연결된 각 REST API 페이지에는 *filter* 문자열에서 허용되는 속성과 연산을 지정하는 테이블이 들어 있습니다. [ODATADetailLevel 절](/dotnet/api/microsoft.azure.batch.odatadetaillevel.filterclause) 문자열을 생성할 때 이러한 속성 이름 및 작업을 사용 합니다.
+- **REST 목록 요청**: 이 열에 연결된 각 REST API 페이지에는 *filter* 문자열에서 허용되는 속성과 연산을 지정하는 테이블이 들어 있습니다. [ODATADetailLevel.FilterClause](/dotnet/api/microsoft.azure.batch.odatadetaillevel.filterclause) 문자열을 구성할 때 이 속성 이름과 작업을 사용합니다.
 
 | .NET 목록 메서드 | REST 목록 요청 |
 | --- | --- |
@@ -157,7 +157,7 @@ filter, select 및 expand 문자열의 속성 이름은 이름과 대소문자 �
 ### <a name="mappings-for-select-strings"></a>select 문자열 매핑
 
 - **Batch .NET 형식**: Batch .NET API 형식입니다.
-- **REST API 엔터티**: 이 열의 각 페이지에는 형식에 대한 REST API 속성 이름을 나열하는 하나 이상의 표가 들어 있습니다. 이러한 속성 이름은 *select* 문자열을 구성할 때 사용됩니다. [ODATADetailLevel 절](/dotnet/api/microsoft.azure.batch.odatadetaillevel.selectclause) 문자열을 생성할 때 이와 같은 속성 이름을 사용 합니다.
+- **REST API 엔터티**: 이 열의 각 페이지에는 형식에 대한 REST API 속성 이름을 나열하는 하나 이상의 표가 들어 있습니다. 이러한 속성 이름은 *select* 문자열을 구성할 때 사용됩니다. [ODATADetailLevel.SelectClause](/dotnet/api/microsoft.azure.batch.odatadetaillevel.selectclause) 문자열을 구성할 때 이와 동일한 속성 이름을 사용합니다.
 
 | Batch .NET 형식 | REST API 엔터티 |
 | --- | --- |
@@ -197,7 +197,7 @@ filter, select 및 expand 문자열의 속성 이름은 이름과 대소문자 �
 
 ### <a name="efficient-list-queries-code-sample"></a>효율적인 목록 쿼리 코드 샘플
 
-GitHub의 [EfficientListQueries](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries) 샘플 프로젝트에서는 효율적인 목록 쿼리가 응용 프로그램의 성능에 미치는 영향을 보여 줍니다. 이 C# 콘솔 애플리케이션은 많은 작업을 만들고 또 작업에 추가합니다. 그런 다음 [JobOperations.ListTasks](/dotnet/api/microsoft.azure.batch.joboperations) 메서드에 대한 여러 호출을 만들고 다른 속성 값으로 구성된 [ODATADetailLevel](/dotnet/api/microsoft.azure.batch.odatadetaillevel) 개체를 전달하여 반환될 데이터의 크기를 다양화합니다. 다음과 유사한 출력을 생성합니다.
+GitHub의 [EfficientListQueries](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries) 샘플 프로젝트는 효율적인 목록 쿼리가 애플리케이션 성능에 미치는 영향을 보여 줍니다. 이 C# 콘솔 애플리케이션은 많은 작업을 만들고 또 작업에 추가합니다. 그런 다음 [JobOperations.ListTasks](/dotnet/api/microsoft.azure.batch.joboperations) 메서드에 대한 여러 호출을 만들고 다른 속성 값으로 구성된 [ODATADetailLevel](/dotnet/api/microsoft.azure.batch.odatadetaillevel) 개체를 전달하여 반환될 데이터의 크기를 다양화합니다. 다음과 유사한 출력을 생성합니다.
 
 ```
 Adding 5000 tasks to job jobEffQuery...
@@ -217,7 +217,7 @@ Sample complete, hit ENTER to continue...
 
 ### <a name="batchmetrics-library-and-code-sample"></a>BatchMetrics 라이브러리 및 코드 샘플
 
-위의 EfficientListQueries 코드 샘플 외에도 [Batchmetrics](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/BatchMetrics) 샘플 프로젝트는 Batch API를 사용 하 여 Azure Batch 작업 진행률을 효율적으로 모니터링 하는 방법을 보여 줍니다.
+위의 EfficientListQueries 코드 샘플 외에도 [Batchmetrics](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/BatchMetrics) 샘플 프로젝트는 Batch API를 사용하여 Azure Batch 작업 진행률을 효율적으로 모니터링하는 방법을 보여 줍니다.
 
 [BatchMetrics](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/BatchMetrics) 샘플은 자체 프로젝트로 통합할 수 있는 .NET 클래스 라이브러리 프로젝트 및 라이브러리의 사용을 연습하고 설명하는 간단한 명령줄 프로그램을 포함합니다.
 
@@ -240,8 +240,8 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [동시 노드 작업을 사용 하 여 리소스 사용을 극대화 Azure Batch](batch-parallel-node-tasks.md)하는 방법에 대해 알아봅니다. 일부 유형의 작업에서는 더 크고 더 작은 계산 노드에서 병렬 작업을 실행 하는 것이 유용할 수 있습니다. 이러한 시나리오에 대한 자세한 내용은 문서의 [예제 시나리오](batch-parallel-node-tasks.md#example-scenario) 를 확인하세요.
-- [상태별로 태스크 및 노드 수를 계산 하 여 Batch 솔루션을 모니터링](batch-get-resource-counts.md) 하는 방법을 알아봅니다.
+- [동시 노드 태스크를 사용하여 Azure Batch 컴퓨팅 리소스 사용량을 최대화](batch-parallel-node-tasks.md)하는 방법을 알아봅니다. 일부 유형의 워크로드는 더 적은 개수의 큰 컴퓨팅 노드에서 병렬 태스크를 실행할 경우 더 효율적일 수 있습니다. 이러한 시나리오에 대한 자세한 내용은 문서의 [예제 시나리오](batch-parallel-node-tasks.md#example-scenario) 를 확인하세요.
+- [상태별 태스크 및 노드 개수를 계산하여 Batch 솔루션을 모니터링](batch-get-resource-counts.md)하는 방법을 알아보세요.
 
 
 [api_net]: /dotnet/api/microsoft.azure.batch

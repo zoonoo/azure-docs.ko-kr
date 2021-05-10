@@ -8,12 +8,12 @@ ms.date: 03/15/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: ce321574ce2878f51864f55bf5618df2c96d1068
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fa60b6f002e49babc1e1f014bcb941e7953a43a8
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589891"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484781"
 ---
 # <a name="backup-to-azure-with-commvault"></a>Commvault를 사용하여 Azure에 백업
 
@@ -79,7 +79,7 @@ Azure에 대한 백업이 사용할 수 있는 여유 대역폭을 확인하려�
 
 - 기존 Azure ExpressRoute 고객인 경우 Azure Portal에서 [회로 사용량](../../../../../expressroute/expressroute-monitoring-metrics-alerts.md#circuits-metrics)을 확인합니다.
 - ISP에 문의합니다. 기존 일별 및 월별 사용률을 표시하는 보고서를 공유할 수 있어야 합니다.
-- 라우터/스위치 수준에서 네트워크 트래픽을 모니터링하여 사용률을 측정할 수 있는 몇 가지 도구가 있습니다. 여기에는 다음이 포함됩니다.
+- 라우터/스위치 수준에서 네트워크 트래픽을 모니터링하여 사용률을 측정할 수 있는 몇 가지 도구가 있습니다. 추가 설정은 다음과 같습니다.
   - [Solarwinds Bandwidth Analyzer Pack](https://www.solarwinds.com/network-bandwidth-analyzer-pack?CMP=ORG-BLG-DNS)
   - [Paessler PRTG](https://www.paessler.com/bandwidth_monitoring)
   - [Cisco Network Assistant](https://www.cisco.com/c/en/us/products/cloud-systems-management/network-assistant/index.html)
@@ -185,7 +185,7 @@ Azure를 백업 대상으로 사용하는 경우 [Azure Blob Storage](../../../.
 
 백업을 저장하는 데 사용하는 모든 스토리지 대상의 경우와 마찬가지로 Azure 리소스와 이러한 리소스를 사용하는 Commvault의 기능을 모두 모니터링하는 것이 좋습니다. Azure Monitor와 Commvault Command Center 모니터링 기능을 함께 사용하면 환경을 정상 상태로 유지하는 데 도움이 됩니다.
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure Portal
 
 Azure는 [Azure Monitor](../../../../../azure-monitor/essentials/monitor-azure-resource.md) 형식으로 강력한 모니터링 솔루션을 제공합니다. [Azure Monitor를 구성](../../../../blobs/monitor-blob-storage.md)하여 Azure Storage 용량, 트랜잭션, 가용성, 인증 등을 추적할 수 있습니다. [여기](../../../../blobs/monitor-blob-storage-reference.md)에서 수집된 메트릭의 전체 참조를 찾을 수 있습니다. 추적할 몇 가지 유용한 메트릭으로는 최대 [스토리지 계정 용량 제한](../../../../common/scalability-targets-standard-account.md) 이내로 유지하도록 하는 BlobCapacity, Azure Storage 계정에서 읽고 쓰는 데이터의 양을 추적하는 수신/송신, Azure Storage 및 MediaAgent로 들어오고 나가는 요청의 왕복 시간을 추적하는 SuccessE2ELatency가 있습니다.
 
@@ -224,7 +224,7 @@ Azure로의 백업 솔루션을 사용할 때 도움이 필요한 경우 Commvau
 추가 정보는 다음 Commvault 설명서를 참조하세요.
 
 - [Commvault 사용자 가이드](https://documentation.commvault.com/commvault/v11/article?p=37684_1.htm)
-- [Commvault Azure 아키텍처 가이드](https://www.commvault.com/resources/public-cloud-architecture-guide-for-microsoft-azure-v11-sp16)
+- [Commvault Azure 아키텍처 가이드](https://documentation.commvault.com/commvault/v11/others/pdf/public-cloud-architecture-guide-for-microsoft-azure11-19.pdf)
 
 ### <a name="marketplace-offerings"></a>Marketplace 제품
 

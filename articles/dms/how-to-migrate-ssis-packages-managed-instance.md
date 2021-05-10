@@ -1,7 +1,7 @@
 ---
 title: SSIS 패키지를 SQL Managed Instance로 마이그레이션
 titleSuffix: Azure Database Migration Service
-description: Azure Database Migration Service 또는 Data Migration Assistant를 사용 하 여 Azure SQL Managed Instance SQL Server Integration Services (SSIS) 패키지 및 프로젝트를 마이그레이션하는 방법에 대해 알아봅니다.
+description: Azure Database Migration Service 또는 Data Migration Assistant를 사용하여 SSIS(SQL Server Integration Services) 패키지 및 프로젝트를 Azure SQL Managed Instance로 마이그레이션하는 방법을 알아봅니다.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -13,19 +13,19 @@ ms.custom: seo-lt-2019
 ms.topic: how-to
 ms.date: 02/20/2020
 ms.openlocfilehash: 1f6df64a66c0700f3a13a40ea5046515a2bf1a51
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105643847"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-managed-instance"></a>SQL Server Integration Services 패키지를 Azure SQL Managed Instance로 마이그레이션
-SQL Server Integration Services (SSIS)를 사용 하 고 SQL Server에서 호스트 하는 원본 SSISDB의 SSIS 프로젝트/패키지를 Azure SQL Managed Instance에서 호스트 되는 대상 SSISDB로 마이그레이션하려는 경우 Azure Database Migration Service를 사용할 수 있습니다.
+SSIS(SQL Server Integration Services)를 사용하고 SQL Server에서 호스트하는 SSISDB 원본에서 Azure SQL Managed Instance에서 호스트되는 대상 SSISDB에 SSIS 프로젝트/패키지를 마이그레이션하려는 경우 Azure Database Migration Service를 사용할 수 있습니다.
 
-사용 중인 SSIS 버전이 2012 이전 이거나 SSISDB가 아닌 패키지 저장소 유형을 사용 하는 경우, SSIS 프로젝트/패키지를 마이그레이션하기 전에 SSMS에서 시작할 수도 있는 Integration Services 프로젝트 변환 마법사를 사용 하 여 변환 해야 합니다. 자세한 내용은 문서 [프로젝트를 프로젝트 배포 모델로 변환](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#convert)을 참조하세요.
+사용하는 SSIS 버전이 2012 이전이거나 비SSISDB 패키지 저장소 형식을 사용하는 경우 SSIS 프로젝트/패키지를 마이그레이션하기 전에 먼저 SSMS에서 시작할 수도 있는 Integration Services 프로젝트 변환 마법사를 사용하여 변환해야 합니다. 자세한 내용은 문서 [프로젝트를 프로젝트 배포 모델로 변환](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#convert)을 참조하세요.
 
 > [!NOTE]
-> Azure Database Migration Service (DMS)는 현재 대상 마이그레이션 대상으로 Azure SQL Database을 지원 하지 않습니다. Azure SQL Database에 SSIS 프로젝트/패키지를 다시 배포 하려면 [Azure SQL Database에 SQL Server Integration Services 패키지 다시 배포](./how-to-migrate-ssis-packages.md)문서를 참조 하세요.
+> Azure DMS(Database Migration Service)는 현재 Azure SQL Database를 대상 마이그레이션 대상으로 지원하지 않습니다. Azure SQL Database에 SSIS 프로젝트/패키지를 다시 배포하려면 [Azure SQL Database에 SQL Server Integration Services 패키지 다시 배포](./how-to-migrate-ssis-packages.md) 문서를 참조하세요.
 
 이 문서에서는 다음 방법을 설명합니다.
 > [!div class="checklist"]
@@ -33,23 +33,23 @@ SQL Server Integration Services (SSIS)를 사용 하 고 SQL Server에서 호스
 > * 원본 SSIS 프로젝트/패키지를 평가합니다.
 > * Azure에 SSIS 프로젝트/패키지를 마이그레이션합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 단계를 완료하려면 다음이 필요합니다.
 
-* [Express](../expressroute/expressroute-introduction.md) 경로 또는 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)을 사용 하 여 온-프레미스 원본 서버에 대 한 사이트 간 연결을 제공 하는 Azure Resource Manager 배포 모델을 사용 하 여 Azure Database Migration Service에 대 한 Microsoft Azure Virtual Network를 만듭니다. 자세한 내용은 [Azure Database Migration Service를 사용 하 여 SQL Managed Instance 마이그레이션의 네트워크 토폴로지]( https://aka.ms/dmsnetworkformi)문서를 참조 하세요. 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](../virtual-network/index.yml)를 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
-* Virtual network 네트워크 보안 그룹 규칙이 ServiceBus, Storage 및 AzureMonitor에 대 한 ServiceTag의 아웃 바운드 포트 443을 차단 하지 않도록 합니다. 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/virtual-network-vnet-plan-design-arm.md) 문서를 참조하세요.
-* [원본 데이터베이스 엔진 액세스를 위해 Windows 방화벽](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성 하려면
-* Azure Database Migration Service에서 원본 SQL Server에 액세스할 수 있도록 Windows 방화벽을 열려면 (기본값은 TCP 포트 1433입니다.
+* Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 Microsoft Azure Virtual Network를 만듭니다. 그러면 [ExpressRoute](../expressroute/expressroute-introduction.md) 또는 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)을 사용하여 온-프레미스 원본 서버에 사이트 간 연결이 제공됩니다. 자세한 내용은 [Azure Database Migration Service를 사용한 SQL Managed Instance 마이그레이션에 대한 네트워크 토폴로지]( https://aka.ms/dmsnetworkformi) 문서를 참조하세요. 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](../virtual-network/index.yml)를 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
+* 가상 네트워크의 네트워크 보안 그룹 규칙이 ServiceBus, Storage 및 AzureMonitor용 ServiceTag의 아웃바운드 포트 443을 차단하지 않는지 확인합니다. 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/virtual-network-vnet-plan-design-arm.md) 문서를 참조하세요.
+* [소스 데이터베이스 엔진 액세스를 위한 Windows 방화벽](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
+* Azure Database Migration Service가 기본적으로 TCP 포트 1433인 원본 SQL Server에 액세스하도록 허용하려면 Windows 방화벽을 엽니다.
 * 동적 포트를 사용하여 명명된 여러 SQL Server 인스턴스를 실행하는 경우, SQL Browser 서비스를 사용하도록 설정하고 방화벽을 통해 1434 UDP 포트에 액세스하도록 허용하여 Azure Database Migration Service가 원본 서버에서 명명된 인스턴스에 연결할 수 있습니다.
 * 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우, Azure Database Migration Service에서 마이그레이션을 위해 445 SMB 포트를 통해 파일뿐만 아니라 원본 데이터베이스에 액세스할 수 있도록 허용하는 방화벽 규칙을 추가해야 합니다.
-* SSISDB를 호스트 하는 SQL Managed Instance입니다. 계정을 만들어야 하는 경우 [AZURE SQL Managed Instance 만들기](../azure-sql/managed-instance/instance-create-quickstart.md)문서에서 세부 정보를 따르세요.
-* 원본 SQL Server와 대상 관리 되는 인스턴스를 연결 하는 데 사용 되는 로그인이 sysadmin 서버 역할의 멤버 인지 확인 합니다.
-* SSIS가 SQL Managed Instance에서 호스트 하는 대상 SSISDB와 함께 Azure-SSIS Integration Runtime (IR)를 포함 하는 Azure Data Factory (ADF)에 프로 비전 되었는지 확인 하려면 ( [Azure Data Factory에서 AZURE SSIS 통합 런타임 만들기](../data-factory/create-azure-ssis-integration-runtime.md)문서에 설명 된 대로)
+* SSISDB를 호스트하는 SQL Managed Instance 만들어야 하는 경우 [Azure SQL Managed Instance 만들기](../azure-sql/managed-instance/instance-create-quickstart.md) 문서에서 세부 정보를 따르세요.
+* 원본 SQL Server와 대상 관리형 인스턴스를 연결하는 데 사용되는 로그인이 sysadmin 서버 역할의 구성원인지 확인합니다.
+* [Azure Data Factory에 Azure-SSIS 통합 런타임 만들기](../data-factory/create-azure-ssis-integration-runtime.md) 문서에 설명된 대로, SSIS가 SQL Managed Instance에서 호스트하는 대상 SSISDB와 함께 Azure-SSIS IR(Integration Runtime)이 포함된 ADF(Azure Data Factory)에서 프로비저닝되는지 확인합니다.
 
 ## <a name="assess-source-ssis-projectspackages"></a>원본 SSIS 프로젝트/패키지 평가
 
-원본 SSISDB의 평가는 데이터베이스 Migration Assistant (DMA)에 아직 통합 되지 않지만, SSIS 프로젝트/패키지는 Azure SQL Managed Instance에서 호스트 되는 대상 SSISDB에 다시 배포 될 때 평가/유효성을 검사 합니다.
+원본 SSISDB의 평가는 아직 DMA(Database Migration Assistant)에 통합되지 않았지만, SSIS 프로젝트/패키지는 Azure SQL Managed Instance에서 호스트하는 대상 SSISDB에 다시 배포될 때 평가/검증됩니다.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration 리소스 공급자 등록
 
@@ -81,11 +81,11 @@ SQL Server Integration Services (SSIS)를 사용 하 고 SQL Server에서 호스
 
 5. 기존 가상 네트워크를 선택하거나 새로 만듭니다.
 
-    가상 네트워크는 원본 SQL Server 및 대상 Azure SQL Managed Instance에 대 한 액세스 권한이 있는 Azure Database Migration Service 제공 합니다.
+    가상 네트워크는 원본 SQL Server와 대상 Azure SQL Managed Instance에 대한 액세스 권한이 있는 Azure Database Migration Service를 제공합니다.
 
     Azure Portal에서 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 가상 네트워크 만들기](../virtual-network/quick-create-portal.md) 문서를 참조하세요.
 
-    자세한 내용은 [Azure Database Migration Service를 사용 하 여 AZURE SQL Managed Instance 마이그레이션의 네트워크 토폴로지](./resource-network-topologies.md)문서를 참조 하세요.
+    자세한 내용은 [Azure Database Migration Service를 사용한 Azure SQL Managed Instance 마이그레이션에 대한 네트워크 토폴로지](./resource-network-topologies.md) 문서를 참조하세요.
 
 6. 가격 책정 계층을 선택합니다.
 
@@ -107,7 +107,7 @@ SQL Server Integration Services (SSIS)를 사용 하 고 SQL Server에서 호스
 
 3. **+ 새 마이그레이션 프로젝트** 를 선택합니다.
 
-4. **새 마이그레이션 프로젝트** 화면에서 프로젝트의 이름을 지정 하 고, **원본 서버 유형** 텍스트 상자에서 **SQL Server** 를 선택 하 고, **대상 서버 유형** 텍스트 상자에서 **Azure SQL Managed Instance** 를 선택 하 고, **활동 유형 선택** 에서 **SSIS 패키지 마이그레이션** 을 선택 합니다.
+4. **새 마이그레이션 프로젝트** 화면에서 프로젝트의 이름을 지정하고, **원본 서버 형식** 텍스트 상자에서 **SQL Server** 를 선택하고, **대상 서버 형식** 텍스트 상자에서 **Azure SQL Managed Instance** 를 선택한 다음, **작업 형식 선택** 에서 **SSIS 패키지 마이그레이션** 을 선택합니다.
 
    ![DMS 프로젝트 만들기](media/how-to-migrate-ssis-packages-mi/dms-create-project2.png)
 
@@ -130,7 +130,7 @@ SQL Server Integration Services (SSIS)를 사용 하 고 SQL Server에서 호스
 
 ## <a name="specify-target-details"></a>대상 세부 정보 지정
 
-1. **마이그레이션 대상 세부 정보** 화면에서 대상에 대 한 연결 세부 정보를 지정 합니다.
+1. **마이그레이션 대상 세부 정보** 화면에서 대상에 대한 연결 세부 정보를 지정합니다.
 
      ![대상 세부 정보](media/how-to-migrate-ssis-packages-mi/dms-target-details2.png)
 
@@ -140,7 +140,7 @@ SQL Server Integration Services (SSIS)를 사용 하 고 SQL Server에서 호스
 
 1. **마이그레이션 요약** 화면의 **작업 이름** 텍스트 상자에서 마이그레이션 작업의 이름을 지정합니다.
 
-2. **Ssis 프로젝트 및 환경 덮어쓰기 옵션** 의 경우 기존 SSIS 프로젝트 및 환경을 덮어쓸지 아니면 무시할지를 지정 합니다.
+2. **SSIS 프로젝트 및 환경 덮어쓰기 옵션** 의 경우 기존 SSIS 프로젝트 및 환경을 덮어쓸지 아니면 무시할지 지정합니다.
 
     ![마이그레이션 프로젝트 요약](media/how-to-migrate-ssis-packages-mi/dms-project-summary2.png)
 

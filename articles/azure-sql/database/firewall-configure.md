@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: 200df14e7d18c4bdfb903bef46c169f6f7bf5ca5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: bbad7dcaa1d92df4969c88e4ba86a62987509e39
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781778"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "98632802"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL Database 및 Azure Synapse IP 방화벽 규칙
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -108,7 +108,7 @@ Azure의 애플리케이션이 서버에 연결하려고 하면 방화벽은 이
 > [!IMPORTANT]
 > 이 옵션은 다른 고객 구독에서의 연결을 포함하여 Azure에서의 모든 연결을 허용하도록 방화벽을 구성합니다. 이 옵션을 선택할 때 로그인 및 사용자 권한이 부여된 사용자만으로 액세스를 제한하는지 확인합니다.
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 Azure SQL Server에 대한 IP 방화벽 규칙을 만들고 관리하려면 다음 중 하나에서 수행할 수 있습니다.
 
@@ -157,7 +157,7 @@ Azure Portal에서 서버 수준 IP 방화벽 규칙을 설정하려면 데이�
 
 ### <a name="use-transact-sql-to-manage-ip-firewall-rules"></a>Transact-SQL을 사용하여 IP 방화벽 규칙 관리
 
-| 카탈로그 뷰 또는 저장 프로시저 | Level | Description |
+| 카탈로그 뷰 또는 저장 프로시저 | Level | 설명 |
 | --- | --- | --- |
 | [sys.firewall_rules](/sql/relational-databases/system-catalog-views/sys-firewall-rules-azure-sql-database) |서버 |현재 서버 수준 IP 방화벽 규칙을 표시합니다. |
 | [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database) |서버 |서버 수준 IP 방화벽 규칙을 생성 및 업데이트합니다. |
@@ -191,7 +191,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager 모듈은 여전히 Azure SQL Database에서 지원되지만 모든 개발은 Az.Sql 모듈을 위한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)을 참조하세요. Az 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다.
 
-| Cmdlet | Level | Description |
+| Cmdlet | Level | 설명 |
 | --- | --- | --- |
 | [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |서버 |현재 서버 수준 방화벽 규칙 반환 |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |서버 |새 서버 수준 방화벽 규칙 만들기 |
@@ -213,13 +213,13 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 ### <a name="use-cli-to-manage-server-level-ip-firewall-rules"></a>CLI를 사용하여 서버 수준 IP 방화벽 규칙 관리
 
-| Cmdlet | Level | Description |
+| Cmdlet | Level | 설명 |
 | --- | --- | --- |
-|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|서버|서버 IP 방화벽 규칙을 만듭니다.|
-|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|서버|서버의 IP 방화벽 규칙을 나열합니다.|
-|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|서버|IP 방화벽 규칙의 세부 정보를 표시합니다.|
-|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|서버|IP 방화벽 규칙을 업데이트합니다.|
-|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|서버|IP 방화벽 규칙을 삭제합니다.|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|서버|서버 IP 방화벽 규칙을 만듭니다.|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|서버|서버의 IP 방화벽 규칙을 나열합니다.|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|서버|IP 방화벽 규칙의 세부 정보를 표시합니다.|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|서버|IP 방화벽 규칙을 업데이트합니다.|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|서버|IP 방화벽 규칙을 삭제합니다.|
 
 다음 예제에서는 CLI를 사용하여 서버 수준 IP 방화벽 규칙을 설정합니다.
 
@@ -235,7 +235,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 ### <a name="use-a-rest-api-to-manage-server-level-ip-firewall-rules"></a>REST API를 사용하여 서버 수준 IP 방화벽 규칙 관리
 
-| API | Level | Description |
+| API | Level | 설명 |
 | --- | --- | --- |
 | [방화벽 규칙 나열](/rest/api/sql/firewallrules/listbyserver) |서버 |현재 서버 수준 IP 방화벽 규칙을 표시합니다. |
 | [방화벽 규칙 만들기 또는 업데이트](/rest/api/sql/firewallrules/createorupdate) |서버 |서버 수준 IP 방화벽 규칙을 생성 및 업데이트합니다. |

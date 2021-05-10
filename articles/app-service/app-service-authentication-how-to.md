@@ -4,12 +4,12 @@ description: App Service의 인증 및 권한 부여를 다양한 시나리오�
 ms.topic: article
 ms.date: 03/29/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: b7faf47363a5efee6a60951e67d9ad2bed8bf76f
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 9335bb62e494fab50f7beadf3d7bbc423d80cf14
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076873"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775730"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 고급 인증 및 권한 부여 사용
 
@@ -407,7 +407,7 @@ V2 API는 V1에서 수행된 것과 같이 Microsoft 계정을 고유한 공급�
 
 #### <a name="support-for-microsoft-account-provider-registrations"></a>Microsoft 계정 공급자 등록 지원
 
-기존 구성에 Microsoft 계정 공급자가 포함되어 있고 Azure Active Directory 공급자가 포함되어 있지 않은 경우 구성을 Azure Active Directory 공급자로 전환한 후 마이그레이션을 수행할 수 있습니다. 가상 하드 디스크 파일에 대한 중요 정보를 제공하려면
+기존 구성에 Microsoft 계정 공급자가 포함되어 있고 Azure Active Directory 공급자가 포함되어 있지 않은 경우 구성을 Azure Active Directory 공급자로 전환한 후 마이그레이션을 수행할 수 있습니다. 이렇게 하려면 다음을 수행합니다.
 
 1. Azure Portal에서 [**앱 등록**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)으로 이동하여 Microsoft 계정 공급자와 연결된 등록을 찾습니다. "개인 계정의 애플리케이션" 제목 아래에 있을 수 있습니다.
 1. 등록 관련 "인증" 페이지로 이동합니다. "리디렉션 URI"에서 `/.auth/login/microsoftaccount/callback`으로 끝나는 항목이 표시됩니다. 이 URI를 복사합니다.
@@ -652,7 +652,7 @@ Azure CLI를 사용하거나 앱의 기본 제공 버전 HTTP 엔드포인트 �
 
 ##### <a name="from-the-azure-cli"></a>Azure CLI에서
 
-Azure CLI를 사용하여 [az webapp auth show](/cli/azure/webapp/auth#az-webapp-auth-show) 명령으로 현재 미들웨어 버전을 확인합니다.
+Azure CLI를 사용하여 [az webapp auth show](/cli/azure/webapp/auth#az_webapp_auth_show) 명령으로 현재 미들웨어 버전을 확인합니다.
 
 ```azurecli-interactive
 az webapp auth show --name <my_app_name> \
@@ -683,7 +683,7 @@ CLI 출력에 `runtimeVersion` 필드가 표시됩니다. 이는 명확성을 �
 
 #### <a name="update-the-current-runtime-version"></a>현재 런타임 버전 업데이트
 
-Azure CLI를 사용하여 [az webapp auth update](/cli/azure/webapp/auth#az-webapp-auth-update) 명령을 사용하여 앱에서 `runtimeVersion` 설정을 업데이트할 수 있습니다.
+Azure CLI를 사용하여 [az webapp auth update](/cli/azure/webapp/auth#az_webapp_auth_update) 명령을 사용하여 앱에서 `runtimeVersion` 설정을 업데이트할 수 있습니다.
 
 ```azurecli-interactive
 az webapp auth update --name <my_app_name> \
@@ -693,7 +693,7 @@ az webapp auth update --name <my_app_name> \
 
 `<my_app_name>`을 앱 이름으로 바꿉니다. 또한 `<my_resource_group>`을 앱의 리소스 그룹 이름으로 바꿉니다. 그리고 `<version>`은 1.x 런타임의 유효한 버전 또는 최근 버전의 경우 `~1`로 바꿉니다. 고정할 버전을 결정하는 데 도움이 되는 다양한 런타임 버전[여기](https://github.com/Azure/app-service-announcements) 에 관한 릴리스 정보를 찾을 수 있습니다.
 
-앞의 코드 샘플에서 **사용해 보세요.** 를 선택하여 [Azure Cloud Shell](../cloud-shell/overview.md)에서 이 명령을 실행할 수 있습니다. 또한 [Azure CLI locally(로컬로 Azure CLI 설치)](/cli/azure/install-azure-cli)를 사용하면 [az login](/cli/azure/reference-index#az-login)을 실행하여 로그인한 후 이 명령을 실행할 수도 있습니다.
+앞의 코드 샘플에서 **사용해 보세요.** 를 선택하여 [Azure Cloud Shell](../cloud-shell/overview.md)에서 이 명령을 실행할 수 있습니다. 또한 [Azure CLI locally(로컬로 Azure CLI 설치)](/cli/azure/install-azure-cli)를 사용하면 [az login](/cli/azure/reference-index#az_login)을 실행하여 로그인한 후 이 명령을 실행할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

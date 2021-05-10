@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: bfe5dc7c4f6fc40154a6fc9bc3a087873ba9eaef
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 93fd286aa76a0409a515abbf8c9dabd88a9a65c4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129246"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104878307"
 ---
 # <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Azure Spring Boot Actuator를 사용하여 앱 관리 및 모니터링
 
@@ -20,8 +20,8 @@ ms.locfileid: "108129246"
 
 앱에 새 이진을 배포한 후 기능을 확인하고 실행 중인 애플리케이션에 대한 정보를 볼 수 있습니다. 이 문서에서는 Azure Spring Cloud가 제공하는 테스트 엔드포인트에서 API에 액세스하고 앱의 프로덕션 준비 기능을 노출하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
-이 문서에서는 Azure Spring Cloud 서비스에서 성공적으로 배포, 부팅할 수 있는 Spring Boot 2.x 애플리케이션을 보유하고 있는 것으로 가정합니다.  [빠른 시작 - Azure Portal을 사용하여 기존 Azure Spring Cloud 애플리케이션 시작](./quickstart.md)을 참조하세요.
+## <a name="prerequisites"></a>필수 구성 요소
+이 문서에서는 Azure Spring Cloud 서비스에서 성공적으로 배포, 부팅할 수 있는 Spring Boot 2.x 애플리케이션을 보유하고 있는 것으로 가정합니다.  [빠른 시작 - Azure Portal을 사용하여 기존 Azure Spring Cloud 애플리케이션 시작](spring-cloud-quickstart.md)을 참조하세요.
 
 ## <a name="verify-app-through-test-endpoint"></a>테스트 엔드포인트를 통해 앱 확인
 1. **애플리케이션 대시보드** 로 이동한 후 앱을 클릭하여 앱 개요 페이지로 들어갑니다.
@@ -76,5 +76,6 @@ Maven 기반 프로젝트에 작동기를 추가하려면 'Starter' 종속성을
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Spring Cloud의 메트릭 이해](./concept-metrics.md)
-* [Azure Spring Cloud의 앱 상태 이해](./concept-app-status.md)
+* [Azure Spring Cloud의 메트릭 이해](spring-cloud-concept-metrics.md)
+* [Azure Spring Cloud의 앱 상태 이해](spring-cloud-concept-app-status.md)
+

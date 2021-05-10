@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 29457f2f5021fed9d8785f5764c4119de4be1fa9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 8e5a1f727f32fda7740b958cb3f03a3a4a3ae03f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95999215"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727555"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner의 비용 예측 보고서 
 
@@ -56,7 +56,7 @@ Azure Site Recovery Deployment Planner 보고서는 [권장 사항](hyper-v-depl
 
 **네트워크**: DR 요구 사항에 따른 ExpressRoute 및 사이트 간 VPN 비용입니다. 
 
-**Azure Site Recovery 라이선스**: 호환 되는 모든 vm에 대 한 Site Recovery 라이선스 비용입니다. 자세한 비용 분석 테이블에 VM을 수동으로 입력하면 해당 VM에 대한 Site Recovery 라이선스 비용도 포함됩니다.
+**Azure Site Recovery 라이선스**: 호환되는 모든 VM의 Site Recovery 라이선스 비용입니다. 자세한 비용 분석 테이블에 VM을 수동으로 입력하면 해당 VM에 대한 Site Recovery 라이선스 비용도 포함됩니다.
 
 ### <a name="overall-dr-costs-by-states"></a>상태별 전체 DR 비용
 총 DR 비용은 복제 및 DR 드릴이라는 서로 다른 두 가지 상태에 따라 분류됩니다.
@@ -78,7 +78,7 @@ Azure Site Recovery Deployment Planner 보고서는 [권장 사항](hyper-v-depl
 
 **VPN Gateway 유형**: 사용자 환경에 VPN Gateway가 있는 경우 이를 선택합니다. 기본값은 NA입니다.
 
-**대상 지역**: DR에 대해 지정 된 Azure 지역입니다. 컴퓨팅, 스토리지, 네트워크 및 라이선스에 대해 보고서에 사용된 가격은 해당 지역에 대한 Azure 가격을 기반으로 합니다. 
+**대상 지역**: DR을 위해 지정된 Azure 지역입니다. 컴퓨팅, 스토리지, 네트워크 및 라이선스에 대해 보고서에 사용된 가격은 해당 지역에 대한 Azure 가격을 기반으로 합니다. 
 
 ### <a name="vm-running-on-azure"></a>Azure에서 실행 중인 VM
 DR을 위해 Azure에서 실행되는 Always On 가용성 그룹이 있는 도메인 컨트롤러, DNS VM 또는 SQL Server VM이 있을 수 있습니다. 총 DR 비용에서 컴퓨팅 비용을 고려한 VM 수와 크기를 제공할 수 있습니다. 
@@ -115,13 +115,13 @@ VM을 수동으로 추가하려면:
 
     d. **VM 총 스토리지 크기(GB)**
 
-    e. **한 해의 DR-Drills 수**
+    e. **연간 DR 드릴 횟수**
 
     f. **각 DR 드릴 기간(일)**
 
     g. **OS 유형**
 
-    h. **데이터 중복**
+    h. **데이터 중복성**
 
     i. **AHUB(Azure Hybrid Use Benefit)**
 
@@ -167,14 +167,14 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>지원되는 통화
 Site Recovery Deployment Planner는 다음 통화 중 하나로 비용 보고서를 생성할 수 있습니다.
 
-|통화|Name|통화|Name|통화|Name|
-|---|---|---|---|---|---|---|---|
+|통화|이름|통화|이름|통화|이름|
+|---|---|---|---|---|---|
 |ARS|아르헨티나 페소($)|AUD|호주 달러($)|BRL|브라질 헤알(R$)|
 |CAD|캐나다 달러($)|CHF|스위스 프랑(chf)|DKK|덴마크 크로네(kr)|
-|EUR|유로(€)|GBP|영국 파운드(£)|HKD|홍콩 달러(HK$)|
+|EUR|유로(&euro;)|GBP|영국 파운드(£)|HKD|홍콩 달러(HK$)|
 |IDR|인도네시아 루피아(Rp)|INR|인도 루피(₹)|JPY|일본 엔(¥)|
 |KRW|한국 원(₩)|MXN|멕시코 페소(MX$)|MYR|말레이시아 링깃(RM$)|
-|NOK|노르웨이 크로네(kr)||NZD|뉴질랜드 달러($)||RUB|러시아 루블(руб)|
+|NOK|노르웨이 크로네(kr)|NZD|뉴질랜드 달러($)|RUB|러시아 루블(руб)|
 |SAR|사우디아라비아 리얄(SR)|SEK|스웨덴 크로나(kr)|TWD|대만 달러(NT$)|
 |TRY|터키 리라(TL)|USD| 미국 달러($)|ZAR|남아프리카공화국 랜드(R)|
 

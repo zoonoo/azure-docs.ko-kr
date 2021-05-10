@@ -3,13 +3,13 @@ title: Azure Application Insights를 사용한 Batch 모니터링
 description: Azure Application Insights 라이브러리를 사용하여 Azure Batch .NET 애플리케이션을 계측하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.date: 04/13/2021
-ms.openlocfilehash: 8bc8ff0a04996d988a642062f118e9e6792abbf0
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.date: 03/25/2021
+ms.openlocfilehash: 251f02f145e8f450b1528bf8676cffdc61a6f051
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389352"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105607884"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Application Insights를 사용하여 Azure Batch .NET 애플리케이션 모니터링 및 디버깅
 
@@ -310,13 +310,7 @@ CloudPool pool = client.PoolOperations.CreatePool(
     topNWordsConfiguration.PoolId,
     targetDedicated: topNWordsConfiguration.PoolNodeCount,
     virtualMachineSize: &quot;standard_d1_v2&quot;,
-    VirtualMachineConfiguration: new VirtualMachineConfiguration(
-    imageReference: new ImageReference(
-                        publisher: &quot;MicrosoftWindowsServer&quot;,
-                        offer: &quot;WindowsServer&quot;,
-                        sku: &quot;2019-datacenter-core&quot;,
-                        version: &quot;latest"),
-    nodeAgentSkuId: "batch.node.windows amd64");
+    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: &quot;5"));
 ...
 
 // Create a start task which will run a dummy exe in background that simply emits performance

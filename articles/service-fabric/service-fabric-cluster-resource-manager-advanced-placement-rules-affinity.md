@@ -1,6 +1,6 @@
 ---
-title: Service Fabric 클러스터 리소스 관리자-선호도
-description: Azure Service Fabric 서비스에 대 한 서비스 선호도 개요 및 서비스 선호도 구성에 대 한 지침입니다.
+title: Service Fabric 클러스터 리소스 관리자 - 선호도
+description: Azure Service Fabric 서비스의 서비스 선호도 개요 및 서비스 선호도 구성 지침입니다.
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -9,10 +9,10 @@ ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9c141cd96877fd140b858d0aaed9197f2de80eca
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89005737"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>서비스 패브릭에서 서비스 선호도 구성 및 사용
@@ -65,7 +65,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 
 <center>
 
-![선호도 관계 컨텍스트의 체인 및 별][Image2]
+![선호도 관계 컨텍스트에서 체인 모양 대 별 모양][Image2]
 </center>
 
 또 다른 사항으로 현재의 선호도 관계에는 기본적으로 방향성이 있다는 점입니다. 즉 선호도 규칙은 자식이 부모와 함께 배치되도록 합니다. 부모가 자식과 함께 있도록 보장하지는 않습니다. 따라서 선호도 위반이 있고 어떤 이유로 위반을 정정하기 위해 자식을 부모 노드로 이동할 수 없는 경우에는, 부모를 자식 노드로 이동하면 위반이 정정되더라도, 부모는 자식 노드로 이동되지 않습니다. [MoveParentToFixAffinityViolation](service-fabric-cluster-fabric-settings.md) 구성을 true로설정 하면 방향성이 제거됩니다. 또한 서로 다른 서비스에서 별도의 수명 주기를 가지고 있고 독립적으로 실패하고 이동할 수 있기 때문에 선호도 관계가 완벽하거나 즉시 적용될 수 없다는 점에 유의해야 합니다. 예를 들어 크래시로 인해 부모가 갑자기 다른 노드로 장애 조치되었다고 가정해 보겠습니다. 서비스를 계속, 일관성 있게, 사용할 수 있도록 유지하는 것이 우선 순위이므로 클러스터 리소스 관리자와 장애 조치(Failover) 관리자는 장애 조치를 먼저 처리합니다. 장애 조치가 완료되면 선호도 관계는 끊어지지만 클러스터 리소스 관리자에서는 자식이 부모와 함께 있지 않다는 알기 전까지 모든 것이 문제가 없다고 간주합니다. 이러한 종류의 검사는 정기적으로 수행됩니다. 클러스터 리소스 관리자에서 제약 조건을 평가하는 방법에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-management-integration.md#constraint-types)에서 설명하고 있으며, [이 문서](service-fabric-cluster-resource-manager-balancing.md)에서는 이러한 제약 조건을 평가하는 빈도를 구성하는 방법에 대해 자세히 설명합니다.   

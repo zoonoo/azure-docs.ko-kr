@@ -3,12 +3,12 @@ title: Azure Service Fabric 버전
 description: Azure Service Fabric의 클러스터 버전과 적극적으로 지원되는 플랫폼 버전에 대해 알아봅니다.
 ms.topic: troubleshooting
 ms.date: 04/12/2021
-ms.openlocfilehash: d106462578879ef3ff6ba902c7c950f2bf6ab308
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 4e656b0cd051079d4504ee2a55a9bf6993065396
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140122"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515314"
 ---
 # <a name="service-fabric-supported-versions"></a>Service Fabric 지원 버전
 이 문서의 표에는 적극적으로 지원되는 Service Fabric 및 플랫폼 버전이 요약되어 있습니다.
@@ -23,7 +23,7 @@ ms.locfileid: "108140122"
 | 7.2 RTO-CU5 | 7.0 CU4 | 7.1 |버전 4.2보다 낮거나 같음 | .NET Core 3.1, .NET Core 2.1,<br>모두 >= 4.5 Net Full Framework | [지원되는 OS 버전 참조](#supported-windows-versions-and-support-end-date)| 2021년 11월 30일 |
 | 7.1 |7.0 CU3 |해당 없음 | 버전 4.1보다 낮거나 같음 | .NET Core 3.1, .NET Core 2.1,<br>모두 >= 4.5 Net Full Framework | [지원되는 OS 버전 참조](#supported-windows-versions-and-support-end-date) | 2021년 7월 31일 |
 
-** Service Fabric은 .NET Core 런타임을 제공하지 않습니다. 서비스 작성자가 이를 <a href="/dotnet/core/deploying/">사용할 수 있는지</a> 확인합니다.
+** Service Fabric은 .NET Core 런타임을 제공하지 않습니다. 서비스 작성자가 이를 <a href="https://docs.microsoft.com/dotnet/core/deploying/">사용할 수 있는지</a> 확인합니다.
 
 ## <a name="supported-windows-versions-and-support-end-date"></a>지원되는 Windows 버전 및 지원 종료 날짜
 OS 버전 지원이 종료되면 특정 OS에서 Service Fabric 지원이 종료됩니다.
@@ -33,12 +33,12 @@ OS 버전 지원이 종료되면 특정 OS에서 Service Fabric 지원이 종료
 
 | OS 버전 | Service Fabric 지원 종료 날짜 | OS 수명 주기 링크 |
 |---|---|---|
-|Windows Server 2019|2029/1/9|<a href="/lifecycle/products/windows-server-2019">Windows Server 2019 - Microsoft 수명 주기</a>|
-|Windows Server 2016 |2027/1/12|<a href="/lifecycle/products/windows-server-2016">Windows Server 2016 - Microsoft 수명 주기</a>|
-|Windows Server 2012 R2 |2023/10/10|<a href="/lifecycle/products/windows-server-2012-r2">Windows Server 2012 R2 - Microsoft 수명 주기</a>|
-|버전 20H2 |2022/5/10|<a href="/lifecycle/products/windows-server">Windows Server - Microsoft 수명 주기</a>|
-|버전 2004 |2021/12/14|<a href="/lifecycle/products/windows-server">Windows Server - Microsoft 수명 주기</a>|
-|버전 1909 |2021/5/11|<a href="/lifecycle/products/windows-server">Windows Server - Microsoft 수명 주기</a>|
+|Windows Server 2019|2029/1/9|<a href="https://docs.microsoft.com/lifecycle/products/windows-server-2019">Windows Server 2019 - Microsoft 수명 주기</a>|
+|Windows Server 2016 |2027/1/12|<a href="https://docs.microsoft.com/lifecycle/products/windows-server-2016">Windows Server 2016 - Microsoft 수명 주기</a>|
+|Windows Server 2012 R2 |2023/10/10|<a href="https://docs.microsoft.com/lifecycle/products/windows-server-2012-r2">Windows Server 2012 R2 - Microsoft 수명 주기</a>|
+|버전 20H2 |2022/5/10|<a href="https://docs.microsoft.com/lifecycle/products/windows-server">Windows Server - Microsoft 수명 주기</a>|
+|버전 2004 |2021/12/14|<a href="https://docs.microsoft.com/lifecycle/products/windows-server">Windows Server - Microsoft 수명 주기</a>|
+|버전 1909 |2021/5/11|<a href="https://docs.microsoft.com/lifecycle/products/windows-server">Windows Server - Microsoft 수명 주기</a>|
 
 <br>
 
@@ -46,12 +46,12 @@ OS 버전 지원이 종료되면 특정 OS에서 Service Fabric 지원이 종료
 
 | OS 버전 | Service Fabric 지원 종료 날짜 | OS 수명 주기 링크 |
 | --- | --- | --- |
-| Windows 10 2019 LTSC | 2029/1/9 | <a href="/lifecycle/products/windows-10-2019-ltsc">Windows 10 2019 LTSC - Microsoft 수명 주기</a> |
-| 버전 20H2 | 2023/5/9 | <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise 및 Education - Microsoft 수명 주기</a> |
-| 버전 2004 | 2021/12/14| <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise 및 Education - Microsoft 수명 주기</a> |
-| 버전 1909 | 2022/5/10 | <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise 및 Education - Microsoft 수명 주기</a> |
-| 버전 1809 | 2021/5/11 | <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise 및 Education - Microsoft 수명 주기</a> |
-| 버전 1803 | 2021/5/11 | <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise 및 Education - Microsoft 수명 주기</a> |
+| Windows 10 2019 LTSC | 2029/1/9 | <a href="https://docs.microsoft.com/lifecycle/products/windows-10-2019-ltsc">Windows 10 2019 LTSC - Microsoft 수명 주기</a> |
+| 버전 20H2 | 2023/5/9 | <a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise 및 Education - Microsoft 수명 주기</a> |
+| 버전 2004 | 2021/12/14| <a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise 및 Education - Microsoft 수명 주기</a> |
+| 버전 1909 | 2022/5/10 | <a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise 및 Education - Microsoft 수명 주기</a> |
+| 버전 1809 | 2021/5/11 | <a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise 및 Education - Microsoft 수명 주기</a> |
+| 버전 1803 | 2021/5/11 | <a href="https://docs.microsoft.com/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise 및 Education - Microsoft 수명 주기</a> |
 
 ## <a name="linux"></a>Linux
 
@@ -62,7 +62,7 @@ OS 버전 지원이 종료되면 특정 OS에서 Service Fabric 지원이 종료
 | 7.2 RTO-CU6 | 7.0 CU4 | 7.1 | 버전 4.2보다 낮거나 같음 | .NET Core 3.1, .NET Core 2.1 | [지원되는 OS 버전 참조](#supported-linux-versions-and-support-end-date) | 2021년 11월 30일 |
 | 7.1 | 7.0 CU3 | 해당 없음 | 버전 4.1보다 낮거나 같음 | .NET Core 3.1, .NET Core 2.1 | [지원되는 OS 버전 참조](#supported-linux-versions-and-support-end-date) | 2021년 7월 31일 |
 
-** Service Fabric은 .NET Core 런타임을 제공하지 않으며 서비스 작성자가 이를 <a href="/dotnet/core/deploying/">사용할 수 있는지</a> 확인합니다.
+** Service Fabric은 .NET Core 런타임을 제공하지 않으며 서비스 작성자가 이를 <a href="https://docs.microsoft.com/dotnet/core/deploying/">사용할 수 있는지</a> 확인합니다.
 
 ## <a name="supported-linux-versions-and-support-end-date"></a>지원되는 Linux 버전 및 지원 종료 날짜
 OS 버전 지원이 종료되면 특정 OS에서 Service Fabric 지원이 종료됩니다.

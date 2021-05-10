@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: f587de4ee2ce051cb771db90d7f9ce00ce66b07f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ae4c52ec1390166eccb0e73d6f81a8553c445b2e
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772708"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813293"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Azure HPC Cache에 고객 관리형 암호화 키 사용
 
@@ -56,7 +56,7 @@ Azure HPC Cache에 고객 관리형 키 암호화를 사용하도록 설정하�
 
 * Azure HPC Cache를 만드는 사용자에게 [Key Vault 기여자 역할](../role-based-access-control/built-in-roles.md#key-vault-contributor)과 동일한 권한이 있어야 합니다. Azure Key Vault를 설정하고 관리하는 데에도 동일한 사용 권한이 필요합니다.
 
-  자세한 내용은 [키 자격 증명 모음에 대한 보안 액세스](../key-vault/general/secure-your-key-vault.md)를 참조하세요.
+  자세한 내용은 [키 자격 증명 모음에 대한 보안 액세스](../key-vault/general/security-features.md)를 참조하세요.
 
 ## <a name="1-set-up-azure-key-vault"></a>1. Azure Key Vault 설정
 

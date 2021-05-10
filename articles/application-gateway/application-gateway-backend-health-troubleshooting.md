@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 95b74e5fc6c5d2c09ff04b3f14e920ae675ab6e1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 87c022ee7ccf3f1de2d9420ee799157ba96aa353
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99592758"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108317652"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Application Gateway의 백 엔드 상태 문제 해결
 ==================================================
@@ -24,7 +25,7 @@ ms.locfileid: "99592758"
 
 ### <a name="how-to-check-backend-health"></a>백 엔드 상태를 확인하는 방법
 
-백 엔드 풀의 상태를 확인하기 위해 Azure Portal에서 **백 엔드 상태** 페이지를 사용할 수 있습니다. 또는 [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth), [CLI](/cli/azure/network/application-gateway#az-network-application-gateway-show-backend-health) 또는 [REST API](/rest/api/application-gateway/applicationgateways/backendhealth)를 사용할 수 있습니다.
+백 엔드 풀의 상태를 확인하기 위해 Azure Portal에서 **백 엔드 상태** 페이지를 사용할 수 있습니다. 또는 [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth), [CLI](/cli/azure/network/application-gateway#az_network_application_gateway_show_backend_health) 또는 [REST API](/rest/api/application-gateway/applicationgateways/backendhealth)를 사용할 수 있습니다.
 
 이러한 방법으로 검색되는 상태는 다음 중 하나일 수 있습니다.
 
@@ -81,7 +82,7 @@ BackendAddressPoolsText : [
 **세부 정보** 열에 표시되는 메시지는 문제에 대한 보다 자세한 인사이트를 제공하고, 이에 따라 문제 해결을 시작할 수 있습니다.
 
 > [!NOTE]
-> 기본 프로브 요청은 \<protocol\> ://127.0.0.1:/형식으로 전송 됩니다. \<port\> 예를 들어 포트 80에 대한 http 프로브의 경우 http://127.0.0.1:80 입니다. 200~399의 HTTP 상태 코드만 정상으로 간주됩니다. 프로토콜 및 대상 포트는 HTTP 설정에서 상속됩니다. Application Gateway가 다른 프로토콜, 호스트 이름 또는 경로를 검색하고 다른 상태 코드를 정상으로 인식하기를 원하면 사용자 지정 프로브를 구성하고 HTTP 설정과 연결합니다.
+> 기본 프로브 요청은 \<protocol\>://127.0.0.1:\<port\>/ 형식으로 전송됩니다. 예를 들어 포트 80에 대한 http 프로브의 경우 http://127.0.0.1:80 입니다. 200~399의 HTTP 상태 코드만 정상으로 간주됩니다. 프로토콜 및 대상 포트는 HTTP 설정에서 상속됩니다. Application Gateway가 다른 프로토콜, 호스트 이름 또는 경로를 검색하고 다른 상태 코드를 정상으로 인식하기를 원하면 사용자 지정 프로브를 구성하고 HTTP 설정과 연결합니다.
 
 <a name="error-messages"></a>오류 메시지
 ------------------------
@@ -170,18 +171,18 @@ BackendAddressPoolsText : [
 
 **메시지:** 백 엔드의 HTTP 응답의 상태 코드가 프로브 설정과 일치하지 않습니다. Expected:{HTTPStatusCode0} Received:{HTTPStatusCode1}.
 
-**원인:** TCP 연결을 설정하고 TLS 핸드셰이크를 수행한 후(TLS를 사용하도록 설정된 경우) Application Gateway는 프로브를 백 엔드 서버에 HTTP GET 요청으로 보냅니다. 앞에서 설명한 대로 기본 프로브는 \<protocol\> ://127.0.0.1:/에 대 한 것으로 \<port\> , r 200 ~ 399의 응답 상태 코드를 정상으로 간주 합니다. 서버에서 다른 상태 코드를 반환하는 경우 이 메시지와 함께 비정상으로 표시됩니다.
+**원인:** TCP 연결을 설정하고 TLS 핸드셰이크를 수행한 후(TLS를 사용하도록 설정된 경우) Application Gateway는 프로브를 백 엔드 서버에 HTTP GET 요청으로 보냅니다. 앞에서 설명한 것처럼 기본 프로브는 \<protocol\>://127.0.0.1:\<port\>/로 하고 200~399 범위의 응답 상태 코드를 정상으로 간주합니다. 서버에서 다른 상태 코드를 반환하는 경우 이 메시지와 함께 비정상으로 표시됩니다.
 
 **해결 방법:** 백 엔드 서버의 응답 코드에 따라 다음 단계를 수행할 수 있습니다. 몇 가지 일반적인 상태 코드는 다음과 같습니다.
 
 | **오류** | **actions** |
 | --- | --- |
-| 프로브 상태 코드 불일치: 401 수신됨 | 백 엔드 서버에서 인증이 필요한지 여부를 확인합니다. Application Gateway 프로브는 인증을 위해 자격 증명을 전달할 수 없습니다. 프로브 상태 코드 일치에서 \"HTTP 401\"을 허용하거나 서버가 인증을 요구하지 않는 경로를 검색합니다. | |
-| 프로브 상태 코드 불일치: 403 수신됨 | 액세스가 금지되었습니다. 백 엔드 서버에서 경로에 대한 액세스가 허용되는지 여부를 확인합니다. | |
-| 프로브 상태 코드 불일치: 404 수신됨 | 페이지를 찾을 수 없습니다. 백 엔드 서버에서 호스트 이름 경로에 액세스할 수 있는지 여부를 확인합니다. 호스트 이름 또는 경로 매개 변수를 액세스할 수 있는 값으로 변경합니다. | |
-| 프로브 상태 코드 불일치: 405 수신됨 | Application Gateway에 대한 프로브 요청은 HTTP GET 메서드를 사용합니다. 서버에서 이 메서드를 허용하는지 여부를 확인합니다. | |
-| 프로브 상태 코드 불일치: 500 수신됨 | 내부 서버 오류. 백 엔드 서버의 상태와 서비스가 실행 중인지 여부를 확인합니다. | |
-| 프로브 상태 코드 불일치: 503 수신됨 | 서비스를 사용할 수 없습니다. 백 엔드 서버의 상태와 서비스가 실행 중인지 여부를 확인합니다. | |
+| 프로브 상태 코드 불일치: 401 수신됨 | 백 엔드 서버에서 인증이 필요한지 여부를 확인합니다. Application Gateway 프로브는 인증을 위해 자격 증명을 전달할 수 없습니다. 프로브 상태 코드 일치에서 \"HTTP 401\"을 허용하거나 서버가 인증을 요구하지 않는 경로를 검색합니다. |
+| 프로브 상태 코드 불일치: 403 수신됨 | 액세스가 금지되었습니다. 백 엔드 서버에서 경로에 대한 액세스가 허용되는지 여부를 확인합니다. |
+| 프로브 상태 코드 불일치: 404 수신됨 | 페이지를 찾을 수 없습니다. 백 엔드 서버에서 호스트 이름 경로에 액세스할 수 있는지 여부를 확인합니다. 호스트 이름 또는 경로 매개 변수를 액세스할 수 있는 값으로 변경합니다. |
+| 프로브 상태 코드 불일치: 405 수신됨 | Application Gateway에 대한 프로브 요청은 HTTP GET 메서드를 사용합니다. 서버에서 이 메서드를 허용하는지 여부를 확인합니다. |
+| 프로브 상태 코드 불일치: 500 수신됨 | 내부 서버 오류. 백 엔드 서버의 상태와 서비스가 실행 중인지 여부를 확인합니다. |
+| 프로브 상태 코드 불일치: 503 수신됨 | 서비스를 사용할 수 없습니다. 백 엔드 서버의 상태와 서비스가 실행 중인지 여부를 확인합니다. |
 
 또는 응답이 합법적인 것으로 생각하고 Application Gateway가 다른 상태 코드를 정상으로 허용하기를 원하는 경우 사용자 지정 프로브를 만들 수 있습니다. 이 방법은 백 엔드 웹 사이트에 인증이 필요한 경우에 유용합니다. 프로브 요청이 사용자 자격 증명을 전달하지 않기 때문에 실패하고 백 엔드 서버에서 HTTP 401 상태 코드가 반환됩니다.
 
@@ -209,7 +210,7 @@ BackendAddressPoolsText : [
 
 #### <a name="backend-server-certificate-invalid-ca"></a>백 엔드 서버 인증서의 잘못된 CA
 
-**메시지:** 백 엔드에서 사용되는 서버 인증서가 잘 알려진 CA(인증 기관)에서 서명하지 않았습니다. 백 엔드에서 사용 되는 서버 인증서의 루트 인증서를 업로드 하 여 Application Gateway 백 엔드를 허용 합니다.
+**메시지:** 백 엔드에서 사용되는 서버 인증서가 잘 알려진 CA(인증 기관)에서 서명하지 않았습니다. 백 엔드에서 사용되는 서버 인증서의 루트 인증서를 업로드하여 Application Gateway의 백 엔드를 허용합니다.
 
 **원인:** Application Gateway v2를 사용하는 엔드투엔드 SSL을 사용하려면 백 엔드 서버의 인증서를 확인하여 서버가 정상 상태인지 확인해야 합니다.
 TLS/SSL 인증서를 신뢰할 수 있도록 하려면 Application Gateway의 신뢰할 수 있는 저장소에 포함된 CA에서 백 엔드 서버의 인증서를 발급해야 합니다. 인증서가 신뢰할 수 있는 CA에서 발급되지 않은 경우(예: 자체 서명된 인증서 사용) 사용자는 발급자의 인증서를 Application Gateway에 업로드해야 합니다.
@@ -242,7 +243,7 @@ Application Gateway에서 신뢰할 수 있는 루트 인증서를 추출하고 
 
 #### <a name="trusted-root-certificate-mismatch"></a>신뢰할 수 있는 루트 인증서 불일치
 
-**메시지:** 백 엔드에서 사용되는 서버 인증서의 루트 인증서가 Application Gateway에 추가된 신뢰할 수 있는 루트 인증서와 일치하지 않습니다. 백 엔드를 allowlist 올바른 루트 인증서를 추가 해야 합니다.
+**메시지:** 백 엔드에서 사용되는 서버 인증서의 루트 인증서가 Application Gateway에 추가된 신뢰할 수 있는 루트 인증서와 일치하지 않습니다. 올바른 루트 인증서를 추가하여 백 엔드를 허용합니다.
 
 **원인:** Application Gateway v2를 사용하는 엔드투엔드 SSL을 사용하려면 백 엔드 서버의 인증서를 확인하여 서버가 정상 상태인지 확인해야 합니다.
 TLS/SSL 인증서를 신뢰할 수 있도록 하려면 Application Gateway의 신뢰할 수 있는 저장소에 포함된 CA에서 백 엔드 서버의 인증서를 발급해야 합니다. 인증서가 신뢰할 수 있는 CA에서 발급되지 않은 경우(예: 자체 서명된 인증서 사용) 사용자는 발급자의 인증서를 Application Gateway에 업로드해야 합니다.

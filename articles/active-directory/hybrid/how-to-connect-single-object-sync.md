@@ -11,12 +11,12 @@ ms.date: 03/19/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 373cebee4e7f95062791d8bc68bfee7d845e1465
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee850765006af15d8e323831d70dfcd7849d1287
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104726065"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108145964"
 ---
 # <a name="azure-ad-connect-single-object-sync"></a>Azure AD Connect 단일 개체 동기화 
 
@@ -27,7 +27,7 @@ Azure AD Connect 단일 개체 동기화 도구는 Active Directory에서 Azure 
 >
 > 이 도구는 개체 수정 추가 및 업데이트 동기화를 지원합니다. 개체 수정 삭제는 동기화는 지원되지 않습니다. 
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 단일 개체 동기화 도구에는 가져올 원본 커넥터와 파티션을 찾기 위한 입력으로 Active Directory 고유 이름이 필요합니다. Azure Active Directory로 변경 내용을 내보냅니다. 이 도구는 **provisioningObjectSummary** 리소스 종류와 비슷한 JSON 출력을 생성합니다. 
 
 단일 개체 동기화 도구는 다음 단계를 수행합니다. 
@@ -54,7 +54,7 @@ HTML 보고서에는 다음이 포함됩니다.
 |수정된 속성|이전 값과 새 값을 표시합니다. 이전 값이 없거나 새 값이 삭제된 경우 해당 셀은 비어 있습니다. 다중값 특성의 경우 개수를 표시합니다. 특성 이름은 단계 탭: Azure Active Directory Connector 공간에서 Azure Active Directory로 개체 내보내기: 이름, 다중값, 유형, 값, 값 추가, 값 삭제, 작업, 동기화 규칙, 매핑 유형 및 데이터 원본 등의 특성에 대한 추가 세부 정보를 포함하는 특성 정보에 대한 링크입니다.| 
 |요약|발생한 상황에 대한 개요와 원본 및 대상 시스템의 개체에 대한 식별자를 제공합니다.| 
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 단일 개체 동기화 도구를 사용하려면 2021년 3월 릴리스 이상의 Azure AD Connect를 사용해야 합니다. 
 
@@ -64,7 +64,7 @@ HTML 보고서에는 다음이 포함됩니다.
 
  1. [관리자 권한으로 실행] 옵션을 사용하여 Azure AD Connect 서버에서 새 Windows PowerShell 세션을 엽니다. 
 
- 2. [실행 정책](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy)을 RemoteSigned 또는 Unrestricted로 설정합니다. 
+ 2. [실행 정책](/powershell/module/microsoft.powershell.security/set-executionpolicy)을 RemoteSigned 또는 Unrestricted로 설정합니다. 
 
  3. 동기화 작업이 실행되고 있지 않은지 확인한 다음, 동기화 스케줄러를 사용하지 않도록 설정합니다. 
 
@@ -95,4 +95,4 @@ HTML 보고서에는 다음이 포함됩니다.
 ## <a name="next-steps"></a>다음 단계
 - [개체 동기화 문제 해결](tshoot-connect-objectsync.md)
 - [동기화되지 않는 개체 문제 해결](tshoot-connect-object-not-syncing.md)
-- [Azure AD Connect 개체 및 특성에 대한 엔드투엔드 문제 해결](https://docs.microsoft.com/troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes)
+- [Azure AD Connect 개체 및 특성에 대한 엔드투엔드 문제 해결](/troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes)

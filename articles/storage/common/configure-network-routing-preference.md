@@ -10,12 +10,12 @@ ms.date: 03/17/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: e9d1f7f520a7613abde520c35fbacc7355973021
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 0738f7e427c2ff094c9b6df7539ba67dff80d095
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208224"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104589857"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage"></a>Azure Storage의 네트워크 라우팅 기본 설정 구성
 
@@ -82,7 +82,7 @@ ms.locfileid: "108208224"
 
    - Azure Cloud Shell을 시작하려면 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-   - CLI의 로컬 설치로 로그인하려면 [az login](/cli/azure/reference-index#az_login) 명령을 실행합니다.
+   - CLI의 로컬 설치로 로그인하려면 [az login](/cli/azure/reference-index#az-login) 명령을 실행합니다.
 
      ```azurecli
      az login
@@ -146,7 +146,7 @@ ms.locfileid: "108208224"
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-1. 경로별 엔드포인트를 구성하려면 [az storage account update](/cli/azure/storage/account#az_storage_account_update) 명령을 사용합니다. 
+1. 경로별 엔드포인트를 구성하려면 [az storage account update](/azure/storage/account#az-storage-account-update) 명령을 사용합니다. 
 
    - Microsoft 네트워크 라우팅 기본 설정을 사용하는 경로별 엔드포인트를 만들려면 `--publish-microsoft-endpoints` 매개 변수를 `true`로 설정합니다. 
 

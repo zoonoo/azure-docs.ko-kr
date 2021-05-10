@@ -1,18 +1,18 @@
 ---
 title: 게시된 Azure Certified Device를 편집하는 방법
 description: Azure Certified Device 프로그램을 통해 디바이스를 인증하고 게시한 다음 디바이스 정보를 편집하는 가이드입니다.
-author: nikuntjo
+author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: ddd6a377b477f5895db797f6f4e4917d180e40de
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 14a29d438103f07dd35b3a3380b7cc094f215824
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105975975"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304446"
 ---
 # <a name="edit-your-published-device"></a>게시된 디바이스 편집
 
@@ -20,7 +20,7 @@ ms.locfileid: "105975975"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- [Azure Certified Device 포털](https://certify.azure.com)에 로그인이 되어 있고 디바이스용 **승인된** 프로젝트가 있어야 합니다. 인증된 디바이스가 없는 경우 이 [자습서](tutorial-01-creating-your-project.md)를 확인하여 시작할 수 있습니다.
+- 로그인되어 있고 [Azure Certified Device 포털](https://certify.azure.com)에서 만든 디바이스용 **승인된** 프로젝트가 있어야 합니다. 인증된 디바이스가 없는 경우 이 [자습서](tutorial-01-creating-your-project.md)를 확인하여 시작할 수 있습니다.
 
 ## <a name="editing-your-published-project"></a>게시된 프로젝트 편집
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bbaf2fb99f1268a752fab4322078b0566a054d30
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 80a0b4634a2e84181271b515d2f6f63271cce7f2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98222856"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784968"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 리소스에 대한 이름 확인
 
@@ -47,8 +47,8 @@ IaaS, PaaS, 하이브리드 솔루션 호스팅에 Azure를 어떻게 사용할�
 | 한 가상 네트워크의 App Service Web Apps로부터 다른 가상 네트워크의 VM까지 이름을 확인합니다. |Azure(DNS 프록시)에서 이름을 확인할 수 있도록 가상 네트워크 간에 쿼리를 전달하는 고객이 관리하는 DNS 서버. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
 | Azure의 VM 또는 역할 인스턴스에서 온-프레미스 컴퓨터와 서비스 이름을 확인합니다. |고객이 관리하는 DNS 서버(예: 온-프레미스 도메인 컨트롤러, 로컬 읽기 전용 도메인 컨트롤러 또는 영역 전송을 사용하여 동기화된 DNS 보조). [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
 | 온-프레미스 컴퓨터에서 Azure 호스트 이름 확인. |해당 가상 네트워크에서 고객이 관리하는 DNS 프록시 서버에 쿼리를 전달하면 프록시 서버는 이름 확인을 위해 Azure에 쿼리를 전달합니다. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
-| 내부 IP에 대한 역방향 DNS |[Azure DNS 프라이빗 영역](../dns/private-dns-overview.md) 또는 [Azure 제공 이름 확인](#azure-provided-name-resolution) 또는 [자체 DNS 서버를 사용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |해당 없음 |
-| 서로 다른 클라우드 서비스에 위치하며 가상 네트워크에 존재하지 않는 VM 또는 역할 인스턴스 간 이름 확인 |해당 사항 없음 가상 네트워크 외부에 있는 VM과 역할 인스턴스가 서로 다른 클라우드 서비스에 위치한 경우에는 연결을 지원하지 않습니다. |해당 없음|
+| 내부 IP에 대한 역방향 DNS |[Azure DNS 프라이빗 영역](../dns/private-dns-overview.md) 또는 [Azure 제공 이름 확인](#azure-provided-name-resolution) 또는 [자체 DNS 서버를 사용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |적용할 수 없음 |
+| 서로 다른 클라우드 서비스에 위치하며 가상 네트워크에 존재하지 않는 VM 또는 역할 인스턴스 간 이름 확인 |해당 사항 없음 가상 네트워크 외부에 있는 VM과 역할 인스턴스가 서로 다른 클라우드 서비스에 위치한 경우에는 연결을 지원하지 않습니다. |적용할 수 없음|
 
 ## <a name="azure-provided-name-resolution"></a>Azure에서 제공하는 이름 확인
 
@@ -176,7 +176,7 @@ Azure 제공 이름 확인을 사용하는 경우 Azure DHCP(Dynamic Host Config
 
 필요한 경우 PowerShell 또는 API를 사용하여 내부 DNS 접미사를 확인할 수 있습니다.
 
-* Azure Resource Manager 배포 모델에 포함된 가상 네트워크의 경우, [네트워크 인터페이스 REST API](/rest/api/virtualnetwork/networkinterfaces), [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) PowerShell cmdlet 및 [az network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI 명령을 통해 접미사를 사용할 수 있습니다.
+* Azure Resource Manager 배포 모델에 포함된 가상 네트워크의 경우, [네트워크 인터페이스 REST API](/rest/api/virtualnetwork/networkinterfaces), [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) PowerShell cmdlet 및 [az network nic show](/cli/azure/network/nic#az_network_nic_show) Azure CLI 명령을 통해 접미사를 사용할 수 있습니다.
 * 클래식 배포 모델에서 접미사는 [배포 API 가져오기](/previous-versions/azure/reference/ee460804(v=azure.100)) 호출 또는 [Get-AzureVM -Debug](/powershell/module/servicemanagement/azure.service/get-azurevm) cmdlet을 통해 사용할 수 있습니다.
 
 Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 자체 DNS 솔루션을 제공해야 합니다. DNS 솔루션은 다음을 수행해야 합니다:

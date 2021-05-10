@@ -1,5 +1,5 @@
 ---
-title: 로컬-sql 작업 실행-Azure Data Lake U-SQL SDK
+title: 로컬로 U-SQL 작업 실행 - Azure Data Lake U-SQL SDK
 description: 로컬 워크스테이션에서 명령줄 및 프로그래밍 인터페이스를 사용하여 U-SQL 작업을 로컬로 실행 및 테스트하는 방법을 알아봅니다.
 ms.service: data-lake-analytics
 author: yanacai
@@ -7,10 +7,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/01/2017
 ms.openlocfilehash: 8fb60e62a63bfc4562f19d483dc84c99c37676b0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92215538"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Azure Data Lake U-SQL SDK를 사용하여 U-SQL 실행 및 테스트
@@ -21,7 +21,7 @@ GUI 도구를 사용하여 U-SQL 스크립트를 수동으로 로컬 실행 및 
 
 ## <a name="install-azure-data-lake-u-sql-sdk"></a>Azure Data Lake U-SQL SDK 설치
 
-Nuget.org에서 Azure Data Lake U- [SQL SDK를](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) 다운로드할 수 있습니다. 그리고이를 사용 하기 전에 다음과 같이 종속성이 있는지 확인 해야 합니다.
+[Nuget.org](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)에서 Azure Data Lake U-SQL SDK를 다운로드할 수 있지만 다음 종속성이 있는지 확인한 후 사용해야 합니다.
 
 ### <a name="dependencies"></a>종속성
 
@@ -34,7 +34,7 @@ Data Lake U-SQL SDK에는 다음과 같은 종속성이 필요합니다.
 
     ![Data Lake Tools for Visual Studio의 Windows 10 SDK 로컬 실행](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-  - [Visual Studio용 Data Lake 도구](https://aka.ms/adltoolsvs)를 설치합니다. 미리 패키지 된 Visual C++ 및 Windows SDK 파일을 찾을 수 있습니다. `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK.`
+  - [Visual Studio용 Data Lake 도구](https://aka.ms/adltoolsvs)를 설치합니다. `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK.`에서 미리 패키지된 Visual C++ 및 Windows SDK 파일을 찾을 수 있습니다.
 
     이 경우 U-SQL 로컬 컴파일러는 이러한 종속성을 자동으로 찾을 수 없습니다. 이에 대한 CppSDK 경로를 지정해야 합니다. 파일을 다른 위치로 복사하거나 그대로 사용할 수 있습니다.
 
@@ -122,7 +122,7 @@ U-SQL 로컬 실행을 위해서는 지정된 데이터 루트가 로컬 스토�
 
   환경 변수를 설정하는 것 외에도 명령줄을 사용할 때 **-CppSDK** 인수를 지정할 수도 있습니다. 이 인수는 기본 CppSDK 환경 변수를 덮어씁니다.
 
-- **LOCALRUN_DATAROOT** 환경 변수를 설정 합니다.
+- **LOCALRUN_DATAROOT** 환경 변수를 설정합니다.
 
   데이터 루트를 가리키는 **LOCALRUN_DATAROOT** 라는 새로운 환경 변수를 정의합니다.
 
@@ -142,15 +142,15 @@ LocalRunHelper run -Script path_to_usql_script.usql [optional_arguments]
 
 |인수|기본값|설명|
 |--------|-------------|-----------|
-|-CodeBehind|거짓|스크립트에는 .cs 코드 숨김이 있습니다.|
+|-CodeBehind|False|스크립트에는 .cs 코드 숨김이 있습니다.|
 |-CppSDK| |CppSDK 디렉터리입니다.|
 |-DataRoot| DataRoot 환경 변수|로컬 실행을 위한 데이터 루트이며, 기본값은 'LOCALRUN_DATAROOT' 환경 변수입니다.|
 |-MessageOut| |콘솔의 메시지를 파일에 덤프합니다.|
 |-Parallel|1|지정된 병렬 처리로 계획을 실행합니다.|
 |-References| |';'(세미콜론)으로 구분된 코드 참조의 추가 참조 어셈블리 또는 데이터 파일의 경로 목록입니다.|
-|-UdoRedirect|거짓|Udo 어셈블리 리디렉션 구성을 생성합니다.|
+|-UdoRedirect|False|Udo 어셈블리 리디렉션 구성을 생성합니다.|
 |-UseDatabase|master|코드 숨김 임시 어셈블리 등록에 사용할 데이터베이스입니다.|
-|-Verbose|거짓|런타임의 자세한 출력을 표시합니다.|
+|-Verbose|False|런타임의 자세한 출력을 표시합니다.|
 |-WorkDir|현재 디렉터리|컴파일러 사용 및 출력을 위한 디렉터리입니다.|
 |-RunScopeCEP|0|사용할 ScopeCEP 모드입니다.|
 |-ScopeCEPTempPath|temp|데이터 스트리밍에 사용할 임시 경로입니다.|
@@ -324,7 +324,7 @@ namespace Test.Helpers
 
 ### <a name="programming-interfaces-in-localrunhelperexe"></a>LocalRunHelper.exe의 프로그래밍 인터페이스
 
-LocalRunHelper.exe는 U-SQL 로컬 컴파일, 실행 등을 위한 프로그래밍 인터페이스를 제공 합니다. 인터페이스는 다음과 같이 나열 됩니다.
+LocalRunHelper.exe는 U-SQL 로컬 컴파일, 실행 등을 위한 프로그래밍 인터페이스를 제공합니다. 인터페이스는 다음과 같습니다.
 
 ### <a name="constructor"></a>생성자
 
@@ -336,7 +336,7 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 ### <a name="properties"></a>속성
 
-|속성|Type|설명|
+|속성|유형|설명|
 |--------|----|-----------|
 |AlgebraPath|문자열|대수 파일의 경로입니다(대수 파일은 컴파일 결과 중 하나임).|
 |CodeBehindReferences|문자열|스크립트에 추가 코드 숨김 참조가 있으면 경로를 ';'으로 구분합니다.|
@@ -359,9 +359,9 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 |UseDataBase|문자열|코드 숨김 임시 어셈블리 등록에 사용할 데이터베이스를 지정합니다. 기본값은 master입니다.|
 |WorkDir|문자열|기본 설정 작업 디렉터리입니다.|
 
-### <a name="method"></a>메서드
+### <a name="method"></a>방법
 
-|메서드|설명|반환 값|매개 변수|
+|방법|설명|반환 값|매개 변수|
 |------|-----------|------|---------|
 |public bool DoCompile()|U-SQL 스크립트를 컴파일합니다.|성공 시 True입니다.| |
 |public bool DoExec()|컴파일된 결과를 실행합니다.|성공 시 True입니다.| |
@@ -382,7 +382,7 @@ E_CSC_SYSTEM_INTERNAL: 내부 오류입니다. 파일 또는 어셈블리 'Scope
 ## <a name="next-steps"></a>다음 단계
 
 - U-SQL을 알아보려면 [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)을 참조하세요.
-- 진단 정보를 기록 하려면 [Azure Data Lake Analytics에 대 한 진단 로그 액세스](data-lake-analytics-diagnostic-logs.md)를 참조 하세요.
-- 더 복잡 한 쿼리를 보려면 Azure Data Lake Analytics를 [사용 하 여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)을 참조 하세요.
-- 작업 세부 정보를 보려면 [Azure Data Lake Analytics 작업에 대 한 작업 브라우저 및 작업 보기 사용](data-lake-analytics-data-lake-tools-view-jobs.md)을 참조 하세요.
-- 꼭 짓 점 실행 보기를 사용 하려면 [Data Lake Tools For Visual Studio에서 Vertex Execution View 사용](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)을 참조 하세요.
+- 진단 정보를 기록하려면 [Azure Data Lake Analytics에 대한 진단 로그에 액세스](data-lake-analytics-diagnostic-logs.md)를 참조하세요.
+- 더 복잡한 쿼리를 보려면 [Azure Data Lake Analytics을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)을 참조하세요.
+- 작업 세부 정보를 보려면, [Azure Data lake Analytics 작업에 대한 작업 브라우저 및 작업 보기 사용하기](data-lake-analytics-data-lake-tools-view-jobs.md)를 참조하세요.
+- 꼭짓점 실행 보기를 사용하려면 [Data Lake Tools for Visual Studio에서 Vertex Execution View 사용](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)을 참조하세요.

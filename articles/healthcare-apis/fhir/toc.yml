@@ -97,6 +97,8 @@
           href: how-to-run-a-reindex.md
         - name: Azure API for FHIR 검색 예
           href: search-samples.md
+    - name: 프로필 유효성 검사
+      href: validation-against-profiles.md
     - name: 데이터 내보내기
       expanded: false
       items:

@@ -1,18 +1,18 @@
 ---
-title: Azure 템플릿을 사용 하 여 Service Bus 토픽 구독 및 규칙 만들기
+title: Azure 템플릿을 사용하여 Service Bus 토픽 구독 및 규칙 만들기
 description: Azure Resource Manager 템플릿을 사용하여 토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기
 author: spelluru
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 3f3287dd67f89f678a9875ddce93e2d0d26b2209
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: fa580b24f7cee17937ff69d1d22e7308905389b0
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89077627"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108075072"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기
 

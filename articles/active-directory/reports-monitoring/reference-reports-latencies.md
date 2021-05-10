@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0498ee1c57cfa661884fe3209d4e089b54996fae
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89231064"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory 보고 대기 시간
@@ -54,8 +54,8 @@ ms.locfileid: "89231064"
 
 두 가지 형식의 보안 보고서가 있습니다.
 
-- [위험한 로그인](../identity-protection/overview-identity-protection.md) -위험한 로그인은 사용자 계정의 합법적인 소유자가 아닌 사용자가 수행 했을 수 있는 로그인 시도에 대 한 표시기입니다. 
-- [위험 플래그가 지정](../identity-protection/overview-identity-protection.md) 된 사용자-위험한 사용자는 손상 되었을 수 있는 사용자 계정에 대 한 표시기입니다. 
+- [위험한 로그인](../identity-protection/overview-identity-protection.md) - 위험한 로그인은 사용자 계정의 정당한 소유자가 아닌 사용자에 의해 수행된 로그인 시도에 대한 지표입니다. 
+- [위험 플래그가 지정된 사용자](../identity-protection/overview-identity-protection.md) - 위험한 사용자는 손상되었을 수 있는 사용자 계정에 대한 지표입니다. 
 
 다음 표에는 보안 보고서에 대한 대기 시간 정보가 나와 있습니다.
 
@@ -66,9 +66,9 @@ ms.locfileid: "89231064"
 
 ## <a name="risk-detections"></a>위험 탐지
 
-Azure AD는 적응형 기계 학습 알고리즘 및 추론을 사용하여 사용자 계정과 관련된 의심스러운 동작을 감지합니다. 검색 된 각 의심 스러운 동작은 **위험 검색** 이라고 하는 레코드에 저장 됩니다.
+Azure AD는 적응형 기계 학습 알고리즘 및 추론을 사용하여 사용자 계정과 관련된 의심스러운 동작을 감지합니다. 검색된 각 의심스러운 동작은 **위험 검색** 이라는 레코드에 저장됩니다.
 
-다음 표에서는 위험 검색에 대 한 대기 시간 정보를 나열 합니다.
+다음 표에는 위험 검색의 대기 시간 정보가 나와 있습니다.
 
 | 보고서 | 최소 | 평균 | 최대 |
 | :-- | --- | --- | --- |
@@ -84,4 +84,4 @@ Azure AD는 적응형 기계 학습 알고리즘 및 추론을 사용하여 사�
 
 * [Azure AD 보고서 개요](overview-reports.md)
 * [Azure AD 보고서에 대한 프로그래밍 방식 액세스](concept-reporting-api.md)
-* [Azure Active Directory 위험 탐지](../identity-protection/overview-identity-protection.md)
+* [Azure Active Directory 위험 검색](../identity-protection/overview-identity-protection.md)

@@ -16,14 +16,14 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab37861a78ef80949e9afb4a3f51a6d9fdbad321
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 8e81cb9018d817fb206915a81fdc3bdd60f6b08c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126625"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105611891"
 ---
-# <a name="renew-federation-certificates-for-microsoft-365-and-azure-active-directory"></a>Microsoft 365 및 Azure Active Directory에 대한 페더레이션 인증서 갱신
+# <a name="renew-federation-certificates-for-microsoft-365-and-azure-active-directory"></a>Microsoft 365 및 Azure Active Directory용 페더레이션 인증서 갱신
 ## <a name="overview"></a>개요
 Azure AD(Azure Active Directory)와 AD FS(Active Directory Federation Services) 간의 성공적인 페더레이션을 위해 AD FS에서 Azure AD에 대한 보안 토큰을 서명하는 데 사용하는 인증서는 Azure AD에서 구성된 인증서와 일치해야 합니다. 불일치로 인해 끊어진 트러스트가 발생할 수 있습니다. 엑스트라넷에 액세스하기 위해 AD FS 및 웹 애플리케이션 프록시를 배포하는 경우 Azure AD는 이 정보의 동기화를 유지합니다.
 
@@ -37,8 +37,8 @@ Azure AD(Azure Active Directory)와 AD FS(Active Directory Federation Services) 
 * 타사 ID 공급자를 사용하는 경우.
 
 > [!IMPORTANT]
-> Microsoft는 HSM(하드웨어 보안 모듈)을 사용하여 인증서를 보호하는 것이 좋습니다.
-> 자세한 내용은 AD FS 보안 설정에 대한 모범 사례에서 [하드웨어 보안 모듈](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm)을 참조하세요.
+> HSM(하드웨어 보안 모듈)을 사용하여 인증서를 안전하게 보호하는 것이 좋습니다.
+> 자세한 내용은 AD FS 보안 설정에 대한 모범 사례에서 [하드웨어 보안 모듈](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm)을 참조하세요.
 
 ## <a name="default-configuration-of-ad-fs-for-token-signing-certificates"></a>토큰 서명 인증서에 대한 AD FS의 기본 구성
 토큰 서명 및 인증서의 암호를 해독하는 토큰은 일반적으로 자체 서명된 인증서이며 1년 동안 사용할 수 있습니다. 기본적으로 AD FS는 **AutoCertificateRollover** 라는 자동 갱신 프로세스를 포함합니다. AD FS 2.0 이상을 사용하는 경우 인증서가 만료되기 전에 Microsoft 365와 Azure AD에서 인증서를 자동으로 업데이트합니다.
@@ -114,8 +114,8 @@ Get-MsolFederationProperty 또는 Get-AdfsCertificate 중 하나의 출력에서
 | AutoCertificateRollover | Azure AD와 동기화된 인증서 | 페더레이션 메타데이터는 공개적으로 액세스할 수 있습니다. | 유효성 검사 | 작업 |
 |:---:|:---:|:---:|:---:|:---:|
 | 예 |예 |예 |- |어떤 조치도 필요하지 않습니다. [자동으로 토큰 서명 인증서 갱신](#autorenew)을 참조하세요. |
-| 예 |아니요 |- |15일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
-| No |- |- |30일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
+| 예 |예 |- |15일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
+| 예 |- |- |30일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
 
 \[-] 중요하지 않습니다.
 

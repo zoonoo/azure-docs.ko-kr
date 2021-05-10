@@ -8,12 +8,12 @@ ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 13e6668337b82ea4be86eadcbc6f7797a72771c6
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
-ms.translationtype: MT
+ms.openlocfilehash: 428ef41340cd565bef0fa3c1e6519fb8862b091a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023486"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727572"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Azure 파일 공유에서 일시 삭제 사용
 
@@ -26,16 +26,16 @@ ms.locfileid: "105023486"
 ## <a name="getting-started"></a>시작
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. 저장소 계정으로 이동 하 고 **파일 서비스** 에서 **파일 공유** 를 선택 합니다.
-1. **모든 파일 공유에 대해 일시 삭제** 를 **사용 하도록 설정** 을 선택 합니다.
+1. 스토리지 계정으로 이동하고 **파일 서비스** 에서 **파일 공유** 를 선택합니다.
+1. **모든 파일 공유 일시 삭제** 에서 **사용** 을 선택합니다.
 1. **파일 공유 보존 기간(일)** 을 선택하고 원하는 기간을 입력합니다.
 1. **저장** 을 선택하여 데이터 보존 설정을 확인합니다.
 
-:::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="저장소 계정 일시 삭제 설정 창의 스크린샷 파일 공유 일시 삭제 섹션을 강조 표시 하 고, 토글을 사용 하도록 설정 하 고, 보존 기간을 설정 하 고, 저장 합니다. 그러면 저장소 계정의 모든 파일 공유에 대해 일시 삭제를 사용할 수 있습니다.":::
+:::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="스토리지 계정 일시 삭제 설정 창 스크린샷. 파일 공유 일시 삭제 섹션, 사용 토글, 보존 기간 설정 및 저장 강조 표시 그러면 스토리지 계정의 모든 파일 공유에 대해 일시 삭제가 사용하도록 설정됩니다.":::
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-일시 삭제 cmdlet은 [Azure CLI 모듈](/cli/azure/install-azure-cli?view=azure-cli-latest)의 버전 2.1.3 이상에서 사용할 수 있습니다.
+일시 삭제 cmdlet은 [Azure CLI 모듈](/cli/azure/install-azure-cli)의 버전 2.1.3 이상에서 사용할 수 있습니다.
 
 ## <a name="getting-started-with-cli"></a>CLI 시작
 
@@ -53,9 +53,9 @@ az storage account file-service-properties show -n yourStorageaccount -g yourRes
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-## <a name="prerequisite"></a>필수 조건
+## <a name="prerequisite"></a>필수 요소
 
-일시 삭제 cmdlet은 Az. Storage 모듈의 4.8.0 이상 버전에서 사용할 수 있습니다. 
+일시 삭제 cmdlet은 Az.Storage 모듈의 4.8.0 이상 버전에서 사용할 수 있습니다. 
 
 ## <a name="getting-started-with-powershell"></a>PowerShell 시작
 
@@ -96,13 +96,13 @@ Get-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-일시 삭제 cmdlet은 Azure CLI 2.1.3 버전에서 사용할 수 있습니다. 일시 삭제 된 파일 공유를 복원 하려면 먼저 `--deleted-version` 공유의 값을 가져와야 합니다. 해당 값을 가져오려면 다음 명령을 사용 하 여 저장소 계정에 대해 삭제 된 모든 공유를 나열 합니다.
+일시 삭제 cmdlet은 Azure CLI 2.1.3 버전에서 사용할 수 있습니다. 일시 삭제된 파일 공유를 복원하려면 먼저 공유의 `--deleted-version` 값을 가져와야 합니다. 해당 값을 가져오려면 다음 명령을 사용하여 스토리지 계정에 대해 삭제된 모든 공유를 나열합니다.
 
 ```azurecli
 az storage share-rm list --storage-account yourStorageaccount --include-deleted
 ```
 
-복원 하고자 하는 공유를 확인 한 후 다음 명령을 사용 하 여 복원할 수 있습니다.
+복원할 공유를 확인한 후 다음 명령과 함께 사용하여 복원할 수 있습니다.
 
 ```azurecli
 az storage share-rm restore -n deletedshare --deleted-version 01D64EB9886F00C4 -g yourResourceGroup --storage-account yourStorageaccount
@@ -110,13 +110,13 @@ az storage share-rm restore -n deletedshare --deleted-version 01D64EB9886F00C4 -
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-일시 삭제 cmdlet은 Az. Storage 모듈의 4.8.0 이상 버전에서 사용할 수 있습니다. 일시 삭제 된 파일 공유를 복원 하려면 먼저 `-DeletedShareVersion` 공유의 값을 가져와야 합니다. 해당 값을 가져오려면 다음 명령을 사용 하 여 저장소 계정에 대해 삭제 된 모든 공유를 나열 합니다.
+일시 삭제 cmdlet은 Az.Storage 모듈의 4.8.0 이상 버전에서 사용할 수 있습니다. 일시 삭제된 파일 공유를 복원하려면 먼저 공유의 `-DeletedShareVersion` 값을 가져와야 합니다. 해당 값을 가져오려면 다음 명령을 사용하여 스토리지 계정에 대해 삭제된 모든 공유를 나열합니다.
 
 ```azurepowershell-interactive
 Get-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $accountName -IncludeDeleted
 ```
 
-복원 하고자 하는 공유를 확인 한 후 다음 명령을 사용 하 여 복원할 수 있습니다.
+복원할 공유를 확인한 후 다음 명령과 함께 사용하여 복원할 수 있습니다.
 
 ```azurepowershell-interactive
 Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $accountName -DeletedShareVersion 01D5E2783BDCDA97
@@ -125,12 +125,12 @@ Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $account
 
 ## <a name="disable-soft-delete"></a>일시 삭제 사용 안 함
 
-일시 삭제 사용을 중지 하려는 경우 다음 지침을 따르세요. 일시 삭제 된 파일 공유를 영구적으로 삭제 하려면 삭제를 취소 하 고 일시 삭제를 사용 하지 않도록 설정한 다음 다시 삭제 해야 합니다. 
+일시 삭제 사용을 중지하려는 경우 다음 참고 자료를 따르세요. 일시 삭제된 파일 공유를 영구적으로 삭제하려면 삭제를 취소하고 일시 삭제를 사용하지 않게 설정한 후, 다시 삭제해야 합니다. 
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. 저장소 계정으로 이동 하 고 **파일 서비스** 에서 **파일 공유** 를 선택 합니다.
-1. **모든 파일 공유에 대해 일시 삭제** 에 대해 **사용 안 함** 을 선택 합니다.
+1. 스토리지 계정으로 이동하고 **파일 서비스** 에서 **파일 공유** 를 선택합니다.
+1. **모든 파일 공유 일시 삭제** 에서 **사용하지 않음** 을 선택합니다.
 1. **저장** 을 선택하여 데이터 보존 설정을 확인합니다.
 
     :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="일시 삭제를 사용하지 않도록 설정하면 원할 때 스토리지 계정의 모든 파일 공유를 즉시 영구적으로 삭제할 수 있습니다.":::
@@ -144,7 +144,7 @@ az storage account file-service-properties update --enable-delete-retention fals
 ```
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-일시 삭제 cmdlet은 Az. Storage 모듈의 4.8.0 이상 버전에서 사용할 수 있습니다. 다음 명령을 사용하여 스토리지 계정에서 일시 삭제를 사용하지 않도록 설정할 수 있습니다.
+일시 삭제 cmdlet은 Az.Storage 모듈의 4.8.0 이상 버전에서 사용할 수 있습니다. 다음 명령을 사용하여 스토리지 계정에서 일시 삭제를 사용하지 않도록 설정할 수 있습니다.
 
 ```azurepowershell-interactive
 Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName $accountName -EnableShareDeleteRetentionPolicy $false
@@ -153,4 +153,4 @@ Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountNa
 
 ## <a name="next-steps"></a>다음 단계
 
-다른 형태의 데이터 보호 및 복구에 대 한 자세한 내용은 [Azure Files에 대 한 공유 스냅숏 개요](storage-snapshots-files.md)문서를 참조 하세요.
+다른 형태의 데이터 보호 및 복구에 관해 알아보려면 [Azure Files용 공유 스냅샷 개요](storage-snapshots-files.md) 문서를 참조하세요.

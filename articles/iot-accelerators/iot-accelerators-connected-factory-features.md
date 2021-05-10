@@ -1,6 +1,6 @@
 ---
 title: 연결된 팩터리 솔루션 특징 - Azure | Microsoft Docs
-description: 이 문서에서는 클라우드 대시보드, 규칙 및 경고와 같이 연결 된 공장 미리 구성 된 솔루션의 기능에 대 한 개요를 설명 합니다.
+description: 이 문서에서는 클라우드 대시보드, 규칙 및 경고와 같은 연결된 팩터리 사전 구성된 솔루션의 기능에 관한 개요를 설명합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dobett
 ms.openlocfilehash: e492ebf70f69c985691852a1c1f2351d1e09578e
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105646304"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>연결된 팩터리 IoT 솔루션 가속기란?
@@ -58,14 +58,14 @@ ms.locfileid: "105646304"
 
 ## <a name="end-to-end-security"></a>엔드투엔드 보안
 
-- RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자에 대 한 보안 권한을 구성 합니다.
+- RBAC(역할 기반 액세스 제어)를 사용하여 사용자에 대한 보안 권한을 구성합니다.
 - OPC UA 인증(X.509 인증서 사용) 및 보안 토큰을 사용하여 엔드투엔드 암호화를 구현합니다.
 
 ## <a name="customizability"></a>사용자 지정 가능
 
 - 특정 비즈니스 요구 사항을 충족하도록 솔루션을 사용자 지정할 수 있습니다.
-- GitHub에서 전체 솔루션 소스 코드를 제공합니다. [연결 된 팩터리 미리 구성 된 솔루션](https://github.com/Azure/azure-iot-connected-factory) 리포지토리를 참조 하세요.
+- GitHub에서 전체 솔루션 소스 코드를 제공합니다. [연결된 팩터리 미리 구성된 솔루션](https://github.com/Azure/azure-iot-connected-factory) 리포지토리를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-연결 된 팩터리 솔루션 가속기에 대 한 자세한 내용은 빠른 시작 [클라우드 기반 솔루션을 사용 하 여 내 산업용 IoT 장치 관리](quickstart-connected-factory-deploy.md)를 참조 하세요.
+연결된 팩터리 솔루션 가속기에 관한 자세한 내용은 빠른 시작 [클라우드 기반 솔루션을 사용하여 산업용 IoT 디바이스 관리](quickstart-connected-factory-deploy.md)를 참조하세요.

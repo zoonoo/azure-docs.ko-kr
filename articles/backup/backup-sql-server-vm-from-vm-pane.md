@@ -1,73 +1,73 @@
 ---
 title: VM 창에서 SQL Server VM 백업
-description: 이 문서에서는 VM 창에서 Azure virtual machines의 SQL Server 데이터베이스를 백업 하는 방법에 대해 알아봅니다.
+description: 이 문서에서는 VM 창에서 Azure 가상 머신의 SQL Server 데이터베이스를 백업하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.openlocfilehash: 4f4ea202ee96e93a621c8dd0025c9ebc8b8d445d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88891660"
 ---
 # <a name="back-up-a-sql-server-from-the-vm-pane"></a>VM 창에서 SQL Server 백업
 
-이 문서에서는 [Azure Backup](backup-overview.md) 서비스를 사용 하 여 Azure vm에서 실행 중인 SQL Server를 백업 하는 방법을 설명 합니다. 다음 두 가지 방법을 사용 하 여 SQL Server Vm을 백업할 수 있습니다.
+이 문서에서는 [Azure Backup](backup-overview.md) 서비스를 사용하여 Azure VM에서 실행되는 SQL Server를 백업하는 방법을 설명합니다. 다음 두 가지 방법을 사용하여 SQL Server VM을 백업할 수 있습니다.
 
-- 단일 SQL Server Azure VM:이 문서의 지침은 VM 보기에서 직접 SQL Server VM를 백업 하는 방법을 설명 합니다.
-- 여러 SQL Server Azure Vm: Recovery Services 자격 증명 모음을 설정 하 고 여러 Vm에 대 한 백업을 구성할 수 있습니다. 해당 시나리오에 대 한 [이 문서의](backup-sql-server-database-azure-vms.md) 지침을 따르세요.
+- 단일 SQL Server Azure VM: 이 문서의 지침은 VM 뷰에서 직접 SQL Server VM 하나를 백업하는 방법을 설명합니다.
+- 여러 SQL Server Azure VM: Recovery Services 자격 증명 모음을 설정하고 여러 VM에 대한 백업을 구성할 수 있습니다. 해당 시나리오의 경우 [이 문서](backup-sql-server-database-azure-vms.md)의 지침을 따르세요.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-1. [지원 매트릭스](sql-support-matrix.md)를 사용 하 여 환경을 확인 합니다.
-2. SQL Server VM에 대 한 Azure Backup [개요](backup-azure-sql-database.md) 를 확인 하세요.
+1. [지원 매트릭스](sql-support-matrix.md)를 사용하여 환경을 확인합니다.
+2. SQL Server VM용 Azure Backup [개요](backup-azure-sql-database.md)를 확인합니다.
 3. VM에 [네트워크 연결](backup-sql-server-database-azure-vms.md#establish-network-connectivity)이 있는지 확인합니다.
 
 ## <a name="configure-backup-on-the-sql-server"></a>SQL Server에서 백업 구성
 
-VM의 **백업** 창에서 SQL Server VM에 대 한 백업을 사용 하도록 설정할 수 있습니다. 이 메서드는 다음 두 가지 작업을 수행 합니다.
+VM의 **백업** 창을 통해 SQL Server VM에서 백업을 사용하도록 설정할 수 있습니다. 이 방법을 사용하면 다음 두 가지 작업이 수행됩니다.
 
-- SQL VM을 Azure Backup 서비스에 등록 하 여 액세스 권한을 제공 합니다.
-- VM 내에서 실행 중인 모든 SQL Server 인스턴스를 자동으로 보호 합니다. 이는 백업 정책이 모든 기존 데이터베이스 및 나중에 이러한 인스턴스에 추가 될 데이터베이스에 적용 됨을 의미 합니다.
+- Azure Backup 서비스에 SQL VM을 등록하여 액세스 권한을 부여합니다.
+- VM 내에서 실행되는 모든 SQL Server 인스턴스를 자동으로 보호합니다. 즉, 기존의 모든 데이터베이스와 나중에 인스턴스에 추가하는 데이터베이스에 백업 정책이 적용됩니다.
 
-1. 페이지 맨 위에 있는 배너를 선택 하 SQL Server 백업 보기를 엽니다.
+1. 페이지 맨 위에 있는 배너를 선택하여 SQL Server 백업 뷰를 엽니다.
 
-    ![SQL Server 백업 보기](./media/backup-sql-server-vm-from-vm-pane/sql-server-backup-view.png)
+    ![SQL Server 백업 뷰](./media/backup-sql-server-vm-from-vm-pane/sql-server-backup-view.png)
 
     >[!NOTE]
-    >배너가 표시 되지 않나요? 배너는 Azure Marketplace 이미지를 사용 하 여 만든 SQL Server Vm에 대해서만 표시 됩니다. Azure VM Backup을 사용 하 여 보호 되는 Vm에 대해서도 추가로 표시 됩니다. 다른 이미지의 경우 [여기](backup-sql-server-database-azure-vms.md)에 설명 된 대로 백업을 구성할 수 있습니다.
+    >배너가 표시되지 않나요? 배너는 Azure Marketplace 이미지를 사용하여 만든 SQL Server VM에서만 표시됩니다. Azure VM Backup으로 보호된 VM에서도 표시됩니다. 다른 이미지의 경우 [여기](backup-sql-server-database-azure-vms.md)에 설명된 대로 백업을 구성할 수 있습니다.
 
-2. Recovery Services 자격 증명 모음 이름을 입력 합니다. 자격 증명 모음은 모든 백업을 저장 하 고 관리 하는 논리적 엔터티입니다. 새 자격 증명 모음을 만드는 경우:
+2. Recovery Services 자격 증명 모음 이름을 입력합니다. 자격 증명 모음은 모든 백업을 저장하고 관리하는 논리 엔터티입니다. 새 자격 증명 모음을 만드는 경우 다음과 같이 생성됩니다.
 
-    - 보호 하 고 있는 SQL Server VM와 동일한 구독 및 지역에 생성 됩니다.
-    - 모든 백업에 대 한 GRS (지역 중복 저장소) 설정을 사용 하 여 생성 됩니다. 중복성 유형을 변경 하려는 경우 VM을 보호 하기 전에 수행 해야 합니다. 자세한 내용은 [이 문서](backup-create-rs-vault.md#set-storage-redundancy)를 참조하세요.
+    - 보호할 SQL Server VM과 동일한 구독 및 지역에서 생성됩니다.
+    - 모든 백업에 대한 GRS(지역 중복 스토리지) 설정을 사용하여 생성됩니다. 중복 유형을 변경하려면 VM을 보호하기 전에 변경해야 합니다. 자세한 내용은 [이 문서](backup-create-rs-vault.md#set-storage-redundancy)를 참조하세요.
 
-3. **백업 정책을** 선택 합니다. 기본 정책 또는 자격 증명 모음에서 만든 다른 기존 정책에서 선택할 수 있습니다. 새 정책을 만들려면 [이 문서](backup-sql-server-database-azure-vms.md#create-a-backup-policy) 를 참조 하 여 단계별 가이드를 참조 하세요.
+3. **백업 정책** 을 선택합니다. 기본 정책 또는 자격 증명 모음에 만든 다른 기존 정책에서 선택할 수 있습니다. 새 정책을 만들려면 [이 문서](backup-sql-server-database-azure-vms.md#create-a-backup-policy)에서 단계별 가이드를 참조하세요.
 
     ![백업 정책 선택](./media/backup-sql-server-vm-from-vm-pane/backup-policy.png)
 
-4. **백업 사용** 을 선택합니다. 작업을 완료 하는 데 몇 분 정도 걸릴 수 있습니다.
+4. **백업 사용** 을 선택합니다. 작업이 완료될 때까지 몇 분 정도 걸릴 수 있습니다.
 
     ![백업 사용 선택](./media/backup-sql-server-vm-from-vm-pane/enable-backup.png)
 
-5. 작업이 완료 되 면 배너에 **자격 증명 모음 이름이** 표시 됩니다.
+5. 작업이 완료되면 배너에 **자격 증명 모음 이름** 이 표시됩니다.
 
-    ![자격 증명 모음 이름이 배너에 표시 됩니다.](./media/backup-sql-server-vm-from-vm-pane/vault-name.png)
+    ![자격 증명 모음 이름이 배너에 표시됨](./media/backup-sql-server-vm-from-vm-pane/vault-name.png)
 
-6. 배너를 선택 하 여 자격 증명 모음 보기로 이동 합니다. 여기에서 등록 된 모든 Vm과 해당 보호 상태를 볼 수 있습니다.
+6. 배너를 선택하여 자격 증명 모음 뷰로 이동합니다. 여기에서 등록된 모든 VM과 해당 보호 상태를 확인할 수 있습니다.
 
-    ![등록 된 Vm이 있는 자격 증명 모음 보기](./media/backup-sql-server-vm-from-vm-pane/vault-view.png)
+    ![등록된 VM이 포함된 자격 증명 모음 뷰](./media/backup-sql-server-vm-from-vm-pane/vault-view.png)
 
-7. 비 marketplace 이미지의 경우 등록이 성공할 수 있지만 Azure Backup 확장에 SQL Server에 대 한 사용 권한이 부여 될 때까지 **백업 구성이** 트리거되지 않을 수 있습니다. 이러한 경우 **백업 준비** 열은 **준비 되지 않습니다**. Marketplace가 아닌 이미지에 대 한 [적절 한 사용 권한을 수동으로 할당](backup-azure-sql-database.md#set-vm-permissions) 해야 하므로 백업이 트리거될 수 있습니다.
+7. 비마켓플레이스 이미지의 경우 등록에 성공할 수도 있지만 Azure Backup 확장에 SQL Server에 대한 사용 권한이 부여될 때까지 **백업 구성** 이 트리거되지 않을 수 있습니다. 이 경우 **백업 준비** 열에 **준비 안 됨** 이 표시됩니다. 비마켓플레이스 이미지의 경우 백업 구성이 트리거될 수 있도록 수동으로 [적절한 사용 권한을 할당](backup-azure-sql-database.md#set-vm-permissions)해야 합니다.
 
-    ![백업 준비가 완료 되지 않았습니다.](./media/backup-sql-server-vm-from-vm-pane/backup-readiness-not-ready.png)
+    ![준비 안 됨 상태인 백업 준비](./media/backup-sql-server-vm-from-vm-pane/backup-readiness-not-ready.png)
 
-8. 백업 된 SQL Server VM에서 수행 해야 하는 추가 작업 또는 모니터링을 위해 해당 Recovery Services 자격 증명 모음으로 이동 합니다. **백업 항목** 으로 이동 하 여이 자격 증명 모음에서 백업 된 모든 데이터베이스를 확인 하 고 요청 시 백업 및 복원과 같은 작업을 트리거합니다. 마찬가지로, **백업 작업** 으로 이동 하 여 보호, 백업, 복원 등의 작업에 해당 하는 작업을 [모니터링할](manage-monitor-sql-database-backup.md) 수 있습니다.
+8. 백업된 SQL Server VM에서 수행해야 하는 추가 작업 또는 모니터링을 위해 해당 Recovery Services 자격 증명 모음으로 이동합니다. 이 자격 증명 모음에 백업된 모든 데이터베이스를 확인하고 주문형 백업 및 복원과 같은 작업을 트리거하려면 **백업 항목** 으로 이동합니다. 마찬가지로, 보호 구성, 백업, 복원 등의 작업(operation)에 해당하는 작업(job)을 [모니터링](manage-monitor-sql-database-backup.md)하려면 **백업 작업** 으로 이동합니다.
 
-    ![백업 항목의 백업 데이터베이스를 참조 하세요.](./media/backup-sql-server-vm-from-vm-pane/backup-items.png)
+    ![백업 항목에서 백업된 데이터베이스 확인](./media/backup-sql-server-vm-from-vm-pane/backup-items.png)
 
 >[!NOTE]
->백업은 보호 된 VM에 나중에 추가 될 수 있는 새 SQL Server 인스턴스에 자동으로 구성 되지 않습니다. 새로 추가 된 인스턴스에 백업을 구성 하려면 VM이 등록 된 자격 증명 모음으로 이동 하 여 [여기](backup-sql-server-database-azure-vms.md)에 나열 된 단계를 수행 해야 합니다.
+>보호된 VM에 나중에 추가될 수 있는 새 SQL Server 인스턴스에서는 백업이 자동으로 구성되지 않습니다. 새로 추가된 인스턴스에서 백업을 구성하려면 VM이 등록된 자격 증명 모음으로 이동하여 [여기](backup-sql-server-database-azure-vms.md)에 나열된 단계를 수행해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: '& 쿼리 Azure Data Lake Analytics 만들기-Azure CLI'
+title: Azure Data Lake Analytics 만들기 및 쿼리 - Azure CLI
 description: Azure 명령줄 인터페이스를 사용하여 Azure Data Lake Analytics 계정을 만들고 U-SQL 작업을 제출하는 방법을 알아봅니다.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/18/2017
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 9123ca6a1bfa90737bb1ce83ee365d1ecf514e1f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92220995"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Azure CLI를 사용하여 Azure Data Lake Analytics 시작
@@ -28,7 +28,7 @@ ms.locfileid: "92220995"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-Azure 구독에 로그인 하려면 다음을 수행 합니다.
+Azure 구독에 로그인하려면 다음을 수행합니다.
 
 ```azurecli
 az login
@@ -48,7 +48,7 @@ az account set --subscription <subscription id>
 
 모든 작업을 실행하기 전에 Data Lake Analytics 계정이 있어야 합니다. Data Lake Analytics 계정을 만들려면 다음 항목을 지정해야 합니다.
 
-* **Azure 리소스 그룹**. Azure 리소스 그룹 내에서 Data Lake Analytics 계정을 만들어야 합니다. [Azure Resource Manager](../azure-resource-manager/management/overview.md) 를 사용 하면 응용 프로그램의 리소스를 그룹으로 사용할 수 있습니다. 애플리케이션에 대한 모든 리소스의 배포, 업데이트 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.  
+* **Azure 리소스 그룹**. Azure 리소스 그룹 내에서 Data Lake Analytics 계정을 만들어야 합니다. [Azure Resource Manager](../azure-resource-manager/management/overview.md)를 사용하면 그룹으로 애플리케이션에서 리소스와 함께 사용할 수 있습니다. 애플리케이션에 대한 모든 리소스의 배포, 업데이트 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.  
 
 구독 중인 기존 리소스 그룹을 나열하려면
 
@@ -62,7 +62,7 @@ az group list
 az group create --name "<Resource Group Name>" --location "<Azure Location>"
 ```
 
-* **계정 이름 Data Lake Analytics** 합니다. Data Lake Analytics 계정마다 이름이 있습니다.
+* **Data Lake Analytics 계정 이름**. Data Lake Analytics 계정마다 이름이 있습니다.
 * **위치** - Data Lake Analytics를 지원하는 Azure 데이터 센터 중 하나를 사용합니다.
 * **기본 Data Lake Store 계정**: 각 Data Lake Analytics 계정에는 기본 Data Lake Store 계정이 있습니다.
 
@@ -148,7 +148,7 @@ wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Da
 > 공용 컨테이너가 있는 Azure Blob 컨테이너는 지원되지 않습니다.
 >
 
-### <a name="to-submit-jobs"></a>작업을 제출 하려면
+### <a name="to-submit-jobs"></a>작업을 제출하려면
 
 다음 구문을 사용하여 작업을 제출합니다.
 

@@ -1,13 +1,13 @@
 ---
 title: Azure Service Fabric 클러스터 인증서 롤오버
-description: 인증서 일반 이름으로 식별 되는 Service Fabric 클러스터 인증서를 롤오버 하는 방법에 대해 알아봅니다.
+description: 인증서 일반 이름으로 식별된 Service Fabric 클러스터 인증서를 롤오버하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 65ea4f463073c472ac6a31e62dcfdfd11cb28cc5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88853343"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Service Fabric 클러스터 인증서를 수동으로 롤오버
@@ -75,5 +75,5 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -Virtual
 
 ## <a name="next-steps"></a>다음 단계
 
-* [클러스터 보안](service-fabric-cluster-security.md)에 대해 알아봅니다.
+* [클러스터 보안](service-fabric-cluster-security.md)에 대해 알아보기
 * [클러스터 인증서 업데이트 및 관리](service-fabric-cluster-security-update-certs-azure.md)

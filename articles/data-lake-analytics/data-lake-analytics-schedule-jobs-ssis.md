@@ -1,22 +1,22 @@
 ---
 title: SSIS를 사용하여 Azure Data Lake Analytics U-SQL 작업 예약
-description: SQL Server Integration Services를 사용 하 여 인라인 스크립트를 사용 하거나 U-SQL 쿼리 파일을 사용 하 여 T-SQL 작업을 예약 하는 방법에 대해 알아봅니다.
+description: SQL Server Integration Services에서 인라인 스크립트를 사용하거나 U-SQL 쿼리 파일에서 U-SQL 작업을 예약하는 방법에 대해 알아봅니다.
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 07/17/2018
 ms.openlocfilehash: b080b433f5af49e970faba02003fb68e21a08365
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92221454"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>SSIS(SQL Server Integration Services)를 사용하여 U-SQL 작업 예약
 
 이 문서에서는 SSIS(SQL Server Integration Services)를 사용하여 U-SQL 작업을 오케스트레이션하고 만드는 방법을 배웁니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [Azure Feature Pack for Integration Services](/sql/integration-services/azure-feature-pack-for-integration-services-ssis#scenario-managing-data-in-the-cloud)에서는 Azure Data Lake Analytics 서비스에 연결하는 데 유용한 [Azure Data Lake Analytics 연결 관리자](/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager) 및 [Azure Data Lake Analytics 태스크](/sql/integration-services/control-flow/azure-data-lake-analytics-task)를 제공합니다. 이 태스크를 사용하려면 다음을 설치해야 합니다.
 
@@ -53,7 +53,7 @@ Azure Feature Pack의 **Azure Data Lake Store 파일 시스템 태스크** 를 �
 
 SSIS 패키지 디자인 뷰에서 **Azure Data Lake Store 파일 시스템 태스크**, **Foreach 루프 컨테이너** 및 Foreach 루프 컨테이너 내의 **Azure Data Lake Analytics 태스크** 를 추가합니다. Azure Data Lake Store 파일 시스템 태스크는 ADLS 계정의 U-SQL 파일을 임시 폴더로 다운로드하는 데 도움이 됩니다. Foreach 루프 컨테이너 및 Azure Data Lake Analytics 태스크는 임시 폴더 아래의 모든 U-SQL 파일을 Azure Data Lake Analytics 계정에 U-SQL 작업으로 제출하는 데 도움이 됩니다.
 
-![Foreach 루프 컨테이너에 추가 되는 Azure Data Lake Store 파일 시스템 태스크를 보여 주는 다이어그램입니다.](./media/data-lake-analytics-schedule-jobs-ssis/use-u-sql-files-in-azure-data-lake-store.png)
+![Foreach 루프 컨테이너에 추가되는 Azure Data Lake Store 파일 시스템 작업을 보여 주는 다이어그램](./media/data-lake-analytics-schedule-jobs-ssis/use-u-sql-files-in-azure-data-lake-store.png)
 
 ### <a name="configure-azure-data-lake-store-file-system-task"></a>Azure Data Lake Store 파일 시스템 태스크 구성
 
@@ -74,7 +74,7 @@ SSIS 패키지 디자인 뷰에서 **Azure Data Lake Store 파일 시스템 태�
 
 3. 루프 컨테이너가 `.usql`로 끝 나는 파일만 캐시하도록 **열거자 구성** 아래에 있는 **파일** 을 `*.usql`로 설정합니다.
 
-    !["컬렉션"이 선택 된 Foreach 루프 편집기와 열거자 및 열거자 구성 섹션이 강조 표시 된 스크린샷](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-collection.png)
+    !["컬렉션"이 선택되어 있고 열거자와 열거자 구성 섹션이 강조 표시된 Foreach 루프 편집기를 보여 주는 스크린샷](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-collection.png)
 
 4. **변수 매핑** 페이지에서 사용자 정의 변수를 추가하여 각 U-SQL 파일의 파일 이름을 가져옵니다. 파일 이름을 가져오려면 **인덱스** 를 0으로 설정합니다. 이 예제에서는 `User::FileName`이라는 변수를 정의합니다. 이 변수는 U-SQL 스크립트 파일 연결을 동적으로 가져오고 Azure Data Lake Analytics 태스크에서 U-SQL 작업 이름을 설정하는 데 사용됩니다.
 
@@ -88,10 +88,10 @@ SSIS 패키지 디자인 뷰에서 **Azure Data Lake Store 파일 시스템 태�
     
     이 파일 연결을 만들려면
 
-   1. **\<New Connection...>** FileConnection 설정에서를 선택 합니다.
+   1. FileConnection 설정에서 **\<New Connection...>** 을 선택합니다.
    2. **사용 유형** 을 **기존 파일** 로 설정하고, **파일** 을 기존 파일의 파일 경로로 설정합니다.
 
-       !["사용 유형"에 대해 "기존 파일"이 선택 된 파일 연결 관리자 편집기를 보여 주는 스크린샷](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
+       !["사용 유형"으로 "기존 파일"이 선택된 파일 연결 관리자 편집기를 보여 주는 스크린샷](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
    3. **연결 관리자** 보기에서 방금 만든 파일 연결을 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다.
 
@@ -114,7 +114,7 @@ SSIS 패키지 디자인 뷰에서 **Azure Data Lake Store 파일 시스템 태�
 
 Azure Feature Pack의 **Azure Blob 다운로드 태스크** 를 사용하여 Azure Blob Storage의 U-SQL 파일을 사용할 수 있습니다. 이 방법을 사용하면 클라우드에 있는 스크립트를 사용할 수 있습니다.
 
-이러한 단계는 [시나리오 2: Azure Data Lake Store에서 U-SQL 파일 사용](#scenario-2-use-u-sql-files-in-azure-data-lake-store)과 비슷합니다. Azure Data Lake Store 파일 시스템 태스크를 Azure Blob 다운로드 태스크로 변경합니다. [Azure Blob 다운로드 태스크에 대해 자세히 알아보세요](/sql/integration-services/control-flow/azure-blob-download-task).
+단계는 [시나리오 2: Azure Data Lake Store의 U-SQL 파일 사용](#scenario-2-use-u-sql-files-in-azure-data-lake-store)과 유사합니다. Azure Data Lake Store 파일 시스템 태스크를 Azure Blob 다운로드 태스크로 변경합니다. [Azure Blob 다운로드 태스크에 대해 자세히 알아보세요](/sql/integration-services/control-flow/azure-blob-download-task).
 
 제어 흐름은 아래와 같습니다.
 
@@ -132,7 +132,7 @@ Azure Feature Pack의 **Azure Blob 다운로드 태스크** 를 사용하여 Azu
 
     ![로컬 파일에 대한 파일 연결 추가](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
-4. **Azure Data Lake Analytics** 작업을 추가 하 고 다음을 수행 합니다.
+4. **Azure Data Lake Analytics** 태스크를 추가하고 다음을 수행합니다.
     1. **SourceType** 을 **FileConnection** 으로 설정합니다.
     2. **FileConnection** 을 방금 만든 파일 연결로 설정합니다.
 

@@ -3,19 +3,18 @@ title: Azure Key Vault 액세스 정책 할당
 description: Azure Portal, Azure CLI, Azure PowerShell을 사용하여 보안 주체 또는 애플리케이션 ID에 Key Vault 액세스 정책을 할당하는 방법.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4637715b2ba885d58ebb4c5f3ed40a79be2f815b
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 1c7c31f38d6a59f4ded17e1e1fd7e985ce59922a
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968733"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751421"
 ---
 # <a name="assign-a-key-vault-access-policy-using-azure-powershell"></a>Azure PowerShell을 사용하여 Key Vault 액세스 정책 할당
 
@@ -80,5 +79,5 @@ Set-AzKeyVaultAccessPolicy -VaultName <key-vault-name> -ObjectId <Id> -Permissio
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Key Vault 보안: ID 및 액세스 관리](security-overview.md#identity-management)
-- [키 자격 증명 모음 보안](secure-your-key-vault.md)
+- [키 자격 증명 모음 보안](security-overview.md)
 - [Azure Key Vault 개발자 가이드](developers-guide.md)

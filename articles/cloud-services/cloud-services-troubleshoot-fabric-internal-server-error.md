@@ -2,17 +2,17 @@
 title: Azure에 클라우드 서비스(클래식)를 배포할 때 FabricInternalServerError 또는 ServiceAllocationFailure 문제 해결 | Microsoft Docs
 description: 이 문서에서는 Azure에 클라우드 서비스(클래식)를 배포할 때 FabricInternalServerError 또는 ServiceAllocationFailure 예외를 해결하는 방법을 보여 줍니다.
 services: cloud-services
-author: mibufo
-ms.author: v-mibufo
+author: mamccrea
+ms.author: mamccrea
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
-ms.openlocfilehash: 0a4111f569b751ace80a2a886ed2ce7e4968ce16
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0883178779179df2e531123b8a500c62d42530e4
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101745725"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877447"
 ---
 # <a name="troubleshoot-fabricinternalservererror-or-serviceallocationfailure-when-deploying-a-cloud-service-classic-to-azure"></a>Azure에 클라우드 서비스(클래식)를 배포할 때 FabricInternalServerError 또는 ServiceAllocationFailure 문제 해결
 
@@ -50,7 +50,7 @@ FabricInternalServerError     |오류 코드 'InternalError' 및 errorMessage '�
 >
 > 시간이 지남에 따라 이 리소스 풀의 리소스는 완전히 활용될 수 있습니다. 고정된 리소스 풀에서 사용할 수 있는 리소스가 부족한 경우 클라우드 서비스에서 추가 리소스에 대한 할당 요청을 수행하면 이 요청으로 인해 [할당 오류](cloud-services-allocation-failures.md)가 발생합니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 다음 시나리오에서 할당 오류에 대한 지침을 따르세요.
 

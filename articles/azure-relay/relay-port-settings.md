@@ -3,12 +3,12 @@ title: Azure Relay 포트 설정 | Microsoft Docs
 description: 이 문서에는 Azure Relay에 대한 포트 값에 필요한 구성을 설명하는 표가 포함되어 있습니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 97640debe81041ff7e2b082c6a9ac606d6088664
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81551055d967babaac6f12c3a23ce6b1e78afbd5
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85314267"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314170"
 ---
 # <a name="azure-relay-port-settings"></a>Azure Relay 포트 설정
 
@@ -22,7 +22,7 @@ ms.locfileid: "85314267"
   
 |바인딩|전송 보안|포트|  
 |-------------|------------------------|----------|  
-|[BasicHttpRelayBinding 클래스](/dotnet/api/microsoft.servicebus.basichttprelaybinding)(클라이언트)|예|HTTPS| 
+|[BasicHttpRelayBinding 클래스](/dotnet/api/microsoft.servicebus.basichttprelaybinding)(클라이언트)|Yes|HTTPS| 
 |" |예|HTTP|  
 |[BasicHttpRelayBinding 클래스](/dotnet/api/microsoft.servicebus.basichttprelaybinding)(서비스)|여기서는|9351/HTTP|  
 |[NetEventRelayBinding 클래스](/dotnet/api/microsoft.servicebus.neteventrelaybinding)(클라이언트)|예|9351/HTTPS|  
@@ -32,14 +32,14 @@ ms.locfileid: "85314267"
 |[NetOnewayRelayBinding 클래스](/dotnet/api/microsoft.servicebus.netonewayrelaybinding)(클라이언트)|예|9351/HTTPS|  
 |" |예|9350/HTTP|  
 |[NetOnewayRelayBinding 클래스](/dotnet/api/microsoft.servicebus.netonewayrelaybinding)(서비스)|여기서는|9351/HTTP|  
-|[WebHttpRelayBinding 클래스](/dotnet/api/microsoft.servicebus.webhttprelaybinding)(클라이언트)|예|HTTPS|  
+|[WebHttpRelayBinding 클래스](/dotnet/api/microsoft.servicebus.webhttprelaybinding)(클라이언트)|Yes|HTTPS|  
 |" |예|HTTP|  
 |[WebHttpRelayBinding 클래스](/dotnet/api/microsoft.servicebus.webhttprelaybinding)(서비스)|여기서는|9351/HTTP|  
-|[WS2007HttpRelayBinding 클래스](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding)(클라이언트)|예|HTTPS|  
+|[WS2007HttpRelayBinding 클래스](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding)(클라이언트)|Yes|HTTPS|  
 |" |예|HTTP|  
 |[WS2007HttpRelayBinding 클래스](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding)(서비스)|여기서는|9351/HTTP|
 
 ## <a name="next-steps"></a>다음 단계
 Azure Relay에 대한 자세한 내용은 다음 링크를 방문하세요.
 * [Azure Relay란?](relay-what-is-it.md)
-* [릴레이 FAQ](relay-faq.md)
+* [릴레이 FAQ](relay-faq.yml)

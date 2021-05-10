@@ -5,22 +5,22 @@ author: emaher
 ms.topic: article
 ms.date: 03/30/2021
 ms.author: enewman
-ms.openlocfilehash: 888e04db76567051f8c5eae7cf94c77e684cb146
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 70be69cad59cd00ef9feaa78ad2294c64626d07a
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111098"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108125682"
 ---
 # <a name="using-external-file-storage-in-lab-services"></a>Lab Services에서 외부 파일 스토리지 사용
 
-이 문서에서는 Azure Lab Services를 사용할 때 외부 파일 스토리지에 대한 몇 가지 옵션을 설명합니다.  [Azure Files](https://azure.microsoft.com/services/storage/files/)는 [SMB 2.1 및 SMB 3.0을 통해 액세스할 수 있는](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) 클라우드에서 완전 관리형 파일 공유를 제공합니다.  Azure Files 공유는 가상 네트워크에서 퍼블릭으로 또는 프라이빗으로 연결할 수 있습니다.  또한 학생의 AD 자격 증명을 사용하여 파일 공유에 연결하도록 구성할 수 있습니다.  Linux 머신용 NFS 볼륨에 Azure NetApp Files를 사용하는 것은 Azure Lab Services를 사용하는 외부 파일 스토리지의 또 다른 옵션입니다.  
+이 문서에서는 Azure Lab Services를 사용할 때 외부 파일 스토리지에 대한 몇 가지 옵션을 설명합니다.  [Azure Files](https://azure.microsoft.com/services/storage/files/)는 [SMB 2.1 및 SMB 3.0을 통해 액세스할 수 있는](../storage/files/storage-how-to-use-files-windows.md) 클라우드에서 완전 관리형 파일 공유를 제공합니다.  Azure Files 공유는 가상 네트워크에서 퍼블릭으로 또는 프라이빗으로 연결할 수 있습니다.  또한 학생의 AD 자격 증명을 사용하여 파일 공유에 연결하도록 구성할 수 있습니다.  Linux 머신용 NFS 볼륨에 Azure NetApp Files를 사용하는 것은 Azure Lab Services를 사용하는 외부 파일 스토리지의 또 다른 옵션입니다.  
 
 ## <a name="deciding-which-solution-to-use"></a>사용할 솔루션 결정
 
 각 솔루션에는 다양한 요구 사항 및 기능이 있습니다.  아래 표에는 각 솔루션에 대해 고려할 중요 사항이 정리되어 있습니다.  
 
-|     솔루션    |    알아야 할 중요 사항    |
+|     해결 방법    |    알아야 할 중요 사항    |
 | -------------- | ------------------------ |
 | [퍼블릭 엔드포인트를 사용하는 Azure Files 공유](#azure-files-share) | <ul><li>모든 사용자에게 읽기/쓰기 권한이 있습니다.</li><li>VNet 피어링이 필요하지 않습니다.</li><li>랩 VM뿐 아니라 모든 VM에서 액세스할 수 있습니다.</li><li>Linux를 사용하는 경우 학생이 스토리지 계정 키에 액세스할 수 있습니다.</li></ul> |
 | [프라이빗 엔드포인트를 사용하는 Azure Files 공유](#azure-files-share) | <ul><li>모든 사용자에게 읽기/쓰기 권한이 있습니다.</li><li>VNet 피어링이 필요합니다.</li><li>스토리지 계정으로 동일한 네트워크(또는 피어링된 네트워크)의 VM에만 액세스할 수 있습니다.</li><li>Linux를 사용하는 경우 학생이 스토리지 계정 키에 액세스할 수 있습니다.</li></ul> |
@@ -46,16 +46,16 @@ Azure Files 공유에 프라이빗 엔드포인트를 사용하는 경우 다음
 - 이 방법을 사용하려면 파일 공유 가상 네트워크가 랩 계정에 피어링되어야 합니다.  랩을 만들려면 **먼저** Azure Storage 계정의 가상 네트워크를 랩 계정의 가상 네트워크로 피어링해야 합니다.
 
 > [!NOTE]
-> 5TB보다 큰 파일 공유는 [[LRS(로컬 중복 스토리지) 계정]](/azure/storage/files/storage-files-how-to-create-large-file-share#restrictions)에서만 사용할 수 있습니다.
+> 5TB보다 큰 파일 공유는 [[LRS(로컬 중복 스토리지) 계정]](../storage/files/storage-files-how-to-create-large-file-share.md#restrictions)에서만 사용할 수 있습니다.
 
 Azure File 공유에 연결된 VM을 만들려면 다음 단계를 수행합니다.
 
-1. [Azure Storage 계정](/azure/storage/files/storage-how-to-create-file-share)을 만듭니다. ‘연결 방법’ 페이지에서 퍼블릭 엔드포인트 또는 프라이빗 엔드포인트를 선택합니다.
-2. 사용하는 경우 가상 네트워크에서 파일 공유에 액세스할 수 있도록 [프라이빗 엔드포인트](/azure/private-link/create-private-endpoint-storage-portal)를 만듭니다.  [프라이빗 DNS 영역](/azure/dns/private-dns-privatednszone)을 만들거나 기존 영역을 사용합니다. Private Azure DNS 영역은 가상 네트워크 내에서 이름 확인을 제공합니다.
-3. [Azure 파일 공유](/azure/storage/files/storage-how-to-create-file-share)를 만듭니다. 스토리지 계정의 퍼블릭 호스트 이름으로 파일 공유에 연결할 수 있습니다.
+1. [Azure Storage 계정](../storage/files/storage-how-to-create-file-share.md)을 만듭니다. ‘연결 방법’ 페이지에서 퍼블릭 엔드포인트 또는 프라이빗 엔드포인트를 선택합니다.
+2. 사용하는 경우 가상 네트워크에서 파일 공유에 액세스할 수 있도록 [프라이빗 엔드포인트](../private-link/tutorial-private-endpoint-storage-portal.md)를 만듭니다.  [프라이빗 DNS 영역](../dns/private-dns-privatednszone.md)을 만들거나 기존 영역을 사용합니다. Private Azure DNS 영역은 가상 네트워크 내에서 이름 확인을 제공합니다.
+3. [Azure 파일 공유](../storage/files/storage-how-to-create-file-share.md)를 만듭니다. 스토리지 계정의 퍼블릭 호스트 이름으로 파일 공유에 연결할 수 있습니다.
 4. Azure 파일 공유를 템플릿 VM에 탑재합니다.
-    - [[Windows]](/azure/storage/files/storage-how-to-use-files-windows)
-    - [[Linux]](/azure/storage/files/storage-how-to-use-files-linux).  학생 VM의 탑재 문제를 방지하려면 [Linux에서 Azure Files 사용](#using-azure-files-with-linux)을 참조하세요.
+    - [[Windows]](../storage/files/storage-how-to-use-files-windows.md)
+    - [[Linux]](../storage/files/storage-how-to-use-files-linux.md).  학생 VM의 탑재 문제를 방지하려면 [Linux에서 Azure Files 사용](#using-azure-files-with-linux)을 참조하세요.
 5. 템플릿 VM을 [게시](how-to-create-manage-template.md#publish-the-template-vm)합니다.
 
 > [!IMPORTANT]
@@ -98,14 +98,14 @@ Azure 파일 공유를 `/mnt` 디렉터리에 탑재하는 템플릿 VM이 이�
 
 학생은 `mount -a`를 실행하여 디렉터리를 다시 탑재해야 합니다.
 
-Linux에서 파일 공유를 사용하는 방법에 대한 일반적인 정보는 [Linux에서 Azure Files 사용](/azure/storage/files/storage-how-to-use-files-linux)을 참조하세요.
+Linux에서 파일 공유를 사용하는 방법에 대한 일반적인 정보는 [Linux에서 Azure Files 사용](../storage/files/storage-how-to-use-files-linux.md)을 참조하세요.
 
 ## <a name="azure-files-with-identity-base-authorization"></a>ID 기반 권한 부여를 사용하는 Azure Files
 
 다음과 같은 경우 Azure Files 공유는 AD 인증을 사용하여 액세스할 수도 있습니다.
 
 1. 학생 VM은 도메인에 조인되어 있습니다.
-2. AD 인증은 파일 공유를 호스트하는 [Azure Storage 계정에서 사용하도록 설정](/azure/storage/files/storage-files-active-directory-overview)됩니다.  
+2. AD 인증은 파일 공유를 호스트하는 [Azure Storage 계정에서 사용하도록 설정](../storage/files/storage-files-active-directory-overview.md)됩니다.  
 
 네트워크 드라이브는 스토리지 계정의 키가 아닌 사용자의 ID를 사용하여 가상 머신에 탑재됩니다.  스토리지 계정에 대한 액세스는 퍼블릭 또는 프라이빗 엔드포인트를 사용할 수 있습니다.
 
@@ -125,13 +125,13 @@ Azure Files 공유에 프라이빗 엔드포인트를 사용하는 경우 다음
 
 아래 단계에 따라 AD 인증을 사용하도록 설정된 Azure Files 공유를 만들고 랩 VM을 도메인에 조인합니다.
 
-1. [Azure Storage 계정](/azure/storage/files/storage-how-to-create-file-share)을 만듭니다.
-2. 사용하는 경우 가상 네트워크에서 파일 공유에 액세스할 수 있도록 [프라이빗 엔드포인트](/azure/private-link/create-private-endpoint-storage-portal)를 만듭니다.  [프라이빗 DNS 영역](/azure/dns/private-dns-privatednszone)을 만들거나 기존 영역을 사용합니다. Private Azure DNS 영역은 가상 네트워크 내에서 이름 확인을 제공합니다.
-3. [Azure 파일 공유](/azure/storage/files/storage-how-to-create-file-share)를 만듭니다.
-4. 단계에 따라 ID 기반 권한 부여를 사용하도록 설정합니다.  Azure AD와 동기화된 온-프레미스 AD를 사용하는 경우 [Azure 파일 공유의 SMB를 통한 온-프레미스 Active Directory Domain Services 인증](/azure/storage/files/storage-files-identity-auth-active-directory-enable) 단계를 수행합니다.  Azure AD만 사용하는 경우 [Azure Files에서 Azure Active Directory Domain Services 인증을 사용하도록 설정](/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable)하는 단계를 수행합니다.
+1. [Azure Storage 계정](../storage/files/storage-how-to-create-file-share.md)을 만듭니다.
+2. 사용하는 경우 가상 네트워크에서 파일 공유에 액세스할 수 있도록 [프라이빗 엔드포인트](../private-link/tutorial-private-endpoint-storage-portal.md)를 만듭니다.  [프라이빗 DNS 영역](../dns/private-dns-privatednszone.md)을 만들거나 기존 영역을 사용합니다. Private Azure DNS 영역은 가상 네트워크 내에서 이름 확인을 제공합니다.
+3. [Azure 파일 공유](../storage/files/storage-how-to-create-file-share.md)를 만듭니다.
+4. 단계에 따라 ID 기반 권한 부여를 사용하도록 설정합니다.  Azure AD와 동기화된 온-프레미스 AD를 사용하는 경우 [Azure 파일 공유의 SMB를 통한 온-프레미스 Active Directory Domain Services 인증](../storage/files/storage-files-identity-auth-active-directory-enable.md) 단계를 수행합니다.  Azure AD만 사용하는 경우 [Azure Files에서 Azure Active Directory Domain Services 인증을 사용하도록 설정](../storage/files/storage-files-identity-auth-active-directory-domain-service-enable.md)하는 단계를 수행합니다.
     >[!IMPORTANT]
     >지침에 나열된 모든 필수 구성 요소를 충족하는지 확인하려면 AD를 관리하는 팀에 문의하세요.
-5. Azure의 SMB 공유 권한 역할을 할당합니다.  각 역할에 부여된 사용 권한에 대한 자세한 내용은 [공유 수준 사용 권한](/azure/storage/files/storage-files-identity-ad-ds-assign-permissions)을 참조하세요.
+5. Azure의 SMB 공유 권한 역할을 할당합니다.  각 역할에 부여된 사용 권한에 대한 자세한 내용은 [공유 수준 사용 권한](../storage/files/storage-files-identity-ad-ds-assign-permissions.md)을 참조하세요.
     1. 파일 공유 콘텐츠에 대한 권한을 설정하는 개인 또는 그룹에 ‘스토리지 파일 데이터 SMB 공유 상승된 기여자’ 역할을 할당해야 합니다.
     2. 파일 공유에서 파일을 추가하거나 편집해야 하는 학생에게 ‘스토리지 파일 데이터 SMB 공유 기여자’ 역할을 할당해야 합니다.
     3. 파일 공유에서 파일을 읽기만 하면 되는 학생에게 ‘스토리지 파일 데이터 SMB 공유 읽기 권한자’ 역할을 할당해야 합니다.
@@ -147,7 +147,7 @@ Azure Files 공유에 프라이빗 엔드포인트를 사용하는 경우 다음
 10. 템플릿 머신에서 [학생 머신을 도메인에 조인](https://github.com/Azure/azure-devtestlab/blob/master/samples/ClassroomLabs/Scripts/ActiveDirectoryJoin/README.md#usage)하는 스크립트를 다운로드하여 실행합니다.  `Join-AzLabADTemplate` 스크립트는 자동으로 [템플릿 VM을 게시](how-to-create-manage-template.md#publish-the-template-vm)합니다.  
     > [!NOTE]
     > 템플릿 머신은 도메인에 조인되지 않습니다. 강사는 공유에서 파일을 볼 수 있도록 게시된 학생 VM을 할당해야 합니다.
-11. 파일 공유 경로가 지정되면 Windows를 사용하는 학생은 [파일 탐색기](/azure/storage/files/storage-how-to-use-files-windows)를 사용하여 자격 증명으로 Azure Files 공유에 연결할 수 있습니다.  또는 학생이 위에서 만든 스크립트를 실행하여 네트워크 드라이브에 연결할 수 있습니다.  Linux를 사용하는 학생은 위에서 만든 스크립트를 실행합니다.
+11. 파일 공유 경로가 지정되면 Windows를 사용하는 학생은 [파일 탐색기](../storage/files/storage-how-to-use-files-windows.md)를 사용하여 자격 증명으로 Azure Files 공유에 연결할 수 있습니다.  또는 학생이 위에서 만든 스크립트를 실행하여 네트워크 드라이브에 연결할 수 있습니다.  Linux를 사용하는 학생은 위에서 만든 스크립트를 실행합니다.
 
 ## <a name="netapp-files-with-nfs-volumes"></a>NFS 볼륨을 사용하는 NetApp Files
 
@@ -162,7 +162,7 @@ Azure Files 공유에 프라이빗 엔드포인트를 사용하는 경우 다음
 Azure Lab Services에서 Azure NetApp Files 공유를 사용하려면 다음 단계를 수행합니다.
 
 1. 필요한 경우 [Azure NetApp Files](https://aka.ms/azurenetappfiles)에 온보딩합니다.
-2. NetApp Files 용량 풀 및 NFS 볼륨을 만들려면 [Azure NetApp Files 및 NFS 볼륨 설정](/azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes)을 참조하세요.  서비스 수준에 대한 자세한 내용은 [Azure NetApp Files의 서비스 수준](/azure/azure-netapp-files/azure-netapp-files-service-levels)을 참조하세요.
+2. NetApp Files 용량 풀 및 NFS 볼륨을 만들려면 [Azure NetApp Files 및 NFS 볼륨 설정](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md)을 참조하세요.  서비스 수준에 대한 자세한 내용은 [Azure NetApp Files의 서비스 수준](../azure-netapp-files/azure-netapp-files-service-levels.md)을 참조하세요.
 3. 랩 계정으로 NetApp Files 용량 풀의 [가상 네트워크를 피어링](how-to-connect-peer-virtual-network.md)합니다.
 4. [교실 랩을 만듭니다](how-to-manage-classroom-labs.md).
 5. 템플릿 VM에서 NFS 파일 공유를 사용하는 데 필요한 구성 요소를 설치합니다.
@@ -179,7 +179,7 @@ Azure Lab Services에서 Azure NetApp Files 공유를 사용하려면 다음 단
         sudo yum install nfs-utils
         ```
 
-6. 템플릿 VM에서 아래 스크립트를 `mount_fileshare.sh`로 저장하여 [NetApp Files 공유를 탑재](/azure/azure-netapp-files/azure-netapp-files-mount-unmount-volumes-for-virtual-machines)합니다.  용량 풀의 탑재 대상 IP 주소를 `capacity_pool_ipaddress` 변수에 할당합니다.  적절한 값을 찾기 위해 볼륨의 탑재 지침을 가져옵니다.  스크립트에는 NetApp Files 볼륨의 경로/이름이 필요합니다.  사용자가 스크립트를 실행할 수 있도록 `chmod u+x mount_fileshare.sh` 실행을 잊지 마세요.
+6. 템플릿 VM에서 아래 스크립트를 `mount_fileshare.sh`로 저장하여 [NetApp Files 공유를 탑재](../azure-netapp-files/azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)합니다.  용량 풀의 탑재 대상 IP 주소를 `capacity_pool_ipaddress` 변수에 할당합니다.  적절한 값을 찾기 위해 볼륨의 탑재 지침을 가져옵니다.  스크립트에는 NetApp Files 볼륨의 경로/이름이 필요합니다.  사용자가 스크립트를 실행할 수 있도록 `chmod u+x mount_fileshare.sh` 실행을 잊지 마세요.
 
     ```bash
     #!/bin/bash
@@ -205,7 +205,7 @@ Azure Lab Services에서 Azure NetApp Files 공유를 사용하려면 다음 단
 
 7. 모든 학생이 동일한 NetApp Files 볼륨에 대한 액세스 권한을 공유하는 경우 게시하기 전에 템플릿 머신에서 `mount_fileshare.sh` 스크립트를 실행할 수 있습니다.  각 학생이 고유한 볼륨을 얻는 경우 나중에 학생이 실행할 스크립트를 저장합니다.
 8. 템플릿 VM을 [게시](how-to-create-manage-template.md#publish-the-template-vm)합니다.
-9. 파일 공유를 위한 [정책을 구성](/azure/azure-netapp-files/azure-netapp-files-configure-export-policy)합니다.  내보내기 정책은 단일 VM 또는 여러 VM이 볼륨에 액세스하도록 허용할 수 있습니다.  읽기 전용 또는 읽기/쓰기 권한을 부여할 수 있습니다.
+9. 파일 공유를 위한 [정책을 구성](../azure-netapp-files/azure-netapp-files-configure-export-policy.md)합니다.  내보내기 정책은 단일 VM 또는 여러 VM이 볼륨에 액세스하도록 허용할 수 있습니다.  읽기 전용 또는 읽기/쓰기 권한을 부여할 수 있습니다.
 10. 학생은 VM을 시작하고 스크립트를 실행하여 파일 공유를 탑재해야 합니다.  스크립트를 한 번만 실행하면 됩니다.  명령은 `./mount_fileshare.sh myvolumename`와 같이 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계

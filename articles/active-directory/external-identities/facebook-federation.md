@@ -13,19 +13,19 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bcacfc8cede0ab91241fd431aace10cbbfbea916
-ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105709687"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>Facebook을 외부 ID에 대한 ID 공급자로 추가
 
-사용자가 자신의 Facebook 계정을 사용 하 여 응용 프로그램에 로그인 할 수 있도록 셀프 서비스 등록 사용자 흐름에 Facebook을 추가할 수 있습니다. 사용자가 Facebook을 사용하여 로그인할 수 있도록 하려면 먼저 테넌트에 대해 [셀프 서비스 등록을 사용하도록 설정](self-service-sign-up-user-flow.md)해야 합니다. Facebook을 ID 공급자로 추가한 후에는 애플리케이션에 대한 사용자 흐름을 설정하고 로그인 옵션 중 하나로 Facebook을 선택합니다.
+사용자가 자신의 Facebook 계정을 사용하여 애플리케이션에 로그인할 수 있도록 셀프 서비스 가입 사용자 흐름에 Facebook을 추가할 수 있습니다. 사용자가 Facebook을 사용하여 로그인할 수 있도록 하려면 먼저 테넌트에 대해 [셀프 서비스 등록을 사용하도록 설정](self-service-sign-up-user-flow.md)해야 합니다. Facebook을 ID 공급자로 추가한 후에는 애플리케이션에 대한 사용자 흐름을 설정하고 로그인 옵션 중 하나로 Facebook을 선택합니다.
 
-응용 프로그램 로그인 옵션 중 하나로 Facebook을 추가 하면 **로그인** 페이지에서 사용자가 facebook에 로그인 하는 데 사용 하는 전자 메일을 간단히 입력 하거나 **로그인 옵션** 을 선택 하 고 **facebook으로 로그인** 을 선택할 수 있습니다. 두 경우 모두 인증을 위해 Facebook 로그인 페이지로 리디렉션됩니다.
+애플리케이션의 로그인 옵션 중 하나로 Facebook을 추가한 다음, **로그인** 페이지에서 단순히 Facebook에 로그인하는 데 사용하는 메일을 입력하거나 **로그인 옵션** 을 선택하고 **Facebook으로 로그인** 을 선택할 수 있습니다. 두 경우 모두 인증을 위해 Facebook 로그인 페이지로 리디렉션됩니다.
 
-![Facebook 사용자에 대 한 로그인 옵션](media/facebook-federation/sign-in-with-facebook-overview.png)
+![Facebook 사용자의 로그인 옵션](media/facebook-federation/sign-in-with-facebook-overview.png)
 
 > [!NOTE]
 > 사용자는 자신의 Facebook 계정을 사용하여 셀프 서비스 가입 및 사용자 흐름에 따라 앱에 가입할 수만 있습니다. 사용자는 Facebook 계정을 사용하여 초대를 받고 초대권을 사용할 수 없습니다.
@@ -36,7 +36,7 @@ ms.locfileid: "105709687"
 
 > [!NOTE]  
 > 아래의 9 및 16단계에서 다음 URL을 사용합니다.
-> - **사이트 URL** 에 응용 프로그램의 주소를 입력 합니다 (예:) `https://contoso.com` .
+> - **사이트 URL** 에 애플리케이션의 주소를 입력합니다(예: `https://contoso.com`).
 > - **유효한 OAuth 리디렉션 URI** 에 `https://login.microsoftonline.com/te/<tenant-id>/oauth2/authresp`를 입력합니다. Azure Active Directory 개요 블레이드에서 `<tenant-ID>`를 찾을 수 있습니다.
 
 

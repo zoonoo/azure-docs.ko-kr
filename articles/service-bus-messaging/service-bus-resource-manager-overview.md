@@ -1,5 +1,5 @@
 ---
-title: 템플릿을 사용 하 여 Azure Service Bus 리소스 만들기
+title: 템플릿을 사용하여 Azure Service Bus 리소스 만들기
 description: Azure Resource Manager 템플릿을 사용하여 자동으로 Service Bus 리소스 만들기
 documentationcenter: .net
 author: spelluru
@@ -9,10 +9,10 @@ ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: df8a7fde9114f03521f0e57e072f81a867efcf39
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89075259"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Service Bus 리소스 만들기
@@ -54,7 +54,7 @@ Azure Resource Manager 배포 템플릿에 대한 모든 내용은 [Azure Resour
 
 [Azure PowerShell 시작하기](/powershell/azure/get-started-azureps)의 지침을 따라서 Azure PowerShell을 설치합니다.
 
-### <a name="create-a-template"></a>템플릿 만들기
+### <a name="create-a-template"></a>템플릿 생성
 
 리포지토리를 복제하거나 GitHub에서 [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) 템플릿을 복사합니다.
 

@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/28/2021
+ms.date: 04/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 8ddc02075d2cdeba4a4fa83a2475ec20c3f18d6e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e5f7db6b360769b7a3c2e3ffdafe66f94c2582aa
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103418082"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108178307"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 대한 FAQ(자주 묻는 질문)
 
@@ -26,6 +26,30 @@ ms.locfileid: "103418082"
 Microsoft Authenticator 앱은 Azure Authenticator 앱을 대신하며, Azure AD Multi-Factor Authentication을 사용하는 경우 권장됩니다. [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) 및 [iOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458) 디바이스의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
+
+### <a name="permission-to-access-your-location"></a>위치 액세스 권한
+
+**Q**: 앱에서 내 위치에 액세스할 수 있는 권한을 부여하라는 메시지가 표시됩니다. 왜 이것이 표시되나요?
+
+**A**: IT 관리자가 특정 리소스에 액세스하기 전에 GPS 위치를 공유하도록 요구하는 정책을 만든 경우 Microsoft Authenticator에서 사용자 위치에 대한 액세스를 요청하는 메시지가 표시됩니다. 리소스에 액세스할 수 있는 국가 내에 있는지 확인하려면 매시간 한 번씩 위치를 공유해야 합니다.
+
+iOS에서는 앱이 항상 위치에 액세스할 수 있도록 허용하는 것이 좋습니다. iOS 프롬프트에 따라 해당 사용 권한을 부여합니다. 각 권한 수준이 의미하는 바는 다음과 같습니다.
+
+- **앱을 사용하는 동안 허용**: 이 옵션을 선택하면 두 가지 옵션을 더 선택하라는 메시지가 표시됩니다.
+- **항상 허용(권장)** : 앞으로 24시간 동안 보호된 리소스에 계속 액세스하는 동안 디바이스에서 한 시간에 한 번씩 위치가 자동으로 공유되므로 휴대폰을 꺼내서 매시간 수동으로 승인할 필요가 없습니다.
+- **사용 동안만 유지**: 보호된 리소스에 계속 액세스하는 동안 매시간 디바이스를 꺼내 요청을 수동으로 승인해야 합니다.
+- **한 번 허용**: 리소스에 계속 액세스하는 동안 1시간마다 또는 다음 번에 리소스에 액세스하려고 할 때 권한을 다시 부여해야 합니다. 설정으로 이동하여 권한을 수동으로 활성화해야 합니다. 
+- **허용 안 함**: 이 옵션을 선택하면 리소스 액세스가 차단됩니다. 생각이 바뀌면 설정으로 이동하여 권한을 수동으로 활성화해야 합니다.
+
+Android에서는 앱이 항상 위치에 액세스할 수 있도록 허용하는 것이 좋습니다. Android 프롬프트에 따라 해당 사용 권한을 부여합니다. 각 권한 수준이 의미하는 바는 다음과 같습니다.
+
+- **항상 허용(권장)** : 앞으로 24시간 동안 보호된 리소스에 계속 액세스하는 동안 디바이스에서 한 시간에 한 번씩 위치가 자동으로 공유되므로 휴대폰을 꺼내서 매시간 수동으로 승인할 필요가 없습니다.
+- **앱을 사용하는 동안에만 허용**: 보호된 리소스에 계속 액세스하는 동안 매시간 디바이스를 꺼내 요청을 수동으로 승인해야 합니다.
+- **거부하고 다시 묻지 않음**: 이 옵션을 선택하면 리소스 액세스가 차단됩니다.
+
+**Q**: 내 위치 정보는 어떻게 사용되고 저장되나요?
+
+**A**: Authenticator 앱은 GPS 정보를 수집하여 사용자가 거주하는 국가를 확인합니다. 보호된 리소스에 액세스할 수 있는지 확인하기 위해 국가 이름 및 위치 좌표가 시스템으로 다시 전송됩니다. 국가 이름이 저장되고 IT 관리자에게 다시 보고되지만 실제 좌표는 Microsoft 서버에 저장되지 않습니다.
 
 ### <a name="registering-a-device"></a>디바이스 등록
 

@@ -15,12 +15,12 @@ ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca99a997d621bfd2455e909b36b6802775b20ac2
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: dfa329999cb7b53835907196ceaa9b02920da149
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106074610"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124260"
 ---
 # <a name="adsync-service-account"></a>ADSync 서비스 계정
 Azure AD Connect는 Active Directory 및 Azure Active Directory 간의 동기화를 오케스트레이션하는 온-프레미스 서비스를 설치합니다.  Microsoft Azure ADSync(Active Directory 동기화 서비스)는 온-프레미스 환경의 서버에서 실행됩니다.  서비스의 자격 증명은 기본적으로 기본 설치에서 설정되지만, 조직의 보안 요구 사항에 맞게 사용자 지정할 수 있습니다.  이러한 자격 증명은 온-프레미스 포리스트 또는 Azure Active Directory에 연결하는 데 사용되지 않습니다.
@@ -53,8 +53,8 @@ ADSync 서비스 계정을 선택하는 것은 Azure AD Connect를 설치하기 
 - 굵지 않은 글꼴 - 지원되는 옵션 
 - 로컬 계정 - 서버의 로컬 사용자 계정 
 - 도메인 계정 - 도메인 사용자 계정 
-- sMSA - [독립 실행형 관리 서비스 계정](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
-- gMSA - [그룹 관리 서비스 계정](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)) 
+- sMSA - [독립 실행형 관리 서비스 계정](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
+- gMSA - [그룹 관리 서비스 계정](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)) 
 
 |머신 형식 |**LocalDB</br> 기본**|**LocalDB/LocalSQL</br> 사용자 지정**|**원격 SQL </br> 사용자 지정**|
 |-----|-----|-----|-----|
@@ -69,11 +69,11 @@ ADSync 서비스 계정을 선택하는 것은 Azure AD Connect를 설치하기 
 
 가상 서비스 계정은 동기화 엔진과 SQL이 동일한 서버에 있는 시나리오에서 사용됩니다. 원격 SQL을 사용하는 경우 그룹 관리 서비스 계정을 대신 사용하는 것이 좋습니다. 
 
-[Windows DPAPI(데이터 보호 API)](https://msdn.microsoft.com/library/ms995355.aspx) 문제로 인해 도메인 컨트롤러에서 가상 서비스 계정을 사용할 수 없습니다. 
+[Windows DPAPI(데이터 보호 API)](/previous-versions/ms995355(v=msdn.10)) 문제로 인해 도메인 컨트롤러에서 가상 서비스 계정을 사용할 수 없습니다. 
 
 ## <a name="managed-service-account"></a>관리 서비스 계정 
 
-원격 SQL Server를 사용하는 경우에는 그룹 관리 서비스 계정을 사용하는 것이 좋습니다. 그룹 관리 서비스 계정을 위해 Active Directory를 준비하는 방법에 관한 자세한 내용은 [그룹 관리 서비스 계정 개요](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11))를 참조하세요. 
+원격 SQL Server를 사용하는 경우에는 그룹 관리 서비스 계정을 사용하는 것이 좋습니다. 그룹 관리 서비스 계정을 위해 Active Directory를 준비하는 방법에 관한 자세한 내용은 [그룹 관리 서비스 계정 개요](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11))를 참조하세요. 
 
 이 옵션을 사용하려면 [필수 구성 요소 설치](how-to-connect-install-custom.md#install-required-components) 페이지에서 **기존 서비스 계정 사용** 을 선택하고 **관리 서비스 계정** 을 선택합니다. 
 

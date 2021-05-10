@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric에 대 한 비정상 및 장애 조치 (failover) 테스트 만들기
+title: Azure Service Fabric에 대한 비정상 상황 및 장애 조치 테스트 만들기
 description: 서비스 패브릭 Chaos 테스트 및 장애 조치 테스트 시나리오를 통해 결함을 유도하고 서비스의 신뢰성을 확인합니다.
 ms.topic: conceptual
 ms.date: 10/1/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ef49d541cd00d289176ca61e055102faf6df7514
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 03df86c5ee27815679d72983e95f40ec7e79a11e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735559"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728235"
 ---
 # <a name="testability-scenarios"></a>테스트 용이성 시나리오
 클라우드 인프라 같은 대규모 분산 시스템은 본질적으로 불안정합니다. Azure 서비스 패브릭은 개발자에게 불안정한 인프라를 기반으로 실행되는 서비스를 작성할 수 있는 기능을 제공합니다. 고품질 서비스를 작성하려면 개발자는 이처럼 불안정한 인프라에서 서비스의 안정성을 테스트하도록 유도할 수 있어야 합니다.
@@ -123,7 +123,7 @@ class Test
 
 PowerShell
 
-Service Fabric Powershell 모듈에는 비정상 상황 시나리오를 시작 하는 두 가지 방법이 포함 되어 있습니다. `Invoke-ServiceFabricChaosTestScenario` 는 클라이언트 기반 이며, 클라이언트 컴퓨터가 테스트를 통해 중간에 종료 되는 경우 더 이상 오류가 발생 하지 않습니다. 또는 컴퓨터 종료 시 테스트 실행을 유지 하는 일련의 명령이 있습니다. `Start-ServiceFabricChaos` Faultanalysisservice의입니다 라는 상태 저장 및 안정적인 시스템 서비스를 사용 하 여 TimeToRun가 가동 될 때까지 오류가 계속 해 서 발생 하는지 확인 합니다. `Stop-ServiceFabricChaos` 를 사용 하 여 시나리오를 수동으로 중지 하 고 `Get-ServiceFabricChaosReport` 보고서를 가져올 수 있습니다. 자세한 내용은 [Azure Service Fabric Powershell 참조](/powershell/module/ServiceFabric/New-ServiceFabricService?view=azureservicefabricps) 및 [Service Fabric 클러스터에서 비정상 상황 제어 유도](service-fabric-controlled-chaos.md)를 참조 하세요.
+Service Fabric PowerShell 모듈에는 비정상 상황 시나리오를 시작하는 두 가지 방법이 포함되어 있습니다. `Invoke-ServiceFabricChaosTestScenario`는 클라이언트 기반이며 클라이언트 머신이 테스트 중간에 종료되면 더는 결함이 발생하지 않습니다. 또는 머신 종료 시 테스트 실행을 유지하는 명령 세트가 있습니다. `Start-ServiceFabricChaos`는 FaultAnalysisService라는 상태 저장 및 신뢰할 수 있는 시스템 서비스를 사용하여 TimeToRun이 가동될 때까지 결함이 계속 발생하는지 확인합니다. `Stop-ServiceFabricChaos`를 사용하여 시나리오를 수동으로 중지할 수 있으며 `Get-ServiceFabricChaosReport`는 보고서를 얻습니다. 자세한 내용은 [Azure Service Fabric PowerShell 참조](/powershell/module/ServiceFabric/New-ServiceFabricService?preserve-view=true&view=azureservicefabricps) 및 [Service Fabric 클러스터에서 제어된 비정상 상황 유도](service-fabric-controlled-chaos.md)를 참조하세요.
 
 ```powershell
 $connection = "localhost:19000"

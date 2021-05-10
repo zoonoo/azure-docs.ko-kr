@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
 ms.openlocfilehash: d412441a7a80a14a0bc7a70de8020692f8f573d6
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105642717"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Visual Studio CodeLens에서 Application Insights 원격 분석
@@ -30,7 +30,7 @@ ms.locfileid: "105642717"
 > 
 
 ## <a name="exceptions-in-codelens"></a>CodeLens의 예외
-![CodeLens에서 47 예외를 표시 합니다.](./media/visual-studio-codelens/codelens-exceptions.png)
+![스크린샷은 CodeLens에 표시된 47 예외를 표시합니다.](./media/visual-studio-codelens/codelens-exceptions.png)
 
 예외 CodeLens 지표는 해당 기간 동안 애플리케이션에서 가장 자주 발생한 15개의 예외 지난 24시간 동안 발생한 예외의 수를 보여주고 메서드에서 제공한 요청을 처리합니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "105642717"
 > 
 
 ## <a name="requests-in-codelens"></a>CodeLens에서 요청
-![7% 실패를 포함 하 여 684 요청에 대 한 자세한 정보를 보여 주는 스크린샷](./media/visual-studio-codelens/codelens-requests.png)
+![스크린샷은 7% 실패를 포함하여 684개의 요청에 관한 세부 정보를 보여 줍니다.](./media/visual-studio-codelens/codelens-requests.png)
 
 요청 CodeLens 지표는 지난 24시간 동안 메서드에서 제공한 HTTP 요청의 수와 실패한 해당 요청의 비율을 보여 줍니다.
 
@@ -65,6 +65,6 @@ ms.locfileid: "105642717"
 * CodeLens 세부 정보 보기의 왼쪽 위 모퉁이에 있는 Application Insights 리소스의 이름을 선택하여 CodeLens 데이터의 원본인 리소스를 변경합니다.
 
 ## <a name="next-steps"></a><a name="next"></a>다음 단계
-* **[Visual Studio에서 Application Insights 사용](./visual-studio.md)** 원격 분석을 검색하고, CodeLens에서 데이터를 확인하며, Application Insights를 구성합니다. Visual Studio 내에서 모두 수행할 수 있습니다. 
-* **[Application Insights 포털을 사용 하 여 작업](./overview-dashboard.md)** 합니다. 대시보드, 강력한 분석 및 진단 도구, 경고, 애플리케이션의 라이브 종속성 맵 및 원격 분석 내보내기입니다. 
+* **[Visual Studio에서 Application Insights로 작업](./visual-studio.md)** . 원격 분석을 검색하고, CodeLens에서 데이터를 확인하며, Application Insights를 구성합니다. Visual Studio 내에서 모두 수행할 수 있습니다. 
+* **[Application Insights 포털 사용](./overview-dashboard.md)** . 대시보드, 강력한 분석 및 진단 도구, 경고, 애플리케이션의 라이브 종속성 맵 및 원격 분석 내보내기입니다. 
 

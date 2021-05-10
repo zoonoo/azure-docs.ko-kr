@@ -1,18 +1,18 @@
 ---
-title: 레지스트리 역할 및 사용 권한
-description: Azure RBAC (역할 기반 액세스 제어) 및 IAM (id 및 액세스 관리)을 사용 하 여 Azure container registry의 리소스에 대 한 세분화 된 사용 권한을 제공 합니다.
+title: 레지스트리 역할 및 권한
+description: Azure RBAC(Azure 역할 기반 액세스 제어)와 IAM(ID 및 액세스 관리)을 사용하여 Azure 컨테이너 레지스트리에서 리소스에 대해 세분화된 사용 권한을 제공합니다.
 ms.topic: article
 ms.date: 10/14/2020
 ms.openlocfilehash: 097ccf89caf63d2a504d072cf04c2b534a57a031
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92207957"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry 역할 및 권한
 
-Azure Container Registry 서비스는 Azure Container Registry에 대해 서로 다른 수준의 사용 권한을 제공 하는 [기본 제공 azure 역할](../role-based-access-control/built-in-roles.md) 집합을 지원 합니다. Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/index.yml) 를 사용 하 여 컨테이너 이미지를 끌어오거나 푸시하는 등의 방법으로 사용자, 서비스 주체 또는 레지스트리와 상호 작용 해야 하는 기타 id에 특정 권한을 할당 합니다. 또한 서로 다른 작업을 위해 레지스트리를 세분화 된 권한으로 사용 하 여 [사용자 지정 역할](#custom-roles) 을 정의할 수 있습니다.
+Azure Container Registry 서비스는 Azure 컨테이너 레지스트리에 대한 다양한 수준의 권한을 제공하는 [기본 제공 Azure 역할](../role-based-access-control/built-in-roles.md) 세트를 지원합니다. [Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/index.yml)를 사용하여 컨테이너 이미지를 풀 또는 푸시하는 등 레지스트리를 조작하는 데 필요한 특정 권한을 사용자, 서비스 주체 또는 기타 ID에 할당합니다. 또한 여러 작업을 수행할 수 있도록 레지스트리에 대해 세분화된 권한이 있는 [사용자 지정 역할](#custom-roles)을 정의할 수 있습니다.
 
 | 역할/권한       | [Resource Manager 액세스](#access-resource-manager) | [레지스트리 만들기/삭제](#create-and-delete-registry) | [이미지 푸시](#push-image) | [이미지 풀](#pull-image) | [이미지 데이터 삭제](#delete-image-data) | [정책 변경](#change-policies) |   [이미지 서명](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -26,9 +26,9 @@ Azure Container Registry 서비스는 Azure Container Registry에 대해 서로 
 
 ## <a name="assign-roles"></a>역할 할당
 
-기존 사용자, 그룹, 서비스 주체 또는 관리 id에 역할 할당을 추가 하려면 개략적인 단계에 대 한 [역할 할당을 추가 하는 단계](../role-based-access-control/role-assignments-steps.md) 를 참조 하세요. Azure Portal, Azure CLI 또는 기타 Azure 도구를 사용할 수 있습니다.
+기존 사용자, 그룹, 서비스 주체 또는 관리 ID에 역할 할당을 추가하는 개략적인 단계는 [역할 할당을 추가하는 단계](../role-based-access-control/role-assignments-steps.md)를 참조하세요. Azure Portal, Azure CLI 또는 기타 Azure 도구를 사용할 수 있습니다.
 
-서비스 주체를 만들 때 컨테이너 레지스트리와 같은 Azure 리소스에 대 한 액세스 및 권한도 구성 합니다. Azure CLI를 사용 하는 예제 스크립트는 [Azure Container Registry 서비스 사용자로 인증](container-registry-auth-service-principal.md#create-a-service-principal)을 참조 하세요.
+서비스 주체를 만들 때 컨테이너 레지스트리와 같은 Azure 리소스에 대한 액세스 및 권한도 구성합니다. Azure CLI를 사용하는 예제 스크립트는 [서비스 주체로 Azure Container Registry 인증](container-registry-auth-service-principal.md#create-a-service-principal)을 참조하세요.
 
 ## <a name="differentiate-users-and-services"></a>사용자 및 서비스 구별
 
@@ -36,7 +36,7 @@ Azure Container Registry 서비스는 Azure Container Registry에 대해 서로 
 
 ### <a name="cicd-solutions"></a>CI/CD 솔루션
 
-CI/CD 솔루션에서 `docker build` 명령을 자동화하는 경우 `docker push` 기능이 필요합니다. 이러한 헤드리스 서비스 시나리오의 경우 **Acrpush** 역할을 할당 하는 것이 좋습니다. 이 역할은 보다 광범위한 **기여자** 역할과 달리 계정이 다른 레지스트리 작업을 수행하거나 Azure Resource Manager에 액세스하지 못하도록 합니다.
+CI/CD 솔루션에서 `docker build` 명령을 자동화하는 경우 `docker push` 기능이 필요합니다. 이러한 헤드리스 서비스 시나리오의 경우 **AcrPush** 역할을 할당하는 것이 좋습니다. 이 역할은 보다 광범위한 **기여자** 역할과 달리 계정이 다른 레지스트리 작업을 수행하거나 Azure Resource Manager에 액세스하지 못하도록 합니다.
 
 ### <a name="container-host-nodes"></a>컨테이너 호스트 노드
 
@@ -64,7 +64,7 @@ Azure Container Registry를 만들고 삭제하는 기능입니다.
 
 ## <a name="delete-image-data"></a>이미지 데이터 삭제
 
-레지스트리에서 [컨테이너 이미지를 삭제](container-registry-delete.md)하거나 [지원 되](container-registry-image-formats.md) 는 다른 아티팩트 (예: 투구 차트)를 삭제할 수 있습니다.
+레지스트리에서 [컨테이너 이미지를 삭제](container-registry-delete.md)하거나 Helm처럼 다른 [지원되는 아티팩트](container-registry-image-formats.md)를 삭제하는 기능입니다.
 
 ## <a name="change-policies"></a>정책 변경
 
@@ -72,26 +72,26 @@ Azure Container Registry를 만들고 삭제하는 기능입니다.
 
 ## <a name="sign-images"></a>이미지 서명
 
-일반적으로 자동화된 프로세스에 할당되는, 서비스 주체를 사용하는 이미지 서명 기능입니다. 일반적으로 이 권한은 [이미지 푸시](#push-image)와 결합되어 신뢰할 수 있는 이미지를 레지스트리에 푸시할 수 있도록 합니다. 자세한 내용은 [Azure Container Registry의 콘텐츠 신뢰](container-registry-content-trust.md)를 참조 하세요.
+일반적으로 자동화된 프로세스에 할당되는, 서비스 주체를 사용하는 이미지 서명 기능입니다. 일반적으로 이 권한은 [이미지 푸시](#push-image)와 결합되어 신뢰할 수 있는 이미지를 레지스트리에 푸시할 수 있도록 합니다. 자세한 내용은 [Azure Container Registry의 콘텐츠 신뢰](container-registry-content-trust.md)를 참조하세요.
 
 ## <a name="custom-roles"></a>사용자 지정 역할
 
-다른 Azure 리소스와 마찬가지로 Azure Container Registry 하는 세분화 된 권한으로 [사용자 지정 역할](../role-based-access-control/custom-roles.md) 을 만들 수 있습니다. 그런 다음 사용자, 서비스 주체 또는 레지스트리와 상호 작용 해야 하는 다른 id에 사용자 지정 역할을 할당 합니다. 
+다른 Azure 리소스와 마찬가지로 Azure Container Registry에 대한 세분화된 권한이 있는 [사용자 지정 역할](../role-based-access-control/custom-roles.md)을 만들 수 있습니다. 그런 다음 사용자, 서비스 주체 또는 레지스트리를 조작해야 하는 다른 ID에 사용자 지정 역할을 할당합니다. 
 
-사용자 지정 역할에 적용할 권한을 결정 하려면 Microsoft.containerregistry [작업](../role-based-access-control/resource-provider-operations.md#microsoftcontainerregistry)목록을 참조 하거나, [기본 제공 ACR 역할](../role-based-access-control/built-in-roles.md)의 허용 된 작업을 검토 하거나, 다음 명령을 실행 합니다.
+사용자 지정 역할에 적용할 권한을 결정하려면 Microsoft.ContainerRegistry [작업](../role-based-access-control/resource-provider-operations.md#microsoftcontainerregistry) 목록을 참조하거나, [기본 제공 ACR 역할](../role-based-access-control/built-in-roles.md)의 허용된 작업을 검토하거나, 다음 명령을 실행합니다.
 
 ```azurecli
 az provider operation show --namespace Microsoft.ContainerRegistry
 ```
 
-사용자 지정 역할을 정의 하려면 [사용자 지정 역할을 만드는 단계](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role)를 참조 하세요.
+사용자 지정 역할을 정의하려면 [사용자 지정 역할을 만드는 단계](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role)를 참조하세요.
 
 > [!IMPORTANT]
-> 사용자 지정 역할에서 Azure Container Registry는 현재와 같은 와일드 카드를 지원 하지 않으며, `Microsoft.ContainerRegistry/*` `Microsoft.ContainerRegistry/registries/*` 일치 하는 모든 동작에 대 한 액세스 권한을 부여 합니다. 역할에서 필수 작업을 개별적으로 지정 합니다.
+> 사용자 지정 역할에서 Azure Container Registry는 일치하는 모든 작업에 대한 액세스 권한을 부여하는 와일드카드(예: `Microsoft.ContainerRegistry/*` 또는 `Microsoft.ContainerRegistry/registries/*`)를 현재 지원하지 않습니다. 역할에서 필수 작업을 개별적으로 지정합니다.
 
 ### <a name="example-custom-role-to-import-images"></a>예제: 이미지를 가져오기 위한 사용자 지정 역할
 
-예를 들어 다음 JSON은 레지스트리에 [이미지를 가져올](container-registry-import-images.md) 수 있도록 하는 사용자 지정 역할에 대 한 최소 작업을 정의 합니다.
+예를 들어, 다음 JSON은 레지스트리에 [이미지를 가져오도록](container-registry-import-images.md) 허용하는 사용자 지정 역할에 대한 최소 작업을 정의합니다.
 
 ```json
 {
@@ -117,12 +117,12 @@ az provider operation show --namespace Microsoft.ContainerRegistry
  }
 ```
 
-JSON 설명을 사용 하 여 사용자 지정 역할을 만들거나 업데이트 하려면 [Azure CLI](../role-based-access-control/custom-roles-cli.md), [Azure Resource Manager 템플릿](../role-based-access-control/custom-roles-template.md), [Azure PowerShell](../role-based-access-control/custom-roles-powershell.md)또는 기타 Azure 도구를 사용 합니다. 기본 제공 Azure 역할에 대 한 역할 할당을 관리 하는 것과 동일한 방식으로 사용자 지정 역할에 대 한 역할 할당을 추가 하거나 제거 합니다.
+JSON 설명을 사용하여 사용자 지정 역할을 만들거나 업데이트하려면 [Azure CLI](../role-based-access-control/custom-roles-cli.md), [Azure Resource Manager 템플릿](../role-based-access-control/custom-roles-template.md), [Azure PowerShell](../role-based-access-control/custom-roles-powershell.md)또는 기타 Azure 도구를 사용합니다. 기본 제공 Azure 역할에 할당하는 역할을 관리하는 것과 동일한 방식으로 사용자 지정 역할에 할당하는 역할을 추가하거나 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Portal](../role-based-access-control/role-assignments-portal.md), [Azure CLI](../role-based-access-control/role-assignments-cli.md)또는 기타 azure 도구를 사용 하 여 azure id에 azure 역할을 할당 하는 방법에 대해 자세히 알아보세요.
+* [Azure Portal](../role-based-access-control/role-assignments-portal.md), [Azure CLI](../role-based-access-control/role-assignments-cli.md) 또는 기타 Azure 도구를 사용하여 Azure ID에 Azure 역할을 할당하는 방법을 자세히 알아봅니다.
 
 * Azure Container Registry의 [인증 옵션](container-registry-authentication.md)에 대해 알아봅니다.
 
-* 컨테이너 레지스트리에서 [리포지토리 범위 권한](container-registry-repository-scoped-permissions.md) (미리 보기)을 사용 하도록 설정 하는 방법에 대해 알아봅니다.
+* 컨테이너 레지스트리에서 [리포지토리 범위 권한](container-registry-repository-scoped-permissions.md)(미리 보기)을 사용하도록 설정하는 방법에 대해 알아봅니다.

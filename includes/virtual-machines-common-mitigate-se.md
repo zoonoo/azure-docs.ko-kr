@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: a9146099951aba223a7b201c1613e1ec0ba617d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95e4474924d32eca848d4dcb0e7028f328cb59c1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96509216"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108157596"
 ---
 **마지막 문서 업데이트**: 2019년 11월 12일 오전 10시 PST.
 
@@ -108,7 +108,7 @@ Windows OS support for TAA mitigation is enabled: True
 **3단계**: KVAS(커널 가상 주소 섀도잉) 및 BTI(분기 대상 삽입) OS 지원을 사용하도록 설정하려면 [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution)의 지침에 따라 `Session Manager` 레지스트리 키를 사용하여 보호를 사용하도록 설정합니다. 다시 부팅해야 합니다.
 
 
-**4단계**: [중첩된 가상화](../articles/virtual-machines/windows/nested-virtualization.md)(D3 및 E3에만 해당)를 사용 중인 배포의 경우 Hyper-V 호스트로 사용하는 VM 내에서 이러한 지침이 적용됩니다.
+**4단계**: [중첩된 가상화](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)(D3 및 E3에만 해당)를 사용 중인 배포의 경우 Hyper-V 호스트로 사용하는 VM 내에서 이러한 지침이 적용됩니다.
 
 1.  [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 지침에 따라 `MinVmVersionForCpuBasedMitigations` 레지스트리 키를 통해 보호를 사용하도록 설정합니다.
 2.  [여기](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types)에 있는 지침에 따라 하이퍼바이저 스케줄러 형식을 `Core`로 설정합니다.

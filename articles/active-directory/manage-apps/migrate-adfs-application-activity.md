@@ -2,23 +2,21 @@
 title: 활동 보고서를 사용하여 AD FS 앱을 Azure Active Directory로 이동 | Microsoft Docs
 description: AD FS(Active Directory Federation Services) 애플리케이션 활동 보고서를 사용하면 AD FS에서 Azure AD(Azure Active Directory)로 신속하게 애플리케이션을 마이그레이션할 수 있습니다. AD FS에 대한 이 마이그레이션 도구는 Azure AD와의 호환성을 식별하고 마이그레이션 지침을 제공합니다.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 01/14/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88a4d0f108d4e3c27ce17aaa83aafca38063c9ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b9265a61b0879078332b8ccc2d10e711b4ac8f1
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589466"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377423"
 ---
 # <a name="use-the-ad-fs-application-activity-report-to-migrate-applications-to-azure-ad"></a>AD FS 애플리케이션 활동 보고서를 사용하여 애플리케이션을 Azure AD로 마이그레이션
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: f78420a65cd9c2402266eb9ba973eabe758d7ee5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4119d64dcadd23415cc750e88d560057bda6af8e
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608287"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138020"
 ---
 # <a name="hbv3-series-virtual-machine-overview"></a>HBv3 시리즈 가상 머신 개요 
 
@@ -130,7 +130,7 @@ HBv3 VM에는 물리적 로컬 SSD 디바이스가 세 개 있습니다. 한 디
 | Orchestrator 지원           | Azure CycleCloud, Azure Batch, AKS, [클러스터 구성 옵션](../../sizes-hpc.md#cluster-configuration-options)                      | 
 
 > [!NOTE] 
-> Windows Server 2012 R2는 HBv3 및 코어가 64개(가상 또는 물리적) 넘게 있는 기타 VM에서는 지원되지 않습니다. 자세한 내용은 [여기](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)를 참조하세요.
+> Windows Server 2012 R2는 HBv3 및 코어가 64개(가상 또는 물리적) 넘게 있는 기타 VM에서는 지원되지 않습니다. 자세한 내용은 [여기](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

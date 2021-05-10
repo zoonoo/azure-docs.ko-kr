@@ -3,12 +3,12 @@ title: CLI를 사용하여 Azure Event Grid 시스템 토픽 만들기, 보기 �
 description: 이 문서에서는 Azure CLI를 사용하여 시스템 토픽을 만들고, 보고, 삭제하는 방법을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: c1c847c7f25e3a656b798e186a408e560b9ee9e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 34a098406762fd57dc9dc4b58fc375286f5d5b13
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98633225"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874300"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-using-azure-cli"></a>Azure CLI를 사용하여 Event Grid 시스템 토픽 만들기, 보기 및 관리
 이 문서는 Azure CLI를 사용하여 시스템 토픽을 만들고 관리하는 방법을 보여 줍니다. 시스템 토픽의 개요는 [시스템 토픽](system-topics.md)을 참조하세요.
@@ -30,7 +30,7 @@ Cloud Shell에서
 ## <a name="create-a-system-topic"></a>시스템 토픽 만들기
 
 - 먼저 Azure 원본에서 시스템 토픽을 만든 다음, 해당 토픽에 대한 이벤트 구독을 만들려면 다음 참조 토픽을 참조하세요.
-    - [az eventgrid system-topic create](/cli/azure/ext/eventgrid/eventgrid/system-topic#ext-eventgrid-az-eventgrid-system-topic-create)
+    - [az eventgrid system-topic create](/cli/azure/eventgrid/system-topic#az_eventgrid_system_topic_create)
 
         ```azurecli-interactive
         # Get the ID of the Azure source (for example: Azure Storage account)
@@ -53,14 +53,14 @@ Cloud Shell에서
         ```azurecli-interactive
         az eventgrid topic-type  list --output json | grep -w id
         ```
-    - [az eventgrid system-topic event-subscription create](/cli/azure/ext/eventgrid/eventgrid/system-topic/event-subscription#ext-eventgrid-az-eventgrid-system-topic-event-subscription-create)
+    - [az eventgrid system-topic event-subscription create](/cli/azure/eventgrid/system-topic/event-subscription#az_eventgrid_system_topic_event-subscription-create)
 
         ```azurecli-interactive
         az eventgrid system-topic event-subscription create --name <SPECIFY EVENT SUBSCRIPTION NAME> \
             -g rg1 --system-topic-name <SYSTEM TOPIC NAME> \
             --endpoint <ENDPOINT URL>         
         ```
-- Azure 원본에 대한 이벤트 구독을 만들 때 시스템 토픽을 암시적으로 만들려면 [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) 메서드를 사용합니다. 예를 들면 다음과 같습니다.
+- Azure 원본에 대한 이벤트 구독을 만들 때 시스템 토픽을 암시적으로 만들려면 [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create) 메서드를 사용합니다. 예를 들면 다음과 같습니다.
     
     ```azurecli-interactive
     storageid=$(az storage account show --name <AZURE STORAGE ACCOUNT NAME> --resource-group <AZURE RESOURCE GROUP NAME> --query id --output tsv)
@@ -76,12 +76,12 @@ Cloud Shell에서
 ## <a name="view-all-system-topics"></a>모든 시스템 토픽 보기
 모든 시스템 토픽 및 선택한 시스템 토픽의 세부 정보를 보려면 다음 명령을 사용합니다.
 
-- [az eventgrid system-topic list](/cli/azure/ext/eventgrid/eventgrid/system-topic#ext-eventgrid-az-eventgrid-system-topic-list)
+- [az eventgrid system-topic list](/cli/azure/eventgrid/system-topic#az_eventgrid_system_topic_list)
 
     ```azurecli-interactive
     az eventgrid system-topic list   
      ```
-- [az eventgrid system-topic show](/cli/azure/ext/eventgrid/eventgrid/system-topic#ext-eventgrid-az-eventgrid-system-topic-show)
+- [az eventgrid system-topic show](/cli/azure/eventgrid/system-topic#az_eventgrid_system_topic_show)
 
     ```azurecli-interactive
     az eventgrid system-topic show -g <AZURE RESOURCE GROUP NAME> -n <SYSTEM TOPIC NAME>     
@@ -90,7 +90,7 @@ Cloud Shell에서
 ## <a name="delete-a-system-topic"></a>시스템 토픽 삭제
 시스템 토픽을 삭제하려면 다음 명령을 사용합니다. 
 
-- [az eventgrid system-topic delete](/cli/azure/ext/eventgrid/eventgrid/system-topic#ext-eventgrid-az-eventgrid-system-topic-delete)
+- [az eventgrid system-topic delete](/cli/azure/eventgrid/system-topic#az_eventgrid_system_topic_delete)
 
     ```azurecli-interactive
     az eventgrid system-topic delete -g <AZURE RESOURCE GROUP NAME> --name <SYSTEM TOPIC NAME>   

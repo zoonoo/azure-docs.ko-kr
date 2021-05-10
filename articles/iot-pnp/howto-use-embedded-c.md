@@ -1,18 +1,18 @@
 ---
 title: 제한된 디바이스에서 IoT 플러그 앤 플레이 사용 | Microsoft Docs
 description: Embedded C용 SDK 또는 Azure RTOS를 사용하여 제한된 디바이스에서 IoT 플러그 앤 플레이를 구현하는 방법에 대해 알아봅니다.
-author: elhorton
-ms.author: elhorton
+author: dominicbetts
+ms.author: dobett
 ms.date: 09/23/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: cfa71e02688d5bf63d894ae42dabab7da1d4174c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: d857ec0d84cf0cccb5dc4a7791ce69a5a5406ae5
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057317"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162260"
 ---
 # <a name="implement-iot-plug-and-play-on-constrained-devices"></a>제한된 디바이스에 IoT 플러그 앤 플레이 구현
 

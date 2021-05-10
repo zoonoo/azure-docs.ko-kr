@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: dobett
-ms.openlocfilehash: 979643c76b8bded51e30232228b7fe7485a1f53b
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 27a23ff924c2fa9e9e35fec010ca2a177868eacc
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057680"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713915"
 ---
 # <a name="device-simulation-solution-accelerator-overview"></a>디바이스 시뮬레이션 솔루션 가속기 개요
 
@@ -32,11 +32,11 @@ IoT 솔루션을 개발할 때 실험 및 테스트는 해당 프로세스의 �
 
 IoT Hub에 연결된 디바이스 한 대에서 수천 대에 대한 시뮬레이션을 실행할 수 있습니다. 테스트하는 데 도움이 되도록, 경우에 따라 독립 실행형 환경에 대한 디바이스 시뮬레이션 함께 IoT Hub를 배포할 수 있습니다.
 
-디바이스 시뮬레이션은 무료입니다. 그러나 디바이스 시뮬레이션은 클라우드의 Azure 구독에 배포되며 Azure 리소스를 사용합니다. 디바이스 시뮬레이션이 요구 사항을 충족하지 않을 경우 [GitHub의 소스 코드](https://github.com/Azure/device-simulation-dotnet)를 복사한 후 수정할 수 있습니다.
+디바이스 시뮬레이션은 무료입니다. 그러나 디바이스 시뮬레이션은 클라우드의 Azure 구독에 배포되며 Azure 리소스를 사용합니다. 디바이스 시뮬레이션이 요구 사항을 충족하지 않을 경우 [GitHub의 소스 코드](https://github.com/Azure/azure-iot-pcs-device-simulation)를 복사한 후 수정할 수 있습니다.
 
 ## <a name="sample-simulations"></a>샘플 시뮬레이션
 
-디바이스 시뮬레이션을 배포하면 몇 가지 샘플 시뮬레이션 및 샘플 디바이스가 제공됩니다. 이러한 샘플을 사용하여 디바이스 시뮬레이션 사용 방법을 배울 수 있습니다. 시작하려면, [샘플 시뮬레이션](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md)을 실행합니다. [제공된 많은 샘플 디바이스 중 하나를 사용하여 사용자 고유의 시뮬레이션을 만들](iot-accelerators-device-simulation-create-simulation.md) 수도 있습니다.
+디바이스 시뮬레이션을 배포하면 몇 가지 샘플 시뮬레이션 및 샘플 디바이스가 제공됩니다. 이러한 샘플을 사용하여 디바이스 시뮬레이션 사용 방법을 배울 수 있습니다. 시작하려면, [샘플 시뮬레이션](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md)을 실행합니다. [제공된 많은 샘플 디바이스 중 하나를 사용하여 사용자 고유의 시뮬레이션을 만들](iot-accelerators-device-simulation-create-simulation.md) 수도 있습니다.
 
 ![시뮬레이션 구성](media/iot-accelerators-device-simulation-overview/samplesimulation1.png)
 
@@ -63,4 +63,4 @@ IoT Hub에 연결된 디바이스 한 대에서 수천 대에 대한 시뮬레�
 이 문서에서는 디바이스 시뮬레이션 솔루션 가속기 및 해당 기능에 대해 알아보았습니다. 솔루션 가속기를 배포하려면 GitHub 리포지토리를 방문하세요.
 
 > [!div class="nextstepaction"]
-> [Azure에서 IoT 디바이스 시뮬레이션 배포 및 실행](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md)
+> [Azure에서 IoT 디바이스 시뮬레이션 배포 및 실행](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md)

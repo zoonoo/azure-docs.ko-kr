@@ -7,15 +7,15 @@ author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
 ms.openlocfilehash: fa91644eab9d28ffb20de8ec8c0fe00488922b67
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105563381"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 질문과 대답
 
-이 Microsoft FAQ는 Azure Monitor에 대한 일반적인 질문과 대답 목록입니다. 추가 질문이 있으면 [토론 포럼](/answers/questions/topics/single/24223.html) 으로 이동 하 여 질문을 게시 합니다. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
+이 Microsoft FAQ는 Azure Monitor에 대한 일반적인 질문과 대답 목록입니다. 추가 질문이 있으면 [토론 포럼](/answers/questions/topics/single/24223.html)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
 
 
 ## <a name="general"></a>일반
@@ -82,10 +82,10 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 모든 데이터는 KQL(Kusto 쿼리 언어)로 작성된 로그 쿼리를 사용하여 Log Analytics 작업 영역에서 검색됩니다. 사용자 고유의 쿼리를 작성하거나 특정 애플리케이션 또는 서비스에 대한 로그 쿼리가 포함된 솔루션과 인사이트를 사용할 수 있습니다. [Azure Monitor의 로그 쿼리 개요](logs/log-query-overview.md)를 참조하세요.
 
 ### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>Log Analytics 작업 영역에서 데이터를 삭제할 수 있나요?
-[보존 기간](logs/manage-cost-storage.md#change-the-data-retention-period)에 따라 작업 영역에서 데이터가 제거 됩니다. 개인 정보나 규정 준수 상의 이유로 특정 데이터를 삭제할 수 있습니다. 자세한 내용은 [개인 데이터를 내보내고 삭제 하는 방법을](logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) 참조 하세요.
+[보존 기간](logs/manage-cost-storage.md#change-the-data-retention-period)에 따라 작업 영역에서 데이터가 제거됩니다. 개인 정보나 규정 준수의 이유로 특정 데이터를 삭제할 수 있습니다. 자세한 정보는 [프라이빗 데이터를 내보내고 삭제하는 방법](logs/personal-data-mgmt.md#how-to-export-and-delete-private-data)을 참조하세요.
 
-### <a name="is-log-analytics-storage-immutable"></a>Log Analytics 저장소를 변경할 수 있나요?
-수집 한 후에는 데이터베이스 저장소의 데이터를 변경할 수 없지만, [전용 데이터를 삭제 하기 위한 *제거* API 경로](./logs/personal-data-mgmt.md#delete)를 통해 삭제할 수는 있습니다. 데이터를 변경할 수 없지만 일부 인증을 위해서는 데이터를 변경할 수 없는 상태로 유지 하 고 저장소에서 변경 하거나 삭제할 수 없습니다. 데이터 불변성은 [변경 불가능 한 저장소](../storage/blobs/storage-blob-immutability-policies-manage.md)로 구성 된 저장소 계정에 대 한 [데이터 내보내기를](./logs/logs-data-export.md) 사용 하 여 달성할 수 있습니다.
+### <a name="is-log-analytics-storage-immutable"></a>Log Analytics 스토리지를 변경할 수 있나요?
+수집한 후에는 데이터베이스 스토리지의 데이터를 변경할 수 없지만, [*제거* API 경로를 통해 삭제하여 프라이빗 데이터](./logs/personal-data-mgmt.md#delete)를 삭제할 수는 있습니다. 데이터를 변경할 수 없지만, 일부 인증 시 데이터를 변경할 수 없는 상태로 유지하고 스토리지에서 변경하거나 삭제할 수 없도록 요구할 수 있습니다. 데이터 불변성은 [변경 불가능한 스토리지](../storage/blobs/storage-blob-immutability-policies-manage.md)로 구성된 스토리지 계정에 [데이터 내보내기](./logs/logs-data-export.md)를 사용하여 달성할 수 있습니다.
 
 ### <a name="what-is-a-log-analytics-workspace"></a>Log Analytics 작업 영역은 무엇인가요?
 Azure Monitor에서 수집된 모든 로그 데이터는 Log Analytics 작업 영역에 저장됩니다. 작업 영역은 기본적으로 다양한 원본에서 로그 데이터가 수집되는 컨테이너입니다. 모든 모니터링 데이터에 대한 단일 Log Analytics 작업 영역이 있거나 여러 작업 영역에 대한 요구 사항이 있을 수 있습니다. [Azure Monitor 로그 배포 디자인](logs/design-logs-deployment.md)을 참조하세요.
@@ -100,7 +100,7 @@ Azure Monitor에서 수집된 모든 로그 데이터는 Log Analytics 작업 �
 ### <a name="why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-when-opening-log-analytics-from-a-vm"></a>VM에서 Log Analytics를 열면 "이 구독에 대한 'Microsoft.Insights' 리소스 공급자를 등록하여 이 쿼리를 사용하도록 설정하세요."라는 오류가 표시되는 이유는 무엇인가요? 
 대부분 리소스 공급자는 자동으로 등록되지만 일부 리소스 공급자는 수동으로 등록해야 할 수도 있습니다. 등록 범위는 항상 해당 구독입니다. 자세한 내용은 [리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)을 참조하세요.
 
-### <a name="why-am-i-getting-no-access-error-message-when-opening-log-analytics-from-a-vm"></a>VM에서 Log Analytics를 열 때 액세스 권한 없음 오류 메시지가 표시 되는 이유는 무엇 인가요? 
+### <a name="why-am-i-getting-no-access-error-message-when-opening-log-analytics-from-a-vm"></a>VM에서 Log Analytics를 열면 '액세스 권한 없음' 오류 메시지가 표시되는 이유는 무엇인가요? 
 VM 로그를 보려면 VM 로그를 저장하는 작업 영역에 대한 읽기 권한을 부여 받아야 합니다. 이런 경우 관리자가 Azure에서 내게 권한을 부여해 줘야 합니다.
 
 ## <a name="metrics"></a>메트릭
@@ -127,7 +127,7 @@ VM 로그를 보려면 VM 로그를 저장하는 작업 영역에 대한 읽기 
 
 
 ### <a name="what-is-an-action-rule"></a>작업 규칙은 무엇인가요?
-작업 규칙을 사용하면 특정 조건과 일치하는 경고 세트의 동작을 수정할 수 있습니다. 이렇게 하면 유지 관리 기간 동안 경고 작업을 사용 하지 않도록 설정 하는 등의 요구 사항을 수행할 수 있습니다. 또한 작업 그룹을 경고 규칙에 직접 적용하는 대신 경고 세트에 적용할 수 있습니다. [작업 규칙](alerts/alerts-action-rules.md)을 참조하세요.
+작업 규칙을 사용하면 특정 조건과 일치하는 경고 세트의 동작을 수정할 수 있습니다. 이를 통해 유지 관리 기간 동안 경고 작업 사용 안 함과 같은 요구 사항을 수행할 수 있습니다. 또한 작업 그룹을 경고 규칙에 직접 적용하는 대신 경고 세트에 적용할 수 있습니다. [작업 규칙](alerts/alerts-action-rules.md)을 참조하세요.
 
 ## <a name="agents"></a>에이전트
 
@@ -143,7 +143,7 @@ Azure 진단 확장은 Azure 가상 머신을 위한 것이며, 데이터를 Azu
 Azure Monitor로의 트래픽은 Microsoft 피어링 ExpressRoute 회로를 사용합니다. 다양한 유형의 ExpressRoute 트래픽에 대한 설명은 [ExpressRoute 설명서](../expressroute/expressroute-faqs.md#supported-services)를 참조하세요. 
 
 ### <a name="how-can-i-confirm-that-the-log-analytics-agent-is-able-to-communicate-with-azure-monitor"></a>Log Analytics 에이전트에서 Azure Monitor와 통신할 수 있는지 확인하려면 어떻게 해야 하나요?
-에이전트 컴퓨터의 제어판에서 **보안 & 설정**, * * Microsoft Monitoring Agent를 선택 합니다. **Azure Log Analytics(OMS)** 탭 아래에서 녹색 확인 표시 아이콘은 에이전트에서 Azure 서비스와 통신할 수 있음을 나타냅니다. 노란색 경고 아이콘은 에이전트에 문제가 있음을 나타냅니다. 한 가지 일반적인 이유는 **Microsoft Monitoring Agent** 서비스가 중지되었다는 것입니다. 서비스 제어 관리자를 사용하여 서비스를 다시 시작합니다.
+에이전트 컴퓨터의 [제어판]에서 **보안 및 설정**, **Microsoft Monitoring Agent를 선택합니다. **Azure Log Analytics(OMS)** 탭 아래에서 녹색 확인 표시 아이콘은 에이전트에서 Azure 서비스와 통신할 수 있음을 나타냅니다. 노란색 경고 아이콘은 에이전트에 문제가 있음을 나타냅니다. 한 가지 일반적인 이유는 **Microsoft Monitoring Agent** 서비스가 중지되었다는 것입니다. 서비스 제어 관리자를 사용하여 서비스를 다시 시작합니다.
 
 ### <a name="how-do-i-stop-the-log-analytics-agent-from-communicating-with-azure-monitor"></a>Log Analytics 에이전트에서 Azure Monitor와 통신하지 못하도록 중지하려면 어떻게 해야 하나요?
 Log Analytics에 직접 연결된 에이전트의 경우 [제어판]을 열고, **보안 및 설정**, **Microsoft Monitoring Agent** 를 차례로 선택합니다. **Azure Log Analytics(OMS)** 탭 아래에서 나열된 모든 작업 영역을 제거합니다. System Center Operations Manager의 Log Analytics 관리형 컴퓨터 목록에서 컴퓨터를 제거합니다. Operations Manager는 Log Analytics에 더 이상 보고하지 않도록 에이전트의 구성을 업데이트합니다. 
@@ -213,7 +213,7 @@ WireData
 * [ASP.NET 서버 설정](app/monitor-performance-live-website-now.md)
 * [Java 서버 설정](app/java-agent.md)
 
-*배포 해야 하는 Application Insights 리소스 수:*
+*배포해야 하는 Application Insights 리소스의 수:*
 
 * [Application Insights 배포를 설계하는 방법: 하나 또는 여러 개의 Application Insights 리소스인가요?](app/separate-resources.md)
 
@@ -270,9 +270,9 @@ WireData
 ### <a name="how-can-i-change-which-azure-resource-my-project-sends-data-to"></a><a name="update"></a>내 프로젝트에서 데이터를 보내는 Azure 리소스를 변경하려면 어떻게 해야 하나요?
 솔루션 탐색기에서 `ApplicationInsights.config`를 마우스 오른쪽 단추로 클릭하고 **Application Insights 업데이트** 를 선택합니다. Azure에서 기존 또는 새 리소스로 데이터를 보낼 수 있습니다. 업데이트 마법사는 서버 SDK에서 데이터를 전송하는 위치를 결정하는 ApplicationInsights.config의 계측 키를 변경합니다. "모두 업데이트"를 선택 취소하지 않은 한, 웹 페이지에 표시되는 키도 변경됩니다.
 
-### <a name="do-new-azure-regions-require-the-use-of-connection-strings"></a>새 Azure 지역에서 연결 문자열을 사용 해야 하나요?
+### <a name="do-new-azure-regions-require-the-use-of-connection-strings"></a>새 Azure 지역에서 연결 문자열을 사용해야 하나요?
 
-새 Azure 지역에서는 계측 키 대신 연결 문자열을 사용 **해야** 합니다. [연결 문자열](./app/sdk-connection-string.md) 원격 분석 데이터를 연결 하려는 리소스를 식별 합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
+새 Azure 지역에서는 계측 키 대신 연결 문자열을 **사용해야 합니다**. [연결 문자열](./app/sdk-connection-string.md)은 원격 분석 데이터를 연결하려는 리소스를 식별합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
 
 ### <a name="can-i-use-providersmicrosoftinsights-componentsapiversions0-in-my-azure-resource-manager-deployments"></a>`providers('Microsoft.Insights', 'components').apiVersions[0]`는 내 Azure Resource Manager 배포에서 사용할 수 있나요?
 
@@ -325,7 +325,7 @@ WireData
 
 * 브라우저 원격 분석: 보낸 사람의 IP 주소를 수집합니다.
 * 서버 원격 분석: Application Insights 모듈에서 클라이언트 IP 주소를 수집합니다. `X-Forwarded-For`가 설정된 경우에는 수집되지 않습니다.
-* IP 주소 및 지리적 위치 데이터를 수집 하는 방법에 대 한 자세한 내용은이 [문서](./app/ip-collection.md)를 참조 Application Insights.
+* Application Insights에서 IP 주소 및 지리적 위치 데이터를 수집하는 방법에 대한 자세한 내용은 이 [문서](./app/ip-collection.md)를 참조하세요.
 
 `ClientIpHeaderTelemetryInitializer`를 구성하여 다른 헤더에서 IP 주소를 가져올 수 있습니다. 예를 들어 일부 시스템에서는 프록시, 부하 분산 장치 또는 CDN에 의해 `X-Originating-IP`로 이동됩니다. [자세히 알아보기](https://apmtips.com/posts/2016-07-05-client-ip-address/).
 
@@ -346,7 +346,7 @@ WireData
 
 클라이언트 웹 주소의 **모든** 8진수는 지리적 위치 특성을 조회한 후에 항상 0으로 설정됩니다.
 
-[Application Insights JAVASCRIPT SDK](app/javascript.md) 는 기본적으로 자동 완성에 개인 데이터를 포함 하지 않습니다. 그러나 응용 프로그램에 사용 되는 일부 개인 데이터는 SDK에서 선택할 수 있습니다 (예:의 전체 이름 `window.title` 또는 XHR URL 쿼리 매개 변수의 계정 id). 사용자 지정 개인 데이터 마스킹의 경우 [원격 분석 이니셜라이저](app/api-filtering-sampling.md#javascript-web-applications)를 추가 합니다.
+[Application Insights JavaScript SDK](app/javascript.md)는 기본적으로 자동 완성에 개인 데이터를 포함하지 않습니다. 그러나 애플리케이션에 사용되는 일부 개인 데이터는 SDK에서 선택할 수 있습니다 (예: `window.title`의 전체 이름 또는 XHR URL 쿼리 매개 변수의 계정 ID). 사용자 지정 개인 데이터 마스킹의 경우 [원격 분석 이니셜라이저](app/api-filtering-sampling.md#javascript-web-applications)를 추가합니다.
 
 ### <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>내 계측 키가 내 웹 페이지 원본에 표시됩니다.
 
@@ -382,11 +382,11 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 * 한 명의 실제 사용자가 특정 사이트를 다른 브라우저에서 사용하거나, in-private/incognito 검색을 통해 사용하거나, 다른 컴퓨터에서 사용하는 경우 두 번 이상 계산됩니다.
 * 여러 컴퓨터 및 브라우저에서 로그인한 사용자를 식별하려면 [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users)에 대한 호출을 추가합니다.
 
-### <a name="how-does-application-insights-generate-device-information-browser-os-language-model"></a>Application Insights에서 장치 정보 (브라우저, OS, 언어, 모델)를 어떻게 생성 하나요?
+### <a name="how-does-application-insights-generate-device-information-browser-os-language-model"></a>Application Insights에서 디바이스 정보(브라우저, OS, 언어, 모델)를 어떻게 생성하나요?
 
-브라우저는 요청의 HTTP 헤더에 있는 사용자 에이전트 문자열을 전달 하 고, Application Insights 수집 서비스는 [UA 파서](https://github.com/ua-parser/uap-core) 를 사용 하 여 데이터 테이블 및 환경에서 표시 되는 필드를 생성 합니다. 따라서 Application Insights 사용자는 이러한 필드를 변경할 수 없습니다.
+브라우저는 요청의 HTTP 헤더에 있는 사용자 에이전트 문자열을 전달하고, Application Insights 수집 서비스는 [UA 파서](https://github.com/ua-parser/uap-core)를 사용하여 데이터 테이블 및 환경에서 표시되는 필드를 생성합니다. 따라서 Application Insights 사용자는 이러한 필드를 변경할 수 없습니다.
 
-사용자 또는 엔터프라이즈가 브라우저 설정에서 사용자 에이전트 보내기를 사용 하지 않도록 설정 하는 경우이 데이터가 없거나 정확 하지 않을 수 있습니다. 또한 [UA 파서 regex](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) 는 모든 장치 정보를 포함 하지 않을 수도 있고 최신 업데이트를 채택 하지 않았을 수 Application Insights.
+사용자 또는 엔터프라이즈가 브라우저 설정에서 사용자 에이전트 보내기를 사용하지 않도록 설정하는 경우, 이 데이터가 없거나 정확하지 않을 수 있습니다. 또한 [UA 파서 regexes](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml)에 모든 디바이스 정보를 포함하지 않을 수도 있고 Application Insights에서 최신 업데이트를 채택하지 않았을 수 있습니다.
 
 ### <a name="have-i-enabled-everything-in-application-insights"></a><a name="q17"></a> Application Insights의 모든 기능을 사용하도록 어떻게 설정하나요?
 | 표시 내용 | 시작 방법 | 원하는 이유 |
@@ -410,29 +410,29 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
     requests | summarize original_events = sum(itemCount), transmitted_events = count()
 ```
 
-### <a name="how-do-i-move-an-application-insights-resource-to-a-new-region"></a>Application Insights 리소스를 새 지역으로 이동 어떻게 할까요??
+### <a name="how-do-i-move-an-application-insights-resource-to-a-new-region"></a>Application Insights 리소스를 새 지역으로 어떻게 이동할까요?
 
-기존 Application Insights 리소스를 한 지역에서 다른 지역으로 이동 하는 것은 **현재 지원 되지 않습니다**. 수집 된 기록 데이터를 새 지역으로 **마이그레이션할 수 없습니다** . 유일한 해결 방법은 다음과 같습니다.
+기존 Application Insights 리소스를 한 지역에서 다른 지역으로 이동하는 것은 **현재 지원되지 않습니다**. 수집된 기록 데이터를 새 지역으로 **마이그레이션할 수 없습니다**. 유일한 부분 해결 방법은 다음과 같습니다.
 
-1. 새 지역에 새 Application Insights 리소스 ([클래식](app/create-new-resource.md) 또는 [작업 영역 기반](./app/create-workspace-resource.md))를 만듭니다.
-2. 새 리소스의 원래 리소스와 관련 된 모든 고유한 사용자 지정 항목을 다시 만듭니다.
-3. 새 지역 리소스의 [계측 키](app/create-new-resource.md#copy-the-instrumentation-key) 또는 [연결 문자열](app/sdk-connection-string.md)을 사용 하도록 응용 프로그램을 수정 합니다.  
-4. 를 테스트 하 여 모든 것이 새 Application Insights 리소스에서 예상 대로 작동 하는지 확인 합니다. 
-5. 이 시점에서 원래 리소스를 삭제 하면 **모든 기록 데이터가 손실** 됩니다. 또는 데이터 보존 설정 기간 동안 기록 보고 목적으로 원래 리소스를 유지 합니다.
+1. 새 지역에 새 Application Insights 리소스([클래식](app/create-new-resource.md) 또는 [작업 영역 기반](./app/create-workspace-resource.md))를 만듭니다.
+2. 새 리소스의 원래 리소스와 관련된 모든 고유한 사용자 지정 항목을 다시 만듭니다.
+3. 새 지역 리소스의 [계측 키](app/create-new-resource.md#copy-the-instrumentation-key) 또는 [연결 문자열](app/sdk-connection-string.md)을 사용하도록 애플리케이션을 수정합니다.  
+4. 테스트하여 모든 기능이 새 Application Insights 리소스에서 예상대로 작동하는지 확인합니다. 
+5. 이 시점에서 원래 리소스를 삭제하면 **모든 기록 데이터가 손실** 됩니다. 또는 데이터 보존 설정 기간 동안 기록 보고 목적으로 원래 리소스를 유지합니다.
 
-일반적으로 새 지역의 리소스에 대해 수동으로 다시 만들거나 업데이트 해야 하는 고유한 사용자 지정 항목은 다음과 같습니다.
+일반적으로 새 지역의 리소스에 대해 수동으로 다시 만들거나 업데이트해야 하는 고유한 사용자 지정 항목은 다음과 같습니다(단, 이에 한정되지 않음).
 
 - 사용자 지정 대시보드 및 통합 문서를 다시 만듭니다. 
-- 사용자 지정 로그/메트릭 경고의 범위를 다시 만들거나 업데이트 합니다. 
+- 사용자 지정 로그/메트릭 경고의 범위를 다시 만들거나 업데이트합니다. 
 - 가용성 경고를 다시 만듭니다.
-- 사용자가 새 리소스에 액세스 하는 데 필요한 모든 사용자 지정 Azure RBAC (역할 기반 액세스 제어) 설정을 다시 만듭니다. 
-- 수집 샘플링, 데이터 보존, 일일 상한 및 사용자 지정 메트릭과 관련 된 설정을 복제 합니다. 이러한 설정은 **사용량 및 예상 비용** 창을 통해 제어 됩니다.
-- [릴리스 주석](./app/annotations.md), [라이브 메트릭 보안 제어 채널](app/live-stream.md#secure-the-control-channel) 등의 API 키에 의존 하는 모든 통합 새 API 키를 생성 하 고 연결 된 통합을 업데이트 해야 합니다. 
-- 클래식 리소스에서 연속 내보내기를 다시 구성 해야 합니다.
-- 작업 영역 기반 리소스의 진단 설정을 다시 구성 해야 합니다.
+- 사용자가 새 리소스에 액세스하는 데 필요한 모든 사용자 지정 Azure RBAC(역할 기반 액세스 제어) 설정을 다시 만듭니다. 
+- 수집 샘플링, 데이터 보존, 일일 상한 및 사용자 지정 메트릭과 관련된 설정을 복제합니다. 이러한 설정은 **사용량 및 예상 비용** 창을 통해 제어됩니다.
+- [릴리스 주석](./app/annotations.md), [라이브 메트릭 보안 제어 채널](app/live-stream.md#secure-the-control-channel) 등의 API 키에 의존하는 모든 통합. 새 API 키를 생성하고 연결된 통합을 업데이트해야 합니다. 
+- 클래식 리소스에서 연속 내보내기를 다시 구성해야 합니다.
+- 작업 영역 기반 리소스의 진단 설정을 다시 구성해야 합니다.
 
 > [!NOTE]
-> 새 지역에서 만드는 리소스가 클래식 리소스를 교체 하는 경우 [새 작업 영역 기반 리소스를 만들거나](app/create-workspace-resource.md) [기존 리소스를 작업 영역 기반으로 마이그레이션하](app/convert-classic-resource.md)는 이점을 탐색 하는 것이 좋습니다. 
+> 새 지역에서 만드는 리소스가 클래식 리소스를 교체하는 경우 [새 작업 영역 기반 리소스를 만들거나](app/create-workspace-resource.md) [기존 리소스를 작업 영역 기반으로 마이그레이션](app/convert-classic-resource.md)하는 장점을 알아보는 것이 좋습니다. 
 
 ### <a name="automation"></a>Automation
 
@@ -551,66 +551,66 @@ Azure 경고는 메트릭에 대해서만 설정됩니다. 이벤트가 발생�
 
 ### <a name="http-502-and-503-responses-are-not-always-captured-by-application-insights"></a>HTTP 502 및 503 응답은 Application Insights에서 항상 캡처되지는 않습니다.
 
-"502 잘못 된 게이트웨이" 및 "503 서비스를 사용할 수 없음" 오류는 Application Insights에서 항상 캡처되지는 않습니다. 클라이언트 쪽 JavaScript만 모니터링에 사용 되는 경우 모니터링 JavaScript 코드 조각이 렌더링 되는 HTML 헤더를 포함 하는 페이지 보다 먼저 오류 응답이 반환 되기 때문에이 동작이 예상 됩니다. 
+"502 잘못된 게이트웨이" 및 "503 서비스를 사용할 수 없음" 오류는 Application Insights에서 항상 캡처되지는 않습니다. 클라이언트 측 JavaScript만 모니터링에 사용되는 경우 모니터링 JavaScript 코드 조각이 렌더링되는 HTML 헤더를 포함하는 페이지보다 먼저 오류 응답이 반환되기 때문에 이 동작이 예상됩니다. 
 
-서버 쪽 모니터링을 사용 하는 서버에서 502 또는 503 응답을 보낸 경우 Application Insights SDK에서 오류를 수집 합니다. 
+서버 측 모니터링을 사용하는 서버에서 502 또는 503 응답을 보낸 경우 Application Insights SDK에서 오류를 수집합니다. 
 
-그러나 응용 프로그램의 웹 서버에서 서버 쪽 모니터링을 사용 하도록 설정한 경우에도 Application Insights에서 502 또는 503 오류가 캡처되지 않는 경우도 있습니다. 많은 최신 웹 서버에서는 클라이언트가 직접 통신할 수 없으며 대신 역방향 프록시와 같은 솔루션을 사용 하 여 클라이언트와 프런트 엔드 웹 서버 간에 정보를 전달 합니다. 
+그러나 애플리케이션의 웹 서버에서 서버 쪽 모니터링을 사용하도록 설정한 경우에도 Application Insights에서 502 또는 503 오류가 캡처되지 않는 경우도 있습니다. 여러 최신 웹 서버에서는 클라이언트가 직접 통신할 수 없으며 대신 역방향 프록시와 같은 솔루션을 사용하여 클라이언트와 프런트 엔드 웹 서버 간에 정보를 전달합니다. 
 
-이 시나리오에서는 역방향 프록시 계층에서 문제가 발생 하 여 502 또는 503 응답이 클라이언트에 반환 될 수 있으며이는 Application Insights 하 여 기본으로 캡처되지 않습니다. 이 계층에서 문제를 검색 하려면 역방향 프록시에서 Log Analytics로 로그를 전달 하 고 502/503 응답을 확인 하는 사용자 지정 규칙을 만들어야 할 수 있습니다. 502 및 503 오류의 일반적인 원인에 대해 자세히 알아보려면 ["502 잘못 된 게이트웨이" 및 "503 Service를 사용할 수 없음"에 대 한 Azure App Service 문제 해결 문서](../app-service/troubleshoot-http-502-http-503.md)를 참조 하세요.     
+이 시나리오에서는 역방향 프록시 계층에서 문제가 발생하여 502 또는 503 응답이 클라이언트에 반환될 수 있으며 이는 Application Insights에서 기본으로 캡처하지 않습니다. 이 계층에서 문제를 탐지하려면 역방향 프록시에서 Log Analytics로 로그를 전달하고 502/503 응답을 확인하는 사용자 지정 규칙을 만들어야 할 수 있습니다. 502 및 503 오류의 일반적인 원인에 대해 자세히 알아보려면 ["502 잘못된 게이트웨이" 및 "503 서비스를 사용할 수 없음"에 대한 Azure App Service 문제 해결 문서](../app-service/troubleshoot-http-502-http-503.md)를 참조하세요.     
 
 
 ## <a name="opentelemetry"></a>OpenTelemetry
 
 ### <a name="what-is-opentelemetry"></a>OpenTelemetry 정의
 
-관찰성에 대 한 새로운 오픈 소스 표준입니다. [https://opentelemetry.io/](https://opentelemetry.io/)에서 자세히 알아보세요.
+가시성에 대한 새로운 오픈 소스 표준입니다. [https://opentelemetry.io/](https://opentelemetry.io/)에서 자세히 알아보세요.
 
-### <a name="why-is-microsoft--azure-monitor-investing-in-opentelemetry"></a>Microsoft/Azure Monitor OpenTelemetry에 투자 하는 이유는 무엇 인가요?
+### <a name="why-is-microsoft--azure-monitor-investing-in-opentelemetry"></a>Microsoft/Azure Monitor에서 OpenTelemetry에 투자하는 이유는 무엇인가요?
 
-Microsoft는 다음과 같은 세 가지 이유로 고객에 게 더 나은 서비스를 제공 합니다.
-   1. 더 많은 고객 시나리오에 대 한 지원을 사용 하도록 설정 합니다.
-   2. 공급 업체 잠금에 대 한 걱정 없이 계측 합니다.
-   3. 고객 투명성 및 참여를 향상 시킵니다.
+다음과 같은 세 가지 이유로 고객에게 더 나은 서비스를 제공한다고 생각합니다.
+   1. 더 많은 고객 시나리오를 지원합니다.
+   2. 공급업체에 종속될 걱정 없이 계측할 수 있습니다.
+   3. 고객 투명성과 참여도를 향상합니다.
 
-또한 [오픈 소스를 수용](https://opensource.microsoft.com/)하기 위해 Microsoft의 전략에 부합 합니다.
+또한 [오픈 소스를 수용](https://opensource.microsoft.com/)하는 Microsoft의 전략에 부합합니다.
 
-### <a name="what-additional-value-does-opentelemetry-give-me"></a>어떤 추가 값이 OpenTelemetry 제공 하나요?
+### <a name="what-additional-value-does-opentelemetry-give-me"></a>OpenTelemetry의 또 다른 가치는 무엇인가요?
 
-위의 이유 외에도, OpenTelemetry는 규모에 따라 효율적 이며 다양 한 언어에서 일관 된 디자인/구성을 제공 합니다.
+위의 이유 외에도, OpenTelemetry는 대규모 작업에 효율적이며 다양한 언어에서 일관된 디자인/구성을 제공합니다.
 
-### <a name="how-can-i-test-out-opentelemetry"></a>OpenTelemetry를 테스트 하려면 어떻게 해야 하나요?
+### <a name="how-can-i-test-out-opentelemetry"></a>OpenTelemetry를 테스트하려면 어떻게 해야 하나요?
 
-에 등록 하 여 Azure Monitor Application Insights 초기 도입자 커뮤니티에 참여 하세요 [https://aka.ms/AzMonOtel](https://aka.ms/AzMonOtel) .
+Azure Monitor Application Insights 얼리어답터 커뮤니티에 참여하세요([https://aka.ms/AzMonOtel](https://aka.ms/AzMonOtel)).
 
-### <a name="what-does-ga-mean-in-the-context-of-opentelemetry"></a>OpenTelemetry의 컨텍스트에서 GA는 무엇을 의미 하나요?
+### <a name="what-does-ga-mean-in-the-context-of-opentelemetry"></a>OpenTelemetry의 컨텍스트에서 GA는 어떤 의미인가요?
 
-OpenTelemetry 커뮤니티는 [여기](https://medium.com/opentelemetry/ga-planning-f0f6d7b5302)에서 일반적으로 사용 가능한 (GA)를 정의 합니다. 그러나 OpenTelemetry "GA"는 기존 Application Insights Sdk의 기능 패리티를 의미 하지 않습니다. Azure Monitor는 OpenTelemetry Sdk가 기능 완성도에 도달할 때까지 [사전 집계 된 메트릭](app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics), [라이브 메트릭](app/live-stream.md), [적응 샘플링](app/sampling.md#adaptive-sampling), [프로파일러](app/profiler-overview.md)및 [스냅숏 디버거와](app/snapshot-debugger.md) 같은 기능을 필요로 하는 고객을 위해 현재 Application Insights sdk를 계속 권장 합니다.
+OpenTelemetry 커뮤니티는 [여기](https://medium.com/opentelemetry/ga-planning-f0f6d7b5302)에서 GA(일반 공급)를 정의합니다. 그러나 OpenTelemetry "GA"는 기존 Application Insights SDK의 기능 패리티를 의미하지 않습니다. Azure Monitor는 OpenTelemetry SDK의 기능 완성도에 도달할 때까지 [사전 집계된 메트릭](app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics), [라이브 메트릭](app/live-stream.md), [적응 샘플링](app/sampling.md#adaptive-sampling), [프로파일러](app/profiler-overview.md)및 [스냅샷 디버거](app/snapshot-debugger.md)와 같은 기능을 필요로 하는 고객을 위해 현재 Application Insights SDK를 계속 권장합니다.
 
-### <a name="can-i-use-preview-builds-in-production-environments"></a>프로덕션 환경에서 Preview 빌드를 사용할 수 있나요?
+### <a name="can-i-use-preview-builds-in-production-environments"></a>프로덕션 환경에서 미리 보기 빌드를 사용할 수 있나요?
 
-권장 되지 않습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대 한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요.
+권장되지 않습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-### <a name="whats-the-difference-between-opentelemetry-sdk-and-auto-instrumentation"></a>OpenTelemetry SDK와 자동 계측의 차이점은 무엇 인가요?
+### <a name="whats-the-difference-between-opentelemetry-sdk-and-auto-instrumentation"></a>OpenTelemetry SDK와 자동 계측의 차이점은 무엇인가요?
 
-OpenTelemetry 사양은 [SDK](https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/glossary.md#telemetry-sdk)를 정의 합니다. 간단히 말해서 "SDK"는 응용 프로그램의 다양 한 구성 요소에서 원격 분석 데이터를 수집 하 고 내보내기를 통해 Azure Monitor 데이터를 전송 하는 언어 관련 패키지입니다.
+OpenTelemetry 사양은 [SDK](https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/glossary.md#telemetry-sdk)를 정의합니다. 간단히 말해서 "SDK"는 애플리케이션의 다양한 구성 요소에서 원격 분석 데이터를 수집하고 내보내기를 통해 Azure Monitor에 데이터를 전송하는 언어 관련 패키지입니다.
 
-자동 계측 (바이트 코드 삽입, 코드 없는 또는 에이전트 기반)의 개념은 코드를 변경 하지 않고 응용 프로그램을 계측 하는 기능을 의미 합니다. 예를 들어 자세한 내용은 [OpenTelemetry Java 자동 계측 추가](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/master/README.md) 정보를 확인 하세요.
+자동 계측(바이트 코드 삽입, 코드리스 또는 에이전트 기반)의 개념은 코드를 변경하지 않고 애플리케이션을 계측하는 기능을 의미합니다. 예를 들어, 자세한 내용은 [OpenTelemetry Java 자동 계측 추가](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/master/README.md) 정보를 확인하세요.
 
-### <a name="whats-the-opentelemetry-collector"></a>OpenTelemetry 수집기는 무엇 인가요?
+### <a name="whats-the-opentelemetry-collector"></a>OpenTelemetry 수집기의 정의
 
-OpenTelemetry 수집기는 [GitHub 추가 정보](https://github.com/open-telemetry/opentelemetry-collector#opentelemetry-collector)에 설명 되어 있습니다. 현재 Microsoft는 OpenTelemetry 수집기를 활용 하지 않으며 Azure Monitor의 Application Insights에 보내는 직접 내보내기에 의존 합니다.
+OpenTelemetry 수집기는 [GitHub 추가 정보](https://github.com/open-telemetry/opentelemetry-collector#opentelemetry-collector)에 설명되어 있습니다. 현재 Microsoft는 OpenTelemetry 수집기를 활용하지 않으며 Azure Monitor의 Application Insights에 보내는 직접 내보내기를 사용합니다.
 
-### <a name="whats-the-difference-between-opencensus-and-opentelemetry"></a>OpenCensus와 OpenTelemetry의 차이점은 무엇 인가요?
+### <a name="whats-the-difference-between-opencensus-and-opentelemetry"></a>OpenCensus와 OpenTelemetry의 차이점은 무엇인가요?
 
-[OpenCensus](https://opencensus.io/) 은 [OpenTelemetry](https://opentelemetry.io/)의 기반이입니다. Microsoft에서는 [OpenTracing](https://opentracing.io/) 및 OpenCensus를 통합 하 여 전 세계에 단일 관찰성 표준으로 OpenTelemetry를 만듭니다. Azure Monitor의 현재 [프로덕션-권장 되는 PYTHON SDK](app/opencensus-python.md) 는 OpenCensus을 기반으로 하지만 결국 모든 Azure Monitor의 Sdk는 OpenTelemetry를 기반으로 합니다.
+[OpenCensus](https://opencensus.io/)는 [OpenTelemetry](https://opentelemetry.io/)의 이전 버전입니다. Microsoft에서는 [OpenTracing](https://opentracing.io/)과 OpenCensus를 통합하여 전 세계 단일 가시성 표준으로 OpenTelemetry를 만듭니다. Azure Monitor의 현재 [프로덕션-권장 Python SDK](app/opencensus-python.md)는 OpenCensus를 기반으로 하지만 결국 모든 Azure Monitor의 SDK는 OpenTelemetry를 기반으로 합니다.
 
 
 ## <a name="container-insights"></a>컨테이너 인사이트
 
 ### <a name="what-does-other-processes-represent-under-the-node-view"></a>[노드] 보기 아래의 *기타 프로세스* 에서 나타내는 것은 무엇인가요?
 
-**다른 프로세스** 는 노드의 리소스 사용량이 많은 근본 원인을 명확 하 게 이해 하는 데 도움을 주기 위한 것입니다. 이렇게 하면 컨테이너화된 프로세스와 컨테이너화되지 않은 프로세스 간의 사용량을 구분할 수 있습니다.
+**기타 프로세스** 는 노드의 리소스 사용량이 많은 근본 원인을 명확히 이해하는 데 도움을 주기 위한 것입니다. 이렇게 하면 컨테이너화된 프로세스와 컨테이너화되지 않은 프로세스 간의 사용량을 구분할 수 있습니다.
 
 이러한 **기타 프로세스** 는 무엇일까요? 
 
@@ -640,7 +640,7 @@ ciprod12042019 버전 이상의 에이전트에서는 수집된 로그 데이터
 
 다른 테이블을 조인하여 이러한 속성 값을 결과에 포함시킵니다.
 
-ContainerID 속성에 조인하여 ```ContainerInventory``` 테이블의 Image 및 ImageTag 속성을 포함하도록 쿼리를 수정합니다. ```ContainerLog```ContainerID 속성에 조인 하 여 KubepodInventory 테이블의 ContaineName 필드에서 이름 속성 (이전에 테이블에 표시 된 대로)을 포함할 수 있습니다. 이 옵션이 권장 옵션입니다.
+ContainerID 속성에 조인하여 ```ContainerInventory``` 테이블의 Image 및 ImageTag 속성을 포함하도록 쿼리를 수정합니다. ContainerID 속성에 조인하여 KubepodInventory 테이블의 ContaineName 필드에서 Name 속성(이전에는 ```ContainerLog``` 테이블에 표시됨)을 포함할 수 있습니다. 이 옵션이 권장 옵션입니다.
 
 다음 예제는 조인을 사용하여 이러한 필드 값을 가져오는 방법을 설명하는 자세한 쿼리 샘플입니다.
 
@@ -675,11 +675,11 @@ ContainerLog
 
 ### <a name="can-i-view-metrics-collected-in-grafana"></a>Grafana에서 수집된 메트릭을 볼 수 있나요?
 
-컨테이너 insights는 Grafana 대시보드의 Log Analytics 작업 영역에 저장 된 메트릭을 볼 수 있도록 지원 합니다. Grafana의 [대시보드 리포지토리](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker)에서 다운로드하여 시작하고, 모니터링할 클러스터에서 추가 데이터를 쿼리하여 사용자 지정 Grafana 대시보드에서 시각화하는 방법을 습득하는 데 도움이 되기 위해 참조할 수 있는 템플릿을 제공했습니다. 
+컨테이너 인사이트는 Grafana 대시보드의 Log Analytics 작업 영역에 저장된 메트릭을 볼 수 있도록 지원합니다. Grafana의 [대시보드 리포지토리](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker)에서 다운로드하여 시작하고, 모니터링할 클러스터에서 추가 데이터를 쿼리하여 사용자 지정 Grafana 대시보드에서 시각화하는 방법을 습득하는 데 도움이 되기 위해 참조할 수 있는 템플릿을 제공했습니다. 
 
-### <a name="can-i-monitor-my-aks-engine-cluster-with-container-insights"></a>컨테이너 insights를 사용 하 여 AKS 클러스터를 모니터링할 수 있나요?
+### <a name="can-i-monitor-my-aks-engine-cluster-with-container-insights"></a>컨테이너 인사이트를 사용하여 AKS 클러스터를 모니터링할 수 있나요?
 
-컨테이너 insights는 Azure에서 호스트 되는 AKS (이전의 ACS 엔진) 클러스터에 배포 된 컨테이너 워크 로드 모니터링을 지원 합니다. 이 시나리오에 대 한 모니터링을 사용 하도록 설정 하는 데 필요한 단계에 대 한 자세한 내용과 개요는 [AKS에 대 한 컨테이너 정보 사용](https://github.com/microsoft/OMS-docker/tree/aks-engine)을 참조 하세요.
+컨테이너 인사이트는 Azure에서 호스트되는 AKS 엔진(이전의 ACS 엔진) 클러스터에 배포된 컨테이너 워크로드를 모니터링할 수 있도록 지원합니다. 이 시나리오에 대한 모니터링을 사용하도록 설정하는 데 필요한 단계에 대한 자세한 내용 및 개요는 [AKS 엔진에 컨테이너 인사이트 사용](https://github.com/microsoft/OMS-docker/tree/aks-engine)을 참조하세요.
 
 ### <a name="why-dont-i-see-data-in-my-log-analytics-workspace"></a>내 Log Analytics 작업 영역에 데이터가 표시되지 않는 이유는 무엇인가요?
 
@@ -693,25 +693,25 @@ ContainerInventory 테이블에는 중지된 컨테이너와 실행 중인 컨�
 
 **Microsoft.OperationsManagement에 대한 구독 등록 누락** 오류가 표시되면 **Microsoft.OperationsManagement** 리소스 공급자를 작업 영역이 정의된 구독에 등록하여 해결할 수 있습니다. 이 작업을 수행하는 방법에 대한 설명서는 [여기](../azure-resource-manager/templates/error-register-resource-provider.md)에서 찾을 수 있습니다.
 
-### <a name="is-there-support-for-kubernetes-rbac-enabled-aks-clusters"></a>Kubernetes RBAC enabled AKS 클러스터에 대 한 지원이 있나요?
+### <a name="is-there-support-for-kubernetes-rbac-enabled-aks-clusters"></a>Kubernetes RBAC 지원 AKS 클러스터에 대한 지원이 있나요?
 
-컨테이너 모니터링 솔루션은 Kubernetes RBAC를 지원 하지 않지만 Container insights에서 지원 됩니다. 솔루션 세부 정보 페이지에 이러한 클러스터에 대한 데이터를 표시하는 블레이드에 올바른 정보가 표시되지 않을 수 있습니다.
+컨테이너 모니터링 솔루션은 Kubernetes RBAC를 지원하지 않지만, 컨테이너 인사이트에서 지원됩니다. 솔루션 세부 정보 페이지에 이러한 클러스터에 대한 데이터를 표시하는 블레이드에 올바른 정보가 표시되지 않을 수 있습니다.
 
 ### <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>Helm을 통해 kube-system 네임스페이스의 컨테이너에 대해 로그 수집을 사용하도록 설정하려면 어떻게 하나요?
 
-kube-system 네임스페이스에 포함된 컨테이너의 로그 수집은 기본적으로 사용하지 않도록 설정됩니다. omsagent에 환경 변수를 설정하여 로그 수집을 사용하도록 설정할 수 있습니다. 자세한 내용은 [Container insights](https://aka.ms/azuremonitor-containers-helm-chart) GitHub 페이지를 참조 하세요. 
+kube-system 네임스페이스에 포함된 컨테이너의 로그 수집은 기본적으로 사용하지 않도록 설정됩니다. omsagent에 환경 변수를 설정하여 로그 수집을 사용하도록 설정할 수 있습니다. 자세한 정보는, [컨테이너 인사이트](https://aka.ms/azuremonitor-containers-helm-chart) GitHub 페이지를 참조하세요. 
 
 ### <a name="how-do-i-update-the-omsagent-to-the-latest-released-version"></a>omsagent를 최신 릴리스 버전으로 업데이트하려면 어떻게 하나요?
 
 에이전트를 업그레이드하는 방법을 알아보려면 [에이전트 관리](containers/container-insights-manage-agent.md)를 참조하세요.
 
-### <a name="why-are-log-lines-larger-than-16kb-split-into-multiple-records-in-log-analytics"></a>로그 줄이 Log Analytics의 여러 레코드로 분할 된 16KB 보다 큰 이유는 무엇입니까?
+### <a name="why-are-log-lines-larger-than-16kb-split-into-multiple-records-in-log-analytics"></a>16KB보다 큰 로그 줄이 Log Analytics에서 여러 레코드로 분할되는 이유는 무엇인가요?
 
-에이전트는 [DOCKER JSON 파일 로깅 드라이버](https://docs.docker.com/config/containers/logging/json-file/) 를 사용 하 여 컨테이너의 stdout 및 stderr을 캡처합니다. 이 로깅 드라이버는 stdout 또는 stderr에서 파일로 복사할 때 [16KB 보다 큰](https://github.com/moby/moby/pull/22982) 로그 줄을 여러 줄로 분할 합니다.
+에이전트는 [Docker JSON 파일 로깅 드라이버](https://docs.docker.com/config/containers/logging/json-file/)를 사용하여 컨테이너의 stdout 및 stderr을 캡처합니다. 이 로깅 드라이버는 stdout 또는 stderr에서 파일로 복사할 때 [16KB보다 큰](https://github.com/moby/moby/pull/22982) 로그 줄을 여러 줄로 분할합니다.
 
 ### <a name="how-do-i-enable-multi-line-logging"></a>여러 줄 로깅을 사용하도록 설정하려면 어떻게 하나요?
 
-현재 Container insights는 여러 줄 로깅을 지원 하지 않지만 사용 가능한 해결 방법이 있습니다. JSON 형식으로 쓰도록 모든 서비스를 구성하면 Docker/Moby가 해당 데이터를 한 줄에 씁니다.
+컨테이너 인사이트는 현재 여러 줄 로깅을 지원하지 않지만, 해결 방법이 있습니다. JSON 형식으로 쓰도록 모든 서비스를 구성하면 Docker/Moby가 해당 데이터를 한 줄에 씁니다.
 
 예를 들어, 샘플 node.js 애플리케이션에 대한 아래 예제와 같이 로그를 JSON 개체로 래핑할 수 있습니다.
 
@@ -735,13 +735,13 @@ LogEntry : ({"Hello": "This example has multiple lines:","Docker/Moby": "will no
 
 ### <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>라이브 로그를 사용하도록 설정할 때 발생하는 Azure AD 오류를 해결하려면 어떻게 해야 하나요? 
 
-다음 오류가 표시될 수 있습니다. **요청에 지정된 회신 URL이 '<application ID\>' 애플리케이션에 대해 구성된 회신 URL과 일치하지 않습니다**. 이 문제를 해결 하는 [방법은 컨테이너 정보를 사용 하 여 실시간으로 컨테이너 데이터를 보는 방법](containers/container-insights-livedata-setup.md#configure-ad-integrated-authentication)문서에서 찾을 수 있습니다. 
+다음 오류가 표시될 수 있습니다. **요청에 지정된 회신 URL이 '<application ID\>' 애플리케이션에 대해 구성된 회신 URL과 일치하지 않습니다**. 이 오류를 해결하는 방법은 [컨테이너 인사이트를 사용하여 컨테이너 데이터를 실시간으로 보는 방법](containers/container-insights-livedata-setup.md#configure-ad-integrated-authentication) 문서에서 확인할 수 있습니다. 
 
 ### <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>온보딩 후 클러스터를 업그레이드할 수 없는 이유는 무엇인가요?
 
-AKS 클러스터에 대 한 컨테이너 insights를 사용 하도록 설정한 후 클러스터를 업그레이드 하려고 할 때 클러스터가 데이터를 전송 하는 Log Analytics 작업 영역을 삭제 하면 클러스터를 업그레이드 하는 데 실패 합니다. 이 문제를 해결하려면 모니터링을 사용하지 않도록 설정한 다음, 구독의 다른 유효한 작업 영역을 참조하여 사용하도록 다시 설정해야 합니다. 클러스터 업그레이드를 다시 수행하려고 하면 성공적으로 처리되고 완료됩니다.  
+컨테이너 인사이트를 AKS 클러스터에 사용하도록 설정한 후에 클러스터를 업그레이드하려고 할 때 클러스터에서 해당 데이터를 보낸 Log Analytics 작업 영역을 삭제하면 업그레이드 작업이 실패합니다. 이 문제를 해결하려면 모니터링을 사용하지 않도록 설정한 다음, 구독의 다른 유효한 작업 영역을 참조하여 사용하도록 다시 설정해야 합니다. 클러스터 업그레이드를 다시 수행하려고 하면 성공적으로 처리되고 완료됩니다.  
 
-### <a name="which-ports-and-domains-do-i-need-to-openallow-for-the-agent"></a>에이전트를 열고 허용 해야 하는 포트 및 도메인은 무엇 인가요?
+### <a name="which-ports-and-domains-do-i-need-to-openallow-for-the-agent"></a>에이전트에 대해 열고 허용해야 하는 포트와 도메인은 무엇인가요?
 
 Azure, Azure US Government 및 Azure 중국 21Vianet 클라우드를 사용하여 컨테이너화된 에이전트에 필요한 프록시 및 방화벽 구성 정보는 [네트워크 방화벽 요구 사항](containers/container-insights-onboard.md#network-firewall-requirements)을 참조하세요.
 
@@ -749,16 +749,16 @@ Azure, Azure US Government 및 Azure 중국 21Vianet 클라우드를 사용하�
 ## <a name="vm-insights"></a>VM 인사이트
 
 ### <a name="can-i-onboard-to-an-existing-workspace"></a>기존 작업 영역에 온보딩할 수 있나요?
-가상 컴퓨터가 이미 Log Analytics 작업 영역에 연결 되어 있는 경우 지원 되는 [지역](vm/vminsights-configure-workspace.md#supported-regions)중 하나에 있는 경우 VM insights에 등록 하는 경우 해당 작업 영역을 계속 사용할 수 있습니다.
+가상 머신이 Log Analytics 작업 영역에 이미 연결된 경우 VM 인사이트에 온보딩되면 해당 작업 영역을 계속 사용하도록 [지원되는 지역](vm/vminsights-configure-workspace.md#supported-regions) 중 하나에서 제공될 수 있습니다.
 
 
 ### <a name="can-i-onboard-to-a-new-workspace"></a>새 작업 영역에 온보딩할 수 있나요? 
-현재 VM이 기존 Log Analytics 작업 영역에 연결되지 않은 경우 데이터를 저장할 새 작업 영역을 만들어야 합니다. Azure Portal를 통해 VM insights에 대 한 단일 Azure VM을 구성 하는 경우 새 기본 작업 영역 만들기가 자동으로 수행 됩니다.
+현재 VM이 기존 Log Analytics 작업 영역에 연결되지 않은 경우 데이터를 저장할 새 작업 영역을 만들어야 합니다. Azure Portal을 통해 VM 인사이트용 단일 Azure VM을 구성한 경우 새 기본 작업 영역을 만드는 작업이 자동으로 수행됩니다.
 
-스크립트 기반 방법을 사용 하도록 선택 하는 경우 이러한 단계는 [Azure PowerShell 또는 리소스 관리자 템플릿을 사용 하 여 VM Insights 사용](./vm/vminsights-enable-powershell.md) 문서에서 설명 합니다. 
+스크립트 기반 방법을 사용하도록 선택하는 경우 이러한 단계는 [Azure PowerShell 또는 Resource Manager 템플릿을 사용하여 VM 인사이트 사용](./vm/vminsights-enable-powershell.md) 문서에서 설명합니다. 
 
 ### <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>내 VM에서 이미 기존 작업 영역에 보고하는 경우 어떻게 해야 하나요?
-이미 가상 머신의 데이터를 수집하는 경우 기존 Log Analytics 작업 영역에 데이터를 보고하도록 이미 구성되었을 수 있습니다.  해당 작업 영역이 지원 되는 지역 중 하나에 있는 경우 기존 작업 영역에 대 한 VM insights를 사용 하도록 설정할 수 있습니다.  이미 사용 중인 작업 영역이 지원 되는 지역 중 하나에 없는 경우 지금 VM 정보에 등록할 수 없습니다.  본사에서는 추가 지역을 지원하기 위해 적극적으로 노력하고 있습니다.
+이미 가상 머신의 데이터를 수집하는 경우 기존 Log Analytics 작업 영역에 데이터를 보고하도록 이미 구성되었을 수 있습니다.  해당 작업 영역이 지원되는 지역 중 하나라면 기존 작업 영역에 VM 인사이트를 사용하도록 설정할 수 있습니다.  이미 사용하고 있는 작업 영역이 지원되는 지역 중 하나가 아닌 경우 지금은 VM 인사이트에 온보딩할 수 없습니다.  본사에서는 추가 지역을 지원하기 위해 적극적으로 노력하고 있습니다.
 
 
 ### <a name="why-did-my-vm-fail-to-onboard"></a>내 VM이 온보딩하지 못한 이유는?
@@ -766,7 +766,7 @@ Azure Portal에서 Azure VM을 온보딩한 경우 다음 단계가 수행됩니
 
 * 해당 옵션을 선택한 경우 기본 Log Analytics 작업 영역이 만들어집니다.
 * 필요한 경우 Log Analytics 에이전트는 VM 확장을 사용하여 설치됩니다.  
-* VM insights 맵 종속성 에이전트는 필요에 따라 확장을 사용 하 여 Azure Vm에 설치 됩니다. 
+* 필요한 경우 VM 인사이트 맵 종속성 에이전트는 확장을 사용하여 Azure VM에 설치됩니다. 
 
 온보딩 프로세스 중에 포털에서 알림 상태를 반환하는 위의 각 상태에 대해 확인합니다. 작업 영역 및 에이전트 설치의 구성에는 일반적으로 5~10분 정도가 걸립니다. 포털에서 모니터링 데이터를 보는 데 5~10분이 더 걸립니다.  
 
@@ -779,10 +779,10 @@ Azure Portal에서 Azure VM을 온보딩한 경우 다음 단계가 수행됩니
 디스크 테이블 또는 일부 성능 차트에 성능 데이터가 표시되지 않는 경우 작업 영역에서 성능 카운터가 구성되지 않을 수 있습니다. 이 문제를 해결하려면 다음 [PowerShell 스크립트](./vm/vminsights-enable-powershell.md)를 실행합니다.
 
 
-### <a name="how-is-vm-insights-map-feature-different-from-service-map"></a>VM insights 맵 기능이 서비스 맵와 어떻게 다른가?
-VM insights 맵 기능은 서비스 맵을 기반으로 하지만 다음과 같은 차이점이 있습니다.
+### <a name="how-is-vm-insights-map-feature-different-from-service-map"></a>VM 인사이트 맵 기능과 서비스 맵이 어떻게 다른가요?
+VM 인사이트 맵 기능은 서비스 맵을 기반으로 하지만, 다음과 같은 차이점이 있습니다.
 
-* 지도 보기는 VM 블레이드에서 Azure Monitor의 VM 정보에서 액세스할 수 있습니다.
+* 맵 보기는 VM 블레이드 및 Azure Monitor의 VM 인사이트에서 액세스할 수 있습니다.
 * 이제 맵에서 연결은 클릭 가능하고 선택한 연결에 대한 사이드 패널에서 연결 메트릭 데이터 보기를 표시합니다.
 * 더 복잡한 맵을 지원하기 위해 맵을 만드는 데 사용되는 새 API가 있습니다.
 * 이제 모니터링된 VM은 클라이언트 그룹 노드에 포함됩니다. 도넛형 차트에서는 그룹에서 모니터링된 가상 머신 및 모니터링되지 않는 가상 머신의 비율을 보여줍니다.  그룹이 확장되면 머신의 목록을 필터링하는 데 사용할 수도 있습니다.
@@ -790,19 +790,19 @@ VM insights 맵 기능은 서비스 맵을 기반으로 하지만 다음과 같�
 * 맵 스타일은 Application insights에서 앱 맵을 사용하여 더욱 일관되게 업데이트되었습니다.
 * 사이드 패널이 업데이트되었으며, 서비스 맵에서 지원되는 전체 통합 세트(업데이트 관리, 변경 내용 추적, 보안 및 서비스 데스크)를 제공하지 않습니다. 
 * 맵에 대한 그룹 및 머신을 선택하는 옵션이 업데이트되어 이제 구독, 리소스 그룹, Azure 가상 머신 확장 집합 및 클라우드 서비스를 지원합니다.
-* VM insights 맵 기능에서 새 서비스 맵 컴퓨터 그룹을 만들 수 없습니다.  
+* VM 인사이트 맵 기능에서 새 서비스 맵 머신 그룹을 만들 수 없습니다.  
 
 ### <a name="why-do-my-performance-charts-show-dotted-lines"></a>내 성능 차트가 점선을 표시하는 이유는?
 다음과 같은 이유로 발생할 수 있습니다.  데이터 수집에 간격이 있는 경우에 줄이 점선으로 그려집니다.  사용하도록 설정된 성능 카운터에 대한 데이터 샘플링 빈도를 수정한 경우(기본 설정은 60초마다 데이터를 수집하는 것임) 차트에 대해 좁은 시간 범위를 선택하고 샘플링 빈도가 차트에 사용된 버킷 크기 미만이면(예: 샘플링 빈도는 10분 간격이며 차트의 각 버킷은 5분 간격임) 차트에서 점선을 볼 수 있습니다.  광범위한 시간 범위를 보도록 선택하면 이 경우에 차트 선이 점선이 아닌 실선으로 표시됩니다.
 
-### <a name="are-groups-supported-with-vm-insights"></a>VM insights에서 그룹이 지원 되나요?
+### <a name="are-groups-supported-with-vm-insights"></a>VM 인사이트에서 그룹이 지원되나요?
 예, 종속성 에이전트가 설치되면 VM에서 정보를 수집하여 구독, 리소스 그룹, 가상 머신 확장 집합 및 클라우드 서비스에 기반한 그룹을 표시합니다.  서비스 맵을 사용하고 있고 시스템 그룹을 만든 경우에도 이러한 그룹이 표시됩니다.  또한 보고 있는 작업 영역에 대한 컴퓨터 그룹을 만든 경우에도 그룹 필터에 표시됩니다. 
 
 ### <a name="how-do-i-see-the-details-for-what-is-driving-the-95th-percentile-line-in-the-aggregate-performance-charts"></a>집계 성능 차트에서 95번째 백분위수 줄에 영향을 주는 항목에 대한 세부 정보를 표시하려면 어떻게 할까요?
 기본적으로 목록은 5번째 백분위수의 최솟값을 포함한 머신을 보여주는 사용 가능한 메모리 차트를 제외하고 선택된 메트릭에 대해 95번째 백분위수에 대한 최댓값이 있는 VM을 표시하도록 정렬됩니다.  차트를 클릭하면 적절한 메트릭이 선택된 **상위 N개 목록** 보기가 열립니다.
 
 ### <a name="how-does-the-map-feature-handle-duplicate-ips-across-different-vnets-and-subnets"></a>맵 기능이 다른 VNet 및 서브넷에서 중복 IP를 어떻게 처리하나요?
-서브넷과 vnet에서 Vm 또는 Azure virtual machine scale sets를 사용 하 여 IP 범위를 복제 하는 경우 VM insights 맵에 잘못 된 정보가 표시 될 수 있습니다. 알려진 문제이며 본사에서는 이 환경을 개선하는 옵션을 개발하는 중입니다.
+서브넷 및 VNet에서 VM 또는 Azure 가상 머신 확장 집합을 사용하여 IP 범위를 복제하는 경우 VM 인사이트 맵에서 잘못된 정보를 표시할 수 있습니다. 알려진 문제이며 본사에서는 이 환경을 개선하는 옵션을 개발하는 중입니다.
 
 ### <a name="does-map-feature-support-ipv6"></a>맵 기능이 IPv6을 지원하나요?
 맵 기능은 현재 IPv4만 지원하며 본사에서는 IPv6에 대한 지원을 개발하는 중입니다. IPv6 내에서 터널링된 IPv4도 지원합니다.
@@ -812,7 +812,7 @@ VM insights 맵 기능은 서비스 맵을 기반으로 하지만 다음과 같�
 
 ### <a name="why-does-the-network-chart-on-the-performance-tab-look-different-than-the-network-chart-on-the-azure-vm-overview-page"></a>성능 탭의 네트워크 차트가 Azure VM 개요 페이지의 네트워크 차트와 다르게 보이는 이유는?
 
-Azure VM의 개요 페이지에는 게스트 VM에서 작업의 호스트 측정값에 따라 차트가 표시됩니다.  Azure VM 개요에 대한 네트워크 차트의 경우 청구되는 네트워크 트래픽만 표시합니다.  여기에는 가상 네트워크 간 트래픽이 포함되지 않습니다.  VM insights에 대해 표시 되는 데이터와 차트는 게스트 VM의 데이터를 기반으로 하며, 네트워크 차트는 가상 네트워크 간을 포함 하 여 해당 VM에 대 한 인바운드 및 아웃 바운드 인 모든 TCP/IP 트래픽을 표시 합니다.
+Azure VM의 개요 페이지에는 게스트 VM에서 작업의 호스트 측정값에 따라 차트가 표시됩니다.  Azure VM 개요에 대한 네트워크 차트의 경우 청구되는 네트워크 트래픽만 표시합니다.  여기에는 가상 네트워크 간 트래픽이 포함되지 않습니다.  VM 인사이트에 대해 표시되는 데이터와 차트는 게스트 VM의 데이터를 기반으로 하고, 네트워크 차트는 가상 네트워크 간 트래픽을 포함하여 해당 VM에 대한 인바운드 및 아웃바운드인 모든 TCP/IP 트래픽을 표시합니다.
 
 ### <a name="how-is-response-time-measured-for-data-stored-in-vmconnection-and-displayed-in-the-connection-panel-and-workbooks"></a>VMConnection에 저장되고 연결 패널 및 통합 문서에 표시되는 데이터에 대한 응답 시간은 어떻게 측정되나요?
 
@@ -820,35 +820,35 @@ Azure VM의 개요 페이지에는 게스트 VM에서 작업의 호스트 측정
 
 이 근사값은 요청/응답 기반 프로토콜에 적합합니다. 연결에서 단일 요청을 보내고 단일 응답을 받습니다. 이는 HTTP(S)의 경우(파이프라이닝 없음)이지만 다른 프로토콜에서는 충족되지 않습니다.
 
-### <a name="are-there-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Log Analytics 무료 요금제 요금제를 사용 하는 경우 제한이 있나요?
-*무료* 가격 책정 계층을 사용 하 여 Log Analytics 작업 영역을 Azure Monitor 구성한 경우 VM insights 맵 기능은 작업 영역에 연결 된 연결 된 컴퓨터 5 개만 지원 합니다. 무료 작업 영역에 5대의 VM이 연결되어 있는 경우 VM 중 하나의 연결을 끊은 후 나중에 새 VM을 연결하면 맵 페이지에서 새 VM이 모니터링 및 반영되지 않습니다.  
+### <a name="are-there-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Log Analytics Free 가격 책정 플랜을 사용하고 있는 경우 제한 사항이 있나요?
+*무료* 가격 책정 계층을 사용하여 Log Analytics 작업 영역에 Azure Monitor를 구성한 경우 VM 인사이트 맵 기능은 5대의 작업 영역에 연결된 머신만 지원합니다. 무료 작업 영역에 5대의 VM이 연결되어 있는 경우 VM 중 하나의 연결을 끊은 후 나중에 새 VM을 연결하면 맵 페이지에서 새 VM이 모니터링 및 반영되지 않습니다.  
 
-이 조건에서는 VM을 열고 이미 해당 VM에 설치된 후에도 왼쪽 창에서 **인사이트** 를 선택하면 **지금 사용해 보기** 옵션이 포함된 메시지가 표시됩니다.  그러나이 VM이 VM insights에 등록 되지 않은 경우 일반적으로 발생 하는 옵션을 묻는 메시지가 표시 되지 않습니다. 
+이 조건에서는 VM을 열고 이미 해당 VM에 설치된 후에도 왼쪽 창에서 **인사이트** 를 선택하면 **지금 사용해 보기** 옵션이 포함된 메시지가 표시됩니다.  그러나 이 VM이 VM 인사이트에 온보딩되지 않은 경우 일반적으로 발생하는 옵션을 묻는 프롬프트가 표시되지 않습니다. 
 
-## <a name="sql-insights-preview"></a>SQL insights (미리 보기)
+## <a name="sql-insights-preview"></a>SQL 인사이트(미리 보기)
 
-### <a name="what-versions-of-sql-server-are-supported"></a>지원 되는 SQL Server 버전은 무엇 인가요?
-SQL Server 2012 및 모든 최신 버전을 지원 합니다. 자세한 내용은 [지원 되는 버전](insights/sql-insights-overview.md#supported-versions) 을 참조 하세요.
+### <a name="what-versions-of-sql-server-are-supported"></a>지원되는 SQL Server 버전은 무엇인가요?
+SQL Server 2012 및 모든 최신 버전을 지원합니다. 자세한 내용은 [지원되는 버전](insights/sql-insights-overview.md#supported-versions)을 참조하세요.
 
-### <a name="what-sql-resource-types-are-supported"></a>지원 되는 SQL 리소스 종류는 무엇 인가요?
+### <a name="what-sql-resource-types-are-supported"></a>지원되는 SQL 리소스 종류는 무엇인가요?
 - Azure SQL Database
 - Azure SQL Managed Instance
-- Azure Virtual Machines SQL Server ( [SQL 가상 컴퓨터](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) 공급자에 등록 된 가상 컴퓨터에서 실행 되는 SQL Server)
-- Azure Vm ( [SQL 가상 컴퓨터](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) 공급자에 등록 되지 않은 가상 컴퓨터에서 실행 중인 SQL Server)
+- Azure Virtual Machines의 SQL Server([SQL 가상 머신](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) 공급자에 등록된 가상 머신에서 실행되는 SQL Server)
+- Azure VM([SQL 가상 머신](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) 공급자에 등록되지 않은 가상 머신에서 실행되는 SQL Server)
 
-지원 되지 않거나 제한적으로 지원 되는 시나리오에 대 한 자세한 내용은 [지원 되는 버전](insights/sql-insights-overview.md#supported-versions) 을 참조 하세요.
+지원되지 않거나 제한적으로 지원되는 시나리오에 대한 자세한 내용은 [지원되는 버전](insights/sql-insights-overview.md#supported-versions)을 참조하세요.
 
-### <a name="what-operating-systems-for-the-virtual-machine-running-sql-server-are-supported"></a>SQL Server를 실행 하는 가상 머신에 대 한 운영 체제는 무엇이 지원 되나요?
-Azure Virtual Machines에서 SQL Server에 대 한 [Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms) 및 [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create) 설명서에서 지정한 모든 운영 체제를 지원 합니다.
+### <a name="what-operating-systems-for-the-virtual-machine-running-sql-server-are-supported"></a>SQL Server를 실행하는 가상 머신 운영 체제는 무엇이 지원되나요?
+Azure Virtual Machines의 SQL Server에서는 [Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms) 및 [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create) 문서에서 지정한 모든 운영 체제를 지원합니다.
 
-### <a name="what-operating-system-for-the-monitoring-virtual-machine-are-supported"></a>모니터링 가상 컴퓨터에 대 한 운영 체제가 지원 되나요?
-Ubuntu 18.04은 현재 모니터링 가상 컴퓨터에 대해 지원 되는 유일한 운영 체제입니다.
+### <a name="what-operating-system-for-the-monitoring-virtual-machine-are-supported"></a>모니터링 가상 머신에 어떤 운영 체제가 지원되나요?
+Ubuntu 18.04는 현재 모니터링 가상 머신에 지원되는 유일한 운영 체제입니다.
 
-### <a name="where-will-the-monitoring-data-be-stored-in-log-analytics"></a>모니터링 데이터는 Log Analytics에 저장 됩니다.
-모든 모니터링 데이터는 **InsightsMetrics** 테이블에 저장 됩니다. **원본** 열에 값이 `solutions.azm.ms/telegraf/SqlInsights` 있습니다. **네임 스페이스** 열에는로 시작 하는 값이 `sqlserver_` 있습니다.
+### <a name="where-will-the-monitoring-data-be-stored-in-log-analytics"></a>모니터링 데이터는 Log Analytics에 저장됩니다.
+모든 모니터링 데이터는 **InsightsMetrics** 테이블에 저장됩니다. **원본** 열에 `solutions.azm.ms/telegraf/SqlInsights` 값이 있습니다. **네임스페이스** 열에는 `sqlserver_`로 시작하는 값이 있습니다.
 
-### <a name="how-often-is-data-collected"></a>데이터를 얼마나 자주 수집 하나요? 
-데이터 컬렉션의 빈도를 사용자 지정할 수 있습니다. 기본 빈도에 대 한 자세한 내용은 [sql 정보에 의해 수집 된 데이터](../insights/../azure-monitor/insights/sql-insights-overview.md#data-collected-by-sql-insights) 를 참조 하십시오. 빈도를 사용자 지정 하는 방법에 대 한 자세한 내용은 [Sql 모니터링 프로필 만들기](../insights/../azure-monitor/insights/sql-insights-enable.md#create-sql-monitoring-profile) 
+### <a name="how-often-is-data-collected"></a>데이터를 얼마나 자주 수집해야 하나요? 
+데이터 수집의 빈도를 사용자 지정할 수 있습니다. 기본 빈도에 대한 자세한 내용은 [SQL 인사이트에 의해 수집된 데이터](../insights/../azure-monitor/insights/sql-insights-overview.md#data-collected-by-sql-insights)를 참조하고 빈도를 사용자 지정하는 방법에 대한 자세한 내용은 [SQL 모니터링 프로필 만들기](../insights/../azure-monitor/insights/sql-insights-enable.md#create-sql-monitoring-profile)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 질문에 대한 대답이 여기에 없으면 다음 포럼에서 추가 질문 및 대답을 참조할 수 있습니다.

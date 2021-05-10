@@ -6,10 +6,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/05/2016
 ms.openlocfilehash: c1057478d9ae7d63bef9477a0b1297fa2c507ffa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92218428"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Analytics 관리
@@ -26,7 +26,7 @@ ms.locfileid: "92218428"
 ### <a name="create-an-account"></a>계정 만들기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **리소스 만들기**  >  **인텔리전스 + 분석**  >  **Data Lake Analytics** 를 클릭 합니다.
+2. **리소스 만들기** > **인텔리전스 + 분석** > **Data Lake Analytics** 를 클릭합니다.
 3. 다음 항목에 대한 값을 선택합니다. 
    1. **이름**: Data Lake Analytics 계정의 이름입니다.
    2. **구독**: 계정에 사용되는 Azure 구독입니다.
@@ -91,9 +91,9 @@ Data Lake Analytics를 사용하여 네트워크 수준에서 Data Lake Analytic
 
 ## <a name="manage-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어 관리
 
-다른 Azure 서비스와 마찬가지로 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자가 서비스와 상호 작용 하는 방식을 제어할 수 있습니다.
+다른 Azure 서비스와 마찬가지로 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 사용자가 서비스를 조작하는 방법을 제어할 수 있습니다.
 
-표준 Azure 역할에는 다음과 같은 기능이 있습니다.
+표준 Azure 역할에는 다음 기능이 있습니다.
 * **소유자**: 작업을 제출하고, 작업을 모니터링하고, 사용자의 작업을 취소하고, 계정을 구성할 수 있습니다.
 * **참가자**: 작업을 제출하고, 작업을 모니터링하고, 사용자의 작업을 취소하고, 계정을 구성할 수 있습니다.
 * **독자**: 작업을 모니터링할 수 있습니다.
@@ -107,7 +107,7 @@ Data Lake Analytics 개발자 역할을 사용하여 U-SQL 개발자가 Data Lak
 ### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Data Lake Analytics 계정에 사용자 또는 보안 그룹 추가
 
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
-2. **액세스 제어 (IAM)**  >  **역할 할당 추가** 를 클릭 합니다.
+2. **액세스 제어(IAM)**  > **역할 할당 추가** 를 클릭합니다.
 3. 원하는 역할을 선택합니다.
 4. 사용자를 추가합니다.
 5. **확인** 을 클릭합니다.
@@ -146,7 +146,7 @@ Data Lake Analytics 개발자 역할을 사용하여 U-SQL 개발자가 Data Lak
 
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
 2. **작업 정보** 를 클릭합니다. "모든 작업" 탭에 기본값이 지정되고 실행 중, 대기 및 종료된 작업 목록이 표시됩니다.
-3. **파이프라인 작업** 탭을 클릭 합니다. 파이프라인 작업 목록이 각 파이프라인에 대 한 집계 된 통계와 함께 표시 됩니다.
+3. **파이프라인 작업** 탭을 클릭합니다. 파이프라인 작업 목록에 각 파이프라인에 대해 집계된 통계가 함께 표시됩니다.
 
 ### <a name="monitoring-recurring-jobs"></a>되풀이 작업 모니터링
 되풀이 작업은 동일한 비즈니스 논리를 갖지만 실행될 때마다 다른 입력 데이터를 사용하는 작업입니다. 이상적으로, 되풀이 작업은 항상 성공해야 하며 실행 시간도 비교적 안정적입니다. 이러한 동작을 모니터링하면 작업이 정상 상태인지 확인하는 데 도움이 됩니다. 되풀이 작업은 “되풀이” 속성을 사용하여 식별됩니다. ADF V2를 사용하여 예약된 작업에는 이 속성이 자동으로 포함됩니다.
@@ -155,7 +155,7 @@ Data Lake Analytics 개발자 역할을 사용하여 U-SQL 개발자가 Data Lak
 
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
 2. **작업 정보** 를 클릭합니다. "모든 작업" 탭에 기본값이 지정되고 실행 중, 대기 및 종료된 작업 목록이 표시됩니다.
-3. **되풀이 작업** 탭을 클릭 합니다. 되풀이 작업 목록이 각 되풀이 작업에 대 한 집계 된 통계와 함께 표시 됩니다.
+3. **되풀이 작업** 탭을 클릭합니다. 되풀이 작업 목록에 각 되풀이 작업에 대해 집계된 통계가 함께 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

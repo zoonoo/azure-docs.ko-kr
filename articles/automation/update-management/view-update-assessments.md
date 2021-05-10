@@ -6,15 +6,15 @@ ms.subservice: update-management
 ms.date: 09/17/2020
 ms.topic: conceptual
 ms.openlocfilehash: 39df5888a330a92ae043e34c3043da5b1f566345
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92222526"
 ---
 # <a name="view-update-assessments-in-update-management"></a>업데이트 관리에서 업데이트 평가 보기
 
-업데이트 관리에서 컴퓨터, 누락 된 업데이트, 업데이트 배포 및 예약 된 업데이트 배포에 대 한 정보를 볼 수 있습니다. 선택한 Azure virtual machine, 선택한 Arc 사용 서버 또는 구성 된 모든 컴퓨터와 서버의 Automation 계정으로 범위가 지정 된 평가 정보를 볼 수 있습니다.
+업데이트 관리에서는 머신, 누락된 업데이트, 업데이트 배포, 예약된 업데이트 배포에 대한 정보를 볼 수 있습니다. 선택한 Azure 가상 머신으로 범위가 지정된 평가 정보는 선택한 Arc 사용 서버 또는 구성된 모든 머신과 서버의 Automation 계정에서 볼 수 있습니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -22,33 +22,33 @@ ms.locfileid: "92222526"
 
 ## <a name="view-update-assessment"></a>업데이트 평가 보기
 
-Azure VM에서 업데이트 평가를 보려면 **Virtual Machines** 으로 이동 하 여 목록에서 가상 머신을 선택 합니다. 왼쪽 메뉴에서 **게스트 + 호스트 업데이트** 를 선택한 다음 **게스트 + 호스트 업데이트** 페이지에서 **업데이트 관리로 이동을** 선택 합니다.
+Azure VM에서 업데이트 평가를 보려면 **가상 머신** 으로 이동하여 목록에서 가상 머신을 선택합니다. 왼쪽 메뉴에서 **게스트 + 호스트 업데이트** 를 선택한 다음, **게스트 + 호스트 업데이트** 페이지에서 **Go to Update Management**(업데이트 관리로 이동)를 선택합니다.
 
-업데이트 관리에서 컴퓨터, 누락 된 업데이트, 업데이트 배포 및 예약 된 업데이트 배포에 대 한 정보를 볼 수 있습니다.
+업데이트 관리에서는 머신, 누락된 업데이트, 업데이트 배포, 예약된 업데이트 배포에 대한 정보를 볼 수 있습니다.
 
-[![AZURE VM에 대 한 업데이트 관리 평가 보기](./media/view-update-assessments/update-assessment-azure-vm.png)](./media/view-update-assessments/update-assessment-azure-vm-expanded.png#lightbox)
+[ ![Azure VM에 대한 업데이트 관리 평가 보기](./media/view-update-assessments/update-assessment-azure-vm.png)](./media/view-update-assessments/update-assessment-azure-vm-expanded.png#lightbox)
 
-Arc 사용 서버에서 업데이트 평가를 보려면 **서버-Azure Arc** 로 이동 하 여 목록에서 서버를 선택 합니다. 왼쪽 메뉴에서 **게스트 및 호스트 업데이트** 를 선택 합니다. **게스트 + 호스트 업데이트** 페이지에서 **업데이트 관리로 이동** 을 선택 합니다.
+Arc 사용 서버에서 업데이트 평가를 보려면 **서버 - Azure Arc** 로 이동하여 목록에서 서버를 선택합니다. 왼쪽 메뉴에서 **게스트 및 호스트 업데이트** 를 선택합니다. **게스트 + 호스트 업데이트** 창에서 **Go to Update management**(업데이트 관리로 이동)를 선택합니다.
 
-업데이트 관리에서 Arc 사용 컴퓨터, 누락 된 업데이트, 업데이트 배포 및 예약 된 업데이트 배포에 대 한 정보를 볼 수 있습니다.
+업데이트 관리에서는 Arc 사용 머신, 누락된 업데이트, 업데이트 배포, 예약된 업데이트 배포에 대한 정보를 볼 수 있습니다.
 
-[![Arc 사용 서버에 대 한 업데이트 관리 평가 보기](./media/view-update-assessments/update-assessment-arc-server.png)](./media/view-update-assessments/update-assessment-arc-server-expanded.png#lightbox)
+[ ![Arc 사용 서버에 대한 업데이트 관리 평가 보기](./media/view-update-assessments/update-assessment-arc-server.png)](./media/view-update-assessments/update-assessment-arc-server-expanded.png#lightbox)
 
-Automation 계정의 Arc 사용 서버를 포함 하 여 모든 컴퓨터에서 업데이트 평가를 보려면 **automation 계정** 으로 이동 하 여 목록에서 업데이트 관리 사용 하도록 설정 된 automation 계정을 선택 합니다. Automation 계정의 왼쪽 메뉴에서 **업데이트 관리** 를 선택 합니다.
+Automation 계정의 Arc 사용 서버를 포함하여 모든 머신에서 업데이트 평가를 보려면 **Automation 계정** 으로 이동하여 목록에서 업데이트 관리를 사용하도록 설정된 Automation 계정을 선택합니다. Automation 계정의 왼쪽 메뉴에서 **업데이트 관리** 를 선택합니다.
 
-사용자 환경에 대 한 업데이트가 **업데이트 관리** 페이지에 나열 됩니다. 누락 된 것으로 식별 되는 업데이트의 목록이 **누락 된 업데이트** 탭에 표시 됩니다.
+현재 환경에 필요한 업데이트가 **업데이트 관리** 페이지에 나열됩니다. 업데이트가 누락된 것으로 식별된 경우 **누락된 업데이트** 탭에 누락된 업데이트 목록이 표시됩니다.
 
-[![업데이트 관리 기본 보기](./media/overview/update-management-view.png)](./media/overview/update-management-view-expanded.png#lightbox)
+[ ![업데이트 관리 기본 보기](./media/overview/update-management-view.png)](./media/overview/update-management-view-expanded.png#lightbox)
 
-**준수** 열에서 컴퓨터가 마지막으로 평가 된 시간을 확인할 수 있습니다. **에이전트 준비 상태 업데이트** 열에서 업데이트 에이전트의 상태를 확인할 수 있습니다. 문제가 있는 경우 링크를 선택하여 문제 해결을 도와주는 문제 해결 설명서로 이동합니다.
+**규정 준수** 열에서 머신을 마지막으로 평가한 시간을 확인할 수 있습니다. **업데이트 에이전트 준비** 열에서는 업데이트 에이전트의 상태를 확인할 수 있습니다. 문제가 있는 경우 링크를 선택하여 문제 해결을 도와주는 문제 해결 설명서로 이동합니다.
 
 **정보 링크** 에서 업데이트 링크를 선택하여 업데이트에 대한 중요한 정보를 제공하는 지원 문서를 엽니다.
 
-[![업데이트 상태 보기](./media/view-update-assessments/missing-updates.png)](./media/view-update-assessments/missing-updates-expanded.png#lightbox)
+[ ![업데이트 상태 보기](./media/view-update-assessments/missing-updates.png)](./media/view-update-assessments/missing-updates-expanded.png#lightbox)
 
 업데이트의 다른 위치를 클릭하면 로그 검색 창이 열립니다. 로그 검색에 대한 쿼리는 해당 특정 업데이트에 대해 미리 정의되어 있습니다. 이 쿼리를 수정하거나 자체 쿼리를 만들어 자세한 정보를 볼 수 있습니다.
 
-[![로그 쿼리 결과 보기](./media/view-update-assessments/logsearch-results.png)](./media/view-update-assessments/logsearch-results-expanded.png#lightbox)
+[ ![로그 쿼리 결과 보기](./media/view-update-assessments/logsearch-results.png)](./media/view-update-assessments/logsearch-results-expanded.png#lightbox)
 
 ## <a name="view-missing-updates"></a>누락 업데이트 보기
 
@@ -92,4 +92,4 @@ Red Hat Enterprise 버전 6의 업데이트를 분류하려면 yum-보안 플러
 
 ## <a name="next-steps"></a>다음 단계
 
-프로세스의 다음 단계는 비규격 컴퓨터에 [업데이트를 배포](deploy-updates.md) 하 고 배포 결과를 검토 하는 것입니다.
+이 프로세스의 다음 단계에서는 비규격 머신에 [업데이트를 배포](deploy-updates.md)하고 배포 결과를 검토합니다.

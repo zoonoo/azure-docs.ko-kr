@@ -1,15 +1,15 @@
 ---
 title: Azure Data Lake Analytics에서 R로 U-SQL 스크립트 확장
-description: Azure Data Lake Analytics를 사용 하 여 U SQL 스크립트에서 R 코드를 실행 하는 방법을 알아봅니다. 파일에서 R 코드 인라인 또는 참조를 포함 합니다.
+description: Azure Data Lake Analytics를 사용하여 U-SQL 스크립트로 R 코드를 실행하는 방법을 알아봅니다. 파일에서 R 코드 인라인 또는 참조를 포함합니다.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/20/2017
 ms.openlocfilehash: ab28ba1bb6185f5f0ab90df99f0abea7895b1bf4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92218003"
 ---
 # <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 R 코드로 U-SQL 스크립트 확장
@@ -17,9 +17,9 @@ ms.locfileid: "92218003"
 다음 예제에서는 R 코드를 배포하는 기본 단계를 보여 줍니다.
 
 * `REFERENCE ASSEMBLY` 문을 사용하여 U-SQL 스크립트에 대한 R 확장을 사용하도록 설정합니다.
-* 작업을 사용 `REDUCE` 하 여 키의 입력 데이터를 분할 합니다.
+* `REDUCE` 연산을 사용하여 키의 입력 데이터를 분할합니다.
 * U-SQL용 R 확장에는 리듀서에 할당된 각 꼭짓점에서 R 코드를 실행하는 기본 제공 리듀서(`Extension.R.Reducer`)가 포함됩니다.
-* `inputFromUSQL` `outputToUSQL` U-SQL과 R 간에 데이터를 전달 하기 위해 및 라는 전용 명명 된 데이터 프레임을 사용 합니다. 입력 및 출력 데이터 프레임 식별자 이름은 고정 되어 있습니다. 즉, 사용자는 이러한 미리 정의 된 입력 및 출력 데이터 프레임 식별자 이름을 변경할 수 없습니다.
+* 각각 `inputFromUSQL` 및 `outputToUSQL`이라는 명명된 전용 데이터 프레임을 사용하여 U-SQL과 R 간에 데이터를 전달합니다. 입력 및 출력 DataFrame 식별자 이름은 고정되어 있습니다. 즉 사용자가 입력 및 출력 DataFrame 식별자의 미리 정의된 이름을 변경할 수 없습니다.
 
 ## <a name="embedding-r-code-in-the-u-sql-script"></a>U-SQL 스크립트에 R 코드 포함
 

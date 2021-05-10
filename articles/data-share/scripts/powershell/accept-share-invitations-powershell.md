@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell 스크립트: Azure 데이터 공유의 초대 수락'
-description: 이 PowerShell 스크립트는 기존 데이터 공유의 초대를 수락 합니다.
+title: 'PowerShell 스크립트: Azure Data Share의 초대 수락'
+description: 이 PowerShell 스크립트는 기존 데이터 공유의 초대를 수락합니다.
 services: data-share
 author: joannapea
 ms.author: joanpo
@@ -8,15 +8,15 @@ ms.service: data-share
 ms.topic: article
 ms.date: 07/07/2019
 ms.openlocfilehash: 24091bafac7ad5c558b975d52064f12715b3d622
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92221403"
 ---
-# <a name="use-powershell-to-accept-a-data-share-invitation"></a>PowerShell을 사용 하 여 데이터 공유 초대 수락
+# <a name="use-powershell-to-accept-a-data-share-invitation"></a>PowerShell을 사용하여 데이터 공유 초대 수락
 
-이 PowerShell 스크립트는 소비자에 게 보낸 초대를 수락 합니다.
+이 PowerShell 스크립트는 소비자에게 보낸 초대를 수락합니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 ```powershell
@@ -40,12 +40,12 @@ New-AzDataShareSubscription -ResourceGroupName $resourceGroupName -AccountName $
 
 | 명령 | 메모 |
 |---|---|
-| [AzDataShareInvitation](/powershell/module/az.datashare/get-azdatashareinvitation) | 전송 데이터 공유 초대를 가져오고 나열 합니다. |
-| [AzDataShareSubscription](/powershell/module/az.datashare/get-azdatasharesubscription) | 데이터 공유 구독을 만듭니다. |
+| [Get-AzDataShareInvitation](/powershell/module/az.datashare/get-azdatashareinvitation) | 전송된 데이터 공유 초대를 가져와 나열합니다. |
+| [New-AzDataShareSubscription](/powershell/module/az.datashare/get-azdatasharesubscription) | 데이터 공유 구독을 만듭니다. |
 |||
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/)를 참조하세요.
 
-추가 Azure 데이터 공유 PowerShell 스크립트 샘플은 [Azure 데이터 공유 powershell 샘플](../../samples-powershell.md)에서 찾을 수 있습니다.
+추가 Azure Data Share PowerShell 스크립트 샘플은 [Azure Data Share PowerShell 샘플](../../samples-powershell.md)에 있습니다.

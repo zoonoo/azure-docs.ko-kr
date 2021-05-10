@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8c68be4e46693621f77cb25dd8f34f8e0b7d75dd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89278414"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 인시던트 대응 요구 사항 확인
@@ -50,17 +50,17 @@ ID서 관리 시스템은 IT 관리자를 도와 해당하는 의심스러운 �
 * 회사가 다른 디바이스에서 사용자의 의심스러운 로그인 시도를 식별해야 합니까?
 * 회사가 잠재적으로 공격에 노출된 사용자의 자격 증명을 검색해야 합니까?
 * 회사가 사용자의 액세스 및 동작을 감사해야 합니까?
-* 사용자가 자신의 암호를 재설정 하는 경우 회사에서 알고 있어야 하나요?
+* 사용자가 암호를 재설정하는 경우 회사에서 알아야 합니까?
 
 ## <a name="policy-enforcement"></a>정책 적용
 손상 제어 및 위험 감소 단계 동안 잠재적 공격의 실제 및 잠재적인 영향을 신속하게 줄이는 것이 중요합니다. 이 시점에서 수행할 동작은 주 및 부 동작 간의 차이를 만들 수 있습니다. 정확한 대응은 조직 및 직면하는 공격의 특성에 따라 달라집니다. 초기 평가에서 계정이 손상되었다고 결론을 얻은 경우 이 계정을 차단하는 정책을 적용해야 합니다. ID 관리 시스템이 활용되는 하나의 예입니다. 진행 중인 인시던트에 반응하기 위해 정책이 어떻게 적용될지를 고려하는 동안 아래의 질문을 사용하여 하이브리드 ID 솔루션을 설계하도록 합니다.
 
 * 필요한 경우 회사가 네트워크 액세스에서 사용자를 블록하는 정책이 준비되어 있습니까?
   * 그렇다면 현재 솔루션이 채택하려는 하이브리드 ID 관리 시스템과 통합됩니까?
-* 회사에서 격리 된 사용자에 대 한 조건부 액세스를 적용 해야 하나요? 
+* 회사에서 격리된 사용자에 대해 조건부 액세스를 적용해야 합니까? 
 
 > [!NOTE]
-> 각 답변을 주목하고 답변 이유를 이해해야 합니다. [데이터 보호 전략 정의](plan-hybrid-identity-design-considerations-data-protection-strategy.md) 는 사용 가능한 옵션과 각 옵션의 장점/단점을 고려 합니다.  질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
+> 각 답변을 주목하고 답변 이유를 이해해야 합니다. [데이터 보호 전략 정의](plan-hybrid-identity-design-considerations-data-protection-strategy.md) 에서는 사용할 수 있는 옵션과 각 옵션의 장점/단점을 살펴봅니다.  질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
 > 
 > 
 

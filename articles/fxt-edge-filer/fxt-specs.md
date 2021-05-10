@@ -1,16 +1,16 @@
 ---
 title: Microsoft Azure FXT Edge Filer 사양 | Microsoft Docs
-description: Microsoft Azure FXT Edge 필터 하드웨어에 대 한 실제 및 환경 사양에 대해 알아봅니다.
+description: Microsoft Azure FXT Edge Filer 하드웨어에 대한 물리적 사양과 환경 사양에 대해 알아봅니다.
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
 ms.openlocfilehash: b1a172adb54593421ef56e09c131e0ddcaee9f6e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92215827"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Azure FXT Edge Filer 사양
@@ -37,7 +37,7 @@ ms.locfileid: "92215827"
 | 드라이브 번호    |  Windows Server Update Services와 함께   |  사양 |
 |------------------|--------|-----------------|
 | 0, 1             | OS     | 480GB SATA SSD |
-| 2, 3, 4, 5, 6, 7, 8, 9 | 데이터   | FXT 6600:3.2 TB NVMe SSD <br> FXT 6400:1.6 TB NVMe SSD |
+| 2, 3, 4, 5, 6, 7, 8, 9 | 데이터   | FXT 6600: 3.2 TB NVMe SSD <br> FXT 6400: 1.6 TB NVMe SSD |
 
 ## <a name="dimensions-and-weight"></a>크기 및 무게
 
@@ -143,17 +143,17 @@ Azure FXT Edge Filer 노드는 가변 속도 팬을 사용하므로 전원은 �
 | 고도                  | 최대 3048미터(10,000피트), 아래에 표시된 온도 출력 저하의 조건 | 최대 12,000미터(39,370피트) |
 
 > [!NOTE]
-> 고도 **온도 비 등급:** 최대 온도는 950 m (3117 ft) 위의 1 ° C/300 m (1 ° F/547 ft)으로 줄어듭니다.
+> **고도 온도 출력 저하:** 950m(3,117ft) 이상에서 최대 온도는 1°C/300m(1°F/547ft)씩 떨어집니다.
 
 ### <a name="airflow-shock-and-vibration"></a>기류, 감전 및 진동
 
-| 특성         | 규격 |
+| attribute         | 규격 |
 |-------------------|---------------|
 | 기류                    | 시스템의 공기는 앞에서 뒤로 흐릅니다. 압력이 낮고, 후면 배기가 설치된 시스템을 작동할 수 있어야 합니다. |
 | 충격, 작동         | 11밀리초 동안 6G(6개 방향으로 테스트됨) |
 | 충격, 작동 불가능     | 2밀리초 동안 71G(6개 방향으로 테스트됨) |
 | 진동, 작동     | 0.26G<sub>RMS</sub> 5Hz-350Hz 임의         |
-| 진동, 작동 불가능 | 1.88 G<sub>RMS</sub> 10 hz ~ 500 hz (15 분) (테스트 된 6 개 측 모두)  |
+| 진동, 작동 불가능 | 15분 동안 1.88G<sub>RMS</sub> 10Hz-500Hz(6개 측면으로 모두 테스트됨)  |
 
 ## <a name="safety-regulation-compliance"></a>안전 규정 준수
 

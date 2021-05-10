@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell 스크립트: Azure 데이터 공유 초대 만들기'
+title: 'PowerShell 스크립트: Azure Data Share 초대 만들기'
 description: 이 PowerShell 스크립트는 데이터 공유 초대를 보냅니다.
 author: joannapea
 ms.service: data-share
@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
 ms.openlocfilehash: 5f65d081e724206c1c64ad08189d1b620bbb4f2c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92221335"
 ---
-# <a name="use-a-powershell-script-to-monitor-the-usage-of-a-sent-data-share"></a>PowerShell 스크립트를 사용 하 여 전송 된 데이터 공유의 사용 모니터링
+# <a name="use-a-powershell-script-to-monitor-the-usage-of-a-sent-data-share"></a>PowerShell 스크립트를 사용하여 전송된 데이터 공유의 사용 모니터링
 
 이 PowerShell 스크립트는 데이터 공유 초대를 만듭니다.
 
@@ -39,11 +39,11 @@ New-AzDataShareInvitation -ResourceGroupName $resourceGroupName -AccountName $da
 
 | 명령 | 메모 |
 |---|---|
-| [AzDataShareInvitation](/powershell/module/az.datashare/new-azdatashareinvitation) | 데이터 공유 초대를 만듭니다. |
+| [New-AzDataShareInvitation](/powershell/module/az.datashare/new-azdatashareinvitation) | 데이터 공유 초대를 만듭니다. |
 |||
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/)를 참조하세요.
 
-추가 Azure 데이터 공유 PowerShell 스크립트 샘플은 [Azure 데이터 공유 powershell 샘플](../../samples-powershell.md)에서 찾을 수 있습니다.
+추가 Azure Data Share PowerShell 스크립트 샘플은 [Azure Data Share PowerShell 샘플](../../samples-powershell.md)에 있습니다.

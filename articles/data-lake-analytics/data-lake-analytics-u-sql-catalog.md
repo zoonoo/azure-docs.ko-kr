@@ -1,15 +1,15 @@
 ---
 title: Azure Data Lake Analytics에서 U-SQL 카탈로그 사용
-description: U-SQL 카탈로그를 사용하여 코드와 데이터를 공유하는 방법을 알아봅니다. 테이블 반환 함수를 만들고, 뷰를 만들고, 테이블을 만들고, 쿼리 합니다.
+description: U-SQL 카탈로그를 사용하여 코드와 데이터를 공유하는 방법을 알아봅니다. 테이블 반환 함수, 보기, 테이블을 만들어 쿼리합니다.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 05/09/2017
 ms.openlocfilehash: f92aadc8ccf18dd91b5dd4b35285f60b174e4cf7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92220077"
 ---
 # <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 카탈로그 시작
@@ -169,4 +169,4 @@ OUTPUT @res
 ## <a name="next-steps"></a>다음 단계
 * [Microsoft Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
 * [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
-* [Azure Portal를 사용 하 여 Azure Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+* [Azure Portal을 사용하여 Azure Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

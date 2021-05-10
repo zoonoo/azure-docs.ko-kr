@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: ea51c1f7fcfce5b795965eab2f9c03a820a6ab03
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: f9b40c934cb428a31a3feb77195518d5351818d7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059363"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785364"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault-managed-hsm-preview"></a>Azure Key Vault 관리되는 HSM에 저장된 고객 관리형 키를 사용하여 암호화 구성(미리 보기)
 
@@ -34,7 +34,7 @@ Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화�
 
 먼저 시스템이 할당한 관리 ID를 스토리지 계정에 할당합니다. 이 관리 ID를 사용하여 스토리지 계정에서 관리되는 HSM에 액세스할 수 있는 권한을 부여합니다. 시스템이 할당한 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](../../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요.
 
-Azure CLI를 사용하여 관리 ID를 할당하려면 [az storage account update](/cli/azure/storage/account#az-storage-account-update)를 호출합니다. 대괄호의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
+Azure CLI를 사용하여 관리 ID를 할당하려면 [az storage account update](/cli/azure/storage/account#az_storage_account_update)를 호출합니다. 대괄호의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli
 az storage account update \
@@ -97,7 +97,7 @@ az storage account update
     --encryption-key-vault $hsmurl
 ```
 
-키 버전을 수동으로 업데이트할 때 새 버전을 사용하려면 스토리지 계정의 암호화 설정을 업데이트해야 합니다. 먼저 [az keyvault show](/cli/azure/keyvault#az-keyvault-show)를 호출하여 KEY Vault URI를 쿼리하고 [az keyvault key list-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions)를 호출하여 키 버전을 쿼리합니다. 그런 다음 이전 예제와 같이 [az storage account update](/cli/azure/storage/account#az-storage-account-update)를 호출하여 새 버전의 키를 사용하도록 스토리지 계정의 암호화 설정을 업데이트합니다.
+키 버전을 수동으로 업데이트할 때 새 버전을 사용하려면 스토리지 계정의 암호화 설정을 업데이트해야 합니다. 먼저 [az keyvault show](/cli/azure/keyvault#az_keyvault_show)를 호출하여 KEY Vault URI를 쿼리하고 [az keyvault key list-versions](/cli/azure/keyvault/key#az_keyvault_key_list_versions)를 호출하여 키 버전을 쿼리합니다. 그런 다음 이전 예제와 같이 [az storage account update](/cli/azure/storage/account#az_storage_account_update)를 호출하여 새 버전의 키를 사용하도록 스토리지 계정의 암호화 설정을 업데이트합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

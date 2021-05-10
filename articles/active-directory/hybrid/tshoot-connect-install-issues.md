@@ -16,13 +16,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 25314b4a306678dc877a95194907b3d73979e4f8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89275864"
 ---
-# <a name="troubleshoot-azure-ad-connect-install-issues"></a>문제 해결: Azure AD Connect 설치 문제
+# <a name="troubleshoot-azure-ad-connect-install-issues"></a>문제 해결: Azure AD Connect 설치 이슈
 
 ## <a name="recommended-steps"></a>**권장되는 단계**
 적합한 [Azure AD Connect 설치 유형](./how-to-connect-install-select-installation.md)을 확인합니다. 기본 설치 조건을 충족하는 경우 기본 설치를 선택할 것을 강력하게 권장합니다. 기본 설치는 설치를 완료하는 데 필요한 최소한의 옵션만 제공하므로 문제가 발생할 가능성이 낮습니다. 
@@ -41,21 +41,21 @@ ms.locfileid: "89275864"
 
 ### <a name="common-issues"></a>**일반적인 문제**
 
-* [온-프레미스 Active Directory의 연결 문제](./reference-connect-adconnectivitytools.md)
+* [온-프레미스 Active Directory 연결 이슈](./reference-connect-adconnectivitytools.md)
 
 * [온라인 Azure Active Directory 연결 문제](./tshoot-connect-connectivity.md)
 
-* [온-프레미스 Active Directory에 대 한 사용 권한 문제](./how-to-connect-configure-ad-ds-connector-account.md)
+* [온-프레미스 Active Directory 권한 이슈](./how-to-connect-configure-ad-ds-connector-account.md)
 
 ## <a name="recommended-documents"></a>**권장되는 문서**
-* [Azure AD Connect에 대 한 필수 구성 요소](./how-to-connect-install-prerequisites.md)
+* [Azure AD Connect에 대한 필수 구성 요소](./how-to-connect-install-prerequisites.md)
 * [Azure AD Connect에 사용할 설치 유형 선택](./how-to-connect-install-select-installation.md)
 * [기본 설정을 사용하여 Azure AD Connect 시작](./how-to-connect-install-express.md)
 * [Azure AD Connect의 사용자 지정 설치](./how-to-connect-install-custom.md)
 * [Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드](./how-to-upgrade-previous-version.md)
-* [Azure AD Connect: 준비 서버 란?](./plan-connect-topologies.md#staging-server)
+* [Azure AD Connect: 스테이징 서버란?](./plan-connect-topologies.md#staging-server)
 * [ADConnectivityTool PowerShell 모듈이란?](./how-to-connect-adconnectivitytools.md)
 
 ## <a name="next-steps"></a>다음 단계
-- [동기화를 Azure AD Connect](how-to-connect-sync-whatis.md)합니다.
+- [Azure AD Connect 동기화](how-to-connect-sync-whatis.md)
 - [하이브리드 ID란?](whatis-hybrid-identity.md)

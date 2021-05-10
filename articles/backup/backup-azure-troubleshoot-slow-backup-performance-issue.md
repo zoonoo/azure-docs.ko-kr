@@ -3,12 +3,12 @@ title: 파일 및 폴더의 느린 백업 문제 해결
 description: Azure Backup 성능 문제의 원인을 진단하는 데 도움이 되는 문제 해결 지침을 제공합니다.
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: b3f2ac343ef4a703f347ec8a57f242a636bb32d2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 791f0edf5f50d27147e402f09e7a3e4c2ea7ca43
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88824018"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518527"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Azure Backup에서 파일 및 폴더의 느린 백업 문제 해결
 
@@ -21,7 +21,7 @@ ms.locfileid: "88824018"
 
 문제 해결을 시작하기 전에 [최신 Azure Backup 에이전트](https://aka.ms/azurebackup_agent)를 다운로드하여 설치하는 것이 좋습니다. Microsoft는 다양한 문제를 해결하고, 기능을 추가하고, 성능을 향상시키기 위해 Backup 에이전트를 자주 업데이트합니다.
 
-일반적인 구성 문제가 발생하지 않도록 [Azure Backup 서비스 - FAQ](backup-azure-backup-faq.md) 를 검토하는 것이 좋습니다.
+일반적인 구성 문제가 발생하지 않도록 [Azure Backup 서비스 - FAQ](backup-azure-backup-faq.yml) 를 검토하는 것이 좋습니다.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -49,13 +49,13 @@ Windows에서는 이러한 병목 상태를 검색할 수 있는 [성능 모니�
 
 | 카운터 | 상태 |
 | --- | --- |
-| Logical Disk(Physical Disk)--%idle |<li> 100% 유휴 상태에서 50% 유휴 = 정상</br><li> 49% 유휴 ~ 20% 유휴 상태 = 경고 또는 모니터</br><li> 19% 유휴 상태에서 0% 유휴 = 위험 또는 사양을 벗어남 |
-| 논리 디스크(실제 디스크)--%평균 Disk Sec Read or Write |<li> 0.001 밀리초 ~ 0.015 밀리초 = 정상</br><li> 0.015 밀리초 ~ 0.025 밀리초 = 경고 또는 모니터</br><li> 0.026 밀리초 이상 = 위험 또는 사양 부족 |
+| Logical Disk(Physical Disk)--%idle |<li> 100% 유휴 ~ 50% 유휴 = 정상</br><li> 49% 유휴 ~ 20% 유휴 = 경고 또는 모니터</br><li> 19% 유휴 ~ 0% 유휴 = 위험 또는 사양을 벗어남 |
+| 논리 디스크(실제 디스크)--%평균 Disk Sec Read or Write |<li> 0.001ms ~ 0.015ms = 정상</br><li> 0.015ms ~ 0.025ms = 경고 또는 모니터</br><li> 0.026ms 이상 = 위험 또는 사양을 벗어남 |
 | 논리 디스크(실제 디스크)--현재 디스크 큐 길이(모든 인스턴스) |6분이 넘는 시간 동안 80개 요청 |
-| Memory--Pool Non Paged Bytes |<li> 사용 된 풀의 60% 미만 = 정상<br><li> 사용 된 풀의 61% ~ 80% = 경고 또는 모니터</br><li> 사용 된 풀 수가 80% 보다 큼 = 위험 또는 사양을 벗어남 |
-| Memory--Pool Paged Bytes |<li> 사용 된 풀의 60% 미만 = 정상</br><li> 사용 된 풀의 61% ~ 80% = 경고 또는 모니터</br><li> 사용 된 풀 수가 80% 보다 큼 = 위험 또는 사양을 벗어남 |
-| Memory--Available Megabytes |<li> 사용 가능한 메모리의 50% 이상 = 정상</br><li> 사용 가능한 메모리의 25% = 모니터</br><li>사용 가능한 메모리의 10% = 경고</br><li> 100 MB 미만 또는 사용 가능한 사용 가능한 메모리의 5% = 위험 또는 사양 부족 |
-| Processor--\%%Processor Time(모든 인스턴스) |<li> 60% 미만의 사용 됨 = 정상</br><li> 61% ~ 90% 사용 됨 = 모니터 또는 주의</br><li> 91% ~ 100% 사용 됨 = 위험 |
+| Memory--Pool Non Paged Bytes |<li> 풀 사용률 60% 미만 = 정상<br><li> 풀 사용률 61% ~ 80% = 경고 또는 모니터</br><li> 풀 사용률 80% 초과 = 위험 또는 사양을 벗어남 |
+| Memory--Pool Paged Bytes |<li> 풀 사용률 60% 미만 = 정상</br><li> 풀 사용률 61% ~ 80% = 경고 또는 모니터</br><li> 풀 사용률 80% 초과 = 위험 또는 사양을 벗어남 |
+| Memory--Available Megabytes |<li> 사용 가능한 여유 메모리 50% 이상 = 정상</br><li> 사용 가능한 여유 메모리 25% = 모니터</br><li>사용 가능한 여유 메모리 10% = 경고</br><li> 사용 가능한 여유 메모리 100MB 또는 5% 미만 = 위험 또는 사양을 벗어남 |
+| Processor--\%%Processor Time(모든 인스턴스) |<li> 사용률 60% 미만 = 정상</br><li> 사용률 61% ~ 90% = 모니터 또는 주의</br><li> 사용률 91% ~ 100% = 위험 |
 
 > [!NOTE]
 > 인프라가 가능한 원인으로 격리되면 더 나은 성능을 위해 주기적으로 디스크의 조각 모음을 수행하는 것이 좋습니다.
@@ -93,10 +93,10 @@ VM에서 백업 에이전트를 실행하는 경우 실제 컴퓨터에서 실�
 다음 표시기는 병목 상태를 이해하고 그에 따라 다음 단계에서 작업을 진행하는 데 유용할 수 있습니다.
 
 * **UI에 데이터 전송 진행률이 표시됨**. 데이터가 여전히 전송 중입니다. 네트워크 대역폭 또는 데이터 크기로 인해 지연이 발생할 수 있습니다.
-* **UI에 데이터 전송 진행률이 표시 되지 않습니다**. C:\Program Files\Microsoft Azure Recovery Services Agent\Temp에 있는 로그를 연 다음, 로그에서 FileProvider::EndData 항목을 확인합니다. 이 항목은 데이터 전송이 완료되었으며 카탈로그 작업이 진행 중임을 나타냅니다. 백업 작업을 취소하지 말고, 대신 카탈로그 작업가 끝날 때까지 좀 더 기다리세요. 문제가 지속되면 [Azure 지원](https://portal.azure.com/#create/Microsoft.Support)에 문의하세요.
+* **UI에 데이터 전송 진행률이 표시되지 않음**. C:\Program Files\Microsoft Azure Recovery Services Agent\Temp에 있는 로그를 연 다음, 로그에서 FileProvider::EndData 항목을 확인합니다. 이 항목은 데이터 전송이 완료되었으며 카탈로그 작업이 진행 중임을 나타냅니다. 백업 작업을 취소하지 말고, 대신 카탈로그 작업가 끝날 때까지 좀 더 기다리세요. 문제가 지속되면 [Azure 지원](https://portal.azure.com/#create/Microsoft.Support)에 문의하세요.
 
-대량 디스크를 백업 하려는 경우 첫 번째 백업 (초기 복제)에 [Azure Data Box](./offline-backup-azure-data-box.md) 를 사용 하는 것이 좋습니다.  Data Box를 사용할 수 없는 경우 네트워크를 통해 장기간 데이터를 전송하는 동안 사용자 환경에서 일시적인 네트워크 문제로 인한 백업 오류가 발생할 수 있습니다.  이러한 오류를 방지하려면 초기 백업에 폴더 몇 개를 추가하고 모든 폴더가 Azure에 성공적으로 백업될 때까지 점진적으로 폴더를 추가하면 됩니다.  이후 증분 백업은 상대적으로 더 빠르게 수행됩니다.
+대용량 디스크를 백업하려는 경우 첫 번째 백업(초기 복제)에 [Azure Data Box](./offline-backup-azure-data-box.md)를 사용하는 것이 좋습니다.  Data Box를 사용할 수 없는 경우 네트워크를 통해 장기간 데이터를 전송하는 동안 사용자 환경에서 일시적인 네트워크 문제로 인한 백업 오류가 발생할 수 있습니다.  이러한 오류를 방지하려면 초기 백업에 폴더 몇 개를 추가하고 모든 폴더가 Azure에 성공적으로 백업될 때까지 점진적으로 폴더를 추가하면 됩니다.  이후 증분 백업은 상대적으로 더 빠르게 수행됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [파일 및 폴더 백업에 대한 일반적인 질문](backup-azure-file-folder-backup-faq.md)
+* [파일 및 폴더 백업에 대한 일반적인 질문](backup-azure-file-folder-backup-faq.yml)

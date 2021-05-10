@@ -4,12 +4,12 @@ description: Azure Functions의 지속성 함수 확장에서 외부 이벤트�
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: c08306edcea02a9207ab5a15eb62b7fffc2ecb44
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: a7625a6fcd1000595c2c582935c839ba6d26b20d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99576332"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728490"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>지속성 함수의 외부 이벤트 처리(Azure Functions)
 
@@ -20,7 +20,7 @@ ms.locfileid: "99576332"
 
 ## <a name="wait-for-events"></a>이벤트 대기
 
-오케스트레이션 트리거 바인딩의 [Waitforexternalevent](/dotnet/api/microsoft.azure.webjobs.durableorchestrationcontextbase.waitforexternalevent?view=azure-dotnet-legacy) (.net), `waitForExternalEvent` (JavaScript) 및 (Python) 메서드를 사용 하면 오 케 스트레이 터 `wait_for_external_event` 함수가 외부 이벤트를 비동기적으로 대기 하 고 수신할 수 있습니다. [](durable-functions-bindings.md#orchestration-trigger) 수신 오케스트레이터는 이벤트의 *이름* 과 수신할 것으로 예상되는 *데이터의 셰이프* 를 선언합니다.
+[오케스트레이션 트리거 바인딩](durable-functions-bindings.md#orchestration-trigger)의 [WaitForExternalEvent](/dotnet/api/microsoft.azure.webjobs.durableorchestrationcontextbase.waitforexternalevent?view=azure-dotnet-legacy&preserve-view=true)(.NET), `waitForExternalEvent`(JavaScript), `wait_for_external_event`(Python) 메서드를 사용하면 오케스트레이터 함수가 비동기식으로 대기하고 외부 이벤트를 수신 대기합니다. 수신 오케스트레이터는 이벤트의 *이름* 과 수신할 것으로 예상되는 *데이터의 셰이프* 를 선언합니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -42,7 +42,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 이전 c # 코드는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 대신를 사용 해야 합니다 `DurableOrchestrationContext` `IDurableOrchestrationContext` . 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 C# 코드는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `IDurableOrchestrationContext` 대신 `DurableOrchestrationContext`를 사용해야 합니다. 버전 간 차이점에 관한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -109,7 +109,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 이전 c # 코드는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 대신를 사용 해야 합니다 `DurableOrchestrationContext` `IDurableOrchestrationContext` . 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 C# 코드는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `IDurableOrchestrationContext` 대신 `DurableOrchestrationContext`를 사용해야 합니다. 버전 간 차이점에 관한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -179,7 +179,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 이전 코드는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 대신를 사용 해야 합니다 `DurableOrchestrationContext` `IDurableOrchestrationContext` . 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 코드는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `IDurableOrchestrationContext` 대신 `DurableOrchestrationContext`를 사용해야 합니다. 버전 간 차이점에 관한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
 
 .NET에서 이벤트 페이로드를 필요한 `T` 형식으로 변환할 수 없으면 예외가 throw됩니다.
 
@@ -223,18 +223,18 @@ main = df.Orchestrator.create(orchestrator_function)
 
 ---
 
-`WaitForExternalEvent` 일부 입력에 대해 무기한 대기 합니다.  함수 앱은 기다리는 동안 안전하게 언로드될 수 있습니다. 이 오케스트레이션 인스턴스에 이벤트가 도착하면 인스턴스가 자동으로 활성화하고 해당 이벤트를 즉시 처리합니다.
+`WaitForExternalEvent`는 일부 입력을 무기한 기다립니다.  함수 앱은 기다리는 동안 안전하게 언로드될 수 있습니다. 이 오케스트레이션 인스턴스에 이벤트가 도착하면 인스턴스가 자동으로 활성화하고 해당 이벤트를 즉시 처리합니다.
 
 > [!NOTE]
-> 함수 앱이 소비 계획을 사용 하는 경우 대기 시간에 관계 없이 오 케 스트레이 터 함수가 `WaitForExternalEvent` (.net), `waitForExternalEvent` (JavaScript) 또는 `wait_for_external_event` (Python)에서 작업을 대기 하는 동안에는 청구 요금이 발생 하지 않습니다.
+> 함수 앱이 사용량 플랜을 사용하는 경우 대기 시간과 관계없이 오케스트레이터 함수에서 `WaitForExternalEvent`(.NET), `waitForExternalEvent`(JavaScript) 또는 `wait_for_external_event`(Python)의 작업을 기다리는 동안에 대한 요금은 청구되지 않습니다.
 
 ## <a name="send-events"></a>이벤트 보내기
 
-[RaiseEventAsync](/dotnet/api/microsoft.azure.webjobs.durableorchestrationclientbase.raiseeventasync?view=azure-dotnet-legacy) (.net) 또는 `raiseEventAsync` (JavaScript) 메서드를 사용 하 여 오케스트레이션에 외부 이벤트를 보낼 수 있습니다. 이러한 메서드는 [오케스트레이션 클라이언트](durable-functions-bindings.md#orchestration-client) 바인딩에 의해 노출 됩니다. 기본 제공 [이벤트 발생 HTTP API](durable-functions-http-api.md#raise-event) 를 사용 하 여 오케스트레이션에 외부 이벤트를 보낼 수도 있습니다.
+[RaiseEventAsync](/dotnet/api/microsoft.azure.webjobs.durableorchestrationclientbase.raiseeventasync?view=azure-dotnet-legacy&preserve-view=true)(.NET) 또는 `raiseEventAsync`(JavaScript) 메서드를 사용하여 외부 이벤트를 오케스트레이션에 보낼 수 있습니다. 해당 메서드는 [오케스트레이션 클라이언트](durable-functions-bindings.md#orchestration-client) 바인딩을 통해 노출됩니다. 기본 제공된 [이벤트 발생 HTTP API](durable-functions-http-api.md#raise-event)를 사용하여 외부 이벤트를 오케스트레이션에 보낼 수도 있습니다.
 
-발생 한 이벤트에는 *인스턴스 ID*, *eventName* 및 *eventData* 가 매개 변수로 포함 됩니다. Orchestrator 함수는 `WaitForExternalEvent` (.net) 또는 (JavaScript) api를 사용 하 여 이러한 이벤트를 처리 `waitForExternalEvent` 합니다. 이벤트를 처리 하려면 *eventName* 이 송신 및 수신 끝 모두에서 일치 해야 합니다. 또한 이벤트 데이터는 JSON serializable 이어야 합니다.
+발생한 이벤트에는 *인스턴스 ID*, *eventName* 및 *eventData* 가 매개 변수로 포함되어 있습니다. 오케스트레이터 함수는 `WaitForExternalEvent`(.NET) 또는 `waitForExternalEvent`(JavaScript) API를 사용하여 해당 이벤트를 처리합니다. 이벤트를 처리하려면 송신 측과 수신 측 모두에서 *eventName* 이 일치해야 합니다. 이벤트 데이터는 JSON 직렬화도 가능해야 합니다.
 
-내부적으로 "이벤트 발생" 메커니즘은 대기 오 케 스트레이 터 함수에 의해 선택 되는 메시지를 큐에 삽입 합니다. 인스턴스가 지정된 *이벤트 이름* 에서 대기하고 있지 않으면 이벤트 메시지가 메모리 내 큐에 추가됩니다. 오케스트레이션 인스턴스에서 나중에 해당 *이벤트 이름* 에 대한 수신 대기를 시작하는 경우 이벤트 메시지가 큐에 있는지 확인합니다.
+“이벤트 발생” 메커니즘은 내부적으로 대기 중인 오케스트레이터 함수에서 선택된 메시지를 큐에 넣습니다. 인스턴스가 지정된 *이벤트 이름* 에서 대기하고 있지 않으면 이벤트 메시지가 메모리 내 큐에 추가됩니다. 오케스트레이션 인스턴스에서 나중에 해당 *이벤트 이름* 에 대한 수신 대기를 시작하는 경우 이벤트 메시지가 큐에 있는지 확인합니다.
 
 > [!NOTE]
 > 지정된 *인스턴스 ID* 가 있는 오케스트레이션 인스턴스가 없으면 이벤트 메시지가 삭제됩니다.
@@ -254,7 +254,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 이전 c # 코드는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 `OrchestrationClient` 특성 대신 특성을 사용 해야 `DurableClient` 하며 `DurableOrchestrationClient` 대신 매개 변수 형식을 사용 해야 합니다 `IDurableOrchestrationClient` . 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 C# 코드는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용해야 하며 `IDurableOrchestrationClient` 대신 `DurableOrchestrationClient` 매개 변수 형식을 사용해야 합니다. 버전 간 차이점에 관한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -280,14 +280,14 @@ async def main(instance_id:str, starter: str) -> func.HttpResponse:
 
 ---
 
-내부적으로 `RaiseEventAsync` (.net), `raiseEvent` (JavaScript) 또는 `raise_event` (Python) 큐는 대기 오 케 스트레이 터 함수에 의해 선택 되는 메시지를 가져옵니다. 인스턴스가 지정된 *이벤트 이름* 에서 대기하고 있지 않으면 이벤트 메시지가 메모리 내 큐에 추가됩니다. 오케스트레이션 인스턴스에서 나중에 해당 *이벤트 이름* 에 대한 수신 대기를 시작하는 경우 이벤트 메시지가 큐에 있는지 확인합니다.
+`RaiseEventAsync`(.NET), `raiseEvent`(JavaScript) 또는 `raise_event`(Python)는 내부적으로 대기 중인 오케스트레이터 함수에서 선택된 메시지를 큐에 넣습니다. 인스턴스가 지정된 *이벤트 이름* 에서 대기하고 있지 않으면 이벤트 메시지가 메모리 내 큐에 추가됩니다. 오케스트레이션 인스턴스에서 나중에 해당 *이벤트 이름* 에 대한 수신 대기를 시작하는 경우 이벤트 메시지가 큐에 있는지 확인합니다.
 
 > [!NOTE]
 > 지정된 *인스턴스 ID* 가 있는 오케스트레이션 인스턴스가 없으면 이벤트 메시지가 삭제됩니다.
 
 ### <a name="http"></a>HTTP
 
-다음은 오케스트레이션 인스턴스에 "승인" 이벤트를 발생 시키는 HTTP 요청의 예입니다. 
+다음은 오케스트레이션 인스턴스에 “승인” 이벤트를 발생시키는 HTTP 요청의 예입니다. 
 
 ```http
 POST /runtime/webhooks/durabletask/instances/MyInstanceId/raiseEvent/Approval&code=XXX
@@ -296,12 +296,12 @@ Content-Type: application/json
 "true"
 ```
 
-이 경우 인스턴스 ID는 *Myinstanceid* 로 하드 코딩 됩니다.
+이 경우 인스턴스 ID는 *MyInstanceId* 로 하드 코드됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [오류 처리를 구현 하는 방법 알아보기](durable-functions-error-handling.md)
+> [오류 처리를 구현하는 방법 알아보기](durable-functions-error-handling.md)
 
 > [!div class="nextstepaction"]
 > [인간 상호 작용을 기다리는 샘플 실행](durable-functions-phone-verification.md)

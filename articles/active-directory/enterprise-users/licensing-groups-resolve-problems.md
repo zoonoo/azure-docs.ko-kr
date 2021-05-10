@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/02/2020
+ms.date: 04/21/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ceea2dbcf408b6b35ef7c26580278d3979244119
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b35706c48ff78e81ef339ee838cc4259090e56c
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102551541"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987635"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결
 
@@ -104,7 +104,7 @@ Exchange Online을 사용하는 경우 조직의 일부 사용자가 동일한 �
 > [!TIP]
 > 중복 프록시 주소가 있는지를 확인하려면 Exchange Online에 대해 다음과 같은 PowerShell cmdlet을 실행합니다.
 > ```
-> Get-Recipient -ResultSize unlimited | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+> Get-Recipient -Filter "EmailAddresses -eq 'user@contoso.onmicrosoft.com'" | fl Name, RecipientType,Emailaddresses
 > ```
 > 이 문제에 대한 자세한 내용은 [Exchange Online에서 "프록시 주소를 이미 사용 중입니다."라는 오류 메시지](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online)가 표시됩니다. 문서에는 [원격 PowerShell을 사용하여 Exchange Online에 연결하는 방법](/powershell/exchange/connect-to-exchange-online-powershell)에 대한 정보도 포함됩니다.
 

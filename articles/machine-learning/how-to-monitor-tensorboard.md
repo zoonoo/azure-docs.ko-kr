@@ -8,21 +8,20 @@ ms.subservice: core
 author: minxia
 ms.author: minxia
 ms.date: 02/27/2020
-ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: 56b411a490fe1a0c45ea4dd183d88defd61a2fde
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: 4d440742e9cfe9aadb63ed31c113879c4478dc82
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105640850"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107888767"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>TensorBoard 및 Azure Machine Learning을 사용한 실험 실행 및 메트릭 시각화
 
 
 이 문서에서는 주 Azure Machine Learning SDK의 [`tensorboard` 패키지](/python/api/azureml-tensorboard/)를 사용하여 TensorBoard에서의 실험 실행과 메트릭을 보는 방법에 대해 알아봅니다. 실험 실행을 검사한 후에는 더 나은 기계 학습 모델 조정 및 재학습을 할 수 있습니다.
 
-[TensorBoard](/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py)는 실험 구조와 성능을 검사하고 이해하기 위한 웹 애플리케이션 모음입니다.
+[TensorBoard](/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard)는 실험 구조와 성능을 검사하고 이해하기 위한 웹 애플리케이션 모음입니다.
 
 Azure Machine Learning 실험을 통한 TensorBoard 시작 방법은 실험 유형에 따라 달라집니다.
 + 실험에서 TensorBoard가 사용할 수 있는 로그 파일(예: PyTorch, Chainer 및 TensorFlow 실험)을 기본적으로 출력하는 경우 실험 실행 기록에서 [직접 TensorBoard를 시작](#launch-tensorboard)할 수 있습니다. 
@@ -34,13 +33,13 @@ Azure Machine Learning 실험을 통한 TensorBoard 시작 방법은 실험 유�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* TensorBoard을 시작 하 고 실험 실행 기록을 보려면 실험에서 이전에 로깅을 사용 하도록 설정 하 여 해당 메트릭과 성능을 추적 해야 합니다.  
+* TensorBoard를 시작하여 실험 실행 기록을 보려면 실험에서 이전에 로깅을 사용하도록 설정하여 해당 메트릭과 성능을 추적했어야 합니다.  
 * 이 문서의 코드는 다음 환경 중 하나에서 실행할 수 있습니다. 
     * Azure Machine Learning 컴퓨팅 인스턴스 - 다운로드 또는 설치 필요 없음
         * 이 자습서를 시작하기 전에 [자습서: SDK 및 샘플 리포지토리로 미리 로드된 전용 Notebook 서버를 만들기 위한 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md)을 설정합니다.
         * Notebook 서버의 샘플 폴더에서 다음 디렉터리로 이동하여 두 개의 완료 및 확장된 Notebook을 찾습니다.
-            * **사용 방법-azureml > 추적-및 모니터-실험 > tensorboard > tensorboard > 내보내기-실행-기록-tensorboard. n a b**
-            * **사용 방법-azureml > 추적-및 모니터-실험 > tensorboard > tensorboard > tensorboard. ip b**
+            * **how-to-use-azureml > track-and-monitor-experiments > tensorboard > export-run-history-to-tensorboard > export-run-history-to-tensorboard.ipynb**
+            * **how-to-use-azureml > track-and-monitor-experiments > tensorboard > tensorboard > tensorboard.ipynb**
     * 사용자 고유의 Jupyter Notebook 서버에서 다음을 수행합니다.
        * `tensorboard` extra와 함께 [Azure Machine Learning SDK를 설치합니다](/python/api/overview/azure/ml/install).
         * [Azure Machine Learning 작업 영역을 만듭니다](how-to-manage-workspace.md).  
@@ -50,7 +49,7 @@ Azure Machine Learning 실험을 통한 TensorBoard 시작 방법은 실험 유�
 
 이 옵션은 PyTorch, Chainer 및 TensorFlow 실험같이 TensorBoard에서 사용 가능한 로그 파일을 기본적으로 출력하는 실험에 사용할 수 있습니다. 이 실험의 사례가 아니면 [`export_to_tensorboard()` 메서드](#export)를 대신 사용합니다.
 
-다음 코드 예에서는 원격 컴퓨팅 대상인 Azure Machine Learning 컴퓨팅의 TensorFlow 리포지토리에서 [MNIST 데모 실험](https://raw.githubusercontent.com/tensorflow/tensorflow/r1.8/tensorflow/examples/tutorials/mnist/mnist_with_summaries.py)을 사용합니다. 다음으로 TensorFlow 모델을 학습 하기 위한 실행을 구성 하 고 시작한 다음이 TensorFlow 실험에 대해 TensorBoard를 시작 합니다.
+다음 코드 예에서는 원격 컴퓨팅 대상인 Azure Machine Learning 컴퓨팅의 TensorFlow 리포지토리에서 [MNIST 데모 실험](https://raw.githubusercontent.com/tensorflow/tensorflow/r1.8/tensorflow/examples/tutorials/mnist/mnist_with_summaries.py)을 사용합니다. 다음으로 TensorFlow 모델 학습을 위한 실행을 구성하고 시작한 다음, 이 TensorFlow 실험에 대해 TensorBoard를 시작합니다.
 
 ### <a name="set-experiment-name-and-create-project-folder"></a>실험 이름 설정 및 프로젝트 폴더 만들기
 
@@ -84,7 +83,7 @@ MNIST 코드 파일 mnist_with_summaries.py에서 `tf.summary.scalar()`, `tf.sum
 
  ### <a name="configure-experiment"></a>실험 구성
 
-다음에서는 실험을 구성하고 로그 및 데이터에 대한 디렉터리를 설정합니다. 이러한 로그는 나중에 TensorBoard 액세스 하는 실행 기록에 업로드 됩니다.
+다음에서는 실험을 구성하고 로그 및 데이터에 대한 디렉터리를 설정합니다. 이 로그는 나중에 TensorBoard가 액세스하는 실행 기록에 업로드됩니다.
 
 > [!Note]
 > 이 TensorFlow 예의 경우 로컬 컴퓨터에 TensorFlow를 설치해야 합니다. 또한 TensorBoard 모듈(TensorFlow에 포함된 모듈)은 로컬 컴퓨터가 TensorBoard를 실행하는 것처럼 이 Notebook의 커널에 액세스할 수 있어야 합니다.
@@ -145,7 +144,7 @@ compute_target.wait_for_completion(show_output=True, min_node_count=None)
 
 ### <a name="configure-and-submit-training-run"></a>학습 실행 구성 및 제출
 
-ScriptRunConfig 개체를 만들어 학습 작업을 구성 합니다.
+ScriptRunConfig 개체를 만들어 학습 작업을 구성합니다.
 
 ```Python
 from azureml.core import ScriptRunConfig
@@ -181,7 +180,7 @@ tb.stop()
 ```
 
 > [!Note]
-> 이 예제에서는 TensorFlow을 사용 했지만 PyTorch 또는 체 이너를 사용 하 여 TensorBoard를 쉽게 사용할 수 있습니다. TensorFlow는 TensorBoard를 실행하는 컴퓨터에서 사용할 수 있어야 하지만 PyTorch 또는 Chainer 계산을 수행하는 컴퓨터에서는 필요하지 않습니다. 
+> 이 예에서는 TensorFlow를 사용했지만 PyTorch 또는 Chainer에서 TensorBoard를 쉽게 사용할 수 있습니다. TensorFlow는 TensorBoard를 실행하는 컴퓨터에서 사용할 수 있어야 하지만 PyTorch 또는 Chainer 계산을 수행하는 컴퓨터에서는 필요하지 않습니다. 
 
 
 <a name="export"></a>

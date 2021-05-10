@@ -1,16 +1,16 @@
 ---
 title: Azure .NET SDK를 사용하여 Azure Data Lake Analytics 관리
-description: 이 문서에서는 Azure .NET SDK를 사용 하 여 Data Lake Analytics 작업, 데이터 원본 & 사용자를 관리 하는 앱을 작성 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure .NET SDK를 사용하여 Data Lake Analytics 작업, 데이터 원본 및 사용자를 관리하는 앱을 작성하는 방법을 설명합니다.
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 06/18/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a9ece3fe54ca8596f610439f8a0dd228ae1ef907
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92220910"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Azure Data Lake Analytics .NET 앱 관리
@@ -21,8 +21,8 @@ ms.locfileid: "92220910"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* **Visual C++ 설치 된 Visual studio 2015, Visual Studio 2013 업데이트 4 또는 Visual studio 2012**
-* **.NET 버전 2.5 이상용 Microsoft Azure SDK**.  [웹 플랫폼 설치 관리자](https://www.microsoft.com/web/downloads/platform.aspx)를 사용 하 여 설치 합니다.
+* **Visual Studio 2015, Visual Studio 2013 업데이트 4 또는 Visual Studio 2012와 Visual C++ 설치**.
+* **.NET 버전 2.5 이상용 Microsoft Azure SDK**.  [웹 플랫폼 설치 관리자](https://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치합니다.
 * **필요한 NuGet 패키지**
 
 ### <a name="install-nuget-packages"></a>NuGet 패키지 설치
@@ -441,5 +441,5 @@ adlaAccountClient.ComputePolicies.CreateOrUpdate(rg, adla, "GaryMcDaniel", newPo
 ## <a name="next-steps"></a>다음 단계
 
 * [Microsoft Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
-* [Azure Portal를 사용 하 여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)
-* [Azure Portal를 사용 하 여 Azure Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+* [Azure 포털을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)
+* [Azure Portal을 사용하여 Azure Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

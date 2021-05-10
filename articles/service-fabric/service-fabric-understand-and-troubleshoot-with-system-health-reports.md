@@ -3,27 +3,24 @@ title: 시스템 상태 보고서를 사용하여 문제 해결
 description: Azure Service Fabric 구성 요소에서 보낸 상태 보고서와 클러스터 또는 애플리케이션 문제 해결에 대한 사용을 설명합니다.
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.openlocfilehash: 483483746b2cce66588e9481bca7e0de391070b8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c9819129509a76350394319e9968fc1e97f53c69
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105625894"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165050"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>시스템 상태 보고서를 사용하여 문제 해결
+
 Azure Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 대해 즉각적으로 시스템 상태 보고서를 제공합니다. [Health 스토어](service-fabric-health-introduction.md#health-store) 는 시스템 보고서를 기반으로 엔터티를 만들고 삭제합니다. 또한 엔터티 상호 작용을 캡처하는 계층 구조에서 보고서를 구성합니다.
 
 > [!NOTE]
 > 상태 관련 개념을 이해하려면 [Service Fabric 상태 모델](service-fabric-health-introduction.md)을 자세히 읽어봅니다.
-> 
-> 
 
 시스템 상태 보고서는 클러스터 및 애플리케이션에 대한 가시성을 제공하고 문제를 플래그합니다. 애플리케이션 및 서비스의 경우, 시스템 상태 보고서는 서비스 패브릭 관점에서 엔터티가 올바르게 구현되고 동작하는지 확인합니다. 이 보고서는 응답하지 않는 프로세스의 검색 또는 서비스의 비즈니스 논리에 대한 상태 모니터링은 제공하지 않습니다. 사용자 서비스는 논리에 고유한 정보로 건강 데이터를 보강할 수 있습니다.
 
 > [!NOTE]
 > 사용자 워치독이 보낸 상태 보고서는 시스템 구성 요소가 엔터티를 만든 *후* 에만 표시됩니다. 엔터티가 삭제되면 Health 스토어가 모든 관련 상태 보고서를 자동으로 삭제합니다. 엔터티의 새 인스턴스가 만들어질 때도 마찬가지입니다. 예를 들어 새 상태 저장 유지 서비스 복제본 인스턴스가 만들어지는 경우가 있습니다. 이전 인스턴스와 연결된 모든 보고서는 삭제되고 저장소에서 정리됩니다.
-> 
-> 
 
 시스템 구성 요소 보고서는 "**System.**" 접두사로 시작되는 원본에 의해  접두사가 있는 번들 ID인 식별자가 있습니다. 잘못된 매개 변수가 있는 보고서가 거부되므로 Watchdogs는 소스에 대해 동일한 접두사를 사용할 수 없습니다.
 
@@ -31,13 +28,13 @@ Azure Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 �
 
 > [!NOTE]
 > Service Fabric은 관심 있는 조건에 대한 보고서를 계속 추가하여 클러스터 및 애플리케이션에서 발생하는 상황에 대한 가시성을 향상시킵니다. 기존 보고서를 더 자세한 정보로 보강하여 문제를 더 빨리 해결할 수 있습니다.
-> 
-> 
 
 ## <a name="cluster-system-health-reports"></a>클러스터 시스템 상태 보고서
+
 클러스터 상태 엔터티는 Health 스토어에서 자동으로 만들어집니다. 모든 것이 제대로 작동하면 시스템 보고서는 없습니다.
 
 ### <a name="neighborhood-loss"></a>환경 손실
+
 **System.Federation** 은 환경 손실을 감지하면 오류를 보고합니다. 보고서는 개별 노드에서 나오며 노드 ID는 속성 이름에 포함됩니다. 전체 Service Fabric 링에서 하나의 환경이 손실되면 일반적으로 간격 보고서의 양측을 나타내는 두 이벤트를 예상할 수 있습니다. 더 많은 환경이 손실된 경우 더 많은 이벤트가 있습니다.
 
 보고서는 전역 임대 시간 제한을 TTL(Time to live)로 지정합니다. 조건이 활성인 한 보고서는 TTL 기간의 절반마다 다시 보내집니다. 이벤트는 만료되면 자동으로 제거됩니다. 보고 노드가 다운되었더라도 보고서가 Health 스토어에서 제대로 정리된 것을 만료된 동작이 보장하면 제거합니다.
@@ -62,14 +59,15 @@ FM(장애 조치(Failover) 관리자) 서비스는 클러스터 노드에 대한
 * **다음 단계**: 상태 보고서의 설명에 나열된 특정 노드의 상태와 함께 노드 간의 네트워크 연결을 조사합니다.
 
 ### <a name="seed-node-status"></a>시드 노드 상태
-**System.FM** 에서는 일부 시드 노드가 비정상 상태인 경우 클러스터 수준 경고를 보고합니다. 시드 노드는 기본 클러스터의 가용성을 유지 관리하는 노드입니다. 이러한 노드는 다른 노드와 임대 관계를 설정하고 특정 종류의 네트워크 오류 중에 결정적인 요인으로 작용하여 클러스터를 계속 작동시키는 데 도움을 줍니다. 대부분의 시드 노드가 클러스터에서 다운된 후 복구되지 않으면 클러스터가 자동으로 종료됩니다. 
+
+**System.FM** 에서는 일부 시드 노드가 비정상 상태인 경우 클러스터 수준 경고를 보고합니다. 시드 노드는 기본 클러스터의 가용성을 유지 관리하는 노드입니다. 이러한 노드는 다른 노드와 임대 관계를 설정하고 특정 종류의 네트워크 오류 중에 결정적인 요인으로 작용하여 클러스터를 계속 작동시키는 데 도움을 줍니다. 대부분의 시드 노드가 클러스터에서 다운된 후 복구되지 않으면 클러스터가 자동으로 종료됩니다.
 
 노드 상태가 다운됨, 제거됨 또는 알 수 없음인 경우 시드 노드는 비정상 상태입니다.
 시드 노드 상태에 대한 경고 보고서에는 자세한 정보가 포함된 비정상 시드 노드가 모두 나열됩니다.
 
 * **SourceID**: System.FM
 * **속성**: SeedNodeStatus
-* **다음 단계**: 이 경고가 클러스터에 표시되면 아래 지침에 따라 문제를 해결합니다. Service Fabric 버전 6.5 이상을 실행하는 클러스터: Azure에 있는 Service Fabric 클러스터의 경우 시드 노드가 다운되면 Service Fabric에서 비시드 노드로 자동 변경하려고 합니다. 이 작업을 수행하려면 주 노드 형식의 비시드 노드 수가 다운됨 시드 노드의 수보다 많거나 이와 같아야 합니다. 필요한 경우 주 노드 형식에 노드를 추가하여 이 작업을 수행합니다.
+* **다음 단계**: 이 경고가 클러스터에 표시되면 아래 지침에 따라 문제를 해결합니다. Service Fabric 버전 6.5 이상을 실행하는 클러스터: Azure에 있는 Service Fabric 클러스터의 경우 시드 노드가 다운되면 Service Fabric에서 비시드 노드로 자동 변경하려고 합니다. 이 작업을 수행하려면 주 노드 형식의 비시드 노드 수가 다운됨 시드 노드의 수보다 많거나 이와 같아야 합니다. 필요한 경우 기본 노드 형식에 노드를 더 추가하여 이 작업을 수행합니다.
 클러스터 상태에 따라 문제를 해결하는 데 다소 시간이 걸릴 수 있습니다. 이 작업이 완료되면 경고 보고서가 자동으로 지워집니다.
 
 Service Fabric 독립 실행형 클러스터의 경우 경고 보고서를 지우려면 모든 시드 노드가 정상 상태가 되어야 합니다. 시드 노드가 비정상 상태인 이유에 따라 다른 조치를 취해야 합니다. 시드 노드가 다운됨인 경우 사용자는 해당 시드 노드를 브링업해야 하고, 시드 노드가 제거됨 또는 알 수 없음인 경우 이 시드 노드를 [클러스터에서 제거해야 합니다](./service-fabric-cluster-windows-server-add-remove-nodes.md).
@@ -80,18 +78,20 @@ Service Fabric 독립 실행형 클러스터의 경우 경고 보고서를 지�
 
 ```powershell
 PS C:\> Send-ServiceFabricClusterHealthReport -SourceId "System.FM" -HealthProperty "SeedNodeStatus" -HealthState OK
+```
 
-## Node system health reports
-System.FM, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
+## <a name="node-system-health-reports"></a>노드 시스템 상태 보고서
 
-### Node up/down
-System.FM reports as OK when the node joins the ring (it's up and running). It reports an error when the node departs the ring (it's down, either for upgrading or simply because it has failed). The health hierarchy built by the health store acts on deployed entities in correlation with System.FM node reports. It considers the node a virtual parent of all deployed entities. The deployed entities on that node are exposed through queries if the node is reported as up by System.FM, with the same instance as the instance associated with the entities. When System.FM reports that the node is down or restarted, as a new instance, the health store automatically cleans up the deployed entities that can exist only on the down node or on the previous instance of the node.
+장애 조치(Failover) 관리자 서비스를 나타내는 System.FM은 클러스터 노드에 대한 정보를 관리하는 기관입니다. 모든 노드는 상태를 보여주는 System.FM로부터 하나의 보고서를 가져야 합니다. 노드 상태가 제거되면 노드 엔터티도 제거됩니다. 자세한 내용은 [RemoveNodeStateAsync](/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync)를 참조하세요.
+
+### <a name="node-updown"></a>노드 위/아래
+System.FM은 노드가 링에 조인하는 경우 확인으로 보고합니다.(실행 중) 노드가 링에서 분리하는 경우 오류를 보고합니다.(업그레이드이든 단순히 실패한 것이든 중단되었습니다) Health 스토어에서 구성한 상태 계층이 System.FM 노드 보고서와의 상관관계에 따라, 배포된 엔터티에 대해 작동합니다. 배포된 모든 엔터티의 가상 부모를 노드로 간주합니다. 엔터티와 연결된 인스턴스와 동일한 인스턴스와 함께 노드가 가동 중인 것으로 System.FM에 의해 보고되면 해당 노드에 배포된 엔터티가 쿼리를 통해 노출됩니다. System.FM에서 노드가 다운되었거나 다시 시작한 것을 보고하면(새로운 인스턴스) Health 스토어가 다운 노드 또는 이전 노드 인스턴스에서만 존재할 수 있는 배포된 엔터티를 자동으로 정리합니다.
 
 * **SourceId**: System.FM
-* **Property**: State.
-* **Next steps**: If the node is down for an upgrade, it should come back up after it's been upgraded. In this case, the health state should switch back to OK. If the node doesn't come back or it fails, the problem needs more investigation.
+* **Property**: State
+* **다음 단계**: 업그레이드를 위해 노드가 중지된 경우 업그레이드 후 돌아와야 합니다. 이 경우에 상태를 확인으로 다시 전환해야 합니다. 노드가 다시 돌아오지 않거나 실패하면 문제는 자세한 조사가 필요합니다.
 
-The following example shows the System.FM event with a health state of OK for node up:
+다음 예제는 노드 실행을 위해 상태가 정상인 System.FM 이벤트를 표시합니다.
 
 ```powershell
 PS C:\> Get-ServiceFabricNodeHealth  _Node_0
@@ -112,8 +112,8 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-
 ### <a name="certificate-expiration"></a>인증서가 만료
+
 **System.FabricNode** 는 노드에 의해 사용되는 인증서가 만료가 가까워질 경우 경고를 보고합니다. 노드당 **Certificate_cluster**, **Certificate_server** 및 **Certificate_default_client** 의 3가지 인증서가 있습니다. 적어도 2주 후에 만료될 때 보고서 상태는 확인입니다. 2주 이내에 만료되면 보고서 형식은 경고입니다. 이러한 이벤트의 TTL은 무한대이며 노드가 클러스터를 벗어나면 제거됩니다
 
 * **SourceId**: System.FabricNode
@@ -137,7 +137,7 @@ HealthEvents          :
 ## <a name="application-system-health-reports"></a>애플리케이션 시스템 상태 보고서
 클러스터 관리자 서비스를 나타내는 System.CM은 애플리케이션에 대한 정보를 관리하는 기관입니다.
 
-### <a name="state"></a>시스템 상태
+### <a name="state"></a>주
 애플리케이션을 만들거나 업데이트할 때 System.CM은 확인을 보고합니다. 애플리케이션을 삭제할 때 스토어에서 제거할 수 있도록 Health 스토어에 이를 알려줍니다.
 
 * **SourceId**: System.CM
@@ -170,7 +170,7 @@ HealthEvents                    :
 ## <a name="service-system-health-reports"></a>서비스 시스템 상태 보고서
 장애 조치(failover) 관리자 서비스를 나타내는 System.FM은 서비스에 대한 정보를 관리하는 기관입니다.
 
-### <a name="state"></a>시스템 상태
+### <a name="state"></a>주
 System.FM은 서비스가 만들어질 때 확인을 보고합니다. 서비스가 삭제되면 Health 스토어에서 엔터티를 삭제합니다.
 
 * **SourceId**: System.FM
@@ -181,13 +181,12 @@ System.FM은 서비스가 만들어질 때 확인을 보고합니다. 서비스�
 ```powershell
 PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountWebService -ExcludeHealthStatistics
 
-
 ServiceName           : fabric:/WordCount/WordCountWebService
 AggregatedHealthState : Ok
 PartitionHealthStates : 
                         PartitionId           : 8bbcd03a-3a53-47ec-a5f1-9b77f73c53b2
                         AggregatedHealthState : Ok
-                        
+
 HealthEvents          : 
                         SourceId              : System.FM
                         Property              : State
@@ -212,7 +211,7 @@ HealthEvents          :
 ## <a name="partition-system-health-reports"></a>파티션 시스템 상태 보고서
 장애 조치(failover) 관리자 서비스를 나타내는 System.FM은 서비스 파티션에 대한 정보를 관리하는 기관입니다.
 
-### <a name="state"></a>시스템 상태
+### <a name="state"></a>주
 System.FM은 파티션이 생성되고 정상적이면 확인을 보고합니다. 파티션이 삭제될 때 Health 스토어에서 엔터티를 삭제합니다.
 
 파티션이 최소 복제본 수 이하인 경우 오류를 보고합니다. 파티션이 최소 복제본 개수 이하는 아니지만 대상 복제본 개수 이하라면 경고를 보고합니다. 파티션이 쿼럼 손실인 경우 System.FM이 오류를 보고합니다.
@@ -221,15 +220,15 @@ System.FM은 파티션이 생성되고 정상적이면 확인을 보고합니다
 
 * **SourceId**: System.FM
 * **Property**: State
-* **다음 단계**: 상태가 정상이 아니라면 일부 복제본이 주 또는 보조에 올바르게 생성되거나 열리고 승격되지 않았을 수 있습니다. 
+* **다음 단계**: 상태가 정상이 아니라면 일부 복제본이 주 또는 보조에 올바르게 생성되거나 열리고 승격되지 않았을 수 있습니다.
 
 설명에 쿼럼 손실이 표시될 경우 다운된 복제본에 대한 자세한 상태 보고서를 검토하고 복제본을 다시 시작하면 파티션을 다시 온라인으로 전환할 수 있습니다.
 
 설명에 [재구성](service-fabric-concepts-reconfiguration.md)에서 멈춘 파티션이 표시되면 주 복제본에 대한 상태 보고서에 추가 정보가 제공됩니다.
 
-다른 System.FM 상태 보고서의 경우 복제본 또는 다른 시스템 구성 요소에 대한 파티션이나 서비스에 대한 보고서가 있을 수 있습니다. 
+다른 System.FM 상태 보고서의 경우 복제본 또는 다른 시스템 구성 요소에 대한 파티션이나 서비스에 대한 보고서가 있을 수 있습니다.
 
-다음 예제에서는 몇 가지 이러한 보고서를 설명합니다. 
+다음 예제에서는 몇 가지 이러한 보고서를 설명합니다.
 
 다음 예제는 정상 파티션을 보여줍니다.
 
@@ -258,12 +257,11 @@ HealthEvents          :
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None -ExcludeHealthStatistics
 
-
 PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
 AggregatedHealthState : Warning
 UnhealthyEvaluations  : 
                         Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
-                        
+
 ReplicaHealthStates   : None
 HealthEvents          : 
                         SourceId              : System.FM
@@ -281,11 +279,11 @@ HealthEvents          :
                           N/S Ready _Node_1 131444422293118720
                           N/P Ready _Node_0 131444422293118721
                           (Showing 5 out of 5 replicas. Total available replicas: 5)
-                        
+
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Warning = 7/14/2017 4:55:44 PM, LastOk = 1/1/0001 12:00:00 AM
-                        
+
                         SourceId              : System.PLB
                         Property              : ServiceReplicaUnplacedHealth_Secondary_af2e3e44-a8f8-45ac-9f31-4093eb897600
                         HealthState           : Warning
@@ -298,25 +296,24 @@ HealthEvents          :
                         TargetReplicaSetSize: 7
                         Placement Constraint: N/A
                         Parent Service: N/A
-                        
+
                         Constraint Elimination Sequence:
                         Existing Secondary Replicas eliminated 4 possible node(s) for placement -- 1/5 node(s) remain.
                         Existing Primary Replica eliminated 1 possible node(s) for placement -- 0/5 node(s) remain.
-                        
+
                         Nodes Eliminated By Constraints:
-                        
+
                         Existing Secondary Replicas -- Nodes with Partition's Existing Secondary Replicas/Instances:
                         --
                         FaultDomain:fd:/4 NodeName:_Node_4 NodeType:NodeType4 UpgradeDomain:4 UpgradeDomain: ud:/4 Deactivation Intent/Status: None/None
                         FaultDomain:fd:/3 NodeName:_Node_3 NodeType:NodeType3 UpgradeDomain:3 UpgradeDomain: ud:/3 Deactivation Intent/Status: None/None
                         FaultDomain:fd:/2 NodeName:_Node_2 NodeType:NodeType2 UpgradeDomain:2 UpgradeDomain: ud:/2 Deactivation Intent/Status: None/None
                         FaultDomain:fd:/1 NodeName:_Node_1 NodeType:NodeType1 UpgradeDomain:1 UpgradeDomain: ud:/1 Deactivation Intent/Status: None/None
-                        
+
                         Existing Primary Replica -- Nodes with Partition's Existing Primary Replica or Secondary Replicas:
                         --
                         FaultDomain:fd:/0 NodeName:_Node_0 NodeType:NodeType0 UpgradeDomain:0 UpgradeDomain: ud:/0 Deactivation Intent/Status: None/None
-                        
-                        
+
                         RemoveWhenExpired     : True
                         IsExpired             : False
                         Transitions           : Error->Warning = 7/14/2017 4:56:14 PM, LastOk = 1/1/0001 12:00:00 AM
@@ -325,7 +322,7 @@ PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | select M
 
 MinReplicaSetSize TargetReplicaSetSize
 ----------------- --------------------
-                2                    7                        
+                2                    7
 
 PS C:\> @(Get-ServiceFabricNode).Count
 5
@@ -334,15 +331,14 @@ PS C:\> @(Get-ServiceFabricNode).Count
 다음 예제는 사용자가 **RunAsync** 메서드에서 취소 토큰을 허용하지 않아 재구성에서 멈춘 파티션의 상태를 보여 줍니다. P(주)로 표시된 복제본의 상태 보고서를 조사하면 문제를 더 자세히 살펴볼 수 있습니다.
 
 ```powershell
-PS C:\utilities\ServiceFabricExplorer\ClientPackage\lib> Get-ServiceFabricPartitionHealth 0e40fd81-284d-4be4-a665-13bc5a6607ec -ExcludeHealthStatistics 
-
+PS C:\utilities\ServiceFabricExplorer\ClientPackage\lib> Get-ServiceFabricPartitionHealth 0e40fd81-284d-4be4-a665-13bc5a6607ec -ExcludeHealthStatistics
 
 PartitionId           : 0e40fd81-284d-4be4-a665-13bc5a6607ec
 AggregatedHealthState : Warning
 UnhealthyEvaluations  : 
                         Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', 
                         ConsiderWarningAsError=false.
-                                               
+
 HealthEvents          : 
                         SourceId              : System.FM
                         Property              : State
@@ -356,14 +352,15 @@ HealthEvents          :
                           P/S Ready Node1 131482789658160654
                           S/P Ready Node2 131482789688598467
                           S/S Ready Node3 131482789688598468
-                          (Showing 3 out of 3 replicas. Total available replicas: 3)                        
-                        
+                          (Showing 3 out of 3 replicas. Total available replicas: 3)
+
                         For more information see: https://aka.ms/sfhealth
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Ok->Warning = 8/27/2017 3:43:32 AM, LastError = 1/1/0001 12:00:00 AM
 ```
-이 상태 보고서는 재구성이 진행 중인 파티션 복제본의 상태를 보여 줍니다. 
+
+이 상태 보고서는 재구성이 진행 중인 파티션 복제본의 상태를 보여 줍니다.
 
 ```
   P/S Ready Node1 131482789658160654
@@ -389,7 +386,7 @@ HealthEvents          :
 ## <a name="replica-system-health-reports"></a>복제본 시스템 상태 보고서
 재구성 에이전트 구성 요소를 나타내는 **System.RA** 는 복제본 상태의 기관입니다.
 
-### <a name="state"></a>시스템 상태
+### <a name="state"></a>주
 System.RA는 복제본이 만들어지면 정상으로 보고합니다.
 
 * **SourceId**: System.RA
@@ -420,7 +417,7 @@ HealthEvents          :
 ### <a name="replicaopenstatus-replicaclosestatus-replicachangerolestatus"></a>ReplicaOpenStatus, ReplicaCloseStatus, ReplicaChangeRoleStatus
 이 속성은 복제본을 열거나 닫고 역할 간에 전환하려고 할 때 경고 또는 실패를 나타내는 데 사용됩니다. 자세한 내용은 [복제본 수명 주기](service-fabric-concepts-replica-lifecycle.md)를 참조하세요. 실패는 이 기간에 서비스 호스트 프로세스의 API 호출이나 작동 중지로 인해 발생한 예외일 수 있습니다. C# 코드의 API 호출로 인한 실패가 발생하면 Service Fabric이 예외와 스택 추적을 상태 보고서에 추가합니다.
 
-이런 상태 경고는 로컬에서 몇 번(정책에 따라) 작업을 다시 시도한 후 발생합니다. Service Fabric이 최대 임계값까지 작업을 재시도합니다. 최대 임계값에 도달하면 상황을 해결하기 위한 작업을 시도할 수 있습니다. 이 시도로 인해 이 노드에서의 작업에 대해 포기하기 때문에 경고가 해제될 수 있습니다. 예를 들어 복제본이 노드에서 열리지 않으면 Service Fabric이 상태 경고를 발생시킵니다. 복제본이 계속 열리지 않으면 Service Fabric이 자체 복구를 위해 작동합니다. 이 작업에는 다른 노드에서의 동일한 작업 시도가 관련될 수 있습니다. 이 시도로 인해 이 복제본에 대해 발생한 경고가 지워집니다. 
+이런 상태 경고는 로컬에서 몇 번(정책에 따라) 작업을 다시 시도한 후 발생합니다. Service Fabric이 최대 임계값까지 작업을 재시도합니다. 최대 임계값에 도달하면 상황을 해결하기 위한 작업을 시도할 수 있습니다. 이 시도로 인해 이 노드에서의 작업에 대해 포기하기 때문에 경고가 해제될 수 있습니다. 예를 들어 복제본이 노드에서 열리지 않으면 Service Fabric이 상태 경고를 발생시킵니다. 복제본이 계속 열리지 않으면 Service Fabric이 자체 복구를 위해 작동합니다. 이 작업에는 다른 노드에서의 동일한 작업 시도가 관련될 수 있습니다. 이 시도로 인해 이 복제본에 대해 발생한 경고가 지워집니다.
 
 * **SourceId**: System.RA
 * **속성**: **ReplicaOpenStatus**, **ReplicaCloseStatus** 및 **ReplicaChangeRoleStatus**
@@ -431,14 +428,13 @@ HealthEvents          :
 ```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 337cf1df-6cab-4825-99a9-7595090c0b1b -ReplicaOrInstanceId 131483509874784794
 
-
 PartitionId           : 337cf1df-6cab-4825-99a9-7595090c0b1b
 ReplicaId             : 131483509874784794
 AggregatedHealthState : Warning
 UnhealthyEvaluations  : 
                         Unhealthy event: SourceId='System.RA', Property='ReplicaOpenStatus', HealthState='Warning', 
                         ConsiderWarningAsError=false.
-                        
+
 HealthEvents          : 
                         SourceId              : System.RA
                         Property              : ReplicaOpenStatus
@@ -474,7 +470,7 @@ Exception has been thrown by the target of an invocation.
     For more information see: https://aka.ms/sfhealth
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : Error->Warning = 8/27/2017 11:43:21 PM, LastOk = 1/1/0001 12:00:00 AM                        
+                        Transitions           : Error->Warning = 8/27/2017 11:43:21 PM, LastOk = 1/1/0001 12:00:00 AM
 ```
 
 다음 예제에서는 다는 동안 지속적으로 작동 중지되는 복제본을 보여 줍니다.
@@ -482,14 +478,13 @@ Exception has been thrown by the target of an invocation.
 ```powershell
 C:>Get-ServiceFabricReplicaHealth -PartitionId dcafb6b7-9446-425c-8b90-b3fdf3859e64 -ReplicaOrInstanceId 131483565548493142
 
-
 PartitionId           : dcafb6b7-9446-425c-8b90-b3fdf3859e64
 ReplicaId             : 131483565548493142
 AggregatedHealthState : Warning
 UnhealthyEvaluations  : 
                         Unhealthy event: SourceId='System.RA', Property='ReplicaCloseStatus', HealthState='Warning', 
                         ConsiderWarningAsError=false.
-                        
+
 HealthEvents          : 
                         SourceId              : System.RA
                         Property              : ReplicaCloseStatus
@@ -500,7 +495,7 @@ HealthEvents          :
                         TTL                   : Infinite
                         Description           : Replica had multiple failures during close on _Node_1. The application 
                         host has crashed.
-                        
+
                         For more information see: https://aka.ms/sfhealth
                         RemoveWhenExpired     : False
                         IsExpired             : False
@@ -508,6 +503,7 @@ HealthEvents          :
 ```
 
 ### <a name="reconfiguration"></a>Reconfiguration
+
 이 속성은 [재구성](service-fabric-concepts-reconfiguration.md)을 수행하는 복제본이 재구성 중단 또는 멈춤을 감지할 경우를 나타내는 데 사용됩니다. 이 상태 보고서는 현재 역할이 주인 복제본에 관련됩니다(주 복제본에서 활성 보조 복제본으로 수준이 내려지는 복제본에서 수행될 수 있는 스왑 주 재구성의 경우 제외).
 
 다음과 같은 이유 중 하나로 재구성이 멈출 수 있습니다.
@@ -527,14 +523,13 @@ HealthEvents          :
 ```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 9a0cedee-464c-4603-abbc-1cf57c4454f3 -ReplicaOrInstanceId 131483600074836703
 
-
 PartitionId           : 9a0cedee-464c-4603-abbc-1cf57c4454f3
 ReplicaId             : 131483600074836703
 AggregatedHealthState : Warning
 UnhealthyEvaluations  : 
                         Unhealthy event: SourceId='System.RA', Property='Reconfiguration', HealthState='Warning', 
                         ConsiderWarningAsError=false.
-                        
+
 HealthEvents          : 
                         SourceId              : System.RA
                         Property              : Reconfiguration
@@ -544,25 +539,24 @@ HealthEvents          :
                         ReceivedAt            : 8/28/2017 2:13:57 AM
                         TTL                   : Infinite
                         Description           : Reconfiguration is stuck. Waiting for response from the local replica
-                        
+
                         For more information see: https://aka.ms/sfhealth
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Warning = 8/28/2017 2:13:57 AM, LastOk = 1/1/0001 12:00:00 AM
 ```
 
-다음 예제에서는 두 원격 복제본으로부터 응답을 대기 중인 상태로 재구성이 멈춘 상태 보고서를 나타냅니다. 이 예제에는 현재 주 복제본을 포함하여 파티션에 세 개 복제본이 있습니다. 
+다음 예제에서는 두 원격 복제본으로부터 응답을 대기 중인 상태로 재구성이 멈춘 상태 보고서를 나타냅니다. 이 예제에는 현재 주 복제본을 포함하여 파티션에 세 개 복제본이 있습니다.
 
-```Powershell
+```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId  579d50c6-d670-4d25-af70-d706e4bc19a2 -ReplicaOrInstanceId 131483956274977415
-
 
 PartitionId           : 579d50c6-d670-4d25-af70-d706e4bc19a2
 ReplicaId             : 131483956274977415
 AggregatedHealthState : Warning
 UnhealthyEvaluations  : 
                         Unhealthy event: SourceId='System.RA', Property='Reconfiguration', HealthState='Warning', ConsiderWarningAsError=false.
-                        
+
 HealthEvents          : 
                         SourceId              : System.RA
                         Property              : Reconfiguration
@@ -572,18 +566,18 @@ HealthEvents          :
                         ReceivedAt            : 8/28/2017 12:14:07 PM
                         TTL                   : Infinite
                         Description           : Reconfiguration is stuck. Waiting for response from 2 replicas
-                        
+
                         Pending Replicas: 
                         P/I Down 40 131483956244554282
                         S/S Down 20 131483956274972403
-                        
+
                         For more information see: https://aka.ms/sfhealth
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Warning = 8/28/2017 12:07:37 PM, LastOk = 1/1/0001 12:00:00 AM
 ```
 
-이 상태 보고서는 두 개의 복제본에서 응답을 기다리는 동안 재구성이 멈춰 있음을 보여 줍니다. 
+이 상태 보고서는 두 개의 복제본에서 응답을 기다리는 동안 재구성이 멈춰 있음을 보여 줍니다.
 
 ```
     P/I Down 40 131483956244554282
@@ -598,7 +592,7 @@ HealthEvents          :
 - 복제본 ID
 
 재구성 차단을 해제하려면:
-- **down** 복제본을 시작해야 합니다. 
+- **down** 복제본을 시작해야 합니다.
 - **inbuild** 복제본이 빌드를 완료하고 준비 상태로 전환되어야 합니다.
 
 ### <a name="slow-service-api-call"></a>느린 서비스 API 호출
@@ -613,13 +607,12 @@ HealthEvents          :
 ```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 5f6060fb-096f-45e4-8c3d-c26444d8dd10 -ReplicaOrInstanceId 131483966141404693
 
-
 PartitionId           : 5f6060fb-096f-45e4-8c3d-c26444d8dd10
 ReplicaId             : 131483966141404693
 AggregatedHealthState : Warning
 UnhealthyEvaluations  : 
                         Unhealthy event: SourceId='System.RA', Property='Reconfiguration', HealthState='Warning', ConsiderWarningAsError=false.
-                        
+
 HealthEvents          :                         
                         SourceId              : System.RAP
                         Property              : IStatefulServiceReplica.ChangeRole(S)Duration
@@ -632,7 +625,6 @@ HealthEvents          :
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Warning = 8/28/2017 12:24:56 PM, LastOk = 1/1/0001 12:00:00 AM
-                        
 ```
 
 속성과 텍스트가 API가 멈추었음을 나타냅니다. 중단된 API에 대해 수행할 다음 단계는 서로 다릅니다. *IStatefulServiceReplica* 또는 *IStatelessServiceInstance* 의 API는 보통 서비스 코드의 버그입니다. 다음 섹션에서는 이런 API를 [신뢰할 수 있는 서비스 모델](service-fabric-reliable-services-lifecycle.md)로 전환하는 방법을 설명합니다.
@@ -677,8 +669,6 @@ HealthEvents          :
 
 > [!NOTE]
 > 명명 서비스는 서비스 이름을 클러스터의 한 위치로 확인합니다. 사용자는 이를 사용하여 서비스 이름 및 속성을 관리할 수 있습니다. Service Fabric 분할 지속형 서비스입니다. 파티션 중 하나는 모든 Service Fabric 이름 및 서비스에 대한 메타데이터를 포함하는 *기관 소유자* 를 나타냅니다. 서비스 패브릭 이름은 *이름 소유자* 파티션이라는 다른 파티션에 매핑되므로 서비스는 확장 가능합니다. [이름 지정 서비스](service-fabric-architecture.md)에 대해 자세히 알아봅니다.
-> 
-> 
 
 이름 지정 작업이 예상보다 오래 걸리는 경우 작업은 작업을 사용하는 이름 지정 서비스 파티션의 주 복제본의 경고 보고서로 플래그 지정됩니다. 작업이 성공적으로 완료되면 경고는 해제됩니다. 오류와 함께 작업이 완료되면 상태 보고서는 오류에 대한 세부 정보를 포함합니다.
 
@@ -736,7 +726,7 @@ HealthEvents          :
 ## <a name="deployedapplication-system-health-reports"></a>DeployedApplication 시스템 상태 보고서
 **System.Hosting** 은 배포된 엔터티에 대한 권한입니다.
 
-### <a name="activation"></a>정품 인증
+### <a name="activation"></a>활성화
 System.Hosting은 애플리케이션이 노드에서 성공적으로 활성화되면 확인을 보고합니다. 그렇지 않으면 오류를 보고합니다.
 
 * **SourceId**: System.Hosting
@@ -756,7 +746,7 @@ DeployedServicePackageHealthStates :
                                      ServicePackageActivationId : 
                                      NodeName              : _Node_1
                                      AggregatedHealthState : Ok
-                                     
+
 HealthEvents                       : 
                                      SourceId              : System.Hosting
                                      Property              : Activation
@@ -805,7 +795,6 @@ System.Hosting은 활성화가 성공한 경우 각 코드 패키지에 대해 �
 ```powershell
 PS C:\> Get-ServiceFabricDeployedServicePackageHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
 
-
 ApplicationName            : fabric:/WordCount
 ServiceManifestName        : WordCountServicePkg
 ServicePackageActivationId : 
@@ -823,7 +812,7 @@ HealthEvents               :
                              RemoveWhenExpired     : False
                              IsExpired             : False
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
-                             
+
                              SourceId              : System.Hosting
                              Property              : CodePackageActivation:Code:EntryPoint
                              HealthState           : Ok
@@ -835,7 +824,7 @@ HealthEvents               :
                              RemoveWhenExpired     : False
                              IsExpired             : False
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
-                             
+
                              SourceId              : System.Hosting
                              Property              : ServiceTypeRegistration:WordCountServiceType
                              HealthState           : Ok
@@ -850,6 +839,7 @@ HealthEvents               :
 ```
 
 ### <a name="download"></a>다운로드
+
 서비스 패키지 다운로드에 실패하면System.Hosting이 오류를 보고합니다.
 
 * **SourceId**: System.Hosting
@@ -857,6 +847,7 @@ HealthEvents               :
 * **다음 단계**: 노드에서 다운로드에 실패한 이유를 조사합니다.
 
 ### <a name="upgrade-validation"></a>유효성 검사 업그레이드
+
 System.Hosting은 업그레이드 중에 유효성 검사에 실패하거나 노드에서 업그레이드에 실패하면 오류를 보고합니다.
 
 * **SourceId**: System.Hosting
@@ -864,6 +855,7 @@ System.Hosting은 업그레이드 중에 유효성 검사에 실패하거나 노
 * **Description**: 발생한 오류를 가리킵니다.
 
 ### <a name="undefined-node-capacity-for-resource-governance-metrics"></a>리소스 거버넌스 메트릭의 노드 용량이 정의되지 않음
+
 클러스터 매니페스트에 노드 용량이 정의되어 있지 않고 자동 검색 구성이 해제되어 있으면 System.Hosting에서 경고를 보고합니다. [리소스 관리](service-fabric-resource-governance.md)를 사용하는 서비스 패키지가 지정된 노드에 등록할 때마다 Service Fabric에서 상태 경고가 발생합니다.
 
 * **SourceId**: System.Hosting
@@ -871,6 +863,7 @@ System.Hosting은 업그레이드 중에 유효성 검사에 실패하거나 노
 * **다음 단계**: 사용 가능한 리소스의 자동 검색이 실행되도록 클러스터 매니페스트를 변경하는 것이 좋습니다. 또 다른 방법으로, 이러한 메트릭에 대해 올바르게 지정된 노드 용량으로 클러스터 매니페스트를 업데이트합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 * [서비스 패브릭 상태 보고서 보기](service-fabric-view-entities-aggregated-health.md)
 
 * [서비스 상태를 보고 및 확인하는 방법](service-fabric-diagnostics-how-to-report-and-check-service-health.md)

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 362704368958d2600d16cd907421917b824a59cb
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 5f408699cae9580188a3780fc8f8654eaa97c26b
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256602"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "97108436"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 LexisNexis를 구성하기 위한 자습서
 
@@ -23,7 +23,7 @@ ms.locfileid: "107256602"
 
 이 통합은 등록 흐름 중에 사용자가 제공하는 몇 가지 사용자 정보를 기준으로 프로파일링을 수행합니다. ThreatMetrix는 사용자가 계속 로그인할 수 있도록 허용할지 여부를 결정합니다. 다음 특성은 ThreatMetrix의 위험 분석에서 고려됩니다.
 
-- 메일
+- Email
 - 전화 번호
 - 사용자의 머신에서 수집된 프로파일링 정보
 
@@ -82,7 +82,7 @@ ThreatMetrix 통합에는 다음 구성 요소가 포함됩니다.
 
 애플리케이션 설정은 [Azure의 App Service에서 구성](../app-service/configure-common.md#configure-app-settings)할 수 있습니다.  이 방법을 사용하면 설정을 리포지토리로 체크 인하지 않고도 안전하게 구성할 수 있습니다. Rest API에 대한 다음 설정을 제공해야 합니다.
 
-| 애플리케이션 설정 | 원본 | 메모 |
+| 애플리케이션 설정 | 원본 | 참고 |
 | :-------- | :------------| :-----------|
 |ThreatMetrix: Url | ThreatMetrix 계정 구성 |     |
 |ThreatMetrix:OrgId | ThreatMetrix 계정 구성 |     |
@@ -122,7 +122,7 @@ UI는 [바다색 템플릿](https://github.com/azure-ad-b2c/partner-integrations
 
 ### <a name="part-7---configure-the-azure-ad-b2c-policy"></a>7부 - Azure AD B2C 정책 구성
 
-이 [문서](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack)를 참조하여 [로컬 계정 스타터 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)을 다운로드하고 Azure AD B2C 테넌트에 대한 [정책](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy)을 구성합니다.
+이 [문서](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack)를 참조하여 [로컬 계정 스타터 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)을 다운로드하고 Azure AD B2C 테넌트에 대한 [정책](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy)을 구성합니다.
 
 >[!NOTE]
 >특정 테넌트와 관련하여 제공된 정책을 업데이트합니다.
@@ -155,4 +155,4 @@ UI는 [바다색 템플릿](https://github.com/azure-ad-b2c/partner-integrations
 
 - [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C의 사용자 지정 정책 시작하기](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
+- [Azure AD B2C의 사용자 지정 정책 시작하기](./custom-policy-get-started.md?tabs=applications)

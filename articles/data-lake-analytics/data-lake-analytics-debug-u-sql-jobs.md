@@ -1,15 +1,15 @@
 ---
-title: 'Azure Data Lake U-SQL 작업에 대 한 c # 코드 디버그'
+title: Azure Data Lake U-SQL 작업의 C# 코드 디버그
 description: 이 문서에서는 Azure Data Lake Tools for Visual Studio를 사용하여 U-SQL의 실패한 꼭짓점을 디버그하는 방법을 설명합니다.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/30/2017
 ms.openlocfilehash: db1d57e3904087bc5cb3711b23cfe6bcf18c3455
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92218020"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>실패한 U-SQL 작업에 대한 사용자 정의 C# 코드 디버그
@@ -76,7 +76,7 @@ C# 소스 코드가 캡처되는 두 가지 경우가 있습니다.
 
 2. **FailedVertexDebugHost** 프로젝트에 프로젝트 폴더 경로를 가져옵니다. 
 
-3. **추가된 어셈블리 소스 코드 프로젝트 > 속성** 을 마우스 오른쪽 단추로 클릭하고, 왼쪽의 **빌드** 탭을 선택하고, \bin\debug로 끝나는 복사된 경로를 **출력 > 출력 경로** 에 붙여넣습니다. 최종 출력 경로는와 유사 `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\` 합니다.
+3. **추가된 어셈블리 소스 코드 프로젝트 > 속성** 을 마우스 오른쪽 단추로 클릭하고, 왼쪽의 **빌드** 탭을 선택하고, \bin\debug로 끝나는 복사된 경로를 **출력 > 출력 경로** 에 붙여넣습니다. 최종 출력 경로는 `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\`와 유사합니다.
 
     ![Azure Data Lake Analytics U-SQL 디버그 - pdb 경로 설정](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
 

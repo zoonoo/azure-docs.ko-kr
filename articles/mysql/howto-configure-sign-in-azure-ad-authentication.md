@@ -6,23 +6,23 @@ ms.author: sunila
 ms.service: mysql
 ms.topic: how-to
 ms.date: 07/23/2020
-ms.openlocfilehash: 808c3589ba5b51b035ccc8165489c4d11203dd66
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
-ms.translationtype: MT
+ms.openlocfilehash: 492e56e09129f9d47b863624cd72cd508801c143
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105612231"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728269"
 ---
-# <a name="use-azure-active-directory-for-authentication-with-mysql"></a>MySQL을 사용 하 여 인증을 위해 Azure Active Directory 사용
+# <a name="use-azure-active-directory-for-authentication-with-mysql"></a>MySQL 인증에 Azure Active Directory 사용
 
 이 문서에서는 Azure Database for MySQL을 사용하여 Azure Active Directory 액세스를 구성하는 방법 및 Azure AD 토큰을 사용하여 연결하는 방법을 단계적으로 알아봅니다.
 
 > [!IMPORTANT]
-> Azure Active Directory 인증은 MySQL 5.7 이상 에서만 사용할 수 있습니다.
+> Azure Active Directory 인증은 MySQL 5.7 이상에서만 사용할 수 있습니다.
 
 ## <a name="setting-the-azure-ad-admin-user"></a>Azure AD 관리 사용자 설정
 
-Azure AD 관리 사용자만 Azure AD 기반 인증에 대한 사용자를 만들거나 사용하도록 설정할 수 있습니다. Azure AD 관리자 사용자를 만들려면 다음 단계를 수행 하세요.
+Azure AD 관리 사용자만 Azure AD 기반 인증에 대한 사용자를 만들거나 사용하도록 설정할 수 있습니다. Azure AD 관리 사용자를 만들려면 다음 단계를 수행하세요.
 
 1. Azure Portal에서 Azure AD에 사용하도록 설정하려는 Azure Database for MySQL 인스턴스를 선택합니다.
 2. 설정에서 Active Directory 관리자를 선택합니다.
@@ -57,17 +57,17 @@ Azure AD를 인식하지 못하고 MySQL에 연결할 때 사용자 이름 및 �
 
 ### <a name="prerequisites"></a>필수 구성 요소
 
-Azure Cloud Shell, Azure VM 또는 로컬 컴퓨터에서 수행할 수 있습니다. [Azure CLI가 설치](/cli/azure/install-azure-cli)되어 있는지 확인합니다.
+Azure Cloud Shell, Azure VM 또는 로컬 머신에서 수행할 수 있습니다. [Azure CLI가 설치](/cli/azure/install-azure-cli)되어 있는지 확인합니다.
 
 ### <a name="step-1-authenticate-with-azure-ad"></a>1단계: Azure AD를 사용하여 인증
 
-Azure CLI 도구를 사용 하 여 Azure AD를 인증 하는 것으로 시작 합니다. Azure Cloud Shell에는이 단계가 필요 하지 않습니다.
+Azure CLI 도구를 사용하여 Azure AD로 인증을 시작합니다. Azure Cloud Shell에서는 이 단계가 필요하지 않습니다.
 
 ```
 az login
 ```
 
-이 명령은 Azure AD 인증 페이지에 대 한 브라우저 창을 시작 합니다. Azure AD 사용자 ID와 암호를 제공해야 합니다.
+이 명령을 사용하면 Azure AD 인증 페이지에 대한 브라우저 창이 표시됩니다. Azure AD 사용자 ID와 암호를 제공해야 합니다.
 
 ### <a name="step-2-retrieve-azure-ad-access-token"></a>2단계: Azure AD 액세스 토큰 검색
 
@@ -78,7 +78,6 @@ Azure Database for MySQL에 액세스하려면 Azure CLI 도구를 호출하여 
 ```azurecli-interactive
 az account get-access-token --resource https://ossrdbms-aad.database.windows.net
 ```
-
 위의 리소스 값은 표시된 대로 정확하게 지정해야 합니다. 다른 클라우드의 경우 다음을 사용하여 리소스 값을 조회할 수 있습니다.
 
 ```azurecli-interactive
@@ -90,6 +89,13 @@ Azure CLI 버전 2.0.71 이상은 모든 클라우드에 대해 다음과 같은
 ```azurecli-interactive
 az account get-access-token --resource-type oss-rdbms
 ```
+PowerShell을 사용하면 다음 명령을 통해 액세스 토큰을 얻을 수 있습니다.
+
+```azurepowershell-interactive
+$accessToken = Get-AzAccessToken -ResourceUrl https://ossrdbms-aad.database.windows.net
+$accessToken.Token | out-file C:\temp\MySQLAccessToken.txt
+```
+
 
 인증에 성공하면 Azure AD가 액세스 토큰을 반환합니다.
 
@@ -105,13 +111,17 @@ az account get-access-token --resource-type oss-rdbms
 
 토큰은 Azure Database for MySQL 서비스를 대상으로 하고 인증된 사용자에 대한 모든 정보를 인코딩하는 Base 64 문자열입니다.
 
-> [!NOTE]
-> 액세스 토큰의 유효 기간은 5분에서 60분 사이입니다. Azure Database for MySQL에 로그인하기 직전에 액세스 토큰을 가져오는 것이 좋습니다.
+액세스 토큰의 유효 기간은 ***5분에서 60분*** 사이입니다. Azure Database for MySQL에 로그인하기 직전에 액세스 토큰을 가져오는 것이 좋습니다. 다음 PowerShell 명령을 사용하여 토큰 유효성을 확인할 수 있습니다. 
+
+```azurepowershell-interactive
+$accessToken.ExpiresOn.DateTime
+```
 
 ### <a name="step-3-use-token-as-password-for-logging-in-with-mysql"></a>3단계: MySQL로 로그인할 경우 토큰을 암호로 사용
 
-연결할 때 액세스 토큰을 MySQL 사용자 암호로 사용해야 합니다. MySQLWorkbench와 같은 GUI 클라이언트를 사용하는 경우 위의 메서드를 사용하여 토큰을 검색할 수 있습니다. 
+연결할 때 액세스 토큰을 MySQL 사용자 암호로 사용해야 합니다. MySQLWorkbench와 같은 GUI 클라이언트를 사용하는 경우 위에 설명된 메서드를 사용하여 토큰을 검색할 수 있습니다. 
 
+#### <a name="using-mysql-cli"></a>MySQL CLI 사용
 CLI를 사용하는 경우 이 축약형 표기법을 사용하여 연결할 수 있습니다. 
 
 **예(Linux/macOS):**
@@ -121,15 +131,22 @@ mysql -h mydb.mysql.database.azure.com \
   --enable-cleartext-plugin \ 
   --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
 ```
+#### <a name="using-mysql-workbench"></a>MySQL Workbench 사용
+* MySQL Workbench를 시작하고 데이터베이스 옵션을 클릭한 다음 “데이터베이스에 연결”을 클릭
+* 호스트 이름 필드에 다음과 같은 MySQL FQDN을 입력 mydb.mysql.database.azure.com
+* 사용자 이름 필드에 MySQL Azure Active Directory 관리자 이름을 입력한 다음, FQDN이 아닌 MySQL 서버 이름을 추가(예: user@tenant.onmicrosoft.com @mydb)
+* 암호 필드에서 “자격 증명 모음에 저장”을 클릭하고 파일(예: C:\temp\MySQLAccessToken.txt)의 액세스 토큰에 붙여넣기
+* 고급 탭을 클릭하고 “Enable Cleartext Authentication Plugin”(일반 텍스트 인증 플러그 인 사용) 확인
+* 확인을 클릭하여 데이터베이스에 연결
 
-연결할 때 중요 한 고려 사항:
+#### <a name="important-considerations-when-connecting"></a>연결 시 중요한 고려 사항은 다음과 같습니다.
 
-* `user@tenant.onmicrosoft.com` 연결 하려는 Azure AD 사용자 또는 그룹의 이름입니다.
-* 항상 Azure AD 사용자/그룹 이름 뒤에 서버 이름을 추가 합니다 (예: `@mydb` ).
-* Azure AD 사용자 또는 그룹 이름에 대 한 정확한 방법을 사용 해야 합니다.
-* Azure AD 사용자 및 그룹 이름은 대/소문자를 구분 합니다.
-* 그룹으로 연결 하는 경우 그룹 이름 (예:)만 사용 합니다. `GroupName@mydb`
-* 이름에 공백이 포함 되어 있으면 `\` 각 공간 앞에를 사용 하 여 이스케이프 합니다.
+* `user@tenant.onmicrosoft.com`은 연결하는 데 사용하려는 Azure AD 사용자 또는 그룹의 이름
+* Azure AD 사용자/그룹 이름 다음에 항상 서버 이름 추가(예: `@mydb`)
+* Azure AD 사용자 또는 그룹 이름의 철자를 똑같이 사용해야 함
+* Azure AD 사용자 및 그룹 이름은 대/소문자를 구분함
+* 그룹으로 연결할 때 그룹 이름만 사용(예: `GroupName@mydb`)
+* 이름에 공백이 포함되어 있으면 각 공백 앞에 `\`를 사용하여 이스케이프합니다.
 
 "enable-cleartext-plugin" 설정 - 다른 클라이언트와 유사한 구성을 사용하여 해시되지 않은 서버에 토큰이 전송되도록 해야 합니다.
 
