@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 78cdc0b59fd178049e755cca5e1e909ac24483f2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ec648f02918717dad6b739aa6ae99206bcec1d6e
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102204051"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581814"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>자습서: Key Vault에서 인증서 자동 회전 구성
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-vault"></a>자격 증명 모음 만들기
 
@@ -51,7 +51,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="update-certificate-lifecycle-attributes"></a>인증서 수명 주기 특성 업데이트
 
-Azure Key Vault에서 인증서를 만들기 전과 만든 후에 인증서의 수명 주기 특성을 업데이트할 수 있습니다.
+Azure Key Vault에서 인증서를 만들 때 또는 만든 후에 인증서의 수명 주기 특성을 업데이트할 수 있습니다.
 
 Key Vault에서 만든 인증서는 다음 중 하나입니다.
 
@@ -83,7 +83,7 @@ Key Vault는 파트너 관계를 맺은 CA를 통해 인증서를 자동으로 �
         |  지정된 시간에 자동으로 갱신| 지정된 시간에 모든 담당자에게 이메일 보내기 |
         |-----------|------|
         |이 옵션을 선택하면 자동 회전이 *켜집니다*. | 이 옵션을 선택하면 자동으로 회전되지 *않고*, 담당자에게 경고만 합니다.|
-
+         You can learn about [setting up Email contact here](https://docs.microsoft.com/azure/key-vault/certificates/overview-renew-certificate#get-notified-about-certificate-expiration)
 1. **만들기** 를 선택합니다.
 
 ![인증서 수명 주기](../media/certificates/tutorial-rotate-cert/create-cert-lifecycle.png)

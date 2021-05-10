@@ -3,12 +3,14 @@ title: '빠른 시작: PowerShell로 청사진 만들기'
 description: 이 빠른 시작에서는 Azure Blueprints를 사용하여 PowerShell을 통해 아티팩트를 만들고 정의하고 배포합니다.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: 65d573d0aec7d5f292bc985483e1f12c350ae03a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom:
+- mode-api
+ms.openlocfilehash: 29c43da0c1467c74ddc85a447a0cf9addb574c7e
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98918282"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538893"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>빠른 시작: PowerShell로 Azure Blueprint 정의 및 할당
 
@@ -307,7 +309,7 @@ Publish-AzBlueprint -Blueprint $blueprint -Version '{BlueprintVersion}'
 
 PowerShell을 사용하여 청사진을 게시하고 나면 구독에 할당할 수 있습니다. 작성한 청사진을 관리 그룹 계층 구조에 속하는 구독 중 하나에 할당합니다. 구독에 청사진이 저장되면 해당 구독에만 할당될 수 있습니다. **Blueprint** 매개 변수는 할당할 청사진을 지정합니다. 이름, 위치, ID, 잠금 및 청사진 매개 변수를 제공하려면 `New-AzBlueprintAssignment` cmdlet에서 일치하는 PowerShell 매개 변수를 사용하거나 **AssignmentFile** 매개 변수 JSON 파일에 제공합니다.
 
-1. 청사진 배포를 구독에 할당하여 실행합니다. **contributors** 및 **owners** 매개 변수에는 역할 할당에 부여될 주체의 objectId 배열이 필요하기 때문에, [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md)를 사용하여 사용자, 그룹 또는 서비스 주체에 대한 **AssignmentFile** 에 사용될 objectId를 수집합니다.
+1. 청사진 배포를 구독에 할당하여 실행합니다. **contributors** 및 **owners** 매개 변수에는 역할 할당에 부여될 주체의 objectId 배열이 필요하기 때문에, [Azure Active Directory Graph API](/graph/migrate-azure-ad-graph-planning-checklist)를 사용하여 사용자, 그룹 또는 서비스 주체에 대한 **AssignmentFile** 에 사용될 objectId를 수집합니다.
 
    - JSON 파일 - blueprintAssignment.json
 

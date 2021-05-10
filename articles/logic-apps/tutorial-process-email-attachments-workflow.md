@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
-ms.date: 02/27/2020
-ms.openlocfilehash: bd1715dc0a3767bc5826154616bbdc97c7b61dd3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: 7809ba52b270f07da9e04bc18c7c12e2268f1b73
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99821251"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792240"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>자습서: Azure Logic Apps, Azure Functions 및 Azure Storage를 사용하여 이메일을 처리하는 작업 자동화
 
@@ -47,7 +47,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
 * [체험판 Microsoft Azure Storage Explorer](https://storageexplorer.com/)를 다운로드하여 설치합니다. 이 도구를 사용하여 스토리지 컨테이너가 올바르게 설정되었는지 확인할 수 있습니다.
 
-* 논리 앱이 특정 IP 주소로 트래픽을 제한하는 방화벽을 통해 통신해야 하는 경우 해당 방화벽은 논리 앱이 있는 Azure 지역의 런타임 또는 Logic Apps 서비스에서 사용하는 [인바운드](logic-apps-limits-and-config.md#inbound) 및 [아웃바운드](logic-apps-limits-and-config.md#outbound) IP 주소 *모두* 에 대한 액세스를 허용해야 합니다. 논리 앱에서 Office 365 Outlook 커넥터 또는 SQL 커넥터와 같은 [관리형 커넥터](../connectors/apis-list.md#managed-api-connectors)를 사용하거나 [사용자 지정 커넥터](/connectors/custom-connectors/)를 사용하는 경우 방화벽은 논리 앱의 Azure 지역에 있는 [관리형 커넥터 아웃바운드 IP 주소](logic-apps-limits-and-config.md#outbound) *모두* 에 대한 액세스도 허용해야 합니다.
+* 논리 앱이 특정 IP 주소로 트래픽을 제한하는 방화벽을 통해 통신해야 하는 경우 해당 방화벽은 논리 앱이 있는 Azure 지역의 런타임 또는 Logic Apps 서비스에서 사용하는 [인바운드](logic-apps-limits-and-config.md#inbound) 및 [아웃바운드](logic-apps-limits-and-config.md#outbound) IP 주소 *모두* 에 대한 액세스를 허용해야 합니다. 논리 앱에서 Office 365 Outlook 커넥터 또는 SQL 커넥터와 같은 [관리형 커넥터](../connectors/managed.md)를 사용하거나 [사용자 지정 커넥터](/connectors/custom-connectors/)를 사용하는 경우 방화벽은 논리 앱의 Azure 지역에 있는 [관리형 커넥터 아웃바운드 IP 주소](logic-apps-limits-and-config.md#outbound) *모두* 에 대한 액세스도 허용해야 합니다.
 
 ## <a name="set-up-storage-to-save-attachments"></a>첨부 파일을 저장하도록 스토리지 설정
 
@@ -104,7 +104,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
       ![완료된 스토리지 컨테이너](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   스토리지 컨테이너를 만들려면 [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) 또는 [Azure CLI](/cli/azure/storage/container#az-storage-container-create)를 사용할 수도 있습니다.
+   스토리지 컨테이너를 만들려면 [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) 또는 [Azure CLI](/cli/azure/storage/container#az_storage_container_create)를 사용할 수도 있습니다.
 
 다음으로, Storage Explorer를 스토리지 계정에 연결합니다.
 
@@ -141,7 +141,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
 1. 함수를 만들기 전에 다음 설정을 사용하여 [함수 앱을 만듭니다](../azure-functions/functions-create-function-app-portal.md).
 
-   | 설정 | 값 | 설명 |
+   | 설정 | 값 | Description |
    | ------- | ----- | ----------- |
    | **앱 이름** | <*function-app-name*> | 함수 앱의 이름은 Azure에서 전역적으로 고유해야 합니다. 이 예에서는 “CleanTextFunctionApp”을 이미 사용하고 있으므로 다른 이름을 입력합니다(예: “MyCleanTextFunctionApp-<*사용자-이름*>”). |
    | **구독** | <*your-Azure-subscription-name*> | 이전에 사용한 동일한 Azure 구독 |

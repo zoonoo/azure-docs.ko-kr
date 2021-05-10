@@ -4,12 +4,12 @@ description: Docker Compose를 사용하여 다중 컨테이너 애플리케이�
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.custom: ''
-ms.openlocfilehash: a71ff438feaef555a85c33d818c287c64621d40d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ef08b9f9e0f596f1d94c0e6edfd46f735fe78053
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92913843"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786923"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-docker-compose"></a>자습서: Docker Compose를 사용하여 다중 컨테이너 그룹 배포 
 
@@ -166,7 +166,7 @@ docker-compose push
 
 레지스트리에 푸시하는 데 몇 분 정도 걸릴 수 있습니다.
 
-이미지가 레지스트리에 저장되었는지 확인하려면 [az acr repository show](/cli/azure/acr/repository#az-acr-repository-show) 명령을 실행합니다.
+이미지가 레지스트리에 저장되었는지 확인하려면 [az acr repository show](/cli/azure/acr/repository#az_acr_repository_show) 명령을 실행합니다.
 
 ```azurecli
 az acr repository show --name <acrName> --repository azure-vote-front

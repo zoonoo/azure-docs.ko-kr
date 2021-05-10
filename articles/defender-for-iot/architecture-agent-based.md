@@ -1,16 +1,16 @@
 ---
-title: 에이전트 기반 솔루션 아키텍처
+title: 에이전트 기반 솔루션 아키텍처란
 description: Azure Defender for IoT 에이전트 기반 아키텍처 및 정보 흐름에 대해 알아봅니다.
 ms.topic: overview
 ms.date: 1/25/2021
-ms.openlocfilehash: b04e8fa6225aef9f3c228a44631f117fedffccff
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: e08c3f151c3d3bc4fe08e61d960874b07f5b63e8
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104784886"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383527"
 ---
-# <a name="agent-based-solution-for-device-builders"></a>디바이스 빌더를 위한 에이전트 기반 솔루션
+# <a name="what-is-agent-based-solution-for-device-builders"></a>디바이스 빌더를 위한 에이전트 기반 솔루션이란
 
 이 문서에서는 Defender for IoT 에이전트 기반 솔루션의 기능적 시스템 아키텍처를 설명합니다. Azure Defender for IoT는 사용자 환경의 요구 사항에 맞는 두 가지 기능 세트, 조직을 위한 에이전트 없는 솔루션 및 디바이스 빌더를 위한 에이전트 기반 솔루션을 제공합니다.
 
@@ -34,7 +34,7 @@ Defender for IoT 권장 사항 및 경고(분석 파이프라인 출력)는 각 
 
 :::image type="content" source="media/architecture/micro-agent-architecture.png" alt-text="마이크로 에이전트 아키텍처":::
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
 [Defender for IoT FAQ](resources-frequently-asked-questions.md)
 

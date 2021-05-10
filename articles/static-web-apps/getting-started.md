@@ -7,20 +7,20 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 2d7a2dcbbd0b6e9a10ca8af93798bfddbee94ee3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 335f78bba24947b1b6c3d6132bc38f237b3298b9
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182658"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449217"
 ---
 # <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>빠른 시작: Azure Static Web Apps를 사용하여 첫 번째 정적 사이트 빌드
 
-Azure Static Web Apps는 GitHub 리포지토리에서 앱을 빌드하여 프로덕션 환경에 웹 사이트를 게시합니다. 이 빠른 시작에서는 Visual Studio Code 확장을 사용하여 웹 애플리케이션을 Azure Static 웹앱에 배포합니다.
+Azure Static Web Apps는 코드 리포지토리에서 앱을 빌드하여 웹 사이트를 게시합니다. 이 빠른 시작에서는 Visual Studio Code 확장을 사용하여 애플리케이션을 Azure Static 웹앱에 배포합니다.
 
 Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.com/free)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [GitHub](https://github.com) 계정
 - [Azure](https://portal.azure.com) 계정
@@ -32,7 +32,7 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
 
 [!INCLUDE [clone the repository](../../includes/static-web-apps-get-started-clone-repo.md)]
 
-다음으로, Visual Studio Code를 열고 **파일 > 폴더 열기** 로 이동하여 방금 머신에 복제한 리포지토리를 편집기에서 엽니다.
+다음으로, Visual Studio Code를 열고 **파일 > 폴더 열기** 로 이동하여 머신에 복제한 리포지토리를 편집기에서 엽니다.
 
 ## <a name="create-a-static-web-app"></a>정적 웹앱 만들기
 
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
     > [!NOTE]
     > Azure 및 GitHub 로그인이 필요합니다. Visual Studio Code에서 Azure 및 GitHub에 아직 로그인하지 않은 경우 확장은 만들기 프로세스 중에 둘 다에 로그인하라는 메시지를 표시합니다.
 
-1. _Static Web Apps_ 레이블 위에 마우스를 놓고 **더하기 기호** 를 선택합니다.
+1. _Static Web Apps_ 레이블 아래에서 **더하기 기호** 를 선택합니다.
 
     :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="애플리케이션 이름":::
 
@@ -53,45 +53,34 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
 
     :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Static Web App 만들기":::
 
-1. **main** 분기를 선택하고 **Enter** 키를 누릅니다.
+1. 애플리케이션 유형과 일치하는 사전 설정을 선택합니다.
 
-    :::image type="content" source="media/getting-started/extension-branch.png" alt-text="분기 이름":::
+    # <a name="no-framework"></a>[프레임워크 없음](#tab/vanilla-javascript)
+    :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="애플리케이션 사전 설정: 프레임워크 없음":::
 
-1. 애플리케이션 코드의 위치로 **/** 를 선택하고 **Enter** 를 누릅니다.
+    애플리케이션 파일의 위치로 **./** 를 입력합니다.
 
-    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="애플리케이션 코드 위치":::
+    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="애플리케이션 파일 위치":::
 
-1. 확장은 애플리케이션에서 API의 위치를 찾고 있습니다. 이 문서에서는 API를 구현하지 않습니다.
-
-    **지금은 건너뛰기** 를 선택하고 **Enter** 를 누릅니다.
+    현재 Azure Functions api의 위치로 **지금은 건너뛰기** 를 선택합니다.
 
     :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="API 위치":::
 
-1. 앱에서 프로덕션용으로 파일이 빌드되는 위치를 선택합니다.
+    빌드 출력 위치로 **./** 입력
 
-    # <a name="no-framework"></a>[프레임워크 없음](#tab/vanilla-javascript)
-
-    상자를 선택 취소하고 **Enter** 를 누릅니다.
-
-    :::image type="content" source="media/getting-started/extension-artifact-no-framework.png" alt-text="앱 파일 경로":::
+    :::image type="content" source="media/getting-started/extension-build-location.png" alt-text="애플리케이션 빌드 출력 위치":::
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
-    **dist/angular-basic** 을 입력하고 **Enter** 를 누릅니다.
-
-    :::image type="content" source="media/getting-started/extension-artifact-angular.png" alt-text="Angular 앱 파일 경로":::
+    :::image type="content" source="media/getting-started/extension-presets-angular.png" alt-text="애플리케이션 사전 설정: Angular":::
 
     # <a name="react"></a>[React](#tab/react)
 
-    **빌드** 를 입력하고 **Enter** 를 누릅니다.
-
-    :::image type="content" source="media/getting-started/extension-artifact-react.png" alt-text="React 앱 파일 경로":::
+    :::image type="content" source="media/getting-started/extension-presets-react.png" alt-text="애플리케이션 사전 설정: React":::
 
     # <a name="vue"></a>[Vue](#tab/vue)
 
-    **dist** 를 입력하고 **Enter** 를 누릅니다.
-
-    :::image type="content" source="media/getting-started/extension-artifact-vue.png" alt-text="Vue 앱 파일 경로":::
+    :::image type="content" source="media/getting-started/extension-presets-vue.png" alt-text="애플리케이션 사전 설정: Vue":::
 
     ---
 
@@ -103,11 +92,13 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
 
     :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="생성 확인":::
 
-1. Visual Studio Code 탐색기 창에서 구독 이름이 있는 노드로 이동하여 확장합니다. 배포가 완료되는 데 몇 분 정도 걸릴 수 있습니다. 그런 다음, Static Web Apps 섹션으로 돌아가 앱 이름을 선택한 다음, my-first-static-web-app을 마우스 오른쪽 단추로 클릭하고 포털에서 열기를 선택하여 Azure Portal에서 앱을 확인합니다.
+    다음으로 **GitHub에서 작업 열기** 단추를 클릭합니다. 이 페이지는 애플리케이션의 빌드 상태를 표시합니다.
 
-    :::image type="content" source="media/getting-started/extension-open-in-portal.png" alt-text="포털 열기":::
+    GitHub 작업이 완료되면 게시된 웹 사이트로 이동할 수 있습니다.
 
-[!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
+1. 브라우저에서 웹 사이트를 보려면 Static Web Apps 확장에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **사이트 찾아보기** 를 선택합니다.
+
+    :::image type="content" source="media/getting-started/extension-browse-site.png" alt-text="사이트 찾아보기":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

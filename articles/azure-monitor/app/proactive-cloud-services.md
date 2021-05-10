@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.reviewer: harelbr
 ms.openlocfilehash: 1cdfc6dc3ac74997743512ee07f9293699e3ad10
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87309293"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Azure Application Insights와 Azure Diagnostics 통합을 사용하여 Azure Cloud Services의 문제에 대한 경고
@@ -78,7 +78,7 @@ EventLogs
 | where Failures > 3
 ```
 
-## <a name="create-an-alert"></a>경고 만들기
+## <a name="create-an-alert"></a>경고 생성
 
 Application Insights 리소스 내 탐색 메뉴에서 **경고** 로 이동한 다음, **새 경고 규칙** 을 선택합니다.
 
@@ -111,7 +111,7 @@ Application Insights 리소스 내 탐색 메뉴에서 **경고** 로 이동한 
 
 자동으로 감지하는 방법에 대해 자세히 알아봅니다.
 
-[오류 비정상](./proactive-failure-diagnostics.md) 
- [메모리 누수](./proactive-potential-memory-leak.md) 
- [성능](./proactive-performance-diagnostics.md) 이상
+[오류 잘못된 부분](./proactive-failure-diagnostics.md)
+[메모리 누수](./proactive-potential-memory-leak.md)
+[성능 이상](./proactive-performance-diagnostics.md)
 

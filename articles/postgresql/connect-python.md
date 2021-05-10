@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: db94a82112f2670facd4d89178f11653c5316c36
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6c589f3f0913609640ac14534c170c741c16a084
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95998943"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105048173"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>빠른 시작: Python을 사용하여 Azure Database for PostgreSQL - 단일 서버의 데이터 연결 및 쿼리
 
@@ -36,7 +36,7 @@ ms.locfileid: "95998943"
   | **서비스 엔드포인트 구성** | 공용 | [포털](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
   | **프라이빗 링크 구성** | Private | [포털](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
 
-- [Python](https://www.python.org/downloads/) 2.7.9+ 또는 3.4+.
+- [Python](https://www.python.org/downloads/) 2.7 또는 3.6 이상
 
 - 최신 [pip](https://pip.pypa.io/en/stable/installing/) 패키지 설치 관리자.
 - 터미널 또는 명령 프롬프트 창에서 `pip install psycopg2`를 사용하여 [psycopg2](https://pypi.python.org/pypi/psycopg2/)를 설치합니다. 자세한 내용은 [설치 방법 `psycopg2`](http://initd.org/psycopg/docs/install.html)을 참조하세요.

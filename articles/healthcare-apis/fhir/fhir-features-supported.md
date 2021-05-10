@@ -6,14 +6,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 1/30/2021
+ms.date: 4/15/2021
 ms.author: cavoeg
-ms.openlocfilehash: 9bd61d65d6d64dac6081d3491deb8a15efc4a45b
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 56e3ba46ffb43aec907d729a2e74cdf6f7a62c32
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105048422"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530638"
 ---
 # <a name="features"></a>기능
 
@@ -34,20 +34,20 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 | update                         | 예       | 예       | 예       |                                                     |
 | 낙관적 잠금으로 업데이트 | 예       | 예       | 예       |                                                     |
 | update (조건부)           | 예       | 예       | 예       |                                                     |
-| 패치                          | 예        | 예        | 예        |                                                     |
+| 패치                          | 아니요        | 아니요        | 아니요        |                                                     |
 | delete                         | 예       | 예       | 예       |  아래 참고를 참조 하세요.                                   |
-| delete (조건부)           | 예        | 예        | 예        |                                                     |
+| delete (조건부)           | 아니요        | 아니요        | 아니요        |                                                     |
 | history                        | 예       | 예       | 예       |                                                     |
 | create                         | 예       | 예       | 예       | POST/PUT 모두 지원                               |
 | create (조건부)           | 예       | 예       | 예       | 문제 [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
 | search                         | Partial   | Partial   | Partial   | 아래의 검색 섹션을 참조 하세요.                           |
-| 연결 된 검색                 | 예       | 예       | 부분   | 아래의 참고 2를 참조 하세요.                                   |
-| 역방향 연결 된 검색         | 예       | 예       | 부분   | 아래의 참고 2를 참조 하세요.                                   |
+| 연결 된 검색                 | Partial       | 예       | 부분   | 아래의 참고 2를 참조 하세요.                                   |
+| 역방향 연결 된 검색         | Partial       | 예       | 부분   | 아래의 참고 2를 참조 하세요.                                   |
 | capabilities                   | 예       | 예       | 예       |                                                     |
 | 일괄 처리                          | 예       | 예       | 예       |                                                     |
-| 트랜잭션                    | 예        | 예       | 예        |                                                     |
+| 트랜잭션                    | 아니요        | 예       | 아니요        |                                                     |
 | 페이징                         | Partial   | Partial   | Partial   | `self` 및 `next` 가 지원 됩니다.                     |
-| 매개자                 | 예        | 예        | 예        |                                                     |
+| 매개자                 | 아니요        | 아니요        | 아니요        |                                                     |
 
 > [!Note]
 > FHIR 사양에 정의 된 삭제를 수행 하려면 삭제 후에 다음 버전의 특정 리소스 읽기가 410 HTTP 상태 코드를 반환 하 고 검색을 통해 리소스를 더 이상 찾을 수 없습니다. 또한 Azure API for FHIR을 사용 하 여 리소스의 모든 기록을 포함 하 여 전체를 삭제할 수 있습니다. 리소스를 완전히 삭제 하려면 매개 변수 설정을 `hardDelete` true ()로 전달할 수 있습니다 `DELETE {server}/{resource}/{id}?hardDelete=true` . 이 매개 변수를 전달 하지 않거나 `hardDelete` 을 false로 설정 하면 리소스의 기록 버전을 계속 사용할 수 있습니다.
@@ -68,11 +68,11 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 | Date/DateTime         | 예       | 예       | 예       |         |
 | String                | 예       | 예       | 예       |         |
 | 토큰                 | 예       | 예       | 예       |         |
-| 참조             | 예       | 예       | 예       |         |
+| 참고             | 예       | 예       | 예       |         |
 | 복합             | 예       | 예       | 예       |         |
 | 수량              | 예       | 예       | 예       |         |
 | URI                   | 예       | 예       | 예       |         |
-| 특수               | 예        | 예        | 예        |         |
+| 특수               | 아니요        | 아니요        | 아니요        |         |
 
 
 | 한정자             | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석 |
@@ -84,11 +84,11 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 |`:[type]` 참조일  | 예       | 예       | 예       |         |
 |`:not`                 | 예       | 예       | 예       |         |
 |`:below` uri         | 예       | 예       | 예       |         |
-|`:above` uri         | 예        | 예        | 예        | 문제 [#158](https://github.com/Microsoft/fhir-server/issues/158) |
-|`:in` 토큰          | 예        | 예        | 예        |         |
-|`:below` 토큰       | 예        | 예        | 예        |         |
-|`:above` 토큰       | 예        | 예        | 예        |         |
-|`:not-in` 토큰      | 예        | 예        | 예        |         |
+|`:above` uri         | 아니요        | 아니요        | 아니요        | 문제 [#158](https://github.com/Microsoft/fhir-server/issues/158) |
+|`:in` 토큰          | 아니요        | 아니요        | 아니요        |         |
+|`:below` 토큰       | 아니요        | 아니요        | 아니요        |         |
+|`:above` 토큰       | 아니요        | 아니요        | 아니요        |         |
+|`:not-in` 토큰      | 아니요        | 아니요        | 아니요        |         |
 
 | 공통 검색 매개 변수 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석 |
 |-------------------------| ----------| ----------| ----------|---------|
@@ -98,12 +98,12 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 | `_list`                 | 예       | 예       | 예       |         |
 | `_type`                 | 예       | 예       | 예       | 문제 [#1562](https://github.com/microsoft/fhir-server/issues/1562)        |
 | `_security`             | 예       | 예       | 예       |         |
-| `_profile`              | 부분   | Partial   | Partial   | STU3에서 지원 됩니다. 2021 년 2 월 20 일 **후** 에 데이터베이스를 만든 경우에는 4 월도 지원 됩니다. 2021 년 2 월 20 이전에 만든 데이터베이스에서 _profile를 사용 하도록 설정 하기 위해 노력 하 고 있습니다. |
-| `_text`                 | 예        | 예        | 예        |         |
-| `_content`              | 예        | 예        | 예        |         |
-| `_has`                  | 예        | 예        | 예        |         |
-| `_query`                | 예        | 예        | 예        |         |
-| `_filter`               | 예        | 예        | 예        |         |
+| `_profile`              | Partial   | Partial   | Partial   | STU3에서 지원 됩니다. 2021 년 2 월 20 일 **후** 에 데이터베이스를 만든 경우에는 4 월도 지원 됩니다. 2021 년 2 월 20 이전에 만든 데이터베이스에서 _profile를 사용 하도록 설정 하기 위해 노력 하 고 있습니다. |
+| `_text`                 | 아니요        | 아니요        | 아니요        |         |
+| `_content`              | 아니요        | 아니요        | 아니요        |         |
+| `_has`                  | 아니요        | 아니요        | 아니요        |         |
+| `_query`                | 아니요        | 아니요        | 아니요        |         |
+| `_filter`               | 아니요        | 아니요        | 아니요        |         |
 
 | 검색 결과 매개 변수 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석 |
 |-------------------------|-----------|-----------|-----------|---------|
@@ -114,9 +114,9 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 | `_summary`              | Partial   | Partial   | Partial   | `_summary=count`가 지원됨 |
 | `_total`                | Partial   | Partial   | Partial   | `_total=none` 및 `_total=accurate`      |
 | `_sort`                 | Partial   | Partial   | Partial   |   `_sort=_lastUpdated`가 지원됨       |
-| `_contained`            | 예        | 예        | 예        |         |
-| `containedType`         | 예        | 예        | 예        |         |
-| `_score`                | 예        | 예        | 예        |         |
+| `_contained`            | 아니요        | 아니요        | 아니요        |         |
+| `containedType`         | 아니요        | 아니요        | 아니요        |         |
+| `_score`                | 아니요        | 아니요        | 아니요        |         |
 
 ## <a name="extended-operations"></a>확장 된 작업
 
@@ -146,7 +146,7 @@ FHIR 서버는 액세스 제어를 위해 [Azure Active Directory](https://azure
 
 ## <a name="service-limits"></a>서비스 제한
 
-* [**Rus (요청 단위)**](../../cosmos-db/concepts-limits.md) -Azure API for FHIR에 대 한 포털에서 최대 1만 RUs를 구성할 수 있습니다. 최소 400 RUs 또는 10 RUs/GB 중 더 큰 값이 필요 합니다. 1만 명 이상의 RUs가 필요한 경우 지원 티켓에 추가 하 여이를 늘릴 수 있습니다. 사용 가능한 최대값은 100만입니다.
+* [**Rus (요청 단위)**](../../cosmos-db/concepts-limits.md) -Azure API for FHIR에 대 한 포털에서 최대 1만 RUs를 구성할 수 있습니다. 최소 400 RUs 또는 40 RUs/GB 중 더 큰 값이 필요 합니다. 1만 명 이상의 RUs가 필요한 경우 지원 티켓에 추가 하 여이를 늘릴 수 있습니다. 사용 가능한 최대값은 100만입니다.
 
 * **동시 연결** 및 **인스턴스** -기본적으로 클러스터의 두 인스턴스에 대해 5 개의 동시 연결이 있습니다 (총 10 개의 동시 요청). 더 많은 동시 요청이 필요 하다 고 생각 되는 경우 요구 사항에 대 한 세부 정보가 포함 된 지원 티켓을 엽니다.
 
@@ -160,12 +160,12 @@ FHIR 서버는 액세스 제어를 위해 [Azure Active Directory](https://azure
 
 | RUs의 # | 리소스/초 |    최대 저장소 (GB) *    |
 |----------|---------------|--------|                 
-| 400      | 5-10          |     40   |
-| 1,000    | 100-150       |      100  |
-| 10000   | 225-400       |      1,000  |
-| 100,000  | 2500-4000   |      10000  |
+| 400      | 5-10          |     10   |
+| 1,000    | 100-150       |      25  |
+| 10000   | 225-400       |      250  |
+| 100,000  | 2500-4000   |      2,500  |
 
-참고: Cosmos DB 요구 사항에 따라 저장소 GB 당 최소 처리량은 10 r u/GB입니다. 자세한 내용은 [Cosmos DB 서비스 할당량](../../cosmos-db/concepts-limits.md)을 확인 하세요.
+참고: Cosmos DB 요구 사항에 따라 저장소의 GB 당 최소 처리량 40 r u/초를 요구 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

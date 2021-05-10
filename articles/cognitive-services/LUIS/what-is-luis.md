@@ -5,14 +5,14 @@ keywords: Azure, 인공 지능, ai, 자연어 처리, nlp, 자연어 이해, nlu
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 03/22/2021
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: f21a2cc8218dde8b0cf7203a1fcb1f5cfb9424a2
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: f32f58bebc0a7d64443259981590e368b109b19b
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790870"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278952"
 ---
 # <a name="what-is-language-understanding-luis"></a>LUIS(Language Understanding)란?
 
@@ -23,6 +23,13 @@ LUIS(Language Understanding)는 사용자의 대화형 자연어 텍스트에 �
 LUIS용 클라이언트 애플리케이션은 자연어로 사용자와 통신하여 작업을 완료하는 대화형 애플리케이션입니다. 클라이언트 애플리케이션의 예로는 소셜 미디어 앱, AI 챗봇 및 음성 지원 데스크톱 애플리케이션을 들 수 있습니다.
 
 ![Cognitive Services LUIS(Language Understanding)를 사용하는 3개의 클라이언트 애플리케이션의 개념 이미지](./media/luis-overview/luis-entry-point.png "Cognitive Services LUIS(Language Understanding)를 사용하는 3개의 클라이언트 애플리케이션의 개념 이미지")
+
+이 설명서에는 다음과 같은 문서 유형이 포함되어 있습니다.  
+
+* [**빠른 시작**](luis-get-started-create-app.md)은 서비스에 대한 요청을 수행하는 과정을 안내하는 시작 지침입니다.  
+* [**방법 가이드**](luis-how-to-start-new-app.md)에는 보다 구체적이거나 사용자 지정된 방식으로 서비스를 사용하기 위한 지침이 포함되어 있습니다.  
+* [**개념**](artificial-intelligence.md)은 서비스 기능에 대한 심층적인 설명을 제공합니다.  
+* [**자습서**](tutorial-intents-only.md)는 보다 광범위한 비즈니스 솔루션에서 서비스를 구성 요소로 사용하는 방법을 보여주는 긴 가이드입니다.  
 
 ## <a name="use-luis-in-a-chat-bot"></a>채팅 봇에서 LUIS 사용
 
@@ -139,8 +146,6 @@ LUIS는 기존 LUIS 리소스의 일부로 Text Analytics의 기능을 제공합
 
 * 서비스 및 설명서의 [새로운 기능](whats-new.md "새로운 기능")
 * [의도](luis-concept-intent.md "의도") 및 [엔터티](luis-concept-entity-types.md "엔터티")를 사용하여 [앱을 계획](luis-how-plan-your-app.md "앱 계획")합니다.
-* [예측 엔드포인트를 쿼리](luis-get-started-get-intent-from-browser.md "예측 엔드포인트 쿼리")합니다.
-* LUIS의 [개발자 리소스](developer-reference-resource.md "개발자 리소스").
 
 [bot-framework]: /bot-framework/
 [flow]: /connectors/luis/

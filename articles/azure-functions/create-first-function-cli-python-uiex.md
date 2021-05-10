@@ -7,12 +7,12 @@ ms.custom:
 - devx-track-python
 - devx-track-azurecli
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: da7f6fdaedd8105363cc62bf55bae2cb5f72f234
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 626cff867a336880689373c289087e2332a816ee
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031653"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787452"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 Python 함수 만들기
 
@@ -239,7 +239,7 @@ py -m venv .venv
     az login
     ```
 
-    [az login](/cli/azure/reference-index#az-login) 명령은 Azure 계정에 로그인합니다.
+    [az login](/cli/azure/reference-index#az_login) 명령은 Azure 계정에 로그인합니다.
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell) 
     ```azurepowershell
@@ -258,7 +258,7 @@ py -m venv .venv
     az group create --name AzureFunctionsQuickstart-rg --location westeurope
     ```
  
-    [az group create](/cli/azure/group#az-group-create) 명령은 리소스 그룹을 만듭니다. 일반적으로 리소스 그룹 및 리소스를 만듭니다. <abbr title="리소스가 할당된 특정 Azure 데이터 센터에 대한 지리적 참조.">region</abbr> 가까운 곳. `az account list-locations` 명령에서 반환된 사용 가능한 지역 사용
+    [az group create](/cli/azure/group#az_group_create) 명령은 리소스 그룹을 만듭니다. 일반적으로 리소스 그룹 및 리소스를 만듭니다. <abbr title="리소스가 할당된 특정 Azure 데이터 센터에 대한 지리적 참조.">region</abbr> 가까운 곳. `az account list-locations` 명령에서 반환된 사용 가능한 지역 사용
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
@@ -280,7 +280,7 @@ py -m venv .venv
     az storage account create --name <STORAGE_NAME> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
     ```
 
-    [az storage account create](/cli/azure/storage/account#az-storage-account-create) 명령은 스토리지 계정을 만듭니다. 
+    [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령은 스토리지 계정을 만듭니다. 
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 

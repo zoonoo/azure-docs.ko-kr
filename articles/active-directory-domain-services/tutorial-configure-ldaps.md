@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/04/2021
+ms.date: 03/23/2021
 ms.author: justinha
-ms.openlocfilehash: fec2695c9e196a652a4166161bf012b22b0d00e6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 928b1a6dcff7ad186bf5fe9ce07d1a886d429867
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579555"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933341"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Azure Active Directory Domain Services 관리되는 도메인에 대한 보안 LDAP 구성
 
@@ -298,6 +298,21 @@ Thumbprint                                Subject
 1. 로컬 머신에서 *메모장* 을 관리자 권한으로 엽니다.
 1. *C:\Windows\System32\drivers\etc\hosts* 파일을 찾아서 엽니다.
 1. 추가한 레코드에 대한 줄(예: `168.62.205.103    ldaps.aaddscontoso.com`)을 삭제합니다.
+
+## <a name="troubleshooting"></a>문제 해결
+
+LDAP.exe를 연결할 수 없다는 오류가 표시되는 경우 연결을 가져오는 다양한 측면을 통해 시도해 보세요. 
+
+1. 도메인 컨트롤러 구성
+1. 클라이언트 구성
+1. 네트워킹
+1. TLS 세션 설정
+
+인증서 주체 이름이 일치하는 경우 DC는 해당 인증서 저장소를 검색하기 위해 Azure ADDS 도메인 이름(Azure AD 도메인 이름이 아님)을 사용합니다. 예를 들어, 철자가 틀린 경우 DC가 올바른 인증서를 선택하지 못하게 됩니다. 
+
+클라이언트는 사용자가 제공한 이름을 사용하여 TLS 연결을 설정하려고 합니다. 트래픽은 모든 방식으로 가져와야 합니다. DC가 서버 인증 인증서의 공개 키를 보냅니다. 인증서에는 인증서의 올바른 사용법이 있어야 합니다. 주체 이름에 서명된 이름은 클라이언트가 연결하는 DNS 이름(즉, 와일드카드가 철자 오류 없이 작동됨)을 신뢰할 수 있도록 호환되어야 하며, 클라이언트는 발급자를 신뢰해야 합니다. 이벤트 뷰어의 시스템 로그에서 해당 체인의 모든 문제를 확인하고 원본이 Schannel과 동일한 이벤트를 필터링할 수 있습니다. 이러한 조각이 배치되면 세션 키를 형성합니다.  
+
+자세한 내용은 [TLS Handshake](https://docs.microsoft.com/windows/win32/secauthn/tls-handshake-protocol)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

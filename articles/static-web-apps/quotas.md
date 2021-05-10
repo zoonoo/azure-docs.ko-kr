@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 1bf9a2cf7af8b18994ef2473c11176b8aea74f6e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e3538e90a6dea69c703f56871fde86a18557a022
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102042728"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106095172"
 ---
 # <a name="quotas-in-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기의 할당량
 
@@ -29,7 +29,7 @@ Azure Static Web Apps 미리 보기에는 다음과 같은 할당량이 있습�
 | 앱 크기                    | 250MB           |
 | 사전 프로덕션 환경 | 3                |
 | 사용자 지정 도메인              | 1                |
-| 권한 부여<br><br>사용자 지정 역할 및 라우팅 규칙 사용 | 최대 25명의 최종 사용자 초대 및 할당된 역할 |
+| 권한 부여(사용자 지정 역할 및 라우팅 규칙 사용) | 사용자 지정 역할에 속할 수 있는 최대 25명의 최종 사용자 |
 | Azure 기능             | 사용 가능        |
 | SLA                         | None             |
 

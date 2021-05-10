@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: d59b449a2dbf2ed3b1177db6e543de4c34a8ecb1
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
-ms.translationtype: MT
+ms.openlocfilehash: beb5930e98a5c5498349dc3aa773423ee5d281bd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105604161"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792474"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>관리 ID를 사용하여 Azure Database for PostgreSQL에 연결
 
@@ -34,13 +34,13 @@ ms.locfileid: "105604161"
 
 ## <a name="creating-a-user-assigned-managed-identity-for-your-vm"></a>VM에 대한 사용자가 할당한 관리 ID 만들기
 
-[az identity create](/cli/azure/identity#az-identity-create) 명령을 사용하여 구독에서 ID를 만듭니다. 가상 머신이 실행되는 것과 동일한 리소스 그룹 또는 다른 리소스 그룹을 사용할 수 있습니다.
+[az identity create](/cli/azure/identity#az_identity_create) 명령을 사용하여 구독에서 ID를 만듭니다. 가상 머신이 실행되는 것과 동일한 리소스 그룹 또는 다른 리소스 그룹을 사용할 수 있습니다.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myManagedIdentity
 ```
 
-다음 단계에서 ID를 구성하려면 [az identity show](/cli/azure/identity#az-identity-show) 명령을 사용하여 ID의 리소스 ID 및 클라이언트 ID를 변수에 저장합니다.
+다음 단계에서 ID를 구성하려면 [az identity show](/cli/azure/identity#az_identity_show) 명령을 사용하여 ID의 리소스 ID 및 클라이언트 ID를 변수에 저장합니다.
 
 ```azurecli
 # Get resource ID of the user-assigned identity
@@ -50,7 +50,7 @@ resourceID=$(az identity show --resource-group myResourceGroup --name myManagedI
 clientID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query clientId --output tsv)
 ```
 
-이제 [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) 명령을 사용하여 사용자가 할당한 ID를 VM에 할당할 수 있습니다.
+이제 [az vm identity assign](/cli/azure/vm/identity#az_vm_identity_assign) 명령을 사용하여 사용자가 할당한 ID를 VM에 할당할 수 있습니다.
 
 ```azurecli
 az vm identity assign --resource-group myResourceGroup --name myVM --identities $resourceID

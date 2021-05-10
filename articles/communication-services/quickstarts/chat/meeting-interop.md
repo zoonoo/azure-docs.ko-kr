@@ -1,25 +1,27 @@
 ---
 title: Azure Communication Services에서 Teams interop 시작
 titleSuffix: An Azure Communication Services quickstart
-description: 이 빠른 시작에서는 Azure Communication Chat 클라이언트 라이브러리를 사용하여 Teams 미팅에 조인하는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 Azure Communication 채팅 SDK를 사용하여 Teams 미팅에 조인하는 방법을 알아봅니다.
 author: askaur
 ms.author: askaur
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 75580931b2df33b02b9759b6faaa5bec548daaae
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ba3a589c5d0f09f24950bd3fee8edc7f4dcd4601
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103496180"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169065"
 ---
 # <a name="quickstart-join-your-chat-app-to-a-teams-meeting"></a>빠른 시작: 채팅 앱으로 Teams 미팅에 참가
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-chat.md)]
 
 > [!IMPORTANT]
 > [Teams 테넌트 상호 운용성](../../concepts/teams-interop.md)을 사용/사용하지 않도록 설정하려면 [이 양식](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u)을 작성합니다.
 
-JavaScript 클라이언트 라이브러리를 사용하여 채팅 솔루션을 Microsoft Teams에 연결하여 Azure Communication Services를 시작하세요. 
+JavaScript SDK를 사용하여 채팅 솔루션을 Microsoft Teams에 연결하여 Azure Communication Services를 시작하세요. 
 
 ## <a name="prerequisites"></a>사전 요구 사항 
 

@@ -9,10 +9,10 @@ ms.author: kaib
 ms.date: 03/11/2020
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: 04654672cc5806465ec9f75b695772dcb2037eab
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102564138"
 ---
 # <a name="verify-encryption-status-for-linux"></a>Linux의 암호화 상태 확인 
@@ -281,7 +281,7 @@ az storage account list --query [].[id] -o tsv
 ```
 스토리지 계정 ID는 다음과 같은 형식으로 나열됩니다.
 
-/subscriptions/ \<subscription id> /Ssourceg/ \<resource group name> /providers/Microsoft.Storage/storageAccounts/\<storage account name>
+/subscriptions/\<subscription id>/resourceGroups/\<resource group name>/providers/Microsoft.Storage/storageAccounts/\<storage account name>
 
 적절한 ID를 선택하고 변수에 저장합니다.
 ```bash

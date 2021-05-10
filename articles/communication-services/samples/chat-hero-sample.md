@@ -9,28 +9,22 @@ ms.author: dademath
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 0eb396935b42b040ab9f152a4965922664deb451
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 5547e49cd7ea7f6c0cc97b5559564b64e0deda7c
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103487833"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168844"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>그룹 채팅 주인공 샘플 시작
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-
-<!----
-> [!WARNING]
-> links to our Hero Sample repo need to be updated when the sample is publicly available.
----->
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include-chat.md)]
 
 > [!IMPORTANT]
-> [이 샘플은 GitHub에서 사용할 수 있습니다.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
+> [이 샘플은 **GitHub** 에서 사용할 수 있습니다.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 
-Azure Communication Services **그룹 채팅 주인공 샘플** 은 Communication Services 채팅 웹 클라이언트 라이브러리를 사용하여 그룹 통화 환경을 만드는 방법을 보여줍니다.
+Azure Communication Services **그룹 채팅 주인공 샘플** 은 Communication Services 채팅 웹 SDK를 사용하여 그룹 통화 환경을 만드는 방법을 보여 줍니다.
 
 이 샘플 빠른 시작에서는 샘플이 어떻게 작동하는지 살펴본 후 로컬 컴퓨터에서 샘플을 실행합니다. 그런 다음, 사용자 고유의 Azure Communication Services 리소스를 사용하여 Azure에 샘플을 배포합니다.
 
@@ -111,7 +105,7 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 자세한 내용은 다음 문서를 참조하세요.
 
 - [채팅 개념](../concepts/chat/concepts.md)에 대한 자세한 정보
-- [채팅 클라이언트 라이브러리](../concepts/chat/sdk-features.md) 숙지
+- [채팅 SDK](../concepts/chat/sdk-features.md) 숙지
 - [Contoso Med 앱](https://github.com/Azure-Samples/communication-services-contoso-med-app) 샘플 검토
 
 ## <a name="additional-reading"></a>추가 자료

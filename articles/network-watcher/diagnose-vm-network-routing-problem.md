@@ -7,7 +7,6 @@ documentationcenter: network-watcher
 author: damendo
 editor: ''
 tags: azure-resource-manager
-Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
 ms.assetid: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -17,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: bfcf9568f37a26f234a417a86eebf1b0bde67ab0
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d5cd9c5d7f4a14a9a93e6984a8ef7367e5cbafc4
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014504"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055096"
 ---
-# <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 머신 네트워크 라우팅 문제 진단
+# <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 머신 네트워크 라우팅 진단 문제
 
-VM(가상 머신)을 배포하는 경우 Azure는 관련된 몇 가지 기본 경로를 만듭니다. 사용자 지정 경로를 만들어 Azure의 기본 경로를 재정의할 수 있습니다. 경우에 따라 사용자 지정 경로는 VM에서 다른 리소스와 통신할 수 없게 됩니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
+VM(가상 머신)을 배포하는 경우 Azure는 관련된 몇 가지 기본 경로를 만듭니다. 사용자 지정 경로를 만들어 Azure의 기본 경로를 재정의할 수 있습니다. 경우에 따라 사용자 지정 경로는 VM에서 다른 리소스와 통신할 수 없게 됩니다. 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * VM 만들기
@@ -50,7 +49,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
     |설정|값|
     |---|---|
-    |속성|myVm|
+    |Name|myVm|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     |Subscription| 구독을 선택합니다.|

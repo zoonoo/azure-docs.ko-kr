@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: bastion
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 10/21/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 083ab61d5a20bfb8e38747ae0694b1176c0a0fd1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92521539"
 ---
 1. [Azure Portal](https://portal.azure.com)을 엽니다. 연결하려는 가상 머신으로 이동한 다음, **연결** 을 선택합니다. 드롭다운에서 **Bastion** 을 선택합니다.

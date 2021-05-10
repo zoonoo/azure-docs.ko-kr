@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 03/19/2021
 ms.author: victorh
-ms.openlocfilehash: cfbd5301bc2b24c4d5614e5f88c6ae18d4affc66
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8de0dd16c3b3b73b5d5e52017cf63b357654144f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721633"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030960"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 생성 및 구성
 
@@ -25,7 +25,7 @@ Azure Portal을 사용하여 [애플리케이션 게이트웨이](multiple-site-
 > * 애플리케이션 게이트웨이 만들기
 > * 백 엔드 서버용 가상 머신 만들기
 > * 백 엔드 서버로 백 엔드 풀 만들기
-> * 백 엔드 수신기 만들기
+> * 수신기 만들기
 > * 라우팅 규칙 만들기
 > * 이름 확인을 위해 호스트 파일 편집
 

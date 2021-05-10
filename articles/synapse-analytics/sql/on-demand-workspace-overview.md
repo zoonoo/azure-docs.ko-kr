@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e1a0f4f22411e506cab3b54e955a4cdc16986fe2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f0abef835e406b442239cecd81fed5751f1c9a92
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101667493"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378162"
 ---
 # <a name="serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 서버리스 SQL 풀 
 
@@ -54,7 +54,7 @@ ms.locfileid: "101667493"
 
 ## <a name="client-tools"></a>클라이언트 도구
 
-서버리스 SQL 풀을 통해 기존 SQL 임시 쿼리 및 비즈니스 인텔리전스 도구를 사용하여 데이터 레이크를 활용할 수 있습니다. 친숙한 T-SQL 구문을 제공하므로 TDS 연결 SQL 제품을 설정할 수 있는 도구에서 [Synapse SQL 주문형에 연결하여 쿼리](connect-overview.md)할 수 있습니다. Azure Data Studio에 연결하여 임시 쿼리를 실행하거나, Power BI에 연결하여 몇 분 내에 인사이트를 얻을 수 있습니다.
+서버리스 SQL 풀을 통해 기존 SQL 임시 쿼리 및 비즈니스 인텔리전스 도구를 사용하여 데이터 레이크를 활용할 수 있습니다. 친숙한 T-SQL 구문을 제공하므로 TDS 연결 SQL 제품을 설정할 수 있는 도구에서 [Synapse SQL에 연결하여 쿼리](connect-overview.md)할 수 있습니다. Azure Data Studio에 연결하여 임시 쿼리를 실행하거나, Power BI에 연결하여 몇 분 내에 인사이트를 얻을 수 있습니다.
 
 ## <a name="t-sql-support"></a>T-SQL 지원
 

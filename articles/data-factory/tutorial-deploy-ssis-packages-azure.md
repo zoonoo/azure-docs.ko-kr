@@ -4,15 +4,15 @@ description: Azure에 SSIS 패키지를 배포하고 실행할 수 있도록 Azu
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 02/22/2021
+ms.date: 04/02/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: 7c439d71806d2deba508ce35131f21ebfbd7a3ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6007ce4b4c54d795ff2cc3188504db11c29219cc
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101740412"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256423"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure-SSIS 통합 런타임 프로비저닝
 
@@ -70,7 +70,7 @@ Azure Portal을 통해 데이터 팩터리를 만들려면 [UI를 통해 데이�
 
 ### <a name="from-the-data-factory-overview"></a>Data Factory 개요에서
 
-1. **시작** 페이지에서 **SSIS Integration Runtime 구성** 타일을 선택합니다. 
+1. **시작하기** 페이지에서 **SSIS Integration 구성** 타일을 선택합니다. 
 
    !["SSIS Integration Runtime 구성" 타일](./media/tutorial-create-azure-ssis-runtime-portal/configure-ssis-integration-runtime-tile.png)
 
@@ -78,7 +78,7 @@ Azure Portal을 통해 데이터 팩터리를 만들려면 [UI를 통해 데이�
 
 ### <a name="from-the-authoring-ui"></a>작성 UI에서
 
-1. Azure Data Factory UI에서 **편집** 탭으로 전환하여 **연결** 을 선택합니다. 그런 다음, **통합 런타임** 탭으로 전환하여 데이터 팩터리의 기존 통합 런타임을 확인합니다. 
+1. Azure Data Factory UI에서 **관리** 탭으로 전환한 다음, **통합 런타임** 탭으로 전환하여 데이터 팩터리에서 기존 통합 런타임을 살펴봅니다. 
 
    ![기존 IR 보기 선택](./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png)
 
@@ -86,7 +86,7 @@ Azure Portal을 통해 데이터 팩터리를 만들려면 [UI를 통해 데이�
 
    ![메뉴를 통한 통합 런타임](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
 
-1. **통합 런타임 설치** 패널에서 **Lift-and-shift existing SSIS packages to execute in Azure**(Azure에서 실행할 기존 SSIS 패키지를 리프트 앤 시프트) 타일을 선택하고, **다음** 을 선택합니다.
+1. **통합 런타임 설정** 창에서 **Azure에서 실행할 기존 SSIS 패키지 리프트 앤 시프트** 타일을 선택한 다음, **계속** 을 선택합니다.
 
    ![통합 런타임 유형 지정](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
 
@@ -116,7 +116,7 @@ Azure Portal을 통해 데이터 팩터리를 만들려면 [UI를 통해 데이�
 
    1. **비용 절감** 의 경우 통합 런타임에 대한 AHB(Azure 하이브리드 혜택) 옵션에서 **예** 또는 **아니요** 를 선택합니다. Software Assurance를 통해 사용자 고유의 SQL Server 라이선스를 가져와서 하이브리드를 사용함으로써 비용을 절감하려면 **예** 를 선택합니다. 
 
-   1. **다음** 을 선택합니다. 
+   1. **계속** 을 선택합니다. 
 
 ### <a name="deployment-settings-page"></a>배포 설정 페이지
 
@@ -158,7 +158,7 @@ Azure Portal을 통해 데이터 팩터리를 만들려면 [UI를 통해 데이�
 
    1. **카탈로그 데이터베이스 서비스 계층** 에 대해 SSISDB를 호스팅할 데이터베이스 서버의 서비스 계층을 선택합니다. 기본, 표준 또는 프리미엄 계층을 선택하거나 탄력적 풀 이름을 선택합니다.
 
-**연결 테스트** 를 선택하고(해당하는 경우), 테스트가 성공하면 **다음** 을 선택합니다.
+**연결 테스트** 를 선택하고(해당하는 경우) 테스트가 성공하면 **계속** 을 선택합니다.
 
 #### <a name="creating-azure-ssis-ir-package-stores"></a>Azure-SSIS IR 패키지 저장소 만들기
 
@@ -174,10 +174,10 @@ Azure-SSIS IR 패키지 저장소를 사용하면 [레거시 SSIS 패키지 저�
    
    1. **패키지 저장소 이름** 으로 패키지 저장소의 이름을 입력합니다. 
 
-   1. **패키지 저장소 연결된 서비스** 로는 패키지가 배포되는 파일 시스템/Azure Files/Azure SQL Managed Instance 대한 액세스 정보를 저장하는 기존의 연결된 서비스를 선택하거나, **새로 만들기** 를 선택하여 새로 만듭니다. **새 연결된 서비스** 창에서 다음 단계를 완료합니다. 
+   1. **패키지 저장소 연결된 서비스** 로는 패키지가 배포되는 파일 시스템/Azure Files/Azure SQL Managed Instance 대한 액세스 정보를 저장하는 기존의 연결된 서비스를 선택하거나, **새로 생성** 를 선택하여 새로 생성합니다. **새 연결된 서비스** 창에서 다음 단계를 완료합니다. 
 
       > [!NOTE]
-      > **Azure File Storage** 또는 **파일 시스템** 연결 서비스를 사용하여 Azure Files에 액세스할 수 있습니다. **Azure File Storage** 연결 서비스를 사용하는 경우 Azure-SSIS IR 패키지 저장소는 현재 **기본**(**계정 키** 또는 **SAS URI** 아님) 인증 방법만 지원합니다. **Azure File Storage** 연결 서비스에서 **기본** 인증을 사용하려면 브라우저의 ADF 포털 URL에 `?feature.upgradeAzureFileStorage=false`를 추가하면 됩니다. 또는, 대신 **파일 시스템** 연결 서비스를 사용하여 Azure Files에 액세스할 수 있습니다. 
+      > **Azure File Storage** 또는 **파일 시스템** 연결 서비스를 사용하여 Azure Files에 액세스할 수 있습니다. **Azure File Storage** 연결 서비스를 사용하는 경우 Azure-SSIS IR 패키지 저장소는 현재 **기본**(**계정 키** 또는 **SAS URI** 아님) 인증 방법만 지원합니다. 
 
       ![연결된 서비스의 배포 설정](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings-linked-service.png)
 
@@ -188,8 +188,8 @@ Azure-SSIS IR 패키지 저장소를 사용하면 [레거시 SSIS 패키지 저�
       1. **형식** 으로는 **Azure File Storage**, **Azure SQL Managed Instance** 또는 **파일 시스템** 을 선택합니다.
 
       1. 항상 Azure-SSIS IR를 사용하여 패키지 저장소에 대한 액세스 정보를 가져오기 때문에 **통합 런타임을 통해 연결** 을 무시해도 됩니다.
-
-      1. **Azure File Storage** 를 선택하는 경우 다음 단계를 완료합니다. 
+      
+      1. **Azure File Storage** 를 선택하는 경우 **인증 방법** 에 대해 **기본** 을 선택한 후, 다음 단계를 완료합니다. 
 
          1. **계정 선택 방법** 으로는 **Azure 구독에서 선택** 또는 **수동으로 입력** 을 선택합니다.
          
@@ -199,21 +199,21 @@ Azure-SSIS IR 패키지 저장소를 사용하면 [레거시 SSIS 패키지 저�
 
       1. **Azure SQL Managed Instance** 를 선택하는 경우 다음 단계를 완료합니다. 
 
-         1. **연결 문자열** 을 선택하여 수동으로 입력하거나 비밀로 저장된 **Azure Key Vault** 를 선택합니다.
+         1. **연결 문자열** 또는 비밀로 저장된 **Azure Key Vault** 를 선택합니다.
          
          1. **연결 문자열** 을 선택하는 경우 다음 단계를 완료합니다. 
+             1. **계정 선택 방법** 에 대해 **Azure 구독에서** 를 선택한 경우 관련 **Azure 구독**, **서버 이름**, **엔드포인트 유형** 및 **데이터베이스 이름** 을 선택합니다. **수동으로 입력** 을 선택한 경우 다음 단계를 완료합니다. 
+                1.  **정규화된 도메인 이름** 으로 Azure SQL Managed Instance의 프라이빗 엔드포인트인 `<server name>.<dns prefix>.database.windows.net` 또는 퍼블릭 엔드포인트인 `<server name>.public.<dns prefix>.database.windows.net,3342`를 입력합니다. 프라이빗 엔드포인트를 입력하면 ADF UI가 연결할 수 없기 때문에 **연결 테스트** 를 사용할 수 없습니다.
 
-            1. **정규화된 도메인 이름** 으로 Azure SQL Managed Instance의 프라이빗 엔드포인트인 `<server name>.<dns prefix>.database.windows.net` 또는 퍼블릭 엔드포인트인 `<server name>.public.<dns prefix>.database.windows.net,3342`를 입력합니다. 프라이빗 엔드포인트를 입력하면 ADF UI가 연결할 수 없기 때문에 **연결 테스트** 를 사용할 수 없습니다.
-
-            1. **데이터베이스 이름** 으로 `msdb`를 입력합니다.
+                1. **데이터베이스 이름** 으로 `msdb`를 입력합니다.
                
             1. **인증 형식** 으로 **SQL 인증**, **관리 ID** 또는 **서비스 주체** 를 선택합니다.
 
-            1. **SQL 인증** 을 선택하는 경우 관련 **사용자 이름** 및 **암호** 를 입력하거나 비밀로 저장된 **Azure Key Vault** 를 선택합니다.
+                - **SQL 인증** 을 선택하는 경우 관련 **사용자 이름** 및 **암호** 를 입력하거나 비밀로 저장된 **Azure Key Vault** 를 선택합니다.
 
-            1. **관리 ID** 를 선택하는 경우 Azure SQL Managed Instance에 대한 액세스 권한을 ADF 관리 ID에 부여합니다.
+                -  **관리 ID** 를 선택하는 경우 Azure SQL Managed Instance에 대한 액세스 권한을 ADF 관리 ID에 부여합니다.
 
-            1. **서비스 주체** 를 선택하는 경우 관련 **서비스 주체 ID** 및 **서비스 주체 키** 를 입력하거나 비밀로 저장된 **Azure Key Vault** 를 선택합니다.
+                - **서비스 주체** 를 선택하는 경우 관련 **서비스 주체 ID** 및 **서비스 주체 키** 를 입력하거나 비밀로 저장된 **Azure Key Vault** 를 선택합니다.
 
       1. **파일 시스템** 을 선택하는 경우 패키지가 배포되는 폴더의 UNC 경로를 **호스트** 로 입력하고, 관련 **사용자 이름** 및 **암호** 을 입력하거나, 비밀로 저장된 **Azure Key Vault** 를 선택합니다.
 
@@ -221,7 +221,7 @@ Azure-SSIS IR 패키지 저장소를 사용하면 [레거시 SSIS 패키지 저�
 
    1. 추가된 패키지 저장소가 **배포 설정** 페이지에 표시됩니다. 저장소를 제거하려면 해당 확인란을 선택한 다음, **삭제** 를 선택합니다.
 
-**연결 테스트** 를 선택하고(해당하는 경우), 테스트가 성공하면 **다음** 을 선택합니다.
+**연결 테스트** 를 선택하고(해당하는 경우) 테스트가 성공하면 **계속** 을 선택합니다.
 
 ### <a name="advanced-settings-page"></a>고급 설정 페이지
 
@@ -241,7 +241,7 @@ Azure-SSIS IR 패키지 저장소를 사용하면 [레거시 SSIS 패키지 저�
 
    1. **계속** 을 선택합니다. 
 
-**통합 런타임 설치** 창의 **요약** 페이지에서 모든 프로비저닝 설정을 검토하고, 추천 설명서 링크에 책갈피를 설정하고, **마침** 을 선택하여 통합 런타임 만들기를 시작합니다. 
+**통합 런타임 설치** 창의 **요약** 페이지에서 모든 프로비저닝 설정을 검토하고, 추천 설명서 링크에 책갈피를 설정하고, **만들기** 를 선택하여 통합 런타임 만들기를 시작합니다. 
 
    > [!NOTE]
    > 이 프로세스는 사용자 지정 설치 시간을 제외하고 5분 이내에 완료됩니다.

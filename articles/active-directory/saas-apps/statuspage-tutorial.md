@@ -9,23 +9,22 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 03/31/2021
 ms.author: jeedes
-ms.openlocfilehash: cc3ce56ecd17d627001f4925355c055afdc09d22
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6bc2508220a8c0193efb55eb6cd11f7e151c80be
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99821207"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284594"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-statuspage"></a>자습서: StatusPage와 Azure Active Directory SSO(Single Sign-On) 통합
 
-이 자습서에서는 Azure AD(Azure Active Directory)와 StatusPage를 통합하는 방법에 대해 알아봅니다.
-StatusPage를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
+이 자습서에서는 Azure AD(Azure Active Directory)와 StatusPage를 통합하는 방법에 대해 알아봅니다. StatusPage를 Azure AD와 통합하면 다음을 수행할 수 있습니다.
 
 * StatusPage에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
-* 사용자가 자신의 Azure AD 계정으로 StatusPage에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
-* 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
+* 사용자가 해당 Azure AD 계정으로 StatusPage에 자동으로 로그인되도록 설정할 수 있습니다.
+* 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -40,7 +39,7 @@ StatusPage와의 Azure AD 통합을 구성하려면 다음 항목이 필요합�
 
 * StatusPage는 **IDP** 시작 SSO를 지원합니다.
 
-## <a name="adding-statuspage-from-the-gallery"></a>갤러리에서 StatusPage 추가
+## <a name="add-statuspage-from-the-gallery"></a>갤러리에서 StatusPage 추가
 
 StatusPage의 Azure AD 통합을 구성하려면 갤러리의 StatusPage를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
@@ -65,13 +64,13 @@ StatusPage에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계�
     1. **[StatusPage 테스트 사용자 만들기](#create-statuspage-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 StatusPage에 만듭니다.
 6. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
 1. Azure Portal의 **AskYourTeam** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -85,7 +84,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     | `https://<subdomain>.statuspage.io/` |
     |
 
-    b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
 
      | 회신 URL |
     |--------------|
@@ -152,17 +151,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 주 도구 모음에서 **계정 관리** 를 클릭합니다.
 
-    ![스크린샷은 StatusPage 회사 사이트에서 선택한 계정 관리를 보여줍니다.](./media/statuspage-tutorial/tutorial_statuspage_06.png)
+    ![스크린샷은 StatusPage 회사 사이트에서 선택한 계정 관리를 보여줍니다.](./media/statuspage-tutorial/account.png)
 
 1. **Single Sign-On** 탭을 클릭합니다.
 
-    ![스크린샷은 Single Sign-On 탭을 보여줍니다.](./media/statuspage-tutorial/tutorial_statuspage_07.png)
+    ![스크린샷은 Single Sign-On 탭을 보여줍니다.](./media/statuspage-tutorial/tab.png)
 
 1. SSO 설정 페이지에서 다음 단계를 수행합니다.
 
-    ![스크린샷은 설명된 값을 입력할 수 있는 SSO 설정 페이지를 보여줍니다.](./media/statuspage-tutorial/tutorial_statuspage_08.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 SSO 설정 페이지를 보여줍니다.](./media/statuspage-tutorial/setup.png)
 
-    ![스크린샷은 저장 구성 단추를 보여줍니다.](./media/statuspage-tutorial/tutorial_statuspage_09.png)
+    ![스크린샷은 저장 구성 단추를 보여줍니다.](./media/statuspage-tutorial/configuration.png)
 
     a. **SSO 대상 URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 
@@ -182,25 +181,25 @@ StatusPage는 적시에 프로비전을 지원합니다. 이미 [Azure AD Single
 
 1. 위쪽 메뉴에서 **계정 관리** 를 클릭합니다.
 
-    ![스크린샷은 StatusPage 회사 사이트에서 선택한 계정 관리를 보여줍니다.](./media/statuspage-tutorial/tutorial_statuspage_06.png)
+    ![스크린샷은 StatusPage 회사 사이트에서 선택한 계정 관리를 보여줍니다.](./media/statuspage-tutorial/account.png)
 
 1. **팀 멤버** 탭을 클릭합니다.
   
-    ![스크린샷은 팀 멤버 탭을 보여줍니다.](./media/statuspage-tutorial/tutorial_statuspage_10.png) 
+    ![스크린샷은 팀 멤버 탭을 보여줍니다.](./media/statuspage-tutorial/sandbox.png) 
 
 1. **팀 멤버 추가** 를 클릭합니다.
   
-    ![스크린샷은 팀 멤버 추가 단추를 보여줍니다.](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
+    ![스크린샷은 팀 멤버 추가 단추를 보여줍니다.](./media/statuspage-tutorial/team.png) 
 
 1. 관련된 텍스트 상자에 프로비저닝할 유효한 사용자의 **이메일 주소**, **이름** 및 **성** 을 입력합니다. 
 
-    ![스크린샷은 설명된 값을 입력할 수 있는 사용자 추가 대화 상자를 보여줍니다.](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
+    ![스크린샷은 설명된 값을 입력할 수 있는 사용자 추가 대화 상자를 보여줍니다.](./media/statuspage-tutorial/user.png) 
 
 1. **역할** 로 **클라이언트 관리자** 를 선택합니다.
 
 1. **계정 만들기** 를 클릭합니다.
 
-### <a name="test-sso"></a>SSO 테스트
+## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 

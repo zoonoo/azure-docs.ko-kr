@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/05/2020
 ms.author: russellcooks
 ms.openlocfilehash: 5dd823c618a0d49bef29c473e6c293762b859149
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "94358299"
 ---
 1. Visual Studio Code에서 src/edge로 이동합니다. 여러분이 만든 .env 파일이 몇 가지 배포 템플릿 파일과 함께 표시됩니다.

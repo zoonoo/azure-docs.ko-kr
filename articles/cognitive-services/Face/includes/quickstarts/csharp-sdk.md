@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: b06a35274082e09ec0973c5123b39935a93e354d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ab99d574588989c84783e532fcf801dcaffdd54d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102444632"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958197"
 ---
 .NET용 Face 클라이언트 라이브러리를 사용하여 얼굴 인식을 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Face 서비스는 이미지에서 사람의 얼굴을 감지하고 인식하기 위한 고급 알고리즘에 대한 액세스를 제공합니다.
 
@@ -22,7 +22,7 @@ ms.locfileid: "102444632"
 
 * [이미지에서 얼굴 감지](#detect-faces-in-an-image)
 * [유사 얼굴 찾기](#find-similar-faces)
-* [사용자 그룹 만들기](#create-a-person-group)
+* [PersonGroup 만들기](#create-a-persongroup)
 * [얼굴 식별](#identify-a-face)
 
 [참조 설명서](/dotnet/api/overview/azure/cognitiveservices/client/faceapi) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.6.0-preview.1) | [샘플](/samples/browse/?products=azure&term=face)
@@ -124,7 +124,7 @@ Face .NET 클라이언트 라이브러리의 주요 기능 중 일부를 처리�
 * [클라이언트 인증](#authenticate-the-client)
 * [이미지에서 얼굴 감지](#detect-faces-in-an-image)
 * [유사 얼굴 찾기](#find-similar-faces)
-* [사용자 그룹 만들기](#create-a-person-group)
+* [PersonGroup 만들기](#create-a-persongroup)
 * [얼굴 식별](#identify-a-face)
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
@@ -186,7 +186,7 @@ Face .NET 클라이언트 라이브러리의 주요 기능 중 일부를 처리�
 
 Identify(식별) 작업은 사람(또는 여러 사람)의 이미지를 가져와서 이미지에서 각 얼굴의 ID를 찾습니다(얼굴 인식 검색). 감지된 각 얼굴을 얼굴 특징이 알려진 다른 **Person** 개체의 데이터베이스인 **PersonGroup** 과 비교합니다. 식별 작업을 수행하려면 먼저 **PersonGroup** 을 만들고 학습해야 합니다.
 
-### <a name="create-a-person-group"></a>사용자 그룹 만들기
+### <a name="create-a-persongroup"></a>PersonGroup 만들기
 
 다음 코드에서는 6개의 서로 다른 **Person** 개체를 사용하여 **PersonGroup** 을 만듭니다. 각 **Person** 을 예제 이미지 세트와 연결한 다음, 해당 얼굴 특성을 통해 각 사람을 인식하도록 학습시킵니다. **Person** 및 **PersonGroup** 개체는 Verify(검증), Identify(식별) 및 Group(그룹) 작업에 사용됩니다.
 

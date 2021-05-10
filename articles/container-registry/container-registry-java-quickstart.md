@@ -2,16 +2,19 @@
 title: 빠른 시작 - Maven 및 Jib를 사용하여 Java 컨테이너 이미지를 빌드하고 Azure Container Registry로 푸시
 description: 컨테이너화된 Java 앱을 빌드하고 Maven Jib 플러그인을 사용하여 Azure Container Registry로 푸시합니다.
 author: KarlErickson
-ms.custom: devx-track-java, devx-track-azurecli
 ms.author: karler
-ms.topic: quickstart
 ms.date: 02/26/2020
-ms.openlocfilehash: 9e400ee0bae2690a84f9cfd3f6a76359e08eabc2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.topic: quickstart
+ms.custom:
+- devx-track-java
+- devx-track-azurecli
+- mode-api
+ms.openlocfilehash: 4d805458d90c73de879a9b87d5b08c98a8f1a250
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92018341"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537296"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>빠른 시작: Java 컨테이너 이미지를 빌드하고 Azure Container Registry로 푸시
 

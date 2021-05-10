@@ -3,16 +3,16 @@ title: gRPC 확장 프로토콜 - Azure
 description: 이 문서에서는 gRPC 확장 프로토콜을 사용하여 Live Video Analytics 모듈과 AI 또는 CV 사용자 지정 확장 간에 메시지를 보내는 방법에 대해 알아봅니다.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: f7b5be859702199b07dfa0d6a43a09ca8ff0c42f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8d153b472e54b221b60a2b584043ffaf68e8ff82
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102455859"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105565812"
 ---
 # <a name="grpc-extension-protocol"></a>gRPC 확장 프로토콜
 
-IoT Edge의 Live Video Analytics를 사용하면 [그래프 확장 노드](/azure/media-services/live-video-analytics-edge/media-graph-extension-concept)를 통해 미디어 그래프 처리 기능을 확장할 수 있습니다. gRPC 확장 프로세서를 확장 노드로 사용하는 경우 Live Video Analytics 모듈과 AI 또는 CV 모듈 간의 통신은 gRPC 기반의 고성능 구조화된 프로토콜을 통해 이루어집니다.
+IoT Edge의 Live Video Analytics를 사용하면 [그래프 확장 노드](./media-graph-extension-concept.md)를 통해 미디어 그래프 처리 기능을 확장할 수 있습니다. gRPC 확장 프로세서를 확장 노드로 사용하는 경우 Live Video Analytics 모듈과 AI 또는 CV 모듈 간의 통신은 gRPC 기반의 고성능 구조화된 프로토콜을 통해 이루어집니다.
 
 이 문서에서는 gRPC 확장 프로토콜을 사용하여 Live Video Analytics 모듈과 AI 또는 CV 사용자 지정 확장 간에 메시지를 보내는 방법에 대해 알아봅니다.
 
@@ -25,7 +25,7 @@ gRPC 세션은 TCP/TLS 포트를 통해 gRPC 클라이언트에서 gRPC 서버�
 
 단일 세션에서: 클라이언트는 gRPC 스트림 세션을 통해 미디어 스트림 설명자, 다음으로 비디오 프레임을 [protobuf](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) 메시지로 서버에 보냅니다. 서버는 스트림 설명자의 유효성을 검사하고, 비디오 프레임을 분석하고, 유추 결과를 protobuf 메시지로 반환합니다. 
 
-[유추 메타데이터 스키마 개체 모델](/azure/media-services/live-video-analytics-edge/inference-metadata-schema)에 따라 정의된 미리 설정된 스키마에 따라 유효한 JSON 문서를 사용하여 응답을 반환하는 것이 좋습니다. 이렇게 하면 다른 구성 요소와의 상호 운용성과 Live Video Analytics 모듈에 추가되는 향후 기능이 보다 효과적으로 보장됩니다.
+[유추 메타데이터 스키마 개체 모델](./inference-metadata-schema.md)에 따라 정의된 미리 설정된 스키마에 따라 유효한 JSON 문서를 사용하여 응답을 반환하는 것이 좋습니다. 이렇게 하면 다른 구성 요소와의 상호 운용성과 Live Video Analytics 모듈에 추가되는 향후 기능이 보다 효과적으로 보장됩니다.
 
 ![gRPC 확장 계약](./media/grpc-extension-protocol/grpc.png)
 

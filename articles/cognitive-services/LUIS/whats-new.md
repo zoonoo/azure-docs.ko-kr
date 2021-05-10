@@ -4,19 +4,23 @@ description: 이 문서는 Azure Cognitive Services Language Understanding API�
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 02/16/2021
-ms.openlocfilehash: bd70bb1a031b61e77fa84ff5567d95dc6d1e8788
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 04/07/2021
+ms.openlocfilehash: f6c6f2ba20a67cd39d4142ffadddc803927c936c
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101706744"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227061"
 ---
 # <a name="whats-new-in-language-understanding"></a>Language Understanding의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목에는 릴리스 정보, 비디오, 블로그 게시물 및 기타 유형의 정보가 포함될 수 있습니다. 서비스를 최신 상태로 유지하려면 이 페이지에 대한 책갈피를 지정하세요.
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="april-2021"></a>2021년 4월
+
+* 스위스 북부 [제작 지역](luis-reference-regions.md#publishing-to-europe).
 
 ### <a name="january-2021"></a>2021년 1월
 

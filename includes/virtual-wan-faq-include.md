@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: virtual-wan
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b7f79bebce5a086b268f4fc1080c33517555fb39
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2c1cf6e1d47f9bb78349e0846f624e1d6a484669
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102431546"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107386885"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Azure Virtual WAN이 GA에 있나요?
 
@@ -276,6 +276,10 @@ ExpressRoute 회로가 가상 허브에 연결되면 온-프레미스와 Azure �
 ### <a name="can-hubs-be-created-in-different-resource-group-in-virtual-wan"></a>Virtual WAN의 다른 리소스 그룹에 허브를 만들 수 있나요?
 
 예. 이 옵션은 현재 PowerShell을 통해서만 사용할 수 있습니다. Virtual WAN 포털은 Virtual WAN 리소스 자체와 동일한 리소스 그룹에 허브가 있어야 합니다.
+
+### <a name="what-is-the-recommended-hub-address-space-during-hub-creation"></a>허브 생성 중에 권장되는 허브 주소 공간은 무엇인가요?
+
+권장되는 Virtual WAN 허브 주소 공간은 /23입니다. Virtual WAN 허브는 다양한 게이트웨이(ExpressRoute, 사이트 간 VPN, 지점 및 사이트 간 VPN, Azure Firewall, 가상 허브 라우터)에 서브넷을 할당합니다. NVA가 가상 허브 내에 배포되는 시나리오의 경우 일반적으로 NVA 인스턴스에 대해 /28이 표시됩니다. 그러나 사용자가 여러 NVA를 프로비저닝할 경우 /27 서브넷이 할당될 수 있습니다. 따라서 Virtual WAN 허브가 최소 크기 /24로 배포되는 동안 향후 아키텍처를 고려하여 생성 시 사용자가 입력에 권장되는 허브 공간은 /23입니다.
 
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Virtual WAN에서 IPv6를 지원하나요?
 

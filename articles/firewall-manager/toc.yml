@@ -51,6 +51,8 @@
   items:
     - name: 보안 파트너 공급자 배포
       href: deploy-trusted-security-partner.md
+    - name: 프라이빗 엔드포인트 보호
+      href: private-link-inspection-secure-virtual-hub.md
     - name: 방화벽 정책으로 마이그레이션 - PowerShell
       href: migrate-to-policy.md
     - name: DNS 설정

@@ -10,12 +10,12 @@ ms.date: 3/8/2021
 ms.author: mimckitt
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 6a54e0d808ef734a26a0fa309bd7367e73316856
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7c45f08a339ca8878bb9e2840faa8a412f3e60e0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102507068"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765974"
 ---
 # <a name="create-and-deploy-virtual-machines-in-an-availability-set-using-azure-cli"></a>Azure CLI를 사용하여 가용성 집합에서 가상 머신 만들기 및 배포
 
@@ -36,7 +36,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 [az vm availability-set create](/cli/azure/vm/availability-set)를 사용하여 가용성 집합을 만들 수 있습니다. 이 예제에서는 *myResourceGroupAvailability* 리소스 그룹의 *myAvailabilitySet* 이라는 가용성 집합에 대한 업데이트 및 장애 도메인 수가 *2* 로 설정됩니다.
 
-먼저 [az group create](/cli/azure/group#az-group-create)를 사용하여 리소스 그룹을 만든 다음, 가용성 집합을 만듭니다.
+먼저 [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만든 다음, 가용성 집합을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroupAvailability --location eastus
@@ -80,7 +80,7 @@ done
 
 ## <a name="check-for-available-vm-sizes"></a>사용 가능한 VM 크기 확인
 
-VM 크기를 하드웨어에서 사용할 수 있는 가용성 집합에 나중에 추가 VM을 추가할 수 있습니다. [az vm availability-set list-sizes](/cli/azure/vm/availability-set#az-vm-availability-set-list-sizes)를 사용하여 하드웨어 클러스터에서 가용성 집합에 대한 사용 가능한 모든 크기를 나열합니다.
+VM 크기를 하드웨어에서 사용할 수 있는 가용성 집합에 나중에 추가 VM을 추가할 수 있습니다. [az vm availability-set list-sizes](/cli/azure/vm/availability-set#az_vm_availability_set_list_sizes)를 사용하여 하드웨어 클러스터에서 가용성 집합에 대한 사용 가능한 모든 크기를 나열합니다.
 
 ```azurecli-interactive
 az vm availability-set list-sizes \

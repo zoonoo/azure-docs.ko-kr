@@ -4,13 +4,13 @@ description: 이 문서에서는 사용 가능한 공용 LUIS 앱을 통해 브�
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/30/2020
-ms.openlocfilehash: a3bad4ab69f6950f83db9cf1f49cfa4cb7c7b5f0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/26/2021
+ms.openlocfilehash: 4542f85ab562e65777fb8570873305523c76aee6
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102040127"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276827"
 ---
 # <a name="how-to-query-the-prediction-runtime-with-user-text"></a>사용자 텍스트로 예측 런타임을 쿼리하는 방법
 
@@ -176,4 +176,4 @@ LUIS 예측 엔드포인트가 반환하는 값을 이해하려면 웹 브라우
 * [사용자 지정 하위 도메인](../cognitive-services-custom-subdomains.md)
 
 > [!div class="nextstepaction"]
-> [LUIS 포털에서 앱 만들기](get-started-portal-build-app.md)
+> [클라이언트 라이브러리 또는 REST API 사용](client-libraries-rest-api.md)

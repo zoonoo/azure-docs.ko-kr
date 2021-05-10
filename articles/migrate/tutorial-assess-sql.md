@@ -5,20 +5,17 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.date: 02/07/2021
-ms.openlocfilehash: 9b33890d53f67eee870b42462a65b4a0b7ba9981
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d4078d1403df01475c6055dded2bd012e97af98e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102053627"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557992"
 ---
 # <a name="tutorial-assess-sql-instances-for-migration-to-azure-sql"></a>자습서: Azure SQL로 마이그레이션할 SQL 인스턴스 평가
 
 Azure로 마이그레이션하는 과정의 일환으로 온-프레미스 워크로드를 평가하여 클라우드 준비 상태를 측정하고, 위험을 식별하고, 비용과 복잡성을 예측합니다.
 이 문서에서는 Azure SQL로 마이그레이션하기 위한 준비 작업으로 Azure Migrate: 검색 및 평가 도구를 사용하여 검색된 SQL Server 인스턴스 데이터베이스를 평가하는 방법을 보여줍니다.
-
-> [!Note]
-> VMware 환경에서 실행되는 SQL Server 인스턴스 및 데이터베이스를 검색하고 평가하는 기능은 현재 미리 보기로 제공됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL)를 사용하여 **오스트레일리아 동부** 지역에서 프로젝트를 만듭니다. 오스트레일리아 동부에 이미 프로젝트가 있고 이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -35,6 +32,8 @@ Azure로 마이그레이션하는 과정의 일환으로 온-프레미스 워크
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
 - 이 자습서를 수행하여 Azure SQL로 마이그레이션할 SQL Server 인스턴스를 평가하기 전에, Azure Migrate 어플라이언스를 사용하여 [이 자습서에 따라](tutorial-discover-vmware.md) 평가할 SQL 인스턴스를 검색했는지 확인합니다.
+- 기존 프로젝트에서 이 기능을 사용해 보려면 이 문서의 [필수 구성 요소](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
+
 
 ## <a name="run-an-assessment"></a>평가 실행
 다음과 같이 평가를 실행합니다.
@@ -194,4 +193,4 @@ Azure Migrate는 평가된 모든 SQL 인스턴스 및 데이터베이스에 대
 ## <a name="next-steps"></a>다음 단계
 
 - Azure SQL 평가를 계산하는 방법에 대해 [자세히 알아보세요](concepts-azure-sql-assessment-calculation.md).
-- [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)를 사용하여 SQL 인스턴스 및 데이터베이스 마이그레이션을 시작하세요.
+- [Azure Database Migration Service](../dms/dms-overview.md)를 사용하여 SQL 인스턴스 및 데이터베이스 마이그레이션을 시작하세요.

@@ -8,13 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 06/18/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: ea9353ed8c1938fa9b33585a0650b4507c671451
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ca46ce3355edf2b77400011d023cd6af330a3b58
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92125033"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770436"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Azure Data Box Disk란?
 
@@ -36,7 +35,7 @@ Azure 공급자 및 비 Azure 공급자는 Azure Data Box에서 데이터를 수
 
 - **SharePoint Online** - Azure Data Box 및 SPMT(SharePoint Migration Tool)를 사용하여 파일 공유 콘텐츠를 SharePoint Online에 마이그레이션합니다. Data Box를 사용하면 WAN 링크에 대한 종속성을 제거하고 데이터를 전송할 수 있습니다. 자세한 정보는 [Azure Data Box Heavy를 사용하여 파일 공유 콘텐츠를 SharePoint Online으로 마이그레이션](data-box-heavy-migrate-spo.md)을 참조하세요.
 
-- **Azure 파일 동기화** - 데이터에 대한 로컬 액세스는 유지하면서 Azure에 파일 서비스를 집중할 수 있도록 Data Box에서 Azure 파일 공유로 파일을 복제합니다. 자세한 정보는 [Azure 파일 동기화 배포](../storage/files/storage-sync-files-deployment-guide.md)를 참조하세요.
+- **Azure 파일 동기화** - 데이터에 대한 로컬 액세스는 유지하면서 Azure에 파일 서비스를 집중할 수 있도록 Data Box에서 Azure 파일 공유로 파일을 복제합니다. 자세한 정보는 [Azure 파일 동기화 배포](../storage/file-sync/file-sync-deployment-guide.md)를 참조하세요.
 
 - **HDFS 저장소** - Data Box를 사용하여 Hadoop 클러스터의 온-프레미스 HDFS(Hadoop Distributed File System) 저장소 데이터를 Azure Storage에 마이그레이션합니다. 자세한 정보는 [Azure Data Box를 사용하여 온-프레미스 HDFS 저장소를 Azure Storage로 마이그레이션](../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md)을 참조하세요.
 

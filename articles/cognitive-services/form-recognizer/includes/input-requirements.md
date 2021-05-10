@@ -5,12 +5,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: lajanuar
-ms.openlocfilehash: 324fde5198fe3469e3979cf5cd102715118a49aa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: dfd2b32094aae06675ea8ee9157370f9d2833e91
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467324"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518231"
 ---
 Form Recognizer는 다음 요구 사항을 충족하는 입력 문서에서 작동합니다.
 
@@ -22,6 +22,5 @@ Form Recognizer는 다음 요구 사항을 충족하는 입력 문서에서 작�
 * 학습 데이터 세트의 총 크기는 500페이지 이하여야 합니다.
 * PDF가 암호로 잠긴 경우에는 제출하기 전에 잠금을 제거해야 합니다.
 * 종이 문서에서 스캔한 경우 양식은 고품질 스캔이어야 합니다.
-* 텍스트는 라틴어 알파벳(영어 문자)을 사용해야 합니다.
 * 자율 학습(레이블이 지정된 데이터 제외)의 경우 데이터에는 키와 값이 포함되어야 합니다.
 * 자율 학습(레이블이 지정된 데이터 제외)의 경우 키가 값의 위 또는 왼쪽에 표시되어야 합니다. 이는 아래 또는 오른쪽에 표시되지 않습니다.

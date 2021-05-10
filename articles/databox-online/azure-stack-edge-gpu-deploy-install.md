@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 12/21/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 830e0a8733d3f5a49cede09b331dc0298ee1ce4d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a415dba4bb4fd5b95e98ae7c104cae92db27f34c
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97734727"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060162"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>자습서: GPU가 있는 Azure Stack Edge Pro 설치
 
@@ -29,7 +28,7 @@ ms.locfileid: "97734727"
 > * 랙에 디바이스 탑재
 > * 디바이스에 케이블 연결
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 물리적 디바이스를 설치하기 위한 필수 조건은 다음과 같습니다.
 
@@ -86,7 +85,7 @@ ms.locfileid: "97734727"
 > Azure Stack Edge Pro 디바이스가 올바르게 작동하려면 랙에 탑재되어야 합니다.
 
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 
 - 시작하기 전에 보안, 환경 및 규정 정보 소책자의 보안 지침을 읽으세요. 이 소책자는 디바이스와 함께 배송되었습니다.
 - 랙 엔클로저의 맨 아래에 가장 가까운 할당된 공간에 레일 설치를 시작합니다.

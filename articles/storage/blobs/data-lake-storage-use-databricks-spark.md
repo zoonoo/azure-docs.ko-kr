@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-python
 ms.openlocfilehash: 232e28d3cc8b0bc7427dd035d51743f623e54259
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103564306"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>자습서: Azure Data Lake Storage Gen2, Azure Databricks 및 Spark
@@ -72,7 +72,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 2. **Azure Databricks 서비스** 아래에서 다음 값을 입력하여 Databricks 서비스를 만듭니다.
 
-    |속성  |Description  |
+    |속성  |설명  |
     |---------|---------|
     |**작업 영역 이름**     | Databricks 작업 영역에 대한 이름을 제공합니다.  |
     |**구독**     | 드롭다운에서 Azure 구독을 선택합니다.        |

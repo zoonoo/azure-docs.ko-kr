@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/26/2019
+ms.date: 04/05/2021
 ms.author: zhchia
-ms.openlocfilehash: 2fcb85b2c16bc2dd418c2260420733dd8663382a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 809b32fcf6f39ba9dec2980a79e8824e282b54b7
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96179259"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106450092"
 ---
 # <a name="tutorial-configure-fuze-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Fuze 구성
 
@@ -144,6 +144,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 ## <a name="connector-limitations"></a>커넥터 제한 사항
 
 * Fuze는 **자격** 이라는 사용자 지정 SCIM 특성을 지원합니다. 이러한 특성은 만들고 업데이트할 수만 있습니다. 
+* Fuze SCIM API는 userName 특성에 대한 필터링을 지원하지 않습니다. 따라서 userName 특성이 없지만 Azure AD의 userPrincipalName과 일치하는 이메일을 사용하여 존재하는 기존 사용자를 동기화하려고 할 때 로그에 오류가 표시될 수 있습니다. 
 
 ## <a name="change-log"></a>로그 변경
 

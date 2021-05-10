@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -9,15 +9,15 @@ ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: c0c05eb88df27ba9e71c0f61bad75457d893a7ce
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95560170"
 ---
 > [!NOTE]
 > 이러한 예제가 S2S/ExpressRoute 공존 구성에는 적용되지 않습니다.
-> 공존 구성에서 게이트웨이를 사용 하는 방법에 대 한 자세한 내용은 공존 [연결 구성](../articles/expressroute/expressroute-howto-coexist-classic.md#gw) 을 참조 하세요.
+> 공존 구성의 게이트웨이 사용에 대한 자세한 내용은 [공존 연결 구성](../articles/expressroute/expressroute-howto-coexist-classic.md#gw)을 참조하세요.
 
 ## <a name="add-a-gateway"></a>게이트웨이를 추가합니다.
 
@@ -74,7 +74,7 @@ ms.locfileid: "95560170"
    ```
 4. 파일을 저장하고 Azure에 업로드합니다.
 
-### <a name="create-the-gateway"></a>게이트웨이 만들기
+### <a name="create-the-gateway"></a>게이트웨이 생성
 
 다음 명령을 사용하여 게이트웨이를 만듭니다. 모든 값을 자신의 고유한 값으로 바꿉니다.
 

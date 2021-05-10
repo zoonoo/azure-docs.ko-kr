@@ -9,20 +9,20 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: business-intelligence
 ms.topic: tutorial
-ms.date: 12/31/2020
-ms.openlocfilehash: 952d69cccff86d1a0119391c400a40908c62ed69
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: 829daaa9c739657528a9085201c61c88635931d0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98208967"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105608445"
 ---
 # <a name="visualize-data-with-power-bi"></a>Power BI를 사용하여 데이터 시각화
 
 이 자습서에서는 Power BI 작업 영역을 만들고, Azure Synapse 작업 영역을 연결하고, Azure Synapse 작업 영역에서 데이터를 활용하는 Power BI 데이터 세트를 만드는 방법에 대해 알아봅니다. 
 
-> [!NOTE]
-> 이 자습서를 완료하려면 [Power BI Desktop을 설치](https://aka.ms/pbidesktopstore)합니다.
+## <a name="prerequisites"></a>필수 구성 요소
+이 자습서를 완료하려면 [Power BI Desktop을 설치](https://aka.ms/pbidesktopstore)합니다.
 
 ## <a name="overview"></a>개요
 

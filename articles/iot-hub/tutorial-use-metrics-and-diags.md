@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: 1e2983fb50ce3ad1482db85025677cba5fee0c2e
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 099b7f4e812e92503c7ed8e3eb733f2e49ccd8b9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889599"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768074"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>자습서: IoT 허브를 사용하여 메트릭 및 진단 로그 설정 및 사용
 
@@ -409,7 +409,7 @@ Microsoft Azure의 받은 편지함에서 이메일을 확인합니다. 제목 �
 
 이 자습서에서 만든 리소스를 모두 제거하려면 리소스 그룹을 삭제합니다. 이렇게 하면 그룹 내에 포함된 모든 리소스가 삭제됩니다. 이 경우 IoT 허브, Log Analytics 작업 영역 및 리소스 그룹 자체가 제거됩니다. 메트릭 차트를 대시보드에 고정한 경우에는 각 차트의 오른쪽 위 모서리에 있는 세 점을 클릭하고 **제거** 를 선택하여 수동으로 제거해야 합니다. 차트를 삭제한 후에는 변경 사항을 저장해야 합니다.
 
-리소스 그룹을 제거하려면 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용합니다.
+리소스 그룹을 제거하려면 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용합니다.
 
 ```azurecli-interactive
 az group delete --name ContosoResources

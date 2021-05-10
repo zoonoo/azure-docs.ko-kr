@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 9fbd137f8fa36a7b0526b25d664fceac795ecd81
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 09acdc0c4ea2dbe90c0b7b037b6aec501cc1dd55
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877139"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106223033"
 ---
 # <a name="tutorial-use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>자습서: Azure Spring Cloud를 사용하는 회로 차단기 대시보드 사용
 
@@ -20,7 +20,7 @@ ms.locfileid: "104877139"
 
 Spring [Cloud Netflix Turbine](https://github.com/Netflix/Turbine)은 여러 [Hystrix](https://github.com/Netflix/Hystrix) 메트릭 스트림을 집계하는 데 널리 사용되므로 Hystrix 대시보드를 사용하여 단일 뷰에서 스트림을 모니터링할 수 있습니다. 이 자습서에서는 Azure Spring Cloud에서 이를 사용하는 방법을 설명합니다.
 > [!NOTE]
-> Netflix Hystrix는 기존의 많은 Spring Cloud 앱에서 널리 사용되고 있지만 실제 개발에는 더 이상 사용되지 않습니다. 새 프로젝트를 개발하는 경우 [resilience4j](https://github.com/resilience4j/resilience4j)와 같은 Spring Cloud 회로 차단기 구현을 대신 사용합니다. 이 자습서에 표시된 Turbine과는 달리, 새 Spring Cloud 회로 차단기 프레임워크는 메트릭 데이터 파이프라인의 모든 구현을 마이크로미터로 통합합니다. Azure Spring Cloud에서 마이크로미터를 지원하기 위한 작업은 아직 진행 중이므로 이 자습서에서는 다루지 않습니다.
+> Netflix Hystrix는 기존의 많은 Spring Cloud 앱에서 널리 사용되고 있지만 실제 개발에는 더 이상 사용되지 않습니다. 새 프로젝트를 개발하는 경우 [resilience4j](https://github.com/resilience4j/resilience4j)와 같은 Spring Cloud 회로 차단기 구현을 대신 사용합니다. 이 자습서에 표시된 Turbine과는 달리, 새 Spring Cloud 회로 차단기 프레임워크는 메트릭 데이터 파이프라인의 모든 구현을 마이크로미터로 통합합니다. Azure Spring Cloud에서도 지원됩니다. [자세한 정보](https://docs.microsoft.com/azure/spring-cloud/how-to-circuit-breaker-metrics).
 
 ## <a name="prepare-your-sample-applications"></a>샘플 애플리케이션 준비
 샘플은 이 [리포지토리](https://github.com/StackAbuse/spring-cloud/tree/master/spring-turbine)에서 포크됩니다.

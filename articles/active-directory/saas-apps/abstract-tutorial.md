@@ -1,5 +1,5 @@
 ---
-title: '자습서: Abstract와 Azure Active Directory 연결 | Microsoft Docs'
+title: '자습서: Abstract와 Azure Active Directory 통합 | Microsoft Docs'
 description: Azure Active Directory와 Abstract 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
 ms.openlocfilehash: e1c3236c4c1957b4d0daee8d30c71f03fb8674dd
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97587828"
 ---
 # <a name="tutorial-integrate-abstract-with-azure-active-directory"></a>자습서: Azure Active Directory와 Abstract 통합
@@ -28,7 +28,7 @@ ms.locfileid: "97587828"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -103,7 +103,7 @@ Abstract에서 SSO를 구성하는 데 필요하므로 Azure Portal에서 `App F
 
 1. [Abstract 웹앱](https://app.abstract.com/)을 엽니다.
 2. 왼쪽 막대의 **사용 권한** 페이지로 이동합니다.
-3. **SSO 구성** 섹션에서 **메타데이터 URL** 및  **엔터티 ID** 를 입력합니다.
+3. **SSO 구성** 섹션에서 **메타데이터 URL** 및 **엔터티 ID** 를 입력합니다.
 4. 발생할 수 있는 수동 예외를 입력합니다. 수동 예외 섹션에 나열된 이메일은 SSO를 무시하고 이메일 및 암호를 사용하여 로그인할 수 있습니다. 
 5. **변경 내용 저장** 을 클릭합니다.
 
@@ -118,7 +118,7 @@ Abstract에서 SSO를 구성하는 데 필요하므로 Azure Portal에서 `App F
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 

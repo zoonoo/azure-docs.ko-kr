@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
 ms.openlocfilehash: ed6f9d58c5c54c88acf8e3a0e7fda7d2d65b8637
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85514310"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>StorSimple 디바이스에 업데이트 4 설치
@@ -49,7 +49,7 @@ ms.locfileid: "85514310"
 
 * 이제 유지 관리 모드 업데이트가 사용 가능하다고 표시됩니다(이 메시지는 업데이트를 설치한 후 최대 24시간 동안 계속 표시될 수 있음). 유지 관리 모드 업데이트는 작업 중단 업데이트이므로 디바이스 가동 중지 시간이 발생할 수 있으며, 디바이스의 Windows PowerShell 인터페이스를 통해서만 적용할 수 있습니다.
 
-* [핫픽스를 다운로드하려면](#to-download-hotfixes)에 나열된 단계를 사용하여 유지 관리 모드 업데이트를 다운로드한 후 KB4011837을 검색한 후 다운로드합니다. 이 KB는 디스크 펌웨어 업데이트를 설치합니다(다른 업데이트가 이미 설치되어 있어야 함). 유지 관리 모드 [핫픽스 설치 및 확인](#to-install-and-verify-maintenance-mode-hotfixes) 에 나열 된 단계에 따라 유지 관리 모드 업데이트를 설치 합니다.
+* [핫픽스를 다운로드하려면](#to-download-hotfixes)에 나열된 단계를 사용하여 유지 관리 모드 업데이트를 다운로드한 후 KB4011837을 검색한 후 다운로드합니다. 이 KB는 디스크 펌웨어 업데이트를 설치합니다(다른 업데이트가 이미 설치되어 있어야 함). [유지 관리 모드 핫픽스 설치 및 확인](#to-install-and-verify-maintenance-mode-hotfixes) 에 나열된 단계를 따라 유지 관리 모드 업데이트를 설치합니다.
 
 ## <a name="install-update-4-as-a-hotfix"></a>핫픽스로 업데이트 4 설치
 Azure Portal을 통해 업데이트 4를 설치하는 것이 좋습니다.

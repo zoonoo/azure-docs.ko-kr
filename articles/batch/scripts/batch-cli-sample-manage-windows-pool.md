@@ -4,12 +4,12 @@ description: 이 스크립트는 Azure Batch에서 Windows 컴퓨팅 노드 풀�
 ms.topic: sample
 ms.date: 12/12/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fb18f9d8777c17d31a3ab246603df0d9fa162467
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 773699dde9342a4b230a08471a289a56fca7e308
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93100942"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768201"
 ---
 # <a name="cli-example-create-and-manage-a-windows-pool-in-azure-batch"></a>CLI 예제: Azure Batch에서 Windows 풀 만들기 및 관리
 
@@ -37,15 +37,15 @@ az group delete --name myResourceGroup
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Batch 계정을 만듭니다. |
-| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | 추가 CLI 상호 작용을 위해 지정된 Batch 계정에 대해 인증합니다. |
-| [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create) | 컴퓨팅 노드 풀을 만듭니다.  |
-| [az batch pool set](/cli/azure/batch/pool#az-batch-pool-set) | 풀의 속성을 업데이트합니다.  |
-| [az batch pool autoscale enable](/cli/azure/batch/pool/autoscale#az-batch-pool-autoscale-enable) | 풀에서 자동 확장을 사용하고 수식을 적용합니다.  |
-| [az batch pool show](/cli/azure/batch/pool#az-batch-pool-show) | 풀의 속성을 표시합니다.  |
-| [az batch pool autoscale disable](/cli/azure/batch/pool/autoscale#az-batch-pool-autoscale-disable) | 풀에서 자동 확장을 사용하지 않습니다. |
-| [az group delete](/cli/azure/group#az-group-delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Batch 계정을 만듭니다. |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | 추가 CLI 상호 작용을 위해 지정된 Batch 계정에 대해 인증합니다. |
+| [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) | 컴퓨팅 노드 풀을 만듭니다.  |
+| [az batch pool set](/cli/azure/batch/pool#az_batch_pool_set) | 풀의 속성을 업데이트합니다.  |
+| [az batch pool autoscale enable](/cli/azure/batch/pool/autoscale#az_batch_pool_autoscale_enable) | 풀에서 자동 확장을 사용하고 수식을 적용합니다.  |
+| [az batch pool show](/cli/azure/batch/pool#az_batch_pool_show) | 풀의 속성을 표시합니다.  |
+| [az batch pool autoscale disable](/cli/azure/batch/pool/autoscale#az_batch_pool_autoscale_disable) | 풀에서 자동 확장을 사용하지 않습니다. |
+| [az group delete](/cli/azure/group#az_group_delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

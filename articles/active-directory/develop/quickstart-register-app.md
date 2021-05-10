@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 413f0be32b54ee6da39934cf3f8753246fbce924
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7b7adde8a6e60042bec7695e4553d6470e548316
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104578807"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055691"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼에 애플리케이션 등록
 
@@ -56,7 +56,10 @@ Microsoft ID 플랫폼은 등록된 애플리케이션에 대해서만 IAM(ID �
 
     :::image type="content" source="media/quickstart-register-app/portal-02-app-reg-01.png" alt-text="애플리케이션 등록 창을 보여 주는 웹 브라우저의 Azure Portal에 대한 스크린샷":::
 
-등록이 완료되면 Azure Portal에 앱 등록의 **개요** 창이 표시됩니다. **애플리케이션(클라이언트) ID** 가 표시됩니다. *클라이언트 ID* 라고도 하는 이 값은 Microsoft ID 플랫폼에서 애플리케이션을 고유하게 식별합니다.
+등록이 완료되면 Azure Portal에 앱 등록의 **개요** 창이 표시됩니다. **애플리케이션(클라이언트) ID** 가 표시됩니다. *클라이언트 ID* 라고도 하는 이 값은 Microsoft ID 플랫폼에서 애플리케이션을 고유하게 식별합니다. 
+
+> [!IMPORTANT]
+> 새 앱 등록은 기본적으로 사용자에게 표시되지 않습니다. 사용자가 [내 앱 페이지](../user-help/my-apps-portal-end-user-access.md)에서 앱을 볼 준비가 되면 사용할 수 있습니다. 앱을 사용하려면 Azure Portal에서 **Azure Active Directory** > **엔터프라이즈 애플리케이션** 으로 이동하여 앱을 선택합니다. 그런 다음, **속성** 페이지에서 **사용자에게 표시하시겠습니까?** 를 예로 전환합니다.
 
 애플리케이션의 코드 또는 더 일반적으로 애플리케이션에서 사용되는 인증 라이브러리도 클라이언트 ID를 사용합니다. ID는 ID 플랫폼에서 받는 보안 토큰의 유효성을 검사하는 과정의 일부로 사용됩니다.
 

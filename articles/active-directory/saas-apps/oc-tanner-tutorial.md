@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/28/2020
 ms.author: jeedes
 ms.openlocfilehash: 683cfc65e8154d4f409f5d4a33bf7ccf61c6f7c6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518588"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oc-tanner---appreciatehub"></a>자습서: O.C. Tanner - AppreciateHub와 Tanner - AppreciateHub
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oc-tanner---appreciatehub"></a>자습서: O.C.와 Azure Active Directory SSO(Single Sign-On) 통합 Tanner - AppreciateHub
 
 이 자습서에서는 O.C. Tanner - AppreciateHub를 Azure AD(Azure Active Directory)와 통합하는 방법을 알아봅니다. O.C. Tanner - AppreciateHub를 Azure AD(Azure Active Directory)와 통합하면 다음을 수행할 수 있습니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "92518588"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -97,11 +97,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -110,7 +110,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 O.C. Tanner - AppreciateHub에 대한 액세스 권한을 부여합니다.
 
 1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
-1. 애플리케이션 목록에서 **O.C.를 선택합니다. Tanner - AppreciateHub** .
+1. 애플리케이션 목록에서 **O.C.를 선택합니다. Tanner - AppreciateHub**.
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 
    !["사용자 및 그룹" 링크](common/users-groups-blade.png)

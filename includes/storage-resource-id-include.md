@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: storage
 author: tamram
@@ -9,10 +9,10 @@ ms.date: 07/15/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 39b61c78cbd0333183c80234256d6041a109d846
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "68249939"
 ---
 Azure AD 리소스 ID는 발급된 토큰을 사용하여 Azure 리소스에 대한 액세스를 제공할 수 있는 대상을 나타냅니다. Azure Storage의 경우 리소스 ID는 단일 스토리지 계정에 특정되거나 모든 스토리지 계정에 적용될 수 있습니다. 다음 표에서는 리소스 ID에 제공할 수 있는 값을 설명합니다.

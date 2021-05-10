@@ -16,12 +16,12 @@ ms.date: 12/01/2020
 ms.author: barclayn
 ROBOTS: NOINDEX,NOFOLLOW
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 247b3c1b4341eff11069a6af324fff5cf1fba62c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e9c7555235283e892741234b74ddb80ce3a13051
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96546593"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784716"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>자습서: Linux VM에서 사용자 할당 관리 ID를 사용하여 Azure Resource Manager에 액세스
 
@@ -42,11 +42,11 @@ ms.locfileid: "96546593"
 - Linux 가상 머신도 필요합니다. 이 자습서에 대한 가상 머신을 만들어야 하는 경우 [Azure Portal을 사용하여 Linux 가상 머신 만들기](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)라는 제목의 문서를 수행하면 됩니다.
 - 예제 스크립트를 실행하려면 다음 두 가지 옵션을 사용합니다.
     - 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보기** 단추를 사용하여 열 수 있는 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다.
-    - 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli)를 설치하여 스크립트를 로컬로 실행한 다음, [az login](/cli/azure/reference-index#az-login)을 사용하여 Azure에 로그인합니다.
+    - 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli)를 설치하여 스크립트를 로컬로 실행한 다음, [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure에 로그인합니다.
 
 ## <a name="create-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID 만들기
 
-[az identity create](/cli/azure/identity#az-identity-create)를 사용하여 사용자 할당 관리 ID를 만듭니다. `-g` 매개 변수는 사용자 할당 관리 ID가 만들어진 리소스 그룹을 지정하고 `-n` 매개 변수는 그 이름을 지정합니다. `<RESOURCE GROUP>` 및 `<UAMI NAME>` 매개 변수 값을 원하는 값으로 바꾸세요.
+[az identity create](/cli/azure/identity#az_identity_create)를 사용하여 사용자 할당 관리 ID를 만듭니다. `-g` 매개 변수는 사용자 할당 관리 ID가 만들어진 리소스 그룹을 지정하고 `-n` 매개 변수는 그 이름을 지정합니다. `<RESOURCE GROUP>` 및 `<UAMI NAME>` 매개 변수 값을 원하는 값으로 바꾸세요.
     
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 

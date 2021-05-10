@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: tutorial
 ms.date: 02/12/2021
 ms.author: cherylmc
-ms.openlocfilehash: 60b49e5b6e103a85d79cf8495f2743b22e434c96
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3b365e347802824e855797afb8c68e5249bf0adb
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100586789"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579625"
 ---
 # <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm-through-a-browser"></a>자습서: Bastion을 구성하고 브라우저를 통해 Windows VM에 연결
 
@@ -37,6 +37,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 * 포트: Windows VM에 연결하려면 Windows VM에서 다음 포트가 열려 있어야 합니다.
   * 인바운드 포트: RDP(3389)
+
+ >[!NOTE]
+ >Azure 프라이빗 DNS 영역에서 Azure Bastion을 사용하는 것은 현재 지원되지 않습니다. 시작하기 전에 Bastion 리소스를 배포하려는 가상 네트워크가 프라이빗 DNS 영역에 연결되어 있지 않은지 확인하세요.
+ >
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 

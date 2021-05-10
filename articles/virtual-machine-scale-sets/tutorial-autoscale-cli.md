@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 05/18/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 68f311a949d6c7663c5602c444d1b7b9af09dcad
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b7fdf6d4893a6f6a970223671b28fdae6db3ef3d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96016729"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762990"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 가상 머신 확장 집합의 크기 자동 조정
 
@@ -55,7 +55,7 @@ az vmss create \
 
 ## <a name="define-an-autoscale-profile"></a>자동 크기 조정 프로필 정의
 
-확장 집합에서 자동 크기 조정을 활성화하려면 먼저 자동 크기 조정 프로필을 정의합니다. 이 프로필은 기본, 최소, 최대 확장 집합 용량을 정의합니다. 이러한 제한을 통해 연속적으로 VM 인스턴스를 만들지 않고 비용을 제어하고, 축소 이벤트에 유지되는 최소 인스턴스 수로 허용 가능한 성능의 균형을 유지할 수 있습니다. [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create)를 사용하여 자동 크기 조정 프로필을 만듭니다. 다음 예제에서는 기본 및 최소 용량으로 VM 인스턴스 *2* 개를 설정하고 최대 용량으로 *10* 개를 설정합니다.
+확장 집합에서 자동 크기 조정을 활성화하려면 먼저 자동 크기 조정 프로필을 정의합니다. 이 프로필은 기본, 최소, 최대 확장 집합 용량을 정의합니다. 이러한 제한을 통해 연속적으로 VM 인스턴스를 만들지 않고 비용을 제어하고, 축소 이벤트에 유지되는 최소 인스턴스 수로 허용 가능한 성능의 균형을 유지할 수 있습니다. [az monitor autoscale create](/cli/azure/monitor/autoscale#az_monitor_autoscale_create)를 사용하여 자동 크기 조정 프로필을 만듭니다. 다음 예제에서는 기본 및 최소 용량으로 VM 인스턴스 *2* 개를 설정하고 최대 용량으로 *10* 개를 설정합니다.
 
 ```azurecli-interactive
 az monitor autoscale create \
@@ -72,7 +72,7 @@ az monitor autoscale create \
 
 애플리케이션 수요가 증가하면 확장 집합의 VM 인스턴스 부하가 증가합니다. 증가된 로드가 단순한 요구가 아닌 일관된 요구인 경우 확장 집합의 VM 인스턴스 수를 늘리도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이러한 VM 인스턴스를 만들고 애플리케이션을 배포하면 확장 집합이 부하 분산 장치를 통해 트래픽을 분산하기 시작합니다. 모니터링할 메트릭(예: CPU 또는 디스크), 애플리케이션 로드가 지정된 임계값을 충족해야 하는 기간, 확장 집합에 추가할 VM 인스턴스 수를 제어합니다.
 
-평균 CPU 로드가 5분간 70%를 초과할 경우 [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az-monitor-autoscale-rule-create)를 사용하여 확장 집합의 VM 인스턴스 수를 늘리는 규칙을 만들어 보겠습니다. 규칙이 트리거되면 VM 인스턴스 수가 3만큼 늘어납니다.
+평균 CPU 로드가 5분간 70%를 초과할 경우 [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az_monitor_autoscale_rule_create)를 사용하여 확장 집합의 VM 인스턴스 수를 늘리는 규칙을 만들어 보겠습니다. 규칙이 트리거되면 VM 인스턴스 수가 3만큼 늘어납니다.
 
 ```azurecli-interactive
 az monitor autoscale rule create \
@@ -86,7 +86,7 @@ az monitor autoscale rule create \
 
 저녁이나 주말에는 애플리케이션 수요가 줄어들 수 있습니다. 이 감소된 로드가 일정 기간 동안 일관성 있게 유지될 경우 확장 집합의 VM 인스턴스 수를 줄이도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이 규모 감축 작업은 현재 수요를 충족하는 데 필요한 수의 인스턴스만 실행하므로 확장 집합의 실행 비용을 줄입니다.
 
-평균 CPU 로드가 5분 동안 30% 미만일 경우 [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az-monitor-autoscale-rule-create)를 사용하여 확장 집합의 VM 인스턴스 수를 줄이는 다른 규칙을 만듭니다. 다음 예제에서는 VM 인스턴스 수를 축소하는 규칙을 정의합니다.
+평균 CPU 로드가 5분 동안 30% 미만일 경우 [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az_monitor_autoscale_rule_create)를 사용하여 확장 집합의 VM 인스턴스 수를 줄이는 다른 규칙을 만듭니다. 다음 예제에서는 VM 인스턴스 수를 축소하는 규칙을 정의합니다.
 
 ```azurecli-interactive
 az monitor autoscale rule create \

@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: 4671880490a9ce9e29f49ede0e7687bdcf639a7e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a34fd5480ae47678f250dbf888005c396ba32f38
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199801"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792150"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>빠른 시작: 디바이스에서 IoT hub로 원격 분석을 전송하고 Azure CLI를 사용하여 모니터링
 
@@ -55,7 +55,7 @@ Cloud Shell을 시작하려면 다음을 수행합니다.
 
 Azure CLI를 사용하려면 Azure 계정에 로그인해야 합니다. Azure CLI 셸 세션과 IoT Hub 간의 모든 통신을 인증하고 암호화합니다. 따라서 이 빠른 시작에는 연결 문자열과 같은 실제 디바이스에서 사용하는 추가 인증이 필요하지 않습니다.
 
-*  [az extension add](/cli/azure/extension#az-extension-add) 명령을 실행하여 CLI 셸에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 고유의 명령을 추가합니다.
+*  [az extension add](/cli/azure/extension#az_extension_add) 명령을 실행하여 CLI 셸에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 고유의 명령을 추가합니다.
 
    ```azurecli
    az extension add --name azure-iot
@@ -76,13 +76,13 @@ Azure CLI를 사용하려면 Azure 계정에 로그인해야 합니다. Azure CL
 > [!TIP]
 > 필요에 따라 [Azure Portal](iot-hub-create-through-portal.md), [Visual Studio Code](iot-hub-create-use-iot-toolkit.md) 또는 기타 프로그래밍 방법을 사용하여 Azure 리소스 그룹, IoT Hub 및 기타 리소스를 만들 수 있습니다.  
 
-1. [az group create](/cli/azure/group#az-group-create)를 실행하여 리소스 그룹을 만듭니다. 다음 명령은 *eastus* 위치에 *MyResourceGroup* 이라는 리소스 그룹을 만듭니다. 
+1. [az group create](/cli/azure/group#az_group_create)를 실행하여 리소스 그룹을 만듭니다. 다음 명령은 *eastus* 위치에 *MyResourceGroup* 이라는 리소스 그룹을 만듭니다. 
 
     ```azurecli
     az group create --name MyResourceGroup --location eastus
     ```
 
-1. [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) 명령을 사용하여 IoT Hub를 만듭니다. IoT Hub를 만드는 데 몇 분 정도 걸릴 수 있습니다. 
+1. [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) 명령을 사용하여 IoT Hub를 만듭니다. IoT Hub를 만드는 데 몇 분 정도 걸릴 수 있습니다. 
 
     *YourIotHubName*. 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다. IoT Hub 이름은 Azure에서 전역적으로 고유해야 합니다. 이 자리 표시자는 이 빠른 시작의 나머지 부분에서 IoT hub 이름을 표시하는 데 사용됩니다.
 
@@ -184,12 +184,12 @@ Azure Portal에서 메시징 메트릭을 시각화하려면 다음을 수행합
 > 리소스 그룹을 삭제하면 다시 되돌릴 수 없습니다. 리소스 그룹 및 그 안에 포함된 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 
 
 리소스 그룹을 이름으로 삭제하려면:
-1. [az group delete](/cli/azure/group#az-group-delete) 명령을 실행합니다. 그러면 만든 리소스 그룹, IoT Hub 및 디바이스 등록이 제거됩니다.
+1. [az group delete](/cli/azure/group#az_group_delete) 명령을 실행합니다. 그러면 만든 리소스 그룹, IoT Hub 및 디바이스 등록이 제거됩니다.
 
     ```azurecli
     az group delete --name MyResourceGroup
     ```
-1. [az group list](/cli/azure/group#az-group-list) 명령을 실행하여 리소스 그룹을 삭제했는지 확인합니다.  
+1. [az group list](/cli/azure/group#az_group_list) 명령을 실행하여 리소스 그룹을 삭제했는지 확인합니다.  
 
     ```azurecli
     az group list

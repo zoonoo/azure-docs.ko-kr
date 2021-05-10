@@ -7,14 +7,14 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: ffc97984a335b72a3aa8c8d8cca65a3fddf7af38
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 464e2450b4d4dea9fc650ad8869af4215d3db1a7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780738"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105561800"
 ---
-# <a name="containerize-aspnet-applications-and-migrate-to-azure-kubernetes-service"></a>ASP.NET 애플리케이션을 컨테이너화하고 Azure Kubernetes Service로 마이그레이션
+# <a name="aspnet-app-containerization-and-migration-to-azure-kubernetes-service"></a>ASP.NET 웹앱 컨테이너화 및 Azure Kubernetes Service로 마이그레이션
 
 이 문서에서는 Azure Migrate: 앱 컨테이너화 도구를 사용하여 ASP.NET 애플리케이션을 컨테이너화하고 [AKS(Azure Kubernetes Service)](https://azure.microsoft.com/services/kubernetes-service/)로 마이그레이션하는 방법에 대해 알아봅니다. 컨테이너화 프로세스는 코드베이스에 대한 액세스가 필요하지 않으며 기존 애플리케이션을 컨테이너화하는 간편한 방법을 제공합니다. 이 도구는 서버에서 애플리케이션의 실행 상태를 사용하여 애플리케이션 구성 요소를 결정하고 컨테이너 이미지에 패키지하도록 돕습니다. 그런 다음 컨테이너화된 애플리케이션을 AKS(Azure Kubernetes Service)에 배포할 수 있습니다.
 
@@ -60,7 +60,7 @@ Azure Migrate: 앱 컨테이너화 도구를 사용하면 다음 작업을 수�
 **요구 사항** | **세부 정보**
 --- | ---
 **도구를 설치할 컴퓨터를 식별** | Azure Migrate: 앱 컨테이너화 도구를 설치하고 실행하는 Windows 컴퓨터입니다. Windows 컴퓨터는 서버(Windows Server 2016 이상) 또는 클라이언트(Windows 10) 운영 체제일 수 있습니다. 즉, 도구가 데스크톱에서도 실행될 수 있습니다. <br/><br/> 도구를 실행하는 Windows 컴퓨터에는 컨테이너화될 수 있는 ASP.NET 애플리케이션을 호스트하는 서버/가상 머신에 대한 네트워크 연결이 있어야 합니다.<br/><br/> 애플리케이션 아티팩트를 저장하기 위해 Azure Migrate: 앱 컨테이너화 도구를 실행하는 Windows 컴퓨터에서 6GB의 공간을 사용할 수 있어야 합니다. <br/><br/> Windows 컴퓨터에서 직접 또는 프록시를 통해 인터넷에 액세스할 수 있어야 합니다. <br/> <br/>앱 컨테이너화 도우미 도구 및 애플리케이션 서버를 실행하는 컴퓨터에 Microsoft 웹 배포 도구를 설치합니다(아직 설치하지 않은 경우). 이 도구는 [여기](https://aka.ms/webdeploy3.6)에서 다운로드할 수 있습니다.
-**애플리케이션 서버** | 애플리케이션 서버에서 PowerShell 원격 기능을 사용하도록 설정: 애플리케이션 서버에 로그인하고 [다음](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/enable-psremoting) 지침에 따라 PowerShell 원격 기능을 켭니다. <br/><br/> 애플리케이션 서버가 Windows Server 2008 R2에서 실행되는 경우 애플리케이션 서버에 PowerShell 5.1이 설치되어 있어야 합니다. 애플리케이션 서버에 PowerShell 5.1을 다운로드하여 설치하려면 [여기](https://docs.microsoft.com/powershell/scripting/windows-powershell/wmf/setup/install-configure)의 지침을 따르세요. <br/><br/> 앱 컨테이너화 도우미 도구 및 애플리케이션 서버를 실행하는 컴퓨터에 Microsoft 웹 배포 도구를 설치합니다(아직 설치하지 않은 경우). 이 도구는 [여기](https://aka.ms/webdeploy3.6)에서 다운로드할 수 있습니다.
+**애플리케이션 서버** | 애플리케이션 서버에서 PowerShell 원격 기능을 사용하도록 설정: 애플리케이션 서버에 로그인하고 [다음](/powershell/module/microsoft.powershell.core/enable-psremoting) 지침에 따라 PowerShell 원격 기능을 켭니다. <br/><br/> 애플리케이션 서버가 Windows Server 2008 R2에서 실행되는 경우 애플리케이션 서버에 PowerShell 5.1이 설치되어 있어야 합니다. 애플리케이션 서버에 PowerShell 5.1을 다운로드하여 설치하려면 [여기](/powershell/scripting/windows-powershell/wmf/setup/install-configure)의 지침을 따르세요. <br/><br/> 앱 컨테이너화 도우미 도구 및 애플리케이션 서버를 실행하는 컴퓨터에 Microsoft 웹 배포 도구를 설치합니다(아직 설치하지 않은 경우). 이 도구는 [여기](https://aka.ms/webdeploy3.6)에서 다운로드할 수 있습니다.
 **ASP.NET 응용 프로그램** | 이 도구는 현재 다음 애플리케이션을 지원합니다. <br/><br/> - Microsoft .NET Framework 3.5 이상을 사용하는 ASP.NET 애플리케이션<br/> - Windows Server 2008 R2 이상을 실행하는 애플리케이션 서버(애플리케이션 서버가 PowerShell 버전 5.1을 실행해야 함) <br/> -IIS(인터넷 정보 서비스) 7.5 이상에서 실행되는 애플리케이션 <br/><br/> 이 도구는 현재 다음 애플리케이션을 지원하지 않습니다. <br/><br/> - Windows 인증이 필요한 애플리케이션(AKS는 현재 gMSA를 지원하지 않음) <br/> - IIS 외부에서 호스트되는 다른 Windows 서비스를 사용하는 애플리케이션
 
 
@@ -180,7 +180,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
 
 ### <a name="externalize-file-system-dependencies"></a>파일 시스템 종속성 외부화
 
- 애플리케이션이 사용하는 다른 폴더를 추가할 수 있습니다. 해당 폴더가 컨테이너 이미지의 일부여야 하는지 아니면 Azure 파일 공유의 영구적 볼륨을 통해 외부화되어야 하는지를 지정합니다. 영구 볼륨을 사용하는 것은 컨테이너 외부에 상태를 저장하거나 파일 시스템에 다른 정적 콘텐츠가 저장되는 상태 저장 애플리케이션에 적합합니다. [자세히 알아보기](https://docs.microsoft.com/azure/aks/concepts-storage)
+ 애플리케이션이 사용하는 다른 폴더를 추가할 수 있습니다. 해당 폴더가 컨테이너 이미지의 일부여야 하는지 아니면 Azure 파일 공유의 영구적 볼륨을 통해 외부화되어야 하는지를 지정합니다. 영구 볼륨을 사용하는 것은 컨테이너 외부에 상태를 저장하거나 파일 시스템에 다른 정적 콘텐츠가 저장되는 상태 저장 애플리케이션에 적합합니다. [자세히 알아보기](../aks/concepts-storage.md)
 
 1. 앱 폴더 아래에서 **편집** 을 클릭하여 검색된 애플리케이션 폴더를 검토합니다. 검색된 애플리케이션 폴더는 애플리케이션에 필요한 필수 아티팩트로 식별된 것이며 컨테이너 이미지에 복사됩니다.
 
@@ -195,7 +195,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
 ## <a name="build-container-image"></a>컨테이너 이미지 만들기
 
 
-1. **Azure Container Registry 선택**: 드롭다운을 사용하여 앱의 컨테이너 이미지를 빌드하고 저장하는 데 사용할 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)를 선택합니다. 기존 Azure Container Registry를 사용하거나 새 레지스트리 만들기 옵션을 사용하여 새로 만들도록 선택할 수 있습니다.
+1. **Azure Container Registry 선택**: 드롭다운을 사용하여 앱의 컨테이너 이미지를 빌드하고 저장하는 데 사용할 [Azure Container Registry](../container-registry/index.yml)를 선택합니다. 기존 Azure Container Registry를 사용하거나 새 레지스트리 만들기 옵션을 사용하여 새로 만들도록 선택할 수 있습니다.
 
     ![앱 ACR 선택을 보여 주는 스크린샷.](./media/tutorial-containerize-apps-aks/build-aspnet-app.png)
 

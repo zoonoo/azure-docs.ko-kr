@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: overview
 ms.date: 03/23/2021
-ms.openlocfilehash: 1825f5be8a4f8a8ddfba931dfbc7e77186b4331f
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: aa65989953f761ff915383fcb59da7f36ea98dab
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889453"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600485"
 ---
 # <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Azure Security Center 무료 및 Azure Defender 사용 비교
 Azure Defender는 처음 30일 동안 무료입니다. 30일 종료 시 서비스를 계속 사용하기로 선택하는 경우 사용량에 대한 요금이 자동으로 부과되기 시작합니다.
@@ -119,7 +119,7 @@ Microsoft Defender for Endpoint에 대한 라이선스가 이미 있는 경우 A
 
 ### <a name="what-data-types-are-included-in-the-500-mb-data-daily-allowance"></a>하루에 500MB 데이터를 허용하는 데이터 형식은 무엇입니까?
 
-Security Center의 대금 청구는 Log Analytics 대금 청구와 밀접하게 연관되어 있습니다. Security Center는 다음과 같은 [보안 데이터 형식](/azure/azure-monitor/reference/tables/tables-category.md#security) 하위 집합에 대해 노드당 하루 500MB의 할당량을 제공합니다.
+Security Center의 대금 청구는 Log Analytics 대금 청구와 밀접하게 연관되어 있습니다. Security Center는 다음과 같은 [보안 데이터 형식](/azure/azure-monitor/reference/tables/tables-category#security) 하위 집합에 대해 노드당 하루 500MB의 할당량을 제공합니다.
 - WindowsEvent
 - SecurityAlert
 - SecurityBaseline

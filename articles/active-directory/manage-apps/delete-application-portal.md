@@ -2,20 +2,20 @@
 title: '빠른 시작: Azure AD(Azure Active Directory) 테넌트에서 애플리케이션 삭제'
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure AD(Azure Active Directory) 테넌트에서 애플리케이션을 삭제합니다.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 1/5/2021
-ms.author: kenwith
-ms.openlocfilehash: 187f4a1d524e0343130808aa4b4c18222fa982c3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.author: iangithinji
+ms.openlocfilehash: 55607d520affe704cecd2e16fb64b3a65c04e167
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99259273"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374304"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트에서 애플리케이션 삭제
 
@@ -51,7 +51,7 @@ Azure AD 테넌트에서 애플리케이션을 삭제하려면 다음을 수행�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 빠른 시작 시리즈를 완료한 후에는 앱을 삭제하여 테스트 테넌트를 정리하는 것이 좋습니다. 이 빠른 시작에서는 앱을 삭제하는 방법을 다루었습니다.
+이 빠른 시작 시리즈를 완료했다면 앱을 삭제하여 테스트 테넌트를 정리하는 것이 좋습니다. 이 빠른 시작에서는 앱을 삭제하는 방법을 다루었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

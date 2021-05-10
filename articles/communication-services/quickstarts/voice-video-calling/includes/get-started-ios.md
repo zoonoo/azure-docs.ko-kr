@@ -1,22 +1,24 @@
 ---
 title: 빠른 시작 - Azure Communication Services를 사용하여 iOS 앱에 통화 추가
-description: 이 빠른 시작에서는 iOS용 Azure Communication Services 통화 클라이언트 라이브러리를 사용하는 방법을 알아봅니다.
-author: matthewrobertson
-ms.author: marobert
-ms.date: 07/24/2020
+description: 이 빠른 시작에서는 iOS용 Azure Communication Services Calling SDK를 사용하는 방법을 알아봅니다.
+author: chpalm
+ms.author: mikben
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 36ec27f3a0e69126a91b52bed26dc645ec89e46e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e1eed3f9449843e6c2dd8c77719402e709fdeb23
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656652"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107327668"
 ---
-이 빠른 시작에서는 iOS용 Azure Communication Services 통화 클라이언트 라이브러리를 사용하여 통화를 시작하는 방법에 대해 알아봅니다.
+이 빠른 시작에서는 iOS용 Azure Communication Services Calling SDK를 사용하여 통화를 시작하는 방법에 대해 알아봅니다.
+
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-android-ios.md)]
 
 > [!NOTE]
-> 이 문서에서는 호출하는 클라이언트 라이브러리의 버전 1.0.0-beta.8을 사용합니다.
+> 이 문서에서는 Calling SDK의 버전 1.0.0-beta.9를 사용합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -37,20 +39,21 @@ Xcode에서 새 iOS 프로젝트를 만들고 **단일 보기 앱** 템플릿을
 
 ### <a name="install-the-package-and-dependencies-with-cocoapods"></a>CocoaPods를 사용하여 패키지 및 종속성 설치
 
-1. 다음과 같이 애플리케이션에 대한 Podfile을 만듭니다.
+1. 애플리케이션에 대한 Podfile을 만들려면 터미널을 열고 프로젝트 폴더로 이동한 후 ```pod init```를 실행합니다.
+3. Podfile에 다음 코드를 추가하고 저장합니다. "target"이 프로젝트 이름과 일치하는지 확인합니다.
 
    ```
    platform :ios, '13.0'
    use_frameworks!
 
    target 'AzureCommunicationCallingSample' do
-     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.8'
-     pod 'AzureCommunication', '~> 1.0.0-beta.8'
-     pod 'AzureCore', '~> 1.0.0-beta.8'
+     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.9'
+     pod 'AzureCommunication', '~> 1.0.0-beta.9'
+     pod 'AzureCore', '~> 1.0.0-beta.9'
    end
    ```
 
-2. `pod install`을 실행합니다.
+3. `pod install`을 실행합니다.
 3. Xcode로 `.xcworkspace`를 엽니다.
 
 ### <a name="request-access-to-the-microphone"></a>마이크에 대한 액세스 요청
@@ -118,11 +121,11 @@ struct ContentView: View {
 
 ## <a name="object-model"></a>개체 모델
 
-Azure Communication Services 통화 클라이언트 라이브러리의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
+Azure Communication Services Calling SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
 | 이름                                  | 설명                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient | CallClient는 통화 클라이언트 라이브러리의 주 진입점입니다.|
+| CallClient | CallClient는 Calling SDK의 주 진입점입니다.|
 | CallAgent | CallAgent는 통화를 시작하고 관리하는 데 사용됩니다. |
 | CommunicationTokenCredential | CommunicationTokenCredential은 CallAgent를 인스턴스화하기 위한 토큰 자격 증명으로 사용됩니다.| 
 | CommunicationUserIdentifier | CommunicationUserIdentifier는 사용자의 ID를 나타내는 데 사용되며 다음 중 하나일 수 있습니다. CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
@@ -170,7 +173,7 @@ func startCall()
         if granted {
             // start call logic
             let callees:[CommunicationIdentifier] = [CommunicationUserIdentifier(identifier: self.callee)]
-            self.call = self.callAgent?.call(participants: callees, options: StartCallOptions())
+            self.call = self.callAgent?.startCall(participants: callees, options: StartCallOptions())
         }
     }
 }
@@ -185,7 +188,7 @@ func startCall()
 ```swift
 func endCall()
 {    
-    self.call!.hangup(HangupOptions()) { (error) in
+    self.call!.hangUp(HangUpOptions()) { (error) in
         if (error != nil) {
             print("ERROR: It was not possible to hangup the call.")
         }

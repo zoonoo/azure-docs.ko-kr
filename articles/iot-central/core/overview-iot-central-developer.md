@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 4423eea6c35ad44d55ad17f5703a95c6273422b8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ebd2759d4dfb8ee79130f9b4876eba8d45226d04
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104585862"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718794"
 ---
 # <a name="iot-central-device-development-guide"></a>IoT Central 디바이스 개발 가이드
 
@@ -125,7 +125,7 @@ IoT 플러그 앤 플레이 규칙에 대한 자세한 내용은 [IoT 플러그 
 
 ### <a name="device-sdks"></a>디바이스 SDK
 
-[Azure IoT 디바이스 SDK](#languages-and-sdks) 중 하나를 사용하여 디바이스의 동작을 구현할 수 있습니다. 코드는 다음을 수행해야 합니다.
+[Azure IoT 디바이스 SDK](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) 중 하나를 사용하여 디바이스의 동작을 구현할 수 있습니다. 코드는 다음을 수행해야 합니다.
 
 - IoT Central 애플리케이션에서 디바이스를 DPS에 등록하고 DPS의 정보를 사용하여 내부 IoT 허브에 연결합니다.
 - 디바이스에서 구현하는 모델의 DTMI를 알립니다.

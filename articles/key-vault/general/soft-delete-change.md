@@ -2,19 +2,18 @@
 title: 모든 키 자격 증명 모음 개체에 대해 일시 삭제를 사용하도록 설정 | Microsoft Docs
 description: 이 문서를 사용하여 모든 키 자격 증명 모음에 대해 일시 삭제를 적용하고 충돌 오류를 방지하기 위해 애플리케이션 및 관리를 변경할 수 있습니다.
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 12/15/2020
-ms.author: sudbalas
-ms.openlocfilehash: b96f2ca4f925846bd252e5cfd35088d832f5c216
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/31/2021
+ms.author: mbaldwin
+ms.openlocfilehash: 7e1b2ee95864affa6e5e72e1f8354767dc95bdb1
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98572870"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107753329"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>모든 키 자격 증명 모음에 대해 일시 삭제를 사용하도록 설정됩니다.
 

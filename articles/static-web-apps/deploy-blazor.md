@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 0086f7f68fd05d6925d19c7ab457fbc125e36be4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5b8a94409f082177192847f2c65d44a513ecdbe4
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96350231"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305041"
 ---
 # <a name="tutorial-building-a-static-web-app-with-blazor-in-azure-static-web-apps"></a>자습서: Azure Static Web Apps에서 Blazor를 사용하여 정적 웹앱 빌드
 
@@ -43,7 +43,7 @@ Azure Static Web Apps를 사용하면 서버리스 백 엔드에서 지원하는
 
 ## <a name="fallback-route"></a>대체(fallback) 경로
 
-애플리케이션은 애플리케이션의 특정 경로에 매핑되는 _/counter_ 및 _/fetchdata_ 같은 URL을 공개합니다. 이 앱은 단일 페이지 애플리케이션으로 구현되기 때문에 각 경로에 _index.html_ 파일이 제공됩니다. 모든 경로 요청에서 _index.html_ 을 반환하도록 클라이언트 프로젝트의 _wwwroot_ 폴더에 있는 _routes.json_ 파일에 [대체(fallback) 경로](./routes.md#fallback-routes)가 구현됩니다.
+애플리케이션은 애플리케이션의 특정 경로에 매핑되는 _/counter_ 및 _/fetchdata_ 같은 URL을 공개합니다. 이 앱은 단일 페이지 애플리케이션으로 구현되기 때문에 각 경로에 _index.html_ 파일이 제공됩니다. 모든 경로 요청에서 _index.html_ 을 반환하도록 클라이언트 프로젝트의 _wwwroot_ 폴더에 있는 _staticwebapp.config.json_ 파일에 [대체(fallback) 경로](./routes.md#fallback-routes)가 구현됩니다.
 
 ```json
 {
@@ -64,7 +64,7 @@ Azure Static Web Apps를 사용하면 서버리스 백 엔드에서 지원하는
 이 문서에서는 GitHub 템플릿 리포지토리를 사용하여 쉽게 시작할 수 있습니다. 이 템플릿에는 Azure Static Web Apps에 배포되는 스타터 앱이 있습니다.
 
 1. GitHub에 로그인했는지 확인하고 다음 위치로 이동하여 새 리포지토리를 만듭니다.
-    - [https://github.com/staticwebdev/blazor-starter/generate](https://github.com/login?return_to=/staticwebdev/blazor-starter/generate)
+   - [https://github.com/staticwebdev/blazor-starter/generate](https://github.com/login?return_to=/staticwebdev/blazor-starter/generate)
 1. 리포지토리 이름을 **my-first-static-blazor-app** 으로 지정합니다.
 
 ## <a name="create-a-static-web-app"></a>정적 웹앱 만들기
@@ -84,7 +84,7 @@ _기본 사항_ 섹션에서 새 앱을 구성하고 GitHub 리포지토리에 �
 1. _Azure 구독_ 선택
 1. 새 _리소스 그룹_ 선택 또는 만들기
 1. 앱 이름을 **my-first-static-blazor-app** 으로 지정합니다.
-    - 유효한 문자는 `a-z`(대/소문자 구분 안 함), `0-9`및 `-`입니다.
+   - 유효한 문자는 `a-z`(대/소문자 구분 안 함), `0-9`및 `-`입니다.
 1. 가장 가까운 _지역_ 을 선택합니다.
 1. **무료** _SKU_ 를 선택합니다.
 1. **GitHub로 로그인** 단추를 선택하고 GitHub로 인증합니다.
@@ -97,23 +97,23 @@ GitHub로 로그인한 후 리포지토리 정보를 입력합니다.
 1. _리포지토리_ 드롭다운에서 **my-first-static-blazor-app** 을 선택합니다.
 1. _분기_ 드롭다운에서 **주** 를 선택합니다.
 
-    리포지토리가 표시되지 않는 경우 GitHub에서 Azure Static Web Apps에 권한을 부여해야 할 수 있습니다. GitHub 리포지토리로 이동하여 **설정 > 애플리케이션 > 권한 부여된 OAuth 앱** 으로 이동하고 **Azure Static Web Apps** 를 선택한 다음 **권한 부여** 를 선택합니다. 조직 리포지토리의 경우 사용 권한을 부여하려면 조직의 소유자여야 합니다.
+   리포지토리가 표시되지 않는 경우 GitHub에서 Azure Static Web Apps에 권한을 부여해야 할 수 있습니다. GitHub 리포지토리로 이동하여 **설정 > 애플리케이션 > 권한 부여된 OAuth 앱** 으로 이동하고 **Azure Static Web Apps** 를 선택한 다음 **권한 부여** 를 선택합니다. 조직 리포지토리의 경우 사용 권한을 부여하려면 조직의 소유자여야 합니다.
 
 1. _빌드 세부 정보_ 섹션에서 Blazor 관련 구성 세부 정보를 추가합니다.
 
-    - _빌드 사전 설정_ 드롭다운에서 **Blazor** 를 선택하고 모든 기본값을 유지합니다.
+   - _빌드 사전 설정_ 드롭다운에서 **Blazor** 를 선택하고 모든 기본값을 유지합니다.
 
 1. **검토 + 만들기** 를 선택합니다.
 
-    :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="만들기 단추 검토":::
+   :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="만들기 단추 검토":::
 
 1. **만들기** 를 선택합니다.
 
-    :::image type="content" source="media/deploy-blazor/create-button.png" alt-text="만들기 단추":::
+   :::image type="content" source="media/deploy-blazor/create-button.png" alt-text="만들기 단추":::
 
 1. **리소스로 이동** 을 선택합니다.
 
-    :::image type="content" source="media/deploy-blazor/resource-button.png" alt-text="리소스로 이동 단추":::
+   :::image type="content" source="media/deploy-blazor/resource-button.png" alt-text="리소스로 이동 단추":::
 
 ## <a name="view-the-website"></a>웹 사이트 보기
 

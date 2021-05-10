@@ -1,18 +1,18 @@
 ---
 title: Azure Key Vault에 인증
 description: Azure Key Vault에 인증하는 방법을 알아봅니다.
-author: ShaneBala-keyvault
-ms.author: sudbalas
-ms.date: 08/27/2020
+author: msmbaldwin
+ms.author: mbaldwin
+ms.date: 03/31/2021
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: ed83d52d19df126ef9b0e68f984f88f5dfd40c42
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7d219b752b894bbce9815911658c804ecb850ea1
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99492943"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107753437"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Azure Key Vault에 인증
 
@@ -59,8 +59,6 @@ Key Vault는 두 가지 개별 권한 부여 수준으로 작동합니다.
     - [Azure Portal](../../role-based-access-control/role-assignments-portal.md)
     - [Azure CLI](../../role-based-access-control/role-assignments-cli.md)
     - [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-
-    Key Vault는 현재 Key Vault 리소스에서 관리 작업이 가능한 [기여자](../../role-based-access-control/built-in-roles.md#key-vault-contributor) 역할을 지원합니다. 여러 다른 역할은 현재 미리 보기로 제공됩니다. [Azure 사용자 지정 역할](../../role-based-access-control/custom-roles.md)에 설명된 대로 사용자 지정 역할을 만들 수도 있습니다.
 
     역할에 대한 전반적인 내용은 [Azure RBAC(역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)을 참조하세요.
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: jeedes
 ms.openlocfilehash: 717696053a742abae6756655a15416ac81221144
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92459750"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iprova"></a>자습서: iProva와 Azure Active Directory SSO(Single Sign-On) 통합
@@ -28,7 +28,7 @@ ms.locfileid: "92459750"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -99,7 +99,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **식별자** 상자를 **iProva SAML2 정보** 페이지의 **EntityID** 레이블 뒤에 표시된 값으로 채웁니다. 이 페이지는 다른 브라우저 탭에서 계속 열려 있습니다.
 
-    다. **회신 URL** 상자를 **iProva SAML2 정보** 페이지의 **회신 URL** 레이블 뒤에 표시된 값으로 채웁니다. 이 페이지는 다른 브라우저 탭에서 계속 열려 있습니다.
+    c. **회신 URL** 상자를 **iProva SAML2 정보** 페이지의 **회신 URL** 레이블 뒤에 표시된 값으로 채웁니다. 이 페이지는 다른 브라우저 탭에서 계속 열려 있습니다.
 
 1. iProva 애플리케이션에는 특정 형식의 SAML 어설션이 필요하기 때문에, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
@@ -107,7 +107,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 iProva 애플리케이션에는 아래에서 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
-    | 속성 | 원본 특성| 네임스페이스  |
+    | Name | 원본 특성| 네임스페이스  |
     | ---------------| -------- | -----|
     | `samaccountname` | `user.onpremisessamaccountname`| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
 
@@ -119,11 +119,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -159,7 +159,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 6. **사용자 이름** 상자에 사용자 이름(예: `B.Simon@contoso.com`)을 입력합니다.
 
-7. **전체 이름** 상자에 사용자(예: **B.Simon** )의 전체 이름을 입력합니다.
+7. **전체 이름** 상자에 사용자(예: **B.Simon**)의 전체 이름을 입력합니다.
 
 8. **암호 없음(Single Sign-On 사용)** 옵션을 선택합니다.
 
@@ -183,7 +183,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![iProva 액세스 제어 설정](media/iprova-tutorial/iprova-accesscontrol.png)
 
-7. **Users are automatically logged on with their network accounts** (사용자가 자신의 네트워크 계정으로 자동 로그인됨) 설정을 찾아서 **Yes, authentication via SAML** (예, SAML을 통한 인증)로 변경합니다. 추가 옵션이 표시됩니다.
+7. **Users are automatically logged on with their network accounts**(사용자가 자신의 네트워크 계정으로 자동 로그인됨) 설정을 찾아서 **Yes, authentication via SAML**(예, SAML을 통한 인증)로 변경합니다. 추가 옵션이 표시됩니다.
 
 8. **설정** 을 선택합니다.
 
@@ -197,17 +197,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 12. 화살표 모양의 단추를 선택하여 Azure AD에서 메타데이터를 다운로드합니다.
 
-13. 다운로드가 완료되면 확인 메시지, **Valid Federation Data file downloaded** (유효한 페더레이션 데이터 파일이 다운로드됨)가 표시됩니다.
+13. 다운로드가 완료되면 확인 메시지, **Valid Federation Data file downloaded**(유효한 페더레이션 데이터 파일이 다운로드됨)가 표시됩니다.
 
 14. **다음** 을 선택합니다.
 
-15. **Test login** (로그인 테스트) 옵션은 건너뛰고 **다음** 을 선택합니다.
+15. **Test login**(로그인 테스트) 옵션은 건너뛰고 **다음** 을 선택합니다.
 
-16. **Claim to use** (사용할 클레임) 드롭다운에서 **windowsaccountname** 을 선택합니다.
+16. **Claim to use**(사용할 클레임) 드롭다운에서 **windowsaccountname** 을 선택합니다.
 
 17. **마침** 을 선택합니다.
 
-18. 이제 **Edit general settings** (일반 설정 편집) 화면으로 돌아갑니다. 페이지 맨 아래까지 아래로 스크롤하고 **확인** 을 선택하여 구성을 저장합니다.
+18. 이제 **Edit general settings**(일반 설정 편집) 화면으로 돌아갑니다. 페이지 맨 아래까지 아래로 스크롤하고 **확인** 을 선택하여 구성을 저장합니다.
 
 ## <a name="test-sso"></a>SSO 테스트
 

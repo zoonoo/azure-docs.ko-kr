@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 38ba5679731b5e52eb06751a625aea9df69c76ca
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
-ms.translationtype: MT
+ms.openlocfilehash: 14d9c762702648d25efcbcc7ac85824659e20f05
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105643218"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304072"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Azure CLI 및 Python을 사용하여 Azure Stack Edge Pro GPU 디바이스에 VM 배포
 
@@ -278,7 +278,7 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge Pro 디바이스에서 VM �
 
 3. 환경을 등록합니다. az cloud register를 실행하는 경우 다음 매개 변수를 사용합니다.
 
-    | Value | 설명 | 예 |
+    | Value | Description | 예 |
     | --- | --- | --- |
     | 환경 이름 | 연결하려는 환경의 이름 | 이름 제공(예: `aze-environ`) |
     | Resource Manager 엔드포인트 | URL은 `https://Management.<appliancename><dnsdomain>`입니다. <br> 이 URL을 얻으려면 디바이스의 로컬 웹 UI에서 **디바이스** 페이지로 이동합니다. |예: `https://management.team3device.teatraining1.com`  |
@@ -355,7 +355,7 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge Pro 디바이스에서 VM �
 
    Azure Resource Manager 클라이언트 ID는 하드 코딩됩니다. Azure Resource Manager 테넌트 ID와 Azure Resource Manager 구독 ID는 모두 이전에 실행한 `az login` 명령의 출력에 표시됩니다. Azure Resource Manager 클라이언트 암호는 내가 설정한 Azure Resource Manager 암호입니다.
 
-   자세한 내용은 [Azure Resource Manager 암호](/azure/azure-stack-edge-gpu-set-azure-resource-manager-password)를 참조하세요.
+   자세한 내용은 [Azure Resource Manager 암호](/azure/databox-online/azure-stack-edge-gpu-set-azure-resource-manager-password)를 참조하세요.
 
 5. 프로필을 2019-03-01-hybrid 버전으로 변경합니다. 프로필 버전을 변경하려면 다음 명령을 실행합니다.
 

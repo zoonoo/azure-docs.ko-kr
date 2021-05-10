@@ -2,16 +2,19 @@
 title: Azure Resource Manager 템플릿을 사용하여 Azure Blockchain Service 멤버 만들기
 description: Azure Resource Manager 템플릿을 사용하여 Azure Blockchain Service 멤버를 만드는 방법을 알아봅니다.
 services: azure-resource-manager
-ms.service: azure-resource-manager
-ms.topic: quickstart
-ms.custom: subject-armqs, references_regions
 ms.date: 09/16/2020
-ms.openlocfilehash: e9893336f2e6633519853aceecc945ee6bf0bf4b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.topic: quickstart
+ms.service: azure-resource-manager
+ms.custom:
+- subject-armqs
+- references_regions
+- mode-arm
+ms.openlocfilehash: c49e45ae84d58d62460d493887e2a4e78e40ba32
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91292764"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536293"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Blockchain Service 멤버 만들기
 

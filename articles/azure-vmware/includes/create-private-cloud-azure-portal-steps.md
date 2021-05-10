@@ -2,13 +2,13 @@
 title: Azure VMware Solution 프라이빗 클라우드 만들기
 description: Azure Portal을 사용하여 Azure VMware Solution 프라이빗 클라우드를 만드는 단계입니다.
 ms.topic: include
-ms.date: 02/17/2021
-ms.openlocfilehash: da79881e609f982960468a8f26c98178f972ad43
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/07/2021
+ms.openlocfilehash: 6b4e5631d1a4b6c5bf56b01aba12752595ef63b8
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101725407"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073339"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
@@ -34,7 +34,7 @@ ms.locfileid: "101725407"
 1. 완료되면 **검토 + 만들기** 를 선택합니다. 다음 화면에서 입력한 정보를 확인합니다. 정보가 모두 올바르면 **만들기** 를 선택합니다.
 
    > [!NOTE]
-   > 이 단계는 약 두 시간 정도 걸립니다. 
+   > 이 단계는 약 3~4시간이 걸립니다. 기존/동일한 클러스터에서 단일 노드를 추가하는 데는 30~45분이 소요됩니다.
 
 1. 배포가 성공했는지 확인합니다. 만든 리소스 그룹으로 이동하고 프라이빗 클라우드를 선택합니다.  배포가 완료되면 **성공** 상태가 표시됩니다. 
 

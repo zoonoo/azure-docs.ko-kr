@@ -1,7 +1,7 @@
 ---
 title: 빠른 시작 - 액세스 토큰 만들기 및 관리
 titleSuffix: An Azure Communication Services quickstart
-description: Azure Communication Services ID 클라이언트 라이브러리를 사용하여 ID 및 액세스 토큰을 관리하는 방법을 알아봅니다.
+description: Azure Communication Services ID SDK를 사용하여 ID 및 액세스 토큰을 관리하는 방법을 알아봅니다.
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
@@ -10,16 +10,16 @@ ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 921934e581d9b3d32cba644d85987ebb9802f73b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e356219d22ee558ce3de5a96d58f24b9e7902d8a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495328"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726620"
 ---
 # <a name="quickstart-create-and-manage-access-tokens"></a>빠른 시작: 액세스 토큰 만들기 및 관리
 
-Communication Services ID 클라이언트 라이브러리를 사용하여 Azure Communication Services를 시작하세요. 이를 통해 ID를 만들고 액세스 토큰을 관리할 수 있습니다. ID는 Azure Communication Service(예: 사용자 또는 디바이스)에서 애플리케이션의 엔터티를 나타냅니다. 액세스 토큰을 통해 채팅 및 호출 클라이언트 라이브러리가 Azure Communication Services에 대해 직접 인증할 수 있습니다. 서버 쪽 서비스에서 액세스 토큰을 생성하는 것이 좋습니다. 그런 다음, 액세스 토큰을 사용하여 클라이언트 디바이스에서 Communication Services 클라이언트 라이브러리를 초기화합니다.
+Communication Services ID SDK를 사용하여 Azure Communication Services를 시작하세요. 이를 통해 ID를 만들고 액세스 토큰을 관리할 수 있습니다. ID는 Azure Communication Service(예: 사용자 또는 디바이스)에서 애플리케이션의 엔터티를 나타냅니다. 액세스 토큰을 통해 채팅 및 Calling SDK가 Azure Communication Services에 대해 직접 인증할 수 있습니다. 서버 쪽 서비스에서 액세스 토큰을 생성하는 것이 좋습니다. 그런 다음, 액세스 토큰을 사용하여 클라이언트 디바이스에서 Communication Services SDK를 초기화합니다.
 
 이 자습서 전체에서 이미지에 표시되는 모든 가격은 데모용일 뿐입니다.
 
@@ -44,9 +44,14 @@ Communication Services ID 클라이언트 라이브러리를 사용하여 Azure 
 ```console
 Azure Communication Services - Access Tokens Quickstart
 
-Created an identity: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
+Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 
-Issued an access token with 'voip' scope that expires at Fri Nov 27 2020 16:47:05 GMT-0800 (Pacific Standard Time):
+Issued an access token with 'voip' scope that expires at 30/03/21 08:09 09 AM:
+<token signature here>
+
+Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-1ce9-31b4-54b7-a43a0d006a52
+
+Issued an access token with 'voip' scope that expires at 30/03/21 08:09 09 AM:
 <token signature here>
 
 Successfully revoked all access tokens for identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
@@ -67,7 +72,7 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 > [!div class="checklist"]
 > * ID 관리
 > * 액세스 토큰 발급
-> * Communication Services ID 클라이언트 라이브러리 사용
+> * Communication Services ID SDK 사용
 
 
 > [!div class="nextstepaction"]

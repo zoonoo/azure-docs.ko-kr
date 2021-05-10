@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/16/2020
 ms.author: jeedes
 ms.openlocfilehash: d1d427301b1ac3e652e07b7c796c07c07653f424
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92458237"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mailgates"></a>자습서: MailGates와 Azure Active Directory SSO(Single Sign-On) 통합

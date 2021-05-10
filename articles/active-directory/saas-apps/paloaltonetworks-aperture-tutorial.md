@@ -9,30 +9,29 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 03/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 7b4c8ab55a9b2afc9c1a215236fa1276a630a5cf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 42a6bc9bfb06f1c80b719bdda686ae111a8884ab
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97963624"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222009"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>자습서: Palo Alto Networks - Aperture와 Azure Active Directory 통합
 
-이 자습서에서는 Azure AD(Azure Active Directory)와 Palo Alto Networks - Aperture를 통합하는 방법에 대해 알아봅니다.
-Azure AD에 Palo Alto Networks - Aperture를 통합하면 다음과 같은 이점을 얻을 수 있습니다.
+이 자습서에서는 Azure AD(Azure Active Directory)와 Palo Alto Networks - Aperture를 통합하는 방법에 대해 알아봅니다. Palo Alto Networks - Aperture를 Azure AD와 통합하면 다음을 수행할 수 있습니다.
 
 * Palo Alto Networks - Aperture에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
-* 사용자가 해당 Azure AD 계정으로 Palo Alto Networks - Aperture에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
-* 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
+* 사용자가 해당 Azure AD 계정으로 Palo Alto Networks - Aperture에 자동으로 로그인되도록 설정할 수 있습니다.
+* 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-Palo Alto Networks - Aperture와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
+시작하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
-* Palo Alto Networks - Aperture Single Sign-On이 설정된 구독
+* Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* Palo Alto Networks - Aperture SSO(Single Sign-On)가 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -40,7 +39,7 @@ Palo Alto Networks - Aperture와의 Azure AD 통합을 구성하려면 다음 �
 
 * Palo Alto Networks - Aperture는 **SP** 및 **IDP** 시작 SSO를 지원합니다.
 
-## <a name="adding-palo-alto-networks---aperture-from-the-gallery"></a>갤러리에서 Palo Alto Networks - Aperture 추가
+## <a name="add-palo-alto-networks---aperture-from-the-gallery"></a>갤러리에서 Palo Alto Networks - Aperture 추가
 
 Palo Alto Networks - Aperture의 Azure AD 통합을 구성하려면 갤러리의 Palo Alto Networks - Aperture를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
@@ -59,10 +58,10 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 Palo Alto Networks - Ape
 Palo Alto Networks - Aperture에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 단계를 수행합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-    * **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-    * **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 2. **[Palo Alto Networks - Aperture SSO 구성](#configure-palo-alto-networks---aperture-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-    * **[Palo Alto Networks - Aperture 테스트 사용자 만들기](#create-palo-alto-networks---aperture-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Palo Alto Networks - Aperture에 만듭니다.
+    1. **[Palo Alto Networks - Aperture 테스트 사용자 만들기](#create-palo-alto-networks---aperture-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Palo Alto Networks - Aperture에 만듭니다.
 3. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -77,15 +76,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    !["식별자" 및 "회신 URL" 텍스트 상자가 강조 표시되고 "저장" 작업이 선택된 "기본 SAML 구성"을 보여주는 스크린샷.](common/idp-intiated.png)
-
     a. **식별자** 텍스트 상자에서 `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/metadata` 패턴을 사용하여 URL을 입력합니다.
 
     b. **회신 URL** 텍스트 상자에서 `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/auth` 패턴을 사용하여 URL을 입력합니다.
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
-
-    ![Palo Alto Networks - Aperture 도메인 및 URL Single Sign-On 정보 SP](common/metadata-upload-additional-signon.png)
 
     **로그인 URL** 텍스트 상자에서 `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/sign_in` 패턴을 사용하여 URL을 입력합니다.
 
@@ -130,15 +125,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. 최상위 메뉴 모음에서 **설정** 을 클릭합니다.
 
-    ![설정 탭](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_settings.png)
+    ![설정 탭](./media/paloaltonetworks-aperture-tutorial/settings.png)
 
 3. **애플리케이션** 섹션으로 이동하고 메뉴 왼쪽에서 **인증** 을 클릭합니다.
 
-    ![인증 탭](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_auth.png)
+    ![인증 탭](./media/paloaltonetworks-aperture-tutorial/authentication.png)
     
 4. **인증** 페이지에서 다음 단계를 수행합니다.
     
-    ![인증 탭](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_singlesignon.png)
+    ![인증 탭](./media/paloaltonetworks-aperture-tutorial/tab.png)
 
     a. **Single Sign-On** 필드에서 **Single Sign-On 사용(지원되는 SSP 공급 기업은 Okta, One login)** 을 선택합니다.
 

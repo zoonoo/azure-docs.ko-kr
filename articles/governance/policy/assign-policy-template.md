@@ -1,15 +1,15 @@
 ---
 title: 템플릿을 사용하여 새 정책 할당
 description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 비규격 리소스를 식별하는 정책 할당을 만듭니다.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: c32f833520a811d47129196ae4d67c92bad7e21f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b61198fecf0c3a6ba9aad19abc60bc042b68c29c
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89651422"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096617"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>ARM 템플릿을 사용하여 비규격 리소스를 식별하는 정책 할당 만들기
 
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 다음 값을 선택하거나 입력합니다.
 
-   | 속성 | 값 |
+   | Name | 값 |
    |------|-------|
    | Subscription | Azure 구독을 선택합니다. |
    | Resource group | **새로 만들기** 를 선택하고 이름을 지정한 다음, **확인** 을 선택합니다. 스크린샷에서 리소스 그룹 이름은 _mypolicyquickstart\<Date in MMDD\>rg_ 입니다. |

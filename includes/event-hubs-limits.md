@@ -1,5 +1,5 @@
 ---
-제목: 파일 설명 포함: 파일 서비스 포함: 이벤트 허브 작성자: spelluru ms.service: 이벤트 허브 ms.topic: ms.date 포함: 2021/02/01 ms.author: spelluru ms.custom: "파일 포함", "fasttrack-편집", "iot", "이벤트 허브"
+제목: 파일 설명 포함: 파일 서비스 포함: 이벤트 허브 작성자: spelluru ms.service: 이벤트 허브 ms.topic: ms.date 포함: 2021/03/31 ms.author: spelluru ms.custom: "파일 포함", "fasttrack-편집", "iot", "이벤트 허브"
 
 ---
 
@@ -13,13 +13,12 @@
 | 구독당 Event Hubs 네임스페이스 수 |- |100 |
 | 네임스페이스당 Event Hubs 개수 | 새로운 이벤트 허브 생성에 대한 후속 요청은 거부됩니다. |10 |
 | 이벤트 허브 이름의 크기 |- | 256자 |
-| 소비자 그룹 이름의 크기 |- | 256자 |
+| 소비자 그룹 이름의 크기 | Kafka 프로토콜에는 소비자 그룹을 만들 필요가 없습니다. | <p>Kafka: 256문자</p><p>AMQP: 50문자 |
 | 소비자 그룹당 비 Epoch 수신자 수 |- |5 |
 | 네임스페이스당 권한 부여 규칙의 수 | 권한 부여 규칙 만들기에 대한 후속 요청이 거부됩니다.|12 |
 | GetRuntimeInformation 메서드에 대한 호출 수 |  - | 초당 50 | 
 | VNet(가상 네트워크) 수 | - | 128 | 
 | IP 구성 규칙 수 | - | 128 | 
-
 
 ### <a name="basic-vs-standard-tiers"></a>기본 및 표준 계층 비교
 다음 표에서는 기본 및 표준 계층에 대해 다를 수 있는 제한을 보여줍니다. 

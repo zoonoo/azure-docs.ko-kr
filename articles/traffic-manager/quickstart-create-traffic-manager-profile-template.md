@@ -3,17 +3,19 @@ title: '빠른 시작: ARM 템플릿(Azure Resource Manager 템플릿)을 사용
 description: 이 빠른 시작 문서에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure Traffic Manager 프로필을 만드는 방법을 설명합니다.
 services: traffic-manager
 author: duongau
-ms.service: traffic-manager
-ms.topic: quickstart
-ms.custom: subject-armqs
 ms.author: duau
 ms.date: 09/01/2020
-ms.openlocfilehash: ec569781a6318062810358c2c5e17ba71efc4f71
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.topic: quickstart
+ms.service: traffic-manager
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 03342d33731ed29b60908044cd29d529aaa5677b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92676011"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531249"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Traffic Manager 프로필 만들기
 

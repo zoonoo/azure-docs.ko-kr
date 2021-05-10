@@ -6,13 +6,13 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/11/2021
-ms.openlocfilehash: d73f8eeb7b69440f8db67d0b95b40ed6258ee8e7
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.date: 03/24/2021
+ms.openlocfilehash: ea0b161a9038666e1e7ddd5a6c6af2078afff8aa
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201790"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766538"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-azure-iot-hub-python"></a>빠른 시작: 원격 분석을 디바이스에서 Azure IoT 허브로 보내기(Python)
 
@@ -25,7 +25,7 @@ ms.locfileid: "102201790"
 - Azure CLI. 브라우저에서 실행되는 대화형 CLI 셸인 Azure Cloud Shell을 사용하여 이 빠른 시작의 모든 명령을 실행할 수 있습니다. Cloud Shell을 사용하는 경우에는 아무 것도 설치할 필요가 없습니다. CLI를 로컬로 사용하려면 이 빠른 시작에 Azure CLI 버전 2.0.76 이상이 필요합니다. 버전을 찾으려면 az --version을 실행합니다. 설치하거나 업그레이드하려면 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 - [Python 3.7 이상](https://www.python.org/downloads/). 지원되는 다른 버전의 Python은 [Azure IoT 디바이스 기능](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features)을 참조하세요.
     
-    Python 버전이 최신 상태인지 확인하려면 `python --version`을 실행합니다. Python 2 및 Python 3이 모두 설치되어 있고 Python 3 환경을 사용하는 경우 `pip3`을 사용하여 모든 라이브러리를 설치합니다. 이렇게 하면 라이브러리가 Python 3 런타임에 설치됩니다.
+    Python 버전이 최신 상태인지 확인하려면 `python --version`을 실행합니다. Python 2 및 Python 3이 모두 설치되어 있고 Python 3 환경을 사용하는 경우 `pip3`을 사용하여 모든 라이브러리를 설치합니다. 이 명령을 사용하면 라이브러리가 Python 3 런타임에 설치됩니다.
     > [!IMPORTANT]
     > Python 설치 관리자에서 **PATH에 Python 추가** 옵션을 선택합니다. Python 3.7 이상이 이미 설치되어 있는 경우 Python 설치 폴더를 `PATH` 환경 변수에 추가했는지 확인합니다.
 
@@ -41,32 +41,48 @@ ms.locfileid: "102201790"
     ```console
     git clone https://github.com/Azure/azure-iot-sdk-python
     ```
-
-    그리고 *azure-iot-sdk-python/azure-iot-device/samples* 디렉터리로 이동합니다.
+1. *azure-iot-sdk-python/azure-iot-device/samples/pnp* 디렉터리로 이동합니다.
 
     ```console
-    cd azure-iot-sdk-python/azure-iot-device/samples
+    cd azure-iot-sdk-python/azure-iot-device/samples/pnp
     ```
 1. Azure IoT Python SDK를 설치합니다.
 
     ```console
     pip install azure-iot-device
     ```
-1. `IOTHUB_DEVICE_CONNECTION_STRING`이라는 환경 변수로 디바이스 연결 문자열을 설정합니다. 이는 시뮬레이션된 Python 디바이스를 만든 후 이전 섹션에서 가져온 문자열입니다.
+1. 시뮬레이션된 디바이스에서 Azure IoT에 연결할 수 있도록 다음 환경 변수를 모두 설정합니다.
+    * `IOTHUB_DEVICE_CONNECTION_STRING`이라는 환경 변수를 설정합니다. 변수 값의 경우 이전 섹션에서 저장한 디바이스 연결 문자열을 사용합니다.
+    * `IOTHUB_DEVICE_SECURITY_TYPE`이라는 환경 변수를 설정합니다. 변수의 경우 리터럴 문자열 값 `connectionString`을 사용합니다.
 
     **Windows(cmd)**
 
     ```console
     set IOTHUB_DEVICE_CONNECTION_STRING=<your connection string here>
     ```
+    ```console
+    set IOTHUB_DEVICE_SECURITY_TYPE=connectionString
+    ```
 
     > [!NOTE]
-    > Windows CMD의 경우 연결 문자열을 묶는 따옴표가 없습니다.
+    > Windows CMD의 경우 각 변수의 문자열 값을 묶는 따옴표가 없습니다.
 
-    **Linux(bash)**
+    **PowerShell**
+
+    ```azurepowershell
+    $env:IOTHUB_DEVICE_CONNECTION_STRING='<your connection string here>'
+    ```
+    ```azurepowershell
+    $env:IOTHUB_DEVICE_SECURITY_TYPE='connectionString'
+    ```
+
+    **Bash(Linux 또는 Windows)**
 
     ```bash
     export IOTHUB_DEVICE_CONNECTION_STRING="<your connection string here>"
+    ```
+    ```bash
+    export IOTHUB_DEVICE_SECURITY_TYPE="connectionString"
     ```
 
 1. 열려 있는 CLI 셸에서 [az iot hub monitor-events](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-monitor-events) 명령을 실행하여 시뮬레이션된 IoT 디바이스의 이벤트 모니터링을 시작합니다.  이벤트 메시지가 도착하면 터미널에 출력됩니다.
@@ -75,50 +91,26 @@ ms.locfileid: "102201790"
     az iot hub monitor-events --output table --hub-name {YourIoTHubName}
     ```
 
-1. Python 터미널에서 설치된 샘플 파일 *simple_send_message.py* 에 대한 코드를 실행합니다. 이 코드는 시뮬레이션된 IoT 디바이스에 액세스하고, 메시지를 IoT 허브에 보냅니다.
+1. Python 터미널에서 설치된 샘플 파일 *simple_thermostat.py* 에 대한 코드를 실행합니다. 이 코드는 시뮬레이션된 IoT 디바이스에 액세스하고, 메시지를 IoT 허브에 보냅니다.
 
     터미널에서 Python 샘플을 실행하려면 다음을 수행합니다.
     ```console
-    python ./simple_send_message.py
+    python ./simple_thermostat.py
     ```
+    > [!NOTE]
+    > 이 코드 샘플에서는 수동 구성 없이 솔루션에 스마트 디바이스를 통합할 수 있도록 하는 Azure IoT 플러그 앤 플레이를 사용합니다.  기본적으로 이 설명서에 있는 대부분의 샘플은 IoT 플러그 앤 플레이를 사용합니다. IoT PnP의 장점과 사용 여부에 대한 자세한 내용은 [IoT 플러그 앤 플레이란?](../iot-pnp/overview-iot-plug-and-play.md)을 참조하세요.
 
-    필요에 따라 Python IDE의 샘플에서 Python 코드를 실행할 수 있습니다.
-    ```python
-    import os
-    import asyncio
-    from azure.iot.device.aio import IoTHubDeviceClient
-
-
-    async def main():
-        # Fetch the connection string from an environment variable
-        conn_str = os.getenv("IOTHUB_DEVICE_CONNECTION_STRING")
-
-        # Create instance of the device client using the authentication provider
-        device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
-
-        # Connect the device client.
-        await device_client.connect()
-
-        # Send a single message
-        print("Sending message...")
-        await device_client.send_message("This is a message that is being sent")
-        print("Message successfully sent!")
-
-        # finally, disconnect
-        await device_client.disconnect()
-
-
-    if __name__ == "__main__":
-        asyncio.run(main())
-    ```
-
-Python 코드가 디바이스에서 IoT 허브로 메시지를 보내면 이벤트를 모니터링하는 CLI 셸에 메시지가 나타납니다.
+ Python 코드가 디바이스에서 IoT 허브로 메시지를 보내면 이벤트를 모니터링하는 CLI 셸에 메시지가 나타납니다.
 
 ```output
 Starting event monitor, use ctrl-c to stop...
 event:
-origin: <your Device name>
-payload: This is a message that is being sent
+  component: ''
+  interface: dtmi:com:example:Thermostat;1
+  module: ''
+  origin: <your device name>
+  payload:
+    temperature: 35
 ```
 
 이제 디바이스가 안전하게 연결되어 Azure IoT Hub로 원격 분석을 보냅니다.
@@ -130,12 +122,12 @@ payload: This is a message that is being sent
 > 리소스 그룹을 삭제하면 다시 되돌릴 수 없습니다. 리소스 그룹 및 그 안에 포함된 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다.
 
 리소스 그룹을 이름으로 삭제하려면:
-1. [az group delete](/cli/azure/group#az-group-delete) 명령을 실행합니다. 그러면 만든 리소스 그룹, IoT Hub 및 디바이스 등록이 제거됩니다.
+1. [az group delete](/cli/azure/group#az_group_delete) 명령을 실행합니다. 이 명령을 실행하면 만든 리소스 그룹, IoT Hub 및 디바이스 등록이 제거됩니다.
 
     ```azurecli
     az group delete --name MyResourceGroup
     ```
-1. [az group list](/cli/azure/group#az-group-list) 명령을 실행하여 리소스 그룹을 삭제했는지 확인합니다.  
+1. [az group list](/cli/azure/group#az_group_list) 명령을 실행하여 리소스 그룹을 삭제했는지 확인합니다.  
 
     ```azurecli
     az group list
@@ -147,5 +139,5 @@ payload: This is a message that is being sent
 다음 단계로 애플리케이션 샘플을 통해 Azure IoT Python SDK를 살펴봅니다.
 
 - [비동기 샘플](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-hub-scenarios): 이 디렉터리에는 추가 IoT Hub 시나리오에 대한 비동기 Python 샘플이 포함되어 있습니다.
-- [동기 샘플](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/sync-samples): 이 디렉터리에는 Python 3.5 이상에 대한 Python 2.7 또는 동기 호환성 시나리오에 사용할 Python 샘플이 포함되어 있습니다.
+- [동기 샘플](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/sync-samples): 이 디렉터리에는 Python 3.6 이상에 대한 Python 2.7 또는 동기 호환성 시나리오에 사용할 Python 샘플이 포함되어 있습니다.
 - [IoT Edge 샘플](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios): 이 디렉터리에는 Edge 모듈 및 다운스트림 디바이스를 사용하는 Python 샘플이 포함되어 있습니다.

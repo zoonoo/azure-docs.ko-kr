@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/25/2021
 ms.author: jeedes
 ms.openlocfilehash: c58566c628eedd1dbc3d86ae6a142156cbf31211
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104585199"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>자습서: Boomi와 Azure Active Directory SSO(Single Sign-On) 통합
@@ -155,17 +155,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     f. **저장** 단추를 클릭합니다.
 
-### <a name="create-boomi-test-user"></a>Boomi 테스트 사용자 만들기
+### <a name="create-boomi-test-user&quot;></a>Boomi 테스트 사용자 만들기
 
 Azure AD 사용자가 Boomi에 로그인할 수 있도록 하려면 Boomi로 프로비저닝되어야 합니다. Boomi의 경우 프로비전은 수동 작업입니다.
 
-### <a name="to-provision-a-user-account-perform-the-following-steps"></a>사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
+### <a name=&quot;to-provision-a-user-account-perform-the-following-steps&quot;></a>사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
 
 1. Boomi 회사 사이트에 관리자 권한으로 로그인합니다.
 
 1. 로그인 후 **사용자 관리**, **사용자** 로 이동합니다.
 
-    ![스크린샷은 사용자가 선택한 사용자 관리 페이지를 보여줍니다.](./media/boomi-tutorial/user.png "사용자")
+    ![스크린샷은 사용자가 선택한 사용자 관리 페이지를 보여줍니다.](./media/boomi-tutorial/user.png &quot;사용자")
 
 1. **+** 아이콘을 클릭하면 **사용자 역할 추가/유지 관리** 대화 상자가 열립니다.
 

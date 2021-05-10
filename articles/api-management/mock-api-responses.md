@@ -3,16 +3,16 @@ title: 자습서 - API Management의 모의 API 응답 - Azure Portal | Microsof
 description: 이 자습서에서는 백 엔드가 실제 응답을 보낼 수 없는 경우 모의 응답을 반환하도록 API Management를 사용하여 API에 대한 정책을 설정합니다.
 author: vladvino
 ms.service: api-management
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 75727d139242e1b537505d2ed907ae20fc5479f8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a7617a36ed800f1765ed7723568a4b612fcb6518
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100547268"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587598"
 ---
 # <a name="tutorial-mock-api-responses"></a>자습서: 모의 API 응답
 

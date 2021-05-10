@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/11/2021
-ms.openlocfilehash: d0dcca0c4be801f385a48afcd41b6a547bab3fbe
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 5d872dd7c94a0b3ab23623bb246ff7ae81609779
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100654712"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105047170"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-azure-iot-central-python"></a>빠른 시작: 디바이스에서 Azure IoT Central로 원격 분석 보내기(Python)
 
@@ -266,5 +266,5 @@ Azure IoT Central 샘플 애플리케이션과 모든 해당 디바이스 및 �
 다음 단계로 애플리케이션 샘플을 통해 Azure IoT Python SDK를 살펴봅니다.
 
 - [비동기 샘플](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-hub-scenarios): 이 디렉터리에는 추가 IoT Hub 시나리오에 대한 비동기 Python 샘플이 포함되어 있습니다.
-- [동기 샘플](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/sync-samples): 이 디렉터리에는 Python 3.5 이상에 대한 Python 2.7 또는 동기 호환성 시나리오에 사용할 Python 샘플이 포함되어 있습니다.
+- [동기 샘플](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/sync-samples): 이 디렉터리에는 Python 3.6 이상에 대한 Python 2.7 또는 동기 호환성 시나리오에 사용할 Python 샘플이 포함되어 있습니다.
 - [IoT Edge 샘플](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios): 이 디렉터리에는 Edge 모듈 및 다운스트림 디바이스를 사용하는 Python 샘플이 포함되어 있습니다.

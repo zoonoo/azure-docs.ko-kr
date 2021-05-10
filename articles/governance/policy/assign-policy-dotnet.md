@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: .NET Core를 사용하여 새 정책 할당'
 description: 이 빠른 시작에서는 .NET Core를 사용하여 미준수 리소스를 식별하는 Azure Policy 할당을 만듭니다.
-ms.date: 09/30/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c4c8f8e9df544b6fc00b5b7701435f5a606f9764
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b89a0db419b1e7213e9742e4a39d073445d05189
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91604579"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106091789"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-net-core"></a>빠른 시작: .NET Core를 사용하여 미준수 리소스를 식별하는 정책 할당 만들기
 

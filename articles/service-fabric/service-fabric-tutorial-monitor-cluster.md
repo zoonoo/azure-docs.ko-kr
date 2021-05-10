@@ -1,17 +1,15 @@
 ---
 title: Azure에서 Service Fabric 클러스터 모니터링
 description: 이 자습서에서는 Service Fabric 이벤트를 보고, EventStore API를 쿼리하고, 성능 카운터를 모니터링하고, 상태 보고서를 확인하여 클러스터를 모니터링하는 방법을 알아봅니다.
-author: srrengar
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: srrengar
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: ecd05a838425d57e0eaff2fa571d72b5a87e92a6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3e9c8011647567b6f07423e113f98493d80d8402
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99822067"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105628784"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터 모니터링
 

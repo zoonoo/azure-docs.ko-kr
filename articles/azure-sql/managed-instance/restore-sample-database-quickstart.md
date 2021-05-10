@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 9b2333e38415a2c0ad50ce36c213ead711c70ab4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 15aead5c9f93205baac28e8b93a88015c9689e3a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96928803"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105625316"
 ---
 # <a name="quickstart-restore-a-database-to-azure-sql-managed-instance-with-ssms"></a>빠른 시작: SSMS를 사용하여 Azure SQL Managed Instance로 데이터베이스 복원
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -42,7 +42,7 @@ ms.locfileid: "96928803"
   - [온-프레미스에서 SQL Managed Instance로의 지점 및 사이트 간 연결을 구성합니다](point-to-site-p2s-configure.md).
 
 > [!NOTE]
-> Azure Blob Storage와 [SAS(공유 액세스 서명) 키](../../storage/common/storage-sas-overview.md)를 사용하여 SQL Server Database를 백업하고 복원하는 데 관한 자세한 내용은 [URL에 SQL Server 백업](/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017)을 참조하세요.
+> Azure Blob Storage와 [SAS(공유 액세스 서명) 키](../../storage/common/storage-sas-overview.md)를 사용하여 SQL Server Database를 백업하고 복원하는 데 관한 자세한 내용은 [URL에 SQL Server 백업](/sql/relational-databases/backup-restore/sql-server-backup-to-url)을 참조하세요.
 
 ## <a name="restore-from-a-backup-file"></a>백업 파일에서 복원
 

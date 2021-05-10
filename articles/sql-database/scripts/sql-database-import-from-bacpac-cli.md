@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 05/24/2019
-ms.openlocfilehash: a8c544f1d3b7d1255cf5a0e6d05975ea5f5ec203
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a76a2e72533068f37613d801e39f9451098b89e5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87503806"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786606"
 ---
 # <a name="use-cli-to-import-a-bacpac-file-into-a-database-in-sql-database"></a>CLI를 사용하여 BACPAC 파일을 SQL Database의 데이터베이스로 가져오기
 
@@ -49,7 +49,7 @@ az group delete --name $resource
 | 명령 | Description |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | 서버 명령입니다. |
-| [az sql db import](/cli/azure/sql/db#az-sql-db-import) | 데이터베이스 가져오기 명령입니다. |
+| [az sql db import](/cli/azure/sql/db#az_sql_db_import) | 데이터베이스 가져오기 명령입니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

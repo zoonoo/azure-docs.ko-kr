@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: a47475ad55c5e6262dc8ba1a384d89b9721fd2e9
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 7422b88aa2f9c4894d550ee2bf7e397cd163f870
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736428"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046031"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>자습서: Python으로 TensorFlow 모델 실행
 
@@ -29,7 +29,7 @@ Custom Vision Service에서 [TensorFlow 모델을 내보낸](./export-your-model
 
 이 자습서를 사용하려면 다음을 수행해야 합니다.
 
-- Python 2.7+ 또는 Python 3.5+ 중 하나를 설치합니다.
+- Python 2.7+ 또는 Python 3.6+ 중 하나를 설치합니다.
 - pip를 설치합니다.
 
 다음으로, 다음과 같은 패키지를 설치해야 합니다.

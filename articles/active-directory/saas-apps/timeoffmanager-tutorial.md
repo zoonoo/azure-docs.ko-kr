@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 849236b9ac33cec92cc145bb32b4271b73476057
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97608819"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timeoffmanager"></a>자습서: TimeOffManager와 Azure Active Directory SSO(Single Sign-On) 연결
@@ -140,13 +140,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-## <a name="configure-timeoffmanager-sso"></a>TimeOffManager SSO 구성
+## <a name="configure-timeoffmanager-sso&quot;></a>TimeOffManager SSO 구성
 
 1. 다른 웹 브라우저 창에서 TimeOffManager 회사 사이트에 관리자로 로그인합니다.
 
 2. **계정 \> 계정 옵션 \>Single Sign-On 설정** 으로 이동합니다.
    
-    ![스크린샷은 계정 옵션에서 선택한 Single Sign-On 설정을 보여줍니다.](./media/timeoffmanager-tutorial/ic795917.png "Single Sign-On 설정")
+    ![스크린샷은 계정 옵션에서 선택한 Single Sign-On 설정을 보여줍니다.](./media/timeoffmanager-tutorial/ic795917.png &quot;Single Sign-On 설정")
 
 3. **Single Sign-On 설정** 섹션에서 다음 단계를 수행합니다.
    

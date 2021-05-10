@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: 9c7fd03c2239cea05dc79ad4dd1965fe253a2ce9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96341600"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Bing News Search API에 대한 언어 및 지역 지원
@@ -52,7 +52,7 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |뉴질랜드|영어|en-NZ|
 |필리핀|영어|en-PH|
 |싱가포르|영어|en-SG|
-|미국|영어|ko-KR|
+|미국|영어|en-US|
 |영어|일반|en-WW|
 |영어|일반|en-XA|
 |남아프리카 공화국|영어|en-ZA|
@@ -91,7 +91,7 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |독일|독일어|de-DE|
 |오스트레일리아|영어|en-AU|
 |영국|영어|en-GB|
-|미국|영어|ko-KR|
+|미국|영어|en-US|
 |영어|일반|en-WW|
 |칠레|스페인어|es-CL|
 |멕시코|스페인어|es-MX|
@@ -113,7 +113,7 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |독일|독일어|de-DE|
 |오스트레일리아|영어|en-AU|
 |영국|영어|en-GB|
-|미국|영어|ko-KR|
+|미국|영어|en-US|
 |캐나다|영어|en-CA|
 |인도|영어|en-IN|
 |프랑스|프랑스어|fr-FR|

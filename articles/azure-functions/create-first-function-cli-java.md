@@ -10,12 +10,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-java-uiex
-ms.openlocfilehash: 0ef52da8400cfadfaaa26664d984d8b898a3b9a3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1a1571e83e33ee0aec40df4cf68b3d01b6ef5f04
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101729303"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787506"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 Java 함수 만들기
 
@@ -152,11 +152,7 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
     > [!NOTE]  
     > HttpExample이 위와 같이 표시되지 않으면 프로젝트의 루트 폴더 외부에서 호스트를 시작했을 가능성이 높습니다. 이 경우 **Ctrl**+**C** 를 사용하여 호스트를 중지하고, 프로젝트의 루트 폴더로 이동하여 이전 명령을 다시 실행합니다.
 
-1. 이 출력에서 `HttpExample` 함수의 URL을 브라우저로 복사하고 `?name=<YOUR_NAME>` 쿼리 문자열을 추가하여 전체 URL을 `http://localhost:7071/api/HttpExample?name=Functions`와 같이 만듭니다. 브라우저에서 `Hello Functions`와 같은 메시지가 표시됩니다.
-
-    ![브라우저에서 로컬로 실행되는 함수의 결과](./media/functions-create-first-azure-function-azure-cli/function-test-local-browser.png)
-    
-    프로젝트를 시작한 터미널에도 요청 시 로그 출력이 표시됩니다.
+1. 이 출력에서 `HttpExample` 함수의 URL을 브라우저로 복사하고 `?name=<YOUR_NAME>` 쿼리 문자열을 추가하여 전체 URL을 `http://localhost:7071/api/HttpExample?name=Functions`와 같이 만듭니다. 브라우저는 쿼리 문자열 값을 다시 에코하는 메시지를 표시해야 합니다. 프로젝트를 시작한 터미널에도 요청 시 로그 출력이 표시됩니다.
 
 1. 완료되면 **Ctrl**+**C** 를 사용하고 `y`를 선택하여 함수 호스트를 중지합니다.
 
@@ -174,7 +170,7 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
     az login
     ```
 
-    [az login](/cli/azure/reference-index#az-login) 명령은 Azure 계정에 로그인합니다.
+    [az login](/cli/azure/reference-index#az_login) 명령은 Azure 계정에 로그인합니다.
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell) 
     ```azurepowershell

@@ -7,13 +7,13 @@ ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 14ea63e3b52d0673d6f64a5963a4de7a038f7021
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.custom: devx-track-python, devx-track-azurepowershell
+ms.openlocfilehash: e06881d078b4e881174c3e931f7898cb622ad7f9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800468"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766356"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>빠른 시작: Python용 Azure Key Vault 비밀 클라이언트 라이브러리
 
@@ -80,17 +80,7 @@ az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-
 
 이 애플리케이션은 키 자격 증명 모음 이름을 `KEY_VAULT_NAME`이라는 환경 변수로 사용합니다.
 
-Windows
-```cmd
-set KEY_VAULT_NAME=<your-key-vault-name>
-````
-Windows PowerShell
-```powershell
-$Env:KEY_VAULT_NAME="<your-key-vault-name>"
-```
-
-macOS 또는 Linux
-```cmd
+```bash
 export KEY_VAULT_NAME=<your-key-vault-name>
 ```
 
@@ -180,7 +170,7 @@ retrieved_secret = client.get_secret(secretName)
 
 비밀 값은 `retrieved_secret.value`에 포함되어 있습니다.
 
-Azure CLI 명령 [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show)를 사용하여 비밀을 검색할 수도 있습니다.
+Azure CLI 명령 [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show)를 사용하여 비밀을 검색할 수도 있습니다.
 
 ### <a name="delete-a-secret"></a>비밀 삭제
 
@@ -193,7 +183,7 @@ deleted_secret = poller.result()
 
 `begin_delete_secret` 메서드는 비동기식이며 폴러 개체를 반환합니다. 폴러의 `result` 메서드를 호출하면 작업이 완료될 때까지 대기합니다.
 
-Azure CLI 명령 [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show)를 사용하여 비밀이 제거되었는지 확인할 수 있습니다.
+Azure CLI 명령 [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show)를 사용하여 비밀이 제거되었는지 확인할 수 있습니다.
 
 비밀이 삭제되었지만 당분간 복구 가능한 상태로 유지됩니다. 코드를 다시 실행하는 경우 다른 비밀 이름을 사용합니다.
 
@@ -210,7 +200,7 @@ az group delete --resource-group KeyVault-PythonQS-rg
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Key Vault 개요](../general/overview.md)
-- [Key vault에 대한 액세스 보안](../general/secure-your-key-vault.md)
+- [Key vault에 대한 액세스 보안](../general/security-overview.md)
 - [Azure Key Vault 개발자 가이드](../general/developers-guide.md)
 - [Key Vault 보안 개요](../general/security-overview.md)
 - [Key Vault로 인증](../general/authentication.md)

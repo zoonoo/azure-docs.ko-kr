@@ -13,10 +13,10 @@ ms.date: 03/19/2018
 ms.author: rohink
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 6abcca9d9888dc8968d7233e7aee6cd76aa215f7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94965751"
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>PowerShell을 사용하여 DNS 영역을 관리하는 방법
@@ -40,7 +40,7 @@ ms.locfileid: "94965751"
 
 DNS 영역은 `New-AzureRmDnsZone` cmdlet을 사용하여 생성됩니다.
 
-다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹에 *contoso.com* 이라는 DNS 영역을 만듭니다.
+다음 예제에서는 *MyResourceGroup* 이라는 리소스 그룹에 *contoso.com* 이라는 DNS 영역을 만듭니다.
 
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup

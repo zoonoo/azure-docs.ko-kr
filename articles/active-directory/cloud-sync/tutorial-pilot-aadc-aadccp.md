@@ -11,12 +11,12 @@ ms.date: 03/22/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50eac71203a94ffb5c7dddc8995b56980c3f8815
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: e5053bd0c3d63b13b1021476a09dca39dd08f581
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104798717"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105108760"
 ---
 # <a name="pilot-cloud-sync-for-an-existing-synced-ad-forest"></a>기존 동기화된 AD 포리스트에 파일럿 클라우드 동기화 
 
@@ -39,7 +39,7 @@ ms.locfileid: "104798717"
 다음은 이 자습서를 완료하는 데 필요한 필수 구성 요소입니다.
 - Azure AD Connect 동기화 버전 1.4.32.0 이상인 테스트 환경
 - 동기화 범위에 속하고 파일럿 테스트에 사용할 수 있는 OU 또는 그룹. 작은 개체 세트로 시작하는 것이 좋습니다.
-- Windows Server 2012 R2 이상을 실행하고 프로비저닝 에이전트를 호스팅하는 서버.  이 서버는 Azure AD Connect 서버와 동일한 서버일 수 없습니다.
+- Windows Server 2012 R2 이상을 실행하고 프로비저닝 에이전트를 호스팅하는 서버.
 - Azure AD Connect 동기화에 대한 원본 앵커는 *objectGuid* 또는 *ms-ds-consistencyGUID* 여야 합니다.
 
 ## <a name="update-azure-ad-connect"></a>Azure AD Connect 업데이트

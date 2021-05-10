@@ -7,26 +7,26 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6253deb53229172cd499a6aa14b8d8f19bc07b63
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: de342267292c6a93c4a1ba2eae232403ccaf9514
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94629260"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785274"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Azure Files에서 사용하기 위한 Windows의 P2S(지점 및 사이트 간) VPN 구성
 P2S(지점 및 사이트 간) VPN 연결을 사용하여 포트 445을 열지 않고 Azure 외부에서 SMB를 통해 Azure 파일 공유를 탑재할 수 있습니다. 지점 및 사이트 간 VPN 연결은 Azure와 개별 클라이언트 간의 VPN 연결입니다. Azure Files에서 P2S VPN 연결을 사용하려면 연결하려는 각 클라이언트에 대해 P2S VPN 연결을 구성해야 합니다. 온-프레미스 네트워크에서 Azure 파일 공유에 연결해야 하는 클라이언트가 많은 경우에는 각 클라이언트에 대해 지점 및 사이트 간 연결 대신 S2S(사이트 간) VPN 연결을 사용할 수 있습니다. 자세한 내용은 [Azure Files에서 사용하기 위한 사이트 간 VPN 구성](storage-files-configure-s2s-vpn.md)을 참조하세요.
 
 Azure Files에 사용할 수 있는 네트워킹 옵션에 대해 자세히 알아보려면 이 방법 문서를 계속하기 전에 먼저 [직접 Azure 파일 공유 액세스에 대한 네트워킹 고려 사항](storage-files-networking-overview.md)을 읽어볼 것을 강력하게 권장합니다.
 
-이 문서에서는 Azure 파일 공유를 온-프레미스에 직접 탑재하도록 Windows(Windows 클라이언트 및 Windows Server)에서 지점 및 사이트 간 VPN을 구성하는 단계를 자세히 설명합니다. VPN을 통해 Azure 파일 동기화 트래픽을 라우팅하는 경우 [Azure 파일 동기화 프록시 및 방화벽 설정 구성](storage-sync-files-firewall-and-proxy.md)을 참조하세요.
+이 문서에서는 Azure 파일 공유를 온-프레미스에 직접 탑재하도록 Windows(Windows 클라이언트 및 Windows Server)에서 지점 및 사이트 간 VPN을 구성하는 단계를 자세히 설명합니다. VPN을 통해 Azure 파일 동기화 트래픽을 라우팅하는 경우 [Azure 파일 동기화 프록시 및 방화벽 설정 구성](../file-sync/file-sync-firewall-and-proxy.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 - 최신 버전의 Azure PowerShell 모듈. Azure PowerShell을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하고 해당 운영 체제를 선택합니다. Windows에서 Azure CLI를 사용하고 싶은 분들은 그렇게 해도 되지만, 아래 지침은 Azure PowerShell에 대한 지침입니다.
 
-- 온-프레미스에 탑재하려는 Azure 파일 공유. Azure 파일 공유는 저장소 계정 내에 배포 됩니다. 저장소 계정에는 blob 컨테이너 또는 큐와 같은 다른 저장소 리소스 뿐만 아니라 여러 파일 공유를 배포할 수 있는 저장소의 공유 풀을 나타내는 관리 구문도 있습니다. Azure 파일 공유 및 저장소 계정을 배포 하는 방법에 대 한 자세한 내용은 [azure 파일 공유 만들기](storage-how-to-create-file-share.md)를 통해 확인할 수 있습니다.
+- 온-프레미스에 탑재하려는 Azure 파일 공유. Azure 파일 공유는 스토리지 계정 내에 배포됩니다. 스토리지 계정은 여러 파일 공유뿐만 아니라 다른 스토리지 리소스(예: Blob 컨테이너 또는 큐)도 배포할 수 있는 공유 스토리지 풀을 나타내는 관리 구조입니다. [Azure 파일 공유 만들기](storage-how-to-create-file-share.md)에서 Azure 파일 공유 및 스토리지 계정을 배포하는 방법에 대해 자세히 알아봅니다.
 
-- 온-프레미스에 탑재 하려는 Azure 파일 공유가 포함 된 저장소 계정의 개인 끝점입니다. 개인 끝점을 만드는 방법에 대 한 자세한 내용은 [Azure Files 네트워크 끝점 구성](storage-files-networking-endpoints.md?tabs=azure-powershell)을 참조 하세요. 
+- 온-프레미스에 탑재하려는 Azure 파일 공유가 포함된 스토리지 계정의 프라이빗 엔드포인트입니다. 프라이빗 엔드포인트를 만드는 방법에 대한 자세한 내용은 [Azure Files 네트워크 엔드포인트 구성](storage-files-networking-endpoints.md?tabs=azure-powershell)을 참조하세요. 
 
 ## <a name="deploy-a-virtual-network"></a>가상 네트워크 배포
 지점 및 사이트 간 VPN을 통해 온-프레미스에서 Azure 파일 공유 및 기타 Azure 리소스에 액세스하려면 VNet(가상 네트워크)을 만들어야 합니다. 자동으로 생성되는 P2S VPN 연결은 온-프레미스 Windows 머신과 이 Azure 가상 네트워크 간의 브리지입니다.

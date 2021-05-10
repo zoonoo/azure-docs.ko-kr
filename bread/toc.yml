@@ -67,6 +67,9 @@
         - name: 보고 및 모니터링
           tocHref: /azure/active-directory/reports-monitoring/
           topicHref: /azure/active-directory/reports-monitoring/
+        - name: 확인 가능한 자격 증명
+          tocHref: /azure/active-directory/verifiable-credentials/
+          topicHref: /azure/active-directory/verifable-credentials/
     - name: Analysis Services
       tocHref: /azure/analysis-services/
       topicHref: /azure/analysis-services/
@@ -248,6 +251,9 @@
         - name: Azure Maps
           tocHref: /azure/azure-maps/
           topicHref: /azure/azure-maps/
+        - name: Azure Certified Device
+          tocHref: /azure/certification/
+          topicHref: /azure/certification/
     - name: 리소스 관리자
       tocHref: /azure/azure-resource-manager/
       topicHref: /azure/azure-resource-manager/
@@ -647,6 +653,8 @@
       tocHref: /azure/networking/
       topicHref: /azure/networking/
       items:
+        - name: 기본 사항
+          tocHref: /azure/networking/fundamentals
         - name: Application Gateway
           tocHref: /azure/application-gateway/
           topicHref: /azure/application-gateway/
@@ -765,6 +773,9 @@
         - name: 개발
           tocHref: /azure/security/develop/
           topicHref: /azure/security/develop/
+        - name: Journey
+          tocHref: /azure/security/journey
+          topicHref: /azure/security/journey
         - name: 벤치마크
           tocHref: /azure/security/benchmarks/
           topicHref: /azure/security/benchmarks/
@@ -853,6 +864,9 @@
         - name: 파일
           tocHref: /azure/storage/files/
           topicHref: /azure/storage/files/storage-files-introduction
+        - name: 파일 동기화
+          tocHref: /azure/storage/file-sync/
+          topicHref: /azure/storage/file-sync/file-sync-introduction
         - name: 큐
           tocHref: /azure/storage/queues/
           topicHref: /azure/storage/queues/storage-queues-introduction

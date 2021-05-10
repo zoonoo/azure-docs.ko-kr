@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/24/2021
-ms.openlocfilehash: c16123fae63b89eff57b5c91864d9a947e01b386
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 16320021ede4a4e285c4e1973c166d2cdf643c4a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104576920"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529533"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 지역 간 Azure Load Balancer 만들기
 
@@ -106,34 +106,6 @@ Azure Portal에 [로그인](https://portal.azure.com)합니다.
 
     :::image type="content" source="./media/tutorial-cross-region-portal/add-to-backendpool.png" alt-text="백 엔드 풀에 지역 부하 분산 장치 추가" border="true":::
 
-## <a name="create-a-health-probe"></a>상태 프로브 만들기
-
-이 섹션에서는 상태 프로브를 만들어 부하 분산 규칙을 만듭니다.
-
-* 이름: **myHealthProbe**
-* 프로토콜: **TCP**
-* 간격: **5** 초
-* **두** 실패의 비정상 임계값
-
-1. 왼쪽 메뉴에서 **모든 서비스** 를 선택하고 **모든 리소스** 를 선택한 다음, 리소스 목록에서 **myLoadBalancer-CR** 을 선택합니다.
-
-2. **설정** 에서 **상태 프로브** 를 선택합니다.
-
-3. 다음 값을 사용하여 상태 프로브를 구성합니다.
-
-    | 설정 | 값 |
-    | ------- | ----- |
-    | Name | **myHealthProbe** 를 입력합니다. |
-    | 프로토콜 | **TCP** 를 선택합니다. |
-    | 포트 | **80** 을 입력합니다. |
-    | 간격 | **5** 를 입력합니다. |
-    | 비정상 임계값 | **2** 를 입력합니다. |
-
-4. **확인** 을 선택합니다.
-
-    > [!NOTE]
-    > 지역 간 부하 분산 장치에는 기본 제공 상태 프로브가 있습니다. 이 프로브는 부하 분산 규칙 생성이 작동하기 위한 자리 표시자입니다.  자세한 내용은 **[지역 간 부하 분산 장치에 대한 제한 사항](cross-region-overview.md#limitations)** 을 참조하세요.
-
 ## <a name="create-a-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
 
 이 섹션에서 만드는 부하 분산 장치 규칙은 다음과 같습니다.
@@ -154,14 +126,13 @@ Azure Portal에 [로그인](https://portal.azure.com)합니다.
     
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | **myHTTPRule** 을 입력합니다. |
+    | 속성 | **myHTTPRule** 을 입력합니다. |
     | IP 버전 | **IPv4** 를 선택합니다. |
     | 프런트 엔드 IP 주소 | **LoadBalancerFrontEnd** 를 입력합니다. |
     | 프로토콜 | **TCP** 를 선택합니다. |
     | 포트 | **80** 을 입력합니다.|
     | 백 엔드 포트 | **80** 을 입력합니다. |
     | 백 엔드 풀 | **myBackendPool** 을 선택합니다.|
-    | 상태 프로브 | **myHealthProbe** 를 선택합니다. |
     | 유휴 제한 시간(분) | 슬라이더를 **15** 로 이동합니다. |
     | TCP 재설정 | **사용** 을 선택합니다. |
 

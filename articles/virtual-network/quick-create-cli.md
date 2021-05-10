@@ -3,18 +3,17 @@ title: 가상 네트워크 만들기 - 빠른 시작 - Azure CLI
 titlesuffix: Azure Virtual Network
 description: 이 빠른 시작에서는 Azure CLI를 사용하여 가상 네트워크를 만드는 방법을 알아봅니다. 가상 네트워크를 통해 Azure 리소스가 서로 통신하고 인터넷과 통신할 수 있습니다.
 author: KumudD
-Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.service: virtual-network
 ms.topic: quickstart
 ms.date: 03/06/2021
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3f4cd0a09c64c8c89116bf3a7dec40bae9f05f71
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 407207c0dcb6270f08fb511a01e6e4e835b9fab9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102199070"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776756"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 가상 네트워크 만들기
 
@@ -84,6 +83,8 @@ az vm create \
   --generate-ssh-keys
 ```
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ### <a name="azure-cli-output-message"></a>Azure CLI 출력 메시지
 
 VM을 만드는 데 몇 분이 걸릴 수 있습니다. Azure에서 VM을 만든 후 Azure CLI는 다음과 같은 출력을 반환합니다.
@@ -104,7 +105,7 @@ VM을 만드는 데 몇 분이 걸릴 수 있습니다. Azure에서 VM을 만든
 
 ## <a name="vm-public-ip"></a>VM 공용 IP
 
-공용 IP 주소 **myVM2** 를 가져오려면 [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show)를 사용합니다.
+공용 IP 주소 **myVM2** 를 가져오려면 [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show)를 사용합니다.
 
 ```azurecli-interactive
 az network public-ip show \

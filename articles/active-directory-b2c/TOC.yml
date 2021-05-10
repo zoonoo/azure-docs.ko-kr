@@ -179,6 +179,8 @@
           href: identity-provider-google.md
         - name: ID.me
           href: identity-provider-id-me.md
+        - name: itsme
+          href: partner-itsme.md
         - name: LinkedIn
           href: identity-provider-linkedin.md
         - name: Microsoft 계정
@@ -209,6 +211,9 @@
           href: customize-ui-with-html.md
         - name: JavaScript 및 페이지 레이아웃
           href: javascript-and-page-layout.md
+        - name: iframe을 사용한 임베디드 로그인
+          displayName: iframe
+          href: embedded-login.md
         - name: 언어 사용자 지정
           href: language-customization.md
           displayName: localization
@@ -217,8 +222,25 @@
         - name: 메일 확인을 사용하지 않도록 설정
           href: disable-email-verification.md
         - name: MFA 사용
-          href: multi-factor-authentication.md
-          displayName: multi-factor auth
+          items:
+            - name: Multi-Factor Authentication
+              href: multi-factor-authentication.md
+            - name: 파트너 통합
+              items:
+                - name: HYPR
+                  href: partner-hypr.md
+                - name: Keyless
+                  href: partner-keyless.md
+                - name: Nevis
+                  href: partner-nevis.md
+                - name: Trusona
+                  href: partner-trusona.md
+                - name: Twilio
+                  href: partner-twilio.md
+                - name: TypingDNA
+                  href: partner-typingdna.md
+                - name: WhoIAM
+                  href: partner-whoiam.md
         - name: 직접 로그인 설정
           href: direct-signin.md
     - name: 토큰 및 세션 관리
@@ -380,51 +402,46 @@
       items:
         - name: Azure AD B2C 파트너 갤러리
           href: partner-gallery.md
-        - name: Arkose Labs
-          href: partner-arkose-labs.md
+    - name: ID 검증 및 교정
+      items:
+        - name: ID 검증 및 교정 파트너
+          href: identity-verification-proofing.md
+          displayName: 'id verify, id verification, azure ad b2c proofing, id proofing'
         - name: Experian
           href: partner-experian.md
-        - name: HYPR
-          href: partner-hypr.md
         - name: IDology
           href: partner-idology.md
-        - name: itsme
-          href: partner-itsme.md
         - name: Jumio
           href: partner-jumio.md
-        - name: Keyless
-          href: partner-keyless.md
         - name: LexisNexis
           href: partner-lexisnexis.md
-        - name: Microsoft Dynamics 365 Fraud Protection
-          href: partner-dynamics-365-fraud-protection.md
-        - name: N8 Identity
-          href: partner-n8identity.md
-        - name: Nevis
-          href: partner-nevis.md
         - name: Onfido
           href: partner-onfido.md
+    - name: 사기 보호
+      items:
+        - name: Microsoft Dynamics 365 Fraud Protection
+          href: partner-dynamics-365-fraud-protection.md
+          displayName: 'm365 dynamics, dynamics fraud protection, fraud, 365 protection'
+        - name: Arkose Labs
+          href: partner-arkose-labs.md
+          displayName: 'fraud protection, fraud, Azure AD b2c, protection, B2Cprotection'
+    - name: 레거시 및 온-프레미스 앱 보호
+      items:
         - name: Ping Identity
           href: partner-ping-identity.md
-        - name: Saviynt
-          href: partner-saviynt.md
         - name: Strata
           href: partner-strata.md
-        - name: Trusona
-          href: partner-trusona.md
-        - name: Twilio
-          href: partner-twilio.md
-        - name: TypingDNA
-          href: partner-typingdna.md
-        - name: WhoIAM
-          href: partner-whoiam.md
+          displayName: 'AAD b2c access, legacy app, onpremises apps'
         - name: Zscaler
           href: partner-zscaler.md
-    - name: b2clogin.com 사용
+          displayName: 'zscaler b2c, vpn, sdp b2c'
+    - name: 도메인 이름
       items:
         - name: b2clogin.com 개요
           href: b2clogin.md
-        - name: Web API를 b2clogin.com으로 마이그레이션
+        - name: 사용자 지정 도메인 구성
+          href: custom-domain.md
+        - name: 웹 API 도메인 구성
           href: multiple-token-endpoints.md
           displayName: 'migrate, b2clogin, owin'
     - name: Automation
@@ -438,9 +455,17 @@
         - name: PowerShell을 사용하여 정책 관리
           href: manage-custom-policies-powershell.md
           displayName: 'scripting, scripts, psh, custom policy'
-    - name: 사용자 관리-Azure Portal
-      href: manage-users-portal.md
-      displayName: 'create users, add users, delete users'
+    - name: 사용자 관리
+      items:
+        - name: Azure portal
+          href: manage-users-portal.md
+          displayName: 'create users, add users, delete users'
+        - name: 파트너 통합
+          items:
+            - name: N8identity
+              href: partner-n8identity.md
+            - name: Saviynt
+              href: partner-saviynt.md
     - name: API Management API 보호
       href: secure-api-management.md
       displayName: 'apim, api management, migrate, b2clogin.com'
@@ -491,6 +516,7 @@
       href: custom-policy-developer-notes.md
     - name: 페이지 레이아웃 버전
       href: page-layout.md
+      displayName: Page version
     - name: 지역 가용성 및 데이터 상주
       href: data-residency.md
     - name: 복원력을 위해 빌드

@@ -7,13 +7,13 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: erhopf
 ms.openlocfilehash: 1b0d929e667023640906baa87a2fd25c61c5d488
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102620193"
 ---
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * Azure Active Directory 인증에 대해 구성된 몰입형 판독기 리소스입니다. [다음 지침](../../how-to-create-immersive-reader.md)에 따라 설정하세요.  환경 속성을 구성할 때 여기서 만든 일부 값이 필요합니다. 나중에 참조할 수 있도록 세션 출력을 텍스트 파일로 저장합니다.
@@ -193,7 +193,7 @@ module.exports = router;
     });
     ```
 
-3. 로 _http://localhost:3000_ 다시 이동 합니다. 페이지에 스페인어 텍스트가 표시되며 **몰입형 판독기** 를 클릭하면 몰입형 판독기도 표시됩니다.
+3. _http://localhost:3000_ 으로 다시 이동합니다. 페이지에 스페인어 텍스트가 표시되며 **몰입형 판독기** 를 클릭하면 몰입형 판독기도 표시됩니다.
 
 ## <a name="specify-the-language-of-the-immersive-reader-interface"></a>몰입형 판독기 인터페이스의 언어 지정
 

@@ -3,19 +3,18 @@ title: Azure Key Vault 인증서 정보 - Azure Key Vault
 description: Azure Key Vault REST 인터페이스 및 인증서 개요입니다.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b410dc89b286ef830f0d5b6a9c33fe77d380f5d1
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: fb69068ddac311a8020a76eec9b18fab3256fea6
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102507214"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752537"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Azure Key Vault 인증서 정보
 

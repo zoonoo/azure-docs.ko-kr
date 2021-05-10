@@ -1,15 +1,18 @@
 ---
 title: 빠른 시작 - 레지스트리 만들기 - PowerShell
 description: PowerShell을 사용하여 Azure Container Registry에서 프라이빗 Docker 레지스트리를 만드는 방법을 빠르게 알아봅니다.
-ms.topic: quickstart
 ms.date: 01/22/2019
-ms.custom: seodec18, mvc, devx-track-azurepowershell
-ms.openlocfilehash: 91d4209ccf558bf7c8038d8a753ec038428bc484
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.topic: quickstart
+ms.custom:
+- mvc
+- devx-track-azurepowershell
+- mode-api
+ms.openlocfilehash: bd9b93e22081c43dfa3fd934f13da3713120aadb
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96020015"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537383"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 프라이빗 컨테이너 레지스트리 만들기
 
@@ -55,7 +58,7 @@ $registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "
 
 ## <a name="log-in-to-registry"></a>레지스트리에 로그인
 
-컨테이너 이미지를 푸시하고 끌어오려면 레지스트리에 로그인해야 합니다. 프로덕션 시나리오에서는 개별 ID 또는 서비스 주체를 사용하여 컨테이너 레지스트리에 액세스하지만, 이 빠른 시작에서는 간단한 진행을 위해 [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential] 명령을 사용하여 레지스트리에서 관리 사용자를 활성화합니다.
+컨테이너 이미지를 푸시하고 끌어오려면 레지스트리에 로그인해야 합니다. 이 빠른 시작을 간단하게 유지하려면 [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential] 명령을 사용하여 레지스트리에서 관리 사용자를 사용하도록 설정합니다. 프로덕션 시나리오에서는 서비스 사용자와 같은 레지스트리 액세스에 대해 대체 [인증 방법](container-registry-authentication.md)을 사용해야 합니다. 
 
 ```powershell
 $creds = Get-AzContainerRegistryCredential -Registry $registry
@@ -68,6 +71,10 @@ $creds.Password | docker login $registry.LoginServer -u $creds.Username --passwo
 ```
 
 완료되면 이 명령은 `Login Succeeded`를 반환합니다.
+
+> [!TIP]
+> Azure CLI는 docker 자격 증명을 전달하지 않고 [개별 ID](container-registry-authentication.md#individual-login-with-azure-ad)를 사용하여 컨테이너 레지스트리에 로그인하는 편리한 방법인 `az acr login` 명령을 제공합니다.
+
 
 [!INCLUDE [container-registry-quickstart-docker-push](../../includes/container-registry-quickstart-docker-push.md)]
 

@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: tutorial
 ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: 36d6d8b4d4435b1db99f2721c817c9c06ca60945
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 77d54ef0c9bef40af47c2fc48b9d4b5d6315b119
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103020352"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780398"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>자습서: Azure IoT Hub를 통해 디바이스 데이터 수신
 
@@ -44,7 +44,7 @@ Azure IoT Hub는 디바이스 데이터를 Event Hub, 스토리지 계정 및 Se
 메시지 라우팅을 설정하는 작업은 두 단계로 구성됩니다.
 
 ### <a name="add-an-endpoint"></a>엔드포인트 추가
-이 단계에서는 IoT Hub에서 데이터를 라우팅하는 엔드포인트를 정의합니다. 이 엔드포인트는 기본 설정에 따라 [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint) PowerShell 명령 또는 [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint#az-iot-hub-routing-endpoint-create) CLI 명령을 사용하여 만듭니다.
+이 단계에서는 IoT Hub에서 데이터를 라우팅하는 엔드포인트를 정의합니다. 이 엔드포인트는 기본 설정에 따라 [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint) PowerShell 명령 또는 [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint#az_iot_hub_routing_endpoint_create) CLI 명령을 사용하여 만듭니다.
 
 다음은 엔드포인트를 만드는 명령과 함께 사용할 매개 변수의 목록입니다.
 
@@ -59,7 +59,7 @@ Azure IoT Hub는 디바이스 데이터를 Event Hub, 스토리지 계정 및 Se
 |ConnectionString|connection-string|Azure IoT Connector for FHIR에 대한 연결 문자열입니다. 이전 단계에서 얻은 값을 사용합니다.|
 
 ### <a name="add-a-message-route"></a>메시지 경로 추가
-이 단계에서는 위에서 만든 엔드포인트를 사용하여 메시지 경로를 정의합니다. 이 경로는 기본 설정에 따라 [Add-AzIotHubRoute](/powershell/module/az.iothub/Add-AzIoTHubRoute) PowerShell 명령 또는 [az iot hub route create](/cli/azure/iot/hub/route#az-iot-hub-route-create) CLI 명령을 사용하여 만듭니다.
+이 단계에서는 위에서 만든 엔드포인트를 사용하여 메시지 경로를 정의합니다. 이 경로는 기본 설정에 따라 [Add-AzIotHubRoute](/powershell/module/az.iothub/Add-AzIoTHubRoute) PowerShell 명령 또는 [az iot hub route create](/cli/azure/iot/hub/route#az_iot_hub_route_create) CLI 명령을 사용하여 만듭니다.
 
 다음은 메시지 경로를 추가하는 명령과 함께 사용할 매개 변수의 목록입니다.
 

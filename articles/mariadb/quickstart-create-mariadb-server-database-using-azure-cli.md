@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3279150d0cb7b287f0a78581094a51356033596c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 042c70fdd08a6de2b97c4560eb2b6a24eec0bb34
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98662163"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789990"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Database for MariaDB 서버 만들기
 
@@ -25,7 +25,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 - 이 문서에는 Azure CLI 버전 2.0 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
-구독이 여러 개인 경우 리소스 또는 구독 요금이 청구되는 구독을 선택합니다. 계정에 속한 특정 구독 ID를 선택하려면 [az account set](/cli/azure/account#az-account-set) 명령을 사용합니다.
+구독이 여러 개인 경우 리소스 또는 구독 요금이 청구되는 구독을 선택합니다. 계정에 속한 특정 구독 ID를 선택하려면 [az account set](/cli/azure/account#az_account_set) 명령을 사용합니다.
 
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
@@ -33,7 +33,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group#az-group-create) 명령을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다.
+[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다.
 
 다음 예제에서는 `westus` 위치에 `myresourcegroup`이라는 리소스 그룹을 만듭니다.
 
@@ -43,7 +43,7 @@ az group create --name myresourcegroup --location westus
 
 ## <a name="create-an-azure-database-for-mariadb-server"></a>Azure Database for MariaDB 서버 만들기
 
-[az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create) 명령을 사용하여 Azure Database for MariaDB 서버를 만듭니다. 서버는 여러 데이터베이스를 관리할 수 있습니다. 일반적으로 각 프로젝트 또는 각 사용자에 대해 별도의 데이터베이스가 사용됩니다.
+[az mariadb server create](/cli/azure/mariadb/server#az_mariadb_server_create) 명령을 사용하여 Azure Database for MariaDB 서버를 만듭니다. 서버는 여러 데이터베이스를 관리할 수 있습니다. 일반적으로 각 프로젝트 또는 각 사용자에 대해 별도의 데이터베이스가 사용됩니다.
 
 설정 | 샘플 값 | Description
 ---|---|---
@@ -77,7 +77,7 @@ az mariadb server create --resource-group myresourcegroup --name mydemoserver  -
 
 ## <a name="configure-a-firewall-rule"></a>방화벽 규칙 구성
 
-[az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create) 명령을 사용하여 Azure Database for MariaDB 서버 수준 방화벽 규칙을 만듭니다. 서버 수준 방화벽 규칙을 사용하면 mysql 명령줄 도구 또는 MySQL Workbench 같은 외부 애플리케이션에서 Azure Database for MariaDB 서비스 방화벽을 통해 서버에 연결할 수 있습니다.
+[az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az_mariadb_server_firewall_rule_create) 명령을 사용하여 Azure Database for MariaDB 서버 수준 방화벽 규칙을 만듭니다. 서버 수준 방화벽 규칙을 사용하면 mysql 명령줄 도구 또는 MySQL Workbench 같은 외부 애플리케이션에서 Azure Database for MariaDB 서비스 방화벽을 통해 서버에 연결할 수 있습니다.
 
 다음 예제는 특정 IP 주소 192.168.0.1에서 연결하는 것을 허용하는 `AllowMyIP` 방화벽 규칙을 만듭니다. 연결하는 위치에 해당하는 IP 주소 또는 IP 주소 범위로 바꾸세요.
 
@@ -231,7 +231,7 @@ mysql 명령줄 도구를 사용하여 서버에 연결하려면:
 az group delete --name myresourcegroup
 ```
 
-이 빠른 시작에서 만든 서버만 삭제하려면 [az mariadb server delete](/cli/azure/mariadb/server#az-mariadb-server-delete)을 실행합니다.
+이 빠른 시작에서 만든 서버만 삭제하려면 [az mariadb server delete](/cli/azure/mariadb/server#az_mariadb_server_delete)을 실행합니다.
 
 ```azurecli-interactive
 az mariadb server delete --resource-group myresourcegroup --name mydemoserver

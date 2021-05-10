@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: anavin
 ms.openlocfilehash: a30a42e8a8c4049b53274da512089dd29965e775
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96573156"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Azure Load Balancer의 새로운 기능
@@ -40,7 +40,7 @@ Azure Load Balancer는 정기적으로 업데이트됩니다. 최신 공지 사�
 
 현재 제품 그룹에서 다음과 같은 알려진 문제를 해결하기 위해 적극적으로 작업 중입니다.
 
-|문제 |설명  |완화 방법  |
+|문제 |Description  |완화 방법  |
 | ---------- |---------|---------|
 | Load Balancer 경고 이벤트 및 상태 프로브 상태 로그 | 기본 및 표준 Load Balancer에 대한 Load Balancer 경고 이벤트 또는 기본 Load Balancer에 대한 상태 프로브 상태 로그에 대해 로깅이 작동하지 않습니다.  | [표준 Load Balancer의 다차원 메트릭에 Azure Monitor를 활용](load-balancer-standard-diagnostics.md)합니다. Azure Monitor는 로그로 내보낼 수도 있는 다양한 다차원 메트릭 세트에 대한 시각화를 제공합니다. Load Balancer의 인사이트 하위 블레이드를 통해 미리 구성된 메트릭 대시보드를 활용할 수 있습니다. 기본 Load Balancer 사용하는 경우 프로덕션 수준 메트릭 모니터링이 가능하도록 [표준으로 업그레이드](upgrade-basic-standard.md)하세요.
 

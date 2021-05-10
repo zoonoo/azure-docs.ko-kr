@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 02/03/2021
 ms.author: alkohli
 ms.openlocfilehash: 6c2eed9aac614b0765582d5cf373caf50323ef7a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99822452"
 ---
 # <a name="tutorial-return-azure-data-box"></a>자습서: Azure Data Box 반환
@@ -23,7 +23,7 @@ ms.locfileid: "99822452"
 
 > [!div class="checklist"]
 >
-> * 필수 구성 요소
+> * 사전 요구 사항
 > * 배송 준비
 > * Microsoft에 Data Box 배송
 > * Data Box에서 데이터 지우기

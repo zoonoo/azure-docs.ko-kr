@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
 ms.openlocfilehash: d4de81bad1ddda2f5b54f47c1be78925ad4cdbf3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "74168975"
 ---
 # <a name="infrastructure-fqdns"></a>인프라 FQDN
@@ -30,4 +30,4 @@ Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 방화벽을 배포 하 고 구성](tutorial-firewall-deploy-portal.md)하는 방법에 대해 알아봅니다.
+- [Azure Azure Firewall을 배포 및 구성](tutorial-firewall-deploy-portal.md)하는 방법에 대해 알아봅니다.

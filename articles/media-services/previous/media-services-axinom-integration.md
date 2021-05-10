@@ -17,10 +17,10 @@ ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 532e982b02bb35074370db45fec8cc42a898c83e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103015525"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Axinom을 사용하여 Azure Media Services에 Widevine 라이선스 제공
@@ -60,7 +60,7 @@ Azure Active Directory를 Axinom의 Widevine 라이선스 서버에 대한 STS�
 
 ### <a name="considerations"></a>고려 사항
 1. Axinom 지정 키 시드(8888000000000000000000000000000000000000) 및 사용자가 생성하거나 선택한 키 ID를 사용하여 키 배달 서비스를 구성하기 위한 콘텐츠 키를 생성해야 합니다. Axinom 라이선스 서버는 테스트와 생산에 모두 유효한 동일한 키 시드를 기반으로 콘텐츠 키를 포함하고 있는 모든 라이선스를 발급합니다.
-2. 테스트를 위한 Widevine 라이선스 획득 URL: [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense) . HTTP 및 HTTS 모두 허용됩니다.
+2. 테스트용 Widevine 라이선스 획득 URL: [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense). HTTP 및 HTTS 모두 허용됩니다.
 
 ## <a name="azure-media-player-preparation"></a>Azure Media Player 준비
 AMP v1.4.0은 PlayReady와 Widevine DRM 둘 다를 사용하여 동적으로 패키징된 AMS 콘텐츠의 재생을 지원합니다.
@@ -217,6 +217,6 @@ Axinom Widevine 라이선스 서버를 활용하는 미니 솔루션에는 다�
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-### <a name="acknowledgments"></a>승인
+### <a name="acknowledgments"></a>감사의 글
 이 문서를 작성하는 데 기여해 주신 Kristjan Jõgi of Axinom, Mingfei Yan, Amit Rajput에게 감사 드립니다.
 

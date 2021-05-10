@@ -2,18 +2,18 @@
 title: 빠른 시작 - Java용 Azure Key Vault 키 클라이언트 라이브러리
 description: Java용 Azure Key Vault 키 클라이언트 라이브러리에 대한 빠른 시작을 제공합니다.
 author: msmbaldwin
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 ms.author: mbaldwin
 ms.date: 01/05/2021
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.openlocfilehash: cb5abf59c446ef0835375bac45d1e852144a6f28
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 75cb7b6c9225e8579561f980df10da8994257133
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97935277"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777188"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-java"></a>빠른 시작: Java용 Azure Key Vault 키 클라이언트 라이브러리
 Java용 Azure Key Vault 키 클라이언트 라이브러리를 시작합니다. 아래 단계에 따라 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 봅니다.
@@ -176,7 +176,7 @@ KeyClient keyClient = new KeyClientBuilder()
 keyClient.createKey(keyName, KeyType.RSA);
 ```
 
-[az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) 명령을 사용하여 키가 설정되었는지 확인할 수 있습니다.
+[az keyvault key show](/cli/azure/keyvault/key?#az_keyvault_key_show) 명령을 사용하여 키가 설정되었는지 확인할 수 있습니다.
 
 ```azurecli
 az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
@@ -201,7 +201,7 @@ SyncPoller<DeletedKey, Void> deletionPoller = keyClient.beginDeleteKey(keyName);
 deletionPoller.waitForCompletion();
 ```
 
-[az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) 명령을 사용하여 키가 삭제되었는지 확인할 수 있습니다.
+[az keyvault key show](/cli/azure/keyvault/key?#az_keyvault_key_show) 명령을 사용하여 키가 삭제되었는지 확인할 수 있습니다.
 
 ```azurecli
 az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
@@ -271,4 +271,4 @@ public class App {
 - [Azure Key Vault 개요](../general/overview.md) 참조
 - [Azure Key Vault 보안 개요](../general/security-overview.md)를 읽으세요.
 - [Azure Key Vault 개발자 가이드](../general/developers-guide.md) 참조
-- [키 자격 증명 모음에 대한 액세스를 보호](../general/secure-your-key-vault.md)하는 방법
+- [키 자격 증명 모음에 대한 액세스를 보호](../general/security-overview.md)하는 방법

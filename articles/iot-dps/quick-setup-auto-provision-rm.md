@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 505859075ce58c5db6873544123710a11135651a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bcb37c624f53d961020de022569a621ca1dfaba1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198611"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788997"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-dps-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure IoT Hub DPS(Device Provisioning Service) 설정
 
@@ -136,7 +136,7 @@ Azure 계정에 로그인하고 구독을 선택합니다.
 
 ## <a name="review-deployed-resources"></a>배포된 리소스 검토
 
-1. 배포를 확인하려면 다음 [명령을 실행하여 리소스를 나열](/cli/azure/resource#az-resource-list)하고, 출력에서 새 프로비저닝 서비스 및 IoT 허브를 찾습니다.
+1. 배포를 확인하려면 다음 [명령을 실행하여 리소스를 나열](/cli/azure/resource#az_resource_list)하고, 출력에서 새 프로비저닝 서비스 및 IoT 허브를 찾습니다.
 
     ```azurecli
      az resource list -g "${projectName}rg"
@@ -171,4 +171,3 @@ Azure Portal, PowerShell, REST API 또는 Azure Resource Manager나 IoT Hub Devi
 
 > [!div class="nextstepaction"]
 > [디바이스 프로비저닝을 위한 빠른 시작](./quick-create-simulated-device-symm-key.md)
-

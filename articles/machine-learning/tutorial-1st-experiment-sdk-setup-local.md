@@ -1,7 +1,7 @@
 ---
 title: '자습서: Machine Learning 시작 - Python'
 titleSuffix: Azure Machine Learning
-description: 이 자습서에서는 개인 개발 환경에서 실행되는 Azure Machine Learning SDK for Python을 시작합니다.
+description: 개인 개발 환경에서 실행되는 Azure Machine Learning SDK for Python을 시작합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 02/11/2021
-ms.custom: devx-track-python
+ms.custom: devx-track-python, contperf-fy21q3
 adobe-target: true
-ms.openlocfilehash: 5d61f330c823aff755a25e637bb58c132aa58100
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 69340245cdebda570b526afd4f11ac8314384b43
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369137"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210621"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>자습서: 개발 환경에서 Azure Machine Learning 시작(1/4부)
 
@@ -30,16 +30,18 @@ ms.locfileid: "100369137"
 > * 코드에 대한 디렉터리 구조 설정
 > * Azure Machine Learning 작업 영역을 만듭니다.
 > * 로컬 개발 환경 구성
-> * 컴퓨팅 클러스터 설정
+> * 모델 학습을 위한 클라우드 기반 리소스인 컴퓨팅 클러스터를 설정합니다.
 
-> [!NOTE]
-> 이 자습서 시리즈는 **일괄** 작업을 제출하는 데 필요한 Azure Machine Learning 개념에 중점을 두고 있습니다. 여기서 코드는 클라우드에 제출되어 사용자 상호 작용 없이 백그라운드에서 실행됩니다. 이는 반복적으로 실행할 완료된 스크립트 또는 코드, 또는 컴퓨팅 집약 기계 학습 작업에 유용합니다. 예비 워크플로에 더 관심이 있는 경우 [Azure Machine Learning 컴퓨팅 인스턴스의 Jupyter 또는 RStudio](tutorial-1st-experiment-sdk-setup.md)를 대신 사용할 수 있습니다.
+이 자습서 시리즈는 **일괄** 작업을 제출하는 데 필요한 Azure Machine Learning 개념에 중점을 두고 있습니다. 여기서 코드는 클라우드에 제출되어 사용자 상호 작용 없이 백그라운드에서 실행됩니다. 이는 반복적으로 실행할 완료된 스크립트 또는 코드, 또는 컴퓨팅 집약 기계 학습 작업에 유용합니다.
 
-## <a name="prerequisites"></a>필수 조건
+Azure Machine Learning 사용을 시작하는 또 다른 좋은 방법은 Jupyter Notebooks를 사용하는 것입니다.  [자습서: Jupyter Notebooks에서 Azure Machine Learning 시작](tutorial-1st-experiment-sdk-setup.md)을 참조하세요.
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning](https://aka.ms/AMLFree)을 사용해 보세요.
 - Python 가상 환경을 관리하고 패키지를 설치하는 [Anaconda](https://www.anaconda.com/download/) 또는 [Miniconda](https://www.anaconda.com/download/).  
 - conda 사용에 익숙하지 않은 경우 [conda 시작](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html)을 참조하세요.
+- Python 스크립트를 만들 수 있는 모든 IDE 또는 텍스트 편집기입니다.
 
 ## <a name="install-the-azure-machine-learning-sdk"></a>Azure Machine Learning SDK 설치
 

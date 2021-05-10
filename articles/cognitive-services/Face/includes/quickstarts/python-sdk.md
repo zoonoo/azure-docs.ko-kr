@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/10/2020
 ms.author: pafarley
-ms.openlocfilehash: 7fc1822c219c6c881e3d788f6b0e56675cecc466
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0939216e1d96e898d7c45b9e7a3ec72453b263d6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102444454"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958119"
 ---
 Python용 Face 클라이언트 라이브러리를 사용하여 얼굴 인식을 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Face 서비스는 이미지에서 사람의 얼굴을 감지하고 인식하기 위한 고급 알고리즘에 대한 액세스를 제공합니다.
 
@@ -22,7 +22,7 @@ Python용 Face 클라이언트 라이브러리를 사용하여 다음을 수행�
 
 * [이미지에서 얼굴 감지](#detect-faces-in-an-image)
 * [유사 얼굴 찾기](#find-similar-faces)
-* [사람 그룹 만들기 및 학습](#create-and-train-a-person-group)
+* [PersonGroup 만들기 및 학습](#create-and-train-a-persongroup)
 * [얼굴 식별](#identify-a-face)
 * [얼굴 확인](#verify-faces)
 
@@ -86,7 +86,7 @@ Face Python 클라이언트 라이브러리의 주요 기능 중 일부를 처�
 * [클라이언트 인증](#authenticate-the-client)
 * [이미지에서 얼굴 감지](#detect-faces-in-an-image)
 * [유사 얼굴 찾기](#find-similar-faces)
-* [사람 그룹 만들기 및 학습](#create-and-train-a-person-group)
+* [PersonGroup 만들기 및 학습](#create-and-train-a-persongroup)
 * [얼굴 식별](#identify-a-face)
 * [얼굴 확인](#verify-faces)
 
@@ -133,7 +133,7 @@ Face Python 클라이언트 라이브러리의 주요 기능 중 일부를 처�
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_findsimilar_print)]
 
-## <a name="create-and-train-a-person-group"></a>사람 그룹 만들기 및 학습
+## <a name="create-and-train-a-persongroup"></a>PersonGroup 만들기 및 학습
 
 다음 코드에서는 서로 다른 세 개의 **Person** 개체를 사용하여 **PersonGroup** 을 만듭니다. 각 **Person** 을 예제 이미지 세트와 연결한 다음, 각 사용자를 인식할 수 있도록 학습시킵니다. 
 
@@ -174,7 +174,7 @@ Face Python 클라이언트 라이브러리의 주요 기능 중 일부를 처�
 Identify(식별) 작업은 사람(또는 여러 사람)의 이미지를 가져와서 이미지에서 각 얼굴의 ID를 찾습니다(얼굴 인식 검색). 감지된 각 얼굴을 얼굴 특징이 알려진 다른 **Person** 개체의 데이터베이스인 **PersonGroup** 과 비교합니다.
 
 > [!IMPORTANT]
-> 이 예제를 실행하려면 먼저 [사람 그룹 만들기 및 학습](#create-and-train-a-person-group)에서 코드를 실행해야 합니다.
+> 이 예제를 실행하려면 먼저 [PersonGroup 만들기 및 학습](#create-and-train-a-persongroup)에서 코드를 실행해야 합니다.
 
 ### <a name="get-a-test-image"></a>테스트 이미지 가져오기
 

@@ -2,23 +2,24 @@
 title: 템플릿 배포 - Azure Portal
 description: Azure Portal을 사용하여 첫 번째 ARM 템플릿(Azure Resource Manager 템플릿)을 만들고 이를 배포하는 방법을 알아봅니다.
 author: mumian
-ms.date: 03/09/2021
+ms.date: 03/26/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 20b1bf47ae2fd63e91a11c8cccd1f03cf3464899
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.custom: contperfq1
+ms.openlocfilehash: 279dde9c4cd7b19086d29d3ba31a32c60a8cdf0b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102548178"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105612928"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 ARM 템플릿 만들기 및 배포
 
 Azure Portal을 사용하여 ARM 템플릿(Azure Resource Manager 템플릿)을 생성하는 방법과 포털에서 템플릿을 편집하고 배포하는 프로세스에 대해 알아봅니다. ARM 템플릿은 솔루션에 배포해야 하는 리소스를 정의하는 JSON 파일입니다. Azure 솔루션 배포 및 관리와 관련된 개념을 이해하려면 [템플릿 배포 개요](overview.md)를 참조하세요.
 
-![Resource Manager 템플릿 빠른 시작 포털 다이어그램](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
-
 자습서를 완료한 후 Azure Storage 계정을 배포합니다. 다른 Azure 리소스를 배포하는 데 동일한 프로세스를 사용할 수 있습니다.
+
+![Resource Manager 템플릿 빠른 시작 포털 다이어그램](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 

@@ -2,18 +2,18 @@
 title: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure App Configuration 저장소 만들기
 titleSuffix: Azure App Configuration
 description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure App Configuration 저장소를 만드는 방법을 알아봅니다.
-author: ZhijunZhao
-ms.author: zhijzhao
+author: GrantMeStrength
+ms.author: jken
 ms.date: 10/16/2020
-ms.service: azure-resource-manager
+ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: c35b6d27a5e6d7ffd2a9f76ea201af4a138a77df
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c5976053e32bcc97e57ef8f74b3249df83d322c4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99219114"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933239"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure App Configuration 저장소 만들기
 

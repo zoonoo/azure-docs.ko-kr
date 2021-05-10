@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
-ms.openlocfilehash: 1fe86aef832223a7485036343b4b12d8bb526e06
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ed83fdde4e005b0db76b9edf30faef5e8c732998
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96852390"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714041"
 ---
 # <a name="tutorial-create-a-custom-simulated-device"></a>자습서: 사용자 지정 시뮬레이션된 디바이스 만들기
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 자습서를 실행하려면 Azure 구독에서 디바이스 시뮬레이션의 배포된 인스턴스가 필요합니다.
 
-아직 디바이스 시뮬레이션을 배포하지 않은 경우 GitHub의 [디바이스 시뮬레이션 배포](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md)를 참조하세요.
+아직 디바이스 시뮬레이션을 배포하지 않은 경우 GitHub의 [디바이스 시뮬레이션 배포](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md)를 참조하세요.
 
 ## <a name="view-your-device-models"></a>디바이스 모델 보기
 

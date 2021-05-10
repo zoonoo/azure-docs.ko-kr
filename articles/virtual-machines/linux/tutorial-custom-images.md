@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
-ms.openlocfilehash: 40ec86030e136a06fe240e473a469681dcfa7c4f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 81bbf0b49919db68407a85b9ea2f731c5f8e1d91
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102557764"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769880"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure VM의 사용자 지정 이미지 만들기
 
@@ -61,7 +61,7 @@ Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **�
 
 갤러리 이름에 허용되는 문자는 대문자 또는 소문자, 숫자, 점 및 마침표입니다. 갤러리 이름에 대시를 사용할 수 없습니다.   갤러리 이름은 구독 내에서 고유해야 합니다. 
 
-[az sig create](/cli/azure/sig#az-sig-create)를 사용하여 이미지 갤러리를 만드세요. 다음 예제에서는 *미국 동부* 에 *myGalleryRG* 라는 리소스 그룹 및 *myGallery* 라는 갤러리를 만듭니다.
+[az sig create](/cli/azure/sig#az_sig_create)를 사용하여 이미지 갤러리를 만드세요. 다음 예제에서는 *미국 동부* 에 *myGalleryRG* 라는 리소스 그룹 및 *myGallery* 라는 갤러리를 만듭니다.
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location eastus
@@ -70,13 +70,13 @@ az sig create --resource-group myGalleryRG --gallery-name myGallery
 
 ## <a name="get-information-about-the-vm"></a>VM 관련 정보 가져오기
 
-[az vm list](/cli/azure/vm#az-vm-list)를 사용하여 사용할 수 있는 VM 목록을 볼 수 있습니다. 
+[az vm list](/cli/azure/vm#az_vm_list)를 사용하여 사용할 수 있는 VM 목록을 볼 수 있습니다. 
 
 ```azurecli-interactive
 az vm list --output table
 ```
 
-VM 이름과 해당 VM이 속한 리소스 그룹을 알고 있으면 [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view)를 사용하여 VM ID를 가져옵니다. 
+VM 이름과 해당 VM이 속한 리소스 그룹을 알고 있으면 [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view)를 사용하여 VM ID를 가져옵니다. 
 
 ```azurecli-interactive
 az vm get-instance-view -g MyResourceGroup -n MyVm --query id
@@ -92,7 +92,7 @@ az vm get-instance-view -g MyResourceGroup -n MyVm --query id
 
 이미지 정의에 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](../shared-image-galleries.md#image-definitions)를 참조하세요.
 
-[az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create)를 사용하여 갤러리에서 이미지 정의를 만듭니다. 
+[az sig image-definition create](/cli/azure/sig/image-definition#az_sig_image_definition_create)를 사용하여 갤러리에서 이미지 정의를 만듭니다. 
 
 다음 예제에서는 이미지 정의의 이름이 *myImageDefinition* 이며 [특수](../shared-image-galleries.md#generalized-and-specialized-images) Linux OS 이미지에 대한 것입니다. 
 
@@ -112,7 +112,7 @@ az sig image-definition create \
 
 ## <a name="create-the-image-version"></a>이미지 버전 만들기
 
-[az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create)을 사용하여 VM에서 이미지 버전을 만듭니다.  
+[az image gallery create-image-version](/cli/azure/sig/image-version#az_sig_image_version_create)을 사용하여 VM에서 이미지 버전을 만듭니다.  
 
 이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch* 입니다.
 
@@ -140,7 +140,7 @@ az sig image-version create \
  
 ## <a name="create-the-vm"></a>VM 만들기
 
-이미지가 특수 이미지임을 나타내는 --specialized 매개 변수를 사용하는 [az vm create](/cli/azure/vm#az-vm-create)를 사용하여 VM을 만듭니다. 
+이미지가 특수 이미지임을 나타내는 --specialized 매개 변수를 사용하는 [az vm create](/cli/azure/vm#az_vm_create)를 사용하여 VM을 만듭니다. 
 
 이미지 정의 ID를 `--image`에 사용하여 사용 가능한 최신 버전의 이미지에서 VM을 만듭니다. 또한 `--image`에 대한 이미지 버전 ID를 제공하여 특정 버전에서 VM을 만들 수 있습니다. 
 
@@ -158,7 +158,7 @@ az vm create --resource-group myResourceGroup \
 
 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 구독 간에 이미지를 공유할 수 있습니다. 갤러리, 이미지 정의 또는 이미지 버전 수준에서 이미지를 공유할 수 있습니다. 이미지 버전에 대한 읽기 권한이 있는 모든 사용자는 구독 간에도 이미지 버전을 사용하여 VM을 배포할 수 있습니다.
 
-갤러리 수준에서 다른 사용자와 공유하는 것이 좋습니다. 갤러리의 개체 ID를 가져오려면 [az sig show](/cli/azure/sig#az-sig-show)를 사용합니다.
+갤러리 수준에서 다른 사용자와 공유하는 것이 좋습니다. 갤러리의 개체 ID를 가져오려면 [az sig show](/cli/azure/sig#az_sig_show)를 사용합니다.
 
 ```azurecli-interactive
 az sig show \
@@ -167,7 +167,7 @@ az sig show \
    --query id
 ```
 
-이메일 주소 및 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)와 함께 개체 ID를 범위로 사용하여 사용자에게 공유 이미지 갤러리에 대한 액세스 권한을 부여합니다. `<email-address>` 및 `<gallery iD>`를 사용자 고유의 정보로 바꿉니다.
+이메일 주소 및 [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create)와 함께 개체 ID를 범위로 사용하여 사용자에게 공유 이미지 갤러리에 대한 액세스 권한을 부여합니다. `<email-address>` 및 `<gallery iD>`를 사용자 고유의 정보로 바꿉니다.
 
 ```azurecli-interactive
 az role assignment create \

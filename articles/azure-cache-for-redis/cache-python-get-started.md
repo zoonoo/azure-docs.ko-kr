@@ -3,20 +3,21 @@ title: '빠른 시작: Python에서 Azure Cache for Redis 사용'
 description: 이 빠른 시작에서는 Azure Cache for Redis를 사용하는 Python 앱을 만드는 방법을 알아봅니다.
 author: yegu-ms
 ms.author: yegu
+ms.date: 11/05/2019
+ms.topic: quickstart
 ms.service: cache
 ms.devlang: python
-ms.topic: quickstart
 ms.custom:
 - mvc
 - seo-python-october2019
 - devx-track-python
-ms.date: 11/05/2019
-ms.openlocfilehash: 048c31bedb56bdb66dc3b80d12c3014652e34625
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+- mode-api
+ms.openlocfilehash: 40990dfb651817cf52cd5b5a039566e3209d6ac7
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121153"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532049"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-python"></a>빠른 시작: Python에서 Azure Cache for Redis 사용
 
@@ -113,4 +114,3 @@ Azure 인스턴스에 대한 리소스 그룹 및 해당 Redis Cache을 삭제�
 
 > [!div class="nextstepaction"]
 > [Azure Cache for Redis를 사용하는 간단한 ASP.NET 웹앱 만들기](./cache-web-app-howto.md)
-

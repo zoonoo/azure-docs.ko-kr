@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: cf5b24bb55f278d9d33916d2d54d3ee5a169c3e8
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: 8e35342bd704f662d41f676f58e2cc14b54f29a8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103224404"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023387"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>빠른 시작: JavaScript SPA에서 사용자 로그인 및 액세스 토큰 가져오기
 
@@ -112,7 +112,7 @@ ms.locfileid: "103224404"
 > - `Enter_the_Application_Id_Here`는 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다.
 >
 >    **애플리케이션(클라이언트) ID** 값을 찾으려면 Azure Portal에서 앱의 **개요** 페이지로 이동합니다.
-> - `Enter_the_Cloud_Instance_Id_Here`는 Azure 클라우드의 인스턴스입니다. 주 또는 글로벌 Azure 클라우드의 경우 `https://login.microsoftonline.com` 을 입력하면 됩니다. **국가별** 클라우드(예제: 중국)의 경우 [국가별 클라우드](./authentication-national-cloud.md)를 참조하세요.
+> - `Enter_the_Cloud_Instance_Id_Here`는 Azure 클라우드의 인스턴스입니다. 주 또는 글로벌 Azure 클라우드의 경우 `https://login.microsoftonline.com/` 을 입력하면 됩니다. **국가별** 클라우드(예제: 중국)의 경우 [국가별 클라우드](./authentication-national-cloud.md)를 참조하세요.
 > - `Enter_the_Tenant_info_here` 는 다음 옵션 중 하나로 설정됩니다.
 >    - 애플리케이션이 *이 조직 디렉터리의 계정* 을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: `contoso.microsoft.com`)으로 바꿉니다.
 >
@@ -121,7 +121,7 @@ ms.locfileid: "103224404"
 >    - 애플리케이션에서 *모든 조직 디렉터리의 계정 및 개인 Microsoft 계정* 을 지원하는 경우 이 값을 `common`으로 바꿉니다. *개인 Microsoft 계정만* 지원하도록 제한하려면 이 값을 `consumers`로 바꿉니다.
 >
 >    **지원되는 계정 유형** 값을 찾으려면 Azure Portal에서 앱 등록의 **개요** 페이지로 이동합니다.
->
+> - `Enter_the_Redirect_Uri_Here`은 `http://localhost:3000/`입니다.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>3단계: 앱이 구성되었고 실행할 준비가 되었습니다.
@@ -147,7 +147,7 @@ ms.locfileid: "103224404"
 > [!div renderon="docs"]
 >
 > 위치:
-> - *\<Enter_the_Graph_Endpoint_Here>* 는 API 호출이 수행될 엔드포인트입니다. 주 또는 글로벌 Microsoft Graph API 서비스의 경우 `https://graph.microsoft.com`을 입력하기만 하면 됩니다. 자세한 내용은 [국가별 클라우드 배포](/graph/deployments)를 참조하세요.
+> - *\<Enter_the_Graph_Endpoint_Here>* 는 API 호출이 수행될 엔드포인트입니다. 주 또는 글로벌 Microsoft Graph API 서비스의 경우 `https://graph.microsoft.com/`을 입력하기만 하면 됩니다. 자세한 내용은 [국가별 클라우드 배포](/graph/deployments)를 참조하세요.
 >
 > #### <a name="step-4-run-the-project"></a>4단계: 프로젝트 실행
 
@@ -177,8 +177,8 @@ MSAL 라이브러리는 사용자를 로그인하고 Microsoft ID 플랫폼으�
 ```html
 <script type="text/javascript" src="https://alcdn.msftauth.net/lib/1.2.1/js/msal.js" integrity="sha384-9TV1245fz+BaI+VvCjMYL0YDMElLBwNS84v3mY57pXNOt6xcUYch2QLImaTahcOP" crossorigin="anonymous"></script>
 ```
-> [!TIP]
-> 이전 버전을 [MSAL.js 릴리스](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)에서 최근에 릴리스된 버전으로 바꿀 수 있습니다.
+
+이전 버전을 [MSAL.js 릴리스](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)에서 최근에 릴리스된 버전으로 바꿀 수 있습니다.
 
 또는 Node.js가 설치된 경우 다음과 같이 Node.js 패키지 관리자(npm)를 통해 최신 버전을 다운로드할 수 있습니다.
 
@@ -207,13 +207,13 @@ npm install msal
 const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
 
-> |Where  | Description |
-> |---------|---------|
-> |`clientId`     | Azure Portal에 등록된 애플리케이션의 애플리케이션 ID.|
-> |`authority`    | (선택 사항) 위의 구성 섹션에 설명된 대로 계정 유형을 지원하는 기관 URL입니다. 기본 기관은 `https://login.microsoftonline.com/common`입니다. |
-> |`redirectUri`     | 애플리케이션 등록의 구성된 회신/redirectUri입니다. 이 예제의 경우 `http://localhost:3000/`입니다. |
-> |`cacheLocation`  | (선택 사항) 인증 상태에 사용되는 브라우저 스토리지를 설정합니다. 기본값은 sessionStorage입니다.   |
-> |`storeAuthStateInCookie`  | (선택 사항) 브라우저 쿠키에서 인증 흐름의 유효성을 검사하는 데 필요한 인증 요청 상태를 저장하는 라이브러리입니다. 이 쿠키는 특정한 [알려진 문제](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues)를 완화하기 위해 IE 및 Edge 브라우저에 대해 설정됩니다. |
+|Where  | Description |
+|---------|---------|
+|`clientId`     | Azure Portal에 등록된 애플리케이션의 애플리케이션 ID.|
+|`authority`    | (선택 사항) 위의 구성 섹션에 설명된 대로 계정 유형을 지원하는 기관 URL입니다. 기본 기관은 `https://login.microsoftonline.com/common`입니다. |
+|`redirectUri`     | 애플리케이션 등록의 구성된 회신/redirectUri입니다. 이 예제의 경우 `http://localhost:3000/`입니다. |
+|`cacheLocation`  | (선택 사항) 인증 상태에 사용되는 브라우저 스토리지를 설정합니다. 기본값은 sessionStorage입니다.   |
+|`storeAuthStateInCookie`  | (선택 사항) 브라우저 쿠키에서 인증 흐름의 유효성을 검사하는 데 필요한 인증 요청 상태를 저장하는 라이브러리입니다. 이 쿠키는 특정한 [알려진 문제](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues)를 완화하기 위해 IE 및 Edge 브라우저에 대해 설정됩니다. |
 
 사용할 수 있는 구성 가능한 옵션에 대한 자세한 내용은 [클라이언트 애플리케이션 초기화](msal-js-initializing-client-applications.md)를 참조하세요.
 
@@ -235,12 +235,11 @@ myMSALObj.loginPopup(loginRequest)
 });
 ```
 
-> |Where  | Description |
-> |---------|---------|
-> | `scopes`   | (선택 사항) 로그인 시 사용자 동의를 요청하는 범위가 포함됩니다. 예를 들어 Microsoft Graph의 경우 `[ "user.read" ]` 또는 사용자 지정 웹 API의 경우 `[ "<Application ID URL>/scope" ]`(즉, `api://<Application ID>/access_as_user`)입니다. |
+|Where  | Description |
+|---------|---------|
+| `scopes`   | (선택 사항) 로그인 시 사용자 동의를 요청하는 범위가 포함됩니다. 예를 들어 Microsoft Graph의 경우 `[ "user.read" ]` 또는 사용자 지정 웹 API의 경우 `[ "<Application ID URL>/scope" ]`(즉, `api://<Application ID>/access_as_user`)입니다. |
 
-> [!TIP]
-> 또는 `loginRedirect` 메서드를 사용하여 현재 페이지를 팝업 창 대신 로그인 페이지로 리디렉션할 수 있습니다.
+또는 `loginRedirect` 메서드를 사용하여 현재 페이지를 팝업 창 대신 로그인 페이지로 리디렉션할 수 있습니다.
 
 ### <a name="request-tokens"></a>토큰 요청
 
@@ -265,9 +264,9 @@ myMSALObj.acquireTokenSilent(tokenRequest)
     });
 ```
 
-> |Where  | Description |
-> |---------|---------|
-> | `scopes`   | API에 대한 액세스 토큰에서 반환되도록 요청되는 범위가 포함됩니다. 예를 들어 Microsoft Graph의 경우 `[ "mail.read" ]` 또는 사용자 지정 웹 API의 경우 `[ "<Application ID URL>/scope" ]`(즉, `api://<Application ID>/access_as_user`)입니다.|
+|Where  | Description |
+|---------|---------|
+| `scopes`   | API에 대한 액세스 토큰에서 반환되도록 요청되는 범위가 포함됩니다. 예를 들어 Microsoft Graph의 경우 `[ "mail.read" ]` 또는 사용자 지정 웹 API의 경우 `[ "<Application ID URL>/scope" ]`(즉, `api://<Application ID>/access_as_user`)입니다.|
 
 #### <a name="get-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
 

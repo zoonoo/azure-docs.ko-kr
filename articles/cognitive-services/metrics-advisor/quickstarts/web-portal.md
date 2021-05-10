@@ -4,18 +4,20 @@ titleSuffix: Azure Cognitive Services
 description: Metrics Advisor 웹 포털 사용을 시작하는 방법을 알아봅니다.
 services: cognitive-services
 author: mrbullwinkle
+ms.author: mbullwin
 manager: nitinme
+ms.date: 09/30/2020
+ms.topic: quickstart
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
-ms.topic: quickstart
-ms.date: 09/30/2020
-ms.author: mbullwin
-ms.openlocfilehash: f853dca12b6a5855dc0603259ab534fa9933cd5b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.custom:
+- mode-portal
+ms.openlocfilehash: aaeaf92df140019db32c326199c9614fd8f5ae37
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102432301"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531808"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>빠른 시작: 웹 포털을 사용하여 첫 번째 메트릭 모니터링
 

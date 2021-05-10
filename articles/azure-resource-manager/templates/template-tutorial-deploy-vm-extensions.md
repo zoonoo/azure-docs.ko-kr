@@ -2,16 +2,16 @@
 title: 템플릿을 사용하여 VM 확장 배포
 description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 가상 머신 확장을 배포하는 방법을 알아봅니다.
 author: mumian
-ms.date: 04/23/2020
+ms.date: 03/26/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9e04006a0908832c623230d89caa62b0985f32e4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 320908ab4b24c43e8bd5209d4f32ef0211036958
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97587947"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105628427"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>자습서: ARM 템플릿을 사용하여 가상 머신 확장 배포
 
@@ -82,7 +82,7 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
-  "apiVersion": "2019-12-01",
+  "apiVersion": "2020-12-01",
   "name": "[concat(variables('vmName'),'/', 'InstallWebServer')]",
   "location": "[parameters('location')]",
   "dependsOn": [

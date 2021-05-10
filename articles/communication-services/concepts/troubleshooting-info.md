@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: daa89380894a57e58191edd95303a2160846da04
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: db6aafc8c9db7a67c9ee70d524d17a642d03dfd8
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492696"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259067"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Azure Communication Services의 문제 해결
 
@@ -33,11 +33,11 @@ ms.locfileid: "103492696"
 
 ## <a name="access-your-ms-cv-id"></a>MS CV ID에 액세스
 
-MS-CV ID는 클라이언트 라이브러리를 초기화할 때 `clientOptions` 개체 인스턴스에서 진단을 구성하여 액세스할 수 있습니다. 채팅, ID 및 VoIP 호출을 비롯한 모든 Azure 클라이언트 라이브러리에 대해 진단을 구성할 수 있습니다.
+MS-CV ID는 SDK를 초기화할 때 `clientOptions` 개체 인스턴스에서 진단을 구성하여 액세스할 수 있습니다. 채팅, ID 및 VoIP 호출을 비롯한 모든 Azure SDK에 대해 진단을 구성할 수 있습니다.
 
 ### <a name="client-options-example"></a>클라이언트 옵션 예제
 
-다음 코드 조각에서는 진단 구성을 보여줍니다. 진단이 활성화된 클라이언트 라이브러리를 사용하는 경우 진단 세부 정보가 구성된 이벤트 수신기로 내보내집니다.
+다음 코드 조각에서는 진단 구성을 보여줍니다. 진단이 활성화된 SDK를 사용하는 경우 진단 세부 정보가 구성된 이벤트 수신기로 내보내집니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
 ```
@@ -79,11 +79,11 @@ chat_client = ChatClient(
 
 ## <a name="access-your-call-id"></a>호출 ID에 액세스
 
-호출 문제와 관련된 Azure Portal을 통해 지원 요청을 작성하는 경우 참조하는 호출의 ID를 제공하라는 메시지가 표시될 수 있습니다. 호출 클라이언트 라이브러리를 통해 액세스할 수 있습니다.
+음성 또는 화상 통화 문제를 해결할 때 `call ID`를 제공하라는 메시지가 표시될 수 있습니다. 이는 `call` 개체의 `id` 속성을 통해 액세스할 수 있습니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 ```javascript
-// `call` is an instance of a call created by `callAgent.call` or `callAgent.join` methods
+// `call` is an instance of a call created by `callAgent.startCall` or `callAgent.join` methods
 console.log(call.id)
 ```
 
@@ -97,7 +97,7 @@ print(call.callId)
 # <a name="android"></a>[Android](#tab/android)
 ```java
 // The `call id` property can be retrieved by calling the `call.getCallId()` method on a call object after a call ends
-// `call` is an instance of a call created by `callAgent.call(…)` or `callAgent.join(…)` methods
+// `call` is an instance of a call created by `callAgent.startCall(…)` or `callAgent.join(…)` methods
 Log.d(call.getCallId())
 ```
 ---
@@ -127,17 +127,23 @@ console.log(result); // your message ID will be in the result
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-다음 코드를 사용하여 JavaScript 클라이언트 라이브러리를 통해 로그를 콘솔에 출력하도록 `AzureLogger`를 구성할 수 있습니다.
+Azure Communication Services Calling SDK는 내부적으로 [@azure/logger](https://www.npmjs.com/package/@azure/logger) 라이브러리를 사용하여 로깅을 제어합니다.
+`@azure/logger` 패키지의 `setLogLevel` 메서드를 사용하여 로그 출력을 구성합니다.
+
+```javascript
+import { setLogLevel } from '@azure/logger';
+setLogLevel('verbose');
+const callClient = new CallClient();
+```
+
+AzureLogger를 사용해 `AzureLogger.log` 메서드를 재정의하여 Azure SDK에서 로깅 출력을 리디렉션할 수 있습니다. 이는 로그를 콘솔 이외의 위치로 리디렉션하는 경우에 유용할 수 있습니다.
 
 ```javascript
 import { AzureLogger } from '@azure/logger';
-
-AzureLogger.verbose = (...args) => { console.info(...args); }
-AzureLogger.info = (...args) => { console.info(...args); }
-AzureLogger.warning = (...args) => { console.info(...args); }
-AzureLogger.error = (...args) => { console.info(...args); }
-
-callClient = new CallClient({logger: AzureLogger});
+// redirect log output
+AzureLogger.log = (...args) => {
+  console.log(...args); // to console, file, buffer, REST API..
+};
 ```
 
 # <a name="ios"></a>[iOS](#tab/ios)
@@ -157,16 +163,16 @@ Android Studio의 경우 시뮬레이터와 디바이스 모두에서 보기 > �
 
 ---
 
-## <a name="calling-client-library-error-codes"></a>통화 클라이언트 라이브러리 오류 코드
+## <a name="calling-sdk-error-codes"></a>SDK 오류 코드 호출
 
-Azure Communication Services 통화 클라이언트 라이브러리는 다음 오류 코드를 사용하여 통화 문제를 해결하는 데 도움을 줍니다. 이러한 오류 코드는 통화가 종료된 후 `call.callEndReason` 속성을 통해 노출됩니다.
+Azure Communication Services Calling SDK는 다음 오류 코드를 사용하여 통화 문제를 해결하는 데 도움을 줍니다. 이러한 오류 코드는 통화가 종료된 후 `call.callEndReason` 속성을 통해 노출됩니다.
 
 | 오류 코드 | Description | 수행할 작업 |
 | -------- | ---------------| ---------------|
 | 403 | 금지 / 인증 오류. | Communication Services 토큰이 유효하고 만료되지 않았는지 확인합니다. |
 | 404 | 호출을 찾을 수 없습니다. | 통화하는 번호(또는 조인하는 통화)가 있는지 확인합니다. |
 | 408 | 통화 컨트롤러 시간이 초과되었습니다. | 사용자 엔드포인트에서 프로토콜 메시지를 기다리는 동안 통화 컨트롤러 시간이 초과되었습니다. 클라이언트가 연결되어 있고 사용 가능한지 확인합니다. |
-| 410 | 로컬 미디어 스택 또는 미디어 인프라 오류입니다. | 지원되는 환경에서 최신 클라이언트 라이브러리를 사용하고 있는지 확인합니다. |
+| 410 | 로컬 미디어 스택 또는 미디어 인프라 오류입니다. | 지원되는 환경에서 최신 SDK를 사용하고 있는지 확인합니다. |
 | 430 | 클라이언트 애플리케이션에 메시지를 전달할 수 없습니다. | 클라이언트 애플리케이션이 실행 중이고 사용 가능한지 확인합니다. |
 | 480 | 원격 클라이언트 엔드포인트가 등록되지 않았습니다. | 원격 엔드포인트를 사용할 수 있는지 확인합니다. |
 | 481 | 들어오는 호출을 처리하지 못했습니다. | Azure Portal을 통해 지원 요청을 제출합니다. |

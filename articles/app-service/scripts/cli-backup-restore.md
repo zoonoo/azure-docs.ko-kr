@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 12/07/2017
 ms.author: msangapu
 ms.reviewer: cephalin
-ms.custom: mvc, seodec18
-ms.openlocfilehash: a8b7d20c3eee57d10a7025b05605603f82437cdb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: dd9013e77699deddb680ca1e74c654bac757093f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97006422"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782570"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-cli"></a>CLI를 사용하여 백업에서 웹앱 복원
 
@@ -38,8 +38,8 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 Azure CLI 버�
 
 | 명령 | 메모 |
 |---|---|
-| [`az webapp config backup list`](/cli/azure/webapp/config/backup#az-webapp-config-backup-list) | 웹앱의 백업 목록을 가져옵니다. |
-| [`az webapp config backup restore`](/cli/azure/webapp/config/backup#az-webapp-config-backup-restore) | 백업에서 웹앱을 복원합니다. |
+| [`az webapp config backup list`](/cli/azure/webapp/config/backup#az_webapp_config_backup_list) | 웹앱의 백업 목록을 가져옵니다. |
+| [`az webapp config backup restore`](/cli/azure/webapp/config/backup#az_webapp_config_backup_restore) | 백업에서 웹앱을 복원합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

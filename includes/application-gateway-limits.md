@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: 4c7c68bf690097004f2f3310a8d89ce954d7f87f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c98d88d66e89df3efe186212d8c004ec2a65158d
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98612957"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106450366"
 ---
 | 리소스 | 제한 | 참고 |
 | --- | --- | --- |
@@ -35,7 +35,7 @@ ms.locfileid: "98612957"
 | 다시 쓰기 규칙 집합 수 |400| |
 | 다시 쓰기 규칙 집합당 헤더 또는 URL 구성 수|40| |
 | 다시 쓰기 규칙 집합당 조건 수|40| |
-| 동시 WebSocket 연결 |중간 게이트웨이 20,000<br> 대형 게이트웨이 50,000| |
+| 동시 WebSocket 연결 |중간 게이트웨이 20,000<sup>2</sup><br> 대형 게이트웨이 50,000<sup>2</sup>| |
 | 최대 URL 길이|32KB| |
 | HTTP/2에 대한 최대 헤더 크기 |4KB| |
 | 최대 파일 업로드 크기, 표준 |2GB | |
@@ -45,3 +45,5 @@ ms.locfileid: "98612957"
 | Application Gateway당 최대 WAF 제외 수|40||
 
 <sup>1</sup> WAF 기반 SKU의 경우 리소스 수를 40개로 제한해야 합니다.
+
+<sup>2</sup> 제한은 Application Gateway 리소스당이 아닌 Application Gateway 인스턴스당입니다.

@@ -4,12 +4,12 @@ description: 이 자습서에서는 Azure DevTest Labs를 사용하여 만들어
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.author: spelluru
-ms.openlocfilehash: b4477e0b98ef534b8170ee297edf88ac6fa62dd7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 96d41b74b3c143feb64fc9c602de68182787c08b
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85476447"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379471"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>자습서: Azure DevTest Labs에서 랩에 액세스
 이 자습서에서는 [ 자습서: Azure DevTest Labs에서 랩 만들기](tutorial-create-custom-lab.md)에서 만들어진 랩을 사용합니다.
@@ -46,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 목록에서 VM을 선택합니다. VM에 대한 **가상 머신 페이지** 가 표시됩니다. 도구 모음에서 **연결** 을 선택합니다.
 
     ![가상 머신에 연결](./media/tutorial-use-custom-lab/connect-button.png)
-2. 다운로드한 **RDP** 파일을 하드 디스크에 저장하고 그것을 사용하여 가상 머신에 연결합니다. 이전 섹션에서 VM을 만들 때 언급한 사용자 이름과 암호를 지정합니다. 
+2. 다운로드한 **RDP** 파일을 하드 디스크에 저장하고 이를 사용하여 가상 머신에 연결합니다. 이전 섹션에서 VM을 만들 때 언급한 사용자 이름과 암호를 지정합니다. 
 
     Linux VM에 연결하려면 VM에 대한 SSH 및/또는 RDP 액세스가 활성화되어야 합니다. RDP를 통해 Linux VM에 연결하는 단계는 [Azure에서 Linux VM에 연결하도록 원격 데스크톱 설치 및 구성](../virtual-machines/linux/use-remote-desktop.md)을 참조하세요. 
 

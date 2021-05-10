@@ -10,12 +10,12 @@ keywords: 인지 서비스, 인지 인텔리전스, 인지 솔루션, AI 서비�
 ms.topic: quickstart
 ms.date: 3/22/2021
 ms.author: aahi
-ms.openlocfilehash: 08ff2f416a00002cde5767111ba5a6824a721324
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 26e3b264b7268f7a9ffdb592beef7d76844646f5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868174"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789144"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>빠른 시작: Azure CLI(명령줄 인터페이스)를 사용하여 Cognitive Services 리소스 만들기
 
@@ -36,7 +36,7 @@ Cognitive Services는 Azure 구독에서 만든 Azure [리소스](../azure-resou
 
 ## <a name="install-the-azure-cli-and-sign-in"></a>Azure CLI 설치 및 로그인
 
-[Azure CLI](/cli/azure/install-azure-cli)를 설치합니다. 로컬에 설치된 CLI로 로그인하려면 [az login](/cli/azure/reference-index#az-login) 명령을 실행합니다.
+[Azure CLI](/cli/azure/install-azure-cli)를 설치합니다. 로컬에 설치된 CLI로 로그인하려면 [az login](/cli/azure/reference-index#az_login) 명령을 실행합니다.
 
 ```azurecli-interactive
 az login
@@ -50,7 +50,7 @@ Cognitive Services 리소스를 만들려면 리소스를 포함할 Azure 리소
 
 ### <a name="choose-your-resource-group-location"></a>리소스 그룹 위치 선택
 
-리소스를 만들려면 구독에 사용할 수 있는 Azure 위치 중 하나가 필요합니다. [az account list-locations](/cli/azure/account#az-account-list-locations) 명령으로 사용 가능한 지역 목록을 검색할 수 있습니다. 대부분의 Cognitive Services는 여러 위치에서 액세스할 수 있습니다. 가장 가까운 위치를 선택하거나 서비스에 사용할 수 있는 위치를 확인합니다.
+리소스를 만들려면 구독에 사용할 수 있는 Azure 위치 중 하나가 필요합니다. [az account list-locations](/cli/azure/account#az_account_list_locations) 명령으로 사용 가능한 지역 목록을 검색할 수 있습니다. 대부분의 Cognitive Services는 여러 위치에서 액세스할 수 있습니다. 가장 가까운 위치를 선택하거나 서비스에 사용할 수 있는 위치를 확인합니다.
 
 > [!IMPORTANT]
 > * Azure Cognitive Services를 호출할 때 필요하므로 Azure 위치를 기억해 두어야 합니다.
@@ -62,7 +62,7 @@ az account list-locations \
     --out table
 ```
 
-Azure 위치를 선택한 후에는 Azure CLI에서 [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 새 리소스 그룹을 만듭니다.
+Azure 위치를 선택한 후에는 Azure CLI에서 [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 새 리소스 그룹을 만듭니다.
 
 아래 예제에서 Azure 위치 `westus2`를 구독에 사용할 수 있는 Azure 위치 중 하나로 바꿉니다.
 
@@ -124,7 +124,7 @@ az group create \
 | Content Moderator | `ContentModerator` |
 | Personalizer      | `Personalizer`     |
 
-[az cognitiveservices account list-kinds](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-list-kinds) 명령으로 사용 가능한 Cognitive Service "종류" 목록을 찾을 수 있습니다.
+[az cognitiveservices account list-kinds](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_list_kinds) 명령으로 사용 가능한 Cognitive Service "종류" 목록을 찾을 수 있습니다.
 
 ```azurecli-interactive
 az cognitiveservices account list-kinds
@@ -132,7 +132,7 @@ az cognitiveservices account list-kinds
 
 ### <a name="add-a-new-resource-to-your-resource-group"></a>리소스 그룹에 새 리소스 추가
 
-새 Cognitive Services 리소스를 만들고 구독하려면 [az cognitiveservices account create](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-create) 명령을 사용합니다. 이 명령은 앞에서 만든 리소스 그룹에 요금이 발생할 수 있는 새 리소스를 추가합니다. 새 리소스를 만들 때 가격 책정 계층(또는 SKU) 및 Azure 위치와 함께 사용할 서비스의 "종류"를 알아야 합니다.
+새 Cognitive Services 리소스를 만들고 구독하려면 [az cognitiveservices account create](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_create) 명령을 사용합니다. 이 명령은 앞에서 만든 리소스 그룹에 요금이 발생할 수 있는 새 리소스를 추가합니다. 새 리소스를 만들 때 가격 책정 계층(또는 SKU) 및 Azure 위치와 함께 사용할 서비스의 "종류"를 알아야 합니다.
 
 아래 명령을 사용하여 `anomaly-detector-resource`라는 Anomaly Detector에 사용할 F0(체험) 리소스를 만들 수 있습니다.
 
@@ -150,13 +150,13 @@ az cognitiveservices account create \
 
 ## <a name="get-the-keys-for-your-resource"></a>리소스의 키 가져오기
 
-로컬에 설치된 CLI(명령줄 인터페이스)로 로그인하려면 [az login](/cli/azure/reference-index#az-login) 명령을 사용합니다.
+로컬에 설치된 CLI(명령줄 인터페이스)로 로그인하려면 [az login](/cli/azure/reference-index#az_login) 명령을 사용합니다.
 
 ```azurecli-interactive
 az login
 ```
 
-[az cognitiveservices account keys list](/cli/azure/cognitiveservices/account/keys#az-cognitiveservices-account-keys-list) 명령을 사용하여 Cognitive Service 리소스의 키를 가져옵니다.
+[az cognitiveservices account keys list](/cli/azure/cognitiveservices/account/keys#az_cognitiveservices_account_keys_list) 명령을 사용하여 Cognitive Service 리소스의 키를 가져옵니다.
 
 ```azurecli-interactive
     az cognitiveservices account keys list \
@@ -175,7 +175,7 @@ az login
 
 ## <a name="get-current-quota-usage-for-your-resource"></a>리소스의 현재 할당량 사용 정보 가져오기
 
-Cognitive Service 리소스 사용량 정보를 확인하려면 [az cognitiveservices account list-usage](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-list-usage) 명령을 사용합니다.
+Cognitive Service 리소스 사용량 정보를 확인하려면 [az cognitiveservices account list-usage](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_list_usage) 명령을 사용합니다.
 
 ```azurecli-interactive
 az cognitiveservices account list-usage \

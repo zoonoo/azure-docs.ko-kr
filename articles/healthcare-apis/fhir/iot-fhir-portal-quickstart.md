@@ -6,14 +6,14 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart
-ms.date: 11/13/2020
+ms.date: 04/05/2021
 ms.author: punagpal
-ms.openlocfilehash: 3e293782e6f00852a51e0617a07eebd5d8c56261
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 0a382ad948e7fd2efc6ab59eb94da3d6cbb210d7
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105644846"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443777"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure IoT Connector for FHIR(미리 보기) 배포
 
@@ -171,6 +171,11 @@ Azure는 IoT 디바이스를 연결하고 관리할 수 있는 광범위한 IoT 
 ## <a name="connect-your-iot-data-with-the-azure-iot-connector-for-fhir-preview"></a>Azure IoT Connector for FHIR(미리 보기)과 IoT 데이터 연결
 
 IoT Central 애플리케이션을 배포한 후에는 두 개의 기본 시뮬레이션 디바이스가 원격 분석 데이터를 생성하기 시작합니다. 이 자습서에서는 Azure IoT Connector for FHIR을 통해 *Smart Vitals Patch* 시뮬레이터에서 FHIR로 원격 분석 데이터를 수집합니다. IoT 데이터를 Azure IoT Connector for FHIR로 내보내려면 [IoT Central 내에서 연속 데이터 내보내기를 설정](../../iot-central/core/howto-export-data.md)합니다. 먼저 대상에 대 한 연결을 만든 다음 지속적으로 실행할 데이터 내보내기 작업을 만듭니다. 
+
+> [!NOTE]
+> 이 섹션에 대 한 IoT Central 앱 설정 내에서 **데이터 내보내기** 및 **데이터 내보내기 (레거시)** 를 선택 하는 것이 좋습니다.
+
+[![데이터 내보내기 설정 IoT Central](media/quickstart-iot-fhir-portal/iot-central-data-export-dashboard.png)](media/quickstart-iot-fhir-portal/iot-central-data-export-dashboard.png#lightbox)
 
 새 대상 만들기:
 - **대상 탭으로** 이동 하 여 새 대상을 만듭니다.

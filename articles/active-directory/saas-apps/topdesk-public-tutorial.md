@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.openlocfilehash: 3688dc2db67c0c1343a74be4652cb52466ef762e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92520441"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>자습서: TOPdesk - Public과 Azure Active Directory 통합
@@ -137,13 +137,13 @@ TOPdesk - Public에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     다. 로그아웃 URL
 
-### <a name="configure-topdesk---public-single-sign-on"></a>TOPdesk - Public Single Sign-On 구성
+### <a name="configure-topdesk---public-single-sign-on&quot;></a>TOPdesk - Public Single Sign-On 구성
 
 1. **TOPdesk - Public** 회사 사이트에 관리자 권한으로 로그온합니다.
 
 2. **TOPdesk** 메뉴에서 **Settings** 를 클릭합니다.
    
-    ![설정](./media/topdesk-public-tutorial/ic790598.png "설정")
+    ![설정](./media/topdesk-public-tutorial/ic790598.png &quot;설정")
 
 3. **Login Settings** 를 클릭합니다.
    
@@ -247,17 +247,17 @@ TOPdesk - Public에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name="create-topdesk---public-test-user"></a>TOPdesk - Public 테스트 사용자 만들기
+### <a name="create-topdesk---public-test-user&quot;></a>TOPdesk - Public 테스트 사용자 만들기
 
 Azure AD 사용자가 TOPdesk - Public에 로그인할 수 있도록 하려면 TOPdesk - Public에 프로비저닝되어야 합니다. TOPdesk - Public의 경우 프로비전은 수동 작업입니다.
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>사용자 프로비전을 구성하려면
+### <a name=&quot;to-configure-user-provisioning-perform-the-following-steps&quot;></a>사용자 프로비전을 구성하려면
 
 1. **TOPdesk - Public** 회사 사이트에 관리자 권한으로 로그온합니다.
 
 2. 위쪽 메뉴에서 **TOPdesk \> 새로 만들기 \> 지원 파일 \> 사람** 순으로 클릭합니다.
    
-    ![Person](./media/topdesk-public-tutorial/ic790628.png "사람")
+    ![Person](./media/topdesk-public-tutorial/ic790628.png &quot;사람")
 
 3. 새로운 사용자 대화 상자에서 다음 단계를 수행합니다.
    

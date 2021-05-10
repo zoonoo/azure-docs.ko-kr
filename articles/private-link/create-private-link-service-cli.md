@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 01/22/2021
 ms.author: allensu
-ms.openlocfilehash: 76fd959c28203132be4695031d96315f258cf53f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c8e32a56148326104c3514b8a2fdb5d6bbd3f00a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102563084"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778484"
 ---
 # <a name="quickstart-create-a-private-link-service-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Private Link 서비스 만들기
 
@@ -48,7 +48,7 @@ Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 �
 
 이 섹션에서는 Private Link 서비스에 액세스하는 부하 분산 장치를 호스팅할 가상 네트워크와 서브넷을 만듭니다.
 
-[az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용하여 가상 네트워크를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)를 사용하여 가상 네트워크를 만듭니다.
 
 * 이름: **myVNet**
 * **10.1.0.0/16** 의 주소 접두사.
@@ -69,7 +69,7 @@ Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 �
 
 ```
 
-프라이빗 링크 서비스 네트워크 정책을 사용하지 않도록 서브넷을 업데이트하려면 [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)를 사용합니다.
+프라이빗 링크 서비스 네트워크 정책을 사용하지 않도록 서브넷을 업데이트하려면 [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)를 사용합니다.
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -90,7 +90,7 @@ az network vnet subnet update \
 
 ### <a name="create-the-load-balancer-resource"></a>부하 분산 장치 리소스 만들기
 
-[az network lb create](/cli/azure/network/lb#az-network-lb-create)를 사용하여 공용 부하 분산 장치를 만듭니다.
+[az network lb create](/cli/azure/network/lb#az_network_lb_create)를 사용하여 공용 부하 분산 장치를 만듭니다.
 
 * 이름: **myLoadBalancer**
 * **myFrontEnd** 라는 프런트 엔드 풀
@@ -115,7 +115,7 @@ az network vnet subnet update \
 
 프로브 확인에 실패한 가상 머신은 부하 분산 장치에서 제거됩니다. 오류가 해결되면 가상 머신이 부하 분산 장치에 다시 추가됩니다.
 
-[az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create)를 사용하여 상태 프로브를 만듭니다.
+[az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create)를 사용하여 상태 프로브를 만듭니다.
 
 * 가상 머신의 상태 모니터링
 * 이름: **myHealthProbe**
@@ -139,7 +139,7 @@ az network vnet subnet update \
 * 트래픽을 수신할 백 엔드 IP 풀
 * 필요한 원본 및 대상 포트 
 
-[az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create)를 사용하여 부하 분산 장치 규칙을 만듭니다.
+[az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create)를 사용하여 부하 분산 장치 규칙을 만듭니다.
 
 * 이름: **myHTTPRule**
 * 프런트 엔드 풀 **myFrontEnd** 의 **포트 80** 에서 수신 대기
@@ -168,7 +168,7 @@ az network vnet subnet update \
 
 이 섹션에서는 이전 단계에서 만든 Azure Load Balancer를 사용하는 프라이빗 링크 서비스를 만듭니다.
 
-[az network private-link-service create](/cli/azure/network/private-link-service#az-network-private-link-service-create)를 통해 표준 부하 분산 장치 프런트 엔드 IP 구성을 사용하여 프라이빗 링크 서비스를 만듭니다.
+[az network private-link-service create](/cli/azure/network/private-link-service#az_network_private_link_service_create)를 통해 표준 부하 분산 장치 프런트 엔드 IP 구성을 사용하여 프라이빗 링크 서비스를 만듭니다.
 
 * 이름을 **myPrivateLinkService** 로 지정합니다.
 * 가상 네트워크: **myVNet**
@@ -195,7 +195,7 @@ az network private-link-service create \
 
 ### <a name="create-private-endpoint-virtual-network"></a>프라이빗 엔드포인트 가상 네트워크 만들기
 
-[az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용하여 가상 네트워크를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)를 사용하여 가상 네트워크를 만듭니다.
 
 * 이름을 **myVNetPE** 로 지정합니다.
 * **11.1.0.0/16** 의 주소 접두사.
@@ -214,7 +214,7 @@ az network private-link-service create \
     --subnet-prefixes 11.1.0.0/24
 ```
 
-프라이빗 엔드포인트 네트워크 정책을 사용하지 않도록 서브넷을 업데이트하려면 [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)를 사용합니다.
+프라이빗 엔드포인트 네트워크 정책을 사용하지 않도록 서브넷을 업데이트하려면 [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)를 사용합니다.
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -256,7 +256,7 @@ az network vnet subnet update \
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용하여 리소스 그룹, 프라이빗 링크 서비스, 부하 분산 장치 및 모든 관련 리소스를 제거합니다.
+더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용하여 리소스 그룹, 프라이빗 링크 서비스, 부하 분산 장치 및 모든 관련 리소스를 제거합니다.
 
 ```azurecli-interactive
   az group delete \

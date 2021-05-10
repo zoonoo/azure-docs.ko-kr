@@ -4,10 +4,10 @@ description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 
 ms.date: 03/12/2021
 ms.topic: sample
 ms.openlocfilehash: af41dd50c976ac6c0570b8a089211fa310ef4ef1
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103232616"
 ---
 # <a name="deploy-the-azure-security-benchmark-foundation-blueprint-sample"></a>Azure Security Benchmark Foundation 청사진 샘플 배포

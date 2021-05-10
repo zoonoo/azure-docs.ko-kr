@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: b4a1891eadf2e36bcb94b9f605d91f227fa83a3f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96026079"
 ---
 이 샘플에서는 [Twilio](https://www.twilio.com/) 서비스를 사용하여 SMS 메시지를 휴대폰으로 보냅니다. Azure Functions는 이미 [Twilio 바인딩](../articles/azure-functions/functions-bindings-twilio.md)을 통해 Twilio를 지원하며, 샘플에서 이 기능을 사용합니다.

@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 711b516d1ba1154e574b0d8bbd8d86a02d7df018
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 179b1b64656d3f97778e183d57797e4b3660fece
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87497820"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775442"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Azure CLI를 사용하여 관리되는 리소스 그룹에서 리소스를 가져오고 VM 크기를 조정합니다
 
@@ -34,9 +34,9 @@ ms.locfileid: "87497820"
 
 | 명령 | 메모 |
 |---|---|
-| [az managedapp list](/cli/azure/managedapp#az-managedapp-list) | 관리되는 애플리케이션을 나열합니다. 쿼리 값을 제공하여 결과를 얻습니다. |
-| [az resource list](/cli/azure/resource#az-resource-list) | 리소스를 나열합니다. 리소스 그룹 및 쿼리 값을 제공하여 결과를 얻습니다. |
-| [az vm resize](/cli/azure/vm#az-vm-resize) | 가상 머신의 크기를 업데이트합니다. |
+| [az managedapp list](/cli/azure/managedapp#az_managedapp_list) | 관리되는 애플리케이션을 나열합니다. 쿼리 값을 제공하여 결과를 얻습니다. |
+| [az resource list](/cli/azure/resource#az_resource_list) | 리소스를 나열합니다. 리소스 그룹 및 쿼리 값을 제공하여 결과를 얻습니다. |
+| [az vm resize](/cli/azure/vm#az_vm_resize) | 가상 머신의 크기를 업데이트합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

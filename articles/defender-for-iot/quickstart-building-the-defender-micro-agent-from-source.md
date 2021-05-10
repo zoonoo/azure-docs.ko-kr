@@ -1,16 +1,16 @@
 ---
-title: 소스 코드에서 Defender 마이크로 에이전트 빌드(미리 보기)
-description: 마이크로 에이전트는 배포를 사용자 지정하는 데 사용할 수 있는 인프라를 포함합니다.
+title: '빠른 시작: 소스 코드에서 Defender 마이크로 에이전트 빌드(미리 보기)'
+description: 이 빠른 시작에서는 배포를 사용자 지정하는 데 사용할 수 있는 인프라를 포함하는 마이크로 에이전트에 대해 알아봅니다.
 ms.date: 1/18/2021
 ms.topic: quickstart
-ms.openlocfilehash: aac9bf224064dd8393acfeb2928f5ed2d1f84381
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: a3a8f82989d6abbaf2657e4b45638c77b3b2f704
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104781112"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384600"
 ---
-# <a name="build-the-defender-micro-agent-from-source-code-preview"></a>소스 코드에서 Defender 마이크로 에이전트 빌드(미리 보기)
+# <a name="quickstart-build-the-defender-micro-agent-from-source-code-preview"></a>빠른 시작: 소스 코드에서 Defender 마이크로 에이전트 빌드(미리 보기)
 
 마이크로 에이전트는 배포를 사용자 지정하는 데 사용할 수 있는 인프라를 포함합니다. 사용 가능한 구성 매개 변수 목록을 보려면 `configs/LINUX_BASE.conf` 파일을 확인합니다.
 
@@ -32,17 +32,7 @@ ms.locfileid: "104781112"
 
     `cmake -DCMAKE_BUILD_TYPE=Debug -Dlog_level=DEBUG -Dlog_level_cmdline:BOOL=ON -DIOT_SECURITY_MODULE_DIST_TARGET=UBUNTU1804 ..` 
 
-## <a name="baseline-configuration-signing"></a>기준 구성 서명 
-
-에이전트는 기본적으로 변조를 완화하기 위해 디스크에 배치된 구성 파일의 신뢰성을 확인합니다.
-
-전처리기 플래그 `ASC_BASELINE_CONF_SIGN_CHECK_DISABLE`을 정의하여 이 프로세스를 중지할 수 있습니다.
-
-프로덕션 환경에 대한 서명 확인을 해제하지 않는 것이 좋습니다. 
-
-프로덕션 시나리오에 대해 다른 구성이 필요한 경우 Defender for IoT 팀에 문의하세요. 
-
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>사전 요구 사항
 
 1. Defender for IoT 소스 코드에 대한 액세스를 요청하려면 계정 관리자에게 문의하세요.
  
@@ -77,7 +67,17 @@ ms.locfileid: "104781112"
 
 1. (선택 사항) [VSCode](https://code.visualstudio.com/download ) 다운로드 및 설치 
 
-1. (선택 사항) VSCode에 대한 [C/C++ 확장](https://code.visualstudio.com/docs/languages/cpp )을 설치합니다.
+1. (선택 사항) VSCode에 대한 [C/C++ 확장](https://code.visualstudio.com/docs/languages/cpp )을 설치합니다. - 없음
+
+## <a name="baseline-configuration-signing"></a>기준 구성 서명 
+
+에이전트는 기본적으로 변조를 완화하기 위해 디스크에 배치된 구성 파일의 신뢰성을 확인합니다.
+
+전처리기 플래그 `ASC_BASELINE_CONF_SIGN_CHECK_DISABLE`을 정의하여 이 프로세스를 중지할 수 있습니다.
+
+프로덕션 환경에 대한 서명 확인을 해제하지 않는 것이 좋습니다. 
+
+프로덕션 시나리오에 대해 다른 구성이 필요한 경우 Defender for IoT 팀에 문의하세요. 
 
 ## <a name="building-the-defender-iot-micro-agent"></a>Defender IoT 마이크로 에이전트 빌드 
 

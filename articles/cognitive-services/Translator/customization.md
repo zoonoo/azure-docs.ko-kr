@@ -1,5 +1,5 @@
 ---
-title: 번역 사용자 지정-변환기
+title: 번역 사용자 지정 - Translator
 titleSuffix: Azure Cognitive Services
 description: Microsoft Translator Hub를 사용하여 기본 설정된 용어 및 스타일로 고유한 기계 번역 시스템을 빌드합니다.
 services: cognitive-services
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: lajanuar
 ms.openlocfilehash: 0930024a791fe8b76c90e8ab4249a070b22a1c16
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98898039"
 ---
 # <a name="customize-your-text-translations"></a>텍스트 번역 사용자 지정
 
-사용자 지정 번역기는 번역기 서비스의 기능으로, 사용자가 변환기 (버전 3에만 해당)를 사용 하 여 텍스트를 번역할 때 Microsoft Translator의 고급 신경망 번역을 사용자 지정할 수 있습니다.
+Custom Translator는 Translator 서비스의 기능으로, 사용자가 Translator(버전 3만 해당)를 사용하여 텍스트를 번역할 때 Microsoft Translator의 고급 인공신경망 기계 번역을 사용자 지정할 수 있도록 합니다.
 
 이 기능은 [Cognitive Services Speech](../speech-service/index.yml)에서 사용될 경우 음성 번역을 사용자 지정하는 데도 사용될 수 있습니다.
 
@@ -29,11 +29,11 @@ Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 �
 
 ### <a name="how-does-it-work"></a>작동 원리
 
-이전에 번역 된 문서 (leaflets, 웹 페이지, 설명서 등)를 사용 하 여 표준 번역 시스템 보다 더 나은 도메인별 용어 및 스타일을 반영 하는 번역 시스템을 빌드 하세요. 사용자는 TMX, XLIFF, TXT, DOCX 및 XLSX 문서를 업로드할 수 있습니다.  
+이전에 번역된 문서(광고, 웹 페이지, 설명서 등)를 사용하여 표준 번역 시스템보다 도메인별 용어 및 스타일을 더 잘 반영하는 번역 시스템을 빌드합니다. 사용자는 TMX, XLIFF, TXT, DOCX 및 XLSX 문서를 업로드할 수 있습니다.  
 
 또한 시스템은 문서 수준에서는 동일하게 맞춰져 있고 문장 수준에서는 아직 맞춰지지 않은 데이터만 허용합니다. 사용자가 여러 언어로 되어 있으나 별도 문서에 있는 동일한 콘텐츠 버전에 액세스할 수 있는 경우 Custom Translator는 문서 간에 문장을 자동으로 일치시킬 수 있습니다.  또한 시스템은 하나의 언어로 된 데이터를 하나 또는 두 개의 언어로 사용하여 병렬 학습 데이터를 보완함으로써 번역 품질을 개선할 수도 있습니다.
 
-그러면 사용자 지정 된 시스템은 category 매개 변수를 사용 하 여 번역기에 대 한 일반적인 호출을 통해 사용할 수 있습니다.
+그런 후 범주 매개 변수를 통해 일반적인 방식으로 Translator를 호출하여 사용자 지정된 시스템을 사용할 수 있습니다.
 
 적절한 형식 및 양의 학습 데이터가 제공될 경우, 5~10 사이의 향상을 기대하는 것도 드문 일은 아니며, Custom Translator를 사용하여 번역 품질에 더 많은 BLUE 포인트가 추가될 수도 있습니다.
 

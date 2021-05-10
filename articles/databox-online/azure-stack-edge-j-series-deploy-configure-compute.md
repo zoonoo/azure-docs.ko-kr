@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 01/05/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 28b5c107fb35c7bda9b1680050b92004436b98ff
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1dcf429ddc697dfbfdac721cb8de137b9382b234
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97935465"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058785"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>자습서: Azure Stack Edge Pro를 사용하여 데이터 변환
 
@@ -116,9 +115,9 @@ Azure Stack Edge Pro에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들
 
 ## <a name="add-a-module"></a>모듈 추가
 
-사용자 지정 또는 미리 작성된 모듈을 추가할 수 있습니다. 이 Edge 디바이스에는 사용자 지정 모듈이 없습니다. 사용자 지정 모듈을 만드는 방법을 알아보려면 [Azure Stack Edge Pro 디바이스용 C# 모듈 개발](azure-stack-edge-j-series-create-iot-edge-module.md)로 이동합니다.
+사용자 지정 또는 미리 작성된 모듈을 추가할 수 있습니다. 이 Edge 디바이스에는 사용자 지정 모듈이 없습니다. 사용자 지정 모듈을 만드는 방법을 알아보려면 [Azure Stack Edge Pro 디바이스용 C# 모듈 개발](./azure-stack-edge-gpu-create-iot-edge-module.md)로 이동합니다.
 
-이 섹션에서는 사용자 지정 모듈을 [Azure Stack Edge Pro용 C# 모듈 개발](azure-stack-edge-j-series-create-iot-edge-module.md)에서 만든 IoT Edge 디바이스에 추가합니다. 이 사용자 지정 모듈은 Edge 디바이스의 Edge 로컬 공유에서 파일을 가져와 디바이스의 Edge(클라우드) 공유로 이동합니다. 그런 다음, 클라우드 공유에서 파일을 클라우드 공유와 연결된 Azure 스토리지 계정에 푸시합니다.
+이 섹션에서는 사용자 지정 모듈을 [Azure Stack Edge Pro용 C# 모듈 개발](./azure-stack-edge-gpu-create-iot-edge-module.md)에서 만든 IoT Edge 디바이스에 추가합니다. 이 사용자 지정 모듈은 Edge 디바이스의 Edge 로컬 공유에서 파일을 가져와 디바이스의 Edge(클라우드) 공유로 이동합니다. 그런 다음, 클라우드 공유에서 파일을 클라우드 공유와 연결된 Azure 스토리지 계정에 푸시합니다.
 
 1. **Edge 컴퓨팅 > 시작** 으로 이동합니다. **모듈 추가** 타일에서 시나리오 유형을 **단순** 으로 선택합니다. **추가** 를 선택합니다.
 2. **모듈 구성 및 추가** 블레이드에서 다음 값을 입력합니다.

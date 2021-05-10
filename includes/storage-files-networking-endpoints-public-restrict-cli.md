@@ -1,19 +1,19 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 6/2/2020
 ms.author: rogarana
-ms.custom: include file
-ms.openlocfilehash: a42f963f5eb79ef5b430f6fc9d2a0144c370353a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: d3d2afa3b02d4ab4524d9b5c5d5f981cddebe1a9
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98673853"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107512504"
 ---
 서비스 엔드포인트를 사용하여 스토리지 계정의 퍼블릭 엔드포인트에 대한 액세스를 특정 가상 네트워크로 제한하려면 먼저 스토리지 계정 및 가상 네트워크에 대한 정보를 수집해야 합니다. 이 정보를 수집하기 위해 `<storage-account-resource-group>`, `<storage-account-name>`, `<vnet-resource-group-name>`, `<vnet-name>` 및 `<subnet-name>`을 입력합니다.
 

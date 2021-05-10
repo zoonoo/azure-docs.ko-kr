@@ -6,15 +6,14 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 03/10/2021
+ms.date: 04/05/2021
 ms.author: victorh
-Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 0982f0293b452c29a1c9fbb46cb24d47e70c0f5e
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: bb89b6acbc76a4020ee721e87272b154bab6d0a4
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102615570"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385176"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
@@ -53,9 +52,8 @@ Azure Firewall의 새로운 기능을 알아보려면 [Azure 업데이트](https
 
 Azure Firewall의 알려진 문제는 다음과 같습니다.
 
-|문제  |Description  |완화 방법  |
+|문제  |설명  |완화 방법  |
 |---------|---------|---------|
-|포털을 사용하여 IP 주소에서 IP 그룹으로 또는 그 반대로 규칙을 업데이트하는 경우 두 유형이 모두 저장되지만 포털에는 하나만 표시됩니다.|이 문제는 클래식 규칙에서 발생합니다.<br><br>포털을 사용하여 NAT 규칙 원본 유형을 IP 주소에서 IP 그룹으로 또는 그 반대로 업데이트하는 경우 두 유형이 모두 백 엔드에 저장되지만 새로 업데이트된 유형만 표시됩니다.<br><br>네트워크 또는 애플리케이션 규칙 대상 유형을 IP 주소에서 IP 그룹 유형으로 또는 그 반대로 업데이트하는 경우에도 동일한 문제가 발생합니다.|포털 수정은 2021년 3월을 목표로 합니다.<br><br>그 동안에는 Azure PowerShell, Azure CLI 또는 API를 사용하여 IP 주소에서 IP 그룹으로 또는 그 반대로 규칙을 수정합니다.|
 |TCP/UDP 프로토콜이 아닌 프로토콜(예: ICMP)에 대한 네트워크 필터링 규칙은 인터넷 바운드 트래픽에 작동하지 않습니다.|TCP/UDP 프로토콜이 아닌 프로토콜에 대한 네트워크 필터링 규칙은 공용 IP 주소에 대한 SNAT에 작동하지 않습니다. TCP/UDP 프로토콜이 아닌 프로토콜은 스포크 서브넷과 VNet 간에 지원됩니다.|Azure Firewall은 표준 Load Balancer를 사용하기 때문에 [현재 IP 프로토콜을 위한 SNAT를 지원하지 않습니다](../load-balancer/load-balancer-overview.md). 향후 릴리스에서 이 시나리오를 지원할 수 있는 옵션을 모색하고 있습니다.|
 |ICMP에 대한 PowerShell 및 CLI 지원 누락|Azure PowerShell 및 CLI는 네트워크 규칙에 유효한 프로토콜로 ICMP를 지원하지 않습니다.|여전히 포털 및 REST API를 통해 ICMP를 프로토콜로 사용할 수 있습니다. PowerShell 및 CLI에 ICMP를 조만간 추가하기 위해 노력 중입니다.|
 |FQDN 태그는 프로토콜: 설정할 포트가 필요|FQDN 태그를 사용하는 애플리케이션 규칙에는 포트: 프로토콜 정의가 필요합니다.|**https** 를 포트: 프로토콜 값으로 사용할 수 있습니다. FQDN 태그를 사용할 때 이 필드 옵션이 작동하도록 하기 위한 작업이 진행 중입니다.|
@@ -79,6 +77,7 @@ Azure Firewall의 알려진 문제는 다음과 같습니다.
 |강제 터널 모드로 구성된 방화벽에서 시작/중지가 작동하지 않습니다.|강제 터널 모드로 구성된 Azure 방화벽에서 시작/중지가 작동하지 않습니다. 강제 터널링이 구성된 Azure Firewall을 시작하려고 하면 다음 오류가 발생합니다.<br><br>*Set-AzFirewall: AzureFirewall FW-xx 관리 IP 구성은 기존 방화벽에 추가할 수 없습니다. 강제 터널링 지원을 사용하려면 관리 IP 구성으로 다시 배포합니다.<br>StatusCode: 400<br>ReasonPhrase: 잘못된 요청*|확인 중입니다.<br><br>해결 방법으로 기존 방화벽을 삭제하고 동일한 매개 변수를 사용하여 새 방화벽을 만들 수 있습니다.|
 |포털을 사용하여 방화벽 정책 태그를 추가할 수 없습니다.|Azure Firewall 정책에는 Azure Portal을 사용하여 태그를 추가할 수 없도록 하는 패치 지원 제한이 있습니다. 다음 오류가 생성됩니다. *리소스에 대한 태그를 저장할 수 없습니다*.|수정 사항을 조사하고 있습니다. 또는 Azure PowerShell cmdlet `Set-AzFirewallPolicy`를 사용하여 태그를 업데이트할 수 있습니다.|
 |IPv6는 아직 지원되지 않음|규칙에 IPv6 주소를 추가하면 방화벽이 실패합니다.|IPv4 주소만 사용합니다. IPv6 지원은 조사 중에 있습니다.|
+|여러 IP 그룹 업데이트가 충돌 오류로 인해 실패합니다.|동일한 방화벽에 연결된 두 개 이상의 IPGroup을 업데이트하면 리소스 중 하나가 실패한 상태가 됩니다.|이는 알려진 문제/제한 사항입니다. <br><br>IPGroup을 업데이트하면 IPGroup이 연결된 모든 방화벽에 대한 업데이트가 트리거됩니다. 방화벽이 여전히 *업데이트* 상태에 있는 동안 두 번째 IPGroup에 대한 업데이트를 시작하면 IPGroup 업데이트가 실패합니다.<br><br>오류를 방지하려면 동일한 방화벽에 연결된 IPGroup을 한 번에 하나씩 업데이트해야 합니다. 업데이트 사이에 충분한 시간을 허용하여 방화벽이 *업데이트* 상태를 벗어날 수 있도록 합니다.| 
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 85bc54402237ff8e9c82c43ab9cdbe2dc6658af1
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 693c181f8a4a6db3b8b163f4b4d3350a3730b618
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103464108"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221650"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>자습서: IoT Edge 모듈로 Azure Functions 배포
 
@@ -43,7 +43,7 @@ ms.locfileid: "103464108"
 이 자습서를 시작하기 전에 이전 자습서를 통해 Linux 컨테이너 개발을 위한 개발 환경을 설정해야 합니다. [Linux 컨테이너를 사용하여 IoT Edge 모듈을 개발](tutorial-develop-for-linux.md)합니다. 이 자습서를 완료하여 다음과 같은 필수 구성 요소를 갖추어야 합니다.
 
 * Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
-* Azure IoT Edge를 실행하는 디바이스. 빠른 시작을 사용하여 [Linux 디바이스](quickstart-linux.md) 또는 [Windows 디바이스](quickstart.md)를 설정할 수 있습니다.
+* Linux 컨테이너가 있는 Azure IoT Edge를 실행하는 디바이스. 빠른 시작을 사용하여 [Linux 디바이스](quickstart-linux.md) 또는 [Windows 디바이스](quickstart.md)를 설정할 수 있습니다.
 * [Azure Container Registry](../container-registry/index.yml)와 같은 컨테이너 레지스트리
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)를 사용하여 구성된 [Visual Studio Code](https://code.visualstudio.com/)
 * Linux 컨테이너를 실행하도록 구성된 [Docker CE](https://docs.docker.com/install/)
@@ -77,7 +77,7 @@ Azure Functions를 사용하여 IoT Edge 모듈을 개발하려면 다음과 같
 
    ![Docker 이미지 리포지토리 제공](./media/tutorial-deploy-function/repository.png)
 
-### <a name="add-your-registry-credentials"></a>레지스트리 자격 증명 추가
+### <a name="add-your-registry-credentials&quot;></a>레지스트리 자격 증명 추가
 
 환경 파일은 컨테이너 레지스트리의 자격 증명을 저장하고 IoT Edge 런타임과 공유합니다. 이러한 자격 증명은 런타임에서 프라이빗 이미지를 IoT Edge 디바이스로 가져오기 위해 필요합니다.
 
@@ -87,7 +87,7 @@ IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌
 2. 필드를 Azure 컨테이너 레지스트리에서 복사한 **사용자 이름** 및 **암호** 값으로 업데이트합니다.
 3. 이 파일을 저장합니다.
 
-### <a name="select-your-target-architecture"></a>대상 아키텍처 선택
+### <a name=&quot;select-your-target-architecture&quot;></a>대상 아키텍처 선택
 
 현재, Visual Studio Code에서는 Linux AMD64 및 Linux ARM32v7 디바이스용 C 모듈을 개발할 수 있습니다. 컨테이너는 아키텍처 유형별로 다르게 빌드되고 실행되므로 각 솔루션에서 대상으로 지정할 대상 아키텍처를 선택해야 합니다. 기본값은 Linux AMD64입니다.
 
@@ -95,7 +95,7 @@ IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌
 
 2. 명령 팔레트의 옵션 목록에서 대상 아키텍처를 선택합니다. 이 자습서에서는 Ubuntu 가상 머신을 IoT Edge 디바이스로 사용할 예정이므로 기본값인 **amd64** 를 그대로 둡니다.
 
-### <a name="update-the-module-with-custom-code"></a>사용자 지정 코드를 사용하여 모듈 업데이트
+### <a name=&quot;update-the-module-with-custom-code&quot;></a>사용자 지정 코드를 사용하여 모듈 업데이트
 
 IoT Hub에 전달하기 전에 모듈이 에지에서 메시지를 처리하도록 몇 가지 추가 코드를 추가해보겠습니다.
 
@@ -120,7 +120,7 @@ IoT Hub에 전달하기 전에 모듈이 에지에서 메시지를 처리하도�
    {
        public static class CSharpFunction
        {
-           [FunctionName("CSharpFunction")]
+           [FunctionName(&quot;CSharpFunction")]
            public static async Task FilterMessageAndSendMessage(
                [EdgeHubTrigger("input1")] Message messageReceived,
                [EdgeHub(OutputName = "output1")] IAsyncCollector<Message> output,

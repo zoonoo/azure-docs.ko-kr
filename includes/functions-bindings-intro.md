@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 author: ggailey777
 ms.service: azure-functions
@@ -8,10 +8,10 @@ ms.date: 01/09/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: cd4e6a1b62d03dae705cb3b05e5b1433b3542cbe
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98901055"
 ---
 이는 Azure Functions 개발자에 대한 참조 정보입니다. Azure Functions를 처음 접하는 경우 다음 리소스부터 시작합니다.

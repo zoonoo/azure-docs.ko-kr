@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 1c458508dbf8d98349ec8549af32e3dd48bbd09b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94966431"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Azure Network Watcher에서 변수 패킷 캡처 소개
@@ -37,7 +37,7 @@ Network Watcher 변수 패킷을 사용하면 가상 머신 간에 트래픽을 
 |**세션당 최대 바이트(bytes)** | 값이 세션 끝에 도달할 때까지 캡처된 총 바이트 수입니다.|
 |**시간 제한(초)** | 패킷 캡처 세션에서 시간 제약 조건을 설정합니다. 기본값은 18000초 또는 5시간입니다.|
 
-**필터링 (선택 사항)**
+**필터링(선택 사항)**
 
 |속성|설명|
 |---|---|

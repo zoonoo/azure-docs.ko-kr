@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: duau
 ms.openlocfilehash: 46d71a38b79f449084f7353527f2dfb05d5b92a4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95994913"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>성능 트래픽 라우팅 방법 구성
@@ -36,7 +36,7 @@ ms.locfileid: "95994913"
         3. 페이지 위쪽에서 **저장** 을 클릭합니다.
 5.  다음과 같이 사용자 구성의 변경 내용을 테스트합니다.
     1.  포털의 검색 창에서 Traffic Manager 프로필 이름을 검색하고 표시되는 결과에서 Traffic Manager 프로필을 클릭합니다.
-    2.  **Traffic Manager** 프로필 블레이드에서 **개요** 를 클릭 합니다.
+    2.  **Traffic Manager** 프로필 블레이드에서 **개요** 를 클릭합니다.
     3.  **Traffic Manager 프로필** 블레이드에 사용자의 새로 만든 Traffic Manager 프로필의 DNS 이름이 표시됩니다. 이는 라우팅 형식에서 결정된 대로 올바른 엔드포인트로 라우팅되도록 모든 클라이언트가 사용할 수 있습니다(예를 들어 웹 브라우저를 사용하여 이동). 이 경우 모든 요청은 클라이언트의 네트워크에서 가장 낮은 대기 시간으로 엔드포인트로 라우팅됩니다.
 6. Traffic Manager 프로필이 작동하면 회사 도메인 이름이 Traffic Manager 도메인 이름을 가리키도록 권한 있는 DNS 서버의 DNS 레코드를 편집합니다.
 

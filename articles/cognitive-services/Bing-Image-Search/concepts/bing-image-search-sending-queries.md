@@ -1,5 +1,5 @@
 ---
-title: 이미지 검색 쿼리 사용자 지정 및 제안-Bing Image Search API
+title: 이미지 검색 쿼리 사용자 지정 및 제안 - Bing Image Search API
 titleSuffix: Azure Cognitive Services
 description: Bing Image Search API에 보낸 검색 쿼리를 사용자 지정하는 것에 대해 알아봅니다.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
 ms.openlocfilehash: 2566b2cf950df915f8ea843c34ea1fb6f8e7ea21
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96342008"
 ---
 # <a name="customize-and-suggest-image-search-queries"></a>이미지 검색 쿼리 사용자 지정 및 제안
@@ -25,7 +25,7 @@ ms.locfileid: "96342008"
 > Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
 > 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
-이 문서를 사용 하 여 쿼리를 사용자 지정 하 고 Bing Image Search API에 보낼 검색어를 제안 하는 방법을 알아보세요.
+이 문서를 사용하여 쿼리를 사용자 지정하고 Bing Image Search API에 보낼 검색어를 제안하는 방법을 알아봅니다.
 
 ## <a name="suggest-search-terms"></a>검색어 제안
 
@@ -110,7 +110,7 @@ Bing이 원래 검색을 좁히기 위해 쿼리를 확장하는 경우 [이미�
 - Microsoft Surface **Pro 3**.
 - Microsoft Surface **RT**.
 - Microsoft Surface **Phone**.
-- Microsoft Surface **Hub** 입니다.
+- Microsoft Surface **Hub**.
 
 다음 예제에서는 *Microsoft Surface* 에 대한 확장된 쿼리를 보여줍니다.
 

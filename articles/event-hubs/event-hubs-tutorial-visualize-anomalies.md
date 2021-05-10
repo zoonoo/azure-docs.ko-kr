@@ -3,12 +3,12 @@ title: Azure Event Hubs - 실시간 이벤트에서 데이터 변칙 시각화
 description: '자습서: Microsoft Azure Event Hubs로 보내는 실시간 이벤트에서 데이터 변칙 시각화'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: bd08d611761e125fdd03173ce6027c60e82baed6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bb7d8da2498005b8b2e1183a836d9385f3d31e5c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99821730"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783758"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>자습서: Azure Event Hubs에 보내는 실시간 이벤트에서 데이터 이상 시각화
 
@@ -349,7 +349,7 @@ Power BI 계정에 로그인합니다. **내 작업 영역** 으로 이동합니
 
 ### <a name="clean-up-resources-using-azure-cli"></a>Azure CLI를 사용하여 리소스 정리
 
-리소스 그룹을 제거하려면 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용합니다.
+리소스 그룹을 제거하려면 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용합니다.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

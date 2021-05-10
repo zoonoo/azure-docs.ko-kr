@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: cca46d47003a1611c861986f8df839de57500db6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d68811c5e7b92698944d7b1b1736eef864d97d20
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96181486"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802304"
 ---
 # <a name="tutorial-configure-solarwinds-service-desk-previously-samanage-for-automatic-user-provisioning"></a>자습서: 자동으로 사용자를 프로비저닝하도록 SolarWinds Service Desk(이전 명칭은 Samanage) 구성
 
@@ -57,6 +57,9 @@ SolarWinds Service Desk와 통합된 기존 시스템이 있는 경우 다음 �
 * 프로비저닝을 구성할 [권한](../roles/permissions-reference.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
 * Professional 패키지가 포함된 [SolarWinds Service Desk 테넌트](https://www.samanage.com/pricing/)
 * 관리자 권한이 있는 SolarWinds Service Desk의 사용자 계정
+
+> [!Note]
+> 역할을 가져올 때 Azure Active Directory에서 역할을 수동으로 편집하면 안 됩니다.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획
 1. [프로비저닝 서비스의 작동 방식](../app-provisioning/user-provisioning.md)에 대해 알아봅니다.

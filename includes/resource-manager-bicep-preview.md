@@ -2,14 +2,14 @@
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 11/17/2020
+ms.date: 03/25/2021
 ms.author: jgao
-ms.openlocfilehash: e70deb835d45f35ac3448f2cd363b14cd378b463
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bf4c9914f533ae1428548f394d76ca4e6e33175c
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95994142"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612893"
 ---
 > [!NOTE]
-> 이 문서에는 Bicep 예제가 포함되어 있습니다.  Bicep은 현재 미리 보기로 제공됩니다.  자세한 내용은 [프로젝트 Bicep](https://github.com/azure/bicep)을 참조하세요.
+> 이 문서에는 Bicep 예제가 포함되어 있습니다.  Bicep은 현재 미리 보기로 제공됩니다. 자세한 내용은 [Bicep 개요](../articles/azure-resource-manager/templates/bicep-overview.md)를 참조하세요.

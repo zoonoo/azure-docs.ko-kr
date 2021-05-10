@@ -10,12 +10,12 @@ ms.author: dobett
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: d2afd88500801f1e2b1e4da5a1e267bddfa69fc7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f1053062302c9a00cf49cee1cd8de5ca6652b745
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96453019"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167705"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Azure IoT(사물 인터넷)란?
 
@@ -23,14 +23,14 @@ Azure IoT(사물 인터넷)는 수십억 개의 IoT 자산을 연결, 모니터�
 
 ## <a name="iot-devices"></a>IoT 디바이스
 
-IoT 디바이스는 일반적으로 인터넷에 연결되는 WiFi를 사용하는 센서가 부착된 회로 기판으로 구성되어 있습니다. 예를 들어:
+IoT 디바이스는 일반적으로 인터넷에 연결되는 WiFi를 사용하는 센서가 부착된 회로 기판으로 구성되어 있습니다. 예를 들면 다음과 같습니다.
 
 * 원격 오일 펌프의 압력 센서
 * 에어컨 장치의 온도 및 습도 센서
 * 엘리베이터의 가속도계
 * 방의 감지 센서
 
-다른 제조업체의 다양한 디바이스를 사용하여 솔루션을 빌드할 수 있습니다. Azure IoT Hub와 함께 작동하도록 인증된 디바이스 목록은 [IoT용 Azure Certified 디바이스 카탈로그](https://catalog.azureiotsolutions.com/alldevices)를 참조하세요. 프로토타입 생성을 위해 [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/) 또는 [Raspberry Pi](https://www.raspberrypi.org/) 등의 디바이스를 사용할 수 있습니다. Devkit에는 온도, 압력, 습도 및 자이로스코프가, 가속도계 및 지자기 센터에 대한 기본 제공 센서가 있습니다. Raspberry Pi를 사용하면 다양한 유형의 센서를 연결할 수 있습니다. 
+다른 제조업체의 다양한 디바이스를 사용하여 솔루션을 빌드할 수 있습니다. Azure IoT Hub와 함께 작동하도록 인증된 디바이스 목록은 [IoT용 Azure Certified 디바이스 카탈로그](https://devicecatalog.azure.com)를 참조하세요. 프로토타입 생성을 위해 [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/) 또는 [Raspberry Pi](https://www.raspberrypi.org/) 등의 디바이스를 사용할 수 있습니다. Devkit에는 온도, 압력, 습도 및 자이로스코프가, 가속도계 및 지자기 센터에 대한 기본 제공 센서가 있습니다. Raspberry Pi를 사용하면 다양한 유형의 센서를 연결할 수 있습니다. 
 
 Microsoft는 디바이스에서 실행되는 앱을 빌드하는 데 사용할 수 있는 오픈 소스 [디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 제공합니다. 이러한 [SDK는 IoT 솔루션 개발을 간소화하고 가속화](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/)합니다.
 

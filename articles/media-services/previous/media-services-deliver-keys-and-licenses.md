@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 10ff568ede601c57369f8c942ed61cb7a39ba703
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: f2d965ec17fb605362c1e8cd8ef781a6bd2029d0
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103465711"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067387"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Media Services를 사용하여 DRM 라이선스 또는 AES 키 제공
 
@@ -54,7 +54,7 @@ Media Services는 라이선스 또는 키를 요청하는 사용자에 권한을
     ```
  
 ## <a name="net-code-example"></a>.NET 코드 예제
-다음 코드 예제에서는 일반적인 콘텐츠 키를 만들고 PlayReady 또는 Widevine 라이선스 취득 URL을 가져오는 방법을 보여 줍니다. 온-프레미스 서버를 구성하려면 콘텐츠 키, 키 ID 및 라이선스 취득 URL이 필요합니다. 온-프레미스 서버를 구성한 후 자체 스트리밍 서버에서 스트림할 수 있습니다. 암호화된 스트림은 Media Services 라이선스 서버를 가리키므로 플레이어는 Media Services에서 라이선스를 요청합니다. 토큰 인증을 선택하면 Media Services 라이선스 서버는 HTTPS를 통해 전송한 토큰의 유효성을 검사합니다. 토큰이 유효한 경우 라이선스 서버는 라이선스를 플레이어에 다시 제공합니다. 다음 코드 예제에서는 일반적인 콘텐츠 키를 만들고 PlayReady 또는 Widevine 라이선스 취득 URL을 가져오는 방법만 보여 줍니다. AES-128 키를 제공하려는 경우에는 봉투 콘텐츠 키를 만들고 키 취득 URL을 가져와야 합니다. 자세한 내용은 [AES-128 동적 암호화 및 키 전달 서비스 사용](media-services-protect-with-aes128.md)을 참조하세요.
+다음 코드 예제에서는 일반적인 콘텐츠 키를 만들고 PlayReady 또는 Widevine 라이선스 취득 URL을 가져오는 방법을 보여 줍니다. 온-프레미스 서버를 구성하려면 콘텐츠 키, 키 ID 및 라이선스 취득 URL이 필요합니다. 온-프레미스 서버를 구성한 후 자체 스트리밍 서버에서 스트림할 수 있습니다. 암호화된 스트림은 Media Services 라이선스 서버를 가리키므로 플레이어는 Media Services에서 라이선스를 요청합니다. 토큰 인증을 선택하면 Media Services 라이선스 서버는 HTTPS를 통해 전송한 토큰의 유효성을 검사합니다. 토큰이 유효한 경우 라이선스 서버는 라이선스를 플레이어에 다시 제공합니다. 다음 코드 예제에서는 일반적인 콘텐츠 키를 만들고 PlayReady 또는 Widevine 라이선스 취득 URL을 가져오는 방법만 보여 줍니다. AES-128 키를 제공하려는 경우에는 봉투 콘텐츠 키를 만들고 키 취득 URL을 가져와야 합니다. 자세한 내용은 [AES-128 동적 암호화 및 키 전달 서비스 사용](media-services-playready-license-template-overview.md)을 참조하세요.
 
 ```csharp
 using System;
@@ -357,4 +357,4 @@ namespace DeliverDRMLicenses
 
 ## <a name="see-also"></a>참고 항목
 * [PlayReady 및/또는 Widevine 동적 일반 암호화 사용](media-services-protect-with-playready-widevine.md)
-* [AES-128 동적 암호화 및 키 전달 서비스 사용](media-services-protect-with-aes128.md)
+* [AES-128 동적 암호화 및 키 전달 서비스 사용](media-services-playready-license-template-overview.md)

@@ -1,18 +1,18 @@
 ---
 title: '빠른 시작: PHP를 사용하여 연결 - Azure Database for MySQL - 유연한 서버'
 description: 이 빠른 시작에서는 Azure Database for MySQL - 유연한 서버에서 데이터를 연결하고 쿼리하는 데 사용할 수 있는 몇 가지 PHP 코드 샘플을 제공합니다.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.openlocfilehash: dc6b069e3c7686ec6964dab890e503aa193cf6fe
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: baba4d373d4a79ab0c339aac00bb9ab48de9262b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92545109"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105109610"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>빠른 시작: PHP를 사용하여 Azure Database for MySQL - 유연한 서버에서 데이터 연결 및 쿼리
 

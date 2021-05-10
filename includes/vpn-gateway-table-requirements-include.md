@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: dc018b5d09c9b33c10cd2d54ac6572537e05ed25
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96010856"
 ---
 다음 표에서는 PolicyBased VPN 게이트웨이와 RouteBased VPN 게이트웨이에 대한 요구 사항을 나열합니다. 이 표는 리소스 관리자 배포 모델과 클래식 배포 모델 모두에 적용됩니다. 클래식 모델의 경우 PolicyBased VPN 게이트웨이는 정적 게이트웨이와 동일하고, Route-based 게이트웨이는 동적 게이트웨이와 동일합니다.
@@ -24,6 +24,6 @@ ms.locfileid: "96010856"
 | **인증 방법** |미리 공유한 키 |-S2S 연결에 대해 미리 공유한 키 -P2S 연결용 인증서 |-S2S 연결에 대해 미리 공유한 키 -P2S 연결용 인증서 |-S2S 연결에 대해 미리 공유한 키 -P2S 연결용 인증서 |
 | **S2S 연결의 최대 수** |1 |10 |10 |30 |
 | **P2S 연결의 최대 수** |지원되지 않음 |128 |128 |128 |
-| **활성 라우팅 지원(BGP)** (*) |지원되지 않음 |지원되지 않음 |지원됨 |지원됨 |
+| **활성 라우팅 지원(BGP)** (*) |지원되지 않음 |지원되지 않음 |지원 여부 |지원됨 |
 
   (*) 클래식 배포 모델에서는 BGP가 지원되지 않습니다.

@@ -3,7 +3,7 @@ title: PowerShell 샘플 - 사용자 지정 도메인을 사용하는 애플리�
 description: 사용자 지정 도메인 및 인증서 정보를 사용 중인 모든 Azure AD(Azure Active Directory) 애플리케이션 프록시 애플리케이션을 나열하는 PowerShell 예제입니다.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 8325da81fd78762f0ffdcae4eebe93fe567580d0
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: ec424d59fe7fee59c226ad51c74e6c106a4a5fc7
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102550957"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377635"
 ---
 # <a name="get-all-application-proxy-apps-using-custom-domains-and-certificate-information"></a>사용자 지정 도메인 및 인증서 정보를 사용하여 모든 애플리케이션 프록시 앱 가져오기
 

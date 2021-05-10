@@ -10,18 +10,16 @@ ms.date: 03/10/2021
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 6ec0b32e487739c33b1b2b49bd0645130fc88581
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 66edf35f292f5b681578d49b8be784de66e4d904
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104729535"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936532"
 ---
 # <a name="phone-number-types-in-azure-communication-services"></a>Azure Communication Services의 전화 번호 유형
 
-
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-phone-numbers.md)]
 
 > [!IMPORTANT]
 > 전화 번호 가용성은 현재 미국에 청구 주소가 있는 유료 Azure 구독 및 미국 데이터 위치가 있는 Communication Services 리소스로 제한됩니다. 평가판 계정 또는 Azure 체험 크레딧을 사용하여 전화 번호를 얻을 수 없습니다. 자세한 내용은 이 문서의 [구독 자격](#azure-subscriptions-eligibility) 섹션을 참조하세요.
@@ -31,7 +29,7 @@ Azure Communication Services를 사용하면 전화 번호를 사용하여 PSTN(
 
 ## <a name="azure-subscriptions-eligibility"></a>Azure 구독 자격
 
-전화 번호를 얻으려면 유료 Azure 구독에 있어야 합니다. 평가판 계정 또는 Azure 체험 크레딧으로는 전화 번호를 얻을 수 없습니다. 
+전화 번호를 얻으려면 유료 Azure 구독에 있어야 합니다. 평가판 계정 또는 Azure 체험 크레딧으로는 전화 번호를 얻을 수 없습니다.
 
 전화 번호 가용성은 현재 미국에 청구 주소가 있는 Azure 구독 및 미국 데이터 위치가 있는 Communication Services 리소스로 제한됩니다.
 
@@ -59,13 +57,13 @@ Communication Services는 **현지** 및 **무료** 라는 두 가지 유형의 
 | 수신자 부담         | +1(수신자 부담 지역 *코드*) XXX XX XX | US                      | 통화(아웃바운드), SMS(인바운드/아웃바운드)| 전화 번호를 IVR(대화형 음성 응답) 시스템/봇, SMS 애플리케이션에 할당                                        |
 
 
-### <a name="phone-number-features-in-azure-communication-services"></a>Azure Communication Services의 전화 번호 기능
+### <a name="phone-number-capabilities-in-azure-communication-services"></a>Azure Communication Services의 전화 번호 기능
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
 대부분의 전화 번호에 대해 "a la carte(맞춤형)" 기능을 구성할 수 있습니다. 이러한 기능은 Azure Communication Services 내에서 전화 번호를 임대할 때 선택할 수 있습니다.
 
-사용할 수 있는 기능은 운영 중인 국가, 사용 사례 및 선택한 전화 번호 유형에 따라 달라집니다. 이러한 기능은 규정 요구 사항으로 인해 국가마다 다릅니다. Azure Communication Services에서 제공하는 전화 번호 기능은 다음과 같습니다.
+사용할 수 있는 기능은 운영 중인 국가, 사용 사례 및 선택한 전화 번호 유형에 따라 달라집니다. 이러한 기능은 규정 요구 사항 때문에 국가별로 다릅니다. Azure Communication Services에서 제공하는 전화 번호 기능은 다음과 같습니다.
 
 - **단방향 아웃바운드 SMS** 이 옵션을 사용하면 사용자에게 SMS 메시지를 보낼 수 있습니다. 이는 알림 및 2단계 인증 시나리오에서 유용할 수 있습니다.
 - **양방향 인바운드 및 아웃바운드 SMS** 이 옵션을 사용하면 전화 번호를 사용하여 사용자로부터 메시지를 보내고 받을 수 있습니다. 이는 고객 서비스 시나리오에서 유용할 수 있습니다.

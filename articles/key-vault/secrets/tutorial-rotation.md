@@ -3,7 +3,6 @@ title: Azure Key Vault에 저장된 단일 인증 자격 증명 세트가 있는
 description: 이 자습서를 사용하여 단일 인증 자격 증명 세트를 사용하는 리소스의 비밀을 자동으로 순환하는 방법을 알아봅니다.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: rotation
 ms.service: key-vault
 ms.subservice: secrets
@@ -11,12 +10,12 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 526c3d2d85a3f2877f82b3b764f395c51f7c05c0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e66be3b0e3ecae5caa1a76294cc8b8dc11a5f207
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99822540"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107748667"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>단일 인증 자격 증명 세트를 사용하는 리소스의 비밀 순환 자동화
 

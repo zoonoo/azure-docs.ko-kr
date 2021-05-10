@@ -4,10 +4,10 @@ description: 사용자 환경에 가장 적합한 것이 무엇인지 결정할 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: df7a8e6209f8033eb5a29c65079e9c2f4cbbe544
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87287539"
 ---
 # <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>DevTest Lab에서 사용자 지정 이미지와 수식 비교

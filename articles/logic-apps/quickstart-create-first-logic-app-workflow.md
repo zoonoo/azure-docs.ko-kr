@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/30/2020
-ms.openlocfilehash: d90b9e38158d951990fffc21a43317c688da12c9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/24/2021
+ms.openlocfilehash: d05566c0734f95e14335c6165de0b2104fa19bc6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99052045"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764858"
 ---
 # <a name="quickstart-create-your-first-logic-apps-workflow---azure-portal"></a>빠른 시작: 첫 번째 Logic Apps 워크플로 만들기 - Azure Portal
 
@@ -37,7 +37,7 @@ ms.locfileid: "99052045"
     > [!IMPORTANT]
     > [Gmail 커넥터](/connectors/gmail/)를 사용하는 경우 G Suite 계정만 Logic Apps에서 이 커넥터를 제한 없이 사용할 수 있습니다. 소비자 Gmail 계정이 있는 경우 [Gmail 커넥터 인증에 사용할 Google 클라이언트 앱을 만들지](/connectors/gmail/#authentication-and-bring-your-own-application) 않는 한 특정 Google 승인 서비스에서만 이 커넥터를 사용할 수 있습니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대한 데이터 보안 및 개인정보처리방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조하세요.
 
-* 논리 앱이 특정 IP 주소로 트래픽을 제한하는 방화벽을 통해 통신해야 하는 경우 해당 방화벽은 논리 앱이 있는 Azure 지역의 런타임 또는 Logic Apps 서비스에서 사용하는 [인바운드](logic-apps-limits-and-config.md#inbound) 및 [아웃바운드](logic-apps-limits-and-config.md#outbound) IP 주소 *모두* 에 대한 액세스를 허용해야 합니다. 논리 앱에서 Office 365 Outlook 커넥터 또는 SQL 커넥터와 같은 [관리형 커넥터](../connectors/apis-list.md#managed-api-connectors)를 사용하거나 [사용자 지정 커넥터](/connectors/custom-connectors/)를 사용하는 경우 방화벽은 논리 앱의 Azure 지역에 있는 [관리형 커넥터 아웃바운드 IP 주소](logic-apps-limits-and-config.md#outbound) *모두* 에 대한 액세스도 허용해야 합니다.
+* 논리 앱이 특정 IP 주소로 트래픽을 제한하는 방화벽을 통해 통신해야 하는 경우 해당 방화벽은 논리 앱이 있는 Azure 지역의 런타임 또는 Logic Apps 서비스에서 사용하는 [인바운드](logic-apps-limits-and-config.md#inbound) 및 [아웃바운드](logic-apps-limits-and-config.md#outbound) IP 주소 *모두* 에 대한 액세스를 허용해야 합니다. 논리 앱에서 Office 365 Outlook 커넥터 또는 SQL 커넥터와 같은 [관리형 커넥터](../connectors/managed.md)를 사용하거나 [사용자 지정 커넥터](/connectors/custom-connectors/)를 사용하는 경우 방화벽은 논리 앱의 Azure 지역에 있는 [관리형 커넥터 아웃바운드 IP 주소](logic-apps-limits-and-config.md#outbound) *모두* 에 대한 액세스도 허용해야 합니다.
 
 <a name="create-logic-app"></a>
 

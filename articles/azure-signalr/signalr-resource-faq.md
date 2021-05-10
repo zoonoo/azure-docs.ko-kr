@@ -7,12 +7,12 @@ ms.topic: overview
 ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: c65bc7e92d925f819a48fd8ab9a8160bc3eb72e3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d3b84756f390930be5124c6bda54d07078d29053
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100579317"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166924"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR Service FAQ
 
@@ -62,13 +62,13 @@ Azure SignalR Service 리소스의 개요 창에서 적절한 집계 유형을 �
 
 클래식 모드는 기존 애플리케이션에 대해 이전 버전과의 호환성을 위해 설계되었으므로 새 애플리케이션에 사용하면 안 됩니다.
 
-서비스 모드에 대한 자세한 내용은 [이 문서](concept-service-mode.md)를 참조하세요.
+서비스 모드에 대한 자세한 내용은 [Azure SignalR Service의 서비스 모드](concept-service-mode.md)를 참조하세요.
 
 ## <a name="can-i-send-message-from-client-in-serverless-mode"></a>서버리스 모드로 클라이언트에서 메시지를 보낼 수 있나요?
 
 SignalR 인스턴스에서 업스트림을 구성하는 경우 클라이언트에서 메시지를 보낼 수 있습니다. 업스트림은 SignalR 서비스에서 메시지 및 연결 이벤트를 받을 수 있는 엔드포인트 세트입니다. 업스트림이 구성되지 않은 경우 클라이언트의 메시지가 무시됩니다.
 
-업스트림에 대한 자세한 내용은 [이 문서](concept-upstream.md)를 참조하세요.
+업스트림에 대한 자세한 내용은 [업스트림 설정](concept-upstream.md)을 참조하세요.
 
 업스트림은 현재 공개 미리 보기로 제공됩니다.
 

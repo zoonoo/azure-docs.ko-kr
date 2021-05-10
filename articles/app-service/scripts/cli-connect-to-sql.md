@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: abd96e513aadf44d0f313670e1437ebd16aa410c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 92fa93d64798f67f28ca0020731c63b7922866fe
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97006381"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782372"
 ---
 # <a name="connect-an-app-service-app-to-sql-database-using-cli"></a>CLI를 사용하여 SQL Database에 App Service 앱 연결
 
@@ -38,13 +38,13 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 Azure CLI 버�
 
 | 명령 | 메모 |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | App Service 계획을 만듭니다. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | App Service 앱을 만듭니다. |
-| [`az sql server create`](/cli/azure/sql/server#az-sql-server-create) | 서버를 만듭니다.  |
-| [`az sql db create`](/cli/azure/sql/db#az-sql-db-create) | 새 데이터베이스를 만듭니다. |
-| [`az sql db show-connection-string`](/cli/azure/sql/db#az-sql-db-show-connection-string) | 데이터베이스에 대한 연결 문자열을 생성합니다. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | App Service 앱에 대한 앱 설정을 만들거나 업데이트합니다. 앱 설정은 앱에 대한 환경 변수로 노출됩니다. |
+| [`az group create`](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | App Service 계획을 만듭니다. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | App Service 앱을 만듭니다. |
+| [`az sql server create`](/cli/azure/sql/server#az_sql_server_create) | 서버를 만듭니다.  |
+| [`az sql db create`](/cli/azure/sql/db#az_sql_db_create) | 새 데이터베이스를 만듭니다. |
+| [`az sql db show-connection-string`](/cli/azure/sql/db#az_sql_db_show-connection_string) | 데이터베이스에 대한 연결 문자열을 생성합니다. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | App Service 앱에 대한 앱 설정을 만들거나 업데이트합니다. 앱 설정은 앱에 대한 환경 변수로 노출됩니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

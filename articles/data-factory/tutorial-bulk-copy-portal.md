@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/29/2021
-ms.openlocfilehash: 4807d1d5e97f7f95521df054d1a71f8925ac4ebb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bca2158f448f74ba596114fce5d1631249124a92
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367608"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606738"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Azure Portal에서 Azure Data Factory를 사용하여 여러 테이블 대량 복사
 
@@ -98,7 +98,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 
 1. 연결된 서비스 페이지에서 **+새로 만들기** 를 선택하여 새로 연결된 서비스를 만듭니다.
 
-   ![새 연결된 서비스](./media/doc-common-process/new-linked-service.png)
+   :::image type="content" source="./media/doc-common-process/new-linked-service.png" alt-text="새 연결된 서비스.":::
 1. **새 연결된 서비스** 창에서 **Azure SQL Database** 를 선택하고 **계속** 을 클릭합니다. 
 1. **새로 연결된 서비스(Azure SQL Database)** 창에서 다음 단계를 수행합니다. 
 

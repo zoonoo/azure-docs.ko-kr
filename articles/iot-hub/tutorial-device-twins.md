@@ -16,10 +16,10 @@ ms.custom:
 - devx-track-js
 - devx-track-azurecli
 ms.openlocfilehash: 7dbc0404679927bcef1647dfdf46ce3360216a79
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99821576"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
@@ -196,15 +196,15 @@ node ServiceClient.js "{your service connection string}"
 
 ![백 엔드 애플리케이션의 출력을 표시하고 업데이트를 보내는 방법을 강조 표시하는 스크린샷.](./media/tutorial-device-twins/BackEnd1.png)
 
-## <a name="receive-state-information"></a>상태 정보 받기
+## <a name="receive-state-information&quot;></a>상태 정보 받기
 
 백 엔드 애플리케이션은 디바이스의 상태 정보를 reported 속성으로 받습니다. 디바이스에서 reported 속성을 설정하고 이 속성을 허브로 보냅니다. 백 엔드 애플리케이션은 reported 속성의 현재 값을 허브에 저장된 디바이스 쌍에서 읽을 수 있습니다.
 
-### <a name="send-reported-properties-from-a-device"></a>디바이스에서 reported 속성 보내기
+### <a name=&quot;send-reported-properties-from-a-device&quot;></a>디바이스에서 reported 속성 보내기
 
 reported 속성 값에 대한 업데이트를 패치로 보낼 수 있습니다. 다음 코드 조각에서는 시뮬레이션된 디바이스에서 보내는 패치에 대한 템플릿을 보여줍니다. 시뮬레이션된 디바이스에서 패치의 필드를 업데이트한 후에 해당 패치를 허브로 보냅니다.
 
-[!code-javascript[Reported properties patches](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=reportedpatch&highlight=2 "Reported properties patches")]
+[!code-javascript[Reported properties patches](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=reportedpatch&highlight=2 &quot;Reported properties patches")]
 
 시뮬레이션된 디바이스에서 다음 함수를 사용하여 reported 속성이 포함된 패치를 허브로 보냅니다.
 

@@ -5,14 +5,14 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/17/2021
+ms.date: 03/25/2021
 ms.custom: mvc
-ms.openlocfilehash: f394fd4b1b4124c259489580fb5dc320fedf73fa
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 09b04c67519bfa920a3781612823c5755cbc6d2d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104863652"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105627798"
 ---
 # <a name="tutorial-discover-servers-running-in-vmware-environment-with-azure-migrate-discovery-and-assessment"></a>자습서: Azure Migrate: 검색 및 평가를 사용하여 VMware 환경에서 실행되는 서버 검색
 
@@ -34,11 +34,9 @@ Azure로 마이그레이션하는 과정의 일환으로 온-프레미스 인벤
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
-
 ## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 다음과 같은 사전 요구 사항이 충족되는지 확인합니다.
-
 
 **요구 사항** | **세부 정보**
 --- | ---
@@ -98,7 +96,6 @@ vSphere Web Client에서 계정을 다음과 같이 설정합니다.
 
     :::image type="content" source="./media/tutorial-discover-vmware/guest-operations.png" alt-text="읽기 전용 역할에서 게스트 작업을 허용하는 확인란":::
 
-
 > [!NOTE]
 > vCenter Server 계정의 범위를 지정하여 검색 대상을 특정 vCenter Server 데이터 센터, 클러스터, 클러스터 폴더, 호스트, 호스트 폴더 또는 개별 서버로 제한할 수 있습니다. vCenter Server 사용자 계정의 범위를 지정하는 방법에 대해 [**자세히 알아보세요**](set-discovery-scope.md).
 
@@ -106,7 +103,7 @@ vSphere Web Client에서 계정을 다음과 같이 설정합니다.
 
 설치된 애플리케이션을 검색하고, 에이전트 없는 종속성을 분석하고, SQL Server 인스턴스 및 데이터베이스를 검색하려면 서버에서 필요한 권한이 있는 사용자 계정이 필요합니다. 사용자 계정은 어플라이언스 구성 관리자에서 제공할 수 있습니다. 어플라이언스는 서버에 에이전트를 설치하지 않습니다.
 
-1. Windows 서버의 경우 서버 관리자 권한이 있는 계정(로컬 또는 도메인)을 만듭니다. SQL Server 인스턴스와 데이터베이스를 검색하려면 Windows 또는 SQL Server 계정이 sysadmin 서버 역할의 멤버여야 합니다. 사용자 계정에 필요한 역할을 할당하는 방법에 대해 [자세히 알아보세요](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles).
+1. Windows 서버의 경우 서버 관리자 권한이 있는 계정(로컬 또는 도메인)을 만듭니다. SQL Server 인스턴스와 데이터베이스를 검색하려면 Windows 또는 SQL Server 계정이 sysadmin 서버 역할의 멤버여야 합니다. 사용자 계정에 필요한 역할을 할당하는 방법에 대해 [자세히 알아보세요](/sql/relational-databases/security/authentication-access/server-level-roles).
 2. Linux 서버의 경우 루트 권한이 있는 계정을 만듭니다. 또는 /bin/netstat 및 /bin/ls 파일에 대해 CAP_DAC_READ_SEARCH 및 CAP_SYS_PTRACE 권한이 있는 계정을 만들 수 있습니다.
 
 > [!NOTE]
@@ -118,7 +115,7 @@ vSphere Web Client에서 계정을 다음과 같이 설정합니다.
 
 1. Azure Portal > **모든 서비스** 에서 **Azure Migrate** 를 검색합니다.
 2. **서비스** 아래에서 **Azure Migrate** 를 선택합니다.
-3. **개요** 에서 **프로젝트 만들기** 를 선택합니다.
+3. **개요** 에서 마이그레이션 목표에 따라 **Windows, Linux 및 SQL Server** 또는 **SQL Server(전용)** 또는 **추가 시나리오 탐색** > **프로젝트 만들기** 를 선택합니다.
 5. **프로젝트 만들기** 에서 Azure 구독 및 리소스 그룹을 선택합니다. 리소스 그룹이 없는 경우 리소스 그룹을 만듭니다.
 6. **프로젝트 세부 정보** 에서 프로젝트 이름과 이 프로젝트를 만들려는 지역을 지정합니다. [퍼블릭](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드](migrate-support-matrix.md#supported-geographies-azure-government)에 대해 지원되는 지역을 검토합니다.
 
@@ -197,11 +194,9 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 8. **네트워크 매핑** 에서 서버가 연결할 네트워크를 지정합니다. 메타데이터를 Azure Migrate로 전송하려면 네트워크가 인터넷에 연결되어야 합니다.
 9. 설정을 검토 및 확인한 다음 **마침** 을 클릭합니다.
 
-
 ### <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
 
 어플라이언스 서버에서 [퍼블릭](migrate-appliance.md#public-cloud-urls) 클라우드 및 [정부](migrate-appliance.md#government-cloud-urls) 클라우드의 Azure URL에 연결할 수 있는지 확인합니다.
-
 
 ### <a name="4-configure-the-appliance"></a>4. 어플라이언스 구성
 
@@ -239,7 +234,7 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
     :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="디바이스 코드를 보여주는 모달":::
 
 1. **코드 복사 및 로그인** 을 클릭하여 디바이스 코드를 복사하고 새 브라우저 탭에서 Azure 로그인 프롬프트를 엽니다. 표시되지 않으면 브라우저에서 팝업 차단을 사용하지 않도록 설정했는지 확인합니다.
-1. 새 탭에서 디바이스 코드를 붙여넣고, Azure 사용자 이름과 암호를 사용하여 로그인합니다.
+1. 새 탭에서 디바이스 코드를 붙여넣고 Azure 사용자 이름과 암호를 사용하여 로그인합니다.
    
    PIN을 사용한 로그인은 지원되지 않습니다.
 3. 로그인 탭을 실수로 로그인하지 않고 닫은 경우에는 어플라이언스 구성 관리자의 브라우저 탭을 새로 고쳐 로그인 단추를 다시 사용하도록 설정해야 합니다.
@@ -282,6 +277,8 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 - 자격 증명 테이블에서 모든 도메인 자격 증명의 **유효성 검사 상태** 를 볼 수 있습니다. 도메인 자격 증명만 유효성 검사가 수행됩니다.
 - 유효성 검사가 실패하는 경우 **실패** 상태를 클릭하여 발생한 오류를 살펴보고, 문제를 해결한 후 **자격 증명 유효성 재검사** 를 클릭하여 실패한 도메인 자격 증명의 유효성을 다시 검사할 수 있습니다.
 
+     :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="여러 자격 증명을 제공하기 위한 어플라이언스 구성 관리자의 패널 3":::
+
 ### <a name="start-discovery"></a>검색 시작
 
 1. **검색 시작** 을 선택하여 vCenter Server 검색을 시작합니다. 검색이 성공적으로 시작되면 원본 테이블에서 vCenter Server IP 주소/FQDN에 대한 검색 상태를 확인할 수 있습니다.
@@ -290,8 +287,8 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 1. 소프트웨어 인벤토리 중에 추가된 서버 자격 증명은 서버에 대해 반복되고, 에이전트 없는 종속성 분석에 대해 유효성이 검사됩니다. 포털에서 에이전트 없는 종속성 분석을 서버에 사용하도록 설정할 수 있습니다. 유효성 검사에 성공한 서버만 선택하여 에이전트 없는 종속성 분석을 사용하도록 설정할 수 있습니다.
 
 > [!Note]
->Azure Migrate는 Azure Migrate 어플라이언스와 원본 SQL Server 인스턴스 간의 통신을 암호화합니다(암호화 연결 속성이 TRUE로 설정됨). 이러한 연결은 [**TrustServerCertificate**](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate)로 암호화됩니다(TRUE로 설정됨). 전송 계층에서는 SSL을 사용하여 채널을 암호화하고 인증서 체인을 무시하여 신뢰의 유효성을 확인합니다. 어플라이언스 서버는 [**인증서의 루트 인증 기관을 신뢰**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)하도록 설정되어야 합니다.<br/>
-서버가 시작될 때 서버에 인증서가 제공되지 않으면 SQL Server는 로그인 패킷을 암호화하는 데 사용할 자체 서명된 인증서를 생성합니다. [**자세한 정보**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+>Azure Migrate는 Azure Migrate 어플라이언스와 원본 SQL Server 인스턴스 간의 통신을 암호화합니다(암호화 연결 속성이 TRUE로 설정됨). 이러한 연결은 [**TrustServerCertificate**](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate)로 암호화됩니다(TRUE로 설정됨). 전송 계층에서는 SSL을 사용하여 채널을 암호화하고 인증서 체인을 무시하여 신뢰의 유효성을 확인합니다. 어플라이언스 서버는 [**인증서의 루트 인증 기관을 신뢰**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)하도록 설정되어야 합니다.<br/>
+서버가 시작될 때 서버에 인증서가 제공되지 않으면 SQL Server는 로그인 패킷을 암호화하는 데 사용할 자체 서명된 인증서를 생성합니다. [**자세한 정보**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
 검색은 다음과 같이 작동합니다.
 

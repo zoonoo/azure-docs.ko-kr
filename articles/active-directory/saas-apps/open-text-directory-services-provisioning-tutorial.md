@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: Zhchia
 ms.openlocfilehash: 2f31eddab1070d073d3fd5a4761dad597e42a2e0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96181888"
 ---
 # <a name="tutorial-configure-opentext-directory-services-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 OpenText Directory Services 구성

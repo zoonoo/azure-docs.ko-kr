@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.devlang: php
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 93e605cb20d593750100ec8e340a7ad74c4dd385
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bb38b72af6e7c649c0904c41d3052b15a4c36955
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97587896"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770060"
 ---
 # <a name="tutorial-build-a-php-laravel-and-mysql-flexible-server-preview-app-in-azure-app-service"></a>자습서: Azure App Service에서 PHP(Laravel) 및 MySQL 유연한 서버(미리 보기) 앱 빌드
 
@@ -139,7 +139,7 @@ php artisan serve
 PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
 ## <a name="create-a-mysql-flexible-server-preview"></a>MySQL 유연한 서버(미리 보기) 만들기
-이 단계에서는 현재 공개 미리 보기로 제공되는 [Azure Database for MySQL 유연한 서버](../index.yml)에 MySQL 데이터베이스를 만듭니다. 나중에 이 데이터베이스에 연결할 PHP 애플리케이션을 구성합니다. [Azure Cloud Shell](../../cloud-shell/overview.md)에서 [`az flexible-server create`](/cli/azure/mysql/server#az-mysql-flexible-server-create) 명령을 사용하여 서버를 만듭니다.
+이 단계에서는 현재 공개 미리 보기로 제공되는 [Azure Database for MySQL 유연한 서버](../index.yml)에 MySQL 데이터베이스를 만듭니다. 나중에 이 데이터베이스에 연결할 PHP 애플리케이션을 구성합니다. [Azure Cloud Shell](../../cloud-shell/overview.md)에서 [`az flexible-server create`](/cli/azure/mysql/server#az_mysql_flexible_server_create) 명령을 사용하여 서버를 만듭니다.
 
 ```azurecli-interactive
 az mysql flexible-server create  --resource-group myResourceGroup --public-access <IP-Address>
@@ -280,7 +280,7 @@ git commit -m "database.php updates"
 
 FTP 및 로컬 Git는 배포 사용자를 통해 Azure 웹앱에 배포할 수 있습니다. 일단 배포 사용자를 구성하면 모든 Azure 배포에 사용할 수 있습니다. 계정 수준 배포 사용자 이름 및 암호는 Azure 구독 자격 증명과 다릅니다.
 
-배포 사용자를 구성하려면 Azure Cloud Shell에서 [az webapp deployment user set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) 명령을 실행합니다. _&lt;username>_ 및 _&lt;password>_ 를 배포 사용자 이름 및 암호로 바꿉니다.
+배포 사용자를 구성하려면 Azure Cloud Shell에서 [az webapp deployment user set](/cli/azure/webapp/deployment/user#az_webapp_deployment_user_set) 명령을 실행합니다. _&lt;username>_ 및 _&lt;password>_ 를 배포 사용자 이름 및 암호로 바꿉니다.
 
 사용자 이름은 Azure 내에서 고유해야 하고, 로컬 Git 푸시의경우 ' @' 기호를 포함하면 안 됩니다.
 암호는 글자, 숫자, 기호의 세 가지 요소 중 두 가지를 사용하고 8자 이상이어야 합니다.
@@ -293,7 +293,7 @@ JSON 출력에는 암호가 null로 표시됩니다. '충돌'. 상세 정보: 40
 
 ### <a name="create-an-app-service-plan"></a>App Service 플랜 만들기
 
-Cloud Shell에서 [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) 명령을 사용하여 리소스 그룹에 App Service 계획을 만듭니다. 다음 예제에서는 체험 가격 책정 계층(--sku F1) 및 Linux 컨테이너(--is-linux)에 myAppServicePlan이라는 App Service 요금제를 만듭니다.
+Cloud Shell에서 [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) 명령을 사용하여 리소스 그룹에 App Service 계획을 만듭니다. 다음 예제에서는 체험 가격 책정 계층(--sku F1) 및 Linux 컨테이너(--is-linux)에 myAppServicePlan이라는 App Service 요금제를 만듭니다.
 
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku F1 --is-linux
 
@@ -303,7 +303,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 myAppServicePlan App Service 요금제에 [웹앱](../../app-service/overview.md#app-service-on-linux)을 만듭니다.
 
-Cloud Shell에서 [az webapp create](/cli/azure/webapp#az-webapp-create) 명령을 사용하면 됩니다. 다음 예제에서 _&lt;app-name>_ 을 전역적으로 고유한 앱 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9` 및 `-`). 런타임은 `PHP|7.0`으로 설정됩니다. 지원되는 모든 런타임을 보려면 [az webapp list-runtimes --linux](/cli/azure/webapp#az-webapp-list-runtimes) 명령을 실행합니다.
+Cloud Shell에서 [az webapp create](/cli/azure/webapp#az_webapp_create) 명령을 사용하면 됩니다. 다음 예제에서 _&lt;app-name>_ 을 전역적으로 고유한 앱 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9` 및 `-`). 런타임은 `PHP|7.0`으로 설정됩니다. 지원되는 모든 런타임을 보려면 [az webapp list-runtimes --linux](/cli/azure/webapp#az_webapp_list_runtimes) 명령을 실행합니다.
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.3" --deployment-local-git
@@ -334,7 +334,7 @@ git 배포를 활성화하여 새 빈 웹앱을 만들었습니다.
 
 ### <a name="configure-database-settings"></a>데이터베이스 설정 구성
 
-App Service에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) 명령을 사용하여 환경 변수를 _앱 설정_ 으로 설정합니다.
+App Service에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) 명령을 사용하여 환경 변수를 _앱 설정_ 으로 설정합니다.
 
 다음 명령에서는 `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` 및 `DB_PASSWORD` 앱 설정을 구성합니다. _&lt;app-name>_ 및 _&lt;mysql-server-name>_ 자리 표시자를 바꿉니다.
 
@@ -365,7 +365,7 @@ Laravel에는 App Service의 애플리케이션 키가 필요합니다. 앱 설�
 php artisan key:generate --show
 ```
 
-Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) 명령을 사용하여 App Service 앱에서 애플리케이션 키를 설정합니다. 자리 표시자 _&lt;app-name>_ 및 _&lt;outputofphpartisankey:generate>_ 를 바꿉니다.
+Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) 명령을 사용하여 App Service 앱에서 애플리케이션 키를 설정합니다. 자리 표시자 _&lt;app-name>_ 및 _&lt;outputofphpartisankey:generate>_ 를 바꿉니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"

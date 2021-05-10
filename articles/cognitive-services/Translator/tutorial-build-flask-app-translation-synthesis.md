@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 03/04/2021
 ms.author: lajanuar
 ms.custom: devx-track-python, devx-track-js
-ms.openlocfilehash: c04bac76453d565abb99a971386b9ce0461b88ae
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 6ec951e57b40ae1440f541c02b26e7788b3cf151
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102172082"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043736"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>자습서: Azure Cognitive Services를 사용하여 Flask 앱 만들기
 
-이 자습서에서는 Azure Cognitive Services를 사용하여 텍스트를 번역하고 감정을 분석하고 번역된 텍스트 음성으로 합성하는 Flask 웹앱을 만듭니다. 주된 초점은 애플리케이션을 사용할 수 있게 해주는 Python 코드 및 Flask 경로이지만, 앱을 통합하는 HTML 및 Javascript로 도와 드리겠습니다. 문제가 발생한 경우 아래 피드백 단추를 사용하여 알려 주시기 바랍니다.
+이 자습서에서는 Azure Cognitive Services를 사용하여 텍스트를 번역하고 감정을 분석하고 번역된 텍스트 음성으로 합성하는 Flask 웹앱을 만듭니다. 주된 초점은 애플리케이션을 사용할 수 있게 해주는 Python 코드 및 Flask 경로이지만, 앱을 통합하는 HTML 및 JavaScript로 도와 드리겠습니다. 문제가 발생한 경우 아래 피드백 단추를 사용하여 알려 주시기 바랍니다.
 
 이 자습서에서는 다음 내용을 다룹니다.
 
@@ -45,11 +45,11 @@ Flask는 웹 애플리케이션을 만들기 위한 마이크로 프레임워크
 * [Flask 설명서](http://flask.pocoo.org/)
 * [Flask for Dummies - 초보자용 Flask 가이드](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 위해 필요한 소프트웨어 및 구독 키를 살펴보겠습니다.
 
-* [Python 3.5.2 이상](https://www.python.org/downloads/)
+* [Python 3.6 이상](https://www.python.org/downloads/)
 * [Git 도구](https://git-scm.com/downloads)
 * IDE 또는 [Visual Studio Code](https://code.visualstudio.com/)나 [Atom](https://atom.io/) 같은 텍스트 편집기  
 * [Chrome](https://www.google.com/chrome/browser/) 또는 [Firefox](https://www.mozilla.org/firefox)
@@ -249,7 +249,7 @@ def about():
 * Translator를 호출하고 응답을 반환하는 몇 가지 Python 작성
 * Python 코드를 호출하는 Flask 경로 만들기
 * 텍스트 입력 및 번역 영역, 언어 선택, 그리고 번역 단추를 사용하여 HTML 업데이트
-* 사용자가 HTML에서 Flask 앱과 상호 작용할 수 있게 해주는 Javascript 작성
+* 사용자가 HTML에서 Flask 앱과 상호 작용할 수 있게 해주는 JavaScript 작성
 
 ### <a name="call-the-translator"></a>Translator 호출
 
@@ -409,7 +409,7 @@ Flask는 각 요청을 구문 분석하고 관리하도록 돕기 위한 도우�
    </div>
    ```
 
-다음 단계는 몇몇 Javascript를 작성하는 것입니다. 이는 HTML과 Flask 경로 간의 다리 같은 역할을 합니다.
+다음 단계는 몇몇 JavaScript를 작성하는 것입니다. 이는 HTML과 Flask 경로 간의 다리 같은 역할을 합니다.
 
 ### <a name="create-mainjs"></a>`main.js`을 만듭니다.  
 
@@ -484,11 +484,11 @@ flask run
 Python 작성
 * Python 코드를 호출하는 Flask 경로 만들기
 * 감정 점수에 대한 영역 및 분석을 수행하는 단추를 사용하여 HTML 업데이트
-* 사용자가 HTML에서 Flask 앱과 상호 작용할 수 있게 해주는 Javascript 작성
+* 사용자가 HTML에서 Flask 앱과 상호 작용할 수 있게 해주는 JavaScript 작성
 
 ### <a name="call-the-text-analytics-api"></a>텍스트 분석 API 호출
 
-Text Analytics API를 호출하는 함수를 작성해 보겠습니다. 이 함수는 `input_text`, `input_language`, `output_text` 및 `output_language` 네 인수를 사용합니다. 이 함수는 사용자가 앱에서 감정 분석 실행 단추를 누를 때마다 호출됩니다. 사용자가 텍스트 영역 및 언어 선택에서 제공하는 데이터, 그리고 검색된 언어 및 번역 출력은 요청할 때마다 제공됩니다. 응답 개체는 원본 및 번역에 대한 감정 점수를 포함합니다. 다음 섹션에서는 응답을 구문 분석하고 해당 응답을 앱에 사용하는 몇몇 Javascript를 작성하게 됩니다. 지금은 Text Analytics API 호출에 집중하겠습니다.
+Text Analytics API를 호출하는 함수를 작성해 보겠습니다. 이 함수는 `input_text`, `input_language`, `output_text` 및 `output_language` 네 인수를 사용합니다. 이 함수는 사용자가 앱에서 감정 분석 실행 단추를 누를 때마다 호출됩니다. 사용자가 텍스트 영역 및 언어 선택에서 제공하는 데이터, 그리고 검색된 언어 및 번역 출력은 요청할 때마다 제공됩니다. 응답 개체는 원본 및 번역에 대한 감정 점수를 포함합니다. 다음 섹션에서는 응답을 구문 분석하고 해당 응답을 앱에 사용하는 몇몇 JavaScript를 작성하게 됩니다. 지금은 Text Analytics API 호출에 집중하겠습니다.
 
 1. 작업 디렉터리의 루트에 `sentiment.py`라는 파일을 만들어 보겠습니다.
 2. 다음으로, 이 코드를 `sentiment.py`에 추가합니다.
@@ -654,7 +654,7 @@ flask run
 * 텍스트 음성 변환 API를 사용하여 텍스트를 음성으로 변환하는 몇몇 Python 작성
 * Python 코드를 호출하는 Flask 경로 만들기
 * 텍스트를 음성으로 변환하는 단추 및 오디오 재생을 위한 요소를 사용하여 HTML 업데이트
-* 사용자가 Flask 앱과 상호 작용할 수 있게 해주는 Javascript 작성
+* 사용자가 Flask 앱과 상호 작용할 수 있게 해주는 JavaScript 작성
 
 ### <a name="call-the-text-to-speech-api"></a>텍스트 음성 변환 API 호출
 

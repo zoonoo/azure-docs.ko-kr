@@ -4,12 +4,12 @@ ms.service: azure-object-anchors
 ms.topic: include
 ms.date: 02/18/2021
 ms.author: crtreasu
-ms.openlocfilehash: 4345810292896cf88de19baf419eee025ba5853f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ada83d6263ef033208200d810c53c5f045acc9a7
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102044792"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105882"
 ---
 다음은 Unity용 Azure Object Anchors 패키지를 다운로드하는 단계입니다.
 
@@ -38,6 +38,6 @@ Azure Object Anchors 패키지는 명령을 실행한 폴더에 다운로드됩�
 
 # <a name="install-with-mixed-reality-feature-tool-beta"></a>[Mixed Reality 기능 도구(베타)를 사용하여 설치](#tab/unity-package-mixed-reality-feature-tool)
 
-다음 단계를 계속 진행합니다. 이후 단계에서 <a a href="https://aka.ms/MRFeatureToolDocs" target="_blank">Mixed Reality 기능 도구</a>를 사용합니다.
+다음 단계를 계속 진행합니다. 이후 단계에서 <a a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality 기능 도구</a>를 사용합니다.
 
 ---

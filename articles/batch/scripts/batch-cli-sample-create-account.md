@@ -4,12 +4,12 @@ description: 이 스크립트는 Batch 서비스 모드에서 Azure Batch 계정
 ms.topic: sample
 ms.date: 01/29/2018
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2349b6b373f271a5aa0f169e5a9ebc9f58f6f608
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3d978cf56e92abf9824c116e51f94d53bbe14bbb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93076813"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768334"
 ---
 # <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>CLI 예제: Batch 서비스 모드에서 Batch 계정 만들기
 
@@ -37,14 +37,14 @@ az group delete --name myResourceGroup
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Batch 계정을 만듭니다. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | 스토리지 계정을 만듭니다. |
-| [az batch account set](/cli/azure/batch/account#az-batch-account-set) | Batch 계정의 속성을 업데이트합니다.  |
-| [az batch account show](/cli/azure/batch/account#az-batch-account-show) | 지정된 Batch 계정의 세부 정보를 검색합니다.  |
-| [az batch account keys list](/cli/azure/batch/account/keys#az-batch-account-keys-list) | 지정된 Batch 계정의 액세스 키를 검색합니다.  |
-| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | 추가 CLI 상호 작용을 위해 지정된 Batch 계정에 대해 인증합니다.  |
-| [az group delete](/cli/azure/group#az-group-delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Batch 계정을 만듭니다. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | 스토리지 계정을 만듭니다. |
+| [az batch account set](/cli/azure/batch/account#az_batch_account_set) | Batch 계정의 속성을 업데이트합니다.  |
+| [az batch account show](/cli/azure/batch/account#az_batch_account_show) | 지정된 Batch 계정의 세부 정보를 검색합니다.  |
+| [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) | 지정된 Batch 계정의 액세스 키를 검색합니다.  |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | 추가 CLI 상호 작용을 위해 지정된 Batch 계정에 대해 인증합니다.  |
+| [az group delete](/cli/azure/group#az_group_delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: d6be9753cbcb2a6be9836b27f82f1b60068570b8
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: 72eb6e77cfbcae662181f642393085185514eed6
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103224982"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550951"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>빠른 시작: 인증 코드 흐름을 사용하여 사용자를 로그인하고 노드 웹앱에서 액세스 토큰을 가져옵니다.
 
@@ -149,4 +149,4 @@ npm install @azure/msal-node
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [기존 웹앱에 인증 추가 - GitHub 코드 샘플 >](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/auth-code)
+> [기존 웹앱에 인증 추가 - GitHub 코드 샘플 >](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/auth-code)

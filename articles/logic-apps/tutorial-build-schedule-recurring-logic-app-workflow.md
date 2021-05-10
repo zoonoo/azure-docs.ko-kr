@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 09/30/2020
-ms.openlocfilehash: 95275e68d0c7674caf4dd2b20f5586db5193fd03
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/24/2021
+ms.openlocfilehash: 0dab2f49043f3a59dd4f06633e3f0228fc39a424
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99821537"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792096"
 ---
 # <a name="tutorial-create-schedule-based-and-recurring-automation-workflows-with-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 일정 기반의 되풀이 자동화 워크플로 만들기
 
@@ -43,7 +43,7 @@ ms.locfileid: "99821537"
 
 * 경로의 이동 시간 정보를 가져오려면 Bing 지도 API에 대한 액세스 키가 필요합니다. 이 키를 가져오려면 [Bing 지도 키를 가져오는 방법](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key)의 단계를 수행합니다.
 
-* 논리 앱이 특정 IP 주소로 트래픽을 제한하는 방화벽을 통해 통신해야 하는 경우 해당 방화벽은 논리 앱이 있는 Azure 지역의 런타임 또는 Logic Apps 서비스에서 사용하는 [인바운드](logic-apps-limits-and-config.md#inbound) 및 [아웃바운드](logic-apps-limits-and-config.md#outbound) IP 주소 *모두* 에 대한 액세스를 허용해야 합니다. 논리 앱에서 Office 365 Outlook 커넥터 또는 SQL 커넥터와 같은 [관리형 커넥터](../connectors/apis-list.md#managed-api-connectors)를 사용하거나 [사용자 지정 커넥터](/connectors/custom-connectors/)를 사용하는 경우 방화벽은 논리 앱의 Azure 지역에 있는 [관리형 커넥터 아웃바운드 IP 주소](logic-apps-limits-and-config.md#outbound) *모두* 에 대한 액세스도 허용해야 합니다.
+* 논리 앱이 특정 IP 주소로 트래픽을 제한하는 방화벽을 통해 통신해야 하는 경우 해당 방화벽은 논리 앱이 있는 Azure 지역의 런타임 또는 Logic Apps 서비스에서 사용하는 [인바운드](logic-apps-limits-and-config.md#inbound) 및 [아웃바운드](logic-apps-limits-and-config.md#outbound) IP 주소 *모두* 에 대한 액세스를 허용해야 합니다. 논리 앱에서 Office 365 Outlook 커넥터 또는 SQL 커넥터와 같은 [관리형 커넥터](../connectors/managed.md)를 사용하거나 [사용자 지정 커넥터](/connectors/custom-connectors/)를 사용하는 경우 방화벽은 논리 앱의 Azure 지역에 있는 [관리형 커넥터 아웃바운드 IP 주소](logic-apps-limits-and-config.md#outbound) *모두* 에 대한 액세스도 허용해야 합니다.
 
 ## <a name="create-your-logic-app"></a>논리 앱 만들기
 
@@ -57,7 +57,7 @@ ms.locfileid: "99821537"
 
    ![논리 앱 만들기 창 및 새 논리 앱에 대해 입력해야 하는 정보를 보여주는 스크린샷](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
-   | 속성 | 값 | 설명 |
+   | 속성 | 값 | Description |
    |----------|-------|-------------|
    | **구독** | <*Azure-subscription-name*> | Azure 구독 이름. 이 예에서는 `Pay-As-You-Go`를 사용합니다. |
    | **리소스 그룹** | LA-TravelTime-RG | 관련 리소스를 구성하는 데 사용되는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)의 이름입니다. 이 예제는 새 리소스 그룹 `LA-TravelTime-RG`를 만듭니다. |
@@ -141,7 +141,7 @@ ms.locfileid: "99821537"
 
    ![지정된 연결 이름과 Bing Maps API 키를 사용하는 Bing Maps 연결 상자를 보여주는 스크린샷](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
 
-   | 속성 | 필수 | 값 | 설명 |
+   | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
    | **연결 이름** | 예 | BingMapsConnection | 연결 이름을 입력합니다. 이 예에서는 `BingMapsConnection`를 사용합니다. |
    | **API 키** | 예 | <*Bing-Maps-API-key*> | 이전에 받은 Bing Maps API 키를 입력합니다. Bing 지도 키가 없는 경우 [키를 가져오는 방법](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key)을 알아보세요. |
@@ -192,7 +192,7 @@ ms.locfileid: "99821537"
 
 1. 이 표와 표 아래의 단계에 표시된 대로 변수 정보를 입력합니다.
 
-   | 속성 | 필수 | 값 | 설명 |
+   | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
    | **이름** | 예 | travelTime | 변수의 이름입니다. 이 예에서는 `travelTime`를 사용합니다. |
    | **형식** | 예 | 정수 | 변수의 데이터 형식 |

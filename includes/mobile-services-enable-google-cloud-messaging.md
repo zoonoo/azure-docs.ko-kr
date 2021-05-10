@@ -9,10 +9,10 @@ ms.date: 04/06/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: b32ff0926aa2b797bdb8dfcbb01cf845080a0ce9
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93376154"
 ---
 1. [Google 클라우드 콘솔](https://console.developers.google.com/cloud-resource-manager)로 이동하고 Google 계정 자격 증명으로 로그인합니다. 

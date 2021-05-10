@@ -2,16 +2,17 @@
 title: Azure에서 Intel SGX quote 도우미인 Daemonset을 사용하여 out-of-proc 증명 지원(미리 보기)
 description: DaemonSet는 SGX 애플리케이션 프로세스 외부에서 quote를 생성합니다. 이 문서에서는 out-of-proc 증명 기능을 컨테이너 내에서 실행되는 기밀 워크로드에 제공하는 방법을 설명합니다.
 ms.service: container-service
+ms.subservice: confidential-computing
 author: agowdamsft
 ms.topic: overview
 ms.date: 2/12/2021
 ms.author: amgowda
-ms.openlocfilehash: 5d872032ea5b4e08c3f436dd3bfc202786d8514d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0ebeb96557b7e20d123577c0ab9c8fc392abbfba
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102553258"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932634"
 ---
 # <a name="platform-software-management-with-sgx-quote-helper-daemon-set-preview"></a>SGX quote 도우미 디먼 집합을 사용하는 플랫폼 소프트웨어 관리(미리 보기)
 

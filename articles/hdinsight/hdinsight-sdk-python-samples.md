@@ -6,10 +6,10 @@ ms.topic: sample
 ms.date: 11/08/2019
 ms.custom: devx-track-python
 ms.openlocfilehash: 1a15a8d343398dce7a049622b53ca5e2b2c217eb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99821699"
 ---
 # <a name="azure-hdinsight-python-samples"></a>Azure HDInsight: Python 샘플
@@ -23,14 +23,14 @@ ms.locfileid: "99821699"
 > [!Important]
 > Python 2.7은 2020년 1월 1일부터 사용되지 않습니다. 여전히 Python 2.7을 사용하는 경우 HDInsight Python SDK를 사용하려면 3.7로 업그레이드하세요.  
 
-이 문서는 다음을 제공합니다.
+이 문서에서는 다음을 제공합니다.
 
 * 클러스터 만들기 작업용 샘플에 연결합니다.
 * 다른 관리 작업을 위한 참조 콘텐츠에 연결합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [Python용 Azure HDInsight SDK](/python/api/overview/azure/hdinsight#sdk-installation)
 

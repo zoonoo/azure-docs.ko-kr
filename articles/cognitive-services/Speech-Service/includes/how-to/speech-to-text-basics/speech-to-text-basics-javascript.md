@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: cc5e306aa9677c7370d03dbb26ef3fe69293a630
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 5a8065daca11e5b79f02510f82ab622c8fb1af2d
+ms.sourcegitcommit: 91361cbe8fff7c866ddc4835251dcbbe2621c055
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180070"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105729875"
 ---
 Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 글로 바꾸는 기능입니다(종종 음성 텍스트 변환이라고도 함). 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성을 텍스트로 변환하는 방법을 알아봅니다.
 
@@ -26,7 +26,7 @@ Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 �
 
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 
-작업을 수행하려면 먼저 Node.js용 Speech SDK를 설치해야 합니다. 설치할 패키지 이름만 알고 싶으면 `npm install microsoft-cognitiveservices-speech-sdk`를 실행합니다. 단계별 설치 지침은 [시작](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnet%2Clinux%2Cjre%2Cnodejs&pivots=programming-language-javascript) 문서를 참조하세요.
+작업을 수행하려면 먼저 Node.js용 Speech SDK를 설치해야 합니다. 설치할 패키지 이름만 알고 싶으면 `npm install microsoft-cognitiveservices-speech-sdk`를 실행합니다. 단계별 설치 지침은 [시작](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript&tabs=dotnet%2clinux%2cjre%2cnodejs) 문서를 참조하세요.
 
 다음 `require` 문을 사용하여 SDK를 가져옵니다.
 
@@ -62,11 +62,7 @@ const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription
 
 ## <a name="recognize-from-file"></a>파일에서 인식 
 
-Node.js의 오디오 파일에서 음성을 인식하려면 node.js 런타임에 JavaScript `File` 개체를 사용할 수 없으므로 푸시 스트림을 사용하는 대체 디자인 패턴을 사용해야 합니다. 코드는 다음과 같습니다.
-
-* `createPushStream()`을 사용하여 푸시 스트림을 만듭니다.
-* 읽기 스트림을 만들어 `.wav` 파일을 열고 푸시 스트림에 씁니다.
-* 푸시 스트림을 사용하여 오디오 구성을 만듭니다.
+오디오 파일에서 음성을 인식하려면 `Buffer` 개체를 수락하는 `fromWavFileInput()`을 사용하여 `AudioConfig`를 만듭니다. 그런 다음, [`SpeechRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer)를 초기화하고 `audioConfig` 및 `speechConfig`를 전달합니다.
 
 ```javascript
 const fs = require('fs');
@@ -74,6 +70,31 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
 
 function fromFile() {
+    let audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync("YourAudioFile.wav"));
+    let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
+
+    recognizer.recognizeOnceAsync(result => {
+        console.log(`RECOGNIZED: Text=${result.text}`);
+        recognizer.close();
+    });
+}
+fromFile();
+```
+
+## <a name="recognize-from-in-memory-stream"></a>메모리 내 스트림에서 인식
+
+많은 사용 사례에서 오디오 데이터가 Blob 스토리지에서 제공되거나, 그렇지 않은 경우 이미 메모리 내에 [`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) 또는 이와 비슷한 원시 데이터 구조로 있을 수 있습니다. 코드는 다음과 같습니다.
+
+* `createPushStream()`을 사용하여 푸시 스트림을 만듭니다.
+* `fs.createReadStream`을 데모 용도로 사용하여 `.wav` 파일을 읽지만 이미 오디오 데이터가 `ArrayBuffer`에 있는 경우 콘텐츠를 입력 스트림에 쓰도록 바로 건너뛸 수 있습니다.
+* 푸시 스트림을 사용하여 오디오 구성을 만듭니다.
+
+```javascript
+const fs = require('fs');
+const sdk = require("microsoft-cognitiveservices-speech-sdk");
+const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
+
+function fromStream() {
     let pushStream = sdk.AudioInputStream.createPushStream();
 
     fs.createReadStream("YourAudioFile.wav").on('data', function(arrayBuffer) {
@@ -89,7 +110,7 @@ function fromFile() {
         recognizer.close();
     });
 }
-fromFile();
+fromStream();
 ```
 
 푸시 스트림을 입력으로 사용하면 오디오 데이터가 원시 PCM이라고 가정합니다(예: 헤더 건너뛰기).

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: c6c376e44c6135a800e6f7e281f8ea85b828329a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a18d06e3a0324889a4cb9936fb339fd9d8f9b816
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443885"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222698"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>고객 관리형 키를 사용하여 Azure Data Factory 암호화
 
@@ -137,6 +137,23 @@ Data Factory 암호화에 사용되는 키를 변경하려면 Data Factory에서
 ## <a name="disable-customer-managed-keys"></a>고객 관리형 키 사용 안 함
 
 고객 관리형 키 기능을 사용하도록 설정한 후에는 추가 보안 단계를 제거할 수 없도록 설계되었습니다. 항상 고객이 제공한 키로 팩터리와 데이터를 암호화해야 합니다.
+
+## <a name="customer-managed-key-and-continuous-integration-and-continuous-deployment"></a>고객 관리 키 및 연속 통합 및 지속적인 배포
+
+기본적으로 CMK 구성은 공장 ARM(Azure Resource Manager) 템플릿에 포함되지 않습니다. 연속 통합(CI/CD)에 대해 ARM 템플릿에서 고객 관리형 키 암호화 설정을 포함하려면 다음을 수행합니다.
+
+1. 팩터리가 Git 모드인지 확인
+1. 관리 포털 - 고객 관리형 키 섹션으로 이동
+1. _ARM 템플릿에 포함_ 옵션 선택
+
+  :::image type="content" source="media/enable-customer-managed-key/07-include-in-template.png" alt-text="ARM 템플릿에서 고객 관리형 키 설정을 포함하는 스크린샷":::
+
+ARM 템플릿에서 다음 설정이 추가됩니다. 이러한 속성은 [Azure Resource Manager 매개 변수 구성](continuous-integration-deployment.md#use-custom-parameters-with-the-resource-manager-template)을 편집하여 연속 통합 및 배달 파이프라인에서 매개 변수화할 수 있습니다.
+
+  :::image type="content" source="media/enable-customer-managed-key/08-template-with-customer-managed-key.png" alt-text="Azure Resource Manager 템플릿에서 고객 관리형 키 설정을 포함하는 스크린샷":::
+
+> [!NOTE]
+> ARM 템플릿에 암호화 설정을 추가하면 다른 환경에서 git 구성과 같은 다른 팩터리 수준 설정을 재정의하는 팩터리 수준 설정이 추가됩니다. UAT 또는 PROD와 같은 관리자 권한 환경에서 이러한 설정을 사용하도록 설정한 경우 [CI/CD의 글로벌 매개 변수](author-global-parameters.md#cicd)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

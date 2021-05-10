@@ -15,10 +15,10 @@ ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 49f2c290c69fcadd594d6cbd5879e7d9f5304a42
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102558018"
 ---
 # <a name="administrative-units-in-azure-active-directory"></a>Azure Active Directory의 관리 단위
@@ -58,7 +58,7 @@ Azure Portal, PowerShell cmdlet 및 스크립트 또는 Microsoft Graph를 사�
 
 조직에서 관리 단위를 만들 때 일반적으로 다음과 같은 단계를 거치게 됩니다.
 
-1. **초기 채택**: 조직에서 초기 조건에 따라 관리 단위 만들기를 시작하고, 조건이 점점 구체화되면서 관리 단위 수가 증가합니다.
+1. **초기 채택**: 조직에서 초기 조건에 따라 관리 단위 생성를 시작하고, 조건이 점점 구체화되면서 관리 단위 수가 증가합니다.
 1. **삭제**: 조건이 정의되면 더 이상 필요 없는 관리 단위가 삭제됩니다.
 1. **안정화**: 조직 구조가 정의되었으며 관리 단위 수가 단기간에 크게 변하지 않습니다.
 

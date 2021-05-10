@@ -3,16 +3,18 @@ title: '빠른 시작: 서버 만들기 - Azure Portal - Azure Database for Mari
 description: 이 문서에서는 Azure Portal을 사용하여 약 5분 안에 신속히 Azure Database for MariaDB 서버 샘플을 만드는 과정을 안내합니다.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
-ms.custom: mvc
-ms.topic: quickstart
 ms.date: 3/19/2020
-ms.openlocfilehash: 7b27bff50b4e2cfa57e41919552086ba1d31f217
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.topic: quickstart
+ms.service: mariadb
+ms.custom:
+- mvc
+- mode-portal
+ms.openlocfilehash: bcb8091bad6190648f35d8acdcb457f8b153ed63
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98662112"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531354"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Database for MariaDB 서버 만들기
 

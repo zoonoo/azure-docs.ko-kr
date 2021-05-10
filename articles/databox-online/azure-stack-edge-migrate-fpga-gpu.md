@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 24d6528a105d593d1cb4c9c66d981c8787f85633
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: 430e34a1ca631be00ef46170affd4b56c79894a9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573282"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105566407"
 ---
 # <a name="migrate-workloads-from-an-azure-stack-edge-pro-fpga-to-an-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro FPGA에서 Azure Stack Edge Pro GPU로 워크로드 마이그레이션
 
@@ -173,7 +173,7 @@ IoT 워크로드에 대한 로컬 공유 데이터를 보호하기 위해 타사
 
 1. [디바이스에서 컴퓨팅을 구성](azure-stack-edge-gpu-deploy-configure-compute.md)합니다.
 1. 모든 로컬 공유를 대상 디바이스에 추가합니다. 자세한 단계는 [로컬 공유 추가](azure-stack-edge-gpu-manage-shares.md#add-a-local-share)를 참조하세요.
-1. 원본 디바이스의 SMB 공유에 액세스할 때는 IP 주소가 사용되고, 대상 디바이스에서는 디바이스 이름이 사용됩니다. [Azure Stack Edge Pro GPU의 SMB 공유에 연결](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-smb-share)을 참조하세요. 대상 디바이스의 NFS 공유에 연결하려면 디바이스와 연결된 새 IP 주소를 사용해야 합니다. [Azure Stack Edge Pro GPU에서 NFS 공유에 연결](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-nfs-share)을 참조하세요. 
+1. 원본 디바이스의 SMB 공유에 액세스할 때는 IP 주소가 사용되고, 대상 디바이스에서는 디바이스 이름이 사용됩니다. [Azure Stack Edge Pro GPU의 SMB 공유에 연결](./azure-stack-edge-gpu-deploy-add-shares.md#connect-to-an-smb-share)을 참조하세요. 대상 디바이스의 NFS 공유에 연결하려면 디바이스와 연결된 새 IP 주소를 사용해야 합니다. [Azure Stack Edge Pro GPU에서 NFS 공유에 연결](./azure-stack-edge-gpu-deploy-add-shares.md#connect-to-an-nfs-share)을 참조하세요. 
 
     SMB 또는 NFS를 통해 공유 데이터를 중간 서버로 복사한 경우 중간 서버의 데이터를 대상 디바이스의 공유로 복사할 수 있습니다. 원본 디바이스와 대상 디바이스가 모두 *온라인* 상태인 경우 원본 디바이스에서 직접 데이터를 복사할 수도 있습니다.
 

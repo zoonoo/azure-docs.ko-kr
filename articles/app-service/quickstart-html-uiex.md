@@ -6,14 +6,14 @@ ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
-ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
+ms.custom: mvc, cli-validate, seodec18
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 538d414ce606b944fcea7adbb1c817386e13090e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 603d8e642cd2e88beec6ae34094a2c6c43d179ee
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102178578"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768912"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Azure에서 정적 HTML 웹앱 만들기
 
@@ -55,7 +55,7 @@ az webapp up --location westeurope --name <app_name> --html
 <li><code>&lt;app-name&gt;</code>을 모든 Azure에서 고유한 이름으로 바꿉니다(<em>유효한 문자는 <code>a-z</code>, <code>0-9</code> 및 <code>-</code></em>). 좋은 패턴은 회사 이름과 앱 식별자의 조합을 사용하는 것입니다.</li>
 <li><code>--sku F1</code> 인수는 무료 가격 책정 계층에 웹앱을 만듭니다. 이 인수를 생략하여 더 빠른 프리미엄 계층을 사용합니다. 이 경우 시간당 비용이 발생합니다.</li>
 <li><code>--html</code> 인수는 모든 폴더 콘텐츠를 정적 콘텐츠로 처리하고 빌드 자동화를 사용하지 않도록 설정하라는 의미입니다.</li>
-<li>선택적으로 인수 <code>--location &lt;location-name&gt;</code>을 포함할 수 있습니다. 여기서 <code>&lt;location-name&gt;</code>은 사용 가능한 Azure 지역입니다. Azure 계정에 허용되는 지역 목록은 <a href="/cli/azure/appservice#az-appservice-list-locations"><code>az account list-locations</code></a> 명령을 실행하여 검색할 수 있습니다.</li>
+<li>선택적으로 인수 <code>--location &lt;location-name&gt;</code>을 포함할 수 있습니다. 여기서 <code>&lt;location-name&gt;</code>은 사용 가능한 Azure 지역입니다. Azure 계정에 허용되는 지역 목록은 <a href="/cli/azure/appservice#az_appservice_list_locations"><code>az account list-locations</code></a> 명령을 실행하여 검색할 수 있습니다.</li>
 </ul>
 </details>
 
@@ -67,7 +67,7 @@ az webapp up --location westeurope --name <app_name> --html
 <ul>
 <li>기본 리소스 그룹 만들기</li>
 <li>기본 App Service 계획을 만듭니다.</li>
-<li>지정된 이름으로 <a href="/cli/azure/webapp#az-webapp-create">App Service 앱을 만듭니다</a>.</li>
+<li>지정된 이름으로 <a href="/cli/azure/webapp#az_webapp_create">App Service 앱을 만듭니다</a>.</li>
 <li>현재 작업 디렉터리에서 앱까지의 <a href="/azure/app-service/deploy-zip">배포 파일을 압축합니다</a>.</li>
 <li>실행되는 동안 리소스 생성, 로깅 및 ZIP 배포에 대한 메시지가 제공됩니다.</li>
 </ul>

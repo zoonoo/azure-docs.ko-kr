@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 97209dca7d30de037dbd21f5cc145b2941060e70
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96015403"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>StorSimple 모니터링 표시기를 사용하여 디바이스 관리
@@ -242,7 +242,7 @@ ops 패널에 있는 음소거 단추를 눌러 청각적 경보를 음소거할
 | 전원 부족 |경고 |없음 |모듈 결함 |
 
 ## <a name="next-steps"></a>다음 단계
-[StorSimple 하드웨어 구성 요소 및 상태](storsimple-8000-monitor-hardware-status.md)에 대해 자세히 알아보세요.
+[StorSimple 하드웨어 구성 요소 및 상태](storsimple-8000-monitor-hardware-status.md)에 대해 자세히 알아봅니다.
 
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png

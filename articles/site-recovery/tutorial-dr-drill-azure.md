@@ -1,19 +1,16 @@
 ---
 title: Azure Site Recovery를 사용하여 Azure로 재해 복구 훈련 실행
 description: Azure Site Recovery를 사용하여 온-프레미스에서 Azure로 재해 복구 훈련을 실행하는 방법에 대해 알아봅니다.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5bd9f5316f8b8799633de8c0c84c61424c0e4f4a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 246295017e2b05de10ccfd2154a1490ae0ece9c3
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "84699620"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579100"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure로 재해 복구 훈련 실행
 

@@ -9,12 +9,12 @@ ms.author: mlearned
 description: 이 문서에서는 Azure Arc 지원 Kubernetes 개요를 제공합니다.
 keywords: Kubernetes, Arc, Azure, 컨테이너
 ms.custom: references_regions
-ms.openlocfilehash: b3296aa1c1d5d463cc7f4cb932b44ad76632e19e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 69e9886f214d0076c8e66231fd6ad15bb060828f
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121595"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449650"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes란?
 
@@ -43,9 +43,11 @@ Azure Arc 지원 Kubernetes는 다음과 같은 시나리오를 지원합니다.
 
 * GitOps 기반 구성 관리를 사용하여 애플리케이션을 배포하고 구성을 적용합니다. 
 
-* 컨테이너에 대한 Azure Monitor를 사용하여 클러스터를 확인 및 모니터링합니다. 
+* 컨테이너에 대한 Azure Monitor를 사용하여 클러스터를 확인 및 모니터링합니다.
 
-* Kubernetes에 대한 Azure Policy를 사용하여 정책을 적용합니다. 
+* Azure Defender for Kubernetes를 사용하여 위협 보호를 적용합니다.
+
+* Kubernetes에 대한 Azure Policy를 사용하여 정책을 적용합니다.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 

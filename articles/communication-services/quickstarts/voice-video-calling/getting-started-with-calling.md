@@ -8,19 +8,16 @@ ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 0886e3955ba58a5a8edbf3cd72b1065b1000b5b3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5a506d84f338b2eab1c32caa4d94bd03a33e637d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104598829"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728337"
 ---
 # <a name="quickstart-add-voice-calling-to-your-app"></a>빠른 시작: 앱에 음성 통화 추가
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-
-Communication Services 호출 클라이언트 라이브러리를 사용하여 앱에 음성 및 비디오 통화를 추가하여 Azure Communication Services를 시작하세요.
+Communication Services Calling SDK를 사용하여 앱에 음성 및 영상 통화를 추가하여 Azure Communication Services를 시작하세요.
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
@@ -45,5 +42,5 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 자세한 내용은 다음 문서를 참조하세요.
 
 - [영웅 샘플 호출](../../samples/calling-hero-sample.md) 체크 아웃
-- [클라이언트 라이브러리 기능 호출](./calling-client-samples.md)에 대한 자세한 정보
+- [통화 SDK 기능](./calling-client-samples.md)에 대해 알아보기
 - [호출 작동 방식](../../concepts/voice-video-calling/about-call-types.md)에 대해 자세히 알아보기

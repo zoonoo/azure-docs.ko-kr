@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: a708f0c1884073a2f2ea73092d25006415c59d5f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9873ec2113c0c5704ccca4fa10daf6ac8d572989
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104655226"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107434"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Azure SQL Database 등록 및 검사
 
@@ -28,7 +28,8 @@ Azure SQL Database 데이터 원본에서 지원하는 기능은 다음과 같�
 
 ### <a name="known-limitations"></a>알려진 제한 사항
 
-Azure Purview는 Azure SQL Database의 [보기](/sql/relational-databases/views/views?view=azuresqldb-current&preserve-view=true)에 대한 검사를 지원하지 않습니다.
+> * Azure Purview는 Azure SQL Database의 [보기](/sql/relational-databases/views/views?view=azuresqldb-current&preserve-view=true)에 대한 검사를 지원하지 않습니다.
+> * Azure Purview는 스키마 탭에서 300개를 초과하는 열을 지원하지 않으며 "Additional-Columns-Truncated"를 표시합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -100,7 +101,7 @@ Purview에서 서비스 주체 또는 Purview의 **관리 ID** 를 사용하여 
     ```
 
     > [!Note]
-    > `Username`은 사용자 고유의 서비스 주체 또는 Purview의 관리 ID입니다. [고정 데이터베이스 역할 및 해당 기능](/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles)에 대해 자세히 알아볼 수 있습니다.
+    > `Username`은 사용자 고유의 서비스 주체 또는 Purview의 관리 ID입니다. [고정 데이터베이스 역할 및 해당 기능](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles)에 대해 자세히 알아볼 수 있습니다.
     
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>키 자격 증명 모음 및 Purview의 자격 증명에 서비스 주체 추가
 

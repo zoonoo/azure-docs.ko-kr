@@ -5,15 +5,17 @@ services: azure-resource-manager
 author: julieMSFT
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 06/09/2020
-ms.openlocfilehash: 70adb7409c44a79345a192df173a1a073cc9b7dd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 73f4baf1e48b5495d513fbabe66763538c8cca57
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96460735"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568474"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-dedicated-sql-pool-formerly-sql-dw-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Synapse Analytics 전용 SQL 풀(이전의 SQL DW) 만들기
 

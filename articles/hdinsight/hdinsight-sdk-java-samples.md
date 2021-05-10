@@ -6,10 +6,10 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 11/29/2019
 ms.openlocfilehash: 178767847757660163515ec286eba48e1050f506
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99821227"
 ---
 # <a name="azure-hdinsight-java-samples"></a>Azure HDInsight: Java 샘플
@@ -20,14 +20,14 @@ ms.locfileid: "99821227"
 > * [Python 예제](hdinsight-sdk-python-samples.md)
 <!-- * [Go Examples](hdinsight-sdk-dotnet-samples.md)-->
 
-이 문서는 다음을 제공합니다.
+이 문서에서는 다음을 제공합니다.
 
 * 클러스터 만들기 작업용 샘플에 연결합니다.
 * 다른 관리 작업을 위한 참조 콘텐츠에 연결합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [Java용 Azure HDInsight SDK](/java/api/overview/azure/hdinsight#sdk-installation)
 

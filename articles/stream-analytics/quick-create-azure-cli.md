@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: a3cc4c3d6936a51ca2010209ce23e4d82c9333eb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 58dccf56cd493782a422b0ddf0386e31d4d87daf
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98016343"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765992"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Stream Analytics 작업 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "98016343"
 
 - 리소스 그룹을 만듭니다. 모든 Azure 리소스는 리소스 그룹에 배포되어야 합니다. 리소스 그룹을 사용하면 관련 Azure 리소스를 구성하고 관리할 수 있습니다.
 
-   이 빠른 시작에서는 다음과 같이 [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 *eastus* 위치에 *streamanalyticsrg* 라는 리소스 그룹을 만듭니다.
+   이 빠른 시작에서는 다음과 같이 [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 *eastus* 위치에 *streamanalyticsrg* 라는 리소스 그룹을 만듭니다.
 
    ```azurecli
    az group create --name streamanalyticsrg --location eastus

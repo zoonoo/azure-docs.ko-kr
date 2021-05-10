@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/09/2020
+ms.date: 03/07/2021
 ms.author: anfeldma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 91e89eaf215468f171974e5f3fd383691fdd6ebe
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2a940f4bb519332e147577e4a9172406c401d152
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93096983"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365742"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>빠른 시작: Azure Cosmos DB SQL API 계정을 사용하여 Xamarin에서 todo 앱 빌드
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,6 +24,7 @@ ms.locfileid: "93096983"
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java SDK v4](create-sql-api-java.md)
 > * [Spring Data v3](create-sql-api-spring-data.md)
+> * [Spark v3 커넥터](create-sql-api-spark.md)
 > * [Node.JS](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -100,14 +101,14 @@ Azure Portal로 다시 이동하여 API 키 정보를 가져오고 앱에 복사
 
     ```csharp
     //#error Enter the URL of your Azure Cosmos DB endpoint here
-            public static readonly string CosmosEndpointUrl = "[URI Copied from Azure Portal]";
+    public static readonly string CosmosEndpointUrl = "[URI Copied from Azure portal]";
     ```
 
 4. Azure Portal에서 복사 단추를 사용하여 **PRIMARY KEY** 값을 복사하고 APIKeys.cs의 `Cosmos Auth Key` 값으로 만듭니다.
 
     ```csharp
     //#error Enter the read/write authentication key of your Azure Cosmos DB endpoint here
-            public static readonly string CosmosAuthKey = "[PRIMARY KEY copied from Azure Portal";
+    public static readonly string CosmosAuthKey = "[PRIMARY KEY copied from Azure portal";
     ```
 
 [!INCLUDE [cosmos-db-auth-key-info](../../includes/cosmos-db-auth-key-info.md)]
@@ -146,7 +147,7 @@ ToDoItems 솔루션의 코드에는 다음 항목이 포함됩니다.
 
     `CreateDocumentQuery<T>` 함수는 동기적으로 실행되고 `IQueryable<T>`를 반환합니다. 그러나 `AsDocumentQuery` 메서드는 `IQueryable<T>`을 비동기적으로 실행될 수 있는 `IDocumentQuery<T>` 개체로 변환합니다. 따라서 모바일 애플리케이션에 대한 UI 스레드를 차단하지 않습니다.
 
-    `IDocumentQuery<T>.ExecuteNextAsync<T>` 함수는 Azure Cosmos DB에서 결과 페이지를 검색합니다. 여기서 `HasMoreResults` 검사는 추가 결과가 반환되었는지를 확인합니다.
+    `IDocumentQuery<T>.ExecuteNextAsync<T>` 함수는 Azure Cosmos DB에서 결과 페이지를 검색합니다. `HasMoreResults`는 추가 결과가 반환되었는지를 확인하기 위해 검사합니다.
 
 > [!TIP]
 > Azure Cosmos 컨테이너 및 문서에서 작동하는 여러 함수는 URI를 컨테이너 또는 문서의 주소를 지정하는 매개 변수로 사용합니다. `URIFactory` 클래스를 사용하여 이 URI가 생성됩니다. 데이터베이스, 컨테이너 및 문서에 대한 URI는 이 클래스를 사용하여 만들 수 있습니다.
@@ -188,7 +189,7 @@ ToDoItems 솔루션의 코드에는 다음 항목이 포함됩니다.
 
     :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-start-debug.png" alt-text="Mac용 Visual Studio에서 디버깅 시작":::
 
-3. iOS 시뮬레이터 또는 Android 에뮬레이터의 실행이 완료되면 앱은 iOS의 경우 화면 맨 아래 2개의 탭을 표시하고 Android의 경우 화면 위쪽에 2개의 탭을 표시합니다. 첫 번째 탭은 완료되지 않은 할 일 항목을 표시하고, 두 번째 탭은 완료된 할 일 항목을 표시합니다.
+3. iOS 시뮬레이터 또는 Android 에뮬레이터의 실행이 완료되면 앱은 iOS의 경우 화면 맨 아래 두 개의 탭을 표시하고 Android의 경우 화면 위쪽에 두 개의 탭을 표시합니다. 첫 번째 탭은 완료되지 않은 할 일 항목을 표시하고, 두 번째 탭은 완료된 할 일 항목을 표시합니다.
 
     :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-droid-started.png" alt-text="ToDo 앱 화면 시작":::
 

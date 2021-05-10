@@ -3,18 +3,19 @@ title: '빠른 시작: ARM 템플릿(Azure Resource Manager 템플릿)을 사용
 description: ARM 템플릿(Azure Resource Manager 템플릿) 및 Azure PowerShell을 사용하여 NSG(네트워크 보안 그룹) 흐름 로그를 프로그래밍 방식으로 사용하도록 설정하는 방법을 알아봅니다.
 services: network-watcher
 author: damendo
-Customer intent: I need to enable the network security group flow logs by using an Azure Resource Manager template.
-ms.service: network-watcher
-ms.topic: quickstart
-ms.date: 01/07/2021
 ms.author: damendo
-ms.custom: subject-armqs
-ms.openlocfilehash: bc075e5074fe39ad38e45235af932b40fef78fce
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.date: 01/07/2021
+ms.topic: quickstart
+ms.service: network-watcher
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: df0ccb5bf5ecd60d80526085983e35abf58e9966
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102521869"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532436"
 ---
 # <a name="quickstart-configure-network-security-group-flow-logs-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 네트워크 보안 그룹 흐름 로그 구성
 

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 8cdf95dd3c0e801896328136b15e4bd4efe53005
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 306a8d78caf36291573d021ed1d814aa4f7a2164
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102563815"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642771"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>자습서: Azure SQL Database의 데이터베이스 보안
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -109,7 +109,7 @@ SQL Database의 데이터베이스는 Azure에서 방화벽으로 보호됩니�
 1. 도구 모음에서 **실행** 을 선택하여 방화벽 규칙을 만듭니다.
 
 > [!NOTE]
-> *master* 데이터베이스에 연결해야 하지만 SSMS에서 [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database?view=azuresqldb-current) 명령을 사용하여 서버 수준 방화벽 규칙을 만들 수도 있습니다.
+> *master* 데이터베이스에 연결해야 하지만 SSMS에서 [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database?view=azuresqldb-current&preserve-view=true) 명령을 사용하여 서버 수준 방화벽 규칙을 만들 수도 있습니다.
 
 ## <a name="create-an-azure-ad-admin"></a>Azure AD 관리자 만들기
 

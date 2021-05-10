@@ -3,16 +3,18 @@ title: '빠른 시작: ExpressRoute를 사용하여 회로 만들기 및 수정 
 description: 이 빠른 시작에서는 ExpressRoute 회로를 만들고, 프로비저닝하고, 확인하고, 업데이트하고, 삭제하고, 프로비저닝 해제하는 방법을 보여 줍니다.
 services: expressroute
 author: duongau
-ms.service: expressroute
-ms.topic: quickstart
-ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: 5397dd2745a0d4e61804cf631014846ae15ec4e1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 10/12/2020
+ms.topic: quickstart
+ms.service: expressroute
+ms.custom:
+- mode-api
+ms.openlocfilehash: 50307e40526f5cce4d1349180b29fac00fb70943
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91971543"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534958"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 ExpressRoute 회로 만들기 및 수정
 

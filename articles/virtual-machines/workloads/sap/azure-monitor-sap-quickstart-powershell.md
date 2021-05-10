@@ -3,17 +3,19 @@ title: Azure PowerShell을 사용하여 SAP 솔루션을 위한 Azure Monitor �
 description: Azure PowerShell을 사용하여 SAP 솔루션을 위한 Azure Monitor 배포
 author: sameeksha91
 ms.author: sakhare
+ms.date: 09/08/2020
 ms.topic: quickstart
 ms.service: virtual-machines-sap
 ms.devlang: azurepowershell
-ms.date: 09/08/2020
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b1cea4b72049386ad7a1cc3e67003861c694812c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom:
+- devx-track-azurepowershell
+- mode-api
+ms.openlocfilehash: 0af2611bada7a9aad206ce7463ef72ec930c89a2
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101671959"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538697"
 ---
 # <a name="quickstart-deploy-azure-monitor-for-sap-solutions-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 SAP 솔루션을 위한 Azure Monitor 배포
 

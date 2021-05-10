@@ -3,16 +3,18 @@ title: '빠른 시작: Azure Portal을 사용하여 Azure Static Web Apps를 통
 description: Azure Portal을 사용하여 정적 사이트를 Azure Static Web Apps에 배포하는 방법을 알아봅니다.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
-ms.topic: quickstart
-ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: b19c37a45131e3689fdc9726d186f220ab5ba9fe
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.date: 09/03/2020
+ms.topic: quickstart
+ms.service: static-web-apps
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 78af2290a2e71d349303d3913f8a40510eb9c6a0
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103149531"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531584"
 ---
 # <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 첫 번째 정적 사이트 빌드
 
@@ -20,7 +22,7 @@ Azure Static Web Apps는 GitHub 리포지토리에서 앱을 빌드하여 프로
 
 Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.com/free)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [GitHub](https://github.com) 계정
 - [Azure](https://portal.azure.com) 계정

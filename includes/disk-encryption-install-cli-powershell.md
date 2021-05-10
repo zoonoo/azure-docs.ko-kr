@@ -1,19 +1,19 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: virtual-machines
 author: msmbaldwin
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
-ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 4c168738c0396b83412f9ed8c27fe3b2db9918d7
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.custom: include file
+ms.openlocfilehash: a550087f552238820ecff079ff1dc2523c4172d3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102511109"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776807"
 ---
 Azure Disk Encryption은 [Azure CLI](/cli/azure) 및 [Azure PowerShell](/powershell/azure/new-azureps-module-az)을 통해 사용하고 관리할 수 있습니다. 이렇게 하려면 도구를 로컬에 설치하고 Azure 구독에 연결해야 합니다.
 
@@ -21,7 +21,7 @@ Azure Disk Encryption은 [Azure CLI](/cli/azure) 및 [Azure PowerShell](/powersh
 
 [Azure CLI 2.0](/cli/azure)은 Azure 리소스를 관리하기 위한 명령줄 도구입니다. CLI는 데이터를 유연하게 쿼리하고, 장기 실행 작업을 비차단 프로세스로 지원하고, 쉽게 스크립팅할 수 있도록 설계되었습니다. [Azure CLI 설치](/cli/azure/install-azure-cli)의 단계에 따라 로컬에 설치할 수 있습니다.
 
-[Azure CLI에서 Azure 계정에 로그인](/cli/azure/authenticate-azure-cli)하려면 [az login](/cli/azure/reference-index#az-login) 명령을 사용합니다.
+[Azure CLI에서 Azure 계정에 로그인](/cli/azure/authenticate-azure-cli)하려면 [az login](/cli/azure/reference-index#az_login) 명령을 사용합니다.
 
 ```azurecli
 az login
@@ -33,7 +33,7 @@ az login
 az login --tenant <tenant>
 ```
 
-구독이 여러 개이고 특정 구독을 지정하려는 경우 [az account list](/cli/azure/account#az-account-list)를 사용하여 구독 목록을 가져오고 [az account set](/cli/azure/account#az-account-set)으로 지정합니다.
+구독이 여러 개이고 특정 구독을 지정하려는 경우 [az account list](/cli/azure/account#az_account_list)를 사용하여 구독 목록을 가져오고 [az account set](/cli/azure/account#az_account_set)으로 지정합니다.
      
 ```azurecli
 az account list
@@ -61,7 +61,7 @@ Set-AzContext -Subscription -Subscription <SubscriptionId>
 
 [Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext) cmdlet을 실행하면 올바른 구독이 선택되었는지 확인됩니다.
 
-Azure Disk Encryption cmdlet이 설치되어 있는지 확인하려면 [Get-command](/powershell/module/microsoft.powershell.core/get-command?view=powershell-6) cmdlet을 사용합니다.
+Azure Disk Encryption cmdlet이 설치되어 있는지 확인하려면 [Get-command](/powershell/module/microsoft.powershell.core/get-command) cmdlet을 사용합니다.
      
 ```powershell
 Get-command *diskencryption*

@@ -8,10 +8,10 @@ author: nabhishek
 ms.custom: seo-lt-2019
 ms.date: 03/12/2018
 ms.openlocfilehash: 20253954035798187f28c18c8207c114d27bc9c6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100374085"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Azure Data Factory에서 Databricks Notebook 작업으로 Databricks Notebook 실행
@@ -154,12 +154,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
           ![새 Notebook의 속성 설정](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
 
-       1. 새로 만든 "mynotebook" Notebook에서 다음 코드를 추가합니다.
+       1. 새로 만든 "mynotebook&quot; Notebook에서 다음 코드를 추가합니다.
 
            ```
            # Creating widgets for leveraging parameters, and printing the parameters
 
-           dbutils.widgets.text("input", "","")
+           dbutils.widgets.text(&quot;input&quot;, &quot;&quot;,&quot;")
            y = dbutils.widgets.get("input")
            print ("Param -\'input':")
            print (y)

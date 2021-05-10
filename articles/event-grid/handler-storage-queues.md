@@ -4,10 +4,10 @@ description: Azure Event Grid 이벤트에 대한 이벤트 처리기로 Azure �
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 502b44f276253be69362424c9de0fd516d20ad9a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91270188"
 ---
 # <a name="storage-queue-as-an-event-handler-for-azure-event-grid-events"></a>Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 스토리지 큐

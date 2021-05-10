@@ -4,10 +4,10 @@ description: Azure Blueprints 서비스를 통해 Azure 환경에서 아티팩�
 ms.date: 01/27/2021
 ms.topic: overview
 ms.openlocfilehash: f4ba77f5fcb376bf600d94997b0d6ba569f04f82
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98919345"
 ---
 # <a name="what-is-azure-blueprints"></a>Azure Blueprints란?
@@ -126,10 +126,10 @@ Blueprints에서는 정책/이니셔티브 또는 ARM 템플릿에 매개 변수
 
 |Object|필드|허용되는 문자|최대 길이|
 |-|-|-|-|
-|청사진|속성|문자, 숫자, 하이픈 및 마침표|48|
+|청사진|Name|문자, 숫자, 하이픈 및 마침표|48|
 |청사진|버전|문자, 숫자, 하이픈 및 마침표|20|
-|청사진 할당|속성|문자, 숫자, 하이픈 및 마침표|90|
-|청사진 아티팩트|속성|문자, 숫자, 하이픈 및 마침표|48|
+|청사진 할당|Name|문자, 숫자, 하이픈 및 마침표|90|
+|청사진 아티팩트|Name|문자, 숫자, 하이픈 및 마침표|48|
 
 ## <a name="video-overview"></a>비디오 개요
 

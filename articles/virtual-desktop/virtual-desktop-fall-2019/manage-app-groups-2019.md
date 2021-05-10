@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: e2a1f38918b2ea6af8a334b6648a463753f5c7b0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+manager: femila
+ms.openlocfilehash: 0b95c87ad447b92532bc6c456c06eb85162c7247
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91295212"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106444414"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-classic"></a>자습서: Windows Virtual Desktop(클래식)에 대한 앱 그룹 관리
 

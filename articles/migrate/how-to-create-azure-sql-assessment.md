@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.date: 02/07/2021
-ms.openlocfilehash: 14197516c0669055f756614b9559f1423703c6a8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 9acc6de84c3e5bc43f482d36ade242d2315a2a4f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102053576"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105565115"
 ---
 # <a name="create-an-azure-sql-assessment"></a>Azure SQL 평가 만들기
 
@@ -18,7 +18,7 @@ Azure로 마이그레이션하는 과정의 일환으로 온-프레미스 워크
 이 문서에서는 Azure SQL로 마이그레이션하기 위한 준비 작업으로 Azure Migrate: 검색 및 평가 도구를 사용하여 검색된 SQL 인스턴스를 평가하는 방법을 보여줍니다.
 
 > [!Note]
-> VMware 환경에서 실행되는 SQL Server 인스턴스 및 데이터베이스를 검색하고 평가하는 기능은 현재 미리 보기로 제공됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL)를 사용하여 **오스트레일리아 동부** 지역에서 프로젝트를 만듭니다. 오스트레일리아 동부에 이미 프로젝트가 있고 이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
+> VMware 환경에서 실행되는 SQL Server 인스턴스 및 데이터베이스를 검색하고 평가하는 기능은 현재 미리 보기로 제공됩니다. [이 자습서](tutorial-discover-vmware.md)를 시작합니다. 기존 프로젝트에서 이 기능을 사용해 보려면 이 문서의 [필수 구성 요소](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -37,7 +37,7 @@ Azure SQL 평가에 대해 [자세히 알아보세요](concepts-azure-sql-assess
 ## <a name="run-an-assessment"></a>평가 실행
 다음과 같이 평가를 실행합니다.
 1. **개요** 페이지 > **Windows, Linux 및 SQL Server** 에서 **서버 평가 및 마이그레이션** 을 클릭합니다.
-    :::image type="content" source="./media/tutorial-assess-sql/assess-migrate.png" alt-text="Azure Migrate에 대한 개요 페이지":::
+    :::image type="content" source="./media/tutorial-assess-sql/assess-migrate.png" alt-text="Azure Migrate 개요 페이지":::
 2. **Azure Migrate: 검색 및 평가** 에서 **평가** 를 클릭하고 평가 유형을 **Azure SQL** 로 선택합니다.
     :::image type="content" source="./media/tutorial-assess-sql/assess.png" alt-text="평가 유형을 Azure SQL로 선택하는 드롭다운":::
 3. **서버 평가** 에서 **Azure SQL** 로 미리 선택된 평가 유형과 **Azure Migrate 어플라이언스에서 검색된 서버** 로 설정된 검색 원본을 볼 수 있습니다.
@@ -67,7 +67,7 @@ Azure SQL 평가에 대해 [자세히 알아보세요](concepts-azure-sql-assess
    
 7. **가격 책정** 에서 다음을 수행합니다.
     - **제품/라이선스 프로그램** 에서 등록하는 경우 Azure 제품을 지정합니다. 현재 종량제 및 종량제 개발/테스트에서만 선택할 수 있습니다. 
-        - 종량된 제품외에 예약된 용량과 Azure 하이브리드 혜택을 적용하여 추가 할인을 받을 수 있습니다. 
+        - 종량제 제품 외에 예약된 용량과 Azure 하이브리드 혜택을 적용하여 추가 할인을 받을 수 있습니다. 
         - 종량제 개발/테스트 외에 Azure 하이브리드 혜택을 적용할 수 있습니다. 평가는 현재 종량제 개발/테스트 제품 외에 예약된 용량을 적용하는 것을 지원하지 않습니다.
     - **서비스 계층** 에서 Azure SQL Database 및/또는 Azure SQL Managed Instance로 마이그레이션하기 위한 비즈니스 요구 사항을 충족하는 가장 적절한 서비스 계층 옵션을 선택합니다. 
         - Azure Migrate에서 서버에 가장 적합한 서비스 계층을 추천하려면 **권장** 을 선택합니다. 권장 제품은 범용 또는 중요 비즈니스용 제품입니다. 자세한 정보
@@ -84,7 +84,7 @@ Azure SQL 평가에 대해 [자세히 알아보세요](concepts-azure-sql-assess
      :::image type="content" source="./media/tutorial-assess-sql/assessment-add-servers.png" alt-text="새 그룹 단추의 위치":::
 11. 어플라이언스를 선택하고 그룹에 추가할 서버를 선택합니다. 그런 후 "다음"을 클릭합니다.
 12. **검토 + 평가 만들기** 에서 평가 세부 정보를 검토하고, 평가 만들기를 클릭하여 그룹을 만들고 평가를 실행합니다.
-     :::image type="content" source="./media/tutorial-assess-sql/assessment-create.png" alt-text="검토 및 평가 만들기 단추의 위치.":::
+     :::image type="content" source="./media/tutorial-assess-sql/assessment-create.png" alt-text="검토 및 평가 만들기 단추의 위치":::
 13. 평가를 만든 후에는 **Windows, Linux 및 SQL Server** > **Azure Migrate: 검색 및 평가** 타일로 이동하고 Azure SQL 평가 옆에 있는 숫자를 클릭합니다.
      :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-navigation.png" alt-text="만든 평가로 이동":::
 15. 보려는 평가 이름을 클릭합니다.
@@ -94,7 +94,7 @@ Azure SQL 평가에 대해 [자세히 알아보세요](concepts-azure-sql-assess
 
 ## <a name="review-an-assessment"></a>평가 검토
 
-**평가를 보려면 다음을 수행합니다.**
+**평가를 보려면** 다음을 수행합니다.
 
 1. **Windows, Linux 및 SQL Server** > **Azure Migrate: 검색 및 평가** > Azure SQL 평가 옆에 있는 숫자를 클릭합니다.
 2. 보려는 평가 이름을 클릭합니다. 예(예제에만 해당되는 예측 및 비용): :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-summary.png" alt-text="SQL 평가 개요":::
@@ -110,8 +110,8 @@ Azure SQL 평가에 대해 [자세히 알아보세요](concepts-azure-sql-assess
     
 **대상 배포 유형(평가 속성에서)** | **준비 상태**   
 --- | --- |
-**권장됨** |  Azure SQL Database 준비, Azure SQL Managed Instance 준비, 잠재적 Azure VM 준비, 준비 상태 알수 없음(검색이 진행 중이거나 수정해야 할 검색 문제가 있는 경우)
-**Azure SQL DB** 또는 **Azure SQL MI** | Azure SQL Database, Azure SQL Managed Instance 준비, Azure SQL Database 및 Azure SQL Managed Instance 준비 안 됨, 준비 상태 알수 없음(검색이 진행 중이거나 수정해야 할 검색 문제가 있는 경우)
+**권장됨** |  Azure SQL Database 준비, Azure SQL Managed Instance 준비, 잠재적 Azure VM 준비, 준비 상태 알 수 없음(검색이 진행 중이거나 수정해야 할 검색 문제가 있는 경우)
+**Azure SQL DB** 또는 **Azure SQL MI** | Azure SQL Database, Azure SQL Managed Instance 준비, Azure SQL Database 및 Azure SQL Managed Instance 준비 안 됨, 준비 상태 알 수 없음(검색이 진행 중이거나 수정해야 할 검색 문제가 있는 경우)
      
 드릴다운하여 Azure SQL로 마이그레이션하기 전에 수정할 수 있는 마이그레이션 문제/경고에 대한 세부 정보를 파악할 수 있습니다. [자세히 알아보기](concepts-azure-sql-assessment-calculation.md) Azure SQL 데이터베이스 및/또는 Managed Instances로 마이그레이션하기 위해 권장되는 Azure SQL 구성을 검토할 수도 있습니다.
     
@@ -192,4 +192,4 @@ Azure Migrate는 평가된 모든 SQL 인스턴스 및 데이터베이스에 대
 ## <a name="next-steps"></a>다음 단계
 
 - Azure SQL 평가를 계산하는 방법에 대해 [자세히 알아보세요](concepts-azure-sql-assessment-calculation.md).
-- [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)를 사용하여 SQL 인스턴스 및 데이터베이스 마이그레이션을 시작하세요.
+- [Azure Database Migration Service](../dms/dms-overview.md)를 사용하여 SQL 인스턴스 및 데이터베이스 마이그레이션을 시작하세요.

@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿을 배포할 때 잘못된 템플�
 ms.topic: troubleshooting
 ms.date: 05/22/2020
 ms.openlocfilehash: ba19d3c4e72a765e2aaff7393915b77a80daf2ba
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96185796"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>잘못된 템플릿 오류 해결

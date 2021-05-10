@@ -7,7 +7,6 @@ author: KumudD
 manager: mtillman
 editor: ''
 tags: azure-resource-manager
-Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/11/2020
 ms.author: kumud
-ms.openlocfilehash: cb3a4b6a726ee9163582b15586c65fc750712c63
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 22494d292077f4b6018a4512b45b5fe2caa9c8ee
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368296"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106057204"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 네트워크 서비스 엔드포인트로 PaaS 리소스에 대한 네트워크 액세스 제한
 
@@ -51,7 +50,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
    |설정|값|
    |----|----|
-   |구독| 구독 선택|
+   |Subscription| 구독 선택|
    |Resource group | **새로 만들기** 를 선택하고 *myResourceGroup* 을 입력합니다.|
    |이름| *myVirtualNetwork* 를 입력합니다. |
    |지역| **(미국) 미국 동부** 를 선택합니다. |
@@ -112,7 +111,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
     |설정|값|
     |----|----|
-    |구독| 구독 선택|
+    |Subscription| 구독 선택|
     |리소스 그룹 | 목록에서 *myResourceGroup* 을 선택합니다.|
     |이름| **myNsgPrivate** 을 입력합니다. |
     |위치| **미국 동부** 를 선택합니다. |
@@ -185,7 +184,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
     |설정|값|
     |----|----|
-    |구독| 구독 선택|
+    |Subscription| 구독 선택|
     |리소스 그룹| *myResourceGroup* 을 선택합니다.|
     |스토리지 계정 이름| 모든 Azure 위치에서 고유한 이름을 입력합니다. 이름은 3~24자 사이여야 하고 숫자와 소문자만 사용할 수 있습니다.|
     |위치| **(미국) 미국 동부** 를 선택합니다. |
@@ -226,7 +225,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
     |설정|값|
     |----|----|
-    |구독| 구독 선택|
+    |Subscription| 구독 선택|
     |가상 네트워크| **myVirtualNetwork**|
     |서브넷| **개인**|
 
@@ -251,7 +250,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
    |설정|값|
    |----|----|
-   |구독| 구독 선택|
+   |Subscription| 구독 선택|
    |리소스 그룹| 이전에 만든 **myResourceGroup을 선택합니다.|
    |가상 머신 이름| *myVmPublic* 을 입력합니다.|
    |지역 | (미국) 미국 동부

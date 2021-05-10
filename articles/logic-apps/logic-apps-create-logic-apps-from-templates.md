@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
 ms.openlocfilehash: 42c592e6aede4537dc983fd2cff043a878f81f1c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100593094"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>미리 빌드된 템플릿에서 논리 앱 워크플로 만들기
@@ -97,9 +97,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에
    > [!NOTE] 
    > 많은 템플릿에는 필수 속성을 미리 채울 수 있는 커넥터가 포함됩니다. 그러나 일부 템플릿에서는 여전히 논리 앱을 올바르게 배포하기 전에 값을 제공해야 합니다. 누락된 속성 필드를 완료하지 않고 배포하려고 하면 오류 메시지가 발생합니다. 
 
-## <a name="update-logic-apps-with-templates"></a>템플릿으로 논리 앱 업데이트
+## <a name="update-logic-apps-with-templates&quot;></a>템플릿으로 논리 앱 업데이트
 
-1. [Azure Portal](https://portal.azure.com "Azure portal")의 Logic App Designer에서 논리 앱을 찾아서 엽니다.
+1. [Azure Portal](https://portal.azure.com &quot;Azure portal")의 Logic App Designer에서 논리 앱을 찾아서 엽니다.
 
 2. 디자이너 도구 모음에서 **템플릿** 을 선택합니다. 이 작업은 저장되지 않은 변경 내용을 삭제하므로 계속하려는지 확인할 수 있도록 경고 메시지가 표시됩니다. 확인하려면 **확인** 을 선택합니다. 다음은 그 예입니다.
 

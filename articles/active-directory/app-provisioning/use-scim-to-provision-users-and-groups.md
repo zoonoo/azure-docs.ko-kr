@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/01/2021
+ms.date: 04/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1445e7959906966c58730521123ae03590bef1b3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4130ed4bb690edb3c0c5d72d7d158262ed6ff39d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101652099"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305602"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>자습서: SCIM 엔드포인트 프로비저닝 개발 및 계획
 
@@ -62,7 +62,7 @@ SCIM 표준은 사용자 및 그룹을 관리하기 위한 스키마를 정의�
 **core** 사용자 스키마에는 세 가지 특성만 필요합니다(다른 모든 특성은 선택 사항임).
 
 - `id` - 서비스 공급자 정의 식별자
-- `externalId` - 클라이언트 정의 식별자
+- `userName` - 사용자에 대한 고유 식별자(일반적으로 Azure AD 사용자 계정 이름에 매핑됨)
 - `meta` - 서비스 공급자에서 유지 관리하는 *읽기 전용* 메타데이터
 
 SCIM 표준은 **core** 사용자 스키마 외에도 애플리케이션의 요구 사항을 충족하기 위해 사용자 스키마를 확장하는 모델을 사용하여 **enterprise** 사용자 확장을 정의합니다. 
@@ -168,10 +168,10 @@ SCIM RFC에는 여러 엔드포인트가 정의되어 있습니다. `/User` 엔�
 |--|--|
 |/User|사용자 개체에 대한 CRUD 작업을 수행합니다.|
 |/Group|그룹 개체에 대한 CRUD 작업을 수행합니다.|
-|/ServiceProviderConfig|지원되는 리소스 및 인증 방법 등 지원되는 SCIM 표준의 기능에 대한 세부 정보를 제공합니다.|
-|/ResourceTypes|각 리소스에 대한 메타데이터를 지정합니다.|
 |/Schemas|각 클라이언트 및 서비스 공급자가 지원하는 특성 집합은 다를 수 있습니다. 한 서비스 공급자는 `name`, `title` 및 `emails`를 포함할 수 있지만 다른 서비스 공급자는 `name`, `title` 및 `phoneNumbers`를 사용합니다. 스키마 엔드포인트는 지원되는 특성의 검색을 허용합니다.|
 |/Bulk|대량 작업을 수행하면 단일 작업에서 대규모 리소스 개체 컬렉션에 대한 작업을 수행할 수 있습니다(예: 대규모 그룹의 멤버 자격 업데이트).|
+|/ServiceProviderConfig|지원되는 리소스 및 인증 방법 등 지원되는 SCIM 표준의 기능에 대한 세부 정보를 제공합니다.|
+|/ResourceTypes|각 리소스에 대한 메타데이터를 지정합니다.|
 
 **엔드포인트의 예제 목록**
 
@@ -198,6 +198,7 @@ SCIM 2.0 사용자 관리 API를 지원하기 위해 이 섹션에서는 AAD SCI
 |그룹 리소스를 쿼리하는 경우 [excludedAttributes=members](#get-group) 필터|섹션 3.4.2.5|
 |애플리케이션에 대한 AAD 인증 및 권한 부여에 단일 전달자 토큰 허용||
 |사용자 `active=false` 일시 삭제 및 사용자 `active=true` 복원|사용자가 활성 상태인지 여부에 관계없이 요청에서 사용자 개체를 반환해야 합니다. 애플리케이션에서 영구 삭제될 때만 사용자가 반환되지 않습니다.|
+|/Schemas 엔드포인트 지원|[섹션 7](https://tools.ietf.org/html/rfc7643#page-30) 스키마 검색 엔드포인트는 추가 특성을 검색하는 데 사용됩니다.|
 
 AAD와의 호환성을 보장하려면 SCIM 엔드포인트를 구현할 때 다음과 같은 일반적인 지침을 사용합니다.
 
@@ -210,7 +211,12 @@ AAD와의 호환성을 보장하려면 SCIM 엔드포인트를 구현할 때 다
 * Microsoft AAD는 엔드포인트 및 자격 증명이 유효한지 확인하기 위해 임의의 사용자 및 그룹을 가져오도록 요청합니다. 또한 [Azure Portal](https://portal.azure.com)에서 **연결 테스트** 흐름의 일부로 수행됩니다. 
 * 리소스를 쿼리할 수 있는 특성은 [Azure Portal](https://portal.azure.com)의 애플리케이션에서 일치하는 특성으로 설정해야 합니다. [사용자 프로비저닝 특성 매핑 사용자 지정](customize-application-attributes.md)을 참조하세요.
 * SCIM 엔드포인트에서 HTTPS 지원
-
+* [스키마 검색](#schema-discovery)
+  * 스키마 검색은 현재 사용자 지정 애플리케이션에서 지원되지 않지만 특정 갤러리 애플리케이션에서 사용되고 있습니다. 앞으로 스키마 검색은 커넥터에 특성을 추가하는 기본 방법으로 사용됩니다. 
+  * 값이 없으면 null 값을 보내지 마세요.
+  * 속성 값은 camel 대/소문자를 지정해야 합니다(예: readWrite).
+  * 목록 응답을 반환해야 합니다.
+  
 ### <a name="user-provisioning-and-deprovisioning"></a>사용자 프로비저닝 및 프로비저닝 해제
 
 다음 그림에서는 애플리케이션의 ID 저장소에 있는 사용자의 수명 주기를 관리하기 위해 AAD에서 SCIM 서비스를 보내는 메시지를 보여 줍니다.  
@@ -252,6 +258,9 @@ AAD와의 호환성을 보장하려면 SCIM 엔드포인트를 구현할 때 다
   - [그룹 업데이트[멤버 추가]](#update-group-add-members)([요청](#request-11) / [응답](#response-11))
   - [그룹 업데이트[멤버 제거]](#update-group-remove-members)([요청](#request-12) / [응답](#response-12))
   - [그룹 삭제](#delete-group)([요청](#request-13) / [응답](#response-13))
+
+[스키마 검색](#schema-discovery)
+  - [스키마 검색](#discover-schema)([요청](#request-15) / [응답](#response-15))
 
 ### <a name="user-operations"></a>사용자 작업
 
@@ -750,6 +759,105 @@ AAD와의 호환성을 보장하려면 SCIM 엔드포인트를 구현할 때 다
 
 *HTTP/1.1 204 No Content*
 
+### <a name="schema-discovery"></a>스키마 검색
+#### <a name="discover-schema"></a>스키마 검색
+
+##### <a name="request"></a><a name="request-15"></a>요청
+*GET /Schemas* 
+##### <a name="response"></a><a name="response-15"></a>응답
+*HTTP/1.1 200 OK*
+```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+    ],
+    "itemsPerPage": 50,
+    "startIndex": 1,
+    "totalResults": 3,
+    "Resources": [
+  {
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Schema"],
+    "id" : "urn:ietf:params:scim:schemas:core:2.0:User",
+    "name" : "User",
+    "description" : "User Account",
+    "attributes" : [
+      {
+        "name" : "userName",
+        "type" : "string",
+        "multiValued" : false,
+        "description" : "Unique identifier for the User, typically
+used by the user to directly authenticate to the service provider.
+Each User MUST include a non-empty userName value.  This identifier
+MUST be unique across the service provider's entire set of Users.
+REQUIRED.",
+        "required" : true,
+        "caseExact" : false,
+        "mutability" : "readWrite",
+        "returned" : "default",
+        "uniqueness" : "server"
+      },                
+    ],
+    "meta" : {
+      "resourceType" : "Schema",
+      "location" :
+        "/v2/Schemas/urn:ietf:params:scim:schemas:core:2.0:User"
+    }
+  },
+  {
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Schema"],
+    "id" : "urn:ietf:params:scim:schemas:core:2.0:Group",
+    "name" : "Group",
+    "description" : "Group",
+    "attributes" : [
+      {
+        "name" : "displayName",
+        "type" : "string",
+        "multiValued" : false,
+        "description" : "A human-readable name for the Group.
+REQUIRED.",
+        "required" : false,
+        "caseExact" : false,
+        "mutability" : "readWrite",
+        "returned" : "default",
+        "uniqueness" : "none"
+      },
+    ],
+    "meta" : {
+      "resourceType" : "Schema",
+      "location" :
+        "/v2/Schemas/urn:ietf:params:scim:schemas:core:2.0:Group"
+    }
+  },
+  {
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Schema"],
+    "id" : "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+    "name" : "EnterpriseUser",
+    "description" : "Enterprise User",
+    "attributes" : [
+      {
+        "name" : "employeeNumber",
+        "type" : "string",
+        "multiValued" : false,
+        "description" : "Numeric or alphanumeric identifier assigned
+to a person, typically based on order of hire or association with an
+organization.",
+        "required" : false,
+        "caseExact" : false,
+        "mutability" : "readWrite",
+        "returned" : "default",
+        "uniqueness" : "none"
+      },
+    ],
+    "meta" : {
+      "resourceType" : "Schema",
+      "location" :
+"/v2/Schemas/urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+    }
+  }
+]
+}
+```
+
 ### <a name="security-requirements"></a>보안 요구 사항
 **TLS 프로토콜 버전**
 
@@ -1221,9 +1329,9 @@ Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이�
 > * 3 애플리케이션에 대해 만료되지 않은 테스트 자격 증명(필수)
 > * 아래 설명된 대로 OAuth 인증 코드 부여 또는 수명이 긴 토큰 지원(필수)
 > * 고객이 갤러리 온보딩을 게시할 수 있도록 엔지니어링 및 지원 연락처 설정(필수)
+> * [지원 스키마 검색(필수)](https://tools.ietf.org/html/rfc7643#section-6)
 > * 단일 PATCH를 사용하여 여러 그룹 멤버 자격 업데이트 지원
 > * 공개적으로 SCIM 엔드포인트 문서화
-> * [스키마 검색 지원](https://tools.ietf.org/html/rfc7643#section-6)
 
 ### <a name="authorization-to-provisioning-connectors-in-the-application-gallery"></a>애플리케이션 갤러리에서 커넥터 프로비저닝 권한 부여
 SCIM 사양에서는 인증 및 권한 부여에 대한 SCIM 관련 체계를 정의하지 않으며 기존 산업 표준을 사용합니다.

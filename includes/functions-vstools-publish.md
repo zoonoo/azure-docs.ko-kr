@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: functions
 author: ggailey777
@@ -9,10 +9,10 @@ ms.date: 09/30/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 5b537b88052ce4042e346732f3dc63aaec6621cc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100529681"
 ---
 1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택하고 **대상** 에서 **Azure** 를 선택한 다음, **다음** 을 선택합니다.
@@ -25,7 +25,7 @@ ms.locfileid: "100529681"
 
 1. 다음 표에 지정된 값을 사용하여 새 인스턴스를 만듭니다.
 
-    | 설정      | 값  | Description                                |
+    | 설정      | 값  | 설명                                |
     | ------------ |  ------- | -------------------------------------------------- |
     | **이름** | 전역적으로 고유한 이름 | 새 함수 앱을 고유하게 식별하는 이름입니다. 이 이름을 수락하거나 새 이름을 입력합니다. 유효한 문자는 `a-z`, `0-9` 및 `-`입니다. |
     | **구독** | 사용자의 구독 | 사용할 Azure 구독입니다. 이 구독을 수락하거나 드롭다운 목록에서 새 구독을 선택합니다. |

@@ -5,14 +5,14 @@ author: linda33wj
 ms.service: data-factory
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/16/2021
+ms.date: 03/27/2021
 ms.author: jingwang
-ms.openlocfilehash: 12f7a87ce166be516d070b66b069f7a584a386c7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3c667fe20b392bfb52b8300ce4b8b59d15a13b9a
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563507"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385431"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>빠른 시작: .NET SDK를 사용하여 데이터 팩터리 및 파이프라인 만들기
 
@@ -105,12 +105,14 @@ ms.locfileid: "103563507"
    string blobDatasetName = "BlobDataset";
    string pipelineName = "Adfv2QuickStartPipeline";
    ```
+> [!NOTE]
+> 소버린 클라우드의 경우 적절한 ActiveDirectoryAuthority 및 ResourceManagerUrl(BaseUri)의 클라우드 관련 엔드포인트를 사용해야 합니다. 예를 들어 US Azure Gov에서 https://login.microsoftonline.com 대신 https://login.microsoftonline.us 의 권한을 사용하고, https://management.azure.com/ 대신 https://management.usgovcloudapi.net 을 사용한 다음, 데이터 팩터리 관리 클라이언트를 만듭니다. Powershell을 사용하여 각 클라우드 환경에 대한 엔드포인트 목록을 반환하는 “Get-AzEnvironment | Format-List”를 실행하여 다양한 클라우드의 엔드포인트 Url을 쉽게 가져올 수 있습니다.
 
 3. **Main** 메서드에 **DataFactoryManagementClient** 클래스의 인스턴스를 만드는 다음 코드를 추가합니다. 이 개체를 사용하여 데이터 팩터리, 연결된 서비스, 데이터 세트 및 파이프라인을 만듭니다. 또한 이 개체를 사용하여 파이프라인 실행 세부 정보를 모니터링합니다.
 
    ```csharp
    // Authenticate and create a data factory management client
-   var context = new AuthenticationContext("https://login.windows.net/" + tenantID);
+   var context = new AuthenticationContext("https://login.microsoftonline.com/" + tenantID);
    ClientCredential cc = new ClientCredential(applicationId, authenticationKey);
    AuthenticationResult result = context.AcquireTokenAsync(
        "https://management.azure.com/", cc).Result;
@@ -118,6 +120,7 @@ ms.locfileid: "103563507"
    var client = new DataFactoryManagementClient(cred) {
        SubscriptionId = subscriptionId };
    ```
+
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 

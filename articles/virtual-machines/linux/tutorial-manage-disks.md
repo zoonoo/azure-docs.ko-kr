@@ -9,12 +9,12 @@ ms.date: 08/20/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.subservice: disks
-ms.openlocfilehash: bbecaa32f85c42954cea6c8e533f0f658eb2dfee
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 56e804bc0d479f09ef2900c42361fbd24eed1d98
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802287"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765956"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>자습서 - Azure CLI를 사용하여 Azure 디스크 관리
 
@@ -70,13 +70,13 @@ VM을 만들 때 또는 기존 VM에 데이터 디스크를 만들고 연결할 
 
 ### <a name="attach-disk-at-vm-creation"></a>VM을 만들 때 디스크 연결
 
-[az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroupDisk --location eastus
 ```
 
-[az vm create](/cli/azure/vm#az-vm-create) 명령을 사용하여 VM을 만듭니다. 다음 예제에서는 *myVM* 이라는 VM을 만들고, *azureuser* 라는 사용자 계정을 추가하고, 아직 SSH 키가 없으면 새로 생성합니다. `--datadisk-sizes-gb` 인수를 사용하여 가상 머신에 추가 디스크를 만들고 연결하도록 지정할 수 있습니다. 둘 이상의 디스크를 만들고 연결하려면 공백으로 구분된 디스크 크기 값 목록을 사용합니다. 다음 예제에서는 128GB 데이터 디스크 두 개가 있는 VM을 만듭니다. 디스크 크기가 128GB이므로 이러한 디스크는 모두 디스크당 최대 500 IOPS를 제공하는 P10으로 구성됩니다.
+[az vm create](/cli/azure/vm#az_vm_create) 명령을 사용하여 VM을 만듭니다. 다음 예제에서는 *myVM* 이라는 VM을 만들고, *azureuser* 라는 사용자 계정을 추가하고, 아직 SSH 키가 없으면 새로 생성합니다. `--datadisk-sizes-gb` 인수를 사용하여 가상 머신에 추가 디스크를 만들고 연결하도록 지정할 수 있습니다. 둘 이상의 디스크를 만들고 연결하려면 공백으로 구분된 디스크 크기 값 목록을 사용합니다. 다음 예제에서는 128GB 데이터 디스크 두 개가 있는 VM을 만듭니다. 디스크 크기가 128GB이므로 이러한 디스크는 모두 디스크당 최대 500 IOPS를 제공하는 P10으로 구성됩니다.
 
 ```azurecli-interactive
 az vm create \
@@ -91,7 +91,7 @@ az vm create \
 
 ### <a name="attach-disk-to-existing-vm"></a>기존 VM에 디스크 연결
 
-기존 가상 머신에 새 디스크를 만들고 연결하려면 [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach) 명령을 사용합니다. 다음 예제에서는 크기가 128GB인 프리미엄 디스크를 만들고 마지막 단계에서 만든 VM에 연결합니다.
+기존 가상 머신에 새 디스크를 만들고 연결하려면 [az vm disk attach](/cli/azure/vm/disk#az_vm_disk_attach) 명령을 사용합니다. 다음 예제에서는 크기가 128GB인 프리미엄 디스크를 만들고 마지막 단계에서 만든 VM에 연결합니다.
 
 ```azurecli-interactive
 az vm disk attach \
@@ -190,7 +190,7 @@ exit
 
 ### <a name="create-snapshot"></a>Create snapshot
 
-스냅샷을 만들기 전에 디스크의 ID 또는 이름이 필요합니다. [az vm show](/cli/azure/vm#az-vm-show)를 사용하여 디스크 ID를 찍습니다. 이 예제에서는 디스크 ID가 변수에 저장되고 이후 단계에서 사용될 수 있습니다.
+스냅샷을 만들기 전에 디스크의 ID 또는 이름이 필요합니다. [az vm show](/cli/azure/vm#az_vm_show)를 사용하여 디스크 ID를 찍습니다. 이 예제에서는 디스크 ID가 변수에 저장되고 이후 단계에서 사용될 수 있습니다.
 
 ```azurecli-interactive
 osdiskid=$(az vm show \
@@ -200,7 +200,7 @@ osdiskid=$(az vm show \
    -o tsv)
 ```
 
-이제 ID가 생겼으니 [az snapshot create](/cli/azure/snapshot#az-snapshot-create)를 사용하여 디스크의 스냅샷을 생성합니다.
+이제 ID가 생겼으니 [az snapshot create](/cli/azure/snapshot#az_snapshot_create)를 사용하여 디스크의 스냅샷을 생성합니다.
 
 ```azurecli-interactive
 az snapshot create \
@@ -211,7 +211,7 @@ az snapshot create \
 
 ### <a name="create-disk-from-snapshot"></a>스냅샷에서 디스크 만들기
 
-그런 다음, [az disk create](/cli/azure/disk#az-disk-create)를 사용하여 스냅샷을 디스크로 복원하여 가상 머신을 다시 만드는 데 사용할 수 있습니다.
+그런 다음, [az disk create](/cli/azure/disk#az_disk_create)를 사용하여 스냅샷을 디스크로 복원하여 가상 머신을 다시 만드는 데 사용할 수 있습니다.
 
 ```azurecli-interactive
 az disk create \
@@ -222,7 +222,7 @@ az disk create \
 
 ### <a name="restore-virtual-machine-from-snapshot"></a>스냅샷에서 가상 머신 복원
 
-가상 머신 복구를 시연하려면 [az vm delete](/cli/azure/vm#az-vm-delete)를 사용하여 기존의 가상 머신을 삭제합니다.
+가상 머신 복구를 시연하려면 [az vm delete](/cli/azure/vm#az_vm_delete)를 사용하여 기존의 가상 머신을 삭제합니다.
 
 ```azurecli-interactive
 az vm delete \
@@ -244,7 +244,7 @@ az vm create \
 
 모든 데이터 디스크를 가상 머신에 다시 연결해야 합니다.
 
-[az disk list](/cli/azure/disk#az-disk-list) 명령을 사용하여 데이터 디스크 이름을 찾습니다. 이 예제에서는 `datadisk`라는 변수에 디스크의 이름을 추가합니다. 이 변수는 다음 단계에서 사용됩니다.
+[az disk list](/cli/azure/disk#az_disk_list) 명령을 사용하여 데이터 디스크 이름을 찾습니다. 이 예제에서는 `datadisk`라는 변수에 디스크의 이름을 추가합니다. 이 변수는 다음 단계에서 사용됩니다.
 
 ```azurecli-interactive
 datadisk=$(az disk list \
@@ -253,7 +253,7 @@ datadisk=$(az disk list \
    -o tsv)
 ```
 
-[az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach) 명령을 사용하여 디스크를 연결합니다.
+[az vm disk attach](/cli/azure/vm/disk#az_vm_disk_attach) 명령을 사용하여 디스크를 연결합니다.
 
 ```azurecli-interactive
 az vm disk attach \

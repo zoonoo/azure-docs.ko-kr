@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a084b8d14acc02c67b0678cd7fa9e5993b629a51
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: eb5bf0bc6e211d83d2de2eb8d327ee6b2d577721
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104578529"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075018"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>빠른 시작: Windows 데스크톱 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 
@@ -99,13 +99,15 @@ ms.locfileid: "104578529"
 >
 > 위치:
 > - `Enter_the_Application_Id_here` - 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다.
+>    
+>    **애플리케이션(클라이언트) ID** 값을 찾으려면 Azure Portal에서 앱의 **개요** 페이지로 이동합니다.
 > - `Enter_the_Tenant_Info_Here` - 다음 옵션 중 하나로 설정됩니다.
 >   - 애플리케이션이 **이 조직 디렉터리의 계정** 을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: contoso.microsoft.com)으로 바꿉니다.
 >   - 애플리케이션이 **모든 조직 디렉터리의 계정** 을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
->   - 애플리케이션이 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정** 을 지원하는 경우 이 값을 `common`으로 바꿉니다.
+>   - 애플리케이션에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정** 을 지원하는 경우 이 값을 `common`으로 바꿉니다.
 >
-> > [!TIP]
-> > **애플리케이션(클라이언트) ID**, **디렉터리(테넌트) ID** 및 **지원되는 계정 유형** 의 값을 찾아보려면 Azure Portal에서 앱의 **개요** 페이지로 이동합니다.
+>     **디렉터리(테넌트) ID** 및 **지원되는 계정 유형** 의 값을 찾아보려면 Azure Portal에서 앱의 **개요** 페이지로 이동합니다.
+>
 
 ## <a name="more-information"></a>자세한 정보
 
@@ -137,9 +139,9 @@ PublicClientApplicationBuilder.Create(ClientId)
                 .Build();
 ```
 
-> |위치: | Description |
-> |---------|---------|
-> | `ClientId` | Azure Portal에 등록된 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다. 이 값은 Azure Portal에서 앱의 **개요** 페이지에 있습니다. |
+|위치: | Description |
+|---------|---------|
+| `ClientId` | Azure Portal에 등록된 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다. 이 값은 Azure Portal에서 앱의 **개요** 페이지에 있습니다. |
 
 ### <a name="requesting-tokens"></a>토큰 요청
 
@@ -159,9 +161,9 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
                                       .ExecuteAsync();
 ```
 
-> |위치:| Description |
-> |---------|---------|
-> | `_scopes` | 요청된 범위(예: Microsoft Graph의 경우 `{ "user.read" }`, 사용자 지정 웹 API의 경우 `{ "api://<Application ID>/access_as_user" }`)를 포함합니다. |
+|위치:| Description |
+|---------|---------|
+| `_scopes` | 요청된 범위(예: Microsoft Graph의 경우 `{ "user.read" }`, 사용자 지정 웹 API의 경우 `{ "api://<Application ID>/access_as_user" }`)를 포함합니다. |
 
 #### <a name="get-a-user-token-silently"></a>자동으로 사용자 토큰 가져오기
 
@@ -174,10 +176,10 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |위치: | Description |
-> |---------|---------|
-> | `scopes` | 요청된 범위(예: Microsoft Graph의 경우 `{ "user.read" }`, 사용자 지정 웹 API의 경우 `{ "api://<Application ID>/access_as_user" }`)를 포함합니다. |
-> | `firstAccount` | 캐시의 첫 번째 사용자를 지정합니다(MSAL은 단일 앱에서 여러 사용자를 지원함). |
+|위치: | Description |
+|---------|---------|
+| `scopes` | 요청된 범위(예: Microsoft Graph의 경우 `{ "user.read" }`, 사용자 지정 웹 API의 경우 `{ "api://<Application ID>/access_as_user" }`)를 포함합니다. |
+| `firstAccount` | 캐시의 첫 번째 사용자를 지정합니다(MSAL은 단일 앱에서 여러 사용자를 지원함). |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

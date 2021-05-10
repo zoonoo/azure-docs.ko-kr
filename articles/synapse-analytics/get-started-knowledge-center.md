@@ -9,19 +9,19 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 11/16/2020
-ms.openlocfilehash: 59364a0a2c1d1e411f41dc35dee812c8e920b72d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/04/2021
+ms.openlocfilehash: 92d1534b5dd0233ce88b81d605c6502b67a121df
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98209205"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307897"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Synapse 지식 센터 살펴보기
 
 이 자습서에서는 Synapse Studio 지식 센터를 사용하는 방법에 대해 알아봅니다.
 
-## <a name="getting-to-the-knowledge-center"></a>지식 센터로 이동
+## <a name="introduction-to-the-knowledge-center"></a>지식 센터 소개
 
 Synapse Studio에서 지식 센터를 찾는 방법에는 두 가지가 있습니다.
 
@@ -30,16 +30,19 @@ Synapse Studio에서 지식 센터를 찾는 방법에는 두 가지가 있습�
 
 두 가지 방법 중 하나를 선택하고 **지식 센터** 를 엽니다.
 
-## <a name="overview"></a>개요
-
-**지식 센터** 를 통해 다음과 같은 세 가지 작업을 수행할 수 있습니다.
+표시되면 **기술 센터** 를 통해 다음과 같은 세 가지 작업을 수행할 수 있습니다.
 * **샘플 즉시 사용**. Synapse의 작동 방식에 대한 빠른 예제를 원하는 경우 이 옵션을 선택합니다.
 * **갤러리 찾아보기**. 이 옵션을 사용하면 샘플 데이터 세트를 연결하고, 샘플 코드를 SQL 스크립트, Notebook 및 파이프라인 형식으로 추가할 수 있습니다.
 * **Synapse Studio 둘러보기**. 이 옵션을 사용하면 Synapse Studio의 기본 부분을 간략히 둘러볼 수 있습니다. 이 옵션은 Synapse Studio를 사용한 적이 없는 경우에 유용합니다.
 
-## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>서버리스 SQL 풀을 사용하여 Blob 스토리지 살펴보기
+## <a name="exploring-use-samples-immediately"></a>탐색: 샘플 즉시 사용
 
-1. **지식 센터** 로 이동하여 **샘플 즉시 사용** 을 클릭합니다.
+이 섹션에는 다음과 같은 세 가지 항목이 있습니다.
+* Spark를 사용하여 샘플 데이터 살펴보기
+* SQL을 사용하여 데이터 쿼리
+* SQL을 사용하여 외부 테이블 만들기
+
+1. **지식 센터** 에서 **샘플 즉시 사용** 을 클릭합니다.
 1. **SQL을 사용하여 데이터 쿼리** 를 선택합니다.
 1. **샘플 사용** 을 클릭합니다.
 1. 새 샘플 SQL 스크립트가 열립니다.
@@ -47,6 +50,7 @@ Synapse Studio에서 지식 센터를 찾는 방법에는 두 가지가 있습�
 1. 실행을 클릭합니다. 선택한 코드만 실행됩니다.
 
 ## <a name="loading-more-nyc-taxi-data"></a>더 많은 NYC Taxi 데이터 로드
+
 1. **지식 센터** 로 이동하여 **갤러리 찾아보기** 를 클릭합니다.
 1. 위쪽에서 **SQL 스크립트** 탭을 선택합니다.
 1. 데이터 수집 샘플 **New York Taxicab 로드** 를 선택하고 **계속** 을 클릭합니다.
@@ -61,6 +65,6 @@ Synapse Studio에서 지식 센터를 찾는 방법에는 두 가지가 있습�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Synapse Analytics 시작](get-started.md)
-* [작업 영역 만들기](quickstart-create-workspace.md)
-* [서버리스 SQL 풀 사용](quickstart-sql-on-demand.md)
+> [!div class="nextstepaction"]
+> [관리자 추가](get-started-add-admin.md)
+

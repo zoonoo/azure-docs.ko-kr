@@ -1,19 +1,16 @@
 ---
 title: Azure Site Recovery를 사용하여 Hyper-V 재해 복구 설정
 description: Site Recovery를 사용하여 온-프레미스 Hyper-V VM(VMM 없음)을 Azure로 재해 복구하도록 설정하는 방법을 알아봅니다.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5ce98c785700301bba92926d7d5a243b614eca7f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0c98728b0da92e198e158cef29e69b2f60818770
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87504231"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580871"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM의 Azure로의 재해 복구 설정
 

@@ -7,12 +7,12 @@ ms.custom:
 - devx-track-csharp
 - devx-track-azurecli
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a78abea5bcc5925cb2e137d918c7217ae92b118e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2d03f8c820e0a8b6a19394649db66f8028b62781
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102044326"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768798"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 C# 함수 만들기
 
@@ -183,7 +183,7 @@ Azure 리소스를 만드는 데 Azure CLI 또는 Azure PowerShell을 사용하�
     az group create --name AzureFunctionsQuickstart-rg --location westeurope
     ```
 
-    [az group create](/cli/azure/group#az-group-create) 명령은 리소스 그룹을 만듭니다. 일반적으로 리소스 그룹 및 리소스를 만듭니다. <abbr title="리소스가 할당된 특정 Azure 데이터 센터에 대한 지리적 참조.">region</abbr> 가까운 곳. `az account list-locations` 명령에서 반환된 사용 가능한 지역 사용
+    [az group create](/cli/azure/group#az_group_create) 명령은 리소스 그룹을 만듭니다. 일반적으로 리소스 그룹 및 리소스를 만듭니다. <abbr title="리소스가 할당된 특정 Azure 데이터 센터에 대한 지리적 참조.">region</abbr> 가까운 곳. `az account list-locations` 명령에서 반환된 사용 가능한 지역 사용
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 

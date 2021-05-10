@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: c0bc245a4be1ab7c326fa27cc1422878aca6331d
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: d03a4865c8db52f74f4130c458fec3028f5b95a4
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071684"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481670"
 ---
 # <a name="what-is-azure-digital-twins"></a>Azure Digital Twins란?
 
@@ -94,10 +94,14 @@ Azure Digital Twins를 사용하는 완전한 솔루션은 다음과 같은 부�
 
 ## <a name="service-limits"></a>서비스 제한
 
-Azure Digital Twins 제한 목록은 [*Azure Digital Twins 서비스 제한*](reference-service-limits.md)을 참조하세요.
+[Azure Digital Twins 서비스 제한](reference-service-limits.md)에서 Azure Digital Twins의 **서비스 제한** 에 대해 읽을 수 있습니다. 서비스를 사용하여 서비스의 기능 및 요율 제한 사항을 이해하고 필요한 경우 조정할 수 있는 제한을 이해하는 데에도 유용할 수 있습니다.
+
+## <a name="terminology"></a>용어
+
+[Azure IoT 용어집](../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json)의 Azure Digital Twins를 포함하여 Azure IoT 서비스에서 **일반적인 IoT 용어** 및 해당 사용의 목록을 볼 수 있습니다. Azure Digital Twins를 시작하고 IoT 솔루션을 구축하는 동안 유용한 참조일 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 다음 빠른 시작을 사용하여 Azure Digital Twins 작업을 자세히 살펴보세요. [*빠른 시작: 샘플 시나리오 살펴보기*](quickstart-adt-explorer.md).
+* 다음 빠른 시작을 사용하여 Azure Digital Twins 작업을 자세히 살펴보세요. [*빠른 시작: 샘플 시나리오 살펴보기*](quickstart-azure-digital-twins-explorer.md).
 
 * 또는 Azure Digital Twins 개념에 대해 [*개념: 사용자 지정 모델*](concepts-models.md)에서 자세히 알아보세요.

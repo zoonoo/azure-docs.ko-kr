@@ -3,26 +3,32 @@ title: Azure Defender for Kubernetes - 이점 및 특징
 description: Azure Defender for Kubernetes의 이점 및 특징에 대해 알아봅니다.
 author: memildin
 ms.author: memildin
-ms.date: 02/07/2021
+ms.date: 04/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 83d0215ebca9d60d61937cb20bb82c7ccb30aac1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c500c7b7afb36ffbe04fb63551c3a7d17c1347d9
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100630"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029083"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Azure Defender for Kubernetes 소개
 
-AKS(Azure Kubernetes Service)는 컨테이너화된 애플리케이션 개발, 배포 및 관리를 위한 Microsoft의 관리되는 서비스입니다.
+Azure Defender for Kubernetes는 Kubernetes 클러스터를 실행하는 모든 곳에서 보호할 수 있는 Azure Defender 계획입니다. 
+
+다음에서 클러스터를 방어할 수 있습니다.
+
+- **AKS(Azure Kubernetes Service)** - 컨테이너화된 애플리케이션 개발, 배포 및 관리를 위한 Microsoft의 관리형 서비스
+
+- **온-프레미스 및 다중 클라우드 환경** - [Arc 지원 Kubernetes에 대한 확장](defender-for-kubernetes-azure-arc.md) 사용
 
 Azure Security Center 및 AKS는 [Security Center의 컨테이너 보안](container-security.md)에 설명된 대로 환경 강화, 워크로드 보호 및 런타임 보호를 제공하는 클라우드 네이티브 Kubernetes 보안 제품을 구성합니다.
 
-Kubernetes 클러스터에 대한 위협 탐지를 사용하려면 **Azure Defender for Kubernetes** 를 사용하도록 설정하세요.
+[서버용 Azure Defender](defender-for-servers-introduction.md) 및 Log Analytics 에이전트를 사용하도록 설정하면 Linux AKS 노드에 호스트 수준 위협 탐지를 사용할 수 있습니다. 그러나 현재는 클러스터가 가상 머신 확장 집합에 배포된 경우에는 Log Analytics 에이전트가 지원되지 않습니다.
 
-[서버용 Azure Defender](defender-for-servers-introduction.md) 및 Log Analytics 에이전트를 사용하도록 설정하면 Linux AKS 노드에 호스트 수준 위협 탐지를 사용할 수 있습니다. 그러나 현재는 AKS 클러스터가 가상 머신 확장 집합에 배포된 경우에는 Log Analytics 에이전트가 지원되지 않습니다.
+
 
 ## <a name="availability"></a>가용성
 
@@ -36,9 +42,9 @@ Kubernetes 클러스터에 대한 위협 탐지를 사용하려면 **Azure Defen
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-kubernetes"></a>Azure Defender for Kubernetes의 이점은?
 
-Azure Defender for Kubernetes는 AKS(Azure Kubernetes Service)에서 검색한 로그를 통해 AKS 관리형 서비스를 모니터링하여 **클러스터 수준 위협 방지** 를 제공합니다.
+Azure Defender for Kubernetes는 클러스터의 로그를 모니터링하여 **클러스터 수준 위협 보호** 를 제공합니다.
 
-Azure Defender for Kubernetes가 모니터링하는 보안 이벤트의 예로는 노출된 Kubernetes 대시보드, 높은 권한이 있는 역할 만들기, 중요한 탑재 만들기 등이 있습니다. AKS 클러스터 수준 경고의 전체 목록은 [경고 참조 표](alerts-reference.md#alerts-akscluster)에서 확인할 수 있습니다.
+Azure Defender for Kubernetes가 모니터링하는 보안 이벤트의 예로는 노출된 Kubernetes 대시보드, 높은 권한이 있는 역할 만들기, 중요한 탑재 만들기 등이 있습니다. 클러스터 수준 경고의 전체 목록은 [경고 참조 표](alerts-reference.md#alerts-akscluster)에서 확인할 수 있습니다.
 
 > [!TIP]
 > [이 블로그 게시물](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270)의 지침에 따라 컨테이너 경고를 시뮬레이션할 수 있습니다.
@@ -46,14 +52,14 @@ Azure Defender for Kubernetes가 모니터링하는 보안 이벤트의 예로�
 또한 글로벌 보안 연구 팀에서는 위협 환경을 지속적으로 모니터링합니다. 검색된 컨테이너 관련 경고 및 취약성을 추가합니다.
 
 >[!NOTE]
-> Security Center는 Azure Defender for Kubernetes를 사용하도록 설정한 **후** 에 발생하는 Azure Kubernetes Service 작업과 배포에 대한 보안 경고를 생성합니다.
+> Azure Defender는 구독에서 Defender for Kubernetes 계획을 사용하도록 설정한 후에 발생하는 작업 및 배포에 대한 보안 경고를 생성합니다.
 
 
 
 
 ## <a name="azure-defender-for-kubernetes---faq"></a>Azure Defender for Kubernetes - FAQ
 
-### <a name="can-i-still-get-aks-protections-without-the-log-analytics-agent"></a>Log Analytics 에이전트가 없어도 여전히 AKS 보호를 이용할 수 있나요?
+### <a name="can-i-still-get-cluster-protections-without-the-log-analytics-agent"></a>Log Analytics 에이전트 없이도 여전히 클러스터 보호를 받을 수 있나요?
 
 **Azure Defender for Kubernetes** 플랜은 클러스터 수준에서 보호를 제공합니다. **서버용 Azure Defender** 의 Log Analytics 에이전트까지 배포하면 노드에 대한 위협 방지가 해당 플랜과 함께 제공됩니다. [서버용 Azure Defender 소개](defender-for-servers-introduction.md)에서 자세히 알아보세요.
 
@@ -67,7 +73,7 @@ Azure Defender에서 AKS 노드를 모니터링하려면 Log Analytics 에이전
 AKS는 관리형 서비스이며, Log Analytics 에이전트가 Microsoft에서 관리하는 확장이므로 AKS 클러스터에서도 지원됩니다.
 
 ### <a name="if-my-cluster-is-already-running-an-azure-monitor-for-containers-agent-do-i-need-the-log-analytics-agent-too"></a>내 클러스터에서 컨테이너 에이전트용 Azure Monitor를 이미 실행하고 있는 경우 Log Analytics 에이전트도 필요한가요?
-Azure Defender에서 AKS 노드를 모니터링하려면 Log Analytics 에이전트를 실행해야 합니다.
+Azure Defender에서 노드를 모니터링하려면 Log Analytics 에이전트를 실행해야 합니다.
 
 클러스터에서 컨테이너용 Azure Monitor 에이전트를 이미 실행하고 있는 경우 Log Analytics 에이전트도 설치할 수 있으며 두 에이전트가 문제없이 서로 간에 함께 작업할 수 있습니다.
 

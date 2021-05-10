@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: bastion
 author: cherylmc
 ms.service: bastion
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/05/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9ba0e7173c41e26a698596fa18bf1fc1453f3fb3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b58040917ed3d3345a35b7acbe31b6b500f05562
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99628875"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073299"
 ---
 ### <a name="do-i-need-a-public-ip-on-my-virtual-machine-to-connect-via-azure-bastion"></a><a name="publicip"></a>Azure Bastion을 통해 연결하려면 내 가상 머신에 공용 IP가 필요한가요?
 
@@ -22,6 +22,10 @@ ms.locfileid: "99628875"
 ### <a name="is-ipv6-supported"></a>IPv6이 지원되나요?
 
 현재 IPv6은 지원되지 않습니다. Azure Bastion은 IPv4만 지원합니다.
+
+### <a name="can-i-use-azure-bastion-with-azure-private-dns-zones"></a>Azure Private DNS 영역에서 Azure Bastion을 사용할 수 있나요?
+
+Azure 프라이빗 DNS 영역에서 Azure Bastion을 사용하는 것은 현재 지원되지 않습니다. Azure Bastion 리소스를 배포하기 전에 호스트 가상 네트워크가 프라이빗 DNS 영역에 연결되어 있지 않은지 확인하세요.
 
 ### <a name="do-i-need-an-rdp-or-ssh-client"></a><a name="rdpssh"></a>RDP 또는 SSH 클라이언트가 필요하나요?
 

@@ -10,22 +10,20 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 07aa1cb361f5f1853dbf93e5f4e064b1ed14f1de
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 0504467e387c0875a8e00bd1cf638ec437232092
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105152806"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554901"
 ---
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 Azure Communication Services **그룹 통화 주인공 샘플** 은 Communication Services 통화 웹 SDK를 사용하여 그룹 통화 환경을 만드는 방법을 보여줍니다.
 
 이 샘플 빠른 시작에서는 샘플이 어떻게 작동하는지 살펴본 후 로컬 컴퓨터에서 샘플을 실행합니다. 그런 다음, 사용자 고유의 Azure Communication Services 리소스를 사용하여 Azure에 샘플을 배포합니다.
 
 ## <a name="download-code"></a>코드 다운로드
 
-[GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)에서 이 빠른 시작에 대한 최종 코드를 찾습니다.
+[GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)에서 이 샘플에 대한 프로젝트를 찾습니다. [Teams 상호 운용성](../../concepts/teams-interop.md)을 사용하는 샘플 버전은 별도의 [분기](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/teams-interop)에서 찾을 수 있습니다.
 
 ## <a name="overview"></a>개요
 
@@ -48,6 +46,9 @@ Azure Communication Services **그룹 통화 주인공 샘플** 은 Communicatio
 - **미디어 갤러리**: 참가자가 표시되는 기본 스테이지입니다. 참가자가 카메라를 사용하도록 설정한 경우 비디오 피드가 여기에 표시됩니다. 각 참가자별로 표시 이름 및 비디오 스트림을 보여 주는 개별 타일이 있습니다(있는 경우).
 - **헤더**: 여기에는 설정 및 참가자 사이드바를 토글하고, 비디오 및 믹스를 설정/해제하고, 화면을 공유하고, 통화를 종료하는 기본 통화 컨트롤이 있습니다.
 - **사이드바**: 헤더의 컨트롤을 사용하여 사이드바를 전환하면 참가자 및 설정 정보가 사이드바에 표시됩니다. 오른쪽 위 모서리에서 'X'를 사용하여 구성 요소를 해제할 수 있습니다. 참가자 사이드바에는 참가자 목록과 추가 사용자를 채팅에 초대하는 링크가 표시됩니다. 설정 사이드바에서는 마이크 및 카메라 설정을 구성할 수 있습니다.
+
+> [!NOTE]
+> Web Calling SDK의 제한 사항에 따라 하나의 원격 비디오 스트림도 렌더링됩니다. 자세한 내용은 [Calling SDK 스트림 지원 호출](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features#calling-sdk-streaming-support)을 참조하세요.
 
 아래에는 샘플을 설정하기 위한 필수 구성 요소 및 설정 단계가 자세히 설명되어 있습니다.
 

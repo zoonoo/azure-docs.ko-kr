@@ -1,19 +1,19 @@
 ---
 title: Python을 사용한 Azure Storage 샘플 | Microsoft Docs
 description: Azure Storage에 대한 샘플 코드 및 애플리케이션을 확인하고 다운로드하여 실행합니다. Python 스토리지 클라이언트 라이브러리를 사용하여 Blob, 큐, 테이블 및 파일에 대한 시작 샘플을 검색합니다.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-python
-ms.openlocfilehash: f57fa1b668cacdaaceb2026f9e5d7fff0cc56d7f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f8e5a8593d5b473da8769c1fbeece8c9818e88fa
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92371361"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276691"
 ---
 # <a name="azure-storage-samples-using-v12-python-client-libraries"></a>v12 Python 클라이언트 라이브러리를 사용하는 Azure Storage 샘플
 

@@ -10,16 +10,29 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 78746e7623f58af5ae9df829b48245295dc39f01
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: e42096fc32a504ae329d3b179004b6a123de4469
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487103"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365640"
 ---
 # <a name="whats-new-in-computer-vision"></a>Computer Vision의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목은 릴리스 정보, 비디오, 블로그 게시물 및 기타 유형의 정보입니다. 이 페이지에 책갈피를 설정하여 서비스를 최신 상태로 유지하세요.
+
+## <a name="april-2021"></a>2021년 4월
+
+### <a name="computer-vision-v32-ga"></a>Computer Vision v3.2 GA
+
+이제 Computer Vision API v3.2는 다음과 같은 업데이트를 통해 일반 공급됩니다.
+* 향상된 이미지 태깅 모델: 시각적 콘텐츠를 분석하고 이미지에 표시된 개체, 작업 및 콘텐츠에 따라 관련 태그를 생성합니다. 이는 [태그 이미지 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200)를 통해 사용할 수 있습니다. 자세히 알아보려면 이미지 분석 [방법 가이드](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) 및 [개요](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-image-analysis)를 참조하세요.
+* 업데이트된 콘텐츠 조정 모델: 성인 콘텐츠 유무를 검색하고 성인, 외설 및 유혈 콘텐츠가 포함된 이미지를 필터링하는 플래그를 제공합니다. 이는 [분석 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b)를 통해 사용할 수 있습니다. 자세히 알아보려면 이미지 분석 [방법 가이드](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) 및 [개요](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-image-analysis)를 참조하세요.
+* 중국어 간체 및 번체, 일본어, 한국어 및 라틴어를 포함한 [73개 언어에 사용할 수 있는 OCR(Read)](./language-support.md#optical-character-recognition-ocr).
+* [OCR(Read)](./overview-ocr.md)은 온-프레미스 배포를 위해 [Distroless 컨테이너](./computer-vision-how-to-install-containers.md?tabs=version-3-2)로도 사용할 수 있습니다.
+
+> [!div class="nextstepaction"]
+> [Computer Vision v3.2 GA 참조](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
 
 ## <a name="march-2021"></a>2021년 3월
 
@@ -40,7 +53,7 @@ Computer Vision API v3.2 공개 미리 보기가 업데이트되었습니다. �
 * 다중 페이지 문서의 경우 선택한 페이지의 텍스트만 추출합니다.
 * 온-프레미스 배포에 [Distroless 컨테이너](./computer-vision-how-to-install-containers.md?tabs=version-3-2)로 사용할 수 있습니다.
 
-Read API에 대한 [자세한 정보](concept-recognizing-text.md)
+자세한 내용은 [Read API 방법 가이드](Vision-API-How-to-Topics/call-read-api.md)를 참조하세요.
 
 > [!div class="nextstepaction"]
 > [Read API v3.2 공개 미리 보기 사용](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
@@ -83,7 +96,7 @@ Computer Vision의 Read API v3.1 공개 미리 보기에 다음 기능이 추가
 
 * 이 미리 보기 버전의 Read API는 영어, 네덜란드어, 프랑스어, 독일어, 이탈리아어, 일본어, 포르투갈어, 중국어 간체 및 스페인어를 지원합니다.
 
-자세한 내용은 [Read API 개요](concept-recognizing-text.md)를 참조하세요.
+자세한 내용은 [Read API 방법 가이드](Vision-API-How-to-Topics/call-read-api.md)를 참조하세요.
 
 > [!div class="nextstepaction"]
 > [Read API v3.1 공개 미리 보기 2에 대한 자세한 정보](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005)
@@ -95,18 +108,20 @@ Computer Vision의 Read API v3.1 공개 미리 보기에는 중국어(간체) �
 
 * 이 미리 보기 버전의 Read API는 영어, 네덜란드어, 프랑스어, 독일어, 이탈리아어, 포르투갈어, 중국어 간체 및 스페인어를 지원합니다.
 
-자세한 내용은 [Read API 개요](concept-recognizing-text.md)를 참조하세요.
+자세한 내용은 [Read API 방법 가이드](Vision-API-How-to-Topics/call-read-api.md)를 참조하세요.
 
 > [!div class="nextstepaction"]
 > [Read API v3.1 공개 미리 보기 1에 대한 자세한 정보](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
 
 ## <a name="may-2020"></a>2020년 5월
-Computer Vision API v3.0에서 [읽기 API](concept-recognizing-text.md)에 대한 업데이트와 함께 일반 공급으로 전환되었습니다.
+Computer Vision API v3.0에서 Read API에 대한 업데이트와 함께 일반 공급으로 전환되었습니다.
 
 * 영어, 네덜란드어, 프랑스어, 독일어, 이탈리아어, 포르투갈어 및 스페인어 지원
 * 정확도 개선
 * 추출된 각 단어에 대한 신뢰도 점수
 * 새 출력 형식
+
+자세한 내용은 [OCR 개요](overview-ocr.md)를 참조하세요.
 
 ## <a name="march-2020"></a>2020년 3월
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
 ms.openlocfilehash: 4e8dce970c9e7cfb2aa7887cf1fb3ed6ef9030a1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99821990"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>자습서: Azure Active Directory와 Zscaler Beta 통합
@@ -190,14 +190,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **활성화** 를 선택합니다.
 
-## <a name="configure-proxy-settings"></a>프록시 설정 구성
+## <a name="configure-proxy-settings&quot;></a>프록시 설정 구성
 Internet Explorer에서 프록시 설정을 구성하려면 다음 단계를 수행합니다.
 
 1. **Internet Explorer** 를 시작합니다.
 
 2. **도구** 메뉴에서 **인터넷 옵션** 을 선택하여 **인터넷 옵션** 대화 상자를 엽니다. 
     
-     ![인터넷 옵션 대화 상자](./media/zscaler-beta-tutorial/ic769492.png "인터넷 옵션")
+     ![인터넷 옵션 대화 상자](./media/zscaler-beta-tutorial/ic769492.png &quot;인터넷 옵션")
 
 3. **연결** 탭을 선택합니다. 
   

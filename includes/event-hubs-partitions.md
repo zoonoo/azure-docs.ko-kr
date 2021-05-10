@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 파일 포함
 services: event-hubs
 author: spelluru
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/15/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 2cb203a00bb00767126f95e1fdc2f5aff8990f01
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1dd78ba3799573e05e4ebbf55887bae3d9674b7c
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103601283"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310083"
 ---
 Event Hubs는 이벤트 허브로 전송되는 이벤트 시퀀스를 하나 이상의 파티션으로 구성합니다. 최신 이벤트가 도착하면 이 시퀀스의 끝에 추가됩니다. 
 
@@ -32,7 +32,7 @@ Event Hubs는 대량의 이벤트를 처리하는 데 도움이 되도록 설계
 ### <a name="number-of-partitions"></a>파티션 수
 파티션 수는 만들 때 지정되며 Event Hubs Standard의 경우 1과 32 사이여야 합니다. Event Hubs Dedicated의 경우 용량 단위당 파티션 수는 최대 2,000개가 될 수 있습니다. 
 
-특정 이벤트 허브에서 애플리케이션의 부하가 가장 높을 때는 지속적 TU([처리량 단위)](../articles/event-hubs/event-hubs-faq.md#what-are-event-hubs-throughput-units)에 최소한 필요한 만큼의 파티션을 선택하는 것이 좋습니다. 단일 파티션의 처리량 용량을 1TU(1MByte 입력, 2MByte 출력)로 계산해야 합니다. 파티션 수에 관계없이 네임스페이스의 TU 또는 클러스터의 용량 단위를 조정할 수 있습니다. 32개의 파티션이 있는 이벤트 허브 또는 1개의 파티션이 있는 이벤트 허브는 네임스페이스가 1TU 용량으로 설정된 경우 정확히 동일한 비용을 발생시킵니다. 
+특정 이벤트 허브에서 애플리케이션의 부하가 가장 높을 때는 지속적 TU([처리량 단위)](../articles/event-hubs/event-hubs-faq.yml#what-are-event-hubs-throughput-units-)에 최소한 필요한 만큼의 파티션을 선택하는 것이 좋습니다. 단일 파티션의 처리량 용량을 1TU(1MByte 입력, 2MByte 출력)로 계산해야 합니다. 파티션 수에 관계없이 네임스페이스의 TU 또는 클러스터의 용량 단위를 조정할 수 있습니다. 32개의 파티션이 있는 이벤트 허브 또는 1개의 파티션이 있는 이벤트 허브는 네임스페이스가 1TU 용량으로 설정된 경우 정확히 동일한 비용을 발생시킵니다. 
 
 이벤트 허브가 생성된 후 [전용 Event Hubs 클러스터](../articles/event-hubs/event-hubs-dedicated-overview.md)의 이벤트 허브 파티션 수를 [늘릴 수 있지만](../articles/event-hubs/dynamically-add-partitions.md), 파티션 수를 늘리면 파티션에 대한 파티션 키 매핑이 변경되어 파티션 전체의 스트림 분포가 변경되므로 애플리케이션에서 이벤트의 상대적인 순서가 중요한 경우에는 이러한 변경을 방지하기 위해 열심히 노력해야 합니다.
 

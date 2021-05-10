@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 1f8f8d314a8bb37a08b3696f597b395a8a4beb8e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "67182427"
 ---
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
@@ -19,7 +19,7 @@ ms.locfileid: "67182427"
 Connect-AzAccount
 ```
 
-사용하려는 위치를 모르는 경우 사용 가능한 위치를 나열할 수 있습니다. 다음 코드 예제를 사용하여 위치 목록을 표시하고 사용하려는 것을 찾습니다. 이 예제에서는 **eastus**를 사용합니다. 위치를 변수에 저장하고 변수를 사용하면 한 곳에서 변경할 수 있습니다.
+사용하려는 위치를 모르는 경우 사용 가능한 위치를 나열할 수 있습니다. 다음 코드 예제를 사용하여 위치 목록을 표시하고 사용하려는 것을 찾습니다. 이 예제에서는 **eastus** 를 사용합니다. 위치를 변수에 저장하고 변수를 사용하면 한 곳에서 변경할 수 있습니다.
 
 ```powershell
 Get-AzLocation | select Location
@@ -37,7 +37,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-[New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)를 사용하여 LRS 복제가 포함된 표준 범용 스토리지 계정을 만듭니다. 다음으로 사용하려는 스토리지 계정을 정의하는 스토리지 계정 컨텍스트를 가져옵니다. 스토리지 계정에서 작업할 때 반복적으로 자격 증명을 전달하는 대신 컨텍스트를 참조합니다. 다음 예제를 사용하여 LRS(로컬 중복 스토리지) 및 Blob 암호화(기본적으로 사용)를 사용하여 *mystorageaccount*라는 스토리지 계정을 만듭니다.
+[New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)를 사용하여 LRS 복제가 포함된 표준 범용 스토리지 계정을 만듭니다. 다음으로 사용하려는 스토리지 계정을 정의하는 스토리지 계정 컨텍스트를 가져옵니다. 스토리지 계정에서 작업할 때 반복적으로 자격 증명을 전달하는 대신 컨텍스트를 참조합니다. 다음 예제를 사용하여 LRS(로컬 중복 스토리지) 및 Blob 암호화(기본적으로 사용)를 사용하여 *mystorageaccount* 라는 스토리지 계정을 만듭니다.
 
 ```powershell
 $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `

@@ -8,10 +8,10 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
 ms.openlocfilehash: 3a7e75641f6bb84b490231fcd06e04c3cbad06d3
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99822377"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>자습서: Azure Private 엔드포인트를 사용하여 Azure Cosmos 계정에 연결
@@ -171,7 +171,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값                                          |
     |-----------------------|----------------------------------|
-    | 구독 | Azure 구독 선택 |
+    | Subscription | Azure 구독 선택 |
     | 리소스 그룹 | **myResourceGroup** 을 선택합니다. |
     | 위치 | **미국 동부** 를 선택합니다. |
     | Name | **myPrivateEndpoint** 를 입력합니다. |

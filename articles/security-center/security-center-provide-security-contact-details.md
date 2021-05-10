@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 02/09/2021
+ms.date: 04/07/2021
 ms.author: memildin
-ms.openlocfilehash: 342904a3ae996fe8c2eeddf2edfbc4283a3d03eb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 96a389a581a9ecaddfc418824b3ebe9c780e6bd1
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439445"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011590"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>보안 경고에 대한 이메일 알림 구성 
 
@@ -59,6 +59,8 @@ ms.locfileid: "102439445"
 
 다음은 보안 연락처 구성을 만들 때 PUT 요청의 본문 예제입니다.
 
+URI: https://management.azure.com/subscriptions/<SubscriptionId> /providers/Microsoft.Security/securityContacts/default?api-version=2020-01-01-preview
+
 ```json
 {
     "properties": {
@@ -69,7 +71,7 @@ ms.locfileid: "102439445"
         },
         "alertNotifications": {
             "state": "On",
-            "minimalSeverity": "High"
+            "minimalSeverity": "Medium"
         },
         "phone": ""
     }

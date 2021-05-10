@@ -1,17 +1,22 @@
 ---
-title: 시스템 필수 구성 요소
-description: Azure Defender for IoT를 실행하는 데 필요한 시스템 필수 구성 요소를 가져옵니다.
+title: '빠른 시작: 시스템 필수 구성 요소'
+description: 이 빠른 시작에서는 Azure Defender for IoT를 실행하는 데 필요한 시스템 필수 구성 요소를 가져옵니다.
 ms.date: 11/30/2020
 ms.topic: quickstart
-ms.openlocfilehash: 78d5948554ae531c4b2f77d67bb916d5290db943
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 2aae849b6ee772c2aa29c680f3b107af3ed600b0
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780942"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382949"
 ---
-# <a name="system-prerequisites"></a>시스템 필수 구성 요소
+# <a name="quickstart-system-prerequisites"></a>빠른 시작: 시스템 필수 구성 요소
+
 이 문서에서는 Azure Defender for IoT를 실행하기 위한 시스템 필수 구성 요소가 나열되어 있습니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+- 없음
 
 ## <a name="minimum-requirements"></a>최소 요구 사항
 
@@ -27,7 +32,7 @@ Defender for IoT는 모든 유럽 지역에서 유럽 서부 지역 데이터 �
 
 자세한 내용은 [IoT Hub 지원 지역](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub)을 참조하세요.
 
-## <a name="see-also"></a>참조
+## <a name="next-steps"></a>다음 단계
 
-- [필수 어플라이언스 식별](how-to-identify-required-appliances.md)
-- [Azure Defender for IoT 네트워크 설정 정보](how-to-set-up-your-network.md)
+> [!div class="nextstepaction"]
+> [필수 어플라이언스 식별](how-to-identify-required-appliances.md)

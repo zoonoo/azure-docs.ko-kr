@@ -1,0 +1,118 @@
+---
+title: '빠른 시작: Bicep(미리 보기) 파일을 사용하여 새 정책 할당'
+description: 이 빠른 시작에서는 Bicep(미리 보기) 파일을 사용하여 비규격 리소스를 식별하는 정책 할당을 만듭니다.
+ms.date: 04/01/2021
+ms.topic: quickstart
+ms.custom: subject-bicepqs
+ms.openlocfilehash: 17460f9a06d7225d50933608645ea8aea2f5e8f6
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106223868"
+---
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-bicep-file"></a>빠른 시작: Bicep 파일을 사용하여 비규격 리소스를 식별하는 정책 할당 만들기
+
+Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 식별하는 것입니다.
+이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)에 컴파일된 [Bicep(미리 보기)](https://github.com/Azure/bicep) 파일을 사용하여 관리 디스크를 사용하지 않는 가상 머신을 식별하는 정책 할당을 만드는 과정을 단계별로 안내합니다. 이 과정이 끝나면 관리 디스크를 사용하지 않는 가상 머신이 식별됩니다. 이 가상 머신은 정책 할당을 _비준수_ 합니다.
+
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 Azure Policy를 할당하기 위한 ARM 템플릿 배포 단추" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+- Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+- Bicep 버전 `0.3` 이상이 설치되어 있습니다. Bicep CLI를 아직 설치하지 않았거나 업데이트해야 하는 경우 [Bicep(미리 보기) 설치](../../azure-resource-manager/templates/bicep-install.md)를 참조하세요.
+
+## <a name="review-the-bicep-file"></a>Bicep 파일 검토
+
+이 빠른 시작에서는 정책 할당을 만들고 _관리 디스크를 사용하지 않는 VM 감사_(`06a78e20-9358-41c9-923c-fb736d382a4d`)라는 기본 제공 정책 정의를 할당합니다. 사용 가능한 기본 제공 정책의 부분 목록은 [Azure Policy 샘플](./samples/index.md)을 참조하세요.
+
+`assignment.bicep`과 같이 다음 Bicep 파일을 만듭니다.
+
+```bicep
+param policyAssignmentName string = 'audit-vm-manageddisks'
+param policyDefinitionID string = '/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d'
+
+resource assignment 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
+    name: policyAssignmentName
+    properties: {
+        scope: subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)
+        policyDefinitionId: policyDefinitionID
+    }
+}
+
+output assignmentId string = assignment.id
+```
+
+파일에 정의된 리소스는 다음과 같습니다.
+
+- [Microsoft.Authorization/policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
+
+## <a name="deploy-the-template"></a>템플릿 배포
+
+> [!NOTE]
+> Azure Policy 서비스는 무료입니다. 자세한 내용은 [Azure Policy 개요](./overview.md)를 참조하세요.
+
+Bicep CLI를 설치하고 파일을 만든 후 다음을 사용하여 Bicep 파일을 배포할 수 있습니다.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+New-AzResourceGroupDeployment `
+  -Name PolicyDeployment `
+  -ResourceGroupName PolicyGroup `
+  -TemplateFile assignment.bicep
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az deployment group create \
+  --name PolicyDeployment \
+  --resource-group PolicyGroup \
+  --template-file assignment.bicep
+```
+
+---
+
+몇 가지 추가 리소스:
+
+- 더 많은 샘플 템플릿을 찾으려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular)을 참조하세요.
+- 템플릿 참조를 보려면 [Azure 템플릿 참조](/azure/templates/microsoft.authorization/allversions)를 참조하세요.
+- ARM 템플릿을 개발하는 방법을 알아보려면 [Azure Resource Manager 설명서](../../azure-resource-manager/management/overview.md)를 참조하세요.
+- 구독 수준 배포에 대해 알아보려면 [구독 수준에서 리소스 그룹 및 리소스 만들기](../../azure-resource-manager/templates/deploy-to-subscription.md)를 참조하세요.
+
+## <a name="validate-the-deployment"></a>배포 유효성 검사
+
+페이지 왼쪽에서 **준수** 를 선택합니다. 그런 다음, 앞에서 만든 _관리 디스크를 사용하지 않는 감사 VM_ 정책 할당을 찾습니다.
+
+:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="정책 준수 페이지의 정책 준수 세부 정보 스크린샷" border="false":::
+
+이 새로운 할당을 준수하지 않는 기존 리소스가 있는 경우 **비준수 리소스** 아래에 표시됩니다.
+
+자세한 내용은 [규정 준수 작동 방식](./how-to/get-compliance-data.md#how-compliance-works)을 참조하세요.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+만든 할당을 제거하려면 다음 단계를 따르세요.
+
+1. Azure Policy 페이지 왼쪽에서 **준수**(또는 **할당**)를 선택하고 앞에서 만든 _관리 디스크를 사용하지 않는 감사 VM_ 정책 할당을 찾습니다.
+
+1. _관리 디스크를 사용하지 않는 VM 감사_ 정책 할당을 마우스 오른쪽 단추로 클릭하고 **할당 삭제** 를 선택합니다.
+
+   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="상황에 맞는 메뉴를 사용하여 준수 페이지에서 할당을 삭제하는 스크린샷" border="false":::
+
+1. `assignment.bicep` 파일을 삭제합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+이 빠른 시작에서는 범위에 기본 제공 정책 정의를 할당하고 규정 준수 보고서를 평가했습니다. 정책 정의는 범위 내 모든 리소스가 규정을 준수하는지 확인하고, 규정을 준수하지 않는 리소스를 파악합니다.
+
+새 리소스가 규정을 준수하는지 확인하는 정책을 할당하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
+
+> [!div class="nextstepaction"]
+> [정책 만들기 및 관리](./tutorials/create-and-manage.md)

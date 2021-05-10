@@ -6,7 +6,6 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: KumudD
-Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
@@ -15,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 12/19/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 10ac477bed97d2a48344aa8ef9b570d2b6203345
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 2db30024b26352bcc038d606bcdc760b6350d413
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "101702626"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788838"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-by-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 내부 부하 분산 장치 만들기
 
@@ -31,9 +30,6 @@ Azure CLI를 사용하여 내부 부하 분산 장치와 세 개의 가상 머�
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)] 
 
 이 빠른 시작에는 Azure CLI 버전 2.0.28 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
-
->[!NOTE]
->프로덕션 워크로드에는 Azure Load Balancer Standard를 선택하는 것이 좋습니다. 이 문서에는 Azure Load Balancer Standard 및 Azure Load Balancer Basic에 대한 정보가 포함되어 있습니다. SKU에 대한 자세한 내용은 [Azure Load Balancer SKU](skus.md)를 참조하세요.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -48,7 +44,11 @@ Azure 리소스 그룹은 Azure 리소스를 배포하고 관리하는 논리 �
 
 ```
 
-## <a name="azure-load-balancer-standard"></a>Azure Load Balancer Standard
+---
+# <a name="standard-sku"></a>[**표준 SKU**](#tab/option-1-create-load-balancer-standard)
+
+>[!NOTE]
+>표준 SKU 부하 분산 장치는 프로덕션 워크로드에 추천됩니다. SKU에 대한 자세한 내용은 **[Azure Load Balancer SKU](skus.md)** 를 참조하세요.
 
 이 섹션에서는 가상 머신의 부하를 분산하는 부하 분산 장치를 만듭니다. 내부 부하 분산 장치를 만들 때 가상 네트워크는 부하 분산 장치의 네트워크로 구성됩니다. 다음 다이어그램은 이 빠른 시작에서 만든 리소스를 보여줍니다.
 
@@ -60,7 +60,7 @@ VM을 배포하고 부하 분산 장치를 배포하기 전에 지원되는 가�
 
 #### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용하여 가상 네트워크를 만듭니다. 다음을 지정합니다.
+[az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)를 사용하여 가상 네트워크를 만듭니다. 다음을 지정합니다.
 
 * **myVNet** 으로 이름 지정
 * **10.1.0.0/16** 의 주소 접두사
@@ -81,7 +81,7 @@ VM을 배포하고 부하 분산 장치를 배포하기 전에 지원되는 가�
 
 #### <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
 
-[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)를 사용하여 Azure Bastion 호스트에 대한 공용 IP 주소를 만듭니다. 다음을 지정합니다.
+[az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create)를 사용하여 Azure Bastion 호스트에 대한 공용 IP 주소를 만듭니다. 다음을 지정합니다.
 
 * **myBastionIP** 라는 표준 영역 중복 공용 IP 주소를 만듭니다.
 * **CreateIntLBQS-rg** 에서
@@ -94,7 +94,7 @@ az network public-ip create \
 ```
 #### <a name="create-an-azure-bastion-subnet"></a>Azure Bastion 서브넷 만들기
 
-[az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create)를 사용하여 서브넷을 만듭니다. 다음을 지정합니다.
+[az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)를 사용하여 서브넷을 만듭니다. 다음을 지정합니다.
 
 * **AzureBastionSubnet** 으로 이름 지정
 * **10.1.1.0/24** 의 주소 접두사
@@ -111,7 +111,7 @@ az network vnet subnet create \
 
 #### <a name="create-an-azure-bastion-host"></a>Azure Bastion 호스트 만들기
 
-[az network bastion create](/cli/azure/network/bastion#az-network-bastion-create)를 사용하여 호스트를 만듭니다. 다음을 지정합니다.
+[az network bastion create](/cli/azure/network/bastion#az_network_bastion_create)를 사용하여 호스트를 만듭니다. 다음을 지정합니다.
 
 * **myBastionHost** 로 이름 지정
 * **CreateIntLBQS-rg** 에서
@@ -132,7 +132,7 @@ Azure Bastion 호스트를 배포하는 데 몇 분 정도 걸릴 수 있습니�
 
 #### <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
-표준 부하 분산 장치의 경우 VM에 네트워크 보안 그룹에 속한 네트워크 인터페이스가 있는지 확인합니다. [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음을 지정합니다.
+표준 부하 분산 장치의 경우 VM에 네트워크 보안 그룹에 속한 네트워크 인터페이스가 있는지 확인합니다. [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음을 지정합니다.
 
 * **myNSG** 로 이름 지정
 * 리소스 그룹 **CreateIntLBQS-rg** 에서
@@ -145,7 +145,7 @@ Azure Bastion 호스트를 배포하는 데 몇 분 정도 걸릴 수 있습니�
 
 #### <a name="create-a-network-security-group-rule"></a>네트워크 보안 그룹 규칙 만들기
 
-[az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다. 다음을 지정합니다.
+[az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다. 다음을 지정합니다.
 
 * **myNSGRuleHTTP** 로 이름 지정
 * 이전 단계에서 만든 네트워크 보안 그룹의 **myNSG**
@@ -182,7 +182,7 @@ Azure Bastion 호스트를 배포하는 데 몇 분 정도 걸릴 수 있습니�
 
 #### <a name="create-network-interfaces-for-the-virtual-machines"></a>가상 머신에 대한 네트워크 인터페이스 만들기
 
-[az network nic create](/cli/azure/network/nic#az-network-nic-create)를 사용하여 세 개의 네트워크 인터페이스를 만듭니다. 다음을 지정합니다.
+[az network nic create](/cli/azure/network/nic#az_network_nic_create)를 사용하여 세 개의 네트워크 인터페이스를 만듭니다. 다음을 지정합니다.
 
 * **myNicVM1**, **myNicVM2**, **myNicVM3** 으로 이름 지정
 * 리소스 그룹 **CreateIntLBQS-rg** 에서
@@ -205,7 +205,7 @@ Azure Bastion 호스트를 배포하는 데 몇 분 정도 걸릴 수 있습니�
 
 #### <a name="create-the-virtual-machines"></a>가상 머신 만들기
 
-[az vm create](/cli/azure/vm#az-vm-create)를 사용하여 가상 머신을 만듭니다. 다음을 지정합니다.
+[az vm create](/cli/azure/vm#az_vm_create)를 사용하여 가상 머신을 만듭니다. 다음을 지정합니다.
 
 * **myVM1**, **myVM2**, **myVM3** 으로 이름 지정
 * 리소스 그룹 **CreateIntLBQS-rg** 에서
@@ -230,6 +230,9 @@ Azure Bastion 호스트를 배포하는 데 몇 분 정도 걸릴 수 있습니�
 
 VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
+
 ### <a name="create-the-load-balancer"></a>부하 분산 장치 만들기
 
 이 섹션에서는 다음과 같은 부하 분산 장치 구성 요소를 만들고 구성하는 방법에 대해 자세히 설명합니다.
@@ -241,7 +244,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 #### <a name="create-the-load-balancer-resource"></a>부하 분산 장치 리소스 만들기
 
-[az network lb create](/cli/azure/network/lb#az-network-lb-create)를 사용하여 공용 부하 분산 장치를 만듭니다. 다음을 지정합니다.
+[az network lb create](/cli/azure/network/lb#az_network_lb_create)를 사용하여 공용 부하 분산 장치를 만듭니다. 다음을 지정합니다.
 
 * **myLoadBalancer** 로 이름 지정
 * **myFrontEnd** 로 풀 이름 지정
@@ -264,7 +267,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 상태 프로브는 네트워크 트래픽을 보낼 수 있도록 모든 가상 머신 인스턴스를 검사합니다. 프로브 확인에 실패한 가상 머신은 부하 분산 장치에서 제거됩니다. 오류가 해결되면 가상 머신이 부하 분산 장치에 다시 추가됩니다.
 
-[az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create)를 사용하여 상태 프로브를 만듭니다. 다음을 지정합니다.
+[az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create)를 사용하여 상태 프로브를 만듭니다. 다음을 지정합니다.
 
 * 가상 머신의 상태 모니터링
 * **myHealthProbe** 로 이름 지정
@@ -288,7 +291,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 * 트래픽을 수신할 IP 풀.
 * 필요한 원본 및 대상 포트 
 
-[az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create)를 사용하여 부하 분산 장치 규칙을 만듭니다. 다음을 지정합니다.
+[az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create)를 사용하여 부하 분산 장치 규칙을 만듭니다. 다음을 지정합니다.
 
 * **myHTTPRule** 로 이름 지정
 * 풀 **myFrontEnd** 의 **포트 80** 에서 수신 대기
@@ -315,7 +318,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 #### <a name="add-vms-to-the-load-balancer-pool"></a>VM을 부하 분산 장치에 추가
 
-[az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az-network-nic-ip-config-address-pool-add)를 사용하여 백 엔드 풀에 가상 머신을 추가합니다. 다음을 지정합니다.
+[az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add)를 사용하여 백 엔드 풀에 가상 머신을 추가합니다. 다음을 지정합니다.
 
 * 주소 풀 **myBackEndPool** 에서
 * 리소스 그룹 **CreateIntLBQS-rg** 에서
@@ -336,7 +339,10 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ```
 
-## <a name="azure-load-balancer-basic"></a>Azure Load Balancer Basic
+# <a name="basic-sku"></a>[**기본 SKU**](#tab/option-1-create-load-balancer-basic)
+
+>[!NOTE]
+>표준 SKU 부하 분산 장치는 프로덕션 워크로드에 추천됩니다. SKU에 대한 자세한 내용은 **[Azure Load Balancer SKU](skus.md)** 를 참조하세요.
 
 이 섹션에서는 가상 머신의 부하를 분산하는 부하 분산 장치를 만듭니다. 내부 부하 분산 장치를 만들 때 가상 네트워크는 부하 분산 장치의 네트워크로 구성됩니다. 다음 다이어그램은 이 빠른 시작에서 만든 리소스를 보여줍니다.
 
@@ -348,7 +354,7 @@ VM을 배포하고 부하 분산 장치를 배포하기 전에 지원되는 가�
 
 #### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[az network vnet create](/cli/azure/network/vnet#az-network-vnet-createt)를 사용하여 가상 네트워크를 만듭니다. 다음을 지정합니다.
+[az network vnet create](/cli/azure/network/vnet#az_network_vnet_createt)를 사용하여 가상 네트워크를 만듭니다. 다음을 지정합니다.
 
 * **myVNet** 으로 이름 지정
 * **10.1.0.0/16** 의 주소 접두사
@@ -369,7 +375,7 @@ VM을 배포하고 부하 분산 장치를 배포하기 전에 지원되는 가�
 
 #### <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
 
-[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)를 사용하여 Azure Bastion 호스트에 대한 공용 IP 주소를 만듭니다. 다음을 지정합니다.
+[az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create)를 사용하여 Azure Bastion 호스트에 대한 공용 IP 주소를 만듭니다. 다음을 지정합니다.
 
 * **myBastionIP** 라는 표준 영역 중복 공용 IP 주소를 만듭니다.
 * **CreateIntLBQS-rg** 에서
@@ -382,7 +388,7 @@ az network public-ip create \
 ```
 #### <a name="create-an-azure-bastion-subnet"></a>Azure Bastion 서브넷 만들기
 
-[az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create)를 사용하여 서브넷을 만듭니다. 다음을 지정합니다.
+[az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)를 사용하여 서브넷을 만듭니다. 다음을 지정합니다.
 
 * **AzureBastionSubnet** 으로 이름 지정
 * **10.1.1.0/24** 의 주소 접두사
@@ -399,7 +405,7 @@ az network vnet subnet create \
 
 #### <a name="create-an-azure-bastion-host"></a>Azure Bastion 호스트 만들기
 
-[az network bastion create](/cli/azure/network/bastion#az-network-bastion-create)를 사용하여 호스트를 만듭니다. 다음을 지정합니다.
+[az network bastion create](/cli/azure/network/bastion#az_network_bastion_create)를 사용하여 호스트를 만듭니다. 다음을 지정합니다.
 
 * **myBastionHost** 로 이름 지정
 * **CreateIntLBQS-rg** 에서
@@ -420,7 +426,7 @@ Azure Bastion 호스트를 배포하는 데 몇 분 정도 걸릴 수 있습니�
 
 #### <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
-표준 부하 분산 장치의 경우 VM에 네트워크 보안 그룹에 속한 네트워크 인터페이스가 있는지 확인합니다. [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음을 지정합니다.
+표준 부하 분산 장치의 경우 VM에 네트워크 보안 그룹에 속한 네트워크 인터페이스가 있는지 확인합니다. [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음을 지정합니다.
 
 * **myNSG** 로 이름 지정
 * 리소스 그룹 **CreateIntLBQS-rg** 에서
@@ -433,7 +439,7 @@ Azure Bastion 호스트를 배포하는 데 몇 분 정도 걸릴 수 있습니�
 
 #### <a name="create-a-network-security-group-rule"></a>네트워크 보안 그룹 규칙 만들기
 
-[az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다. 다음을 지정합니다.
+[az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다. 다음을 지정합니다.
 
 * **myNSGRuleHTTP** 로 이름 지정
 * 이전 단계에서 만든 네트워크 보안 그룹의 **myNSG**
@@ -471,7 +477,7 @@ Azure Bastion 호스트를 배포하는 데 몇 분 정도 걸릴 수 있습니�
 
 #### <a name="create-network-interfaces-for-the-virtual-machines"></a>가상 머신에 대한 네트워크 인터페이스 만들기
 
-[az network nic create](/cli/azure/network/nic#az-network-nic-create)를 사용하여 세 개의 네트워크 인터페이스를 만듭니다. 다음을 지정합니다.
+[az network nic create](/cli/azure/network/nic#az_network_nic_create)를 사용하여 세 개의 네트워크 인터페이스를 만듭니다. 다음을 지정합니다.
 
 * **myNicVM1**, **myNicVM2**, **myNicVM3** 으로 이름 지정
 * 리소스 그룹 **CreateIntLBQS-rg** 에서
@@ -494,7 +500,7 @@ Azure Bastion 호스트를 배포하는 데 몇 분 정도 걸릴 수 있습니�
 
 #### <a name="create-the-availability-set-for-the-virtual-machines"></a>가상 머신에 대한 가용성 집합 만들기
 
-[az vm availability-set create](/cli/azure/vm/availability-set#az-vm-availability-set-create)를 사용하여 가용성 집합을 만듭니다. 다음을 지정합니다.
+[az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create)를 사용하여 가용성 집합을 만듭니다. 다음을 지정합니다.
 
 * **myAvailabilitySet** 로 이름 지정
 * 리소스 그룹 **CreateIntLBQS-rg** 에서
@@ -510,7 +516,7 @@ Azure Bastion 호스트를 배포하는 데 몇 분 정도 걸릴 수 있습니�
 
 #### <a name="create-the-virtual-machines"></a>가상 머신 만들기
 
-[az vm create](/cli/azure/vm#az-vm-create)를 사용하여 가상 머신을 만듭니다. 다음을 지정합니다.
+[az vm create](/cli/azure/vm#az_vm_create)를 사용하여 가상 머신을 만듭니다. 다음을 지정합니다.
 
 * **myVM1**, **myVM2**, **myVM3** 으로 이름 지정
 * 리소스 그룹 **CreateIntLBQS-rg** 에서
@@ -535,6 +541,9 @@ Azure Bastion 호스트를 배포하는 데 몇 분 정도 걸릴 수 있습니�
 ```
 VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
+
 ### <a name="create-the-load-balancer"></a>부하 분산 장치 만들기
 
 이 섹션에서는 다음과 같은 부하 분산 장치 구성 요소를 만들고 구성하는 방법에 대해 자세히 설명합니다.
@@ -546,7 +555,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 #### <a name="create-the-load-balancer-resource"></a>부하 분산 장치 리소스 만들기
 
-[az network lb create](/cli/azure/network/lb#az-network-lb-create)를 사용하여 공용 부하 분산 장치를 만듭니다. 다음을 지정합니다.
+[az network lb create](/cli/azure/network/lb#az_network_lb_create)를 사용하여 공용 부하 분산 장치를 만듭니다. 다음을 지정합니다.
 
 * **myLoadBalancer** 로 이름 지정
 * **myFrontEnd** 로 풀 이름 지정
@@ -569,7 +578,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 상태 프로브는 네트워크 트래픽을 보낼 수 있도록 모든 가상 머신 인스턴스를 검사합니다. 프로브 확인에 실패한 가상 머신은 부하 분산 장치에서 제거됩니다. 오류가 해결되면 가상 머신이 부하 분산 장치에 다시 추가됩니다.
 
-[az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create)를 사용하여 상태 프로브를 만듭니다. 다음을 지정합니다.
+[az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create)를 사용하여 상태 프로브를 만듭니다. 다음을 지정합니다.
 
 * 가상 머신의 상태 모니터링
 * **myHealthProbe** 로 이름 지정
@@ -593,7 +602,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 * 트래픽을 수신할 IP 풀.
 * 필요한 원본 및 대상 포트 
 
-[az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create)를 사용하여 부하 분산 장치 규칙을 만듭니다. 다음을 지정합니다.
+[az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create)를 사용하여 부하 분산 장치 규칙을 만듭니다. 다음을 지정합니다.
 
 * **myHTTPRule** 로 이름 지정
 * 풀 **myFrontEnd** 의 **포트 80** 에서 수신 대기
@@ -617,7 +626,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 ```
 #### <a name="add-vms-to-the-load-balancer-pool"></a>VM을 부하 분산 장치에 추가
 
-[az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az-network-nic-ip-config-address-pool-add)를 사용하여 백 엔드 풀에 가상 머신을 추가합니다. 다음을 지정합니다.
+[az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add)를 사용하여 백 엔드 풀에 가상 머신을 추가합니다. 다음을 지정합니다.
 
 * 주소 풀 **myBackEndPool** 에서
 * 리소스 그룹 **CreateIntLBQS-rg** 에서
@@ -637,10 +646,10 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
   done
 
 ```
-
+---
 ## <a name="test-the-load-balancer"></a>부하 분산 장치 테스트
 
-[az network nic create](/cli/azure/network/nic#az-network-nic-create)를 사용하여 네트워크 인터페이스를 만듭니다. 다음을 지정합니다.
+[az network nic create](/cli/azure/network/nic#az_network_nic_create)를 사용하여 네트워크 인터페이스를 만듭니다. 다음을 지정합니다.
 
 * **myNicTestVM** 으로 이름 지정
 * 리소스 그룹 **CreateIntLBQS-rg** 에서
@@ -656,7 +665,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
     --subnet myBackEndSubnet \
     --network-security-group myNSG
 ```
-[az vm create](/cli/azure/vm#az-vm-create)를 사용하여 가상 머신을 만듭니다. 다음을 지정합니다.
+[az vm create](/cli/azure/vm#az_vm_create)를 사용하여 가상 머신을 만듭니다. 다음을 지정합니다.
 
 * **myTestVM** 으로 이름 지정
 * 리소스 그룹 **CreateIntLBQS-rg** 에서
@@ -717,7 +726,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-리소스가 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용하여 리소스 그룹, 부하 분산 장치 및 모든 관련 리소스를 제거합니다.
+리소스가 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용하여 리소스 그룹, 부하 분산 장치 및 모든 관련 리소스를 제거합니다.
 
 ```azurecli-interactive
   az group delete \

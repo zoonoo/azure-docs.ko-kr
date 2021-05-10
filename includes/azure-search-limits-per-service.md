@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: search
 author: HeidiSteen
@@ -9,10 +9,10 @@ ms.date: 05/11/2020
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: fe5c8129434ddb4eec2dd25a3f123f28b4db221b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "83682630"
 ---
 검색 서비스는 디스크 공간이나 인덱스 또는 인덱서 최대 수의 하드 제한 중에서 먼저 충족되는 조건에 따라 제한됩니다. 다음 표에서는 스토리지 제한에 대해 설명합니다. 최대 개체 제한은 [리소스별 제한](../articles/search/search-limits-quotas-capacity.md#index-limits)을 참조하세요.

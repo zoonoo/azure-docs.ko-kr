@@ -1,19 +1,19 @@
 ---
 title: Java를 사용한 Azure Storage 샘플 | Microsoft Docs
 description: Azure Storage에 대한 샘플 코드 및 애플리케이션을 확인하고 다운로드하여 실행합니다. Java 스토리지 클라이언트 라이브러리를 사용하여 BLOB, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다.
-author: mhopkins-msft
+author: twooley
 ms.custom: devx-track-java
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 9e3cd6be0da7c6d9401945293283de874c7cd866
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3a6a68a150bd474f40ffb1610ed7a310e4f30de9
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92359767"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276640"
 ---
 # <a name="azure-storage-samples-using-v12-java-client-libraries"></a>v12 Java 클라이언트 라이브러리를 사용하는 Azure Storage 샘플
 

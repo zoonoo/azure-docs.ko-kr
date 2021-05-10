@@ -2,18 +2,20 @@
 title: 빠른 시작 - Azure Portal에서 Azure Storage 테이블 만들기
 description: 이 빠른 시작에서는 Azure Portal에서 Table service를 사용하여 Azure Storage 테이블을 만듭니다. 또한 Azure 스토리지 계정을 만드는 방법을 참조하세요.
 services: storage
-ms.service: storage
 author: tamram
 ms.author: tamram
-ms.topic: quickstart
 ms.date: 12/02/2019
+ms.topic: quickstart
+ms.service: storage
 ms.subservice: tables
-ms.openlocfilehash: 93c6cb0f61185457ef0684d2a1ba691a0534aa13
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom:
+- mode-portal
+ms.openlocfilehash: fabfd0031ddd8ff58af346274c454b107c00779b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96326780"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529476"
 ---
 # <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Storage 테이블 만들기 
 

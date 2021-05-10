@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: container-registry
 author: dlepow
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/12/2019
 ms.author: danlep
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: d81b6f5367efa92c9249956faa058441edf98561
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 70bd79ef944e5918d750a130bd2e2b2c2b656bf4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92756103"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781147"
 ---
 ### <a name="create-a-user-assigned-identity"></a>사용자 할당 ID 만들기
 
@@ -48,5 +48,5 @@ clientID=$(az identity show \
 ```
 
 <!-- LINKS - Internal -->
-[az-identity-create]: /cli/azure/identity#az-identity-create
-[az-identity-show]: /cli/azure/identity#az-identity-show
+[az-identity-create]: /cli/azure/identity#az_identity_create
+[az-identity-show]: /cli/azure/identity#az_identity_show

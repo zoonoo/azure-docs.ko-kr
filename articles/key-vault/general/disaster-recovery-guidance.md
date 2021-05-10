@@ -2,19 +2,18 @@
 title: Azure Key Vault 가용성 및 중복성 - Azure Key Vault | Microsoft Docs
 description: Azure Key Vault 가용성 및 중복성에 대해 알아봅니다.
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 08/28/2020
-ms.author: sudbalas
-ms.openlocfilehash: d66fe736936963e601aad7cba7bdaa94f0c3ec3f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/31/2021
+ms.author: mbaldwin
+ms.openlocfilehash: 3c5afc92044fcb109bedd38298b0b027ebeb437d
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96518450"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749693"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure Key Vault 가용성 및 중복성
 
@@ -23,7 +22,7 @@ Azure Key Vault에는 서비스의 개별 구성 요소가 실패해도 애플�
 > [!NOTE]
 > 이 가이드는 자격 증명 모음에 적용됩니다. 관리형 HSM 풀은 다른 고가용성 및 재해 복구 모델을 사용합니다. 자세한 내용은 [관리형 HSM 재해 복구 가이드](../managed-hsm/disaster-recovery-guide.md)를 참조하세요.
 
-키 자격 증명 모음의 콘텐츠는 키와 비밀의 높은 내구성을 유지하기 위해 지역 내에 복제되고 동일한 지리 내 최소 150마일 떨어진 보조 지역에도 복제됩니다. 특정 지역 쌍에 대한 자세한 내용은 [Azure 쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)을 참조하세요. 쌍을 이루는 지역 모델에 대한 예외는 브라질 남부입니다. 브라질 남부 내에 데이터를 보관할 수 있는 옵션만 허용합니다. 브라질 남부에서는 ZRS(영역 중복 스토리지)를 사용하여 단일 위치/지역 내에서 데이터를 세 번 복제합니다.   
+키 자격 증명 모음의 콘텐츠는 키와 비밀의 높은 내구성을 유지하기 위해 지역 내에 복제되고 동일한 지리 내 최소 150마일 떨어진 보조 지역에도 복제됩니다. 특정 지역 쌍에 대한 자세한 내용은 [Azure 쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)을 참조하세요. 쌍을 이루는 지역 모델에 대한 예외는 브라질 남부입니다. 브라질 남부 내에 데이터를 보관할 수 있는 옵션만 허용합니다. 브라질 남부에서는 ZRS(영역 중복 스토리지)를 사용하여 단일 위치/지역 내에서 데이터를 세 번 복제합니다. AKV Premium의 경우 HSM의 데이터를 복제하는 데 3개 지역 중 2개만 사용됩니다.  
 
 주요 자격 증명 모음 서비스 내에서 개별 구성 요소가 실패하면 기능이 저하되지 않도록 하기 위해 해당 지역 내의 대체 구성 요소가 요청을 처리하도록 개입됩니다. 이 프로세스를 시작하기 위해 어떤 작업도 수행할 필요가 없습니다. 이 프로세스는 자동으로 수행되며 사용자에게 투명하게 공개됩니다.
 

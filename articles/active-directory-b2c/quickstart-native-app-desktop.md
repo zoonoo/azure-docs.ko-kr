@@ -13,13 +13,13 @@ ms.date: 09/12/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ebed2f5e8664bd4336219f9387b8d27c8f3a1c59
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78187307"
 ---
-# <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>빠른 시작: Azure Active Directory B2C를 사용하여 데스크톱 앱에 대한 로그인 설정
+# <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>빠른 시작 - Azure Active Directory B2C를 사용하여 데스크톱 앱에 대한 로그인 설정
 
 Azure AD B2C(Azure Active Directory B2C)는 애플리케이션, 비즈니스 및 고객을 보호하기 위한 클라우드 ID 관리 기능을 제공합니다. Azure AD B2C를 사용하면 애플리케이션에서 개방형 표준 프로토콜을 사용하여 소셜 계정 및 엔터프라이즈 계정을 인증할 수 있습니다. 이 빠른 시작에서는 WPF(Windows Presentation Foundation) 데스크톱 애플리케이션에서 소셜 ID 공급자를 사용하여 로그인하고 Azure AD B2C 보호 웹 API를 호출합니다.
 
@@ -27,7 +27,7 @@ Azure AD B2C(Azure Active Directory B2C)는 애플리케이션, 비즈니스 및
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- **ASP.NET 및 웹 개발** 워크로드가 있는 [Visual Studio 2019](https://www.visualstudio.com/downloads/)
+- **ASP.NET 및 웹 개발** 워크로드가 설치된 [Visual Studio 2019](https://www.visualstudio.com/downloads/)입니다.
 - Facebook, Google 또는 Microsoft의 소셜 계정
 - [zip 파일을 다운로드](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/msalv3.zip)하거나 GitHub에서 [Azure-Samples/active-directory-b2c-dotnet-desktop](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) 리포지토리를 복제합니다.
 
@@ -42,7 +42,7 @@ Azure AD B2C(Azure Active Directory B2C)는 애플리케이션, 비즈니스 및
 
 ## <a name="sign-in-using-your-account"></a>계정을 사용하여 로그인
 
-1. **로그인**을 클릭하여 **등록 또는 로그인** 워크플로를 시작합니다.
+1. **로그인** 을 클릭하여 **등록 또는 로그인** 워크플로를 시작합니다.
 
     ![샘플 WPF 애플리케이션 스크린샷](./media/quickstart-native-app-desktop/wpf-sample-application.png)
 
@@ -63,19 +63,19 @@ Azure AD B2C(Azure Active Directory B2C)는 애플리케이션, 비즈니스 및
 
 Azure AD B2C에는 사용자가 프로필을 업데이트할 수 있는 기능이 있습니다. 웹앱 샘플은 워크플로에 Azure AD B2C 프로필 편집 사용자 흐름을 사용합니다.
 
-1. 애플리케이션 메뉴 모음에서 **프로필 편집**을 클릭하여 앞에서 만든 프로필을 편집합니다.
+1. 애플리케이션 메뉴 모음에서 **프로필 편집** 을 클릭하여 앞에서 만든 프로필을 편집합니다.
 
     ![WPF 샘플 앱에서 강조 표시된 프로필 편집 단추](./media/quickstart-native-app-desktop/edit-profile-wpf.png)
 
 2. 만든 계정과 연결된 ID 공급자를 선택합니다. 예를 들어 계정을 만들 때 ID 공급자로 Facebook을 사용한 경우 Facebook을 선택하여 연결된 프로필 세부 정보를 수정합니다.
 
-3. **표시 이름** 또는 **구/군/시**를 변경한 다음, **계속**을 클릭합니다.
+3. **표시 이름** 또는 **구/군/시** 를 변경한 다음, **계속** 을 클릭합니다.
 
-    새 액세스 토큰이 *토큰 정보* 텍스트 상자에 표시됩니다. 프로필의 변경 내용을 확인하려는 경우 액세스 토큰을 복사한 후 토큰 디코더 [https://jwt.ms](https://jwt.ms )에 붙여넣습니다.
+    새 액세스 토큰이 *토큰 정보* 텍스트 상자에 표시됩니다. 프로필의 변경 내용을 확인하려는 경우 액세스 토큰을 복사한 후 토큰 디코더 [https://jwt.ms](https://jwt.ms)에 붙여넣습니다.
 
 ## <a name="access-a-protected-api-resource"></a>보호된 API 리소스 액세스
 
-**API 호출**을 클릭하여 보호된 리소스에 대한 요청을 만듭니다.
+**API 호출** 을 클릭하여 보호된 리소스에 대한 요청을 만듭니다.
 
 ![API 호출](./media/quickstart-native-app-desktop/call-api-wpf.png)
 

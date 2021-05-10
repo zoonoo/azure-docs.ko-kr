@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 11/13/2018
 ms.author: zhshang
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 17b8df919c5059da3f3abd7a4f06aca1eadd0817
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d4f0746b98411aeecaf5bd6ec798cf3df7a9db8d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94563973"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787416"
 ---
 # <a name="create-a-signalr-service"></a>SignalR Service 만들기 
 
@@ -69,9 +69,9 @@ echo "$primaryConnectionString"
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az signalr create](/cli/azure/signalr#az-signalr-create) | Azure SignalR Service 리소스를 만듭니다. |
-| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | SignalR을 통해 실시간 콘텐츠 업데이트를 푸시할 때 애플리케이션에서 사용할 키를 나열합니다. |
+| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az signalr create](/cli/azure/signalr#az_signalr_create) | Azure SignalR Service 리소스를 만듭니다. |
+| [az signalr key list](/cli/azure/signalr/key#az_signalr_key_list) | SignalR을 통해 실시간 콘텐츠 업데이트를 푸시할 때 애플리케이션에서 사용할 키를 나열합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

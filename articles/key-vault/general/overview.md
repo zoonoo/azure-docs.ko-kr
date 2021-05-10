@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4747c958b5e592458c14bbf4244953564c252678
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3e6ed6bc8ba426a981b7a2390e7d00d9c3b1e785
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98790126"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105643446"
 ---
 # <a name="about-azure-key-vault"></a>Azure Key Vault 정보
 
@@ -71,8 +71,8 @@ Key Vault를 두 개 만들었으면 키와 비밀이 액세스되는 방법 및
 
 Azure의 안전한 저장소로서 Key Vault는 다음과 같은 시나리오를 간소화하는 데 사용됐습니다.
 -  [Azure 디스크 암호화](../../security/fundamentals/encryption-overview.md)
--  SQL 서버 및 Azure SQL Database의 [상시 암호화]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) 및 [투명한 데이터 암호화]( https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver15) 기능
-- [Azure App Service]( https://docs.microsoft.com/azure/app-service/configure-ssl-certificate). 
+-  SQL 서버 및 Azure SQL Database의 [상시 암호화](/sql/relational-databases/security/encryption/always-encrypted-database-engine) 및 [투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption) 기능
+- [Azure App Service](/azure/app-service/configure-ssl-certificate).
 
 Key Vault 자체는 스토리지 계정, 이벤트 허브 및 로그 분석과 통합할 수 있습니다.
 

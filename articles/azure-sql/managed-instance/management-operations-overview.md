@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, MashaMSFT
 ms.date: 07/10/2020
-ms.openlocfilehash: 2da7311e61aa39be69a6a0a29eff686baaad7ebf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bd66c10bb1d6316bbe90e7ba4092d79c6a43a75d
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91323195"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285288"
 ---
 # <a name="overview-of-azure-sql-managed-instance-management-operations"></a>Azure SQL Managed Instance 관리 작업 개요
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -70,12 +70,14 @@ Azure SQL Managed Instance에서는 새로운 관리형 인스턴스를 자동�
 |작업(Operation)  |장기 실행 세그먼트  |예상 소요 시간  |
 |---------|---------|---------|
 |인스턴스 속성 변경(관리자 암호, Azure AD 로그인, Azure 하이브리드 혜택 플래그)|해당 없음|최대 1분|
-|인스턴스 스토리지 확장/축소(범용 서비스 계층)|데이터베이스 파일 연결|작업의 90%가 5분 후에 완료됩니다.|
+|인스턴스 스토리지 확장/축소(범용 서비스 계층)|장기 실행 세그먼트<sup>1</sup> 없음|작업의 99%가 5분 안에 완료됩니다.|
 |인스턴스 스토리지 확장/축소(중요 비즈니스용 서비스 계층)|- 가상 클러스터 크기 조정<br>- Always On 가용성 그룹 마법사|작업의 90%가 2.5시간+모든 데이터베이스를 시딩하는 시간(220GB/시) 후에 완료됩니다.|
 |인스턴스 컴퓨팅(vCore) 확장 및 축소(범용)|- 가상 클러스터 크기 조정<br>- 데이터베이스 파일 연결|작업의 90%가 2.5시간 후에 완료됩니다.|
 |인스턴스 컴퓨팅(vCore) 확장 및 축소(중요 비즈니스용)|- 가상 클러스터 크기 조정<br>- Always On 가용성 그룹 마법사|작업의 90%가 2.5시간+모든 데이터베이스를 시딩하는 시간(220GB/시) 후에 완료됩니다.|
 |인스턴스 서비스 계층 변경(범용에서 중요 비즈니스용으로 및 그 반대로)|- 가상 클러스터 크기 조정<br>- Always On 가용성 그룹 마법사|작업의 90%가 2.5시간+모든 데이터베이스를 시딩하는 시간(220GB/시) 후에 완료됩니다.|
 | | | 
+
+<sup>1</sup> 범용 관리형 인스턴스 스토리지 크기를 조정하면 작업 종료 시 장애 조치(failover)가 발생하지 않습니다. 이 경우 작업은 메타데이터 업데이트와 제출된 요청에 대한 응답 전파로 구성됩니다.
 
 **범주: 삭제**
 
@@ -90,6 +92,9 @@ Azure SQL Managed Instance에서는 새로운 관리형 인스턴스를 자동�
 ## <a name="instance-availability"></a>인스턴스 가용성
 
 업데이트를 마칠 때 발생하는 장애 조치(failover)로 인한 짧은 가동 중지 시간을 제외하고 **업데이트 작업 중에 SQL Managed Instance를 사용** 할 수 있습니다. 일반적으로 [가속 데이터베이스 복구](../accelerated-database-recovery.md) 덕분에 중단된 장기 실행 트랜잭션이 발생하는 경우에도 최대 10초 정도 지속됩니다.
+
+> [!NOTE]
+> 범용 관리형 인스턴스 스토리지 크기를 조정하면 업데이트 종료 시 장애 조치(failover)가 발생하지 않습니다.
 
 SQL Managed Instance는 배포 및 삭제 작업 중에 클라이언트 애플리케이션에서 사용할 수 없습니다.
 

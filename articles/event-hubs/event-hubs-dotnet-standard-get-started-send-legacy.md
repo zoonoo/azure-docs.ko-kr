@@ -4,12 +4,12 @@ description: 이 문서에서는 이전 Microsoft.Azure.EventHubs 패키지를 �
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7092c3a4c32fe2ad46b71c5a796ac811e4253dbb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f289b920b036629e5c518ce3c9e8ec521b1497c3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100653094"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310107"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>.NET Core(Microsoft.Azure.EventHubs)를 사용하여 Azure Event Hubs에서 이벤트 보내기 또는 받기
 이 빠른 시작에서는 **Microsoft.Azure.EventHubs** .NET Core 라이브러리를 사용하여 이벤트 허브와 이벤트를 주고 받는 방법을 보여줍니다.
@@ -367,6 +367,6 @@ Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기** �
     이러한 샘플은 이전 **Microsoft.Azure.EventHubs** 라이브러리를 사용하지만 최신 **Azure.Messaging.EventHubs** 라이브러리를 사용하여 쉽게 업데이트할 수 있습니다. 이전 라이브러리를 사용하는 샘플을 새 라이브러리로 이동하려면 [Microsoft.Azure.EventHubs에서 Azure.Messaging.EventHubs로 마이그레이션하기 위한 가이드](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)를 참조하세요.
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Azure Event Hubs의 기능 및 용어](event-hubs-features.md)
-- [Event Hubs FAQ](event-hubs-faq.md)
+- [Event Hubs FAQ](event-hubs-faq.yml)
 
 

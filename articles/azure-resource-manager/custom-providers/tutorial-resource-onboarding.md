@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 09/17/2019
 ms.openlocfilehash: 22d1dcd997a4ddb94aba184c5dace4c00509054d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "75648610"
 ---
 # <a name="tutorial-resource-onboarding-with-azure-custom-providers"></a>자습서: Azure 사용자 지정 공급자를 사용하여 리소스 온보딩
@@ -209,17 +209,17 @@ ms.locfileid: "75648610"
 
 사용자 지정 공급자 인프라를 배포하겠습니다. 위의 템플릿을 복사하고, 저장하고, 배포하거나 Azure Portal을 사용하여 자습서에 따라 인프라를 배포합니다.
 
-1. [Azure 포털](https://portal.azure.com)로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 
-2. **모든 서비스**에서 또는 주 검색 상자를 사용하여 **템플릿**을 검색합니다.
+2. **모든 서비스** 에서 또는 주 검색 상자를 사용하여 **템플릿** 을 검색합니다.
 
    ![템플릿 검색](media/tutorial-resource-onboarding/templates.png)
 
-3. 다음과 같이 **템플릿** 창에서 **추가**를 선택합니다.
+3. 다음과 같이 **템플릿** 창에서 **추가** 를 선택합니다.
 
    ![추가 선택](media/tutorial-resource-onboarding/templatesadd.png)
 
-4. **일반** 아래에서 새 템플릿의 **이름** 및 **설명**을 입력합니다.
+4. **일반** 아래에서 새 템플릿의 **이름** 및 **설명** 을 입력합니다.
 
    ![템플릿 이름 및 설명](media/tutorial-resource-onboarding/templatesdescription.png)
 
@@ -227,9 +227,9 @@ ms.locfileid: "75648610"
 
    ![Resource Manager 템플릿 만들기](media/tutorial-resource-onboarding/templatesarmtemplate.png)
 
-6. **추가**를 선택하여 템플릿을 만듭니다. 새 템플릿이 표시되지 않으면 **새로 고침**을 선택합니다.
+6. **추가** 를 선택하여 템플릿을 만듭니다. 새 템플릿이 표시되지 않으면 **새로 고침** 을 선택합니다.
 
-7. 새로 만든 템플릿을 선택하고 **배포**를 선택합니다.
+7. 새로 만든 템플릿을 선택하고 **배포** 를 선택합니다.
 
    ![새 템플릿을 선택하고 [배포]를 선택합니다.](media/tutorial-resource-onboarding/templateselectspecific.png)
 
@@ -251,7 +251,7 @@ ms.locfileid: "75648610"
 
    ![배포 정상 완료](media/tutorial-resource-onboarding/customproviderdeployment.png)
 
-   다음은 **숨겨진 형식 표시**가 선택된 리소스 그룹입니다.
+   다음은 **숨겨진 형식 표시** 가 선택된 리소스 그룹입니다.
 
    ![사용자 지정 공급자 배포](media/tutorial-resource-onboarding/showhidden.png)
 
@@ -269,11 +269,11 @@ ms.locfileid: "75648610"
 
 2. 사용자 지정 공급자의 리소스 ID 속성을 복사합니다.
 
-3. **모든 서비스**에서 또는 주 검색 상자를 사용하여 **템플릿**을 검색합니다.
+3. **모든 서비스** 에서 또는 주 검색 상자를 사용하여 **템플릿** 을 검색합니다.
 
    ![템플릿 검색](media/tutorial-resource-onboarding/templates.png)
 
-4. 다음과 같이 이전에 만든 템플릿을 선택하고 **배포**를 선택합니다.
+4. 다음과 같이 이전에 만든 템플릿을 선택하고 **배포** 를 선택합니다.
 
    ![이전에 만든 템플릿을 선택하고 [배포] 선택](media/tutorial-resource-onboarding/templateselectspecific.png)
 
@@ -283,7 +283,7 @@ ms.locfileid: "75648610"
 
    ![새 연결 리소스](media/tutorial-resource-onboarding/createdassociationresource.png)
 
-원한다면 논리 앱 **실행 기록**으로 돌아가서 논리 앱에 대한 다른 호출이 수행되었는지 확인할 수 있습니다. 만든 각 연결에 대한 추가 기능을 보강하도록 논리 앱을 업데이트할 수 있습니다.
+원한다면 논리 앱 **실행 기록** 으로 돌아가서 논리 앱에 대한 다른 호출이 수행되었는지 확인할 수 있습니다. 만든 각 연결에 대한 추가 기능을 보강하도록 논리 앱을 업데이트할 수 있습니다.
 
 ## <a name="getting-help"></a>도움말 보기
 

@@ -11,17 +11,14 @@ ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-js
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: ed246cfc3929e2893087a99b7876138859d4667a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ee6892af2a7ea119eb4110fa28301b08320f8b9f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488331"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726399"
 ---
 # <a name="quickstart-send-an-sms-message"></a>빠른 시작: SMS 메시지 보내기
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
@@ -30,19 +27,19 @@ ms.locfileid: "103488331"
 > 자세한 내용은 **[전화 번호 형식](../../concepts/telephony-sms/plan-solution.md)** 을 참조하세요.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Send SMS with .NET client library](./includes/send-sms-net.md)]
+[!INCLUDE [Send SMS with .NET SDK](./includes/send-sms-net.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Send SMS with JavaScript client library](./includes/send-sms-js.md)]
+[!INCLUDE [Send SMS with JavaScript SDK](./includes/send-sms-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Send SMS with Python client library](./includes/send-sms-python.md)]
+[!INCLUDE [Send SMS with Python SDK](./includes/send-sms-python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Send SMS with Java client library](./includes/send-sms-java.md)]
+[!INCLUDE [Send SMS with Java SDK](./includes/send-sms-java.md)]
 ::: zone-end
 
 ## <a name="troubleshooting"></a>문제 해결
@@ -58,7 +55,7 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 이 빠른 시작에서는 Azure Communication Services를 사용하여 SMS 메시지를 보내는 방법을 배웠습니다.
 
 > [!div class="nextstepaction"]
-> [SMS 이벤트 구독](./handle-sms-events.md)
+> [SMS 및 배달 보고서 이벤트 받기](./handle-sms-events.md)
 
 > [!div class="nextstepaction"]
 > [전화 번호 유형](../../concepts/telephony-sms/plan-solution.md)

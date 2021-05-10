@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: jeedes
 ms.openlocfilehash: 41f6db8cf2454c224addac525e9d039954a95712
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104601502"
 ---
 # <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>자습서: Dropbox Business와 Azure Active Directory 통합
@@ -133,7 +133,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 3. Dropbox Business를 수동으로 설정하려면 새 웹 브라우저 창을 열고, Dropbox Business 테넌트로 이동하고, Dropbox Business 테넌트에 로그온합니다. 그러면 다음 단계를 수행합니다.
 
-    !["Dropbox Business 로그인" 페이지를 보여주는 스크린샷.](./media/dropboxforbusiness-tutorial/account.png "Single Sign-On 구성")
+    !["Dropbox Business 로그인&quot; 페이지를 보여주는 스크린샷.](./media/dropboxforbusiness-tutorial/account.png &quot;Single Sign-On 구성")
 
 4. **사용자 아이콘** 을 클릭하고 **설정** 탭을 선택합니다.
 

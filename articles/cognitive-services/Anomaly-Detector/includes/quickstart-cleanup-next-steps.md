@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/19/2019
 ms.author: mbullwin
-ms.openlocfilehash: fcf46e46d540826c6affdf9acb15c1cfe2783e71
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: fb43cf302603dc4703262b595c8da522bd574cc6
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018497"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105582791"
 ---
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -33,4 +33,4 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 자습서:
 
 * [Power BI를 사용하여 일괄 처리로 변칙 시각화](../tutorials/batch-anomaly-detection-powerbi.md)
-* [Azure Databricks를 사용하여 스트리밍 데이터에 대한 변칙 검색](../tutorials/anomaly-detection-streaming-databricks.md)
+* [Azure Databricks를 사용하여 스트리밍 데이터에 대한 변칙 검색](../overview.md)

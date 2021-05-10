@@ -4,16 +4,16 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/26/2019
 ms.author: glenga
-ms.openlocfilehash: 4fe159660421113e0f0ac0586ae7e4a22d5bcda7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 642989df8dca9d4ae121d80e30a9fb6d8dd06286
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "77474125"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107800170"
 ---
 ### <a name="query-the-storage-queue"></a>Storage 큐 쿼리
 
-다음 예제처럼 [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) 명령을 사용하여 계정의 Storage 큐를 볼 수 있습니다.
+다음 예제처럼 [`az storage queue list`](/cli/azure/storage/queue#az_storage_queue_list) 명령을 사용하여 계정의 Storage 큐를 볼 수 있습니다.
 
 ```azurecli-interactive
 az storage queue list --output tsv
@@ -21,7 +21,7 @@ az storage queue list --output tsv
 
 이 명령의 출력에는 함수가 실행될 때 생성된 `outqueue`라는 큐가 포함됩니다.
 
-다음으로, 다음 예제와 같이 [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) 명령을 사용하여 이 큐의 메시지를 확인합니다.
+다음으로, 다음 예제와 같이 [`az storage message peek`](/cli/azure/storage/message#az_storage_message_peek) 명령을 사용하여 이 큐의 메시지를 확인합니다.
 
 ```azurecli-interactive
 echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`

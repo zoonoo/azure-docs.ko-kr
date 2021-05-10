@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 1f80742d48fc46c8c5e337794100ca5901818c88
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: cd03720b65883c5f43b11837d4a88a705209fb10
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102184392"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764102"
 ---
 # <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Azure SignalR Service의 액세스 키를 회전하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "102184392"
 
 ## <a name="regenerate-access-keys"></a>액세스 키 다시 생성
 
-1. [Azure Portal](https://portal.azure.com/)로 이동 하 여 자격 증명으로 로그인 합니다.
+1. [Azure Portal](https://portal.azure.com/)로 이동하여 자격 증명으로 로그인합니다.
 
 1. 다시 생성하려는 키가 있는 Azure SignalR Service 인스턴스의 **키** 섹션을 찾습니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "102184392"
 
    ![키 다시 생성](media/signalr-howto-key-rotation/regenerate-keys.png)
 
-[Azure CLI](/cli/azure/signalr/key#az-signalr-key-renew)를 사용하여 키를 다시 생성할 수도 있습니다.
+[Azure CLI](/cli/azure/signalr/key#az_signalr_key_renew)를 사용하여 키를 다시 생성할 수도 있습니다.
 
 ## <a name="update-configurations-with-new-connection-strings"></a>새 연결 문자열을 사용하여 구성 업데이트
 

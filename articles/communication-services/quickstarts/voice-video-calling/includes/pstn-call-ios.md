@@ -2,17 +2,17 @@
 author: nikuklic
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/11/2020
+ms.date: 03/10/2021
 ms.author: nikuklic
-ms.openlocfilehash: 80146b4da376f3a1d43bcecc89a4a335263ac5ad
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 43e3463a3284f57825073888146b38fa14cbf5d3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102194043"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105109042"
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
@@ -23,7 +23,7 @@ ms.locfileid: "102194043"
 ### <a name="prerequisite-check"></a>필수 구성 요소 확인
 
 - Communication Services 리소스와 연결된 전화 번호를 보려면 [Azure Portal](https://portal.azure.com/)에 로그인하고 Communication Services 리소스를 찾아 왼쪽 탐색 창에서 **전화 번호** 탭을 엽니다.
-- iOS용 Azure Communication Services 통화 클라이언트 라이브러리를 사용하여 앱을 빌드하고 실행할 수 있습니다.
+- iOS용 Azure Communication Services Calling SDK를 사용하여 앱을 빌드하고 실행할 수 있습니다.
 
 ## <a name="setting-up"></a>설치
 

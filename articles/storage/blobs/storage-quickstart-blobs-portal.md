@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 10/19/2020
 ms.author: tamram
 ms.openlocfilehash: edadcc4025913052e048ea94d47cac253e4bcd1a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95523334"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Blob 업로드, 다운로드 및 나열

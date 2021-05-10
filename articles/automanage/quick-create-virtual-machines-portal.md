@@ -2,18 +2,20 @@
 title: 빠른 시작 - Azure Portal에서 VM용 Azure Automanage 사용
 description: Azure Portal에서 신규 또는 기존 VM에 가상 머신용 Automanage를 신속하게 사용하도록 설정하는 방법을 알아봅니다.
 author: ju-shim
+ms.author: jushiman
+ms.date: 02/17/2021
+ms.topic: quickstart
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
-ms.topic: quickstart
-ms.date: 02/17/2021
-ms.author: jushiman
-ms.openlocfilehash: 5f5f1e70d9ae309c90291ccac1e6dd61e7a9d056
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 7121d83f9401fe985966324afe6a61cf8396b2bb
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102038426"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534064"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 가상 머신용 Azure Automanage 사용
 

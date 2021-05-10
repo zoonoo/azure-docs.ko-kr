@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: azure-communication-services
 author: mikben
@@ -10,14 +10,17 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 02b47d7797eaebf6049099729ea51554a61a765e
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: b2c5237f3f7e949edbfb5486a3a17cc6e0a008a4
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495441"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106178335"
 ---
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
+
 ## <a name="prerequisites"></a>사전 요구 사항
+
 시작하기 전에 다음을 확인해야 합니다.
 
 - 활성 구독이 있는 Azure 계정을 만듭니다. 자세한 내용은 [체험 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)를 참조하세요.
@@ -39,8 +42,8 @@ ms.locfileid: "103495441"
 Gradle을 사용하여 필요한 Communication Services 종속성을 설치합니다. 명령줄에서 `ChatQuickstart` 프로젝트의 루트 디렉터리 안으로 이동합니다. 앱의 build.gradle 파일을 열고 `ChatQuickstart` 대상에 다음 종속성을 추가합니다.
 
 ```
-implementation 'com.azure.android:azure-communication-common:1.0.0-beta.7'
-implementation 'com.azure.android:azure-communication-chat:1.0.0-beta.7'
+implementation 'com.azure.android:azure-communication-common:1.0.0-beta.8'
+implementation 'com.azure.android:azure-communication-chat:1.0.0-beta.8'
 ```
 
 #### <a name="exclude-meta-files-in-packaging-options-in-root-buildgradle"></a>루트 build.gradle의 패키징 옵션에서 메타 파일을 제외합니다.
@@ -61,19 +64,6 @@ android {
 }
 ```
 
-#### <a name="add-a-maven-resource-in-root-buildgradle"></a>루트 build.gradle에 maven 리소스를 추가합니다.
-```
-allprojects {
-    repositories {
-        ...
-        maven {
-            url 'https://trouterpublicpackages.z13.web.core.windows.net'
-        }
-    }
-```
-
-Android Studio에서 '지금 동기화'를 클릭합니다.
-
 #### <a name="alternative-to-install-libraries-through-maven"></a>(대안) Maven을 통해 라이브러리를 설치하려면
 [Maven](https://maven.apache.org/) 빌드 시스템을 사용하여 프로젝트로 라이브러리를 가져오려면 아티팩트 ID와 사용할 버전을 지정하여 앱의 `pom.xml` 파일에 있는 `dependencies` 섹션에 라이브러리를 추가합니다.
 
@@ -81,7 +71,7 @@ Android Studio에서 '지금 동기화'를 클릭합니다.
 <dependency>
   <groupId>com.azure.android</groupId>
   <artifactId>azure-communication-chat</artifactId>
-  <version>1.0.0-beta.7</version>
+  <version>1.0.0-beta.8</version>
 </dependency>
 ```
 
@@ -98,10 +88,11 @@ import com.azure.android.communication.common.*;
 다음 코드를 `MainActivity` 파일에 복사합니다.
 
 ```java
-    private String second_user_id = "<second_user_id>";
+    private String secondUserId = "<second_user_id>";
     private String threadId = "<thread_id>";
     private String chatMessageId = "<chat_message_id>";
-    private final String sdkVersion = "1.0.0-beta.7";
+    private final String sdkVersion = "1.0.0-beta.8";
+    private static final String APPLICATION_ID = "Chat Quickstart App";
     private static final String SDK_NAME = "azure-communication-com.azure.android.communication.chat";
     private static final String TAG = "--------------Chat Quickstart App-------------";
 
@@ -147,91 +138,89 @@ import com.azure.android.communication.common.*;
 `<CREATE A CHAT CLIENT>` 주석을 다음 코드로 바꿉니다(파일 맨 위에 import 문 배치).
 
 ```java
-import com.azure.android.communication.chat.ChatClient;
+import com.azure.android.communication.chat.ChatAsyncClient;
+import com.azure.android.communication.chat.ChatClientBuilder;
+import com.azure.android.core.credential.AccessToken;
 import com.azure.android.core.http.HttpHeader;
+import com.azure.android.core.http.okhttp.OkHttpAsyncClientProvider;
+import com.azure.android.core.http.policy.BearerTokenAuthenticationPolicy;
+import com.azure.android.core.http.policy.UserAgentPolicy;
 
 final String endpoint = "https://<resource>.communication.azure.com";
 final String userAccessToken = "<user_access_token>";
 
-ChatAsyncClient client = new ChatAsyncClient.Builder()
-        .endpoint(endpoint)
-        .credentialInterceptor(chain -> chain.proceed(chain.request()
-                .newBuilder()
-                .header(HttpHeader.AUTHORIZATION, "Bearer " + userAccessToken)
-                .build()))
-        .build();
+ChatAsyncClient chatAsyncClient = new ChatClientBuilder()
+    .endpoint(endpoint)
+    .credentialPolicy(new BearerTokenAuthenticationPolicy((request, callback) ->
+        callback.onSuccess(new AccessToken(userAccessToken, OffsetDateTime.now().plusDays(1)))))
+    .addPolicy(new UserAgentPolicy(APPLICATION_ID, SDK_NAME, sdkVersion))
+    .httpClient(new OkHttpAsyncClientProvider().createInstance())
+    .buildAsyncClient();
+
 ```
 
-1. `ChatAsyncClient.Builder`를 사용하여 `ChatAsyncClient`의 인스턴스를 구성하고 작성합니다.
+1. `ChatClientBuilder`를 사용하여 `ChatAsyncClient`의 인스턴스를 구성하고 작성합니다.
 2. `<resource>`을 Communication Services 리소스로 바꿉니다.
 3. `<user_access_token>`을 올바른 Communication Services 액세스 토큰으로 바꿉니다.
 
 ## <a name="object-model"></a>개체 모델
-다음 클래스 및 인터페이스는 JavaScript용 Azure Communication Services 채팅 클라이언트 라이브러리의 주요 기능 중 일부를 처리합니다.
+다음 클래스 및 인터페이스는 JavaScript용 Azure Communication Services 채팅 SDK의 주요 기능 중 일부를 처리합니다.
 
-| 이름                                   | Description                                                                                                                                                                           |
+| Name                                   | Description                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ChatClient/ChatAsyncClient | 이 클래스는 채팅 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고 스레드를 만들고 가져오고 삭제하는 데 사용합니다. |
 | ChatThreadClient/ChatThreadAsyncClient | 이 클래스는 채팅 스레드 기능에 필요합니다. ChatClient를 통해 인스턴스를 확보하여 메시지 보내기/받기/업데이트/삭제, 사용자 추가/제거/받기, 입력 알림 보내기, 읽음 확인, 채팅 이벤트 구독에 사용할 수 있습니다. |
 
 ## <a name="start-a-chat-thread"></a>채팅 스레드 시작
 
-`ChatClient`를 사용하여 초기 사용자로 새 스레드를 만듭니다.
+`ChatAsyncClient`를 사용하여 초기 사용자로 새 스레드를 만듭니다.
 
 `<CREATE A CHAT THREAD>` 주석을 다음 코드로 바꿉니다.
 
 ```java
-//  The list of ChatParticipant to be added to the thread.
+// A list of ChatParticipant to start the thread with.
 List<ChatParticipant> participants = new ArrayList<>();
 // The communication user ID you created before, required.
 String id = "<user_id>";
 // The display name for the thread participant.
 String displayName = "initial participant";
 participants.add(new ChatParticipant()
-        .setCommunicationIdentifier(new CommunicationIdentifierModel().setCommunicationUser(new CommunicationUserIdentifierModel().setId(id)))
-        .setDisplayName(displayName)
-);
+    .setCommunicationIdentifier(new CommunicationUserIdentifier(id))
+    .setDisplayName(displayName));
 
 // The topic for the thread.
 final String topic = "General";
-// The model to pass to the create method.
-CreateChatThreadRequest thread = new CreateChatThreadRequest()
-  .setTopic(topic)
-  .setParticipants(participants);
-
-// optional, set a repeat request ID
+// Optional, set a repeat request ID.
 final String repeatabilityRequestID = "";
+// Options to pass to the create method.
+CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions()
+    .setTopic(topic)
+    .setParticipants(participants)
+    .setIdempotencyToken(repeatabilityRequestID);
 
-client.createChatThread(thread, repeatabilityRequestID, new Callback<CreateChatThreadResult>() {
-      public void onSuccess(CreateChatThreadResult result, okhttp3.Response response) {
-              ChatThread chatThread = result.getChatThread();
-              threadId = chatThread.getId();
-              // take further action
-              Log.i(TAG, "threadId: " + threadId);
-      }
+CreateChatThreadResult createChatThreadResult =
+    chatAsyncClient.createChatThread(createChatThreadOptions).get();
+ChatThreadProperties chatThreadProperties = createChatThreadResult.getChatThreadProperties();
+threadId = chatThreadProperties.getId();
 
-      public void onFailure(Throwable throwable, okhttp3.Response response) {
-              // Handle error.
-              Log.e(TAG, throwable.getMessage());
-      }
-});
 ```
 
 `<user_id>`를 올바른 Communication Services 사용자 ID로 바꿉니다. 이후 단계에서 완료 처리기로 반환된 응답의 `threadId`를 사용하므로 클래스의 `<thread_id>`를 이 요청에서 얻은 `threadId`로 바꾸고 앱을 다시 실행합니다.
 
 ## <a name="get-a-chat-thread-client"></a>채팅 스레드 클라이언트 가져오기
 
-이제 채팅 스레드를 만들었으므로 스레드 내에서 작업을 수행하기 위해 `ChatThreadClient`를 가져옵니다. `<CREATE A CHAT THREAD CLIENT>` 주석을 다음 코드로 바꿉니다.
+이제 채팅 스레드를 만들었으므로 스레드 내에서 작업을 수행하기 위해 `ChatThreadAsyncClient`를 가져옵니다. `<CREATE A CHAT THREAD CLIENT>` 주석을 다음 코드로 바꿉니다.
 
 ```
-ChatThreadAsyncClient threadClient =
-        new ChatThreadAsyncClient.Builder()
-                .endpoint(endpoint)
-                .credentialInterceptor(chain -> chain.proceed(chain.request()
-                    .newBuilder()
-                    .header(HttpHeader.AUTHORIZATION, "Bearer " + userAccessToken)
-                    .build()))
-                .build();
+ChatThreadAsyncClient chatThreadAsyncClient = new ChatThreadClientBuilder()
+    .endpoint(endpoint)
+    .credentialPolicy(new BearerTokenAuthenticationPolicy((request, callback) ->
+        callback.onSuccess(new AccessToken(userAccessToken, OffsetDateTime.now().plusDays(1)))))
+    .addPolicy(new UserAgentPolicy(APPLICATION_ID, SDK_NAME, sdkVersion))
+    .httpClient(new OkHttpAsyncClientProvider().createInstance())
+    .chatThreadId(threadId)
+    .buildAsyncClient();
+
 ```
 
 ## <a name="send-a-message-to-a-chat-thread"></a>채팅 스레드에 메시지 보내기
@@ -245,27 +234,14 @@ ChatThreadAsyncClient threadClient =
 final String content = "Test message 1";
 // The display name of the sender, if null (i.e. not specified), an empty name will be set.
 final String senderDisplayName = "An important person";
-SendChatMessageRequest message = new SendChatMessageRequest()
-        .setType(ChatMessageType.TEXT)
-        .setContent(content)
-        .setSenderDisplayName(senderDisplayName);
+SendChatMessageOptions chatMessageOptions = new SendChatMessageOptions()
+    .setType(ChatMessageType.TEXT)
+    .setContent(content)
+    .setSenderDisplayName(senderDisplayName);
 
-threadClient.sendChatMessage(threadId, message, new Callback<String>() {
-        @Override
-        public void onSuccess(String messageId, okhttp3.Response response) {
-                // A string is the response returned from sending a message, it is an id,
-                // which is the unique ID of the message.
-                chatMessageId = messageId;
-                // Take further action.
-                Log.i(TAG, "chatMessageId: " + chatMessageId);
-        }
+// A string is the response returned from sending a message, it is an id, which is the unique ID of the message.
+chatMessageId = chatThreadAsyncClient.sendMessage(chatMessageOptions).get().getId();
 
-        @Override
-        public void onFailure(Throwable throwable, okhttp3.Response response) {
-                // Handle error.
-                Log.e(TAG, throwable.getMessage());
-        }
-});
 ```
 
 `chatMessageId`를 가져온 후 나중에 빠른 시작에서 메서드 사용을 위해 `<chat_message_id>`를 `chatMessageId`로 바꾸고 앱을 다시 실행할 수 있습니다.
@@ -275,31 +251,14 @@ threadClient.sendChatMessage(threadId, message, new Callback<String>() {
 `<ADD A USER>` 주석을 다음 코드로 바꿉니다.
 
 ```java
-//  The list of ChatParticipant to be added to the thread.
-participants = new ArrayList<>();
 // The display name for the thread participant.
 displayName = "a new participant";
-participants.add(new ChatParticipant().setCommunicationIdentifier(
-          new CommunicationIdentifierModel().setCommunicationUser(
-              new CommunicationUserIdentifierModel().setId(second_user_id)
-          )).setDisplayName(secondUserDisplayName));
-// The model to pass to the add method.
-AddChatParticipantsRequest addParticipantsRequest = new AddChatParticipantsRequest()
-  .setParticipants(participants);
-
-threadClient.addChatParticipants(threadId, addParticipantsRequest, new Callback<AddChatParticipantsResult>() {
-        @Override
-        public void onSuccess(AddChatParticipantsResult result, okhttp3.Response response) {
-                // Take further action.
-                Log.i(TAG, "add chat participants success");
-        }
+ChatParticipant participant = new ChatParticipant()
+    .setCommunicationIdentifier(new CommunicationUserIdentifier(secondUserId))
+    .setDisplayName(secondUserDisplayName);
         
-        @Override
-        public void onFailure(Throwable throwable, okhttp3.Response response) {
-                // Handle error.
-                Log.e(TAG, throwable.getMessage());
-        }
-});
+chatThreadAsyncClient.addParticipant(participant);
+
 ```
 
 클래스의 `<second_user_id>`를 추가할 사용자의 Communication Services 사용자 ID로 바꿉니다. 
@@ -315,71 +274,37 @@ final int maxPageSize = 10;
 // Skips participants up to a specified position in response.
 final int skip = 0;
 
-threadClient.listChatParticipantsPages(threadId,
-    maxPageSize,
-    skip,
-    new Callback<AsyncPagedDataCollection<ChatParticipant, Page<ChatParticipant>>>() {
-        @Override
-        public void onSuccess(AsyncPagedDataCollection<ChatParticipant, Page<ChatParticipant>> pageCollection,
-            okhttp3.Response response) {
-                // pageCollection enables enumerating list of chat participants.
-                pageCollection.getFirstPage(new Callback<Page<ChatParticipant>>() {
-                    @Override
-                    public void onSuccess(Page<ChatParticipant> firstPage, okhttp3.Response response) {
-                        for (ChatParticipant participant : firstPage.getItems()) {
-                            // Take further action.
-                            Log.i(TAG, "participant: " + participant.getDisplayName());
-                        }
-                        listChatParticipantsNext(firstPage.getNextPageId(), pageCollection);
-                    }
+// Options to pass to the list method.
+ListParticipantsOptions listParticipantsOptions = new ListParticipantsOptions()
+    .setMaxPageSize(maxPageSize)
+    .setSkip(skip);
 
-                    @Override
-                    public void onFailure(Throwable throwable, okhttp3.Response response) {
-                        // Handle error.
-                        Log.e(TAG, throwable.getMessage());
-                    }
-                });
+PagedResponse<ChatParticipant> firstPageWithResponse =
+    chatThreadAsyncClient.getParticipantsFirstPageWithResponse(listParticipantsOptions, Context.NONE).get();
 
-                @Override
-                public void onFailure(Throwable throwable, okhttp3.Response response) {
-                        // Handle error.
-                        Log.e(TAG, throwable.getMessage());
-                }
-                });
-        }
+for (ChatParticipant participant : firstPageWithResponse.getValue()) {
+    // You code to handle participant
+}
 
-        @Override
-        public void onFailure(Throwable throwable, okhttp3.Response response) {
-                // Handle error.
-                Log.e(TAG, throwable.getMessage());
-        }
-});
+listParticipantsNextPage(firstPageWithResponse.getContinuationToken(), 2);
+
 ```
 
 클래스에 다음과 같은 도우미 메서드를 삽입합니다.
 
 ```java
-void listChatParticipantsNext(String nextLink, AsyncPagedDataCollection<ChatParticipant, Page<ChatParticipant>> pageCollection) {
-    if (nextLink != null) {
-        pageCollection.getPage(nextLink, new Callback<Page<ChatParticipant>>() {
-            @Override
-            public void onSuccess(Page<ChatParticipant> nextPage, Response response) {
-                for (ChatParticipant participant : nextPage.getItems()) {
-                    // Take further action.
-                    Log.i(TAG, "participant: " + participant.getDisplayName());
-                }
-                if (nextPage.getPageId() != null) {
-                    listChatParticipantsNext(nextPage.getPageId(), pageCollection);
-                }
-            }
-
-            @Override
-            public void onFailure(Throwable throwable, Response response) {
-                Log.e(TAG, throwable.getMessage());
-            }
-        });
+void listParticipantsNextPage(String continuationToken, int pageNumber) {
+if (continuationToken != null) {
+    PagedResponse<ChatParticipant> nextPageWithResponse =
+        chatThreadAsyncClient.getParticipantsNextPageWithResponse(continuationToken, Context.NONE).get();
+        for (ChatParticipant participant : nextPageWithResponse.getValue()) {
+            // You code to handle participant
+        }
+            
+        listParticipantsNextPage(nextPageWithResponse.getContinuationToken(), ++pageNumber);
     }
 }
+
 ```
 
 
@@ -390,20 +315,9 @@ void listChatParticipantsNext(String nextLink, AsyncPagedDataCollection<ChatPart
 `<REMOVE A USER>` 주석을 다음 코드로 바꿉니다.
 
 ```java
-CommunicationIdentifierModel communicationIdentifierModel = new CommunicationIdentifierModel().setCommunicationUser(new CommunicationUserIdentifierModel().setId(second_user_id));
-threadClient.removeChatParticipant(threadId, communicationIdentifierModel, new Callback<Void>() {
-    @Override
-    public void onSuccess(Void result, okhttp3.Response response) {
-        // Take further action.
-        Log.i(TAG, "remove a user successfully");
-    }
+// Using the unique ID of the participant.
+chatThreadAsyncClient.removeParticipant(new CommunicationUserIdentifier(secondUserId)).get();
 
-    @Override
-    public void onFailure(Throwable throwable, okhttp3.Response response) {
-        // Handle error.
-        Log.e(TAG, throwable.getMessage());
-    }
-});
 ```
 
 ## <a name="send-a-typing-notification"></a>입력 알림 보내기
@@ -411,17 +325,7 @@ threadClient.removeChatParticipant(threadId, communicationIdentifierModel, new C
 `<SEND A TYPING NOTIFICATION>` 주석을 다음 코드로 바꿉니다.
 
 ```java
-threadClient.sendTypingNotification(threadId, new Callback<Void>() {
-    @Override
-    public void onSuccess(Void result, Response response) {
-        Log.i(TAG, "send a typing notification successfully");
-    }
-
-    @Override
-    public void onFailure(Throwable throwable, Response response) {
-        Log.e(TAG, throwable.getMessage());
-    }
-});
+chatThreadAsyncClient.sendTypingNotification().get();
 ```
 
 ## <a name="send-a-read-receipt"></a>읽음 확인 보내기
@@ -431,19 +335,7 @@ threadClient.sendTypingNotification(threadId, new Callback<Void>() {
 `<SEND A READ RECEIPT>` 주석을 다음 코드로 바꿉니다.
 
 ```java
-SendReadReceiptRequest readReceipt = new SendReadReceiptRequest()
-    .setChatMessageId(chatMessageId);
-threadClient.sendChatReadReceipt(threadId, readReceipt, new Callback<Void>() {
-    @Override
-    public void onSuccess(Void result, Response response) {
-        Log.i(TAG, "send a read receipt successfully");
-    }
-
-    @Override
-    public void onFailure(Throwable throwable, Response response) {
-        Log.e(TAG, throwable.getMessage());
-    }
-});
+chatThreadAsyncClient.sendReadReceipt(chatMessageId).get();
 ```
 
 ## <a name="list-read-receipts"></a>읽음 확인 나열
@@ -455,57 +347,34 @@ threadClient.sendChatReadReceipt(threadId, readReceipt, new Callback<Void>() {
 maxPageSize = 10;
 // Skips participants up to a specified position in response.
 skip = 0;
-threadClient.listChatReadReceiptsPages(threadId,
-    maxPageSize,
-    skip,
-    new Callback<AsyncPagedDataCollection<ChatMessageReadReceipt, Page<ChatMessageReadReceipt>>>() {
-        @Override
-        public void onSuccess(AsyncPagedDataCollection<ChatMessageReadReceipt, Page<ChatMessageReadReceipt>> pageCollection,
-                              Response response) {
-            // pageCollection enables enumerating list of chat participants.
-            pageCollection.getFirstPage(new Callback<Page<ChatMessageReadReceipt>>() {
-                @Override
-                public void onSuccess(Page<ChatMessageReadReceipt> firstPage, Response response) {
-                    for (ChatMessageReadReceipt receipt : firstPage.getItems()) {
-                        Log.i(TAG, "receipt: " + receipt.getChatMessageId());
-                    }
-                    listChatReadReceiptsNext(firstPage.getNextPageId(), pageCollection);
-                }
+// Options to pass to the list method.
+ListReadReceiptOptions listReadReceiptOptions = new ListReadReceiptOptions()
+    .setMaxPageSize(maxPageSize)
+    .setSkip(skip);
 
-                @Override
-                public void onFailure(Throwable throwable, Response response) {
-                    Log.e(TAG, throwable.getMessage());
-                }
-            });
-        }
+PagedResponse<ChatMessageReadReceipt> firstPageWithResponse =
+    chatThreadAsyncClient.getReadReceiptsFirstPageWithResponse(listReadReceiptOptions, Context.NONE).get();
 
-        @Override
-        public void onFailure(Throwable throwable, Response response) {
-            Log.e(TAG, throwable.getMessage());
-        }
-});
+for (ChatMessageReadReceipt readReceipt : firstPageWithResponse.getValue()) {
+    // You code to handle readReceipt
+}
+
+listReadReceiptsNextPage(firstPageWithResponse.getContinuationToken(), 2);
+
 ```
 
 클래스에 다음과 같은 도우미 메서드를 삽입합니다.
 ```java
-void listChatReadReceiptsNext(String nextLink, AsyncPagedDataCollection<ChatMessageReadReceipt, Page<ChatMessageReadReceipt>> pageCollection) {
-    if (nextLink != null) {
-        pageCollection.getPage(nextLink, new Callback<Page<ChatMessageReadReceipt>>() {
-            @Override
-            public void onSuccess(Page<ChatMessageReadReceipt> nextPage, Response response) {
-                for (ChatMessageReadReceipt receipt : nextPage.getItems()) {
-                    Log.i(TAG, "receipt: " + receipt.getChatMessageId());
-                }
-                if (nextPage.getPageId() != null) {
-                    listChatReadReceiptsNext(nextPage.getPageId(), pageCollection);
-                }
-            }
+void listReadReceiptsNextPage(String continuationToken, int pageNumber) {
+    if (continuationToken != null) {
+        PagedResponse<ChatMessageReadReceipt> nextPageWithResponse =
+            chatThreadAsyncClient.getReadReceiptsNextPageWithResponse(continuationToken, Context.NONE).get();
 
-            @Override
-            public void onFailure(Throwable throwable, Response response) {
-                Log.e(TAG, throwable.getMessage());
-            }
-        });
+        for (ChatMessageReadReceipt readReceipt : nextPageWithResponse.getValue()) {
+            // You code to handle readReceipt
+        }
+
+        listParticipantsNextPage(nextPageWithResponse.getContinuationToken(), ++pageNumber);
     }
 }
 

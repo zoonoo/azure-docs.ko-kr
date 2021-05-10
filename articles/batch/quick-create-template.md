@@ -1,15 +1,17 @@
 ---
 title: Azure 빠른 시작 - 배치 계정 만들기 - Azure Resource Manager 템플릿
 description: 이 빠른 시작에서는 ARM 템플릿을 사용하여 Batch 계정을 만드는 방법을 보여줍니다.
-ms.topic: quickstart
 ms.date: 08/17/2020
-ms.custom: subject-armqs
-ms.openlocfilehash: fc6f1537b32c8ced2cfc2bf09f16106f791001fc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.topic: quickstart
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: e3405e98e2753a308b6b34b392aa364a67f7fe5b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97106583"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535584"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Batch 계정 만들기
 

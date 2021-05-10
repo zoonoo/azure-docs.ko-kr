@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: b14bc8f77c6f26fba36880762d12723888d845e3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5a7c59cf579e87f9f772ea1ba27e5991b951adba
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94565996"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772328"
 ---
 # <a name="create-resource-lock-for-a-azure-cosmos-db-core-sql-api-database-and-container-using-azure-cli"></a>Azure CLI를 사용하여 Azure Cosmos DB SQL(Core) API 데이터베이스 및 컨테이너에 대한 리소스 잠금 만들기
 [!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
@@ -34,10 +34,10 @@ ms.locfileid: "94565996"
 
 | 명령 | 메모 |
 |---|---|
-| [az lock create](/cli/azure/lock#az-lock-create) | 잠금을 만듭니다. |
-| [az lock list](/cli/azure/lock#az-lock-list) | 잠금 정보를 나열합니다. |
-| [az lock show](/cli/azure/lock#az-lock-show) | 잠금의 속성을 표시합니다. |
-| [az lock delete](/cli/azure/lock#az-lock-delete) | 잠금을 삭제합니다. |
+| [az lock create](/cli/azure/lock#az_lock_create) | 잠금을 만듭니다. |
+| [az lock list](/cli/azure/lock#az_lock_list) | 잠금 정보를 나열합니다. |
+| [az lock show](/cli/azure/lock#az_lock_show) | 잠금의 속성을 표시합니다. |
+| [az lock delete](/cli/azure/lock#az_lock_delete) | 잠금을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

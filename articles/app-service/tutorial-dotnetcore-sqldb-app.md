@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: bafebcc54e4cbde87e8deb776eff227fc99035cc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 52a5b127312ef979791d17b27ca67b21a779e310
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99821256"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765772"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-azure-sql-database-app-in-azure-app-service"></a>자습서: Azure App Service에서 ASP.NET Core 및 Azure SQL Database 앱 빌드
 
@@ -41,7 +41,7 @@ ms.locfileid: "99821256"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -95,7 +95,7 @@ SQL Database의 경우 이 자습서에서는 [Azure SQL 데이터베이스](/az
 
 ### <a name="create-a-sql-database-logical-server"></a>SQL Database 논리 서버 만들기
 
-Cloud Shell에서 [`az sql server create`](/cli/azure/sql/server#az-sql-server-create) 명령을 사용하여 SQL Database 논리 서버를 만듭니다.
+Cloud Shell에서 [`az sql server create`](/cli/azure/sql/server#az_sql_server_create) 명령을 사용하여 SQL Database 논리 서버를 만듭니다.
 
 *\<server-name>* 자리 표시자를 *고유한* SQL Database 이름으로 바꿉니다. 이 이름은 전역적으로 고유한 SQL Database 엔드포인트 `<server-name>.database.windows.net`의 일부로 사용됩니다. 유효한 문자는 `a`-`z`, `0`-`9`, `-`입니다. 또한 *\<db-username>* 및 *\<db-password>* 를 선택한 사용자 이름 및 암호로 바꿉니다. 
 
@@ -126,7 +126,7 @@ SQL Database 논리 서버를 만들면 Azure CLI는 다음 예제와 비슷한 
 
 ### <a name="configure-a-server-firewall-rule"></a>서버 방화벽 규칙 구성
 
-[`az sql server firewall create`](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) 명령을 사용하여 [Azure SQL Database 서버 수준 방화벽 규칙](../azure-sql/database/firewall-configure.md)을 만듭니다. 시작 IP 및 끝 IP가 0.0.0.0으로 설정되면 방화벽이 다른 Azure 리소스에 대해서만 열립니다. 
+[`az sql server firewall create`](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) 명령을 사용하여 [Azure SQL Database 서버 수준 방화벽 규칙](../azure-sql/database/firewall-configure.md)을 만듭니다. 시작 IP 및 끝 IP가 0.0.0.0으로 설정되면 방화벽이 다른 Azure 리소스에 대해서만 열립니다. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -144,7 +144,7 @@ az sql server firewall-rule create --name AllowLocalClient --server <server-name
 
 ### <a name="create-a-database"></a>데이터베이스 만들기
 
-[`az sql db create`](/cli/azure/sql/db#az-sql-db-create) 명령을 사용하여 서버에서 [S0 성능 수준](../azure-sql/database/service-tiers-dtu.md)인 데이터베이스를 만듭니다.
+[`az sql db create`](/cli/azure/sql/db#az_sql_db_create) 명령을 사용하여 서버에서 [S0 성능 수준](../azure-sql/database/service-tiers-dtu.md)인 데이터베이스를 만듭니다.
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server-name> --name coreDB --service-objective S0
@@ -152,7 +152,7 @@ az sql db create --resource-group myResourceGroup --server <server-name> --name 
 
 ### <a name="create-connection-string"></a>연결 문자열 만들기
 
-[`az sql db show-connection-string`](/cli/azure/sql/db#az-sql-db-show-connection-string) 명령을 사용하여 연결 문자열을 가져옵니다.
+[`az sql db show-connection-string`](/cli/azure/sql/db#az_sql_db_show_connection_string) 명령을 사용하여 연결 문자열을 가져옵니다.
 
 ```azurecli-interactive
 az sql db show-connection-string --client ado.net --server <server-name> --name coreDB
@@ -263,7 +263,7 @@ git commit -m "connect to SQLDB in Azure"
 
 ### <a name="configure-connection-string"></a>연결 문자열 구성
 
-Azure 앱에 연결 문자열을 설정하려면 Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) 명령을 사용합니다. 다음 명령에서 *\<app-name>* 및 *\<connection-string>* 매개 변수를 이전에 만든 연결 문자열로 바꿉니다.
+Azure 앱에 연결 문자열을 설정하려면 Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) 명령을 사용합니다. 다음 명령에서 *\<app-name>* 및 *\<connection-string>* 매개 변수를 이전에 만든 연결 문자열로 바꿉니다.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app-name> --settings MyDbConnection="<connection-string>" --connection-string-type SQLAzure
@@ -464,7 +464,7 @@ ASP.NET Core 앱이 Azure App Service에서 실행되는 동안 콘솔 로그를
 - *DotNetCoreSqlDb.csproj* 에서 `Microsoft.Extensions.Logging.AzureAppServices`에 대한 참조를 포함합니다.
 - *Program.cs* 에서 `loggerFactory.AddAzureWebAppDiagnostics()`를 호출합니다.
 
-App Service에서 ASP.NET Core [로그 수준](/aspnet/core/fundamentals/logging#log-level)을 기본 수준 `Error`에서 `Information`으로 설정하려면, Cloud Shell에서 [`az webapp log config`](/cli/azure/webapp/log#az-webapp-log-config) 명령을 사용합니다.
+App Service에서 ASP.NET Core [로그 수준](/aspnet/core/fundamentals/logging#log-level)을 기본 수준 `Error`에서 `Information`으로 설정하려면, Cloud Shell에서 [`az webapp log config`](/cli/azure/webapp/log#az_webapp_log_config) 명령을 사용합니다.
 
 ```azurecli-interactive
 az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging filesystem --level information
@@ -473,7 +473,7 @@ az webapp log config --name <app-name> --resource-group myResourceGroup --applic
 > [!NOTE]
 > 프로젝트의 로그 수준은 *appsettings.json* 에서 `Information`으로 설정됩니다.
 
-로그 스트리밍을 시작하려면 Cloud Shell에서 [`az webapp log tail`](/cli/azure/webapp/log#az-webapp-log-tail) 명령을 사용합니다.
+로그 스트리밍을 시작하려면 Cloud Shell에서 [`az webapp log tail`](/cli/azure/webapp/log#az_webapp_log_tail) 명령을 사용합니다.
 
 ```azurecli-interactive
 az webapp log tail --name <app-name> --resource-group myResourceGroup

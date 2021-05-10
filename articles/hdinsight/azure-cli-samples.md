@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9367c1b4d82e984b2b4200768a3f83f9245c7f0f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 4502cb26b4aeedff4223aaf5a592581aee36a0e6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "99822320"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775104"
 ---
 # <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: Azure CLI 샘플
 
@@ -21,7 +21,7 @@ ms.locfileid: "99822320"
 
 이 문서에서는 일반적인 작업에 대한 샘플 스크립트를 제공합니다. 각 예제의 경우 적절한 값으로 변수를 업데이트한 다음, 명령을 실행합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure CLI. 단계는 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
@@ -29,7 +29,7 @@ ms.locfileid: "99822320"
 
 ## <a name="az-login"></a>az login
 
-[Azure에 로그인합니다](/cli/azure/reference-index#az-login).
+[Azure에 로그인합니다](/cli/azure/reference-index#az_login).
 
 ```azurecli
 az login
@@ -40,7 +40,7 @@ az login
 
 ## <a name="az-hdinsight-create"></a>az hdinsight create
 
-[새 클러스터를 만듭니다](/cli/azure/hdinsight#az-hdinsight-create).
+[새 클러스터를 만듭니다](/cli/azure/hdinsight#az_hdinsight_create).
 
 ### <a name="create-a-cluster-with-an-existing-storage-account"></a>기존 스토리지 계정을 사용하여 클러스터 만들기
 
@@ -173,7 +173,7 @@ az hdinsight create \
 
 ## <a name="az-hdinsight-application-create"></a>az hdinsight application create
 
-[HDInsight 클러스터용 애플리케이션을 만듭니다](/cli/azure/hdinsight/application#az-hdinsight-application-create).
+[HDInsight 클러스터용 애플리케이션을 만듭니다](/cli/azure/hdinsight/application#az_hdinsight_application_create).
 
 ### <a name="create-an-application-with-a-script-uri"></a>스크립트 URI를 사용하여 애플리케이션 만들기
 
@@ -240,7 +240,7 @@ az hdinsight application create \
 
 ## <a name="az-hdinsight-script-action-execute"></a>az hdinsight script-action execute
 
-[지정된 HDInsight 클러스터에서 스크립트 동작을 실행합니다](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-execute).
+[지정된 HDInsight 클러스터에서 스크립트 동작을 실행합니다](/cli/azure/hdinsight/script-action#az_hdinsight_script_action_execute).
 
 ### <a name="execute-a-script-action-and-persist-on-success"></a>스크립트 동작 실행 및 성공 시 지속
 

@@ -1,24 +1,23 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: include
-ms.date: 12/05/2019
-ms.author: cherylmc
+ms.date: 04/12/2021
+ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 5a01bbdcae66e7cd0acf9a1bd120916955fd8560
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: eb10af1a66c747a1e318d16ceb542aaa4588bb2b
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "74894384"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107386648"
 ---
-|  | **초당 메가비트** | **초당 패킷 수** | **초당 연결** | **VPN Gateway 및 ExpressRoute 공존** | **FastPath** |
+|  | **초당 메가비트** | **초당 패킷 수** | **초당 연결** | **FastPath** | **회로 연결의 최대 수** |
 | --- | --- | --- | --- | --- | --- |
-| **기본 SKU(더 이상 사용되지 않음)** |500 | 알 수 없음 | 알 수 없음 |아니요 | 아니요 |
-| **표준 SKU/ErGw1AZ** |1,000 | 100,000 | 7,000 | 예 | 아니요 |
-| **고성능 SKU/ErGw2AZ** |2,000 | 250,000 | 14,000 | 예 | 아니요 |
-| **Ultra 성능 SKU/ErGw3AZ** |10000 | 1,000,000 | 28,000 | 예 | 예 |
+| **표준 SKU/ErGw1AZ** |1,000 | 100,000 | 7,000 | 예 | 4 |
+| **고성능 SKU/ErGw2AZ** |2,000 | 250,000 | 14,000 | 예 | 8 |
+| **Ultra 성능 SKU/ErGw3AZ** |10000 | 1,000,000 | 28,000 | 예 | 16 |
 

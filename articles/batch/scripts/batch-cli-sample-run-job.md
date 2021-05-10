@@ -4,12 +4,12 @@ description: 이 스크립트는 Batch 작업을 만들고 일련의 태스크�
 ms.topic: sample
 ms.date: 12/12/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b67925f48a9d2dbe0b4559d46d783b500e7a0773
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8e51fa96370b46c9a5a5d5ed6fd7593a06e45430
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93100918"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768169"
 ---
 # <a name="cli-example-run-a-job-and-tasks-with-azure-batch"></a>CLI 예제: Azure Batch로 작업 및 태스크 실행
 
@@ -37,16 +37,16 @@ az group delete --name myResourceGroup
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Batch 계정을 만듭니다. |
-| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | 추가 CLI 상호 작용을 위해 지정된 Batch 계정에 대해 인증합니다.  |
-| [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create) | 컴퓨팅 노드 풀을 만듭니다.  |
-| [az batch job create](/cli/azure/batch/job#az-batch-job-create) | Batch 작업을 만듭니다.  |
-| [az batch task create](/cli/azure/batch/task#az-batch-task-create) | 지정된 Batch 작업에 태스크를 추가합니다.  |
-| [az batch job set](/cli/azure/batch/job#az-batch-job-set) | Batch 작업의 속성을 업데이트합니다.  |
-| [az batch job show](/cli/azure/batch/job#az-batch-job-show) | 지정된 Batch 작업의 세부 정보를 검색합니다.  |
-| [az batch task show](/cli/azure/batch/task#az-batch-task-show) | 지정된 Batch 작업에서 태스크의 세부 정보를 검색합니다.  |
-| [az group delete](/cli/azure/group#az-group-delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Batch 계정을 만듭니다. |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | 추가 CLI 상호 작용을 위해 지정된 Batch 계정에 대해 인증합니다.  |
+| [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) | 컴퓨팅 노드 풀을 만듭니다.  |
+| [az batch job create](/cli/azure/batch/job#az_batch_job_create) | Batch 작업을 만듭니다.  |
+| [az batch task create](/cli/azure/batch/task#az_batch_task_create) | 지정된 Batch 작업에 태스크를 추가합니다.  |
+| [az batch job set](/cli/azure/batch/job#az_batch_job_set) | Batch 작업의 속성을 업데이트합니다.  |
+| [az batch job show](/cli/azure/batch/job#az_batch_job_show) | 지정된 Batch 작업의 세부 정보를 검색합니다.  |
+| [az batch task show](/cli/azure/batch/task#az_batch_task_show) | 지정된 Batch 작업에서 태스크의 세부 정보를 검색합니다.  |
+| [az group delete](/cli/azure/group#az_group_delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

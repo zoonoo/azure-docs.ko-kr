@@ -1,18 +1,18 @@
 ---
 title: '빠른 시작: Azure DB for PostgreSQL 만들기 - ARM 템플릿'
 description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure Database for PostgreSQL 단일 서버를 만드는 방법을 알아봅니다.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 02/11/2021
-ms.openlocfilehash: fb9f12b3b31f1049cd4d9306294783e514331229
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: db65a4bb5137da23f125d67920a2ff9a1a801141
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100382194"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606725"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database for PostgreSQL - 단일 서버 만들기
 

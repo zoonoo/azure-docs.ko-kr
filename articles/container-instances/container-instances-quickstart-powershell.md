@@ -3,16 +3,18 @@ title: 빠른 시작 - 컨테이너 인스턴스에 Docker 컨테이너 배포 -
 description: 이 빠른 시작에서는 Azure PowerShell을 사용하여, 격리된 Azure 컨테이너 인스턴스에서 실행하는 컨테이너화된 웹앱을 신속하게 배포합니다.
 services: container-instances
 manager: gwallace
-ms.service: container-instances
-ms.topic: quickstart
 ms.date: 03/21/2019
-ms.custom: seodec18, mvc
-ms.openlocfilehash: c7002d8a83e58a9089ee3c3840b0397d63e2f198
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.topic: quickstart
+ms.service: container-instances
+ms.custom:
+- mvc
+- mode-api
+ms.openlocfilehash: f9c6bac45e2e7fe18895a16831f840c3ae5a9f9d
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89565585"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536162"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure에서 컨테이너 인스턴스 배포
 
@@ -34,7 +36,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습
 
 모든 Azure 리소스와 마찬가지로 Azure 컨테이너 인스턴스는 리소스 그룹에 배포해야 합니다. 리소스 그룹을 사용하면 관련 Azure 리소스를 구성하고 관리할 수 있습니다.
 
-먼저, 다음 [New-AzResourceGroup][New-AzResourceGroup] 명령을 사용하여 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+먼저, 다음 [New-AzResourceGroup][New-AzResourceGroup] 명령을 사용하여 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
  ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
@@ -84,7 +86,7 @@ State                    : Pending
 Events                   : {}
 ```
 
-컨테이너의 `ProvisioningState`가 **Succeeded**이면 브라우저에서 `Fqdn`으로 이동합니다. 다음과 비슷한 웹 페이지가 표시됩니다. Docker 컨테이너에서 실행되는 애플리케이션이 Azure에 성공적으로 배포되었습니다.
+컨테이너의 `ProvisioningState`가 **Succeeded** 이면 브라우저에서 `Fqdn`으로 이동합니다. 다음과 비슷한 웹 페이지가 표시됩니다. Docker 컨테이너에서 실행되는 애플리케이션이 Azure에 성공적으로 배포되었습니다.
 
 ![Azure Container Instances를 사용하여 배포된 IIS가 브라우저에 표시됨][qs-powershell-01]
 

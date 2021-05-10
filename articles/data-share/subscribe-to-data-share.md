@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 11/12/2020
-ms.openlocfilehash: a225989f0670e9b62b00a35bac719c9357c8a130
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/24/2021
+ms.openlocfilehash: ccfda4975b6453ed67edc2640520bc0a76df5709
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96017052"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105644875"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>자습서: Azure Data Share를 사용하여 데이터 수락 및 받기  
 
@@ -42,23 +42,10 @@ ms.locfileid: "96017052"
 Azure SQL Database, Azure Synapse Analytics로 데이터를 받도록 선택하는 경우 아래는 필수 구성 요소 목록입니다. 
 
 #### <a name="prerequisites-for-receiving-data-into-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Azure SQL Database 또는 Azure Synapse Analytics(이전의 Azure SQL DW)로 데이터를 받기 위한 필수 구성 요소
-[단계별 데모](https://youtu.be/aeGISgK1xro)에 따라 필수 구성 요소를 구성할 수 있습니다.
 
 * Azure SQL Database 또는 Azure Synapse Analytics(이전의 Azure SQL DW).
 * SQL 서버의 데이터베이스를 쓸 수 있는 권한으로, *Microsoft.Sql/servers/databases/write* 에 있습니다. 이 권한은 **기여자** 역할에 있습니다. 
-* Data Share 리소스의 관리 ID가 Azure SQL Database 또는 Azure Synapse Analytics에 액세스할 수 있는 권한입니다. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
-    1. Azure Portal에서 SQL 서버로 이동하고 자신을 **Azure Active Directory 관리자** 로 설정합니다.
-    1. [쿼리 편집기](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) 또는 Azure Active Directory 인증을 사용하는 SQL Server Management Studio를 사용하여 Azure SQL Database/Data Warehouse에 연결합니다. 
-    1. 다음 스크립트를 실행하여 Data Share Managed Identity를 'db_datareader, db_datawriter, db_ddladmin'으로 추가합니다. SQL Server 인증이 아닌 Active Directory를 사용하여 연결해야 합니다. 
-
-        ```sql
-        create user "<share_acc_name>" from external provider; 
-        exec sp_addrolemember db_datareader, "<share_acc_name>"; 
-        exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
-        exec sp_addrolemember db_ddladmin, "<share_acc_name>";
-        ```      
-        *<share_acc_name>* 은 Data Share 리소스의 이름입니다. Data Share 리소스를 아직 만들지 않은 경우 나중에 이 필수 조건으로 다시 돌아올 수 있습니다.         
-
+* SQL 서버의 **Azure Active Directory 관리자**
 * SQL Server Firewall 액세스. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
     1. Azure Portal의 SQL 서버에서 *방화벽 및 가상 네트워크* 로 이동합니다.
     1. *Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용* 에 대해 **예** 를 클릭합니다.
@@ -92,7 +79,6 @@ Azure SQL Database, Azure Synapse Analytics로 데이터를 받도록 선택하�
 
 * 데이터 공급자의 데이터 탐색기 클러스터와 동일한 Azure 데이터 센터에 있는 Azure Data Explorer 클러스터: 아직 없는 경우 [Azure Data Explorer 클러스터](/azure/data-explorer/create-cluster-database-portal)를 만들 수 있습니다. 데이터 공급자 클러스터의 Azure 데이터 센터를 모르는 경우 나중에 프로세스에서 클러스터를 만들 수 있습니다.
 * Azure Data Explorer 클러스터에 쓸 수 있는 권한으로, *Microsoft.Kusto/clusters/write* 에 있습니다. 이 권한은 기여자 역할에 있습니다. 
-* Azure Data Explorer 클러스터에 역할 할당을 추가할 수 있는 권한으로, *Microsoft.Authorization/role assignments/write* 에 있습니다. 이 권한은 소유자 역할에 있습니다. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -175,13 +161,13 @@ az datashare consumer share-subscription create --resource-group share-rg \
 
    ![대상에 매핑](./media/dataset-map-target.png "대상에 매핑") 
 
-1. 데이터를 가져올 대상 데이터 저장소 유형을 선택합니다. 경로와 이름이 동일한 대상 데이터 저장소에 있는 모든 데이터 파일 또는 테이블을 덮어씁니다. 
+1. 데이터를 가져올 대상 데이터 저장소 유형을 선택합니다. 경로와 이름이 동일한 대상 데이터 저장소에 있는 모든 데이터 파일 또는 테이블을 덮어씁니다. Azure SQL Database 또는 Azure Synapse Analytics(이전의 Azure SQL DW)로 데이터를 수신하는 경우 **데이터 공유를 허용하여 사용자 대신 위의 '사용자 만들기' 스크립트 실행** 확인란을 선택합니다.
 
    내부 공유의 경우 지정된 위치에서 데이터 저장소를 선택합니다. 위치는 데이터 공급자의 원본 데이터 저장소가 있는 Azure 데이터 센터입니다. 데이터 세트가 매핑되면 대상 경로의 링크를 따라 데이터에 액세스할 수 있습니다.
 
    ![대상 스토리지 계정](./media/dataset-map-target-sql.png "대상 스토리지") 
 
-1. 스냅샷 기반 공유의 경우 데이터 공급자가 데이터에 정기적인 업데이트를 제공하기 위해 스냅샷 일정을 만든 경우 **스냅샷 일정** 탭을 선택하여 스냅샷 일정을 사용하도록 설정할 수도 있습니다. 스냅샷 일정 옆의 확인란을 선택하고 **+ 사용** 을 선택합니다.
+1. 스냅샷 기반 공유의 경우 데이터 공급자가 데이터에 정기적인 업데이트를 제공하기 위해 스냅샷 일정을 만든 경우 **스냅샷 일정** 탭을 선택하여 스냅샷 일정을 사용하도록 설정할 수도 있습니다. 스냅샷 일정 옆의 확인란을 선택하고 **+ 사용** 을 선택합니다. 첫 번째 예약된 스냅샷은 예약 시간의 1분 이내에 시작되고 후속 스냅샷은 예약 시간(초) 이내에 시작됩니다.
 
    ![스냅샷 일정 사용](./media/enable-snapshot-schedule.png "스냅샷 일정 사용")
 

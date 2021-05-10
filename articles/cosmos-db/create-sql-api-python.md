@@ -1,24 +1,24 @@
 ---
 title: '빠른 시작: Azure Cosmos DB SQL API 계정을 사용하여 Python 앱 빌드'
 description: Azure Cosmos DB SQL API에 연결하고 쿼리하는 데 사용할 수 있는 Python 코드 샘플을 제공합니다.
-author: anfeldma-ms
+author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/22/2020
-ms.author: anfeldma
+ms.date: 04/06/2021
+ms.author: rosouz
 ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
 - devx-track-python
-ms.openlocfilehash: fee0591622c1ee07b6e954b3cadc208a300ab6a5
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: de05fdc110e653dd63cf098a8b31ffb81b13b1c5
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104798785"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365685"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>빠른 시작: Azure Cosmos DB SQL API 계정을 사용하여 Python 애플리케이션 빌드
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -28,6 +28,7 @@ ms.locfileid: "104798785"
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java SDK v4](create-sql-api-java.md)
 > * [Spring Data v3](create-sql-api-spring-data.md)
+> * [Spark v3 커넥터](create-sql-api-spark.md)
 > * [Node.JS](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -66,7 +67,7 @@ ms.locfileid: "104798785"
 
 2. **컨테이너 추가** 페이지에서 새 컨테이너의 설정을 입력합니다.
 
-    |설정|제안 값|설명
+    |설정|제안 값|Description
     |---|---|---|
     |**데이터베이스 ID**|작업|새 데이터베이스의 이름으로 *작업* 을 입력합니다. 데이터베이스 이름은 1~255자여야 하며, `/, \\, #, ?` 또는 후행 공백은 포함할 수 없습니다. **데이터베이스 처리량 프로비전** 옵션을 선택합니다. 그러면 데이터베이스에 프로비저닝된 처리량을 데이터베이스 내 모든 컨테이너가 공유할 수 있습니다. 이 옵션은 비용 절감에도 도움이 됩니다. |
     |**처리량**|400|처리량을 400 RU/s(초당 요청 단위)로 유지합니다. 대기 시간을 줄이면 나중에 처리량을 늘릴 수 있습니다.| 

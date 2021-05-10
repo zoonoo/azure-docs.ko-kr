@@ -17,10 +17,10 @@ ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 ms.custom: devx-track-java
 ms.openlocfilehash: 9ff006b74b6202b02a2767aee4d853b1206ce60d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96015454"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Java의 SendGrid를 사용하여 메일을 보내는 방법
@@ -143,7 +143,7 @@ multipart.addBodyPart(attachmentPart);
 ```
 
 ## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>방법: 필터를 사용하여 바닥글, 추적 및 분석을 사용하도록 설정
-SendGrid는 *필터* 사용을 통해 추가 전자 메일 기능을 제공 합니다. 클릭 추적, Google 분석, 구독 추적 등을 사용하도록 설정하는 것과 같이 특정 기능을 사용하도록 설정하기 위해 전자 메일 메시지에 추가할 수 있는 설정입니다. 전체 필터 목록은 [필터 설정][Filter Settings](영문)을 참조하십시오.
+SendGrid는 *필터* 사용을 통해 추가 전자 메일 기능을 제공합니다. 클릭 추적, Google 분석, 구독 추적 등을 사용하도록 설정하는 것과 같이 특정 기능을 사용하도록 설정하기 위해 전자 메일 메시지에 추가할 수 있는 설정입니다. 전체 필터 목록은 [필터 설정][Filter Settings](영문)을 참조하십시오.
 
 * 다음은 보내는 전자 메일 아래쪽에 HTML 텍스트가 표시되도록 하는 바닥글 필터 삽입 방법을 보여 줍니다.
 

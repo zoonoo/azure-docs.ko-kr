@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 335879af93834665985fe2c14ce3cbd827387920
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ceb9f0f9ef2a88532d5af16a03fcfd0282da84f8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102172142"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787290"
 ---
 # <a name="use-github-actions-to-connect-to-azure-sql-database"></a>GitHub Actions를 사용하여 Azure SQL Database에 연결
 
@@ -41,7 +41,7 @@ GitHub Actions 워크플로는 리포지토리의 `/.github/workflows/` 경로�
 
 ## <a name="generate-deployment-credentials"></a>배포 자격 증명 생성
 
-[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 명령을 사용하여 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)를 만들 수 있습니다. 이 명령은 Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 실행합니다.
+[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) 명령을 사용하여 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)를 만들 수 있습니다. 이 명령은 Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 실행합니다.
 
 `server-name` 자리 표시자를 Azure에서 호스팅되는 SQL 서버의 이름으로 바꿉니다. `subscription-id` 및 `resource-group`을 SQL 서버에 연결된 구독 ID 및 리소스 그룹으로 바꿉니다.  
 

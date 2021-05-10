@@ -5,12 +5,12 @@ ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 11/23/2019
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 65ea6513046cd0372720e5a9438941dda2a74877
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9bd80d5644587c6dcc074a91bf91382d0692bc18
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97934359"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786178"
 ---
 # <a name="create-a-serverless-python-function-app-using-azure-cli"></a>Azure CLI를 사용하여 서버리스 Python 함수 앱 만들기
 
@@ -39,9 +39,9 @@ ms.locfileid: "97934359"
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Azure Storage 계정을 만듭니다. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | 함수 앱을 만듭니다. |
+| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Azure Storage 계정을 만듭니다. |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | 함수 앱을 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

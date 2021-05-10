@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 10/15/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro R so I can use it to transfer data to Azure.
-ms.openlocfilehash: ce97c22cf4bfbe5cca01183574597706a8c239e7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1ded68783ec45c649ab4aa41996cb0113a7fa42d
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96464610"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059924"
 ---
 # <a name="tutorial-connect-to-azure-stack-edge-pro-r"></a>자습서: Azure Stack Edge Pro R에 연결
 
@@ -30,7 +29,7 @@ ms.locfileid: "96464610"
 > * 물리적 디바이스에 연결
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Stack Edge Pro R 디바이스를 구성하고 설정하기 전에 다음 사항을 확인합니다.
 

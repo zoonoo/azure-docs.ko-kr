@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 04/06/2021
 ms.author: jeedes
-ms.openlocfilehash: 6fdc9c70d1c9fc67c38edfd794354f9e03321c73
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 56f2eea9dc485c69b6070fda6e9519887f7b30cb
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99822183"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519625"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bitbucket"></a>자습서: EasySSO for BitBucket과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -50,7 +50,6 @@ EasySSO for BitBucket이 Azure AD에 통합되도록 구성하려면 갤러리�
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **EasySSO for BitBucket** 을 입력합니다.
 1. 결과에서 **EasySSO for BitBucket** 을 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-easysso-for-bitbucket"></a>EasySSO for BitBucket용 Azure AD SSO 구성 및 테스트
 
@@ -94,7 +93,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. EasySSO for BitBucket 애플리케이션에는 SAML 응답에서 다시 전달되는 몇 가지 특성도 추가로 필요합니다. 이러한 내용은 다음 표에 나와 있습니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
     
-    | Name | 원본 특성|
+    | 속성 | 원본 특성|
     | ---------------| --------- |
     | urn:oid:0.9.2342.19200300.100.1.1 | user.userprincipalname |
     | urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
@@ -129,9 +128,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. Azure Portal에서 **엔터프라이즈 애플리케이션** > **모든 애플리케이션** 을 차례로 선택합니다.
 1. 애플리케이션 목록에서 **EasySSO for BitBucket** 을 선택합니다.
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고, **사용자 및 그룹** 을 선택합니다.
-
 1. **사용자 추가** 를 선택합니다. **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
-
 1. **사용자 및 그룹** 대화 상자의 **사용자** 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 을 선택합니다.
 1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 을 선택합니다.

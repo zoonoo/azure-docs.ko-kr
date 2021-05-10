@@ -11,12 +11,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: 363278e0b9969dad652dd00debe4ffc0138e9a97
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f4054d19ccf4d136e30896bc066e51c92a4a4ad9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87503789"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783470"
 ---
 # <a name="use-cli-to-restore-a-single-database-in-azure-sql-database-to-an-earlier-point-in-time"></a>CLI를 사용하여 Azure SQL Database의 단일 데이터베이스를 이전 시점으로 복원
 
@@ -54,7 +54,7 @@ az group delete --name $resource
 
 | 명령 | Description |
 |---|---|
-| [az sql db restore](/cli/azure/sql/db#az-sql-db-restore) | 데이터베이스 복원 명령입니다. |
+| [az sql db restore](/cli/azure/sql/db#az_sql_db_restore) | 데이터베이스 복원 명령입니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

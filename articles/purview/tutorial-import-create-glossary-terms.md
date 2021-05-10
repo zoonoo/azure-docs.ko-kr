@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 0ea6fcaff1ec699431da8b67adee68735a8611a8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9443c6fbaca16cf075745972a1655a2b4b2ea43c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97696074"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077536"
 ---
 # <a name="tutorial-create-and-import-glossary-terms-in-azure-purview-preview"></a>자습서: Azure Purview에서 용어집 용어 만들기 및 가져오기(미리 보기)
 
@@ -138,10 +138,10 @@ ms.locfileid: "97696074"
 
    |설정|제안 값|
    |---------|-----------|
-   |특성 이름|중요한 정보|
-   |필드 형식|드롭다운|단일 선택|
-   |필수로 표시|이 확인란을 선택합니다.|
-   |+ 선택 항목 추가| 두 가지 선택 항목("예" 및 "아니요")을 추가합니다.|
+   |특성 이름 |중요한 정보|
+   |필드 형식 | 단일 선택|
+   |필수로 표시 | 이 확인란을 선택합니다.|
+   |+ 선택 항목 추가 | 두 가지 선택 항목("예" 및 "아니요")을 추가합니다.|
 
    :::image type="content" source="./media/tutorial-import-create-glossary-terms/add-new-attribute.png" alt-text="새 특성 추가.":::
 

@@ -8,10 +8,10 @@ ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: bb74ab16e51fbb3a157757353d5743e889f993dd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94629702"
 ---
 # <a name="develop-for-azure-files-with-c"></a>C++를 사용하여 Azure Files 개발
@@ -69,7 +69,7 @@ storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_sto
 
 ## <a name="connecting-to-an-azure-storage-account"></a>Azure Storage 계정에 연결
 
-**Cloud_storage_account** 클래스를 사용 하 여 저장소 계정 정보를 나타낼 수 있습니다. 스토리지 연결 문자열에서 스토리지 계정 정보를 검색하려면 **구문 분석** 메서드를 사용할 수 있습니다.
+**cloud_storage_account** 클래스를 사용하여 Storage 계정 정보를 나타낼 수 있습니다. 스토리지 연결 문자열에서 스토리지 계정 정보를 검색하려면 **구문 분석** 메서드를 사용할 수 있습니다.
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -107,7 +107,7 @@ if (share.create_if_not_exists()) {
 
 ## <a name="delete-an-azure-file-share"></a>Azure 파일 공유 삭제
 
-공유 삭제는 cloud_file_share 개체에 대해 **delete_if_exists** 메서드를 호출 하 여 수행 됩니다. 다음이 샘플 코드입니다.
+공유 삭제는 cloud_file_share 개체에서 **delete_if_exists** 메서드를 호출하여 수행할 수 있습니다. 다음이 샘플 코드입니다.
 
 ```cpp
 // Get a reference to the share.
@@ -189,7 +189,7 @@ for (auto it = directory.list_files_and_directories(); it != end_of_results; ++i
 
 Azure 파일 공유에는 파일이 상주할 수 있는 최소한의 루트 디렉터리가 포함되어 있습니다. 이 섹션에서는 로컬 스토리지에서 공유의 루트 디렉터리로 파일을 업로드하는 방법을 배웁니다.
 
-파일을 업로드하는 첫 번째 단계는 상주해야 하는 디렉터리에 대한 참조를 가져오는 것입니다. 공유 개체의 **get_root_directory_reference** 메서드를 호출 하 여이 작업을 수행 합니다.
+파일을 업로드하는 첫 번째 단계는 상주해야 하는 디렉터리에 대한 참조를 가져오는 것입니다. 공유 개체의 **get_root_directory_reference** 메서드를 호출하여 가져올 수 있습니다.
 
 ```cpp
 //Get a reference to the root directory for the share.
@@ -220,9 +220,9 @@ file4.upload_from_file(_XPLATSTR("DataFile.txt"));
 
 ## <a name="download-a-file"></a>파일 다운로드
 
-파일을 다운로드 하려면 먼저 파일 참조를 검색 한 다음 **download_to_stream** 메서드를 호출 하 여 파일 콘텐츠를 스트림 개체로 전송 합니다. 그러면이 개체를 로컬 파일에 유지할 수 있습니다. 또는 **download_to_file** 메서드를 사용하여 로컬 파일에 파일 콘텐츠를 다운로드할 수 있습니다. **download_text** 메서드를 사용하여 파일 콘텐츠를 텍스트 문자열로 다운로드할 수 있습니다.
+파일을 다운로드하려면 먼저 파일 참조를 검색한 다음 **download_to_stream** 메서드를 호출하여 파일 콘텐츠를 스트림 개체로 전송하며 이 개체를 로컬 파일에 저장할 수 있습니다. 또는 **download_to_file** 메서드를 사용하여 로컬 파일에 파일 콘텐츠를 다운로드할 수 있습니다. **download_text** 메서드를 사용하여 파일 콘텐츠를 텍스트 문자열로 다운로드할 수 있습니다.
 
-다음 예제에서는 **download_to_stream** 및 **download_text** 메서드를 사용 하 여 이전 섹션에서 만든 파일을 다운로드 하는 방법을 보여 줍니다.
+다음 예제에서는 **download_to_stream** 및 **download_text** 메서드를 사용하여 이전 섹션에서 만든 파일을 다운로드하는 방법을 보여 줍니다.
 
 ```cpp
 // Download as text

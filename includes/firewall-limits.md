@@ -1,24 +1,24 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: include
-ms.date: 11/06/2020
+ms.date: 04/07/2021
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: d479c3087b971aa17cf145e0111890da07381eab
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c4c36c0e099ed7474a5d27f6edcbd4b3ac435f4f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94386603"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030828"
 ---
 | 리소스 | 제한 |
 | --- | --- |
 | 데이터 처리량 |30Gbps<sup>1</sup> |
-|규칙|10,000. 모든 규칙 유형이 결합되었습니다.|
+|규칙 제한|네트워크 규칙의 10000개 고유한 원본/대상|
 |최대 DNAT 규칙|단일 공용 IP 주소의 경우 298입니다.<br>모든 추가 공용 IP 주소는 사용 가능한 SNAT 포트에 영향을 주지만, 사용 가능한 DNAT 규칙 수는 줄어듭니다. 예를 들어 두 개의 공용 IP 주소는 297개의 DNAT 규칙을 허용합니다. 규칙의 프로토콜이 TCP와 UDP 둘 다에 대해 구성된 경우 두 개의 규칙으로 계산됩니다.|
 |AzureFirewallSubnet 최소 크기 |/26|
 |네트워크 및 애플리케이션 규칙의 포트 범위|1 - 65535|

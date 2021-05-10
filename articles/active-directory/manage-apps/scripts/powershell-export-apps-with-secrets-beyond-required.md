@@ -2,21 +2,21 @@
 title: PowerShell 샘플 - Azure Active Directory 테넌트의 필수 날짜 이후에 만료되는 비밀 및 인증서가 있는 앱을 내보냅니다.
 description: Azure Active Directory 테넌트의 지정된 앱에 대해 필수 날짜 후에 만료되는 비밀 및 인증서가 있는 모든 앱을 내보내는 PowerShell 예제입니다.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: sample
 ms.date: 03/09/2021
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: mifarca
-ms.openlocfilehash: 9c0e5508830343561833785fbce31f547a8a7428
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.openlocfilehash: 692ab2cfd480fd15760c13c63922fe76d23058ea
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103149684"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375392"
 ---
 # <a name="export-apps-with-secrets-and-certificates-expiring-beyond-the-required-date"></a>필수 날짜 이후에 만료되는 암호 및 인증서가 있는 앱 내보내기
 
@@ -37,7 +37,7 @@ ms.locfileid: "103149684"
 
 | 명령 | 메모 |
 |---|---|
-| [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7.1) | HTTP 및 HTTPS 요청을 웹 페이지나 웹 서비스로 보냅니다. 응답을 구문 분석하고 링크, 이미지 및 기타 중요한 HTML 요소 컬렉션을 반환합니다. |
+| [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7.1&preserve-view=true) | HTTP 및 HTTPS 요청을 웹 페이지나 웹 서비스로 보냅니다. 응답을 구문 분석하고 링크, 이미지 및 기타 중요한 HTML 요소 컬렉션을 반환합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

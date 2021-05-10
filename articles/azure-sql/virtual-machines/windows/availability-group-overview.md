@@ -16,10 +16,10 @@ ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 8bbd56499c9b62248662fc5e8df0d5b3e1b672d4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102504170"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Azure VM의 SQL Server에 대한 Always On 가용성 그룹
@@ -84,16 +84,16 @@ DNN 수신기를 사용하여 기존 VNN 수신기를 대체하거나, 두 개�
 |**SQL Server 에디션** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
 |**Windows Server 버전**| 2016 이상 | 2016 이상 | 2016 이상 | 모두|
 |**사용자에 대한 클러스터 만들기**|예|예 | 예 |아니요|
-|**사용자에 대한 가용성 그룹 만들기** |예 |아니요|아니요|예|
-|**독립적으로 수신기 및 부하 분산 장치 만들기** |아니요|아니요|아니요|예|
-|**이 메서드를 사용하여 DNN 수신기를 만들 수 있는지 여부**|아니요|아니요|아니요|예|
+|**사용자에 대한 가용성 그룹 만들기** |예 |예|예|예|
+|**독립적으로 수신기 및 부하 분산 장치 만들기** |예|예|예|예|
+|**이 메서드를 사용하여 DNN 수신기를 만들 수 있는지 여부**|아니요|예|예|예|
 |**WSFC 쿼럼 구성**|클라우드 감시|클라우드 감시|클라우드 감시|모두|
-|**여러 지역이 포함된 DR** |아니요|아니요|아니요|예|
+|**여러 지역이 포함된 DR** |아니요|예|예|예|
 |**다중 서브넷 지원** |예|예|예|예|
 |**기존 AD 지원**|예|예|예|예|
 |**동일한 지역의 다중 영역이 포함된 DR**|예|예|예|예|
-|**AD가 없는 분산 AG**|아니요|아니요|아니요|예|
-|**클러스터가 없는 분산 AG** |아니요|아니요|아니요|예|
+|**AD가 없는 분산 AG**|아니요|예|예|예|
+|**클러스터가 없는 분산 AG** |아니요|예|예|예|
 
 자세한 내용은 [Azure Portal](availability-group-azure-portal-configure.md), [Azure CLI/PowerShell](./availability-group-az-commandline-configure.md), [빠른 시작 템플릿](availability-group-quickstart-template-configure.md) 및 [설명서](availability-group-manually-configure-prerequisites-tutorial.md)를 참조하세요.
 

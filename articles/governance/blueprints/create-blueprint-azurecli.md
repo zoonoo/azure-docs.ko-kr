@@ -3,18 +3,18 @@ title: '빠른 시작: Azure CLI를 사용하여 청사진 만들기'
 description: 이 빠른 시작에서는 Azure Blueprints를 사용하여 Azure CLI를 통해 아티팩트를 만들고 정의하고 배포합니다.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: 6ce3031c93f973c2efb251fad371a6f3750ae0fd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fbe5c12f1c94d4b59dbdc2a97b6a4cb9af5a2328
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98920243"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105563670"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>빠른 시작: Azure CLI로 Azure Blueprint 정의 및 할당
 
 청사진을 만들고 할당하는 방법을 학습하면 공통 패턴 정의를 통해 ARM 템플릿(Azure Resource Manager 템플릿), 정책, 보안 등을 기반으로 재사용이 가능하고 신속하게 배포할 수 있는 구성을 개발할 수 있습니다. 이 자습서에서는 Azure Blueprint를 사용하여 조직 내에서 청사진을 작성, 게시 및 할당하는 것과 관련된 다음과 같은 일반적인 작업을 수행하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 - 이전에 Azure Blueprints를 사용하지 않은 경우 Azure CLI를 통해 리소스 공급자를 `az provider register --namespace Microsoft.Blueprint`로 등록합니다.
@@ -311,7 +311,7 @@ az blueprint publish --blueprint-name 'MyBlueprint' --version '{BlueprintVersion
 
 Azure CLI를 사용하여 청사진을 게시하고 나면 구독에 할당할 수 있습니다. 작성한 청사진을 관리 그룹 계층 구조에 속하는 구독 중 하나에 할당합니다. 구독에 청사진이 저장되면 해당 구독에만 할당될 수 있습니다. **Blueprint-이름** 매개 변수는 할당할 청사진을 지정합니다. 이름, 위치, ID, 잠금 및 청사진 매개 변수를 제공하려면 `az blueprint assignment create` 명령에서 일치하는 Azure CLI 매개 변수를 사용하거나 **매개 변수** JSON 파일에 제공합니다.
 
-1. 청사진 배포를 구독에 할당하여 실행합니다. **contributor** 및 **소유자** 매개 변수에는 역할 할당에 부여될 주체의 objectId 배열이 필요하기 때문에, [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md)를 사용하여 사용자, 그룹 또는 서비스 주체에 대한 **매개 변수** 에 사용될 objectId를 수집합니다.
+1. 청사진 배포를 구독에 할당하여 실행합니다. **contributor** 및 **소유자** 매개 변수에는 역할 할당에 부여될 주체의 objectId 배열이 필요하기 때문에, [Azure Active Directory Graph API](/graph/migrate-azure-ad-graph-planning-checklist)를 사용하여 사용자, 그룹 또는 서비스 주체에 대한 **매개 변수** 에 사용될 objectId를 수집합니다.
 
    - JSON 파일 - blueprintAssignment.json
 

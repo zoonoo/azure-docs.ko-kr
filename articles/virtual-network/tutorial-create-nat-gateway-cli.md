@@ -8,13 +8,13 @@ ms.service: virtual-network
 ms.subservice: nat
 ms.topic: tutorial
 ms.date: 03/10/2021
-ms.custom: template-tutorial
-ms.openlocfilehash: 5dd431a5a7377c409be0794511c5f402d1c5a3a9
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.custom: template-tutorial, devx-track-azurecli
+ms.openlocfilehash: 60436b8d4a0f338f4ece59ad4cd11c14c9e4c352
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102636799"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762644"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 NAT 게이트웨이 만들기
 
@@ -92,7 +92,7 @@ ms.locfileid: "102636799"
 
 가상 머신에 액세스하려면 **myBastionHost** 라는 Azure Bastion 호스트를 만듭니다. 
 
-[az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create)를 사용하여 Azure Bastion 서브넷을 만듭니다.
+[az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)를 사용하여 Azure Bastion 서브넷을 만듭니다.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -111,7 +111,7 @@ az network public-ip create \
     --sku Standard
 ```
 
-[az network bastion create](/cli/azure/network/bastion#az-network-bastion-create)를 사용하여 베스천 호스트를 만듭니다. 
+[az network bastion create](/cli/azure/network/bastion#az_network_bastion_create)를 사용하여 베스천 호스트를 만듭니다. 
 
 ```azurecli-interactive
 az network bastion create \
@@ -141,7 +141,7 @@ az network bastion create \
 
 이 섹션에서는 NAT 게이트웨이를 테스트하여 아웃바운드 연결의 공용 IP 주소를 확인하는 가상 머신을 만듭니다.
 
-[az vm create](/cli/azure/vm#az-vm-create)를 사용하여 가상 머신을 만듭니다.
+[az vm create](/cli/azure/vm#az_vm_create)를 사용하여 가상 머신을 만듭니다.
 
 ```azurecli-interactive
 az vm create \

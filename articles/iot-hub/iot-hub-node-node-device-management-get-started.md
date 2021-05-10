@@ -8,13 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.custom: mqtt, devx-track-js
-ms.openlocfilehash: cfc0fa45c08f917b2e0b4a0b055e801173a4ba39
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.custom: mqtt, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 557cdc5fb71f998dc0b69e52148cc93da7cc8ea7
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91252020"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107477981"
 ---
 # <a name="get-started-with-device-management-nodejs"></a>디바이스 관리 시작(Node.js)
 

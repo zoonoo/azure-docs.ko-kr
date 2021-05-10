@@ -4,13 +4,13 @@ description: 이 빠른 시작에서는 azure-messaging-servicebus 패키지를 
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 03/16/2021
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 7b313caf6709429de9e0dcac219a4180c7391cf7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 79eb7783fd3daf546539dd5b9048f4e9f484374f
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104607587"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279802"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-net"></a>Azure Service Bus 토픽에 메시지 보내기 및 토픽의 구독에서 메시지 받기(.NET)
 이 자습서에서는 다음 작업을 수행하는 C# 애플리케이션을 만듭니다.
@@ -208,7 +208,7 @@ Visual Studio를 사용하여 .NET Core 콘솔 애플리케이션 만들기.
 ```
 
 ### <a name="test-the-app-to-send-messages-to-the-topic"></a>앱을 테스트하여 메시지를 토픽에 보내기
-1. 애플리케이션을 실행합니다. 다음 출력이 표시됩니다.
+1. 애플리케이션을 실행합니다. 다음과 같은 출력이 표시됩니다.
 
     ```console
     Sent a single message to the topic: mytopic

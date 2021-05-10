@@ -2,17 +2,19 @@
 title: 빠른 시작 - Azure Portal에서 Analysis Services 서버 만들기 | Microsoft Docs
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Analysis Services 서버 인스턴스를 만드는 방법을 설명합니다.
 author: minewiskan
-ms.service: azure-analysis-services
-ms.topic: quickstart
-ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 488e7c84e481edd1b136fe90ab948d3cfb51ed2c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 08/31/2020
+ms.topic: quickstart
+ms.service: azure-analysis-services
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 78e4e008a4c4dfcee1e4f0a11b519e0a2bbf5f56
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89230783"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535074"
 ---
 # <a name="quickstart-create-a-server---portal"></a>빠른 시작: 서버 만들기 - 포털
 

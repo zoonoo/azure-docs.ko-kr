@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 045cec85174a88d1d608a4adc679461008852768
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85514589"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>StorSimple 디바이스의 전원 및 냉각 모듈 교체
@@ -50,7 +50,7 @@ Microsoft Azure StorSimple 디바이스에서 PCM(전원 및 냉각 모듈)을 �
 > PCM을 꺼내기 전에 올바른 교체(기본 엔클로저의 경우 764W, EBOD 엔클로저의 경우 580W)가 있는지 확인합니다.
 
 #### <a name="to-remove-a-pcm"></a>PCM을 꺼내려면
-1. Azure 클래식 포털에서 **설정 > 모니터 > 하드웨어 상태** 를 클릭합니다. **공유 구성 요소** 에서 pcm 구성 요소의 상태를 확인 하 여 실패 한 pcm을 식별 합니다.
+1. Azure 클래식 포털에서 **설정 > 모니터 > 하드웨어 상태** 를 클릭합니다. **공유 구성 요소** 아래에서 PCM 구성 요소의 상태를 확인하여 오류가 발생한 PCM을 식별합니다.
    
    * PCM 0의 전원 공급 장치에서 오류가 발생한 경우 **PCM 0의 전원 공급 장치** 상태가 빨강으로 표시됩니다.
    * PCM 1의 전원 공급 장치에서 오류가 발생한 경우 **PCM 1의 전원 공급 장치** 상태가 빨강으로 표시됩니다.

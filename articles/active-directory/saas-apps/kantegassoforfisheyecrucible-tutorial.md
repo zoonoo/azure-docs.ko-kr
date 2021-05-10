@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 06a4e8aa1ad74f47526f3a39931632953bfaaec2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92459189"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>자습서: Kantega SSO for FishEye/Crucible과 Azure Active Directory 통합
@@ -176,15 +176,15 @@ Kantega SSO for FishEye/Crucible에서 Azure AD Single Sign-On을 구성하려�
 
     b. **다음** 을 클릭합니다.
 
-1. **Metadata import** (메타데이터 가져오기) 섹션에서 다음 단계를 수행합니다.
+1. **Metadata import**(메타데이터 가져오기) 섹션에서 다음 단계를 수행합니다.
 
     !["내 컴퓨터의 메타데이터 파일"이 선택된 "메타데이터 가져오기" 섹션을 보여주는 스크린샷.](./media/kantegassoforfisheyecrucible-tutorial/addon7.png)
 
-    a. **Metadata file on my computer** (내 컴퓨터의 메타데이터 파일)를 클릭하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
+    a. **Metadata file on my computer**(내 컴퓨터의 메타데이터 파일)를 클릭하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
 
     b. **다음** 을 클릭합니다.
 
-1. **Name and SSO location** (이름 및 SSO 위치) 섹션에서 다음 단계를 수행합니다.
+1. **Name and SSO location**(이름 및 SSO 위치) 섹션에서 다음 단계를 수행합니다.
 
     !["ID 공급자 이름" 텍스트 상자가 강조 표시되고 "다음" 단추가 선택된 "이름 및 SSO 위치"를 보여주는 스크린샷.](./media/kantegassoforfisheyecrucible-tutorial/addon8.png)
 
@@ -208,13 +208,13 @@ Kantega SSO for FishEye/Crucible에서 Azure AD Single Sign-On을 구성하려�
 
     !["마침" 단추가 선택된 "요약" 섹션을 보여주는 스크린샷.](./media/kantegassoforfisheyecrucible-tutorial/addon11.png)
 
-1. **Known domains for Azure AD** (Azure AD에 알려진 도메인) 섹션에서 다음 단계를 수행합니다.  
+1. **Known domains for Azure AD**(Azure AD에 알려진 도메인) 섹션에서 다음 단계를 수행합니다.  
 
     !["저장" 단추가 선택된 "Azure AD의 알려진 도메인" 섹션을 보여주는 스크린샷.](./media/kantegassoforfisheyecrucible-tutorial/addon12.png)
 
-    a. 페이지의 왼쪽 창에서 **Known domains** (알려진 도메인)를 선택합니다.
+    a. 페이지의 왼쪽 창에서 **Known domains**(알려진 도메인)를 선택합니다.
 
-    b. **Known domains** (알려진 도메인) 텍스트 상자에 도메인 이름을 입력합니다.
+    b. **Known domains**(알려진 도메인) 텍스트 상자에 도메인 이름을 입력합니다.
 
     다. **저장** 을 클릭합니다.
 
@@ -222,7 +222,7 @@ Kantega SSO for FishEye/Crucible에서 Azure AD Single Sign-On을 구성하려�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -246,7 +246,7 @@ Kantega SSO for FishEye/Crucible에서 Azure AD Single Sign-On을 구성하려�
 
 이 섹션에서는 Britta Simon이 Azure Single Sign-On을 사용할 수 있도록 Kantega SSO for FishEye/Crucible에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Kantega SSO for FishEye/Crucible** 을 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Kantega SSO for FishEye/Crucible** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 

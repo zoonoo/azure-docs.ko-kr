@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 04/08/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 37bc7fbcd366455668d5316e45ffbf79127a49f3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 57abbeefe8e3f2abe527f2b282d643db766b9dc9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99981226"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775748"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 Key Vault 참조 사용
 
@@ -93,7 +93,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 
 ## <a name="connect-to-key-vault"></a>Key Vault에 연결
 
-1. 이 자습서에서는 Key Vault에 대한 인증에 서비스 주체를 사용합니다. 서비스 주체를 만들려면 Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 명령을 사용합니다.
+1. 이 자습서에서는 Key Vault에 대한 인증에 서비스 주체를 사용합니다. 서비스 주체를 만들려면 Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) 명령을 사용합니다.
 
     ```azurecli
     az ad sp create-for-rbac -n "http://mySP" --sdk-auth

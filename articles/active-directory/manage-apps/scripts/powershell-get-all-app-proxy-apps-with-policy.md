@@ -3,7 +3,7 @@ title: PowerShell 샘플 - 정책이 적용된 모든 애플리케이션 프록�
 description: 사용자 디렉터리에서 수명 토큰 정책이 적용된 모든 Azure AD(Azure Active Directory) 애플리케이션 프록시 애플리케이션을 나열하는 PowerShell 예제입니다.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: c2da1885d975ea6b4daf26714e430143dd89da42
-ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
+ms.openlocfilehash: 53ec98ca4bd981655a3b4d6fdbccf10f7c7f9fb9
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "105709772"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376633"
 ---
 # <a name="get-all-application-proxy-apps-with-a-token-lifetime-policy"></a>토큰 수명 정책을 사용하여 모든 애플리케이션 프록시 앱 가져오기
 

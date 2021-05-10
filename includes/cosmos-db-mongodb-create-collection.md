@@ -9,10 +9,10 @@ ms.date: 04/15/2020
 ms.author: lbosq
 ms.custom: include file
 ms.openlocfilehash: 37cdb6b466417add8dae69464304ce2f32247c8d
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95553535"
 ---
 이제 Azure Portal에서 Data Explorer 도구를 사용하여 Azure Cosmos DB의 API for MongoDB 데이터베이스 및 컨테이너를 만들 수 있습니다. 
@@ -25,7 +25,7 @@ ms.locfileid: "95553535"
 
 2. **컨테이너 추가** 페이지에서 새 컨테이너의 설정을 입력합니다.
 
-    |설정|제안 값|Description
+    |설정|제안 값|설명
     |---|---|---|
     |**데이터베이스 ID**|db|새 데이터베이스의 이름으로 *db* 를 입력합니다. 데이터베이스 이름은 1~255자여야 하며, `/, \\, #, ?` 또는 후행 공백은 포함할 수 없습니다. **데이터베이스 처리량 프로비전** 옵션을 선택합니다. 그러면 데이터베이스에 프로비저닝된 처리량을 데이터베이스 내 모든 컨테이너가 공유할 수 있습니다. 이 옵션은 비용 절감에도 도움이 됩니다. |
     |**처리량**|400|처리량을 400 RU/s(초당 요청 단위)로 유지합니다. 대기 시간을 줄이면 나중에 처리량을 늘릴 수 있습니다. 필요에 따라 동적으로 증가하고 감소하는 RU/s 범위를 제공하는 [자동 크기 조정 모드](../articles/cosmos-db/provision-throughput-autoscale.md)를 선택할 수도 있습니다.| 

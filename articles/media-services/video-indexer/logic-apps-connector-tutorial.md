@@ -8,16 +8,16 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: f3504ca4a706e92081209f4eaaa86af9f71c52b3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: caff6a2496e907da1bdc140860c47476d1842df4
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99821475"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600678"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>자습서: Logic App 및 Power Automate에서 Video Indexer 사용
 
-Azure Media Services [Video Indexer v2 REST API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Delete-Video?)는 서버-서버 및 클라이언트-서버 통신을 모두 지원하며, Video Indexer 사용자가 비디오 및 오디오 인사이트를 애플리케이션 논리에 쉽게 통합하여 새로운 경험과 수익 창출 기회를 실현할 수 있도록 합니다.
+Azure Media Services [Video Indexer v2 REST API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Video)는 서버-서버 및 클라이언트-서버 통신을 모두 지원하며, Video Indexer 사용자가 비디오 및 오디오 인사이트를 애플리케이션 논리에 쉽게 통합하여 새로운 경험과 수익 창출 기회를 실현할 수 있도록 합니다.
 
 더 쉽게 통합할 수 있도록 API와 호환되는  [Logic Apps](https://azure.microsoft.com/services/logic-apps/)  및  [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/)  커넥터를 지원합니다. 한 줄의 코드도 작성하지 않고도 커넥터를 사용하여 대량의 비디오 및 오디오 파일에서 인사이트를 효과적으로 인덱싱하고 추출할 수 있는 사용자 지정 워크플로를 설정할 수 있습니다. 또한 통합을 위해 커넥터를 사용하면 워크플로의 상태를 더 효율적으로 파악하고 쉽게 디버그할 수 있습니다.  
 

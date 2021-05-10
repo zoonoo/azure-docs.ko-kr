@@ -6,15 +6,15 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 07/20/2020
+ms.date: 03/17/2021
 ms.author: mbaldwin
-ms.custom: mvc, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: a56c08e5bf6054d24af3ade571ec625969286a77
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.custom: mvc, devx-track-csharp, devx-track-azurepowershell
+ms.openlocfilehash: c08d0c210e992cba5bca2695fda0bcf08c4689dc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102455647"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772094"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>자습서: .NET에서 가상 머신이 있는 Azure Key Vault 사용
 
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 Windows, Mac 및 Linux:
   * [Git](https://git-scm.com/downloads)
   * [.NET Core 3.1 SDK 이상](https://dotnet.microsoft.com/download/dotnet-core/3.1)
-  * [Azure CLI](/cli/azure/install-azure-cli)
+  * [Azure CLI](/cli/azure/install-azure-cli) 또는 [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="create-resources-and-assign-permissions"></a>리소스 만들기 및 권한 할당
 
@@ -50,11 +50,18 @@ Windows, Mac 및 Linux:
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
-Azure CLI를 사용하여 Azure에 로그인하려면 다음을 입력합니다.
+다음 명령을 사용하여 Azure에 로그인하려면 다음을 수행합니다.
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az login
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Connect-AzAccount
+```
+---
 
 ## <a name="create-a-resource-group-and-key-vault"></a>리소스 그룹 및 키 자격 증명 모음 만들기
 
@@ -74,13 +81,14 @@ az login
 | [Azure Portal](../../virtual-machines/windows/quick-create-portal.md) | [Azure Portal](../../virtual-machines/linux/quick-create-portal.md) |
 
 ## <a name="assign-an-identity-to-the-vm"></a>VM에 ID 할당
-[az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) 명령으로 가상 머신에 대한 시스템 할당 ID를 만듭니다.
+다음 예제를 사용하여 가상 머신에 대한 시스템 할당 ID를 만듭니다.
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
 ```
 
-다음 코드에 표시되는 시스템 할당 ID를 기록해 둡니다. 위 명령의 출력은 다음과 같습니다. 
+다음 코드에 표시되는 시스템 할당 ID를 기록해 둡니다. 위 명령의 출력은 다음과 같습니다.
 
 ```output
 {
@@ -89,12 +97,36 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 }
 ```
 
-## <a name="assign-permissions-to-the-vm-identity"></a>VM ID에 사용 권한을 할당합니다.
-[az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) 명령으로 키 자격 증명 모음에 이전에 만든 ID 사용 권한을 할당합니다.
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
 
-```azurecli
-az keyvault set-policy --name '<your-unique-key-vault-name>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
+```azurepowershell
+$vm = Get-AzVM -Name <NameOfYourVirtualMachine>
+Update-AzVM -ResourceGroupName <YourResourceGroupName> -VM $vm -IdentityType SystemAssigned
 ```
+
+다음 코드에 표시된 PrincipalId를 참고하세요. 위 명령의 출력은 다음과 같습니다. 
+
+
+```output
+PrincipalId          TenantId             Type             UserAssignedIdentities
+-----------          --------             ----             ----------------------
+xxxxxxxx-xx-xxxxxx   xxxxxxxx-xxxx-xxxx   SystemAssigned
+```
+---
+
+## <a name="assign-permissions-to-the-vm-identity"></a>VM ID에 사용 권한을 할당합니다.
+[az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) 명령으로 키 자격 증명 모음에 이전에 만든 ID 사용 권한을 할당합니다.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+```azurecli
+az keyvault set-policy --name '<your-unique-key-vault-name>' --object-id <VMSystemAssignedIdentity> --secret-permissions  get list set delete
+```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Set-AzKeyVaultAccessPolicy -ResourceGroupName <YourResourceGroupName> -VaultName '<your-unique-key-vault-name>' -ObjectId '<VMSystemAssignedIdentity>' -PermissionsToSecrets  get,list,set,delete
+```
+---
 
 ## <a name="sign-in-to-the-virtual-machine"></a>가상 머신에 로그인
 
@@ -153,7 +185,7 @@ using Azure.Security.KeyVault.Secrets;
         static void Main(string[] args)
         {
             string secretName = "mySecret";
-
+            string keyVaultName = "<your-key-vault-name>";
             var kvUri = "https://<your-key-vault-name>.vault.azure.net";
             SecretClientOptions options = new SecretClientOptions()
             {

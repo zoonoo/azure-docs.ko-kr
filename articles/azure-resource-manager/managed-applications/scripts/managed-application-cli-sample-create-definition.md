@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7feb00b581732cdc1956c4ac23af571180ff09e0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2430b14ce3a3ba578787cefa85d95475c3e9b920
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87497837"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775460"
 ---
 # <a name="create-a-managed-application-definition-with-azure-cli"></a>Azure CLI를 사용하여 관리되는 애플리케이션 정의 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "87497837"
 
 | 명령 | 메모 |
 |---|---|
-| [az managedapp definition create](/cli/azure/managedapp/definition#az-managedapp-definition-create) | 관리되는 애플리케이션 정의를 만듭니다. 필요한 파일이 포함된 패키지를 제공합니다. |
+| [az managedapp definition create](/cli/azure/managedapp/definition#az_managedapp_definition_create) | 관리되는 애플리케이션 정의를 만듭니다. 필요한 파일이 포함된 패키지를 제공합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

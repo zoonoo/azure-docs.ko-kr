@@ -3,12 +3,12 @@ title: Azure Event Grid란?
 description: Azure Event Grid를 사용하여 원본에서 처리기로 이벤트 데이터를 보냅니다. 이벤트 기반 애플리케이션을 빌드하고 Azure 서비스와 통합합니다.
 ms.topic: overview
 ms.date: 01/28/2021
-ms.openlocfilehash: e53665c88c3860d37b3512c6498ab626b02a6400
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a410f56da9e28403fb98d92332e6d67c064bac4d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99055140"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934871"
 ---
 # <a name="what-is-azure-event-grid"></a>Azure Event Grid란?
 
@@ -22,7 +22,8 @@ Azure Event Grid는 각 지역의 여러 장애 도메인과 가용성 영역(�
 
 :::image type="content" source="./media/overview/functional-model.png" alt-text="원본 및 처리기의 Event Grid 모델" lightbox="./media/overview/functional-model-big.png":::
 
-이 이미지는 Event Grid가 원본 및 처리기를 연결하는 방법을 보여 주지만, 지원되는 통합의 전체 목록은 아닙니다.
+> [!NOTE]
+> 이 이미지는 Event Grid가 원본 및 처리기를 연결하는 방법을 보여 주지만, 지원되는 통합의 전체 목록은 아닙니다. 지원되는 모든 이벤트 원본 목록은 다음 섹션을 참조하세요. 
 
 ## <a name="event-sources"></a>이벤트 원본
 
@@ -38,6 +39,7 @@ Azure Event Grid는 각 지역의 여러 장애 도메인과 가용성 영역(�
 - [Azure Machine Learning](event-schema-machine-learning.md)
 - [Azure Maps](event-schema-azure-maps.md)
 - [Azure Media Services](event-schema-media-services.md)
+- [Azure Policy](./event-schema-policy.md)
 - [Azure 리소스 그룹](event-schema-resource-groups.md)
 - [Azure Service Bus](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)

@@ -10,12 +10,13 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: e7e63ea56edc2b76383ee4c034fd39dd8b8259c1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 1f656a41b0f447b90f58ec14173e418a2defb72e
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99821524"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484832"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-have-two-sets-of-authentication-credentials"></a>두 개의 인증 자격 증명 세트를 사용하는 리소스의 비밀 순환 자동화
 
@@ -53,11 +54,17 @@ Azure 서비스를 인증하는 가장 좋은 방법은 [관리 ID](../general/a
 
     ![리소스 그룹을 만드는 방법을 보여주는 스크린샷](../media/secrets/rotation-dual/dual-rotation-1.png)
 
-이제 키 자격 증명 모음과 스토리지 계정 2개가 있습니다. Azure CLI에서 다음 명령을 실행하여 이 설정을 확인할 수 있습니다.
-
+이제 키 자격 증명 모음과 스토리지 계정 2개가 있습니다. Azure CLI 또는 Azure PowerShell에서 다음 명령을 실행하여 이 설정을 확인할 수 있습니다.
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az resource list -o table -g vaultrotation
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzResource -Name 'vaultrotation*' | Format-Table
+```
+---
 
 다음 출력과 비슷한 결과가 표시됩니다.
 
@@ -111,49 +118,97 @@ vaultrotationstorage2    vaultrotation      westus      Microsoft.Storage/storag
 ## <a name="add-the-storage-account-access-keys-to-key-vault"></a>Key Vault에 스토리지 계정 액세스 키 추가
 
 먼저 사용자 주체에게 **비밀 관리** 권한을 부여하도록 액세스 정책을 설정합니다.
-
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az keyvault set-policy --upn <email-address-of-user> --name vaultrotation-kv --secret-permissions set delete get list
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Set-AzKeyVaultAccessPolicy -UserPrincipalName <email-address-of-user> --name vaultrotation-kv -PermissionsToSecrets set,delete,get,list
+```
+---
 
 이제 스토리지 계정 액세스 키를 값으로 사용하여 새 비밀을 만들 수 있습니다. 또한 순환 함수가 스토리지 계정에서 키를 다시 생성하려면 스토리지 계정 리소스 ID, 비밀 유효 기간, 비밀에 추가할 키 ID가 필요합니다.
 
 스토리지 계정 리소스 ID를 확인합니다. 이 값은 `id` 속성에서 찾을 수 있습니다.
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az storage account show -n vaultrotationstorage
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzStorageAccount -Name vaultrotationstorage -ResourceGroupName vaultrotation | Select-Object -Property *
+```
+---
 
 key 값을 가져올 수 있도록 다음과 같이 스토리지 계정 액세스 키를 나열합니다.
-
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
-az storage account keys list -n vaultrotationstorage 
+az storage account keys list -n vaultrotationstorage
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotation
+```
+---
 
 만료 날짜를 내일로 설정하고, 유효 기간을 60일로 설정하고, 스토리지 계정 리소스 ID를 사용하여 키 자격 증명 모음에 비밀을 추가합니다. `key1Value` 및 `storageAccountResourceId`에 대해 검색된 값을 사용하여 다음 명령을 실행합니다.
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 $tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddTHH:mm:ssZ")
 az keyvault secret set --name storageKey --vault-name vaultrotation-kv --value <key1Value> --tags "CredentialId=key1" "ProviderAddress=<storageAccountResourceId>" "ValidityPeriodDays=60" --expires $tomorrowDate
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+$tomorrowDate = (Get-Date).AddDays(+1).ToString('yyy-MM-ddTHH:mm:ssZ')
+$secretVaule = ConvertTo-SecureString -String '<key1Value>' -AsPlainText -Force
+$tags = @{
+    CredentialId='key1'
+    ProviderAddress='<storageAccountResourceId>'
+    ValidityPeriodDays='60'
+}
+Set-AzKeyVaultSecret -Name storageKey -VaultName vaultrotation-kv -SecretValue $secretVaule -Tag $tags -Expires $tomorrowDate
+```
+---
 
 위의 비밀은 몇 분 내에 `SecretNearExpiry` 이벤트를 트리거합니다. 이 이벤트는 만료가 60일로 설정된 비밀을 순환하는 함수를 트리거합니다. 이 구성에서 'SecretNearExpiry' 이벤트는 30일(만료 30일 전)마다 트리거되고, 순환 함수는 key1과 key2 사이에서 교대로 순환됩니다.
 
 스토리지 계정 키와 Key Vault 비밀을 검색하고 비교하여 액세스 키가 다시 생성되었는지 확인할 수 있습니다.
 
 다음 명령을 사용하여 비밀 정보를 가져옵니다.
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az keyvault secret show --vault-name vaultrotation-kv --name storageKey
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzKeyVaultSecret -VaultName vaultrotation-kv -Name storageKey -AsPlainText
+```
+---
 
 `keyName`을 대체하도록 `CredentialId`가 업데이트되고 `value`가 다시 생성됩니다.
 
 ![첫 번째 스토리지 계정에 대한 a z keyvault secret show 명령의 출력을 보여주는 스크린샷.](../media/secrets/rotation-dual/dual-rotation-4.png)
 
 다음과 같이 액세스 키를 검색하여 값을 비교합니다.
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az storage account keys list -n vaultrotationstorage 
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotation
+```
+---
+
 키의 `value`는 키 자격 증명 모음의 비밀과 동일합니다.
 
 ![첫 번째 스토리지 계정에 대한 a z storage account keys list 명령의 출력을 보여주는 스크린샷](../media/secrets/rotation-dual/dual-rotation-5.png)
@@ -185,36 +240,77 @@ az storage account keys list -n vaultrotationstorage
 ### <a name="add-another-storage-account-access-key-to-key-vault"></a>Key Vault에 또 다른 스토리지 계정 액세스 키 추가
 
 스토리지 계정 리소스 ID를 확인합니다. 이 값은 `id` 속성에서 찾을 수 있습니다.
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az storage account show -n vaultrotationstorage2
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzStorageAccount -Name vaultrotationstorage -ResourceGroupName vaultrotation | Select-Object -Property *
+```
+---
 
 key2 값을 가져올 수 있도록 다음과 같이 스토리지 계정 액세스 키를 나열합니다.
-
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
-az storage account keys list -n vaultrotationstorage2 
+az storage account keys list -n vaultrotationstorage2
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzStorageAccountKey -Name vaultrotationstorage2 -ResourceGroupName vaultrotation
+```
+---
 
 만료 날짜를 내일로 설정하고, 유효 기간을 60일로 설정하고, 스토리지 계정 리소스 ID를 사용하여 키 자격 증명 모음에 비밀을 추가합니다. `key2Value` 및 `storageAccountResourceId`에 대해 검색된 값을 사용하여 다음 명령을 실행합니다.
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
-$tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddTHH:mm:ssZ")
+$tomorrowDate = (Get-Date).AddDays(+1).ToString('yyy-MM-ddTHH:mm:ssZ')
 az keyvault secret set --name storageKey2 --vault-name vaultrotation-kv --value <key2Value> --tags "CredentialId=key2" "ProviderAddress=<storageAccountResourceId>" "ValidityPeriodDays=60" --expires $tomorrowDate
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+$tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddTHH:mm:ssZ")
+$secretVaule = ConvertTo-SecureString -String '<key1Value>' -AsPlainText -Force
+$tags = @{
+    CredentialId='key2';
+    ProviderAddress='<storageAccountResourceId>';
+    ValidityPeriodDays='60'
+}
+Set-AzKeyVaultSecret -Name storageKey2 -VaultName vaultrotation-kv -SecretValue $secretVaule -Tag $tags -Expires $tomorrowDate
+```
+---
 
 다음 명령을 사용하여 비밀 정보를 가져옵니다.
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az keyvault secret show --vault-name vaultrotation-kv --name storageKey2
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzKeyVaultSecret -VaultName vaultrotation-kv -Name storageKey2 -AsPlainText
+```
+---
 
 `keyName`을 대체하도록 `CredentialId`가 업데이트되고 `value`가 다시 생성됩니다.
 
 ![두 번째 스토리지 계정에 대한 a z keyvault secret show 명령의 출력을 보여주는 스크린샷.](../media/secrets/rotation-dual/dual-rotation-8.png)
 
 다음과 같이 액세스 키를 검색하여 값을 비교합니다.
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az storage account keys list -n vaultrotationstorage 
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotation
+```
+---
 
 키의 `value`는 키 자격 증명 모음의 비밀과 동일합니다.
 

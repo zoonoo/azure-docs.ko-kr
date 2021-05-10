@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Python을 사용하여 연결 - Azure Database for PostgreSQL - 유연한 서버'
 description: 이 빠른 시작에서는 Azure Database for PostgreSQL - 유연한 서버에서 데이터를 연결하고 쿼리하는 데 사용할 수 있는 몇 가지 Python 코드 샘플을 제공합니다.
-author: ambhatna
-ms.author: ambhatna
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.openlocfilehash: 89dc36a9b1b1fee9ad10d55945c7fc17bf72f476
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 823dd6fc64da2c4900f5a0a35a6cd27a9a2b43ff
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90946192"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227487"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---flexible-server"></a>빠른 시작: Python을 사용하여 Azure Database for PostgreSQL - 유연한 서버의 데이터 연결 및 쿼리
 
@@ -28,7 +28,7 @@ ms.locfileid: "90946192"
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Azure Database for PostgreSQL - 유연한 서버. 유연한 서버를 만들려면 [Azure Portal을 사용하여 Azure Database for PostgreSQL - 유연한 서버 만들기](./quickstart-create-server-portal.md)를 참조하세요.
-* [Python](https://www.python.org/downloads/) 2.7.9+ 또는 3.4+.
+* [Python](https://www.python.org/downloads/) 2.7 또는 3.6 이상
 * 최신 [pip](https://pip.pypa.io/en/stable/installing/) 패키지 설치 관리자.
 
 ## <a name="preparing-your-client-workstation"></a>클라이언트 워크스테이션 준비

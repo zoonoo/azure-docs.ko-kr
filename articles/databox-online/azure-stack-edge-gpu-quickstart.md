@@ -6,15 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: quickstart
-ms.date: 01/27/2021
+ms.date: 04/07/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to prepare the portal to quickly deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 4f3ecb6c9aa4ec200cd1a53b82d7c81a2c8d4dcd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 43477f11effaafb0bcd6158be6843c79d19092ac
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100546791"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210813"
 ---
 # <a name="quickstart-get-started-with-azure-stack-edge-pro-with-gpu"></a>빠른 시작: GPU가 있는 Azure Stack Edge Pro 시작 
 
@@ -37,7 +36,7 @@ ms.locfileid: "100546791"
 
 ## <a name="deployment-steps"></a>배포 단계
 
-1. **설치**: 크로스오버 케이블 또는 USB 이더넷 어댑터를 통해 포트 1을 클라이언트 컴퓨터에 연결합니다. 하나 이상의 1GbE 스위치와 SFP+ 동 케이블을 통해 하나 이상의 데이터용 다른 디바이스 포트(가급적 25GbE)(포트 3에서 포트 6까지)를 인터넷에 연결합니다. 제공된 전원 코드를 전원 공급 장치 및 별도의 배전 콘센트에 연결합니다. 전면 패널에서 전원 단추를 눌러 디바이스를 켭니다.  
+1. **설치**: 크로스오버 케이블 또는 USB 이더넷 어댑터를 통해 포트 1을 클라이언트 컴퓨터에 연결합니다. 데이터용으로 하나 이상의 다른 디바이스 포트(가급적 25GbE)(포트 3에서 포트 6까지)를 SFP+ 구리 케이블을 통해 인터넷에 연결하거나 RJ45 패치 케이블에서 포트 2를 사용합니다. 제공된 전원 코드를 전원 공급 장치 및 별도의 배전 콘센트에 연결합니다. 전면 패널에서 전원 단추를 눌러 디바이스를 켭니다.  
 
     호환 네트워크 케이블 및 스위치를 얻으려면 [Cavium FastlinQ 41000 시리즈 상호 운용성 매트릭스](https://www.marvell.com/documents/xalflardzafh32cfvi0z/) 및 [Mellanox 이중 포트 25G ConnectX-4 채널 네트워크 어댑터 호환 제품](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products)을 참조하세요.
 

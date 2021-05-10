@@ -3,18 +3,18 @@ title: '빠른 시작: REST API를 사용하여 청사진 만들기'
 description: 이 빠른 시작에서는 Azure Blueprints를 사용하여 REST API를 통해 아티팩트를 만들고 정의하고 배포합니다.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: eaf6dbb2ff14106ba8d2798d86a8f093855de85e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ceea54957e52f3b33d2c3fb2af190f15e6c94ec3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98915628"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105558978"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>빠른 시작: REST API로 Azure Blueprint 정의 및 할당
 
 청사진을 만들고 할당하는 방법을 학습하면 공통 패턴 정의를 통해 ARM 템플릿(Azure Resource Manager 템플릿), 정책, 보안 등을 기반으로 재사용이 가능하고 신속하게 배포할 수 있는 구성을 개발할 수 있습니다. 이 자습서에서는 Azure Blueprint를 사용하여 조직 내에서 청사진을 작성, 게시 및 할당하는 것과 관련된 다음과 같은 일반적인 작업을 수행하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 - `Microsoft.Blueprint` 리소스 공급자를 등록합니다. 지침은 [리소스 공급자 및 형식](../../azure-resource-manager/management/resource-providers-and-types.md)을 참조하세요.
@@ -329,7 +329,7 @@ REST API를 사용하여 청사진을 게시하고 나면 구독에 할당할 �
 - `{YourMG}` - 사용자의 관리 그룹 ID로 대체
 - `{subscriptionId}` - 사용자의 구독 ID로 대체
 
-1. Azure Blueprint 서비스 주체에게 대상 구독에서 **소유자** 역할을 제공합니다. AppId는 정적(`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`)이지만 서비스 주체 ID는 테넌트별로 다릅니다. 테넌트에 대한 세부 정보는 다음 REST API를 사용하여 요청할 수 있습니다. 여기에는 권한 부여가 다른 [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md)가 사용됩니다.
+1. Azure Blueprint 서비스 주체에게 대상 구독에서 **소유자** 역할을 제공합니다. AppId는 정적(`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`)이지만 서비스 주체 ID는 테넌트별로 다릅니다. 테넌트에 대한 세부 정보는 다음 REST API를 사용하여 요청할 수 있습니다. 여기에는 권한 부여가 다른 [Azure Active Directory Graph API](/graph/migrate-azure-ad-graph-planning-checklist)가 사용됩니다.
 
    - REST API URI
 
@@ -337,7 +337,7 @@ REST API를 사용하여 청사진을 게시하고 나면 구독에 할당할 �
      GET https://graph.windows.net/{tenantId}/servicePrincipals?api-version=1.6&$filter=appId eq 'f71766dc-90d9-4b7d-bd9d-4499c4331c3f'
      ```
 
-1. 청사진 배포를 구독에 할당하여 실행합니다. **contributors** 및 **owners** 매개 변수에는 역할 할당에 부여될 주체의 objectId 배열이 필요하기 때문에, [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md)를 사용하여 사용자, 그룹 또는 서비스 주체에 대한 **요청 본문** 에 사용될 objectId를 수집합니다.
+1. 청사진 배포를 구독에 할당하여 실행합니다. **contributors** 및 **owners** 매개 변수에는 역할 할당에 부여될 주체의 objectId 배열이 필요하기 때문에, [Azure Active Directory Graph API](/graph/migrate-azure-ad-graph-planning-checklist)를 사용하여 사용자, 그룹 또는 서비스 주체에 대한 **요청 본문** 에 사용될 objectId를 수집합니다.
 
    - REST API URI
 

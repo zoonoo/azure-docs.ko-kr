@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 11/18/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 828f37030ae567cacbaad25849b7ba24c561c20c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3b4b4e227a0bdfc449c73541dec5d13c1c6697bc
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98132769"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313065"
 ---
 # <a name="azure-synapse-analytics-terminology"></a>Azure Synapse Analytics 용어
 
@@ -34,7 +34,7 @@ ms.locfileid: "98132769"
 
 **Synapse SQL** 은 Synapse 작업 영역에서 T-SQL 기반 분석을 수행할 수 있습니다. Synapse SQL에는 전용 및 서버리스 두 개의 소비 모델이 있습니다.  전용 모델의 경우 **전용 SQL 풀** 을 사용합니다. 작업 영역에는 이러한 풀이 얼마든지 있을 수 있습니다. 서버리스 모델을 사용하려면 **서버리스 SQL 풀** 을 사용합니다. 모든 작업 영역에는 다음 풀 중 하나가 있습니다.
 
-Synapse Studio 내에서 **SQL 스크립트** 를 만들고 실행하여 SQL 풀을 사용할 수 있습니다.
+Synapse Studio 내에서 **SQL 스크립트** 를 실행하여 SQL 풀을 사용할 수 있습니다.
 
 ## <a name="apache-spark-for-synapse"></a>Synapse용 Apache Spark
 
@@ -50,7 +50,7 @@ Synapse에는 Spark를 사용하는 두 가지 방법이 있습니다.
 
 * **파이프라인** 은 작업을 함께 수행하는 활동의 논리적 그룹화입니다.
 * **활동** 은 데이터 복사, Notebook 또는 SQL 스크립트 실행과 같은 데이터에 대해 수행할 작업을 파이프라인 내에서 정의합니다.
-* **Data Flows** 는 내부적으로 Synapse Spark를 사용하는 데이터 변환을 수행하기 위한 코드 없는 환경을 제공하는 특정 유형의 작업입니다.
+* **데이터 흐름** 은 내부적으로 Synapse Spark를 사용하는 데이터 변환을 수행하기 위한 코드 없는 환경을 제공하는 특정 유형의 작업입니다.
 * **트리거** - 파이프라인을 실행합니다. 수동 또는 자동으로 실행 가능(일정, 연속 창 또는 이벤트 기반)
 * **통합 데이터 세트** - 작업에서 입력 및 출력으로 사용할 데이터를 단순히 가리키거나 참조하는 데이터의 명명된 보기입니다. 연결된 서비스에 속합니다.
 

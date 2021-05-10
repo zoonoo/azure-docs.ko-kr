@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: a9f8fe10c5ffa787a6c170a29188cba21427b602
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 882a9fb0f8d528ca21cdc8149c60b9d5bdaf1723
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175161"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767098"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>자습서: Azure App Service에서 PostgreSQL을 사용하는 Django 웹앱 배포
 
@@ -160,7 +160,7 @@ az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --
 
 <!-- not all locations support az postgres up -->
 > [!TIP]
-> `-l <location-name>`은 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/) 중 하나로 설정할 수 있습니다. 구독에 사용할 수 있는 지역은 [`az account list-locations`](/cli/azure/account#az-account-list-locations) 명령을 사용하여 가져올 수 있습니다. 프로덕션 앱의 경우 데이터베이스와 앱을 동일한 위치에 배치합니다.
+> `-l <location-name>`은 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/) 중 하나로 설정할 수 있습니다. 구독에 사용할 수 있는 지역은 [`az account list-locations`](/cli/azure/account#az_account_list_locations) 명령을 사용하여 가져올 수 있습니다. 프로덕션 앱의 경우 데이터베이스와 앱을 동일한 위치에 배치합니다.
 
 문제가 있나요? [알려주세요](https://aka.ms/DjangoCLITutorialHelp).
 
@@ -172,7 +172,7 @@ az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --
 
 터미널에서 앱 코드가 포함된 *djangoapp* 리포지토리 폴더에 있는지 확인합니다.
 
-[`az webapp up`](/cli/azure/webapp#az-webapp-up) 명령을 사용하여 App Service 앱(호스트 프로세스)을 만듭니다.
+[`az webapp up`](/cli/azure/webapp#az_webapp_up) 명령을 사용하여 App Service 앱(호스트 프로세스)을 만듭니다.
 
 ```azurecli
 az webapp up --resource-group DjangoPostgres-tutorial-rg --location westus2 --plan DjangoPostgres-tutorial-plan --sku B1 --name <app-name>
@@ -205,7 +205,7 @@ az webapp up --resource-group DjangoPostgres-tutorial-rg --location westus2 --pl
 
 앱 코드는 `DBHOST`, `DBNAME`, `DBUSER` 및 `DBPASS`라는 네 가지 환경 변수에서 데이터베이스 정보를 찾을 수 있어야 합니다.
 
-App Service에서 환경 변수를 설정하려면 다음 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) 명령을 사용하여 "앱 설정"을 만듭니다.
+App Service에서 환경 변수를 설정하려면 다음 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) 명령을 사용하여 "앱 설정"을 만듭니다.
 
 ```azurecli
 az webapp config appsettings set --settings DBHOST="<postgres-server-name>" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
@@ -365,7 +365,7 @@ python manage.py runserver
 `polls/models.py`에서 `choice_text`로 시작하는 줄을 찾고, `max_length` 매개 변수를 100으로 변경합니다.
 
 ```python
-# Find this lie of code and set max_length to 100 instead of 200
+# Find this line of code and set max_length to 100 instead of 200
 choice_text = models.CharField(max_length=100)
 ```
 

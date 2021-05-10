@@ -6,12 +6,12 @@ ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
 author: fvneerden
-ms.openlocfilehash: 20a22d11973f5bb01e2c1345538d5d94ce311dc7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 07a7daf6363f0e528f84635ed6713ac462f89ca5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103465762"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105562854"
 ---
 # <a name="tutorial-analyze-live-video-by-using-intel-openvino-dl-streamer--edge-ai-extension"></a>자습서: Intel OpenVINO™ DL Streamer – Edge AI Extension을 사용하여 라이브 비디오 분석 
 
@@ -66,7 +66,7 @@ gRPC 확장 프로세서 노드는 디코딩된 비디오 프레임을 입력으
 
 OpenVINO™ DL Streamer - Edge AI Extension 모듈은 OpenVINO™ DL Streamer를 사용하여 만든 비디오 분석 파이프라인을 제공하는 Intel VA Serving(Video Analytics Serving) 기반의 마이크로서비스입니다. 개발자는 디코딩된 비디오 프레임을 AI 확장 모듈로 보낼 수 있습니다. 그러면 이 모듈에서는 개체를 검색, 분류 또는 추적하고 그 결과를 반환합니다. AI 확장 모듈은 Microsoft에서 제공하는 IoT Edge의 Live Video Analytics 같은 비디오 분석 플랫폼과 호환되는 gRPC API를 노출합니다. 
 
-복잡한 고성능 라이브 비디오 분석 솔루션을 구축하려면 IoT Edge 모듈의 Live Video Analytics가 에지에서 규모를 활용할 수 있는 강력한 유추 엔진과 쌍을 이뤄야 합니다. 이 자습서에서 유추 요청은 IoT Edge의 Live Video Analytics와 함께 작동하도록 설계된 Edge 모듈인 [Intel OpenVINO™ DL Streamer – Edge AI Extension](https://aka.ms/lva-intel-openvino-dl-streamer)으로 전송됩니다. 
+복잡한 고성능 라이브 비디오 분석 솔루션을 구축하려면 IoT Edge 모듈의 Live Video Analytics가 에지에서 규모를 활용할 수 있는 강력한 유추 엔진과 쌍을 이뤄야 합니다. 이 자습서에서 유추 요청은 IoT Edge의 Live Video Analytics와 함께 작동하도록 설계된 Edge 모듈인 [Intel OpenVINO™ DL Streamer – Edge AI Extension]()으로 전송됩니다. 
 
 이 유추 서버의 초기 릴리스에서는 다음 [모델](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options)에 액세스할 수 있습니다.
 
@@ -74,7 +74,7 @@ OpenVINO™ DL Streamer - Edge AI Extension 모듈은 OpenVINO™ DL Streamer를
 
 - object_classification for vehicle_attributes_recognition ![차량 개체 분류](./media/use-intel-openvino-tutorial/object-classification.png)
 
-- object_classification for vehicle_attributes_recognition ![사람 자전거 개체 추적](./media/use-intel-openvino-tutorial/object-tracking.png)
+- object_tracking for person_vehicle_bike_tracking ![사람 차량 개체 추적](./media/use-intel-openvino-tutorial/object-tracking.png)
 
 미리 로드된 개체 감지, 개체 분류 및 개체 추적 파이프라인을 사용하여 빠르게 시작합니다. 뿐만 아니라 미리 로드된 [person-vehicle-bike-detection-crossroad-0078](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/person-vehicle-bike-detection-crossroad-0078/description/person-vehicle-bike-detection-crossroad-0078.md) 및 [vehicle-attributes-recognition-barrier-0039 모델](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/vehicle-attributes-recognition-barrier-0039/description/vehicle-attributes-recognition-barrier-0039.md)이 함께 제공됩니다.
 
@@ -254,7 +254,7 @@ OpenVINO™ DL Streamer - Edge AI Extension 모듈은 OpenVINO™ DL Streamer를
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:
 {
-  "sdp": "SDP:\nv=0\r\no=- 1612432131600584 1 IN IP4 172.18.0.6\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/homes_00425.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.08.19\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-214.166\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/homes_00425.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=64001F;sprop-parameter-sets=Z2QAH6zZQFAFuwFsgAAAAwCAAAAeB4wYyw==,aOvhEsiw\r\na=control:track1\r\n"
+  "sdp&quot;: &quot;SDP:\nv=0\r\no=- 1612432131600584 1 IN IP4 172.18.0.6\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/homes_00425.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.08.19\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-214.166\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/homes_00425.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=64001F;sprop-parameter-sets=Z2QAH6zZQFAFuwFsgAAAAwCAAAAeB4wYyw==,aOvhEsiw\r\na=control:track1\r\n"
 }
 ```
 
@@ -304,7 +304,7 @@ gRPC 확장 프로세서 노드는 Intel OpenVINO™ DL Streamer – Edge AI Ext
           "w": 0.48403296,
           "h": 0.94352424
         },
-        "id": "1"
+        "id&quot;: &quot;1"
       }
     }
 }

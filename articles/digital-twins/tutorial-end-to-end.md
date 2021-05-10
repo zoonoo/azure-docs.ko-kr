@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: aec60218774f3f8e293a5e5ab8c03707d117c2a0
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: f1653158f7a181ad2d61bc726ba7765eab934341
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102634977"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107468"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>자습서: 엔드투엔드 솔루션 빌드
 
@@ -121,35 +121,51 @@ _**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창으로 돌아�
 
 [!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 
-함수 앱이 Azure Digital Twins에 액세스할 수 있으려면 Azure Digital Twins 인스턴스에 액세스할 수 있는 권한이 있는 시스템 관리 ID가 있어야 합니다. 이는 다음에 설정하게 됩니다.
+함수 앱이 Azure Digital Twins에 액세스할 수 있으려면 Azure Digital Twins 인스턴스 및 인스턴스의 호스트 이름에 액세스할 수 있는 권한이 있어야 합니다. 다음을 구성합니다.
 
-### <a name="assign-permissions-to-the-function-app"></a>함수 앱에 사용 권한 할당
+### <a name="configure-permissions-for-the-function-app"></a>함수 앱에 대한 권한 구성
 
-함수 앱이 Azure Digital Twins에 액세스할 수 있게 다음 단계에서는 앱 설정을 구성하고, 앱에 시스템 관리형 Azure AD ID를 할당하고, 이 ID를 Azure Digital Twins 인스턴스의 *Azure Digital Twins 데이터 소유자* 역할에 부여합니다. 이 역할은 인스턴스에서 여러 데이터 평면 활동을 수행하려는 모든 사용자 또는 함수에 필요합니다. 보안 및 역할 할당에 대해 [*개념: Azure Digital Twins 솔루션 보안*](concepts-security.md)에서 자세히 알아보세요.
+Azure Digital Twins 인스턴스에 액세스하기 위해 함수 앱에 대해 설정해야 하는 두 가지 설정이 있습니다. 이러한 작업은 모두 [Azure Cloud Shell](https://shell.azure.com)의 명령을 통해 수행할 수 있습니다. 
 
-Azure Cloud Shell에서 다음 명령을 사용하여 함수 앱에서 Azure Digital Twins 인스턴스를 참조하는 데 사용할 애플리케이션 설정을 지정합니다. 리소스의 세부 정보를 자리 표시자에 입력합니다(Azure Digital Twins 인스턴스 URL은 *https://* 로 시작하는 호스트 이름임).
+#### <a name="assign-access-role"></a>액세스 역할 할당
+
+첫 번째 설정은 Azure Digital Twins 인스턴스의 **Azure Digital Twins 데이터 소유자** 역할을 함수 앱에 부여합니다. 이 역할은 인스턴스에서 여러 데이터 평면 활동을 수행하려는 모든 사용자 또는 함수에 필요합니다. 보안 및 역할 할당에 대해 [*개념: Azure Digital Twins 솔루션 보안*](concepts-security.md)에서 자세히 알아보세요. 
+
+1. 다음 명령을 사용하여 함수에 대한 시스템 관리 ID의 세부 정보를 확인합니다. 출력에서 **principalId** 필드를 기록해 둡니다.
+
+    ```azurecli-interactive 
+    az functionapp identity show -g <your-resource-group> -n <your-App-Service-(function-app)-name> 
+    ```
+
+    >[!NOTE]
+    > ID의 세부 정보를 표시하는 대신 결과가 비어 있는 경우 다음 명령을 사용하여 함수에 대한 시스템 관리 ID를 새로 만듭니다.
+    > 
+    >```azurecli-interactive    
+    >az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>  
+    >```
+    >
+    > 그러면 출력에는 다음 단계에 필요한 **principalId** 값을 포함하여 ID의 세부 정보가 표시됩니다. 
+
+1. 다음 명령의 **principalId** 값을 사용하여 함수 앱의 ID를 Azure Digital Twins 인스턴스의 **Azure Digital Twins 데이터 소유자** 역할에 할당합니다.
+
+    ```azurecli-interactive 
+    az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
+    ```
+
+이 명령을 실행하면 사용자가 만든 역할 할당에 대한 정보가 출력됩니다. 이제 함수 앱에는 Azure Digital Twins 인스턴스의 데이터에 액세스할 수 있는 권한이 있습니다.
+
+#### <a name="configure-application-settings"></a>애플리케이션 설정 구성
+
+두 번째 설정은 Azure Digital Twins 인스턴스의 URL을 사용하여 함수에 대한 **환경 변수** 를 만듭니다. 함수 코드는 이를 사용하여 인스턴스를 참조합니다. 환경 변수에 대한 자세한 내용은 [*함수 앱 관리*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal)를 참조하세요. 
+
+아래 명령을 실행하여 자리 표시자를 리소스 세부 정보로 채웁니다.
 
 ```azurecli-interactive
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
 ```
 
 Azure 함수에 대한 설정 목록이 출력됩니다. 여기에는 이제 **ADT_SERVICE_URL** 이라는 항목을 포함합니다.
 
-다음 명령을 사용하여 시스템 관리 ID를 만듭니다. 출력에서 **principalId** 필드를 찾습니다.
-
-```azurecli-interactive
-az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
-```
-
-출력의 **principalId** 값을 다음 명령에 사용하여 함수 앱의 ID를 Azure Digital Twins 인스턴스의 *Azure Digital Twins 데이터 소유자* 역할에 할당합니다.
-
-[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
-
-```azurecli-interactive
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
-```
-
-이 명령을 실행하면 사용자가 만든 역할 할당에 대한 정보가 출력됩니다. 이제 함수 앱에는 Azure Digital Twins 인스턴스에 액세스할 수 있는 사용 권한이 있습니다.
 
 ## <a name="process-simulated-telemetry-from-an-iot-hub-device"></a>IoT Hub 디바이스에서 시뮬레이션된 원격 분석 처리
 
@@ -410,7 +426,7 @@ ObserveProperties thermostat67 Temperature room21 Temperature
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-* **이 문서에서 설정한 Azure Digital Twines 인스턴스를 계속 사용하지만 해당 모델, 트윈 및 관계를 일부 또는 모두 지우려는 경우** [Azure Cloud Shell](https://shell.azure.com) 창에서 [az dt](/cli/azure/ext/azure-iot/dt) CLI 명령을 사용하여 제거할 요소를 삭제할 수 있습니다.
+* **이 문서에서 설정한 Azure Digital Twines 인스턴스를 계속 사용하지만 해당 모델, 트윈 및 관계를 일부 또는 모두 지우려는 경우** [Azure Cloud Shell](https://shell.azure.com) 창에서 [az dt](/cli/azure/dt) CLI 명령을 사용하여 제거할 요소를 삭제할 수 있습니다.
 
     이 옵션은 이 자습서에서 만든 다른 Azure 리소스(IoT Hub, Azure Functions 앱 등)를 제거하지 않습니다. 각 리소스 유형에 적절한 [dt 명령](/cli/azure/reference-index)을 사용하여 이를 개별적으로 삭제할 수 있습니다.
 

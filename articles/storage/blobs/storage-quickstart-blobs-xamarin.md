@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dab938a526aa89f6fe5a014e10869bd8da8b475d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c6b502bbc56d6c9521ec736150fbc0046ff78125
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98802358"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642481"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>빠른 시작: Xamarin이 포함된 Azure Blob Storage 클라이언트 라이브러리 v12
 
@@ -40,7 +40,7 @@ Xamarin이 포함된 Azure Blob Storage 클라이언트 라이브러리 v12를 �
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * Azure Storage 계정 - [스토리지 계정 만들기](../common/storage-account-create.md)
-* [Mobile Development for .NET 워크로드](/xamarin/get-started/installation/?pivots=windows)가 설치된 Visual Studio 또는 [Mac용 Visual Studio](/visualstudio/mac/installation?view=vsmac-2019)
+* [Mobile Development for .NET 워크로드](/xamarin/get-started/installation/?pivots=windows)가 설치된 Visual Studio 또는 [Mac용 Visual Studio](/visualstudio/mac/installation?view=vsmac-2019&preserve-view=true)
 
 ## <a name="setting-up"></a>설치
     
@@ -196,7 +196,7 @@ async void List_Clicked(object sender, EventArgs e)
 
 ### <a name="download-blobs"></a>Blob 다운로드
 
-[DownloadAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadasync) 메서드를 호출하여 이전에 만든 blob을 다운로드합니다. 예제 코드는 텍스트를 표시할 수 있도록 BLOB의 `Stream` 표현을 `MemoryStream`에 먼저 복사한 다음, `StreamReader`에 복사합니다.
+[DownloadToAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync) 메서드를 호출하여 이전에 만든 blob을 다운로드합니다. 예제 코드는 텍스트를 표시할 수 있도록 BLOB의 `Stream` 표현을 `MemoryStream`에 먼저 복사한 다음, `StreamReader`에 복사합니다.
 
 *MainPage.xaml.cs* 파일에 다음 코드를 추가합니다.
 

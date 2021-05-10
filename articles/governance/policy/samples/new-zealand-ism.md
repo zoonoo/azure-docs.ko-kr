@@ -1,15 +1,15 @@
 ---
 title: 뉴질랜드 ISM 제한됨에 대한 규정 준수 세부 정보
 description: 뉴질랜드 ISM 제한됨 규정 준수 기본 제공 이니셔티브의 세부 정보. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
-ms.date: 03/24/2021
+ms.date: 04/14/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: e7d5f298864b0fdc4d3a8856a192d6184d3abe19
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: adcf818cc6a91f04d5a1ff3f772a1a8d6371aa30
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105034421"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107506213"
 ---
 # <a name="details-of-the-new-zealand-ism-restricted-regulatory-compliance-built-in-initiative"></a>뉴질랜드 ISM 제한됨 규정 준수 기본 제공 이니셔티브의 세부 정보
 

@@ -1,18 +1,22 @@
 ---
-title: Defender IoT 마이크로 에이전트 모듈 쌍 생성(미리 보기)
-description: 새 디바이스의 개별 DefenderIotMicroAgent 모듈 쌍을 만드는 방법에 대해 알아봅니다.
+title: '빠른 시작: Defender IoT 마이크로 에이전트 모듈 쌍 생성(미리 보기)'
+description: 이 빠른 시작에서는 새 디바이스의 개별 DefenderIotMicroAgent 모듈 쌍을 만드는 방법에 대해 알아봅니다.
 ms.date: 1/20/2021
 ms.topic: quickstart
-ms.openlocfilehash: 5036eefbd77a22d492f6ce7d3c7d15f50a081490
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: e1bcaa76e9bfbe417bfd0d4b539b8e0c7ff95c7b
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104781061"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384514"
 ---
-# <a name="create-a-defender-iot-micro-agent-module-twin-preview"></a>Defender IoT 마이크로 에이전트 모듈 쌍 생성(미리 보기)
+# <a name="quickstart-create-a-defender-iot-micro-agent-module-twin-preview"></a>빠른 시작: Defender IoT 마이크로 에이전트 모듈 쌍 생성(미리 보기)
 
 새 디바이스의 개별  **DefenderIotMicroAgent** 모듈 쌍을 만들 수 있습니다. IoT Hub의 모든 디바이스에 대한 모듈 쌍을 일괄적으로 만들 수도 있습니다. 
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+- 없음
 
 ## <a name="device-twins"></a>디바이스 쌍 
 
@@ -70,4 +74,5 @@ Defender for IoT는 모듈 쌍 메커니즘을 사용하고 각 디바이스에 
 
 ## <a name="next-steps"></a>다음 단계 
 
-다음 문서로 이동하여 [보안 권장 사항을 조사](quickstart-investigate-security-recommendations.md)하는 방법을 알아봅니다.
+> [!div class="nextstepaction"]
+> [보안 권장 사항 조사](quickstart-investigate-security-recommendations.md)

@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: cognitive-services
 manager: nitinme
@@ -9,10 +9,10 @@ ms.subservice: language-understanding
 ms.date: 02/14/2020
 ms.topic: include
 ms.openlocfilehash: 5eb2517b4b71b61dd70406f345c005d007d9e3ef
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "91535963"
 ---
 pattern.any 엔터티를 사용하면 엔터티의 표현이 발화의 나머지 부분에서 엔터티의 끝을 확인하기 어렵게 만드는 자유 형식 데이터를 찾을 수 있습니다.

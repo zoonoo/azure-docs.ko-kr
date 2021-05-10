@@ -7,18 +7,18 @@ ms.author: andyriv
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0128d0de4f078b62bc9571c8758d80cb26585354
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e9749dfd7b28551a4fc2e7c6ba70ba9cce4e5a69
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102615383"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307302"
 ---
 # <a name="microsoft-connected-cache-preview-deployment-scenario-sample-two-level-nested-azure-iot-edge-gateway-with-outbound-unauthenticated-proxy"></a>Microsoft 연결된 캐시 미리 보기 배포 시나리오 샘플: 인증되지 않은 아웃바운드 프록시를 사용하는 2수준 중첩 Azure IoT Edge 게이트웨이
 
 아래 다이어그램을 보면 이 시나리오에는 Azure IoT Edge 게이트웨이 및 다운스트림 Azure IoT Edge 디바이스, 다른 Azure IoT Edge 게이트웨이의 자식인 Azure IoT Edge 게이트웨이, IT DMZ의 프록시 서버가 하나씩 있습니다. 다음은 Azure Portal UX에서 Azure IoT Edge 게이트웨이에 배포된 두 MCC 모듈 모두에 대해 설정되는 Microsoft 연결된 캐시 환경 변수의 예입니다. 표시된 예제에서는 2수준의 Azure IoT Edge 게이트웨이를 구성하는 방법을 보여 주지만 Microsoft 연결된 캐시가 지원할 업스트림 호스트의 깊이에는 제한이 없습니다. MCC 컨테이너 만들기 옵션은 이전 예제와 차이가 없습니다.
 
-Azure IoT Edge 게이트웨이의 계층화된 배포를 구성하는 방법에 대한 자세한 내용은 [다운스트림 IoT Edge 디바이스 연결 - Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-connect-downstream-iot-edge-device?view=iotedge-2020-11&tabs=azure-portal&preserve-view=true) 설명서를 참조하세요. 또한 Azure IoT Edge, Microsoft 연결된 캐시 및 사용자 지정 모듈을 배포할 때 모든 모듈은 동일한 컨테이너 레지스트리에 있어야 합니다.
+Azure IoT Edge 게이트웨이의 계층화된 배포를 구성하는 방법에 대한 자세한 내용은 [다운스트림 IoT Edge 디바이스 연결 - Azure IoT Edge](../iot-edge/how-to-connect-downstream-iot-edge-device.md?preserve-view=true&tabs=azure-portal&view=iotedge-2020-11) 설명서를 참조하세요. 또한 Azure IoT Edge, Microsoft 연결된 캐시 및 사용자 지정 모듈을 배포할 때 모든 모듈은 동일한 컨테이너 레지스트리에 있어야 합니다.
 
 아래 다이어그램에서는 CDN 리소스에 직접 액세스할 수 있는 한 Azure IoT Edge 게이트웨이가 Raspberry Pi 같은 Azure IoT 리프 디바이스의 부모 역할을 하는 다른 Azure IoT Edge 게이트웨이의 부모 역할을 하는 시나리오를 설명합니다. Azure IoT Edge 게이트웨이 부모만 인터넷으로 CDN 리소스에 연결되고 Azure IoT Edge 자식 및 Azure IoT 디바이스는 모두 인터넷에서 격리됩니다. 
 
@@ -70,7 +70,7 @@ Azure IoT Edge 게이트웨이의 계층화된 배포를 구성하는 방법에 
 ## <a name="child-gateway-configuration"></a>자식 게이트웨이 구성
 
 >[!Note]
->사용자 고유의 프라이빗 레지스트리의 구성에 사용된 컨테이너를 복제한 경우 모듈 배포에서 config.toml 설정 및 런타임 설정을 수정해야 합니다. 자세한 내용은 [자습서 -IoT Edge 디바이스 계층 구조 만들기 - Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11&tabs=azure-portal&preserve-view=true#deploy-modules-to-the-lower-layer-device)를 참조하세요.
+>사용자 고유의 프라이빗 레지스트리의 구성에 사용된 컨테이너를 복제한 경우 모듈 배포에서 config.toml 설정 및 런타임 설정을 수정해야 합니다. 자세한 내용은 [다운스트림 IoT Edge 디바이스 연결 - Azure IoT Edge](../iot-edge/how-to-connect-downstream-iot-edge-device.md?preserve-view=true&tabs=azure-portal&view=iotedge-2020-11#deploy-modules-to-lower-layer-devices)를 참조하세요.
 
 1. 아래 예제에 표시된 대로 Edge 에이전트의 이미지 경로를 수정합니다.
 

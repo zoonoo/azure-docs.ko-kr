@@ -5,9 +5,8 @@ author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/09/2018
+ms.date: 03/30/2021
 ms.author: cynthn
 ms.custom:
 - mvc
@@ -15,18 +14,18 @@ ms.custom:
 - seo-javascript-october2019
 - seo-python-october2019
 - devx-track-azurecli
-ms.openlocfilehash: fd411255247e6a37b857ac11c1b0abbd4558d02a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 3e8c1a06244c46f5789506e8a77d410f5493bbf3
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102549773"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058581"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Linux 가상 머신 만들기
 
 이 빠른 시작에서는 Azure CLI(명령줄 인터페이스)를 사용하여 Azure에서 Linux VM(가상 머신)을 배포하는 방법을 보여줍니다. 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다.
 
-이 자습서에서는 Ubuntu 16.04 LTS를 설치합니다. 작동 중인 VM을 보려면 SSH를 사용하여 VM에 연결하고 NGINX 웹 서버를 설치합니다.
+이 자습서에서는 최신 Ubuntu LTS 이미지를 설치합니다. 작동 중인 VM을 보려면 SSH를 사용하여 VM에 연결하고 NGINX 웹 서버를 설치합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -88,10 +87,10 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="connect-to-virtual-machine"></a>가상 머신에 연결
 
-정상적으로 VM에 SSH를 수행합니다. VM에서 이전 출력에 표시된 것과 같이 **publicIpAddress** 를 VM의 공용 IP 주소로 바꿉니다.
+정상적으로 VM에 SSH를 수행합니다. 예제의 IP 주소를 이전 출력에 표시된 대로 VM의 공용 IP 주소로 바꿉니다.
 
 ```bash
-ssh azureuser@publicIpAddress
+ssh azureuser@40.68.254.142
 ```
 
 ## <a name="install-web-server"></a>웹 서버 설치

@@ -16,10 +16,10 @@ ms.date: 08/30/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
 ms.openlocfilehash: feab48f32396bcc89621433930c9a9f4689d8286
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97355446"
 ---
 # <a name="tutorial-manually-configure-an-availability-group-sql-server-on-azure-vms"></a>자습서: 가용성 그룹(Azure VM의 SQL Server) 수동 구성

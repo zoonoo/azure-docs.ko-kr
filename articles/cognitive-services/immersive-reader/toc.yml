@@ -2,7 +2,7 @@
   href: index.yml
 - name: 개요
   items:
-    - name: 몰입형 리더 개요
+    - name: 몰입형 판독기란?
       href: Overview.md
     - name: 언어 지원
       href: language-support.md
@@ -10,7 +10,7 @@
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/'
     - name: 릴리스 정보
       href: release-notes.md
-- name: 몰입형 리더 빠른 시작
+- name: 빠른 시작
   href: ./quickstarts/client-libraries.md
 - name: 사용 방법
   items:
@@ -36,14 +36,24 @@
       href: how-to-store-user-preferences.md
     - name: 여러 몰입형 판독기 리소스 사용
       href: how-to-multiple-resources.md
+    - name: 엔터프라이즈 준비
+      items:
+        - name: 가상 네트워크 설정
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/immersive-reader/context/context
+        - name: Azure AD 인증 사용
+          href: ../authentication.md?context=/azure/cognitive-services/immersive-reader/context/context
 - name: 참조
   items:
     - name: JavaScript SDK
       href: reference.md
 - name: 리소스
   items:
-    - name: 지역 지원
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: 엔터프라이즈 준비
+      items:
+        - name: 지역 지원
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: 규정 준수 및 인증
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 지원 및 도움말 옵션
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/immersive-reader/context/context
     - name: Azure 업데이트

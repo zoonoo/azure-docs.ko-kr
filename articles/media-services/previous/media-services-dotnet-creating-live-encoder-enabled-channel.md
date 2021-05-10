@@ -17,10 +17,10 @@ ms.author: anilmur
 ms.reviewer: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7bf00abfaa56453303fa85e3062a7fafc7e0ac56
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103014172"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Azure Media Services를 사용하여 라이브 스트리밍을 수행하여 .NET으로 다중 비트 스트림을 만드는 방법
@@ -110,7 +110,7 @@ ms.locfileid: "103014172"
 
 ## <a name="set-up-for-development-with-media-services-sdk-for-net"></a>.NET용 Media Services SDK를 사용한 개발을 위한 설정
 
-개발 환경을 설정 하 고 [.net을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
+개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 
 ## <a name="code-example"></a>코드 예제
 

@@ -9,12 +9,12 @@ ms.date: 10/16/2020
 ms.custom: subject-armqs, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7437a5208f94b435576b8a38dc65a6e798303a72
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bce6bfb61eb59d1fa66c550a133ac8b6f8d7f2c5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179088"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769008"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 App Service 앱 만들기
 
@@ -133,7 +133,7 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 <ul>
 <li>기본 항목 만들기 <abbr title="한 단위로 관리할 수 있는 관련 Azure 리소스에 대한 논리적 컨테이너입니다.">리소스 그룹</abbr>.</li>
 <li>기본 항목 만들기 <abbr title="앱을 호스팅하는 웹 서버 팜의 위치, 크기 및 기능을 지정하는 계획.">App Service 계획</abbr>.</li>
-<li><a href="/cli/azure/webapp#az-webapp-create">만들기 <abbr title="앱 코드, DNS 호스트 이름, 인증서 및 관련 리소스를 포함하는 웹앱의 표현.">App Service 앱</abbr>지정한 이름의 </a>.</li>
+<li><a href="/cli/azure/webapp#az_webapp_create">만들기 <abbr title="앱 코드, DNS 호스트 이름, 인증서 및 관련 리소스를 포함하는 웹앱의 표현.">App Service 앱</abbr>지정한 이름의 </a>.</li>
 </ul>
 </details>
 
@@ -191,4 +191,3 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 - [MySQL을 사용하는 PHP](tutorial-php-mysql-app.md)
 - [Java를 사용하여 Azure SQL 데이터베이스에 연결](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
 - [사용자 지정 도메인 매핑](app-service-web-tutorial-custom-domain-uiex.md)
-

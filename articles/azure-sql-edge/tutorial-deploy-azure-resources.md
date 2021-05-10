@@ -10,17 +10,17 @@ ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: bc2f802a902212633fdbc081d33a51407d374e36
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99821925"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>자습서를 위한 소프트웨어 설치 및 리소스 설정
 
 세 부분으로 구성된 이 자습서에서는 실리카의 비율로 철광석 불순물을 예측하는 기계 학습 모델을 만든 다음, Azure SQL Edge에 모델을 배포합니다. 1부에서는 필요한 소프트웨어를 설치하고 Azure 리소스를 배포합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 1. Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 2. Visual Studio 2019 설치 

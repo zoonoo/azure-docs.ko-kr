@@ -4,7 +4,6 @@ description: 가상 네트워크의 리소스에 대한 Azure Network Watcher의
 services: network-watcher
 documentationcenter: na
 author: damendo
-Customer intent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
 ms.service: network-watcher
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 9b19beae43f1d4a5b0788d9d7662828355c3dd2c
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 5e032eaa5138f63122ed019441d29ad7eafca2a2
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895889"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055895"
 ---
 # <a name="what-is-azure-network-watcher"></a>Azure Network Watcher란?
 
@@ -55,7 +54,7 @@ VM을 배포하는 경우, Azure는 VM에 대한 트래픽을 허용하거나 �
 
 가상 네트워크를 만들 때 Azure는 네트워크 트래픽에 대한 여러 기본 아웃바운드 경로를 만듭니다. 가상 네트워크에 배포된 VM 같은 모든 리소스에서 시작되는 아웃바운드 트래픽은 Azure의 기본 경로를 기반으로 경로 설정됩니다. Azure의 기본 경로를 재정의하거나 추가 경로를 만들 수 있습니다. VM이 특정 경로 때문에 다른 리소스와 더 이상 통신할 수 없다는 것을 알 수 있습니다. *다음 홉* 기능을 사용하면 원본 및 대상 IPv4 주소를 지정할 수 있습니다. 그러면 다음 홉이 통신을 테스트하고 트래픽을 경로 설정하는 데 사용한 다음 홉 형식이 무엇인지 알립니다. 이때 경로를 제거, 변경 또는 추가하거나 경로 설정 문제를 해결할 수 있습니다. [다음 홉](diagnose-vm-network-routing-problem.md) 기능에 대해 자세히 알아봅니다.
 
-### <a name="diagnose-outbound-connections-from-a-vm"></a><a name="connection-troubleshoot"></a>VM에서의 아웃바운드 연결 진단
+### <a name="diagnose-outbound-connections-from-a-vm"></a><a name="connection-troubleshoot"></a>VM에서 아웃바운드 연결 진단
 
 *연결 문제 해결* 기능을 사용하면 VM과 다른 VM, FQDN, URI 또는 IPv4 주소 간의 연결을 테스트할 수 있습니다. 이 테스트에서는 [연결 모니터](#connection-monitor) 기능을 사용할 때와 반환되는 것과 유사한 정보를 반환하지만 연결 모니터처럼 시간의 경과에 따라 모니터링하지 않고 어느 한 시점에 연결을 테스트합니다. [연결 문제 해결](network-watcher-connectivity-overview.md)을 사용하여 연결 문제를 해결하는 방법에 대해 자세히 알아봅니다.
 
@@ -98,7 +97,7 @@ Network Watcher에 대해 Azure 지역 간 및 인터넷 서비스 공급자 간
 네트워크 보안 그룹, 공용 IP 주소, 부하 분산 장치, 가상 네트워크 게이트웨이 및 애플리케이션 게이트웨이 등 Azure 네트워킹 리소스에 대한 진단을 기록할 수 있습니다. *진단 로그* 기능은 기존 네트워크 리소스에 대해 진단 로그를 생성하는 네트워크 리소스 진단 로그를 활성화 및 비활성화하는 단일 인터페이스를 제공합니다. Microsoft Power BI 및 Azure Monitor 로그와 같은 도구를 사용하여 진단 로그를 볼 수 있습니다. Azure 네트워크 진단 로그의 분석에 대해 자세히 알아보려면 [Azure Monitor 로그의 Azure 네트워크 솔루션](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)을 참조하세요.
 
 ## <a name="network-watcher-automatic-enablement"></a>Network Watcher 자동 사용
-구독에서 가상 네트워크를 만들거나 업데이트하면 가상 네트워크 지역에서 Network Watcher가 자동으로 사용하도록 설정됩니다. Network Watcher가 자동으로 사용하도록 설정되어도 리소스에 영향을 주지 않으며 관련된 요금도 없습니다. 자세한 내용은 [Network Watcher 만들기](network-watcher-create.md)를 참조하세요.
+구독에서 가상 네트워크를 만들거나 업데이트하면 가상 네트워크 지역에서 Network Watcher가 자동으로 사용하도록 설정됩니다. Network Watcher가 자동으로 사용되어도 리소스에 영향을 주지 않으며 청구되는 관련 요금도 없습니다. 자세한 내용은 [Network Watcher 만들기](network-watcher-create.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

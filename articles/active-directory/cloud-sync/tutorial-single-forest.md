@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a93ce1c4274f63a863880e932b247726639e5cd9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a3bc9378539e6a7f98e34d0a149848d0e892c224
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98612113"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306095"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>자습서: 단일 포리스트를 단일 Azure AD 테넌트와 통합
 
@@ -125,13 +125,13 @@ Azure에서 에이전트가 표시되는지 확인하려면 다음 단계를 수
 3. **관리** 에서 **사용자** 를 선택합니다.
 4. 새 사용자가 테넌트에 표시되는지 확인</br>
 
-## <a name="test-signing-in-with-one-of-our-users"></a>사용자 중 한 명으로 로그인 테스트
+## <a name="test-signing-in-with-one-of-your-users"></a>사용자 중 한 명으로 로그인 테스트
 
 1. [https://myapps.microsoft.com](https://myapps.microsoft.com)으로 이동합니다.
-2. 새 테넌트에 생성된 사용자 계정으로 로그인합니다.  user@domain.onmicrosoft.com 형식을 사용하여 로그인해야 합니다. 사용자가 온-프레미스 로그인에 사용하는 것과 동일한 암호를 사용합니다.</br>
+2. 테넌트에 생성된 사용자 계정으로 로그인합니다.  user@domain.onmicrosoft.com 형식을 사용하여 로그인해야 합니다. 사용자가 온-프레미스 로그인에 사용하는 것과 동일한 암호를 사용합니다.</br>
    ![Verify](media/tutorial-single-forest/verify-1.png)</br>
 
-Azure에 제공되는 기능을 테스트하고 익히는 데 사용할 수 있는 하이브리드 ID 환경이 성공적으로 설정되었습니다.
+이제 Azure AD Connect 클라우드 동기화를 사용하여 하이브리드 ID 환경을 성공적으로 구성했습니다.
 
 
 ## <a name="next-steps"></a>다음 단계 

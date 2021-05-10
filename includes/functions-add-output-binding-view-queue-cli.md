@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: 894a89126d1ee3ed909134f3e0dd914166568654
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 921127ffdd35007cc3fa2eaaa95cdb3fac8bbe15
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90606497"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782289"
 ---
 큐는 [Azure Portal](../articles/storage/queues/storage-quickstart-queues-portal.md) 또는 [Microsoft Azure Storage Explorer](https://storageexplorer.com/)에서 볼 수 있습니다. 또한 다음 단계에 설명된 대로 Azure CLI에서 큐를 볼 수도 있습니다.
 
@@ -35,13 +35,13 @@ ms.locfileid: "90606497"
     
     ---
     
-1. (선택 사항) [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) 명령을 사용하여 계정의 Storage 큐를 봅니다. 이 명령의 출력에는 함수에서 첫 번째 메시지를 해당 큐에 쓸 때 만들어진 `outqueue`라는 이름의 큐가 포함되어야 합니다.
+1. (선택 사항) [`az storage queue list`](/cli/azure/storage/queue#az_storage_queue_list) 명령을 사용하여 계정의 Storage 큐를 봅니다. 이 명령의 출력에는 함수에서 첫 번째 메시지를 해당 큐에 쓸 때 만들어진 `outqueue`라는 이름의 큐가 포함되어야 합니다.
     
     ```azurecli
     az storage queue list --output tsv
     ```
 
-1. [`az storage message get`](/cli/azure/storage/message#az-storage-message-get) 명령을 사용하여 이 큐의 메시지를 읽습니다. 이 메시지는 이전에 함수를 테스트할 때 사용한 이름이어야 합니다. 명령은 큐에서 첫 번째 메시지를 읽고 제거합니다. 
+1. [`az storage message get`](/cli/azure/storage/message#az_storage_message_get) 명령을 사용하여 이 큐의 메시지를 읽습니다. 이 메시지는 이전에 함수를 테스트할 때 사용한 이름이어야 합니다. 명령은 큐에서 첫 번째 메시지를 읽고 제거합니다. 
 
     # <a name="bash"></a>[bash](#tab/bash)
     

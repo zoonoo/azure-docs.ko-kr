@@ -6,12 +6,12 @@ ms.author: timlt
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 02/15/2021
-ms.openlocfilehash: bc8317e3402fa0185186c06ed1f89e062e99fd5e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 536b9092a7bddd353b58874e7aa97291839bafcc
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100654804"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589536"
 ---
 # <a name="getting-started-with-azure-iot-embedded-device-development"></a>Azure IoT 임베디드 디바이스 개발 시작
 
@@ -40,4 +40,4 @@ ms.locfileid: "100654804"
 
 ## <a name="next-steps"></a>다음 단계
 이 가이드의 디바이스별 빠른 시작을 완료한 후 Azure RTOS 시작 리포지토리에서 다른 디바이스별 문서와 샘플을 탐색합니다.
-* [Azure RTOS 및 Azure IoT 시작](https://github.com/azure-rtos/getting-started)
+* [Azure RTOS 및 Azure IoT 시작](https://github.com/azure-rtos/getting-started#getting-started-with-azure-rtos-and-azure-iot)

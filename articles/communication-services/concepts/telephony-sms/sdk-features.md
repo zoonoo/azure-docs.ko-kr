@@ -1,45 +1,45 @@
 ---
-title: Azure Communication Services에 대한 SMS 클라이언트 라이브러리 개요
+title: Azure Communication Services에 대한 SMS SDK 개요
 titleSuffix: An Azure Communication Services concept document
-description: SMS 클라이언트 라이브러리 및 해당 제품에 대한 개요를 제공합니다.
+description: SMS SDK 및 해당 제품에 대한 개요를 제공합니다.
 author: mikben
 manager: jken
 services: azure-communication-services
-ms.author: mikben
-ms.date: 03/10/2021
+ms.author: prakulka
+ms.date: 03/26/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 11ab634ed4b25c5fd8c0079263094c393e9dcbe6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c25dfea077510580daf2c1aab584ab9ff5caa7fe
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103496595"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105930435"
 ---
-# <a name="sms-client-library-overview"></a>SMS 클라이언트 라이브러리 개요
+# <a name="sms-sdk-overview"></a>SMS SDK 개요
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-phone-numbers.md)]
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-Azure Communication Services SMS 클라이언트 라이브러리를 사용하여 SMS 메시징을 애플리케이션에 추가할 수 있습니다.
+Azure Communication Services SMS SDK를 사용하여 SMS 메시징을 애플리케이션에 추가할 수 있습니다.
 
-## <a name="sms-client-library-capabilities"></a>SMS 클라이언트 라이브러리 기능
+## <a name="sms-sdk-capabilities"></a>SMS SDK 기능
 
-다음 목록에서는 현재 클라이언트 라이브러리에서 사용할 수 있는 기능 세트를 보여줍니다.
+다음 목록에서는 현재 SDK에서 사용할 수 있는 기능 세트를 보여 줍니다.
 
 | 기능 그룹 | 기능                                                                            | JS  | Java | .NET | Python |
 | ----------------- | ------------------------------------------------------------------------------------- | --- | ---- | ---- | ------ |
-| 핵심 기능 | SMS 메시지 보내기 및 받기 </br> *유니코드 이모지 지원*                        | ✔️   | ✔️    | ✔️    | ✔️      |
-|                   | 보낸 메시지에 대한 전달 보고서 받기                                            | ✔️   | ✔️    | ✔️    | ✔️      |
+| 핵심 기능 | SMS 메시지 보내기 및 받기                                                         | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | 보낸 메시지에 대한 전달 보고서 사용                                             | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | 모든 문자 집합(언어/유니코드 지원)                                         | ✔️   | ✔️    | ✔️    | ✔️      |
-|                   | 긴 메시지 지원(최대 2048자)                                           | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | 긴 메시지 지원(최대 2048바이트)                                          | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | 긴 메시지 자동 연결                                                   | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | 한 번에 여러 받는 사람에게 메시지 보내기                                        | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | 멱등성 지원                                                               | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | 메시지에 대한 사용자 지정 태그                                                             | ✔️   | ✔️    | ✔️    | ✔️      |
 | 이벤트            | Event Grid를 사용하여 인바운드 메시지 및 전달 보고서를 수신하도록 웹후크 구성 | ✔️   | ✔️    | ✔️    | ✔️      |
 | 전화 번호      | 수신자 부담 번호                                                                     | ✔️   | ✔️    | ✔️    | ✔️      |
-| 규정        | 옵트아웃 처리                                                                      | ✔️   | ✔️    | ✔️    | ✔️      |
-| 모니터링        | 주고 받은 메시지의 사용량 모니터링                                          | ✔️   | ✔️    | ✔️    | ✔️      |
 | PSTN 호출      | SMS 사용 가능 수신자 부담 번호에 PSTN 통화 기능 추가                    | ✔️   | ✔️    | ✔️    | ✔️      |
 
 ## <a name="next-steps"></a>다음 단계

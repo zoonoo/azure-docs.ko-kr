@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
-ms.openlocfilehash: b022bff9db87c248881cd18cc21569aaef8f404a
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 9f3ad2a5d5b275ff611653855eff73bd36afda9f
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105562140"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379420"
 ---
 # <a name="quickstart-configure-a-hybrid-cluster-with-azure-managed-instance-for-apache-cassandra-preview"></a>빠른 시작: Apache Cassandra용 Azure Managed Instance를 사용하여 하이브리드 클러스터 구성(미리 보기)
 
@@ -39,10 +39,19 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
    :::image type="content" source="./media/configure-hybrid-cluster/subnet.png" alt-text="Virtual Network에 새 서브넷을 추가합니다." lightbox="./media/configure-hybrid-cluster/subnet.png" border="true":::
     <!-- ![image](./media/configure-hybrid-cluster/subnet.png) -->
 
-1. 이제 Azure CLI를 사용하여 Cassandra Managed Instance를 사용하는 데 필요한 몇 가지 특수 권한을 VNet 및 서브넷에 적용합니다. `az role assignment create` 명령을 사용하여 `<subscription ID>`, `<resource group name>`, `<VNet name>` 및 `<subnet name>`을 적절한 값으로 바꿉니다.
+    > [!NOTE]
+    > Azure Managed Instance for Apache Cassandra를 배포하려면 인터넷 액세스가 필요합니다. 인터넷 액세스가 제한되는 환경에서는 배포가 실패합니다. Managed Cassandra가 올바르게 작동하는 데 필요한 다음과 같은 중요한 Azure 서비스에 대한 VNet 내에서 액세스가 차단되어 있는지 확인합니다.
+    > - Azure Storage
+    > - Azure KeyVault
+    > - Azure Virtual Machine Scale Sets
+    > - Azure 모니터링
+    > - Azure Active Directory
+    > - Azure Security
+
+1. 이제 Azure CLI를 사용하여 Cassandra Managed Instance를 사용하는 데 필요한 몇 가지 특수 권한을 VNet 및 서브넷에 적용합니다. `az role assignment create` 명령을 사용하여 `<subscription ID>`, `<resource group name>` 및 `<VNet name>`을 적절한 값으로 바꿉니다.
 
    ```azurecli-interactive
-   az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>/subnets/<subnet name>
+   az role assignment create --assignee a232010e-820c-4083-83bb-3ace5fc29d0b --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>
    ```
 
    > [!NOTE]

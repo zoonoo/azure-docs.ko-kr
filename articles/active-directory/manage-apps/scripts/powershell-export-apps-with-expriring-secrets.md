@@ -2,21 +2,21 @@
 title: PowerShell 샘플 - Azure Active Directory 테넌트에서 만료된 비밀 및 인증서가 있는 앱을 내보냅니다.
 description: Azure Active Directory 테넌트에 있는 지정된 앱에 대해 만료되는 비밀 및 인증서가 있는 모든 앱을 내보내는 PowerShell 예제입니다.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: sample
 ms.date: 03/09/2021
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: mifarca
-ms.openlocfilehash: def9b55a1d873cccda5d1c48921e3f098beeced1
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.openlocfilehash: 7f129e06904497b43eff8a3f0221fb57565ac112
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103149718"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375409"
 ---
 # <a name="export-apps-with-expiring-secrets-and-certificates"></a>만료된 비밀 및 인증서가 있는 앱 내보내기
 

@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: trbye
-ms.openlocfilehash: 42dc7eb1a74bf2e376f834ee3198ad6a492226e9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: ab22ad75b5b49588bbdcedf5fc995ce65fe4e690
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102445007"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104153"
 ---
 의도 인식 빠른 시작을 완료하려면 LUIS 미리 보기 포털을 사용하여 LUIS 계정 및 프로젝트를 만들어야 합니다. 이 빠른 시작에서는 LUIS 구독만 필요합니다. Speech Service 구독은 필요하지 *않습니다*.
 
@@ -18,7 +18,7 @@ ms.locfileid: "102445007"
 
 다음 지침을 따라 LUIS 앱을 만듭니다.
 
-* <a href="https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app" target="_blank">빠른 시작: 미리 빌드된 도메인 앱 만들기 </a>
+* <a href="/azure/cognitive-services/luis/luis-get-started-create-app" target="_blank">빠른 시작: 미리 빌드된 도메인 앱 만들기 </a>
 
 완료되면 다음 네 가지 항목이 필요합니다.
 

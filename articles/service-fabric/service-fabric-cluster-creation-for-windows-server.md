@@ -4,10 +4,10 @@ description: 온-프레미스 또는 클라우드에서 Windows Server 컴퓨터
 ms.topic: conceptual
 ms.date: 2/21/2019
 ms.openlocfilehash: 41af655be07ccae2b66e75f5bfe87629cdb54924
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98785687"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Windows Server에서 실행되는 독립 실행형 클러스터 만들기

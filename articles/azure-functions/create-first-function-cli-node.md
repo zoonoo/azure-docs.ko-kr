@@ -4,12 +4,12 @@ description: 명령줄에서 JavaScript 함수를 만든 다음, 로컬 Node.js 
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c9810b1eb9e5f6bc65843d65f2f2452eac1be703
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b8db78e56087e7cb777d1aa85391d4b6ac2aae27
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102447319"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787542"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 JavaScript 함수 만들기
 
@@ -118,7 +118,7 @@ HTTP 트리거의 경우 함수는 *function.json* 에 정의된 `req` 변수에
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime node --runtime-version 12 --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
     
-    [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 명령은 Azure에서 함수 앱을 만듭니다. Node.js 10을 사용하는 경우 `--runtime-version`도 `10`으로 변경합니다.
+    [az functionapp create](/cli/azure/functionapp#az_functionapp_create) 명령은 Azure에서 함수 앱을 만듭니다. Node.js 10을 사용하는 경우 `--runtime-version`도 `10`으로 변경합니다.
     
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
     

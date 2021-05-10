@@ -1,18 +1,15 @@
 ---
 title: Azure Site Recovery 프로세스 서버 모니터링
 description: 이 문서에서는 VMware VM/물리적 서버 재해 복구에 사용되는 Azure Site Recovery 프로세스 서버를 모니터링하는 방법을 설명합니다.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: eebaa70cee99380ac67b8f6516a5b08ff2832c86
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 0dcee641a2de73238557a6a29173f71ee1c4312a
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86134737"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580563"
 ---
 # <a name="monitor-the-process-server"></a>프로세스 서버 모니터링
 

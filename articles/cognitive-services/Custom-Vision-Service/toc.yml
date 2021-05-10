@@ -57,6 +57,12 @@
       href: ./export-delete-data.md
     - name: 3.0 API로 앱 업데이트
       href: ./update-application-to-3.0-sdk.md
+    - name: 엔터프라이즈 준비
+      items:
+        - name: 가상 네트워크 설정
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/custom-vision-service/context/context
+        - name: 고객 관리형 키 사용
+          href: encrypt-data-at-rest.md
 - name: 참조
   items:
     - name: Custom Vision 교육 API
@@ -81,6 +87,12 @@
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction'
 - name: 리소스
   items:
+    - name: 엔터프라이즈 준비
+      items:
+        - name: 지역 지원
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: 규정 준수 및 인증
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 지원 및 도움말 옵션
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/custom-vision-service/context/context
     - name: 샘플
@@ -89,11 +101,5 @@
       href: limits-and-quotas.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: 국가별 가용성
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-    - name: 규정 준수
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: 암호화
-      href: encrypt-data-at-rest.md
     - name: 릴리스 정보
       href: release-notes.md

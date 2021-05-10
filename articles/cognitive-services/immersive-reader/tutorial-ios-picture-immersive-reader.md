@@ -9,24 +9,24 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metang
-ms.openlocfilehash: d8ee6b2344f0c953233195a693e774e410a8a8ea
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 23e9fd586882d25aed646b984e17c5885145ccff
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368205"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284637"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>자습서: 사진의 콘텐츠를 사용하여 몰입형 리더를 시작하는 iOS 앱 만들기(Swift)
 
 [몰입형 판독기](https://www.onenote.com/learningtools)는 읽기 이해도를 향상시키기 위해 검증된 기술을 구현하는 포괄적으로 설계된 도구입니다.
 
-[Computer Vision Cognitive Services 읽기 API](../computer-vision/concept-recognizing-text.md)는 Microsoft의 최신 인식 모델을 사용하여 이미지의 텍스트 콘텐츠를 감지하고, 식별된 텍스트를 머신에서 읽을 수 있는 문자 스트림으로 변환합니다.
+[Computer Vision Cognitive Services 읽기 API](../computer-vision/overview-ocr.md)는 Microsoft의 최신 인식 모델을 사용하여 이미지의 텍스트 콘텐츠를 감지하고, 식별된 텍스트를 머신에서 읽을 수 있는 문자 스트림으로 변환합니다.
 
 이 자습서에서는 iOS 앱을 처음부터 빌드하고, 몰입형 리더 SDK를 사용하여 읽기 API와 몰입형 리더를 통합합니다. 이 자습서의 전체 작업 샘플은 [여기](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios)서 제공됩니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
 * Azure Active Directory 인증에 대해 구성된 몰입형 판독기 리소스입니다. [다음 지침](./how-to-create-immersive-reader.md)에 따라 설정하세요. 샘플 프로젝트 속성을 구성할 때 여기서 만든 일부 값이 필요합니다. 나중에 참조할 수 있도록 세션 출력을 텍스트 파일로 저장합니다.

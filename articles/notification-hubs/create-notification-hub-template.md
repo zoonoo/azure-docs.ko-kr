@@ -3,19 +3,21 @@ title: Azure Resource Manager 템플릿을 사용하여 Azure 알림 허브 만�
 description: Azure Resource Manager 템플릿(ARM 템플릿)을 사용하여 Azure 알림 허브를 만드는 방법을 알아봅니다.
 services: notification-hubs
 author: sethmanheim
-ms.service: notification-hubs
-ms.topic: quickstart
-ms.custom: subject-armqs
 ms.author: sethm
-ms.date: 08/04/2020
 ms.reviewer: thsomasu
+ms.date: 08/04/2020
 ms.lastreviewed: 05/15/2020
-ms.openlocfilehash: 2165351bee4ee260e768c10b23e26bf095779cad
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.topic: quickstart
+ms.service: notification-hubs
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: a328d6b8942c3209e13dc91a2fb892e98e3016f6
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88684646"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533477"
 ---
 # <a name="quickstart-create-a-notification-hub-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 알림 허브 만들기
 

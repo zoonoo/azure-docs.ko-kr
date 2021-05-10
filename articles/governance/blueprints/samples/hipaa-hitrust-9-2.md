@@ -1,14 +1,14 @@
 ---
 title: HIPAA HITRUST 9.2 청사진 샘플 개요
 description: HIPAA HITRUST 9.2 청사진 샘플의 개요 이 청사진 샘플은 고객이 특정 HIPAA HITRUST 9.2 컨트롤을 평가하는 데 도움이 됩니다.
-ms.date: 01/27/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: bd65b6113f291457096bacc02bdbcfd92d6e0f84
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 168946319c11f31ee41594d82d9ff186dea232cd
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99821880"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106386587"
 ---
 # <a name="hipaa-hitrust-92-blueprint-sample"></a>HIPAA HITRUST 9.2 청사진 샘플
 

@@ -7,12 +7,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/18/2021
 ms.author: jingwang
-ms.openlocfilehash: adcefc21ac4fc8a00d97d5ac4352bad1287b60de
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: b1950fa5269460bd3daeb671a37a072dc4f5f050
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102517636"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385261"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>빠른 시작: REST API를 사용하여 Azure Data Factory 및 파이프라인 만들기
 
@@ -28,7 +28,7 @@ Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -37,7 +37,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 * Blob Storage에 **Blob 컨테이너** 를 만들고 컨테이너에 입력 **폴더** 를 만들고 폴더에 일부 파일을 업로드합니다. [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)와 같은 도구를 사용하여 Azure Blob 스토리지에 연결, Blob 컨테이너 만들기, 입력 파일 업로드 및 출력 파일 확인을 수행할 수 있습니다.
 * **Azure PowerShell** 을 설치합니다. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-Az-ps)의 지침을 따르세요. 이 빠른 시작은 PowerShell을 사용하여 REST API 호출을 호출합니다.
 * [이 지침](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)에 따라 **Azure Active Directory에 애플리케이션을 만듭니다**. 이후 단계에서 사용하는 **애플리케이션 ID**, **clientSecrets** 및 **테넌트 ID** 값을 기록해 둡니다. 애플리케이션을 "**참가자**" 역할에 할당합니다.
-
+>[!NOTE]
+>   소버린 클라우드의 경우 적절한 ActiveDirectoryAuthority 및 ResourceManagerUrl(BaseUri)의 클라우드 관련 엔드포인트를 사용해야 합니다. Powershell을 사용하여 각 클라우드 환경에 대한 엔드포인트 목록을 반환하는 “Get-AzEnvironment | Format-List”를 실행하여 다양한 클라우드의 엔드포인트 Url을 쉽게 가져올 수 있습니다.  
+>    
 ## <a name="set-global-variables"></a>전역 변수 설정
 
 1. **PowerShell** 을 시작합니다. 이 빠른 시작을 완료할 때까지 Azure PowerShell을 열어 둡니다. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다.

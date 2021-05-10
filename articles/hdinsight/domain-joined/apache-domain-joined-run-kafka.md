@@ -4,12 +4,12 @@ description: 자습서 - Enterprise Security Package를 사용하여 Azure HDIns
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 552998de23bebd98f56ba28eb6ad581689e52e41
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: bab3df857dfdac3ca3b9193bda1caea0040a4cbb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "99821229"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866984"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>자습서: Enterprise Security Package를 사용하여 HDInsight에서 Apache Kafka 정책 구성(미리 보기)
 
@@ -33,7 +33,7 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
 
 2. Azure AD(Active Directory) 관리자 자격 증명을 사용하여 로그인합니다. Azure AD 관리자 자격 증명은 HDInsight 클러스터 자격 증명 또는 Linux HDInsight 노드 SSH 자격 증명과는 다릅니다.
 
-   ![HDInsight Apache Ranger 관리 UI](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png" alt-text="HDInsight Apache Ranger 관리 UI" border="true":::
 
 ## <a name="create-domain-users"></a>도메인 사용자 만들기
 
@@ -61,7 +61,7 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
    * ’*’는 문자가 0개 이상 나옴을 나타냅니다.
    * ’?‘는 문자 하나를 나타냅니다.
 
-   ![Apache Ranger 관리 UI 정책 만들기1](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png" alt-text="Apache Ranger 관리 UI 정책 만들기1" border="true":::
 
    **사용자 선택** 에 도메인 사용자가 자동으로 입력되지 않으면 Ranger가 Azure AD와 동기화될 때까지 잠시 기다립니다.
 
@@ -76,7 +76,7 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
    |사용자 선택  |  marketing_user1 |
    |사용 권한  | 게시, 사용, 만들기 |
 
-   ![Apache Ranger 관리 UI 정책 만들기2](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png" alt-text="Apache Ranger 관리 UI 정책 만들기2" border="true":::  
 
 6. **추가** 를 선택하여 정책을 저장합니다.
 
@@ -177,7 +177,7 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
 
 8. Ranger UI에서 감사 액세스 이벤트를 확인합니다.
 
-   ![Ranger UI 정책 감사 액세스 이벤트 ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png" alt-text="Ranger UI 정책 감사 액세스 이벤트" border="true":::
    
 ## <a name="produce-and-consume-topics-in-esp-kafka-by-using-the-console"></a>콘솔을 사용하여 ESP Kafka에서 항목 생성 및 사용
 

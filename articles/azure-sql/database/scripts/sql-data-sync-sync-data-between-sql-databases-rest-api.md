@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: ef2823b870f76922dd0dc157341aea9b502fb4bb
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: d3ff8114c11b224a0bdbb0bd2d0e5686a7e57b55
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103564562"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105565911"
 ---
 # <a name="use-rest-api-to-sync-data-between-multiple-databases"></a>REST API를 사용하여 여러 데이터베이스 간에 데이터 동기화 
 
@@ -31,7 +31,7 @@ SQL 데이터 동기화에 대한 개요는 [Azure의 SQL 데이터 동기화를
 
 ## <a name="create-sync-group"></a>동기화 그룹 만들기
 
-[만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/syncgroups/createorupdate) 템플릿을 사용하여 동기화 그룹을 만듭니다.
+[만들기 또는 업데이트](/rest/api/sql/syncgroups/createorupdate) 템플릿을 사용하여 동기화 그룹을 만듭니다.
  
 동기화 그룹을 만들 때 동기화 스키마(table\column)와 masterSyncMemberName을 전달하지 마세요. 이때 동기화 그룹에는 아직 table\column 정보가 없기 때문입니다.
 
@@ -91,7 +91,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 
 ## <a name="create-sync-member"></a>동기화 멤버 만들기
 
-[만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/syncmembers/createorupdate) 템플릿을 사용하여 동기화 멤버를 만듭니다.
+[만들기 또는 업데이트](/rest/api/sql/syncmembers/createorupdate) 템플릿을 사용하여 동기화 멤버를 만듭니다.
 
 동기화 멤버를 만들기 위한 샘플 요청:
 
@@ -151,7 +151,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 
 동기화 그룹이 성공적으로 만들어지면 다음 템플릿을 사용하여 스키마를 새로 고칩니다.
 
-[허브 스키마 새로 고침](https://docs.microsoft.com/rest/api/sql/syncgroups/refreshhubschema) 템플릿을 사용하여 허브 데이터베이스의 스키마를 새로 고칩니다. 
+[허브 스키마 새로 고침](/rest/api/sql/syncgroups/refreshhubschema) 템플릿을 사용하여 허브 데이터베이스의 스키마를 새로 고칩니다. 
 
 허브 데이터베이스 스키마 새로 고침을 위한 샘플 요청: 
 
@@ -165,17 +165,17 @@ POST https://management.azure.com/subscriptions/00000000-1111-2222-3333-44444444
 
 상태 코드: 202
 
-[허브 스키마 나열](https://docs.microsoft.com/rest/api/sql/syncgroups/listhubschemas) 템플릿을 사용하여 허브 데이터베이스 스키마를 나열합니다. 
+[허브 스키마 나열](/rest/api/sql/syncgroups/listhubschemas) 템플릿을 사용하여 허브 데이터베이스 스키마를 나열합니다. 
 
-[멤버 스키마 새로 고침](https://docs.microsoft.com/rest/api/sql/syncmembers/refreshmemberschema) 템플릿을 사용하여 멤버 데이터베이스 스키마를 새로 고칩니다. 
+[멤버 스키마 새로 고침](/rest/api/sql/syncmembers/refreshmemberschema) 템플릿을 사용하여 멤버 데이터베이스 스키마를 새로 고칩니다. 
 
-[목록 멤버 스키마](https://docs.microsoft.com/rest/api/sql/syncmembers/listmemberschemas) 템플릿을 사용하여 멤버 데이터베이스 스키마를 나열합니다. 
+[목록 멤버 스키마](/rest/api/sql/syncmembers/listmemberschemas) 템플릿을 사용하여 멤버 데이터베이스 스키마를 나열합니다. 
 
 스키마가 성공적으로 새로 고쳐진 후에만 다음 단계로 진행합니다. 
 
 ## <a name="update-sync-group"></a>동기화 그룹 업데이트 
 
-[만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/syncgroups/createorupdate) 템플릿을 사용하여 동기화 그룹을 업데이트합니다.
+[만들기 또는 업데이트](/rest/api/sql/syncgroups/createorupdate) 템플릿을 사용하여 동기화 그룹을 업데이트합니다.
 
 동기화 스키마를 지정하여 동기화 그룹을 업데이트합니다. 스키마 및 사용하려는 스키마를 보유하는 이름인 masterSyncMemberName을 포함합니다. 
 
@@ -232,7 +232,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 ```
 ## <a name="update-sync-member"></a>동기화 멤버 업데이트
 
-[만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/syncmembers/createorupdate) 템플릿을 사용하여 동기화 멤버를 업데이트합니다.
+[만들기 또는 업데이트](/rest/api/sql/syncmembers/createorupdate) 템플릿을 사용하여 동기화 멤버를 업데이트합니다.
 
 동기화 멤버를 업데이트하기 위한 샘플 요청: 
 
@@ -291,7 +291,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 
 ## <a name="trigger-sync"></a>동기화 트리거
 
-[동기화 트리거](https://docs.microsoft.com/rest/api/sql/syncgroups/triggersync) 템플릿을 사용하여 동기화 작업을 트리거합니다.
+[동기화 트리거](/rest/api/sql/syncgroups/triggersync) 템플릿을 사용하여 동기화 작업을 트리거합니다.
 
 동기화 작업을 트리거하기 위한 샘플 요청: 
 

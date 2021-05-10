@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.custom: mvc, seodec18, devx-track-azurepowershell
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2020
-ms.author: mbaldwin
-ms.openlocfilehash: 52b62e463edc51b3d93d7af69623a88abd9cc6be
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: 5ed5ac90f446f74c54488f6d0cf23adbd63a3e1e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98108605"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606881"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>자습서 - PowerShell을 사용하여 기존 가상 네트워크에 HSM 배포
 
@@ -68,7 +68,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.HardwareSecurityModules -Feat
 
 ### <a name="creating-hsm-resources"></a>HSM 리소스 만들기
 
-고객의 가상 네트워크에 HSM 디바이스가 프로비전되었습니다. 이는 서브넷에 대한 요구 사항을 의미합니다. HSM이 가상 네트워크와 물리적 디바이스 간 통신을 구현하는 데 필요한 종속 항목은 ExpressRoute 게이트웨이이며, 마지막으로 Gemalto 클라이언트 소프트웨어를 사용하여 HSM 디바이스에 액세스하기 위해 가상 머신이 필요합니다. 이러한 리소스는 사용 편의를 위해 해당 매개 변수 파일과 함께 템플릿 파일에 수집되었습니다. 이러한 파일은 Microsoft(HSMrequest@Microsoft.com)에 직접 문의하면 사용 가능합니다.
+고객의 가상 네트워크에 HSM 디바이스가 프로비전되었습니다. 이는 서브넷에 대한 요구 사항을 의미합니다. HSM이 가상 네트워크와 물리적 디바이스 간 통신을 구현하는 데 필요한 종속 항목은 ExpressRoute 게이트웨이이며, 마지막으로 Thales 클라이언트 소프트웨어를 사용하여 HSM 디바이스에 액세스하기 위해 가상 머신이 필요합니다. 이러한 리소스는 사용 편의를 위해 해당 매개 변수 파일과 함께 템플릿 파일에 수집되었습니다. 이러한 파일은 Microsoft(HSMrequest@Microsoft.com)에 직접 문의하면 사용 가능합니다.
 
 파일을 확보하면 매개 변수 파일을 편집하여 리소스의 기본 이름을 삽입해야 합니다. 즉, “value”: “”를 사용하여 줄을 편집합니다.
 
@@ -235,14 +235,14 @@ ssh를 사용하여 HSM에 연결하는 경우 HSM 디바이스가 작동하도�
 
 ![hsm show 명령의 출력을 보여주는 스크린샷.](media/tutorial-deploy-hsm-powershell/output.png)
 
-이제 고가용성의 두 HSM 배포에 모든 리소스가 할당되고, 액세스 및 작동 상태에 대한 유효성 검사가 완료된 상태여야 합니다. 추가 구성 또는 테스트를 위해서는 HSM 디바이스 자체로 추가 작업을 수행해야 합니다. 이를 위해서는 Gemalto Luna Network HSM 7 Administration Guide 7장의 지침을 따라 HSM을 초기화하고 파티션을 만들어야 합니다. Gemalto 고객 지원 포털에 등록되어 있고 고객 ID가 있으면 모든 설명서 및 소프트웨어를 Gemalto에서 직접 다운로드할 수 있습니다. 모든 필수 구성 요소를 받으려면 클라이언트 소프트웨어 7.2 버전을 다운로드하세요.
+이제 고가용성의 두 HSM 배포에 모든 리소스가 할당되고, 액세스 및 작동 상태에 대한 유효성 검사가 완료된 상태여야 합니다. 추가 구성 또는 테스트를 위해서는 HSM 디바이스 자체로 추가 작업을 수행해야 합니다. 이를 위해서는 Thales Luna 7 HSM 관리 가이드 7장의 지침을 따라 HSM을 초기화하고 파티션을 만들어야 합니다. [Thales 고객 지원 포털](https://supportportal.thalesgroup.com/csm)에 등록되어 있고 고객 ID가 있으면 모든 설명서 및 소프트웨어를 Thales에서 직접 다운로드할 수 있습니다. 모든 필수 구성 요소를 받으려면 클라이언트 소프트웨어 7.2 버전을 다운로드하세요.
 
 ## <a name="delete-or-clean-up-resources"></a>리소스 삭제 또는 정리
 
 HSM 디바이스로만 완료한 경우 리소스로 삭제하고 사용 가능 풀로 반환할 수 있습니다. 이 작업을 수행할 때 확실한 문제는 디바이스에 있는 모든 중요한 고객 데이터입니다. 디바이스를 "제로화"하는 가장 좋은 방법은 HSM 관리자 암호를 3번 잘못 가져오는 것입니다(참고: 이는 어플라이언스 관리자가 아니라 실제 HSM 관리자임). 핵심 자료를 보호하는 차원에서 디바이스는 초기화 상태가 될 때까지 Azure 리소스로 간주하며, 삭제할 수 없습니다.
 
 > [!NOTE]
-> Gemalto 디바이스 구성과 관련하여 문제가 발생할 경우 [Gemalto 고객 지원팀](https://safenet.gemalto.com/technical-support/)에 연락하시기 바랍니다.
+> Thales 디바이스 구성과 관련하여 문제가 발생할 경우 [Thales 고객 지원팀](https://supportportal.thalesgroup.com/csm)에 문의해야 합니다.
 
 Azure에서 HSM 리소스를 제거하려는 경우 다음 명령을 사용하여 "$" 변수를 고유한 매개 변수로 바꿀 수 있습니다.
 

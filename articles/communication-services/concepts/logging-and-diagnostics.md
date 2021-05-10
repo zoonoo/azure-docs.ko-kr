@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5ed75a7f8c7915645778696282e179af3a4d4091
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0bf7213e5cfdc57194482c6914d4e25b9336832e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493597"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935877"
 ---
 # <a name="communication-services-logs"></a>Communication Services 로그
 
@@ -97,7 +97,7 @@ Communication Services는 사용할 수 있는 세 가지 유형의 로그를 �
 | OutgoingMessageLength | 보내는 메시지의 문자 수입니다. |
 | IncomingMessageLength | 들어오는 메시지의 문자 수입니다. |
 | DeliveryAttempts | 이 메시지를 보내려고 시도한 횟수입니다. |
-| PhoneNumber | SMS 메시지를 보낼 전화 번호입니다. |
+| PhoneNumber | SMS 메시지를 전송하는 전화 번호입니다. |
 | SdkType | 요청에 사용되는 SDK 유형입니다. |
 | PlatformType | 요청에 사용되는 플랫폼 유형입니다. |
 | 메서드 | 요청에 사용되는 메서드입니다. |

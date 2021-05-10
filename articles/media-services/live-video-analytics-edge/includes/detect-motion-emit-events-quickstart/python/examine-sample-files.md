@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 46e8609be2ec57600e666ef9dab33eae2900e1ce
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88691121"
 ---
 1. Visual Studio Code에서 *src/edge* 로 이동합니다. *.env* 파일 및 몇 가지 배포 템플릿 파일이 표시됩니다.

@@ -1,18 +1,18 @@
 ---
 title: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 구성 - Linux 가상 머신 | Microsoft Docs
 description: RHEL 클러스터 환경에서 고가용성을 설정하고 STONITH를 설정하는 방법을 알아봅니다.
-ms.service: virtual-machines-linux
+ms.service: virtual-machines-sql
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 533f5c9e38818a8e37482cbbb3a90602366eca6f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 889df16191104ca5b335d067abe0f3d1311c4603
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97587216"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106450109"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>자습서: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

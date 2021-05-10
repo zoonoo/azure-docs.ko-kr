@@ -2,22 +2,22 @@
 title: Azure SSO(Single Sign-On)란?
 description: Azure Active Directory에서 SSO(Single Sign-On)가 작동하는 방법에 대해 알아봅니다. 사용자가 모든 애플리케이션에 대한 암호를 기억할 필요가 없도록 SSO를 사용합니다. 또한 SSO를 사용하여 계정 관리를 간소화합니다.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: overview
 ms.date: 12/03/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: arvindh, japere
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 36025a5a68e4c3d0de1d6b11a13df656c72745d4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 65e4b32c7c41eea6a885a09dd7ad772980595a9e
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99260200"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379505"
 ---
 # <a name="what-is-single-sign-on-sso"></a>SSO(Single Sign-On)란?
 

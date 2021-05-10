@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 02/15/2021
 ms.author: rolyon
 ms.openlocfilehash: 6e8f194cd85a3c381bdabf206777a99dce3c29b6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100559272"
 ---
 # <a name="quickstart-assign-an-azure-role-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure 역할 할당

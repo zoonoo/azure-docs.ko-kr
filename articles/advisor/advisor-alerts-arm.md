@@ -2,14 +2,14 @@
 title: Resource Manager 템플릿을 사용하여 새 추천에 대한 Azure Advisor 경고 만들기
 description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure Advisor의 새 권장 사항에 대한 경고를 설정하는 방법을 알아봅니다.
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 06/29/2020
-ms.openlocfilehash: 7b10ad06e5397ab733987373a3bd18de981c8c97
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 716ab104ce6517aeb554b42522e5906829877259
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "100590062"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765670"
 ---
 # <a name="quickstart-create-azure-advisor-alerts-on-new-recommendations-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 새 추천에 대한 Azure Advisor 경고 만들기
 

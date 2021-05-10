@@ -4,10 +4,10 @@ description: Azure Lab Services에서 Mac을 가상 머신에 연결하는 방�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 674bea13093e185ae991148c2cf96599a273d0bc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85444627"
 ---
 # <a name="connect-to-a-vm-using-remote-desktop-protocol-on-a-mac"></a>Mac에서 원격 데스크톱 프로토콜을 사용하여 VM에 연결

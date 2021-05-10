@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 979cac8fd3d2c09443d52c9142a5e7c44127713a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 16e8cfd9c6b20e3a8d17ba335079b1b6fe8b499f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102552532"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785022"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>자습서: Azure에서 Linux 가상 머신 변경 내용 및 업데이트 모니터링
 
@@ -39,13 +39,13 @@ Azure [변경 추적](../../automation/change-tracking/overview.md)을 사용하
 
 ## <a name="create-vm"></a>VM 만들기
 
-작동 중인 진단과 메트릭을 확인하려면 VM이 필요합니다. 먼저 [az group create](/cli/azure/group#az-group-create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupMonitor* 라는 리소스 그룹을 만듭니다.
+작동 중인 진단과 메트릭을 확인하려면 VM이 필요합니다. 먼저 [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupMonitor* 라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-이제 [az vm create](/cli/azure/vm#az-vm-create)로 VM을 만듭니다. 다음 예제에서는 *myVM* 이라는 VM을 만들고 SSH 키가 *~/.ssh/* 에 없으면 생성합니다.
+이제 [az vm create](/cli/azure/vm#az_vm_create)로 VM을 만듭니다. 다음 예제에서는 *myVM* 이라는 VM을 만들고 SSH 키가 *~/.ssh/* 에 없으면 생성합니다.
 
 ```azurecli-interactive
 az vm create \
@@ -110,7 +110,7 @@ Log Analytics 작업 영역 및 Automation 계정을 선택하고 **사용** 을
 
 | 속성 | Description |
 | --- | --- |
-| Name |업데이트 배포를 식별하는 고유 이름입니다. |
+| 속성 |업데이트 배포를 식별하는 고유 이름입니다. |
 |운영 체제| Linux 또는or Windows|
 | 업데이트할 그룹 |Azure 머신의 경우 구독, 리소스 그룹, 위치 및 태그의 조합을 기반으로 쿼리를 정의하여 배포에 포함할 Azure VM의 동적 그룹을 빌드합니다. </br></br>비 Azure 머신의 경우 저장된 기존 검색을 선택하여 배포에 포함할 비 Azure 머신 그룹을 선택합니다. </br></br>자세한 내용은 [동적 그룹](../../automation/update-management/configure-groups.md)을 참조하세요.|
 | 업데이트할 컴퓨터 |저장된 검색, 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **머신** 을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다.</br> Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../../azure-monitor/logs/computer-groups.md)을 참조하세요. |

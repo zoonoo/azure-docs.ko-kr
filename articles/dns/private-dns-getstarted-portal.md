@@ -3,16 +3,18 @@ title: 빠른 시작 - Azure Portal을 사용하여 Azure 프라이빗 DNS 영�
 description: 이 빠른 시작에서는 Azure DNS에 프라이빗 DNS 영역 및 레코드를 만들고 테스트합니다. Azure Portal을 사용하여 첫 번째 프라이빗 DNS 영역 및 레코드를 만들고 관리하는 단계별 가이드입니다.
 services: dns
 author: rohinkoul
-ms.service: dns
-ms.topic: quickstart
-ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: d298dfd5f3ad0beb56a511c124bab056ca25fd27
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 10/20/2020
+ms.topic: quickstart
+ms.service: dns
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 2115062db8615ca782cb987903e5ebfc83400cd2
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92310060"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535447"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure 프라이빗 DNS 영역 만들기
 
@@ -181,4 +183,3 @@ myVM02에서 반복
 
 > [!div class="nextstepaction"]
 > [Azure DNS Private Zones 시나리오](private-dns-scenarios.md)
-

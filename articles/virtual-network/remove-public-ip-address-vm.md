@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2019
 ms.author: allensu
-ms.openlocfilehash: 0665cbd7aa21575337999fb5c59478955c764048
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: e9bfadd3e2453f0241dc2f7b8bfa5c964333bcf5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98934195"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776543"
 ---
 # <a name="dissociate-a-public-ip-address-from-an-azure-vm"></a>Azure VM에서 퍼블릭 IP 주소 분리 
 
@@ -45,7 +45,7 @@ ms.locfileid: "98934195"
 [Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)를 설치하거나 Azure Cloud Shell을 사용합니다. Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Bash 셸입니다. Azure CLI가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 다음에 나오는 CLI 명령에서 **사용해 보세요.** 단추를 선택합니다. **사용해 보세요.** 를 선택하면 Azure 계정에 로그인할 수 있는 Cloud Shell이 호출됩니다.
 
 1. Bash에서 로컬로 CLI를 사용하는 경우 `az login`을 사용하여 Azure에 로그인합니다.
-2. 퍼블릭 IP 주소는 VM에 연결된 네트워크 인터페이스의 IP 구성에 연결됩니다. [az network nic-ip-config update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update) 명령을 사용하여 IP 구성에서 퍼블릭 IP 주소를 분리합니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에서 *myVM* 이라는 VM에 연결된 *myVMVMNic* 라는 기존 네트워크 인터페이스의 IP 구성 *ipconfigmyVM* 에서 퍼블릭 IP 주소 *myVMPublicIP* 를 분리합니다.
+2. 퍼블릭 IP 주소는 VM에 연결된 네트워크 인터페이스의 IP 구성에 연결됩니다. [az network nic-ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update) 명령을 사용하여 IP 구성에서 퍼블릭 IP 주소를 분리합니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에서 *myVM* 이라는 VM에 연결된 *myVMVMNic* 라는 기존 네트워크 인터페이스의 IP 구성 *ipconfigmyVM* 에서 퍼블릭 IP 주소 *myVMPublicIP* 를 분리합니다.
   
    ```azurecli-interactive
     az network nic ip-config update \
@@ -55,7 +55,7 @@ ms.locfileid: "98934195"
     --remove PublicIpAddress
    ```
 
-   VM에 연결된 네트워크 인터페이스의 이름을 모르는 경우 [az vm nic list](/cli/azure/vm/nic#az-vm-nic-list) 명령을 사용하여 볼 수 있습니다. 예를 들어 다음 명령은 *myResourceGroup* 리소스 그룹에서 *myVM* 이라는 VM에 연결된 네트워크 인터페이스의 이름을 나열합니다.
+   VM에 연결된 네트워크 인터페이스의 이름을 모르는 경우 [az vm nic list](/cli/azure/vm/nic#az_vm_nic_list) 명령을 사용하여 볼 수 있습니다. 예를 들어 다음 명령은 *myResourceGroup* 리소스 그룹에서 *myVM* 이라는 VM에 연결된 네트워크 인터페이스의 이름을 나열합니다.
 
      ```azurecli-interactive
      az vm nic list --vm-name myVM --resource-group myResourceGroup
@@ -69,13 +69,13 @@ ms.locfileid: "98934195"
 
      이전 예제에서 *myVMVMNic* 는 네트워크 인터페이스의 이름입니다.
 
-   - 네트워크 인터페이스에 대한 IP 구성의 이름을 모르는 경우 [az network nic ip-config list](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-list) 명령을 사용하여 검색합니다. 예를 들어, 다음 명령은 *myResourceGroup* 리소스 그룹에 *myVMVMNic* 라는 네트워크 인터페이스에 대한 퍼블릭 IP 구성의 이름을 나열합니다.
+   - 네트워크 인터페이스에 대한 IP 구성의 이름을 모르는 경우 [az network nic ip-config list](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_list) 명령을 사용하여 검색합니다. 예를 들어, 다음 명령은 *myResourceGroup* 리소스 그룹에 *myVMVMNic* 라는 네트워크 인터페이스에 대한 퍼블릭 IP 구성의 이름을 나열합니다.
 
      ```azurecli-interactive
      az network nic ip-config list --nic-name myVMVMNic --resource-group myResourceGroup --out table
      ```
 
-   - 네트워크 인터페이스에 대한 퍼블릭 IP 구성의 이름을 모르는 경우 [az network nic ip-config show](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-show) 명령을 사용하여 검색합니다. 예를 들어, 다음 명령은 *myResourceGroup* 리소스 그룹에 *myVMVMNic* 라는 네트워크 인터페이스에 대한 퍼블릭 IP 구성의 이름을 나열합니다.
+   - 네트워크 인터페이스에 대한 퍼블릭 IP 구성의 이름을 모르는 경우 [az network nic ip-config show](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_show) 명령을 사용하여 검색합니다. 예를 들어, 다음 명령은 *myResourceGroup* 리소스 그룹에 *myVMVMNic* 라는 네트워크 인터페이스에 대한 퍼블릭 IP 구성의 이름을 나열합니다.
 
      ```azurecli-interactive
      az network nic ip-config show --name ipconfigmyVM --nic-name myVMVMNic --resource-group myResourceGroup --query publicIPAddress.id

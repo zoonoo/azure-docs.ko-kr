@@ -7,17 +7,17 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, logicappspm
 ms.topic: overview
-ms.date: 08/01/2019
-ms.openlocfilehash: adf15904d4490647074d6e2b46ac7e9e871dd388
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/24/2021
+ms.openlocfilehash: 09d253aae4c054db5efdc252f62986044e1d366b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86536405"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771860"
 ---
 # <a name="b2b-enterprise-integration-solutions-with-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩이 포함된 B2B 엔터프라이즈 통합 솔루션
 
-B2B(기업 간) 솔루션 및 조직 간의 원활한 통신을 위해 EIP(엔터프라이즈 통합 팩)를 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)와 함께 사용하여 자동화된 확장형 엔터프라이즈 통합 워크플로를 빌드할 수 있습니다. 조직에서 서로 다른 프로토콜 및 형식을 사용하더라도 전자 방식으로 메시지를 교환할 수 있습니다. EIP는 여러 형식을 조직의 시스템에서 처리할 수 있는 형식으로 변환하며, [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) 및 [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md)를 비롯한 업계 표준 프로토콜을 지원합니다. 암호화와 디지털 서명을 모두 사용하여 메시지의 보안을 향상시킬 수도 있습니다. EIP는 이러한 [엔터프라이즈 통합 커넥터](../connectors/apis-list.md#integration-account-connectors) 및 산업 표준을 지원합니다.
+B2B(기업 간) 솔루션 및 조직 간의 원활한 통신을 위해 EIP(엔터프라이즈 통합 팩)를 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)와 함께 사용하여 자동화된 확장형 엔터프라이즈 통합 워크플로를 빌드할 수 있습니다. 조직에서 서로 다른 프로토콜 및 형식을 사용하더라도 전자 방식으로 메시지를 교환할 수 있습니다. EIP는 여러 형식을 조직의 시스템에서 처리할 수 있는 형식으로 변환하며, [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) 및 [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md)를 비롯한 업계 표준 프로토콜을 지원합니다. 암호화와 디지털 서명을 모두 사용하여 메시지의 보안을 향상시킬 수도 있습니다. EIP는 이러한 [엔터프라이즈 통합 커넥터](../connectors/managed.md#enterprise-connectors) 및 산업 표준을 지원합니다.
 
 * EDI(전자 데이터 교환)
 * EAI(Enterprise Application Integration)

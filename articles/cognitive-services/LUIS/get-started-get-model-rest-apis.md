@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/30/2020
 zone_pivot_groups: programming-languages-set-one
 ms.openlocfilehash: 7346037ad804da4f68a2bc6512494c461d7fc5bd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96436184"
 ---
 # <a name="how-to-change-the-luis-model-with-rest-apis"></a>REST API를 사용하여 LUIS 모델을 변경하는 방법

@@ -3,20 +3,23 @@ title: '빠른 시작: 가상 네트워크 만들기 - Azure Portal'
 titleSuffix: Azure Virtual Network
 description: 이 빠른 시작에서 Azure Portal을 사용하여 가상 네트워크를 만드는 방법에 대해 알아봅니다.
 author: KumudD
-tags: azure-resource-manager
-ms.service: virtual-network
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: virtual-network
-ms.workload: infrastructure
-ms.date: 03/17/2021
 ms.author: kumud
-ms.openlocfilehash: 8af5b302e3ec790b6ee9356aca0699d0edcd284e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/17/2021
+ms.topic: quickstart
+ms.service: virtual-network
+ms.workload: infrastructure
+ms.tgt_pltfrm: virtual-network
+ms.devlang: na
+tags:
+- azure-resource-manager
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 43c45b43084656a45d2509ee2c7a4376cdc7c052
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606071"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531178"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>빠른 시작: Azure 포털을 사용하여 가상 네트워크 만들기
 
@@ -86,7 +89,7 @@ ms.locfileid: "104606071"
     | 설정 | 값                                          |
     |-----------------------|----------------------------------|
     | **프로젝트 세부 정보** |  |
-    | Subscription | Azure 구독 선택 |
+    | 구독 | Azure 구독 선택 |
     | 리소스 그룹 | **myResourceGroup** 을 선택합니다. |
     | **인스턴스 세부 정보** |  |
     | 가상 머신 이름 | **myVM1** 을 입력합니다. |
@@ -129,7 +132,7 @@ ms.locfileid: "104606071"
     | 설정 | 값                                          |
     |-----------------------|----------------------------------|
     | **프로젝트 세부 정보** |  |
-    | Subscription | Azure 구독 선택 |
+    | 구독 | Azure 구독 선택 |
     | 리소스 그룹 | **myResourceGroup** 을 선택합니다. |
     | **인스턴스 세부 정보** |  |
     | 가상 머신 이름 | **myVM2** 입력 |
@@ -162,6 +165,8 @@ ms.locfileid: "104606071"
 5. **검토 + 만들기** 탭을 선택하거나 페이지 하단에 있는 파란색 **검토 + 만들기** 단추를 선택합니다.
   
 6. 설정을 검토한 다음, **만들기** 를 선택합니다.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="connect-to-myvm1"></a>myVM1에 연결
 

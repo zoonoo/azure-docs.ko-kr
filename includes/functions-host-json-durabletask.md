@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 author: ggailey777
 ms.service: azure-functions
@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 54ce9438f768e347e306432a1874ab1816a1ae95
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d1b2cbefe64add5048d4e3c7946277b1461a5434
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104719834"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607095"
 ---
 [지속형 함수](../articles/azure-functions/durable/durable-functions-overview.md)에 대한 구성 설정입니다.
 
@@ -121,7 +121,7 @@ ms.locfileid: "104719834"
 |eventGridPublishRetryInterval|5분|*hh:mm:ss* 형식의 Event Grid 게시 재시도 간격입니다.|
 |eventGridPublishEventTypes||Event Grid에 게시할 이벤트 유형 목록입니다. 지정하지 않으면 모든 이벤트 유형이 게시됩니다. 허용되는 값에는 `Started`, `Completed`, `Failed`, `Terminated`가 포함됩니다.|
 |useAppLease|true|`true`로 설정하면, 앱은 작업 허브 메시지를 처리하기 전에 앱 수준 Blob 임대를 확보해야 합니다. 자세한 내용은 [재해 복구 및 지역 배포](../articles/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md) 설명서를 참조하세요. v2.3.0부터 사용할 수 있습니다.
-|useLegacyPartitionManagement|true|`false`로 설정하면, 확장 시 중복 함수 실행 가능성을 줄이는 파티션 관리 알고리즘을 사용합니다.  v2.3.0부터 사용할 수 있습니다. 향후 릴리스에서는 기본 값이 `false`로 변경됩니다.|
+|useLegacyPartitionManagement|false|`false`로 설정하면, 확장 시 중복 함수 실행 가능성을 줄이는 파티션 관리 알고리즘을 사용합니다.  v2.3.0부터 사용할 수 있습니다.|
 |useGracefulShutdown|false|(미리 보기) 정상적인 종료를 사용하도록 설정하여 호스트 종료가 in-process 함수 실행에 실패할 가능성을 줄입니다.|
 
 이러한 설정의 대부분은 성능 최적화를 위한 것입니다. 자세한 내용은 [성능 및 크기 조정](../articles/azure-functions/durable/durable-functions-perf-and-scale.md)을 참조하세요.

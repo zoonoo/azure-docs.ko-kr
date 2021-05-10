@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
-ms.openlocfilehash: 28dbf51fa58dfdfc375bf8f44964a6b66db008e8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 15d22ea3e0d16d377847ba85acfa41f5ae1043a6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94539161"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791697"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL 서버의 서버 느린 쿼리 로그 사용 및 다운로드
 이 샘플 CLI 스크립트는 단일 Azure Database for MySQL 서버의 느린 쿼리 로그를 사용하도록 설정하고 다운로드합니다.
@@ -35,13 +35,13 @@ ms.locfileid: "94539161"
 
 | **명령** | **참고** |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az mysql server create](/cli/azure/mysql/server#az-mysql-server-create) | 데이터베이스를 호스팅하는 MySQL 서버를 만듭니다. |
-| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-list) | 서버에 대한 구성 값을 나열합니다. |
-| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) | 서버의 구성을 업데이트합니다. |
-| [az mysql server-logs list](/cli/azure/mysql/server-logs#az-mysql-server-logs-list) | 서버의 로그 파일을 나열합니다. |
-| [az mysql server-logs download](/cli/azure/mysql/server-logs#az-mysql-server-logs-download) | 로그 파일을 다운로드합니다. |
-| [az group delete](/cli/azure/group#az-group-delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az mysql server create](/cli/azure/mysql/server#az_mysql_server_create) | 데이터베이스를 호스팅하는 MySQL 서버를 만듭니다. |
+| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_list) | 서버에 대한 구성 값을 나열합니다. |
+| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set) | 서버의 구성을 업데이트합니다. |
+| [az mysql server-logs list](/cli/azure/mysql/server-logs#az_mysql_server_logs_list) | 서버의 로그 파일을 나열합니다. |
+| [az mysql server-logs download](/cli/azure/mysql/server-logs#az_mysql_server_logs_download) | 로그 파일을 다운로드합니다. |
+| [az group delete](/cli/azure/group#az_group_delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 - Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.

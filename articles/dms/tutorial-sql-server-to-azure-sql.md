@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: 9c3fa0d8ac4540495e8580fd208507a2c1aaa7ce
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0330ea419b92d4e2e85c01e2770ec0d92987c4d2
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102180690"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107111"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-using-dms"></a>자습서: DMS를 사용하여 SQL Server를 Azure SQL Database로 마이그레이션
 
@@ -68,6 +68,79 @@ Azure Database Migration Service를 사용하여 SQL Server 인스턴스에서 [
 - Azure Database Migration Service에서 대상 데이터베이스에 액세스할 수 있도록 Azure SQL Database에 대한 서버 수준 IP [방화벽 규칙](../azure-sql/database/firewall-configure.md)을 만듭니다. Azure Database Migration Service에 사용되는 가상 네트워크의 서브넷 범위를 입력합니다.
 - 원본 SQL Server 인스턴스에 연결하는 데 사용되는 자격 증명에는 [CONTROL SERVER](/sql/t-sql/statements/grant-server-permissions-transact-sql) 권한이 있어야 합니다.
 - 대상 Azure SQL Database 인스턴스에 연결하는 데 사용되는 자격 증명에는 대상 데이터베이스에 대한 [CONTROL DATABASE](/sql/t-sql/statements/grant-database-permissions-transact-sql) 권한이 있어야 합니다.
+
+    > [!IMPORTANT]
+    > Azure Database Migration Service 인스턴스를 만들려면 일반적으로 동일한 리소스 그룹 내에 있지 않은 가상 네트워크 설정에 액세스해야 합니다. 따라서 DMS의 인스턴스를 만드는 사용자는 구독 수준의 권한이 필요합니다. 필요에 따라 할당할 수 있는 필수 역할을 만들려면 다음 스크립트를 실행합니다.
+    >
+    > ```
+    >
+    > $readerActions = `
+    > "Microsoft.Network/networkInterfaces/ipConfigurations/read", `
+    > "Microsoft.DataMigration/*/read", `
+    > "Microsoft.Resources/subscriptions/resourceGroups/read"
+    >
+    > $writerActions = `
+    > "Microsoft.DataMigration/services/*/write", `
+    > "Microsoft.DataMigration/services/*/delete", `
+    > "Microsoft.DataMigration/services/*/action", `
+    > "Microsoft.Network/virtualNetworks/subnets/join/action", `
+    > "Microsoft.Network/virtualNetworks/write", `
+    > "Microsoft.Network/virtualNetworks/read", `
+    > "Microsoft.Resources/deployments/validate/action", `
+    > "Microsoft.Resources/deployments/*/read", `
+    > "Microsoft.Resources/deployments/*/write"
+    >
+    > $writerActions += $readerActions
+    >
+    > # TODO: replace with actual subscription IDs
+    > $subScopes = ,"/subscriptions/00000000-0000-0000-0000-000000000000/","/subscriptions/11111111-1111-1111-1111-111111111111/"
+    >
+    > function New-DmsReaderRole() {
+    > $aRole = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()
+    > $aRole.Name = "Azure Database Migration Reader"
+    > $aRole.Description = "Lets you perform read only actions on DMS service/project/tasks."
+    > $aRole.IsCustom = $true
+    > $aRole.Actions = $readerActions
+    > $aRole.NotActions = @()
+    >
+    > $aRole.AssignableScopes = $subScopes
+    > #Create the role
+    > New-AzRoleDefinition -Role $aRole
+    > }
+    >
+    > function New-DmsContributorRole() {
+    > $aRole = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()
+    > $aRole.Name = "Azure Database Migration Contributor"
+    > $aRole.Description = "Lets you perform CRUD actions on DMS service/project/tasks."
+    > $aRole.IsCustom = $true
+    > $aRole.Actions = $writerActions
+    > $aRole.NotActions = @()
+    >
+    >   $aRole.AssignableScopes = $subScopes
+    > #Create the role
+    > New-AzRoleDefinition -Role $aRole
+    > }
+    > 
+    > function Update-DmsReaderRole() {
+    > $aRole = Get-AzRoleDefinition "Azure Database Migration Reader"
+    > $aRole.Actions = $readerActions
+    > $aRole.NotActions = @()
+    > Set-AzRoleDefinition -Role $aRole
+    > }
+    >
+    > function Update-DmsConributorRole() {
+    > $aRole = Get-AzRoleDefinition "Azure Database Migration Contributor"
+    > $aRole.Actions = $writerActions
+    > $aRole.NotActions = @()
+    > Set-AzRoleDefinition -Role $aRole
+    > }
+    >
+    > # Invoke above functions
+    > New-DmsReaderRole
+    > New-DmsContributorRole
+    > Update-DmsReaderRole
+    > Update-DmsConributorRole
+    > ```
 
 ## <a name="assess-your-on-premises-database"></a>온-프레미스 데이터베이스 평가
 
@@ -245,6 +318,9 @@ Azure SQL Database로 마이그레이션할 모든 데이터베이스 또는 특
 1. **대상 선택** 화면에서 Azure SQL Database에 대한 인증 설정을 제공합니다. 
 
    ![대상 선택](media/tutorial-sql-server-to-azure-sql/select-target.png)
+   
+   > [!NOTE]
+   > 현재 유일하게 지원되는 인증 유형은 SQL 인증입니다.
 
 1. **다음: 대상 데이터베이스에 매핑** 화면을 선택하고 마이그레이션하기 위해 원본 및 대상 데이터베이스를 매핑합니다.
 

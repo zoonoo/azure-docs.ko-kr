@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: 8aebb5b6f6a3ac53bc49fd1d2f75de88667865fb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92147644"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>디바이스-클라우드 메시지에 대해 메시지 라우팅 및 사용자 지정 엔드포인트 사용
@@ -21,7 +21,7 @@ ms.locfileid: "92147644"
 
 IoT Hub [메시지 라우팅](iot-hub-devguide-routing-query-syntax.md)을 사용하면 사용자가 디바이스-클라우드 메시지를 서비스 연결 엔드포인트로 라우팅할 수 있습니다. 라우팅은 엔드포인트에 라우팅하기 전에 데이터를 필터링하는 쿼리 기능도 제공합니다. 구성하는 각 라우팅 쿼리에는 다음과 같은 속성이 있습니다.
 
-| 속성      | 설명 |
+| 속성      | Description |
 | ------------- | ----------- |
 | **이름**      | 쿼리를 식별하는 고유한 이름입니다. |
 | **원본**    | 처리할 데이터 스트림의 원본입니다. 예를 들어 디바이스 원격 분석이 있습니다. |

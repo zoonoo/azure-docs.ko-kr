@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: memildin
-ms.openlocfilehash: fb8dc22c923b7b53a6263baa43046862af4d2f04
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 284a7f532ed918397fe1cfcf3458bbc6fb0bdd32
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100370270"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739011"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>자습서: 규정 준수 개선
 
@@ -26,7 +26,7 @@ Azure Security Center를 통해 **규정 준수 대시보드** 를 사용하여 
 
 Security Center는 하이브리드 클라우드 환경을 지속적으로 평가하여 구독에 적용되는 표준의 제어 및 모범 사례에 따라 위험 요인을 분석합니다. 대시보드는 이러한 표준 준수 상태를 반영합니다. 
 
-Azure 구독에서 Security Center를 사용하도록 설정하면 [Azure Security Benchmark](../security/benchmarks/introduction.md)가 해당 구독에 자동으로 할당됩니다. 널리 인정받는 이 벤치마크는 클라우드 중심 보안에 초점을 맞춘 [CIS(Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) 및 [NIST(National Institute of Standards and Technology)](https://www.nist.gov/)의 컨트롤을 기반으로 합니다.
+Azure 구독에서 Security Center를 사용하도록 설정하면 [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)가 해당 구독에 자동으로 할당됩니다. 널리 인정받는 이 벤치마크는 클라우드 중심 보안에 초점을 맞춘 [CIS(Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) 및 [NIST(National Institute of Standards and Technology)](https://www.nist.gov/)의 컨트롤을 기반으로 합니다.
 
 규정 준수 대시보드에는 선택한 표준 및 규정에 대한 환경 내의 모든 평가 상태가 표시됩니다. 권장 사항에 따라 작업하고 환경에서 위험 요소를 줄임에 따라 규정 준수 상태가 개선됩니다.
 

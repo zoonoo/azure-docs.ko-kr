@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: c3f913aa3de1b723cd4eae70ff8e578a8abbec12
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95556333"
 ---
 #### <a name="to-create-a-new-service"></a>새 서비스를 만들려면
 1. Microsoft 계정 자격 증명을 사용하여 [Microsoft Azure Government 포털](https://portal.azure.us/)에 로그인합니다.
-2. 정부 포털에서를 클릭 한 **+** 다음 marketplace에서 **모두 보기** 를 클릭 합니다. _StorSimple 실제_ 를 검색합니다. **StorSimple 실제 디바이스 시리즈** 를 선택하여 클릭한 후 **만들기** 를 클릭합니다. 또는 정부 포털에서을 클릭 한 **+** 다음 **저장소** 에서 **StorSimple 물리적 장치 시리즈** 를 클릭 합니다.
+2. Government 포털에서 **+** 를 클릭한 다음 Marketplace에서 **모두 보기** 를 클릭합니다. _StorSimple 실제_ 를 검색합니다. **StorSimple 실제 디바이스 시리즈** 를 선택하여 클릭한 후 **만들기** 를 클릭합니다. 또는 Government 포털에서 **+** 를 클릭한 다음 **스토리지** 아래에서 **StorSimple 물리적 디바이스 시리즈** 를 클릭합니다.
 3. **StorSimple 디바이스 관리자** 블레이드에서 다음 단계를 수행합니다.
    
    1. 서비스에 고유한 **리소스 이름** 을 지정합니다. 이 이름은 서비스를 식별하는 데 사용할 수 있는 친숙한 이름입니다. 이름은 문자, 숫자 및 하이픈이 될 수 있는 2자에서 50자 사이여야 합니다. 이름은 문자 또는 숫자로 시작하고 끝나야 합니다.

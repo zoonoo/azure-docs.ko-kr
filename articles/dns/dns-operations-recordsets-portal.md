@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/6/2018
 ms.author: rohink
 ms.openlocfilehash: 22ceba69ecf865d906021068a39a9d273b842ca2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94965734"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Azure 포털을 사용하여 DNS 레코드 및 레코드 집합 관리
@@ -70,7 +70,7 @@ Azure 포털에서 레코드 집합을 만들려면 [Azure 포털을 사용하�
 Azure 포털을 사용하여 레코드 집합에서 레코드를 제거할 수 있습니다. 레코드 집합에서 마지막 레코드를 제거해도 레코드 집합은 삭제되지 않습니다.
 
 1. 레코드 집합에 대한 **레코드 설정 속성** 블레이드에서 레코드를 검색합니다.
-2. 제거하려는 레코드를 클릭합니다. 그런 다음 **제거** 를 선택 합니다.
+2. 제거하려는 레코드를 클릭합니다. 그런 후 **제거** 를 선택합니다.
 
     ![레코드 제거](./media/dns-operations-recordsets-portal/removerecord500.png)
 
@@ -87,13 +87,13 @@ Azure 포털을 사용하여 레코드 집합에서 레코드를 제거할 수 �
 3. 이름이 삭제하려는 레코드 집합과 일치하는지 확인한 다음 **예** 를 클릭합니다.
 4. **DNS 영역** 블레이드에서 레코드 집합을 더 이상 볼 수 없는지 확인합니다.
 
-## <a name="work-with-ns-and-soa-records"></a>NS 및 SOA 레코드 작업
+## <a name="work-with-ns-and-soa-records&quot;></a>NS 및 SOA 레코드 작업
 
 자동으로 생성되는 NS 및 SOA 레코드는 다른 레코드 유형과 다르게 관리됩니다.
 
-### <a name="modify-soa-records"></a>SOA 레코드 수정
+### <a name=&quot;modify-soa-records&quot;></a>SOA 레코드 수정
 
-영역 루트(이름 = "\@")에 설정된 자동으로 생성된 SOA 레코드 집합에서 레코드를 추가 또는 제거할 수는 없습니다. 그러나 SOA 레코드 내의 매개 변수("Host" 제외) 및 레코드 집합 TTL을 수정할 수 있습니다.
+영역 루트(이름 = &quot;\@")에 설정된 자동으로 생성된 SOA 레코드 집합에서 레코드를 추가 또는 제거할 수는 없습니다. 그러나 SOA 레코드 내의 매개 변수("Host" 제외) 및 레코드 집합 TTL을 수정할 수 있습니다.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>영역 루트의 NS 레코드 수정
 

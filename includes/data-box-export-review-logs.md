@@ -5,22 +5,22 @@ ms.topic: include
 ms.date: 06/19/2020
 ms.author: alkohli
 ms.openlocfilehash: 526b3ad89e128d264b5d14d8cc87d9a81d431a9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86208898"
 ---
 데이터 복사를 시작하기 전에 다음을 수행합니다.
 
-1. *복사 로그*를 다운로드합니다. **연결 및 복사** 페이지에서 **복사 로그**를 선택합니다. 메시지가 표시되면 시스템에 로그를 저장합니다. 
+1. *복사 로그* 를 다운로드합니다. **연결 및 복사** 페이지에서 **복사 로그** 를 선택합니다. 메시지가 표시되면 시스템에 로그를 저장합니다. 
 
     ![복사 로그 다운로드 1](../articles/databox/media/data-box-deploy-export-copy-data/download-copy-log-1.png)
 
   
-    *자세한 정보 로그*를 다운로드하는 단계를 반복합니다. 
+    *자세한 정보 로그* 를 다운로드하는 단계를 반복합니다. 
 
-2. *자세한 정보 로그*를 검토합니다. *자세한 정보 로그*에는 Azure Storage 계정에서 성공적으로 내보낸 모든 파일의 목록이 포함되어 있습니다. 로그에는 파일 크기 및 체크섬 계산도 포함됩니다.
+2. *자세한 정보 로그* 를 검토합니다. *자세한 정보 로그* 에는 Azure Storage 계정에서 성공적으로 내보낸 모든 파일의 목록이 포함되어 있습니다. 로그에는 파일 크기 및 체크섬 계산도 포함됩니다.
 
     ```powershell
     <File CloudFormat="BlockBlob" Path="validblobdata/test1.2.3.4" Size="1024" crc64="7573843669953104266">
@@ -52,7 +52,7 @@ ms.locfileid: "86208898"
     </File>
     ``````
 
-3. 오류가 있는지 *복사 로그*를 검토합니다. 이 로그는 오류로 인해 복사할 수 없는 파일을 나타냅니다.
+3. 오류가 있는지 *복사 로그* 를 검토합니다. 이 로그는 오류로 인해 복사할 수 없는 파일을 나타냅니다.
 
     오류가 없고 Azure에서 Data Box 디바이로 데이터를 복사하는 동안 모든 파일이 복사된 경우 복사 로그의 샘플 출력은 다음과 같습니다.
 

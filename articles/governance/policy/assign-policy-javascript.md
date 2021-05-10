@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: JavaScript를 사용하여 새 정책 할당'
 description: 이 빠른 시작에서는 JavaScript를 사용하여 비규격 리소스를 식별하는 Azure Policy 할당을 만듭니다.
-ms.date: 09/24/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 7548053e4bd5be214bf7de3eef3dc4c6c95442d4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d42156e68747b66778ea1cf2001d2b4bfc901bb0
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91348172"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106090185"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-javascript"></a>빠른 시작: JavaScript를 사용하여 비규격 리소스를 식별하는 정책 할당 만들기
 

@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: c8f76c74c951de77d5d5c213be3698ec2b175ead
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 92f89bafe1b96b575d12e8a09289a05c2379d837
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104596776"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280023"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - REST
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Azure Media Services를 사용하면 다양한 브라우저 및 디바이스에서 재생할 수 있는 형식으로 미디어 파일을 인코딩할 수 있습니다. 예를 들어 콘텐츠를 Apple의 HLS 또는 MPEG DASH 형식으로 스트림할 수 있습니다. 스트림하기 전에 고품질 디지털 미디어 파일을 인코딩해야 합니다. 인코딩 지침은 [인코딩 개념](encoding-concept.md)을 참조하세요.
+Azure Media Services를 사용하면 다양한 브라우저 및 디바이스에서 재생할 수 있는 형식으로 미디어 파일을 인코딩할 수 있습니다. 예를 들어 콘텐츠를 Apple의 HLS 또는 MPEG DASH 형식으로 스트림할 수 있습니다. 스트림하기 전에 고품질 디지털 미디어 파일을 인코딩해야 합니다. 인코딩 지침은 [인코딩 개념](encode-concept.md)을 참조하세요.
 
 이 자습서에서는 REST를 사용하여 Azure Media Services에서 URL에 따라 파일을 인코딩하고 비디오를 스트림하는 방법을 보여줍니다. 
 
@@ -44,7 +44,7 @@ Azure Media Services를 사용하면 다양한 브라우저 및 디바이스에�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [Media Services 계정 만들기](./create-account-howto.md)
+- [Media Services 계정 만들기](./account-create-how-to.md)
 
     리소스 그룹 이름 및 Media Services 계정 이름에 사용한 값을 기억해 두세요.
 
@@ -127,7 +127,7 @@ Postman 컬렉션 및 환경 파일이 포함된 GitHub 리포지토리를 복�
 
 ### <a name="start-a-streaming-endpoint"></a>스트리밍 엔드포인트 시작
 
-스트리밍을 사용하도록 설정하려면 비디오를 스트리밍하려는 [스트리밍 엔드포인트](./streaming-endpoint-concept.md)를 시작해야 합니다.
+스트리밍을 사용하도록 설정하려면 비디오를 스트리밍하려는 [스트리밍 엔드포인트](./stream-streaming-endpoint-concept.md)를 시작해야 합니다.
 
 > [!NOTE]
 > 스트리밍 엔드포인트가 실행 중인 상태일 때만 요금이 청구됩니다.
@@ -184,9 +184,9 @@ Postman 컬렉션 및 환경 파일이 포함된 GitHub 리포지토리를 복�
 
 ### <a name="create-a-transform"></a>변환 만들기
 
-Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설정을 레시피로 설정하는 것이 일반적인 패턴입니다. 그런 다음, 이 레시피가 비디오에 적용되도록 **Job** 을 제출합니다. 새 비디오에 대한 새 작업을 제출하면 라이브러리의 모든 비디오에 레시피가 적용됩니다. Media Services의 레시피를 **Transform** 이라고 합니다. 자세한 내용은 [Transform 및 Jobs](./transforms-jobs-concept.md)를 참조하세요. 이 자습서에서 설명하는 샘플은 다양한 iOS 및 Android 디바이스로 스트리밍하기 위해 비디오를 인코딩하는 레시피를 정의합니다. 
+Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설정을 레시피로 설정하는 것이 일반적인 패턴입니다. 그런 다음, 이 레시피가 비디오에 적용되도록 **Job** 을 제출합니다. 새 비디오에 대한 새 작업을 제출하면 라이브러리의 모든 비디오에 레시피가 적용됩니다. Media Services의 레시피를 **Transform** 이라고 합니다. 자세한 내용은 [Transform 및 Jobs](./transform-jobs-concept.md)를 참조하세요. 이 자습서에서 설명하는 샘플은 다양한 iOS 및 Android 디바이스로 스트리밍하기 위해 비디오를 인코딩하는 레시피를 정의합니다. 
 
-새로운 [Transform](/rest/api/media/transforms) 인스턴스를 만드는 경우 이 인스턴스를 통해 출력하려는 것이 무엇인지 지정해야 합니다. 필요한 매개 변수는 **TransformOutput** 개체입니다. 각 **TransformOutput** 에는 **Preset** 이 포함됩니다. **Preset** 은 원하는 **TransformOutput** 을 생성하는 데 사용되는 비디오 및/또는 오디오 처리 작업에 대한 단계별 지침을 설명합니다. 이 자습서에서 설명하는 샘플은 **AdaptiveStreaming** 이라는 기본 제공 Preset을 사용합니다. Preset은 입력 해상도 및 비트 전송률을 기반으로 자동 생성된 비트 전송률 사다리(비트 전송률-해상도 쌍)에 입력 비디오를 인코딩하고 각 비트 전송률-해상도 쌍에 해당하는 H.264 비디오 및 AAC 오디오가 포함된 ISO MP4 파일을 생성합니다. 이 Preset에 대한 정보는 [자동 생성된 비트 전송률 사다리](autogen-bitrate-ladder.md)를 참조하세요.
+새로운 [Transform](/rest/api/media/transforms) 인스턴스를 만드는 경우 이 인스턴스를 통해 출력하려는 것이 무엇인지 지정해야 합니다. 필요한 매개 변수는 **TransformOutput** 개체입니다. 각 **TransformOutput** 에는 **Preset** 이 포함됩니다. **Preset** 은 원하는 **TransformOutput** 을 생성하는 데 사용되는 비디오 및/또는 오디오 처리 작업에 대한 단계별 지침을 설명합니다. 이 자습서에서 설명하는 샘플은 **AdaptiveStreaming** 이라는 기본 제공 Preset을 사용합니다. Preset은 입력 해상도 및 비트 전송률을 기반으로 자동 생성된 비트 전송률 사다리(비트 전송률-해상도 쌍)에 입력 비디오를 인코딩하고 각 비트 전송률-해상도 쌍에 해당하는 H.264 비디오 및 AAC 오디오가 포함된 ISO MP4 파일을 생성합니다. 이 Preset에 대한 정보는 [자동 생성된 비트 전송률 사다리](encode-autogen-bitrate-ladder.md)를 참조하세요.
 
 기본 제공 EncoderNamedPreset을 사용하거나 사용자 지정 사전 설정을 사용할 수 있습니다. 
 
@@ -413,4 +413,4 @@ az group delete --name amsResourceGroup
 비디오를 업로드, 인코딩 및 스트리밍하는 방법을 알아보았으니 이제 다음 문서를 참조하십시오. 
 
 > [!div class="nextstepaction"]
-> [비디오 분석](analyze-videos-tutorial-with-api.md)
+> [비디오 분석](analyze-videos-tutorial.md)

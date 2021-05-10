@@ -7,14 +7,14 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/15/2021
+ms.date: 04/12/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 6b15585f029f9289736d8d498b61a3e0ba40f009
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 534b5b3aca86cc2f6d7ee2d703939420f80abb8e
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889419"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365096"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>빠른 시작: Python을 사용하여 데이터 팩터리 및 파이프라인 만들기
 
@@ -40,7 +40,7 @@ Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레�
 
 * [Azure Storage Explorer](https://storageexplorer.com/)(선택 사항).
 
-* [Azure Active Directory의 애플리케이션](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). 이후 단계에서 사용하는 다음 값(**애플리케이션 ID**, **인증 키** 및 **테넌트 ID**)을 기록해 둡니다. 동일한 문서의 지침에 따라 애플리케이션을 **기여자** 역할에 할당합니다.
+* [Azure Active Directory의 애플리케이션](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). 이 링크의 단계에 따라 애플리케이션을 만들고 동일한 문서의 지침에 따라 **기여자** 역할에 할당합니다. 이후 단계에서 사용할 문서에 표시된 대로 **애플리케이션 ID(아래 서비스 주체 ID), 인증 키(아래 클라이언트 암호) 및 테넌트 ID** 값을 기록해 둡니다.
 
 ## <a name="create-and-upload-an-input-file"></a>입력 파일 만들기 및 업로드
 
@@ -75,9 +75,12 @@ Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레�
     ```
     > [!NOTE] 
     > "azure-identity" 패키지는 일부 공통 종속성에서 "azure-cli"와 충돌할 수 있습니다. 인증 문제가 발생하면 "azure-cli" 및 해당 종속성을 제거하거나 "azure cli" 패키지를 설치하지 않고 정리된 머신을 사용하여 작동하도록 합니다.
+    > 소버린 클라우드의 경우 적절한 클라우드 관련 상수를 사용해야 합니다.  [Python 다중 클라우드용 Azure 라이브러리를 사용하여 모든 지역에 연결 | 소버린 클라우드에서 Python을 사용하여 연결하는 지침에 대한 Microsoft Docs](https://docs.microsoft.com/azure/developer/python/azure-sdk-sovereign-domain)를 참조하세요.
+    
     
 ## <a name="create-a-data-factory-client"></a>데이터 팩터리 클라이언트 만들기
 
+  
 1. **datafactory.py** 라는 파일을 만듭니다. 다음 문을 추가하여 네임스페이스에 대한 참조를 추가합니다.
 
     ```python
@@ -122,6 +125,7 @@ Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레�
     ```
 3. DataFactoryManagementClient 클래스의 인스턴스를 만드는 **Main** 메서드에 다음 코드를 추가합니다. 이 개체를 사용하여 데이터 팩터리, 연결된 서비스, 데이터 세트 및 파이프라인을 만듭니다. 또한 이 개체를 사용하여 파이프라인 실행 세부 정보를 모니터링합니다. **subscription_id** 변수를 Azure 구독의 ID로 설정합니다. 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics** 를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
+        
     ```python
     def main():
 
@@ -136,6 +140,11 @@ Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레�
 
         # Specify your Active Directory client ID, client secret, and tenant ID
         credentials = ClientSecretCredential(client_id='<service principal ID>', client_secret='<service principal key>', tenant_id='<tenant ID>') 
+        
+        # Specify following for Soverign Clouds, import right cloud constant and then use it to connect.
+        # from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD as CLOUD
+        # credentials = DefaultAzureCredential(authority=CLOUD.endpoints.active_directory, tenant_id=tenant_id)
+        
         resource_client = ResourceManagementClient(credentials, subscription_id)
         adf_client = DataFactoryManagementClient(credentials, subscription_id)
 
@@ -217,6 +226,7 @@ Azure Blob의 원본 데이터를 나타내는 데이터 세트를 정의합니�
     print_item(dsOut)
 ```
 
+
 ## <a name="create-a-pipeline"></a>파이프라인 만들기
 
 **Main** 메서드에 **복사 작업이 있는 파이프라인** 을 만드는 다음 코드를 추가합니다.
@@ -231,6 +241,13 @@ Azure Blob의 원본 데이터를 나타내는 데이터 세트를 정의합니�
     copy_activity = CopyActivity(name=act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
 
     #Create a pipeline with the copy activity
+    
+    #Note1: To pass parameters to the pipeline, add them to the json string params_for_pipeline shown below in the format { “ParameterName1” : “ParameterValue1” } for each of the parameters needed in the pipeline.
+    #Note2: To pass parameters to a dataflow, create a pipeline parameter to hold the parameter name/value, and then consume the pipeline parameter in the dataflow parameter in the format @pipeline().parameters.parametername.
+    
+    p_name = 'copyPipeline'
+    params_for_pipeline = {}
+
     p_name = 'copyPipeline'
     params_for_pipeline = {}
     p_obj = PipelineResource(activities=[copy_activity], parameters=params_for_pipeline)

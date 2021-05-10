@@ -11,16 +11,16 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
-ms.openlocfilehash: cfc9745fc4684a7b0d8f7da7e63149a6fe50f6d2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7a05b04872b4f957e879d93972edc45e2932d059
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331841"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364093"
 ---
 # <a name="upgrade-from-read-v2x-to-read-v3x"></a>Read v2.x에서 Read v3.x로 업그레이드
 
-이 가이드에서는 기존 컨테이너 또는 클라우드 API 코드를 Read v2.x에서 Read v3.0 및 v3.1 미리 보기로 업그레이드하는 방법을 보여 줍니다.
+이 가이드에서는 기존 컨테이너 또는 클라우드 API 코드를 Read v2.x에서 Read v3.x로 업그레이드하는 방법을 보여줍니다.
 
 ## <a name="determine-your-api-path"></a>API 경로 결정
 다음 표를 사용하여 마이그레이션하는 Read 3.x 버전에 따라 API 경로에서 **버전 문자열** 을 확인할 수 있습니다.
@@ -40,7 +40,7 @@ ms.locfileid: "92331841"
 
 |Read 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/ **v2.0/read/core/asyncBatchAnalyze**     |https://{endpoint}/vision/< **version string** >/read/analyze[?language]|
+|https://{endpoint}/vision/**v2.0/read/core/asyncBatchAnalyze**     |https://{endpoint}/vision/<**version string**>/read/analyze[?language]|
     
 새로운 선택적 매개 변수 _language_ 를 사용할 수 있습니다. 문서 언어를 모르는 경우 또는 문서 언어가 다국어일 수도 있는 경우에는 이 매개 변수를 포함하지 마세요. 
 
@@ -48,7 +48,7 @@ ms.locfileid: "92331841"
 
 |Read 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/ **v2.0/read/operations** /{operationId}     |https://{endpoint}/vision/< **version string** >/read/analyzeResults/{operationId}|
+|https://{endpoint}/vision/**v2.0/read/operations**/{operationId}     |https://{endpoint}/vision/<**version string**>/read/analyzeResults/{operationId}|
 
 ### <a name="get-read-operation-result-status-flag"></a>`Get Read Operation Result` 상태 플래그
 
@@ -178,7 +178,7 @@ v3.0에서는 다음과 같이 조정되었습니다.
 
 |Recognize Text 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/ **v2.0/recognizeText[?mode]**|https://{endpoint}/vision/< **version string** >/read/analyze[?language]|
+|https://{endpoint}/vision/**v2.0/recognizeText[?mode]**|https://{endpoint}/vision/<**version string**>/read/analyze[?language]|
     
 _mode_ 매개 변수는 `Read`에서 지원되지 않습니다. 필기 텍스트와 인쇄된 텍스트가 모두 자동으로 지원됩니다.
     
@@ -188,7 +188,7 @@ v3.0에서는 새로운 선택적 매개 변수 _language_ 를 사용할 수 있
 
 |Recognize Text 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/ **v2.0/textOperations/** {operationId}|https://{endpoint}/vision/< **version string** >/read/analyzeResults/{operationId}|
+|https://{endpoint}/vision/**v2.0/textOperations/** {operationId}|https://{endpoint}/vision/<**version string**>/read/analyzeResults/{operationId}|
 
 ### <a name="get-recognize-text-operation-result-status-flags"></a>`Get Recognize Text Operation Result` 상태 플래그
 `Get Recognize Text Operation Result` 호출이 성공하면 JSON 본문에 상태 문자열 필드가 반환됩니다. 
@@ -312,4 +312,4 @@ v3.x에서는 다음과 같이 조정되었습니다.
 
 |Read 2.0 |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/ **v2.0/read/core/Analyze**     |https://{endpoint}/vision/< **version string** >/read/syncAnalyze[?language]|
+|https://{endpoint}/vision/**v2.0/read/core/Analyze**     |https://{endpoint}/vision/<**version string**>/read/syncAnalyze[?language]|

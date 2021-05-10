@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 42098786bb92e98b89b1dbfba01a2e071398f460
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f19f43b89cd2527a67827d7434f2e054ee40001e
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99822444"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227384"
 ---
 # <a name="tutorial-use-custom-allocation-policies-with-device-provisioning-service-dps"></a>자습서: DPS(Device Provisioning Service)에서 사용자 지정 할당 정책 사용
 
@@ -483,6 +483,17 @@ contoso-heatpump-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
 
 ## <a name="next-steps"></a>다음 단계
 
-* 보다 심층적인 사용자 지정 할당 정책 예제는 [사용자 지정 할당 정책을 사용하는 방법](how-to-use-custom-allocation-policies.md)을 참조하세요.
-* 다시 프로비저닝에 대한 자세한 내용은 [IoT Hub 디바이스 다시 프로비전 개념](concepts-device-reprovision.md)을 참조하세요.
-* 프로비저닝 해제에 대한 자세한 내용은 [이전에 자동 프로비저닝된 디바이스를 프로비저닝 해제하는 방법](how-to-unprovision-devices.md)을 참조하세요.
+보다 자세한 사용자 지정 할당 정책 예는 다음을 참조하세요. 
+
+> [!div class="nextstepaction"]
+> [사용자 지정 할당 정책을 사용하는 방법](how-to-use-custom-allocation-policies.md)
+
+* 재프로비저닝에 대한 자세한 내용은 다음을 참조하세요.
+
+> [!div class="nextstepaction"]
+> [IoT Hub 디바이스 다시 프로비전 개념](concepts-device-reprovision.md)
+
+* 프로비저닝 해제에 대한 자세한 내용은 다음을 참조하세요.
+
+> [!div class="nextstepaction"]
+> [이전에 자동 프로비저닝된 디바이스의 프로비저닝을 해제하는 방법](how-to-unprovision-devices.md)

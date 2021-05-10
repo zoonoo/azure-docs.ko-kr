@@ -3,7 +3,6 @@ title: 자습서 - Azure Portal을 사용하여 Key Vault에서 인증서 가져
 description: Azure Key Vault에서 인증서를 가져오는 방법을 보여 주는 자습서
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
@@ -11,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-azurecli
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: b7b15c1c4952f6e0a606b1ed46f1588c536b4ae2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 67531c1c5d37b02f9107dfc487c10b2fcac734d8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102204085"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791970"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>자습서: Azure Key Vault에서 인증서 가져오기
 
@@ -37,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-vault"></a>자격 증명 모음 만들기
 
@@ -104,9 +103,9 @@ az keyvault certificate import --file
                                [--tags]
 ```
 
-[매개 변수](/cli/azure/keyvault/certificate#az-keyvault-certificate-import)에 대해 자세히 알아봅니다.
+[매개 변수](/cli/azure/keyvault/certificate#az_keyvault_certificate_import)에 대해 자세히 알아봅니다.
 
-인증서를 가져온 후 [인증서 표시](/cli/azure/keyvault/certificate#az-keyvault-certificate-show)를 사용하여 인증서를 볼 수 있습니다.
+인증서를 가져온 후 [인증서 표시](/cli/azure/keyvault/certificate#az_keyvault_certificate_show)를 사용하여 인증서를 볼 수 있습니다.
 
 
 ```azurecli
@@ -135,7 +134,7 @@ Import-AzureKeyVaultCertificate
       [<CommonParameters>]
 ```
 
-[매개 변수](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0)에 대해 자세히 알아봅니다.
+[매개 변수](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?)에 대해 자세히 알아봅니다.
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

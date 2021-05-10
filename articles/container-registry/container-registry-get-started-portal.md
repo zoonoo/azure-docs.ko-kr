@@ -1,15 +1,17 @@
 ---
 title: 빠른 시작 - 포털에서 레지스트리 만들기
 description: Azure Portal을 사용하여 프라이빗 Azure 컨테이너 레지스트리를 만드는 방법을 빠르게 알아봅니다.
-ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: seodec18, mvc
-ms.openlocfilehash: ff74232edf5c96f091082f8486c44fed6125b0b1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.topic: quickstart
+ms.custom:
+- mvc
+- mode-portal
+ms.openlocfilehash: 4618a83a43d9c27f44432d5d346fdb053cee7054
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97825843"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773588"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure 컨테이너 레지스트리 만들기
 
@@ -103,5 +105,5 @@ az acr login --name mycontainerregistry
 [container-registry-skus]: container-registry-skus.md
 [azure-cli]: /cli/azure/install-azure-cli
 [get-started-with-azure-cli]: /cli/azure/get-started-with-azure-cli
-[az-acr-login]: /cli/azure/acr#az-acr-login
+[az-acr-login]: /cli/azure/acr#az_acr_login
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md

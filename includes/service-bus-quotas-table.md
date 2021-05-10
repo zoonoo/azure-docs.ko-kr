@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: service-bus-messaging
 author: spelluru
@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 02/17/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: ee066ff46f319749469a41e6decf12b35c0ee27e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e160b21581bc7b5fa38b12309bd9deb90bfbbe51
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100651949"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107251295"
 ---
 다음 표에는 Azure Service Bus 메시징에 특정한 할당량 정보가 나와 있습니다. Service Bus에 대한 가격 책정 및 기타 할당량에 대한 정보는 [Service Bus 가격 책정](https://azure.microsoft.com/pricing/details/service-bus/)을 참조하세요.
 
 | 할당량 이름 | 범위 | 메모 | 값 |
 | --- | --- | --- | --- |
-| Azure 구독당 기본 또는 표준 네임스페이스 최대 수 |네임스페이스 |기본 또는 표준 추가 네임스페이스에 대한 후속 요청은 Azure Portal에서 거부됩니다. |100|
-| Azure 구독당 프리미엄 네임스페이스 최대 수 |네임스페이스 |프리미엄 추가 네임스페이스에 대한 후속 요청은 포털에서 거부됩니다. |100 |
+| Azure 구독당 기본 또는 표준 네임스페이스 최대 수 |네임스페이스 |기본 또는 표준 추가 네임스페이스에 대한 후속 요청은 Azure Portal에서 거부됩니다. | 기본값은 100입니다. <br/> 최댓값은 1000입니다. <br/><br/> 한도를 늘리려면 Azure 지원에 문의하세요. |
+| Azure 구독당 프리미엄 네임스페이스 최대 수 |네임스페이스 |프리미엄 추가 네임스페이스에 대한 후속 요청은 포털에서 거부됩니다. | 기본값은 100입니다. <br/> 최댓값은 1000입니다. <br/><br/> 한도를 늘리려면 Azure 지원에 문의하세요. |
 | 큐 또는 토픽 크기 |엔터티 |큐 또는 토픽을 만들 때 정의됨 <br/><br/> 들어오는 후속 메시지가 거부되며 호출 코드에서 예외를 수신합니다. |1, 2, 3, 4GB 또는 5GB<br /><br />프리미엄 SKU와 [분할](../articles/service-bus-messaging/service-bus-partitioning.md)을 사용하는 표준 SKU에서 최대 큐 또는 토픽 크기는 80GB입니다. |
 | 네임스페이스에 대한 동시 연결 수 |네임스페이스 |추가 연결에 대한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. REST 작업은 동시 TCP 연결 계산에 포함되지 않습니다. |넷 메시징: 1,000.<br /><br />AMQP: 5,000. |
 | 큐, 토픽 또는 구독 엔터티의 동시 수신 요청 수 |엔터티 |후속 수신 요청이 거부되며 호출 코드에서 예외를 수신합니다. 이 할당량은 항목의 모든 구독 전반에 걸쳐 종합된 동시 수신 명령 수에 적용됩니다. |5,000 |
@@ -38,6 +38,6 @@ ms.locfileid: "100651949"
 | SQL 필터 또는 작업의 크기 |네임스페이스 |추가 필터를 생성하기 위한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |필터 조건 문자열의 최대 길이: 1,024(1K).<br /><br />규칙 작업 문자열의 최대 길이: 1,024(1K).<br /><br />규칙 작업당 식의 최대 수: 32 |
 | 네임스페이스, 큐 또는 토픽당 공유 액세스 권한 부여 규칙 수 |엔터티, 네임스페이스 |추가 규칙을 생성하기 위한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |엔터티 형식당 최대 규칙 수: 12. <br /><br /> Service Bus 네임스페이스에 구성된 규칙이 큐, 토픽 등 모든 엔터티에 적용됩니다. |
 | 트랜잭션당 메시지 수 | 트랜잭션 | 추가로 들어오는 메시지는 거부되고 호출 코드에서 "단일 트랜잭션에 100개가 넘는 메시지를 보낼 수 없습니다"라는 예외를 수신합니다. | 100 <br /><br /> **Send()** 및 **SendAsync()** 작업 모두에 해당합니다. |
-| 가상 네트워크 및 IP 필터 규칙 수 | 네임스페이스 | &nbsp; | 128 | 
+| 가상 네트워크 및 IP 필터 규칙 수 | 네임스페이스 | &nbsp; | 128 |
 
 [Azure portal]: https://portal.azure.com

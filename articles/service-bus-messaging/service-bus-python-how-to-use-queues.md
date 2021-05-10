@@ -1,19 +1,22 @@
 ---
 title: Python azure-servicebus 패키지 버전 7.0.0에서 Azure Service Bus 큐 사용
 description: 이 문서에서는 Python을 사용하여 Azure Service Bus 큐에서 메시지를 보내고 받는 방법을 설명합니다.
-author: spelluru
 documentationcenter: python
-ms.devlang: python
-ms.topic: quickstart
-ms.date: 11/18/2020
+author: spelluru
 ms.author: spelluru
-ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 0553062032a58ec9eb9cf3c474ee7c8f19fc544d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 11/18/2020
+ms.topic: quickstart
+ms.devlang: python
+ms.custom:
+- seo-python-october2019
+- devx-track-python
+- mode-api
+ms.openlocfilehash: e982b3f36dbfe2144170d53d07473201abb014ef
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98631558"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534969"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-python"></a>Azure Service Bus 큐에서 메시지 보내기 및 받기(Python)
 이 문서에서는 Python을 사용하여 Azure Service Bus 큐에서 메시지를 보내고 받는 방법을 설명합니다. 

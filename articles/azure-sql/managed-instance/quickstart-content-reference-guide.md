@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: c84c81fa81cf4ba9be454eea5782927a09c3252a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ec767e5f3a88c52f9686eec8f7e458ab517ee35f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101690965"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784338"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Azure SQL Managed Instance 시작
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,7 +44,7 @@ ms.locfileid: "101690965"
   > - 또한 로컬 네트워크에서 사이트 간 연결 또는 Express 경로를 사용할 수 있지만 이러한 방법은 이 빠른 시작의 범위를 벗어납니다.
   > - 보존 기간을 0(무제한 보존)에서 다른 값으로 변경하는 경우 보존 값이 변경된 후에 작성된 로그에만 보존이 적용됩니다(보존이 무제한으로 설정된 기간 동안 작성된 로그는 보존이 활성화된 후에도 보존됨).
 
-SQL Managed Instance를 수동으로 만드는 대신, [PowerShell](scripts/create-configure-managed-instance-powershell.md), [Resource Manager 템플릿이 있는 PowerShell](./create-template-quickstart.md) 또는 [Azure CLI](/cli/azure/sql/mi#az-sql-mi-create)를 사용하여 이 프로세스를 스크립트로 작성하고 자동화할 수 있습니다.
+SQL Managed Instance를 수동으로 만드는 대신, [PowerShell](scripts/create-configure-managed-instance-powershell.md), [Resource Manager 템플릿이 있는 PowerShell](./create-template-quickstart.md) 또는 [Azure CLI](/cli/azure/sql/mi#az_sql_mi_create)를 사용하여 이 프로세스를 스크립트로 작성하고 자동화할 수 있습니다.
 
 ### <a name="migrate-your-databases"></a>데이터베이스 마이그레이션
 

@@ -2,17 +2,17 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 03/14/2021
+ms.date: 04/13/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: fe1b9fc8754ae959abf088526b5d71e0e43c158e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d2ae849616946169911468bb43e190c7ff8a4ec8
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103466236"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107386928"
 ---
-이 범주에는 **64** 개의 권장 사항이 있습니다.
+이 범주에는 **65** 개의 권장 사항이 있습니다.
 
 |권장 |Description |심각도 |
 |---|---|---|
@@ -24,6 +24,7 @@ ms.locfileid: "103466236"
 |SQL 서버에 대한 감사 보존 기간은 90일 이상으로 설정해야 합니다. |감사 보존 기간이 90일 미만으로 구성된 SQL 서버를 감사합니다.<br />(관련 정책: [SQL 서버는 90일 이상의 감사 보존 기간으로 구성되어야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f89099bee-89e0-4b26-a5f4-165451757743)) |낮음 |
 |SQL Server에 대한 감사가 사용되도록 설정되어야 함 |SQL Server에서 감사를 사용하도록 설정하여 서버의 모든 데이터베이스에서 데이터베이스 작업을 추적하고 감사 로그에 저장합니다.<br />(관련 정책: [SQL 서버에 대한 감사가 사용되도록 설정되어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9)) |낮음 |
 |구독에 Log Analytics 에이전트의 자동 프로비저닝을 사용하도록 설정해야 함 |보안 취약성 및 위협을 모니터링하기 위해 Azure Security Center는 Azure 가상 머신에서 데이터를 수집합니다. 데이터는 이전에 MMA(Microsoft Monitoring Agent)로 알려진 Log Analytics 에이전트에 의해 수집되며, 머신에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석을 위해 Log Analytics 작업 영역에 데이터를 복사합니다. 지원되는 모든 Azure VM과 생성된 모든 새 VM에 에이전트를 자동으로 배포하려면 자동 프로비저닝을 사용하도록 설정하는 것이 좋습니다.<br />(관련 정책: [구독에 Log Analytics 에이전트의 자동 프로비저닝을 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f475aae12-b88a-4572-8b36-9b712b2b3a17)) |낮음 |
+|Azure Arc 사용 Kubernetes 클러스터에 Azure Defender의 확장이 설치되어 있어야 함 |Azure Arc용 Azure Defender 확장은 Arc 지원 Kubernetes 클러스터에 대한 위협 보호를 제공합니다. 확장은 클러스터의 모든 제어 평면(마스터) 노드에서 데이터를 수집하고 추가 분석을 위해 클라우드의 Azure Defender for Kubernetes 백엔드로 보냅니다. https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-azure-arc에서 자세히 알아보세요.<br />(관련 정책 없음) |높음 |
 |Azure Cache for Redis는 가상 네트워크 내에 있어야 함 |Azure VNet(Virtual Network) 배포에서는 Azure Cache for Redis에 대한 향상된 보안 및 격리 기능뿐만 아니라 서브넷, 액세스 제어 정책 및 액세스를 추가로 제한하는 기타 기능을 제공합니다. Azure Cache for Redis 인스턴스가 VNet으로 구성된 경우 공개적으로 주소를 지정할 수 없으며 VNet 내의 가상 머신 및 애플리케이션에서만 액세스할 수 있습니다.<br />(관련 정책: [Azure Cache for Redis는 가상 네트워크 내에 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7d092e0a-7acd-40d2-a975-dca21cae48c4)) |중간 |
 |Azure Cosmos DB 계정에 방화벽 규칙이 있어야 함 |권한 없는 원본의 트래픽을 방지하기 위해 Azure Cosmos DB 계정에 방화벽 규칙을 정의해야 합니다. 가상 네트워크 필터를 사용하도록 정의된 IP 규칙이 하나 이상 있는 계정은 규정을 준수하는 것으로 간주됩니다. 퍼블릭 액세스를 비활성화한 계정도 규정을 준수하는 것으로 간주됩니다.<br />(관련 정책: [Azure Cosmos DB 계정은 방화벽 규칙이 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f862e97cf-49fc-4a5c-9de4-40d4e2e7c8eb)) |중간 |
 |Azure Cosmos DB 계정은 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함 |고객 관리형 키를 사용하여 Azure Cosmos DB의 미사용 데이터 암호화를 관리합니다. 기본적으로, 데이터는 서비스 관리형 키로 암호화되지만, CMK(고객 관리형 키)는 일반적으로 규정 준수 기준을 충족하는 데 필요합니다. CMK를 사용하면 사용자가 만들고 소유한 Azure Key Vault 키로 데이터를 암호화할 수 있습니다. 순환 및 관리를 포함하여 키의 수명 주기를 고객이 모두 제어하고 책임져야 합니다. https://aka.ms/cosmosdb-cmk에서 CMK 암호화에 대해 자세히 알아보세요.<br />(관련 정책: [Azure Cosmos DB 계정은 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1f905d99-2ab7-462c-a6b0-f709acca6c8f)) |높음 |

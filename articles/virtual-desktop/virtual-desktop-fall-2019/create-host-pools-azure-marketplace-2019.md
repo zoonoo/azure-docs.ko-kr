@@ -3,15 +3,15 @@ title: Windows Virtual Desktop(클래식) 호스트 풀 Azure Marketplace - Azur
 description: Azure Marketplace를 사용하여 Windows Virtual Desktop(클래식) 호스트 풀을 만드는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/31/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 04184a658ae1efd03afd3e920818eb5317bc7553
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+manager: femila
+ms.openlocfilehash: fa271ba87f68d46452633d2b426c7fd805f8566b
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88008596"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445162"
 ---
 # <a name="tutorial-create-a-host-pool-in-windows-virtual-desktop-classic"></a>자습서: Windows Virtual Desktop(클래식)에서 호스트 풀 만들기
 
@@ -80,10 +80,10 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 1. 기본값을 그대로 적용하거나 가상 머신의 수와 크기를 사용자 지정합니다.
 
     >[!NOTE]
-    >찾고 있는 특정 가상 머신 크기가 가상 머신 크기 선택기에 표시되지 않는 경우 이는 Azure Marketplace 도구에 아직 온보딩되지 않았기 때문입니다. 크기를 요청하려면 [Windows Virtual Desktop UserVoice 포럼](https://windowsvirtualdesktop.uservoice.com/forums/921118-general)에서 요청을 만들거나 기존 요청에 찬성합니다.
+    >찾고 있는 특정 가상 머신 크기가 가상 머신 크기 선택기에 표시되지 않는 경우 이는 Azure Marketplace 도구에 아직 온보딩되지 않았기 때문입니다.
 
-1. 가상 머신의 이름에 사용할 접두사를 입력합니다. 예를 들어 *prefix* 를 입력하면 가상 머신이 **prefix-0**, **prefix-1** 등으로 호출됩니다.
-1. 완료되면 **다음: 가상 머신 설정** 을 선택합니다.
+2. 가상 머신의 이름에 사용할 접두사를 입력합니다. 예를 들어 *prefix* 를 입력하면 가상 머신이 **prefix-0**, **prefix-1** 등으로 호출됩니다.
+3. 완료되면 **다음: 가상 머신 설정** 을 선택합니다.
 
 ### <a name="virtual-machine-settings"></a>가상 머신 설정
 

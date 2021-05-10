@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/09/2020
 ms.author: jeedes
 ms.openlocfilehash: a920abacb0df030f7d38aed11e04a693cfa352a6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101686598"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>자습서: BlueJeans for Azure AD와 Azure Active Directory SSO(Single Sign-On) 연결
@@ -144,13 +144,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-## <a name="configure-bluejeans-for-azure-ad-sso"></a>BlueJeans for Azure AD SSO 구성
+## <a name="configure-bluejeans-for-azure-ad-sso&quot;></a>BlueJeans for Azure AD SSO 구성
 
 1. 다른 웹 브라우저 창에서 **BlueJeans for Azure AD** 회사 사이트에 관리자로 로그인합니다.
 
 2. **관리자 \> 그룹 설정 \> 보안** 으로 이동합니다.
 
-    ![스크린샷은 그룹 설정 및 보안이 선택된 상태에서 관리 탭이 선택된 브라우저 창의 일부를 보여줍니다.](./media/bluejeans-tutorial/ic785868.png "Admin")
+    ![스크린샷은 그룹 설정 및 보안이 선택된 상태에서 관리 탭이 선택된 브라우저 창의 일부를 보여줍니다.](./media/bluejeans-tutorial/ic785868.png &quot;Admin")
 
 3. **보안** 섹션에서 다음 단계를 수행합니다.
 

@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
 ms.openlocfilehash: a34881901fd8642fff9ac37512cd2ef260ad9d1c
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
-ms.translationtype: MT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98954222"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Workday 구성
@@ -336,7 +336,7 @@ Active Directory 온-프레미스에 프로비저닝하려면 원하는 Active D
       * 연산자: NULL이 아님
 
    > [!TIP]
-   > 프로비전 앱을 처음 구성하는 경우 특성 매핑 및 식을 테스트하고 확인하여 원하는 결과를 제공하는지 확인해야 합니다. **원본 개체 범위** 및 [주문형 프로 비전](../app-provisioning/provision-on-demand.md) 에 [범위 지정 필터](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) 를 사용 하 여 Workday에서 몇 가지 테스트 사용자로 매핑을 테스트 하는 것이 좋습니다. 매핑이 작동하는지 확인한 후에는 필터를 제거하거나 점진적으로 더 많은 사용자를 포함하도록 해당 필터를 점진적으로 확장할 수 있습니다.
+   > 프로비전 앱을 처음 구성하는 경우 특성 매핑 및 식을 테스트하고 확인하여 원하는 결과를 제공하는지 확인해야 합니다. Microsoft는 **원본 개체 범위** 및 [주문형 프로비저닝](../app-provisioning/provision-on-demand.md)에서 [범위 지정 필터](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)를 사용하여 Workday의 몇몇 테스트 사용자로 매핑을 테스트할 것을 권장합니다. 매핑이 작동하는지 확인한 후에는 필터를 제거하거나 점진적으로 더 많은 사용자를 포함하도록 해당 필터를 점진적으로 확장할 수 있습니다.
 
    > [!CAUTION] 
    > 프로비저닝 엔진의 기본 동작은 범위를 벗어나는 사용자를 사용하지 않도록 설정/삭제하는 것입니다. 이는 Workday-AD 통합 환경에서 적합하지 않을 수 있습니다. 이 기본 동작을 재정의하려면 범위를 [벗어난 사용자 계정 삭제 건너뛰기](../app-provisioning/skip-out-of-scope-deletions.md) 문서를 참조하세요.
@@ -1065,7 +1065,7 @@ Azure AD 프로비전 서비스는 GDPR 분류의 **데이터 프로세서** 범
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure AD 및 Workday 통합 시나리오 및 웹 서비스 호출에 대 한 자세한 정보](../app-provisioning/workday-integration-reference.md)
+* [Azure AD와 Workday 통합 시나리오 및 웹 서비스 호출에 대한 자세한 정보](../app-provisioning/workday-integration-reference.md)
 * [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).
 * [Workday와 Azure Active Directory 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.](workday-tutorial.md)
 * [Workday 쓰기 저장을 구성하는 방법을 알아봅니다.](workday-writeback-tutorial.md)

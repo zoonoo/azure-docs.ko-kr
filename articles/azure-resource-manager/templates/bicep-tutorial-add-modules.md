@@ -2,15 +2,15 @@
 title: 자습서 - Azure Resource Manager Bicep 파일에 모듈 추가
 description: 모듈을 사용하여 원시 리소스 선언의 복잡한 세부 정보를 캡슐화합니다.
 author: mumian
-ms.date: 03/10/2021
+ms.date: 03/25/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6efd9c230df49c83adc17361082af85b0ef9edc5
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 8c7ab1038cbe62d6f15faf56796193df12b38546
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102633141"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105568769"
 ---
 # <a name="tutorial-add-modules-to-azure-resource-manager-bicep-file"></a>자습서: Azure Resource Manager Bicep 파일에 모듈 추가
 
@@ -128,4 +128,4 @@ Azure Portal에서 리소스 그룹을 탐색하여 배포를 확인할 수 있�
 다음 자습서 시리즈는 템플릿 배포에 대해 자세히 설명합니다.
 
 > [!div class="nextstepaction"]
-> [모듈 추가](./bicep-tutorial-add-modules.md)
+> [로컬 템플릿 배포](./deployment-tutorial-local-template.md)

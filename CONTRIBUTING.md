@@ -15,8 +15,7 @@ Microsoft Azure 설명서에 기여하기 위해 시간을 내어주셔서 감�
 ## <a name="code-of-conduct"></a>준수 사항
 
 이 프로젝트에는 [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/)(Microsoft 오픈 소스 준수 사항)이 적용됩니다.
-자세한 정보는 [준수 사항 FAQ](https://opensource.microsoft.com/codeofconduct/faq/)를 보거나 추가 질문과 의견과 함께 [opencode@microsoft.com ](mailto:opencode@microsoft.com)로 연락주세요.
-추가 질문과 할말과 함께 [ opencode@microsoft.com ](mailto:opencode@microsoft.com)로 연락주세요.
+자세한 정보는 [준수 사항 FAQ](https://opensource.microsoft.com/codeofconduct/faq/)를 보거나 추가 질문이나 의견을 [opencode@microsoft.com ](mailto:opencode@microsoft.com)로 연락주세요.
 
 ## <a name="how-can-i-contribute"></a>어떻게 기여할 수 있나요?
 

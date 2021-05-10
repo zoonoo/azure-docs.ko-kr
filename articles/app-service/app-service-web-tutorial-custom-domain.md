@@ -11,12 +11,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./app-service-web-tutorial-custom-domain-uiex
-ms.openlocfilehash: 79599ce04b93409c67342be73cf88d5e20621c1d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 216c96579944661ecf248e4e8676ac45021c53e6
+ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182590"
+ms.lasthandoff: 04/04/2021
+ms.locfileid: "106293960"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>자습서: Azure App Service에 기존 사용자 지정 DNS 이름 매핑
 
@@ -51,6 +51,8 @@ ms.locfileid: "102182590"
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
+  > [!NOTE]
+  > 웹앱에 사용자 지정 도메인을 제거하거나 추가하면 사이트가 다시 시작됩니다.
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
 [Azure Portal](https://portal.azure.com)에서 Azure 계정으로 로그인합니다.

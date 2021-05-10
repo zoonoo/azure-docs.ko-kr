@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: storage
 author: roygara
@@ -9,10 +9,10 @@ ms.date: 02/03/2021
 ms.author: fauhse
 ms.custom: include file
 ms.openlocfilehash: a086aae35c9a800c6a4cfc3e872a34438bc84095
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99569560"
 ---
 기본적으로, 표준 파일 공유는 최대 5TiB까지만 확장할 수 있지만 공유 한도는 100TiB까지 늘릴 수 있습니다. 공유 한도를 늘리려면 스토리지 계정에서 **대용량 파일 공유** 를 사용합니다. 프리미엄 스토리지 계정(*FileStorage* 스토리지 계정)에는 최대 100TiB 용량을 프로비저닝하기 위해 모든 프리미엄 파일 공유를 이미 사용하도록 설정했기 때문에 대용량 파일 공유 기능 플래그가 없습니다.

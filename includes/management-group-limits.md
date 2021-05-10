@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 author: tfitzmac
 ms.service: governance
@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/26/2020
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: cdcf6215973755444da9e513761de7ac71e479d4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 53e3f37d14153f3a2d7b5886a49b08ca9052b128
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98738803"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107799777"
 ---
 | 리소스 | 제한 |
 | --- | --- |
@@ -24,4 +24,4 @@ ms.locfileid: "98738803"
 
 <sup>1</sup>6 수준에는 구독 수준이 포함되지 않습니다.
 
-<sup>2</sup>800개 배포 제한에 도달하면 기록에서 더 이상 필요하지 않은 배포를 삭제합니다. 관리 그룹 수준 배포를 삭제하려면 [Remove-AzManagementGroupDeployment](/powershell/module/az.resources/Remove-AzManagementGroupDeployment) 또는 [az deployment mg delete](/cli/azure/deployment/mg#az-deployment-mg-delete)를 사용합니다.
+<sup>2</sup>800개 배포 제한에 도달하면 기록에서 더 이상 필요하지 않은 배포를 삭제합니다. 관리 그룹 수준 배포를 삭제하려면 [Remove-AzManagementGroupDeployment](/powershell/module/az.resources/Remove-AzManagementGroupDeployment) 또는 [az deployment mg delete](/cli/azure/deployment/mg#az_deployment_mg_delete)를 사용합니다.

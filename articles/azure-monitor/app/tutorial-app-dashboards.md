@@ -1,18 +1,17 @@
 ---
 title: Azure Application Insights에서 사용자 지정 대시보드 만들기 | Microsoft Docs
 description: Azure Application Insights를 사용하여 사용자 지정 KPI 대시보드를 만드는 자습서입니다.
-ms.subservice: application-insights
 ms.topic: tutorial
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/30/2020
 ms.custom: mvc, contperf-fy21q1
-ms.openlocfilehash: 701480300101b019830c57d9aa000534fa63bb6a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7bad0b17bb2fed9d9f54cdd44042ec88708f35fd
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100597667"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103728"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Azure Application Insights를 사용하여 사용자 지정 KPI 대시보드 만들기
 
@@ -60,7 +59,7 @@ ms.locfileid: "100597667"
 5. **Markdown** 타일을 찾고 대시보드로 끌어옵니다.  이 타일을 통해 대시보드에 설명 텍스트를 추가하는 데 적합한 markdown에서 서식이 지정된 텍스트를 추가할 수 있습니다. 자세한 내용은 [Azure 대시보드에서 markdown 타일을 사용하여 사용자 지정 콘텐츠 표시](../../azure-portal/azure-portal-markdown-tile.md)를 참조하세요.
 6. 타일의 속성에 텍스트를 추가하고 대시보드 캔버스에서 크기를 조정합니다.
 
-    [![markdown 타일 편집](media/tutorial-app-dashboards/markdown.png)](media/tutorial-app-dashboards/dashboard-edit-mode.png#lightbox)
+    [![markdown 타일 편집](media/tutorial-app-dashboards/markdown.png)](media/tutorial-app-dashboards/markdown.png#lightbox)
 
 7. 화면의 위쪽에서 **사용자 지정 완료** 를 선택하여 타일 사용자 지정 모드를 종료합니다.
 

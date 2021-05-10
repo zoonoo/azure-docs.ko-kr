@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: dobett
-ms.openlocfilehash: 0cd98705d2d6947ff766f528e4e92f1e51bcc42d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 311f8164803dd12664aa193f08c8a1095ee07e31
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96852815"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168708"
 ---
 # <a name="what-azure-technologies-and-services-can-you-use-to-create-iot-solutions"></a>IoT 솔루션을 만드는 데 사용할 수 있는 Azure 기술 및 서비스는 무엇인가요?
 
@@ -29,7 +29,7 @@ Azure IoT 기술 및 서비스는 조직의 디지털 변환을 가능하게 하
 
 Azure IoT Central은 사용자 지정 IoT 솔루션을 만드는 데 사용할 수 있는 완전 관리형 애플리케이션 플랫폼입니다. IoT Central은 애플리케이션 템플릿을 사용하여 솔루션을 만듭니다. 일반 솔루션용 템플릿과 에너지, 의료, 정부, 소매 등의 특정 산업용 템플릿이 있습니다. IoT Central 애플리케이션 템플릿을 사용하면 몇 분 내에 IoT Central 애플리케이션을 배포한 다음, 테마, 대시보드 및 보기를 사용자 지정할 수 있습니다.
 
-[IoT용 Azure Certified 디바이스 카탈로그](https://catalog.azureiotsolutions.com)에서 디바이스를 선택하여 솔루션에 신속하게 연결할 수 있습니다. IoT Central 웹 UI를 사용하여 디바이스를 모니터링하고 관리하여 정상적이고 연결된 상태로 유지할 수 있습니다. 커넥터 및 API를 사용하여 IoT Central 애플리케이션을 다른 비즈니스 애플리케이션과 통합할 수 있습니다.
+[IoT용 Azure Certified 디바이스 카탈로그](https://devicecatalog.azure.com)에서 디바이스를 선택하여 솔루션에 신속하게 연결할 수 있습니다. IoT Central 웹 UI를 사용하여 디바이스를 모니터링하고 관리하여 정상적이고 연결된 상태로 유지할 수 있습니다. 커넥터 및 API를 사용하여 IoT Central 애플리케이션을 다른 비즈니스 애플리케이션과 통합할 수 있습니다.
 
 완전 관리형 애플리케이션 플랫폼인 IoT Central의 가격 책정 모델은 간단하고 예측 가능합니다.
 
@@ -52,7 +52,7 @@ IoT 솔루션을 처음부터 새로 빌드하거나 IoT Central 또는 솔루�
 
 ### <a name="devices"></a>디바이스
 
-[Azure IoT 시작 키트](https://catalog.azureiotsolutions.com/kits) 중 하나를 사용하여 IoT 디바이스를 개발하거나 [IoT용 Azure Certified 디바이스 카탈로그](https://catalog.azureiotsolutions.com)에서 사용할 디바이스를 선택합니다. 오픈 소스 [디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 포함된 코드를 구현합니다. 디바이스 SDK는 Linux, Windows, 실시간 운영 체제와 같은 여러 운영 체제를 지원합니다. [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp), [Python](https://github.com/Azure/azure-iot-sdk-python) 등의 여러 프로그래밍 언어를 위한 SDK가 있습니다.
+[Azure IoT 시작 키트](https://devicecatalog.azure.com/kits) 중 하나를 사용하여 IoT 디바이스를 개발하거나 [IoT용 Azure Certified 디바이스 카탈로그](https://devicecatalog.azure.com)에서 사용할 디바이스를 선택합니다. 오픈 소스 [디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 포함된 코드를 구현합니다. 디바이스 SDK는 Linux, Windows, 실시간 운영 체제와 같은 여러 운영 체제를 지원합니다. [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp), [Python](https://github.com/Azure/azure-iot-sdk-python) 등의 여러 프로그래밍 언어를 위한 SDK가 있습니다.
 
 [IoT 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md) 서비스를 사용하여 디바이스에 포함된 코드를 만드는 방법을 더 간소화할 수 있습니다. IoT 플러그 앤 플레이를 사용하면 솔루션 개발자는 포함된 코드를 작성하지 않고도 디바이스를 솔루션과 통합할 수 있습니다. IoT 플러그 앤 플레이의 핵심은 디바이스 기능을 설명하는 _디바이스 기능 모델_ 스키마입니다. 디바이스 기능 모델을 사용하여 포함된 디바이스 코드를 생성하고 IoT Central 애플리케이션 같은 클라우드 기반 솔루션을 구성합니다.
 

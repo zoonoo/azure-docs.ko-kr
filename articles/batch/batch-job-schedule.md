@@ -4,12 +4,12 @@ description: 작업 예약을 사용하여 태스크를 관리합니다.
 ms.topic: how-to
 ms.date: 02/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7da3c78e00f5d7e41a5396603cf4885a50cb6e5c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 4661c9fc22868870af147998467c9f355f30580e
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89146354"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219695"
 ---
 # <a name="schedule-jobs-for-efficiency"></a>효율성을 위해 작업 예약
 
@@ -77,7 +77,7 @@ Azure CLI를 사용하여 작업을 관리하려면 [az batch job-schedule](/cli
 
 
 
-[1]: ./media/batch-job-schedule/add_job_schedule-02.png
-[2]: ./media/batch-job-schedule/add_job_schedule-03.png
+[1]: ./media/batch-job-schedule/add-job-schedule-02.png
+[2]: ./media/batch-job-schedule/add-job-schedule-03.png
 
 

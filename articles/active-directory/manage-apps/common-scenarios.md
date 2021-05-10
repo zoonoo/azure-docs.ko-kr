@@ -1,26 +1,22 @@
 ---
 title: Azure Active Directory의 일반적인 애플리케이션 관리 시나리오 | Microsoft Docs
 description: Azure AD를 사용하여 애플리케이션 관리 중앙 집중화
-documentationcenter: ''
-author: kenwith
-manager: daveba
-ms.assetid: ''
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 03/02/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6372407a5deebefab60e09a9d0c01d977157357b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1acfff8a9152c767b61463bed0165d5ae390f649
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99259573"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375001"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Azure AD를 사용하여 애플리케이션 관리 중앙 집중화
 

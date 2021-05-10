@@ -2,18 +2,20 @@
 title: Azure SignalR Service Serverless 빠른 시작 - Python
 description: Azure SignalR Service와 Azure Functions를 통해 Python을 사용하여 대화방을 만드는 빠른 시작.
 author: anthonychu
+ms.author: antchu
+ms.date: 12/14/2019
+ms.topic: quickstart
 ms.service: signalr
 ms.devlang: python
-ms.topic: quickstart
-ms.date: 12/14/2019
-ms.author: antchu
-ms.custom: devx-track-python
-ms.openlocfilehash: aaaf9011d38e7ec02e83db63757c434329b835e0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom:
+- devx-track-python
+- mode-api
+ms.openlocfilehash: a279c1ed16cac69932001146d4108cec19203e22
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94960294"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536644"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>빠른 시작: Python을 사용하여 Azure Functions와 SignalR Service로 대화방 만들기
 
@@ -27,7 +29,7 @@ Azure SignalR Service를 사용하면 애플리케이션에 실시간 기능을 
 
 Python Azure 함수 앱을 로컬로 실행하려면 [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)(버전 2.7.1505 이상)를 설치하세요.
 
-Azure Functions에는 [Python 3.6 또는 3.7](https://www.python.org/downloads/)이 필요합니다.
+Azure Functions에는 [Python 3.6 이상](https://www.python.org/downloads/)이 필요합니다. ([지원되는 Python 버전](/azure/azure-functions/functions-reference-python#python-version) 참조)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -116,4 +118,3 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
 > [!div class="nextstepaction"]
 > [VS Code로 Azure Functions 배포](/azure/developer/javascript/tutorial-vscode-serverless-node-01)
-

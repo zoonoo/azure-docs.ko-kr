@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seodec18
-ms.openlocfilehash: 9481b6d2740d27b8c3d1309e205edda6017868fa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6d2f4d8fc7a2a7011a2417467f7131c4cfb26edc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96005755"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788226"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>자습서: Azure App Service에서 CORS를 통해 RESTful API 호스팅
 
@@ -28,7 +28,7 @@ ms.locfileid: "96005755"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -160,7 +160,7 @@ dotnet run
 
 ### <a name="enable-cors"></a>CORS를 사용하도록 설정 
 
-Cloud Shell에서 [`az webapp cors add`](/cli/azure/webapp/cors#az-webapp-cors-add) 명령을 사용하여 CORS를 클라이언트 URL로 사용하도록 설정합니다. _&lt;app-name>_ 자리 표시자를 바꿉니다.
+Cloud Shell에서 [`az webapp cors add`](/cli/azure/webapp/cors#az_webapp_cors_add) 명령을 사용하여 CORS를 클라이언트 URL로 사용하도록 설정합니다. _&lt;app-name>_ 자리 표시자를 바꿉니다.
 
 ```azurecli-interactive
 az webapp cors add --resource-group myResourceGroup --name <app-name> --allowed-origins 'http://localhost:5000'

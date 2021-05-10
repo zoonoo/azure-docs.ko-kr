@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: ''
 ms.date: 09/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 72d1faac02a21f23d46eb992af1d501bca89e71f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 19fc2e1629e7f67063e3cc3eec8cb3707b6dd2e4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101688079"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775856"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 새 Azure API Management 서비스 인스턴스 만들기
 
@@ -30,7 +30,7 @@ Azure APIM(API Management)을 사용하여 조직은 외부, 파트너 및 내�
 
 모든 Azure 리소스와 마찬가지로 Azure API Management 인스턴스는 리소스 그룹에 배포해야 합니다. 리소스 그룹을 사용하면 관련 Azure 리소스를 구성하고 관리할 수 있습니다.
 
-먼저, 다음 [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 미국 중부 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
+먼저, 다음 [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 미국 중부 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location centralus
@@ -38,7 +38,7 @@ az group create --name myResourceGroup --location centralus
 
 ## <a name="create-a-new-service"></a>새 서비스 만들기
 
-이제 리소스 그룹이 있으므로 API Management 서비스 인스턴스를 만들 수 있습니다. [az apim create](/cli/azure/apim#az-apim-create) 명령을 사용하여 만들고 서비스 이름과 게시자 세부 정보를 제공합니다. 서비스 이름은 Azure 내에서 고유해야 합니다. 
+이제 리소스 그룹이 있으므로 API Management 서비스 인스턴스를 만들 수 있습니다. [az apim create](/cli/azure/apim#az_apim_create) 명령을 사용하여 만들고 서비스 이름과 게시자 세부 정보를 제공합니다. 서비스 이름은 Azure 내에서 고유해야 합니다. 
 
 다음 예제에서는 *myapim* 이 서비스 이름에 사용됩니다. 이름을 고유한 값으로 업데이트합니다. 또한 API 게시자의 조직 이름과 알림을 받을 이메일 주소를 업데이트합니다. 
 
@@ -53,7 +53,7 @@ az apim create --name myapim --resource-group myResourceGroup \
 > [!TIP]
 > 이 계층에서 API Management 서비스를 만들고 활성화하는 데 30~40분 정도 걸릴 수 있습니다. 이전 명령은 `--no-wait` 옵션을 사용하여 서비스가 생성되는 동안 명령이 즉시 반환되도록 합니다.
 
-[az apim show](/cli/azure/apim#az-apim-show) 명령을 실행하여 배포의 상태를 확인합니다.
+[az apim show](/cli/azure/apim#az_apim_show) 명령을 실행하여 배포의 상태를 확인합니다.
 
 ```azurecli-interactive
 az apim show --name myapim --resource-group myResourceGroup --output table
@@ -79,7 +79,7 @@ API Management 서비스 인스턴스가 온라인 상태이면 사용할 준비
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용하여 리소스 그룹 및 API Management 서비스 인스턴스를 제거할 수 있습니다.
+더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용하여 리소스 그룹 및 API Management 서비스 인스턴스를 제거할 수 있습니다.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

@@ -1,18 +1,18 @@
 ---
 title: '빠른 시작: 연결 - MySQL Workbench - Azure Database for MySQL - 유연한 서버'
 description: 이 빠른 시작에서는 Azure Database for MySQL - 유연한 서버에서 데이터를 연결하고 쿼리하는 데 MySQL Workbench를 사용하는 단계를 제공합니다.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.openlocfilehash: d604ca8c8979ec98b990f8002ce29d0df92ac2af
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 95ecb64165075a7effe0c6eaf568ee172ad67b9b
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90946232"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226297"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server-preview"></a>빠른 시작: MySQL Workbench를 사용하여 Azure Database for MySQL - 유연한 서버에서 데이터 연결 및 쿼리(미리 보기)
 

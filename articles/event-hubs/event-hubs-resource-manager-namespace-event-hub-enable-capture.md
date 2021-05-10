@@ -4,12 +4,12 @@ description: Azure Resource Manager 템플릿을 사용하여 하나의 이벤�
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 17157e05e4ad123ba2bbdffa199c111df9f8912e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1b7ce00c1db0866b1965ed6d1bba31aa28f8bc24
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100653026"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304939"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>이벤트 허브가 있는 네임스페이스를 만들고 템플릿을 사용하여 캡처를 사용하도록 설정
 
@@ -421,7 +421,7 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 
 * [Event Hubs 개요](./event-hubs-about.md)
 * [이벤트 허브 만들기](event-hubs-create.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
+* [Event Hubs FAQ](event-hubs-faq.yml)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs

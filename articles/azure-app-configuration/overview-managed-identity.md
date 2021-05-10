@@ -7,12 +7,12 @@ ms.date: 02/25/2020
 ms.author: barbkess
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
-ms.openlocfilehash: 5424b776b977d8a6939bbb28c5d4c9c428cac444
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: e4fdff2515dde941b2e9037a21ad931ac27b6fef
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179615"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764228"
 ---
 # <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Azure App Configuration에서 관리 ID를 사용하는 방법
 
@@ -99,12 +99,12 @@ Azure CLI를 사용하여 관리 ID를 설정하려면 기존 구성 저장소�
 
 ## <a name="removing-an-identity"></a>ID 제거
 
-시스템 할당 ID는 Azure CLI에서 [az appconfig identity remove](/cli/azure/appconfig/identity#az-appconfig-identity-remove) 명령을 사용하여 기능을 사용하지 않도록 설정하여 제거할 수 있습니다. 사용자 할당 ID는 개별 제거할 수 있습니다. 이런 방식으로 시스템 할당 ID를 제거하면 AAD에서도 삭제됩니다. 앱 리소스가 삭제될 때 시스템 할당 ID도 AAD에서 자동으로 제거됩니다.
+시스템 할당 ID는 Azure CLI에서 [az appconfig identity remove](/cli/azure/appconfig/identity#az_appconfig_identity_remove) 명령을 사용하여 기능을 사용하지 않도록 설정하여 제거할 수 있습니다. 사용자 할당 ID는 개별 제거할 수 있습니다. 이런 방식으로 시스템 할당 ID를 제거하면 AAD에서도 삭제됩니다. 앱 리소스가 삭제될 때 시스템 할당 ID도 AAD에서 자동으로 제거됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [Azure App Configuration을 사용하여 ASP.NET Core 앱 만들기](quickstart-aspnet-core-app.md)
 
-[az appconfig identity assign]: /cli/azure/appconfig/identity#az-appconfig-identity-assign
-[az login]: /cli/azure/reference-index#az-login
+[az appconfig identity assign]: /cli/azure/appconfig/identity#az_appconfig_identity_assign
+[az login]: /cli/azure/reference-index#az_login

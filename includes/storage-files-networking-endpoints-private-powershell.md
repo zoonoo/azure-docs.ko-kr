@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: storage
 author: roygara
@@ -9,10 +9,10 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 1c8ccc1e1ee8c8c1b1a1e27443d27b2140a91649
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84465016"
 ---
 스토리지 계정의 프라이빗 엔드포인트를 만들려면 먼저 프라이빗 엔드포인트를 추가하려는 스토리지 계정과 가상 네트워크 서브넷의 참조를 가져와야 합니다. 다음과 같이 `<storage-account-resource-group-name>`, `<storage-account-name>`, `<vnet-resource-group-name>`, `<vnet-name>` 및 `<vnet-subnet-name>`을 바꿉니다.

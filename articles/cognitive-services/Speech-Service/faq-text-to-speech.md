@@ -1,7 +1,7 @@
 ---
 title: Text to Speech에 대한 FAQ(질문과 대답)
 titleSuffix: Azure Cognitive Services
-description: Text to Speech 서비스에 대해 자주 묻는 질문에 대 한 답변을 가져옵니다.
+description: Text to Speech 서비스에 대해 자주 묻는 질문에 대한 답변을 확인합니다.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
 ms.openlocfilehash: 67284225299641a71050342056ad7ca91bf39740
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96353717"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Text to Speech에 대한 FAQ(질문과 대답)
@@ -59,7 +59,7 @@ ms.locfileid: "96353717"
 
 **Q: 내 요청이 제한되나요?**
 
-**A**: [Speech Services 할당량 및 제한을](speech-services-quotas-and-limits.md)참조 하세요.
+**A**: [음성 서비스 할당량 및 한도](speech-services-quotas-and-limits.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

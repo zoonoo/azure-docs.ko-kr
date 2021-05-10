@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: db303d1e7bd5a9cb7b8441f0a5da634a13113066
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5d5aaf84482dae6786ac7fd9f9ee837efca71b34
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947148"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105855"
 ---
 Bing Web Search 클라이언트 라이브러리를 사용하면 Bing Web Search를 Python 애플리케이션에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 요청을 보내고, JSON 응답을 받고, 결과를 필터링 및 구문 분석하는 방법에 대해 알아봅니다.
 
@@ -21,9 +21,9 @@ Bing Web Search 클라이언트 라이브러리를 사용하면 Bing Web Search�
 
 
 ## <a name="prerequisites"></a>필수 구성 요소
-Bing Web Search SDK는 Python 2.7 3.3, 3.4, 3.5 및 3.6과 호환됩니다. 이 빠른 시작에서는 가상 환경을 사용하는 것이 좋습니다.
+Bing Web Search SDK는 Python 2.7 또는 3.6+과 호환됩니다. 이 빠른 시작에서는 가상 환경을 사용하는 것이 좋습니다.
 
-* Python 2.7, 3.3, 3.4, 3.5 또는 3.6
+* Python 2.7 또는 3.6+
 * Python 2.7의 경우 [virtualenv](https://docs.python.org/3/tutorial/venv.html)
 * Python 3.x의 경우 [venv](https://pypi.python.org/pypi/virtualenv)
 

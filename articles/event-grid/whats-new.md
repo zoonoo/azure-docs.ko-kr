@@ -3,12 +3,12 @@ title: 새로운 기능은 무엇입니까? 릴리스 정보 - Azure Event Grid
 description: Azure Event Grid의 최신 릴리스 정보, 알려진 문제, 버그 수정, 사용되지 않는 기능, 예정된 변경 내용 등을 알아봅니다.
 ms.topic: overview
 ms.date: 07/23/2020
-ms.openlocfilehash: 7528cef7007704bbf434f16622707da8920eec2b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: da0b26e4f163f428e6955a37636ceb19bb34abc5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96350010"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105107536"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>Azure Event Grid의 새로운 기능
 
@@ -73,14 +73,14 @@ Azure Event Grid는 지속적인 향상되고 있습니다. 최신 개발 정보
 - 이 릴리스는 `2019-06-01` API 버전에 해당합니다.
 - 다음과 같은 새로운 기능을 지원합니다.
     * [도메인](event-domains.md)
-    * 리소스 목록 작업에 대한 페이지 매김 및 검색 필터입니다. 예제는 [토픽 - 구독 별로 나열](/rest/api/eventgrid/version2020-04-01-preview/topics/listbysubscription)을 참조하세요.
+    * 리소스 목록 작업에 대한 페이지 매김 및 검색 필터입니다. 예제는 [토픽 - 구독 별로 나열](/rest/api/eventgrid/version2020-10-15-preview/partnernamespaces/listbysubscription)을 참조하세요.
     * [대상으로 Service Bus 큐](handler-service-bus.md)
     * [고급 필터링](event-filtering.md#advanced-filtering)
 
 ## <a name="410-preview-2019-03"></a>4.1.0-preview(2019년 3월)
 - 이 릴리스는 2019-02-01-preview API 버전에 해당합니다.
 - 다음과 같은 새로운 기능을 지원합니다.
-    * 리소스 목록 작업에 대한 페이지 매김 및 검색 필터입니다. 예제는 [토픽 - 구독 별로 나열](/rest/api/eventgrid/version2020-04-01-preview/topics/listbysubscription)을 참조하세요.
+    * 리소스 목록 작업에 대한 페이지 매김 및 검색 필터입니다. 예제는 [토픽 - 구독 별로 나열](/rest/api/eventgrid/version2020-10-15-preview/partnernamespaces/listbysubscription)을 참조하세요.
     * [도메인 수동 만들기/삭제 토픽](how-to-event-domains.md)
     * [대상으로 Service Bus 큐](handler-service-bus.md)
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 11/07/2020
 ms.author: allensu
-ms.openlocfilehash: f74a143859f0a6629c88f0dcb61a97697f49d0be
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 5088b4e50899a2643488103ba29a7e36a7f256ea
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889232"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778358"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 프라이빗 엔드포인트 만들기
 
@@ -72,7 +72,7 @@ az network vnet create \
     --subnet-prefixes 10.0.0.0/24
 ```
 
-[az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)를 사용하여 프라이빗 엔드포인트에 대한 프라이빗 엔드포인트 네트워크 정책을 사용하지 않도록 서브넷을 업데이트합니다.
+[az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)를 사용하여 프라이빗 엔드포인트에 대한 프라이빗 엔드포인트 네트워크 정책을 사용하지 않도록 서브넷을 업데이트합니다.
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -82,7 +82,7 @@ az network vnet subnet update \
     --disable-private-endpoint-network-policies true
 ```
 
-[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)를 사용하여 베스천 호스트에 대한 공용 IP 주소를 만듭니다.
+[az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create)를 사용하여 베스천 호스트에 대한 공용 IP 주소를 만듭니다.
 
 * **myBastionIP** 라는 표준 영역 중복 공용 IP 주소를 만듭니다.
 * **CreatePrivateEndpointQS-rg** 에서
@@ -94,7 +94,7 @@ az network public-ip create \
     --sku Standard
 ```
 
-[az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create)를 사용하여 베스천 서브넷을 만듭니다.
+[az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)를 사용하여 베스천 서브넷을 만듭니다.
 
 * 이름은 **AzureBastionSubnet** 입니다.
 * **10.0.1.0/24** 의 주소 접두사.
@@ -109,7 +109,7 @@ az network vnet subnet create \
     --address-prefixes 10.0.1.0/24
 ```
 
-[az network bastion create](/cli/azure/network/bastion#az-network-bastion-create)를 사용하여 베스천 호스트를 만듭니다.
+[az network bastion create](/cli/azure/network/bastion#az_network_bastion_create)를 사용하여 베스천 호스트를 만듭니다.
 
 * 이름은 **myBastionHost** 입니다.
 * **CreatePrivateEndpointQS-rg** 에서
@@ -150,6 +150,8 @@ az vm create \
     --subnet myBackendSubnet \
     --admin-username azureuser
 ```
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="create-private-endpoint"></a>프라이빗 엔드포인트 만들기
 

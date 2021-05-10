@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: aahi
 ms.openlocfilehash: ac214f158703fdfeaddfa4052a83481adebda060
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96348231"
 ---
 # <a name="sending-queries-to-the-bing-news-search-api"></a>Bing News Search API에 쿼리 보내기
@@ -44,7 +44,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/news/search
 
 요청에서 [Ocp-Apim-Subscription-Key](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#subscriptionkey) 헤더를 지정해야 합니다. 선택 사항이지만, 다음 헤더도 지정하는 것이 좋습니다.
 
-- [사용자-에이전트](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#useragent)
+- [User-Agent](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#useragent)
 - [X-MSEdge-ClientID](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#clientid)
 - [X-Search-ClientIP](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#clientip)
 - [X-Search-Location](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#location)
@@ -289,7 +289,7 @@ BingAPIs-Market: en-US
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Bing News Search 이란?](../search-the-web.md) 
+* [Bing News Search란?](../search-the-web.md) 
 * [오늘의 주요 뉴스 가져오기](search-for-news.md#get-todays-top-news)
 * [범주별 뉴스 가져오기](search-for-news.md#get-news-by-category)
 * [최신 뉴스 가져오기](search-for-news.md#get-trending-news)

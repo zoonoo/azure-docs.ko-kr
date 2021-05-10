@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ffffeb38aeb9d1f01f376d58a52323bb7b84b306
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3c105fe217834dc9e0e652a42ebf3b526972b228
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98676326"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961373"
 ---
 # <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-t-sql"></a>빠른 시작: T-SQL을 사용하여 Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)에 대한 컴퓨팅 능력 확장
 
@@ -99,12 +99,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="monitor-scale-change-request"></a>규모 변경 요청 모니터링
 
-이전 변경 요청의 진행률을 보려면 `WAITFORDELAY` T-SQL 구문을 사용하여 sys.dm_operation_status DMV(동적 관리 뷰)를 폴링할 수 있습니다.
+이전 변경 요청의 진행률을 보려면 `WAITFORDELAY` T-SQL 구문을 사용하여 [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?view=azure-sqldw-latest&preserve-view=true) DMV(동적 관리 뷰)를 폴링할 수 있습니다.
 
 서비스 개체 변경 상태를 폴링하려면 다음을 수행합니다.
 
 1. **master** 를 마우스 오른쪽 단추로 클릭하고 **새 쿼리** 를 선택합니다.
-2. 다음 쿼리를 실행하여 sys.dm_operation_status DMV를 폴링합니다.
+2. 다음 쿼리를 실행하여 [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?view=azure-sqldw-latest&preserve-view=true) DMV를 폴링합니다.
 
     ```sql
     WHILE

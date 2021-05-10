@@ -6,12 +6,12 @@ ms.author: mingshen
 ms.service: marketplace
 ms.topic: overview
 ms.date: 10/15/2020
-ms.openlocfilehash: 099515eb1160b131f2d56fd02f300999d5ddfd16
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: de8e9060f8e7ccdcf38b9f0908dfb05063811817
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96780317"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103407"
 ---
 # <a name="what-is-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스란?
 
@@ -82,5 +82,5 @@ Microsoft의 목표는 Microsoft와의 파트너 관계를 통해 비즈니스�
 ## <a name="next-steps"></a>다음 단계
 
 - Microsoft Learn에서 [Microsoft 상업용 마켓플레이스 소개](/learn/modules/intro-commercial-marketplace/)를 학습합니다.
-- 상업용 마켓플레이스에 게시하는 데 관심이 있는 새로운 Microsoft 파트너의 경우 [파트너 센터에서 상업용 마켓플레이스 계정 만들기](partner-center-portal/create-account.md)를 참조합니다.
+- 상업용 마켓플레이스에 게시하는 데 관심이 있는 새로운 Microsoft 파트너의 경우 [파트너 센터에서 상업용 마켓플레이스 계정 만들기](create-account.md)를 참조합니다.
 - 최신 및 향후 릴리스에 대해 자세히 알아보려면 [Microsoft 파트너 커뮤니티](https://www.microsoftpartnercommunity.com/)에서 대화에 참여합니다.

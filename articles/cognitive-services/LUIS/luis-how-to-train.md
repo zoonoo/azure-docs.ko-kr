@@ -1,5 +1,5 @@
 ---
-title: 앱 교육-LUIS
+title: 앱 학습 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 학습은 해당 자연어 이해를 향상시키기 위해 LUIS(Language Understanding) 앱 버전을 학습하는 과정입니다. 엔터티, 의도 또는 발언을 추가하거나, 편집하거나, 레이블 지정하거나 삭제하는 등 모델에 대한 업데이트 후에 LUIS 앱을 학습합니다.
 services: cognitive-services
@@ -10,17 +10,17 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/15/2019
 ms.openlocfilehash: 47b006932aace3149dd94e136e334c1b6e5bfcef
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98762706"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>LUIS 앱의 활성 버전 학습
 
 학습은 해당 자연어 이해를 개선하기 위해 LUIS(Language Understanding) 앱을 교육하는 과정입니다. 엔터티, 의도 또는 발언을 추가하거나, 편집하거나, 레이블 지정하거나 삭제하는 등 모델에 대한 업데이트 후에 LUIS 앱을 학습합니다.
 
-앱 교육 및 [테스트](luis-concept-test.md) 는 반복적인 프로세스입니다. LUIS 앱을 학습한 후에 샘플 음성으로 앱을 테스트하여 의도 및 엔티티가 올바르게 인식되는지 확인합니다. 인식되지 않으면 LUIS 앱을 업데이트하고 학습하고, 다시 테스트합니다.
+앱 학습 및 [테스트](luis-concept-test.md)는 반복적인 프로세스입니다. LUIS 앱을 학습한 후에 샘플 음성으로 앱을 테스트하여 의도 및 엔티티가 올바르게 인식되는지 확인합니다. 인식되지 않으면 LUIS 앱을 업데이트하고 학습하고, 다시 테스트합니다.
 
 학습은 LUIS 포털에서 현재 사용 중인 버전에 적용됩니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "98762706"
 
 1. 앱의 위쪽 패널에서 **학습** 을 선택합니다.
 
-1. 교육이 완료 되 면 브라우저 맨 위에 알림이 나타납니다.
+1. 학습이 완료되면 브라우저 맨 위에 알림이 나타납니다.
 
 ## <a name="training-date-and-time"></a>학습 날짜 및 시간
 
@@ -40,17 +40,17 @@ ms.locfileid: "98762706"
 
 ## <a name="train-with-all-data"></a>모든 데이터를 사용하여 학습
 
-학습은 음수 샘플링(negative sampling)의 작은 비율을 사용합니다. Portal 또는 API를 사용 하 여 사용 가능한 모든 데이터를 대신 사용할 수 있습니다. 
+학습은 음수 샘플링(negative sampling)의 작은 비율을 사용합니다. 포털 또는 API를 사용하여 사용 가능한 모든 데이터를 대신 사용할 수 있습니다. 
 
 ### <a name="using-the-luis-portal"></a>LUIS 포털 사용
 
-[LUIS 포털](https://www.luis.ai/) 에 로그인 하 고 앱을 클릭 합니다. 화면 위쪽에서 **관리** 를 선택한 다음 **설정** 을 선택 하 고 **사용-결정적 학습** 옵션을 사용 하거나 사용 하지 않도록 설정 합니다. 사용 하지 않도록 설정 하면 학습에서 사용 가능한 모든 데이터를 사용 합니다.
+[LUIS 포털](https://www.luis.ai/)에 로그인하고 앱을 클릭합니다. 화면 맨 위에서 **관리** 를 선택하고 **설정** 을 선택한 다음 **결정적 학습 사용** 옵션을 사용하거나 사용하지 않도록 설정합니다. 사용하지 않도록 설정하면 학습이 사용 가능한 모든 데이터를 사용합니다.
 
-![비 결정적 학습을 사용 하거나 사용 하지 않도록 설정 하는 단추](./media/non-determinstic-training.png)
+![비결정적 학습을 사용하거나 사용하지 않도록 설정하는 단추](./media/non-determinstic-training.png)
 
 ### <a name="using-the-version-settings-api"></a>버전 설정 API 사용
 
-을 true로 설정 하 여 [버전 설정 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) 를 사용 하면 `UseAllTrainingData` 이 기능을 해제할 수 있습니다.
+`UseAllTrainingData`를 true로 설정하여 [버전 설정 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings)를 사용하면 이 기능을 해제할 수 있습니다.
 
 ## <a name="unnecessary-training"></a>불필요한 학습
 

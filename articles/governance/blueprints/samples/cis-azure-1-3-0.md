@@ -3,12 +3,12 @@ title: CIS Microsoft Azure Foundations Benchmark v1.3.0 청사진 샘플
 description: CIS Microsoft Azure Foundations Benchmark v1.3.0 청사진 샘플에 대한 개요입니다. 이 청사진 샘플은 고객이 특정 컨트롤을 평가하는 데 도움이 됩니다.
 ms.date: 03/11/2021
 ms.topic: sample
-ms.openlocfilehash: d6b3a84ab426c5003233958b77f5c480f28cd704
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 7030b4e9e9ddd3d5bbf1a5a7deaf1e1aa241b38e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103202424"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105565999"
 ---
 # <a name="cis-microsoft-azure-foundations-benchmark-v130-blueprint-sample"></a>CIS Microsoft Azure Foundations Benchmark v1.3.0 청사진 샘플
 
@@ -102,114 +102,114 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |아티팩트 이름|아티팩트 형식|매개 변수 이름|Description|
 |-|-|-|-|
 |CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|사용이 승인된 가상 머신 확장 목록|세미콜론으로 구분된 가상 머신 확장 목록입니다. 전체 확장 목록을 보려면 Get-AzVMExtensionImage Azure PowerShell 명령을 사용합니다.|
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: SQL Managed Instance는 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: SQL Server에 대한 취약성 평가 설정에는 검사 보고서를 수신할 이메일 주소를 포함해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Azure Data Lake Store의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 가상 머신에서 디스크 암호화를 적용해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Key Vault는 제거 보호를 사용하도록 설정되어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: API 앱에서 '클라이언트 인증서(들어오는 클라이언트 인증서)'가 '켜기'로 설정되어 있는지 확인함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: SQL Server는 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 함수 앱에서 관리 ID를 사용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Key Vault용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 사용자 지정 구독 소유자 역할이 없어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 키에 만료 날짜가 설정되어 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: SQL 데이터베이스에 투명한 데이터 암호화를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: SQL Managed Instance에서 취약성 평가를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: API 앱의 일부로 사용되는 경우 'PHP 버전'이 최신 상태인지 확인함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: SQL Server에 대해 Azure Active Directory 관리자를 프로비저닝해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: App Service용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 스토리지 계정은 가상 네트워크 규칙을 사용하여 네트워크 액세스를 제한해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 웹앱에서 관리 ID를 사용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 인터넷에서 SSH 액세스를 차단해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 연결되지 않은 디스크는 암호화되어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 스토리지용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 스토리지 계정은 네트워크 액세스를 제한해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Logic Apps의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: IoT Hub의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 함수 앱에서 FTPS만 요구해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 보안 작업의 활동 로그 경고가 있어야 함(Microsoft.Security/securitySolutions/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 보안 작업의 활동 로그 경고가 있어야 함(Microsoft.Security/securitySolutions/write)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Storage 계정에 보안 전송을 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Batch 계정의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 구독에서 Log Analytics 에이전트의 자동 프로비저닝을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 웹앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 웹앱에서 FTPS를 요구해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 서버용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 구독에 보안 문제에 대한 연락처 이메일 주소가 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 스토리지 계정 퍼블릭 액세스를 허용하지 않아야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Kubernetes용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: PostgreSQL 데이터베이스 서버에 대해 연결 제한을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 웹앱에서 '클라이언트 인증서(들어오는 클라이언트 인증서)'가 '켜기'로 설정되어 있는지 확인함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 머신에서 SQL Server용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 심각도가 높은 경고에 대해 이메일 알림을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 스토리지 계정은 고객 관리형 키를 암호화에 사용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 웹앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 함수 앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 웹앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: API 앱의 일부로 사용되는 경우 'Python 버전'이 최신 상태인지 확인함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Virtual Machine Scale Sets의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Azure SQL Database 서버용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 이벤트 허브의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 시스템 업데이트를 머신에 설치해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: API 앱의 일부로 사용되는 경우 'Java 버전'이 최신 상태인지 확인함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: SQL Server는 90일 이상의 감사 보존 기간으로 구성해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 웹앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: API 앱에서 최신 TLS 버전을 사용해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 구독에서 쓰기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 웹앱에서 인증을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 비밀에 만료 날짜가 설정되어 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: API 앱을 실행하는 데 사용되는 경우 'HTTP 버전'이 최신 상태인지 확인함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: API 앱에서 FTPS만 요구해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 함수 앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 웹 애플리케이션에 HTTPS를 통해서만 액세스 가능|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: SQL Server에 대한 감사가 사용되도록 설정되어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: SQL Server에서 Advanced Data Security를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: SQL Managed Instance에서 Advanced Data Security를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Kubernetes 서비스에서 RBAC(역할 기반 액세스 제어)를 사용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Azure Security Center에서 누락된 Endpoint Protection 모니터링|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Search Services의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: App Services의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Network/networkSecurityGroups/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Network/networkSecurityGroups/securityRules/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Network/networkSecurityGroups/securityRules/write)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Network/networkSecurityGroups/write)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Sql/servers/firewallRules/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Sql/servers/firewallRules/write)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 승인된 VM 확장만 설치해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 컨테이너 레지스트리용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: API 앱에서 관리 ID를 사용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: API 앱에서 인증을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 정책 작업의 활동 로그 경고가 있어야 함(Microsoft.Authorization/policyAssignments/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 정책 작업의 활동 로그 경고가 있어야 함(Microsoft.Authorization/policyAssignments/write)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 함수 앱에서 인증을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Data Lake Analytics의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 스토리지 계정은 신뢰할 수 있는 Microsoft 서비스의 액세스를 허용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Key Vault의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: PostgreSQL 데이터베이스 서버에 대해 SSL 강제 연결을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 함수 앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 구독에서 읽기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 인터넷에서 RDP 액세스를 차단해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: MySQL 데이터베이스 서버에 대해 SSL 강제 연결을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 함수 앱에서 '클라이언트 인증서(들어오는 클라이언트 인증서)'가 '켜기'로 설정되어 있는지 확인함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: PostgreSQL 데이터베이스 서버에 대해 로그 검사점을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: PostgreSQL 데이터베이스 서버에 대해 로그 연결을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: PostgreSQL 데이터베이스 서버에 대한 연결 끊김을 기록해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 웹앱에서 최신 TLS 버전을 사용해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 소유자 권한이 있는 외부 계정은 구독에서 제거해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Service Bus의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Azure Stream Analytics의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 함수 앱에서 최신 TLS 버전을 사용해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 활동 로그가 있는 컨테이너를 포함하는 스토리지 계정은 BYOK로 암호화해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](https://aka.ms/policyeffects)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: SQL Managed Instance는 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: SQL Server에 대한 취약성 평가 설정에는 검사 보고서를 수신할 이메일 주소를 포함해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Azure Data Lake Store의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 가상 머신에서 디스크 암호화를 적용해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Key Vault는 제거 보호를 사용하도록 설정되어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: API 앱에서 '클라이언트 인증서(들어오는 클라이언트 인증서)'가 '켜기'로 설정되어 있는지 확인함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: SQL Server는 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 함수 앱에서 관리 ID를 사용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Key Vault용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 사용자 지정 구독 소유자 역할이 없어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 키에 만료 날짜가 설정되어 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: SQL 데이터베이스에 투명한 데이터 암호화를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: SQL Managed Instance에서 취약성 평가를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: API 앱의 일부로 사용되는 경우 'PHP 버전'이 최신 상태인지 확인함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: SQL Server에 대해 Azure Active Directory 관리자를 프로비저닝해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: App Service용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 스토리지 계정은 가상 네트워크 규칙을 사용하여 네트워크 액세스를 제한해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 웹앱에서 관리 ID를 사용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 인터넷에서 SSH 액세스를 차단해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 연결되지 않은 디스크는 암호화되어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 스토리지용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 스토리지 계정은 네트워크 액세스를 제한해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Logic Apps의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: IoT Hub의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 함수 앱에서 FTPS만 요구해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 보안 작업의 활동 로그 경고가 있어야 함(Microsoft.Security/securitySolutions/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 보안 작업의 활동 로그 경고가 있어야 함(Microsoft.Security/securitySolutions/write)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Storage 계정에 보안 전송을 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Batch 계정의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 구독에서 Log Analytics 에이전트의 자동 프로비저닝을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 웹앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 웹앱에서 FTPS를 요구해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 서버용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 구독에 보안 문제에 대한 연락처 이메일 주소가 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 스토리지 계정 퍼블릭 액세스를 허용하지 않아야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Kubernetes용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: PostgreSQL 데이터베이스 서버에 대해 연결 제한을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 웹앱에서 '클라이언트 인증서(들어오는 클라이언트 인증서)'가 '켜기'로 설정되어 있는지 확인함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 머신에서 SQL Server용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 심각도가 높은 경고에 대해 이메일 알림을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 스토리지 계정은 고객 관리형 키를 암호화에 사용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 웹앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 함수 앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 웹앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: API 앱의 일부로 사용되는 경우 'Python 버전'이 최신 상태인지 확인함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Virtual Machine Scale Sets의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Azure SQL Database 서버용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 이벤트 허브의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 시스템 업데이트를 머신에 설치해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: API 앱의 일부로 사용되는 경우 'Java 버전'이 최신 상태인지 확인함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: SQL Server는 90일 이상의 감사 보존 기간으로 구성해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 웹앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: API 앱에서 최신 TLS 버전을 사용해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 구독에서 쓰기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 웹앱에서 인증을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 비밀에 만료 날짜가 설정되어 있어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: API 앱을 실행하는 데 사용되는 경우 'HTTP 버전'이 최신 상태인지 확인함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: API 앱에서 FTPS만 요구해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 함수 앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 웹 애플리케이션에 HTTPS를 통해서만 액세스 가능|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: SQL Server에 대한 감사가 사용되도록 설정되어야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: SQL Server에서 Advanced Data Security를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: SQL Managed Instance에서 Advanced Data Security를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Kubernetes 서비스에서 RBAC(역할 기반 액세스 제어)를 사용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Azure Security Center에서 누락된 Endpoint Protection 모니터링|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Search Services의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: App Services의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Network/networkSecurityGroups/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Network/networkSecurityGroups/securityRules/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Network/networkSecurityGroups/securityRules/write)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Network/networkSecurityGroups/write)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Sql/servers/firewallRules/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Sql/servers/firewallRules/write)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 승인된 VM 확장만 설치해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 컨테이너 레지스트리용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: API 앱에서 관리 ID를 사용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: API 앱에서 인증을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 정책 작업의 활동 로그 경고가 있어야 함(Microsoft.Authorization/policyAssignments/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 정책 작업의 활동 로그 경고가 있어야 함(Microsoft.Authorization/policyAssignments/write)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 함수 앱에서 인증을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Data Lake Analytics의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 스토리지 계정은 신뢰할 수 있는 Microsoft 서비스의 액세스를 허용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Key Vault의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: PostgreSQL 데이터베이스 서버에 대해 SSL 강제 연결을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 함수 앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 구독에서 읽기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 인터넷에서 RDP 액세스를 차단해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: MySQL 데이터베이스 서버에 대해 SSL 강제 연결을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 함수 앱에서 '클라이언트 인증서(들어오는 클라이언트 인증서)'가 '켜기'로 설정되어 있는지 확인함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: PostgreSQL 데이터베이스 서버에 대해 로그 검사점을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: PostgreSQL 데이터베이스 서버에 대해 로그 연결을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: PostgreSQL 데이터베이스 서버에 대한 연결 끊김을 기록해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 웹앱에서 최신 TLS 버전을 사용해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 소유자 권한이 있는 외부 계정은 구독에서 제거해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Service Bus의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Azure Stream Analytics의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 함수 앱에서 최신 TLS 버전을 사용해야 합니다.|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 활동 로그가 있는 컨테이너를 포함하는 스토리지 계정은 BYOK로 암호화해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
 |CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|가상 머신 확장 집합 진단 로그가 사용되는 경우 감사할 때 AKS 클러스터 포함||
 |CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|App Services용 최신 Java 버전|App Services에 대해 지원되는 최신 Java 버전|
 |CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|App Services에 지원되는 Linux용 최신 Python 버전|App Services에 대해 지원되는 최신 Python 버전|
 |CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|Network Watcher를 사용하도록 설정해야 하는 영역 목록|전체 지역 목록을 보려면 Get-AzLocation PowerShell 명령을 실행합니다.|
 |CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|App Services용 최신 PHP 버전|App Services에 대해 지원되는 최신 PHP 버전|
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|리소스 로그에 대한 필수 보존 기간(일)|리소스 로그에 대한 자세한 내용은 [https://aka.ms/resourcelogs](https://aka.ms/resourcelogs)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|리소스 로그에 대한 필수 보존 기간(일)|리소스 로그에 대한 자세한 내용은 [https://aka.ms/resourcelogs](../../../azure-monitor/essentials/resource-logs.md)를 방문하세요. |
 |CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|Network Watcher에 대한 리소스 그룹의 이름|Network Watcher가 있는 리소스 그룹의 이름|
 |CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|SQL Server에 대한 필수 감사 설정||
 

@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/22/2020
-ms.openlocfilehash: 074b799a4f0e83c47aac0b2b3fca5386bd45429f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 53878384f4eb056f0cb23ec9005043ac26c8fad2
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100521971"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492599"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-an-azure-database-for-mysql-flexible-server"></a>빠른 시작: Azure Portal을 사용하여 Azure Database for MySQL 유연한 서버 만들기
 
@@ -51,11 +51,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
     Subscription|구독 이름|서버에 사용할 Azure 구독입니다. 여러 구독이 있는 경우 리소스에 대한 요금이 청구되도록 하려는 구독을 선택합니다.|
     Resource group|**myresourcegroup**| 새 리소스 그룹 이름 또는 구독의 기존 이름입니다.|
     서버 이름 |**mydemoserver**|유연한 서버를 식별하는 고유한 이름입니다. 사용자가 제공한 서버 이름에 `mysql.database.azure.com` 도메인 이름이 추가됩니다. 서버 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3~63자여야 합니다.|
+    지역|사용자와 가장 가까운 지역| 사용자에게 가장 가까운 위치입니다.|
+    워크로드 유형| 개발 | 프로덕션 워크로드의 경우 [max_connections](concepts-server-parameters.md#max_connections) 요구 사항에 따라 중소 규모 또는 큰 크기를 선택할 수 있습니다.|
+    가용성 영역| 기본 설정 없음 | Azure VM의 애플리케이션, 가상 머신 확장 집합 또는 AKS 인스턴스가 특정 가용성 영역에서 프로비저닝되는 경우 영역 전체에서 네트워크 대기 시간을 줄여서 애플리케이션 및 데이터베이스를 배치하는 동일한 가용성 영역에서 유연한 서버를 지정하여 성능을 향상시킬 수 있습니다.|
+    고가용성| 기본값 | 프로덕션 서버의 경우 영역 중복 HA(고가용성)를 사용하는 것이 비즈니스 연속성 및 영역 오류에 대한 보호에 매우 권장됩니다.|
+    MySQL 버전|**5.7**| MySQL 주 버전입니다.|
     관리자 사용자 이름 |**mydemouser**| 서버에 연결할 때 사용할 사용자 고유의 로그인 계정입니다. 관리자 사용자 이름은 **azure_superuser**, **admin**, **administrator**, **root**, **guest** 또는 **public** 일 수 없습니다.|
     암호 |사용자 암호| 서버 관리자 계정의 새 암호입니다. 8-128자여야 합니다. 또한 다음 범주의 세 가지 문자를 포함해야 합니다. 영어 대문자, 영어 소문자, 숫자(0-9) 및 영숫자가 아닌 문자(!, $, #, % 등).|
-    지역|사용자와 가장 가까운 지역| 사용자에게 가장 가까운 위치입니다.|
-    버전|**5.7**| MySQL 주 버전입니다.|
-    컴퓨팅 + 스토리지 | **버스트 가능**, **Standard_B1ms**, **10GiB**, **7일** | 새 서버에 대한 컴퓨팅, 스토리지 및 백업 구성입니다. **서버 구성** 을 선택합니다. **버스트 가능**, **Standard_B1ms**, **10GiB** 및 **7일** 은 **컴퓨팅 계층**, **컴퓨팅 크기**, **스토리지 크기** 및 백업 **보존 기간** 에 대한 기본값입니다. 이러한 값은 그대로 두거나 조정할 수 있습니다. 컴퓨팅 및 스토리지 선택 항목을 저장하려면 **저장** 을 선택하여 구성을 계속합니다. 다음 스크린샷에서는 컴퓨팅 및 스토리지 옵션을 보여 줍니다.|
+    컴퓨팅 + 스토리지 | **버스트 가능**, **Standard_B1ms**, **10GiB**, **100iops**, **7일** | 새 서버에 대한 컴퓨팅, 스토리지, IOPS 및 백업 구성입니다. **서버 구성** 을 선택합니다. **버스트 가능**, **Standard_B1ms**, **10GiB**, **100iops** 및 **7일** 은 **컴퓨팅 계층**, **컴퓨팅 크기**, **스토리지 크기**, **iops** 및 **백업 보존 기간** 에 대한 기본값입니다. 이러한 값은 그대로 두거나 조정할 수 있습니다. 마이그레이션 중에 더 빠른 데이터 로드를 위해 컴퓨팅 크기에서 지원되는 최대 크기로 IOPS를 늘리고 나중에 비용을 절약하기 위해 다시 규모를 조정하는 것이 좋습니다. 컴퓨팅 및 스토리지 선택 항목을 저장하려면 **저장** 을 선택하여 구성을 계속합니다. 다음 스크린샷에서는 컴퓨팅 및 스토리지 옵션을 보여 줍니다.|
     
     > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="컴퓨팅 및 스토리지 옵션을 보여 주는 스크린샷":::
 
@@ -89,16 +92,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 퍼블릭 액세스(허용된 IP 주소)를 사용하여 유연한 서버를 만든 경우 로컬 IP 주소를 서버의 방화벽 규칙 목록에 추가할 수 있습니다. 단계별 지침은 [방화벽 규칙 만들기 또는 관리 설명서](how-to-manage-firewall-portal.md)를 참조하세요.
 
-[mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) 또는 [MySQL 워크벤치](./connect-workbench.md)를 사용하여 로컬 환경에서 서버에 연결할 수 있습니다. 
+[mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) 또는 [MySQL 워크벤치](./connect-workbench.md)를 사용하여 로컬 환경에서 서버에 연결할 수 있습니다. Azure Database for MySQL 유연한 서버는 이전에 SSL(Secure Sockets Layer)로 알려진 TLS(전송 계층 보안)를 사용한 MySQL 서비스에 대한 클라이언트 애플리케이션 연결을 지원합니다. TLS는 데이터베이스 서버와 클라이언트 애플리케이션 간에 암호화된 네트워크 연결을 보장하여 규정 준수 요구 사항을 준수할 수 있는 업계 표준 프로토콜입니다. MySQL 유연한 서버에 연결하려면 인증 기관 확인을 위해 [공용 SSL 인증서](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)를 다운로드해야 합니다.
+
+다음 예제에서는 mysql 명령줄 인터페이스를 사용하여 유연한 서버에 연결하는 방법을 보여 줍니다. 아직 설치하지 않은 경우 먼저 mysql 명령줄을 설치합니다. SSL 연결에 필요한 DigiCertGlobalRootCA 인증서를 다운로드합니다. TLS/SSL 인증서 확인을 적용하려면 --ssl-mode=REQUIRED 연결 문자열 설정을 사용합니다. 로컬 인증서 파일 경로를 --ssl-ca 매개 변수에 전달합니다. 값을 실제 서버 이름 및 암호로 바꿉니다.
 
 ```bash
+sudo apt-get install mysql-client
 wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
-mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl-ca=DigiCertGlobalRootCA.crt.pem
+mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl-mode=REQUIRED --ssl-ca=DigiCertGlobalRootCA.crt.pem
 ```
 
 **퍼블릭 액세스** 를 사용하여 유연한 서버를 프로비저닝한 경우 아래와 같이 미리 설치된 mysql 클라이언트를 사용하여 유연한 서버에 연결할 때 [Azure Cloud Shell](https://shell.azure.com/bash)을 사용할 수도 있습니다.
 
-Azure Cloud Shell을 사용하여 유연한 서버에 연결하려면 Azure Cloud Shell에서 유연한 서버로의 네트워킹 액세스를 허용해야 합니다. 이를 위해 Azure Portal의 MySQL 유연한 서버 **네트워킹** 블레이드로 이동하고 **방화벽** 섹션 아래에 있는 "Allow public access from any Azure service within Azure to this server(Azure 내 모든 Azure 서비스에서 이 서버에 대한 퍼블릭 액세스 허용)" 확인란을 선택하고 저장을 클릭하여 설정을 유지합니다.
+Azure Cloud Shell을 사용하여 유연한 서버에 연결하려면 Azure Cloud Shell에서 유연한 서버로의 네트워킹 액세스를 허용해야 합니다. 이를 위해 Azure Portal의 MySQL 유연한 서버 **네트워킹** 블레이드로 이동하고, 아래 스크린샷에 나온 대로 **방화벽** 섹션 아래에 “Allow public access from any Azure service within Azure to this server(Azure 내 모든 Azure 서비스에서 이 서버에 대한 퍼블릭 액세스 허용)” 확인란을 선택하고 저장을 클릭하여 설정을 유지합니다.
+
+ > :::image type="content" source="./media/quickstart-create-server-portal/allow-access-to-any-azure-service.png" alt-text="퍼블릭 액세스 네트워크 구성에 대해 MySQL 유연한 서버에 Azure Cloud Shell 액세스를 허용하는 방법을 보여 주는 스크린샷":::
 
 > [!NOTE]
 > 개발 또는 테스트하는 경우에만 **Allow public access from any Azure service within Azure to this server(Azure 내 모든 Azure 서비스에서 이 서버에 대한 퍼블릭 액세스 허용)** 를 선택해야 합니다. 다른 고객의 구독에서 들어오는 연결을 포함하여 Azure 서비스 또는 자산에 할당된 IP 주소에서 들어오는 연결을 허용하도록 방화벽을 구성합니다.
@@ -109,6 +117,9 @@ Azure Cloud Shell을 사용하여 유연한 서버에 연결하려면 Azure Clou
 wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
 mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl-ca=DigiCertGlobalRootCA.crt.pem
 ```
+> [!IMPORTANT]
+> Azure Cloud Shell을 사용하여 유연한 서버에 연결하는 동안 --ssl=true 매개 변수를 사용해야 하고 --ssl-mode=REQUIRED는 필요하지 않습니다.
+> 주된 이유는 Azure Cloud Shell에는 Oracle 배포 환경의 mysql 클라이언트에는 --ssl-mode 매개 변수가 필요한 반면, --ssl 매개 변수가 필요한 MariaDB 배포 환경의 mysql.exe 클라이언트가 미리 설치되어 있기 때문입니다.
 
 이전 명령을 실행한 후에 유연한 서버에 연결하는 동안 다음과 같은 오류 메시지가 표시되는 경우 앞에서 언급한 "Allow public access from any Azure service within Azure to this server(Azure 내 모든 Azure 서비스에서 이 서버에 대한 퍼블릭 액세스 허용)"를 사용하여 방화벽 규칙을 설정하지 않았거나 옵션이 저장되지 않은 것입니다. 방화벽을 다시 설정하고 다시 시도해 보세요.
 

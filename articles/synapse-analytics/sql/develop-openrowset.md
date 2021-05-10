@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: a6af8f4600544007a9ecb4fcff5ac9016fd7dfbf
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: c37f6d89d5ebd3e18177db8add048739a62c883f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105640340"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307948"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 OPENROWSET를 사용하는 방법
 
@@ -138,9 +138,9 @@ unstructured_data_path를 폴더로 지정하면 서버리스 SQL 풀 쿼리가 
 다음 예제와 같이 /*를 경로 끝에 지정하여 서버리스 SQL 풀에서 폴더를 트래버스하도록 지시할 수 있습니다. `https://sqlondemandstorage.blob.core.windows.net/csv/population/**`
 
 > [!NOTE]
-> Hadoop 및 PolyBase와 달리 /**를 경로 끝에 지정하지 않으면 서버리스 SQL 풀에서 하위 폴더를 반환하지 않습니다. 또한 Hadoop 및 PolyBase와 달리 서버리스 SQL 풀에서 파일 이름이 밑줄(_) 또는 마침표(.)로 시작하는 파일을 반환합니다.
+> Hadoop 및 PolyBase와 달리 /**를 경로 끝에 지정하지 않으면 서버리스 SQL 풀에서 하위 폴더를 반환하지 않습니다.
 
-아래 예제에서 unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`이면 서버리스 SQL 풀 쿼리에서 mydata.txt 및 _hidden.txt의 행을 반환합니다. mydata2.txt 및 mydata3.txt는 하위 폴더에 있으므로 반환되지 않습니다.
+아래 예제에서 unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`인 경우 서버리스 SQL 풀 쿼리는 mydata.txt에서 행을 반환합니다. mydata2.txt 및 mydata3.txt는 하위 폴더에 있으므로 반환되지 않습니다.
 
 ![외부 테이블에 대한 재귀적 데이터](./media/develop-openrowset/folder-traversal.png)
 

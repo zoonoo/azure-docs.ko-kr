@@ -10,12 +10,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-python-uiex
-ms.openlocfilehash: 1b6805434f8c697c1ea13925ee681fdc7b5f1a29
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f5c51630d111bd68e311a93100abb8266e2a8e27
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101704755"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787434"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 Python 함수 만들기
 
@@ -180,7 +180,7 @@ HTTP 트리거의 경우 함수는 *function.json* 에 정의된 `req` 변수에
     az login
     ```
 
-    [az login](/cli/azure/reference-index#az-login) 명령은 Azure 계정에 로그인합니다.
+    [az login](/cli/azure/reference-index#az_login) 명령은 Azure 계정에 로그인합니다.
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell) 
     ```azurepowershell
@@ -199,7 +199,7 @@ HTTP 트리거의 경우 함수는 *function.json* 에 정의된 `req` 변수에
     az group create --name AzureFunctionsQuickstart-rg --location westeurope
     ```
  
-    [az group create](/cli/azure/group#az-group-create) 명령은 리소스 그룹을 만듭니다. 일반적으로 `az account list-locations` 명령에서 반환된 사용 가능한 지역을 사용하여 가까운 지역에 리소스 그룹과 리소스를 만듭니다.
+    [az group create](/cli/azure/group#az_group_create) 명령은 리소스 그룹을 만듭니다. 일반적으로 `az account list-locations` 명령에서 반환된 사용 가능한 지역을 사용하여 가까운 지역에 리소스 그룹과 리소스를 만듭니다.
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
@@ -222,7 +222,7 @@ HTTP 트리거의 경우 함수는 *function.json* 에 정의된 `req` 변수에
     az storage account create --name <STORAGE_NAME> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
     ```
 
-    [az storage account create](/cli/azure/storage/account#az-storage-account-create) 명령은 스토리지 계정을 만듭니다. 
+    [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령은 스토리지 계정을 만듭니다. 
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 

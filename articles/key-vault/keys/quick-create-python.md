@@ -7,13 +7,13 @@ ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 7d1e4018382d26e4df289838ffbb03f1c87505e6
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.custom: devx-track-python
+ms.openlocfilehash: 2c15090551ad9d84282f65925ff9c2cfbab7e14f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935022"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773354"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>빠른 시작: Python용 Azure Key Vault 키 클라이언트 라이브러리
 
@@ -24,14 +24,14 @@ Python용 Azure Key Vault 클라이언트 라이브러리를 시작합니다. �
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Python 2.7+ 또는 3.5.3+](/azure/developer/python/configure-local-development-environment)
+- [Python 2.7 이상 또는 3.6 이상](/azure/developer/python/configure-local-development-environment)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
 이 빠른 시작에서는 Linux 터미널 창에서 [Azure CLI](/cli/azure/install-azure-cli)를 실행하고 있다고 가정합니다.
 
 ## <a name="set-up-your-local-environment"></a>로컬 환경 설정
 
-이 빠른 시작에서는 Azure CLI와 함께 Azure ID 라이브러리를 사용하여 사용자를 Azure Services에 인증합니다. 개발자는 Visual Studio 또는 Visual Studio Code를 사용하여 해당 호출을 인증할 수도 있습니다. 자세한 내용은 [Azure ID 클라이언트 라이브러리를 사용하여 클라이언트 인증](/java/api/overview/azure/identity-readme)을 참조하세요.
+이 빠른 시작에서는 Azure CLI와 함께 Azure ID 라이브러리를 사용하여 사용자를 Azure Services에 인증합니다. 개발자는 Visual Studio 또는 Visual Studio Code를 사용하여 해당 호출을 인증할 수도 있습니다. 자세한 내용은 [Azure ID 클라이언트 라이브러리를 사용하여 클라이언트 인증](/python/api/overview/azure/identity-readme)을 참조하세요.
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -179,7 +179,7 @@ Key Vault에서 키를 읽으려면 [get_key](/python/api/azure-keyvault-keys/az
 retrieved_key = client.get_key(keyName)
  ```
 
-Azure CLI 명령 [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show)를 사용하여 키가 설정되었는지 확인할 수도 있습니다.
+Azure CLI 명령 [az keyvault key show](/cli/azure/keyvault/key?#az_keyvault_key_show)를 사용하여 키가 설정되었는지 확인할 수도 있습니다.
 
 ### <a name="delete-a-key"></a>키 삭제
 
@@ -192,7 +192,7 @@ deleted_key = poller.result()
 
 `begin_delete_key` 메서드는 비동기식이며 폴러 개체를 반환합니다. 폴러의 `result` 메서드를 호출하면 작업이 완료될 때까지 대기합니다.
 
-Azure CLI 명령 [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show)를 사용하여 키가 삭제되었는지 확인할 수 있습니다.
+Azure CLI 명령 [az keyvault key show](/cli/azure/keyvault/key?#az_keyvault_key_show)를 사용하여 키가 삭제되었는지 확인할 수 있습니다.
 
 키가 삭제되었지만 당분간 복구 가능한 상태로 유지됩니다. 코드를 다시 실행하는 경우 다른 키 이름을 사용합니다.
 
@@ -209,7 +209,7 @@ az group delete --resource-group KeyVault-PythonQS-rg
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Key Vault 개요](../general/overview.md)
-- [Key vault에 대한 액세스 보안](../general/secure-your-key-vault.md)
+- [Key vault에 대한 액세스 보안](../general/security-overview.md)
 - [Azure Key Vault 개발자 가이드](../general/developers-guide.md)
 - [Key Vault 보안 개요](../general/security-overview.md)
 - [Key Vault로 인증](../general/authentication.md)

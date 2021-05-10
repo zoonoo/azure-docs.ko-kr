@@ -7,14 +7,14 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: ecc31019ccedc21683eed1a3186cec91d4c5c567
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: 2c1a0ee78e866a12105eca77653b1063943d06db
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103466595"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105561069"
 ---
-# <a name="containerize-java-web-applications-and-migrate-to-azure-kubernetes-service"></a>Java 웹 애플리케이션을 컨테이너화하고 Azure Kubernetes Service로 마이그레이션
+# <a name="java-web-app-containerization-and-migration-to-azure-kubernetes-service"></a>Java 웹앱 컨테이너화 및 Azure Kubernetes Service로 마이그레이션
 
 이 문서에서는 Azure Migrate: 앱 컨테이너화 도구를 사용하여 Java 웹 애플리케이션(Apache Tomcat에서 실행)을 컨테이너화하고 [AKS(Azure Kubernetes Service)](https://azure.microsoft.com/services/kubernetes-service/)로 마이그레이션하는 방법을 알아봅니다. 컨테이너화 프로세스는 코드 베이스에 액세스할 필요가 없으며 기존 애플리케이션을 컨테이너화하는 쉬운 방법을 제공합니다. 이 도구는 서버에서 애플리케이션의 실행 상태를 사용하여 애플리케이션 구성 요소를 결정하고 컨테이너 이미지에 패키지하도록 돕습니다. 그런 다음 컨테이너화된 애플리케이션을 AKS(Azure Kubernetes Service)에 배포할 수 있습니다.
 
@@ -59,7 +59,7 @@ Azure Migrate: 앱 컨테이너화 도구를 사용하면 다음 작업을 수�
 
 **요구 사항** | **세부 정보**
 --- | ---
-**도구를 설치할 컴퓨터를 식별** | Azure Migrate: 앱 컨테이너화 도구를 설치하고 실행하는 Windows 컴퓨터입니다. Windows 컴퓨터는 서버(Windows Server 2016 이상) 또는 클라이언트(Windows 10) 운영 체제일 수 있습니다. 즉, 도구가 데스크톱에서도 실행될 수 있습니다. <br/><br/> 도구를 실행하는 Windows 컴퓨터에는 컨테이너화될 수 있는 ASP.NET 애플리케이션을 호스트하는 서버/가상 머신에 대한 네트워크 연결이 있어야 합니다.<br/><br/> 애플리케이션 아티팩트를 저장하기 위해 Azure Migrate: 앱 컨테이너화 도구를 실행하는 Windows 컴퓨터에서 6GB의 공간을 사용할 수 있어야 합니다. <br/><br/> Windows 컴퓨터에서 직접 또는 프록시를 통해 인터넷에 액세스할 수 있어야 합니다. <br/> <br/>앱 컨테이너화 도우미 도구 및 애플리케이션 서버를 실행하는 컴퓨터에 Microsoft 웹 배포 도구를 설치합니다(아직 설치하지 않은 경우). 이 도구는 [여기](https://aka.ms/webdeploy3.6)에서 다운로드할 수 있습니다.
+**도구를 설치할 컴퓨터를 식별** | Azure Migrate: 앱 컨테이너화 도구를 설치하고 실행하는 Windows 컴퓨터입니다. Windows 컴퓨터는 서버(Windows Server 2016 이상) 또는 클라이언트(Windows 10) 운영 체제일 수 있습니다. 즉, 도구가 데스크톱에서도 실행될 수 있습니다. <br/><br/> 도구를 실행하는 Windows 컴퓨터에는 컨테이너화될 수 있는 Java 웹 애플리케이션을 호스팅하는 서버/가상 머신에 대한 네트워크 연결이 있어야 합니다.<br/><br/> 애플리케이션 아티팩트를 저장하기 위해 Azure Migrate: 앱 컨테이너화 도구를 실행하는 Windows 컴퓨터에서 6GB의 공간을 사용할 수 있어야 합니다. <br/><br/> Windows 컴퓨터에서 직접 또는 프록시를 통해 인터넷에 액세스할 수 있어야 합니다.
 **애플리케이션 서버** | - 컨테이너화할 Java 애플리케이션을 실행하는 서버의 22 포트에서 SSH(Secure Shell) 연결을 사용하도록 설정합니다. <br/>
 **Java 웹 애플리케이션** | 이 도구는 현재 다음을 지원합니다. <br/><br/> - Tomcat 8 이상에서 실행되는 애플리케이션<br/> - Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, Red Hat Enterprise Linux 5/6/7의 애플리케이션 서버 <br/> - Java 버전 7 이상을 사용하는 애플리케이션  <br/><br/> 이 도구는 현재 다음을 지원하지 않습니다. <br/><br/> - 여러 Tomcat 인스턴스를 실행하는 애플리케이션 서버 <br/>  
 
@@ -104,7 +104,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
 3. 명령을 사용하여 설치 스크립트를 실행합니다.
 
    ```powershell
-   .\App ContainerizationInstaller.ps1
+   .\AppContainerizationInstaller.ps1
    ```
 
 ## <a name="launch-the-app-containerization-tool"></a>앱 컨테이너화 도구 시작
@@ -178,7 +178,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
 
 ### <a name="externalize-file-system-dependencies"></a>파일 시스템 종속성 외부화
 
- 애플리케이션이 사용하는 다른 폴더를 추가할 수 있습니다. 해당 폴더가 컨테이너 이미지의 일부여야 하는지 아니면 Azure 파일 공유의 영구적 볼륨을 통해 외부화되어야 하는지를 지정합니다. 영구 볼륨을 사용하는 것은 컨테이너 외부에 상태를 저장하거나 파일 시스템에 다른 정적 콘텐츠가 저장되는 상태 저장 애플리케이션에 적합합니다. [자세히 알아보기](https://docs.microsoft.com/azure/aks/concepts-storage)
+ 애플리케이션이 사용하는 다른 폴더를 추가할 수 있습니다. 해당 폴더가 컨테이너 이미지의 일부여야 하는지 아니면 Azure 파일 공유의 영구적 볼륨을 통해 외부화되어야 하는지를 지정합니다. 영구 볼륨을 사용하는 것은 컨테이너 외부에 상태를 저장하거나 파일 시스템에 다른 정적 콘텐츠가 저장되는 상태 저장 애플리케이션에 적합합니다. [자세히 알아보기](../aks/concepts-storage.md)
 
 1. 앱 폴더 아래에서 **편집** 을 클릭하여 검색된 애플리케이션 폴더를 검토합니다. 검색된 애플리케이션 폴더는 애플리케이션에 필요한 필수 아티팩트로 식별된 것이며 컨테이너 이미지에 복사됩니다.
 
@@ -194,7 +194,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
 ## <a name="build-container-image"></a>컨테이너 이미지 만들기
 
 
-1. **Azure Container Registry 선택**: 드롭다운을 사용하여 앱의 컨테이너 이미지를 빌드하고 저장하는 데 사용할 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)를 선택합니다. 기존 Azure Container Registry를 사용하거나 새 레지스트리 만들기 옵션을 사용하여 새로 만들도록 선택할 수 있습니다.
+1. **Azure Container Registry 선택**: 드롭다운을 사용하여 앱의 컨테이너 이미지를 빌드하고 저장하는 데 사용할 [Azure Container Registry](../container-registry/index.yml)를 선택합니다. 기존 Azure Container Registry를 사용하거나 새 레지스트리 만들기 옵션을 사용하여 새로 만들도록 선택할 수 있습니다.
 
     ![앱 ACR 선택을 보여 주는 스크린샷.](./media/tutorial-containerize-apps-aks/build-java-app.png)
 

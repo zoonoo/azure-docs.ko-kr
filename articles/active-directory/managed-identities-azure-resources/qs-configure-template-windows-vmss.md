@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/15/2020
+ms.date: 04/12/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 377bbb9ce111f3cf2daf8426e128186711c30e5f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4e948b96022972dcf702ac5a4d8be85c9afe16e7
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97587454"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365980"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>템플릿을 사용하여 Azure 가상 머신 확장에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -29,6 +29,7 @@ ms.locfileid: "97587454"
 Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리되는 ID를 Azure 서비스에 제공합니다. 이 ID를 사용하면 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.
 
 이 문서에서는 Azure Resource Manager 배포 템플릿을 사용하여 Azure 가상 머신 확장 집합에서 Azure 리소스에 대한 다음과 같은 관리 ID 작업을 수행하는 방법을 알아봅니다.
+
 - Azure 가상 머신 확장 집합에서 시스템 할당 관리 ID를 사용하거나 사용하지 않도록 설정
 - Azure 가상 머신 확장 집합에서 사용자 할당 관리 ID 추가 및 제거
 
@@ -60,7 +61,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
 
 이 섹션에서는 Azure Resource Manager 템플릿을 사용하여 시스템 할당 관리 ID를 사용하거나 사용하지 않도록 설정합니다.
 
-### <a name="enable-system-assigned-managed-identity-during-creation-the-creation-of-a-virtual-machines-scale-set-or-an-existing-virtual-machine-scale-set"></a>가상 머신 확장 집합 또는 기존 가상 머신 확장 집합을 만드는 동안 시스템 할당 관리 ID를 사용하도록 설정
+### <a name="enable-system-assigned-managed-identity-during-the-creation-of-a-virtual-machines-scale-set-or-an-existing-virtual-machine-scale-set"></a>가상 머신 확장 집합 또는 기존 가상 머신 확장 집합을 만드는 동안 시스템 할당 관리 ID를 사용하도록 설정
 
 1. Azure에 로컬로 로그인하든지, 아니면 Azure Portal을 통해 로그인하든지 간에 가상 머신 확장 집합이 포함된 Azure 구독과 연결된 계정을 사용합니다.
 2. 시스템 할당 관리 ID를 사용하도록 설정하려면 편집기에 템플릿을 로드하고 리소스 섹션 내에서 관심이 있는 `Microsoft.Compute/virtualMachinesScaleSets` 리소스를 찾아서 `"type": "Microsoft.Compute/virtualMachinesScaleSets"` 속성과 같은 수준으로 `identity` 속성을 추가합니다. 다음 구문을 사용합니다.
@@ -70,10 +71,6 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
        "type": "SystemAssigned"
    }
    ```
-
-> [!NOTE]
-> 필요에 따라 템플릿의 `extensionProfile` 요소에 지정하여 Azure 리소스 가상 머신 확장 집합 확장에 대한 관리 ID를 프로비저닝할 수 있습니다. 이 단계는 Azure IMDS(Instance Metadata Service) ID 엔드포인트를 사용하여 토큰을 검색할 수도 있으므로 선택 사항입니다.  자세한 내용은 [인증을 위해 VM 확장에서 Azure IMDS로 마이그레이션](howto-migrate-vm-extension.md)을 참조하세요.
-
 
 4. 완료되면 다음과 같은 모양으로 템플릿의 리소스 섹션에 다음 섹션을 추가해야 합니다.
 
@@ -92,23 +89,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
                 //other resource provider properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
-                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)
-                    "extensionProfile": {
-                        "extensions": [
-                            {
-                                "name": "ManagedIdentityWindowsExtension",
-                                "properties": {
-                                  "publisher": "Microsoft.ManagedIdentity",
-                                  "type": "ManagedIdentityExtensionForWindows",
-                                  "typeHandlerVersion": "1.0",
-                                  "autoUpgradeMinorVersion": true,
-                                  "settings": {
-                                      "port": 50342
-                                  }
-                                }
-                            }
-                        ]
-                    }
+        
                 }
             }
         }
@@ -194,13 +175,10 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
        }
 
    }
-   ```
-> [!NOTE]
-> 필요에 따라 템플릿의 `extensionProfile` 요소에 지정하여 Azure 리소스 가상 머신 확장 집합 확장에 대한 관리 ID를 프로비저닝할 수 있습니다. 이 단계는 Azure IMDS(Instance Metadata Service) ID 엔드포인트를 사용하여 토큰을 검색할 수도 있으므로 선택 사항입니다.  자세한 내용은 [인증을 위해 VM 확장에서 Azure IMDS로 마이그레이션](howto-migrate-vm-extension.md)을 참조하세요.
 
-3. 완료되면 템플릿은 다음과 같이 표시됩니다.
+3. When you are done, your template should look similar to the following:
 
-   **Microsoft.Compute/virtualMachineScaleSets API 버전 2018-06-01**   
+   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**   
 
    ```json
    "resources": [
@@ -220,23 +198,6 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
                 //other virtual machine properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
-                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)
-                    "extensionProfile": {
-                        "extensions": [
-                            {
-                                "name": "ManagedIdentityWindowsExtension",
-                                "properties": {
-                                  "publisher": "Microsoft.ManagedIdentity",
-                                  "type": "ManagedIdentityExtensionForWindows",
-                                  "typeHandlerVersion": "1.0",
-                                  "autoUpgradeMinorVersion": true,
-                                  "settings": {
-                                      "port": 50342
-                                  }
-                                }
-                            }
-                        ]
-                    }
                 }
             }
         }
@@ -263,29 +224,12 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
                 //other virtual machine properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
-                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)    
-                    "extensionProfile": {
-                        "extensions": [
-                            {
-                                "name": "ManagedIdentityWindowsExtension",
-                                "properties": {
-                                  "publisher": "Microsoft.ManagedIdentity",
-                                  "type": "ManagedIdentityExtensionForWindows",
-                                  "typeHandlerVersion": "1.0",
-                                  "autoUpgradeMinorVersion": true,
-                                  "settings": {
-                                      "port": 50342
-                                  }
-                                }
-                            }
-                        ]
-                    }
                 }
             }
         }
     ]
    ```
-   ### <a name="remove-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Azure 가상 머신 확장 집합에서 사용자 할당 관리 ID 제거
+### <a name="remove-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Azure 가상 머신 확장 집합에서 사용자 할당 관리 ID 제거
 
 사용자 할당 관리 ID가 더 이상 필요하지 않은 가상 머신 확장 집합이 있는 경우 다음을 수행합니다.
 

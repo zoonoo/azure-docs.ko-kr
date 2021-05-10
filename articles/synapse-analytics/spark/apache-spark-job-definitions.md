@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 10/16/2020
-ms.openlocfilehash: d125bca5ed67476897eec7cd32a586776d8b1ea8
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 15b67c969cb0464256caed58a2e7388eb7a76b9c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176623"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105608773"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>자습서: Synapse Studio에서 Apache Spark 작업 정의 만들기
 
@@ -25,8 +25,11 @@ ms.locfileid: "102176623"
 > - PySpark(Python)에 대한 Apache Spark 작업 정의 만들기
 > - Spark(Scala)에 대한 Apache Spark 작업 정의 만들기
 > - .NET Spark(C#/F#)에 대한 Apache Spark 작업 정의 만들기
+> - JSON 파일을 가져와서 작업 정의 만들기
+> - Apache Spark 작업 정의 파일을 로컬로 내보내기
 > - 일괄 작업으로 Apache Spark 작업 정의 제출
 > - 파이프라인에 Apache Spark 작업 정의 추가
+
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -36,6 +39,7 @@ ms.locfileid: "102176623"
 * 서버리스 Apache Spark 풀.
 * ADLS Gen2 스토리지 계정 작업하려는 ADLS Gen2 파일 시스템의 **Storage Blob 데이터 기여자** 여야 합니다. 그렇지 않으면, 권한을 수동으로 추가해야 합니다.
 * 작업 영역 기본 스토리지를 사용하지 않으려면 Synapse Studio에서 필요한 ADLS Gen2 스토리지 계정을 연결합니다. 
+
 
 ## <a name="create-an-apache-spark-job-definition-for-pyspark-python"></a>PySpark(Python)에 대한 Apache Spark 작업 정의 만들기
 
@@ -160,6 +164,57 @@ ms.locfileid: "102176623"
 
       ![dotnet 정의 게시](./media/apache-spark-job-definitions/publish-dotnet-definition.png)
 
+## <a name="create-apache-spark-job-definition-by-importing-a-json-file"></a>JSON 파일을 가져와서 Apache Spark 작업 정의 만들기
+
+ Apache Spark 작업 정의 탐색기의 **작업**(...) 메뉴에서 기존 로컬 JSON 파일을 Azure Synapse 작업 영역으로 가져와 새 Apache Spark 작업 정의를 만들 수 있습니다.
+
+ ![가져오기 정의 만들기](./media/apache-spark-job-definitions/create-import-definition.png)
+
+ 
+ Spark 작업 정의는 Livy API와 완전히 호환됩니다. 다른 Livy 속성 [(Livy Docs - REST API(apache.org)](https://livy.incubator.apache.org/docs/latest/rest-api.html)에 대한 추가 매개 변수를 로컬 JSON 파일에 추가할 수 있습니다. 아래와 같이 config 속성에서 Spark 구성 관련 매개 변수를 지정할 수도 있습니다. 그런 다음, JSON 파일을 다시 가져와 일괄 작업에 대한 새 Apache Spark 작업 정의를 만들 수 있습니다. Spark 정의 가져오기에 대한 예제 JSON:
+ 
+```Scala
+   {
+  "targetBigDataPool": {
+    "referenceName": "socdemolarge",
+    "type": "BigDataPoolReference"
+  },
+  "requiredSparkVersion": "2.3",
+  "language": "scala",
+  "jobProperties": {
+    "name": "robinSparkDefinitiontest",
+    "file": "adl://socdemo-c14.azuredatalakestore.net/users/robinyao/wordcount.jar",
+    "className": "WordCount",
+    "args": [
+      "adl://socdemo-c14.azuredatalakestore.net/users/robinyao/shakespeare.txt"
+    ],
+    "jars": [],
+    "files": [],
+    "conf": {
+      "spark.dynamicAllocation.enabled": "false",
+      "spark.dynamicAllocation.minExecutors": "2",
+      "spark.dynamicAllocation.maxExecutors": "2"
+    },
+    "numExecutors": 2,
+    "executorCores": 8,
+    "executorMemory": "24g",
+    "driverCores": 8,
+    "driverMemory": "24g"
+  }
+}
+
+```
+
+![기타 livy 속성](./media/apache-spark-job-definitions/other-livy-properties.png)
+
+## <a name="export-an-existing-apache-spark-job-definition-file"></a>기존 Apache Spark 작업 정의 파일 내보내기
+
+ 파일 탐색기의 **작업**(...) 메뉴에서 기존 Apache Spark 작업 정의 파일을 로컬로 내보낼 수 있습니다. 추가 Livy 속성에 대한 JSON 파일을 추가로 업데이트하고, 필요한 경우 다시 가져와 새 작업 정의를 만들 수 있습니다.
+
+ ![내보내기 정의 만들기](./media/apache-spark-job-definitions/create-export-definition.png)
+
+ ![내보내기 정의 만들기 2](./media/apache-spark-job-definitions/create-export-definition-2.png)
+
 ## <a name="submit-an-apache-spark-job-definition-as-a-batch-job"></a>일괄 작업으로 Apache Spark 작업 정의 제출
 
 Apache Spark 작업 정의를 만든 후에 Apache Spark 풀에 제출할 수 있습니다. 작업하려는 ADLS Gen2 파일 시스템의 **Storage Blob 데이터 기여자** 여야 합니다. 그렇지 않으면, 권한을 수동으로 추가해야 합니다.
@@ -202,6 +257,7 @@ Apache Spark 작업 정의를 만든 후에 Apache Spark 풀에 제출할 수 �
      ![pipeline1에 추가](./media/apache-spark-job-definitions/add-to-pipeline01.png)
 
      ![pipeline2에 추가](./media/apache-spark-job-definitions/add-to-pipeline02.png)
+
 
 ## <a name="next-steps"></a>다음 단계
 

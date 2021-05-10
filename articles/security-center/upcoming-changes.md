@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 03/18/2021
+ms.date: 04/08/2021
 ms.author: memildin
-ms.openlocfilehash: b9a93286b6a546160b6c621d084437f671eab4d3
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: f9e1b5d19acbc9bcee86c374a3f843530b8adc61
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773575"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103762"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Azure Security Center에 예정된 중요한 변경
 
@@ -28,59 +28,11 @@ ms.locfileid: "104773575"
 
 | 계획된 변경                                                                                                                                                        | 변경 예상 날짜 |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| [더 이상 사용되지 않는 "시스템 업데이트 적용" 보안 제어의 두 가지 권장 사항](#two-recommendations-from-apply-system-updates-security-control-being-deprecated) | 2021년 3월                |
-| [11개의 Azure Defender 경고 사용 중단](#deprecation-of-11-azure-defender-alerts)                                                                                   | 2021년 3월                |
 | [21가지 보안 제어 간 이동 권장 사항](#21-recommendations-moving-between-security-controls)                                                           | 2021년 4월                |
-| [더 이상 사용되지 않는 "시스템 업데이트 적용" 보안 제어의 두 가지 추가 권장 사항](#two-further-recommendations-from-apply-system-updates-security-control-being-deprecated)                                                                                         | 2021년 4월                |
-| [AWS의 권장 사항은 GA(일반 공급)용으로 릴리스됩니다.](#recommendations-from-aws-will-be-released-for-general-availability-ga)                     | 2021년 4월                |
+| [더 이상 사용되지 않는 "시스템 업데이트 적용" 보안 제어의 두 가지 권장 사항](#two-recommendations-from-apply-system-updates-security-control-being-deprecated) | 2021년 4월                |
+| [AWS의 권장 사항은 GA(일반 공급)용으로 릴리스됩니다.](#recommendations-from-aws-will-be-released-for-general-availability-ga)                     | 2021년 **8월**             |
 | [SQL 데이터 분류 권장 사항 향상](#enhancements-to-sql-data-classification-recommendation)                                                     | Q2 2021                   |
 |                                                                                                                                                                       |                           |
-
-
-### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>더 이상 사용되지 않는 "시스템 업데이트 적용" 보안 제어의 두 가지 권장 사항 
-
-**변경 예상 날짜:** 2021년 3월
-
-다음 두 가지 권장 사항은 2021년 2월에 더 이상 사용되지 않을 예정입니다.
-
-- **시스템 업데이트를 적용하려면 머신을 다시 시작해야 합니다**. 이로 인해 보안 점수에 약간의 영향을 줄 수 있습니다.
-- **머신에 모니터링 에이전트를 설치해야 합니다**. 이 권장 사항은 온-프레미스 머신에만 관련되며 해당 논리의 일부는 다른 권장 사항으로 전송됩니다. **Log Analytics 에이전트 상태 문제는 머신에서 해결해야 합니다**. 이로 인해 보안 점수에 약간의 영향을 줄 수 있습니다.
-
-연속 내보내기 및 워크플로 자동화 구성을 확인하여 이러한 권장 사항이 포함되어 있는지 확인하는 것이 좋습니다. 또한 대시보드 또는 이를 사용할 수 있는 기타 모니터링 도구를 적절하게 업데이트해야 합니다.
-
-[보안 추천 사항 참조 페이지](recommendations-reference.md)에서 이러한 권장 사항에 대해 자세히 알아보세요.
-
-### <a name="deprecation-of-11-azure-defender-alerts"></a>11개의 Azure Defender 경고 사용 중단
-
-**변경 예상 날짜:** 2021년 3월
-
-다음 달에 아래 나열된 11개의 Azure Defender 경고는 더 이상 사용되지 않습니다.
-
-- 새 경고는 이러한 두 가지 경고를 대체하고 더 나은 적용 범위를 제공합니다.
-
-    | AlertType                | AlertDisplayName                                                         |
-    |--------------------------|--------------------------------------------------------------------------|
-    | ARM_MicroBurstDomainInfo | 미리 보기 - MicroBurst 도구 키트 "Get-AzureDomainInfo" 함수 실행이 감지됨 |
-    | ARM_MicroBurstRunbook    | 미리 보기 - MicroBurst 도구 키트 "Get-AzurePasswords" 함수 실행이 감지됨  |
-    |                          |                                                                          |
-
-- 이러한 9개의 경고는 이미 사용되지 않는 Azure Active Directory ID 보호 커넥터와 관련이 있습니다.
-
-    | AlertType           | AlertDisplayName              |
-    |---------------------|-------------------------------|
-    | UnfamiliarLocation  | 일반적이지 않은 로그인 속성 |
-    | AnonymousLogin      | 익명 IP 주소          |
-    | InfectedDeviceLogin | 맬웨어 연결 IP 주소     |
-    | ImpossibleTravel    | 비정상적 이동               |
-    | MaliciousIP         | 악성 IP 주소          |
-    | LeakedCredentials   | 유출된 자격 증명            |
-    | PasswordSpray       | 암호 스프레이                |
-    | LeakedCredentials   | Azure AD 위협 인텔리전스  |
-    | AADAI               | Azure AD AI                   |
-    |                     |                               |
- 
-
-
 
 
 ### <a name="21-recommendations-moving-between-security-controls"></a>21가지 보안 제어 간 이동 권장 사항 
@@ -98,7 +50,7 @@ ms.locfileid: "104773575"
 |||
 
 
-### <a name="two-further-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>더 이상 사용되지 않는 "시스템 업데이트 적용" 보안 제어의 두 가지 추가 권장 사항
+### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>더 이상 사용되지 않는 "시스템 업데이트 적용" 보안 제어의 두 가지 권장 사항
 
 **변경 예상 날짜:** 2021년 4월
 
@@ -110,7 +62,7 @@ ms.locfileid: "104773575"
 
 ### <a name="recommendations-from-aws-will-be-released-for-general-availability-ga"></a>AWS의 권장 사항은 GA(일반 공급)용으로 릴리스됩니다.
 
-**변경 예상 날짜:** 2021년 4월
+**변경 예상 날짜:** 2021년 8월
 
 Azure Security Center는 Azure, AWS(Amazon Web Services) 및 GCP(Google Cloud Platform)의 워크로드를 보호합니다.
 
@@ -121,7 +73,7 @@ AWS Security Hub에서 제공되는 권장 사항은 클라우드 커넥터가 �
 - [Security Hub의 PCI DSS 컨트롤](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-pci-controls.html)
 - [Security Hub의 CIS AWS Foundations Benchmark 컨트롤](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cis-controls.html)
 
-이것이 GA이고 평가가 AWS 리소스에서 실행되는 경우 결과는 모든 다중 및 하이브리드 클라우드 리소스에 대해 결합된 보안 점수에 영향을 줍니다. 
+이것이 GA이고 평가가 AWS 리소스에서 실행되는 경우 결과는 모든 다중 및 하이브리드 클라우드 리소스에 대해 결합된 보안 점수에 영향을 줍니다.
 
 
 

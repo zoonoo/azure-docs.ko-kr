@@ -5,23 +5,23 @@ description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 부하 
 services: load-balancer
 documentationcenter: na
 author: asudbring
-manager: KumudD
-Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
-ms.assetid: ''
-ms.service: load-balancer
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/22/2020
 ms.author: allensu
-ms:custom: seodec18
-ms.openlocfilehash: 2052669d3d1ae2bdb7aa1687c4dc348c9420d126
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+manager: KumudD
+ms.date: 11/22/2020
+ms.assetid: ''
+ms.topic: quickstart
+ms.service: load-balancer
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.custom:
+- mode-api
+ms.openlocfilehash: 0ddaf0eede59053cd8022fef24d37a37c6d7db5a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102615366"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529571"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
 
@@ -326,6 +326,8 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 3      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 4      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="create-outbound-rule-configuration"></a>아웃바운드 규칙 구성 만들기
 부하 분산 장치 아웃바운드 규칙은 백 엔드 풀의 VM에 대한 아웃바운드 SNAT(Source Network Address Translation)를 구성합니다. 
@@ -721,6 +723,8 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 3      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 4      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ---
 

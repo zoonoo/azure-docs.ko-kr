@@ -2,13 +2,13 @@
 title: '빠른 시작: 보안 에이전트 개요'
 description: 이 빠른 시작에서는 Azure Defender for IoT 서비스에서 사용되는 에이전트의 보안 에이전트 아키텍처를 이해하는 방법을 알아봅니다.
 ms.topic: quickstart
-ms.date: 01/24/2021
-ms.openlocfilehash: 2e7d7d1e6770667b1ce966724611cc003116409d
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.date: 4/4/2021
+ms.openlocfilehash: 0937cccb0335f4eee16ca3590babe9574320b89f
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104778511"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384986"
 ---
 # <a name="quickstart-security-agent-reference-architecture"></a>빠른 시작: 보안 에이전트 참조 아키텍처
 
@@ -33,7 +33,7 @@ Defender for IoT 보안 에이전트는 오픈 소스 프로젝트로 개발되�
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-없음
+- 없음
 
 ## <a name="agent-supported-platforms"></a>에이전트 지원 플랫폼
 
@@ -48,8 +48,7 @@ Defender for IoT는 32비트 및 64비트 Windows에 대해 서로 다른 설치
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 Defender for IoT Defender-IoT-micro-agent 아키텍처와 사용 가능한 설치 프로그램에 대한 높은 수준의 개요를 살펴봤습니다.
-
-Defender for IoT 개발을 계속 시작하려면 다음 문서를 사용합니다.
+Defender for IoT 개발을 계속 시작하려면 
 
 > [!div class="nextstepaction"]
 > [보안 에이전트 인증 방법](concept-security-agent-authentication-methods.md)

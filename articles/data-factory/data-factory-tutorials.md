@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 03/16/2021
-ms.openlocfilehash: 77899366ed256e147ddbc705d68096cb1b879d8d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8fccd508d5d6dbe380b21a85faa3889e99b9942f
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608374"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579527"
 ---
 # <a name="azure-data-factory-tutorials"></a>Azure Data Factory 자습서
 
@@ -60,6 +60,8 @@ ms.locfileid: "104608374"
 [Power Query를 사용한 데이터 랭글링](wrangling-tutorial.md)
 
 [관리형 VNet 내의 데이터 흐름](tutorial-data-flow-private.md)
+
+[ADLS Gen2의 lake 데이터에 대한 모범 사례](tutorial-data-flow-write-to-lake.md)
 
 ## <a name="external-data-services"></a>외부 데이터 서비스
 

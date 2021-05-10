@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: d4b7a188a9509c3510de2843b232f57e3437177b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103009830"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Media Encoder Standard를 사용하여 자산을 인코딩하는 방법
@@ -45,7 +45,7 @@ Encoding 작업은 Azure Media Services에서 가장 일반적인 처리 작업 
 
 항상 원본 파일을 적응 비트 전송률 MP4 집합으로 인코딩한 다음 [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 원하는 형식으로 집합을 변환하는 것이 좋습니다.
 
-출력 자산이 암호화된 스토리지인 경우 자산 배달 정책을 구성해야 합니다. 자세한 내용은 [자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)을 참조 하세요.
+출력 자산이 암호화된 스토리지인 경우 자산 배달 정책을 구성해야 합니다. 자세한 내용은 [자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)을 참조하세요.
 
 ## <a name="considerations"></a>고려 사항
 
@@ -62,7 +62,7 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
 > [!NOTE]
 > Media Services REST API를 사용할 때는 다음 사항을 고려해야 합니다.
 >
-> Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [Media Services REST API 개발을 위한 설정](media-services-rest-how-to-use.md)을 참조 하세요.
+> Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
 >
 > JSON을 사용하고 요청(예: 연결된 개체 참조)에서 **__metadata** 키워드를 사용하도록 지정할 때 **Accept** 헤더를 [JSON 자세한 정보 표시 형식](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)(Accept: application/json;odata=verbose)으로 설정해야 합니다.
 >
@@ -295,5 +295,5 @@ HTTP/1.1 201 Created
 ## <a name="next-steps"></a>다음 단계
 자산을 인코드하는 작업을 만드는 방법을 알았으니 이제 [Media Services를 사용하여 작업 진행 상태를 확인하는 방법](media-services-rest-check-job-progress.md)을 살펴보겠습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 [미디어 프로세서 가져오기](media-services-rest-get-media-processor.md)

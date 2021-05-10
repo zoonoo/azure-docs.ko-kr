@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b600c895f98c46dbaafce7deef86bbbee8f57c99
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 5b98fde5e15a3c57b56ecc8aea60023ffb8c22a8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102561044"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774308"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Linux VM 만들기 및 암호화
 
@@ -26,7 +26,7 @@ Azure CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" --location "eastus"
@@ -79,7 +79,7 @@ az keyvault create --name "<your-unique-keyvault-name>" --resource-group "myReso
 az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-keyvault "<your-unique-keyvault-name>"
 ```
 
-잠시 후 프로세스에서 "암호화 요청이 수락되었습니다. 진행률을 모니터링하려면 'show' 명령을 사용하세요.”가 반환됩니다. "Show" 명령은 [az vm show](/cli/azure/vm/encryption#az-vm-encryption-show)입니다.
+잠시 후 프로세스에서 "암호화 요청이 수락되었습니다. 진행률을 모니터링하려면 'show' 명령을 사용하세요.”가 반환됩니다. "Show" 명령은 [az vm show](/cli/azure/vm/encryption#az_vm_encryption_show)입니다.
 
 ```azurecli-interactive
 az vm encryption show --name "myVM" -g "MyResourceGroup"

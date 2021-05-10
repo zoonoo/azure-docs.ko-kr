@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: azure-communication-services
 author: lakshmans
@@ -10,25 +10,25 @@ ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
 ms.author: lakshmans
-ms.openlocfilehash: e8424f6b5b7617b00de6dedbece3325f3c5513c8
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 2b96d62fb2be27de03964212557446d2e792beb8
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103622086"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106113236"
 ---
-Communication Services Python SMS 클라이언트 라이브러리를 사용하여 SMS 메시지를 보내 Azure Communication Services를 시작하세요.
+Communication Services Python SMS SDK를 사용하여 SMS 메시지를 보내 Azure Communication Services를 시작합니다.
 
 이 빠른 시작을 완료하면 Azure 계정에서 USD 센트 이하의 작은 비용이 발생합니다.
 
 <!--**TODO: update all these reference links as the resources go live**
 
-[API reference documentation](../../../references/overview.md) | [Library source code](#todo-sdk-repo) | [Package (PiPy)](#todo-nuget) | [Samples](#todo-samples)--> 
+[API reference documentation](../../../references/overview.md) | [Library source code](#todo-sdk-repo) | [Package (PiPy)](#todo-nuget) | [Samples](#todo-samples)-->
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- [Python](https://www.python.org/downloads/) 2.7, 3.5 이상.
+- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Python](https://www.python.org/downloads/) 2.7 또는 3.6 이상
 - 활성 Communication Services 리소스 및 연결 문자열입니다. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
 - SMS 지원 전화 번호입니다. [전화 번호를 가져옵니다](../get-phone-number.md).
 
@@ -62,33 +62,31 @@ except Exception as ex:
 
 ### <a name="install-the-package"></a>패키지 설치
 
-애플리케이션 디렉터리에 있는 동안 `pip install` 명령을 사용하여 Python 패키지용 Azure Communication Services SMS 클라이언트 라이브러리를 설치합니다.
+애플리케이션 디렉터리에 있는 동안 `pip install` 명령을 사용하여 Python 패키지용 Azure Communication Services SMS SDK를 설치합니다.
 
 ```console
-pip install azure-communication-sms --pre
+pip install azure-communication-sms
 ```
 
 ## <a name="object-model"></a>개체 모델
 
-다음 클래스 및 인터페이스는 Python용 Azure Communication Services SMS 클라이언트 라이브러리의 주요 기능 중 일부를 처리합니다.
+다음 클래스 및 인터페이스는 Python용 Azure Communication Services SMS SDK의 주요 기능 중 일부를 처리합니다.
 
-| 이름                                  | 설명                                                  |
+| Name                                  | 설명                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | SmsClient | 이 클래스는 모든 SMS 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고 SMS 메시지를 보내는 데 사용합니다.                                                                                                                 |
 | SmsSendResult               | 이 클래스는 SMS 서비스의 결과를 포함합니다.                                          |
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-연결 문자열로 **SmsClient** 를 인스턴스화합니다. 아래 코드는 `COMMUNICATION_SERVICES_CONNECTION_STRING`이라는 환경 변수에서 리소스에 대한 연결 문자열을 검색합니다. [리소스의 연결 문자열을 관리](../../create-communication-resource.md#store-your-connection-string)하는 방법을 알아봅니다.
+연결 문자열로 **SmsClient** 를 인스턴스화합니다. [리소스의 연결 문자열을 관리](../../create-communication-resource.md#store-your-connection-string)하는 방법을 알아봅니다.
 
 ```python
-# This code demonstrates how to fetch your connection string
-# from an environment variable.
-connection_string = os.getenv('COMMUNICATION_SERVICES_CONNECTION_STRING')
-
 # Create the SmsClient object which will be used to send SMS messages
-sms_client = SmsClient.from_connection_string(connection_string)
+sms_client = SmsClient.from_connection_string(<connection_string>)
 ```
+간단한 설명을 위해 이 빠른 시작에서 연결 문자열을 사용하지만 프로덕션 환경에서는 대규모로 더 안전하고 관리하기 쉬운 [관리 ID](../../../quickstarts/managed-identity.md)를 사용하는 것이 좋습니다.
+
 
 ## <a name="send-a-11-sms-message"></a>1:1 SMS 메시지 보내기
 
@@ -99,14 +97,17 @@ sms_client = SmsClient.from_connection_string(connection_string)
 # calling send() with sms values
 sms_responses = sms_client.send(
     from_="<from-phone-number>",
-    to="<to-phone-number>,
+    to="<to-phone-number>",
     message="Hello World via SMS",
     enable_delivery_report=True, # optional property
     tag="custom-tag") # optional property
 
 ```
 
-`<from-phone-number>`를 Communication Services와 연결된 SMS 지원 전화 번호로 바꾸고, `<to-phone-number>`를 메시지를 보낼 전화 번호로 바꿔야 합니다. 
+`<from-phone-number>`를 Communication Services와 연결된 SMS 지원 전화 번호로 바꾸고, `<to-phone-number>`를 메시지를 보낼 전화 번호로 바꿔야 합니다.
+
+> [!WARNING]
+> 전화 번호는 E.164 국제 표준 형식으로 제공되어야 합니다. (예: +14255550123)
 
 ## <a name="send-a-1n-sms-message"></a>1:N SMS 메시지 보내기
 
@@ -124,18 +125,43 @@ sms_responses = sms_client.send(
 
 ```
 
-`<from-phone-number>`를 Communication Services와 연결된 SMS 지원 전화 번호로 바꾸고, `<to-phone-number-1>` 및 `<to-phone-number-2>`를 메시지를 보낼 전화 번호로 바꿔야 합니다. 
+`<from-phone-number>`를 Communication Services와 연결된 SMS 지원 전화 번호로 바꾸고, `<to-phone-number-1>` `<to-phone-number-2>`를 메시지를 보낼 전화 번호로 바꿔야 합니다.
+
+> [!WARNING]
+> 전화 번호는 E.164 국제 표준 형식으로 제공되어야 합니다. (예: +14255550123)
 
 ## <a name="optional-parameters"></a>선택적 매개 변수
 
 `enable_delivery_report` 매개 변수는 전달 보고를 구성하는 데 사용할 수 있는 선택적 매개 변수입니다. 이 기능은 SMS 메시지가 전달될 때 이벤트를 내보내려는 시나리오에 유용합니다. SMS 메시지에 대한 전달 보고를 구성하려면 [SMS 이벤트 처리](../handle-sms-events.md)를 참조하세요.
 
-`tag` 매개 변수는 사용자 지정 태그를 구성하는 데 사용할 수 있는 선택적 매개 변수입니다.
+`tag` 매개 변수는 전달 보고서에 태그를 적용하는 데 사용할 수 있는 선택적 매개 변수입니다.
 
 ## <a name="run-the-code"></a>코드 실행
-
 `python` 명령을 사용하여 애플리케이션 디렉터리에서 애플리케이션을 실행합니다.
 
 ```console
 python send-sms.py
+```
+
+전체 Python 스크립트는 다음과 같습니다.
+
+```python
+
+import os
+from azure.communication.sms import SmsClient
+
+try:
+    # Create the SmsClient object which will be used to send SMS messages
+    sms_client = SmsClient.from_connection_string("<connection string>")
+    # calling send() with sms values
+    sms_responses = sms_client.send(
+       from_="<from-phone-number>",
+       to="<to-phone-number>",
+       message="Hello World via SMS",
+       enable_delivery_report=True, # optional property
+       tag="custom-tag") # optional property
+
+except Exception as ex:
+    print('Exception:')
+    print(ex)
 ```

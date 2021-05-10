@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: danlep
 ms.openlocfilehash: 79e2ca71d6b8178be63c3429edba89cf3bb523e2
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96029995"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="get-sample-code"></a>샘플 코드 가져오기
 
@@ -25,7 +25,7 @@ ms.locfileid: "96029995"
 
 Git 리포지토리에 커밋할 때 작업을 트리거하려면 ACR 작업에서 리포지토리에 액세스하기 위해 PAT가 필요합니다. PAT가 아직 없는 경우 다음 단계에 따라 GitHub에서 하나를 생성합니다.
 
-1. [https://github.com/settings/tokens/new](https://github.com/settings/tokens/new )에 있는 GitHub의 PAT 만들기 페이지로 이동합니다.
+1. [https://github.com/settings/tokens/new](https://github.com/settings/tokens/new)에 있는 GitHub의 PAT 만들기 페이지로 이동합니다.
 1. 토큰에 대한 짧은 **설명** 을 입력합니다(예: "ACR 작업 데모").
 1. 리포지토리에 액세스하려면 ACR에 대한 범위를 선택합니다. 이 자습서에서와 같이 공용 리포지토리에 액세스하려면 **리포지토리** 아래에서 **repo: status** 및 **public_repo** 를 사용하도록 설정합니다.
 

@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: f41584194f8f5e8afde630405116b8b169cb5656
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+manager: femila
+ms.openlocfilehash: b2421c8b8c2d74649084f1cc8b75160857f40fc1
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91542039"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106444329"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-classic"></a>자습서: Windows Virtual Desktop(클래식)에서 테넌트 만들기
 

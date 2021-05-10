@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 78e4b35feb4e830a9f4335614a55d49ca90cd791
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1977663f4661fca316e4839671abd76e07b5acda
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101667645"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304803"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Synapse SQL에서 외부 테이블 사용
 
@@ -339,9 +339,9 @@ Azure Blob Storage의 실제 데이터에 대한 폴더 또는 파일 경로 및
 폴더 위치가 지정되면 서버리스 SQL 풀 쿼리를 통해 외부 테이블에서 선택하고 폴더에서 파일을 검색합니다.
 
 > [!NOTE]
-> Hadoop 및 PolyBase와 달리 서버리스 SQL 풀은 하위 폴더를 반환하지 않습니다. 파일 이름이 밑줄(_) 또는 마침표(.)로 시작하는 파일을 반환합니다.
+> Hadoop 및 PolyBase와 달리 /**를 경로 끝에 지정하지 않으면 서버리스 SQL 풀에서 하위 폴더를 반환하지 않습니다.
 
-이 예제에서 서버리스 SQL 풀 쿼리인 LOCATION='/webdata/'인 경우 mydata.txt 및 _hidden.txt에서 행을 반환합니다. mydata2.txt 및 mydata3.txt는 하위 폴더에 있으므로 반환되지 않습니다.
+이 예제에서 서버리스 SQL 풀 쿼리인 LOCATION='/webdata/'인 경우 mydata.txt에서 행을 반환합니다. mydata2.txt 및 mydata3.txt는 하위 폴더에 있으므로 반환되지 않습니다.
 
 ![외부 테이블에 대한 재귀적 데이터](./media/develop-tables-external-tables/folder-traversal.png)
 

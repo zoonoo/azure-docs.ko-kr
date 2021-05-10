@@ -2,20 +2,20 @@
 title: '빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션 속성 구성'
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure AD(Azure Active Directory) 테넌트에 등록된 애플리케이션을 구성합니다.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
-ms.author: kenwith
-ms.openlocfilehash: e83caba2d2a5435c5cdac02c6f63094dc079c43c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.author: iangithinji
+ms.openlocfilehash: 3b7a5d88aa40422dc46c6ca2c1681447cb030ea4
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99258611"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379522"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션 속성 구성
 

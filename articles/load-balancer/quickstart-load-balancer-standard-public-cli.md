@@ -7,7 +7,6 @@ documentationcenter: na
 author: asudbring
 manager: KumudD
 tags: azure-resource-manager
-Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
@@ -16,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 2b22c00845b38d2edea2d78497fb4b46a51896d4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9b332b18930d58ebb1d155c35a74eed69a90ce73
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97587131"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788784"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
 
@@ -37,7 +36,7 @@ Azure CLI에서 Azure Load Balancer를 시작하여 공용 부하 분산 장치�
 
 Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
-[az group create](/cli/azure/group#az-group-create)를 사용하여 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다.
 
 * 이름을 **CreatePubLBQS-rg** 로 지정합니다. 
 * 위치: **eastus**
@@ -62,7 +61,7 @@ VM을 배포하고 부하 분산 장치를 테스트하려면 먼저 지원되�
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[az network vnet create](/cli/azure/network/vnet#az-network-vnet-createt)를 사용하여 가상 네트워크를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet#az_network_vnet_createt)를 사용하여 가상 네트워크를 만듭니다.
 
 * 이름: **myVNet**
 * **10.1.0.0/16** 의 주소 접두사.
@@ -82,7 +81,7 @@ VM을 배포하고 부하 분산 장치를 테스트하려면 먼저 지원되�
 ```
 ### <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
 
-[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)를 사용하여 베스천 호스트에 대한 공용 IP 주소를 만듭니다.
+[az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create)를 사용하여 베스천 호스트에 대한 공용 IP 주소를 만듭니다.
 
 * **myBastionIP** 라는 표준 영역 중복 공용 IP 주소를 만듭니다.
 * **CCreatePubLBQS-rg** 에서
@@ -95,7 +94,7 @@ az network public-ip create \
 ```
 ### <a name="create-a-bastion-subnet"></a>베스천 서브넷 만들기
 
-[az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create)를 사용하여 베스천 서브넷을 만듭니다.
+[az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)를 사용하여 베스천 서브넷을 만듭니다.
 
 * 이름은 **AzureBastionSubnet** 입니다.
 * **10.1.1.0/24** 의 주소 접두사.
@@ -112,7 +111,7 @@ az network vnet subnet create \
 
 ### <a name="create-bastion-host"></a>베스천 호스트 만들기
 
-[az network bastion create](/cli/azure/network/bastion#az-network-bastion-create)를 사용하여 베스천 호스트를 만듭니다.
+[az network bastion create](/cli/azure/network/bastion#az_network_bastion_create)를 사용하여 베스천 호스트를 만듭니다.
 
 * 이름은 **myBastionHost** 입니다.
 * **CreatePubLBQS-rg** 에서
@@ -135,7 +134,7 @@ Azure Bastion 호스트를 배포하는 데 몇 분 정도 걸릴 수 있습니�
 
 표준 부하 분산 장치의 경우 네트워크 보안 그룹에 속한 네트워크 인터페이스가 백 엔드 주소의 VM에 있어야 합니다. 
 
-[az network nsg create](/cli/azure/network/nsg#az-network-nsg-create)를 사용하여 네트워크 보안 그룹을 만듭니다.
+[az network nsg create](/cli/azure/network/nsg#az_network_nsg_create)를 사용하여 네트워크 보안 그룹을 만듭니다.
 
 * 이름: **myNSG**
 * 리소스 그룹 **CreatePubLBQS-rg** 에서
@@ -148,7 +147,7 @@ Azure Bastion 호스트를 배포하는 데 몇 분 정도 걸릴 수 있습니�
 
 ### <a name="create-a-network-security-group-rule"></a>네트워크 보안 그룹 규칙 만들기
 
-[az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다.
+[az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다.
 
 * 이름: **myNSGRuleHTTP**
 * 이전 단계에서 만든 네트워크 보안 그룹의 **myNSG**
@@ -185,7 +184,7 @@ Azure Bastion 호스트를 배포하는 데 몇 분 정도 걸릴 수 있습니�
 
 ### <a name="create-network-interfaces-for-the-virtual-machines"></a>가상 머신에 대한 네트워크 인터페이스 만들기
 
-[az network nic create](/cli/azure/network/nic#az-network-nic-create)를 사용하여 세 개의 네트워크 인터페이스를 만듭니다.
+[az network nic create](/cli/azure/network/nic#az_network_nic_create)를 사용하여 세 개의 네트워크 인터페이스를 만듭니다.
 
 * 이름은 **myNicVM1**, **myNicVM2** 및 **myNicVM3** 입니다.
 * 리소스 그룹 **CreatePubLBQS-rg** 에서
@@ -208,7 +207,7 @@ Azure Bastion 호스트를 배포하는 데 몇 분 정도 걸릴 수 있습니�
 
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
 
-[az vm create](/cli/azure/vm#az-vm-create)를 사용하여 가상 머신을 만듭니다.
+[az vm create](/cli/azure/vm#az_vm_create)를 사용하여 가상 머신을 만듭니다.
 
 ### <a name="vm1"></a>VM1
 * 이름: **myVM1**
@@ -264,11 +263,13 @@ Azure Bastion 호스트를 배포하는 데 몇 분 정도 걸릴 수 있습니�
 ```
 VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## <a name="create-a-public-ip-address---standard"></a>공용 IP 주소 만들기 - 표준
 
 인터넷에서 웹앱에 액세스하려면 부하 분산 장치에 대한 공용 IP 주소가 필요합니다. 
 
-[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)를 사용하여 다음을 수행합니다.
+[az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create)를 사용하여 다음을 수행합니다.
 
 * **myPublicIP** 라는 표준 영역 중복 공용 IP 주소를 만듭니다.
 * **CreatePubLBQS-rg** 에서
@@ -301,7 +302,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ### <a name="create-the-load-balancer-resource"></a>부하 분산 장치 리소스 만들기
 
-[az network lb create](/cli/azure/network/lb#az-network-lb-create)를 사용하여 공용 부하 분산 장치를 만듭니다.
+[az network lb create](/cli/azure/network/lb#az_network_lb_create)를 사용하여 공용 부하 분산 장치를 만듭니다.
 
 * 이름: **myLoadBalancer**
 * **myFrontEnd** 라는 프런트 엔드 풀
@@ -324,7 +325,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 프로브 확인에 실패한 가상 머신은 부하 분산 장치에서 제거됩니다. 오류가 해결되면 가상 머신이 부하 분산 장치에 다시 추가됩니다.
 
-[az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create)를 사용하여 상태 프로브를 만듭니다.
+[az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create)를 사용하여 상태 프로브를 만듭니다.
 
 * 가상 머신의 상태 모니터링
 * 이름: **myHealthProbe**
@@ -348,7 +349,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 * 트래픽을 수신할 백 엔드 IP 풀
 * 필요한 원본 및 대상 포트 
 
-[az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create)를 사용하여 부하 분산 장치 규칙을 만듭니다.
+[az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create)를 사용하여 부하 분산 장치 규칙을 만듭니다.
 
 * 이름: **myHTTPRule**
 * 프런트 엔드 풀 **myFrontEnd** 의 **포트 80** 에서 수신 대기
@@ -377,7 +378,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 ```
 ### <a name="add-virtual-machines-to-load-balancer-backend-pool"></a>부하 분산 장치 백 엔드 풀에 가상 머신 추가
 
-[az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az-network-nic-ip-config-address-pool-add)를 사용하여 백 엔드 풀에 가상 머신을 추가합니다.
+[az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add)를 사용하여 백 엔드 풀에 가상 머신을 추가합니다.
 
 * 백 엔드 주소 풀 **myBackEndPool** 에 있습니다.
 * 리소스 그룹 **CreatePubLBQS-rg** 에서
@@ -405,7 +406,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ### <a name="public-ip"></a>공용 IP
 
-[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)를 사용하여 아웃바운드 연결에 대한 단일 IP를 만듭니다.  
+[az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create)를 사용하여 아웃바운드 연결에 대한 단일 IP를 만듭니다.  
 
 * 이름: **myPublicIPOutbound**
 * **CreatePubLBQS-rg** 에서
@@ -429,7 +430,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ### <a name="public-ip-prefix"></a>공용 IP 접두사
 
-[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)를 사용하여 아웃바운드 연결에 대한 공용 IP 접두사를 만듭니다.
+[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_create)를 사용하여 아웃바운드 연결에 대한 공용 IP 접두사를 만듭니다.
 
 * 이름: **myPublicIPPrefixOutbound**
 * **CreatePubLBQS-rg** 에서
@@ -455,7 +456,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ### <a name="create-outbound-frontend-ip-configuration"></a>아웃바운드 프런트 엔드 IP 구성 만들기
 
-[az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip#az-network-lb-frontend-ip-create)를 사용하여 다음과 같은 새 프런트 엔드 IP 구성을 만듭니다.
+[az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_create)를 사용하여 다음과 같은 새 프런트 엔드 IP 구성을 만듭니다.
 
 이전 단계에서 선택한 내용에 따라 공용 IP 또는 공용 IP 접두사 명령을 선택합니다.
 
@@ -491,7 +492,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ### <a name="create-outbound-pool"></a>아웃바운드 풀 만들기
 
-[az network lb address pool create](/cli/azure/network/lb/address-pool#az-network-lb-address-pool-create)를 사용하여 새 아웃바운드 풀을 만듭니다.
+[az network lb address pool create](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_create)를 사용하여 새 아웃바운드 풀을 만듭니다.
 
 * 이름: **myBackEndPoolOutbound**
 * 리소스 그룹 **CreatePubLBQS-rg** 에서
@@ -505,7 +506,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 ```
 ### <a name="create-outbound-rule"></a>아웃바운드 규칙 만들기
 
-[az network lb outbound-rule create](/cli/azure/network/lb/outbound-rule#az-network-lb-outbound-rule-create)를 사용하여 아웃바운드 백 엔드 풀에 대한 새 아웃바운드 규칙을 만듭니다.
+[az network lb outbound-rule create](/cli/azure/network/lb/outbound-rule#az_network_lb_outbound_rule_create)를 사용하여 아웃바운드 백 엔드 풀에 대한 새 아웃바운드 규칙을 만듭니다.
 
 * 이름: **myOutboundRule**
 * 리소스 그룹 **CreatePubLBQS-rg** 에서
@@ -529,7 +530,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 ```
 ### <a name="add-virtual-machines-to-outbound-pool"></a>아웃바운드 풀에 가상 머신 추가
 
-[az network nic ip config address pool add](/cli/azure/network/nic/ip-config/address-pool#az-network-nic-ip-config-address-pool-add)를 사용하여 아웃바운드 풀에 가상 머신을 추가합니다.
+[az network nic ip config address pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add)를 사용하여 아웃바운드 풀에 가상 머신을 추가합니다.
 
 
 * 백 엔드 주소 풀: **myBackEndPoolOutbound**
@@ -562,7 +563,7 @@ VM을 배포하고 부하 분산 장치를 테스트하려면 먼저 지원되�
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용하여 가상 네트워크를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)를 사용하여 가상 네트워크를 만듭니다.
 
 * 이름: **myVNet**
 * **10.1.0.0/16** 의 주소 접두사.
@@ -583,7 +584,7 @@ VM을 배포하고 부하 분산 장치를 테스트하려면 먼저 지원되�
 
 ### <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
 
-[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)를 사용하여 베스천 호스트에 대한 공용 IP 주소를 만듭니다.
+[az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create)를 사용하여 베스천 호스트에 대한 공용 IP 주소를 만듭니다.
 
 * **myBastionIP** 라는 표준 영역 중복 공용 IP 주소를 만듭니다.
 * **CreatePubLBQS-rg** 에서
@@ -596,7 +597,7 @@ az network public-ip create \
 ```
 ### <a name="create-a-bastion-subnet"></a>베스천 서브넷 만들기
 
-[az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create)를 사용하여 베스천 서브넷을 만듭니다.
+[az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)를 사용하여 베스천 서브넷을 만듭니다.
 
 * 이름은 **AzureBastionSubnet** 입니다.
 * **10.1.1.0/24** 의 주소 접두사.
@@ -613,7 +614,7 @@ az network vnet subnet create \
 
 ### <a name="create-bastion-host"></a>베스천 호스트 만들기
 
-[az network bastion create](/cli/azure/network/bastion#az-network-bastion-create)를 사용하여 베스천 호스트를 만듭니다.
+[az network bastion create](/cli/azure/network/bastion#az_network_bastion_create)를 사용하여 베스천 호스트를 만듭니다.
 
 * 이름은 **myBastionHost** 입니다.
 * **CreatePubLBQS-rg** 에서
@@ -636,7 +637,7 @@ Azure Bastion 호스트를 배포하는 데 몇 분 정도 걸릴 수 있습니�
 
 표준 부하 분산 장치의 경우 네트워크 보안 그룹에 속한 네트워크 인터페이스가 백 엔드 주소의 VM에 있어야 합니다. 
 
-[az network nsg create](/cli/azure/network/nsg#az-network-nsg-create)를 사용하여 네트워크 보안 그룹을 만듭니다.
+[az network nsg create](/cli/azure/network/nsg#az_network_nsg_create)를 사용하여 네트워크 보안 그룹을 만듭니다.
 
 * 이름: **myNSG**
 * 리소스 그룹 **CreatePubLBQS-rg** 에서
@@ -649,7 +650,7 @@ Azure Bastion 호스트를 배포하는 데 몇 분 정도 걸릴 수 있습니�
 
 ### <a name="create-a-network-security-group-rule"></a>네트워크 보안 그룹 규칙 만들기
 
-[az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다.
+[az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다.
 
 * 이름: **myNSGRuleHTTP**
 * 이전 단계에서 만든 네트워크 보안 그룹의 **myNSG**
@@ -688,7 +689,7 @@ Azure Bastion 호스트를 배포하는 데 몇 분 정도 걸릴 수 있습니�
 
 ### <a name="create-network-interfaces-for-the-virtual-machines"></a>가상 머신에 대한 네트워크 인터페이스 만들기
 
-[az network nic create](/cli/azure/network/nic#az-network-nic-create)를 사용하여 세 개의 네트워크 인터페이스를 만듭니다.
+[az network nic create](/cli/azure/network/nic#az_network_nic_create)를 사용하여 세 개의 네트워크 인터페이스를 만듭니다.
 
 
 * 이름은 **myNicVM1**, **myNicVM2** 및 **myNicVM3** 입니다.
@@ -711,7 +712,7 @@ Azure Bastion 호스트를 배포하는 데 몇 분 정도 걸릴 수 있습니�
 ```
 ### <a name="create-availability-set-for-virtual-machines"></a>가상 머신에 대한 가용성 집합 만들기
 
-[az vm availability-set create](/cli/azure/vm/availability-set#az-vm-availability-set-create)를 사용하여 가용성 집합을 만듭니다.
+[az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create)를 사용하여 가용성 집합을 만듭니다.
 
 * 이름: **myAvSet**
 * 리소스 그룹 **CreatePubLBQS-rg** 에서
@@ -727,7 +728,7 @@ Azure Bastion 호스트를 배포하는 데 몇 분 정도 걸릴 수 있습니�
 
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
 
-[az vm create](/cli/azure/vm#az-vm-create)를 사용하여 가상 머신을 만듭니다.
+[az vm create](/cli/azure/vm#az_vm_create)를 사용하여 가상 머신을 만듭니다.
 
 ### <a name="vm1"></a>VM1
 * 이름: **myVM1**
@@ -783,11 +784,13 @@ Azure Bastion 호스트를 배포하는 데 몇 분 정도 걸릴 수 있습니�
 ```
 VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## <a name="create-a-public-ip-address---basic"></a>공용 IP 주소 만들기 - 기본
 
 인터넷에서 웹앱에 액세스하려면 부하 분산 장치에 대한 공용 IP 주소가 필요합니다. 
 
-[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)를 사용하여 다음을 수행합니다.
+[az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create)를 사용하여 다음을 수행합니다.
 
 * **myPublicIP** 라는 표준 영역 중복 공용 IP 주소를 만듭니다.
 * **CreatePubLBQS-rg** 에서
@@ -810,7 +813,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ### <a name="create-the-load-balancer-resource"></a>부하 분산 장치 리소스 만들기
 
-[az network lb create](/cli/azure/network/lb#az-network-lb-create)를 사용하여 공용 부하 분산 장치를 만듭니다.
+[az network lb create](/cli/azure/network/lb#az_network_lb_create)를 사용하여 공용 부하 분산 장치를 만듭니다.
 
 * 이름: **myLoadBalancer**
 * **myFrontEnd** 라는 프런트 엔드 풀
@@ -833,7 +836,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 프로브 확인에 실패한 가상 머신은 부하 분산 장치에서 제거됩니다. 오류가 해결되면 가상 머신이 부하 분산 장치에 다시 추가됩니다.
 
-[az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create)를 사용하여 상태 프로브를 만듭니다.
+[az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create)를 사용하여 상태 프로브를 만듭니다.
 
 * 가상 머신의 상태 모니터링
 * 이름: **myHealthProbe**
@@ -857,7 +860,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 * 트래픽을 수신할 백 엔드 IP 풀
 * 필요한 원본 및 대상 포트 
 
-[az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create)를 사용하여 부하 분산 장치 규칙을 만듭니다.
+[az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create)를 사용하여 부하 분산 장치 규칙을 만듭니다.
 
 * 이름: **myHTTPRule**
 * 프런트 엔드 풀 **myFrontEnd** 의 **포트 80** 에서 수신 대기
@@ -882,7 +885,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ### <a name="add-virtual-machines-to-load-balancer-backend-pool"></a>부하 분산 장치 백 엔드 풀에 가상 머신 추가
 
-[az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az-network-nic-ip-config-address-pool-add)를 사용하여 백 엔드 풀에 가상 머신을 추가합니다.
+[az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add)를 사용하여 백 엔드 풀에 가상 머신을 추가합니다.
 
 * 백 엔드 주소 풀 **myBackEndPool** 에 있습니다.
 * 리소스 그룹 **CreatePubLBQS-rg** 에서
@@ -924,7 +927,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="test-the-load-balancer"></a>부하 분산 장치 테스트
 
-부하 분산 장치의 공용 IP 주소를 가져오려면 [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) 명령을 사용합니다. 
+부하 분산 장치의 공용 IP 주소를 가져오려면 [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) 명령을 사용합니다. 
 
 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다.
 
@@ -939,7 +942,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용하여 리소스 그룹, 부하 분산 장치 및 모든 관련 리소스를 제거합니다.
+더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용하여 리소스 그룹, 부하 분산 장치 및 모든 관련 리소스를 제거합니다.
 
 ```azurecli-interactive
   az group delete \

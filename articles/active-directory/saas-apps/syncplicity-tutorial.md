@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 3c665795325ed3863583eb0f21f3e0d3f534154a
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103201446"
 ---
 # <a name="tutorial-integrate-syncplicity-with-azure-active-directory"></a>자습서: Azure Active Directory와 Syncplicity 통합
@@ -95,13 +95,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![구성 URL 복사](common/copy-configuration-urls.png)
 
-### <a name="configure-syncplicity-sso"></a>Syncplicity SSO 구성
+### <a name="configure-syncplicity-sso&quot;></a>Syncplicity SSO 구성
 
 1. **Syncplicity** 테넌트에 로그인합니다.
 
 1. 위쪽에 있는 메뉴에서 **관리자** 를 클릭하고 **설정** 을 선택한 다음, **사용자 지정 도메인과 Single Sign-On** 을 클릭합니다.
 
-    ![Syncplicity](./media/syncplicity-tutorial/ic769545.png "Syncplicity")
+    ![Syncplicity](./media/syncplicity-tutorial/ic769545.png &quot;Syncplicity")
 
 1. **SAML SSO(Single Sign-On)** 대화 상자 페이지에서 다음 단계를 수행합니다.
 

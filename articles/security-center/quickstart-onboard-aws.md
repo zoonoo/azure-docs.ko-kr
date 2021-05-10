@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: 2ad3ab8c39d9f9a29e74bd139fb5ddd1e5faeff9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98755161"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Azure Security Center에 AWS 계정 연결
@@ -93,7 +93,7 @@ Security Center에서 AWS에 인증하도록 허용하는 두 가지 방법이 �
 1. 필요에 따라 태그를 추가합니다. 사용자에게 태그를 추가해도 연결에 영향을 주지 않습니다.
 1. **다음** 을 선택합니다.
 
-1. 역할 목록에서, 이전에 만든 역할을 선택합니다.
+1. 역할 목록에서, 이전에 생성된 역할을 선택합니다.
 
 1. 나중에 사용할 수 있도록 ARN(Amazon Resource Name)을 저장합니다. 
 

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 3f92bae608284c8b619be34a0e08f15e831bf88e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101750858"
 ---
 [IoT Edge 배포 매니페스트 생성 및 배포](../../../detect-motion-emit-events-quickstart.md#generate-and-deploy-the-deployment-manifest) 단계에서 Visual Studio Code의 **AZURE IOT HUB**(왼쪽 하단 섹션) 아래에서 **lva-sample-device** 노드를 확장합니다. 다음 모듈이 배포된 것을 볼 수 있습니다.

@@ -3,18 +3,20 @@ title: '빠른 시작: ARM 템플릿(Azure Resource Manager 템플릿)을 사용
 description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 ExpressRoute 회로를 만드는 방법을 보여줍니다.
 services: expressroute
 author: duongau
-mnager: kumud
-ms.service: expressroute
-ms.topic: quickstart
-ms.custom: subject-armqs
-ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: 7521344a2bb6aae67724c8bfbb9131e2ff1e6b94
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+manager: kumud
+ms.date: 10/12/2020
+ms.topic: quickstart
+ms.service: expressroute
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 3dc1d5f5ec3dfb004468deb2bec80927c7ec189d
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92789729"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529882"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 프라이빗 피어링이 있는 ExpressRoute 회로 만들기
 

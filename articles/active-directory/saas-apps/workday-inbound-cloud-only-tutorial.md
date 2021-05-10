@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
 ms.openlocfilehash: ef4381f305292b366348aa3729209dc3f5e8c87b
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
-ms.translationtype: MT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98954092"
 ---
 # <a name="tutorial-configure-workday-to-azure-ad-user-provisioning"></a>자습서: Workday에서 Azure AD로 사용자 프로비저닝 구성
@@ -208,7 +208,7 @@ Workday 프로비전 앱 구성이 완료되면 Azure Portal에서 프로비전 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure AD 및 Workday 통합 시나리오 및 웹 서비스 호출에 대 한 자세한 정보](../app-provisioning/workday-integration-reference.md)
+* [Azure AD와 Workday 통합 시나리오 및 웹 서비스 호출에 대한 자세한 정보](../app-provisioning/workday-integration-reference.md)
 * [인바운드 프로비저닝에 지원되는 Workday 특성에 대해 자세히 알아봅니다.](../app-provisioning/workday-attribute-reference.md)
 * [Workday 쓰기 저장을 구성하는 방법을 알아봅니다.](workday-writeback-tutorial.md)
 * [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).

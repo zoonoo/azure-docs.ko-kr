@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: b63f42ccc0a9d8d138e38a262db528fd36ea701a
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: d36bae57a9e1609e053326cf7288b5b1bc470cef
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123040"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166890"
 ---
 # <a name="deploy-cloud-services-extended-support-by-using-the-azure-sdk"></a>Azure SDK를 사용하여 Cloud Services(추가 지원) 배포
 
@@ -156,7 +156,8 @@ Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-pre
     m_NrpClient.VirtualNetworks.CreateOrUpdate(resourceGroupName, “ContosoVNet”, vnet);
     ```
 
-7. 공용 IP 주소를 만들고, 필요에 따라 공용 IP 주소의 DNS 레이블 속성을 설정합니다. 고정 IP를 사용하는 경우 서비스 구성 파일에서 이를 예약된 IP로 참조해야 합니다.
+7. 공용 IP 주소를 만들고 공용 IP 주소의 DNS 레이블 속성을 설정합니다. Cloud Services(추가 지원)는 [기본] (https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) SKU 공용 IP 주소만 지원합니다. 표준 SKU 공용 IP는 Cloud Services에서 작동하지 않습니다.
+고정 IP를 사용하는 경우 서비스 구성(.cscfg) 파일에서 예약된 IP로 참조해야 합니다.
 
     ```csharp
     PublicIPAddress publicIPAddressParams = new PublicIPAddress(name: “ContosIp”) 
@@ -171,7 +172,7 @@ Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-pre
     PublicIPAddress publicIpAddress = m_NrpClient.PublicIPAddresses.CreateOrUpdate(resourceGroupName, publicIPAddressName, publicIPAddressParams);
     ```
 
-8. 네트워크 프로필 개체를 만들고, 공용 IP 주소를 플랫폼에서 만든 부하 분산 장치의 프런트 엔드에 연결합니다.
+8. 네트워크 프로필 개체를 만들고, 공용 IP 주소를 부하 분산 장치의 프런트 엔드에 연결합니다. Azure 플랫폼은 클라우드 서비스 리소스와 동일한 구독에서 '클래식' SKU 부하 분산 장치 리소스를 자동으로 만듭니다. 부하 분산 장치 리소스는 ARM의 읽기 전용 리소스입니다. 리소스에 대한 모든 업데이트는 클라우드 서비스 배포 파일(.cscfg & .csdef)을 통해서만 지원됩니다.
 
     ```csharp
     LoadBalancerFrontendIPConfiguration feipConfiguration = new LoadBalancerFrontendIPConfiguration() 

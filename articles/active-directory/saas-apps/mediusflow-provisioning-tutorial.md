@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: Zhchia
 ms.openlocfilehash: a49258208f7a5945ac71c8f17db56fccfdcd6515
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
-ms.translationtype: MT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98662003"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 MediusFlow 구성
@@ -145,7 +145,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
       ![스크린샷은 테넌트 URL 및 비밀 토큰을 입력할 수 있는 관리자 자격 증명 대화 상자를 보여 줍니다.](./media/mediusflow-provisioning-tutorial/provisioning.png)
 
-6. **알림 이메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 이메일 주소를 입력하고, **오류가 발생할 경우 이메일 알림 보내기** 확인란을 선택합니다.
+6. **알림 이메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 메일 주소를 입력하고, **오류가 발생할 경우 메일 알림 보내기** 확인란을 선택합니다.
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
@@ -166,14 +166,14 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |name.formatted|String|
    |externalId|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|참조|
-   |urn: ietf: params: scim: 스키마: 확장: medius: 2.0: 사용자: configurationFilter|String|
-   |urn: ietf: params: scim: 스키마: 확장: medius: 2.0: 사용자: identityProvider|String|
-   |urn: ietf: params: scim: 스키마: 확장: medius: 2.0: 사용자: nameIdentifier|String|
-   |urn: ietf: params: scim: 스키마: 확장: medius: 2.0: 사용자: customFieldText1|String|
-   |urn: ietf: params: scim: 스키마: 확장: medius: 2.0: 사용자: customFieldText2|String|
-   |urn: ietf: params: scim: 스키마: 확장: medius: 2.0: 사용자: customFieldText3|String|
-   |urn: ietf: params: scim: 스키마: 확장: medius: 2.0: 사용자: customFieldText4|String|
-   |urn: ietf: params: scim: 스키마: 확장: medius: 2.0: 사용자: customFieldText5|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:configurationFilter|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:identityProvider|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:nameIdentifier|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:customFieldText1|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:customFieldText2|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:customFieldText3|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:customFieldText4|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:customFieldText5|String|
 
 
 10. **매핑** 섹션에서 **Azure Active Directory 그룹을 MediusFlow에 동기화** 를 선택합니다.
@@ -211,7 +211,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 ## <a name="change-log"></a>로그 변경
 
-* 01/21/2021-사용자 지정 확장 특성 **Configurationfilter**, **identityProvider**, **nameIdentifier**, **customFieldText1**, **customFieldText2**, **customFieldText3**, **customFieldText3** 및 **customFieldText5** 가 추가 되었습니다.
+* 2021/01/21 - 사용자 지정 확장 특성 **configurationFilter**, **identityProvider**, **nameIdentifier**, **customFieldText1**, **customFieldText2**, **customFieldText3**, **customFieldText3** 및 **customFieldText5** 가 추가되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

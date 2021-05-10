@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 7195a126938deabf542e6fa3e52b72c2efdddac2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92515222"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>자습서: Recognize와 Azure Active Directory 통합
@@ -173,7 +173,7 @@ Recognize에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -197,7 +197,7 @@ Recognize에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Recognize에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Recognize** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Recognize** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -219,7 +219,7 @@ Recognize에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name="create-recognize-test-user"></a>Recognize 테스트 사용자 만들기
+### <a name="create-recognize-test-user&quot;></a>Recognize 테스트 사용자 만들기
 
 Azure AD 사용자가 Recognize에 로그인할 수 있도록 하려면 Recognize로 프로비전되어야 합니다. Recognize의 경우 프로비전은 수동 작업입니다.
 
@@ -235,7 +235,7 @@ Azure AD 사용자가 Recognize에 로그인할 수 있도록 하려면 Recogniz
 
 4. **사용자 동기화** 섹션에서 다음 단계를 수행합니다.
    
-    ![새 사용자](./media/recognize-tutorial/tutorial_recognize_005.png "새 사용자")
+    ![새 사용자](./media/recognize-tutorial/tutorial_recognize_005.png &quot;새 사용자")
    
     a. **동기화 사용** 에서 **켜기** 를 선택합니다.
    

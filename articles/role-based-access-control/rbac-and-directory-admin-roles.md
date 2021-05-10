@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/04/2021
+ms.date: 03/31/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 24ff39fba5ce4b484f23595a9f7d718b12faae10
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bd5533f4bc8420ee6d8900e8a17dfe7099d7945f
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102037271"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107200"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>클래식 구독 관리자 역할, Azure 역할 및 Azure AD 역할
 
@@ -95,7 +95,7 @@ Azure Portal에서 Azure RBAC를 사용하는 역할 할당은 **액세스 제�
 
 ## <a name="azure-ad-roles"></a>Azure AD 역할
 
-Azure AD 역할은 사용자 만들기 또는 편집, 다른 사용자에게 관리 역할 할당, 사용자 암호 다시 설정, 사용자 라이선스 관리, 도메인 관리 등 디렉터리의 Azure AD 리소스를 관리하는 데 사용됩니다. 다음 표에서는 보다 중요한 몇 가지 Azure AD 역할에 대해 설명합니다.
+Azure AD 역할은 사용자 생성 또는 편집, 다른 사용자에게 관리 역할 할당, 사용자 암호 다시 설정, 사용자 라이선스 관리, 도메인 관리 등 디렉터리의 Azure AD 리소스를 관리하는 데 사용됩니다. 다음 표에서는 보다 중요한 몇 가지 Azure AD 역할에 대해 설명합니다.
 
 | Azure AD 역할 | 사용 권한 | 메모 |
 | --- | --- | --- |
@@ -115,7 +115,7 @@ Azure Portal의 **역할 및 관리자** 블레이드에서 Azure AD 역할 목�
 | --- | --- |
 | Azure 리소스에 대한 액세스 관리 | Azure Active Directory 리소스에 대한 액세스 관리 |
 | 사용자 지정 역할 지원 | 사용자 지정 역할 지원 |
-| 여러 수준(관리 그룹, 구독, 리소스 그룹, 리소스)에서 범위를 지정할 수 있음 | 범위는 테넌트 수준 |
+| 여러 수준(관리 그룹, 구독, 리소스 그룹, 리소스)에서 범위를 지정할 수 있음 | [범위](../active-directory/roles/custom-overview.md#scope)는 테넌트 수준(조직 전체), 관리 단위 또는 개별 개체(예: 특정 애플리케이션)에서 지정할 수 있습니다. |
 | Azure Portal, Azure CLI, Azure PowerShell, Azure Resource Manager 템플릿, REST API에서 역할 정보에 액세스 가능 | 역할 정보는 Azure 관리 포털, Microsoft 365 관리 센터, Microsoft Graph, Azure AD PowerShell에서 액세스할 수 있음 |
 
 ### <a name="do-azure-roles-and-azure-ad-roles-overlap"></a>Azure 역할과 Azure AD 역할이 겹치나요?

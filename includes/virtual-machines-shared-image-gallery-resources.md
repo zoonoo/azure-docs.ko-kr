@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: virtual-machines
 author: cynthn
@@ -9,13 +9,13 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: bf01df2307796831dee602dad30455a4922ef90b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98873192"
 ---
-| 리소스 | Description|
+| 리소스 | 설명|
 |----------|------------|
 | **이미지 원본** | 이는 이미지 갤러리에서 **이미지 버전** 을 만드는 데 사용할 수 있는 리소스입니다. 이미지 소스는 [일반화 또는 특수화](../articles/virtual-machines/shared-image-galleries.md#generalized-and-specialized-images)된 기존 Azure VM, 관리형 이미지, 스냅샷 또는 다른 이미지 갤러리의 이미지 버전일 수 있습니다. |
 | **이미지 갤러리** | Azure Marketplace와 마찬가지로 **이미지 갤러리** 는 이미지를 관리하고 공유하는 데 사용되는 리포지토리이지만 액세스할 수 있는 사람을 제어할 수 있습니다. |

@@ -2,21 +2,21 @@
 title: PowerShell 샘플 - Azure Active Directory 테넌트에서 앱 등록용 비밀 및 인증서를 내보냅니다.
 description: Azure Active Directory 테넌트에서 지정된 앱 등록을 위한 모든 비밀 및 인증서를 내보내는 PowerShell 예제입니다.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: sample
 ms.date: 03/09/2021
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: mifarca
-ms.openlocfilehash: d0de96d0d8a5edc6fbacc25dcbcb868073e57183
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: b5cbb6b3843e81d9265405dcea24a092e57bf65e
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102556556"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377047"
 ---
 # <a name="export-secrets-and-certificates-for-app-registrations"></a>앱 등록용 비밀 및 인증서 내보내기
 

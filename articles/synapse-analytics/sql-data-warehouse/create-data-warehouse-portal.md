@@ -3,20 +3,23 @@ title: '빠른 시작: 전용 SQL 풀(이전의 SQL DW) 만들기 및 쿼리(Azu
 description: Azure Portal을 사용하여 전용 SQL 풀(이전의 SQL DW) 만들기 및 쿼리
 services: synapse-analytics
 author: pimorano
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: quickstart
-ms.subservice: sql-dw
-ms.date: 05/28/2019
 ms.author: pimorano
+manager: craigg
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: dd9d66683d5f2349807915651c50bf9eedd285c1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 05/28/2019
+ms.topic: quickstart
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.custom:
+- seo-lt-2019
+- azure-synapse
+- mode-portal
+ms.openlocfilehash: 99530b1949f03867a5b755208191341556ba8083
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104602233"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535839"
 ---
 # <a name="quickstart-create-and-query-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Synapse Analytics에서 전용 SQL 풀(이전의 SQL DW) 만들기 및 쿼리
 

@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 1/21/2021
 ms.author: baanders
 ms.openlocfilehash: 9f8ca9ab6dc184abb8d9dcd25ebe87cbd7761722
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102630282"
 ---
 프로젝트를 Azure의 함수 앱에 게시하려면 *솔루션 탐색기* 에서 프로젝트를 마우스 오른쪽 단추로 선택하고 **게시** 를 선택합니다.

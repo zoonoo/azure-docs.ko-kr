@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 964fda8168867c115502c7262dc1d41e55075866
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7dca5e36144fe17b39f76bb61543f59a1c6d7772
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91317653"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790189"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance---azure-cli-script-sample"></a>네트워크 가상 어플라이언스를 통한 트래픽 라우팅 - Azure CLI 스크립트 샘플
 
@@ -58,8 +58,8 @@ az group delete --name MyResourceGroup --yes
 | [az network nsg create](/cli/azure/network/nsg) | NSG(네트워크 보안 그룹)을 만듭니다. |
 | [az network nsg rule create](/cli/azure/network/nsg/rule) | VM에 대한 인바운드 HTTP 및 HTTPS 포트를 허용하는 NSG 규칙을 만듭니다. |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet)| NSG 및 경로 테이블을 서브넷에 연결합니다. |
-| [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)| 모든 경로에 대한 경로 테이블을 만듭니다. |
-| [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create)| VM을 통해 서브넷과 인터넷 간 트래픽을 라우팅하는 경로를 만듭니다. |
+| [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create)| 모든 경로에 대한 경로 테이블을 만듭니다. |
+| [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create)| VM을 통해 서브넷과 인터넷 간 트래픽을 라우팅하는 경로를 만듭니다. |
 | [az vm create](/cli/azure/vm) | 가상 머신을 만들고 NIC를 이 가상 머신에 연결합니다. 또한 이 명령은 사용할 가상 머신 이미지와 관리 자격 증명을 지정합니다. |
 | [az group delete](/cli/azure/group) | 리소스 그룹 및 이 그룹에 속한 모든 리소스를 삭제합니다. |
 

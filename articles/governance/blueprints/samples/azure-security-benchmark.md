@@ -1,14 +1,14 @@
 ---
 title: Azure 보안 벤치마크 청사진 샘플 개요
 description: Azure 보안 벤치마크 청사진 샘플의 개요입니다. 이 청사진 샘플은 고객이 특정 컨트롤을 평가하는 데 도움이 됩니다.
-ms.date: 01/27/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 38a50970999965b6a86b8ce8882006c169f2dc5a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 58e8c3972b0f05e5b0a3f15da0dfd3eae301ad31
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99821223"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106386995"
 ---
 # <a name="azure-security-benchmark-blueprint-sample"></a>Azure 보안 벤치마크 청사진 샘플
 

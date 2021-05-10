@@ -6,10 +6,10 @@ ms.date: 04/21/2020
 ms.reviewer: sunayv
 ms.custom: devx-track-csharp, mvc, cc996988-fb4f-47, references_regions
 ms.openlocfilehash: 9083ff7d8f65c68ce8d173973a4eda650ac355aa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88212917"
 ---
 # <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Azure API Management를 사용하여 서버리스 API에 대한 OpenAPI 정의 만들기
@@ -136,7 +136,7 @@ OpenAPI 정의를 생성하려면 다음을 수행합니다.
 
 1. 다음 표에 지정된 것처럼 API Management 설정을 사용합니다.
 
-    | 설정      | 제안 값  | Description                                        |
+    | 설정      | 제안 값  | 설명                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **이름** | 전역적으로 고유한 이름 | 함수는 함수 앱의 이름을 기반으로 생성됩니다. |
     | **구독** | 사용자의 구독 | 이 새 리소스가 만들어지는 구독입니다. |  

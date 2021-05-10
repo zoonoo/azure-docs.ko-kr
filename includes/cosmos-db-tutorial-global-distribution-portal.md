@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB 글로벌 배포
+title: Azure Cosmos DB 전역 배포
 description: Azure Portal에서 Azure Cosmos DB를 사용하여 데이터를 전역으로 복제하는 방법을 알아봅니다.
 services: cosmos-db
 author: SnehaGunda
@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 12/26/2018
 ms.custom: include file
 ms.openlocfilehash: 58788d6194454c8bd40730c9c350aa901924ba3d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96027334"
 ---
 ## <a name="add-global-database-regions-using-the-azure-portal"></a><a id="addregion"></a>Azure Portal을 사용하여 글로벌 데이터베이스 지역 추가
@@ -20,7 +20,7 @@ Azure Cosmos DB는 전 세계의 모든 [Azure 지역][azureregions]에서 사�
 
 1. [Azure Portal](https://portal.azure.com/)의 왼쪽 막대에서 **Azure Cosmos DB** 를 클릭합니다.
 2. **Azure Cosmos DB** 페이지에서 수정할 데이터베이스 계정을 선택합니다.
-3. 계정 페이지의 메뉴에서 **전역으로 데이터 복제** 를 클릭합니다.
+3. 계정 페이지의 메뉴에서 **전역적으로 데이터 복제** 를 클릭합니다.
 4. **전역으로 데이터 복제** 페이지에서 맵의 지역을 클릭하여 추가 또는 제거할 지역을 선택하고 **저장** 을 클릭합니다. 지역을 추가하는 비용에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 또는 [Azure Cosmos DB를 사용하여 전역적으로 데이터 배포](../articles/cosmos-db/distribute-data-globally.md) 문서를 참조하세요.
    
     ![지도에서 지역을 클릭하여 추가/삭제][1]
@@ -35,7 +35,7 @@ Azure Cosmos DB는 전 세계의 모든 [Azure 지역][azureregions]에서 사�
 
 최종 사용자에게 낮은 대기 시간을 제공하기 위해서는 애플리케이션 사용자가 있는 위치와 동일한 지역에 애플리케이션과 Azure Cosmos DB를 모두 배포하는 것이 좋습니다.
 
-BCDR의 경우 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역][bcdr] 문서에서 설명하는 지역 쌍에 기반하여 지역을 추가하는 것이 좋습니다.
+BCDR의 경우 [비즈니스 연속성 및 재해 복구(BCDR): Azure 쌍을 이루는 지역][bcdr] 문서에서 설명된 하위 지역 쌍에 기초하여 지역을 추가하는 것이 좋습니다.
 
 <!--
 

@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/08/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 80eff2853db1083fa2805cdd719f03a3235fccac
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f6004961a43fe13db617f98ae2c65fa5829924e5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87499027"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766554"
 ---
 # <a name="subscribe-to-events-for-a-custom-topic-with-azure-cli"></a>Azure CLI를 사용하여 사용자 지정 항목에 대한 이벤트 구독
 
@@ -37,7 +37,7 @@ ms.locfileid: "87499027"
 
 | 명령 | 메모 |
 |---|---|
-| [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Event Grid 구독을 만듭니다. |
+| [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create) | Event Grid 구독을 만듭니다. |
 | [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) - 확장 버전 | Event Grid 구독을 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계

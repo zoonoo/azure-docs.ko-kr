@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: azure-communication-services
 author: pvicencio
@@ -10,14 +10,14 @@ ms.date: 03/12/2021
 ms.topic: include
 ms.custom: include file
 ms.author: pvicencio
-ms.openlocfilehash: 2739079b67d80f3e4a9f367aaa58f6dcbbb650ca
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: cdf1267d53abc2214521f584b6cfb4738b808204
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103622174"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106112893"
 ---
-Communication Services Java SMS 클라이언트 라이브러리를 사용하여 SMS 메시지를 보내 Azure Communication Services를 시작하세요.
+Communication Services Java SMS SDK를 사용하여 SMS 메시지를 보내 Azure Communication Services를 시작합니다.
 
 이 빠른 시작을 완료하면 Azure 계정에서 USD 센트 이하의 작은 비용이 발생합니다.
 
@@ -54,20 +54,13 @@ mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=commu
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-sms</artifactId>
-    <version>1.0.0-beta.4</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
 ### <a name="set-up-the-app-framework"></a>앱 프레임워크 설정
 
-**pom.xml** 에 `azure-core-http-netty` 종속성을 추가합니다.
-
 ```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-core-http-netty</artifactId>
-    <version>1.8.0</version>
-</dependency>
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-core</artifactId>
@@ -83,8 +76,6 @@ package com.communication.quickstart;
 import com.azure.communication.sms.models.*;
 import com.azure.core.credential.AzureKeyCredential;
 import com.azure.communication.sms.*;
-import com.azure.core.http.HttpClient;
-import com.azure.core.http.netty.NettyAsyncHttpClientBuilder;
 import com.azure.core.util.Context;
 import java.util.Arrays;
 
@@ -100,49 +91,39 @@ public class App
 
 ## <a name="object-model"></a>개체 모델
 
-다음 클래스 및 인터페이스는 Java용 Azure Communication Services SMS 클라이언트 라이브러리의 주요 기능 중 일부를 처리합니다.
+다음 클래스 및 인터페이스는 Java용 Azure Communication Services SMS SDK의 주요 기능 중 일부를 처리합니다.
 
-| 이름                                                             | 설명                                                                                     |
+| Name                                                             | 설명                                                                                     |
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | SmsClientBuilder              | 이 클래스는 SmsClient를 만듭니다. 엔드포인트, 자격 증명 및 http 클라이언트를 제공합니다. |
 | SmsClient                    | 이 클래스는 모든 SMS 기능에 필요합니다. SMS 메시지를 보내는 데 사용합니다.                |
+| SmsSendOptions               | 이 클래스는 사용자 지정 태그를 추가하고 전달 보고를 구성하는 옵션을 제공합니다. deliveryReportEnabled가 true로 설정되면 전달이 성공했을 때 이벤트를 내보냅니다. |        
 | SmsSendResult                | 이 클래스는 SMS 서비스의 결과를 포함합니다.                                          |
-| SmsSendOptions               | 이 클래스는 사용자 지정 태그를 추가하고 전달 보고를 구성하는 옵션을 제공합니다. deliveryReportEnabled가 true로 설정되면 전달이 성공했을 때 이벤트를 내보냅니다.|                           |
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-연결 문자열로 `SmsClient`를 인스턴스화합니다. (자격 증명은 Azure Portal의 `Key`입니다. [리소스의 연결 문자열을 관리](../../create-communication-resource.md#store-your-connection-string)하는 방법을 알아봅니다.
+연결 문자열로 `SmsClient`를 인스턴스화합니다. (자격 증명은 Azure Portal의 `Key`입니다. [리소스의 연결 문자열을 관리](../../create-communication-resource.md#store-your-connection-string)하는 방법을 알아봅니다. 또한 `com.azure.core.http.HttpClient` 인터페이스를 구현하는 사용자 지정 HTTP 클라이언트를 사용하여 클라이언트를 초기화할 수 있습니다.
 
 `main` 메서드에 다음 코드를 추가합니다.
 
 ```java
-// You can find your endpoint and access key from your resource in the Azure Portal
+// You can find your endpoint and access key from your resource in the Azure portal
 String endpoint = "https://<resource-name>.communication.azure.com/";
 AzureKeyCredential azureKeyCredential = new AzureKeyCredential("<access-key-credential>");
-
-// Create an HttpClient builder of your choice and customize it
-HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
 
 SmsClient smsClient = new SmsClientBuilder()
                 .endpoint(endpoint)
                 .credential(azureKeyCredential)
-                .httpClient(httpClient)
                 .buildClient();
 ```
 
-`com.azure.core.http.HttpClient` 인터페이스를 구현하는 사용자 지정 HTTP 클라이언트를 사용하여 클라이언트를 초기화할 수 있습니다. 위의 코드는 `azure-core`에서 제공하는 [Azure Core Netty HTTP 클라이언트](/java/api/overview/azure/core-http-netty-readme)의 사용 방법을 보여줍니다.
-
-엔드포인트 및 액세스 키를 제공하는 대신 connectionString() 함수를 사용하여 전체 연결 문자열을 제공할 수도 있습니다. 
+엔드포인트 및 액세스 키를 제공하는 대신 connectionString() 함수를 사용하여 전체 연결 문자열을 제공할 수도 있습니다.
 ```java
-// You can find your connection string from your resource in the Azure Portal
+// You can find your connection string from your resource in the Azure portal
 String connectionString = "https://<resource-name>.communication.azure.com/;<access-key>";
-
-// Create an HttpClient builder of your choice and customize it
-HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
 
 SmsClient smsClient = new SmsClientBuilder()
             .connectionString(connectionString)
-            .httpClient(httpClient)
             .buildClient();
 ```
 
@@ -160,6 +141,12 @@ System.out.println("Message Id: " + sendResult.getMessageId());
 System.out.println("Recipient Number: " + sendResult.getTo());
 System.out.println("Send Result Successful:" + sendResult.isSuccessful());
 ```
+
+`<from-phone-number>`를 Communication Services 리소스와 연결된 SMS 지원 전화 번호로 바꾸고, `<to-phone-number>`를 메시지를 보낼 전화 번호로 바꿔야 합니다.
+
+> [!WARNING]
+> 전화 번호는 E.164 국제 표준 형식으로 제공되어야 합니다. (예: +14255550123)
+
 ## <a name="send-a-1n-sms-message-with-options"></a>옵션이 포함된 1:N SMS 메시지 보내기
 SMS 메시지를 수신자 목록에 보내려면 수신자 전화 번호 목록을 사용하여 `send` 메서드를 호출합니다. 선택적 매개 변수를 전달하여 전달 보고서를 사용하도록 설정할지 여부를 지정하고 사용자 지정 태그를 설정할 수도 있습니다.
 ```java
@@ -167,12 +154,12 @@ SmsSendOptions options = new SmsSendOptions();
 options.setDeliveryReportEnabled(true);
 options.setTag("Marketing");
 
-Iterable<SmsSendResult> sendResults = smsClient.send(
+Iterable<SmsSendResult> sendResults = smsClient.sendWithResponse(
     "<from-phone-number>",
     Arrays.asList("<to-phone-number1>", "<to-phone-number2>"),
     "Weekly Promotion",
     options /* Optional */,
-    Context.NONE);
+    Context.NONE).getValue();
 
 for (SmsSendResult result : sendResults) {
     System.out.println("Message Id: " + result.getMessageId());
@@ -181,13 +168,14 @@ for (SmsSendResult result : sendResults) {
 }
 ```
 
-`<from-phone-number>`를 Communication Services 리소스와 연결된 SMS 지원 전화 번호로 바꾸고, `<to-phone-number>`를 메시지를 보낼 전화 번호 또는 전화 번호 목록으로 바꿔야 합니다.
+`<from-phone-number>`를 Communication Services 리소스와 연결된 SMS 지원 전화 번호로 바꾸고, `<to-phone-number-1>` 및 `<to-phone-number-2>`를 메시지를 보낼 전화 번호로 바꿔야 합니다.
 
-## <a name="optional-parameters"></a>선택적 매개 변수
+> [!WARNING]
+> 전화 번호는 E.164 국제 표준 형식으로 제공되어야 합니다. (예: +14255550123)
 
-`deliveryReportEnabled` 매개 변수는 전달 보고를 구성하는 데 사용할 수 있는 선택적 매개 변수입니다. 이 기능은 SMS 메시지가 전달될 때 이벤트를 내보내려는 시나리오에 유용합니다. SMS 메시지에 대한 전달 보고를 구성하려면 [SMS 이벤트 처리](../handle-sms-events.md)를 참조하세요.
+`setDeliveryReportEnabled` 메서드는 배달 보고를 구성하는 데 사용됩니다. 이 기능은 SMS 메시지가 전달될 때 이벤트를 내보내려는 시나리오에 유용합니다. SMS 메시지에 대한 전달 보고를 구성하려면 [SMS 이벤트 처리](../handle-sms-events.md)를 참조하세요.
 
-`tag` 매개 변수는 전달 보고서에 태그를 적용하는 데 사용할 수 있는 선택적 매개 변수입니다.
+`setTag` 메서드는 배달 보고서에 태그를 적용하는 데 사용됩니다.
 
 ## <a name="run-the-code"></a>코드 실행
 

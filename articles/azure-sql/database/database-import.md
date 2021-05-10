@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/29/2020
-ms.openlocfilehash: b88c7aabe135b8e64869980b806852d92191440b
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: eddcab2c0a34ef437e4f2f1e2203fee9065133a4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105568684"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781886"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스로 BACPAC 파일을 가져옵니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,7 +48,7 @@ BACPAC 파일을 사용하여 [Azure SQL Managed Instance](../managed-instance/s
 
 1. BACPAC 파일의 스토리지 계정 및 컨테이너를 선택한 다음, 가져올 BACPAC 파일을 선택합니다.
 
-1. 새 데이터베이스의 크기(일반적으로 원본과 동일)를 지정하고 대상 SQL Server 자격 증명을 제공합니다. 새 Azure SQL Database 데이터베이스에 가능한 값 목록은 [데이터베이스 만들기](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)를 참조하세요.
+1. 새 데이터베이스의 크기(일반적으로 원본과 동일)를 지정하고 대상 SQL Server 자격 증명을 제공합니다. 새 Azure SQL Database 데이터베이스에 가능한 값 목록은 [데이터베이스 만들기](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true)를 참조하세요.
 
    ![데이터베이스 가져오기2](./media/database-import/sql-server-import-database-settings.png)
 
@@ -128,7 +128,7 @@ $importStatus
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) 명령을 사용하여 Azure에 데이터베이스 가져오기 요청을 제출합니다. 데이터베이스 크기에 따라 가져오기를 완료하는 데 다소 시간이 걸릴 수 있습니다. DTU 기반 프로비저닝 모델은 각 계층에 대한 데이터베이스 최대 크기 값을 선택할 수 있도록 해줍니다. 데이터베이스를 가져올 때 [지원되는 값 중 하나를 사용합니다](/sql/t-sql/statements/create-database-transact-sql). 
+[az-sql-db-import](/cli/azure/sql/db#az_sql_db_import) 명령을 사용하여 Azure에 데이터베이스 가져오기 요청을 제출합니다. 데이터베이스 크기에 따라 가져오기를 완료하는 데 다소 시간이 걸릴 수 있습니다. DTU 기반 프로비저닝 모델은 각 계층에 대한 데이터베이스 최대 크기 값을 선택할 수 있도록 해줍니다. 데이터베이스를 가져올 때 [지원되는 값 중 하나를 사용합니다](/sql/t-sql/statements/create-database-transact-sql). 
 
 ```azurecli
 # get the storage account key

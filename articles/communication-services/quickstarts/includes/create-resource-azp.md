@@ -2,16 +2,16 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 051f903c0b203045886b80f72d868adc1fa85f73
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: b602cbfde22cc87b42a32b007c19b626814d1660
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886101"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554344"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/dotnet/).
 
@@ -25,9 +25,9 @@ Azure Communication Services 리소스를 만들려면 먼저 [Azure Portal](htt
 
 :::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="검색 창에서 통신 서비스 검색을 보여주는 스크린샷.":::
 
-결과에서 **Communication Services** 를 선택한 다음, **추가** 를 선택합니다.
+결과에서 **Communication Services** 를 선택한 다음, **만들기** 를 선택합니다.
 
-:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="추가 단추가 강조 표시된 Azure 패널을 보여주는 스크린샷.":::
+:::image type="content" source="../media/create-a-communication-resource/create-communication-portal.png" alt-text="만들기 단추를 강조 표시하는 Communication Services 패널을 보여 주는 스크린샷":::
 
 이제 Communication Services 리소스를 구성할 수 있습니다. 만들기 프로세스의 첫 페이지에서 다음을 지정하라는 메시지가 표시됩니다.
 

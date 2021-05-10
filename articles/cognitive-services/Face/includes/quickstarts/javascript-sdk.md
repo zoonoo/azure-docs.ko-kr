@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/05/2020
 ms.author: v-jawe
-ms.openlocfilehash: 590ad577f3648ea9214ec4dcb6b6cab59dd5a3f1
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 8f968572a357bb3c98d9c3133a7ec0a0a94dbf93
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105104174"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958144"
 ---
 ## <a name="quickstart-face-client-library-for-javascript"></a>빠른 시작: JavaScript용 Face 클라이언트 라이브러리
 
@@ -24,7 +24,7 @@ JavaScript용 Face 클라이언트 라이브러리를 사용하여 다음을 수
 
 * [이미지에서 얼굴 감지](#detect-faces-in-an-image)
 * [유사 얼굴 찾기](#find-similar-faces)
-* [사용자 그룹 만들기](#create-a-person-group)
+* [PersonGroup 만들기](#create-a-persongroup)
 * [얼굴 식별](#identify-a-face)
 
 [참조 설명서](/javascript/api/@azure/cognitiveservices-face/) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-face) | [패키지(npm)](https://www.npmjs.com/package/@azure/cognitiveservices-face) | [샘플](/samples/browse/?products=azure&term=face&languages=javascript)
@@ -106,7 +106,7 @@ Face .NET 클라이언트 라이브러리의 주요 기능 중 일부를 처리�
 * [클라이언트 인증](#authenticate-the-client)
 * [이미지에서 얼굴 감지](#detect-faces-in-an-image)
 * [유사 얼굴 찾기](#find-similar-faces)
-* [사용자 그룹 만들기](#create-a-person-group)
+* [PersonGroup 만들기](#create-a-persongroup)
 * [얼굴 식별](#identify-a-face)
 
 > [!TIP]
@@ -163,27 +163,27 @@ URL은 샘플 이미지 폴더를 가리킵니다. UUID는 만들 PersonGroup의
 
 [식별](/javascript/api/@azure/cognitiveservices-face/face#identify_string____FaceIdentifyOptionalParams__ServiceCallback_IdentifyResult____) 작업은 한 사람(또는 여러 사람)의 이미지를 가져와 이미지에서 각 얼굴의 ID를 찾습니다(얼굴 인식 검색). 감지된 각 얼굴을 얼굴 특징이 알려진 다른 [Person](/javascript/api/@azure/cognitiveservices-face/person) 개체의 데이터베이스인 [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup)과 비교합니다. 식별 작업을 수행하려면 먼저 [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup)을 만들고 학습해야 합니다.
 
-### <a name="add-faces-to-person-group"></a>사용자 그룹에 얼굴 추가
+### <a name="add-faces-to-persongroup"></a>PersonGroup에 얼굴 추가
 
 다음 함수를 만들어 [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup)에 얼굴을 추가합니다.
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="add_faces":::
 
-### <a name="wait-for-training-of-person-group"></a>사용자 그룹의 학습 대기
+### <a name="wait-for-training-of-persongroup"></a>PersonGroup의 학습 대기
 
-다음 도우미 함수를 만들어 사용자 그룹이 학습을 완료할 때까지 기다립니다.
+다음 도우미 함수를 만들어 **PersonGroup** 이 학습을 완료할 때까지 기다립니다.
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="wait_for_training":::
 
-### <a name="create-a-person-group"></a>사용자 그룹 만들기
+### <a name="create-a-persongroup"></a>PersonGroup 만들기
 
 코드는 다음과 같습니다.
-- [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup) 만들기
-- 이전에 정의한 `AddFacesToPersonGroup`을 호출하여 사용자 그룹에 얼굴을 추가합니다.
-- 사용자 그룹을 학습합니다.
-- 사용자 그룹의 얼굴을 식별합니다.
+- [PersonGroup](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/persongroup) 만들기
+- 이전에 정의한 `AddFacesToPersonGroup`을 호출하여 **PersonGroup** 에 얼굴을 추가합니다.
+- **PersonGroup** 을 학습합니다.
+- **PersonGroup** 의 얼굴을 식별합니다.
 
-이제 이 **Person** 그룹 및 연결된 해당 **Person** 개체는 Verify(검증), Identify(식별) 또는 Group(그룹) 작업에 사용할 수 있습니다.
+이제 이 **PersonGroup** 및 연결된 해당 **Person** 개체는 Verify(검증), Identify(식별) 또는 Group(그룹) 작업에 사용할 수 있습니다.
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="identify":::
 

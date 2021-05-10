@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
 ms.openlocfilehash: 8c3d76f24cce860538dc3bd5dcf29b59708bdb5d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99821683"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>자습서: Azure Active Directory와 Zscaler Two 통합
@@ -200,14 +200,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **활성화** 를 클릭합니다.
 
-## <a name="configuring-proxy-settings"></a>프록시 설정 구성
-### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Internet Explorer에서 프록시 설정을 구성하려면
+## <a name="configuring-proxy-settings&quot;></a>프록시 설정 구성
+### <a name=&quot;to-configure-the-proxy-settings-in-internet-explorer&quot;></a>Internet Explorer에서 프록시 설정을 구성하려면
 
 1. **Internet Explorer** 를 시작합니다.
 
 2. **도구** 메뉴에서 **인터넷 옵션** 을 선택하여 **인터넷 옵션** 대화 상자를 엽니다.   
     
-     ![인터넷 옵션](./media/zscaler-two-tutorial/ic769492.png "인터넷 옵션")
+     ![인터넷 옵션](./media/zscaler-two-tutorial/ic769492.png &quot;인터넷 옵션")
 
 3. **연결** 탭을 클릭합니다.   
   

@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
 ms.openlocfilehash: cccb42041ece65ad4f245c28dd7c5cf356d5e63c
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104775156"
 ---
 # <a name="create-your-first-durable-function-in-python"></a>Python에서 첫 번째 지속성 함수 만들기
@@ -20,7 +20,7 @@ ms.locfileid: "104775156"
 
 ![Azure에서 지속성 함수 실행](./media/quickstart-python-vscode/functions-vs-code-complete.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 

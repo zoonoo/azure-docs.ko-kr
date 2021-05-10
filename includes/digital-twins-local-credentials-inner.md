@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/22/2020
 ms.author: baanders
 ms.openlocfilehash: fb148551db798207a52bd7aef629da79dd3341e1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102212820"
 ---
 `DefaultAzureCredential`을 사용하면 샘플에서 로컬 [Azure CLI](/cli/azure/install-azure-cli) 또는 Visual Studio 또는 Visual Studio Code의 Azure 로그인과 같은 로컬 환경에서 자격 증명을 검색합니다. 이러한 이유로 샘플에 대한 자격 증명을 설정하려면 이러한 메커니즘 중 하나를 통해 *Azure에 로컬로 로그인* 해야 합니다.

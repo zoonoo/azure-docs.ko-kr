@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: jeedes
 ms.openlocfilehash: ddc8cce7b56e0d9d4b3dc33dc1ad2d8c16582841
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92458711"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-leapsome"></a>자습서: Leapsome과 Azure Active Directory SSO(Single Sign-On) 연결
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-leapsome"></a>자습서: Leapsome과 Azure Active Directory SSO(Single Sign-On) 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Leapsome을 통합하는 방법에 대해 알아봅니다. Azure AD와 Leapsome을 통합하는 경우 다음을 수행할 수 있습니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "92458711"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -94,7 +94,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 Leapsome 애플리케이션에는 아래에서 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
-    | 속성 | 원본 특성 | 네임스페이스 |
+    | Name | 원본 특성 | 네임스페이스 |
     | ---------------| --------------- | --------- |  
     | firstname | user.givenname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | lastname | user.surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
@@ -117,11 +117,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -159,7 +159,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **로그인 URL(여기서는 로그인을 시작할 사용자를 가리킴)** 값을 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에 있는 **Sign-On URL** 텍스트 상자에 붙여넣습니다.
 
-    다. **회신 URL(사용자의 ID 공급자로부터 응답 수신)** 값을 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에 있는 **회신 URL** 텍스트 상자에 붙여넣습니다.
+    c. **회신 URL(사용자의 ID 공급자로부터 응답 수신)** 값을 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에 있는 **회신 URL** 텍스트 상자에 붙여넣습니다.
 
     d. ID 공급자가 제공한 **SSO 로그인 URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 

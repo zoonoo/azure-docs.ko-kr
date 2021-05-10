@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 75c50e6342a00ef37215d9e961503dd7ffb0d205
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 907bf06323d13b2d26dec5003e4739f2ae9faf74
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104878846"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378519"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>빠른 시작: 로그, 메트릭 및 추적을 사용하여 Azure Spring Cloud 앱 모니터링
 
@@ -72,6 +72,8 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 1. 그런 다음, `Run`을 선택하면 로그가 표시됩니다. 쿼리 작성에 대한 자세한 지침은 [Azure Log Analytics 문서](../azure-monitor/logs/get-started-queries.md)를 참조하세요.
 
    [ ![Logs Analytics 쿼리 - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png#lightbox)
+
+1. Log Analytics에서 사용되는 쿼리 언어에 대한 자세한 내용은 [Azure Monitor 로그 쿼리](/azure/data-explorer/kusto/query/)를 참조하세요. 중앙 집중식 클라이언트에서 모든 Log Analytics 로그를 쿼리하려면 [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/query-monitor-data)를 확인하세요.
 
 ## <a name="metrics"></a>메트릭
 
@@ -168,6 +170,8 @@ Azure Toolkit for IntelliJ를 사용하여 로그를 가져오려면 다음을 �
 1. 그러면 필터링된 로그가 표시됩니다. 쿼리 작성에 대한 자세한 지침은 [Azure Log Analytics 문서](../azure-monitor/logs/get-started-queries.md)를 참조하세요.
 
    [ ![Logs Analytics 쿼리](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png#lightbox)
+
+1. Log Analytics에서 사용되는 쿼리 언어에 대한 자세한 내용은 [Azure Monitor 로그 쿼리](/azure/data-explorer/kusto/query/)를 참조하세요. 중앙 집중식 클라이언트에서 모든 Log Analytics 로그를 쿼리하려면 [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/query-monitor-data)를 확인하세요.
 
 ## <a name="metrics"></a>메트릭
 

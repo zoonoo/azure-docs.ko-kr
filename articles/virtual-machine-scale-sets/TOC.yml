@@ -401,6 +401,8 @@
           maintainContext: true
 - name: 참조
   items:
+    - name: Azure CLI
+      href: /cli/azure/vmss
     - name: Azure PowerShell
       href: /powershell/azure/
     - name: REST (영문)
@@ -411,16 +413,11 @@
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
 - name: 리소스
+- name: 인스턴스
   items:
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/?category=compute'
-    - name: 가격 책정
+    - name: 구매 옵션
+      items: null
+    - name: Azure 하이브리드 혜택
       items:
         - name: Linux
-          href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/'
-        - name: Windows
-          href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/'
-    - name: 요금 계산기
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-vm-scale-set'
+          href: azure-hybrid-benefit-linux.md

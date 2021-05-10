@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: d6b5bab1c1b6c8db4821fdf84728eb66eb55b899
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6b7ead2e54889327bfbea188ad464012c3861556
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98882232"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968614"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>자습서: Azure SQL Database의 데이터베이스와 SQL Server 간에 SQL 데이터 동기화 설정
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -64,7 +64,7 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
    | **프라이빗 링크 사용** | 서비스 관리형 프라이빗 엔드포인트를 선택하여 동기화 서비스와 허브 데이터베이스 간에 보안 연결을 설정합니다. |
 
    > [!NOTE]
-   > **동기화 메타데이터 데이터베이스** 로 사용할 비어 있는 새 데이터베이스를 만드는 것이 좋습니다. 데이터 동기화는 이 데이터베이스에서 테이블을 만들고 자주 실행되는 워크로드를 실행합니다. 이 데이터베이스는 선택한 지역 및 구독에서 모든 동기화 그룹의 **동기화 메타데이터 데이터베이스** 로 공유됩니다. 지역의 동기화 그룹 및 동기화 에이전트를 모두 제거해야만 데이터베이스 또는 이름을 변경할 수 있습니다.
+   > **동기화 메타데이터 데이터베이스** 로 사용할 비어 있는 새 데이터베이스를 만드는 것이 좋습니다. 데이터 동기화는 이 데이터베이스에서 테이블을 만들고 자주 실행되는 워크로드를 실행합니다. 이 데이터베이스는 선택한 지역 및 구독에서 모든 동기화 그룹의 **동기화 메타데이터 데이터베이스** 로 공유됩니다. 지역의 동기화 그룹 및 동기화 에이전트를 모두 제거해야만 데이터베이스 또는 이름을 변경할 수 있습니다. 또한 탄력적 작업 데이터베이스를 SQL 데이터 동기화 메타데이터 데이터베이스로 사용할 수 없으며 그 반대의 경우도 마찬가지입니다.  
 
    **확인** 을 선택하고 동기화 그룹이 생성되어 배포될 때까지 기다립니다.
    

@@ -4,12 +4,12 @@ description: Azure Custom Vision을 사용하여 장난감 트럭을 검색할 �
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: e6b911ad555c4ce10a9576861e1c2e650e63cd94
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1abf123883a89bb41909e8aa67aedfadffc3d37e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101698810"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105561205"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>자습서: Live Video Analytics on IoT Edge 및 Azure Custom Vision을 사용하여 라이브 비디오 분석
 
@@ -77,7 +77,7 @@ ms.locfileid: "101698810"
 
 이 다이어그램에서는 이 자습서의 신호 흐름을 보여 줍니다. [에지 모듈](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)은 RTSP(Real-Time Streaming Protocol) 서버를 호스팅하는 IP 카메라를 시뮬레이션합니다. [RTSP 원본](media-graph-concept.md#rtsp-source) 노드는 이 서버에서 비디오 피드를 가져와서 비디오 프레임을 [HTTP 확장 프로세서](media-graph-concept.md#http-extension-processor) 노드로 보냅니다.
 
-HTTP 확장 노드는 프록시 역할을 수행합니다.  `samplingOptions` 필드를 사용하여 설정한 수신 비디오 프레임을 샘플링하고 비디오 프레임을 지정된 이미지 형식으로 변환합니다. 그런 다음, REST를 통해 이미지를 HTTP 엔드포인트 내부에서 AI 모델을 실행하는 다른 에지 모듈에 릴레이합니다. 이 예에서 에지 모듈은 Custom Vision을 사용하여 빌드된 장난감 트럭 탐지기 모델입니다. HTTP 확장 프로세서 노드는 탐지 결과를 수집하고, 이벤트를 [Azure IoT Hub 싱크](media-graph-concept.md#iot-hub-message-sink) 노드에 게시합니다. 그런 다음, 노드에서 이러한 이벤트를 [IoT Edge 허브](../../iot-edge/iot-edge-glossary.md#iot-edge-hub)에 보냅니다.
+HTTP 확장 노드는 프록시 역할을 수행합니다.  `samplingOptions` 필드를 사용하여 설정한 수신 비디오 프레임을 샘플링하고 비디오 프레임을 지정된 이미지 형식으로 변환합니다. 그런 다음, REST를 통해 이미지를 HTTP 엔드포인트 내부에서 AI 모델을 실행하는 다른 에지 모듈에 릴레이합니다. 이 예에서 에지 모듈은 Custom Vision을 사용하여 빌드된 장난감 트럭 탐지기 모델입니다. HTTP 확장 프로세서 노드는 탐지 결과를 수집하고, 이벤트를 [Azure IoT Hub 싱크](media-graph-concept.md#iot-hub-message-sink) 노드에 게시합니다. 그런 다음, 노드에서 이러한 이벤트를 [IoT Edge 허브](../../iot-fundamentals/iot-glossary.md#iot-edge-hub)에 보냅니다.
 
 ## <a name="build-and-deploy-a-custom-vision-toy-detection-model"></a>Custom Vision 장난감 검색 모델 빌드 및 배포 
 

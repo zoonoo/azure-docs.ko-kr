@@ -4,10 +4,10 @@ description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Event
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 596b07210d35f648af78e45b7472c620a4361e8a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104601026"
 ---
 # <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 전용 Event Hubs 클러스터 만들기 

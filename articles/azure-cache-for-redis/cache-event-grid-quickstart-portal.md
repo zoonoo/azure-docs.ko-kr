@@ -1,17 +1,19 @@
 ---
 title: '빠른 시작: Azure Portal을 사용하여 Azure Cache for Redis 이벤트를 웹 엔드포인트로 라우팅'
 description: Azure Event Grid를 사용하여 Azure Cache for Redis 이벤트를 구독하고, 이벤트를 웹후크에 보내고, 웹 애플리케이션에서 이벤트를 처리합니다.
+author: curib
+ms.author: cauribeg
 ms.date: 1/5/2021
 ms.topic: quickstart
 ms.service: cache
-author: curib
-ms.author: cauribeg
-ms.openlocfilehash: 5bdd6b0e6f97f7e5a738ab17d68282cf402004b0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom:
+- mode-portal
+ms.openlocfilehash: e021f386f255f1cef61e28cbd4fd6116fc2aa727
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99056518"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529311"
 ---
 # <a name="quickstart-route-azure-cache-for-redis-events-to-web-endpoint-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Cache for Redis 이벤트를 웹 엔드포인트로 라우팅
 
@@ -123,4 +125,3 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 빠
 
 - [Azure Cache for Redis 이벤트에 대한 대응](cache-event-grid.md)
 - [Event Grid 정보](../event-grid/overview.md)
-

@@ -1,18 +1,18 @@
 ---
 title: '자습서: Azure Database for PostgreSQL 디자인 - 단일 서버 - Azure Portal'
 description: 이 자습서에서는 Azure Portal을 사용하여 첫 번째 Azure Database for PostgreSQL - 단일 서버를 디자인하는 방법을 보여 줍니다.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 179d4124e28abfffa83b16cfdb418d8e860192d8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dd7ae71d8c3bc5415654527d5a650e0f09a99168
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93337135"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105605818"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Database for PostgreSQL - 단일 서버 디자인
 

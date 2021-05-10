@@ -2,16 +2,19 @@
 title: 빠른 시작 - 컨테이너 인스턴스 만들기 - Azure Resource Manager 템플릿
 description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 격리된 Azure 컨테이너 인스턴스에서 실행하는 컨테이너화된 웹앱을 신속하게 배포합니다.
 services: azure-resource-manager
-ms.service: azure-resource-manager
-ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-js
 ms.date: 04/30/2020
-ms.openlocfilehash: 621e3e1cef39e34656c094a39d218d5d5866fa26
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.topic: quickstart
+ms.service: azure-resource-manager
+ms.custom:
+- subject-armqs
+- devx-track-js
+- mode-arm
+ms.openlocfilehash: 5e8b9e1b2a396bb20b35dd69efe26758ba0db543
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91309084"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537510"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure에서 컨테이너 인스턴스 배포
 

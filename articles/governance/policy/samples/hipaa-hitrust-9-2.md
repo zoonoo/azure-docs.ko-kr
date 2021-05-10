@@ -1,15 +1,15 @@
 ---
 title: HIPAA HITRUST 9.2 규정 준수에 대한 세부 정보
 description: HIPAA HITRUST 9.2 규정 준수 기본 제공 이니셔티브에 대한 세부 정보입니다. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
-ms.date: 03/24/2021
+ms.date: 04/14/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 1da64ad851e1f115d7c2c5ca14b88c9e83c3acbf
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: ad5700090eda9fad4c607c1f24503f1483cd36fe
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105034506"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107506247"
 ---
 # <a name="details-of-the-hipaa-hitrust-92-regulatory-compliance-built-in-initiative"></a>HIPAA HITRUST 9.2 규정 준수 기본 제공 이니셔티브에 대한 세부 정보
 

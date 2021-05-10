@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: 4a1cd5b1773a58cf385fc6cc5c22be8df7b21e20
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 947a958b7cce6909332ebdb1832be168bfdd0bde
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018958"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801811"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python 예제
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -43,7 +43,7 @@ Azure Cosmos DB 리소스에 대해 CRUD 작업 및 다른 일반적인 작업�
     * Azure 활성 구독이 없는 경우:
         * 30일 동안 지속되는 테스트 환경인 [Azure Cosmos DB를 무료로 사용해 보세요](https://azure.microsoft.com/try/cosmosdb/).
         * [Azure Cosmos DB 에뮬레이터](https://aka.ms/cosmosdb-emulator) 
-- `PATH`의 `python` 실행 파일이 있는 [Python 2.7 또는 3.5.3 이상](https://www.python.org/downloads/).
+- `PATH`의 `python` 실행 파일이 있는 [Python 2.7 또는 3.6 이상](https://www.python.org/downloads/).
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Visual Studio Code용 Python 확장](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview).
 - [Git](https://www.git-scm.com/downloads) 

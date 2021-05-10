@@ -1,17 +1,16 @@
 ---
 title: Application Insights 리소스에 대한 Resource Manager 템플릿 샘플
 description: Azure Monitor에 Application Insights 리소스를 배포하기 위한 Azure Resource Manager 템플릿 샘플입니다.
-ms.subservice: application-insights
 ms.topic: sample
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/08/2020
-ms.openlocfilehash: 6c23e59a8845ee4bc77d0fe05df8b97e656a102a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6a64ed1d0d7a133930bf48e7d764c8d170d9824a
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100597902"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383358"
 ---
 # <a name="resource-manager-template-samples-for-creating-application-insights-resources"></a>Application Insights 리소스 생성을 위한 Resource Manager 템플릿 샘플
 

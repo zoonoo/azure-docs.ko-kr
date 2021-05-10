@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/23/2020
 ms.author: trbye
-ms.openlocfilehash: d3d9f41876cf1310fe25a275624f609031c05b00
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: ddb61a79e6af402b06fe8c18df8c62f9287437a3
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601893"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209717"
 ---
 # <a name="what-is-the-speech-service"></a>Speech Service란?
 
@@ -33,7 +33,7 @@ Speech Service 기능 중 일부는 다음과 같습니다. 이 표의 링크를
 | | [다중 디바이스 대화](multi-device-conversation.md) | 대화의 다중 디바이스 또는 클라이언트를 연결하여 음성 또는 텍스트 기반 메시지를 전송하고 전사 및 번역을 간편하게 지원합니다.| 예 | 예 |
 | | [대화 전사](./conversation-transcription.md) | 실시간 음성 인식, 화자 식별 및 다이어리화를 가능하게 해줍니다. 화자를 구별하는 기능을 사용하여 직접 만남을 전사하는 데 이상적입니다. | 예 | 예 |
 | | [Custom Speech 모델 만들기](#customize-your-speech-experience) | 고유한 환경에서 인식 및 기록을 위해 음성 텍스트 변환을 사용하는 경우 사용자 지정 음향, 언어 및 발음 모델을 만들고 학습하여 주변 소음 또는 산업용 어휘를 처리할 수 있습니다. | 예 | [예](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
-| [텍스트 음성 변환](text-to-speech.md) | 텍스트 음성 변환 | 텍스트 음성 변환은 [SSML(Speech Synthesis Markup Language)](speech-synthesis-markup.md)을 사용하여 입력 텍스트를 인간과 유사한 합성 음성으로 변환합니다. 표준 음성 및 인공신경망 음성 중에서 선택합니다([언어 지원](language-support.md) 참조). | [예](./speech-sdk.md) | [예](#reference-docs) |
+| [텍스트 음성 변환](text-to-speech.md) | 텍스트 음성 변환 | 텍스트 음성 변환은 [SSML(Speech Synthesis Markup Language)](speech-synthesis-markup.md)을 사용하여 입력 텍스트를 인간과 유사한 합성 음성으로 변환합니다. 심층 신경망에 의해 구동되는 인간과 유사한 음성인 인공신경망을 사용합니다. [언어 지원](language-support.md)을 참조하세요. | [예](./speech-sdk.md) | [예](#reference-docs) |
 | | [사용자 지정 음성 만들기](#customize-your-speech-experience) | 브랜드 또는 제품에 고유한 사용자 지정 음성 글꼴을 만듭니다. | 예 | [예](#reference-docs) |
 | [Speech Translation](speech-translation.md) | 음성 번역 | 음성 번역을 사용하면 음성에 대한 실시간 엔드투엔드 다중 언어 번역을 애플리케이션, 도구 및 디바이스에 추가할 수 있습니다. 이 서비스는 음성을 음성으로 변환 및 음성을 텍스트로 변환을 위해 사용합니다. | [예](./speech-sdk.md) | 예 |
 | [음성 도우미](voice-assistants.md) | 음성 도우미 | Speech Service를 사용하는 음성 도우미를 사용하면 개발자가 자신의 애플리케이션과 환경에 맞게 자연스럽고 인간적인 대화형 인터페이스를 만들 수 있습니다. 음성 도우미는 작업 완료를 위해 Bot Framework의 Direct Line Speech 채널 또는 통합 사용자 지정 명령 서비스를 사용하는 도우미 구현과 디바이스 사이에 빠르고 안정적인 상호 작용을 제공합니다. | [예](voice-assistants.md) | 예 |
@@ -105,7 +105,7 @@ Microsoft는 빠른 시작을 가장 많이 사용되는 프로그래밍 언어�
 * [음성 텍스트 변환 빠른 시작](get-started-speech-to-text.md)
 * [텍스트 음성 변환 빠른 시작](get-started-text-to-speech.md)
 * [음성 번역 빠른 시작](./get-started-speech-translation.md)
-* [의도 인식 빠른 시작](quickstarts/intent-recognition.md)
+* [의도 인식 빠른 시작](./get-started-intent-recognition.md)
 * [화자 인식 빠른 시작](./get-started-speaker-recognition.md)
 
 Speech Service를 시작한 후에는 다양한 시나리오를 해결하는 방법을 보여 주는 자습서를 수행해 보세요.

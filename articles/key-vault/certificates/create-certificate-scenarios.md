@@ -3,19 +3,18 @@ title: 인증서 만들기 모니터링 및 관리
 description: Key Vault를 사용하여 인증서 만들기 프로세스를 만들고, 모니터링하고, 상호 작용하기 위한 다양한 옵션을 설명하는 시나리오입니다.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 02e13ce81ed2f11c0bb69015a4864c4a1ad55593
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 8e4acb5195497dd31f466829b1cde301ba9696b3
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "81430969"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751097"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>인증서 만들기 모니터링 및 관리
 Azure에 적용합니다.
@@ -412,7 +411,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```
 
-|요소 이름|필수|Type|버전|설명|
+|요소 이름|필수|Type|버전|Description|
 |------------------|--------------|----------|-------------|-----------------|
 |x5c|예|array|\<introducing version>|기본 64 문자열 배열로 X509 인증서 체인|
 

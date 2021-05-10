@@ -8,20 +8,18 @@ ms.author: nmurav
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 7cfc8fc24aea938b997fead4ca762ce7178e3386
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a5a23d6a06c8cdff4deabac5251597b7ffe0c833
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103490622"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728048"
 ---
 # <a name="tutorial-prepare-a-web-app-for-azure-communication-services-nodejs"></a>자습서: Azure Communication Services용 웹앱 준비(Node.js)
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 Azure Communication Services를 사용하여 실시간 통신을 애플리케이션에 추가할 수 있습니다. 이 자습서에서는 Azure Communication Services를 지원하는 웹 애플리케이션을 설정하는 방법에 대해 알아봅니다. 이는 실시간 통신을 시작하려는 새로운 개발자를 위한 소개 자습서입니다.
 
-이 자습서를 완료하면 Azure Communication Services 클라이언트 라이브러리로 구성된 기준 웹 애플리케이션이 만들어집니다. 그런 다음, 해당 애플리케이션을 사용하여 실시간 통신 솔루션 빌드를 시작할 수 있습니다.
+이 자습서를 완료하면 Azure Communication Services SDK로 구성된 기준 웹 애플리케이션이 만들어집니다. 그런 다음, 해당 애플리케이션을 사용하여 실시간 통신 솔루션 빌드를 시작할 수 있습니다.
 
 언제든지 [Azure Communication Services GitHub 페이지](https://github.com/Azure/communication)를 방문하여 피드백을 제공해 주세요.
 
@@ -37,7 +35,7 @@ Azure Communication Services를 사용하여 실시간 통신을 애플리케이
 - 활성 구독이 있는 Azure 계정. 자세한 내용은 [체험 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)를 참조하세요. 체험 계정에는 모든 서비스 조합을 사용해 볼 수 있는 200달러의 Azure 크레딧이 제공됩니다.
 - [Visual Studio Code](https://code.visualstudio.com/) - 로컬 개발 환경에서 코드를 편집합니다.
 - [webpack](https://webpack.js.org/) - 코드를 번들로 묶어 로컬로 호스팅합니다.
-- [Node.js](https://nodejs.org/en/) - Azure Communication Services 클라이언트 라이브러리 및 webpack과 같은 종속성을 설치하고 관리합니다.
+- [Node.js](https://nodejs.org/en/) - Azure Communication Services SDK 및 webpack과 같은 종속성을 설치하고 관리합니다.
 - [nvm 및 npm](/windows/nodejs/setup-on-windows)(버전 제어 처리)
 - Visual Studio Code용 [Azure Storage 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage). 이 확장은 애플리케이션을 Azure Storage에 게시하는 데 필요합니다. [Azure Storage에서 정적 웹 사이트를 호스팅하는 방법에 대해 자세히 알아보세요](../../storage/blobs/storage-blob-static-website.md).
 - [Azure App Service 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) 이 확장을 사용하면 완전 관리형 CI/CD(연속 통합 및 지속적인 업데이트)를 구성하는 옵션이 있는 웹 사이트를 배포할 수 있습니다.
@@ -293,7 +291,7 @@ npm run build:dev
 
 ## <a name="add-the-azure-communication-services-packages"></a>Azure Communication Services 패키지 추가
 
-`npm install` 명령을 사용하여 JavaScript용 Azure Communication Services 통화 클라이언트 라이브러리를 설치합니다.
+`npm install` 명령을 사용하여 JavaScript용 Azure Communication Services Calling SDK를 설치합니다.
 
 ```Console
 npm install @azure/communication-common --save

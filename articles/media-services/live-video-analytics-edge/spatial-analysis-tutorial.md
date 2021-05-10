@@ -3,12 +3,12 @@ title: 공간 분석을 위해 Computer Vision을 사용하여 라이브 비디�
 description: 이 자습서에서는 Azure Cognitive Services에서 Computer Vision 공간 분석 AI 기능과 함께 Live Video Analytics를 사용하여 시뮬레이션된 IP 카메라에서 라이브 비디오 피드를 분석하는 방법을 보여 줍니다.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: b20cdb9bbc64f9adc49cfbde4ff80576b149dbcd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1c3fd411e60cabb504f01bece62d497ddeea31d8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101698759"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105561018"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>공간 분석을 위해 Computer Vision을 사용하여 라이브 비디오 분석(미리 보기)
 
@@ -56,7 +56,7 @@ ms.locfileid: "101698759"
 
 MediaGraphCognitiveServicesVisionExtension 노드는 프록시의 역할을 수행합니다. 비디오 프레임을 지정된 이미지 형식으로 변환합니다. 그런 다음 **공유 메모리** 를 통해 이미지를 gRPC 엔드포인트 뒤에서 AI 작업을 실행하는 다른 에지 모듈에 릴레이합니다. 이 예에서 에지 모듈은 공간 분석 모듈입니다. MediaGraphCognitiveServicesVisionExtension 프로세서 노드는 다음 두 가지 작업을 수행합니다.
 
-* 결과를 수집하고 [IoT Hub 싱크](media-graph-concept.md#iot-hub-message-sink) 노드에 이벤트를 게시합니다. 그런 다음, 노드에서 이러한 이벤트를 [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub)에 보냅니다. 
+* 결과를 수집하고 [IoT Hub 싱크](media-graph-concept.md#iot-hub-message-sink) 노드에 이벤트를 게시합니다. 그런 다음, 노드에서 이러한 이벤트를 [IoT Edge Hub](../../iot-fundamentals/iot-glossary.md#iot-edge-hub)에 보냅니다. 
 * 또한 [신호 게이트 프로세서](media-graph-concept.md#signal-gate-processor)를 사용하여 RTSP 원본에서 30초 비디오 클립을 캡처하여 Media Services 자산으로 저장합니다.
 
 ## <a name="create-the-computer-vision-resource"></a>Computer Vision 리소스 만들기

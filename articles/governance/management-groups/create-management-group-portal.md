@@ -3,12 +3,14 @@ title: 포털을 사용하여 관리 그룹 만들기
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 리소스를 리소스 계층 구조로 구성하는 관리 그룹을 만듭니다.
 ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: 5a336fe4caf5d2f825a93b5c7b8f8d05f6255c39
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 1b0f7b0d98b2cde1343325d5e4a2979e3e663b68
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99592435"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535914"
 ---
 # <a name="quickstart-create-a-management-group"></a>빠른 시작: 관리 그룹 만들기
 
@@ -32,7 +34,7 @@ ms.locfileid: "99592435"
 
 1. **+ 관리 그룹 추가** 를 선택합니다.
 
-   :::image type="content" source="./media/main.png" alt-text="자식 관리 그룹 및 구독을 보여주는 관리 그룹 페이지 스크린샷" border="false":::
+   :::image type="content" source="./media/main.png" alt-text="자식 관리 그룹 및 구독을 보여주는 관리 그룹 페이지 스크린샷":::
 
 1. **새로 만들기** 를 선택한 상태로 두고 관리 그룹 ID 필드를 입력합니다.
 

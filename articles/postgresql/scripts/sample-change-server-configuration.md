@@ -1,19 +1,19 @@
 ---
 title: Azure CLI 스크립트 - 서버 구성 변경(PostgreSQL)
 description: 이 샘플 CLI 스크립트는 모든 사용 가능한 서버 구성 옵션을 나열하고 옵션 중 하나의 값을 업데이트합니다.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 02/28/2018
-ms.openlocfilehash: 313c3a59c1b47b4cc6ee6a38e46e85a2343bfb31
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1c3433c1f96dc32d91f1c07882f231202383e1c3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94660528"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105607357"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for PostgreSQL의 구성 나열 및 업데이트
 이 샘플 CLI 스크립트는 사용 가능한 모든 구성 매개 변수와 Azure Database for PostgreSQL에 대해 허용되는 값을 나열하고 *log_retention_days* 를 기본값 이외의 값으로 설정합니다.

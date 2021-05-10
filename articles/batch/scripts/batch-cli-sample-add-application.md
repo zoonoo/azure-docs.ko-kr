@@ -4,12 +4,12 @@ description: 이 샘플 스크립트는 Azure Batch 풀 또는 작업에 사용�
 ms.topic: sample
 ms.date: 01/29/2018
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 414a401168b1b378ed33f4904607243de0267d22
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 06afb59a76e763c25e943c3be1531372a6bd2aa1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94565809"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765272"
 ---
 # <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>CLI 예제: Azure Batch 계정에 애플리케이션 추가
 
@@ -38,14 +38,14 @@ az group delete --name myResourceGroup
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | 스토리지 계정을 만듭니다. |
-| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Batch 계정을 만듭니다. |
-| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | 추가 CLI 상호 작용을 위해 지정된 Batch 계정에 대해 인증합니다.  |
-| [az batch application create](/cli/azure/batch/application#az-batch-application-create) | 애플리케이션을 만듭니다.  |
-| [az batch application package create](/cli/azure/batch/application/package#az-batch-application-package-create) | 지정된 애플리케이션에 애플리케이션 패키지를 추가합니다.  |
-| [az batch application set](/cli/azure/batch/application#az-batch-application-set) | 애플리케이션의 속성을 업데이트합니다.  |
-| [az group delete](/cli/azure/group#az-group-delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | 스토리지 계정을 만듭니다. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Batch 계정을 만듭니다. |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | 추가 CLI 상호 작용을 위해 지정된 Batch 계정에 대해 인증합니다.  |
+| [az batch application create](/cli/azure/batch/application#az_batch-application-create) | 애플리케이션을 만듭니다.  |
+| [az batch application package create](/cli/azure/batch/application/package#az_batch-application-package-create) | 지정된 애플리케이션에 애플리케이션 패키지를 추가합니다.  |
+| [az batch application set](/cli/azure/batch/application#az_batch-application-set) | 애플리케이션의 속성을 업데이트합니다.  |
+| [az group delete](/cli/azure/group#az_group_delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

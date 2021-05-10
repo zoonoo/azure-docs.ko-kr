@@ -1,17 +1,15 @@
 ---
 title: Azure Migrate를 사용하여 온-프레미스 머신 마이그레이션
 description: 이 문서에서는 온-프레미스 머신을 Azure로 마이그레이션하는 방법을 요약하고 Azure Migrate를 권장합니다.
-manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.author: raynew
-ms.openlocfilehash: e0e60ee346d20113b2ec7970390d9874522cc770
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5f5a0f65bfbde5ef8513780933cc570a4b5737df
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87847315"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581138"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Azure로 온-프레미스 컴퓨터 마이그레이션
 

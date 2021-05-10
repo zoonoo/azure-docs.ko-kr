@@ -6,12 +6,12 @@ ms.date: 03/23/2021
 ms.topic: quickstart
 ms.author: thweiss
 zone_pivot_groups: programming-languages-set-functions-temp
-ms.openlocfilehash: 91d27ce0d6f999ac5d13b079c877e49cdf3fcd61
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 0a0c63ee54699185bcd02104b1a3f4d0070ea808
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104962763"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023251"
 ---
 # <a name="connect-azure-functions-to-azure-cosmos-db-using-visual-studio-code"></a>Visual Studio Code를 사용하여 Azure Functions를 Azure Cosmos DB에 연결
 
@@ -20,11 +20,11 @@ ms.locfileid: "104962763"
 이 문서에서는 Visual Studio Code를 사용하여 [Azure Cosmos DB](../cosmos-db/introduction.md)를 이전 빠른 시작 문서에서 만든 함수에 연결하는 방법을 보여 줍니다. 이 함수에 추가되는 출력 바인딩은 HTTP 요청의 데이터를 Azure Cosmos DB 컨테이너에 저장된 JSON 문서에 씁니다. 
 
 ::: zone pivot="programming-language-csharp"
-시작하기 전에, [빠른 시작: 명령줄에서 Azure Functions 프로젝트 만들기](create-first-function-cli-csharp.md) 문서를 완료해야 합니다. 해당 문서의 끝에서 리소스를 이미 정리한 경우, 해당 단계를 다시 수행하여 Azure에서 함수 앱 및 관련 리소스를 다시 만듭니다.
+시작하기 전에 [빠른 시작: Visual Studio Code를 사용하여 Azure에서 C# 함수 만들기](create-first-function-vs-code-csharp.md)를 완료해야 합니다. 해당 문서의 끝에서 리소스를 이미 정리한 경우, 해당 단계를 다시 수행하여 Azure에서 함수 앱 및 관련 리소스를 다시 만듭니다.
 ::: zone-end
 ::: zone pivot="programming-language-javascript"  
-시작하기 전에, [빠른 시작: 명령줄에서 Azure Functions 프로젝트 만들기](create-first-function-cli-node.md) 문서를 완료해야 합니다. 해당 문서의 끝에서 리소스를 이미 정리한 경우, 해당 단계를 다시 수행하여 Azure에서 함수 앱 및 관련 리소스를 다시 만듭니다.  
-::: zone-end   
+시작하기 전에 [빠른 시작: Visual Studio Code를 사용하여 Azure에서 JavaScript 함수 만들기](create-first-function-vs-code-node.md)를 완료해야 합니다. 해당 문서의 끝에서 리소스를 이미 정리한 경우, 해당 단계를 다시 수행하여 Azure에서 함수 앱 및 관련 리소스를 다시 만듭니다.  
+::: zone-end
 
 ## <a name="configure-your-environment"></a>환경 구성
 
@@ -43,7 +43,7 @@ ms.locfileid: "104962763"
 
 3. **Azure Cosmos DB 계정 만들기** 페이지에서 새 Azure Cosmos DB 계정에 대한 설정을 입력합니다. 
  
-    설정|값|설명
+    설정|값|Description
     ---|---|---
     Subscription|*구독*|[이전 문서](./create-first-function-vs-code-csharp.md)에서 함수 앱을 만든 Azure 구독을 선택합니다.
     리소스 그룹|*리소스 그룹*|[이전 문서](./create-first-function-vs-code-csharp.md)에서 함수 앱을 만든 리소스 그룹을 선택합니다.

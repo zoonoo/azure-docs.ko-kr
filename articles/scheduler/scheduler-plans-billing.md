@@ -9,16 +9,16 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
 ms.openlocfilehash: e821036ff4ddb5a9786bc4f4537bb81539ab2c87
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "78898468"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Azure Scheduler의 플랜 및 청구 방식
 
 > [!IMPORTANT]
-> [Azure Scheduler](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)는 조만간 사용 중지되고 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)로 대체됩니다. 스케줄러에 설정 된 작업을 계속 하려면 가능한 한 빨리 [Azure Logic Apps로 마이그레이션](../scheduler/migrate-from-scheduler-to-logic-apps.md) 하세요. 
+> [Azure Scheduler](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)는 조만간 사용 중지되고 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)로 대체됩니다. Scheduler에서 설정한 작업으로 계속 작업하려면 가능한 한 빨리 [Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md)로 마이그레이션하세요. 
 >
 > Scheduler는 더 이상 Azure Portal에서 사용할 수 없지만 [REST API](/rest/api/scheduler) 및 [Azure Scheduler PowerShell cmdlet](scheduler-powershell-reference.md)은 현재 사용 가능하므로 작업 및 작업 컬렉션을 관리할 수 있습니다.
 
@@ -28,7 +28,7 @@ Azure Scheduler에서 작업 컬렉션에는 특정 수의 작업이 포함됩�
 
 | 작업 컬렉션 플랜 | 컬렉션당 최대 작업 수 | 최대 되풀이 횟수 | 구독당 최대 작업 컬렉션 수 | 제한 | 
 |:--- |:--- |:--- |:--- |:--- |
-| **Standard** | 컬렉션당 작업 50개 | 분당 1회. 작업을 1분에 2개 이상 실행할 수는 없습니다. | 각 Azure 구독은 표준 작업 컬렉션을 100개까지 포함할 수 있습니다. | Scheduler 전체 기능 집합 액세스 | 
+| **표준** | 컬렉션당 작업 50개 | 분당 1회. 작업을 1분에 2개 이상 실행할 수는 없습니다. | 각 Azure 구독은 표준 작업 컬렉션을 100개까지 포함할 수 있습니다. | Scheduler 전체 기능 집합 액세스 | 
 | **P10 Premium** | 컬렉션당 작업 50개 | 분당 1회. 작업을 1분에 2개 이상 실행할 수는 없습니다. | 각 Azure 구독은 P10 프리미엄 작업 컬렉션을 10,000개까지 포함할 수 있습니다. 컬렉션을 더 많이 사용하려는 경우 <a href="mailto:wapteams@microsoft.com">Microsoft에 문의</a>하세요. | Scheduler 전체 기능 집합 액세스 |
 | **P20 Premium** | 컬렉션당 작업 1,000개 | 분당 1회. 작업을 1분에 2개 이상 실행할 수는 없습니다. | 각 Azure 구독은 P20 프리미엄 작업 컬렉션을 5,000개까지 포함할 수 있습니다. 컬렉션을 더 많이 사용하려는 경우 <a href="mailto:wapteams@microsoft.com">Microsoft에 문의</a>하세요. | Scheduler 전체 기능 집합 액세스 |
 |||||| 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 319bca74c8e781e5dc5022e9fb901b2edca24a80
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e3743697d58d0f5b167b123df59bc5638aa60489
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87485646"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771680"
 ---
 # <a name="tutorial-create-an-azure-custom-role-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure 사용자 지정 역할 만들기
 
@@ -86,7 +86,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     "Microsoft.Support/*"
     ```
 
-1. [az account list](/cli/azure/account#az-account-list) 명령을 사용하여 구독 ID를 가져옵니다.
+1. [az account list](/cli/azure/account#az_account_list) 명령을 사용하여 구독 ID를 가져옵니다.
 
     ```azurecli
     az account list --output table
@@ -118,7 +118,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     }
     ```
     
-1. 새로운 사용자 지정 역할을 만들려면 [az role definition create](/cli/azure/role/definition#az-role-definition-create) 명령을 사용하여 JSON 역할 정의 파일을 지정합니다.
+1. 새로운 사용자 지정 역할을 만들려면 [az role definition create](/cli/azure/role/definition#az_role_definition_create) 명령을 사용하여 JSON 역할 정의 파일을 지정합니다.
 
     ```azurecli
     az role definition create --role-definition "~/CustomRoles/ReaderSupportRole.json"
@@ -155,7 +155,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="list-custom-roles"></a>사용자 지정 역할 나열
 
-- 모든 사용자 지정 역할을 나열하려면 [az role definition list](/cli/azure/role/definition#az-role-definition-list) 명령과 `--custom-role-only` 매개 변수를 사용합니다.
+- 모든 사용자 지정 역할을 나열하려면 [az role definition list](/cli/azure/role/definition#az_role_definition_list) 명령과 `--custom-role-only` 매개 변수를 사용합니다.
 
     ```azurecli
     az role definition list --custom-role-only true
@@ -225,7 +225,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     }
     ```
         
-1. 사용자 지정 역할을 업데이트하려면 [az role definition update](/cli/azure/role/definition#az-role-definition-update) 명령을 사용하여 업데이트된 JSON 파일을 지정합니다.
+1. 사용자 지정 역할을 업데이트하려면 [az role definition update](/cli/azure/role/definition#az_role_definition_update) 명령을 사용하여 업데이트된 JSON 파일을 지정합니다.
 
     ```azurecli
     az role definition update --role-definition "~/CustomRoles/ReaderSupportRole.json"
@@ -261,7 +261,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     
 ## <a name="delete-a-custom-role"></a>사용자 지정 역할 삭제
 
-- [az role definition delete](/cli/azure/role/definition#az-role-definition-delete) 명령을 사용하여 사용자 지정 역할을 삭제할 역할 이름 또는 역할 ID를 지정합니다.
+- [az role definition delete](/cli/azure/role/definition#az_role_definition_delete) 명령을 사용하여 사용자 지정 역할을 삭제할 역할 이름 또는 역할 ID를 지정합니다.
 
     ```azurecli
     az role definition delete --name "Reader Support Tickets"

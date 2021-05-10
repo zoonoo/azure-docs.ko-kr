@@ -17,12 +17,12 @@ ms.date: 01/12/2021
 ms.author: matthewp
 ms.reviewer: jowargo
 ms.lastreviewed: 08/01/2019
-ms.openlocfilehash: e7d4206de1e097c30e9f5e96bbd935e94892ce0e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c97da77619a395a8e2839ea672fe7a78f0501c47
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98221037"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575845"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinandroid-apps-using-notification-hubs"></a>자습서: Notification Hubs를 사용하여 Xamarin.Android 앱에 푸시 알림 보내기
 
@@ -156,7 +156,7 @@ ms.locfileid: "98221037"
 6. 명령문을 사용하여 다음 항목을 `MainActivity.cs`에 추가합니다.
 
     ```csharp
-    using Azure.Messaging.NotificationHubs;
+    using WindowsAzure.Messaging.NotificationHubs;
     ```
 
 7. 다음 속성을 MainActivity 클래스에 추가합니다.

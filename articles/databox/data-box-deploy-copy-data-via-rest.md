@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: alkohli
 ms.openlocfilehash: cb0a90db0595c655191006969071bc5b9cceaa75
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94337596"
 ---
 # <a name="tutorial-use-rest-apis-to-copy-data-to-azure-data-box-blob-storage"></a>자습서: REST API를 사용하여 Azure Data Box Blob 스토리지에 데이터 복사  
@@ -24,11 +24,11 @@ ms.locfileid: "94337596"
 
 > [!div class="checklist"]
 >
-> * 필수 구성 요소
+> * 사전 요구 사항
 > * *http* 또는 *https* 를 통해 Data Box Blob 스토리지에 연결
 > * Data Box에 데이터 복사
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -239,7 +239,7 @@ AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.devi
 
 > [!div class="checklist"]
 >
-> * 필수 구성 요소
+> * 사전 요구 사항
 > * *http* 또는 *https* 를 통해 Data Box Blob 스토리지에 연결
 > * Data Box에 데이터 복사
 
