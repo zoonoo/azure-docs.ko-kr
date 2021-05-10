@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2044653673da10de59d5ff125da44ac1f89e22f9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96861853"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 변경
@@ -113,7 +113,7 @@ ms.locfileid: "96861853"
 이전 섹션에서는 특성 흐름을 변경하는 방법을 설명하였습니다. 이 섹션에서는 몇 가지 추가 예제가 제공됩니다. 동기화 규칙을 만드는 방법에 대한 단계가 간략하게 설명되어 있지만 이전 섹션에서 전체 단계를 찾아볼 수 있습니다.
 
 ### <a name="use-an-attribute-other-than-the-default"></a>기본값이 아닌 특성 사용
-이 Fabrikam 시나리오에는 지정된 이름, 성 및 표시 이름에 로컬 알파벳이 사용된 포리스트가 있습니다. 이러한 특성의 라틴 문자 표현은 확장 특성에서 찾을 수 있습니다. Azure AD에서 전체 주소 목록을 작성 하 고 Microsoft 365 하는 경우 조직에서는 이러한 특성을 대신 사용 하려고 합니다.
+이 Fabrikam 시나리오에는 지정된 이름, 성 및 표시 이름에 로컬 알파벳이 사용된 포리스트가 있습니다. 이러한 특성의 라틴 문자 표현은 확장 특성에서 찾을 수 있습니다. Azure AD 및 Microsoft 365에서 전역 주소 목록을 빌드하기 위해 조직에서는 이러한 특성을 대신 사용하려 합니다.
 
 기본 구성을 사용하면 로컬 포리스트의 개체는 다음과 같이 나타납니다.  
 ![특성 흐름 1](./media/how-to-connect-sync-change-the-configuration/attributeflowjp1.png)
@@ -200,7 +200,7 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **UserT
 
 - Azure AD는 UserType 특성에 대해 **멤버** 및 **게스트** 두 값만 허용합니다.
 - Azure AD Connect에서 UserType 특성이 동기화에 대해 사용하도록 설정되어 있지 않은 경우 디렉터리 동기화를 통해 만든 Azure AD 사용자는 UserType 특성이 **멤버** 로 설정되었을 것입니다.
-- 버전 1.5.30.0 이전에 Azure AD에서는 Azure AD Connect에 의해 변경될 기존 Azure AD 사용자에 대해 UserType 특성을 허용하지 않았습니다. 이전 버전에서는 Azure AD 사용자를 만들고 [PowerShell을 통해 변경](/powershell/module/azuread/set-azureaduser)하는 동안에만 설정할 수 있었습니다.
+- 버전 1.5.30.0 이전에 Azure AD에서는 Azure AD Connect에 의해 변경될 기존 Azure AD 사용자에 대해 UserType 특성을 허용하지 않았습니다. 이전 버전에서는 Azure AD 사용자를 만드는 동안에만 설정하고 [PowerShell을 통해 변경](/powershell/module/azuread/set-azureaduser)할 수 있었습니다.
 
 UserType 특성의 동기화를 사용하도록 설정하기 전에 먼저 이 특성이 온-프레미스 Active Directory에서 파생되는 방법을 결정해야 합니다. 다음은 가장 일반적인 방식입니다.
 
@@ -243,7 +243,7 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
  5. **확인** 을 클릭하여 저장합니다.
 ![온-프레미스 AD 커넥터 스키마에 원본 특성 추가](./media/how-to-connect-sync-change-the-configuration/usertype1.png)
 
-### <a name="step-3-add-the-usertype-attribute-to-the-azure-ad-connector-schema"></a>3 단계: Azure AD 커넥터 스키마에 UserType 특성 추가
+### <a name="step-3-add-the-usertype-attribute-to-the-azure-ad-connector-schema"></a>3단계: Azure AD Connector 스키마에 UserType 특성 추가
 기본적으로 UserType 특성은 Azure AD Connect 공간으로 가져오지 않습니다. 가져온 특성 목록에 UserType 특성을 추가하려면 다음을 수행합니다.
 
  1. Synchronization Service Manager에 있는 **커넥터** 탭으로 이동합니다.

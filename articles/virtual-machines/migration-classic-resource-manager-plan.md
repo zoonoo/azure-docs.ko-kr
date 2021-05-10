@@ -1,6 +1,6 @@
 ---
-title: 클래식에서 Azure Resource Manager로 마이그레이션 계획
-description: 이 문서에서는 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션을 계획 하는 방법에 대해 알아봅니다.
+title: 클래식에서 Azure Resource Manager로의 마이그레이션 계획하기
+description: 본 문서를 통해 IaaS 리소스를 클래식에서 Azure Resource Manager로 마이그레이션할 계획을 어떻게 세울 지 알아봅니다.
 services: virtual-machines
 author: tanmaygore
 manager: vashan
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
 ms.openlocfilehash: 30a02a79e5e6e063c3d21e6626ed1a75c0f61133
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101676107"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획
 
 > [!IMPORTANT]
-> 현재 IaaS Vm의 90%가 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)를 사용 하 고 있습니다. 2020 년 2 월 28 일부 터 클래식 Vm은 더 이상 사용 되지 않으며 2023 년 3 월 1 일에 완전히 사용 중지 됩니다. 이 사용 중단 및 [영향](classic-vm-deprecation.md#how-does-this-affect-me)에 대 한 [자세한 내용을 알아보세요]( https://aka.ms/classicvmretirement) .
+> 현재 IaaS VM의 90% 정도는 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)를 사용하고 있습니다. 2020년 2월 28일부로, 클래식 VM은 사용되지 않았으며 2023년 3월 1일부로 완전히 사용 중지될 예정입니다. 사용 중단 및 [그 영향](classic-vm-deprecation.md#how-does-this-affect-me)에 대해 [자세히 알아보세요]( https://aka.ms/classicvmretirement).
 
 Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연하게 이전할 수 있도록 마이그레이션 과정을 계획하는 것이 매우 중요합니다. 계획에 시간을 들이면 마이그레이션 활동을 수행하는 동안 문제가 발생하지 않습니다.
 
@@ -191,7 +191,7 @@ Azure Resource Manager에 있으므로 이제 플랫폼을 극대화합니다.  
 
 이제 Azure Resource Manager에서 사용하도록 설정하려는 서비스에 대해 분명한 목적이 있어야 합니다.  많은 고객들이 Azure 환경에서 다음과 같은 강력한 요소를 찾고 있습니다.
 
-- Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md).
+- [Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/overview.md).
 - [쉽고 제어 가능한 배포를 위한 Azure Resource Manager 템플릿](../azure-resource-manager/templates/overview.md)
 - [태그](../azure-resource-manager/management/tag-resources.md).
 - [활동 제어](../azure-resource-manager/management/view-activity-logs.md)

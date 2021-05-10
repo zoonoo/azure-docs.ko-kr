@@ -1,6 +1,6 @@
 ---
-title: Azure에서 Red Hat Enterprise Linux 이미지의 전체 업그레이드
-description: Red Hat Enterprise 4.x 이미지에서 최신 8gb 버전으로 전체 업그레이드를 수행 하는 방법을 알아봅니다.
+title: Azure에서 Red Hat Enterprise Linux 이미지의 현재 위치 업그레이드
+description: Red Hat Enterprise 7.x 이미지를 현재 위치에서 최신 8.x 버전으로 업그레이드하는 방법을 알아봅니다.
 author: mathapli
 ms.service: virtual-machines
 ms.subservice: redhat
@@ -9,54 +9,54 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.openlocfilehash: 1be0904cc640eff5af7a77bba3abd6aa062991a8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101676065"
 ---
-# <a name="red-hat-enterprise-linux-in-place-upgrades"></a>현재 위치의 업그레이드 Red Hat Enterprise Linux
+# <a name="red-hat-enterprise-linux-in-place-upgrades"></a>현재 위치의 Red Hat Enterprise Linux 업그레이드
 
-이 문서에서는 Red Hat Enterprise Linux (RHEL) 7에서 Red Hat Enterprise Linux 8로 전체 업그레이드를 수행 하는 방법에 대 한 지침을 제공 합니다. 이 지침에서는 `leapp` Azure의 도구를 사용 합니다. 현재 위치의 업그레이드 중에는 기존 RHEL 7 운영 체제가 RHEL 8 버전으로 대체 됩니다.
+본 문서에서는 RHEL(Red Hat Enterprise Linux) 7을 현재 위치에서 Red Hat Enterprise Linux 8로 업그레이드하는 방법에 대한 지침을 제공합니다. 본 지침에서는 Azure의 `leapp` 도구를 사용합니다. 현재 위치 업그레이드 중, 기존의 RHEL 7 운영 체제는 RHEL 8 버전으로 대체됩니다.
 
 >[!Note] 
-> Red Hat Enterprise Linux에 대 한 SQL Server 제품은 Azure에서 전체 업그레이드를 지원 하지 않습니다.
+> Red Hat Enterprise Linux의 SQL Server 제품은 Azure의 현재 위치 업그레이드를 지원하지 않습니다.
 
-## <a name="what-to-expect-during-the-upgrade"></a>업그레이드 하는 동안 발생할 수 있는 작업
-업그레이드 하는 동안 시스템이 몇 번 다시 시작 됩니다. 마지막 다시 시작은 VM을 RHEL 8 최신 부 릴리스로 업그레이드 합니다. 
+## <a name="what-to-expect-during-the-upgrade"></a>업그레이드 중 예상되는 상황
+업그레이드 중에 시스템은 몇 차례 다시 시작합니다. 마지막으로 재시작하면 VM가 RHEL 8 최신 부 릴리스로 업그레이드됩니다. 
 
-업그레이드 프로세스는 20 분에서 2 시간까지 걸릴 수 있습니다. 총 시간은 VM 크기 및 시스템에 설치 된 패키지 수와 같은 여러 요소에 따라 달라 집니다.
+업그레이드 프로세스는 20분에서 2시간까지 소요될 수 있습니다. VM 규모나 시스템 상에 설치된 패키지 수 등의 몇 가지 요소가 전체 시간을 결정합니다.
 
 ## <a name="preparations"></a>준비
-Red Hat 및 Azure는 전체 업그레이드를 사용 하 여 시스템을 다음 주 버전으로 전환 하는 것이 좋습니다. 
+Red Hat과 Azure에서는 현재 위치 업그레이드를 통해 시스템을 다음 주 버전으로 전환하는 것이 좋습니다. 
 
-업그레이드를 시작 하기 전에 다음 사항을 고려해 야 합니다. 
+업그레이드 시작 전에는 다음 사항을 고려해야 합니다. 
 
 >[!Important] 
-> 업그레이드를 시작 하기 전에 이미지의 스냅숏을 만듭니다.
+> 업그레이드를 시작하기 전에 이미지 스냅샷을 만듭니다.
 
-* 최신 RHEL 7 버전을 사용 하 고 있는지 확인 합니다. 현재 최신 버전은 RHEL 7.9입니다. 잠긴 버전을 사용 하 고 RHEL 7.9로 업그레이드할 수 없는 경우 다음 단계에 따라 [EUS (확장 업데이트 지원) 리포지토리로 전환](./redhat-rhui.md#switch-a-rhel-7x-vm-back-to-non-eus-remove-a-version-lock)합니다.
+* 최신 RHEL 7 버전 사용 중인지 확인합니다. 현재 최신 버전은 RHEL 7.9입니다. 잠긴 버전을 사용 중이어서 RHEL 7.9로 업그레이드할 수 없는 경우, [non-EUS(확장 업데이트 지원) 리포지토리로의 전환을 위한 관련 단계](./redhat-rhui.md#switch-a-rhel-7x-vm-back-to-non-eus-remove-a-version-lock)를 따릅니다.
 
-* 다음 명령을 실행 하 여 업그레이드를 확인 하 고 성공적으로 완료 되는지 확인 합니다. 명령은 */var/log/leapp/leapp-report.txt* 파일을 생성 해야 합니다. 이 파일은 프로세스, 진행 상황 및 업그레이드가 가능한 지 여부를 설명 합니다.
+* 다음 명령을 실행하여 업그레이드를 확인하고 해당 명령을 실행하여 진행되는 업그레이드가 성공적으로 완료하는지 확인합니다. 해당 명령을 실행하여 */var/log/leapp/leapp-report.txt* 파일이 생성됩니다. 해당 파일은 프로세스, 진행 상황, 업그레이드 가능 여부를 알려 줍니다.
 
     >[!NOTE]
-    > 이 문서의 명령을 실행 하려면 루트 계정을 사용 합니다. 
+    > 본 문서의 해당 명령을 실행하려면 루트 계정을 사용합니다. 
 
     ```bash
     leapp preupgrade --no-rhsm
     ```
-* 직렬 콘솔이 작동 하는지 확인 합니다. 업그레이드 프로세스 중에이 콘솔을 사용 하 여 모니터링 합니다.
+* 직렬 콘솔이 작동하는지 확인합니다. 업그레이드 프로세스 중에 해당 콘솔을 사용해 모니터링합니다.
 
-* */Etc/ssh/sshd_config* 에서 SSH 루트 액세스를 사용 하도록 설정 합니다.
-    1. */Etc/ssh/sshd_config* 파일을 엽니다.
+* */etc/ssh/sshd_config* 에서 SSH 루트 액세스를 사용하도록 다음과 같이 설정합니다.
+    1. */etc/ssh/sshd_config* 파일을 엽니다.
     1. `#PermitRootLogin yes`를 검색합니다.
-    1. `#`문자열의 주석 처리를 제거 하려면 숫자 기호 ()를 제거 합니다.
+    1. 숫자 기호(`#`)를 제거하여 해당 문자열의 주석 처리를 제거합니다.
 
 ## <a name="upgrade-steps"></a>업그레이드 단계
 
-이러한 단계를 신중 하 게 수행 합니다. 프로덕션 인스턴스에서 시도 하기 전에 테스트 컴퓨터에서 업그레이드를 시도 하는 것이 좋습니다.
+해당 단계를 신중하게 수행합니다. 프로덕션 인스턴스에서 이를 시도하기 전에 테스트 머신에서 업그레이드를 미리 시도해 보는 것이 좋습니다.
 
-1. 업데이트를 수행 `yum` 하 여 최신 클라이언트 패키지를 인출 합니다.
+1. 최신 클라이언트 패키지를 가져오기 위해 `yum` 업데이트를 실행합니다.
     ```bash
     yum update -y
     ```
@@ -66,43 +66,43 @@ Red Hat 및 Azure는 전체 업그레이드를 사용 하 여 시스템을 다�
     yum install leapp-rhui-azure
     ```
     
-1. [Red Hat 포털](https://access.redhat.com/articles/3664871)에서 *repomap.csv* 를 포함 하는 *leapp-data release.tar.gz* 파일을 가져오고 *pes-events.js* 합니다. *Leapp-data release.tar.gz* 파일의 압축을 풉니다.
-    1. *Leapp-data release.tar.gz* 파일을 다운로드 합니다.
-    1. 콘텐츠를 추출 하 고 파일을 제거 합니다. 다음 명령을 사용합니다.
+1. [Red Hat 포털](https://access.redhat.com/articles/3664871)에서 *repomap.csv* 와 *pes-events.json* 이 들어 있는 *leapp-data.tar.gz* 파일을 확보합니다. *leapp-data.tar.gz* 파일의 압축을 풉니다.
+    1. *leapp-data.tar.gz* 파일을 다운로드합니다.
+    1. 콘텐츠를 추출한 다음 파일을 제거합니다. 다음 명령을 사용합니다.
     ```bash
     tar -xzf leapp-data12.tar.gz -C /etc/leapp/files && rm leapp-data12.tar.gz
     ```
 
-1. `answers`에 대 한 파일을 추가 `leapp` 합니다.
+1. `leapp`에 대한 `answers` 파일을 추가합니다.
     ```bash
     leapp answer --section remove_pam_pkcs11_module_check.confirm=True --add
     ``` 
 
-1. 업그레이드를 시작 합니다.
+1. 업그레이드를 시작합니다.
     ```bash
     leapp upgrade --no-rhsm
     ```
-1.  `leapp upgrade`명령이 성공적으로 완료 되 면 시스템을 수동으로 다시 시작 하 여 프로세스를 완료 합니다. 시스템은 두 번 다시 시작 될 때 사용할 수 없습니다. 직렬 콘솔을 사용 하 여 프로세스를 모니터링 합니다.
+1.  `leapp upgrade` 명령이 성공적으로 완료되면 프로세스를 마무리하기 위해 수동으로 시스템을 재시작합니다. 시스템이 몇 번 정도 재시작하는 동안에는 해당 시스템을 사용할 수 없습니다. 직렬 콘솔을 사용하여 프로세스를 모니터링합니다.
 
-1.  업그레이드가 성공적으로 완료 되었는지 확인 합니다.
+1.  업그레이드가 성공적으로 마무리되었는지 확인합니다.
     ```bash
     uname -a && cat /etc/redhat-release
     ```
 
-1. 업그레이드가 완료 되 면 루트 SSH 액세스를 제거 합니다.
-    1. */Etc/ssh/sshd_config* 파일을 엽니다.
+1. 업그레이드가 완료되면 다음 루트 SSH 액세스를 제거합니다.
+    1. */etc/ssh/sshd_config* 파일을 엽니다.
     1. `#PermitRootLogin yes`를 검색합니다.
-    1. 숫자 기호 ()를 추가 `#` 하 여 문자열을 주석으로 처리 합니다.
+    1. 숫자 기호(`#`)를 추가하여 해당 문자열을 주석으로 처리합니다.
 
-1. SSHD 서비스를 다시 시작 하 여 변경 내용을 적용 합니다.
+1. SSHD 서비스를 재시작하여 변경된 내용을 적용합니다.
     ```bash
     systemctl restart sshd
     ```
 ## <a name="common-problems"></a>일반적인 문제
 
-다음 오류는 `leapp preupgrade` 프로세스가 실패 하거나 프로세스가 실패할 때 일반적으로 발생 합니다 `leapp upgrade` .
+다음 오류들은 일반적으로 `leapp preupgrade` 프로세스가 실패했거나 `leapp upgrade` 프로세스가 실패한 경우 발생합니다.
 
-* **오류**: 비활성화 된 다음 플러그 인 패턴과 일치 하는 항목이 없습니다.
+* **오류**: 다음 사용하지 않는 플러그 인 패턴과 일치하는 항목이 없습니다.
 
     ```plaintext
     STDERR:
@@ -110,13 +110,13 @@ Red Hat 및 Azure는 전체 업그레이드를 사용 하 여 시스템을 다�
     Warning: Packages marked by Leapp for upgrade not found in repositories metadata: gpg-pubkey
     ```
 
-    **해결 방법**: 구독 관리자 플러그 인을 사용 하지 않도록 설정 합니다. */Etc/yum/pluginconf.d/subscription-manager.conf* 파일을 편집 하 고을로 변경 하 여 사용 하지 않도록 설정 `enabled` `enabled=0` 합니다.
+    **솔루션**: 구독 관리자 플러그 인을 사용하지 않도록 설정합니다. */etc/yum/pluginconf.d/subscription-manager.conf* 파일을 편집하고 `enabled`를 `enabled=0`으로 변경하여 사용하지 않도록 설정합니다.
 
-    이 오류는 `yum` 사용 하도록 설정 된 구독 관리자 플러그 인이 vm에 사용 되지 않는 경우에 발생 `PAYG` 합니다.
+    해당 오류는 사용하도록 설정된 구독 관리자 `yum` 플러그 인이 `PAYG` VM에 사용되지 않는 경우 발생합니다.
 
-* **오류**: root를 사용 하 여 원격 로그인에 문제가 있을 수 있습니다.
+* **오류**: 루트를 이용한 원격 로그인과 관련해 발생할 수 있는 문제들
 
-    가 실패 하면 다음과 같은 오류가 표시 될 수 있습니다 `leapp preupgrade` .
+    해당 오류는 `leapp preupgrade` 실패 시에 발생할 수 있습니다.
 
     ```structured-text
     ============================================================
@@ -131,14 +131,14 @@ Red Hat 및 Azure는 전체 업그레이드를 사용 하 여 시스템을 다�
                          UPGRADE INHIBITED
     ============================================================
     ```
-    **해결 방법**: */etc/sshd_config* 에서 루트 액세스를 사용 하도록 설정 합니다.
+    **솔루션**: */etc/sshd_config* 에서 루트 액세스를 사용하도록 설정합니다.
 
-    이 오류는 */etc/sshd_config* 에서 루트 SSH 액세스를 사용 하도록 설정 하지 않은 경우에 발생 합니다. 자세한 내용은이 문서의 [준비](#preparations) 섹션을 참조 하세요. 
+    해당 오류는 */etc/sshd_config* 에서 루트 SSH 액세스를 사용하도록 설정하지 않았을 때 발생합니다. 본 문서의 [준비](#preparations) 섹션에서 자세한 내용을 확인하세요. 
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure의 Red Hat 이미지](./redhat-images.md)에 대해 자세히 알아보세요.
-* [Red Hat 업데이트 인프라](./redhat-rhui.md)에 대해 자세히 알아보세요.
-* [RHEL BYOS 제품](./byos.md)에 대해 자세히 알아보세요.
-* Red Hat 현재 위치의 업그레이드 프로세스에 대 한 자세한 내용은 Red Hat 설명서의 [RHEL 7에서 RHEL 8로 업그레이드](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/upgrading_from_rhel_7_to_rhel_8/index) 를 참조 하세요.
-* 모든 버전의 RHEL에 대 한 Red Hat 지원 정책에 대 한 자세한 내용은 Red Hat 설명서의 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata) 를 참조 하세요.
+* [Azure의 Red Hat 이미지](./redhat-images.md)에 대해 자세히 알아봅니다.
+* [Red Hat 업데이트 인프라](./redhat-rhui.md)에 대해 자세히 알아봅니다.
+* [RHEL BYOS 제품](./byos.md)에 대해 자세히 알아봅니다.
+* Red Hat 현재 위치 업그레이드 프로세스에 대한 자세한 내용은 Red Hat 설명서의 [RHEL 7에서 RHEL 8로 업그레이드하기](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/upgrading_from_rhel_7_to_rhel_8/index)를 참조하세요.
+* 전체 RHEL 버전에 대한 Red Hat 지원 정책에 대한 자세한 내용은 Red Hat 설명서의 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata)를 참조하세요.

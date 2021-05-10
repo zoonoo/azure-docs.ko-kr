@@ -13,12 +13,12 @@ ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 05bfcc86c72d9eb393da919035ce198948b943f2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 69df3dc8ef9f2ab4519f5bcb8947da221908f5a7
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105559131"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126744"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Apple 디바이스용 Microsoft Enterprise SSO 플러그 인(미리 보기)
 
@@ -54,7 +54,7 @@ Apple 디바이스용 Microsoft Enterprise SSO 플러그 인을 사용하려면
 
 ### <a name="ios-requirements"></a>iOS 요구 사항:
 - iOS 13.0 이상이 디바이스에 설치되어 있어야 합니다.
-- Apple 디바이스용 Microsoft Enterprise SSO 플러그 인을 제공하는 Microsoft 애플리케이션을 디바이스에 설치해야 합니다. 퍼블릭 미리 보기의 경우 이러한 애플리케이션은 [Microsoft Authenticator 앱](/azure/active-directory/user-help/user-help-auth-app-overview)입니다.
+- Apple 디바이스용 Microsoft Enterprise SSO 플러그 인을 제공하는 Microsoft 애플리케이션을 디바이스에 설치해야 합니다. 퍼블릭 미리 보기의 경우 이러한 애플리케이션은 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md)입니다.
 
 
 ### <a name="macos-requirements"></a>macOS 요구 사항:

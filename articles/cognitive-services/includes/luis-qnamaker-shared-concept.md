@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -8,86 +8,86 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
 ms.openlocfilehash: b2b405e7f6babf84ef8297310a5a7a34c3f2dc11
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102623421"
 ---
-Cognitive Services는 두 가지 자연어 처리 서비스, [Language Understanding](../luis/what-is-luis.md) 및 [QnA Maker](../qnamaker/overview/overview.md)를 제공 하며 각각 다른 용도로 사용 됩니다. 각 서비스를 사용 해야 하는 시기와 각 서비스를 어떻게 서로 어떻게 보완 하는지 이해 합니다.
+Cognitive Services는 두 가지 자연어 처리 서비스인 [Language Understanding](../luis/what-is-luis.md)과 [QnA Maker](../qnamaker/overview/overview.md)를 제공하며 각 작업은 서로 다른 용도로 사용됩니다. 각 서비스를 언제 사용해야 하며, 각 서비스가 서로 어떻게 보완되는지 이해합니다.
 
-NLP (자연어 처리)를 사용 하면 채팅 봇과 같은 클라이언트 응용 프로그램에서 자연어를 사용 하 여 사용자 작업을 수행할 수 있습니다. 사용자가 문장 또는 구를 입력 합니다. 사용자의 텍스트에는 잘못 된 문법, 맞춤법 및 문장 부호가 있을 수 있습니다. 인식 서비스는 사용자 문장을 통해 작업할 수 있으며 채팅 봇이 사용자에 게 도움을 주는 데 필요한 정보를 반환 합니다.
+NLP(자연어 처리)를 사용하면 채팅 봇과 같은 클라이언트 애플리케이션에서 자연어를 사용하여 사용자와의 상호작용이 가능합니다. 사용자가 문장 또는 구를 입력합니다. 사용자의 텍스트에는 잘못된 문법, 맞춤법 및 문장 부호가 있을 수 있습니다. Cognitive Services는 이러한 사용자의 문장을 분석하여 채팅 봇이 사용자에게 도움을 줄 수 있는 정보를 반환합니다.
 
-## <a name="cognitive-services-with-nlp"></a>NLP를 사용 하 여 Cognitive Services
+## <a name="cognitive-services-with-nlp"></a>NLP를 사용하는 Cognitive Services
 
-Language Understanding (LUIS) 및 QnA Maker NLP를 제공 합니다. 클라이언트 응용 프로그램은 자연어 텍스트를 제출 합니다. 서비스는 텍스트를 사용 하 여 처리 하 고 결과를 반환 합니다.
+LUIS(Language Understanding) 및 QnA Maker는 NLP를 제공합니다. 클라이언트 애플리케이션은 자연어 텍스트를 제출합니다. 서비스는 텍스트를 처리하고 결과를 반환합니다.
 
-## <a name="when-to-use-each-service"></a>각 서비스를 사용 하는 경우
+## <a name="when-to-use-each-service"></a>각 서비스를 사용하는 경우
 
-Language Understanding (LUIS) 및 QnA Maker는 다른 문제를 해결 합니다. LUIS은 사용자 텍스트 (utterance)의 의도를 결정 하는 반면 QnA Maker은 사용자의 텍스트 (쿼리)에 대 한 대답을 결정 합니다.
+LUIS(Language Understanding) 및 QnA Maker는 서로 다른 이슈를 해결합니다. LUIS는 사용자 텍스트(발화)의 의도를 결정하는 반면 QnA Maker는 사용자 텍스트(쿼리)에 대한 답변을 결정합니다.
 
-올바른 서비스를 선택 하려면 클라이언트 응용 프로그램에서 들어오는 사용자 텍스트와 클라이언트 응용 프로그램이 인식 서비스에서 가져와야 하는 정보를 이해 해야 합니다.
+올바른 서비스를 선택하려면 클라이언트 애플리케이션에서 들어오는 사용자 텍스트와 클라이언트 애플리케이션이 인식 서비스에서 가져와야 하는 정보를 이해해야 합니다.
 
-채팅 봇에서 텍스트를 수신 하는 경우 `How do I get to the Human Resources building on the Seattle North campus?` 아래 차트를 사용 하 여 각 서비스가 텍스트와 함께 작동 하는 방식을 이해 합니다.
+채팅 봇에서 텍스트 `How do I get to the Human Resources building on the Seattle North campus?`를 수신하는 경우 아래 차트를 통해 각 서비스가 텍스트와 함께 작동하는 방식을 이해합니다.
 
-|서비스|클라이언트 응용 프로그램 확인|
+|서비스|클라이언트 애플리케이션의 답변 영역|
 |--|--|
-|LUIS|**사용자의 텍스트 의도를 결정** 합니다. 서비스에서 질문에 대 한 답을 반환 하지 않습니다. 예를 들어이 텍스트는 의도와 일치 하는 것으로 분류 됩니다 `FindLocation` .<br>|
-|QnA Maker|사용자 지정 기술 자료에서 **질문에 대 한 답변을 반환** 합니다. 예를 들어이 텍스트는의 정적 텍스트 대답이 있는 질문으로 결정 됩니다  `Get on the #9 bus and get off at Franklin street` .|
+|LUIS|**사용자의 텍스트 의도를 결정** 합니다. 이 서비스는 질문에 대한 답변을 반환하지 않습니다. 예를 들어 이 텍스트는 `FindLocation` 의도와 일치하는 것으로 분류됩니다.<br>|
+|QnA Maker|사용자 지정 기술 자료의 **질문에 대한 답변을 반환** 합니다. 예를 들어 이 텍스트는 `Get on the #9 bus and get off at Franklin street`와 같이 고정된 텍스트 답변이 있는 질문으로 판단됩니다.|
 |||
 
 > [!div class="mx-imgBorder"]
-> ![LUIS 사용 시기 및 사용 시기를 결정 하는 infographic QnA Maker](./luis-qna-maker-together-decision.png)
+> ![LUIS 및 QnA Maker를 언제 사용해야 하는지 보여주는 인포그래픽](./luis-qna-maker-together-decision.png)
 
-## <a name="when-do-you-use-luis"></a>LUIS를 사용 하는 경우
+## <a name="when-do-you-use-luis"></a>LUIS를 사용하는 경우
 
-채팅 봇에서 프로세스의 일부로 발화의 의도를 알아야 할 때 LUIS를 사용합니다. 예제 텍스트를 계속 사용 하 여 `How do I get to the Human Resources building on the Seattle North campus?` 사용자가 위치를 찾는 것이 확인 되 면 utterance에 대 한 세부 정보 (엔터티 포함)를 교통 서버와 같은 다른 서비스에 전달 하 여 답변을 얻을 수 있습니다.
+채팅 봇에서 프로세스의 일부로 발화의 의도를 알아야 할 때 LUIS를 사용합니다. 예제 텍스트 `How do I get to the Human Resources building on the Seattle North campus?`의 경우 사용자가 위치를 찾고 있다는 것을 알게 되면, 발화에 대한 세부 정보(엔터티 포함)를 교통 서버와 같은 다른 서비스에 전달하여 답변을 얻을 수 있습니다.
 
-LUIS와 QnA Maker를 결합 하 여 의도를 확인할 필요가 없습니다.
+의도를 확인하기 위해 LUIS와 QnA Maker를 결합할 필요는 없습니다.
 
-채팅 봇이 utterance 엔터티 (LUIS 사용)를 기반으로 텍스트를 처리 하 고 특정 정적 텍스트 대답 (QnA Maker 사용)을 찾는 데 필요한 경우 두 서비스를 결합할 수 있습니다.
+만약 채팅 봇이 의도와 엔터티에 따라 텍스트를 처리(LUIS 사용)해야 할 뿐 아니라 특별한 고정 답변도 찾아야 한다면(QnA Maker 사용) 두 서비스를 결합할 수 있습니다.
 
-## <a name="when-do-you-use-qna-maker"></a>QnA Maker를 사용 하는 경우
+## <a name="when-do-you-use-qna-maker"></a>QnA Maker를 사용하는 경우
 
 답변에 대한 정적 기술 자료가 있는 경우 QnA Maker를 사용합니다. 이 기술 자료는 사용자의 요구에 맞게 사용자 지정되며, PDF 및 URL과 같은 문서를 사용하여 작성되었습니다.
 
-예제 utterance를 계속 진행 하면서 `How do I get to the Human Resources building on the Seattle North campus?` 게시 된 QnA Maker 서비스에 대 한 텍스트를 쿼리로 보내고 최상의 답을 받습니다.
+게시된 QnA Maker 서비스에 예제 발화 `How do I get to the Human Resources building on the Seattle North campus?` 텍스트를 쿼리로 보내 최상의 답변을 받습니다.
 
-질문에 대 한 답변을 결정 하기 위해 LUIS 및 QnA Maker를 결합할 필요가 없습니다.
+답변을 받기 위해 LUIS와 QnA Maker를 결합할 필요는 없습니다.
 
-채팅 봇이 utterance 엔터티 (LUIS 사용)를 기반으로 하는 텍스트를 처리 하 고 QnA Maker를 사용 하 여 답변을 찾는 데 필요한 경우 두 서비스를 결합할 수 있습니다.
+만약 채팅 봇이 의도와 엔터티에 따라 텍스트를 처리(LUIS 사용)해야 할 뿐 아니라 답변도 찾아야 한다면(QnA Maker 사용) 두 서비스를 결합할 수 있습니다.
 
-## <a name="use-both-services-when-your-knowledge-base-is-incomplete"></a>기술 자료가 완전 하지 않은 경우 두 서비스 모두 사용
+## <a name="use-both-services-when-your-knowledge-base-is-incomplete"></a>기술 자료가 완전하지 않은 경우 두 서비스 모두 사용
 
-QnA Maker 기술 자료를 구축 하 고 있지만 주체 도메인이 변경 되는 것을 알고 있는 경우 (예: 시기 적절 한 정보) LUIS 및 QnA Maker 서비스를 결합할 수 있습니다. 이렇게 하면 기술 자료의 정보를 사용할 수 있지만 LUIS를 사용 하 여 사용자의 의도를 확인할 수도 있습니다. 클라이언트 응용 프로그램에 대 한 의도가 있으면 다른 소스에서 관련 정보를 요청할 수 있습니다.
+QnA Maker 기술 자료를 구축하고 있지만 주제 영역이 변경되는 것을 알고 있는 경우(예: 시간 관련 정보) LUIS와 QnA Maker 서비스를 결합할 수 있습니다. 이렇게 하면 기술 자료의 정보를 사용할 수 있지만 LUIS를 사용하여 사용자의 의도를 확인할 수도 있습니다. 클라이언트 애플리케이션에 의도가 있으면 다른 소스에서 관련 정보를 요청할 수 있습니다.
 
-클라이언트 응용 프로그램은 점수에 대 한 LUIS 및 QnA Maker 응답을 모두 모니터링 해야 합니다. QnA Maker의 점수가 임의의 임계값 보다 낮은 경우 LUIS에서 반환 된 의도 및 엔터티 정보를 사용 하 여 타사 서비스에 정보를 전달 합니다.
+클라이언트 애플리케이션은 점수에 대한 LUIS 및 QnA Maker 응답을 모두 모니터링할 필요가 있을 수 있습니다. QnA Maker의 점수가 임의의 임계값보다 낮은 경우 LUIS에서 반환된 의도 및 엔터티 정보를 사용하여 타사 서비스에 정보를 전달합니다.
 
-예제 텍스트를 계속 사용 하면 `How do I get to the Human Resources building on the Seattle North campus?` QnA Maker 낮은 신뢰 점수를 반환 한다고 가정 합니다. LUIS에서 반환 된 의도를 사용 하 `FindLocation` 고, 및와 같은 추출 된 엔터티를 사용 `Human Resources building` 하 여 `Seattle North campus` 이 정보를 매핑 또는 검색 서비스에 다른 답변으로 보냅니다.
+예제 텍스트 `How do I get to the Human Resources building on the Seattle North campus?`의 경우 QnA Maker가 낮은 신뢰 점수를 반환한다고 가정합니다. LUIS에서 반환된 의도 `FindLocation` 및 `Human Resources building`, `Seattle North campus`와 같이 예제에서 추출한 엔터티를 사용하여 이 정보를 매핑 또는 검색 서비스에 보내 다른 답변을 받을 수 있습니다.
 
-유효성 검사를 위해 사용자에 게이 타사 답변을 제공할 수 있습니다. 사용자의 승인을 받은 후에는 QnA Maker로 돌아가서 정보를 추가 하 여 정보를 늘릴 수 있습니다.
+유효성 검사를 위해 사용자에게 타사의 답변을 제공할 수 있습니다. 사용자의 승인을 받은 후에는 QnA Maker로 돌아가서 정보를 추가하여 정보를 늘릴 수 있습니다.
 
 ## <a name="use-both-services-when-your-chat-bot-needs-more-information"></a>채팅 봇에 추가 정보가 필요한 경우 두 서비스 모두 사용
 
-서비스에서 제공 하는 것 보다 많은 정보가 채팅 봇에 필요한 경우 의사 결정 트리를 계속 사용 하려면 두 서비스를 모두 사용 하 고 클라이언트 응용 프로그램에서 두 응답을 모두 처리 합니다.
+서비스에서 제공하는 것보다 많은 정보가 채팅 봇에 필요한 경우 의사 결정 트리를 계속 사용하려면 두 서비스를 모두 사용하고 두 응답을 클라이언트 애플리케이션에서 처리합니다.
 
-Bot framework **[디스패치 CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** 도구를 사용 하 여 두 서비스를 모두 사용 하는 프로세스를 빌드할 수 있습니다. 이 도구는 LUIS와 QnA Maker를 자식 앱으로 디스패치할 상위 LUIS 앱을 작성 합니다. LUIS, QnA Maker 및 봇 프레임 워크와의 통합에 [대해 자세히 알아보세요](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs) .
+Bot framework **[Dispatch CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** 도구를 사용하여 두 서비스를 모두 사용하는 프로세스를 빌드할 수 있습니다. 이 도구는 자식 앱으로 LUIS와 QnA Maker 간에 디스패치할 상위 LUIS 앱을 빌드합니다. LUIS, QnA Maker 및 Bot framework와의 통합에 대해 [자세히 알아보세요](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs).
 
-**NLP와 함께** 봇 작성기 샘플, [c #](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) 또는 [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)를 사용 하 여 이러한 유형의 채팅 봇을 구현 합니다.
+[C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) 또는 [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)를 지원하는 봇 작성기 샘플 **NLP with dispatch** 를 사용하여 이와 같은 유형의 채팅 봇을 구현하세요.
 
 ## <a name="best-practices"></a>모범 사례
 
-각 서비스에 대 한 모범 사례 구현:
+각 서비스에 대한 모범 사례 구현:
 
 * [LUIS](../luis/luis-concept-best-practices.md) 모범 사례
 * [QnA Maker](../qnamaker/concepts/best-practices.md) 모범 사례
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [언어 이해(LUIS)](../luis/what-is-luis.md)
 * [QnA Maker](../qnamaker/overview/overview.md)
-* [CLI 디스패치](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)
+* [디스패치 CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)
 * [Bot framework 샘플](https://github.com/Microsoft/BotBuilder-Samples)
-* [Azure bot service](/azure/bot-service/bot-service-overview-introduction)
+* [Azure 봇 서비스](/azure/bot-service/bot-service-overview-introduction)
 * [Azure 봇 에뮬레이터](https://github.com/Microsoft/BotFramework-Emulator)
 * [Bot framework 웹 채팅](https://github.com/microsoft/BotFramework-WebChat)

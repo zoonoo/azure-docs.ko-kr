@@ -1,16 +1,16 @@
 ---
-title: PowerShell-Data Lake Storage Gen1를 사용 하는 HDInsight 클러스터-Azure
-description: Azure PowerShell를 사용 하 여 Azure Data Lake Storage Gen1에서 Azure HDInsight 클러스터를 만들고 사용 합니다.
+title: PowerShell - Data Lake Storage Gen1을 사용하는 HDInsight 클러스터 - Azure
+description: Azure PowerShell을 사용하여 Azure Data Lake Storage Gen1으로 Azure HDInsight 클러스터를 만들고 사용합니다.
 author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 5e899f28cf5b3c11ae5f935d7bc273c566214225
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97606779"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>PowerShell을 통해 Azure Data Lake Storage Gen1을 기본 스토리지로 사용하여 HDInsight 클러스터 만들기
@@ -67,7 +67,7 @@ Data Lake Storage Gen1 계정을 만들려면 다음을 수행합니다.
     ```
 
     > [!NOTE]
-    > Data Lake Storage Gen1 리소스 공급자를 등록 하 고와 유사한 오류를 수신 하는 경우 `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` 구독이 Data Lake Storage Gen1 승인 되지 않았을 수 있습니다. Data Lake Storage Gen1에 Azure 구독을 사용하려면 [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)의 지침에 따르세요.
+    > Data Lake Storage Gen1 리소스 공급자를 등록하고 `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`와 유사한 오류가 발생하는 경우 구독을 Data Lake Storage Gen1에 대해 승인하지 못할 수 있습니다. Data Lake Storage Gen1에 Azure 구독을 사용하려면 [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)의 지침에 따르세요.
     >
 
 2. Data Lake Storage Gen1 계정은 Azure 리소스 그룹과 연결됩니다. 리소스 그룹을 만들기 시작합니다.
@@ -140,7 +140,7 @@ Data Lake Storage Gen1의 Active Directory 인증을 설정하려면 다음 두 
     ```
 
     프라이빗 키 암호를 입력하라는 메시지가 표시됩니다. 명령을 성공적으로 실행한 후에 지정한 인증서 디렉터리에서 **CertFile.cer** 및 **mykey.pvk** 를 확인해야 합니다.
-2. [Pvk2Pfx][pvk2pfx] 유틸리티를 사용하여 MakeCert가 생성한 .pvk 및 .cer 파일을 .pfx 파일로 변환합니다. 다음 명령을 실행합니다.
+2. [Pvk2Pfx][pvk2pfx] 유틸리티를 사용하여 MakeCert가 생성한 .pvk 및 .cer 파일을 .pfx 파일로 변환합니다. 다음 명령 실행:
 
     ```azurepowershell
     pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
@@ -236,7 +236,7 @@ Data Lake Storage Gen1의 Active Directory 인증을 설정하려면 다음 두 
     cmdlet이 성공적으로 완료된 후에 클러스터 세부 정보를 나열하는 출력이 표시됩니다.
 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>HDInsight 클러스터에서 테스트 작업을 실행하여 Data Lake Storage Gen1 사용
-HDInsight 클러스터를 구성한 후에 테스트 작업을 실행하여 Data Lake Storage Gen1에 액세스할 수 있는지 확인할 수 있습니다. 이렇게 하려면 샘플 Hive 작업을 실행 하 여 *\<cluster root> /example/data/sample.log* 에서 Data Lake Storage Gen1에서 이미 사용할 수 있는 샘플 데이터를 사용 하는 테이블을 만듭니다.
+HDInsight 클러스터를 구성한 후에 테스트 작업을 실행하여 Data Lake Storage Gen1에 액세스할 수 있는지 확인할 수 있습니다. 이렇게 하려면 *\<cluster root>/example/data/sample.log* 에서 Data Lake Storage Gen1에서 사용할 수 있는 샘플 데이터를 사용하여 테이블을 만드는 샘플 Hive 작업을 실행합니다.
 
 이 섹션에서는 사용자가 만든 HDInsight Linux 클러스터에 대한 SSH(보안 셸) 연결을 확인하고 샘플 Hive 쿼리를 실행합니다.
 

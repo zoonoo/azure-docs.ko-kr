@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: radeltch
 ms.openlocfilehash: 6f2268ae9a86978e9266ea0e35411727b238d4b4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101671652"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>SAP 고가용성 시나리오에서 Azure Standard Load Balancer를 사용하는 가상 머신에 대한 퍼블릭 엔드포인트 연결
@@ -40,10 +40,10 @@ Azure 부하 분산 장치의 기본 SKU와 표준 SKU 간에는 몇 가지 중�
 
 VM에 공용 IP 주소가 할당되거나 VM이 공용 IP 주소를 사용하는 부하 분산 장치의 백 엔드 풀에 있으면 퍼블릭 엔드포인트에 대한 아웃바운드 연결이 있습니다.  
 
-SAP 시스템은 종종 중요한 비즈니스 데이터를 포함합니다. SAP 시스템을 호스트 하는 Vm이 공용 IP 주소를 통해 액세스할 수 있는 경우는 거의 없습니다. 뿐만 아니라 VM에서 퍼블릭 엔드포인트로의 아웃바운드 연결이 필요한 시나리오가 있습니다.  
+SAP 시스템은 종종 중요한 비즈니스 데이터를 포함합니다. 공용 IP 주소를 통해 SAP 시스템을 호스트하는 VM에 액세스할 수 있도록 허용하는 경우는 거의 없습니다. 뿐만 아니라 VM에서 퍼블릭 엔드포인트로의 아웃바운드 연결이 필요한 시나리오가 있습니다.  
 
 Azure 퍼블릭 엔드포인트에 대한 액세스가 필요한 시나리오의 예는 다음과 같습니다.  
-- **Management.azure.com** 및 **login.microsoftonline.com** 에 대 한 액세스 권한이 필요한 Azure Fence 에이전트  
+- Azure Fence 에이전트에는 **management.azure.com** 및 **login.microsoftonline.com** 에 대한 액세스가 필요합니다.  
 - [Azure Backup](../../../backup/tutorial-backup-sap-hana-db.md#set-up-network-connectivity)
 - [Azure Site Recovery](../../../site-recovery/azure-to-azure-about-networking.md#outbound-connectivity-for-urls)  
 - 운영 체제 패치에 퍼블릭 리포지토리 사용
@@ -68,7 +68,7 @@ SAP 배포 시 퍼블릭 엔드포인트에 대한 아웃바운드 연결이 필
 * [가상 네트워크 - 사용자 정의 규칙](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) - Azure 라우팅 개념 및 규칙  
 * [보안 그룹 서비스 태그](../../../virtual-network/network-security-groups-overview.md#service-tags) - 서비스 태그를 사용하여 네트워크 보안 그룹 및 방화벽 구성을 간소화하는 방법
 
-## <a name="option-1-additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>옵션 1: 인터넷에 대 한 아웃 바운드 연결에 대 한 추가 외부 Azure 표준 Load Balancer
+## <a name="option-1-additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>옵션 1: 인터넷에 아웃바운드 연결을 설정할 수 있는 추가 외부 Azure 표준 Load Balancer
 
 퍼블릭 엔드포인트에서 VM으로의 인바운드 연결을 허용하지 않고 퍼블릭 엔드포인트에 아웃바운드 연결을 설정하는 한 가지 옵션은 공용 IP 주소를 사용하여 두 번째 부하 분산 장치를 만들고, 두 번째 부하 분산 장치의 백 엔드 풀에 VM을 추가하고 [아웃바운드 규칙](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules)만 정의하는 것입니다.  
 [네트워크 보안 그룹](../../../virtual-network/network-security-groups-overview.md)을 사용하여 VM의 아웃바운드 호출에 액세스할 수 있는 퍼블릭 엔드포인트를 제어하세요.  
@@ -118,7 +118,7 @@ SAP 배포 시 퍼블릭 엔드포인트에 대한 아웃바운드 연결이 필
 
    Azure 네트워크 보안 그룹에 대한 자세한 내용은 [보안 그룹](../../../virtual-network/network-security-groups-overview.md)을 참조하세요. 
 
-## <a name="option-2-azure-firewall-for-outbound-connections-to-internet"></a>옵션 2: 인터넷에 대 한 아웃 바운드 연결에 대 한 Azure 방화벽
+## <a name="option-2-azure-firewall-for-outbound-connections-to-internet"></a>옵션 2: 인터넷에 아웃바운드 연결을 위한 Azure Firewall
 
 VM에서 퍼블릭 엔드포인트로의 인바운드 연결을 허용하지 않고 퍼블릭 엔드포인트에 대한 아웃바운드 연결을 설정하는 또 다른 옵션은 Azure Firewall을 사용하는 것입니다. Azure Firewall은 기본 제공되는 고가용성 관리형 서비스이며 여러 가용성 영역으로 확장할 수 있습니다.  
 또한 VM과 Azure 부하 분산 장치가 배포된 서브넷과 연결되어 있고, Azure Firewall을 가리키고, Azure Firewall을 통해 트래픽을 라우팅하는 [사용자 정의 경로](../../../virtual-network/virtual-networks-udr-overview.md#custom-routes)를 배포해야 합니다.  
@@ -161,14 +161,14 @@ Azure Firewall을 배포하는 방법에 대한 자세한 내용은 [Azure Firew
    1. 이름으로 MyRouteTable을 입력하고 구독, 리소스 그룹 및 위치(가상 네트워크 및 방화벽 위치와 일치하는)를 선택합니다.  
    1. 저장  
 
-   방화벽 규칙은 ![ 방화벽의 모양을 보여 주는 다이어그램 처럼 보입니다.](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
+   방화벽 규칙은 다음과 같이 보입니다: ![방화벽의 모습을 보여 주는 다이어그램](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
 
 6. VM의 서브넷에서 **MyAzureFirewall** 의 개인 IP로 이어지는 사용자 정의 경로를 만듭니다.
    1. [경로 테이블] 내에서 [경로]를 클릭합니다. [추가]를 선택합니다. 
    1. 경로 이름: ToMyAzureFirewall로 지정, 주소 접두사: **0.0.0.0/0**. 다음 홉 유형: 가상 어플라이언스를 선택합니다. 다음 홉 주소: 구성한 방화벽의 개인 IP 주소 **11.97.1.4** 를 입력합니다.  
    1. 저장
 
-## <a name="option-3-using-proxy-for-pacemaker-calls-to-azure-management-api"></a>옵션 3: Azure 관리 API에 대 한 Pacemaker 호출에 프록시 사용
+## <a name="option-3-using-proxy-for-pacemaker-calls-to-azure-management-api"></a>옵션 3: Azure 관리 API에 대한 Pacemaker 호출에 Proxy 사용
 
 프록시를 사용하여 Azure 관리 API 퍼블릭 엔드포인트에 대한 Pacemaker 호출을 허용할 수 있습니다.  
 
@@ -221,10 +221,10 @@ Pacemaker가 Azure 관리 API와 통신할 수 있도록 허용하려면 모든 
 
 ## <a name="other-options"></a>기타 옵션
 
-타사 URL 기반 방화벽 프록시를 통해 아웃 바운드 트래픽이 라우팅되는 경우:
+타사의 URL 기반 방화벽 프록시를 통해 아웃바운드 트래픽이 라우팅되는 경우:
 
-- Azure fence 에이전트를 사용 하는 경우 방화벽 구성이 Azure 관리 API에 대 한 아웃 바운드 연결을 허용 하는지 확인 합니다. `https://management.azure.com``https://login.microsoftonline.com`   
-- SUSE의 Azure 공용 클라우드 업데이트 인프라를 사용 하 여 업데이트 및 패치를 적용 하는 경우 [Azure 공용 클라우드 업데이트 인프라 101](https://suse.com/c/azure-public-cloud-update-infrastructure-101/) 을 참조 하세요.
+- Azure Fence 에이전트를 사용한다면 해당 방화벽 구성이 다음 Azure 관리 API에 대한 아웃바운드 연결을 허용하는지 확인합니다. `https://management.azure.com` 및 `https://login.microsoftonline.com`   
+- SUSE의 Azure 퍼블릭 클라우드 업데이트 인프라를 사용해 업데이트와 패치를 적용하는 경우, [Azure Public Cloud Update Infrastructure 101](https://suse.com/c/azure-public-cloud-update-infrastructure-101/)(Azure 퍼블릭 클라우드 업데이트 인프라에 관한 기본 정보)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

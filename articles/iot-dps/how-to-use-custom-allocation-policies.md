@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub 장치 프로 비전 서비스를 사용 하 여 사용자 지정 할당 정책
-description: DPS (Azure IoT Hub 장치 프로 비전 서비스)에서 사용자 지정 할당 정책을 사용 하는 방법
+title: Azure IoT Hub Device Provisioning Service에서 사용하는 사용자 지정 할당 정책
+description: Azure IoT Hub DPS(Device Provisioning Service)에서 사용자 지정 할당 정책을 사용하는 방법
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/26/2021
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 14a405dbab0460f841a5e9104dbfeff101568f44
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 1432aee341509d8a5bdc9fffe89dd9bad33fc7de
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98919210"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766500"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>사용자 지정 할당 정책을 사용하는 방법
 
@@ -30,13 +30,13 @@ ms.locfileid: "98919210"
 
 디바이스는 등록 ID에 있는 이러한 필수 접미사 중 하나를 기반으로 프로비전됩니다. 이러한 디바이스는 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)에 포함된 프로비저닝 샘플을 사용하여 시뮬레이트됩니다.
 
-이 문서에서는 다음 단계를 수행 합니다.
+이 문서에서는 다음 단계를 수행합니다.
 
 * Azure CLI를 사용하여 두 개의 Contoso 부서 IoT Hub(**Contoso Toasters Division** 및 **Contoso Heat Pumps Division**) 만들기
 * 사용자 지정 할당 정책에 Azure 함수를 사용하여 새 그룹 등록 만들기
 * 두 개의 디바이스 시뮬레이션을 위한 디바이스 키 만들기
 * Azure IoT C SDK에 대한 개발 환경 준비
-* 장치를 시뮬레이션 하 고 사용자 지정 할당 정책에서 예제 코드에 따라 장치를 프로 비전 했는지 확인 합니다.
+* 디바이스를 시뮬레이션하여 사용자 지정 할당 정책의 예제 코드에 따라 프로비전되었는지 확인합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -50,25 +50,25 @@ ms.locfileid: "98919210"
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-## <a name="create-the-provisioning-service-and-two-divisional-iot-hubs"></a>프로 비전 서비스 및 두 개의 디비전 IoT hub 만들기
+## <a name="create-the-provisioning-service-and-two-divisional-iot-hubs"></a>프로비저닝 서비스 및 두 개의 부서 IoT 허브 만들기
 
-이 섹션에서는 Azure Cloud Shell를 사용 하 여 프로 비전 서비스와 **Contoso Toers** 와 **contoso 열 펌프 나누기** 를 나타내는 두 개의 IoT hub를 만듭니다.
+이 섹션에서는 Azure Cloud Shell을 사용하여 프로비저닝 서비스와 **Contoso Toasters Division** 과 **Contoso Heat Pumps Division** 을 나타내는 두 개의 IoT 허브를 만듭니다.
 
 > [!TIP]
-> 이 문서에 사용 된 명령은 미국 서 부 위치에 프로 비전 서비스 및 기타 리소스를 만듭니다. 장치 프로 비전 서비스를 지 원하는 가장 가까운 지역에 리소스를 만드는 것이 좋습니다. `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` 명령을 실행하거나 [Azure 상태](https://azure.microsoft.com/status/) 페이지로 이동하여 “Device Provisioning Service”를 검색함으로써 사용 가능한 위치 목록을 볼 수 있습니다. 명령에서 위치는 단일 또는 다중 단어 형식(예: westus, West US, WEST US 등)으로 지정할 수 있습니다.  값은 대/소문자를 구분하지 않습니다. 다중 단어 형식을 사용하여 위치를 지정하는 경우 값을 따옴표로 묶습니다(예: `-- location "West US"`).
+> 이 문서에 사용된 명령은 미국 서부 위치에 프로비저닝 서비스 및 기타 리소스를 만듭니다. Device Provisioning Service를 지원하는 가장 가까운 지역에 리소스를 만드는 것이 좋습니다. `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` 명령을 실행하거나 [Azure 상태](https://azure.microsoft.com/status/) 페이지로 이동하여 “Device Provisioning Service”를 검색함으로써 사용 가능한 위치 목록을 볼 수 있습니다. 명령에서 위치는 단일 또는 다중 단어 형식(예: westus, West US, WEST US 등)으로 지정할 수 있습니다.  값은 대/소문자를 구분하지 않습니다. 다중 단어 형식을 사용하여 위치를 지정하는 경우 값을 따옴표로 묶습니다(예: `-- location "West US"`).
 >
 
-1. Azure Cloud Shell을 사용하여 [az group create](/cli/azure/group#az-group-create) 명령으로 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
+1. Azure Cloud Shell을 사용하여 [az group create](/cli/azure/group#az_group_create) 명령으로 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
-    다음 예제에서는 *westus* 지역에 *contoso-us-resource 그룹* 이라는 리소스 그룹을 만듭니다. 이 문서에 만든 모든 리소스에 이 그룹을 사용하는 것이 좋습니다. 이 접근 방식은 완료 된 후 더 쉽게 정리 됩니다.
+    다음 예제에서는 *westus* 지역에 *contoso-us-resource-group* 이라는 리소스 그룹을 만듭니다. 이 문서에 만든 모든 리소스에 이 그룹을 사용하는 것이 좋습니다. 이렇게 하면 작업을 완료한 후 정리가 더 쉬워집니다.
 
     ```azurecli-interactive 
     az group create --name contoso-us-resource-group --location westus
     ```
 
-2. Azure Cloud Shell를 사용 하 여 [az iot DPS create](/cli/azure/iot/dps#az-iot-dps-create) 명령을 사용 하 여 DPS (장치 프로 비전 서비스)를 만듭니다. 프로 비전 서비스는 *contoso-미국-리소스 그룹* 에 추가 됩니다.
+2. Azure Cloud Shell을 사용하여 [az iot dps create](/cli/azure/iot/dps#az_iot_dps_create) 명령으로 DPS(Device Provisioning Service)를 만듭니다. 프로비저닝 서비스는 *contoso-us-resource-group* 에 추가됩니다.
 
-    다음 예제에서는 *westus* 위치에 *contoso-프로 비전-서비스-1098* 이라는 프로 비전 서비스를 만듭니다. 고유한 서비스 이름을 사용 해야 합니다. **1098** 대신 서비스 이름에 고유한 접미사를 만듭니다.
+    다음 예제에서는 *westus* 위치에 *contoso-provisioning-service-1098* 이라는 프로비저닝 서비스를 만듭니다. 고유한 서비스 이름을 사용해야 합니다. 서비스 이름에서 **1098** 대신 고유한 접미사를 구성합니다.
 
     ```azurecli-interactive 
     az iot dps create --name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --location westus
@@ -76,12 +76,12 @@ ms.locfileid: "98919210"
 
     이 명령을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
-3. Azure Cloud Shell을 사용하여 [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) 명령으로 **Contoso Toasters Division** IoT Hub를 만듭니다. IoT Hub는 *contoso-us-resource-group* 에 추가됩니다.
+3. Azure Cloud Shell을 사용하여 [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) 명령으로 **Contoso Toasters Division** IoT Hub를 만듭니다. IoT Hub는 *contoso-us-resource-group* 에 추가됩니다.
 
-    다음 예제에서는 *westus* 위치에 *contoso-toers-hub-1098* 라는 IoT hub를 만듭니다. 고유한 허브 이름을 사용 해야 합니다. 허브 이름에서 **1098** 대신 고유한 접미사를 구성합니다. 
+    다음 예제에서는 *westus* 위치에 *contoso-toasters-hub-1098* 이라는 IoT 허브를 만듭니다. 고유한 허브 이름을 사용해야 합니다. 허브 이름에서 **1098** 대신 고유한 접미사를 구성합니다. 
 
     > [!CAUTION]
-    > 사용자 지정 할당 정책에 대 한 예제 Azure 함수 코드에는 `-toasters-` 허브 이름에 부분 문자열이 필요 합니다. 필요한 토스터 부분 문자열을 포함 하는 이름을 사용 해야 합니다.
+    > 사용자 지정 할당 정책에 대한 예제 Azure Function 코드에는 허브 이름에 substring `-toasters-`가 필요합니다. 필요한 토스터 substring을 포함하는 이름을 사용해야 합니다.
     
     ```azurecli-interactive 
     az iot hub create --name contoso-toasters-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
@@ -89,12 +89,12 @@ ms.locfileid: "98919210"
 
     이 명령을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
-4. Azure Cloud Shell을 사용하여 [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) 명령으로 **Contoso Heat Pumps Division** IoT Hub를 만듭니다. 이 IoT Hub도 *contoso-us-resource-group* 에 추가됩니다.
+4. Azure Cloud Shell을 사용하여 [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) 명령으로 **Contoso Heat Pumps Division** IoT Hub를 만듭니다. 이 IoT Hub도 *contoso-us-resource-group* 에 추가됩니다.
 
-    다음 예제에서는 *westus* 위치에 *contoso-heatpumps-1098* 라는 IoT hub를 만듭니다. 고유한 허브 이름을 사용 해야 합니다. 허브 이름에서 **1098** 대신 고유한 접미사를 구성합니다. 
+    다음 예제에서는 *westus* 위치에 *contoso-heatpumps-hub-1098* 이라는 IoT 허브를 만듭니다. 고유한 허브 이름을 사용해야 합니다. 허브 이름에서 **1098** 대신 고유한 접미사를 구성합니다. 
 
     > [!CAUTION]
-    > 사용자 지정 할당 정책에 대 한 예제 Azure 함수 코드에는 `-heatpumps-` 허브 이름에 부분 문자열이 필요 합니다. 필수 heatpumps 부분 문자열을 포함 하는 이름을 사용 해야 합니다.
+    > 사용자 지정 할당 정책에 대한 예제 Azure Function 코드에는 허브 이름에 substring `-heatpumps-`가 필요합니다. 필요한 열 펌프 substring을 포함하는 이름을 사용해야 합니다.
 
     ```azurecli-interactive 
     az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
@@ -102,16 +102,16 @@ ms.locfileid: "98919210"
 
     이 명령을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
-5. IoT hub는 DPS 리소스에 연결 되어야 합니다. 
+5. IoT 허브는 DPS 리소스에 연결되어야 합니다. 
 
-    다음 두 명령을 실행 하 여 방금 만든 허브에 대 한 연결 문자열을 가져옵니다. 허브 리소스 이름을 각 명령에서 선택한 이름으로 바꿉니다.
+    다음 두 개의 명령을 실행하여 방금 만든 허브에 대한 연결 문자열을 가져옵니다. 허브 리소스 이름을 각 명령에서 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive 
     hubToastersConnectionString=$(az iot hub connection-string show --hub-name contoso-toasters-hub-1098 --key primary --query connectionString -o tsv)
     hubHeatpumpsConnectionString=$(az iot hub connection-string show --hub-name contoso-heatpumps-hub-1098 --key primary --query connectionString -o tsv)
     ```
 
-    다음 명령을 실행 하 여 허브를 DPS 리소스에 연결 합니다. DPS 리소스 이름을 각 명령에서 선택한 이름으로 바꿉니다.
+    다음 명령을 실행하여 허브를 DPS 리소스에 연결합니다. DPS 리소스 이름을 각 명령에서 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive 
     az iot dps linked-hub create --dps-name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --connection-string $hubToastersConnectionString --location westus
@@ -123,7 +123,7 @@ ms.locfileid: "98919210"
 
 ## <a name="create-the-custom-allocation-function"></a>사용자 지정 할당 함수 만들기
 
-이 섹션에서는 사용자 지정 할당 정책을 구현하는 Azure 함수를 만듭니다. 이 함수는 등록 ID에 **-007** 또는 **-contoso-hpsd-088** 문자열이 포함 되어 있는지 여부에 따라 장치를 등록 해야 하는 디비전 IoT hub를 결정 합니다. 또한 장치가 toaster 또는 열 펌프 인지 여부에 따라 장치 쌍의 초기 상태를 설정 합니다.
+이 섹션에서는 사용자 지정 할당 정책을 구현하는 Azure 함수를 만듭니다. 이 함수는 등록 ID에 문자열 **-contoso-tstrsd-007** 또는 **-contoso-hpsd-088** 이 포함되어 있는지 여부에 따라 어떤 부서 IoT 허브에 디바이스를 등록해야 하는지 결정합니다. 또한 디바이스가 토스터인지 열 펌프인지 여부에 따라 디바이스 쌍의 초기 상태를 설정합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 홈 페이지에서 **+ 리소스 만들기** 를 선택합니다.
 
@@ -131,15 +131,15 @@ ms.locfileid: "98919210"
 
 3. **함수 앱** 만들기 페이지의 **기본** 탭에서 새 함수 앱에 대해 다음 설정을 입력하고 **검토 + 만들기** 를 선택합니다.
 
-    **리소스 그룹**:이 문서에서 만든 모든 리소스를 함께 유지 하려면 **contoso-미국-리소스 그룹** 을 선택 합니다.
+    **리소스 그룹**: **contoso-us-resource-group** 을 선택하여 이 문서에서 만든 모든 리소스를 함께 유지합니다.
 
-    **함수 앱 이름**: 고유한 함수 앱 이름을 입력합니다. 이 예제에서는 **contoso-1098-** 를 사용 합니다.
+    **함수 앱 이름**: 고유한 함수 앱 이름을 입력합니다. 이 예제에서는 **contoso-function-app-1098** 을 사용합니다.
 
     **게시**: **코드** 가 선택되어 있는지 확인합니다.
 
     **런타임 스택**: 드롭다운에서 **.NET Core** 를 선택합니다.
 
-    **버전**: 드롭다운에서 **3.1** 을 선택 합니다.
+    **버전**: 드롭다운에서 **3.1** 을 선택합니다.
 
     **지역**: 리소스 그룹과 동일한 지역을 선택합니다. 이 예제에서는 **미국 서부** 를 사용합니다.
 
@@ -150,15 +150,15 @@ ms.locfileid: "98919210"
 
 4. **요약** 페이지에서 **만들기** 를 선택하여 함수 앱을 만듭니다. 배포하는 데 몇 분 정도 걸릴 수 있습니다. 완료되면 **리소스로 이동** 을 선택합니다.
 
-5. 함수 앱 **개요** 페이지의 왼쪽 창에서 **함수** 를 클릭 한 다음 **+ 추가** 를 클릭 하 여 새 함수를 추가 합니다.
+5. 함수 앱 **개요** 페이지 왼쪽 창에서 **함수** 를 클릭한 다음, **+ 추가** 를 클릭하여 새 함수를 추가합니다.
 
-6. **함수 추가** 페이지에서 **HTTP 트리거** 를 클릭 한 다음 **추가** 단추를 클릭 합니다.
+6. **함수 추가** 페이지에서 **HTTP 트리거** 를 클릭한 다음, **추가** 단추를 클릭합니다.
 
-7. 다음 페이지에서 **코드 + 테스트** 를 클릭 합니다. 이를 통해 **HttpTrigger1** 이라는 함수의 코드를 편집할 수 있습니다. 편집을 위해 **실행. csx** 코드 파일을 열어야 합니다.
+7. 다음 페이지에서 **코드 + 테스트** 를 클릭합니다. 이를 통해 **HttpTrigger1** 이라는 함수의 코드를 편집할 수 있습니다. 편집을 위해 **run.csx** 코드 파일을 열어야 합니다.
 
-8. 필요한 NuGet 패키지를 참조 합니다. 초기 장치 쌍을 만들기 위해 사용자 지정 할당 함수는 호스팅 환경에 로드 되어야 하는 두 개의 NuGet 패키지에 정의 된 클래스를 사용 합니다. Azure Functions를 사용 하 여 NuGet 패키지는 *함수 proj* 파일을 사용 하 여 참조 됩니다. 이 단계에서는 필요한 어셈블리에 대 한 *함수 proj* 파일을 저장 하 고 업로드 합니다.  자세한 내용은 [Azure Functions에서 NuGet 패키지 사용](../azure-functions/functions-reference-csharp.md#using-nuget-packages)을 참조 하세요.
+8. 필요한 NuGet 패키지를 참조합니다. 초기 디바이스 쌍을 만들기 위해 사용자 지정 할당 함수는 호스팅 환경에 로드되어야 하는 두 개의 NuGet 패키지에 정의된 클래스를 사용합니다. Azure Functions에서 NuGet 패키지는 *function.proj* 파일을 사용하여 참조됩니다. 이 단계에서는 필요한 어셈블리에 대한 *function.proj* 파일을 저장하고 업로드합니다.  자세한 내용은 [Azure Functions에서 NuGet 패키지 사용](../azure-functions/functions-reference-csharp.md#using-nuget-packages)을 참조하세요.
 
-    1. 다음 줄을 원하는 편집기에 복사 하 고 컴퓨터의 파일을 *proj* 로 저장 합니다.
+    1. 즐겨 쓰는 편집기에 다음 줄을 복사하고 컴퓨터에 파일을 *function.proj* 로 저장합니다.
 
         ```xml
         <Project Sdk="Microsoft.NET.Sdk">  
@@ -172,9 +172,9 @@ ms.locfileid: "98919210"
         </Project>
         ```
 
-    2. 코드 편집기 위에 있는 **업로드** 단추를 클릭 하 여 *함수 proj* 파일을 업로드 합니다. 업로드 후 콘텐츠를 확인 하려면 드롭다운 상자를 사용 하 여 코드 편집기에서 파일을 선택 합니다.
+    2. 코드 편집기 위에 있는 **업로드** 단추를 클릭하여 *function.proj* 파일을 업로드합니다. 업로드 후 콘텐츠를 확인하려면 드롭다운 상자를 사용하여 코드 편집기에서 파일을 선택합니다.
 
-9. 코드 편집기에서 **HttpTrigger1** 용 csx가 선택 되어 있는지 확인 *합니다.* **HttpTrigger1** 함수의 코드를 다음 코드로 바꾸고 **저장** 을 선택 합니다.
+9. 코드 편집기에서 **HttpTrigger1** 용 *run.csx* 가 선택되어 있는지 확인합니다. **HttpTrigger1** 함수의 코드를 다음 코드로 바꾸고 **저장** 을 선택합니다.
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -321,7 +321,7 @@ ms.locfileid: "98919210"
 
 2. 왼쪽 창에서 **등록 관리** 를 선택한 다음, 페이지 맨 위에 있는 **등록 그룹 추가** 단추를 선택합니다.
 
-3. **등록 그룹 추가** 에서 다음 정보를 입력 하 고 **저장** 단추를 선택 합니다.
+3. **등록 그룹 추가** 에서 다음 정보를 입력하고 **저장** 단추를 선택합니다.
 
     **그룹 이름**: **contoso-custom-allocated-devices** 를 입력합니다.
 
@@ -331,11 +331,11 @@ ms.locfileid: "98919210"
 
     **허브에 디바이스를 할당할 방법 선택**: **사용자 지정(Azure 함수 사용)** 을 선택합니다.
 
-    **구독**: Azure Function을 만든 구독을 선택 합니다.
+    **구독**: Azure Function을 만든 구독을 선택합니다.
 
-    **함수 앱**: 이름을 기준으로 함수 앱을 선택 합니다. 이 예제에서는 **contoso-1098-** 이 사용 되었습니다.
+    **함수 앱**: 이름별로 함수 앱을 선택합니다. 이 예제에서는 **contoso-function-app-1098** 이 사용되었습니다.
 
-    **함수**: **HttpTrigger1** 함수를 선택 합니다.
+    **함수**: **HttpTrigger1** 함수를 선택합니다.
 
     ![대칭 키 증명에 대한 사용자 지정 할당 등록 그룹 추가](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
@@ -345,7 +345,7 @@ ms.locfileid: "98919210"
 
 이 섹션에서는 두 개의 고유한 디바이스 키를 만듭니다. 하나의 키는 시뮬레이트된 토스터 디바이스에 사용됩니다. 다른 키는 시뮬레이트된 열 펌프 디바이스에 사용됩니다.
 
-장치 키를 생성 하려면 앞에서 적어둔 **기본 키** 를 사용 하 여 각 장치에 대 한 장치 등록 ID의 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) 을 계산 하 고 그 결과를 Base64 형식으로 변환 합니다. 등록 그룹을 사용하여 파생된 디바이스 키를 만드는 방법에 대한 자세한 내용은 [대칭 키 증명](concepts-symmetric-key-attestation.md)의 그룹 등록 섹션을 참조하세요.
+디바이스 키를 생성하려면 이전에 적어둔 **기본 키** 를 사용하여 각 디바이스에 대한 디바이스 등록 ID의 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC)를 계산하고 결과를 Base64 형식으로 변환합니다. 등록 그룹을 사용하여 파생된 디바이스 키를 만드는 방법에 대한 자세한 내용은 [대칭 키 증명](concepts-symmetric-key-attestation.md)의 그룹 등록 섹션을 참조하세요.
 
 이 문서의 예제에서는 다음 두 디바이스 등록 ID를 사용하여 두 디바이스의 디바이스 키를 컴퓨팅합니다. 두 등록 ID에는 모두 사용자 지정 할당 정책에 대한 예제 코드에서 작동하는 유효한 접미사가 있습니다.
 
@@ -382,7 +382,7 @@ mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
 
 # <a name="linux"></a>[Linux](#tab/linux)
 
-Linux 워크스테이션을 사용 하는 경우 다음 예제와 같이 openssl를 사용 하 여 파생 된 장치 키를 생성할 수 있습니다.
+Linux 워크스테이션을 사용하는 경우 openssl을 사용하여 다음 예제에 표시된 대로 파생된 디바이스 키를 생성할 수 있습니다.
 
 **KEY** 의 값을 이전에 적어 둔 **기본 키** 로 바꿉니다.
 
@@ -516,7 +516,7 @@ mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
 
 2. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작** 을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하라는 프롬프트에서 **예** 를 선택하여 실행하기 전에 프로젝트를 다시 빌드합니다.
 
-    다음 출력은 사용자 지정 할당 정책에 의해 토스터 IoT hub에 할당 될 프로 비전 서비스 인스턴스를 성공적으로 부팅 및 연결 하는 시뮬레이션 된 toaster 장치의 예입니다.
+    다음 출력은 시뮬레이션된 토스터 디바이스를 성공적으로 부팅하고, 사용자 지정 정책을 통해 토스터 IoT 허브에 할당할 프로비저닝 서비스 인스턴스에 연결하는 예제입니다.
 
     ```cmd
     Provisioning API Version: 1.3.6
@@ -545,7 +545,7 @@ mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
 
 2. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작** 을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하라는 프롬프트에서 **예** 를 선택하여 실행하기 전에 프로젝트를 다시 빌드합니다.
 
-    다음 출력은 사용자 지정 할당 정책에 따라 Contoso 열 펌프 IoT hub에 할당 될 프로 비전 서비스 인스턴스를 성공적으로 부팅 및 연결 하는 시뮬레이션 된 열 펌프 장치의 예입니다.
+    다음 출력은 시뮬레이션된 열 펌프 디바이스를 성공적으로 부팅하고, 사용자 지정 정책을 통해 Contoso 열 펌프 IoT 허브에 할당할 프로비저닝 서비스 인스턴스에 연결하는 예제입니다.
 
     ```cmd
     Provisioning API Version: 1.3.6
@@ -563,7 +563,7 @@ mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
 
 ## <a name="troubleshooting-custom-allocation-policies"></a>사용자 지정 할당 정책 문제 해결
 
-다음 표에서는 예상 되는 시나리오 및 사용자가 받을 수 있는 결과 오류 코드를 보여 줍니다. 이 표를 사용하여 Azure Functions와 관련된 사용자 지정 할당 정책 오류를 해결할 수 있습니다.
+다음 표는 예상 시나리오와 발생할 수 있는 결과 오류 코드를 보여줍니다. 이 표를 사용하여 Azure Functions와 관련된 사용자 지정 할당 정책 오류를 해결할 수 있습니다.
 
 | 시나리오 | Provisioning Service의 등록 결과 | 프로비저닝 SDK 결과 |
 | -------- | --------------------------------------------- | ------------------------ |
@@ -596,5 +596,5 @@ mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
 
 ## <a name="next-steps"></a>다음 단계
 
-* 다시 프로 비전에 대 한 자세한 내용은 [IoT Hub Device 다시 프로 비전 개념](concepts-device-reprovision.md) 을 참조 하세요. 
-* 프로 비전 해제에 대 한 자세한 내용은 [이전에 autoprovisioned 장치를 프로 비전 해제 하는 방법](how-to-unprovision-devices.md) 을 참조 하세요.
+* 다시 프로비저닝에 대한 자세한 내용은 [IoT Hub 디바이스 다시 프로비저닝 개념](concepts-device-reprovision.md)을 참조하세요. 
+* 프로비저닝 해제에 대한 자세한 내용은 [이전에 자동 프로비전된 디바이스를 프로비저닝 해제하는 방법](how-to-unprovision-devices.md)을 참조하세요.

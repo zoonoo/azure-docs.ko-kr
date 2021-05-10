@@ -1,5 +1,5 @@
 ---
-title: Azure에서 Vm에 대 한 예약 된 이벤트 모니터링
+title: Azure에서 VM에 예약된 이벤트 모니터링하기
 description: Azure Virtual Machines에서 예약된 이벤트를 모니터링하는 방법을 알아봅니다.
 author: mysarn
 ms.service: virtual-machines
@@ -8,13 +8,13 @@ ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
 ms.openlocfilehash: 866522da162d22621bd37bf9d2f2fa6838206e17
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101674697"
 ---
-# <a name="monitor-scheduled-events-for-your-azure-vms"></a>Azure Vm에 대 한 예약 된 이벤트 모니터링
+# <a name="monitor-scheduled-events-for-your-azure-vms"></a>Azure VM에 예약된 이벤트 모니터링하기
 
 업데이트는 매일 Azure의 다른 부분에 적용되므로 서비스를 안전하게 실행하고 최신 상태로 유지할 수 있습니다. 계획된 업데이트 외에 계획되지 않은 이벤트도 발생할 수 있습니다. 예를 들어, 하드웨어 성능 저하 또는 오류가 감지되면 Azure 서비스는 계획되지 않은 유지 관리를 수행해야 할 수 있습니다. 실시간 마이그레이션, 메모리 보존 업데이트를 사용하고 업데이트가 미치는 영향에 대해 엄격한 기준을 유지하므로, 대부분의 경우 이러한 이벤트는 고객에 게 거의 투명하게 진행되며, 가상 머신에 전혀 영향을 주지 않거나 기껏해야 몇 초 정도만 가상 머신 작동을 중단합니다. 그러나 일부 애플리케이션의 경우 가상 머신이 몇 초 정도만 중단되어도 영향을 받을 수 있습니다. 이러한 애플리케이션에 대해 최상의 환경을 보장하기 위해 예정된 Azure 유지 관리를 미리 파악하는 것이 중요합니다. [Scheduled Events 서비스](scheduled-events.md)는 프로그래밍 인터페이스를 통해 예정된 유지 관리에 대한 알림을 제공하고, 유지 관리를 정상적으로 처리할 수 있도록 합니다. 
 
@@ -39,7 +39,7 @@ Scheduled Events는 [Azure Instance Metadata Service](instance-metadata-service.
 
 ## <a name="set-up-the-environment"></a>환경 설정
 
-이제 가용성 집합에 두 개의 초기 VM이 있어야 합니다. 이제 동일한 가용성 집합에서 라는 세 번째 VM을 만들어야 `myCollectorVM` 합니다. 
+이제 가용성 집합에 두 개의 초기 VM이 있어야 합니다. 이제 동일한 가용성 집합에 `myCollectorVM`이라는 세 번째 VM을 만들어야 합니다. 
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -150,7 +150,7 @@ New-AzVm `
     | project-away RenderedDescription,ReqJson
     ```
 
-1. **저장** 을 선택 하 고 이름으로를 입력 한 다음 `ogQuery` **쿼리** 를 유형으로 유지 하 `VMLogs` 고를 **범주로** 입력 한 후 **저장** 을 선택 합니다. 
+1. **저장** 을 선택한 뒤, 이름에 `ogQuery`를 입력하고 유형으로 **쿼리** 를 남겨 놓고 `VMLogs`를 **범주** 에 입력한 다음, **저장** 을 선택합니다. 
 
     ![쿼리 저장](./media/notifications/save-query.png)
 

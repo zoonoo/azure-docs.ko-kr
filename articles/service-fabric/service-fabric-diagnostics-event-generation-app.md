@@ -1,13 +1,13 @@
 ---
-title: Azure Service Fabric 응용 프로그램 수준 모니터링
+title: Azure Service Fabric 애플리케이션 수준 모니터링
 description: Azure Service Fabric 클러스터를 모니터링 및 진단하는 데 사용되는 애플리케이션 및 서비스 수준 이벤트와 로그에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.openlocfilehash: a60eef008afae4185acc266c74c4fb0ce694d560
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105627492"
 ---
 # <a name="application-logging"></a>애플리케이션 로깅
@@ -24,7 +24,7 @@ Application Insights에는 즉시 사용이 가능한 Service Fabric과의 통�
 
 ## <a name="eventsource"></a>EventSource
 
-Visual Studio의 템플릿에서 Service Fabric 솔루션을 만들면 **EventSource** 파생 클래스(**ServiceEventSource** 또는 **ActorEventSource**)가 생성됩니다. 애플리케이션 또는 서비스에 대한 이벤트를 추가할 수 있는 템플릿을 만듭니다. **EventSource** 이름은 고유 **해야** 하며 기본 템플릿 문자열 MyCompany-솔루션 프로젝트에서 이름을 바꿔야 합니다 &lt; &gt; - &lt; &gt; . 동일한 이름을 사용하는 **EventSource** 정의가 여러 개 있으면 런타임에서 문제가 발생합니다. 정의된 각 이벤트에는 고유 식별자가 있어야 합니다. 식별자가 고유하지 않으면 런타임 오류가 발생합니다. 일부 조직에서는 별도의 개발 팀 간에 충돌을 피하기 위해 식별자에 대한 값의 범위가 미리 할당됩니다. 자세한 내용은 [Vance의 블로그](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource) 또는 [MSDN 설명서](/previous-versions/msp-n-p/dn774985(v=pandp.20))를 참조하세요.
+Visual Studio의 템플릿에서 Service Fabric 솔루션을 만들면 **EventSource** 파생 클래스(**ServiceEventSource** 또는 **ActorEventSource**)가 생성됩니다. 애플리케이션 또는 서비스에 대한 이벤트를 추가할 수 있는 템플릿을 만듭니다. **EventSource** 이름은 **고유해야** 하며 MyCompany-&lt;solution&gt;-&lt;project&gt; 기본 템플릿 문자열에서 이름을 변경해야 합니다. 동일한 이름을 사용하는 **EventSource** 정의가 여러 개 있으면 런타임에서 문제가 발생합니다. 정의된 각 이벤트에는 고유 식별자가 있어야 합니다. 식별자가 고유하지 않으면 런타임 오류가 발생합니다. 일부 조직에서는 별도의 개발 팀 간에 충돌을 피하기 위해 식별자에 대한 값의 범위가 미리 할당됩니다. 자세한 내용은 [Vance의 블로그](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource) 또는 [MSDN 설명서](/previous-versions/msp-n-p/dn774985(v=pandp.20))를 참조하세요.
 
 ## <a name="aspnet-core-logging"></a>ASP.NET Core 로깅
 

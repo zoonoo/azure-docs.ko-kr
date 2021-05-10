@@ -1,28 +1,25 @@
 ---
-title: 빠른 시작-SDK를 호출 하는 Azure 통신 서비스 사용
+title: 빠른 시작 - SDK를 호출하는 Azure Communication Services 사용
 titleSuffix: An Azure Communication Services quickstart
-description: SDK 기능을 호출 하는 통신 서비스에 대해 알아봅니다.
-author: mikben
-manager: jken
+description: SDK 기능을 호출하는 Communication Services에 대해 알아봅니다.
+author: rinarish
+manager: rinarish
 services: azure-communication-services
-ms.author: mikben
+ms.author: arturk
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: b5ade06e8338dd810651ccd606c7dc9a313b6fa9
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
-ms.translationtype: MT
+ms.openlocfilehash: 87808cfd97be5fb38ee64ef57540aada255f6ca5
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107748"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110345"
 ---
-# <a name="quickstart-use-the-communication-services-calling-sdk"></a>빠른 시작: SDK를 호출 하는 통신 서비스 사용
+# <a name="quickstart-use-the-communication-services-calling-sdk"></a>빠른 시작: SDK를 호출하는 Communication Services 사용
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-
-SDK를 호출 하는 통신 서비스를 사용 하 여 앱에 음성 및 비디오 호출을 추가 하 여 Azure 통신 서비스를 시작 하세요.
+Communication Services Calling SDK를 사용하여 앱에 음성 및 영상 통화를 추가하여 Azure Communication Services를 시작하세요.
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/calling-sdk-js.md)]

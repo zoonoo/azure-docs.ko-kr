@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 89fe380c3a8e0e0a82cc806bf19f9a3454041d94
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97592350"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---company-policy-and-compliance"></a>Azure DevTest Labs 인프라의 거버넌스 - 회사 정책 및 규정 준수
@@ -37,7 +37,7 @@ ms.locfileid: "97592350"
 - Azure 구독이 인증 및 권한 부여에 사용하는 동일한 Azure Active Directory 테넌트에 Azure Repos를 연결합니다.
 - Azure Active Directory에 중앙에서 관리되는 **모든 DevTest Labs 개발자** 그룹을 만듭니다. 아티팩트 개발에 참여하는 모든 개발자는 이 그룹에 배치되어야 합니다.
 - 동일한 Azure Active Directory 그룹을 사용하여 Azure Repos 리포지토리 및 랩에 대한 액세스 권한을 부여할 수 있습니다.
-- Azure Repos에서 분기 또는 포크를 사용하여 기본 프로덕션 리포지토리에서 개발용 리포지토리를 분리해야 합니다. 콘텐츠는 적절 한 코드 검토 후 끌어오기 요청을 사용 하 여 주 분기에만 추가 됩니다. 코드 검토자가 변경 내용을 승인 하면 main 분기의 유지 관리를 담당 하는 리드 개발자가 업데이트 된 코드를 병합 합니다. 
+- Azure Repos에서 분기 또는 포크를 사용하여 기본 프로덕션 리포지토리에서 개발용 리포지토리를 분리해야 합니다. 콘텐츠는 적절한 코드 검토 후에 끌어오기 요청을 통해서만 기본 분기에 추가됩니다. 코드 검토자가 변경을 승인하면 기본 분기의 유지 관리를 담당하는 수석 개발자가 업데이트된 코드를 병합합니다. 
 
 ## <a name="corporate-security-policies"></a>회사 보안 정책
 

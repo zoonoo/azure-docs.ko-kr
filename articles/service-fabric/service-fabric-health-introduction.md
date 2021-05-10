@@ -3,12 +3,12 @@ title: Service Fabric 상태 모니터링
 description: 클러스터 및 애플리케이션과 서비스 모니터링을 제공하는 Azure 서비스 패브릭 상태 모니터링 모델 소개.
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.openlocfilehash: 1fa000d46a6199fa23f07e5310eaca96b60a183f
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: a1c545048739182e3baba3e3d94da1accca227d1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311280"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105627418"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>서비스 패브릭 상태 모니터링 소개
 다양하고 유연하며 확장 가능한 상태 평가 및 보고 기능을 제공하는 상태 모델이 Azure 서비스 패브릭에 도입되었습니다. 이 모델에서는 클러스터의 상태와 클러스터에서 실행되는 서비스의 상태를 거의 실시간으로 모니터링할 수 있습니다. 간편하게 상태 정보를 얻을 수 있고 잠재적인 문제로 인한 대규모 중단 사태가 발생하기 전에 해당 문제를 해결할 수 있습니다. 일반적인 모델에서는 서비스가 로컬 보기를 기반으로 한 보고서를 보내고 정보는 전체 클러스터 수준 보기를 제공하도록 집계됩니다.
@@ -99,7 +99,7 @@ Health 스토어는 상태 정책을 적용하여 보고서와 해당 자식에 
   </FabricSettings>
   ```
 
-* `NodeTypeHealthPolicyMap`. 클러스터 상태를 평가하는 동안 노드 유형 상태 정책 맵을 사용하여 특수 노드 유형을 설명할 수 있습니다. 노드 유형은 맵 내의 해당 노드 유형 이름과 연결된 백분율에 대해 평가됩니다. 이 값을 설정해도 `MaxPercentUnhealthyNodes`에 사용되는 노드의 전역 풀에는 영향을 주지 않습니다. 예를 들어 클러스터에는 다양한 유형의 여러 노드가 있고 중요한 작업을 호스트하는 몇 가지 노드 유형이 있습니다. 해당 유형의 노드는 가동 중단되지 않아야 합니다. 모든 노드의 실패를 허용하기 위해 전역 `MaxPercentUnhealthyNodes`를 20%로 지정할 수 있지만 노드 유형 `SpecialNodeType`에 대해서는 `MaxPercentUnhealthyNodes`를 0으로 설정합니다. 이러한 방식으로, 여러 노드 중 일부가 비정상 상태이더라도 전체 비정상 비율보다 낮으면 클러스터는 경고 상태로 평가됩니다. 경고 상태는 클러스터 업그레이드 또는 오류 상태에 의해 트리거되는 기타 모니터링에 영향을 주지 않습니다. 그러나 오류 상태에 있는 `SpecialNodeType` 유형의 노드 하나만으로도 클러스터가 비정상 상태가 되며 업그레이드 구성에 따라 롤백이 트리거되거나 클러스터 업그레이드가 일시 중지됩니다. 반면에 전역 `MaxPercentUnhealthyNodes`를 0으로 설정하고, 오류 상태인 `SpecialNodeType` 유형의 한 노드에서 `SpecialNodeType` 최대 백분율 비정상 노드를 100으로 설정해도 이 경우에는 전역 제한이 더 엄격하므로 해당 클러스터가 오류 상태를 유지합니다. 
+* [NodeTypeHealthPolicyMap](/dotnet/api/system.fabric.health.clusterhealthpolicy.nodetypehealthpolicymap). 클러스터 상태를 평가하는 동안 노드 유형 상태 정책 맵을 사용하여 특수 노드 유형을 설명할 수 있습니다. 노드 유형은 맵 내의 해당 노드 유형 이름과 연결된 백분율에 대해 평가됩니다. 이 값을 설정해도 `MaxPercentUnhealthyNodes`에 사용되는 노드의 전역 풀에는 영향을 주지 않습니다. 예를 들어 클러스터에는 다양한 유형의 여러 노드가 있고 중요한 작업을 호스트하는 몇 가지 노드 유형이 있습니다. 해당 유형의 노드는 가동 중단되지 않아야 합니다. 모든 노드의 실패를 허용하기 위해 전역 `MaxPercentUnhealthyNodes`를 20%로 지정할 수 있지만 노드 유형 `SpecialNodeType`에 대해서는 `MaxPercentUnhealthyNodes`를 0으로 설정합니다. 이러한 방식으로, 여러 노드 중 일부가 비정상 상태이더라도 전체 비정상 비율보다 낮으면 클러스터는 경고 상태로 평가됩니다. 경고 상태는 클러스터 업그레이드 또는 오류 상태에 의해 트리거되는 기타 모니터링에 영향을 주지 않습니다. 그러나 오류 상태에 있는 `SpecialNodeType` 유형의 노드 하나만으로도 클러스터가 비정상 상태가 되며 업그레이드 구성에 따라 롤백이 트리거되거나 클러스터 업그레이드가 일시 중지됩니다. 반면에 전역 `MaxPercentUnhealthyNodes`를 0으로 설정하고, 오류 상태인 `SpecialNodeType` 유형의 한 노드에서 `SpecialNodeType` 최대 백분율 비정상 노드를 100으로 설정해도 이 경우에는 전역 제한이 더 엄격하므로 해당 클러스터가 오류 상태를 유지합니다. 
 
   다음 예제는 클러스터 매니페스트에서 발췌한 내용입니다. 노드 유형 맵에 항목을 정의하려면 매개 변수 이름 앞에 "NodeTypeMaxPercentUnhealthyNodes-"를 붙이고 그 뒤에 노드 유형 이름을 붙이면 됩니다.
 

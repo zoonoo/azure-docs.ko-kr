@@ -1,54 +1,54 @@
 ---
-title: 관리 Id를 사용 하 여 Power BI 출력에 Azure Stream Analytics 작업 인증
-description: 이 문서에서는 관리 되는 id를 사용 하 여 Azure Stream Analytics 작업을 Power BI 출력에 인증 하는 방법을 설명 합니다.
+title: 관리 ID를 사용하여 Power BI 출력에 대해 Azure Stream Analytics 작업 인증
+description: 이 문서에서는 관리 ID를 사용하여 Azure SQL DB 출력에 대해 Azure Stream Analytics 작업을 인증하는 방법을 설명합니다.
 ms.service: stream-analytics
 author: enkrumah
 ms.author: ebnkruma
 ms.topic: how-to
 ms.date: 3/10/2020
 ms.openlocfilehash: 7c1ddbbbd8198cf769e89cfa824de370184a992c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104589687"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>관리 Id를 사용 하 여 Power BI에 대 한 Azure Stream Analytics 작업 인증
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>관리 ID를 사용하여 Power BI에 Azure Stream Analytics 작업 인증
 
-Power BI 출력을 위한 [관리 되는 id 인증은](../active-directory/managed-identities-azure-resources/overview.md) Power BI 계정 내의 작업 영역에 대 한 직접 액세스를 Stream Analytics 작업에 제공 합니다. 이 기능을 사용 하면 사용자가 Azure Portal를 통해 Power BI에 대화형으로 로그인 하는 데 더 이상 필요 하지 않으므로 Stream Analytics 작업의 배포가 완전히 자동화 될 수 있습니다. 또한 Power BI에 기록 하는 장기 실행 작업이 이제 정기적으로 다시 인증 작업을 수행 하지 않아도 되므로 더 잘 지원 됩니다.
+Power BI에 대한 출력에 [관리 ID 인증](../active-directory/managed-identities-azure-resources/overview.md)을 사용하면 Stream Analytics 작업에서 Power BI 계정 내의 작업 영역에 직접 액세스할 수 있습니다. 이 기능을 사용하면 사용자는 더 이상 Azure Portal을 통해 Power BI에 대화형으로 로그인할 필요가 없으므로 Stream Analytics 작업의 배포가 완전히 자동화될 수 있습니다. 또한 Power BI에 쓰는 장기 실행 작업을 주기적으로 다시 인증할 필요가 없으므로 보다 잘 지원됩니다.
 
-이 문서에서는 Azure Portal 및 Azure Resource Manager 배포를 통해 Stream Analytics 작업의 Power BI 출력에 대해 관리 되는 Id를 사용 하도록 설정 하는 방법을 보여 줍니다.
+이 문서에서는 Azure Portal 및 Azure Resource Manager 배포를 통해 Stream Analytics 작업의 Power BI 출력에 대해 관리 ID를 사용하도록 설정하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-이 기능을 사용 하려면 다음이 필요 합니다.
+이 기능을 사용하려면 다음 항목이 필요합니다.
 
-- [Pro 라이선스가](/power-bi/service-admin-purchasing-power-bi-pro)있는 Power BI 계정
+- [Pro 라이선스](/power-bi/service-admin-purchasing-power-bi-pro)가 있는 Power BI 계정
 
-- Power BI 계정 내에서 업그레이드 된 작업 영역입니다. 자세한 내용은이 기능에 대 한 [Power BI의 공지](https://powerbi.microsoft.com/blog/announcing-new-workspace-experience-general-availability-ga/) 를 참조 하세요.
+- Power BI 계정 내의 업그레이드된 작업 영역. 자세한 내용은 이 기능에 대한 [Power BI 알림](https://powerbi.microsoft.com/blog/announcing-new-workspace-experience-general-availability-ga/)을 참조하세요.
 
-## <a name="create-a-stream-analytics-job-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Stream Analytics 작업 만들기
+## <a name="create-a-stream-analytics-job-using-the-azure-portal"></a>Azure Portal을 사용하여 Stream Analytics 작업 만들기
 
-1. 새 Stream Analytics 작업을 만들거나 Azure Portal에서 기존 작업을 엽니다. 화면 왼쪽에 있는 메뉴 모음에서 **구성** 아래에 있는 **관리 되는 id** 를 선택 합니다. "시스템 할당 관리 Id 사용"이 선택 되어 있는지 확인 한 다음 화면 아래쪽에 있는 **저장** 단추를 선택 합니다.
+1. 새 Stream Analytics 작업을 만들거나 Azure Portal에서 기존 작업을 엽니다. 화면 왼쪽에 있는 메뉴 모음에서 **구성** 아래에 있는 **관리 ID** 를 선택합니다. "시스템 할당 관리 ID 사용"이 선택되어 있는지 확인한 다음, 화면 아래쪽에 있는 **저장** 단추를 선택합니다.
 
-   ![관리 id Stream Analytics 구성](./media/common/stream-analytics-enable-managed-identity.png)
+   ![Stream Analytics 관리 ID 구성](./media/common/stream-analytics-enable-managed-identity.png)
 
-2. 출력을 구성 하기 전에이 문서의 [Power BI 작업 영역에 대 한 Stream Analytics 작업 액세스 권한 부여](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) 섹션의 지침에 따라 Stream Analytics 작업에 Power BI 작업 영역에 대 한 액세스 권한을 부여 합니다.
+2. 출력을 구성하기 전에 이 문서의 [Stream Analytics 작업에 Power BI 작업 영역에 대한 액세스 권한 부여](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) 섹션의 지침에 따라 Stream Analytics 작업에 Power BI 작업 영역에 대한 액세스 권한을 부여합니다.
 
-3. Stream analytics 작업의 **출력** 섹션으로 이동 하 고 **+ 추가** 를 선택한 다음 **Power BI** 를 선택 합니다. 그런 다음 **권한 부여** 단추를 선택 하 고 Power BI 계정으로 로그인 합니다.
+3. Stream analytics 작업의 **출력** 섹션으로 이동하고 **+ 추가** 를 선택한 다음, **Power BI** 를 선택합니다. 그런 다음, **권한 부여** 단추를 선택하고 Power BI 계정으로 로그인합니다.
 
    ![Power BI 계정으로 권한 부여](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-authorize-powerbi.png)
 
-4. 권한이 부여 되 면 사용자가 액세스할 수 있는 모든 작업 영역이 드롭다운 목록에 채워집니다. 이전 단계에서 권한이 부여 된 작업 영역을 선택 합니다. 그런 다음 "인증 모드"로 **관리 되는 id** 를 선택 합니다. 마지막으로 **저장** 단추를 선택 합니다.
+4. 권한이 부여되면 사용자가 액세스할 수 있는 모든 작업 영역으로 드롭다운 목록이 채워집니다. 이전 단계에서 권한을 부여한 작업 영역을 선택합니다. 그런 다음, "인증 모드"로 **관리 ID** 를 선택합니다. 마지막으로 **저장** 단추를 선택합니다.
 
-   ![관리 Id를 사용 하 여 출력 Power BI 구성](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-configure-powerbi-with-managed-id.png)
+   ![관리 ID를 사용하여 Power BI 출력 구성](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-configure-powerbi-with-managed-id.png)
 
 ## <a name="azure-resource-manager-deployment"></a>Azure Resource Manager 배포
 
-Azure Resource Manager를 사용 하 여 Stream Analytics 작업의 배포를 완벽 하 게 자동화할 수 있습니다. Azure PowerShell 또는 [Azure CLI](/cli/azure/)를 사용 하 여 리소스 관리자 템플릿을 배포할 수 있습니다. 아래 예제에서는 Azure CLI을 사용 합니다.
+Azure Resource Manager를 사용하여 Stream Analytics 작업의 배포를 완전히 자동화할 수 있습니다. Azure PowerShell 또는 [Azure CLI](/cli/azure/)를 사용하여 Resource Manager 템플릿을 배포할 수 있습니다. 아래 예제에서는 Azure CLI를 사용합니다.
 
 
-1. 리소스 관리자 템플릿의 리소스 섹션에 다음 속성을 포함 하 여 관리 되는 Id를 사용 하 여 **Microsoft StreamAnalytics/streamingjobs** 리소스를 만들 수 있습니다.
+1. Resource Manager 템플릿의 리소스 섹션에 다음 속성을 포함하여 관리 ID를 통해 **Microsoft.StreamAnalytics/streamingjobs** 리소스를 만들 수 있습니다.
 
     ```json
     "identity": {
@@ -56,7 +56,7 @@ Azure Resource Manager를 사용 하 여 Stream Analytics 작업의 배포를 �
     }
     ```
 
-   이 속성은 Stream Analytics 작업에 대 한 id를 만들고 관리 Azure Resource Manager를 알려 줍니다. 다음은 관리 되는 Id를 사용 하는 Stream Analytics 작업을 배포 하 고 관리 되는 Id를 사용 하는 Power BI 출력 싱크에 리소스 관리자 템플릿 예제입니다.
+   이 속성을 통해 Azure Resource Manager에서 Stream Analytics 작업에 대한 ID를 만들어서 관리합니다. 다음은 관리 ID를 사용하도록 설정한 Stream Analytics 작업과 관리 ID를 사용하는 Power BI 출력 싱크를 배포하는 Resource Manager 템플릿 예제입니다.
 
     ```json
     {
@@ -97,19 +97,19 @@ Azure Resource Manager를 사용 하 여 Stream Analytics 작업의 배포를 �
     }
     ```
 
-    아래 Azure CLI 명령을 사용 하 여 리소스 그룹 **ExampleGroup** 위의 작업을 배포 합니다.
+    아래 Azure CLI 명령을 사용하여 리소스 그룹 **ExampleGroup** 에 위의 작업을 배포합니다.
 
     ```azurecli
     az deployment group create --resource-group ExampleGroup -template-file StreamingJob.json
     ```
 
-2. 작업을 만든 후 Azure Resource Manager를 사용 하 여 작업의 전체 정의를 검색 합니다.
+2. 작업을 만든 후 Azure Resource Manager를 사용하여 작업의 전체 정의를 검색합니다.
 
     ```azurecli
     az resource show --ids /subscriptions/<subsription-id>/resourceGroups/<resource-group>/providers/Microsoft.StreamAnalytics/StreamingJobs/<resource-name>
     ```
 
-    위의 명령은 다음과 같은 응답을 반환 합니다.
+    위의 명령은 다음과 같은 응답을 반환합니다.
 
     ```json
     {
@@ -148,46 +148,46 @@ Azure Resource Manager를 사용 하 여 Stream Analytics 작업의 배포를 �
     }
     ```
 
-    Power BI의 REST API를 사용 하 여 Power BI 작업 영역에 Stream Analytics 작업을 추가 하려는 경우 반환 된 "principalId"를 적어둡니다.
+    Power BI의 REST API를 사용하여 Power BI 작업 영역에 Stream Analytics 작업을 추가하려는 경우 반환된 "principalId"를 적어둡니다.
 
-3. 이제 작업이 만들어졌으므로이 문서의 [Power BI 작업 영역에 대 한 Stream Analytics 작업 액세스 권한 부여](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) 섹션으로 이동 합니다.
+3. 이제 작업이 만들어졌으므로 이 문서의 [Stream Analytics 작업에 Power BI 작업 영역에 대한 액세스 권한 부여](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) 섹션으로 이동합니다.
 
 
-## <a name="give-the-stream-analytics-job-access-to-your-power-bi-workspace"></a>Stream Analytics 작업에 Power BI 작업 영역에 대 한 액세스 권한 부여
+## <a name="give-the-stream-analytics-job-access-to-your-power-bi-workspace"></a>Stream Analytics 작업에 Power BI 작업 영역에 대한 액세스 권한 부여
 
-이제 Stream Analytics 작업이 만들어졌으므로 Power BI 작업 영역에 대 한 액세스 권한을 부여할 수 있습니다. 작업 액세스를 지정 하면 id가 전파 될 때까지 몇 분이 걸립니다.
+이제 Stream Analytics 작업이 만들어졌으므로 Power BI 작업 영역에 대한 액세스 권한을 부여할 수 있습니다. 작업 액세스 권한을 부여했으면 ID가 전파될 때까지 몇 분 정도 기다립니다.
 
 ### <a name="use-the-power-bi-ui"></a>Power BI UI 사용
 
    > [!Note]
-   > UI를 사용 하 여 Power BI 작업 영역에 Stream Analytics 작업을 추가 하려면 Power BI 관리자 포털의 **개발자 설정** 에서 서비스 사용자 액세스를 사용 하도록 설정 해야 합니다. 자세한 내용은 [서비스 주체 시작](/power-bi/developer/embed-service-principal) 을 참조 하세요.
+   > UI를 사용하여 Power BI 작업 영역에 Stream Analytics 작업을 추가하려면 Power BI 관리자 포털의 **개발자 설정** 에서 서비스 주체 액세스를 사용하도록 설정해야 합니다. 자세한 내용은 [서비스 주체 시작](/power-bi/developer/embed-service-principal)을 참조하세요.
 
-1. 작업 영역 액세스 설정으로 이동 합니다. 자세한 내용은 [작업 영역에 대 한 액세스 권한 부여](/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace)문서를 참조 하세요.
+1. 작업 영역 액세스 설정으로 이동합니다. 자세한 내용은 [작업 영역에 대한 액세스 권한 부여](/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace) 문서를 참조하세요.
 
-2. 텍스트 상자에 Stream Analytics 작업 이름을 입력 하 고 액세스 수준으로 **참가자** 를 선택 합니다.
+2. 텍스트 상자에 Stream Analytics 작업 이름을 입력하고 액세스 수준으로 **기여자** 를 선택합니다.
 
-3. **추가** 를 선택 하 고 창을 닫습니다.
+3. **추가** 를 선택하고 창을 닫습니다.
 
    ![Power BI 작업 영역에 Stream Analytics 작업 추가](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-add-job-to-powerbi-workspace.png)
 
 ### <a name="use-the-power-bi-powershell-cmdlets"></a>Power BI PowerShell cmdlet 사용
 
-1. Power BI `MicrosoftPowerBIMgmt` PowerShell cmdlet을 설치 합니다.
+1. Power BI `MicrosoftPowerBIMgmt` PowerShell cmdlet을 설치합니다.
 
    > [!Important]
-   > Cmdlet의 버전 1.0.821 이상을 사용 하 고 있는지 확인 하세요.
+   > cmdlet의 버전 1.0.821 이상을 사용하고 있는지 확인하세요.
 
 ```powershell
 Install-Module -Name MicrosoftPowerBIMgmt
 ```
 
-2. Power BI에 로그인 합니다.
+2. Power BI에 로그인합니다.
 
 ```powershell
 Login-PowerBI
 ```
 
-3. 작업 영역에 Stream Analytics 작업을 참가자로 추가 합니다.
+3. 기여자 권한으로 작업 영역에 Stream Analytics 작업을 추가합니다.
 
 ```powershell
 Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -PrincipalType App -AccessRight Contributor
@@ -195,7 +195,7 @@ Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -Pr
 
 ### <a name="use-the-power-bi-rest-api"></a>Power BI REST API 사용
 
-"그룹 사용자 추가" REST API를 직접 사용 하 여 Stream Analytics 작업을 작업 영역에 참가자로 추가할 수도 있습니다. 이 API에 대 한 전체 설명서는 [그룹-그룹 사용자 추가에서](/rest/api/power-bi/groups/addgroupuser)찾을 수 있습니다.
+"그룹 사용자 추가" REST API를 직접 사용하여 기여자 권한으로 Stream Analytics 작업을 작업 영역에 추가할 수도 있습니다. 이 API에 대한 전체 설명서는 [그룹 - 그룹 사용자 추가](/rest/api/power-bi/groups/addgroupuser)에서 찾을 수 있습니다.
 
 **샘플 요청**
 ```http
@@ -210,20 +210,20 @@ POST https://api.powerbi.com/v1.0/myorg/groups/{groupId}/users
 }
 ```
 
-## <a name="remove-managed-identity"></a>관리 Id 제거
+## <a name="remove-managed-identity"></a>관리 ID 제거
 
-Stream Analytics 작업에 대해 생성 된 관리 Id는 작업이 삭제 된 경우에만 삭제 됩니다. 작업을 삭제 하지 않고 관리 되는 Id를 삭제할 수 있는 방법은 없습니다. 관리 Id를 더 이상 사용 하지 않으려는 경우에는 출력에 대 한 인증 방법을 변경할 수 있습니다. 관리 Id는 작업이 삭제 될 때까지 계속 존재 하며 관리 되는 Id 인증을 다시 사용 하기로 결정 한 경우에 사용 됩니다.
+Stream Analytics 작업에 대해 생성된 관리 ID는 작업이 삭제된 경우에만 삭제됩니다. 작업을 삭제하지 않고 관리 ID를 삭제할 수는 없습니다. 관리 ID를 더 이상 사용하지 않으려는 경우에는 출력에 대한 인증 방법을 변경할 수 있습니다. 관리 ID는 작업이 삭제될 때까지 계속 존재하며, 관리 ID 인증을 다시 사용하기로 결정한 경우 사용됩니다.
 
 ## <a name="limitations"></a>제한 사항
 이 기능의 제한 사항은 다음과 같습니다.
 
-- 클래식 Power BI 작업 영역은 지원 되지 않습니다.
+- 클래식 Power BI 작업 영역은 지원되지 않습니다.
 
-- Azure Active Directory 없는 Azure 계정.
+- Azure Active Directory 없는 Azure 계정
 
-- 다중 테 넌 트 액세스는 지원 되지 않습니다. 지정 된 Stream Analytics 작업에 대해 만든 서비스 주체는 작업이 만들어진 동일한 Azure Active Directory 테 넌 트에 상주해 야 하며, 다른 Azure Active Directory 테 넌 트에 있는 리소스와 함께 사용할 수 없습니다.
+- 다중 테넌트 액세스는 지원되지 않습니다. 주어진 Stream Analytics 작업에 대해 생성된 서비스 주체는 작업이 만들어진 동일한 Azure Active Directory 테넌트에 상주해야 하며 다른 Azure Active Directory 테넌트에 있는 리소스에 대해 사용할 수 없습니다.
 
-- [사용자 할당 id](../active-directory/managed-identities-azure-resources/overview.md) 는 지원 되지 않습니다. 즉, Stream Analytics 작업에서 사용할 고유한 서비스 주체를 입력할 수 없습니다. Azure Stream Analytics에서 서비스 주체를 생성 해야 합니다.
+- [사용자 할당 ID](../active-directory/managed-identities-azure-resources/overview.md)는 지원되지 않습니다. 즉, 자신의 Stream Analytics 작업에서 사용할 자체 서비스 주체를 입력할 수 없습니다. 서비스 주체는 Azure Stream Analytics에서 생성해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

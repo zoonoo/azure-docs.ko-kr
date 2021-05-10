@@ -1,6 +1,6 @@
 ---
 title: Delta Lake란?
-description: 델타 Lake의 개요 및 Azure Synapse Analytics의 일부로 작동 하는 방법
+description: Delta Lake의 개요 및 Delta Lake가 Azure Synapse Analytics의 일부로 작동하는 방식
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -10,32 +10,32 @@ ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
 ms.openlocfilehash: 23a269fe9498295a3ff325a261c6539f5e1e31aa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101676226"
 ---
 # <a name="what-is-delta-lake"></a>Delta Lake란?
 
-Azure Synapse Analytics는 Linux Foundation 델타 Lake와 호환 됩니다. 델타 Lake는 ACID (원자성, 일관성, 격리성 및 내구성) 트랜잭션을 Apache Spark 및 빅 데이터 작업에 제공 하는 오픈 소스 저장소 계층입니다.
+Azure Synapse Analytics는 Linux Foundation Delta Lake와 호환됩니다. Delta Lake는 오픈 소스 스토리지 레이어로, ACID(원자성, 일관성, 격리성, 내구성) 트랜잭션을 Apache Spark 및 빅 데이터 워크로드에 제공합니다.
 
-Azure Synapse에 포함 된 현재 버전의 델타 Lake에는 Scala, PySpark 및 .NET에 대 한 언어 지원이 있습니다. 페이지 맨 아래에 보다 자세한 예제 및 설명서에 대 한 링크가 있습니다.
+Azure Synapse와 함께 포함된 Delta Lake의 현재 버전은 Scala, PySpark, .NET에 대한 언어를 지원합니다. 페이지 맨 아래 링크를 통해 더욱 자세한 예제와 설명서를 확인할 수 있습니다.
 
 ## <a name="key-features"></a>주요 특징
 
-| 기능 | 설명 |
+| 기능 | Description |
 | --- | --- |
-| **ACID 트랜잭션** | 데이터 레이크는 일반적으로 여러 프로세스 및 파이프라인을 통해 채워지며, 일부는 읽기와 동시에 데이터를 기록 합니다. 델타 Lake 및 트랜잭션 추가 전에 데이터 엔지니어가 데이터 무결성을 보장 하기 위해 수동으로 오류가 발생 하기 쉬운 프로세스를 진행 해야 했습니다. 델타 Lake는 데이터 레이크에 익숙한 ACID 트랜잭션을 가져옵니다. 가장 강력한 수준의 격리 수준인 순차성을 제공 합니다. [델타 Lake: 트랜잭션 로그 압축 풀기](https://databricks.com/blog/2019/08/21/diving-into-delta-lake-unpacking-the-transaction-log.html)에서 자세히 알아보세요.|
-| **확장 가능한 메타 데이터 처리** | 빅 데이터에서 메타 데이터 자체도 "빅 데이터" 일 수 있습니다. 델타 Lake는 데이터와 마찬가지로 메타 데이터를 처리 하 여 Spark의 분산 처리 능력을 활용 하 여 모든 메타 데이터를 처리 합니다. 따라서 델타 Lake는 수십억 개의 파티션 및 파일을 사용 하 여 페타바이트 규모 테이블을 쉽게 처리할 수 있습니다. |
-| **시간 이동 (데이터 버전 관리)** | 변경을 "실행 취소" 하는 기능은 트랜잭션의 주요 기능 중 하나입니다. 델타 Lake는 감사에 대 한 이전 버전의 데이터로 되돌리거나 실험을 롤백 하거나 실험을 재현할 수 있도록 데이터의 스냅숏을 제공 합니다. [대규모 데이터 레이크에 대 한 델타 Lake 시간 이동 소개](https://databricks.com/blog/2019/02/04/introducing-delta-time-travel-for-large-scale-data-lakes.html)에 대해 자세히 알아보세요. |
-| **Open Format** | Apache Parquet는 델타 Lake의 기본 형식으로, 형식에 기본으로 사용 되는 효율적인 압축 및 인코딩 체계를 활용할 수 있습니다. |
-| **통합 일괄 처리 및 스트리밍 원본 및 싱크** | 델타 Lake의 테이블은 스트리밍 원본 및 싱크 뿐만 아니라 일괄 처리 테이블입니다. 스트리밍 데이터 수집, 일괄 처리 기록 백필 및 대화형 쿼리 모두 바로 작동 합니다. |
-| **스키마 적용** | 스키마 적용을 사용 하면 데이터 형식이 올바르고 필요한 열이 있는지를 확인 하 여 잘못 된 데이터에서 데이터 불일치를 방지할 수 있습니다. 자세한 내용은 [델타 Lake: 스키마 적용 & 진화 살펴보기](https://databricks.com/blog/2019/09/24/diving-into-delta-lake-schema-enforcement-evolution.html) 를 참조 하세요. |
-| **스키마 진화** | 델타 Lake를 사용 하면 마이그레이션 DDL을 작성 하지 않고도 자동으로 적용할 수 있는 테이블 스키마를 변경할 수 있습니다. 자세한 내용은 [델타 Lake: 스키마 적용 & 진화 살펴보기](https://databricks.com/blog/2019/09/24/diving-into-delta-lake-schema-enforcement-evolution.html) 를 참조 하세요. |
-| **감사 기록** | 델타 Lake 트랜잭션 로그는 변경 내용의 전체 감사 내역을 제공 하는 데이터에 대 한 모든 변경 내용에 대 한 세부 정보를 기록 합니다. |
-| **업데이트 및 삭제** | 델타 Lake는 다양 한 기능을 위해 Scala/Java/Python 및 SQL Api를 지원 합니다. 병합, 업데이트 및 삭제 작업에 대 한 지원을 통해 규정 준수 요구 사항을 충족할 수 있습니다. 자세한 내용은 델타 lake [V0.6.1 릴리스 발표](https://delta.io/news/delta-lake-0-6-1-released/), 델타 Lake  [0.7 릴리스를 발표](https://delta.io/news/delta-lake-0-7-0-released/) 하 고, [Python Api를 사용 하 여 델타 lake 테이블에서 단순 하 고 안정적인 upsert 및](https://databricks.com/blog/2019/10/03/simple-reliable-upserts-and-deletes-on-delta-lake-tables-using-python-apis.html)삭제를 발표 합니다. 여기에는 DML 명령 병합, 업데이트 및 삭제를 위한 코드 조각이 포함 되어 있습니다. |
-| **Apache Spark API와 100% 호환 가능** | 개발자는 기존 Spark 구현과 완전히 호환 되므로 변화를 최소화 하면서 기존 데이터 파이프라인에서 델타 Lake를 사용할 수 있습니다. |
+| **ACID 트랜잭션** | 데이터 레이크는 일반적으로 다양한 프로세스 및 파이프라인을 통해 채워지며, 이들 프로세스와 파이프라인 중 일부는 읽는 동시에 데이터를 기록합니다. Delta Lake 및 트랜잭션 추가 이전에는 데이터 무결성을 확보하기 위해 데이터 엔지니어가 수동으로 오류가 발생하기 쉬운 프로세스를 진행해야 했습니다. Delta Lake는 데이터 레이크에 익숙한 ACID 트랜잭션을 가져옵니다. 가장 강력한 수준의 격리 수준인 순차성을 제공합니다. [Delta Lake 파고들기: 트랜잭션 로그 압축 풀기](https://databricks.com/blog/2019/08/21/diving-into-delta-lake-unpacking-the-transaction-log.html)에서 자세히 알아보세요.|
+| **스케일링 가능한 메타데이터 처리** | 빅 데이터에서는 메타데이터 자체도 "빅 데이터"일 수 있습니다. Delta Lake는 메타데이터를 데이터처럼 취급하며 Spark의 분산 처리 능력을 활용하여 모든 메타데이터를 처리합니다. 결과적으로 Delta Lake는 수십억 개의 파티션과 파일이 있는 페타바이트 규모의 테이블을 쉽게 처리할 수 ​​있습니다. |
+| **시간 이동(데이터 버전 관리)** | 변경을 "실행 취소"하거나 이전 버전으로 돌아가는 기능은 트랜잭션의 주요 기능 중 하나입니다. Delta Lake는 데이터 스냅샷을 제공하여 감사나 롤백 또는 실험 재현을 위해 데이터를 이전 버전으로 되돌릴 수 있도록 합니다. [대규모 데이터 레이크와 관련된 Delta Lake 시간 이동 소개](https://databricks.com/blog/2019/02/04/introducing-delta-time-travel-for-large-scale-data-lakes.html)에서 자세히 알아보세요. |
+| **형식 열기** | Apache Parquet는 Delta Lake의 기준 형식으로, 해당 형식에 기본적인 효율적 압축 및 인코딩 구성표를 활용할 수 있도록 합니다. |
+| **일괄 처리와 스트리밍 원본 및 싱크 통합형** | Delta Lake의 테이블은 일괄 처리 테이블인 동시에 스트리밍 원본 및 싱크이기도 합니다. 스트리밍 데이터 수집, 일괄 처리 기록 백필 및 대화형 쿼리 모두 즉시 작동합니다. |
+| **스키마 적용** | 스키마 적용을 통해 데이터 형식이 정확하고 필수 열이 있는지 확인하여 잘못된 데이터로 인해 데이터 일관성이 손상되는 것을 방지할 수 있습니다. [Delta Lake 파고들기: 스키마 적용 및 진화](https://databricks.com/blog/2019/09/24/diving-into-delta-lake-schema-enforcement-evolution.html)에서 자세히 알아보세요. |
+| **스키마 진화** | Delta Lake를 사용하면 마이그레이션 DDL을 기록할 필요 없이 자동으로 적용할 수 있는 테이블 스키마를 변경할 수 있습니다. [Delta Lake 파고들기: 스키마 적용 및 진화](https://databricks.com/blog/2019/09/24/diving-into-delta-lake-schema-enforcement-evolution.html)에서 자세히 알아보세요. |
+| **감사 기록** | Delta Lake 트랜잭션 로그는 변경된 내용의 전체 감사 내역을 제공하는 데이터에 발생한 모든 변경 사항과 관련된 세부 정보를 기록합니다. |
+| **업데이트 및 삭제** | Delta Lake는 다양한 기능을 위해 Scala, Java, Python, SQL API를 지원합니다. 병합, 업데이트, 삭제 작업을 지원하여 규정 준수 요구 사항을 충족할 수 있도록 돕습니다. [Delta Lake 0.6.1 릴리스 발표](https://delta.io/news/delta-lake-0-6-1-released/),  [Delta Lake 0.7 릴리스 발표](https://delta.io/news/delta-lake-0-7-0-released/) 및 DML 명령 병합, 업데이트, 삭제 관련 코드 조각을 포함하는 [Delta Lake 테이블에서 Python API를 통한 간단하고 믿을 수 있는 Upserts 및 삭제](https://databricks.com/blog/2019/10/03/simple-reliable-upserts-and-deletes-on-delta-lake-tables-using-python-apis.html)를 통해 자세히 알아보세요. |
+| **Apache Spark API와 100% 호환 가능** | 개발자는 최소한의 변경만으로 기존의 데이터 파이프라인이 있는 Delta Lake를 마치 기존의 Spark 구현에 완전히 호환되는 것처럼 사용할 수 있습니다. |
 
 전체 설명서는 [Delta Lake 설명서 페이지](https://docs.delta.io/latest/delta-intro.html)를 참조하세요.
 

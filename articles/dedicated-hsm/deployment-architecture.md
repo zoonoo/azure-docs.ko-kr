@@ -13,21 +13,21 @@ ms.topic: how-to
 ms.date: 03/25/2021
 ms.author: keithp
 ms.openlocfilehash: c454b2e4df7a9ce5fadd33386e5bb413b503c6e4
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105608428"
 ---
 # <a name="azure-dedicated-hsm-deployment-architecture"></a>Azure Dedicated HSM 배포 아키텍처
 
 Azure Dedicated HSM은 Azure에서 암호화 키 스토리지를 제공합니다. 엄격한 보안 요구 사항을 충족합니다. 다음에 해당하는 고객은 Azure Dedicated HSM을 사용하면 혜택을 얻을 수 있습니다.
 
-* [FIPS 140-2 수준-3 인증을](https://csrc.nist.gov/publications/detail/fips/140/2/final) 충족 해야 함
+* [FIPS 140-2 Level-3](https://csrc.nist.gov/publications/detail/fips/140/2/final) 인증을 충족해야 합니다.
 * HSM에 대한 배타적 액세스가 필요합니다.
 * 디바이스를 완벽하게 제어할 수 있어야 합니다.
 
-HSM은 Microsoft의 데이터 센터에 분산되며 고가용성 솔루션의 기반이 되는 디바이스 쌍으로 쉽게 프로비전할 수 있습니다. 또한 여러 Azure 지역에 배포하여 재해 복구 솔루션을 구현할 수도 있습니다. 현재 사용할 수 있는 전용 HSM을 사용 하는 지역은 [지역별 제품 페이지](https://azure.microsoft.com/global-infrastructure/services/?products=azure-dedicated-hsm)를 사용 하 여 확인할 수 있습니다. 
+HSM은 Microsoft의 데이터 센터에 분산되며 고가용성 솔루션의 기반이 되는 디바이스 쌍으로 쉽게 프로비전할 수 있습니다. 또한 여러 Azure 지역에 배포하여 재해 복구 솔루션을 구현할 수도 있습니다. 현재 제공되는 전용 HSM을 사용하는 지역은 [지역별 제품 페이지](https://azure.microsoft.com/global-infrastructure/services/?products=azure-dedicated-hsm)를 통해 확인할 수 있습니다. 
 
 * 미국 동부
 * 미국 동부 2
@@ -53,7 +53,7 @@ HSM은 Microsoft의 데이터 센터에 분산되며 고가용성 솔루션의 �
 * US Gov 버지니아
 * US Gov 텍사스
 
-이러한 각 지역에 있는 두 개의 독립적인 데이터 센터 또는 적어도 두 개 이상의 독립적인 가용성 영역에 HSM 랙이 배포되어 있습니다. 동남 아시아에는 3개의 가용성 영역, 미국 동부 2에는 2개의 가용성 영역이 있습니다. 유럽, 아시아 및 북아메리카에서 전용 HSM 서비스를 제공 하는 총 26 개의 지역이 있습니다. Azure 지역에 대한 자세한 내용은 공식 [Azure 지역 정보](https://azure.microsoft.com/global-infrastructure/regions/)를 참조하세요.
+이러한 각 지역에 있는 두 개의 독립적인 데이터 센터 또는 적어도 두 개 이상의 독립적인 가용성 영역에 HSM 랙이 배포되어 있습니다. 동남 아시아에는 3개의 가용성 영역, 미국 동부 2에는 2개의 가용성 영역이 있습니다. 유럽, 아시아, 북아메리카에는 전용 HSM 서비스를 제공하는 지역이 총 23곳 있습니다. Azure 지역에 대한 자세한 내용은 공식 [Azure 지역 정보](https://azure.microsoft.com/global-infrastructure/regions/)를 참조하세요.
 Dedicated HSM 기반 솔루션의 디자인 요소로는 위치/대기 시간, 고가용성, 다른 분산 애플리케이션 지원이 포함됩니다.
 
 ## <a name="device-location"></a>디바이스 위치
@@ -62,7 +62,7 @@ Dedicated HSM 기반 솔루션의 디자인 요소로는 위치/대기 시간, �
 
 ## <a name="high-availability"></a>고가용성
 
-고가용성을 위해 고객은 Thales software를 고가용성 쌍으로 사용 하 여 구성 된 지역에서 두 HSM 장치를 사용 해야 합니다. 단일 디바이스에서 키 작업을 방해하는 문제가 발생하는 경우 이 유형의 배포를 사용하면 키의 가용성이 보장됩니다. 또한 전원 공급 장치 교체 같은 고장/수리 유지 관리를 수행할 때 위험이 크게 감소합니다. 디자인 시 Azure 지역 수준 장애를 고려해야 합니다. 허리케인, 홍수, 지진 등의 자연 재해가 발생할 경우 Azure 지역 수준 장애가 발생할 수 있습니다. HSM 디바이스를 다른 Azure 지역에 프로비전하여 이와 같은 종류의 이벤트를 완화해야 합니다. 다른 지역에 배포 된 장치는 Thales 소프트웨어 구성을 통해 함께 쌍으로 연결 될 수 있습니다. 즉, 고가용성 및 재해 복구 솔루션을 구현하려면 두 Azure 지역에 4개 이상의 HSM 디바이스를 배포해야 합니다. Azure 지역 간 로컬 중복 및 지역 중복을 기준으로 사용하여 대기 시간 및 용량을 지원하거나 다른 애플리케이션별 요구 사항을 충족하도록 HSM 디바이스 배포를 추가할 수 있습니다.
+고가용성을 달성하려는 고객은 한 지역에서 고가용성 쌍으로 Thales 소프트웨어를 사용하여 구성되는 HSM 디바이스를 두 대 사용해야 합니다. 단일 디바이스에서 키 작업을 방해하는 문제가 발생하는 경우 이 유형의 배포를 사용하면 키의 가용성이 보장됩니다. 또한 전원 공급 장치 교체 같은 고장/수리 유지 관리를 수행할 때 위험이 크게 감소합니다. 디자인 시 Azure 지역 수준 장애를 고려해야 합니다. 허리케인, 홍수, 지진 등의 자연 재해가 발생할 경우 Azure 지역 수준 장애가 발생할 수 있습니다. HSM 디바이스를 다른 Azure 지역에 프로비전하여 이와 같은 종류의 이벤트를 완화해야 합니다. 다른 지역에 배포된 디바이스는 Thales 소프트웨어 구성을 통해 함께 쌍으로 묶을 수 있습니다. 즉, 고가용성 및 재해 복구 솔루션을 구현하려면 두 Azure 지역에 4개 이상의 HSM 디바이스를 배포해야 합니다. Azure 지역 간 로컬 중복 및 지역 중복을 기준으로 사용하여 대기 시간 및 용량을 지원하거나 다른 애플리케이션별 요구 사항을 충족하도록 HSM 디바이스 배포를 추가할 수 있습니다.
 
 ## <a name="distributed-application-support"></a>분산 애플리케이션 지원
 
@@ -70,7 +70,7 @@ Dedicated HSM 디바이스는 일반적으로 키 스토리지 및 키 검색 �
 
 ## <a name="next-steps"></a>다음 단계
 
-배포 아키텍처가 결정 되 면 해당 아키텍처를 구현 하는 대부분의 구성 작업은 Thales에서 제공 됩니다. 여기에는 디바이스 구성뿐 아니라 애플리케이션 통합 시나리오가 포함됩니다. 자세한 내용은 [Thales 고객 지원](https://supportportal.thalesgroup.com/csm) 포털을 사용 하 여 관리 및 구성 가이드를 다운로드 하세요. Microsoft 파트너 사이트에는 다양한 통합 가이드가 있습니다.
+배포 아키텍처가 결정되면 해당 아키텍처를 구현하기 위한 대부분의 구성 작업을 Thales에서 제공합니다. 여기에는 디바이스 구성뿐 아니라 애플리케이션 통합 시나리오가 포함됩니다. 자세한 내용을 알아보려면 [Thales 고객 지원](https://supportportal.thalesgroup.com/csm) 포털을 사용하여 관리 및 구성 가이드를 다운로드하세요. Microsoft 파트너 사이트에는 다양한 통합 가이드가 있습니다.
 예를 들어 고가용성 및 보안과 같은 서비스의 모든 주요 개념은 디바이스를 프로비전하거나 애플리케이션을 디자인하고 배포하기 전에 제대로 이해하는 것이 좋습니다.
 추가 개념 수준 항목:
 

@@ -1,5 +1,5 @@
 ---
-title: Azure에서 공유 디스크를 사용 하 여 WSFC에서 SAP ASCS/SCS 인스턴스 클러스터링 | Microsoft Docs
+title: Azure의 공유 디스크를 사용하는 WSFC의 SAP ASCS/SCS 인스턴스 클러스터링 | Microsoft Docs
 description: 클러스터 공유 디스크를 사용하여 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스를 클러스터링하는 방법을 알아봅니다.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -17,10 +17,10 @@ ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c903cf06981e1336ae30942775de11d09bb1299b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101675348"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Azure에서 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스를 Windows 장애 조치(Failover) 클러스터에 클러스터링
@@ -40,7 +40,7 @@ Windows Server 장애 조치(Failover) 클러스터링은 Windows에서 고가�
 
 ## <a name="windows-server-failover-clustering-in-azure"></a>Azure에서 Windows Server 장애 조치(Failover) 클러스터링
 
-Azure Virtual Machines를 사용 하는 Windows Server 장애 조치 클러스터링을 사용 하려면 추가 구성 단계가 필요 합니다. 클러스터를 빌드할 때 SAP ASCS/SCS 인스턴스에 대해 여러 개의 IP 주소 및 가상 호스트 이름을 설정해야 합니다.
+Azure Virtual Machines를 사용하는 Windows Server 장애 조치(failover) 클러스터링을 사용하려면 추가 구성 단계가 필요합니다. 클러스터를 빌드할 때 SAP ASCS/SCS 인스턴스에 대해 여러 개의 IP 주소 및 가상 호스트 이름을 설정해야 합니다.
 
 ### <a name="name-resolution-in-azure-and-the-cluster-virtual-host-name"></a>Azure에서 이름 확인 및 클러스터 가상 호스트 이름
 
@@ -51,11 +51,11 @@ Azure Load Balancer 서비스는 Azure에서 ‘내부 부하 분산 장치’�
 클러스터 노드를 포함하는 리소스 그룹에 부하 분산 장치를 배포합니다. 그런 후 내부 부하 분산 장치의 프로브 포트를 사용하여 필요한 모든 포트 전달 규칙을 구성합니다. 클라이언트는 가상 호스트 이름을 통해 연결할 수 있습니다. DNS 서버는 클러스터 IP 주소를 확인하고 내부 부하 분산 장치는 클러스터의 활성 노드에 대한 포트 전달을 처리합니다.
 
 > [!IMPORTANT]
-> 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원 되지 않습니다. 자세한 내용은 [Azure 부하 분산 장치 제한](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조 하세요. VM에 대 한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포 합니다.  
+> 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원되지 않습니다. 자세한 내용은 [Azure Load Balancer 제한 사항](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조하세요. 해당 VM에 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포합니다.  
 
 ![그림 1: 공유 디스크를 사용하지 않는 Azure의 Windows 장애 조치(Failover) 클러스터링 구성][sap-ha-guide-figure-1001]
 
-_공유 디스크 없이 Azure의 Windows Server 장애 조치 (failover) 클러스터링 구성_
+_공유 디스크를 사용하지 않는 Azure의 Windows Server 장애 조치(Failover) 클러스터링 구성_
 
 ### <a name="sap-ascsscs-ha-with-cluster-shared-disks"></a>클러스터 공유 디스크를 사용하는 SAP ASCS/SCS HA
 Windows에서 SAP ASCS/SCS 인스턴스에는 SAP 중앙 서비스, SAP 메시지 서버, 인큐 서버 프로세스 및 SAP 글로벌 호스트 파일이 포함됩니다. SAP 글로벌 호스트 파일은 전체 SAP 시스템에 대한 중앙 파일을 저장합니다.
@@ -63,117 +63,117 @@ Windows에서 SAP ASCS/SCS 인스턴스에는 SAP 중앙 서비스, SAP 메시�
 SAP ASCS/SCS 인스턴스에는 다음과 같은 구성 요소가 있습니다.
 
 * SAP 중앙 서비스에는 다음이 포함됩니다.
-    * 두 프로세스, 메시지 및 큐에 넣기 서버, 그리고 \<ASCS/SCS virtual host name> 이러한 두 프로세스에 액세스 하는 데 사용 됩니다.
-    * 파일 구조: S:\usr\sap \\ &lt; SID &gt; \ ASCS/SCS\<instance number\>
+    * 두 개의 프로세스인 메시지 및 큐에 넣기 서버와 이러한 두 프로세스에 액세스하는 데 사용되는 \<ASCS/SCS virtual host name>
+    * 파일 구조: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<instance number\>
 
 
 * SAP 글로벌 호스트 이름:
   * 파일 구조: S:\usr\sap\\&lt;SID&gt;\SYS\..
   * 다음 UNC 경로를 사용하여 이러한 글로벌 S:\usr\sap\\&lt;SID&gt;\SYS\. 파일에 액세스할 수 있도록 하는 sapmnt 파일 공유
 
-    \\\\ASCS/SCS 가상 호스트 이름 \> \Sapmnt \\ &lt; SID &gt; \sys \. .를<합니다.
+    \\\\<ASCS/SCS 가상 호스트 이름\>\sapmnt\\&lt;SID&gt;\SYS\...
 
 
 ![그림 2: SAP ASCS/SCS 인스턴스의 프로세스, 파일 구조 및 글로벌 호스트 sapmnt 파일 공유][sap-ha-guide-figure-8001]
 
-_SAP ASCS/SCS 인스턴스의 프로세스, 파일 구조 및 글로벌 호스트 sapmnt 파일 공유_
+_SAP ASCS/SCS 인스턴스의 프로세스, 파일 구조, 글로벌 호스트 sapmnt 파일 공유_
 
 높은 가용성 설정에서 SAP ASCS/SCS 인스턴스를 클러스터링합니다. *클러스터형 공유 디스크*(이 예제에서 S 드라이브)를 사용하여 SAP ASCS/SCS 및 SAP 글로벌 호스트 파일을 배치합니다.
 
 ![그림 3: 공유 디스크를 사용하는 SAP ASCS/SCS HA 아키텍처][sap-ha-guide-figure-8002]
 
-_공유 디스크를 사용 하는 SAP ASCS/SCS HA 아키텍처_
+_공유 디스크를 통한 SAP ASCS/SCS HA 아키텍처_
 
 
 큐에 넣기 서버 복제 1 아키텍처 사용:
-* \<ASCS/SCS virtual host name>Sapmnt 파일 공유를 통해 sap 메시지 및 큐에 넣기 서버 프로세스와 sap 글로벌 호스트 파일에 액세스 하는 데 사용 됩니다.
+* SAP 메시지 및 큐에 넣기 서버 프로세스에 액세스하고 sapmnt 파일 공유를 통해 SAP 글로벌 호스트 파일에 액세스하는 데 동일한 \<ASCS/SCS virtual host name>이 사용됩니다.
 * 동일한 클러스터 공유 디스크 S가 공유됩니다.  
 
-큐에 넣기 서버 복제 2 아키텍처: 
-* \<ASCS/SCS virtual host name>Sapmnt 파일 공유를 통해 sap 메시지 서버 프로세스와 sap 글로벌 호스트 파일에 액세스 하는 데 사용 됩니다.
+큐에 넣기 서버 복제 2 아키텍처 사용: 
+* SAP 메시지 서버 프로세스에 액세스하고 sapmnt 파일 공유를 통해 SAP 글로벌 호스트 파일에 액세스하는 데 동일한 \<ASCS/SCS virtual host name>이 사용됩니다.
 * 동일한 클러스터 공유 디스크 S가 공유됩니다.
-* \<ERS virtual host name>큐에 넣기 서버 프로세스에 액세스할 수 있는 별도의가 있습니다.  
+* 큐에 넣기 서버 프로세스에 액세스하기 위한 개별 \<ERS virtual host name>이 있습니다.  
 
 ![그림 4: 공유 디스크를 사용하는 SAP ASCS/SCS HA 아키텍처][sap-ha-guide-figure-8003]
 
-_공유 디스크를 사용 하는 SAP ASCS/SCS HA 아키텍처_
+_공유 디스크를 통한 SAP ASCS/SCS HA 아키텍처_
 
 #### <a name="shared-disk-and-enqueue-replication-server"></a>공유 디스크 및 큐에 넣기 복제 서버 
 
-1. 공유 디스크는 큐에 넣기 (Replication Server) 인스턴스가 있는 큐에 넣기 서버 복제 1 아키텍처와 함께 지원 됩니다.   
+1. 공유 디스크는 ERS(큐에 넣기 복제 서버) 인스턴스가 다음과 같은 조건을 이루는 큐에 넣기 서버 복제 1 아키텍처를 통해 지원됩니다.   
 
-   - 클러스터링 되지 않음
-   - 사용 `localhost` 이름
-   - 는 각 클러스터 노드의 로컬 디스크에 배포 됩니다.
+   - 클러스터되지 않음
+   - `localhost` 이름을 사용
+   - 클러스터 노드 각각의 로컬 디스크에 배포됨
 
-2. 또한 공유 디스크는 큐에 넣기 서버 복제 2 아키텍처에서 지원 됩니다. 여기서는 큐에 있는 복제 서버 2 (ERS2) 인스턴스가 사용 됩니다.  
+2. 마찬가지로 공유 디스크는 ERS2(큐에 넣기 복제 서버 2) 인스턴스가 다음과 같은 조건을 이루는 큐에 넣기 서버 복제 2 아키텍처를 통해 지원됩니다.  
 
-   - 클러스터 됨
-   - 전용 가상/네트워크 호스트 이름 사용
-   - (A) SCS IP 주소 외에도 Azure 내부 Load Balancer에 구성 해야 하는 ERS 가상 호스트 이름의 IP 주소가 필요 합니다.
-   - 는 클러스터 된 각 노드의 **로컬 디스크** 에 배포 되므로 공유 디스크가 필요 하지 않습니다.
+   - 클러스터됨
+   - 전용 가상/네트워크 호스트 이름을 사용
+   - (A)SCS IP 주소 이외에 Azure Internal Load Balancer 상에 구성될 ERS 가상 호스트 이름의 IP 주소가 필요
+   - 클러스터 노드 각각의 **로컬 디스크** 에 배포되므로 공유 디스크 불필요
 
    > [!TIP]
-   > 큐에 대기 중인 복제 서버 1 및 2 (ERS1 및 ERS2)에 대 한 자세한 정보는 여기에서 확인할 수 있습니다.  
-   > [Microsoft 장애 조치 (Failover) 클러스터에서 복제 서버를 큐에 넣기](https://help.sap.com/viewer/3741bfe0345f4892ae190ee7cfc53d4c/CURRENT_VERSION_SWPM20/en-US/8abd4b52902d4b17a105c2fabdf5c0cf.html)  
-   > [장애 조치 (Failover) 클러스터 환경의 새 큐에서 복제](https://blogs.sap.com/2019/03/19/new-enqueue-replicator-in-failover-cluster-environments/)  
+   > ERS1 및 ERS2(큐에 넣기 복제 서버 1 및 2)에 대해서는 다음을 통해 자세히 확인할 수 있습니다.  
+   > [Microsoft 장애 조치(failover) 클러스터 내의 큐에 넣기 복제 서버](https://help.sap.com/viewer/3741bfe0345f4892ae190ee7cfc53d4c/CURRENT_VERSION_SWPM20/en-US/8abd4b52902d4b17a105c2fabdf5c0cf.html)  
+   > [장애 조치(failover) 클러스터 환경의 새로운 큐에 넣기 복제기](https://blogs.sap.com/2019/03/19/new-enqueue-replicator-in-failover-cluster-environments/)  
 
-#### <a name="options-for-shared-disk-in-azure-for-sap-workloads"></a>Azure에서 SAP 워크 로드에 대 한 공유 디스크 옵션
+#### <a name="options-for-shared-disk-in-azure-for-sap-workloads"></a>SAP 워크로드에 대한 Azure 내 공유 디스크 옵션
 
-Azure의 windows 장애 조치 (failover) 클러스터에는 공유 디스크에 대 한 두 가지 옵션이 있습니다.
+Azure 내 Windows 장애 조치(failover) 클러스터에는 공유 디스크용 옵션이 두 개 있습니다.
 
-- Azure [공유](../../disks-shared.md) 디스크-기능을 통해 azure 관리 디스크를 여러 vm에 동시에 연결할 수 있습니다. 
-- 타사 소프트웨어 [Sios DataKeeper 클러스터 버전](https://us.sios.com/products/datakeeper-cluster) 을 사용 하 여 클러스터 공유 저장소를 시뮬레이트하는 미러된 저장소를 만듭니다. 
+- [Azure 공유 디스크](../../disks-shared.md) - 기능은 Azure 관리형 디스크를 동시에 다수의 VM에 연결할 수 있도록 합니다. 
+- 타사 소프트웨어[SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster)를 사용해 클러스터 공유 스토리지를 시뮬레이션하는 미러된 스토리지를 만듭니다. 
 
-공유 디스크에 대 한 기술을 선택 하는 경우 다음 사항을 고려해 야 합니다.
+공유 디스크에 대한 기술을 선택할 때는 다음 사항을 고려해야 합니다.
 
-**SAP 워크 로드에 대 한 Azure 공유 디스크**
-- 유지 관리 및 운영에 추가 소프트웨어를 요구 하지 않고 Azure 관리 디스크를 여러 Vm에 동시에 연결할 수 있습니다. 
-- 하나의 저장소 클러스터에서 단일 Azure 공유 디스크로 작업 하 게 됩니다. 이는 SAP 솔루션의 안정성에 영향을 줍니다.
-- 현재 유일 하 게 지원 되는 배포는 가용성 집합의 Azure 공유 프리미엄 디스크를 사용 하는 것입니다. Azure 공유 디스크는 영역 배포에서 지원 되지 않습니다.     
-- 필요한 Vm 수에 동시에 연결할 수 있도록 [프리미엄 SSD 범위](../../disks-shared.md#disk-sizes) 에 지정 된 최소 디스크 크기를 사용 하 여 Azure Premium disk를 프로 비전 해야 합니다 (일반적으로 SAP Ascs Windows 장애 조치 (Failover) 클러스터의 경우 2). 
-- Azure 공유 Ultra disk는 가용성 집합 또는 영역 배포의 배포를 지원 하지 않으므로 SAP 워크 로드에 대해 지원 되지 않습니다.  
+**SAP 워크로드를 위한 Azure 공유 디스크**
+- 별도의 소프트웨어를 유지하고 작동할 필요 없이 Azure 관리형 디스크를 동시에 다수의 VM에 연결할 수 있게 합니다. 
+- 하나의 스토리지 클러스터에 대해 하나의 Azure 공유 디스크로 작업합니다. 이는 SAP 솔루션의 안정성에 영향을 줍니다.
+- 현재는 가용성 집합에서 Azure 공유 프리미엄 디스크를 사용하는 배포만을 지원합니다. Azure 공유 디스크는 영역 배포에서는 지원되지 않습니다.     
+- [프리미엄 SSD 범위](../../disks-shared.md#disk-sizes)에서 지정된 최소 디스크 크기를 사용해 Azure 프리미엄 디스크를 프로비저닝하여 필요한 수량의 VM에 동시에 연결할 수 있는지 확인합니다(기본적으로는 SAP ASCS Windows 장애 조치(failover) 클러스터당 2대). 
+- Azure 공유 Ultra disk는 가용성 집합에서의 배포나 영역 배포를 지원하지 않으므로 SAP 워크로드에 지원되지 않습니다.  
  
 **SIOS**
-- SIOS 솔루션은 두 디스크 간에 실시간 동기 데이터 복제를 제공 합니다.
-- SIOS 솔루션을 사용 하 여 두 개의 관리 디스크를 사용 하 고 가용성 집합 또는 가용성 영역을 사용 하는 경우 관리 디스크는 서로 다른 저장소 클러스터에 배치 됩니다. 
-- 가용성 영역에서 배포가 지원 됩니다.
-- 추가로 구입 해야 하는 타사 소프트웨어를 설치 하 고 운영 해야 합니다.
+- SIOS 솔루션은 디스크 두 개 사이의 실시간 동기 데이터 복제를 제공합니다.
+- SIOS 솔루션을 통해 관리 디스크 두 개를 운영하며, 가용성 집합이나 가용성 영역을 사용하는 경우 해당 관리 디스크가 서로 다른 스토리지 클러스터에 배치됩니다. 
+- 가용성 영역에 배포할 수 있습니다.
+- 추가로 구매해야 하는 타사 소프트웨어를 설치하여 운영해야 합니다.
 
-### <a name="shared-disk-using-azure-shared-disk"></a>Azure 공유 디스크를 사용 하는 공유 디스크
+### <a name="shared-disk-using-azure-shared-disk"></a>Azure 공유 디스크를 사용하는 공유 디스크
 
-Microsoft는 공유 디스크 옵션을 사용 하 여 SAP ASCS/SCS 고가용성을 구현 하는 데 사용할 수 있는 [Azure 공유 디스크](../../disks-shared.md)를 제공 합니다.
+Microsoft는 공유 디스크 옵션에서 SAP ASCS/SCS 고가용성을 구현하는 데 사용할 수 있는 [Azure 공유 디스크](../../disks-shared.md)를 제공합니다.
 
 #### <a name="prerequisites-and-limitations"></a>필수 구성 요소 및 제한 사항
 
-현재 SAP ASCS/SCS 인스턴스에 대 한 Azure 공유 디스크로 Azure 프리미엄 SSD 디스크를 사용할 수 있습니다. 현재 다음과 같은 제한 사항이 적용 됩니다.
+현재, Azure 프리미엄 SSD 디스크를 SAP ASCS/SCS 인스턴스용 Azure 공유 디스크로 사용할 수 있습니다. 현재 적용 중인 제한 사항은 다음과 같습니다.
 
--  [Azure Ultra disk](../../disks-types.md#ultra-disk) 는 SAP 워크 로드에 대 한 Azure 공유 디스크로 지원 되지 않습니다. 현재 가용성 집합에서 Azure Ultra Disk를 사용 하 여 Azure Vm을 사용할 수 없습니다.
--  프리미엄 SSD 디스크가 있는 [Azure 공유 디스크](../../disks-shared.md) 는 가용성 집합의 vm 에서만 지원 됩니다. 가용성 영역 배포에서는 지원 되지 않습니다. 
--  Azure 공유 디스크 값 [Maxshares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) 는 공유 디스크를 사용할 수 있는 클러스터 노드 수를 결정 합니다. 일반적으로 SAP ASCS/SCS 인스턴스의 경우 Windows 장애 조치 (Failover) 클러스터에서 두 노드를 구성 하므로의 값을 `maxShares` 2로 설정 해야 합니다.
--  모든 SAP ASCS/SCS 클러스터 Vm은 동일한 [Azure 근접 배치 그룹](../../windows/proximity-placement-groups.md)에 배포 되어야 합니다.   
-   그러나 PPG 없이 Azure 공유 디스크를 사용 하 여 가용성 집합에 Windows 클러스터 Vm을 배포할 수 있지만, PPG를 사용 하면 Azure 공유 디스크와 클러스터 Vm의 물리적인 근접 한 부분을 확보 하 여 Vm과 저장소 계층 간의 대기 시간을 줄일 수 있습니다.    
+-  [Azure Ultra disk](../../disks-types.md#ultra-disk)는 SAP 워크로드용 Azure 공유 디스크로 지원되지 않습니다. 현재 가용성 집합의 Azure Ultra Disk를 사용하여 Azure VM을 배치할 수 없습니다.
+-  프리미엄 SSD 디스크가 있는 [Azure 공유 디스크](../../disks-shared.md)는 가용성 집합의 VM에서만 지원됩니다. 가용성 영역 배포에서는 지원되지 않습니다. 
+-  Azure 공유 디스크 값인 [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes)는 공유 디스크로 사용할 수 있는 클러스터 노드의 개수를 결정합니다. 일반적으로 SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터에서는 두 개의 노드를 구성하므로 `maxShares` 에 해당하는 값은 2로 설정되어야 합니다.
+-  모든 SAP ASCS/SCS 클러스터 VM은 동일한 [Azure 근접 배치 그룹](../../windows/proximity-placement-groups.md)에 배포되어야 합니다.   
+   PPG가 없는 Azure 공유 디스크를 사용해 가용성 집합에 Windows 클러스터 VM을 배포할 수 있지만, PPG가 있으면 Azure 공유 디스크와 클러스터 VM의 물리적 근접성을 확보할 수 있으므로 해당 VM과 스토리지 계층 간의 대기 시간을 줄일 수 있습니다.    
 
-Azure 공유 디스크에 대 한 제한 사항에 대 한 자세한 내용은 Azure 공유 디스크 설명서의 [제한 사항](../../disks-shared.md#limitations) 섹션을 참조 하세요.
+Azure 공유 디스크의 제한 사항에 대한 자세한 내용은 Azure 공유 디스크 설명서의 [제한 사항](../../disks-shared.md#limitations) 섹션을 꼼꼼히 검토하여 참조하세요.
 
 > [!IMPORTANT]
-> Azure 공유 디스크를 사용 하 여 SAP ASCS/SCS Windows 장애 조치 (Failover) 클러스터를 배포 하는 경우 배포는 하나의 저장소 클러스터에서 단일 공유 디스크로 작동 한다는 점에 유의 해야 합니다. Azure 공유 디스크가 배포 되는 저장소 클러스터에 문제가 있는 경우 SAP ASCS/SCS 인스턴스가 영향을 받습니다.    
+> SAP ASCS/SCS Windows 장애 조치(Failover) 클러스터를 Azure 공유 디스크로 배포하는 경우, 해당 배포가 하나의 스토리지 클러스터에서 단일 공유 디스크로 작동한다는 점에 유의합니다. Azure 공유 디스크가 배포된 스토리지 클러스터에 문제가 생기면 SAP ASCS/SCS 인스턴스가 영향을 받습니다.    
 
 > [!TIP]
-> Sap 배포를 계획할 때 중요 한 고려 사항은 [Azure 계획 가이드의 Sap Netweaver](./planning-guide.md) 및 [sap 워크 로드에 대 한 Azure Storage 가이드](./planning-guide-storage.md) 를 검토 하세요.
+> [Azure 계획 가이드 상의 SAP Netweaver](./planning-guide.md) 및 [SAP 워크로드에 대한 Azure Storage 가이드](./planning-guide-storage.md)를 검토하여 SAP 배포를 계획할 때 중요하게 고려해야 할 사항을 확인하세요.
 
 ### <a name="supported-os-versions"></a>지원된 OS 버전
 
-Windows Server 2016 및 2019가 모두 지원 됩니다 (최신 데이터 센터 이미지 사용).
+Windows Server 2016과 2019가 모두 지원됩니다(최신 데이터 센터 이미지 사용).
 
-다음과 같이 **Windows Server 2019 Datacenter** 를 사용 하는 것이 좋습니다.
-- Windows 2019 장애 조치 (Failover) 클러스터 서비스가 Azure를 인식 합니다.
-- Azure 일정 이벤트를 모니터링 하 여 Azure 호스트 유지 관리 및 향상 된 환경에 대 한 통합 및 인식 기능이 추가 되었습니다.
-- 분산 네트워크 이름 (기본 옵션)을 사용할 수 있습니다. 따라서 클러스터 네트워크 이름에 대 한 전용 IP 주소를 가질 필요가 없습니다. 또한 Azure 내부 Load Balancer에서이 IP 주소를 구성할 필요가 없습니다. 
+다음과 같은 이유로 인해 **Windows Server 2019 Datacenter** 를 사용하는 것이 훨씬 좋습니다.
+- Windows 2019 장애 조치(Failover) 클러스터 서비스가 Azure를 인식합니다.
+- Azure 일정 이벤트를 모니터링하여 Azure 호스트 유지 관리 및 향상된 환경에 대한 통합 및 인식 기능이 추가되었습니다.
+- 분산 네트워크 이름(기본 옵션)을 사용할 수 있습니다. 따라서, 클러스터 네트워크 이름을 위해 전용 IP 주소가 있을 필요가 없습니다. 또한, 해당 IP 주소를 Azure Internal Load Balancer에 구성할 필요도 없습니다. 
 
 ### <a name="shared-disks-in-azure-with-sios-datakeeper"></a>SIOS DataKeeper를 사용한 Azure의 공유 디스크
 
-공유 디스크에 대 한 또 다른 옵션은 타사 소프트웨어 SIOS DataKeeper 클러스터 버전을 사용 하 여 클러스터 공유 저장소를 시뮬레이트하는 미러된 저장소를 만드는 것입니다. SIOS 솔루션은 실시간 동기 데이터 복제 기능을 제공합니다.
+공유 디스크를 위한 또다른 옵션은 타사 소프트웨어 SIOS DataKeeper Cluster Edition을 사용해 클러스터 공유 스토리지를 시뮬레이션하는 미러된 스토리지를 만드는 것입니다. SIOS 솔루션은 실시간 동기 데이터 복제 기능을 제공합니다.
 
 클러스터에 대한 공유 디스크 리소스를 만들려면
 
@@ -185,7 +185,7 @@ Windows Server 2016 및 2019가 모두 지원 됩니다 (최신 데이터 센터
 
 ![그림 5: SIOS DataKeeper를 사용하는 Azure의 Windows Server 장애 조치(Failover) 클러스터링 구성][sap-ha-guide-figure-1002]
 
-_SIOS DataKeeper를 사용 하는 Azure의 Windows 장애 조치 (failover) 클러스터링 구성_
+_SIOS DataKeeper를 사용한 Azure의 Windows 장애 조치(Failover) 클러스터링 구성_
 
 > [!NOTE]
 > SQL Server와 같은 일부 DBMS 제품에서는 가용성을 높이기 위해 공유 디스크를 사용할 필요가 없습니다. SQL Server AlwaysOn은 한 클러스터 노드의 로컬 디스크에서 다른 클러스터 노드의 로컬 디스크로 DBMS 데이터 및 로그 파일을 복제합니다. 이 경우 Windows 클러스터 구성에는 공유 디스크가 필요하지 않습니다.
@@ -193,7 +193,7 @@ _SIOS DataKeeper를 사용 하는 Azure의 Windows 장애 조치 (failover) 클�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치 (failover) 클러스터 및 공유 디스크를 사용 하 여 SAP HA 용 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-shared-disk]
+* [Windows 장애 조치(Failover) 클러스터 및 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스를 위한 SAP HA용 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-shared-disk]
 
 * [SAP ASCS/SCS 인스턴스에 대한 Windows 장애 조치(Failover) 클러스터 및 공유 디스크에 SAP NetWeaver HA 설치][sap-high-availability-installation-wsfc-shared-disk]
 

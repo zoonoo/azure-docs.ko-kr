@@ -1,5 +1,5 @@
 ---
-title: '가상 WAN: NVA에 대 한 가상 허브 경로 테이블 만들기: Azure PowerShell'
+title: 'Virtual WAN: NVA에 대한 가상 허브 경로 테이블 만들기: Azure PowerShell'
 description: 네트워크 가상 어플라이언스에 대한 트래픽을 조정하기 위한 가상 WAN 가상 허브 경로 테이블.
 services: virtual-wan
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 40154a9c3cefed69bd3f1639153099b944da79b5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 6a6e701377956e39696567eff9a6a0abca927b88
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91267128"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055079"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>가상 허브 경로 테이블을 생성하여 네트워크 가상 어플라이언스에 대한 트래픽 조정
 
@@ -36,9 +35,9 @@ ms.locfileid: "91267128"
 
 다음 기준을 충족하는지 확인합니다.
 
-* NVA(네트워크 가상 어플라이언스)가 있습니다. 이 소프트웨어는 일반적으로 가상 네트워크의 Azure Marketplace에서 프로 비전 되는 타사 소프트웨어입니다.
+* NVA(네트워크 가상 어플라이언스)가 있습니다. 이는 일반적으로 가상 네트워크의 Azure Marketplace에서 프로비저닝되는 사용자가 선택한 타사 소프트웨어입니다.
 * NVA 네트워크 인터페이스에 지정된 프라이빗 IP가 있습니다. 
-* NVA는 가상 허브에 배포할 수 없습니다. 별도의 VNet에 배포해야 합니다. 이 문서에서는 NVA VNet을 'DMZ VNet'이라고 합니다.
+* NVA를 가상 허브에 배포할 수 없습니다. 별도의 VNet에 배포해야 합니다. 이 문서에서는 NVA VNet을 'DMZ VNet'이라고 합니다.
 * 'DMZ VNet'에는 하나 이상의 가상 네트워크가 연결되어 있을 수 있습니다. 이 문서에서는 이 VNet을 '간접 스포크 VNet'이라고 합니다. 이러한 VNet은 VNet 피어링을 사용하여 DMZ VNet에 연결할 수 있습니다.
 * 2개의 VNet이 이미 생성되었는지 확인합니다. 이 Vnet은 스포크 VNet으로 사용됩니다. 이 문서에서 VNet 스포크 주소 공간은 10.0.2.0/24 및 10.0.3.0/24입니다. VNet을 만드는 방법에 관한 정보가 필요하면 [PowerShell을 사용하여 가상 네트워크 만들기](../virtual-network/quick-create-powershell.md)를 참조하세요.
 * VNet에 가상 네트워크 게이트웨이가 없는지 확인합니다.
@@ -65,12 +64,12 @@ ms.locfileid: "91267128"
 
 ## <a name="2-create-resources"></a><a name="rg"></a>2. 리소스 만들기
 
-1. 리소스 그룹을 만듭니다.
+1. 리소스 그룹을 생성합니다.
 
    ```powershell
    New-AzResourceGroup -Location "West US" -Name "testRG"
    ```
-2. 가상 WAN 만들기
+2. 가상 WAN 생성
 
    ```powershell
    $virtualWan = New-AzVirtualWan -ResourceGroupName "testRG" -Name "myVirtualWAN" -Location "West US"

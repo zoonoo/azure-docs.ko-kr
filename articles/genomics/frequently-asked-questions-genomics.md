@@ -1,7 +1,7 @@
 ---
-title: 일반적인 질문-FAQ
+title: 일반적인 질문 - FAQ
 titleSuffix: Microsoft Genomics
-description: 기술 정보, SLA 및 청구를 포함 하 여 Microsoft Genomics 서비스 사용과 관련 된 일반적인 질문에 대 한 답변을 받으세요.
+description: 기술 정보, SLA 및 청구를 포함하여 Microsoft Genomics 서비스 사용과 관련된 일반적인 질문에 대한 답변을 알아봅니다.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -10,22 +10,22 @@ ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
 ms.openlocfilehash: 40fff49aa3ed46417cdd9a6190f928707e41accb
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105608615"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: 일반적인 질문
 
-이 문서에는 Microsoft Genomics와 관련될 수 있는 주요 질문이 나열되어 있습니다. Microsoft Genomics 서비스에 대 한 자세한 내용은 [Microsoft Genomics 무엇입니까?](overview-what-is-genomics.md)를 참조 하세요. 문제 해결 방법에 대한 자세한 내용은 [문제 해결 가이드](troubleshooting-guide-genomics.md)를 참조하세요. 
+이 문서에는 Microsoft Genomics와 관련될 수 있는 주요 질문이 나열되어 있습니다. Microsoft Genomics 서비스에 대한 자세한 내용은 [Microsoft Genomics란?](overview-what-is-genomics.md)을 참조하세요. 문제 해결 방법에 대한 자세한 내용은 [문제 해결 가이드](troubleshooting-guide-genomics.md)를 참조하세요. 
 
 
-## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>Microsoft Genomics에서 GATK4 워크플로를 실행할 어떻게 할까요? 있나요?
-Microsoft Genomics 서비스의 config.txt 파일에서 process_name를 지정 합니다 `gatk4` . 정기적인 청구 요금으로 요금이 청구 됩니다.
+## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>Microsoft Genomics에서 GATK4 워크플로를 실행하려면 어떻게 하나요?
+Microsoft Genomics 서비스의 config.txt 파일에서 process_name을 `gatk4`로 지정하세요. 정기적인 청구 비율로 요금이 청구됩니다.
 
-## <a name="how-do-i-enable-output-compression"></a>출력 압축을 사용 하도록 설정 어떻게 할까요??
-출력 압축에 대 한 선택적 인수를 사용 하 여 출력 .vcf 또는 gvcf를 압축할 수 있습니다. 이는를 실행 하는 것과 같으며 `-bgzip` `-tabix` .vcf 또는 gvcf 출력에서 `.gz` (bgzip output) 및 `.tbi` (tabix output) 파일을 생성 합니다. `bgzip` 는 .vcf 또는 gvcf 파일을 압축 하 고 `tabix` 압축 된 파일에 대 한 인덱스를 만듭니다. 인수는 부울로, 기본적으로 `false` .vcf 출력에 대해로 설정 되 고 `true` gcvf output의 경우로 설정 됩니다. 명령줄에서 사용하려면 `-bz` 또는 `--bgzip-output`을 `true`(bgzip 및 tabix 실행) 또는 `false`로 지정합니다. 이 인수를 config.txt 파일에 사용하려면 `bgzip_output: true` 또는 `bgzip_output: false`을 파일에 추가합니다.
+## <a name="how-do-i-enable-output-compression"></a>출력 압축을 사용하도록 설정하려면 어떻게 하나요?
+출력 압축에 대해 선택적 인수를 사용하여 출력 vcf 또는 gvcf를 압축할 수 있습니다. 이 작업은 vcf 또는 gvcf 출력에 대해 `-bgzip`을 실행한 후 `-tabix`를 실행하여 `.gz`(bgzip 출력) 및 `.tbi`(tabix 출력) 파일을 생성하는 것과 같습니다. `bgzip`은 vcf 또는 gvcf 파일을 압축하고, `tabix`는 압축된 파일의 인덱스를 만듭니다. 인수는 부울이며, vcf 출력에 대해서는 기본적으로 `false`로 설정되고 gvcf 출력에 대해서는 기본적으로 `true`로 설정됩니다. 명령줄에서 사용하려면 `-bz` 또는 `--bgzip-output`을 `true`(bgzip 및 tabix 실행) 또는 `false`로 지정합니다. 이 인수를 config.txt 파일에 사용하려면 `bgzip_output: true` 또는 `bgzip_output: false`을 파일에 추가합니다.
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Microsoft Genomics의 SLA는 무엇인가요?
 워크플로 API 요청을 수신하는 데 Microsoft Genomics 서비스의 99.9% 가용성을 보장합니다. 자세한 내용은 [SLA](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/)를 참조하세요.
@@ -59,9 +59,9 @@ Azure Portal로 이동하여 Genomics 계정 페이지를 여세요. **관리** 
 ## <a name="do-you-save-my-storage-account-keys"></a>내 스토리지 계정 키를 저장하나요?
 스토리지 계정 키는 Microsoft Genomics 서비스에 대한 단기 액세스 토큰을 만들어 입력 파일을 읽고 출력 파일을 쓰는 데 사용됩니다. 기본 토큰 지속 기간은 48시간입니다. 토큰 지속 기간은 submit 명령의 `-sas/--sas-duration` 옵션으로 변경할 수 있습니다. 값은 시간 단위입니다.
 
-## <a name="does-microsoft-genomics-store-customer-data"></a>고객 데이터를 저장 Microsoft Genomics 합니까?
+## <a name="does-microsoft-genomics-store-customer-data"></a>Microsoft Genomics에서 고객 데이터를 저장하나요?
 
-아니요. Microsoft Genomics는 고객 데이터를 저장 하지 않습니다.
+아니요. Microsoft Genomics는 고객 데이터를 저장하지 않습니다.
 
 ## <a name="what-genome-references-can-i-use"></a>어떤 게놈 참조를 사용할 수 있나요?
 

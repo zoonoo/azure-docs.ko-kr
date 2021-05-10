@@ -1,6 +1,6 @@
 ---
-title: Azure 센티널에 Forcepoint products 연결 | Microsoft Docs
-description: Forcepoint 제품을 Azure 센티널에 연결 하는 방법을 알아봅니다.
+title: Forcepoint 제품을 Azure Sentinel에 연결 | Microsoft Docs
+description: Azure Sentinel에 Forcepoint 제품을 연결하는 방법을 알아봅니다.
 services: sentinel
 author: yelevin
 editor: ''
@@ -13,36 +13,36 @@ ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
 ms.openlocfilehash: eb099a786a84f9b7d0a6f0dc6e6df9c3459af295
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "77588232"
 ---
-# <a name="connect-your-forcepoint-products-to-azure-sentinel"></a>Azure 센티널에 Forcepoint 제품 연결
+# <a name="connect-your-forcepoint-products-to-azure-sentinel"></a>Forcepoint 제품을 Azure Sentinel에 연결
 
 > [!IMPORTANT]
-> Azure 센티널의 Forcepoint products 데이터 커넥터는 현재 공개 미리 보기로 제공 됩니다. 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> Azure Sentinel의 Forcepoint 제품 데이터 커넥터는 현재 퍼블릭 미리 보기로 제공됩니다. 해당 기능은 별도의 서비스 수준 계약 없이 제공되며, 프로덕션 작업에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 
-이 문서에서는 Forcepoint 제품을 Azure 센티널에 연결 하는 방법을 설명 합니다. 
+이 문서는 Forcepoint 제품을 Azure Sentinel에 연결하는 방법을 설명합니다. 
 
-Forcepoint 데이터 커넥터를 사용 하 여 Forcepoint Cloud Access Security Broker 및 Forcepoint 차세대 방화벽 로그를 Azure 센티널과 연결할 수 있습니다. 이러한 방식으로 사용자 정의 로그를 실시간으로 Azure 센티널로 자동으로 내보낼 수 있습니다. 커넥터는 Forcepoint 제품이 기록한 사용자 활동에 대 한 보강 표시를 제공 합니다. 또한 Azure 워크 로드 및 기타 피드의 데이터와의 상관 관계를 강화 하 고 Azure 센티널 내 통합 문서에 대 한 모니터링 기능을 향상 시킵니다.
+Forcepoint 데이터 커넥터를 사용하여 Forcepoint Cloud Access Security Broker 및 Forcepoint Next Generation Firewall 로그를 Azure Sentinel에 연결할 수 있습니다. 이러한 방식으로 사용자 정의 로그를 실시간으로 Azure Sentinel로 자동으로 내보낼 수 있습니다. 이 커넥터는 Forcepoint 제품에 기록된 사용자 활동을 보다 잘 볼 수 있도록 지원합니다. 또한 Azure 워크로드 및 다른 피드의 데이터와의 상관 관계를 설정하고 Azure Sentinel 내의 통합 문서로 모니터링 기능을 향상시킵니다.
 
 > [!NOTE]
-> 데이터는 Azure 센티널을 실행 하는 작업 영역의 지리적 위치에 저장 됩니다.
+> 데이터는 Azure Sentinel을 실행하는 작업 영역의 지리적 위치에 저장됩니다.
 
 
 
 ## <a name="forward-forcepoint-product-logs-to-the-syslog-agent"></a>Forcepoint 제품 로그를 Syslog 에이전트로 전달 
 
-Syslog 에이전트를 통해 CEF 형식의 Syslog 메시지를 Azure 작업 영역으로 전달 하도록 Forcepoint 제품을 구성 합니다.
+Syslog 에이전트를 통해 CEF 형식의 Syslog 메시지를 Azure 작업 영역으로 전달하도록 Forcepoint 제품을 구성합니다.
 
-1. 다음 설치 가이드에 설명 된 대로 Forcepoint 제품을 Azure 센티널 통합으로 설정 합니다.
+1. 다음 설치 가이드에 설명된 대로 Azure Sentinel로의 Forcepoint 제품 통합을 설정합니다.
  - [Forcepoint CASB 통합 가이드](https://frcpnt.com/casb-sentinel)
  - [Forcepoint NGFW 통합 가이드](https://frcpnt.com/ngfw-sentinel)
 
-2. CommonSecurityLog를 검색 하 여 DeviceVendor 이름에 ' Forcepoint '가 포함 된 Log Analytics에서 관련 스키마를 사용 합니다. 
+2. CommonSecurityLog를 검색하여 DeviceVendor 이름에 'Forcepoint'가 포함된 Log Analytics에서 관련 스키마를 사용합니다. 
 
 3. [단계 3: 연결 유효성 검사](connect-cef-verify.md)로 계속 진행합니다.
 
@@ -50,7 +50,7 @@ Syslog 에이전트를 통해 CEF 형식의 Syslog 메시지를 Azure 작업 영
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Forcepoint 제품을 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 Forcepoint 제품을 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
 

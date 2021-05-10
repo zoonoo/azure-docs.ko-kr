@@ -1,6 +1,6 @@
 ---
 title: SQL Server 가상 머신으로 데이터 이동 - Team Data Science Process
-description: 플랫 파일 또는 온-프레미스 SQL Server에서 Azure VM의 SQL Server로 데이터를 이동 합니다.
+description: 플랫 파일 또는 온-프레미스 SQL Server에서 Azure VM의 SQL Server로 데이터를 이동합니다.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c80a90b07e25942e751d52cafa47f6e3e94852ab
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "93320337"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Azure 가상 머신에서 SQL Server로 데이터 이동
@@ -28,10 +28,10 @@ Machine Learning을 위해 Azure SQL Database로 데이터를 이동하기 위�
 
 | <b>원본</b> | <b>대상: Azure VM의 SQL Server</b> |
 | --- | --- |
-| <b>플랫 파일</b> |1. <a href="#insert-tables-bcp">명령줄 BCP (대량 복사 유틸리티) </a><br> 2. <a href="#insert-tables-bulkquery">대량 삽입 SQL 쿼리 </a><br> 3. <a href="#sql-builtin-utilities">SQL Server의 그래픽 기본 제공 유틸리티</a> |
-| <b>온-프레미스 SQL Server</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">MICROSOFT AZURE VM 마법사에 SQL Server 데이터베이스 배포</a><br> 2. <a href="#export-flat-file">플랫 파일로 내보내기 </a><br> 3. <a href="#sql-migration">SQL Database 마이그레이션 마법사 </a> <br> 4. <a href="#sql-backup">데이터베이스 백업 및 복원 </a><br> |
+| <b>플랫 파일</b> |1. <a href="#insert-tables-bcp">명령줄 BCP(대량 복사 유틸리티) </a><br> 2. <a href="#insert-tables-bulkquery">대량 삽입 SQL 쿼리 </a><br> 3. <a href="#sql-builtin-utilities">SQL Server의 기본 제공 그래픽 유틸리티</a> |
+| <b>온-프레미스 SQL Server</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Microsoft Azure VM에 SQL Server 데이터베이스 배포 마법사</a><br> 2. <a href="#export-flat-file">플랫 파일로 내보내기 </a><br> 3. <a href="#sql-migration">SQL Database 마이그레이션 마법사 </a> <br> 4. <a href="#sql-backup">데이터베이스 백업 및 복원 </a><br> |
 
-이 문서에서는 SQL Server Management Studio 또는 Visual Studio 데이터베이스 탐색기에서 SQL 명령이 실행 되는 것으로 가정 합니다.
+이 문서는 SQL Server Management Studio 또는 Visual Studio 데이터베이스 탐색기에서 SQL 명령을 실행하는 것으로 가정합니다.
 
 > [!TIP]
 > 하나의 대안으로, [Azure 데이터 팩터리](https://azure.microsoft.com/services/data-factory/) 를 사용하여 Azure의 SQL Server VM으로 데이터를 이동하는 파이프라인을 만들고 예약할 수 있습니다. 자세한 내용은 [Azure 데이터 팩터리를 사용하여 데이터 복사(복사 작업)](../../data-factory/copy-activity-overview.md)를 참조하세요.
@@ -42,19 +42,19 @@ Machine Learning을 위해 Azure SQL Database로 데이터를 이동하기 위�
 이 자습서에서는 사용자가 다음을 보유하고 있다고 가정합니다.
 
 * **Azure 구독**. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
-* **Azure 저장소 계정**. 이 자습서에서는 데이터 저장을 위해 Azure Storage 계정을 사용합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조하세요. 스토리지 계정을 만든 후에는 스토리지 액세스에 사용되는 계정 키를 확보해야 합니다. [저장소 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조 하세요.
+* **Azure Storage 계정**. 이 자습서에서는 데이터 저장을 위해 Azure Storage 계정을 사용합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조하세요. 스토리지 계정을 만든 후에는 스토리지 액세스에 사용되는 계정 키를 확보해야 합니다. [스토리지 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조하세요.
 * 프로비전된 **Azure VM의 SQL Server**. 자세한 내용은 [고급 분석을 위해 Azure SQL Server 가상 머신을 IPython Notebook 서버로 설정](../data-science-virtual-machine/overview.md)을 참조하세요.
 * 로컬로 설치 및 구성된 **Azure PowerShell** . 자세한 내용은 [Azure PowerShell 설치 및 구성법](/powershell/azure/)을 참조하세요.
 
 ## <a name="moving-data-from-a-flat-file-source-to-sql-server-on-an-azure-vm"></a><a name="filesource_to_sqlonazurevm"></a> 플랫 파일 원본에서 Azure VM의 SQL Server로 데이터 이동
 데이터가 플랫 파일에 있는 경우(행/열 형식으로 정렬됨) 다음 방법을 통해 Azure 기반의 SQL Server VM으로 데이터를 이동할 수 있습니다.
 
-1. [명령줄 BCP (대량 복사 유틸리티)](#insert-tables-bcp)
+1. [명령줄 BCP(대량 복사 유틸리티)](#insert-tables-bcp)
 2. [대량 삽입 SQL 쿼리](#insert-tables-bulkquery)
 3. [SQL Server의 기본 제공 그래픽 유틸리티(Import/Export, SSIS)](#sql-builtin-utilities)
 
 ### <a name="command-line-bulk-copy-utility-bcp"></a><a name="insert-tables-bcp"></a>명령줄 BCP(대량 복사 유틸리티)
-BCP는 SQL Server와 함께 설치되는 명령줄 유틸리티로, 데이터를 이동하는 가장 빠른 방법 중 하나입니다. 3 개의 SQL Server 변형 (온-프레미스 SQL Server, SQL Azure 및 Azure의 SQL Server VM) 모두에서 작동 합니다.
+BCP는 SQL Server와 함께 설치되는 명령줄 유틸리티로, 데이터를 이동하는 가장 빠른 방법 중 하나입니다. 이는 모든 SQL Server 버전(온-프레미스 SQL Server, SQL Azure 및 Azure 기반의 SQL Server VM)에서 작동합니다.
 
 > [!NOTE]
 > **BCP를 사용하려면 데이터가 어디에 있어야 하나요?**  
@@ -75,10 +75,10 @@ BCP는 SQL Server와 함께 설치되는 명령줄 유틸리티로, 데이터를
     )
     ```
 
-1. Bcp가 설치 된 컴퓨터의 명령줄에서 다음 명령을 실행 하 여 테이블의 스키마를 설명 하는 서식 파일을 생성 합니다.
+1. bcp가 설치된 머신의 명령줄에서 다음 명령을 실행하여 테이블의 스키마를 설명하는 서식 파일을 생성합니다.
 
     `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
-1. Bcp 명령을 사용 하 여 데이터베이스에 데이터를 삽입 합니다 .이 명령은 SQL Server가 같은 컴퓨터에 설치 되어 있는 경우 명령줄에서 작동 해야 합니다.
+1. bcp 명령을 사용하여 데이터베이스에 데이터를 삽입합니다. 이 명령은 SQL Server가 같은 머신에 설치되어 있는 경우 명령줄에서 작동합니다.
 
     `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attempt -t \t -r \n`
 
@@ -87,7 +87,7 @@ BCP는 SQL Server와 함께 설치되는 명령줄 유틸리티로, 데이터를
 >
 
 ### <a name="parallelizing-inserts-for-faster-data-movement"></a><a name="insert-tables-bulkquery-parallel"></a>더 빠른 데이터 이동을 위한 병렬 처리
-이동 하는 데이터가 많은 경우 PowerShell 스크립트에서 동시에 여러 BCP 명령을 병렬로 실행 하 여 작업 속도를 높일 수 있습니다.
+이동하려는 데이터가 큰 경우 PowerShell 스크립트에서 동시에 여러 BCP 명령을 병렬로 수행하면 작업 속도를 높일 수 있습니다.
 
 > [!NOTE]
 > **빅 데이터 수집** 매우 큰 데이터 세트의 데이터 로드 작업을 최적화하려면 여러 파일 그룹 및 파티션 테이블을 사용하여 논리적 및 물리적 데이터베이스 테이블을 분할합니다. 파티션 테이블을 만들어서 데이터를 로드하는 방법에 대한 자세한 내용은 [SQL 파티션 테이블 병렬 로드](parallel-load-sql-partitioned-tables.md)를 참조하세요.
@@ -157,7 +157,7 @@ Set-ExecutionPolicy Restricted #reset the execution policy
     ```
 
 ### <a name="built-in-utilities-in-sql-server"></a><a name="sql-builtin-utilities"></a>SQL Server의 기본 제공 그래픽 유틸리티
-SSIS (SQL Server Integration Services)를 사용 하 여 플랫 파일에서 Azure의 SQL Server VM에 데이터를 가져올 수 있습니다.
+SSIS(SQL Server Integration Services)를 사용하여 플랫 파일의 데이터를 Azure 기반의 SQL Server VM으로 가져올 수 있습니다.
 SSIS는 두 가지 스튜디오 환경에서 사용할 수 있습니다. 자세한 내용은 [SSIS(Integration Services) 및 스튜디오 환경](/sql/integration-services/integration-services-ssis-development-and-management-tools)을 참조하세요.
 
 * SQL Server 데이터 도구에 대한 자세한 내용은 [Microsoft SQL Server 데이터 도구](/sql/ssdt/download-sql-server-data-tools-ssdt)  
@@ -171,7 +171,7 @@ SSIS는 두 가지 스튜디오 환경에서 사용할 수 있습니다. 자세�
 3. [SQL Database 마이그레이션 마법사](#sql-migration)
 4. [데이터베이스 백업 및 복원](#sql-backup)
 
-아래에서는 이러한 각 옵션에 대해 설명 합니다.
+아래는 각 옵션에 대한 설명입니다.
 
 ### <a name="deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard"></a>Microsoft Azure 가상 컴퓨터에 SQL Server 데이터베이스 배포 마법사
 **Microsoft Azure VM에 SQL Server 데이터베이스 배포 마법사** 는 온-프레미스 SQL Server 인스턴스에서 Azure VM의 SQL Server로 데이터를 이동하는 간단한 권장 방법입니다. 자세한 단계 및 다른 대안에 대한 설명은 [Azure VM의 SQL Server로 데이터베이스 마이그레이션](../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md)을 참조하세요.
@@ -179,13 +179,13 @@ SSIS는 두 가지 스튜디오 환경에서 사용할 수 있습니다. 자세�
 ### <a name="export-to-flat-file"></a><a name="export-flat-file"></a>플랫 파일로 내보내기
 [데이터의 대량 가져오기 및 내보내기(SQL Server)](/sql/relational-databases/import-export/bulk-import-and-export-of-data-sql-server) 토픽에 설명된 대로 온-프레미스 SQL Server에서 데이터를 대량으로 내보내는 데 다양한 방법을 사용할 수 있습니다. 이 문서에서는 그 방법 중 하나로 BCP(대량 복사 프로그램)에 대해 설명합니다. 데이터를 플랫 파일로 내보낸 후에는 대량 삽입을 사용하여 다른 SQL Server로 데이터를 가져올 수 있습니다.
 
-1. 다음과 같이 bcp 유틸리티를 사용 하 여 온-프레미스 SQL Server에서 파일로 데이터를 내보냅니다.
+1. 다음과 같이 bcp 유틸리티를 사용하여 온-프레미스 SQL Server에서 파일로 데이터를 내보냅니다.
 
     `bcp dbname..tablename out datafile.tsv -S    servername\sqlinstancename -T -t \t -t \n -c`
 2. 1단계에서 내보낸 테이블 스키마에 대해 `create database` 및 `create table`을 사용하여 Azure 기반의 SQL Server VM에 데이터베이스 및 테이블을 만듭니다.
 3. 내보내는/가져오는 데이터의 테이블 스키마를 설명하는 서식 파일을 만듭니다. 서식 파일의 세부 정보는 [서식 파일 만들기(SQL Server)](/sql/relational-databases/import-export/create-a-format-file-sql-server)에 설명되어 있습니다.
 
-    SQL Server 컴퓨터에서 BCP를 실행 하는 경우 서식 파일 생성
+    SQL Server 컴퓨터에서 BCP를 실행하는 경우 서식 파일 생성
 
     `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
 
@@ -203,7 +203,7 @@ SSIS는 두 가지 스튜디오 환경에서 사용할 수 있습니다. 자세�
 SQL Server는 다음을 지원합니다.
 
 1. [데이터베이스 백업 및 복원 기능](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)(로컬 파일 백업 또는 blob로 bacpac 내보내기 모두 지원) 및 [데이터 계층 애플리케이션](/sql/relational-databases/data-tier-applications/data-tier-applications)(bacpac 사용).
-2. Azure에서 복사 된 데이터베이스를 사용 하 여 SQL Server Vm을 직접 만들거나 SQL Database의 기존 데이터베이스로 복사할 수 있습니다. 자세한 내용은 [Use the Copy Database Wizard](/sql/relational-databases/databases/use-the-copy-database-wizard)을 참조하세요.
+2. 복사된 데이터베이스를 사용하여 또는 SQL Database의 기존 데이터베이스에 복사하여 Azure에서 직접 SQL Server VM을 만드는 기능. 자세한 내용은 [Use the Copy Database Wizard](/sql/relational-databases/databases/use-the-copy-database-wizard)을 참조하세요.
 
 아래는 SQL Server Management Studio의 데이터베이스 백업/복원 옵션 스크린샷입니다.
 

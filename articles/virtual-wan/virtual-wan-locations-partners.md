@@ -1,6 +1,6 @@
 ---
-title: Azure 가상 WAN 파트너 및 위치 | Microsoft Docs
-description: 이 문서에는 Azure 가상 WAN 파트너 및 허브 위치 목록이 포함 되어 있습니다.
+title: Azure Virtual WAN 파트너 및 위치 | Microsoft Docs
+description: 이 문서에는 Azure Virtual WAN 파트너 및 허브 위치 목록이 포함되어 있습니다.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,19 +8,18 @@ ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: cherylmc
 ms.custom: references_regions
-Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: 4a02a02eeb40c1a61df88c49bf967b2ca57befc3
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.openlocfilehash: 7b14325ba969ae9d9a886269eee33a3066eb8f12
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102489330"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060451"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>가상 WAN 파트너 및 가상 허브 위치
 
-이 문서에서는 가상 허브에 연결 하기 위해 가상 WAN 지원 지역 및 파트너에 대 한 정보를 제공 합니다.
+이 문서에서는 가상 허브에 연결하기 위한 Virtual WAN 지원 지역 및 파트너에 대한 정보를 제공합니다.
 
-Azure Virtual WAN은 Azure를 통해 최적화 및 자동화된 분기 간 연결을 제공하는 네트워킹 서비스입니다. Virtual WAN을 사용하여 Azure와 통신하도록 분기 디바이스를 연결 및 구성할 수 있습니다. 연결 및 구성은 수동으로 수행 하거나 가상 WAN 파트너를 통해 공급자 장치를 사용 하 여 수행할 수 있습니다. 파트너 장치를 사용 하면 편리 하 고 간편 하 게 사용 하 고 연결을 간소화 하 고 구성할 수 있습니다.
+Azure Virtual WAN은 Azure를 통해 최적화 및 자동화된 분기 간 연결을 제공하는 네트워킹 서비스입니다. Virtual WAN을 사용하여 Azure와 통신하도록 분기 디바이스를 연결 및 구성할 수 있습니다. 연결과 구성은 수동으로 수행하거나 또는 Virtual WAN 파트너를 통해 공급자 디바이스를 사용하여 수행할 수 있습니다. 파트너 디바이스는 쉽게 사용할 수 있고 간편하게 연결할 수 있으며 구성을 관리할 수 있습니다.
 
 온-프레미스 디바이스에서 가상 허브로의 연결은 자동화된 방식으로 설정됩니다. 가상 허브는 Microsoft에서 관리하는 가상 네트워크입니다. 허브는 온-프레미스 네트워크(vpnsite)에서 연결을 활성화하는 다양한 서비스 엔드포인트를 포함합니다. 지역당 허브는 하나만 있을 수 있습니다.
 
@@ -35,36 +34,36 @@ Azure Virtual WAN에 연결하는 디바이스에는 연결 자동화가 기본�
 * Azure 연결 정보 자동 다운로드
 * 온-프레미스 분기 디바이스 구성 
 
-일부 연결 파트너는 Azure Virtual Hub VNet과 VPN 게이트웨이 만들기를 포함하도록 자동화를 확장할 수 있습니다. Automation에 대해 자세히 알아보려면 [가상 WAN 파트너에 대 한 자동화 지침](virtual-wan-configure-automation-providers.md)을 참조 하세요.
+일부 연결 파트너는 Azure Virtual Hub VNet과 VPN 게이트웨이 만들기를 포함하도록 자동화를 확장할 수 있습니다. 자동화에 대해 자세히 알아보려면 [Virtual WAN 파트너에 대한 자동화 지침](virtual-wan-configure-automation-providers.md)을 참조하세요.
 
 ## <a name="branch-ipsec-connectivity-partners"></a><a name="partners"></a>분기 IPsec 연결 파트너
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-다음 파트너는 파트너 장치와 Azure 가상 WAN VPN 게이트웨이 간에 IPsec 연결을 자동화 하는 작업의 범위를 나타내는 회사 간에 서명 된 약관 (128 기술, Arista, F5 네트워크, Oracle SD-WAN (Talari) 및 SharpLink)을 기반으로 합니다.
+다음 파트너는 파트너 디바이스와 Azure Virtual WAN VPN 게이트웨이 사이의 IPsec 연결을 자동화할 작업 범위를 나타내는 회사 간의 서명된 사용 약관(128 Technologies, Arista, F5 Networks, Oracle SD-WAN(Talari), SharpLink)을 기반으로 로드맵을 계획합니다.
 
-## <a name="partners-with-integrated-virtual-hub-offerings"></a>통합 된 가상 허브 제품을 사용 하는 파트너
+## <a name="partners-with-integrated-virtual-hub-offerings"></a>통합된 가상 허브 제품을 사용하는 파트너
 
-일부 파트너는 자동화 된 지점 IPsec 연결 외에도 Azure 가상 WAN 허브에 직접 통합할 수 있는 **nva (네트워크 가상 어플라이언스)** 를 제공 합니다.  이를 통해 고객은 해당 분기 연결을 가상 허브의 호환 가능한 타사 어플라이언스로 종료할 수 있습니다.  
+일부 파트너는 자동화된 지점 IPsec 연결 외에도 Azure Virtual WAN 허브에 직접 통합될 수 있는 **NVA(네트워크 가상 어플라이언스)** 를 제공합니다.  이 옵션을 이용하는 고객은 가상 허브에서 호환되는 타사 어플라이언스에 대한 분기 연결을 종료할 수 있습니다.  
 
-가상 WAN 허브에서 NVA를 제공 하는 파트너는 다음을 수행 해야 합니다.
+Virtual WAN 허브에서 NVA를 제공하는 파트너는 다음을 준수해야 합니다.
 
-* 해당 분기 장치에서 IPsec 연결 자동화를 구현 하 고 해당 NVA를 Azure 가상 WAN 허브에 등록 했습니다.
-* Azure Marketplace에서 기존 네트워크 가상 어플라이언스 제품을 사용할 수 있습니다.
+* 분기 디바이스에서 IPsec 연결 자동화를 구현하고 Azure Virtual WAN 허브에 NVA 제품을 등록합니다.
+* Azure Marketplace에서 사용할 수 있는 기존 네트워크 가상 어플라이언스 제품이 있어야 합니다.
 
-파트너 이며 가상 허브 제품에서 관리 되는 NVA에 대 한 질문이 있는 경우 다음 주소로 전자 메일을 보내 문의 하세요. vwannvaonboarding@microsoft.com
+파트너로서 가상 허브 제품의 관리형 NVA에 대한 질문이 있으면 다음 메일로 문의하세요. vwannvaonboarding@microsoft.com
 
 ## <a name="integrated-virtual-hub-nva-partners"></a>통합 가상 허브 NVA 파트너
 
-이러한 파트너는 이제 가상 WAN 허브에 배포 하는 데 사용할 수 있는 **관리 되는 응용 프로그램** 을 제공 합니다.
+이러한 파트너에는 현재 Virtual WAN 허브에 배포할 수 있는 **관리형 애플리케이션** 제품이 있습니다.
 
 |파트너|구성/방법/배포 가이드|
 |---|---|
 |[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Barracuda CloudGen WAN 배포 가이드](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
-|[Cisco CSR (클라우드 서비스 라우터) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| Cisco Cloud Services (CSR) WAN의 공개 미리 보기 중에는 VWAN 허브에 대 한 전자 메일을 보내고 Vwan 배포 가이드를 요청 하 여 최종 고객이 Cisco EFT (초기 현장 평가판) 고객으로 등록 해야 합니다 vwan_public_preview@external.cisco.com . 
-|[VMware SD-가상 WAN 허브의 WAN](https://sdwan.vmware.com/partners/microsoft) | Vmware SD에서 VWAN 허브로의 공개 미리 보기 중에 VMware는에 전자 메일을 보내 고객이 등록 해야 vhubsupport@vmware.com 합니다. [VMware SD-가상 WAN 허브 배포 가이드의 WAN](https://kb.vmware.com/s/article/82746)|
+|[Cisco CSR(Cloud Service Router) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| Cisco CSR(Cloud Service Router) WAN을 VWAN 허브로 퍼블릭 미리 보기 중, Cisco는 최종 고객에게 vwan_public_preview@external.cisco.com으로 메일을 보내고 vManage Deployment Guide를 요청하여 Cisco EFT(Early Field Trial) 고객으로 등록하도록 요청합니다. 
+|[Virtual WAN 허브의 VMware SD-WAN](https://sdwan.vmware.com/partners/microsoft) | VMware SD-WAN을 VWAN 허브로 퍼블릭 미리 보기 중, VMware는 고객에게 vhubsupport@vmware.com으로 메일을 보내 등록하도록 요청합니다. [Virtual WAN 허브 배포 가이드의 VMware SD-WAN](https://kb.vmware.com/s/article/82746)|
 
-다음 파트너는 나중에 Aviatrix, Citrix 및 그 반대로 네트워크에서 가상 허브 제품에 NVA를 제공할 예정입니다.
+다음 파트너는 가까운 미래에 Aviatrix, Citrix Versa Networks와 같은 가상 허브 제품에 NVA를 제공할 계획입니다.
 
 ## <a name="locations"></a><a name="locations"></a>위치
 
@@ -74,4 +73,4 @@ Azure Virtual WAN에 연결하는 디바이스에는 연결 자동화가 기본�
 
 * 가상 WAN에 대한 자세한 내용은 [가상 WAN FAQ](virtual-wan-faq.md)를 참조하세요.
 
-* Azure 가상 WAN에 대 한 연결을 자동화 하는 방법에 대 한 자세한 내용은 [가상 wan 파트너를 위한 Automation 지침](virtual-wan-configure-automation-providers.md)을 참조 하세요.
+* Azure Virtual WAN에 대한 연결을 자동화하는 방법에 대한 내용은 [Virtual WAN 파트너를 위한 자동화 지침](virtual-wan-configure-automation-providers.md)을 참조하세요.

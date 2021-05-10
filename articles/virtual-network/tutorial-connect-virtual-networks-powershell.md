@@ -1,11 +1,10 @@
 ---
-title: VNet 피어 링을 사용 하 여 가상 네트워크 연결-Azure PowerShell
+title: VNet 피어링을 사용하여 가상 네트워크 연결 - Azure PowerShell
 description: 이 문서에서는 Azure PowerShell을 사용하여 가상 네트워크 피어링으로 가상 네트워크를 연결하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
 tags: azure-resource-manager
-Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
@@ -15,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d93efaedbb0596382b0601a17098311e075618b7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 5214dbe692584c8b1df2007019c8108fd56dfa38
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98791983"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059346"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>PowerShell을 사용하여 가상 네트워크 피어링으로 가상 네트워크 연결
 
@@ -55,7 +54,7 @@ $virtualNetwork1 = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-[AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)를 사용 하 여 서브넷 구성을 만듭니다. 다음 예제에서는 10.0.0.0/24 주소 접두사가 포함된 서브넷 구성을 만듭니다.
+[New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)를 사용하여 서브넷 구성을 만듭니다. 다음 예제에서는 10.0.0.0/24 주소 접두사가 포함된 서브넷 구성을 만듭니다.
 
 ```azurepowershell-interactive
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
@@ -64,7 +63,7 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork1
 ```
 
-서브넷을 만드는 [AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork)를 사용 하 여 가상 네트워크에 서브넷 구성을 씁니다.
+[Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork)를 사용하여 가상 네트워크에 서브넷 구성을 쓰면 서브넷이 만들어집니다.
 
 ```azurepowershell-interactive
 $virtualNetwork1 | Set-AzVirtualNetwork
@@ -92,7 +91,7 @@ $virtualNetwork2 | Set-AzVirtualNetwork
 
 ## <a name="peer-virtual-networks"></a>가상 네트워크 피어링
 
-[AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering)를 사용 하 여 피어 링을 만듭니다. 다음 예제에서는 *myVirtualNetwork1* 을 *myVirtualNetwork2* 에 피어링합니다.
+[Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering)을 사용하여 피어링을 만듭니다. 다음 예제에서는 *myVirtualNetwork1* 을 *myVirtualNetwork2* 에 피어링합니다.
 
 ```azurepowershell-interactive
 Add-AzVirtualNetworkPeering `
@@ -110,7 +109,7 @@ Add-AzVirtualNetworkPeering `
   -RemoteVirtualNetworkId $virtualNetwork1.Id
 ```
 
-이전 명령 실행 후 반환된 출력에서 **PeeringState** 는 *Connected* 로 표시됩니다. 또한 Azure에서 *myVirtualNetwork1-myVirtualNetwork2* 피어링의 피어링 상태가 *Connected* 로 변경되었습니다. *MyVirtualNetwork1-myVirtualNetwork2* 피어 링의 피어 링 상태가 [AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering)와 *연결* 됨으로 변경 되었는지 확인 합니다.
+이전 명령 실행 후 반환된 출력에서 **PeeringState** 는 *Connected* 로 표시됩니다. 또한 Azure에서 *myVirtualNetwork1-myVirtualNetwork2* 피어링의 피어링 상태가 *Connected* 로 변경되었습니다. [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering)을 사용하여 *myVirtualNetwork1-myVirtualNetwork2* 피어링에 대한 피어링 상태가 *Connected* 로 변경되었는지 확인합니다.
 
 ```azurepowershell-interactive
 Get-AzVirtualNetworkPeering `
@@ -196,7 +195,7 @@ ping 10.0.0.4
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요 하지 않은 경우 [AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) 를 사용 하 여 리소스 그룹 및 포함 된 모든 리소스를 제거 합니다.
+더 이상 필요하지 않은 경우 [Remove-AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup)을 사용하여 리소스 그룹 및 해당 그룹에 포함된 모든 리소스를 제거할 수 있습니다.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

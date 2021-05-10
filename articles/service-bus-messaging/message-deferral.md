@@ -1,14 +1,14 @@
 ---
-title: Azure Service Bus-메시지 지연
-description: 이 문서에서는 Azure Service Bus 메시지 배달을 지연 하는 방법을 설명 합니다. 메시지는 큐나 구독에 남아 있지만 따로 분리됩니다.
+title: Azure Service Bus - 메시지 지연
+description: 이 문서에서는 Azure Service Bus 메시지 배달을 지연하는 방법을 설명합니다. 메시지는 큐나 구독에 남아 있지만 따로 분리됩니다.
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: e3a940f8aa9e72d9b09e9c0a3305521c6f17dfb0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98622048"
 ---
 # <a name="message-deferral"></a>메시지 지연
@@ -22,15 +22,15 @@ ms.locfileid: "98622048"
 궁극적으로, 연기 기능은 처리를 연기해야 하는 메시지를 메시지 저장소에 안전하게 보관하면서, 메시지 순서를 도착 순서에서 처리할 수 있는 순서로 다시 정렬하는 데 도움이 됩니다.
 
 > [!NOTE]
-> 지연 된 메시지는 [만료 된 후](./service-bus-dead-letter-queues.md#exceeding-timetolive)배달 못 한 편지 큐로 자동으로 이동 되지 않습니다. 이 동작은 의도적으로 설계 되었습니다.
+> 지연된 메시지는 [만료된 후](./service-bus-dead-letter-queues.md#exceeding-timetolive) 배달 못 한 편지 큐로 자동으로 이동되지 않습니다. 이 동작은 의도된 것입니다.
 
 ## <a name="message-deferral-apis"></a>메시지 지연 API
 
-이 API는 .NET Framework client의 [BrokeredMessage, DeferAsync](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deferasync#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeferAsync) 의 .NET Standard [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) , [DeferAsync, IMessageReceiver 또는 IMessageReceiver](/java/api/com.microsoft.azure.servicebus.imessagereceiver.defer) 의 Java 클라이언트에서 [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.defer#Microsoft_ServiceBus_Messaging_BrokeredMessage_Defer) [또는 DeferAsync](/java/api/com.microsoft.azure.servicebus.imessagereceiver.deferasync) 입니다. 
+이 API는 .NET Framework 클라이언트의 [BrokeredMessage.Defer](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.defer#Microsoft_ServiceBus_Messaging_BrokeredMessage_Defer) 또는 [BrokeredMessage.DeferAsync](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deferasync#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeferAsync), .NET Standard 클라이언트의 [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync), Java 클라이언트의 [IMessageReceiver.defer](/java/api/com.microsoft.azure.servicebus.imessagereceiver.defer) 또는 [IMessageReceiver.deferAsync](/java/api/com.microsoft.azure.servicebus.imessagereceiver.deferasync)입니다. 
 
 연기된 메시지는 다른 모든 활성 메시지와 함께 기본 큐에 남아 있지만(하위 큐에 유지되는 배달 못 한 메시지와 다름), 더 이상 일반적인 Receive/ReceiveAsync 함수를 사용하여 수신될 수 없습니다. 연기된 메시지는 애플리케이션이 추적하지 못할 경우 [메시지 찾아보기](message-browsing.md)를 통해 검색할 수 있습니다.
 
-지연 된 메시지를 검색 하기 위해 소유자는 지연 된 메시지를 [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) 하는 것을 기억 해야 합니다. 지연된 메시지의 시퀀스 번호를 알고 있는 수신자는 나중에 `Receive(sequenceNumber)`를 사용하여 해당 메시지를 명시적으로 수신할 수 있습니다.
+지연된 메시지를 검색하기 위해 소유자는 메시지를 연기할 때 [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber)를 기억해야 합니다. 지연된 메시지의 시퀀스 번호를 알고 있는 수신자는 나중에 `Receive(sequenceNumber)`를 사용하여 해당 메시지를 명시적으로 수신할 수 있습니다.
 
 해당 메시지를 처리하기 위한 특정 리소스를 일시적으로 사용할 수 없으나 메시지 처리를 즉시 일시 중단하면 안 되기 때문에 메시지를 처리할 수 없는 경우, 몇 분 동안 해당 메시지를 보류하는 방법은 몇 분 후에 게시할 [예약된 메시지](message-sequencing.md)의 **SequenceNumber** 를 기억해둔 후, 예약된 메시지가 도착할 때 연기된 메시지를 다시 검색하는 것입니다. 메시지 처리기가 모든 작업을 위해 데이터베이스에 의존하며 해당 데이터베이스를 일시적으로 사용할 수 없는 경우, 연기를 사용하지 말고 데이터베이스를 다시 사용할 수 있게 될 때까지 메시지 수신을 일시 중단하는 것이 좋습니다.
 

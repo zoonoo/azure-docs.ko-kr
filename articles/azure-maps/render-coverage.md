@@ -1,6 +1,6 @@
 ---
-title: 렌더링 검사 | Microsoft Azure 맵
-description: Azure Maps 상세 데이터 또는 단순화 된 데이터를 사용 하 여 다양 한 영역을 렌더링 하는지 여부를 알아봅니다. 해당 지역의 래스터 타일 및 벡터 타일 맵에 사용 되는 수준을 참조 하세요.
+title: 렌더링 검사 | Microsoft Azure Maps
+description: Azure Maps가 상세 데이터 또는 단순화된 데이터 중 어떤 데이터를 사용하여 다양한 지역을 렌더링하는지를 알아봅니다. 해당 지역의 래스터 타일 및 벡터 타일 맵에 사용되는 수준을 참조하세요.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 03/22/2019
@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 69b122196cbeb7508cddf3a890768f83fdcd4727
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88030931"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps 렌더링 검사
 
-Azure Maps는 래스터 타일 및 벡터 타일을 모두 사용하여 맵을 만듭니다. 가장 낮은 해상도에서 전체 세계는 단일 타일에 적합 합니다. 가장 높은 해상도에서 단일 타일은 38 평방 미터를 나타냅니다. 지도를 확대할 때 대륙, 지역, 도시 및 개별도로에 대 한 자세한 내용을 볼 수 있습니다. 타일에 대 한 자세한 내용은 [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md)를 참조 하세요.
+Azure Maps는 래스터 타일 및 벡터 타일을 모두 사용하여 맵을 만듭니다. 가장 낮은 해상도에서는 전 세계가 단일 타일에 맞습니다. 가장 높은 해상도에서는 단일 타일에 38제곱 미터가 표시됩니다. 맵을 확대하면 대륙, 지역, 도시 및 개별 도로가 보다 자세히 표시됩니다. 자세한 내용은 [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md)를 참조하세요.
 
-그러나 맵에는 모든 지역에 대해 동일한 수준의 정보 및 정확도가 없습니다. 다음 표에서는 각 지역에 대해 렌더링할 수 있는 정보의 수준을 자세히 설명 합니다.
+단, Maps에서 모든 지역에 대해 동일한 수준의 정보 및 정확도를 가지지는 않습니다. 다음 표에서는 각 지역에 대해 렌더링할 수 있는 정보의 수준을 자세히 설명합니다.
 
 ## <a name="legend"></a>범례
 

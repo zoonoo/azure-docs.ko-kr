@@ -1,19 +1,18 @@
 ---
 title: Azure Virtual WAN FAQ | Microsoft Docs
-description: Azure 가상 WAN 네트워크, 클라이언트, 게이트웨이, 장치, 파트너 및 연결에 대 한 질문과 대답을 참조 하세요.
+description: Azure Virtual WAN 네트워크, 클라이언트, 게이트웨이, 디바이스, 파트너, 연결에 대해 자주 묻는 질문에 대한 답변을 참조하세요.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: troubleshooting
 ms.date: 03/05/2021
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to read more details about Virtual WAN in a FAQ format.
-ms.openlocfilehash: 474f27c3241dd32815cea180a0ab860b65b8acbb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: cb84083c26274b877c18e58ec938b586184dc605
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102431547"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060434"
 ---
 # <a name="virtual-wan-faq"></a>가상 WAN FAQ
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Functions F # 개발자 참조'
+title: Azure Functions F# 개발자 참조
 description: F# 스크립트를 사용하여 Azure Functions를 개발하는 방법을 알아봅니다.
 author: sylvanc
 ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: syclebsc
 ms.openlocfilehash: f9b7b92fd21e12f1d86c5d5878e48c6ec6b0e748
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87088022"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F# 개발자 참조
@@ -18,7 +18,7 @@ ms.locfileid: "87088022"
 Azure Functions용 F#란 클라우드에서 작은 코드 또는 "함수"를 쉽게 실행하기 위한 솔루션입니다. 데이터는 함수 인수를 통해 F# 함수로 흐릅니다. 인수 이름은 `function.json`에 지정되며 함수 로거 및 취소 토큰 같은 항목에 액세스하기 위해 미리 정의된 이름이 있습니다. 
 
 >[!IMPORTANT]
->F# 스크립트(.fsx)는 Azure Functions 런타임 [버전 1.x](functions-versions.md#creating-1x-apps)에서만 지원됩니다. 버전 2.x 및 이후 버전의 런타임에서 F #을 사용 하려면 미리 컴파일된 F # 클래스 라이브러리 프로젝트 (fs)를 사용 해야 합니다. [C# 클래스 라이브러리 프로젝트](functions-dotnet-class-library.md)를 사용할 때처럼 Visual Studio를 사용하여 F# 클래스 라이브러리 프로젝트를 만들고, 관리하고, 게시합니다. Functions 버전에 대한 자세한 내용은 [Azure Functions 런타임 버전 개요](functions-versions.md)를 참조하세요.
+>F# 스크립트(.fsx)는 Azure Functions 런타임 [버전 1.x](functions-versions.md#creating-1x-apps)에서만 지원됩니다. 버전 2.x 이상 런타임에서 F#을 사용하려는 경우 미리 컴파일된 F# 클래스 라이브러리 프로젝트(.fs)를 사용해야 합니다. [C# 클래스 라이브러리 프로젝트](functions-dotnet-class-library.md)를 사용할 때처럼 Visual Studio를 사용하여 F# 클래스 라이브러리 프로젝트를 만들고, 관리하고, 게시합니다. Functions 버전에 대한 자세한 내용은 [Azure Functions 런타임 버전 개요](functions-versions.md)를 참조하세요.
 
 이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다.
 
@@ -109,7 +109,7 @@ let Run(req: HttpRequestMessage) =
 ```
 
 ## <a name="cancellation-token"></a>취소 토큰
-함수에서 종료를 정상적으로 처리 해야 하는 경우 인수를 지정할 수 있습니다 [`CancellationToken`](/dotnet/api/system.threading.cancellationtoken) . 이는 `async`와 결합할 수 있습니다. 예:
+함수가 정상적인 종료를 처리해야 하는 경우 [`CancellationToken`](/dotnet/api/system.threading.cancellationtoken) 인수를 사용할 수 있습니다. 이는 `async`와 결합할 수 있습니다. 예:
 
 ```fsharp
 let Run(req: HttpRequestMessage, token: CancellationToken)
@@ -288,7 +288,7 @@ let mylog(log: ILogger, text: string) =
 자세한 내용은 다음 자료를 참조하세요.
 
 * [F# 가이드](/dotnet/articles/fsharp/index)
-* [Azure Functions에 대 한 모범 사례](functions-best-practices.md)
+* [Azure Functions에 대한 모범 사례](functions-best-practices.md)
 * [Azure Functions 개발자 참조](functions-reference.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 * [Azure Functions 테스트](functions-test-a-function.md)

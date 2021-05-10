@@ -1,43 +1,43 @@
 ---
-title: Azure Kubernetes Service와 Azure NetApp Files 통합
-description: Azure Kubernetes Service와 Azure NetApp Files를 통합 하는 방법 알아보기
+title: Azure NetApp Files와 Azure Kubernetes Service의 통합
+description: Azure NetApp Files와 Azure Kubernetes Service를 통합하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 1d5aa8232b5d0aaa68e6d7e3dcbb9a7d70d0e8f8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 28c5b77f06bc48bf06575e45194adfaed068b30f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182148"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776054"
 ---
-# <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Azure Kubernetes Service와 Azure NetApp Files 통합
+# <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Azure NetApp Files와 Azure Kubernetes Service의 통합
 
-[Azure NetApp Files][anf] 은 Azure에서 실행 되는 엔터프라이즈급의 고성능의 요금제 파일 저장소 서비스입니다. 이 문서에서는 Azure Kubernetes 서비스 (AKS)와 Azure NetApp Files를 통합 하는 방법을 보여 줍니다.
+[Azure NetApp Files][anf]는 Azure에서 실행되는 엔터프라이즈급, 고성능, 요금제 파일 스토리지 서비스입니다. 이 문서에서는 Azure NetApp Files와 AKS(Azure Kubernetes Service)를 통합하는 방법을 보여줍니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
 > [!IMPORTANT]
-> 또한 AKS 클러스터 [는 Azure NetApp Files를 지 원하는 지역에][anf-regions]있어야 합니다.
+> 또한 AKS 클러스터는 [Azure NetApp Files를 지원하는 지역에 있어야][anf-regions] 합니다.
 
 또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ### <a name="limitations"></a>제한 사항
 
-Azure NetApp Files 사용 하는 경우 다음 제한 사항이 적용 됩니다.
+Azure NetApp Files를 사용하는 경우 다음 제한 사항이 적용됩니다.
 
 * Azure NetApp Files는 [선택한 Azure 지역][anf-regions]에서만 사용할 수 있습니다.
-* Azure NetApp Files를 사용 하려면 먼저 Azure NetApp Files 서비스에 대 한 액세스 권한이 있어야 합니다. 액세스를 위해를 적용 하려면 [Azure NetApp Files waitlist 제출 양식을][anf-waitlist] 사용 하거나로 이동 https://azure.microsoft.com/services/netapp/#getting-started 합니다. Azure NetApp Files 팀에서 공식 확인 전자 메일을 받을 때까지 Azure NetApp Files 서비스에 액세스할 수 없습니다.
-* AKS 클러스터의 초기 배포 후 Azure NetApp Files에 대 한 정적 프로 비전이 지원 됩니다.
-* Azure NetApp Files에서 동적 프로비저닝을 사용 하려면 [Netapp Trident](https://netapp-trident.readthedocs.io/) 버전 19.07 이상을 설치 하 고 구성 합니다.
+* Azure NetApp Files를 사용하기 전에 Azure NetApp Files 서비스에 대한 액세스 권한을 부여받아야 합니다. 액세스 권한을 받으려면 [Azure NetApp Files 대기 목록 제출 양식][anf-waitlist]을 사용하거나 https://azure.microsoft.com/services/netapp/#getting-started 로 이동합니다. Azure NetApp Files 팀에서 공식 확인 메일을 받을 때까지 Azure NetApp Files 서비스에 액세스할 수 없습니다.
+* AKS 클러스터의 초기 배포 후 Azure NetApp Files에 대한 정적 프로비저닝만 지원됩니다.
+* Azure NetApp Files에서 동적 프로비저닝을 사용하려면 [NetApp Trident](https://netapp-trident.readthedocs.io/) 19.07 버전 이상을 설치하고 구성합니다.
 
 ## <a name="configure-azure-netapp-files"></a>Azure NetApp Files 구성
 
 > [!IMPORTANT]
-> *Microsoft NetApp* 리소스 공급자를 등록 하려면 먼저 [Azure NetApp Files waitlist 제출 양식을][anf-waitlist] 완료 하거나 https://azure.microsoft.com/services/netapp/#getting-started 구독에 대해로 이동 해야 합니다. Azure NetApp Files 팀에서 공식 확인 전자 메일을 받을 때까지 리소스를 등록할 수 없습니다.
+> *Microsoft.NetApp* 리소스 공급자를 등록하기 전에 [Azure NetApp Files 대기 목록 제출 양식][anf-waitlist]을 작성하거나 구독에 대한 https://azure.microsoft.com/services/netapp/#getting-started 로 이동해야 합니다. Azure NetApp Files 팀에서 공식 확인 메일을 받을 때까지 리소스 공급자를 등록할 수 없습니다.
 
-*Microsoft NetApp* 리소스 공급자를 등록 합니다.
+*Microsoft.NetApp* 리소스 공급자를 등록합니다.
 
 ```azurecli
 az provider register --namespace Microsoft.NetApp --wait
@@ -46,7 +46,7 @@ az provider register --namespace Microsoft.NetApp --wait
 > [!NOTE]
 > 이 작업을 완료하는 데 약간의 시간이 걸릴 수 있습니다.
 
-AKS와 함께 사용할 Azure NetApp 계정을 만들 때 **노드** 리소스 그룹에서 계정을 만들어야 합니다. 먼저 [az aks show][az-aks-show] 명령을 사용하여 리소스 그룹 이름을 가져온 다음 `--query nodeResourceGroup` 쿼리 매개 변수를 추가합니다. 다음 예제에서는 리소스 그룹 이름 *Myresourcegroup* 에서 *myAKSCluster* 이라는 AKS 클러스터에 대 한 노드 리소스 그룹을 가져옵니다.
+AKS와 함께 사용할 Azure NetApp 계정을 만들 때 **노드** 리소스 그룹에서 계정을 만들어야 합니다. 먼저 [az aks show][az-aks-show] 명령을 사용하여 리소스 그룹 이름을 가져온 다음 `--query nodeResourceGroup` 쿼리 매개 변수를 추가합니다. 다음 예제는 *myResourceGroup* 리소스 그룹에서 AKS 클러스터 *myAKSCluster* 에 대한 노드 리소스 그룹을 가져옵니다.
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -56,7 +56,7 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeRes
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-[Az netappfiles account create][az-netappfiles-account-create]를 사용 하 여 **노드** 리소스 그룹에 Azure NetApp Files 계정을 만들고 AKS 클러스터와 동일한 영역을 만듭니다. 다음 예제에서는 *MC_myResourceGroup_myAKSCluster_eastus* 리소스 그룹 및 *에서는 eastus* 지역에 *myaccount1* 이라는 계정을 만듭니다.
+[az netappfiles account create][az-netappfiles-account-create]를 사용하여 **노드** 리소스 그룹과 AKS 클러스터와 동일한 지역에 Azure NetApp Files 계정을 만듭니다. 다음 예제에서는 *MC_myResourceGroup_myAKSCluster_eastus* 리소스 그룹 및 *eastus* 지역에 *myaccount1* 이라는 계정을 만듭니다.
 
 ```azurecli
 az netappfiles account create \
@@ -65,7 +65,7 @@ az netappfiles account create \
     --account-name myaccount1
 ```
 
-[Az netappfiles pool create][az-netappfiles-pool-create]를 사용 하 여 새 용량 풀을 만듭니다. 다음 예제에서는 크기가 4 TB이 고 *프리미엄* 서비스 수준이 *mypool1* 이라는 새 용량 풀을 만듭니다.
+[az netappfiles pool create][az-netappfiles-pool-create]를 사용하여 새 용량 풀을 만듭니다. 다음 예제에서는 크기가 4TB이고 *프리미엄* 서비스 수준의 *mypool1* 이라는 이름의 새 용량 풀을 만듭니다.
 
 ```azurecli
 az netappfiles pool create \
@@ -77,7 +77,7 @@ az netappfiles pool create \
     --service-level Premium
 ```
 
-[Az network vnet subnet create][az-network-vnet-subnet-create]를 사용 하 여 [Azure NetApp Files에 위임할][anf-delegate-subnet] 서브넷을 만듭니다. *이 서브넷은 AKS 클러스터와 동일한 가상 네트워크에 있어야 합니다.*
+[az network vnet subnet create][az-network-vnet-subnet-create]를 사용하여 [Azure NetApp Files에 위임할][anf-delegate-subnet] 서브넷을 만듭니다. *이 서브넷은 AKS 클러스터와 동일한 가상 네트워크에 있어야 합니다.*
 
 ```azurecli
 RESOURCE_GROUP=MC_myResourceGroup_myAKSCluster_eastus
@@ -92,7 +92,7 @@ az network vnet subnet create \
     --address-prefixes 10.0.0.0/28
 ```
 
-[Az netappfiles volume create][az-netappfiles-volume-create]를 사용 하 여 볼륨을 만듭니다.
+[az netappfiles volume create][az-netappfiles-volume-create]를 사용하여 볼륨을 만듭니다.
 
 ```azurecli
 RESOURCE_GROUP=MC_myResourceGroup_myAKSCluster_eastus
@@ -123,7 +123,7 @@ az netappfiles volume create \
 
 ## <a name="create-the-persistentvolume"></a>PersistentVolume 만들기
 
-[Az netappfiles volume show][az-netappfiles-volume-show] 를 사용 하 여 볼륨의 세부 정보 나열
+[az netappfiles volume show][az-netappfiles-volume-show]를 사용하여 볼륨의 세부 정보 나열
 
 ```azurecli
 az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_ACCOUNT_NAME --pool-name $POOL_NAME --volume-name "myvol1"
@@ -145,7 +145,7 @@ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_
 }
 ```
 
-PersistentVolume를 정의 하는을 만듭니다 `pv-nfs.yaml` . `path`이전 명령의 *CreationToken* 및 `server` *ipAddress* 로 대체 합니다. 예를 들면 다음과 같습니다.
+PersistentVolume을 정의하는 `pv-nfs.yaml`을 만듭니다. 이전 명령에서 `path`를 *creationToken* 으로, `server`를 *ipAddress* 로 대체합니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 ---
@@ -165,13 +165,13 @@ spec:
     path: /myfilepath2
 ```
 
-*서버* 및 *경로* 를 이전 단계에서 만든 NFS (네트워크 파일 시스템) 볼륨의 값으로 업데이트 합니다. [Kubectl apply][kubectl-apply] 명령을 사용 하 여 PersistentVolume를 만듭니다.
+*서버* 및 *경로* 를 이전 단계에서 만든 NFS(네트워크 파일 시스템) 볼륨의 값으로 업데이트합니다. [kubectl apply][kubectl-apply] 명령을 사용하여 PersistentVolume을 만듭니다.
 
 ```console
 kubectl apply -f pv-nfs.yaml
 ```
 
-[Kubectl 설명][kubectl-describe] 명령을 사용 하 여 PersistentVolume *상태* 를 *사용할 수* 있는지 확인 합니다.
+[kubectl describe][kubectl-describe] 명령을 사용하여 PersistentVolume의 *Status* 가 *Available* 인지 확인합니다.
 
 ```console
 kubectl describe pv pv-nfs
@@ -179,7 +179,7 @@ kubectl describe pv pv-nfs
 
 ## <a name="create-the-persistentvolumeclaim"></a>PersistentVolumeClaim 만들기
 
-PersistentVolume를 정의 하는을 만듭니다 `pvc-nfs.yaml` . 예를 들면 다음과 같습니다.
+PersistentVolume을 정의하는 `pvc-nfs.yaml`을 만듭니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 apiVersion: v1
@@ -195,21 +195,21 @@ spec:
       storage: 1Gi
 ```
 
-[Kubectl apply][kubectl-apply] 명령을 사용 하 여 PersistentVolumeClaim를 만듭니다.
+[kubectl apply][kubectl-apply] 명령을 사용하여 PersistentVolumeClaim을 만듭니다.
 
 ```console
 kubectl apply -f pvc-nfs.yaml
 ```
 
-[Kubectl 설명][kubectl-describe] 명령을 사용 하 여 PersistentVolumeClaim의 *상태가* *바인딩* 되었는지 확인 합니다.
+[kubectl describe][kubectl-describe] 명령을 사용하여 PersistentVolumeClaim의 *Status* 가 *Bound* 인지 확인합니다.
 
 ```console
 kubectl describe pvc pvc-nfs
 ```
 
-## <a name="mount-with-a-pod"></a>Pod를 사용 하 여 탑재
+## <a name="mount-with-a-pod"></a>Pod를 사용하여 탑재
 
-PersistentVolumeClaim를 `nginx-nfs.yaml` 사용 하는 pod를 정의 하는을 만듭니다. 예를 들면 다음과 같습니다.
+PersistentVolumeClaim을 사용하는 Pod를 정의하는 `nginx-nfs.yaml`을 만듭니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 kind: Pod
@@ -233,19 +233,19 @@ spec:
       claimName: pvc-nfs
 ```
 
-[Kubectl apply][kubectl-apply] 명령을 사용 하 여 pod를 만듭니다.
+[kubectl apply][kubectl-apply] 명령을 사용하여 Pod를 만듭니다.
 
 ```console
 kubectl apply -f nginx-nfs.yaml
 ```
 
-[Kubectl 설명][kubectl-describe] 명령을 사용 하 여 Pod가 *실행* 중인지 확인 합니다.
+[kubectl describe][kubectl-describe] 명령을 사용하여 Pod가 *Running* 인지 확인합니다.
 
 ```console
 kubectl describe pod nginx-nfs
 ```
 
-[Kubectl exec][kubectl-exec] 를 사용 하 여 pod에 연결 하 여 해당 볼륨이 탑재 되었는지 확인 합니다 `df -h` .
+Pod에 연결하기 위해 [kubectl exec][kubectl-exec]를 사용하여 Pod에 해당 볼륨이 탑재되었는지 확인한 다음, `df -h` 명령으로 볼륨이 탑재되었는지 확인합니다.
 
 ```console
 $ kubectl exec -it nginx-nfs -- sh
@@ -261,7 +261,7 @@ Filesystem             Size  Used Avail Use% Mounted on
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure NetApp Files에 대 한 자세한 내용은 [Azure NetApp Files 항목][anf]을 참조 하세요. AKS에서 NFS를 사용 하는 방법에 대 한 자세한 내용은 [AKS (Azure Kubernetes Service)를 사용 하 여 nfs (네트워크 파일 시스템) Linux 서버 볼륨 수동 만들기 및 사용 (영문)][aks-nfs]을 참조 하세요.
+Azure NetApp Files에 대한 자세한 내용은 [Azure NetApp Files란?][anf]을 참조하세요. AKS에서 NFS를 사용하는 방법에 대한 자세한 내용은 [AKS(Azure Kubernetes Service)를 사용하여 NFS(네트워크 파일 시스템) Linux 서버 볼륨 수동 생성 및 사용][aks-nfs]을 참조하세요.
 
 
 [aks-quickstart-cli]: kubernetes-walkthrough.md
@@ -272,12 +272,12 @@ Azure NetApp Files에 대 한 자세한 내용은 [Azure NetApp Files 항목][an
 [anf-quickstart]: ../azure-netapp-files/
 [anf-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all
 [anf-waitlist]: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-netappfiles-account-create]: /cli/azure/netappfiles/account#az-netappfiles-account-create
-[az-netappfiles-pool-create]: /cli/azure/netappfiles/pool#az-netappfiles-pool-create
-[az-netappfiles-volume-create]: /cli/azure/netappfiles/volume#az-netappfiles-volume-create
-[az-netappfiles-volume-show]: /cli/azure/netappfiles/volume#az-netappfiles-volume-show
-[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-create
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-netappfiles-account-create]: /cli/azure/netappfiles/account#az_netappfiles_account_create
+[az-netappfiles-pool-create]: /cli/azure/netappfiles/pool#az_netappfiles_pool_create
+[az-netappfiles-volume-create]: /cli/azure/netappfiles/volume#az_netappfiles_volume_create
+[az-netappfiles-volume-show]: /cli/azure/netappfiles/volume#az_netappfiles_volume_show
+[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_create
 [install-azure-cli]: /cli/azure/install-azure-cli
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe

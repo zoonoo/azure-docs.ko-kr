@@ -16,15 +16,16 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c8dcc8766b21551f3cd62289805fe735ef0f333
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 3ec237af8cd0c79d5a7b62aad0bc6521e5cf3d7e
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91317619"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059244"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: 자동 업그레이드
-이 기능은 빌드 [1.1.105.0(2016년 2월에 발표됨)](reference-connect-version-history.md)에서 도입되었습니다.  이 기능은 [빌드 1.1.561](reference-connect-version-history.md)에서 업데이트되었고 이제 이전에 지원되지 않던 추가 시나리오를 지원합니다.
+Azure AD Connect 자동 업그레이드는 Azure AD Connect 최신 버전을 정기적으로 확인하는 기능입니다. 서버가 자동 업그레이드를 사용하도록 설정되어 있고 서버에 적합한 최신 버전이 발견되면 해당 최신 버전으로 자동 업그레이드를 수행합니다.
+자동 업그레이드를 수행하는 에이전트는 보안상의 이유로 다운로드된 버전의 디지털 서명을 기반으로 Azure AD Connect 새 빌드의 유효성을 검사합니다.
 
 ## <a name="overview"></a>개요
 **자동 업그레이드** 기능을 통해 아주 쉽게 Azure AD Connect 설치를 항상 최신 상태로 유지할 수 있습니다. 이 기능은 Express 설치 및 DirSync 업그레이드에 대해 기본적으로 사용되도록 설정되어 있습니다. 새 버전이 출시되면 설치가 자동으로 업그레이드됩니다.
@@ -57,14 +58,14 @@ Connect 설치 자체가 예상대로 업그레이드되지 않는 경우 다음
 
 뭔가 잘못되었다고 생각되면 우선 `Get-ADSyncAutoUpgrade` 를 실행하여 자동 업그레이드가 사용하도록 설정되어 있는지 확인합니다.
 
-상태가 일시 중지 됨 이면를 사용 하 여 이유를 확인할 수 있습니다 `Get-ADSyncAutoUpgrade -Detail` .  일시 중단 이유는 임의의 문자열 값을 포함할 수 있지만 일반적으로 UpgradeResult의 문자열 값 (또는)을 포함 `UpgradeNotSupportedNonLocalDbInstall` 합니다 `UpgradeAbortedAdSyncExeInUse` .  복합 값 (예:)도 반환 될 수 있습니다 `UpgradeFailedRollbackSuccess-GetPasswordHashSyncStateFailed` .
+일시 중단된 상태이면 `Get-ADSyncAutoUpgrade -Detail`을 사용하여 그 이유를 확인할 수 있습니다.  일시 중단 이유에는 모든 문자열 값이 포함될 수 있지만 일반적으로 UpgradeResult의 문자열 값, 즉 `UpgradeNotSupportedNonLocalDbInstall` 또는 `UpgradeAbortedAdSyncExeInUse`가 포함됩니다.  `UpgradeFailedRollbackSuccess-GetPasswordHashSyncStateFailed`와 같은 복합 값도 반환될 수 있습니다.
 
-UpgradeResult가 아닌 결과 (예: ' AADHealthEndpointNotDefined ' 또는 ' DirSyncInPlaceUpgradeNonLocalDb ')를 가져올 수도 있습니다.
+또한 ‘AADHealthEndpointNotDefined’ 또는 ‘DirSyncInPlaceUpgradeNonLocalDb’와 같은 UpgradeResult가 아닌 결과를 얻을 수도 있습니다.
 
 그런 다음 프록시 또는 방화벽에서 필요한 URL을 열었는지 확인합니다. 자동 업데이트는 [개요](#overview)에서 설명된 대로 Azure AD Connect Health를 사용합니다. 프록시를 사용하는 경우 [프록시 서버](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy)를 사용하기 위해 상태가 구성되었는지 확인합니다. 또한 Azure AD에 대한 [상태 연결](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) 을 테스트합니다.
 
-Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니다. 이벤트 뷰어를 시작하고 **애플리케이션** 이벤트 로그를 확인합니다. 원본 **Azure AD Connect 업그레이드** 및 이벤트 ID 범위 **300-399** 에 대 한 이벤트 로그 필터를 추가 합니다.  
-!["이벤트 원본" 및 "포함/제외" 이벤트 Id 상자가 강조 표시 된 "현재 로그 필터링" 창을 보여 주는 스크린샷](./media/how-to-connect-install-automatic-upgrade/eventlogfilter.png)  
+Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니다. 이벤트 뷰어를 시작하고 **애플리케이션** 이벤트 로그를 확인합니다. 이벤트 원본 상자에는 **Azure AD Connect 업그레이드** 이벤트 로그 필터를 추가하고 이벤트 ID 범위 상자에는 **300-399** 이벤트 로그 필터를 추가합니다.  
+![“이벤트 원본” 및 이벤트 ID “포함/제외” 상자가 강조 표시된 “현재 로그 필터링” 창의 스크린샷](./media/how-to-connect-install-automatic-upgrade/eventlogfilter.png)  
 
 이제 자동 업그레이드 상태와 관련된 이벤트 로그를 볼 수 있습니다.  
 ![자동 업그레이드에 대한 이벤트 로그 필터](./media/how-to-connect-install-automatic-upgrade/eventlogresult.png)  
@@ -96,8 +97,8 @@ Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니�
 | UpgradeNotSupportedCustomizedSyncRules |사용자 지정 규칙을 구성에 추가했습니다. |
 | UpgradeNotSupportedInvalidPersistedState |설치가 Express 설정 또는 DirSync 업그레이드가 아닙니다. |
 | UpgradeNotSupportedNonLocalDbInstall |SQL Server Express LocalDB 데이터베이스를 사용하고 있지 않습니다. |
-|UpgradeNotSupportedLocalDbSizeExceeded|로컬 DB 크기가 8gb 보다 크거나 같습니다.|
-|UpgradeNotSupportedAADHealthUploadDisabled|포털에서 상태 데이터 업로드가 사용 하지 않도록 설정 되었습니다.|
+|UpgradeNotSupportedLocalDbSizeExceeded|로컬 DB 크기가 8GB이상입니다.|
+|UpgradeNotSupportedAADHealthUploadDisabled|상태 데이터 업로드가 포털에서 사용되지 않도록 설정되었습니다.|
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)에 대해 자세히 알아봅니다.

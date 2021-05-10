@@ -3,12 +3,12 @@ title: 모범 사례
 description: Azure Batch 솔루션을 개발하기 위한 모범 사례와 유용한 팁에 대해 알아봅니다.
 ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1a53915f4cdbae03fd86137f3a436bb6e9a6f615
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 7ef94b07a5131726c42a94088fd3ee1f413dbec7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108147592"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104802355"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 모범 사례
 
@@ -32,7 +32,7 @@ ms.locfileid: "108147592"
 - **풀에는 2개 이상의 컴퓨팅 노드가 있어야 함:** 개별 노드를 항상 사용할 수 있는 것은 아닙니다. 흔치 않은 경우이지만 하드웨어 오류, 운영 체제 업데이트 및 기타 여러 가지 문제로 인해 개별 노드가 오프라인 상태가 될 수 있습니다. Batch 워크로드에 결정적이고 보장된 진행률이 필요한 경우 여러 노드가 있는 풀을 할당해야 합니다.
 
 - **EOL(수명 종료) 날짜가 임박한 이미지는 사용하지 마세요.**
-    Batch 지원 EOL(수명 종료) 날짜가 임박한 이미지는 사용하지 않는 것이 좋습니다. 이러한 날짜는 [`ListSupportedImages` API](/rest/api/batchservice/account/listsupportedimages), [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage) 또는 [Azure CLI](/cli/azure/batch/pool/supported-images)를 통해 검색할 수 있습니다. 풀에 해당하는 EOL 날짜의 보기를 정기적으로 새로 고치고 EOL 날짜가 되기 전에 워크로드를 마이그레이션하는 것은 사용자의 책임입니다. 지정된 노드 에이전트에서 사용자 지정 이미지를 사용하는 경우 사용자 지정 이미지가 파생되거나 정렬된 이미지에 대한 일괄 처리 지원 수명 종료 날짜를 준수해야 합니다.
+    Batch 지원 EOL(수명 종료) 날짜가 임박한 이미지는 사용하지 않는 것이 좋습니다. 이러한 날짜는 [`ListSupportedImages` API](https://docs.microsoft.com/rest/api/batchservice/account/listsupportedimages), [PowerShell](https://docs.microsoft.com/powershell/module/az.batch/get-azbatchsupportedimage) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/batch/pool/supported-images)를 통해 검색할 수 있습니다. 풀에 해당하는 EOL 날짜의 보기를 정기적으로 새로 고치고 EOL 날짜가 되기 전에 워크로드를 마이그레이션하는 것은 사용자의 책임입니다. 지정된 노드 에이전트에서 사용자 지정 이미지를 사용하는 경우 사용자 지정 이미지가 파생되거나 정렬된 이미지에 대한 일괄 처리 지원 수명 종료 날짜를 준수해야 합니다.
 
 - **리소스 이름을 다시 사용하지 않습니다.**
     Batch 리소스(작업, 풀 등)는 시간이 지남에 따라 변하는 경우가 많습니다. 예를 들어 월요일에 풀을 만들고, 화요일에 풀을 삭제한 다음, 목요일에 다른 풀을 만들 수 있습니다. 새로 만드는 각 리소스에는 이전에 사용하지 않은 고유한 이름을 지정해야 합니다. 이 작업은 GUID를 전체 리소스 이름 또는 그 일부로 사용하거나 리소스를 만든 시간을 리소스 이름에 포함하여 수행할 수 있습니다. Batch는 [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname)을 지원합니다. 이는 실제 리소스 ID가 그다지 친숙하지 않은 리소스인 경우에도 사람이 읽을 수 있는 이름을 지정하는 데 사용할 수 있습니다. 고유한 이름을 사용하면 로그 및 메트릭에서 작업을 수행한 특정 리소스를 쉽게 구분할 수 있습니다. 또한 리소스에 대한 지원 사례를 제출해야 하는 경우 모호성도 제거됩니다.

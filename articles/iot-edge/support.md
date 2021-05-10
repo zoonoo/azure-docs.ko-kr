@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: f59e2ca06f4ec435522cd06815b22d706a2d894c
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104772419"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge 지원 시스템
@@ -25,7 +25,7 @@ ms.locfileid: "104772419"
 
 Azure IoT Edge 서비스를 사용하는 동안 문제가 발생하는 경우 지원을 검색하는 몇 가지 방법이 있습니다. 지원을 받으려면 다음 채널 중 하나를 시도합니다.
 
-**버그 보고** – Azure IoT Edge 제품에 대한 대다수의 개발은 IoT Edge 오픈 소스 제품에서 이루어집니다. 버그는 프로젝트의 [문제 페이지](https://github.com/azure/iotedge/issues)에서 보고됩니다. Windows에서 Linux에 대 한 Azure IoT Edge 관련 된 버그는 [iotedge-eflow 문제 페이지](https://github.com/azure/iotedge-eflow/issues)에서 보고할 수 있습니다. 는의 프로젝트에서 제품 업데이트를 신속 하 게 해결 합니다.
+**버그 보고** – Azure IoT Edge 제품에 대한 대다수의 개발은 IoT Edge 오픈 소스 제품에서 이루어집니다. 버그는 프로젝트의 [문제 페이지](https://github.com/azure/iotedge/issues)에서 보고됩니다. Azure IoT Edge for Linux on Windows 관련 버그는 [iotedge-eflow 문제 페이지](https://github.com/azure/iotedge-eflow/issues)에서 보고할 수 있습니다. 프로젝트에서 제품 업데이트로 신속하게 문제를 해결합니다.
 
 **Microsoft 고객 지원팀** – [지원 계획](https://azure.microsoft.com/support/plans/)이 있는 사용자는 [Azure Portal](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac)에서 직접 지원 티켓을 만들어서 Microsoft 고객 지원팀과 협력할 수 있습니다.
 
@@ -54,40 +54,40 @@ Azure IoT Edge는 컨테이너를 실행할 수 있는 대부분의 운영 체�
 
 호스트 OS 제품군은 항상 모듈의 컨테이너 내부에서 사용되는 게스트 OS 제품군과 일치해야 합니다. 즉, Linux에서는 Linux 컨테이너만 사용하고 Windows에서는 Windows 컨테이너만 사용할 수 있습니다. Windows를 사용하는 경우 프로세스 격리 컨테이너만 지원되고 Hyper-V 격리 컨테이너는 지원되지 않습니다.  
 
-Windows에서 Linux에 대 한 IoT Edge Windows 호스트에서 실행 되는 Linux 가상 컴퓨터의 IoT Edge를 사용 합니다. 이러한 방식으로 Windows 장치에서 Linux 모듈을 실행할 수 있습니다.
+IoT Edge for Linux on Windows는 Windows 호스트에서 실행되는 Linux 가상 머신의 IoT Edge를 사용합니다. 이러한 방식으로 Windows 디바이스에서 Linux 모듈을 실행할 수 있습니다.
 
 ### <a name="tier-1"></a>계층 1
 
-다음 표에 나열 된 시스템은 일반적으로 사용 가능 하거나 공개 미리 보기로 제공 되는 Microsoft에서 지원 되며, 각각의 새로운 릴리스로 테스트 됩니다.
+다음 표에 나열된 시스템은 일반 공급되거나 퍼블릭 미리 보기 방식으로 Microsoft에서 지원되며 각 새 릴리스로 테스트되었습니다.
 
-Azure IoT Edge는 Linux 또는 Windows 컨테이너로 빌드된 모듈을 지원 합니다. Linux 컨테이너는 linux 장치에 배포 하거나 Windows에서 Linux 용 IoT Edge를 사용 하 여 Windows 장치에 배포할 수 있습니다. Windows 컨테이너는 Windows 장치에만 배포할 수 있습니다.
+Azure IoT Edge는 Linux 또는 Windows 컨테이너로 빌드된 모듈을 지원합니다. Linux 컨테이너는 Linux 디바이스에 배포하거나 IoT Edge for Linux on Windows를 사용하여 Windows 디바이스에 배포할 수 있습니다. Windows 컨테이너는 Windows 디바이스에만 배포할 수 있습니다.
 
 #### <a name="linux-containers"></a>Linux 컨테이너
 
-Linux 컨테이너로 빌드된 모듈은 Linux 또는 Windows 장치에 배포할 수 있습니다. Linux 장치의 경우 IoT Edge 런타임은 호스트 장치에 직접 설치 됩니다. Windows 장치의 경우 IoT Edge 런타임으로 미리 빌드된 Linux 가상 머신이 호스트 장치에서 실행 됩니다.
+Linux 컨테이너로 빌드된 모듈은 Linux 또는 Windows 디바이스에 배포할 수 있습니다. Linux 디바이스의 경우 IoT Edge 런타임은 호스트 디바이스에 직접 설치됩니다. Windows 디바이스의 경우 IoT Edge 런타임으로 미리 빌드된 Linux 가상 머신이 호스트 디바이스에서 실행됩니다.
 
-[Windows에서 Linux에 대 한 IoT Edge](iot-edge-for-linux-on-windows.md) 는 현재 공개 미리 보기로 제공 되지만, windows 장치에서 IoT Edge를 실행 하는 데 권장 되는 방법입니다.
+[IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md)는 현재 퍼블릭 미리 보기로 제공되지만, Windows 디바이스에서 IoT Edge를 실행하는 권장 방법입니다.
 
 | 운영 체제 | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
-| Raspberry Pi OS 스트레치 |  | ![Raspberry Pi OS 스트레치 + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
+| Raspberry Pi OS Stretch |  | ![Raspberry Pi OS Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
 | Ubuntu Server 18.04 | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | 퍼블릭 미리 보기 |
 | Windows 10 Pro | 퍼블릭 미리 보기 |  |  |
 | Windows 10 Enterprise | 퍼블릭 미리 보기 |  |  |
 | Windows 10 IoT Enterprise | 퍼블릭 미리 보기 |  |  |
 | Windows Server 2019 | 퍼블릭 미리 보기 |  |  |
 
-모든 Windows 운영 체제는 버전 1809 (빌드 17763) 이상 이어야 합니다.
+모든 Windows 운영 체제는 버전 1809(빌드 17763) 이상이어야 합니다.
 
 >[!NOTE]
->Ubuntu Server 16.04 지원은 IoT Edge 버전 1.1 릴리스부터 출시 되었습니다.
+>Ubuntu Server 16.04 지원은 IoT Edge 버전 1.1 릴리스에서 종료되었습니다.
 
 #### <a name="windows-containers"></a>Windows 컨테이너
 
 >[!IMPORTANT]
->IoT Edge 1.1 LTS는 Windows 컨테이너를 지원 하는 마지막 릴리스 채널입니다. 버전 1.2부터 Windows 컨테이너는 지원 되지 않습니다. Windows [에서 Linux에 대 한 IoT Edge](iot-edge-for-linux-on-windows.md) 를 사용 하거나 windows 장치에서 IoT Edge를 실행 하는 것이 좋습니다.
+>IoT Edge 1.1 LTS는 Windows 컨테이너를 지원하는 마지막 릴리스 채널입니다. 버전 1.2부터 Windows 컨테이너가 지원되지 않습니다. Windows 디바이스에서 IoT Edge를 실행하려면 [Windows에서 Linux용 IoT Edge](iot-edge-for-linux-on-windows.md)를 사용하거나 이동하는 것이 좋습니다.
 
-Windows 컨테이너로 빌드된 모듈은 Windows 장치에만 배포할 수 있습니다.
+Windows 컨테이너로 빌드된 모듈은 Windows 디바이스에만 배포할 수 있습니다.
 
 | 운영 체제 | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
@@ -95,10 +95,10 @@ Windows 컨테이너로 빌드된 모듈은 Windows 장치에만 배포할 수 �
 | Windows Server 2019  | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
 | Windows Server IoT 2019 | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
 
-모든 Windows 운영 체제는 버전 1809 (빌드 17763) 여야 합니다. Windows의 특정 빌드는 windows의 windows 컨테이너 버전이 호스트 Windows 장치의 버전과 정확 하 게 일치 해야 하기 때문에 windows에서 IoT Edge 하는 데 필요 합니다. Windows 컨테이너는 현재 빌드 17763만 사용 합니다.
+모든 Windows 운영 체제는 버전 1809(빌드 17763)여야 합니다. Windows의 특정 빌드는 Windows의 Windows 컨테이너 버전이 호스트 Windows 디바이스의 버전과 정확하게 일치해야 하기 때문에 IoT Edge on Windows에 필요합니다. Windows 컨테이너는 현재 빌드 17763만 사용합니다.
 
 >[!NOTE]
->Windows 10 IoT Core 지원은 IoT Edge 버전 1.1 릴리스부터 출시 되었습니다.
+>Windows 10 IoT Core 지원은 IoT Edge 버전 1.1 릴리스에 종료되었습니다.
 
 ### <a name="tier-2"></a>계층 2
 
@@ -118,7 +118,7 @@ Windows 컨테이너로 빌드된 모듈은 Windows 장치에만 배포할 수 �
 | [Yocto](https://www.yoctoproject.org/) | ![Yocto + AMD64](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM64](./media/tutorial-c-module/green-check.png) |
 | Raspberry Pi OS Buster |  | ![Raspberry Pi OS Buster + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Raspberry Pi OS Buster + ARM64](./media/tutorial-c-module/green-check.png) |
 
-<sup>1</sup> [Linux 용 Azure IoT Edge 설치 또는 제거](how-to-install-iot-edge.md) 의 ubuntu Server 18.04 설치 단계는 ubuntu 20.04에서 변경 하지 않고 작동 해야 합니다.
+<sup>1</sup> [Azure IoT Edge for Linux 설치 또는 제거](how-to-install-iot-edge.md)의 Ubuntu Server 18.04 설치 단계는 Ubuntu 20.04에서 변경 없이 작동해야 합니다.
 
 ## <a name="releases"></a>릴리스
 
@@ -136,16 +136,16 @@ IoT Edge 구성 요소는 개별적으로 설치 또는 업데이트할 수 있�
 | **1.0.6** | 1.0.6<br>1.0.6.1 | 1.0.6<br>1.0.6.1 | 1.0.6<br>1.0.6.1 |  |
 | **1.0.5** | 1.0.5 | 1.0.5 | 1.0.5 | 3.0.2 |
 
-<sup>1</sup> IoT Edge 1.1은 첫 번째 LTS (장기 지원) 릴리스 채널입니다. 이 버전은 새로운 기능을 도입 하지 않았지만 재발에 대 한 보안 업데이트 및 픽스를 수신 합니다. IoT Edge 1.1 LTS는 .NET Core 3.1를 사용 하며, 2022 년 12 월 3 일까지 지원 되며 [.Net core 및 .net 5 릴리스 수명 주기](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)를 일치 시킵니다.
+<sup>1</sup> IoT Edge 1.1은 첫 번째 LTS(장기 지원) 릴리스 채널입니다. 이 버전은 새로운 기능을 도입하지 않았지만 보안 업데이트 및 재발 방지용 수정 사항을 수신합니다. IoT Edge 1.1 LTS는 .NET Core 3.1을 사용하며, [.Net Core 및 .NET 5 릴리스 수명 주기](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)에 따라 2022년 12월 3일까지 지원됩니다.
 
 >[!IMPORTANT]
->장기적인 지원 채널의 릴리스를 통해 1.0. x를 실행 하는 모든 고객은 장치를 1.1. x로 업그레이드 하 여 지속적인 지원을 받을 것을 권장 합니다.
+>장기 지원 채널의 릴리스를 통해 1.0.x를 실행하는 모든 고객은 디바이스를 1.1.x로 업그레이드하여 지속적인 지원을 받는 것이 좋습니다.
 
-IoT Edge는 Microsoft. *. *. 클라이언트 SDK를 사용 합니다. 자세한 내용은 [Azure IoT C# SDK GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-csharp) 또는 [.NET용 Azure SDK 참조 콘텐츠](/dotnet/api/overview/azure/iot/client)를 참조하세요. 다음 목록에서는 각 릴리스가 테스트되는 클라이언트 SDK 버전을 보여 줍니다.
+IoT Edge는 Microsoft.Azure.Devices.Client SDK를 사용합니다. 자세한 내용은 [Azure IoT C# SDK GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-csharp) 또는 [.NET용 Azure SDK 참조 콘텐츠](/dotnet/api/overview/azure/iot/client)를 참조하세요. 다음 목록에서는 각 릴리스가 테스트되는 클라이언트 SDK 버전을 보여 줍니다.
 
-| IoT Edge 버전 | Microsoft. Azure. Client SDK 버전 |
+| IoT Edge 버전 | Microsoft.Azure.Devices.Client SDK 버전 |
 |------------------|--------------------------------------------|
-| 1.1 (LTS)      | 1.28.0                                     |
+| 1.1(LTS)      | 1.28.0                                     |
 | 1.0.10           | 1.28.0                                     |
 | 1.0.9            | 1.21.1                                     |
 | 1.0.8            | 1.20.3                                     |

@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 11/11/2019
 ms.author: vikancha
 ms.openlocfilehash: c4c6bee6d3f9e423d83458ad48d213fe65223514
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102551763"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치
@@ -42,16 +42,16 @@ lspci | grep -i NVIDIA
 
 ![lspci 명령 출력](./media/n-series-driver-setup/lspci.png)
 
-lspci는 InfiniBand NIC 및 Gpu (있는 경우)를 포함 하 여 VM의 PCIe 장치를 나열 합니다. Lspci가 성공적으로 반환 되지 않으면 CentOS/RHEL에 LIS를 설치 해야 할 수 있습니다 (아래 지침).
+lspci는 InfiniBand NIC 및 GPU(있는 경우)를 포함하여 VM의 PCIe 디바이스를 나열합니다. lspci가 성공적으로 반환되지 않으면 CentOS/RHEL에 LIS를 설치해야 할 수 있습니다(아래 지침 참조).
 그런 다음 배포 관련 특정 설치 명령을 실행합니다.
 
 ### <a name="ubuntu"></a>Ubuntu 
 
 1. NVIDIA 웹 사이트에서 CUDA 드라이버를 다운로드하여 설치합니다. 
     > [!NOTE]
-   >  아래 예제에서는 Ubuntu 16.04에 대 한 HODA 패키지 경로를 보여 줍니다. 사용 하려는 버전에 해당 하는 경로를 바꿉니다. 
+   >  아래 예제에서는 Ubuntu 16.04에 대한 HODA 패키지 경로를 보여 줍니다. 사용하려는 버전에 해당하는 경로를 바꿉니다. 
    >  
-   >  https://developer.download.nvidia.com/compute/cuda/repos/)각 버전에 해당 하는 전체 경로에 대 한 [Nvidia 다운로드 센터]를 방문 합니다. 
+   >  각 버전에 해당하는 전체 경로에 대해서는 [Nvidia 다운로드 센터](https://developer.download.nvidia.com/compute/cuda/repos/) )를 방문합니다. 
    > 
    ```bash
    CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
@@ -98,10 +98,10 @@ sudo reboot
    sudo reboot
    ```
 
-2. [Hyper-v 및 Azure에 대 한 최신 Linux Integration Services](https://www.microsoft.com/download/details.aspx?id=55106)를 설치 합니다. Lspci의 결과를 확인 하 여 LIS가 필요한 지 확인 합니다. 모든 GPU 장치가 예상 대로 나열 되어 있고 위에 설명 되어 있는 경우에는 LIS를 설치할 필요가 없습니다.
+2. [Hyper-V 및 Azure에 대한 최신 Linux 통합 서비스](https://www.microsoft.com/download/details.aspx?id=55106)를 설치하세요. lspci의 결과를 확인하여 LIS가 필요한지 알아봅니다. 모든 GPU 디바이스가 예상대로(위에 설명된 대로) 나열되면 LIS를 설치할 필요가 없습니다.
 
-   LIS는 Red Hat Enterprise Linux, CentOS 및 Oracle Linux Red Hat 호환 커널 5.2-5.11, 6.0-6.10 및 7.0-7.7에 적용 됩니다. 자세한 내용은 [Linux Integration Services 설명서] (영문)를 참조 하세요 https://www.microsoft.com/en-us/download/details.aspx?id=55106) . 
-   이러한 버전에 대해 LIS가 더 이상 필요 하지 않으므로 CentOS/RHEL 7.8 이상 버전을 사용 하려는 경우이 단계를 건너뜁니다.
+   LIS는 Red Hat Enterprise Linux, CentOS 및 Oracle Linux Red Hat 호환 커널 5.2-5.11, 6.0-6.10 및 7.0-7.7에 적용됩니다. 자세한 내용은 [Linux Integration Services 설명서](https://www.microsoft.com/en-us/download/details.aspx?id=55106) )를 참조하세요. 
+   이러한 버전에 LIS가 더 이상 필요하지 않으므로 CentOS/RHEL 7.8(또는 이상 버전)을 사용하려는 경우 이 단계를 건너뜁니다.
 
       ```bash
       wget https://aka.ms/lis
@@ -135,7 +135,7 @@ sudo reboot
    sudo yum install cuda
    ```
    > [!NOTE]
-   >  Vulkan와 같은 누락 된 패키지와 관련 된 오류 메시지가 표시 되는 경우/etc/yum.repos.d/rh-cloud를 편집 하 고 옵션인-rpm을 찾아 사용을 1로 설정 해야 할 수 있습니다.
+   >  vulkan-filesystem과 같은 누락된 패키지와 관련된 오류 메시지가 표시되는 경우 /etc/yum.repos.d/rh-cloud를 편집하고 optional-rpms를 찾아 enabled를 1로 설정해야 할 수 있습니다.
    >  
 
 5. VM 다시 부팅하고 계속해서 설치를 확인합니다.
@@ -150,7 +150,7 @@ GPU 디바이스 상태를 쿼리하려면 VM에 대해 SSH를 실행하고 드�
 
 ## <a name="rdma-network-connectivity"></a>RDMA 네트워크 연결
 
-Rdma 네트워크 연결은 동일한 가용성 집합에 배포 된 NC24r 같은 RDMA 지원 N 시리즈 Vm 또는 VM (가상 머신) 확장 집합의 단일 배치 그룹에 대해 사용 하도록 설정할 수 있습니다. RDMA 네트워크는 Intel MPI 5.x 이상 버전을 사용하여 실행되는 애플리케이션에 대한 MPI(Message Passing Interface) 트래픽을 지원합니다. 추가 요구 사항은 다음과 같습니다.
+동일한 가용성 집합 또는 VM(가상 머신) 확장 집합의 단일 배치 그룹에 배포된 NC24r과 같은 RDMA 지원 N 시리즈 VM에서 RDMA 네트워크 연결을 사용할 수 있습니다. RDMA 네트워크는 Intel MPI 5.x 이상 버전을 사용하여 실행되는 애플리케이션에 대한 MPI(Message Passing Interface) 트래픽을 지원합니다. 추가 요구 사항은 다음과 같습니다.
 
 ### <a name="distributions"></a>배포
 
@@ -162,21 +162,21 @@ N 시리즈 VM에서 RDMA 연결을 지원하는 Azure Marketplace의 이미지 
 
 * **CentOS 기반 7.4 HPC** - RDMA 드라이버 및 Intel MPI 5.1은 VM에 설치됩니다.
 
-* **CentOS 기반 hpc** -CENTOS-hpc 7.6 이상 (INFINIBAND가 sr-iov를 통해 지원 되는 sku의 경우). 이러한 이미지에는 미리 설치 된 Mellanox OFED 및 MPI 라이브러리가 있습니다.
+* **CentOS 기반 HPC** - CENTOS-HPC 7.6 이상(INFINIBAND가 SR-IOV를 통해 지원되는 SKU의 경우). 이러한 이미지에는 Mellanox OFED 및 MPI 라이브러리가 미리 설치되어 있습니다.
 
 > [!NOTE]
-> CX3-Pro 카드는 LTS 버전의 Mellanox OFED을 통해서만 지원 됩니다. ConnectX3-Pro 카드가 있는 N 시리즈 Vm에서 LTS Mellanox OFED 버전 (4.9-0.1.7.0)을 사용 합니다. 자세한 내용은 [Linux 드라이버](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed)를 참조 하세요.
+> CX3-Pro 카드는 LTS 버전의 Mellanox OFED을 통해서만 지원됩니다. ConnectX3-Pro 카드가 있는 N 시리즈 VM에서 LTS Mellanox OFED 버전(4.9-0.1.7.0)을 사용합니다. 자세한 내용은 [Linux 드라이버](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed)를 참조하세요.
 >
-> 또한 최신 Azure Marketplace HPC 이미지 중 일부에는 ConnectX3-Pro 카드를 지원 하지 않는 Mellanox OFED 5.1 이상이 있습니다. ConnectX3-Pro 카드를 사용 하는 Vm에서 사용 하기 전에 HPC 이미지에서 Mellanox OFED 버전을 확인 합니다.
+> 또한 최신 Azure Marketplace HPC 이미지 중 일부에는 ConnectX3-Pro 카드를 지원하지 않는 Mellanox OFED 5.1 이상이 있습니다. ConnectX3-Pro 카드가 있는 VM에서 사용하기 전에 HPC 이미지에서 Mellanox OFED 버전을 확인합니다.
 >
-> 다음 이미지는 ConnectX3-Pro 카드를 지 원하는 최신 CentOS 이미지입니다.
+> 다음 이미지는 ConnectX3-Pro 카드를 지원하는 최신 CentOS-HPC 이미지입니다.
 >
-> - OpenLogic: CentOS: 7.6:7.6.2020062900
-> - OpenLogic: CentOS: 7_6gen2:7.6.2020062901
-> - OpenLogic: CentOS: 7.7:7.7.2020062600
-> - OpenLogic: CentOS: 7_7-gen2:7.7.2020062601
-> - OpenLogic: CentOS: 8_1:8.1.2020062400
-> - OpenLogic: CentOS: 8_1-gen2:8.1.2020062401
+> - OpenLogic:CentOS-HPC:7.6:7.6.2020062900
+> - OpenLogic:CentOS-HPC:7_6gen2:7.6.2020062901
+> - OpenLogic:CentOS-HPC:7.7:7.7.2020062600
+> - OpenLogic:CentOS-HPC:7_7-gen2:7.7.2020062601
+> - OpenLogic:CentOS-HPC:8_1:8.1.2020062400
+> - OpenLogic:CentOS-HPC:8_1-gen2:8.1.2020062401
 >
 
 ## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>NV 또는 NVv3 시리즈 VM에 GRID 드라이버 설치
@@ -253,16 +253,16 @@ NVIDIA GRID 드라이버를 NV 또는 NVv3 시리즈 VM에 설치하려면 각 V
    sudo yum install hyperv-daemons
    ```
 
-2. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NV3 Vm 에서만 NVIDIA 드라이버를 사용 합니다.) 이렇게 하려면 `/etc/modprobe.d` 다음 내용을 사용 하 여 라는 파일을 만듭니다 `nouveau.conf` .
+2. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NV3 VM에서 NVIDIA 드라이버만 사용합니다.) 이를 수행하려면 다음 콘텐츠가 포함된 `nouveau.conf`라고 하는 `/etc/modprobe.d`에 파일을 만듭니다.
 
    ```
    blacklist nouveau
    blacklist lbm-nouveau
    ```
 
-3. VM을 다시 부팅하고 다시 연결한 후 [Hyper-V 및 Azure에 대한 최신 Linux 통합 서비스](https://www.microsoft.com/download/details.aspx?id=55106)를 설치합니다. Lspci의 결과를 확인 하 여 LIS가 필요한 지 확인 합니다. 모든 GPU 장치가 예상 대로 나열 되어 있고 위에 설명 되어 있는 경우에는 LIS를 설치할 필요가 없습니다. 
+3. VM을 다시 부팅하고 다시 연결한 후 [Hyper-V 및 Azure에 대한 최신 Linux 통합 서비스](https://www.microsoft.com/download/details.aspx?id=55106)를 설치합니다. lspci의 결과를 확인하여 LIS가 필요한지 알아봅니다. 모든 GPU 디바이스가 예상대로(위에 설명된 대로) 나열되면 LIS를 설치할 필요가 없습니다. 
 
-   이러한 버전에 대해 LIS가 더 이상 필요 하지 않으므로 CentOS/RHEL 7.8 이상 버전을 사용 하려는 경우이 단계를 건너뜁니다.
+   이러한 버전에 LIS가 더 이상 필요하지 않으므로 CentOS/RHEL 7.8(또는 이상 버전)을 사용하려는 경우 이 단계를 건너뜁니다.
 
       ```bash
       wget https://aka.ms/lis
@@ -313,7 +313,7 @@ GPU 디바이스 상태를 쿼리하려면 VM에 대해 SSH를 실행하고 드�
 
 드라이버가 설치된 경우 다음과 유사한 출력이 표시됩니다. 현재 VM에서 GPU 워크로드를 실행 중이지 않으면 **GPU-Util** 에 0%가 표시됩니다. 드라이버 버전 및 GPU 세부 정보는 표시된 것과 다를 수 있습니다.
 
-![GPU 장치 상태를 쿼리할 때의 출력을 보여 주는 스크린샷](./media/n-series-driver-setup/smi-nv.png)
+![GPU 디바이스 상태를 쿼리할 때의 출력을 보여 주는 스크린샷](./media/n-series-driver-setup/smi-nv.png)
  
 
 ### <a name="x11-server"></a>X11 서버
@@ -359,7 +359,7 @@ fi
 
 * `nvidia-smi`를 사용하여 지속성 모드를 설정할 수 있으므로 카드를 쿼리해야 할 때 명령 출력이 더 빠릅니다. 지속성 모드를 설정하려면 `nvidia-smi -pm 1`을 실행합니다. VM을 다시 시작하면 모드 설정이 사라집니다. 모드 설정은 시작할 때 실행되도록 항상 스크립팅할 수 있습니다.
 * NVIDIA CUDA 드라이버를 최신 버전으로 업데이트하고, RDMA 연결이 더 이상 작동하지 않는 경우 [RDMA 드라이버를 다시 설치](#rdma-network-connectivity)하여 해당 연결을 다시 설정합니다. 
-* LIS를 설치 하는 동안 특정 CentOS/RHEL OS 버전 (또는 커널)이 LIS에 대해 지원 되지 않는 경우 "지원 되지 않는 커널 버전" 오류가 throw 됩니다. OS 및 커널 버전과 함께이 오류를 보고 하세요.
+* LIS를 설치하는 동안 특정 CentOS/RHEL OS 버전(또는 커널)이 LIS에 대해 지원되지 않는 경우 "지원되지 않는 커널 버전" 오류가 발생합니다. OS 및 커널 버전과 함께 이 오류를 보고하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

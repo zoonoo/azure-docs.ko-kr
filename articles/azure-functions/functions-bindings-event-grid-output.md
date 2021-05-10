@@ -7,10 +7,10 @@ ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
 ms.openlocfilehash: 888afdc2764fed9f0b2c8b548c3e2b1c48e9a31e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97094679"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Azure Functions에 대한 Azure Event Grid 출력 바인딩
@@ -166,7 +166,7 @@ module.exports = function(context) {
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-다음 예제에서는 Event Grid 이벤트 메시지를 출력 하도록 함수를 구성 하는 방법을 보여 줍니다. `type`가로 설정 된 섹션은 `eventGrid` Event Grid 출력 바인딩을 설정 하는 데 필요한 값을 구성 합니다.
+다음 예제에서는 Event Grid 이벤트 메시지를 출력하도록 함수를 구성하는 방법을 보여 줍니다. `type`이 `eventGrid`로 설정된 섹션은 Event Grid 출력 바인딩을 설정하는 데 필요한 값을 구성합니다.
 
 ```powershell
 {
@@ -197,7 +197,7 @@ module.exports = function(context) {
 }
 ```
 
-함수에서를 사용 하 여 `Push-OutputBinding` Event Grid 출력 바인딩을 통해 사용자 지정 토픽에 이벤트를 보냅니다.
+함수에서 `Push-OutputBinding`을 사용하여 Event Grid 출력 바인딩을 통해 사용자 지정 토픽에 이벤트를 보냅니다.
 
 ```powershell
 using namespace System.Net
@@ -230,7 +230,7 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 
 # <a name="python"></a>[Python](#tab/python)
 
-다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](functions-reference-python.md)를 보여줍니다. 그런 다음에 지정 된 대로 사용자 지정 토픽에 이벤트를 보냅니다 `topicEndpointUri` .
+다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](functions-reference-python.md)를 보여줍니다. 그런 다음, `topicEndpointUri`에 지정된 대로 사용자 지정 토픽으로 이벤트를 보냅니다.
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -255,7 +255,7 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 }
 ```
 
-을 설정 하 여 사용자 지정 토픽에 이벤트를 보내는 Python 샘플은 다음과 같습니다 `EventGridOutputEvent` .
+`EventGridOutputEvent`를 설정하여 사용자 지정 토픽으로 이벤트를 보내는 Python 샘플은 다음과 같습니다.
 
 ```python
 import logging
@@ -312,7 +312,7 @@ JavaScript에서는 특성을 지원하지 않습니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-특성은 PowerShell에서 지원 되지 않습니다.
+PowerShell에서는 특성을 지원하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -357,7 +357,7 @@ Java에서는 Event Grid 출력 바인딩을 사용할 수 없습니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-을 사용 하 여 출력 이벤트에 액세스 하 고 `Push-OutputBinding` Event Grid 출력 바인딩에 이벤트를 보냅니다.
+`Push-OutputBinding` commandlet을 사용하여 출력 이벤트에 액세스하고 Event Grid 출력 바인딩에 이벤트를 보냅니다.
 
 # <a name="python"></a>[Python](#tab/python)
 

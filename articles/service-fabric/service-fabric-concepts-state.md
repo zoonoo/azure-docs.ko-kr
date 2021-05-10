@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric 서비스의 상태 관리
-description: Service Fabric 서비스에서 서비스 상태를 정의 하 고 관리 하는 방법을 비롯 하 여 Azure Service Fabric의 상태를 알아봅니다.
+title: Azure Service Fabric 서비스에서 상태 관리
+description: Service Fabric 서비스에서 서비스 상태를 정의하고 관리하는 방법을 비롯하여 Azure Service Fabric의 상태에 대해 알아봅니다.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 9acd3031d1071d1822791b333976aaf76161600f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "75614573"
 ---
 # <a name="service-state"></a>서비스 상태

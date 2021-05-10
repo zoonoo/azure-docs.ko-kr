@@ -4,10 +4,10 @@ description: Azure Adviser를 시작합니다.
 ms.topic: article
 ms.date: 02/01/2019
 ms.openlocfilehash: e91049077502a6c0eedf0a4f979c073690c214da
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85117865"
 ---
 # <a name="get-started-with-azure-advisor"></a>Azure Adviser 시작
@@ -27,7 +27,7 @@ Azure Portal을 통해 Advisor에 액세스하고, 권장 사항을 검색하고
 
 1. Advisor 대시보드에는 선택한 모든 구독에 대한 권장 사항 요약이 표시됩니다.  구독 필터 드롭다운을 사용하여 권장 사항을 표시할 구독을 선택할 수 있습니다.
 
-1. 특정 범주에 대 한 권장 사항을 가져오려면 **안정성**, **보안**, **성능** 또는 **비용** 탭 중 하나를 클릭 합니다. 
+1. 특정 범주에 대한 권장 사항을 얻으려면 **안정성**, **보안**, **성능** 또는 **비용** 탭 중 하나를 클릭합니다. 
 
    ![Azure Advisor 대시보드](./media/advisor-overview/advisor-dashboard.png)
 
@@ -88,7 +88,7 @@ Advisor 권장 사항을 수신하지 않으려는 리소스 그룹 또는 구�
 
 이 절차에서는 사용량이 낮은 가상 머신 권장 사항에 대한 평균 CPU 사용률 규칙을 구성합니다.
 
-Advisor는 7 일 동안 가상 머신 사용량을 모니터링 하 고 사용률이 낮은 가상 머신을 식별 합니다. 가상 머신은 CPU 사용률이 5%이 하이 고 네트워크 사용률이 2% 이하인 경우 또는 더 작은 가상 머신 크기로 현재 워크 로드를 수용할 수 있는 경우 사용률이 낮은 것으로 간주 됩니다.
+Advisor는 7일 동안 가상 머신 사용량을 모니터링하고 사용률이 낮은 가상 머신을 식별합니다. 가상 머신은 CPU 사용률이 5% 이하이고 네트워크 사용률이 2% 미만인 경우 또는 현재 워크로드를 더 작은 가상 머신 크기로 수용할 수 있는 경우 사용률이 낮은 것으로 간주됩니다.
 
 사용량이 낮은 가상 머신을 더 적극적으로 식별하려면 구독당 평균 CPU 사용률 규칙을 조정할 수 있습니다.  CPU 사용률 규칙은 5%, 10%, 15% 또는 20%로 설정할 수 있습니다.
 
@@ -128,4 +128,4 @@ Advisor에 대해 자세히 알아보려면 다음을 참조하세요.
 - [Advisor 보안 권장 사항](advisor-security-recommendations.md)
 - [Advisor 성능 권장 사항](advisor-performance-recommendations.md)
 - [Advisor 비용 권장 사항](advisor-cost-recommendations.md)
-- [Advisor 작동의 뛰어난 권장 사항](advisor-operational-excellence-recommendations.md)
+- [Advisor 뛰어난 운영 권장 사항](advisor-operational-excellence-recommendations.md)

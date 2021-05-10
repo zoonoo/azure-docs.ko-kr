@@ -1,6 +1,6 @@
 ---
-title: Azure Arc enabled PostgreSQL Hyperscale 서버 그룹을 삭제 합니다.
-description: Azure Arc 사용 설정 Postgres Hyperscale 서버 그룹 삭제
+title: Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 삭제
+description: Azure Arc 지원 Postgre 하이퍼스케일 서버 그룹 삭제
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -10,21 +10,21 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 7932ad3b30910e539acfbff2329a03f80a4d1a0b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "104670361"
 ---
-# <a name="delete-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc enabled PostgreSQL Hyperscale 서버 그룹을 삭제 합니다.
+# <a name="delete-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 삭제
 
-이 문서에서는 Azure Arc 설정에서 서버 그룹을 삭제 하는 단계에 대해 설명 합니다.
+이 문서에서는 Azure Arc 설정에서 서버 그룹을 삭제하는 단계를 설명합니다.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="delete-the-server-group"></a>서버 그룹 삭제
 
-예를 들어 아래 설정에서 _postgres01_ 인스턴스를 삭제 하 려 한다고 가정해 보겠습니다.
+예를 들어, 아래 설정에서 _postgres01_ 인스턴스를 삭제하려 한다고 가정해 보겠습니다.
 
 ```console
 azdata arc postgres server list
@@ -33,39 +33,39 @@ Name        State    Workers
 postgres01  Ready    3
 ```
 
-Delete 명령의 일반적인 형식은 다음과 같습니다.
+delete 명령의 일반 형식은 다음과 같습니다.
 ```console
 azdata arc postgres server delete -n <server group name>
 ```
-이 명령을 실행 하면 서버 그룹 삭제를 확인 하는 메시지가 표시 됩니다. 스크립트를 사용 하 여 삭제를 자동화 하는 경우에는--force 매개 변수를 사용 하 여 확인 요청을 무시 해야 합니다. 예를 들어 다음과 같은 명령을 실행 합니다. 
+이 명령을 실행하면 서버 그룹 삭제를 확인하도록 요청됩니다. 스크립트를 사용하여 삭제를 자동화하는 경우에는 --force 매개 변수를 사용하여 확인 요청을 무시해야 합니다. 예를 들어, 다음과 같은 명령을 실행합니다. 
 ```console
 azdata arc postgres server delete -n <server group name> --force
 ```
 
-Delete 명령에 대 한 자세한 내용을 보려면 다음을 실행 하십시오.
+delete 명령에 대한 자세한 내용을 보려면 다음을 실행합니다.
 ```console
 azdata arc postgres server delete --help
 ```
 
-### <a name="delete-the-server-group-used-in-this-example"></a>이 예제에 사용 된 서버 그룹을 삭제 합니다.
+### <a name="delete-the-server-group-used-in-this-example"></a>이 예제에 사용된 서버 그룹 삭제
 
 ```console
 azdata arc postgres server delete -n postgres01
 ```
 
-## <a name="reclaim-the-kubernetes-persistent-volume-claims-pvcs"></a>Kubernetes 영구 볼륨 클레임 회수 (Pvc)
+## <a name="reclaim-the-kubernetes-persistent-volume-claims-pvcs"></a>Kubernetes PVC(영구 볼륨 클레임) 회수
 
-서버 그룹을 삭제 해도 연결 된 [pvc](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)는 제거 되지 않습니다. 이것은 의도적인 것입니다. 인스턴스가 실수로 삭제된 경우 사용자가 데이터베이스 파일에 액세스하도록 도와줍니다. PVC는 반드시 삭제할 필요는 없습니다. 그러나 권장됩니다. 이러한 PVC를 회수하지 않으면 Kubernetes 클러스터에서 디스크 공간이 부족하다고 간주하므로 오류가 발생합니다. PVC를 회수하려면 다음 단계를 수행합니다.
+서버 그룹을 삭제해도 연결된 [PVC](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)는 제거되지 않습니다. 이것은 의도적인 것입니다. 인스턴스가 실수로 삭제된 경우 사용자가 데이터베이스 파일에 액세스하도록 도와줍니다. PVC는 반드시 삭제할 필요는 없습니다. 그러나 권장됩니다. 이러한 PVC를 회수하지 않으면 Kubernetes 클러스터에서 디스크 공간이 부족하다고 간주하므로 오류가 발생합니다. PVC를 회수하려면 다음 단계를 수행합니다.
 
-### <a name="1-list-the-pvcs-for-the-server-group-you-deleted"></a>1. 삭제 한 서버 그룹의 Pvc를 나열 합니다.
+### <a name="1-list-the-pvcs-for-the-server-group-you-deleted"></a>1. 삭제한 서버 그룹의 PVC 나열
 
-Pvc를 나열 하려면 다음 명령을 실행 합니다.
+PVC를 나열하려면 다음 명령을 실행합니다.
 
 ```console
 kubectl get pvc [-n <namespace name>]
 ```
 
-즉, 삭제 한 서버 그룹에 대 한 pvc, 특히 Pvc의 목록을 반환 합니다. 예를 들면 다음과 같습니다.
+PVC의 목록, 즉 삭제한 서버 그룹에 대한 PVC를 반환합니다. 예를 들면 다음과 같습니다.
 
 ```output
 kubectl get pvc
@@ -79,11 +79,11 @@ logs-few7hh0k4npx9phsiobdc3hq-postgres01-1   Bound    pvc-51d1e91b-08a9-4b6b-858
 logs-few7hh0k4npx9phsiobdc3hq-postgres01-2   Bound    pvc-8e5ad55e-300d-4353-92d8-2e383b3fe96e   5Gi        RWO            default        2d18h
 logs-few7hh0k4npx9phsiobdc3hq-postgres01-3   Bound    pvc-f9e4cb98-c943-45b0-aa07-dd5cff7ea585   5Gi        RWO            default        2d15h
 ```
-이 서버 그룹에는 8 개의 Pvc가 있습니다.
+이 서버 그룹에는 8개의 PVC가 있습니다.
 
-### <a name="2-delete-each-of-the-pvcs"></a>2. 각 Pvc를 삭제 합니다.
+### <a name="2-delete-each-of-the-pvcs"></a>2. 각 PVC 삭제
 
-삭제 한 서버 그룹의 각 PostgreSQL Hyperscale 노드 (코디네이터 및 작업자)에 대 한 데이터 및 로그 Pvc를 삭제 합니다.
+삭제한 서버 그룹의 각 PostgreSQL 하이퍼스케일 노드(코디네이터 및 작업자)에 대한 데이터 및 로그 PVC를 삭제합니다.
 
 이 명령의 일반적인 형식은 다음과 같습니다. 
 
@@ -104,7 +104,7 @@ kubectl delete pvc logs-few7hh0k4npx9phsiobdc3hq-postgres01-2
 kubectl delete pvc logs-few7hh0k4npx9phsiobdc3hq-postgres01-3
 ```
 
-이러한 각 kubectl 명령은 PVC가 성공적으로 삭제 되었는지 확인 합니다. 예를 들면 다음과 같습니다.
+이러한 각 kubectl 명령은 PVC가 성공적으로 삭제되었는지 확인합니다. 예를 들면 다음과 같습니다.
 
 ```output
 persistentvolumeclaim "data-postgres01-0" deleted
@@ -112,9 +112,9 @@ persistentvolumeclaim "data-postgres01-0" deleted
   
 
 >[!NOTE]
-> 표시 된 것 처럼, Pvc를 삭제 하지 않으면 오류가 발생 하는 상황에서 Kubernetes 클러스터를 가져올 수 있습니다. 이러한 오류 중 일부에는 azdata를 사용 하 여 Kubernetes 클러스터에 로그인 할 수 없는 항목이 포함 될 수 있습니다 .이 저장소 문제로 인해 pod가 제거 될 수 있습니다 (정상적인 Kubernetes 동작).
+> 표시된 것처럼, PVC를 삭제하지 않으면 Kubernetes 클러스터에서 오류가 발생하게 될 수 있습니다. 이러한 오류 중 일부에는 이 스토리지 문제로 인해 pod가 제거될 수 있으므로(정상적인 Kubernetes 동작) azdata를 사용하여 Kubernetes 클러스터에 로그인할 수 없는 경우가 포함될 수 있습니다.
 >
-> 예를 들어 다음과 유사한 로그에 메시지가 표시 될 수 있습니다.  
+> 예를 들어, 다음과 유사한 로그의 메시지가 표시될 수 있습니다.  
 > ```output
 > Annotations:    microsoft.com/ignore-pod-health: true  
 > Status:         Failed  
@@ -123,4 +123,4 @@ persistentvolumeclaim "data-postgres01-0" deleted
 > ```
     
 ## <a name="next-step"></a>다음 단계
-[Azure Arc 사용 PostgreSQL Hyperscale](create-postgresql-hyperscale-server-group.md) 만들기
+[Azure Arc 지원 PostgreSQL 하이퍼스케일](create-postgresql-hyperscale-server-group.md) 만들기

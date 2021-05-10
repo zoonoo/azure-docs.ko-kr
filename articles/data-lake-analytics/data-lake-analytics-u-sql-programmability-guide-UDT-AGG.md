@@ -1,18 +1,18 @@
 ---
-title: Azure Data Lake에 대 한 U-SQL UDT 및 UDAGG 프로그래밍 기능 가이드
-description: 적절 한 SCRIPT.USQL 스크립트를 만들 수 있도록 하는 Azure Data Lake Analytics의 U-SQL UDT 및 UDAGG 프로그래밍 기능에 대해 알아봅니다.
+title: Azure Data Lake에 대한 U-SQL UDT 및 UDAGG 프로그래밍 기능 가이드
+description: 적절한 USQL 스크립트를 만들 수 있도록 하는 Azure Data Lake Analytics의 U-SQL UDT 및 UDAGG 프로그래밍 기능에 대해 알아봅니다.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: 10fcce9a667d9a08318f5adab804f482387052ff
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97606660"
 ---
-# <a name="u-sql-programmability-guide---udt-and-udagg"></a>U-SQL 프로그래밍 기능 가이드-UDT 및 UDAGG
+# <a name="u-sql-programmability-guide---udt-and-udagg"></a>U-SQL 프로그램 기능 가이드 - UDT 및 UDAGG
 
 
 
@@ -115,9 +115,9 @@ public class MyTypeFormatter : IFormatter<MyType>
 }
 ```
 
-`IFormatter`인터페이스는의 루트 형식으로 개체 그래프를 직렬화 및 역직렬화 합니다 \<typeparamref name="T"> .
+`IFormatter` 인터페이스는 \<typeparamref name="T">의 루트 형식으로 개체 그래프를 직렬화하고 역직렬화합니다.
 
-\<typeparam name="T">Serialize 및 deserialize 할 개체 그래프의 루트 형식입니다.
+\<typeparam name="T">직렬화/역직렬화할 개체 그래프의 루트 형식입니다.
 
 * **Deserialize**: 제공된 스트림의 데이터를 역직렬화하고 개체 그래프를 다시 구성합니다.
 
@@ -532,7 +532,7 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
 * T1: Accumulate의 첫 번째 매개 변수
-* T2: 누적 시킬 두 번째 매개 변수
+* T2: Accumulate의 두 번째 매개 변수
 * TResult: Terminate의 반환 형식
 
 예를 들면 다음과 같습니다.
@@ -612,5 +612,5 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 이 사용 사례 시나리오에서는 특정 사용자에 대한 GUID 클래스를 연결합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [U-SQL 프로그래밍 기능 가이드-개요](data-lake-analytics-u-sql-programmability-guide.md)
-* [U-SQL 프로그래밍 기능 가이드-UDO](data-lake-analytics-u-sql-programmability-guide-UDO.md)
+* [U-SQL 프로그램 기능 가이드 - 개요](data-lake-analytics-u-sql-programmability-guide.md)
+* [U-SQL 프로그래밍 기능 가이드 - UDO](data-lake-analytics-u-sql-programmability-guide-UDO.md)

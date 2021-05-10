@@ -4,21 +4,20 @@ description: Azure Portal에서 Azure Database for PostgreSQL - 하이퍼스케�
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
-ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 04/07/2021
-ms.openlocfilehash: 8e22de5288380490490c91846322e418f98dfcd4
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 04dd37e3e9abbfbec7badb036802e645cc7732b0
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317259"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107108119"
 ---
 # <a name="manage-scheduled-maintenance-settings-for-azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL - 하이퍼스케일(Citus)에 대한 예약된 유지 관리 설정 관리
 
 Azure 구독에서 각 하이퍼스케일(Citus) 서버 그룹에 대한 유지 관리 옵션을 지정할 수 있습니다. 옵션에는 예정된 유지 관리 이벤트와 완료된 유지 관리 이벤트에 대한 유지 관리 일정 및 알림 설정이 포함됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 

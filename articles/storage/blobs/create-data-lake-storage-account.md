@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Storage Gen2에 대 한 저장소 계정 만들기
-description: Azure Data Lake Storage Gen2와 함께 사용할 저장소 계정을 만드는 방법에 대해 알아봅니다.
+title: Azure Data Lake Storage Gen2용 스토리지 계정 만들기
+description: Azure Data Lake Storage Gen2에서 사용할 스토리지 계정을 만드는 방법을 알아봅니다.
 author: normesta
 ms.topic: how-to
 ms.author: normesta
@@ -9,40 +9,40 @@ ms.service: storage
 ms.reviewer: stewu
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 712f1dc0679ee49791831e782fb68c39a757870a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98624340"
 ---
-# <a name="create-a-storage-account-to-use-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에 사용할 저장소 계정 만들기
+# <a name="create-a-storage-account-to-use-with-azure-data-lake-storage-gen2"></a>Data Lake Storage Gen2에서 사용할 스토리지 계정 만들기
 
-Data Lake Storage Gen2 기능을 사용 하려면 계층적 네임 스페이스를 포함 하는 저장소 계정을 만듭니다.
+Data Lake Storage Gen2 기능을 사용하려면 계층 구조 네임스페이스가 있는 스토리지 계정을 만듭니다.
 
-## <a name="choose-a-storage-account-type"></a>저장소 계정 유형 선택
+## <a name="choose-a-storage-account-type"></a>스토리지 계정 유형 선택
 
-Data Lake Storage 기능은 다음 유형의 저장소 계정에서 지원 됩니다.
+Data Lake Storage 기능은 다음 유형의 스토리지 계정에서 지원됩니다.
 
 - 범용 v2
 - BlockBlobStorage
 
-이러한 항목 중 하나를 선택 하는 방법에 대 한 자세한 내용은 [저장소 계정 개요](../common/storage-account-overview.md)를 참조 하세요.
+이러한 항목 중 하나를 선택하는 방법에 대한 자세한 내용은 [스토리지 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
-## <a name="create-a-storage-account-with-a-hierarchical-namespace"></a>계층적 네임 스페이스를 사용 하 여 저장소 계정 만들기
+## <a name="create-a-storage-account-with-a-hierarchical-namespace"></a>계층 구조 네임스페이스를 사용하여 스토리지 계정 만들기
 
-**계층적 네임 스페이스** 설정을 사용 하는 [일반 용도의 V2 계정](../common/storage-account-create.md) 또는 [blockblobstorage](storage-blob-create-account-block-blob.md) 계정을 만듭니다.
+**계층 구조 네임스페이스** 설정을 사용하도록 지정하고 [범용 V2 계정](../common/storage-account-create.md) 또는 [BlockBlobStorage](storage-blob-create-account-block-blob.md) 계정을 만듭니다.
 
-**저장소 계정 만들기** 페이지의 **고급** 탭에서 **계층 구조 네임 스페이스** 설정을 사용 하도록 설정 하 여 계정을 만들 때 Data Lake Storage 기능을 잠금 해제 합니다. 계정을 만들 때이 설정을 사용 하도록 설정 해야 합니다. 나중에 사용 하도록 설정할 수 없습니다.
+**스토리지 계정 만들기** 페이지의 **고급** 탭에서 **계층 구조 네임스페이스** 설정을 사용하도록 지정하여 계정을 만들 때 Data Lake Storage 기능을 잠금 해제합니다. 계정을 만들 때 이 설정을 사용하도록 설정해야 합니다. 나중에 사용하도록 설정할 수 없습니다.
 
-다음 이미지는 **저장소 계정 만들기** 페이지에서이 설정을 보여 줍니다.
+다음 이미지는 **스토리지 계정 만들기** 페이지의 이 설정을 보여 줍니다.
 
 > [!div class="mx-imgBorder"]
-> ![계층 구조 네임 스페이스 설정](./media/create-data-lake-storage-account/hierarchical-namespace-feature.png)
+> ![계층 구조 네임스페이스 설정](./media/create-data-lake-storage-account/hierarchical-namespace-feature.png)
 
-Data Lake Storage 사용 하려는 기존 저장소 계정이 있고 계층 구조 네임 스페이스 설정을 사용 하지 않도록 설정한 경우 해당 설정을 사용 하도록 설정 된 새 저장소 계정으로 데이터를 마이그레이션해야 합니다.
+Data Lake Storage에서 사용하려는 기존 스토리지 계정이 있고 계층 구조 네임스페이스 설정을 사용하지 않도록 설정한 경우 해당 설정을 사용하도록 지정한 새 스토리지 계정으로 데이터를 마이그레이션해야 합니다.
 
 > [!NOTE]
-> **데이터 보호** 및 **계층적 네임 스페이스** 는 동시에 사용 하도록 설정할 수 없습니다.
+> **데이터 보호** 및 **계층 구조 네임스페이스** 는 동시에 사용하도록 설정할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

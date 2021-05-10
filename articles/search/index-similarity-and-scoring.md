@@ -9,36 +9,36 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.openlocfilehash: 72243f896b2cf7dbab61a42514bee634da28d4c6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101676330"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Azure Cognitive Search의 유사성 및 점수 매기기
 
-이 문서에서는 Azure Cognitive Search의 두 유사성 순위 알고리즘에 대해 설명 합니다. 또한 *점수 매기기 프로필* (검색 점수 조정을 위한 조건)과 *featuresMode* 매개 변수 (더 자세한 정보를 표시 하기 위해 검색 점수를 압축을 풉니다)의 두 가지 관련 기능을 소개 합니다. 
+본 문서에서는 Azure Cognitive Search의 두 가지 유사성 순위 알고리즘에 대해 설명합니다. 이와 관련된 두 가지 기능인 *채점 프로필*(검색 점수 조정 기준)과 *featuresMode* 매개 변수(추가 세부 정보 표시를 위해 검색 점수의 압축 해제)를 함께 소개합니다. 
 
-세 번째 의미 체계 다시 순위 지정 알고리즘은 현재 공개 미리 보기 상태입니다. 자세한 내용은 [의미 체계 검색 개요](semantic-search-overview.md)를 사용 하 여 시작 합니다.
+의미 체계 순위 재지정 알고리즘 세 가지 중 하나는 현재 퍼블릭 미리 보기 상태입니다. 자세한 내용은 [의미 체계 검색 개요](semantic-search-overview.md)부터 확인하세요.
 
 ## <a name="similarity-ranking-algorithms"></a>유사성 순위 알고리즘
 
-Azure Cognitive Search는 두 가지 유사성 순위 알고리즘을 지원 합니다.
+Azure Cognitive Search는 두 가지 유사성 순위 알고리즘을 지원합니다.
 
 | 알고리즘 | 점수 | 가용성 |
 |-----------|-------|--------------|
-| ClassicSimilarity | @search.score | 2020 년 7 월 15 일까 지 모든 검색 서비스에서 사용 됩니다. |
-| BM25Similarity | @search.score | 7 월 15 일 이후에 만들어진 모든 search 서비스에 사용 됩니다. 클래식을 사용 하는 이전 서비스는 기본적으로 [BM25를 옵트인 (opt in](index-ranking-similarity.md)) 할 수 있습니다. |
+| ClassicSimilarity | @search.score | 2020년 7월 15일까지 모든 검색 서비스에서 사용합니다. |
+| BM25Similarity | @search.score | 7월 15일 이후 만들어진 모든 검색 서비스에서 사용합니다. 클래식을 기본으로 사용하는 이전 서비스는 [BM25로 옵트인](index-ranking-similarity.md)할 수 있습니다. |
 
-클래식 및 BM25는 모두 용어 빈도 (TF) 및 역 문서 빈도 (IDF)를 변수로 사용 하 여 각 문서-쿼리 쌍의 관련성 점수를 계산 하는 변수로 사용 하는 TF와 비슷한 검색 기능입니다 .이 함수는 클래식과 유사 하 게 확률 정보 검색에서 루트를 사용 하 여 BM25을 개선 합니다. 또한 BM25는 사용자가 관련성 점수가 일치 조건에 따라 확장 되는 방식을 결정할 수 있도록 허용 하는 고급 사용자 지정 옵션을 제공 합니다.
+클래식과 BM25는 모두 TF-IDF와 유사한 검색 함수로, 각각의 문서-쿼리 쌍에 대한 관련성 점수를 계산하는 데 TF(용어 빈도)와 IDF(역 문서 빈도)를 변수로 사용하며, 이후 해당 쌍은 순위 지정에 사용됩니다. BM25는 개념적으로 클래식과 유사하지만 확률적 정보 검색을 기반으로 개선됩니다. BM25는 사용자가 일치하는 용어의 용어 빈도를 통해 관련성 점수가 확장되는 방식을 결정할 수 있도록 하는 등의 고급 사용자 지정 옵션을 함께 제공합니다.
 
-다음 비디오 세그먼트는 Azure Cognitive Search에서 사용 되는 일반적으로 사용 가능한 순위 알고리즘에 대 한 설명으로 빠르게 전달 됩니다. 자세한 배경 정보는 전체 비디오를 시청하여 확인할 수 있습니다.
+다음 비디오 세그먼트는 Azure Cognitive Search에서 사용되는 일반적으로 활용할 수 있는 순위 알고리즘에 대한 설명을 빠르게 제공합니다. 자세한 배경 정보는 전체 비디오를 시청하여 확인할 수 있습니다.
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
 
 ## <a name="relevance-scoring"></a>관련성 채점
 
-점수 매기기는 전체 텍스트 검색 쿼리에 대해 검색 결과에 반환된 모든 항목의 검색 점수를 계산하는 것입니다. 점수는 현재 쿼리의 컨텍스트에서 항목의 관련성을 나타내는 표시기입니다. 점수가 높을수록 항목의 관련성도 높습니다. 검색 결과에서 항목은 각 항목에 대해 계산된 검색 점수를 기준으로 높은 순위부터 낮은 순위로 정렬됩니다. 점수는 모든 문서에서 ""로 응답에서 반환 됩니다 @search.score .
+점수 매기기는 전체 텍스트 검색 쿼리에 대해 검색 결과에 반환된 모든 항목의 검색 점수를 계산하는 것입니다. 점수는 현재 쿼리의 컨텍스트에서 항목의 관련성을 나타내는 표시기입니다. 점수가 높을수록 항목의 관련성도 높습니다. 검색 결과에서 항목은 각 항목에 대해 계산된 검색 점수를 기준으로 높은 순위부터 낮은 순위로 정렬됩니다. 점수는 모든 문서에서 "@search.score" 응답으로 반환됩니다.
 
 기본적으로 응답에 상위 50개 항목이 반환되지만 **$top** 매개 변수를 사용하여 반환되는 항목 수를 늘리거나 줄일 수 있으며(최대 1,000개 항목) **$skip** 매개 변수를 사용하여 다음 결과 세트를 가져올 수 있습니다.
 
@@ -55,7 +55,7 @@ Azure Cognitive Search는 두 가지 유사성 순위 알고리즘을 지원 합
 
 ## <a name="scoring-statistics-and-sticky-sessions"></a>통계 및 고정 세션 점수 매기기
 
-확장성을 위해 Azure Cognitive Search는 분할 프로세스를 통해 각 인덱스를 가로로 분산 합니다. 즉, [인덱스의 일부가 물리적으로 분리 되어](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards)있습니다.
+스케일링 성능을 위해 Azure Cognitive Search는 분할 프로세스를 통해 각 인덱스를 수평으로 분산합니다. 즉, [인덱스 부분이 물리적으로 분리됩니다](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
 
 기본적으로 문서 점수는 *분할된 데이터베이스 내* 데이터의 통계 속성에 따라 계산됩니다. 이 방법은 일반적으로 많은 양의 데이터 모음이 있을 때는 문제가 되지 않으며, 모든 분할된 데이터베이스의 정보를 기준으로 점수를 계산해야 하는 경우보다 더 나은 성능을 제공합니다. 즉, 이러한 성능 최적화를 사용하면 매우 유사한 두 개의 문서(또는 동일한 문서)가 서로 다른 분할된 데이터베이스에 속하게 될 때 서로 다른 관련성 점수를 갖게 될 수 있습니다.
 
@@ -82,21 +82,21 @@ GET https://[service name].search.windows.net/indexes/[index name]/docs?sessionI
 
 ## <a name="scoring-profiles"></a>점수 매기기 프로필
 
-*점수 매기기 프로필* 을 정의 하 여 다양 한 필드의 순위가 지정 되는 방식을 사용자 지정할 수 있습니다. 점수 매기기 프로필을 사용하면 검색 결과에서 항목의 순위를 보다 강력하게 제어할 수 있습니다. 예를 들어 잠재 수익을 기준으로 하여 특정 항목을 상승시키거나, 새 항목을 프로모션하거나, 너무 오랫동안 재고에 포함되어 있던 항목을 상승시킬 수 있습니다. 
+*채점 프로필* 을 정의하여 다양한 필드의 순위 지정 방식을 사용자 지정할 수 있습니다. 점수 매기기 프로필을 사용하면 검색 결과에서 항목의 순위를 보다 강력하게 제어할 수 있습니다. 예를 들어 잠재 수익을 기준으로 하여 특정 항목을 상승시키거나, 새 항목을 프로모션하거나, 너무 오랫동안 재고에 포함되어 있던 항목을 상승시킬 수 있습니다. 
 
 점수 매기기 프로필은 가중 필드, 함수 및 매개 변수로 구성된 인덱스 정의의 일부입니다. 정의 방법에 대한 자세한 내용은 [점수 매기기 프로필](index-add-scoring-profiles.md)을 참조하세요.
 
 <a name="featuresMode-param"></a>
 
-## <a name="featuresmode-parameter-preview"></a>featuresMode 매개 변수 (미리 보기)
+## <a name="featuresmode-parameter-preview"></a>featuresMode 매개 변수(미리 보기)
 
-[문서 검색](/rest/api/searchservice/preview-api/search-documents) 요청에는 필드 수준에서 관련성에 대 한 추가 세부 정보를 제공할 수 있는 새 [featuresMode](/rest/api/searchservice/preview-api/search-documents#featuresmode) 매개 변수가 있습니다. 는 `@searchScore` 문서에 대해 모두 계산 되는 반면 (이 쿼리의 컨텍스트에서이 문서는 어떻게 관련이 있는지) featuresMode를 통해 구조에 표시 된 대로 개별 필드에 대 한 정보를 가져올 수 있습니다 `@search.features` . 구조에는 쿼리에서 사용 되는 모든 필드 (쿼리에서 **Searchfields** 를 통한 특정 필드 또는 인덱스에서 **검색 가능한** 것으로 특성이 지정 된 모든 필드)가 포함 됩니다. 각 필드에 대해 다음 값을 얻습니다.
+[문서 검색](/rest/api/searchservice/preview-api/search-documents)요청에는 필드 수준의 관련성에 관해 추가적인 세부 정보를 제공할 새 [featuresMode](/rest/api/searchservice/preview-api/search-documents#featuresmode) 매개 변수가 있습니다. `@searchScore`가 전체 문서에 대하여 계산되는 반면(해당 쿼리의 컨텍스트에서의 문서 관련성 정도), featuresMode를 통해서는 `@search.features` 구조에서 설명한 바와 같이 개별 필드에 대한 정보를 얻을 수 있습니다. 해당 구조에는 쿼리에서 사용한 모든 필드가 들어갑니다(쿼리 내의 **searchFields** 를 통한 특정 필드 또는 인덱스 내에서 **searchable** 라는 특성을 갖는 모든 필드). 각 필드에 대해 다음 값을 얻습니다.
 
-+ 필드에 있는 고유한 토큰 수
-+ 유사성 점수 또는 쿼리 용어에 상대적인 필드의 내용과 유사한 측정값
-+ 용어 빈도 또는 필드에서 쿼리 용어를 찾은 횟수
++ 필드에서 찾은 고유한 토큰의 수
++ 유사성 점수 또는 쿼리 용어와 관련해 해당 필드의 콘텐츠가 얼마나 유사한지에 대한 측정값
++ 용어 빈도 또는 필드 내에서 해당 쿼리 용어가 발견된 횟수
 
-"Description" 및 "title" 필드를 대상으로 하는 쿼리의 경우를 포함 하는 응답은 `@search.features` 다음과 같습니다.
+"설명" 및 "제목" 필드를 대상으로 하는 쿼리에 대해서는 `@search.features`를 포함하는 응답이 다음과 같을 수 있습니다.
 
 ```json
 "value": [
@@ -115,7 +115,7 @@ GET https://[service name].search.windows.net/indexes/[index name]/docs?sessionI
         }
 ```
 
-[사용자 지정 점수 매기기 솔루션](https://github.com/Azure-Samples/search-ranking-tutorial) 에서 이러한 데이터 요소를 사용 하거나 정보를 사용 하 여 검색 관련성 문제를 디버그할 수 있습니다.
+이러한 데이터 요소를 [사용자 지정 채점 솔루션](https://github.com/Azure-Samples/search-ranking-tutorial)에서 사용하거나 검색 관련성 문제를 디버그하는 데 정보를 사용할 수 있습니다.
 
 ## <a name="see-also"></a>참고 항목
 

@@ -7,10 +7,10 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.openlocfilehash: 4aed956fc7052f844080b830aa4cc3b2a07235a1
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104799397"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>일반적인 Azure Cosmos DB 사용 사례
@@ -27,7 +27,7 @@ ms.locfileid: "104799397"
 
 ## <a name="introduction"></a>소개
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) 은 모든 규모에 대해 개방형 api가 포함 된 Microsoft의 빠른 nosql 데이터베이스입니다. 서비스는 고객이 원하는 수의 지역에서 처리량 및 스토리지 크기를 탄력적 및 독립적으로 조정할 수 있도록 설계되었습니다. Azure Cosmos DB는 처리량, 대기 시간, 가용성 및 일관성을 포괄하는 총체적인 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/cosmos-db/)을 제공하는, 현재 출시된 최초의 전역 분산 데이터베이스 서비스입니다.
+[Azure Cosmos DB](../cosmos-db/introduction.md)는 모든 스케일의 개방형 API를 포함하는 Microsoft의 빠른 NoSQL 데이터베이스입니다. 서비스는 고객이 원하는 수의 지역에서 처리량 및 스토리지 크기를 탄력적 및 독립적으로 조정할 수 있도록 설계되었습니다. Azure Cosmos DB는 처리량, 대기 시간, 가용성 및 일관성을 포괄하는 총체적인 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/cosmos-db/)을 제공하는, 현재 출시된 최초의 전역 분산 데이터베이스 서비스입니다.
 
 Azure Cosmos DB는 광범위한 애플리케이션 및 사용 사례에서 사용되는, 전역으로 분산된 다중 모델 데이터베이스입니다. 낮은 응답 시간(밀리초)이 필요하며 신속하게 전역으로 크기를 조정해야 하는 [서버가 없는](https://azure.com/serverless) 애플리케이션에 적합합니다. 여러 데이터 모델(키-값, 문서, 그래프 및 칼럼 형식) 및 [Azure Cosmos DB의 MongoDB API](mongodb-introduction.md), [SQL API](./introduction.md), [Gremlin API](graph-introduction.md) 및 [Tables API](table-introduction.md) 등의 많은 데이터 액세스용 API를 기본적으로, 그리고 확장 가능한 방식으로 지원합니다. 
 
@@ -44,11 +44,11 @@ Azure Cosmos DB는 광범위한 애플리케이션 및 사용 사례에서 사�
 
 ## <a name="iot-and-telematics"></a>IoT 및 텔레매틱스
 
-IoT 사용 사례는 일반적으로 데이터를 수집, 처리 및 저장하는 방법에서 일부 패턴을 공유합니다.  먼저 이러한 시스템이 다양한 로컬의 디바이스 센서에서 데이터 버스트를 수집해야 합니다. 다음으로 이러한 시스템이 스트리밍 데이터를 처리 및 분석하여 실시간 통찰력을 끌어냅니다. 그런 다음 배치 분석에 사용할 수 있도록 데이터를 콜드 스토리지에 보관합니다. Microsoft Azure Azure Cosmos DB, Azure Event Hubs, Azure Stream Analytics, Azure Notification Hub, Azure Machine Learning, Azure HDInsight 및 Power BI를 비롯 한 IoT 사용 사례에 적용할 수 있는 다양 한 서비스를 제공 합니다. 
+IoT 사용 사례는 일반적으로 데이터를 수집, 처리 및 저장하는 방법에서 일부 패턴을 공유합니다.  먼저 이러한 시스템이 다양한 로컬의 디바이스 센서에서 데이터 버스트를 수집해야 합니다. 다음으로 이러한 시스템이 스트리밍 데이터를 처리 및 분석하여 실시간 통찰력을 끌어냅니다. 그런 다음 배치 분석에 사용할 수 있도록 데이터를 콜드 스토리지에 보관합니다. Microsoft Azure 제품은 Azure Cosmos DB, Azure Event Hubs, Azure Stream Analytics, Azure Notification Hub, Azure Machine Learning, Azure HDInsight 및 Power BI를 비롯한 IoT 사용 사례에 적용할 수 있는 다양한 서비스를 제공합니다. 
 
 :::image type="content" source="./media/use-cases/iot.png" alt-text="Azure Cosmos DB IoT 참조 아키텍처" border="false":::
 
-Azure Event Hubs는 짧은 대기 시간으로 높은 처리량 데이터 수집을 제공하기 때문에 데이터 버스트를 수집할 수 있습니다. 실시간으로 처리해야 하는 수집된 데이터는 분석을 위해 Azure Stream Analytics로 전달할 수 있습니다. 임시 쿼리를 위해 데이터를 Azure Cosmos DB에 로드할 수 있습니다. 데이터가 Azure Cosmos DB에 로드되고 나면 데이터를 쿼리할 수 있습니다. 또한 새 데이터와 기존 데이터의 변경 내용을 변경 피드에서 읽을 수 있습니다. 변경 피드는 지속적으로 Cosmos 컨테이너에 대 한 변경 내용을 순차적으로 저장 하는 로그만 추가 합니다. 그런 다음 실시간 분석의 일부로 모든 데이터 또는 Azure Cosmos DB의 데이터 변경 내용만 참조 데이터로 사용할 수 있습니다. 또한 Pig, Hive 또는 Map/Reduce 작업을 위해 Azure Cosmos DB 데이터를 HDInsight에 연결하여 데이터를 추가로 구체화하고 처리할 수 있습니다.  그런 다음 보고를 위해 구체화된 데이터가 Azure Cosmos DB에 다시 로드됩니다.   
+Azure Event Hubs는 짧은 대기 시간으로 높은 처리량 데이터 수집을 제공하기 때문에 데이터 버스트를 수집할 수 있습니다. 실시간으로 처리해야 하는 수집된 데이터는 분석을 위해 Azure Stream Analytics로 전달할 수 있습니다. 임시 쿼리를 위해 데이터를 Azure Cosmos DB에 로드할 수 있습니다. 데이터가 Azure Cosmos DB에 로드되고 나면 데이터를 쿼리할 수 있습니다. 또한 새 데이터와 기존 데이터의 변경 내용을 변경 피드에서 읽을 수 있습니다. 변경 피드는 영구적이며, Cosmos 컨테이너에 대한 변경 내용을 저장하는 로그만 순서대로 추가합니다. 그런 후 실시간 분석의 일부로 Azure Cosmos DB의 모든 데이터 또는 변경된 데이터만 참조 데이터로 사용할 수 있습니다. 또한 Pig, Hive 또는 Map/Reduce 작업을 위해 Azure Cosmos DB 데이터를 HDInsight에 연결하여 데이터를 추가로 구체화하고 처리할 수 있습니다.  그런 다음 보고를 위해 구체화된 데이터가 Azure Cosmos DB에 다시 로드됩니다.   
 
 Azure Cosmos DB, EventHub 및 Storm을 사용한 샘플 IoT 솔루션은 [GitHub의 hdinsight-storm-examples 리포지토리](https://github.com/hdinsight/hdinsight-storm-examples/)를 참조하세요.
 
@@ -92,7 +92,7 @@ Azure Cosmos DB의 일반적인 사용 사례는 웹, 모바일 및 소셜 미�
 
 많은 소셜 애플리케이션은 글로벌 규모로 실행되며 예측할 수 없는 사용 패턴을 나타낼 수 있습니다. 사용량 수요에 따라 애플리케이션 계층의 크기가 조정되므로 데이터 저장소의 크기를 조정하는 유연성이 필요합니다.  Cosmos DB 계정으로 데이터 파티션을 더 추가하여 규모를 확장할 수 있습니다.  또한 여러 지역에 추가 Cosmos DB 계정을 만들 수도 있습니다. Cosmos DB 서비스 지역 가용성은 [Azure 지역](https://azure.microsoft.com/regions/#services)을 참조하세요.
 
-:::image type="content" source="./media/use-cases/apps-with-global-reach.png" alt-text="Azure Cosmos DB 웹 앱 참조 아키텍처를 보여 주는 다이어그램입니다." border="false":::
+:::image type="content" source="./media/use-cases/apps-with-global-reach.png" alt-text="Azure Cosmos DB 웹앱 참조 아키텍처를 보여 주는 다이어그램" border="false":::
 
 ### <a name="personalization"></a>Personalization
 오늘날 최신 애플리케이션은 복잡한 뷰와 환경으로 제공됩니다. 이는 일반적으로 동적이며, 사용자 기본 설정이나 기분 및 브랜딩 요구에 맞게 조정됩니다. 따라서 애플리케이션이 UI 요소와 환경을 신속하게 렌더링하려면 개인 설정을 효과적으로 검색할 수 있어야 합니다. 
@@ -105,4 +105,4 @@ Cosmos DB에서 지원되는 형식인 JSON은 간단할 뿐 아니라 JavaScrip
 
 * Azure Cosmos DB를 시작하려면 계정을 만들고 Cosmos DB를 시작하는 과정을 안내하는 [빠른 시작](create-sql-api-dotnet.md)을 따릅니다.
 
-* Azure Cosmos DB를 사용 하는 고객에 대 한 자세한 내용을 알아보려면 [고객 사례 연구](https://azure.microsoft.com/case-studies/?service=cosmos-db) 페이지를 참조 하세요.
+* Azure Cosmos DB를 사용하는 고객에 대한 자세한 내용을 알아보려면 [고객 사례 연구](https://azure.microsoft.com/case-studies/?service=cosmos-db) 페이지를 참조하세요.

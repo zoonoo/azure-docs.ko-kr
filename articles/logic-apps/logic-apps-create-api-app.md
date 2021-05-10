@@ -7,10 +7,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
 ms.openlocfilehash: 3fe98160cc10eb3607b8309a9a263d63380dcfb5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89073219"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Azure Logic Apps에서 호출할 수 있는 사용자 지정 API 만들기
@@ -37,7 +37,7 @@ Azure Logic Apps는 논리 앱 워크플로에서 사용할 수 있는 [수백 �
 > * [Python](../app-service/quickstart-python.md)
 > * [Ruby](../app-service/quickstart-ruby.md)
 >
-> 논리 앱 용으로 빌드된 API 앱 샘플은 [GitHub 리포지토리 Azure Logic Apps](https://github.com/logicappsio)를 참조 하세요.
+> 논리 앱용으로 빌드된 API 앱 샘플은 [Azure Logic Apps GitHub 리포지토리](https://github.com/logicappsio)를 방문하세요.
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>사용자 지정 API는 사용자 지정 커넥터와 어떻게 다른가요?
 

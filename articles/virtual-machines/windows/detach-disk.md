@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 03/03/2021
 ms.author: cynthn
 ms.openlocfilehash: 24c95d486ce77028a2c49917d8f98de23a3a8315
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102552136"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Windows 가상 컴퓨터에서 데이터 디스크를 분리하는 방법
@@ -54,13 +54,13 @@ Update-AzVM `
 1. 왼쪽 메뉴에서 **Virtual Machines** 을 선택합니다.
 1. 분리할 데이터 디스크가 있는 가상 머신을 선택합니다.
 1. **설정** 아래에서 **디스크** 를 선택합니다.
-1. **디스크** 창에서 분리할 데이터 디스크의 오른쪽 끝에 있는 **X** 단추를 선택 하 여 분리 합니다.
+1. 분리하려면 **디스크** 창에서 분리할 데이터 디스크의 맨 오른쪽에 있는 **X** 단추를 선택합니다.
 1. 페이지 맨 위에 있는 **저장** 을 선택하여 변경 내용을 저장합니다.
 
-디스크가 스토리지에 유지되지만 더 이상 가상 머신에 연결되어 있지 않습니다. 디스크가 삭제 되지 않습니다.
+디스크가 스토리지에 유지되지만 더 이상 가상 머신에 연결되어 있지 않습니다. 디스크가 삭제되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 데이터 디스크를 다시 사용하려는 경우 [다른 VM에 연결](attach-managed-disk-portal.md)할 수 있습니다.
 
-디스크를 삭제 하 여 더 이상 저장소 비용이 발생 하지 않도록 하려면 연결 [되지 않은 Azure 관리 및 비관리 디스크 찾기 및 삭제-Azure Portal](../disks-find-unattached-portal.md)를 참조 하세요.
+디스크를 삭제하여 더 이상 스토리지 비용이 발생하지 않도록 하려면 [연결되지 않은 Azure 관리 및 비관리 디스크 찾기 및 삭제 - Azure Portal](../disks-find-unattached-portal.md)을 참조하세요.

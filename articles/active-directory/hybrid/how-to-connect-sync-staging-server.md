@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48584fa4042cf53fa1084e519dca0e64f530ca59
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90090128"
 ---
-# <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: 준비 서버 및 재해 복구
+# <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: 스테이징 서버 및 재해 복구
 스테이징 모드에 있는 서버로 서버를 활성화하기 전에 구성을 변경하고 변경을 미리 볼 수 있습니다. 또한 프로덕션 환경에 해당 변경 사항을 적용하기 전에 필요한지를 확인하기 위해 전체 가져오기 및 동기화를 실행할 수 있습니다.
 
 ## <a name="staging-mode"></a>스테이징 모드
@@ -42,7 +42,7 @@ ms.locfileid: "90090128"
 
 여전히 동기화 서비스 관리자를 사용하여 강제로 내보낼 수 있습니다.
 
-준비 모드의 서버는 계속 해 서 Active Directory 및 Azure AD에서 변경 사항을 받고 오류가 발생할 경우 다른 서버의 책임을 신속 하 게 가져올 수 있습니다. 기본 서버의 구성을 변경하는 경우 스테이징 모드에서 서버에 동일한 변경 내용을 적용해야 합니다.
+스테이징 모드의 서버는 계속해서 Active Directory 및 Azure AD에서 변경 내용을 수신하고, 오류가 발생할 경우 다른 서버의 책임을 신속하게 인계 받을 수 있습니다. 기본 서버의 구성을 변경하는 경우 스테이징 모드에서 서버에 동일한 변경 내용을 적용해야 합니다.
 
 이전 동기화 기술에 대해 알고 있는 사용자의 경우 다른 서버에 자체 SQL 데이터베이스가 있으므로 스테이징 모드는 다릅니다. 이 아키텍처를 통해 스테이징 모드 서버를 다른 데이터 센터에서 찾을 수 있습니다.
 
@@ -57,7 +57,7 @@ ms.locfileid: "90090128"
 
 #### <a name="prepare"></a>준비
 1. Azure AD Connect를 설치하고 **스테이징 모드** 를 선택하고 설치 마법사의 마지막 페이지에서 **동기화 시작** 의 선택을 취소합니다. 이 모드를 통해 동기화 엔진을 수동으로 실행할 수 있습니다.
-   ![Azure AD Connect 대화 상자의 구성 준비 페이지가 표시 됩니다.](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
+   ![스크린샷에는 Azure AD Connect 대화 상자의 구성 준비 완료 페이지가 표시됩니다.](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
 2. 시작 메뉴에서 로그오프/로그온하고 **동기화 서비스** 를 선택합니다.
 
 #### <a name="configuration"></a>구성
@@ -73,7 +73,7 @@ ms.locfileid: "90090128"
 
 #### <a name="verify"></a>확인
 1. cmd 프롬프트를 시작하고 `%ProgramFiles%\Microsoft Azure AD Sync\bin`로 이동합니다.
-2. 실행: `csexport "Name of Connector" %temp%\export.xml /f:x` 동기화 서비스에서 커넥터의 이름을 찾을 수 있습니다. Azure AD에 대 한 "contoso.com – Azure AD"와 비슷한 이름이 있습니다.
+2. 실행: `csexport "Name of Connector" %temp%\export.xml /f:x` 동기화 서비스에서 커넥터의 이름을 찾을 수 있습니다. Azure AD에 "contoso.com – Azure AD"와 유사한 이름이 있습니다.
 3. 실행: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` %temp%에 Microsoft Excel에서 검사할 수 있는 export.csv라는 파일이 있습니다. 이 파일은 내보낼 수 있는 모든 변경 내용을 포함합니다.
 4. 내보내려는 변경 사항이 예정될 때까지 데이터 또는 구성에 필요한 변경을 수행하고 이러한 단계(가져오기 및 동기화 및 확인)를 다시 실행합니다.
 
@@ -115,7 +115,7 @@ ms.locfileid: "90090128"
 ### <a name="have-a-spare-standby-server---staging-mode"></a>스테이징 모드라는 예비 대기 서버가 있습니다.
 더 복잡한 환경을 사용하는 경우 하나 이상의 대기 서버가 있는 것이 좋습니다. 설치 중에 서버를 사용하도록 설정하여 **스테이징 모드** 로 둘 수 있습니다.
 
-자세한 내용은 [준비 모드](#staging-mode)를 참조 하세요.
+자세한 내용은 [스테이징 모드](#staging-mode)를 참조하세요.
 
 ### <a name="use-virtual-machines"></a>가상 머신 사용
 일반적이며 지원되는 메서드는 가상 머신에서 동기화 엔진을 실행하는 것입니다. 호스트에는 문제가 있는 경우 동기화 엔진 서버로 이미지를 다른 서버에 마이그레이션할 수 있습니다.

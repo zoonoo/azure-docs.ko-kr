@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2021
 ms.author: mnayak
 ms.openlocfilehash: f445eab65e8d2448e57bad19c52a4b72732016bb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101672904"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-the-azure-portal"></a>Azure Portal를 사용하여 공용 IP 주소에 대한 라우팅 기본 설정 구성
 
-이 문서에서는 공용 IP 주소에 대 한 ISP 네트워크 (**인터넷** 옵션)를 통해 [라우팅 기본 설정을](./routing-preference-overview.md) 구성 하는 방법을 보여 줍니다. 공용 IP 주소를 만든 후 인터넷에 대한 인바운드 및 아웃바운드 트래픽을 위해 다음 Azure 리소스와 연결할 수 있습니다.
+이 문서에서는 공용 IP 주소에 대해 ISP 네트워크(**인터넷** 옵션)를 통해 [라우팅 기본 설정](./routing-preference-overview.md)을 구성하는 방법을 보여줍니다. 공용 IP 주소를 만든 후 인터넷에 대한 인바운드 및 아웃바운드 트래픽을 위해 다음 Azure 리소스와 연결할 수 있습니다.
 
 * 가상 머신
 * 가상 머신 크기 집합
@@ -39,18 +39,18 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 2. **리소스 만들기** 를 선택합니다.
 3. 검색 상자에 *공용 IP 주소* 를 입력합니다.
 3. 검색 결과에서 **공용 IP 주소** 를 선택합니다. 그런 다음, **공용 IP 주소** 페이지에서 **만들기** 를 선택합니다.
-1. SKU의 경우 **표준** 을 선택 합니다.
-1. **라우팅 기본 설정** 에서 **인터넷** 을 선택 합니다.
+1. SKU의 경우 **표준** 을 선택합니다.
+1. **라우팅 기본 설정** 에서 **인터넷** 을 선택합니다.
 
       ![공용 IP 주소 만들기](./media/routing-preference-portal/public-ip-new.png)
-1. **IPV4 IP 주소 구성** 섹션에서 다음 정보를 입력 하거나 선택 합니다.
+1. **IPv4 IP 주소 구성** 섹션에서 다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
     | Subscription | 구독을 선택합니다.|
-    | Resource group | **새로 만들기** 를 선택 하 고 *RoutingPreferenceResourceGroup* 를 입력 한 다음 **확인** 을 선택 합니다. |
+    | Resource group | **새로 만들기** 를 선택하고 *RoutingPreferenceResourceGroup* 을 입력한 다음, **확인** 을 선택합니다. |
     | 위치 | **미국 동부** 를 선택합니다.|
-    | 가용성 영역 | 기본값- **영역 중복** 을 유지 합니다. |
+    | 가용성 영역 | 기본값 - **영역 중복** 을 유지합니다. |
 1. **만들기** 를 선택합니다.
 
     > [!NOTE]

@@ -8,10 +8,10 @@ ms.date: 03/24/2021
 ms.author: glenga
 ms.reviewer: jehollan
 ms.openlocfilehash: 32cd2760eadc94466cdf55883611c78ac0cf24e6
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105608122"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 종속성 주입 사용
@@ -22,10 +22,10 @@ Azure Functions는 클래스와 해당 종속성 간에 [IoC(제어 반전)](/do
 
 - 종속성 주입에 대한 지원은 Azure Functions 2.x부터 제공됩니다.
 
-- 종속성 주입 패턴은 c # 함수가 [in-process로](functions-dotnet-class-library.md) 실행 되는지, 아니면 [out-of-process](dotnet-isolated-process-guide.md)로 실행 되는지에 따라 달라 집니다.  
+- 종속성 주입 패턴은 C# 함수가 [in-process](functions-dotnet-class-library.md)로 실행되는지, 아니면 [out-of-process](dotnet-isolated-process-guide.md)로 실행되는지에 따라 달라집니다.  
 
 > [!IMPORTANT]
-> 이 문서의 지침은 런타임에 in-process로 실행 되는 [c # 클래스 라이브러리 함수](functions-dotnet-class-library.md)에만 적용 됩니다. 이 사용자 지정 종속성 주입 모델은 .net 5.0 함수를 out-of-process로 실행할 수 있는 [.net isolated 함수](dotnet-isolated-process-guide.md)에는 적용 되지 않습니다. .NET isolated 프로세스 모델은 일반 ASP.NET Core 종속성 주입 패턴을 사용 합니다. 자세히 알아보려면 .NET 격리 된 프로세스 가이드의 [종속성 주입](dotnet-isolated-process-guide.md#dependency-injection) 을 참조 하세요.
+> 이 문서의 지침은 런타임에 in-process로 실행되는 [C# 클래스 라이브러리 함수](functions-dotnet-class-library.md)에만 적용됩니다. 이 사용자 지정 종속성 주입 모델은 .NET 5.0 함수를 out-of-process로 실행할 수 있는 [.NET isolated 함수](dotnet-isolated-process-guide.md)에는 적용되지 않습니다. .NET isolated 프로세스 모델은 일반 ASP.NET Core 종속성 주입 패턴을 사용합니다. 자세한 내용은 .NET isolated 프로세스 가이드의 [종속성 주입](dotnet-isolated-process-guide.md#dependency-injection)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -35,7 +35,7 @@ Azure Functions는 클래스와 해당 종속성 간에 [IoC(제어 반전)](/do
 
 - [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) 패키지 버전 1.0.28 이상
 
-- [DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) (현재 버전 2.x 및 이전 버전 에서만 지원 됨)
+- [Microsoft.Extensions.DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/)(현재 버전 3.x 이하만 지원됨)
 
 ## <a name="register-services"></a>서비스 등록
 
@@ -79,7 +79,7 @@ namespace MyNamespace
 
 ## <a name="use-injected-dependencies"></a>주입된 종속성 사용
 
-생성자 주입은 함수에서 종속성을 사용할 수 있도록 하는 데 사용됩니다. 생성자 주입을 사용 하려면 삽입 된 서비스 또는 함수 클래스에 대해 정적 클래스를 사용 하지 않아야 합니다.
+생성자 주입은 함수에서 종속성을 사용할 수 있도록 하는 데 사용됩니다. 생성자 주입을 사용하려면 삽입된 서비스 또는 함수 클래스에 대해 정적 클래스를 사용하지 않아야 합니다.
 
 다음 샘플에서는 `IMyService` 및 `HttpClient` 종속성이 HTTP로 트리거되는 함수에 삽입되는 방법을 보여 줍니다.
 
@@ -125,27 +125,27 @@ namespace MyNamespace
 
 Azure Functions 앱은 [ASP.NET 종속성 주입](/aspnet/core/fundamentals/dependency-injection#service-lifetimes)과 동일한 서비스 수명을 제공합니다. Functions 앱의 경우 서로 다른 서비스 수명이 다음과 같이 동작합니다.
 
-- **임시**: 임시 서비스는 서비스를 확인할 때마다 생성 됩니다.
-- **범위**: 범위 서비스 수명은 함수 실행 수명과 일치합니다. 범위가 지정 된 서비스는 함수 실행 당 한 번 생성 됩니다. 실행 중에 해당 서비스에 대한 이후 요청은 기존 서비스 인스턴스를 다시 사용합니다.
+- **임시**: 임시 서비스는 서비스를 확인할 때마다 만들어집니다.
+- **범위**: 범위 서비스 수명은 함수 실행 수명과 일치합니다. 범위 서비스는 함수를 실행할 때마다 한 번 만들어집니다. 실행 중에 해당 서비스에 대한 이후 요청은 기존 서비스 인스턴스를 다시 사용합니다.
 - **싱글톤**: 싱글톤 서비스 수명은 호스트 수명과 일치하며 해당 인스턴스에서 함수를 실행할 때 다시 사용됩니다. `DocumentClient` 또는 `HttpClient` 인스턴스 같은 연결 및 클라이언트에는 싱글톤 수명 서비스가 권장됩니다.
 
 GitHub에서 [다양한 서비스 수명 샘플](https://github.com/Azure/azure-functions-dotnet-extensions/tree/main/src/samples/DependencyInjection/Scopes)을 보거나 다운로드하세요.
 
 ## <a name="logging-services"></a>로깅 서비스
 
-사용자 고유의 로깅 공급자가 필요한 경우에는 사용자 지정 유형을 Microsoft의 인스턴스로 등록 합니다 .이 인스턴스는 Microsoft 확장명이. n a m a [`ILoggerProvider`](/dotnet/api/microsoft.extensions.logging.iloggerfactory) NuGet 패키지를 통해 사용할 수 있습니다. [](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/)
+사용자 고유의 로깅 공급자가 필요한 경우 사용자 지정 유형을 [`ILoggerProvider`](/dotnet/api/microsoft.extensions.logging.iloggerfactory) 인스턴스로 등록합니다. 이는 [Microsoft.Extensions.Logging.Abstractions](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/) NuGet 패키지를 통해 사용할 수 있습니다.
 
 Application Insights는 Azure Functions에 의해 자동으로 추가됩니다.
 
 > [!WARNING]
-> - `AddApplicationInsightsTelemetry()`환경에서 제공 하는 서비스와 충돌 하는 서비스를 등록 하는 서비스 컬렉션에를 추가 하지 마세요.
-> - `TelemetryConfiguration` `TelemetryClient` 기본 제공 Application Insights 기능을 사용 하는 경우에는 직접 등록 하지 마세요. 사용자 고유의 인스턴스를 구성 해야 하 `TelemetryClient` 는 경우 `TelemetryConfiguration` [c # 함수의 사용자 지정 원격 분석 로그](functions-dotnet-class-library.md?tabs=v2%2Ccmd#log-custom-telemetry-in-c-functions)에 표시 된 대로 삽입 된를 통해 하나를 만듭니다.
+> - `AddApplicationInsightsTelemetry()`은(는) 환경에서 제공하는 서비스와 충돌하는 서비스를 등록하므로 서비스 컬렉션에 추가하지 마세요.
+> - 기본 제공 Application Insights 기능을 이용하는 경우에는 사용자 고유의 `TelemetryConfiguration` 또는 `TelemetryClient`을(를) 등록하지 마세요. 사용자 고유의 `TelemetryClient` 인스턴스를 구성해야 하는 경우 [C# 함수의 사용자 지정 원격 분석 기록](functions-dotnet-class-library.md?tabs=v2%2Ccmd#log-custom-telemetry-in-c-functions)에 표시된 대로 삽입된 `TelemetryConfiguration`을(를) 통해 인스턴스를 만듭니다.
 
 ### <a name="iloggert-and-iloggerfactory"></a>ILogger<T> 및 ILoggerFactory
 
-호스트는 `ILogger<T>` 및 `ILoggerFactory` 서비스를 생성자에 삽입 합니다.  그러나 기본적으로 이러한 새 로깅 필터는 함수 로그에서 필터링 됩니다.  `host.json`추가 필터 및 범주를 옵트인 (opt in) 하도록 파일을 수정 해야 합니다.
+호스트는 `ILogger<T>` 및 `ILoggerFactory` 서비스를 생성자에 주입합니다.  그러나 기본적으로 이러한 새 로깅 필터는 함수 로그에서 필터링됩니다.  추가 필터 및 범주에 옵트인하려면 `host.json` 파일을 수정해야 합니다.
 
-다음 예제에서는 `ILogger<HttpTrigger>` 호스트에 노출 되는 로그가 있는를 추가 하는 방법을 보여 줍니다.
+다음 예제는 호스트에 노출되는 로그가 있는 `ILogger<HttpTrigger>`을(를) 추가하는 방법을 보여 줍니다.
 
 ```csharp
 namespace MyNamespace
@@ -170,7 +170,7 @@ namespace MyNamespace
 }
 ```
 
-다음 예제 `host.json` 파일은 로그 필터를 추가 합니다.
+다음 예제 `host.json` 파일은 로그 필터를 추가합니다.
 
 ```json
 {
@@ -189,7 +189,7 @@ namespace MyNamespace
 }
 ```
 
-로그 수준에 대 한 자세한 내용은 [로그 수준 구성](configure-monitoring.md#configure-log-levels)을 참조 하세요.
+로그 수준에 대한 자세한 내용은 [로그 수준 구성](configure-monitoring.md#configure-log-levels)을 참조하세요.
 
 ## <a name="function-app-provided-services"></a>함수 앱 제공 서비스
 
@@ -264,30 +264,30 @@ public class HttpTrigger
 
 ## <a name="using-aspnet-core-user-secrets"></a>ASP.NET Core 사용자 비밀 사용
 
-로컬로 개발할 때 ASP.NET Core는 암호 정보를 프로젝트 루트 외부에 저장할 수 있는 [비밀 관리자 도구](/aspnet/core/security/app-secrets#secret-manager) 를 제공 합니다. 이를 통해 비밀이 실수로 소스 제어에 커밋될 가능성이 줄어듭니다. Azure Functions Core Tools (버전 3.0.3233 이상)는 ASP.NET Core Secret Manager에서 만든 비밀을 자동으로 읽습니다.
+로컬로 개발할 때 ASP.NET Core는 비밀 정보를 프로젝트 루트 외부에 저장할 수 있는 [Secret Manager 도구](/aspnet/core/security/app-secrets#secret-manager)를 제공합니다. 이 도구는 비밀이 소스 제어에 실수로 커밋될 가능성을 줄여 줍니다. Azure Functions Core Tools(버전 3.0.3233 이상)는 ASP.NET Core Secret Manager에서 만든 비밀을 자동으로 읽습니다.
 
-사용자 암호를 사용 하도록 .NET Azure Functions 프로젝트를 구성 하려면 프로젝트 루트에서 다음 명령을 실행 합니다.
+사용자 비밀을 이용하도록 .NET Azure Functions 프로젝트를 구성하려면 프로젝트 루트에서 다음 명령을 실행합니다.
 
 ```bash
 dotnet user-secrets init
 ```
 
-그런 다음 `dotnet user-secrets set` 명령을 사용 하 여 암호를 만들거나 업데이트 합니다.
+그런 다음 `dotnet user-secrets set` 명령을 사용하여 비밀을 만들거나 업데이트합니다.
 
 ```bash
 dotnet user-secrets set MySecret "my secret value"
 ```
 
-함수 앱 코드에서 사용자 암호 값에 액세스 하려면 또는를 `IConfiguration` 사용 `IOptions` 합니다.
+함수 앱 코드에서 사용자 비밀 값에 액세스하려면 `IConfiguration` 또는 `IOptions`을(를) 사용합니다.
 
 ## <a name="customizing-configuration-sources"></a>구성 원본 사용자 지정
 
 > [!NOTE]
 > 구성 원본 사용자 지정은 Azure Functions 호스트 버전 2.0.14192.0 및 3.0.14191.0부터 사용할 수 있습니다.
 
-추가 구성 소스를 지정 하려면 `ConfigureAppConfiguration` 함수 앱의 클래스에서 메서드를 재정의 `StartUp` 합니다.
+추가 구성 원본을 지정하려면 함수 앱의 `StartUp` 클래스에서 `ConfigureAppConfiguration` 메서드를 재정의합니다.
 
-다음 샘플에서는 기본 및 선택적 환경 특정 앱 설정 파일의 구성 값을 추가 합니다.
+다음 샘플은 기본/선택적 환경별 앱 설정 파일의 구성 값을 추가합니다.
 
 ```csharp
 using System.IO;
@@ -314,11 +314,11 @@ namespace MyNamespace
 }
 ```
 
-구성 공급자를 `ConfigurationBuilder` 의 속성에 추가 `IFunctionsConfigurationBuilder` 합니다. 구성 공급자 사용에 대 한 자세한 내용은 [ASP.NET Core 구성](/aspnet/core/fundamentals/configuration/#configuration-providers)을 참조 하세요.
+구성 공급자를 `IFunctionsConfigurationBuilder`의 `ConfigurationBuilder` 속성에 추가합니다. 구성 공급자를 사용하는 방법에 대한 자세한 내용은 [ASP.NET Core 구성](/aspnet/core/fundamentals/configuration/#configuration-providers)을 참조하세요.
 
-는 `FunctionsHostBuilderContext` 에서 가져옵니다 `IFunctionsConfigurationBuilder.GetContext()` . 이 컨텍스트를 사용 하 여 현재 환경 이름을 검색 하 고 함수 앱 폴더에서 구성 파일의 위치를 확인 합니다.
+`FunctionsHostBuilderContext`은(는) `IFunctionsConfigurationBuilder.GetContext()`에서 가져옵니다. 이 컨텍스트를 사용하여 현재 환경 이름을 검색하고 함수 앱 폴더에서 구성 파일의 위치를 확인합니다.
 
-기본적으로 *appsettings.js* 와 같은 구성 파일은 함수 앱의 출력 폴더에 자동으로 복사 되지 않습니다. 다음 샘플과 일치 하도록 *.csproj* 파일을 업데이트 하 여 파일이 복사 되었는지 확인 합니다.
+기본적으로 *appsettings.json* 같은 구성 파일은 함수 앱의 출력 폴더에 자동으로 복사되지 않습니다. 다음 샘플과 일치하도록 *.csproj* 파일을 업데이트하여 파일이 복사되었는지 확인합니다.
 
 ```xml
 <None Update="appsettings.json">
@@ -331,7 +331,7 @@ namespace MyNamespace
 ```
 
 > [!IMPORTANT]
-> 소비 또는 프리미엄 계획에서 실행 되는 함수 앱의 경우 트리거에 사용 되는 구성 값을 수정 하면 크기 조정 오류가 발생할 수 있습니다. 클래스에서 이러한 속성을 변경 `FunctionsStartup` 하면 함수 앱 시작 오류가 발생 합니다.
+> 사용 또는 프리미엄 계획에서 실행되는 함수 앱의 경우, 트리거에 사용되는 구성 값을 수정하면 크기 조정 오류가 발생할 수 있습니다. `FunctionsStartup` 클래스에서 이러한 속성을 변경하면 함수 앱 시작 오류가 발생합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

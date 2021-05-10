@@ -1,115 +1,115 @@
 ---
-title: SAP 솔루션 공급자에 대 한 Azure Monitor | Microsoft Docs
-description: 이 문서에서는 SAP 솔루션 공급자 용 Azure monitor에 대해 자주 묻는 질문에 대 한 답변을 제공 합니다.
+title: SAP 솔루션을 위한 Azure Monitor 공급자 | Microsoft Docs
+description: 본 문서에서는 SAP 솔루션을 위한 Azure Monitor 공급자에 대해 자주 묻는 질문에 대한 답변을 제공합니다.
 author: rdeltcheva
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.openlocfilehash: 1282d1916d669f1026707e15cc8d5437d885087f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101669001"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>SAP 솔루션을 위한 Azure Monitor 공급자(미리 보기)
 
 ## <a name="overview"></a>개요  
 
-SAP 솔루션에 대 한 Azure Monitor 컨텍스트에서 *공급자 유형은* 특정 *공급자* 를 나타냅니다. 예를 들어 *SAP HANA* SAP HANA 데이터베이스와 같이 SAP 환경 내에서 특정 구성 요소에 대해 구성 됩니다. 공급자는 해당 구성 요소에 대 한 연결 정보를 포함 하 고 해당 구성 요소에서 원격 분석 데이터를 수집 하는 데 도움이 됩니다. Sap 솔루션 리소스 (SAP Monitor 리소스 라고도 함)에 대 한 Azure Monitor 하나는 동일한 공급자 유형의 여러 공급자 또는 여러 공급자 유형의 여러 공급자를 사용 하 여 구성할 수 있습니다.
+SAP 솔루션을 위한 Azure Monitor라는 컨텍스트에서, *공급자 유형* 은 특정 *공급자* 를 의미합니다. 예를 들면, SAP HANA 데이터베이스와 같이 SAP 환경 내의 특정 구성 요소를 위해 구성된 *SAP HANA* 가 있습니다. 공급자는 해당 구성 요소에 대한 연결 정보를 가지고 있으며 그 구성 요소에서 원격 분석 데이터를 수집하는 데 도움을 줍니다. SAP 모니터 리소스라고도 알려져 있는, SAP 솔루션을 위한 Azure Monitor 리소스는 동일한 유형의 다수 공급자 또는 다양한 유형의 다수 공급자로 하나를 구성할 수 있습니다.
    
-고객은 SAP 환경에서 해당 구성 요소에 대 한 데이터 수집을 사용할 수 있도록 다양 한 공급자 유형을 구성 하도록 선택할 수 있습니다. 예를 들어 고객은 SAP HANA 공급자 유형, 고가용성 클러스터 공급자 유형에 대 한 다른 공급자 등을 위해 하나의 공급자를 구성할 수 있습니다.  
+고객은 자신의 SAP 환경에서 대응하는 구성 요소로부터 데이터를 수집할 수 있도록 다양한 공급자 유형을 구성하게 선택할 수 있습니다. 예를 들어, 고객은 하나의 공급자를 SAP HANA 공급자 유형을 위해 구성하고 다른 하나를 고가용성 클러스터 공급자 유형을 위해 구성하는 등으로 구성할 수 있습니다.  
 
-또한 고객은 특정 공급자 유형의 여러 공급자를 구성 하 여 동일한 SAP 모니터 리소스 및 연결 된 관리 그룹을 다시 사용 하도록 선택할 수 있습니다. 관리 되는 리소스 그룹에 대해 자세히 알아봅니다. 공개 미리 보기의 경우 다음 공급자 유형이 지원 됩니다.   
+뿐만 아니라 고객은 특정 공급자 유형의 공급자를 여럿 구성하도록 하여 동일한 SAP 모니터 리소스와 관련된 관리형 그룹을 재사용할 수도 있습니다. 관리되는 리소스 그룹에 대해 자세히 알아봅니다. 퍼블릭 미리 보기의 경우 다음 공급자 유형이 지원됩니다.   
 - SAP HANA
 - 고가용성 클러스터
 - Microsoft SQL Server
 
-![SAP 솔루션 공급자에 대 한 Azure Monitor](./media/azure-monitor-sap/azure-monitor-providers.png)
+![SAP 솔루션을 위한 Azure Monitor 공급자](./media/azure-monitor-sap/azure-monitor-providers.png)
 
-고객은 SAP Monitor 리소스를 배포할 때 사용 가능한 공급자 유형에 서 하나 이상의 공급자를 구성 하는 것이 좋습니다. 공급자를 구성 하 여 고객은 공급자가 구성 된 해당 구성 요소에서 데이터 수집을 시작 합니다.   
+고객은 SAP 모니터 리소스 배포 시 사용할 수 있는 공급자 유형에서 적어도 하나의 공급자를 구성하는 것이 좋습니다. 공급자 구성을 통해 고객은 공급자를 구성할 해당 구성 요소에서 데이터를 수집하기 시작합니다.   
 
-SAP monitor 리소스를 배포할 때 고객이 공급자를 구성 하지 않은 경우 SAP monitor 리소스가 성공적으로 배포 되는 경우에도 원격 분석 데이터가 수집 되지 않습니다. 고객은 Azure Portal 내에서 SAP monitor 리소스를 통해 배포 후 공급자를 추가 하는 옵션을 제공 합니다. 고객은 언제 든 지 SAP monitor 리소스에서 공급자를 추가 하거나 삭제할 수 있습니다.
+고객이 SAP 모니터 리소스 배포 시 공급자를 구성하지 않은 경우, SAP 모니터 리소스가 성공적으로 배포되더라도 원격 분석 데이터가 수집되지 않습니다. 고객은 Azure Portal 내의 SAP 모니터 리소스를 통해 배포 후에 공급자를 추가할 수 있는 옵션을 이용할 수 있습니다. 고객은 언제라도 SAP 모니터 리소스에서 공급자를 추가하거나 삭제할 수 있습니다.
 
 > [!Tip]
-> Microsoft에서 특정 공급자를 구현 하려면이 문서의 끝에 있는 링크를 통해 피드백을 남겨 두거나 계정 팀에 문의 하세요.  
+> Microsoft이 특정 공급자를 구현하도록 하려면 본 문서 마지막의 링크나 계정 팀을 통해 피드백을 남겨 주세요.  
 
-## <a name="provider-type-sap-hana"></a>공급자 유형 SAP HANA
+## <a name="provider-type-sap-hana"></a>SAP HANA 공급자 유형
 
-고객은 공급자 유형 *SAP HANA* 공급자를 하나 이상 구성 하 여 SAP HANA 데이터베이스에서 데이터 수집을 사용 하도록 설정할 수 있습니다. SAP HANA 공급자는 SQL 포트를 통해 SAP HANA 데이터베이스에 연결 하 여 데이터베이스에서 원격 분석 데이터를 가져오고 고객 구독의 Log Analytics 작업 영역으로 푸시합니다. SAP HANA 공급자는 SAP HANA 데이터베이스에서 1 분 마다 데이터를 수집 합니다.  
+고객은 하나 이상의 공급자를 *SAP HANA* 공급자 유형으로 구성하여 SAP HANA 데이터베이스로부터 데이터를 수집하도록 설정할 수 있습니다. SAP HANA 공급자는 SQL 포트를 통해 SAP HANA 데이터베이스와 연결되며 해당 데이터베이스에서 원격 분석 데이터를 가져와 고객 구독의 Log Analytics 작업 영역으로 보냅니다. SAP HANA 공급자는 SAP HANA 데이터베이스에서 1분마다 데이터를 수집합니다.  
 
-공개 미리 보기에서 고객은 SAP HANA 공급자를 사용 하 여 기본 인프라 사용률, SAP HANA 호스트 상태, SAP HANA 시스템 복제 및 SAP HANA 백업 원격 분석 데이터와 같은 데이터를 확인할 수 있습니다. SAP HANA 공급자를 구성 하려면 호스트 IP 주소, HANA SQL 포트 번호 및 SYSTEMDB 사용자 이름 및 암호가 필요 합니다. 고객은 SYSTEMDB에 대해 SAP HANA 공급자를 구성 하는 것이 좋지만 다른 데이터베이스 테 넌 트에 대해 더 많은 공급자를 구성할 수 있습니다.
+퍼블릭 미리 보기에서 고객은 SAP HANA 공급자의 기본 인프라 사용률, SAP HANA 호스트 상태, SAP HANA 시스템 복제, SAP HANA 백업 원격 분석 데이터를 확인할 수 있을 것으로 기대합니다. SAP HANA 공급자를 구성하려면, 호스트 IP 주소, HANA SQL 포트 번호, SYSTEMDB 사용자 이름 및 암호가 필요합니다. 고객은 SYSTEMDB에 대해 SAP HANA 공급자를 구성하는 것이 좋지만, 다른 데이터베이스 테넌트에 대해 더욱 많은 공급자를 구성할 수 있습니다.
 
-![SAP 솔루션 공급자에 대 한 Azure Monitor-SAP HANA](./media/azure-monitor-sap/azure-monitor-providers-hana.png)
+![SAP 솔루션을 위한 Azure Monitor 공급자 - SAP HANA](./media/azure-monitor-sap/azure-monitor-providers-hana.png)
 
-## <a name="provider-type-high-availability-cluster"></a>공급자 유형 고가용성 클러스터
-고객은 공급자 유형 *고가용성 클러스터* 의 공급자를 하나 이상 구성 하 여 SAP 환경 내에서 Pacemaker 클러스터의 데이터 수집을 사용 하도록 설정할 수 있습니다. 고가용성 클러스터 공급자는 [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) 끝점을 사용 하 여 Pacemaker에 연결 하 고, 데이터베이스에서 원격 분석 데이터를 가져와서 고객 구독의 Log Analytics 작업 영역으로 푸시합니다. 고가용성 클러스터 공급자는 Pacemaker에서 60 초 마다 데이터를 수집 합니다.  
+## <a name="provider-type-high-availability-cluster"></a>고가용성 클러스터 공급자 유형
+고객은 하나 이상의 공급자를 *고가용성 클러스터* 공급자 유형으로 구성하여 SAP 환경의 Pacemaker 클러스터에서 데이터를 수집하도록 설정할 수 있습니다. 고가용성 클러스터 공급자는 [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) 엔드포인트를 통해 Pacemaker와 연결되며 해당 데이터베이스에서 원격 분석 데이터를 가져와 고객 구독의 Log Analytics 작업 영역으로 보냅니다. 고가용성 클러스터 공급자는 Pacemaker에서 60초마다 데이터를 수집합니다.  
 
-공개 미리 보기에서 고객은 고가용성 클러스터 공급자를 사용 하 여 다음 데이터를 확인할 수 있습니다.   
- - 노드 및 리소스 상태의 롤업으로 표시 된 클러스터 상태 
- - [다른](https://github.com/ClusterLabs/ha_cluster_exporter/blob/master/doc/metrics.md) 
+퍼블릭 미리 보기에서 고객은 고가용성 클러스터 공급자의 다음 데이터를 확인할 수 있을 것으로 기대합니다.   
+ - 노드 및 리소스 상태의 롤업으로 표시된 클러스터 상태 
+ - [기타](https://github.com/ClusterLabs/ha_cluster_exporter/blob/master/doc/metrics.md) 
 
-![SAP 솔루션 공급자에 대 한 Azure Monitor-고가용성 클러스터](./media/azure-monitor-sap/azure-monitor-providers-pacemaker-cluster.png)
+![SAP 솔루션을 위한 Azure Monitor 공급자 - 고가용성 클러스터](./media/azure-monitor-sap/azure-monitor-providers-pacemaker-cluster.png)
 
-고가용성 클러스터 공급자를 구성 하기 위해 다음 두 가지 주요 단계가 관련 됩니다.
+고가용성 클러스터 공급자를 구성하는 데에는 다음 두 가지의 기본 단계가 포함됩니다.
 
-1. Pacemaker 클러스터 내의 *각* 노드에 [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) 를 설치 합니다.
+1. [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter)를 Pacemaker 클러스터 내의 *각* 노드에 설치합니다.
 
-   Ha_cluster_exporter를 설치 하는 두 가지 옵션이 있습니다.
+   ha_cluster_exporter 설치에는 두 가지 옵션이 있습니다.
    
-   - Azure Automation 스크립트를 사용 하 여 고가용성 클러스터를 배포 합니다. 스크립트 설치 [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) 각 클러스터 노드에 있습니다.  
-   - [수동 설치](https://github.com/ClusterLabs/ha_cluster_exporter#manual-clone--build)를 수행 합니다. 
+   - 고가용성 클러스터 배포를 위해 Azure Automation 스크립트 활용하기 스크립트는 [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter)를 각각의 클러스터 노드에 설치합니다.  
+   - [수동 설치하기](https://github.com/ClusterLabs/ha_cluster_exporter#manual-clone--build) 
 
-2. Pacemaker 클러스터 내의 *각* 노드에 대해 고가용성 클러스터 공급자를 구성 합니다.
+2. Pacemaker 클러스터 내에서 *각* 노드에 대한 고가용성 클러스터 공급자를 구성합니다.
 
-   고가용성 클러스터 공급자를 구성 하려면 다음 정보가 필요 합니다.
+   고가용성 클러스터 공급자 구성에는 다음 정보가 필요합니다.
    
-   - **이름**. 이 공급자의 이름입니다. 이 Azure Monitor SAP solutions 인스턴스에 대해 고유 해야 합니다.
-   - **프로메테우스 끝점**. http \: // \<servername or ip address\> : 9664/메트릭.
-   - **SID**. SAP 시스템의 경우 SAP SID를 사용 합니다. 다른 시스템 (예: NFS 클러스터)의 경우 클러스터에 3 자 이름을 사용 합니다. SID는 모니터링 되는 다른 클러스터와 구별 되어야 합니다.   
-   - **클러스터 이름** 입니다. 클러스터를 만들 때 사용 되는 클러스터 이름입니다. 클러스터 이름은 클러스터 속성에서 찾을 수 있습니다 `cluster-name` .
+   - **이름**. 해당 공급자의 이름입니다. SAP 솔루션을 위한 Azure Monitor의 해당 인스턴스에 고유한 것이어야 합니다.
+   - **Prometheus 엔드포인트**. http\://\<servername or ip address\>:9664/metrics.
+   - **SID**. SAP 시스템에서는 SAP SID를 사용합니다. 다른 시스템(예를 들면, NFS 클러스터)의 경우 클러스터에 세 글자 이름을 사용합니다. SID는 모니터링되는 다른 클러스터와 구별되어야 합니다.   
+   - **클러스터 이름**. 클러스터를 만들 때 사용되는 클러스터 이름입니다. 클러스터 이름은 클러스터 속성 `cluster-name`에서 찾을 수 있습니다.
    - **호스트 이름**. VM의 Linux 호스트 이름입니다.  
 
 
-## <a name="provider-type-os-linux"></a>공급자 유형 OS (Linux)
-고객은 하나 이상의 공급자 유형 OS (Linux) 공급자를 구성 하 여 BareMetal 또는 VM 노드에서 데이터 수집을 사용 하도록 설정할 수 있습니다. OS (Linux) 공급자는 [Node_Exporter](https://github.com/prometheus/node_exporter)끝점을 사용 하 여 BAREMETAL 또는 VM 노드에 연결 하   고, 노드에서 원격 분석 데이터를 가져와서 고객 구독의 Log Analytics 작업 영역으로 푸시합니다. OS (Linux) 공급자는 노드의 대부분의 메트릭에 대해 60 초 마다 데이터를 수집 합니다. 
+## <a name="provider-type-os-linux"></a>OS(Linux) 공급자 유형
+고객은 하나 이상의 공급자를 OS(Linux) 공급자 유형으로 구성하여 BareMetal 또는 VM 노드로부터 데이터를 수집하도록 설정할 수 있습니다. OS(Linux) 공급자는  [Node_Exporter](https://github.com/prometheus/node_exporter) 엔드포인트를 통해 BareMetal 또는 VM 노드에 연결되며, 해당 노드에서 원격 분석 데이터를 가져와 고객 구독의 Log Analytics 작업 영역으로 보냅니다. OS(Linux) 클러스터 공급자는 노드에서 60초마다 메트릭의 대부분에 대한 데이터를 수집합니다. 
 
-공개 미리 보기에서 고객은 OS (Linux) 공급자를 사용 하 여 다음 데이터를 확인할 수 있습니다. 
+퍼블릭 미리 보기에서 고객은 OS(Linux) 공급자의 다음 데이터를 확인할 수 있을 것으로 기대합니다. 
    - CPU 사용량, 프로세스별 CPU 사용량 
-   - 디스크 사용률, i/o 읽기 & 쓰기 
-   - 메모리 배포, 메모리 사용량, 스왑 메모리 사용 
-   - 네트워크 사용량, 네트워크 인바운드 & 아웃 바운드 트래픽 세부 정보입니다. 
+   - 디스크 사용률, I/O 읽기 및 쓰기 
+   - 메모리 배포, 메모리 사용량, 스왑 메모리 사용량 
+   - 네트워크 사용량, 네트워크 인바운드 및 아웃바운드 트래픽 세부 정보 
 
-OS (Linux) 공급자를 구성 하기 위해 다음 두 가지 주요 단계가 관련 됩니다.
-1.  [](https://github.com/prometheus/node_exporter)   각 BareMetal 또는 VM 노드에 Node_Exporter를 설치 합니다.
-   [Node_exporter](https://github.com/prometheus/node_exporter)를 설치 하는 두 가지 옵션이 있습니다. 
-      - Ansible와 함께 자동화를 설치 하려면 각 BareMetal 또는 VM 노드에서 [Node_Exporter](https://github.com/prometheus/node_exporter) 를 사용 하 여 OS (Linux) 공급자를 설치 합니다.  
-      -  [수동 설치](https://prometheus.io/docs/guides/node-exporter/)를 수행 합니다.
+OS(Linux) 공급자를 구성하는 데에는 다음 두 가지의 기본 단계가 포함됩니다.
+1.  [Node_Exporter](https://github.com/prometheus/node_exporter) 를 BareMetal 또는 VM 노드 각각에 설치합니다.
+   [Node_exporter](https://github.com/prometheus/node_exporter) 설치에는 두 가지 옵션이 있습니다. 
+      - Ansible를 통해 자동으로 설치하려면 [Node_Exporter](https://github.com/prometheus/node_exporter)를 BareMetal 또는 VM 노드 각각에 사용해 OS(Linux) 공급자를 설치합니다.  
+      -  [수동 설치](https://prometheus.io/docs/guides/node-exporter/)를 실시합니다.
 
-2. 사용자 환경에서 각 BareMetal 또는 VM 노드 인스턴스에 대해 OS (Linux) 공급자를 구성 합니다. 
-   OS (Linux) 공급자를 구성 하려면 다음 정보가 필요 합니다. 
-      - 이름. 이 공급자의 이름입니다. 이 Azure Monitor SAP solutions 인스턴스에 대해 고유 해야 합니다. 
-      - 노드 내보내기 끝점입니다. 일반적으로 http:// <servername or ip address> : 9100/메트릭 
+2. 사용자 환경에서 BareMetal 또는 VM 노드 인스턴스 각각에 대해 OS(Linux) 공급자를 구성합니다. 
+   OS(Linux) 공급자 구성에는 다음 정보가 필요합니다. 
+      - 이름. 해당 공급자의 이름입니다. SAP 솔루션을 위한 Azure Monitor의 해당 인스턴스에 고유한 것이어야 합니다. 
+      - Node Exporter 엔드포인트 일반적으로 http://<servername or ip address>:9100/metrics 
 
 > [!NOTE]
-> 9100는 Node_Exporter 끝점에 대해 노출 되는 포트입니다.
+> 9100은 Node_Exporter 엔드포인트용으로 노출되는 포트입니다.
 
 > [!Warning]
-> 노드를 다시 부팅 한 후 노드 내보내기가 계속 실행 되는지 확인 합니다. 
+> 노드 재부팅 후에는 Node Exporter가 실행 중인지 확인합니다. 
 
 
-## <a name="provider-type-microsoft-sql-server"></a>공급자 유형 Microsoft SQL server
+## <a name="provider-type-microsoft-sql-server"></a>Microsoft SQL Server 공급자 유형
 
-고객은 공급자 유형 *Microsoft SQL Server* 공급자를 하나 이상 구성 하 여 [Virtual Machines의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)에서 데이터 수집을 사용 하도록 설정할 수 있습니다. SQL Server 공급자는 SQL 포트를 통해 Microsoft SQL Server에 연결 하 고, 원격 분석 데이터를 데이터베이스에서 가져오고, 고객 구독의 Log Analytics 작업 영역으로 푸시합니다. SQL 인증을 위해 SQL Server를 구성 하 고 SAP DB를 공급자의 기본 데이터베이스로 사용 하 여 SQL Server 로그인을 만들어야 합니다. SQL Server 공급자는 SQL Server에서 매시간 60 초 마다 데이터를 수집 합니다.  
+고객은 하나 이상의 공급자를 *Microsoft SQL Server* 공급자 유형으로 구성하여 [Virtual Machines의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)로부터 데이터를 수집하도록 설정할 수 있습니다. SQL Server 공급자는 SQL 포트를 통해 Microsoft SQL Server와 연결하며, 데이터베이스에서 가져온 원격 분석 데이터를 고객 구독의 Log Analytics 작업 영역에 보냅니다. SQL Server는 SAP DB를 해당 공급자용 기본 데이터베이스로 하여 만든 상태로 SQL 인증 및 SQL Server 로그인에 맞게 구성되어야 합니다. SQL Server 공급자는 SQL Server에서 60초~1시간마다 데이터를 수집합니다.  
 
-공개 미리 보기에서 고객은 기본 인프라 사용률, 상위 SQL 문, 상위 가장 큰 테이블, SQL Server 오류 로그에 기록 된 문제, 차단 프로세스 및 기타 데이터를 SQL Server 하 여 다음 데이터를 볼 수 있습니다.  
+퍼블릭 미리 보기에서 고객은 SQL Server 공급자의 기본 인프라 사용률, 상위 SQL 문, 최대 테이블, SQL Server 오류 로그에 기록된 문제들, 차단 프로세스 등을 확인할 수 있을 것으로 기대합니다.  
 
-Microsoft SQL Server 공급자를 구성 하려면 SAP 시스템 ID, 호스트 IP 주소, SQL Server 포트 번호 및 SQL Server 로그인 이름 및 암호가 필요 합니다.
+Microsoft SQL Server 공급자 구성에는 SAP 시스템 ID, 호스트 IP 주소, SQL Server 포트 번호, SQL Server 로그인 이름 및 암호가 필요합니다.
 
-![SAP 솔루션 공급자에 대 한 Azure Monitor-SQL](./media/azure-monitor-sap/azure-monitor-providers-sql.png)
+![SAP 솔루션을 위한 Azure Monitor 공급자 - SQL](./media/azure-monitor-sap/azure-monitor-providers-sql.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-- SAP solutions 리소스에 대 한 첫 번째 Azure Monitor를 만듭니다.
-- SAP 솔루션의 Azure Monitor에 대 한 질문이 있나요? [FAQ](./azure-monitor-faq.md) 섹션 확인
+- SAP 솔루션을 위한 첫 번째 Azure Monitor 리소스를 만듭니다.
+- SAP 솔루션을 위한 Azure Monitor에 대해 질문이 있나요? [FAQ](./azure-monitor-faq.md) 섹션을 확인하세요.

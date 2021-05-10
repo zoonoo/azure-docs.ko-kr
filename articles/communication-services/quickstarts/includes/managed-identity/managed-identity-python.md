@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: 3fcfb364ebffdd3643e803922cbe4f3dd0d87935
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 6a9628f3bd77e2e7001a5c8cf371259c18fa373c
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107512369"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107984463"
 ---
 ## <a name="setting-up"></a>설치
 
-## <a name="create-a-new-python-application"></a>새 Python 애플리케이션 만들기
+### <a name="create-a-new-python-application"></a>새 Python 애플리케이션 만들기
 
 터미널 또는 명령 창을 열어 앱에 대한 새 디렉터리를 만들고 해당 디렉터리로 이동합니다.
 

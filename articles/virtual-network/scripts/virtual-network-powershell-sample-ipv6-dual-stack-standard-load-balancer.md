@@ -1,7 +1,7 @@
 ---
-title: Azure PowerShell 스크립트 샘플-표준 Load Balancer를 사용 하 여 IPv6 프런트 엔드 구성 (미리 보기)
+title: Azure PowerShell 스크립트 샘플 - 표준 Load Balancer를 사용하여 IPv6 프런트 엔드 구성(미리 보기)
 titlesuffix: Azure Virtual Network
-description: 표준 Load Balancer를 사용 하 여 가상 네트워크 스크립트 샘플에서 IPv6 프런트 엔드를 구성 하는 방법에 대해 알아봅니다.
+description: 표준 Load Balancer를 사용하여 가상 네트워크 스크립트 샘플에서 IPv6 프런트 엔드를 구성하는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -13,29 +13,29 @@ ms.date: 07/15/2019
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 89923bbbb6f1745a4efe033d795a6ee90d1e4d32
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98223196"
 ---
-# <a name="configure-ipv6-frontend-in-virtual-network-script-sample-with-standard-load-balancerpreview"></a>표준 Load Balancer를 사용 하 여 가상 네트워크 스크립트 샘플에서 IPv6 프런트 엔드 구성 (미리 보기)
+# <a name="configure-ipv6-frontend-in-virtual-network-script-sample-with-standard-load-balancerpreview"></a>표준 Load Balancer를 사용하여 가상 네트워크 스크립트 샘플에서 IPv6 프런트 엔드 구성(미리 보기)
 
-이 문서에서는 이중 스택 서브넷을 사용 하는 이중 스택 (IPv4 + IPv6) 응용 프로그램, 이중 (IPv4 + IPv6) 프런트 엔드 구성이 포함 된 부하 분산 장치, 이중 IP 구성을 포함 하는 Nic가 있는 Vm, 이중 네트워크 보안 그룹 규칙 및 이중 공용 Ip를 포함 하는 Azure에서 이중 스택 (IPv4 + IPv6) 응용 프로그램을 배포 하는 방법을 보여 줍니다.
+이 문서에서는 이중 스택 서브넷이 있는 이중 스택 가상 네트워크, 이중(IPv4 + IPv6) 프런트 엔드 구성을 사용하는 부하 분산 장치, 이중 IP 구성을 사용하는 NIC가 있는 VM, 이중 네트워크 보안 그룹 규칙 및 이중 공용 IP를 포함하는 이중 스택(IPv4 + IPv6) 애플리케이션을 Azure에 배포하는 방법을 보여 줍니다.
 
-Azure [Cloud Shell](https://shell.azure.com/powershell) 또는 로컬 PowerShell 설치에서 스크립트를 실행할 수 있습니다. PowerShell을 로컬로 사용 하는 경우이 스크립트에는 Azure Az PowerShell module version 1.0.0 이상이 필요 합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+Azure [Cloud Shell](https://shell.azure.com/powershell) 또는 로컬 PowerShell 설치에서 스크립트를 실행할 수 있습니다. PowerShell을 로컬로 사용하는 경우 이 스크립트에는 Azure Az PowerShell 모듈 버전 1.0.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>필수 구성 요소
-Azure에서 이중 스택 응용 프로그램을 배포 하기 전에 다음 Azure PowerShell 사용 하 여이 미리 보기 기능에 대해 구독을 한 번만 구성 해야 합니다.
+Azure에서 이중 스택 애플리케이션을 배포하기 전에 다음 Azure PowerShell을 사용하여 이 미리 보기 기능에 대해 구독을 한 번만 구성하면 됩니다.
 
-다음과 같이 등록 합니다.
+다음과 같이 등록합니다.
 ```azurepowershell
 Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
 Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
 ```
-기능 등록이 완료될 때까지 최대 30분이 걸립니다. 다음 Azure PowerShell 명령을 실행 하 여 등록 상태를 확인할 수 있습니다. 다음과 같이 등록을 확인 합니다.
+기능 등록이 완료될 때까지 최대 30분이 걸립니다. 다음 Azure PowerShell 명령을 실행하여 등록 상태를 확인할 수 있습니다. 다음과 같이 등록을 확인합니다.
 ```azurepowershell
 Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
 Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
@@ -262,7 +262,7 @@ Remove-AzResourceGroup -Name <resourcegroupname> -Force
 | [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) | 인터넷과 가상 머신 간에 보안 경계인 NSG(네트워크 보안 그룹)을 만듭니다. |
 | [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) | 인바운드 트래픽을 허용하도록 NSG 규칙을 만듭니다. 이 샘플에서 SSH 트래픽에 대해 포트 22가 열립니다. |
 | [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) | 가상 네트워크 카드를 만들고 가상 네트워크, 서브넷 및 NSG에 연결합니다. |
-| [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) | 가용성 집합을 만듭니다. 가용성 집합은 오류가 발생 하는 경우 전체 집합에 영향을 주지 않도록 가상 컴퓨터를 물리적 리소스에 분산 하 여 응용 프로그램 가동 시간을 보장 합니다. |
+| [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) | 가용성 집합을 만듭니다. 가용성 집합을 사용하면 오류가 발생하는 경우 물리적 리소스 간에 가상 머신을 분산하여 애플리케이션 가동 시간을 확인합니다. 전체 집합은 영향을 받지 않습니다. |
 | [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) | VM 구성을 만듭니다. 이 구성은 VM 이름, 운영 체제 및 관리자 자격 증명 등의 정보를 포함합니다. 이 구성은 VM을 만드는 중에 사용됩니다. |
 | [New-AzVM](/powershell/module/az.compute/new-azvm)  | 가상 머신을 만들고 네트워크 카드, 가상 네트워크, 서브넷 및 NSG에 연결합니다. 또한 이 명령은 사용할 가상 머신 이미지와 관리 자격 증명을 지정합니다.  |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |

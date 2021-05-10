@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
 ms.openlocfilehash: 03c4babc8fa70c951d80b720c4d4693968011532
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104772266"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Log Analytics 및 Application Insights에 저장된 개인 데이터에 대한 지침
@@ -17,7 +17,7 @@ ms.locfileid: "104772266"
 Log Analytics는 개인 데이터를 찾을 수 있는 데이터 저장소입니다. Application Insights는 해당 데이터를 Log Analytics 파티션에 저장합니다. 이 문서에서는 Log Analytics 및 Application Insights에서 일반적으로 이러한 데이터가 발견되는 위치와 이러한 데이터를 처리하는 데 사용할 수 있는 기능에 대해 설명합니다.
 
 > [!NOTE]
-> 이 문서의 목적을 위해, _로그 데이터_ 는 Log Analytics 작업 영역으로 전송된 데이터를 가리키고, _애플리케이션 데이터_ 는 Application Insights에 의해 수집된 데이터를 가리킵니다. 작업 영역 기반 Application Insights 리소스를 사용 하는 경우 로그 데이터에 대 한 정보가 적용 되지만 클래식 Application Insights 리소스를 사용 하는 경우 응용 프로그램 데이터가 적용 됩니다.
+> 이 문서의 목적을 위해, _로그 데이터_ 는 Log Analytics 작업 영역으로 전송된 데이터를 가리키고, _애플리케이션 데이터_ 는 Application Insights에 의해 수집된 데이터를 가리킵니다. 작업 영역 기반 Application Insights 리소스를 사용하는 경우 로그 데이터에 대한 정보가 적용되지만 클래식 Application Insights 리소스를 사용하는 경우 애플리케이션 데이터가 적용됩니다.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -81,7 +81,7 @@ Log Analytics는 스키마를 데이터에 지정하는 동안 모든 필드를 
 데이터 보기 및 내보내기 요청 둘 다에서 [Log Analytics 쿼리 API](https://dev.loganalytics.io/) 또는 [Application Insights 쿼리 API](https://dev.applicationinsights.io/quickstart)를 사용해야 합니다. 데이터의 모양을 적절한 형식으로 변환하여 사용자에게 전달하는 논리의 구현은 사용자에게 달려 있습니다. [Azure Functions](https://azure.microsoft.com/services/functions/)는 이러한 논리를 호스팅하는 데 적합합니다.
 
 > [!IMPORTANT]
->  대부분의 제거 작업은 SLA보다 훨씬 빠르게 완료될 수 있지만, 사용된 데이터 플랫폼에 큰 영향을 주기 때문에 **제거 작업 완료를 위한 공식 SLA는 30일로 설정** 됩니다. 이 SLA는 GDPR 요구 사항을 충족 합니다. 자동화 된 프로세스 이므로 작업을 더 빠르게 처리 하도록 요청할 수 있는 방법이 없습니다. 
+>  대부분의 제거 작업은 SLA보다 훨씬 빠르게 완료될 수 있지만, 사용된 데이터 플랫폼에 큰 영향을 주기 때문에 **제거 작업 완료를 위한 공식 SLA는 30일로 설정** 됩니다. 이 SLA는 GDPR 요구 사항을 충족합니다. 이것은 자동화된 프로세스입니다. 작업을 더 빠르게 처리하도록 요청할 수 있는 방법은 없습니다. 
 
 ### <a name="delete"></a>DELETE
 
@@ -91,7 +91,7 @@ Log Analytics는 스키마를 데이터에 지정하는 동안 모든 필드를 
 *제거* API 경로를 처리하는 개인 정보의 일부로 사용할 수 있게 되었습니다. 이 경로는 이러한 작업과 관련된 위험, 잠재적인 성능 영향 및 Log Analytics 데이터의 총 집계, 측정 및 다른 측면을 왜곡할 수 있는 가능성으로 인해 드물게 사용해야 합니다. 프라이빗 데이터를 처리하는 다른 방법은 [개별 데이터 처리 전략](#strategy-for-personal-data-handling) 섹션을 참조하세요.
 
 > [!NOTE]
-> 제거 작업을 수행한 후에는 [제거 작업 상태가](/rest/api/loganalytics/workspacepurge/getpurgestatus) *pending* 인 동안에는 데이터에 액세스할 수 없습니다. 
+> 제거 작업을 수행한 후에는 [제거 작업 상태](/rest/api/loganalytics/workspacepurge/getpurgestatus)가 *보류 중* 인 동안에는 데이터에 액세스할 수 없습니다. 
 
 제거는 높은 수준의 권한이 필요한 작업으로 Azure의 사용자(리소스 소유자도 포함) 또는 앱이 Azure Resource Manager에서 명시적으로 역할을 부여받아야 실행할 수 있습니다. 이 역할은 _데이터 제거자_ 이며, 데이터 손실 가능성 때문에 신중하게 위임해야 합니다. 
 

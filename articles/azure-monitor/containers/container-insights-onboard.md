@@ -3,12 +3,12 @@ title: Container Insights 사용 | Microsoft Docs
 description: 이 문서에서는 컨테이너의 성능과 어떤 성능 관련 문제가 확인되었는지 이해할 수 있도록 Container Insights를 사용하도록 설정하고 구성하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e0544232f40e93cce0705fff6814d29697a96218
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 01246a728f204ed9cb43eee392c637b495208aaf
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782120"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105109355"
 ---
 # <a name="enable-container-insights"></a>Container Insights 사용
 
@@ -32,7 +32,7 @@ ms.locfileid: "107782120"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 요구 사항을 충족해야 합니다.
 
@@ -119,12 +119,12 @@ Container Insights는 공식적으로 다음 구성을 지원합니다.
 
 Container Insights를 사용하도록 설정하려면 다음 표에 설명된 방법 중 하나를 사용합니다.
 
-| 배포 상태 | 메서드 | 설명 |
+| 배포 상태 | 방법 | Description |
 |------------------|--------|-------------|
 | 새 Kubernetes 클러스터 | [Azure CLI를 사용하여 AKS 클러스터 만들기](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Azure CLI를 사용하여 만든 새 AKS 클러스터에 대한 모니터링을 사용하도록 설정할 수 있습니다. |
 | | [Terraform을 사용하여 AKS 클러스터 만들기](container-insights-enable-new-cluster.md#enable-using-terraform)| 오픈 소스 도구인 Terraform을 사용하여 만든 새 AKS 클러스터에 대한 모니터링을 사용하도록 설정할 수 있습니다. |
 | | [Azure Resource Manager 템플릿을 사용하여 OpenShift 클러스터 만들기](container-insights-azure-redhat-setup.md#enable-for-a-new-cluster-using-an-azure-resource-manager-template) | 미리 구성된 Azure Resource Manager 템플릿을 사용하여 만드는 새 OpenShift 클러스터에 대한 모니터링을 사용하도록 설정할 수 있습니다. |
-| | [Azure CLI를 사용하여 OpenShift 클러스터 만들기](/cli/azure/openshift#az_openshift_create) | Azure CLI를 사용하여 새 OpenShift 클러스터를 배포할 때 모니터링을 사용하도록 설정할 수 있습니다. |
+| | [Azure CLI를 사용하여 OpenShift 클러스터 만들기](/cli/azure/openshift#az-openshift-create) | Azure CLI를 사용하여 새 OpenShift 클러스터를 배포할 때 모니터링을 사용하도록 설정할 수 있습니다. |
 | 기존 Kubernetes 클러스터 | [Azure CLI를 사용하여 AKS 클러스터의 모니터링 사용](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | Azure CLI를 사용하여 이미 배포된 AKS 클러스터에 대한 모니터링을 사용하도록 설정할 수 있습니다. |
 | |[Terraform을 사용하여 AKS 클러스터에 사용](container-insights-enable-existing-clusters.md#enable-using-terraform) | 오픈 소스 도구 Terraform을 사용하여 이미 배포된 AKS 클러스터에 대한 모니터링을 사용하도록 설정할 수 있습니다. |
 | | [Azure Monitor에서 AKS 클러스터에 사용](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| Azure Monitor의 다중 클러스터 페이지에서 이미 배포된 하나 이상의 AKS 클러스터에 대해 모니터링을 사용하도록 설정할 수 있습니다. |

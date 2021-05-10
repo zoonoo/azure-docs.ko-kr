@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 90ad35757834c14abdffb017ff31b3296074ca24
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8e1d16ad0d3fd0e45917754b028c4af362a1e9f4
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104802440"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142966"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Spot Virtual Machines 배포
 
@@ -31,7 +31,7 @@ Azure CLI를 사용하여 Azure Spot Virtual Machines를 만드는 프로세스�
 
 Azure Spot Virtual Machines를 만들려면 Azure CLI 버전 2.0.74 이상을 실행해야 합니다. 버전을 찾으려면 **az --version** 을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
-[az login](/cli/azure/reference-index#az-login)을 사용하여 Azure에 로그인합니다.
+[az login](/cli/azure/reference-index#az_login)을 사용하여 Azure에 로그인합니다.
 
 ```azurecli-interactive
 az login
@@ -90,7 +90,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 
 이 첫 번째 응답은 최대 2분 정도 걸릴 수 있습니다. 지금부터 출력이 거의 즉시 표시되어야 합니다.
 
-Azure CLI가 설치된 컴퓨터(예: 로컬 머신)에서 [az vm simulate-eviction](https://docs.microsoft.com/cli/azure/vm#az_vm_simulate_eviction)을 사용하여 제거를 시뮬레이션합니다. 리소스 그룹 이름 및 VM 이름을 고유의 이름으로 바꿉니다. 
+Azure CLI가 설치된 컴퓨터(예: 로컬 머신)에서 [az vm simulate-eviction](/cli/azure/vm#az_vm_simulate_eviction)을 사용하여 제거를 시뮬레이션합니다. 리소스 그룹 이름 및 VM 이름을 고유의 이름으로 바꿉니다. 
 
 ```azurecli-interactive
 az vm simulate-eviction --resource-group mySpotRG --name mySpot

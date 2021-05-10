@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 990274f34dac0234c2c2d521ca6a260f999671bb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101674524"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>SUSE Linux용 SMT 서버 설정
@@ -34,7 +34,7 @@ HANA 큰 인스턴스에 대한 작업을 수행하는 SMT 서버를 설치하�
 
 먼저 [SUSE 고객 센터](https://scc.suse.com/)에 로그인합니다.
 
-**조직**  >  **조직 자격 증명** 으로 이동 합니다. 해당 섹션에서 SMT 서버를 설치하는 데 필요한 자격 증명을 찾아야 합니다.
+**조직** > **조직 자격 증명** 으로 이동합니다. 해당 섹션에서 SMT 서버를 설치하는 데 필요한 자격 증명을 찾아야 합니다.
 
 그런 다음, Azure 가상 네트워크에 SUSE Linux VM을 설치합니다. 가상 머신을 배포하려면 Azure의 SLES 12 SP2 갤러리 이미지를 사용합니다(BYOS SUSE 이미지 선택). 배포 과정에서 DNS 이름을 정의하지 않고 고정 IP 주소를 사용하지 않습니다.
 
@@ -44,7 +44,7 @@ HANA 큰 인스턴스에 대한 작업을 수행하는 SMT 서버를 설치하�
 
 가상 머신에 디스크를 추가합니다. 이 디스크를 사용하여 업데이트를 저장하면 부팅 디스크 자체가 너무 작을 수 있습니다. 여기서, 다음 스크린샷처럼 디스크가 /srv/www/htdocs에 탑재되었습니다. 100GB 디스크로 충분합니다.
 
-![PuTTy 창에 추가 된 디스크를 보여 주는 스크린샷](./media/hana-installation/image4_additional_disk_on_smtserver.PNG)
+![PuTTy 창에 추가된 디스크를 보여 주는 스크린샷.](./media/hana-installation/image4_additional_disk_on_smtserver.PNG)
 
 HANA 큰 인스턴스 유닛 또는 여러 유닛에 로그인하고, /etc/hosts를 유지 관리하고, 네트워크에서 SMT 서버를 실행해야 하는 Azure 가상 머신에 연결할 수 있는지 확인합니다.
 
@@ -83,7 +83,7 @@ SMT 패키지를 설치하려면 YAST 도구를 사용할 수도 있습니다. Y
 ![YAST의 SMT 스크린샷](./media/hana-installation/image5_smt_in_yast.PNG)
 
 
-smtserver에 설치를 위한 선택 사항을 수락합니다. 설치가 완료되면 SMT 서버 구성으로 이동합니다. 앞에서 검색한 SUSE 고객 센터의 조직 자격 증명을 입력합니다. 또한 Azure 가상 머신 호스트 이름을 SMT 서버 URL로 입력합니다. 이 데모에서는 https: \/ /smtserver.
+smtserver에 설치를 위한 선택 사항을 수락합니다. 설치가 완료되면 SMT 서버 구성으로 이동합니다. 앞에서 검색한 SUSE 고객 센터의 조직 자격 증명을 입력합니다. 또한 Azure 가상 머신 호스트 이름을 SMT 서버 URL로 입력합니다. 본 데모에서는 https:\//smtserver입니다.
 
 ![SMT 서버 구성의 스크린샷](./media/hana-installation/image6_configuration_of_smtserver1.png)
 

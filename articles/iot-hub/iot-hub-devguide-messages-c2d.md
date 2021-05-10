@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt, devx-track-azurecli
-ms.openlocfilehash: 154b496a6c14d307c09ddcd1b42bf4ba568cb315
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7bb3ca2b31eaef5c0639f30e0f2a329a37dfe7e0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104607894"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107761784"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>IoT Hub에서 클라우드-디바이스 메시지 보내기
 
@@ -149,7 +149,7 @@ IoT Hub의 **최대 배달 횟수** 속성은 *큐에 넣음* 및 *숨김* 상�
 
     ![포털에서 클라우드-디바이스 메시지에 대한 구성 옵션 설정](./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png)
 
-* **Azure CLI**: [az iot hub update](/cli/azure/iot/hub#az-iot-hub-update) 명령을 사용합니다.
+* **Azure CLI**: [az iot hub update](/cli/azure/iot/hub#az_iot_hub_update) 명령을 사용합니다.
 
     ```azurecli
     az iot hub update --name {your IoT hub name} \

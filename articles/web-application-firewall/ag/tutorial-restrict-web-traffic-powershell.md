@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용 하 여 웹 트래픽 제한
+title: PowerShell을 사용하여 웹 트래픽 제한
 titleSuffix: Azure Web Application Firewall
 description: Azure PowerShell을 사용하여 애플리케이션 게이트웨이에서 웹 애플리케이션 방화벽의 웹 트래픽을 제한하는 방법을 알아봅니다.
 services: web-application-firewall
@@ -9,10 +9,10 @@ ms.date: 03/26/2021
 ms.author: victorh
 ms.topic: how-to
 ms.openlocfilehash: cc111f6fe1c50af5be9686100b19209fe7f3d119
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105626183"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Azure PowerShell을 사용하여 웹 애플리케이션 방화벽 활성화
@@ -180,7 +180,7 @@ $appgw = New-AzApplicationGateway `
 
 이 예제에서는 애플리케이션 게이트웨이에서 백 엔드 풀에 대한 서버를 제공하도록 가상 머신 확장 집합을 만듭니다. IP 설정을 구성할 때 확장 집합을 백 엔드 풀에 할당합니다. 
 
-*\<username>* *\<password>* 이 스크립트를 실행 하기 전에 및을 사용자의 값으로 바꿉니다.
+이 스크립트를 실행하기 전에 *\<username>* 및 *\<password>* 을 사용자의 값으로 바꿉니다.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `

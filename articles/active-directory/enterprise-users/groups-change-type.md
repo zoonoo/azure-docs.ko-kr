@@ -1,6 +1,6 @@
 ---
-title: 정적 그룹 멤버 자격을 동적으로 변경-Azure AD | Microsoft Docs
-description: Azure AD 관리 센터 또는 PowerShell cmdlet 중 하나를 사용 하 여 기존 그룹을 정적에서 동적 구성원으로 변환 하는 방법을 알아봅니다.
+title: 정적 그룹 멤버 자격을 동적으로 변경 - Azure AD | Microsoft Docs
+description: Azure AD 관리 센터 또는 PowerShell cmdlet을 사용하여 기존 그룹을 정적 멤버 자격에서 동적 멤버 자격으로 변환하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1a46cc3f4a0f2fb25fc693103a64a319dcec0324
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96860884"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Azure Active Directory에서 정적 그룹 멤버 자격을 동적으로 변경
@@ -32,7 +32,7 @@ ms.locfileid: "96860884"
 
 ## <a name="change-the-membership-type-for-a-group"></a>그룹에 대한 멤버 자격 유형 변경
 
-1. Azure ad 조직의 전역 관리자, 사용자 관리자 또는 그룹 관리자 인 계정으로 [AZURE ad 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
+1. Azure AD 조직에서 전역 관리자, 사용자 관리자 또는 그룹 관리자인 계정으로 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 2. **그룹** 을 선택합니다.
 3. **모든 그룹** 목록에서 변경하려는 그룹을 엽니다.
 4. **속성** 을 선택합니다.
@@ -46,7 +46,7 @@ ms.locfileid: "96860884"
   
 2. **동적 쿼리 추가** 를 선택하고 규칙을 입력합니다.
   
-   ![동적 그룹에 대 한 규칙을 입력 합니다.](./media/groups-change-type/enter-rule.png)
+   ![동적 그룹에 대한 규칙 입력](./media/groups-change-type/enter-rule.png)
   
 3. 규칙을 만든 후 페이지 맨 아래에서 **쿼리 추가** 를 선택합니다.
 4. 해당 그룹의 **속성** 페이지에서 **저장** 을 선택하여 변경 내용을 저장합니다. 그룹 목록에서 해당 그룹의 **멤버 자격 유형** 이 즉시 업데이트됩니다.

@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: iangithinji
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00393017dee64cf9ca0320140c640eaf4288e1b4
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 29c3043cc38c8ab3d3387b171ea6f3793d485730
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315186"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107373964"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>셀프 서비스 애플리케이션 할당을 구성하는 방법
 
-사용자가 내 앱에서 애플리케이션을 셀프 검색할 수 있도록 하려면 먼저 사용자가 셀프 검색을 수행하고 액세스 권한을 요청할 수 있게 하려는 모든 애플리케이션에 대해 **셀프 서비스 애플리케이션 액세스** 를 사용하도록 설정해야 합니다. 이 기능은 [Azure AD 갤러리](./add-application-portal.md), [Azure AD 애플리케이션 프록시](../app-proxy/application-proxy.md)에서 추가되었거나 [사용자 또는 관리자 동의](../develop/application-consent-experience.md)를 통해 추가된 애플리케이션에 사용할 수 있습니다. 
+사용자가 내 앱에서 애플리케이션을 셀프 검색할 수 있도록 하려면 먼저 사용자가 셀프 검색을 수행하고 액세스 권한을 요청할 수 있게 하려는 모든 애플리케이션에 대해 **셀프 서비스 애플리케이션 액세스** 를 사용하도록 설정해야 합니다. 이 기능은 [Azure AD 갤러리](./add-application-portal.md), [Azure AD 애플리케이션 프록시](./application-proxy.md)에서 추가되었거나 [사용자 또는 관리자 동의](../develop/application-consent-experience.md)를 통해 추가된 애플리케이션에 사용할 수 있습니다. 
 
 이 기능은 IT 그룹이 시간과 비용을 절감하는 유용한 방법이며, Azure Active Directory를 사용하는 최신 애플리케이션 배포의 일부로 사용하는 것이 좋습니다.
 

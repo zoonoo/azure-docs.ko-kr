@@ -1,5 +1,5 @@
 ---
-title: 그룹 관리를 위한 PowerShell V2 예제-Azure AD | Microsoft Docs
+title: 그룹 관리를 위한 PowerShell V2 예제 - Azure AD | Microsoft Docs
 description: 이 페이지에는 Azure Active Directory에서 그룹을 관리하는 데 도움이 되는 PowerShell 예제가 나와 있습니다.
 keywords: Azure AD, Azure Active Directory, PowerShell, 그룹, 그룹 관리
 services: active-directory
@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 12613362d9fc67dea14b41ece19a34febb489dda
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96860646"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>그룹 관리를 위한 Azure Active Directory 버전 2 cmdlet
@@ -53,7 +53,7 @@ Azure AD PowerShell 모듈을 설치하려면 다음 명령을 사용합니다.
 이제 모듈에서 cmdlet 사용을 시작할 수 있습니다. Azure AD 모듈의 cmdlet에 대한 자세한 내용은 [Azure Active Directory PowerShell 버전 2](/powershell/azure/active-directory/install-adv2)에 대한 온라인 참조 문서를 참조하세요.
 
 > [!NOTE]
-> Azure AD PowerShell cmdlet은 .net Core를 기반으로 하기 때문에 새로운 Powershell 7에서 작동 하지 않습니다. Microsoft는이 사실을 알고 있으며 업데이트 하는 중입니다. 이제 Azure AD powershell 작업에 사용할 Windows PowerShell 5.x 모듈을 사용 하는 것이 좋습니다. 
+> Azure AD PowerShell cmdlet은 .net Core를 기준으로 하기 때문에 새로운 Powershell 7에서 작동하지 않습니다. Microsoft는 이 사실을 알고 있으며 현재 이 기능은 업데이트 중입니다. 이제 Azure AD powershell 작업에 사용할 Windows PowerShell 5.x 모듈을 사용하는 것이 좋습니다. 
 
 
 ## <a name="connect-to-the-directory"></a>디렉터리에 연결
@@ -174,7 +174,7 @@ Azure AD PowerShell cmdlet을 사용하여 그룹 관리를 시작하기 전에 
     PS C:\Windows\system32> Set-AzureADGroup -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -Description "Intune Device Administrators"
 ```
 
-이제 그룹을 다시 찾으면 설명 속성이 새 값을 반영 하도록 업데이트 됩니다 .가 표시 됩니다.
+이제 해당 그룹을 다시 찾으면 새 값을 반영하도록 Description 속성이 업데이트된 것을 볼 수 있습니다.
 
 ```powershell
     PS C:\Windows\system32> Get-AzureADGroup -Filter "DisplayName eq 'Intune Administrators'"
@@ -288,7 +288,7 @@ Azure AD PowerShell cmdlet을 사용하여 그룹 관리를 시작하기 전에 
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 ```
 
--ObjectId 매개 변수는 소유자를 추가 하려는 그룹의 ObjectID 이며,-RefObjectId는 그룹 소유자로 추가 하려는 사용자 또는 서비스 주체의 ObjectID입니다.
+-ObjectId 매개 변수는 소유자를 추가하려는 그룹의 ObjectID이며, -RefObjectId는 그룹에 소유자로 추가하려는 사용자 또는 서비스 주체의 ObjectID입니다.
 
 그룹의 소유자를 검색하려면 Get-AzureADGroupOwner cmdlet을 사용합니다.
 
@@ -296,7 +296,7 @@ Azure AD PowerShell cmdlet을 사용하여 그룹 관리를 시작하기 전에 
     PS C:\Windows\system32> Get-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
 ```
 
-Cmdlet은 지정 된 그룹에 대 한 소유자 (사용자 및 서비스 사용자) 목록을 반환 합니다.
+이 cmdlet은 지정된 그룹에 대한 소유자(사용자 및 서비스 주체) 목록을 반환합니다.
 
 ```powershell
     DeletionTimeStamp ObjectId                             ObjectType
@@ -326,19 +326,19 @@ Cmdlet은 지정 된 그룹에 대 한 소유자 (사용자 및 서비스 사용
 * ssl-admin
 * webmaster
 
-## <a name="group-writeback-to-on-premises-preview"></a>쓰기 저장을 온-프레미스로 그룹화 (미리 보기)
+## <a name="group-writeback-to-on-premises-preview"></a>온-프레미스로의 그룹 쓰기 저장(미리 보기)
 
-오늘날 대부분의 그룹은 온-프레미스 Active Directory에서 계속 관리 됩니다. 클라우드 그룹을 온-프레미스로 다시 동기화 하도록 요청에 응답 하기 위해 Azure AD에 대 한 쓰기 저장 Microsoft 365 (writeback) 기능을 미리 볼 수 있습니다.
+오늘날 대부분의 그룹은 온-프레미스 Active Directory에서 여전히 관리됩니다. 클라우드 그룹을 온-프레미스로 다시 동기화하라는 요청에 응답하기 위해 Azure AD에 대한 Microsoft 365 그룹 쓰기 저장 기능을 미리 볼 수 있습니다.
 
-Microsoft 365 그룹은 클라우드에서 만들어지고 관리 됩니다. 쓰기 저장 기능을 사용 하면 Exchange가 설치 된 Active Directory 포리스트에 Microsoft 365 그룹을 메일 그룹으로 다시 쓸 수 있습니다. 그러면 온-프레미스 Exchange 사서함이 있는 사용자가 이러한 그룹에서 전자 메일을 보내고 받을 수 있습니다. 그룹 쓰기 저장 기능은 Azure AD 보안 그룹 또는 배포 그룹을 지원 하지 않습니다.
+Microsoft 365 그룹은 클라우드에서 만들어지고 관리됩니다. 쓰기 저장 기능을 사용하면 Exchange가 설치된 Active Directory 포리스트에 Microsoft 365 그룹을 메일 그룹으로 쓰기 저장할 수 있습니다. 그러면 온-프레미스 Exchange 사서함이 있는 사용자가 이러한 그룹에서 메일을 보내고 받을 수 있습니다. 그룹 쓰기 저장 기능은 Azure AD 보안 그룹 또는 배포 그룹을 지원하지 않습니다.
 
-자세한 내용은 [Azure AD Connect sync 서비스](../hybrid/how-to-connect-syncservice-features.md)에 대 한 설명서를 참조 하세요.
+자세한 내용은 [Azure AD Connect 동기화 서비스](../hybrid/how-to-connect-syncservice-features.md)에 대한 설명서를 참조하세요.
 
-Microsoft 365 그룹 쓰기 저장은 Azure Active Directory (Azure AD)의 공개 미리 보기 기능으로, 유료 Azure AD 라이선스 계획과 함께 사용할 수 있습니다. 미리 보기에 대 한 몇 가지 법적 정보는 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
+Microsoft 365 그룹 쓰기 저장은 Azure AD(Azure Active Directory)의 퍼블릭 미리 보기 기능이며 모든 유료 Azure AD 라이선스 플랜에서 사용할 수 있습니다. 미리 보기에 대한 법적 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 [Azure Active Directory Cmdlets](/powershell/azure/active-directory/install-adv2)에서 더 많은 Azure Active Directory PowerShell 설명서를 찾을 수 있습니다.
 
-* [Azure Active Directory 그룹을 사용 하 여 리소스에 대 한 액세스 관리](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+* [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Azure Active Directory와 온-프레미스 ID 통합](../hybrid/whatis-hybrid-identity.md?context=azure/active-directory/users-groups-roles/context/ugr-context)

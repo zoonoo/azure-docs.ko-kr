@@ -10,16 +10,16 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c7f3de20ea3e86e3b56dc71d698354f7eaf782d
-ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
-ms.translationtype: MT
+ms.openlocfilehash: 756e5e96a8040fb3d93273a5521236d46879e60d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "105709721"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306384"
 ---
-# <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>단계적 롤아웃을 사용하여 클라우드 인증으로 마이그레이션(미리 보기)
+# <a name="migrate-to-cloud-authentication-using-staged-rollout"></a>단계적 롤아웃을 사용하여 클라우드 인증으로 마이그레이션
 
-단계적 롤아웃을 사용 하면 도메인을 자르기 전에 Azure AD Multi-Factor Authentication (MFA), 조건부 액세스, 누출 된 자격 증명에 대 한 Id 보호, Id 관리 등의 클라우드 인증 기능을 통해 사용자 그룹을 선택적으로 테스트할 수 있습니다.  이 문서에서는 전환 방법을 설명합니다. 단계적 롤아웃을 시작하기 전에, 다음 조건 중 하나 이상에 해당할 때 미치게 되는 영향을 고려해야 합니다.
+단계적 롤아웃을 사용하면 도메인을 컷오버하기 전에 Azure AD MFA(다단계 인증), 조건부 액세스, 누출된 자격 증명에 대한 ID 보호, ID 관리 등 클라우드 인증 기능을 통해 사용자 그룹을 선택적으로 테스트할 수 있습니다.  이 문서에서는 전환 방법을 설명합니다. 단계적 롤아웃을 시작하기 전에, 다음 조건 중 하나 이상에 해당할 때 미치게 되는 영향을 고려해야 합니다.
     
 -  현재 온-프레미스 Multi-Factor Authentication 서버를 사용하고 있습니다. 
 -  인증에 스마트 카드를 사용하고 있습니다. 
@@ -38,20 +38,20 @@ ms.locfileid: "105709721"
 -   도메인이 페더레이션된 Azue AD(Azure Active Directory) 테넌트가 있습니다.
 
 -   다음 두 옵션 중 하나로 전환하기로 결정했습니다.
-    - **옵션 A**  -  *암호 해시 동기화 (동기화)*  +  *SSO (원활한 Single Sign-On)*.  자세한 내용은 [암호 해시 동기화 란 무엇](whatis-phs.md) 이며 [원활한 SSO 란?](how-to-connect-sso.md) 을 참조 하세요.
-    - **옵션 B**  -  *통과 인증*  +  *원활한 SSO*.  자세한 내용은 [통과 인증 이란?](how-to-connect-pta.md) 을 참조 하세요.  
+    - **옵션 A** - *암호 해시 동기화* + *Seamless SSO(single sign-on)* .  자세한 내용은 [암호 해시 동기화란?](whatis-phs.md) 및 [Seamless SSO란?](how-to-connect-sso.md)을 참조하세요.
+    - **옵션 B** - *통과 인증* + *seamless SSO*.  자세한 내용은 [통과 인증이란?](how-to-connect-pta.md)을 참조하세요.  
     
     *Seamless SSO* 는 선택 사항이지만, 이 옵션을 사용하여 회사 네트워크 내부에서 도메인에 조인된 머신을 실행하는 사용자에게 자동 로그인 환경을 구현하는 것이 좋습니다.
 
 -   클라우드 인증으로 마이그레이션되는 사용자에게 필요한 모든 테넌트 브랜딩 및 조건부 액세스 정책을 적절하게 구성했습니다.
 
--   Azure AD Multi-Factor Authentication를 사용 하려는 경우 [SSPR (셀프 서비스 암호 재설정)에 대해 결합 된 등록](../authentication/concept-registration-mfa-sspr-combined.md) 을 사용 하 고 사용자가 인증 방법을 한 번 등록 하도록 Multi-Factor Authentication 하는 것이 좋습니다. 참고-SSPR를 사용 하 여 암호를 재설정 하거나, MyProfile을 사용 하 여 암호를 변경할 때 준비 된 롤아웃 중에 Azure AD Connect는 다시 설정 후 최대 2 분이 걸릴 수 있는 새 암호 해시를 동기화 해야 합니다.
+-   Azure AD MFA를 사용할 계획이라면 [SSPR(셀프 서비스 암호 재설정) 및 MFA에 대한 융합형 등록](../authentication/concept-registration-mfa-sspr-combined.md)을 사용하여 사용자가 인증 방법을 등록해 두도록 하는 것이 좋습니다. 참고 - 단계적 롤아웃 중에 MyProfile 페이지에서 암호 재설정이나 변경을 위해 SSPR를 사용할 경우 Azure AD Connect는 새 암호 해시를 동기화해야 하는데, 이는 재설정 후 최대 2분이 소요될 수 있습니다.
 
 -   단계적 롤아웃 기능을 사용하려면 테넌트의 전역 관리자여야 합니다.
 
 -   특정 Active Directory 포리스트에서 *Seamless SSO* 를 사용하도록 설정하려면 도메인 관리자여야 합니다.
 
--  하이브리드 Azure AD 또는 Azure AD 조인을 배포 하는 경우 Windows 10 1903 업데이트로 업그레이드 해야 합니다.
+-  하이브리드 Azure AD 또는 Azure AD 조인을 배포하는 경우 Windows 10 1903 업데이트로 업그레이드해야 합니다.
 
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
@@ -64,13 +64,13 @@ ms.locfileid: "105709721"
 
 - 그룹 크기는 현재 사용자 50,000명으로 제한되어 있습니다.  사용자 수가 50,000명을 초과하는 그룹이 있는 경우 해당 그룹을 여러 그룹으로 분할하여 단계적으로 롤아웃하는 것이 좋습니다.
 
-- Windows 10 하이브리드 조인 또는 Azure AD 조인 기본 새로 고침 토큰 획득 Windows 10 버전 1903 이상에 대 한 페더레이션 서버에 사용자의 UPN을 라우팅할 수 있는 경우 Azure AD에서 도메인 접미사를 확인 합니다.
+- Windows 10 버전 1903 이상에 대한 페더레이션 서버와 통신할 수 없으며 사용자의 UPN을 라우팅할 수 있고 Azure AD에서 도메인 접미사가 확인되는 상황에서 Windows 10 하이브리드 조인 또는 Azure AD 조인 기본 리프레시 토큰을 획득하는 경우입니다.
 
 ## <a name="unsupported-scenarios"></a>지원되지 않는 시나리오
 
 다음은 단계적 롤아웃이 불가능한 시나리오입니다.
 
-- POP3 및 SMTP와 같은 레거시 인증은 지원 되지 않습니다.
+- POP3 및 SMTP와 같은 레거시 인증은 지원되지 않습니다.
 
 - 인증하는 동안 특정 애플리케이션이 Azure AD에 "domain_hint" 쿼리 매개 변수를 보냅니다. 이러한 흐름이 계속되며, 단계적 롤아웃을 사용하도록 설정된 사용자는 계속해서 인증에 페더레이션을 사용합니다.
 
@@ -79,20 +79,20 @@ ms.locfileid: "105709721"
 - 관리자는 보안 그룹을 사용하여 클라우드 인증을 롤아웃할 수 있습니다. 온-프레미스 Active Directory 보안 그룹을 사용할 때 동기화 대기 시간을 방지하려면 클라우드 보안 그룹을 사용하는 것이 좋습니다. 다음 조건이 적용됩니다.
 
     - 기능당 최대 10개의 그룹을 사용할 수 있습니다. 즉, *암호 해시 동기화*, *통과 인증* 및 *Seamless SSO* 각각에 10개 그룹을 사용할 수 있습니다.
-    - 중첩 그룹은 *지원되지 않습니다*. 이 범위는 공개 미리 보기에도 적용됩니다.
+    - 중첩 그룹은 *지원되지 않습니다*. 
     - 단계적 롤아웃에는 동적 그룹이 *지원되지 않습니다*.
     - 그룹 내의 연락처 개체는 그룹이 추가되는 것을 차단합니다.
 
 - 단계적 롤아웃에 대한 보안 그룹을 처음 추가하면 UX 시간 제한을 방지하기 위해 사용자 수가 200명으로 제한됩니다. 그룹을 추가한 후에는 필요한 만큼 사용자를 그룹에 추가할 수 있습니다.
 
-- 사용자가 준비 된 롤아웃 상태에서 EnforceCloudPasswordPolicyForPasswordSyncedUsers을 사용 하는 경우 암호 만료 정책은 사용자 지정 옵션 없이 90 일로 설정 됩니다. 
+- 사용자가 단계적 롤아웃 상태에 있으며 EnforceCloudPasswordPolicyForPasswordSyncedUsers가 활성화되어 있는 경우 암호 만료 정책은 사용자 지정 옵션 없이 90일로 설정됩니다. 
 
-- Windows 10 하이브리드 조인 또는 Azure AD 조인 기본 새로 고침 토큰 획득 1903 이전 버전의 Windows 10 버전 이 시나리오는 로그인 한 사용자가 준비 된 롤아웃 범위에 있더라도 페더레이션 서버의 WS-Trust 끝점으로 대체 됩니다.
+- 1903 이후 Windows 10 버전에서 Windows 10 하이브리드 조인 또는 Azure AD 조인 기본 리프레시 토큰을 획득하는 경우입니다. 이 시나리오는 로그인한 사용자가 단계적 롤아웃 범위에 있더라도 페더레이션 서버의 WS-Trust 엔드포인트로 대체됩니다.
 
-- 사용자의 온-프레미스 UPN을 라우팅할 수 없는 경우 모든 버전에 대 한 Windows 10 하이브리드 조인 또는 Azure AD 조인 기본 새로 고침 토큰 획득 이 시나리오는 준비 된 롤아웃 모드에 있는 동안 WS-Trust 끝점으로 대체 되지만, 준비 된 마이그레이션이 완료 되 고 사용자 로그온이 더 이상 페더레이션 서버에 의존 하지 않을 경우 작동이 중지 됩니다.
+- 사용자의 온-프레미스 UPN을 라우팅할 수 없는 경우 모든 버전에 대해 Windows 10 하이브리드 조인 또는 Azure AD 조인 기본 리프레시 토큰을 획득하는 경우입니다. 이 시나리오는 단계적 롤아웃 모드에 있는 동안 WS-Trust 엔드포인트로 대체되지만, 단계적 마이그레이션이 완료되고 사용자 로그온이 더 이상 페더레이션 서버에 의존하지 않을 경우 작동이 중지됩니다.
 
   >[!NOTE]
-  >여전히 Azure AD Connect 또는 PowerShell을 사용하여 페더레이션 인증에서 클라우드 인증으로 최종적으로 전환해야 합니다. 단계적 롤아웃은 도메인을 페더레이션된에서 관리로 전환 하지 않습니다.  도메인에 대 한 자세한 내용은 [페더레이션에서 암호 해시 동기화로 마이그레이션](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) 및 [페더레이션에서 통과 인증으로 마이그레이션](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) 을 참조 하세요.
+  >여전히 Azure AD Connect 또는 PowerShell을 사용하여 페더레이션 인증에서 클라우드 인증으로 최종적으로 전환해야 합니다. 단계적 롤아웃은 도메인을 페더레이션형에서 관리형으로 전환하지 않습니다.  도메인 컷오버에 대한 자세한 내용은 [페더레이션에서 암호 해시 동기화로 마이그레이션](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) 및 [페더레이션에서 통과 인증으로 마이그레이션](plan-migrate-adfs-pass-through-authentication.md#step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso)을 참조하세요.
   
 ## <a name="get-started-with-staged-rollout"></a>단계적 롤아웃 시작
 
@@ -102,7 +102,7 @@ ms.locfileid: "105709721"
 
 ## <a name="pre-work-for-password-hash-sync"></a>암호 해시 동기화를 위한 사전 작업
 
-1. Azure AD Connect의 [선택적 기능](how-to-connect-install-custom.md#optional-features) 페이지에서 *암호 해시 동기화* 를 사용 하도록 설정 합니다. 
+1. Azure AD Connect의 [옵션 기능](how-to-connect-install-custom.md#optional-features) 페이지에서 *암호 해시 동기화* 를 사용하도록 설정합니다. 
 
    ![Azure Active Directory Connect의 "선택적 기능" 페이지 스크린샷](media/how-to-connect-staged-rollout/sr1.png)
 
@@ -120,7 +120,7 @@ ms.locfileid: "105709721"
 
 1. 서버에 [Azure AD Connect 인증 에이전트를 다운로드](https://aka.ms/getauthagent)하여 설치합니다. 
 
-1. [고가용성을 사용 하도록 설정 하려면](how-to-connect-sso-quick-start.md)다른 서버에 추가 인증 에이전트를 설치 합니다.
+1. [고가용성](how-to-connect-sso-quick-start.md)을 사용하도록 설정하려면 다른 서버에 추가 인증 에이전트를 설치합니다.
 
 1. [스마트 잠금 설정](../authentication/howto-password-smart-lockout.md)을 적절하게 구성했는지 확인합니다. 이렇게 하면 사용자의 온-프레미스 Active Directory 계정이 악의적 행위자에 의해 잠기는 일을 방지하는 데 도움이 됩니다.
 
@@ -128,13 +128,13 @@ ms.locfileid: "105709721"
 
 ## <a name="pre-work-for-seamless-sso"></a>Seamless SSO를 위한 사전 작업
 
-PowerShell을 사용 하 여 Active Directory 포리스트에서 *원활한 SSO* 를 사용 하도록 설정 합니다. Active Directory 포리스트가 둘 이상 있는 경우 각 포리스트에 대해 개별적으로 사용 하도록 설정 합니다. *원활한 SSO* 는 준비 된 롤아웃에 대해 선택 된 사용자에 대해서만 트리거됩니다. 기존 페더레이션 설정에는 영향을 주지 않습니다.
+PowerShell을 사용하여 Active Directory 포리스트에서 *Seamless SSO* 를 사용하도록 설정합니다. Active Directory 포리스트가 두 개 이상이면 각 포리스트에 대해 개별적으로 활성화합니다. *Seamless SSO* 는 단계적 롤아웃에 대해 선택된 사용자에 대해서만 트리거됩니다. 기존 페더레이션 설정에는 영향을 주지 않습니다.
 
 다음을 수행하여 *Seamless SSO* 를 사용하도록 설정합니다.
 
 1. Azure AD Connect 서버에 로그인합니다.
 
-2. *% Programfiles% \\ Microsoft Azure Active Directory Connect* 폴더로 이동 합니다.
+2. *%programfiles%\\Microsoft Azure Active Directory Connect* 폴더로 이동합니다.
 
 3. 다음 명령을 실행하여 *Seamless SSO* PowerShell 모듈을 가져옵니다. 
 
@@ -168,24 +168,24 @@ PowerShell을 사용 하 여 Active Directory 포리스트에서 *원활한 SSO*
 
 다음을 수행합니다.
 
-1. 미리 보기 UX에 액세스하려면 [Azure AD 포털](https://aka.ms/stagedrolloutux)에 로그인합니다.
+1. UX에 액세스하려면 [Azure AD 포털](https://aka.ms/stagedrolloutux)에 로그인합니다.
 
-2. **관리형 사용자 로그인에 대해 단계적 출시 사용(미리 보기)** 링크를 선택합니다.
+2. **관리형 사용자 로그인에 대해 단계적 롤아웃 활성화** 링크를 선택합니다.
 
    예를 들어 *옵션 A* 를 사용하도록 설정하려면 다음 이미지처럼 **암호 해시 동기화** 및 **Seamless Single Sign-On** 컨트롤을 **켜기** 로 밉니다.
 
-   ![Azure AD Connect 페이지](./media/how-to-connect-staged-rollout/sr4.png)
+   
 
-   !["단계적 롤아웃 기능 사용(미리 보기)" 페이지](./media/how-to-connect-staged-rollout/sr5.png)
+  
 
 3. *통과 인증* 및 *Seamless SSO* 를 사용하도록 설정하려는 기능에 그룹을 추가합니다. UX 시간 제한을 방지하기 위해, 처음에는 보안 그룹의 멤버 수가 200개를 넘지 않게 합니다.
 
-   !["암호 해시 동기화를 위한 그룹 관리(미리 보기)" 페이지](./media/how-to-connect-staged-rollout/sr6.png)
+   
 
    >[!NOTE]
    >그룹의 멤버는 단계적 롤아웃을 사용하도록 자동으로 설정됩니다. 중첩 그룹 및 동적 그룹은 단계적 롤아웃을 지원하지 않습니다.
-   >새 그룹을 추가 하는 경우 그룹의 사용자 (새 그룹에 대 한 최대 200 명의 사용자)가 관리 되는 인증을 즉시 사용 하도록 업데이트 됩니다. 사용자를 추가 하거나 제거 하는 그룹을 편집 하면 변경 내용이 적용 되는 데 최대 24 시간이 걸릴 수 있습니다.
-   >원활한 SSO는 사용자가 원활한 SSO 그룹 뿐만 아니라 PTA 또는 PHS 그룹에 있는 경우에만 적용 됩니다.
+   >새 그룹을 추가하는 경우 그룹의 사용자(새 그룹에 대해 최대 200명)가 관리되는 인증을 즉시 사용할 수 있도록 업데이트됩니다. 사용자 추가나 삭제 등 그룹 편집 시 변경 내용이 적용되는 데 최대 24시간이 걸릴 수 있습니다.
+   >Seamless SSO는 사용자가 Seamless SSO 그룹뿐만 아니라 PTA 또는 PHS 그룹에 있는 경우에만 적용됩니다.
 
 ## <a name="auditing"></a>감사
 
@@ -247,7 +247,7 @@ A: 예, 프로덕션 테넌트에서 이 기능을 사용할 수 있습니다. �
 
 **Q: 일부 사용자는 페더레이션 인증을 사용하고 나머지 사용자는 클라우드 인증을 사용하는 영구적 "공존"을 유지하는 데 이 기능을 사용할 수 있나요?**
 
-A: 아니요,이 기능은 클라우드 인증 테스트를 위해 설계 되었습니다. 몇 명의 사용자 그룹을 성공적으로 테스트 한 후에는 클라우드 인증으로 이동 해야 합니다. 영구적 혼합 상태를 사용하면 예기치 않은 인증 흐름이 발생할 수 있으므로 사용하지 않는 것이 좋습니다.
+A: 아니요, 이 기능은 클라우드 인증 테스트를 위해 설계되었습니다. 몇 개의 사용자 그룹을 성공적으로 테스트한 후에는 클라우드 인증으로 넘어가야 합니다. 영구적 혼합 상태를 사용하면 예기치 않은 인증 흐름이 발생할 수 있으므로 사용하지 않는 것이 좋습니다.
 
 **Q: PowerShell을 사용하여 단계적 롤아웃을 수행할 수 있나요?**
 
@@ -255,5 +255,5 @@ A: 예. PowerShell을 사용하여 단계적 롤아웃을 수행하는 방법을
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure AD 2.0 미리 보기](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout )
-- [로그인 방법을 암호 해시 동기화로 변경 합니다.](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+- [로그인 방법을 암호 해시 동기화로 변경](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
 - [로그인 방법을 통과 인증으로 변경](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)

@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: hermannd
 ms.openlocfilehash: 5184df38b6a6b2757a5d5f7c0970258657cf5c0f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101670996"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포
@@ -45,11 +45,11 @@ SAP CAL에 로그인한 후 첫 번째 페이지는 일반적으로 **솔루션*
 
     b. **Microsoft Azure** 는 새 리소스 관리자 배포 모델입니다.
 
-    ![스크린샷 Microsoft Azure 이라는 S P CAL 계정을 보여 줍니다.](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
+    ![스크린샷에서는 Microsoft Azure가 호출된 S A P CAL 계정을 표시합니다.](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
 
     리소스 관리자 모델을 배포하려면 **Microsoft Azure** 를 선택합니다.
 
-    ![A P CAL 계정을 보여 주는 스크린샷](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
+    ![S A P CAL 계정을 보여 주는 스크린샷.](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
 
 1. Azure Portal에서 찾을 수 있는 Azure **구독 ID** 를 입력합니다. 
 

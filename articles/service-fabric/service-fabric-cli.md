@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 5/19/2020
 ms.author: jejarry
 ms.openlocfilehash: ff322cb3633616e9004bc8fa25b048b6f1263008
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105046337"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
@@ -22,7 +22,7 @@ Azure Service Fabric CLI(명령줄 인터페이스)는 Azure Service Fabric 엔�
 
 설치하기 전에 환경에 Python과 pip가 모두 설치되어 있는지 확인합니다. 자세한 내용은 [pip 빠른 시작 설명서(영문)](https://pip.pypa.io/en/latest/quickstart/) 및 공식 [Python 설치 설명서(영문)](https://wiki.python.org/moin/BeginnersGuide/Download)를 참조하세요.
 
-CLI는 python 3(sp3)을 권장 하며 python 버전 2.7 및 3.6 +를 지원 합니다.
+CLI는 Python 버전 2.7 및 3.6+을 지원하며, Python 3.x가 권장됩니다.
 
 ### <a name="service-fabric-target-runtime"></a>Service Fabric 대상 런타임
 
@@ -58,11 +58,11 @@ Service Fabric CLI 릴리스에 대한 자세한 내용은 [GitHub 설명서](ht
 
 Windows 10, Windows Server 2016 및 Windows Server 2012 R2의 경우 표준 공식 설치 지침을 사용합니다. 또한 Python 설치 관리자는 기본적으로 pip를 설치합니다.
 
-1. 공식 [python 다운로드 페이지](https://www.python.org/downloads/)로 이동 하 여 python 3.x의 최신 릴리스를 다운로드 합니다.
+1. 공식 [Python 다운로드 페이지](https://www.python.org/downloads/)로 이동하여 Python 3.x의 최신 릴리스를 다운로드합니다.
 
 2. 설치 관리자를 시작합니다.
 
-3. 프롬프트 아래쪽에서 **경로에 Python 3.X 추가를** 선택 합니다.
+3. 프롬프트의 아래쪽에 있는 **PATH에 Python 3.x 추가** 를 선택합니다.
 
 4. **지금 설치** 를 선택하고 설치를 완료합니다.
 
@@ -135,7 +135,7 @@ MacOS의 경우 [HomeBrew 패키지 관리자](https://brew.sh)를 사용하는 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-그런 다음 터미널에서 다음 명령을 실행 하 여 최신 Python 3(sp3), pip 및 Service Fabric CLI를 설치 합니다.
+그런 다음, 터미널에서 다음 명령을 실행하여 최신 Python 3.x, pip 및 Service Fabric CLI를 설치합니다.
 
 ```bash
 brew install python3

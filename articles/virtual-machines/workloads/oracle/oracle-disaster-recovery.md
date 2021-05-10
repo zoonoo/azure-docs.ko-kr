@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.openlocfilehash: 68b5b9dfd205628c9d7c430df4c0230267752e01
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101669946"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Azure 환경의 Oracle Database 12c 데이터베이스 재해 복구
@@ -43,7 +43,7 @@ ms.locfileid: "101669946"
 - 별도의 서브넷에 있는 Jumpbox, 애플리케이션 서비스, 데이터베이스 및 VPN 게이트웨이
 - 애플리케이션 및 데이터베이스 서브넷에 적용되는 NSG
 
-![Azure의 기본 및 DR 사이트를 보여 주는 다이어그램](./media/oracle-disaster-recovery/oracle_topology_01.png)
+![Azure의 기본 사이트 및 DR 사이트를 보여 주는 다이어그램](./media/oracle-disaster-recovery/oracle_topology_01.png)
 
 ## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>시나리오 2: 기본 사이트는 온-프레미스에 있고, DR 사이트는 Azure에 있음
 
@@ -69,7 +69,7 @@ TCP 포트를 외부에 공개하므로 직접 연결은 사용하지 않는 것
 - 1521 인바운드 TCP 포트(또는 사용자 정의 포트)를 허용하는 NSG 정책/규칙
 - IP 주소/온-프레미스(DB 또는 애플리케이션) 주소만 제한하여 가상 네트워크에 액세스하는 NSG 정책/규칙
 
-![온-프레미스와 Azure 간의 직접 연결을 보여 주는 다이어그램으로, 방화벽에서 오픈 TCP 포트가 필요 합니다.](./media/oracle-disaster-recovery/oracle_topology_02.png)
+![방화벽에서 열려 있는 TCP 포트가 필요한 온-프레미스와 Azure 간의 직접 연결을 보여 주는 다이어그램](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
 ### <a name="approach-2-site-to-site-vpn"></a>방법 2: 사이트 간 VPN
 사이트 간 VPN이 더 나은 방법입니다. VPN 설정에 대한 자세한 내용은 [CLI를 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)를 참조하세요.

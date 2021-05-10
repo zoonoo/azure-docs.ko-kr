@@ -1,6 +1,6 @@
 ---
-title: PowerShell을 사용 하 여 리소스에 관리 id 액세스 할당-Azure AD
-description: PowerShell을 사용 하 여 한 리소스에 관리 되는 id를 할당 하 고 다른 리소스에 액세스 하는 방법에 대 한 단계별 지침입니다.
+title: PowerShell을 사용하여 리소스에 관리 ID 액세스 권한 할당 - Azure AD
+description: PowerShell을 사용하여 한 리소스에 관리 ID를 할당하고 다른 리소스에 액세스 권한을 할당하기 위한 단계별 지침을 제공합니다.
 services: active-directory
 documentationcenter: ''
 author: barclayn
@@ -15,12 +15,13 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf1a7a608df7a2b752d9a6bed52a4024fd776c5f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: fc5df641f27f8d604f7b5647736128856a3ecd51
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97592503"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764372"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-powershell"></a>PowerShell을 사용하여 리소스에 관리 ID 액세스 권한 할당
 
@@ -38,9 +39,9 @@ ms.locfileid: "97592503"
     - 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보기** 단추를 사용하여 열 수 있는 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다.
     - 최신 버전의 [Azure PowerShell](/powershell/azure/install-az-ps)을 설치하여 스크립트를 로컬로 실행한 다음, `Connect-AzAccount`를 사용하여 Azure에 로그인합니다. 
 
-## <a name="use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Azure RBAC를 사용 하 여 다른 리소스에 관리 되는 id 액세스 권한 부여
+## <a name="use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Azure RBAC를 사용하여 다른 리소스에 관리 ID 액세스 권한 할당
 
-1. Azure [VM과 같은](qs-configure-powershell-windows-vm.md)azure 리소스에서 관리 되는 id를 사용 하도록 설정 합니다.
+1. [Azure VM과 같은](qs-configure-powershell-windows-vm.md) Azure 리소스에서 관리 ID를 사용하도록 설정합니다.
 
 1. 이 예제에서는 Azure VM에 스토리지 계정 액세스 권한을 제공합니다. 먼저 [Get-AzVM](/powershell/module/az.compute/get-azvm)을 사용하여 관리 ID를 사용하도록 설정할 때 만든 `myVM`이라는 VM의 서비스 주체를 가져옵니다. 그런 다음, [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment)를 사용하여 VM **Reader** 액세스 권한을 `myStorageAcct`라는 스토리지 계정에 제공합니다.
 

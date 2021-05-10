@@ -1,6 +1,6 @@
 ---
 title: 문제 해결 Azure IoT Hub 오류 409002 LinkCreationConflict
-description: 409002 오류를 해결 하는 방법 이해 LinkCreationConflict
+description: 오류 409002 LinkCreationConflict 해결 방법 이해
 author: jlian
 manager: briz
 ms.service: iot-hub
@@ -9,34 +9,34 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: amqp
-ms.openlocfilehash: 70b9be6fdb500d9f877659a12e6fdc0e206ea964
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: c354eed6e7bf9f2147f8b81a82a06e80a9337c84
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92538224"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106061046"
 ---
 # <a name="409002-linkcreationconflict"></a>409002 LinkCreationConflict
 
-이 문서에서는 **409002 LinkCreationConflict** 오류에 대 한 원인과 해결 방법을 설명 합니다.
+이 문서에서는 **409002 LinkCreationConflict** 오류의 원인과 해결 방법을 설명합니다.
 
 ## <a name="symptoms"></a>증상
 
-장치 연결 끊기 또는 클라우드-장치 메시지 오류와 함께 로그에 **LinkCreationConflict 오류 409002** 이 표시 됩니다.
+디바이스 연결 끊김 또는 클라우드 - 디바이스 메시지 오류와 함께 **409002 LinkCreationConflict** 가 로그에 표시됩니다.
 
 <!-- When using AMQP? -->
 
 ## <a name="cause"></a>원인
 
-일반적으로이 오류는 IoT Hub 클라이언트에 두 개 이상의 연결이 있는 경우에 발생 합니다. 실제로 기존 연결을 사용 하 여 장치에 대 한 새 연결 요청이 도착 하면 IoT Hub이 오류가 발생 한 기존 연결을 닫습니다.
+일반적으로 이 오류는 IoT Hub가 클라이언트에 둘 이상의 연결이 있는 것을 탐지했을 때 발생합니다. 실제로 기존 연결 중인 디바이스에 새 연결 요청이 오면 IoT Hub는 이 오류로 기존 연결을 닫습니다.
 
 ### <a name="cause-1"></a>원인 1
 
-가장 일반적인 경우에는 별도의 문제 (예: [404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md))로 인해 장치의 연결이 끊깁니다. 장치는 연결을 즉시 다시 설정 하려고 하지만, IoT Hub 여전히 장치를 연결 된 것으로 간주 합니다. IoT Hub는 이전 연결을 닫고 이 오류를 기록합니다.
+가장 일반적인 경우 별도의 문제(예: [404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md))로 인해 디바이스 연결이 끊어집니다. 디바이스는 즉시 연결을 다시 설정하려고 하지만 IoT Hub는 여전히 이 디바이스가 연결된 것으로 인식합니다. IoT Hub는 이전 연결을 닫고 이 오류를 기록합니다.
 
 ### <a name="cause-2"></a>원인 2
 
-장치 측 논리에 결함이 있으면 장치가 이미 열려 있는 경우 연결을 설정 하 게 됩니다.
+잘못된 디바이스 측 논리로 인해 디바이스가 이미 열려 있을 때 디바이스에서 연결을 설정합니다.
 
 ## <a name="solution"></a>솔루션
 

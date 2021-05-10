@@ -1,188 +1,188 @@
 ---
 title: Horizon SDK
-description: 수평 SDK를 사용 하면 IoT 용 Azure Defender 개발자는 네트워크 트래픽을 디코딩하는 dissector 플러그 인을 설계 하 여 자동 Defender for IoT 네트워크 분석 프로그램에서 처리할 수 있습니다.
+description: Azure Defender for IoT 개발자는 Horizon SDK를 사용하여 자동화된 Defender for IoT 네트워크 분석 프로그램에서 처리할 수 있도록 네트워크 트래픽을 디코딩하는 디섹터 플러그 인을 설계할 수 있습니다.
 ms.date: 1/13/2021
 ms.topic: article
 ms.openlocfilehash: 500f1d78a6a2ab91284c993a5c56ef8e679db83f
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104782489"
 ---
-# <a name="horizon-proprietary-protocol-dissector"></a>수평 소유 프로토콜 dissector
+# <a name="horizon-proprietary-protocol-dissector"></a>Horizon 독점 프로토콜 디섹터
 
-수평은 독점 프로토콜을 실행 하는 IoT 및 ICS 장치를 보호 하는 데 사용 되는 ODE (Open Development Environment)입니다.
+Horizon은 독점 프로토콜을 실행하는 IoT 및 ICS 디바이스를 보호하는 데 사용되는 ODE(Open Development Environment)입니다.
 
-이 환경은 고객과 기술 파트너를 위한 다음과 같은 솔루션을 제공 합니다.
+이 환경은 고객과 기술 파트너에게 다음과 같은 솔루션을 제공합니다.
 
-- 모든 표준에서 벗어난 공용, 소유, 사용자 지정 프로토콜 또는 프로토콜에 대 한 완전 한 지원. 
+- 공용, 독점, 사용자 지정 프로토콜 또는 모든 표준에서 벗어난 프로토콜에 대한 무제한적이고 완벽한 지원 
 
-- 새 수준의 유연성 및 DPI 개발의 범위입니다.
+- 새로운 차원의 DPI 개발 유연성 및 범위
 
-- IoT 플랫폼 버전에 대 한 Defender를 업그레이드할 필요 없이 눈에 띄게 표시 하 고 제어 하는 도구입니다.
+- Defender for IoT 플랫폼 버전으로 업그레이드할 필요 없이 OT 표시 여부 및 제어 능력을 대폭 확장하는 도구
 
-- 중요 한 정보를 divulging 하지 않고 독점적인 개발을 허용 하는 보안입니다.
+- 중요한 정보 유출 없이 독점 개발할 수 있도록 지원하는 보안 기능
 
-수평 SDK를 사용 하면 IoT 용 Azure Defender 개발자는 네트워크 트래픽을 디코딩하는 dissector 플러그 인을 설계 하 여 자동 Defender for IoT 네트워크 분석 프로그램에서 처리할 수 있습니다.
+Azure Defender for IoT 개발자는 Horizon SDK를 사용하여 자동화된 Defender for IoT 네트워크 분석 프로그램에서 처리할 수 있도록 네트워크 트래픽을 디코딩하는 디섹터 플러그 인을 설계할 수 있습니다.
 
-프로토콜 dissectors는 외부 플러그 인으로 개발 되며 IoT 서비스용 포괄적인 범위와 통합 됩니다. 예를 들어 모니터링, 경고 및 보고 기능을 제공 하는 서비스입니다.
+프로토콜 디섹터는 외부 플러그 인으로 개발되며 포괄적인 Defender for IoT 서비스 범위와 통합됩니다. 예를 들면 모니터링, 경고, 보고 기능을 제공하는 서비스입니다.
 
-## <a name="secure-development-environment"></a>보안 개발 환경 
+## <a name="secure-development-environment"></a>개발 환경 보안 
 
-수평 ODE를 사용 하면 조직 외부에서 공유할 수 없는 사용자 지정 또는 소유 프로토콜을 개발할 수 있습니다. 예를 들어 법률 규정 또는 회사 정책에 의해 발생 합니다.
+Horizon ODE를 사용하면 조직 외부에서 공유할 수 없는 사용자 지정 또는 독점 프로토콜을 개발할 수 있습니다. 예를 들면 법률 규정 또는 회사 정책 때문일 수 있습니다.
 
-다음을 사용 하지 않고 dissector 플러그 인 개발 
+다음을 수행하지 않고 디섹터 플러그 인을 개발합니다. 
 
-- 프로토콜이 정의 되는 방식에 대 한 소유 정보를 노출 합니다.
+- 프로토콜이 정의되는 방식에 대한 비공개 정보 노출.
 
-- 중요 한 PCAPs를 공유 합니다.
+- 중요한 PCAP 공유.
 
 - 규정 준수 규정 위반.
 
 ## <a name="customization-and-localization"></a>사용자 지정 및 지역화  
 
-SDK는 다음과 같은 다양 한 사용자 지정 옵션을 지원 합니다.
+SDK는 다음과 같은 다양한 사용자 지정 옵션을 지원합니다.
 
-  - 함수 코드에 대 한 텍스트입니다. 
+  - 함수 코드에 대한 텍스트. 
 
-  - 경고, 이벤트 및 프로토콜 매개 변수에 대 한 전체 지역화 텍스트입니다. 자세한 내용은 [매핑 파일 만들기 (JSON)](#create-mapping-files-json)를 참조 하세요.
+  - 경고, 이벤트, 프로토콜 매개 변수에 대한 전체 지역화 텍스트. 자세한 내용은 [매핑 파일(JSON) 만들기](#create-mapping-files-json)를 참조하세요.
 
-  :::image type="content" source="media/references-horizon-sdk/localization.png" alt-text="완전히 지역화 된 경고를 봅니다.":::
+  :::image type="content" source="media/references-horizon-sdk/localization.png" alt-text="완전히 지역화된 경고 보기.":::
 
-## <a name="horizon-architecture"></a>수평 아키텍처
+## <a name="horizon-architecture"></a>Horizon 아키텍처
 
-아키텍처 모델에는 세 가지 제품 계층이 포함 되어 있습니다.
+아키텍처 모델에는 세 가지 제품 계층이 포함되어 있습니다.
 
 :::image type="content" source="media/references-horizon-sdk/architecture.png" alt-text="https://lh6.googleusercontent.com/YFePqJv_6jbI_oy3lCQv-hHB1Qly9a3QQ05uMnI8UdTwhOuxpNAedj_55wseYEQQG2lue8egZS-mlnQZPWfFU1dF4wzGQSJIlUqeXEHg9CG4M7ASCZroKgbghv-OaNoxr3AIZtIh":::
 
-## <a name="defender-for-iot-platform-layer"></a>IoT 용 Defender 플랫폼 계층
+## <a name="defender-for-iot-platform-layer"></a>Defender for IoT 플랫폼 계층
 
-IoT 플랫폼 버전에 대 한 Defender를 업그레이드할 필요 없이 IoT 플랫폼용 Defender에서 사용자 지정 dissector 플러그 인에 대 한 즉각적인 통합 및 실시간 모니터링을 사용할 수 있습니다.
+Defender for IoT 플랫폼 버전을 업그레이드할 필요 없이 Defender for IoT 플랫폼에서 사용자 지정 디섹터 플러그 인을 즉시 통합하고 실시간으로 모니터링할 수 있습니다.
 
-## <a name="defender-for-iot-services-layer"></a>IoT 서비스용 Defender 계층
+## <a name="defender-for-iot-services-layer"></a>Defender for IoT 서비스 계층
 
-각 서비스는 특정 프로토콜에서 분리 된 파이프라인으로 설계 되어 더 효율적이 고 독립적인 개발을 가능 하 게 합니다.
+각 서비스는 특정 프로토콜에서 분리된 파이프라인으로 설계되어 더 효율적이고 독립적인 개발을 가능하게 합니다.
 
-각 서비스는 특정 프로토콜에서 분리 된 파이프라인으로 설계 되었습니다. 서비스는 파이프라인에서 트래픽을 수신 대기 합니다. 이러한 사용자는 플러그 인 데이터 및 센서에서 캡처한 트래픽과 상호 작용 하 여 배포 된 프로토콜을 인덱싱하고 트래픽 페이로드를 분석 하 고 보다 효율적이 고 독립적인 개발을 가능 하 게 합니다.
+각 서비스는 특정 프로토콜에서 분리된 파이프라인으로 설계되었습니다. 서비스는 파이프라인에서 트래픽을 수신 대기합니다. 서비스는 플러그 인 데이터 및 센서에서 캡처한 트래픽과 상호 작용하여 배포된 프로토콜을 인덱싱하고 트래픽 페이로드를 분석하고 더 효율적이고 독립적인 개발을 가능하게 합니다.
 
-## <a name="custom-dissector-layer"></a>사용자 지정 dissector 계층 
+## <a name="custom-dissector-layer"></a>사용자 지정 디섹터 계층 
 
-IoT 독점 SDK (c + + 구현 및 JSON 구성 포함) 용 Defender를 사용 하 여 플러그 인을 만들 수 있습니다. 
+Defender for IoT 독점 SDK(C++ 구현 및 JSON 구성 포함)를 사용하여 다음을 수행하는 플러그 인을 만들 수 있습니다. 
 
-- 프로토콜을 식별 하는 방법 정의
+- 프로토콜을 식별하는 방법 정의
 
-- 추출 하려는 필드를 트래픽에 매핑하고 추출 하는 방법을 정의 합니다. 
+- 트래픽에서 추출하려는 필드를 매핑하고 필드를 추출하는 방법 정의 
 
-- IoT 서비스용 Defender와 통합 하는 방법 정의
+- Defender for IoT 서비스와 통합하는 방법 정의
 
-  :::image type="content" source="media/references-horizon-sdk/layers.png" alt-text="기본 제공 계층입니다.":::
+  :::image type="content" source="media/references-horizon-sdk/layers.png" alt-text="기본 제공 계층.":::
 
-IoT 용 Defender는 일반적인 프로토콜에 대 한 기본 dissectors를 제공 합니다. 이러한 프로토콜을 기반으로 하는 dissectors를 빌드할 수 있습니다.
+Defender for IoT는 일반 프로토콜에 대한 기본 디섹터를 제공합니다. 프로토콜 맨 위에 디섹터를 빌드할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-## <a name="what-this-sdk-contains"></a>이 SDK에 포함 된 내용 
+## <a name="what-this-sdk-contains"></a>이 SDK에 포함된 내용 
 
-이 키트에는 개발에 필요한 헤더 파일이 포함 되어 있습니다. 개발 프로세스에는이 SDK에 설명 된 기본 단계와 선택적 고급 단계가 필요 합니다.
+이 키트에는 개발에 필요한 헤더 파일이 들어 있습니다. 개발 프로세스에는 이 SDK에서 설명하는 기본 단계와 선택적 고급 단계가 필요합니다.
 
-<support@cyberx-labs.com>헤더 파일 및 기타 리소스를 받는 방법에 대 한 정보를 문의 하세요.
+헤더 파일 및 기타 리소스를 받는 방법에 대한 정보는 <support@cyberx-labs.com>에 문의하세요.
 
 ## <a name="about-the-environment-and-setup"></a>환경 및 설치 정보 
 
 ### <a name="requirements"></a>요구 사항 
 
-- 기본 개발 환경은 Linux입니다. Windows 환경에서 개발 하는 경우 Linux 시스템에서 VM을 사용 하는 것이 좋습니다.
+- 선호하는 개발 환경은 Linux입니다. Windows 환경에서 개발하는 경우 Linux 시스템에서 VM을 사용하는 것이 좋습니다.
 
-- 컴파일 프로세스의 경우 GCC v7.4.0 이상을 사용 합니다. C + + 17에서 지원 되는 stdlib.h의 모든 표준 클래스를 사용 합니다.
+- 컴파일 프로세스에서는 GCC 7.4.0 이상을 사용합니다. C++17에서 지원되는 stdlib의 모든 표준 클래스를 사용합니다.
 
-- IoT 용 Defender 버전 3.0 이상
+- Defender for IoT 버전 3.0 이상.
 
 ### <a name="process"></a>Process
 
-1. C/c + + 개발자를 위한 Eclipse IDE를 [다운로드](https://www.eclipse.org/) 합니다. 선호 하는 다른 IDE를 사용할 수 있습니다. 이 문서에서는 Eclipse IDE를 사용 하 여 구성을 안내 합니다.
+1. Eclipse IDE for C/C++ Developers [다운로드](https://www.eclipse.org/)합니다. 원하는 다른 IDE를 사용해도 됩니다. 이 문서에서는 Eclipse IDE를 사용한 구성을 안내합니다.
 
-1. Eclipse IDE를 시작 하 고 프로젝트를 저장할 작업 영역을 구성한 후 **ctrl + n** 을 눌러 c + + 프로젝트로 만듭니다.
+1. Eclipse IDE를 시작하고 프로젝트를 저장할 작업 영역을 구성한 후 **Ctrl+n** 을 눌러 C++ 프로젝트로 만듭니다.
 
-1. 다음 화면에서 이름을 개발 하려는 프로토콜로 설정 하 고 프로젝트 형식을 및로 선택 합니다 `Shared Library` `AND Linux GCC` .
+1. 다음 화면에서 개발하려는 프로토콜로 이름을 설정하고 프로젝트 형식을 `Shared Library` 및 `AND Linux GCC`로 선택합니다.
 
-1. **C/c + + 빌드**  >  **설정**  >  **도구 설정**  >  **GCC c + + 컴파일러**  >  **기타**  >  **눈금 위치 독립적 코드** 에서 프로젝트 속성을 편집 합니다.
+1. **C/C++ 빌드** > **설정** > **도구 설정** > **GCC C++ 컴파일러** > **기타** > **눈금 위치 독립적 코드** 에서 프로젝트 속성을 편집합니다.
 
-1. SDK를 사용 하 여 받은 예제 코드를 붙여넣고 컴파일합니다.
+1. SDK를 사용하여 받은 예제 코드를 붙여넣고 컴파일합니다.
 
-1. Release.tar.gz 파일에 아티팩트 (library, config.json 및 metadata)를 추가 하 고 파일 확장명을 hdp로 변경 합니다 \<XXX> . 여기서은 \<XXX> 플러그 인의 이름입니다.
+1. tar.gz 파일에 아티팩트(라이브러리, config.json 및 메타데이터)를 추가하고 파일 확장명을 \<XXX>.hdp로 변경합니다. 여기서 \<XXX>는 플러그 인의 이름입니다.
 
 ### <a name="research"></a>연구 
 
-시작 하기 전에 다음을 확인 합니다.
+시작하기 전에 다음을 수행했는지 확인합니다.
 
-- 사용 가능한 경우 프로토콜 사양을 읽습니다.
+- 가능한 경우 프로토콜 사양을 읽습니다.
 
-- 추출 하려는 프로토콜 필드를 확인 합니다.
+- 추출하려는 프로토콜 필드를 파악합니다.
 
-- 매핑 목표를 계획 했습니다.
+- 매핑 목표를 계획했습니다.
 
 ## <a name="about-plugin-files"></a>플러그 인 파일 정보 
 
-개발 프로세스 중에 세 개의 파일이 정의 됩니다.
+개발 프로세스 중에 세 개의 파일이 정의됩니다.
 
-### <a name="json-configuration-file-required"></a>JSON 구성 파일 (필수) 
+### <a name="json-configuration-file-required"></a>JSON 구성 파일(필수) 
 
-이 파일은 dissector ID와 선언, 종속성, 통합 요구 사항, 유효성 검사 매개 변수 및 매핑 정의를 정의 하 여 값을 이름으로, 숫자를 텍스트로 변환 해야 합니다. 자세한 내용은 다음 링크를 참조 하세요.
+이 파일에서 디섹터 ID와 선언, 종속성, 통합 요구 사항, 유효성 검사 매개 변수, 매핑 정의를 정의하여 값을 이름으로, 숫자를 텍스트로 변환해야 합니다. 자세한 내용은 다음 링크를 참조하세요.
 
-- [구성 파일 준비 (JSON)](#prepare-the-configuration-file-json)
+- [구성 파일(JSON) 준비](#prepare-the-configuration-file-json)
 
 - [구현 코드 유효성 검사 준비](#prepare-implementation-code-validations)
 
-- [장치 메타 데이터 추출](#extract-device-metadata)
+- [디바이스 메타데이터 추출](#extract-device-metadata)
 
-- [인덱싱 서비스에 연결 (기준)](#connect-to-an-indexing-service-baseline)
+- [인덱싱 서비스에 연결(기준)](#connect-to-an-indexing-service-baseline)
 
-### <a name="implementation-code-c-required"></a>구현 코드: c + + (필수)
+### <a name="implementation-code-c-required"></a>구현 코드: C++(필수)
 
-구현 코드 (CPP)는 원시 트래픽을 구문 분석 하 여 서비스, 클래스 및 함수 코드와 같은 값에 매핑합니다. 계층 필드를 추출 하 여 JSON 구성 파일의 인덱스 이름에 매핑합니다. CPP에서 추출할 필드가 구성 파일에 정의 되어 있습니다. 자세한 내용은 [구현 코드 준비 (c + +)](#prepare-the-implementation-code-c)를 참조 하세요.
+구현 코드(CPP)는 원시 트래픽을 구문 분석하여 서비스, 클래스, 함수 코드와 같은 값에 매핑합니다. 계층 필드를 추출하고 JSON 구성 파일의 인덱스 이름에 매핑합니다. CPP에서 추출할 필드가 구성 파일에 정의되어 있습니다. 자세한 내용은 [구현 코드(C++) 준비](#prepare-the-implementation-code-c)를 참조하세요.
 
-### <a name="mapping-files-optional"></a>파일 매핑 (옵션)
+### <a name="mapping-files-optional"></a>매핑 파일(옵션)
 
-엔터프라이즈 환경의 요구 사항에 맞게 플러그 인 출력 텍스트를 사용자 지정할 수 있습니다.
+엔터프라이즈 환경의 요구 사항을 충족하도록 플러그 인 출력 텍스트를 사용자 지정할 수 있습니다.
 
-:::image type="content" source="media/references-horizon-sdk/localization.png" alt-text="마이그레이션이나":::
+:::image type="content" source="media/references-horizon-sdk/localization.png" alt-text="마이그레이션":::
 
-코드를 변경 하지 않고 텍스트를 업데이트 하는 매핑 파일을 정의 하 고 업데이트할 수 있습니다. 각 파일은 하나 이상의 필드를 매핑할 수 있습니다.
+코드를 변경하지 않고 텍스트를 업데이트하는 매핑 파일을 정의하고 업데이트할 수 있습니다. 각 파일은 하나 이상의 필드를 매핑할 수 있습니다.
 
-  - 필드 값을 이름에 매핑합니다 (예: 1: Reset, 2: Start, 3: Stop).
+  - 필드 값을 이름에 매핑(예: 1:Reset, 2:Start, 3:Stop).
 
-  - 여러 언어를 지원 하도록 텍스트를 매핑합니다.
+  - 여러 언어를 지원하도록 텍스트 매핑.
 
-자세한 내용은 [매핑 파일 만들기 (JSON)](#create-mapping-files-json)를 참조 하세요.
+자세한 내용은 [매핑 파일(JSON) 만들기](#create-mapping-files-json)를 참조하세요.
 
-## <a name="create-a-dissector-plugin-overview"></a>Dissector 플러그 인 만들기 (개요)
+## <a name="create-a-dissector-plugin-overview"></a>디섹터 플러그 인 만들기(개요)
 
-1. [환경 및 설정 정보](#about-the-environment-and-setup) 섹션을 검토 합니다.
+1. [환경 및 설정 정보](#about-the-environment-and-setup) 섹션을 검토합니다.
 
-2.  [구현 코드 (c + +)를 준비](#prepare-the-implementation-code-c)합니다. 파일 **에template.js** 를 복사 하 고 요구 사항에 맞게 편집 합니다. 키를 변경 하지 마십시오. 
+2.  [구현 코드(C++)를 준비](#prepare-the-implementation-code-c)합니다. **template.json** 파일을 복사하고 요구 사항에 맞게 편집합니다. 키를 변경하지 마세요. 
 
-3. [구성 파일 (JSON)을 준비](#prepare-the-configuration-file-json)합니다. **템플릿 .cpp** 파일을 복사 하 고 override 메서드를 구현 합니다. 자세한 내용은 [마감일::p rotocol:: BaseParser](#horizonprotocolbaseparser) 를 참조 하세요.
+3. [구성 파일(JSON)을 준비](#prepare-the-configuration-file-json)합니다. **template.cpp** 파일을 복사하고 재정의 메서드를 구현합니다. 자세한 내용은 [horizon::protocol::BaseParser](#horizonprotocolbaseparser)를 참조하세요.
 
 4. [구현 코드 유효성 검사를 준비](#prepare-implementation-code-validations)합니다.
 
-## <a name="prepare-the-implementation-code-c"></a>구현 코드 준비 (c + +)
+## <a name="prepare-the-implementation-code-c"></a>구현 코드(C++) 준비
 
-CPP 파일은 다음을 담당 하는 파서입니다.
+CPP 파일은 다음을 수행하는 파서입니다.
 
-- 패킷 헤더 및 페이로드 (예: 헤더 길이 또는 페이로드 구조)의 유효성을 검사 하는 중입니다.
+- 패킷 헤더 및 페이로드의 유효성 검사(예: 헤더 길이 또는 페이로드 구조).
 
-- 헤더 및 페이로드에서 정의 된 필드로 데이터를 추출 하는 중입니다.
+- 헤더 및 페이로드에서 정의된 필드로 데이터 추출.
 
-- JSON 파일에서 구성 된 필드 추출을 구현 합니다.
+- JSON 파일에서 구성된 필드 추출 구현.
 
 ### <a name="what-to-do"></a>알아두어야 할 사항
 
-템플릿 **.cpp** 파일을 복사 하 고 override 메서드를 구현 합니다. 자세한 내용은 [마감일::p rotocol:: BaseParser](#horizonprotocolbaseparser)를 참조 하세요.
+**template.cpp** 템플릿 파일을 복사하고 재정의 메서드를 구현합니다. 자세한 내용은 [horizon::protocol::BaseParser](#horizonprotocolbaseparser)를 참조하세요.
 
-### <a name="basic-c-template-sample"></a>기본 c + + 템플릿 샘플 
+### <a name="basic-c-template-sample"></a>기본 C++ 템플릿 샘플 
 
-이 섹션에서는 IoT 수평 프로토콜용 샘플 Defender에 대 한 표준 함수를 사용 하는 기본 프로토콜 템플릿을 제공 합니다.
+이 섹션에서는 샘플 Defender for IoT Horizon 프로토콜에 대한 표준 함수와 함께 기본 프로토콜 템플릿을 제공합니다.
 
 ```C++
 #include “plugin/plugin.h”
@@ -208,23 +208,23 @@ extern "C" {
 
 ```
 
-### <a name="basic-c-template-description"></a>기본 c + + 템플릿 설명  
+### <a name="basic-c-template-description"></a>기본 C++ 템플릿 설명  
 
-이 섹션에서는 기본 프로토콜 템플릿과 IoT 수평 프로토콜용 샘플 Defender에 대 한 표준 함수에 대해 설명 합니다. 
+이 섹션에서는 샘플 Defender for IoT Horizon 프로토콜에 대한 표준 함수 설명과 함께 기본 프로토콜 템플릿을 제공합니다. 
 
-### <a name="include-pluginpluginh"></a>"plugin/plugin. h"를 #include 합니다.
+### <a name="include-pluginpluginh"></a>#include “plugin/plugin.h”
 
-플러그 인에서 사용 하는 정의입니다. 헤더 파일에는 개발을 완료 하는 데 필요한 모든 항목이 포함 되어 있습니다.
+플러그 인에서 사용하는 정의입니다. 헤더 파일에는 개발을 완료하는 데 필요한 모든 항목이 들어 있습니다.
 
-### <a name="horizonprotocolbaseparser"></a>마감일::p rotocol:: BaseParser
+### <a name="horizonprotocolbaseparser"></a>horizon::protocol::BaseParser
 
-수평 인프라와 플러그 인 계층 간의 통신 인터페이스입니다. 자세한 내용은 계층에 대 한 개요는 [수평 아키텍처](#horizon-architecture) 를 참조 하세요.
+Horizon 인프라와 플러그 인 계층 간의 통신 인터페이스입니다. 자세한 내용은 [Horizon 아키텍처](#horizon-architecture)에서 계층에 대한 개요를 참조하세요.
 
-ProcessLayer는 데이터를 처리 하는 데 사용 되는 방법입니다.
+processLayer는 데이터를 처리하는 데 사용되는 메서드입니다.
 
-- 함수 코드의 첫 번째 매개 변수는 이전에 처리 된 데이터를 검색 하 고, 새 필드를 만들고, 계층을 만드는 데 사용 되는 처리 유틸리티입니다.
+- 함수 코드의 첫 번째 매개 변수는 이전에 처리된 데이터를 검색하고, 새 필드 및 계층을 만드는 데 사용되는 처리 유틸리티입니다.
 
-- 함수 코드의 두 번째 매개 변수는 이전 파서에서 전달 된 현재 데이터입니다.
+- 함수 코드의 두 번째 매개 변수는 이전 파서에서 전달된 현재 데이터입니다.
 
 ```C++
 horizon::protocol::ParserResult processLayer(horizon::protocol::management::IProcessingUtils &ctx,
@@ -234,27 +234,27 @@ horizon::protocol::ParserResult processLayer(horizon::protocol::management::IPro
 
 ### <a name="create_parser"></a>create_parser
 
-를 사용 하 여 파서의 인스턴스를 만듭니다.
+파서의 인스턴스를 만들 때 사용합니다.
 
 :::image type="content" source="media/references-horizon-sdk/code.png" alt-text="https://lh5.googleusercontent.com/bRNtyLpBA3LvDXttSPbxdBK7sHiHXzGXGhLiX3hJ7zCuFhbVsbBhgJlKI6Fd_yniueQqWbClg5EojDwEZSZ219X1Z7osoa849iE9X8enHnUb5to5dzOx2bQ612XOpWh5xqg0c4vR":::
 
 ## <a name="protocol-function-code-sample"></a>프로토콜 함수 코드 샘플 
 
-이 섹션에서는 코드 번호 (2 바이트)와 메시지 길이 (4 바이트)를 추출 하는 방법의 예를 제공 합니다.
+이 섹션에서는 코드 번호(2바이트)와 메시지 길이(4바이트)를 추출하는 방법의 예를 제공합니다.
 
-이 작업은 JSON 구성 파일에 제공 된 endian에 따라 수행 됩니다. 즉, 프로토콜이 *거의 endian* 이 고 센서가 작은 endian 컴퓨터에서 실행 되는 경우에는 변환 됩니다.
+이 작업은 JSON 구성 파일에 제공된 endian에 따라 수행됩니다. 즉, 프로토콜이 *little endian* 이고 센서가 little endian을 사용하여 머신에서 실행되는 경우 변환됩니다.
 
-또한 계층은 데이터를 저장 하기 위해 생성 됩니다. 처리 유틸리티에서 *Fieldmanager* 를 사용 하 여 새 필드를 만듭니다. 필드에는 *문자열*, *숫자*, *원시 데이터*, *배열* (특정 형식) 또는 *복합* 유형 중 하나만 사용할 수 있습니다. 이 계층에는 ID가 인 숫자, 원시 또는 문자열이 포함 될 수 있습니다.
+또한 데이터를 저장할 계층이 생성됩니다. 처리 유틸리티에서 *fieldsManager* 를 사용하여 새 필드를 만듭니다. 필드에는 *문자열*, *숫자*, *원시 데이터*, *배열*(특정 형식) 또는 *복합* 형식 중 하나만 사용할 수 있습니다. 이 계층에는 숫자, 원시 또는 문자열 ID가 포함될 수 있습니다.
 
-아래 샘플에서는 다음 두 필드를 추출 합니다.
+아래 샘플에서는 다음 두 필드가 추출됩니다.
 
 - `function_code_number`
 
 - `headerLength`
 
-새 레이어가 만들어지고 추출 된 필드가 여기에 복사 됩니다.
+새 계층이 만들어지고 추출된 필드가 여기에 복사됩니다.
 
-아래 샘플에서는 플러그 인 처리를 위해 구현 된 기본 논리 인 특정 함수에 대해 설명 합니다.
+아래 샘플에서는 플러그 인 처리에 대해 구현된 기본 논리인 특정 함수에 대해 설명합니다.
 
 ```C++
 namespace {
@@ -278,54 +278,54 @@ namespace {
 
 ### <a name="related-json-field"></a>관련 JSON 필드 
 
-:::image type="content" source="media/references-horizon-sdk/json.png" alt-text="관련 json 필드입니다.":::
+:::image type="content" source="media/references-horizon-sdk/json.png" alt-text="관련 json 필드.":::
 
-## <a name="prepare-the-configuration-file-json"></a>구성 파일 준비 (JSON)
+## <a name="prepare-the-configuration-file-json"></a>구성 파일(JSON) 준비
 
-수평 SDK는 데이터를 저장 하 고 전송 하는 간단한 형식인 표준 JavaScript Object Notation (JSON)를 사용 하며, 전용 스크립팅 언어가 필요 하지 않습니다.
+Horizon SDK는 데이터를 저장하고 전송하는 간단한 형식인 표준 JSON(JavaScript Object Notation)을 사용하며, 전용 스크립팅 언어가 필요하지 않습니다.
 
-이 단원에서는 최소 JSON 구성 선언과 관련 된 구조에 대해 설명 하 고 프로토콜을 정의 하는 샘플 구성 파일을 제공 합니다. 이 프로토콜은 장치 검색 서비스와 자동으로 통합 됩니다.
+이 섹션에서는 최소 JSON 구성 선언 및 관련된 구조를 설명하고 프로토콜을 정의하는 샘플 구성 파일을 제공합니다. 이 프로토콜은 디바이스 검색 서비스와 자동으로 통합됩니다.
 
 ## <a name="file-structure"></a>파일 구조
 
-아래 샘플에서는 파일 구조에 대해 설명 합니다.
+아래 샘플에서는 파일 구조에 대해 설명합니다.
 
-:::image type="content" source="media/references-horizon-sdk/structure.png" alt-text="파일 구조의 샘플입니다.":::
+:::image type="content" source="media/references-horizon-sdk/structure.png" alt-text="파일 구조의 샘플.":::
 
 ### <a name="what-to-do"></a>알아두어야 할 사항
 
-템플릿 파일을 복사 하 `config.json` 고 요구 사항에 맞게 편집 합니다. 키를 변경 하지 마십시오. 키는 [샘플 JSON 구성 파일](#sample-json-configuration-file)에서 빨간색으로 표시 됩니다. 
+템플릿 `config.json` 파일을 복사하고 요구 사항에 맞게 편집합니다. 키를 변경하지 마세요. 키는 [샘플 JSON 구성 파일](#sample-json-configuration-file)에서 빨간색으로 표시됩니다. 
 
 ### <a name="file-naming-requirements"></a>파일 명명 요구 사항 
 
-JSON 구성 파일은로 저장 해야 합니다 `config.json` .
+JSON 구성 파일은 `config.json`으로 저장해야 합니다.
 
 ### <a name="json-configuration-file-fields"></a>JSON 구성 파일 필드
 
-이 단원에서는 정의할 JSON 구성 필드에 대해 설명 합니다. 필드 *레이블은* 변경 하지 마십시오.
+이 섹션에서는 정의할 JSON 구성 필드에 대해 설명합니다. 필드 *레이블* 은 변경하지 마세요.
 
 ### <a name="basic-parameters"></a>기본 매개 변수
 
-이 섹션에서는 기본 매개 변수를 설명 합니다.
+이 섹션에서는 기본 매개 변수에 대해 설명합니다.
 
 | 매개 변수 레이블 | Description | Type |
 |--|--|--|
-| **ID** | 프로토콜의 이름입니다. 기본값을 삭제 하 고 표시 되는 프로토콜의 이름을 추가 합니다. | String |
-| **endianess** | 다중 바이트 데이터를 인코딩하는 방법을 정의 합니다. "사소한" 또는 "빅" 용어를 사용 합니다. 프로토콜 사양 또는 트래픽 기록에서 가져옵니다. | String |
-| **sanity_failure_codes** | 이러한 코드는 코드 id와 관련 된 온전성 충돌이 있을 때 파서에서 반환 되는 코드입니다. C + + 섹션에서 매직 넘버 유효성 검사를 참조 하세요. | String |
-| **malformed_codes** | 이러한 코드는 올바르게 식별 되었지만 오류가 검색 되는 코드입니다. 예를 들어, 필드 길이가 너무 짧거나 길고 값이 잘못 된 경우입니다. | String |
-| **dissect_as** | 특정 프로토콜 트래픽이 도착할 위치를 정의 하는 배열입니다. | TCP/UDP, 포트 등 |
-| **필드** | 트래픽에서 추출 되는 필드의 선언입니다. 각 필드에는 고유한 ID (이름)와 형식 (숫자, 문자열, 원시, 배열, 복합)이 있습니다. 예를 들어 구현 파서 파일에서 추출 된 field [함수](https://docs.google.com/document/d/14nm8cyoGiaE0ODOYQd_xjULxVz9U_bjfPKkcDhOFr5Q/edit#bookmark=id.6s1zcxa9184k) 구성 파일에 작성 된 필드도 계층에 추가할 수 있습니다. |  |
+| **ID** | 프로토콜의 이름입니다. 기본값을 삭제하고 표시되는 프로토콜의 이름을 추가합니다. | String |
+| **endianess** | 멀티바이트 데이터를 인코딩하는 방법을 정의합니다. "little" 또는 "big" 용어만 사용합니다. 프로토콜 사양 또는 트래픽 기록에서 가져옵니다. | String |
+| **sanity_failure_codes** | 코드 ID와 관련하여 온전성 충돌이 있을 때 파서에서 반환되는 코드입니다. C++ 섹션에서 매직 넘버 유효성 검사를 참조하세요. | String |
+| **malformed_codes** | 올바르게 식별되었지만 오류가 탐지되는 코드입니다. 예를 들어 필드 길이가 너무 짧거나 너무 길거나, 값이 잘못된 경우입니다. | String |
+| **dissect_as** | 특정 프로토콜 트래픽이 도착해야 하는 위치를 정의하는 배열입니다. | TCP/UDP, 포트 등 |
+| **필드** | 트래픽에서 추출되는 필드의 선언입니다. 각 필드에는 고유한 ID(이름)와 형식(숫자, 문자열, 원시, 배열, 복합)이 있습니다. 예를 들면 구현 파서 파일에서 추출된 필드 [함수](https://docs.google.com/document/d/14nm8cyoGiaE0ODOYQd_xjULxVz9U_bjfPKkcDhOFr5Q/edit#bookmark=id.6s1zcxa9184k)가 있습니다. 구성 파일에 작성된 필드는 계층에 추가할 수 있는 유일한 필드입니다. |  |
 
 ### <a name="other-advanced-fields"></a>기타 고급 필드 
 
-이 섹션에서는 다른 필드에 대해 설명 합니다.
+이 섹션에서는 기타 필드에 대해 설명합니다.
 
 | 매개 변수 레이블 | Description |
 |-----------------|--------|
-| **허용 목록** | 프로토콜 값을 인덱싱하고 데이터 마이닝 보고서에 표시할 수 있습니다. 이러한 보고서는 네트워크 기준선을 반영 합니다. :::image type="content" source="media/references-horizon-sdk/data-mining.png" alt-text="데이터 마이닝 뷰의 샘플입니다."::: <br /> 자세한 내용은 [인덱싱 서비스에 연결 (기준)](#connect-to-an-indexing-service-baseline) 을 참조 하세요. |
-| **펌웨어입니다** | 펌웨어 정보를 추출 하 고, 인덱스 값을 정의 하 고, 플러그 인 프로토콜에 대 한 펌웨어 경고를 트리거할 수 있습니다. 자세한 내용은 [펌웨어 데이터 추출](#extract-firmware-data) 항목을 참조 하세요. |
-| **value_mapping** | 매핑 파일을 정의 하 고 업데이트 하 여 엔터프라이즈 환경의 요구 사항에 맞게 플러그 인 출력 텍스트를 사용자 지정할 수 있습니다. 예를 들어 언어 파일에 매핑할 수 있습니다. 코드를 변경 하거나 영향을 주지 않고 텍스트에 변경 내용을 쉽게 구현할 수 있습니다. 자세한 내용은 [매핑 파일 만들기 (JSON)](#create-mapping-files-json) 를 참조 하세요. |
+| **allow lists** | 프로토콜 값을 인덱싱하고 데이터 마이닝 보고서에 표시할 수 있습니다. 데이터 마이닝 보고서는 네트워크 기준을 반영합니다. :::image type="content" source="media/references-horizon-sdk/data-mining.png" alt-text="데이터 마이닝 보기의 샘플."::: <br /> 자세한 내용은 [인덱싱 서비스에 연결(기준)](#connect-to-an-indexing-service-baseline)을 참조하세요. |
+| **firmware** | 펌웨어 정보를 추출하고, 인덱스 값을 정의하고, 플러그 인 프로토콜에 대한 펌웨어 경고를 트리거할 수 있습니다. 자세한 내용은 [펌웨어 데이터 추출](#extract-firmware-data)을 참조하세요. |
+| **value_mapping** | 매핑 파일을 정의하고 업데이트하여 엔터프라이즈 환경의 요구 사항에 맞게 플러그 인 출력 텍스트를 사용자 지정할 수 있습니다. 예를 들어 언어 파일에 매핑할 수 있습니다. 코드를 변경하거나 영향을 주지 않고 텍스트에 변경 내용을 쉽게 구현할 수 있습니다. 자세한 내용은 [매핑 파일(JSON) 만들기](#create-mapping-files-json)를 참조하세요. |
 
 ## <a name="sample-json-configuration-file"></a>샘플 JSON 구성 파일
 
@@ -375,21 +375,21 @@ JSON 구성 파일은로 저장 해야 합니다 `config.json` .
 
 ## <a name="prepare-implementation-code-validations"></a>구현 코드 유효성 검사 준비
 
-이 단원에서는 c + + 코드 유효성 검사 함수 구현에 대해 설명 하 고 샘플 코드를 제공 합니다. 다음 두 계층의 유효성 검사를 사용할 수 있습니다.
+이 섹션에서는 C++ 코드 유효성 검사 함수 구현에 대해 설명하고 샘플 코드를 제공합니다. 다음 두 계층의 유효성 검사를 사용할 수 있습니다.
 
-- 검사.
+- 온전성.
 
-- 코드 형식이 잘못 되었습니다.
+- 잘못된 형식의 코드.
 
-작동 하는 플러그 인을 빌드하기 위해 유효성 검사 코드를 만들 필요가 없습니다. 유효성 검사 코드를 준비 하지 않은 경우 성공적으로 처리 되었음을 나타내는 센서 데이터 마이닝 보고서를 검토할 수 있습니다.
+작동하는 플러그 인을 빌드하기 위해 유효성 검사 코드를 만들 필요가 없습니다. 유효성 검사 코드를 준비하지 않은 경우 성공적으로 처리되었음을 나타내는 센서 데이터 마이닝 보고서를 검토할 수 있습니다.
 
-필드 값은 매핑 파일의 텍스트에 매핑되고 처리에 영향을 주지 않고 원활 하 게 업데이트할 수 있습니다.
+필드 값은 매핑 파일의 텍스트에 매핑되며 처리에 영향을 주지 않고 원활하게 업데이트할 수 있습니다.
 
 ## <a name="sanity-code-validations"></a>온전성 코드 유효성 검사 
 
-이렇게 하면 전송 된 패킷이 프로토콜의 유효성 검사 매개 변수와 일치 하는지 확인 하 여 트래픽 내에서 프로토콜을 식별 하는 데 도움이 됩니다.
+전송된 패킷이 프로토콜의 유효성 검사 매개 변수와 일치하는지 확인하는 것으로, 트래픽 내에서 프로토콜을 식별하는 데 도움이 됩니다.
 
-예를 들어, 처음 8 바이트를 *매직 숫자로* 사용 합니다. 온전성에 오류가 발생 하는 경우 온전성 실패 응답이 반환 됩니다.
+예를 들어 처음 8바이트를 *매직 넘버* 로 사용합니다. 온전성에 오류가 발생하는 경우 온전성 오류 응답이 반환됩니다.
 
 예를 들면 다음과 같습니다.
 
@@ -408,35 +408,35 @@ processLayer(horizon::protocol::management::IProcessingUtils &ctx,
     }
 ```
 
-다른 관련 플러그 인을 배포한 경우 해당 플러그 인에 대해 패킷의 유효성이 검사 됩니다.
+기타 관련 플러그 인을 배포한 경우 해당 플러그 인에 대해 패킷의 유효성이 검사됩니다.
 
-## <a name="malformed-code-validations"></a>잘못 된 형식의 코드 유효성 검사 
+## <a name="malformed-code-validations"></a>잘못된 형식의 코드 유효성 검사 
 
-잘못 된 유효성 검사는 프로토콜의 유효성을 검사 한 후에 사용 됩니다.
+프로토콜이 유효성 검사를 통해 문제가 없다고 판명된 이후에는 잘못된 형식에 대한 유효성 검사가 사용됩니다.
 
-프로토콜을 기반으로 하는 패킷을 처리 하는 데 실패 하면 오류 응답이 반환 됩니다.
+프로토콜을 기반으로 한 패킷을 처리하는 데 실패하면 실패 응답이 반환됩니다.
 
-:::image type="content" source="media/references-horizon-sdk/failure.png" alt-text="형식이 잘못 된 코드":::
+:::image type="content" source="media/references-horizon-sdk/failure.png" alt-text="잘못된 형식의 코드":::
 
-## <a name="c-sample-with-validations"></a>유효성 검사가 포함 된 c + + 샘플
+## <a name="c-sample-with-validations"></a>유효성 검사를 사용한 C++ 샘플
 
-함수에 따라 프로세스는 아래 예제와 같이 수행 됩니다.
+함수에 따라 프로세스는 아래 예제와 같이 수행됩니다.
 
 ### <a name="function-20"></a>함수 20 
 
-- 펌웨어로 처리 됩니다.
+- 펌웨어로 처리됩니다.
 
-- 필드는 함수에 따라 읽혀집니다.
+- 함수에 따라 필드를 읽습니다.
 
-- 필드는 계층에 추가 됩니다.
+- 필드가 계층에 추가됩니다.
 
 ### <a name="function-10"></a>함수 10 
 
-- 함수는 보다 구체적인 작업 인 다른 하위 함수를 포함 합니다.
+- 함수에 보다 구체적인 작업인 다른 하위 함수가 포함되어 있습니다.
 
-- 하위 함수를 읽고 계층에 추가 합니다.
+- 하위 함수를 읽고 계층에 추가합니다.
 
-이 작업이 완료 되 면 처리가 완료 된 것입니다. 반환 값은 dissector 계층이 성공적으로 처리 되었는지 여부를 나타냅니다. 이 경우 계층을 사용할 수 있게 됩니다.
+이 작업을 완료하면 처리가 완료됩니다. 반환 값은 디섹터 계층이 성공적으로 처리되었는지를 나타냅니다. 성공적으로 처리된 경우 계층을 사용할 수 있게 됩니다.
 
 ```C++
 #include "plugin/plugin.h"
@@ -540,21 +540,21 @@ extern "C" {
 }
 ```
 
-## <a name="extract-device-metadata"></a>장치 메타 데이터 추출
+## <a name="extract-device-metadata"></a>디바이스 메타데이터 추출
 
-자산에서 다음 메타 데이터를 추출할 수 있습니다.
+자산에 대한 다음 메타데이터를 추출할 수 있습니다.
 
-  - `Is_distributed_control_system` -프로토콜이 분산 제어 시스템에 포함 되어 있는지 여부를 나타냅니다. (예: SCADA protocol은 false 여야 함)
+  - `Is_distributed_control_system` - 프로토콜이 분산 제어 시스템에 포함되어 있는지를 나타냅니다. 예를 들면 SCADA 프로토콜은 false여야 합니다.
 
-  - `Has_protocol_address` – 프로토콜 주소가 있는지 여부를 나타냅니다. 현재 프로토콜에 대 한 특정 주소 (예: MODBUS 단위 식별자)
+  - `Has_protocol_address` – 프로토콜 주소, 즉 현재 프로토콜에 대한 특정 주소(예: MODBUS 단위 식별자)가 있는지를 나타냅니다.
 
-  - `Is_scada_protocol` -프로토콜이 OT 네트워크와 관련 되어 있는지 여부를 나타냅니다.
+  - `Is_scada_protocol` - 프로토콜이 OT 네트워크와 관련이 있는지를 나타냅니다.
 
-  - `Is_router_potential` -프로토콜이 주로 라우터를 사용 하는지 여부를 나타냅니다. 예를 들면 LLDP, CDP 또는 STP가 있습니다.
+  - `Is_router_potential` - 프로토콜을 주로 라우터에서 사용하는지를 나타냅니다. 예를 들면 LLDP, CDP 또는 STP가 있습니다.
 
-이를 위해서는 메타 데이터 속성을 사용 하 여 JSON 구성 파일을 업데이트 해야 합니다.
+이 작업을 수행하려면 메타데이터 속성을 사용하여 JSON 구성 파일을 업데이트해야 합니다.
 
-## <a name="json-sample-with-metadata"></a>메타 데이터가 포함 된 JSON 샘플 
+## <a name="json-sample-with-metadata"></a>메타데이터를 사용한 JSON 샘플 
 
 ```json
 
@@ -608,67 +608,67 @@ extern "C" {
 
 ## <a name="extract-programming-code"></a>프로그래밍 코드 추출 
 
-프로그래밍 이벤트가 발생 하는 경우 코드 콘텐츠를 추출할 수 있습니다. 추출 된 콘텐츠를 통해 다음을 수행할 수 있습니다.
+프로그래밍 이벤트가 발생하는 경우 코드 콘텐츠를 추출할 수 있습니다. 추출된 콘텐츠를 통해 다음을 수행할 수 있습니다.
 
-- 여러 프로그래밍 이벤트에서 코드 파일 콘텐츠를 비교 합니다.
+- 다른 프로그래밍 이벤트의 코드 파일 콘텐츠를 비교합니다.
 
-- 권한 없는 프로그래밍에 대 한 경고를 트리거합니다.  
+- 무단 프로그래밍에 대한 경고를 트리거합니다.  
 
-- 프로그래밍 코드 파일을 받기 위한 이벤트를 트리거합니다.
+- 프로그래밍 코드 파일에 대한 이벤트를 트리거합니다.
 
-  :::image type="content" source="media/references-horizon-sdk/change.png" alt-text="프로그래밍 변경 로그입니다.":::
+  :::image type="content" source="media/references-horizon-sdk/change.png" alt-text="프로그래밍 변경 로그.":::
 
-  :::image type="content" source="media/references-horizon-sdk/view.png" alt-text="단추를 클릭 하 여 프로그래밍을 봅니다.":::
+  :::image type="content" source="media/references-horizon-sdk/view.png" alt-text="단추를 클릭하여 프로그래밍 보기.":::
 
-  :::image type="content" source="media/references-horizon-sdk/unauthorized.png" alt-text="권한 없는 PLC 프로그래밍 경고입니다.":::
+  :::image type="content" source="media/references-horizon-sdk/unauthorized.png" alt-text="무단 PLC 프로그래밍 경고.":::
 
-이를 위해 JSON 구성 파일은 속성을 사용 하 여 업데이트 해야 합니다 `code_extraction` . 
+이 작업을 수행하려면 `code_extraction` 속성을 사용하여 JSON 구성 파일을 업데이트해야 합니다. 
 
 ### <a name="json-configuration-fields"></a>JSON 구성 필드 
 
-이 섹션에서는 JSON 구성 필드에 대해 설명 합니다. 
+이 섹션에서는 JSON 구성 필드에 대해 설명합니다. 
 
-- **방법이**
+- **method**
 
-  프로그래밍 이벤트 파일을 수신 하는 방법을 나타냅니다. 
+  프로그래밍 이벤트 파일을 수신하는 방법을 나타냅니다. 
 
-  모든 (각 프로그래밍 작업으로 인해 파일이 변경 되지 않은 경우에도 모든 코드 파일이 수신 됩니다.)
+  모두(각 프로그래밍 작업으로 인해 변경되지 않은 파일이 있는 경우에도 모든 코드 파일이 수신됩니다.)
 
 - **file_type**  
 
   코드 콘텐츠 형식을 나타냅니다.  
 
-  텍스트 (각 코드 파일에는 텍스트 정보가 포함 되어 있습니다.)
+  텍스트(각 코드 파일에는 텍스트 정보가 포함되어 있습니다.)
 
 - **code_data_field**
   
-  코드 콘텐츠를 제공 하기 위해 사용할 구현 필드를 나타냅니다.
+  코드 콘텐츠를 제공하기 위해 사용할 구현 필드를 나타냅니다.
 
-  필드가.
+  필드.
 
 - **code_name_field**
 
-  코딩 파일의 이름을 제공 하기 위해 사용할 구현 필드를 나타냅니다.
+  코딩 파일의 이름을 제공하기 위해 사용할 구현 필드를 나타냅니다.
 
-  필드가.
+  필드.
 
 - **size_limit**
 
-  코드 파일이 설정 된 제한을 초과 하는 경우 각 코딩 파일 콘텐츠의 크기 제한 (바이트)을 나타냅니다. 이 필드를 지정 하지 않으면 기본값은 1500만가 됩니다.
+  각 코딩 파일 콘텐츠의 크기 제한(바이트)을 나타냅니다. 코드 파일이 설정된 제한을 초과하는 경우 삭제됩니다. 이 필드를 지정하지 않으면 기본값은 15MB(1,500만)가 됩니다.
 
-  수많은.
+  숫자.
 
-- **메타**
+- **metadata**
 
-  코드 파일에 대 한 추가 정보를 나타냅니다.
+  코드 파일에 대한 추가 정보를 나타냅니다.
 
-  두 개의 속성이 있는 개체를 포함 하는 배열입니다.
+  다음 두 개의 속성이 있는 개체를 포함하는 배열.
 
-    - name (String)-메타 데이터 키 XSense는 현재 사용자 이름 키만 지원함을 나타냅니다.
+    - 이름(문자열) - 메타데이터 키 XSense가 현재 사용자 이름 키만 지원함을 나타냅니다.
  
-    - value (Field)-메타 데이터 데이터를 제공 하기 위해 사용할 구현 필드를 나타냅니다.
+    - 값(필드) - 메타데이터 데이터를 제공하기 위해 사용할 구현 필드를 나타냅니다.
 
-## <a name="json-sample-with-programming-code"></a>프로그래밍 코드를 포함 하는 JSON 샘플
+## <a name="json-sample-with-programming-code"></a>프로그래밍 코드를 사용한 JSON 샘플
 
 ```json
 {
@@ -792,11 +792,11 @@ extern "C" {
 }
 
 ```
-## <a name="custom-horizon-alerts"></a>사용자 지정 가로 경고
+## <a name="custom-horizon-alerts"></a>Horizon 경고 사용자 지정
 
-일부 프로토콜 함수 코드는 오류를 나타낼 수 있습니다. 예를 들어 프로토콜에서 항상 특정 온도에 저장 해야 하는 특정 화학의 컨테이너를 제어 합니다. 이 경우 온도계에서 오류를 나타내는 함수 코드가 있을 수 있습니다. 예를 들어 함수 코드가 25 인 경우 컨테이너에 문제가 있음을 나타내는 경고를 웹 콘솔에서 트리거할 수 있습니다. 이러한 경우 심층 패킷 경고를 정의할 수 있습니다.
+일부 프로토콜 함수 코드가 오류를 나타낼 수 있습니다. 예를 들어 프로토콜이 항상 특정 온도에 보관해야 하는 특정 화학약품이 들어 있는 컨테이너를 제어하는 경우입니다. 이 경우 온도계의 오류를 나타내는 함수 코드가 있을 수 있습니다. 예를 들어 함수 코드가 25이면 컨테이너에 문제가 있음을 나타내는 경고를 웹 콘솔에서 트리거할 수 있습니다. 이러한 경우 심층 패킷 경고를 정의할 수 있습니다.
 
-플러그 인의에 **경고** 매개 변수를 추가 합니다 `config.json` .
+플러그 인의 `config.json`에 **경고** 매개 변수를 추가합니다.
 
 ```json
 “alerts”: [{
@@ -810,28 +810,28 @@ extern "C" {
 
 ## <a name="json-configuration-fields"></a>JSON 구성 필드
 
-이 섹션에서는 JSON 구성 필드에 대해 설명 합니다. 
+이 섹션에서는 JSON 구성 필드에 대해 설명합니다. 
 
 | 필드 이름 | Description | 가능한 값 |
 |--|--|--|
-| **ID** | 단일 경고 ID를 나타냅니다. 이 컨텍스트에서 고유 해야 합니다. | 숫자 값 0-10000 |
-| **message** | 사용자에 게 표시 되는 정보입니다. 이 필드를 사용 하 여 다른 필드를 사용할 수 있습니다. | 프로토콜의 모든 필드 또는 더 낮은 계층 프로토콜을 사용 합니다. |
+| **ID** | 단일 경고 ID를 나타냅니다. 이 컨텍스트에서 고유해야 합니다. | 숫자 값 0~10,000 |
+| **message** | 사용자에게 표시되는 정보입니다. 이 필드를 사용하여 다른 필드를 사용할 수 있습니다. | 프로토콜의 모든 필드 또는 더 낮은 계층 프로토콜을 사용합니다. |
 | **title** | 경고 제목 |  |
-| **expression** | 이 경고를 표시 하려는 경우 | 하위 계층에 있는 숫자 필드나 현재 계층을 사용 합니다.</br></br> SDK에서 필드를 검색 하기 위해 각 필드는와 함께 사용 해야 합니다. `{}` 지원 되는 논리 연산자는</br> = =-같음</br> <=-보다 작거나 같음</br> >=-이상 또는 같음</br> >-보다 큼</br> <-보다 작음</br> ~ =-같지 않음 |
+| **expression** | 이 경고를 표시하려는 경우. | 하위 계층이나 현재 계층에 있는 숫자 필드를 사용합니다.</br></br> SDK에서 이 숫자 필드를 필드로 감지하려면 각 필드가 `{}`를 사용한 래퍼여야 합니다. 지원되는 논리 연산자는 다음과 같습니다.</br> == - 같음</br> <= - 작거나 같음</br> >= - 크거나 같음</br> > - 보다 큼</br> < - 보다 작음</br> ~= - 같지 않음 |
 
-## <a name="more-about-expressions"></a>식에 대 한 자세한 정보
+## <a name="more-about-expressions"></a>식에 대한 정보
 
-수평 SDK가 식을 호출 하 고 *true* 가 될 때마다 센서에서 경고가 트리거됩니다.
+Horizon SDK가 식을 호출하고 해당 식이 *true* 가 될 때마다 센서에서 경고가 트리거됩니다.
 
 동일한 경고에 여러 식을 포함할 수 있습니다. 예를 들면 다음과 같습니다.
 
 `{CyberXHorizonProtocol.function} == 25 and {IPv4.src} == 269488144`.
 
-이 식은 패킷 ipv4 src가 10.10.10.10 경우에만 함수 코드의 유효성을 검사 합니다. 숫자 표현에서 IP 주소의 원시 표현입니다.
+이 식은 패킷 ipv4 src가 10.10.10.10인 경우에만 함수 코드의 유효성을 검사합니다. 숫자로 표현한 IP 주소의 원시 표현입니다.
 
-`and`식을 연결 하기 위해 또는를 사용할 수 있습니다 `or` .
+식을 연결하는 데 `and` 또는 `or`를 사용할 수 있습니다.
 
-## <a name="json-sample-custom-horizon-alerts"></a>JSON 샘플 사용자 지정 가로선 경고
+## <a name="json-sample-custom-horizon-alerts"></a>JSON 샘플 사용자 지정 Horizon 경고
 
 ```json
  "id":"CyberX Horizon Protocol",
@@ -864,37 +864,37 @@ extern "C" {
 
 ```
 
-## <a name="connect-to-an-indexing-service-baseline"></a>인덱싱 서비스에 연결 (기준)
+## <a name="connect-to-an-indexing-service-baseline"></a>인덱싱 서비스에 연결(기준)
 
 프로토콜 값을 인덱싱하고 데이터 마이닝 보고서에 표시할 수 있습니다.
 
-:::image type="content" source="media/references-horizon-sdk/data-mining.png" alt-text="데이터 마이닝 옵션의 뷰입니다.":::
+:::image type="content" source="media/references-horizon-sdk/data-mining.png" alt-text="데이터 마이닝 옵션의 보기.":::
 
-나중에 이러한 값을 특정 텍스트에 매핑할 수 있습니다. 예를 들어 숫자를 텍스트로 매핑 또는 정보를 추가 하 여 모든 언어를 사용할 수 있습니다.
+나중에 프로토콜 값을 특정 텍스트에 매핑할 수 있습니다. 예를 들어 숫자를 텍스트로 매핑하거나 모든 언어로 정보를 추가할 수 있습니다.
 
-:::image type="content" source="media/references-horizon-sdk/localization.png" alt-text="마이그레이션이나":::
+:::image type="content" source="media/references-horizon-sdk/localization.png" alt-text="마이그레이션":::
 
-자세한 내용은 [매핑 파일 만들기 (JSON)](#create-mapping-files-json) 를 참조 하세요.
+자세한 내용은 [매핑 파일(JSON) 만들기](#create-mapping-files-json)를 참조하세요.
 
-이전에 구문 분석 된 프로토콜의 값을 사용 하 여 추가 정보를 추출할 수도 있습니다.
+이전에 구문 분석된 프로토콜의 값을 사용하여 추가 정보를 추출할 수도 있습니다.
 
 예를 들어 TCP를 기반으로 하는 값의 경우 IPv4 계층의 값을 사용할 수 있습니다. 이 계층에서 패킷의 원본 및 대상과 같은 값을 추출할 수 있습니다.
 
-이를 위해 JSON 구성 파일은 속성을 사용 하 여 업데이트 해야 합니다 `whitelists` .
+이 작업을 수행하려면 `whitelists` 속성을 사용하여 JSON 구성 파일을 업데이트해야 합니다.
 
-## <a name="allow-list-data-mining-fields"></a>허용 목록 (데이터 마이닝) 필드
+## <a name="allow-list-data-mining-fields"></a>허용 목록(데이터 마이닝) 필드
 
 다음 허용 목록 필드를 사용할 수 있습니다.
 
-- 이름 – 인덱싱에 사용 되는 이름입니다.
+- name – 인덱싱에 사용되는 이름입니다.
 
-- alert_title – 이벤트를 설명 하는 짧고 고유한 제목입니다.
+- alert_title – 이벤트를 설명하는 짧고 고유한 제목입니다.
 
-- alert_text – 추가 정보
+- alert_text – 추가 정보입니다.
 
-여러 허용 목록을 추가 하 여 인덱싱의 완전 한 유연성을 허용할 수 있습니다.
+여러 허용 목록을 추가하여 인덱싱을 유연하게 사용할 수 있습니다.
 
-## <a name="json-sample-with-indexing"></a>인덱싱이 포함 된 JSON 샘플 
+## <a name="json-sample-with-indexing"></a>인덱싱을 사용한 JSON 샘플 
 
 ```json
 {
@@ -965,40 +965,40 @@ extern "C" {
 ```
 ## <a name="extract-firmware-data"></a>펌웨어 데이터 추출
 
-펌웨어 정보를 추출 하 고, 인덱스 값을 정의 하 고, 플러그 인 프로토콜에 대 한 펌웨어 경고를 트리거할 수 있습니다. 예제:
+펌웨어 정보를 추출하고, 인덱스 값을 정의하고, 플러그 인 프로토콜에 대한 펌웨어 경고를 트리거할 수 있습니다. 예제:
 
-- 펌웨어 모델 또는 버전을 추출 합니다. 이 정보를 활용 하 여 CVEs를 식별할 수 있습니다.
+- 펌웨어 모델 또는 버전을 추출합니다. 이 정보를 활용하여 CVE를 식별할 수 있습니다.
 
-- 새 펌웨어 버전이 검색 되 면 경고를 트리거합니다.
+- 새 펌웨어 버전이 검색되면 경고를 트리거합니다.
 
-이를 위해, JSON 구성 파일은 펌웨어 속성을 사용 하 여 업데이트 해야 합니다.
+이 작업을 수행하려면 펌웨어 속성을 사용하여 JSON 구성 파일을 업데이트해야 합니다.
 
 ## <a name="firmware-fields"></a>펌웨어 필드
 
-이 섹션에서는 JSON 펌웨어 구성 필드에 대해 설명 합니다.
+이 섹션에서는 JSON 펌웨어 구성 필드에 대해 설명합니다.
 
 - **name**
   
-  센서 콘솔에서 필드가 표시 되는 방법을 나타냅니다.
+  센서 콘솔에서 필드가 표시되는 방법을 나타냅니다.
 
 - **value**
 
- 데이터를 제공 하기 위해 사용할 구현 필드를 나타냅니다. 
+ 데이터를 제공하기 위해 사용할 구현 필드를 나타냅니다. 
 
 - **firmware_index:**
 
   다음 중 하나를 선택합니다.  
-  - **모델**: 장치 모델입니다. CVEs의 검색을 사용 하도록 설정 합니다.
-  - **직렬**: 장치 일련 번호입니다. 모든 프로토콜에 대해 일련 번호를 항상 사용할 수 있는 것은 아닙니다. 이 값은 장치 마다 고유 합니다.
-  - **랙**: 장치가 랙의 일부인 경우 랙 식별자를 나타냅니다.
-  - **슬롯**: 장치가 랙의 일부인 경우 슬롯 식별자입니다.  
-  - **module_address**: 모듈을 다른 장치 뒤에 표시할 수 있는 경우를 사용 하 여 계층을 제공 합니다. 더 간단한 프레젠테이션 인 랙 슬롯 조합이 있는 경우에는 해당 됩니다.  
-  - **firmware_version**: 장치 버전을 나타냅니다. CVEs의 검색을 사용 하도록 설정 합니다.
-  - **alert_text**: 펌웨어 편차를 설명 하는 텍스트를 나타냅니다 (예: 버전 변경).  
-  - **index_by**: 장치를 식별 하 고 인덱싱하는 데 사용 되는 필드를 나타냅니다. 아래 예제에서 장치는 IP 주소로 식별 됩니다. 특정 프로토콜에서는 더 복잡 한 인덱스를 사용할 수 있습니다. 예를 들어 다른 장치가 연결 되어 있는 경우 내부 경로를 추출 하는 방법을 알고 있습니다. 예를 들어 MODBUS 단위 ID는 IP 주소와 단위 식별자의 다른 조합으로 인덱스의 일부로 사용할 수 있습니다.
-  - **firmware_fields**: 장치 메타 데이터 필드에 해당 하는 필드를 나타냅니다. 이 예제에서는 모델, 수정 버전 및 이름을 사용 합니다. 각 프로토콜은 자체 펌웨어 데이터를 정의할 수 있습니다.
+  - **model**: 디바이스 모델입니다. CVE 검색을 사용하도록 설정합니다.
+  - **serial**: 디바이스 일련 번호입니다. 모든 프로토콜에 대해 일련 번호를 항상 사용할 수 있는 것은 아닙니다. 이 값은 디바이스마다 고유합니다.
+  - **rack**: 디바이스가 랙의 일부인 경우 랙 식별자를 나타냅니다.
+  - **slot**: 디바이스가 랙의 일부인 경우 슬롯 식별자입니다.  
+  - **module_address**: 모듈을 다른 디바이스 뒤에 표시할 수 있는 경우 계층을 나타내는 데 사용합니다. 더 간단한 프레젠테이션인 랙 슬롯 조합이 있는 경우 대신 적용됩니다.  
+  - **firmware_version**: 디바이스 버전을 나타냅니다. CVE 검색을 사용하도록 설정합니다.
+  - **alert_text**: 펌웨어 편차를 설명하는 텍스트를 나타냅니다(예: 버전 변경).  
+  - **index_by**: 디바이스를 식별하고 인덱싱하는 데 사용되는 필드를 나타냅니다. 아래 예제에서 디바이스는 IP 주소로 식별됩니다. 특정 프로토콜에서는 더 복잡한 인덱스를 사용할 수 있습니다. 예를 들어 다른 디바이스가 연결 어 있는 경우 내부 경로를 추출하는 방법을 알고 있습니다. 예를 들어 MODBUS 단위 ID는 IP 주소와 단위 식별자의 다른 조합으로 인덱스의 일부로 사용할 수 있습니다.
+  - **firmware_fields**: 필드가 디바이스 메타데이터 필드임을 나타냅니다. 이 예제에서는 모델, 수정 버전, 이름을 사용합니다. 각 프로토콜은 자체 펌웨어 데이터를 정의할 수 있습니다.
 
-## <a name="json-sample-with-firmware"></a>펌웨어가 포함 된 JSON 샘플 
+## <a name="json-sample-with-firmware"></a>펌웨어를 사용한 JSON 샘플 
 
 ```json
 {
@@ -1095,11 +1095,11 @@ extern "C" {
 }
 
 ```
-## <a name="extract-device-attributes"></a>장치 특성 추출 
+## <a name="extract-device-attributes"></a>디바이스 특성 추출 
 
-장치에서 인벤토리, 데이터 마이닝 및 기타 보고서의 장치에 사용할 수 있는 정보를 향상할 수 있습니다.
+인벤토리, 데이터 마이닝, 기타 보고서의 디바이스에서 사용할 수 있는 디바이스 정보를 향상할 수 있습니다.
 
-- Name
+- 이름
 
 - 유형
 
@@ -1107,51 +1107,51 @@ extern "C" {
 
 - 운영 체제
 
-이를 위해서는 **속성** 속성을 사용 하 여 JSON 구성 파일을 업데이트 해야 합니다. 
+이 작업을 수행하려면 **속성** 속성을 사용하여 JSON 구성 파일을 업데이트해야 합니다. 
 
-기본 플러그 인을 작성 하 고 필요한 필드를 추출 하 여이 작업을 수행할 수 있습니다.
+기본 플러그 인을 작성하고 필수 필드를 추출한 후에 이 작업을 수행할 수 있습니다.
 
 ## <a name="properties-fields"></a>속성 필드
 
-이 섹션에서는 JSON 속성 구성 필드에 대해 설명 합니다. 
+이 섹션에서는 JSON 속성 구성 필드에 대해 설명합니다. 
 
 **config_file** 
 
-필드의 각 키를 처리 하는 방법을 정의 하는 파일 이름을 포함 `key` 합니다. 구성 파일 자체는 JSON 형식 이어야 하 고 플러그 인 프로토콜 폴더의 일부로 포함 되어야 합니다.
+`key` 필드의 각 키를 처리하는 방법을 정의하는 파일 이름을 포함합니다. 구성 파일 자체는 JSON 형식이어야 하고 플러그 인 프로토콜 폴더의 일부로 포함해야 합니다.
 
-JSON의 각 키는 패킷에서이 키를 추출할 때 수행 해야 하는 작업 집합을 정의 합니다.
+JSON의 각 키는 패킷에서 이 키를 추출할 때 수행해야 하는 작업 세트를 정의합니다.
 
-각 키에는 다음이 포함 될 수 있습니다.
+각 키에는 다음이 포함될 수 있습니다.
 
-- **패킷 데이터** -패킷에서 추출 된 데이터 (해당 데이터를 제공 하는 데 사용 되는 구현 필드)를 기반으로 업데이트 되는 속성을 나타냅니다.
+- **패킷 데이터** - 패킷(해당 데이터를 제공하는 데 사용되는 구현 필드)에서 추출된 데이터에 기반하여 업데이트되는 속성을 나타냅니다.
 
-- **정적 데이터** - `property-value` 업데이트 해야 하는 미리 정의 된 작업 집합을 나타냅니다.
+- **정적 데이터** - 업데이트해야 하는 미리 정의된 `property-value` 작업 세트를 나타냅니다.
 
 이 파일에서 구성할 수 있는 속성은 다음과 같습니다. 
 
-- **이름** -장치 이름을 나타냅니다.
+- **Name** - 디바이스 이름을 나타냅니다.
 
-- **유형** -장치 유형을 나타냅니다.
+- **Type** - 디바이스 유형을 나타냅니다.
 
-- **공급 업체** -장치 공급 업체를 나타냅니다.
+- **Vendor** - 디바이스 공급업체를 나타냅니다.
 
-- **설명** -장치 펌웨어 모델 ("모델" 보다 낮은 우선 순위)을 나타냅니다.
+- **Description** - 디바이스 펌웨어 모델("모델"보다 낮은 우선 순위)을 나타냅니다.
 
-- 운영 **체제-장치 운영 체제를 나타냅니다** .
+- **operatingSystem** - 디바이스 운영 체제를 나타냅니다.
 
 ### <a name="fields"></a>필드
 
 | 필드 | Description |
 |--|--|
 | key | 키를 나타냅니다. |
-| 값 | 데이터를 제공 하기 위해 사용할 구현 필드를 나타냅니다. |
-| is_static_key | `key`필드가 패킷의 값으로 파생 되거나 미리 정의 된 값 인지 여부를 나타냅니다. |
+| 값 | 데이터를 제공하기 위해 사용할 구현 필드를 나타냅니다. |
+| is_static_key | `key` 필드가 패킷의 값으로 파생되었는지 아니면 미리 정의된 값인지를 나타냅니다. |
 
 ### <a name="working-with-static-keys-only"></a>정적 키만 사용
 
-정적 키로 작업 하는 경우을 구성할 필요가 없습니다 `config.file` . JSON 파일만 구성할 수 있습니다.
+정적 키를 사용하는 경우 `config.file`을 구성할 필요가 없습니다. JSON 파일만 구성할 수 있습니다.
 
-## <a name="json-sample-with-properties"></a>속성이 포함 된 JSON 샘플 
+## <a name="json-sample-with-properties"></a>속성을 사용한 JSON 샘플 
 
 ```json
 {
@@ -1286,39 +1286,39 @@ JSON의 각 키는 패킷에서이 키를 추출할 때 수행 해야 하는 작
 
 ```
 
-## <a name="create-mapping-files-json"></a>매핑 파일 만들기 (JSON)
+## <a name="create-mapping-files-json"></a>매핑 파일(JSON) 만들기
 
-및 업데이트 매핑 파일을 정의 하 여 엔터프라이즈 환경의 요구 사항에 맞게 플러그 인 출력 텍스트를 사용자 지정할 수 있습니다. 코드를 변경 하거나 영향을 주지 않고 텍스트에 변경 내용을 쉽게 구현할 수 있습니다. 각 파일은 하나 이상의 필드를 매핑할 수 있습니다.
+매핑 파일을 정의하고 업데이트하여 엔터프라이즈 환경의 요구 사항에 맞게 플러그 인 출력 텍스트를 사용자 지정할 수 있습니다. 코드를 변경하거나 영향을 주지 않고 텍스트에 변경 내용을 쉽게 구현할 수 있습니다. 각 파일은 하나 이상의 필드를 매핑할 수 있습니다.
 
-- 필드 값을 이름에 매핑합니다 (예: 1: Reset, 2: Start, 3: Stop).
+- 필드 값을 이름에 매핑(예: 1:Reset, 2:Start, 3:Stop).
 
-- 여러 언어를 지원 하도록 텍스트를 매핑합니다.
+- 여러 언어를 지원하도록 텍스트 매핑.
 
 두 가지 유형의 매핑 파일을 정의할 수 있습니다.
 
-  - [단순 매핑 파일](#simple-mapping-file)입니다.
+  - [단순 매핑 파일](#simple-mapping-file).
 
-  - [종속성 매핑 파일](#dependency-mapping-file)입니다.
+  - [종속성 매핑 파일](#dependency-mapping-file).
 
-    :::image type="content" source="media/references-horizon-sdk/localization.png" alt-text="에테르 스코프 net":::
+    :::image type="content" source="media/references-horizon-sdk/localization.png" alt-text="이더넷":::
 
-    :::image type="content" source="media/references-horizon-sdk/unhandled.png" alt-text="처리 되지 않은 경고의 뷰입니다.":::
+    :::image type="content" source="media/references-horizon-sdk/unhandled.png" alt-text="처리되지 않은 경고 보기.":::
 
-    :::image type="content" source="media/references-horizon-sdk/policy-violation.png" alt-text="알려진 정책 위반 목록입니다.":::
+    :::image type="content" source="media/references-horizon-sdk/policy-violation.png" alt-text="알려진 정책 위반 목록.":::
 
-## <a name="file-naming-and-storage-requirements"></a>파일 이름 지정 및 저장소 요구 사항 
+## <a name="file-naming-and-storage-requirements"></a>파일 이름 지정 및 스토리지 요구 사항 
 
-매핑 파일은 메타 데이터 폴더 아래에 저장 해야 합니다.
+매핑 파일은 메타데이터 폴더 아래에 저장해야 합니다.
 
-파일 이름은 JSON 구성 파일 ID와 일치 해야 합니다.
+파일 이름은 JSON 구성 파일 ID와 일치해야 합니다.
 
-:::image type="content" source="media/references-horizon-sdk/json-config.png" alt-text="JSON 구성 파일의 샘플입니다.":::
+:::image type="content" source="media/references-horizon-sdk/json-config.png" alt-text="JSON 구성 파일의 샘플.":::
 
 ## <a name="simple-mapping-file"></a>단순 매핑 파일 
 
-다음 샘플에서는 기본 JSON 파일을 키 값으로 제공 합니다.
+다음 샘플에서는 기본 JSON 파일을 키 값으로 제공합니다.
 
-허용 목록을 만들 때 매핑된 필드를 하나 이상 포함 합니다. 값은 숫자, 문자열 또는 모든 형식에서 매핑 파일에 표시 되는 서식 있는 텍스트로 변환 됩니다.
+허용 목록을 만들 때 매핑된 필드가 하나 이상 포함됩니다. 값은 숫자, 문자열 또는 모든 형식에서 매핑 파일에 표시되는 서식 있는 텍스트로 변환됩니다.
 
 ```json
 {
@@ -1331,7 +1331,7 @@ JSON의 각 키는 패킷에서이 키를 추출할 때 수행 해야 하는 작
 
 ## <a name="dependency-mapping-file"></a>종속성 매핑 파일 
 
-파일이 종속성 파일 임을 나타내려면 키워드를 `dependency` 매핑 구성에 추가 합니다.
+파일이 종속성 파일임을 나타내려면 `dependency` 키워드를 매핑 구성에 추가합니다.
 
 ```json
 dependency": { "field": "CyberXHorizonProtocol.function"  }}]
@@ -1343,9 +1343,9 @@ dependency": { "field": "CyberXHorizonProtocol.function"  }}]
 
 ```
 
-이 파일에는 종속성 필드와 함수 필드 간의 매핑이 포함 되어 있습니다. 예를 들어, 함수와 sub 함수 사이에 있습니다. Sub 함수는 제공 된 함수에 따라 변경 됩니다.
+이 파일에는 종속성 필드와 함수 필드 간의 매핑이 들어 있습니다. 함수와 sub 함수 간의 매핑을 예로 들 수 있습니다. sub 함수는 제공된 함수에 따라 변경됩니다.
 
-이전에 구성 된 허용 목록에는 아래와 같이 종속성 구성이 없습니다.
+이전에 구성된 허용 목록에는 아래와 같은 종속성 구성이 없습니다.
 
 ```json
 "whitelists": [
@@ -1371,15 +1371,15 @@ dependency": { "field": "CyberXHorizonProtocol.function"  }}]
 
 ```
 
-종속성은 특정 값 이나 필드를 기반으로 할 수 있습니다. 아래 예제에서는 필드를 기반으로 합니다. 값을 기준으로 하는 경우 매핑 파일에서 읽을 추출 값을 정의 합니다.
+종속성은 특정 값이나 필드를 기반으로 할 수 있습니다. 아래 예제에서는 필드를 기반으로 합니다. 값을 기반으로 하는 경우 매핑 파일에서 읽을 추출 값을 정의합니다.
 
-아래 예제에서는 필드의 동일한 값에 대 한 종속성이 다음과 같이 수행 됩니다.
+아래 예제에서는 필드의 동일한 값에 대한 종속성이 다음과 같이 수행됩니다.
 
-예를 들어 하위 함수 5에서 의미는 함수에 따라 변경 됩니다.
+예를 들어 sub 함수 5의 경우 의미는 함수에 따라 변경됩니다.
 
-  - 읽기 함수인 경우 5는 메모리 읽기를 의미 합니다.
+  - 읽기 함수인 경우 5는 메모리 읽기를 의미합니다.
 
-  - 쓰기 함수인 경우 동일한 값을 사용 하 여 파일에서 읽습니다.
+  - 쓰기 함수인 경우 동일한 값을 사용하여 파일에서 읽습니다.
 
     ```json
     {
@@ -1438,7 +1438,7 @@ dependency": { "field": "CyberXHorizonProtocol.function"  }}]
 
 ```
 
-## <a name="json-sample-with-mapping"></a>매핑이 포함 된 JSON 샘플
+## <a name="json-sample-with-mapping"></a>매핑을 사용한 JSON 샘플
 
 ```json
 {
@@ -1548,93 +1548,93 @@ dependency": { "field": "CyberXHorizonProtocol.function"  }}]
 }
 
 ```
-## <a name="package-upload-and-monitor-the-plugin"></a>플러그 인 패키지, 업로드 및 모니터링 
+## <a name="package-upload-and-monitor-the-plugin"></a>플러그 인 패키지, 업로드, 모니터링 
 
 이 섹션에서는 다음 작업을 수행하는 방법을 설명합니다.
 
-  - 플러그 인을 패키지 합니다.
+  - 플러그 인을 패키지합니다.
 
-  - 플러그 인을 업로드 합니다.
+  - 플러그 인을 업로드합니다.
 
-  - 플러그 인을 모니터링 하 고 디버그 하 여 성능이 얼마나 잘 작동 하 고 있는지 평가 합니다.
+  - 플러그 인을 모니터링하고 디버그하여 성능을 평가합니다.
 
-플러그 인을 패키지 하려면:
+플러그 인을 패키지하려면 다음을 수행합니다.
 
-1. **아티팩트** 를 파일에 추가할 수 있습니다 (, 라이브러리, config.js또는 메타 데이터) `tar.gz` .
+1. **아티팩트**(라이브러리, config.json 또는 메타데이터일 수 있음)를 `tar.gz` 파일에 추가합니다.
 
-1. 파일 확장명을로 변경 합니다 \<XXX.hdp> . 여기서은 \<XXX> 플러그 인의 이름입니다.
+1. 파일 확장명을 \<XXX.hdp>로 변경합니다. 여기서 \<XXX>는 플러그 인의 이름입니다.
 
-수평 콘솔에 로그인 하려면 다음을 수행 합니다.
+Horizon 콘솔에 로그인하려면 다음을 수행합니다.
 
-1.  센서 CLI를 관리자, CyberX 또는 지원 사용자로 로그인 합니다.
+1.  센서 CLI를 관리자, CyberX 또는 지원 사용자로 로그인합니다.
 
-2.  파일에서: `/var/cyberx/properties/horizon.properties` **ui. enabled** 속성을 **true** ()로 변경 합니다. `horizon.properties:ui.enabled=true`
+2.  `/var/cyberx/properties/horizon.properties` 파일에서 **ui.enabled** 속성을 **true** 로 변경합니다(`horizon.properties:ui.enabled=true`).
 
-3.  센서 콘솔에 로그인 합니다.
+3.  센서 콘솔에 로그인합니다.
 
-4.  주 메뉴에서 **가로선** 옵션을 선택 합니다.
+4.  주 메뉴에서 **Horizon** 옵션을 선택합니다.
 
-    :::image type="content" source="media/references-horizon-sdk/horizon.png" alt-text="왼쪽 창에서 가로선 옵션을 선택 합니다.":::
+    :::image type="content" source="media/references-horizon-sdk/horizon.png" alt-text="왼쪽 창에서 Horizon 옵션 선택.":::
 
-    수평 콘솔이 열립니다.
+    Horizon 콘솔이 열립니다.
 
-    :::image type="content" source="media/references-horizon-sdk/plugins.png" alt-text="수평 콘솔 및 모든 플러그 인의 뷰입니다.":::
+    :::image type="content" source="media/references-horizon-sdk/plugins.png" alt-text="Horizon 콘솔 및 모든 플러그 인 보기.":::
 
 ## <a name="plugins-pane"></a>플러그 인 창
 
-플러그 인 창에는 다음 목록이 표시 됩니다.
+플러그 인 창에는 다음 항목이 표시됩니다.
 
-  - 인프라 플러그 인: IoT 용 Defender를 사용 하 여 기본적으로 설치 된 인프라 플러그 인
+  - 인프라 플러그 인: Defender for IoT와 함께 기본적으로 설치되는 인프라 플러그 인.
 
-  - 응용 프로그램 플러그 인: 응용 프로그램 플러그 인은 기본적으로 Defender 용 Defender 및 IoT 용 Defender에서 개발한 기타 플러그인 또는 외부 개발자에 의해 설치 됩니다.
+  - 애플리케이션 플러그 인: Defender for IoT와 함께 기본적으로 설치되는 애플리케이션 플러그 인 및 Defender for IoT 또는 외부 개발자가 개발한 기타 플러그 인.
     
-설정/해제를 사용 하 여 업로드 된 플러그 인을 사용 하거나 사용 하지 않도록 설정 합니다.
+설정/해제를 사용하여 업로드된 플러그 인을 사용하거나 사용하지 않도록 설정합니다.
 
-:::image type="content" source="media/references-horizon-sdk/toggle.png" alt-text="CIP 설정/해제입니다.":::
+:::image type="content" source="media/references-horizon-sdk/toggle.png" alt-text="CIP 설정/해제.":::
 
 ### <a name="uploading-a-plugin"></a>플러그 인 업로드
 
-플러그 인을 만들고 패키지 한 후에 IoT 센서 용 Defender에 업로드할 수 있습니다. 네트워크의 전체 범위를 확보 하려면 플러그 인을 조직의 각 센서에 업로드 해야 합니다.
+플러그 인을 만들고 패키지한 후에 Defender for IoT 센서에 업로드할 수 있습니다. 네트워크의 전체 범위를 확보하려면 플러그 인을 조직의 각 센서에 업로드해야 합니다.
 
-업로드 하려면:
+업로드하려면 다음을 수행합니다.
 
-1.  센서에 로그인 합니다.
+1.  센서에 로그인합니다.
 
 
 2. **업로드** 를 선택합니다.
 
-    :::image type="content" source="media/references-horizon-sdk/upload.png" alt-text="플러그 인을 업로드 합니다.":::
+    :::image type="content" source="media/references-horizon-sdk/upload.png" alt-text="플러그 인 업로드.":::
 
-3. 플러그 인으로 이동 하 여 플러그 인 대화 상자로 끕니다. 접두사가 인지 확인 `.hdp` 합니다. 플러그 인이 로드 됩니다.
+3. 플러그 인으로 이동하여 플러그 인 대화 상자로 끕니다. 접두사가 `.hdp`인지 확인합니다. 플러그 인이 로드됩니다.
 
 ## <a name="plugin-status-overview"></a>플러그 인 상태 개요 
 
-수평 콘솔 **개요** 창에서는 업로드 한 플러그 인에 대 한 정보를 제공 하 고 사용 하지 않도록 설정 하 고 사용 하도록 설정할 수 있습니다.
+Horizon 콘솔 **개요** 창에서는 업로드한 플러그 인에 대한 정보를 제공하며, 여기서 플러그 인을 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
-:::image type="content" source="media/references-horizon-sdk/overview.png" alt-text="수평 콘솔의 개요입니다.":::
+:::image type="content" source="media/references-horizon-sdk/overview.png" alt-text="Horizon 콘솔의 개요.":::
 
 | 필드 | Description |
 |--|--|
-| 애플리케이션 | 업로드 한 플러그 인의 이름입니다. |
-| :::image type="content" source="media/references-horizon-sdk/switch.png" alt-text="On 및 off 스위치입니다."::: | 플러그 **인을 설정 하거나** **해제** 합니다. IoT 용 Defender는 플러그 인을 해제 하는 경우 플러그 인에 정의 된 프로토콜 트래픽을 처리 하지 않습니다. |
-| 시간 | 데이터를 마지막으로 분석 한 시간입니다. 5 초 마다 업데이트 됩니다. |
+| 애플리케이션 | 업로드한 플러그 인의 이름입니다. |
+| :::image type="content" source="media/references-horizon-sdk/switch.png" alt-text="설정 및 해제 스위치."::: | 플러그 인을 **설정** 하거나 **해제** 합니다. Defender for IoT는 플러그 인을 해제하는 경우 플러그 인에 정의된 프로토콜 트래픽을 처리하지 않습니다. |
+| 시간 | 데이터를 마지막으로 분석한 시간입니다. 5초마다 업데이트됩니다. |
 | PPS | 초당 패킷 수입니다. |
-| 대역폭 | 최근 5 초 내에 검색 된 평균 대역폭입니다. |
-| Malforms | 잘못 된 유효성 검사는 프로토콜의 유효성을 검사 한 후에 사용 됩니다. 프로토콜을 기반으로 하는 패킷을 처리 하는 데 실패 하면 오류 응답이 반환 됩니다.   <br><br>이 열은 지난 5 초 동안의 malform 오류 수를 나타냅니다. 자세한 내용은 [잘못 된 형식의 코드 유효성 검사](#malformed-code-validations) 를 참조 하세요. |
-| 경고 | 패킷은 구조와 사양과 일치 하지만 플러그 인 경고 구성에 따라 예기치 않은 동작이 발생 합니다. |
-| 오류 | 기본 프로토콜 유효성 검사에 실패 한 패킷 수입니다. 패킷이 프로토콜 정의와 일치 하는지 확인 합니다. 여기에 표시 된 숫자는 지난 5 초 동안 검색 된 오류 수를 나타냅니다. 자세한 내용은 자세한 내용은 [온전성 코드 유효성 검사](#sanity-code-validations) 를 참조 하세요. |
-| :::image type="content" source="media/references-horizon-sdk/monitor.png" alt-text="모니터 아이콘입니다."::: | 플러그 인에 대해 검색 된 malform 및 경고에 대 한 세부 정보를 검토 합니다. |
+| 대역폭 | 최근 5초 이내에 검색된 평균 대역폭입니다. |
+| 잘못된 형식 | 프로토콜이 유효성 검사를 통해 문제가 없다고 판명된 이후에는 잘못된 형식에 대한 유효성 검사가 사용됩니다. 프로토콜을 기반으로 한 패킷을 처리하는 데 실패하면 실패 응답이 반환됩니다.   <br><br>이 열은 지난 5초간 발생한 잘못된 형식 오류의 개수를 나타냅니다. 자세한 내용은 [잘못된 형식의 코드 유효성 검사](#malformed-code-validations)를 참조하세요. |
+| 경고 | 플러그 인 경고 구성에 따르면 패킷이 구조 및 사양에 부합하지만, 예기치 않은 동작이 있습니다. |
+| 오류 | 기본 프로토콜 유효성 검사에 실패한 패킷 수입니다. 패킷이 프로토콜 정의와 일치하는지 확인합니다. 여기에 표시된 숫자는 지난 5초간 탐지된 오류 수를 나타냅니다. 자세한 내용은 [온전성 코드 유효성 검사](#sanity-code-validations)를 참조하세요. |
+| :::image type="content" source="media/references-horizon-sdk/monitor.png" alt-text="모니터 아이콘."::: | 플러그 인에서 탐지된 잘못된 형식 및 경고에 대한 세부 정보를 검토합니다. |
 
 ## <a name="plugin-details"></a>플러그 인 정보
 
-플러그 인에 대해 검색 된 *Malform* 및 *경고* 수를 분석 하 여 실시간 플러그 인 동작을 모니터링할 수 있습니다. 추가 조사를 위해 화면을 고정 하 고 내보낼 수 있는 옵션을 사용할 수 있습니다.
+플러그 인에서 탐지된 *잘못된 형식* 및 *경고* 개수를 분석하여 실시간 플러그 인 동작을 모니터링할 수 있습니다. 추가 조사를 위해 화면을 고정하고 내보낼 수 있습니다.
 
-:::image type="content" source="media/references-horizon-sdk/snmp.png" alt-text="SNMP 모니터 화면입니다.":::
+:::image type="content" source="media/references-horizon-sdk/snmp.png" alt-text="SNMP 모니터 화면.":::
 
-모니터링할 대상:
+모니터링하려면 다음을 수행합니다.
 
-개요에서 플러그 인의 모니터 단추를 선택 합니다.
+개요에서 플러그 인의 모니터 단추를 선택합니다.
 
 다음 단계
 
-[수평 API](references-horizon-api.md) 설정
+[Horizon API](references-horizon-api.md) 설정

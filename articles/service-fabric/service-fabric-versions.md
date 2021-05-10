@@ -1,218 +1,144 @@
 ---
-title: Azure Service Fabric 클러스터 버전 업그레이드
-description: Service Fabric 팀 블로그의 최신 릴리스에 대 한 링크를 포함 하 여 Azure Service Fabric의 클러스터 버전에 대해 알아봅니다.
+title: Azure Service Fabric 버전
+description: Azure Service Fabric의 클러스터 버전과 적극적으로 지원되는 플랫폼 버전에 대해 알아봅니다.
 ms.topic: troubleshooting
-ms.date: 06/15/2020
-ms.openlocfilehash: 3e859a04ffb0b885aab0f31e83afad8380cbcc95
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.date: 04/12/2021
+ms.openlocfilehash: d106462578879ef3ff6ba902c7c950f2bf6ab308
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103010204"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140122"
 ---
-# <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Azure Service Fabric 클러스터 버전 업그레이드
+# <a name="service-fabric-supported-versions"></a>Service Fabric 지원 버전
+이 문서의 표에는 적극적으로 지원되는 Service Fabric 및 플랫폼 버전이 요약되어 있습니다.
 
-클러스터가 항상 지원 되는 Azure Service Fabric 버전을 실행 하 고 있는지 확인 합니다. Service Fabric 새 버전의 릴리스를 발표 한 후 최소 60 일이 지나면 이전 버전에 대 한 지원이 종료 됩니다. [Service Fabric 팀 블로그에서](https://azure.microsoft.com/updates/?product=service-fabric)새 릴리스에 대 한 공지를 확인할 수 있습니다.
+## <a name="windows"></a>Windows
 
-각 버전의 Service Fabric 런타임에 대해 지정 된 또는 이전 버전의 SDK/NuGet 패키지를 사용할 수 있습니다. 최신 버전의 패키지가 이전 클러스터를 대상으로 하지 못할 수 있습니다. 이전 클러스터에는 최신 패키지 환경에서 지원 하지 않는 기능 또는 프로토콜 변경이 있을 수 있습니다.
+| Service Fabric 런타임 |다음에서 직접 업그레이드 가능|다음으로 다운그레이드 가능|호환되는 SDK 또는 NuGet 패키지 버전|지원되는 dotnet 런타임** |OS 버전 |지원 종료 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 8.0 RTO | 7.1 CU10 | 7.2 | 버전 5.0보다 낮거나 같음 | .NET 5.0(일반 공급), .NET Core 3.1, .NET Core 2.1, <br>모두 >=4.5 .NET Full Framework| [지원되는 OS 버전 참조](#supported-windows-versions-and-support-end-date) | 현재 버전 |
+| 7.2 CU7 | 7.0 CU9 | 7.1 | 버전 4.2보다 낮거나 같음 | .NET 5.0(미리 보기 지원), .NET Core 3.1, .NET Core 2.1,<br>모두 >= 4.5 Net Full Framework | [지원되는 OS 버전 참조](#supported-windows-versions-and-support-end-date) | 2021년 11월 30일 |
+| 7.2 CU6 | 7.0 CU4 |7.1 | 버전 4.2보다 낮거나 같음 | .NET 5.0(미리 보기 지원), .NET Core 3.1, .NET Core 2.1,<br>모두 >= 4.5 Net Full Framework | [지원되는 OS 버전 참조](#supported-windows-versions-and-support-end-date)| 2021년 11월 30일 |
+| 7.2 RTO-CU5 | 7.0 CU4 | 7.1 |버전 4.2보다 낮거나 같음 | .NET Core 3.1, .NET Core 2.1,<br>모두 >= 4.5 Net Full Framework | [지원되는 OS 버전 참조](#supported-windows-versions-and-support-end-date)| 2021년 11월 30일 |
+| 7.1 |7.0 CU3 |해당 없음 | 버전 4.1보다 낮거나 같음 | .NET Core 3.1, .NET Core 2.1,<br>모두 >= 4.5 Net Full Framework | [지원되는 OS 버전 참조](#supported-windows-versions-and-support-end-date) | 2021년 7월 31일 |
 
-클러스터에서 지원 되는 Service Fabric 버전을 계속 실행 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
+** Service Fabric은 .NET Core 런타임을 제공하지 않습니다. 서비스 작성자가 이를 <a href="/dotnet/core/deploying/">사용할 수 있는지</a> 확인합니다.
 
-- [Azure Service Fabric 클러스터 업그레이드](service-fabric-cluster-upgrade.md)
-- [독립 실행형 Windows Server 클러스터에서 실행 되는 Service Fabric 버전을 업그레이드 합니다.](service-fabric-cluster-upgrade-windows-server.md)
-
-## <a name="unsupported-versions"></a>지원 되지 않는 버전
-
-### <a name="upgrade-alert-for-versions-between-57-and-6363"></a>5.7에서 6.3.63 사이의 버전에 대 한 업그레이드 경고
-
-보안 및 가용성을 향상 시키기 위해 Azure 인프라는 Service Fabric 고객에 게 영향을 줄 수 있는 변경 작업을 수행 했습니다. 이 변경은 5.7 ~ 6.3 버전을 실행 하는 모든 Service Fabric 클러스터에 영향을 줍니다.
-
-모든 지역에서 지원 되는 모든 Service Fabric 버전에 대해 Service Fabric 런타임 업데이트를 사용할 수 있습니다. 서비스 중단을 방지 하기 위해 2021 년 1 월 19 일에 지원 되는 최신 버전 중 하나로 업그레이드 합니다.
-
-지원 계획이 있고 기술 도움말이 필요한 경우 Azure 지원 채널을 통해 연락 하세요. Azure Service Fabric에 대 한 지원 요청을 열고 지원 티켓에이 컨텍스트를 언급 합니다.
-
-#### <a name="if-you-dont-upgrade-to-a-supported-version"></a>지원 되는 버전으로 업그레이드 하지 않는 경우
-
-5.7 년 1 월 2021 19 일까 지 업그레이드 하지 않은 경우에서 6.3.63. * 버전으로 실행 되는 Azure Service Fabric 클러스터는 사용할 수 없습니다.
-
-#### <a name="required-action"></a>필수 작업
-
-가동 중지 시간 또는이 변경과 관련 된 기능의 손실을 방지 하려면 지원 되는 Service Fabric 버전으로 업그레이드 하세요. 사용자 환경에서 문제를 방지 하려면 클러스터가 최소한 다음 버전을 실행 하 고 있는지 확인 합니다.
-
-> [!Note]
-> **7.2의 모든 릴리스 버전에는 필요한 변경 내용이 포함 되어** 있습니다.
-  
-  | OS | 클러스터의 현재 Service Fabric 런타임 | CU/Patch 릴리스 |
-  | --- | --- |--- |
-  | Windows | 7.0. * | 7.0.478.9590 |
-  | Windows | 7.1. * | 7.1.503.9590 |
-  | Windows | 7.2. * | 7.2. * |
-  | Ubuntu 16 | 7.0. * | 7.0.472.1  |
-  | Linux Ubuntu 16.04 | 7.1. * | 7.1.455.1  |
-  | Linux Ubuntu 18.04 | 7.1. * | 7.1.455.1804 |
-  | Linux Ubuntu 16.04 | 7.2. * | 7.2. * |
-  | Linux Ubuntu 18.04 | 7.2. * | 7.2. * |
-
-### <a name="upgrade-alert-for-versions-later-than-63"></a>6.3 이후의 버전에 대 한 업그레이드 경고
-
-보안 및 가용성을 향상 시키기 위해 Azure 인프라는 Service Fabric 고객에 게 영향을 줄 수 있는 변경 작업을 수행 했습니다. 이렇게 변경 하면 [컨테이너에 대해 개방 네트워킹 모드](./service-fabric-networking-modes.md#set-up-open-networking-mode) 를 사용 하는 모든 Service Fabric 클러스터에 영향을 주며 6.3 버전에서 7.0 또는 호환 되지 않는 지원 되는 버전의 7.0를 실행 합니다. 모든 지역에서 지원 되는 모든 Service Fabric 버전에 대해 Service Fabric 런타임 업데이트를 사용할 수 있습니다.
-
-#### <a name="if-you-dont-upgrade-to-a-supported-version"></a>지원 되는 버전으로 업그레이드 하지 않는 경우
-
-6.3 이상 버전에서 실행 되는 Azure Service Fabric 클러스터는 2021 년 1 월 19 일에 지원 되는 버전으로 업그레이드 되지 않은 경우 기능 또는 서비스 중단이 발생 합니다.
-  
-  - **네트워킹 기능을 사용 하지 않는 6.3 보다 큰 Service Fabric 버전을 실행 하** 는 클러스터의 경우 클러스터는 계속 유지 됩니다.
-
- - **6.3 보다 큰 Service Fabric 버전을 실행 하 고 [컨테이너에 대해 개방형 네트워킹 기능](./service-fabric-networking-modes.md#set-up-open-networking-mode) 을 사용** 하는 클러스터의 경우 클러스터를 사용할 수 없게 되 고 작동이 중단 되어 작업에 대 한 서비스 중단이 발생할 수 있습니다.
- 
- -   **[7.0.457와 7.0.466 간에 windows 버전을 실행 하는 클러스터 (두 버전 모두 포함)](#supported-version-names) 및 windows OS에서 windows 컨테이너 기능을 사용 하도록 설정 했습니다. 참고: Linux 버전 7.0.457, 7.0.464 및 7.0.465는 영향을 받지 않습니다**.
-    - **영향**: 클러스터의 작동이 중단 되 고 워크 로드에 대 한 서비스 중단이 발생할 수 있습니다.
-    
-#### <a name="required-action"></a>필수 작업
-
-가동 중지 시간 또는 기능의 손실을 방지 하려면 클러스터가 다음 버전 중 하나를 실행 하 고 있는지 확인 합니다.
-
-테이블의 Service Fabric 버전에는 기능 손실을 방지 하는 데 필요한 변경 내용이 포함 되어 있습니다. 이러한 버전 중 하나를 사용 하 고 있는지 확인 합니다.  
-
-> [!Note]
-> **6.5 버전에서 실행 되는 Azure Service Fabric 클러스터는 클러스터에 대 한 기능의 손실을 방지 하기 위해 infrastucuture를 변경 하기 전에 동시에 여러 업그레이드를 수행 해야** 합니다. 
->   -   1. 7.0.466로 업그레이드 합니다. **Windows 컨테이너 기능이 사용 하도록 설정 된 Windows OS를 실행 하는 클러스터는이 중간 버전에 있을 수 없습니다. 아래에서 다음 단계 (ii)를 수행 해야 합니다.  서비스 중단을 방지 하기 위해 더 안전 하 고 규정을 준수 하는 버전로 업그레이드**
->   -   2. 7.0 * 릴리스 (7.0.478) 또는 아래 나열 된 상위 버전의 최신 불만 버전으로 업그레이드 합니다.
+## <a name="supported-windows-versions-and-support-end-date"></a>지원되는 Windows 버전 및 지원 종료 날짜
+OS 버전 지원이 종료되면 특정 OS에서 Service Fabric 지원이 종료됩니다.
 
 
-> [!Note]
-> **7.2의 모든 릴리스 버전에는 필요한 변경 내용이 포함 되어** 있습니다.
+### <a name="windows-server"></a>Windows Server
 
- | OS | 클러스터의 현재 Service Fabric 런타임 | CU/Patch 릴리스 |
-  | --- | --- |--- |
-  | Windows | 7.0. * | 7.0.478.9590 |
-  | Windows | 7.1. * | 7.1.503.9590 |
-  | Windows | 7.2. * | 7.2. * |
-  | Linux Ubuntu 16.04 | 7.0. * | 7.0.472.1  |
-  | Linux Ubuntu 16.04 | 7.1. * | 7.1.455.1  |
-  | Linux Ubuntu 18.04 | 7.1. * | 7.1.455.1804 |
-  | Linux Ubuntu 16.04 | 7.2. * | 7.2. * |
-  | Linux Ubuntu 18.04 | 7.2. * | 7.2. * |
+| OS 버전 | Service Fabric 지원 종료 날짜 | OS 수명 주기 링크 |
+|---|---|---|
+|Windows Server 2019|2029/1/9|<a href="/lifecycle/products/windows-server-2019">Windows Server 2019 - Microsoft 수명 주기</a>|
+|Windows Server 2016 |2027/1/12|<a href="/lifecycle/products/windows-server-2016">Windows Server 2016 - Microsoft 수명 주기</a>|
+|Windows Server 2012 R2 |2023/10/10|<a href="/lifecycle/products/windows-server-2012-r2">Windows Server 2012 R2 - Microsoft 수명 주기</a>|
+|버전 20H2 |2022/5/10|<a href="/lifecycle/products/windows-server">Windows Server - Microsoft 수명 주기</a>|
+|버전 2004 |2021/12/14|<a href="/lifecycle/products/windows-server">Windows Server - Microsoft 수명 주기</a>|
+|버전 1909 |2021/5/11|<a href="/lifecycle/products/windows-server">Windows Server - Microsoft 수명 주기</a>|
 
-## <a name="supported-versions"></a>지원되는 버전
+<br>
 
-다음 표에서는 Service Fabric 버전 및 지원 종료 날짜를 나열 합니다.
+### <a name="windows-10"></a>Windows 10
 
-| 클러스터의 Service Fabric 런타임 | 클러스터 버전에서 직접 업그레이드할 수 있습니다. |호환 되는 SDK 또는 NuGet 패키지 버전 | 지원 종료 |
-| --- | --- |--- | --- |
-| 5.3.121 전 모든 클러스터 버전 | 5.1.158.* |버전 2.3보다 작거나 같음 |2017년 1월 20일 |
-| 5.3.* | 5.1.158.* |버전 2.3보다 작거나 같음 |2017년 2월 24일 |
-| 5.4.* | 5.1.158.* |버전 2.4보다 작거나 같음 |2017년 5월 10일       |
-| 5.5.* | 5.4.164.* |버전 2.5보다 작거나 같음 |2017년 8월 10일    |
-| 5.6.* | 5.4.164.* |버전 2.6보다 작거나 같음 |2017년 10월 13일   |
-| 5.7.* | 5.4.164.* |버전 2.7보다 작거나 같음 |2017년 12월 15일  |
-| 6.0.* | 5.6.205.* |버전 2.8보다 작거나 같음 |2018 년 3 월 30 일     |
-| 6.1.* | 5.7.221.* |버전 3.0보다 작거나 같음 |2018 년 7 월 15 일      |
-| 6.2.* | 6.0.232.* |버전 3.1보다 작거나 같음 |2018 년 10 월 26 일   |
-| 6.3.* | 6.1.480.* |버전 3.2보다 작거나 같음 |2019 년 3 월 31 일  |
-| 6.4.* | 6.2.301.* |버전 3.3보다 작거나 같음 |2019 년 9 월 15 일 |
-| 6.5. * | 6.4.617.* |버전 3.4 보다 작거나 같음 |2020 년 8 월 1 일 |
-| 7.0.466.* | 6.4.664.* |버전 4.0 보다 작거나 같음|2021 년 1 월 31 일  |
-| 7.0.466.* | 6.5. * |버전 4.0 보다 작거나 같음|2021 년 1 월 31 일 |
-| 7.0.470.* | 7.0.466.* |버전 4.0 보다 작거나 같음 |2021 년 1 월 31 일  |
-| 7.0.472.* | 7.0.466.* |버전 4.0 보다 작거나 같음 |2021 년 1 월 31 일  |
-| 7.0.478.* | 7.0.466.* |버전 4.0 보다 작거나 같음 |2021 년 1 월 31 일  |
-| 7.1.409.* | 7.0.466.* |버전 4.1 보다 작거나 같음 |2021 년 7 월 31 일 |
-| 7.1.417.* | 7.0.466.* |버전 4.1 보다 작거나 같음 |2021 년 7 월 31 일 |
-| 7.1.428.* | 7.0.466.* |버전 4.1 보다 작거나 같음 |2021 년 7 월 31 일 |
-| 7.1.456.* | 7.0.466.* |버전 4.1 보다 작거나 같음 |2021 년 7 월 31 일 |
-| 7.1.458.* | 7.0.466.* |버전 4.1 보다 작거나 같음 |2021 년 7 월 31 일 |
-| 7.1.459.* | 7.0.466.* |버전 4.1 보다 작거나 같음 |2021 년 7 월 31 일 |
-| 7.1.503.* | 7.0.466.* |버전 4.1 보다 작거나 같음 |2021 년 7 월 31 일 |
-| 7.1.510.* | 7.0.466.* |버전 4.1 보다 작거나 같음 |2021 년 7 월 31 일 |
-| 7.2.413.* | 7.0.470.* |버전 4.2 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
-| 7.2.432.* | 7.0.470.* |버전 4.2 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
-| 7.2.433.* | 7.0.470.* |버전 4.2 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
-| 7.2.445.* | 7.0.470.* |버전 4.2 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
-| 7.2.452.* | 7.0.470.* |버전 4.2 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
-| 7.2.457.* | 7.0.470.* |버전 4.2 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
-| 7.2.477.* | 7.0.478.* |버전 4.2 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
+| OS 버전 | Service Fabric 지원 종료 날짜 | OS 수명 주기 링크 |
+| --- | --- | --- |
+| Windows 10 2019 LTSC | 2029/1/9 | <a href="/lifecycle/products/windows-10-2019-ltsc">Windows 10 2019 LTSC - Microsoft 수명 주기</a> |
+| 버전 20H2 | 2023/5/9 | <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise 및 Education - Microsoft 수명 주기</a> |
+| 버전 2004 | 2021/12/14| <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise 및 Education - Microsoft 수명 주기</a> |
+| 버전 1909 | 2022/5/10 | <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise 및 Education - Microsoft 수명 주기</a> |
+| 버전 1809 | 2021/5/11 | <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise 및 Education - Microsoft 수명 주기</a> |
+| 버전 1803 | 2021/5/11 | <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise 및 Education - Microsoft 수명 주기</a> |
 
-## <a name="supported-operating-systems"></a>지원되는 운영 체제
+## <a name="linux"></a>Linux
 
-다음 표에는 지원 되는 Service Fabric 버전에 대해 지원 되는 운영 체제가 나와 있습니다.
+| Service Fabric 런타임 | 다음에서 직접 업그레이드 가능 |다음으로 다운그레이드 가능 |호환되는 SDK 또는 NuGet 패키지 버전 | 지원되는 dotnet 런타임** | OS 버전 | 지원 종료 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 8.0 RTO | 7.1 CU8 | 7.2 | 버전 5.0보다 낮거나 같음 | .NET Core 3.1, .NET Core 2.1 | [지원되는 OS 버전 참조](#supported-linux-versions-and-support-end-date) | 현재 버전 |
+| 7.2 CU7 | 7.0 CU9 | 7.1 | 버전 4.2보다 낮거나 같음 | .NET Core 3.1, .NET Core 2.1 | [지원되는 OS 버전 참조](#supported-linux-versions-and-support-end-date) | 2021년 11월 30일 |
+| 7.2 RTO-CU6 | 7.0 CU4 | 7.1 | 버전 4.2보다 낮거나 같음 | .NET Core 3.1, .NET Core 2.1 | [지원되는 OS 버전 참조](#supported-linux-versions-and-support-end-date) | 2021년 11월 30일 |
+| 7.1 | 7.0 CU3 | 해당 없음 | 버전 4.1보다 낮거나 같음 | .NET Core 3.1, .NET Core 2.1 | [지원되는 OS 버전 참조](#supported-linux-versions-and-support-end-date) | 2021년 7월 31일 |
 
-| 운영 체제 | 가장 이른 지원 Service Fabric 버전 |
-| --- | --- |
-| Windows Server 2012 R2 | 모든 버전 |
-| Windows Server 2016 | 모든 버전 |
-| Windows Server 1709 | 6.0 |
-| Windows Server 1803 | 6.4 |
-| Windows Server 1809 | 6.4.654.9590 |
-| Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16.04 | 6.0 |
-| Linux Ubuntu 18.04 | 7.1 |
+** Service Fabric은 .NET Core 런타임을 제공하지 않으며 서비스 작성자가 이를 <a href="/dotnet/core/deploying/">사용할 수 있는지</a> 확인합니다.
 
-## <a name="supported-version-names"></a>지원 되는 버전 이름
+## <a name="supported-linux-versions-and-support-end-date"></a>지원되는 Linux 버전 및 지원 종료 날짜
+OS 버전 지원이 종료되면 특정 OS에서 Service Fabric 지원이 종료됩니다.
 
-다음 표에는 Service Fabric 버전 이름과 해당 버전 번호가 나와 있습니다.
+#### <a name="ubuntu"></a>Ubuntu
+| OS 버전 | Service Fabric 지원 종료 날짜| OS 수명 주기 링크 |
+| --- | --- | --- |
+| Ubuntu 18.04 | 2028년 4월 | <a href="https://wiki.ubuntu.com/Releases">Ubuntu 수명 주기</a>|
+| Ubuntu 16.04 | 2024년 4월 | <a href="https://wiki.ubuntu.com/Releases">Ubuntu 수명 주기</a>|
+
+<br>
+
+## <a name="service-fabric-version-name-and-number-reference"></a>Service Fabric 버전 이름 및 번호 참조
+다음 표에는 Service Fabric의 버전 이름과 해당 버전 번호가 나와 있습니다.
 
 | 버전 이름 | Windows 버전 번호 | Linux 버전 번호 |
 | --- | --- | --- |
-| 5.3 RTO | 5.3.121.9494 | 해당 사항 없음|
-| 5.3 CU1 | 5.3.204.9494 | 해당 사항 없음|
-| 5.3 CU2 | 5.3.301.9590 | 해당 사항 없음|
-| 5.3 CU3 | 5.3.311.9590 | 해당 사항 없음|
-| 5.4 CU2 | 5.4.164.9494 | 해당 사항 없음|
-| 5.5 CU1 | 5.5.216.0    | 해당 사항 없음|
-| 5.5 CU2 | 5.5.219.0 | 해당 사항 없음|
-| 5.5 CU3 | 5.5.227.0 | 해당 사항 없음|
-| 5.5 CU4 | 5.5.232.0 | 해당 사항 없음|
-| 5.6 RTO | 5.6.204.9494 | 해당 사항 없음|
-| 5.6 CU2 | 5.6.210.9494 | 해당 사항 없음|
-| 5.6 CU3 | 5.6.220.9494 | 해당 사항 없음|
-| 5.7 RTO | 5.7.198.9494 | 해당 사항 없음|
-| 5.7 CU4 | 5.7.221.9494 | 해당 사항 없음|
-| 6.0 RTO | 6.0.211.9494 | 6.0.120.1 |
-| 6.0 CU1 | 6.0.219.9494 | 6.0.127.1 |
-| 6.0 CU2 | 6.0.232.9494 | 6.0.133.1 |
-| 6.1 CU1 | 6.1.456.9494 | 6.1.183.1 |
-| 6.1 CU2 | 6.1.467.9494 | 6.1.185.1 |
-| 6.1 CU3 | 6.1.472.9494 | 해당 사항 없음|
-| 6.1 CU4 | 6.1.480.9494 | 6.1.187.1 |
-| 6.2 RTO | 6.2.269.9494 | 6.2.184.1 |
-| 6.2 CU1 | 6.2.274.9494 | 6.2.191.1 |
-| 6.2 CU2 | 6.2.283.9494 | 6.2.194.1 |
-| 6.2 CU3 | 6.2.301.9494 | 6.2.199.1 |
-| 6.3 RTO | 6.3.162.9494 | 6.3.119.1 |
-| 6.3 CU1 | 6.3.176.9494 | 6.3.124.1 |
-| 6.3 CU1 | 6.3.187.9494 | 6.3.129.1 |
-| 6.4 RTO | 6.4.617.9590 | 6.4.625.1 |
-| 6.4 CU2 | 6.4.622.9590 | 해당 사항 없음|
-| 6.4 CU3 | 6.4.637.9590 | 6.4.634.1 |
-| 6.4 CU4 | 6.4.644.9590 | 6.4.639.1 |
-| 6.4 CU5 | 6.4.654.9590 | 6.4.649.1 |
-| 6.4 CU6 | 6.4.658.9590 | 해당 사항 없음|
-| 6.4 CU7 | 6.4.664.9590 | 6.4.661.1 |
-| 6.4 CU8 | 6.4.670.9590 | 해당 사항 없음|
-| 6.5 RTO | 6.5.639.9590 | 6.5.435.1 |
-| 6.5 CU1 | 6.5.641.9590 | 6.5.454.1 |
-| 6.5 CU2 | 6.5.658.9590 | 6.5.460.1 |
-| 6.5 CU3 | 6.5.664.9590 | 6.5.466.1 |
-| 6.5 CU5 | 6.5.676.9590 | 6.5.467.1 |
-| 7.0 RTO | 7.0.457.9590 | 7.0.457.1 |
-| 7.0 CU2 | 7.0.464.9590 | 7.0.464.1 |
-| 7.0 CU3 | 7.0.466.9590 | 7.0.465.1 |
-| 7.0 CU4 | 7.0.470.9590 | 7.0.469.1 |
-| 7.0 CU6 | 7.0.472.9590 | 7.0.471.1 |
-| 7.0 CU9 | 7.0.478.9590 | 7.0.472.1 |
-| 7.1 RTO | 7.1.409.9590 | 7.1.410.1 |
-| 7.1 CU1 | 7.1.417.9590 | 7.1.418.1 |
-| 7.1 CU2 | 7.1.428.9590 | 7.1.428.1 |
-| 7.1 CU3 | 7.1.456.9590 | 7.1.452.1 |
-| 7.1 CU5 | 7.1.458.9590 | 7.1.454.1 |
-| 7.1 CU6 | 7.1.459.9590 | 7.1.455.1 |
-| 7.1 CU8 | 7.1.503.9590 | 7.1.508.1 |
-| 7.1 CU10 | 7.1.510.9590 | 해당 없음 |
-| 7.2 RTO | 7.2.413.9590 | 해당 없음 |
-| 7.2 CU2 | 7.2.432.9590 | 7.2.431.1 |
-| 7.2 CU3 | 7.2.433.9590 | 해당 없음 |
-| 7.2 CU4 | 7.2.445.9590 | 7.2.447.1 |
-| 7.2 CU5 | 7.2.452.9590 | 7.2.454.1 |
-| 7.2 CU6 | 7.2.457.9590 | 7.2.456.1 |
+| 8.0 RTO | 8.0.514.9590 | 8.0.513.1 | 
 | 7.2 CU7 | 7.2.477.9590 | 7.2.476.1 |
+| 7.2 CU6 | 7.2.457.9590 | 7.2.456.1 |
+| 7.2 CU5 | 7.2.452.9590 | 7.2.454.1 |
+| 7.2 CU4 | 7.2.445.9590 | 7.2.447.1 |
+| 7.2 CU3 | 7.2.433.9590 | 해당 없음 |
+| 7.2 CU2 | 7.2.432.9590 | 7.2.431.1 |
+| 7.2 RTO | 7.2.413.9590 | 해당 없음 |
+| 7.1 CU10 | 7.1.510.9590 | 해당 없음 |
+| 7.1 CU8 | 7.1.503.9590 | 7.1.508.1 |
+| 7.1 CU6 | 7.1.459.9590 | 7.1.455.1 |
+| 7.1 CU5 | 7.1.458.9590 | 7.1.454.1 |
+| 7.1 CU3 | 7.1.456.9590 | 7.1.452.1 |
+| 7.1 CU2 | 7.1.428.9590 | 7.1.428.1 |
+| 7.1 CU1 | 7.1.417.9590 | 7.1.418.1 |
+| 7.1 RTO | 7.1.409.9590 | 7.1.410.1 |
+| 7.0 CU9 | 7.0.478.9590 | 7.0.472.1 |
+| 7.0 CU6 | 7.0.472.9590 | 7.0.471.1 |
+| 7.0 CU4 | 7.0.470.9590 | 7.0.469.1 |
+| 7.0 CU3 | 7.0.466.9590 | 7.0.465.1 |
+| 7.0 CU2 | 7.0.464.9590 | 7.0.464.1 |
+| 7.0 RTO | 7.0.457.9590 | 7.0.457.1 |
+| 6.5 CU5 | 6.5.676.9590 | 6.5.467.1 |
+| 6.5 CU3 | 6.5.664.9590 | 6.5.466.1 |
+| 6.5 CU2 | 6.5.658.9590 | 6.5.460.1 |
+| 6.5 CU1 | 6.5.641.9590 | 6.5.454.1 |
+| 6.5 RTO | 6.5.639.9590 | 6.5.435.1 |
+| 6.4 CU8 | 6.4.670.9590 | 해당 사항 없음|
+| 6.4 CU7 | 6.4.664.9590 | 6.4.661.1 |
+| 6.4 CU6 | 6.4.658.9590 | 해당 사항 없음|
+| 6.4 CU5 | 6.4.654.9590 | 6.4.649.1 |
+| 6.4 CU4 | 6.4.644.9590 | 6.4.639.1 |
+| 6.4 CU3 | 6.4.637.9590 | 6.4.634.1 |
+| 6.4 CU2 | 6.4.622.9590 | 해당 사항 없음|
+| 6.4 RTO | 6.4.617.9590 | 6.4.625.1 |
+| 6.3 CU1 | 6.3.187.9494 | 6.3.129.1 |
+| 6.3 RTO | 6.3.162.9494 | 6.3.119.1 |
+| 6.2 CU3 | 6.2.301.9494 | 6.2.199.1 |
+| 6.2 CU2 | 6.2.283.9494 | 6.2.194.1 |
+| 6.2 CU1 | 6.2.274.9494 | 6.2.191.1 |
+| 6.2 RTO | 6.2.269.9494 | 6.2.184.1 |
+| 6.1 CU4 | 6.1.480.9494 | 6.1.187.1 |
+| 6.1 CU3 | 6.1.472.9494 | 해당 사항 없음|
+| 6.1 CU2 | 6.1.467.9494 | 6.1.185.1 |
+| 6.1 CU1 | 6.1.456.9494 | 6.1.183.1 |
+| 6.0 CU2 | 6.0.232.9494 | 6.0.133.1 |
+| 6.0 CU1 | 6.0.219.9494 | 6.0.127.1 |
+| 6.0 RTO | 6.0.211.9494 | 6.0.120.1 |
+| 5.7 CU4 | 5.7.221.9494 | 해당 사항 없음|
+| 5.7 RTO | 5.7.198.9494 | 해당 사항 없음|
+| 5.6 CU3 | 5.6.220.9494 | 해당 사항 없음|
+| 5.6 CU2 | 5.6.210.9494 | 해당 사항 없음|
+| 5.6 RTO | 5.6.204.9494 | 해당 사항 없음|
+| 5.5 CU4 | 5.5.232.0 | 해당 사항 없음|
+| 5.5 CU3 | 5.5.227.0 | 해당 사항 없음|
+| 5.5 CU2 | 5.5.219.0 | 해당 사항 없음|
+| 5.5 CU1 | 5.5.216.0    | 해당 사항 없음|
+| 5.4 CU2 | 5.4.164.9494 | 해당 사항 없음|
+| 5.3 CU3 | 5.3.311.9590 | 해당 사항 없음|
+| 5.3 CU2 | 5.3.301.9590 | 해당 사항 없음|
+| 5.3 CU1 | 5.3.204.9494 | 해당 사항 없음|
+| 5.3 RTO | 5.3.121.9494 | 해당 사항 없음|

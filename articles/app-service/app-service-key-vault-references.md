@@ -1,19 +1,19 @@
 ---
 title: Key Vault 참조 사용
-description: Azure App Service를 설정 하 고 Azure Functions Azure Key Vault 참조를 사용 하는 방법에 대해 알아봅니다. 응용 프로그램 코드에 Key Vault 암호를 사용할 수 있도록 합니다.
+description: Azure App Service 및 Azure Functions를 설정하여 Azure Key Vault 참조를 사용하는 방법을 알아봅니다. 애플리케이션 코드에 Key Vault 비밀을 사용할 수 있게 합니다.
 author: mattchenderson
 ms.topic: article
 ms.date: 02/05/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 69fc0d6f3c4e18b34555a099f4e28e278ca3bdad
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: e0bba85cc99e1751f39172ac320fe721d6f02e87
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "100635390"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076788"
 ---
-# <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대 한 Key Vault 참조를 사용 합니다.
+# <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions의 Key Vault 참조 사용
 
 이 항목에서는 코드 변경 없이도 App Service 또는 Azure Functions 애플리케이션에서 Azure Key Vault의 비밀을 사용하는 방법을 보여 줍니다. [Azure Key Vault](../key-vault/general/overview.md)는 액세스 정책 및 감사 기록에 대한 전체 제어와 함께 중앙 집중식 비밀 관리를 제공하는 서비스입니다.
 
@@ -30,8 +30,19 @@ Key Vault에서 비밀을 읽으려면 자격 증명 모음을 만들고 해당 
 
 1. 이전에 만든 애플리케이션 ID에 대한 [Key Vault에서 액세스 정책](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies)을 만듭니다. 이 정책에 대한 “가져오기” 비밀 권한을 사용하도록 설정합니다. "권한 있는 애플리케이션" 또는 `applicationId` 설정은 관리 ID와 호환되지 않으므로 구성하지 마세요.
 
-   > [!IMPORTANT]
-   > 앱이 [App Service Environment](./environment/intro.md)내에서 호스트 되는 경우를 제외 하 고 Key Vault 참조는 현재 키 자격 증명 모음에 저장 된 비밀을 [네트워크 제한](../key-vault/general/overview-vnet-service-endpoints.md) 없이 해결할 수 없습니다.
+### <a name="access-network-restricted-vaults"></a>네트워크 제한 자격 증명 모음 액세스
+
+> [!NOTE]
+> Linux 기반 애플리케이션은 현재 [App Service Environment](./environment/intro.md)내에서 호스트되는 경우를 제외하고는 네트워크 제한 키 자격 증명 모음에서 비밀을 확인할 수 없습니다.
+
+자격 증명 모음이 [네트워크 제한](../key-vault/general/overview-vnet-service-endpoints.md)으로 구성된 경우 애플리케이션에 네트워크 액세스 권한이 있는지도 확인해야 합니다.
+
+1. [App Service 네트워킹 기능](./networking-features.md) 및 [Azure Functions 네트워킹 옵션](../azure-functions/functions-networking-options.md)에 설명된 대로 애플리케이션에 아웃바운드 네트워킹 기능이 구성되어 있는지 확인합니다.
+
+2. 애플리케이션에서 액세스할 네트워크 또는 서브넷에 사용할 자격 증명 모음 구성 계정이 있는지 확인합니다.
+
+> [!IMPORTANT]
+> 가상 네트워크 통합을 통해 자격 증명 모음에 액세스하는 것은 현재 [지정된 버전이 없는 비밀의 자동 업데이트](#rotation)와 호환되지 않습니다.
 
 ## <a name="reference-syntax"></a>참조 구문
 
@@ -40,8 +51,8 @@ Key Vault 참조는 `@Microsoft.KeyVault({referenceString})` 형식이며, 여�
 > [!div class="mx-tdBreakAll"]
 > | 참조 문자열                                                            | 설명                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri=_secretUri_                                                       | **SecretUri** 는 Key Vault의 비밀에 대 한 전체 데이터 평면 URI 여야 하며, 선택적으로 버전 (예: 또는)을 포함 해야 합니다. `https://myvault.vault.azure.net/secrets/mysecret/``https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`  |
-> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName** 는 필수 이며 Key Vault 리소스의 이름 이어야 합니다. **SecretName** 는 필수 이며 대상 암호의 이름 이어야 합니다. **SecretVersion** 는 선택 사항 이지만 현재는 사용할 암호의 버전을 나타냅니다. |
+> | SecretUri=_secretUri_                                                       | **SecretUri** 는 Key Vault의 비밀에 관한 전체 데이터 평면 URI이어야 하며, 선택적으로 버전(예: `https://myvault.vault.azure.net/secrets/mysecret/` 또는 `https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`)을 포함해야 합니다.  |
+> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName** 은 필수이며 Key Vault 리소스의 이름이어야 합니다. **SecretName** 은 필수이며 대상 비밀의 이름이어야 합니다. **SecretVersion** 은 선택 사항이지만, 있으면 사용할 비밀의 버전을 나타냅니다. |
 
 예를 들어 전체 참조는 다음과 같습니다.
 
@@ -57,11 +68,14 @@ Key Vault 참조는 `@Microsoft.KeyVault({referenceString})` 형식이며, 여�
 
 ## <a name="rotation"></a>회전
 
-참조에 버전을 지정 하지 않으면 앱은 Key Vault에 있는 최신 버전을 사용 합니다. 순환 이벤트와 같이 최신 버전을 사용할 수 있게 되 면 앱은 자동으로 업데이트 되 고 1 일 이내에 최신 버전을 사용 합니다. 앱에 대 한 모든 구성 변경으로 인해 참조 된 모든 암호의 최신 버전으로 즉시 업데이트 됩니다.
+> [!IMPORTANT]
+> [가상 네트워크 통합을 통해 자격 증명 모음에 액세스](#access-network-restricted-vaults)하는 것은 현재 지정된 버전이 없는 비밀의 자동 업데이트와 호환되지 않습니다.
+
+참조에 버전을 지정하지 않으면 앱은 Key Vault에 있는 최신 버전을 사용합니다. 순환 이벤트와 같이 최신 버전을 사용할 수 있게 되면 앱은 자동으로 업데이트되고 1일 이내에 최신 버전을 사용하기 시작합니다. 앱에 관한 모든 구성 변경으로 인해 참조된 모든 비밀이 최신 버전으로 즉시 업데이트됩니다.
 
 ## <a name="source-application-settings-from-key-vault"></a>Key Vault의 원본 애플리케이션 설정
 
-Key Vault 참조를 [응용 프로그램 설정](configure-common.md#configure-app-settings)에 대 한 값으로 사용할 수 있으므로 사이트 구성 대신 Key Vault에서 비밀을 유지할 수 있습니다. 응용 프로그램 설정은 안전 하 게 안전 하 게 암호화 되지만 비밀 관리 기능이 필요한 경우에는 Key Vault으로 이동 해야 합니다.
+Key Vault 참조를 [애플리케이션 설정](configure-common.md#configure-app-settings) 값으로 사용할 수 있으므로 사이트 구성 대신 Key Vault에서 비밀을 유지할 수 있습니다. 애플리케이션 설정은 미사용 시 안전하게 암호화되지만, 비밀 관리 기능이 필요한 경우에는 Key Vault로 이동해야 합니다.
 
 애플리케이션 설정에 Key Vault 참조를 사용하려면 참조를 설정 값으로 설정합니다. 앱은 키를 사용하여 비밀을 정상적으로 참조할 수 있습니다. 코드 변경은 필요하지 않습니다.
 
@@ -72,7 +86,7 @@ Key Vault 참조를 [응용 프로그램 설정](configure-common.md#configure-a
 
 Azure Resource Manager 템플릿을 통해 리소스 배포를 자동화할 때 이 기능이 작동하려면 종속성을 특정 순서로 시퀀스해야 할 수 있습니다. 중요한 것은, 사이트 정의에서 `siteConfig` 속성을 사용하는 대신 애플리케이션 설정을 자체 리소스로 정의해야 합니다. 이는 사이트를 먼저 정의해야 사이트를 사용하여 시스템 할당 ID를 만들고 액세스 정책에서 사용할 수 있기 때문입니다.
 
-함수 앱에 대 한 의사 (pseudo) 템플릿 예제는 다음과 같습니다.
+함수 앱을 위한 예제 의사 템플릿은 다음과 같습니다.
 
 ```json
 {
@@ -180,26 +194,26 @@ Azure Resource Manager 템플릿을 통해 리소스 배포를 자동화할 때 
 
 ## <a name="troubleshooting-key-vault-references"></a>Key Vault 참조 문제 해결
 
-참조가 제대로 확인 되지 않으면 참조 값이 대신 사용 됩니다. 즉, 응용 프로그램 설정의 경우 값이 구문을 갖는 환경 변수가 만들어집니다 `@Microsoft.KeyVault(...)` . 이로 인해 응용 프로그램에서 오류를 throw 할 수 있습니다 .이 경우 특정 구조의 비밀이 필요 하기 때문입니다.
+참조가 제대로 확인되지 않으면 참조 값이 대신 사용됩니다. 즉, 애플리케이션 설정의 경우 값이 `@Microsoft.KeyVault(...)` 구문을 갖는 환경 변수가 만들어집니다. 이로 인해 애플리케이션에서 오류를 throw할 수 있습니다. 이 경우 특정 구조의 비밀이 필요하기 때문입니다.
 
-가장 일반적으로는 [Key Vault 액세스 정책의](#granting-your-app-access-to-key-vault)잘못 된 구성으로 인해 발생 합니다. 그러나 비밀이 더 이상 존재 하지 않거나 참조 자체의 구문 오류가 원인일 수도 있습니다.
+이는 가장 일반적으로는 [Key Vault 액세스 정책](#granting-your-app-access-to-key-vault)의 잘못된 구성으로 인해 발생합니다. 그러나 비밀이 더 이상 존재하지 않거나 참조 자체의 구문 오류가 원인일 수도 있습니다.
 
-구문이 올바르면 포털에서 현재 해결 상태를 확인 하 여 다른 오류의 원인을 확인할 수 있습니다. 응용 프로그램 설정으로 이동 하 여 문제의 참조에 대해 "편집"을 선택 합니다. 설정 구성 아래에서 오류를 비롯 한 상태 정보가 표시 됩니다. 이러한 이러한이 없으면 참조 구문이 잘못 되었음을 의미 합니다.
+구문이 올바르면 포털에서 현재 해결 상태를 확인하여 오류의 다른 원인을 확인할 수 있습니다. 애플리케이션 설정으로 이동하여 해당 참조에 관해 "편집"을 선택합니다. 설정 구성 아래에서 오류를 비롯한 상태 정보가 표시됩니다. 해당 항목이 없으면 참조 구문이 잘못되었음을 의미합니다.
 
-기본 제공 감지기 중 하나를 사용 하 여 추가 정보를 얻을 수도 있습니다.
+기본 제공 탐지기 중 하나를 사용하여 추가 정보를 얻을 수도 있습니다.
 
-### <a name="using-the-detector-for-app-service"></a>App Service에 대 한 탐지기 사용
+### <a name="using-the-detector-for-app-service"></a>App Service를 위한 탐지기 사용
 
-1. 포털에서 앱으로 이동 합니다.
+1. 포털에서 앱으로 이동합니다.
 2. **문제 진단 및 해결** 을 선택합니다.
-3. **가용성 및 성능** 을 선택 하 고 **웹 앱 중단을 선택 합니다.**
-4. **Key Vault 응용 프로그램 설정 진단을** 찾고 **추가 정보** 를 클릭 합니다.
+3. **가용성 및 성능** 을 선택하고 **웹앱 중단** 을 선택합니다.
+4. **Key Vault 애플리케이션 설정 진단** 을 찾고 **추가 정보** 를 클릭합니다.
 
 
-### <a name="using-the-detector-for-azure-functions"></a>Azure Functions에 대 한 탐지기 사용
+### <a name="using-the-detector-for-azure-functions"></a>Azure Functions을 위한 탐지기 사용
 
-1. 포털에서 앱으로 이동 합니다.
-2. **플랫폼 기능으로 이동 합니다.**
+1. 포털에서 앱으로 이동합니다.
+2. **플랫폼 기능** 으로 이동합니다.
 3. **문제 진단 및 해결** 을 선택합니다.
-4. **가용성 및 성능** 을 선택 하 고 **함수 앱 중단 또는 오류 보고를 선택 합니다.**
-5. **Key Vault 응용 프로그램 설정 진단을 클릭 합니다.**
+4. **가용성 및 성능** 을 선택하고 **함수 앱 중단 또는 오류 보고** 를 선택합니다.
+5. **Key Vault 애플리케이션 설정 진단** 을 클릭합니다.

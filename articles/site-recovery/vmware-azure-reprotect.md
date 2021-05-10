@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery를 사용 하 여 온-프레미스 사이트에 VMware Vm 다시 보호
-description: Azure Site Recovery를 사용 하 여 Azure로 장애 조치 한 후 VMware Vm을 다시 보호 하는 방법을 알아봅니다.
+title: Azure Site Recovery를 사용하여 온-프레미스 사이트로 VMware VM 다시 보호
+description: Azure Site Recovery를 사용하여 Azure로 장애 조치(failover) 후 VMware VM을 다시 보호하는 방법을 알아봅니다.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
 ms.openlocfilehash: 6a11e3d0cb41383b44b76975ecbd1c2ae2825015
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89441496"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Azure에서 온-프레미스로 다시 보호
@@ -20,14 +20,14 @@ Azure로 온-프레미스 VMware VM 및 물리적 서버를 [장애 조치](site
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-1. [이 문서의](vmware-azure-prepare-failback.md) 단계에 따라 Azure에서 프로세스 서버를 설정 하 고 온-프레미스 마스터 대상 서버를 설정 하 고 장애 복구 (failback)를 위해 사이트 간 VPN 또는 express 경로 개인 피어 링을 구성 하는 등 다시 보호 및 장애 복구 (failback)를 준비 합니다.
-2. 온-프레미스 구성 서버가 실행 중이 고 Azure에 연결 되어 있는지 확인 합니다. Azure로 장애 조치 (failover) 하는 동안 온-프레미스 사이트에 액세스할 수 없으며 구성 서버가 사용할 수 없거나 종료 될 수 있습니다. 장애 복구(failback) 중에 VM이 구성 서버 데이터베이스에 있어야 합니다. 그렇지 않으면 장애 복구가 실패합니다.
-3. 온-프레미스 마스터 대상 서버에서 스냅숏을 삭제 합니다. 스냅샷이 있는 경우 다시 보호가 작동하지 않습니다.  VM의 스냅샷은 다시 보호 작업 중에 자동으로 병합됩니다.
+1. [이 문서](vmware-azure-prepare-failback.md)의 단계에 따라 Azure와 온-프레미스 마스터 대상 서버에서 프로세스 서버를 설정하고 장애 복구를 위한 사이트 간 VPN 또는 ExpressRoute 개인 피어링을 구성하는 것을 포함하여 다시 보호 및 장애 복구를 준비합니다.
+2. 온-프레미스 구성 서버가 실행 중이고 Azure에 연결되어 있어야 합니다. Azure로 장애 조치하는 동안에는 온-프레미스 사이트에 액세스할 수 없으므로 구성 서버가 사용할 수 없거나 종료된 상태일 수 있습니다. 장애 복구(failback) 중에 VM이 구성 서버 데이터베이스에 있어야 합니다. 그렇지 않으면 장애 복구가 실패합니다.
+3. 온-프레미스 마스터 대상 서버에서 스냅샷을 삭제합니다. 스냅샷이 있는 경우 다시 보호가 작동하지 않습니다.  VM의 스냅샷은 다시 보호 작업 중에 자동으로 병합됩니다.
 4. 다중 VM 일관성을 위해 복제 그룹으로 수집된 VM을 다시 보호하는 경우에는 모든 VM의 운영 체제(Windows 또는 Linux)가 동일한지 확인하고 배포하는 마스터 대상 서버의 운영 체제가 동일한지 확인합니다. 복제 그룹의 모든 VM이 동일한 마스터 대상 서버를 사용해야 합니다.
 5. 장애 복구(failback)에 [필요한 포트](vmware-azure-prepare-failback.md#ports-for-reprotectionfailback)를 엽니다.
 6. 장애 복구(failback) 전에 vCenter Server가 연결되어 있는지 확인합니다. 연결되지 않은 경우 디스크의 연결을 끊고 가상 머신을 다시 연결하는 작업이 실패합니다.
 7. vCenter Server에서 장애 복구(failback)하려는 VM을 관리하는 경우 필요한 권한이 있는지 확인합니다. 읽기 전용 사용자 vCenter 검색을 수행하고 가상 머신을 보호하면 보호에 성공하고 장애 조치가 작동합니다. 그러나 다시 보호 중에는 데이터 저장소를 검색할 수 없기 때문에 장애 조치(failover)가 실패하고, 다시 보호 중에는 나열되지 않습니다. 이 문제를 해결하려면 vCenter 자격 증명을 [적절한 계정/권한](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery)으로 업데이트한 다음, 작업을 다시 시도하면 됩니다. 
-8. 템플릿을 사용하여 가상 머신을 만든 경우 각 VM에 디스크에 대한 고유의 UUID가 있는지 확인합니다. 둘 다 동일한 템플릿에서 만들어졌으므로 온-프레미스 VM UUID가 마스터 대상 서버의 UUID와 충돌 하는 경우 다시 보호가 실패 합니다. 다른 템플릿에서 배포하세요.
+8. 템플릿을 사용하여 가상 머신을 만든 경우 각 VM에 디스크에 대한 고유의 UUID가 있는지 확인합니다. 온-프레미스 VM의 UUID와 마스터 대상 서버의 UUID가 모두 동일한 템플릿에서 만들어졌기 때문에 두 UUID가 충돌하는 경우 다시 보호에 실패합니다. 다른 템플릿에서 배포하세요.
 9. 대체 vCenter Server로 장애 복구(failback)하려는 경우 새 vCenter Server 및 마스터 대상 서버가 검색되는지 확인합니다. 검색되지 않는 경우 일반적으로 데이터 저장소에 액세스할 수 없거나 **다시 보호** 에 표시되지 않습니다.
 10. 장애 복구(failback)할 수 없는 다음 시나리오를 확인합니다.
     - ESXi 5.5 체험판 버전 또는 vSphere 6 Hypervisor 체험판 버전을 사용 중인 경우. 다른 버전으로 업그레이드하세요.
@@ -36,7 +36,7 @@ Azure로 온-프레미스 VMware VM 및 물리적 서버를 [장애 조치](site
     - VM이 마이그레이션되었습니다.
     - VM이 다른 리소스 그룹으로 이동되었습니다.
     - 복제본 Azure VM이 삭제되었습니다.
-    - 보호 되지 않는 복제본 Azure VM (온-프레미스 사이트에 복제)
+    - 복제본 Azure VM이 보호되어 있지 않습니다(온-프레미스 사이트에 복제).
 10. 사용 가능한 [장애 복구(failback) 유형](concepts-types-of-failback.md) - 원래 위치 복구 및 대체 위치 복구를 검토합니다.
 
 
@@ -53,8 +53,8 @@ Azure로 온-프레미스 VMware VM 및 물리적 서버를 [장애 조치](site
 ### <a name="before-you-start"></a>시작하기 전에
 
 - 장애 조치(failover)가 끝나고 Azure에서 VM이 부팅된 후 에이전트가 구성 서버에 다시 등록하는 데 약간의 시간(최대 15분)이 걸립니다. 이 시간 동안 다시 보호를 사용할 수 없으며 에이전트가 설치되지 않았다는 오류 메시지가 표시됩니다. 몇 분 정보 기다렸다가 다시 보호를 시도해 보세요.
-- Azure VM을 기존 온-프레미스 VM으로 장애 복구 (failback) 하려는 경우 마스터 대상 서버의 ESXi 호스트에 대 한 읽기/쓰기 액세스 권한으로 온-프레미스 VM 데이터 저장소를 탑재 합니다.
-- 다른 위치로 장애 복구 (failback) 하려는 경우, 예를 들어 온-프레미스 VM이 없는 경우 마스터 대상 서버에 대해 구성 된 보존 드라이브 및 데이터 저장소를 선택 합니다. 온-프레미스 사이트로 장애 복구할 때 장애 복구 보호 계획에 있는 VMware 가상 머신에서 마스터 대상 서버와 동일한 데이터 저장소를 사용합니다. 그 후 새 VM이 vCenter에 만들어집니다.
+- Azure VM을 기존 온-프레미스 VM으로 장애 복구(failback)하려면 마스터 대상 서버의 ESXi 호스트에 대한 읽기/쓰기 액세스 권한이 있는 온-프레미스 VM 데이터 스토리지를 탑재합니다.
+- 대체 위치로 장애 복구(failback)하려는 경우(예를 들어 온-프레미스 VM이 없어서) 마스터 대상 서버에 대해 구성된 보존 드라이브와 데이터 스토리지를 선택합니다. 온-프레미스 사이트로 장애 복구할 때 장애 복구 보호 계획에 있는 VMware 가상 머신에서 마스터 대상 서버와 동일한 데이터 저장소를 사용합니다. 그 후 새 VM이 vCenter에 만들어집니다.
 
 다음과 같이 다시 보호를 사용하도록 설정합니다.
 
@@ -68,15 +68,15 @@ Azure로 온-프레미스 VMware VM 및 물리적 서버를 [장애 조치](site
 
     ![다시 보호 대화 상자](./media/vmware-azure-reprotect/reprotectinputs.png)
     
-8. 작업은 Azure VM을 온-프레미스 사이트에 복제 하기 시작 합니다. **작업** 탭에서 진행률을 추적할 수 있습니다.
+8. Azure VM을 온-프레미스 사이트로 복제하는 작업을 시작합니다. **작업** 탭에서 진행률을 추적할 수 있습니다.
     - 다시 보호가 성공하면 VM은 보호된 상태가 됩니다.
     - 온-프레미스 VM이 다시 보호 중에 꺼집니다. 이렇게 하면 복제 중 데이터 일관성을 보장할 수 있습니다.
-    - 다시 보호 완료 된 후 온-프레미스 VM을 켜지 마세요.
+    - 다시 보호가 완료된 후 온-프레미스 VM을 켜지 마세요.
    
 
 ## <a name="next-steps"></a>다음 단계
 
 - 문제가 발생할 경우 [문제 해결 문서](vmware-azure-troubleshoot-failback-reprotect.md)를 검토하세요.
-- Azure VM을 보호한 후에는 [장애 복구(failback)를 실행](vmware-azure-failback.md)할 수 있습니다. 장애 복구는 Azure VM을 종료 하 고 온-프레미스 VM을 부팅 합니다. 애플리케이션의 가동 중지 시간이 약간 있습니다. 그에 맞게 장애 복구(failback) 시간을 선택합니다.
+- Azure VM을 보호한 후에는 [장애 복구(failback)를 실행](vmware-azure-failback.md)할 수 있습니다. 장애 복구는 Azure VM을 종료하고 온-프레미스 VM을 부팅합니다. 애플리케이션의 가동 중지 시간이 약간 있습니다. 그에 맞게 장애 복구(failback) 시간을 선택합니다.
 
 

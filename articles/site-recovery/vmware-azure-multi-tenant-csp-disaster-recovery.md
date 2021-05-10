@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: fb2a8a7bb14758ab21eb2183a119f456b53c8562
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97654952"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>CSP(클라우드 솔루션 공급자) 프로그램을 사용하여 다중 테넌트 환경에서 VMware 재해 복구 설정
 
-[CSP 프로그램](https://partner.microsoft.com/cloud-solution-provider) 은 Microsoft 365, Enterprise Mobility Suite 및 Microsoft Azure를 포함 하 여 Microsoft 클라우드 서비스에 대 한 발전시키 스토리를 개선 합니다. CSP를 통해 파트너는 고객과 엔드투엔드 관계를 보유하게 되고 기본 관계 접점이 될 수 있습니다. 파트너는 고객을 위해 Azure 구독을 배포하고 이러한 구독과 고객의 부가 가치 사용자 지정 제안을 결합할 수 있습니다.
+[CSP 프로그램](https://partner.microsoft.com/cloud-solution-provider)은 Microsoft 365, Enterprise Mobility Suite 및 Microsoft Azure 등 모든 Microsoft 클라우드 서비스에 대한 더 나은 협력 사례를 발전시키고 있습니다. CSP를 통해 파트너는 고객과 엔드투엔드 관계를 보유하게 되고 기본 관계 접점이 될 수 있습니다. 파트너는 고객을 위해 Azure 구독을 배포하고 이러한 구독과 고객의 부가 가치 사용자 지정 제안을 결합할 수 있습니다.
 
 파트너로써 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 CSP를 통해 고객을 위한 재해 복구를 직접 관리할 수 있습니다. 또는 CSP를 사용하여 Site Recovery 환경을 설정할 수 있으며 고객이 셀프 서비스 방식으로 고유한 재해 복구 요구 사항을 관리하도록 할 수 있습니다. 두 시나리오 모두에서 파트너는 Site Recovery와 고객 간의 매개체입니다. 파트너가 고객 관계 서비스를 제공하고 Site Recovery 사용에 대해 고객에게 비용을 청구합니다.
 
@@ -65,20 +65,20 @@ Microsoft 파트너 센터 대시보드를 통해 테넌트 구독에 액세스�
 ## <a name="assign-tenant-access-to-the-subscription"></a>구독에 테넌트 액세스 할당
 
 1. 재해 복구 인프라가 설정되어 있는지 확인합니다. 파트너는 재해 복구가 관리형 또는 셀프 서비스 형태인지에 관계없이 CSP 포털을 통해 테넌트 구독에 액세스합니다. 자격 증명 모음을 설정하고 테넌트 구독에 인프라를 등록합니다.
-1. [만든 계정](#create-a-tenant-account)에 테 넌 트를 제공 합니다.
+1. [만든 계정](#create-a-tenant-account)을 사용하여 테넌트를 제공합니다.
 1. 다음과 같이 CSP 포털을 통해 새 사용자를 테넌트 구독에 추가할 수도 있습니다.
 
     1. 테넌트의 CSP 구독 페이지로 이동하고 **사용자 및 라이선스** 옵션을 선택합니다.
 
        ![테넌트의 CSP 구독 페이지](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
 
-    1. 이제 관련 세부 정보를 입력 하 고 사용 권한을 선택 하거나 사용자 목록을 CSV 파일로 업로드 하 여 새 사용자를 만듭니다.
+    1. 이제 관련 세부 정보를 입력하거나 권한을 선택하거나 사용자 목록을 CSV 파일로 업로드하여 새 사용자를 만듭니다.
 
-    1. 새 사용자를 만든 후 Azure Portal로 돌아갑니다. **구독** 페이지에서 관련 구독을 선택합니다.
+    1. 새 사용자를 만든 후에 Azure Portal로 다시 이동합니다. **구독** 페이지에서 관련 구독을 선택합니다.
 
-    1. **액세스 제어 (IAM)** 를 선택한 다음 **역할 할당** 을 클릭 합니다.
+    1. **액세스 제어(IAM)** , **역할 할당** 을 차례로 클릭합니다.
 
-    1. **역할 할당 추가** 를 클릭 하 여 관련 액세스 수준을 가진 사용자를 추가 합니다. CSP 포털을 통해 생성된 사용자는 역할 할당 탭에 표시됩니다.
+    1. **역할 할당 추가** 를 클릭하여 관련 액세스 수준의 사용자를 추가합니다. CSP 포털을 통해 생성된 사용자는 역할 할당 탭에 표시됩니다.
 
         ![사용자 추가](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
 
@@ -98,7 +98,7 @@ Microsoft 파트너 센터 대시보드를 통해 테넌트 구독에 액세스�
 이 아티클에 설명된 대로 테넌트 구독을 설정하여 고객을 신속하게 관련 다중 테넌트 모델에서 사용하도록 설정하기 시작할 수 있습니다. [여기](vmware-azure-multi-tenant-overview.md)에서 다양한 다중 테넌트 모델 및 온-프레미스 액세스를 사용하는 방법에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-- Azure [RBAC (역할 기반 액세스 제어)](site-recovery-role-based-linked-access-control.md) 를 사용 하 여 Azure Site Recovery 배포를 관리 하는 방법에 대해 자세히 알아보세요.
-- VMware에서 Azure로 [복제 아키텍처](vmware-azure-architecture.md)에 대해 자세히 알아보세요.
+- Azure Site Recovery 배포를 관리하는 [Azure RBAC(Azure 역할 기반 액세스 제어)](site-recovery-role-based-linked-access-control.md)에 대해 자세히 알아봅니다.
+- VMware에서 Azure로 [복제 아키텍처](vmware-azure-architecture.md)에 대해 자세히 알아봅니다.
 - VMware VM을 Azure에 복제하는 [자습서를 검토합니다](vmware-azure-tutorial.md).
 VMware VM을 Azure에 복제하는 방법은 [다중 테넌트 환경](vmware-azure-multi-tenant-overview.md)에 대해 알아봅니다.

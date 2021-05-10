@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 05/04/2020
 ms.topic: conceptual
 ms.openlocfilehash: a1f95ca856223628974a9519b7c4811bde43965e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92222421"
 ---
 # <a name="configure-windows-update-settings-for-azure-automation-update-management"></a>Azure Automation 업데이트 관리를 위한 Windows 업데이트 설정 구성
@@ -62,4 +62,4 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 ## <a name="next-steps"></a>다음 단계
 
-[Vm에 대 한 업데이트 및 패치 관리](manage-updates-for-vm.md)의 지침에 따라 업데이트 배포를 예약 합니다.
+[Azure VM에 대한 업데이트 및 패치 관리](manage-updates-for-vm.md)의 지침에 따라 업데이트 배포를 예약합니다.

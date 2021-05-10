@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: mnayak
 ms.openlocfilehash: 0559d02ec603d12578fa46d9790d0711fde5e38b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101670904"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-the-azure-portal"></a>Azure Portal을 사용하여 VM에 대한 라우팅 기본 설정 구성
@@ -59,11 +59,11 @@ ms.locfileid: "101670904"
 9. 가상 머신이 배포되면 포털의 맨 위에 있는 검색 상자에 *myPublicIpAddress* 를 입력합니다. 검색 결과에 **myPublicIpAddress** 가 표시되면 선택합니다.
 10. 할당된 공용 IP 주소 및 다음 그림에 나와 있는 것처럼 **myVM** 가상 머신에 주소가 할당된 것을 볼 수 있습니다.
 
-    ![네트워크 인터페이스 mynic의 NIC 공용 I P를 보여 주는 스크린샷](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
+    ![네트워크 인터페이스 mynic의 NIC 공용 IP를 보여 주는 스크린샷](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
 
 11. **네트워킹** 을 선택한 후, NIC **mynic** 를 클릭한 다음, 공용 IP 주소를 선택하여 라우팅 기본 설정이 **인터넷** 으로 할당되었는지 확인합니다.
 
-    ![공용 I P 주소에 대 한 I P 주소 및 라우팅 기본 설정을 보여 주는 스크린샷](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
+    ![공용 IP 주소에 대해 IP 주소와 라우팅 기본 설정을 보여 주는 스크린샷](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
