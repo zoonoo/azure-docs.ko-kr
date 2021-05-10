@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 6ad12ac3d06d9e0a6b4f1bf45344ece2819c1486
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: ab2eb8a43fc75eea61a03bc25b2b6afc850d30aa
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140050"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105644400"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>SQL Server에 대한 재해 복구 설정
 
@@ -37,7 +37,7 @@ SQL Server 인스턴스를 복구하기 위한 BCDR 기술은 다음 표에 설�
 Azure IaaS(Infrastructure as a Service) VM(가상 머신) 또는 온-프레미스의 SQL Server.| [Always On 가용성 그룹](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) | 보조 복제본을 주 복제본으로 만드는 데 걸린 시간입니다. | 보조 복제본은 비동기식으로 복제되므로 데이터 손실이 발생합니다.
 Azure IaaS VM 또는 온-프레미스의 SQL Server입니다.| [장애 조치(failover) 클러스터링(Always On FCI)](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | 노드 간 장애 조치에 걸린 시간입니다. | Always On FCI는 공유 스토리지를 사용하므로 장애 조치 시 스토리지 인스턴스의 같은 보기를 사용할 수 있습니다.
 Azure IaaS VM 또는 온-프레미스의 SQL Server입니다.| [데이터베이스 미러링(성능 우선 모드)](/sql/database-engine/database-mirroring/database-mirroring-sql-server) | 미러 서버를 웜 대기 서버로 사용하는 서비스를 강제 적용하는 데 걸린 시간입니다. | 복제는 비동기적이며, 미러 데이터베이스에 주 데이터베이스보다 약간 뒤처질 수 있습니다. 지연 시간은 일반적으로 짧습니다. 하지만 주 서버 또는 미러 서버의 시스템 부하가 많은 경우 길어질 수 있습니다.<br/><br/>로그 전달은 데이터베이스 미러링을 보완할 수 있습니다. 비동기 데이터베이스 미러링의 좋은 대안입니다.
-Azure의 PaaS(Platform as a Service)로서의 SQL.<br/><br/>이 배포 유형에는 단일 데이터베이스 및 탄력적 풀이 포함됩니다. | 활성 지역 복제 | 장애 조치가 트리거된 후 30초.<br/><br/>장애 조치가 보조 데이터베이스 중 하나로 활성화된 경우 다른 모든 보조가 새로운 주 데이터베이스로 자동으로 연결됩니다. | 5초의 RPO.<br/><br/>활성 지역 복제는 SQL Server의 Always On 기술을 사용합니다. 스냅샷 격리를 사용하여 주 데이터베이스에서 커밋된 트랜잭션을 보조 데이터베이스로 비동기식으로 복제합니다.<br/><br/>보조 데이터에는 부분 트랜잭션이 포함되지 않을 수 있습니다.
+Azure의 PaaS(Platform as a Service)로서의 SQL.<br/><br/>이 배포 유형에는 단일 데이터베이스 및 탄력적 풀이 포함됩니다. | 활성 지리적 복제 | 장애 조치가 트리거된 후 30초.<br/><br/>장애 조치가 보조 데이터베이스 중 하나로 활성화된 경우 다른 모든 보조가 새로운 주 데이터베이스로 자동으로 연결됩니다. | 5초의 RPO.<br/><br/>활성 지역 복제는 SQL Server의 Always On 기술을 사용합니다. 스냅샷 격리를 사용하여 주 데이터베이스에서 커밋된 트랜잭션을 보조 데이터베이스로 비동기식으로 복제합니다.<br/><br/>보조 데이터에는 부분 트랜잭션이 포함되지 않을 수 있습니다.
 Azure에서 활성 지역 복제를 사용하여 구성된 PaaS로서의 SQL.<br/><br/>이 배포 유형에는 관리형 인스턴스, 탄력적 풀 및 단일 데이터베이스가 포함됩니다. | 자동 장애 조치 그룹 | 1시간의 RTO. | 5초의 RPO.<br/><br/>자동 장애 조치 그룹은 활성 지역 복제의 맨 위에 그룹 의미 체계를 제공합니다. 하지만 같은 비동기 복제 메커니즘이 사용됩니다.
 Azure IaaS VM 또는 온-프레미스의 SQL Server입니다.| Azure Site Recovery를 사용한 복제 | RTO는 일반적으로 15분 미만입니다. 자세한 내용은 [Site Recovery에서 제공하는 RTO SLA](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/)를 읽어 보세요. | 애플리케이션 일관성을 위해 1시간, 크래시 일관성을 위해 5분. 더 낮은 RPO를 찾고 있는 경우 다른 BCDR 기술을 사용하세요.
 
@@ -48,7 +48,7 @@ Azure IaaS VM 또는 온-프레미스의 SQL Server입니다.| Azure Site Recove
 > * 머신에서 관찰된 데이터 변경 비율이 [Site Recovery 한도](vmware-physical-azure-support-matrix.md#churn-limits)내에 있는지 확인합니다. 변경 비율은 초당 쓰기 바이트 수로 측정됩니다. Windows를 실행하는 머신의 경우 작업 관리자에서 **성능** 탭을 선택하여 이 변경 비율을 볼 수 있습니다. 각 디스크의 쓰기 속도를 관찰합니다.
 > * Site Recovery에서는 스토리지 공간 다이렉트에서 장애 조치 클러스터 인스턴스의 복제를 지원합니다. 자세히 알아보려면 [스토리지 공간 다이렉트 복제를 사용하도록 설정하는 방법](azure-to-azure-how-to-enable-replication-s2d-vms.md)을 참조하세요.
 > 
-> SQL 워크로드를 Azure로 마이그레이션하는 경우 [Azure Virtual Machines에서 SQL Server의 성능 지침](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md)을 적용하는 것이 좋습니다.
+> SQL 워크로드를 Azure로 마이그레이션하는 경우 [Azure Virtual Machines에서 SQL Server의 성능 지침](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md)을 적용하는 것이 좋습니다.
 
 ## <a name="disaster-recovery-of-an-application"></a>애플리케이션 재해 복구
 

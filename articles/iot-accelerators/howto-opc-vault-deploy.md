@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 98dc9345d2c8b392fd094458b612857d6d454739
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b20f6318c2e6be701446e29ab93598752e93d287
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105646378"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870286"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>OPC 자격 증명 모음 인증서 관리 서비스 빌드 및 배포
 
@@ -25,7 +25,7 @@ ms.locfileid: "105646378"
 > [!NOTE]
 > 자세한 내용은 GitHub [OPC 자격 증명 모음 리포지토리](https://github.com/Azure/azure-iiot-opc-vault-service)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="install-required-software"></a>필수 소프트웨어 설치
 
@@ -175,7 +175,7 @@ PowerShell 스크립트는 OPC 자격 증명 모음 마이크로 서비스 및 �
 [azure-free]:https://azure.microsoft.com/free/
 [powershell-install]:https://azure.microsoft.com/downloads/#powershell
 [docker-url]: https://www.docker.com/
-[dotnet-install]: https://www.microsoft.com/net/learn/get-started
+[dotnet-install]: https://dotnet.microsoft.com/download
 
 ## <a name="next-steps"></a>다음 단계
 

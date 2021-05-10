@@ -8,13 +8,14 @@ ms.subservice: core
 author: minxia
 ms.author: minxia
 ms.date: 02/27/2020
-ms.topic: how-to
-ms.openlocfilehash: 4d440742e9cfe9aadb63ed31c113879c4478dc82
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.topic: conceptual
+ms.custom: how-to
+ms.openlocfilehash: f8986ef895c5766d363261ef263851ee96d9c0da
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888767"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727674"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>TensorBoard 및 Azure Machine Learning을 사용한 실험 실행 및 메트릭 시각화
 

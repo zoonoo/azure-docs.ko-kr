@@ -3,12 +3,12 @@ title: Azure Backup 보고서 구성
 description: Log Analytics 및 Azure 통합 문서를 사용하여 Azure Backup에 대한 보고서 구성 및 보기
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 0720af0848aa8263587dfd9573d205abf73303d4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0f3638e7649fc02f050c575ee621ce9dc237c24f
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562327"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517269"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 
@@ -85,7 +85,7 @@ Log Analytics로 데이터를 보내도록 자격 증명 모음을 구성한 후
 
    ![Backup 항목 탭](./media/backup-azure-configure-backup-reports/backup-items.png)
 
-##### <a name="usage"></a>사용량
+##### <a name="usage"></a>사용
 
 이 탭에서는 백업에 대한 주요 청구 매개 변수를 볼 수 있습니다. 이 탭에 표시되는 정보는 청구 엔터티(보호된 컨테이너) 수준에 있습니다. 예를 들어, Azure에 백업되는 DPM 서버는 보호된 인스턴스 및 DPM 서버에 사용된 클라우드 스토리지의 추세를 볼 수 있습니다. 마찬가지로 Azure Backup에서 SQL을 사용하거나 Azure Backup에서 SAP HANA를 사용하는 경우 이 탭은 이러한 데이터베이스가 들어 있는 가상 머신 수준에서 사용 관련 정보를 제공합니다.
 
@@ -212,4 +212,4 @@ Backup 보고서의 위젯은 사용자의 Log Analytics 작업 영역에서 실
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Backup을 사용하여 모니터링 및 보고하는 방법에 대한 자세한 정보](./backup-azure-monitor-alert-faq.md)
+[Azure Backup을 사용하여 모니터링 및 보고하는 방법에 대한 자세한 정보](./backup-azure-monitor-alert-faq.yml)

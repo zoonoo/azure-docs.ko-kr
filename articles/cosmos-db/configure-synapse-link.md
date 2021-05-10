@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: references_regions, synapse-cosmos-db
-ms.openlocfilehash: 5cfe932d4f9ea60a044ce0b594df800fa37af6f1
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 24886ff3e01e9d9b4c01eabc917ced433599c0fa
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904931"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727130"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link 구성 및 사용
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -288,7 +288,7 @@ Azure Cosmos DB용 Synapse Link를 통해 서버리스 SQL 풀 데이터베이�
 
 * [Azure Cosmos DB 분석 저장소 개요](analytical-store-introduction.md)
 
-* [Azure Cosmos DB용 Synapse Link에 대한 질문과 대답](synapse-link-frequently-asked-questions.yml)
+* [Azure Cosmos DB용 Synapse Link에 대한 질문과 대답](synapse-link-frequently-asked-questions.md)
 
 * [Azure Synapse Analytics의 Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md)
 

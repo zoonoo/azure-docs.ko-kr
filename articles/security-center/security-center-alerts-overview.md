@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 04/07/2021
 ms.author: memildin
-ms.openlocfilehash: 9d917b3682d3b503743e706e8c952854e86fbc5e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cdf46a5f0185e33e1e877e3682ab418a00725de2
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727045"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012549"
 ---
 # <a name="security-alerts-and-incidents-in-azure-security-center"></a>Azure Security Center에서 보안 경고 및 인시던트
 
@@ -78,7 +78,7 @@ Security Center는 사용자가 각각의 경고에 주목하는 우선 순위�
 | **높음**          | 리소스가 손상될 가능성이 높습니다. 지금 즉시 리소스를 살펴보아야 합니다. Security Center는 경고 실행에 사용되는 악의적 의도와 결과 둘 다에서 신뢰성이 높습니다. 자격 증명 훔치기에 많이 사용되는 Mimikatz처럼 알려진 악의적 도구 실행을 검색하는 경고를 예로 들 수 있습니다.                                                                                                               |
 | **중간**        | 리소스의 손상 가능성을 나타내는 의심스러운 작업입니다. Security Center의 분석 또는 결과 신뢰도는 보통이며 악의적 의도의 신뢰도는 보통부터 높음 사이입니다. 일반적으로 기계 학습 또는 변칙 기반 검색입니다. 비정상적인 위치에서의 로그인 시도를 예로 들 수 있습니다.                                                                                                                |
 | **낮음**           | 무해한 양성 또는 차단된 공격일 수 있습니다. Azure Security Center는 의도가 악의적이라고 확신하지 못하며 무해한 작업일 수 있습니다. 예를 들어, 로그 지우기는 공격자가 자신의 트랙을 숨기려는 경우 발생할 수 있는 동작이지만 대부분은 관리자가 수행하는 루틴 작업입니다. Security Center는 일반적으로 공격을 차단하더라도 살펴볼 가치가 있는 흥미로운 사례가 아닌 경우에는 사용자에게 알리지 않습니다. |
-| **정보 제공** | 보안 인시던트로 드릴다운하거나 특정 경고 ID가 있는 REST API를 사용하는 경우 정보 경고만 표시됩니다. 인시던트는 일반적으로 여러 경고로 구성되며 그중 일부는 정보 제공만을 위해 표시될 수 있지만 다른 경고의 컨텍스트에서는 자세히 살펴볼 필요가 있습니다.                                                                                                                         |
+| **정보 제공** | 인시던트는 일반적으로 여러 경고로 구성되며 그중 일부는 정보 제공만을 위해 표시될 수 있지만 다른 경고의 컨텍스트에서는 자세히 살펴볼 필요가 있습니다.                                                                                                                         |
 
 ## <a name="export-alerts"></a>경고 내보내기
 

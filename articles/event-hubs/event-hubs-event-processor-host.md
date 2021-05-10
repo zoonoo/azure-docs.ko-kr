@@ -5,15 +5,15 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: de5d8f0f8bf9f64a473b18a50434cac83e8e38c3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98622065"
 ---
 # <a name="event-processor-host"></a>이벤트 프로세서 호스트
 > [!NOTE]
-> 이 문서는 Azure Event Hubs SDK의 이전 버전에 적용 됩니다. 최신 버전의 SDK는 [응용 프로그램의 여러 인스턴스에서 파티션 부하 분산](event-processor-balance-partition-load.md)을 참조 하세요. 최신 버전의 SDK로 코드를 마이그레이션하는 방법에 대 한 자세한 내용은 이러한 마이그레이션 가이드를 참조 하세요. 
+> 이 문서는 Azure Event Hubs SDK의 이전 버전에 적용됩니다. 최신 버전의 SDK는 [애플리케이션의 여러 인스턴스에서 파티션 부하 분산](event-processor-balance-partition-load.md)을 참조하세요. 최신 버전의 SDK로 코드를 마이그레이션하는 방법에 대한 자세한 내용은 다음 마이그레이션 가이드를 참조하세요. 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md)
@@ -79,16 +79,16 @@ public class SimpleEventProcessor : IEventProcessor
 
 다음으로, [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 인스턴스를 인스턴스화합니다. 오버로드에 따라 생성자에서 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 인스턴스를 만들 때 다음 매개 변수가 사용됩니다.
 
-- **hostName:** 각 소비자 인스턴스의 이름입니다. **EventProcessorHost** 의 각 인스턴스에는 소비자 그룹 내에서이 변수에 대 한 고유 값이 있어야 하므로이 값을 하드 코딩 하지 마십시오.
+- **hostName:** 각 소비자 인스턴스의 이름입니다. **EventProcessorHost** 의 각 인스턴스에는 소비자 그룹 내에서 이 변수에 대한 고유 값이 있어야 합니다. 따라서 이 값은 하드코딩하지 마세요.
 - **eventHubPath:** 이벤트 허브의 이름입니다.
 - **consumerGroupName:** Event Hubs는 **$Default** 를 기본 소비자 그룹의 이름으로 사용하지만 처리의 특정 측면에 대한 소비자 그룹을 만드는 것이 좋습니다.
 - **eventHubConnectionString:** Azure Portal에서 검색할 수 있는 이벤트 허브에 대한 연결 문자열입니다. 이 연결 문자열에는 이벤트 허브에 대한 **수신** 권한이 있어야 합니다.
-- **storageConnectionString:** 내부 리소스 관리에 사용 되는 저장소 계정입니다.
+- **storageConnectionString:** 내부 리소스 관리에 사용되는 스토리지 계정입니다.
 
 마지막으로, 소비자는 Event Hubs 서비스를 사용하여 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 인스턴스를 등록합니다. EventProcessorHost 인스턴스에 이벤트 프로세서 클래스를 등록하면 이벤트 처리가 시작됩니다. 등록하면 Event Hubs 서비스에 지시하여 소비자 앱에서 해당 파티션 중 일부의 이벤트를 사용하도록 예상하고 사용할 이벤트를 푸시할 때마다 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 구현 코드를 호출합니다. 
 
 > [!NOTE]
-> ConsumerGroupName은 대/소문자를 구분 합니다.  ConsumerGroupName를 변경 하면 스트림의 시작 부분에서 모든 파티션을 읽을 수 있습니다.
+> consumerGroupName은 대/소문자를 구분합니다.  ConsumerGroupName을 변경하면 스트림의 시작 부분부터 모든 파티션을 읽을 수 있습니다.
 
 ### <a name="example"></a>예제
 
@@ -123,7 +123,7 @@ EPH 인스턴스(또는 소비자)에 대한 파티션의 소유권은 추적을
 
 [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)에 대한 호출은 이벤트의 컬렉션을 제공합니다. 사용자의 책임 하에 이러한 이벤트를 처리합니다. 프로세서 호스트에서 모든 메시지를 한 번 이상 처리되도록 하려는 경우 고유한 다시 시도 유지 코드를 작성해야 합니다. 하지만 포이즌 메시지에 대해 주의해야 합니다.
 
-비교적 빠르게 작업을 수행하는 것이 좋습니다. 즉, 가능한 작은 처리로 수행합니다. 대신 소비자 그룹을 사용합니다. 저장소에 써야 하 고 일부 라우팅을 수행 해야 하는 경우 두 개의 소비자 그룹을 사용 하 고 별도로 실행 되는 두 개의 [Ieventprocessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 구현을 사용 하는 것이 좋습니다.
+비교적 빠르게 작업을 수행하는 것이 좋습니다. 즉, 가능한 작은 처리로 수행합니다. 대신 소비자 그룹을 사용합니다. 스토리지를 작성하고 일부 라우팅을 수행해야 하는 경우 두 개의 소비자 그룹을 사용하고 개별적으로 실행되는 두 개의 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 구현이 포함되는 것이 좋습니다.
 
 처리하는 동안 특정 시점에 읽고 완료한 내용을 추적하는 것이 좋습니다. 스트림의 시작 부분으로 돌아가지 않도록 읽기를 다시 시작해야 하는 경우 추적하는 것이 중요합니다. [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)는 *검사점* 을 사용하여 이 추적을 간소화합니다. 검사점은 지정된 소비자 그룹 내에서 지정된 파티션의 위치 또는 오프셋입니다. 여기서 메시지를 처리하는 작업을 충족합니다. **EventProcessorHost** 에서 검사점을 표시하는 작업은 [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext) 개체에서 [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) 메서드를 호출하여 수행됩니다. 이 작업은 [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) 메서드 내에서 수행되지만 [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync)에서 수행될 수도 있습니다.
 
@@ -139,7 +139,7 @@ EPH 인스턴스(또는 소비자)에 대한 파티션의 소유권은 추적을
 
 ## <a name="shut-down-gracefully"></a>정상적으로 종료
 
-마지막으로, [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync)는 모든 파티션 판독기를 완전히 종료할 수 있고 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)의 인스턴스를 종료할 때 항상 호출되어야 합니다. 이렇게 하는 데 실패하면 임대 만료 및 Epoch 충돌로 인해 **EventProcessorHost** 의 다른 인스턴스를 시작할 때 지연이 발생할 수 있습니다. Epoch 관리는 문서의 [epoch](#epoch) 섹션에 자세히 설명 되어 있습니다. 
+마지막으로, [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync)는 모든 파티션 판독기를 완전히 종료할 수 있고 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)의 인스턴스를 종료할 때 항상 호출되어야 합니다. 이렇게 하는 데 실패하면 임대 만료 및 Epoch 충돌로 인해 **EventProcessorHost** 의 다른 인스턴스를 시작할 때 지연이 발생할 수 있습니다. Epoch 관리는 문서의 [epoch](#epoch) 섹션에 자세히 설명되어 있습니다. 
 
 ## <a name="lease-management"></a>임대 관리
 EventProcessorHost 인스턴스에 이벤트 프로세서 클래스를 등록하면 이벤트 처리가 시작됩니다. 호스트 인스턴스는 이벤트 허브의 일부 파티션에서 임대를 획득하므로 모든 호스트 인스턴스에 걸쳐 균일한 파티션 분포로 수렴하는 방식으로 다른 호스트 인스턴스에서 일부를 가져올 수 있습니다. 각 임대 파티션의 경우 호스트 인스턴스는 제공된 이벤트 프로세서 클래스 인스턴스를 만든 후, 해당 파티션에서 이벤트를 수신하고, 이벤트 프로세서 인스턴스에 전달합니다. 더 많은 리스가 추가되고 더 많은 임대를 가져오면 EventProcessorHost는 결국 모든 소비자 간에 부하를 분산합니다.
@@ -154,38 +154,38 @@ EventProcessorHost 인스턴스에 이벤트 프로세서 클래스를 등록하
 
 - [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize): [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)의 호출에서 수신하려는 컬렉션의 최대 크기입니다. 이 크기는 최소가 아닌 최대 크기만 해당됩니다. 수신될 메시지가 거의 없으면 **ProcessEventsAsync** 는 사용할 수 있는 만큼 많이 사용하여 실행합니다.
 - [PrefetchCount](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.prefetchcount): 클라이언트가 수신해야 하는 메시지 수의 상한을 결정하기 위해 기본 AMQP 채널에서 사용하는 값입니다. 이 값은 [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize) 이상이어야 합니다.
-- [InvokeProcessorAfterReceiveTimeout](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.invokeprocessorafterreceivetimeout):이 매개 변수가 **true** 인 경우 파티션의 이벤트를 수신 하는 기본 호출 시간이 초과 되 면 [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) 가 호출 됩니다. 이 메서드는 파티션에서 사용 하지 않는 기간 동안 시간 기반 작업을 수행 하는 데 유용 합니다.
+- [InvokeProcessorAfterReceiveTimeout](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.invokeprocessorafterreceivetimeout): 이 매개 변수가 **true** 인 경우 파티션의 이벤트를 수신하는 기본 호출 시간이 초과되면 [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)가 호출됩니다. 이 메서드는 파티션에서 비활성화 기간 동안 시간 기반 작업을 수행하는 데 유용합니다.
 - [InitialOffsetProvider](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider): 함수 포인터 또는 람다 식을 설정할 수 있으며 판독기가 파티션을 읽기 시작할 때 초기 오프셋을 제공하도록 호출됩니다. 오프셋을 사용하는 JSON 파일이 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 생성자에 제공된 스토리지 계정에 저장되지 않으면 판독기는 이 오프셋을 지정하지 않고 가장 오래된 이벤트에서 시작됩니다. 이 메서드는 판독기 시작 동작을 변경하려는 경우에 유용합니다. 이 메서드를 호출할 때 개체 매개 변수에는 판독기를 시작하기 위한 파티션 ID가 포함됩니다.
 - [ExceptionReceivedEventArgs](/dotnet/api/microsoft.azure.eventhubs.processor.exceptionreceivedeventargs): [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)에서 발생하는 내부 예외에 대한 알림을 받을 수 있습니다. 작업이 예상한 대로 작동하지 않는 경우 이 이벤트를 찾기 시작하는 것이 좋습니다.
 
 ## <a name="epoch"></a>Epoch
 
-Receive epoch의 작동 방식은 다음과 같습니다.
+수신 epoch의 작동 방식은 다음과 같습니다.
 
 ### <a name="with-epoch"></a>Epoch 사용
-Epoch는 파티션/임대 소유권을 적용 하기 위해 서비스에서 사용 하는 고유 식별자 (epoch 값)입니다. [CreateEpochReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver) 메서드를 사용 하 여 Epoch 기반 수신기를 만듭니다. 이 메서드는 Epoch 기반 수신기를 만듭니다. 지정 된 소비자 그룹의 특정 이벤트 허브 파티션에 대해 수신기가 생성 됩니다.
+Epoch는 파티션/임대 소유권을 적용하기 위해 서비스에서 사용하는 고유 식별자(epoch 값)입니다. [CreateEpochReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver) 메서드를 사용하여 Epoch 기반 수신기를 만듭니다. 이 메서드는 Epoch 기반 수신기를 만듭니다. 지정된 소비자 그룹의 특정 이벤트 허브 파티션에 대해 수신기가 생성됩니다.
 
-Epoch 기능을 사용 하면 다음 규칙을 사용 하 여 소비자 그룹에 수신기가 하나만 있는지 확인할 수 있습니다.
+epoch 기능을 사용하면 다음 규칙에 따라 언제든지 소비자 그룹에 수신기가 하나만 있도록 할 수 있습니다.
 
-- 소비자 그룹에 기존 수신기가 없는 경우 사용자는 epoch 값을 사용 하 여 수신기를 만들 수 있습니다.
-- Epoch 값은 e1이 고 e1은 e1 값 e2 (e1 <= e2)를 사용 하 여 새 수신자를 만든 경우 e1을 가진 받는 사람에 게 자동으로 연결이 끊어집니다.
-- Epoch 값이 e1 인 수신기가 있고, e1 > e2 인 epoch 값 e2를 사용 하 여 새 수신자를 만든 후에 e2를 만들지 못했습니다.
+- 소비자 그룹에 기존 수신기가 없는 경우 사용자는 epoch 값을 사용하여 수신기를 만들 수 있습니다.
+- epoch 값이 e1인 수신기가 있고 epoch 값 e2를 사용하여 새 수신기를 만들 경우(e1 <= e2) e1 값의 수신기 연결이 자동으로 끊어지고 e2 값의 수신기가 성공적으로 만들어집니다.
+- epoch 값이 e1인 수신기가 있고 epoch 값 e2를 사용하여 새 수신기를 만들 경우(e1 <= e2) epoch e1인 수신기가 이미 있다는 오류를 나타내며 e2를 사용한 수신기 만들기가 실패합니다.
 
 ### <a name="no-epoch"></a>Epoch 없음
-[CreateReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver) 메서드를 사용 하 여 Epoch 기반이 아닌 수신기를 만듭니다. 
+[CreateReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver) 메서드를 사용하여 Epoch 기반이 아닌 수신기를 만듭니다. 
 
-사용자가 단일 소비자 그룹에 여러 개의 수신기를 만들려는 스트림 처리에는 몇 가지 시나리오가 있습니다. 이러한 시나리오를 지원 하기 위해 epoch 없이 수신기를 만들 수 있으며,이 경우 소비자 그룹에서 최대 5 개의 동시 수신기를 사용할 수 있습니다.
+스트림 처리에는 사용자가 단일 소비자 그룹에 여러 개의 수신기를 만들려는 몇 가지 시나리오가 있습니다. 이러한 시나리오를 지원하기 위해 epoch 없이 수신기를 만들 수 있으며, 이 경우 소비자 그룹에서 최대 5개의 동시 수신기가 허용됩니다.
 
 ### <a name="mixed-mode"></a>Mixed Mode
-Epoch를 사용 하 여 수신기를 만든 다음 동일한 소비자 그룹에서 epoch로 전환 하거나 그 반대로 전환 하는 응용 프로그램을 사용 하지 않는 것이 좋습니다. 그러나이 동작을 수행 하는 경우 서비스는 다음 규칙을 사용 하 여 처리 합니다.
+epoch를 사용하여 수신기를 만든 다음, 동일한 소비자 그룹에서 epoch 없이 만든 수신기로 전환하거나 그 반대로 전환하는 방식으로 애플리케이션을 사용하는 것은 바람직하지 않습니다. 그러나 이 동작을 수행하는 경우 서비스는 다음 규칙을 사용하여 처리합니다.
 
-- Epoch e1을 사용 하 여 이미 생성 된 수신기가 있고 적극적으로 이벤트를 받고 새 받는 사람이 epoch를 사용 하지 않고 생성 된 경우 새 받는 사람 만들기가 실패 합니다. Epoch 수신기는 항상 시스템에서 우선 적용 됩니다.
-- 이미 epoch e1을 사용 하 여 만든 수신기가 있고 새 MessagingFactory에 epoch를 사용 하지 않고 새 수신자를 만든 경우 새 수신자 만들기가 성공 합니다. 여기서는 시스템에서 10 분 후에 "받는 사람 연결 끊김"을 감지 한다는 주의 사항이 있습니다.
-- Epoch를 사용 하지 않고 만든 수신기가 하나 이상 있고 epoch e1을 사용 하 여 새 수신자를 만든 경우 모든 이전 수신기의 연결이 끊어집니다.
+- epoch e1을 사용하여 만든 수신기가 이미 있고 적극적으로 이벤트를 받고 있으며 epoch를 사용하지 않고 새 수신기를 만든 경우 새 수신기 만들기가 실패합니다. epoch 수신기는 항상 시스템에서 우선적으로 고려됩니다.
+- epoch e1을 사용하여 만든 수신기가 이미 있고 새 MessagingFactory에서 epoch를 사용하지 않고 새 수신기를 만든 경우 새 수신기 만들기가 성공합니다. 이 경우 시스템에서 10분 후에 "수신기 연결 끊김"을 감지하게 된다는 점에 유의하세요.
+- epoch를 사용하지 않고 만든 수신기가 하나 이상 있고 epoch e1을 사용하여 새 수신기를 만든 경우 모든 이전 수신기의 연결이 끊어집니다.
 
 
 > [!NOTE]
-> Epoch를 사용 하는 응용 프로그램 및 epoch를 사용 하지 않는 응용 프로그램에 대해 서로 다른 소비자 그룹을 사용 하 여 오류를 방지 하는 것이 좋습니다. 
+> epoch를 사용하는 애플리케이션과 epoch를 사용하지 않는 애플리케이션에 대해 서로 다른 소비자 그룹을 사용하는 방식은 오류를 방지할 수 있으므로 권장됩니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

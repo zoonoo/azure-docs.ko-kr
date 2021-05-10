@@ -3,12 +3,12 @@ title: 파일 및 폴더의 느린 백업 문제 해결
 description: Azure Backup 성능 문제의 원인을 진단하는 데 도움이 되는 문제 해결 지침을 제공합니다.
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 791f0edf5f50d27147e402f09e7a3e4c2ea7ca43
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: b3f2ac343ef4a703f347ec8a57f242a636bb32d2
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518527"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "88824018"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Azure Backup에서 파일 및 폴더의 느린 백업 문제 해결
 
@@ -21,7 +21,7 @@ ms.locfileid: "107518527"
 
 문제 해결을 시작하기 전에 [최신 Azure Backup 에이전트](https://aka.ms/azurebackup_agent)를 다운로드하여 설치하는 것이 좋습니다. Microsoft는 다양한 문제를 해결하고, 기능을 추가하고, 성능을 향상시키기 위해 Backup 에이전트를 자주 업데이트합니다.
 
-일반적인 구성 문제가 발생하지 않도록 [Azure Backup 서비스 - FAQ](backup-azure-backup-faq.yml) 를 검토하는 것이 좋습니다.
+일반적인 구성 문제가 발생하지 않도록 [Azure Backup 서비스 - FAQ](backup-azure-backup-faq.md) 를 검토하는 것이 좋습니다.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -99,4 +99,4 @@ VM에서 백업 에이전트를 실행하는 경우 실제 컴퓨터에서 실�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [파일 및 폴더 백업에 대한 일반적인 질문](backup-azure-file-folder-backup-faq.yml)
+* [파일 및 폴더 백업에 대한 일반적인 질문](backup-azure-file-folder-backup-faq.md)

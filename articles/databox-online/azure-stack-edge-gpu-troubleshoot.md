@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: c6f7182fe058bacb1236ff10dfc1553d23a7e1f2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e108c2fade911c0b0c2f11548004ebbe3c958c51
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645260"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139402"
 ---
 # <a name="troubleshoot-issues-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스에서 문제 해결 
 
@@ -136,7 +136,7 @@ ms.locfileid: "105645260"
 
 오류 목록은 식별된 시나리오에서 컴파일되며 자체 진단 및 문제 해결에 사용할 수 있습니다. 
 
-## <a name="azure-resource-manager"></a>Azure 리소스 관리자
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 
 디바이스에 액세스하기 위해 Azure Resource Manager를 구성하는 동안 표시될 수 있는 오류는 다음과 같습니다. 
 
@@ -146,7 +146,7 @@ ms.locfileid: "105645260"
 |Add-AzureRmEnvironment: 요청을 보내는 중 오류가 발생했습니다.<br>줄:1 문자:1<br>+ Add-AzureRmEnvironment -Name Az3 -ARMEndpoint "https://management.dbe ...|이 오류는 Azure Stack Edge Pro 디바이스에 연결할 수 없거나 제대로 구성되지 않았음을 의미합니다. Edge 디바이스 및 클라이언트가 올바르게 구성되어 있는지 확인합니다. 참고 자료는 이 표의 **일반 문제** 행을 참조하세요.|
 |서비스에서 오류를 반환했습니다. 자세한 내용은 InnerException 확인: 기본 연결이 닫혔습니다. SSL/TLS 보안 채널에 대한 트러스트 관계를 설정할 수 없습니다. |   이 오류는 하나 이상의 자체 인증서 가져 오기 단계가 잘못 수행되었기 때문일 가능성이 큽니다. [여기](./azure-stack-edge-gpu-connect-resource-manager.md#step-2-create-and-install-certificates)서 참고 자료를 찾을 수 있습니다. |
 |작업이 잘못된 상태 코드 ‘ServiceUnavailable’를 반환함 <br> 응답 상태 코드가 성공을 나타내지 않음: 503(서비스를 사용할 수 없음). | 이 오류는 해당 조건의 결과일 수 있습니다.<li>ArmStsPool이 중지됨 상태입니다.</li><li>Azure Resource Manager/보안 토큰 서비스 웹 사이트 중 하나가 다운되었습니다.</li><li>Azure Resource Manager 클러스터 리소스가 다운되었습니다.</li><br><strong>참고:</strong>  어플라이언스를 다시 시작하면 문제가 해결될 수 있지만, 추가로 디버그할 수 있도록 지원 패키지를 수집해야 합니다.|
-|AADSTS50126: 사용자 이름 또는 암호가 잘못되었습니다.<br>추적 ID: 29317da9-52fc-4ba0-9778-446ae5625e5a<br>상관 관계 ID: 1b9752c4-8cbf-4304-a714-8a16527410f4<br>타임스탬프: 2019-11-15 09:21:57Z: 원격 서버가 오류를 리턴함: (400) 잘못된 요청입니다.<br>줄:1 문자:1 |이 오류는 해당 조건의 결과일 수 있습니다.<li>잘못된 사용자 이름과 암호의 경우 [여기](/azure/azure-stack-edge-gpu-set-azure-resource-manager-password)의 단계를 수행한 다음, 올바른 암호를 사용하여 고객이 Azure Portal에서 암호를 변경했는지 유효성을 검사합니다.<li>잘못된 테넌트 ID의 경우 테넌트 ID는 고정 GUID이며 `c0257de7-538f-415c-993a-1b87a031879d`로 설정해야 합니다.</li>|
+|AADSTS50126: 사용자 이름 또는 암호가 잘못되었습니다.<br>추적 ID: 29317da9-52fc-4ba0-9778-446ae5625e5a<br>상관 관계 ID: 1b9752c4-8cbf-4304-a714-8a16527410f4<br>타임스탬프: 2019-11-15 09:21:57Z: 원격 서버가 오류를 리턴함: (400) 잘못된 요청입니다.<br>줄:1 문자:1 |이 오류는 해당 조건의 결과일 수 있습니다.<li>잘못된 사용자 이름과 암호의 경우 [여기](./azure-stack-edge-gpu-set-azure-resource-manager-password.md)의 단계를 수행한 다음, 올바른 암호를 사용하여 고객이 Azure Portal에서 암호를 변경했는지 유효성을 검사합니다.<li>잘못된 테넌트 ID의 경우 테넌트 ID는 고정 GUID이며 `c0257de7-538f-415c-993a-1b87a031879d`로 설정해야 합니다.</li>|
 |connect-AzureRmAccount: AADSTS90056: 리소스가 사용하지 않게 설정되었거나 없습니다. 앱 코드를 확인하여 액세스하려는 리소스의 정확한 리소스 URL을 지정했는지 확인하세요.<br>추적 ID: e19bdbc9-5dc8-4a74-85c3-ac6abdfda115<br>상관 관계 ID: 75c8ef5a-830e-48b5-b039-595a96488ff9 타임스탬프: 2019-11-18 07:00:51Z: 원격 서버에서 오류를 반환함: (400) 잘못됨 |`Add-AzureRmEnvironment` 명령에 사용된 리소스 엔드포인트가 잘못되었습니다.|
 |클라우드에서 엔드포인트를 가져올 수 없습니다.<br>네트워크에 연결되어 있는지 확인하세요. 오류 세부 정보: HTTPSConnectionPool(host='management.dbg-of4k6suvm.microsoftdatabox.com', port=30005): URL로 최대 재시도 초과: /metadata/endpoints?api-version=2015-01-01 (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'tls_process_server_certificate', 'certificate verify failed')],)",),)) |이 오류는 대부분 Mac/Linux 환경에서 표시되며 다음 문제 때문에 발생합니다.<li>PEM 형식 인증서가 python 인증서 저장소에 추가되지 않았습니다.</li> |
 
@@ -167,7 +167,7 @@ ms.locfileid: "105645260"
 
 2. [여기](./azure-stack-edge-gpu-connect-resource-manager.md#step-4-set-up-azure-powershell-on-the-client)에 설명된 대로 올바른 PowerShell 모듈이 설치되어 있는지 유효성을 검사합니다.
 
-3. Azure Resource Manager 및 로그인 엔드포인트에 연결할 수 있는지 유효성을 검사합니다. 엔드포인트에 ping을 시도할 수 있습니다. 예를 들면 다음과 같습니다.
+3. Azure Resource Manager 및 로그인 엔드포인트에 연결할 수 있는지 유효성을 검사합니다. 엔드포인트에 ping을 시도할 수 있습니다. 예를 들어:
 
    `ping management.28bmdw2-bb9.microsoftdatabox.com`
    `ping login.28bmdw2-bb9.microsoftdatabox.com`
@@ -196,7 +196,7 @@ ms.locfileid: "105645260"
 |다음 오류를 표시하기 전에 AzCopy 명령은 20분 동안 응답을 중지한 것처럼 표시됩니다.<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`|엔드포인트 이름 `<accountname>.blob.<serialnumber>.microsoftdatabox.com`이 `/etc/hosts`의 호스트 파일에 추가되었는지 확인합니다.|
 |이 오류를 표시하기 전에 AzCopy 명령이 20분 동안 응답하지 않는 것으로 나타납니다. `Error parsing source location… The SSL connection could not be established`.|디바이스의 SSL 인증서를 시스템의 인증서 저장소로 가져옵니다. 자세한 내용은 [인증서 다운로드](../databox/data-box-deploy-copy-data-via-rest.md#download-certificate)를 참조하세요.|
 |HTTP 헤더 중 하나에 대한 값 형식이 올바르지 않습니다.|Data Box에서 Python용 Microsoft Azure Storage 라이브러리의 설치된 버전이 지원되지 않습니다. 지원되는 버전에 대한 Azure Data Box Blob Storage 요구 사항을 참조하세요.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED] …| Python을 실행하기 전에 REQUESTS_CA_BUNDLE 환경 변수를 Base64로 인코딩된 SSL 인증서 파일의 경로로 설정합니다([인증서 다운로드](../databox/data-box-deploy-copy-data-via-rest.md#download-certificate) 방법 참조). 예를 들면 다음과 같습니다.<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>또는 인증서를 시스템의 인증서 저장소에 추가한 다음 이 환경 변수를 해당 저장소의 경로로 설정합니다. 예를 들어 Ubuntu에서 <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
+|… [SSL: CERTIFICATE_VERIFY_FAILED] …| Python을 실행하기 전에 REQUESTS_CA_BUNDLE 환경 변수를 Base64로 인코딩된 SSL 인증서 파일의 경로로 설정합니다([인증서 다운로드](../databox/data-box-deploy-copy-data-via-rest.md#download-certificate) 방법 참조). 예를 들어:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>또는 인증서를 시스템의 인증서 저장소에 추가한 다음 이 환경 변수를 해당 저장소의 경로로 설정합니다. 예를 들어 Ubuntu에서 <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
 |연결 시간 초과|Azure Stack Edge Pro에 로그인한 다음, 잠금 해제되어 있는지 확인합니다. 디바이스가 다시 시작될 때마다 사용자가 로그인할 때까지 잠긴 상태로 유지됩니다.|
 
 ## <a name="troubleshoot-iot-edge-errors"></a>IoT Edge 오류 문제 해결
