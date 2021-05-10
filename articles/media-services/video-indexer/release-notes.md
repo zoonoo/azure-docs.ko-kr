@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: references_regions
 ms.date: 03/30/2021
 ms.author: juliako
-ms.openlocfilehash: b3602d421718cbd1de3509751491ec6db65b1b01
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: c2465d845da9dd9c2c1690c39a8f1d1c7e86899f
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107532905"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075715"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure Media Services Video Indexer 릴리스 정보
 
@@ -164,7 +164,7 @@ WCAG(웹 콘텐츠 접근성 지침)의 일환으로 Video Indexer 웹 사이트
 
 이제 검색 API를 사용하여 특정 토픽으로 비디오를 검색할 수 있습니다(API에만 해당).
 
-토픽은 `textScope`(선택적 매개 변수)의 일부로 추가됩니다. 자세한 내용은 [API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Search-Videos)를 참조하세요.  
+토픽은 `textScope`(선택적 매개 변수)의 일부로 추가됩니다. 자세한 내용은 [API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos)를 참조하세요.  
 
 ### <a name="labels-enhancement"></a>향상된 레이블 기능
 
@@ -202,10 +202,10 @@ Video Indexer 지역 엔드포인트는 모두 www로만 시작하도록 통합�
 
 * 현재 다음 API는 계정 개체를 반환합니다.
 
-    * [Create-Paid-Account](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Paid-Account)
-    * [Get-Account](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account)
-    * [Get-Accounts-Authorization](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Accounts-Authorization)
-    * [Get-Accounts-With-Token](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Accounts-With-Token)
+    * [Create-Paid-Account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account)
+    * [Get-Account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account)
+    * [Get-Accounts-Authorization](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-Authorization)
+    * [Get-Accounts-With-Token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-With-Token)
  
     계정 개체에는 `Url` [Video Indexer 웹 사이트](https://www.videoindexer.ai/)의 위치를 가리키는 필드가 있습니다.
 유료 계정의 경우 `Url` 필드는 현재 퍼블릭 웹 사이트가 아닌 내부 URL을 가리킵니다.
@@ -216,7 +216,7 @@ Video Indexer 지역 엔드포인트는 모두 www로만 시작하도록 통합�
 
    다음 중 하나를 수행하여 해당 작업을 수행할 수 있습니다.
 
-    * URL을 Video Indexer 위젯 API(예: [인사이트 위젯](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Insights-Widget))를 가리키는 URL로 바꿉니다.
+    * URL을 Video Indexer 위젯 API(예: [인사이트 위젯](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget))를 가리키는 URL로 바꿉니다.
     * Video Indexer 웹 사이트를 사용하여 새롭게 포함된 URL 생성:
          
          **재생** 을 눌러 비디오 페이지로 이동하여 **&lt;/&gt; 포함** 단추를 클릭한 후 해당 URL을 사용자 애플리케이션으로 복사합니다.
@@ -239,13 +239,13 @@ Video Indexer 지역 엔드포인트는 모두 www로만 시작하도록 통합�
  
 ### <a name="swagger-update"></a>Swagger 업데이트
 
-Video Indexer가 **인증** 및 **작업** 을 단일 [Video Indexer OpenAPI 사양(swagger)](https://api-portal.videoindexer.ai/api-details#api=Operations&operation)으로 통합하였습니다. 개발자는 [Video Indexer 개발자 포털](https://api-portal.videoindexer.ai/)에서 API를 찾을 수 있습니다.
+Video Indexer가 **인증** 및 **작업** 을 단일 [Video Indexer OpenAPI 사양(swagger)](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson)으로 통합하였습니다. 개발자는 [Video Indexer 개발자 포털](https://api-portal.videoindexer.ai/)에서 API를 찾을 수 있습니다.
 
 ## <a name="december-2019"></a>2019년 12월
 
 ### <a name="update-transcript-with-the-new-api"></a>새 API로 대본 업데이트
 
-[Update-Video-Index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Video-Index) API를 사용하여 대본의 특정 섹션을 업데이트합니다.
+[Update-Video-Index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?&pattern=update) API를 사용하여 대본의 특정 섹션을 업데이트합니다.
 
 ### <a name="fix-account-configuration-from-the-video-indexer-portal"></a>Video Indexer 포털에서 계정 구성 수정
 
@@ -275,7 +275,7 @@ Video Indexer 포털을 사용하여 유료 계정에서 사용자 지정 비전
 
 ### <a name="error-handling-improvement"></a>오류 처리 개선
 
-상태 코드 409는 비디오를 적극적으로 인덱싱할 때 [비디오 다시 인덱싱](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) 및 [비디오 인덱스 API 업데이트](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Video-Index)에서 반환됩니다. 이는 현재 다시 인덱스 변경 내용을 실수로 재정의하지 않기 위함입니다.
+상태 코드 409는 비디오를 적극적으로 인덱싱할 때 [비디오 다시 인덱싱](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?) 및 [비디오 인덱스 API 업데이트](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?)에서 반환됩니다. 이는 현재 다시 인덱스 변경 내용을 실수로 재정의하지 않기 위함입니다.
 
 ## <a name="november-2019"></a>2019년 11월
  
@@ -369,7 +369,7 @@ Video Indexer에 의해 추출된 키 프레임은 비디오의 원래 해상도
 
 ### <a name="create-and-repair-account-api-preview"></a>계정 API 만들기 및 복구(미리 보기)
 
-[Azure Media Service 연결 엔드포인트 또는 키를 업데이트할](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Paid-Account-Azure-Media-Services) 수 있는 새 API가 추가되었습니다.
+[Azure Media Service 연결 엔드포인트 또는 키를 업데이트할](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Paid-Account-Azure-Media-Services?&groupBy=tag) 수 있는 새 API가 추가되었습니다.
 
 ### <a name="improve-error-handling-on-upload"></a>업로드 시 오류 처리 개선 
 
@@ -387,9 +387,9 @@ Video Indexer에 의해 추출된 키 프레임은 비디오의 원래 해상도
 
 ### <a name="update-custom-language-model-from-closed-caption-file"></a>선택 자막 파일에서 사용자 지정 언어 모델 업데이트
 
-[사용자 지정 언어 모델 만들기](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Language-Model) 및 [사용자 지정 언어 모델 업데이트](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Language-Model) API는 이제 VTT, SRT, TTML 파일 형식을 언어 모델에 관한 입력으로 지원합니다.
+[사용자 지정 언어 모델 만들기](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?&groupBy=tag) 및 [사용자 지정 언어 모델 업데이트](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Language-Model?&groupBy=tag) API는 이제 VTT, SRT, TTML 파일 형식을 언어 모델에 관한 입력으로 지원합니다.
 
-[비디오 음성 텍스트 업데이트 API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Video-Transcript)를 호출하면 자동으로 음성 텍스트가 추가됩니다. 비디오와 연결된 학습 모델도 자동으로 업데이트됩니다. 언어 모델을 사용자 지정하고 학습하는 방법에 관한 자세한 내용은 [Video Indexer로 언어 모델 사용자 지정](customize-language-model-overview.md)을 참조하세요.
+[비디오 음성 텍스트 업데이트 API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Transcript?&pattern=transcript)를 호출하면 자동으로 음성 텍스트가 추가됩니다. 비디오와 연결된 학습 모델도 자동으로 업데이트됩니다. 언어 모델을 사용자 지정하고 학습하는 방법에 관한 자세한 내용은 [Video Indexer로 언어 모델 사용자 지정](customize-language-model-overview.md)을 참조하세요.
 
 ### <a name="new-download-transcript-formats--txt-and-csv"></a>새 다운로드 음성 텍스트 형식 – TXT 및 CSV
 

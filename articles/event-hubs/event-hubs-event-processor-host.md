@@ -4,12 +4,12 @@ description: 이 문서에서는 검사점, 임대 및 병렬 읽기 이벤트�
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: de5d8f0f8bf9f64a473b18a50434cac83e8e38c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d97b446993d3f0a280c1f4fadb237726ac09228a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98622065"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313422"
 ---
 # <a name="event-processor-host"></a>이벤트 프로세서 호스트
 > [!NOTE]
@@ -199,5 +199,5 @@ epoch를 사용하여 수신기를 만든 다음, 동일한 소비자 그룹에�
     - [JavaScript](event-hubs-node-get-started-send.md)
 * [Event Hubs 프로그래밍 가이드](event-hubs-programming-guide.md)
 * [Event Hubs의 가용성 및 일관성](event-hubs-availability-and-consistency.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
+* [Event Hubs FAQ](event-hubs-faq.yml)
 * [GitHub에 대한 Event Hubs 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples)
