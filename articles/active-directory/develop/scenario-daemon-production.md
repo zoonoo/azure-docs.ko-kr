@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e53ae26e4ed5bf42a42daa527c81949c876ab5e1
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: d903f04055d1607ee782bd502d99a8fd9cde87ca
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108064020"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104578450"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>웹 API를 호출하는 디먼 앱 - 프로덕션으로 이동
 
@@ -40,7 +40,7 @@ ISV가 여러 테넌트에서 실행할 수 있는 디먼 애플리케이션을 
 
 - 다음 항목에 대한 참조 설명서:
   - [ConfidentialClientApplication](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder)인스턴스화.
-  - [AcquireTokenForClient](/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder?view=azure-dotnet&preserve-view=true) 호출.
+  - [AcquireTokenForClient](/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder) 호출.
 - 기타 샘플/자습서:
   - [microsoft-identity-platform-console-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon)은 Microsoft Graph를 쿼리하는 테넌트 사용자를 표시하는 소규모 .NET 코어 디먼 콘솔 애플리케이션입니다.
 

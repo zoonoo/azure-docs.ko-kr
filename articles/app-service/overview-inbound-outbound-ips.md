@@ -3,13 +3,13 @@ title: 인바운드/아웃바운드 IP 주소
 description: 인바운드 및 아웃바운드 IP 주소가 Azure App Service에서 어떻게 사용되는지와 언제 변경되는지 및 앱에 필요한 주소를 찾는 방법에 대해 설명합니다.
 ms.topic: article
 ms.date: 08/25/2020
-ms.custom: seodec18
-ms.openlocfilehash: 4237e51251a7ece05800aa7efa328a9c6cf65e76
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: 1dda487d23c9f955aea8e35d16e5a560a890a173
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104591370"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834483"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure App Service의 인바운드 및 아웃바운드 IP 주소
 
