@@ -1,6 +1,6 @@
 ---
 title: Application Gateway와 통합
-description: 이 종단 간 연습에서는 ILB App Service Environment의 앱을 Application Gateway와 통합 하는 방법에 대해 알아봅니다.
+description: 이 엔드투엔드 연습에서 애플리케이션 게이트웨이와 ILB App Service Environment의 앱을 통합하는 방법을 알아봅니다.
 author: ccompy
 ms.assetid: a6a74f17-bb57-40dd-8113-a20b50ba3050
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 3b73d528802a8aa33c6122eaf5edfa9d046b6753
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88962080"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>ILB App Service Environment와 Azure Application Gateway 통합 #
@@ -20,7 +20,7 @@ ms.locfileid: "88962080"
 
 웹 애플리케이션 방화벽을 통해 SQL 삽입, 사이트 간 스크립팅, 맬웨어 업로드 및 애플리케이션 DDoS와 기타 공격을 차단하기 위해 인바운드 웹 트래픽을 검사하여 웹 애플리케이션을 보호할 수 있습니다. 데이터 손실 방지 DLP (Data Loss Prevention)에 대한 백엔드 웹 서버로부터의 응답도 검사합니다. Azure 마켓플레이스에서 WAF 디바이스를 얻을 수 있거나 [Azure Application Gateway][appgw]를 사용할 수 있습니다.
 
-Azure 애플리케이션 게이트웨이는 계층 7 부하 분산, TLS/SSL 오프 로딩 및 WAF (웹 응용 프로그램 방화벽) 보호를 제공 하는 가상 어플라이언스입니다. 공용 IP 주소에서 수신 대기하고, 트래픽을 애플리케이션 엔드포인트로 라우팅할 수 있습니다. 여기서는 WAF가 구성된 애플리케이션 게이트웨이를 ILB App Service Environment의 앱과 통합하는 방법에 대해 설명합니다.  
+Azure Application Gateway는 7계층 부하 분산, TLS/SSL 오프로딩, WAF(웹 애플리케이션 방화벽) 보호를 제공하는 가상 어플라이언스입니다. 공용 IP 주소에서 수신 대기하고, 트래픽을 애플리케이션 엔드포인트로 라우팅할 수 있습니다. 여기서는 WAF가 구성된 애플리케이션 게이트웨이를 ILB App Service Environment의 앱과 통합하는 방법에 대해 설명합니다.  
 
 애플리케이션 게이트웨이와 ILB App Service Environment의 통합은 앱 수준입니다. ILB App Service Environment에서 애플리케이션 게이트웨이를 구성하는 경우 ILB App Service Environment의 특정 앱에 대해 이를 구성합니다. 이 기술을 사용하면 단일 ILB App Service Environment에서 안전한 다중 테넌트 애플리케이션을 호스트할 수 있습니다.  
 
@@ -40,7 +40,7 @@ Application Gateway를 ILB App Service Environment와 통합하려면 다음이 
 * ILB App Service Environment
 * ILB App Service Environment에서 실행되는 앱
 * ILB App Service Environment의 앱에서 사용할 인터넷 라우팅 가능 도메인 이름
-* ILB App Service Environment에서 사용하는 ILB 주소 이 정보는 App Service Environment 포털의 **설정**  >  **IP 주소** 아래에 있습니다.
+* ILB App Service Environment에서 사용하는 ILB 주소 이 정보는 App Service Environment 포털의 **설정** > **IP 주소** 아래에 있습니다.
 
     ![ILB App Service Environment에서 사용하는 IP 주소의 예제 목록][9]
     
@@ -56,7 +56,7 @@ GatewaySubnet이라는 이름이 아닌 서브넷을 사용해야 합니다. Gat
 
 ## <a name="configuration-steps"></a>구성 단계 ##
 
-1. Azure Portal에서 **새**  >  **네트워크**  >  **Application Gateway** 로 이동 합니다.
+1. Azure Portal에서 **새로 만들기** > **네트워크** > **Application Gateway** 로 이동합니다.
 
 2. **기본 사항** 영역에서 다음을 수행합니다.
 
@@ -106,7 +106,7 @@ GatewaySubnet이라는 이름이 아닌 서브넷을 사용해야 합니다. Gat
 
    ![Application Gateway 포털][7]
 
-9. ILB App Service Environment에서 앱에 대한 사용자 지정 도메인 이름을 설정합니다. 포털에서 앱으로 이동 하 고 **설정** 아래에서 **사용자 지정 도메인** 을 선택 합니다.
+9. ILB App Service Environment에서 앱에 대한 사용자 지정 도메인 이름을 설정합니다. 포털에서 앱으로 이동하고 **설정** 아래에서 **사용자 지정 도메인** 을 선택합니다.
 
    ![앱에 사용자 지정 도메인 이름 설정][8]
 

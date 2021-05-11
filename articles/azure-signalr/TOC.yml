@@ -85,7 +85,7 @@
     - name: 보안
       items:
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/signalr-security-baseline?toc=/azure/azure-signalr/TOC.json
         - name: Azure Policy의 보안 컨트롤
           href: ./security-controls-policy.md
 - name: 방법 가이드
@@ -129,7 +129,7 @@
 - name: 참조
   items:
     - name: Azure CLI
-      href: signalr-reference-cli.md
+      href: /cli/azure/signalr
     - name: REST API
       href: 'https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md'
     - name: ASP.NET Core SignalR

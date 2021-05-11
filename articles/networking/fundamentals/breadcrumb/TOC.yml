@@ -1,0 +1,14 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: 네트워킹
+      tocHref: /azure/networking/
+      topicHref: /azure/networking/fundamentals/index
+      items:
+        - name: 기본 사항
+          tocHref: /azure/networking/fundamentals
+          topicHref: /azure/networking/fundamentals/index
+        - name: 기본 사항
+          tocHref: /azure/virtual-network/
+          topicHref: /azure/networking/fundamentals/index

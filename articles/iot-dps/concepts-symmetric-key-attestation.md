@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub Device Provisioning Service - 대칭 키 증명
-description: 이 문서에서는 DPS (IoT 장치 프로 비전 서비스)를 사용 하 여 대칭 키 증명에 대 한 개념적 개요를 제공 합니다.
+description: 이 문서에서는 IoT DPS(Device Provisioning Service)를 사용하여 대칭 키 증명의 개념을 개괄적으로 설명합니다.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
@@ -10,10 +10,10 @@ services: iot-dps
 manager: philmea
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 994c2c3124d6822f047af942268ad7a401d5a976
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90531562"
 ---
 # <a name="symmetric-key-attestation"></a>대칭 키 증명
@@ -27,7 +27,7 @@ ms.locfileid: "90531562"
 
 ## <a name="symmetric-key-creation"></a>대칭 키 만들기
 
-기본적으로 장치 프로 비전 서비스는 **자동 생성 키** 옵션을 사용 하 여 새 등록를 저장할 때 기본 길이가 64 바이트인 새 대칭 키를 만듭니다.
+기본적으로 Device Provisioning Service는 **키 자동 생성** 옵션을 사용하도록 설정하여 새 등록이 저장된 경우 기본 길이인 64바이트로 새 대칭 키를 만듭니다.
 
 ![대칭 키 자동 생성](./media/concepts-symmetric-key-attestation/auto-generate-keys.png)
 
@@ -116,5 +116,5 @@ String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(mas
 대칭 키 증명에 대해 이해했으면, 다음 문서에서 자세한 내용을 확인해보십시오.
 
 * [빠른 시작: 대칭 키를 사용하여 시뮬레이션된 디바이스 프로비전](quick-create-simulated-device-symm-key.md)
-* [프로 비전의 개념에 대해 알아보기](about-iot-dps.md#provisioning-process)
+* [프로비저닝 개념에 대한 자세한 정보](about-iot-dps.md#provisioning-process)
 * [자동 프로비전 사용 시작](./quick-setup-auto-provision.md) 

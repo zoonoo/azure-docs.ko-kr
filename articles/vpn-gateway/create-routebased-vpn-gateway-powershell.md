@@ -1,6 +1,6 @@
 ---
 title: 'Azure VPN Gateway: 경로 기반 게이트웨이 만들기: PowerShell'
-description: PowerShell을 사용 하 여 온-프레미스 네트워크에 대 한 VPN 연결 또는 가상 네트워크 연결에 대 한 경로 기반 Azure VPN gateway를 빠르게 만들 수 있습니다.
+description: PowerShell을 사용하여 온-프레미스 네트워크에 대한 VPN 연결이나 가상 네트워크 연결을 위한 경로 기반 Azure VPN 게이트웨이를 빠르게 만들 수 있습니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: 8b6ab5dcbd38925afbd98381e427426d27110a53
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89393516"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>PowerShell을 사용하여 경로 기반 VPN 게이트웨이 만들기
@@ -20,7 +20,7 @@ ms.locfileid: "89393516"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서의 단계에서는 VNet, 서브넷, 게이트웨이 서브넷 및 경로 기반 VPN 게이트웨이(가상 네트워크 게이트웨이)를 만듭니다. 게이트웨이 생성이 완료되면 연결을 만들 수 있습니다. 이러한 단계에는 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+이 문서의 단계에서는 VNet, 서브넷, 게이트웨이 서브넷 및 경로 기반 VPN 게이트웨이(가상 네트워크 게이트웨이)를 만듭니다. 게이트웨이 생성이 완료되면 연결을 만들 수 있습니다. 이러한 단계에는 Azure 구독이 필요합니다. Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ### <a name="working-with-azure-powershell"></a>Azure PowerShell 작업
 
@@ -28,7 +28,7 @@ ms.locfileid: "89393516"
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 리소스 그룹을 만듭니다. PowerShell을 로컬로 실행 하는 경우 상승 된 권한으로 PowerShell 콘솔을 열고 명령을 사용 하 여 Azure에 연결 `Connect-AzAccount` 합니다.
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 리소스 그룹을 생성합니다. 로컬에서 PowerShell을 실행하는 경우 상승된 권한으로 PowerShell 콘솔을 열고 `Connect-AzAccount` 명령을 사용하여 Azure에 연결합니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name TestRG1 -Location EastUS

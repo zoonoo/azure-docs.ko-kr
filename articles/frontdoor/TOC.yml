@@ -41,7 +41,7 @@
     - name: 보안
       items:
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/front-door-security-baseline?toc=/azure/frontdoor/TOC.json
     - name: 백 엔드 및 백 엔드 풀
       href: front-door-backend-pool.md
     - name: Front Door를 통한 캐싱
@@ -49,7 +49,7 @@
     - name: DDoS 보호
       href: front-door-ddos.md
     - name: Front Door FAQ
-      href: front-door-faq.md
+      href: front-door-faq.yml
     - name: 지역 필터링
       href: front-door-geo-filtering.md
     - name: 상태 프로브
@@ -99,7 +99,7 @@
 - name: 참조
   items:
     - name: Azure CLI
-      href: /cli/azure/ext/front-door/
+      href: /cli/azure/afd/
     - name: Azure PowerShell
       href: /powershell/module/az.frontdoor
     - name: REST API

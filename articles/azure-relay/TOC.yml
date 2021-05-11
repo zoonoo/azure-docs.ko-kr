@@ -37,7 +37,7 @@
         - name: 인증 및 권한 부여
           href: relay-authentication-and-authorization.md
         - name: 기본 제공 보안 컨트롤
-          href: service-bus-relay-security-controls.md
+          href: /security/benchmark/azure/baselines/service-bus-messaging-security-baseline?toc=/azure/azure-relay/TOC.json
         - name: 네트워크 보안
           href: network-security.md
     - name: 하이브리드 연결 프로토콜
@@ -83,6 +83,8 @@
           href: /dotnet/api/microsoft.azure.relay
         - name: Microsoft.ServiceBus
           href: /dotnet/api/Microsoft.ServiceBus
+    - name: Azure CLI
+      href: /cli/azure/relay
     - name: 예외
       href: relay-exceptions.md
     - name: 포트 설정
@@ -92,7 +94,7 @@
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=enterprise-integration'
     - name: FAQ
-      href: relay-faq.md
+      href: relay-faq.yml
     - name: 블로그
       href: /archive/blogs/servicebus/
     - name: 가격 책정

@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용 하 여 온-프레미스 재해 복구를 위한 네트워크 어댑터 관리
+title: Azure Site Recovery를 사용한 온-프레미스 재해 복구를 위한 네트워크 어댑터 관리
 description: Azure Site Recovery를 사용한 온-프레미스와 Azure 간 재해 복구를 위해 네트워크 인터페이스를 관리하는 방법을 설명합니다.
 author: Harsha-CS
 manager: rochakm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: harshacs
 ms.openlocfilehash: 4dad7f76edf34782131c7c844978763cda53acc7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90068118"
 ---
 # <a name="manage-vm-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>온-프레미스를 Azure로 재해 복구하기 위한 VM 네트워크 인터페이스 관리

@@ -3,12 +3,12 @@ title: Azure Portal의 Azure 파일 공유 백업
 description: Azure Portal를 사용하여 Recovery Services 자격 증명 모음에 Azure 파일 공유를 백업하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: e7f44a71388468be432bdfcb0eb2bf67c0fcc8ef
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: ca49f1ad48ab0534b27b91ad6a5a50b393cda782
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107519938"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "88890351"
 ---
 # <a name="back-up-azure-file-shares"></a>Azure 파일 공유 백업
 
@@ -21,7 +21,7 @@ ms.locfileid: "107519938"
 * 파일 공유 창에서 백업 구성
 * 주문형 백업 작업을 실행하여 복원 지점 만들기
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 파일 공유 스냅샷 기반 백업 솔루션에 대해 [알아봅니다](azure-file-share-backup-overview.md).
 * [지원되는 스토리지 계정 유형](azure-file-share-support-matrix.md) 중 하나에 파일 공유가 있는지 확인합니다.
@@ -132,7 +132,7 @@ ms.locfileid: "107519938"
        ![새 자격 증명 모음 만들기](./media/backup-afs/create-new-vault.png)
 
       >[!IMPORTANT]
-      >스토리지 계정이 자격 증명 모음에 등록되어 있거나 보호할 파일 공유를 호스트하는 스토리지 계정 내에 몇 개의 보호된 공유만 있는 경우 Recovery Services 자격 증명 모음 이름이 미리 채워지며 편집할 수 없습니다. [여기에서 자세히 알아보세요](backup-azure-files-faq.yml#why-can-t-i-change-the-vault-to-configure-backup-for-the-file-share-).
+      >스토리지 계정이 자격 증명 모음에 등록되어 있거나 보호할 파일 공유를 호스트하는 스토리지 계정 내에 몇 개의 보호된 공유만 있는 경우 Recovery Services 자격 증명 모음 이름이 미리 채워지며 편집할 수 없습니다. [여기에서 자세히 알아보세요](backup-azure-files-faq.md#why-cant-i-change-the-vault-to-configure-backup-for-the-file-share).
 
 1. **백업 정책** 을 선택하려면 다음 중 하나를 수행합니다.
 

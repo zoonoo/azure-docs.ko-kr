@@ -1,6 +1,6 @@
 ---
 title: Traffic Manager에 대한 Azure CLI 샘플 | Microsoft Docs
-description: 높은 응용 프로그램 가용성을 위해 여러 지역에서 트래픽을 전달 하는 데 사용할 수 있는 Azure CLI 스크립트에 대해 알아봅니다.
+description: 높은 애플리케이션 가용성을 위해 여러 지역에 트래픽을 보내는 데 사용할 수 있는 Azure CLI 스크립트에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: duongau
@@ -14,10 +14,10 @@ ms.date: 10/23/2018
 ms.author: duau
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: f547305dd492f8e8587514474e4602f2214009cb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89400838"
 ---
 # <a name="azure-cli-samples-for-traffic-manager"></a>Traffic Manager에 대한 Azure CLI 샘플

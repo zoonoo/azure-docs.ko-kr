@@ -2,10 +2,8 @@
   items:
     - name: Azure Media Player 개요
       href: azure-media-player-overview.md
-    - name: 릴리스 정보
-      href: azure-media-player-release-notes.md
     - name: Changelog
-      href: azure-media-player-changelog.md
+      href: 'https://amp.azure.net/libs/amp/latest/docs/changelog.html'
 - name: 빠른 시작
   items:
     - name: Azure Media Player 빠른 시작
@@ -41,7 +39,7 @@
 - name: 참조
   items:
     - name: API
-      href: /javascript/api/azuremediaplayer/
+      href: 'https://amp.azure.net/libs/amp/latest/docs/index.html'
     - name: API 메서드
       href: azure-media-player-api-methods.md
     - name: 옵션

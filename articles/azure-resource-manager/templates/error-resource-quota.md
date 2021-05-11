@@ -3,12 +3,13 @@ title: 할당량 오류
 description: Azure Resource Manager를 사용하여 리소스를 배포할 때 리소스 할당량 오류를 해결하는 방법을 설명합니다.
 ms.topic: troubleshooting
 ms.date: 03/09/2018
-ms.openlocfilehash: 75e8abf31d035a1e3a106bc0c6561624762db5d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: df789ba83efe5d8a20d6c925b40adfb209f65dd4
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90530423"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318858"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>리소스 할당량 오류 해결
 
@@ -84,7 +85,7 @@ Total Regional Cores                         0   100 Count
 Virtual Machines                             0 10000 Count
 ```
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 할당량 증가를 요청하려면 포털로 이동한 후 지원 문제를 제출합니다. 지원 문제에서는 배포하려는 지역에 대한 할당량 증가를 요청합니다.
 

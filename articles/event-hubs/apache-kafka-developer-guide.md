@@ -3,12 +3,12 @@ title: Event Hubs에 대한 Apache Kafka 개발자 가이드
 description: 이 문서에서는 Azure Event Hubs와 Kafka 애플리케이션을 통합하는 방법을 설명하는 문서의 링크를 제공합니다.
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: 757db4faf2a933e366bc818d5cf6aab04d0b08ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84fa40d7cc4b09f31d78665f901b49adacf3267f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90061736"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303086"
 ---
 # <a name="apache-kafka-developer-guide-for-azure-event-hubs"></a>Azure Event Hubs에 대한 Apache Kafka 개발자 가이드
 이 문서에서는 Azure Event Hubs와 Apache Kafka 애플리케이션을 통합하는 방법을 설명하는 문서의 링크를 제공합니다. 
@@ -22,7 +22,7 @@ GitHub와 이 콘텐츠 집합에서 Kafka용 Event Hubs에 더 빨리 익숙해
 ### <a name="quickstarts-in-github"></a>GitHub의 빠른 시작
 **azure-event-hubs-for-kafka** 리포지토리에서 다음 빠른 시작을 참조하세요. 
 
-| 클라이언트 언어/프레임워크 | 설명 | 
+| 클라이언트 언어/프레임워크 | Description | 
 | ------------------------- | ----------- | 
 | [.NET](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/dotnet) | <p>이 빠른 시작에서는 .NET Core 2.0을 사용하여 C#으로 작성된 예제 생산자 및 소비자를 통해 Event Hubs Kafka 엔드포인트를 만들고 연결하는 방법을 보여 줍니다.</p><p>샘플은 Kafka용 Event Hubs에서 사용하기 위해 수정된 [Confluent의 Apache Kafka .NET 클라이언트](https://github.com/confluentinc/confluent-kafka-dotnet)를 기반으로 합니다.</p> | 
 | [Java](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java) | 이 빠른 시작에서는 Java로 작성된 예제 생산자 및 소비자를 통해 Event Hubs Kafka 엔드포인트를 만들고 연결하는 방법을 보여 줍니다. |
@@ -63,7 +63,7 @@ GitHub에서 다음 자습서를 참조하세요.
 ## <a name="how-to-guides"></a>방법 가이드
 설명서에서 다음과 같은 방법 가이드를 참조하세요.
 
-| 아티클 | 설명 | 
+| 아티클 | Description | 
 | ------- | ----------- | 
 | [이벤트 허브에서 Kafka broker 미러링](event-hubs-kafka-mirror-maker-tutorial.md) | Kafka MirrorMaker를 사용하여 이벤트 허브에서 Kafka broker를 미러하는 방법을 보여 줍니다. |
 | [이벤트 허브에 Apache Spark 연결](event-hubs-kafka-spark-tutorial.md) | 실시간으로 스트리밍을 위해 Spark 애플리케이션을 Event Hubs에 연결하는 과정을 안내합니다. |
@@ -78,7 +78,7 @@ GitHub 리포지토리 [azure-event-hubs-for-kafka](https://github.com/Azure/azu
 다음 문서도 참조하세요.
 
 - [Event Hubs에 대한 Apache Kafka 문제 해결 가이드](apache-kafka-troubleshooting-guide.md)
-- [질문과 대답 - Apache Kafka용 Event Hubs](apache-kafka-frequently-asked-questions.md)
+- [질문과 대답 - Apache Kafka용 Event Hubs](apache-kafka-frequently-asked-questions.yml)
 - [Event Hubs에 대한 Apache Kafka 마이그레이션 가이드](apache-kafka-migration-guide.md)
 
 

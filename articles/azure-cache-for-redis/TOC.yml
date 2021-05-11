@@ -19,6 +19,8 @@
       items:
         - name: ASP.NET 앱
           href: cache-web-app-howto.md
+        - name: ASP.NET Core 앱
+          href: cache-web-app-aspnet-core-howto.md
         - name: .NET Core 앱
           href: cache-dotnet-core-quickstart.md
         - name: .NET 앱
@@ -77,7 +79,7 @@
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/azure-cache-for-redis-security-baseline?toc=/azure/azure-cache-for-redis/TOC.json
     - name: 캐싱 아키텍처
       href: /azure/architecture/best-practices/caching?toc=%2fazure%2fredis-cache%2ftoc.json
 - name: 방법 가이드

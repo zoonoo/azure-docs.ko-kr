@@ -1,14 +1,14 @@
 ---
-title: Azure Relay 하이브리드 연결-.NET의 Websocket
-description: 'Azure Relay 하이브리드 연결 Websocket에 대 한 c # 콘솔 응용 프로그램을 작성 합니다.'
+title: Azure Relay 하이브리드 연결 - .NET의 WebSocket
+description: Azure Relay 하이브리드 연결 WebSocket용 C# 콘솔 애플리케이션을 작성합니다.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
 ms.openlocfilehash: bf22b8b11dc386644803b43ee4e3a51d04b70419
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90527431"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>.NET에서 Relay 하이브리드 연결 WebSockets 시작
@@ -24,7 +24,7 @@ ms.locfileid: "90527431"
 4. 메시지를 보내는 클라이언트(발신자) 콘솔 애플리케이션을 작성합니다.
 5. 애플리케이션을 실행합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
@@ -52,9 +52,9 @@ Visual Studio에서 메시지를 릴레이로 보낼 C# 콘솔 애플리케이�
 2. 클라이언트 애플리케이션을 실행하고 일부 텍스트를 입력합니다.
 3. 서버 애플리케이션 콘솔에서 클라이언트 애플리케이션에 입력된 텍스트가 표시되는지 확인합니다.
 
-    ![콘솔 windows 서버와 클라이언트 응용 프로그램을 테스트 합니다.](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
+    ![서버 및 클라이언트 애플리케이션을 모두 테스트하는 콘솔 창](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
-축 하 합니다. 전체 하이브리드 연결 응용 프로그램을 만들었습니다.
+축하합니다. 전체 하이브리드 연결 애플리케이션을 만들었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 빠른 시작에서는 메시지를 보내고 받는 데 WebSockets를 사용한 .NET 클라이언트 및 서버 애플리케이션을 만들었습니다. Azure Relay의 하이브리드 연결 기능은 HTTP를 사용하여 메시지를 보내고 받을 수도 있도록 지원합니다. Azure Relay 하이브리드 연결에 HTTP를 사용하는 방법에 대한 자세한 내용은 [HTTP 빠른 시작](relay-hybrid-connections-http-requests-dotnet-get-started.md)을 참조하세요.

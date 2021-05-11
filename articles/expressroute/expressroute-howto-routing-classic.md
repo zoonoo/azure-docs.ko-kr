@@ -1,5 +1,5 @@
 ---
-title: 'Azure Express 경로: 피어 링 구성: 클래식'
+title: 'Azure ExpressRoute: 피어링 구성: 클래식'
 description: 이 문서에서는 ExpressRoute 회로의 프라이빗, 공용 및 Microsoft 피어링을 만들고 프로비전하는 단계를 안내합니다. 또한 회로의 상태를 확인하고 업데이트 또는 삭제하는 방법을 보여줍니다.
 services: expressroute
 author: duongau
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: duau
 ms.openlocfilehash: a4a3bad1e868fa0e75611630ffb5db5ba13126b6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89395556"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>ExpressRoute 회로의 피어링 만들기 및 수정(클래식)
@@ -38,7 +38,7 @@ ms.locfileid: "89395556"
 ## <a name="configuration-prerequisites"></a>필수 구성 요소
 
 * 구성을 시작하기 전에 [필수 구성 요소](expressroute-prerequisites.md) 페이지, [라우팅 요구 사항](expressroute-routing.md) 페이지 및 [워크플로](expressroute-workflows.md) 페이지를 검토했는지 확인합니다.
-* 활성화된 ExpressRoute 회로가 있어야 합니다. 지침에 따라 [express 경로 회로를 만들고](expressroute-howto-circuit-classic.md) 진행 하기 전에 연결 공급자가 회로를 사용 하도록 설정 합니다. ExpressRoute 회로는 아래에 설명한 cmdlet을 실행할 수 있도록 프로비전되고 활성화된 상태여야 합니다.
+* 활성화된 ExpressRoute 회로가 있어야 합니다. 지침을 수행하여 [ExpressRoute 회로를 만들고](expressroute-howto-circuit-classic.md) 진행하기 전에 연결 공급자를 통해 회로를 사용하도록 설정합니다. ExpressRoute 회로는 아래에 설명한 cmdlet을 실행할 수 있도록 프로비전되고 활성화된 상태여야 합니다.
 
 ### <a name="download-the-latest-powershell-cmdlets"></a>최신 PowerShell cmdlet 다운로드
 
@@ -152,7 +152,7 @@ Remove-AzureBGPPeering -AccessType Private -ServiceKey "************************
 이 섹션에서는 ExpressRoute 회로에 Azure 공용 피어링 구성을 만들고, 가져오며, 업데이트 및 삭제하는 방법에 대한 지침을 제공합니다.
 
 > [!NOTE]
-> Azure 공용 피어 링은 새로운 회로에서 사용 되지 않습니다.
+> Azure 퍼블릭 피어링은 새 회로에 사용되지 않습니다.
 >
 
 ### <a name="to-create-azure-public-peering"></a>Azure 공용 피어링을 만들려면
@@ -187,7 +187,7 @@ Remove-AzureBGPPeering -AccessType Private -ServiceKey "************************
    ServiceProviderProvisioningState : Provisioned
    Status                           : Enabled
    ```
-4. **회로에 Azure 공용 피어 링 구성**
+4. **회로에 Azure 공용 피어링 구성**
    
    진행하기 전에 다음 정보가 있는지 확인합니다.
    
@@ -291,7 +291,7 @@ Remove-AzureBGPPeering -AccessType Public -ServiceKey "*************************
    ServiceProviderProvisioningState : Provisioned
    Status                           : Enabled
    ```
-3. **회로에 대 한 Microsoft 피어 링 구성**
+3. **회로에 Microsoft 피어링 구성**
    
     진행하기 전에 다음 정보가 있는지 확인합니다.
    

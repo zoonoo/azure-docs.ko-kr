@@ -1,7 +1,7 @@
 ---
 title: OData 컬렉션 필터 이해
 titleSuffix: Azure Cognitive Search
-description: 컬렉션에 고유한 제한 사항 및 동작을 포함 하 여 Azure Cognitive Search 쿼리에서 OData 컬렉션 필터를 사용 하는 방법에 대해 알아봅니다.
+description: 컬렉션에 고유한 제한 사항 및 동작을 포함하여 Azure Cognitive Search 쿼리에서 OData 컬렉션 필터가 작동하는 방식의 메커니즘을 알아봅니다.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,49 +20,49 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 6af0f2b5221a737687578e939c14cecf3be14509
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88932919"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData 컬렉션 필터 이해
 
-Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-orderby-syntax.md) 하려면 [ `any` 및 `all` 연산자](search-query-odata-collection-operators.md) 를 **람다 식** 과 함께 사용할 수 있습니다. 람다 식은 **범위 변수** 를 참조 하는 부울 식입니다. `any`및 연산자는 루프 `all` `for` 변수의 역할을 취하는 범위 변수와 루프의 본문으로 사용 되는 람다 식을 사용 하는 대부분의 프로그래밍 언어의 루프와 유사 합니다. 범위 변수는 루프를 반복 하는 동안 컬렉션의 "current" 값을 사용 합니다.
+Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-orderby-syntax.md)하려면 [ `any` 및 `all` 연산자](search-query-odata-collection-operators.md)를 **람다 식** 과 함께 사용합니다. 람다 식은 **범위 변수** 를 참조하는 부울 식입니다. `any` 및 `all` 연산자는 대부분의 프로그래밍 언어서 루프 변수의 역할을 수행하는 범위 변수와 루프 본문으로 람다 식을 포함하는 `for` 루프와 유사합니다. 범위 변수는 루프를 반복하는 동안 컬렉션의 “현재” 값을 사용합니다.
 
-개념적으로 작동 하는 방법은 이상입니다. 실제로 Azure Cognitive Search는 루프의 작동 방식에 대해 매우 다양 한 방법으로 필터를 구현 `for` 합니다. 이러한 차이는 사용자에 게 표시 되지 않지만 특정 상황에서는 표시 되지 않습니다. 최종 결과에는 람다 식을 작성할 때 따라야 하는 규칙이 있습니다.
+적어도 개념적으로는 이런 방식으로 작동합니다. 실제로 Azure Cognitive Search는 `for` 루프의 작동 방식과는 다른 방법으로 필터를 구현합니다. 이 차이가 사용자에게 표시되지 않는 것이 이상적이지만 특정 상황에서는 표시되기도 합니다. 최종 결과로, 람다 식을 작성할 때 따라야 하는 규칙이 있습니다.
 
-이 문서에서는 Azure Cognitive Search에서 이러한 필터를 실행 하는 방법을 탐색 하 여 컬렉션 필터에 대 한 규칙이 있는 이유를 설명 합니다. 복잡 한 람다 식으로 고급 필터를 작성 하는 경우이 문서를 통해 필터 및 이유에 대 한 이해를 수립할 수 있습니다.
+이 문서에서는 Azure Cognitive Search에서 이 필터를 실행하는 방법을 살펴보고 컬렉션 필터의 규칙이 있는 이유를 설명합니다. 복잡한 람다 식을 사용하여 고급 필터를 작성하는 경우 이 문서가 필터에서 가능한 항목과 그 이유를 이해하는 데 도움이 될 수 있습니다.
 
-예제를 비롯 하 여 컬렉션 필터에 대 한 규칙에 대 한 자세한 내용은 [Azure Cognitive Search의 OData 컬렉션 필터 문제 해결](search-query-troubleshoot-collection-filters.md)을 참조 하세요.
+예제를 포함하여 컬렉션 필터의 규칙에 대한 자세한 내용은 [Azure Cognitive Search의 OData 컬렉션 필터 문제 해결](search-query-troubleshoot-collection-filters.md)을 참조하세요.
 
-## <a name="why-collection-filters-are-limited"></a>컬렉션 필터를 제한 하는 이유
+## <a name="why-collection-filters-are-limited"></a>컬렉션 필터가 제한되는 이유
 
-모든 유형의 컬렉션에 대해 모든 필터 기능이 지원 되는 이유는 다음과 같은 세 가지 기본적인 이유가 있습니다.
+모든 유형의 컬렉션에서 모든 필터 기능이 지원되지는 않으며, 다음 세 가지 기본 이유가 있습니다.
 
-1. 특정 데이터 형식에 대해서는 특정 연산자만 지원 됩니다. 예를 들어, 부울 값을 비교 하 고, 등을 사용 하는 것은 의미가 없습니다 `true` `false` `lt` `gt` .
-1. Azure Cognitive Search는 형식의 필드에 대 한 **상관 관계 검색** 을 지원 하지 않습니다 `Collection(Edm.ComplexType)` .
-1. Azure Cognitive Search는 반전 된 인덱스를 사용 하 여 컬렉션을 비롯 한 모든 데이터 형식에 대 한 필터를 실행 합니다.
+1. 특정 데이터 형식에서는 특정 연산자만 지원됩니다. 예를 들어 `lt`, `gt` 등을 사용하여 부울 값 `true` 및 `false`를 비교하는 것은 의미가 없습니다.
+1. Azure Cognitive Search는 `Collection(Edm.ComplexType)` 형식의 필드에서 **상관 관계 지정 검색** 을 지원하지 않습니다.
+1. Azure Cognitive Search는 반전 인덱스를 사용하여 컬렉션을 비롯한 모든 데이터 형식에서 필터를 실행합니다.
 
-첫 번째 이유는 OData 언어 및 EDM 형식 시스템을 정의 하는 것입니다. 마지막 두 항목은이 문서의 나머지 부분에서 자세히 설명 합니다.
+첫 번째 이유는 OData 언어와 EDM 형식 시스템이 정의된 방식의 결과일 뿐입니다. 마지막 두 이유는 이 문서의 나머지 부분에서 자세히 설명합니다.
 
-## <a name="correlated-versus-uncorrelated-search"></a>상호 관련 검색 및 상관 관계가 없는 검색
+## <a name="correlated-versus-uncorrelated-search"></a>상관 관계 지정 검색 및 상관 관계 미지정 검색
 
-복합 개체의 컬렉션에 여러 필터 조건을 적용 하는 경우이 기준은 *컬렉션의 각 개체* 에 적용 되므로 **상관 관계가** 지정 됩니다. 예를 들어 다음 필터는 100 미만의 deluxe 공간이 하나 이상 있는 호텔을 반환 합니다.
+복합 개체 컬렉션에 여러 필터 조건을 적용하는 경우 조건이 ‘컬렉션의 각 개체’에 적용되므로 **상관 관계가 지정** 됩니다. 예를 들어 다음 필터는 요금이 100 미만인 deluxe 객실이 하나 이상 있는 호텔을 반환합니다.
 
 ```odata-filter-expr
     Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 100)
 ```
 
-필터링이 *상관 관계가 없는* 경우 위의 필터는 한 방 deluxe 하 고 다른 방에는 100 미만의 기본 요금이 있는 호텔을 반환할 수 있습니다. 람다 식의 두 절은 같은 범위 변수에 적용 되므로이는 의미가 `room` 없습니다. 이러한 필터가 상호 관련 되는 이유입니다.
+‘상관 관계 미지정’ 필터링인 경우 위의 필터는 deluxe인 한 객실과 요금이 100 미만인 다른 객실이 있는 호텔을 반환할 수 있습니다. 람다 식의 두 절이 `room`이라는 같은 범위 변수에 적용되므로 이 결과는 의미가 없습니다. 필터에 상관 관계가 지정되는 이유는 이 때문입니다.
 
-그러나 전체 텍스트 검색에는 특정 범위 변수를 참조할 수 있는 방법이 없습니다. 필드 지정 search를 사용 하 여 다음과 같은 [전체 Lucene 쿼리](query-lucene-syntax.md) 를 실행 하는 경우
+그러나 전체 텍스트 검색에서는 특정 범위 변수를 참조할 수 없습니다. 필드 지정 검색을 사용하여 다음과 같은 [전체 Lucene 쿼리](query-lucene-syntax.md)를 실행한다고 가정해 보세요.
 
 ```odata-filter-expr
     Rooms/Type:deluxe AND Rooms/Description:"city view"
 ```
 
-한 방에서 deluxe 하 고 다른 방에는 설명의 "도시 보기"를 언급 하는 호텔을 받을 수 있습니다. 예를 들어의 아래 문서는 `Id` `1` 쿼리와 일치 합니다.
+이 경우 deluxe인 한 객실과 설명에 “city view”가 포함된 다른 객실이 있는 호텔이 반환될 수 있습니다. 예를 들어 `Id`가 `1`인 아래 문서는 쿼리와 일치합니다.
 
 ```json
 {
@@ -84,39 +84,39 @@ Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-
 }
 ```
 
-그 이유는 `Rooms/Type` `Rooms/Type` 아래 표에 나와 있는 것 처럼 전체 문서에 있는 필드의 모든 분석 된 용어와의 유사 항목을 참조 하는 것입니다 `Rooms/Description` .
+그 이유는 아래 표와 같이 `Rooms/Type`이 전체 문서의 `Rooms/Type` 필드에서 분석된 모든 용어를 참조하고 `Rooms/Description`도 마찬가지이기 때문입니다.
 
-`Rooms/Type`전체 텍스트 검색에 대 한 저장 방법:
+전체 텍스트 검색에서 `Rooms/Type`이 저장되는 방식:
 
-| 용어 `Rooms/Type` | 문서 Id |
+| `Rooms/Type`의 용어 | 문서 ID |
 | --- | --- |
 | deluxe | 1, 2 |
 | 표준 | 1 |
 
-`Rooms/Description`전체 텍스트 검색에 대 한 저장 방법:
+전체 텍스트 검색에서 `Rooms/Description`이 저장되는 방식:
 
-| 용어 `Rooms/Description` | 문서 Id |
+| `Rooms/Description`의 용어 | 문서 ID |
 | --- | --- |
 | courtyard | 2 |
 | city | 1 |
-| 가든 | 1 |
+| garden | 1 |
 | 큰 | 1 |
 | 모텔 | 2 |
 | 객실 | 1, 2 |
 | 표준 | 1 |
-| tcp/ip | 1 |
+| suite | 1 |
 | 뷰 | 1 |
 
-위의 필터와는 달리, 기본적으로 "대화방이 `Type` ' Deluxe '과 같은 공간이 있고 **동일한 공간이** 100 미만입니다." 문서와 일치 하는 경우 `BaseRate` 검색 쿼리는 " `Rooms/Type` Deluxe" 라는 용어를 포함 하 고 "city view" 라는 구를 포함 하는 "일치 문서"를 의미 `Rooms/Description` 합니다. 후자의 경우에는 필드의 상관 관계를 지정할 수 있는 개별 대화방의 개념이 없습니다.
+따라서 기본적으로 “객실 `Type`이 ‘Deluxe Room’이고 **동일한 객실** 의 `BaseRate`가 100 미만인 문서와 일치”하는 위의 필터와 달리 검색 쿼리는 “`Rooms/Type`에 “deluxe”라는 용어가 있고 `Rooms/Description`에 “city view” 구가 있는 문서와 일치”를 지정합니다. 후자의 경우 필드 상관 관계를 지정할 수 있는 개별 객실의 개념이 없습니다.
 
 > [!NOTE]
-> Azure Cognitive Search에 추가 된 상관 관계 검색에 대 한 지원을 보려면 [이 사용자 음성 항목](https://feedback.azure.com/forums/263029-azure-search/suggestions/37735060-support-correlated-search-on-complex-collections)에 대해 투표 하세요.
+> 상관 관계 지정 검색 지원이 Azure Cognitive Search에 추가되기를 원하는 경우 [이 사용자 의견 항목](https://feedback.azure.com/forums/263029-azure-search/suggestions/37735060-support-correlated-search-on-complex-collections)에 투표하세요.
 
 ## <a name="inverted-indexes-and-collections"></a>반전 인덱스 및 컬렉션
 
-, 등의 간단한 컬렉션 보다 복잡 한 컬렉션에 비해 람다 식에 대 한 제한이 훨씬 적음을 발견할 수 있습니다 `Collection(Edm.Int32)` `Collection(Edm.GeographyPoint)` . Azure Cognitive Search는 복합 컬렉션을 하위 문서의 실제 컬렉션으로 저장 하는 반면 간단한 컬렉션은 컬렉션으로 저장 되지 않기 때문입니다.
+`Collection(Edm.Int32)`, `Collection(Edm.GeographyPoint)` 등의 단순 컬렉션보다 복합 컬렉션의 람다 식에 대한 제한 사항이 훨씬 더 적은 것을 발견했을 수 있습니다. Azure Cognitive Search에서 복합 컬렉션은 하위 문서의 실제 컬렉션으로 저장되는 반면 단순 컬렉션은 컬렉션으로 저장되지 않기 때문입니다.
 
-예를 들어 `seasons` 온라인 대리점의 인덱스와 같은 필터링 가능한 문자열 컬렉션 필드를 생각해 보겠습니다. 이 인덱스에 업로드 된 일부 문서는 다음과 같습니다.
+예를 들어 온라인 판매점의 인덱스에 `seasons`와 같은 필터링 가능한 문자열 컬렉션 필드가 있다고 가정해 보세요. 이 인덱스에 업로드된 일부 문서는 다음과 같이 표시될 수 있습니다.
 
 ```json
 {
@@ -140,18 +140,18 @@ Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-
 }
 ```
 
-필드의 값은 `seasons` 다음과 같이 **반전 된 인덱스** 라는 구조에 저장 됩니다.
+`seasons` 필드의 값은 다음과 같이 **반전 인덱스** 라는 구조체에 저장됩니다.
 
-| 용어 | 문서 Id |
+| 용어 | 문서 ID |
 | --- | --- |
 | spring | 1, 2 |
-| 절약 | 1 |
-| 있게 | 1, 2 |
-| 동계 | 2, 3 |
+| summer | 1 |
+| fall | 1, 2 |
+| winter | 2, 3 |
 
-이 데이터 구조는 지정 된 용어가 표시 되는 문서에 대해 좋은 속도로 한 질문에 대답 하도록 디자인 되었습니다. 이 질문에 대 한 대답은 컬렉션에 대 한 루프와는 다른 일반적인 같음 검사 처럼 작동 합니다. 실제로 문자열 컬렉션의 경우 Azure Cognitive Search는 `eq` 의 람다 식 내에서 비교 연산자로만 허용 됩니다 `any` .
+이 데이터 구조는 지정된 용어가 어떤 문서에 표시되는가란 한 가지 질문에 신속하게 대답하도록 설계되었습니다. 이 질문에 대한 대답은 컬렉션 루프보다 일반적인 같음 검사처럼 작동합니다. 실제로 문자열 컬렉션의 경우 Azure Cognitive Search에서 `any`의 람다 식 내 비교 연산자로서만 `eq`가 허용되는 이유는 이 때문입니다.
 
-동일 하 게 구축 하 여 동일한 범위 변수에 여러 개의 같음 검사를 결합할 수 있는 방법에 대해 살펴보겠습니다 `or` . [수량자의 대 수 및 분배 속성](https://en.wikipedia.org/wiki/Existential_quantification#Negation)덕분에 작동 합니다. 이 식:
+같음부터 시작해서 다음에는 동일한 범위 변수에 대한 여러 개의 같음 검사를 `or`로 결합할 수 있는 방법을 살펴보겠습니다. 이 방법은 대수 및 [수량자의 분배 속성](https://en.wikipedia.org/wiki/Existential_quantification#Negation)을 통해 작동합니다. 다음 식을 가정해 보세요.
 
 ```odata-filter-expr
     seasons/any(s: s eq 'winter' or s eq 'fall')
@@ -163,7 +163,7 @@ Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-
     seasons/any(s: s eq 'winter') or seasons/any(s: s eq 'fall')
 ```
 
-그리고 두 개의 `any` 하위 식이 반전 된 인덱스를 사용 하 여 효율적으로 실행 될 수 있습니다. 또한 [수량자의 부정 법칙](https://en.wikipedia.org/wiki/Existential_quantification#Negation)덕분에 다음 식은
+반전 인덱스를 사용하여 두 개의 `any` 하위 식을 각각 효율적으로 실행할 수도 있습니다. 또한 [수량자의 부정 법칙](https://en.wikipedia.org/wiki/Existential_quantification#Negation)을 통해 다음 식을 가정해 보세요.
 
 ```odata-filter-expr
     seasons/all(s: s ne 'winter' and s ne 'fall')
@@ -175,33 +175,33 @@ Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-
     not seasons/any(s: s eq 'winter' or s eq 'fall')
 ```
 
-따라서 및와 함께를 사용할 수 있습니다 `all` `ne` `and` .
+`ne` 및 `and`와 함께 `all`을 사용할 수 있는 이유는 이 때문입니다.
 
 > [!NOTE]
-> 세부 정보는이 문서의 범위를 벗어나는 것 이지만 이러한 동일한 원칙이 [지역 공간 지점 컬렉션에 대 한 거리 및 교차 테스트](search-query-odata-geo-spatial-functions.md) 로도 확장 됩니다. 그 이유는 `any` 다음과 같습니다.
+> 세부 정보는 이 문서에서 설명하지 않지만 동일한 원칙이 [지리 공간적 지점 컬렉션에 대한 거리 및 교차 테스트](search-query-odata-geo-spatial-functions.md)까지 확장됩니다. `any`에서 다음과 같이 제한되는 이유는 이 때문입니다.
 >
-> - `geo.intersects` 부정할 수 없음
-> - `geo.distance`또는를 사용 하 여 비교 해야 합니다. `lt``le`
-> - 식은 `or` 와 결합 해야 합니다. `and`
+> - `geo.intersects`를 부정할 수 없음
+> - `lt` 또는 `le`를 사용하여 `geo.distance`를 비교해야 합니다.
+> - `and`가 아니라 `or`로 식을 결합해야 합니다.
 >
-> 반대의 규칙은에 적용 `all` 됩니다.
+> `all`의 경우 반대 규칙이 적용됩니다.
 
-예를 들어 `lt` ,, `gt` `le` 및 `ge` 연산자를 지 원하는 데이터 형식의 컬렉션을 필터링 하는 경우 더 광범위 한 식이 허용 됩니다 `Collection(Edm.Int32)` . 특히를 사용 하 여 `and` `or` `any` 기본 비교 식이 **범위 비교** 로 결합 된 `and` 다음를 사용 하 여 추가로 결합 `or` 되는 한을 사용할 수 있습니다. 이러한 부울 식의 구조는 [DNF (분리 Normal Form)](https://en.wikipedia.org/wiki/Disjunctive_normal_form)라고 하며, 그렇지 않은 경우에는 "ORs of ANDs" 이라고 합니다. 반대로 `all` 이러한 데이터 형식에 대 한 람다 식은 [My.cnf (결합 Normal Form)](https://en.wikipedia.org/wiki/Conjunctive_normal_form)에 있어야 합니다. 그렇지 않으면 "ANDs of ORs"로 알려져 있습니다. Azure Cognitive Search는 문자열에 대 한 빠른 용어 조회를 수행할 수 있는 것 처럼 반전 인덱스를 사용 하 여 효율적으로 실행할 수 있으므로 이러한 범위 비교를 허용 합니다.
+`lt`, `gt`, `le`, `ge` 연산자를 지원하는 데이터 형식 컬렉션(예: `Collection(Edm.Int32)`)을 필터링하는 경우 더 광범위한 식이 허용됩니다. 특히 기본 비교 식이 `and`를 사용하여 **범위 비교** 로 결합된 다음 `or`을 사용하여 추가로 결합되기만 하면 `any`에서 `and` 및 `or`를 사용할 수 있습니다. 이 부울 식 구조를 [DNF(Disjunctive Normal Form)](https://en.wikipedia.org/wiki/Disjunctive_normal_form)라고 하며, 달리 “AND의 OR”라고도 합니다. 반대로 데이터 형식의 `all`에 대한 람다 식은 [CNF(Conjunctive Normal Form)](https://en.wikipedia.org/wiki/Conjunctive_normal_form)에 있어야 하며, 달리 “OR의 AND”라고도 합니다. Azure Cognitive Search에서는 문자열에 대한 빠른 용어 조회와 마찬가지로 반전 인덱스를 사용하여 효율적으로 실행할 수 있으므로 범위 비교를 허용합니다.
 
-요약 하자면, 람다 식에서 허용 되는 항목에 대 한 다음과 같은 규칙이 있습니다.
+요약하면, 람다 식에서 허용되는 항목은 대략적으로 다음과 같습니다.
 
-- 내 `any` 에서 *긍정 검사* 는 같음, 범위 비교, 또는 `geo.intersects` `geo.distance` or와 비교 하 여 항상 허용 `lt` 됩니다 `le` (거리를 확인 하는 경우 "거리"은 같음 같음).
-- 내 `any` 에서 `or` 는 항상 허용 됩니다. `and`는 범위 검사를 표현할 수 있는 데이터 형식에만 사용할 수 있으며, DNF (ORs Of ANDs)를 사용 하는 경우에만 사용할 수 있습니다.
-- 내 `all` 에서 규칙은 역방향으로 표시 됩니다. *음수 검사만* 허용 되며, `and` always를 사용할 수 있으며, `or` my.cnf (ANDs of ORs)로 표현 된 범위 검사에만 사용할 수 있습니다.
+- `any` 내에서 같음, 범위 비교, `geo.intersects`, `geo.distance`와 `lt` 또는 `le` 비교 등의 ‘양수 검사’는 항상 허용됩니다(거리 검사의 경우 “가장 가까움”을 같음으로 간주).
+- `any` 내에서 `or`는 항상 허용됩니다. `and`는 DNF(AND의 OR)를 사용하는 경우에만, 그리고 범위 검사를 표현할 수 있는 데이터 형식에서만 사용할 수 있습니다.
+- `all` 내에서는 규칙이 반대가 됩니다. ‘음수 검사’만 허용되고, `and`는 항상 사용할 수 있으며, `or`는 CNF(OR의 AND)로 표현된 범위 검사에서만 사용할 수 있습니다.
 
-실제로 이러한 필터 유형 중에서 가장 많이 사용 되는 필터 유형입니다. 그러나 가능한 작업의 경계를 이해 하는 것도 도움이 됩니다.
+실제로 가장 많이 사용되는 필터 유형입니다. 그러나 가능한 항목의 경계를 알면 도움이 됩니다.
 
-허용 되는 필터 종류와 그렇지 않은 필터 종류에 대 한 구체적인 예는 [올바른 컬렉션 필터를 작성 하는 방법](search-query-troubleshoot-collection-filters.md#bkmk_examples)을 참조 하세요.
+허용되는 필터 종류와 허용되지 않는 필터 종류의 구체적인 예는 [유효한 컬렉션 필터를 작성하는 방법](search-query-troubleshoot-collection-filters.md#bkmk_examples)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계  
 
 - [Azure Cognitive Search의 OData 컬렉션 필터 문제 해결](search-query-troubleshoot-collection-filters.md)
 - [Azure Cognitive Search의 필터](search-filters.md)
-- [Azure Cognitive Search에 대 한 OData 식 언어 개요](query-odata-filter-orderby-syntax.md)
-- [Azure Cognitive Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md)
-- [Azure Cognitive Search REST API &#40;문서 검색&#41;](/rest/api/searchservice/Search-Documents)
+- [Azure Cognitive Search의 OData 식 언어 개요](query-odata-filter-orderby-syntax.md)
+- [Azure Cognitive Search의 OData 식 구문 참조](search-query-odata-syntax-reference.md)
+- [문서 검색&#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)

@@ -8,10 +8,10 @@ ms.custom: devx-track-csharp
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: aaa1d6df9faa20b1a561bfccdfea682af7645c18
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88930250"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>Application Insights를 사용하여 요청을 추적하는 코드 작성
@@ -32,7 +32,7 @@ Azure 클라우드 서비스 작업자 역할 및 Service Fabric 상태 비저�
         ```
       이 전역 계측 키 구성에 대한 자세한 내용은 [Application Insights를 통해 Service Fabric 사용](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md)을 참조하세요.  
 
-  1. 계측 하려는 코드의 모든 부분에 대해 `StartOperation<RequestTelemetry>` 다음 예제와 같이 **using** 문을 추가 합니다.
+  1. 계측하려는 코드 조각에 대해 다음 예제와 같이 `StartOperation<RequestTelemetry>` **using** 문을 추가합니다.
 
         ```csharp
         using Microsoft.ApplicationInsights;

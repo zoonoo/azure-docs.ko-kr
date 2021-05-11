@@ -1,7 +1,7 @@
 ---
 title: 텍스트 병합 인식 기술
 titleSuffix: Azure Cognitive Search
-description: 필드 컬렉션에서 통합된 하나의 필드로 텍스트를 병합합니다. Azure Cognitive Search의 AI 보강 파이프라인에서 이러한 인식 기술을 사용 합니다.
+description: 필드 컬렉션에서 통합된 하나의 필드로 텍스트를 병합합니다. Azure Cognitive Search의 AI 보강 파이프라인에서 인식 기술을 사용합니다.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: b364655f26c6ac29c14d387d69d7b4277d6aeb86
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88924642"
 ---
 #   <a name="text-merge-cognitive-skill"></a>텍스트 병합 인식 기술

@@ -11,12 +11,12 @@ metadata:
   author: KumudD
   ms.author: kumud
   ms.date: 01/28/2021
-  ms.openlocfilehash: 11e3de57bdf2853e94ec61a21ab54ae085f4f6b1
-  ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+  ms.openlocfilehash: ada227d0746b49ba73b6bea2104d3a7adcbaa1c5
+  ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 01/29/2021
-  ms.locfileid: "99062149"
+  ms.lasthandoff: 04/07/2021
+  ms.locfileid: "107027468"
 landingContent:
 - title: Virtual Network 정보
   linkLists:
@@ -64,10 +64,6 @@ landingContent:
     links:
     - text: Azure 리소스에 대한 액세스 보호 및 격리
       url: /learn/modules/secure-and-isolate-with-nsg-and-service-endpoints
-  - linkListType: video
-    links:
-    - text: Azure Private Link를 사용하여 Azure PaaS 리소스에 안전하게 액세스
-      url: https://www.youtube.com/watch?v=PWKM5KXjWno
 - title: 가상 네트워크 연결
   linkLists:
   - linkListType: concept
@@ -104,6 +100,10 @@ landingContent:
     links:
     - text: 네트워크 트래픽 라우팅 - 포털
       url: tutorial-create-route-table-portal.md
+  - linkListType: learn
+    links:
+    - text: 경로를 사용하여 Azure 배포에서 트래픽 흐름 관리 및 제어
+      url: /learn/modules/control-network-traffic-flow-with-routes/
 - title: IP 주소 만들기
   linkLists:
   - linkListType: concept

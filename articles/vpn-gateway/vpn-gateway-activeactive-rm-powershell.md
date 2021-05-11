@@ -9,10 +9,10 @@ ms.date: 09/03/2020
 ms.author: yushwang
 ms.reviewer: cherylmc
 ms.openlocfilehash: 022ccaab0b210cd2d656b69f505791d1a2aa963f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89440782"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Azure VPN Gateway와의 활성-활성 S2S VPN 연결 구성
@@ -34,7 +34,7 @@ VPN 게이트웨이가 이미 있는 경우 다음을 수행할 수 있습니다
 이러한 요소를 결합하여 필요에 따라 더 복잡하고 가용성이 높은 네트워크 토폴로지를 빌드할 수 있습니다.
 
 > [!IMPORTANT]
-> 활성-활성 모드는 Basic을 제외한 모든 Sku에서 사용할 수 있습니다.
+> 활성-활성 모드는 기본을 제외한 모든 SKU에서 사용할 수 있습니다.
 
 ## <a name="part-1---create-and-configure-active-active-vpn-gateways"></a><a name ="aagateway"></a>1부 - 활성-활성 VPN Gateway 만들기 및 구성
 다음 단계에서는 활성-활성 모드로 Azure VPN Gateway를 구성합니다. 활성-활성 및 활성-대기 게이트웨이 간의 주요 차이점:
@@ -47,12 +47,12 @@ VPN 게이트웨이가 이미 있는 경우 다음을 수행할 수 있습니다
 
 ### <a name="before-you-begin"></a>시작하기 전에
 * Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
-* 브라우저에서 CloudShell을 사용 하지 않으려면 Azure Resource Manager PowerShell cmdlet을 설치 해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 개요](/powershell/azure/)를 참조하세요.
+* 브라우저에서 CloudShell을 사용하지 않으려는 경우 Azure Resource Manager PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 개요](/powershell/azure/)를 참조하세요.
 
 ### <a name="step-1---create-and-configure-vnet1"></a>1단계 - VNet1 만들기 및 구성
-#### <a name="1-declare-your-variables"></a>1. 변수를 선언 합니다.
+#### <a name="1-declare-your-variables"></a>1. 변수 선언
 
-이 연습에서는 먼저 변수를 선언합니다. "사용해 보세요." Cloud Shell 사용 하는 경우 계정에 자동으로 연결 됩니다. PowerShell을 로컬로 사용 하는 경우 다음 예제를 사용 하 여 연결 하는 데 도움을 줍니다.
+이 연습에서는 먼저 변수를 선언합니다. “사용해 보기” Cloud Shell을 사용하는 경우 계정에 자동으로 연결됩니다. 로컬에서 PowerShell을 사용하는 경우 다음 예제를 사용하면 연결하는 데 도움이 됩니다.
 
 ```powershell
 Connect-AzAccount
@@ -88,7 +88,7 @@ $Connection152 = "VNet1toSite5_2"
 
 #### <a name="2-create-a-new-resource-group"></a>2. 새 리소스 그룹 만들기
 
-아래 예제를 사용 하 여 새 리소스 그룹을 만듭니다.
+아래 예제를 사용하여 새 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name $RG1 -Location $Location1
@@ -106,7 +106,7 @@ New-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 -Location $Locatio
 ```
 
 ### <a name="step-2---create-the-vpn-gateway-for-testvnet1-with-active-active-mode"></a>2단계 - 활성-활성 모드로 TestVNet1용 VPN Gateway 만들기
-#### <a name="1-create-the-public-ip-addresses-and-gateway-ip-configurations"></a>1. 공용 IP 주소 및 게이트웨이 IP 구성을 만듭니다.
+#### <a name="1-create-the-public-ip-addresses-and-gateway-ip-configurations"></a>1. 공용 IP 주소 및 게이트웨이 IP 구성 만들기
 VNet용으로 만들 게이트웨이에 할당할 공용 IP 주소를 2개 요청합니다. 필요한 서브넷 및 IP 구성도 정의합니다.
 
 ```azurepowershell-interactive
@@ -119,7 +119,7 @@ $gw1ipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GW1IPconf1 -Subnet $sub
 $gw1ipconf2 = New-AzVirtualNetworkGatewayIpConfig -Name $GW1IPconf2 -Subnet $subnet1 -PublicIpAddress $gw1pip2
 ```
 
-#### <a name="2-create-the-vpn-gateway-with-active-active-configuration"></a>2. 활성-활성 구성을 사용 하 여 VPN 게이트웨이 만들기
+#### <a name="2-create-the-vpn-gateway-with-active-active-configuration"></a>2. 활성-활성 구성을 사용하여 VPN 게이트웨이 만들기
 TestVNet1용 가상 네트워크 게이트웨이를 만듭니다. GatewayIpConfig 항목이 두 개 있고 EnableActiveActiveFeature 플래그가 설정되어 있습니다. 게이트웨이 만들기는 꽤 시간이 걸릴 수 있습니다(완료되려면 45분 이상).
 
 ```azurepowershell-interactive
@@ -164,7 +164,7 @@ PS D:\> $vnet1gw.BgpSettingsText
 계속하기 전에 이 연습의 [1부](#aagateway) 를 완료했는지 확인하세요.
 
 ### <a name="step-1---create-and-configure-the-local-network-gateway"></a>1단계 - 로컬 네트워크 게이트웨이 만들기 및 구성
-#### <a name="1-declare-your-variables"></a>1. 변수를 선언 합니다.
+#### <a name="1-declare-your-variables"></a>1. 변수 선언
 이 연습에서는 다이어그램에 표시된 구성을 계속 빌드합니다. 값을 구성에 사용할 값으로 바꾸어야 합니다.
 
 ```azurepowershell-interactive
@@ -184,7 +184,7 @@ $BGPPeerIP51 = "10.52.255.253"
 * BGP가 사용되도록 설정되면 로컬 네트워크 게이트웨이에 대해 선언해야 하는 접두사는 VPN 디바이스의 BGP 피어 IP 주소의 호스트 주소입니다. 이 경우에는 "10.52.255.253/32"의 접두사 /32입니다.
 * 다시 확인하면 온-프레미스 네트워크와 Azure VNet 간에는 서로 다른 BGP ASN을 사용해야 합니다. 동일한 경우 온-프레미스 VPN 디바이스가 이미 다른 BGP 인접과의 피어에 ASN을 사용하고 있으면 VNet ASN을 변경해야 합니다.
 
-#### <a name="2-create-the-local-network-gateway-for-site5"></a>2. Site5에 대 한 로컬 네트워크 게이트웨이 만들기
+#### <a name="2-create-the-local-network-gateway-for-site5"></a>2. Site5의 로컬 네트워크 게이트웨이 만들기
 계속하기 전에 여전히 구독 1에 연결되어 있는지 확인하십시오. 아직 만들지 않은 경우 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
@@ -193,21 +193,21 @@ New-AzLocalNetworkGateway -Name $LNGName51 -ResourceGroupName $RG5 -Location $Lo
 ```
 
 ### <a name="step-2---connect-the-vnet-gateway-and-local-network-gateway"></a>2단계 - VNet 게이트웨이 및 로컬 네트워크 게이트웨이 연결
-#### <a name="1-get-the-two-gateways"></a>1. 두 게이트웨이를 가져옵니다.
+#### <a name="1-get-the-two-gateways"></a>1. 두 게이트웨이 가져오기
 
 ```azurepowershell-interactive
 $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
 $lng5gw1 = Get-AzLocalNetworkGateway  -Name $LNGName51 -ResourceGroupName $RG5
 ```
 
-#### <a name="2-create-the-testvnet1-to-site5-connection"></a>2. TestVNet1 to Site5 연결 만들기
+#### <a name="2-create-the-testvnet1-to-site5-connection"></a>2. TestVNet1 및 Site5 간 연결 만들기
 이 단계에서는 "EnableBGP"가 $True로 설정된 TestVNet1에서 Site5_1로의 연결을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGatewayConnection -Name $Connection151 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw1 -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
 ```
 
-#### <a name="3-vpn-and-bgp-parameters-for-your-on-premises-vpn-device"></a>3. 온-프레미스 VPN 장치에 대 한 VPN 및 BGP 매개 변수
+#### <a name="3-vpn-and-bgp-parameters-for-your-on-premises-vpn-device"></a>3. 온-프레미스 VPN 디바이스의 VPN 및 BGP 매개 변수
 아래 예제에서 이 연습을 위해 온-프레미스 VPN 디바이스의 BGP 구성 섹션에 입력할 매개 변수를 나열합니다.
 
 ```
@@ -229,7 +229,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection151 -ResourceGroupName $R
 ### <a name="step-3---connect-two-on-premises-vpn-devices-to-the-active-active-vpn-gateway"></a>3단계 - 두 개의 온-프레미스 VPN 디바이스를 활성-활성 VPN Gateway에 연결
 두 개의 VPN 디바이스가 동일한 온-프레미스 네트워크에 있는 경우 Azure VPN Gateway를 두 번째 VPN 디바이스에 연결하여 이중 중복성을 얻을 수 있습니다.
 
-#### <a name="1-create-the-second-local-network-gateway-for-site5"></a>1. Site5에 대 한 두 번째 로컬 네트워크 게이트웨이 만들기
+#### <a name="1-create-the-second-local-network-gateway-for-site5"></a>1. Site5의 두 번째 로컬 네트워크 게이트웨이 만들기
 두 번째 로컬 네트워크 게이트웨이에 대한 게이트웨이 IP 주소, 주소 접두사 및 BGP 피어링 주소는 동일한 온-프레미스 네트워크에 대한 이전 로컬 네트워크 게이트웨이와 겹치지 않아야 합니다.
 
 ```azurepowershell-interactive
@@ -254,7 +254,7 @@ $lng5gw2 = Get-AzLocalNetworkGateway -Name $LNGName52 -ResourceGroupName $RG5
 New-AzVirtualNetworkGatewayConnection -Name $Connection152 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw2 -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
 ```
 
-#### <a name="3-vpn-and-bgp-parameters-for-your-second-on-premises-vpn-device"></a>3. 두 번째 온-프레미스 VPN 장치에 대 한 VPN 및 BGP 매개 변수
+#### <a name="3-vpn-and-bgp-parameters-for-your-second-on-premises-vpn-device"></a>3. 두 번째 온-프레미스 VPN 디바이스의 VPN 및 BGP 매개 변수
 마찬가지로 아래에는 두 번째 VPN 디바이스에 입력하는 매개 변수가 나와 있습니다.
 
 ```
@@ -283,7 +283,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection152 -ResourceGroupName $R
 
 이 예제에서 가상 네트워크는 동일한 구독에 속합니다. 다른 구독 간에 VNet 간 연결을 설정할 수 있습니다. 자세한 내용은 [VNet 간 연결 구성](vpn-gateway-vnet-vnet-rm-ps.md)을 참조하세요. BGP를 사용하는 연결을 만들 때 "-EnableBgp $True"를 추가해야 합니다.
 
-#### <a name="1-declare-your-variables"></a>1. 변수를 선언 합니다.
+#### <a name="1-declare-your-variables"></a>1. 변수 선언
 값을 구성에 사용할 값으로 바꾸어야 합니다.
 
 ```azurepowershell-interactive
@@ -321,7 +321,7 @@ $gwsub2 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName2 -AddressPrefix $GWS
 New-AzVirtualNetwork -Name $VNetName2 -ResourceGroupName $RG2 -Location $Location2 -AddressPrefix $VNetPrefix21,$VNetPrefix22 -Subnet $fesub2,$besub2,$gwsub2
 ```
 
-#### <a name="3-create-the-active-active-vpn-gateway-for-testvnet2"></a>3. TestVNet2에 대 한 활성-활성 VPN 게이트웨이 만들기
+#### <a name="3-create-the-active-active-vpn-gateway-for-testvnet2"></a>3. TestVNet2의 활성-활성 VPN 게이트웨이 만들기
 VNet용으로 만들 게이트웨이에 할당할 공용 IP 주소를 2개 요청합니다. 필요한 서브넷 및 IP 구성도 정의합니다.
 
 ```azurepowershell-interactive
@@ -343,7 +343,7 @@ New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Lo
 ### <a name="step-2---connect-the-testvnet1-and-testvnet2-gateways"></a>2단계 - TestVNet1 및 TestVNet2 게이트웨이 연결
 이 예제에서 두 게이트웨이는 동일한 구독에 있습니다. 동일한 PowerShell 세션에서 이 단계를 완료할 수 있습니다.
 
-#### <a name="1-get-both-gateways"></a>1. 두 게이트웨이 모두 가져오기
+#### <a name="1-get-both-gateways"></a>1. 두 게이트웨이 가져오기
 로그인하고 구독 1에 연결해야 합니다.
 
 ```azurepowershell-interactive
@@ -351,7 +351,7 @@ $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
 $vnet2gw = Get-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
 ```
 
-#### <a name="2-create-both-connections"></a>2. 두 연결 모두 만들기
+#### <a name="2-create-both-connections"></a>2. 두 연결 만들기
 이 단계에서는 TestVNet1에서 TestVNet2까지 및 TestVNet2에서 TestVNet1까지의 연결을 만듭니다.
 
 ```azurepowershell-interactive
@@ -371,13 +371,13 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupName $RG
 
 ## <a name="update-an-existing-vpn-gateway"></a><a name ="aaupdate"></a>기존 VPN 게이트웨이 업데이트
 
-활성-대기 게이트웨이가 활성-활성으로 변경되면, 다른 공용 IP 주소를 만든 다음, 두 번째 게이트웨이 IP 구성을 추가합니다. 이 섹션에서는 기존 Azure VPN gateway를 활성-대기에서 활성-활성 모드로 변경 하거나 PowerShell을 사용 하 여 그 반대로 변경 하는 방법을 설명 합니다. 가상 네트워크 게이트웨이에 대 한 **구성** 페이지의 Azure Portal에서 게이트웨이를 변경할 수도 있습니다.
+활성-대기 게이트웨이가 활성-활성으로 변경되면, 다른 공용 IP 주소를 만든 다음, 두 번째 게이트웨이 IP 구성을 추가합니다. 이 섹션은 PowerShell을 사용하여 기존 Azure VPN 게이트웨이를 활성-대기 모드에서 활성-활성 모드로 또는 그 반대로 변경하는 데 도움이 됩니다. Azure Portal의 가상 네트워크 게이트웨이 **구성** 페이지에서 게이트웨이를 변경할 수도 있습니다.
 
 ### <a name="change-an-active-standby-gateway-to-an-active-active-gateway"></a>활성-대기 게이트웨이를 활성-활성 게이트웨이로 변경
 
 다음 예제에서는 활성-대기 게이트웨이를 활성-활성 게이트웨이로 변환합니다. 
 
-#### <a name="1-declare-your-variables"></a>1. 변수를 선언 합니다.
+#### <a name="1-declare-your-variables"></a>1. 변수 선언
 
 예제에 사용된 다음 매개 변수를 사용자 고유의 구성에 필요한 설정으로 바꾼 다음, 이 변수를 선언합니다.
 
@@ -398,14 +398,14 @@ $gw = Get-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
 $location = $gw.Location
 ```
 
-#### <a name="2-create-the-public-ip-address-then-add-the-second-gateway-ip-configuration"></a>2. 공용 IP 주소를 만든 다음 두 번째 게이트웨이 IP 구성을 추가 합니다.
+#### <a name="2-create-the-public-ip-address-then-add-the-second-gateway-ip-configuration"></a>2. 공용 IP 주소를 만든 다음 두 번째 게이트웨이 IP 구성 추가
 
 ```azurepowershell-interactive
 $gwpip2 = New-AzPublicIpAddress -Name $GWIPName2 -ResourceGroupName $RG -Location $location -AllocationMethod Dynamic
 Add-AzVirtualNetworkGatewayIpConfig -VirtualNetworkGateway $gw -Name $GWIPconf2 -Subnet $subnet -PublicIpAddress $gwpip2
 ```
 
-#### <a name="3-enable-active-active-mode-and-update-the-gateway"></a>3. 활성-활성 모드를 사용 하도록 설정 하 고 게이트웨이를 업데이트 합니다.
+#### <a name="3-enable-active-active-mode-and-update-the-gateway"></a>3. 활성-활성 모드를 사용하도록 설정하고 게이트웨이 업데이트
 
 이 단계에서는 활성-활성 모드를 사용하도록 설정하고 게이트웨이를 업데이트합니다. 이 예제에서 VPN 게이트웨이는 현재 레거시 표준 SKU를 사용하고 있습니다. 그러나 활성-활성은 표준 SKU를 지원하지 않습니다. 레거시 SKU의 크기를 지원되는 크기(이 경우 HighPerformance)로 조정하려면, 사용하려는 지원되는 레거시 SKU를 지정하기만 하면 됩니다.
 
@@ -420,7 +420,7 @@ Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -EnableActiveActiveFeatur
 ```
 
 ### <a name="change-an-active-active-gateway-to-an-active-standby-gateway"></a>활성-활성 게이트웨이를 활성-대기 게이트웨이로 변경
-#### <a name="1-declare-your-variables"></a>1. 변수를 선언 합니다.
+#### <a name="1-declare-your-variables"></a>1. 변수 선언
 
 예제에 사용된 다음 매개 변수를 사용자 고유의 구성에 필요한 설정으로 바꾼 다음, 이 변수를 선언합니다.
 
@@ -436,7 +436,7 @@ $gw = Get-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
 $ipconfname = $gw.IpConfigurations[1].Name
 ```
 
-#### <a name="2-remove-the-gateway-ip-configuration-and-disable-the-active-active-mode"></a>2. 게이트웨이 IP 구성을 제거 하 고 활성-활성 모드를 사용 하지 않도록 설정
+#### <a name="2-remove-the-gateway-ip-configuration-and-disable-the-active-active-mode"></a>2. 게이트웨이 IP 구성을 제거하고 활성-활성 모드를 사용하지 않도록 설정
 
 이 예제를 사용하여 게이트웨이 IP 구성을 제거하고 활성-활성 모드를 사용하지 않도록 설정합니다. 실제 업데이트를 트리거하도록 PowerShell에서 게이트웨이 개체를 설정해야 합니다.
 

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: jixin
-ms.openlocfilehash: c8776102602f5bdcf29139d808a6f603cc5c7473
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 018033d3a6123948191a7261f5a1ee2ae526e25a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784576"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "89295025"
 ---
 # <a name="audit-compliance-of-azure-signalr-service-resources-using-azure-policy"></a>Azure Policy를 사용하여 Azure SignalR Service 리소스의 준수 감사
 
@@ -53,7 +53,7 @@ Azure Portal, Azure 명령줄 도구 또는 Azure Policy SDK를 사용하여 정
 
 ### <a name="policy-compliance-in-the-azure-cli"></a>Azure CLI의 정책 준수
 
-Azure CLI를 사용하여 준수 데이터를 가져올 수도 있습니다. 예를 들어 CLI에서 [az policy assignment list](/cli/azure/policy/assignment#az_policy_assignment_list) 명령을 사용하여 적용된 Azure SignalR Service 정책의 정책 ID를 가져옵니다.
+Azure CLI를 사용하여 준수 데이터를 가져올 수도 있습니다. 예를 들어 CLI에서 [az policy assignment list](/cli/azure/policy/assignment#az-policy-assignment-list) 명령을 사용하여 적용된 Azure SignalR Service 정책의 정책 ID를 가져옵니다.
 
 ```azurecli
 az policy assignment list --query "[?contains(displayName,'SignalR')].{name:displayName, ID:id}" --output table
@@ -67,13 +67,13 @@ Name                                                                            
 [Preview]: Azure SignalR Service should use private links  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Authorization/policyAssignments/<assignmentId>
 ```
 
-그런 다음 [az policy state list](/cli/azure/policy/state#az_policy_state_list)를 실행하여 특정 리소스 그룹의 모든 리소스에 대해 JSON 형식의 준수 상태를 반환합니다.
+그런 다음 [az policy state list](/cli/azure/policy/state#az-policy-state-list)를 실행하여 특정 리소스 그룹의 모든 리소스에 대해 JSON 형식의 준수 상태를 반환합니다.
 
 ```azurecli
 az policy state list --g <resourceGroup>
 ```
 
-또는 [az policy state list](/cli/azure/policy/state#az_policy_state_list)를 실행하여 특정 SignalR 리소스의 JSON 형식 준수 상태를 반환합니다.
+또는 [az policy state list](/cli/azure/policy/state#az-policy-state-list)를 실행하여 특정 SignalR 리소스의 JSON 형식 준수 상태를 반환합니다.
 
 ```azurecli
 az policy state list \

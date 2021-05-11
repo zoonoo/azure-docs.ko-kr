@@ -1,6 +1,6 @@
 ---
-title: 가상 컴퓨터 제품에 대 한 가격-Azure Marketplace
-description: 가상 컴퓨터 제품의 가격 책정을 지정 하는 세 가지 방법에 대해 설명 합니다.
+title: 가상 머신 제품 가격 책정 - Azure Marketplace
+description: 가상 머신 제품의 가격을 지정하는 세 가지 방법에 대해 설명합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
@@ -8,22 +8,22 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 09/02/2020
 ms.openlocfilehash: fe8024c60e204a4ec72002c878f7753ae35aa00d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89393822"
 ---
 # <a name="pricing-for-virtual-machine-offers"></a>가상 머신 제품 가격 책정
 
 > [!NOTE]
-> Cloud 파트너 포털 Api는와 통합 되며 파트너 센터에서 계속 작업 합니다. 전환에는 작은 변화가 도입 됩니다. [CLOUD 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md) 에 나열 된 변경 내용을 검토 하 여 파트너 센터로 전환 된 후 코드가 계속 작동 하는지 확인 합니다. CPP Api는 파트너 센터로 전환 하기 전에 이미 통합 된 기존 제품에만 사용 해야 합니다. 새 제품은 파트너 센터 제출 Api를 사용 해야 합니다.
+> Cloud 파트너 포털 API는 파트너 센터와 통합되었으며 파트너 센터에서 계속 작동합니다. 전환 시 사소한 변경 내용이 적용됩니다. [Cloud 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md)에 나열된 변경 내용을 검토하여 파트너 센터로 전환한 후에도 코드가 계속 작동하는지 확인합니다. CPP API는 파트너 센터로 전환하기 전에 이미 통합된 기존 제품에만 사용해야 합니다. 새 제품은 파트너 센터 제출 API를 사용해야 합니다.
 
 가상 머신 제품의 가격은 사용자 지정 코어 가격, 코어당 가격, 스프레드시트 가격의 세 가지 방식으로 지정할 수 있습니다.
 
 ## <a name="customized-core-pricing"></a>사용자 지정 코어 가격
 
-각 지역과 코어의 조합별로 가격을 책정합니다. 판매 목록의 모든 지역은 정의의 **virtualmachinepricing** 지역 / **가격** 섹션에 지정 해야 합니다.  각 [지역](#regions)의 현재 통화 코드를 요청에 사용합니다.  다음 예제에서는 이러한 요구 사항을 보여 줍니다.
+각 지역과 코어의 조합별로 가격을 책정합니다. 정의의 **virtualMachinePricing**/**regionPrices** 섹션에서 모든 판매 지역을 지정해야 합니다.  각 [지역](#regions)의 현재 통화 코드를 요청에 사용합니다.  다음 예제에서는 이러한 요구 사항을 보여 줍니다.
 
 ``` json
     "virtualMachinePricing": 
@@ -96,9 +96,9 @@ ms.locfileid: "89393822"
      }
 ```
 
-## <a name="new-core-sizes-added-on-722019"></a>7/2/2019에 추가 된 새 코어 크기
+## <a name="new-core-sizes-added-on-722019"></a>2019년 7월 2일에 추가된 새 코어 크기
 
-VM 게시자는 새 Azure virtual machine 크기에 대 한 새 가격 (코어 수 기반)을 추가 하는 2019 년 7 월 2 일에 통보 받았습니다.  새 가격은 10, 44, 48, 60, 120, 208 및 416의 핵심 크기에 해당 합니다.  기존 VM의 경우 이러한 코어 크기에 대 한 새로운 가격은 현재 가격에 따라 자동으로 계산 됩니다. 게시자는 2019 년 8 월 1 일까 지 추가 가격을 검토 하 고 원하는 대로 변경할 수 있습니다.  이 날짜 이후에는 아직 게시자가 다시 게시 하지 않은 경우 이러한 새 코어 크기에 대해 자동으로 계산 된 가격이 적용 됩니다.
+VM 게시자는 2019년 7월 2일에 새 Azure 가상 머신 크기(코어 수 기반)에 적용되는 새 가격이 추가되었다는 알림을 받았습니다.  새 가격은 코어 크기 10, 44, 48, 60, 120, 208, 416에 적용됩니다.  기존 VM 제품의 경우 현재 가격에 따라 해당 코어 크기의 새 가격이 자동으로 계산되었습니다. 게시자는 2019년 8월 1일까지 추가 가격을 검토하고 원하는 대로 변경할 수 있습니다.  이 날짜 이후에도 게시자가 다시 게시하지 않은 경우에는 새 코어 크기에 대해 자동으로 계산된 가격이 적용됩니다.
 
 ## <a name="regions"></a>영역
 

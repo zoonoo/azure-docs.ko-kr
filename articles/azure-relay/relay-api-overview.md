@@ -4,12 +4,12 @@ description: 이 문서에서는 사용 가능한 Azure Relay API(.NET Standard,
 ms.topic: article
 ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: 98bbb1ecc7e870ff9b7687284e7087d44375d275
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 391bd74f2bce8721b6d6359f3990af494277aa45
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88935724"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312997"
 ---
 # <a name="available-relay-apis"></a>사용 가능한 Relay API
 
@@ -49,4 +49,4 @@ ms.locfileid: "88935724"
 
 Azure Relay에 대한 자세한 내용은 다음 링크를 방문하세요.
 * [Azure Relay란?](relay-what-is-it.md)
-* [릴레이 FAQ](relay-faq.md)
+* [릴레이 FAQ](relay-faq.yml)

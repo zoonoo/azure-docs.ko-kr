@@ -1,6 +1,6 @@
 ---
-title: 'Azure VPN Gateway: P2S VPN 클라이언트에 대 한 사용자 지정 경로 보급'
-description: 지점 및 사이트 간 클라이언트에 사용자 지정 경로를 보급 하는 단계
+title: 'Azure VPN Gateway: P2S VPN 클라이언트의 사용자 지정 경로 보급'
+description: 지점 및 사이트 간 클라이언트에 사용자 지정 경로를 보급하는 단계입니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,23 +8,23 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: a02bd5519b776a063646c11be2a34366fe429f99
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89392394"
 ---
 # <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>P2S VPN 클라이언트에 대한 사용자 지정 경로 보급
 
-모든 지점 및 사이트 간 VPN 클라이언트에 사용자 지정 경로를 보급 하는 것이 좋습니다. 예를 들어 VNet에서 저장소 끝점을 사용 하도록 설정 하 고 원격 사용자가 VPN 연결을 통해 이러한 저장소 계정에 액세스할 수 있도록 하려고 합니다. 저장소 계정에 대 한 트래픽이 공용 인터넷이 아닌 VPN 터널을 통과 하도록 저장소 끝점의 IP 주소를 모든 원격 사용자에 게 알릴 수 있습니다.
+모든 지점 및 사이트 간 VPN 클라이언트에 사용자 지정 경로를 보급하는 것이 좋습니다. 예를 들어 VNet에서 스토리지 엔드포인트를 사용하도록 설정했으며 원격 사용자가 VPN 연결을 통해 해당 스토리지 계정에 액세스할 수 있게 하려는 경우 스토리지 계정에 대한 트래픽이 퍼블릭 인터넷이 아닌 VPN 터널을 통해 전달되도록 스토리지 엔드포인트의 IP 주소를 모든 원격 사용자에게 보급할 수 있습니다.
 
 ![Azure VPN Gateway 다중 사이트 연결 예제](./media/vpn-gateway-p2s-advertise-custom-routes/custom-routes.png)
 
-## <a name="to-advertise-custom-routes"></a>사용자 지정 경로를 보급 하려면
+## <a name="to-advertise-custom-routes"></a>사용자 지정 경로를 보급하려면
 
-사용자 지정 경로를 보급 하려면를 사용 `Set-AzVirtualNetworkGateway cmdlet` 합니다. 다음 예에서는 [Contoso 저장소 계정 테이블](https://contoso.table.core.windows.net)의 IP를 보급 하는 방법을 보여 줍니다.
+사용자 지정 경로를 보급하려면 `Set-AzVirtualNetworkGateway cmdlet`을 사용합니다. 다음 예제에서는 [Contoso 스토리지 계정 테이블](https://contoso.table.core.windows.net)의 IP를 보급하는 방법을 보여 줍니다.
 
-1. *Contoso.table.core.windows.net* 를 Ping 하 고 IP 주소를 적어둡니다. 예를 들면 다음과 같습니다.
+1. *contoso.table.core.windows.net* 을 ping하고 IP 주소를 적어 둡니다. 예를 들면 다음과 같습니다.
 
     ```cmd
     C:\>ping contoso.table.core.windows.net
@@ -38,22 +38,22 @@ ms.locfileid: "89392394"
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute 13.88.144.250/32
     ```
 
-3. 여러 사용자 지정 경로를 추가 하려면 쉼표와 공백을 사용 하 여 주소를 구분 합니다. 예를 들면 다음과 같습니다.
+3. 여러 개의 사용자 지정 경로를 추가하려면 쉼표와 공백을 사용하여 주소를 구분합니다. 예를 들면 다음과 같습니다.
 
     ```azurepowershell-interactive
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute x.x.x.x/xx , y.y.y.y/yy
     ```
 ## <a name="to-view-custom-routes"></a>사용자 지정 경로를 보려면
 
-사용자 지정 경로를 보려면 다음 예제를 사용 합니다.
+사용자 지정 경로를 보려면 다음 예제를 사용합니다.
 
   ```azurepowershell-interactive
   $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
   $gw.CustomRoutes | Format-List
   ```
-## <a name="to-delete-custom-routes"></a>사용자 지정 경로를 삭제 하려면
+## <a name="to-delete-custom-routes"></a>사용자 지정 경로를 삭제하려면
 
-다음 예제를 사용 하 여 사용자 지정 경로를 삭제 합니다.
+사용자 지정 경로를 삭제하려면 다음 예제를 사용합니다.
 
   ```azurepowershell-interactive
   $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
@@ -61,4 +61,4 @@ ms.locfileid: "89392394"
   ```
 ## <a name="next-steps"></a>다음 단계
 
-추가 P2S 라우팅 정보는 지점 및 [사이트 간 라우팅](vpn-gateway-about-point-to-site-routing.md)정보를 참조 하세요.
+P2S 라우팅에 대한 자세한 내용은 [지점 및 사이트 간 라우팅 정보](vpn-gateway-about-point-to-site-routing.md)를 참조하세요.

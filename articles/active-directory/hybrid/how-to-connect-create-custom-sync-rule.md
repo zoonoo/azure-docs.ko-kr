@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect에서 동기화 규칙을 사용자 지정하는 방법 | Microsoft Docs
-description: 동기화 규칙 편집기를 사용 하 여 새 동기화 규칙을 편집 하거나 만드는 방법을 알아봅니다.
+description: 동기화 규칙 편집기를 사용하여 새 동기화 규칙을 만들거나 편집하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2bb86988454141dc692b4a9967997c4ff7574a2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90530491"
 ---
 # <a name="how-to-customize-a-synchronization-rule"></a>동기화 규칙을 사용자 지정하는 방법
@@ -43,7 +43,7 @@ ms.locfileid: "90530491"
 * **아웃바운드** 규칙을 수정하려면 동기화 규칙 편집기에서 필터를 변경합니다.
 
 ## <a name="recommended-documents"></a>**권장되는 문서**
-* [Azure AD Connect 동기화: 기술 개념](./how-to-connect-sync-technical-concepts.md)
+* [Azure AD Connect Sync: 기술 개념](./how-to-connect-sync-technical-concepts.md)
 * [Azure AD Connect 동기화: 아키텍처 이해](./concept-azure-ad-connect-sync-architecture.md)
 * [Azure AD Connect 동기화: 선언적 프로비전 이해](./concept-azure-ad-connect-sync-declarative-provisioning.md)
 * [Azure AD Connect 동기화: 선언적 프로비전 식 이해](./concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
@@ -52,5 +52,5 @@ ms.locfileid: "90530491"
 * [Azure AD Connect 동기화: 섀도 특성](./how-to-connect-syncservice-shadow-attributes.md)
 
 ## <a name="next-steps"></a>다음 단계
-- [동기화를 Azure AD Connect](how-to-connect-sync-whatis.md)합니다.
-- [하이브리드 id 란?](whatis-hybrid-identity.md)
+- [Azure AD Connect 동기화](how-to-connect-sync-whatis.md)
+- [하이브리드 ID란?](whatis-hybrid-identity.md)
