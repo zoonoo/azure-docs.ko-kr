@@ -9,12 +9,12 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 1d64233fc477ec25f91bb73c744b10210571df41
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 2d6ac02402414f096a46fec0340c3074d8e1784a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588346"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104586644"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark용 Python 라이브러리 관리
 
@@ -76,8 +76,7 @@ dependencies:
   - matplotlib
   - koalas==1.7.0
 ```
-이 environment.yml 파일에서 환경을 만드는 방법에 대한 자세한 내용은 [environment.yml 파일에서 환경 만들기](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment
-)를 참조하세요.
+이 environment.yml 파일에서 환경을 만드는 방법에 대한 자세한 내용은 [environment.yml 파일에서 환경 만들기](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually)를 참조하세요.
 
 #### <a name="update-python-packages"></a>Python 패키지 업데이트
 Spark 풀에 설치하려는 환경 사양 파일이나 라이브러리 집합을 식별한 후에는 Azure Synapse Studio 또는 Azure Portal로 이동하여 Spark 풀 라이브러리를 업데이트할 수 있습니다. 여기서 환경 사양을 제공하고 설치할 작업 영역 라이브러리를 선택할 수 있습니다. 
@@ -120,10 +119,10 @@ Spark 풀에 라이브러리를 업데이트하거나 추가하려면:
 
 또한 사용자는 설치 로그를 검사하여 종속성 충돌을 식별하거나 풀 업데이트 중에 설치된 라이브러리를 확인할 수도 있습니다.
 
-이 로그를 보려면:
-1. **모니터** 탭에서 Spark 애플리케이션 목록으로 이동합니다. 
-2. 풀 업데이트에 해당하는 시스템 Spark 애플리케이션 작업을 선택합니다. 이 시스템 작업은 *SystemReservedJob-LibraryManagement* 제목으로 실행됩니다.
-   ![시스템 예약 라이브러리 작업을 강조 표시하는 스크린샷](./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job.png "시스템 라이브러리 작업 보기")
+이러한 로그를 보려면 다음을 수행합니다.
+1. **모니터링** 탭에서 Spark 애플리케이션 목록으로 이동합니다. 
+2. 풀 업데이트에 해당하는 시스템 Spark 애플리케이션 작업을 선택합니다. 이러한 시스템 작업은 *SystemReservedJob-LibraryManagement* 제목으로 실행됩니다.
+   ![시스템 예약 라이브러리 작업을 강조하는 스크린샷.](./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job.png "시스템 라이브러리 작업 보기")
 3. 보기를 전환하여 **드라이버** 및 **stdout** 로그를 봅니다. 
 4. 결과 내에서 종속성 설치와 관련된 로그가 표시됩니다.
     ![시스템 예약 라이브러리 작업 결과를 강조하는 스크린샷.](./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job-results.png "시스템 라이브러리 작업 진행률 보기")
