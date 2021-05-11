@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.openlocfilehash: 0d9b1060ee35af6cbc2e1b95b0f7813072c52d2e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85505378"
 ---
 # <a name="authorize-non-owners-to-deploy-avere-vfxt"></a>소유자 권한이 없는 사용자에게 Avere vFXT 배포 권한 부여
@@ -62,7 +62,7 @@ ms.locfileid: "85505378"
 
    `az role definition create --role-definition <PATH_TO_FILE>`
 
-    예제:
+    예:
 
     ```azurecli
     az role definition create --role-definition ./averecreatecluster.json
@@ -72,7 +72,7 @@ ms.locfileid: "85505378"
 
    `az role assignment create --assignee <USERNAME> --scope /subscriptions/<SUBSCRIPTION_ID> --role 'avere-create-cluster'`
 
-이 프로세스를 완료 하면 역할은 사용자에 게 구독에 대 한 다음 사용 권한을 할당 합니다.
+이 프로세스가 완료되면 역할이 할당된 사용자에게 구독에 대한 다음 권한이 부여됩니다.
 
 * 네트워크 인프라 만들기 및 구성
 * 클러스터 컨트롤러 만들기

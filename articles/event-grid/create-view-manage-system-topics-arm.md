@@ -1,20 +1,20 @@
 ---
-title: Azure Resource Manager 템플릿을 사용 하 여 Azure Event Grid에서 시스템 항목을 만듭니다.
-description: 이 문서에서는 Azure Resource Manager 템플릿을 사용 하 여 Azure Event Grid에서 시스템 항목을 만드는 방법을 보여 줍니다.
+title: Azure Resource Manager 템플릿을 사용하여 Azure Event Grid에서 시스템 토픽 만들기
+description: 이 문서에서는 Azure Resource Manager 템플릿을 사용하여 Azure Event Grid에서 시스템 토픽을 만드는 방법을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 1c8881a2d9dfca43084cc537b106e84b050a18d5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86115165"
 ---
-# <a name="create-system-topics-in-azure-event-grid-using-resource-manager-templates"></a>리소스 관리자 템플릿을 사용 하 여 Azure Event Grid에서 시스템 항목 만들기
-이 문서에서는 리소스 관리자 템플릿을 사용 하 여 시스템 항목을 만들고 관리 하는 방법을 보여 줍니다. 시스템 항목의 개요는 [시스템 항목](system-topics.md)을 참조 하십시오.
+# <a name="create-system-topics-in-azure-event-grid-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 Azure Event Grid에서 시스템 토픽 만들기
+이 문서에서는 Resource Manager 템플릿을 사용하여 시스템 토픽을 만들고 관리하는 방법을 보여 줍니다. 시스템 토픽에 대한 개요는 [시스템 토픽](system-topics.md)을 참조하세요.
 
-## <a name="create-system-topic-first-and-then-create-event-subscription"></a>먼저 시스템 항목을 만든 다음 이벤트 구독 만들기
-먼저 Azure 원본에서 시스템 항목을 만든 다음 해당 토픽에 대 한 이벤트 구독을 만들려면 다음과 같은 템플릿을 사용할 수 있습니다. 
+## <a name="create-system-topic-first-and-then-create-event-subscription"></a>시스템 토픽을 만든 다음 이벤트 구독 만들기
+먼저 Azure 원본에서 시스템 토픽을 만든 다음 해당 토픽에 대한 이벤트 구독을 만들려면 다음 템플릿을 사용합니다. 
 
 ```json
 {
@@ -110,10 +110,10 @@ ms.locfileid: "86115165"
 }
 ```
 
-리소스 관리자 템플릿을 사용 하 여 시스템 토픽 및 구독을 만드는 방법에 대 한 지침은 [Azure Resource Manager 템플릿을 사용 하 여 Blob storage 이벤트를 웹 끝점으로 라우팅을](blob-event-quickstart-template.md) 참조 하세요. 
+Resource Manager 템플릿을 사용하여 시스템 토픽 및 해당 토픽에 대한 구독을 만드는 방법에 대한 지침은 [Azure Resource Manager 템플릿을 사용하여 웹 엔드포인트로 Blob Storage 이벤트 경로 지정](blob-event-quickstart-template.md)을 참조하세요. 
 
-## <a name="create-system-topic-while-creating-an-event-subscription"></a>이벤트 구독을 만드는 동안 시스템 항목 만들기 
-시스템 항목을 암시적으로 만들려면 Azure 원본에서 이벤트 구독을 만드는 동안 다음 템플릿을 사용할 수 있습니다.
+## <a name="create-system-topic-while-creating-an-event-subscription"></a>이벤트 구독을 만드는 동안 시스템 토픽 만들기 
+시스템 토픽을 암시적으로 만들려면 Azure 원본에서 이벤트 구독을 만드는 동안 다음 템플릿을 사용합니다.
 
 ``` json
 {
@@ -192,4 +192,4 @@ ms.locfileid: "86115165"
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Azure Event Grid에서 지 원하는 시스템 항목과 항목 유형에 대 한 자세한 내용은 [Azure Event Grid의 시스템 항목](system-topics.md) 을 참조 하십시오. 
+Azure Event Grid에서 지원되는 시스템 토픽 및 토픽 유형에 대한 자세한 정보는 [Azure Event Grid의 시스템 토픽](system-topics.md) 섹션을 참조하세요. 

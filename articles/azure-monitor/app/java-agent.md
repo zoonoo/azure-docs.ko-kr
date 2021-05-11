@@ -1,5 +1,5 @@
 ---
-title: Java 웹 앱 성능 모니터링-Azure 애플리케이션 정보
+title: Java 웹앱 성능 모니터링 - Azure Application Insights
 description: Application Insights로 Java 웹 사이트의 확장된 성능 및 사용량 모니터링
 ms.topic: conceptual
 ms.date: 01/10/2019
@@ -7,40 +7,40 @@ author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
 ms.openlocfilehash: c753e4e254890f9198da9bc913b29bdaae335b78
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100573833"
 ---
-# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Java 웹 앱에서 종속성, catch 한 예외 및 메서드 실행 시간 모니터링
+# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>종속성, 예외 포착 및 Java 웹앱에서의 메서드 실행 시간 모니터링
 
 > [!IMPORTANT]
-> 이 문서에서 설명 하는 방법은 더 이상 권장 되지 않습니다.
+> 이 문서에서 설명하는 방법은 더 이상 권장되지 않습니다.
 >
-> Java 응용 프로그램 모니터링에 권장 되는 방법은 코드를 변경 하지 않고 자동 계측을 사용 하는 것입니다. [Application Insights Java 3.0 에이전트](./java-in-process-agent.md)에 대 한 지침을 따르세요.
+> Java 애플리케이션 모니터링에 권장되는 방법은 코드를 변경하지 않고 자동 계측을 사용하는 것입니다. [Application Insights Java 3.0 에이전트](./java-in-process-agent.md)에 대한 지침을 따르세요.
 
-[APPLICATION INSIGHTS SDK를 사용 하 여 java 웹 앱을 계측][java]한 경우 java 에이전트를 사용 하 여 코드를 변경 하지 않고 보다 심층적인 정보를 얻을 수 있습니다.
+[Application Insights SDK로 Java 웹앱을 계측][java]한 경우, 다음과 같이 Java 에이전트를 사용하여 코드의 변경 없이 보다 심층적인 인사이트를 얻을 수 있습니다.
 
 * **종속성:** 애플리케이션이 다음을 포함한 다른 구성 요소에 수행하는 호출에 대한 데이터:
-  * Apache HttpClient, OkHttp 및를 통해 생성 된 **나가는 HTTP 호출은** `java.net.HttpURLConnection` 캡처됩니다.
-  * Jedis 클라이언트를 통해 수행 된 **Redis 호출은** 캡처됩니다.
-  * **JDBC 쿼리** -MySQL 및 PostgreSQL의 경우 호출이 10 초 보다 오래 걸리면 에이전트가 쿼리 계획을 보고 합니다.
+  * Apache HttpClient, OkHttp 및 `java.net.HttpURLConnection`을 통해 생성된 **발신 HTTP 호출** 은 캡처됩니다.
+  * Jedis 클라이언트를 통한 **Redis 호출** 은 캡처됩니다.
+  * **JDBC 쿼리** - MySQL 및 PostgreSQL의 경우 호출이 10초 이상 걸리면 에이전트가 쿼리 계획을 보고합니다.
 
-* **응용 프로그램 로깅:** HTTP 요청 및 기타 원격 분석과 응용 프로그램 로그 캡처 및 상관 관계
+* **애플리케이션 로깅:** 애플리케이션 로그를 HTTP 요청 및 기타 원격 분석과 함께 캡처하고 상관 관계를 지정합니다.
   * **Log4j 1.2**
-  * **Log4j2.xml**
+  * **Log4j2**
   * **Logback**
 
-* **더 나은 작업 이름 지정:** (포털에서 요청을 집계 하는 데 사용 됨)
-  * **스프링** 기반 `@RequestMapping` .
-  * **Jax-rs-RS** 기반 `@Path` . 
+* **더 나은 작업 이름:** (포털에서 요청을 집계하는 데 사용됨)
+  * **스프링** - `@RequestMapping` 기반.
+  * **JAX-RS** - `@Path` 기반. 
 
 Java 에이전트를 사용하려면 사용자의 서버에 설치합니다. [Application Insights Java SDK][java]를 사용하여 웹앱을 계측해야 합니다. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Java용 Application Insights 에이전트 설치
-1. Java 서버를 실행 하는 컴퓨터에서 2.x [에이전트를 다운로드](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/2.6.2)합니다. 사용 하는 2.x Java 에이전트 버전이 사용 하는 2.x Application Insights Java SDK의 버전과 일치 하는지 확인 하세요.
-2. 응용 프로그램 서버 시작 스크립트를 편집 하 고 다음 JVM 인수를 추가 합니다.
+1. Java 서버를 실행하는 머신에서 [2.x 에이전트를 다운로드](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/2.6.2)합니다. 사용하는 2.x Java 에이전트 버전과 사용하는 2.x Application Insights Java SDK의 버전과 일치하는지 확인하세요.
+2. 애플리케이션 서버 시작 스크립트를 편집하고 다음 JVM 인수를 추가합니다.
    
     `-javaagent:<full path to the agent JAR file>`
    
@@ -82,20 +82,20 @@ xml 파일의 내용을 설정합니다. 다음 예제를 편집하여 원하는
 </ApplicationInsightsAgent>
 ```
 
-## <a name="additional-config-spring-boot"></a>추가 구성 (스프링 부팅)
+## <a name="additional-config-spring-boot"></a>추가 구성(Spring Boot)
 
 `java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
 
-Azure 앱 서비스에 대해 다음을 수행 합니다.
+Azure App Services에 대해 다음을 수행합니다.
 
 * 설정 &gt; 애플리케이션 설정 선택
 * 앱 설정 아래에서 새로운 키 값 쌍을 추가합니다.
 
 키: `JAVA_OPTS` 값: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.6.2.jar`
 
-에이전트는 D:/home/site/wwwroot/directory에서 종료 되도록 프로젝트에 리소스로 패키지 되어야 합니다. **개발 도구**  >  **고급 도구** 디버그 콘솔로 이동 하 여  >   사이트 디렉터리의 콘텐츠를 검사 하 여 에이전트가 올바른 App Service 디렉터리에 있는지 확인할 수 있습니다.    
+D:/home/site/wwwroot/directory에서 에이전트가 종료되도록 이 에이전트는 프로젝트에 리소스로 패키지되어야 합니다. **개발 도구** > **고급 도구** > **디버그 콘솔** 로 이동하고 사이트 디렉터리의 콘텐츠를 검사하여 에이전트가 정확한 App Service 디렉터리에 있는지 확인할 수 있습니다.    
 
-* 설정을 저장하고 앱을 다시 시작합니다. 이러한 단계는 Windows에서 실행 되는 App Services에만 적용 됩니다.
+* 설정을 저장하고 앱을 다시 시작합니다. (해당 단계는 Windows에서 실행되는 App Services에만 적용됩니다.)
 
 > [!NOTE]
 > AI-Agent.xml 및 에이전트 jar 파일은 동일한 폴더에 있어야 합니다. 종종 프로젝트의 `/resources` 폴더에 함께 배치됩니다.  
@@ -120,7 +120,7 @@ AI-Agent.xml에 다음을 추가합니다.
 **[수신](correlation.md#enable-w3c-distributed-tracing-support-for-java-apps) 및 발신(에이전트) 구성이 둘 다 정확히 동일** 한지 확인합니다.
 
 ## <a name="view-the-data"></a>데이터 보기
-Application Insights 리소스에서 집계 된 원격 종속성과 메서드 실행 시간은 [성능 타일 아래][metrics]에 나타납니다.
+Application Insights 리소스에서 원격 종속성과 메서드 실행 시간의 합계는 [성능 타일 아래][metrics]에 나타납니다.
 
 종속성의 개별 인스턴스, 예외 및 메서드 보고서를 찾으려면 [검색][diagnostic]을 엽니다.
 

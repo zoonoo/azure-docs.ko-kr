@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs을 사용 하 여 특정 iOS 장치에 푸시 알림 보내기 Microsoft Docs
+title: Azure Notification Hubs를 사용하여 특정 iOS 디바이스에 푸시 알림 전송 | Microsoft Docs
 description: 이 자습서에서는 Azure Notification Hubs를 사용하여 특정 iOS 디바이스로 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: ios
@@ -15,13 +15,13 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
 ms.openlocfilehash: 2cb979491e247a4d44b9ae9ae27c433fb3f436d1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100579223"
 ---
-# <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용 하 여 특정 iOS 장치에 푸시 알림 보내기
+# <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 iOS 디바이스에 푸시 알림 전송
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -155,7 +155,7 @@ ms.locfileid: "100579223"
 9. `AppDelegate.m`의 `didRegisterForRemoteNotificationsWithDeviceToken` 메서드에서 디바이스 토큰을 `notifications` 클래스에 전달하는 다음 코드로 메서드의 코드를 바꿉니다. `notifications` 클래스는 범주를 사용하여 알림에 대해 등록을 수행합니다. 사용자가 범주 선택 항목을 변경하는 경우 **구독** 단추에 대한 응답으로 `subscribeWithCategories` 메서드를 호출하여 범주 선택 항목을 업데이트합니다.
 
     > [!NOTE]
-    > APNS (Apple Push Notification Service)에서 할당 하는 장치 토큰은 언제 든 지 변경 될 수 있으므로 알림 실패를 방지 하려면 알림을 자주 등록 해야 합니다. 이 예제에서는 앱이 시작될 때마다 알림을 등록합니다. 자주(하루 두 번 이상) 실행되는 앱에서는 이전 등록 이후 만 하루가 지나지 않은 경우 대역폭 유지를 위한 등록을 건너뛸 수 있습니다.
+    > APNS(Apple Push Notification Service)에서 할당하는 디바이스 토큰은 언제든지 변경될 수 있으므로 알림 실패를 피하려면 알림을 자주 등록해야 합니다. 이 예제에서는 앱이 시작될 때마다 알림을 등록합니다. 자주(하루 두 번 이상) 실행되는 앱에서는 이전 등록 이후 만 하루가 지나지 않은 경우 대역폭 유지를 위한 등록을 건너뛸 수 있습니다.
 
     ```objc
     self.notifications.deviceToken = deviceToken;

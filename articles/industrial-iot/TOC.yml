@@ -1,0 +1,62 @@
+- name: Azure 산업용 IoT 문서
+  href: index.yml
+- name: 개요
+  items:
+    - name: 산업용 IoT란?
+      href: overview-what-is-industrial-iot.md
+    - name: OPC 게시자란?
+      href: overview-what-is-opc-publisher.md
+- name: 자습서
+  items:
+    - name: OPC 게시자 독립 실행형 자습서
+      items:
+        - name: OPC 게시자 독립 실행형 모드 배포
+          href: tutorial-publisher-deploy-opc-publisher-standalone.md
+        - name: OPC 게시자 구성
+          href: tutorial-publisher-configure-opc-publisher.md
+        - name: OPC 게시자의 성능 및 메모리 튜닝
+          href: tutorial-publisher-performance-memory-tuning-opc-publisher.md
+    - name: IIoT 플랫폼 자습서(오케스트레이션 모드)
+      items:
+        - name: IIoT 플랫폼 배포
+          href: tutorial-deploy-industrial-iot-platform.md
+        - name: IIoT 구성 요소 구성
+          href: tutorial-configure-industrial-iot-components.md
+        - name: ADX로 IIoT 데이터 끌어오기
+          href: tutorial-industrial-iot-azure-data-explorer.md
+        - name: Time Series Insights를 사용하여 데이터 시각화 및 분석
+          href: tutorial-visualize-data-time-series-insights.md
+- name: 참조
+  items:
+    - name: 명령줄 인수
+      href: reference-command-line-arguments.md
+    - name: OPC 게시자 원격 분석 구성 파일 형식
+      href: reference-opc-publisher-telemetry-format.md
+- name: 리소스
+  items:
+    - name: OPC 게시자 GitHub 리포지토리
+      href: 'https://github.com/Azure/Industrial-IoT'
+    - name: IIoT 플랫폼 GitHub 리포지토리
+      href: 'https://github.com/Azure/iot-edge-opc-publisher'
+    - name: 지원 및 도움말 옵션
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-accelerators/toc.json&bc=/azure/iot-accelerators/breadcrumb/toc.json
+    - name: IoT 용어집
+      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-accelerators/toc.json&bc=/azure/iot-accelerators/breadcrumb/toc.json
+    - name: Azure IoT 서비스
+      items:
+        - name: IoT Hub
+          href: ../iot-hub/index.yml
+        - name: IoT Hub Device Provisioning Service
+          href: ../iot-dps/index.yml
+        - name: IoT Central
+          href: /microsoft-iot-central/
+        - name: IoT Edge
+          href: ../iot-edge/index.yml
+        - name: IoT 솔루션 가속기
+          href: ./index.yml
+        - name: IoT 플러그 앤 플레이
+          href: ../iot-pnp/index.yml
+        - name: Azure Maps
+          href: ../azure-maps/index.yml
+        - name: Time Series Insights
+          href: ../time-series-insights/index.yml

@@ -1,7 +1,7 @@
 ---
-title: 네트워크 보안 그룹에 대 한 진단 리소스 로깅
+title: 네트워크 보안 그룹에 대한 진단 리소스 로깅
 titlesuffix: Azure Virtual Network
-description: Azure 네트워크 보안 그룹에 대 한 이벤트 및 규칙 카운터 진단 리소스 로그를 사용 하도록 설정 하는 방법을 알아봅니다.
+description: Azure 네트워크 보안 그룹에 대한 이벤트 및 규칙 카운터 진단 로그를 사용하는 방법을 알아봅니다.
 services: virtual-network
 author: KumudD
 manager: mtillman
@@ -11,28 +11,28 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
 ms.openlocfilehash: bb078b9738e995a1c507f7934a7dd64f075d5fe0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100596533"
 ---
-# <a name="resource-logging-for-a-network-security-group"></a>네트워크 보안 그룹에 대 한 리소스 로깅
+# <a name="resource-logging-for-a-network-security-group"></a>네트워크 보안 그룹에 대한 리소스 로깅
 
 NSG(네트워크 보안 그룹)는 가상 네트워크 서브넷, 네트워크 인터페이스 또는 둘 다에 대한 트래픽을 허용하거나 거부하는 규칙을 포함합니다. 
 
-NSG에 대 한 로깅을 사용 하도록 설정 하면 다음과 같은 유형의 리소스 로그 정보를 수집할 수 있습니다.
+NSG에 대한 로깅을 사용하도록 설정 하면 다음과 같은 유형의 리소스 로그 정보를 수집할 수 있습니다.
 
 * **이벤트:** 항목은 MAC 주소에 따라 VM에 적용되는 NSG 규칙에 대해 기록됩니다.
-* **규칙 카운터:** 트래픽을 허용하거나 거부하기 위해 각 NSG 규칙이 적용된 횟수에 대한 항목을 포함합니다. 이러한 규칙의 상태는 300 초 마다 수집 됩니다.
+* **규칙 카운터:** 트래픽을 허용하거나 거부하기 위해 각 NSG 규칙이 적용된 횟수에 대한 항목을 포함합니다. 이러한 규칙에 대한 상태는 300초마다 수집됩니다.
 
-리소스 로그는 Azure Resource Manager 배포 모델을 통해 배포 된 NSGs에만 사용할 수 있습니다. 클래식 배포 모델을 통해 배포 된 NSGs에 대해 리소스 로깅을 사용 하도록 설정할 수 없습니다. 두 모델의 이해를 돕기 위해 [Azure 배포 모델 이해](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+리소스 로그는 Azure Resource Manager 배포 모델을 통해 배포된 NSG에 대해서만 사용할 수 있습니다. 클래식 배포 모델을 통해 배포된 NSG에 리소스 로깅을 사용할 수 없습니다. 두 모델의 이해를 돕기 위해 [Azure 배포 모델 이해](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
-리소스 로깅은 진단 데이터를 수집 하려는 *각* nsg에 대해 개별적으로 사용 하도록 설정 됩니다. 대신 작업 (작업) 로그에 관심이 있는 경우 Azure [활동 로깅](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조 하세요.
+리소스 로깅은 진단 데이터를 수집하려는 *각* NSG에 별도로 사용하는 것으로 설정됩니다. 대신에 활동(운영) 로그에 관심이 있는 경우 Azure [활동 로깅](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
 
 ## <a name="enable-logging"></a>로깅 사용
 
-[Azure Portal](#azure-portal), [PowerShell](#powershell)또는 [Azure CLI](#azure-cli) 를 사용 하 여 리소스 로깅을 사용 하도록 설정할 수 있습니다.
+[Azure Portal](#azure-portal), [PowerShell](#powershell) 또는 [Azure CLI](#azure-cli)를 사용하여 리소스 로깅을 사용하는 것으로 설정할 수 있습니다.
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -47,7 +47,7 @@ NSG에 대 한 로깅을 사용 하도록 설정 하면 다음과 같은 유형�
 
     | 설정                                                                                     | 값                                                          |
     | ---------                                                                                   |---------                                                       |
-    | Name                                                                                        | 선택한 이름입니다.  예: *myNsgDiagnostics*      |
+    | 이름                                                                                        | 선택한 이름입니다.  예: *myNsgDiagnostics*      |
     | **스토리지 계정에 보관**, **이벤트 허브로의 스트림** 및 **Log Analytics에 보내기** | 여러 대상을 선택할 수 있습니다. 각각에 대해 자세히 알아보려면 [로그 대상](#log-destinations)을 참조하세요.                                                                                                                                           |
     | LOG                                                                                         | 둘 중 하나 또는 두 로그 범주를 선택합니다. 각 범주에 대해 기록된 데이터에 대해 자세히 알아보려면 [로그 범주](#log-categories)를 참조하세요.                                                                                                                                             |
 6. 로그를 보고 분석합니다. 자세한 내용은 [로그 보기 및 분석](#view-and-analyze-logs)을 참조하세요.
@@ -56,11 +56,11 @@ NSG에 대 한 로깅을 사용 하도록 설정 하면 다음과 같은 유형�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 또는 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행 하는 경우에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요 합니다. 컴퓨터에서 `Get-Module -ListAvailable Az`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell을 로컬로 실행 하는 경우 `Connect-AzAccount` [필요한 권한이](virtual-network-network-interface.md#permissions)있는 계정으로 Azure에 로그인 하려면도 실행 해야 합니다.
+[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 또는 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행하는 경우 Azure PowerShell 모듈 버전 1.0.0 이상이 필요합니다. 컴퓨터에서 `Get-Module -ListAvailable Az`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell을 로컬로 실행 중인 경우 `Connect-AzAccount`를 실행하여 [필요한 권한](virtual-network-network-interface.md#permissions)을 가진 계정으로 Azure에 로그인해야 합니다.
 
-리소스 로깅을 사용 하도록 설정 하려면 기존 NSG의 Id가 필요 합니다. 기존 NSG가 없는 경우 [AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)를 사용 하 여 만들 수 있습니다.
+리소스 로깅을 사용하는 것으로 설정하려면 기존 NSG의 ID가 필요합니다. 기존 NSG가 없는 경우 [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)을 사용하여 만들 수 있습니다.
 
-[AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup)를 사용 하 여 리소스 로깅을 사용 하도록 설정할 네트워크 보안 그룹을 검색 합니다. 예를 들어 *myResourceGroup* 이라는 리소스 그룹에 존재하는 *myNsg* 라는 NSG를 검색하려면 다음 명령을 입력합니다.
+[Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup)을 사용하여 리소스 로깅을 사용하는 것으로 설정하려는 네트워크 보안 그룹을 검색합니다. 예를 들어 *myResourceGroup* 이라는 리소스 그룹에 존재하는 *myNsg* 라는 NSG를 검색하려면 다음 명령을 입력합니다.
 
 ```azurepowershell-interactive
 $Nsg=Get-AzNetworkSecurityGroup `
@@ -68,7 +68,7 @@ $Nsg=Get-AzNetworkSecurityGroup `
   -ResourceGroupName myResourceGroup
 ```
 
-세 개의 대상 유형에 리소스 로그를 쓸 수 있습니다. 자세한 내용은 [로그 대상](#log-destinations)을 참조하세요. 이 문서에서 로그는 예를 들어 *Log Analytics* 대상으로 전송됩니다. [AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace)를 사용 하 여 기존 Log Analytics 작업 영역을 검색 합니다. 예를 들어 *myWorkspaces* 라는 리소스 그룹에서 *myWorkspace* 라는 기존 작업 영역을 검색하려면 다음 명령을 입력합니다.
+세 가지 대상 유형에 대한 리소스 로그를 작성할 수 있습니다. 자세한 내용은 [로그 대상](#log-destinations)을 참조하세요. 이 문서에서 로그는 예를 들어 *Log Analytics* 대상으로 전송됩니다. [Get-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace)를 사용하여 기존 Log Analytics 작업 영역을 검색합니다. 예를 들어 *myWorkspaces* 라는 리소스 그룹에서 *myWorkspace* 라는 기존 작업 영역을 검색하려면 다음 명령을 입력합니다.
 
 ```azurepowershell-interactive
 $Oms=Get-AzOperationalInsightsWorkspace `
@@ -76,9 +76,9 @@ $Oms=Get-AzOperationalInsightsWorkspace `
   -Name myWorkspace
 ```
 
-기존 작업 영역이 없는 경우 [AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace)를 사용 하 여 만들 수 있습니다.
+기존 작업 영역이 없는 경우 [New-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace)를 사용하여 만들 수 있습니다.
 
-로그를 활성화할 수 있는 두 가지 범주의 로깅이 있습니다. 자세한 내용은 [로그 범주](#log-categories)를 참조하세요. [AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting)를 사용 하 여 nsg에 대 한 리소스 로깅을 사용 하도록 설정 합니다. 다음 예제에서는 이전에 검색한 NSG 및 작업 영역에 대한 ID를 사용하여 NSG에 대한 작업 영역으로 이벤트 및 카운터 범주 데이터를 기록합니다.
+로그를 활성화할 수 있는 두 가지 범주의 로깅이 있습니다. 자세한 내용은 [로그 범주](#log-categories)를 참조하세요. [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting)을 사용하여 NSG에 대한 리소스 로깅을 사용하는 것으로 설정합니다. 다음 예제에서는 이전에 검색한 NSG 및 작업 영역에 대한 ID를 사용하여 NSG에 대한 작업 영역으로 이벤트 및 카운터 범주 데이터를 기록합니다.
 
 ```azurepowershell-interactive
 Set-AzDiagnosticSetting `
@@ -95,9 +95,9 @@ Set-AzDiagnosticSetting `
 
 [Azure Cloud Shell](https://shell.azure.com/bash) 뒤에 오는 명령 또는 컴퓨터에서 Azure CLI를 사용하여 실행할 수 있습니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 CLI를 실행하는 경우 버전 2.0.38 이상이 필요합니다. 컴퓨터에서 `az --version`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. CLI를 로컬로 실행 중인 경우 `az login`를 실행하고 [필요한 권한](virtual-network-network-interface.md#permissions)을 가진 계정으로 Azure에 로그인해야 합니다.
 
-리소스 로깅을 사용 하도록 설정 하려면 기존 NSG의 Id가 필요 합니다. 기존 NSG가 없는 경우 [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create)를 사용하여 만들 수 있습니다.
+리소스 로깅을 사용하는 것으로 설정하려면 기존 NSG의 ID가 필요합니다. 기존 NSG가 없는 경우 [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create)를 사용하여 만들 수 있습니다.
 
-[Az network nsg show](/cli/azure/network/nsg#az-network-nsg-show)를 사용 하 여 리소스 로깅을 사용 하도록 설정할 네트워크 보안 그룹을 검색 합니다. 예를 들어 *myResourceGroup* 이라는 리소스 그룹에 존재하는 *myNsg* 라는 NSG를 검색하려면 다음 명령을 입력합니다.
+[az network nsg show](/cli/azure/network/nsg#az-network-nsg-show)를 사용하여 리소스 로깅을 사용하도록 설정하려는 네트워크 보안 그룹을 검색합니다. 예를 들어 *myResourceGroup* 이라는 리소스 그룹에 존재하는 *myNsg* 라는 NSG를 검색하려면 다음 명령을 입력합니다.
 
 ```azurecli-interactive
 nsgId=$(az network nsg show \
@@ -107,9 +107,9 @@ nsgId=$(az network nsg show \
   --output tsv)
 ```
 
-세 개의 대상 유형에 리소스 로그를 쓸 수 있습니다. 자세한 내용은 [로그 대상](#log-destinations)을 참조하세요. 이 문서에서 로그는 예를 들어 *Log Analytics* 대상으로 전송됩니다. 자세한 내용은 [로그 범주](#log-categories)를 참조하세요.
+세 가지 대상 유형에 대한 리소스 로그를 작성할 수 있습니다. 자세한 내용은 [로그 대상](#log-destinations)을 참조하세요. 이 문서에서 로그는 예를 들어 *Log Analytics* 대상으로 전송됩니다. 자세한 내용은 [로그 범주](#log-categories)를 참조하세요.
 
-[Az monitor 진단-설정 만들기](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create)를 사용 하 여 nsg에 대 한 리소스 로깅을 사용 하도록 설정 합니다. 다음 예제에서는 *myWorkspaces* 라는 리소스 그룹에 있는 *myWorkspace* 라는 기존 작업 영역에 이벤트 및 카운터 범주 데이터와 이전에 검색한 NSG의 ID를 로깅합니다.
+[az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create)를 사용하여 NSG에 대한 리소스 로깅을 사용하는 것으로 설정합니다. 다음 예제에서는 *myWorkspaces* 라는 리소스 그룹에 있는 *myWorkspace* 라는 기존 작업 영역에 이벤트 및 카운터 범주 데이터와 이전에 검색한 NSG의 ID를 로깅합니다.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create \
@@ -131,7 +131,7 @@ az monitor diagnostic-settings create \
 진단 데이터는 다음 작업이 가능합니다.
 - 감사 또는 수동 검사를 위해 [Azure Storage 계정에 기록합니다](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage). 리소스 진단 설정을 사용하여 보존 기간(일)을 지정할 수 있습니다.
 - 타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)에서 수집하도록 [Event Hub로 스트리밍합니다](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs).
-- [Azure Monitor 로그에 기록](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage)됩니다.
+- [Azure Monitor 로그에 작성](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage).
 
 ## <a name="log-categories"></a>로그 범주
 
@@ -197,8 +197,8 @@ JSON 형식의 데이터는 다음 로그 범주에 대해 기록됩니다.
 
 ## <a name="view-and-analyze-logs"></a>로그 보기 및 분석
 
-리소스 로그 데이터를 보는 방법을 알아보려면 [Azure platform logs 개요](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조 하세요. 다음으로 진단 데이터를 보내는 경우:
-- **Azure Monitor 로그**: 향상 된 정보를 위해 [네트워크 보안 그룹 분석](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
+리소스 로그 데이터를 보는 방법을 알아보려면 [Azure 플랫폼 로그 개요](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요. 다음으로 진단 데이터를 보내는 경우:
+- **Azure Monitor 로그**: 향상된 인사이트를 위해 [네트워크 보안 그룹 분석](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
 ) 솔루션을 사용할 수 있습니다. 솔루션은 가상 머신에서 네트워크 인터페이스의 MAC 주소당 트래픽을 허용하거나 거부하는 NSG 규칙에 대한 시각화를 제공합니다.
 - **Azure Storage 계정**: PT1H.json 파일에 데이터가 기록됩니다. 다음을 찾을 수 있습니다.
   - 다음 경로에서 이벤트 로그: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
@@ -206,7 +206,7 @@ JSON 형식의 데이터는 다음 로그 범주에 대해 기록됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [활동 로깅](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아보세요. 활동 로깅은 Azure 배포 모델 중 하나를 통해 만든 NSG에 대해 기본적으로 사용됩니다. 활동 로그의 NSG 내에서 완료된 작업을 확인하려면 다음과 같은 리소스 유형을 포함하는 항목을 찾습니다.
+- [활동 로깅](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아봅니다. 활동 로깅은 Azure 배포 모델 중 하나를 통해 만든 NSG에 대해 기본적으로 사용됩니다. 활동 로그의 NSG 내에서 완료된 작업을 확인하려면 다음과 같은 리소스 유형을 포함하는 항목을 찾습니다.
   - Microsoft.ClassicNetwork/networkSecurityGroups
   - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
   - Microsoft.Network/networkSecurityGroups

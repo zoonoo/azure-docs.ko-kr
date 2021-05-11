@@ -8,14 +8,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 7f49bd23347b53f9a5287973c6b2aba82da50ca7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100619459"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>여러 Azure Monitor Application Insights 리소스 통합 
-이 문서에서는 다른 Azure 구독에 있는 경우에도 Application Insights 커넥터의 사용 중단을 대체 하 여 한 곳에서 모든 Application Insights 로그 데이터를 쿼리하고 보는 방법을 설명 합니다. 단일 쿼리에 포함할 수 있는 Application Insights 리소스의 수는 100 개로 제한 됩니다.
+이 문서에서는 모든 Application Insights 로그 데이터가 각기 다른 Azure 구독에 있더라도 한 곳에서 쿼리하고 보는 방법을 설명합니다. 사용이 중단된 Application Insights 커넥터 대신 이 방법을 사용할 수 있습니다. 단일 쿼리에 포함할 수 있는 Application Insights 리소스의 수는 100개로 제한됩니다.
 
 ## <a name="recommended-approach-to-query-multiple-application-insights-resources"></a>여러 Application Insights 리소스를 쿼리하는 권장 방식 
 여러 Application Insights 리소스의 목록을 쿼리에 표시하는 방식은 번거로우며 유지 관리하기가 어려울 수 있습니다. 이러한 방식 대신 함수를 사용해 애플리케이션 범위에서 쿼리 논리를 분리할 수 있습니다.  
@@ -27,9 +27,9 @@ ms.locfileid: "100619459"
 언제든지 포털에서 작업 영역의 쿼리 탐색기로 이동한 후 편집할 함수를 선택하고 저장하여, 또는 `SavedSearch` PowerShell cmdlet을 사용하여 나열된 애플리케이션을 수정할 수 있습니다. 
 
 >[!NOTE]
->작업 영역 및 응용 프로그램을 포함 하 여 경고 규칙 리소스의 액세스 유효성 검사는 경고 생성 시 수행 되므로이 메서드는 로그 경고와 함께 사용할 수 없습니다. 경고를 만든 후 함수에 새 리소스를 추가 하는 것은 지원 되지 않습니다. 로그 경고에 리소스 범위를 지정 하는 함수를 사용 하려면 포털에서 또는 리소스 관리자 템플릿을 사용 하 여 범위 리소스를 업데이트 해야 합니다. 또는 로그 경고 쿼리에 리소스 목록을 포함할 수 있습니다.
+>작업 영역 및 애플리케이션을 포함한 경고 규칙 리소스의 액세스 유효성 검사는 경고 생성 시 수행되므로, 이 메서드는 로그 경고와 함께 사용할 수 없습니다. 경고를 만든 후 함수에 새 리소스를 추가하는 것은 지원되지 않습니다. 로그 경고에 리소스 범위를 지정하는 함수를 사용하려면 포털에서 경고 규칙을 편집하거나 Resource Manager 템플릿으로 범위가 지정된 리소스를 업데이트해야 합니다. 또는 로그 경고 쿼리에 리소스 목록을 포함할 수 있습니다.
 
-`withsource= SourceApp` 명령은 로그를 전송한 애플리케이션을 지정하는 열을 결과에 추가합니다. Parse 연산자는이 예제에서 선택 사항이 며를 사용 하 여 SourceApp 속성에서 응용 프로그램 이름을 추출 합니다. 
+`withsource= SourceApp` 명령은 로그를 전송한 애플리케이션을 지정하는 열을 결과에 추가합니다. 이 예제에서 구문 분석 연산자는 선택적 항목으로, SourceApp 속성에서 애플리케이션 이름을 추출하기 위해 사용됩니다. 
 
 ```
 union withsource=SourceApp 
@@ -57,7 +57,7 @@ ApplicationsScoping 함수는 Application Insights 데이터 구조를 반환하
 ![쿼리 간 결과 예제](media/unify-app-resource-data/app-insights-query-results.png)
 
 >[!NOTE]
->로그 경고의 [리소스 간 쿼리](../logs/cross-workspace-query.md) 는 현재 [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules)에서만 지원 됩니다. 레거시 Log Analytics Alerts API를 사용 하는 경우 [현재 api로 전환](../alerts/alerts-log-api-switch.md)해야 합니다. [예제 템플릿을 참조](../alerts/alerts-log-create-templates.md)하세요.
+>로그 경고의 [리소스 간 쿼리](../logs/cross-workspace-query.md)는 현재 [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules)에서만 지원됩니다. 레거시 Log Analytics 경고 API를 사용하는 경우 [현재 API로 전환](../alerts/alerts-log-api-switch.md)해야 합니다. [예제 템플릿을 참조하세요](../alerts/alerts-log-create-templates.md).
 
 ## <a name="application-insights-and-log-analytics-workspace-schema-differences"></a>Application Insights 및 Log Analytics 작업 영역 스키마의 차이점
 다음 표에는 Log Analytics 및 Application Insights의 스키마 간 차이점이 나와 있습니다.  
@@ -88,7 +88,7 @@ ApplicationsScoping 함수는 Application Insights 데이터 구조를 반환하
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
 | ExceptionMessage | message | 
-| ExceptionType | 형식 |
+| ExceptionType | type |
 | OperationID | operation_id |
 | OperationName | operation_Name | 
 | OS | client_OS | 
@@ -106,7 +106,7 @@ ApplicationsScoping 함수는 Application Insights 데이터 구조를 반환하
 | RoleInstance | cloud_RoleInstance |
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
-| TelemetryTYpe | 형식 |
+| TelemetryTYpe | type |
 | URL | url |
 | UserAccountId | user_AccountId |
 

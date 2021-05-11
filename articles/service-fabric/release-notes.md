@@ -1,198 +1,198 @@
 ---
 title: Azure Service Fabric 릴리스
-description: Azure Service Fabric에 대 한 릴리스 정보입니다. Service Fabric의 최신 기능 및 향상 된 기능에 대 한 정보를 제공 합니다.
+description: Azure Service Fabric의 릴리스 정보입니다. Service Fabric의 최신 기능과 향상된 기능에 관한 정보를 포함합니다.
 ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 7f99c37cd9f029c7478d4102bd17c952ffd52f8c
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
-ms.translationtype: MT
+ms.openlocfilehash: 36fb512181986fd04a95e72aa028b7c0253aa45f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105044280"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731227"
 ---
 # <a name="service-fabric-releases"></a>Service Fabric 릴리스
 
 - <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">문제 해결 가이드</a> 
-- <a href="https://github.com/Azure/service-fabric-issues" target="blank">문제 추적</a> 
+- <a href="https://github.com/Azure/service-fabric-issues" target="blank">이슈 추적</a> 
 - <a href="/azure/service-fabric/service-fabric-support" target="blank">지원 옵션</a> 
-- <a href="/azure/service-fabric/service-fabric-versions" target="blank">지원 되는 버전</a> 
+- <a href="/azure/service-fabric/service-fabric-versions" target="blank">지원되는 버전</a> 
 - <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">코드 샘플</a>
 
-이 문서에서는 최신 릴리스 및 Service Fabric 런타임 및 Sdk 업데이트에 대 한 자세한 정보를 제공 합니다.
+이 문서에서는 Service Fabric 런타임 및 SDK의 최신 릴리스와 업데이트에 대한 자세한 내용을 제공합니다.
 
 ## <a name="service-fabric-72"></a>Service Fabric 7.2
 
-Service Fabric 런타임의 7.2 릴리스가 도구 및 SDK 업데이트와 함께 다양 한 Azure 지역으로 롤아웃 되기 시작 했습니다. .NET SDK, Java SDK 및 Service Fabric 런타임에 대 한 업데이트는 웹 플랫폼 설치 관리자, NuGet 패키지 및 Maven 리포지토리를 통해 사용할 수 있습니다.
+Service Fabric 런타임의 7.2 릴리스가 도구 및 SDK 업데이트와 함께 다양한 Azure 지역에 배포되기 시작했음을 발표하게 되어 기쁩니다. .NET SDK, Java SDK 및 Service Fabric 런타임의 업데이트는 웹 플랫폼 설치 관리자, NuGet 패키지 및 Maven 리포지토리를 통해 제공됩니다.
 
-### <a name="key-announcements"></a>주요 공지 사항
+### <a name="key-announcements"></a>주요 알림
 
-- **미리 보기**: 관리 되는 [**클러스터 Service Fabric**](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-managed-clusters-are-now-in-public-preview/ba-p/1721572) 현재 공개 미리 보기로 제공 됩니다. Service Fabric 관리 되는 클러스터는 Service Fabric 클러스터를 구성 하는 기본 리소스를 단일 ARM 리소스로 캡슐화 하 여 클러스터 배포 및 관리를 간소화 합니다. 자세한 내용은 [관리 되는 클러스터 Service Fabric 개요](./overview-managed-cluster.md)를 참조 하세요.
-- **미리 보기**: 현재 노드 수보다 많은 [**수의 인스턴스를 사용 하 여 상태 비저장 서비스를 지 원하는**](./service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) 것은 현재 공개 미리 보기로 제공 됩니다. 배치 정책을 사용 하면 한 노드에 파티션의 상태 비저장 인스턴스를 여러 개 만들 수 있습니다.
-- [**FabricObserver () 3.0**](https://aka.ms/sf/fabricobserver) 을 이제 사용할 수 있습니다.
-    - 이제 Linux 및 Windows 클러스터에서 FabricObserver을 실행할 수 있습니다.
-    - 이제 사용자 지정 관찰자 플러그 인을 빌드할 수 있습니다. 자세한 내용과 코드는 [플러그 인 추가 정보](https://github.com/microsoft/service-fabric-observer/blob/master/Documentation/Plugins.md) 및 [샘플 플러그 인 프로젝트](https://github.com/microsoft/service-fabric-observer/tree/master/SampleObserverPlugin) 를 참조 하세요.
-    - 이제 응용 프로그램 매개 변수 업그레이드를 통해 관찰자 설정을 변경할 수 있습니다. 즉, 특정 관찰자 설정을 수정 하기 위해 더 이상 다시 배포할 필요가 없습니다. [샘플](https://github.com/microsoft/service-fabric-observer/blob/master/Documentation/Using.md#parameterUpdates)을 참조 하세요.
-- [**Ubuntu 18.04 OneBox 컨테이너 이미지에 대 한 지원**](https://hub.docker.com/_/microsoft-service-fabric-onebox).
-- **미리 보기**: [ **Service Fabric 응용 프로그램에 대 한 keyvault 참조는 버전이 지정 된 **암호만** 지원 합니다. 버전이 없는 비밀은 지원 되지 않습니다.**](./service-fabric-keyvault-references.md)
-- SF SDK를 사용 하려면 최신 및 2019 업데이트 16.7.6 또는 16.8 Preview 4를 사용 하 여 새 .NET Framework 상태 비저장/상태 저장/행위자 프로젝트를 만들어야 합니다. 최신 VS 업데이트를 사용 하지 않는 경우 서비스 프로젝트를 만든 후에 패키지 관리자를 사용 하 여 nuget.org의 행위자 프로젝트에 대 한 상태 저장/상태 비저장 프로젝트 및 ServiceFabric (버전 4.2. x)에 ServiceFabric (버전 4.2. x)를 설치 합니다.
-- **Runtocompletion**: Service Fabric는 게스트 실행 파일의 실행을 완료 하는 개념을 지원 합니다. 복제본이 완료 될 때이 업데이트를 사용 하면이 복제본에 할당 된 클러스터 리소스가 해제 됩니다.
-- [**리소스 거 버 넌 스 지원 기능이 향상 되었습니다**](./service-fabric-resource-governance.md). 요청을 허용 하 고 cpu 및 메모리 리소스에 대 한 사양을 제한 합니다.
+- **미리 보기**: [**Service Fabric 관리형 클러스터**](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-managed-clusters-are-now-in-public-preview/ba-p/1721572)는 현재 퍼블릭 미리 보기로 제공됩니다. Service Fabric 관리 클러스터는 Service Fabric 클러스터를 구성하는 기본 리소스를 단일 ARM 리소스로 캡슐화하여 클러스터 배포와 관리를 간소화하려 합니다. 자세한 내용은 [Service Fabric 관리형 클러스터 개요](./overview-managed-cluster.md)를 참조하세요.
+- **미리 보기**: [**인스턴스 수가 노드 수보다 큰 상태 비저장 서비스 지원**](./service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)은 현재 퍼블릭 미리 보기로 제공됩니다. 배치 정책을 사용하면 노드에서 파티션의 상태 비저장 인스턴스를 여러 개 만들 수 있습니다.
+- 이제 [**FO(FabricObserver) 3.0**](https://aka.ms/sf/fabricobserver)을 사용할 수 있습니다.
+    - 이제 Linux와 Windows 클러스터에서 FabricObserver를 실행할 수 있습니다.
+    - 이제 사용자 지정 관찰자 플러그인을 빌드할 수 있습니다. 자세한 내용과 코드는 [플러그인 추가 정보](https://github.com/microsoft/service-fabric-observer/blob/master/Documentation/Plugins.md)와 [샘플 플러그인 프로젝트](https://github.com/microsoft/service-fabric-observer/tree/master/SampleObserverPlugin)를 참조하세요.
+    - 이제 애플리케이션 매개 변수 업그레이드를 통해 관찰자 설정을 변경할 수 있습니다. 즉, 특정 관찰자 설정을 수정하기 위해 더는 FO를 다시 배포할 필요가 없습니다. [샘플](https://github.com/microsoft/service-fabric-observer/blob/master/Documentation/Using.md#parameterUpdates)을 참조하세요.
+- [**Ubuntu 18.04 OneBox 컨테이너 이미지를 지원**](https://hub.docker.com/_/microsoft-service-fabric-onebox)합니다.
+- **미리 보기**: [**Service Fabric 애플리케이션의 KeyVault 참조에서는 **버전이 지정된 비밀만 지원합니다**. 버전이 없는 비밀은 지원되지 않습니다.** ](./service-fabric-keyvault-references.md)
+- SF SDK를 사용하려면 새로운 .NET Framework 상태 비저장/상태 저장/작업자 프로젝트를 만들 수 있도록 최신 VS 2019 업데이트 16.7.6 또는 16.8 Preview 4가 필요합니다. 최신 VS 업데이트가 없으면 서비스 프로젝트를 만든 다음, 패키지 관리자를 사용하여 nuget.org에서 상태 저장/상태 비저장 프로젝트용 Microsoft.ServiceFabric.Services(버전 4.2.x)와 작업자 프로젝트용 Microsoft.ServiceFabric.Actors(버전 4.2.x)를 설치합니다.
+- **RunToCompletion**: Service Fabric에서는 게스트 실행 파일의 완료될 때까지 실행 개념을 지원합니다. 이 업데이트를 사용하면 복제본이 완료될 때까지 실행되면 이 복제본에 할당된 클러스터 리소스가 해제됩니다.
+- [**리소스 거버넌스 지원이 향상됨**](./service-fabric-resource-governance.md): CPU와 메모리 리소스에 대한 요청 및 한도 사양을 허용합니다.
 
 ### <a name="service-fabric-72-releases"></a>Service Fabric 7.2 릴리스
 | 릴리스 날짜 | 해제 | 추가 정보 |
 |---|---|---|
-| 2020 년 10 월 21 일 | [Azure Service Fabric 7.2](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-release/ba-p/1805653)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72-releasenotes.md)|
-| 2020 년 11 월 9 일 | [Azure Service Fabric 7.2 초 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-second-refresh-release/ba-p/1874738) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU2-releasenotes.md) |
-| 2020년 11월 10일  | Azure Service Fabric 7.2 세 번째 새로 고침 릴리스 | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU3-releasenotes.md) |
-| 2020 년 12 월 2 일 | [Azure Service Fabric 7.2 네 번째 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-fourth-refresh-release/ba-p/1950584) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU4.md)
-| 2021 년 1 월 25 일 | [Azure Service Fabric 7.2 5 5 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-fifth-refresh-release/ba-p/2096575) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU5-ReleaseNotes.md)
-| 2021 년 2 월 17 일 | [Azure Service Fabric 7.2 여섯 번째 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-sixth-refresh-release/ba-p/2144685) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU6-ReleaseNotes.md)
-| 2021년 3월 10일 | [Azure Service Fabric 7.2 7 번째 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-seventh-refresh-release/ba-p/2201100) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU7-releasenotes.md)
+| 2020년 10월 21일 | [Azure Service Fabric 7.2](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-release/ba-p/1805653)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72-releasenotes.md)|
+| 2020년 11월 9일 | [Azure Service Fabric 7.2 두 번째 새 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-second-refresh-release/ba-p/1874738) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU2-releasenotes.md) |
+| 2020년 11월 10일  | Azure Service Fabric 7.2 세 번째 새 릴리스 | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU3-releasenotes.md) |
+| 2020년 12월 2일 | [Azure Service Fabric 7.2 네 번째 새 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-fourth-refresh-release/ba-p/1950584) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU4.md)
+| 2021년 1월 25일 | [Azure Service Fabric 7.2 다섯 번째 새 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-fifth-refresh-release/ba-p/2096575) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU5-ReleaseNotes.md)
+| 2021년 2월 17일 | [Azure Service Fabric 7.2 여섯 번째 새 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-sixth-refresh-release/ba-p/2144685) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU6-ReleaseNotes.md)
+| 2021년 3월 10일 | [Azure Service Fabric 7.2 일곱 번째 새 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-seventh-refresh-release/ba-p/2201100) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU7-releasenotes.md)
 
 ## <a name="previous-versions"></a>이전 버전
 
 ### <a name="service-fabric-71"></a>Service Fabric 7.1
 
-현재 COVID-19 위기로 인해 고객이 직면 한 문제를 고려 하 고 있으므로 7.1를 사용할 수 있지만 자동 업그레이드를 수신 하도록 설정 된 클러스터는 자동으로 업그레이드 되지 않습니다. 예기치 않은 중단을 방지 하기 위해 고객에 게 가장 적합 한 업그레이드를 적용할 수 있도록 추가 알림이 제공 될 때까지 자동 업그레이드를 일시 중지 합니다.
+현재 COVID-19 위기로 인해 고객이 직면한 문제를 고려하여 7.1을 사용할 수 있게 하지만, 자동 업그레이드를 받도록 설정된 클러스터를 자동으로 업그레이드하지는 않습니다. 예상치 못한 중단을 방지하기 위해 고객에게 가장 적절한 시기에 업그레이드를 적용할 수 있도록 추후 알림이 제공될 때까지 자동 업그레이드를 일시 중지합니다.
 
-[Azure Portal](./service-fabric-cluster-upgrade-version-azure.md#upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal) 를 통해 또는 [Azure Resource Manager 배포](./service-fabric-cluster-upgrade-version-azure.md#set-the-upgrade-mode-using-a-resource-manager-template)를 통해 7.1으로 업데이트할 수 있습니다.
+[Azure Portal](./service-fabric-cluster-upgrade-version-azure.md#manual-upgrades-with-azure-portal)이나 [Azure Resource Manager 배포](./service-fabric-cluster-upgrade-version-azure.md#resource-manager-template)를 통해 7.1로 업데이트할 수 있습니다.
 
-자동 업그레이드를 사용 하도록 설정 된 Service Fabric 클러스터는 표준 롤아웃 절차를 다시 시작 하면 7.1 업데이트를 자동으로 수신 하기 시작 합니다. [Service Fabric 기술 커뮤니티 사이트](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)에서 표준 출시가 시작 되기 전에 다른 알림을 제공 합니다.
-또한 [여기](./service-fabric-versions.md#supported-versions)에서 6.5부터 7.1까지 주 릴리스를 위한 지원 날짜의 끝에 업데이트를 게시 했습니다. 
+자동 업그레이드가 사용으로 설정된 Service Fabric 클러스터는 표준 출시 프로시저를 재개하면 7.1 업데이트를 자동으로 받기 시작합니다. [Service Fabric 기술 커뮤니티 사이트](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)에서 표준 출시를 시작하기 전에 다른 알림을 제공합니다.
+[여기](./service-fabric-versions.md#supported-versions)에는 6.5부터 7.1까지 주요 릴리스에 대한 지원 종료 날짜 업데이트도 게시되어 있습니다. 
 
-#### <a name="key-announcements"></a>주요 공지 사항
+#### <a name="key-announcements"></a>주요 알림
 
--  [ **Service Fabric 응용 프로그램에 대 한 Service Fabric 관리 id** 의 일반 공급](./concepts-managed-identity.md)
-- [**Ubuntu 18.04에 대 한 지원**](./service-fabric-tutorial-create-vnet-and-linux-cluster.md)
- - [**미리 보기: 가상 머신 확장 집합 임시 os 디스크 지원**](./service-fabric-cluster-azure-deployment-preparation.md#use-ephemeral-os-disks-for-virtual-machine-scale-sets)* *: 삭제 된 os 디스크는 로컬 가상 머신에서 생성 된 저장소 이며 원격 Azure Storage에 저장 되지 않습니다. 기존 영구 OS 디스크, 삭제 된 OS 디스크와 비교할 때 모든 Service Fabric 노드 유형 (기본 및 보조)에 권장 됩니다.
-      -  OS 디스크에 대 한 읽기/쓰기 대기 시간 줄이기
-      -  빠른 다시 설정/이미지 다시 설정 노드 관리 작업 사용
-      -  전체 비용 절감 (디스크가 무료 이며 추가 저장소 비용이 발생 하지 않음)
-- [**주체 일반 이름을 기준으로 Service Fabric 응용 프로그램의 서비스 끝점 인증서**](./service-fabric-service-manifest-resources.md)선언 지원.
-- [**컨테이너 화 된 services에 대 한 상태 프로브 지원**](./probes-codepackage.md): 컨테이너 화 된 응용 프로그램에 대 한 선거의 프로브 메커니즘에 대 한 지원입니다. 선거의 프로브는 컨테이너 화 된 응용 프로그램의 선거의을 발표 하는 데 도움이 되며, 적시에 응답 하지 않으면 다시 시작 됩니다. 
-- [컨테이너](./service-fabric-containers-overview.md) 및 [게스트 실행 파일](./service-fabric-guest-executables-introduction.md) 응용 프로그램에 대 한 [**이니셜라이저 코드 패키지 지원**](./initializer-codepackages.md) . 이렇게 하면 코드 패키지 (예: 컨테이너)를 지정 된 순서로 실행 하 여 서비스 패키지 초기화를 수행할 수 있습니다.
-- **FabricObserver 및 ClusterObserver** 는 SF 클러스터의 여러 측면과 관련 된 Service Fabric 원격 분석을 캡처하는 상태 비저장 응용 프로그램입니다. 이러한 응용 프로그램은 모두 Windows 프로덕션 클러스터에 배포할 준비가 되어 ApplicationInsights, EventSource 및 LogAnalytics에 대해 구현 된 지원으로 다양 한 원격 분석을 캡처할 수 있습니다.
-    - [**FabricObserver () 2.0**](https://github.com/microsoft/service-fabric-observer)-모든 노드에서 실행 되 고, 상태 이벤트를 생성 하 고, 사용자가 구성한 리소스 사용 임계값에 도달 하면 원격 분석을 내보냅니다. 이 릴리스에는 모니터링, 데이터 관리, 상태 이벤트 세부 정보, 구조화 된 원격 분석 등 여러 가지 향상 된 기능이 포함 되어 있습니다.
-     - [**Clusterobserver (CO) 1.1**](https://github.com/microsoft/service-fabric-observer/tree/master/ClusterObserver) -한 노드에서 실행 되 고 클러스터 수준 상태 원격 분석을 캡처합니다. 이 릴리스에서는 노드 상태를 모니터링 하 고 사용자 지정 기간 보다 오랫동안 노드가 다운/비활성화/사용 안 함으로 설정 된 경우 원격 분석을 내보냅니다.
+- [**Service Fabric 애플리케이션의 Service Fabric 관리 ID**](./concepts-managed-identity.md)의 **GA**
+- [**Ubuntu 18.04 지원**](./service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+ - [**미리보기 : 가상 머신 확장 집합 임시 OS 디스크 지원**](./service-fabric-cluster-azure-deployment-preparation.md#use-ephemeral-os-disks-for-virtual-machine-scale-sets)**: 임시 OS 디스크는 로컬 가상 머신에 만든 스토리지이며, 원격 Azure Storage에 저장되지 않습니다. 기존 영구 OS 디스크보다 임시 OS 디스크는 다음과 같으므로 모든 Service Fabric 노드 형식(주 및 보조)에 권장됩니다.
+      -  OS 디스크에 대한 읽기/쓰기 대기 시간 단축
+      -  다시 설정/이미지로 다시 설치 노드 관리 작업을 더 빠르게 사용하도록 설정
+      -  전체 비용 절감(디스크는 무료이며 추가 스토리지 비용이 발생하지 않음)
+- [**주체 일반 이름별 Service Fabric 애플리케이션의 서비스 엔드포인트 인증서** ](./service-fabric-service-manifest-resources.md) 선언 지원.
+- [**컨테이너화된 서비스를 위한 상태 프로브 지원**](./probes-codepackage.md): 컨테이너화된 애플리케이션을 위한 활동성 프로브 메커니즘 지원. 활동성 프로브를 사용하면 컨테이너화된 애플리케이션의 활동성을 알릴 수 있으며, 적시에 응답하지 않으면 다시 시작됩니다. 
+- [컨테이너](./service-fabric-containers-overview.md)와 [게스트 실행 파일](./service-fabric-guest-executables-introduction.md) 애플리케이션의 [**이니셜라이저 코드 패키지 지원**](./initializer-codepackages.md). 따라서 지정된 순서로 코드 패키지(예: 컨테이너)를 실행하여 서비스 패키지 초기화를 수행할 수 있습니다.
+- **FabricObserver와 ClusterObserver** 는 SF 클러스터의 여러 측면과 관련된 Service Fabric 원격 분석을 캡처하는 상태 비저장 애플리케이션입니다. 이 두 애플리케이션은 모두 ApplicationInsights, EventSource 및 LogAnalytics에 대한 지원을 구현하여 풍부한 원격 분석을 캡처하기 위해 Windows 프로덕션 클러스터에 배포할 준비가 되었습니다.
+    - [**FO(FabricObserver) 2.0** ](https://github.com/microsoft/service-fabric-observer) - 모든 노드에서 실행되고 상태 이벤트를 생성하며 사용자가 구성한 리소스 사용 임계값에 도달하면 원격 분석을 내보냅니다. 이 릴리스에는 모니터링, 데이터 관리, 상태 이벤트 세부 정보, 구조적 원격 분석 등 여러 가지 향상된 기능이 포함되어 있습니다.
+     - [**CO(ClusterObserver) 1.1**](https://github.com/microsoft/service-fabric-observer/tree/master/ClusterObserver) - 한 노드에서 실행되고 클러스터 수준 상태 원격 분석을 캡처합니다. 이 릴리스에서 ClusterObserver는 노드 상태를 모니터링하고 사용자가 지정한 기간보다 오랫동안 노드가 다운되었거나, 사용하지 않게 설정 중이거나, 사용하지 않게 설정된 상태이면 원격 분석을 내보냅니다.
 
-#### <a name="improve-application-life-cycle-experience"></a>응용 프로그램 수명 주기 환경 개선
+#### <a name="improve-application-life-cycle-experience"></a>애플리케이션 수명 주기 환경 개선
 
-- **[미리 보기: 요청 드레이닝](./service-fabric-application-upgrade-advanced.md#avoid-connection-drops-during-stateless-service-planned-downtime)**: 서비스 업그레이드 또는 노드 비활성화와 같은 계획 된 서비스 유지 관리를 수행 하는 동안 서비스에서 연결을 정상적으로 드레이닝 하는 것을 허용 하려고 합니다. 이 기능은 서비스 구성에서 인스턴스 종결 지연 기간을 추가 합니다. 계획 된 작업을 수행 하는 동안 SF는 검색에서 서비스의 주소를 제거 하 고 서비스를 종료 하기 전에이 기간을 기다립니다.
-- **[자동 Subcluster 검색 및 분산](./cluster-resource-manager-subclustering.md)**: 배치 제약 조건이 서로 다른 서비스에 공통 [부하 메트릭이](./service-fabric-cluster-resource-manager-metrics.md)있는 경우 하위 클러스터링이 발생 합니다. 다른 노드 집합에 대 한 부하가 현저 하 게 다를 경우 Service Fabric 클러스터 리소스 관리자 배치 제약 조건으로 인해 클러스터가 불균형 하 게 분산 된 것으로 간주 합니다. 결과적으로 클러스터의 균형을 다시 조정 하 고 잠재적으로 불필요 한 서비스 이동을 발생 시킵니다. "불균형"은 크게 향상 될 수 없기 때문입니다. 이 릴리스부터 클러스터 리소스 관리자는 이제 이러한 종류의 구성을 자동으로 감지 하 고 움직임을 통해 불균형을 수정할 수 있는 경우를 이해 하 고, 대신 성능을 크게 향상 시킬 수 없기 때문에 작업을 단독으로 유지 해야 합니다.  
-- [**보조 복제본에 대 한 다양 한 이동 비용**](./service-fabric-cluster-resource-manager-movement-cost.md): 보조 복제본에 대해 별도의 이동 비용을 사용 해야 하는지 여부를 정의 하는 몇 가지 시나리오에서 추가 유연성을 제공 하는 새 이동 비용 값 VeryHigh 도입 되었습니다.
-- 컨테이너 화 된 응용 프로그램에 대해 [**선거의 프로브**](./probes-codepackage.md) 메커니즘을 사용 하도록 설정 했습니다. 선거의 프로브는 컨테이너 화 된 응용 프로그램의 선거의을 발표 하는 데 도움이 되며, 적시에 응답 하지 않으면 다시 시작 됩니다.
-- [**서비스에 대해 완료까지 실행**](./run-to-completion.md)**
+- **[미리 보기: 요청 드레이닝](./service-fabric-application-upgrade-advanced.md#avoid-connection-drops-during-stateless-service-planned-downtime)** : 서비스 업그레이드 또는 노드 비활성화와 같은 계획된 서비스 유지 관리 중에 서비스가 연결을 정상적으로 드레이닝할 수 있습니다. 이 기능은 서비스 구성에서 인스턴스 닫기 연기 기간을 추가합니다. 계획된 작업 중에 SF는 검색에서 서비스의 주소를 제거한 다음, 서비스를 종료하기 전에 이 기간을 대기합니다.
+- **[자동 하위 클러스터 검색 및 균형 조정](./cluster-resource-manager-subclustering.md)** : 하위 클러스터링은 배치 제약 조건이 서로 다른 서비스에 공통 [로드 메트릭](./service-fabric-cluster-resource-manager-metrics.md)이 있을 때 발생합니다. 여러 다른 노드 세트의 로드가 크게 다른 경우 배치 제약 조건으로 인해 Service Fabric 클러스터 리소스 관리자는 최상의 균형을 유지하더라도 클러스터가 균형이 맞지 않다고 간주합니다. 결과적으로 클러스터의 균형을 다시 맞추고 불필요한 서비스 이동을 유발할 수 있습니다(“불균형”을 크게 개선할 수 없기 때문). 이 릴리스부터 클러스터 리소스 관리자는 이제 해당 종류의 구성을 자동으로 검색하고, 이동을 통해 불균형을 수정할 수 있는 경우와 실질적으로 개선할 수 없으므로 상황을 그대로 두어야 하는 경우를 파악합니다.  
+- [**보조 복제본의 다양한 이동 비용**](./service-fabric-cluster-resource-manager-movement-cost.md) : 보조 복제본에 별도의 이동 비용을 사용해야 하는지 정의하기 위해 일부 시나리오에서 추가 유연성을 제공하는 새로운 이동 비용 값 VeryHigh를 도입했습니다.
+- 컨테이너화된 애플리케이션의 [**활동성 프로브**](./probes-codepackage.md) 메커니즘을 사용하도록 설정했습니다. 활동성 프로브를 사용하면 컨테이너화된 애플리케이션의 활동성을 알릴 수 있으며, 적시에 응답하지 않으면 다시 시작됩니다.
+- [**서비스에 대해 완료될 때까지 실행/한 번 실행**](./run-to-completion.md)**
 
 #### <a name="image-store-improvements"></a>Image Store 개선 사항
- - Service Fabric 7.1는 **기본적으로 사용자 지정 전송을 사용 하 여 노드 간 파일 전송을 보호** 합니다. SMB 파일 공유에 대 한 종속성은 버전 7.1에서 제거 됩니다. 보안이 설정 된 SMB 파일 공유는 고객이 기본값에서 옵트아웃 (opt out) 하 고 이전 버전으로 다운 그레이드 하도록 선택할 수 있는 Image Store 서비스 복제본이 포함 된 노드에 여전히 있습니다.
+ - Service Fabric 7.1에서는 **기본적으로 노드 간 파일 전송을 보호하기 위해 사용자 지정 전송** 을 사용합니다. SMB 파일 공유에 대한 종속성은 버전 7.1에서 제거됩니다. 보안 SMB 파일 공유는 고객이 기본값에서 옵트아웃하고 업그레이드하며 이전 버전으로 다운그레이드할 수 있도록 Image Store Service 복제본이 포함된 노드에 여전히 있습니다.
        
- #### <a name="reliable-collections-improvements"></a>안정적인 컬렉션 향상
+ #### <a name="reliable-collections-improvements"></a>신뢰할 수 있는 컬렉션 개선 사항
 
-- [**신뢰할 수 있는 컬렉션을 사용 하는 상태 저장 서비스에 대 한 메모리 전용 저장소 지원**](./service-fabric-work-with-reliable-collections.md#volatile-reliable-collections): 일시적으로 신뢰할 수 있는 컬렉션을 사용 하면 대량 데이터 손실이 허용 되는 경우와 같이 복제 된 캐시와 같은 워크 로드에 데이터를 유지할 수 있습니다. 일시적으로 신뢰할 수 있는 [컬렉션의 제한 사항](./service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections)에 따라 쿼럼을 손실 하는 드문 경우를 처리 하는 서비스에 대해 지 속성이 필요 하지 않은 워크 로드에 대해이 작업을 수행 하는 것이 좋습니다.
-- [**미리 보기: Service Fabric 백업 탐색기**](https://github.com/microsoft/service-fabric-backup-explorer): Service Fabric 상태 저장 응용 프로그램에 대해 신뢰할 수 있는 컬렉션 백업을 쉽게 관리 하기 위해 Service Fabric Backup 탐색기를 사용 하면 사용자가
-    - 신뢰할 수 있는 컬렉션의 내용을 감사 하 고 검토 합니다.
-    - 현재 상태를 일관 된 뷰로 업데이트 합니다.
-    - 신뢰할 수 있는 컬렉션의 현재 스냅숏 백업 만들기
+- [**신뢰할 수 있는 컬렉션을 사용한 상태 저장 서비스의 메모리 전용 저장 지원**](./service-fabric-work-with-reliable-collections.md#volatile-reliable-collections): 신뢰할 수 있는 휘발성 컬렉션을 사용하면 대규모 중단 방지 내구성을 위해 데이터를 디스크에 보관할 수 있으며, 간헐적인 데이터 손실을 허용할 수 있는 복제된 캐시와 같은 워크로드에 사용할 수 있습니다. [신뢰할 수 있는 휘발성 컬렉션 제한 사항](./service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections)에 따라 드물게 발생하는 쿼럼 손실을 처리하는 서비스의 지속성이 필요하지 않은 워크로드에 사용하는 것이 좋습니다.
+- [**미리 보기: Service Fabric Backup 탐색기**](https://github.com/microsoft/service-fabric-backup-explorer): Service Fabric 상태 저장 애플리케이션의 신뢰할 수 있는 컬렉션 백업을 쉽게 관리하려면 Service Fabric Backup 탐색기를 사용하여 다음을 수행할 수 있습니다.
+    - 신뢰할 수 있는 컬렉션의 콘텐츠를 감사하고 검토
+    - 현재 상태를 일관된 보기로 업데이트
+    - 신뢰할 수 있는 컬렉션의 현재 스냅샷 백업 만들기
     - 데이터 손상 수정
                  
 #### <a name="service-fabric-71-releases"></a>Service Fabric 7.1 릴리스
 | 릴리스 날짜 | 해제 | 추가 정보 |
 |---|---|---|
-| 4 월 20 일, 2020 | [Azure Service Fabric 7.1](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-release/ba-p/1311373)  | [릴리스 정보](https://github.com/microsoft/service-fabric/tree/master/release_notes/Service-Fabric-71-releasenotes.md)|
-| 2020년 6월 16일 | [Microsoft Azure Service Fabric 7.1 최초 새로 고침](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-first-refresh-release/ba-p/1466517) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU1-releasenotes.md)
-| 2020 년 7 월 20 일 | [Microsoft Azure Service Fabric 7.1 초 새로 고침](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-second-refresh-release/ba-p/1534246) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU2-releasenotes.md)
-| 2020년 8월 12일 | [Microsoft Azure Service Fabric 7.1 세 번째 새로 고침](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-third-refresh-release/ba-p/1587586) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU3-releasenotes.md)
-| 2020 년 9 월 10 일 | [Microsoft Azure Service Fabric 7.1 네 번째 새로 고침](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-fourth-refresh-release/ba-p/1653859)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU5-releasenotes.md)|
-| 2020 년 10 월 7 일 | Microsoft Azure Service Fabric 7.1 여섯 번째 새로 고침 | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU6-releasenotes.md)|
-| 2020 년 11 월 23 일 | Microsoft Azure Service Fabric 7.1 8 번째 새로 고침 | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU8-releasenotes.md)|
+| 2020년 4월 20일 | [Azure Service Fabric 7.1](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-release/ba-p/1311373)  | [릴리스 정보](https://github.com/microsoft/service-fabric/tree/master/release_notes/Service-Fabric-71-releasenotes.md)|
+| 2020년 6월 16일 | [Microsoft Azure Service Fabric 7.1 첫 번째 새 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-first-refresh-release/ba-p/1466517) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU1-releasenotes.md)
+| 2020년 7월 20일 | [Microsoft Azure Service Fabric 7.1 두 번째 새 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-second-refresh-release/ba-p/1534246) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU2-releasenotes.md)
+| 2020년 8월 12일 | [Microsoft Azure Service Fabric 7.1 세 번째 새 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-third-refresh-release/ba-p/1587586) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU3-releasenotes.md)
+| 2020년 9월 10일 | [Microsoft Azure Service Fabric 7.1 네 번째 새 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-fourth-refresh-release/ba-p/1653859)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU5-releasenotes.md)|
+| 2020년 10월 7일 | Microsoft Azure Service Fabric 7.1 여섯 번째 새 릴리스 | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU6-releasenotes.md)|
+| 2020년 11월 23일 | Microsoft Azure Service Fabric 7.1 여덟 번째 새 릴리스 | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU8-releasenotes.md)|
 
 
 ### <a name="service-fabric-70"></a>Service Fabric 7.0
 
-이제 Azure Service Fabric 7.0를 사용할 수 있습니다. Azure Portal 또는 Azure Resource Manager 배포를 통해 7.0으로 업데이트할 수 있습니다. 명절 기간에 대 한 고객의 의견으로 인해 1 월까지 자동 업그레이드를 받도록 설정 된 클러스터 자동 업데이트를 시작 하지 않습니다.
-1 월에는 표준 롤아웃 절차를 다시 시작 하 고 자동 업그레이드를 사용 하도록 설정 된 클러스터는 7.0 업데이트를 자동으로 수신 하기 시작 합니다. 롤아웃이 시작 되기 전에 다른 알림을 제공 합니다.
-또한 계획 된 릴리스 날짜를 업데이트 하 여이 정책을 고려 하 고 있음을 나타낼 것입니다. 향후 [릴리스 일정](https://github.com/Microsoft/service-fabric/#service-fabric-release-schedule)에 대 한 업데이트는 여기를 참조 하세요.
+이제 Azure Service Fabric 7.0을 사용할 수 있습니다. Azure Portal이나 Azure Resource Manager 배포를 통해 7.0으로 업데이트할 수 있습니다. 연휴 기간에 받은 릴리스에 관한 고객 피드백으로 인해 자동 업그레이드를 받도록 설정된 클러스터를 1월까지 자동으로 업데이트하지 않습니다.
+1월에 표준 출시 프로시저를 재개하며, 자동 업그레이드가 사용으로 설정된 클러스터는 7.0 업데이트를 자동으로 받기 시작합니다. 출시가 시작되기 전에 다른 알림을 제공합니다.
+이 정책을 고려하고 있음을 나타내기 위해 계획된 출시 날짜도 업데이트합니다. 향후 [릴리스 일정](https://github.com/Microsoft/service-fabric/#service-fabric-release-schedule)에 관한 업데이트는 여기를 참조하세요.
 
-#### <a name="key-announcements"></a>주요 공지 사항
- - [**응용 프로그램 비밀 (미리 보기)에 대 한 KeyVaultReference 지원**](./service-fabric-keyvault-references.md): [관리 되는 id](./concepts-managed-identity.md) 를 사용 하는 Service Fabric 응용 프로그램은 이제 환경 변수, 응용 프로그램 매개 변수 또는 컨테이너 리포지토리 자격 증명으로 Key Vault 비밀 URL을 직접 참조할 수 있습니다. Service Fabric는 응용 프로그램의 관리 되는 id를 사용 하 여 암호를 자동으로 확인 합니다. 
+#### <a name="key-announcements"></a>주요 알림
+ - [**애플리케이션 비밀의 KeyVaultReference 지원(미리 보기)** ](./service-fabric-keyvault-references.md): [관리 ID](./concepts-managed-identity.md)가 사용으로 설정된 Service Fabric 애플리케이션은 이제 Key Vault 비밀 URL을 환경 변수, 애플리케이션 매개 변수 또는 컨테이너 리포지토리 자격 증명으로 직접 참조할 수 있습니다. Service Fabric은 애플리케이션의 관리 ID를 사용하여 자동으로 비밀을 확인합니다. 
      
-- **상태 비저장 서비스의 업그레이드 안전성 향상**: 응용 프로그램을 업그레이드 하는 동안 가용성을 보장 하기 위해 [상태 비저장 서비스에 대 한 최소 인스턴스 수](/dotnet/api/system.fabric.description.statelessservicedescription) 를 정의 하는 새로운 구성을 도입 했습니다. 이전에는이 값이 모든 서비스에 대해 1 였 고 변경 되지 않았습니다. 이 새로운 서비스별 안전 검사를 사용 하 여 서비스는 응용 프로그램 업그레이드 중에 최소 인스턴스 수를 유지 하 고, 클러스터를 업그레이드 하 고, Service Fabric의 상태 및 안전 검사에 의존 하는 기타 유지 관리를 수행할 수 있습니다.
+- **상태 비저장 서비스의 업그레이드 안전성 향상**: 애플리케이션 업그레이드 중에 가용성을 보장하기 위해 [상태 비저장 서비스의 최소 인스턴스 수](/dotnet/api/system.fabric.description.statelessservicedescription)를 사용 가능한 것으로 간주하도록 정의하는 새 구성을 도입했습니다. 이전에는 모든 서비스에 대해 이 값이 1이었으며 변경되지 않았습니다. 이 새로운 서비스별 안전 검사를 사용하면 애플리케이션 업그레이드, 클러스터 업그레이드 및 Service Fabric의 상태 및 안전 검사를 사용하는 기타 유지 관리 중에 서비스에서 최소한의 가동 인스턴스를 유지할 수 있습니다.
   
-- [**사용자 서비스에 대 한 리소스 제한**](./service-fabric-resource-governance.md#enforcing-the-resource-limits-for-user-services): 사용자는 노드의 사용자 서비스에 대 한 리소스 제한을 설정 하 여 Service Fabric 시스템 서비스의 리소스 고갈 등의 시나리오를 방지할 수 있습니다. 
+- [**사용자 서비스의 리소스 한도**](./service-fabric-resource-governance.md#enforcing-the-resource-limits-for-user-services): 사용자는 Service Fabric 시스템 서비스의 리소스 고갈과 같은 시나리오를 방지하기 위해 노드의 사용자 서비스에 대한 리소스 한도를 설정할 수 있습니다. 
   
-- 복제본 유형에 대 한 [**서비스 이동 비용이 매우 높습니다**](./service-fabric-cluster-resource-manager-movement-cost.md) . 이동 비용이 매우 높은 복제본은 다른 방법으로는 해결할 수 없는 제약 조건 위반이 클러스터에 있는 경우에만 이동 됩니다. "매우 높음" 이동 비용을 사용 하는 경우와 추가 고려 사항에 대 한 자세한 내용은 연결 된 문서를 참조 하세요.
+- 복제본 형식의 [**매우 높은 서비스 이동 비용**](./service-fabric-cluster-resource-manager-movement-cost.md). 이동 비용이 매우 높은 복제본은 클러스터에 다른 방법으로 수정할 수 없는 제약 조건 위반이 있는 경우에만 이동됩니다. “매우 높은” 이동 비용을 사용하는 것이 합당한 시기와 추가 고려 사항에 관한 추가 정보는 링크된 문서를 참조하세요.
   
--  **추가 클러스터 안전 검사**:이 릴리스에서는 구성 가능한 시드 노드 쿼럼 안전 검사를 도입 했습니다. 이를 통해 클러스터 수명 주기 및 관리 시나리오에서 사용할 수 있어야 하는 시드 노드 수를 사용자 지정할 수 있습니다. 클러스터를 구성 된 값 아래로 이동 하는 작업이 차단 됩니다. 현재 기본값은 시드 노드의 쿼럼입니다. 예를 들어, 시드 노드가 7 개 있는 경우 5 개 시드 노드 아래에서 수행 하는 작업은 기본적으로 차단 됩니다. 이와 같이 변경 하면 한 번에 하나의 시드 노드만 중지 되도록 최소 안전 값 6을 만들 수 있습니다.
+-  **추가 클러스터 안전 검사**: 이 릴리스에서는 구성 가능한 시드 노드 쿼럼 안전 검사를 도입했습니다. 그러면 클러스터 수명 주기 및 관리 시나리오 중에 사용할 수 있어야 하는 시드 노드 수를 사용자 지정할 수 있습니다. 클러스터를 구성된 값 이하로 만드는 작업은 차단됩니다. 현재 기본값은 항상 시드 노드의 쿼럼입니다. 예를 들어, 7개의 시드 노드가 있으면 5개의 시드 노드 이하가 되는 작업은 기본적으로 차단됩니다. 이와 같은 변경으로 최소 안전 값은 6이 되므로, 한 번에 하나의 시드 노드만 다운될 수 있습니다.
    
-- [**Service Fabric Explorer에서 백업 및 복원 서비스를 관리**](./service-fabric-backuprestoreservice-quickstart-azurecluster.md)하기 위한 지원이 추가 되었습니다. 이렇게 하면 SFX 내에서 다음 작업을 직접 수행할 수 있습니다. 즉, 백업 및 복원 서비스를 검색 하 고, 백업 정책을 만들고, 자동 백업을 사용 하 고, 임시 백업을 수행 하 고, 복원 작업을 트리거하여 기존 백업을 검색 합니다.
+- [**Service Fabric Explorer에서 백업 및 복원 서비스 관리**](./service-fabric-backuprestoreservice-quickstart-azurecluster.md)에 관한 지원이 추가되었습니다. 따라서 SFX 내에서 직접 백업 및 복원 서비스를 검색하고 백업 정책을 만들며 자동 백업을 사용으로 설정하고 임시 백업을 수행하며 복원 작업을 트리거하고 기존 백업을 찾아보는 등의 작업을 수행할 수 있습니다.
 
-- [**ReliableCollectionsMissingTypesTool**](https://github.com/hiadusum/ReliableCollectionsMissingTypesTool)의 가용성 발표:이 도구는 이동 응용 프로그램을 업그레이드 하는 동안 신뢰할 수 있는 컬렉션에서 사용 된 형식이 이전 버전과 호환 되는지 확인 하는 데 도움이 됩니다. 이를 통해 누락 되거나 호환 되지 않는 형식으로 인해 업그레이드 실패 또는 데이터 손실 및 데이터 손상을 방지할 수 있습니다.
+- [ **ReliableCollectionsMissingTypesTool**](https://github.com/hiadusum/ReliableCollectionsMissingTypesTool)의 가용성 발표: 이 도구를 사용하면 신뢰할 수 있는 컬렉션에 사용되는 형식이 롤링 애플리케이션 업그레이드 중에 현재 버전 및 이전 버전과 호환되는지 유효성을 검사하는 데 유용합니다. 그러면 누락되거나 호환되지 않는 형식으로 인한 업그레이드 실패나 데이터 손실 및 데이터 손상을 방지할 수 있습니다.
 
-- [**보조 복제본에서 안정적인 읽기 사용**](./service-fabric-reliable-services-configuration.md#configuration-names-1): 안정적인 읽기는 내보냄 된 값을 반환 하도록 보조 복제본을 제한 합니다.
+- [**보조 복제본에서 안정적인 읽기 사용**](./service-fabric-reliable-services-configuration.md#configuration-names-1): 안정적인 읽기를 사용하면 보조 복제본이 쿼럼 승인된 값을 반환하도록 제한됩니다.
 
-또한이 릴리스에는 다른 새로운 기능, 버그 수정, 지원 가능성, 안정성 및 성능 향상이 포함 되어 있습니다. 전체 변경 내용 목록은 [릴리스 정보](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_70.md)를 참조 하세요.
+또한 이 릴리스에는 다른 새 기능, 버그 수정, 지원 가능성, 안정성 및 성능 향상이 포함되어 있습니다. 전체 변경 내용 목록은 [릴리스 정보](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_70.md)를 참조하세요.
 
 #### <a name="service-fabric-70-releases"></a>Service Fabric 7.0 릴리스
 
 | 릴리스 날짜 | 해제 | 추가 정보 |
 |---|---|---|
 | 2019년 11월 18일 | [Azure Service Fabric 7.0](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Service-Fabric-7-0-Release/ba-p/1015482)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_70.md)|
-| 2020 년 1 월 30 일 | [Azure Service Fabric 7.0 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-0-second-refresh-release/ba-p/1137690)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-70CU2-releasenotes.md)|
-| 2020 년 2 월 6 일 | [Azure Service Fabric 7.0 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-0-third-refresh-release/ba-p/1156508)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-70CU3-releasenotes.md)|
-| 2020년 3월 2일 | [Azure Service Fabric 7.0 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-0-fourth-refresh-release/ba-p/1205414)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-70CU4-releasenotes.md)
-| 2020 년 5 월 6 일 | [Azure Service Fabric 7.0 여섯 번째 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-0-sixth-refresh-release/ba-p/1365709) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-70CU6-releasenotes.md)|
-| 2020 년 10 월 9 일 | Azure Service Fabric 7.0 9 번째 새로 고침 릴리스 | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-70CU9-releasenotes.md)|
+| 2020년 1월 30일 | [Azure Service Fabric 7.0 새 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-0-second-refresh-release/ba-p/1137690)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-70CU2-releasenotes.md)|
+| 2020년 2월 6일 | [Azure Service Fabric 7.0 새 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-0-third-refresh-release/ba-p/1156508)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-70CU3-releasenotes.md)|
+| 2020년 3월 2일 | [Azure Service Fabric 7.0 새 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-0-fourth-refresh-release/ba-p/1205414)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-70CU4-releasenotes.md)
+| 2020년 5월 6일 | [Azure Service Fabric 7.0 여섯 번째 새 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-0-sixth-refresh-release/ba-p/1365709) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-70CU6-releasenotes.md)|
+| 2020년 10월 9일 | Azure Service Fabric 7.0 아홉 번째 새 릴리스 | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-70CU9-releasenotes.md)|
 
 ### <a name="service-fabric-65"></a>Service Fabric 6.5
 
-이 릴리스에는 지원 가능성, 안정성 및 성능 향상, 새로운 기능, 버그 수정 및 향상 된 클러스터 및 응용 프로그램 수명 주기 관리를 위한 향상 된 기능이 포함 되어 있습니다.
+이 릴리스에는 지원 가능성, 안정성, 성능 향상, 새로운 기능, 버그 수정 및 클러스터와 애플리케이션 수명 주기 관리를 용이하게 하는 개선 사항이 포함되어 있습니다.
 
 > [!IMPORTANT]
-> Service Fabric 6.5는 Visual Studio 2015에서 Service Fabric 도구를 지 원하는 최종 릴리스입니다. 고객은 앞으로 [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) 로 전환 하는 것이 좋습니다.
+> Service Fabric 6.5는 Visual Studio 2015에서 Service Fabric 도구를 지원하는 최종 릴리스입니다. 고객은 향후 [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)로 전환하는 것이 좋습니다.
 
 Service Fabric 6.5의 새로운 기능:
 
-- Service Fabric Explorer는 이미지 저장소에 업로드 한 응용 프로그램을 검사 하기 위한 [Image Store 뷰어](service-fabric-visualizing-your-cluster.md#image-store-viewer) 를 포함 합니다.
+- Service Fabric Explorer에는 Image Store에 업로드한 애플리케이션을 검사하기 위한 [Image Store 뷰어](service-fabric-visualizing-your-cluster.md#image-store-viewer)가 포함되어 있습니다.
 
-- [POA (패치 오케스트레이션 응용 프로그램)](service-fabric-patch-orchestration-application.md) 버전 [1.4.0](https://github.com/microsoft/Service-Fabric-POA/releases/tag/v1.4.0) 에는 많은 자체 진단 기능이 포함 되어 있습니다. POA의 고객은이 버전으로 이동 하는 것이 좋습니다.
+- [POA(패치 오케스트레이션 애플리케이션)](service-fabric-patch-orchestration-application.md) version [1.4.0](https://github.com/microsoft/Service-Fabric-POA/releases/tag/v1.4.0)에는 여러 자체 진단 개선 사항이 포함되어 있습니다. POA의 고객은 이 버전으로 전환하는 것이 좋습니다.
 
-- 옵트아웃 (opt out) 하지 않으면 Eventstore 서비스는 Service Fabric 6.5 클러스터에 대해 [기본적으로 사용 하도록 설정 됩니다](service-fabric-visualizing-your-cluster.md#event-store) .
+- 옵트아웃하지 않으면 Service Fabric 6.5 클러스터에 대해 [기본적으로 EventStore 서비스가 사용됩니다](service-fabric-visualizing-your-cluster.md#event-store).
 
-- 상태 저장 서비스에 대 한 [복제본 수명 주기 이벤트](service-fabric-diagnostics-event-generation-operational.md#replica-events) 를 추가 했습니다.
+- 상태 저장 서비스의 [복제본 수명 주기 이벤트](service-fabric-diagnostics-event-generation-operational.md#replica-events)가 추가되었습니다.
 
-- 시드 노드가 비정상 (*다운*, *제거* 또는 *알 수 없음*) 인 경우 클러스터 수준 경고를 비롯 하 여 [시드 노드 상태를 더 잘 표시](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status)합니다.
+- 시드 노드가 비정상인 경우(*다운*, *제거됨* 또는 *알 수 없음*) 클러스터 수준 경고를 포함하여 [시드 노드 상태에 대한 가시성이 향상](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status)됩니다.
 
-- [Service Fabric 응용 프로그램 재해 복구 도구](https://github.com/Microsoft/Service-Fabric-AppDRTool) 를 사용 하면 주 클러스터에 재해가 발생할 때 Service Fabric 상태 저장 서비스가 신속 하 게 복구할 수 있습니다. 주 클러스터의 데이터는 정기적인 백업 및 복원을 사용 하 여 보조 대기 응용 프로그램에서 지속적으로 동기화 됩니다.
+- [Service Fabric 애플리케이션 재해 복구 도구](https://github.com/Microsoft/Service-Fabric-AppDRTool)를 사용하면 주 클러스터에 재해가 발생할 때 Service Fabric 상태 저장 서비스를 신속하게 복구할 수 있습니다. 주 클러스터의 데이터는 주기적인 백업과 복원을 사용하여 보조 대기 애플리케이션에서 지속해서 동기화됩니다.
 
-- [Linux 기반 클러스터에 .Net Core 앱을 게시](service-fabric-how-to-publish-linux-app-vs.md)하기 위한 Visual Studio 지원
+- Visual Studio에서는 [Linux 기반 클러스터에 .Net Core 앱을 게시](service-fabric-how-to-publish-linux-app-vs.md)할 수 있습니다.
 
-- Azure에서 새 Linux 클러스터를 업그레이드 하거나 만들 때 [azure SERVICE FABRIC CLI (SFCTL)](./service-fabric-cli.md) 는 Service Fabric 6.5 이상 버전에 대해 자동으로 설치 됩니다.
+- [Azure Service Fabric CLI(SFCTL)](./service-fabric-cli.md)는 Azure에서 새 Linux 클러스터를 업그레이드하거나 만들 때 Service Fabric 6.5(및 이후 버전)에 자동으로 설치됩니다.
 
-- [Sfctl](./service-fabric-cli.md) 은 기본적으로 macos/Linux onebox 클러스터에 설치 됩니다.
+- [SFCTL](./service-fabric-cli.md)은 기본적으로 MacOS/Linux OneBox 클러스터에 설치됩니다.
 
-자세한 내용은 [Service Fabric 6.5 릴리스 정보](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf)를 참조 하세요.
+자세한 내용은 [Service Fabric 6.5 릴리스 정보](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf)를 참조하세요.
 
 #### <a name="service-fabric-65-releases"></a>Service Fabric 6.5 릴리스
 
 | 릴리스 날짜 | 해제 | 추가 정보 |
 |---|---|---|
 | 2019년 6월 11일 | [Azure Service Fabric 6.5](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf)|
-| 2019년 7월 2일 | [Azure Service Fabric 6.5 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU1.pdf)  |
-| 2019년 7월 29일 | [Azure Service Fabric 6.5 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Second-Refresh-Release/ba-p/800523)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU2.pdf)  |
-| Aug 23, 2019 | [Azure Service Fabric 6.5 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Third-Refresh-Release/ba-p/818599)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU3.pdf)  |
-| 2019 년 10 월 14 일 | [Azure Service Fabric 6.5 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Fifth-Refresh-Release/ba-p/913296)  | [릴리스 정보] (https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU5.md  |
+| 2019년 7월 2일 | [Azure Service Fabric 6.5 새 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU1.pdf)  |
+| 2019년 7월 29일 | [Azure Service Fabric 6.5 새 릴리스](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Second-Refresh-Release/ba-p/800523)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU2.pdf)  |
+| Aug 23, 2019 | [Azure Service Fabric 6.5 새 릴리스](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Third-Refresh-Release/ba-p/818599)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU3.pdf)  |
+| 2019년 10월 14일 | [Azure Service Fabric 6.5 새 릴리스](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Fifth-Refresh-Release/ba-p/913296)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU5.md  |
 
 
 ### <a name="service-fabric-64-releases"></a>Service Fabric 6.4 릴리스
 
 | 릴리스 날짜 | 해제 | 추가 정보 |
 |---|---|---|
-| 2018 년 11 월 30 일 | [Azure Service Fabric 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2018/11/30/azure-service-fabric-6-4-release/)  | [릴리스 정보](https://msdnshared.blob.core.windows.net/media/2018/12/Service-Fabric-6.4-Release.pdf)|
-| 2018년 12월 12일 | [Windows 클러스터에 대 한 Azure Service Fabric 6.4 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)  | [릴리스 정보](https://msdnshared.blob.core.windows.net/media/2018/12/Links.pdf)  |
-| 2019 년 2 월 4 일 | [Azure Service Fabric 6.4 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) | [릴리스 정보](https://msdnshared.blob.core.windows.net/media/2019/02/Service-Fabric-6.4CU3-Release-Notes.pdf) |
-| 2019 년 3 월 4 일 | [Azure Service Fabric 6.4 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) | [릴리스 정보](https://msdnshared.blob.core.windows.net/media/2019/03/Service-Fabric-6.4CU4-Release-Notes.pdf)
-| 2019 년 4 월 8 일 | [Azure Service Fabric 6.4 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) | [릴리스 정보](https://msdnshared.blob.core.windows.net/media/2019/04/Service-Fabric-6.4CU5-ReleaseNotes3.pdf)
-| 5 월 2 일, 2019 | [Azure Service Fabric 6.4 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) | [릴리스 정보](https://msdnshared.blob.core.windows.net/media/2019/05/Service-Fabric-64CU6-Release-Notes-V2.pdf)
-| 5 월 28 일, 2019 | [Azure Service Fabric 6.4 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) | [릴리스 정보](https://msdnshared.blob.core.windows.net/media/2019/05/Service_Fabric_64CU7_Release_Notes1.pdf)
+| 2018년 11월 30일 | [Azure Service Fabric 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2018/11/30/azure-service-fabric-6-4-release/)  | [릴리스 정보](https://msdnshared.blob.core.windows.net/media/2018/12/Service-Fabric-6.4-Release.pdf)|
+| 2018년 12월 12일 | [Windows 클러스터용 Azure Service Fabric 6.4 새 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)  | [릴리스 정보](https://msdnshared.blob.core.windows.net/media/2018/12/Links.pdf)  |
+| 2019년 2월 4일 | [Azure Service Fabric 6.4 새 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) | [릴리스 정보](https://msdnshared.blob.core.windows.net/media/2019/02/Service-Fabric-6.4CU3-Release-Notes.pdf) |
+| 2019년 3월 4일 | [Azure Service Fabric 6.4 새 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) | [릴리스 정보](https://msdnshared.blob.core.windows.net/media/2019/03/Service-Fabric-6.4CU4-Release-Notes.pdf)
+| 2019년 4월 8일 | [Azure Service Fabric 6.4 새 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) | [릴리스 정보](https://msdnshared.blob.core.windows.net/media/2019/04/Service-Fabric-6.4CU5-ReleaseNotes3.pdf)
+| 2019년 5월 2일 | [Azure Service Fabric 6.4 새 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) | [릴리스 정보](https://msdnshared.blob.core.windows.net/media/2019/05/Service-Fabric-64CU6-Release-Notes-V2.pdf)
+| 2019년 5월 28일 | [Azure Service Fabric 6.4 새 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) | [릴리스 정보](https://msdnshared.blob.core.windows.net/media/2019/05/Service_Fabric_64CU7_Release_Notes1.pdf)

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI를 사용 하 여 데이터 관리 (Azure Data Lake Storage Gen2)
-description: 계층 구조가 있는 저장소 계정의 디렉터리와 파일을 관리 하려면 Azure CLI을 사용 합니다.
+title: Azure CLI를 사용한 데이터 관리(Azure Data Lake Storage Gen2)
+description: Azure CLI를 사용하여 계층 구조 네임스페이스가 있는 스토리지 계정에서 디렉터리 및 파일을 만들고 관리합니다.
 services: storage
 author: normesta
 ms.service: storage
@@ -11,25 +11,25 @@ ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 3e9afd4617eb7445ba83948d46eef0890832e2be
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100650357"
 ---
-# <a name="use-azure-cli-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Azure CLI를 사용 하 여 Azure Data Lake Storage Gen2의 디렉터리 및 파일 관리
+# <a name="use-azure-cli-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 Azure CLI를 사용하여 디렉터리 및 파일 관리
 
-이 문서에서는 [CLI (Azure Command-Line Interface)](/cli/azure/) 를 사용 하 여 계층적 네임 스페이스를 포함 하는 저장소 계정의 디렉터리와 파일을 만들고 관리 하는 방법을 보여 줍니다.
+이 문서에서는 [Azure CLI](/cli/azure/)(명령줄 인터페이스)를 사용하여 계층 구조 네임스페이스가 있는 스토리지 계정에서 디렉터리 및 파일을 만들고 관리하는 방법을 보여 줍니다.
 
-디렉터리 및 파일의 ACL (액세스 제어 목록)을 가져오거나 설정 하 고 업데이트 하는 방법에 대 한 자세한 내용은 [Azure CLI를 사용 하 여 Azure Data Lake Storage Gen2 acl 관리](data-lake-storage-acl-cli.md)를 참조 하세요.
+디렉터리 및 파일의 ACL(액세스 제어 목록)을 가져오거나 설정하고 업데이트하는 방법에 대한 자세한 내용은 [Azure CLI를 사용한 Azure Data Lake Storage Gen2 ACL 관리](data-lake-storage-acl-cli.md)를 참조하세요.
 
-[샘플](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)  |  [사용자 의견 제공](https://github.com/Azure/azure-cli-extensions/issues)
+[샘플](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md) | [피드백 제공](https://github.com/Azure/azure-cli-extensions/issues)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-- 계층적 네임 스페이스를 사용 하는 저장소 계정입니다. 만들려면 [다음 지침](create-data-lake-storage-account.md)을 수행합니다.
+- 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정입니다. 만들려면 [다음 지침](create-data-lake-storage-account.md)을 수행합니다.
 
 - Azure CLI 버전 `2.6.0` 이상.
 
@@ -68,13 +68,13 @@ ms.locfileid: "100650357"
    `<subscription-id>` 자리 표시자 값을 구독의 ID로 바꿉니다.
 
 > [!NOTE]
-> 이 문서에 제공 된 예제는 Azure Active Directory (Azure AD) 권한 부여를 표시 합니다. 권한 부여 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Blob 또는 큐 데이터에 대한 액세스 권한 부여I](./authorize-data-operations-cli.md)를 참조하세요.
+> 이 문서에 제공된 예제는 Azure AD(Active Directory) 권한 부여를 보여 줍니다. 권한 부여 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Blob 또는 큐 데이터에 대한 액세스 권한 부여I](./authorize-data-operations-cli.md)를 참조하세요.
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
-컨테이너는 파일에 대 한 파일 시스템 역할을 합니다. `az storage fs create` 명령을 사용하여 만들 수 있습니다. 
+컨테이너는 파일의 파일 시스템 역할을 합니다. `az storage fs create` 명령을 사용하여 만들 수 있습니다. 
 
-이 예제에서는 라는 컨테이너를 만듭니다 `my-file-system` .
+다음 예제에서는 `my-file-system`라는 컨테이너를 만듭니다.
 
 ```azurecli
 az storage fs create -n my-file-system --account-name mystorageaccount --auth-mode login
@@ -82,7 +82,7 @@ az storage fs create -n my-file-system --account-name mystorageaccount --auth-mo
 
 ## <a name="show-container-properties"></a>컨테이너 속성 표시
 
-명령을 사용 하 여 컨테이너의 속성을 콘솔에 인쇄할 수 있습니다 `az storage fs show` .
+`az storage fs show` 명령을 사용하여 콘솔에 컨테이너 속성을 출력할 수 있습니다.
 
 ```azurecli
 az storage fs show -n my-file-system --account-name mystorageaccount --auth-mode login
@@ -92,7 +92,7 @@ az storage fs show -n my-file-system --account-name mystorageaccount --auth-mode
 
 `az storage fs file list` 명령을 사용하여 디렉터리의 콘텐츠를 나열합니다.
 
-이 예제에서는 라는 컨테이너의 내용을 나열 `my-file-system` 합니다.
+다음 예제에서는 `my-file-system`이라는 컨테이너의 콘텐츠를 나열합니다.
 
 ```azurecli
 az storage fs file list -f my-file-system --account-name mystorageaccount --auth-mode login
@@ -100,9 +100,9 @@ az storage fs file list -f my-file-system --account-name mystorageaccount --auth
 
 ## <a name="delete-a-container"></a>컨테이너 삭제
 
-명령을 사용 하 여 컨테이너를 삭제 `az storage fs delete` 합니다.
+`az storage fs delete` 명령을 사용하면 컨테이너를 삭제할 수 있습니다.
 
-이 예제에서는 라는 컨테이너를 삭제 `my-file-system` 합니다. 
+다음 예제에서는 `my-file-system`라는 컨테이너를 삭제합니다. 
 
 ```azurecli
 az storage fs delete -n my-file-system --account-name mystorageaccount --auth-mode login
@@ -112,7 +112,7 @@ az storage fs delete -n my-file-system --account-name mystorageaccount --auth-mo
 
 `az storage fs directory create` 명령을 사용하여 디렉터리 참조를 만듭니다. 
 
-이 예제에서는 라는 계정에 있는 라는 컨테이너에 라는 디렉터리를 추가 `my-directory` `my-file-system` `mystorageaccount` 합니다.
+다음 예제에서는 `mystorageaccount`라는 계정에 있는 `my-file-system`이라는 컨테이너에 `my-directory`라는 디렉터리를 추가합니다.
 
 ```azurecli
 az storage fs directory create -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
@@ -130,13 +130,13 @@ az storage fs directory show -n my-directory -f my-file-system --account-name my
 
 `az storage fs directory move` 명령을 사용하여 디렉터리의 이름을 바꾸거나 디렉터리를 이동합니다.
 
-이 예에서는 이름에서 `my-directory` 동일한 컨테이너의 이름으로 디렉터리의 이름을 바꿉니다 `my-new-directory` .
+다음 예제에서는 동일한 컨테이너에 있는 디렉터리의 이름을 `my-directory`에서 `my-new-directory`로 바꿉니다.
 
 ```azurecli
 az storage fs directory move -n my-directory -f my-file-system --new-directory "my-file-system/my-new-directory" --account-name mystorageaccount --auth-mode login
 ```
 
-이 예제에서는 디렉터리를 라는 컨테이너로 이동 `my-second-file-system` 합니다.
+다음 예제에서는 `my-second-file-system`이라는 컨테이너로 디렉터리를 이동합니다.
 
 ```azurecli
 az storage fs directory move -n my-directory -f my-file-system --new-directory "my-second-file-system/my-new-directory" --account-name mystorageaccount --auth-mode login
@@ -154,9 +154,9 @@ az storage fs directory delete -n my-directory -f my-file-system  --account-name
 
 ## <a name="check-if-a-directory-exists"></a>디렉터리가 존재하는지 확인
 
-명령을 사용 하 여 컨테이너에 특정 디렉터리가 있는지 확인 `az storage fs directory exists` 합니다.
+`az storage fs directory exists` 명령을 사용하여 컨테이너에 특정 디렉터리가 있는지 확인합니다.
 
-이 예제에서는 라는 디렉터리가 컨테이너에 있는지 여부를 나타냅니다 `my-directory` `my-file-system` . 
+다음 예제에서는 `my-file-system` 컨테이너에 `my-directory`라는 디렉터리가 있는지 확인합니다. 
 
 ```azurecli
 az storage fs directory exists -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login 
@@ -176,7 +176,7 @@ az storage fs file download -p my-directory/upload.txt -f my-file-system -d "C:\
 
 `az storage fs file list` 명령을 사용하여 디렉터리의 콘텐츠를 나열합니다.
 
-이 예제에서는 `my-directory` `my-file-system` 라는 저장소 계정의 컨테이너에 있는 라는 디렉터리의 콘텐츠를 나열 합니다 `mystorageaccount` . 
+다음 예제에서는 `mystorageaccount`라는 스토리지 계정의 `my-file-system` 컨테이너에 있는 `my-directory`라는 디렉터리의 콘텐츠를 나열합니다. 
 
 ```azurecli
 az storage fs file list -f my-file-system --path my-directory --account-name mystorageaccount --auth-mode login
@@ -225,4 +225,4 @@ az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --accou
 - [샘플](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
 - [사용자 의견 제공](https://github.com/Azure/azure-cli-extensions/issues)
 - [알려진 문제](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-- [Azure CLI를 사용 하 여 Azure Data Lake Storage Gen2에서 Acl 관리](data-lake-storage-acl-cli.md)
+- [Azure CLI를 사용한 Azure Data Lake Storage Gen2의 ACL 관리](data-lake-storage-acl-cli.md)

@@ -1,13 +1,13 @@
 ---
 title: Azure DevTest Labs에서 공용 환경 구성 및 사용 | Microsoft Docs
-description: 이 문서에서는 Azure DevTest Labs에서 공용 환경 (Git 리포지토리의 Azure Resource Manager 템플릿)을 구성 하 고 사용 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure DevTest Labs에서 공용 환경(Git 리포지토리의 Azure Resource Manager 템플릿)을 구성하고 사용하는 방법을 설명합니다.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 61cabdb296c3fff75137c7ce7e87652241fd2926
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85482669"
 ---
 # <a name="configure-and-use-public-environments-in-azure-devtest-labs"></a>Azure DevTest Labs에서 공용 환경 구성 및 사용

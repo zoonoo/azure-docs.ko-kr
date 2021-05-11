@@ -1,13 +1,13 @@
 ---
 title: Azure DevTest Labs의 랩에서 랩 또는 VM 삭제
-description: 이 문서에서는 Azure Portal (Azure DevTest Labs)를 사용 하 여 랩에서 랩을 삭제 하거나 VM을 삭제 하는 방법을 보여 줍니다.
+description: 이 문서에서는 Azure Portal(Azure DevTest Labs)을 사용하여 랩을 삭제하거나 랩의 VM을 삭제하는 방법을 보여 줍니다.
 ms.topic: article
 ms.date: 01/24/2020
 ms.openlocfilehash: 495fb98f3da41a47d316dd64554ba616ede0af47
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85481224"
 ---
 # <a name="delete-a-lab-or-vm-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs의 랩에서 랩 또는 VM 삭제
@@ -33,7 +33,7 @@ ms.locfileid: "85481224"
     ![확인](media/devtest-lab-delete-lab-vm/confirm-delete.png)
 5. 작업 상태를 보려면 **알림** 아이콘(벨)을 선택합니다. 
 
-    ![알림](media/devtest-lab-delete-lab-vm/delete-status.png)
+    ![공지](media/devtest-lab-delete-lab-vm/delete-status.png)
 
  
 ## <a name="delete-a-vm-in-a-lab"></a>랩에서 VM 삭제

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/05/2020
 ms.author: kegorman
 ms.openlocfilehash: 971f7c919595f915451faf9266ee3bb18b35087e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101677175"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Azure의 Oracle 애플리케이션 및 솔루션 개요
@@ -44,19 +44,19 @@ Azure Marketplace에 제공된 Oracle Linux 기반 Oracle Database 이미지를 
 
 ## <a name="applications-on-oracle-linux-and-weblogic-server"></a>Oracle Linux 및 WebLogic Server의 애플리케이션
 
-지원 되는 Oracle Linux 이미지에 대해 Azure에서 엔터프라이즈 응용 프로그램을 실행 합니다. Azure Marketplace에 제공되는 가상 머신 이미지는 다음과 같습니다.
+지원되는 Oracle Linux 이미지에서 Azure의 엔터프라이즈 애플리케이션을 실행합니다. Azure Marketplace에 제공되는 가상 머신 이미지는 다음과 같습니다.
 
 * Oracle WebLogic Server 12.1.2
 
-* UEK (Unbreakable Enterprise Kernel) 6.8, 6.9, 6.10, 7.3 ~ 7.7, 8.0, 8.1와 Oracle Linux 합니다. 
+* UEK(Unbreakable Enterprise Kernel) 6.8, 6.9, 6.10, 7.3~7.7, 8.0, 8.1을 포함하는 Oracle Linux 
 
 ## <a name="high-availability-and-disaster-recovery-options"></a>고가용성 및 재해 복구 옵션
 
 * 지역 내 가용성을 위해 [가용성 영역](../../../availability-zones/az-overview.md)과 함께 [Oracle Data Guard](https://docs.oracle.com/cd/B19306_01/server.102/b14239/concepts.htm#g1049956), [Active Data Guard with FSFO](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/index.html), [Sharding](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/admin/sharding-overview.html) 또는 [Golden Gate](https://www.oracle.com/middleware/technologies/goldengate.html)를 Azure 인프라에 구성합니다. 또한 추가 가용성 및 재해 복구를 위해 여러 Azure 지역에 이러한 구성을 설정할 수 있습니다.
 
-* [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) 를 사용 하 여 Azure 및 물리적 서버에서 Oracle Linux vm에 대 한 재해 복구를 오케스트레이션 하 고 관리 합니다. 
+* [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md)를 사용하여 Azure의 Oracle Linux VM과 물리 서버의 재해 복구를 오케스트레이션 및 관리합니다. 
 
-* Azure [VMware 솔루션](../../../vmware-cloudsimple/oracle-real-application-clusters.md) 또는 [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/)를 사용 하 여 azure에서 Oracle RAC (실제 응용 프로그램 클러스터)를 사용 하도록 설정 합니다.
+* [Azure VMware Solution](../../../vmware-cloudsimple/oracle-real-application-clusters.md) 또는 [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/)를 사용하여 Azure의 Oracle RAC(실제 애플리케이션 클러스터)를 사용하도록 설정합니다.
 
 ## <a name="backup-oracle-workloads"></a>Oracle 워크로드 백업
 
@@ -75,7 +75,7 @@ OCI(Oracle Cloud Infrastructure)의 백 엔드 데이터베이스에 연결된 A
 
 Terraform 템플릿을 사용하여 Azure 인프라를 설정하고 Oracle 애플리케이션을 설치합니다. 
 
-Oracle은 Azure/Oracle 클라우드 상호 연결 솔루션을 통해 Oracle 데이터베이스에 연결할 때 Azure에서 실행 되도록 이러한 응용 프로그램을 인증 했습니다.
+Oracle은 Azure/Oracle 클라우드 상호 연결 솔루션을 통하여 Oracle 데이터베이스에 연결 중일 때 Azure에서 실행하도록 이러한 애플리케이션을 인증하였습니다.
 
 * E-Business Suite
 * JD Edwards EnterpriseOne
@@ -87,7 +87,7 @@ Oracle은 Azure/Oracle 클라우드 상호 연결 솔루션을 통해 Oracle 데
 
 ### <a name="set-up-oracle-databases-in-oci"></a>OCI에 Oracle 데이터베이스 설정
 
-Azure에서 실행 되는 Oracle 소프트웨어와 함께 Oracle Database Cloud Services (자치 데이터베이스, RAC, Exadata, DBaaS, 단일 노드)를 사용 합니다. [OCI 데이터베이스 옵션](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm)에 대해 자세히 알아보세요. 
+Oracle Database 클라우드 서비스(자율운영 데이터베이스, RAC, Exadata, DBaaS, 단일 노드)를 Azure에서 실행되는 Oracle 소프트웨어와 함께 사용합니다. [OCI 데이터베이스 옵션](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm)에 대해 자세히 알아보세요. 
  
 
 ## <a name="licensing"></a>라이선스

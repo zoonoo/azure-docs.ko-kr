@@ -1,6 +1,6 @@
 ---
-title: 양방향 SMS는 더 이상 지원 되지 않습니다. Azure Active Directory
-description: 양방향 SMS를 계속 사용 하는 사용자에 게 다른 방법을 사용 하도록 설정 하는 방법을 설명 합니다.
+title: 양방향 SMS는 더 이상 지원되지 않습니다. - Azure Active Directory
+description: 여전히 양방향 SMS를 사용하는 사용자들에게 다른 방법을 사용할 수 있도록 설정하는 방법을 설명합니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,59 +12,59 @@ manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d25ed1e46823ec6d820addf3944c96c97fcabcb8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101689031"
 ---
 # <a name="two-way-sms-unsupported"></a>양방향 SMS가 지원되지 않음
 
-MFA (Azure AD Multi-Factor Authentication) 서버용 양방향 SMS는 원래 2018에서 더 이상 사용 되지 않으며 2021 년 2 월 24 일 이후에는 더 이상 지원 되지 않습니다. 관리자는 양방향 SMS를 계속 사용 하는 사용자에 게 다른 방법을 사용 하도록 설정 해야 합니다.
+Azure AD MFA(다단계 인증) 서버를 위한 양방향 SMS는 2018년에 사용 중지되었고 2021년 2월 24일부터 더 이상 지원되지 않습니다. 관리자는 아직 양방향 SMS를 사용하는 사용자들이 다른 방법을 사용할 수 있도록 하여야 합니다.
 
-2020, 및 2021 년 1 월 28 일에 영향을 받는 관리자에 게 전자 메일 알림 및 Azure Portal Service Health 알림 (포털 알림을)을 보냈습니다. 이 경고는 구독에 연결 된 소유자, 공동 소유자, 관리자 및 서비스 관리자 RBAC 역할로 이동 했습니다. 다음 단계를 이미 완료 한 경우에는 아무 조치도 필요 하지 않습니다.
+대상 관리자에게 2020년 12월 8일과 2021년 1월 28일에 이메일 알람과 Azure Portal Service Health 알림(포털 알림)이 발송되었습니다. 이 경고는 해당 구독에 연결된 소유자, 공동 소유자, 관리자 및 서비스 관리자 RBAC 역할에 전달되었습니다. 이미 다음 단계를 완료하였다면 아무 조치도 필요 없습니다.
 
 ## <a name="required-actions"></a>필요한 작업
 
-1. 사용자가 아직 수행 하지 않은 경우 모바일 앱을 사용 하도록 설정 합니다. 자세한 내용은 [MFA 서버를 사용 하 여 모바일 앱 인증 사용](howto-mfaserver-deploy-mobileapp.md)을 참조 하세요.
-1. 최종 사용자에 게 MFA 서버 [사용자 포털](howto-mfaserver-deploy-userportal.md) 을 방문 하 여 모바일 앱을 활성화 하도록 알립니다. [Microsoft Authenticator 앱](https://www.microsoft.com/en-us/account/authenticator) 은 양방향 SMS 보다 안전 하기 때문에 권장 되는 확인 옵션입니다. 자세한 내용은 [인증을 위해 전화 전송에서 중단 하는 시간을](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752)참조 하세요.
-1. 사용자 설정을 양방향 텍스트 메시지에서 모바일 앱으로 기본 방법으로 변경 합니다.
+1. 아직 완료 전인 경우, 사용자용 모바일 앱을 사용하도록 설정합니다. 자세한 내용은 [MFA 서버를 통한 모바일 앱 인증 사용](howto-mfaserver-deploy-mobileapp.md)을 확인하세요.
+1. 최종 사용자에게 내 MFA 서버의 [사용자 포털](howto-mfaserver-deploy-userportal.md)을 방문하여 모바일 앱을 활성화하도록 알립니다. [Microsoft Authenticator 앱](https://www.microsoft.com/en-us/account/authenticator)은 양방향 SMS보다 안전하다는 점에서 추천하는 확인 옵션입니다. 자세한 내용은 [전화기를 통한 인증은 이제 그만](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752)을 확인하세요.
+1. 양방향 텍스트 메시지에서 모바일 앱으로 사용자 설정의 기본 메서드를 변경합니다.
 
 ## <a name="faq"></a>FAQ
 
-### <a name="what-if-i-dont-change-the-default-method-from-two-way-sms-to-the-mobile-app"></a>기본 방법을 양방향 SMS에서 모바일 앱으로 변경 하지 않으면 어떻게 되나요?
-2021 년 2 월 24 일 이후 양방향 SMS가 실패 합니다. 사용자가 로그인 하 고 MFA를 전달 하려고 하면 오류가 표시 됩니다.
+### <a name="what-if-i-dont-change-the-default-method-from-two-way-sms-to-the-mobile-app"></a>기본 메서드를 양방향 SMS에서 모바일 앱으로 변경하지 않으면 어떻게 되나요?
+양방향 SMS는 2021년 2월 24일 이후 실패합니다. 사용자가 로그인을 시도하고 MFA를 통과하려고 하면 오류가 발생합니다.
 
-### <a name="how-do-i-change-the-user-settings-from-two-way-text-message-to-mobile-app"></a>사용자 설정을 양방향 텍스트 메시지에서 모바일 앱으로 변경 어떻게 할까요??
+### <a name="how-do-i-change-the-user-settings-from-two-way-text-message-to-mobile-app"></a>사용자 설정을 양방향 텍스트 메시지에서 모바일 앱으로 변경하는 방법은 무엇인가요?
 
-다음 단계를 수행 하 여 사용자 설정을 변경 해야 합니다.
+다음 단계를 따라 사용자 설정을 변경하여야 합니다.
 
-1. MFA 서버에서 양방향 텍스트 메시지에 대 한 사용자 목록을 필터링 합니다.
-1. 모든 사용자를 선택 합니다.
-1. 사용자 편집 대화 상자를 엽니다.
-1. 문자 메시지에서 모바일 앱으로 사용자를 변경 합니다.
+1. MFA 서버에서 양방향 텍스트 메시지에 대한 사용자 목록을 필터링합니다.
+1. 모든 사용자를 선택합니다.
+1. 사용자 편집 대화를 엽니다.
+1. 사용자를 텍스트 메시지에서 모바일 앱으로 변경합니다.
 
    ![최종 사용자의 스크린샷](media/how-to-authentication-two-way-sms-unsupported/end-users.png)
 
-### <a name="do-my-users-need-to-take-any-action-if-yes-how"></a>사용자가 어떤 작업을 수행 해야 하나요? 그렇다면 어떻게 하나요?
-예. 최종 사용자가 아직 수행 하지 않은 경우 모바일 앱을 활성화 하려면 특정 MFA 서버 사용자 포털을 방문 해야 합니다. 3 단계를 완료 한 후에는 사용자 포털을 방문 하 여 모바일 앱을 설정 하지 않은 모든 사용자가 다시 등록할 때까지 로그인 실패가 시작 됩니다.
+### <a name="do-my-users-need-to-take-any-action-if-yes-how"></a>사용자가 취하여야 할 작업이 있나요? 그렇다면 어떻게 하나요?
+예. 최종 사용자는 특정 MFA 서버 사용자 포털을 방문하여 모바일 앱을 활성화하지 않은 경우 이를 수행하여야 합니다. 3단계를 완료하고 나면 사용자 포털을 방문하여 모바일 앱을 설정하지 않은 사용자는 사용자 포털에 방문하여 재등록하기 전에는 로그인에 실패하게 됩니다.
 
-### <a name="what-if-my-users-cant-install-the-mobile-app-what-other-options-do-they-have"></a>사용자가 모바일 앱을 설치할 수 없는 경우는 어떻게 되나요? 다른 옵션은 무엇 인가요?
-양방향 SMS 또는 모바일 앱에 대 한 대안은 전화 통화입니다. 그러나 Microsoft Authenticator 앱은 권장 되는 확인 방법입니다.
+### <a name="what-if-my-users-cant-install-the-mobile-app-what-other-options-do-they-have"></a>사용자가 모바일 앱을 설치할 수 없으면 어떻게 하나요? 다른 옵션이 있나요?
+양방향 SMS 또는 모바일 앱에 대한 대안으로 전화 통화를 이용할 수 있습니다. 그러나 Microsoft Authenticator 앱을 확인 메서드로 사용하는 것이 좋습니다.
 
-### <a name="will-one-way-sms-be-deprecated-as-well"></a>단방향 SMS도 더 이상 사용 되지 않습니다.
-아니요. 양방향 SMS는 더 이상 사용 되지 않습니다. MFA 서버의 경우 단방향 SMS는 다음과 같은 시나리오의 하위 집합에 대해 작동 합니다.
+### <a name="will-one-way-sms-be-deprecated-as-well"></a>단방향 SMS도 사용되지 않나요?
+아니요. 양방향 SMS만 사용되지 않습니다. MFA 서버의 경우에는 다음 시나리오의 하위 집합에 대하여 단방향 SMS가 작동합니다.
 
 - AD FS 어댑터
-- IIS 인증 (사용자 포털 및 구성 필요)
-- RADIUS (RADIUS 클라이언트가 액세스 챌린지를 지원 하 고 PAP 프로토콜이 사용 되어야 함)
+- IIS 인증(사용자 포털 및 구성이 필요)
+- RADIUS(RADIUS 클라이언트가 액세스 변경을 지원하고 PAP 프로토콜이 사용되어야 함)
 
-단방향 SMS를 사용 하 여 모바일 앱을 사용 하는 경우 확인 코드 프롬프트가 필요 하지 않기 때문에이에 대 한 제한 사항이 있습니다.
-일부 시나리오에서 단방향 SMS를 사용 하려는 경우에는이 확인란을 선택 된 상태로 둘 수 있지만, **회사 설정** 섹션, **일반** 탭 **사용자 기본값 텍스트 메시지** 를 **양방향** 이 아닌 **단방향** 으로 변경할 수 있습니다. 마지막으로, 기본적으로 SMS에 대 한 디렉터리 동기화를 사용 하는 경우 양방향이 아닌 One-Way로 변경 해야 합니다.
+모바일 앱은 확인 코드 메시지 표시가 필요 없기 때문에, 단방향 SMS를 사용하여 모바일 앱을 더 나은 대안으로 활용할 수 있는 시기에 대하여서는 제한 사항이 있습니다.
+여전히 어떤 시나리오에서는 단방향 SMS를 사용하고자 하는 경우에는 해당 항목을 선택된 상태로 남겨둘 수 있지만, **회사 설정** 섹션, **일반** 탭 **사용자 기본값 텍스트 메시지** 를 **양방향** 대신 **단방향** 으로 변경합니다. 마지막으로 SMS를 기본값으로 하는 디렉터리 동기화를 사용하는 경우, 이를 양방향이 아니라 단방향으로 변경하여야 합니다.
 
-### <a name="how-can-i-check-which-users-are-still-using-two-way-sms"></a>양방향 SMS를 사용 하는 사용자를 확인 하려면 어떻게 해야 하나요?
-이러한 사용자를 나열 하려면 **MFA 서버** 를 시작 하 고 **, 사용자** 섹션을 선택 하 고, **사용자 목록 필터** 를 클릭 하 고, **양방향 텍스트 메시지** 를 필터링 합니다.
+### <a name="how-can-i-check-which-users-are-still-using-two-way-sms"></a>아직 양방향 SMS를 사용하는 사용자가 누구인지 어떻게 확인하나요?
+해당되는 사용자를 목록으로 표시하려면 **MFA 서버** 를 시작하여 **사용자** 섹션을 선택하고 **사용자 목록 필터링** 을 클릭한 다음, **텍스트 메시지 양방향** 을 필터링합니다.
 
-### <a name="how-do-we-hide-two-way-sms-as-an-option-in-the-mfa-portal-to-prevent-users-from-selecting-it-in-the-future"></a>사용자가 나중에 선택 하는 것을 방지 하기 위해 MFA 포털에서 양방향 SMS를 옵션으로 숨기는 방법
-MFA 서버 사용자 포털에서 **설정** 을 클릭 하 여 사용할 수 없도록 **문자 메시지** 를 지울 수 있습니다. 사용자 등록에 AD FS를 사용 하는 경우에도 **AD FS** 섹션에서 마찬가지입니다.
+### <a name="how-do-we-hide-two-way-sms-as-an-option-in-the-mfa-portal-to-prevent-users-from-selecting-it-in-the-future"></a>나중에라도 사용자들이 선택하지 않도록 양방향 SMS를 MFA 포털의 옵션에서 감추려면 어떻게 하나요?
+MFA 서버 사용자 포털에서 **설정** 을 클릭하면 **텍스트 메시지** 를 삭제하여 사용할 수 없도록 할 수 있습니다. 사용자 등록에 AD FS를 사용한다면 마찬가지로 **AD FS** 섹션에 적용할 수 있습니다.
 

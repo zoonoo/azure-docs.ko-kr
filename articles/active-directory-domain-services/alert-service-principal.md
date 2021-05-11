@@ -12,15 +12,15 @@ ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: justinha
 ms.openlocfilehash: 15dba02d3db45d663b8ba0aa7eb93bbc3f388532
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101645877"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>알려진 문제: Azure Active Directory Domain Services의 서비스 주체 경고
 
-[서비스 주체](../active-directory/develop/app-objects-and-service-principals.md) 는 azure 플랫폼에서 Azure Active Directory Domain Services (azure AD DS) 관리 되는 도메인을 관리, 업데이트 및 유지 관리 하는 데 사용 하는 응용 프로그램입니다. 서비스 사용자가 삭제 되 면 관리 되는 도메인의 기능에 영향을 줍니다.
+[서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)는 Azure 플랫폼에서Azure Active Directory Domain Services(Azure AD DS) 관리되는 도메인을 관리, 업데이트 및 유지하는 데 사용하는 애플리케이션입니다. 서비스 주체가 삭제되면 관리되는 도메인의 기능에 영향을 줍니다.
 
 이 문서를 통해 서비스 주체 관련 구성 경고 문제를 해결할 수 있습니다.
 
@@ -30,15 +30,15 @@ ms.locfileid: "101645877"
 
 *Azure AD Domain Services가 제대로 작동하는 데 필요한 서비스 주체가 Azure AD 디렉터리에서 삭제되었습니다. 이 구성은 관리되는 도메인을 모니터링, 관리, 패치, 동기화하는 Microsoft의 기능에 영향을 줍니다.*
 
-필요한 서비스 주체가 삭제되면 Azure 플랫폼은 자동화된 관리 작업을 수행할 수 없습니다. 관리 되는 도메인은 업데이트를 올바르게 적용 하거나 백업을 수행할 수 없습니다.
+필요한 서비스 주체가 삭제되면 Azure 플랫폼은 자동화된 관리 작업을 수행할 수 없습니다. 관리되는 도메인은 업데이트를 올바르게 적용하거나 백업을 수행할 수 없습니다.
 
 ### <a name="check-for-missing-service-principals"></a>누락된 서비스 주체에 대한 확인
 
-누락 된 서비스 주체를 확인 하 고 다시 만들어야 하는 경우 다음 단계를 완료 합니다.
+누락된 서비스 주체를 확인하고 다시 만들어야 하는 경우 다음 단계를 완료합니다.
 
 1. Azure Portal의 왼쪽 탐색 메뉴에서 **Azure Active Directory** 를 선택합니다.
 1. **Enterprise 애플리케이션** 을 선택합니다. *애플리케이션 종류* 드롭다운 메뉴에서 **모든 애플리케이션** 을 선택한 다음, **적용** 을 선택합니다.
-1. 다음 응용 프로그램 Id를 각각 검색 합니다. 기존 애플리케이션을 찾을 수 없는 경우 *확인* 단계에 따라 서비스 주체를 만들거나 네임스페이스를 다시 등록합니다.
+1. 다음 애플리케이션 ID를 각각 검색합니다. 기존 애플리케이션을 찾을 수 없는 경우 *확인* 단계에 따라 서비스 주체를 만들거나 네임스페이스를 다시 등록합니다.
 
     | 애플리케이션 UI | 해결 방법 |
     | :--- | :--- |
@@ -49,9 +49,9 @@ ms.locfileid: "101645877"
 
 ### <a name="recreate-a-missing-service-principal"></a>누락된 서비스 주체 다시 만들기
 
-애플리케이션 ID *2565bd9d-da50-47d4-8b85-4c97f669dc36* 이 Azure AD에서 누락된 경우 Azure AD PowerShell을 사용하여 다음 단계를 완료합니다. 자세한 내용은 [AZURE AD PowerShell](/powershell/azure/active-directory/install-adv2)을 참조 하세요.
+애플리케이션 ID *2565bd9d-da50-47d4-8b85-4c97f669dc36* 이 Azure AD에서 누락된 경우 Azure AD PowerShell을 사용하여 다음 단계를 완료합니다. 자세한 내용은 [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2)을 참조하세요.
 
-1. 필요한 경우 Azure AD PowerShell 모듈을 설치 하 고 다음과 같이 가져옵니다.
+1. 필요하다면 Azure AD PowerShell 모듈을 설치하고 다음과 같이 가져옵니다.
 
     ```powershell
     Install-Module AzureAD
@@ -64,24 +64,24 @@ ms.locfileid: "101645877"
     New-AzureAdServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
     ```
 
-관리 되는 도메인의 상태는 2 시간 내에 자동으로 업데이트 되 고 경고를 제거 합니다.
+관리되는 도메인의 상태는 2시간 내에 자동으로 업데이트되고 경고를 제거합니다.
 
 ### <a name="re-register-the-microsoft-aad-namespace"></a>Microsoft AAD 네임스페이스 다시 등록
 
 애플리케이션 ID *443155a6-77f3-45e3-882b-22b3a8d431fb*, *abba844e-bc0e-44b0-947a-dc74e5d09022* 또는 *d87dcbc6-a371-462e-88e3-28ad15ec4e64* 가 Azure AD 디렉터리에서 누락된 경우 다음 단계를 완료하여 *Microsoft.AAD* 리소스 공급자를 다시 등록합니다.
 
 1. Azure Portal에서 **구독** 을 검색하고 선택합니다.
-1. 관리 되는 도메인과 연결 된 구독을 선택 합니다.
+1. 관리되는 도메인과 연결된 구독을 선택합니다.
 1. 왼쪽 탐색 영역에서 **리소스 공급자** 를 선택합니다.
 1. *Microsoft.AAD* 를 검색한 다음, **다시 등록** 을 선택합니다.
 
-관리 되는 도메인의 상태는 2 시간 내에 자동으로 업데이트 되 고 경고를 제거 합니다.
+관리되는 도메인의 상태는 2시간 내에 자동으로 업데이트되고 경고를 제거합니다.
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>경고 AADDS105: 암호 동기화 애플리케이션이 만료됨
 
 ### <a name="alert-message"></a>경고 메시지
 
-*응용 프로그램 ID가 "d87dcbc6-a371-462e-88e3-28ad15ec4e64" 인 서비스 주체가 삭제 된 다음 다시 생성 되었습니다. 다시 만들기는 관리 되는 도메인을 서비스 하는 데 필요한 Azure AD Domain Services 리소스에 대해 일관 되지 않은 사용 권한을 벗어납니다. 관리 되는 도메인에서 암호 동기화에 영향을 줄 수 있습니다.*
+‘애플리케이션 ID가 “d87dcbc6-a371-462e-88e3-28ad15ec4e64”인 서비스 주체가 삭제된 다음, 다시 생성됩니다. 다시 만들기를 수행할 경우 관리되는 도메인을 서비스하는 데 필요한 Azure AD Domain Services 리소스에 일치하지 않는 권한이 남게 됩니다. 관리되는 도메인에서 암호 동기화에 영향이 있을 수 있습니다.’
 
 Azure AD DS는 Azure AD에서 사용자 계정 및 자격 증명을 자동으로 동기화합니다. 이 프로세스에 사용되는 Azure AD 애플리케이션에 문제가 있는 경우 Azure AD DS와 Azure AD 간의 자격 증명 동기화가 실패합니다.
 
@@ -89,7 +89,7 @@ Azure AD DS는 Azure AD에서 사용자 계정 및 자격 증명을 자동으로
 
 자격 증명 동기화에 사용되는 Azure AD 애플리케이션을 다시 만들려면 Azure AD PowerShell을 사용하여 다음 단계를 완료합니다. 자세한 내용은 [Azure AD PowerShell 설치](/powershell/azure/active-directory/install-adv2)를 참조하세요.
 
-1. 필요한 경우 Azure AD PowerShell 모듈을 설치 하 고 다음과 같이 가져옵니다.
+1. 필요하다면 Azure AD PowerShell 모듈을 설치하고 다음과 같이 가져옵니다.
 
     ```powershell
     Install-Module AzureAD
@@ -105,7 +105,7 @@ Azure AD DS는 Azure AD에서 사용자 계정 및 자격 증명을 자동으로
     Remove-AzureADServicePrincipal -ObjectId $spObject
     ```
 
-두 애플리케이션을 모두 삭제하면 Azure 플랫폼이 자동으로 해당 애플리케이션을 다시 만들고 암호 동기화를 다시 시작하려고 합니다. 관리 되는 도메인의 상태는 2 시간 내에 자동으로 업데이트 되 고 경고를 제거 합니다.
+두 애플리케이션을 모두 삭제하면 Azure 플랫폼이 자동으로 해당 애플리케이션을 다시 만들고 암호 동기화를 다시 시작하려고 합니다. 관리되는 도메인의 상태는 2시간 내에 자동으로 업데이트되고 경고를 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

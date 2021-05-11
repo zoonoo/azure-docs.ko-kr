@@ -1,6 +1,6 @@
 ---
-title: Azure API Management 자체 호스팅 게이트웨이에 대 한 로컬 메트릭 및 로그 구성 | Microsoft Docs
-description: Kubernetes 클러스터에서 Azure API Management 자체 호스팅 게이트웨이의 로컬 메트릭 및 로그를 구성 하는 방법에 대해 알아봅니다.
+title: Azure API Management 자체 호스팅 게이트웨이의 로컬 메트릭 및 로그 구성 | Microsoft Docs
+description: Kubernetes 클러스터에서 Azure API Management 자체 호스팅 게이트웨이의 로컬 메트릭 및 로그를 구성하는 방법에 대해 알아봅니다.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -12,23 +12,24 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/01/2021
 ms.author: apimpm
-ms.openlocfilehash: 2b66663c9ee8033bcb12bfac57964ea0eafecdac
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 53fe2d6b06e7502b95a78ad1ebd062efea92c656
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100594176"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162386"
 ---
-# <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Azure API Management 자체 호스팅 게이트웨이에 대 한 로컬 메트릭 및 로그 구성
+# <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Azure API Management 자체 호스팅 게이트웨이에 대한 로컬 메트릭 및 로그 구성
 
-이 문서에서는 Kubernetes 클러스터에 배포 된 [자체 호스팅 게이트웨이의](./self-hosted-gateway-overview.md) 로컬 메트릭 및 로그를 구성 하는 방법에 대 한 세부 정보를 제공 합니다. 클라우드 메트릭 및 로그를 구성 하는 방법에 대해서는 [이 문서](how-to-configure-cloud-metrics-logs.md)를 참조 하세요. 
+이 문서에서는 Kubernetes 클러스터에 배포된 [자체 호스팅 게이트웨이](./self-hosted-gateway-overview.md)의 로컬 메트릭 및 로그를 구성하는 방법에 대한 세부 정보를 제공합니다. 클라우드 메트릭과 로그를 구성하는 방법에 대해서는 [이 문서](how-to-configure-cloud-metrics-logs.md)를 참조하세요.
 
 ## <a name="metrics"></a>메트릭
-자체 호스팅 게이트웨이는 메트릭 수집 및 집계에 대 한 통합 프로토콜이 되기 위한 [Statsd](https://github.com/statsd/statsd)를 지원 합니다. 이 섹션에서는 StatsD를 Kubernetes에 배포 하 고, StatsD를 통해 메트릭을 내보내도록 게이트웨이를 구성 하 고, [프로메테우스](https://prometheus.io/) 를 사용 하 여 메트릭을 모니터링 하는 단계를 안내 합니다. 
 
-### <a name="deploy-statsd-and-prometheus-to-the-cluster"></a>클러스터에 StatsD 및 프로메테우스 배포
+자체 호스팅 게이트웨이는 메트릭 수집 및 집계의 통합 프로토콜이 된 [StatsD](https://github.com/statsd/statsd)를 지원합니다. 이 섹션에서는 StatsD를 Kubernetes에 배포하고, StatsD를 통해 메트릭을 내보내도록 게이트웨이를 구성하며, [Prometheus](https://prometheus.io/)를 사용하여 메트릭을 모니터링 하는 단계를 연습합니다.
 
-다음은 Kubernetes 클러스터에 StatsD 및 프로메테우스를 배포 하 여 자체 호스팅 게이트웨이가 배포 되는 샘플 YAML 구성입니다. 또한 각에 대 한 [서비스](https://kubernetes.io/docs/concepts/services-networking/service/) 를 만듭니다. 자체 호스팅 게이트웨이에서는 StatsD 서비스에 메트릭을 게시 합니다. 서비스를 통해 프로메테우스 대시보드에 액세스 합니다.   
+### <a name="deploy-statsd-and-prometheus-to-the-cluster"></a>클러스터에 StatsD 및 Prometheus 배포
+
+다음은 Kubernetes 클러스터에 StatsD 및 Prometheus를 배포하여 자체 호스팅 게이트웨이가 배포되는 샘플 YAML 구성입니다. 또한 각각을 대상으로 한[서비스](https://kubernetes.io/docs/concepts/services-networking/service/)도 만듭니다. 자체 호스팅 게이트웨이에서는 StatsD 서비스에 메트릭을 게시합니다. 해당 서비스를 통해 Prometheus 대시보드에 액세스합니다.
 
 ```yaml
 apiVersion: v1
@@ -122,13 +123,13 @@ spec:
     app: sputnik-metrics
 ```
 
-이라는 파일에 구성을 저장 하 `metrics.yaml` 고 아래 명령을 사용 하 여 클러스터에 모든 항목을 배포 합니다.
+`metrics.yaml`이라는 파일에 구성을 저장하고 아래 명령을 사용하여 클러스터에 모든 항목을 배포합니다.
 
 ```console
 kubectl apply -f metrics.yaml
 ```
 
-배포가 완료 되 면 아래 명령을 실행 하 여 Pod가 실행 되 고 있는지 확인 합니다. Pod 이름이 달라 집니다. 
+배포가 완료되면 아래 명령을 실행하여 Pod가 실행되고 있는지 확인합니다. Pod 이름은 다릅니다.
 
 ```console
 kubectl get pods
@@ -136,7 +137,7 @@ NAME                                   READY   STATUS    RESTARTS   AGE
 sputnik-metrics-f6d97548f-4xnb7        2/2     Running   0          1m
 ```
 
-아래 명령을 실행 하 여 서비스가 실행 중인지 확인 합니다. `CLUSTER-IP` `PORT` Statsd 서비스의 및을 기록해 둡니다. 나중에 필요 합니다. 및를 사용 하 여 프로메테우스 대시보드를 방문할 수 있습니다 `EXTERNAL-IP` `PORT` .
+아래 명령을 실행하여 서비스가 실행 중인지 확인합니다. StatsD 서비스의`CLUSTER-IP`과 `PORT`를 기록해 두세요. 나중에 필요합니다. `EXTERNAL-IP`과 `PORT`를 사용하여 Prometheus 대시보드에 방문할 수 있습니다.
 
 ```console
 kubectl get services
@@ -145,16 +146,16 @@ sputnik-metrics-prometheus   LoadBalancer   10.0.252.72   13.89.141.90    9090:3
 sputnik-metrics-statsd       NodePort       10.0.41.179   <none>          8125:32733/UDP               18h
 ```
 
-### <a name="configure-the-self-hosted-gateway-to-emit-metrics"></a>자체 호스팅 게이트웨이를 구성 하 여 메트릭 내보내기
+### <a name="configure-the-self-hosted-gateway-to-emit-metrics"></a>자체 호스팅 게이트웨이를 구성하여 메트릭 내보내기
 
-이제 StatsD와 프로메테우스가 모두 배포 되었으므로, Stsd를 통해 메트릭 내보내기를 시작 하도록 자체 호스팅 게이트웨이의 구성을 업데이트할 수 있습니다. `telemetry.metrics.local`추가 옵션을 사용 하 여 자체 호스팅 게이트웨이 배포의 ConfigMap에서 키를 사용 하 여이 기능을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 다음은 사용 가능한 옵션에 대 한 분석입니다.
+이제 StatsD와 Prometheus가 모두 배포되었으므로, StatsD를 통해 메트릭 내보내기를 시작하도록 자체 호스팅 게이트웨이의 구성을 업데이트할 수 있습니다. 추가 옵션을 사용하여 자체 호스팅 게이트웨이 배포의 ConfigMap에서 `telemetry.metrics.local` 키를 사용하여 이 기능을 사용하거나 사용하지 않도록 설정할 수 있습니다. 다음은 사용 가능한 옵션 내역입니다.
 
-| 필드  | 기본값 | 설명 |
+| 필드  | 기본값 | Description |
 | ------------- | ------------- | ------------- |
-| 원격 분석. 메트릭 로컬  | `none` | StatsD를 통해 로깅을 사용 하도록 설정 합니다. 값은, 일 수 있습니다 `none` `statsd` . |
-| 원격 분석. stsd. 끝점  | 해당 없음 | StatsD 끝점을 지정 합니다. |
-| 원격 분석. statsd.  | 해당 없음 | 메트릭 샘플링 주기를 지정 합니다. 값은 0에서 1 사이 여야 합니다. 예: `0.5`|
-| 원격 분석. statsd. 태그 형식  | 해당 없음 | StatsD 내보내기 [태그 지정 형식](https://github.com/prometheus/statsd_exporter#tagging-extensions)입니다. 값은 `none` ,, `librato` `dogStatsD` , `influxDB` 입니다. |
+| telemetry.metrics.local  | `none` | StatsD를 통해 로깅을 사용하도록 설정합니다. 값은 `none`, `statsd`여야 합니다. |
+| telemetry.metrics.local.statsd.endpoint  | 해당 없음 | StatsD 엔드포인트를 지정합니다. |
+| telemetry.metrics.local.statsd.sampling  | 해당 없음 | 메트릭 샘플링 주기를 지정합니다. 값은 0에서 1 사이여야 합니다. 예: `0.5`|
+| telemetry.metrics.local.statsd.tag-format  | 해당 없음 | StatsD 내보내기 [태그 지정 형식](https://github.com/prometheus/statsd_exporter#tagging-extensions). 값은 `none`, `librato`, `dogStatsD`, `influxDB`가 될 수 있습니다. |
 
 다음은 샘플 구성입니다.
 
@@ -171,13 +172,13 @@ sputnik-metrics-statsd       NodePort       10.0.41.179   <none>          8125:3
         telemetry.metrics.local.statsd.tag-format: "dogStatsD"
 ```
 
-위의 구성을 사용 하 여 자체 호스팅 게이트웨이 배포의 YAML 파일을 업데이트 하 고 아래 명령을 사용 하 여 변경 내용을 적용 합니다. 
+위의 구성을 사용하여 자체 호스팅 게이트웨이 배포의 YAML 파일을 업데이트하고 아래 명령을 사용하여 변경 내용을 적용합니다.
 
 ```console
 kubectl apply -f <file-name>.yaml
- ```
+```
 
-최신 구성 변경 사항을 선택 하려면 다음 명령을 사용 하 여 게이트웨이 배포를 다시 시작 합니다.
+최신 구성 변경 사항을 선택하려면 다음 명령을 사용하여 게이트웨이 배포를 다시 시작합니다.
 
 ```console
 kubectl rollout restart deployment/<deployment-name>
@@ -185,11 +186,11 @@ kubectl rollout restart deployment/<deployment-name>
 
 ### <a name="view-the-metrics"></a>메트릭 보기
 
-이제 모든 항목을 배포 및 구성 했으므로 자체 호스팅 게이트웨이는 StatsD를 통해 메트릭을 보고 해야 합니다. 프로메테우스는 StatsD에서 메트릭을 선택 합니다. 프로메테우스 서비스의 및를 사용 하 여 프로메테우스 대시보드로 이동 `EXTERNAL-IP` `PORT` 합니다. 
+이제 모든 항목을 배포하고 구성했으므로 자체 호스팅 게이트웨이는 StatsD를 통해 메트릭을 보고해야 합니다. Prometheus는 StatsD에서 메트릭을 선택합니다. Prometheus 서비스의 `EXTERNAL-IP`과 `PORT`를 사용하여 Prometheus 대시보드로 이동합니다.
 
-자체 호스팅 게이트웨이를 통해 일부 API 호출을 수행 합니다. 모두 올바르게 구성 된 경우 아래 메트릭을 볼 수 있습니다.
+자체 호스팅 게이트웨이를 통해 일부 API 호출을 수행합니다. 모두 올바르게 구성된 경우 아래 메트릭을 볼 수 있습니다.
 
-| 메트릭  | 설명 |
+| 메트릭  | Description |
 | ------------- | ------------- |
 | 요청  | 해당 기간의 API 요청 수 |
 | DurationInMS | 게이트웨이에서 요청을 수신한 순간부터 응답이 완전히 전송될 때까지 걸린 시간(밀리초) |
@@ -198,25 +199,25 @@ kubectl rollout restart deployment/<deployment-name>
 
 ## <a name="logs"></a>로그
 
-자체 호스팅 게이트웨이는 `stdout` 기본적으로 및에 로그를 출력 합니다 `stderr` . 다음 명령을 사용 하 여 로그를 쉽게 볼 수 있습니다.
+자체 호스팅 게이트웨이는 기본적으로 `stdout`과 `stderr`에 로그를 출력합니다. 다음 명령을 사용하여 로그를 쉽게 볼 수 있습니다.
 
 ```console
 kubectl logs <pod-name>
 ```
 
-자체 호스팅 게이트웨이가 Azure Kubernetes Service에 배포 되는 경우 [컨테이너에 대해 Azure Monitor](../azure-monitor/containers/container-insights-overview.md) 를 사용 하도록 설정 하 여 작업을 수집 하 `stdout` `stderr` 고 Log Analytics에서 로그를 볼 수 있습니다. 
+자체 호스팅 게이트웨이가 Azure Kubernetes Service에 배포되는 경우, [컨테이너용 Azure Monitor](../azure-monitor/containers/container-insights-overview.md)를 사용하도록 설정하여 `stdout`과 `stderr`를 워크로드에서 수집하고 Log Analytics에서 로그를 볼 수 있습니다.
 
-자체 호스팅 게이트웨이는,, 등의 다양 한 프로토콜도 `localsyslog` 지원 `rfc5424` `journal` 합니다. 아래 표에는 지원 되는 모든 옵션이 요약 되어 있습니다. 
+자체 호스팅 게이트웨이는 `localsyslog`, `rfc5424`, `journal`등의 다양한 프로토콜도 지원합니다. 아래 표에는 지원되는 모든 옵션이 요약되어 있습니다.
 
-| 필드  | 기본값 | 설명 |
+| 필드  | 기본값 | Description |
 | ------------- | ------------- | ------------- |
-| 원격 분석. logs.  | `text` | 표준 스트림에 로깅을 사용 하도록 설정 합니다. 값은 `none` , `text` , `json` |
-| 원격 분석. logs. 로컬  | `none` | 로컬 로깅을 사용 합니다. 값은 `none` ,, `auto` `localsyslog` , `rfc5424` ,입니다. `journal`  |
-| 원격 분석. localsyslog. 끝점  | 해당 없음 | Localsyslog 끝점을 지정 합니다.  |
-| 원격 분석. localsyslog.  | 해당 없음 | Localsyslog [기능 코드](https://en.wikipedia.org/wiki/Syslog#Facility)를 지정 합니다. 예: `7` 
-| rfc5424. 끝점  | 해당 없음 | Rfc5424 끝점을 지정 합니다.  |
-| 원격 분석. rfc5424.  | 해당 없음 | [Rfc5424](https://tools.ietf.org/html/rfc5424)당 시설 코드를 지정 합니다. 예: `7`  |
-| 원격 분석. logs.  | 해당 없음 | 저널 끝점을 지정 합니다.  |
+| telemetry.logs.std  | `text` | 표준 스트림에 로깅을 사용하도록 설정합니다. 값은 `none`, `text`, `json`이 될 수 있습니다. |
+| telemetry.logs.local  | `none` | 로컬 로깅을 사용합니다. 값은 `none`, `auto`, `localsyslog`, `rfc5424`, `journal`가 될 수 있습니다.  |
+| telemetry.logs.local.localsyslog.endpoint  | 해당 없음 | localsyslog 엔드포인트를 지정합니다.  |
+| telemetry.logs.local.localsyslog.facility  | 해당 없음 | localsyslog [기능 코드](https://en.wikipedia.org/wiki/Syslog#Facility)를 지정합니다. 예: `7`
+| telemetry.logs.local.rfc5424.endpoint  | 해당 없음 | rfc5424 엔드포인트를 지정합니다.  |
+| telemetry.logs.local.rfc5424.facility  | 해당 없음 | 각 [rfc5424](https://tools.ietf.org/html/rfc5424)의 기능 코드를 지정합니다. 예: `7`  |
+| telemetry.logs.local.journal.endpoint  | 해당 없음 | 업무 일지 엔드포인트를 지정합니다.  |
 
 로컬 로깅의 샘플 구성은 다음과 같습니다.
 
@@ -231,8 +232,8 @@ kubectl logs <pod-name>
         telemetry.logs.local.localsyslog.endpoint: "/dev/log"
         telemetry.logs.local.localsyslog.facility: "7"
 ```
- 
+
 ## <a name="next-steps"></a>다음 단계
 
-* 자체 호스팅 게이트웨이에 대해 자세히 알아보려면 [Azure API Management 자체 호스팅 게이트웨이 개요](self-hosted-gateway-overview.md) 를 참조 하세요.
-* [클라우드에서 로그를 구성 하 고 유지 하는](how-to-configure-local-metrics-logs.md) 방법을 알아봅니다.
+* 자체 호스팅 게이트웨이에 대해 자세히 알아보려면 [Azure API Management 자체 호스팅 게이트웨이 개요](self-hosted-gateway-overview.md)를 참조하세요.
+* [클라우드에서 로그를 구성하고 유지하는](how-to-configure-local-metrics-logs.md) 방법을 알아봅니다

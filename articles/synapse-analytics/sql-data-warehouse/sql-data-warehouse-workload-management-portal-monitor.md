@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 702cc1fc8b135b2eb4af9106a81946873918c4fa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101694396"
 ---
 # <a name="azure-synapse-analytics--workload-management-portal-monitoring"></a>Azure Synapse Analytics – 워크로드 관리 포털 모니터링
@@ -31,7 +31,7 @@ Azure Metric Explorer를 구성하는 방법에 대한 자세한 내용은 [Azur
 |유효 상한 리소스 비율 | *유효 상한 리소스 비율* 은 다른 작업 그룹에 할당된 *유효 최소 리소스 비율* 을 고려하여 작업 그룹에서 액세스할 수 있는 리소스의 비율에 대한 엄격한 제한입니다. *유효 상한 리소스 비율* 메트릭은 [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 구문에서 `CAP_PERCENTAGE_RESOURCE` 매개 변수를 사용하여 구성됩니다.  유효 값은 여기서 설명하고 있습니다.<br><br>예를 들어 `CAP_PERCENTAGE_RESOURCE` = 100인 `DataLoads` 작업 그룹과 유효 최소 리소스 비율이 25%인 다른 작업 그룹을 만드는 경우 `DataLoads` 작업 그룹에 대한 *유효 상한 리소스 비율* 은 75%입니다.<br><br>*유효 상한 리소스 비율* 은 작업 그룹에서 달성할 수 있는 동시성(이에 따라 잠재적 처리량)의 상한을 결정합니다.  *유효 상한 리소스 비율* 메트릭에서 현재 보고한 것보다 더 많은 처리량이 필요한 경우 `CAP_PERCENTAGE_RESOURCE`를 늘리거나 다른 작업 그룹의 `MIN_PERCENTAGE_RESOURCE`를 줄이거나 인스턴스를 강화하여 더 많은 리소스를 추가합니다.  `REQUEST_MIN_RESOURCE_GRANT_PERCENT`를 줄이면 동시성은 증가하지만 전체 처리량이 증가하지 않을 수 있습니다.| 최소, 평균, 최대 |
 |유효 최소 리소스 비율 |*유효 최소 리소스 비율* 은 서비스 수준 최솟값을 고려하여 작업 그룹에 예약되고 격리되는 리소스의 최소 비율입니다.  유효 최소 리소스 비율 메트릭은 [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 구문에서 `MIN_PERCENTAGE_RESOURCE` 매개 변수를 사용하여 구성됩니다.  유효 값은 [여기](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json?view=azure-sqldw-latest&preserve-view=true#effective-values)서 설명하고 있습니다.<br><br>이 메트릭이 필터링되지 않고 분할되지 않는 경우 합계 집계 유형을 사용하여 시스템에 구성된 총 워크로드 격리를 모니터링합니다.<br><br>*유효 최소 리소스 비율* 은 작업 그룹에서 달성할 수 있는 보장된 동시성(이에 따라 보장된 처리량)의 하한을 결정합니다.  *유효 최소 리소스 비율* 메트릭에서 현재 보고하는 것보다 더 많은 보장된 리소스가 필요한 경우 작업 그룹에 구성된 `MIN_PERCENTAGE_RESOURCE` 매개 변수를 늘립니다.  `REQUEST_MIN_RESOURCE_GRANT_PERCENT`를 줄이면 동시성은 증가하지만 전체 처리량이 증가하지 않을 수 있습니다. |최소, 평균, 최대|
 |작업 그룹 활성 쿼리  |이 메트릭은 작업 그룹 내의 활성 쿼리를 보고합니다.  필터링되지 않고 분할되지 않은 이 메트릭을 사용하면 시스템에서 실행 중인 모든 활성 쿼리가 표시됩니다.|합계         |
-|Cap 리소스 percent 별 작업 그룹 할당 |이 메트릭은 작업 그룹당 *유효 상한 리소스 비율* 에 대한 상대적 리소스 할당률을 표시합니다.  이 메트릭은 작업 그룹의 효과적인 사용률을 제공합니다.<br><br>*유효 상한 리소스 비율* 이 75%이고 `REQUEST_MIN_RESOURCE_GRANT_PERCENT`가 25%로 구성된 `DataLoads` 작업 그룹을 고려해 보세요.  *Cap 리소스 percent로 필터링 된 작업 그룹 할당* 값은 `DataLoads` 33% (25%/75%)입니다. 단일 쿼리가이 작업 그룹에서 실행 되 고 있는 경우<br><br>이 메트릭을 사용하여 작업 그룹의 사용률을 식별합니다.  값이 100%에 가까우면 작업 그룹에 사용할 수 있는 모든 리소스가 사용되고 있음을 나타냅니다.  또한 0보다 큰 값을 표시하는 동일한 작업 그룹에 대한 *작업 그룹 큐에 대기 중인 쿼리 메트릭* 은 할당된 작업 그룹에서 추가 리소스를 사용할 것임을 나타냅니다.  반대로 이 메트릭이 지속적으로 낮고 *작업 그룹 활성 쿼리* 가 낮은 경우 작업 그룹이 사용되지 않는 것입니다.  *유효 상한 리소스 비율* 이 0보다 크면 [미달 사용 워크로드 격리](#underutilized-workload-isolation)를 나타내므로 이 상황은 특히 문제가 됩니다.|최소, 평균, 최대 |
+|상한 리소스별 워크로드 그룹 할당 비율 |이 메트릭은 작업 그룹당 *유효 상한 리소스 비율* 에 대한 상대적 리소스 할당률을 표시합니다.  이 메트릭은 작업 그룹의 효과적인 사용률을 제공합니다.<br><br>*유효 상한 리소스 비율* 이 75%이고 `REQUEST_MIN_RESOURCE_GRANT_PERCENT`가 25%로 구성된 `DataLoads` 작업 그룹을 고려해 보세요.  이 워크로드 그룹에서 단일 쿼리가 실행된 경우 `DataLoads`로 필터링된 *상한 리소스별 워크로드 그룹 할당 비율* 값은 33%(25%/75%)입니다.<br><br>이 메트릭을 사용하여 작업 그룹의 사용률을 식별합니다.  값이 100%에 가까우면 작업 그룹에 사용할 수 있는 모든 리소스가 사용되고 있음을 나타냅니다.  또한 0보다 큰 값을 표시하는 동일한 작업 그룹에 대한 *작업 그룹 큐에 대기 중인 쿼리 메트릭* 은 할당된 작업 그룹에서 추가 리소스를 사용할 것임을 나타냅니다.  반대로 이 메트릭이 지속적으로 낮고 *작업 그룹 활성 쿼리* 가 낮은 경우 작업 그룹이 사용되지 않는 것입니다.  *유효 상한 리소스 비율* 이 0보다 크면 [미달 사용 워크로드 격리](#underutilized-workload-isolation)를 나타내므로 이 상황은 특히 문제가 됩니다.|최소, 평균, 최대 |
 |시스템 비율별 작업 그룹 할당 | 이 메트릭은 전체 시스템에 대한 상대적인 리소스 할당률을 표시합니다.<br><br>`REQUEST_MIN_RESOURCE_GRANT_PERCENT`가 25%로 구성된 `DataLoads` 작업 그룹을 고려해 보세요.  이 작업 그룹에서 단일 쿼리가 실행된 경우 `DataLoads`로 필터링된 *시스템 비율별 작업 그룹 할당* 값은 25%(25%/100%)입니다.|최소, 평균, 최대 |
 |작업 그룹 쿼리 시간 제한 |시간이 초과된 작업 그룹에 대한 쿼리입니다.  이 메트릭에서 보고한 쿼리 시간 제한은 쿼리 실행이 시작된 후에만 해당됩니다(잠금 또는 리소스 대기로 인한 대기 시간은 포함되지 않음).<br><br>쿼리 시간 제한은 [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 구문에서 `QUERY_EXECUTION_TIMEOUT_SEC` 매개 변수를 사용하여 구성됩니다.  값을 늘리면 쿼리 시간 제한 수를 줄일 수 있습니다.<br><br>시간 제한을 줄이고 쿼리당 더 많은 리소스를 할당하려면 작업 그룹에 대한 `REQUEST_MIN_RESOURCE_GRANT_PERCENT` 매개 변수를 늘리는 것이 좋습니다.  `REQUEST_MIN_RESOURCE_GRANT_PERCENT`를 늘리면 작업 그룹의 동시성 양이 줄어듭니다. |합계 |
 |작업 그룹 큐에 대기 중인 쿼리 | 실행을 시작하려고 대기 중인 현재 큐에 있는 작업 그룹에 대한 쿼리입니다.  쿼리는 리소스 또는 잠금을 기다리고 있으므로 큐에 넣을 수 있습니다.<br><br>쿼리는 여러 가지 이유로 기다리고 있을 수 있습니다.  시스템이 오버로드되고 동시성 요구가 사용 가능한 것보다 큰 경우 쿼리가 큐에서 대기합니다.<br><br>[CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문에서 `CAP_PERCENTAGE_RESOURCE` 매개 변수를 늘려 더 많은 리소스를 작업 그룹에 추가하는 것이 좋습니다.  `CAP_PERCENTAGE_RESOURCE`가 *유효 상한 리소스 비율* 메트릭보다 크면 다른 작업 그룹에 구성된 워크로드 격리에서 이 작업 그룹에 할당된 리소스에 영향을 줍니다.  다른 작업 그룹의 `MIN_PERCENTAGE_RESOURCE`를 줄이거나 인스턴스를 강화하여 더 많은 리소스를 추가하는 것이 좋습니다. |합계 |
@@ -59,8 +59,8 @@ WITH ( WORKLOAD_GROUP = 'wgPriority'
 메트릭 1: *유효 최소 리소스 비율* (평균 집계, `blue line`)<br>
 메트릭 2: *시스템 비율별 작업 그룹 할당*(평균 집계, `purple line`)<br>
 필터: [작업 그룹] = `wgPriority`<br>
-![스크린샷에는 두 개의 메트릭과 필터가 있는 차트가 표시 됩니다.](./media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png)
-이 차트에서는 25% 워크 로드 격리를 사용 하 여 평균에 10%만 사용 하 고 있음을 보여 줍니다.  이 경우 `MIN_PERCENTAGE_RESOURCE` 매개 변수 값을 10 또는 15 사이로 낮추고 시스템의 다른 워크로드에서 리소스를 사용할 수 있습니다.
+![메트릭 두 개와 필터를 표시한 차트를 보여 주는 스크린샷](./media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png)
+이 차트에서 워크로드 격리는 25%이며 평균적으로 10%만 사용됩니다.  이 경우 `MIN_PERCENTAGE_RESOURCE` 매개 변수 값을 10 또는 15 사이로 낮추고 시스템의 다른 워크로드에서 리소스를 사용할 수 있습니다.
 
 ### <a name="workload-group-bottleneck"></a>작업 그룹 병목 상태
 
@@ -79,11 +79,11 @@ WITH ( WORKLOAD_GROUP = 'wgDataAnalyst'
 
 아래 차트가 다음과 같이 구성됩니다.<br>
 메트릭 1: *유효 상한 리소스 비율*(평균 집계, `blue line`)<br>
-메트릭 2: *cap 리소스 percent 별 작업 그룹 할당* (Avg aggregation, `purple line` )<br>
+메트릭 2: *최대 리소스별 워크로드 그룹 할당 비율* (평균 집계, `purple line`)<br>
 메트릭 3: *작업 그룹 큐에 대기 중인 쿼리*(합계 집계, `turquoise line`)<br>
 필터: [작업 그룹] = `wgDataAnalyst`<br>
-![3 개의 메트릭과 필터가 있는 차트를 보여 주는 스크린샷](./media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png)
-이 차트에서는 리소스에서 9% 캡이 포함 된 것으로 표시 되 고 작업 그룹은 90% 이상 사용 됩니다 ( *cap 리소스 백분율 메트릭을 기준으로 작업 그룹 할당* 에서).  *작업 그룹 큐에 대기 중인 쿼리 메트릭* 에서와 같이 쿼리가 큐에서 안정적으로 대기하고 있습니다.  이 경우 `CAP_PERCENTAGE_RESOURCE`를 9%보다 큰 값으로 늘리면 더 많은 쿼리를 동시에 실행할 수 있습니다.  `CAP_PERCENTAGE_RESOURCE`를 늘리면 사용 가능한 리소스가 충분하고 다른 작업 그룹에서 격리되지 않은 것으로 가정합니다.  *유효 상한 리소스 비율 메트릭* 을 확인하여 상한이 증가했는지 확인합니다.  더 많은 처리량이 필요한 경우 `REQUEST_MIN_RESOURCE_GRANT_PERCENT`를 3보다 큰 값으로 늘릴 수도 있습니다.  `REQUEST_MIN_RESOURCE_GRANT_PERCENT`를 늘리면 쿼리가 더 빨리 실행될 수 있습니다.
+![메트릭 세 개와 필터를 표시한 차트를 보여 주는 스크린샷](./media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png)
+이 차트에서 리소스 상한은 9%이고 워크로드 그룹은 90% 이상 사용되고 있는 것으로 표시됩니다.(*상한 리소스별 워크로드 그룹 할당 비율 메트릭* 참고).  *작업 그룹 큐에 대기 중인 쿼리 메트릭* 에서와 같이 쿼리가 큐에서 안정적으로 대기하고 있습니다.  이 경우 `CAP_PERCENTAGE_RESOURCE`를 9%보다 큰 값으로 늘리면 더 많은 쿼리를 동시에 실행할 수 있습니다.  `CAP_PERCENTAGE_RESOURCE`를 늘리면 사용 가능한 리소스가 충분하고 다른 작업 그룹에서 격리되지 않은 것으로 가정합니다.  *유효 상한 리소스 비율 메트릭* 을 확인하여 상한이 증가했는지 확인합니다.  더 많은 처리량이 필요한 경우 `REQUEST_MIN_RESOURCE_GRANT_PERCENT`를 3보다 큰 값으로 늘릴 수도 있습니다.  `REQUEST_MIN_RESOURCE_GRANT_PERCENT`를 늘리면 쿼리가 더 빨리 실행될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

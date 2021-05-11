@@ -1,7 +1,7 @@
 ---
-title: Azure AD B2C (MSAL Android) | Microsoft
+title: Azure AD B2C(MSAL Android) | Azure
 titleSuffix: Microsoft identity platform
-description: Microsoft Authentication Library for Android (MSAL)에서 Azure AD B2C를 사용 하는 경우의 특정 고려 사항에 대해 알아봅니다. 용
+description: Android용 Microsoft 인증 라이브러리(MSAL.Android)가 있는 Azure AD B2C를 사용할 때 특별히 고려할 내용에 관하여 알아봅니다.
 services: active-directory
 author: iambmelt
 manager: CelesteDG
@@ -14,32 +14,32 @@ ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
 ms.openlocfilehash: 1a9b9481d0b4086505bbfd3c2cd654ce228d1ae2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101688878"
 ---
-# <a name="use-msal-for-android-with-b2c"></a>B2C와 함께 Android 용 MSAL 사용
+# <a name="use-msal-for-android-with-b2c"></a>B2C가 있는 Android용 MSAL
 
-MSAL (Microsoft 인증 라이브러리)을 사용 하면 응용 프로그램 개발자가 [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml)를 사용 하 여 소셜 및 로컬 id를 사용 하 여 사용자를 인증할 수 있습니다. Azure AD B2C는 ID 관리 서비스입니다. 이를 통해 고객이 응용 프로그램을 사용 하 여 등록, 로그인 및 프로필을 관리 하는 방법을 사용자 지정 하 고 제어할 수 있습니다.
+MSAL(Microsoft 인증 라이브러리)를 통하여 애플리케이션 개발자는 [Azure Active Directory B2C(Azure AD B2C)](../../active-directory-b2c/index.yml)를 사용하여 소셜 ID와 로컬 ID로 사용자를 인증할 수 있습니다. Azure AD B2C는 ID 관리 서비스입니다. 이 라이브러리를 사용하여 고객이 애플리케이션을 사용할 때 등록, 로그인하고 프로필을 관리하는 방법을 사용자 지정하고 제어할 수 있습니다.
 
-## <a name="choosing-a-compatible-authorization_user_agent"></a>호환 되는 authorization_user_agent 선택
-B2C identity management system은 Google, Facebook, Twitter, Amazon 등의 여러 소셜 계정 공급자를 사용 하 여 인증을 지원 합니다. 앱에서 이러한 계정 유형을 지원 하려는 경우 `DEFAULT` `BROWSER` [`authorization_user_agent`](msal-configuration.md#authorization_user_agent) 일부 외부 id 공급자와의 웹 보기 기반 인증 사용이 금지 되어 있으므로 또는 값 중 하나를 사용 하도록 msal 공용 클라이언트 응용 프로그램을 구성 하는 것이 좋습니다.
+## <a name="choosing-a-compatible-authorization_user_agent"></a>호환되는 authorization_user_agent 선택
+B2C ID 관리 시스템은 Google, Facebook, Twitter, Amazon과 같은 여러 소셜 계정 공급자에서 인증을 지원합니다. 앱에서 이러한 계정 유형을 지원하려면 일부 외부 ID 공급자에서 웹 보기 기반 인증의 사용이 제한되므로 매니페스트의 [`authorization_user_agent`](msal-configuration.md#authorization_user_agent)를 지정할 때 `DEFAULT` 또는 `BROWSER` 값을 사용하도록 MSAL 퍼블릭 클라이언트 애플리케이션을 구성하는 것이 좋습니다.
 
 ## <a name="configure-known-authorities-and-redirect-uri"></a>알려진 인증 기관 및 리디렉션 URI 구성
 
-Android 용 MSAL에서 B2C 정책 (사용자 경험)은 개별 기관으로 구성 됩니다.
+Android용 MSAL에서 B2C 정책(사용자 경험)은 개별 인증 기관으로 구성됩니다.
 
-두 개의 정책이 있는 B2C 응용 프로그램을 제공 합니다.
-- 등록/로그인
-    * 이름의 `B2C_1_SISOPolicy`
+두 가지 정책이 있는 B2C 애플리케이션이 제공됩니다.
+- 등록/ 로그인
+    * `B2C_1_SISOPolicy`라고 함
 - 프로필 편집
-    * 이름의 `B2C_1_EditProfile`
+    * `B2C_1_EditProfile`라고 함
 
-앱에 대 한 구성 파일은 2를 선언 `authorities` 합니다. 각 정책에 대해 하나씩입니다. `type`각 기관의 속성은 `B2C` 입니다.
+앱에 대한 구성 파일은 두 개의 `authorities`를 선언합니다. 정책당 하나입니다. 인증 기관별 `type` 속성은 `B2C`입니다.
 
->참고: `account_mode` B2C 응용 프로그램의 경우를 **MULTIPLE** 으로 설정 해야 합니다. [여러 계정 공용 클라이언트 앱](./single-multi-account.md#multiple-account-public-client-application)에 대 한 자세한 내용은 설명서를 참조 하세요.
+>참고: B2C 애플리케이션에 대하여 `account_mode`는 반드시 **다중** 으로 설정하여야 합니다. [다중 계정 퍼블릭 클라이언트 앱](./single-multi-account.md#multiple-account-public-client-application)에 대한 자세한 내용은 설명서를 참조하세요.
 
 ### `app/src/main/res/raw/msal_config.json`
 
@@ -63,11 +63,11 @@ Android 용 MSAL에서 B2C 정책 (사용자 경험)은 개별 기관으로 구�
 }
 ```
 
-는 `redirect_uri` 앱 구성에 등록 되어 있어야 하며,  `AndroidManifest.xml` [인증 코드 부여 흐름](../../active-directory-b2c/authorization-code-flow.md)동안 리디렉션을 지원 하기 위해에도 있어야 합니다.
+`redirect_uri`가 앱 구성에 등록되어야 하며 `AndroidManifest.xml`에도 등록되어 [인증 코드 부여 흐름](../../active-directory-b2c/authorization-code-flow.md) 중에 리디렉션을 지원하여야 합니다.
 
 ## <a name="initialize-ipublicclientapplication"></a>IPublicClientApplication 초기화
 
-`IPublicClientApplication` 는 팩터리 메서드에서 생성 되어 응용 프로그램 구성을 비동기적으로 구문 분석할 수 있도록 합니다.
+팩터리 메서드는 애플리케이션 구성을 비동기적으로 구문 분석할 수 있도록 `IPublicClientApplication`을 구성합니다.
 
 ```java
 PublicClientApplication.createMultipleAccountPublicClientApplication(
@@ -90,7 +90,7 @@ PublicClientApplication.createMultipleAccountPublicClientApplication(
 
 ## <a name="interactively-acquire-a-token"></a>대화형으로 토큰 획득
 
-MSAL을 사용 하 여 대화형으로 토큰을 가져오려면 `AcquireTokenParameters` 인스턴스를 빌드하고 `acquireToken` 메서드에 제공 합니다. 아래 토큰 요청은 권한을 사용 합니다 `default` .
+MSAL을 통하여 대화형으로 토큰을 획득하려면 `AcquireTokenParameters` 인스턴스를 빌드하여 `acquireToken` 메서드에 제공합니다. 아래의 토큰 요청은 `default` 권한을 사용합니다.
 
 ```java
 IMultipleAccountPublicClientApplication pca = ...; // Initialization not shown
@@ -121,7 +121,7 @@ pca.acquireToken(parameters);
 
 ## <a name="silently-renew-a-token"></a>토큰 자동 갱신
 
-MSAL을 사용 하 여 토큰을 자동으로 획득 하려면 인스턴스를 빌드하여 `AcquireTokenSilentParameters` 메서드에 제공 `acquireTokenSilentAsync` 합니다. 메서드와 달리 `acquireToken` `authority` 토큰을 자동으로 얻으려면를 지정 해야 합니다.
+MSAL을 통하여 자동으로 토큰을 획득하려면 `AcquireTokenSilentParameters` 인스턴스를 빌드하여 `acquireTokenSilentAsync` 메서드에 제공합니다. `acquireToken` 메서드와는 달리 `authority`는 자동으로 토큰을 획득하려면 반드시 지정하여야 합니다.
 
 ```java
 IMultipleAccountPublicClientApplication pca = ...; // Initialization not shown
@@ -148,7 +148,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>정책 지정
 
-B2C의 정책은 별도의 인증 기관으로 표시 되기 때문에 `fromAuthority` `acquireToken` 또는 매개 변수를 생성할 때 절을 지정 하 여 기본값 이외의 정책을 호출 하는 것이 좋습니다 `acquireTokenSilent` .  예를 들면 다음과 같습니다.
+B2C 정책은 개별 인증 기관으로 표시되기 때문에, `acquireToken` 또는 `acquireTokenSilent` 매개 변수를 구성할 때 `fromAuthority` 절을 지정하여 기본값 이외의 정책을 호출합니다.  예를 들면 다음과 같습니다.
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
@@ -162,11 +162,11 @@ AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
 
 ## <a name="handle-password-change-policies"></a>암호 변경 정책 처리
 
-로컬 계정 등록 또는 로그인 사용자 흐름에서 '**암호 잊음?**'를 표시 합니다. 링크를 사용하여 비용 없이 계정을 만들 수 있습니다. 이 링크를 클릭해도 암호 재설정 사용자 흐름이 자동으로 트리거되지는 않습니다.
+로컬 계정 등록이나 로그인 사용자 흐름에 ‘**암호 분실?** ’을 표시합니다. 링크를 사용하여 비용 없이 계정을 만들 수 있습니다. 이 링크를 클릭해도 암호 재설정 사용자 흐름이 자동으로 트리거되지는 않습니다.
 
-대신 `AADB2C90118` 오류 코드가 앱에 반환됩니다. 앱은 암호를 재설정 하는 특정 사용자 흐름을 실행 하 여이 오류 코드를 처리 해야 합니다.
+대신 `AADB2C90118` 오류 코드가 앱에 반환됩니다. 앱은 암호를 재설정하는 특정 사용자 흐름을 실행하여 해당 오류 코드를 처리하여야 합니다.
 
-암호 다시 설정 오류 코드를 catch 하기 위해 내에서 다음 구현을 사용할 수 있습니다 `AuthenticationCallback` .
+암호 재설정 오류 코드를 잡아내기 위하여서는 다음을 `AuthenticationCallback`에서 구현할 수 있습니다.:
 
 ```java
 new AuthenticationCallback() {
@@ -194,7 +194,7 @@ new AuthenticationCallback() {
 
 ## <a name="use-iauthenticationresult"></a>IAuthenticationResult 사용
 
-토큰 획득이 성공 하면 개체를 반환 `IAuthenticationResult` 합니다. 여기에는 액세스 토큰, 사용자 클레임 및 메타 데이터가 포함 됩니다.
+성공적인 토큰 획득은 `IAuthenticationResult` 개체로 나타납니다. 여기에는 액세스 토큰, 사용자 클레임, 메타데이터가 들어 있습니다.
 
 ### <a name="get-the-access-token-and-related-properties"></a>액세스 토큰 및 관련 속성 가져오기
 
@@ -212,7 +212,7 @@ Date expiry = authenticationResult.getExpiresOn();
 String tenantId = authenticationResult.getTenantId();
 ```
 
-### <a name="get-the-authorized-account"></a>권한 있는 계정 가져오기
+### <a name="get-the-authorized-account"></a>인증된 계정 가져오기
 
 ```java
 // Get the account from the result
@@ -236,16 +236,16 @@ String tenantId = account.getTenantId();
 
 ### <a name="idtoken-claims"></a>IdToken 클레임
 
-IdToken에서 반환 된 클레임은 MSAL이 아니라 STS (보안 토큰 서비스)에 의해 채워집니다. 사용 된 IdP (id 공급자)에 따라 일부 클레임이 없을 수도 있습니다. 일부 IdPs는 현재 클레임을 제공 하지 않습니다 `preferred_username` . 이 클레임은 캐싱에 대해 MSAL에서 사용 되므로 자리 표시자 값가 `MISSING FROM THE TOKEN RESPONSE` 대신 사용 됩니다. B2C IdToken 클레임에 대 한 자세한 내용은 [Azure Active Directory B2C의 토큰 개요](../../active-directory-b2c/tokens-overview.md#claims)를 참조 하세요.
+IdToken에서 반환된 클레임은 MSAL이 아니라 STS(보안 토큰 서비스)가 채웁니다. 사용된 IdP(ID 공급자)에 따라 어떤 클레임은 없을 수도 있습니다. 현재, `preferred_username` 클레임을 제공하지 않는 IdP도 있습니다. 캐싱을 위하여 MSAL이 해당 클레임을 사용하기 때문에 자리 표시자 값인 `MISSING FROM THE TOKEN RESPONSE`가 그 자리에 사용됩니다. B2C IdToken 클레임에 대한 자세한 내용은 [Azure Active Directory B2C의 토큰 개요](../../active-directory-b2c/tokens-overview.md#claims)를 확인하세요.
 
 ## <a name="managing-accounts-and-policies"></a>계정 및 정책 관리
 
-B2C는 각 정책을 별도의 기관으로 처리 합니다. 따라서 각 정책에서 반환 된 액세스 토큰, 새로 고침 토큰 및 ID 토큰은 서로 교환할 수 없습니다. 즉, 각 정책은 `IAccount` 다른 정책을 호출 하는 데 사용할 수 없는 토큰을 포함 하는 별도의 개체를 반환 합니다.
+B2C에서는 개별 정책을 개별 인증 기관으로 취급합니다. 따라서, 정책별로 반환된 해당 액세스 토큰, 새로 고침 토큰, ID 토큰은 교환할 수 없습니다. 이는 각 정책이 다른 정책을 호출하는 데 이용할 수 없는 토큰을 가지고 있는 개별 `IAccount` 개체를 반환한다는 의미입니다.
 
-각 정책은 `IAccount` 각 사용자의 캐시에를 추가 합니다. 사용자가 응용 프로그램에 로그인 하 고 두 개의 정책을 호출 하는 경우 두 개의를 갖게 됩니다 `IAccount` . 캐시에서이 사용자를 제거 하려면 `removeAccount()` 각 정책에 대해를 호출 해야 합니다.
+정책마다 사용자 각각의 캐시에 `IAccount`를 추가합니다. 사용자 한 명이 애플리케이션에 로그인하여 두 개의 정책을 호출하는 경우, `IAccount` 두 개를 가지게 됩니다. 캐시에서 해당 사용자를 제거하려면 정책별로 `removeAccount()`를 호출하여야 합니다.
 
-에서 정책에 대 한 토큰을 갱신 하는 경우 정책에 대 한 `acquireTokenSilent` `IAccount` 이전 호출에서 반환 된 것과 동일한를 제공  `AcquireTokenSilentParameters` 합니다. 다른 정책에서 반환 된 계정을 제공 하면 오류가 발생 합니다.
+`acquireTokenSilent`를 사용하여 어느 정책에 대한 토큰을 갱신하는 경우, 해당 정책이 이전에 호출하여 반환된 것과 동일한 `IAccount`를 `AcquireTokenSilentParameters`에 제공합니다. 다른 정책이 반환한 계정을 제공하면 오류가 발생합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Active Directory B2C](../../active-directory-b2c/overview.md) Azure AD B2C Azure Active Directory B2C에 대해 자세히 알아보세요.
+Azure Active Directory B2C(Azure AD B2C)에 대한 자세한 내용은 [Azure Active Directory B2C란 무엇입니까?](../../active-directory-b2c/overview.md)에서 알아보세요.

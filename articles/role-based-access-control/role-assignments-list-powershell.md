@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell를 사용 하 여 Azure 역할 할당 나열-Azure RBAC
-description: 사용자, 그룹, 서비스 사용자 또는 관리 id에서 Azure PowerShell 및 Azure 역할 기반 액세스 제어 (Azure RBAC)를 사용 하 여 액세스할 수 있는 리소스를 확인 하는 방법에 대해 알아봅니다.
+title: Azure PowerShell을 사용하여 Azure 역할 할당 나열 - Azure RBAC
+description: Azure PowerShell 및 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 액세스할 수 있는 사용자, 그룹, 서비스 주체 또는 관리 ID를 확인하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,28 +15,28 @@ ms.date: 07/28/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: bf5445f6ca04e56aab466e97967a58c3e4b735a4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100556931"
 ---
-# <a name="list-azure-role-assignments-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 역할 할당 나열
+# <a name="list-azure-role-assignments-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 역할 할당 나열
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] 이 문서에서는 Azure PowerShell를 사용 하 여 역할 할당을 나열 하는 방법을 설명 합니다.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] 이 문서에서는 Azure PowerShell을 사용하여 역할 할당을 나열하는 방법에 관해 설명합니다.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> 조직에서 [Azure 위임 된 리소스 관리](../lighthouse/concepts/azure-delegated-resource-management.md)를 사용 하는 서비스 공급자에 대해 아웃소싱 된 관리 기능을 사용 하는 경우 해당 서비스 공급자가 승인한 역할 할당은 여기에 표시 되지 않습니다.
+> 조직에서 [Azure 위임된 리소스 관리](../lighthouse/concepts/azure-delegated-resource-management.md)를 사용하는 서비스 공급자에 대해 아웃소싱된 관리 기능을 사용하는 경우 해당 서비스 공급자가 승인한 역할 할당은 여기에 표시되지 않습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure Cloud Shell 또는 [Azure PowerShell](/powershell/azure/install-az-ps) [의 PowerShell](../cloud-shell/overview.md)
+- [Azure Cloud Shell의 PowerShell](../cloud-shell/overview.md) 또는 [Azure PowerShell](/powershell/azure/install-az-ps)
 
-## <a name="list-role-assignments-for-the-current-subscription"></a>현재 구독에 대 한 역할 할당 나열
+## <a name="list-role-assignments-for-the-current-subscription"></a>현재 구독에 대한 역할 할당 나열
 
-현재 구독의 모든 역할 할당 목록을 가져오는 가장 쉬운 방법은 (루트 및 관리 그룹에서 상속 된 역할 할당 포함) 매개 변수 없이 [AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) 를 사용 하는 것입니다.
+현재 구독에서 모든 역할 할당(루트 및 관리 그룹에서 상속된 역할 할당 포함)의 목록을 가져오는 가장 쉬운 방법은 매개 변수 없이 [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment)를 사용하는 것입니다.
 
 ```azurepowershell
 Get-AzRoleAssignment
@@ -70,7 +70,7 @@ CanDelegate        : False
 
 ## <a name="list-role-assignments-for-a-subscription"></a>구독의 역할 할당 나열
 
-구독 범위에서 모든 역할 할당을 나열 하려면 [AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment)를 사용 합니다. 구독 ID를 가져오려면 Azure Portal의 **구독** 블레이드에서 찾거나 [AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription)를 사용할 수 있습니다.
+구독 범위에서 모든 역할 할당을 나열하려면 [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment)를 사용합니다. 구독 ID를 가져오려면 Azure Portal의 **구독** 블레이드에서 확인하거나 [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription)을 사용할 수 있습니다.
 
 ```azurepowershell
 Get-AzRoleAssignment -Scope /subscriptions/<subscription_id>
@@ -108,7 +108,7 @@ Get-AzRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | F
 
 ## <a name="list-role-assignments-for-a-resource-group"></a>리소스 그룹에 대한 역할 할당 목록
 
-리소스 그룹 범위에서 모든 역할 할당을 나열 하려면 [AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment)를 사용 합니다.
+리소스 그룹 범위에서 모든 역할 할당을 나열하려면 [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment)를 사용합니다.
 
 ```azurepowershell
 Get-AzRoleAssignment -ResourceGroupName <resource_group_name>
@@ -132,7 +132,7 @@ Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourc
 
 ## <a name="list-role-assignments-for-a-management-group"></a>관리 그룹의 역할 할당 나열
 
-관리 그룹 범위에서 모든 역할 할당을 나열 하려면 [AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment)를 사용 합니다. 관리 그룹 ID를 가져오려면 Azure Portal의 **관리 그룹** 블레이드에서 찾거나 [AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup)를 사용할 수 있습니다.
+관리 그룹 범위에서 모든 역할 할당을 나열하려면 [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment)를 사용합니다. 관리 그룹 ID를 가져오려면 Azure Portal의 **관리 그룹** 블레이드에서 확인하거나 [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup)을 사용할 수 있습니다.
 
 ```azurepowershell
 Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/<group_id>
@@ -142,21 +142,21 @@ Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/<gr
 PS C:\> Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/marketing-group
 ```
 
-## <a name="list-role-assignments-for-a-resource"></a>리소스에 대 한 역할 할당 나열
+## <a name="list-role-assignments-for-a-resource"></a>리소스에 대한 역할 할당 나열
 
-특정 리소스에 대 한 역할 할당을 나열 하려면 [AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) 및 `-Scope` 매개 변수를 사용 합니다. 범위는 리소스에 따라 달라 집니다. 범위를 가져오려면 `Get-AzRoleAssignment` 모든 역할 할당을 나열 하는 매개 변수 없이를 실행 한 다음 나열할 범위를 찾을 수 있습니다.
+특정 리소스에 대한 역할 할당을 나열하려면 [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) 및 `-Scope` 매개 변수를 사용합니다. 범위는 리소스에 따라 달라집니다. 범위를 가져오려면 매개 변수 없이 `Get-AzRoleAssignment`를 실행하여 모든 역할 할당을 나열한 다음 나열하려는 범위를 찾을 수 있습니다.
 
 ```azurepowershell
 Get-AzRoleAssignment -Scope "/subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/providers/<provider_name>/<resource_type>/<resource>
 ```
 
-다음 예제에서는 저장소 계정에 대 한 역할 할당을 나열 하는 방법을 보여 줍니다. 이 명령은 리소스 그룹 및 구독과 같이이 저장소 계정에 적용 되는 더 높은 범위의 역할 할당도 나열 합니다.
+다음 예제에서는 스토리지 계정에 대한 역할 할당을 나열하는 방법을 보여 줍니다. 이 명령은 리소스 그룹 및 구독과 같이 이 스토리지 계정에 적용되는 더 상위 범위의 역할 할당도 나열합니다.
 
 ```Example
 PS C:\> Get-AzRoleAssignment -Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/storage-test-rg/providers/Microsoft.Storage/storageAccounts/storagetest0122"
 ```
 
-리소스에 직접 할당 된 역할 할당을 나열 하려는 경우에는 [Where 개체](/powershell/module/microsoft.powershell.core/where-object) 명령을 사용 하 여 목록을 필터링 할 수 있습니다.
+리소스에 직접 할당된 역할 할당만 나열하려는 경우에는 [Where-Object](/powershell/module/microsoft.powershell.core/where-object) 명령을 사용하여 목록을 필터링할 수 있습니다.
 
 ```Example
 PS C:\> Get-AzRoleAssignment | Where-Object {$_.Scope -eq "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/storage-test-rg/providers/Microsoft.Storage/storageAccounts/storagetest0122"}
@@ -170,17 +170,17 @@ PS C:\> Get-AzRoleAssignment | Where-Object {$_.Scope -eq "/subscriptions/000000
 Get-AzRoleAssignment -IncludeClassicAdministrators
 ```
 
-## <a name="list-role-assignments-for-a-managed-identity"></a>관리 id에 대 한 역할 할당 나열
+## <a name="list-role-assignments-for-a-managed-identity"></a>관리 ID에 대한 역할 할당 나열
 
-1. 시스템 할당 또는 사용자 할당 관리 id의 개체 ID를 가져옵니다. 
+1. 시스템 할당 또는 사용자 할당 관리 ID의 개체 ID를 가져옵니다. 
 
-    사용자 할당 관리 id의 개체 ID를 가져오려면 [AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal)를 사용할 수 있습니다.
+    사용자 할당 관리 ID의 개체 ID를 가져오려면 [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal)을 사용할 수 있습니다.
 
     ```azurepowershell
     Get-AzADServicePrincipal -DisplayNameBeginsWith "<name> or <vmname>"
     ```
 
-1. 역할 할당을 나열 하려면 [AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment)를 사용 합니다.
+1. 역할 할당을 나열하려면 [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment)를 사용합니다.
 
     ```azurepowershell
     Get-AzRoleAssignment -ObjectId <objectid>

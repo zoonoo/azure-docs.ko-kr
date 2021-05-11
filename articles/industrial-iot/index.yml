@@ -1,0 +1,47 @@
+### YamlMime:Landing
+title: Azure 산업용 IoT 플랫폼 문서
+summary: Azure 산업용 IoT 플랫폼은 Azure에 배포되는 Microsoft 모듈 및 서비스 제품군입니다.
+metadata:
+  description: 관련 정보
+  ms.service: industrial-iot
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 3/22/2021
+  ms.openlocfilehash: bced3bdbb854af75e7b521f7c5c3f2e1022a161b
+  ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 04/21/2021
+  ms.locfileid: "107813833"
+landingContent:
+- title: Azure 산업용 IoT 플랫폼 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: IIoT(산업용 IoT)란?
+      url: overview-what-is-industrial-iot.md
+    - text: OPC 게시자란?
+      url: overview-what-is-opc-publisher.md
+- title: IIoT(산업용 IoT 플랫폼) 시작
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Azure 산업용 IoT 플랫폼 배포
+      url: tutorial-deploy-industrial-iot-platform.md
+    - text: 산업용 IoT 구성 요소 구성
+      url: tutorial-configure-industrial-iot-components.md
+    - text: Azure 산업용 IoT 데이터를 ADX로 끌어오기
+      url: tutorial-industrial-iot-azure-data-explorer.md
+    - text: TSI(Time Series Insights)를 사용하여 데이터 시각화
+      url: tutorial-visualize-data-time-series-insights.md
+- title: OPC 게시자로 작업
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: OPC 게시자 배포
+      url: tutorial-publisher-deploy-opc-publisher-standalone.md
+    - text: OPC 게시자 구성
+      url: tutorial-publisher-configure-opc-publisher.md
+    - text: OPC 게시자 성능 및 메모리 튜닝
+      url: tutorial-publisher-performance-memory-tuning-opc-publisher.md

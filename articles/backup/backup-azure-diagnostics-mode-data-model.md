@@ -3,12 +3,12 @@ title: Azure Monitor 로그 데이터 모델
 description: 이 문서에서는 Azure Backup 데이터에 대한 Azure Monitor Log Analytics 데이터 모델 세부 정보에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 004c5a6c0c2c4dcfcf13134bd5a5143ba647048f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.openlocfilehash: 2682bf0483b38c50e64bf4ec5255c89f931ab0f0
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102500991"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078913"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Azure Backup 데이터용 Log Analytics 데이터 모델
 
@@ -19,11 +19,11 @@ Log Analytics 데이터 모델을 사용하여 Log Analytics에서 사용자 지
 > [!NOTE]
 >
 > * 이 데이터 모델은 LA(Log Analytics)로 진단 이벤트를 보내는 Azure Diagnostics 모드를 참조합니다. 새 리소스 특정 모드의 데이터 모델에 대해 알아보려면 다음 문서를 참조할 수 있습니다. [Azure Backup 진단 이벤트에 대한 데이터 모델](./backup-azure-reports-data-model.md)
-> * 사용자 지정 보고 보기를 만들려면 아래에 나열 된 원시 테이블로 작업 하는 대신 [Azure Monitor 로그에서 시스템 함수](backup-reports-system-functions.md) 를 사용 하는 것이 좋습니다.
+> * 사용자 지정 보고 보기를 만들려면 아래에 있는 원시 테이블로 작업하는 대신 [Azure Monitor 로그에서 시스템 함수](backup-reports-system-functions.md)를 사용하는 것이 좋습니다.
 
 ## <a name="using-azure-backup-data-model"></a>Azure Backup 데이터 모델 사용
 
-데이터 모델의 일부로 제공 되는 다음 필드를 사용 하 여 요구 사항에 따라 시각적 개체, 사용자 지정 쿼리 및 대시보드를 만들 수 있습니다.
+데이터 모델의 일부로 제공되는 다음 필드를 사용하여 요구 사항에 따라 시각적 개체, 사용자 지정 쿼리 및 대시보드를 만들 수 있습니다.
 
 ### <a name="alert"></a>경고
 
@@ -38,7 +38,7 @@ Log Analytics 데이터 모델을 사용하여 Log Analytics에서 사용자 지
 | AlertSeverity_s |텍스트 |경고의 심각도(예: Critical) |
 |AlertTimeToResolveInMinutes_s    | Number        |경고를 해결하는 데 걸린 시간입니다. 활성 경고의 경우 비어 있습니다.         |
 |AlertConsolidationStatus_s   |텍스트         |경고가 통합 경고인지 여부 식별         |
-|CountOfAlertsConsolidated_s     |Number         |통합 된 경고 인 경우 통합 된 경고 수          |
+|CountOfAlertsConsolidated_s     |Number         |통합된 경고인 경우 통합된 경고 수          |
 |AlertRaisedOn_s     |텍스트         |경고가 발생하는 엔터티의 유형         |
 |AlertCode_s     |텍스트         |경고 유형을 고유하게 식별하는 코드         |
 |RecommendedAction_s   |텍스트         |경고를 해결하기 위한 권장 작업         |
@@ -46,7 +46,7 @@ Log Analytics 데이터 모델을 사용하여 Log Analytics에서 사용자 지
 | BackupItemUniqueId_s |텍스트 |경고와 관련된 백업 항목의 고유 식별자 |
 | SchemaVersion_s |텍스트 |스키마의 현재 버전(예: **V2**) |
 | State_s |텍스트 |경고 개체의 현재 상태(예: Active, Deleted) |
-| BackupManagementType_s |텍스트 |백업을 수행 하기 위한 공급자 유형 (예:이 경고가 속한 예 iaasvm, FileFolder) |
+| BackupManagementType_s |텍스트 |백업 수행에 대한 공급자 형식(예: IaaSVM, 이 경고가 속한 FileFolder) |
 | OperationName |텍스트 |현재 작업의 이름(예: Alert) |
 | Category |텍스트 |Azure Monitor 로그에 푸시된 진단 데이터의 범주 항상 AzureBackupReport임 |
 | 리소스 |텍스트 |데이터가 수집되는 리소스이며, Recovery Services 자격 증명 모음 이름이 표시됩니다. |
@@ -78,7 +78,7 @@ Log Analytics 데이터 모델을 사용하여 Log Analytics에서 사용자 지
 | SecondaryBackupProtectionState_s |텍스트 |백업 항목에 대해 보조 보호를 사용하도록 설정할지 여부|
 | SchemaVersion_s |텍스트 |스키마의 버전(예: **V2**) |
 | State_s |텍스트 |백업 항목 개체의 상태(예: Active, Deleted) |
-| BackupManagementType_s |텍스트 |백업을 수행 하기 위한 공급자 유형 (예:이 백업 항목이 속한 예 iaasvm, FileFolder) |
+| BackupManagementType_s |텍스트 |백업 수행에 대한 공급자 형식(예: IaaSVM, 이 백업 항목이 속한 FileFolder) |
 | OperationName |텍스트 |작업의 이름(예: BackupItem) |
 | Category |텍스트 |Azure Monitor 로그에 푸시된 진단 데이터의 범주 항상 AzureBackupReport임 |
 | 리소스 |텍스트 |데이터가 수집되는 리소스(예: Recovery Services 자격 증명 모음 이름) |
@@ -95,14 +95,14 @@ Log Analytics 데이터 모델을 사용하여 Log Analytics에서 사용자 지
 
 | 필드 | 데이터 형식 | Description |
 | --- | --- | --- |
-| EventName_s |텍스트 |이 필드는이 이벤트의 이름을 나타냅니다. 항상 AzureBackupCentralReport |  
+| EventName_s |텍스트 |이 필드는 이벤트의 이름을 나타냅니다. 항상 AzureBackupCentralReport입니다. |  
 | BackupItemUniqueId_s |텍스트 |백업 항목의 고유 ID |
-| SchemaVersion_s |텍스트 |이 필드는 스키마의 현재 버전을 나타냅니다. **V2** |
+| SchemaVersion_s |텍스트 |이 필드는 스키마의 현재 버전을 나타냅니다. 버전은 **V2** 입니다. |
 | State_s |텍스트 |백업 항목 연결 개체의 현재 상태(예: Active, Deleted) |
 | BackupManagementType_s |텍스트 |백업 작업을 수행하는 서버에 대한 공급자 유형(예: IaaSVM, FileFolder) |
 | BackupItemSourceSize_s |텍스트 | 백업 항목의 프런트 엔드 크기 |
 | BackupManagementServerUniqueId_s |텍스트 | 해당하는 경우 백업 항목을 보호하는 백업 관리 서버를 고유하게 식별하는 필드 |
-| Category |텍스트 |이 필드는 Log Analytics으로 푸시되는 진단 데이터의 범주를 나타냅니다. AzureBackupReport입니다. |
+| Category |텍스트 |Log Analytics에 푸시된 진단 데이터의 범주를 나타냅니다. 범주는 AzureBackupReport입니다. |
 | OperationName |텍스트 |현재 작업의 이름(BackupItemAssociation)을 나타냅니다. |
 | 리소스 |텍스트 |데이터가 수집되는 리소스이며, Recovery Services 자격 증명 모음 이름이 표시됩니다. |
 | ProtectedContainerUniqueId_s |텍스트 |백업 항목과 관련된 보호된 서버의 고유 식별자(V1에서 ProtectedServerUniqueId_s였음) |
@@ -145,7 +145,7 @@ Log Analytics 데이터 모델을 사용하여 Log Analytics에서 사용자 지
 | State_s |텍스트 |작업 개체의 현재 상태(예: Active, Deleted) |
 | BackupManagementType_s |텍스트 |백업 작업을 수행하는 서버에 대한 공급자 유형(예: IaaSVM, FileFolder) |
 | OperationName |텍스트 |현재 작업의 이름(Job)을 나타냅니다. |
-| Category |텍스트 |이 필드는 Azure Monitor 로그에 푸시되는 진단 데이터의 범주를 나타냅니다. AzureBackupReport입니다. |
+| Category |텍스트 |이 필드는 Azure Monitor 로그에 푸시된 진단 데이터의 범주를 나타냅니다. 범주는 AzureBackupReport입니다. |
 | 리소스 |텍스트 |데이터가 수집되는 리소스이며, Recovery Services 자격 증명 모음 이름이 표시됩니다. |
 | ProtectedServerUniqueId_s |텍스트 |작업과 관련된 보호된 서버의 고유 식별자 |
 | ProtectedContainerUniqueId_s |텍스트 | 작업이 실행되는 보호 컨테이너를 식별하기 위한 고유 ID |
@@ -160,8 +160,8 @@ Log Analytics 데이터 모델을 사용하여 Log Analytics에서 사용자 지
 | DataTransferredInMB_s | Number |이 작업에 대해 전송되는 데이터 크기(MB 단위)|
 | JobUniqueId_g |텍스트 |작업을 식별하는 고유 ID |
 | RecoveryJobDestination_s |텍스트 | 데이터를 복구하는 복구 작업의 대상 |
-| RecoveryJobRPDateTime_s |DateTime | 복구 지점이 생성 된 날짜, 시간 |
-| RecoveryJobRPLocation_s |텍스트 | 복구 중인 복구 지점이 저장 된 위치입니다.|
+| RecoveryJobRPDateTime_s |DateTime | 복구 중인 복구 지점이 생성된 날짜, 시간 |
+| RecoveryJobRPLocation_s |텍스트 | 복구 중인 복구 지점이 저장된 위치|
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
 | ResourceId |텍스트 |수집되는 데이터에 대한 리소스 식별자(예: Recovery Services 자격 증명 모음 리소스 ID)|
 | SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |
@@ -175,12 +175,12 @@ Log Analytics 데이터 모델을 사용하여 Log Analytics에서 사용자 지
 
 | 필드 | 데이터 형식 | 적용할 수 있는 버전 | Description |
 | --- | --- | --- | --- |
-| EventName_s |텍스트 ||이 필드는이 이벤트의 이름을 나타냅니다. 항상 AzureBackupCentralReport |
-| SchemaVersion_s |텍스트 ||이 필드는 스키마의 현재 버전을 나타냅니다. **V2** |
+| EventName_s |텍스트 ||이 필드는 이벤트의 이름을 나타냅니다. 항상 AzureBackupCentralReport입니다. |
+| SchemaVersion_s |텍스트 ||스키마의 현재 버전을 나타냅니다. 버전은 **V2** 입니다. |
 | State_s |텍스트 ||정책 개체의 현재 상태(예: Active, Deleted) |
 | BackupManagementType_s |텍스트 ||백업 작업을 수행하는 서버에 대한 공급자 유형(예: IaaSVM, FileFolder) |
 | OperationName |텍스트 ||현재 작업의 이름(Policy)을 나타냅니다. |
-| Category |텍스트 ||이 필드는 Azure Monitor 로그에 푸시되는 진단 데이터의 범주를 나타냅니다. AzureBackupReport입니다. |
+| Category |텍스트 ||이 필드는 Azure Monitor 로그에 푸시된 진단 데이터의 범주를 나타냅니다. 범주는 AzureBackupReport입니다. |
 | 리소스 |텍스트 ||데이터가 수집되는 리소스이며, Recovery Services 자격 증명 모음 이름이 표시됩니다. |
 | PolicyUniqueId_g |텍스트 ||정책을 식별하는 고유 ID |
 | PolicyName_s |텍스트 ||지정된 정책의 이름 |
@@ -197,11 +197,11 @@ Log Analytics 데이터 모델을 사용하여 Log Analytics에서 사용자 지
 | MonthlyRetentionTimes_s |텍스트 ||매월 보존이 구성된 날짜 및 시간 |
 | MonthlyRetentionFormat_s |텍스트 ||월별 보존에 대한 구성 형식(예: 일 기준 매일, 주 기준 매주) |
 | MonthlyRetentionDaysOfTheWeek_s |텍스트 ||매월 보존에 대해 선택한 주의 요일 |
-| MonthlyRetentionWeeksOfTheMonth_s |텍스트 ||매월 보존이 구성 된 월의 주 (예: 첫 번째, 마지막) |
+| MonthlyRetentionWeeksOfTheMonth_s |텍스트 ||월별 보존을 구성한 경우 월의 주(예: First, Last) |
 | YearlyRetentionDuration_s |10진수 ||구성된 백업에 대한 총 보존 기간(연) |
-| YearlyRetentionTimes_s |텍스트 ||매년 보존이 구성된 날짜 및 시간 |
-| YearlyRetentionMonthsOfTheYear_s |텍스트 ||매년 보존에 대해 선택한 연도의 달 |
-| YearlyRetentionFormat_s |텍스트 ||연별 보존에 대한 구성 형식(예: 일 기준 매일, 주 기준 매주) | |
+| YearlyRetentionTimes_s |텍스트 | | 매년 보존이 구성된 날짜 및 시간 |
+| YearlyRetentionMonthsOfTheYear_s |텍스트 | | 매년 보존에 대해 선택한 연도의 달 |
+| YearlyRetentionFormat_s |텍스트 ||연별 보존에 대한 구성 형식(예: 일 기준 매일, 주 기준 매주) |
 | YearlyRetentionDaysOfTheMonth_s |텍스트 ||매년 보존에 대해 선택한 월의 날짜 |
 | SynchronisationFrequencyPerDay_s |정수 |v2|SC DPM 및 MABS에 대해 파일 백업이 동기화된 하루 중 시간 수 |
 | DiffBackupFormat_s |텍스트 |v2|Azure VM 백업에서 SQL에 대한 차등 백업의 형식 |
@@ -223,12 +223,12 @@ Log Analytics 데이터 모델을 사용하여 Log Analytics에서 사용자 지
 
 | 필드 | 데이터 형식 | 적용할 수 있는 버전 | Description |
 | --- | --- | --- | --- |
-| EventName_s |텍스트 ||이 필드는이 이벤트의 이름을 나타냅니다. 항상 AzureBackupCentralReport |
-| SchemaVersion_s |텍스트 ||이 필드는 스키마의 현재 버전을 나타냅니다. **V2** |
+| EventName_s |텍스트 ||이 필드는 이벤트의 이름을 나타냅니다. 항상 AzureBackupCentralReport입니다. |
+| SchemaVersion_s |텍스트 ||스키마의 현재 버전을 나타냅니다. 버전은 **V2** 입니다. |
 | State_s |텍스트 ||정책 개체의 현재 상태(예: Active, Deleted) |
 | BackupManagementType_s |텍스트 ||백업 작업을 수행하는 서버에 대한 공급자 유형(예: IaaSVM, FileFolder) |
 | OperationName |텍스트 ||현재 작업의 이름(PolicyAssociation)을 나타냅니다. |
-| Category |텍스트 ||이 필드는 Azure Monitor 로그에 푸시되는 진단 데이터의 범주를 나타냅니다. AzureBackupReport입니다. |
+| Category |텍스트 ||이 필드는 Azure Monitor 로그에 푸시된 진단 데이터의 범주를 나타냅니다. 범주는 AzureBackupReport입니다. |
 | 리소스 |텍스트 ||데이터가 수집되는 리소스이며, Recovery Services 자격 증명 모음 이름이 표시됩니다. |
 | PolicyUniqueId_g |텍스트 ||정책을 식별하는 고유 ID |
 | VaultUniqueId_s |텍스트 ||이 정책이 속한 자격 증명 모음의 고유 ID |
@@ -249,7 +249,7 @@ Log Analytics 데이터 모델을 사용하여 Log Analytics에서 사용자 지
 | ProtectedContainerUniqueId_s |텍스트 | 보호된 컨테이너를 고유하게 식별하는 필드 |
 | ProtectedContainerOSType_s |텍스트 |보호된 컨테이너의 OS 유형 |
 | ProtectedContainerOSVersion_s |텍스트 |보호된 컨테이너의 OS 버전 |
-| AgentVersion_s |텍스트 |에이전트 백업 또는 보호 에이전트의 버전 번호 (SC DPM 및 MABS의 경우) |
+| AgentVersion_s |텍스트 |에이전트 백업 또는 보호 에이전트의 버전 번호(SC DPM 및 MABS의 경우) |
 | BackupManagementType_s |텍스트 |백업을 수행하기 위한 공급자 유형입니다. 예: IaaSVM, FileFolder |
 | EntityState_s |텍스트 |보호된 서버 개체의 현재 상태 예: 활성, 삭제됨 |
 | ProtectedContainerFriendlyName_s |텍스트 |보호된 서버의 친숙한 이름 |
@@ -267,12 +267,12 @@ Log Analytics 데이터 모델을 사용하여 Log Analytics에서 사용자 지
 | --- | --- | --- |
 | CloudStorageInBytes_s |10진수 |최신 값에 따라 계산된, 백업에 사용된 클라우드 백업 스토리지(이 필드는 v1 스키마에만 해당됨)|
 | ProtectedInstances_s |10진수 |청구에서 프런트 엔드 스토리지 계산에 사용된 보호된 인스턴스 수이며, 최신 값을 기준으로 하여 계산됩니다. |
-| EventName_s |텍스트 |이 필드는이 이벤트의 이름을 나타냅니다. 항상 AzureBackupCentralReport |
-| SchemaVersion_s |텍스트 |이 필드는 스키마의 현재 버전을 나타냅니다. **V2** |
+| EventName_s |텍스트 |이 필드는 이벤트의 이름을 나타냅니다. 항상 AzureBackupCentralReport입니다. |
+| SchemaVersion_s |텍스트 |스키마의 현재 버전을 나타냅니다. 버전은 **V2** 입니다. |
 | State_s |텍스트 |스토리지 개체의 현재 상태(예: Active, Deleted) |
 | BackupManagementType_s |텍스트 |백업 작업을 수행하는 서버에 대한 공급자 유형(예: IaaSVM, FileFolder) |
 | OperationName |텍스트 |현재 작업의 이름(Storage)을 나타냅니다. |
-| Category |텍스트 |이 필드는 Azure Monitor 로그에 푸시되는 진단 데이터의 범주를 나타냅니다. AzureBackupReport입니다. |
+| Category |텍스트 |이 필드는 Azure Monitor 로그에 푸시된 진단 데이터의 범주를 나타냅니다. 범주는 AzureBackupReport입니다. |
 | 리소스 |텍스트 |데이터가 수집되는 리소스이며, Recovery Services 자격 증명 모음 이름이 표시됩니다. |
 | ProtectedServerUniqueId_s |텍스트 |스토리지가 계산되는 보호된 서버의 고유 ID |
 | VaultUniqueId_s |텍스트 |스토리지가 계산되는 자격 증명 모음의 고유 ID |
@@ -294,7 +294,7 @@ Log Analytics 데이터 모델을 사용하여 Log Analytics에서 사용자 지
 | 필드 | 데이터 형식 | Description |
 | --- | --- |  --- |
 | StorageUniqueId_s |텍스트 |스토리지 엔터티를 식별하는 데 사용되는 고유 ID |
-| SchemaVersion_s |텍스트 |이 필드는 스키마의 현재 버전을 나타냅니다. **V2** |
+| SchemaVersion_s |텍스트 |스키마의 현재 버전을 나타냅니다. 버전은 **V2** 입니다. |
 | BackupItemUniqueId_s |텍스트 |스토리지 엔터티와 관련된 백업 항목을 식별하는 데 사용되는 고유 ID |
 | BackupManagementServerUniqueId_s |텍스트 |스토리지 엔터티와 관련된 백업 관리 서버를 식별하는 데 사용되는 고유 ID|
 | VaultUniqueId_s |텍스트 |스토리지 엔터티와 관련된 자격 증명 모음을 식별하는 데 사용되는 고유 ID|
@@ -307,11 +307,11 @@ Log Analytics 데이터 모델을 사용하여 Log Analytics에서 사용자 지
 
 | 필드 | 데이터 형식 | Description |
 | --- | --- | --- |
-| EventName_s |텍스트 |이 필드는이 이벤트의 이름을 나타냅니다. 항상 AzureBackupCentralReport |
-| SchemaVersion_s |텍스트 |이 필드는 스키마의 현재 버전을 나타냅니다. **V2** |
+| EventName_s |텍스트 |이 필드는 이벤트의 이름을 나타냅니다. 항상 AzureBackupCentralReport입니다. |
+| SchemaVersion_s |텍스트 |스키마의 현재 버전을 나타냅니다. 버전은 **V2** 입니다. |
 | State_s |텍스트 |자격 증명 모음 개체의 현재 상태(예: Active, Deleted) |
 | OperationName |텍스트 |현재 작업의 이름(Vault)을 나타냅니다. |
-| Category |텍스트 |이 필드는 Azure Monitor 로그에 푸시되는 진단 데이터의 범주를 나타냅니다. AzureBackupReport입니다. |
+| Category |텍스트 |이 필드는 Azure Monitor 로그에 푸시된 진단 데이터의 범주를 나타냅니다. 범주는 AzureBackupReport입니다. |
 | 리소스 |텍스트 |데이터가 수집되는 리소스이며, Recovery Services 자격 증명 모음 이름이 표시됩니다. |
 | VaultUniqueId_s |텍스트 |자격 증명 모음의 고유 ID |
 | VaultName_s |텍스트 |자격 증명 모음의 이름 |
@@ -463,17 +463,17 @@ Log Analytics 데이터 모델을 사용하여 Log Analytics에서 사용자 지
 
 ## <a name="v1-schema-vs-v2-schema"></a>V1 스키마 및 V2 스키마
 
-이전에는 Azure Backup 에이전트 및 Azure VM 백업에 대 한 진단 데이터를 ***V1 schema** _ 라고 하는 스키마의 Azure 진단 테이블로 보냈습니다. 이후에는 새 열을 추가 하 여 다른 시나리오 및 워크 로드를 지원 하 고, 진단 데이터가 _ *_V2 schema_* *로 참조 되는 새 스키마에 푸시 되었습니다.  
+이전에는 Azure Backup 에이전트 및 Azure VM 백업용 진단 데이터가 **V1 스키마** _라는 스키마의 Azure Diagnostics 테이블로 전송되었습니다. 이후에는 새 열이 추가되어 다른 시나리오 및 워크로드를 지원하고, 진단 데이터를 _*_V2 스키마_**라는 새 스키마에 푸시했습니다.  
 
 이전 버전과의 호환성을 위해 Azure Backup 에이전트 및 Azure VM 백업에 대한 진단 데이터는 현재 V1 및 V2 스키마 모두의 Azure Diagnostics 테이블로 전송됩니다(현재는 사용 중단 경로의 V1 스키마 사용). 로그 쿼리에서 SchemaVersion_s=="V1"에 대한 레코드를 필터링하여 Log Analytics에서 V1 스키마의 레코드를 식별할 수 있습니다.
 
 위에 설명된 [데이터 모델](#using-azure-backup-data-model)의 세 번째 열 '설명'을 참조하여 V1 스키마에만 속하는 열을 식별합니다.
 
-### <a name="modifying-your-queries-to-use-the-v2-schema"></a>V2 스키마를 사용 하도록 쿼리 수정
+### <a name="modifying-your-queries-to-use-the-v2-schema"></a>V2 스키마를 사용하도록 쿼리 수정
 
-V1 스키마는 사용 중단 경로에 있으므로 Azure Backup 진단 데이터의 모든 사용자 지정 쿼리에서 V2 스키마만 사용 하는 것이 좋습니다. 다음은 V1 스키마에 대 한 종속성을 제거 하도록 쿼리를 업데이트 하는 방법의 예입니다.
+V1 스키마는 사용 중단 경로에 있으므로 Azure Backup 진단 데이터의 모든 사용자 지정 쿼리에서 V2 스키마만 사용하는 것이 좋습니다. 다음은 V1 스키마에 대한 종속성을 제거하도록 쿼리를 업데이트하는 방법의 예입니다.
 
-1. 쿼리가 V1 스키마에만 적용 되는 필드를 사용 하 고 있는지 확인 합니다. 다음과 같이 모든 백업 항목과 연결 된 보호 된 서버를 나열 하는 쿼리가 있다고 가정 합니다.
+1. 쿼리가 V1 스키마에만 적용되는 필드를 사용하고 있는지 확인합니다. 다음과 같이 모든 백업 항목 및 연결된 보호된 서버를 나열하는 쿼리가 있다고 가정합니다.
 
     ````Kusto
     AzureDiagnostics
@@ -482,9 +482,9 @@ V1 스키마는 사용 중단 경로에 있으므로 Azure Backup 진단 데이�
     | distinct BackupItemUniqueId_s, ProtectedServerUniqueId_s
     ````
 
-    위의 쿼리는 V1 스키마에만 적용 되는 필드 ProtectedServerUniqueId_s를 사용 합니다. 이 필드에 해당 하는 V2 스키마가 ProtectedContainerUniqueId_s 됩니다 (위의 표 참조). BackupItemUniqueId_s 필드는 V2 스키마에도 적용 될 수 있으며이 쿼리에서는 동일한 필드를 사용할 수 있습니다.
+    위의 쿼리는 V1 스키마에만 적용되는 필드 ProtectedServerUniqueId_s를 사용합니다. 이 필드에 해당하는 V2 스키마가 ProtectedContainerUniqueId_s입니다(위의 표 참조). BackupItemUniqueId_s 필드는 V2 스키마에도 적용될 수 있으며, 이 쿼리에서는 동일한 필드를 사용할 수 있습니다.
 
-2. V2 스키마 필드 이름을 사용 하도록 쿼리를 업데이트 합니다. 모든 쿼리에서 **SchemaVersion_s = = "v2"** 와 같이 필터를 사용 하 여 V2 스키마에 해당 하는 레코드만 쿼리로 구문 분석 되도록 하는 것이 좋습니다.
+2. V2 스키마 필드 이름을 사용하도록 쿼리를 업데이트합니다. 모든 쿼리에서 **SchemaVersion_s=="V2"** 인 필터를 사용하여 V2 스키마에 해당하는 레코드만 쿼리로 구문 분석되도록 하는 것이 좋습니다.
 
     ````Kusto
     AzureDiagnostics

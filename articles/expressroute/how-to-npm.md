@@ -1,5 +1,5 @@
 ---
-title: 'Azure Express 경로: 회로에 대 한 NPM 구성'
+title: 'Azure ExpressRoute: 회로의 NPM을 구성'
 description: Azure ExpressRoute 회로에 대해 클라우드 기반 NPM(네트워크 모니터링)을 구성합니다. 여기서는 ExpressRoute 프라이빗 피어링 및 Microsoft 피어링에 대한 모니터링을 다룹니다.
 services: expressroute
 author: duongau
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: duau
 ms.openlocfilehash: 907c03bd15463368def316e72f55ce214cb3e617
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100571039"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>ExpressRoute에 대한 네트워크 성능 모니터 구성
@@ -54,12 +54,12 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 1. [Azure Portal](https://portal.azure.com)에서 Vnet이 ExpressRoute 회로에 연결된 구독을 선택합니다. 그런 다음, **Marketplace** 의 서비스 목록에서 '네트워크 성능 모니터'를 검색합니다. 반환된 결과에서 클릭하여 **네트워크 성능 모니터** 페이지를 엽니다.
 
    >[!NOTE]
-   >새 작업 영역을 만들거나 기존 작업 영역을 사용할 수 있습니다. 기존 작업 영역을 사용하려면 작업 영역이 새 쿼리 언어로 마이그레이션되었는지 확인해야 합니다. [추가 정보 ...](../azure-monitor/logs/log-query-overview.md)
+   >새 작업 영역을 만들거나 기존 작업 영역을 사용할 수 있습니다. 기존 작업 영역을 사용하려면 작업 영역이 새 쿼리 언어로 마이그레이션되었는지 확인해야 합니다. [자세한 정보...](../azure-monitor/logs/log-query-overview.md)
    >
 
    ![portal](./media/how-to-npm/3.png)<br><br>
 2. 주 **네트워크 성능 모니터** 페이지 아래쪽에서 **만들기** 를 클릭하여 **네트워크 성능 모니터 - 새 솔루션 만들기** 페이지를 엽니다. **Log Analytics 작업 영역 - 작업 영역 선택** 을 클릭하여 작업 영역 페이지를 엽니다. **+ 새 작업 영역 만들기** 를 클릭하여 작업 영역 페이지를 엽니다.
-3. **Log Analytics 작업 영역** 페이지에서 **새로 만들기** 를 선택 하 고 다음 설정을 구성 합니다.
+3. **Log Analytics 작업 영역** 페이지에서 **새로 만들기** 를 선택한 다음, 다음 설정을 구성합니다.
 
    * Log Analytics 작업 영역 - 작업 영역의 이름을 입력합니다.
    * 구독 - 여러 구독이 있는 경우 새 작업 영역에 연결할 구독을 선택합니다.
@@ -97,9 +97,9 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 
 1. **설치** 를 실행하여 ExpressRoute 모니터링에 사용하려는 각 서버에 에이전트를 설치합니다. 모니터링에 사용하는 서버는 VM 또는 온-프레미스일 수 있으며 인터넷에 액세스할 수 있어야 합니다. 온-프레미스에 하나 이상의 에이전트를 설치하고, Azure에서 모니터링하려는 각 네트워크 세그먼트에 하나의 에이전트를 설치해야 합니다.
 2. **Welcome** 페이지에서 **다음** 을 클릭합니다.
-3. **사용 조건** 페이지에서 라이선스를 읽고 **동의 함** 을 클릭 합니다.
-4. **대상 폴더** 페이지에서 기본 설치 폴더를 변경 또는 유지 하 **고 다음을 클릭 합니다.**
-5. **에이전트 설치 옵션** 페이지에서 에이전트를 Azure Monitor 로그 또는 Operations Manager에 연결 하도록 선택할 수 있습니다. 또는 에이전트를 나중에 구성하려는 경우 선택 항목을 비워 둘 수 있습니다. 선택한 후 **다음** 을 클릭합니다.
+3. **사용 조건** 페이지에서 라이선스를 읽고 **동의함** 을 클릭합니다.
+4. **대상 폴더** 페이지에서 기본 설치 폴더를 변경 또는 유지하고 **다음** 을 클릭합니다.
+5. **에이전트 설치 옵션** 페이지에서 에이전트를 Azure Monitor 로그 또는 Operations Manager에 연결하도록 선택할 수 있습니다. 또는 에이전트를 나중에 구성하려는 경우 선택 항목을 비워 둘 수 있습니다. 선택한 후 **다음** 을 클릭합니다.
 
    * **Azure Log Analytics** 에 연결하려는 경우 이전 절차에서 메모장에 복사해 둔 **작업 영역 ID** 와 **작업 영역 키**(기본 키)를 붙여넣습니다. 그런 후 **다음** 을 클릭합니다.
 
@@ -110,9 +110,9 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
    * **에이전트 작업 계정** 페이지에서 **로컬 시스템** 계정 또는 **도메인 또는 로컬 컴퓨터 계정** 을 선택합니다. 그런 후 **다음** 을 클릭합니다.
 
      ![계정](./media/how-to-npm/10.png)
-6. **설치 준비 완료** 페이지에서 선택 사항을 검토 한 다음 **설치** 를 클릭 합니다.
+6. **설치 준비** 페이지에서 선택 항목을 검토한 다음 **설치** 를 클릭합니다.
 7. **구성 완료** 페이지에서 **마침** 을 클릭합니다.
-8. 완료되면 제어판에 Microsoft Monitoring Agent가 나타납니다. 여기에서 구성을 검토 하 고 에이전트가 Azure Monitor 로그에 연결 되어 있는지 확인할 수 있습니다. 연결되면 에이전트에 **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.** 와 같은 메시지가 표시됩니다.
+8. 완료되면 제어판에 Microsoft Monitoring Agent가 나타납니다. Microsoft Monitoring Agent에서 구성을 검토하고 에이전트가 Azure Monitor 로그에 연결되었는지 확인할 수 있습니다. 연결되면 에이전트에 **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.** 와 같은 메시지가 표시됩니다.
 
 9. 모니터링해야 하는 각 VNET에 대해 이 프로시저를 반복합니다.
 
@@ -136,7 +136,7 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 1. 모니터링 에이전트가 있는 서버에서 **제어판** 을 엽니다.
 2. **Microsoft Monitoring Agent** 를 엽니다.
 3. **Azure Log Analytics** 탭을 클릭합니다.
-4. **상태** 열에 에이전트가 성공적으로 Azure Monitor 로그에 연결 된 것을 확인할 수 있습니다.
+4. **상태** 열에는 Azure Monitor 로그에 성공적으로 연결된 에이전트가 표시됩니다.
 
    ![상태](./media/how-to-npm/12.png)
 
@@ -169,7 +169,7 @@ NSG에 대한 자세한 내용은 [네트워크 보안 그룹](../virtual-networ
 
 ## <a name="step-4-discover-peering-connections"></a><a name="setupmonitor"></a>4단계: 피어링 연결 검색
 
-1. **모든 리소스** 페이지로 이동 하 여 네트워크 성능 모니터 개요 타일로 이동한 후 나열 된 Allowlisted 작업 영역을 클릭 합니다.
+1. **모든 리소스** 페이지로 가서 네트워크 성능 모니터 개요 타일로 이동하여, 허용 목록에 추가된 NPM 작업 영역을 클릭합니다.
 
    ![npm 작업 영역](./media/how-to-npm/npm.png)
 2. **네트워크 성능 모니터** 개요 타일을 클릭하여 대시보드를 불러옵니다. 대시보드의 ExpressRoute 페이지에는 ExpressRoute가 '구성되지 않은 상태'로 표시됩니다. **기능 설치** 를 클릭하여 네트워크 성능 모니터 구성 페이지를 엽니다.
@@ -228,7 +228,7 @@ Microsoft 피어링의 경우 모니터링하려는 Microsoft 피어링 연결�
 
 NPM 페이지에는 ExpressRoute 회로 및 피어링의 상태 개요를 보여 주는 ExpressRoute 페이지가 표시됩니다.
 
-![스크린샷는 Express 경로 회로 및 피어 링의 상태에 대 한 개요가 포함 된 대시보드를 보여 줍니다.](./media/how-to-npm/dashboard.png)
+![스크린샷은 ExpressRoute 회로 및 피어링 상태에 대한 개요가 포함된 대시보드를 보여 줍니다.](./media/how-to-npm/dashboard.png)
 
 ### <a name="list-of-circuits"></a><a name="circuits"></a>회로 목록
 
@@ -238,7 +238,7 @@ NPM 페이지에는 ExpressRoute 회로 및 피어링의 상태 개요를 보여
 
 #### <a name="trend-of-loss-latency-and-throughput"></a><a name="trend"></a>손실, 대기 시간 및 처리량 추세
 
-대역폭, 대기 시간, 손실 차트는 대화형으로 작동합니다. 마우스 컨트롤을 사용하여 이러한 차트의 섹션을 확대할 수 있습니다. 왼쪽 위에 있는 작업 단추 아래에 있는 **날짜/시간** 을 클릭 하 여 다른 간격의 대역폭, 대기 시간 및 손실 데이터를 볼 수도 있습니다.
+대역폭, 대기 시간, 손실 차트는 대화형으로 작동합니다. 마우스 컨트롤을 사용하여 이러한 차트의 섹션을 확대할 수 있습니다. 또한 왼쪽 위에 있는 작업 단추 아래의 **날짜/시간** 을 클릭하여 다른 간격으로 대역폭, 대기 시간 및 손실 데이터를 볼 수도 있습니다.
 
 ![추세](./media/how-to-npm/16.png)
 

@@ -15,10 +15,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 5f987ab15201e4c4dabf147ac468184881e9ed17
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85551649"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>OAuth 2.0 코드 권한 부여 흐름을 사용하여 Azure Active Directory 웹 애플리케이션에 대한 액세스 권한 부여
@@ -26,35 +26,35 @@ ms.locfileid: "85551649"
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
 > [!NOTE]
->  서버에 호출 하려는 리소스를 모르는 경우 서버는 해당 리소스에 대 한 조건부 액세스 정책을 트리거되지 않습니다. 따라서 MFA 트리거를 만들려면 URL에 리소스를 포함 해야 합니다. 
+>  호출하려는 리소스를 서버에 알리지 않는 경우 서버는 해당 리소스에 대한 조건부 액세스 정책을 트리거하지 않습니다. 따라서 MFA가 트리거되도록 하려면 URL에 리소스를 포함해야 합니다. 
 >
 
-Azure AD(Azure Active Directory)는 OAuth 2.0을 사용하여 Azure AD 테넌트의 웹 애플리케이션과 웹 API에 액세스할 권한을 부여할 수 있게 합니다. 이 가이드는 언어와 관련이 없으며 [오픈 소스 라이브러리](active-directory-authentication-libraries.md)를 사용 하지 않고 HTTP 메시지를 보내고 받는 방법을 설명 합니다.
+Azure AD(Azure Active Directory)는 OAuth 2.0을 사용하여 Azure AD 테넌트의 웹 애플리케이션과 웹 API에 액세스할 권한을 부여할 수 있게 합니다. 이 가이드는 언어 독립적이며 [오픈 소스 라이브러리](active-directory-authentication-libraries.md)를 사용하지 않고 HTTP 메시지를 보내고 받는 방법을 설명합니다.
 
 OAuth 2.0 인증 코드 흐름은 [OAuth 2.0 사양의 섹션 4.1](https://tools.ietf.org/html/rfc6749#section-4.1)에서 설명합니다. 웹앱 및 기본적으로 설치된 앱을 포함하여 대부분의 애플리케이션 형식에서 인증 및 권한 부여를 수행하는 데 사용됩니다.
 
 ## <a name="register-your-application-with-your-ad-tenant"></a>AD 테넌트에 애플리케이션 등록
-먼저 Azure Active Directory (Azure AD) 테 넌 트에 응용 프로그램을 등록 합니다. 그러면 애플리케이션에 대한 애플리케이션 ID가 제공되며 토큰을 수신하는 데 사용할 수 있습니다.
+먼저, 애플리케이션을 Azure AD(Azure Active Directory) 테넌트에 등록합니다. 그러면 애플리케이션에 대한 애플리케이션 ID가 제공되며 토큰을 수신하는 데 사용할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
    
-1. 페이지의 오른쪽 위 모서리에서 계정을 선택 하 고 **디렉터리 탐색 스위치** 를 선택한 다음 적절 한 테 넌 트를 선택 하 여 Azure AD 테 넌 트를 선택 합니다. 
-   - 계정에 Azure AD 테 넌 트가 하나만 있거나 적절 한 Azure AD 테 넌 트를 이미 선택한 경우이 단계를 건너뜁니다.
+1. 페이지 오른쪽 위 모서리에서 계정을 선택한 후 **디렉터리 전환** 탐색 및 적절한 테넌트를 차례로 선택하여 Azure AD 테넌트를 선택합니다. 
+   - 계정에 Azure AD 테넌트가 하나만 있거나 이미 적절한 Azure AD 테넌트를 선택한 경우 이 단계를 건너뛰세요.
    
 1. Azure Portal에서 **Azure Active Directory** 를 검색하고 선택합니다.
    
-1. **Azure Active Directory** 왼쪽 메뉴에서 **앱 등록** 을 선택 하 고 **새 등록** 을 선택 합니다.
+1. **Azure Active Directory** 왼쪽 메뉴에서 **앱 등록** 을 선택하고 **새 등록** 을 선택합니다.
    
-1. 메시지에 따라 새 애플리케이션을 만듭니다. 이 자습서에서는 웹 응용 프로그램이 든 공용 클라이언트 (모바일 & 데스크톱) 응용 프로그램 인지는 중요 하지 않지만, 웹 응용 프로그램 또는 공용 클라이언트 응용 프로그램에 대 한 특정 예제를 원하는 경우 빠른 [시작을 확인 하세요.](v1-overview.md)
+1. 메시지에 따라 새 애플리케이션을 만듭니다. 이 자습서에서는 웹 애플리케이션이든지 퍼블릭 클라이언트(모바일 및 데스크톱) 애플리케이션이든지 상관없지만 웹 애플리케이션 또는 퍼블릭 클라이언트 애플리케이션에 대한 특정 예제가 필요한 경우 [빠른 시작](v1-overview.md)을 확인하세요.
    
    - **이름** 은 애플리케이션 이름이고 최종 사용자에게 애플리케이션을 설명합니다.
    - **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정** 을 선택합니다.
-   - **리디렉션 URI** 를 제공 합니다. 웹 응용 프로그램의 경우 사용자가 로그인 할 수 있는 앱의 기본 URL입니다.  예: `http://localhost:12345` 공용 클라이언트 (모바일 & 데스크톱)의 경우 Azure AD에서 토큰 응답을 반환 하는 데 사용 합니다. 애플리케이션에 특정한 값을 입력합니다.  예: `http://MyFirstAADApp`
+   - **리디렉션 URI** 를 제공합니다. 웹 애플리케이션의 경우 사용자가 로그인할 수 있는 앱의 기준 URL입니다.  예들 들어 `http://localhost:12345`입니다. 퍼블릭 클라이언트(모바일 및 데스크톱)의 경우 Azure AD는 이 URI를 사용하여 토큰 응답을 반환합니다. 애플리케이션에 특정한 값을 입력합니다.  예들 들어 `http://MyFirstAADApp`입니다.
    <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->  
    
-1. 등록이 완료 되 면 Azure AD는 응용 프로그램에 고유한 클라이언트 식별자 ( **응용 프로그램 ID**)를 할당 합니다. 이 값은 다음 섹션에서 필요하므로 애플리케이션 페이지에서 이 값을 복사해 둡니다.
+1. 등록이 끝나면 Azure AD는 애플리케이션에 고유한 클라이언트 식별자(**애플리케이션 ID**)를 할당합니다. 이 값은 다음 섹션에서 필요하므로 애플리케이션 페이지에서 이 값을 복사해 둡니다.
    
-1. Azure Portal에서 응용 프로그램을 찾으려면 **앱 등록** 를 선택한 다음 **모든 응용 프로그램 보기** 를 선택 합니다.
+1. Azure Portal에서 애플리케이션을 찾으려면 **앱 등록** 을 선택하고 **모든 애플리케이션 보기** 를 선택합니다.
 
 ## <a name="oauth-20-authorization-flow"></a>OAuth 2.0 권한 부여 흐름
 
@@ -84,11 +84,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | client_id |필수 |Azure AD에 등록할 때 앱에 할당된 애플리케이션 ID입니다. Azure Portal에서 이러한 값을 확인할 수 있습니다. 서비스 세로 막대에서 **Azure Active Directory** 를 클릭하고, **앱 등록** 을 클릭하고, 애플리케이션을 선택합니다. |
 | response_type |필수 |인증 코드 흐름에 대한 `code`를 포함해야 합니다. |
 | redirect_uri |권장 |앱이 인증 응답을 보내고 받을 수 있는 앱의 redirect_uri입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect_uri 중 하나와 정확히 일치해야 합니다. 네이티브 및 모바일 앱의 경우 `https://login.microsoftonline.com/common/oauth2/nativeclient`의 기본값을 사용해야 합니다. |
-| response_mode |선택적 |결과 토큰을 앱으로 다시 보내는 데 사용해야 하는 메서드를 지정합니다. `query`, `fragment` 또는 `form_post`일 수 있습니다. `query`는 리디렉션 URI에 코드를 쿼리 문자열 매개 변수로 제공합니다. 암시적 흐름을 사용 하 여 ID 토큰을 요청 하는 경우 `query` [openid connect 사양](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations)에 지정 된 대로를 사용할 수 없습니다. 코드만 요청 하는 경우, 또는를 사용할 수 있습니다 `query` `fragment` `form_post` . `form_post`는 리디렉션 URI에 대한 코드가 포함된 POST를 실행합니다. 기본값은 코드 흐름에 대한 `query`입니다.  |
+| response_mode |선택적 |결과 토큰을 앱으로 다시 보내는 데 사용해야 하는 메서드를 지정합니다. `query`, `fragment` 또는 `form_post`일 수 있습니다. `query`는 리디렉션 URI에 코드를 쿼리 문자열 매개 변수로 제공합니다. 암시적 흐름을 사용하여 ID 토큰을 요청하는 경우 `query`는 [OpenID 사양](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations)에서 명시한 대로 사용할 수 없습니다. 코드만 요청하는 경우 `query`, `fragment` 또는 `form_post`를 사용할 수 있습니다. `form_post`는 리디렉션 URI에 대한 코드가 포함된 POST를 실행합니다. 기본값은 코드 흐름에 대한 `query`입니다.  |
 | state |권장 |토큰 응답에도 반환되는 요청에 포함된 값입니다. 일반적으로 [교차 사이트 요청 위조 공격을 방지](https://tools.ietf.org/html/rfc6749#section-10.12)하기 위해 임의로 생성된 고유 값이 사용됩니다. 또한 state는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 페이지 또는 보기)를 인코딩하는 데 사용됩니다. |
 | resource | 권장 |대상 웹 API의 앱 ID URI(보안 리소스)입니다. 앱 ID URI을 찾으려면 Azure Portal에서 **Azure Active Directory**, **애플리케이션 등록** 을 차례로 클릭하고, 서비스 애플리케이션의 **설정** 페이지를 연 다음, **속성** 을 클릭합니다. `https://graph.microsoft.com`과 같은 외부 리소스일 수도 있습니다. 이는 권한 부여 또는 토큰 요청 중 하나에서 필요합니다. 인증 프롬프트의 수를 줄이기 위해 사용자의 동의를 받을 수 있도록 하는 권한 부여 요청에 배치합니다. |
-| scope | **무시** | v1 Azure AD 앱의 경우 Azure Portal의 애플리케이션 **설정**, **필수 권한** 아래에서 범위를 정적으로 구성해야 합니다. |
-| prompt |선택적 |필요한 사용자 상호 작용 유형을 나타냅니다.<p> 유효한 값은 <p> *로그인*: 사용자에 게 다시 인증 하 라는 메시지가 표시 되어야 합니다. <p> *select_account*: 사용자에게 Single Sign On을 중단하는 계정을 선택하라는 메시지가 표시됩니다. 사용자는 기존에 로그인한 계정을 선택하고, 저장된 계정의 자격 증명을 입력하거나 다른 계정을 함께 사용하도록 선택할 수 있습니다. <p> *동의*: 사용자 동의가 허용되었지만 업데이트해야 합니다. 사용자에게 동의하는지 묻는 메시지가 표시되어야 합니다. <p> *admin_consent*: 관리자에게 조직의 사용자를 대신하여 동의하는지 묻는 메시지가 표시되어야 합니다. |
+| scope | **무시됨** | v1 Azure AD 앱의 경우 Azure Portal의 애플리케이션 **설정**, **필수 권한** 아래에서 범위를 정적으로 구성해야 합니다. |
+| prompt |선택적 |필요한 사용자 상호 작용 유형을 나타냅니다.<p> 유효한 값은 <p> *로그인*: 사용자에게 재인증할지 묻는 메시지가 표시되어야 합니다. <p> *select_account*: 사용자에게 Single Sign On을 중단하는 계정을 선택하라는 메시지가 표시됩니다. 사용자는 기존에 로그인한 계정을 선택하고, 저장된 계정의 자격 증명을 입력하거나 다른 계정을 함께 사용하도록 선택할 수 있습니다. <p> *동의*: 사용자 동의가 허용되었지만 업데이트해야 합니다. 사용자에게 동의하는지 묻는 메시지가 표시되어야 합니다. <p> *admin_consent*: 관리자에게 조직의 사용자를 대신하여 동의하는지 묻는 메시지가 표시되어야 합니다. |
 | login_hint |선택적 |사용자 이름을 미리 알고 있는 경우 사용자 로그인 페이지의 사용자 이름/이메일 주소 필드를 미리 채우는 데 사용할 수 있습니다. `preferred_username` 클레임을 사용하여 이전 로그인 작업에서 사용자 이름이 이미 추출된 경우 앱이 재인증 과정에서 이 매개 변수를 종종 사용합니다. |
 | domain_hint |선택적 |사용자가 로그인하는 데 사용해야 하는 테넌트 또는 도메인에 대한 힌트를 제공합니다. domain_hint의 값은 테넌트에 대해 등록된 도메인입니다. 테넌트가 온-프레미스 디렉터리로 페더레이션된 경우, AAD는 지정된 테넌트 페더레이션 서버로 리디렉션됩니다. |
 | code_challenge_method | 권장    | `code_challenge` 매개 변수에 대한 `code_verifier`를 인코딩하는 데 사용되는 메서드입니다. `plain` 또는 `S256` 중 하나일 수 있습니다. 제외할 경우 `code_challenge`가 포함되면 `code_challenge`가 일반 텍스트로 간주됩니다. Azure AAD v1.0은 `plain` 및 `S256`을 모두 지원합니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. |
@@ -169,10 +169,10 @@ grant_type=authorization_code
 | client_id |필수 |Azure AD에 등록할 때 앱에 할당된 애플리케이션 ID입니다. Azure Portal에서 이러한 값을 확인할 수 있습니다. 애플리케이션 ID가 앱 등록의 설정에 표시됩니다. |
 | grant_type |required |인증 코드 흐름에 대한 `authorization_code` 여야 합니다. |
 | code |필수 |이전 섹션에서 획득한 `authorization_code` 입니다. |
-| redirect_uri |필수 | `redirect_uri`클라이언트 응용 프로그램에 등록 된입니다. |
+| redirect_uri |필수 | 클라이언트 애플리케이션에 등록된 `redirect_uri`입니다. |
 | client_secret |웹앱에 필요하지만 공용 클라이언트에 허용되지 않습니다. |**키** 아래에 있는 앱에 대해 Azure Portal에서 만든 애플리케이션 비밀입니다. 디바이스에 client_secret을 안정적으로 저장할 수 없으므로 네이티브 앱(공용 클라이언트)에서는 사용할 수 없습니다. 서버 쪽에서 `client_secret`을 안전하게 저장할 수 있는 웹앱 및 Web API(모두 기밀 클라이언트)에 필요합니다. client_secret는 전송되기 전에 인코딩된 URL이어야 합니다. |
 | resource | 권장 |대상 웹 API의 앱 ID URI(보안 리소스)입니다. 앱 ID URI을 찾으려면 Azure Portal에서 **Azure Active Directory**, **애플리케이션 등록** 을 차례로 클릭하고, 서비스 애플리케이션의 **설정** 페이지를 연 다음, **속성** 을 클릭합니다. `https://graph.microsoft.com`과 같은 외부 리소스일 수도 있습니다. 이는 권한 부여 또는 토큰 요청 중 하나에서 필요합니다. 인증 프롬프트의 수를 줄이기 위해 사용자의 동의를 받을 수 있도록 하는 권한 부여 요청에 배치합니다. 권한 부여 요청과 토큰 요청 모두에서 리소스의 매개 변수가 일치해야 합니다. | 
-| code_verifier | 선택적 | authorization_code를 얻는 데 사용된 동일한 code_verifier입니다. 인증 코드 부여 요청에 PKCE가 사용된 경우에는 필수입니다. 자세한 내용은 [Pkce RFC](https://tools.ietf.org/html/rfc7636) 를 참조 하세요.   |
+| code_verifier | 선택적 | authorization_code를 얻는 데 사용된 동일한 code_verifier입니다. 인증 코드 부여 요청에 PKCE가 사용된 경우에는 필수입니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요.   |
 
 앱 ID URI을 찾으려면 Azure Portal에서 **Azure Active Directory**, **애플리케이션 등록** 을 차례로 클릭하고, 서비스 애플리케이션의 **설정** 페이지를 연 다음, **속성** 을 클릭합니다.
 
@@ -199,7 +199,7 @@ Azure AD는 성공적인 응답 시 [액세스 토큰](../develop/access-tokens.
 
 | 매개 변수 | 설명 |
 | --- | --- |
-| access_token |요청된 액세스 토큰입니다.  불투명 문자열입니다 .이는 리소스가 수신 해야 하는 항목에 따라 다르며 클라이언트에서 볼 수 있는 것은 아닙니다. 앱에서 이 토큰을 사용하여 보안 리소스(예: 웹 API)를 인증할 수 있습니다. |
+| access_token |요청된 액세스 토큰입니다.  불투명 문자열로, 리소스가 수신할 것으로 예상되는 항목에 따라 달라지며, 클라이언트가 보게 하려는 것이 아닙니다. 앱에서 이 토큰을 사용하여 보안 리소스(예: 웹 API)를 인증할 수 있습니다. |
 | token_type |토큰 유형 값을 나타냅니다. Azure AD는 전달자 유형만 지원합니다. 전달자 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 전달자 토큰 사용(RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |액세스 토큰이 유효한 기간(초)입니다. |
 | expires_on |액세스 토큰이 만료되는 시간입니다. 날짜는 1970-01-01T0:0:0Z UTC부터 만료 시간까지 기간(초)으로 표시됩니다. 이 값은 캐시된 토큰의 수명을 결정하는 데 사용됩니다. |
@@ -372,4 +372,4 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 오류 코드 및 권장되는 클라이언트 작업에 대한 설명은 [토큰 엔드포인트 오류에 대한 오류 코드](#error-codes-for-token-endpoint-errors)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Azure AD v2.0 끝점에 대 한 자세한 내용과 웹 응용 프로그램 및 웹 Api에 인증 및 권한 부여를 추가 하는 방법에 대 한 자세한 내용은 [샘플 응용 프로그램](sample-v1-code.md)을 참조 하세요.
+Azure AD v1.0 엔드포인트에 대한 자세한 내용과 웹 애플리케이션 및 웹 API에 인증 및 권한 부여를 추가하는 방법에 대한 자세한 내용은 [샘플 애플리케이션](sample-v1-code.md)을 참조하세요.

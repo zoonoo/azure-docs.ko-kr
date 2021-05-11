@@ -1,6 +1,6 @@
 ---
-title: 가상 머신 이미지를 만들고 사용자 할당 관리 id를 사용 하 여 Azure Storage의 파일에 액세스 (미리 보기)
-description: 사용자 할당 관리 id를 사용 하 여 Azure Storage에 저장 된 파일에 액세스할 수 있는 Azure 이미지 작성기를 사용 하 여 가상 머신 이미지를 만듭니다.
+title: 가상 머신 이미지를 만들고 사용자 할당 관리형 ID를 사용하여 Azure Storage의 파일에 액세스하기(미리 보기)
+description: 사용자 할당 관리형 ID를 사용하여 Azure Storage에 저장한 파일에 액세스할 수 있는 Azure Image Builder를 사용하여 가상 머신 이미지를 만듭니다.
 author: cynthn
 ms.author: cynthn
 ms.date: 03/02/2021
@@ -9,19 +9,19 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.openlocfilehash: 9bcb7a94cdf1d5478db32a22ba6e612a90c53ed9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101695382"
 ---
-# <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>이미지를 만들고 사용자 할당 관리 id를 사용 하 여 Azure Storage의 파일에 액세스 
+# <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>이미지를 만들고 사용자 할당 관리형 ID를 사용하여 Azure Storage의 파일에 액세스하기 
 
-Azure 이미지 작성기는 스크립트를 사용 하거나 GitHub, Azure storage 등의 여러 위치에서 파일을 복사 하도록 지원 합니다. 이를 사용 하려면 Azure 이미지 작성기에서 외부에 액세스할 수 있어야 하지만 SAS 토큰을 사용 하 여 Azure Storage blob을 보호할 수 있습니다.
+Azure Image Builder는 GitHub 및 Azure Storage 등 다양한 위치에서 스크립트를 사용하거나 파일을 복사하도록 지원합니다. 해당 기능을 사용하려면 스크립트나 파일이 외부에서 Azure Image Builder에 액세스할 수 있어야 하지만, Azure Storage blob을 SAS 토큰을 사용하여 보호할 수 있습니다.
 
-이 문서에서는 Azure VM 이미지 작성기를 사용 하 여 사용자 지정 이미지를 만드는 방법을 보여 줍니다. 여기서 서비스는 [사용자 할당 관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하 여 파일을 공개적으로 액세스할 수 있도록 하거나 SAS 토큰을 설정 하지 않고도 이미지 사용자 지정을 위해 azure storage의 파일에 액세스 합니다.
+본 문서에서는 Azure VM Image Builder를 사용하여 사용자 지정 이미지를 만드는 방법을 보여 주며, 이 때 서비스는 [사용자 할당 관리형 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 사용하여 직접 파일을 공개적으로 액세스할 수 있는 상태로 만들거나 SAS 토큰을 설정하지 않고도 이미지 사용자 지정을 위하여 Azure Storage의 이미지에 액세스합니다.
 
-아래 예제에서는 두 개의 리소스 그룹을 만들고, 하나는 사용자 지정 이미지에 사용 되 고, 다른 하나는 스크립트 파일을 포함 하는 Azure Storage 계정을 호스팅합니다. 이는 이미지 작성기 외부의 다른 저장소 계정에 빌드 아티팩트 또는 이미지 파일이 있을 수 있는 실제 시나리오를 시뮬레이션 합니다. 사용자 할당 id를 만든 다음 스크립트 파일에 대 한 읽기 권한을 부여 합니다. 하지만 해당 파일에 대 한 공용 액세스는 설정 하지 않습니다. 그런 다음 셸 사용자 지정자를 사용 하 여 저장소 계정에서 해당 스크립트를 다운로드 하 고 실행 합니다.
+아래 예제에서는 사용자 지정 이미지에 사용할 리소스 그룹 하나와 Azure Storage 계정을 호스트할, 스크립트 파일이 들어 있는 리소스 그룹 하나로 된 총 두 개의 리소스 그룹을 만듭니다. Image Builder 외부에 위치한 각기 다른 스토리지 계정에 빌드 아티팩트나 이미지 파일이 있는 경우의 실제 시나리오를 시뮬레이션합니다. 사용자 할당 ID를 만든 뒤 여기에 스크립트 파일에 대한 읽기 권한을 주되 해당 파일에 대한 퍼블릭 액세스는 설정하지 않습니다. 이후, 셸 사용자 지정자를 사용하여 해당 스크립트를 해당 스토리지 계정에서 다운로드하여 실행합니다.
 
 
 > [!IMPORTANT]
@@ -87,7 +87,7 @@ runOutputName=u1804ManImgMsiro
 subscriptionID=<Your subscription ID>
 ```
 
-이미지 및 스크립트 저장소에 대 한 리소스 그룹을 만듭니다.
+이미지와 스크립트 스토리지 둘 모두를 위한 리소스 그룹을 만듭니다.
 
 ```console
 # create resource group for image template
@@ -96,9 +96,9 @@ az group create -n $imageResourceGroup -l $location
 az group create -n $strResourceGroup -l $location
 ```
 
-사용자 할당 id를 만들고 리소스 그룹에 대 한 사용 권한을 설정 합니다.
+사용자 할당 ID를 만들고 리소스 그룹에 대한 권한을 설정합니다.
 
-이미지 작성기는 제공 된 [사용자 id](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) 를 사용 하 여 리소스 그룹에 이미지를 삽입 합니다. 이 예제에서는 이미지 배포를 수행 하는 세분화 된 작업을 포함 하는 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 user-identity에 할당됩니다.
+Image Builder는 해당 리소스 그룹에 이미지를 삽입하기 위하여 주어진 [사용자 ID](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity)를 이용합니다. 본 예제에서는 이미지 배포를 위하여 세분화된 작업을 갖춘 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 user-identity에 할당됩니다.
 
 ```console
 # create user assigned identity for image builder to access the storage account where the script is located
@@ -128,7 +128,7 @@ az role assignment create \
     --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
 ```
 
-저장소를 만들고 GitHub에서 샘플 스크립트를 복사 합니다.
+스토리지를 만들어 샘플 스크립트를 GitHub에서 여기로 복사합니다.
 
 ```azurecli-interactive
 # script storage account
@@ -153,7 +153,7 @@ az storage blob copy start \
     --source-uri https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/customizeScript.sh
 ```
 
-이미지 작성기에 이미지 리소스 그룹에서 리소스를 만들 수 있는 권한을 부여 합니다. `--assignee`값은 사용자 ID id입니다.
+해당 이미지 리소스 그룹에 리소스를 만들 수 있게 Image Builder 권한을 부여합니다. `--assignee` 값이 사용자 ID입니다.
 
 ```azurecli-interactive
 az role assignment create \
@@ -165,9 +165,9 @@ az role assignment create \
 
 
 
-## <a name="modify-the-example"></a>예제 수정
+## <a name="modify-the-example"></a>해당 예제를 수정하기
 
-예제 json 파일을 다운로드 하 고 사용자가 만든 변수를 사용 하 여 구성 합니다.
+.json 예제 파일을 다운로드하여 직접 만든 변수로 구성합니다.
 
 ```console
 curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage/helloImageTemplateMsi.json -o helloImageTemplateMsi.json
@@ -203,7 +203,7 @@ az resource invoke-action \
      --action Run 
 ```
 
-빌드가 완료될 때까지 기다립니다. 이는 약 15 분 정도 걸릴 수 있습니다.
+빌드가 완료될 때까지 기다립니다. 15분 정도 걸릴 수 있습니다.
 
 ## <a name="create-a-vm"></a>VM 만들기
 
@@ -219,7 +219,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-VM을 만든 후 VM을 사용 하 여 SSH 세션을 시작 합니다.
+VM은 만든 다음, 해당 VM을 가지고 SSH 세션을 시작합니다.
 
 ```console
 ssh aibuser@<publicIp>
@@ -238,7 +238,7 @@ SSH 연결이 설정되는 즉시 오늘의 메시지로 이미지가 사용자 
 
 ## <a name="clean-up"></a>정리
 
-작업이 완료 되 면 리소스가 더 이상 필요 하지 않은 경우 삭제할 수 있습니다.
+작업이 완료되면 필요 없어진 리소스는 삭제할 수 있습니다.
 
 ```azurecli-interactive
 
@@ -259,4 +259,4 @@ az group delete -n $strResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 이미지 작성기를 사용 하 여 작업 하는 데 문제가 있는 경우 [문제 해결](image-builder-troubleshoot.md?toc=%2fazure%2fvirtual-machines%context%2ftoc.json)을 참조 하세요.
+Azure Image Builder 작동과 관련된 문제는 [문제 해결](image-builder-troubleshoot.md?toc=%2fazure%2fvirtual-machines%context%2ftoc.json)을 참조하세요.

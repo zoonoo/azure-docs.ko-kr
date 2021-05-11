@@ -1,20 +1,20 @@
 ---
 title: Azure Monitor Application Insights 작업 영역 기반 리소스 스키마
-description: Azure Monitor Application Insights 작업 영역 기반 리소스에 대 한 새 테이블 구조 및 스키마에 대해 알아봅니다.
+description: Azure Monitor Application Insights 작업 영역 기반 리소스에 대한 새 테이블 구조 및 스키마에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/09/2020
 ms.openlocfilehash: ef9d22cd2b45679928ee54778b2a521ea9ecab03
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100575600"
 ---
 # <a name="workspace-based-resource-changes"></a>작업 영역 기반 리소스 변경
 
-[작업 영역 기반 Application Insights 리소스가](create-workspace-resource.md)도입 되기 전에 Application Insights 데이터는 Azure Monitor의 다른 로그 데이터와 별도로 저장 됩니다. 둘 다 Azure 데이터 탐색기을 기반으로 하며 동일한 Kusto 쿼리 언어 (KQL)를 사용 합니다. 이는 [Azure Monitor의 로그](../logs/data-platform-logs.md)에 설명 되어 있습니다.
+Application Insights 데이터는 [작업 영역 기반 Application Insights 리소스](create-workspace-resource.md)가 도입되기 전에 Azure Monitor의 다른 로그 데이터와 별도로 저장됩니다. 둘 다 Azure Data Explorer를 기반으로 하며 동일한 KQL(Kusto 쿼리 언어)을 사용합니다. 이는 [Azure Monitor의 로그](../logs/data-platform-logs.md)에 설명되어 있습니다.
 
-작업 영역 기반 Application Insights 리소스 데이터는 다른 모니터링 데이터 및 응용 프로그램 데이터와 함께 Log Analytics 작업 영역에 저장 됩니다. 이렇게 하면 여러 솔루션에서 데이터를 보다 쉽게 분석 하 고 작업 영역 기능을 활용할 수 있으므로 구성이 간단해 집니다.
+작업 영역 기반 Application Insights 리소스 데이터는 다른 모니터링 데이터 및 애플리케이션 데이터와 함께 Log Analytics 작업 영역에 저장됩니다. 이렇게 하면 여러 솔루션에서 데이터를 보다 쉽게 분석하고 작업 영역 기능을 활용할 수 있으므로 구성이 간단해집니다.
 
 ## <a name="table-structure"></a>테이블 구조
 
@@ -33,15 +33,15 @@ ms.locfileid: "100575600"
 
 ## <a name="table-schemas"></a>테이블 스키마
 
-다음 섹션에서는 클래식 속성 이름과 새 작업 영역 기반 Application Insights 속성 이름 간의 매핑을 보여 줍니다.  이 정보를 사용 하 여 레거시 테이블을 사용 하는 쿼리를 변환 합니다.
+다음 섹션에서는 클래식 속성 이름과 새 작업 영역 기반 Application Insights 속성 이름 간의 매핑을 보여 줍니다.  이 정보를 사용하여 레거시 테이블을 사용하는 쿼리를 변환합니다.
 
-대부분의 열은 대/소문자가 다른 동일한 이름을 갖습니다. KQL은 대/소문자를 구분 하므로 기존 쿼리의 테이블 이름과 함께 각 열 이름을 변경 해야 합니다. 대문자화 외에도 변경 내용이 있는 열은 강조 표시 됩니다. 작업 영역 기반 리소스인 경우에도 Application Insights 리소스의 **로그** 창 내에서 기존 Application Insights 쿼리를 계속 사용할 수 있습니다. Log Analytics 작업 영역 환경의 컨텍스트 내에서 쿼리 하는 경우에는 새 속성 이름이 필요 합니다.
+대부분의 열은 대/소문자가 다른 동일한 이름을 갖습니다. KQL은 대/소문자를 구분하므로 기존 쿼리의 테이블 이름과 함께 각 열 이름을 변경해야 합니다. 대문자화 외에도 변경 내용이 있는 열은 강조 표시됩니다. 작업 영역 기반 리소스의 경우에도 Application Insights 리소스의 **로그** 창 내에서 기존 Application Insights 쿼리를 계속 사용할 수 있습니다. Log Analytics 작업 영역 환경의 컨텍스트 내에서 쿼리하는 경우에는 새 속성 이름이 필요합니다.
 
 ### <a name="appavailabilityresults"></a>AppAvailabilityResults
 
 레거시 테이블: 가용성
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -64,7 +64,7 @@ ms.locfileid: "100575600"
 |itemCount|int|ItemCount|int|
 |itemId|문자열|\_ItemId|문자열|
 |itemType|문자열|Type|String|
-|위치|문자열|위치|문자열|
+|위치|문자열|Location|문자열|
 |message|문자열|메시지|문자열|
 |name|문자열|이름|string|
 |operation_Id|문자열|OperationId|문자열|
@@ -85,7 +85,7 @@ ms.locfileid: "100575600"
 
 레거시 테이블: browserTimings
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -106,7 +106,7 @@ ms.locfileid: "100575600"
 |itemCount|int|ItemCount|int|
 |itemId|문자열|\_ItemId|문자열|
 |itemType|문자열|Type|문자열|
-|name|문자열|Name|Datetime|
+|name|문자열|이름|Datetime|
 |networkDuration|real|NetworkDurationMs|real|
 |operation_Id|문자열|OperationId|문자열|
 |operation_Name|문자열|OperationName|문자열|
@@ -129,7 +129,7 @@ ms.locfileid: "100575600"
 
 레거시 테이블: 종속성
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -165,7 +165,7 @@ ms.locfileid: "100575600"
 |성공|문자열|Success|Bool|
 |대상|문자열|대상|문자열|
 |timestamp|Datetime|TimeGenerated|Datetime|
-|형식|문자열|DependencyType|문자열|
+|type|문자열|DependencyType|문자열|
 |user_AccountId|문자열|UserAccountId|문자열|
 |user_AuthenticatedId|문자열|UserAuthenticatedId|문자열|
 |user_Id|문자열|UserId|문자열|
@@ -174,7 +174,7 @@ ms.locfileid: "100575600"
 
 레거시 테이블: customEvents
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -211,7 +211,7 @@ ms.locfileid: "100575600"
 
 레거시 테이블: customMetrics
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -241,18 +241,18 @@ ms.locfileid: "100575600"
 |user_AccountId|문자열|UserAccountId|문자열|
 |user_AuthenticatedId|문자열|UserAuthenticatedId|문자열|
 |user_Id|문자열|UserId|문자열|
-|값|real|제거||
-|이상|int|이상|int|
+|값|real|(제거됨)||
+|valueCount|int|ValueCount|int|
 |valueMax|real|ValueMax|real|
-|이상|real|이상|real|
-|이상 개발|real|이상 개발|real|
-|Valueum|real|Valueum|real|
+|valueMin|real|ValueMin|real|
+|valueStdDev|real|ValueStdDev|real|
+|valueSum|real|ValueSum|real|
 
 ### <a name="apppageviews"></a>AppPageViews
 
 레거시 테이블: pageViews
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -293,7 +293,7 @@ ms.locfileid: "100575600"
 
 레거시 테이블: performanceCounters
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -309,7 +309,7 @@ ms.locfileid: "100575600"
 |client_Type|문자열|ClientType|문자열|
 |cloud_RoleInstance|문자열|AppRoleInstance|문자열|
 |cloud_RoleName|문자열|AppRoleName|문자열|
-|counter|문자열|제거||
+|counter|문자열|(제거됨)||
 |customDimensions|동적|속성|동적|
 |iKey|문자열|IKey|문자열|
 |인스턴스|문자열|인스턴스|문자열|
@@ -332,7 +332,7 @@ ms.locfileid: "100575600"
 
 레거시 테이블: 요청
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -376,7 +376,7 @@ ms.locfileid: "100575600"
 
 레거시 테이블: 예외
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -405,7 +405,7 @@ ms.locfileid: "100575600"
 |itemId|문자열|\_ItemId|문자열|
 |itemType|문자열|Type|문자열|
 |message|문자열|메시지|문자열|
-|method|문자열|메서드|문자열|
+|method|문자열|방법|문자열|
 |operation_Id|문자열|OperationId|문자열|
 |operation_Name|문자열|OperationName|문자열|
 |operation_ParentId|문자열|OperationParentId|문자열|
@@ -419,7 +419,7 @@ ms.locfileid: "100575600"
 |session_Id|문자열|SessionId|문자열|
 |severityLevel|int|SeverityLevel|int|
 |timestamp|Datetime|TimeGenerated|Datetime|
-|형식|문자열|ExceptionType|문자열|
+|type|문자열|ExceptionType|문자열|
 |user_AccountId|문자열|UserAccountId|문자열|
 |user_AuthenticatedId|문자열|UserAuthenticatedId|문자열|
 |user_Id|문자열|UserId|문자열|
@@ -428,7 +428,7 @@ ms.locfileid: "100575600"
 
 레거시 테이블: 추적
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|

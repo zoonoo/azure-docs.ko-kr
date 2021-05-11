@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
 ms.openlocfilehash: e048e4c17092c71a5adaf29f342546b9258837c5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100586228"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Azure App Service에서 느린 앱 성능 문제 해결
@@ -133,7 +133,7 @@ Kudu가 제공하는 것은 다음과 같습니다.
 * 애플리케이션에 대한 환경 설정
 * 로그 스트림
 * 진단 덤프
-* PowerShell cmdlet 및 기본 DOS 명령을 실행할 수 있는 디버그 콘솔
+* PowerShell cmdlet 및 기본 DOS 명령을 실행할 수 있는 콘솔을 디버그합니다.
 
 Kudu의 또 다른 유용한 기능은 애플리케이션에 첫 번째 예외가 발생할 경우, 메모리 덤프를 만들기 위해 Kudu와 SysInternal 도구 Procdump를 사용할 수 있습니다. 메모리 덤프는 프로세스의 스냅샷이며 앱의 더욱 복잡한 문제를 해결하는 데 많은 도움을 줍니다.
 
@@ -161,4 +161,4 @@ AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 
 
  ![앱을 다시 시작하여 성능 문제 해결](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-Azure PowerShell를 사용 하 여 앱을 관리할 수도 있습니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](../azure-resource-manager/management/manage-resources-powershell.md)을 참조하세요.
+또한 Azure PowerShell을 사용하여 앱을 관리할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](../azure-resource-manager/management/manage-resources-powershell.md)을 참조하세요.

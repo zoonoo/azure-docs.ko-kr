@@ -1,6 +1,6 @@
 ---
-title: Intelligent Insights를 사용 하 여 데이터베이스 성능 모니터링
-description: Azure SQL Database 및 Azure SQL Managed Instance에서 Intelligent Insights는 기본 제공 인텔리전스를 사용 하 여 인공 지능을 통해 데이터베이스 사용을 지속적으로 모니터링 하 고 성능 저하를 야기 하는 중단 이벤트를 검색 합니다.
+title: Intelligent Insights를 사용한 데이터베이스 성능 모니터링
+description: Azure SQL Database 및 Azure SQL Managed Instance에서 Intelligent Insights는 기본 제공 인텔리전스를 사용하여 인공 지능을 통해 데이터베이스 사용량을 지속적으로 모니터링하고 성능 저하의 원인이 되는 중단 이벤트를 검색합니다.
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: performance
@@ -12,18 +12,18 @@ ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 06/12/2020
 ms.openlocfilehash: 61033e3eb8264c1e462faac3e4553a855a1d06c7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100592089"
 ---
-# <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>AI를 사용 하 여 데이터베이스 성능 모니터링 및 문제 해결 (미리 보기) Intelligent Insights
+# <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>인공 지능을 사용하여 데이터베이스 성능을 모니터링하고 문제를 해결하는 Intelligent Insights(미리 보기)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Azure SQL Database 및 Azure SQL Managed Instance에서 Intelligent Insights를 사용 하 여 데이터베이스 성능에 발생 하는 상황을 알 수 있습니다.
+Azure SQL Database 및 Azure SQL Managed Instance에서 Intelligent Insights를 사용하여 데이터베이스 성능의 상황을 알 수 있습니다.
 
-Intelligent Insights는 기본 제공 인텔리전스를 사용하여 지속적으로 인공 지능을 통해 데이터베이스 사용량을 모니터링하고 성능 저하의 원인이 되는 중단 이벤트를 검색합니다. 검색 된 후에는 문제에 대 한 지능형 평가를 통해 Intelligent Insights 리소스 로그 (SQLInsights)를 생성 하는 자세한 분석이 수행 됩니다. 이 평가는 데이터베이스 성능 문제의 근본 원인 분석과 성능 개선을 위한 가능한 권장 사항이 있는 위치로 구성되어 있습니다.
+Intelligent Insights는 기본 제공 인텔리전스를 사용하여 지속적으로 인공 지능을 통해 데이터베이스 사용량을 모니터링하고 성능 저하의 원인이 되는 중단 이벤트를 검색합니다. 중단 이벤트가 검색되면 세부적인 분석이 이루어지게 되며, Intelligent Insights 리소스 로그(SQLInsights)와 함께 해당 문제의 지능형 평가가 생성됩니다. 이 평가는 데이터베이스 성능 문제의 근본 원인 분석과 성능 개선을 위한 가능한 권장 사항이 있는 위치로 구성되어 있습니다.
 
 ## <a name="what-can-intelligent-insights-do-for-you"></a>Intelligent Insights가 수행할 수 있는 작업
 
@@ -39,15 +39,15 @@ Intelligent Insights는 다음 값을 제공하는 Azure의 기본 제공 인텔
 
 ## <a name="how-does-intelligent-insights-work"></a>Intelligent Insights의 작동 방식
 
-Intelligent Insights는 마지막 1시간의 데이터베이스 워크로드와 지난 7일의 기준 워크로드를 비교하여 데이터베이스 성능을 분석합니다. 데이터베이스 워크로드는 가장 많이 반복되고 가장 큰 쿼리와 같이 데이터베이스 성능에 가장 중요하다고 판단되는 쿼리로 구성됩니다. 각 데이터베이스는 구조, 데이터, 사용량 및 응용 프로그램에 따라 고유 하기 때문에 생성 된 각 워크 로드 기준은 해당 워크 로드에 따라 고유 합니다. 워크로드 기준과는 별도로 Intelligent Insights는 또한 절대 작업 임계값을 모니터링하고 과도한 대기 시간 문제, 심각한 예외, 성능에 영향을 줄 수 있는 쿼리 매개 변수화의 문제를 감지합니다.
+Intelligent Insights는 마지막 1시간의 데이터베이스 워크로드와 지난 7일의 기준 워크로드를 비교하여 데이터베이스 성능을 분석합니다. 데이터베이스 워크로드는 가장 많이 반복되고 가장 큰 쿼리와 같이 데이터베이스 성능에 가장 중요하다고 판단되는 쿼리로 구성됩니다. 각 데이터베이스는 구조, 데이터, 사용량 및 애플리케이션에 따라 고유하기 때문에 생성된 각 워크로드 기준은 해당 워크로드에 대해 고유합니다. 워크로드 기준과는 별도로 Intelligent Insights는 또한 절대 작업 임계값을 모니터링하고 과도한 대기 시간 문제, 심각한 예외, 성능에 영향을 줄 수 있는 쿼리 매개 변수화의 문제를 감지합니다.
 
 인공 지능을 사용하여 관찰된 여러 개의 메트릭에서 성능 저하 문제가 검색되면 분석이 수행됩니다. 데이터베이스 상황을 지능적으로 분석한 진단 로그가 생성됩니다. 인텔리전스 Insights를 사용하면 데이터베이스 성능 문제가 처음 출현할 때부터 해결될 때까지 쉽게 추적할 수 있습니다. 검색된 각 문제는 최초 문제 검색부터, 성능 개선 확인, 완료의 주기에서 추적됩니다.
 
 ![데이터베이스 성능 분석 워크플로](./media/intelligent-insights-overview/intelligent-insights-concept.png)
 
-데이터베이스 성능 문제를 측정하고 검색하는 데 사용되는 메트릭은 쿼리 기간, 시간 제한 요청, 과도한 대기 시간, 오류 발생 요청을 기반으로 합니다. 메트릭에 대 한 자세한 내용은 [검색 메트릭](#detection-metrics)을 참조 하세요.
+데이터베이스 성능 문제를 측정하고 검색하는 데 사용되는 메트릭은 쿼리 기간, 시간 제한 요청, 과도한 대기 시간, 오류 발생 요청을 기반으로 합니다. 메트릭에 대한 자세한 정보는 [메트릭 검색](#detection-metrics)을 참조하세요.
 
-식별 된 database performance 저하는 다음 속성으로 구성 된 지능형 항목을 사용 하 여 SQLInsights 로그에 기록 됩니다.
+확인된 데이터베이스 성능 저하는 다음 속성으로 구성된 지능형 항목과 함께 SQLInsights 로그에 기록됩니다.
 
 | 속성 | 세부 정보 |
 | :------------------- | ------------------- |
@@ -60,12 +60,12 @@ Intelligent Insights는 마지막 1시간의 데이터베이스 워크로드와 
 | 근본 원인 분석 | 인간이 읽을 수 있는 형식으로 식별된 문제의 근본 원인 분석입니다. 가능한 경우 일부 정보에는 성능 개선 권장 사항이 있을 수 있습니다. |
 |||
 
-Azure SQL 분석와 함께 Intelligent Insights를 사용 하는 방법과 일반적인 사용 시나리오에 대 한 실습 개요는 다음 비디오를 참조 하세요.
+Azure SQL 분석을 사용해 Intelligent Insights를 사용하는 방법에 대한 실무 중심 개요 및 일반적인 사용 시나리오는 다음 영상을 참조하세요.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
-Intelligent Insights는 데이터베이스 성능 문제를 검색 하 고 해결 하는 것에 특히 있습니다. Intelligent Insights를 사용 하 여 데이터베이스 성능 문제를 해결 하려면 [Intelligent Insights의 성능 문제 해결](intelligent-insights-troubleshoot-performance.md)을 참조 하세요.
+Intelligent Insights는 데이터베이스 성능 문제를 검색하고 해결하는 데 특히 유용합니다. Intelligent Insights를 사용하여 데이터베이스 성능 문제를 해결하는 방법에 대한 자세한 내용은 [Intelligent Insights를 사용하여 성능 문제 해결](intelligent-insights-troubleshoot-performance.md)을 참조하세요.
 
 ## <a name="intelligent-insights-options"></a>Intelligent Insights 옵션
 
@@ -73,33 +73,33 @@ Intelligent Insights는 데이터베이스 성능 문제를 검색 하 고 해�
 
 | Intelligent Insights 옵션 | Azure SQL Database 지원 | Azure SQL Managed Instance 지원 |
 | :----------------------------- | ----- | ----- |
-| **Intelligent Insights 구성** -데이터베이스에 대 한 Intelligent Insights 분석을 구성 합니다. | 예 | 예 |
-| **Azure SQL 분석에 대 한 정보를 스트림 하 여** Azure SQL 분석에 대 한 정보를 스트리밍합니다. | 예 | 예 |
-| 추가 사용자 지정 통합을 위해 Azure Event Hubs stream insights에 대 한 **정보를** Event Hubs으로 스트리밍합니다. | 예 | 예 |
-| 추가 분석 및 장기 보관을 위해 Azure Storage에 대 한 Azure Storage 스트림 정보에 대 한 **정보를 스트리밍합니다** . | 예 | 예 |
+| **Intelligent Insights 구성** - 데이터베이스에 대한 Intelligent Insights 분석을 구성합니다. | 예 | 예 |
+| **Azure SQL 분석으로 인사이트 스트림하기** - Azure SQL 분석으로 인사이트를 스트림합니다. | 예 | 예 |
+| **Azure Event Hubs로 인사이트 스트림하기** - 추가 사용자 지정 통합을 위해 Event Hubs로 인사이트를 스트림합니다. | 예 | 예 |
+| **Azure Storage로 인사이트 스트림하기** - 추가 분석 및 장기 보존을 위해 Azure Storage로 인사이트를 스트림합니다. | 예 | 예 |
 
 > [!NOTE]
-> Intelligent insights는 유럽 서부, 서유럽, 미국 서 부 1 및 미국 동부 1 지역에서 사용할 수 없는 미리 보기 기능입니다.
+> Intelligent insights는 서유럽, 북유럽, 미국 서부 1 및 미국 동부 1 지역에서는 사용할 수 없는 미리 보기 기능입니다.
 
 ## <a name="configure-the-export-of-the-intelligent-insights-log"></a>Intelligent Insights 로그 내보내기 구성
 
-분석을 위해 Intelligent Insights 출력을 여러 대상 중 하나로 스트리밍할 수 있습니다.
+분석을 위해 Intelligent Insights 출력을 여러 대상 중 하나로 스트림할 수 있습니다.
 
-- Log Analytics 작업 영역으로 스트리밍되는 출력은 [Azure SQL 분석](../../azure-monitor/insights/azure-sql.md) 와 함께 사용 하 여 Azure Portal의 사용자 인터페이스를 통해 정보를 볼 수 있습니다. 이 제품은 통합된 Azure 솔루션이며, 인사이트를 살펴보는 가장 일반적인 방법입니다.
-- Azure Event Hubs로 스트리밍된 출력은 사용자 지정 모니터링 및 경고 시나리오를 개발 하는 데 사용할 수 있습니다.
-- 사용자 지정 보고, 장기 데이터 보관 등의 사용자 지정 응용 프로그램 개발에 사용할 수 Azure Storage으로 스트리밍되는 출력입니다.
+- Log Analytics 작업 영역으로 스트림되는 출력을 [Azure SQL 분석](../../azure-monitor/insights/azure-sql.md)과 함께 사용하면 Azure Portal의 사용자 인터페이스를 통해 인사이트를 볼 수 있습니다. 이 제품은 통합된 Azure 솔루션이며, 인사이트를 살펴보는 가장 일반적인 방법입니다.
+- Azure Event Hubs로 스트림된 출력은 사용자 지정 모니터링 및 경고 시나리오를 개발하는 데 사용할 수 있습니다.
+- Azure Storage으로 스트림되는 출력은 사용자 지정 보고 및 장기 데이터 보관 등의 사용자 지정 애플리케이션 개발에 사용할 수 있습니다.
 
-Azure SQL 분석, Azure Event Hubs, Azure Storage 또는 타사 제품의 통합은 먼저 데이터베이스의 진단 설정 블레이드에서 Intelligent Insights 로깅 ("SQLInsights" 로그)을 사용 하도록 설정한 다음 이러한 대상 중 하나로 스트리밍되는 Intelligent Insights 로그 데이터를 구성 하 여 수행 됩니다.
+Azure SQL 분석, Azure Event Hubs, Azure Storage 또는 소비자용 타사 제품을 통합하려면 먼저 데이터베이스의 진단 설정 블레이드에서 Intelligent Insights 로깅(“SQLInsights” 로그)을 사용하도록 설정한 다음, 관련 대상 중 하나로 Intelligent Insights 로그 데이터가 스트림되도록 구성합니다.
 
-Intelligent Insights 로깅을 사용 하는 방법에 대 한 자세한 내용과 사용 하는 제품으로 스트리밍할 메트릭 및 리소스 로그 데이터를 구성 하는 방법에 대 한 자세한 내용은 [메트릭 및 진단 로깅](metrics-diagnostic-telemetry-logging-streaming-export-configure.md)을 참조 하세요.
+Intelligent Insights 로깅을 사용하도록 설정하고 메트릭 및 리소스 로그 데이터가 사용 중인 제품에 스트림되도록 구성하는 방법에 대한 자세한 내용은 [메트릭 및 진단 로깅](metrics-diagnostic-telemetry-logging-streaming-export-configure.md)을 참조하세요.
 
 ### <a name="set-up-with-azure-sql-analytics"></a>Azure SQL Analytics를 사용하여 설정
 
-Azure SQL 분석 솔루션은 Intelligent Insights 리소스 로그 데이터를 사용 하 여 데이터베이스 성능에 대 한 그래픽 사용자 인터페이스, 보고 및 경고 기능을 제공 합니다.
+Azure SQL 분석 솔루션은 Intelligent Insights 리소스 로그 데이터를 사용하여 데이터베이스 성능에 대한 그래픽 사용자 인터페이스, 보고 및 경고 기능을 제공합니다.
 
-Marketplace에서 Azure Portal 대시보드에 Azure SQL 분석를 추가 하 고 작업 영역을 만들려면 [구성 Azure SQL 분석](../../azure-monitor/insights/azure-sql.md#configuration) 을 참조 하세요.
+마켓플레이스에서 Azure Portal 대시보드에 Azure SQL 분석을 추가하고 작업 영역을 만들려면 [Azure SQL 분석 구성](../../azure-monitor/insights/azure-sql.md#configuration)을 참조하세요.
 
-Azure SQL 분석에서 Intelligent Insights를 사용 하려면 이전 단계에서 만든 Azure SQL 분석 작업 영역으로 스트리밍할 Intelligent Insights 로그 데이터를 구성 합니다. [메트릭 및 진단 로깅](metrics-diagnostic-telemetry-logging-streaming-export-configure.md)을 참조 하세요.
+Azure SQL 분석에서 Intelligent Insights를 사용하고 이전 단계에서 만든 Azure SQL 분석 작업 영역으로 Intelligent Insights 로그 데이터가 스트림되도록 구성하려면 [메트릭 및 진단 로깅](metrics-diagnostic-telemetry-logging-streaming-export-configure.md)을 참조하세요.
 
 다음은 Azure SQL Analytics를 통해 Intelligent Insights를 살펴보는 예제입니다.
 
@@ -107,17 +107,17 @@ Azure SQL 분석에서 Intelligent Insights를 사용 하려면 이전 단계에
 
 ### <a name="set-up-with-event-hubs"></a>Event Hubs를 사용하여 설정
 
-Event Hubs에서 Intelligent Insights를 사용 하려면 Event Hubs로 스트리밍할 Intelligent Insights 로그 데이터를 구성 하 고, [메트릭 및 진단 로깅](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) 을 참조 하 고, [Azure 진단 로그를 Event Hubs으로 스트리밍합니다](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs).
+Event Hubs에서 Intelligent Insights를 사용하고 Intelligent Insights 로그 데이터가 Event Hubs로 스트림되도록 구성하려면 [메트릭 및 진단 로깅](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) 및 [Event Hubs로 진단 로그 스트림하기](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)를 참조하세요.
 
-Event Hubs를 사용 하 여 사용자 지정 모니터링 및 경고를 설정 하려면 [Event Hubs에서 메트릭 및 진단 로그를 사용 하 여 수행할 작업](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs)을 참조 하세요.
+Event Hubs를 사용하여 사용자 지정 모니터링 및 경고를 설정하려면 [Event Hubs에서 메트릭 및 진단 로그로 할 수 있는 일](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs)을 참조하세요.
 
 ### <a name="set-up-with-azure-storage"></a>Azure Storage를 사용하여 설정
 
-저장소에서 Intelligent Insights를 사용 하 고 저장소로 스트리밍할 Intelligent Insights 로그 데이터를 구성 하려면 [메트릭 및 진단 로깅](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) 및 [스트리밍 Azure Storage](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)를 참조 하세요.
+Storage에서 Intelligent Insights를 사용하고 Intelligent Insights 로그 데이터가 Storage로 스트림되도록 구성하려면 [메트릭 및 진단 로깅](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) 및 [Azure Storage로 스트림하기](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)를 참조하세요.
 
 ### <a name="custom-integrations-of-intelligent-insights-log"></a>인텔리전스 Insights 로그의 사용자 지정 통합
 
-타사 도구에서 Intelligent Insights를 사용 하거나 사용자 지정 경고 및 모니터링 개발을 사용 하려면 [Intelligent Insights database 성능 진단 로그 사용](intelligent-insights-use-diagnostics-log.md)을 참조 하세요.
+타사 도구와 함께 또는 사용자 지정 경고 및 모니터링 개발을 위해 Intelligent Insights를 사용하려면 [Intelligent Insights 데이터베이스 성능 진단 로그 사용](intelligent-insights-use-diagnostics-log.md)을 참조하세요.
 
 ## <a name="detection-metrics"></a>검색 메트릭
 
@@ -136,13 +136,13 @@ Event Hubs를 사용 하 여 사용자 지정 모니터링 및 경고를 설정 
 
 - 검색된 성능 문제의 세부 정보.
 - 검색된 문제의 근본 원인 분석.
-- 가능 하면 모니터링 되는 데이터베이스의 성능을 향상 시키는 방법에 대 한 권장 사항입니다.
+- 가능한 경우 모니터링되는 데이터베이스의 성능을 향상시키는 방법에 대한 권장 사항입니다.
 
 ## <a name="query-duration"></a>쿼리 기간
 
 쿼리 기간 저하 모델은 개별 쿼리를 분석하고 성능 기준과 비교하여 쿼리를 컴파일하고 실행하는 데 걸리는 시간의 증가를 검색합니다.
 
-기본 제공 인텔리전스가 워크 로드 성능에 영향을 주는 쿼리 컴파일 또는 쿼리 실행 시간이 크게 증가 하는 것을 감지 하는 경우 이러한 쿼리는 쿼리 기간 성능 저하 문제로 플래그가 지정 됩니다.
+기본 제공 인텔리전스가 워크로드 성능에 영향을 주는 쿼리 컴파일 또는 쿼리 실행 시간이 크게 증가한 것을 검색한 경우, 해당 쿼리는 쿼리 기간에 성능 저하 문제가 있음을 나타내기 위해 플래그 지정됩니다.
 
 Intelligent Insights 진단 로그는 성능이 저하된 쿼리의 쿼리 해시를 출력합니다. 쿼리 해시는 성능 저하가 쿼리 컴파일 또는 실행 시간 증가로 인한 쿼리 지속 시간과 관련되어 있는지 여부를 나타냅니다.
 
@@ -150,7 +150,7 @@ Intelligent Insights 진단 로그는 성능이 저하된 쿼리의 쿼리 해�
 
 시간 제한 요청 저하 모델은 개별 쿼리를 분석하고 쿼리 실행 수준에서 시간 제한의 증가, 그리고 성능 기준 기간과 비교하여 데이터베이스 수준에서 전체 요청 시간 제한을 감지합니다.
 
-일부 쿼리는 실행 단계에 도달하기 전에 시간이 제한될 수 있습니다. 중단 된 작업자와 요청이 발생 하는 것을 통해 기본 제공 인텔리전스는 실행 단계에 도달 했는지 여부에 관계 없이 데이터베이스에 도달 하는 모든 쿼리를 측정 하 고 분석 합니다.
+일부 쿼리는 실행 단계에 도달하기 전에 시간이 제한될 수 있습니다. 중단된 작업자와 수행된 요청을 통해 기본 제공 인텔리전스는 데이터베이스에 도달한 모든 쿼리를 측정 및 분석하여 쿼리가 실행 단계에 도달했는지 여부를 판단합니다.
 
 실행된 쿼리의 시간 제한 횟수 또는 중단된 요청 작업자의 수가 시스템에서 관리하는 임계값을 초과하는 경우 진단 로그가 Intelligent Insights로 채워집니다.
 
@@ -158,7 +158,7 @@ Intelligent Insights 진단 로그는 성능이 저하된 쿼리의 쿼리 해�
 
 ## <a name="excessive-wait-times"></a>과도한 대기 시간
 
-과도한 대기 시간 모델은 개별 데이터베이스 쿼리를 모니터링합니다. 이 모델은 시스템에서 관리하는 절대 임계값을 초과해 비정상적으로 높은 쿼리 대기 통계를 검색합니다. 다음 쿼리는 [쿼리 저장소 대기 통계 (sys.query_store_wait_stats)](/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql)를 사용 하 여 과도 한 대기 시간 메트릭을 관찰 합니다.
+과도한 대기 시간 모델은 개별 데이터베이스 쿼리를 모니터링합니다. 이 모델은 시스템에서 관리하는 절대 임계값을 초과해 비정상적으로 높은 쿼리 대기 통계를 검색합니다. 다음 쿼리의 과도한 대기 시간 메트릭은 [쿼리 저장소 대기 통계(sys.query_store_wait_stats)](/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql)를 통해 관찰됩니다.
 
 - 리소스 제한에 도달
 - 탄력적 풀 리소스 제한에 도달
@@ -177,7 +177,7 @@ Intelligent Insights 진단 로그는 성능이 저하된 쿼리의 쿼리 해�
 
 ## <a name="errored-requests"></a>오류 발생 요청
 
-오류 발생 요청 저하 모델은 개별 쿼리를 모니터링하고 기준 기간과 비교하여 오류가 발생한 쿼리 수의 증가를 검색합니다. 이 모델은 기본 제공 인텔리전스에서 관리 하는 절대 임계값을 초과한 심각한 예외도 모니터링 합니다. 시스템은 모니터링되는 기간에 데이터베이스에 적용된 쿼리 요청과 워크로드의 변화에 대한 계정의 수를 자동으로 고려합니다.
+오류 발생 요청 저하 모델은 개별 쿼리를 모니터링하고 기준 기간과 비교하여 오류가 발생한 쿼리 수의 증가를 검색합니다. 해당 모델은 또한 기본 제공 인텔리전스에서 관리되는 절대 임계값을 초과한 심각한 예외를 모니터링합니다. 시스템은 모니터링되는 기간에 데이터베이스에 적용된 쿼리 요청과 워크로드의 변화에 대한 계정의 수를 자동으로 고려합니다.
 
 적용된 전체 요청 수와 관련하여 측정된 오류 발생 요청의 증가가 워크로드 성능에 중요한 것으로 간주되는 경우 영향을 받는 쿼리는 오류 발생 요청 성능 저하 문제가 있음을 나타내기 위해 플래그 지정됩니다.
 
@@ -187,5 +187,5 @@ Intelligent Insights 로그는 오류 발생 요청의 수를 출력합니다. �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [SQL Analytics를 사용 하 여 데이터베이스를 모니터링](../../azure-monitor/insights/azure-sql.md)하는 방법을 알아봅니다.
-- [Intelligent Insights의 성능 문제를 해결](intelligent-insights-troubleshoot-performance.md)하는 방법에 대해 알아봅니다.
+- [SQL 분석을 사용하여 데이터베이스를 모니터링하는 방법](../../azure-monitor/insights/azure-sql.md)에 대해 알아봅니다.
+- [Intelligent Insights를 사용하여 성능 문제를 해결하는 방법](intelligent-insights-troubleshoot-performance.md)에 대해 알아봅니다.

@@ -10,10 +10,10 @@ ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
 ms.openlocfilehash: 968377ed09996b9a717e0739a3de8355d1c8d88d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101677148"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure에서 주문형 Red Hat Enterprise Linux VM에 대한 Red Hat 업데이트 인프라
@@ -47,7 +47,7 @@ RHEL(Red Hat Enterprise Linux) 종량제(PAYG) 이미지는 Azure RHUI에 액세
 
 ### <a name="images-connected-to-non-eus-repositories"></a>비 EUS 리포지토리에 연결된 이미지
 
-비 EUS 리포지토리에 연결된 RHEL 이미지에서 VM을 프로비저닝하는 경우 `sudo yum update`를 실행하면 최신 RHEL 부 버전으로 업그레이드됩니다. 예를 들어 RHEL 7.4 PAYG 이미지에서 VM을 프로 비전 하 고를 실행 하는 경우 `sudo yum update` RHEL 7.8 VM (RHEL7 제품군의 최신 부 버전)으로 끝납니다.
+비 EUS 리포지토리에 연결된 RHEL 이미지에서 VM을 프로비저닝하는 경우 `sudo yum update`를 실행하면 최신 RHEL 부 버전으로 업그레이드됩니다. 예를 들어 RHEL 7.4 종량제 이미지에서 VM을 프로비저닝하고 `sudo yum update`를 실행하는 경우 RHEL 7.8 VM(RHEL7 제품군에서 최신 부 버전)이 설치됩니다.
 
 비 EUS 리포지토리에 연결된 이미지에는 SKU의 부 버전 번호가 포함되지 않습니다. 이 SKU는 URN(이미지의 전체 이름)의 세 번째 요소입니다. 예를 들어 다음 이미지는 모두 비 EUS 리포지토리에 연결된 상태로 제공됩니다.
 
@@ -81,17 +81,17 @@ EUS(확장 업데이트 지원) 리포지토리는 VM을 프로비저닝한 후�
 >[!NOTE]
 > EUS는 RHEL Extras에서 지원되지 않습니다. 즉, 일반적으로 RHEL 특별 채널에서 사용할 수 있는 패키지를 설치하는 경우 EUS에서 이 작업을 수행할 수 없습니다. Red Hat Extras 제품 수명 주기는 [여기](https://access.redhat.com/support/policy/updates/extras/)에 자세히 설명되어 있습니다.
 
-이 문서 작성 당시에는 RHEL 7.4 이하 버전에 대한 EUS 지원이 종료되었습니다. 자세한 내용은 [Red Hat 설명서](https://access.redhat.com/support/policy/updates/errata/#Long_Support) 의 "Red Hat Enterprise Linux Extended Maintenance" 섹션을 참조 하세요.
+이 문서 작성 당시에는 RHEL 7.4 이하 버전에 대한 EUS 지원이 종료되었습니다. 자세한 내용은 [Red Hat 설명서](https://access.redhat.com/support/policy/updates/errata/#Long_Support)의 “Red Hat Enterprise Linux 유지 관리 연장” 섹션을 참조하세요.
 * RHEL 7.4 EUS 지원이 2019년 8월 31일에 종료됩니다.
 * RHEL 7.5 EUS 지원이 2020년 4월 30일에 종료됩니다.
-* RHEL 7.6 EUS 지원은 2021 년 5 월 31 일에 종료 됩니다.
+* RHEL 7.6 EUS 지원이 2021년 5월 31일에 종료됩니다.
 * RHEL 7.7 EUS 지원이 2021년 8월 30일에 종료됩니다.
 
-### <a name="switch-a-rhel-vm-7x-to-eus-version-lock-to-a-specific-minor-version"></a>RHEL VM 4.x를 EUS (버전-특정 부 버전으로 잠금)로 전환 합니다.
-다음 지침을 사용 하 여 RHEL 4.x VM을 특정 부 릴리스 (루트로 실행)에 잠급니다.
+### <a name="switch-a-rhel-vm-7x-to-eus-version-lock-to-a-specific-minor-version"></a>RHEL VM 7.x을 EUS로 전환(특정 부 버전으로 버전 잠금)
+다음 지침에 따라 특정 부 릴리스로 RHEL 7.x VM을 잠급니다(루트로 실행).
 
 >[!NOTE]
-> 이는 EUS를 사용할 수 있는 RHEL 4.x 버전에만 적용 됩니다. 이 문서 작성 당시 여기에는 RHEL 7.2-7.7이 포함됩니다. 자세한 내용은 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata) 페이지에서 제공됩니다.
+> 이는 EUS를 사용할 수 있는 RHEL 7.x 버전에만 적용됩니다. 이 문서 작성 당시 여기에는 RHEL 7.2-7.7이 포함됩니다. 자세한 내용은 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata) 페이지에서 제공됩니다.
 
 1. 비 EUS 리포지토리를 비활성화합니다.
     ```bash
@@ -109,18 +109,18 @@ EUS(확장 업데이트 지원) 리포지토리는 VM을 프로비저닝한 후�
     ```
 
     >[!NOTE]
-    > 위의 명령을 사용하여 현재 부 릴리스로 RHEL 부 릴리스를 잠급니다. 최신 릴리스가 아닌 추후 부 릴리스로 업그레이드하고 잠그려는 경우 특정 부 릴리스를 입력합니다. 예를 들어 `echo 7.5 > /etc/yum/vars/releasever` 는 RHEL 버전을 RHEL 7.5으로 잠급니다.
+    > 위의 명령을 사용하여 현재 부 릴리스로 RHEL 부 릴리스를 잠급니다. 최신 릴리스가 아닌 추후 부 릴리스로 업그레이드하고 잠그려는 경우 특정 부 릴리스를 입력합니다. 예를 들어 `echo 7.5 > /etc/yum/vars/releasever`는 RHEL 7.5로 RHEL 버전을 잠급니다.
 
 1. RHEL VM 업데이트
     ```bash
     sudo yum update
     ```
 
-### <a name="switch-a-rhel-vm-8x-to-eus-version-lock-to-a-specific-minor-version"></a>RHEL VM 4.x를 EUS (버전-특정 부 버전으로 잠금)로 전환 합니다.
-다음 지침을 사용 하 여 RHEL .x VM을 특정 부 릴리스 (루트로 실행)에 잠급니다.
+### <a name="switch-a-rhel-vm-8x-to-eus-version-lock-to-a-specific-minor-version"></a>RHEL VM 8.x을 EUS로 전환(특정 부 버전으로 버전 잠금)
+다음 지침에 따라 특정 부 릴리스로 RHEL 8.x VM을 잠급니다(루트로 실행).
 
 >[!NOTE]
-> 이는 EUS를 사용할 수 있는 RHEL .x 버전에만 적용 됩니다. 이 문서를 작성할 당시에는 RHEL 8.1-8.2가 포함 됩니다. 자세한 내용은 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata) 페이지에서 제공됩니다.
+> 이는 EUS를 사용할 수 있는 RHEL 8.x 버전에만 적용됩니다. 이 문서 작성 당시 여기에는 RHEL 8.1-8.2가 포함됩니다. 자세한 내용은 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata) 페이지에서 제공됩니다.
 
 1. 비 EUS 리포지토리를 비활성화합니다.
     ```bash
@@ -143,10 +143,10 @@ EUS(확장 업데이트 지원) 리포지토리는 VM을 프로비저닝한 후�
     ```
 
     >[!NOTE]
-    > 위의 명령을 사용하여 현재 부 릴리스로 RHEL 부 릴리스를 잠급니다. 최신 릴리스가 아닌 추후 부 릴리스로 업그레이드하고 잠그려는 경우 특정 부 릴리스를 입력합니다. 예를 들어 `echo 8.1 > /etc/yum/vars/releasever` 는 RHEL 버전을 RHEL 8.1으로 잠급니다.
+    > 위의 명령을 사용하여 현재 부 릴리스로 RHEL 부 릴리스를 잠급니다. 최신 릴리스가 아닌 추후 부 릴리스로 업그레이드하고 잠그려는 경우 특정 부 릴리스를 입력합니다. 예를 들어, `echo 8.1 > /etc/yum/vars/releasever`는 RHEL 버전을 RHEL 8.1로 잠급니다.
 
     >[!NOTE]
-    > Releasever에 액세스할 수 있는 권한 문제가 있는 경우 ' nano/etc/yum/vars/releaseve '를 사용 하 여 파일을 편집 하 고 이미지 버전 정보를 추가한 다음 (' Ctrl + o '를 누르고 enter 키를 누른 다음 ' Ctrl + x ').  
+    > releasever에 액세스하는 것과 관련된 권한 문제가 있는 경우, 'nano /etc/yum/vars/releaseve'를 사용하여 해당 파일을 편집하고 이미지 버전 상세 정보를 추가한 다음 저장할 수 있습니다('Ctrl+o'를 누르고 Enter 키를 누른 다음 'Ctrl+x').  
 
 1. RHEL VM 업데이트
     ```bash
@@ -154,7 +154,7 @@ EUS(확장 업데이트 지원) 리포지토리는 VM을 프로비저닝한 후�
     ```
 
 
-### <a name="switch-a-rhel-7x-vm-back-to-non-eus-remove-a-version-lock"></a>RHEL 7.x VM을 EUS (버전 잠금 제거)로 다시 전환 합니다.
+### <a name="switch-a-rhel-7x-vm-back-to-non-eus-remove-a-version-lock"></a>RHEL 7.x VM을 non-EUS로 되돌리기(버전 잠금 제거)
 다음을 루트로 실행합니다.
 1. `releasever` 파일 제거:
     ```bash
@@ -176,7 +176,7 @@ EUS(확장 업데이트 지원) 리포지토리는 VM을 프로비저닝한 후�
     sudo yum update
     ```
 
-### <a name="switch-a-rhel-8x-vm-back-to-non-eus-remove-a-version-lock"></a>RHEL .x VM을 EUS (버전 잠금 제거)로 다시 전환 합니다.
+### <a name="switch-a-rhel-8x-vm-back-to-non-eus-remove-a-version-lock"></a>RHEL 8.x VM을 non-EUS로 되돌리기(버전 잠금 제거)
 다음을 루트로 실행합니다.
 1. `releasever` 파일 제거:
     ```bash
@@ -228,10 +228,10 @@ RHUI는 RHEL 주문형 이미지를 사용할 수 있는 모든 지역에서 제
 51.4.228.145
 ```
 >[!NOTE]
->2020 년 1 월부터 새 Azure 미국 정부 이미지는 위의 Azure Global 헤더에 언급 된 공용 IP를 사용 하 게 됩니다.
+>2020년 1월부로 새로운 Azure 미국 정부 이미지가 위의 Azure Global 헤더에 언급된 공용 IP를 사용하게 됩니다.
 
 >[!NOTE]
->또한 Azure 독일은 공개 독일 지역에서 더 이상 사용 되지 않습니다. Azure 독일 고객에 대 한 권장 사항은 [여기](#manual-update-procedure-to-use-the-azure-rhui-servers)의 단계를 사용 하 여 공용 RHUI를 가리키기 시작 하는 것입니다.
+>또한, 퍼블릭 독일 지역에서 Azure 독일은 사용 중지됩니다. Azure 독일 고객들은 [여기](#manual-update-procedure-to-use-the-azure-rhui-servers)의 단계에 따라 퍼블릭 RHUI를 시작하는 것이 좋습니다.
 
 ## <a name="azure-rhui-infrastructure"></a>Azure RHUI 인프라
 

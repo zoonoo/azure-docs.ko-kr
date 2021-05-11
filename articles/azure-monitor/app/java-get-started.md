@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure 애플리케이션 Insights를 사용 하는 Java 웹 앱 분석'
+title: '빠른 시작: Azure Application Insights로 Java 웹앱 분석'
 description: 'Application Insights를 사용하여 Java 웹앱에 대한 애플리케이션 성능 모니터링. '
 ms.topic: conceptual
 ms.date: 11/22/2020
@@ -7,31 +7,31 @@ author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
 ms.openlocfilehash: cdad5a0ec158f216a63ae7e1e2abc10d2841b3bc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100593730"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>빠른 시작: Java 웹 프로젝트에서 Application Insights 시작
 
 
 > [!CAUTION]
-> 2020 년 11 월, Java 응용 프로그램 모니터링에 대 한 Azure Monitor Application Insights Java 3.0 agent를 사용 하 여 자동 계측을 권장 합니다. 시작 하는 방법에 대 한 자세한 내용은 [Application Insights Java 3.0 agent](./java-in-process-agent.md)를 참조 하세요.
+> 2020년 11월부터 Java 애플리케이션 모니터링에 대해 Azure Monitor Application Insights Java 3.0 에이전트를 사용하여 자동 계측하기를 권장합니다. 시작하는 방법에 대한 자세한 내용은 [Application Insights Java 3.0 에이전트](./java-in-process-agent.md)를 참조하세요.
 
-이 빠른 시작에서는 Application Insights SDK를 사용 하 여 요청을 계측 하 고, 종속성을 추적 하 고, 성능 카운터를 수집 하 고, 성능 문제 및 예외를 진단 하 고, 앱을 통해 사용자가 수행 하는 작업을 추적 하는 코드
+빠른 시작에서는 Application Insights SDK를 사용하여 요청을 계측하고, 종속성을 추적하며, 성능 카운터를 수집하고, 성능 문제 및 예외를 진단 및 앱을 통해 사용자가 수행하는 작업을 추적하는 코드를 작성합니다.
 
 Application Insights는 라이브 애플리케이션의 성능 및 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱을 지원합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* 작동 하는 Java 응용 프로그램입니다.
+* 작동하는 Java 애플리케이션.
 
 ## <a name="get-an-application-insights-instrumentation-key"></a>Application Insights 계측 키 가져오기
 
 > [!IMPORTANT]
-> 새 Azure 지역에서는 계측 키 대신 연결 문자열을 사용 **해야** 합니다. [연결 문자열](./sdk-connection-string.md?tabs=java) 원격 분석 데이터를 연결 하려는 리소스를 식별 합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
+> 새 Azure 지역에서는 계측 키 대신 연결 문자열을 **사용해야** 합니다. [연결 문자열](./sdk-connection-string.md?tabs=java)은 원격 분석 데이터를 연결하려는 리소스를 식별합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure Portal에서 Application Insights 리소스를 만듭니다. Java 웹 애플리케이션에 대한 애플리케이션 종류를 설정합니다.
 
@@ -41,11 +41,11 @@ Application Insights는 라이브 애플리케이션의 성능 및 사용을 이
 
 ## <a name="add-the-application-insights-sdk-for-java-to-your-project"></a>프로젝트에 Java용 Aplication Insights SDK 추가
 
-*프로젝트 형식을 선택 합니다.*
+*프로젝트 형식 선택*
 
 # <a name="maven"></a>[Maven](#tab/maven)
 
-빌드에 Maven를 사용 하도록 프로젝트를 이미 설정한 경우에는 다음 코드를 *pom.xml* 파일에 병합 합니다.
+빌드에 Maven을 사용하도록 프로젝트가 이미 설정된 경우 *pom.xml* 파일에 다음 코드를 병합합니다.
 
 그런 다음 프로젝트 종속성을 새로 고쳐 다운로드한 이진을 가져옵니다.
 
@@ -63,7 +63,7 @@ Application Insights는 라이브 애플리케이션의 성능 및 사용을 이
 
 # <a name="gradle"></a>[Gradle](#tab/gradle)
 
-빌드에 Gradle를 사용 하도록 프로젝트를 이미 설정한 경우에는 *Gradle* 파일에 다음 코드를 병합 합니다.
+빌드에 Gradle을 사용하도록 프로젝트가 이미 설정된 경우 다음 코드를 *build.gradle* 파일에 병합합니다.
 
 그런 다음 프로젝트 종속성을 새로 고쳐 다운로드한 이진을 가져옵니다.
 
@@ -78,18 +78,18 @@ Application Insights는 라이브 애플리케이션의 성능 및 사용을 이
 ---
 
 ### <a name="questions"></a>질문
-* *`-web-auto`, 및 구성 요소 간의 관계는 `-web` 무엇 `-core` 인가요?*
-  * `applicationinsights-web-auto` 런타임에 Application Insights 서브렛 필터를 자동으로 등록 하 여 HTTP 서블릿 요청 수와 응답 시간을 추적 하는 메트릭을 제공 합니다.
-  * `applicationinsights-web` 는 또한 HTTP 서블릿 요청 수와 응답 시간을 추적 하는 메트릭을 제공 하지만 응용 프로그램에서 Application Insights 서브렛 필터를 수동으로 등록 해야 합니다.
-  * `applicationinsights-core` 응용 프로그램이 서브렛 기반이 아닌 경우와 같이, 기본 API만 제공 합니다.
+* *`-web-auto`, `-web` 및 `-core` 구성 요소 사이에는 어떤 관계가 있나요?*
+  * `applicationinsights-web-auto`는 런타임에 Application Insights 서블릿 필터를 자동으로 등록하여 HTTP 서블릿 요청 수와 응답 시간을 추적하는 메트릭을 제공합니다.
+  * `applicationinsights-web` 또한 HTTP 서블릿 요청 수와 응답 시간을 추적하는 메트릭을 제공하지만 애플리케이션에서 Application Insights 서블릿 필터를 수동으로 등록해야 합니다.
+  * 예를 들어 애플리케이션이 서블릿 기반이 아닌 경우 `applicationinsights-core`는 기본 API만 제공합니다.
   
 * *SDK를 최신 버전으로 업데이트하려면 어떻게 해야 하나요?*
-  * 2020 년 11 월, Java 응용 프로그램 모니터링에 대 한 Azure Monitor Application Insights Java 3.0 agent를 사용 하 여 자동 계측을 권장 합니다. 시작 하는 방법에 대 한 자세한 내용은 [Application Insights Java 3.0 agent](./java-in-process-agent.md)를 참조 하세요.
+  * 2020년 11월부터 Java 애플리케이션 모니터링에 대해 Azure Monitor Application Insights Java 3.0 에이전트를 사용하여 자동 계측하기를 권장합니다. 시작하는 방법에 대한 자세한 내용은 [Application Insights Java 3.0 에이전트](./java-in-process-agent.md)를 참조하세요.
 
 ## <a name="add-an-applicationinsightsxml-file"></a>*ApplicationInsights.xml* 파일 추가
-프로젝트의 resources 폴더에 *ApplicationInsights.xml* 를 추가 하거나 프로젝트의 배포 클래스 경로에 추가 되었는지 확인 합니다. 다음 XML을 복사합니다.
+*ApplicationInsights.xml* 을 프로젝트의 리소스 폴더에 추가하거나 프로젝트의 배포 클래스 경로에 추가되었는지 확인합니다. 다음 XML을 복사합니다.
 
-계측 키를 Azure Portal 가져온 항목으로 바꿉니다.
+해당 계측 키를 Azure Portal에서 가져온 계측 키와 바꿉니다.
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -118,16 +118,16 @@ Application Insights는 라이브 애플리케이션의 성능 및 사용을 이
 </ApplicationInsights>
 ```
 
-필요에 따라 구성 파일은 응용 프로그램에 액세스할 수 있는 위치에 있을 수 있습니다.  System 속성은 `-Dapplicationinsights.configurationDirectory` *ApplicationInsights.xml* 를 포함 하는 디렉터리를 지정 합니다. 예를 들어 `E:\myconfigs\appinsights\ApplicationInsights.xml`에 있는 구성 파일은 `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"` 속성을 사용하여 구성됩니다.
+필요에 따라 애플리케이션에 액세스할 수 있는 위치에 구성 파일이 있을 수 있습니다.  `-Dapplicationinsights.configurationDirectory` 시스템 속성은 *ApplicationInsights.xml* 을 포함하는 디렉터리를 지정합니다. 예를 들어 `E:\myconfigs\appinsights\ApplicationInsights.xml`에 있는 구성 파일은 `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"` 속성을 사용하여 구성됩니다.
 
 * 계측 키는 원격 분석의 모든 항목과 함께 전송되며 리소스에서 표시하도록 Application Insights에 알려줍니다.
 * HTTP 요청 구성 요소는 선택 사항입니다. 자동으로 포털에 요청 및 응답 시간에 대한 원격 분석을 보냅니다.
-* 이벤트 상관 관계는 HTTP 요청 구성 요소에 추가됩니다. 서버에서 받은 각 요청에 식별자를 할당 합니다. 그런 다음 ' Operation.Id ' 속성으로 원격 분석의 모든 항목에이 식별자를 속성으로 추가 합니다. [진단 검색][diagnostic]에서 필터를 설정하여 각 요청과 연결된 원격 분석의 상관 관계를 지정할 수 있습니다.
+* 이벤트 상관 관계는 HTTP 요청 구성 요소에 추가됩니다. 서버에서 받은 각 요청에 식별자를 할당합니다. 그런 다음 ‘Operation.Id’ 속성으로 원격 분석의 모든 항목에 해당 식별자를 속성으로 추가합니다. [진단 검색][diagnostic]에서 필터를 설정하여 각 요청과 연결된 원격 분석의 상관 관계를 지정할 수 있습니다.
 
 ### <a name="alternative-ways-to-set-the-instrumentation-key"></a>계측 키를 설정하는 다른 방법
 Application Insights SDK는 다음 순서로 키를 찾습니다.
 
-1. 시스템 속성:-DAPPINSIGHTS_INSTRUMENTATIONKEY = your_ikey
+1. 시스템 속성: -DAPPINSIGHTS_INSTRUMENTATIONKEY=your_ikey
 2. 환경 변수: APPINSIGHTS_INSTRUMENTATIONKEY
 3. 구성 파일: *ApplicationInsights.xml*
 
@@ -144,7 +144,7 @@ Application Insights SDK는 다음 순서로 키를 찾습니다.
 
 ## <a name="add-agent"></a>에이전트 추가
 
-나가는 HTTP 호출, JDBC 쿼리, 응용 프로그램 로깅 및 더 나은 작업 이름을 캡처하기 위해 [Java 에이전트를 설치](java-agent.md) 합니다.
+나가는 HTTP 호출, JDBC 쿼리, 애플리케이션 로깅 및 더 나은 작업 이름을 캡처하기 위해 [Java 에이전트를 설치](java-agent.md)합니다.
 
 ## <a name="run-your-application"></a>애플리케이션 실행
 응용 프로그램을 디버그 모드로 개발 컴퓨터에서 실행하거나 서버에 게시합니다.
@@ -156,16 +156,16 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
 ![개요 샘플 데이터 스크린샷](./media/java-get-started/overview-graphs.png)
 
-[메트릭에 대해 자세히 알아보세요.][metrics]
+[메트릭에 대해 자세히 알아봅니다.][metrics]
 
 차트를 클릭하면 더 자세한 집계된 메트릭을 볼 수 있습니다.
 
-![차트를 사용 하 여 Application Insights 오류 창](./media/java-get-started/006-barcharts.png)
+![차트가 포함된 Application Insights 실패 창](./media/java-get-started/006-barcharts.png)
 
 ### <a name="instance-data"></a>인스턴스 데이터
 특정 요청 유형을 클릭하여 개별 인스턴스를 확인합니다.
 
-![특정 샘플 뷰로 드릴](./media/java-get-started/007-instance.png)
+![특정 샘플 보기로 드릴](./media/java-get-started/007-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>분석: 강력한 쿼리 언어
 더 많은 데이터가 누적되면 쿼리를 실행하여 데이터를 집계하고 개별 인스턴스를 찾을 수 있습니다.  [분석](../logs/log-query-overview.md) 은 성능 및 사용 이해 및 진단 목적 모두에 강력한 도구입니다.
@@ -188,20 +188,20 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
     (이 구성 요소를 통해 성능 카운터를 사용할 수 있게 됩니다.)
 
-## <a name="azure-app-service-aks-vms-config"></a>Azure App Service, AKS, Vm 구성
+## <a name="azure-app-service-aks-vms-config"></a>Azure App Service, AKS, VM 구성
 
-Azure 리소스 공급자에서 실행 되는 응용 프로그램을 모니터링 하는 가장 쉬운 방법은 [Java 3.0 에이전트](./java-in-process-agent.md)를 통해 Application Insights 자동 계측을 사용 하는 것입니다.
+Azure 리소스 공급자에서 실행되는 애플리케이션을 모니터링하는 가장 쉬운 방법은 [Java 3.0 에이전트](./java-in-process-agent.md)를 통해 Application Insights 자동 계측을 사용하는 것입니다.
 
 
 ## <a name="exceptions-and-request-failures"></a>예외 및 요청 실패
-처리 되지 않은 예외 및 요청 오류는 Application Insights 웹 필터에 의해 자동으로 수집 됩니다.
+처리되지 않은 예외 및 요청 오류는 Application Insights 웹 필터에 의해 자동으로 수집됩니다.
 
-다른 예외에 대 한 데이터를 수집 하기 위해 [코드에서 코드에 코드를 삽입][apiexceptions]하는 호출을 삽입할 수 있습니다.
+다른 예외에 대한 데이터를 수집하기 위해 [코드에서 trackException()에 대한 호출을 삽입][apiexceptions]할 수 있습니다.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>메서드 호출 및 외부 종속성 모니터링
 [Java 에이전트를 설치](java-agent.md) 하여 지정된 내부 메서드 및 JDBC를 통해 수행한 호출을 타이밍 데이터와 함께 기록합니다.
 
-자동 작업 명명의 경우 및입니다.
+또한 자동 작업 명명에도 사용됩니다.
 
 ## <a name="w3c-distributed-tracing"></a>W3C 분산 추적
 
@@ -212,12 +212,12 @@ Application Insights Java SDK는 이제 [W3C 분산 추적](https://w3c.github.i
 발신 SDK 구성은 [Ai-agent.xml](java-agent.md) 파일에서 정의됩니다.
 
 ## <a name="performance-counters"></a>성능 카운터
-**조사**, **메트릭** 을 열고 다양 한 성능 카운터를 확인 합니다.
+**조사**, **메트릭** 을 열고 다양한 범위의 성능 카운터를 확인합니다.
 
-![프로세스 전용 바이트가 선택 된 메트릭 창의 스크린샷](./media/java-get-started/011-perf-counters.png)
+![선택한 프로세스 프라이빗 바이트가 포함된 메트릭 창의 스크린샷](./media/java-get-started/011-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>성능 카운터 수집 사용자 지정
-표준 성능 카운터 집합의 컬렉션을 사용 하지 않도록 설정 하려면 *ApplicationInsights.xml* 파일의 루트 노드 아래에 다음 코드를 추가 합니다.
+성능 카운터의 표준 집합 컬렉션을 사용하지 않으려면 *ApplicationInsights.xml* 파일의 루트 노드 아래에 다음 코드를 추가합니다.
 
 ```XML
     <PerformanceCounters>
@@ -242,7 +242,7 @@ Application Insights Java SDK는 이제 [W3C 분산 추적](https://w3c.github.i
 * `displayName` - Application Insights 포털에서 표시되는 이름입니다.
 * `objectName` – JMX 개체 이름입니다.
 * `attribute` - 가져올 JMX 개체 이름의 특성입니다.
-* `type` (선택 사항)-JMX 개체 특성의 형식입니다.
+* `type` (선택 사항) - JMX 개체 특성의 유형:
   * 기본값: int 또는 long과 같은 단순 유형입니다.
   * `composite`: 성능 카운터 데이터는 'Attribute.Data' 형식입니다.
   * `tabular`: 성능 카운터 데이터는 표 행 형식입니다.
@@ -282,7 +282,7 @@ Application Insights Java SDK는 이제 [W3C 분산 추적](https://w3c.github.i
 ## <a name="availability-web-tests"></a>가용성 웹 테스트
 Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 잘 실행되며 제대로 응답하는지 확인할 수 있습니다.
 
-[가용성 웹 테스트를 설정 하는 방법에 대해 자세히 알아보세요.][availability]
+[가용성 웹 테스트 설정 방법에 대한 자세한 정보.][availability]
 
 ## <a name="questions-problems"></a>궁금한 점이 더 있나요? 문제가 있습니까?
 [Java 문제 해결](java-troubleshoot.md)

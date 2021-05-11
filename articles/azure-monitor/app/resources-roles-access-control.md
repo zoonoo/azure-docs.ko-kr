@@ -5,18 +5,18 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 4254170ad100b634439cc846dc381e305ae71d1f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100589592"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Application Insights에서 리소스, 역할 및 액세스 제어
 
-Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)를 사용 하 여 azure [Application Insights][start]에서 데이터에 대 한 읽기 및 업데이트 액세스를 제어할 수 있습니다.
+[Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)를 사용하여 Azure [Application Insights][start]의 데이터에 대한 읽기 및 업데이트 액세스를 제어할 수 있습니다.
 
 > [!IMPORTANT]
-> 리소스 자체가 아닌 애플리케이션 리소스가 속한 **리소스 그룹 또는 구독** 의 사용자에게 액세스 권한을 할당합니다. **Application Insights 구성 요소 기여자** 역할을 할당합니다. 이렇게 하면 애플리케이션 리소스와 함께 웹 테스트 및 경고에 대한 액세스를 통합적으로 제어할 수 있습니다. [자세한 정보를 알아보세요](#access).
+> 리소스 자체가 아닌 애플리케이션 리소스가 속한 **리소스 그룹 또는 구독** 의 사용자에게 액세스 권한을 할당합니다. **Application Insights 구성 요소 기여자** 역할을 할당합니다. 이렇게 하면 애플리케이션 리소스와 함께 웹 테스트 및 경고에 대한 액세스를 통합적으로 제어할 수 있습니다. [자세히 알아봅니다](#access).
 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -27,7 +27,7 @@ Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/ro
 
 * **리소스** - Microsoft Azure 서비스의 인스턴스입니다. Application Insights는 애플리케이션에서 보낸 원격 분석 데이터를 수집, 분석 및 표시합니다.  다른 유형의 Azure 리소스로는 웹 앱, 데이터베이스 및 VM이 있습니다.
   
-    리소스를 보려면 [Azure Portal][portal]열고 로그인 한 후 모든 리소스를 클릭 합니다. 리소스를 찾으려면 필터 필드에 리소스 이름의 일부를 입력합니다.
+    리소스를 보려면 [Azure Portal][portal]을 열고 로그인한 후 모든 리소스를 클릭합니다. 리소스를 찾으려면 필터 필드에 리소스 이름의 일부를 입력합니다.
   
     ![Azure 리소스 목록](./media/resources-roles-access-control/10-browse.png)
 
@@ -40,7 +40,7 @@ Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/ro
 
 ## <a name="control-access-in-the-resource-group"></a><a name="access"></a> 리소스 그룹의 액세스 제어
 
-애플리케이션에 대해 만든 리소스 외에도 경고 및 웹 테스트에 대한 별도의 리소스가 숨겨져 있다는 사실을 이해해야 합니다. Application Insights 리소스와 동일한 [리소스 그룹](#resource-group) 에 연결 됩니다. 웹 사이트 또는 스토리지 같은 다른 Azure 서비스를 여기에 넣었을 수도 있습니다.
+애플리케이션에 대해 만든 리소스 외에도 경고 및 웹 테스트에 대한 별도의 리소스가 숨겨져 있다는 사실을 이해해야 합니다. 이러한 리소스는 Application Insights 리소스와 동일한 [리소스 그룹](#resource-group)에 연결됩니다. 웹 사이트 또는 스토리지 같은 다른 Azure 서비스를 여기에 넣었을 수도 있습니다.
 
 ## <a name="to-provide-access-to-another-user"></a>다른 사용자에 대한 액세스 권한 제공
 

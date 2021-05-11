@@ -9,10 +9,10 @@ ms.author: abnarain
 ms.custom: devx-track-csharp
 robots: noindex
 ms.openlocfilehash: 3832175910f3a6d3e6a7de8da932b32436cc2452
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100393023"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Azure Data Factory 버전 1 파이프라인에서 사용자 지정 작업 사용
@@ -25,8 +25,8 @@ ms.locfileid: "100393023"
 
 Azure Data Factory 파이프라인에서 사용할 수 있는 두 가지 작업 유형이 있습니다.
 
-- 데이터 이동 [작업](data-factory-data-movement-activities.md) 을 통해 [지원 되는 원본 및 싱크 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)간에 데이터를 이동 합니다.
-- Azure HDInsight, Azure Batch 및 Azure Machine Learning Studio (클래식)와 같은 계산 서비스를 사용 하 여 데이터를 변환 하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 입니다.
+- [데이터 이동 작업](data-factory-data-movement-activities.md)은 [지원되는 원본 및 싱크 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 간에 데이터를 이동하는 작업입니다.
+- [데이터 변환 작업](data-factory-data-transformation-activities.md)은 Azure HDInsight, Azure Batch, Azure Machine Learning Studio(클래식) 같은 컴퓨팅 서비스를 사용하여 데이터를 변환하는 작업입니다.
 
 Data Factory에서 지원되지 않는 데이터 저장소에서 다른 위치로 또는 그 반대로 데이터를 이동하려면 고유의 데이터 이동 논리가 포함된 **사용자 지정 작업** 을 만들어서 파이프라인에 해당 작업을 사용합니다. 마찬가지로, Data Factory에서 지원되지 않는 방식으로 데이터를 변환/처리하려면 고유의 데이터 변환 논리가 포함된 사용자 지정 작업을 만들어서 파이프라인에 해당 작업을 사용합니다.
 
@@ -38,18 +38,18 @@ Data Factory에서 지원되지 않는 데이터 저장소에서 다른 위치�
 > - 사용자 지정 작업에서 데이터 관리 게이트웨이를 사용하여 온-프레미스 데이터 원본에 액세스할 수는 없습니다. 현재 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)에서는 Data Factory의 복사 작업 및 저장 프로시저 작업만 지원합니다.
 
 ## <a name="walkthrough-create-a-custom-activity"></a>연습: 사용자 지정 작업 만들기
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 * Visual Studio 2012/2013/2015/2017
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Azure Batch 필수 조건
 이 연습에서는 Azure Batch를 컴퓨팅 리소스로 사용하여 사용자 지정 .NET 작업을 실행할 것입니다. **Azure Batch** 는 클라우드에서 대규모 병렬 및 HPC(고성능 컴퓨팅) 애플리케이션을 효율적으로 실행하기 위한 플랫폼 서비스입니다. Azure Batch는 **가상 머신의 관리되는 컬렉션** 에서 실행되는 컴퓨팅 집약적 작업을 예약하고, 작업 요구에 맞게 컴퓨팅 리소스의 규모를 자동으로 조정할 수 있습니다. Azure Batch 서비스의 개요에 대한 자세한 내용은 [Azure Batch 기본 사항][batch-technical-overview] 문서를 참조하세요.
 
-자습서를 위해 VM 풀과 함께 Azure Batch 계정을 만듭니다. 단계는 다음과 같습니다.
+자습서를 위해 VM 풀과 함께 Azure Batch 계정을 만듭니다. 실행할 단계는 다음과 같습니다.
 
-1. [Azure Portal](https://portal.azure.com)를 사용 하 여 **Azure Batch 계정을** 만듭니다. 지침은 [Azure Batch 계정 만들기 및 관리][batch-create-account] 문서를 참조하세요.
+1. **Azure Portal** 을 사용하여 [Azure Batch 계정](https://portal.azure.com)을 만듭니다. 지침은 [Azure Batch 계정 만들기 및 관리][batch-create-account] 문서를 참조하세요.
 2. Azure Batch 계정 이름, 계정 키, URI 및 풀 이름을 적어둡니다. Azure Batch 연결된 서비스를 만드는 데 필요합니다.
-    1. Azure Batch 계정의 홈 페이지에서 `https://myaccount.westus.batch.azure.com` 형식의 **URL** 이 표시됩니다. 이 예제에서 **myaccount** 는 Azure Batch 계정 이름입니다. 연결된 서비스 정의에서 사용하는 URI는 계정 이름이 없는 URL입니다. 예를 들어 `https://<region>.batch.azure.com`을 참조하십시오.
+    1. Azure Batch 계정의 홈 페이지에서 `https://myaccount.westus.batch.azure.com` 형식의 **URL** 이 표시됩니다. 이 예제에서 **myaccount** 는 Azure Batch 계정 이름입니다. 연결된 서비스 정의에서 사용하는 URI는 계정 이름이 없는 URL입니다. 예: `https://<region>.batch.azure.com`
     2. 왼쪽 메뉴에서 **키** 를 클릭하고 **기본 액세스 키** 를 복사합니다.
     3. 기존 풀을 사용하려면 메뉴에서 **풀** 을 클릭하고 풀의 **ID** 를 메모해둡니다. 기존 풀이 없는 경우 다음 단계로 이동합니다.
 2. **Azure Batch 풀** 을 만듭니다.
@@ -100,15 +100,15 @@ public IDictionary<string, string> Execute(
      <li>Visual Studio를 실행합니다.</li>
      <li><b>File</b>을 클릭하고 <b>New</b>를 가리킨 다음 <b>프로젝트</b>를 클릭합니다.</li>
      <li><b>템플릿</b>을 확장하고 <b>Visual C#</b> 를 선택합니다. 이 연습에서는 C#을 사용하지만 다른 .NET 언어를 사용하여 사용자 지정 작업을 개발할 수도 있습니다.</li>
-     <li>오른쪽의 프로젝트 형식 목록에서 <b>클래스 라이브러리</b>를 선택합니다. Visual Studio에서 <b>클래스 라이브러리 (.NET Framework)</b> 를 선택 합니다. </li>
+     <li>오른쪽의 프로젝트 형식 목록에서 <b>클래스 라이브러리</b>를 선택합니다. Visual Studio에서 <b>클래스 라이브러리(.NET Framework)</b> 를 선택합니다.</li>
      <li><b>이름</b>에 <b>MyDotNetActivity</b>를 입력합니다.</li>
-     <li>해당 <b>위치</b>에 대해 <b>C:\adfgetstarted</b> 를 선택 합니다.</li>
+     <li><b>위치</b>에 <b>C:\ADFGetStarted</b>를 선택합니다.</li>
      <li><b>확인</b>을 클릭하여 프로젝트를 만듭니다.</li>
    </ol>
 
 2. **도구** 를 클릭하고 **NuGet 패키지 관리자** 를 가리킨 다음 **패키지 관리자 콘솔** 을 클릭합니다.
 
-3. 패키지 관리자 콘솔에서 다음 명령을 실행 하 여 **DataFactories** 를 가져옵니다.
+3. 패키지 관리자 콘솔에서 다음 명령을 실행하여 **Microsoft.Azure.Management.DataFactories** 를 가져옵니다.
 
     ```powershell
     Install-Package Microsoft.Azure.Management.DataFactories
@@ -148,13 +148,13 @@ public IDictionary<string, string> Execute(
     using Microsoft.WindowsAzure.Storage.Blob;
     ```
 
-6. **네임 스페이스** 의 이름을 **mydotnetactivityns.mydotnetactivity** 로 변경 합니다.
+6. **namespace** 의 이름을 **MyDotNetActivityNS** 로 변경합니다.
 
     ```csharp
     namespace MyDotNetActivityNS
     ```
 
-7. 클래스의 이름을 **MyDotNetActivity** 로 변경 하 고 다음 코드 조각과 같이 **IDotNetActivity** 인터페이스에서 파생 합니다.
+7. 클래스 이름을 **MyDotNetActivity** 로 변경하고 다음 코드 조각에서 보여 주듯이 **IDotNetActivity** 인터페이스에서 해당 클래스를 파생합니다.
 
     ```csharp
     public class MyDotNetActivity : IDotNetActivity
@@ -162,7 +162,7 @@ public IDictionary<string, string> Execute(
 
 8. **IDotNetActivity** 인터페이스의 **Execute** 메서드를 **MyDotNetActivity** 클래스에 구현(추가)하고 다음 샘플 코드를 메서드에 복사합니다.
 
-    다음 샘플에서는 데이터 조각과 연결 된 각 blob에서 검색 용어 ("Microsoft")의 발생 횟수를 계산 합니다.
+    다음 샘플은 데이터 조각과 연결된 각 Blob의 검색 단어('Microsoft') 발생 횟수를 계산합니다.
 
     ```csharp
     /// <summary>
@@ -368,7 +368,7 @@ public IDictionary<string, string> Execute(
             "folderPath": "adftutorial/inputfolder/",
     ```
 
-    Calculate 메서드는 입력 파일(폴더에서 BLOB)에서 Microsoft 키워드의 인스턴스 수를 계산합니다. 검색 용어 ("Microsoft")는 코드에 하드 코딩 됩니다.
+    Calculate 메서드는 입력 파일(폴더에서 BLOB)에서 Microsoft 키워드의 인스턴스 수를 계산합니다. 검색 용어 'Microsoft'는 코드에 하드 코딩됩니다.
 
 10. 프로젝트를 컴파일합니다. 메뉴에서 **빌드**, **솔루션 빌드** 를 차례로 클릭합니다.
 
@@ -377,7 +377,7 @@ public IDictionary<string, string> Execute(
 
 11. **Windows 탐색기** 를 시작하고 빌드 유형에 따라 **bin\debug** 또는 **bin\release** 폴더로 이동합니다.
 
-12. \Bin\debug 폴더의 모든 이진 파일을 포함 하는 **MyDotNetActivity.zip** zip 파일을 만듭니다 \<project folder\> . 오류가 있는 경우 문제를 발생시킨 소스 코드의 줄 번호 같은 추가 정보를 받을 수 있도록 **MyDotNetActivity.pdb** 파일을 포함합니다.
+12. \<project folder\>\bin\Debug 폴더의 이진을 모두 포함하는 **MyDotNetActivity.zip** Zip 파일을 만듭니다. 오류가 있는 경우 문제를 발생시킨 소스 코드의 줄 번호 같은 추가 정보를 받을 수 있도록 **MyDotNetActivity.pdb** 파일을 포함합니다.
 
     > [!IMPORTANT]
     > 사용자 지정 작업에 대한 zip 파일의 모든 파일은 하위 폴더가 없는 **최상위** 여야 합니다.
@@ -417,7 +417,7 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
 1. **데이터 팩터리** 를 만듭니다.
 2. 사용자 지정 작업이 실행되는 VM의 Azure Batch 풀과 입/출력 Blob을 보유하는 Azure Storage에 대한 **연결된 서비스** 를 만듭니다.
 3. 사용자 지정 작업의 입력 및 출력을 나타내는 입력 및 출력 **데이터 세트** 를 만듭니다.
-4. 사용자 지정 활동을 사용 하는 **파이프라인** 을 만듭니다.
+4. 사용자 지정 작업을 사용하는 **파이프라인** 을 만듭니다.
 
 > [!NOTE]
 > 아직 **file.txt** 을 만들어서 Blob 컨테이너에 업로드하지 않았으면 지금 합니다. 이전 섹션의 지침을 참조하세요.
@@ -429,13 +429,13 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
    3. **데이터 분석** 블레이드에서 **Data Factory** 를 클릭합니다.
 
       ![새 Azure Data Factory 메뉴](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
-2. **새 Data Factory** 블레이드에서 이름으로 **CustomActivityFactory** 를 입력합니다. Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 "CustomActivityFactory"를 사용할 수 없습니다. 라는** 오류가 표시 되 면 데이터 팩터리의 이름 (예: **yournameCustomActivityFactory**)을 변경한 후 다시 만드십시오.
+2. **새 Data Factory** 블레이드에서 이름으로 **CustomActivityFactory** 를 입력합니다. Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 'CustomActivityFactory'는 사용할 수 없습니다.** 라는 오류 메시지가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: **yournameCustomActivityFactory**) 해당 데이터 팩터리를 다시 만듭니다.
 
     ![새 Azure Data Factory 블레이드](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
 3. **리소스 그룹 이름** 을 클릭하여 기존 리소스 그룹을 선택하거나 리소스 그룹을 만듭니다.
-4. 데이터 팩터리를 만들려는 올바른 **구독** 및 **지역을** 사용 중인지 확인 합니다.
+4. **subscription** 및 Data Factory를 만들려는 **region** 을 제대로 사용하고 있는지 확인합니다.
 5. **새 Data Factory** 블레이드에서 **만들기** 를 클릭합니다.
-6. Azure Portal **대시보드에서** 생성 되는 데이터 팩터리가 표시 됩니다.
+6. Azure 포털의 **대시보드** 에 생성된 데이터 팩터리가 표시됩니다.
 7. 데이터 팩터리 만들기를 완료한 후에는 Data Factory 블레이드가 표시되며 여기에 데이터 팩터리의 내용이 표시됩니다.
 
     ![데이터 팩터리 블레이드](media/data-factory-use-custom-activities/data-factory-blade.png)
@@ -445,7 +445,7 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
 
 #### <a name="create-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
 1. **CustomActivityFactory** 에 대한 **Data Factory** 블레이드에서 **작성 및 배포 타일** 을 클릭합니다. 데이터 팩터리 편집기가 표시됩니다.
-2. 명령 모음에서 **새 데이터 저장소** 를 클릭 하 고 **Azure storage** 를 선택 합니다. 편집기에 Azure Storage 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다.
+2. 명령 모음에서 **새 데이터 스토리지** 를 클릭하고 **Azure Storage** 를 선택합니다. 편집기에 Azure Storage 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다.
 
     ![새 데이터 저장소 - Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)
 3. `<accountname>`을 Azure Storage 계정 이름으로 바꾸고 `<accountkey>`를 Azure Storage 계정의 액세스 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법을 알아보려면 [스토리지 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조하세요.
@@ -454,7 +454,7 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
 4. 명령 모음에서 **배포** 를 클릭하여 연결된 서비스를 배포합니다.
 
 #### <a name="create-azure-batch-linked-service"></a>Azure Batch 연결된 서비스 만들기
-1. Data Factory 편집기 **에서 ...를 클릭 합니다. 자세히** 명령 모음에서 **새 계산** 을 클릭 한 다음 메뉴에서 **Azure Batch** 를 선택 합니다.
+1. 데이터 팩터리 편집기의 명령 모음에서 **추가** 를 클릭하고 **새 컴퓨팅** 을 클릭한 다음, 메뉴에서 **Azure Batch** 를 선택합니다.
 
     ![새 컴퓨팅 - Azure Batch](media/data-factory-use-custom-activities/new-azure-compute-batch.png)
 2. JSON 스크립트를 다음과 같이 변경합니다.
@@ -487,7 +487,7 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
 이 단계에서는 입력 및 출력 데이터를 나타낼 데이터 세트를 만듭니다.
 
 #### <a name="create-input-dataset"></a>입력 데이터 세트 만들기
-1. Data Factory **편집기** **에서 ...를 클릭 합니다. 추가** 를 클릭 하 고 **새 데이터 집합** 을 클릭 한 다음 드롭다운 메뉴에서 **Azure Blob storage** 를 선택 합니다.
+1. 데이터 팩터리 **편집기** 의 명령 모음에서 **추가** 를 클릭하고 **새 데이터 세트** 를 클릭한 다음, 드롭다운 메뉴에서 **Azure Blob Storage** 를 선택합니다.
 2. 오른쪽 창의 JSON을 다음 JSON 코드 조각으로 바꿉니다.
 
     ```json
@@ -520,7 +520,7 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
 3. 도구 모음에서 **배포** 를 클릭하여 **InputDataset** 을 만들고 배포합니다. 편집기의 제목 표시줄에 **테이블이 성공적으로 생성됨** 메시지가 표시되는지 확인합니다.
 
 #### <a name="create-an-output-dataset"></a>출력 데이터 세트 만들기
-1. **Data Factory 편집기** **에서 ...를 클릭 합니다. 추가** 를 클릭 하 고 **새 데이터 집합** 을 클릭 한 다음 **Azure Blob storage** 를 선택 합니다.
+1. **데이터 팩터리 편집기** 의 명령 모음에서 **추가** 를 클릭하고 **새 데이터 세트** 를 클릭한 다음, **Azure Blob Storage** 를 선택합니다.
 2. 오른쪽 창의 JSON 스크립트를 다음 JSON 스크립트로 바꿉니다.
 
     ```JSON
@@ -563,11 +563,11 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
    | 4 |2016-11-16T03:00:00 |2016-11-16-03.txt |
    | 5 |2016-11-16T04:00:00 |2016-11-16-04.txt |
 
-    입력 폴더에 있는 모든 파일은 위에 언급된 시작 시간의 조각 중 일부입니다. 이 조각이 처리 되 면 사용자 지정 작업은 각 파일을 검색 하 고 검색 용어 ("Microsoft")의 발생 횟수를 사용 하 여 출력 파일에 줄을 생성 합니다. 입력 폴더에 세 개의 파일이 있는 경우 각 시간별 조각에 대 한 출력 파일에는 2016-11-16-00.txt, 2016-11-16:01:00:00.txt 등 3 개의 줄이 있습니다.
+    입력 폴더에 있는 모든 파일은 위에 언급된 시작 시간의 조각 중 일부입니다. 이 조각을 처리할 때 사용자 지정 작업은 각 파일을 검색하고 검색 용어('Microsoft') 항목 수와 함께 출력 파일에 줄을 생성합니다. 입력 폴더에 세 개의 파일이 있는 경우 출력 파일에 각 시간별 조각에 해당하는 세 개의 줄이 생깁니다(예: 2016-11-16-00.txt, 2016-11-16:01:00:00.txt 등).
 3. **OutputDataset** 을 배포하려면 명령 모음에서 **배포** 를 클릭합니다.
 
 ### <a name="create-and-run-a-pipeline-that-uses-the-custom-activity"></a>사용자 지정 작업을 사용하는 파이프라인 만들기 및 실행
-1. Data Factory 편집기 **에서 ...를 클릭 합니다. 추가** 를 클릭 한 다음 명령 모음에서 **새 파이프라인** 을 선택 합니다.
+1. 데이터 팩터리 편집기의 명령 모음에서 **추가** 를 클릭한 다음 **새 파이프라인** 을 클릭합니다.
 2. 오른쪽 창의 JSON을 다음 JSON 스크립트로 바꿉니다.
 
     ```JSON
@@ -619,18 +619,18 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
 
    * Azure Batch 풀의 VM 2대에서 2개 조각을 동시에 처리하도록 **동시성** 이 **2** 로 설정됩니다.
    * activities 섹션에는 **DotNetActivity** 유형의 작업 하나밖에 없습니다.
-   * **AssemblyName** 은 DLL의 이름: **MyDotnetActivity.dll** 로 설정 됩니다.
+   * **AssemblyName** 은 **MyDotnetActivity.dll** DLL 이름으로 설정합니다.
    * **EntryPoint** 는 **MyDotNetActivityNS.MyDotNetActivity** 로 설정합니다.
    * **PackageLinkedService** 는 사용자 지정 작업 Zip 파일을 포함하는 Blob 스토리지를 가리키는 **AzureStorageLinkedService** 로 설정합니다. 입/출력 파일 및 사용자 지정 작업 zip 파일에 대해 서로 다른 Azure Storage 계정을 사용하는 경우 다른 Azure Storage 연결된 서비스를 만듭니다. 이 문서에서는 동일한 Azure Storage 계정을 사용 중이라고 가정합니다.
    * **PackageFile** 은 **customactivitycontainer/MyDotNetActivity.zip** 으로 설정합니다. containerforthezip/nameofthezip.zip 형식입니다.
    * 사용자 지정 작업은 입력으로 **InputDataset**, 출력으로 **OutputDataset** 을 사용합니다.
    * 사용자 지정 활동의 linkedServiceName 속성은 **AzureBatchLinkedService** 를 가리키며 Azure Data Factory에 사용자 지정 작업을 Azure 배치 VM에서 실행해야 함을 알려줍니다.
-   * **isPaused** 속성은 기본적으로 **false** 로 설정 됩니다. 이 예제에서는 조각이 이전에 시작되므로 파이프라인이 즉시 실행됩니다. 파이프라인을 일시 중지하려면 이 속성을 true로 설정하고 다시 시작하려면 false로 다시 설정할 수 있습니다.
-   * **시작** 시간과 **종료** 시간은 **5** 시간 간격이 며 조각이 매시간 생성 되므로 5 개의 조각이 파이프라인에 의해 생성 됩니다.
+   * **isPaused** 속성은 기본적으로 **false** 로 설정합니다. 이 예제에서는 조각이 이전에 시작되므로 파이프라인이 즉시 실행됩니다. 파이프라인을 일시 중지하려면 이 속성을 true로 설정하고 다시 시작하려면 false로 다시 설정할 수 있습니다.
+   * **start** 시간과 **end** 시간은 **5** 시간 차이이며 파이프라인이 작동하면서 매시간 5개 조각이 생성됩니다.
 3. 파이프라인을 배포하려면 명령 모음에서 **배포** 를 클릭합니다.
 
 ### <a name="monitor-the-pipeline"></a>파이프라인 모니터링
-1. Azure Portal Data Factory 블레이드에서 **다이어그램** 을 클릭 합니다.
+1. Azure 포털의 Data Factory 블레이드에서 **다이어그램** 을 클릭합니다.
 
     ![다이어그램 타일](./media/data-factory-use-custom-activities/DataFactoryBlade.png)
 2. 다이어그램 뷰에서 OutputDataset을 클릭합니다.
@@ -694,17 +694,17 @@ Data Factory 서비스가 Azure Batch에 **adf-poolname:job-xxx** 라는 이름�
     ```
 
    이름이 일치하는 경우 zip 파일의 **루트 폴더** 에 모든 이진 파일이 있는지 확인합니다. 즉, zip 파일을 열 때 하위 폴더가 아닌 루트 폴더에 모든 파일이 있어야 합니다.
-3. 입력 조각이 **Ready** 로 설정 되지 않은 경우 입력 폴더 구조가 올바른지와 **file.txt** 입력 폴더에 있는지 확인 합니다.
+3. 입력 조각이 **Ready** 로 설정되지 않은 경우 입력 폴더 구조가 올바르고 **file.txt** 가 입력 폴더에 있는지 확인합니다.
 3. 사용자 지정 작업의 **Execute** 메서드에서 **IActivityLogger** 개체를 사용하여 문제 해결에 도움이 되는 정보를 기록합니다. 기록된 메시지는 사용자 로그 파일(다음과 같은 이름의 파일 하나 또는 여러 개: user-0.log, user-1.log, user-2.log 등)에 표시됩니다.
 
    **OutputDataset** 블레이드에서 조각에 대한 **데이터 조각** 블레이드를 보려면 해당 조각을 클릭합니다. 해당 조각에 대한 **작업 실행** 이 표시됩니다. 해당 조각에 대한 하나의 작업 실행이 표시됩니다. 명령 모음에서 실행을 클릭하면 동일한 조각에 대해 다른 작업 실행을 시작할 수 있습니다.
 
    작업 실행을 클릭하면 로그 파일 목록과 함께 **작업 실행 세부 정보** 블레이드가 표시됩니다. 기록된 메시지는 user_0.log 파일에 표시됩니다. 오류가 발생하면 파이프라인/작업 JSON에서 재시도 횟수가 3으로 설정되므로 세 개의 작업 실행이 표시됩니다. 작업 실행을 클릭하면 문제 해결을 위해 검토할 수 있는 로그 파일이 표시됩니다.
 
-   로그 파일 목록에서 **user-0.log** 를 클릭합니다. 오른쪽 패널은 **IActivityLogger.Write** 메서드를 사용한 결과입니다. 모든 메시지가 표시 되지 않으면 다음과 같은 로그 파일이 더 있는지 확인 합니다. user_1 .log, user_2. .log 등 그렇지 않으면 마지막으로 로그 한 메시지 다음에 코드가 실패할 수 있습니다.
+   로그 파일 목록에서 **user-0.log** 를 클릭합니다. 오른쪽 패널은 **IActivityLogger.Write** 메서드를 사용한 결과입니다. 모든 메시지가 표시되지 않으면 user_1.log, user_2.log 같은 로그 파일이 더 있는지 확인합니다. 없는 경우 마지막으로 기록된 메시지 다음에 코드가 실패한 것일 수 있습니다.
 
    또한 **system-0.log** 에서 시스템 오류 메시지 및 예외를 확인합니다.
-4. 오류가 발생할 때 오류 정보에 **호출 스택** 등의 정보가 포함 되도록 zip 파일에 **PDB** 파일을 포함 합니다.
+4. Zip 파일에 **PDB** 파일을 포함하여 오류 발생 시 오류 세부 정보에 **호출 스택** 과 같은 정보가 포함되도록 합니다.
 5. 사용자 지정 작업에 대한 zip 파일의 모든 파일은 하위 폴더가 없는 **최상위** 여야 합니다.
 6. **assemblyName**(MyDotNetActivity.dll), **entryPoint**(MyDotNetActivityNS.MyDotNetActivity), **packageFile**(customactivitycontainer/MyDotNetActivity.zip) 및 **packageLinkedService**(zip 파일을 포함하는 **범용** Azure Blob Storage를 가리켜야 함)가 올바른 값으로 설정되었는지 확인합니다.
 7. 오류를 해결했고 조각을 다시 처리하려면 **OutputDataset** 블레이드에서 조각을 마우스 오른쪽 단추로 클릭하고 **실행** 을 클릭합니다.
@@ -1032,8 +1032,8 @@ GitHub의 [Azure Data Factory - 로컬 환경](https://github.com/gbrueckl/Azure
 | 샘플 | 사용자 지정 작업의 기능 |
 | --- | --- |
 | [HTTP 데이터 다운로더](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample) |Data Factory의 사용자 지정 C# 작업을 사용하여 HTTP 엔드포인트에서 Azure Blob Storage로 데이터를 다운로드합니다. |
-| [Twitter 감성 분석 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Azure Machine Learning Studio (클래식) 모델을 호출 하 고 감정 분석, 점수 매기기, 예측 등을 수행 합니다. |
-| [R 스크립트를 실행](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)합니다. |R이 이미 설치된 HDInsight 클러스터에서 RScript.exe를 실행하여 R 스크립트를 호출합니다. |
+| [Twitter 감성 분석 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Azure Machine Learning Studio(클래식) 모델을 호출하고 감정 분석, 채점, 예측 등을 수행합니다. |
+| [R 스크립트 실행](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |R이 이미 설치된 HDInsight 클러스터에서 RScript.exe를 실행하여 R 스크립트를 호출합니다. |
 | [크로스 AppDomain .NET 작업](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Data Factory 시작 관리자가 사용한 것과 다른 버전의 어셈블리를 사용합니다. |
 | [Azure Analysis Services에서 모델 다시 처리](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/AzureAnalysisServicesProcessSample) |  Azure Analysis Services에서 모델을 다시 처리합니다. |
 

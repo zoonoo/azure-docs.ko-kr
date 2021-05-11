@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 01/13/2021
 ms.topic: troubleshooting
 ms.openlocfilehash: c16b032502401b633532ab0fcf9518aa85a1b8d6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100579744"
 ---
 # <a name="troubleshoot-update-management-issues"></a>업데이트 관리 문제 해결
@@ -17,41 +17,41 @@ ms.locfileid: "100579744"
 이 문서에서는 머신에 업데이트 관리 기능을 배포할 때 발생할 수 있는 문제에 대해 설명합니다. 기본 문제를 확인하기 위한 Hybrid Runbook Worker 에이전트용 에이전트 문제 해결사가 제공됩니다. 문제 해결사에 대해 자세히 알아보려면 [Windows 업데이트 에이전트 문제 해결](update-agent-issues.md) 및 [Linux 업데이트 에이전트 문제 해결](update-agent-issues-linux.md)을 참조하세요. 다른 기능 배포 문제는 [기능 배포 문제 해결](onboarding.md)을 참조하세요.
 
 >[!NOTE]
->Windows 컴퓨터에 업데이트 관리를 배포할 때 문제가 발생 하는 경우 Windows 이벤트 뷰어를 열고 로컬 컴퓨터의 **응용 프로그램 및 서비스 로그** 아래에서 **Operations Manager** 이벤트 로그를 확인 합니다. 이벤트 ID가 4502인 이벤트 및 `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`를 포함하는 이벤트 정보를 찾아봅니다.
+>Windows 머신에 업데이트 관리를 배포할 때 문제가 발생하는 경우 로컬 머신에서 Windows 이벤트 뷰어를 열고 **애플리케이션 및 서비스 로그** 에서 **Operations Manager** 이벤트 로그를 확인합니다. 이벤트 ID가 4502인 이벤트 및 `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`를 포함하는 이벤트 정보를 찾아봅니다.
 
-## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a><a name="updates-linux-installed-different"></a>시나리오: 보류 중으로 표시 되 고 설치 된 Linux 업데이트가 변경 됨
+## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a><a name="updates-linux-installed-different"></a>시나리오: Linux 업데이트가 보류 중으로 표시되고 설치된 Linux 업데이트가 서로 다름
 
 ### <a name="issue"></a>문제
 
-Linux 컴퓨터의 경우 분류 **보안** 및 **기타** 에서 사용할 수 있는 특정 업데이트가 업데이트 관리 표시 됩니다. 그러나 컴퓨터에서 업데이트 일정을 실행 하는 경우, 예를 들어 **보안** 분류와 일치 하는 업데이트만 설치 하는 경우 설치 된 업데이트는 이전에 해당 분류와 일치 하는 업데이트의 일부 또는과 다릅니다.
+Linux 머신의 경우 업데이트 관리가 분류 **보안** 및 **기타** 에서 사용할 수 있는 특정 업데이트를 보여 줍니다. 그러나 머신에서 업데이트 일정을 실행하는 경우, 예를 들어 **보안** 분류와 일치하는 업데이트만 설치하는 경우 설치된 업데이트는 이전에 해당 분류와 일치하는 것으로 나타난 업데이트의 하위 집합과 다릅니다.
 
 ### <a name="cause"></a>원인
 
-Linux 컴퓨터에 대 한 OS 업데이트에 대 한 평가가 완료 되 면 업데이트 관리에서 분류를 위해 Linux 배포판 공급 업체에서 제공 하는 [Open 취약성 및 평가 언어](https://oval.mitre.org/) (OVAL) 파일이 사용 됩니다. 분류는 보안 문제나 취약성을 해결 하는 업데이트를 나타내는 OVAL 파일을 기반으로 하 여 Linux 업데이트에 대 한 **보안** 또는 **기타** 방식으로 수행 됩니다. 하지만 업데이트 일정을 실행 하면 해당 패키지 관리자 (예: YUM, APT 또는 ZYPPER)를 사용 하 여 Linux 컴퓨터에서 실행 됩니다. Linux 배포판 패키지 관리자는 업데이트를 분류 하는 다른 메커니즘을 사용할 수 있습니다 .이 경우 결과는 OVAL 업데이트 관리 파일에서 가져온 것과 다를 수 있습니다.
+Linux 머신 OS 업데이트에 대한 평가가 완료되면, 업데이트 관리는 분류를 위해 Linux 배포판 공급 업체에서 제공하는 [OVAL](https://oval.mitre.org/)(개방형 취약성 및 평가 언어) 파일을 사용합니다. 분류는 보안 문제나 취약성을 해결하는 업데이트를 나타내는 OVAL 파일을 기반으로 하여 Linux 업데이트의 경우 **보안** 또는 **기타** 방식으로 수행됩니다. 하지만 업데이트 일정을 실행하면 해당 패키지 관리자(예: YUM, APT 또는 ZYPPER)를 사용하여 설치하기 위해 Linux 머신에서 실행됩니다. Linux 배포판 패키지 관리자는 업데이트를 분류하는 다른 메커니즘을 사용할 수 있습니다. 이 경우 결과는 업데이트 관리가 OVAL 파일에서 가져온 것과 다를 수 있습니다.
 
 ### <a name="resolution"></a>해결 방법
 
-배포판의 패키지 관리자에 따라 Linux 컴퓨터, 해당 업데이트 및 해당 분류를 수동으로 확인할 수 있습니다. 패키지 관리자가 **보안** 으로 분류 되는 업데이트를 이해 하려면 다음 명령을 실행 합니다.
+배포판 패키지 관리자에 따라 Linux 머신, 해당 업데이트 및 해당 분류를 수동으로 확인할 수 있습니다. 패키지 관리자가 어떤 업데이트를 **보안** 으로 분류했는지 이해하려면 다음 명령을 실행합니다.
 
-YUM의 경우 다음 명령은 Red Hat의 **보안** 으로 분류 된 업데이트의 0이 아닌 목록을 반환 합니다. CentOS의 경우 항상 빈 목록을 반환 하며 보안 분류가 발생 하지 않습니다.
+YUM의 경우 다음 명령을 실행하면 Red Hat에 의해 **보안** 으로 분류된 업데이트의 0이 아닌 목록을 반환합니다. CentOS의 경우 항상 빈 목록을 반환하며 보안 분류가 발생하지 않습니다.
 
 ```bash
 sudo yum -q --security check-update
 ```
 
-ZYPPER의 경우 다음 명령은 SUSE에서 **보안** 으로 분류 된 업데이트의 0이 아닌 목록을 반환 합니다.
+ZYPPER의 경우 다음 명령을 실행하면 SUSE에 의해 **보안** 으로 분류된 업데이트의 0이 아닌 목록을 반환합니다.
 
 ```bash
 sudo LANG=en_US.UTF8 zypper --non-interactive patch --category security --dry-run
 ```
 
-APT의 경우 다음 명령은 Ubuntu Linux 배포판의 정식 **보안** 으로 분류 된 업데이트의 0이 아닌 목록을 반환 합니다.
+APT의 경우 다음 명령을 실행하면 Canonical에 의해 **보안** 으로 분류된 Ubuntu Linux 배포판에 대한 업데이트의 0이 아닌 목록을 반환합니다.
 
 ```bash
 sudo grep security /etc/apt/sources.list > /tmp/oms-update-security.list LANG=en_US.UTF8 sudo apt-get -s dist-upgrade -oDir::Etc::Sourcelist=/tmp/oms-update-security.list
 ```
 
-그런 다음이 목록에서 명령을 실행 `grep ^Inst` 하 여 보류 중인 모든 보안 업데이트를 가져옵니다.
+해당 목록에서 `grep ^Inst` 명령을 실행하여 모든 보류 중인 보안 업데이트를 가져옵니다.
 
 ## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a><a name="failed-to-enable-error"></a>시나리오: "업데이트 솔루션을 사용하도록 설정하지 못했습니다." 오류가 표시됨
 
@@ -79,7 +79,7 @@ Error details: Failed to enable the Update solution
 
 * [네트워크 구성](../automation-hybrid-runbook-worker.md#network-planning)으로 이동하여 업데이트 관리가 작동하려면 어떤 주소 및 포트를 허용해야 하는지 알아보세요.  
 
-* 범위 구성 문제가 있는지 확인합니다. [범위 구성](../update-management/scope-configuration.md)은 업데이트 관리에 대해 구성되는 머신을 결정합니다. 컴퓨터가 작업 영역에 표시 되지만 업데이트 관리에 표시 되지 않는 경우 컴퓨터를 대상으로 하는 범위 구성을 설정 해야 합니다. 범위 구성에 대해 알아보려면 [작업 영역에서 컴퓨터 사용](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace)를 참조하세요.
+* 범위 구성 문제가 있는지 확인합니다. [범위 구성](../update-management/scope-configuration.md)은 업데이트 관리에 대해 구성되는 머신을 결정합니다. 머신이 작업 영역에 표시되지만 업데이트 관리에는 표시되지 않는 경우 해당 머신을 대상으로 하도록 범위 구성을 지정해야 합니다. 범위 구성에 대해 알아보려면 [작업 영역에서 컴퓨터 사용](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace)를 참조하세요.
 
 * [온-프레미스 Windows 컴퓨터에서 Hybrid Runbook Worker 제거](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) 또는 컴퓨터에서 [온-프레미스 Linux 컴퓨터에서 Hybrid Runbook Worker 제거](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker)의 단계에 따라 작업자 구성을 제거합니다.
 
@@ -91,23 +91,23 @@ Error details: Failed to enable the Update solution
 
 ### <a name="cause"></a>원인
 
-대체 업데이트는 WSUS (Windows Server Update Services)에서 거부 되지 않으므로 해당 되지 않는 것으로 간주할 수 있습니다.
+대체된 업데이트는 WSUS(Windows Server Update Services)에서 거부되지 않으므로 해당되지 않는 것으로 간주할 수 있습니다.
 
 ### <a name="resolution"></a>해결 방법
 
-대체 된 업데이트가 100% 적용할 수 없게 되 면 WSUS에서 해당 업데이트의 승인 상태를로 변경 해야 합니다 `Declined` . 모든 업데이트에 대한 승인 상태를 변경하려면
+대체된 업데이트가 100% 적용할 수 없게 되면 WSUS에서 해당 업데이트의 승인 상태를 `Declined`로 변경해야 합니다. 모든 업데이트에 대한 승인 상태를 변경하려면
 
 1. Automation 계정에서 **업데이트 관리** 를 선택하여 머신 상태를 확인합니다. [업데이트 평가 보기](../update-management/view-update-assessments.md)를 참조하세요.
 
 2. 대체된 업데이트를 확인하여 100% 적용되지 않는지 확인합니다.
 
-3. 컴퓨터에서 보고 하는 WSUS 서버에서 [업데이트를 거부](/windows-server/administration/windows-server-update-services/manage/updates-operations#declining-updates)합니다.
+3. 머신이 보고하는 WSUS 서버에서 [업데이트를 거부](/windows-server/administration/windows-server-update-services/manage/updates-operations#declining-updates)합니다.
 
-4. **컴퓨터** 를 선택하고 **규정 준수** 열에서 규정 준수를 강제로 다시 검사합니다. [Vm에 대 한 업데이트 관리](../update-management/manage-updates-for-vm.md)를 참조 하세요.
+4. **컴퓨터** 를 선택하고 **규정 준수** 열에서 규정 준수를 강제로 다시 검사합니다. [VM에 대한 업데이트 관리](../update-management/manage-updates-for-vm.md)를 참조하세요.
 
 5. 대체된 다른 업데이트에 대해 위 단계를 반복합니다.
 
-6. WSUS (Windows Server Update Services)의 경우 대체 된 모든 업데이트를 정리 하 여 WSUS [서버 정리 마법사](/windows-server/administration/windows-server-update-services/manage/the-server-cleanup-wizard)를 사용 하 여 인프라를 새로 고칩니다.
+6. WSUS(Windows Server Update Services)의 경우 대체된 모든 업데이트를 정리하기 위해 WSUS [서버 정리 마법사](/windows-server/administration/windows-server-update-services/manage/the-server-cleanup-wizard)를 사용하여 인프라를 새로 고칩니다.
 
 7. 주기적으로 이 절차를 반복하여 표시 문제를 해결하고 업데이트 관리에 사용되는 디스크 공간의 크기를 최소화합니다.
 
@@ -135,7 +135,7 @@ Error details: Failed to enable the Update solution
 
 1. OS에 따라 [Windows](update-agent-issues.md#troubleshoot-offline) 또는 [Linux](update-agent-issues-linux.md#troubleshoot-offline)에 대한 문제 해결사를 실행합니다.
 
-2. 머신이 올바른 작업 영역에 보고하고 있는지 확인합니다. 이 측면을 확인 하는 방법에 대 한 지침은 [에이전트에서 Azure Monitor에 대 한 연결 확인](../../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor)을 참조 하세요. 또한 이 작업 영역이 Azure Automation 계정에 연결되어 있는지 확인합니다. 이를 확인하려면 Automation 계정으로 이동하고 **관련 리소스** 에서 **연결된 작업 영역** 을 선택합니다.
+2. 머신이 올바른 작업 영역에 보고하고 있는지 확인합니다. 이러한 측면을 확인하는 방법에 대한 참고 자료는 [Azure Monitor에 대한 에이전트 연결 확인](../../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor)을 참조하세요. 또한 이 작업 영역이 Azure Automation 계정에 연결되어 있는지 확인합니다. 이를 확인하려면 Automation 계정으로 이동하고 **관련 리소스** 에서 **연결된 작업 영역** 을 선택합니다.
 
 3. Automation 계정에 연결된 Log Analytics 작업 영역에 머신이 표시되는지 확인합니다. Log Analytics 작업 영역에서 다음 쿼리를 실행합니다.
 
@@ -146,7 +146,7 @@ Error details: Failed to enable the Update solution
 
     쿼리 결과에 머신이 표시되지 않으면 최근에 체크인되지 않은 것입니다. 로컬 구성 문제가 있는 것이므로 [에이전트를 다시 설치](../../azure-monitor/vm/quick-collect-windows-computer.md#install-the-agent-for-windows)해야 합니다.
 
-    컴퓨터가 쿼리 결과에 표시 되는 경우 **솔루션** 속성에 **업데이트가** 나열 되어 있는지 확인 합니다. 이렇게 하면 업데이트 관리에 등록 되었는지 확인 합니다. 그렇지 않으면 범위 구성 문제를 확인 합니다. [범위 구성](../update-management/scope-configuration.md)은 업데이트 관리에 대해 구성되는 머신을 결정합니다. 컴퓨터를 대상으로 하는 범위 구성을 구성 하려면 [작업 영역에서 컴퓨터 사용](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace)을 참조 하세요.
+    머신이 쿼리 결과에 나열되는 경우 **솔루션** 속성에 **업데이트** 가 나열되어 있는지 확인합니다. 이렇게 하여 업데이트 관리에 등록되었는지 확인합니다. 등록되지 않았으면 범위 구성 문제를 확인합니다. [범위 구성](../update-management/scope-configuration.md)은 업데이트 관리에 대해 구성되는 머신을 결정합니다. 머신을 대상으로 하는 범위 구성을 구성하려면 [작업 영역에서 머신 사용](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace)을 참조하세요.
 
 4. 작업 영역에서 이 쿼리를 실행합니다.
 
@@ -256,7 +256,7 @@ Automation 리소스 공급자에 대해 구독이 구성되지 않은 경우 �
 
 #### <a name="incorrect-access-on-selected-scopes"></a>선택한 범위에 대한 잘못된 액세스
 
-Azure Portal에는 지정된 범위에서 쓰기 권한이 있는 머신만 표시됩니다. 범위에 대 한 올바른 액세스 권한이 없는 경우 [자습서: Azure Portal을 사용 하 여 Azure 리소스에 대 한 사용자 액세스 권한 부여](../../role-based-access-control/quickstart-assign-role-user-portal.md)를 참조 하세요.
+Azure Portal에는 지정된 범위에서 쓰기 권한이 있는 머신만 표시됩니다. 범위에 대한 올바른 액세스 권한이 없는 경우 [자습서: Azure Portal을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여](../../role-based-access-control/quickstart-assign-role-user-portal.md)를 참조하세요.
 
 #### <a name="arg-query-doesnt-return-expected-machines"></a>ARG 쿼리가 예상 머신을 반환하지 않음
 
@@ -355,7 +355,7 @@ VM의 이름을 변경하여 환경에서 고유한 이름을 유지하도록 �
 
 3. `Restart-Service HealthService`를 실행하여 상태 서비스를 다시 시작합니다. 이 작업을 수행하면 키가 다시 만들어지고 새 UUID가 생성됩니다.
 
-4. 이 방법이 작동 하지 않으면 먼저 이미지에서 sysprep을 실행 한 다음 Windows 용 Log Analytics 에이전트를 설치 합니다.
+4. 이 방법이 작동하지 않으면 먼저 이미지에서 sysprep을 실행한 다음, Windows용 Log Analytics 에이전트를 설치합니다.
 
 ## <a name="scenario-you-receive-a-linked-subscription-error-when-you-create-an-update-deployment-for-machines-in-another-azure-tenant"></a><a name="multi-tenant"></a>시나리오: 다른 Azure 테넌트에 있는 머신의 업데이트 배포를 만들 때 연결된 구독 오류가 발생합니다.
 
@@ -416,14 +416,14 @@ Failed to start the runbook. Check the parameters passed. RunbookName Patch-Micr
 * 머신이 더 이상 존재하지 않습니다.
 * 머신이 꺼져 있고 연결할 수 없습니다.
 * 머신에 네트워크 연결 이슈가 있으므로 머신의 Hybrid Worker에 연결할 수 없습니다.
-* 원본 컴퓨터 ID를 변경한 Log Analytics 에이전트에 대 한 업데이트가 있습니다.
-* Automation 계정에서 200의 동시 작업 제한에 도달 하는 경우 업데이트 실행이 제한 되었습니다. 각 배포는 하나의 작업으로 간주되며, 업데이트 배포의 각 머신은 하나의 작업으로 계산됩니다. Automation 계정에서 현재 실행되고 있는 다른 모든 Automation 작업 또는 업데이트 배포는 동시 작업 제한으로 계산됩니다.
+* 원본 컴퓨터 ID를 변경한 Log Analytics 에이전트가 업데이트되었습니다.
+* Automation 계정에서 200개의 동시 작업 제한에 도달하여 업데이트 실행이 제한되었습니다. 각 배포는 하나의 작업으로 간주되며, 업데이트 배포의 각 머신은 하나의 작업으로 계산됩니다. Automation 계정에서 현재 실행되고 있는 다른 모든 Automation 작업 또는 업데이트 배포는 동시 작업 제한으로 계산됩니다.
 
 ### <a name="resolution"></a>해결 방법
 
 해당하는 경우 업데이트 배포에 [동적 그룹](../update-management/configure-groups.md)을 사용합니다. 또한 다음 단계를 수행할 수 있습니다.
 
-1. 컴퓨터 또는 서버에서 [요구 사항을](../update-management/overview.md#system-requirements)충족 하는지 확인 합니다.
+1. 머신 또는 서버가 [요구 사항](../update-management/overview.md#system-requirements)을 충족하는지 확인합니다.
 2. Hybrid Runbook Worker 에이전트 문제 해결사를 사용하여 Hybrid Runbook Worker에 대한 연결을 확인합니다. 이 문제 해결사에 대한 자세한 내용은 [업데이트 에이전트 문제 해결](update-agent-issues.md)을 참조하세요.
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>시나리오: 배포 없이 업데이트가 설치됨
@@ -519,7 +519,7 @@ Hybrid Runbook Worker가 자체 서명 인증서를 생성할 수 없습니다.
 
 ### <a name="resolution"></a>해결 방법
 
-성공적으로 시작 된 후 업데이트가 실행 되는 동안이 오류가 발생 한 이유를 이해 하려면 실행 시 영향을 받는 컴퓨터에서 [작업 출력을 확인 하세요](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) . 머신에서 특정 오류 메시지를 찾아 조치를 취할 수 있습니다.  
+업데이트가 제대로 시작된 후 실행 중에 실패하는 일이 발생하는 이유를 이해하려면 실행 중에 영향을 받는 머신의 [작업 출력을 확인합니다](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment). 머신에서 특정 오류 메시지를 찾아 조치를 취할 수 있습니다.  
 
 모든 실패한 예약 업데이트 배포를 편집하고 유지 관리 기간을 늘립니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Traffic Manager의 메트릭 및 경고
-description: 이 문서에서는 Azure에서 Traffic Manager 하는 데 사용할 수 있는 메트릭 및 경고에 대해 알아봅니다.
+description: 이 문서에서는 Azure의 Traffic Manager에 대해 사용할 수 있는 메트릭 및 경고에 대해 알아봅니다.
 services: traffic-manager
 author: duongau
 ms.service: traffic-manager
@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: duau
 ms.openlocfilehash: b18e0329aeb4e95e021c3326b6b428c10edc0c6e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100586417"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Traffic Manager의 메트릭 및 경고

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
 ms.openlocfilehash: 12cce0eac3827046ae9171f3dd5696ae5905c802
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101093979"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Azure Storage를 사용하여 PaaS 웹 및 모바일 애플리케이션 보안을 유지하는 모범 사례
@@ -56,13 +56,13 @@ SAS를 사용하여 Storage 계정 키를 제공하지 않고도 공유하려는
 공유 액세스 서명에 대해 자세히 알아보려면 [공유 액세스 서명 사용](../../storage/common/storage-sas-overview.md)을 참조하세요. 
 
 ## <a name="use-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어 사용
-액세스를 관리 하는 또 다른 방법은 azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 사용 하는 것입니다. Azure RBAC를 사용 하 여 사용자에 게 필요한 정확한 권한을 직원에 게 제공 하 고 최소 권한 보안 원칙을 기반으로 하는 데 집중 합니다. 권한이 너무 많으면 공격자에게 계정이 노출될 수 있고, 권한이 너무 적으면 직원이 업무를 효율적으로 수행할 수 없습니다. Azure RBAC는 Azure에 대 한 세분화 된 액세스 관리를 제공 하 여이 문제를 해결 하는 데 도움이 됩니다. 이는 데이터 액세스에 대한 보안 정책을 적용하려는 조직에 필수적입니다.
+액세스를 관리하는 또 다른 방법은 [Azure RBAC(Azure 역할 기반 액세스 제어](../../role-based-access-control/overview.md))를 사용하는 것입니다. Azure RBAC를 사용하면 알아야 하는 필요성과 최소 권한 보안 원칙에 따라 직원에게 정확히 필요한 권한을 부여하는 데 초점을 맞춥니다. 권한이 너무 많으면 공격자에게 계정이 노출될 수 있고, 권한이 너무 적으면 직원이 업무를 효율적으로 수행할 수 없습니다. RBAC는 Azure에 대한 세밀한 액세스 관리를 제공하여 이 문제를 해결하도록 도와줍니다. 이는 데이터 액세스에 대한 보안 정책을 적용하려는 조직에 필수적입니다.
 
-Azure에서 Azure 기본 제공 역할을 사용 하 여 사용자에 게 권한을 할당할 수 있습니다. 예를 들어 스토리지 계정을 관리해야 하는 클라우드 운영자의 경우 스토리지 계정 참가자 역할과 클래식 스토리지 계정 관리용 클래식 스토리지 계정 참가자 역할을 할당할 수 있습니다. VM을 관리해야 하지만 VM이 연결된 가상 네트워크 또는 스토리지 계정은 관리할 필요가 없는 클라우드 운영자의 경우 Virtual Machine 참가자 역할에 추가할 수 있습니다.
+Azure의 Azure 기본 제공 역할을 사용하여 사용자에게 권한을 할당할 수 있습니다. 예를 들어 스토리지 계정을 관리해야 하는 클라우드 운영자의 경우 스토리지 계정 참가자 역할과 클래식 스토리지 계정 관리용 클래식 스토리지 계정 참가자 역할을 할당할 수 있습니다. VM을 관리해야 하지만 VM이 연결된 가상 네트워크 또는 스토리지 계정은 관리할 필요가 없는 클라우드 운영자의 경우 Virtual Machine 참가자 역할에 추가할 수 있습니다.
 
-Azure RBAC와 같은 기능을 사용 하 여 데이터 액세스 제어를 적용 하지 않는 조직은 사용자에 게 필요한 것 보다 많은 권한을 제공할 수 있습니다. 그로 인해 일부 사용자가 원래는 액세스할 수 없어야 하는 데이터에 액세스할 수 있게 되어 데이터 손상이 발생할 수 있습니다.
+Azure RBAC와 같은 기능을 사용하여 데이터 액세스 제어를 적용하지 않는 조직은 사용자에게 필요 이상으로 많은 권한을 부여하게 될 수 있습니다. 그로 인해 일부 사용자가 원래는 액세스할 수 없어야 하는 데이터에 액세스할 수 있게 되어 데이터 손상이 발생할 수 있습니다.
 
-Azure RBAC에 대 한 자세한 내용은 다음을 참조 하세요.
+Azure RBAC에 대한 자세한 정보:
 
 - [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)
 - [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)
@@ -73,7 +73,7 @@ Azure RBAC에 대 한 자세한 내용은 다음을 참조 하세요.
 
 또한 클라이언트 쪽 암호화를 사용하면 암호화 키를 단독으로 제어할 수 있습니다. 자체 암호화 키를 생성하고 관리할 수 있습니다. 클라이언트 쪽 암호화는 Azure Storage 클라이언트 라이브러리가 CEK(콘텐츠 암호화 키)를 생성하고 KEK(키 암호화 키)를 사용하여 래핑(암호화)하는 봉투(envelope) 기술을 사용합니다. KEK는 키 식별자로 식별되고 비대칭 키 쌍 또는 대칭 키일 수 있으며 로컬로 관리되거나 [Azure Key Vault](../../key-vault/general/overview.md)에 저장됩니다.
 
-클라이언트 쪽 암호화는 Java 및 .NET 스토리지 클라이언트 라이브러리에 기본적으로 제공되어 있습니다. 클라이언트 응용 프로그램 내에서 데이터를 암호화 하 고 자체 암호화 키를 생성 및 관리 하는 방법에 대 한 자세한 내용은 [클라이언트 쪽 암호화 및 Microsoft Azure Storage Azure Key Vault](../../storage/common/storage-client-side-encryption.md) 을 참조 하세요.
+클라이언트 쪽 암호화는 Java 및 .NET 스토리지 클라이언트 라이브러리에 기본적으로 제공되어 있습니다. 클라이언트 애플리케이션 내에서 데이터를 암호화하고 자체 암호화 키를 생성 및 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Storage용 클라이언트 쪽 암호화 및 Azure Key Vault](../../storage/common/storage-client-side-encryption.md)를 참조하세요.
 
 ## <a name="enable-storage-service-encryption-for-data-at-rest"></a>미사용 데이터에 대해 스토리지 서비스 암호화 사용
 File Storage에 대해 [Storage 서비스 암호화](../../storage/common/storage-service-encryption.md)가 사용되도록 설정되면 데이터는 AES-256 암호화를 사용하여 자동으로 암호화됩니다. Microsoft는 모든 암호화, 해독 및 키 관리를 처리합니다. 이 기능은 LRS 및 GRS 중복 유형에 사용할 수 있습니다.

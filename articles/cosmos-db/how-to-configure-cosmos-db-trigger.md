@@ -1,24 +1,24 @@
 ---
-title: Cosmos DB 고급 구성에 대 한 Azure Functions 트리거
-description: Cosmos DB에 대 한 Azure Functions 트리거에서 사용 하는 로깅 및 연결 정책을 구성 하는 방법에 대해 알아봅니다.
+title: Cosmos DB 고급 구성에 대한 Azure Functions 트리거
+description: Cosmos DB에 대한 Azure Functions 트리거에서 사용하는 로깅 및 연결 정책을 구성하는 방법에 대해 알아봅니다.
 author: ealsur
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: maquaran
 ms.openlocfilehash: 30328db465e0d9bf8c1ce67d92e48c688c51e043
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100574625"
 ---
-# <a name="how-to-configure-logging-and-connectivity-with-the-azure-functions-trigger-for-cosmos-db"></a>Cosmos DB에 대 한 Azure Functions 트리거를 사용 하 여 로깅 및 연결을 구성 하는 방법
+# <a name="how-to-configure-logging-and-connectivity-with-the-azure-functions-trigger-for-cosmos-db"></a>Cosmos DB용 Azure Functions 트리거에 사용하는 로깅 및 연결 구성 방법
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-이 문서에서는 Cosmos DB에 대해 Azure Functions 트리거를 사용할 때 설정할 수 있는 고급 구성 옵션을 설명 합니다.
+이 문서에서는 Cosmos DB용 Azure Functions 트리거를 사용할 때 설정할 수 있는 고급 구성 옵션을 설명합니다.
 
-## <a name="enabling-trigger-specific-logs"></a>트리거 특정 로그 사용
+## <a name="enabling-trigger-specific-logs"></a>특정 로그 트리거 사용
 
 Cosmos DB용 Azure Functions 트리거는 내부적으로 [변경 피드 프로세서 라이브러리](./change-feed-processor.md)를 사용하며, 라이브러리는 [문제 해결을 위해](./troubleshoot-changefeed-functions.md) 내부 작업을 모니터링하는 데 사용할 수 있는 상태 로그 세트를 생성합니다.
 
@@ -26,7 +26,7 @@ Cosmos DB용 Azure Functions 트리거는 내부적으로 [변경 피드 프로�
 
 ### <a name="enabling-logging"></a>로깅을 사용하도록 설정
 
-Cosmos DB용 Azure Functions 트리거를 사용할 때 로깅을 설정하려면 Azure Functions 프로젝트 또는 Azure Functions App에서 `host.json` 파일을 찾아서 [필요한 로깅 수준을 구성](../azure-functions/functions-monitoring.md#log-levels-and-categories)합니다. 다음 샘플과 같이에 대해 추적을 사용 하도록 설정 합니다  `Host.Triggers.CosmosDB` .
+Cosmos DB용 Azure Functions 트리거를 사용할 때 로깅을 설정하려면 Azure Functions 프로젝트 또는 Azure Functions App에서 `host.json` 파일을 찾아서 [필요한 로깅 수준을 구성](../azure-functions/functions-monitoring.md#log-levels-and-categories)합니다. 다음 샘플에 나온 것처럼 `Host.Triggers.CosmosDB`에 대한 추적을 사용하도록 설정합니다.
 
 ```js
 {
@@ -53,7 +53,7 @@ traces
 
 ## <a name="configuring-the-connection-policy"></a>연결 정책 구성
 
-직접 모드와 게이트웨이 모드의 두 가지 연결 모드가 있습니다. 이러한 연결 모드에 대 한 자세한 내용은 [연결 모드](sql-sdk-connection-modes.md) 문서를 참조 하세요. 기본적으로 **게이트웨이** 는 Cosmos DB용 Azure Functions 트리거에서 모든 연결을 설정하는 데 사용됩니다. 그러나 성능 중심 시나리오에는 최상의 옵션이 아닐 수 있습니다.
+직접 모드와 게이트웨이 모드의 두 가지 연결 모드가 있습니다. 해당 연결 모드에 대한 자세한 내용은 [연결 모드](sql-sdk-connection-modes.md) 문서를 참조하세요. 기본적으로 **게이트웨이** 는 Cosmos DB용 Azure Functions 트리거에서 모든 연결을 설정하는 데 사용됩니다. 그러나 성능 중심 시나리오에는 최상의 옵션이 아닐 수 있습니다.
 
 ### <a name="changing-the-connection-mode-and-protocol"></a>연결 모드 및 프로토콜 변경
 
@@ -82,7 +82,7 @@ Azure Functions 프로젝트가 Azure Functions V1 런타임과 함께 작동하
 ```
 
 > [!NOTE]
-> 소비 계획에서 함수 앱을 호스트 하는 경우 각 인스턴스는 유지 관리할 수 있는 소켓 연결의 양에 제한이 있습니다. 직접/TCP 모드로 작업할 때 더 많은 연결을 디자인 하 고 [소비 계획 제한](../azure-functions/manage-connections.md#connection-limit)에 도달할 수 있습니다 .이 경우 게이트웨이 모드를 사용 하거나 대신 [프리미엄 계획](../azure-functions/functions-premium-plan.md) 또는 [전용 (App Service) 계획](../azure-functions/dedicated-plan.md)에서 함수 앱을 호스팅할 수 있습니다.
+> 사용 계획에서 함수 앱을 호스트하면 각 인스턴스가 유지할 수 있는 소켓 연결의 양에 제한이 있습니다. 직접/TCP 모드로 작업할 때 디자인을 통해 더 많은 연결을 생성하고 [사용 계획 제한](../azure-functions/manage-connections.md#connection-limit)에 도달할 수 있습니다. 이 경우 게이트웨이 모드를 사용하거나 대신 [프리미엄 플랜](../azure-functions/functions-premium-plan.md) 또는 [전용(App Service) 플랜](../azure-functions/dedicated-plan.md)에서 함수 앱을 호스트할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

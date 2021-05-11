@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e10aa5d96722b414d7384ceb81f393575d57e2a2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101688776"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: LocalDB 10GB 제한에서 복구하는 방법
@@ -74,7 +74,7 @@ Azure AD Connect에 대해 만든 데이터베이스의 이름은 **ADSync** 입
 
 4. `./SQLCMD.EXE -S "(localdb)\.\ADSync" -U <Username> -P <Password>` 명령을 실행하고 sysadmin 또는 DBO 데이터베이스의 자격 증명을 사용하여 **sqlcmd** 유틸리티를 시작합니다.
 
-5. 데이터베이스를 축소 하려면 sqlcmd 프롬프트 ( `1>` )에서를 입력 하 고 `DBCC Shrinkdatabase(ADSync,1);` `GO` 다음 줄에을 입력 합니다.
+5. 데이터베이스를 축소하려면 sqlcmd 프롬프트(`1>`)에서 `DBCC Shrinkdatabase(ADSync,1);`를 입력하고 그다음 줄에 `GO`를 입력합니다.
 
 6. 작업이 성공한 경우 동기화 서비스를 다시 시작합니다. 동기화 서비스를 시작할 수 있는 경우 [실행 기록 데이터 삭제](#delete-run-history-data) 단계로 이동합니다. 그렇지 않은 경우 고객 지원으로 문의하세요.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure 이미지 작성기 (미리 보기)를 사용 하 여 기존 이미지 버전에서 새 이미지 버전 만들기
-description: Windows에서 Azure 이미지 작성기를 사용 하 여 기존 이미지 버전에서 새 VM 이미지 버전을 만듭니다.
+title: Azure Image Builder를 사용하여 기존의 이미지 버전에서 새로운 이미지 버전을 만들기(미리 보기)
+description: Windows에서 Azure Image Builder를 사용하여 기존의 이미지 버전에서 새로운 VM 이미지 버전을 만듭니다.
 author: cynthn
 ms.author: cynthn
 ms.date: 03/02/2021
@@ -9,17 +9,17 @@ ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
 ms.openlocfilehash: 0a53e8de8dd832e793ae12034c96ce9fe634ed7a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101694107"
 ---
-# <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-windows"></a>미리 보기: Windows에서 Azure 이미지 작성기를 사용 하 여 기존 이미지 버전에서 새 VM 이미지 버전 만들기
+# <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-windows"></a>미리 보기: Windows에서 Azure Image Builder를 사용하여 기존 이미지 버전에서 새 VM 이미지 버전 만들기
 
-이 문서에서는 [공유 이미지 갤러리](../shared-image-galleries.md)에서 기존 이미지 버전을 가져와서 업데이트 하 고 갤러리에 새 이미지 버전으로 게시 하는 방법을 보여 줍니다.
+본 문서에서는 [Shared Image Gallery](../shared-image-galleries.md)에서 기존 이미지 버전을 가져오기, 해당 이미지 업데이트하기 및 업데이트한 이미지를 갤러리에 새 이미지 버전으로 게시하기에 대한 방법을 알려줍니다.
 
-이미지를 구성하는 데 샘플 .json 템플릿을 사용합니다. 사용 중인. json 파일은 [helloImageTemplateforSIGfromWinSIG.js에](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json)있습니다. 
+이미지를 구성하는 데 샘플 .json 템플릿을 사용합니다. 사용할 .json 파일은 다음 위치에 있습니다: [helloImageTemplateforSIGfromWinSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). 
 
 > [!IMPORTANT]
 > Azure Image Builder는 현재 공개 미리 보기로 제공됩니다.
@@ -61,7 +61,7 @@ az provider register -n Microsoft.Network
 
 ## <a name="set-variables-and-permissions"></a>변수 및 사용 권한 설정
 
-[이미지 만들기 및 공유 이미지 갤러리에 배포](image-builder-gallery.md) 를 사용 하 여 공유 이미지 갤러리를 만든 경우 필요한 변수를 이미 만들었습니다. 그렇지 않은 경우이 예제에 사용할 일부 변수를 설정 하세요.
+Shared Image Gallery를 만들기 위하여 [이미지를 만들어 Shared Image Gallery에 배포하기](image-builder-gallery.md)를 사용한 경우, 필요한 변수를 이미 만들어 놓은 것입니다. 그렇지 않은 경우라면 해당 예제에서 사용할 몇 가지 변수를 설정하세요.
 
 미리 보기에서는 Image Builder가 원본 관리 이미지와 동일한 리소스 그룹에서 사용자 지정 이미지를 만드는 것만 지원합니다. 이 예제의 리소스 그룹 이름을 원본 관리 이미지와 동일한 리소스 그룹으로 업데이트합니다.
 
@@ -89,7 +89,7 @@ vmpassword="password for the VM"
 subscriptionID=<Subscription ID>
 ```
 
-업데이트 하려는 이미지 버전을 가져옵니다.
+업데이트하려는 이미지 버전을 가져옵니다.
 
 ```azurecli-interactive
 sigDefImgVersionId=$(az sig image-version list \
@@ -100,21 +100,21 @@ sigDefImgVersionId=$(az sig image-version list \
 ```
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>사용자 할당 ID 만들기 및 리소스 그룹에 대한 사용 권한 설정
-이전 예제에서 사용자 id를 설정 하 고 나면 리소스 ID를 가져와야 합니다. 그런 다음 템플릿에 추가 됩니다.
+이전 예제에서 사용자 ID를 이미 설정하였기 때문에 템플릿에 추가할 리소스 ID만 가져오면 됩니다.
 
 ```azurecli-interactive
 #get identity used previously
 imgBuilderId=$(az identity list -g $sigResourceGroup --query "[?contains(name, 'aibBuiUserId')].id" -o tsv)
 ```
 
-사용자 고유의 공유 이미지 갤러리가 이미 있고 이전 예제를 따르지 않은 경우 리소스 그룹에 액세스할 수 있도록 이미지 작성기에 대 한 사용 권한을 할당 하 여 갤러리에 액세스할 수 있도록 해야 합니다. [이미지 만들기 및 공유 이미지 갤러리에 배포](image-builder-gallery.md) 예제의 단계를 검토 하세요.
+Shared Image Gallery가 이미 있으면서 이전 예제를 따르지 않은 경우에는 리소스 그룹에 액세스하여 갤러리에 액세스할 수 있도록 Image Builder에 대한 권한을 할당하여야 합니다. [이미지를 만들어 Shared Image Gallery에 배포하기](image-builder-gallery.md) 예제의 단계들을 검토하세요.
 
 
-## <a name="modify-helloimage-example"></a>HelloImage 예제 수정
-에서 json 파일을 열어 사용 하려는 예제는 [이미지 작성기 템플릿 참조](../linux/image-builder-json.md)와 함께 [helloImageTemplateforSIGfromSIG.js에서](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) 검토할 수 있습니다. 
+## <a name="modify-helloimage-example"></a>helloImage 예제 수정하기
+[helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json)의 .json 파일을 [Image Builder 템플릿 참조](../linux/image-builder-json.md)와 함께 열어서 사용하려는 예제를 검토할 수 있습니다. 
 
 
-. Json 예제를 다운로드 하 고 변수로 구성 합니다. 
+해당 .json 예제를 다운로드하여 자신의 변수로 구성합니다. 
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json -o helloImageTemplateforSIGfromWinSIG.json
@@ -131,7 +131,7 @@ sed -i -e "s%<imgBuilderId>%$imgBuilderId%g" helloImageTemplateforSIGfromWinSIG.
 
 ## <a name="create-the-image"></a>이미지 만들기
 
-이미지 구성을 VM 이미지 빌더 서비스에 제출 합니다.
+이미지 구성을 VM Image Builder 서비스에 제출합니다.
 
 ```azurecli-interactive
 az resource create \
@@ -152,7 +152,7 @@ az resource invoke-action \
      --action Run 
 ```
 
-다음 단계로 이동 하기 전에 이미지가 빌드되고 복제가 완료 될 때까지 기다립니다.
+다음 단계로 넘어가기 전에 이미지가 빌드되고 복제될 때까지 기다립니다.
 
 
 ## <a name="create-the-vm"></a>VM 만들기
@@ -174,11 +174,11 @@ VM을 만들 때 설정한 사용자 이름 및 암호를 사용하여 VM에 대
 dir c:\
 ```
 
-이제 두 개의 디렉터리가 표시 됩니다.
-- `buildActions` 첫 번째 이미지 버전에서 만든입니다.
-- `buildActions2` 첫 번째 이미지 버전을 업데이트 하 여 두 번째 이미지 버전을 만드는 과정에서 생성 되었습니다.
+이제 디렉터리가 다음과 같이 두 개로 표시됩니다.
+- `buildActions`는 첫 번째 이미지 버전에서 만든 것입니다.
+- `buildActions2`는 두 번째 이미지 버전을 만들기 위하여 첫 번째 이미지 버전에 약간의 업데이트를 가하여 만든 것입니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에 사용 된 json 파일의 구성 요소에 대해 자세히 알아보려면 [이미지 작성기 템플릿 참조](../linux/image-builder-json.md)를 참조 하세요.
+본 문서에서 사용한 .json 파일의 구성 요소에 대한 자세한 내용은 [Image Builder 템플릿 참조](../linux/image-builder-json.md)를 확인하세요.

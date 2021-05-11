@@ -1,117 +1,185 @@
 ---
-title: 클러스터의 Azure Service Fabric 버전 업그레이드
-description: 클러스터 업데이트 모드 설정, 인증서 업그레이드, 애플리케이션 포트 추가, OS 패치 수행 등을 포함하는 Service Fabric 클러스터를 실행하는 Service Fabric 코드 및/또는 구성을 업그레이드합니다. 업그레이드를 수행할 때 예상할 수 있는 것은 무엇입니까?
-ms.topic: conceptual
-ms.date: 11/12/2018
-ms.openlocfilehash: 01fe916f0ee78c8481ac6b17b8f7409b47c852ee
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+title: Service Fabric 클러스터 업그레이드 관리
+description: Service Fabric 클러스터 런타임이 업데이트되는 시기 및 방법 관리
+ms.topic: how-to
+ms.date: 03/26/2021
+ms.openlocfilehash: 98c3300e5cc51c32d894397839879e25190d979b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90564290"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731170"
 ---
-# <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>클러스터의 Service Fabric 버전 업그레이드
+# <a name="manage-service-fabric-cluster-upgrades"></a>Service Fabric 클러스터 업그레이드 관리
 
-최신 시스템의 경우 업그레이드 기능 디자인이 제품의 장기적 성공 달성의 비결입니다. Azure 서비스 패브릭 클러스터는 개인이 소유하지만 Microsoft에서 부분적으로 관리하는 리소스입니다. 이 문서에서는 Azure 클러스터에서 실행되는 Service Fabric의 버전을 업그레이드하는 방법을 설명합니다.
+Azure Service Fabric 클러스터는 사용자 고유 리소스이지만, Microsoft에서 부분적으로 관리합니다. Microsoft에서 Azure Service Fabric 클러스터를 업데이트하는 시기와 방법을 관리하는 방법은 다음과 같습니다.
 
-Microsoft에서 자동 패브릭 업그레이드를 릴리스하면 클러스터가 수신하도록 설정할 수 있습니다. 또는 클러스터를 배치하려는 지원되는 패브릭 버전을 선택할 수 있습니다.
+클러스터 업그레이드 개념과 프로세스에 관한 자세한 배경은 [Azure Service Fabric 클러스터 업그레이드 및 업데이트](service-fabric-cluster-upgrade.md)를 참조하세요.
 
-포털에서 "upgradeMode" 클러스터를 설정하거나 라이브 클러스터 생성 시 또는 나중에 Resource Manager를 사용하여 이 작업을 수행합니다. 
+## <a name="set-upgrade-mode"></a>업그레이드 모드 설정
+
+Microsoft에서 릴리스하는 대로 자동 Service Fabric 업그레이드를 받도록 클러스터를 설정하거나 클러스터의 업그레이드 모드를 설정하여 현재 지원되는 버전 목록에서 수동으로 선택할 수 있습니다. 이 작업은 Azure Portal의 *패브릭 업그레이드 모드* 제어 또는 클러스터 배포 템플릿의 `upgradeMode` 설정을 통해 수행할 수 있습니다.
+
+### <a name="azure-portal"></a>Azure portal
+
+Azure Portal을 사용하여 새 Service Fabric 클러스터를 만들 때 자동 또는 수동 업그레이드 중에서 선택합니다.
+
+:::image type="content" source="media/service-fabric-cluster-upgrade/portal-new-cluster-upgrade-mode.png" alt-text="‘고급’ 옵션에서 Azure Portal에 새 클러스터를 만들 때 자동 또는 수동 업그레이드 중에서 선택":::
+
+기존 클러스터 리소스의 **패브릭 업그레이드** 섹션에서 자동 업그레이드 또는 수동 업그레이드 간에 전환할 수도 있습니다.
+
+:::image type="content" source="./media/service-fabric-cluster-upgrade/fabric-upgrade-mode.png" alt-text="Azure Portal에서 클러스터 리소스의 ‘패브릭 업그레이드’ 섹션에서 자동 또는 수동 업그레이드 선택":::
+
+### <a name="manual-upgrades-with-azure-portal"></a>Azure Portal에서 수동 업그레이드
+
+수동 업그레이드 옵션을 선택하는 경우 업그레이드를 시작하려면 사용 가능한 버전 드롭다운에서 선택한 다음, *저장* 하기만 하면 됩니다. 여기에서 클러스터 업그레이드가 즉시 시작됩니다.
+
+[클러스터 상태 정책](#custom-policies-for-manual-upgrades)(노드 상태 및 클러스터에서 실행 중인 모든 애플리케이션의 상태 조합)은 업그레이드의 기간을 준수합니다. 클러스터 상태 정책이 충족되지 않는 경우 업그레이드가 롤백됩니다.
+
+롤백을 일으킨 문제를 수정했으면 이전과 같은 단계에 따라 업그레이드를 다시 시작해야 합니다.
+
+### <a name="resource-manager-template"></a>Resource Manager 템플릿
+
+Resource Manager 템플릿을 사용하여 클러스터 업그레이드 모드를 변경하려면 *Microsoft.ServiceFabric/clusters* 리소스 정의의 `upgradeMode` 속성에 대해 *자동* 또는 *수동* 을 지정합니다. 수동 업그레이드를 선택하는 경우 `clusterCodeVersion`을 현재 [지원되는 패브릭 버전](#query-for-supported-cluster-versions)으로 설정합니다.
+
+:::image type="content" source="./media/service-fabric-cluster-upgrade/ARMUpgradeMode.PNG" alt-text="스크린샷은 구조를 반영하기 위해 들여쓰기된 일반 텍스트인 템플릿을 보여줍니다. ‘clusterCodeVersion’과 ‘upgradeMode’ 속성이 강조 표시됩니다.":::
+
+템플릿이 성공적으로 배포되면 클러스터 업그레이드 모드의 변경 내용이 적용됩니다. 클러스터가 수동 모드이면 클러스터 업그레이드가 자동으로 시작됩니다.
+
+[클러스터 상태 정책](#custom-policies-for-manual-upgrades)(노드 상태 및 클러스터에서 실행 중인 모든 애플리케이션의 상태 조합)은 업그레이드의 기간을 준수합니다. 클러스터 상태 정책이 충족되지 않는 경우 업그레이드가 롤백됩니다.
+
+롤백을 일으킨 문제를 수정했으면 이전과 같은 단계에 따라 업그레이드를 다시 시작해야 합니다.
+
+## <a name="wave-deployment-for-automatic-upgrades"></a>자동 업그레이드를 위한 웨이브 배포
+
+자동 업그레이드 모드를 사용하는 경우 클러스터에서 웨이브 배포를 사용하도록 설정하는 옵션이 있습니다. 웨이브 배포를 사용하면 기본 제공 ‘베이킹 시간’으로 구분된 테스트, 스테이지 및 프로덕션 클러스터를 순서대로 업그레이드하기 위한 파이프라인을 만들어 프로덕션 클러스터를 업데이트하기 전에 예정된 Service Fabric 버전의 유효성을 검사할 수 있습니다.
+
+### <a name="enable-wave-deployment"></a>웨이브 배포 사용
 
 > [!NOTE]
-> 클러스터에서 지원되는 패브릭 버전이 항상 실행되도록 해야 합니다. 새로운 버전의 서비스 패브릭 릴리스를 발표하면 이전 버전은 해당 날짜부터 최소 60일 후 지원 종료되는 것으로 표시됩니다. 새로운 릴리스는 [서비스 패브릭 팀 블로그](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)에서 발표됩니다. 그러면 새로운 릴리스를 선택할 수 있습니다. 
-> 
-> 
+> 웨이브 배포에는 *Microsoft.ServiceFabric/clusters* 리소스의 `2020-12-01-preview`(이상) API 버전이 필요합니다.
 
-클러스터가 실행되는 릴리스가 만료되기 14일 전에, 클러스터를 경고 성능 상태로 전환하는 상태 이벤트가 생성됩니다. 지원되는 패브릭 버전으로 업그레이드할 때까지 클러스터는 경고 상태로 유지됩니다.
+자동 업그레이드를 위해 웨이브 배포를 사용하도록 설정하려면 먼저 클러스터를 할당할 웨이브를 결정합니다.
 
-## <a name="set-the-upgrade-mode-in-the-azure-portal"></a>Azure Portal에서 업그레이드 모드 설정
-클러스터를 만들 때 클러스터를 자동 또는 수동으로 설정할 수 있습니다.
+* **웨이브 0**(`Wave0`): 새 Service Fabric 빌드를 릴리스하는 즉시 클러스터가 업데이트됩니다. 테스트/개발 클러스터용입니다.
+* **웨이브 1**(`Wave1`): 새 빌드를 릴리스하고 1주(7일) 후에 클러스터가 업데이트됩니다. 사전 프로덕션/준비 클러스터용입니다.
+* **웨이브 2**(`Wave2`): 새 빌드를 릴리스하고 2주(14일) 후에 클러스터가 업데이트됩니다. 프로덕션 클러스터용입니다.
 
-![스크린샷 Service Fabric 클러스터 만들기 창에서 옵션 2 클러스터 구성이 선택 되어 있고 클러스터 구성 창이 열려 있습니다.][Create_Manualmode]
+그런 다음, 위에 나열된 웨이브 값 중 하나를 사용하여 `upgradeWave` 속성을 클러스터 리소스 템플릿에 추가하기만 하면 됩니다. 클러스터 리소스 API 버전이 `2020-12-01-preview` 이상인지 확인합니다.
 
-라이브 클러스터인 경우 관리 환경을 사용하여 클러스터를 자동 또는 수동으로 설정할 수 있습니다. 
-
-### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal"></a>포털을 통해 수동 모드로 설정된 클러스터에서 새 버전으로 업그레이드
-새 버전으로 업그레이드하려면 드롭다운 목록에서 사용 가능한 버전을 선택하고 저장하기만 하면 됩니다. 패브릭 업그레이드는 자동으로 시작됩니다. 클러스터 상태 정책(노드 상태 및 클러스터에서 실행 중인 모든 애플리케이션의 상태 조합)은 업그레이드의 기간을 준수합니다.
-
-클러스터 상태 정책이 충족되지 않는 경우 업그레이드가 롤백됩니다. 이 문서를 아래로 스크롤하여 사용자 지정 상태 정책을 설정하는 방법에 대해 자세히 알아보세요. 
-
-롤백을 일으킨 문제를 수정했으면 이전과 동일한 단계에 따라 업그레이드를 다시 시작해야 합니다.
-
-![자동 및 수동을 포함 하 여 패브릭 업그레이드 창이 열려 있고 업그레이드 옵션이 강조 표시 된 Service Fabric 클러스터 창을 보여 줍니다.][Manage_Automaticmode]
-
-## <a name="set-the-upgrade-mode-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 업그레이드 모드 설정
-아래 표시된 것처럼 "upgradeMode" 구성을 Microsoft.ServiceFabric/clusters 리소스 정의에 추가하고 "clusterCodeVersion"을 지원되는 패브릭 버전 중 하나로 설정한 후 템플릿을 배포합니다. "upgradeMode"에 대해 유효한 값은 "Manual" 또는 "Automatic"입니다.
-
-![스크린샷에는 구조를 반영 하기 위해 일반 텍스트 들여쓰기 인 템플릿과 clusterCodeVersion 및 upgradeMode가 강조 표시 되어 있습니다.][ARMUpgradeMode]
-
-### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template"></a>Resource Manager 템플릿을 통해 수동 모드로 설정된 클러스터에서 새 버전으로 업그레이드
-클러스터가 수동 모드인 경우 새 버전으로 업그레이드하려면 "clusterCodeVersion"을 지원되는 버전으로 변경하고 배포합니다. 템플릿의 배포 시 패브릭 업그레이드는 자동으로 시작됩니다. 클러스터 상태 정책(노드 상태 및 클러스터에서 실행 중인 모든 애플리케이션의 상태 조합)은 업그레이드의 기간을 준수합니다.
-
-클러스터 상태 정책이 충족되지 않는 경우 업그레이드가 롤백됩니다.  
-
-롤백을 일으킨 문제를 수정했으면 이전과 동일한 단계에 따라 업그레이드를 다시 시작해야 합니다.
-
-## <a name="set-custom-health-polices-for-upgrades"></a>업그레이드에 대한 사용자 지정 상태 정책 설정
-패브릭 업그레이드에 대한 사용자 지정 상태 정책을 지정할 수 있습니다. 클러스터를 자동 패브릭 업그레이드로 설정한 경우 이러한 정책은 [자동 패브릭 업그레이드의 1 단계](service-fabric-cluster-upgrade.md#fabric-upgrade-behavior-during-automatic-upgrades)에 적용 됩니다.
-클러스터를 수동 패브릭 업그레이드로 설정한 경우 이러한 정책은 새 버전을 선택할 때마다 적용되며 그러면 시스템이 클러스터에서 패브릭 업그레이드를 시작하도록 트리거링합니다. 정책을 재정의하지 않으면 기본값이 사용됩니다.
-
-사용자 지정 상태 정책을 지정하거나 "패브릭 업그레이드" 블레이드 아래에서 고급 업그레이드 설정을 선택하여 현재 설정을 검토할 수 있습니다. 다음 그림은 이 방법을 보여줍니다. 
-
-![사용자 지정 상태 정책 관리][HealthPolices]
-
-## <a name="list-all-available-versions-for-all-environments-for-a-given-subscription"></a>지정된 구독의 모든 환경에 대해 사용 가능한 모든 버전 나열
-다음 명령을 실행하면 다음과 유사한 결과가 표시됩니다.
-
-"supportExpiryUtc"는 지정된 릴리스가 만료되거나 이미 만료되었음을 알려 줍니다. 최신 릴리스는 유효한 날짜를 포함하지 않으며 "9999-12-31T23:59:59.9999999" 값을 포함합니다. 이는 만료 날짜가 아직 설정되지 않음을 의미합니다.
-
-```REST
-GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2016-09-01
-
-Example: https://management.azure.com/subscriptions/1857f442-3bce-4b96-ad95-627f76437a67/providers/Microsoft.ServiceFabric/locations/eastus/clusterVersions?api-version=2016-09-01
-
-Output:
+```json
 {
-                  "value": [
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/5.0.1427.9490",
-                      "name": "5.0.1427.9490",
-                      "type": "Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "5.0.1427.9490",
-                        "supportExpiryUtc": "2016-11-26T23:59:59.9999999",
-                        "environment": "Windows"
-                      }
-                    },
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.0.1427.9490",
-                      "name": "5.1.1427.9490",
-                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "5.1.1427.9490",
-                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
-                        "environment": "Windows"
-                      }
-                    },
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.4.1427.9490",
-                      "name": "4.4.1427.9490",
-                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "4.4.1427.9490",
-                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
-                        "environment": "Linux"
-                      }
-                    }
-                  ]
-                }
+    "apiVersion": "2020-12-01-preview",
+    "type": "Microsoft.ServiceFabric/clusters",
+     ...
+        "fabricSettings": [...],
+        "managementEndpoint": ...,
+        "nodeTypes": [...],
+        "provisioningState": ...,
+        "reliabilityLevel": ...,
+        "upgradeMode": "Automatic",
+        "upgradeWave": "Wave1",
+       ...
 ```
 
+업데이트된 템플릿을 배포하면 다음 업그레이드 기간과 그 이후에 지정된 웨이브에 클러스터가 등록됩니다.
+
+클러스터 업그레이드에 실패하는 경우 추가 도움말 링크를 사용하여 [메일로 알림을 등록](#register-for-notifications)할 수 있습니다.
+
+### <a name="register-for-notifications"></a>알림 등록
+
+클러스터 업그레이드가 실패하면 알림을 등록할 수 있습니다. 업그레이드 실패에 관한 자세한 내용과 추가 도움말 링크가 포함된 메일이 지정된 메일 주소로 전송됩니다.
+
+> [!NOTE]
+> 업그레이드 실패에 대한 알림을 받기 위해 웨이브 배포에 등록할 필요가 없습니다.
+
+알림에 등록하려면 클러스터 리소스 템플릿에 `notifications` 섹션을 추가하고 알림을 받을 하나 이상의 메일 주소(*받는 사람*)를 지정합니다.
+
+```json
+    "apiVersion": "2020-12-01-preview",
+    "type": "Microsoft.ServiceFabric/clusters",
+     ...
+        "upgradeMode": "Automatic",
+        "upgradeWave": "Wave1",
+        "notifications": [
+        {
+            "isEnabled": true,
+            "notificationCategory": "WaveProgress",
+            "notificationLevel": "Critical",
+            "notificationTargets": [
+            {
+                "notificationChannel": "EmailUser",
+                "receivers": [
+                    "devops@contoso.com"
+                ]
+            }]
+        }]
+```
+
+업데이트된 템플릿을 배포하고 나면 업그레이드 실패 알림에 등록됩니다.
+
+## <a name="custom-policies-for-manual-upgrades"></a>수동 업그레이드에 관한 사용자 지정 정책
+
+수동 클러스터 업그레이드에 관한 사용자 지정 상태 정책을 지정할 수 있습니다. 이 정책은 새 런타임 버전을 선택할 때마다 적용되어 클러스터 업그레이드를 시작하도록 시스템을 트리거합니다. 정책을 재정의하지 않으면 기본값이 사용됩니다.
+
+사용자 지정 상태 정책을 지정하거나 **업그레이드 정책** 의 *사용자 지정* 옵션을 선택하여 Azure Portal에 있는 클러스터 리소스의 **패브릭 업그레이드** 섹션에서 현재 설정을 검토할 수 있습니다.
+
+:::image type="content" source="./media/service-fabric-cluster-upgrade/custom-upgrade-policy.png" alt-text="업그레이드 중에 사용자 지정 상태 정책을 설정하려면 Azure Portal에서 클러스터 리소스의 ‘패브릭 업그레이드’ 섹션에서 ‘사용자 지정’ 업그레이드 정책 옵션 선택":::
+
+## <a name="query-for-supported-cluster-versions"></a>지원되는 클러스터 버전 쿼리
+
+[Azure REST API](/rest/api/azure/)를 사용하여 지정된 위치와 구독에 사용할 수 있는 모든 Service Fabric 런타임 버전([clusterVersions](/rest/api/servicefabric/sfrp-api-clusterversions_list))을 나열할 수 있습니다.
+
+지원되는 버전과 운영 체제에 관한 자세한 내용은 [Service Fabric 버전](service-fabric-versions.md)도 참조할 수 있습니다.
+
+```REST
+GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2018-02-01
+
+"value": [
+  {
+    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/5.0.1427.9490",
+    "name": "5.0.1427.9490",
+    "type": "Microsoft.ServiceFabric/environments/clusterVersions",
+    "properties": {
+      "codeVersion": "5.0.1427.9490",
+      "supportExpiryUtc": "2016-11-26T23:59:59.9999999",
+      "environment": "Windows"
+    }
+  },
+  {
+    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.0.1427.9490",
+    "name": "5.1.1427.9490",
+    "type": " Microsoft.ServiceFabric/environments/clusterVersions",
+    "properties": {
+      "codeVersion": "5.1.1427.9490",
+      "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
+      "environment": "Windows"
+    }
+  },
+  {
+    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.4.1427.9490",
+    "name": "4.4.1427.9490",
+    "type": " Microsoft.ServiceFabric/environments/clusterVersions",
+    "properties": {
+      "codeVersion": "4.4.1427.9490",
+      "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
+      "environment": "Linux"
+    }
+  }
+]
+}
+```
+
+출력의 `supportExpiryUtc`는 지정된 릴리스가 만료될 시기나 만료된 시기를 보고합니다. 최신 릴리스는 유효한 날짜를 포함하지 않으며 *9999-12-31T23:59:59.9999999* 값을 포함합니다. 이는 만료 날짜가 아직 설정되지 않음을 의미합니다.
+
+
 ## <a name="next-steps"></a>다음 단계
-* [Service fabric 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md) 중 일부를 사용자 지정 하는 방법 알아보기
-* [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-in-out.md)
-* [응용 프로그램 업그레이드](service-fabric-application-upgrade.md) 에 대 한 자세한 정보
+
+* [Service Fabric 업그레이드 관리](service-fabric-cluster-upgrade-version-azure.md)
+* [Service Fabric 클러스터 설정](service-fabric-cluster-fabric-settings.md) 사용자 지정
+* [클러스터 스케일 인 및 스케일 아웃](service-fabric-cluster-scale-in-out.md)
+* [애플리케이션 업그레이드](service-fabric-application-upgrade.md)
+
 
 <!--Image references-->
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png

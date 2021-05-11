@@ -1,6 +1,6 @@
 ---
 title: Azure Files 모니터링 데이터 참조 | Microsoft Docs
-description: Azure Files의 모니터링 데이터에 대 한 로그 및 메트릭 참조입니다.
+description: Azure Files의 모니터링 데이터에 대한 로그 및 메트릭 참조.
 author: normesta
 services: azure-monitor
 ms.service: azure-monitor
@@ -10,25 +10,25 @@ ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
 ms.openlocfilehash: 4575709a4fa7067b02228036fb2e2b4a60844e21
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100592315"
 ---
 # <a name="azure-files-monitoring-data-reference"></a>Azure Files 모니터링 데이터 참조
 
-Azure Files 모니터링 데이터 수집 및 분석에 대 한 자세한 내용은 [Azure Files 모니터링](storage-files-monitoring.md) 을 참조 하세요.
+Azure Files에 대한 모니터링 데이터의 수집 및 분석 방법 관련 세부 정보는 [Azure Files 모니터링](storage-files-monitoring.md)을 참조하세요.
 
 ## <a name="metrics"></a>메트릭
 
-다음 표에서는 Azure Files에 대해 수집 된 플랫폼 메트릭을 나열 합니다. 
+다음 표에는 Azure Files에 대해 수집된 플랫폼 메트릭이 나열되어 있습니다. 
 
 ### <a name="capacity-metrics"></a>용량 메트릭
 
-용량 메트릭 값은 매일 (최대 24 시간) 새로 고쳐집니다. 시간 조직은 메트릭 값이 표시되는 시간 간격을 정의합니다. 모든 용량 메트릭에 대해 지원되는 시간 조직은 1시간(PT1H)입니다.
+용량 메트릭 값은 매일(최대 24시간) 새로 고쳐집니다. 시간 조직은 메트릭 값이 표시되는 시간 간격을 정의합니다. 모든 용량 메트릭에 대해 지원되는 시간 조직은 1시간(PT1H)입니다.
 
-Azure Files Azure Monitor에서 다음과 같은 용량 메트릭을 제공 합니다.
+Azure Files는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공합니다.
 
 #### <a name="account-level"></a>계정 수준
 
@@ -36,17 +36,17 @@ Azure Files Azure Monitor에서 다음과 같은 용량 메트릭을 제공 합�
 
 #### <a name="azure-files"></a>Azure 파일
 
-다음 표에서는 [Azure Files 메트릭을](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsfileservices)보여 줍니다.
+다음 표에서는 [Azure Files 메트릭](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsfileservices)을 보여 줍니다.
 
 | 메트릭 | Description |
 | ------------------- | ----------------- |
 | FileCapacity | 스토리지 계정에 사용한 File Storage 양입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 | FileCount   | 스토리지 계정의 파일 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
-| FileShareCapacityQuota | Azure Files 서비스에서 사용할 수 있는 저장소 크기의 상한 (바이트)입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024|
+| FileShareCapacityQuota | Azure Files 서비스에서 사용할 수 있는 스토리지 양(바이트)의 상한입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024|
 | FileShareCount | 스토리지 계정의 파일 공유 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
-| FileShareProvisionedIOPS | 파일 공유의 프로 비전 된 IOPS 수입니다. 이 메트릭은 premium file storage에만 적용 됩니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 |
-| FileShareSnapshotCount | 저장소 계정의 Azure Files 서비스에서 공유에 있는 스냅숏의 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 | 
-|FileShareSnapshotSize|저장소 계정의 Azure Files 서비스에서 스냅숏에 사용 되는 저장소의 양입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균|
+| FileShareProvisionedIOPS | 파일 공유로 프로비저닝된 IOPS 수입니다. 해당 메트릭은 프리미엄 File Storage에만 적용됩니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 |
+| FileShareSnapshotCount | 스토리지 계정의 Azure Files 서비스에서 공유되어 있는 스냅샷의 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 | 
+|FileShareSnapshotSize|스토리지 계정의 Azure Files 서비스에서 스냅샷에 사용하는 스토리지 양입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균|
 
 ### <a name="transaction-metrics"></a>트랜잭션 메트릭
 
@@ -58,10 +58,10 @@ Azure Files Azure Monitor에서 다음과 같은 용량 메트릭을 제공 합�
 
 ## <a name="metrics-dimensions"></a>메트릭 차원
 
-Azure Files Azure Monitor의 메트릭에 대해 다음과 같은 차원을 지원 합니다.
+Azure Files는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을 지원합니다.
 
 > [!NOTE] 
-> 표준 파일 공유에는 파일 공유 차원을 사용할 수 없습니다 (프리미엄 파일 공유에만 해당). 표준 파일 공유를 사용 하는 경우 제공 되는 메트릭은 저장소 계정의 모든 파일 공유에 대 한 것입니다. 표준 파일 공유에 대 한 공유 별 메트릭을 얻으려면 저장소 계정 마다 하나의 파일 공유를 만듭니다.
+> 표준 파일 공유에는 파일 공유 차원을 사용할 수 없습니다(프리미엄 파일 공유에만 해당됨). 표준 파일 공유를 사용하는 경우 제공되는 메트릭은 스토리지 계정의 모든 파일 공유에 대한 것입니다. 표준 파일 공유에 대한 공유 별 메트릭을 얻으려면 스토리지 계정마다 하나의 파일 공유를 만듭니다.
 
 [!INCLUDE [Metrics dimensions](../../../includes/azure-storage-account-metrics-dimensions.md)]
 
@@ -87,5 +87,5 @@ Azure Files Azure Monitor의 메트릭에 대해 다음과 같은 차원을 지�
 
 ## <a name="see-also"></a>참고 항목
 
-- Azure Storage 모니터링에 대 한 설명은 [monitoring Azure Files](storage-files-monitoring-reference.md) 를 참조 하세요.
+- Azure Storage 모니터링에 대한 설명은 [Azure Files 모니터링](storage-files-monitoring-reference.md)을 참조하세요.
 - Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../../azure-monitor/essentials/monitor-azure-resource.md)을 참조하세요.

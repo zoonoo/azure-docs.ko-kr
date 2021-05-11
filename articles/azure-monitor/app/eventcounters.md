@@ -5,27 +5,27 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: d1ae0937c25a68798acd87fe8b2a0a54aa765b35
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100579535"
 ---
 # <a name="eventcounters-introduction"></a>EventCounters 소개
 
-[`EventCounter`](/dotnet/core/diagnostics/event-counters) 는 카운터 또는 통계를 게시 하 고 사용 하는 .NET/.NET Core 메커니즘입니다. EventCounters는 모든 OS 플랫폼(Windows, Linux 및 macOS)에서 지원됩니다. 이는 Windows 시스템에서만 지원되는 [PerformanceCounters](/dotnet/api/system.diagnostics.performancecounter)와 달리 플랫폼 간 지원에 해당하는 것으로 볼 수 있습니다.
+[`EventCounter`](/dotnet/core/diagnostics/event-counters)는 카운터 또는 통계를 게시 및 소비하는 .NET/.NET Core 메커니즘입니다. EventCounters는 모든 OS 플랫폼(Windows, Linux 및 macOS)에서 지원됩니다. 이는 Windows 시스템에서만 지원되는 [PerformanceCounters](/dotnet/api/system.diagnostics.performancecounter)와 달리 플랫폼 간 지원에 해당하는 것으로 볼 수 있습니다.
 
-사용자가 요구 사항을 충족 하기 위해 사용자 지정을 게시할 수 있지만 `EventCounters` .Net Core 3.0 이상 런타임에서는 기본적으로 이러한 카운터 집합을 게시 합니다. 이 문서에서는 `EventCounters` Azure 애플리케이션 Insights에서 수집 및 보기 (시스템 정의 또는 사용자 정의) 하는 데 필요한 단계를 안내 합니다.
+사용자가 요구 사항을 충족하기 위해 사용자 지정 `EventCounters`를 게시할 수 있지만 .NET Core 3.0 이상의 런타임은 기본적으로 해당 카운터 집합을 게시합니다. 이 문서는 Azure Application Insights에서 `EventCounters`(시스템 정의 또는 사용자 정의)를 수집하고 확인하는 데 필요한 단계를 안내합니다.
 
 ## <a name="using-application-insights-to-collect-eventcounters"></a>Application Insights를 사용하여 EventCounters 수집
 
-Application Insights는 `EventCounters` `EventCounterCollectionModule` 새로 릴리스된 NuGet 패키지의 일부인를 사용 하 여 수집을 지원 [합니다.](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventCounterCollector) `EventCounterCollectionModule`은 [AspNetCore](asp-net-core.md) 또는 [WorkerService](worker-service.md)를 사용하는 경우 자동으로 사용하도록 설정됩니다. `EventCounterCollectionModule`은 구성 불가능한 수집 빈도(60초)로 카운터를 수집합니다. EventCounters를 수집하는 데 필요한 특별 권한은 없습니다.
+Application Insights는 새로 릴리스된 NuGet 패키지 [Microsoft.ApplicationInsights.EventCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventCounterCollector)의 일부인 `EventCounterCollectionModule`을 사용한 `EventCounters` 수집을 지원합니다. `EventCounterCollectionModule`은 [AspNetCore](asp-net-core.md) 또는 [WorkerService](worker-service.md)를 사용하는 경우 자동으로 사용하도록 설정됩니다. `EventCounterCollectionModule`은 구성 불가능한 수집 빈도(60초)로 카운터를 수집합니다. EventCounters를 수집하는 데 필요한 특별 권한은 없습니다.
 
 ## <a name="default-counters-collected"></a>수집된 기본 카운터
 
-[ASPNETCORE sdk](asp-net-core.md) 또는 2.15.0 [service SDK](worker-service.md)의 버전을 사용 하 여 시작 하는 경우 기본적으로 카운터가 수집 되지 않습니다. 모듈 자체를 사용할 수 있으므로 사용자가 원하는 카운터를 추가 하기만 하면 됩니다.
+[AspNetCore SDK](asp-net-core.md) 또는 [WorkerService SDK](worker-service.md)의 2.15.0 버전을 사용하여 시작하는 경우 기본적으로 카운터가 수집되지 않습니다. 모듈 자체를 사용할 수 있으므로 사용자가 원하는 카운터를 추가하여 수집하면 됩니다.
 
-.NET 런타임에서 게시 된 잘 알려진 카운터 목록을 가져오려면 [사용 가능한 카운터](/dotnet/core/diagnostics/event-counters#available-counters) 문서를 참조 하세요.
+.NET 런타임에 게시된 잘 알려진 카운터 목록을 가져오려면 [사용 가능한 카운터](/dotnet/core/diagnostics/event-counters#available-counters) 문서를 참조하세요.
 
 ## <a name="customizing-counters-to-be-collected"></a>수집할 카운터 사용자 지정
 
@@ -57,9 +57,9 @@ Application Insights는 `EventCounters` `EventCounterCollectionModule` 새로 �
     }
 ```
 
-## <a name="disabling-eventcounter-collection-module"></a>EventCounter 수집 모듈을 사용 하지 않도록 설정
+## <a name="disabling-eventcounter-collection-module"></a>EventCounter 수집 모듈을 사용하지 않도록 설정
 
-`EventCounterCollectionModule` 을 사용 하 여 사용 하지 않도록 설정할 수 있습니다 `ApplicationInsightsServiceOptions` . ASP.NET Core SDK를 사용 하는 예제는 다음과 같습니다.
+`EventCounterCollectionModule`은 `ApplicationInsightsServiceOptions`를 사용하여 사용하지 않도록 설정할 수 있습니다. ASP.NET Core SDK를 사용하는 예제는 아래와 같습니다.
 
 ```csharp
     using Microsoft.ApplicationInsights.AspNetCore.Extensions;
@@ -75,7 +75,7 @@ Application Insights는 `EventCounters` `EventCounterCollectionModule` 새로 �
     }
 ```
 
-다음 예제와 같이 네임 스페이스는 해당 네임 스페이스를 변경 해야 하는 경우에도 유사한 방법을 사용할 수 있습니다.
+WorkerService SDK에도 유사한 방법을 사용할 수 있지만, 네임스페이스는 아래 예제에 표시된 것처럼 변경되어야 합니다.
 
 ```csharp
     using Microsoft.ApplicationInsights.WorkerService;
@@ -91,7 +91,7 @@ Application Insights는 `EventCounters` `EventCounterCollectionModule` 새로 �
 [메트릭 탐색기](../essentials/metrics-charts.md)에서 EventCounter 메트릭을 보려면 Application Insights 리소스를 선택하고 로그 기반 메트릭을 메트릭 네임스페이스로 선택합니다. 그러면 EventCounter 메트릭이 사용자 지정 범주에 표시됩니다.
 
 > [!div class="mx-imgBorder"]
-> ![Application Insights 메트릭 탐색기에 보고 된 이벤트 카운터](./media/event-counters/metrics-explorer-counter-list.png)
+> ![Application Insights 메트릭 Explorer에서 보고하는 이벤트 카운터](./media/event-counters/metrics-explorer-counter-list.png)
 
 ## <a name="event-counters-in-analytics"></a>Analytics의 이벤트 카운터
 
@@ -104,7 +104,7 @@ customMetrics | summarize avg(value) by name
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Application Insights 분석에 보고 된 이벤트 카운터](./media/event-counters/analytics-event-counters.png)
+> ![Application Insights Analytics에서 보고하는 이벤트 카운터](./media/event-counters/analytics-event-counters.png)
 
 최근 기간 동안 특정 카운터 차트(예: `ThreadPool Completed Work Item Count`)를 가져오려면 다음 쿼리를 실행합니다.
 

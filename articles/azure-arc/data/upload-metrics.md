@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor에 메트릭 업로드
-description: Azure Monitor에 Azure Arc 사용 데이터 서비스 메트릭을 업로드 합니다.
+description: Azure Monitor에 Azure Arc 지원 데이터 서비스 메트릭을 업로드합니다.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,38 +11,38 @@ ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 ms.openlocfilehash: d7c611f1cdb5e3294e38f87c0534003813e50388
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100575681"
 ---
 # <a name="upload-metrics-to-azure-monitor"></a>Azure Monitor에 메트릭 업로드
 
-정기적으로 모니터링 메트릭을 내보낸 다음 Azure에 업로드할 수 있습니다. 데이터의 내보내기 및 업로드는 또한 Azure에서 데이터 컨트롤러, SQL 관리 되는 인스턴스 및 PostgreSQL Hyperscale 서버 그룹 리소스를 만들고 업데이트 합니다.
+정기적으로 모니터링 메트릭을 내보낸 다음 Azure에 업로드할 수 있습니다. 데이터를 내보내고 업데이트하면 Azure에서 데이터 컨트롤러, SQL Managed Instance 및 PostgreSQL 하이퍼스케일 서버 그룹 리소스가 만들어지고 업데이트됩니다.
 
 > [!NOTE] 
-> 미리 보기 기간 중에는 Azure Arc 사용 데이터 서비스를 사용 하는 비용이 없습니다.
+> 미리 보기 기간에는 Azure Arc 지원 데이터 서비스를 무료로 사용할 수 있습니다.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-계속 하기 전에 필요한 서비스 주체를 만들고 적절 한 역할에 할당 했는지 확인 합니다. 자세한 내용은 다음을 참조하세요.
-* [서비스 주체를 만듭니다](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
-* [서비스 사용자에 게 역할 할당](upload-metrics-and-logs-to-azure-monitor.md#assign-roles-to-the-service-principal)
+계속 진행하기 전에 필요한 서비스 주체를 만들고 적절한 역할에 할당했는지 확인합니다. 자세한 내용은 다음을 참조하세요.
+* [서비스 주체 만들기](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
+* [서비스 주체에 역할 할당](upload-metrics-and-logs-to-azure-monitor.md#assign-roles-to-the-service-principal)
 
 ## <a name="upload-metrics"></a>메트릭 업로드
 
-Azure Arc data services를 사용 하 여 필요에 따라 메트릭을 집계 및 분석 하거나, 경고를 발생 시키거나, 알림을 보내거나, 자동화 된 작업을 트리거할 수 있도록 Azure Monitor에 메트릭을 업로드할 수 있습니다. 
+Azure Arc 데이터 서비스를 사용하면 필요에 따라 메트릭을 Azure Monitor에 업로드하여 메트릭을 분석 및 집계하거나, 경고를 생성하거나, 알림을 보내거나, 자동화된 작업을 트리거할 수 있습니다. 
 
-Azure Monitor로 데이터를 보내면 메트릭 데이터를 사이트 외부 및 대규모로 저장할 수 있으므로 고급 분석을 위해 데이터의 장기 저장소를 사용할 수 있습니다.
+또한 데이터를 Azure Monitor로 보내면 메트릭 데이터를 오프사이트 및 대규모로 저장할 수 있으며, 고급 분석을 위해 데이터를 장기적으로 저장할 수 있습니다.
 
-Azure Arc data services가 있는 여러 사이트가 있는 경우 Azure Monitor를 중앙 위치로 사용 하 여 사이트 전체에서 모든 로그와 메트릭을 수집할 수 있습니다.
+Azure Arc 데이터 서비스를 사용하는 여러 사이트가 있는 경우 Azure Monitor를 중앙 위치로 사용하여 사이트 전체에서 모든 로그와 메트릭을 수집할 수 있습니다.
 
 ## <a name="set-final-environment-variables-and-confirm"></a>최종 환경 변수 설정 및 확인
 
-환경 변수에서 SPN 기관 URL을 설정 합니다.
+환경 변수에 SPN 기관 URL을 설정합니다.
 
 ::: zone pivot="client-operating-system-windows-command"
 
@@ -68,7 +68,7 @@ export SPN_AUTHORITY='https://login.microsoftonline.com'
 
 ::: zone-end
 
-필요한 경우 다음과 같이 필요한 모든 환경 변수를 설정 했는지 확인 합니다.
+원하는 경우 다음과 같이 필요한 모든 환경 변수를 설정했는지 확인합니다.
 
 
 ::: zone pivot="client-operating-system-powershell"
@@ -107,35 +107,35 @@ echo %SPN_AUTHORITY%
 
 ## <a name="upload-metrics-to-azure-monitor"></a>Azure Monitor에 메트릭 업로드
 
-Azure arc 사용 설정 SQL 관리 되는 인스턴스 및 Azure Arc 사용 PostgreSQL Hyperscale server 그룹이 실행 되는 메트릭을 업로드 하려면 다음 CLI 명령을 실행 합니다.
+Azure Arc 지원 SQL Managed Instance와 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에 대한 메트릭을 업로드하려면 다음 CLI 명령을 실행합니다.
 
-1. 를 사용 하 여 데이터 컨트롤러에 로그인 `azdata` 합니다.
+1. `azdata`를 사용하여 데이터 컨트롤러에 로그인합니다.
  
-1. 모든 메트릭을 지정 된 파일로 내보냅니다.
+1. 모든 메트릭을 지정된 파일로 내보냅니다.
 
    ```console
    azdata arc dc export --type metrics --path metrics.json
    ```
 
-2. Azure monitor에 메트릭 업로드:
+2. Azure Monitor에 메트릭을 업로드합니다.
 
    ```console
    azdata arc dc upload --path metrics.json
    ```
 
    >[!NOTE]
-   >첫 번째 업로드에 대해 Azure Arc 사용 데이터 인스턴스를 만든 후 30 분 이상 기다립니다.
+   >첫 번째 업로드에 대해 Azure Arc 지원 데이터 인스턴스를 만든 후 30분 이상 기다립니다.
    >
-   >`upload`Azure Monitor 후에 바로 메트릭이 `export` 지난 30 분 동안의 메트릭을 허용 하는지 확인 합니다. [자세한 정보를 알아보세요](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting).
+   >Azure Monitor는 최근 30분 동안의 메트릭만 허용하므로 `export` 직후에 메트릭을 `upload`해야 합니다. [자세히 알아봅니다](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting).
 
 
-내보내기 중에 "메트릭 가져오기 실패"를 나타내는 오류가 표시 되는 경우 `true` 다음 명령을 실행 하 여 데이터 수집이로 설정 되었는지 확인 합니다.
+내보내기 중에 '메트릭 가져오기 실패'를 나타내는 오류가 표시되는 경우 다음 명령을 실행하여 데이터 수집이 `true`로 설정되었는지 확인합니다.
 
 ```console
 azdata arc dc config show
 ```
 
-"보안 섹션" 아래에서 확인
+'보안 섹션' 아래를 살펴봅니다.
 
 ```output
  "security": {
@@ -146,67 +146,67 @@ azdata arc dc config show
     },
 ```
 
-`allowNodeMetricsCollection`및 `allowPodMetricsCollection` 속성이로 설정 되어 있는지 확인 `true` 합니다.
+`allowNodeMetricsCollection` 및 `allowPodMetricsCollection` 속성이 `true`로 설정되었는지 확인합니다.
 
 ## <a name="view-the-metrics-in-the-portal"></a>포털에서 메트릭 보기
 
-메트릭이 업로드 되 면 Azure Portal에서 메트릭을 볼 수 있습니다.
+업로드한 메트릭은 Azure Portal에서 볼 수 있습니다.
 > [!NOTE]
-> 업로드 된 데이터를 처리 하는 데 몇 분 정도 걸릴 수 있으므로 포털에서 메트릭을 볼 수 있습니다.
+> 업로드된 데이터가 처리되어 포털에서 메트릭을 볼 수 있으려면 몇 분 정도 걸릴 수 있습니다.
 
 
-포털에서 메트릭을 보려면이 링크를 사용 하 여 포털을 연 <https://portal.azure.com> 다음 검색 표시줄에서 이름으로 데이터베이스 인스턴스를 검색 합니다.
+포털에서 메트릭을 보려면 <https://portal.azure.com> 링크를 사용하여 포털을 엽니다. 그런 다음 검색 창에서 이름으로 데이터베이스 인스턴스를 검색합니다.
 
-개요 페이지에서 CPU 사용률을 보거나, 왼쪽 탐색 패널에서 메트릭을 클릭 하 여 더 자세한 메트릭을 원할 수 있습니다.
+개요 페이지에서 CPU 사용률을 볼 수 있으며, 더 자세한 메트릭을 원하는 경우 왼쪽 탐색 패널에서 메트릭을 클릭할 수 있습니다.
 
-메트릭 네임 스페이스로 sql server를 선택 합니다.
+메트릭 네임스페이스로 sql server를 선택합니다.
 
-시각화할 메트릭을 선택 합니다 (여러 항목을 선택할 수도 있음).
+시각화할 메트릭을 선택합니다(여러 항목을 선택할 수 있음).
 
-빈도를 최근 30 분으로 변경 합니다.
+빈도를 최근 30분으로 변경합니다.
 
 > [!NOTE]
-> 최근 30 분 동안만 메트릭을 업로드할 수 있습니다. Azure Monitor는 30 분 보다 오래 된 메트릭을 거부 합니다.
+> 최근 30분 동안의 메트릭만 업로드할 수 있습니다. Azure Monitor는 30분보다 오래된 메트릭을 거부합니다.
 
-## <a name="automating-uploads-optional"></a>업로드 자동화 (선택 사항)
+## <a name="automating-uploads-optional"></a>업로드 자동화(선택 사항)
 
-일정에 따라 메트릭과 로그를 업로드 하려는 경우 몇 분 마다 스크립트를 만들어 타이머에서 실행할 수 있습니다. 다음은 Linux shell 스크립트를 사용 하 여 업로드를 자동화 하는 예제입니다.
+일정에 따라 메트릭과 로그를 업로드하려는 경우 스크립트를 만들어 몇 분마다 타이머에서 실행되도록 할 수 있습니다. 다음은 Linux 셸 스크립트를 사용하여 업로드를 자동화하는 예제입니다.
 
-자주 사용 하는 텍스트/코드 편집기에서 다음 스크립트를 파일에 추가 하 고 스크립트 실행 파일 (예: sh (Linux/Mac) 또는 .cmd, .bat, ps1)로 저장 합니다.
+자주 사용하는 텍스트/코드 편집기에서 다음 스크립트를 파일에 추가하고 .sh(Linux/Mac) 또는 .cmd, .bat, .ps1과 같은 스크립트 실행 파일로 저장합니다.
 
 ```console
 azdata arc dc export --type metrics --path metrics.json --force
 azdata arc dc upload --path metrics.json
 ```
 
-스크립트 파일 실행 파일 만들기
+스크립트 파일을 실행 가능하도록 설정합니다.
 
 ```console
 chmod +x myuploadscript.sh
 ```
 
-20 분 마다 스크립트를 실행 합니다.
+20분마다 스크립트를 실행합니다.
 
 ```console
 watch -n 1200 ./myuploadscript.sh
 ```
 
-Cron 또는 Windows 작업 스케줄러와 같은 작업 스케줄러 또는 Ansible, 퍼핏 또는 Chef와 같은 orchestrator를 사용할 수도 있습니다.
+Cron 또는 Windows 작업 스케줄러와 같은 작업 스케줄러를 사용하거나 Ansible, Puppet 또는 Chef와 같은 오케스트레이터를 사용할 수도 있습니다.
 
-## <a name="general-guidance-on-exporting-and-uploading-usage-metrics"></a>사용, 메트릭 내보내기 및 업로드에 대 한 일반 지침
+## <a name="general-guidance-on-exporting-and-uploading-usage-metrics"></a>사용량, 메트릭 내보내기 및 업로드에 대한 일반 지침
 
-Azure Arc 활성화 된 데이터 서비스에 대 한 만들기, 읽기, 업데이트 및 삭제 (CRUD) 작업은 청구 및 모니터링을 위해 기록 됩니다. 이러한 CRUD 작업을 모니터링 하 고 소비를 적절 하 게 계산 하는 백그라운드 서비스가 있습니다. 사용 또는 소비의 실제 계산은 일정에 따라 수행 되며 백그라운드에서 수행 됩니다. 
+Azure Arc 지원 데이터 서비스에 대한 만들기, 읽기, 업데이트 및 삭제(CRUD) 작업은 청구 및 모니터링을 위해 기록됩니다. 이러한 CRUD 작업을 모니터링하고 소비량을 적절하게 계산하는 백그라운드 서비스가 있습니다. 사용량 또는 소비량의 실제 계산은 일정에 따라 수행되며 백그라운드에서 실행됩니다. 
 
-미리 보기 중에이 프로세스는 밤에 발생 합니다. 일반적인 지침은 하루에 한 번만 사용을 업로드 하는 것입니다. 사용 정보를 동일한 24 시간 내에 여러 번 내보내고 업로드 하면 리소스 인벤토리가 Azure Portal 업데이트 되지만 리소스 사용량은 업데이트 되지 않습니다.
+미리 보기 중에는 이 프로세스가 야간에 발생합니다. 일반적인 지침은 하루에 한 번만 사용량을 업로드하는 것입니다. 사용량 정보를 동일한 24시간 내에 여러 번 내보내고 업로드하면 Azure Portal에서 리소스 인벤토리가 업데이트되지만 리소스 사용량은 업데이트되지 않습니다.
 
-메트릭 업로드의 경우 Azure monitor는 최근 30 분의 데이터만 수락 합니다 ([자세한 정보](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting)). 메트릭을 업로드 하기 위한 지침은 내보내기 파일을 만든 후 즉시 메트릭을 업로드 하 여 Azure Portal에서 전체 데이터 집합을 볼 수 있도록 하는 것입니다. 예를 들어, 메트릭을 2:00 PM으로 내보내고 2:50 PM에 업로드 명령을 실행 한 경우 Azure Monitor는 최근 30 분 동안의 데이터만 허용 하므로 포털에 데이터가 표시 되지 않을 수 있습니다. 
+메트릭 업로드의 경우 Azure Monitor는 최근 30분 동안의 데이터만 허용합니다([자세한 정보](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting)). 메트릭을 업로드하기 위한 지침은 내보내기 파일을 만든 후 즉시 메트릭을 업로드하여 Azure Portal에서 전체 데이터 세트를 볼 수 있도록 하는 것입니다. 예를 들어, 메트릭을 오후 2:00에 내보내고 오후 2:50에 업로드 명령을 실행한 경우 Azure Monitor는 최근 30분 동안의 데이터만 허용하므로 포털에 데이터가 표시되지 않을 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
 [Azure Monitor에 로그 업로드](upload-logs.md)
 
-[Azure Monitor에 사용 현황 데이터, 메트릭 및 로그 업로드](upload-usage-data.md)
+[Azure Monitor에 사용량 데이터, 메트릭 및 로그 업로드](upload-usage-data.md)
 
-[청구 데이터를 Azure에 업로드 하 고 Azure Portal에서 확인](view-billing-data-in-azure.md)
+[청구 데이터를 Azure에 업로드하고 Azure Portal에서 보기](view-billing-data-in-azure.md)
 
 [Azure Portal에서 Azure Arc 데이터 컨트롤러 리소스 보기](view-data-controller-in-azure-portal.md)

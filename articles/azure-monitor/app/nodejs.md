@@ -5,19 +5,19 @@ ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 9eba74bcf2b4b047b3ed881342db4f7b1011f928
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100585756"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights를 사용하여 Node.js 서비스 및 앱 모니터링
 
-[Application Insights](./app-insights-overview.md) 는 배포 후에 백 엔드 서비스 및 구성 요소를 모니터링 하 여 성능 및 기타 문제를 검색 하 고 신속 하 게 진단할 수 있도록 합니다. 데이터 센터, Azure Vm 및 웹 앱에서 호스트 되는 Node.js 서비스와 다른 공용 클라우드에서도 Application Insights를 사용할 수 있습니다.
+[Application Insights](./app-insights-overview.md)는 배포 후에 백 엔드 서비스 및 구성 요소를 모니터링하여 성능 및 기타 문제를 발견하고 신속하게 진단할 수 있도록 합니다. 데이터 센터, Azure VM 및 웹앱에서 호스트되는 Node.js 서비스와 다른 퍼블릭 클라우드에서도 Application Insights를 사용할 수 있습니다.
 
 모니터링 데이터를 수신, 저장 및 탐색하려면 코드에 SDK를 포함하고 Azure에서 해당 Application Insights 리소스를 설정합니다. SDK는 추가 분석 및 탐색을 위해 해당 리소스로 데이터를 보냅니다.
 
-Node.js SDK는 들어오고 나가는 HTTP 요청, 예외 및 여러 시스템 메트릭을 자동으로 모니터링할 수 있습니다. 버전 0.20부터 SDK는 MongoDB, MySQL, Redis 등의 몇 가지 일반적인 [타사 패키지](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers#currently-supported-modules)를 모니터링할 수도 있습니다. 들어오는 HTTP 요청과 관련된 모든 이벤트는 좀 더 빠른 문제 해결을 위해 상호 관계가 지정됩니다.
+Node.js SDK는 들어오고 나가는 HTTP 요청, 예외 및 여러 시스템 메트릭을 자동으로 모니터링할 수 있습니다. 0\.20 버전부터 SDK는 MongoDB, MySQL 및 Redis와 같은 일반적인 [타사 패키지](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers#currently-supported-modules) 일부를 모니터링할 수 있습니다. 들어오는 HTTP 요청과 관련된 모든 이벤트는 좀 더 빠른 문제 해결을 위해 상호 관계가 지정됩니다.
 
 TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측면을 수동으로 계측하고 모니터링 할 수 있습니다. TelemetryClient API는 이 문서의 뒷부분에 더 자세히 설명합니다.
 
@@ -25,7 +25,7 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
 
 앱 또는 서비스에 대한 모니터링을 설정하려면 다음 작업을 완료합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 Azure 구독이 있는지 확인하여 없는 경우 [무료 계정을 새로 만듭니다][azure-free-offer]. 조직에 이미 Azure 구독이 있으면 관리자가 [다음 지침][add-aad-user]에 따라 사용자를 구독에 추가할 수 있습니다.
 
@@ -42,9 +42,9 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
 데이터를 수집할 수 있도록 앱에 SDK를 포함합니다.
 
 > [!IMPORTANT]
-> 새 Azure 지역에서는 계측 키 대신 연결 문자열을 사용 **해야** 합니다. [연결 문자열](./sdk-connection-string.md?tabs=nodejs) 원격 분석 데이터를 연결 하려는 리소스를 식별 합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
+> 새 Azure 지역에서는 계측 키 대신 연결 문자열을 **사용해야 합니다**. [연결 문자열](./sdk-connection-string.md?tabs=nodejs)은 원격 분석 데이터를 연결하려는 리소스를 식별합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
 
-1. 새로 만든 리소스에서 리소스의 계측 키 ( *ikey* 라고도 함)를 복사 합니다. Application Insights는 ikey를 사용하여 Azure 리소스에 데이터를 매핑합니다. SDK가 ikey를 사용하려면 먼저 환경 변수 또는 코드에 ikey를 지정해야 합니다.  
+1. 새로 만든 리소스에서 리소스의 계측 키(*ikey* 라고도 함)를 복사합니다. Application Insights는 ikey를 사용하여 Azure 리소스에 데이터를 매핑합니다. SDK가 ikey를 사용하려면 먼저 환경 변수 또는 코드에 ikey를 지정해야 합니다.  
 
    ![계측 키 복사](./media/nodejs/instrumentation-key-001.png)
 
@@ -55,28 +55,28 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
    ```
 
     > [!NOTE]
-    > TypeScript를 사용 하는 경우 별도의 "유형" 패키지를 설치 하지 마십시오. 이 NPM 패키지에는 기본 제공 입력 항목이 포함되어 있습니다.
+    > TypeScript를 사용하는 경우 별도의 “입력” 패키지를 설치하지 마세요. 이 NPM 패키지에는 기본 제공 입력 항목이 포함되어 있습니다.
 
 3. 코드에서 라이브러리를 명시적으로 로드합니다. SDK는 여러 다른 라이브러리에 계측 값을 삽입합니다. 따라서 최대한 신속하게, 심지어 다른 `require` 문보다도 먼저 라이브러리를 로드합니다.
 
    ```javascript
    let appInsights = require('applicationinsights');
    ```
-4.  `APPINSIGHTS_INSTRUMENTATIONKEY`또는에 수동으로 전달 하는 대신 환경 변수를 통해 ikey를 제공할 수도 있습니다 `setup()` `new appInsights.TelemetryClient()` . 이렇게 하면 ikey가 커밋된 소스 코드의 영향을 받지 않으며 다른 환경에 다른 ikey를 지정할 수 있습니다. 수동으로를 호출 하려면를 설정 `appInsights.setup('[your ikey]');` 합니다.
+4.  ikey를 `setup()` 또는 `new appInsights.TelemetryClient()`에 수동으로 전달하는 대신 `APPINSIGHTS_INSTRUMENTATIONKEY` 환경 변수를 통해 제공할 수도 있습니다. 이렇게 하면 ikey가 커밋된 소스 코드의 영향을 받지 않으며 다른 환경에 다른 ikey를 지정할 수 있습니다. 수동으로 구성하려면 `appInsights.setup('[your ikey]');`를 호출합니다.
 
     추가 구성 옵션의 경우 다음 섹션을 참조하세요.
 
     `appInsights.defaultClient.config.disableAppInsights = true`를 설정하면 원격 분석을 전송하지 않고 SDK를 사용해 볼 수 있습니다.
 
-5. 을 호출 하 여 데이터를 자동으로 수집 하 고 전송 하기 시작 `appInsights.start();` 합니다.
+5. `appInsights.start();`를 호출하면 데이터를 자동으로 수집하고 전송하기 시작합니다.
 
 ### <a name="monitor-your-app"></a><a name="monitor"></a> 앱 모니터링
 
-SDK는 Node.js 런타임 및 일부 일반적인 타사 모듈에 대 한 원격 분석을 자동으로 수집 합니다. 애플리케이션을 사용하여 이 데이터를 생성합니다.
+SDK는 Node.js 런타임 및 일반적인 타사 모듈 일부에 대한 원격 분석 데이터를 자동으로 수집합니다. 애플리케이션을 사용하여 이 데이터를 생성합니다.
 
 그런 다음, [Azure Portal][portal]에서 이전에 만든 Application Insights 리소스로 이동합니다. **타임라인 개요** 에서 먼저 몇 가지 데이터 요소를 찾습니다. 더 자세한 데이터를 보려면 차트에서 다른 구성 요소를 선택합니다.
 
-앱에 대해 검색 된 토폴로지를 보려면 [응용 프로그램 맵을](app-map.md)사용할 수 있습니다.
+앱에 대해 검색된 토폴로지를 보려면 [애플리케이션 맵](app-map.md)을 사용합니다.
 
 #### <a name="no-data"></a>데이터 없음
 
@@ -86,11 +86,11 @@ SDK는 제출할 데이터를 일괄 처리하기 때문에 항목이 포털에 
 * 포털 리소스 보기에서 **새로 고침** 을 클릭합니다. 차트는 자체에서 주기적으로 새로 고치지만, 수동으로 새로 고침하면 즉시 새로 고쳐집니다.
 * [필요한 발신 포트](./ip-addresses.md)가 열려 있는지 확인합니다.
 * [검색](./diagnostic-search.md)을 사용하여 특정 이벤트를 찾습니다.
-* [FAQ][FAQ]를 확인 합니다.
+* [FAQ][FAQ]를 확인합니다.
 
 ## <a name="basic-usage"></a>기본 사용
 
-HTTP 요청, 인기 있는 타사 라이브러리 이벤트, 처리 되지 않은 예외 및 시스템 메트릭에 대 한 기본 컬렉션은 다음과 같습니다.
+HTTP 요청, 인기 있는 타사 라이브러리 이벤트, 처리되지 않은 예외, 시스템 메트릭에 대한 기본 제공 컬렉션은 다음과 같습니다.
 
 ```javascript
 
@@ -100,27 +100,27 @@ appInsights.setup("[your ikey]").start();
 ```
 
 > [!NOTE]
-> 환경 변수에 계측 키를 설정 하는 경우 `APPINSIGHTS_INSTRUMENTATIONKEY` `.setup()` 인수 없이를 호출할 수 있습니다. 따라서 환경 마다 다른 ikey를 쉽게 사용할 수 있습니다.
+> 환경 변수 `APPINSIGHTS_INSTRUMENTATIONKEY`에 계측 키를 설정하는 경우 인수 없이 `.setup()`를 호출할 수 있습니다. 따라서 환경마다 다른 ikey를 용이하게 사용할 수 있습니다.
 
-`require("applicationinsights")`다른 패키지를 로드 하기 전에 스크립트에서 가능한 한 빨리 Application Insights 라이브러리를 로드 합니다. 이는 Application Insights 라이브러리가 추적을 위해 나중에 패키지를 준비할 수 있도록 하기 위해 필요 합니다. 비슷한 준비를 수행 하는 다른 라이브러리와 충돌이 발생 하는 경우에는 Application Insights 라이브러리를 로드 해 보십시오.
+다른 패키지를 로드하기 전에 스크립트에서 가능한 한 빨리 Application Insights 라이브러리 `require("applicationinsights")`를 로드합니다. 해당 과정은 Application Insights 라이브러리가 추적을 위해 이후에 패키지를 준비할 수 있도록 하는 데 사용됩니다. 비슷한 준비를 수행하는 과정에서 다른 라이브러리와 충돌이 발생하는 경우에는 충돌 발생 이후에 Application Insights 라이브러리를 로드해 보세요.
 
-JavaScript가 콜백을 처리 하는 방식 때문에 외부 종속성 및 이후 콜백에서 요청을 추적 하려면 추가 작업이 필요 합니다. 기본적으로이 추가 추적을 사용할 수 있습니다. `setAutoDependencyCorrelation(false)` 아래 [구성](#sdk-configuration) 섹션에 설명 된 대로를 호출 하 여 사용 하지 않도록 설정 합니다.
+JavaScript가 콜백을 처리하는 방식으로 인해 외부 종속성 및 이후 콜백 간 요청을 추적하려면 추가 작업이 필요합니다. 해당 추가 추적은 기본적으로 사용할 수 있습니다. 아래 [구성](#sdk-configuration) 섹션에 설명된 대로 `setAutoDependencyCorrelation(false)`를 호출하여 해당 기능을 사용하지 않도록 설정할 수 있습니다.
 
-## <a name="migrating-from-versions-prior-to-022"></a>0.22 이전 버전에서 마이그레이션
+## <a name="migrating-from-versions-prior-to-022"></a>0\.22 이전 버전으로부터 마이그레이션
 
-버전 0.22 이전의 릴리스 사이에는 주요 변경 내용이 있습니다. 이러한 변경 내용은 다른 Application Insights Sdk와 일관성을 유지 하 고 향후 확장성을 허용 하도록 설계 되었습니다.
+0\.22 이전 버전과 이후 버전의 릴리스 사이에는 호환성이 손상되는 변경 내용이 포함되어 있습니다. 해당 변경 내용은 다른 Application Insights SDK와의 일관성을 유지하고 향후 확장성을 허용하도록 설계되었습니다.
 
-일반적으로 다음과 같이 마이그레이션할 수 있습니다.
+일반적으로 다음과 같이 내용을 마이그레이션할 수 있습니다.
 
-- 참조를로 `appInsights.client` 바꿉니다 `appInsights.defaultClient` .
-- 참조 `appInsights.getClient()` 를로 바꾸기 `new appInsights.TelemetryClient()`
-- 인수를 명명 된 속성을 포함 하는 단일 개체를 사용 하 여 모든 인수를 client. track * 메서드로 바꿉니다. 각 원격 분석 형식에 대 한 예외 개체에 대 한 IDE의 기본 제공 형식 힌트 또는 [TelemetryTypes](https://github.com/Microsoft/ApplicationInsights-node.js/tree/develop/Declarations/Contracts/TelemetryTypes) 를 참조 하세요.
+- `appInsights.client`에 대한 참조를 `appInsights.defaultClient`로 바꾸기.
+- `appInsights.getClient()`에 대한 참조를 `new appInsights.TelemetryClient()`로 바꾸기
+- 인수를 명명된 속성을 포함하는 단일 개체를 사용하여 모든 인수를 client.track* 메서드로 바꿉니다. 각 원격 분석 형식의 예외 개체 관련 사항은 IDE의 기본 제공 형식 힌트 또는 [TelemetryTypes](https://github.com/Microsoft/ApplicationInsights-node.js/tree/develop/Declarations/Contracts/TelemetryTypes)를 참조하세요.
 
-에 연결 하지 않고 SDK 구성 기능에 액세스 하는 경우 `appInsights.setup()` 이제에서 이러한 함수를 찾을 수 있습니다 `appInsights.Configurations` (예: `appInsights.Configuration.setAutoCollectDependencies(true)` ). 다음 섹션의 기본 구성에 대 한 변경 내용을 검토 합니다.
+`appInsights.setup()`에 연결하지 않고 SDK 구성 기능에 액세스하는 경우 이제 `appInsights.Configurations`(예: `appInsights.Configuration.setAutoCollectDependencies(true)`)에서 관련 함수를 찾을 수 있습니다. 다음 섹션의 기본 구성에 대한 변경 내용을 검토합니다.
 
 ## <a name="sdk-configuration"></a>SDK 구성
 
-`appInsights`개체는 다양 한 구성 방법을 제공 합니다. 이러한 값은 다음 코드 조각에 기본값을 사용 하 여 나열 됩니다.
+`appInsights` 개체는 여러 구성 메서드를 제공합니다. 해당 구성 메서드는 다음 코드 조각에 기본값과 함께 나열됩니다.
 
 ```javascript
 let appInsights = require("applicationinsights");
@@ -139,18 +139,18 @@ appInsights.setup("<instrumentation_key>")
 
 서비스에서 이벤트의 상관 관계를 완전하게 지정하려면 `.setAutoDependencyCorrelation(true)`을 설정합니다. 이 옵션을 설정하면 SDK가 Node.js의 비동기 콜백에서 컨텍스트를 추적할 수 있습니다.
 
-IDE의 기본 제공 형식 힌트 또는 [applicationinsights](https://github.com/microsoft/ApplicationInsights-node.js/blob/develop/applicationinsights.ts) 에서 해당 컨트롤에 대 한 자세한 내용 및 선택적 보조 인수에 대 한 설명을 검토 합니다.
+IDE의 기본 제공 형식 힌트 또는 [applicationinsights.ts](https://github.com/microsoft/ApplicationInsights-node.js/blob/develop/applicationinsights.ts)에서 해당 컨트롤에 대한 세부 정보 및 선택적 2차 인수에 대한 설명을 검토합니다.
 
 > [!NOTE]
->  기본적으로 `setAutoCollectConsole` 는  `console.log` (및 기타 콘솔 메서드)에 대 한 호출을 제외 하도록 구성 됩니다. 지원 되는 타사로 거 (예: winston 및 bunyan)에 대 한 호출만 수집 됩니다. 을 사용 하 여 메서드에 대 한 호출을 포함 하도록이 동작을 변경할 수 있습니다 `console` `setAutoCollectConsole(true, true)` .
+>  기본적으로 `setAutoCollectConsole`은 `console.log`(및 기타 콘솔 메서드)에 대한 호출을 *제외하도록* 구성됩니다. 지원되는 타사 로거(예: winston 및 bunyan)에 대한 호출만 수집됩니다. `setAutoCollectConsole(true, true)`를 사용하여 `console` 메서드에 대한 호출을 포함하도록 해당 동작을 변경할 수 있습니다.
 
 ### <a name="sampling"></a>샘플링
 
-기본적으로 SDK는 수집 된 모든 데이터를 Application Insights 서비스로 보냅니다. 많은 데이터를 수집 하는 경우에는 샘플링을 사용 하 여 전송 되는 데이터의 양을 줄일 수 있습니다. `samplingPercentage`클라이언트의 개체에 대 한 필드를 설정 `config` 하 여이를 수행 합니다. `samplingPercentage`를 100 (기본값)으로 설정 하면 모든 데이터가 전송 되 고 0은 아무 것도 전송 되지 않습니다.
+기본적으로 SDK는 수집된 모든 데이터를 Application Insights 서비스로 보냅니다. 대량의 데이터를 수집하는 경우에는 샘플링 기능을 사용하여 전송되는 데이터의 양을 줄일 수 있습니다. 클라이언트의 `config` 개체에 대해 `samplingPercentage` 필드를 설정하여 해당 기능을 수행합니다. `samplingPercentage`를 100(기본값)으로 설정하면 모든 데이터가 전송되고, 0으로 설정하면 아무 데이터도 전송되지 않습니다.
 
-자동 상관 관계를 사용 하는 경우 단일 요청과 연결 된 모든 데이터가 하나의 단위로 포함 되거나 제외 됩니다.
+자동 상관 관계를 사용하는 경우 단일 요청과 연결된 모든 데이터가 하나의 단위로 포함 또는 제외됩니다.
 
-샘플링을 사용 하도록 설정 하는 다음과 같은 코드를 추가 합니다.
+다음과 같은 코드를 추가해 샘플링을 사용하도록 설정합니다.
 
 ```javascript
 const appInsights = require("applicationinsights");
@@ -159,11 +159,11 @@ appInsights.defaultClient.config.samplingPercentage = 33; // 33% of all telemetr
 appInsights.start();
 ```
 
-### <a name="multiple-roles-for-multi-components-applications"></a>다중 구성 요소 응용 프로그램에 대 한 여러 역할
+### <a name="multiple-roles-for-multi-components-applications"></a>다중 구성 요소 애플리케이션에 대한 여러 역할
 
-응용 프로그램이 동일한 계측 키를 사용 하 여 계측 하려는 여러 구성 요소로 구성 되어 있으며, 별도의 계측 키를 사용 하는 것 처럼 포털에서 이러한 구성 요소를 별도의 단위로 표시 하는 경우 (예: 응용 프로그램 맵의 개별 노드로) RoleName 필드를 수동으로 구성 하 여 데이터를 Application Insights 리소스로 전송 하는 다른 구성 요소와 동일한 구성 요소의 원격 분석을 구분 해야 합니다.
+애플리케이션이 모두 동일한 계측 키를 사용하여 계측하려는 여러 구성 요소로 구성되어 있음에도 포털에서 해당 구성 요소가 별도의 계측 키를 사용하고 있는 것처럼 별도의 단위로 표시하는 경우(예: Application Map의 개별 노드), RoleName 필드를 수동으로 구성하여 구성 요소의 원격 분석 데이터를 Application Insights 리소스로 데이터를 전송하는 다른 구성 요소와 구분해야 합니다.
 
-다음을 사용 하 여 RoleName 필드를 설정 합니다.
+다음을 사용하여 RoleName 필드를 설정합니다.
 
 ```javascript
 const appInsights = require("applicationinsights");
@@ -172,43 +172,43 @@ appInsights.defaultClient.context.tags[appInsights.defaultClient.context.keys.cl
 appInsights.start();
 ```
 
-### <a name="automatic-third-party-instrumentation"></a>자동 타사 계측
+### <a name="automatic-third-party-instrumentation"></a>타사 라이브러리 자동 계측
 
-비동기 호출에서 컨텍스트를 추적 하려면 MongoDB 및 Redis와 같은 타사 라이브러리에 몇 가지 변경이 필요 합니다. 기본적으로 Application Insights는를 사용 [`diagnostic-channel-publishers`](https://github.com/Microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers) 하 여 이러한 라이브러리 중 일부를 원숭이 패치 합니다. 환경 변수를 설정 하 여이 기능을 사용 하지 않도록 설정할 수 있습니다 `APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL` .
+비동기 호출에서 컨텍스트를 추적하려면 MongoDB 및 Redis와 같은 타사 라이브러리에 일부 변경이 필요합니다. 기본적으로 Application Insights는 [`diagnostic-channel-publishers`](https://github.com/Microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers)를 사용하여 해당 라이브러리 중 일부를 몽키패치합니다. 해당 기능을 사용하지 않으려면 `APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL` 환경 변수를 설정합니다.
 
 > [!NOTE]
-> 해당 환경 변수를 설정 하 여 이벤트가 더 이상 올바른 작업에 연결 되지 않을 수 있습니다.
+> 해당 환경 변수를 설정하면 이벤트가 더 이상 올바른 작업에 바르게 연결되지 않을 수 있습니다.
 
- 개별 원숭이- `APPLICATION_INSIGHTS_NO_PATCH_MODULES` 환경 변수를 비활성화할 패키지 (예:)를 쉼표로 구분 된 패키지 목록으로 설정 하 여 패치를 비활성화할 수 있습니다 `APPLICATION_INSIGHTS_NO_PATCH_MODULES=console,redis` `console` `redis` .
+ `console` 및 `redis` 패키지가 패치되지 않도록 `APPLICATION_INSIGHTS_NO_PATCH_MODULES` 환경 변수를 쉼표로 구분된 패키지 목록으로 설정하여(예: `APPLICATION_INSIGHTS_NO_PATCH_MODULES=console,redis`) 개별적인 몽키패치를 사용하지 않도록 설정할 수 있습니다.
 
-현재는,,,,,,, `bunyan` `console` `mongodb` `mongodb-core` `mysql` `redis` `winston` `pg` 및와 `pg-pool` 같은 9 개의 패키지가 있습니다. 패치가 적용 되는 패키지의 버전에 대 한 자세한 내용은 [진단-채널-게시자의 추가](https://github.com/Microsoft/node-diagnostic-channel/blob/master/src/diagnostic-channel-publishers/README.md) 정보를 참조 하세요.
+현재 `bunyan`, `console`, `mongodb`, `mongodb-core`, `mysql`, `redis`, `winston`, `pg`, `pg-pool` 등 9개 패키지가 계측되어 있습니다. 해당 패키지 중 패치가 적용되는 버전에 대한 정보는 [진단-채널-게시자 추가 정보](https://github.com/Microsoft/node-diagnostic-channel/blob/master/src/diagnostic-channel-publishers/README.md)를 참조하세요.
 
-`bunyan`, `winston` 및 패치는 `console` 가 사용 되는지 여부에 따라 Application Insights 추적 이벤트를 생성 합니다 `setAutoCollectConsole` . Rest는가 사용 되는지 여부에 따라 Application Insights 종속성 이벤트를 생성 합니다 `setAutoCollectDependencies` .
+`bunyan`, `winston` 및 `console` 패치는 `setAutoCollectConsole`이 사용되는지 여부에 따라 Application Insights 추적 이벤트를 생성합니다. 나머지 패치는 `setAutoCollectDependencies`가 사용되는지 여부에 따라 Application Insights Dependency 이벤트를 생성합니다.
 
 ### <a name="live-metrics"></a>라이브 메트릭
 
-앱에서 Azure로 라이브 메트릭을 전송 하려면를 사용 `setSendLiveMetrics(true)` 합니다. 포털에서 라이브 메트릭의 필터링은 현재 지원 되지 않습니다.
+앱에서 Azure로 라이브 메트릭을 전송하려면 `setSendLiveMetrics(true)`를 사용합니다. 현재 포털에서 라이브 메트릭의 필터링은 지원되지 않습니다.
 
 ### <a name="extended-metrics"></a>확장 메트릭
 
 > [!NOTE]
-> 확장 된 네이티브 메트릭을 전송 하는 기능이 버전 1.4.0에 추가 되었습니다.
+> 확장 원시 메트릭 전송 기능이 1.4.0 버전에서 추가되었습니다.
 
-앱에서 Azure로 확장 된 네이티브 메트릭을 보낼 수 있도록 하려면 별도의 기본 메트릭 패키지를 설치 합니다. SDK가 설치 되 면 자동으로 로드 되 고 Node.js 기본 메트릭 수집을 시작 합니다.
+앱에서 Azure로 확장 원시 메트릭을 보낼 수 있도록 설정하려면 별도의 원시 메트릭 패키지를 설치합니다. SDK가 설치되면 자동으로 로드되어 Node.js 원시 메트릭 수집을 시작합니다.
 
 ```bash
 npm install applicationinsights-native-metrics
 ```
 
-현재 기본 메트릭 패키지는 가비지 수집 CPU 시간, 이벤트 루프 틱 및 힙 사용의 autocollection을 수행 합니다.
+현재 원시 메트릭 패키지는 가비지 수집 CPU 타임, 이벤트 루프 틱 및 힙 메모리 사용량의 자동수집을 수행합니다.
 
-- **가비지 수집**: 각 가비지 수집 형식에 소요 된 CPU 시간과 각 형식의 발생 횟수입니다.
-- **이벤트 루프**: 발생 한 틱 수 및 총 CPU 시간 (%)
-- 힙 **및 비 힙**: 응용 프로그램의 메모리 사용량은 힙 또는 비 힙에 있습니다.
+- **가비지 수집**: 각 가비지 수집 형식에 소요된 CPU 시간과 형식별 발생 횟수입니다.
+- **이벤트 루프**: 발생한 틱 수 및 소요된 총 CPU 시간입니다.
+- **힙 대 비힙**: 애플리케이션에서 힙 메모리 또는 비힙 메모리로 사용된 메모리 사용량입니다.
 
 ### <a name="distributed-tracing-modes"></a>분산 추적 모드
 
-기본적으로 SDK는 Application Insights SDK를 사용 하 여 계측 된 다른 응용 프로그램/서비스에서 인식 하는 헤더를 전송 합니다. 필요에 따라 기존 AI 헤더 외에 [W3C 추적 컨텍스트](https://github.com/w3c/trace-context) 헤더를 보내고 받을 수 있으므로 기존 레거시 서비스와의 상관 관계를 중단할 수 없습니다. W3C 헤더를 사용 하도록 설정 하면 앱이 Application Insights를 사용 하 여 계측 되지 않은 다른 서비스와의 상관 관계를 지정할 수 있지만이 W3C 표준은 채택 합니다.
+기본적으로 SDK는 Application Insights SDK를 사용하여 계측된 다른 애플리케이션/서비스에서 해석되는 헤더를 전송합니다. 기존 AI 헤더 외에도 [W3C Trace Context](https://github.com/w3c/trace-context) 헤더를 보내고 받을 수 있도록 선택할 수 있으므로 기존 레거시 서비스와의 상관 관계를 중단할 필요가 없습니다. W3C 헤더를 사용하도록 설정하면 앱이 Application Insights를 사용하여 계측되지 않은 다른 서비스와의 상관 관계를 지정할 수 있지만, 관련 W3C 표준을 적용합니다.
 
 ```Javascript
 const appInsights = require("applicationinsights");
@@ -258,7 +258,7 @@ success = true;
 client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:duration, resultCode:0, success: true, dependencyTypeName: "ZSQL"});;
 ```
 
-`trackMetric`이벤트 루프 예약 시간을 측정 하는 데 사용 하는 예제 유틸리티는 다음과 같습니다.  
+이벤트 루프 예약 시간을 측정하기 위해 `trackMetric`을 사용하는 예제 유틸리티는 다음과 같습니다.  
 
 ```javascript
 function startMeasuringEventLoop() {
@@ -302,16 +302,16 @@ appInsights.defaultClient.commonProperties = {
 
 ### <a name="track-http-get-requests"></a>HTTP GET 요청 추적
 
-다음 코드를 사용 하 여 HTTP GET 요청을 수동으로 추적 합니다.
+다음 코드를 사용하여 HTTP GET 요청을 수동으로 추적합니다.
 
 > [!NOTE]
-> 모든 요청은 기본적으로 추적 됩니다. 자동 수집을 사용 하지 않도록 설정 하려면 start ()를 호출 하기 전에 setAutoCollectRequests (false)를 호출 합니다.
+> 모든 요청은 기본적으로 추적됩니다. 자동 수집을 사용하지 않도록 설정하려면 start()를 호출하기 전에 .setAutoCollectRequests(false)를 호출합니다.
 
 ```javascript
 appInsights.defaultClient.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true});
 ```
 
-또는 메서드를 사용 하 여 요청을 추적할 수 있습니다 `trackNodeHttpRequest` .
+또는 `trackNodeHttpRequest` 메서드를 사용하여 요청을 추적할 수 있습니다.
 
 ```javascript
 var server = http.createServer((req, res) => {
@@ -337,21 +337,21 @@ server.on("listening", () => {
 
 ### <a name="flush"></a>플러시
 
-기본적으로 원격 분석은 수집 서버로 전송 되기 전에 15 초 동안 버퍼링 됩니다. 응용 프로그램에 짧은 수명이 있는 경우 (예: CLI 도구) 응용 프로그램이 종료 될 때 버퍼링 된 원격 분석을 수동으로 플러시하는 것이 필요할 수 있습니다 `appInsights.defaultClient.flush()` .
+기본적으로 원격 분석 데이터는 수집 서버로 전송되기 전에 15초 동안 버퍼링됩니다. 애플리케이션의 수명이 짧은 경우(예: CLI 도구), 애플리케이션이 종료될 때 다음과 같이 버퍼링된 원격 분석 데이터를 수동으로 플러시하는 작업이 필요할 수 있습니다`appInsights.defaultClient.flush()`.
 
-SDK에서 응용 프로그램이 충돌 하는 것을 감지 하면 사용자를 위해 플러시를 호출 `appInsights.defaultClient.flush({ isAppCrashing: true })` 합니다. 플러시 옵션을 사용 하면 `isAppCrashing` 응용 프로그램은 비정상 상태에 있는 것으로 간주 되며 원격 분석을 보내는 데 적합 하지 않습니다. 대신 SDK는 버퍼링 된 모든 원격 분석을 [영구 저장소](./data-retention-privacy.md#nodejs) 에 저장 하 고 응용 프로그램이 종료 되도록 합니다. 응용 프로그램이 다시 시작 되 면 영구 저장소에 저장 된 원격 분석을 보내려고 시도 합니다.
+SDK에서 애플리케이션이 충돌하는 것을 감지하면 사용자를 위해 다음과 같이 플러시를 호출합니다. `appInsights.defaultClient.flush({ isAppCrashing: true })` 플러시 옵션 `isAppCrashing`을 사용하면 애플리케이션은 비정상 상태에 있는 것으로 간주되며 원격 분석 데이터를 보내는 데 적합하지 않다고 간주됩니다. 대신 SDK는 버퍼링된 모든 원격 분석 데이터를 [영구 스토리지](./data-retention-privacy.md#nodejs)에 저장한 뒤 애플리케이션을 종료합니다. 애플리케이션이 다시 시작되면 영구 스토리지에 저장된 원격 분석 데이터를 보냅니다.
 
-### <a name="preprocess-data-with-telemetry-processors"></a>원격 분석 프로세서를 사용 하 여 데이터 전처리
+### <a name="preprocess-data-with-telemetry-processors"></a>원격 분석 프로세서를 사용하여 데이터 전처리
 
-수집 된 데이터는 *원격 분석 프로세서* 를 사용 하 여 보존을 위해 전송 되기 전에 처리 하 고 필터링 할 수 있습니다. 원격 분석 항목을 클라우드로 보내기 전에 추가 된 순서 대로 원격 분석 프로세서를 하나씩 호출 합니다.
+수집된 데이터는 *원격 분석 프로세서* 를 사용하여 처리 및 필터링 후에 보존을 위해 전송할 수 있습니다. 원격 분석 항목을 클라우드로 보내기 전에 원격 분석 프로세서를 추가된 순서대로 하나씩 호출합니다.
 
 ```javascript
 public addTelemetryProcessor(telemetryProcessor: (envelope: Contracts.Envelope, context: { http.RequestOptions, http.ClientRequest, http.ClientResponse, correlationContext }) => boolean)
 ```
 
-원격 분석 프로세서가 false를 반환 하는 경우 해당 원격 분석 항목이 전송 되지 않습니다.
+원격 분석 프로세서가 false를 반환하는 경우 해당 원격 분석 항목이 전송되지 않습니다.
 
-모든 원격 분석 프로세서는 검사 하 고 수정할 수 있도록 원격 분석 데이터 및 봉투 (envelope)를 수신 합니다. 또한 컨텍스트 개체를 수신 합니다. 이 개체의 내용은 `contextObjects` 수동으로 추적 된 원격 분석을 위해 track 메서드를 호출할 때 매개 변수에 의해 정의 됩니다. 자동으로 수집 된 원격 분석의 경우이 개체는에서 제공 하는 사용 가능한 요청 정보 및 영구 요청 내용으로 채워집니다 `appInsights.getCorrelationContext()` (자동 종속성 상관 관계를 사용 하는 경우).
+모든 원격 분석 프로세서는 검사 및 수정을 위해 원격 분석 데이터 및 봉투를 수신합니다. 원격 분석 프로세서는 또한 컨텍스트 개체를 수신합니다. 해당 개체의 내용은 수동으로 추적된 원격 분석 데이터에 대해 track 메서드를 호출할 때 `contextObjects` 매개 변수에 의해 정의됩니다. 자동으로 수집된 원격 분석 데이터에 대해 해당 개체는 (자동 종속성 상관 관계를 사용하는 경우) `appInsights.getCorrelationContext()`에서 제공하는 사용 가능 요청 정보 및 영속 요청 콘텐츠로 채워집니다.
 
 원격 분석 프로세서의 TypeScript 형식은 다음과 같습니다.
 
@@ -359,7 +359,7 @@ public addTelemetryProcessor(telemetryProcessor: (envelope: Contracts.Envelope, 
 telemetryProcessor: (envelope: ContractsModule.Contracts.Envelope, context: { http.RequestOptions, http.ClientRequest, http.ClientResponse, correlationContext }) => boolean;
 ```
 
-예를 들어 예외에서 스택 추적 데이터를 제거 하는 프로세서를 작성 하 고 다음과 같이 추가할 수 있습니다.
+예를 들어 예외에서 스택 추적 데이터를 제거하는 프로세서를 작성하고 다음과 같이 추가할 수 있습니다.
 
 ```javascript
 function removeStackTraces ( envelope, context ) {
@@ -381,7 +381,7 @@ appInsights.defaultClient.addTelemetryProcessor(removeStackTraces);
 
 ## <a name="use-multiple-instrumentation-keys"></a>여러 계측 키 사용
 
-여러 Application Insights 리소스를 만들고 각각의 계측 키 ("ikey")를 사용 하 여 서로 다른 데이터를 보낼 수 있습니다.
+여러 Application Insights 리소스를 만들고 각 계측 키(“ikey”)를 사용하여 서로 다른 데이터를 보낼 수 있습니다.
 
  예를 들면 다음과 같습니다.
 
@@ -398,29 +398,29 @@ otherClient.trackEvent({name: "my custom event"});
 
 ## <a name="advanced-configuration-options"></a>고급 구성 옵션
 
-클라이언트 개체에는 `config` 고급 시나리오에 대 한 다양 한 옵션 설정이 포함 된 속성이 있습니다. 이러한 작업은 다음과 같이 설정할 수 있습니다.
+클라이언트 개체에는 고급 시나리오에 대한 다양한 옵션 설정이 포함된 `config` 속성이 포함되어 있습니다. 관련 속성은 다음과 같이 설정할 수 있습니다.
 
 ```javascript
 client.config.PROPERTYNAME = VALUE;
 ```
 
-이러한 속성은 클라이언트 마다 고유 하므로 `appInsights.defaultClient` 를 사용 하 여 만든 클라이언트와 별도로 구성할 수 있습니다 `new appInsights.TelemetryClient()` .
+해당 속성은 클라이언트마다 고유하므로 `new appInsights.TelemetryClient()`를 사용하여 만든 클라이언트와 별도로 `appInsights.defaultClient`를 구성할 수 있습니다.
 
 | 속성                        | 설명                                                                                                |
 | ------------------------------- |------------------------------------------------------------------------------------------------------------|
-| instrumentationKey              | Application Insights 리소스의 식별자입니다.                                                      |
-| endpointUrl                     | 원격 분석 페이로드를 보낼 수집 끝점입니다.                                                      |
-| quickPulseHost                  | 라이브 메트릭 원격 분석을 보낼 라이브 메트릭 스트림 호스트입니다.                                            |
-| proxyHttpUrl                    | SDK HTTP 트래픽에 대 한 프록시 서버 (선택 사항, 기본값은 `http_proxy` 환경 변수에서 끌어옵니다.)     |
-| proxyHttpsUrl                   | SDK HTTPS 트래픽에 대 한 프록시 서버 (선택 사항, 기본값은 `https_proxy` 환경 변수에서 끌어옵니다.)   |
-| httpAgent                       | Http입니다. SDK HTTP 트래픽에 사용할 에이전트 (선택 사항, 기본값은 정의 되지 않음)입니다.                                   |
-| httpsAgent                      | Https. SDK HTTPS 트래픽에 사용할 에이전트 (선택 사항, 기본값은 정의 되지 않음)입니다.                                 |
-| maxBatchSize                    | 수집 끝점에 대 한 페이로드에 포함 될 원격 분석 항목의 최대 수 (기본값 `250` )입니다.   |
-| maxBatchIntervalMs              | 페이로드가 maxBatchSize에 도달할 때까지 대기 하는 최대 시간 (기본값 `15000` )입니다.               |
-| disableAppInsights              | 원격 분석 전송을 사용 하지 않도록 설정 (기본값) 하는지 여부를 나타내는 플래그 `false` 입니다.                                 |
-| samplingPercentage              | 전송 되어야 하는 원격 분석 항목의 비율 (기본값 `100` )입니다.                      |
-| correlationIdRetryIntervalMs    | 구성 요소 간 상관 관계에 대 한 ID 검색을 다시 시도 하기 전까지 대기 하는 시간입니다 (기본값 `30000` ).     |
-| correlationHeaderExcludedDomains| 구성 요소 간 상관 관계 헤더 삽입에서 제외할 도메인 목록입니다 (기본값은 [Config.xml](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Config.ts)참조).|
+| instrumentationKey              | Application Insights 리소스용 식별자입니다.                                                      |
+| endpointUrl                     | 원격 분석 페이로드를 보낼 수집 엔드포인트입니다.                                                      |
+| quickPulseHost                  | 라이브 메트릭 원격 분석 데이터를 보낼 라이브 메트릭 스트림 호스트입니다.                                            |
+| proxyHttpUrl                    | SDK HTTP 트래픽에 대한 프록시 서버(선택 사항, 기본값은 `http_proxy` 환경 변수에서 끌어옴)입니다.     |
+| proxyHttpsUrl                   | SDK HTTPS 트래픽에 대한 프록시 서버(선택 사항, 기본값은 `https_proxy` 환경 변수에서 끌어옴)입니다.   |
+| httpAgent                       | SDK HTTP 트래픽에 사용할 http 에이전트(선택 사항, 기본값은 정의되지 않음)입니다.                                   |
+| httpsAgent                      | SDK HTTPS 트래픽에 사용할 https 에이전트(선택 사항, 기본값은 정의되지 않음)입니다.                                 |
+| maxBatchSize                    | 수집 엔드포인트에 대한 페이로드에 포함될 원격 분석 항목의 최대 개수(기본값 `250`)입니다.   |
+| maxBatchIntervalMs              | 페이로드가 maxBatchSize에 도달할 때까지 대기하는 최대 시간(기본값 `15000`)입니다.               |
+| disableAppInsights              | 원격 분석 전송이 사용하지 않도록 설정되었는지 여부를 나타내는 플래그(기본값 `false`)입니다.                                 |
+| samplingPercentage              | 전송되어야 하는 원격 분석 항목의 비율(기본값 `100`)입니다.                      |
+| correlationIdRetryIntervalMs    | 구성 요소 간 상관 관계에 대한 ID 검색을 다시 시도하기 전까지 대기하는 시간(기본값 `30000`)입니다.     |
+| correlationHeaderExcludedDomains| 구성 요소 간 상관 관계 헤더 삽입에서 제외할 도메인 목록(기본값은 [Config.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Config.ts)참조)입니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

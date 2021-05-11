@@ -7,12 +7,13 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 01/06/2017
 ms.author: yegu
-ms.openlocfilehash: ec8d4f5611425734974d07ae6ee7008b10b9b406
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 089d7d7990f0f94135f629a5cd7a461700aa3433
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85833777"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830775"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>템플릿을 사용하여 Azure Cache for Redis가 포함된 웹앱 만들기
 
@@ -20,7 +21,7 @@ ms.locfileid: "85833777"
 
 이 항목에서는 Azure Cache for Redis가 포함된 Azure 웹앱을 배포하는 Azure Resource Manager 템플릿을 만드는 방법에 대해 알아봅니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알게 됩니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
 
-템플릿을 만드는 방법에 대 한 자세한 내용은 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/templates/template-syntax.md)을 참조 하세요. 캐시 리소스 종류의 JSON 구문 및 속성에 대해 알아보려면 [Microsoft.Cache 리소스 종류](/azure/templates/microsoft.cache/allversions)를 참조하세요.
+템플릿을 만드는 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../azure-resource-manager/templates/template-syntax.md)를 참조하십시오. 캐시 리소스 종류의 JSON 구문 및 속성에 대해 알아보려면 [Microsoft.Cache 리소스 종류](/azure/templates/microsoft.cache/allversions)를 참조하세요.
 
 전체 템플릿은 [Azure Cache for Redis 템플릿이 포함된 웹앱](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json)을 참조하세요.
 
@@ -83,7 +84,7 @@ ms.locfileid: "85833777"
 ### <a name="web-app"></a>웹앱
 **webSiteName** 변수에 지정된 이름으로 웹앱을 만듭니다.
 
-웹앱은 Azure Cache for Redis에서 작동할 수 있게 하는 앱 설정 속성으로 구성됩니다. 이러한 앱 설정은 배포 중에 제공 된 값에 따라 동적으로 만들어집니다.
+웹앱은 Azure Cache for Redis에서 작동할 수 있게 하는 앱 설정 속성으로 구성됩니다. 앱 설정은 배포 중에 제공된 값을 기반으로 동적으로 만들어집니다.
 
 ```json
 {

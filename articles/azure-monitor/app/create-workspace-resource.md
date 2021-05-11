@@ -3,42 +3,43 @@ title: 새 Azure Monitor Application Insights 작업 영역 기반 리소스 만
 description: 새 Azure Monitor Application Insights 작업 영역 기반 리소스를 사용하도록 설정하는 데 필요한 단계에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.openlocfilehash: 3ec0b25a24af13b29a3568165009f8a6d66e0218
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 9a0d41b88c1d2958fd3d5b075d54eaa8de522cc3
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100578337"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319992"
 ---
 # <a name="workspace-based-application-insights-resources"></a>작업 영역 기반 Application Insights 리소스
 
 작업 영역 기반 리소스는 Application Insights와 Log Analytics 간의 완전한 통합을 지원합니다. 이제 Application Insights 원격 분석을 공통 Log Analytics 작업 영역으로 보낼 수 있습니다. 이를 통해 애플리케이션, 인프라 및 플랫폼 로그를 통합된 단일 위치에 유지하면서 Log Analytics의 모든 기능에 액세스할 수 있습니다.
 
-또한 리소스에서 일반적인 Azure 역할 기반 액세스 제어 (Azure RBAC)를 허용 하 고 앱 간/작업 영역 쿼리가 필요 하지 않습니다.
+이는 또한 리소스 전반에 걸쳐 일반적인 Azure RBAC(Azure 역할 기반 액세스 제어)를 허용하며 앱/작업 영역 간의 쿼리를 필요로 하지 않습니다.
 
 > [!NOTE]
 > 작업 영역 기반 Application Insights 리소스에 대한 데이터 수집 및 보존 비용은 데이터가 있는 Log Analytics 작업 영역을 통해 청구됩니다. 작업 영역 기반 Application Insights 리소스에 대한 요금 청구에 대해 [자세히 알아봅니다]( ./pricing.md#workspace-based-application-insights).
 
 ## <a name="new-capabilities"></a>새로운 기능
 
-작업 영역 기반 Application Insights를 사용 하면 다음과 같은 Azure Monitor 및 Log Analytics의 최신 기능을 활용할 수 있습니다.
+작업 영역 기반 Application Insights를 사용하면 다음과 같은 Azure Monitor 및 Log Analytics의 최신 기능을 활용할 수 있습니다.
 
-* [CMK (고객 관리 키](../logs/customer-managed-keys.md) )는 사용자만 액세스할 수 있는 암호화 키를 사용 하 여 미사용 데이터 암호화를 제공 합니다.
+* [CMK](../logs/customer-managed-keys.md)(고객 관리형 키)는 사용자만 액세스할 수 있는 암호화 키를 사용하여 미사용 데이터에 대한 암호화를 제공합니다.
 * [Azure Private Link](../logs/private-link-security.md)를 사용하면 프라이빗 엔드포인트를 사용하여 Azure PaaS 서비스를 가상 네트워크에 안전하게 연결할 수 있습니다.
-* [Profiler 및 스냅숏 디버거에 대 한 사용자 고유의 저장소 (BYOS)](./profiler-bring-your-own-storage.md) 를 사용 하면 Application Insights Profiler 및 스냅숏 디버거와 연결 된 모든 데이터에 대 한 전체 암호화 정책, 수명 관리 정책 및 네트워크 액세스를 완벽 하 게 제어할 수 있습니다. 
-* [용량 예약 계층](../logs/manage-cost-storage.md#pricing-model) 을 사용 하면 종 량 제 가격과 비교 하 여 25%까지 절감할 수 있습니다. 
-* Log Analytics 스트리밍 수집을 통한 더 빠른 데이터 수집
+* [프로파일러 및 스냅샷 디버거에 대한 BYOS(사용자 고유 스토리지)](./profiler-bring-your-own-storage.md)를 사용하면 Application Insights Profiler 및 스냅숏 디버거와 연결된 모든 데이터에 대한 미사용 암호화 정책, 수명 관리 정책 및 네트워크 액세스를 완벽하게 제어할 수 있습니다. 
+* [용량 예약 계층](../logs/manage-cost-storage.md#pricing-model)을 사용하면 종량제 가격에 비해 비용을 25%를 절약할 수 있습니다. 
+* Log Analytics 스트리밍 수집을 통해 데이터를 더 빨리 수집합니다.
 
 ## <a name="create-workspace-based-resource"></a>작업 영역 기반 리소스 만들기
 
-[Azure Portal](https://portal.azure.com)에 로그인 하 고 Application Insights 리소스를 만듭니다.
+[Azure Portal](https://portal.azure.com)에 로그인하여 다음과 같이 Application Insights 리소스를 만듭니다.
 
 > [!div class="mx-imgBorder"]
 > ![작업 영역 기반 Application Insights 리소스](./media/create-workspace-resource/create-workspace-based.png)
 
 기존 Log Analytics 작업 영역이 아직 없는 경우 [Log Analytics 작업 영역 만들기 설명서를 참조하세요](../logs/quick-create-workspace.md).
 
-**작업 영역 기반 리소스는 현재 모든 상용 지역 및 Azure Government에서 사용할 수 있습니다.**
+**작업 영역 기반 리소스는 현재 모든 상업용 지역 및 Azure Government에서 사용할 수 있습니다.**
 
 리소스가 만들어지면 **개요** 창에 해당 작업 영역 정보가 표시됩니다.
 
@@ -47,7 +48,7 @@ ms.locfileid: "100578337"
 파란색 링크 텍스트를 클릭하면 새 통합 작업 영역 쿼리 환경을 활용할 수 있는 관련 Log Analytics 작업 영역으로 이동합니다.
 
 > [!NOTE]
-> Application Insights 환경 내에서 Application Insights 클래식 리소스 쿼리, 통합 문서 및 로그 기반 경고에 대해 계속 이전 버전과 완전히 호환됩니다. [새 작업 영역 기반 테이블 구조/스키마](apm-tables.md)를 쿼리/확인하려면 먼저 Log Analytics 작업 영역으로 이동해야 합니다. Application Insights 창 내에서 **로그 (분석)** 를 선택 하면 클래식 Application Insights 쿼리 환경에 액세스할 수 있습니다.
+> Application Insights 환경 내에서 Application Insights 클래식 리소스 쿼리, 통합 문서 및 로그 기반 경고에 대해 계속 이전 버전과 완전히 호환됩니다. [새 작업 영역 기반 테이블 구조/스키마](apm-tables.md)를 쿼리/확인하려면 먼저 Log Analytics 작업 영역으로 이동해야 합니다. Application Insights 창 내에서 **로그(분석)** 를 선택하면 클래식 Application Insights 쿼리 환경에 액세스할 수 있습니다.
 
 ## <a name="copy-the-connection-string"></a>연결 문자열 복사
 
@@ -113,7 +114,7 @@ az monitor app-insights component create --app
 az monitor app-insights component create --app demoApp --location eastus --kind web -g my_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-이 명령에 대한 전체 Azure CLI 설명서는 [Azure CLI 설명서](/cli/azure/ext/application-insights/monitor/app-insights/component#ext-application-insights-az-monitor-app-insights-component-create)를 참조하세요.
+이 명령에 대한 전체 Azure CLI 설명서는 [Azure CLI 설명서](/cli/azure/monitor/app-insights/component#az_monitor_app_insights_component_create)를 참조하세요.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -207,7 +208,7 @@ Application Insights 리소스 창 내에서 **속성** > **작업 영역 변경
 작업 영역 기반 리소스에는 레거시 연속 내보내기 기능이 지원되지 않습니다. 대신 Application Insights 리소스 내에서 **진단 설정** > **진단 설정 추가** 를 선택합니다. 모든 테이블 또는 테이블 하위 집합을 선택하여 스토리지 계정에 보관하거나 Azure Event Hub로 스트리밍할 수 있습니다.
 
 > [!NOTE]
-> 현재 원격 분석 내보내기에 대 한 추가 요금은 없습니다. 이 기능에 대 한 가격 정보는 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에서 제공 됩니다.  청구를 시작 하기 전에 알림이 전송 됩니다. 알림 기간 후에도 계속 사용 하도록 선택 하면 <feature name> 해당 요금에 대 한 요금이 청구 됩니다. 
+> 현재 원격 분석 내보내기에 대한 추가 요금은 없습니다. 이 기능에 대한 가격 책정 정보는 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에서 제공됩니다.  청구가 시작되기 전에 알림이 전송됩니다. 알림 기간 후에도 계속 <feature name>을 사용하도록 선택하면 해당되는 요금이 청구됩니다. 
  
 
 ## <a name="next-steps"></a>다음 단계

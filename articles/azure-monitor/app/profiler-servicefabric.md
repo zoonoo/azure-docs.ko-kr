@@ -1,5 +1,5 @@
 ---
-title: Application Insights를 사용 하 여 라이브 Azure Service Fabric 앱 프로 파일링
+title: Application Insights를 사용하여 라이브 Azure Service Fabric 앱 프로파일링
 description: Service Fabric 애플리케이션에 대해 Profiler 사용
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
@@ -8,10 +8,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 67e7765a1f46c2be5790c11687e06ea624702b9b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100589573"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure Service Fabric 애플리케이션 프로파일링
@@ -27,7 +27,7 @@ Application Insights Profiler는 Azure Diagnostics에 포함되어 있습니다.
 
 환경을 설정하려면 다음 작업을 수행합니다.
 
-1. 프로파일러는 .NET Framework 및 .NET Core를 지원 합니다. .NET Framework를 사용 하는 경우 [.NET Framework 4.6.1](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 이상을 사용 하 고 있는지 확인 합니다. 배포 된 OS가 이상 인지 확인 하는 데에는 충분 `Windows Server 2012 R2` 합니다. 프로파일러는 .NET Core 2.1 및 최신 응용 프로그램을 지원 합니다.
+1. Profiler는 .NET Framework 및 .NET Core를 지원합니다. .NET Framework를 사용하는 경우 [.NET Framework 4.6.1](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 이상을 사용해야 합니다. 배포된 OS가 `Windows Server 2012 R2` 이상인지 확인하면 충분합니다. Profiler는 .NET Core 2.1 이상의 애플리케이션을 지원합니다.
 
 1. 배포 템플릿 파일에서 [Azure Diagnostics](../agents/diagnostics-extension-overview.md) 확장을 검색합니다.
 
@@ -50,7 +50,7 @@ Application Insights Profiler는 Azure Diagnostics에 포함되어 있습니다.
   설정이 올바른 경우 Azure Diagnostics 확장이 설치될 때 Application Insights Profiler가 설치되고 사용하도록 설정됩니다. 
 
 1. Service Fabric 애플리케이션에 Application Insights를 추가합니다.  
-  프로파일러에서 요청에 대 한 프로필을 수집 하려면 응용 프로그램이 Application Insights를 사용 하 여 작업을 추적 해야 합니다. 상태 비저장 Api의 경우 [프로 파일링에 대 한 요청을 추적](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json)하기 위한 지침을 참조할 수 있습니다. 다른 종류의 앱에서 사용자 지정 작업을 추적 하는 방법에 대 한 자세한 내용은 [Application Insights .NET SDK를 사용한 사용자 지정 작업 추적](custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json)을 참조 하세요.
+  Profiler가 요청에 대한 프로필을 수집하려면 애플리케이션이 Application Insights를 사용하여 작업을 추적해야 합니다. 상태 비저장 API의 경우 [프로파일링을 위한 요청 추적](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json)에 대한 지침을 참조할 수 있습니다. 다른 종류의 앱에서 사용자 지정 작업을 추적하는 방법에 대한 자세한 내용은 [Application Insights .NET SDK를 사용한 사용자 지정 작업 추적](custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json)을 참조하세요.
 
 1. 애플리케이션을 다시 배포합니다.
 
@@ -58,5 +58,5 @@ Application Insights Profiler는 Azure Diagnostics에 포함되어 있습니다.
 ## <a name="next-steps"></a>다음 단계
 
 * 애플리케이션에 대한 트래픽을 생성합니다(예: [가용성 테스트](monitor-web-app-availability.md) 시작). 그런 다음, 추적을 10~15분 동안 기다려서 Application Insights 인스턴스로 보내기 시작합니다.
-* Azure Portal의 [Profiler 추적](profiler-overview.md?toc=/azure/azure-monitor/toc.json) 을 참조 하세요.
+* Azure Portal에서 [Profiler 추적](profiler-overview.md?toc=/azure/azure-monitor/toc.json)을 참조하세요.
 * Profiler 문제 해결 지원을 받으려면 [Profiler 문제 해결](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json)을 참조하세요.

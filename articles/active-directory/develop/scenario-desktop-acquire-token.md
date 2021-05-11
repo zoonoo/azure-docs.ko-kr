@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c63ee686ae218a696069465bb8d2d1d7413a998e
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
-ms.translationtype: MT
+ms.openlocfilehash: 99a36eec959fc3f0c669f50b77d7707011e8dac0
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799091"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165104"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>웹 API를 호출하는 데스크톱 앱: 토큰 획득
 
@@ -55,7 +55,6 @@ catch(MsalUiRequiredException ex)
 # <a name="java"></a>[Java](#tab/java)
 
 ```java
-
 Set<IAccount> accountsInCache = pca.getAccounts().join();
 // Take first account in the cache. In a production application, you would filter
 // accountsInCache to get the right account for the user authenticating.
@@ -88,7 +87,6 @@ try {
     }
 }
 return result;
-
 ```
 
 # <a name="macos"></a>[macOS](#tab/macOS)
@@ -110,6 +108,7 @@ MSALSilentTokenParameters *silentParams = [[MSALSilentTokenParameters alloc] ini
     }
 }];
 ```
+
 Swift:
 
 ```swift
@@ -134,9 +133,9 @@ application.acquireTokenSilent(with: silentParameters) { (result, error) in
 
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-MSAL 노드에서 코드 교환에 대 한 증명 키 (PKCE)를 사용 하 여 인증 코드 흐름을 통해 토큰을 획득 합니다. MSAL 노드는 메모리 내 토큰 캐시를 사용 하 여 캐시에 사용자 계정이 있는지 확인 합니다. 있는 경우 계정 개체를 메서드에 전달 하 여 `acquireTokenSilent()` 캐시 된 액세스 토큰을 검색할 수 있습니다.
+MSAL Node에서 PKCE(Proof Key for Code Exchange)를 사용하여 인증 코드 흐름을 통해 토큰을 획득합니다. MSAL Node는 메모리 내 토큰 캐시를 사용하여 캐시에 사용자 계정이 있는지 확인합니다. 계정이 있는 경우에는 계정 개체를 `acquireTokenSilent()` 메서드에 전달하여 캐시된 액세스 토큰을 검색할 수 있습니다.
 
-```JavaScript
+```javascript
 
 const msal = require("@azure/msal-node");
 
@@ -158,7 +157,7 @@ let accounts = await msalTokenCache.getAllAccounts();
             account: accounts[0], // Index must match the account that is trying to acquire token silently
             scopes: ["user.read"],
         };
-    
+
         pca.acquireTokenSilent(silentRequest).then((response) => {
             console.log("\nSuccessful silent token acquisition");
             console.log("\nResponse: \n:", response);
@@ -173,18 +172,18 @@ let accounts = await msalTokenCache.getAllAccounts();
             codeChallenge: challenge, // PKCE Code Challenge
             codeChallengeMethod: "S256" // PKCE Code Challenge Method 
         };
-        
+
         // get url to sign user in and consent to scopes needed for application
         pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
             console.log(response);
-        
+
             const tokenRequest = {
                 code: response["authorization_code"],
                 codeVerifier: verifier // PKCE Code Verifier 
                 redirectUri: "your_redirect_uri",
                 scopes: ["User.Read"],
             };
-            
+
             // acquire a token by exchanging the code
             pca.acquireTokenByCode(tokenRequest).then((response) => {
                 console.log("\nResponse: \n:", response);
@@ -197,7 +196,7 @@ let accounts = await msalTokenCache.getAllAccounts();
 
 # <a name="python"></a>[Python](#tab/python)
 
-```Python
+```python
 result = None
 
 # Firstly, check the cache to see if this end user has signed in before
@@ -208,6 +207,7 @@ if accounts:
 if not result:
     result = app.acquire_token_by_xxx(scopes=config["scope"])
 ```
+
 ---
 
 다음은 데스크톱 애플리케이션에서 토큰을 획득하는 다양한 방법입니다.
@@ -247,7 +247,7 @@ Android에서는 예에서 볼 수 있듯이 `.WithParentActivityOrWindow`를 �
 
 #### <a name="withparentactivityorwindow"></a>WithParentActivityOrWindow
 
-UI는 대화형이기 때문에 중요합니다. `AcquireTokenInteractive`에는 부모 UI를 지원하는 플랫폼에서 부모 UI를 지정할 수 있는 선택적 매개 변수가 하나 있습니다. 데스크톱 애플리케이션에서 사용할 경우 `.WithParentActivityOrWindow`는 플랫폼에 따라 다른 형식을 갖습니다. 또는 화면에 로그인 대화 상자가 표시 되는 위치를 제어 하지 않으려는 경우 선택적 부모 창 매개 변수를 생략 하 여 창을 만들 수 있습니다. 이는 다른 백 엔드 서비스에 대 한 호출을 전달 하는 데 사용 되는 명령줄 기반 응용 프로그램에 적용 되며, 사용자 조작을 위한 windows가 필요 하지 않습니다.
+UI는 대화형이기 때문에 중요합니다. `AcquireTokenInteractive`에는 부모 UI를 지원하는 플랫폼에서 부모 UI를 지정할 수 있는 선택적 매개 변수가 하나 있습니다. 데스크톱 애플리케이션에서 사용할 경우 `.WithParentActivityOrWindow`는 플랫폼에 따라 다른 형식을 갖습니다. 또는 화면에 로그인 대화 상자가 표시되는 위치를 컨트롤하지 않으려는 경우 선택적 부모 창 매개 변수를 생략하여 창을 만들 수 있습니다. 이는 다른 백 엔드 서비스에 대한 호출을 전달하는 데 사용되는 명령줄 기반 애플리케이션에 적용되며, 사용자 조작을 위한 창이 필요하지 않습니다.
 
 ```csharp
 // net45
@@ -257,13 +257,13 @@ WithParentActivityOrWindow(IWin32Window window)
 // Mac
 WithParentActivityOrWindow(NSWindow window)
 
-// .Net Standard (this will be on all platforms at runtime, but only on NetStandard at build time)
+// .NET Standard (this will be on all platforms at runtime, but only on NetStandard at build time)
 WithParentActivityOrWindow(object parent).
 ```
 
 설명:
 
-- .NET Standard에서 필요한 `object`는 Android의 경우 `Activity`, iOS의 경우`UIViewController`, MAC의 경우 `NSWindow`, Windows의 경우 `IWin32Window` 또는 `IntPr`입니다.
+- .NET Standard에서 필요한 `object`는 Android의 경우 `Activity`, iOS의 경우`UIViewController`, Mac의 경우 `NSWindow`, Windows의 경우 `IWin32Window` 또는 `IntPr`입니다.
 - Windows에서는 임베디드 브라우저가 올바른 UI 동기화 컨텍스트를 가져올 수 있도록 UI 스레드에서 `AcquireTokenInteractive`를 호출해야 합니다. UI 스레드에서 호출하지 않으면 메시지가 올바르게 펌프되지 않고 UI가 교착 상태에 빠질 수 있습니다. 이미 UI 스레드에 있지 않은 경우 UI 스레드에서 MSAL(Microsoft 인증 라이브러리)을 호출하는 한 가지 방법은 WPF에서 `Dispatcher`를 호출하는 것입니다.
 - WPF를 사용하는 경우, WPF 컨트롤에서 창을 가져오려면 `WindowInteropHelper.Handle` 클래스를 사용할 수 있습니다. 그러면 호출이 WPF 컨트롤(`this`)에서 이루어집니다.
 
@@ -277,15 +277,26 @@ WithParentActivityOrWindow(object parent).
 
 `WithPrompt()`는 프롬프트를 지정하여 사용자와의 대화형 작업을 제어하는 데 사용됩니다.
 
-![프롬프트 구조의 필드를 표시 하는 이미지입니다. 이러한 상수 값은 WithPrompt () 메서드에서 표시 하는 프롬프트 형식을 정의 하 여 사용자와의 상호 작용을 제어 합니다.](https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png)
+![프롬프트 구조의 필드를 표시하는 이미지입니다. 상수 값은 WithPrompt() 메서드에서 표시하는 프롬프트 형식을 정의하여 사용자와의 대화형 작업을 제어합니다.](https://user-images.githubusercontent.com/34331512/112267137-3f1c3a00-8c32-11eb-97fb-33604311329a.png)
 
 클래스는 다음과 같은 상수를 정의합니다.
 
 - ``SelectAccount``는 사용자가 세션을 보유한 계정을 포함하는 계정 선택 대화 상자를 제시하도록 STS를 강제합니다. 이 옵션은 애플리케이션 개발자가 여러 ID 중에서 사용자가 선택할 수 있도록 하려는 경우에 유용합니다. 이 옵션은 MSAL이 ID 공급자에게 ``prompt=select_account``를 보내도록 유도합니다. 이 옵션이 기본값입니다. 이 옵션은 계정, 사용자의 세션 유무와 같은 사용 가능한 정보를 기반으로 최상의 환경을 제공합니다. 이 옵션은 반드시 변경해야 할 이유가 있지 않은 한 변경하지 마세요.
 - ``Consent``는 애플리케이션 개발자가 이전에 동의가 부여된 경우에도 사용자에게 동의를 묻는 프롬프트를 강제로 표시할 수 있도록 지원합니다. 이 경우 MSAL이 ID 공급자에게 `prompt=consent`를 보냅니다. 이 옵션은 조직 거버넌스에서 애플리케이션이 사용될 때마다 사용자에게 동의 대화 상자를 표시하도록 요구하는 일부 보안 우선 애플리케이션에서 사용할 수 있습니다.
 - ``ForceLogin``은 애플리케이션 개발자가 사용자 프롬프트가 필요하지 않은 경우에도 서비스가 사용자에게 자격 증명 프롬프트를 표시하도록 설정하는 것을 지원합니다. 이 옵션은 토큰 획득에 실패한 경우 사용자가 다시 로그인하도록 할 때 유용합니다. 이 경우 MSAL이 ID 공급자에게 `prompt=login`을 보냅니다. 이 옵션은 조직 거버넌스에서 사용자가 애플리케이션의 특정 부분에 액세스할 때마다 다시 로그인하도록 요구하는 보안 우선 애플리케이션에서 사용되기도 합니다.
+- ``Create``는 ID 공급자에게 `prompt=create`를 전송하여 External Identities에 사용되는 등록 환경을 활성화합니다. 이 프롬프트는 Azure AD B2C 앱 관련하여 전송되어서는 안 됩니다. 자세한 내용은 [앱에 셀프 서비스 등록 사용자 흐름 추가](../external-identities/self-service-sign-up-user-flow.md)를 참조하세요.
 - ``Never``(.NET 4.5 및 WinRT만 해당)는 사용자에게 프롬프트를 표시하지 않으며 그 대신 숨겨진 임베디드 웹 보기에 저장된 쿠키를 사용하려고 합니다. 자세한 내용은 MSAL.NET의 웹 보기를 참조하세요. 이 옵션을 사용하는 것은 실패할 수 있습니다. 실패하는 경우 `AcquireTokenInteractive`가 UI 상호 작용이 필요함을 알리기 위해 예외를 발생시킵니다. 이 경우 다른 `Prompt` 매개 변수를 사용해야 합니다.
 - ``NoPrompt``는 ID 공급자에게 어떤 프롬프트도 보내지 않습니다. 이 옵션은 Azure AD(Azure Active Directory) B2C 프로필 편집 정책에서만 유용합니다. 자세한 내용은 [Azure AD B2C specifics](https://aka.ms/msal-net-b2c-specificities)(Azure AD B2C 관련 사항)를 참조하세요.
+
+#### <a name="withuseembeddedwebview"></a>WithUseEmbeddedWebView
+
+이 메서드를 사용하면 포함된 웹 보기 또는 시스템 웹 보기(사용 가능한 경우)를 강제로 사용하도록 지정할 수 있습니다. 자세한 내용은 [Usage of web browsers](msal-net-web-browsers.md)(웹 브라우저의 용도)를 참조하세요.
+
+```csharp
+var result = await app.AcquireTokenInteractive(scopes)
+                    .WithUseEmbeddedWebView(true)
+                    .ExecuteAsync();
+```
 
 #### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
@@ -457,9 +468,9 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-MSAL 노드에서 코드 교환에 대 한 증명 키 (PKCE)를 사용 하 여 인증 코드 흐름을 통해 토큰을 획득 합니다. 프로세스에는 두 단계가 있습니다. 첫 번째는 응용 프로그램에서 인증 코드를 생성 하는 데 사용할 수 있는 URL을 가져옵니다. 이 URL은 선택한 브라우저에서 열 수 있습니다. 여기서 사용자는 자신의 자격 증명을 입력 하 고 인증 코드를 사용 하 여 `redirectUri` (앱 등록 중에 등록 됨)로 다시 리디렉션됩니다. 둘째, 응용 프로그램은 수신 된 권한 부여 코드를 `acquireTokenByCode()` 액세스 토큰에 대해 교환 하는 메서드로 전달 합니다.
+MSAL Node에서 PKCE(Proof Key for Code Exchange)를 사용하여 인증 코드 흐름을 통해 토큰을 획득합니다. 프로세스에는 두 단계가 있습니다. 우선 애플리케이션에서 인증 코드를 생성하는 데 사용할 수 있는 URL을 가져옵니다. 이 URL은 선택한 브라우저에서 열 수 있습니다. 여기서 사용자는 자신의 자격 증명을 입력하고 인증 코드를 사용하여 `redirectUri`(앱 등록 시 등록됨)로 다시 리디렉션됩니다. 두 번째로, 애플리케이션은 수신된 인증 코드를 액세스 토큰에 대해 교환하는 `acquireTokenByCode()` 메서드로 전달합니다.
 
-```JavaScript
+```javascript
 const msal = require("@azure/msal-node");
 
 const msalConfig = {
@@ -490,7 +501,7 @@ pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
         redirectUri: "your_redirect_uri",
         scopes: ["User.Read"],
     };
-    
+
     // acquire a token by exchanging the code
     pca.acquireTokenByCode(tokenRequest).then((response) => {
         console.log("\nResponse: \n:", response);
@@ -504,7 +515,7 @@ pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
 
 MSAL Python은 대화형 토큰 획득 방법을 직접적으로 제공하지 않습니다. 그 대신 애플리케이션이 사용자 상호 작용 흐름 구현에서 인증 요청을 보내서 인증 코드를 획득하도록 요구합니다. 이 코드를 `acquire_token_by_authorization_code` 메서드로 전달하면 토큰을 가져올 수 있습니다.
 
-```Python
+```python
 result = None
 
 # Firstly, check the cache to see if this end user has signed in before
@@ -516,8 +527,8 @@ if not result:
     result = app.acquire_token_by_authorization_code(
          request.args['code'],
          scopes=config["scope"])
-
 ```
+
 ---
 
 ## <a name="integrated-windows-authentication"></a>Windows 통합 인증
@@ -529,7 +540,7 @@ if not result:
 - Windows 통합 인증은 ‘페더레이션’ 사용자(즉, Active Directory에서 만들어지고 Azure AD에서 지원하는 사용자)만 지원합니다. Active Directory 지원 없이 Azure AD에서 직접 만들어진 사용자(‘관리형’ 사용자)는 이 인증 흐름을 사용할 수 없습니다. 이러한 제한은 사용자 이름 및 암호 흐름에 영향을 주지 않습니다.
 - IWA는 .NET Framework, .NET Core 및 UWP(유니버설 Windows 플랫폼)용으로 작성된 앱을 위한 것입니다.
 - IWA는 [MFA(다단계 인증)](../authentication/concept-mfa-howitworks.md)를 우회하지 않습니다. MFA가 구성된 경우, MFA 질문이 필요하면 IWA가 실패할 수 있습니다. MFA에는 사용자 상호 작용이 필요하기 때문입니다.
-  
+
     IWA는 비대화형이지만 MFA에는 사용자 상호 작용이 필요합니다. ID 공급자가 MFA를 언제 요구할지는 개발자가 아니라 테넌트 관리자가 제어합니다. 일반적으로 다른 국가/지역에서 로그인할 때, VPN을 통해 회사 네트워크에 연결되어 있지 않을 때, 그리고 간혹 VPN을 통해 연결되어 있을 때도 MFA가 필요합니다. 결정적 규칙 세트가 적용되지 않습니다. Azure AD는 AI를 사용하여 MFA가 필요한지 여부를 계속해서 학습합니다. IWA가 실패할 경우 대화형 인증이나 디바이스 코드 흐름과 같은 사용자 프롬프트를 사용하세요.
 
 - `PublicClientApplicationBuilder`에 포함되어 전달되는 인증 기관은 다음이어야 합니다.
@@ -542,19 +553,19 @@ if not result:
   - 또는 테넌트 관리자자 사전에 테넌트의 모든 사용자에 대해 애플리케이션 사용을 동의했어야 합니다.
   - 다시 말하면,
     - 개발자가 직접 Azure Portal에서 **권한 부여** 단추를 선택했어야 합니다.
-    - 또는 테넌트 관리자가 애플리케이션 등록의 **API 권한** 탭에서 **{테넌트 도메인}에 대한 관리자 동의 권한 부여/해지** 를 선택했어야 합니다. 자세한 내용은 [웹 API에 액세스할 수 있는 권한 추가](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)를 참조 하세요.
+    - 또는 테넌트 관리자가 애플리케이션 등록의 **API 권한** 탭에서 **{테넌트 도메인}에 대한 관리자 동의 권한 부여/해지** 를 선택했어야 합니다. 자세한 내용은 [웹 API에 액세스할 수 있는 권한 추가](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)를 참조하세요.
     - 또는 사용자가 애플리케이션에 동의할 방법을 제공했어야 합니다. 자세한 내용은 [개별 사용자의 동의 요청](./v2-permissions-and-consent.md#requesting-individual-user-consent)을 참조하세요.
     - 또는 테넌트 관리자가 애플리케이션에 동의할 방법을 제공했어야 합니다. 자세한 내용은 [관리자 동의](./v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)를 참조하세요.
 
 - 이 흐름은 .NET 데스크톱, .NET Core 및 UWP 앱에 대해 사용하도록 설정됩니다.
 
-승인에 대 한 자세한 내용은 [Microsoft id 플랫폼 권한 및 동의](./v2-permissions-and-consent.md)를 참조 하세요.
+동의에 관한 자세한 내용은 [Microsoft ID 플랫폼 엔드포인트의 권한 및 동의](./v2-permissions-and-consent.md)를 참조하세요.
 
 ### <a name="learn-how-to-use-it"></a>사용 방법 알아보기
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-MSAL.NET에서 다음을 사용 합니다.
+MSAL.NET에서 다음을 사용합니다.
 
 ```csharp
 AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
@@ -636,7 +647,6 @@ static async Task GetATokenForGraph()
    }
  }
 
-
  Console.WriteLine(result.Account.Username);
 }
 ```
@@ -647,7 +657,7 @@ AcquireTokenByIntegratedWindowsAuthentication의 가능한 한정자 목록은 [
 
 다음 발췌본은 [MSAL Java 개발자 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/)에서 가져온 것입니다.
 
-```Java
+```java
 private static IAuthenticationResult acquireTokenIwa() throws Exception {
 
     // Load token cache from file and initialize token cache aspect. The token cache will have
@@ -701,7 +711,7 @@ private static IAuthenticationResult acquireTokenIwa() throws Exception {
 
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-이 흐름은 MSAL 노드에서 아직 지원 되지 않습니다.
+이 흐름은 MSAL Node에서 아직 지원되지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -715,7 +725,7 @@ private static IAuthenticationResult acquireTokenIwa() throws Exception {
 
 ### <a name="this-flow-isnt-recommended"></a>이 흐름은 권장되지 않습니다.
 
-사용자에 게 암호를 묻는 메시지를 표시 하는 것은 안전 하지 않으므로 사용자 이름 및 암호 흐름은 사용 *하지 않는 것이 좋습니다* . 자세한 내용은 [암호의 증가 하는 문제에 대 한 해결책은 무엇 인가요?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/) 를 참조 하세요. Windows 도메인에 가입된 컴퓨터에서 자동으로 토큰을 획득하는 기본 흐름은 [Windows 통합 인증](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication)입니다. [디바이스 코드 흐름](https://aka.ms/msal-net-device-code-flow)을 사용할 수도 있습니다.
+애플리케이션이 사용자에게 암호를 묻는 것은 안전하지 않으므로 이 사용자 이름 및 암호 흐름은 ‘권장되지 않습니다’. 자세한 내용은 [What’s the solution to the growing problem of passwords?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/)(늘어나는 암호 문제에 대한 해결책)를 참조하세요. Windows 도메인에 가입된 컴퓨터에서 자동으로 토큰을 획득하는 기본 흐름은 [Windows 통합 인증](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication)입니다. [디바이스 코드 흐름](https://aka.ms/msal-net-device-code-flow)을 사용할 수도 있습니다.
 
 사용자 이름과 암호를 사용하는 것은 DevOps 시나리오와 같은 몇몇 경우에 유용합니다. 그러나 자체 UI를 제공하는 대화형 시나리오에서 사용자 이름과 암호를 사용하려는 경우에는 다른 방법을 고민하는 것이 좋습니다. 사용자 이름과 암호를 사용하면 다음을 포기하는 것입니다.
 
@@ -950,7 +960,7 @@ static async Task GetATokenForGraph()
 
 다음 발췌본은 [MSAL Java 개발자 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/)에서 가져온 것입니다.
 
-```Java
+```java
 private static IAuthenticationResult acquireTokenUsernamePassword() throws Exception {
 
     // Load token cache from file and initialize token cache aspect. The token cache will have
@@ -1001,9 +1011,9 @@ private static IAuthenticationResult acquireTokenUsernamePassword() throws Excep
 
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-이 추출은 [Msal 노드 dev 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/username-password)에서 가져온 것입니다. 아래 코드 조각에서 사용자 이름 및 암호는 설명을 위해 하드 코딩 된 용도로만 사용 됩니다. 이는 프로덕션에서 피해 야 합니다. 대신 사용자의 사용자 이름/암호를 입력 하 라는 기본 UI를 사용 하는 것이 좋습니다. 
+다음 발췌본은 [MSAL Node 개발자 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/username-password)에서 가져온 것입니다. 아래 코드 조각에서 사용자 이름 및 암호는 설명을 위해서만 하드 코딩되었습니다. 이는 프로덕션에서 피해야 합니다. 대신 사용자에게 사용자 이름/암호 입력 메시지를 표시하는 기본 UI를 사용하는 것이 좋습니다.
 
-```JavaScript
+```javascript
 const msal = require("@azure/msal-node");
 
 const msalConfig = {
@@ -1034,7 +1044,7 @@ pca.acquireTokenByUsernamePassword(usernamePasswordRequest).then((response) => {
 
 다음 발췌본은 [MSAL Python 개발자 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/)에서 가져온 것입니다.
 
-```Python
+```python
 # Create a preferably long-lived app instance which maintains a token cache.
 app = msal.PublicClientApplication(
     config["client_id"], authority=config["authority"],
@@ -1066,9 +1076,9 @@ if not result:
 
 ### <a name="device-code-flow"></a>디바이스 코드 흐름
 
-웹 컨트롤이 없고 이전 흐름을 사용 하지 않을 수 있는 명령줄 도구를 작성 하는 경우 장치 코드 흐름을 사용 합니다.
+웹 컨트롤이 없는 명령줄 도구를 작성하고 있는데 이전 흐름을 사용할 수 없거나 사용하지 않고 싶다면 디바이스 코드 흐름을 사용하세요.
 
-Azure AD를 사용한 대화형 인증에는 웹 브라우저가 필요합니다. 자세한 내용은 [Usage of web browsers](https://aka.ms/msal-net-uses-web-browser)(웹 브라우저의 용도)를 참조하세요. 디바이스 코드 흐름은 웹 브라우저를 제공하지 않는 디바이스나 운영 체제에서 사용자를 인증하기 위해 사용자가 컴퓨터나 휴대폰과 같은 다른 디바이스를 사용하여 대화형으로 로그인할 수 있도록 지원합니다. 응용 프로그램은 장치 코드 흐름을 사용 하 여 이러한 장치나 운영 체제를 위해 설계 된 2 단계 프로세스를 통해 토큰을 가져옵니다. 이러한 애플리케이션의 예로 iOT 또는 CLI(명령줄) 도구에서 실행되는 애플리케이션을 들 수 있습니다. 기본 개념은 다음과 같습니다.
+Azure AD를 사용한 대화형 인증에는 웹 브라우저가 필요합니다. 자세한 내용은 [Usage of web browsers](https://aka.ms/msal-net-uses-web-browser)(웹 브라우저의 용도)를 참조하세요. 디바이스 코드 흐름은 웹 브라우저를 제공하지 않는 디바이스나 운영 체제에서 사용자를 인증하기 위해 사용자가 컴퓨터나 휴대폰과 같은 다른 디바이스를 사용하여 대화형으로 로그인할 수 있도록 지원합니다. 애플리케이션은 디바이스 코드 흐름을 사용하여 해당 디바이스 또는 운영 체제용으로 설계된 2단계 프로세스를 통해 토큰을 가져옵니다. 이러한 애플리케이션의 예로 iOT 또는 CLI(명령줄) 도구에서 실행되는 애플리케이션을 들 수 있습니다. 기본 개념은 다음과 같습니다.
 
 1. 사용자 인증이 필요할 때마다 앱이 사용자에게 코드를 제공합니다. 사용자는 다른 디바이스(예: 인터넷에 연결된 스마트폰)를 사용하여 URL(예: `https://microsoft.com/devicelogin`)로 이동해야 합니다. 그런 다음 사용자에게 코드를 입력하라는 메시지가 표시됩니다. 사용자가 코드를 입력하면 웹 페이지는 동의 프롬프트, 다단계 인증(필요한 경우) 등을 포함하는 일반적인 인증 환경으로 사용자를 안내합니다.
 
@@ -1092,7 +1102,7 @@ Azure AD를 사용한 대화형 인증에는 웹 브라우저가 필요합니다
 
   ![DeviceCodeResult 속성](https://user-images.githubusercontent.com/13203188/56024968-7af1b980-5d11-11e9-84c2-5be2ef306dc5.png)
 
-다음 샘플 코드는 개요 수 있는 예외의 종류와 완화에 대 한 설명을 포함 하 여 대부분의 최신 사례를 제공 합니다. 완전 한 기능을 갖춘 코드 샘플은 GitHub의 [dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) 를 참조 하세요.
+다음 샘플 코드에서는 가장 최근 사례의 개요와 함께 발생할 수 있는 예외와 완화에 대한 설명도 제시합니다. 완전한 기능을 갖춘 코드 샘플은 GitHub의 [active-directory-dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2)를 참조하세요.
 
 ```csharp
 private const string ClientId = "<client_guid>";
@@ -1244,9 +1254,9 @@ private static IAuthenticationResult acquireTokenDeviceCode() throws Exception {
 
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-이 추출은 [Msal 노드 dev 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/device-code)에서 가져온 것입니다.
+다음 발췌본은 [MSAL Node 개발자 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/device-code)에서 가져온 것입니다.
 
-```JavaScript
+```javascript
 const msal = require('@azure/msal-node');
 
 const msalConfig = {
@@ -1275,7 +1285,7 @@ pca.acquireTokenByDeviceCode(deviceCodeRequest).then((response) => {
 
 다음 발췌본은 [MSAL Python 개발자 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/)에서 가져온 것입니다.
 
-```Python
+```python
 # Create a preferably long-lived app instance which maintains a token cache.
 app = msal.PublicClientApplication(
     config["client_id"], authority=config["authority"],
@@ -1354,7 +1364,7 @@ ADAL.NET 3.x, ADAL.NET 5.x 및 MSAL.NET 간에 SSO 상태를 공유하도록 토
 
 ### <a name="simple-token-cache-serialization-msal-only"></a>간단한 토큰 캐시 직렬화(MSAL만 해당)
 
-다음은 데스크톱 애플리케이션의 토큰 캐시를 사용자 지정 직렬화하는 간단한 예입니다. 여기서 사용자 토큰 캐시는 응용 프로그램과 동일한 폴더에 있는 파일 또는 앱이 [패키지 된 데스크톱 응용 프로그램](/windows/msix/desktop/desktop-to-uwp-behind-the-scenes)일 경우 앱 별 사용자 당 폴더에 있습니다. 전체 코드는 다음 샘플을 참조 하세요. [활성-디렉터리-dotnet-데스크톱-msgraph-v2](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2).
+다음은 데스크톱 애플리케이션의 토큰 캐시를 사용자 지정 직렬화하는 간단한 예입니다. 여기서 사용자 토큰 캐시는 애플리케이션과 동일한 폴더에 있는 파일 또는 앱이 [패키지된 데스크톱 애플리케이션](/windows/msix/desktop/desktop-to-uwp-behind-the-scenes)일 경우 사용자별 앱별 폴더에 있습니다. 전체 코드는 다음 샘플을 참조하세요. [active-directory-dotnet-desktop-msgraph-v2](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2).
 
 애플리케이션을 빌드한 후에 ``TokenCacheHelper.EnableSerialization()``을 호출하고 애플리케이션 `UserTokenCache`를 전달하여 직렬화를 사용하도록 설정합니다.
 
@@ -1447,7 +1457,6 @@ app = PublicClientApplicationBuilder.Create(clientId)
 FilesBasedTokenCacheHelper.EnableSerialization(app.UserTokenCache,
                                                unifiedCacheFileName,
                                                adalV3cacheFileName);
-
 ```
 
 이번에는 도우미 클래스가 다음 코드와 같습니다.
@@ -1574,10 +1583,10 @@ namespace CommonCacheMsalV3
 }
 ```
 
-## <a name="advanced-accessing-the-users-cached-tokens-in-background-apps-and-services"></a>고급 백그라운드 앱 및 서비스에서 사용자의 캐시 된 토큰 액세스
+## <a name="advanced-accessing-the-users-cached-tokens-in-background-apps-and-services"></a>(고급) 백그라운드 앱 및 서비스에서 사용자의 캐싱된 토큰에 액세스
 
 [!INCLUDE [advanced-token-caching](../../../includes/advanced-token-cache.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
-이 시나리오의 다음 문서로 이동 하 여 [데스크톱 앱에서 WEB API를 호출](scenario-desktop-call-api.md)합니다.
+이 시나리오의 다음 문서로 이동하여 [데스크톱 앱에서 웹 API를 호출](scenario-desktop-call-api.md)합니다.

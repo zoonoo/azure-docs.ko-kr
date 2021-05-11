@@ -1,6 +1,6 @@
 ---
-title: Azure Front 도어 표준/프리미엄 구성 문제 해결
-description: 이 자습서에서는 Azure Front 도어 표준/프리미엄 인스턴스에 발생할 수 있는 일반적인 문제 중 일부를 해결 하는 방법에 대해 알아봅니다.
+title: Azure Front Door 표준/프리미엄 구성 문제 해결
+description: 이 자습서에서는 Azure Front Door 표준/프리미엄 인스턴스에 발생할 수 있는 일반적인 문제 중 일부를 해결하는 방법에 대해 알아봅니다.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
@@ -8,86 +8,86 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: qixwang
 ms.openlocfilehash: 4690a513494d794377ee0c2e8cfb101e8fd66a0f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101100200"
 ---
-# <a name="troubleshooting-common-routing-problems-with-azure-front-door-standardpremium"></a>Azure Front 도어 표준/프리미엄의 일반적인 라우팅 문제 해결
+# <a name="troubleshooting-common-routing-problems-with-azure-front-door-standardpremium"></a>Azure Front Door 표준/프리미엄의 일반적인 라우팅 문제 해결
 
-이 문서에서는 Azure Front 도어 구성에 직면 하는 일반적인 라우팅 문제를 해결 하는 방법을 설명 합니다.
+이 문서에서는 Azure Front Door 구성에서 발생할 수 있는 몇 가지 일반적인 라우팅 문제를 해결하는 방법을 설명합니다.
 
-## <a name="503-response-from-azure-front-door-after-a-few-seconds"></a>몇 초 후에 Azure Front 도어에서 응답 503
+## <a name="503-response-from-azure-front-door-after-a-few-seconds"></a>몇 초 후에 Azure Front Door에서 503 응답
 
 ### <a name="symptom"></a>증상
 
-* Azure 전면 도어를 거치지 않고 백 엔드로 전송 되는 일반 요청이 성공 합니다. Azure 전면 도어를 통해 503 오류 응답이 발생 합니다.
-* Azure 전면 도어의 오류는 일반적으로 약 30 초 후에 표시 됩니다.
+* Azure Front Door를 거치지 않고 백 엔드로 전송되는 일반 요청이 성공합니다. Azure Front Door를 통해 503 오류 응답이 발생합니다.
+* Azure Front Door의 오류는 일반적으로 약 30초 후에 표시됩니다.
 
 ### <a name="cause"></a>원인
 
 이 문제의 원인은 다음 두 가지 중 하나일 수 있습니다.
  
-* 원본이 Azure Front 도어에서 요청을 받기 위해 구성 된 시간 제한 (기본값은 30 초) 보다 오래 걸리고 있습니다.
-* Azure 전면 도어에서 요청에 대 한 응답을 보내는 데 걸리는 시간이 제한 시간 값 보다 오래 걸리고 있습니다. 
+* 원본이 Azure Front Door에서 요청을 받기 위해 구성된 시간 제한(기본값은 30초)보다 오래 걸리고 있습니다.
+* Azure Front Door에서 요청에 대한 응답을 보내는 데 걸리는 시간이 제한 시간 값보다 오래 걸리고 있습니다. 
 
 ### <a name="troubleshooting-steps"></a>문제 해결 단계
 
-* Azure 전면 도어를 거치지 않고 백 엔드에 직접 요청을 보냅니다. 백 엔드가 일반적으로 응답 하는 데 걸리는 시간을 확인 합니다.
-* Azure Front 도어를 통해 요청을 보내고 503 응답을 받고 있는지 확인 합니다. 그렇지 않은 경우에는 문제가 시간 제한 문제가 아닐 수 있습니다. 지원에 문의
-* Azure 전면 도어를 통해 503 오류 응답 코드를 생성 하는 경우 `sendReceiveTimeout` Azure Front 도어에 대해 필드를 구성 합니다. 기본 시간 제한을 최대 4 분 (240 초)으로 확장할 수 있습니다. 설정이 아래에 `Endpoint Setting` 있고가 호출 됩니다 `Origin response timeout` . 
+* Azure Front Door를 거치지 않고 백 엔드에 직접 요청을 보냅니다. 백 엔드가 일반적으로 응답하는 데 걸리는 시간을 확인합니다.
+* Azure Front Door를 통해 요청을 보내고 503 응답을 받고 있는지 확인합니다. 그러지 않은 경우에는 시간 제한 문제가 아닐 수 있습니다. 지원에 문의
+* Azure Front Door를 통해 503 오류 응답 코드를 생성하는 경우 Azure Front Door에 대해 `sendReceiveTimeout` 필드를 구성합니다. 기본 시간 제한을 최대 4분(240 초)으로 확장할 수 있습니다. 설정은 `Endpoint Setting`아래에 있고 `Origin response timeout`라고 합니다. 
 
-## <a name="requests-sent-to-the-custom-domain-return-a-400-status-code"></a>사용자 지정 도메인에 전송 된 요청은 400 상태 코드를 반환 합니다.
+## <a name="requests-sent-to-the-custom-domain-return-a-400-status-code"></a>사용자 지정 도메인에 전송된 요청은 400 상태 코드를 반환합니다.
 
 ### <a name="symptom"></a>증상
 
-* Azure Front 도어 인스턴스를 만들었지만 도메인 또는 프런트 엔드 호스트에 대 한 요청이 HTTP 400 상태 코드를 반환 합니다.
-* 구성한 프런트 엔드 호스트에 대 한 사용자 지정 도메인에 대 한 DNS 매핑을 만들었습니다. 그러나 사용자 지정 도메인 호스트 이름에 요청을 보내면 HTTP 400 상태 코드가 반환 됩니다. 구성 된 백 엔드로 라우팅하는 것은 아닙니다.
+* Azure Front Door 인스턴스를 만들었지만 도메인 또는 프런트 엔드 호스트에 대한 요청이 HTTP 400 상태 코드를 반환하고 있습니다.
+* 사용자 지정 도메인에 사용자가 구성한 프런트 엔드 호스트에 대한 DNS 매핑을 만들었습니다. 그러나 사용자 지정 도메인 호스트 이름에 요청을 보내면 HTTP 400 상태 코드가 반환됩니다. 구성된 백 엔드로 라우팅하는 것은 아닙니다.
 
 ### <a name="cause"></a>원인
 
-프런트 엔드 호스트로 추가 된 사용자 지정 도메인에 대 한 라우팅 규칙을 구성 하지 않은 경우이 문제가 발생 합니다. 해당 프런트 엔드 호스트에 대해 라우팅 규칙을 명시적으로 추가 해야 합니다. Azure Front 도어 하위 도메인 (*. azurefd.net)의 프런트 엔드 호스트에 대해 라우팅 규칙이 이미 구성 된 경우에도 마찬가지입니다.
+프런트 엔드 호스트로 추가된 사용자 지정 도메인에 대한 라우팅 규칙을 구성하지 않은 경우 이 문제가 발생합니다. 해당 프런트 엔드 호스트에 대해 라우팅 규칙을 명시적으로 추가해야 합니다. Azure Front Door 하위 도메인(*.azurefd.net)의 프런트 엔드 호스트에 대해 라우팅 규칙이 이미 구성된 경우에도 마찬가지입니다.
 
 ### <a name="troubleshooting-steps"></a>문제 해결 단계
 
-사용자 지정 도메인에 대 한 라우팅 규칙을 추가 하 여 선택한 원본 그룹으로 트래픽을 보냅니다.
+사용자 지정 도메인에 대한 라우팅 규칙을 추가하여 선택한 원본 그룹으로 트래픽을 보냅니다.
 
-## <a name="azure-front-door-doesnt-redirect-http-to-https"></a>Azure Front 도어가 HTTP를 HTTPS로 리디렉션하지 않음
+## <a name="azure-front-door-doesnt-redirect-http-to-https"></a>Azure Front Door가 HTTP를 HTTPS로 리디렉션하지 않습니다.
 
 ### <a name="symptom"></a>증상
 
-Azure 전면 도어에는 HTTP를 HTTPS로 리디렉션하는 라우팅 규칙이 있지만 도메인에 액세스 하는 것은 HTTP를 프로토콜로 계속 유지 합니다.
+Azure Front Door에는 HTTP를 HTTPS로 리디렉션하는 라우팅 규칙이 있지만 도메인에 액세스하는 것은 HTTP를 프로토콜로 계속 유지합니다.
 
 ### <a name="cause"></a>원인
 
-이 동작은 Azure Front 문에 대해 라우팅 규칙을 올바르게 구성 하지 않은 경우에 발생할 수 있습니다. 기본적으로 현재 구성은 구체적이 아니며 충돌 하는 규칙이 있을 수 있습니다.
+이 동작은 Azure Front Door에 대해 라우팅 규칙을 올바르게 구성하지 않은 경우에 발생할 수 있습니다. 기본적으로 현재 구성은 구체적이 아니며 충돌하는 규칙이 있을 수 있습니다.
 
 ### <a name="troubleshooting-steps"></a>문제 해결 단계
 
 
-## <a name="request-to-the-frontend-host-name-returns-a-411-status-code"></a>프런트 엔드 호스트 이름에 대 한 요청은 411 상태 코드를 반환 합니다.
+## <a name="request-to-the-frontend-host-name-returns-a-411-status-code"></a>프런트 엔드 호스트 이름에 대한 요청은 411 상태 코드를 반환합니다.
 
 ### <a name="symptom"></a>증상
 
-Azure Front 도어 표준/프리미엄 인스턴스를 만들고 프런트 엔드 호스트, 해당 호스트에 하나 이상의 원본 그룹, 프런트 엔드 호스트를 원본 그룹에 연결 하는 라우팅 규칙을 구성 했습니다. HTTP 411 상태 코드가 반환 되기 때문에 구성 된 프런트 엔드 호스트로 요청이 이동할 때 콘텐츠를 사용할 수 없는 것 같습니다.
+Azure Front Door 표준/프리미엄 인스턴스를 만들었고 프런트 엔드 호스트, 하나 이상의 원본이 있는 원본 그룹, 프런트 엔드 호스트를 원본 그룹에 연결하는 라우팅 규칙을 구성했습니다. HTTP 411 상태 코드가 반환된 것으로 보아 구성된 프런트 엔드 호스트로 요청을 보낼 때 콘텐츠가 보이지 않는 것 같습니다.
 
-이러한 요청에 대 한 응답에는 설명 문을 포함 하는 HTML 오류 페이지가 응답 본문에 포함 될 수도 있습니다. 예를 들어 `HTTP Error 411. The request must be chunked or have a content length`을 참조하십시오.
+요청에 대한 응답에는 설명문을 포함하는 HTML 오류 페이지가 응답 본문에 포함될 수도 있습니다. 예: `HTTP Error 411. The request must be chunked or have a content length`
 
 ### <a name="cause"></a>원인
 
-이 증상의 원인에는 여러 가지가 있을 수 있습니다. 전반적인 이유는 HTTP 요청이 완전히 RFC 규격이 아니라는 것입니다. 
+이 증상을 일으키는 원인은 여러가지가 있을 수 있습니다. 전반적인 이유는 HTTP 요청이 완전히 RFC 규격이 아니라는 것입니다. 
 
-비준수의 예는를 사용 하는 등의 방법으로 `POST` 또는 헤더 없이 전송 되는 요청입니다 `Content-Length` `Transfer-Encoding` `curl -X POST https://example-front-door.domain.com` . 이 요청은 [RFC 7230](https://tools.ietf.org/html/rfc7230#section-3.3.2)에 설정 된 요구 사항을 충족 하지 않습니다. Azure 전면 도어는 HTTP 411 응답을 사용 하 여 차단 합니다.
+규격을 준수하지 않은 예는 `Content-Length` 또는 `Transfer-Encoding` 헤더 없이(예: `curl -X POST https://example-front-door.domain.com` 사용) 전송된 `POST` 요청이 있습니다. 이 요청은 [RFC 7230](https://tools.ietf.org/html/rfc7230#section-3.3.2)에서 설정된 요구 사항을 충족하지 않습니다. Azure Front Door는 HTTP 411 응답을 사용하여 차단합니다.
 
-이 동작은 Azure Front 도어의 WAF (웹 응용 프로그램 방화벽) 기능과는 별개입니다. 현재이 동작을 사용 하지 않도록 설정할 수 있는 방법은 없습니다. WAF 기능이 사용 되지 않는 경우에도 모든 HTTP 요청은 요구 사항을 충족 해야 합니다.
+이 동작은 Azure Front Door의 WAF(웹 애플리케이션 방화벽) 기능과는 별개입니다. 현재 이 동작을 사용하지 않도록 설정할 수 있는 방법은 없습니다. WAF 기능이 사용되지 않는 경우에도 모든 HTTP 요청은 요구 사항을 충족해야 합니다.
 
 ### <a name="troubleshooting-steps"></a>문제 해결 단계
 
-- 요청이 필요한 Rfc에 설정 된 요구 사항을 준수 하는지 확인 합니다.
+- 요청이 필요한 RFC에 설정된 요구 사항을 준수하는지 확인합니다.
 
-- 요청에 대 한 응답으로 반환 되는 HTML 메시지 본문을 기록해 둡니다. 메시지 본문은 요청이 비규격 인 경우를 정확 하 게 설명 *하* 는 경우가 많습니다.
+- 요청에 대한 응답으로 반환되는 HTML 메시지 본문을 기록해 둡니다. 메시지 본문은 요청이 정확히 *어떻게* 규격을 준수하지 않았는지 설명하는 경우가 많습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[전면 도어 표준/프리미엄을 만드는](create-front-door-portal.md)방법에 대해 알아봅니다.
+[Front Door 표준/프리미엄 만드는](create-front-door-portal.md) 방법 알아보기.

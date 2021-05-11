@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dac4b461d4506015f0ef374eae37f67c445791d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 52b450ecc8aff379dbdb8d58f9b7609cf730ad27
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98107874"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731669"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory Seamless Single Sign-On: 질문과 대답
 
@@ -62,7 +62,7 @@ Seamless SSO는 Azure Government 클라우드에 사용할 수 있습니다. 자
 
 **Q: Seamless SSO에서는 `userPrincipalName` 대신 `Alternate ID`를 사용자 이름으로 지원하나요?**
 
-예. Seamless SSO는 [여기서](how-to-connect-install-custom.md) 보여주듯이 Azure AD Connect에서 구성할 때 `Alternate ID`를 사용자 이름으로 지원합니다. 모든 Microsoft 365 응용 프로그램은 지원 하지 않습니다 `Alternate ID` . 지원 내용은 특정 애플리케이션의 설명서를 참조하세요.
+예. Seamless SSO는 [여기서](how-to-connect-install-custom.md) 보여주듯이 Azure AD Connect에서 구성할 때 `Alternate ID`를 사용자 이름으로 지원합니다. 일부 Microsoft 365 애플리케이션에서 `Alternate ID`를 지원하지 않습니다. 지원 내용은 특정 애플리케이션의 설명서를 참조하세요.
 
 **Q: [Azure AD 조인](../devices/overview.md) 및 Seamless SSO에서 제공하는 Single Sign-On 환경 간에 차이점은 무엇인가요?**
 
@@ -84,8 +84,8 @@ Seamless SSO는 Azure Government 클라우드에 사용할 수 있습니다. 자
 Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를 따릅니다.
 
    > [!NOTE]
-   >아래 단계를 수행 하려면 도메인 관리자와 전역 관리자 자격 증명이 모두 필요 합니다.
-   >도메인 관리자가 아닌 사용자에 게 도메인 관리자의 권한이 할당 된 경우 다음을 호출 해야 합니다. `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
+   >아래 단계를 수행하려면 도메인 관리자와 글로벌 관리자 자격 증명이 모두 필요합니다.
+   >도메인 관리자가 아니고 도메인 관리자로부터 권한을 할당받으면 `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`를 호출해야 합니다.
 
    **1단계. Seamless SSO가 활성화된 AD 포리스트 목록 가져오기**
 
@@ -110,7 +110,7 @@ Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를
    3. 기능을 설정한 각 AD 포리스트에 대해 위의 단계를 반복합니다.
    
   >[!NOTE]
-   >Azure AD Connect 없는 포리스트를 업데이트 하는 경우 글로벌 카탈로그 서버 (TCP 3268 및 TCP 3269)에 대 한 연결을 사용할 수 있는지 확인 합니다.
+   >Azure AD Connect 이외의 포리스트를 업데이트하는 경우 글로벌 카탈로그 서버(TCP 3268 및 TCP 3269)에 대한 연결을 사용할 수 있는지 확인합니다.
 
    >[!IMPORTANT]
    >`Update-AzureADSSOForest` 명령을 두 번 이상 실행하지 _않아야 합니다_. 그렇지 않으면 해당 기능은 사용자의 Kerberos 티켓이 만료되고 온-프레미스 Active Directory에 의해 재발급될 때까지 작동하지 않습니다.
@@ -126,7 +126,7 @@ Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를
 
    마법사를 완료하면 테넌트에서 Seamless SSO를 사용하지 않도록 설정됩니다. 그러나 다음과 같은 메시지가 화면에 표시됩니다.
 
-   “Single Sign-On을 이제 사용하지 않도록 설정했습니다. 하지만 정리를 완료하기 위해 수행할 추가 수동 단계가 남아 있습니다. 자세한 정보”
+   “Single Sign-On을 이제 사용하지 않도록 설정했습니다. 하지만 정리를 완료하기 위해 수행할 추가 수동 단계가 남아 있습니다. [자세한 정보](tshoot-connect-sso.md#step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature)”
 
    정리 과정을 완료하려면 Azure AD Connect를 실행 중인 온-프레미스 서버에서 2단계 및 3단계를 따릅니다.
 
@@ -140,7 +140,7 @@ Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를
    4. 관리자 권한으로 PowerShell을 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 이 명령으로 테넌트의 전역 관리자 자격 증명을 입력하라는 팝업 메시지가 표시됩니다.
    5. `Enable-AzureADSSO -Enable $false`을 호출합니다.
    
-   이 시점에서 원활한 SSO는 사용할 수 없지만 원활한 SSO를 사용 하도록 설정 하려는 경우 도메인은 구성 된 상태로 유지 됩니다. 원활한 SSO 구성에서 도메인을 완전히 제거 하려면 위의 5 단계를 완료 한 후 다음 cmdlet을 호출 `Disable-AzureADSSOForest -DomainFqdn <fqdn>` 합니다.
+   이 시점에서 Seamless SSO는 사용하지 않게 설정되어 있지만, Seamless SSO를 다시 사용으로 설정하려는 경우 도메인은 구성된 상태로 유지됩니다. Seamless SSO 구성에서 도메인을 완전히 제거하려면 위의 5단계를 완료한 후 `Disable-AzureADSSOForest -DomainFqdn <fqdn>` cmdlet을 호출합니다.
 
    >[!IMPORTANT]
    >PowerShell을 사용하여 Seamless SSO를 사용하지 않도록 설정하면 Azure AD Connect의 상태를 변경하지 않습니다. Seamless SSO는 **사용자 로그인 변경** 페이지에서 사용하도록 설정된 것으로 표시됩니다.

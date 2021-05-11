@@ -8,17 +8,17 @@ ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1da688dfb00b26ca6b561d5aa0fb548c221381c5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85514572"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스에 원격으로 연결
 
 ## <a name="overview"></a>개요
 
-Windows PowerShell을 통해 디바이스에 원격으로 연결할 수 있습니다. 이러한 방식으로 연결하면 메뉴가 표시되지 않습니다. (장치에서 직렬 콘솔을 사용 하 여 연결 하는 경우에만 메뉴가 표시 됩니다.) Windows PowerShell 원격을 사용 하 여 특정 runspace에 연결 합니다. 표시 언어를 지정할 수도 있습니다.
+Windows PowerShell을 통해 디바이스에 원격으로 연결할 수 있습니다. 이러한 방식으로 연결하면 메뉴가 표시되지 않습니다. 디바이스에서 직렬 콘솔을 사용하여 연결하는 경우에만 메뉴가 표시됩니다. Windows PowerShell 원격 기능을 사용하여 특정 runspace에 연결합니다. 표시 언어를 지정할 수도 있습니다.
 
 Windows PowerShell 원격을 사용하여 디바이스를 관리하는 방법에 대한 자세한 내용은 [StorSimple용 Windows PowerShell을 사용하여 StorSimple 디바이스 관리](storsimple-8000-windows-powershell-administration.md)를 참조하세요.
 
@@ -54,7 +54,7 @@ Azure Portal에서 다음 단계를 수행하여 HTTP를 통한 원격 관리를
 1. StorSimple 디바이스 관리자 서비스로 이동합니다. **디바이스** 를 선택하고 원격 관리용으로 구성하려는 디바이스를 클릭하여 선택합니다. **디바이스 설정 &gt; 보안** 으로 이동합니다.
 2. **보안 설정** 블레이드에서 **원격 관리** 를 클릭합니다.
 3. **원격 관리** 블레이드에서 **원격 관리 사용** 을 **예** 로 설정합니다.
-4. 이제 HTTP를 사용하여 연결하도록 선택할 수 있습니다. 기본값은 HTTPS를 통해 연결 하는 것입니다. HTTP가 선택 되어 있는지 확인 합니다.
+4. 이제 HTTP를 사용하여 연결하도록 선택할 수 있습니다. 기본값은 HTTPS를 통해 연결하는 것입니다. HTTP가 선택되어 있는지 확인합니다.
    
    > [!NOTE]
    > HTTP를 통한 연결은 신뢰할 수 있는 네트워크에서만 허용됩니다.
@@ -133,7 +133,7 @@ Azure Portal에서 다음 단계를 수행하여 HTTPS를 통한 원격 관리�
 1. StorSimple 디바이스 관리자 서비스로 이동합니다. **디바이스** 를 선택하고 원격 관리용으로 구성하려는 디바이스를 클릭하여 선택합니다. **디바이스 설정 &gt; 보안** 으로 이동합니다.
 2. **보안 설정** 블레이드에서 **원격 관리** 를 클릭합니다.
 3. **원격 관리 사용** 을 **예** 로 설정합니다.
-4. 이제 HTTPS를 사용하여 연결하도록 선택할 수 있습니다. 기본값은 HTTPS를 통해 연결 하는 것입니다. HTTPS가 선택 되어 있는지 확인 합니다.
+4. 이제 HTTPS를 사용하여 연결하도록 선택할 수 있습니다. 기본값은 HTTPS를 통해 연결하는 것입니다. HTTPS가 선택되어 있는지 확인합니다.
 5. ...를 클릭한 후 **원격 관리 인증서 다운로드** 를 클릭합니다. 이 파일을 저장할 위치를 지정합니다. 디바이스에 연결하는 데 사용할 클라이언트 또는 호스트 컴퓨터에 이 인증서를 설치해야 합니다.
 6. **저장** 을 클릭하고 확인하라는 메시지가 표시되면 **예** 를 클릭합니다.
 
@@ -176,7 +176,7 @@ Azure Portal에서 다음 단계를 수행하여 HTTPS를 통한 원격 관리�
 
 HTTPS 세션을 사용하는 원격 연결을 위해 호스트 컴퓨터를 준비하려면 다음 절차를 따르세요.
 
-* [.Cer 파일을 클라이언트 또는 원격 호스트의 루트 저장소로 가져옵니다](#to-import-the-certificate-on-the-remote-host).
+* [클라이언트 또는 원격 호스트의 루트 저장소로 .cer 파일을 가져옵니다](#to-import-the-certificate-on-the-remote-host).
 * [원격 호스트의 호스트 파일에 디바이스 일련 번호를 추가합니다](#to-add-device-serial-numbers-to-the-remote-host).
 
 아래에서는 앞서 나온 각 절차에 대해 설명합니다.
@@ -203,11 +203,11 @@ HTTPS 세션을 사용하는 원격 연결을 위해 호스트 컴퓨터를 준�
 
 ### <a name="connect-to-the-device-from-the-remote-host"></a>원격 호스트에서 디바이스에 연결
 
-Windows PowerShell 및 TLS를 사용 하 여 원격 호스트 또는 클라이언트에서 장치의 SSAdmin 세션을 시작 합니다. SSAdmin 세션은 디바이스의 [직렬 콘솔](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) 메뉴에 있는 옵션 1에 매핑됩니다.
+Windows PowerShell 및 TLS를 사용하여 원격 호스트 또는 클라이언트에서 디바이스의 SSAdmin 세션에 들어갑니다. SSAdmin 세션은 디바이스의 [직렬 콘솔](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) 메뉴에 있는 옵션 1에 매핑됩니다.
 
 원격 Windows PowerShell 연결을 설정하려는 컴퓨터에서 다음 절차를 따르세요.
 
-#### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-tls"></a>Windows PowerShell 및 TLS를 사용 하 여 장치에서 SSAdmin 세션을 시작 하려면
+#### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-tls"></a>Windows PowerShell 및 TLS를 사용하여 디바이스의 SSAdmin 세션에 들어가려면
 1. 관리자 권한으로 Windows PowerShell 세션을 시작합니다. Windows 10 클라이언트를 사용하는 경우, 기본적으로 Windows 원격 관리 서비스가 수동으로 설정되어 있습니다. 다음을 입력하여 서비스를 시작해야 할 수 있습니다.
 
     `Start-Service WinRM`
@@ -232,9 +232,9 @@ Windows PowerShell 및 TLS를 사용 하 여 원격 호스트 또는 클라이�
 5. 유형:
    
      `Enter-PSSession $session`
-6. 몇 분 정도 기다린 후 TLS를 통해 HTTPS를 통해 장치에 연결 됩니다. 디바이스에 연결되었음을 나타내는 메시지가 표시됩니다.
+6. 몇 분 정도 기다리면 HTTPS over TLS를 통해 디바이스에 연결됩니다. 디바이스에 연결되었음을 나타내는 메시지가 표시됩니다.
    
-    ![HTTPS 및 TLS를 사용 하는 PowerShell 원격](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
+    ![HTTPS 및 TLS를 사용하는 PowerShell 원격 기능](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
 ## <a name="next-steps"></a>다음 단계
 

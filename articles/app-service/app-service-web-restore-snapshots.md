@@ -1,16 +1,16 @@
 ---
-title: 스냅숏에서 앱 복원
-description: 스냅샷에서 앱을 복원하는 방법에 대해 알아봅니다. 자동 섀도 복사본을 사용 하 여 프리미엄 계층의 예기치 않은 데이터 손실 로부터 복구 합니다.
+title: 스냅샷에서 앱 복원
+description: 스냅샷에서 앱을 복원하는 방법에 대해 알아봅니다. 자동 섀도 복사본을 사용하여 프리미엄 계층의 예기치 않은 데이터 손실로부터 복구합니다.
 ms.assetid: 4164f9b5-f735-41c6-a2bb-71f15cdda417
 ms.topic: article
 ms.date: 04/04/2018
 ms.reviewer: nicking
 ms.custom: seodec18
 ms.openlocfilehash: f7edb632559dc8da2de32c58d994a7c51b1b09e8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86169976"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>스냅샷에서 Azure의 앱 복원
@@ -35,17 +35,17 @@ ms.locfileid: "86169976"
 
 ## <a name="restore-an-app-from-a-snapshot"></a>스냅샷에서 앱 복원
 
-1. [Azure Portal](https://portal.azure.com)의 앱 **설정** 페이지에서 **백업** 을 클릭 하 여 **백업** 페이지를 표시 합니다. 그런 다음, **스냅샷(미리 보기)** 섹션에서 **복원** 을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)에서 앱의 **설정** 페이지에서 **백업** 을 클릭하여 **백업** 페이지를 표시합니다. 그런 다음, **스냅샷(미리 보기)** 섹션에서 **복원** 을 클릭합니다.
    
-    ![스냅숏 백업에서 앱을 복원 하는 방법을 보여 주는 스크린샷](./media/app-service-web-restore-snapshots/1.png)
+    ![스냅샷 백업에서 앱을 복원하는 방법을 보여 주는 스크린샷](./media/app-service-web-restore-snapshots/1.png)
 
 2. **복원** 페이지에서 복원할 스냅샷을 선택합니다.
    
-    ![복원할 스냅숏을 선택 하는 방법을 보여 주는 스크린샷 ](./media/app-service-web-restore-snapshots/2.png)
+    ![복원할 스냅샷을 선택하는 방법을 보여 주는 스크린샷 ](./media/app-service-web-restore-snapshots/2.png)
    
 3. **복원 대상** 에서 앱 복원 대상을 지정합니다.
    
-    ![복원 대상을 지정 하는 방법을 보여 주는 스크린샷](./media/app-service-web-restore-snapshots/3.png)
+    ![복원 대상을 지정하는 방법을 보여 주는 스크린샷](./media/app-service-web-restore-snapshots/3.png)
    
    > [!WARNING]
    > **덮어쓰기** 를 선택하면 앱의 현재 파일 시스템에 있는 기존 데이터를 모두 지우고 덮어씁니다. **확인** 을 클릭하기 전에 수행하려는 작업이 맞는지 확인하세요.
@@ -61,6 +61,6 @@ ms.locfileid: "86169976"
 
 4. 사이트 구성을 복원하도록 선택할 수 있습니다.
    
-    ![사이트 구성을 복원 하는 방법을 보여 주는 스크린샷](./media/app-service-web-restore-snapshots/4.png)
+    ![사이트 구성을 복원하는 방법을 보여 주는 스크린샷](./media/app-service-web-restore-snapshots/4.png)
 
 5. **확인** 을 클릭합니다.

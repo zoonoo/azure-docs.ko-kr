@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 09/24/2020
 ms.topic: conceptual
 ms.openlocfilehash: 5eb0c7d72896cc9a27907743b1b9c3d5a40614dd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100592862"
 ---
 # <a name="query-update-management-logs"></a>업데이트 관리 로그 쿼리
@@ -110,7 +110,7 @@ ms.locfileid: "100592862"
 | Computer | 보고 컴퓨터의 정규화된 도메인 이름입니다. |
 | ComputerEnvironment | 환경입니다. 값은 Azure 또는 Non-Azure입니다. |
 | CorrelationId | 업데이트에 대해 실행되는 Runbook 작업의 고유 식별자입니다. |
-| EndTime | 동기화 프로세스가 종료된 시간입니다. *이 속성은 현재 사용 되지 않습니다. TimeGenerated를 참조 하세요.* |
+| EndTime | 동기화 프로세스가 종료된 시간입니다. *해당 속성은 현재 사용되지 않습니다. TimeGenerated를 참조하세요.* |
 | ErrorResult | 업데이트 설치에 실패하는 경우 생성되는 Windows Update 오류 코드입니다. |
 | InstallationStatus | 클라이언트 컴퓨터의 가능한 업데이트 설치 상태입니다.<br> `NotStarted` - 작업이 아직 트리거되지 않았습니다.<br> `FailedToStart` -컴퓨터에서 작업을 시작할 수 없습니다.<br> `Failed` - 작업이 시작되었지만 예외로 인해 실패했습니다.<br> `InProgress` - 작업이 진행 중입니다.<br> `MaintenanceWindowExceeded` - 실행이 남아 있지만 유지 관리 기간 간격에 도달한 경우입니다.<br> `Succeeded` - 작업이 성공했습니다.<br> `InstallFailed` - 업데이트를 설치하지 못했습니다.<br> `NotIncluded`<br> `Excluded` |
 | KBID | Windows 업데이트에 대한 기술 자료 문서 ID입니다. |
@@ -123,7 +123,7 @@ ms.locfileid: "100592862"
 | ResourceType | 리소스 종류. |
 | SourceComputerId | 원본 컴퓨터를 나타내는 고유 식별자입니다. |
 | SourceSystem | 레코드의 원본 시스템입니다. 값이 `OperationsManager`입니다. |
-| StartTime | 업데이트를 설치하도록 예약된 시간입니다. *이 속성은 현재 사용 되지 않습니다. TimeGenerated를 참조 하세요.* |
+| StartTime | 업데이트를 설치하도록 예약된 시간입니다. *해당 속성은 현재 사용되지 않습니다. TimeGenerated를 참조하세요.* |
 | SubscriptionId | Azure 구독의 고유 식별자입니다. |
 | SucceededOnRetry | 첫 번째 시도에서 업데이트 실행이 실패하고 현재 작업은 재시도임을 나타내는 값입니다. |
 | TimeGenerated | 레코드 생성 날짜와 시간입니다. |

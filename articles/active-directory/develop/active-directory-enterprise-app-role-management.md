@@ -1,5 +1,5 @@
 ---
-title: 엔터프라이즈 Azure AD 앱에 대 한 역할 클레임 구성 | Microsoft
+title: 엔터프라이즈 Azure AD 앱에 대한 역할 클레임 구성 | Microsoft
 titleSuffix: Microsoft identity platform
 description: Azure Active Directory의 엔터프라이즈 애플리케이션에 SAML 토큰에서 발급된 역할 클레임을 구성하는 방법 알아보기
 services: active-directory
@@ -13,27 +13,27 @@ ms.topic: how-to
 ms.date: 02/15/2021
 ms.author: jeedes
 ms.openlocfilehash: 3c1b4b3d57bdce4a66adb35717f46d8989ee2453
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101648818"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에서 발행된 역할 클레임 구성
 
 Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나는 응답 토큰에서 역할 클레임에 대한 클레임 유형을 지정할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 디렉터리가 설치된 Azure AD 구독
 - SSO(Single Sign-On)를 사용하도록 설정된 구독 애플리케이션에 SSO를 구성해야 함
 
 > [!NOTE]
-> 이 문서에서는 Azure AD에서 Api를 사용 하 여 서비스 사용자에 대 한 응용 프로그램 역할을 만들고 업데이트/삭제 하는 방법을 설명 합니다. 앱 역할에 새 사용자 인터페이스를 사용 하려는 경우 [여기](./howto-add-app-roles-in-azure-ad-apps.md)에서 세부 정보를 참조 하세요.
+> 이 문서에서는 Azure AD에서 API를 사용하여 서비스 사용자에 대한 애플리케이션 역할을 만들거나 업데이트하거나 삭제하는 방법을 설명합니다. 앱 역할에 새 사용자 인터페이스를 사용하려면 [여기](./howto-add-app-roles-in-azure-ad-apps.md)에서 세부 정보를 참조하세요.
 
 ## <a name="when-to-use-this-feature"></a>이 기능을 사용하는 시기
 
-응용 프로그램에 Azure AD에서 반환 되는 SAML 응답의 사용자 지정 역할이 필요한 경우이 기능을 사용 합니다. 필요한 만큼 역할을 만들 수 있습니다.
+애플리케이션에서 Azure AD에서 반환된 SAML 응답에 사용자 지정 역할이 필요한 경우 이 기능을 사용합니다. 역할을 필요한 만큼 추가할 수 있습니다.
 
 ## <a name="create-roles-for-an-application"></a>애플리케이션에 대한 역할 만들기
 
@@ -57,7 +57,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     ![속성 페이지](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. 다른 창에서 [Microsoft Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer) 를 열고 다음 단계를 수행 합니다.
+6. 또 다른 창에서 [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)를 열고 다음 단계를 수행합니다.
 
     1. 테넌트의 전역 관리자 또는 공동 관리자 자격 증명을 사용하여 Graph Explorer 사이트에 로그인합니다.
 
@@ -88,7 +88,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
         ![수정해야 하는 서비스 사용자 가져오기에 대한 쿼리](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-    1. 서비스 주체 개체에서 **Approles** 속성을 추출 합니다.
+    1. 서비스 사용자 개체에서 **appRoles** 속성을 추출합니다.
 
         ![appRoles 속성의 세부 정보](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
@@ -133,7 +133,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
         ![성공 메시지가 있는 패치 작업](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
 
-1. 서비스 사용자에 더 많은 역할이 패치되면 각 역할에 사용자를 할당할 수 있습니다. 포털로 이동하고 애플리케이션을 검색하여 사용자를 할당할 수 있습니다. **사용자 및 그룹** 탭을 선택 합니다. 이 탭에는 이미 앱에 할당 된 모든 사용자 및 그룹이 나열 됩니다. 새 역할에 새 사용자를 추가할 수 있습니다. 또한 기존 사용자를 선택하고 **편집** 을 선택하여 역할을 변경할 수도 있습니다.
+1. 서비스 사용자에 더 많은 역할이 패치되면 각 역할에 사용자를 할당할 수 있습니다. 포털로 이동하고 애플리케이션을 검색하여 사용자를 할당할 수 있습니다. **사용자 및 그룹** 탭을 선택합니다. 이 탭은 앱에 이미 할당된 모든 사용자 및 그룹을 나열합니다. 새 역할에 새 사용자를 추가할 수 있습니다. 또한 기존 사용자를 선택하고 **편집** 을 선택하여 역할을 변경할 수도 있습니다.
 
     !["사용자 및 그룹" 탭](./media/active-directory-enterprise-app-role-management/graph-explorer-new5.png)
 
@@ -142,7 +142,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
     !["할당 편집" 및 "역할 선택" 창](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
 
     
-    새 역할을 보려면 Azure Portal 세션을 새로 고칩니다.
+    새 역할을 확인하려면 Azure Portal에서 세션을 새로 고침해야 합니다.
 
 1. **특성** 테이블을 업데이트하여 역할 클레임의 사용자 지정된 매핑을 정의합니다.
 
@@ -152,13 +152,13 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
     | -------------- | ----------------|
     | 역할 이름  | user.assignedroles |
 
-    역할 클레임 값이 null 이면 Azure AD는이 값을 토큰에 전송 하지 않으며이는 기본적으로 디자인 기준으로 합니다.
+    역할 클레임 값이 null이면 Azure AD는 이 값을 토큰에 전송하지 않으며 이는 설계에 따라 기본값입니다.
 
-    1. **편집** 아이콘을 클릭 하 여 **클레임 & 사용자 특성** 대화 상자를 엽니다.
+    1. **편집** 아이콘을 클릭하여 **사용자 특성 및 클레임** 대화 상자를 엽니다.
 
-        ![클레임 & 사용자 특성 대화 상자를 여는 데 사용 되는 편집 아이콘을 강조 표시 하는 스크린샷](./media/active-directory-enterprise-app-role-management/editattribute.png)
+        ![사용자 특성 및 클레임 대화 상자를 여는 데 사용되는 편집 아이콘을 강조 표시하여 보여 주는 스크린샷](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    1. **사용자 클레임 관리** 대화 상자에서 **새 클레임 추가** 를 클릭 하 여 SAML 토큰 특성을 추가 합니다.
+    1. **사용자 클레임 관리** 대화 상자에서 **새 클레임 추가** 를 클릭하여 SAML 토큰 특성을 추가합니다.
 
         !["특성 추가" 단추](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
@@ -178,7 +178,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
 기존 역할을 업데이트하려면 다음 단계를 수행합니다.
 
-1. [Microsoft Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer)를 엽니다.
+1. [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)를 엽니다.
 
 1. 테넌트의 전역 관리자 또는 공동 관리자 자격 증명을 사용하여 Graph Explorer 사이트에 로그인합니다.
 
@@ -196,7 +196,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     ![수정해야 하는 서비스 사용자 가져오기에 대한 쿼리](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-1. 서비스 주체 개체에서 **Approles** 속성을 추출 합니다.
+1. 서비스 사용자 개체에서 **appRoles** 속성을 추출합니다.
 
     ![appRoles 속성의 세부 정보](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
@@ -234,7 +234,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     ![수정해야 하는 서비스 사용자 가져오기에 대한 쿼리](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-1. 서비스 주체 개체에서 **Approles** 속성을 추출 합니다.
+1. 서비스 사용자 개체에서 **appRoles** 속성을 추출합니다.
 
     ![서비스 사용자 개체에서 appRoles 속성의 세부 정보](./media/active-directory-enterprise-app-role-management/graph-explorer-new7.png)
 

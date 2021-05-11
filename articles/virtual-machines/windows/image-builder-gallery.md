@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
 ms.openlocfilehash: e8caf9f742217161c60ce90351989999f18adabb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101694090"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>미리 보기: Windows 이미지를 만들어 공유 이미지 갤러리에 배포 
@@ -66,7 +66,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
-PowerShell 모듈을 설치 합니다.
+PowerShell 모듈 설치
 ```powerShell
 'Az.ImageBuilder', 'Az.ManagedServiceIdentity' | ForEach-Object {Install-Module -Name $_ -AllowPrerelease}
 ```
@@ -127,7 +127,7 @@ $identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageR
 
 ### <a name="assign-permissions-for-identity-to-distribute-images"></a>ID에서 이미지를 배포하기 위한 권한 할당
 
-이 명령은 Azure 역할 정의 템플릿을 다운로드 하 고 앞에서 지정한 매개 변수를 사용 하 여 템플릿을 업데이트 합니다.
+해당 명령은 Azure 역할 정의 템플릿을 다운로드하여 해당 템플릿을 이전에 지정하였던 매개 변수로 업데이트합니다.
 
 ```powershell
 $aibRoleImageCreationUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
@@ -245,7 +245,7 @@ Invoke-AzResourceAction `
 
 이미지를 만들고 두 지역에 복제하는 데 다소 시간이 걸릴 수 있습니다. VM 만들기를 계속 진행하기 전에 이 단계가 완료될 때까지 기다립니다.
 
-이미지 빌드 상태 가져오기를 자동화 하는 옵션에 대 한 자세한 내용은 [추가 정보]를 참조 하세요.
+해당 이미지 빌드 상태를 자동으로 가져오는 옵션에 대한 정보는 [추가 정보]를 참조하세요.
 ```powershell
 Get-AzImageBuilderTemplate -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup |
   Select-Object -Property Name, LastRunStatusRunState, LastRunStatusMessage, ProvisioningState

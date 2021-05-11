@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
 ms.openlocfilehash: d68cfb91445e2055cb3c3feb88bf925987ea9852
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101687399"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
@@ -114,7 +114,7 @@ Access Control 구성 요소의 사용 중지 일정은 다음과 같습니다.
 
 - **2017년 11월**: 클래식 Azure Portal의 Azure AD 관리자 환경이 [사용 중지됩니다](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). 현재 새로운 전용 URL `https://manage.windowsazure.com?restoreClassic=true`에서 Access Control에 대한 네임스페이스를 관리할 수 있습니다. 필요한 경우 이 URl를 사용하여 기존 네임스페이스를 보고, 네임스페이스를 사용하거나 사용하지 않도록 설정하고, 네임스페이스를 삭제합니다.
 - **2018년 4월 2일**: Azure 클래식 포털이 완전히 사용 중지됩니다. 즉, 더 이상 URL을 통해 Access Control 네임스페이스 관리를 사용할 수 없습니다. 이 시점에서는 Access Control을 사용 또는 사용하지 않도록 설정 하거나, 삭제하거나, 열거할 수 없습니다. 하지만 `https://<namespace>.accesscontrol.windows.net`에서는 Access Control 관리 포털이 완벽하게 작동됩니다. Access Control의 다른 모든 구성 요소는 계속해서 정상적으로 작동합니다.
-- **2018년 11월 7일**: 모든 Access Control 구성 요소가 영구적으로 종료됩니다. 즉, Access Control 관리 포털, 관리 서비스, STS, 토큰 변환 규칙 엔진이 종료됩니다. 이 시점에서 Access Control (. accesscontrol.windows.net에 위치)에 전송 된 모든 요청은 \<namespace\> 실패 합니다. 이 시점 전까지 기존 앱과 서비스를 다른 기술로 모두 마이그레이션 완료해야 합니다.
+- **2018년 11월 7일**: 모든 Access Control 구성 요소가 영구적으로 종료됩니다. 즉, Access Control 관리 포털, 관리 서비스, STS, 토큰 변환 규칙 엔진이 종료됩니다. 이 시점에 Access Control(\<namespace\>.accesscontrol.windows.net에 위치)에 전송된 요청은 모두 실패합니다. 이 시점 전까지 기존 앱과 서비스를 다른 기술로 모두 마이그레이션 완료해야 합니다.
 
 > [!NOTE]
 > 정책은 일정 기간 동안 토큰을 요청하지 않은 네임스페이스를 사용하지 않도록 설정합니다. 2018년 9월초 현재 해당 기간은 비활성 기간 14일이지만 몇 주 후부터는 비활성 기간 7일로 단축될 예정입니다. 현재 사용하지 않도록 설정된 액세스 제어 네임스페이스가 있다면 [ACS PowerShell을 다운로드 및 설치](#download-and-install-acs-powershell)하여 해당 네임스페이스를 다시 사용하도록 설정할 수 있습니다.
@@ -146,12 +146,12 @@ Access Control에서 발행하는 토큰을 이용하는 각 Microsoft 클라우
 
 ### <a name="sharepoint-customers"></a>SharePoint 고객
 
-SharePoint 2013, 2016 및 SharePoint Online 고객은 클라우드, 온-프레미스 및 하이브리드 시나리오에서 인증 목적으로 사용 되는 ACS가 오래 되었습니다. 일부 SharePoint 기능 및 사용 사례는 ACS 사용 중지의 영향을 받을 것이고, 일부는 그렇지 않습니다. 아래 표에는 ACS를 활용하는 가장 인기 있는 SharePoint의 일부 기능에 대한 마이그레이션 지침이 요약되어 있습니다.
+SharePoint 2013, 2016 및 SharePoint Online 고객은 오래 전부터 클라우드, 온-프레미스, 하이브리드 시나리오에서 ACS를 인증에 사용하여 왔습니다. 일부 SharePoint 기능 및 사용 사례는 ACS 사용 중지의 영향을 받을 것이고, 일부는 그렇지 않습니다. 아래 표에는 ACS를 활용하는 가장 인기 있는 SharePoint의 일부 기능에 대한 마이그레이션 지침이 요약되어 있습니다.
 
 | 기능 | 지침 |
 | ------- | -------- |
-| Azure AD에서 사용자 인증 | 이전에는 Azure AD가 인증을 위해 SharePoint에서 요구하는 SAML 1.1 토큰을 지원하지 않았으며, SharePoint를 Azure AD 토큰 형식과 호환되도록 만들기 위해 ACS 토큰을 중간자로 사용했습니다. 이제 [온-프레미스 앱의 Azure AD 앱 갤러리 sharepoint를 사용 하 여 sharepoint를 AZURE AD에 직접 연결할](../saas-apps/sharepoint-on-premises-tutorial.md)수 있습니다. |
-| [SharePoint 온-프레미스에서 서버 간 인증 & 앱 인증](/SharePoint/security-for-sharepoint-server/authentication-overview) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. | 
+| Azure AD에서 사용자 인증 | 이전에는 Azure AD가 인증을 위해 SharePoint에서 요구하는 SAML 1.1 토큰을 지원하지 않았으며, SharePoint를 Azure AD 토큰 형식과 호환되도록 만들기 위해 ACS 토큰을 중간자로 사용했습니다. 이제, [온-프레미스 앱에서 Azure AD 앱 갤러리 SharePoint를 사용하여 SharePoint를 Azure AD에 직접 연결](../saas-apps/sharepoint-on-premises-tutorial.md)할 수 있습니다. |
+| [SharePoint 온-프레미스에서 앱 인증 및 서버 간 인증](/SharePoint/security-for-sharepoint-server/authentication-overview) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. | 
 | [SharePoint 추가 기능에 대한 낮은 신뢰 권한 부여(호스팅된 공급자 및 호스팅된 SharePoint)](/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. |
 | [SharePoint 클라우드 하이브리드 검색](/archive/blogs/spses/cloud-hybrid-search-service-application) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. |
 
@@ -173,7 +173,7 @@ SharePoint 2013, 2016 및 SharePoint Online 고객은 클라우드, 온-프레�
 
 #### <a name="migrate-to-azure-active-directory"></a>Azure Active Directory로 마이그레이션
 
-앱과 서비스를 Azure AD에 직접 통합하는 방법도 있습니다. Azure AD는 Microsoft 회사 또는 학교 계정을 위한 클라우드 기반 ID 공급자입니다. Azure AD는 Microsoft 365, Azure 등을 위한 id 공급자입니다. Azure AD는 Access Control과 비슷한 페더레이션 인증 기능을 제공하긴 하나, Access Control의 모든 기능을 지원하지는 않습니다. 
+앱과 서비스를 Azure AD에 직접 통합하는 방법도 있습니다. Azure AD는 Microsoft 회사 또는 학교 계정을 위한 클라우드 기반 ID 공급자입니다. Azure AD는 Microsoft 365, Azure 등을 위한 ID 공급자입니다. Azure AD는 Access Control과 비슷한 페더레이션 인증 기능을 제공하긴 하나, Access Control의 모든 기능을 지원하지는 않습니다. 
 
 페더레이션은 주로 Facebook, Google, Yahoo와 같은 소셜 ID 공급자에 대해 실시됩니다. 사용자가 이러한 유형의 자격 증명을 이용하여 로그인하는 경우가 많다면 Azure AD는 적합한 솔루션이 아닙니다. 
 
@@ -210,7 +210,7 @@ Azure AD 테넌트는 AD FS를 통해 하나 이상의 온-프레미스 Active D
 | 사용자 지정 토큰 서명 인증서 업로드 | 지원됨 | 지원됨 |
 | 토큰의 클레임 사용자 지정 |- ID 공급자의 입력 클레임 전달<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기<br />- 입력 클레임의 값을 바탕으로 출력 클레임 발행<br />- 상수 값을 사용하여 출력 클레임 발행 |- 페더레이션된 ID 공급자의 클레임 전달 불가<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기 불가<br />- 입력 클레임의 값을 바탕으로 출력 클레임 발행 불가<br />- 상수 값을 사용하여 출력 클레임 발행 가능<br />- Azure AD에 동기화된 사용자의 속성을 바탕으로 출력 클레임 발행 가능 |
 | **Automation** | | |
-| 구성 및 관리 작업 자동화 | Access Control 관리 서비스를 통해 지원 | Microsoft Graph API를 사용 하 여 지원 |
+| 구성 및 관리 작업 자동화 | Access Control 관리 서비스를 통해 지원 | Microsoft Graph API를 사용하여 지원 |
 
 Azure AD가 애플리케이션 및 서비스에 적합한 마이그레이션 경로라고 판단한 경우, 앱에 Azure AD를 통합하는 두 가지 방법을 모두 알고 있어야 합니다.
 
@@ -261,13 +261,13 @@ Azure AD B2C는 Access Control과 마찬가지로 다양한 계정 유형을 지
 | 사용자 지정 토큰 서명 인증서 업로드 | 지원됨 | 사용자 정책을 통해 사용자 지정 서명 키 지원(인증서는 지원 불가) |
 | 토큰의 클레임 사용자 지정 |- ID 공급자의 입력 클레임 전달<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기<br />- 입력 클레임의 값을 바탕으로 출력 클레임 발행<br />- 상수 값을 사용하여 출력 클레임 발행 |- ID 공급자의 클레임 전달 가능. 일부 클레임에는 사용자 지정 정책 필요<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기 불가<br />- 사용자 지정 정책을 통해 입력 클레임의 값을 바탕으로 출력 클레임 발행 가능<br />- 사용자 지정 정책을 통해 상수 값을 바탕으로 출력 클레임 발행 가능 |
 | **Automation** | | |
-| 구성 및 관리 작업 자동화 | Access Control 관리 서비스를 통해 지원 |-Microsoft Graph API를 사용 하 여 허용 되는 사용자 만들기<br />- B2C 테넌트, 애플리케이션 또는 정책을 프로그래밍 방식으로 생성 불가 |
+| 구성 및 관리 작업 자동화 | Access Control 관리 서비스를 통해 지원 |- Microsoft Graph API를 사용하도록 허용된 사용자 만들기<br />- B2C 테넌트, 애플리케이션 또는 정책을 프로그래밍 방식으로 생성 불가 |
 
 Azure AD B2C가 애플리케이션 및 서비스에 적합한 마이그레이션 경로라고 판단한 경우, 다음 리소스를 살펴보세요.
 
 - [Azure AD B2C 설명서](../../active-directory-b2c/overview.md)
 - [Azure AD B2C 사용자 지정 정책](../../active-directory-b2c/custom-policy-overview.md)
-- [Azure AD B2C 가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+- [Azure AD B2C 가격](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Ping ID 또는 Auth0로 마이그레이션
 
@@ -281,13 +281,13 @@ Azure AD B2C가 애플리케이션 및 서비스에 적합한 마이그레이션
 
 이러한 경우 웹 애플리케이션을 다른 클라우드 인증 서비스로 마이그레이션하는 것을 고려해 보는 것이 좋습니다. 다음 옵션에 대해 알아보세요. 다음 옵션은 Access Control과 비슷한 기능을 제공합니다.
 
-![이 이미지는 좋아하게 되었습니다 로고를 보여줍니다.](./media/active-directory-acs-migration/rsz-auth0.png) 
+![해당 이미지는 Auth0 로고를 표시합니다.](./media/active-directory-acs-migration/rsz-auth0.png) 
 
 [Auth0](https://auth0.com/acs)은 [Access Control 고객을 위한 대략적인 마이그레이션 지침](https://auth0.com/acs)에 따라 만들어진 유동 클라우드 ID 서비스이며 ACS가 지원하는 거의 모든 기능을 지원합니다.
 
-![이 이미지는 Ping Id 로고를 표시 합니다.](./media/active-directory-acs-migration/rsz-ping.png)
+![해당 이미지는 Ping ID 로고를 보여 줍니다.](./media/active-directory-acs-migration/rsz-ping.png)
 
-[Ping ID](https://www.pingidentity.com)는 ACS와 유사한 두 가지 솔루션을 제공합니다. 하나는 ACS와 동일한 많은 기능을 지 원하는 클라우드 id 서비스이 고, 서비스는 더 많은 유연성을 제공 하는 온-프레미스 id 제품에서 유사 합니다. 이러한 제품의 사용에 대한 자세한 내용은 Ping의 ACS 사용 중지 지침을 참조하세요.
+[Ping ID](https://www.pingidentity.com)는 ACS와 유사한 두 가지 솔루션을 제공합니다. PingOne은 ACS와 동일한 다양한 기능을 지원하는 클라우드 ID 서비스이고 PingFederate는 더 큰 유연성을 제공하는 유사한 온-프레미스 ID 제품입니다. 이러한 제품의 사용에 대한 자세한 내용은 Ping의 ACS 사용 중지 지침을 참조하세요.
 
 Ping ID와 Auth0으로 작업하는 목적은 모든 Access Control 고객이 앱 및 서비스를 Access Control에서 이전하는 데 필요한 작업 양을 최소화하는 마이그레이션 경로를 갖도록 하는 것입니다.
 
@@ -316,7 +316,7 @@ Access Control의 서비스 ID는 일반적으로 서버-투-서버(S2S) 인증�
 
 #### <a name="migrate-to-azure-active-directory"></a>Azure Active Directory로 마이그레이션
 
-이러한 인증 흐름에 대해 Microsoft에서 권장하는 방법은 [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/)로 마이그레이션하는 것입니다. Azure AD는 Microsoft 회사 또는 학교 계정을 위한 클라우드 기반 ID 공급자입니다. Azure AD는 Microsoft 365, Azure 등을 위한 id 공급자입니다. 
+이러한 인증 흐름에 대해 Microsoft에서 권장하는 방법은 [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/)로 마이그레이션하는 것입니다. Azure AD는 Microsoft 회사 또는 학교 계정을 위한 클라우드 기반 ID 공급자입니다. Azure AD는 Microsoft 365, Azure 등을 위한 ID 공급자입니다. 
 
 또한 Azure AD는 OAuth 클라이언트 자격 증명 부여에 대한 Azure AD의 구현을 사용하여 서버-투-서버 인증에도 사용할 수 있습니다. 다음 표에서는 서버-투-서버 인증과 관련 있는 Access Control의 기능과 Azure AD의 기능을 비교하고 있습니다.
 
@@ -328,11 +328,11 @@ Access Control의 서비스 ID는 일반적으로 서버-투-서버(S2S) 인증�
 | 클라이언트 인증 방법 |- 단순한 암호<br />- 서명된 SWT<br />- 페더레이션 ID 공급자로부터 전달된 SAML 토큰 |- 단순한 암호<br />- 서명된 JWT |
 | 토큰 형식 |- JWT<br />- SAML 1.1<br />- SAML 2.0<br />- SWT<br /> | JWT만 |
 | 토큰 변환 |- 사용자 지정 클레임 추가<br />- 단순한 if-then 클레임 발행 로직 | 사용자 지정 클레임 추가 | 
-| 구성 및 관리 작업 자동화 | Access Control 관리 서비스를 통해 지원 | Microsoft Graph API를 사용 하 여 지원 |
+| 구성 및 관리 작업 자동화 | Access Control 관리 서비스를 통해 지원 | Microsoft Graph API를 사용하여 지원 |
 
 서버-투-서버 시나리오를 구현하는 방법은 아래의 리소스를 참조하세요.
 
-- [AZURE AD 개발자 가이드](../develop/index.yml) 의 서비스 간 섹션
+- [Azure AD 개발자 가이드](../develop/index.yml)의 서비스-투-서비스 섹션
 - [단순한 암호 클라이언트 자격 증명을 사용한 디먼 코드 샘플](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
 - [인증서 클라이언트 자격 증명을 사용한 디먼 코드 샘플](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
@@ -346,12 +346,12 @@ Access Control의 서비스 ID는 일반적으로 서버-투-서버(S2S) 인증�
 
 이런 경우 웹 애플리케이션을 다른 클라우드 인증 서비스로 마이그레이션하는 것을 고려해 볼 수 있습니다. 다음 옵션에 대해 알아보세요. 다음 옵션은 Access Control과 비슷한 기능을 제공합니다.
 
-![이 이미지는 좋아하게 되었습니다 로고를 보여줍니다.](./media/active-directory-acs-migration/rsz-auth0.png)
+![해당 이미지는 Auth0 로고를 표시합니다.](./media/active-directory-acs-migration/rsz-auth0.png)
 
 [Auth0](https://auth0.com/acs)은 [Access Control 고객을 위한 대략적인 마이그레이션 지침](https://auth0.com/acs)에 따라 만들어진 유동 클라우드 ID 서비스이며 ACS가 지원하는 거의 모든 기능을 지원합니다.
 
-![이 이미지는 Ping Id 로고 ](./media/active-directory-acs-migration/rsz-ping.png)
- [ping ID](https://www.pingidentity.com) 는 ACS와 유사한 두 가지 솔루션을 제공 합니다. 하나는 ACS와 동일한 많은 기능을 지 원하는 클라우드 id 서비스이 고, 서비스는 더 많은 유연성을 제공 하는 온-프레미스 id 제품에서 유사 합니다. 이러한 제품의 사용에 대한 자세한 내용은 Ping의 ACS 사용 중지 지침을 참조하세요.
+![해당 이미지는 Ping ID 로고를 표시합니다.](./media/active-directory-acs-migration/rsz-ping.png)
+[Ping ID](https://www.pingidentity.com)는 ACS와 유사한 솔루션을 두 가지 제공합니다. PingOne은 ACS와 동일한 다양한 기능을 지원하는 클라우드 ID 서비스이고 PingFederate는 더 큰 유연성을 제공하는 유사한 온-프레미스 ID 제품입니다. 이러한 제품의 사용에 대한 자세한 내용은 Ping의 ACS 사용 중지 지침을 참조하세요.
 
 Ping ID와 Auth0으로 작업하는 목적은 모든 Access Control 고객이 앱 및 서비스를 Access Control에서 이전하는 데 필요한 작업 양을 최소화하는 마이그레이션 경로를 갖도록 하는 것입니다.
 

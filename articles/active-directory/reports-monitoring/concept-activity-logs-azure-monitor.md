@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor에서 활동 로그 Azure Active Directory Microsoft Docs
+title: Azure Monitor의 Azure Active Directory 활동 로그 | Microsoft Docs
 description: Azure Monitor의 Azure Active Directory 활동 로그 소개
 services: active-directory
 documentationcenter: ''
@@ -18,15 +18,15 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 73130c906d4d9f0da51db1b666e8562570cce40f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100571274"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure Monitor의 Azure AD 활동 로그
 
-장기 보존 및 데이터 통찰력을 위해 Azure AD (Azure Active Directory) 활동 로그를 여러 끝점으로 라우팅할 수 있습니다. 이 기능을 사용하여 다음을 할 수 있습니다.
+장기 보존 및 데이터 인사이트를 위해 Azure AD(Azure Active Directory) 활동 로그를 여러 엔드포인트에 라우팅할 수 있습니다. 이 기능을 사용하여 다음을 할 수 있습니다.
 
 * 데이터를 장기간 보존하기 위해 Azure 스토리지 계정에 Azure AD 활동 로그를 보관합니다.
 * Splunk 및 QRadar 같은 인기 있는 SIEM(보안 정보 및 이벤트 관리) 도구를 사용하여 Azure AD 활동 로그를 Azure 이벤트 허브로 스트리밍하여 분석합니다.
@@ -60,7 +60,7 @@ ms.locfileid: "100571274"
 
 감사 로그 데이터를 라우팅하려는 위치에 따라 다음 둘 중 하나가 필요합니다.
 
-* *Listkeys* 권한이 있는 Azure 저장소 계정입니다. Blob Storage 계정이 아닌 일반 스토리지 계정을 사용하는 것이 좋습니다. 스토리지 가격 책정 정보는 [Azure Storage 가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/?service=storage)를 참조하세요. 
+* *ListKeys* 권한이 있는 Azure Storage 계정. Blob Storage 계정이 아닌 일반 스토리지 계정을 사용하는 것이 좋습니다. 스토리지 가격 책정 정보는 [Azure Storage 가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/?service=storage)를 참조하세요. 
 * 타사 솔루션과 통합할 Azure Event Hubs 네임스페이스.
 * Azure Monitor 로그에 로그를 보내는 Azure Log Analytics 작업 영역
 
@@ -70,7 +70,7 @@ Azure AD 라이선스가 이미 있는 경우 스토리지 계정 및 이벤트 
 
 ### <a name="storage-size-for-activity-logs"></a>활동 로그에 대한 스토리지 크기
 
-모든 감사 로그 이벤트는 약 2KB의 데이터 스토리지를 사용합니다. 로그인 이벤트 로그는 약 4kb의 데이터 저장소입니다. 사용자가 100,000명이고 하루에 약 150만 개의 이벤트가 발생하는 테넌트의 경우 하루에 약 3GB의 데이터 스토리지가 필요합니다. 약 5분 단위로 쓰기가 발생하므로 매달 약 9000개의 쓰기 작업을 예상할 수 있습니다. 
+모든 감사 로그 이벤트는 약 2KB의 데이터 스토리지를 사용합니다. 로그인 이벤트 로그는 약 4KB의 데이터 스토리지입니다. 사용자가 100,000명이고 하루에 약 150만 개의 이벤트가 발생하는 테넌트의 경우 하루에 약 3GB의 데이터 스토리지가 필요합니다. 약 5분 단위로 쓰기가 발생하므로 매달 약 9000개의 쓰기 작업을 예상할 수 있습니다. 
 
 
 다음 표에는 미국 서부에서 범용 v2 스토리지 계정을 1년 이상 보유할 때 발생할 것으로 예상되는 테넌트 크기에 따른 예상 비용이 정리되어 있습니다. 애플리케이션의 예상 데이터 볼륨에 해당하는 정확한 예상 가격을 계산하려면 [Azure Storage 가격 계산기](https://azure.microsoft.com/pricing/details/storage/blobs/)를 사용하세요.
@@ -98,23 +98,23 @@ Azure AD 라이선스가 이미 있는 경우 스토리지 계정 및 이벤트 
 
 예를 들어 사용자 수가 100,000명을 초과하는 대규모 테넌트에서는 평균적으로 초당 약 18개 이벤트가 발생하며, 이는 5분당 5,400개 이벤트와 동일한 속도입니다. 감사 로그는 이벤트당 약 2KB이므로 데이터 10.8MB와 동일합니다. 따라서 5분 간격으로 메시지 43개가 이벤트 허브로 전송됩니다. 
 
-다음 표에는 사용자 로그인 동작 등과 같은 많은 요소에 따라 테 넌 트에 따라 다를 수 있는 이벤트 데이터의 양에 따라 월의 기본 이벤트 허브에 대 한 월별 예상 비용이 포함 되어 있습니다. 응용 프로그램에 예상 되는 데이터 볼륨의 정확한 예상 값을 계산 하려면 [Event Hubs 가격 계산기](https://azure.microsoft.com/pricing/details/event-hubs/)를 사용 합니다.
+다음 표에는 사용자 로그인 동작 등 많은 요소별로 테넌트마다 달라질 수 있는 이벤트 데이터의 양에 따른 미국 서부의 기본 이벤트 허브에 대한 월간 예상 비용이 포함되어 있습니다. 애플리케이션에 예상되는 데이터 볼륨의 정확한 예상값을 계산하려면 [Event Hubs 가격 책정 계산기](https://azure.microsoft.com/pricing/details/event-hubs/)를 사용합니다.
 
 | 로그 범주 | 사용자 수 | 초당 이벤트 수 | 5분 간격당 이벤트 수 | 간격당 볼륨 | 간격당 메시지 수 | 월간 메시지 수 | 월간 비용(예상치) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
 | 감사 | 100,000 | 18 | 5,400 | 10.8MB | 43 | 371,520 | $10.83 |
 | 감사 | 1,000 | 0.1 | 52 | 104KB | 1 | 8,640 | $10.80 |
-| 로그인 | 100,000 | 18000 | 540만 | 10.8 GB | 42188 | 364504320 | $23.9 |  
+| 로그인 | 100,000 | 18000 | 5,400,000 | 10.8GB | 42188 | 364,504,320 | $23.9 |  
 | 로그인 | 1,000 | 178 | 53,400 | 106.8MB&nbsp; | 418 | 3,611,520 | $11.06 |  
 
 ### <a name="azure-monitor-logs-cost-considerations"></a>Azure Monitor 로그 비용 고려 사항
 
 
 
-| 로그 범주 | 사용자 수 | 일간 이벤트 수 | 월 당 이벤트 (30 일) | USD (est)의 월간 비용 |
+| 로그 범주 | 사용자 수 | 일간 이벤트 수 | 월간 이벤트(30일) | 월간 비용(USD)(추정) |
 |:-|--|--|--|-:|
-| 감사 및 로그인 | 100,000 | 1650만 | 4억9500만 | $1093.00 |
-| 감사 | 100,000 | 150만 | 45,000,000 | $246.66 |
+| 감사 및 로그인 | 100,000 | 16,500,000 | 495,000,000 | $1093.00 |
+| 감사 | 100,000 | 1,500,000 | 45,000,000 | $246.66 |
 | 로그인 | 100,000 | 15,000,000 | 450,000,000 | $847.28 |
 
 
@@ -150,9 +150,9 @@ Azure Monitor 로그 관리와 관련된 비용을 검토하려면 [Azure Monito
 
 ---
 
-**Q: 관리자가 진단 설정의 보존 기간을 변경 하면 어떻게 되나요?**
+**Q: 관리자가 진단 설정의 보존 기간을 변경하면 어떻게 되나요?**
 
-**A**: 새 보존 정책은 변경 후 수집 된 로그에 적용 됩니다. 정책 변경 이전에 수집된 로그에는 아무런 변화가 없습니다.
+**A**: 변경 이후에 수집되는 로그에는 새 보존 정책이 적용됩니다. 정책 변경 이전에 수집된 로그에는 아무런 변화가 없습니다.
 
 ---
 
@@ -180,7 +180,7 @@ Azure Monitor 로그 관리와 관련된 비용을 검토하려면 [Azure Monito
 
 **Q: 현재 지원되는 SIEM 도구는 무엇입니까?** 
 
-**A**: **a**: 현재 Azure Monitor은 [Splunk](./howto-integrate-activity-logs-with-splunk.md), IBM qradar, [sumo 논리](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [arcsight](./howto-integrate-activity-logs-with-arcsight.md), LogRhythm 및 Logz.io에서 지원 됩니다. 커넥터의 작동 원리에 대한 자세한 내용은 [Azure 모니터링 데이터를 이벤트 허브로 스트리밍하여 외부 도구에서 사용](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md)을 참조하세요.
+**A**: **A**: 현재 Azure Monitor는 [Splunk](./howto-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](./howto-integrate-activity-logs-with-arcsight.md), LogRhythm, Logz.io에서 지원됩니다. 커넥터의 작동 원리에 대한 자세한 내용은 [Azure 모니터링 데이터를 이벤트 허브로 스트리밍하여 외부 도구에서 사용](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md)을 참조하세요.
 
 ---
 

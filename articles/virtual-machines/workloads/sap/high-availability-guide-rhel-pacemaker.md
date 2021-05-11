@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2021
 ms.author: radeltch
 ms.openlocfilehash: af8523486b42af8c0722a56bdd813d6449692c14
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101676881"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Azure의 Red Hat Enterprise Linux에서 Pacemaker 설정
@@ -66,9 +66,9 @@ ms.locfileid: "101676881"
 * Azure 특정 RHEL 설명서:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)(RHEL 고가용성 클러스터용 지원 정책 - Microsoft Azure Virtual Machines(클러스터 멤버))
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)(Microsoft Azure에서 Red Hat Enterprise Linux 7.4 이상 고가용성 클러스터 설치 및 구성)
-  * [RHEL 8-고가용성 및 클러스터 채택 시 고려 사항](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/considerations_in_adopting_rhel_8/high-availability-and-clusters_considerations-in-adopting-rhel-8)
+  * [RHEL 8 - 고가용성 및 클러스터 채택 시 고려 사항](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/considerations_in_adopting_rhel_8/high-availability-and-clusters_considerations-in-adopting-rhel-8)
   * [RHEL 7.6의 Pacemaker에서 독립 실행형 큐에 넣기 서버 2(ENSA2)를 사용하여 SAP S/4HANA ASCS/ERS 구성](https://access.redhat.com/articles/3974941)
-  * [Azure의 SAP 제품에 대 한 RHEL](https://access.redhat.com/articles/5456301)
+  * [Azure의 SAP 제품용 RHEL](https://access.redhat.com/articles/5456301)
 
 ## <a name="cluster-installation"></a>클러스터 설치
 
@@ -80,7 +80,7 @@ ms.locfileid: "101676881"
 
 다음 항목에는 접두사 **[A]** (모든 노드에 적용됨), **[1]** (노드 1에만 적용됨), **[2]** (노드 2에만 적용됨) 접두사가 표시되어 있습니다.
 
-1. **[A]** 레지스터입니다. RHEL SAP HA 사용 이미지를 사용 하는 경우에는이 단계가 필요 하지 않습니다.  
+1. **[A]** 등록 RHEL SAP HA-지원 이미지를 사용 중이라면 필요 없는 단계입니다.  
 
    가상 머신을 등록하고 RHEL 7의 리포지토리가 포함된 풀에 연결합니다.
 
@@ -90,9 +90,9 @@ ms.locfileid: "101676881"
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   풀을 Azure Marketplace PAYG RHEL 이미지에 연결 하면 RHEL 사용에 대 한 비용이 효과적으로 두 배 청구 됩니다. PAYG 이미지에 대해 한 번, 연결한 풀의 RHEL 자격에 대해 한 번입니다. 이제 Azure는 이와 같은 이중 청구를 완화하기 위해 BYOS RHEL 이미지를 제공합니다. 자세한 내용은 [여기](../redhat/byos.md)를 참조하세요.  
+   풀을 Azure Marketplace PAYG RHEL 이미지에 연결하면 RHEL 사용량에 대하여 사실상 이중 청구(PAYG 이미지에 대하여 한 번, 연결한 풀의 RHEL 자격에 대하여 한 번)가 됩니다. 이제 Azure는 이와 같은 이중 청구를 완화하기 위해 BYOS RHEL 이미지를 제공합니다. 자세한 내용은 [여기](../redhat/byos.md)를 참조하세요.  
 
-1. **[A]** RHEL for SAP 리포지토리를 사용 하도록 설정 합니다. RHEL SAP HA 사용 이미지를 사용 하는 경우에는이 단계가 필요 하지 않습니다.  
+1. **[A]** SAP 리포지토리에 RHEL 사용 RHEL SAP HA-지원 이미지를 사용 중이라면 필요 없는 단계입니다.  
 
    필수 패키지를 설치하려면 다음 리포지토리를 사용하도록 설정합니다.
 
@@ -110,7 +110,7 @@ ms.locfileid: "101676881"
 
    > [!IMPORTANT]
    > 리소스 중지에 실패하거나 클러스터 노드가 더 이상 서로 통신할 수 없는 경우 더 빠른 장애 조치(failover) 시간의 이점을 누리려면 다음 버전(또는 그 이상)의 Azure Fence 에이전트를 사용하는 것이 좋습니다.  
-   > RHEL 7.7 이상 사용 가능한 최신 버전의 fence-에이전트 패키지를 사용 합니다.  
+   > RHEL 7.7 이상은 사용할 수 있는 최신 버전의 Fence-에이전트 패키지를 사용합니다.  
    > RHEL 7.6: fence-agents-4.2.1-11.el7_6.8  
    > RHEL 7.5: fence-agents-4.0.11-86.el7_5.8  
    > RHEL 7.4: fence-agents-4.0.11-66.el7_4.12  
@@ -131,7 +131,7 @@ ms.locfileid: "101676881"
    다음 명령에서 IP 주소와 호스트 이름을 바꿉니다.  
 
    >[!IMPORTANT]
-   > 클러스터 구성에서 호스트 이름을 사용 하는 경우 신뢰할 수 있는 호스트 이름 확인을 사용 하는 것이 중요 합니다. 이름을 사용할 수 없고 클러스터 장애 조치 (failover) 지연이 발생할 수 있는 경우 클러스터 통신이 실패 합니다.
+   > 클러스터 구성에 호스트 이름을 사용하는 경우 신뢰할 수 있는 호스트 이름 확인을 사용하는 것이 매우 중요합니다. 이름을 사용할 수 없고, 그로 인하여 클러스터 장애 조치(failover) 지연이 발생할 수 있는 경우, 클러스터 통신은 실패합니다.
    > /etc/hosts를 사용하는 장점은 클러스터가 단일 실패 지점이 될 수 있는 DNS와 무관하다는 점입니다.  
 
    <pre><code>sudo vi /etc/hosts
@@ -170,19 +170,19 @@ ms.locfileid: "101676881"
 
    다음 명령을 실행하여 노드를 인증하고 클러스터를 만듭니다. 메모리 보존 유지 관리를 허용하도록 토큰을 30000으로 설정합니다. 자세한 내용은 [Linux에 대한 관련 문서][virtual-machines-linux-maintenance]를 참조하세요.  
    
-   **RHEL 7.x** 에서 클러스터를 빌드하는 경우 다음 명령을 사용 합니다.  
+   **RHEL 7.x** 에 클러스터를 빌드하는 경우 다음 명령을 사용합니다.  
    <pre><code>sudo pcs cluster auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> --token 30000
    sudo pcs cluster start --all
    </code></pre>
 
-   **RHEL .x** 에서 클러스터를 빌드하는 경우 다음 명령을 사용 합니다.  
+   **RHEL 8.x** 에 클러스터를 빌드하는 경우 다음 명령을 사용합니다.  
    <pre><code>sudo pcs host auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> totem token=30000
    sudo pcs cluster start --all
    </code></pre>
 
-   다음 명령을 실행 하 여 클러스터 상태를 확인 합니다.  
+   다음 명령을 사용하여 클러스터 상태를 확인합니다.  
    <pre><code> # Run the following command until the status of both nodes is online
    sudo pcs status
    # Cluster name: nw1-azr
@@ -205,7 +205,7 @@ ms.locfileid: "101676881"
    #   pcsd: active/enabled
    </code></pre>
 
-1. **[A]** 예상 투표를 설정 합니다. 
+1. **[A]** 예상 투표 설정 
    
    <pre><code># Check the quorum votes 
     pcs quorum status
@@ -214,9 +214,9 @@ ms.locfileid: "101676881"
    </code></pre>
 
    >[!TIP]
-   > 노드가 세 개 이상인 클러스터 인 다중 노드 클러스터를 빌드하는 경우 투표를 2로 설정 하지 마세요.    
+   > 노드가 세 개 이상인 다중 노드 클러스터를 빌드하는 경우, 투표를 2로 설정하지 마세요.    
 
-1. **[1]** 동시 fence 작업 허용
+1. **[1]** 동시 Fence 작업 허용
 
    <pre><code>sudo pcs property set concurrent-fencing=true
    </code></pre>
@@ -227,7 +227,7 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
 
 1. [https://editor.swagger.io](<https://portal.azure.com>) 으로 이동합니다.
 1. Azure Active Directory 블레이드 열기  
-   속성으로 이동 하 여 디렉터리 ID를 적어 둡니다. 이 ID는 **테넌트 ID** 입니다.
+   속성으로 이동하여 디렉터리 ID를 적어 둡니다. 이 ID는 **테넌트 ID** 입니다.
 1. 앱 등록 클릭
 1. 새 등록 클릭
 1. 이름을 입력하고 “이 조직 디렉터리의 계정만” 선택 
@@ -235,8 +235,8 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
    로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있음
 1. 인증서 및 암호를 선택한 다음, 새 클라이언트 암호 클릭
 1. 새 키의 설명을 입력하고 “만료되지 않음”을 선택한 다음, 추가 클릭
-1. 노드를 값으로 설정 합니다. 서비스 주체의 **암호** 로 사용됨
-1. 개요를 선택합니다. 응용 프로그램 ID를 적어둡니다. 서비스 주체의 사용자 이름(아래 단계의 **로그인 ID**)으로 사용됨
+1. 노드를 해당 값으로 설정합니다. 서비스 주체의 **암호** 로 사용됨
+1. 개요를 선택합니다. 애플리케이션 ID를 적어 둡니다. 서비스 주체의 사용자 이름(아래 단계의 **로그인 ID**)으로 사용됨
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** 펜스 에이전트에 대한 사용자 지정 역할 만들기
 
@@ -293,23 +293,23 @@ sudo pcs property set stonith-timeout=900
 </code></pre>
 
 > [!NOTE]
-> ' Pcmk_host_map ' 옵션은 RHEL 호스트 이름과 Azure VM 이름이 동일 하지 않은 경우에만 명령에 필요 합니다. **호스트 이름: vm-이름** 형식으로 매핑을 지정 합니다.
-> 명령에서 굵은 섹션을 참조하세요. 자세한 내용은 [pcmk_host_map에서 stonith 장치에 대 한 노드 매핑을 지정 하는 데 사용 해야 하는 형식](https://access.redhat.com/solutions/2619961) 을 참조 하세요.
+> RHEL 호스트 이름과 Azure VM 이름이 동일하지 않은 경우라면 'pcmk_host_map' 옵션은 해당 명령에만 필요합니다. **호스트 이름:VM-이름** 형식의 매핑을 지정합니다.
+> 명령에서 굵은 섹션을 참조하세요. 자세한 내용은 [pcmk_host_map에서 stonith 디바이스에 대한 노드 매핑을 지정할 때 사용하여야 하는 형식](https://access.redhat.com/solutions/2619961)을 참조하세요.
 
-**RHEL 4.x의 경우 다음** 명령을 사용 하 여 fence 장치를 구성 합니다.    
+RHEL **7.X** 의 경우, 다음 명령을 사용하여 Fence 디바이스를 구성합니다.    
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
 op monitor interval=3600
 </code></pre>
 
-RHEL **.x** 의 경우 다음 명령을 사용 하 여 fence 장치를 구성 합니다.  
+RHEL **8.X** 의 경우, 다음 명령을 사용하여 Fence 디바이스를 구성합니다.  
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm username="<b>login ID</b>" password="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
 op monitor interval=3600
 </code></pre>
 
 > [!IMPORTANT]
-> 모니터링 및 fence 작업은 deserialize 되지 않습니다. 결과적으로 모니터링 작업을 실행 하 고 동시에 펜스 이벤트를 실행 하는 경우 이미 실행 중인 모니터링 작업 때문에 클러스터 장애 조치 (failover)에 지연이 발생 하지 않습니다.  
+> 모니터링 및 Fencing 작업은 역직렬화됩니다. 결과적으로, 모니터링 작업이 더 오래 실행되고 Fencing 이벤트를 동시에 실행하는 경우, 이미 실행 중인 모니터링 작업으로 인하여 클러스터 장애 조치(failover)는 지연되지 않습니다.  
 
 ### <a name="1-enable-the-use-of-a-stonith-device"></a>**[1]** STONITH 디바이스를 사용하도록 설정
 

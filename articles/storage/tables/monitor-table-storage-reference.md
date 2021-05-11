@@ -1,6 +1,6 @@
 ---
-title: Azure 테이블 저장소 모니터링 데이터 참조 | Microsoft Docs
-description: Azure 테이블 저장소에서 데이터를 모니터링 하기 위한 로그 및 메트릭 참조입니다.
+title: Azure Table Storage 모니터링 데이터 참조 | Microsoft Docs
+description: Azure Table Storage의 모니터링 데이터를 위한 로그 및 메트릭 참조입니다.
 author: normesta
 services: azure-monitor
 ms.service: azure-monitor
@@ -10,13 +10,13 @@ ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
 ms.openlocfilehash: ad56b6af9a9071812ad6fa581954010df3b6b5d7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100574835"
 ---
-# <a name="azure-table-storage-monitoring-data-reference"></a>Azure 테이블 저장소 모니터링 데이터 참조
+# <a name="azure-table-storage-monitoring-data-reference"></a>Azure Table Storage 모니터링 데이터 참조
 
 Azure Storage의 모니터링 데이터를 수집하고 분석하는 방법은 [Azure Storage 모니터링](monitor-table-storage.md)을 참조하세요.
 
@@ -36,7 +36,7 @@ Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공
 
 #### <a name="table-storage"></a>Table Storage
 
-다음 표에서는 [테이블 저장소 메트릭을](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountstableservices)보여 줍니다.
+이 표는 [Table Storage 메트릭](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountstableservices)을 보여 줍니다.
 
 | 메트릭 | Description |
 | ------------------- | ----------------- |
@@ -46,7 +46,7 @@ Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공
 
 ### <a name="transaction-metrics"></a>트랜잭션 메트릭
 
-트랜잭션 메트릭은 스토리지 계정에 대한 모든 요청이 있을 때 Azure Storage에서 Azure Monitor로 내보내집니다. 스토리지 계정에 작업이 없는 경우 해당 기간에 트랜잭션 메트릭에도 데이터가 없습니다. 모든 트랜잭션 메트릭은 계정 및 테이블 저장소 서비스 수준에서 모두 사용할 수 있습니다. 시간 조직은 메트릭 값이 표시되는 시간 간격을 정의합니다. 모든 트랜잭션 메트릭에 대해 지원되는 시간 조직은 PT1H 및 PT1M입니다.
+트랜잭션 메트릭은 스토리지 계정에 대한 모든 요청이 있을 때 Azure Storage에서 Azure Monitor로 내보내집니다. 스토리지 계정에 작업이 없는 경우 해당 기간에 트랜잭션 메트릭에도 데이터가 없습니다. 모든 트랜잭션 메트릭은 계정 및 Table Storage 서비스 수준에서 모두 사용할 수 있습니다. 시간 조직은 메트릭 값이 표시되는 시간 간격을 정의합니다. 모든 트랜잭션 메트릭에 대해 지원되는 시간 조직은 PT1H 및 PT1M입니다.
 
 [!INCLUDE [Transaction metrics](../../../includes/azure-storage-account-transaction-metrics.md)]
 
@@ -79,5 +79,5 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 
 ## <a name="see-also"></a>참고 항목
 
-- Azure Storage 모니터링에 대 한 설명은 [Azure 테이블 저장소 모니터링](monitor-table-storage.md) 을 참조 하세요.
+- Azure Storage를 모니터링하는 데 대한 설명은 [Azure Table Storage 모니터링](monitor-table-storage.md)을 참조하세요.
 - Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../../azure-monitor/essentials/monitor-azure-resource.md)을 참조하세요.

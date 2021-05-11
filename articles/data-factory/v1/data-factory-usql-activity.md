@@ -1,6 +1,6 @@
 ---
-title: U-SQL 스크립트를 사용 하 여 데이터 변환-Azure
-description: Azure Data Lake Analytics compute 서비스-버전 1에서 U-SQL 스크립트를 실행 하 여 데이터를 처리 하거나 변환 하는 방법에 대해 알아봅니다.
+title: U-SQL 스크립트를 사용하여 데이터 변환 - Azure
+description: Azure Data Lake Analytics 컴퓨팅 서비스 - 버전 1에서 U-SQL 스크립트를 실행하여 데이터를 처리 또는 변환하는 방법을 알아봅니다.
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/01/2017
@@ -9,10 +9,10 @@ ms.author: abnarain
 ms.custom: devx-track-csharp
 robots: noindex
 ms.openlocfilehash: 5931cb28721e8658a771ceea1cd94624a0c09f7c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100392921"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 스크립트를 실행하여 데이터 변환 
@@ -41,7 +41,7 @@ Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 �
 
 다음 표에는 JSON 정의에서 사용하는 일반 속성에 대한 설명이 나와 있습니다. 서비스 주체와 사용자 자격 증명 인증 중에서 추가로 선택할 수 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | **type** |형식 속성은 **AzureDataLakeAnalytics** 로 설정해야 합니다. |예 |
 | **accountName** |Azure 데이터 레이크 분석 계정 이름입니다. |예 |
@@ -57,7 +57,7 @@ Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 �
 
 다음 속성을 지정하여 서비스 주체 인증을 사용합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | **servicePrincipalId** | 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
 | **servicePrincipalKey** | 애플리케이션의 키를 지정합니다. | 예 |
@@ -85,10 +85,10 @@ Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 �
 ### <a name="user-credential-authentication"></a>사용자 자격 증명 인증
 또는 다음 속성을 지정하여 Data Lake Analytics에 대해 사용자 자격 증명 인증을 사용할 수 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| **인증과** | Data Factory 편집기에서 **권한 부여** 단추를 클릭하고 자격 증명을 입력합니다. 그러면 자동 생성된 authorization URL이 이 속성에 할당됩니다. | 예 |
-| **세션** | OAuth 권한 부여 세션에서 가져온 OAuth 세션 ID입니다. 각 세션 ID는 고유하고 한 번만 사용될 수 있습니다. 이 설정은 Data Factory 편집기를 사용하는 경우 자동으로 생성됩니다. | 예 |
+| **권한 부여** | Data Factory 편집기에서 **권한 부여** 단추를 클릭하고 자격 증명을 입력합니다. 그러면 자동 생성된 authorization URL이 이 속성에 할당됩니다. | 예 |
+| **sessionId** | OAuth 권한 부여 세션에서 가져온 OAuth 세션 ID입니다. 각 세션 ID는 고유하고 한 번만 사용될 수 있습니다. 이 설정은 Data Factory 편집기를 사용하는 경우 자동으로 생성됩니다. | 예 |
 
 **예제: 사용자 자격 증명 인증**
 ```json
@@ -201,13 +201,13 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 다음 표에는 이 작업과 관련된 속성 이름과 설명이 나와 있습니다. 
 
-| 속성            | 설명                              | 필수                                 |
+| 속성            | Description                              | 필수                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
 | type                | type 속성은 **DataLakeAnalyticsU-SQL** 로 설정되어야 합니다. | 예                                      |
 | linkedServiceName   | Data Factory에서 연결된 서비스로 등록된 Azure Data Lake Analytics에 대한 참조 | 예                                      |
 | scriptPath          | U-SQL 스크립트가 포함된 폴더 경로입니다. 파일 이름은 대/소문자를 구분합니다. | 아니요(스크립트를 사용하는 경우)                   |
 | scriptLinkedService | 스크립트가 포함된 스토리지를 Data Factory에 연결하는 연결된 서비스입니다. | 아니요(스크립트를 사용하는 경우)                   |
-| 스크립트              | scriptPath 및 scriptLinkedService를 지정하는 대신 인라인 스크립트를 지정합니다. 예를 들어 `"script": "CREATE DATABASE test"`을 참조하십시오. | 아니요(scriptPath 및 scriptLinkedService를 사용하는 경우) |
+| 스크립트              | scriptPath 및 scriptLinkedService를 지정하는 대신 인라인 스크립트를 지정합니다. 예: `"script": "CREATE DATABASE test"` | 아니요(scriptPath 및 scriptLinkedService를 사용하는 경우) |
 | degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. | 예                                       |
 | priority            | 대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. | 예                                       |
 | 매개 변수          | U-SQL 스크립트의 매개 변수          | 예                                       |
@@ -312,7 +312,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-U-SQL 스크립트의 **\@ in** 및 **\@ out** 매개 변수에 대 한 값은 ' parameters ' 섹션을 사용 하 여 ADF에 의해 동적으로 전달 됩니다. 파이프라인 정의의 ' parameters ' 섹션을 참조 하세요.
+U-SQL 스크립트의 **\@in** 및 **\@out** 매개 변수 값은 ADF가 'parameters' 섹션을 사용하여 동적으로 전달합니다. 파이프라인 정의에서 'parameters' 섹션을 참조하세요.
 
 Azure Data Lake Analytics 서비스에서 실행되는 작업에 대한 파이프라인 정의뿐 아니라 degreeOfParallelism나 우선 순위와 같은 다른 속성을 지정할 수 있습니다.
 

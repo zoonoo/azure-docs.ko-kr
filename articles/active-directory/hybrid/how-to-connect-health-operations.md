@@ -16,10 +16,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 37e41a00c1489d5b7b4822fec8bb4da35e917826
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101686464"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health 작업
@@ -43,9 +43,9 @@ ID 인프라가 정상 상태가 아님을 나타내는 경고가 표시되면 �
 6. 변경을 완료하려면 **저장** 을 클릭합니다. 변경 내용은 저장한 후에만 적용됩니다.
 
 >[!NOTE] 
-> 백 엔드 서비스에서 동기화 요청을 처리 하는 데 문제가 있는 경우이 서비스는 오류에 대 한 세부 정보와 함께 테 넌 트의 관리 담당자 전자 메일 주소로 알림 전자 메일을 보냅니다. 특정 한 경우에는 이러한 메시지의 양이 너무 크므로 이러한 메시지를 전송 하는 방식을 변경 하는 고객의 의견을 들었습니다. 
+> 백 엔드 서비스에서 동기화 요청을 처리하는 데 문제가 있는 경우 이 서비스는 오류에 대한 세부 정보가 포함된 알림 메일을 테넌트의 관리 담당자 메일 주소로 보냅니다. 특정한 경우에 이러한 메시지 볼륨이 너무 커진다는 고객의 의견을 들었기 때문에 이러한 메시지를 전송하는 방식을 변경 중입니다. 
 >
-> 발생할 때마다 모든 동기화 오류에 대 한 메시지를 전송 하는 대신 백 엔드 서비스가 반환한 모든 오류의 일일 다이제스트를 전송 합니다. 이를 통해 고객은 보다 효율적인 방식으로 이러한 오류를 처리 하 고 중복 된 오류 메시지 수를 줄일 수 있습니다.
+> 동기화 오류가 발생할 때마다 모든 동기화 오류에 대한 메시지를 전송하는 대신 백 엔드 서비스에서 반환된 모든 오류에 대한 일일 다이제스트를 전송하여 드립니다. 이렇게 하면 고객은 보다 효율적인 방식으로 이러한 오류를 처리하고 중복된 오류 메시지 수를 줄일 수 있습니다.
 
 ## <a name="delete-a-server-or-service-instance"></a>서버 또는 서비스 인스턴스 삭제
 
@@ -101,8 +101,8 @@ Azure Active Directory Domain Services용 Azure AD Connect Health:
    <br><br>
 
 [//]: # (RBAC 섹션의 시작)
-## <a name="manage-access-with-azure-rbac"></a>Azure RBAC를 사용 하 여 액세스 관리
-Azure AD Connect Health에 대 한 [azure 역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/role-assignments-portal.md) 는 전역 관리자가 아닌 사용자 및 그룹에 대 한 액세스를 제공 합니다. Azure RBAC는 의도 된 사용자 및 그룹에 역할을 할당 하 고 디렉터리 내에서 전역 관리자를 제한 하는 메커니즘을 제공 합니다.
+## <a name="manage-access-with-azure-rbac"></a>Azure RBAC 액세스 관리
+Azure AD Connect Health에 대한 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)는 전역 관리자가 아닌 사용자 및 그룹에 대한 액세스를 제공합니다. Azure RBAC는 의도된 사용자 및 그룹에 역할을 할당하고 디렉터리 내에서 전역 관리자를 제한하는 메커니즘을 제공합니다.
 
 ### <a name="roles"></a>역할
 Azure AD Connect Health는 다음과 같은 기본 제공 역할을 지원합니다.
@@ -135,10 +135,10 @@ Azure AD Connect Health 내에서 *모든 서비스 인스턴스* 수준으로 �
 3. **역할 선택** 창에서 역할(예: **소유자**)을 선택합니다.<br>
    ![Azure AD Connect Health 및 Azure RBAC 구성 메뉴의 스크린샷](./media/how-to-connect-health-operations/RBAC_add.png)
 4. 사용자 또는 그룹을 대상으로 한 이름 또는 식별자를 입력합니다. 동시에 하나 이상의 사용자 또는 그룹을 선택할 수 있습니다. **선택** 을 클릭합니다.
-   ![Azure AD Connect Health 및 Azure 역할 목록의 스크린샷](./media/how-to-connect-health-operations/RBAC_select_users.png)
+   ![Azure AD Connect Health 및 Azure 역할 목록에 대한 스크린샷](./media/how-to-connect-health-operations/RBAC_select_users.png)
 5. **확인** 을 선택합니다.<br>
 6. 역할 할당이 완료되면 사용자 및 그룹이 목록에 표시됩니다.<br>
-   ![Azure AD Connect Health 및 Azure RBAC와 새 사용자가 강조 표시 된 스크린샷](./media/how-to-connect-health-operations/RBAC_user_list.png)
+   ![새 사용자가 강조 표시된 Azure AD Connect Health 및 Azure RBAC 스크린샷](./media/how-to-connect-health-operations/RBAC_user_list.png)
 
 이제 할당된 역할에 따라 나열된 사용자 및 그룹에 액세스 권한이 있습니다.
 
@@ -151,24 +151,24 @@ Azure AD Connect Health 내에서 *모든 서비스 인스턴스* 수준으로 �
 #### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>3단계: 사용자 또는 그룹을 사용하여 블레이드 위치 공유
 1. 사용 권한을 할당하면 사용자가 [여기](https://aka.ms/aadconnecthealth)로 이동하여 Azure AD Connect Health에 액세스할 수 있습니다.
 2. 블레이드에서 사용자는 블레이드 또는 블레이드의 서로 다른 부분을 대시보드에 고정할 수 있습니다. **대시보드에 고정** 아이콘을 클릭하면 됩니다.<br>
-   ![고정 아이콘이 강조 표시 된 Azure AD Connect Health 및 Azure RBAC pin 블레이드 스크린샷](./media/how-to-connect-health-operations/RBAC_pin_blade.png)
+   ![고정 아이콘이 강조 표시된 Azure AD Connect Health 및 Azure RBAC 고정 블레이드 스크린샷](./media/how-to-connect-health-operations/RBAC_pin_blade.png)
 
 > [!NOTE]
-> 구독자 역할이 할당된 사용자는 Azure Marketplace에서 Azure AD Connect Health 확장을 가져올 수 없습니다. 사용자가 가져오기에 필요한 "만들기" 작업을 수행할 수 없습니다. 사용자는 앞의 링크로 이동하여 블레이드에 액세스할 수 있습니다. 이후 사용의 경우 사용자는 대시보드에 블레이드를 고정할 수 있습니다.
+> 구독자 역할이 할당된 사용자는 Azure Marketplace에서 Azure AD Connect Health 확장을 가져올 수 없습니다. 사용자가 가져오기에 필요한 "생성" 작업을 수행할 수 없습니다. 사용자는 앞의 링크로 이동하여 블레이드에 액세스할 수 있습니다. 이후 사용의 경우 사용자는 대시보드에 블레이드를 고정할 수 있습니다.
 >
 >
 
 ### <a name="remove-users-or-groups"></a>사용자 또는 그룹 제거
-Azure AD Connect Health 및 Azure RBAC에 추가 된 사용자 또는 그룹을 제거할 수 있습니다. 사용자 또는 그룹을 마우스 오른쪽 단추로 클릭하고 **제거** 를 선택하면 됩니다.<br>
-![제거 강조 표시 된 Azure AD Connect Health 및 Azure RBAC의 스크린샷](./media/how-to-connect-health-operations/RBAC_remove.png)
+Azure AD Connect Health 및 Azure RBAC에 추가된 사용자나 그룹을 제거할 수 있습니다. 사용자 또는 그룹을 마우스 오른쪽 단추로 클릭하고 **제거** 를 선택하면 됩니다.<br>
+![제거가 강조 표시된 Azure AD Connect Health 및 Azure RBAC 스크린샷](./media/how-to-connect-health-operations/RBAC_remove.png)
 
 [//]: # (RBAC 섹션의 끝)
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure AD Connect Health](./whatis-azure-ad-connect.md)
-* [에이전트 설치 Azure AD Connect Health](how-to-connect-health-agent-install.md)
+* [Azure AD Connect Health 에이전트 설치](how-to-connect-health-agent-install.md)
 * [AD FS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adfs.md)
 * [동기화에 대한 Azure AD Connect Health 사용](how-to-connect-health-sync.md)
 * [AD DS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adds.md)
 * [Azure AD Connect Health FAQ](reference-connect-health-faq.md)
-* [Azure AD Connect Health 버전 기록](reference-connect-health-version-history.md)
+* [Azure AD Connect Health 버전 내역](reference-connect-health-version-history.md)

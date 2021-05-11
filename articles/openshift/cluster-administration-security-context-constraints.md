@@ -1,6 +1,6 @@
 ---
-title: Azure Red Hat OpenShift에서 보안 컨텍스트 제약 조건 관리 Microsoft Docs
-description: Azure Red Hat OpenShift 클러스터 관리자에 대 한 보안 컨텍스트 제약 조건
+title: Azure Red Hat OpenShift에서 보안 컨텍스트 제약 조건 관리 | Microsoft Docs
+description: Azure Red Hat OpenShift 클러스터 관리자에 대한 보안 컨텍스트 제약 조건
 services: container-service
 author: troy0820
 ms.author: b-trconn
@@ -8,25 +8,25 @@ ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 09/25/2019
 ms.openlocfilehash: 977504c1faec9bd8134646a8cbe31f9eea665edd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100636206"
 ---
-# <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Azure Red Hat OpenShift에서 보안 컨텍스트 제약 조건 관리
+# <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Azure Red Hat OpenShift의 보안 컨텍스트 제약 조건 관리
 
 > [!IMPORTANT]
-> Azure Red Hat OpenShift 3.11는 30 월 2022에 사용 중지 됩니다. 새 Azure Red Hat OpenShift 3.11 클러스터 만들기에 대 한 지원은 30 년 11 2020 월 30 일까 지 계속 됩니다. 사용 중지 후에는 나머지 Azure Red Hat OpenShift 3.11 클러스터가 종료 되어 보안 취약점을 방지 합니다.
+> Azure Red Hat OpenShift 3.11은 2022년 6월 30일부터 사용이 중지됩니다. 새로운 Azure Red Hat OpenShift 3.11 클러스터 만들기 지원은 2020년 11월 30일까지 계속됩니다. 사용 중지 후에는 보안 취약성을 방지하기 위해 남아 있는 Azure Red Hat OpenShift 3.11 클러스터가 종료됩니다.
 > 
-> 이 가이드에 따라 [Azure Red Hat OpenShift 4 클러스터를 만듭니다](tutorial-create-cluster.md).
-> 특정 질문이 있는 경우 문의해 주시기 [바랍니다](mailto:arofeedback@microsoft.com).
+> 이 가이드를 따라 [Azure Red Hat OpenShift 4 클러스터를 만듭니다](tutorial-create-cluster.md).
+> 궁금한 점은 [문의하세요](mailto:arofeedback@microsoft.com).
 
-SCCs (보안 컨텍스트 제약 조건)를 사용 하면 클러스터 관리자가 pod에 대 한 사용 권한을 제어할 수 있습니다. 이 API 형식에 대해 자세히 알아보려면 [SCCs에 대 한 아키텍처 설명서](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html)를 참조 하세요. CLI를 사용 하 여 인스턴스에서 SCCs를 일반 API 개체로 관리할 수 있습니다.
+SCCs(보안 컨텍스트 제약 조건)를 사용하면 클러스터 관리자가 Pod에 대한 사용 권한을 제어할 수 있습니다. 이 API 형식에 대해 자세히 알아보려면 [SCCs에 대한 아키텍처 설명서](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html)를 참조하세요. CLI를 사용하여 인스턴스에서 SCCs를 일반 API 개체로 관리할 수 있습니다.
 
 ## <a name="list-security-context-constraints"></a>보안 컨텍스트 제약 조건 나열
 
-SCCs의 현재 목록을 가져오려면 다음 명령을 사용 합니다. 
+SCCs의 현재 목록을 가져오려면 다음 명령을 사용합니다. 
 
 ```bash
 $ oc get scc
@@ -41,9 +41,9 @@ privileged         true      [*]       RunAsAny    RunAsAny           RunAsAny  
 restricted         false     []        MustRunAs   MustRunAsRange     MustRunAs   RunAsAny    <none>     false            [configMap downwardAPI emptyDir persistentVolumeClaim secret]
 ```
 
-## <a name="examine-an-object-for-security-context-constraints"></a>개체에서 보안 컨텍스트 제약 조건을 검사 합니다.
+## <a name="examine-an-object-for-security-context-constraints"></a>개체에서 보안 컨텍스트 제약 조건을 검사합니다
 
-특정 SCC를 검사 하려면 `oc get` , 또는를 사용 `oc describe` `oc edit` 합니다.  예를 들어 **제한** 된 SCC를 검사 하려면 다음 명령을 사용 합니다.
+특정 SCC를 검사하려면 `oc get`, `oc describe`, 또는 `oc edit`를 사용합니다.  예를 들어 **제한된** SCC를 검사하려면 다음 명령을 사용합니다.
 ```bash
 $ oc describe scc restricted
 Name:                    restricted

@@ -9,15 +9,15 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: ba0b02067c032f9038051c169866588ded44af73
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85566018"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Storage Explorer를 사용하여 지식 저장소 보기
 
-이 문서에서는 Azure Portal에서 Storage 탐색기를 사용 하 여 기술 자료 저장소에 연결 하 고 탐색 하는 방법을 설명 합니다.
+이 문서에서는 Azure Portal에서 Storage Explorer를 사용하여 지식 저장소에 연결하고 지식 저장소를 탐색하는 방법을 예를 통해 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -25,15 +25,15 @@ ms.locfileid: "85566018"
 
 + 지식 저장소를 만들 때 사용한 Azure 스토리지 계정의 이름과 Azure Portal의 계정 액세스 키도 필요합니다.
 
-## <a name="view-edit-and-query-a-knowledge-store-in-storage-explorer"></a>Storage 탐색기에서 기술 자료 저장소 보기, 편집 및 쿼리
+## <a name="view-edit-and-query-a-knowledge-store-in-storage-explorer"></a>Storage Explorer에서 지식 저장소 보기, 편집, 쿼리
 
-1. Azure Portal에서 기술 자료 저장소를 만드는 데 사용한 [저장소 계정을 엽니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) .
+1. Azure Portal에서 지식 저장소를 만드는 데 사용한 [스토리지 계정을 엽니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/).
 
 1. 스토리지 계정의 왼쪽 탐색 창에서 **Storage Explorer** 를 클릭합니다.
 
 1. **테이블** 목록을 확장하여 호텔 리뷰 샘플 데이터에서 **데이터 가져오기** 마법사를 실행할 때 생성된 Azure 테이블 프로젝션 목록을 표시합니다.
 
-핵심 구와 감정 점수를 포함 하 여 보강 데이터를 보려면 테이블을 선택 합니다.
+핵심 구와 감정 점수를 비롯한 보강 데이터를 보려면 표를 선택합니다.
 
    ![Storage Explorer에서 테이블 보기](media/knowledge-store-view-storage-explorer/storage-explorer-tables.png "Storage Explorer에서 테이블 보기")
 
@@ -55,8 +55,8 @@ ms.locfileid: "85566018"
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 분석을 위해이 기술 자료 저장소를 Power BI에 연결 하거나 REST API 및 Postman을 사용 하 여 다른 기술 자료 저장소를 만들어 코드로 이동 합니다.
+자세한 분석을 위해 이 지식 저장소를 Power BI에 연결하거나 REST API 및 Postman을 통해 코드로 작업하여 다른 지식 저장소를 만듭니다.
 
 > [!div class="nextstepaction"]
-> [Power BI 연결](knowledge-store-connect-power-bi.md) 
->  [REST에서 기술 자료 저장소 만들기](knowledge-store-create-rest.md)
+> [Power BI에 연결](knowledge-store-connect-power-bi.md)
+> [REST에서 지식 저장소 만들기](knowledge-store-create-rest.md)

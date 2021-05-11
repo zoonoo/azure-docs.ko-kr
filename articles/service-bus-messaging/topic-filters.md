@@ -1,43 +1,43 @@
 ---
 title: Azure Service Bus 토픽 필터 | Microsoft Docs
-description: 이 문서에서는 구독자가 필터를 지정 하 여 토픽에서 수신 하려는 메시지를 정의 하는 방법을 설명 합니다.
+description: 이 문서에서는 구독자가 필터를 지정하여 토픽에서 수신하려는 메시지를 정의하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.openlocfilehash: f28b26ee112b47b9782823f6c79670dee9a3f082
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100651666"
 ---
 # <a name="topic-filters-and-actions"></a>토픽 필터 및 작업
 
-구독자는 토픽에서 수신할 메시지를 정의할 수 있습니다. 이러한 메시지는 하나 이상의 명명된 구독 규칙의 형태로 지정됩니다. 각 규칙은 특정 메시지를 선택 하 고 **선택적으로** 선택한 메시지를 주석을 추가 하는 **작업** 을 포함 하는 **필터 조건** 으로 구성 됩니다. 
+구독자는 토픽에서 수신할 메시지를 정의할 수 있습니다. 이러한 메시지는 하나 이상의 명명된 구독 규칙의 형태로 지정됩니다. 각 규칙은 특정 메시지를 선택하는 **필터 조건** 으로 구성되며, **필요에 따라** 선택된 메시지에 주석을 다는 **작업** 을 포함합니다. 
 
-**작업이 없는** 모든 규칙은 조건을 사용 하 여 결합 되며 `OR` 여러 일치 규칙이 있는 경우에도 구독에서 **단일 메시지** 를 생성 합니다. 
+**작업을 포함하지 않는** 모든 규칙은 `OR` 조건을 통해 결합되며 여러 일치 규칙이 있는 경우에도 구독에서 **단일 메시지** 를 생성합니다. 
 
-작업을 **포함 하는** 각 규칙은 메시지의 복사본을 생성 합니다. 이 메시지에는 `RuleName` 값이 일치 규칙의 이름인 라는 속성이 포함 됩니다. 작업은 속성을 추가 또는 업데이트 하거나 원래 메시지에서 속성을 삭제 하 여 구독에 대 한 메시지를 생성할 수 있습니다. 
+**작업을 포함하는** 각 규칙은 메시지의 복사본을 생성합니다. 이 메시지에는 값이 해당 일치 규칙의 이름인 `RuleName`라는 속성이 있습니다. 작업은 속성을 추가 또는 업데이트하거나 원래 메시지에서 속성을 삭제하여 구독에 메시지를 생성하는 것일 수 있습니다. 
 
 다음 시나리오를 고려하세요.
 
-- 구독에는 5 개의 규칙이 있습니다.
-- 두 규칙에는 작업이 포함 됩니다.
-- 세 가지 규칙에는 작업이 포함 되지 않습니다.
+- 구독에는 5개의 규칙이 있습니다.
+- 두 규칙에는 작업이 포함됩니다.
+- 세 가지 규칙에는 작업이 포함되지 않습니다.
 
-이 예에서는 5 개의 규칙과 일치 하는 메시지를 하나 보내면 해당 구독에 대해 3 개의 메시지가 표시 됩니다. 작업을 포함 하는 두 규칙에 대 한 두 개의 메시지 이며 작업 없이 세 가지 규칙에 대해 하나의 메시지입니다. 
+이 예시에서는 5개의 규칙과 모두 일치하는 메시지를 하나 보내면 구독에 3개의 메시지가 수신됩니다. 이는 작업을 포함하는 두 가지 규칙에 대한 2개의 메시지이며 작업을 포함하지 않는 세 가지 규칙에 대한 1개의 메시지입니다. 
 
 새로 생성된 각각의 토픽 구독에는 초기 기본 구독 규칙이 있습니다. 규칙에 대한 필터 조건을 명시적으로 지정하지 않는 경우 적용된 필터는 **true** 필터이며 이를 통해 모든 메시지를 구독으로 선택할 수 있습니다. 기본 규칙에는 연결된 주석 작업이 없습니다.
 
 ## <a name="filters"></a>필터
 Service Bus는 세 가지 필터 조건을 지원합니다.
 
--   *SQL 필터* - **SqlFilter** 는 broker에서 도착 메시지의 사용자 정의 속성 및 시스템 속성과 비교하여 평가되는 SQL과 비슷한 조건식을 유지합니다. 모든 시스템 속성은 조건식에서 `sys.`로 시작되어야 합니다. [필터 조건에 대 한 SQL 언어 하위 집합](service-bus-messaging-sql-filter.md) 은 속성 ( `EXISTS` ), null 값 ( `IS NULL` ), logical NOT/AND/OR, 관계형 연산자, 단순 숫자 산술 및와의 단순 텍스트 패턴 일치 여부를 테스트 합니다 `LIKE` .
--   *부울 필터* - **TrueFilter** 및 **FalseFilter** 는 모든 도착 메시지가 구독에 대해 선택되거나(**true**) 선택되지 않도록(**false**) 합니다. 이러한 두 필터는 SQL 필터에서 파생 됩니다. 
--   *상관 관계 필터* - **CorrelationFilter** 는 도착 메시지의 사용자 및 시스템 속성 중 하나 이상과 일치하는 조건 집합을 보유합니다. 일반적으로 **CorrelationId** 속성을 일치 시키는 것 이지만 응용 프로그램은 다음 속성과 일치 하도록 선택할 수도 있습니다.
+-   *SQL 필터* - **SqlFilter** 는 broker에서 도착 메시지의 사용자 정의 속성 및 시스템 속성과 비교하여 평가되는 SQL과 비슷한 조건식을 유지합니다. 모든 시스템 속성은 조건식에서 `sys.`로 시작되어야 합니다. [필터 조건용 SQL 언어 하위 집합](service-bus-messaging-sql-filter.md)은 속성의 존재 여부(`EXISTS`), Null 값(`IS NULL`), 논리적 NOT/AND/OR, 관계 연산자, 단순 숫자 산술, `LIKE`와 일치하는 간단한 텍스트 패턴을 테스트합니다.
+-   *부울 필터* - **TrueFilter** 및 **FalseFilter** 는 모든 도착 메시지가 구독에 대해 선택되거나(**true**) 선택되지 않도록(**false**) 합니다. 이러한 두 필터는 SQL 필터에서 파생됩니다. 
+-   *상관 관계 필터* - **CorrelationFilter** 는 도착 메시지의 사용자 및 시스템 속성 중 하나 이상과 일치하는 조건 집합을 보유합니다. 일반적인 사용법은 **CorrelationId** 속성과 일치시키는 것이지만 애플리케이션은 다음 속성과 일치하도록 선택할 수도 있습니다.
 
     - **ContentType**
      - **레이블**
-     - **있어**
+     - **MessageId**
      - **ReplyTo**
      - **ReplyToSessionId**
      - **SessionId** 
@@ -48,11 +48,11 @@ Service Bus는 세 가지 필터 조건을 지원합니다.
 
 모든 필터는 메시지 속성을 평가합니다. 필터는 메시지 본문을 평가할 수 없습니다.
 
-복잡한 필터 규칙에는 처리 용량이 필요합니다. 특히 SQL 필터 규칙을 사용 하면 구독, 토픽 및 네임 스페이스 수준에서 전체 메시지 처리량이 줄어듭니다. 가능 하면 응용 프로그램에서 SQL과 유사한 필터에 대 한 상관 관계 필터를 선택 해야 합니다. 이러한 필터는 처리 하는 것이 훨씬 더 효율적이 고 처리량에 미치는 영향은 적습니다.
+복잡한 필터 규칙에는 처리 용량이 필요합니다. 특히 SQL 필터 규칙을 사용하면 구독, 토픽, 네임스페이스 수준에서 전반적인 메시지 처리량이 줄어듭니다. 가능할 때마다 애플리케이션은 SQL과 유사한 필터보다 상관 관계 필터를 선택해야 하는데, 이는 상관 관계 필터의 처리 효율이 훨씬 높아서 처리량에 미치는 영향이 적기 때문입니다.
 
-## <a name="actions"></a>작업
+## <a name="actions"></a>동작
 
-SQL 필터 조건을 사용하면 속성 및 값을 추가, 제거 또는 교체하여 메시지에 주석을 달 수 있는 작업을 정의할 수 있습니다. 이 작업은 SQL UPDATE 문에 개괄적으로 의지하는 [SQL-like 식을 사용](service-bus-messaging-sql-filter.md)합니다. 작업은 메시지가 일치 된 후 구독에 메시지를 선택 하기 전에 메시지에 대해 수행 됩니다. 메시지 속성에 대한 변경 사항은 구독에 복사된 메시지에 대한 프라이빗입니다.
+SQL 필터 조건을 사용하면 속성 및 값을 추가, 제거 또는 교체하여 메시지에 주석을 달 수 있는 작업을 정의할 수 있습니다. 이 작업은 SQL UPDATE 문에 개괄적으로 의지하는 [SQL-like 식을 사용](service-bus-messaging-sql-filter.md)합니다. 이 작업은 메시지가 일치된 이후 및 구독에 선택되기 이전에 해당 메시지에서 수행됩니다. 메시지 속성에 대한 변경 사항은 구독에 복사된 메시지에 대한 프라이빗입니다.
 
 ## <a name="usage-patterns"></a>사용 패턴
 
@@ -64,17 +64,17 @@ SQL 필터 조건을 사용하면 속성 및 값을 추가, 제거 또는 교체
 
 라우팅은 필터를 사용하여 예측 가능한 방식으로 토픽 구독에 메시지를 배포하지만 반드시 배타적이지는 않습니다. [자동 전달](service-bus-auto-forwarding.md) 기능과 함께 토픽 필터를 사용하여 Azure 지역 내에 메시지를 배포하기 위해 Service Bus 네임스페이스 내에 복잡한 라우팅 그래프를 만들 수 있습니다. Azure Service Bus 네임스페이스 간에 브리지 역할을 하는 Azure Functions 또는 Azure Logic Apps를 사용하면 LOB(기간 업무) 애플리케이션에 직접 통합하여 복잡한 글로벌 토폴로지를 만들 수 있습니다.
 
-## <a name="examples"></a>예제
-예제는 [Service Bus 필터 예](service-bus-filter-examples.md)를 참조 하세요.
+## <a name="examples"></a>예
+예시는 [Service Bus 필터 예](service-bus-filter-examples.md)를 참조하세요.
 
 
 
 > [!NOTE]
-> Azure Portal는 이제 Service Bus 탐색기 기능을 지원 하므로 포털에서 구독 필터를 만들거나 편집할 수 있습니다. 
+> Azure Portal이 이제 Service Bus Explorer 기능을 지원하므로 포털에서 구독 필터를 만들거나 편집할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 다음 샘플을 참조하세요. 
 
-- [.NET-필터가 포함 된 기본 송신 및 수신 자습서](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)
-- [.NET 토픽 필터](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)
+- [.NET - 필터가 포함된 기본 송신 및 수신 자습서](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)
+- [.NET - 토픽 필터](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)
 - [Azure Resource Manager 템플릿](/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)

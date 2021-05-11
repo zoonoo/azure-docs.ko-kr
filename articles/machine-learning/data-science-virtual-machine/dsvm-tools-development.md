@@ -10,25 +10,25 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: cecc195b8b97ffd9b25cf12898726352ddd698a9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100519442"
 ---
 # <a name="development-tools-on-the-azure-data-science-virtual-machine"></a>Azure Data Science Virtual Machine의 개발 도구
 
-DSVM (Data Science Virtual Machine)은 매우 생산적인 IDE (통합 개발 환경)에서 널리 사용 되는 여러 도구를 번들로 묶습니다. DSVM에서 제공되는 몇 가지 도구는 다음과 같습니다.
+DSVM(Data Science Virtual Machine)은 생산성이 뛰어난 IDE(통합 개발 환경)에서 널리 사용되는 여러 도구를 번들로 묶습니다. DSVM에서 제공되는 몇 가지 도구는 다음과 같습니다.
 
 ## <a name="visual-studio-community-edition"></a>Visual Studio Community Edition
 
 | 범주 | 값 |
 | ------------- | ------------- |
 | 무엇인가요?   | 범용 IDE      |
-| 지원 되는 DSVM 버전      | Windows: Visual Studio 2017, Windows 2019: Visual Studio 2019      |
+| 지원되는 DSVM 버전      | Windows: Visual Studio 2017, Windows 2019: Visual Studio 2019      |
 | 일반적인 사용 용도      | 소프트웨어 개발    |
-| DSVM에 구성 및 설치 하는 방법      | 데이터 과학 워크로드(Python 및 R 도구), Azure 워크로드(Hadoop, Data Lake), Node.js, SQL Server 도구, [Azure Machine Learning for Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
-| 사용 및 실행 방법      | 바탕 화면 바로 가기 ( `C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe` ) 그래픽, 바탕 화면 아이콘 또는 **시작** 메뉴를 사용 하 여 Visual Studio를 엽니다. 프로그램을 검색(Windows 로고 키+S)한 다음, **Visual Studio** 를 찾습니다. 여기서는 C#, Python, R, Node.js와 같은 언어로 프로젝트를 만들 수 있습니다.   |
+| DSVM에서 구성 및 설치 방법      | 데이터 과학 워크로드(Python 및 R 도구), Azure 워크로드(Hadoop, Data Lake), Node.js, SQL Server 도구, [Azure Machine Learning for Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
+| 사용 및 실행 방법      | 바탕화면 바로 가기(`C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe`). 바탕 화면 아이콘 또는 **시작** 메뉴를 사용하여 그래픽 방식으로 Visual Studio를 엽니다. 프로그램을 검색(Windows 로고 키+S)한 다음, **Visual Studio** 를 찾습니다. 여기서는 C#, Python, R, Node.js와 같은 언어로 프로젝트를 만들 수 있습니다.   |
 | DSVM의 관련 도구      |     Visual Studio Code, RStudio, Juno  |
 
 > [!NOTE]
@@ -39,9 +39,9 @@ DSVM (Data Science Virtual Machine)은 매우 생산적인 IDE (통합 개발 �
 | 범주 | 값 |
 | ------------- | ------------- |
 | 무엇인가요?   | 범용 IDE      |
-| 지원 되는 DSVM 버전      | Windows, Linux     |
+| 지원되는 DSVM 버전      | Windows, Linux     |
 | 일반적인 사용 용도      | 코드 편집기 및 Git 통합   |
-| 사용 및 실행 방법      | Windows의 바탕 화면 바로 가기 ( `C:\Program Files (x86)\Microsoft VS Code\Code.exe` ), Linux의 바탕 화면 바로 가기 또는 터미널 ( `code` )    |
+| 사용 및 실행 방법      | Windows에서 바탕화면 바로 가기(`C:\Program Files (x86)\Microsoft VS Code\Code.exe`), Linux에서 바탕화면 바로 가기 또는 터미널(`code`)    |
 | DSVM의 관련 도구      |     Visual Studio, RStudio, Juno  |
 
 ## <a name="rstudio-desktop"></a>RStudio Desktop
@@ -49,9 +49,9 @@ DSVM (Data Science Virtual Machine)은 매우 생산적인 IDE (통합 개발 �
 | 범주 | 값 |
 | ------------- | ------------- |
 | 무엇인가요?   | R 언어용 클라이언트 IDE   |
-| 지원 되는 DSVM 버전      | Windows, Linux      |
+| 지원되는 DSVM 버전      | Windows, Linux      |
 | 일반적인 사용 용도      |  R 개발     |
-| 사용 및 실행 방법      | Windows의 바탕 화면 바로 가기 ( `C:\Program Files\RStudio\bin\rstudio.exe` ), Linux의 바탕 화면 바로 가기 ( `/usr/bin/rstudio` )      |
+| 사용 및 실행 방법      | Windows에서 바탕화면 바로 가기(`C:\Program Files\RStudio\bin\rstudio.exe`), Linux에서 바탕화면 바로 가기(`/usr/bin/rstudio`)      |
 | DSVM의 관련 도구      |   Visual Studio, Visual Studio Code, Juno      |
 
 ## <a name="rstudio-server"></a>RStudio Server
@@ -60,9 +60,9 @@ DSVM (Data Science Virtual Machine)은 매우 생산적인 IDE (통합 개발 �
 | ------------- | ------------- |
 | 무엇인가요?   | R 언어용 클라이언트 IDE   |
 | 무엇인가요?   | R용 웹 기반 IDE    |
-| 지원 되는 DSVM 버전      | Linux      |
+| 지원되는 DSVM 버전      | Linux      |
 | 일반적인 사용 용도      |  R 개발     |
-| 사용 및 실행 방법      | _Systemctl 사용 rstudio-server_ 를 사용 하 여 서비스를 사용 하도록 설정 하 고 _systemctl 시작 rstudio-server_ 를 사용 하 여 서비스를 시작 합니다. 그런 다음 http: \/ /avvv\8787과 같습니다에서 RStudio 서버에 로그인 합니다.       |
+| 사용 및 실행 방법      | _systemctl enable rstudio-server_ 를 사용하여 서비스를 사용하도록 설정한 다음, _systemctl start rstudio-server_ 로 서비스를 시작합니다. 그런 다음, http:\//your-vm-ip:8787에서 RStudio Server에 로그인합니다.       |
 | DSVM의 관련 도구      |   Visual Studio, Visual Studio Code, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 
@@ -70,9 +70,9 @@ DSVM (Data Science Virtual Machine)은 매우 생산적인 IDE (통합 개발 �
 | 범주 | 값 |
 | ------------- | ------------- |
 | 무엇인가요?   | Julia 언어용 클라이언트 IDE   |
-| 지원 되는 DSVM 버전      | Windows, Linux      |
+| 지원되는 DSVM 버전      | Windows, Linux      |
 | 일반적인 사용 용도      |  Julia 개발     |
-| 사용 및 실행 방법      | Windows의 바탕 화면 바로 가기 ( `C:\JuliaPro-0.5.1.1\Juno.bat` ), Linux의 바탕 화면 바로 가기 ( `/opt/JuliaPro-VERSION/Juno` )      |
+| 사용 및 실행 방법      | Windows에서 바탕화면 바로 가기(`C:\JuliaPro-0.5.1.1\Juno.bat`), Linux에서 바탕화면 바로 가기(`/opt/JuliaPro-VERSION/Juno`)      |
 | DSVM의 관련 도구      |   Visual Studio, Visual Studio Code, RStudio      |
 
 ## <a name="pycharm"></a>Pycharm
@@ -80,7 +80,7 @@ DSVM (Data Science Virtual Machine)은 매우 생산적인 IDE (통합 개발 �
 | 범주 | 값 |
 | ------------- | ------------- |
 | 무엇인가요?   | Python 언어용 클라이언트 IDE    |
-| 지원 되는 DSVM 버전      | Windows 2019, Linux      |
+| 지원되는 DSVM 버전      | Windows 2019, Linux      |
 | 일반적인 사용 용도      |  Python 개발     |
-| 사용 및 실행 방법      | Windows의 바탕 화면 바로 가기 ( `C:\Program Files\tk` )입니다. Linux의 바탕 화면 바로 가기 ( `/usr/bin/pycharm` )      |
+| 사용 및 실행 방법      | Windows에서 바탕화면 바로 가기(`C:\Program Files\tk`), Linux에서 바탕화면 바로 가기(`/usr/bin/pycharm`)      |
 | DSVM의 관련 도구      |   Visual Studio, Visual Studio Code, RStudio      |

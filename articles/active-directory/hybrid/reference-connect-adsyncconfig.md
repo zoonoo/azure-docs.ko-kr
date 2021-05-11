@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a2126aceba8724b46de094d14db754d704500c6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85850971"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect: ADSyncConfig PowerShell 참조
@@ -59,19 +59,19 @@ SearchBase 매개 변수에서 시작하여 AD에서 검색하고, ObjectClass �
 ### <a name="examples"></a>예제
 
 #### <a name="example-1"></a>예제 1
-' Contoso ' 도메인에서 사용 하지 않도록 설정 된 개체를 찾습니다. 기본적으로 ' organizationalUnit ' 개체만 반환 됩니다.
+‘Contoso’ 도메인에서 사용하지 않도록 설정된 상속이 있는 개체 찾기(기본적으로 ‘organizationalUnit’ 개체만 반환됨)
 ```
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso'
 ```
 
 #### <a name="example-2"></a>예제 2
-' Contoso ' 도메인에서 상속을 사용할 수 없는 ' 사용자 ' 개체를 찾습니다.
+‘Contoso’ 도메인에서 사용하지 않도록 설정된 상속이 있는 ‘user’ 개체 찾기
 ```
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso' -ObjectClass 'user'
 ```
 
 #### <a name="example-3"></a>예제 3
-OU에서 상속을 사용할 수 없는 모든 유형의 개체 찾기
+OU에서 사용하지 않도록 설정된 상속이 있는 모든 유형의 개체 찾기
 ```
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase OU=AzureAD,DC=Contoso,DC=com -ObjectClass '*'
 ```
@@ -96,7 +96,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-objectclass"></a>-ObjectClass
-검색할 개체의 클래스 (개체 클래스의 경우), ' user ', ' group ', ' container ' 등이 될 수 있습니다. 기본적으로이 함수는 ' organizationalUnit ' 개체 클래스를 검색 합니다.
+검색할 개체 클래스로, ‘*’(모든 개체 클래스의 경우), ‘user’, ‘group’, ‘container’ 등이 될 수 있습니다. 기본적으로 이 함수는 ‘organizationalUnit’ 개체 클래스를 검색합니다.
 
 ```yaml
 Type: String

@@ -1,16 +1,16 @@
 ---
-title: 웹 후크를 사용 하 여 Azure 서비스 상태 경고를 OpsGenie로 보냅니다.
+title: 웹후크를 사용하여 OpsGenie로 Azure 서비스 상태 경고를 보냅니다
 description: 서비스 상태 이벤트에 대한 개인 설정 알림을 OpsGenie 인스턴스로 가져옵니다.
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: d8867d442d0c7fe563f6429fc1ff4edb212737c5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100594590"
 ---
-# <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>웹 후크를 사용 하 여 Azure 서비스 상태 경고를 OpsGenie로 보냅니다.
+# <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>웹후크를 사용하여 OpsGenie로 Azure 서비스 상태 경고를 보냅니다
 
 이 문서에서는 웹후크를 사용하여 OpsGenie로 Azure 서비스 상태 경고를 설정하는 방법을 보여 줍니다. [OpsGenie](https://www.opsgenie.com/)의 Azure 서비스 상태 통합을 사용하여 OpsGenie에 Azure 서비스 상태 경고를 전달할 수 있습니다. OpsGenie는 경고를 승인하거나 닫을 때까지 통화 일정과 메일, SMS(문자 메시지), 전화 통화, iOS 및 Android 푸시 알림 사용 및 경고 에스컬레이션을 기반으로 적절한 통보 대상을 결정할 수 있습니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "100594590"
 1. 경고 만들기가 완료되면 **저장** 을 선택합니다.
 
 ### <a name="for-an-existing-action-group"></a>기존 작업 그룹의 경우:
-1. [Azure Portal](https://portal.azure.com/)에서 **모니터** 를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **모니터** 를 선택합니다.
 
 1. **설정** 섹션에서 **작업 그룹** 을 선택합니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "100594590"
 1. 작업 그룹 업데이트가 완료되면 **저장** 을 선택합니다.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>HTTP POST 요청을 통해 웹후크 통합 테스트
-1. 보낼 서비스 상태 페이로드를 만듭니다. [Azure 활동 로그 경고에 대 한 웹 후크에](../azure-monitor/alerts/activity-log-alerts-webhook.md)service health webhook 페이로드 예제를 찾을 수 있습니다.
+1. 보낼 서비스 상태 페이로드를 만듭니다. [Azure 활동 로그 경고에 대한 웹후크](../azure-monitor/alerts/activity-log-alerts-webhook.md)에서 예제 서비스 상태 웹후크 페이로드를 찾을 수 있습니다.
 
 1. 다음과 같이 HTTP POST 요청을 만듭니다.
 

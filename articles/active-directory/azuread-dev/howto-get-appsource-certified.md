@@ -14,10 +14,10 @@ ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: d9a4da6fe65fda07609c7399518fa324017ea44c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101649348"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory에 대해 인증된 AppSource 가져오는 방법
@@ -30,7 +30,7 @@ AppSource에서 독립 실행형 SaaS 애플리케이션을 나열하려면 애�
 
 ## <a name="guides-and-code-samples"></a>지침 및 코드 샘플
 
-Open ID connect를 사용 하 여 응용 프로그램을 Azure AD와 통합 하는 방법을 알아보려면 [Azure Active Directory 개발자 가이드](v1-overview.md#get-started "개발자 용 Azure AD 시작")의 가이드 및 코드 샘플을 따르세요.
+Open ID를 사용하여 애플리케이션을 Azure AD와 통합하는 방법에 대해 자세히 알아보려면 [Azure Active Directory 개발자 가이드](v1-overview.md#get-started "개발자용 Azure AD 시작")에서 지침 및 코드 샘플을 참조하세요.
 
 ## <a name="multi-tenant-applications"></a>다중 테넌트 애플리케이션
 
@@ -55,10 +55,10 @@ Open ID connect를 사용 하 여 응용 프로그램을 Azure AD와 통합 하�
 
 ### <a name="free-trial-customer-led-trial-experience"></a>평가판(고객 주도 평가판 체험)
 
-고객 주도 평가판은 애플리케이션에 대한 단일 클릭 액세스를 제공하므로 AppSource에서 권장하는 체험입니다. 다음 예제에서는이 환경을 보여 줍니다.
+고객 주도 평가판은 애플리케이션에 대한 단일 클릭 액세스를 제공하므로 AppSource에서 권장하는 체험입니다. 다음 예에서 이 체험이 어떤 것인지 보여 줍니다.
 
 <table >
-<tr>    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%" alt="Shows Free trial for customer-led trial experience."/><ul><li>사용자는 AppSource 웹 사이트에서 애플리케이션을 찾습니다.</li><li>' 무료 평가판 ' 옵션을 선택 합니다.</li></ul></td>
+<tr>    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%" alt="Shows Free trial for customer-led trial experience."/><ul><li>사용자는 AppSource 웹 사이트에서 애플리케이션을 찾습니다.</li><li>'평가판' 옵션을 선택합니다.</li></ul></td>
     <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" alt="Shows how user is redirected to a URL in your web site."/><ul><li>AppSource는 웹 사이트의 URL로 사용자를 리디렉션합니다.</li><li>웹 사이트는 <i>Single Sign-On</i> 프로세스를 자동으로 시작합니다(페이지 로드에서).</li></ul></td>
     <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%" alt="Shows the Microsoft sign-in page."/><ul><li>사용자는 Microsoft 로그인 페이지로 리디렉션됩니다.</li><li>사용자는 로그인하기 위해 자격 증명을 제공합니다.</li></ul></td>
 </tr>
@@ -75,7 +75,7 @@ Open ID connect를 사용 하 여 응용 프로그램을 Azure AD와 통합 하�
 
 <table valign="top">
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%" alt="Shows Contact me for partner-led trial experience"/><ul><li>사용자는 AppSource 웹 사이트에서 애플리케이션을 찾습니다.</li><li>' 연락처 ' 옵션을 선택 합니다.</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%" alt="Shows Contact me for partner-led trial experience"/><ul><li>사용자는 AppSource 웹 사이트에서 애플리케이션을 찾습니다.</li><li>'연락처' 옵션을 선택합니다.</li></ul></td>
     <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%" alt="Shows an example form with contact info"/><ul><li>연락처 정보로 양식을 작성합니다.</li></ul></td>
      <td valign="top" width="33%">3.<br/><br/>
         <table bgcolor="#f7f7f7">
@@ -113,9 +113,9 @@ AppSource 평가판 체험에 대한 자세한 내용은 [이 비디오](https:/
 
 ## <a name="get-support"></a>지원 받기
 
-Azure AD 통합의 경우 커뮤니티와 함께 [Microsoft Q&를](/answers/products/) 사용 하 여 지원을 제공 합니다.
+Azure AD 통합의 경우 지원하려면 커뮤니티와 함께 [Microsoft Q&A](/answers/products/)를 사용합니다.
 
-Microsoft Q&에 대 한 질문을 먼저 확인 하 고 기존 문제를 검색 하 여 누군가가 이전에 질문을 요청 했는지 확인 하는 것이 좋습니다. 질문이 나 주석에 태그가 지정 되어 있는지 확인 [`[azure-active-directory]`](/answers/topics/azure-active-directory.html) 합니다.
+먼저 Microsoft Q&A에 질문하고 이전에 다른 사용자도 질문한 적이 있는지 보기 위해 기존에 있는 문제를 찾아보는 것이 좋습니다. 질문 또는 의견에 [`[azure-active-directory]`](/answers/topics/azure-active-directory.html) 태그가 지정되어 있는지 확인합니다.
 
 다음 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
 

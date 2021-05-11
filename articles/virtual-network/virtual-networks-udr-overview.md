@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2021
 ms.author: aldomel
-ms.openlocfilehash: c8d188c7bb7034cda450049c3d4912cc1517dae5
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
-ms.translationtype: MT
+ms.openlocfilehash: 0dd053fa268e88c281c1fe6c00339fe6a6edf27a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105645265"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732604"
 ---
 # <a name="virtual-network-traffic-routing"></a>가상 네트워크 트래픽 라우팅
 
@@ -96,28 +96,28 @@ Azure에서 사용자 지정 경로 또는 사용자 정의(정적) 경로를 �
 
 사용자 정의 경로에서는 **VNet 피어링** 또는 **VirtualNetworkServiceEndpoint** 를 다음 홉 유형으로 지정할 수 없습니다. **VNet 피어링** 또는 **VirtualNetworkServiceEndpoint** 다음 홉 유형이 있는 경로는 가상 네트워크 피어링 또는 서비스 엔드포인트를 구성할 때 Azure에서 만듭니다.
 
-### <a name="service-tags-for-user-defined-routes-preview"></a>사용자 정의 경로에 대 한 서비스 태그 (미리 보기)
+### <a name="service-tags-for-user-defined-routes-preview"></a>사용자 정의 경로의 서비스 태그(미리 보기)
 
-이제 명시적 IP 범위 대신 사용자 정의 경로에 대 한 주소 접두사로 [서비스 태그](service-tags-overview.md) 를 지정할 수 있습니다. 서비스 태그는 지정 된 Azure 서비스에서 IP 주소 접두사 그룹을 나타냅니다. Microsoft는 서비스 태그가 들어 있는 주소 접두사를 관리 하 고, 주소가 변경 되 면 서비스 태그를 자동으로 업데이트 하 여 사용자 정의 경로에 대 한 빈번한 업데이트의 복잡성을 최소화 하 고 만들어야 하는 경로 수를 줄입니다. 현재 각 경로 테이블에 서비스 태그로 25 개 이하의 경로를 만들 수 있습니다. </br>
+이제 명시적 IP 범위 대신 사용자 정의 경로의 주소 접두사로 [서비스 태그](service-tags-overview.md)를 지정할 수 있습니다. 서비스 태그는 지정된 Azure 서비스의 IP 주소 접두사 그룹을 나타냅니다. Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트하여, 사용자 정의 경로를 자주 업데이트할 때 발생하는 복잡성을 최소화하고 만들어야 하는 경로 수를 줄입니다. 현재 각 경로 테이블에서 서비스 태그를 사용하여 25개 이하의 경로를 만들 수 있습니다. </br>
 
 > [!IMPORTANT]
-> 사용자 정의 경로에 대 한 서비스 태그는 현재 미리 보기 상태입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 사용자 정의 경로의 서비스 태그는 현재 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-#### <a name="exact-match"></a>정확히 일치
-명시적 IP 접두사가 있는 경로와 서비스 태그가 있는 경로 사이에 정확히 일치 하는 접두사가 있는 경우 명시적 접두사가 있는 경로에 대 한 기본 설정이 지정 됩니다. 서비스 태그가 있는 여러 경로에 일치 하는 IP 접두사가 있는 경우 경로는 다음 순서로 평가 됩니다. 
+#### <a name="exact-match"></a>정확하게 일치
+명시적 IP 접두사가 있는 경로와 서비스 태그가 있는 경로 사이에 정확한 접두사 일치가 있으면 명시적 접두사가 있는 경로에 우선 순위가 부여됩니다. 서비스 태그가 있는 여러 경로에 일치하는 IP 접두사가 있으면 경로는 다음 순서로 평가됩니다. 
 
-   1. 국가별 태그 (예: AppService. AustraliaCentral)
-   2. 최상위 태그 (예: Storage, AppService)
-   3. AzureCloud 지역 태그 (예: AzureCloud. canadacentral, AzureCloud. e한글)
+   1. 지역별 태그(예: Storage.EastUS, AppService.AustraliaCentral)
+   2. 최상위 수준 태그(예: Storage, AppService)
+   3. AzureCloud 지역 태그(예: AzureCloud.canadacentral, AzureCloud.eastasia)
    4. AzureCloud 태그 </br></br>
 
-이 기능을 사용 하려면 경로 테이블 명령에서 주소 접두사 매개 변수에 대 한 서비스 태그 이름을 지정 합니다. 예를 들어 Powershell에서 다음을 사용 하 여 Azure Storage IP 접두사로 전송 되는 트래픽을 가상 어플라이언스로 보내도록 새 경로를 만들 수 있습니다. </br>
+이 기능을 사용하려면 경로 테이블 명령에 주소 접두사 매개 변수의 서비스 태그 이름을 지정합니다. 예를 들어 Powershell에서 다음을 사용하여 Azure Storage IP 접두사로 직접 전송된 트래픽을 가상 어플라이언스로 보내도록 새 경로를 만들 수 있습니다. </br>
 
 ```azurepowershell-interactive
-New-AzRouteConfig -Name "StorageRoute" -AddressPrefix “Storage” -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
+New-AzRouteConfig -Name "StorageRoute" -AddressPrefix "Storage" -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
 ```
 
-CLI에 대 한 동일한 명령은 다음과 같습니다. </br>
+CLI의 경우 동일한 명령은 다음과 같습니다. </br>
 
 ```azurecli-interactive
 az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n StorageRoute --address-prefix Storage --next-hop-type VirtualAppliance --next-hop-ip-address 10.0.100.4
@@ -126,7 +126,7 @@ az network route-table route create -g MyResourceGroup --route-table-name MyRout
 
 
 > [!NOTE] 
-> 공개 미리 보기에는 몇 가지 제한 사항이 있습니다. 이 기능은 현재 Azure Portal에서 지원 되지 않으며 Powershell 및 CLI를 통해서만 사용할 수 있습니다. 컨테이너에는 사용할 수 있는 기능이 없습니다. 
+> 퍼블릭 미리 보기에서는 몇 가지 제한 사항이 있습니다. 이 기능은 현재 Azure Portal에서 지원되지 않으며 Powershell 및 CLI를 통해서만 사용할 수 있습니다. 컨테이너 사용에 관해서는 지원되지 않습니다. 
 
 ## <a name="next-hop-types-across-azure-tools"></a>Azure 도구 간의 다음 홉 유형
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 앱 id 만들기 (PowerShell) | Microsoft
+title: Azure 앱 ID 만들기(PowerShell) | Azure
 titleSuffix: Microsoft identity platform
 description: Azure PowerShell을 사용하여 Azure Active Directory 애플리케이션 및 서비스 주체를 만들고 역할 기반 액세스 제어를 통해 리소스에 대한 액세스를 부여하는 방법을 설명합니다. 인증서를 사용하여 애플리케이션을 인증하는 방법을 보여줍니다.
 services: active-directory
@@ -14,10 +14,10 @@ ms.date: 02/22/2021
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.openlocfilehash: b27af53d615fa9c0c46699a52a004098dc46b7b2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101688538"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>방법: Azure PowerShell을 사용하여 인증서로 서비스 주체 만들기
@@ -43,16 +43,16 @@ ms.locfileid: "101688538"
 계정에 적절한 사용 권한이 있는지를 확인하는 가장 쉬운 방법은 포털을 통하는 것입니다. [필요한 사용 권한 확인](howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)을 참조하세요.
 
 ## <a name="assign-the-application-to-a-role"></a>애플리케이션을 역할에 할당
-구독의 리소스에 액세스하려면 역할에 애플리케이션을 할당해야 합니다. 애플리케이션에 적합한 권한을 제공하는 역할을 결정합니다. 사용 가능한 역할에 대해 알아보려면 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요.
+구독의 리소스에 액세스하려면 역할에 애플리케이션을 할당해야 합니다. 애플리케이션에 적합한 권한을 제공하는 역할을 결정합니다. 사용 가능한 역할에 대한 자세한 내용을 알아보려면 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 
-구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어 리소스 그룹에 대 한 *읽기 권한자* 역할에 응용 프로그램을 추가 하면 리소스 그룹 및 리소스 그룹에 포함 된 모든 리소스를 읽을 수 있습니다. 응용 프로그램에서 다시 부팅, 시작 및 중지와 같은 작업을 실행 하도록 허용 하려면 *참가자* 역할을 선택 합니다.
+구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어 애플리케이션을 리소스 그룹용 *Reader* 역할에 추가하면 애플리케이션이 리소스 그룹 및 포함된 리소스를 전부 읽을 수 있습니다. 애플리케이션에서 인스턴스 다시 부팅, 시작, 중지 같은 작업을 실행하려면 *Contributor* 역할을 선택합니다.
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>자체 서명된 인증서를 사용하여 서비스 주체 만들기
 
-다음 예제는 간단한 시나리오를 다룹니다. [AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) 를 사용 하 여 자체 서명 된 인증서로 서비스 주체를 만들고 [AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) 를 사용 하 여 [읽기 권한자](../../role-based-access-control/built-in-roles.md#reader) 역할을 서비스 주체에 할당 합니다. 역할 할당의 범위가 현재 선택된 Azure 구독에 지정됩니다. 다른 구독을 선택하려면 [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext)를 사용합니다.
+다음 예제는 간단한 시나리오를 다룹니다. 여기에서는 [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal)을 사용하여 자체 서명된 인증서를 갖춘 서비스 주체를 만들고 [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)를 사용하여 해당 서비스 주체에게 [Reader](../../role-based-access-control/built-in-roles.md#reader) 역할을 할당합니다. 역할 할당의 범위가 현재 선택된 Azure 구독에 지정됩니다. 다른 구독을 선택하려면 [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext)를 사용합니다.
 
 > [!NOTE]
-> New-SelfSignedCertificate cmdlet 및 PKI 모듈은 현재 PowerShell Core에서 지원 되지 않습니다. 
+> New-SelfSignedCertificate cmdlet 및 PKI 모듈은 현재 PowerShell Core에서 지원되지 않습니다. 
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `
@@ -72,7 +72,7 @@ New-AzRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $sp.Applic
 
 **ResourceGroupName** 매개 변수를 사용하여 역할 할당의 범위를 특정 리소스 그룹으로 지정할 수 있습니다. **ResourceType** 및 **ResourceName** 매개 변수를 사용하여 범위를 특정 리소스로 지정할 수도 있습니다. 
 
-**Windows 10 또는 Windows Server 2016** 이 없으면 PKI 솔루션에서 [SelfSignedCertificateEx cmdlet](https://www.pkisolutions.com/tools/pspki/New-SelfSignedCertificateEx/) 을 다운로드 합니다. 해당 내용을 추출하고 필요한 cmdlet을 가져옵니다.
+**Windows 10 또는 Windows Server 2016** 이 없다면 PKI 솔루션에서 [New-SelfSignedCertificateEx cmdlet](https://www.pkisolutions.com/tools/pspki/New-SelfSignedCertificateEx/)을 다운로드합니다. 해당 내용을 추출하고 필요한 cmdlet을 가져옵니다.
 
 ```powershell
 # Only run if you could not use New-SelfSignedCertificate
@@ -91,7 +91,7 @@ $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'C
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>자동화된 PowerShell 스크립트를 통해 인증서 제공
 
-서비스 주체로 로그인 할 때마다 AD 앱에 대 한 디렉터리의 테 넌 트 ID를 제공 합니다. 테넌트는 Azure AD의 인스턴스입니다.
+서비스 사용자로 로그인할 때마다 AD 앱에 디렉터리의 테넌트 ID를 제공하여야 합니다. 테넌트는 Azure AD의 인스턴스입니다.
 
 ```powershell
 $TenantId = (Get-AzSubscription -SubscriptionName "Contoso Default").TenantId
@@ -106,7 +106,7 @@ Connect-AzAccount -ServicePrincipal `
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>인증 기관의 인증서를 사용하여 서비스 주체 만들기
 
-다음 예제에서는 인증 기관에서 발급한 인증서를 사용하여 서비스 주체를 만듭니다. 지정된 Azure 구독에 할당 범위가 지정됩니다. 서비스 주체를 [판독기](../../role-based-access-control/built-in-roles.md#reader) 역할에 추가 합니다. 역할 할당 중에 오류가 발생하는 경우 할당을 다시 시도합니다.
+다음 예제에서는 인증 기관에서 발급한 인증서를 사용하여 서비스 주체를 만듭니다. 지정된 Azure 구독에 할당 범위가 지정됩니다. 서비스 사용자에 [Reader](../../role-based-access-control/built-in-roles.md#reader) 역할이 추가됩니다. 역할 할당 중에 오류가 발생하는 경우 할당을 다시 시도합니다.
 
 ```powershell
 Param (
@@ -151,7 +151,7 @@ Param (
 ```
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>자동화된 PowerShell 스크립트를 통해 인증서 제공
-서비스 주체로 로그인 할 때마다 AD 앱에 대 한 디렉터리의 테 넌 트 ID를 제공 합니다. 테넌트는 Azure AD의 인스턴스입니다.
+서비스 사용자로 로그인할 때마다 AD 앱에 디렉터리의 테넌트 ID를 제공하여야 합니다. 테넌트는 Azure AD의 인스턴스입니다.
 
 ```powershell
 Param (
@@ -216,7 +216,7 @@ Get-AzADApplication -DisplayName exampleapp | New-AzADAppCredential `
 
 서비스 주체를 만들 때 다음과 같은 오류가 발생할 수 있습니다.
 
-* **"Authentication_Unauthorized"** 또는 **"컨텍스트에서 구독을 찾을 수 없습니다."** - 계정에 Azure AD에서 앱을 등록하는 데 [필요한 권한](#required-permissions)이 없으면 이 오류가 발생합니다. 일반적으로 Azure Active Directory의 관리 사용자만 앱을 등록할 수 있고 계정이 관리자가 아닌 경우이 오류가 표시 됩니다. 관리자에 게 관리자 역할을 할당 하거나 사용자가 앱을 등록할 수 있도록 하려면 관리자에 게 문의 하세요.
+* **"Authentication_Unauthorized"** 또는 **"컨텍스트에서 구독을 찾을 수 없습니다."** - 계정에 Azure AD에서 앱을 등록하는 데 [필요한 권한](#required-permissions)이 없으면 이 오류가 발생합니다. 해당 오류는 일반적으로는 내 계정이 관리자가 아닌 상태에서 Azure Active Directory의 관리 사용자만이 앱을 등록할 수 있는 경우에 발생합니다. 나에게 관리자 역할을 할당하거나 사용자들도 앱을 등록할 수 있도록 관리자에게 요청하세요.
 
 * 계정에 **"'/subscriptions/{guid}' 범위에 대해 'Microsoft.Authorization/roleAssignments/write' 작업을 수행할 수 있는 권한이 없습니다."** - 이 오류는 ID에 역할을 할당할 수 있는 충분한 권한이 계정에 없을 때 표시됩니다. 구독 관리자에게 사용자 액세스 관리자 역할에 사용자를 추가할 것을 요청합니다.
 
@@ -225,4 +225,4 @@ Get-AzADApplication -DisplayName exampleapp | New-AzADAppCredential `
 * 암호를 사용하여 서비스 주체를 설정하려면 [Azure PowerShell을 사용하여 Azure 서비스 주체 만들기](/powershell/azure/create-azure-service-principal-azureps)를 참조하세요.
 * 애플리케이션 및 서비스 주체에 대한 자세한 내용은 [애플리케이션 개체 및 서비스 주체 개체](app-objects-and-service-principals.md)를 참조하세요.
 * Azure AD 인증에 대한 자세한 내용은 [Azure AD의 인증 시나리오](./authentication-vs-authorization.md)를 참조하세요.
-* **Microsoft Graph** 를 사용 하 여 앱 등록을 작업 하는 방법에 대 한 자세한 내용은 [응용 프로그램](/graph/api/resources/application) API 참조를 참조 하세요.
+* **Microsoft Graph** 를 사용하여 앱 등록 작업을 하는 것과 관련된 내용은 [애플리케이션](/graph/api/resources/application) API 참조를 확인하세요.

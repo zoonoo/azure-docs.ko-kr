@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Event Hubs를 통해 스트리밍 이벤�
 ms.topic: article
 ms.date: 02/16/2021
 ms.openlocfilehash: 9f0ec1223c06b908a9aa9f3ac5c5b19ead2fe962
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100595958"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Azure Blob Storage 또는 Azure Data Lake Storage에서 Azure Event Hubs를 통해 이벤트 캡처
@@ -59,7 +59,7 @@ Event Hubs 캡처가 구성되면 첫 번째 이벤트를 전송하는 즉시 �
 - [Azure Resource Manager 템플릿을 사용하여 하나의 이벤트 허브가 있는 Event Hubs 네임스페이스를 만들고 캡처를 사용하도록 설정](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 
 > [!NOTE]
-> 기존 이벤트 허브에 캡처 기능을 사용 하도록 설정 하면 기능이 설정 된 **후** 이벤트 허브에 도착 하는 이벤트를 캡처합니다. 기능이 설정 되기 전에 이벤트 허브에 있던 이벤트는 캡처하지 않습니다. 
+> 기존 이벤트 허브에 캡처 기능을 사용하도록 설정하면, 해당 기능이 설정된 **후** 이벤트 허브에 도착하는 이벤트를 캡처합니다. 해당 기능이 설정되기 전에 이벤트 허브에 있던 이벤트는 캡처하지 않습니다. 
 
 ## <a name="exploring-the-captured-files-and-working-with-avro"></a>캡처된 파일 탐색 및 Avro 작업
 
@@ -79,7 +79,7 @@ Avro 파일을 쉽게 탐색하는 방법은 Apache에서 [Avro 도구][Avro Too
 
 [Apache Drill: Azure Blob Storage 플러그 인][Apache Drill: Azure Blob Storage Plugin]
 
-캡처 파일을 쉽게 쿼리하려면 컨테이너를 통해 Apache 드릴을 사용 하도록 설정 하 여 Azure Blob 저장소에 액세스 하는 VM을 만들고 실행할 수 있습니다. 다음 샘플을 참조 하세요. [Event Hubs 캡처를 사용 하 여 대규모 스트리밍](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-capture).
+캡처된 파일을 손쉽게 쿼리하려면 컨테이너를 통해 Apache Drill을 사용하도록 설정된 VM을 만들고 실행하여 Azure Blob Storage에 액세스할 수 있습니다. 다음 샘플을 참조하세요. [Event Hubs 캡처를 사용한 대규모 스트리밍](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-capture).
 
 ### <a name="use-apache-spark"></a>Apache Spark 사용
 
@@ -130,7 +130,7 @@ Event Hubs 캡처는 처리량 단위와 유사하게 시간당 요금으로 측
 
 ## <a name="integration-with-event-grid"></a>Event Grid와 통합 
 
-원본으로 Event Hubs 네임스페이스를 사용하여 Azure Event Grid 구독을 만들 수 있습니다. 다음 자습서에서는 이벤트 허브를 원본으로 사용 하 고 Azure Functions 앱을 싱크로 사용 하 여 Event Grid 구독을 만드는 방법을 보여 줍니다. [Event Grid 및 Azure Functions를 사용 하 여 캡처된 Event Hubs 데이터를 Azure Synapse Analytics로 처리 하 고 마이그레이션합니다](store-captured-data-data-warehouse.md).
+원본으로 Event Hubs 네임스페이스를 사용하여 Azure Event Grid 구독을 만들 수 있습니다. 다음 자습서에서는 이벤트 허브를 원본으로, Azure Functions 앱을 싱크로 사용하여 Event Grid 구독을 만드는 방법을 보여 줍니다. [Event Grid 및 Azure Functions를 사용하여 캡처된 Event Hubs 데이터를 Azure Synapse Analytics로 처리 및 마이그레이션](store-captured-data-data-warehouse.md).
 
 ## <a name="next-steps"></a>다음 단계
 Event Hubs 캡처는 데이터를 Azure로 가져오는 가장 쉬운 방법입니다. Azure Data Lake, Azure Data Factory 및 Azure HDInsight를 통해 규모에 관계없이 선택한 도구 및 플랫폼을 사용하여 선택한 일괄 처리 및 기타 분석을 수행할 수 있습니다.

@@ -1,5 +1,5 @@
 ---
-title: 패킷 캡처를 사용 하 여 경고로 자동 관리 네트워크 모니터링 수행-Azure Functions
+title: 패킷 캡처를 사용하여 경고를 통한 자동 관리 네트워크 모니터링 수행 - Azure Functions
 titleSuffix: Azure Network Watcher
 description: 이 문서에서는 Azure Network Watcher에서 경고로 트리거된 패킷 캡처를 만드는 방법을 설명합니다.
 services: network-watcher
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 8e2af73be0fc887b132f523133159472ce1d1f98
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100570979"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>경고 및 Azure Functions를 통한 사전 네트워크 모니터링을 위해 패킷 캡처 사용
@@ -30,12 +30,12 @@ Azure에 배포된 리소스는 연중 무휴(24/7) 실행됩니다. 사용자 �
 
 Azure 에코시스템 내에서 Network Watcher, Alerting 및 Functions를 사용하면 데이터와 도구에 미리 응답함으로써 네트워크 문제를 해결할 수 있습니다.
 
-![다이어그램은 100 오류로 전달 되는 가상 > 컴퓨터의 Network Watcher 확장을 보여 줍니다. Azure Functions로 이동 하 여 Network Watcher로 이동 하 여 Network Watcher 확장으로 전달 되는로 흐릅니다.][scenario]
+![다이어그램은 가상 머신에서 T.C.P 세그먼트 전송 > 100 오류로 이동하고, Azure Functions로 이동하고, Network Watcher로 이동하고, 다시 Network Watcher 확장으로 이동하는 Network Watcher 확장을 보여 줍니다.][scenario]
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 최신 버전의 [Azure PowerShell](/powershell/azure/install-Az-ps)
 * Network Watcher의 기존 인스턴스. [Network Watcher 인스턴스](network-watcher-create.md)가 아직 없는 경우에는 새로 만듭니다.
@@ -120,7 +120,7 @@ Network Watcher PowerShell cmdlet을 사용하려면 최신 PowerShell 모듈을
 
      ![PowerShell 폴더][functions5]
 
-1. **함수 앱 설정** 선택  >  **App Service 편집기로 이동** 합니다.
+1. **함수 앱 설정** > **App Service 편집기로 이동** 을 선택합니다.
 
     ![함수 앱 설정][functions2]
 
@@ -136,11 +136,11 @@ Network Watcher PowerShell cmdlet을 사용하려면 최신 PowerShell 모듈을
 
     * Az.Resources
 
-1. **Az. Network** 하위 폴더를 마우스 오른쪽 단추로 클릭 하 고 **파일 업로드** 를 선택 합니다. 
+1. **Az.Network** 하위 폴더를 마우스 오른쪽 단추로 클릭하고 **파일 업로드** 를 선택합니다. 
 
-6. Azure 모듈로 이동합니다. 로컬 **Az. Network** 폴더에서 폴더의 모든 파일을 선택 합니다. 그런 다음 **확인** 을 선택합니다. 
+6. Azure 모듈로 이동합니다. 로컬 **Az.Network** 폴더에서 폴더의 모든 파일을 선택합니다. 그런 다음, **확인** 을 선택합니다. 
 
-7. **Az. Accounts** 및 **az .resources** 에 대해 이러한 단계를 반복 합니다.
+7. **Az.Accounts** 및 **Az.Resources** 에 대해 해당 단계를 반복합니다.
 
     ![파일 업로드][functions6]
 
@@ -246,7 +246,7 @@ $Encryptedpassword
 
 ### <a name="store-the-environment-variables"></a>환경 변수 저장
 
-1. 함수 앱으로 돌아갑니다. 그런 다음 **함수 앱 설정**  >  **앱 설정 구성** 을 선택 합니다.
+1. 함수 앱으로 돌아갑니다. 그런 후 **함수 앱 설정** > **앱 설정 구성** 을 선택합니다.
 
     ![앱 설정 구성][functions11]
 

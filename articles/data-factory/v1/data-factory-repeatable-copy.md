@@ -8,10 +8,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c427cd90412121e896738ca43f4c66dd24b096dc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100387090"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Azure Data Factory에서 반복 가능한 복사
@@ -22,7 +22,7 @@ ms.locfileid: "100387090"
 > [!NOTE]
 > 다음 예제는 Azure SQL에 대한 것이지만, 직사각 데이터 세트를 지원하는 모든 데이터 저장소에 적용할 수 있습니다. 데이터 저장소에 대해 소스의 **type** 및 **query** 속성(예: sqlReaderQuery 대신 query)을 조정해야 할 수도 있습니다.   
 
-일반적으로 관계형 저장소에서 읽어올 때는 해당 조각에 대한 데이터만 읽고자 할 것입니다. 이것은 Azure Data Factory에서 제공하는 WindowStart 및 WindowEnd 시스템 변수를 사용하면 됩니다. [Azure Data Factory - 함수 및 시스템 변수](data-factory-functions-variables.md) 문서에서 Azure Data Factory의 변수 및 함수 부분을 읽어보세요. 예제: 
+일반적으로 관계형 저장소에서 읽어올 때는 해당 조각에 대한 데이터만 읽고자 할 것입니다. 이것은 Azure Data Factory에서 제공하는 WindowStart 및 WindowEnd 시스템 변수를 사용하면 됩니다. [Azure Data Factory - 함수 및 시스템 변수](data-factory-functions-variables.md) 문서에서 Azure Data Factory의 변수 및 함수 부분을 읽어보세요. 예: 
 
 ```json
 "source": {
@@ -54,7 +54,7 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    2            2015-05-01 00:00:00
 ```
 
-원본 파일에서 오류를 발견하고 Down Tube의 수량을 2에서 4로 업데이트했다고 가정해 보겠습니다. 해당 기간에 대 한 데이터 조각을 수동으로 다시 실행 하면 Azure SQL/SQL Server 데이터베이스에 추가 되는 두 개의 새 레코드가 발견 됩니다. 이 예에서는 테이블에 기본 키 제약 조건이 있는 열이 없다고 가정합니다.
+원본 파일에서 오류를 발견하고 Down Tube의 수량을 2에서 4로 업데이트했다고 가정해 보겠습니다. 해당 기간의 데이터 조각을 수동으로 다시 실행하면 Azure SQL/SQL Server 데이터베이스에 새 레코드가 두 개 추가된 것을 알 수 있습니다. 이 예에서는 테이블에 기본 키 제약 조건이 있는 열이 없다고 가정합니다.
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -99,13 +99,13 @@ ID    Product        Quantity    ModifiedDate
 
 ### <a name="mechanism-2-using-sliceidentifiercolumnname"></a>메커니즘 2: sliceIdentifierColumnName 사용
 > [!IMPORTANT]
-> 현재 Azure Synapse Analytics에서는 sliceIdentifierColumnName가 지원 되지 않습니다. 
+> 현재, sliceIdentifierColumnName은 Azure Synapse Analytics에 지원되지 않습니다. 
 
 두 번째 메커니즘은 대상 테이블에 전용 열(sliceIdentifierColumnName)을 만들어서 반복성을 유지합니다. 이 열은 Azure 데이터 팩터리에서 원본 및 대상을 동기화 상태로 유지하도록 할 때 사용됩니다. 이 방법은 대상 SQL 테이블 스키마를 유연하게 변경하거나 정의할 수 있을 때 작동됩니다. 
 
 이 열은 반복성을 위해 Azure Data Factory에서 사용되며 Azure Data Factory가 테이블의 어떠한 스키마도 변경하지 않는 프로세스에도 사용됩니다. 이 방식을 사용하는 방법:
 
-1. 대상 SQL 테이블에서 **이진 형식 (32)** 의 열을 정의 합니다. 이 열에는 제약 조건이 없어야 합니다. 이 예에서는 이 열의 이름을 AdfSliceIdentifier라고 하겠습니다.
+1. 대상 SQL 테이블에서 **이진 형식(32)** 으로 열을 정의합니다. 이 열에는 제약 조건이 없어야 합니다. 이 예에서는 이 열의 이름을 AdfSliceIdentifier라고 하겠습니다.
 
 
     원본 테이블:

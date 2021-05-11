@@ -4,24 +4,25 @@ description: 포털, PowerShell, Azure CLI 및 REST API를 사용하여 Azure Re
 tags: top-support-issue
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 00e0c51244d5c191d4c9f05f689b90ece81ec5a4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 990e82beb3bce748e5c65b64132f1f2916e454ba
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91284621"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108320262"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 배포 기록 보기
 
-Azure Resource Manager를 사용 하 여 배포 기록을 볼 수 있습니다. 이전 배포의 특정 작업을 검사하고 어떤 리소스가 배포되었는지 확인할 수 있습니다. 이 기록에는 오류에 대 한 정보가 포함 됩니다.
+Azure Resource Manager를 사용하면 배포 기록을 볼 수 있습니다. 이전 배포의 특정 작업을 검사하고 어떤 리소스가 배포되었는지 확인할 수 있습니다. 이 기록에는 오류에 대한 정보가 포함됩니다.
 
-리소스 그룹에 대 한 배포 기록은 800 배포로 제한 됩니다. 한도에 도달 하면 배포는 기록에서 자동으로 삭제 됩니다. 자세한 내용은 [배포 기록에서 자동 삭제](deployment-history-deletions.md)를 참조하세요.
+리소스 그룹의 배포 기록은 800회 배포로 제한됩니다. 한도에 가까워지면 배포가 기록에서 자동으로 삭제됩니다. 자세한 내용은 [배포 기록에서 자동 삭제](deployment-history-deletions.md)를 참조하세요.
 
 특정 배포 오류에 대한 도움말은 [Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생한 일반적인 오류 해결](common-deployment-errors.md)을 참조하세요.
 
 ## <a name="get-deployments-and-correlation-id"></a>배포 및 상관 관계 ID 가져오기
 
-Azure Portal, PowerShell, Azure CLI 또는 REST API를 통해 배포에 대한 세부 정보를 볼 수 있습니다. 각 배포에는 관련 이벤트를 추적하는 데 사용되는 상관 관계 ID가 있습니다. [Azure 지원 요청을 만드는](../../azure-portal/supportability/how-to-create-azure-support-request.md)경우 지원에서 상관 관계 ID를 요청할 수 있습니다. 지원에서 상관 관계 ID를 사용 하 여 실패 한 배포에 대 한 작업을 식별 합니다.
+Azure Portal, PowerShell, Azure CLI 또는 REST API를 통해 배포에 대한 세부 정보를 볼 수 있습니다. 각 배포에는 관련 이벤트를 추적하는 데 사용되는 상관 관계 ID가 있습니다. [Azure 지원 요청을 만드는](../../azure-portal/supportability/how-to-create-azure-support-request.md)경우 고객 지원팀에서 상관 관계 ID를 요청할 수 있습니다. 고객 지원팀에서 상관 관계 ID를 사용하여 실패한 배포에 관한 작업을 식별합니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -61,13 +62,13 @@ Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName Ex
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-리소스 그룹에 대한 배포를 나열하려면 [az deployment group list](/cli/azure/group/deployment#az-deployment-group-list)를 사용합니다.
+리소스 그룹에 대한 배포를 나열하려면 [az deployment group list](/cli/azure/group/deployment#az_deployment_group_list)를 사용합니다.
 
 ```azurecli-interactive
 az deployment group list --resource-group ExampleGroup
 ```
 
-특정 배포를 가져오려면 [az deployment group show](/cli/azure/group/deployment#az-deployment-group-show)를 사용합니다.
+특정 배포를 가져오려면 [az deployment group show](/cli/azure/group/deployment#az_deployment_group_show)를 사용합니다.
 
 ```azurecli-interactive
 az deployment group show --resource-group ExampleGroup --name ExampleDeployment
@@ -147,7 +148,7 @@ Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -Deployme
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-리소스 그룹에 배포하기 위한 배포 작업을 보려면 [az deployment operation group list](/cli/azure/deployment/operation/group#az-deployment-operation-group-list) 명령을 사용합니다. Azure CLI 2.6.0 이상이 있어야 합니다.
+리소스 그룹에 배포하기 위한 배포 작업을 보려면 [az deployment operation group list](/cli/azure/deployment/operation/group#az_deployment-operation-group-list) 명령을 사용합니다. Azure CLI 2.6.0 이상이 있어야 합니다.
 
 ```azurecli-interactive
 az deployment operation group list --resource-group ExampleGroup --name ExampleDeployment
@@ -212,6 +213,5 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/
 ## <a name="next-steps"></a>다음 단계
 
 * 특정 배포 오류에 대한 도움말은 [Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생한 일반적인 오류 해결](common-deployment-errors.md)을 참조하세요.
-* 배포 기록에서 배포를 관리 하는 방법에 대 한 자세한 내용은 [배포 기록에서 자동 삭제](deployment-history-deletions.md)를 참조 하세요.
+* 기록에서 배포를 관리하는 방법에 관해 알아보려면 [배포 기록에서 자동 삭제](deployment-history-deletions.md)를 참조하세요.
 * 실행하기 전에 배포의 유효성을 검사하려면 [Azure Resource Manager 템플릿을 사용하여 리소스 그룹 배포](deploy-powershell.md)를 참조하세요.
-

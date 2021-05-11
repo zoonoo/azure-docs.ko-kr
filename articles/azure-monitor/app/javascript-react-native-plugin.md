@@ -1,33 +1,33 @@
 ---
-title: Application Insights JavaScript SDK의 네이티브 반응 플러그 인
-description: JavaScript SDK Application Insights에 대 한 기본 반응 플러그 인을 설치 하 고 사용 하는 방법입니다.
+title: Application Insights JavaScript SDK에 대한 원시 반응 플러그 인
+description: Application Insights JavaScript SDK에 대한 원시 반응 플러그 인을 설치하고 사용하는 방법입니다.
 services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.openlocfilehash: 0c122a21fc7149e9943825cafbed77069b7919f3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100593600"
 ---
-# <a name="native-react-plugin-for-application-insights-javascript-sdk"></a>Application Insights JavaScript SDK의 네이티브 반응 플러그 인
+# <a name="native-react-plugin-for-application-insights-javascript-sdk"></a>Application Insights JavaScript SDK에 대한 원시 반응 플러그 인
 
-JavaScript SDK Application Insights의 기본 반응 플러그 인은 장치 정보를 수집 합니다. 기본적으로이 플러그 인은 다음을 자동으로 수집 합니다.
+Application Insights JavaScript SDK의 원시 반응 플러그 인은 디바이스 정보를 수집하며 다음을 기본적으로 자동 수집합니다.
 
-- **고유한 장치 id** (설치 id 라고도 함)
-- **장치 모델 이름** (예: iPhone X, Samsung Galaxy 접기, Huawei P30 Pro 등)
-- **장치 유형** (예: 송수화기, 태블릿 등)
+- **고유한 디바이스 ID**(설치 ID라고도 함)
+- **디바이스 모델 이름**(예: iPhone X, Samsung Galaxy Fold, Huawei P30 Pro 등)
+- **디바이스 유형**(예: 송수화기, 태블릿 등)
 
 ## <a name="requirements"></a>요구 사항
 
->= 2.0.0의 버전을 사용 해야 합니다 `@microsoft/applicationinsights-web` . 이 플러그 인은 네이티브 앱에 반응 하는 경우에만 작동 합니다. 이러한 작업은 [응용 프로그램을 사용 하 여 응용 프로그램](https://docs.expo.io/)에서 작동 하지 않습니다. 따라서 Create 반응할 네이티브 앱에서 작동 하지 않습니다.
+`@microsoft/applicationinsights-web`의 2.0.0 버전 이상을 사용해야 합니다. 해당 플러그 인은 원시 앱에만 반응하여 작동합니다. 해당 작업은 [Expo 프레임워크를 사용하는 앱](https://docs.expo.io/)에서는 작동하지 않으므로 Create React Native App에서는 작동하지 않습니다.
 
 ## <a name="getting-started"></a>시작
 
-[기본 장치-정보](https://www.npmjs.com/package/react-native-device-info) 패키지를 설치 하 고 연결 합니다. 앱을 `react-native-device-info` 사용 하 여 최신 장치 이름을 수집 하려면 패키지를 최신 상태로 유지 하세요.
+[반응-원시-디바이스-정보](https://www.npmjs.com/package/react-native-device-info) 패키지를 설치하고 연결합니다. 앱을 사용하여 최신 디바이스 이름을 수집하려면 `react-native-device-info` 패키지를 최신 상태로 유지하세요.
 
 ```zsh
 
@@ -39,7 +39,7 @@ react-native link react-native-device-info
 
 ## <a name="initializing-the-plugin"></a>플러그 인 초기화
 
-이 플러그 인을 사용 하려면 플러그 인을 구성 하 고 `extension` 기존 Application Insights 인스턴스에로 추가 해야 합니다.
+해당 플러그 인을 사용하려면 플러그 인을 구성하고 `extension`을 기존 Application Insights 인스턴스에 추가해야 합니다.
 
 ```typescript
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
@@ -58,5 +58,5 @@ appInsights.loadAppInsights();
 
 ## <a name="next-steps"></a>다음 단계
 
-- JavaScript SDK에 대해 자세히 알아보려면 [Application Insights JAVASCRIPT sdk 설명서](javascript.md)를 참조 하세요.
-- Kusto 쿼리 언어에 대해 알아보고 Log Analytics에서 데이터를 쿼리 하는 방법에 대 한 자세한 내용은 [로그 쿼리 개요](../../azure-monitor/logs/log-query-overview.md)를 참조 하세요.
+- JavaScript SDK에 대한 보다 자세한 정보는 [Application Insights JavaScript SDK 설명서](javascript.md)를 참조하세요.
+- Kusto 쿼리 언어 및 Log Analytics에서 데이터를 쿼리하는 방법에 대한 자세한 내용은 [로그 쿼리 개요](../../azure-monitor/logs/log-query-overview.md)를 참조하세요.

@@ -1,29 +1,29 @@
 ---
-title: Azure Resource Manager 템플릿을 사용 하 여 VM 확장 사용
-description: 이 문서에서는 Azure Resource Manager 템플릿을 사용 하 여 하이브리드 클라우드 환경에서 실행 되는 Azure Arc 사용 서버에 가상 머신 확장을 배포 하는 방법을 설명 합니다.
+title: Azure Resource Manager 템플릿을 사용하여 VM 확장 사용하기
+description: 본 문서에서는 Azure Resource Manager 템플릿을 통하여 하이브리드 클라우드 환경에서 실행 중인 Azure Arc 지원 서버에 가상 머신 확장을 배포하는 방법을 설명합니다.
 ms.date: 03/01/2021
 ms.topic: conceptual
 ms.openlocfilehash: 88296cd4f410defcaf7db15507ddac42e80cba2d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101688266"
 ---
-# <a name="enable-azure-vm-extensions-by-using-arm-template"></a>ARM 템플릿을 사용 하 여 Azure VM 확장 사용
+# <a name="enable-azure-vm-extensions-by-using-arm-template"></a>ARM 템플릿을 사용하여 Azure VM 확장 사용하기
 
-이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하 여 azure Arc 사용 서버에서 지 원하는 Azure VM 확장을 배포 하는 방법을 보여 줍니다.
+본 문서에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure Arc 지원 서버가 지원하는 Azure VM 확장을 배포하는 방법을 보여 줍니다.
 
-Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포를 통해 실행할 수 있습니다. Arc 사용 서버에서 지 원하는 VM 확장을 사용 하 여 Azure PowerShell를 사용 하 여 Linux 또는 Windows 컴퓨터에서 지원 되는 VM 확장을 배포할 수 있습니다. 아래 각 샘플에는 템플릿에 제공할 샘플 값이 포함 된 템플릿 파일 및 매개 변수 파일이 포함 되어 있습니다.
+Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포를 통해 실행할 수 있습니다. Arc 지원 서버가 지원하는 VM 확장을 통하여 Azure PowerShell을 사용하여 Linux나 Windows 컴퓨터에서 지원되는 VM 확장을 배포할 수 있습니다. 아래 각각의 샘플에는 템플릿에 제공할 샘플 값이 입력된 템플릿 파일과 매개 변수 파일이 들어 있습니다.
 
 >[!NOTE]
->여러 확장을 함께 일괄 처리 하 고 처리할 수 있지만 직렬로 설치 됩니다. 첫 번째 확장 설치가 완료 되 면 다음 확장을 설치 하려고 시도 합니다.
+>여러 확장을 함께 일괄 처리하고 프로세스할 수 있지만, 설치는 순차적으로 진행됩니다. 첫 번째 확장 설치가 완료되면 다음 확장을 설치하려고 시도합니다.
 
-## <a name="deploy-the-log-analytics-vm-extension"></a>Log Analytics VM 확장 배포
+## <a name="deploy-the-log-analytics-vm-extension"></a>Log Analytics VM 확장 배포하기
 
-Log Analytics 에이전트를 쉽게 배포 하려면 Windows 또는 Linux에 에이전트를 설치 하기 위한 다음 샘플이 제공 됩니다.
+Log Analytics 에이전트를 간편하게 배포하기 위하여 해당 에이전트를 Windows나 Linux에 설치할 수 있는 다음 샘플이 제공됩니다.
 
-### <a name="template-file-for-linux"></a>Linux 용 템플릿 파일
+### <a name="template-file-for-linux"></a>Linux용 템플릿 파일
 
 ```json
 {
@@ -64,7 +64,7 @@ Log Analytics 에이전트를 쉽게 배포 하려면 Windows 또는 Linux에 �
 }
 ```
 
-### <a name="template-file-for-windows"></a>Windows 용 템플릿 파일
+### <a name="template-file-for-windows"></a>Windows용 템플릿 파일
 
 ```json
 {
@@ -129,25 +129,25 @@ Log Analytics 에이전트를 쉽게 배포 하려면 Windows 또는 Linux에 �
 }
 ```
 
-템플릿과 매개 변수 파일을 디스크에 저장 하 고 배포에 적절 한 값을 사용 하 여 매개 변수 파일을 편집 합니다. 그런 다음, 다음 명령을 사용 하 여 리소스 그룹 내에 있는 모든 연결 된 컴퓨터에 확장을 설치할 수 있습니다. 이 명령은 템플릿 *파일* 매개 변수를 사용 하 여 템플릿을 지정 하 고, 템플릿 *parameterfile* 매개 변수를 사용 하 여 매개 변수 및 매개 변수 값을 포함 하는 파일을 지정 합니다.
+디스크에 해당 템플릿 파일과 매개 변수 파일을 저장하고 배포에 맞는 적절한 값으로 매개 변수 파일을 편집합니다. 그러고 나면 다음 명령을 통하여 해당 확장을 하나의 리소스 그룹 안에서 연결된 모든 컴퓨터에 설치할 수 있습니다. 해당 명령은 *TemplateFile* 매개 변수를 사용하여 해당 템플릿을 지정하며 *TemplateParameterFile* 매개 변수를 사용하여 매개 변수 및 매개 변숫값이 들어 있는 파일을 지정합니다.
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\LogAnalyticsAgent.json" -TemplateParameterFile "D:\Azure\Templates\LogAnalyticsAgentParms.json"
 ```
 
-## <a name="deploy-the-custom-script-extension"></a>사용자 지정 스크립트 확장 배포
+## <a name="deploy-the-custom-script-extension"></a>사용자 지정 스크립트 확장을 배포하기
 
-사용자 지정 스크립트 확장을 사용 하기 위해 Windows 및 Linux에서 실행 하기 위해 다음 샘플이 제공 됩니다. 사용자 지정 스크립트 확장에 익숙하지 않은 경우 [Windows 용 사용자 지정 스크립트 확장](../../virtual-machines/extensions/custom-script-windows.md) 또는 [Linux 용 사용자 지정 스크립트 확장](../../virtual-machines/extensions/custom-script-linux.md)을 참조 하세요. 하이브리드 컴퓨터에서이 확장을 사용 하는 경우 다음과 같은 몇 가지 특성을 이해 해야 합니다.
+사용자 지정 스크립트 확장을 사용하기 위하여 Windows와 Linux에서 실행되는 다음 샘플이 제공됩니다. 사용자 지정 스크립트 확장에 익숙하지 않다면, [Windows용 사용자 지정 스크립트 확장](../../virtual-machines/extensions/custom-script-windows.md)이나 [Linux용 사용자 지정 스크립트 확장](../../virtual-machines/extensions/custom-script-linux.md)을 참조하세요. 하이브리드 컴퓨터에 해당 확장을 사용할 때 반드시 알아야 하는 몇 가지 특성이 있습니다.
 
-* Azure VM 사용자 지정 스크립트 확장을 사용 하는 지원 되는 운영 체제 목록은 Azure Arc 사용 서버에 적용 되지 않습니다. Arc 사용 서버에 대해 지원 되는 OSs 목록은 [여기](agent-overview.md#supported-operating-systems)에서 찾을 수 있습니다.
+* Azure VM 사용자 지정 스크립트 확장을 사용하는 지원되는 운영 체제 목록은 Azure Arc 지원 서버에 적용할 수 없습니다. Arc 지원 서버에 대하여 지원되는 OS 목록은 [여기](agent-overview.md#supported-operating-systems)에서 확인할 수 있습니다.
 
-* Azure Virtual Machine Scale Sets 또는 클래식 Vm에 대 한 구성 세부 정보는 적용 되지 않습니다.
+* Azure Virtual Machine Scale Sets 또는 클래식 VM과 관련된 구성 세부 정보는 적용할 수 없습니다.
 
-* 컴퓨터에서 외부 스크립트를 다운로드 해야 하 고 프록시 서버를 통해서만 통신할 수 있는 경우 [연결 된 컴퓨터 에이전트를 구성](manage-agent.md#update-or-remove-proxy-settings) 하 여 프록시 서버 환경 변수를 설정 해야 합니다.
+* 컴퓨터에 외부적으로 스크립트를 다운로드하여야 하며 프록시 서버를 통하여서만 통신이 가능한 경우, [연결된 컴퓨터 에이전트를 구성](manage-agent.md#update-or-remove-proxy-settings)하여 프록시 서버 환경 변수를 설정하여야 합니다.
 
-사용자 지정 스크립트 확장 구성은 스크립트 위치 및 실행할 명령과 같은 항목을 지정 합니다. 이 구성은 Linux 및 Windows 하이브리드 컴퓨터에 대해 아래에 제공 된 Azure Resource Manager 템플릿에 지정 됩니다.
+사용자 지정 스크립트 확장 구성은 스크립트 위치 및 실행할 명령 등을 지정합니다. 해당 구성은 Linux와Windows 양쪽의 하이브리드 컴퓨터용으로 아래 제공되는 Azure Resource Manager 템플릿에서 지정됩니다.
 
-### <a name="template-file-for-linux"></a>Linux 용 템플릿 파일
+### <a name="template-file-for-linux"></a>Linux용 템플릿 파일
 
 ```json
 {
@@ -188,7 +188,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 }
 ```
 
-### <a name="template-file-for-windows"></a>Windows 용 템플릿 파일
+### <a name="template-file-for-windows"></a>Windows용 템플릿 파일
 
 ```json
 {
@@ -291,11 +291,11 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 }
 ```
 
-## <a name="deploy-the-dependency-agent-extension"></a>종속성 에이전트 확장 배포
+## <a name="deploy-the-dependency-agent-extension"></a>종속성 에이전트 확장 배포하기
 
-Azure Monitor 종속성 에이전트 확장을 사용 하려면 Windows 및 Linux에서 실행할 수 있도록 다음 샘플을 제공 합니다. 종속성 에이전트에 익숙하지 않은 경우 [Azure Monitor 에이전트 개요](../../azure-monitor/agents/agents-overview.md#dependency-agent)를 참조 하세요.
+Azure Monitor 종속성 에이전트 확장을 사용하기 위하여 Windows와 Linux에서 실행되는 다음 샘플이 제공됩니다. 종속성 에이전트 확장에 익숙하지 않다면, [Azure Monitor 에이전트 개요](../../azure-monitor/agents/agents-overview.md#dependency-agent)를 참조하세요.
 
-### <a name="template-file-for-linux"></a>Linux 용 템플릿 파일
+### <a name="template-file-for-linux"></a>Linux용 템플릿 파일
 
 ```json
 {
@@ -333,7 +333,7 @@ Azure Monitor 종속성 에이전트 확장을 사용 하려면 Windows 및 Linu
 }
 ```
 
-### <a name="template-file-for-windows"></a>Windows 용 템플릿 파일
+### <a name="template-file-for-windows"></a>Windows용 템플릿 파일
 
 ```json
 {
@@ -373,17 +373,17 @@ Azure Monitor 종속성 에이전트 확장을 사용 하려면 Windows 및 Linu
 
 ### <a name="template-deployment"></a>템플릿 배포
 
-디스크에 템플릿 파일을 저장 합니다. 그런 다음, 다음 명령을 사용 하 여 확장을 연결 된 컴퓨터에 배포할 수 있습니다.
+디스크에 템플릿 파일을 저장합니다. 그런 뒤에 다음 명령을 사용하여 연결된 컴퓨터에 해당 확장을 배포할 수 있습니다.
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\DependencyAgent.json"
 ```
 
-## <a name="deploy-azure-key-vault-vm-extension-preview"></a>Azure Key Vault VM 확장 (미리 보기) 배포
+## <a name="deploy-azure-key-vault-vm-extension-preview"></a>Azure Key Vault VM 확장 배포하기(미리 보기)
 
-다음 JSON은 Key Vault VM 확장 (미리 보기)에 대 한 스키마를 보여 줍니다. 확장에는 보호 된 설정이 필요 하지 않습니다. 모든 설정이 공용 정보로 간주 됩니다. 확장에는 모니터링 되는 인증서의 목록, 폴링 빈도 및 대상 인증서 저장소가 필요 합니다. 특히:
+다음 JSON은 키 자격 증명 모음 VM 확장에 대한 스키마를 보여 줍니다(미리 보기). 해당 확장에는 보호됨 설정이 필요 없습니다. 모든 설정이 퍼블릭 정보로 간주됩니다. 해당 확장에는 모니터링 되는 인증서, 폴링 빈도, 대상 인증서 저장소 목록이 필요합니다. 특히:
 
-### <a name="template-file-for-linux"></a>Linux 용 템플릿 파일
+### <a name="template-file-for-linux"></a>Linux용 템플릿 파일
 
 ```json
 {
@@ -447,7 +447,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 }
 ```
 
-### <a name="template-file-for-windows"></a>Windows 용 템플릿 파일
+### <a name="template-file-for-windows"></a>Windows용 템플릿 파일
 
 ```json
 {
@@ -526,20 +526,20 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 
 ### <a name="template-deployment"></a>템플릿 배포
 
-디스크에 템플릿 파일을 저장 합니다. 그런 다음, 다음 명령을 사용 하 여 확장을 연결 된 컴퓨터에 배포할 수 있습니다.
+디스크에 템플릿 파일을 저장합니다. 그런 뒤에 다음 명령을 사용하여 연결된 컴퓨터에 해당 확장을 배포할 수 있습니다.
 
 > [!NOTE]
-> VM 확장에는 키 자격 증명 모음에 인증 하기 위해 시스템에 할당 된 id가 필요 합니다. Windows 및 Linux Arc 사용 서버에 [관리 되는 id를 사용 하 여 Key Vault에 인증 하는 방법](managed-identity-authentication.md) 을 참조 하세요.
+> VM 확장에는 키 자격 증명 모음에 인증하기 위하여 할당된 시스템 할당 ID가 필요합니다. Windows 및 Linux Arc 지원 서버에 대하여 [관리형 ID를 사용하여 키 자격 증명 모음에 인증하는 방법](managed-identity-authentication.md)을 참조하세요.
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\KeyVaultExtension.json"
 ```
 
-## <a name="deploy-the-azure-defender-integrated-scanner"></a>Azure Defender 통합 스캐너 배포
+## <a name="deploy-the-azure-defender-integrated-scanner"></a>Azure Defender 통합 스캐너 배포하기
 
-Azure Defender 통합 스캐너 확장을 사용 하려면 Windows 및 Linux에서 실행 되도록 다음 샘플을 제공 합니다. 통합 스캐너에 익숙하지 않은 경우 하이브리드 컴퓨터용 [Azure Defender의 취약성 평가 솔루션 개요](../../security-center/deploy-vulnerability-assessment-vm.md) 를 참조 하세요.
+Azure Defender 통합 스캐너 확장을 사용하기 위하여 Windows와 Linux에서 실행되는 다음 샘플이 제공됩니다. 통합 스캐너에 익숙하지 않다면, 하이브리드 컴퓨터용 [Azure Defender의 취약성 평가 솔루션 개요](../../security-center/deploy-vulnerability-assessment-vm.md)를 참조하세요.
 
-### <a name="template-file-for-windows"></a>Windows 용 템플릿 파일
+### <a name="template-file-for-windows"></a>Windows용 템플릿 파일
 
 ```json
 {
@@ -576,7 +576,7 @@ Azure Defender 통합 스캐너 확장을 사용 하려면 Windows 및 Linux에�
 }
 ```
 
-### <a name="template-file-for-linux"></a>Linux 용 템플릿 파일
+### <a name="template-file-for-linux"></a>Linux용 템플릿 파일
 
 ```json
 {
@@ -615,7 +615,7 @@ Azure Defender 통합 스캐너 확장을 사용 하려면 Windows 및 Linux에�
 
 ### <a name="template-deployment"></a>템플릿 배포
 
-디스크에 템플릿 파일을 저장 합니다. 그런 다음, 다음 명령을 사용 하 여 확장을 연결 된 컴퓨터에 배포할 수 있습니다.
+디스크에 템플릿 파일을 저장합니다. 그런 뒤에 다음 명령을 사용하여 연결된 컴퓨터에 해당 확장을 배포할 수 있습니다.
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\AzureDefenderScanner.json"
@@ -623,6 +623,6 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure PowerShell](manage-vm-extensions-powershell.md), [Azure Portal](manage-vm-extensions-portal.md)또는 [AZURE CLI](manage-vm-extensions-cli.md)를 사용 하 여 VM 확장을 배포, 관리 및 제거할 수 있습니다.
+* [Azure PowerShell](manage-vm-extensions-powershell.md)을 사용하여 [Azure Portal](manage-vm-extensions-portal.md)이나 [Azure CLI](manage-vm-extensions-cli.md)에서 VM 확장을 배포하고 관리하며 제거할 수 있습니다.
 
-* 문제 해결 정보는 [VM 확장 문제 해결 가이드](troubleshoot-vm-extensions.md)에서 찾을 수 있습니다.
+* 문제 해결 정보는 [VM 확장 문제 해결 안내](troubleshoot-vm-extensions.md)에서 찾을 수 있습니다.

@@ -8,10 +8,10 @@ ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 2bee856adef1208aabbe65ecd5fd11235579bb82
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100582712"
 ---
 # <a name="setup-diagnostic-logging"></a>진단 로깅 설정
@@ -90,7 +90,7 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 
 3. **저장** 을 클릭합니다.
 
-    "에 대 한 진단을 업데이트 하지 못했습니다 \<workspace name> . 구독은 \<subscription id> microsoft insights를 사용 하도록 등록 되어 있지 않습니다. " [Azure Diagnostics 문제 해결](../azure-monitor/essentials/resource-logs.md) 지침을 따라 계정을 등록한 다음, 이 절차를 다시 시도합니다.
+    “\<workspace name>의 진단을 업데이트하지 못했습니다. Microsoft Insights를 사용하기 위한 \<subscription id> 구독이 등록되지 않았습니다”라는 오류 메시지가 표시되는 경우 [Azure Diagnostics 문제 해결](../azure-monitor/essentials/resource-logs.md) 지침을 따라 계정을 등록한 다음, 이 절차를 다시 시도합니다.
 
     나중에 리소스 로그를 저장하는 방법을 변경하려면 이 페이지로 돌아와서 설정을 수정할 수 있습니다.
 

@@ -1,21 +1,21 @@
 ---
-title: 리소스 그룹 및 리소스 삭제
-description: 리소스 그룹 및 리소스를 삭제 하는 방법을 설명 합니다. 리소스 그룹을 삭제할 때 Azure Resource Manager 리소스 삭제를 정렬 하는 방법을 설명 합니다. 응답 코드 및 Resource Manager가 응답 코드를 처리하여 삭제 성공 여부를 확인하는 방법을 설명합니다.
+title: 리소스 그룹과 리소스 삭제
+description: 리소스 그룹과 리소스를 삭제하는 방법을 설명합니다. 리소스 그룹을 삭제할 때 Azure Resource Manager가 리소스 삭제를 명령하는 방법을 설명합니다. 응답 코드 및 Resource Manager가 응답 코드를 처리하여 삭제 성공 여부를 확인하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.custom: seodec18
-ms.openlocfilehash: 244d59ffc096b5e219e27fd376b07baecde3670e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 8dd6c3f9ac178a518545a662eb94d33066f7614b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587664"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932729"
 ---
-# <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>리소스 그룹 및 리소스 삭제 Azure Resource Manager
+# <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Azure Resource Manager 리소스 그룹 및 리소스 삭제
 
-이 문서에서는 리소스 그룹 및 리소스를 삭제 하는 방법을 보여 줍니다. 리소스 그룹을 삭제할 때 Azure Resource Manager 리소스 삭제를 정렬 하는 방법을 설명 합니다.
+이 문서에서는 리소스 그룹 및 리소스를 삭제하는 방법을 보여 줍니다. 리소스 그룹을 삭제할 때 Azure Resource Manager가 리소스 삭제를 명령하는 방법을 설명합니다.
 
-## <a name="how-order-of-deletion-is-determined"></a>삭제 순서를 결정 하는 방법
+## <a name="how-order-of-deletion-is-determined"></a>삭제 순서를 결정하는 방법
 
 리소스 그룹을 삭제하면 Resource Manager가 리소스 삭제 순서를 결정합니다. 다음 순서가 사용됩니다.
 
@@ -59,7 +59,7 @@ GET 작업에서 오류가 반환되는 경우 Resource Manager는 다음 오류
 
 ## <a name="delete-resource-group"></a>리소스 그룹 삭제
 
-다음 방법 중 하나를 사용 하 여 리소스 그룹을 삭제 합니다.
+다음 방법 중 하나를 사용하여 리소스 그룹을 삭제합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -87,7 +87,7 @@ az group delete --name ExampleResourceGroup
 
 ## <a name="delete-resource"></a>리소스 삭제
 
-다음 방법 중 하나를 사용 하 여 리소스를 삭제 합니다.
+다음 방법 중 하나를 사용하여 리소스를 삭제합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -109,9 +109,9 @@ az resource delete \
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. [포털](https://portal.azure.com)에서 삭제 하려는 리소스를 선택 합니다.
+1. [포털](https://portal.azure.com)에서 삭제하려는 리소스를 선택합니다.
 
-1. **삭제** 를 선택합니다. 다음 스크린샷에서는 가상 컴퓨터에 대 한 관리 옵션을 보여 줍니다.
+1. **삭제** 를 선택합니다. 다음 스크린샷에서는 가상 머신에 대한 관리 옵션을 보여 줍니다.
 
    ![리소스 삭제](./media/delete-resource-group/delete-resource.png)
 
@@ -121,13 +121,13 @@ az resource delete \
 
 ## <a name="required-access"></a>필요한 액세스
 
-리소스 그룹을 삭제 하려면 **Microsoft .resources/subscription/resourceGroups** 리소스에 대 한 삭제 작업에 대 한 액세스 권한이 있어야 합니다. 리소스 그룹의 모든 리소스에 대 한 삭제도 필요 합니다.
+리소스 그룹을 삭제하려면 **Microsoft.Resources/subscriptions/resourceGroups** 리소스의 삭제 작업에 대한 액세스 권한이 있어야 합니다. 리소스 그룹의 모든 리소스에 대한 삭제도 필요합니다.
 
-작업 목록은 [Azure 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md)을 참조 하세요. 기본 제공 역할 목록은 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요.
+작업 목록은 [Azure 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md)을 참조하세요. 기본 제공 역할 목록은 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 
-필요한 액세스 권한이 있지만 삭제 요청이 실패 하는 경우 리소스 그룹에 대 한 [잠금이](lock-resources.md) 있기 때문일 수 있습니다.
+필요한 액세스 권한이 있지만 삭제 요청이 실패하면 리소스 그룹에 [잠금](lock-resources.md)이 있기 때문일 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * Resource Manager의 개념을 이해하려면 [Azure Resource Manager 개요](overview.md)를 참조하세요.
-* 삭제 명령은 [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [Azure CLI](/cli/azure/group#az-group-delete) 및 [REST API](/rest/api/resources/resourcegroups/delete)를 참조하세요.
+* 삭제 명령은 [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [Azure CLI](/cli/azure/group#az-group-delete) 및 [REST API](/rest/api/resources/resources/resourcegroups/delete)를 참조하세요.

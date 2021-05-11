@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB에서 배열 및 개체 작업
-description: Azure Cosmos DB에서 배열 및 개체를 만드는 SQL 구문에 대해 알아봅니다. 또한이 문서에서는 배열 개체에 대 한 작업을 수행 하는 몇 가지 예제를 제공 합니다.
+title: Azure Cosmos DB에서 배열 및 개체 사용
+description: Azure Cosmos DB에서 배열 및 개체를 만드는 SQL 구문에 대해 알아봅니다. 또한 이 문서에서는 배열 개체에 대한 작업을 수행하는 몇 가지 예제를 제공합니다.
 author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 02/02/2021
 ms.author: tisande
 ms.openlocfilehash: 1dccb8e51fbc578f8f218fe1582f95f7bcaf42d7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99493790"
 ---
-# <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Azure Cosmos DB에서 배열 및 개체 작업
+# <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Azure Cosmos DB에서 배열 및 개체 사용
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB SQL API의 주요 기능은 배열 및 개체 만들기입니다. 이 문서에서는 [패밀리 데이터 집합](sql-query-getting-started.md#upload-sample-data)을 사용 하 여 다시 만들 수 있는 예제를 사용 합니다.
+Azure Cosmos DB SQL API의 주요 기능은 배열 및 개체 만들기입니다. 이 문서에서는 [Family 데이터 세트](sql-query-getting-started.md#upload-sample-data)를 사용하여 재현할 수 있는 예제를 사용합니다.
 
-이 데이터 집합의 예제 항목은 다음과 같습니다.
+이 데이터 세트의 항목 예제는 다음과 같습니다.
 
 ```json
 {
@@ -45,7 +45,7 @@ Azure Cosmos DB SQL API의 주요 기능은 배열 및 개체 만들기입니다
 
 ## <a name="arrays"></a>배열
 
-다음 예제와 같이 배열을 생성할 수 있습니다.
+다음 예제에 표시된 대로 배열을 생성할 수 있습니다.
 
 ```sql
 SELECT [f.address.city, f.address.state] AS CityState
@@ -71,7 +71,7 @@ FROM Families f
 ]
 ```
 
-[배열 식을](sql-query-subquery.md#array-expression) 사용 하 여 [하위 쿼리의](sql-query-subquery.md) 결과에서 배열을 생성할 수도 있습니다. 이 쿼리는 배열에서 자식의 지정 된 고유 이름을 모두 가져옵니다.
+[ARRAY 식](sql-query-subquery.md#array-expression)을 사용하여 [하위 쿼리](sql-query-subquery.md)의 결과에서 배열을 생성할 수도 있습니다. 이 쿼리는 배열에서 자식의 고유한 이름을 모두 가져옵니다.
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
@@ -98,7 +98,7 @@ FROM f
 
 ## <a name="iteration"></a><a id="Iteration"></a>반복
 
-SQL API는 FROM 원본의 [in 키워드](sql-query-keywords.md#in) 를 사용 하 여 JSON 배열에 대 한 반복을 지원 합니다. 다음 예제에서는
+SQL API는 FROM 원본의 [IN 키워드](sql-query-keywords.md#in)를 사용하여 JSON 배열에 대한 반복을 지원합니다. 다음 예제에서는
 
 ```sql
 SELECT *
@@ -134,7 +134,7 @@ FROM Families.children
 ]
 ```
 
-다음 쿼리는 컨테이너에서 반복을 수행 합니다 `children` `Families` . 출력 배열은 앞의 쿼리와 다릅니다. 이 예제에서는 결과를 분할 하 `children` 고 단일 배열로 평면화 합니다.  
+다음 쿼리는 `Families` 컨테이너에서 `children`에 대해 반복을 수행합니다. 출력 배열은 앞의 쿼리와 다릅니다. 이 예제에서는 `children`을 분할하고 결과를 단일 배열로 평면화합니다.  
 
 ```sql
 SELECT *
@@ -166,7 +166,7 @@ FROM c IN Families.children
 ]
 ```
 
-다음 예제와 같이 배열의 각 개별 항목을 필터링 할 수 있습니다.
+다음 예제에 표시된 대로 배열의 각 개별 항목을 추가로 필터링할 수 있습니다.
 
 ```sql
 SELECT c.givenName
@@ -182,7 +182,7 @@ WHERE c.grade = 8
 }]
 ```
 
-배열 반복의 결과를 집계할 수도 있습니다. 예를 들어 다음 쿼리는 모든 패밀리에서 자식의 수를 계산 합니다.
+배열 반복의 결과를 집계할 수도 있습니다. 예를 들어 다음 쿼리는 모든 가족의 자식 수를 계산합니다.
 
 ```sql
 SELECT COUNT(1) AS Count
@@ -200,9 +200,9 @@ FROM child IN Families.children
 ```
 
 > [!NOTE]
-> 반복에 IN 키워드를 사용 하는 경우 배열 외부의 속성을 필터링 하거나 프로젝션 할 수 없습니다. 대신 [조인을](sql-query-join.md)사용 해야 합니다.
+> 반복에 IN 키워드를 사용하는 경우 배열 외부의 속성을 필터링하거나 프로젝션할 수 없습니다. 대신 [JOIN](sql-query-join.md)을 사용해야 합니다.
 
-추가 예제를 보려면 [Azure Cosmos DB의 배열 사용에 대 한 블로그 게시물](https://devblogs.microsoft.com/cosmosdb/understanding-how-to-query-arrays-in-azure-cosmos-db/)을 참조 하세요.
+추가 예제는 [Azure Cosmos DB에서 배열 사용에 대한 블로그 게시물](https://devblogs.microsoft.com/cosmosdb/understanding-how-to-query-arrays-in-azure-cosmos-db/)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
