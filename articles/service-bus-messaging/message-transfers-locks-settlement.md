@@ -1,14 +1,14 @@
 ---
-title: 메시지 전송, 잠금 및 정착지 Azure Service Bus
-description: 이 문서에서는 메시지 전송, 잠금 및 결산일 작업 Azure Service Bus에 대 한 개요를 제공 합니다.
+title: Azure Service Bus 메시지 전송, 잠금 및 확인
+description: 이 문서에서는 Azure Service Bus 메시지 전송, 잠금 및 확인 작업을 개괄적으로 설명합니다.
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fd71edd12e478bcd5f14815c105c14482cf7e2bd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89020034"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>메시지 전송, 잠금 및 확인
@@ -118,12 +118,12 @@ for (int i = 0; i < 100; i++)
 중복 메시지 배달을 식별하기 위한 일반적인 메커니즘은 보낸 사람이 원본 프로세스의 식별자에 맞게 고유한 값으로 설정할 수 있고 설정해야 하는 메시지 ID를 확인하는 것입니다. 작업 스케줄러는 지정된 작업자를 사용하여 메시지 ID를 작업자에게 할당하려는 작업의 식별자로 설정하고, 작업자는 해당 작업이 이미 수행된 경우 해당 작업 할당이 두 번째로 나오는 경우를 무시합니다.
 
 > [!IMPORTANT]
-> 메시지에서 PeekLock 획득 하는 잠금은 휘발성 이며 다음 조건에서 손실 될 수 있다는 점에 유의 해야 합니다.
+> PeekLock이 메시지에 대해 획득하는 잠금은 휘발성이며 다음 조건에서 손실될 수 있다는 점에 유의해야 합니다.
 >   * 서비스 업데이트
 >   * OS 업데이트
->   * 잠금을 보유 하는 동안 엔터티 (큐, 토픽, 구독)의 속성을 변경 합니다.
+>   * 잠금을 보유하고 있는 동안 엔터티(큐, 토픽, 구독)의 속성 변경
 >
-> 잠금이 손실 되 면 Azure Service Bus에서 클라이언트 응용 프로그램 코드에 표시 되는 LockLostException을 생성 합니다. 이 경우 클라이언트의 기본 재시도 논리가 자동으로 시작 되 고 작업을 다시 시도 합니다.
+> 잠금이 손실되면 Azure Service Bus는 클라이언트 애플리케이션 코드에 표시되는 LockLostException을 생성합니다. 이 경우 클라이언트의 기본 재시도 논리가 자동으로 시작되고 작업을 다시 시도해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

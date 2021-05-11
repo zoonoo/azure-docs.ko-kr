@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 07/30/2020
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 720c064c6b382bc62565c0828422181c761df8e8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88936931"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Batch 서비스 API를 사용하여 Azure Storage에 태스크 데이터 유지
@@ -20,7 +20,7 @@ Batch 서비스 API에서 가상 머신 구성으로 풀에서 실행되는 태�
 Batch 서비스 API를 사용하여 태스크 출력을 유지하는 이점은 태스크가 실행되는 애플리케이션을 수정할 필요가 없다는 것입니다. 대신 클라이언트 애플리케이션을 약간만 수정하면 태스크를 만드는 동일한 코드 내에서 태스크 출력을 유지할 수 있습니다.
 
 > [!IMPORTANT]
-> Batch 서비스 API를 사용 하 여 Azure Storage에 작업 데이터를 유지 하는 것은 [2018 년 2 월 1 일](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md#1204)이전에 만들어진 풀에서 작동 하지 않습니다.
+> [2018년 2월 1일](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md#1204) 이전에 생성된 풀의 경우 Batch 서비스 API를 사용하여 Azure Storage에 태스크 데이터를 보관할 수 없습니다.
 
 ## <a name="when-do-i-use-the-batch-service-api-to-persist-task-output"></a>Batch 서비스 API를 사용하여 태스크 출력을 유지하는 경우는?
 
@@ -31,7 +31,7 @@ Azure Batch는 태스크 출력을 유지하는 한 가지 이상의 방법을 �
 - Azure Storage 컨테이너에 임의의 이름으로 출력을 유지하려고 합니다.
 - [Batch 파일 규칙 표준](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files)(영문)에 따라 명명된 Azure Storage 컨테이너에 출력을 유지하려고 합니다.
 
-위에서 나열한 시나리오와 다른 시나리오이면 다른 방법을 고려해야 할 수도 있습니다. 예를 들어 Batch 서비스 API는 현재 태스크가 실행되는 동안 Azure Storage에 대한 스트리밍 출력을 지원하지 않습니다. 출력을 스트리밍하려면 .NET에서 사용할 수 있는 Batch 파일 규칙 라이브러리를 사용하는 것이 좋습니다. 다른 언어의 경우 사용자 고유의 자체 솔루션을 구현해야 합니다. 태스크 출력을 유지 하는 다른 옵션에 대 한 자세한 내용은 [Azure Storage에 작업 및 태스크 출력 유지](batch-task-output.md)를 참조 하세요.
+위에서 나열한 시나리오와 다른 시나리오이면 다른 방법을 고려해야 할 수도 있습니다. 예를 들어 Batch 서비스 API는 현재 태스크가 실행되는 동안 Azure Storage에 대한 스트리밍 출력을 지원하지 않습니다. 출력을 스트리밍하려면 .NET에서 사용할 수 있는 Batch 파일 규칙 라이브러리를 사용하는 것이 좋습니다. 다른 언어의 경우 사용자 고유의 자체 솔루션을 구현해야 합니다. 태스크 출력을 보관하기 위한 다른 옵션에 대한 자세한 내용은 [Azure Storage에 작업 및 태스크 출력 보관](batch-task-output.md)을 참조하세요.
 
 ## <a name="create-a-container-in-azure-storage"></a>Azure Storage에 컨테이너 만들기
 
@@ -93,7 +93,7 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 ```
 
 > [!NOTE]
-> Linux에서이 예제를 사용 하는 경우 백슬래시를 슬래시로 변경 해야 합니다.
+> Linux에서 이 예제를 사용하는 경우에는 백슬래시를 슬래시로 변경해야 합니다.
 
 ### <a name="specify-a-file-pattern-for-matching"></a>일치시킬 파일 패턴 지정
 
@@ -187,5 +187,5 @@ C# 이외의 언어로 개발하는 경우 파일 규칙 표준을 직접 구현
 
 ## <a name="next-steps"></a>다음 단계
 
-- .NET 용 파일 규칙 라이브러리를 사용 하 여 태스크 출력을 유지 하는 방법에 대 한 자세한 내용은 [.net 용 Batch 파일 규칙 라이브러리를 사용 하 여 Azure Storage 작업 및 태스크 데이터 유지](batch-task-output-file-conventions.md)를 참조 하세요.
-- Azure Batch에서 출력 데이터를 유지 하는 다른 방법에 대 한 자세한 내용은 [Azure Storage에 작업 및 태스크 출력 유지](batch-task-output.md)를 참조 하세요.
+- .NET용 파일 규칙 라이브러리를 사용하여 태스크 출력을 보관하는 방법에 대한 자세한 내용은 [.NET용 Batch 파일 규칙 라이브러리를 사용하여 Azure Storage에 작업 및 태스크 데이터 보관](batch-task-output-file-conventions.md)을 참조하세요.
+- Azure Batch에서 출력 데이터를 보관하는 다른 방법에 대한 자세한 내용은 [Azure Storage에 작업 및 태스크 출력 보관](batch-task-output.md)을 참조하세요.

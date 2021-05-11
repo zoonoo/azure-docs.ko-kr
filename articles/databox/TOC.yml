@@ -75,7 +75,7 @@
             - name: 보안
               items:
                 - name: 보안 기준
-                  href: security-baseline.md
+                  href: /security/benchmark/azure/baselines/databox-security-baseline?context=/azure/databox/context/context
                 - name: Azure Policy의 보안 컨트롤
                   href: ./security-controls-policy.md
                 - name: 보안 검토
@@ -109,7 +109,7 @@
                 - name: SharePoint Online으로
                   href: /sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=%2fazure%2fdatabox%2fcontext%2fcontext
                 - name: Azure 파일 동기화로
-                  href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+                  href: ../storage/file-sync/file-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
                 - name: HDFS 저장소에서
                   href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
                 - name: Azure Backup으로
@@ -232,13 +232,13 @@
                 - name: SharePoint Online으로
                   href: data-box-heavy-migrate-spo.md
                 - name: Azure 파일 동기화로
-                  href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+                  href: ../storage/file-sync/file-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
                 - name: HDFS 저장소에서
                   href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
     - name: 참조
       items:
         - name: Azure CLI
-          href: /cli/azure/ext/databox/databox
+          href: /cli/azure/databox
         - name: Azure PowerShell
           href: /powershell/module/az.databox
         - name: .NET API

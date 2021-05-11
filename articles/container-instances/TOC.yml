@@ -59,7 +59,7 @@
     - name: 보안
       items:
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/container-instances-security-baseline?toc=/azure/container-instances/TOC.json
         - name: 보안 고려 사항
           href: container-instances-image-security.md
     - name: 가상 네트워킹
@@ -138,7 +138,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/container
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/container-instances
     - name: PowerShell
       href: /powershell/module/az.containerinstance
@@ -156,6 +156,9 @@
       href: container-instances-reference-yaml.md
     - name: 커넥터
       href: /connectors/aci
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기

@@ -15,8 +15,6 @@
       href: quickstart-download-sign-in-report.md
     - name: 감사 보고서 다운로드
       href: quickstart-download-audit-report.md
-    - name: 명명된 위치 구성
-      href: quickstart-configure-named-locations.md
     - name: 스토리지 계정으로 로그 라우팅
       href: quickstart-azure-monitor-route-logs-to-storage-account.md
 - name: 자습서
@@ -29,33 +27,29 @@
       href: tutorial-log-analytics-wizard.md
 - name: 개념
   items:
-    - name: 보고 및 모니터링 배포 계획
-      href: plan-monitoring-and-reporting.md
     - name: 감사 로그
       href: concept-audit-logs.md
     - name: 새 로그인 로그 - 미리 보기
       href: concept-all-sign-ins.md
     - name: 로그인 로그
       href: concept-sign-ins.md
-    - name: 사용량 및 인사이트 보고서
-      href: concept-usage-insights-report.md
-    - name: 위험한 로그인
-      href: ../identity-protection/overview-identity-protection.md
-    - name: 위험 탐지
-      href: ../identity-protection/overview-identity-protection.md
-    - name: 위험에 노출된 사용자
-      href: ../identity-protection/overview-identity-protection.md
     - name: 프로비저닝 로그
       href: concept-provisioning-logs.md
+    - name: 사용량 및 인사이트 보고서
+      href: concept-usage-insights-report.md
     - name: Reporting API
       href: concept-reporting-api.md
     - name: Azure Monitor의 Azure AD 로그
       href: concept-activity-logs-azure-monitor.md
+    - name: 보고 및 모니터링 배포 계획
+      href: plan-monitoring-and-reporting.md
 - name: 방법 가이드
   expanded: true
   items:
     - name: 보고서
       items:
+        - name: 로그 다운로드
+          href: howto-download-logs.md
         - name: Azure AD의 비활성 사용자 계정 관리
           href: howto-manage-inactive-user-accounts.md
         - name: 활동 보고서 찾기
@@ -107,11 +101,7 @@
       href: reference-reports-data-retention.md
     - name: 보고 대기 시간
       href: reference-reports-latencies.md
-    - name: 로그인 오류 코드
-      href: reference-sign-ins-error-codes.md
     - name: 질문과 대답
       href: reports-faq.md
-    - name: 감사 로그 스키마
-      href: reference-azure-monitor-audit-log-schema.md
     - name: 로그인 로그 스키마
       href: reference-azure-monitor-sign-ins-log-schema.md

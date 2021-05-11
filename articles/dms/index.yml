@@ -10,12 +10,12 @@ metadata:
   ms.service: dms
   ms.topic: landing-page
   ms.custom: seo-azure-migrate
-  ms.openlocfilehash: a154a3a6579ff3414502b16dcfe6d60748840a6c
-  ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+  ms.openlocfilehash: 51fbcc1431b77aca794df3b7142e239f9f09ed8f
+  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/05/2021
-  ms.locfileid: "102183304"
+  ms.lasthandoff: 05/06/2021
+  ms.locfileid: "108766406"
 landingContent:
 - title: Azure Database Migration Service 정보
   linkLists:
@@ -120,23 +120,15 @@ landingContent:
     - text: 데이터베이스 마이그레이션 가이드
       url: https://datamigration.microsoft.com/
     - text: Data Migration Assistant
-      url: /sql/dma/dma-overview?view=sql-server-2017
+      url: /sql/dma/dma-overview
     - text: SQL Server Migration Assistant
-      url: /sql/ssma/sql-server-migration-assistant?view=sql-server-2017
+      url: /sql/ssma/sql-server-migration-assistant
     - text: 데이터베이스 실험 도우미
-      url: /sql/dea/database-experimentation-assistant-overview?view=sql-server-2017
+      url: /sql/dea/database-experimentation-assistant-overview
     - text: 데이터 액세스 마이그레이션 도구 키트
       url: https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit
 - title: Oracle을 Azure로 마이그레이션
   linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Azure Database for PostgreSQL로 마이그레이션 - 단일 서버 - 온라인
-      url: tutorial-oracle-azure-postgresql-online.md
-  - linkListType: reference
-    links:
-    - text: 알려진 문제 - Azure Database for PostgreSQL로 온라인 마이그레이션 - 단일 서버
-      url: known-issues-oracle-azure-postgresql-online.md
   - linkListType: video
     links:
     - text: SQL Database 단일 데이터베이스로 마이그레이션

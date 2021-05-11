@@ -1,14 +1,14 @@
 ---
-title: Azure Event Hubs-다른 프로토콜을 사용 하 여 이벤트 교환
+title: Azure Event Hubs - 다양한 프로토콜을 사용하는 Exchange 이벤트
 description: 이 문서에서는 서로 다른 프로토콜(AMQP, Apache Kafka 및 HTTPS)을 사용하는 소비자와 생산자가 Azure Event Hubs를 사용할 때 이벤트를 교환하는 방법을 보여 줍니다.
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: cbc6999e3ede73b948ce034769966922b4b0f282
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89010323"
 ---
 # <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>서로 다른 프로토콜(AMQP, Kafka 및 HTTPS)을 사용하는 소비자와 생산자 간의 이벤트 교환
@@ -335,5 +335,5 @@ String myStringProperty = new String(rawbytes, StandardCharsets.UTF_8);
 * [Event Hubs에 대해 알아봅니다](./event-hubs-about.md).
 * [Kafka용 Event Hubs에 대해 알아보기](event-hubs-for-kafka-ecosystem-overview.md)
 * [Kafka GitHub용 Event Hubs에서 더 많은 샘플 탐색](https://github.com/Azure/azure-event-hubs-for-kafka)
-* [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) 를 사용 하 여 [kafka 온 프레미스의 이벤트를 클라우드에서 Event Hubs 스트리밍할 수 있습니다.](event-hubs-kafka-mirror-maker-tutorial.md)
-* [네이티브 Kafka 응용 프로그램](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md)또는 [akka streams 스트림을](event-hubs-kafka-akka-streams-tutorial.md) 사용 하 여 Event Hubs로 스트리밍하는 방법에 대해 알아봅니다.
+* [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330)를 사용하여 [온-프레미스 Kafka에서 클라우드 Event Hubs로 이벤트를 스트림](event-hubs-kafka-mirror-maker-tutorial.md)합니다.
+* [네이티브 Kafka 애플리케이션](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md) 또는 [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)를 사용하여 Event Hubs로 스트림하는 방법을 알아봅니다.

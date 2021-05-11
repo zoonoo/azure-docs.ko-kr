@@ -3,12 +3,12 @@ title: 고정 아웃바운드 IP 구성
 description: 방화벽의 공용 IP 주소를 수신 및 송신에 사용하는 Azure Container Instances 워크로드에 대한 Azure Firewall 및 사용자 정의 경로 구성
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: a03c59652b9409d54bbe63c63a31fdd2228ac34e
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 497645b9fe7f908cc9b8b4d7ed0ba5e201570160
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107878689"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "89566571"
 ---
 # <a name="configure-a-single-public-ip-address-for-outbound-and-inbound-traffic-to-a-container-group"></a>컨테이너 그룹의 아웃바운드 및 인바운드 트래픽에 대한 단일 공용 IP 주소 구성
 
@@ -31,7 +31,7 @@ ms.locfileid: "107878689"
 
 컨테이너 그룹은 `aci-helloworld` 이미지의 작은 웹앱을 실행합니다. 설명서의 다른 문서에 표시된 것처럼 이 이미지는 정적 HTML 페이지를 제공하는, Node.js로 작성된 작은 웹앱을 패키지합니다.
 
-필요한 경우 먼저 [az group create][az-group-create] 명령을 사용하여 Azure 리소스 그룹을 만듭니다. 예를 들어:
+필요한 경우 먼저 [az group create][az-group-create] 명령을 사용하여 Azure 리소스 그룹을 만듭니다. 예를 들면 다음과 같습니다.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -286,19 +286,25 @@ az container logs \
 
 
 
-[az-group-create]: /cli/azure/group#az_group_create
-[az-container-create]: /cli/azure/container#az_container_create
-[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_create
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-network-firewall-update]: /cli/azure/network/firewall#az_network_firewall_update
-[az-network-public-ip-show]: /cli/azure/network/public-ip/#az_network_public_ip_show
-[az-network-route-table-create]:/cli/azure/network/route-table/#az_network_route_table_create
-[az-network-route-table-route-create]: /cli/azure/network/route-table/route#az_network_route_table_route_create
-[az-network-firewall-ip-config-list]: /cli/azure/network/firewall/ip-config#az_network_firewall_ip_config_list
-[az-network-vnet-subnet-update]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_update
-[az-container-exec]: /cli/azure/container#az_container_exec
-[az-vm-create]: /cli/azure/vm#az_vm_create
-[az-vm-open-port]: /cli/azure/vm#az_vm_open_port
-[az-vm-list-ip-addresses]: /cli/azure/vm#az_vm_list_ip_addresses
-[az-network-firewall-application-rule-create]: /cli/azure/network/firewall/application-rule#az_network_firewall_application_rule_create
-[az-network-firewall-nat-rule-create]: /cli/azure/network/firewall/nat-rule#az_network_firewall_nat_rule_create
+[az-group-create]: /cli/azure/group#az-group-create
+[az-container-create]: /cli/azure/container#az-container-create
+[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-create
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-network-firewall-update]: /cli/azure/ext/azure-firewall/network/firewall#ext-azure-firewall-az-network-firewall-update
+[az-network-public-ip-show]: /cli/azure/network/public-ip/#az-network-public-ip-show
+[az-network-route-table-create]:/cli/azure/network/route-table/#az-network-route-table-create
+[az-network-route-table-route-create]: /cli/azure/network/route-table/route#az-network-route-table-route-create
+[az-network-firewall-ip-config-list]: /cli/azure/ext/azure-firewall/network/firewall/ip-config#ext-azure-firewall-az-network-firewall-ip-config-list
+[az-network-vnet-subnet-update]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-update
+[az-container-exec]: /cli/azure/container#az-container-exec
+[az-vm-create]: /cli/azure/vm#az-vm-create
+[az-vm-open-port]: /cli/azure/vm#az-vm-open-port
+[az-vm-list-ip-addresses]: /cli/azure/vm#az-vm-list-ip-addresses
+[az-network-firewall-application-rule-create]: /cli/azure/ext/azure-firewall/network/firewall/application-rule#ext-azure-firewall-az-network-firewall-application-rule-create
+[az-network-firewall-nat-rule-create]: /cli/azure/ext/azure-firewall/network/firewall/nat-rule#ext-azure-firewall-az-network-firewall-nat-rule-create
+
+
+
+
+
+

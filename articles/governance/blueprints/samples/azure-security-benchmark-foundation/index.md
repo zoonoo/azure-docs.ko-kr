@@ -1,14 +1,14 @@
 ---
 title: Azure Security Benchmark Foundation 청사진 샘플 개요
 description: Azure Security Benchmark Foundation 청사진 샘플의 개요 및 아키텍처.
-ms.date: 02/17/2020
+ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: ed497eff85e07b6a51939907bc751f3b40c99b30
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a60f70b1f3e9d810ccded8bbeee726ea950524e9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741874"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739262"
 ---
 # <a name="overview-of-the-azure-security-benchmark-foundation-blueprint-sample"></a>Azure Security Benchmark Foundation 청사진 샘플의 개요
 
@@ -35,7 +35,7 @@ Azure Security Benchmark Foundation 청사진 샘플은 안전하고 규정을 �
 - 공용 IP 주소, 에이전트 또는 특수 클라이언트 소프트웨어가 필요하지 않은 가상 머신에 원활하고 안전한 연결을 제공하는 [Azure Bastion](../../../../bastion/bastion-overview.md).
 - 공용 인터넷을 통해 Azure 가상 네트워크와 온-프레미스 위치 간에 암호화된 트래픽을 사용하도록 설정하는 [Azure VPN Gateway](../../../../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-> [!NOTE] 
+> [!NOTE]
 > Azure Security Benchmark Foundation은 워크로드에 대한 기본 아키텍처를 배치합니다. 위의 아키텍처 다이어그램에는 서브넷의 잠재적인 사용을 보여주는 몇 가지 개념 리소스가 포함되어 있습니다. 여전히 이 기본 아키텍처에 워크로드를 배포해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계

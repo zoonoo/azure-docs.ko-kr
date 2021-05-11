@@ -1,22 +1,22 @@
 ---
 title: PHP 앱 구성
-description: 네이티브 Windows 인스턴스나 미리 작성 된 PHP 컨테이너 (Azure App Service)에서 PHP 앱을 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
+description: 네이티브 Windows 인스턴스 또는 Azure App Service에 미리 빌드된 PHP 컨테이너에서 PHP 앱을 구성하는 방법을 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
 ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: afac8273b5729bcf5470be471145214426dc7dab
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90055302"
 ---
-# <a name="configure-a-php-app-for-azure-app-service"></a>Azure App Service에 대 한 PHP 앱 구성
+# <a name="configure-a-php-app-for-azure-app-service"></a>Azure App Service용 PHP 앱 구성
 
-이 가이드에서는 Azure App Service에서 PHP 웹 앱, 모바일 백 엔드 및 API 앱을 구성 하는 방법을 보여 줍니다.
+이 가이드에서는 Azure App Service에서 PHP 웹앱, 모바일 백 엔드, API 앱을 구성하는 방법을 보여 줍니다.
 
-이 가이드에서는 App Service에 앱을 배포 하는 PHP 개발자를 위한 주요 개념 및 지침을 제공 합니다. Azure App Service를 처음 사용하는 경우 먼저 [PHP 빠른 시작](quickstart-php.md) 및 [MySQL을 사용하는 PHP 자습서](tutorial-php-mysql-app.md)를 따라하세요.
+또한 App Service에 앱을 배포하는 PHP 개발자를 위한 주요 개념과 지침을 제공합니다. Azure App Service를 처음 사용하는 경우 먼저 [PHP 빠른 시작](quickstart-php.md) 및 [MySQL을 사용하는 PHP 자습서](tutorial-php-mysql-app.md)를 따라하세요.
 
 ## <a name="show-php-version"></a>PHP 버전 표시
 
@@ -56,7 +56,7 @@ az webapp list-runtimes --linux | grep PHP
 
 ::: zone pivot="platform-windows"  
 
-[Cloud Shell](https://shell.azure.com) 에서 다음 명령을 실행 하 여 PHP 버전을 7.4로 설정 합니다.
+PHP 버전을 7.4로 설정하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행합니다.
 
 ```azurecli-interactive
 az webapp config set --name <app-name> --resource-group <resource-group-name> --php-version 7.4
@@ -76,22 +76,22 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 ::: zone pivot="platform-windows"  
 
-## <a name="run-composer"></a>작성기 실행
+## <a name="run-composer"></a>Composer 실행
 
-배포 시 [작성기](https://getcomposer.org/) 를 실행 하 App Service 하려면 가장 쉬운 방법은 작성기를 리포지토리에 포함 하는 것입니다.
+배포 시 App Service에서 [Composer](https://getcomposer.org/)를 실행하려는 경우 가장 쉬운 방법은 리포지토리에 Composer를 포함하는 것입니다.
 
-로컬 터미널 창에서 디렉터리를 리포지토리 루트로 변경 하 고, [작성기 다운로드](https://getcomposer.org/download/) 의 지침에 따라 작성기를 다운로드 *합니다. phar* 를 디렉터리 루트에 다운로드 합니다.
+로컬 터미널 창에서 디렉터리를 리포지토리 루트로 변경하고, [Composer 다운로드](https://getcomposer.org/download/)의 지침에 따라 *composer.phar* 을 디렉터리 루트에 다운로드합니다.
 
-다음 명령을 실행 합니다 ( [npm](https://www.npmjs.com/get-npm) 가 설치 되어 있어야 합니다).
+다음 명령을 실행합니다([npm](https://www.npmjs.com/get-npm)이 설치되어 있어야 함).
 
 ```bash
 npm install kuduscript -g
 kuduscript --node --scriptType bash --suppressPrompt
 ```
 
-이제 리포지토리 루트에 *배포* 및 *deploy.sh* 의 두 가지 추가 파일이 있습니다.
+이제 리포지토리 루트에 *.deployment* 및 *deploy.sh* 라는 두 개의 추가 파일이 있습니다.
 
-*Deploy.sh* 을 열고 `Deployment` 다음과 같은 섹션을 찾습니다.
+*deploy.sh* 를 열고 다음과 같은 `Deployment` 섹션을 찾습니다.
 
 ```bash
 ##################################################################################################################################
@@ -99,7 +99,7 @@ kuduscript --node --scriptType bash --suppressPrompt
 # ----------
 ```
 
-섹션의 *끝에서* 필요한 도구를 실행 하는 데 필요한 코드 섹션을 추가 합니다 `Deployment` .
+필요한 도구를 실행하는 데 필요한 코드 섹션을 `Deployment` 섹션의 ‘끝’에 추가합니다.
 
 ```bash
 # 4. Use composer
@@ -113,13 +113,13 @@ if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
 fi
 ```
 
-모든 변경 내용을 커밋하고 Git 또는 빌드 자동화를 사용 하는 Zip 배포를 사용 하 여 코드를 배포 합니다. 이제 작성기는 배포 자동화의 일부로 실행 됩니다.
+모든 변경 내용을 커밋하고 빌드 자동화를 사용하도록 설정하여 Git 또는 Zip 배포를 통해 코드를 배포합니다. 이제 Composer가 배포 자동화의 일부로 실행됩니다.
 
 ## <a name="run-gruntbowergulp"></a>Grunt/Bower/Gulp 실행
 
-Grunt, Bower 또는 Gulp와 같이 배포 시 인기 있는 자동화 도구를 실행 하려면 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)를 제공 해야 합니다. App Service App Service는 Git를 사용 하 여 배포 하거나 빌드 자동화를 사용 하는 [Zip 배포](deploy-zip.md) 를 사용 하는 경우이 스크립트를 실행 합니다. 
+배포 시 App Service에서 Grunt, Bower 또는 Gulp와 같은 인기 자동화 도구를 실행하려면 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)를 제공해야 합니다. 빌드 자동화를 사용하도록 설정하여 Git 또는 [Zip 배포](deploy-zip.md)를 통해 배포하면 App Service에서 이 스크립트를 실행합니다. 
 
-이러한 도구를 실행 하기 위해 리포지토리를 사용 하도록 설정 하려면package.js의 종속성에 해당 도구를 추가 해야 *합니다.* 예를 들면 다음과 같습니다.
+리포지토리가 해당 도구를 실행할 수 있게 하려면 *package.json* 의 종속성에 도구를 추가해야 합니다. 예를 들면 다음과 같습니다.
 
 ```json
 "dependencies": {
@@ -130,16 +130,16 @@ Grunt, Bower 또는 Gulp와 같이 배포 시 인기 있는 자동화 도구를 
 }
 ```
 
-로컬 터미널 창에서 디렉터리를 리포지토리 루트로 변경 하 고 다음 명령을 실행 합니다 ( [npm](https://www.npmjs.com/get-npm) 가 설치 되어 있어야 합니다).
+로컬 터미널 창에서 디렉터리를 리포지토리 루트로 변경하고 다음 명령을 실행합니다([npm](https://www.npmjs.com/get-npm)이 설치 되어 있어야 함).
 
 ```bash
 npm install kuduscript -g
 kuduscript --node --scriptType bash --suppressPrompt
 ```
 
-이제 리포지토리 루트에 *배포* 및 *deploy.sh* 의 두 가지 추가 파일이 있습니다.
+이제 리포지토리 루트에 *.deployment* 및 *deploy.sh* 라는 두 개의 추가 파일이 있습니다.
 
-*Deploy.sh* 을 열고 `Deployment` 다음과 같은 섹션을 찾습니다.
+*deploy.sh* 를 열고 다음과 같은 `Deployment` 섹션을 찾습니다.
 
 ```bash
 ##################################################################################################################################
@@ -147,17 +147,17 @@ kuduscript --node --scriptType bash --suppressPrompt
 # ----------
 ```
 
-이 섹션은를 실행 하는 것으로 끝납니다 `npm install --production` . 섹션의 *끝에서* 필요한 도구를 실행 하는 데 필요한 코드 섹션을 추가 합니다 `Deployment` .
+이 섹션은 `npm install --production` 실행으로 끝납니다. 필요한 도구를 실행하는 데 필요한 코드 섹션을 `Deployment` 섹션의 ‘끝’에 추가합니다.
 
 - [Bower](#bower)
 - [Gulp](#gulp)
 - [Grunt](#grunt)
 
-배포 스크립트가 사용자 지정 명령을 실행 하는 [MEAN.js 샘플의 예제](https://github.com/Azure-Samples/meanjs/blob/master/deploy.sh#L112-L135)를 참조 하세요 `npm install` .
+배포 스크립트가 사용자 지정 `npm install` 명령도 실행하는 [MEAN.js 샘플의 예제](https://github.com/Azure-Samples/meanjs/blob/master/deploy.sh#L112-L135)를 참조하세요.
 
 ### <a name="bower"></a>Bower
 
-이 코드 조각은 `bower install` 를 실행 합니다.
+이 코드 조각은 `bower install`을 실행합니다.
 
 ```bash
 if [ -e "$DEPLOYMENT_TARGET/bower.json" ]; then
@@ -170,7 +170,7 @@ fi
 
 ### <a name="gulp"></a>Gulp
 
-이 코드 조각은 `gulp imagemin` 를 실행 합니다.
+이 코드 조각은 `gulp imagemin`을 실행합니다.
 
 ```bash
 if [ -e "$DEPLOYMENT_TARGET/gulpfile.js" ]; then
@@ -183,7 +183,7 @@ fi
 
 ### <a name="grunt"></a>Grunt
 
-이 코드 조각은 `grunt` 를 실행 합니다.
+이 코드 조각은 `grunt`를 실행합니다.
 
 ```bash
 if [ -e "$DEPLOYMENT_TARGET/Gruntfile.js" ]; then
@@ -241,9 +241,9 @@ getenv("DB_HOST")
 
 ::: zone pivot="platform-windows"  
 
-원하는 웹 프레임워크에서 하위 디렉터리를 사이트 루트로 사용할 수 있습니다. 예를 들어 [Laravel](https://laravel.com/)는 사이트 루트로 *public/* 하위 디렉터리를 사용 합니다.
+원하는 웹 프레임워크에서 하위 디렉터리를 사이트 루트로 사용할 수 있습니다. 예를 들어 [Laravel](https://laravel.com/)은 *public/* 하위 디렉터리를 사이트 루트로 사용합니다.
 
-사이트 루트를 사용자 지정 하려면 명령을 사용 하 여 앱에 대 한 가상 응용 프로그램 경로를 설정 합니다 [`az resource update`](/cli/azure/resource#az-resource-update) . 다음 예에서는 사이트 루트를 리포지토리의 *공용/* 하위 디렉터리로 설정 합니다. 
+사이트 루트를 사용자 지정하려면 [`az resource update`](/cli/azure/resource#az-resource-update) 명령을 사용하여 앱의 가상 애플리케이션 경로를 설정합니다. 다음 예제에서는 사이트 루트를 리포지토리의 *public/* 하위 디렉터리로 설정합니다. 
 
 ```azurecli-interactive
 az resource update --name web --resource-group <group-name> --namespace Microsoft.Web --resource-type config --parent sites/<app-name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
@@ -295,7 +295,7 @@ PHP 설치를 변경해야 할 경우 다음 단계에 따라 모든 [php.ini �
 
 ::: zone pivot="platform-windows"  
 
-PHP_INI_USER, PHP_INI_PERDIR 및 PHP_INI_ALL 지시문 ( [php.ini 지시문](https://www.php.net/manual/ini.list.php)참조)을 사용자 지정 하려면 `.user.ini` 응용 프로그램의 루트 디렉터리에 파일을 추가 합니다.
+PHP_INI_USER, PHP_INI_PERDIR, PHP_INI_ALL 지시문([php.ini 지시문](https://www.php.net/manual/ini.list.php) 참조)을 사용자 지정하려면 앱의 루트 디렉터리에 `.user.ini` 파일을 추가합니다.
 
 `php.ini` 파일에 사용한 것과 동일한 구문을 사용하여 구성 설정을 `.user.ini` 파일에 추가합니다. 예를 들어, `display_errors` 설정을 켜고 `upload_max_filesize` 설정을 10M로 설정하려면 `.user.ini` 파일에 다음 텍스트를 포함합니다.
 
@@ -310,7 +310,7 @@ PHP_INI_USER, PHP_INI_PERDIR 및 PHP_INI_ALL 지시문 ( [php.ini 지시문](htt
 
 변경 내용을 적용해 앱을 다시 배포하고 재시작합니다.
 
-파일을 사용 하는 대신 `.user.ini` 앱에서 [ini_set ()](https://www.php.net/manual/function.ini-set.php) 를 사용 하 여 이러한 비 PHP_INI_SYSTEM 지시문을 사용자 지정할 수 있습니다.
+`.user.ini` 파일을 사용하는 대신 앱에서 [ini_set()](https://www.php.net/manual/function.ini-set.php)을 사용하여 PHP_INI_SYSTEM 이외의 지시문을 사용자 지정할 수 있습니다.
 
 ::: zone-end
 
@@ -348,7 +348,7 @@ PHP_INI_SYSTEM 지시문([php.ini 지시문](https://www.php.net/manual/ini.list
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PHP_INI_SCAN_DIR="d:\home\site\ini"
 ```
 
-Kudu console ()로 이동 하 여 `https://<app-name>.scm.azurewebsites.net/DebugConsole` 로 이동 `d:\home\site` 합니다.
+Kudu 콘솔(`https://<app-name>.scm.azurewebsites.net/DebugConsole`)로 이동한 다음, `d:\home\site`로 이동합니다.
 
 `d:\home\site`에서 `ini`라는 디렉터리를 만든 다음, `d:\home\site\ini` 디렉터리에서 사용자 지정할 지시문을 포함하여 *.ini* 파일(예: *settings.ini)* 을 생성합니다. *php.ini* 파일에서와 동일한 구문을 사용합니다. 
 
@@ -408,7 +408,7 @@ echo "expose_php = Off" >> ini/setting.ini
 
 추가 확장을 사용하도록 설정하려면 다음 단계를 따릅니다.
 
-응용 프로그램 `bin` 의 루트 디렉터리에 디렉터리를 추가 하 고 `.dll` 여기에 확장 파일을 저장 합니다 (예: *mongodb.dll*). 확장이 Azure의 PHP 버전과 호환되고 VC9 및 nts(non-thread-safe)와 호환되는지 확인하세요.
+앱의 루트 디렉터리에 `bin` 디렉터리를 추가하고 `.dll` 확장 파일(예: *mongodb.dll*)을 디렉터리에 넣습니다. 확장이 Azure의 PHP 버전과 호환되고 VC9 및 nts(non-thread-safe)와 호환되는지 확인하세요.
 
 변경 내용을 배포합니다.
 
@@ -452,7 +452,7 @@ zend_extension=/home/site/wwwroot/bin/xdebug.so
 
 ::: zone pivot="platform-windows"  
 
-표준 [error_log ()](https://php.net/manual/function.error-log.php) 유틸리티를 사용 하 여 진단 로그를 Azure App Service에 표시 합니다.
+표준 [error_log()](https://php.net/manual/function.error-log.php) 유틸리티를 사용하여 Azure App Service에서 진단 로그를 표시할 수 있습니다.
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
@@ -469,7 +469,7 @@ zend_extension=/home/site/wwwroot/bin/xdebug.so
 작동하는 PHP 앱이 App Servce에서 다르게 동작하거나 오류가 발생할 경우 다음의 방법을 시도해보세요.
 
 - [로그 스트림에 액세스](#access-diagnostic-logs)합니다.
-- 프로덕션 모드에서 로컬 상태로 앱을 테스트합니다. App Service는 프로덕션 모드에서 응용 프로그램을 실행 하므로 프로젝트가 프로덕션 모드에서 로컬에서 예상 대로 작동 하는지 확인 해야 합니다. 예를 들면 다음과 같습니다.
+- 프로덕션 모드에서 로컬 상태로 앱을 테스트합니다. App Service는 프로덕션 모드로 앱을 실행하므로 프로젝트가 프로덕션 모드로 로컬에서 예상대로 작동하는지 확인해야 합니다. 예를 들면 다음과 같습니다.
     - *composer.json* 에 따라, 프로덕션 모드에서 다른 패키지가 설치될 수 있습니다(`require` vs. `require-dev`).
     - 특정 웹 프레임워크는 프로덕션 모드에서 다른 고정 파일을 배포할 수 있습니다.
     - 특정 웹 프레임워크는 프로덕션 모드에서 실행될 때 사용자 지정 시작 스크립트를 사용합니다.

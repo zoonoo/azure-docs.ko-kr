@@ -4,14 +4,14 @@ description: Azure DevTest Labs에서 가상 머신을 다시 배포(Azure 노�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a38b112165b893d877733b967c21bb62b20ca2f6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90530321"
 ---
 # <a name="redeploy-a-vm-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs의 랩에서 VM 다시 배포
-원격 데스크톱 연결을 통해 랩에서 VM (가상 머신)에 연결할 수 없는 경우 VM을 다시 배포 하 고 다시 연결 해 보세요. VM을 다시 배포하면 DevTest Labs가 VM을 실행 중인 노드에서 Azure 인프라 내의 새 노드로 이동합니다. 그런 다음 모든 구성 옵션 및 관련 리소스는 그대로 유지하고 VM을 시작합니다. 이 기능을 사용하면 랩의 Windows 기반 VM에 대한 애플리케이션 액세스 또는 원격 데스크톱 연결 관련 문제를 해결하는 시간을 줄일 수 있습니다. 
+원격 데스크톱 연결을 통해 랩의 VM(가상 머신)에 연결할 수 없는 경우 VM을 다시 배포하고 연결을 다시 시도해 봅니다. VM을 다시 배포하면 DevTest Labs가 VM을 실행 중인 노드에서 Azure 인프라 내의 새 노드로 이동합니다. 그런 다음 모든 구성 옵션 및 관련 리소스는 그대로 유지하고 VM을 시작합니다. 이 기능을 사용하면 랩의 Windows 기반 VM에 대한 애플리케이션 액세스 또는 원격 데스크톱 연결 관련 문제를 해결하는 시간을 줄일 수 있습니다. 
 
 ## <a name="steps-to-redeploy-a-vm-in-a-lab"></a>랩에서 VM을 다시 배포하는 단계 
 Azure DevTest Labs의 랩에서 VM을 다시 배포하려면 다음 단계를 수행합니다. 
@@ -23,7 +23,7 @@ Azure DevTest Labs의 랩에서 VM을 다시 배포하려면 다음 단계를 �
 5. VM 목록에서 원하는 VM을 선택합니다.
 6. VM의 가상 머신 페이지에서 왼쪽 메뉴의 **작업** 아래에 있는 **다시 배포** 를 선택합니다.
 
-    ![화면 캡처는 재배포가 선택 된 가상 머신 페이지를 표시 합니다.](media/devtest-lab-redeploy-vm/redeploy.png)
+    ![다시 배포가 선택된 가상 머신 페이지 화면 캡처](media/devtest-lab-redeploy-vm/redeploy.png)
 7. 페이지의 정보를 확인하고 **다시 배포** 단추를 선택합니다. 9. **알림** 창에서 다시 배포 작업의 상태를 확인합니다.
 
     ![다시 배포 상태](media/devtest-lab-redeploy-vm/redeploy-status.png)

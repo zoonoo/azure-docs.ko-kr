@@ -11,13 +11,13 @@ author: peterclu
 ms.date: 01/09/2020
 ms.custom: designer
 ms.openlocfilehash: 86cb5260a59f864658fbb7ac1c1da2d943c6253e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "90893433"
 ---
-# <a name="use-a-keyboard-to-use-azure-machine-learning-designer"></a>키보드를 사용 하 여 Azure Machine Learning 디자이너 사용
+# <a name="use-a-keyboard-to-use-azure-machine-learning-designer"></a>키보드를 통해 Azure Machine Learning 디자이너 사용
 
 키보드 및 화면 읽기 프로그램을 통해 Azure Machine Learning 디자이너를 사용하는 방법을 알아봅니다. Azure Portal의 모든 위치에서 작동하는 바로 가기 키 목록은 [Azure Portal의 바로 가기 키](../azure-portal/azure-portal-keyboard-shortcuts.md)를 참조하세요.
 

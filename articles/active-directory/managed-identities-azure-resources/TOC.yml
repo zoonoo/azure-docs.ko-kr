@@ -94,8 +94,6 @@
           href: how-to-use-vm-sign-in.md
         - name: Azure SDK와 함께 사용
           href: how-to-use-vm-sdk.md
-        - name: VM 확장 사용을 중지하고 Azure IMDS 사용 시작
-          href: howto-migrate-vm-extension.md
     - name: 다른 Azure 리소스에 관리 ID 액세스 권한 할당
       items:
         - name: 포털
@@ -142,7 +140,9 @@
       href: 'https://golang.org/doc/'
 - name: 리소스
   items:
-    - name: FAQ 및 알려진 문제
+    - name: 질문과 대답
+      href: managed-identities-faq.md
+    - name: 알려진 문제
       href: known-issues.md
     - name: Azure 리소스에 대한 관리 ID를 지원하는 Azure 서비스
       href: services-support-managed-identities.md

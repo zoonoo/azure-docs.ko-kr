@@ -73,5 +73,7 @@
       href: /powershell/module/Az.ConnectedKubernetes/
 - name: 리소스
   items:
+    - name: 배포 계획
+      href: plan-at-scale-deployment.md
     - name: Azure Arc 빠른 시작
       href: 'https://azurearcjumpstart.io'

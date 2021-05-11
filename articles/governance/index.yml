@@ -10,220 +10,202 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 01/29/2021
-  ms.openlocfilehash: 9f9d2c694196b48aa4905a3783cb16609727b951
-  ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
-  ms.translationtype: HT
-  ms.contentlocale: ko-KR
-  ms.lasthandoff: 02/10/2021
-  ms.locfileid: "100099135"
+  ms.date: 03/16/2021
 highlightedContent:
   items:
-  - title: 거버넌스 개요
-    itemType: overview
-    url: ./azure-management.md
-  - title: 거버넌스 YouTube 채널
-    itemType: video
-    url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
-  - title: 클라우드 채택 프레임워크의 거버넌스
-    itemType: architecture
-    url: /azure/architecture/cloud-adoption/governance
-  - title: Azure에서 클라우드 거버넌스 전략 빌드
-    itemType: learn
-    url: /learn/modules/build-cloud-governance-strategy-azure/
+    - title: 거버넌스 개요
+      itemType: overview
+      url: ./azure-management.md
+    - title: 거버넌스 YouTube 채널
+      itemType: video
+      url: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
+    - title: 클라우드 채택 프레임워크의 거버넌스
+      itemType: architecture
+      url: /azure/architecture/cloud-adoption/governance
+    - title: Azure에서 클라우드 거버넌스 전략 빌드
+      itemType: learn
+      url: /learn/modules/build-cloud-governance-strategy-azure/
 productDirectory:
   title: 구성 요소 및 서비스
   items:
-  - title: Azure 관리 그룹
-    imageSrc: ./media/management-groups.svg
-    links:
-    - url: ./management-groups/overview.md
-      text: 개요
-    - url: ./management-groups/how-to/protect-resource-hierarchy.md
-      text: 리소스 계층 구조 보호
-    - url: ./management-groups/index.yml
-      text: 자세히 보기 >
-  - title: Azure Policy
-    imageSrc: ./media/azure-policy.svg
-    links:
-    - url: ./policy/overview.md
-      text: 개요
-    - url: ./policy/how-to/get-compliance-data.md
-      text: 규정 준수 평가
-    - url: ./policy/concepts/policy-for-kubernetes.md
-      text: Kubernetes 구성 관리
-    - url: ./policy/concepts/guest-configuration.md
-      text: VM 구성 관리
-    - url: ./policy/index.yml
-      text: 자세히 보기 >
-  - title: Azure Blueprints
-    imageSrc: ./media/azure-blueprints.svg
-    links:
-    - url: ./blueprints/overview.md
-      text: 개요
-    - url: ./blueprints/tutorials/protect-new-resources.md
-      text: 리소스 보호
-    - url: ./blueprints/index.yml
-      text: 자세히 보기 >
-  - title: Azure Resource Graph
-    imageSrc: ./media/azure-resource-graph.svg
-    links:
-    - url: ./resource-graph/overview.md
-      text: 개요
-    - url: ./resource-graph/concepts/explore-resources.md
-      text: Azure 리소스 검색
-    - url: ./resource-graph/how-to/get-resource-changes.md
-      text: 변경 내용 추적 작업
-    - url: ./resource-graph/index.yml
-      text: 자세히 보기 >
-  - title: Cost Management
-    imageSrc: ./media/cost-management.svg
-    links:
-    - url: ../cost-management-billing/cost-management-billing-overview.md
-      text: 개요
-    - url: ../cost-management-billing/costs/aws-integration-manage.md
-      text: AWS 비용 및 사용량 관리
-    - url: ../cost-management-billing/index.yml
-      text: 자세히 보기 >
+    - title: Azure 관리 그룹
+      imageSrc: ./media/management-groups.svg
+      links:
+        - url: ./management-groups/overview.md
+          text: 개요
+        - url: ./management-groups/how-to/protect-resource-hierarchy.md
+          text: 리소스 계층 구조 보호
+        - url: ./management-groups/index.yml
+          text: 자세히 보기 >
+    - title: Azure Policy
+      imageSrc: ./media/azure-policy.svg
+      links:
+        - url: ./policy/overview.md
+          text: 개요
+        - url: ./policy/how-to/get-compliance-data.md
+          text: 규정 준수 평가
+        - url: ./policy/concepts/policy-for-kubernetes.md
+          text: Kubernetes 구성 관리
+        - url: ./policy/concepts/guest-configuration.md
+          text: VM 구성 관리
+        - url: ./policy/index.yml
+          text: 자세히 보기 >
+    - title: Azure Blueprints
+      imageSrc: ./media/azure-blueprints.svg
+      links:
+        - url: ./blueprints/overview.md
+          text: 개요
+        - url: ./blueprints/tutorials/protect-new-resources.md
+          text: 리소스 보호
+        - url: ./blueprints/index.yml
+          text: 자세히 보기 >
+    - title: Azure Resource Graph
+      imageSrc: ./media/azure-resource-graph.svg
+      links:
+        - url: ./resource-graph/overview.md
+          text: 개요
+        - url: ./resource-graph/concepts/explore-resources.md
+          text: Azure 리소스 검색
+        - url: ./resource-graph/how-to/get-resource-changes.md
+          text: 변경 내용 추적 작업
+        - url: ./resource-graph/index.yml
+          text: 자세히 보기 >
+    - title: Cost Management
+      imageSrc: ./media/cost-management.svg
+      links:
+        - url: ../cost-management-billing/cost-management-billing-overview.md
+          text: 개요
+        - url: ../cost-management-billing/costs/aws-integration-manage.md
+          text: AWS 비용 및 사용량 관리
+        - url: ../cost-management-billing/index.yml
+          text: 자세히 보기 >
 tools:
   title: 샘플
-  summary: 정책 정의, 규정 준수 청사진, 리소스 쿼리 등
+  summary: '정책 정의, 규정 준수 청사진, 리소스 쿼리 등'
   items:
-  - title: Azure Policy
-    imageSrc: ./media/azure-policy.svg
-    url: ./policy/samples/index.md
-  - title: Azure Blueprints
-    imageSrc: ./media/azure-blueprints.svg
-    url: ./blueprints/samples/index.md
-  - title: Azure Resource Graph
-    imageSrc: ./media/azure-resource-graph.svg
-    url: ./resource-graph/samples/starter.md
-  - title: Cost Management
-    imageSrc: ./media/cost-management.svg
-    url: https://github.com/Azure-Samples/Cost-Management-Samples
+    - title: Azure Policy
+      imageSrc: ./media/azure-policy.svg
+      url: ./policy/samples/index.md
+    - title: Azure Blueprints
+      imageSrc: ./media/azure-blueprints.svg
+      url: ./blueprints/samples/index.md
+    - title: Azure Resource Graph
+      imageSrc: ./media/azure-resource-graph.svg
+      url: ./resource-graph/samples/starter.md
+    - title: Cost Management
+      imageSrc: ./media/cost-management.svg
+      url: 'https://github.com/Azure-Samples/Cost-Management-Samples'
 additionalContent:
   sections:
-  - title: 개발자 리소스
-    items:
-    - title: 관리 그룹
-      links:
-      - text: Azure CLI
-        url: /cli/azure/account/management-group
-      - text: Azure PowerShell
-        url: /powershell/module/az.resources/#resources
-      - text: Azure SDK for .NET
-        url: /dotnet/api/overview/azure/managementgroups
-      - text: Azure SDK for Go
-        url: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups
-      - text: JavaScript용 Azure SDK
-        url: /javascript/api/@azure/arm-managementgroups/managementgroups
-      - text: Python용 Azure SDK
-        url: /python/api/azure-mgmt-managementgroups/azure.mgmt.managementgroups
-      - text: REST (영문)
-        url: /rest/api/resources/managementgroups
-      - text: 리소스 관리자 템플릿
-        url: /azure/templates/microsoft.management/managementgroups
-    - title: Azure Policy
-      links:
-      - text: Azure CLI
-        url: /cli/azure/policy
-      - text: Azure PowerShell
-        url: /powershell/module/az.resources/#policy
-        note: (정책)
-      - text: Azure PowerShell
-        url: /powershell/module/az.policyinsights#policy-insights
-        note: (Policy Insights)
-      - text: Azure PowerShell
-        url: https://www.powershellgallery.com/packages/Az.GuestConfiguration
-        note: (게스트 구성)
-      - text: REST (영문)
-        url: /rest/api/policy-insights/
-        note: (Policy Insights)
-      - text: REST (영문)
-        url: /rest/api/resources/policyassignments
-        note: (할당)
-      - text: REST (영문)
-        url: /rest/api/resources/policydefinitions
-        note: (정의)
-      - text: REST (영문)
-        url: /rest/api/resources/policyexemptions
-        note: (예외)
-      - text: REST (영문)
-        url: /rest/api/resources/policysetdefinitions
-        note: (이니셔티브)
-      - text: REST (영문)
-        url: /rest/api/guestconfiguration/
-        note: (게스트 구성)
-      - text: 리소스 관리자 템플릿
-        url: /azure/templates/microsoft.authorization/allversions
-    - title: Azure Policy(추가)
-      links:
-      - text: Azure SDK for .NET
-        url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
-        note: (할당)
-      - text: Azure SDK for .NET
-        url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
-        note: (정책 정의)
-      - text: JavaScript용 Azure SDK
-        url: /javascript/api/@azure/arm-policy
-        note: (정책)
-      - text: JavaScript용 Azure SDK
-        url: /javascript/api/@azure/arm-policyinsights
-        note: (Policy Insights)
-      - text: Python용 Azure SDK
-        url: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
-    - title: Azure Blueprints
-      links:
-      - text: 청사진 함수
-        url: ./blueprints/reference/blueprint-functions.md
-      - text: Azure CLI
-        url: /cli/azure/ext/blueprint/blueprint
-      - text: Azure PowerShell
-        url: /powershell/module/az.blueprint/#blueprint
-      - text: Azure PowerShell
-        url: https://www.powershellgallery.com/packages/Az.Blueprint
-        note: (PS 갤러리 모듈)
-      - text: Azure SDK for .NET
-        url: /dotnet/api/overview/azure/blueprints/management
-      - text: REST (영문)
-        url: /rest/api/blueprints/
-    - title: Azure Resource Graph
-      links:
-      - text: Azure CLI
-        url: /cli/azure/ext/resource-graph/graph
-      - text: Azure PowerShell
-        url: /powershell/module/az.resourcegraph/#resourcegraph
-      - text: Azure SDK for .NET
-        url: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
-      - text: Azure SDK for .NET
-        url: https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/
-        note: (NuGet)
-      - text: Azure SDK for Go
-        url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph
-      - text: Java용 Azure SDK
-        url: /java/api/overview/azure/resourcegraph/management
-      - text: Java용 Azure SDK
-        url: https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar
-        note: (Maven)
-      - text: JavaScript용 Azure SDK
-        url: /javascript/api/@azure/arm-resourcegraph
-      - text: Python용 Azure SDK
-        url: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph
-      - text: Ruby용 Azure SDK
-        url: https://rubygems.org/gems/azure_mgmt_resourcegraph
-        note: (Gem)
-      - text: REST (영문)
-        url: /rest/api/azure-resourcegraph/
-      - text: 리소스 관리자 템플릿
-        url: /azure/templates/microsoft.resourcegraph/allversions
-    - title: Cost Management
-      links:
-      - text: REST (영문)
-        url: /rest/api/cost-management
-        note: (Cost Management)
-      - text: REST (영문)
-        url: /rest/api/consumption
-        note: (Consumption)
-      - text: 리소스 관리자 템플릿
-        url: /azure/templates/microsoft.consumption/budgets
-  footer: '[UserVoice](https://feedback.azure.com/forums/915958-azure-governance) | [Microsoft 기술 커뮤니티 - Azure 거버넌스](https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance) | [Azure 지원](https://azure.microsoft.com/support/create-ticket/)'
+    - title: 개발자 리소스
+      items:
+        - title: 관리 그룹
+          links:
+            - text: Azure CLI
+              url: /cli/azure/account/management-group
+            - text: Azure PowerShell
+              url: /powershell/module/az.resources/#resources
+            - text: Azure SDK for .NET
+              url: /dotnet/api/overview/azure/managementgroups
+            - text: Azure SDK for Go
+              url: 'https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups'
+            - text: JavaScript용 Azure SDK
+              url: /javascript/api/@azure/arm-managementgroups/managementgroups
+            - text: Python용 Azure SDK
+              url: /python/api/azure-mgmt-managementgroups/azure.mgmt.managementgroups
+            - text: REST (영문)
+              url: /rest/api/managementgroups
+            - text: 리소스 관리자 템플릿
+              url: /azure/templates/microsoft.management/managementgroups
+        - title: Azure Policy
+          links:
+            - text: Azure CLI
+              url: /cli/azure/policy
+            - text: Azure PowerShell
+              url: /powershell/module/az.resources/#policy
+              note: (Policy)
+            - text: Azure PowerShell
+              url: /powershell/module/az.policyinsights#policy-insights
+              note: (Policy Insights)
+            - text: Azure PowerShell
+              url: 'https://www.powershellgallery.com/packages/Az.GuestConfiguration'
+              note: (Guest Configuration)
+            - text: REST (영문)
+              url: /rest/api/policy/
+              note: (Policy)
+            - text: REST (영문)
+              url: /rest/api/guestconfiguration/
+              note: (Guest Configuration)
+            - text: 리소스 관리자 템플릿
+              url: /azure/templates/microsoft.authorization/allversions
+        - title: Azure Policy(추가)
+          links:
+            - text: Azure SDK for .NET
+              url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
+              note: (Assignments)
+            - text: Azure SDK for .NET
+              url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
+              note: (Policy Definitions)
+            - text: JavaScript용 Azure SDK
+              url: /javascript/api/@azure/arm-policy
+              note: (Policy)
+            - text: JavaScript용 Azure SDK
+              url: /javascript/api/@azure/arm-policyinsights
+              note: (Policy Insights)
+            - text: Python용 Azure SDK
+              url: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
+        - title: Azure Blueprints
+          links:
+            - text: 청사진 함수
+              url: ./blueprints/reference/blueprint-functions.md
+            - text: Azure CLI
+              url: /cli/azure/blueprint
+            - text: Azure PowerShell
+              url: /powershell/module/az.blueprint/#blueprint
+            - text: Azure PowerShell
+              url: 'https://www.powershellgallery.com/packages/Az.Blueprint'
+              note: (PS Gallery Module)
+            - text: Azure SDK for .NET
+              url: /dotnet/api/overview/azure/blueprints/management
+            - text: REST (영문)
+              url: /rest/api/blueprints/
+        - title: Azure Resource Graph
+          links:
+            - text: Azure CLI
+              url: /cli/azure/graph
+            - text: Azure PowerShell
+              url: /powershell/module/az.resourcegraph/#resourcegraph
+            - text: Azure SDK for .NET
+              url: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
+            - text: Azure SDK for .NET
+              url: 'https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/'
+              note: (NuGet)
+            - text: Azure SDK for Go
+              url: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph'
+            - text: Java용 Azure SDK
+              url: /java/api/overview/azure/resourcegraph/management
+            - text: Java용 Azure SDK
+              url: 'https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar'
+              note: (Maven)
+            - text: JavaScript용 Azure SDK
+              url: /javascript/api/@azure/arm-resourcegraph
+            - text: Python용 Azure SDK
+              url: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph
+            - text: Ruby용 Azure SDK
+              url: 'https://rubygems.org/gems/azure_mgmt_resourcegraph'
+              note: (Gem)
+            - text: REST (영문)
+              url: /rest/api/azure-resourcegraph/
+            - text: 리소스 관리자 템플릿
+              url: /azure/templates/microsoft.resourcegraph/allversions
+        - title: Cost Management
+          links:
+            - text: REST (영문)
+              url: /rest/api/cost-management
+              note: (Cost Management)
+            - text: REST (영문)
+              url: /rest/api/consumption
+              note: (Consumption)
+            - text: 리소스 관리자 템플릿
+              url: /azure/templates/microsoft.consumption/budgets
+  footer: '[UserVoice](https://feedback.azure.com/forums/915958-azure-governance) | [Microsoft Tech Community - Azure Governance](https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance) | [Azure Support](https://azure.microsoft.com/support/create-ticket/)'
