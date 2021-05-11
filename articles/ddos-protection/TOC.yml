@@ -35,8 +35,10 @@
       href: ddos-response-strategy.md
     - name: 참조 아키텍처
       href: ddos-protection-reference-architectures.md
+    - name: 비즈니스 연속성
+      href: ddos-disaster-recovery-guidance.md
     - name: 보안 기준
-      href: ../security/fundamentals/ddos-protection-security-baseline.md?toc=%2fazure%2fddos-protection%2ftoc.json
+      href: /security/benchmark/azure/baselines/ddos-protection-security-baseline?toc=%2fazure%2fddos-protection%2ftoc.json?toc=/azure/ddos-protection/TOC.json
 - name: 방법 가이드
   items:
     - name: 시뮬레이션을 통해 테스트
@@ -49,6 +51,8 @@
       href: ddos-protection-partner-onboarding.md
 - name: 참조
   items:
+    - name: Azure Policy 기본 제공 기능
+      href: policy-reference.md
     - name: Azure CLI
       href: /cli/azure/network/ddos-protection
     - name: Azure PowerShell
@@ -61,7 +65,7 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/virtualnetwork/ddosprotectionplans
     - name: Azure Resource Manager
       href: ../azure-resource-manager/management/overview.md

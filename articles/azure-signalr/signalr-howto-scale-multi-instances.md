@@ -1,6 +1,6 @@
 ---
-title: 여러 인스턴스를 사용 하 여 크기 조정-Azure SignalR Service
-description: 많은 크기 조정 시나리오에서 고객은 여러 인스턴스를 프로 비전 하 고이를 함께 사용 하 여 대규모 배포를 만들도록 구성 해야 하는 경우가 많습니다. 예를 들어 분할에는 여러 인스턴스가 지원 되어야 합니다.
+title: 여러 인스턴스를 사용하여 스케일링 - Azure SignalR Service
+description: 많은 스케일링 시나리오에서 고객은 대규모 배포를 만들기 위해 여러 인스턴스를 프로비저닝하고 함께 사용되도록 구성해야 하는 경우가 많습니다. 예를 들어 분할을 수행하려면 여러 인스턴스가 지원되어야 합니다.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
@@ -8,24 +8,24 @@ ms.custom: devx-track-csharp
 ms.date: 03/27/2019
 ms.author: zhshang
 ms.openlocfilehash: fd6ac8c4d4fc4c3fec4f549f8ef4f955e2b1c637
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89439217"
 ---
-# <a name="how-to-scale-signalr-service-with-multiple-instances"></a>여러 인스턴스를 사용 하 여 SignalR 서비스를 확장 하는 방법
-최신 SignalR 서비스 SDK는 SignalR 서비스 인스턴스에 대 한 여러 끝점을 지원 합니다. 이 기능을 사용 하 여 동시 연결의 크기를 조정 하거나 지역 간 메시징에 사용할 수 있습니다.
+# <a name="how-to-scale-signalr-service-with-multiple-instances"></a>여러 인스턴스를 사용하여 SignalR Service를 스케일링하는 방법
+최신 SignalR Service SDK는 SignalR Service 인스턴스에 대해 여러 엔드포인트를 지원합니다. 이 기능을 동시 연결 스케일링이나 지역 간 메시징에 사용할 수 있습니다.
 
-## <a name="for-aspnet-core"></a>ASP.NET Core
+## <a name="for-aspnet-core"></a>ASP.NET Core의 경우
 
-### <a name="how-to-add-multiple-endpoints-from-config"></a>구성에서 여러 끝점을 추가 하는 방법
+### <a name="how-to-add-multiple-endpoints-from-config"></a>구성에서 여러 엔드포인트를 추가하는 방법
 
-Key `Azure:SignalR:ConnectionString` 또는 `Azure:SignalR:ConnectionString:` SignalR 서비스 연결 문자열의 구성입니다.
+SignalR Service 연결 문자열에 `Azure:SignalR:ConnectionString` 또는 `Azure:SignalR:ConnectionString:` 키를 사용하여 구성합니다.
 
-키가로 시작 하는 경우 `Azure:SignalR:ConnectionString:` 형식 이어야 합니다 `Azure:SignalR:ConnectionString:{Name}:{EndpointType}` `Name` . 여기서 및 `EndpointType` 는 개체의 속성 `ServiceEndpoint` 이며 코드에서 액세스할 수 있습니다.
+`Azure:SignalR:ConnectionString:`으로 시작하는 키는 `Azure:SignalR:ConnectionString:{Name}:{EndpointType}` 형식이어야 합니다. 여기서 `Name` 및 `EndpointType`은 `ServiceEndpoint` 개체의 속성이며 코드에서 액세스할 수 있습니다.
 
-다음 명령을 사용 하 여 여러 인스턴스 연결 문자열을 추가할 수 있습니다 `dotnet` .
+다음 `dotnet` 명령을 사용하여 여러 인스턴스 연결 문자열을 추가할 수 있습니다.
 
 ```cmd
 dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-a <ConnectionString1>
@@ -33,10 +33,10 @@ dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-b:primary <Co
 dotnet user-secrets set Azure:SignalR:ConnectionString:backup:secondary <ConnectionString3>
 ```
 
-### <a name="how-to-add-multiple-endpoints-from-code"></a>코드에서 여러 끝점을 추가 하는 방법
+### <a name="how-to-add-multiple-endpoints-from-code"></a>코드에서 여러 엔드포인트를 추가하는 방법
 
-`ServicEndpoint`Azure SignalR Service 끝점의 속성을 설명 하는 클래스가 도입 되었습니다.
-다음을 통해 Azure SignalR Service SDK를 사용 하는 경우 여러 인스턴스 끝점을 구성할 수 있습니다.
+`ServicEndpoint` 클래스는 Azure SignalR Service 엔드포인트의 속성을 설명하기 위해 도입되었습니다.
+다음을 통해 Azure SignalR Service SDK를 사용하는 경우 여러 인스턴스 엔드포인트를 구성할 수 있습니다.
 ```cs
 services.AddSignalR()
         .AddAzureSignalR(options => 
@@ -54,23 +54,23 @@ services.AddSignalR()
         });
 ```
 
-### <a name="how-to-customize-endpoint-router"></a>끝점 라우터를 사용자 지정 하는 방법
+### <a name="how-to-customize-endpoint-router"></a>엔드포인트 라우터를 사용자 지정하는 방법
 
-기본적으로 SDK는 [Defaultendpointrouter](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR/EndpointRouters/DefaultEndpointRouter.cs) 를 사용 하 여 끝점을 선택 합니다.
+기본적으로 SDK는 [DefaultEndpointRouter](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR/EndpointRouters/DefaultEndpointRouter.cs)를 사용하여 엔드포인트를 선택합니다.
 
 #### <a name="default-behavior"></a>기본 동작 
 1. 클라이언트 요청 라우팅
 
-    `/negotiate`응용 프로그램 서버를 사용 하는 클라이언트입니다. 기본적으로 SDK는 사용 가능한 서비스 끝점 집합에서 끝점 하나를 **임의로 선택** 합니다.
+    클라이언트가 앱 서버와 `/negotiate`를 수행하는 경우입니다. 기본적으로 SDK는 사용 가능한 서비스 엔드포인트 집합에서 엔드포인트 하나를 **임의로 선택** 합니다.
 
 2. 서버 메시지 라우팅
 
-    * * * 연결을 특정 * * * 연결로 보내고 대상 연결이 현재 서버로 라우트되는 경우 메시지가 해당 연결 된 끝점으로 직접 이동 합니다. 그렇지 않으면 모든 Azure SignalR 끝점에 메시지가 브로드캐스트 됩니다.
+    ‘메시지를 특정 **연결**로 전송’하고 대상 연결이 현재 서버로 라우팅되는 경우 메시지가 연결된 엔드포인트로 직접 이동합니다. 그렇지 않으면 메시지가 모든 Azure SignalR 엔드포인트에 브로드캐스트됩니다.
 
 #### <a name="customize-routing-algorithm"></a>라우팅 알고리즘 사용자 지정
-메시지가 이동 해야 하는 끝점을 식별 하는 데 특별 한 지식이 있는 경우 고유한 라우터를 만들 수 있습니다.
+메시지가 이동해야 하는 엔드포인트를 식별하는 특별한 지식이 있는 경우 사용자 고유의 라우터를 만들 수 있습니다.
 
-로 시작 하는 그룹이 `east-` 항상 이라는 끝점으로 이동 하는 경우 사용자 지정 라우터는 아래와 같이 정의 됩니다 `east` .
+예를 들어 `east-`로 시작하는 그룹이 항상 `east`라는 엔드포인트로 이동하는 경우 사용자 지정 라우터는 아래와 같이 정의됩니다.
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
@@ -88,7 +88,7 @@ private class CustomRouter : EndpointRouterDecorator
 }
 ```
 
-기본 negotiate 동작을 재정의 하는 아래의 또 다른 예는 응용 프로그램 서버가 있는 위치에 따라 끝점을 선택 하는 것입니다.
+엔드포인트를 선택하기 위해 기본 negotiate 동작을 재정의하는 아래의 또 다른 예제는 앱 서버가 있는 위치에 따라 달라집니다.
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
@@ -111,7 +111,7 @@ private class CustomRouter : EndpointRouterDecorator
 }
 ```
 
-다음을 사용 하 여 DI 컨테이너에 라우터를 등록 해야 합니다.
+다음을 사용하여 DI 컨테이너에 라우터를 등록해야 합니다.
 
 ```cs
 services.AddSingleton(typeof(IEndpointRouter), typeof(CustomRouter));
@@ -130,13 +130,13 @@ services.AddSignalR()
 
 ## <a name="for-aspnet"></a>ASP.NET의 경우
 
-### <a name="how-to-add-multiple-endpoints-from-config"></a>구성에서 여러 끝점을 추가 하는 방법
+### <a name="how-to-add-multiple-endpoints-from-config"></a>구성에서 여러 엔드포인트를 추가하는 방법
 
-Key `Azure:SignalR:ConnectionString` 또는 `Azure:SignalR:ConnectionString:` SignalR 서비스 연결 문자열의 구성입니다.
+SignalR Service 연결 문자열에 `Azure:SignalR:ConnectionString` 또는 `Azure:SignalR:ConnectionString:` 키를 사용하여 구성합니다.
 
-키가로 시작 하는 경우 `Azure:SignalR:ConnectionString:` 형식 이어야 합니다 `Azure:SignalR:ConnectionString:{Name}:{EndpointType}` `Name` . 여기서 및 `EndpointType` 는 개체의 속성 `ServiceEndpoint` 이며 코드에서 액세스할 수 있습니다.
+`Azure:SignalR:ConnectionString:`으로 시작하는 키는 `Azure:SignalR:ConnectionString:{Name}:{EndpointType}` 형식이어야 합니다. 여기서 `Name` 및 `EndpointType`은 `ServiceEndpoint` 개체의 속성이며 코드에서 액세스할 수 있습니다.
 
-여러 인스턴스 연결 문자열을 다음과 같이 추가할 수 있습니다 `web.config` .
+`web.config`에 여러 인스턴스 연결 문자열을 추가할 수 있습니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -151,10 +151,10 @@ Key `Azure:SignalR:ConnectionString` 또는 `Azure:SignalR:ConnectionString:` Si
 </configuration>
 ```
 
-### <a name="how-to-add-multiple-endpoints-from-code"></a>코드에서 여러 끝점을 추가 하는 방법
+### <a name="how-to-add-multiple-endpoints-from-code"></a>코드에서 여러 엔드포인트를 추가하는 방법
 
-`ServicEndpoint`Azure SignalR Service 끝점의 속성을 설명 하는 클래스가 도입 되었습니다.
-다음을 통해 Azure SignalR Service SDK를 사용 하는 경우 여러 인스턴스 끝점을 구성할 수 있습니다.
+`ServicEndpoint` 클래스는 Azure SignalR Service 엔드포인트의 속성을 설명하기 위해 도입되었습니다.
+다음을 통해 Azure SignalR Service SDK를 사용하는 경우 여러 인스턴스 엔드포인트를 구성할 수 있습니다.
 
 ```cs
 app.MapAzureSignalR(
@@ -172,11 +172,11 @@ app.MapAzureSignalR(
         });
 ```
 
-### <a name="how-to-customize-router"></a>라우터를 사용자 지정 하는 방법
+### <a name="how-to-customize-router"></a>라우터를 사용자 지정하는 방법
 
-ASP.NET SignalR와 ASP.NET Core SignalR의 유일한 차이점은에 대 한 http 컨텍스트 형식입니다 `GetNegotiateEndpoint` . ASP.NET SignalR의 경우 [Iowincontext](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.AspNet/EndpointRouters/DefaultEndpointRouter.cs#L19) 형식입니다.
+ASP.NET SignalR과 ASP.NET Core SignalR의 유일한 차이점은 `GetNegotiateEndpoint`의 http 컨텍스트 형식입니다. ASP.NET SignalR의 경우 [IOwinContext](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.AspNet/EndpointRouters/DefaultEndpointRouter.cs#L19) 형식입니다.
 
-ASP.NET SignalR에 대 한 사용자 지정 협상 예제는 다음과 같습니다.
+ASP.NET SignalR의 사용자 지정 협상 예제는 다음과 같습니다.
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
@@ -198,7 +198,7 @@ private class CustomRouter : EndpointRouterDecorator
 }
 ```
 
-다음을 사용 하 여 DI 컨테이너에 라우터를 등록 해야 합니다.
+다음을 사용하여 DI 컨테이너에 라우터를 등록해야 합니다.
 
 ```cs
 var hub = new HubConfiguration();
@@ -216,31 +216,31 @@ app.MapAzureSignalR(GetType().FullName, hub, options => {
 
 ## <a name="configuration-in-cross-region-scenarios"></a>지역 간 시나리오의 구성
 
-`ServiceEndpoint`개체에 값이 `EndpointType` 또는 인 속성이 `primary` 있습니다 `secondary` .
+`ServiceEndpoint` 개체에는 값이 `primary` 또는 `secondary`인 `EndpointType` 속성이 있습니다.
 
-`primary` 끝점은 클라이언트 트래픽을 수신 하기 위한 기본 끝점으로, 보다 안정적인 네트워크 연결을 포함 하는 것으로 간주 됩니다. `secondary` 끝점은 신뢰할 수 없는 네트워크 연결을 사용 하는 것으로 간주 되며, 클라이언트에서 서버로의 트래픽을 수행 하는 것이 아니라 메시지 브로드캐스팅을 사용 하는 등의 방법으로 서버 간 트래픽을 사용 하는 데만 사용 됩니다
+`primary` 엔드포인트는 클라이언트 트래픽을 수신하기 위한 기본 엔드포인트로, 보다 안정적인 네트워크 연결을 사용하는 것으로 간주됩니다. `secondary` 엔드포인트는 덜 안정적인 네트워크 연결을 사용하는 것으로 간주되며 클라이언트에서 서버로 이동하는 트래픽이 아니라 서버에서 클라이언트로 이동하는 트래픽 처리(예: 메시지 브로드캐스팅)에만 사용됩니다
 
-지역 간 경우 네트워크가 불안정 해질 수 있습니다. *미국 동부* 에 있는 하나의 앱 서버에 대해 동일한 *미국 동부* 지역에 있는 SignalR 서비스 끝점은로 `primary` 표시 된 다른 지역의 끝점으로 구성할 수 있습니다 `secondary` . 이 구성에서 다른 지역의 서비스 끝점은 *미국 동부* 앱 서버 로부터 메시지를 **받을** 수 있지만이 앱 서버로 라우팅되는 **지역 간** 클라이언트는 없습니다. 아키텍처는 아래 다이어그램에 나와 있습니다.
+지역 간 시나리오의 경우 네트워크가 불안정할 수 있습니다. ‘미국 동부’에 있는 앱 서버의 경우 동일한 ‘미국 동부’ 지역에 있는 SignalR Service 엔드포인트를 `primary`로 구성하고 다른 지역의 엔드포인트를 `secondary`로 표시할 수 있습니다.  이 구성에서 다른 지역의 서비스 엔드포인트는 ‘미국 동부’ 앱 서버로부터 메시지를 **수신** 할 수 있지만 해당 앱 서버로 라우팅되는 **지역 간** 클라이언트는 없습니다. 아래 다이어그램에는 아키텍처가 나와 있습니다.
 
 ![지역 간 인프라](./media/signalr-howto-scale-multi-instances/cross_geo_infra.png)
 
-클라이언트가 앱 서버를 사용 하 여 기본 라우터를 사용 하는 경우 `/negotiate` SDK는 사용 가능한 끝점 집합에서 끝점 하나를 **임의로 선택** `primary` 합니다. 기본 끝점을 사용할 수 없는 경우 SDK는 사용 가능한 모든 끝점에서 **임의로 선택** `secondary` 합니다. 서버와 서비스 끝점 간의 연결이 활성 상태 이면 끝점은 **사용 가능한** 것으로 표시 됩니다.
+클라이언트가 기본 라우터를 사용하여 앱 서버와의 `/negotiate`를 시도하는 경우 SDK는 사용 가능한 `primary` 엔드포인트 집합에서 엔드포인트 하나를 **임의로 선택** 합니다. 기본 엔드포인트를 사용할 수 없는 경우 SDK는 사용 가능한 모든 `secondary` 엔드포인트에서 **임의로 선택** 합니다. 서버와 서비스 엔드포인트 간의 연결이 활성 상태이면 엔드포인트가 **사용 가능** 으로 표시됩니다.
 
-지역 간 시나리오에서 클라이언트는 `/negotiate` *미국 동부* 에 호스트 된 앱 서버를 사용 하 여 시도 하는 경우 기본적으로 항상 `primary` 동일한 지역에 있는 끝점을 반환 합니다. *미국 동부* 끝점을 모두 사용할 수 없는 경우 클라이언트는 다른 지역의 끝점으로 리디렉션됩니다. 아래 장애 조치 (failover) 섹션에서는 시나리오에 대해 자세히 설명 합니다.
+지역 간 시나리오에서 클라이언트가 ‘미국 동부’에서 호스트된 앱 서버와 `/negotiate`를 시도하는 경우 기본적으로 항상 동일한 지역에 있는 `primary` 엔드포인트가 반환됩니다. ‘미국 동부’ 엔드포인트를 모두 사용할 수 없는 경우 클라이언트가 다른 지역의 엔드포인트로 리디렉션됩니다. 아래 장애 조치(failover) 섹션에서 시나리오를 자세히 설명합니다.
 
-![일반 Negotiate](./media/signalr-howto-scale-multi-instances/normal_negotiate.png)
+![정상적인 협상](./media/signalr-howto-scale-multi-instances/normal_negotiate.png)
 
-## <a name="fail-over"></a>장애 조치 (failover)
+## <a name="fail-over"></a>장애 조치(failover)
 
-모든 `primary` 끝점을 사용할 수 없는 경우 클라이언트는 `/negotiate` 사용 가능한 끝점에서 선택 `secondary` 합니다. 이 장애 조치 (failover) 메커니즘을 사용 하려면 각 끝점이 `primary` 하나 이상의 앱 서버에 대 한 끝점으로 사용 되어야 합니다.
+`primary` 엔드포인트를 모두 사용할 수 없는 경우 클라이언트의 `/negotiate`가 사용 가능한 `secondary` 엔드포인트에서 선택합니다. 이 장애 조치(failover) 메커니즘을 사용하려면 각 엔드포인트가 하나 이상의 앱 서버에 대한 `primary` 엔드포인트 역할을 해야 합니다.
 
-![장애 조치 (failover)](./media/signalr-howto-scale-multi-instances/failover_negotiate.png)
+![장애 조치(failover)](./media/signalr-howto-scale-multi-instances/failover_negotiate.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-이 가이드에서는 크기 조정, 분할 및 지역 간 시나리오에 대해 동일한 응용 프로그램에서 여러 인스턴스를 구성 하는 방법에 대해 알아보았습니다.
+이 가이드에서는 동일한 애플리케이션에서 스케일링, 분할, 지역 간 시나리오를 위한 여러 인스턴스를 구성하는 방법을 배웠습니다.
 
-다중 끝점은 고가용성 및 재해 복구 시나리오에도 사용할 수 있습니다.
+고가용성 및 재해 복구 시나리오에서도 여러 엔드포인트 지원을 사용할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [재해 복구 및 고가용성을 위한 SignalR 서비스 설정](./signalr-concept-disaster-recovery.md)
+> [재해 복구 및 고가용성을 위한 SignalR Service 설정](./signalr-concept-disaster-recovery.md)

@@ -31,15 +31,15 @@
 - name: 참조
   items:
     - name: Unity용 런타임 SDK
-      href: 'https://docs.microsoft.com/dotnet/api/Microsoft.Azure.ObjectAnchors/'
+      href: /dotnet/api/Microsoft.Azure.ObjectAnchors/
     - name: HoloLens C++/WinRT용 런타임 SDK
-      href: 'https://docs.microsoft.com/cpp/api/object-anchors/winrt/'
+      href: /cpp/api/object-anchors/winrt/
 - name: 리소스
   items:
     - name: 릴리스 정보
       href: 'https://github.com/Azure/azure-object-anchors/releases'
     - name: Azure Mixed Reality 리소스 관리 REST API
-      href: 'https://docs.microsoft.com/rest/api/mixedreality/'
+      href: /rest/api/mixedreality/
     - name: FAQ
       href: faq.md
     - name: Stack Overflow

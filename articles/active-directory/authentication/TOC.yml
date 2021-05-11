@@ -57,7 +57,7 @@
         - name: Office 365용 MFA
           href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication
         - name: FAQ
-          href: multi-factor-authentication-faq.md
+          href: multi-factor-authentication-faq.yml
     - name: 암호 보호
       items:
         - name: 클라우드에서 취약한 암호 제거
@@ -151,7 +151,7 @@
         - name: 문제 해결
           href: howto-password-ban-bad-on-premises-troubleshoot.md
         - name: FAQ
-          href: howto-password-ban-bad-on-premises-faq.md
+          href: howto-password-ban-bad-on-premises-faq.yml
         - name: 에이전트 버전 기록
           href: howto-password-ban-bad-on-premises-agent-versions.md
     - name: 임시 액세스 패스(미리 보기) 사용
@@ -232,9 +232,9 @@
         - name: SSPR 쓰기 저장
           href: troubleshoot-sspr-writeback.md
         - name: SSPR FAQ
-          href: active-directory-passwords-faq.md
+          href: active-directory-passwords-faq.yml
         - name: MFA FAQ
-          href: multi-factor-authentication-faq.md
+          href: multi-factor-authentication-faq.yml
         - name: NPS 확장
           href: howto-mfa-nps-extension-errors.md
 - name: 참조

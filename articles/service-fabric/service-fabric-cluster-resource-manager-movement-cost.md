@@ -1,16 +1,16 @@
 ---
 title: 'Service Fabric 클러스터 리소스 관리자: 이동 비용'
-description: Service Fabric 서비스의 이동 비용 및 동적 구성을 비롯 하 여 아키텍처 요구에 맞게 지정 하는 방법에 대해 알아봅니다.
+description: Service Fabric 서비스의 이동 비용과 동적 구성을 비롯한 아키텍처 요구 사항에 맞게 이동 비용을 지정하는 방법을 알아봅니다.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 0fdcfb02851d56ed996ae4bf32671ab545782733
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89005346"
 ---
 # <a name="service-movement-cost"></a>서비스 이동 비용
@@ -68,12 +68,12 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
 ## <a name="impact-of-move-cost"></a>이동 비용의 영향
-MoveCost에는 5 개의 수준 (0, 낮음, 중간, 높음 및 VeryHigh)이 있습니다. 다음 규칙이 적용됩니다.
+MoveCost에는 0, Low, Medium, High, VeryHigh의 5개 수준이 있습니다. 다음 규칙이 적용됩니다.
 
-* Movecost는 0과 VeryHigh를 제외 하 고 서로 상대적입니다. 
+* MoveCost는 0과 VeryHigh를 제외하고 서로 상대적입니다. 
 * 이동 비용 0은 이동 비용이 무료임을 의미하며 솔루션 점수 계산에 포함되지 않습니다.
-* 이동 비용을 High 또는 VeryHigh로 설정 해도 *복제본이 이동* 되지 않는다는 보장은 제공 *되지* 않습니다.
-* VeryHigh 이동 비용이 있는 복제본은 다른 방법으로는 해결할 수 없는 제약 조건 위반이 발생 하는 경우에만 이동 됩니다 (위반을 해결 하기 위해 다른 많은 복제본을 이동 해야 하는 경우에도).
+* 이동 비용을 High 또는 VeryHigh로 설정해도 복제본이 이동되지 ‘않을’ 것이라는 보장은 ‘없습니다’. 
+* 이동 비용이 VeryHigh인 복제본은 위반을 해결하기 위해 다른 많은 복제본을 이동해야 하더라도 클러스터에 다른 방법으로는 해결할 수 없는 제약 조건 위반이 있는 경우에만 이동됩니다.
 
 
 
@@ -89,7 +89,7 @@ MoveCost를 사용하면 전체적으로 중단을 최소화며 가장 쉽게 �
 - 처리 중인 작업을 중단하는 비용 데이터 저장소 수준의 일부 작업 또는 클라이언트 호출에 대한 응답으로 수행되는 작업의 경우 비용이 많이 소요됩니다. 이러한 작업은 특정 시점이 지나면 필요한 경우를 제외하고는 중지되지 않아야 합니다. 따라서 작업을 진행하는 동안에는 이 서비스 개체의 이동 비용을 늘려서 하는 이동 가능성을 줄입니다. 작업이 완료되면 비용을 다시 정상 수준으로 설정합니다.
 
 > [!IMPORTANT]
-> VeryHigh 이동 비용을 사용 하는 것은 클러스터에서 전역적으로 최적 배치 솔루션을 찾기 위해 클러스터 리소스 관리자의 기능을 크게 제한 하므로 신중 하 게 고려해 야 합니다. VeryHigh 이동 비용이 있는 복제본은 다른 방법으로는 해결할 수 없는 제약 조건 위반이 발생 하는 경우에만 이동 됩니다 (위반을 해결 하기 위해 다른 많은 복제본을 이동 해야 하는 경우에도).
+> VeryHigh 이동 비용을 사용할 때는 주의해야 합니다. 클러스터 전체의 최적 배치 솔루션을 찾는 클러스터 리소스 관리자의 능력이 크게 제한되기 때문입니다. 이동 비용이 VeryHigh인 복제본은 위반을 해결하기 위해 다른 많은 복제본을 이동해야 하더라도 클러스터에 다른 방법으로는 해결할 수 없는 제약 조건 위반이 있는 경우에만 이동됩니다.
 
 ## <a name="enabling-move-cost-in-your-cluster"></a>클러스터에서 이동 비용 사용
 보다 세부적인 MoveCost를 고려하려면 클러스터에서 MoveCost를 사용하도록 설정해야 합니다. 이 설정이 없으면 이동 횟수를 계산하는 기본 모드를 사용하여 MoveCost가 계산되고 MoveCost 보고서는 무시됩니다.

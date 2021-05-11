@@ -149,10 +149,17 @@
               href: alert-service-principal.md
             - name: 보안 LDAP 경고
               href: alert-ldaps.md
+- name: 참조
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/az.addomainservices/
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 리소스
   items:
     - name: FAQ
-      href: faqs.md
+      href: faqs.yml
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=active-directory-ds'
     - name: 가격 책정

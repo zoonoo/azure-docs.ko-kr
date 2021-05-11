@@ -1,7 +1,7 @@
 ---
 title: IPv6을 사용하여 인터넷 연결 부하 분산 장치 배포 - Azure 템플릿
 titleSuffix: Azure Load Balancer
-description: Azure 템플릿을 사용 하 여 Azure Load Balancer 및 부하가 분산 된 Vm에 대 한 IPv6 지원을 배포 하는 방법에 대해 알아봅니다.
+description: Azure 템플릿을 사용하여 Azure Load Balancer 및 부하가 분산된 VM에 대한 IPv6 지원을 배포하는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: 415c95a441ac0cc6ed2dbf2d6a37f57d7a9e7341
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90562522"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>템플릿을 사용하여 IPv6로 인터넷 연결 부하 분산 장치 솔루션을 배포합니다.
@@ -30,7 +30,7 @@ ms.locfileid: "90562522"
 
 
 >[!NOTE] 
->이 문서에서는 기본 부하 분산 장치에서 IPv4 및 IPv6 연결을 모두 제공할 수 있도록 하는 소개 IPv6 기능을 설명 합니다. 이제 ipv6 연결을 가상 네트워크와 통합 하 고 ipv6 네트워크 보안 그룹 규칙, IPv6 사용자 정의 라우팅, IPv6 기본 및 표준 부하 분산 등의 주요 기능을 포함 하는 [Azure vnet에 대 한 ipv6](../virtual-network/ipv6-overview.md) 에서 포괄적인 ipv6 연결을 사용할 수 있습니다.  Azure Vnet의 i p v 6은 Azure의 IPv6 응용 프로그램에 권장 되는 표준입니다. [AZURE VNET Powershell 배포를 위한 IPv6](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 참조  
+>이 문서에서는 기본 부하 분산 장치에서 IPv4 및 IPv6 연결을 모두 제공할 수 있도록 하는 초기 IPv6 기능에 대해 설명합니다. 이제 IPv6 연결을 가상 네트워크와 통합하고 IPv6 네트워크 보안 그룹 규칙, IPv6 사용자 정의 라우팅, IPv6 기본 및 표준 부하 분산 등의 주요 기능을 포함하는 [Azure VNET용 IPv6](../virtual-network/ipv6-overview.md)에서 포괄적인 IPv6 연결을 사용할 수 있습니다.  Azure VNET용 IPv6은 Azure의 IPv6 애플리케이션에 권장되는 표준입니다. [Azure VNET용 IPv6 PowerShell 배포](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)를 참조하세요.  
 
 Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 부하 분산 장치는 부하 분산 장치 집합에 있는 클라우드 서비스 또는 가상 머신의 정상 서비스 인스턴스 간에 들어오는 트래픽을 배포하여 고가용성을 제공합니다. Azure Load Balancer는 여러 포트, 여러 IP 주소 또는 둘 다에서 이러한 서비스를 제공할 수도 있습니다.
 
@@ -38,7 +38,7 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 
 다음 다이어그램은 이 문서에서 설명된 예제 템플릿을 사용하여 배포된 부하 분산 솔루션을 보여 줍니다.
 
-![다이어그램은이 문서에서 사용 되는 예제 시나리오를 보여 줍니다 .이 문서에는 인터넷을 통해 Azure Load Balancer에 연결 된 워크스테이션 클라이언트를 비롯 하 여 두 개의 가상 컴퓨터가 차례로 연결 되어 있습니다.](./media/load-balancer-ipv6-internet-template/lb-ipv6-scenario.png)
+![이 문서에서 사용된 예제 시나리오로, 두 개의 가상 머신에 연결된 Azure Load Balancer에 워크스테이션 클라이언트가 인터넷을 통해 연결된 다이어그램](./media/load-balancer-ipv6-internet-template/lb-ipv6-scenario.png)
 
 이 시나리오에서는 다음과 같은 Azure 리소스를 만듭니다.
 
@@ -55,43 +55,43 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 1. Azure Portal을 열고 Azure 구독 내에서 VM 및 네트워킹 리소스를 만들 권한이 있는 계정으로 로그인합니다. 또한 기존 리소스를 사용하고 있는 것이 아니라면 리소스 그룹 및 스토리지 계정을 만들기 위해서는 계정에 권한이 필요합니다.
 2. 메뉴에서 "+새"를 클릭한 다음 검색 상자에 "템플릿"을 입력합니다. 검색 결과에서 "템플릿 배포"를 선택합니다.
 
-    ![새 및 템플릿 배포 선택 된 Azure Portal를 보여 주는 스크린샷](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
+    ![새로 만들기 및 템플릿 배포가 선택된 Azure Portal 스크린샷](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
 
 3. 모두 블레이드에서 "템플릿 배포"를 클릭합니다.
 
-    ![Marketplace의 템플릿 배포을 보여 주는 스크린샷](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
+    ![Marketplace의 템플릿 배포 스크린샷](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
 
 4. "만들기"를 클릭합니다.
 
-    ![스크린샷에서 Marketplace의 템플릿 배포에 대 한 설명을 표시 합니다.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step4.png)
+    ![Marketplace의 템플릿 배포 설명 스크린샷](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step4.png)
 
 5. "템플릿 편집"을 클릭합니다. (시작 및 종료{ }를 포함하기 위해) 기존 내용을 삭제하고 템플릿 파일의 전체 내용을 복사/붙여넣기한 다음 "저장"을 클릭합니다.
 
     > [!NOTE]
     > Microsoft Internet Explorer를 사용한다면 붙여넣기할 때 Windows 클립보드에 대한 액세스를 허용하도록 요청하는 대화 상자가 나타납니다. "액세스 허용"을 클릭합니다.
 
-    ![스크린샷은 템플릿 편집 인 사용자 지정 배포의 firest 단계를 보여 줍니다.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
+    ![템플릿 편집인 사용자 지정 배포의 첫 번째 단계 스크린샷](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
 
 6. "매개 변수 편집"을 클릭합니다. 매개 변수 블레이드의 템플릿 매개 변수 섹션에는 지침당 값을 지정하고 "저장"을 클릭하여 매개 변수 블레이드를 닫습니다. 사용자 지정 배포 블레이드에서 구독이나 기존 리소스 그룹을 선택하거나 또는 새로 만듭니다. 리소스 그룹을 만드는 경우 리소스 그룹에 대한 위치를 선택합니다. 다음으로, **약관** 을 클릭한 다음 그 약관에 대한 **구매** 를 클릭합니다. Azure가 리소스를 배포하기 시작합니다. 모든 리소스를 배포하는 데 몇 분 정도 걸립니다.
 
-    ![스크린샷은 템플릿 매개 변수 값을 입력 하는 것부터 시작 하 여 사용자 지정 배포와 관련 된 단계를 보여 줍니다.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
+    ![템플릿 매개 변수 값 입력부터 시작하여 사용자 지정 배포와 관련된 단계 스크린샷](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
 
     이러한 매개 변수에 대한 자세한 내용은 이 문서의 뒷부분에 나오는 [템플릿 매개 변수 및 변수](#template-parameters-and-variables) 섹션을 참조하세요.
 
 7. 템플릿으로 만든 리소스를 보려면 찾아보기를 클릭하고 "리소스 그룹"이 보일 때까지 목록을 아래로 스크롤한 후 그것을 클릭합니다.
 
-    ![탐색 및 리소스 그룹이 선택 된 Azure Portal를 보여 주는 스크린샷](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step7.png)
+    ![찾아보기 및 리소스 그룹이 선택된 Azure Portal 스크린샷](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step7.png)
 
 8. 리소스 그룹 블레이드에서 6단계 때 지정한 리소스 그룹의 이름을 클릭합니다. 배포된 모든 리소스 목록이 표시됩니다. 모든 것이 순조롭다면 "마지막 배포" 아래에 "Succeeded"이라고 표시되어야 합니다. 그렇지 않다면 사용 중인 계정에 필요한 리소스를 만들 권한이 있는지 확인합니다.
 
-    ![스크린샷에서는 리소스 그룹에 대 한 마지막 배포 상태를 보여 줍니다 .이 예에서는 Succeeded입니다.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
+    ![리소스 그룹의 마지막 배포 상태(예제에서는 성공) 스크린샷](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
 
     > [!NOTE]
     > 6단계를 마친 후 즉시 리소스 그룹을 찾아보기할 경우 "마지막 배포"는 리소스가 배포되는 동안 "배포" 상태를 표시합니다.
 
 9. 리소스 목록에서 "myIPv6PublicIP"을 클릭합니다. IP 주소 아래에 IPv6 주소가 있으며 DNS 이름이 6단계에서 dnsNameforIPv6LbIP 매개 변수에 대해 지정한 값인지 표시합니다. 이 리소스는 인터넷 클라이언트에 액세스할 수 있는 공용 IPv6 주소 및 호스트 이름입니다.
 
-    ![스크린샷 IPv6 공용 주소를 표시 합니다.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
+    ![IPv6 공용 주소 스크린샷](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사
 

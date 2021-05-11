@@ -30,7 +30,7 @@
         - name: 보안 개요
           href: security.md
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/data-share-security-baseline?toc=/azure/data-share/TOC.json
     - name: Azure Data Share 용어
       href: terminology.md
     - name: 역할 및 요구 사항

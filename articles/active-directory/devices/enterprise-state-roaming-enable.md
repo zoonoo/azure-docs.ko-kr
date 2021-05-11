@@ -13,25 +13,25 @@ ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34b554fbef63f23b3540fe49e5c45976122add25
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89268607"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 상태 로밍 활성화
 
-Azure AD Premium 또는 EMS(Enterprise Mobility + Security) 라이선스를 사용하는 모든 조직에서 Enterprise State Roaming을 사용할 수 있습니다. Azure AD 구독을 가져오는 방법에 대 한 자세한 내용은 [AZURE ad 제품 페이지](https://azure.microsoft.com/services/active-directory)를 참조 하세요.
+Azure AD Premium 또는 EMS(Enterprise Mobility + Security) 라이선스를 사용하는 모든 조직에서 Enterprise State Roaming을 사용할 수 있습니다. Azure AD 구독 방법에 대한 자세한 내용은 [Azure AD 제품 페이지](https://azure.microsoft.com/services/active-directory)를 참조하세요.
 
 Enterprise State Roaming을 사용하도록 설정하면 Azure Information Protection에서 Azure Rights Management 보호에 대해 제한된 체험용 라이선스가 조직에 자동으로 부여됩니다. 이 체험용 구독은 엔터프라이즈 설정 암호화 및 Enterprise State Roaming에서 동기화한 애플리케이션 데이터를 암호화하고 암호를 해독하도록 제한됩니다. [유료 구독](https://azure.microsoft.com/pricing/details/information-protection/)이 있어야 Azure Rights Management 서비스의 전체 기능을 사용할 수 있습니다.
 
 > [!NOTE]
-> 이 문서는 7 월 2015에 Windows 10으로 시작 된 Microsoft Edge 레거시 HTML 기반 브라우저에 적용 됩니다. 이 문서는 2020 년 1 월 15 일에 릴리스된 새 Microsoft Edge Chromium 기반 브라우저에는 적용 되지 않습니다. 새 Microsoft Edge의 동기화 동작에 대 한 자세한 내용은 [Microsoft Edge 동기화](/deployedge/microsoft-edge-enterprise-sync)문서를 참조 하세요.
+> 이 문서는 2015년 7월에 Windows 10과 함께 시작된 Microsoft Edge 레거시 HTML 기반 브라우저에 적용됩니다. 2020년 1월 15일에 릴리스된 새 Microsoft Edge Chromium 기반 브라우저에는 적용되지 않습니다. 새 Microsoft Edge의 동기화 동작에 대한 자세한 내용은 [Microsoft Edge 동기화](/deployedge/microsoft-edge-enterprise-sync) 문서를 참조하세요.
 
 ## <a name="to-enable-enterprise-state-roaming"></a>Enterprise State Roaming을 사용하려면
 
 1. [Azure AD 관리 센터](https://aad.portal.azure.com/)에 로그인합니다.
-1. Enterprise State Roaming **Azure Active Directory**  >  **장치**  >  를 선택 합니다.
+1. **Azure Active Directory** > **디바이스** > **Enterprise State Roaming** 을 차례로 선택합니다.
 1. **사용자가 디바이스에서 설정 및 앱 데이터를 동기화할 수 있습니다.** 를 선택합니다. 자세한 내용은 [디바이스 설정을 구성하는 방법](./device-management-azure-portal.md)을 참조하세요.
   
    ![사용자자 디바이스 간에 설정 및 앱 데이터를 동기화할 수 있습니다.라고 레이블이 지정된 디바이스 설정 이미지](./media/enterprise-state-roaming-enable/device-settings.png)
@@ -44,9 +44,9 @@ Enterprise State Roaming 데이터는 Azure Active Directory 인스턴스에 설
 
 | 국가/지역 값 | 해당 데이터가 다음 지역에서 호스트되는 경우 |
 | -------------------- | ------------------------ |
-| 프랑스 또는 잠비아와 같은 EMEA 국가/지역 | 유럽 내 하나 이상의 Azure 지역 |
-| 미국 또는 캐나다와 같은 북아메리카 국가/지역 | 미국 내 하나 이상의 Azure 지역 |
-| 오스트레일리아 또는 뉴질랜드와 같은 APAC 국가/지역 | 아시아 내 하나 이상의 Azure 지역 |
+| EMEA 국가/지역(예: 프랑스 또는 잠비아) | 유럽 내 하나 이상의 Azure 지역 |
+| 북아메리카 국가/지역(예: 미국 또는 캐나다) | 미국 내 하나 이상의 Azure 지역 |
+| APAC 국가/지역(예: 오스트레일리아 또는 뉴질랜드) | 아시아 내 하나 이상의 Azure 지역 |
 | 남아메리카 및 남극 대륙 지역 | 미국 내 하나 이상의 Azure 지역 |
 
 국가/지역 값은 Azure AD 디렉터리 생성 프로세스의 일부로 설정되며 나중에 수정할 수 없습니다. 데이터 스토리지 위치에 대한 자세한 내용을 보려면 [Azure 지원](https://azure.microsoft.com/support/options/)에서 티켓을 저장하세요.
@@ -56,7 +56,7 @@ Enterprise State Roaming 데이터는 Azure Active Directory 인스턴스에 설
 사용자별 디바이스 동기화 상태 보고서를 보려면 이러한 단계를 수행합니다.
 
 1. [Azure AD 관리 센터](https://aad.portal.azure.com/)에 로그인합니다.
-1. 사용자 **Azure Active Directory**  >    >  **모든 사용자** 를 선택 합니다.
+1. **Azure Active Directory** > **사용자** > **모든 사용자** 를 선택합니다.
 1. 사용자를 선택한 다음 **디바이스** 를 선택합니다.
 1. **표시** 아래에서 **설정 및 앱 데이터를 동기화하는 디바이스** 를 선택하여 동기화 상태를 표시합니다.
   
@@ -83,7 +83,7 @@ Enterprise State Roaming을 사용하여 Microsoft 클라우드에 동기화된 
 1년("보존 기간") 동안 액세스되지 않은 데이터는 부실한 것으로 간주되고 Microsoft 클라우드에서 삭제할 수 있습니다. 보존 기간은 변경될 수 있지만 90일 이상입니다. 특정 Windows/애플리케이션 설정이 유효하지 않을 수도 있고 사용자의 모든 설정이 유효하지 않을 수도 있습니다. 예를 들면 다음과 같습니다.
 
 * 특정 설정 컬렉션에 아무 디바이스도 액세스하지 않는 경우(예: 디바이스에서 애플리케이션이 제거되거나 &quot;테마&quot;와 같은 설정 그룹이 사용자의 모든 디바이스에 대해 비활성화되는 경우) 해당 컬렉션은 보존 기간이 끝난 후 부실하다고 취급되어 삭제될 수 있습니다. 
-* 사용자가 모든 장치에서 설정 동기화를 해제 한 경우에는 설정 데이터에 액세스할 수 없으며, 해당 사용자의 모든 설정 데이터는 유효 하지 않게 되 고 보존 기간 후 삭제 될 수 있습니다. 
+* 사용자가 모든 디바이스에서 설정 동기화를 끄면 설정 데이터 전체가 액세스되지 않으며, 해당 사용자의 모든 설정 데이터는 보존 기간이 끝난 후 유효하지 않은 것으로 취급되어 삭제될 수 있습니다. 
 * Azure AD 디렉터리 관리자가 전체 디렉터리에 대해 엔터프라이즈 상태 로밍을 끄면 해당 디렉터리의 모든 사용자가 설정 동기화를 중지하게 되며, 모든 사용자의 모든 설정 데이터는 보존 기간이 끝난 후 유효하지 않은 것으로 취급되어 삭제될 수 있습니다. 
 
 ### <a name="deleted-data-recovery"></a>삭제된 데이터 복구
@@ -94,6 +94,6 @@ Enterprise State Roaming을 사용하여 Microsoft 클라우드에 동기화된 
 
 * [엔터프라이즈 상태 로밍 개요](enterprise-state-roaming-overview.md)
 * [설정 및 데이터 로밍 FAQ](enterprise-state-roaming-faqs.md)
-* [설정 동기화에 대 한 그룹 정책 및 MDM 설정](enterprise-state-roaming-group-policy-settings.md)
+* [설정 동기화에 대한 그룹 정책 및 MDM 설정](enterprise-state-roaming-group-policy-settings.md)
 * [Windows 10 로밍 설정 참조](enterprise-state-roaming-windows-settings-reference.md)
 * [문제 해결](enterprise-state-roaming-troubleshooting.md)

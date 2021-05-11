@@ -1,5 +1,5 @@
 ---
-title: 단일 AD FS를 사용 하 여 여러 Azure AD 페더레이션-Azure
+title: 단일 AD FS를 사용하여 여러 Azure AD 페더레이션 - Azure
 description: 이 문서에서는 하나의 AD FS를 통해 Azure AD를 페더레이션하는 방법에 대해 설명합니다.
 keywords: 페더레이션, ADFS, AD FS, 다중 테넌트, 단일 AD FS, 단일 ADFS, 다중 테넌트 페더레이션, 다중 포리스트 ADFS, AAD 연결, 페더레이션, 테넌트 간 페더레이션
 services: active-directory
@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 956428b6f197912e2ab7c3a94133ed9d59f37749
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89279927"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>AD FS의 단일 인스턴스를 사용하여 Azure AD의 여러 인스턴스를 페더레이션
@@ -70,4 +70,4 @@ Convert-MsolDomainToFederated -DomainName fabrikam.com -Verbose -SupportMultiple
 위의 작업에서는 동일한 AD FS를 통해 fabrikam.com 도메인을 페더레이션합니다. 두 도메인 모두에 대해 Get-MsolDomainFederationSettings를 사용하여 도메인 설정을 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Active Directory를 사용 하 여 Active Directory 연결](whatis-hybrid-identity.md)
+[Active Directory와 Azure Active Directory 연결](whatis-hybrid-identity.md)

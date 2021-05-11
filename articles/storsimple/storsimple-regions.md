@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
 ms.openlocfilehash: 5efb87ad674474b2e21b86b5cdc48785753a51dc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90564154"
 ---
 # <a name="available-regions-for-your-storsimple"></a>StorSimple을 사용할 수 있는 지역
@@ -26,7 +26,7 @@ Azure 지역을 선택하는 것은 매우 중요하며 지역 선택은 데이�
 StorSimple 솔루션에 대한 지역 선택은 구체적으로 다음과 같은 요인에 따라 결정됩니다.
 
 - StorSimple Device Manager 서비스를 사용할 수 있는 지역.
-- StorSimple 물리적, 클라우드 또는 가상 장치를 사용할 수 있는 국가/지역입니다.
+- StorSimple 물리적, 클라우드 또는 가상 디바이스를 사용할 수 있는 국가/지역
 - 최적의 성능을 위해 StorSimple 데이터를 저장하는 스토리지 계정을 배치해야 할 지역.
 
 이 자습서에서는 StorSimple Device Manager 서비스, 온-프레미스 물리적 및 클라우드 디바이스에 대한 지역 가용성을 설명합니다. 이 문서에 포함된 정보는 StorSimple 8000 및 1200 시리즈 디바이스에 적용됩니다.
@@ -39,7 +39,7 @@ StorSimple Device Manager 서비스를 처음 만들 때 지역 또는 위치를
 
 Azure 퍼블릭 클라우드에서 StorSimple Device Manager 서비스를 사용할 수 있으며 배포 가능한 지역 목록은 다음과 같습니다.
 
-![스크린샷에는 위치 목록이 강조 표시 된 StorSimple 장치 관리자 표시 됩니다.](./media/storsimple-region/storsimple-device-manager-service-regions.png)
+![위치 목록이 강조 표시된 StorSimple 디바이스 관리자 스크린샷](./media/storsimple-region/storsimple-device-manager-service-regions.png)
 
 Azure Government 클라우드의 경우 StorSimple Device Manager 서비스는 US Gov 아이오와 및 US Gov 버지니아 데이터 센터에서 사용할 수 있습니다.
 
@@ -55,11 +55,11 @@ StorSimple Cloud Appliance를 사용하는 경우는 서비스 및 연결된 스
 
 ## <a name="availability-of-storsimple-device"></a>StorSimple 디바이스의 가용성
 
-모델에 따라 StorSimple 장치를 다른 지역 또는 국가/지역에서 사용할 수 있습니다.
+모델에 따라 StorSimple 디바이스를 사용할 수 있는 지리 또는 국가/지역이 다를 수 있습니다.
 
 ### <a name="storsimple-physical-device-models-81008600"></a>StorSimple 물리적 디바이스(모델 8100/8600)
 
-StorSimple 8100 또는 8600 물리적 장치를 사용 하는 경우 다음 국가/지역에서 장치를 사용할 수 있습니다.
+StorSimple 8100 또는 8600 물리적 디바이스를 사용하는 경우 다음과 같은 국가/지역에서 디바이스를 사용할 수 있습니다.
 
 | #  | 국가/지역        | #  | 국가/지역     | #  | 국가/지역      | #  | 국가/지역             |
 |----|-----------------------|----|--------------------|----|---------------------|----|----------------------------|
@@ -79,12 +79,12 @@ StorSimple 8100 또는 8600 물리적 장치를 사용 하는 경우 다음 국�
 | 14 | 독일               | 29 | 멕시코             | 44 | 슬로바키아            | 59 | 베트남                    |
 | 15 | 그리스                | 30 | 네덜란드        | 45 | 슬로베니아            | 60 | 크로아티아                    |
 
-이 목록은 더 많은 국가/지역이 추가 될 때 변경 됩니다. 최신 지리적 위치 목록에 대해서는 [제품 약관](https://www.microsoft.com/en-us/licensing/product-licensing/products)의 스토리지 배열 약관 부록을 참조하세요.
+이 목록은 국가/지역이 추가됨에 따라 변경됩니다. 최신 지리적 위치 목록에 대해서는 [제품 약관](https://www.microsoft.com/en-us/licensing/product-licensing/products)의 스토리지 배열 약관 부록을 참조하세요.
 
 Microsoft는 물리적 하드웨어를 제공하며 앞의 목록에 있는 지역에 StorSimple에 대한 교체용 하드웨어 예비 부품을 제공할 수 있습니다.
 
 > [!IMPORTANT]
-> StorSimple 물리적 디바이스를 StorSimple 프로그램이 지원되지 않는 지역에 배치하지 않도록 합니다. Microsoft는 StorSimple이 지원 되지 않는 국가/지역에 대체 파트를 제공할 수 없습니다.
+> StorSimple 물리적 디바이스를 StorSimple 프로그램이 지원되지 않는 지역에 배치하지 않도록 합니다. Microsoft는 StorSimple이 지원되지 않는 국가/지역에 교체용 부품을 제공할 수 없습니다.
 
 ### <a name="storsimple-cloud-appliance-models-80108020"></a>StorSimple Cloud Appliance(모델 8010/8020)
 

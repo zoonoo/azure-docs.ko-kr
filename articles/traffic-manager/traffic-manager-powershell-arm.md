@@ -1,6 +1,6 @@
 ---
 title: Azure에서 PowerShell을 사용하여 Traffic Manager 관리
-description: 이 학습 경로를 사용 하 여 Traffic Manager에 대 한 Azure PowerShell 사용을 시작 하세요.
+description: 이 학습 경로를 사용하여 Traffic Manager용 Azure PowerShell 사용을 시작합니다.
 services: traffic-manager
 documentationcenter: na
 author: duongau
@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: duau
 ms.openlocfilehash: 21076fe23301c189d9987f78706cc81691ce7a4f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89400557"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>PowerShell을 사용하여 Traffic Manager 관리
@@ -61,7 +61,7 @@ $TmProfile = New-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
 
 | 매개 변수 | 설명 |
 | --- | --- |
-| Name |Traffic Manager 프로필 리소스의 ARM 리소스 이름입니다. 동일한 리소스 그룹의 프로필 이름은 고유해야 합니다. 이 이름은 DNS 쿼리에 사용되는 DNS 이름과 구분됩니다. |
+| 이름 |Traffic Manager 프로필 리소스의 ARM 리소스 이름입니다. 동일한 리소스 그룹의 프로필 이름은 고유해야 합니다. 이 이름은 DNS 쿼리에 사용되는 DNS 이름과 구분됩니다. |
 | ResourceGroupName |프로필 리소스가 포함된 리소스 그룹의 이름. |
 | TrafficRoutingMethod |DNS 쿼리에 대한 응답으로 반환되는 엔드포인트를 결정하는 데 사용되는 트래픽 라우팅 메서드를 지정합니다. 가능한 값은 '성능', '가중' 또는 '우선 순위'입니다. |
 | RelativeDnsName |이 Traffic Manager 프로필을 통해 제공되는 DNS 이름의 호스트 이름 부분을 지정합니다. 이 값은 프로필의 FQDN(정규화된 도메인 이름)을 형성하여 Azure Traffic Manager가 사용하는 DNS 도메인 이름과 결합됩니다. 예를 들어 'contoso'의 값이 'contoso.trafficmanager.net.'이 되도록 설정합니다. |
@@ -125,7 +125,7 @@ Azure 엔드포인트는 Azure에서 호스팅되는 서비스를 나타냅니�
 * '가중치' 지정은 선택 사항입니다. 가중치는 '가중' 트래픽 라우팅 메서드를 사용하도록 프로필을 구성한 경우에만 사용됩니다. 그렇지 않으면 무시됩니다. 지정된 경우, 이 값은 1과 1000 사이의 숫자여야 합니다. 기본값은 '1'입니다.
 * '우선 순위' 지정은 선택 사항입니다. 우선 순위는 '우선 순위' 트래픽 라우팅 메서드를 사용하도록 프로필을 구성한 경우에만 사용됩니다. 그렇지 않으면 무시됩니다. 유효한 값은 낮은 숫자가 더 높은 우선 순위를 나타내도록 한 1부터 1000까지의 숫자입니다. 한 엔드포인트에 대해 지정한 경우 모든 엔드포인트에 대해 지정되어야 합니다. 생략한 경우 '1'부터 시작하는 기본값이 엔드포인트가 나열된 순서대로 적용됩니다.
 
-### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>예제 1:를 사용 하 여 App Service 끝점 추가 `Add-AzTrafficManagerEndpointConfig`
+### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>예제 1: `Add-AzTrafficManagerEndpointConfig`를 사용하여 App Service 엔드포인트 추가
 
 이 예제에서는 Traffic Manager 프로필을 만들고 `Add-AzTrafficManagerEndpointConfig` cmdlet을 사용하여 두 개의 App Service 엔드포인트를 추가합니다.
 
@@ -210,7 +210,7 @@ New-AzTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceG
 
 ## <a name="adding-endpoints-from-another-subscription"></a>다른 구독에서 엔드포인트 추가
 
-Traffic Manager는 다른 구독의 엔드포인트에서 사용할 수 있습니다. Traffic Manager에 필요한 입력을 검색하려면 추가하려는 엔드포인트로 구독을 전환해야 합니다. 그런 다음 Traffic Manager 프로필을 사용 하 여 구독으로 전환 하 고 끝점을 추가 해야 합니다. 아래 예제에서는 공용 IP 주소로 이 작업을 수행하는 방법을 보여줍니다.
+Traffic Manager는 다른 구독의 엔드포인트에서 사용할 수 있습니다. Traffic Manager에 필요한 입력을 검색하려면 추가하려는 엔드포인트로 구독을 전환해야 합니다. 그런 다음, Traffic Manager 프로필을 포함하는 구독으로 전환하고 구독에 엔드포인트를 추가해야 합니다. 아래 예제에서는 공용 IP 주소로 이 작업을 수행하는 방법을 보여줍니다.
 
 ```powershell
 Set-AzContext -SubscriptionId $EndpointSubscription

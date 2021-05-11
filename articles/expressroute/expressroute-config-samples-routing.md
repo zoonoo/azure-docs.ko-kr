@@ -1,18 +1,18 @@
 ---
 title: 'Azure ExpressRoute: 라우터 구성 샘플'
-description: Azure Express 경로를 사용 하는 예제로 Cisco IOS-XE 및 곱 향나무 MX 시리즈 라우터 용 인터페이스 및 라우팅 구성 샘플을 사용 합니다.
+description: Cisco IOS-XE 및 Juniper MX 시리즈 라우터에 대한 인터페이스 및 라우팅 구성 샘플을 Azure ExpressRoute 작업 예제로 사용합니다.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: article
-ms.date: 03/26/2020
+ms.date: 04/27/2021
 ms.author: duau
-ms.openlocfilehash: 3bc850f02884ae0547c2ecf56a46a57a4e66a752
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 005dbf35dea53eafd3a0166f07cf4d6f07e3b40a
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89397409"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127644"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>라우팅 설정 및 관리를 위한 라우터 구성 샘플
 이 페이지에서는 Azure ExpressRoute를 사용하여 작업할 때 Cisco IOS-XE 및 Juniper MX 시리즈 라우터에 대한 인터페이스 및 라우팅 구성 샘플을 제공합니다.
@@ -52,7 +52,7 @@ interface GigabitEthernet<Interface_Number>.<Number>
 
 ```console
 interface GigabitEthernet<Interface_Number>.<Number>
- encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
+ encapsulation dot1Q <s-tag> second-dot1Q <c-tag>
  ip address <IPv4_Address><Subnet_Mask>
 ```
 
@@ -111,7 +111,7 @@ route-map <MS_Prefixes_Inbound> permit 10
 ```console
 interface GigabitEthernet<Interface_Number>.<Number>
  bfd interval 300 min_rx 300 multiplier 3
- encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
+ encapsulation dot1Q <s-tag> second-dot1Q <c-tag>
  ip address <IPv4_Address><Subnet_Mask>
 
 router bgp <Customer_ASN>

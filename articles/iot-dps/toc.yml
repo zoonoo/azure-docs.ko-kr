@@ -175,7 +175,9 @@
 - name: 리소스
   items:
     - name: 지원 및 도움말 옵션
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-dps/toc.json&bc=/azure/iot-dps/breadcrumb/toc.json
+    - name: IoT 용어집
+      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-dps/toc.json&bc=/azure/iot-dps/breadcrumb/toc.json
     - name: Azure IoT 서비스
       items:
         - name: IoT Hub
@@ -213,7 +215,7 @@
         - name: iOS 플랫폼
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
     - name: IoT용 Azure Certified 디바이스 카탈로그
-      href: 'https://catalog.azureiotsolutions.com/'
+      href: 'https://devicecatalog.azure.com/'
     - name: Azure IoT 개발자 센터
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: 고객 데이터 요청

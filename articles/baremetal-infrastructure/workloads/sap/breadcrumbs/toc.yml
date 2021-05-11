@@ -6,6 +6,6 @@
       tocHref: /azure/
       topicHref: /azure/baremetal-infrastructure/index
       items:
-        - name: 참조
+        - name: 워크로드
           tocHref: /azure/virtual-machines/workloads/sap/
-          topicHref: /azure/baremetal-infrastructure/index
+          topicHref: /azure/virtual-machines/workloads/sap/get-started

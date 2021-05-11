@@ -4,10 +4,10 @@ description: Azure Backup Server를 사용하여 SharePoint 데이터를 Azure S
 ms.topic: conceptual
 ms.date: 06/07/2020
 ms.openlocfilehash: 1e237e63b92468fafff4f8f8f525d1388840d162
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89378324"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Azure Stack에서 SharePoint 팜 백업
@@ -20,7 +20,7 @@ MABS의 Azure Backup은 다음 시나리오들을 지원합니다.
 
 | 작업 | Version | SharePoint 배포 | 보호 및 복구 |
 | --- | --- | --- | --- |
-| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |Azure Stack 가상 머신으로 배포 된 SharePoint <br> -------------- <br> SQL AlwaysOn | SharePoint 팜 보호 복구 옵션: 복구 팜, 데이터베이스, 및 파일 또는 디스크 복구 지점의 목록 항목  Azure 복구 지점에서 팜 및 데이터베이스 복구 |
+| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |Azure Stack 가상 머신으로 배포된 SharePoint <br> -------------- <br> SQL AlwaysOn | SharePoint 팜 보호 복구 옵션: 복구 팜, 데이터베이스, 및 파일 또는 디스크 복구 지점의 목록 항목  Azure 복구 지점에서 팜 및 데이터베이스 복구 |
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -32,7 +32,7 @@ SharePoint 팜을 Azure에 백업하기 전에 몇 가지 확인이 필요합니
 
 * MABS는 스케일 아웃 파일 서버(SOFS) 공유에 호스트되는 SharePoint SQL Server 데이터베이스의 백업을 제공하지 않습니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 계속하기 전에 워크로드를 보호하기 위하여 Microsoft Azure Backup 사용을 위한 [필수 구성 요소](backup-azure-dpm-introduction.md#prerequisites-and-limitations) 를 모두 충족하는지 확인합니다. 필수 조건을 위한 작업에는 백업 자격 증명 모음 만들기, 보관 자격 증명 모음 다운로드, Azure Backup 에이전트 설치, 자격 증명 모음에 Azure Backup 서버 등록 등이 포함됩니다.
 
@@ -76,7 +76,7 @@ SharePoint 팜을 백업하려면 ConfigureSharePoint.exe를 사용하여 ShareP
 
         ConfigureSharePoint.exe를 실행한 후에 SharePoint 팜 관리자 자격 증명이 변경되면 이 파일을 다시 실행해야 합니다.
 
-1. 보호 그룹을 만들려면 **보호**  >  **작업**  >  **보호 그룹 만들기** 를 선택 하 여 mabs 콘솔에서 **새 보호 그룹 만들기** 마법사를 엽니다.
+1. 보호 그룹을 만들려면 **보호** > **작업** > **보호 그룹 만들기** 를 선택하여 MABS 콘솔에서 **새 보호 그룹 만들기** 마법사를 엽니다.
 
 1. **보호 그룹 형식 선택** 에서 **서버** 를 선택합니다.
 
@@ -84,7 +84,7 @@ SharePoint 팜을 백업하려면 ConfigureSharePoint.exe를 사용하여 ShareP
 
     SharePoint 서버 MABS 쿼리 VSS를 확장하여 MABS에서 보호할 수 있는 데이터를 확인합니다.  SharePoint 데이터베이스가 원격이면 MABS가 해당 데이터베이스에 연결합니다. SharePoint 데이터 원본이 표시되지 않는 경우에는 SharePoint 서버 및 원격 SQL Server에서 VSS 기록기가 실행되고 있는지 확인하고, MABS 에이전트가 SharePoint 서버와 원격 SQL Server 모두에 설치되어 있는지 확인합니다. 또한 SharePoint 데이터베이스가 SQL Server 데이터베이스처럼 다른 위치에서 보호되고 있지 않은지 확인합니다.
 
-1. **데이터 보호 방법 선택** 에서 단기 및 장기\- 백업을 처리하는 방법을 지정합니다. 단기 백업은 \- 항상 디스크에 먼저 사용 되며 \( 단기 또는 장기 Azure Backup를 사용 하 여 디스크에서 Azure 클라우드로 백업 하는 옵션을 사용 합니다 \- \) .
+1. **데이터 보호 방법 선택** 에서 단기 및 장기\- 백업을 처리하는 방법을 지정합니다. 단기 백업은 항상 디스크에 먼저 기록되고 Azure Backup을 사용하여 디스크에서 Azure 클라우드로 백업하는 옵션\(단기 또는 장기\)이 있습니다.
 
 1. **단기\- 목표 선택** 에서 디스크의 단기\- 스토리지에 백업할 방법을 선택합니다.   **보존 범위** 에서 데이터를 디스크에서 유지할 기간을 지정합니다. **동기화 빈도** 에서 디스크에 대한 증분 백업을 실행할 빈도를 지정합니다. 백업 간격을 설정하지 않으려는 경우 각 복구 지점이 예약되기 직전에 MABS가 빠른 전체 백업을 실행하도록, 복구 지점 직전을 선택할 수 있습니다.
 
@@ -116,19 +116,19 @@ SharePoint 팜을 백업하려면 ConfigureSharePoint.exe를 사용하여 ShareP
 
 ### <a name="set-up-monitoring-notifications"></a>모니터링 알림 설정
 
-1. Mabs 관리자 콘솔에서 **모니터링**  >  **작업**  >  **옵션** 을 선택 합니다.
+1. MABS 관리자 콘솔에서 **모니터링** > **작업** > **옵션** 을 선택합니다.
 
-2. **SMTP 서버** 를 선택 하 고, 알림을 보낼 서버 이름, 포트 및 전자 메일 주소를 입력 합니다. 주소가 유효해야 합니다.
+2. **SMTP 서버** 를 선택하고 서버 이름, 포트, 알림을 보내는 메일 주소를 입력합니다. 주소가 유효해야 합니다.
 
 3. **인증된 SMTP 서버** 에 사용자 이름과 암호를 입력합니다. 사용자 이름과 암호는 이전 단계에서 기술한 “보낸 사람” 주소에 해당하는 사람의 도메인 계정 이름이어야 합니다. 그렇지 않으면 알림 배달이 실패합니다.
 
-4. SMTP 서버 설정을 테스트 하려면 **테스트 전자 메일 보내기** 를 선택 하 고 mabs에서 테스트 메시지를 보낼 전자 메일 주소를 입력 한 다음 **확인** 을 선택 합니다. **옵션**  >  **알림** 을 선택 하 고 받는 사람에 게 알릴 경고 유형을 선택 합니다. **받는 사람** 에 MABS에서 알림의 사본을 보낼 각 받는 사람의 메일 주소를 입력합니다.
+4. SMTP 서버 설정을 테스트하려면 **테스트 메일 보내기** 를 선택하고 MABS에서 테스트 메시지를 보내는 메일 주소를 입력한 다음, **확인** 을 선택합니다. **옵션** > **알림** 을 선택한 다음, 받는 사람에게 알릴 경고 유형을 선택합니다. **받는 사람** 에 MABS에서 알림의 사본을 보낼 각 받는 사람의 메일 주소를 입력합니다.
 
 ### <a name="publish-operations-manager-alerts"></a>Operations Manager 경고 게시
 
-1. Mabs 관리자 콘솔에서 **모니터링**  >  **작업**  >  **옵션**  >  **경고 게시**  >  **활성 경고** 게시를 선택 합니다.
+1. MABS 관리자 콘솔에서 **모니터링** > **작업** > **옵션** > **경고 게시** > **활성 경고 게시** 를 선택합니다.
 
-2. **알림 게시** 를 사용하도록 설정한 후에는 사용자 조치가 필요할 수 있는 모든 기존 MABS 경고가 **MABS 경고** 이벤트 로그에 게시됩니다. 그러면 MABS 서버에 설치 된 Operations Manager 에이전트가 이러한 경고를 Operations Manager에 게시 하 고 새 경고가 생성 될 때 계속 해 서 콘솔을 업데이트 합니다.
+2. **알림 게시** 를 사용하도록 설정한 후에는 사용자 조치가 필요할 수 있는 모든 기존 MABS 경고가 **MABS 경고** 이벤트 로그에 게시됩니다. 그런 다음 MABS 서버에 설치된 Operations Manager 에이전트가 경고를 Operations Manager에 게시하고 새로운 경고가 생성될 때마다 계속해서 콘솔을 업데이트합니다.
 
 ## <a name="restore-a-sharepoint-item-from-disk-by-using-mabs"></a>MABS를 사용하여 디스크에서 SharePoint 항목 복원
 
@@ -151,7 +151,7 @@ SharePoint 팜을 백업하려면 ConfigureSharePoint.exe를 사용하여 ShareP
 6. 항목을 마우스 오른쪽 단추로 클릭하고 **복구** 를 선택하여 **복구 마법사** 를 엽니다. **다음** 을 선택합니다.
 
     ![복구 선택 사항 확인](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
-7. 수행할 복구 유형을 선택 하 **고 다음을 선택 합니다.**
+7. 수행할 복구 유형을 선택한 후 **다음** 을 선택합니다.
 
     ![복구 유형](./media/backup-azure-backup-sharepoint/select-recovery-type.png)
 
@@ -161,7 +161,7 @@ SharePoint 팜을 백업하려면 ConfigureSharePoint.exe를 사용하여 ShareP
    >
 8. 사용할 **복구 프로세스** 를 선택합니다.
 
-   * SharePoint 팜이 변경 되지 않았고 복원 중인 복구 지점과 동일한 경우 **복구 팜을 사용 하지 않고** 복구를 선택 합니다.
+   * SharePoint 팜이 변경되지 않았으며 복원되는 복구 지점과 동일한 경우 **복구 팜을 사용하지 않고 복구** 를 선택합니다.
    * SharePoint 팜 복구 지점이 생성 된 이후 변경 된 경우 **복구 팜을 사용 하 여 복구** 를 선택합니다.
 
      ![복구 프로세스](./media/backup-azure-backup-sharepoint/recovery-process.png)
@@ -169,7 +169,7 @@ SharePoint 팜을 백업하려면 ConfigureSharePoint.exe를 사용하여 ShareP
 
     ![스테이징 위치 1](./media/backup-azure-backup-sharepoint/staging-location1.png)
 
-    MABS는 SharePoint 항목을 호스트 하는 콘텐츠 데이터베이스를 임시 SQL Server 인스턴스에 연결 합니다. 콘텐츠 데이터베이스에서, MABS는 항목을 복구하여 MABS의 준비 파일 위치에 넣습니다. 이제 준비 위치에 있는 복구된 항목을 SharePoint 팜의 준비 위치로 내보내야 합니다.
+    MABS는 SharePoint 항목을 호스트하는 콘텐츠 데이터베이스를 임시 SQL Server 인스턴스에 연결합니다. 콘텐츠 데이터베이스에서, MABS는 항목을 복구하여 MABS의 준비 파일 위치에 넣습니다. 이제 준비 위치에 있는 복구된 항목을 SharePoint 팜의 준비 위치로 내보내야 합니다.
 
     ![스테이징 Location2](./media/backup-azure-backup-sharepoint/staging-location2.png)
 10. **복구 옵션 지정** 을 선택하고, SharePoint 팜에 보안 설정을 적용하거나 복구 지점의 보안 설정을 적용합니다. **다음** 을 선택합니다.
@@ -180,7 +180,7 @@ SharePoint 팜을 백업하려면 ConfigureSharePoint.exe를 사용하여 ShareP
     > 네트워크 대역폭 사용량을 제한 하도록 선택할 수 있습니다. 따라서 프로덕션 시간 동안 프로덕션 서버에 미치는 영향이 최소화 됩니다.
     >
     >
-11. 요약 정보를 검토 한 다음 **복구** 를 선택 하 여 파일의 복구를 시작 합니다.
+11. 요약 정보를 검토하고 **복구** 를 선택하여 파일 복구를 시작합니다.
 
     ![복구 요약](./media/backup-azure-backup-sharepoint/recovery-summary.png)
 12. 이제 **MABS 관리자 콘솔** 의 **모니터링** 탭을 선택하여 복구의 **상태** 를 봅니다.
@@ -203,7 +203,7 @@ SharePoint 팜을 백업하려면 ConfigureSharePoint.exe를 사용하여 ShareP
    > SharePoint 팜은 Azure에서 장기 보존으로 보호되기 때문에 MABS 서버에서 사용할 수 있는 카탈로그 정보(메타데이터)가 없습니다. 따라서, 지정 시간 SharePoint 콘텐츠 데이터베이스 복구가 필요할 때마다, SharePoint 팜 카탈로그를 다시 만들어야 합니다.
    >
    >
-3. **다시 카탈로그** 를 선택 합니다.
+3. **카탈로그 다시 만들기** 를 선택합니다.
 
     ![MABS SharePoint Protection10](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)
 
@@ -214,7 +214,7 @@ SharePoint 팜을 백업하려면 ConfigureSharePoint.exe를 사용하여 ShareP
     카탈로그 만들기가 완료되면, 상태가 *성공* 으로 변경됩니다. **닫기** 를 선택합니다.
 
     ![MABS SharePoint Protection12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
-4. MABS **복구** 탭에 표시 되는 SharePoint 개체를 선택 하 여 콘텐츠 데이터베이스 구조를 가져옵니다. 항목을 마우스 오른쪽 단추로 클릭 한 다음 **복구** 를 선택 합니다.
+4. MABS **복구** 탭에 표시된 SharePoint 개체를 선택하여 콘텐츠 데이터베이스 구조를 가져옵니다. 항목을 마우스 오른쪽 단추로 클릭하고 **복구** 를 선택합니다.
 
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. 이제 이 문서 앞부분의 복구 단계를 수행하여 디스크로 SharePoint 콘텐츠 데이터베이스를 복구합니다.
@@ -249,7 +249,7 @@ SharePoint 팜을 백업하려면 ConfigureSharePoint.exe를 사용하여 ShareP
 
 1. *Server2* 의 명령 프롬프트에서 디렉터리를 `_MABS installation location_\bin\`으로 변경하고 **ConfigureSharepoint** 를 실행합니다. ConfigureSharepoint에 대한 자세한 내용은 [백업 구성](#configure-backup)을 참조하세요.
 
-1. 서버 팜이 속한 보호 그룹을 선택한 다음 **보호 그룹 수정** 을 선택 합니다.
+1. 서버 팜이 속한 보호 그룹을 선택한 다음, **보호 그룹 수정** 을 선택합니다.
 
 1. 그룹 수정 마법사의 **그룹 멤버 선택** 페이지에서 *Server2* 를 확장하고 서버 팜을 선택한 후 마법사를 완료합니다.
 

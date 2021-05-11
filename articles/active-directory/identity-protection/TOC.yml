@@ -41,7 +41,7 @@
     - name: 위험 검색에 대한 피드백 제공
       href: howto-identity-protection-risk-feedback.md
     - name: FAQ
-      href: troubleshooting-identity-protection-faq.md
+      href: troubleshooting-identity-protection-faq.yml
 - name: 참조
   items:
     - name: Graph API
