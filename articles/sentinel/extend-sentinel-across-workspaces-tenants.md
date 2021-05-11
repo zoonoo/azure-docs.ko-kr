@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: f491681c8054c800e15c3c77516ff22e3c70dbac
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: 49b267d36fb6c365cf2125912c0d27fe7d669474
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001505"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100585281"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>작업 영역 및 테넌트에 걸쳐 Azure Sentinel 확장
 
@@ -34,7 +34,7 @@ Azure Sentinel은 Log Analytics 작업 영역의 상위에 위치하고 있습�
 | 관할 및 규정 준수 | 작업 영역이 특정 지역에 귀속되어 있음. 규정 준수를 위해 데이터를 다른 [Azure 지역](https://azure.microsoft.com/global-infrastructure/geographies/)에 보관해야 한다면, 여러 작업 영역에 분할해서 보관해야 합니다. |  |
 | 데이터 소유권 | 자회사 또는 계열사와 같은 데이터 소유권의 경계는 별도의 작업 영역을 사용하면 보다 쉽게 구분할 수 있습니다. |  |
 | 다수의 Azure 테넌트 | Azure Sentinel은 자체 Azure Active Directory(Azure AD) 테넌트 경계 내에서만 Microsoft 및 Azure SaaS 리소스의 데이터 수집을 지원합니다. 따라서 각 Azure AD 테넌트에는 별도의 작업 영역이 필요합니다. |  |
-| 세부적인 데이터 액세스 제어 | 조직은 조직 내부 또는 외부의 다양한 그룹이 Azure Sentinel에서 수집하는 일부 데이터에 액세스하도록 허용해야 할 수도 있습니다. 예를 들면 다음과 같습니다.<br><ul><li>리소스 소유자의 리소스에 관련된 데이터에 대한 액세스</li><li>지역 또는 자회사 SOC 조직의 일부와 관련된 데이터에 대한 액세스</li></ul> | [리소스 Azure RBAC](resource-context-rbac.md) 또는 [테이블 수준 Azure RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) 사용 |
+| 세부적인 데이터 액세스 제어 | 조직은 조직 내부 또는 외부의 다양한 그룹이 Azure Sentinel에서 수집하는 일부 데이터에 액세스하도록 허용해야 할 수도 있습니다. 예를 들면 다음과 같습니다.<br><ul><li>리소스 소유자의 리소스에 관련된 데이터에 대한 액세스</li><li>지역 또는 자회사 SOC 조직의 일부와 관련된 데이터에 대한 액세스</li></ul> | [리소스 Azure RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) 또는 [테이블 수준 Azure RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) 사용 |
 | 세부적인 데이터 보존 설정 | 지금까지는 여러 작업 영역을 사용하는 것이 여러 데이터 형식에 서로 다른 보존 기간을 설정하는 유일한 방법이었습니다. 하지만 테이블 수준 보존 설정의 도입으로 인해 해당 방법은 더 이상 필요하지 않게 되었습니다. | [테이블 수준 보존 설정](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) 사용 또는 [데이터 삭제](../azure-monitor/logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) 자동화 |
 | 분할 청구 | 작업 영역을 별도의 구독에 배치하면 여러 당사자에게 비용을 청구할 수 있습니다. | 사용량 보고 및 교차 요금 |
 | 레거시 아키텍처 | 여러 작업 영역을 사용하는 이유가 더 이상 적용되지 않는 제한 사항이나 모범 사례를 고려한 과거 디자인 때문일 수도 있습니다. 자의적인 디자인 선택을 했다면 Azure Sentinel에 맞게 수정할 수도 있습니다.<br><br>다음은 이러한 템플릿의 예입니다.<br><ul><li>Azure Security Center 배포 시 구독당 기본 작업 영역 사용</li><li>비교적 새로운 솔루션으로서 세부적 액세스 제어 또는 보존 설정이 필요</li></ul> | 작업 영역 재설계 |
@@ -110,7 +110,7 @@ Azure Sentinel은 [단일 쿼리에서 여러 작업 영역 쿼리](../azure-mon
 
 통합 문서는 다음과 같은 세 가지 방법 중 하나에서 작업 영역 간 쿼리를 제공할 수 있습니다. 각 메서드는 최종 사용자의 전문성 수준에 따라 달라집니다.
 
-| 메서드  | Description | 언제 사용해야 하나요? |
+| 방법  | 설명 | 언제 사용해야 하나요? |
 |---------|-------------|--------------------|
 | 작업 영역 간 쿼리 작성 | 통합 문서 작성자는 통합 문서에서 위에서 설명된 작업 영역 간 쿼리를 작성할 수 있습니다. | 해당 옵션을 사용하면 통합 문서 작성자가 작업 영역 구조에서 사용자를 완전히 보호할 수 있습니다. |
 | 통합 문서에 작업 영역 선택기 추가 | 통합 문서 작성자는 [여기](https://techcommunity.microsoft.com/t5/azure-sentinel/making-your-azure-sentinel-workbooks-multi-tenant-or-multi/ba-p/1402357)에 설명된 대로 통합 문서의 일부로 작업 영역 선택기를 구현할 수 있습니다. | 해당 옵션은 사용하기 쉬운 드롭다운 박스를 통해 통합 문서에 표시되는 작업 영역에 대한 컨트롤을 사용자에게 제공합니다. |

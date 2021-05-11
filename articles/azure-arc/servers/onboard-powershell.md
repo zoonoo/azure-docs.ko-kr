@@ -3,12 +3,13 @@ title: PowerShell을 사용하여 Azure에 하이브리드 머신 연결
 description: 해당 문서에서는 Azure Arc 지원 서버를 사용하여 에이전트를 설치하고 머신을 Azure에 연결하는 방법을 설명합니다. 이 작업은 PowerShell을 사용하여 수행할 수 있습니다.
 ms.date: 10/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 07a00de9077378ce3e3f7a7578b66e93d1b04f2b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d6963a53ac14c9d6727a8d53e781bc8b8389b76e
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100584947"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831621"
 ---
 # <a name="connect-hybrid-machines-to-azure-by-using-powershell"></a>PowerShell을 사용하여 Azure에 하이브리드 머신 연결
 
@@ -18,9 +19,9 @@ Azure Arc에서 지원하는 서버의 경우 수동 단계를 수행하여 환�
 
 해당 프로세스를 시작하려면 먼저 [사전 요구 사항](agent-overview.md#prerequisites)을 검토하고 구독 및 리소스에서 요구 사항을 충족하는지 확인해야 합니다. 지원되는 지역 및 기타 관련 고려 사항에 대한 자세한 내용은 [Azure 지원 지역](overview.md#supported-regions)을 참조하세요.
 
-Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure PowerShell이 설치된 머신 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/)을 참조하세요.
 

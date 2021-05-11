@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae802038626a1fbf8d533800a0b8eb43c4565e8c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100574181"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>조건부 액세스 인사이트 및 보고
@@ -98,43 +98,43 @@ Azure AD 로그를 Azure Monitor 로그에 통합하지 않은 경우 다음 단
 대시보드 아래쪽에서 로그인을 검색하여 특정 사용자의 로그인을 조사할 수도 있습니다. 왼쪽 쿼리에는 가장 빈도가 높은 사용자가 표시됩니다. 사용자를 선택하면 오른쪽 쿼리가 필터링됩니다.  
 
 > [!NOTE]
-> 로그인 로그를 다운로드 하는 경우 조건부 액세스 보고서 전용 결과 데이터를 포함 하려면 JSON 형식을 선택 합니다.
+> 로그인 로그를 다운로드할 때 JSON 형식을 선택하여 조건부 액세스 보고 전용 결과 데이터를 포함합니다.
 
-## <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>보고서 전용 모드에서 조건부 액세스 정책 구성
+## <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>보고 전용 모드로 조건부 액세스 정책 구성
 
-보고서 전용 모드에서 조건부 액세스 정책을 구성 하려면:
+보고 전용 모드로 조건부 액세스 정책을 구성하려면 다음을 수행합니다.
 
-1. 조건부 액세스 관리자, 보안 관리자 또는 전역 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
+1. **Azure Portal** 에 조건부 액세스 관리자, 보안 관리자 또는 전역 관리자로 로그인합니다.
 1. **Azure Active Directory** > **Security** > **조건부 액세스** 로 이동합니다.
-1. 기존 정책을 선택 하거나 새 정책을 만듭니다.
-1. **정책 사용** 에서 **보고서 전용** 모드로 전환을 설정 합니다.
+1. 기존 정책을 선택하거나 새 정책을 만듭니다.
+1. **정책 사용** 에서 **보고 전용** 모드로 전환합니다.
 1. **저장** 을 선택합니다.
 
 > [!TIP]
-> 기존 정책의 **정책 상태 사용** 을 **On** 에서 **보고서 전용** 으로 편집 하면 기존 정책 적용만 사용 하지 않도록 설정 됩니다. 
+> 기존 정책의 **정책 사용** 상태를 **켜짐** 에서 **보고 전용** 으로 편집하면 기존 정책 적용을 사용하지 않습니다. 
 
 ## <a name="troubleshooting"></a>문제 해결
 
-### <a name="why-are-queries-failing-due-to-a-permissions-error"></a>권한 오류로 인해 쿼리가 실패 하는 이유는 무엇 인가요?
+### <a name="why-are-queries-failing-due-to-a-permissions-error"></a>권한 오류로 인해 쿼리가 실패하는 이유는 무엇입니까?
 
-통합 문서에 액세스 하려면 적절 한 Azure AD 권한 뿐만 아니라 작업 영역 권한 Log Analytics 필요 합니다. 샘플 log analytics 쿼리를 실행 하 여 적절 한 작업 영역 권한이 있는지 테스트 하려면 다음을 수행 합니다.
+통합 문서에 액세스하려면 적절한 Azure AD 권한뿐만 아니라 Log Analytics 작업 영역 권한이 필요합니다. 샘플 로그 분석 쿼리를 실행하여 적절한 작업 영역 권한이 있는지 테스트하려면 다음을 수행합니다.
 
 1. **Azure Portal** 에 로그인합니다.
-1. **Azure Active Directory**  >  **로그** 로 이동 합니다.
-1. `SigninLogs`쿼리 상자에를 입력 하 고 **실행** 을 선택 합니다.
-1. 쿼리에서 결과가 반환 되지 않으면 작업 영역이 올바르게 구성 되지 않았을 수 있습니다. 
+1. **Azure Active Directory** > **로그** 로 이동합니다.
+1. 쿼리 상자에 `SigninLogs`를 입력하고 **실행** 을 선택합니다.
+1. 쿼리에서 결과가 반환되지 않으면 작업 영역이 올바르게 구성되지 않았을 수 있습니다. 
 
-![실패 한 쿼리 문제 해결](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
+![쿼리 실패 문제 해결](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
 
-Azure AD 로그인 로그를 Log Analytics 작업 영역으로 스트리밍하는 방법에 대 한 자세한 내용은 [AZURE ad 로그를 Azure Monitor 로그와 통합](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)문서를 참조 하세요.
+Azure AD 로그인 로그를 Log Analytics 작업 영역으로 스트리밍하는 방법에 대한 자세한 내용은 [Azure AD 로그를 Azure Monitor 로그와 통합](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) 문서를 참조하세요.
 
-### <a name="why-are-the-queries-in-the-workbook-failing"></a>통합 문서의 쿼리가 실패 하는 이유는 무엇 인가요?
+### <a name="why-are-the-queries-in-the-workbook-failing"></a>통합 문서의 쿼리가 실패하는 이유는 무엇입니까?
 
-잘못 된 작업이 나 여러 작업 영역이 통합 문서와 연결 된 경우에는 때때로 쿼리가 실패할 수 있다는 사실을 알게 됩니다. 이 문제를 해결 하려면 통합 문서 위쪽에서 **편집** 을 클릭 한 다음 설정 기어를 클릭 합니다. 통합 문서와 연결 되지 않은 작업 영역을 선택 하 고 제거 합니다. 각 통합 문서와 연결 된 작업 영역은 하나만 있어야 합니다.
+고객이 잘못된 작업 영역이나 여러 작업 영역이 통합 문서와 연결되면 쿼리가 실패하는 경우가 있음을 알게 되었습니다. 이 문제를 해결하려면 통합 문서 상단에서 **편집** 을 클릭한 다음 설정 기어를 클릭합니다. 통합 문서와 연결되지 않은 작업 영역을 선택하고 제거합니다. 각 통합 문서와 연결된 작업 영역은 하나만 있어야 합니다.
 
-### <a name="why-is-the-conditional-access-policies-parameter-is-empty"></a>조건부 액세스 정책 매개 변수가 비어 있는 이유는 무엇 인가요?
+### <a name="why-is-the-conditional-access-policies-parameter-is-empty"></a>조건부 액세스 정책 매개 변수가 비어 있는 이유는 무엇입니까?
 
-정책 목록은 가장 최근의 로그인 이벤트에 대해 평가 된 정책을 확인 하 여 생성 됩니다. 테 넌 트에 최신 로그인이 없는 경우 통합 문서가 조건부 액세스 정책 목록을 로드 하는 데 몇 분 정도 기다려야 할 수 있습니다. 이 문제는 Log Analytics를 구성 하는 즉시 발생 하거나 테 넌 트에서 최근 로그인 작업이 없는 경우 더 오래 걸릴 수 있습니다.
+정책 목록은 가장 최근의 로그인 이벤트에 대해 평가된 정책을 확인하여 생성됩니다. 테넌트에 최신 로그인이 없는 경우 통합 문서가 조건부 액세스 정책 목록을 로드하는 데 몇 분 정도 기다려야 할 수 있습니다. 이 문제는 Log Analytics를 구성하는 즉시 발생하거나 테넌트에서 최근 로그인 작업이 없는 경우 더 오래 걸릴 수 있습니다.
 
 ### <a name="why-is-the-workbook-taking-a-long-time-to-load"></a>통합 문서를 로드하는 데 시간이 오래 걸리는 이유는 무엇인가요?  
 
@@ -156,6 +156,6 @@ Azure AD 로그인 로그를 Log Analytics 작업 영역으로 스트리밍하�
 
 - [조건부 액세스 보고 전용 모드](concept-conditional-access-report-only.md)
 
-- Azure AD 통합 문서에 대 한 자세한 내용은 [Azure Active Directory 보고서에 Azure Monitor 통합 문서를 사용 하는 방법](../reports-monitoring/howto-use-azure-monitor-workbooks.md)문서를 참조 하세요.
+- Azure AD 통합 문서에 대한 자세한 내용은 [Azure Monitor 통합 문서를 Azure Active Directory 보고서에 사용하는 방법](../reports-monitoring/howto-use-azure-monitor-workbooks.md) 문서를 참조하세요.
 
 - [조건부 액세스 일반 정책](concept-conditional-access-policy-common.md)

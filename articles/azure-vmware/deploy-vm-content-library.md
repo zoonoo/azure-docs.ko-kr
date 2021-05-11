@@ -1,24 +1,24 @@
 ---
-title: Azure VMware 솔루션에서 Vm을 배포 하는 콘텐츠 라이브러리 만들기
-description: Azure VMware 솔루션 사설 클라우드에 VM을 배포 하는 콘텐츠 라이브러리를 만듭니다.
+title: Azure VMware Solution에서 VM을 배포하는 콘텐츠 라이브러리 만들기
+description: Azure VMware Solution 프라이빗 클라우드에서 VM을 배포하는 콘텐츠 라이브러리를 만듭니다.
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.openlocfilehash: a50b12ef8e139bf7de171398fd28f74fc3f310c9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100382007"
 ---
-# <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Azure VMware 솔루션에서 Vm을 배포 하는 콘텐츠 라이브러리 만들기
+# <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Azure VMware Solution에서 VM을 배포하는 콘텐츠 라이브러리 만들기
 
 콘텐츠 라이브러리는 라이브러리 항목 형식으로 콘텐츠를 저장하고 관리합니다. 단일 라이브러리 항목은 VM(가상 머신)을 배포하는 데 사용되는 하나 이상의 파일로 구성됩니다. 
 
-이 문서에서는 콘텐츠 라이브러리를 만드는 절차를 안내 합니다.  그런 다음 콘텐츠 라이브러리의 ISO 이미지를 사용 하 여 VM을 배포 하는 과정을 안내 합니다.
+이 문서에서는 콘텐츠 라이브러리를 만드는 절차를 안내합니다.  그런 다음 콘텐츠 라이브러리의 ISO 이미지를 사용하여 VM을 배포하는 과정을 안내합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 완료 하려면 NSX-T 세그먼트 (논리 스위치) 및 관리 되는 DHCP 서비스가 필요 합니다.  자세한 내용은 [Azure VMware 솔루션에서 DHCP를 관리 하는 방법](manage-dhcp.md) 문서를 참조 하세요.
+이 자습서를 완료하려면 NSX 세그먼트(논리 스위치) 및 관리형 DHCP 서비스가 필요합니다.  자세한 내용은 [Azure VMware Solution에서 DHCP를 관리하는 방법](manage-dhcp.md) 문서를 참조하세요.
 
 ## <a name="create-a-content-library"></a>콘텐츠 라이브러리 만들기
 
@@ -26,9 +26,9 @@ ms.locfileid: "100382007"
 
    ![메뉴 -> 콘텐츠 라이브러리 선택](./media/content-library/vsphere-menu-content-libraries.png)
 
-1. **추가** 단추를 선택 하 여 새 콘텐츠 라이브러리를 만듭니다.
+1. **추가** 단추를 선택하여 새 콘텐츠 라이브러리를 만듭니다.
 
-   ![추가 단추를 선택 하 여 새 콘텐츠 라이브러리를 만듭니다.](./media/content-library/create-new-content-library.png)
+   ![추가 단추를 선택하여 새 콘텐츠 라이브러리를 만듭니다.](./media/content-library/create-new-content-library.png)
 
 1. 이름을 지정하고, vCenter 서버의 IP 주소를 확인하고, **다음** 을 선택합니다.
 
@@ -92,10 +92,10 @@ ms.locfileid: "100382007"
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Azure VMware 솔루션에서 Vm을 배포 하는 콘텐츠 라이브러리를 만들었습니다. 다음에 대해 알아 볼 수 있습니다.
+Azure VMware Solution에서 콘텐츠 라이브러리를 만들고 VM을 배포하는 방법을 알아봤습니다. 이제 다음에 대해 알아볼 수 있습니다.
 
-- [VMware HCX를 배포 및 구성](tutorial-deploy-vmware-hcx.md) 하 여 VM 워크 로드를 사설 클라우드로 마이그레이션합니다.
-- [Azure VMware 솔루션 vm의 수명 주기 관리](lifecycle-management-of-azure-vmware-solution-vms.md).
+- [VMware HCX 배포 및 구성](tutorial-deploy-vmware-hcx.md)을 통해 프라이빗 클라우드로 VM 워크로드 마이그레이션.
+- [Azure VMware Solution VM의 수명 주기 관리](lifecycle-management-of-azure-vmware-solution-vms.md)
 
 <!-- LINKS - external-->
 

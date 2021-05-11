@@ -5,13 +5,13 @@ keywords: 앱 서비스, Azure 앱 서비스, 규모, 확장성, 앱 서비스 �
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 10/01/2020
-ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: c187a1521762c0b69d42c81f464694729d3c02f7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 8fbd841626e2a074bc0a35cd1b4ac094e267b34a
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594222"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833349"
 ---
 # <a name="configure-premiumv3-tier-for-azure-app-service"></a>Azure App Service에 대한 PremiumV3 계층 구성
 
@@ -79,7 +79,7 @@ App Service 앱 페이지의 왼쪽 탐색 영역에서 **강화(App Service 계
 
 ## <a name="scale-up-from-an-unsupported-resource-group-and-region-combination"></a>지원되지 않는 리소스 그룹 및 지역 조합에서 강화
 
-**PremiumV3** 를 사용할 수 없는 App Service 배포에서 앱이 실행되는 경우 또는 현재 **PremiumV3** 를 지원하지 않는 지역에서 앱이 실행되는 경우 **PremiumV3** 를 활용하기 위해서는 앱을 다시 배포해야 합니다.  다음 두 가지 옵션을 사용할 수 있습니다.
+**PremiumV3** 를 사용할 수 없는 App Service 배포에서 앱이 실행되는 경우 또는 현재 **PremiumV3** 를 지원하지 않는 지역에서 앱이 실행되는 경우 **PremiumV3** 를 활용하기 위해서는 앱을 다시 배포해야 합니다.  다음과 같은 두 가지 옵션이 있습니다.
 
 - 새 리소스 그룹에 새 App Service 요금제로 앱을 만듭니다. App Service 요금제를 만들 때 **PremiumV3** 계층을 선택합니다. 이 단계를 통해 App Service 요금제가 **PremiumV3** 를 지원하는 배포 단위로 배포됩니다. 그런 다음, 새로 만든 앱에 애플리케이션 코드를 다시 배포합니다. App Service 요금제를 하위 계층으로 스케일 다운하여 비용을 절감하는 경우에도 배포 단위에서 지원하므로 항상 **PremiumV3** 로 다시 스케일 업할 수 있습니다.
 - 앱이 이미 기존 **Premium** 계층에서 실행되는 경우 모든 앱 설정, 연결 문자열, 배포 구성을 사용하여 앱을 **PremiumV3** 를 사용하는 새 App Service 요금제의 새 리소스 그룹으로 복제할 수 있습니다.

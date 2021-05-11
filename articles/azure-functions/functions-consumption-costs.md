@@ -3,12 +3,12 @@ title: Azure Functions에서 사용 플랜 비용 예측
 description: Azure의 사용 플랜에서 함수 앱을 실행할 때 발생할 수 있는 비용을 보다 정확하게 예측하는 방법을 알아봅니다.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 648be6325cce5bad36795b113c8bbccb3e21d37b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4967e0ff79a638891da4f784cf2f5f1ca4ddfe51
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774006"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100578562"
 ---
 # <a name="estimating-consumption-plan-costs"></a>소비 계획 비용 예측
 
@@ -47,7 +47,7 @@ HTTP 트리거 함수의 경우 함수 코드가 실행되기 전에 오류가 �
 
 함수 앱 및 관련 서비스의 전체 비용을 예측하는 경우 [Azure 가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/?service=functions)를 사용합니다. 
 
-| 관련 비용 | Description |
+| 관련 비용 | 설명 |
 | ------------ | ----------- |
 | **스토리지 계정** | 각 함수 앱에는 [별도로 청구](https://azure.microsoft.com/pricing/details/storage/)되는 연결된 범용 [Azure Storage 계정](../storage/common/storage-introduction.md#types-of-storage-accounts)이 있어야 합니다. 이 계정은 함수 런타임에서 내부적으로 사용되지만 스토리지 트리거 및 바인딩에 사용할 수도 있습니다. 스토리지 계정이 없는 경우 함수 앱을 만들 때 하나의 계정이 만들어집니다. 자세한 내용은 [스토리지 계정 요구 사항](storage-considerations.md#storage-account-requirements)을 참조하세요.|
 | **Application Insights** | Functions는 [Application Insights](../azure-monitor/app/app-insights-overview.md)를 사용하여 함수 앱에 고성능 모니터링 환경을 제공합니다. 필수는 아니지만 [Application Insights 통합을 사용하도록 설정](configure-monitoring.md#enable-application-insights-integration)해야 합니다. 원격 분석 데이터의 체험판 부여는 매달 포함됩니다. 자세한 정보는 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)를 참조하세요. |
@@ -80,7 +80,7 @@ HTTP 트리거 함수의 경우 함수 코드가 실행되기 전에 오류가 �
     ![함수 앱 리소스를 선택합니다.](media/functions-consumption-costing/select-a-resource.png)
 
       
-    |설정  |제안 값  |Description  |
+    |설정  |제안 값  |설명  |
     |---------|---------|---------|
     | Subscription    |  사용자의 구독  | 함수 앱을 사용하는 구독입니다.  |
     | Resource group     | 리소스 그룹  | 함수 앱을 포함하는 리소스 그룹입니다.   |
@@ -105,7 +105,7 @@ HTTP 트리거 함수의 경우 함수 코드가 실행되기 전에 오류가 �
 
 #### <a name="azure-cli"></a>Azure CLI
 
-[Azure CLI](/cli/azure/)에는 메트릭을 검색하는 명령이 있습니다. CLI는 로컬 명령 환경에서 사용하거나 [Azure Cloud Shell](../cloud-shell/overview.md)을 사용하여 포털에서 직접 사용할 수 있습니다. 예를 들어 다음 [Az Monitor 메트릭 목록](/cli/azure/monitor/metrics#az_monitor_metrics_list) 명령은 이전에 사용된 것과 동일한 기간에 대한 시간별 데이터를 반환합니다.
+[Azure CLI](/cli/azure/)에는 메트릭을 검색하는 명령이 있습니다. CLI는 로컬 명령 환경에서 사용하거나 [Azure Cloud Shell](../cloud-shell/overview.md)을 사용하여 포털에서 직접 사용할 수 있습니다. 예를 들어 다음 [Az Monitor 메트릭 목록](/cli/azure/monitor/metrics#az-monitor-metrics-list) 명령은 이전에 사용된 것과 동일한 기간에 대한 시간별 데이터를 반환합니다.
 
 `<AZURE_SUBSCRIPTON_ID>`을 명령을 실행하는 Azure 구독 ID로 바꾸어야 합니다.
 

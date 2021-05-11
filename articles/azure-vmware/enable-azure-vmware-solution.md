@@ -3,13 +3,13 @@ title: 호스트 할당량 요청 및 Azure VMware Solution 사용
 description: 호스트 할당량/용량을 요청하고 Azure VMware Solution 리소스 공급자를 사용하도록 설정하는 방법을 알아봅니다. 기존 Azure VMware Solution 프라이빗 클라우드에서 더 많은 호스트를 요청할 수도 있습니다.
 ms.topic: how-to
 ms.custom: contperf-fy21q3
-ms.date: 02/17/2021
-ms.openlocfilehash: 5d154f5c63ffccdbf1729e641133b54be478d884
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/21/2021
+ms.openlocfilehash: 855e1dbc45889855a1fe9ef16f89615f471872fa
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100653172"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950895"
 ---
 # <a name="request-host-quota-and-enable-azure-vmware-solution"></a>호스트 할당량 요청 및 Azure VMware Solution 사용
 
@@ -106,10 +106,6 @@ CSP는 [Microsoft 파트너 센터](https://partner.microsoft.com)를 사용해�
       >Azure VMware Solution은 프라이빗 클라우드를 가동하고 중복도 N+1의 호스트를 위해 최소 3개의 호스트를 권장합니다. 
    
    1. **검토 + 만들기** 를 선택하여 요청을 제출합니다.
-
-## <a name="register-the-microsoftavs-resource-provider"></a>**Microsoft.AVS** 리소스 공급자를 등록합니다.
-
-[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
 
 
 ## <a name="next-steps"></a>다음 단계

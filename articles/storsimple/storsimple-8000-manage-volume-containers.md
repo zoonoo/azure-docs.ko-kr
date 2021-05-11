@@ -1,5 +1,5 @@
 ---
-title: StorSimple 8000 시리즈 장치에 대 한 볼륨 컨테이너 관리
+title: StorSimple 8000 시리즈 디바이스에 대한 볼륨 컨테이너 관리
 description: StorSimple 디바이스 관리자 서비스 볼륨 컨테이너 페이지를 사용하여 볼륨 컨테이너를 추가, 수정 또는 삭제하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/09/2021
 ms.author: alkohli
 ms.openlocfilehash: 6f0a0fd48e3717d14a714e42c5566cd7bcf090d5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100545398"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-volume-containers"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 볼륨 컨테이너 관리

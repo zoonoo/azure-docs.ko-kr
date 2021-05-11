@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/05/2021
 ms.author: juliako
 ms.openlocfilehash: 12d23ec471329bd4e0ecb502750198e946e58872
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100530232"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Azure Media Services Video Indexer란?
@@ -25,7 +25,7 @@ VI(Video Indexer)는 Azure Media Services AI 솔루션이며 Azure Cognitive Ser
 
 Video Indexer로 인사이트 추출을 시작하려면 계정을 만들고 비디오를 업로드해야 합니다. Video Indexer에 비디오를 업로드하면 Video Indexer는 다양한 AI 모델을 실행하여 시각적 개체와 오디오를 둘 다 분석합니다. Video Indexer가 비디오를 분석할 때 AI 모델이 인사이트를 추출합니다.
 
-Video Indexer 계정을 만들고 Media Services에 연결 하는 경우 미디어 및 메타 데이터 파일은 해당 Media Services 계정과 연결 된 Azure storage 계정에 저장 됩니다. 자세한 내용은 [Azure에 연결 된 Video Indexer 계정 만들기](connect-to-azure.md)를 참조 하세요.
+Video Indexer 계정을 만들고 Media Services에 연결하는 경우 미디어 및 메타데이터 파일은 해당 Media Services 계정과 연결된 Azure storage 계정에 저장됩니다. 자세한 내용은 [Azure에 연결된 Video Indexer 계정 만들기](connect-to-azure.md)를 참조하세요.
 
 다음 다이어그램은 일러스트레이션이며, Video Indexer가 백 엔드에서 작동하는 방법에 관한 기술적 설명이 아닙니다.
 
@@ -76,15 +76,15 @@ Video Indexer의 인사이트는 다음과 같은 다양한 시나리오에 적�
 
 * **오디오 전사**: 음성을 12개 언어의 텍스트로 변환하고 확장을 허용합니다. 지원되는 언어는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어(간체), 일본어, 아랍어, 러시아어, 포르투갈어, 힌디어 및 한국어입니다.
 * **자동 언어 감지**: 기준 음성 언어를 자동으로 식별합니다. 지원되는 언어는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어(간체), 일본어, 러시아어 및 포르투갈어입니다. 언어를 확실하게 식별할 수 없는 경우 Video Indexer는 음성 언어를 영어로 가정합니다. 자세한 내용은 [언어 식별 모델](language-identification-model.md)을 참조하세요.
-* **다국어 음성 식별 및** 기록: 오디오의 다른 세그먼트에서 음성 언어를 자동으로 식별 합니다. 미디어 파일의 각 세그먼트를 전사되도록 전송한 다음 전사를 다시 하나의 통합된 전사로 결합합니다. 자세한 내용은 [자동으로 다국어 콘텐츠 식별 및 전사](multi-language-identification-transcription.md)를 참조하세요.
+* **다국어 음성 식별 및 전사**: 오디오의 여러 세그먼트에서 음성 언어를 자동으로 식별합니다. 미디어 파일의 각 세그먼트를 전사되도록 전송한 다음 전사를 다시 하나의 통합된 전사로 결합합니다. 자세한 내용은 [자동으로 다국어 콘텐츠 식별 및 전사](multi-language-identification-transcription.md)를 참조하세요.
 * **선택 자막**: VTT, TTML, SRT의 세 가지 형식으로 선택 자막을 만듭니다.
 * **두 채널 처리**: 개별 대본을 자동 검색하고 단일 타임라인으로 병합합니다.
 * **노이즈 감소**: 전화 통신 오디오 또는 노이즈가 많은 녹음을 지웁니다(Skype 필터 기준).
 * **전사 사용자 지정**(CRIS): 사용자 지정 음성 텍스트 변환 모델을 학습하여 산업별 대본을 만듭니다. 자세한 내용은 [Video Indexer 웹 사이트에서 언어 모델 사용자 지정](customize-language-model-with-website.md) 및 [Video Indexer API를 사용하여 언어 모델 사용자 지정](customize-language-model-with-api.md)을 참조하세요.
-* **화자 열거**: 어떤 화자가 어떤 단어를 언제 말했는지 매핑하고 파악합니다. 단일 오디오 파일에서 16 개의 스피커를 검색할 수 있습니다.
+* **화자 열거**: 어떤 화자가 어떤 단어를 언제 말했는지 매핑하고 파악합니다. 단일 오디오 파일에서 16명의 화자를 감지할 수 있습니다.
 * **화자 통계**: 화자 음성 비율에 대한 통계를 제공합니다.
 * **텍스트 콘텐츠 조정**: 오디오 전사에서 명시적 텍스트를 검색합니다.
-* **오디오 효과** (공개 미리 보기): 콘텐츠의 음성이 아닌 세그먼트에서 다음과 같은 오디오 효과를 검색 합니다. Gunshot, 투명 균열, 경보, Siren, 폭발, Dog 짖, 흥미, 웃음,,, 반응, 응원, 박수) 및 무음. 참고: 전체 이벤트 집합은 업로드 사전 설정에서 ' 고급 오디오 분석 '을 선택 하는 경우에만 사용할 수 있으며, 그렇지 않은 경우에는 ' 침묵 ' 및 '가 중 '의 반응만 사용할 수 있습니다.
+* **오디오 효과**(공개 미리 보기): 콘텐츠의 음성이 아닌 세그먼트에서 검색할 수 있는 오디오 효과는 다음과 같습니다. 총소리, 유리 깨지는 소리, 경보, 사이렌, 폭발, 개 짖는 소리, 비명, 웃음, 군중 반응(환호, 박수, 야유), 무음. 참고: 전체 이벤트 집합은 업로드 사전 설정에서 '고급 오디오 분석'을 선택하는 경우에만 사용할 수 있으며, 그렇지 않은 경우에는 '침묵' 및 '군중 반응'만 사용할 수 있습니다.
 * **감정 감지**: 음성(말하는 내용) 및 음성 어조(말하는 방식)를 기반으로 하는 감정을 식별합니다. 감정은 joy(기쁨), sadness(슬픔), anger(분노) 또는 fear(두려움)일 수 있습니다.
 * **번역**: 오디오 전사의 번역을 54개 언어로 만듭니다.
 
@@ -118,7 +118,7 @@ Video Indexer의 인사이트는 다음과 같은 다양한 시나리오에 적�
 
 ## <a name="supported-browsers"></a>지원되는 브라우저
 
-다음 목록에는 Video Indexer 웹 사이트와 위젯을 포함 하는 앱에 사용할 수 있는 지원 브라우저가 나와 있습니다. 이 목록에는 지원 되는 최소 브라우저 버전도 표시 됩니다.
+다음 목록에는 Video Indexer 웹 사이트와 위젯을 포함하는 앱에 사용할 수 있는 지원 브라우저가 나와 있습니다. 이 목록에는 지원되는 최소 브라우저 버전도 표시됩니다.
 
 - Edge, 버전: 16
 - Firefox, 버전: 54
@@ -126,10 +126,10 @@ Video Indexer의 인사이트는 다음과 같은 다양한 시나리오에 적�
 - Safari, 버전: 11
 - Opera, 버전: 44
 - Opera Mobile, 버전: 59
-- Android 브라우저, 버전: 81
+- Android Browser, 버전: 81
 - Samsung Browser, 버전: 7
-- Android 용 Chrome, 버전: 87
-- Android 용 Firefox, 버전: 83
+- Chrome for Android, 버전: 87
+- Firefox for Android, 버전: 83
 
 ## <a name="next-steps"></a>다음 단계
 

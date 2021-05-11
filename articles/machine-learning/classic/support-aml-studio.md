@@ -1,6 +1,6 @@
 ---
-title: ML Studio (클래식) 자습서 & 교육 지원-Azure
-description: 지원 및 교육을 받고 Azure Machine Learning Studio (클래식)에 대 한 피드백 제공
+title: ML Studio(클래식) 자습서 지원 및 교육 - Azure
+description: Azure Machine Learning Studio(클래식)에 대한 지원 및 교육을 받고 피드백 제공
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,22 +9,22 @@ author: peterclu
 ms.author: peterlu
 ms.date: 01/18/2019
 ms.openlocfilehash: 606229f8baf1016938ed531682d11297d14145fd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100517470"
 ---
-# <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)에 대 한 지원 및 교육 받기
+# <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio(클래식)에 대한 지원 및 교육 받기
 
-**적용 대상:** ![ 녹색 확인 표시입니다. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) ![ X를 표시 하지 않습니다.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
-
-
+**적용 대상:**  ![녹색 확인 표시.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)   ![아니요를 나타내는 X.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
-이 문서에서는 Azure Machine Learning Studio (클래식)에 대해 자세히 알아보고 문제 및 질문에 대 한 지원을 받는 방법에 대 한 정보를 제공 합니다.
 
-## <a name="learn-more-about-studio-classic"></a>Studio (클래식)에 대 한 자세한 정보
+
+이 문서에서는 Azure Machine Learning Studio(클래식)에 대해 자세히 알아보고 문제 및 질문에 대한 지원을 받는 방법에 대한 정보를 제공합니다.
+
+## <a name="learn-more-about-studio-classic"></a>Studio(클래식)에 대한 자세한 정보
 
 다음 학습 리소스를 참조하세요.
 + [자습서 및 방법 문서](./index.yml) 
@@ -38,9 +38,9 @@ ms.locfileid: "100517470"
 
 다음 지원 리소스를 확인하세요.
 
-+ **Azure 고객에 대 한 기술 지원**: Azure Portal을 통해 [지원 요청을 제출 하 고 관리](../../azure-portal/supportability/how-to-create-azure-support-request.md) 합니다.
++ **Azure 고객에 대한 기술 지원**: Azure Portal을 통해 [지원 요청을 제출 및 관리](../../azure-portal/supportability/how-to-create-azure-support-request.md)합니다.
 
-+ **사용자 포럼**: [Azure Machine Learning Studio (클래식) 지원 포럼](/answers/topics/azure-machine-learning.html)에서 질문을 하 고 질문에 대답 하 고 다른 사용자와 연결 하세요.
++ **사용자 포럼**: [Azure Machine Learning Studio(클래식) 지원 포럼](/answers/topics/azure-machine-learning.html)에서 질문하고 답변하고 다른 사용자와 연락합니다.
 
 + **Stack Overflow**: "Azure-Machine-Learning" 태그가 지정되어 있는 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning)의 Azure Machine Learning 커뮤니티를 방문합니다.
 

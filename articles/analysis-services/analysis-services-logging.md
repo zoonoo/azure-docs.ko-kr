@@ -4,15 +4,16 @@ description: Azure Analysis Services 서버 모니터링에 대한 로깅을 설
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 04/27/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2bee856adef1208aabbe65ecd5fd11235579bb82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0a2f1ee5f898e6cbdf0f5d2dd4c3becb0160c4be
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100582712"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130344"
 ---
 # <a name="setup-diagnostic-logging"></a>진단 로깅 설정
 

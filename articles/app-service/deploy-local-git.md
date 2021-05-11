@@ -5,19 +5,19 @@ ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
 ms.topic: article
 ms.date: 02/16/2021
 ms.reviewer: dariac
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 3196233728bb7f6493bbc06234c62d261ac99254
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: faf3afc60c8517509199e6a306f511a15b32358c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832359"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732842"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service에 로컬 Git 배포
 
 이 방법 가이드에서는 로컬 컴퓨터의 Git 리포지토리에서 [Azure App Service](overview.md)에 앱을 배포하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 방법 가이드의 단계를 수행하려면
 
@@ -73,7 +73,7 @@ Git 리포지토리인 디렉터리에서 이 cmdlet을 실행하면 `azure`라�
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-[`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config_local_git) 를 실행합니다. 예를 들면 다음과 같습니다.
+[`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-local-git) 를 실행합니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
@@ -142,10 +142,10 @@ Git을 사용하여 Azure에서 App Service 앱에 게시할 때 다음과 같�
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|`git push` 중에 분기를 지정하지 않았거나 `.gitconfig`에 `push.default` 값을 설정하지 않았습니다.|`git push`를 다시 실행하고 기본 분기를 지정합니다(`git push azure main`).|
 |`Error - Changes committed to remote repository but deployment to website failed.`|‘azure’의 앱 배포 분기와 일치하지 않는 로컬 분기를 푸시했습니다.|현재 분기가 `master`인지 확인합니다. 기본 분기를 변경하려면 `DEPLOYMENT_BRANCH` 애플리케이션 설정을 사용합니다.|
 |`src refspec [branchname] does not match any.`|‘azure’ 원격에서 기본 이외의 분기로 푸시하려고 했습니다.|`git push`를 다시 실행하고 기본 분기를 지정합니다(`git push azure main`).|
-|`RPC failed; result=22, HTTP code = 5xx.`|이 오류는 HTTPS를 통해 큰 git 리포지토리를 푸시하려고 시도하는 경우 발생할 수 있습니다.|`postBuffer`를 확장하도록 로컬 머신에서 git 구성을 변경합니다. 예를 들면 `git config --global http.postBuffer 524288000`와 같습니다.|
+|`RPC failed; result=22, HTTP code = 5xx.`|이 오류는 HTTPS를 통해 큰 git 리포지토리를 푸시하려고 시도하는 경우 발생할 수 있습니다.|`postBuffer`를 확장하도록 로컬 머신에서 git 구성을 변경합니다. 예: `git config --global http.postBuffer 524288000`|
 |`Error - Changes committed to remote repository but your web app not updated.`|추가 필수 모듈을 지정하는 _package.json_ 파일이 있는 Node.js 앱을 배포했습니다.|실패에 관한 추가 컨텍스트는 이 오류 전의 `npm ERR!` 오류 메시지를 검토하세요. 다음은 이 오류 및 해당 `npm ERR!` 메시지의 알려진 원인입니다.<br /><br />**잘못된 형식의 package.json 파일**: `npm ERR! Couldn't read dependencies.`<br /><br />**Windows용 이진 배포가 없는 네이티브 모듈**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />또는 <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 - [App Service 빌드 서버(Project Kudu 설명서)](https://github.com/projectkudu/kudu/wiki)
 - [Azure App Service 연속 배포](deploy-continuous-deployment.md)

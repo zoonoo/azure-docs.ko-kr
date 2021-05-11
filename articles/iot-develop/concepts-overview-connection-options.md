@@ -6,12 +6,12 @@ ms.author: timlt
 ms.service: iot-develop
 ms.topic: conceptual
 ms.date: 02/11/2021
-ms.openlocfilehash: 8669919192b1e6394043842d7d23f8829ec7c71e
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 6bbd7d37418af68065daa194d4ff4bd80f6fd09c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589553"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100654367"
 ---
 # <a name="overview-connection-options-for-azure-iot-device-developers"></a>개요: Azure IoT 디바이스 개발자를 위한 연결 옵션
 디바이스로 작업하는 개발자로서 Azure IoT 디바이스를 연결하고 관리하는 몇 가지 옵션을 사용할 수 있습니다. 이 문서에서는 디바이스를 연결하고 관리하는 데 가장 일반적으로 사용되는 옵션 및 도구에 대해 간략하게 설명합니다.
@@ -34,11 +34,11 @@ IoT Hub 또는 IoT Central을 선택하여 IoT 애플리케이션을 호스트�
 |도구  |IoT 플랫폼 &nbsp; &nbsp; &nbsp; &nbsp; 지원 |문서화  |설명  |
 |---------|---------|---------|---------|
 |중앙 웹 UI     | Central | [Central 빠른 시작](../iot-central/core/quick-deploy-iot-central.md) | IoT Central용 브라우저 기반 포털입니다. |
-|Azure Portal     | Hub, Central      | [Azure Portal을 사용하여 IoT Hub 만들기](../iot-hub/iot-hub-create-through-portal.md), [Azure Portal에서 IoT Central 관리](../iot-central/core/howto-manage-iot-central-from-portal.md)| IoT Hub 및 디바이스용 브라우저 기반 포털입니다. IoT Central을 포함하여 다른 Azure 리소스에도 작동합니다. |
-|Azure IoT Explorer     | 허브 | [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer#azure-iot-explorer-preview) | IoT Hub를 만들 수 없습니다. 기존 IoT Hub에 연결해 디바이스를 관리합니다. CLI 또는 포털에서 자주 사용됩니다.|
+|Azure portal     | Hub, Central      | [Azure Portal을 사용하여 IoT Hub 만들기](../iot-hub/iot-hub-create-through-portal.md), [Azure Portal에서 IoT Central 관리](../iot-central/core/howto-manage-iot-central-from-portal.md)| IoT Hub 및 디바이스용 브라우저 기반 포털입니다. IoT Central을 포함하여 다른 Azure 리소스에도 작동합니다. |
 |Azure CLI     | Hub, Central          | [CLI를 사용하여 IoT Hub 만들기](../iot-hub/iot-hub-create-using-cli.md), [Azure CLI에서 IoT Central 관리](../iot-central/core/howto-manage-iot-central-from-cli.md) | IoT 애플리케이션을 만들고 관리하기 위한 명령줄 인터페이스입니다. |
 |Azure PowerShell     | Hub, Central   | [PowerShell을 사용하여 IoT Hub 만들기](../iot-hub/iot-hub-create-using-powershell.md), [Azure PowerShell에서 IoT Central 관리](../iot-central/core/howto-manage-iot-central-from-powershell.md) | IoT 애플리케이션을 만들고 관리하기 위한 PowerShell 인터페이스 |
 |VS Code용 Azure IoT Tools  | 허브 | [VS Code용 도구를 사용하여 IoT Hub 만들기](../iot-hub/iot-hub-create-use-iot-toolkit.md) | IoT Hub 애플리케이션에 대한 VS Code 확장입니다. |
+|Azure IoT Explorer     | 허브 | [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) | IoT Hub를 만들 수 없습니다. 기존 IoT Hub에 연결해 디바이스를 관리합니다. CLI 또는 포털에서 자주 사용됩니다.|
 
 ## <a name="next-steps"></a>다음 단계
 디바이스를 Azure IoT에 연결하는 옵션에 대한 자세한 내용을 보려면 다음 빠른 시작을 살펴보세요.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: f4d97b81bf8f11b8380f04dcbfdb72bd658805ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 98c0a6f88da717256e78a748902317a90a369a9c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579242"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533621"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
@@ -59,62 +59,6 @@ ms.locfileid: "100579242"
 3. 지정된 사용자에게 할당된 모든 역할을 나열하려면 **Get-AzRoleAssignment -SignInName [사용자 메일] -IncludeClassicAdministrators** 를 사용합니다. 
 
 출력이 표시되지 않으면 각 구독 관리자에게 문의하여 명령을 실행할 권한을 얻으세요. 자세한 내용을 알아보려면 [Azure PowerShell을 사용하여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-powershell.md)를 참조하세요.
-
-
-## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>트래픽 분석을 사용할 수 있는 Azure 지역은 어디인가요?
-
-지원되는 다음 지역 중 하나에서 NSG용 트래픽 분석을 사용할 수 있습니다.
-- 캐나다 중부
-- 미국 중서부
-- 미국 동부
-- 미국 동부 2
-- 미국 중북부
-- 미국 중남부
-- 미국 중부
-- 미국 서부
-- 미국 서부 2
-- 프랑스 중부
-- 서유럽
-- 북유럽
-- 브라질 남부
-- 영국 서부
-- 영국 남부
-- 오스트레일리아 동부
-- 오스트레일리아 남동부 
-- 동아시아
-- 동남아시아
-- 한국 중부
-- 인도 중부
-- 인도 남부
-- 일본 동부
-- 일본 서부
-- US Gov 버지니아
-- 중국 동부 2
-
-Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
-- 캐나다 중부
-- 미국 중서부
-- 미국 동부
-- 미국 동부 2
-- 미국 중북부
-- 미국 중남부
-- 미국 중부
-- 미국 서부
-- 미국 서부 2
-- 프랑스 중부
-- 서유럽
-- 북유럽
-- 영국 서부
-- 영국 남부
-- 오스트레일리아 동부
-- 오스트레일리아 남동부
-- 동아시아
-- 동남아시아 
-- 한국 중부
-- 인도 중부
-- 일본 동부
-- US Gov 버지니아
-- 중국 동부 2
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>흐름 로그를 설정하려는 NSG가 작업 영역과 다른 지역에 있어도 되나요?
 

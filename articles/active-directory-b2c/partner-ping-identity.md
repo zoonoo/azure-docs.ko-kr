@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 94e7ae93d05ae8ee35028882e14d8da74814d833
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 066fd6f91b19da211a73ac12fb6dca94085399ac
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101650229"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256636"
 ---
 # <a name="tutorial-configure-ping-identity-with-azure-active-directory-b2c-for-secure-hybrid-access"></a>자습서: 보안 하이브리드 액세스를 위해 Azure Active Directory B2C를 사용하여 Ping ID 구성하기
 
@@ -74,9 +74,9 @@ PingFederate는 인증 공급자로 완전히 구성하거나 필요한 경우 �
 
 ![PingAccess 및 PingFederate 워크플로를 보여 주는 이미지](./media/partner-ping/pingaccess-pingfederate-workflow.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-시작을 위해 필요한 사항:
+시작하려면 다음이 필요합니다.
 
 - Azure 구독 계정이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻습니다.
 
@@ -179,7 +179,7 @@ ID 매핑을 만들려면 다음 단계를 수행합니다.
 
 4. ID 매핑을 **헤더 ID 매핑 형식** 으로 선택하기
 
-5. **특성 매핑** 테이블에서 필요한 매핑 지정하기. 예제:
+5. **특성 매핑** 테이블에서 필요한 매핑 지정하기. 예를 들면 다음과 같습니다.
 
    특성 이름 | 헤더 이름 |
    |-------|--------|
@@ -267,4 +267,4 @@ PingFederate 인증 정책을 구성하여 Azure AD B2C 테넌트에서 제공�
 
 - [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C에서 사용자 지정 정책 시작](./custom-policy-get-started.md?tabs=applications)
+- [Azure AD B2C의 사용자 지정 정책 시작하기](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

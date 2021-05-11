@@ -4,17 +4,17 @@ description: Azure Queue Storage의 모니터링 데이터를 위한 로그 및 
 author: normesta
 services: azure-monitor
 ms.author: normesta
-ms.date: 10/02/2020
+ms.date: 04/20/2021
 ms.topic: reference
 ms.service: azure-monitor
 ms.subservice: logs
-ms.custom: monitoring
-ms.openlocfilehash: 95f20737b044140fe12ea939e71cd2397cb4826d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-monitoring
+ms.openlocfilehash: 506f5a46688f597b8ac5db341c5bbe5eb5fb67c8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100576699"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763148"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Azure Queue Storage 모니터링 데이터 참조
 
@@ -38,11 +38,11 @@ Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공
 
 다음 표에서는 [Queue Storage 메트릭](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsqueueservices)을 보여 줍니다.
 
-| 메트릭 | 설명 |
+| 메트릭 | Description |
 | ------------------- | ----------------- |
 | **QueueCapacity** | 스토리지 계정에 사용한 Queue Storage 양입니다. <br><br> 단위: `Bytes` <br> 집계 유형: `Average` <br> 값 예제: `1024` |
 | **QueueCount** | 스토리지 계정의 큐 수입니다. <br><br> 단위: `Count` <br> 집계 유형: `Average` <br> 값 예제: `1024` |
-| **QueueMessageCount** | 스토리지 계정에 있는 큐 메시지의 대략적인 수입니다. <br><br> 단위: `Count` <br> 집계 유형: `Average` <br> 값 예제: `1024` |
+| **QueueMessageCount** | 스토리지 계정의 만료되지 않은 큐 메시지 수입니다. <br><br> 단위: `Count` <br> 집계 유형: `Average` <br> 값 예제: `1024` |
 
 ### <a name="transaction-metrics"></a>트랜잭션 메트릭
 
@@ -77,7 +77,7 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - Azure Queue Storage 모니터링에 대한 설명은 [Azure Queue Storage 모니터링](monitor-queue-storage.md)을 참조하세요.
 - Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../../azure-monitor/essentials/monitor-azure-resource.md)을 참조하세요.

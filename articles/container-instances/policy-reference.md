@@ -1,15 +1,15 @@
 ---
 title: Azure Container Instances에 대한 기본 제공 정책 정의
 description: Azure Container Instances 관련 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 03/31/2021
+ms.date: 04/28/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 06886397bd4e30826863daab3b3cd525fef523a1
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 966c07ad26ba3a5c970f3cd132ffa9f741aa7beb
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106091392"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108179489"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-container-instances"></a>Azure Container Instances 관련 Azure Policy 기본 제공 정의
 

@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52b450ecc8aff379dbdb8d58f9b7609cf730ad27
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 87b9371bfe3b0bd8ff8b3bd509cc1431f0c2e1c6
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731669"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305772"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory Seamless Single Sign-On: 질문과 대답
 
@@ -90,7 +90,7 @@ Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를
    **1단계. Seamless SSO가 활성화된 AD 포리스트 목록 가져오기**
 
    1. 먼저 [Azure AD PowerShell](/powershell/azure/active-directory/overview)을 다운로드한 후 설치합니다.
-   2. `%programfiles%\Microsoft Azure Active Directory Connect` 폴더로 이동합니다.
+   2. `$env:programfiles\Microsoft Azure Active Directory Connect` 폴더로 이동합니다.
    3. 다음 명령을 사용하여 Seamless SSO PowerShell 모듈을 가져옵니다. `Import-Module .\AzureADSSO.psd1`
    4. 관리자 권한으로 PowerShell을 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 이 명령으로 테넌트의 전역 관리자 자격 증명을 입력하라는 팝업 메시지가 표시됩니다.
    5. `Get-AzureADSSOStatus | ConvertFrom-Json`을 호출합니다. 사용하도록 설정된 AD 포리스트 목록("도메인" 목록에 있음)이 표시됩니다.
@@ -135,7 +135,7 @@ Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를
    Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를 실행합니다.
 
    1. 먼저 [Azure AD PowerShell](/powershell/azure/active-directory/overview)을 다운로드한 후 설치합니다.
-   2. `%programfiles%\Microsoft Azure Active Directory Connect` 폴더로 이동합니다.
+   2. `$env:ProgramFiles\Microsoft Azure Active Directory Connect` 폴더로 이동합니다.
    3. 다음 명령을 사용하여 Seamless SSO PowerShell 모듈을 가져옵니다. `Import-Module .\AzureADSSO.psd1`
    4. 관리자 권한으로 PowerShell을 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 이 명령으로 테넌트의 전역 관리자 자격 증명을 입력하라는 팝업 메시지가 표시됩니다.
    5. `Enable-AzureADSSO -Enable $false`을 호출합니다.
@@ -150,7 +150,7 @@ Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를
    Azure AD Connect를 사용하여 Seamless SSO를 사용하지 않도록 설정한 경우 아래의 태스크 1-4를 따릅니다. 대신 PowerShell을 사용하여 Seamless SSO를 사용하지 않도록 설정한 경우 아래의 태스크 5를 이동합니다.
 
    1. 먼저 [Azure AD PowerShell](/powershell/azure/active-directory/overview)을 다운로드한 후 설치합니다.
-   2. `%programfiles%\Microsoft Azure Active Directory Connect` 폴더로 이동합니다.
+   2. `$env:ProgramFiles\Microsoft Azure Active Directory Connect` 폴더로 이동합니다.
    3. 다음 명령을 사용하여 Seamless SSO PowerShell 모듈을 가져옵니다. `Import-Module .\AzureADSSO.psd1`
    4. 관리자 권한으로 PowerShell을 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 이 명령으로 테넌트의 전역 관리자 자격 증명을 입력하라는 팝업 메시지가 표시됩니다.
    5. `Get-AzureADSSOStatus | ConvertFrom-Json`을 호출합니다. 사용하도록 설정된 AD 포리스트 목록("도메인" 목록에 있음)이 표시됩니다.

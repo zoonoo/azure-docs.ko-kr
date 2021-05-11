@@ -1,7 +1,7 @@
 ---
-title: 가상 WAN 가격 정보
+title: Virtual WAN 가격 책정 정보
 titleSuffix: Azure Virtual WAN
-description: 이 문서에서는 일반적인 가상 WAN 가격 관련 질문을 설명 합니다.
+description: 이 문서에서는 일반적인 Virtual WAN 가격 책정 관련 질문을 설명합니다.
 services: virtual-wan
 author: reyandap
 ms.service: virtual-wan
@@ -10,60 +10,60 @@ ms.date: 12/08/2020
 ms.author: reyandap
 ms.custom: references_pricing
 ms.openlocfilehash: 13451291544f704000ab61d41ed5014fa69298e4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100517691"
 ---
-# <a name="about-virtual-wan-pricing"></a>가상 WAN 가격 정보
+# <a name="about-virtual-wan-pricing"></a>Virtual WAN 가격 책정 정보
 
-Azure 가상 WAN은 통합 프레임 워크에서 여러 네트워크 및 보안 서비스를 함께 제공 합니다. 허브 및 스포크 아키텍처를 기반으로 합니다. 여기에서 허브는 허브 내에서 제공 되는 다양 한 서비스 (예: VPN, Express 경로, 사용자 VPN (지점 및 사이트 간), 방화벽, 라우팅 등)를 사용 하 여 Microsoft에서 관리 됩니다.
+Azure Virtual WAN은 통합 프레임워크에서 여러 네트워크 및 보안 서비스를 함께 제공합니다. 허브 및 스포크 아키텍처를 기반으로 하며, 여기에서 허브는 허브 내에서 제공되는 다양한 서비스(예: VPN, ExpressRoute, 사용자 VPN(지점 및 사이트 간), 방화벽, 라우팅 등)를 사용하여 Microsoft에서 관리합니다.
 
-가상 WAN의 각 서비스는 가격이 책정 됩니다. 따라서 단일 가격을 제안 하는 것은 가상 WAN에는 적용 되지 않습니다. [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/) 는 가상 WAN에서 프로 비전 된 서비스를 기반으로 비용을 도출 하는 메커니즘을 제공 합니다. 이 문서에서는 가상 WAN 가격에 대 한 자주 묻는 질문을 설명 합니다.
+Virtual WAN의 각 서비스에는 가격이 책정되어 있습니다. 따라서 단일 가격 제안은 Virtual WAN에 적용되지 않습니다. [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)는 Virtual WAN에서 프로비전된 서비스를 기반으로 비용을 계산하는 메커니즘을 제공합니다. 이 문서에서는 Virtual WAN 가격 책정에 대해 자주 묻는 질문을 설명합니다.
 
 >[!NOTE]
->최신 가격 책정 정보는 [가상 WAN 가격](https://azure.microsoft.com/pricing/details/virtual-wan/)을 참조 하세요. 허브 간 (허브에서 허브로) 요금은 Inter-Region (내부/본토) 요금 청구 [Azure 데이터 전송 요금](https://azure.microsoft.com/pricing/details/bandwidth/)에 따라 가상 WAN 가격 책정 페이지에 표시 되지 않습니다.
+>최신 가격 책정 정보는 [Virtual WAN 가격 책정](https://azure.microsoft.com/pricing/details/virtual-wan/)을 참조하세요. 지역 간(지역 내/대륙 간) 요금이 [Azure 데이터 전송 요금](https://azure.microsoft.com/pricing/details/bandwidth/) 적용 대상이므로 허브 간(허브에서 허브로) 요금은 Virtual WAN 가격 책정 페이지에 표시되지 않습니다.
 
-## <a name="common-pricing-questions"></a><a name="questions"></a>일반적인 가격 책정 질문
+## <a name="common-pricing-questions"></a><a name="questions"></a>가격 책정 질문
 
-### <a name="what-is-a-scale-unit"></a><a name="scale-unit"></a>배율 단위 란 무엇 인가요?
+### <a name="what-is-a-scale-unit"></a><a name="scale-unit"></a>배율 단위는 무엇입니까?
 
-**배율 단위** 는 가상 허브에서 S2S (사이트 간), 지점 및 사이트 간 (P2S) 및 express 경로 (ER)의 용량을 집계 하는 단위를 제공 합니다. 예를 들면 다음과 같습니다.
+**배율 단위** 는 가상 허브의 S2S(사이트 간), P2S(지점 및 사이트 간), ER(ExpressRoute) 집계 용량에 대한 단위를 제공합니다. 예를 들면 다음과 같습니다.
 
-* **1 S2S vpn 배율 단위** 는 가상 허브 비용 $0.361/시간에 500 Mbps vpn 게이트웨이의 총 용량을 의미 합니다 (이중 인스턴스는 복원 력을 위해 배포 됨).
-* **1 ER 배율 단위** 는 가상 허브 비용 $0.42/hr에서 총 2 Gbps ER 게이트웨이를 의미 합니다.
-* **5 ER 배율 단위** 는 $0.42 * 5/시간으로 가격이 책정 되는 가상 허브 VNet 내부에 총 10gbps의 게이트웨이를 의미 합니다. ER는 6 ~ 10 번째 배율 단위에서 $0.25/hr을 증가 시킵니다.
+* **1 S2S VPN 배율 단위** 는 가상 허브 비용 $0.361/시간에 총 용량 500Mbps VPN 게이트웨이를 의미합니다(복원력을 위해 이중 인스턴스가 배포됨).
+* **1 ER 배율 단위** 는 가상 허브 비용 $0.42/시간에서 총 2Gbps ER 게이트웨이를 의미합니다.
+* **5 ER 배율 단위** 는 $0.42*5/시간으로 가격이 책정되는 가상 허브 VNet 내부에 있는 총 10Gbps ER 게이트웨이를 의미합니다. ER은 6~10 배율 단위에서 $0.25/시간만큼 증분됩니다.
 
-### <a name="what-is-a-connection-unit"></a><a name="connection-unit"></a>연결 단위 란 무엇 인가요?
+### <a name="what-is-a-connection-unit"></a><a name="connection-unit">연결 단위는 무엇입니까?</a>
 
-**연결 단위** 는 Azure 게이트웨이에 연결 하는 모든 온-프레미스/비 Microsoft 끝점에 적용 됩니다. 사이트 간 VPN의 경우이 값은 분기를 의미 합니다. 사용자 VPN (지점 및 사이트 간)의 경우이 값은 원격 사용자를 의미 합니다. Express 경로의 경우이 값은 Express 경로 회로 연결을 의미 합니다.<br>예를 들면 다음과 같습니다.
+**연결 단위** 는 Azure 게이트웨이에 연결하는 모든 온-프레미스/타사 엔드포인트에 적용됩니다. 사이트 간 VPN의 경우 이 값은 분기를 의미합니다. 사용자 VPN(지점 및 사이트 간)의 경우 이 값은 원격 사용자를 의미합니다. ExpressRoute의 경우 이 값은 ExpressRoute 회로 연결을 의미합니다.<br>예를 들면 다음과 같습니다.
 
-* 가상 허브에서 Azure VPN에 연결 하는 단일 분기 연결 비용은 $0.05/hr입니다. 따라서 100 Azure 가상 허브에 연결 하는 분기 연결의 비용은 $0.05 * 100/시간입니다.
+* 가상 허브에서 Azure VPN에 연결하는 단일 분기 연결 비용은 $0.05/시간입니다. 따라서 Azure 가상 허브에 연결하는 분기 연결 100개의 비용은 $0.05*100/시간입니다.
 
-* 가상 허브에 연결 하는 두 개의 Express 경로 회로 연결의 비용은 $0.05 * 2/시간입니다.
+* 가상 허브에 연결 하는 2개의 ExpressRoute 회로 연결의 비용은 $0.05*2/시간입니다.
 
-* Azure virtual hubs P2S gateway에 연결 하는 세 가지 원격 사용자 연결은 $0.03 * 3/hr 비용을 부과 합니다.
+* Azure 가상 허브 P2S 게이트웨이에 연결하는 3개의 원격 사용자 연결의 비용은 $0.03*3/시간입니다.
 
-### <a name="how-are-data-transfer-charges-calculated"></a><a name="data-transfer"></a>데이터 전송 요금은 어떻게 계산 되나요?
+### <a name="how-are-data-transfer-charges-calculated"></a><a name="data-transfer"></a>데이터 전송 요금은 어떻게 계산됩니까?
 
-* Azure를 시작 하는 트래픽은 요금이 청구 되지 않습니다. Azure에서 나가는 트래픽 (VPN, Express 경로 또는 지점 및 사이트 간 사용자 VPN 연결을 통해)은 표준 [Azure 데이터 전송 요금이](https://azure.microsoft.com/pricing/details/bandwidth/)적용 됩니다.
+* Azure에 진입하는 트래픽에는 요금이 청구되지 않습니다. (VPN, ExpressRoute 또는 지점 및 사이트 간 사용자 VPN 연결을 통해) Azure에서 나가는 트래픽에는 표준 [Azure 데이터 전송 요금](https://azure.microsoft.com/pricing/details/bandwidth/)이 적용됩니다.
 
-* 가상 WAN 허브와 원본 허브와 다른 지역에 있는 원격 가상 WAN 허브 또는 VNet 간의 데이터 전송 요금에 대해서는 허브에서 나가는 트래픽에 대해 데이터 전송 요금이 적용 됩니다. 예: 미국 동부 허브로 나가는 트래픽은 $0.02/GB가 미국 서 부 허브로 이동 하는 것으로 청구 됩니다. 미국 서 부 허브로 들어가는 트래픽에 대해서는 요금이 부과 되지 않습니다. 허브에 대 한 모든 허브 트래픽에는 Inter-Region (내부/본토) 요금 [Azure 데이터 전송 요금이](https://azure.microsoft.com/pricing/details/bandwidth/)적용 됩니다. 
+* Virtual WAN 허브와 원본 허브가 아닌 다른 지역에 있는 원격 Virtual WAN 허브 또는 VNet 간의 데이터 전송 요금에 대해서는 허브에서 나가는 트래픽에 대한 데이터 전송 요금이 적용됩니다. 예: 미국 동부 허브에서 나가는 트래픽은 미국 서부 허브로 이동하는 데 $0.02/GB의 요금이 청구됩니다. 미국 서부 허브로 들어가는 트래픽에 대해서는 요금이 청구되지 않습니다. 모든 허브 간 트래픽은 지역 간(지역 내/대륙 간) 요금인 [Azure 데이터 전송 요금](https://azure.microsoft.com/pricing/details/bandwidth/) 적용 대상입니다. 
 
-### <a name="what-is-the-difference-between-a-standard-hub-fee-and-a-standard-hub-processing-fee"></a><a name="fee"></a>표준 허브 요금 및 표준 허브 처리 요금 간의 차이점은 무엇 인가요?
+### <a name="what-is-the-difference-between-a-standard-hub-fee-and-a-standard-hub-processing-fee"></a><a name="fee"></a>표준 허브 요금과 표준 허브 처리 요금의 차이는 무엇입니까?
 
-가상 WAN은 다음과 같은 두 가지 특성으로 제공 됩니다.
+Virtual WAN은 다음 두 가지 버전으로 제공됩니다.
 
-* 사용자가 여러 허브를 배포 하 고 VPN 사이트 간 연결을 즐길 수 있는 **기본 가상 WAN** 기본 가상 WAN에는 완전히 연결 된 허브, Express 경로 연결, 사용자 VPN/지점 및 사이트 간 VPN 연결, VNet 간 전이적 연결, VPN 및 Express 경로 전송 연결, Azure 방화벽 등의 고급 기능이 없습니다. 기본 가상 WAN에서 허브에 대 한 기본 요금 또는 데이터 처리 요금은 없습니다.
+* **기본 가상 WAN** 에서 사용자는 여러 허브를 배포하고 VPN 사이트 간 연결을 이용할 수 있습니다. 기본 가상 WAN에는 완전 메시형 허브, ExpressRoute 연결, 사용자 VPN/지점 및 사이트 간 VPN 연결, VNet 간 전이적 연결, VPN 및 ExpressRoute 전송 연결, Azure Firewall 등의 고급 기능이 없습니다. 기본 가상 WAN에는 허브에 대한 기본 요금 또는 데이터 처리 요금이 없습니다.
 
-* **표준 가상 WAN** 은 완전히 연결 된 허브, express 경로 연결, 사용자 Vpn/지점 및 사이트 간 vpn 연결, vnet 간 전이적 연결, VPN 및 express 경로 전송 연결, Azure 방화벽 등의 고급 기능을 제공 합니다. 모든 가상 허브 라우팅은 가상 허브에서 여러 서비스를 사용 하도록 설정 하는 라우터에 의해 제공 됩니다. 허브에 대 한 기본 요금은 $0.25/hr으로 가격이 책정 됩니다. 또한 VNet 간 전송 연결에 대 한 가상 허브 라우터의 데이터 처리 요금이 청구 됩니다. 다음 그림을 참조하세요.
+* **표준 가상 WAN** 은 완전 메시형 허브, ExpressRoute 연결, 사용자 VPN/지점 및 사이트 간 VPN 연결, VNet 간 전이적 연결, VPN 및 ExpressRoute 전송 연결, Azure Firewall 등의 고급 기능을 제공합니다. 가상 허브에서 여러 서비스를 사용할 수 있는 라우터가 모든 가상 허브 라우팅에 제공됩니다. 허브에 대한 기본 요금은 $0.25/시간으로 책정되어 있습니다. 또한 VNet 간 전송 연결에 대한 가상 허브 라우터의 데이터 처리 요금이 청구됩니다. 다음 그림을 참조하세요.
 
- 아래 **예제** 그림에는 vnet 1과 vnet 2의 두 가지 vnet 있습니다. Vnet 1의 VM에서 VNET 2의 다른 VM으로 1Gbps 데이터를 전송 하는 경우를 가정해 보겠습니다. 다음 요금이 적용 됩니다.
+ 아래 **예제** 그림에는 VNET 1과 VNET 2라는 2개의 VNet이 있습니다. VNET 1의 VM에서 VNET 2의 다른 VM으로 1Gbps 데이터를 전송하는 경우를 가정해 보겠습니다. 다음 요금이 적용됩니다.
 
 * 가상 허브 기본 요금 $0.25/시간
 
-* 1Gbps의 $0.02/GB에 대 한 가상 허브 데이터 처리 요금
+* 1Gbps에 대한 가상 허브 데이터 처리 요금 $0.02/GB
 
 **예제**
 
@@ -73,4 +73,4 @@ Azure 가상 WAN은 통합 프레임 워크에서 여러 네트워크 및 보안
 
 * Virtual WAN에 대한 자세한 내용은 [FAQ](virtual-wan-faq.md)를 참조하세요.
 
-* 최신 가격은 [가상 WAN 가격](https://azure.microsoft.com/pricing/details/virtual-wan/)을 참조 하세요.
+* 최신 가격 책정 [Virtual WAN 가격 책정](https://azure.microsoft.com/pricing/details/virtual-wan/)을 참조하세요.

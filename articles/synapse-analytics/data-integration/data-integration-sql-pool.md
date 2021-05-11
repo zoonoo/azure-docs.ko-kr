@@ -5,16 +5,16 @@ services: synapse-analytics
 author: djpmsft
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: sql
+ms.subservice: pipeline
 ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: a02abff712fc26f653307108fcc3bb284444d0c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 79f0b1a6942f141f0a2d2d38adc5875d82e86d50
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676646"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567624"
 ---
 # <a name="ingest-data-into-a-dedicated-sql-pool"></a>전용 SQL 풀에 데이터 수집하기
 
@@ -45,7 +45,7 @@ Azure Synapse Analytics에서 연결된 서비스는 다른 서비스에 대한 
 1. **이동 및 변환** 에 있는 작업 창에서 **데이터 복사** 를 파이프라인 캔버스로 끕니다.
 1. 복사 작업을 선택하고 **원본** 탭으로 이동합니다. **새로 만들기** 를 선택하여 새 원본 데이터 세트를 만듭니다.
 1. Azure Data Lake Storage gen2를 데이터 저장소로 선택하고 계속을 선택합니다.
-1. DelimitedText를 형식으로 선택하고 계속을 선택합니다.
+1. 형식으로 DelimitedText를 선택하고 계속을 선택합니다.
 1. 설정 속성 창에서 만든 ADLS 연결 서비스를 선택합니다. 원본 데이터의 파일 경로를 지정하고 첫 번째 행에 머리글이 있는지 여부를 지정합니다. 파일 저장소나 샘플 파일에서 스키마를 가져올 수 있습니다. 마치면 확인을 선택합니다.
 1. **싱크** 탭으로 이동합니다. **새로 만들기** 를 선택하여 새 싱크 데이터 세트를 만듭니다.
 1. Azure Synapse Analytics를 데이터 저장소로 선택하고 계속을 선택합니다.

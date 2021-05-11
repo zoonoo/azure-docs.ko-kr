@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/23/2021
 ms.author: alkohli
-ms.openlocfilehash: d6909492d09cb751ba8206599470f776d1fa0aa0
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 4d2a345ed49fae2e1d77b3c5da44b305d069874e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133909"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729459"
 ---
 # <a name="azure-stack-edge-2103-release-notes"></a>Azure Stack Edge 2103 릴리스 정보
 
@@ -82,7 +82,7 @@ Azure Stack Edge 2103 릴리스에서는 다음과 같은 새로운 기능을 �
 |**3.**|제한|제한하는 동안 디바이스에 대한 새 쓰기가 허용되지 않는 경우 NFS 클라이언트의 쓰기가 “사용 권한이 거부됨” 오류를 나타내며 실패합니다.| 이 오류는 다음과 같이 표시됩니다.<br>`hcsuser@ubuntu-vm:~/nfstest$ mkdir test`<br>mkdir: ‘test’ 디렉터리를 만들 수 없습니다. 사용 권한이 거부되었습니다.|
 |**4.**|Blob Storage 수집|Blob Storage 수집에 AzCopy 버전 10을 사용하는 경우 인수 `Azcopy <other arguments> --cap-mbps 2000`을 사용하여 AzCopy를 실행합니다.| AzCopy에 대해 이러한 제한을 제공하지 않으면 디바이스에 많은 요청을 전송하여 서비스에 문제를 유발할 수 있습니다.|
 |**5.**|계층화된 스토리지 계정|계층화된 스토리지 계정을 사용하는 경우 다음이 적용됩니다.<ul><li> 블록 Blob만 지원됩니다. 페이지 Blob은 지원되지 않습니다.</li><li>스냅샷 또는 복사 API는 지원되지 않습니다.</li><li> `distcp`를 통한 Hadoop 워크로드 수집은 복사 작업을 과도하게 사용하므로 지원되지 않습니다.</li></ul>||
-|**6.**|NFS 공유 연결|여러 프로세스에서 같은 공유로 복사하고 `nolock` 특성을 사용하지 않는 경우 복사하는 동안 오류가 표시될 수 있습니다.|NFS 공유에 파일을 복사하려면 `nolock` 특성을 탑재 명령에 전달해야 합니다. 예를 들면 `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`와 같습니다.|
+|**6.**|NFS 공유 연결|여러 프로세스에서 같은 공유로 복사하고 `nolock` 특성을 사용하지 않는 경우 복사하는 동안 오류가 표시될 수 있습니다.|NFS 공유에 파일을 복사하려면 `nolock` 특성을 탑재 명령에 전달해야 합니다. 예: `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`|
 |**7.**|Kubernetes 클러스터|Kubernetes 클러스터를 실행하는 디바이스에 업데이트를 적용하는 경우 kubernetes 가상 머신이 다시 시작되고 재부팅됩니다. 이 인스턴스에서 지정된 복제본과 함께 배포되는 Pod만 업데이트 후에 자동으로 복원됩니다.  |복제본 세트를 지정하지 않고 복제 컨트롤러 외부에서 개별 Pod를 만든 경우 이러한 Pod는 디바이스 업데이트 후에 자동으로 복원되지 않습니다. 이러한 Pod를 복원해야 합니다.<br>복제본 세트는 노드 실패 또는 중단형 노드 업그레이드 등을 비롯한 이유로 삭제되었거나 종료된 Pod를 대체합니다. 따라서 애플리케이션에 단일 Pod만 필요해도 복제본 세트를 사용하는 것이 좋습니다.|
 |**8.**|Kubernetes 클러스터|Azure Stack Edge Pro의 Kubernetes는 Helm v3 이상에서만 지원됩니다. 자세한 내용은 [질문과 대답: Tiller 제거](https://v3.helm.sh/docs/faq/)를 참조하세요.|
 |**9.**|Azure Arc를 지원하는 Kubernetes |GA 릴리스의 경우 Azure Arc 지원 Kubernetes는 버전 0.1.18에서 0.2.9로 업데이트됩니다. Azure Arc 지원 Kubernetes 업데이트는 Azure Stack Edge 디바이스에서 지원되지 않으므로 Azure Arc 지원 Kubernetes를 다시 배포해야 합니다.|다음 단계를 수행합니다.<ol><li>[디바이스 소프트웨어 및 Kubernetes 업데이트를 적용합니다](azure-stack-edge-gpu-install-update.md).</li><li>[디바이스의 PowerShell 인터페이스에 연결합니다](azure-stack-edge-gpu-connect-powershell-interface.md).</li><li>기존 Azure Arc 에이전트를 제거합니다. 다음을 입력합니다. `Remove-HcsKubernetesAzureArcAgent`</li><li>[Azure Arc를 새 리소스에 배포합니다](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). 기존 Azure Arc 리소스를 사용하지 마세요.</li></ol>|
@@ -99,7 +99,7 @@ Azure Stack Edge 2103 릴리스에서는 다음과 같은 새로운 기능을 �
 |**20**|Internet Explorer|향상된 보안 기능을 사용하도록 설정한 경우 로컬 웹 UI 페이지에 액세스하지 못할 수 있습니다. | 향상된 보안을 사용하지 않도록 설정하고 브라우저를 다시 시작합니다.|
 |**21.**|Kubernetes 대시보드 | SSL 인증서가 포함된 Kubernetes 대시보드의 *Https* 엔드포인트는 지원되지 않습니다. | |
 |**22.**|Kubernetes |Kubernetes는 .NET 애플리케이션에서 사용하는 환경 변수 이름에서 ":"을 지원하지 않습니다. 이러한 조건은 Event Grid IoT Edge 모듈이 Azure Stack Edge 디바이스 및 기타 애플리케이션에서 작동하는 데도 필요합니다. 자세한 내용은 [ASP.NET core 설명서](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration#environment-variables)를 참조하세요.|“:”을 이중 밑줄로 바꿉니다. 자세한 내용은 [Kubernetes 이슈](https://github.com/kubernetes/kubernetes/issues/53201)를 참조하세요.|
-|**23.** |Azure Arc + Kubernetes 클러스터 |기본적으로 Git 리포지토리에서 리소스 `yamls`가 삭제되면 해당 리소스가 Kubernetes 클러스터에서 삭제되지 않습니다.  |Git 리포지토리에서 삭제될 때 리소스 삭제를 허용하려면 Arc OperatorParams에서 `--sync-garbage-collection`을 설정합니다. 자세한 내용은 [구성 삭제](../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md#additional-parameters)를 참조하세요. |
+|**23.** |Azure Arc + Kubernetes 클러스터 |기본적으로 Git 리포지토리에서 리소스 `yamls`가 삭제되면 해당 리소스가 Kubernetes 클러스터에서 삭제되지 않습니다.  |Git 리포지토리에서 삭제될 때 리소스 삭제를 허용하려면 Arc OperatorParams에서 `--sync-garbage-collection`을 설정합니다. 자세한 내용은 [구성 삭제](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters)를 참조하세요. |
 |**24.**|NFS |디바이스에서 데이터를 쓰기 위해 NFS 공유 탑재를 사용하는 애플리케이션은 단독 쓰기를 사용해야 합니다. 이렇게 하면 디스크에 쓸 수 있습니다.| |
 |**25.**|컴퓨팅 구성 |네트워크 구성에서 컴퓨팅 구성이 실패합니다. 게이트웨이나 스위치 또는 라우터가 네트워크에 존재하지 않는 시스템에 대한 ARP(주소 확인 프로토콜) 요청에 응답하기 때문입니다.| |
 |**26.**|컴퓨팅 및 Kubernetes |Kubernetes가 디바이스에 처음으로 설정된 경우 사용 가능한 모든 GPU를 클레임합니다. 따라서 Kubernetes를 설정한 후에는 GPU를 사용하여 Azure Resource Manager VM을 만들 수 없습니다. |디바이스에 GPU가 2개 있는 경우 GPU를 사용하는 VM 1개를 만든 다음, Kubernetes를 구성할 수 있습니다. 이 경우 Kubernetes는 사용 가능한 나머지 1개의 GPU를 사용합니다. |

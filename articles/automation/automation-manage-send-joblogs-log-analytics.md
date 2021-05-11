@@ -5,13 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c24c38368ef20dadd0dc19b1804f9d27ad68bd27
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 4199c5576662eee1dd6cedc388440a71e21f8b74
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833691"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100581219"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Azure Monitor 로그에 Azure Automation 작업 데이터 전달
 

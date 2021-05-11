@@ -6,13 +6,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/11/2020
 ms.subservice: ''
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 28f4c314b65a27c71c7620ff5941463b1ea68b55
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: f3c9197faaae89e0ffb238f987ee66dafea8abdd
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831459"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100579803"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation"></a>Azure Private Link를 사용하여 네트워크를 Azure Automation에 안전하게 연결
 
@@ -50,7 +49,7 @@ Private Link를 사용하면 다음을 수행할 수 있습니다.
 - Windows 또는 Linux용 [Log Analytics 에이전트](../../azure-monitor/agents/log-analytics-agent.md)의 최신 버전을 사용해야 합니다.
 - [Log Analytics 게이트웨이](../../azure-monitor/agents/gateway.md)에서 Private Link를 지원하지 않습니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 Azure Automation Private Link는 하나 이상의 프라이빗 엔드포인트(및 따라서 이들이 포함된 가상 네트워크)를 Automation 계정 리소스에 연결합니다. 해당 엔드포인트는 웹후크를 사용하여 Runbook을 시작하는 머신, Hybrid Runbook Worker 역할을 호스트하는 머신 및 DSC(Desired State Configuration) 노드를 사용합니다.
 

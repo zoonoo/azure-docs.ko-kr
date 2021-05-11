@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
 ms.openlocfilehash: 16ab0ab0e4c4d647f62b38d71acde69df0ae0d42
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100378488"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Jira에서 데이터 복사
@@ -21,7 +21,7 @@ ms.locfileid: "100378488"
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-이 Jira 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
+이 Jira 커넥터는 다음과 같은 작업에 지원됩니다.
 
 - [지원되는 원본/싱크 매트릭스](copy-activity-overview.md)를 사용한 [복사 작업](copy-activity-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
@@ -44,12 +44,12 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 |:--- |:--- |:--- |
 | type | type 속성은 **Jira** 로 설정해야 합니다. | 예 |
 | host | Jira 서비스의 IP 주소 또는 호스트 이름입니다. (예: jira.example.com)  | 예 |
-| 포트 | Jira 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. 기본값은 HTTPS를 통해 연결하는 경우 443이고, HTTP를 통해 연결하는 경우 8080입니다.  | 아니요 |
+| 포트 | Jira 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. 기본값은 HTTPS를 통해 연결하는 경우 443이고, HTTP를 통해 연결하는 경우 8080입니다.  | 예 |
 | 사용자 이름 | Jira 서비스에 액세스하는 데 사용하는 사용자 이름입니다.  | 예 |
 | password | username 필드에서 제공한 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
-| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 아니요 |
-| usePeerVerification | TLS를 통해 연결할 때 서버의 id를 확인할 지 여부를 지정 합니다. 기본값은 true입니다.  | 예 |
+| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
+| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름을 서버의 호스트 이름과 일치시킬지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
+| usePeerVerification | TLS를 통해 연결할 때 서버의 ID 확인 여부를 지정합니다. 기본값은 true입니다.  | 예 |
 
 **예:**
 
@@ -79,7 +79,7 @@ Jira에서 데이터를 복사하려면 데이터 세트의 type 속성을 **Jir
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 type 속성은 **JiraObject** 로 설정 해야 합니다. | 예 |
+| type | 데이터 세트의 형식 속성을 **JiraObject** 로 설정해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**

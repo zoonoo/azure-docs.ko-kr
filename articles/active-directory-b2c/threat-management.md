@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/26/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 55c77354e50ce96ae80ce922798fbb8c2a49f41f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e5184698cab1874f327173fb30cf527feee48cad
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126888"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "85384977"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 리소스 및 데이터에 대한 위협 관리
 
@@ -49,8 +49,8 @@ Azure AD B2C는 좀 더 복잡한 계정 잠금 전략을 사용합니다. 계�
 
 ## <a name="view-locked-out-accounts"></a>잠긴 계정 보기
 
-잠긴 계정에 대한 정보를 얻으려면 Active Directory [로그인 활동 보고서](../active-directory/reports-monitoring/concept-sign-ins.md)를 확인할 수 있습니다. **상태** 에서 **실패** 를 선택합니다. **로그인 오류 코드** 가 `50053`인 실패한 로그인 시도는 잠긴 계정을 나타냅니다.
+잠긴 계정에 대한 정보를 얻으려면 Active Directory [로그인 활동 보고서](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)를 확인할 수 있습니다. **상태** 에서 **실패** 를 선택합니다. **로그인 오류 코드** 가 `50053`인 실패한 로그인 시도는 잠긴 계정을 나타냅니다.
 
 ![잠긴 계정을 보여 주는 Azure AD 로그인 보고서 섹션](./media/threat-management/portal-01-locked-account.png)
 
-Azure Active Directory의 로그인 활동 보고서를 보는 방법에 대한 자세한 내용은 [로그인 활동 보고서 오류 코드](../active-directory/reports-monitoring/concept-sign-ins.md)를 참조하세요.
+Azure Active Directory의 로그인 활동 보고서를 보는 방법에 대한 자세한 내용은 [로그인 활동 보고서 오류 코드](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)를 참조하세요.

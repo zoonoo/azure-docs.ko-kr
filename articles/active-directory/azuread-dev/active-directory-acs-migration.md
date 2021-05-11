@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: d68cfb91445e2055cb3c3feb88bf925987ea9852
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bf50db4c463f5161adcc88d69eb2ae8970526103
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101687399"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515620"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
 
@@ -135,7 +135,7 @@ Access Control에서 발행하는 토큰을 이용하는 각 Microsoft 클라우
 | Azure DataMarket | [Cognitive Services API로 마이그레이션](https://azure.microsoft.com/services/cognitive-services/) |
 | BizTalk Services | [Azure App Service의 Logic Apps 기능으로 마이그레이션](https://azure.microsoft.com/services/cognitive-services/) |
 | Azure Media Services | [Azure AD 인증으로 마이그레이션](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
-| Azure Backup | [Azure Backup 에이전트 업그레이드](../../backup/backup-azure-file-folder-backup-faq.md) |
+| Azure Backup | [Azure Backup 에이전트 업그레이드](../../backup/backup-azure-file-folder-backup-faq.yml) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
 <!-- Azure RemoteApp deprecated in favor of Citrix: https://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->

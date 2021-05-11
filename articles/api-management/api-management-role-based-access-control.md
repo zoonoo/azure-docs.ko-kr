@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: fc41d2904d5a6676f1e9e1e2d178985bef0a9aa3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ef71591d6d5a26aa737db4e7cb547c8b2c39d92a
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101095551"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812177"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Azure API Management에서 역할 기반 액세스 제어를 사용하는 방법
 
@@ -32,7 +33,7 @@ API Management는 현재 3가지 기본 제공 역할을 제공하며 곧 2가�
 
 다음 테이블은 기본 제공 역할을 간략하게 설명합니다. Azure Portal 또는 Azure [PowerShell](../role-based-access-control/role-assignments-powershell.md), [Azure CLI](../role-based-access-control/role-assignments-cli.md) 및 [REST API](../role-based-access-control/role-assignments-rest.md)를 비롯한 다른 도구를 사용하여 이러한 역할을 할당할 수 있습니다. 기본 제공 역할을 할당하는 방법에 대한 자세한 내용은 [Azure 역할을 할당하여 Azure 구독 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
-| 역할          | 읽기 액세스<sup>[1]</sup> | 쓰기 액세스<sup>[2]</sup> | 서비스 만들기, 삭제, 크기 조정, VPN 및 사용자 지정 도메인 구성 | 기존 게시자 포털에 대한 액세스 권한 | 설명
+| 역할          | 읽기 액세스<sup>[1]</sup> | 쓰기 액세스<sup>[2]</sup> | 서비스 만들기, 삭제, 크기 조정, VPN 및 사용자 지정 도메인 구성 | 기존 게시자 포털에 대한 액세스 권한 | Description
 | ------------- | ---- | ---- | ---- | ---- | ---- 
 | API Management 서비스 참가자 | ✓ | ✓ | ✓ | ✓ | 슈퍼 사용자입니다. API Management 서비스 및 엔터티(예: API 및 정책)에 대한 전체 CRUD 액세스 권한을 보유합니다. 기존 게시자 포털에 대한 액세스 권한을 보유합니다. |
 | API Management 읽기 권한자 | ✓ | | || API Management 서비스 및 엔터티에 대한 읽기 전용 액세스 권한을 보유합니다. |

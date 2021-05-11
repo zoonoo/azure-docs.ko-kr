@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 1/17/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 006bcc6c0cffe6f7c08b16057325a499e44f06be
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: b817cfc347ee79ff7c9cbb4124e3f2b7e4d2b7ee
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257911"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101644258"
 ---
 # <a name="tutorial-configure-keyless-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 Keyless 구성하기
 
@@ -50,7 +50,7 @@ Keyless 통합에는 다음 구성 요소가 포함됩니다.
 
 ![Keyless 아키텍처 다이어그램을 보여 주는 이미지](./media/partner-keyless/keyless-architecture-diagram.png)
 
-|단계 | Description |
+|단계 | 설명 |
 |:-----| :-----------|
 | 1. | 사용자가 로그인 페이지에 들어옵니다. 사용자가 로그인/등록을 선택하고 사용자 이름을 입력합니다.
 | 2. | 애플리케이션은 ID 확인을 위해 Azure AD B2C에 사용자 특성을 보냅니다.
@@ -155,8 +155,8 @@ ID 공급자를 구성하려면 다음 단계를 따르세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 문서를 검토하세요.
 
 - [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C의 사용자 지정 정책 시작하기](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
+- [Azure AD B2C에서 사용자 지정 정책 시작](./custom-policy-get-started.md?tabs=applications)

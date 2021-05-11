@@ -1,6 +1,6 @@
 ---
-title: Azure API Management 자체 호스팅 게이트웨이에 대 한 클라우드 메트릭 및 로그 구성 | Microsoft Docs
-description: Azure API Management 자체 호스팅 게이트웨이의 클라우드 메트릭 및 로그를 구성 하는 방법에 대해 알아봅니다.
+title: Azure API Management 자체 호스팅 게이트웨이의 클라우드 메트릭 및 로그 구성 | Microsoft Docs
+description: Azure API Management 자체 호스팅 게이트웨이에 대한 클라우드 메트릭 및 로그 구성 방법 알아보기
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -13,26 +13,26 @@ ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
 ms.openlocfilehash: c420c62e6f8f09a2b29398590cdb4ad410e5d296
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100574054"
 ---
-# <a name="configure-cloud-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Azure API Management 자체 호스팅 게이트웨이에 대 한 클라우드 메트릭 및 로그 구성
+# <a name="configure-cloud-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Azure API Management 자체 호스팅 게이트웨이에 대한 클라우드 메트릭 및 로그 구성
 
-이 문서에서는 [자체 호스팅 게이트웨이의](./self-hosted-gateway-overview.md)클라우드 메트릭과 로그를 구성 하는 방법에 대 한 세부 정보를 제공 합니다.
+이 문서에서는 [자체 호스팅 게이트웨이](./self-hosted-gateway-overview.md)의 클라우드 메트릭과 로그를 구성하는 방법에 대한 세부 정보를 제공합니다.
 
-자체 호스팅 게이트웨이는 API management 서비스와 연결 되어야 하며, 포트 443의 Azure에 대 한 아웃 바운드 TCP/IP 연결이 필요 합니다. 게이트웨이는 아웃 바운드 연결을 활용 하 여 원격 분석을 수행 하도록 구성 된 경우 Azure에 원격 분석을 보냅니다. 
+자체 호스팅 게이트웨이는 API 관리 서비스와 연결되어야 하며 포트 443의 Azure에 대한 아웃바운드 TCP/IP 연결이 필요합니다. 게이트웨이는 아웃바운드 연결을 활용하여 원격 분석을 Azure로 보냅니다(구성된 경우). 
 
 ## <a name="metrics"></a>메트릭
-기본적으로 자체 호스팅 게이트웨이는 [클라우드에서](api-management-howto-use-azure-monitor.md)관리 되는 게이트웨이와 동일한 [Azure Monitor](https://azure.microsoft.com/services/monitor/)를 통해 여러 메트릭을 내보냅니다. 
+기본적으로 자체 호스팅 게이트웨이는 [클라우드에서](api-management-howto-use-azure-monitor.md) 관리되는 게이트웨이와 동일한 [Azure Monitor](https://azure.microsoft.com/services/monitor/)를 통해 여러 메트릭을 내보냅니다. 
 
-`telemetry.metrics.cloud`게이트웨이 배포의 ConfigMap에서 키를 사용 하 여이 기능을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 다음은 사용 가능한 구성에 대 한 분석입니다.
+게이트웨이 배포의 ConfigMap에서 `telemetry.metrics.cloud` 키를 사용하여 이 기능을 사용하거나 사용하지 않도록 설정할 수 있습니다. 다음은 사용 가능한 구성 내역입니다.
 
 | 필드  | 기본값 | 설명 |
 | ------------- | ------------- | ------------- |
-| telemetry.metrics.cloud  | `true` | Azure Monitor를 통해 로깅을 사용 하도록 설정 합니다. 값은, 일 수 있습니다 `true` `false` . |
+| telemetry.metrics.cloud  | `true` | Azure Monitor를 통해 로깅을 사용합니다. 값은 `true`, `false`가 될 수 있습니다. |
 
 
 다음은 샘플 구성입니다.
@@ -52,17 +52,17 @@ ms.locfileid: "100574054"
 | 메트릭  | 설명 |
 | ------------- | ------------- |
 | 요청  | 해당 기간의 API 요청 수 |
-| 게이트웨이 요청 기간 | 게이트웨이에서 요청을 수신한 순간부터 응답이 완전히 전송될 때까지 걸린 시간(밀리초) |
-| 백 엔드 요청 기간 | 전체 백 엔드 IO(연결, 바이트 송신 및 수신)에 소요된 시간(밀리초)  |
+| 게이트웨이 요청의 기간 | 게이트웨이에서 요청을 수신한 순간부터 응답이 완전히 전송될 때까지 걸린 시간(밀리초) |
+| 백엔드 요청의 기간 | 전체 백 엔드 IO(연결, 바이트 송신 및 수신)에 소요된 시간(밀리초)  |
 
 ## <a name="logs"></a>로그
 
-자체 호스팅 게이트웨이에서는 현재 클라우드로 [진단 로그](./api-management-howto-use-azure-monitor.md#activity-logs) 를 보내지 않습니다. 그러나 자체 호스팅 게이트웨이가 배포 되는 위치에서 [로그를 로컬로 구성 하 고 유지할](how-to-configure-local-metrics-logs.md) 수 있습니다. 
+자체 호스팅 게이트웨이에서는 현재 클라우드로 [진단 로그](./api-management-howto-use-azure-monitor.md#activity-logs)를 보내지 않습니다. 하지만 자체 호스팅 게이트웨이가 배포되는 위치에서 [로컬로 로그를 구성하고 보존](how-to-configure-local-metrics-logs.md)할 수 있습니다. 
 
-게이트웨이가 [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/)에 배포 되는 경우 컨테이너에서 로그를 수집 하 고 Log Analytics에서 볼 수 있도록 [컨테이너에 대해 Azure Monitor](../azure-monitor/containers/container-insights-overview.md) 를 사용 하도록 설정할 수 있습니다. 
+게이트웨이가 [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/)에 배포되는 경우 [컨테이너용 Azure Monitor](../azure-monitor/containers/container-insights-overview.md)를 사용하도록 설정하여 컨테이너에서 로그를 수집하고 Log Analytics에서 로그를 볼 수 있습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계
 
-* 자체 호스팅 게이트웨이에 대해 자세히 알아보려면 [Azure API Management 자체 호스팅 게이트웨이 개요](self-hosted-gateway-overview.md) 를 참조 하세요.
-* [로컬에서 로그를 구성 하 고 유지 하](how-to-configure-local-metrics-logs.md) 는 방법 알아보기
+* 자체 호스팅 게이트웨이에 대해 자세히 알아보려면 [Azure API Management 자체 호스팅 게이트웨이 개요](self-hosted-gateway-overview.md)를 참조하세요.
+* [로컬로 로그를 구성하고 보존하는](how-to-configure-local-metrics-logs.md) 방법 알아보기

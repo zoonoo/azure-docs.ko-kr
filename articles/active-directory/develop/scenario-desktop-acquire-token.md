@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 99a36eec959fc3f0c669f50b77d7707011e8dac0
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 62296acaba77017cd71227582447b9fa7c4f1934
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165104"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106090242"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>웹 API를 호출하는 데스크톱 앱: 토큰 획득
 
@@ -55,6 +55,7 @@ catch(MsalUiRequiredException ex)
 # <a name="java"></a>[Java](#tab/java)
 
 ```java
+
 Set<IAccount> accountsInCache = pca.getAccounts().join();
 // Take first account in the cache. In a production application, you would filter
 // accountsInCache to get the right account for the user authenticating.
@@ -87,6 +88,7 @@ try {
     }
 }
 return result;
+
 ```
 
 # <a name="macos"></a>[macOS](#tab/macOS)
@@ -108,7 +110,6 @@ MSALSilentTokenParameters *silentParams = [[MSALSilentTokenParameters alloc] ini
     }
 }];
 ```
-
 Swift:
 
 ```swift
@@ -135,7 +136,7 @@ application.acquireTokenSilent(with: silentParameters) { (result, error) in
 
 MSAL Node에서 PKCE(Proof Key for Code Exchange)를 사용하여 인증 코드 흐름을 통해 토큰을 획득합니다. MSAL Node는 메모리 내 토큰 캐시를 사용하여 캐시에 사용자 계정이 있는지 확인합니다. 계정이 있는 경우에는 계정 개체를 `acquireTokenSilent()` 메서드에 전달하여 캐시된 액세스 토큰을 검색할 수 있습니다.
 
-```javascript
+```JavaScript
 
 const msal = require("@azure/msal-node");
 
@@ -157,7 +158,7 @@ let accounts = await msalTokenCache.getAllAccounts();
             account: accounts[0], // Index must match the account that is trying to acquire token silently
             scopes: ["user.read"],
         };
-
+    
         pca.acquireTokenSilent(silentRequest).then((response) => {
             console.log("\nSuccessful silent token acquisition");
             console.log("\nResponse: \n:", response);
@@ -172,18 +173,18 @@ let accounts = await msalTokenCache.getAllAccounts();
             codeChallenge: challenge, // PKCE Code Challenge
             codeChallengeMethod: "S256" // PKCE Code Challenge Method 
         };
-
+        
         // get url to sign user in and consent to scopes needed for application
         pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
             console.log(response);
-
+        
             const tokenRequest = {
                 code: response["authorization_code"],
                 codeVerifier: verifier // PKCE Code Verifier 
                 redirectUri: "your_redirect_uri",
                 scopes: ["User.Read"],
             };
-
+            
             // acquire a token by exchanging the code
             pca.acquireTokenByCode(tokenRequest).then((response) => {
                 console.log("\nResponse: \n:", response);
@@ -196,7 +197,7 @@ let accounts = await msalTokenCache.getAllAccounts();
 
 # <a name="python"></a>[Python](#tab/python)
 
-```python
+```Python
 result = None
 
 # Firstly, check the cache to see if this end user has signed in before
@@ -207,7 +208,6 @@ if accounts:
 if not result:
     result = app.acquire_token_by_xxx(scopes=config["scope"])
 ```
-
 ---
 
 다음은 데스크톱 애플리케이션에서 토큰을 획득하는 다양한 방법입니다.
@@ -284,7 +284,7 @@ WithParentActivityOrWindow(object parent).
 - ``SelectAccount``는 사용자가 세션을 보유한 계정을 포함하는 계정 선택 대화 상자를 제시하도록 STS를 강제합니다. 이 옵션은 애플리케이션 개발자가 여러 ID 중에서 사용자가 선택할 수 있도록 하려는 경우에 유용합니다. 이 옵션은 MSAL이 ID 공급자에게 ``prompt=select_account``를 보내도록 유도합니다. 이 옵션이 기본값입니다. 이 옵션은 계정, 사용자의 세션 유무와 같은 사용 가능한 정보를 기반으로 최상의 환경을 제공합니다. 이 옵션은 반드시 변경해야 할 이유가 있지 않은 한 변경하지 마세요.
 - ``Consent``는 애플리케이션 개발자가 이전에 동의가 부여된 경우에도 사용자에게 동의를 묻는 프롬프트를 강제로 표시할 수 있도록 지원합니다. 이 경우 MSAL이 ID 공급자에게 `prompt=consent`를 보냅니다. 이 옵션은 조직 거버넌스에서 애플리케이션이 사용될 때마다 사용자에게 동의 대화 상자를 표시하도록 요구하는 일부 보안 우선 애플리케이션에서 사용할 수 있습니다.
 - ``ForceLogin``은 애플리케이션 개발자가 사용자 프롬프트가 필요하지 않은 경우에도 서비스가 사용자에게 자격 증명 프롬프트를 표시하도록 설정하는 것을 지원합니다. 이 옵션은 토큰 획득에 실패한 경우 사용자가 다시 로그인하도록 할 때 유용합니다. 이 경우 MSAL이 ID 공급자에게 `prompt=login`을 보냅니다. 이 옵션은 조직 거버넌스에서 사용자가 애플리케이션의 특정 부분에 액세스할 때마다 다시 로그인하도록 요구하는 보안 우선 애플리케이션에서 사용되기도 합니다.
-- ``Create``는 ID 공급자에게 `prompt=create`를 전송하여 External Identities에 사용되는 등록 환경을 활성화합니다. 이 프롬프트는 Azure AD B2C 앱 관련하여 전송되어서는 안 됩니다. 자세한 내용은 [앱에 셀프 서비스 등록 사용자 흐름 추가](../external-identities/self-service-sign-up-user-flow.md)를 참조하세요.
+- ``Create``는 ID 공급자에게 `prompt=create`를 전송하여 External Identities에 사용되는 등록 환경을 활성화합니다. 이 프롬프트는 Azure AD B2C 앱 관련하여 전송되어서는 안 됩니다. 자세한 내용은 [앱에 셀프 서비스 등록 사용자 흐름 추가](https://aka.ms/msal-net-prompt-create)를 참조하세요.
 - ``Never``(.NET 4.5 및 WinRT만 해당)는 사용자에게 프롬프트를 표시하지 않으며 그 대신 숨겨진 임베디드 웹 보기에 저장된 쿠키를 사용하려고 합니다. 자세한 내용은 MSAL.NET의 웹 보기를 참조하세요. 이 옵션을 사용하는 것은 실패할 수 있습니다. 실패하는 경우 `AcquireTokenInteractive`가 UI 상호 작용이 필요함을 알리기 위해 예외를 발생시킵니다. 이 경우 다른 `Prompt` 매개 변수를 사용해야 합니다.
 - ``NoPrompt``는 ID 공급자에게 어떤 프롬프트도 보내지 않습니다. 이 옵션은 Azure AD(Azure Active Directory) B2C 프로필 편집 정책에서만 유용합니다. 자세한 내용은 [Azure AD B2C specifics](https://aka.ms/msal-net-b2c-specificities)(Azure AD B2C 관련 사항)를 참조하세요.
 
@@ -292,11 +292,11 @@ WithParentActivityOrWindow(object parent).
 
 이 메서드를 사용하면 포함된 웹 보기 또는 시스템 웹 보기(사용 가능한 경우)를 강제로 사용하도록 지정할 수 있습니다. 자세한 내용은 [Usage of web browsers](msal-net-web-browsers.md)(웹 브라우저의 용도)를 참조하세요.
 
-```csharp
-var result = await app.AcquireTokenInteractive(scopes)
-                    .WithUseEmbeddedWebView(true)
-                    .ExecuteAsync();
-```
+ ```csharp
+ var result = await app.AcquireTokenInteractive(scopes)
+                   .WithUseEmbeddedWebView(true)
+                   .ExecuteAsync();
+  ```
 
 #### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
@@ -470,7 +470,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 MSAL Node에서 PKCE(Proof Key for Code Exchange)를 사용하여 인증 코드 흐름을 통해 토큰을 획득합니다. 프로세스에는 두 단계가 있습니다. 우선 애플리케이션에서 인증 코드를 생성하는 데 사용할 수 있는 URL을 가져옵니다. 이 URL은 선택한 브라우저에서 열 수 있습니다. 여기서 사용자는 자신의 자격 증명을 입력하고 인증 코드를 사용하여 `redirectUri`(앱 등록 시 등록됨)로 다시 리디렉션됩니다. 두 번째로, 애플리케이션은 수신된 인증 코드를 액세스 토큰에 대해 교환하는 `acquireTokenByCode()` 메서드로 전달합니다.
 
-```javascript
+```JavaScript
 const msal = require("@azure/msal-node");
 
 const msalConfig = {
@@ -501,7 +501,7 @@ pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
         redirectUri: "your_redirect_uri",
         scopes: ["User.Read"],
     };
-
+    
     // acquire a token by exchanging the code
     pca.acquireTokenByCode(tokenRequest).then((response) => {
         console.log("\nResponse: \n:", response);
@@ -515,7 +515,7 @@ pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
 
 MSAL Python은 대화형 토큰 획득 방법을 직접적으로 제공하지 않습니다. 그 대신 애플리케이션이 사용자 상호 작용 흐름 구현에서 인증 요청을 보내서 인증 코드를 획득하도록 요구합니다. 이 코드를 `acquire_token_by_authorization_code` 메서드로 전달하면 토큰을 가져올 수 있습니다.
 
-```python
+```Python
 result = None
 
 # Firstly, check the cache to see if this end user has signed in before
@@ -527,8 +527,8 @@ if not result:
     result = app.acquire_token_by_authorization_code(
          request.args['code'],
          scopes=config["scope"])
-```
 
+```
 ---
 
 ## <a name="integrated-windows-authentication"></a>Windows 통합 인증
@@ -540,7 +540,7 @@ if not result:
 - Windows 통합 인증은 ‘페더레이션’ 사용자(즉, Active Directory에서 만들어지고 Azure AD에서 지원하는 사용자)만 지원합니다. Active Directory 지원 없이 Azure AD에서 직접 만들어진 사용자(‘관리형’ 사용자)는 이 인증 흐름을 사용할 수 없습니다. 이러한 제한은 사용자 이름 및 암호 흐름에 영향을 주지 않습니다.
 - IWA는 .NET Framework, .NET Core 및 UWP(유니버설 Windows 플랫폼)용으로 작성된 앱을 위한 것입니다.
 - IWA는 [MFA(다단계 인증)](../authentication/concept-mfa-howitworks.md)를 우회하지 않습니다. MFA가 구성된 경우, MFA 질문이 필요하면 IWA가 실패할 수 있습니다. MFA에는 사용자 상호 작용이 필요하기 때문입니다.
-
+  
     IWA는 비대화형이지만 MFA에는 사용자 상호 작용이 필요합니다. ID 공급자가 MFA를 언제 요구할지는 개발자가 아니라 테넌트 관리자가 제어합니다. 일반적으로 다른 국가/지역에서 로그인할 때, VPN을 통해 회사 네트워크에 연결되어 있지 않을 때, 그리고 간혹 VPN을 통해 연결되어 있을 때도 MFA가 필요합니다. 결정적 규칙 세트가 적용되지 않습니다. Azure AD는 AI를 사용하여 MFA가 필요한지 여부를 계속해서 학습합니다. IWA가 실패할 경우 대화형 인증이나 디바이스 코드 흐름과 같은 사용자 프롬프트를 사용하세요.
 
 - `PublicClientApplicationBuilder`에 포함되어 전달되는 인증 기관은 다음이어야 합니다.
@@ -647,6 +647,7 @@ static async Task GetATokenForGraph()
    }
  }
 
+
  Console.WriteLine(result.Account.Username);
 }
 ```
@@ -657,7 +658,7 @@ AcquireTokenByIntegratedWindowsAuthentication의 가능한 한정자 목록은 [
 
 다음 발췌본은 [MSAL Java 개발자 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/)에서 가져온 것입니다.
 
-```java
+```Java
 private static IAuthenticationResult acquireTokenIwa() throws Exception {
 
     // Load token cache from file and initialize token cache aspect. The token cache will have
@@ -960,7 +961,7 @@ static async Task GetATokenForGraph()
 
 다음 발췌본은 [MSAL Java 개발자 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/)에서 가져온 것입니다.
 
-```java
+```Java
 private static IAuthenticationResult acquireTokenUsernamePassword() throws Exception {
 
     // Load token cache from file and initialize token cache aspect. The token cache will have
@@ -1011,9 +1012,9 @@ private static IAuthenticationResult acquireTokenUsernamePassword() throws Excep
 
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-다음 발췌본은 [MSAL Node 개발자 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/username-password)에서 가져온 것입니다. 아래 코드 조각에서 사용자 이름 및 암호는 설명을 위해서만 하드 코딩되었습니다. 이는 프로덕션에서 피해야 합니다. 대신 사용자에게 사용자 이름/암호 입력 메시지를 표시하는 기본 UI를 사용하는 것이 좋습니다.
+다음 발췌본은 [MSAL Node 개발자 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/username-password)에서 가져온 것입니다. 아래 코드 조각에서 사용자 이름 및 암호는 설명을 위해서만 하드 코딩되었습니다. 이는 프로덕션에서 피해야 합니다. 대신 사용자에게 사용자 이름/암호 입력 메시지를 표시하는 기본 UI를 사용하는 것이 좋습니다. 
 
-```javascript
+```JavaScript
 const msal = require("@azure/msal-node");
 
 const msalConfig = {
@@ -1044,7 +1045,7 @@ pca.acquireTokenByUsernamePassword(usernamePasswordRequest).then((response) => {
 
 다음 발췌본은 [MSAL Python 개발자 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/)에서 가져온 것입니다.
 
-```python
+```Python
 # Create a preferably long-lived app instance which maintains a token cache.
 app = msal.PublicClientApplication(
     config["client_id"], authority=config["authority"],
@@ -1254,9 +1255,9 @@ private static IAuthenticationResult acquireTokenDeviceCode() throws Exception {
 
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-다음 발췌본은 [MSAL Node 개발자 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/device-code)에서 가져온 것입니다.
+다음 발췌본은 [MSAL Node 개발자 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/device-code)에서 가져온 것입니다.
 
-```javascript
+```JavaScript
 const msal = require('@azure/msal-node');
 
 const msalConfig = {
@@ -1285,7 +1286,7 @@ pca.acquireTokenByDeviceCode(deviceCodeRequest).then((response) => {
 
 다음 발췌본은 [MSAL Python 개발자 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/)에서 가져온 것입니다.
 
-```python
+```Python
 # Create a preferably long-lived app instance which maintains a token cache.
 app = msal.PublicClientApplication(
     config["client_id"], authority=config["authority"],
@@ -1457,6 +1458,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
 FilesBasedTokenCacheHelper.EnableSerialization(app.UserTokenCache,
                                                unifiedCacheFileName,
                                                adalV3cacheFileName);
+
 ```
 
 이번에는 도우미 클래스가 다음 코드와 같습니다.

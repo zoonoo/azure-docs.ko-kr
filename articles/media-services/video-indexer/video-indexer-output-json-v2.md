@@ -1,7 +1,7 @@
 ---
-title: V2 API에서 생성 된 Video Indexer 출력 검사-Azure
+title: v2 API에서 생성된 Video Indexer 출력 검사 - Azure
 titleSuffix: Azure Media Services
-description: 이 항목에서는 v2 API에 의해 생성 된 Azure Media Services Video Indexer 출력을 검사 합니다.
+description: 이 항목에서는 v2 API에서 생성된 Azure Media Services Video Indexer 출력을 검사합니다.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,55 +10,55 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: 2ac7c3c2149ce43c860c7726381733ef377de8d3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 84bb4766b3a896823dd0bef023f8042965a85846
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100530742"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532868"
 ---
-# <a name="examine-the-video-indexer-output"></a>Video Indexer 출력 검사
+# <a name="examine-the-video-indexer-output"></a>Video Indexer 출력 검토
 
-비디오가 인덱싱되는 경우 Video Indexer는 지정 된 비디오 정보에 대 한 세부 정보가 포함 된 JSON 콘텐츠를 생성 합니다. 이 정보에는 성적 증명서, OCRs, 얼굴, 토픽, 블록 등이 포함 됩니다. 각 정보 형식에는 비디오에 정보를 표시 하는 시간 범위 인스턴스가 포함 됩니다. 
+비디오가 인덱싱되는 경우 Video Indexer는 지정된 비디오 인사이트에 대한 세부 정보가 포함된 JSON 콘텐츠를 생성합니다. 이 인사이트에는 전사, OCR, 얼굴, 항목, 블록 등이 포함됩니다. 각 인사이트 형식에는 비디오에 인사이트를 표시하는 시간 범위 인스턴스가 포함됩니다. 
 
-[Video Indexer](https://www.videoindexer.ai/) 웹 사이트의 비디오에서 **재생** 단추를 눌러 비디오의 요약 된 정보를 시각적으로 검사할 수 있습니다. 
+[Video Indexer](https://www.videoindexer.ai/) 웹 사이트의 비디오에서 **재생** 단추를 눌러 비디오의 요약된 인사이트를 시각적으로 검사할 수도 있습니다. 
 
-**비디오 인덱스 가져오기** api를 호출 하 여 api를 사용할 수도 있으며, 응답 상태가 양호 이면 응답 콘텐츠로 자세한 JSON 출력을 가져옵니다.
+**비디오 인덱스 가져오기** API를 호출하여 API를 사용할 수 있으며, 응답 상태가 정상이면 자세한 JSON 출력을 응답 콘텐츠로 가져옵니다.
 
 ![자세한 정보](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
-이 문서에서는 Video Indexer 출력 (JSON 콘텐츠)을 검사 합니다. <br/>사용할 수 있는 기능 및 정보에 대 한 자세한 내용은 [Video Indexer insights](video-indexer-overview.md#video-insights)를 참조 하세요.
+이 문서에서는 Video Indexer 출력(JSON 콘텐츠)을 확인합니다. <br/>사용할 수 있는 기능 및 인사이트 대한 자세한 내용은 [Video Indexer 인사이트](video-indexer-overview.md#video-insights)를 참조하세요.
 
 > [!NOTE]
 > Video Indexer에서 모든 액세스 토큰의 만료 시간은 1시간입니다.
 
-## <a name="get-the-insights"></a>정보 얻기
+## <a name="get-the-insights"></a>인사이트 가져오기
 
-### <a name="insightsoutput-produced-in-the-websiteportal"></a>웹 사이트/포털에서 생성 된 정보/출력
+### <a name="insightsoutput-produced-in-the-websiteportal"></a>웹 사이트/포털에서 생성된 인사이트/출력
 
 1. [Video Indexer](https://www.videoindexer.ai/) 웹 사이트로 이동하고 로그인합니다.
-1. 검사 하려는 출력에 대 한 비디오를 찾습니다.
+1. 확인하려는 비디오 출력을 찾습니다.
 1. **재생** 을 누릅니다.
-1. **Insights** 탭 (요약 된 정보) 또는 **타임 라인** 탭 (관련 정보를 필터링 할 수 있음)을 선택 합니다.
-1. 아티팩트 및 아티팩트를 다운로드 합니다.
+1. **인사이트** 탭(요약된 인사이트) 또는 **타임라인** 탭(관련 인사이트 필터링 가능)을 선택합니다.
+1. 아티팩트와 그 내용을 다운로드합니다.
 
 자세한 내용은 [비디오 인사이트 보기 및 편집](video-indexer-view-edit.md)을 참조하세요.
 
-## <a name="insightsoutput-produced-by-api"></a>API에 의해 생성 된 정보/출력
+## <a name="insightsoutput-produced-by-api"></a>API에 의해 생성된 인사이트/출력
 
-1. JSON 파일을 검색 하려면 [비디오 인덱스 API 가져오기](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?) 를 호출 합니다.
-1. 특정 아티팩트에도 관심이 있는 경우 [비디오 아티팩트 가져오기 다운로드 URL API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?) 를 호출 합니다.
+1. JSON 파일을 검색하려면 [비디오 인덱스 가져오기 API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index)를 호출합니다.
+1. 특정 아티팩트에도 관심이 있는 경우 [비디오 아티팩트 다운로드 URL 가져오기 API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url)를 호출합니다.
 
-    API 호출에서 요청 된 아티팩트 형식 (OCR, 얼굴, 키 프레임 등)을 지정 합니다.
+    API 호출에서 요청된 아티팩트 형식(OCR, 얼굴, 키 프레임 등)을 지정합니다.
 
-## <a name="root-elements-of-the-insights"></a>정보에 대 한 루트 요소
+## <a name="root-elements-of-the-insights"></a>인사이트의 루트 요소
 
-|Name|설명|
+|Name|Description|
 |---|---|
 |accountId|재생 목록의 VI 계정 ID입니다.|
 |id|재생 목록의 ID입니다.|
 |name|재생 목록의 이름입니다.|
-|설명|재생 목록의 설명입니다.|
+|description|재생 목록의 설명입니다.|
 |userName|재생 목록을 만든 사용자의 이름입니다.|
 |created|재생 목록을 만든 시간입니다.|
 |privacyMode|재생 목록의 개인 모드(프라이빗/공용)입니다.|
@@ -93,15 +93,15 @@ ms.locfileid: "100530742"
 
 이 섹션에서는 인사이트의 요약을 보여 줍니다.
 
-|특성 | 설명|
+|attribute | Description|
 |---|---|
 |name|비디오의 이름입니다. 예: Azure Monitor|
 |id|비디오의 ID입니다. 예: 63c6d532ff|
 |privacyMode|분석에는 **Private**, **Public** 모드 중 하나가 있을 수 있습니다. **Public** - 비디오가 계정의 모든 사용자와 비디오에 대한 링크가 있는 모든 사용자에게 표시됩니다. **프라이빗** - 비디오가 계정의 모든 사용자에게 표시됩니다.|
 |duration|인사이트가 발생한 시간을 설명하는 하나의 기간이 포함됩니다. 기간은 초 단위입니다.|
 |thumbnailVideoId|썸네일을 가져온 비디오의 ID입니다.
-|thumbnailId|비디오의 썸네일 ID입니다. 실제 미리 보기를 가져오려면 [get-help](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) 를 호출 하 고 ThumbnailVideoId 및 thumbnailId를 전달 합니다.|
-|얼굴/animatedCharacters|0개 이상의 얼굴이 포함될 수 있습니다. 자세한 내용은 [얼굴/animatedCharacters](#facesanimatedcharacters)를 참조 하세요.|
+|thumbnailId|비디오의 썸네일 ID입니다. 실제 썸네일을 가져오려면 [Get-Thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail)을 호출하고 thumbnailVideoId 및 thumbnailId를 전달합니다.|
+|faces/animatedCharacters|0개 이상의 얼굴이 포함될 수 있습니다. 자세한 내용은 [faces/animatedCharacters](#facesanimatedcharacters)를 참조하세요.|
 |키워드|0개 이상의 키워드가 포함될 수 있습니다. 자세한 내용은 [keywords](#keywords)를 참조하세요.|
 |감정|0개 이상의 감정이 포함될 수 있습니다. 자세한 내용은 [sentiments](#sentiments)를 참조하세요.|
 |audioEffects| 0개 이상의 오디오 효과가 포함될 수 있습니다. 자세한 내용은 [audioEffects](#audioeffects-public-preview)를 참조하세요.|
@@ -109,11 +109,11 @@ ms.locfileid: "100530742"
 |brands| 0개 이상의 브랜드가 포함될 수 있습니다. 자세한 내용은 [brands](#brands)를 참조하세요.|
 |통계 | 자세한 내용은 [statistics](#statistics)를 참조하세요.|
 |emotions| 0개 이상의 감정이 포함될 수 있습니다. 자세한 내용은 [emotions](#emotions)를 참조하세요.|
-|topics|0개 이상의 주제가 포함될 수 있습니다. [항목](#topics) 에 대해 자세히 설명 합니다.|
+|topics|0개 이상의 주제가 포함될 수 있습니다. [topics](#topics) 인사이트.|
 
 ## <a name="videos"></a>videos
 
-|Name|설명|
+|Name|Description|
 |---|---|
 |accountId|비디오의 VI 계정 ID입니다.|
 |id|비디오의 ID입니다.|
@@ -127,7 +127,7 @@ ms.locfileid: "100530742"
 |metadata|비디오의 외부 메타데이터입니다(사용자가 지정한 경우).|
 |isAdult|비디오가 수동으로 검토되고 성인 비디오로 식별되었는지 여부를 나타냅니다.|
 |insights|인사이트 개체입니다. 자세한 내용은 [insights](#insights)를 참조하세요.|
-|thumbnailId|비디오의 썸네일 ID입니다. 실제 미리 보기 호출을 가져오려면 [축소판 그림](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) 을 표시 하 고 비디오 ID와 thumbnailId을 전달 합니다.|
+|thumbnailId|비디오의 썸네일 ID입니다. 실제 썸네일을 가져오려면 [Get-Thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail)을 호출하고 비디오 ID 및 thumbnailId를 전달합니다.|
 |publishedUrl|비디오를 스트림하는 URL입니다.|
 |publishedUrlProxy|비디오를 스트림하는 URL입니다(Apple 디바이스용).|
 |viewToken|비디오를 스트림하기 위한 단기 보기 토큰입니다.|
@@ -136,7 +136,7 @@ ms.locfileid: "100530742"
 |indexingPreset|비디오를 인덱싱하는 데 사용되는 기본 설정입니다.|
 |streamingPreset|비디오를 게시하는 데 사용되는 기본 설정입니다.|
 |linguisticModelId|비디오를 인쇄하는 데 사용되는 CRIS 모델입니다.|
-|통계 | 자세한 내용은 [통계](#statistics)를 참조 하세요.|
+|통계 | 자세한 내용은 [statistics](#statistics)를 참조하세요.|
 
 ```json
 {
@@ -165,29 +165,29 @@ ms.locfileid: "100530742"
 ```
 ### <a name="insights"></a>insights
 
-각 정보 (예: 성적 증명서, 면, 브랜드 등)에는 고유 요소 목록 (예: face1, face2, face3)이 포함 되 고 각 요소에는 고유한 메타 데이터와 해당 인스턴스 목록 (추가 선택적 메타 데이터가 포함 된 시간 범위)이 포함 됩니다.
+각 인사이트(예: 음성 텍스트 라인, 얼굴, 브랜드 등)에는 고유한 요소의 목록(예: face1, face2, face3)이 있으며, 각 요소에는 자체의 메타데이터 및 해당 인스턴스(추가 선택적 메타데이터가 있는 시간 범위)의 목록이 있습니다.
 
-한 면에 ID, 이름, 미리 보기, 기타 메타 데이터 및 임시 인스턴스 목록 (예: 00:00:05 – 00:00:10, 00:01:00-00:02:30 및 00:41:21 – 00:41:49)이 있을 수 있습니다. 각 임시 인스턴스에는 추가 메타 데이터가 있을 수 있습니다. 예를 들어 얼굴의 사각형을 조정합니다(20,230,60,60).
+얼굴에는 ID, 이름, 썸네일, 다른 메타데이터 및 해당 임시 인스턴스의 목록이 있을 수 있습니다(예: 00:00:05 – 00:00:10, 00:01:00 - 00:02:30 및 00:41:21 – 00:41:49). 각 임시 인스턴스에는 추가 메타데이터가 있을 수 있습니다. 예를 들어 얼굴의 사각형을 조정합니다(20,230,60,60).
 
 |버전|코드 버전|
 |---|---|
 |sourceLanguage|비디오의 소스 언어입니다(하나의 마스터 언어를 가정함). [BCP-47](https://tools.ietf.org/html/bcp47) 문자열 형식입니다.|
 |언어|인사이트 언어입니다(소스 언어에서 변환됨). [BCP-47](https://tools.ietf.org/html/bcp47) 문자열 형식입니다.|
-|대본|[성적 증명서](#transcript) 입니다.|
-|ocr|[OCR](#ocr) 정보를 파악 합니다.|
-|키워드|[키워드](#keywords) 를 파악 합니다.|
+|대본|[transcript](#transcript) 인사이트.|
+|ocr|[OCR](#ocr) 인사이트.|
+|키워드|[keywords](#keywords) 인사이트.|
 |blocks|하나 이상의 [blocks](#blocks)가 포함될 수 있습니다.|
-|얼굴/animatedCharacters|[얼굴/animatedCharacters](#facesanimatedcharacters) 통찰력입니다.|
-|레이블|[레이블](#labels) 정보입니다.|
-|샷|[샷을](#shots) 파악 합니다.|
-|brands|[브랜드](#brands) 통찰력.|
-|audioEffects|[오디오 효과](#audioeffects-public-preview) 통찰력입니다.|
-|감정|[정서](#sentiments) 통찰력입니다.|
-|visualContentModeration|[Visualcontentmoderation](#visualcontentmoderation) 정보입니다.|
-|textualContentModeration|[TextualContentModeration](#textualcontentmoderation) 통찰력입니다.|
-|emotions| [감정을](#emotions) 통찰력입니다.|
-|topics|[항목](#topics) 에 대해 자세히 설명 합니다.|
-|있어야|[강연자](#speakers) 통찰력입니다.|
+|faces/animatedCharacters|[faces/animatedCharacters](#facesanimatedcharacters) 인사이트.|
+|레이블|[labels](#labels) 인사이트.|
+|샷|[shots](#shots) 인사이트.|
+|brands|[brands](#brands) 인사이트.|
+|audioEffects|[audioEffects](#audioeffects-public-preview) 인사이트.|
+|감정|[sentiments](#sentiments) 인사이트.|
+|visualContentModeration|[visualContentModeration](#visualcontentmoderation) 인사이트.|
+|textualContentModeration|[textualContentModeration](#textualcontentmoderation) 인사이트.|
+|emotions| [emotions](#emotions) 인사이트.|
+|topics|[topics](#topics) 인사이트.|
+|speakers|[speakers](#speakers) 인사이트.|
 
 예제:
 
@@ -212,7 +212,7 @@ ms.locfileid: "100530742"
 
 #### <a name="blocks"></a>blocks
 
-특성 | Description
+attribute | Description
 ---|---
 id|블록의 ID입니다.|
 인스턴스|이 블록에 대한 시간 범위의 목록입니다.|
@@ -223,8 +223,8 @@ id|블록의 ID입니다.|
 |---|---|
 |id|줄 ID입니다.|
 |text|자체 대본입니다.|
-|신뢰도|성적 증명서의 정확도입니다.|
-|speakerId|스피커의 ID입니다.|
+|신뢰도|음성 텍스트 정확도의 신뢰도입니다.|
+|speakerId|화자의 ID입니다.|
 |언어|대본 언어입니다. 각 줄마다 다른 언어가 사용될 수 있는 대본을 지원하기 위한 요소입니다.|
 |인스턴스|이 줄이 나타나는 시간 범위 목록입니다. 인스턴스가 대본인 경우 인스턴스는 하나만 있습니다.|
 
@@ -273,10 +273,10 @@ id|블록의 ID입니다.|
 |신뢰도|인식 신뢰도입니다.|
 |언어|OCR 언어입니다.|
 |인스턴스|이 OCR이 표시된 시간 범위 목록(동일한 OCR이 여러 번 나타날 수 있음)입니다.|
-|키|OCR 사각형의 높이입니다.|
-|top|Px의 위쪽 위치입니다.|
-|left| Px의 왼쪽 위치입니다.|
-|width|OCR 사각형의 너비입니다.|
+|키|OCR 사각형의 높이|
+|top|상단 위치(픽셀)|
+|left| 왼쪽 위치(픽셀)|
+|width|OCR 사각형의 너비|
 
 ```json
 "ocr": [
@@ -330,18 +330,18 @@ id|블록의 ID입니다.|
 }
 ```
 
-#### <a name="facesanimatedcharacters"></a>얼굴/animatedCharacters
+#### <a name="facesanimatedcharacters"></a>faces/animatedCharacters
 
-`animatedCharacters``faces`비디오가 애니메이션 문자 모델로 인덱싱되는 경우 요소는를 대체 합니다. Custom Vision에서 사용자 지정 모델을 사용 하 여이 작업을 수행 하 Video Indexer는 키 프레임에서 실행 됩니다.
+애니메이션 문자 모델로 비디오가 인덱싱된 경우 `animatedCharacters` 요소는 `faces`를 대체합니다. Custom Vision에서 사용자 지정 모델을 사용하여 이 작업을 수행하고, Video Indexer는 키 프레임에서 실행됩니다.
 
-얼굴 (애니메이션 문자 아님)이 있는 경우 Video Indexer 모든 비디오 프레임에서 Face API를 사용 하 여 얼굴 및 유명인을 감지 합니다.
+얼굴(애니메이션 문자 아님)이 있는 경우 Video Indexer는 모든 비디오 프레임에서 Face API를 사용하여 얼굴 및 유명인을 감지합니다.
 
 |Name|Description|
 |---|---|
 |id|얼굴 ID입니다.|
 |name|얼굴의 이름입니다. 'Unknown #0, 즉 식별된 유명인 또는 고객이 학습한 사람일 수 있습니다.|
 |신뢰도|얼굴 인식 신뢰도입니다.|
-|설명|유명인에 대한 설명입니다. |
+|description|유명인에 대한 설명입니다. |
 |thumbnailId|얼굴 썸네일의 ID입니다.|
 |knownPersonId|알려진 사람인 경우 내부 ID입니다.|
 |referenceId|Bing 유명인인 경우 Bing ID입니다.|
@@ -443,7 +443,7 @@ id|블록의 ID입니다.|
 |Name|Description|
 |---|---|
 |id|장면 ID입니다.|
-|인스턴스|이 장면의 시간 범위 목록입니다 (장면에는 인스턴스가 1 개만 있을 수 있음).|
+|인스턴스|이 장면의 시간 범위 목록입니다(장면에는 1개의 인스턴스만 있을 수 있음).|
 
 ```json
 "scenes":[  
@@ -476,8 +476,8 @@ id|블록의 ID입니다.|
 |Name|Description|
 |---|---|
 |id|샷 ID입니다.|
-|keyFrames|샷 내의 키 프레임 목록 (각각 ID와 인스턴스 시간 범위의 목록이 있음). 각 키 프레임 인스턴스에는 키 프레임의 미리 보기 ID를 포함 하는 thumbnailId 필드가 있습니다.|
-|인스턴스|이 샷의 시간 범위 목록입니다 (샷의 인스턴스는 1 개만 있을 수 있음).|
+|keyFrames|샷 내의 keyFrames 목록(각각 ID와 인스턴스 시간 범위 목록이 있음)입니다. 각 keyFrame 인스턴스에는 keyFrame의 썸네일 ID가 있는 썸네일 필드가 있습니다.|
+|인스턴스|이 장면의 시간 범위 목록입니다(장면에는 1개의 인스턴스만 있을 수 있음).|
 
 ```json
 "shots":[  
@@ -527,9 +527,9 @@ id|블록의 ID입니다.|
 |---|---|
 |id|브랜드 ID입니다.|
 |name|브랜드 이름입니다.|
-|referenceId | 브랜드의 Wikipedia URL에 대한 접미사입니다. 예를 들어 "Target_Corporation"은의 접미사입니다 [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) .
+|referenceId | 브랜드의 Wikipedia URL에 대한 접미사입니다. 예를 들어 "Target_Corporation"은 [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation)의 접미사입니다.
 |referenceUrl | 있는 경우 브랜드의 Wikipedia URL입니다. 예를 들어 [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) 와 같습니다.
-|설명|브랜드 설명입니다.|
+|description|브랜드 설명입니다.|
 |tags|이 브랜드와 연결된 미리 정의된 태그의 목록입니다.|
 |신뢰도|Video Indexer 브랜드 감지기의 신뢰도 값(0-1)입니다.|
 |인스턴스|이 브랜드의 시간 범위에 대한 목록입니다. 각 인스턴스에는 이 브랜드가 전사 또는 OCR에 표시되는지 여부를 나타내는 brandType이 있습니다.|
@@ -582,7 +582,7 @@ id|블록의 ID입니다.|
 
 #### <a name="statistics"></a>통계
 
-|Name|설명|
+|Name|Description|
 |---|---|
 |CorrespondenceCount|동영상의 해당 항목 수입니다.|
 |SpeakerWordCount|화자별 단어 수입니다.|
@@ -590,12 +590,12 @@ id|블록의 ID입니다.|
 |SpeakerLongestMonolog|화자의 가장 긴 단독 발언입니다. 가장 긴 단독 발언 내에 화자의 침묵이 있으면 포함됩니다. 단독 발언의 시작과 끝 부분에 있는 침묵은 제거됩니다.| 
 |SpeakerTalkToListenRatio|화자의 단독 발언에 소요된 시간(그 사이 침묵 제외)을 비디오의 총 시간으로 나눈 값을 기반으로 계산됩니다. 시간은 소수점 이하 세 자리에서 반올림됩니다.|
 
-#### <a name="audioeffects-public-preview"></a>오디오 효과 (공개 미리 보기)
+#### <a name="audioeffects-public-preview"></a>audioEffects(공개 미리 보기)
 
 |Name|Description
 |---|---|
 |id|오디오 효과 ID|
-|형식|오디오 효과 유형입니다.|
+|형식|오디오 효과 유형|
 |인스턴스|이 오디오 효과가 나타나는 시간 범위 목록입니다. 인스턴스마다 신뢰도 필드가 있습니다.|
 
 ```json
@@ -706,12 +706,12 @@ visualContentModeration 블록에는 Video Indexer에서 잠재적 성인 콘텐
 
 #### <a name="emotions"></a>emotions
 
-Video Indexer는 음성 및 오디오 신호를 기반으로 감정을를 식별 합니다. 식별 되는 emotion는 분노, sadness 또는 일 수 있습니다.
+Video Indexer는 음성 및 오디오 신호에 따라 감정을 식별합니다. 식별된 감정은 joy(기쁨), sadness(슬픔), anger(분노) 또는 fear(두려움)일 수 있습니다.
 
 |Name|Description|
 |---|---|
 |id|감정 ID입니다.|
-|형식|음성 및 오디오 신호를 기반으로 식별 된 emotion 순간입니다. Emotion, sadness, 또는 그에 대 한 것입니다.|
+|형식|음성 및 음성 신호에 따라 식별된 감정 시점입니다. 감정은 joy(기쁨), sadness(슬픔), anger(분노) 또는 fear(두려움)일 수 있습니다.|
 |인스턴스|이 감정이 나타난 시간 범위의 목록입니다.|
 
 ```json
@@ -796,7 +796,7 @@ Video Indexer는 음성 및 오디오 신호를 기반으로 감정을를 식별
 
 #### <a name="topics"></a>topics
 
-Video Indexer는 전사에서 주요 주제를 추정합니다. 가능 하면 두 번째 수준 [IPTC](https://iptc.org/standards/media-topics/) 분류가 포함 됩니다. 
+Video Indexer는 전사에서 주요 주제를 추정합니다. 가능한 경우 [IPTC](https://iptc.org/standards/media-topics/) 수준 2 분류가 포함됩니다. 
 
 |Name|Description|
 |---|---|
@@ -839,13 +839,13 @@ Video Indexer는 전사에서 주요 주제를 추정합니다. 가능 하면 �
 . . .
 ```
 
-#### <a name="speakers"></a>있어야
+#### <a name="speakers"></a>speakers
 
 |Name|Description|
 |---|---|
-|id|스피커 ID입니다.|
-|name|"스피커 #1"와 같은 "스피커 #" 형식의 스피커 이름 *<number>* 입니다.|
-|인스턴스 |이 스피커가 나타난 시간 범위 목록입니다.|
+|id|화자 ID입니다.|
+|name|"Speaker # *<number>* " 형식의 화자 이름(예: "Speaker #1").|
+|인스턴스 |이 화자가 등장한 시간 범위의 목록입니다.|
 
 ```json
 "speakers":[

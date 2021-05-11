@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: cb778d826ef094d71fd27f3c10bc1f2c292baa47
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 203af340a8bd48bdb6dee70f92c2ecc39708b8e1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107862402"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732332"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 리소스 모니터링
 Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있는 경우 이와 같은 리소스의 가용성, 성능 및 작업을 모니터링할 수 있습니다. 이 문서에서는 Azure 리소스에서 생성되는 모니터링 데이터와 Azure Monitor 기능을 사용하여 이 데이터에 대해 분석하고 경고하는 방법을 설명합니다.
@@ -131,7 +131,7 @@ Azure Monitor 로그는 강력한 쿼리 도구를 사용하여 분석을 위해
 명령줄에서 리소스에서 수집한 모니터링 데이터에 액세스하거나, [Azure PowerShell](/powershell/azure/) 또는 [Azure 명령줄 인터페이스](/cli/azure/)를 사용하여 스크립트에 포함할 수 있습니다. 
 
 - CLI에서 메트릭 데이터에 액세스하는 방법은 [CLI 메트릭 참조](/cli/azure/monitor/metrics)를 참조하세요.
-- CLI에서 로그 쿼리를 사용하여 Azure Monitor 로그 데이터에 액세스하는 방법은 [CLI Log Analytics 참조](/cli/azure/monitor/log-analytics)를 참조하세요.
+- CLI에서 로그 쿼리를 사용하여 Azure Monitor 로그 데이터에 액세스하는 방법은 [CLI Log Analytics 참조](/cli/azure/ext/log-analytics/monitor/log-analytics)를 참조하세요.
 - Azure PowerShell에서 메트릭 데이터에 액세스하는 방법은 [Azure PowerShell 메트릭 참조](/powershell/module/azurerm.insights/get-azurermmetric)를 참조하세요.
 - Azure PowerShell의 로그 쿼리를 사용하여 Azure Monitor 로그 데이터에 액세스하는 방법은 [Azure PowerShell 로그 쿼리 참조](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery)를 참조하세요.
 

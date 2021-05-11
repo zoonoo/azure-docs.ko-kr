@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b34194c0b9afa622d6ae751752092ed3f750f0b
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: f2bbc1c555824d4c632c5bf85a9cd0aa83087fc8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285757"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101648728"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>문제 해결: 온-프레미스 Azure AD 암호 보호
 
@@ -328,7 +328,7 @@ Test-AzureADPasswordProtectionDCAgentHealth cmdlet은 개별적으로 실행할 
 
 다음 테스트는 모두 개별적으로 실행할 수 있습니다. 간단한 설명
 
-|DC 에이전트 상태 테스트|Description|
+|DC 에이전트 상태 테스트|설명|
 | --- | :---: |
 |-VerifyPasswordFilterDll|암호 필터 dll이 현재 로드되어 있고 DC 에이전트 서비스를 호출할 수 있는지 확인합니다.|
 |-VerifyForestRegistration|포리스트가 현재 등록되어 있는지 확인합니다.|
@@ -402,6 +402,6 @@ VerifyAzureConnectivityViaSpecificProxy Passed
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure AD 암호 보호에 대한 질문과 대답](howto-password-ban-bad-on-premises-faq.yml)
+[Azure AD 암호 보호에 대한 질문과 대답](howto-password-ban-bad-on-premises-faq.md)
 
 전역 및 사용자 지정 금지된 암호 목록에 대한 자세한 내용은 [잘못된 암호 금지](concept-password-ban-bad.md) 문서 참조

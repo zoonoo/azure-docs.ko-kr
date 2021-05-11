@@ -12,12 +12,12 @@ ms.date: 01/29/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 92da0b12a3119b048866eef5b18f658916595294
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2cde44ddb49ede8002b8a25ab47ae92ccd602a9d
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101645928"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226373"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-by-using-application-insights"></a>Application Insights를 사용하여 Azure AD B2C에서 사용자 동작 추적
 
@@ -49,7 +49,7 @@ Application Insights를 사용하는 경우 다음 사항을 고려하세요.
 - 사용자 세션을 기록하려면 상관 관계 ID를 사용하여 이벤트를 통합할 수 있습니다.
 - [사용자 경험](userjourneys.md) 또는 [하위 경험](subjourneys.md)에서 직접 Application Insights 기술 프로필을 호출합니다. Application Insights 기술 프로필을 [유효성 검사 기술 프로필](validation-technical-profile.md)로 사용하지 마세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites-custom-policy](../../includes/active-directory-b2c-customization-prerequisites-custom-policy.md)]
 
@@ -252,7 +252,7 @@ Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 
 
 ### <a name="manipulate-claims"></a>클레임 조작
 
-[입력 클레임 변환](custom-policy-trust-frameworks.md#manipulating-your-claims)을 사용하여 입력 클레임을 수정하거나 Application Insights로 보내기 전에 새 항목을 생성할 수 있습니다. 다음 예제에서 기술 프로필에는 `CheckIsAdmin` 입력 클레임 변환이 포함됩니다.
+[입력 클레임 변환](custom-policy-overview.md#manipulating-your-claims)을 사용하여 입력 클레임을 수정하거나 Application Insights로 보내기 전에 새 항목을 생성할 수 있습니다. 다음 예제에서 기술 프로필에는 `CheckIsAdmin` 입력 클레임 변환이 포함됩니다.
 
 ```xml
 <TechnicalProfile Id="AppInsights-SignInComplete">
@@ -269,7 +269,7 @@ Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 
 
 ### <a name="add-events"></a>이벤트 추가
 
-이벤트를 추가하려면 `AppInsights-Common` 기술 프로필을 포함하는 새 기술 프로필을 만듭니다. 그다음 새 기술 프로필을 [사용자 경험](custom-policy-trust-frameworks.md#orchestration-steps)에 오케스트레이션 단계로 추가합니다. 준비가 되면 [Precondition](userjourneys.md#preconditions) 요소를 사용하여 이벤트를 트리거합니다. 예를 들어 사용자가 다단계 인증을 통해 실행하는 경우에만 이벤트를 보고합니다.
+이벤트를 추가하려면 `AppInsights-Common` 기술 프로필을 포함하는 새 기술 프로필을 만듭니다. 그다음 새 기술 프로필을 [사용자 경험](custom-policy-overview.md#orchestration-steps)에 오케스트레이션 단계로 추가합니다. 준비가 되면 [Precondition](userjourneys.md#preconditions) 요소를 사용하여 이벤트를 트리거합니다. 예를 들어 사용자가 다단계 인증을 통해 실행하는 경우에만 이벤트를 보고합니다.
 
 ```xml
 <TechnicalProfile Id="AppInsights-MFA-Completed">

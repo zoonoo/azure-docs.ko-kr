@@ -7,13 +7,12 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 01/06/2017
 ms.author: yegu
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 089d7d7990f0f94135f629a5cd7a461700aa3433
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: ec8d4f5611425734974d07ae6ee7008b10b9b406
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830775"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "85833777"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>템플릿을 사용하여 Azure Cache for Redis가 포함된 웹앱 만들기
 

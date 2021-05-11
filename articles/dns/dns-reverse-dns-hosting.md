@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
 ms.openlocfilehash: 0c85049d6c8921432a753bf08989cab473b7c734
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99525130"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Azure DNS에서 역방향 DNS 조회 영역 호스트
@@ -44,11 +44,11 @@ IPv4 역방향 조회 영역의 이름은 나타내는 IP 범위를 기반으로
 >
 > 예를 들어 IP 범위 192.0.2.128/26에 대해 `128/26.2.0.192.in-addr.arpa` 대신 `128-26.2.0.192.in-addr.arpa`를 영역 이름으로 사용해야 합니다.
 >
-> DNS 표준에서 두 가지 방법을 모두 지원 하지만 Azure DNS는 슬래시 () 문자를 포함 하는 DNS 영역 이름을 지원 하지 않습니다 `/` .
+> DNS 표준은 두 가지 방법을 모두 지원하지만 Azure DNS는 슬래시(`/`) 문자를 포함하는 DNS 영역 이름을 지원하지 않습니다.
 
 다음 예제에서는 Azure Portal을 통해 Azure DNS에 `2.0.192.in-addr.arpa`라는 클래스 C 역방향 DNS 영역을 만드는 방법을 보여줍니다.
 
- ![Azure Portal를 통해 Azure DNS에서 2.0.192.in 라는 클래스 C 역방향 DNS 영역을 만드는 방법을 보여 주는 스크린샷](./media/dns-reverse-dns-hosting/figure2.png)
+ ![Azure Portal을 통해 Azure DNS에 2.0.192.in-addr.arpa라는 클래스 C 역방향 DNS 영역을 만드는 방법을 보여주는 스크린샷.](./media/dns-reverse-dns-hosting/figure2.png)
 
 **리소스 그룹 위치** 는 리소스 그룹의 위치를 정의합니다. DNS 영역에 영향을 미치지 않습니다. DNS 영역 위치는 항상 "전역"이며 표시되지 않습니다.
 
@@ -117,7 +117,7 @@ DNS 역방향 조회 영역을 만들었으므로 해당 영역이 부모 영역
 
 1. **DNS 영역** 창의 위쪽에서 **+ 레코드 집합** 을 클릭하여 **레코드 집합 추가** 창을 엽니다.
 
-   ![화살표가 + 레코드 집합 단추를 가리키는 DNS 영역 창의 스크린샷](./media/dns-reverse-dns-hosting/figure4.png)
+   ![화살표가 + 레코드 집합 단추를 가리키는 DNS 영역 창의 스크린샷.](./media/dns-reverse-dns-hosting/figure4.png)
 
 1. PTR 레코드에 대한 레코드 집합 이름은 반대 순서로 IPv4 주소의 나머지 부분이어야 합니다. 
 
@@ -130,10 +130,10 @@ DNS 역방향 조회 영역을 만들었으므로 해당 영역이 부모 영역
 
 다음 예제에서는 PowerShell이나 Azure CLI를 사용하여 이 작업을 완료하는 방법을 보여줍니다.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell&quot;></a>PowerShell
 
 ```powershell
-New-AzDnsRecordSet -Name 15 -RecordType PTR -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Ptrdname "dc1.contoso.com")
+New-AzDnsRecordSet -Name 15 -RecordType PTR -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Ptrdname &quot;dc1.contoso.com")
 ```
 #### <a name="azure-classic-cli"></a>Azure 클래식 CLI
 
@@ -162,14 +162,14 @@ az network dns record-set ptr add-record -g MyResourceGroup -z 2.0.192.in-addr.a
 4. **도메인 이름** 에는 IP를 사용하는 리소스의 FQDN을 입력합니다.
 5. 창의 맨 아래에서 **확인** 을 선택하여 DNS 레코드를 만듭니다.
 
-![형식 필드의 값을 가리키는 화살표가 있는의 "레코드 집합 추가" 창을 보여 주는 스크린샷](./media/dns-reverse-dns-hosting/figure7.png)
+![형식 필드의 값을 가리키는 화살표가 있는 "레코드 집합 추가" 창을 보여주는 스크린샷.](./media/dns-reverse-dns-hosting/figure7.png)
 
 다음 예제에서는 PowerShell이나 Azure CLI를 사용하여 이 작업을 완료하는 방법을 보여줍니다.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell&quot;></a>PowerShell
 
 ```powershell
-New-AzDnsRecordSet -Name "e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f" -RecordType PTR -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Ptrdname "dc2.contoso.com")
+New-AzDnsRecordSet -Name &quot;e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f&quot; -RecordType PTR -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Ptrdname &quot;dc2.contoso.com")
 ```
 
 #### <a name="azure-classic-cli"></a>Azure 클래식 CLI

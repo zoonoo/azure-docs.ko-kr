@@ -1,5 +1,5 @@
 ---
-title: 질문 데이터에 대답할 수 있음-ML Studio (클래식)-Azure
+title: 데이터가 대답할 수 있는 질문하기 - ML Studio(클래식) - Azure
 description: 초급자를 위한 데이터 과학 비디오 3에서 정확한 데이터 과학 질문을 작성하는 방법을 알아봅니다. 분류 및 회귀 질문에 대한 비교가 포함되어 있습니다.
 services: machine-learning
 ms.service: machine-learning
@@ -9,10 +9,10 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
 ms.openlocfilehash: 2ff440801db7ba8c5bfc1785fc7a399a1d773b73
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100517028"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>데이터로 대답할 수 있는 질문하기
@@ -47,7 +47,7 @@ ms.locfileid: "100517028"
 
 모호한 질문에는 이름이나 숫자로 답변할 필요가 없습니다. 하지만 정확한 질문에는 그렇게 해야만 합니다.
 
-묻는 질문에 정직하게 답하는 지니의 요술 램프를 찾았다고 상상해 보겠습니다. 그러나 짓궂은 genie는이를 사용 하는 것 처럼 모호 하 고 혼란 스 러 울 수 있도록 하는 것입니다. 질문을 하 고, 원하는 정보를 알려 주는 데 도움이 되는 정보를 제공 합니다.
+묻는 질문에 정직하게 답하는 지니의 요술 램프를 찾았다고 상상해 보겠습니다. 하지만 짓궂은 지니는 빠져나갈 구멍을 만들기 위해 모호하고 혼란스러운 답을 주려고 할 것입니다. 빈틈없이 완벽한 질문으로 그를 꼼짝 못하게 하면 원하는 것을 알려주지 않고는 못 배길 것입니다.
 
 “내 주식이 어떻게 될까요?”라는 모호한 질문을 한다면, 지니는 “가격이 변할 것입니다.”라고 답변할 것입니다. 정직한 답변이지만 별로 도움은 되지 않습니다.
 
@@ -87,7 +87,7 @@ ms.locfileid: "100517028"
 
 데이터로 답할 수 있는 질문의 기본적인 원리에 대해 알아보았습니다.
 
-Microsoft Azure Machine Learning Studio (클래식)에서 "초보자를 위한 데이터 과학"의 다른 비디오를 확인 하세요.
+Microsoft Azure Machine Learning Studio(클래식)의 “초급자를 위한 데이터 과학”에 포함된 다른 비디오도 확인해 보세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Machine Learning Studio(클래식)로 첫 번째 데이터 과학 실험 시도](create-experiment.md)

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
 ms.openlocfilehash: 0fe1470661c006399ea176af1112d271524b2a1f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100390966"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업 내결함성
@@ -22,7 +22,7 @@ ms.locfileid: "100390966"
 
 원본 저장소에서 대상 저장소로 데이터를 복사하는 경우 Azure Data Factory 복사 작업이 데이터 이동 중에 오류가 발생하여 중단되지 않도록 특정 수준의 내결함성을 제공합니다. 예를 들어 대상 데이터베이스에서 기본 키가 생성되었지만 원본 데이터베이스에 기본 키가 정의되어 있지 않은 경우 원본 저장소에서 대상 저장소로 수백만 개의 행을 복사합니다. 원본에서 대상으로 중복 행을 복사하는 경우 대상 데이터베이스에서 PK 위반 오류가 발생합니다. 현재 복사 작업은 이러한 오류를 처리하는 두 가지 방법을 제공합니다. 
 - 오류가 발생하면 복사 작업을 중단할 수 있습니다. 
-- 내결함성을 사용하여 호환되지 않는 데이터를 건너뛰고 나머지 항목을 계속 복사할 수 있습니다. 예를 들어 이 경우에는 중복된 행을 건너뜁니다. 또한 복사 작업 내에서 세션 로그를 사용하도록 설정하여 건너뛴 데이터를 로깅할 수 있습니다. 자세한 내용은 [복사 작업에서 세션 로그](copy-activity-log.md) 를 참조할 수 있습니다.
+- 내결함성을 사용하여 호환되지 않는 데이터를 건너뛰고 나머지 항목을 계속 복사할 수 있습니다. 예를 들어 이 경우에는 중복된 행을 건너뜁니다. 또한 복사 작업 내에서 세션 로그를 사용하도록 설정하여 건너뛴 데이터를 로깅할 수 있습니다. 자세한 내용은 [복사 작업의 세션 로그](copy-activity-log.md)를 참조하세요.
 
 ## <a name="copying-binary-files"></a>이진 파일 복사 
 
@@ -79,25 +79,25 @@ skipErrorFile | 데이터 이동 중에 건너뛸 오류 유형을 지정하는 
 fileMissing | skipErrorFile 속성 모음 내에서 키-값 쌍 중 하나를 선택하여 파일을 건너뛸지 여부를 결정할 수 있습니다. 그러면 ADF가 복사하는 동안 다른 애플리케이션에서 건너뛴 파일을 삭제합니다. <br/> -True: 다른 애플리케이션에서 삭제할 파일을 건너뛰어 나머지 항목을 복사하려고 합니다. <br/> -False: 데이터 이동 중에 원본 저장소에서 파일이 삭제되면 복사 작업을 중단하려고 합니다. <br/>이 속성은 기본적으로 true로 설정됩니다. | True(기본값) <br/>False | 예
 fileForbidden | skipErrorFile 속성 모음 내에서 키-값 쌍 중 하나를 사용하여 특정 파일을 건너뛸지 여부를 결정합니다. 이러한 파일 또는 폴더의 ACL은 ADF에 구성된 연결보다 높은 수준의 권한을 요구합니다. <br/> -True: 파일을 건너뛰고 나머지 항목을 복사하려고 합니다. <br/> -False: 폴더 또는 파일에 대한 권한 문제가 발생하면 복사 작업을 중단하려고 합니다. | True <br/>False(기본값) | 예
 dataInconsistency | skipErrorFile 속성 모음 내에서 키-값 쌍 중 하나를 선택하여 원본 및 대상 저장소 간에 일치하지 않는 데이터를 건너뛸지 여부를 결정합니다. <br/> -True: 일치하지 않는 데이터를 건너뛰고 나머지 항목을 복사하려고 합니다. <br/> -False: 일관되지 않은 데이터가 발견되면 복사 활동을 중단하려고 합니다. <br/>이 속성은 validateDataConsistency를 True로 설정한 경우에만 유효합니다. | True <br/>False(기본값) | 예
-invalidFileName | SkipErrorFile 속성 모음 내에서 키-값 쌍 중 하나를 선택 하 여 대상 저장소에 대 한 파일 이름이 잘못 된 경우 특정 파일을 건너뛸지 여부를 결정 합니다. <br/> -True: 잘못 된 파일 이름을 가진 파일을 건너뛰어 나머지를 복사 하려고 합니다. <br/> -False: 파일 이름이 잘못 된 경우 복사 작업을 중단 하려고 합니다. <br/>이 속성은 저장소 저장소에서 이진 파일 ADLS Gen2을 복사 하 여 AWS s 3에서 모든 저장소 저장소로 이진 파일을 복사 하는 경우에만 작동 합니다. | True <br/>False(기본값) | 예
+invalidFileName | skipErrorFile 속성 모음 내에서 키-값 쌍 중 하나로, 대상 저장소에 대한 파일 이름이 잘못된 경우 특정 파일을 건너뛸지 여부를 결정합니다. <br/> \- True: 파일 이름이 잘못된 파일을 건너뛰고 나머지 항목을 복사하려고 합니다. <br/> - False: 파일 이름이 잘못된 경우 복사 작업을 중단하려고 합니다. <br/>이 속성은 스토리지 저장소에서 ADLS Gen2로 이진 파일을 복사하거나 AWS S3에서 스토리지 저장소로만 이진 파일을 복사하는 경우에 작동합니다. | True <br/>False(기본값) | 예
 logSettings  | 건너뛴 개체 이름을 로깅하려는 경우 지정할 수 있는 속성 그룹입니다. | &nbsp; | 예
 linkedServiceName | 세션 로그 파일을 저장할 [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties)의 연결된 서비스입니다. | `AzureBlobStorage` 또는 `AzureBlobFS` 형식의 연결된 서비스 이름은 로그 파일을 저장하는 데 사용되는 인스턴스를 참조합니다. | 예
 경로 | 로그 파일의 경로입니다. | 로그 파일을 저장하는 데 사용할 경로를 지정합니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 예
 
 > [!NOTE]
-> 다음은 이진 파일을 복사할 때 복사 작업에서 내결함성을 사용 하기 위한 필수 구성 요소입니다.
-> 원본 저장소에서 삭제 되는 특정 파일을 건너뛰는 경우:
-> - 원본 데이터 집합 및 싱크 데이터 집합은 이진 형식 이어야 하며 압축 형식은 지정할 수 없습니다. 
-> - 지원 되는 데이터 저장소 형식은 Azure Blob storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, 파일 시스템, FTP, SFTP, Amazon S3, Google Cloud Storage 및 HDFS입니다.
-> - 원본 데이터 집합에서 여러 파일을 지정 하는 경우에만 폴더, 와일드 카드 또는 파일 목록이 될 수 있습니다. 복사 작업은 특정 오류 파일을 건너뛸 수 있습니다. 원본 데이터 집합에서 대상으로 복사할 단일 파일이 지정 된 경우 오류가 발생 하면 복사 작업이 실패 합니다.
+> 다음은 이진 파일을 복사할 때 복사 작업에서 내결함성을 사용하는 데 있어 필수 구성 요소입니다.
+> 원본 저장소에서 삭제되는 특정 파일을 건너뛰는 경우:
+> - 원본 데이터 세트 및 싱크 데이터 세트는 이진 형식이어야 하며, 압축 형식은 지정할 수 없습니다. 
+> - 지원되는 데이터 저장소 형식은 Azure Blob storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, File System, FTP, SFTP, Amazon S3, Google Cloud Storage, HDFS입니다.
+> - 원본 데이터 세트(폴더, 와일드카드 또는 파일 목록이 될 수 있음)에서 여러 파일을 지정하는 경우에만 복사 작업에서 특정 오류 파일을 건너뛸 수 있습니다. 원본 데이터 세트에서 대상으로 복사할 단일 파일이 지정된 경우 오류가 발생하면 복사 작업이 실패합니다.
 >
-> 원본 저장소에서 액세스를 사용할 수 없을 때 특정 파일을 건너뛰는 경우:
-> - 원본 데이터 집합 및 싱크 데이터 집합은 이진 형식 이어야 하며 압축 형식은 지정할 수 없습니다. 
-> - 지원 되는 데이터 저장소 형식은 Azure Blob storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, SFTP, Amazon S3 및 HDFS입니다.
-> - 원본 데이터 집합에서 여러 파일을 지정 하는 경우에만 폴더, 와일드 카드 또는 파일 목록이 될 수 있습니다. 복사 작업은 특정 오류 파일을 건너뛸 수 있습니다. 원본 데이터 집합에서 대상으로 복사할 단일 파일이 지정 된 경우 오류가 발생 하면 복사 작업이 실패 합니다.
+> 원본 저장소에서 액세스가 금지될 때 특정 파일을 건너뛰는 경우:
+> - 원본 데이터 세트 및 싱크 데이터 세트는 이진 형식이어야 하며, 압축 형식은 지정할 수 없습니다. 
+> - 지원되는 데이터 저장소 형식은 Azure Blob storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, SFTP, Amazon S3, HDFS입니다.
+> - 원본 데이터 세트(폴더, 와일드카드 또는 파일 목록이 될 수 있음)에서 여러 파일을 지정하는 경우에만 복사 작업에서 특정 오류 파일을 건너뛸 수 있습니다. 원본 데이터 세트에서 대상으로 복사할 단일 파일이 지정된 경우 오류가 발생하면 복사 작업이 실패합니다.
 >
-> 원본 및 대상 저장소 간에 일치 하지 않는 것으로 확인 되는 특정 파일을 건너뛰는 경우:
-> - 데이터 일관성 문서에서 자세한 내용을 볼 [수 있습니다.](./copy-activity-data-consistency.md)
+> 원본 및 대상 저장소 간에 일치하지 않는 것으로 확인되는 특정 파일을 건너뛰는 경우:
+> - [여기](./copy-activity-data-consistency.md) 데이터 일관성 문서에서 자세한 내용을 볼 수 있습니다.
 
 ### <a name="monitoring"></a>모니터링 
 
@@ -163,7 +163,7 @@ Timestamp,Level,OperationName,OperationItem,Message
     다음은 그 예입니다.  SQL Server에서 SQL Database로 데이터를 복사합니다. 기본 키가 싱크 SQL Database에 정의되어 있지만 이러한 기본 키가 원본 SQL Server에 정의되어 있지 않습니다. 원본에 있는 중복된 행을 싱크로 복사할 수 없습니다. 복사 작업은 원본 데이터의 첫 번째 행만 싱크에 복사합니다. 중복된 기본 키 값을 포함하는 후속 원본 행을 호환되지 않는 것으로 감지하고 건너뜁니다.
 
 >[!NOTE]
->- PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터를 로드 하려면 복사 작업에서 "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)"를 통해 거부 정책을 지정 하 여 polybase의 기본 내결함성 설정을 구성 합니다. PolyBase와 호환되지 않는 행을 계속해서 아래와 같이 정상적으로 Blob 또는 ADLS로 리디렉션할 수 있습니다.
+>- PolyBase를 사용하여 Azure Synapse Analytics로 데이터를 로드하려면 복사 작업에서 "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)"를 통해 거부 정책을 지정하여 PolyBase의 네이티브 내결함성 설정을 구성하세요. PolyBase와 호환되지 않는 행을 계속해서 아래와 같이 정상적으로 Blob 또는 ADLS로 리디렉션할 수 있습니다.
 >- [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)를 호출하도록 복사 작업이 구성된 경우 이 기능이 적용되지 않습니다.
 >- [SQL 싱크의 저장 프로시저](./connector-azure-sql-database.md#invoke-a-stored-procedure-from-a-sql-sink)를 호출하도록 복사 작업이 구성된 경우 이 기능이 적용되지 않습니다.
 

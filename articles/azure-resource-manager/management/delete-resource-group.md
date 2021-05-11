@@ -3,13 +3,13 @@ title: 리소스 그룹과 리소스 삭제
 description: 리소스 그룹과 리소스를 삭제하는 방법을 설명합니다. 리소스 그룹을 삭제할 때 Azure Resource Manager가 리소스 삭제를 명령하는 방법을 설명합니다. 응답 코드 및 Resource Manager가 응답 코드를 처리하여 삭제 성공 여부를 확인하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.custom: seodec18
-ms.openlocfilehash: 8dd6c3f9ac178a518545a662eb94d33066f7614b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: ccf5a9b1fac50dbf96d648acbf625b360bafb249
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932729"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315240"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Azure Resource Manager 리소스 그룹 및 리소스 삭제
 
@@ -130,4 +130,4 @@ az resource delete \
 ## <a name="next-steps"></a>다음 단계
 
 * Resource Manager의 개념을 이해하려면 [Azure Resource Manager 개요](overview.md)를 참조하세요.
-* 삭제 명령은 [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [Azure CLI](/cli/azure/group#az-group-delete) 및 [REST API](/rest/api/resources/resources/resourcegroups/delete)를 참조하세요.
+* 삭제 명령은 [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [Azure CLI](/cli/azure/group#az_group_delete) 및 [REST API](/rest/api/resources/resourcegroups/delete)를 참조하세요.

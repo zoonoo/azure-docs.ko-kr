@@ -3,12 +3,12 @@ title: 리소스 로그 수집 및 분석
 description: Azure Container Instances의 컨테이너 그룹에서 리소스 로그 및 이벤트 데이터를 Azure Monitor 로그에 보내는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 07/13/2020
-ms.openlocfilehash: cfdcd1cc8e36a118c4e3c4435eaa002e4d3b1b93
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e46a1df65a4cfe5d10a58704aff485aa2834b55f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579331"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763922"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 컨테이너 그룹 및 인스턴스 로깅
 
@@ -172,4 +172,4 @@ Azure Monitor 로그에서 로그를 쿼리하고 경고를 구성하는 방법�
 [query_lang]: /azure/data-explorer/
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
+[az-container-create]: /cli/azure/container#az_container_create

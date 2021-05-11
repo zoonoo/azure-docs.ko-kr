@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4de9f5a21f38f741dcf65d285446d9482716d4f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e35d3ffa98c2713f86bb56974670832e9fd416a
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85608129"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137854"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>방법: Azure Active Directory 보고서를 사용하여 로그인 오류 문제 해결
 
@@ -57,11 +57,11 @@ Azure AD(Azure Active Directory)의 [ 로그인 보고서](concept-sign-ins.md)�
 
 6. 실패 이유는 오류를 설명합니다. 예를 들어 위의 시나리오에서 실패 이유는 **잘못된 사용자 이름 또는 암호 또는 잘못된 온-프레미스 사용자 이름 또는 암호** 입니다. 해결 방법은 올바른 사용자 이름과 암호를 사용하여 다시 로그인하는 것입니다.
 
-7. [로그인 오류 코드 참조](reference-sign-ins-error-codes.md)에서 이 예의 **50126** 오류 코드를 검색하여 수정 아이디어를 포함한 추가 정보를 얻을 수 있습니다. 
+7. [로그인 오류 코드 참조](./concept-sign-ins.md)에서 이 예의 **50126** 오류 코드를 검색하여 수정 아이디어를 포함한 추가 정보를 얻을 수 있습니다. 
 
 8. 다른 모든 방법이 실패하거나 추천된 작업 과정을 수행했는데도 문제가 지속되면 **문제 해결 및 지원** 탭의 단계에 따라 [지원 티켓을 엽니다](../fundamentals/active-directory-troubleshooting-support-howto.md). 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [로그인 오류 코드 참조](reference-sign-ins-error-codes.md)
+* [로그인 오류 코드 참조](./concept-sign-ins.md)
 * [로그인 보고서 개요](concept-sign-ins.md)

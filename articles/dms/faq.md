@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 29240f371d39ef2d3234e3207cc91768478bf3ff
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: f4d65c97bfccd223453583b25ee0586c5bc0b1ec
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107748506"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101091444"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Azure Database Migration Service 사용에 대한 FAQ
 
@@ -32,7 +32,9 @@ Azure Database Migration Service는 가동 중지 시간을 최소화하면서 �
 * 충돌 없는 마이그레이션에 대한 지속적인 투자
 
 **Q. Azure Database Migration Service에서 현재 지원하는 원본/대상 쌍은 무엇인가요?**
-이 서비스는 현재 다양한 원본/대상 쌍 또는 마이그레이션 시나리오를 지원합니다. 사용 가능한 각 마이그레이션 시나리오의 상태에 대한 전체 목록은 [Azure Database Migration Service에서 지원하는 마이그레이션 시나리오의 상태](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/dms/resource-scenario-status.md) 문서를 참조하세요.
+이 서비스는 현재 다양한 원본/대상 쌍 또는 마이그레이션 시나리오를 지원합니다. 사용 가능한 각 마이그레이션 시나리오의 상태에 대한 전체 목록은 [Azure Database Migration Service에서 지원하는 마이그레이션 시나리오의 상태](./resource-scenario-status.md) 문서를 참조하세요.
+
+기타 마이그레이션 시나리오는 미리 보기로 제공되며 DMS 미리 보기 사이트를 통해 추천을 제출해야 합니다. 미리 보기 상태인 시나리오의 전체 목록을 보고 해당 제안 중 하나에 참여하기 위해 등록하려면 [DMS 미리 보기 사이트](https://aka.ms/dms-preview/)를 참조하세요.
 
 **Q. Azure Database Migration Service에서 원본으로 지원하는 SQL Server 버전은 무엇인가요?**
 SQL Server에서 마이그레이션할 때 Azure Database Migration Service에 지원되는 원본은 SQL Server 2005부터 SQL Server 2019까지입니다.
@@ -52,7 +54,7 @@ Azure Migrate는 온-프레미스 가상 머신을 Azure IaaS로 마이그레이
 **Q. Database Migration Service는 고객 데이터를 저장하나요?**
 아니요. Database Migration Service는 고객 데이터를 저장하지 않습니다.
 
-## <a name="setup"></a>설정
+## <a name="setup"></a>설치 프로그램
 
 **Q. Azure Database Migration Service 사용을 위한 필수 구성 요소에는 무엇이 있나요?**
 데이터베이스 마이그레이션을 수행할 때 Azure Database Migration Service가 원활히 실행되도록 하기 위해 필요한 필수 구성 요소가 몇 가지 있습니다. 일부 필수 구성 요소는 서비스가 지원하는 모든 시나리오(원본-대상 쌍)에 적용되는 반면에 특정 시나리오에만 적용되는 필수 구성 요소도 있습니다.
@@ -89,7 +91,7 @@ SQL Server 오류 로그를 쿼리하여 SQL Server가 수신 대기하는 포�
 **Q. Microsoft Azure Virtual Network는 어떻게 설정하나요?**
 가상 네트워크 설정 프로세스를 안내하는 Microsoft 자습서는 많이 있으며, 공식적으로는 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) 문서에 나와있습니다.
 
-## <a name="usage"></a>사용
+## <a name="usage"></a>사용량
 
 **Q. Azure Database Migration Service를 사용하여 데이터베이스 마이그레이션을 수행하기 위해 필요한 단계를 어떻게 요약할 수 있나요?**
 일반적이고 간단한 데이터베이스 마이그레이션 단계:
