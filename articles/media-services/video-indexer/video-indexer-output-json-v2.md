@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: 84bb4766b3a896823dd0bef023f8042965a85846
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 2ac7c3c2149ce43c860c7726381733ef377de8d3
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107532868"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100530742"
 ---
 # <a name="examine-the-video-indexer-output"></a>Video Indexer 출력 검토
 
@@ -46,14 +46,14 @@ ms.locfileid: "107532868"
 
 ## <a name="insightsoutput-produced-by-api"></a>API에 의해 생성된 인사이트/출력
 
-1. JSON 파일을 검색하려면 [비디오 인덱스 가져오기 API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index)를 호출합니다.
-1. 특정 아티팩트에도 관심이 있는 경우 [비디오 아티팩트 다운로드 URL 가져오기 API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url)를 호출합니다.
+1. JSON 파일을 검색하려면 [비디오 인덱스 가져오기 API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)를 호출합니다.
+1. 특정 아티팩트에도 관심이 있는 경우 [비디오 아티팩트 다운로드 URL 가져오기 API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)를 호출합니다.
 
     API 호출에서 요청된 아티팩트 형식(OCR, 얼굴, 키 프레임 등)을 지정합니다.
 
 ## <a name="root-elements-of-the-insights"></a>인사이트의 루트 요소
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |accountId|재생 목록의 VI 계정 ID입니다.|
 |id|재생 목록의 ID입니다.|
@@ -100,7 +100,7 @@ ms.locfileid: "107532868"
 |privacyMode|분석에는 **Private**, **Public** 모드 중 하나가 있을 수 있습니다. **Public** - 비디오가 계정의 모든 사용자와 비디오에 대한 링크가 있는 모든 사용자에게 표시됩니다. **프라이빗** - 비디오가 계정의 모든 사용자에게 표시됩니다.|
 |duration|인사이트가 발생한 시간을 설명하는 하나의 기간이 포함됩니다. 기간은 초 단위입니다.|
 |thumbnailVideoId|썸네일을 가져온 비디오의 ID입니다.
-|thumbnailId|비디오의 썸네일 ID입니다. 실제 썸네일을 가져오려면 [Get-Thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail)을 호출하고 thumbnailVideoId 및 thumbnailId를 전달합니다.|
+|thumbnailId|비디오의 썸네일 ID입니다. 실제 썸네일을 가져오려면 [Get-Thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail)을 호출하고 thumbnailVideoId 및 thumbnailId를 전달합니다.|
 |faces/animatedCharacters|0개 이상의 얼굴이 포함될 수 있습니다. 자세한 내용은 [faces/animatedCharacters](#facesanimatedcharacters)를 참조하세요.|
 |키워드|0개 이상의 키워드가 포함될 수 있습니다. 자세한 내용은 [keywords](#keywords)를 참조하세요.|
 |감정|0개 이상의 감정이 포함될 수 있습니다. 자세한 내용은 [sentiments](#sentiments)를 참조하세요.|
@@ -113,7 +113,7 @@ ms.locfileid: "107532868"
 
 ## <a name="videos"></a>videos
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |accountId|비디오의 VI 계정 ID입니다.|
 |id|비디오의 ID입니다.|
@@ -127,7 +127,7 @@ ms.locfileid: "107532868"
 |metadata|비디오의 외부 메타데이터입니다(사용자가 지정한 경우).|
 |isAdult|비디오가 수동으로 검토되고 성인 비디오로 식별되었는지 여부를 나타냅니다.|
 |insights|인사이트 개체입니다. 자세한 내용은 [insights](#insights)를 참조하세요.|
-|thumbnailId|비디오의 썸네일 ID입니다. 실제 썸네일을 가져오려면 [Get-Thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail)을 호출하고 비디오 ID 및 thumbnailId를 전달합니다.|
+|thumbnailId|비디오의 썸네일 ID입니다. 실제 썸네일을 가져오려면 [Get-Thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail)을 호출하고 비디오 ID 및 thumbnailId를 전달합니다.|
 |publishedUrl|비디오를 스트림하는 URL입니다.|
 |publishedUrlProxy|비디오를 스트림하는 URL입니다(Apple 디바이스용).|
 |viewToken|비디오를 스트림하기 위한 단기 보기 토큰입니다.|
@@ -189,7 +189,7 @@ ms.locfileid: "107532868"
 |topics|[topics](#topics) 인사이트.|
 |speakers|[speakers](#speakers) 인사이트.|
 
-예제:
+예:
 
 ```json
 {
@@ -219,7 +219,7 @@ id|블록의 ID입니다.|
 
 #### <a name="transcript"></a>대본
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|줄 ID입니다.|
 |text|자체 대본입니다.|
@@ -228,7 +228,7 @@ id|블록의 ID입니다.|
 |언어|대본 언어입니다. 각 줄마다 다른 언어가 사용될 수 있는 대본을 지원하기 위한 요소입니다.|
 |인스턴스|이 줄이 나타나는 시간 범위 목록입니다. 인스턴스가 대본인 경우 인스턴스는 하나만 있습니다.|
 
-예제:
+예:
 
 ```json
 "transcript":[
@@ -266,7 +266,7 @@ id|블록의 ID입니다.|
 
 #### <a name="ocr"></a>ocr
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|OCR 줄 ID입니다.|
 |text|OCR 텍스트입니다.|
@@ -301,7 +301,7 @@ id|블록의 ID입니다.|
 
 #### <a name="keywords"></a>키워드
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|키워드 ID입니다.|
 |text|키워드 텍스트입니다.|
@@ -336,7 +336,7 @@ id|블록의 ID입니다.|
 
 얼굴(애니메이션 문자 아님)이 있는 경우 Video Indexer는 모든 비디오 프레임에서 Face API를 사용하여 얼굴 및 유명인을 감지합니다.
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|얼굴 ID입니다.|
 |name|얼굴의 이름입니다. 'Unknown #0, 즉 식별된 유명인 또는 고객이 학습한 사람일 수 있습니다.|
@@ -381,7 +381,7 @@ id|블록의 ID입니다.|
 
 #### <a name="labels"></a>레이블
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|레이블 ID입니다.|
 |name|레이블 이름(예: '컴퓨터', 'TV')입니다.|
@@ -440,7 +440,7 @@ id|블록의 ID입니다.|
 
 #### <a name="scenes"></a>장면
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|장면 ID입니다.|
 |인스턴스|이 장면의 시간 범위 목록입니다(장면에는 1개의 인스턴스만 있을 수 있음).|
@@ -473,7 +473,7 @@ id|블록의 ID입니다.|
 
 #### <a name="shots"></a>샷
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|샷 ID입니다.|
 |keyFrames|샷 내의 keyFrames 목록(각각 ID와 인스턴스 시간 범위 목록이 있음)입니다. 각 keyFrame 인스턴스에는 keyFrame의 썸네일 ID가 있는 썸네일 필드가 있습니다.|
@@ -523,7 +523,7 @@ id|블록의 ID입니다.|
 
 음성 텍스트 변환 전사 및/또는 Video OCR에서 감지된 비즈니스 및 제품 브랜드 이름입니다. 여기에는 브랜드 또는 로고 감지의 시각적 인식이 포함되지 않습니다.
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|브랜드 ID입니다.|
 |name|브랜드 이름입니다.|
@@ -582,7 +582,7 @@ id|블록의 ID입니다.|
 
 #### <a name="statistics"></a>통계
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |CorrespondenceCount|동영상의 해당 항목 수입니다.|
 |SpeakerWordCount|화자별 단어 수입니다.|
@@ -592,10 +592,10 @@ id|블록의 ID입니다.|
 
 #### <a name="audioeffects-public-preview"></a>audioEffects(공개 미리 보기)
 
-|Name|Description
+|이름|Description
 |---|---|
 |id|오디오 효과 ID|
-|형식|오디오 효과 유형|
+|type|오디오 효과 유형|
 |인스턴스|이 오디오 효과가 나타나는 시간 범위 목록입니다. 인스턴스마다 신뢰도 필드가 있습니다.|
 
 ```json
@@ -623,7 +623,7 @@ id|블록의 ID입니다.|
 
 감정은 sentimentType 필드(긍정적/중립/부정적)로 집계됩니다. 예: 0-0.1, 0.1-0.2.
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|감정 ID입니다.|
 |averageScore |해당 감정 유형의 모든 인스턴스의 모든 점수 평균 – 긍정적/중립/부정적|
@@ -662,7 +662,7 @@ visualContentModeration 블록에는 Video Indexer에서 잠재적 성인 콘텐
 
 성인 또는 외설 콘텐츠가 포함된 것으로 확인된 비디오는 프라이빗 보기만 가능합니다. 콘텐츠를 사람이 검토하도록 요청을 제출할 수 있으며 이 경우 IsAdult 특성에 사람이 검토한 결과가 포함됩니다.
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|시각 콘텐츠 조정 ID입니다.|
 |adultScore|성인 점수(Content Moderator 기반)입니다.|
@@ -698,7 +698,7 @@ visualContentModeration 블록에는 Video Indexer에서 잠재적 성인 콘텐
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|텍스트 콘텐츠 조정 ID입니다.|
 |bannedWordsCount |금지된 단어의 수입니다.|
@@ -708,10 +708,10 @@ visualContentModeration 블록에는 Video Indexer에서 잠재적 성인 콘텐
 
 Video Indexer는 음성 및 오디오 신호에 따라 감정을 식별합니다. 식별된 감정은 joy(기쁨), sadness(슬픔), anger(분노) 또는 fear(두려움)일 수 있습니다.
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|감정 ID입니다.|
-|형식|음성 및 음성 신호에 따라 식별된 감정 시점입니다. 감정은 joy(기쁨), sadness(슬픔), anger(분노) 또는 fear(두려움)일 수 있습니다.|
+|type|음성 및 음성 신호에 따라 식별된 감정 시점입니다. 감정은 joy(기쁨), sadness(슬픔), anger(분노) 또는 fear(두려움)일 수 있습니다.|
 |인스턴스|이 감정이 나타난 시간 범위의 목록입니다.|
 
 ```json
@@ -798,7 +798,7 @@ Video Indexer는 음성 및 오디오 신호에 따라 감정을 식별합니다
 
 Video Indexer는 전사에서 주요 주제를 추정합니다. 가능한 경우 [IPTC](https://iptc.org/standards/media-topics/) 수준 2 분류가 포함됩니다. 
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|주제 ID입니다.|
 |name|주제 이름입니다(예: "제약").|
@@ -841,7 +841,7 @@ Video Indexer는 전사에서 주요 주제를 추정합니다. 가능한 경우
 
 #### <a name="speakers"></a>speakers
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|화자 ID입니다.|
 |name|"Speaker # *<number>* " 형식의 화자 이름(예: "Speaker #1").|

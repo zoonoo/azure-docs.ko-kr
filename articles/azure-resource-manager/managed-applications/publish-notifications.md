@@ -1,42 +1,42 @@
 ---
-title: 알림이 포함 된 관리 되는 앱
-description: 관리 되는 응용 프로그램 인스턴스의 생성, 업데이트, 삭제 및 오류에 대 한 알림을 수신 하도록 webhook 끝점을 사용 하 여 관리 되는 응용 프로그램을 구성 합니다.
+title: 알림을 사용하는 관리형 앱
+description: 관리형 애플리케이션 인스턴스의 생성, 업데이트, 삭제 및 오류에 대한 알림을 수신하도록 웹후크 엔드포인트를 사용하여 관리형 애플리케이션을 구성합니다.
 ms.topic: conceptual
 ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
 ms.openlocfilehash: 2a2e9d429d494c35c49a5b0a3e10b291fd8f24a6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100633940"
 ---
-# <a name="azure-managed-applications-with-notifications"></a>알림을 사용 하는 Azure 관리 되는 응용 프로그램
+# <a name="azure-managed-applications-with-notifications"></a>알림을 사용하는 Azure 관리형 애플리케이션
 
-Azure 관리 되는 응용 프로그램 알림을 통해 게시자는 관리 되는 응용 프로그램 인스턴스의 수명 주기 이벤트에 따라 작업을 자동화할 수 있습니다. 게시자는 사용자 지정 알림 웹 후크 끝점을 지정 하 여 신규 및 기존 관리 되는 응용 프로그램 인스턴스에 대 한 이벤트 알림을 받을 수 있습니다. 게시자는 응용 프로그램 프로 비전, 업데이트 및 삭제 시 사용자 지정 워크플로를 설정할 수 있습니다.
+Azure 관리형 애플리케이션 알림을 통해 게시자는 관리형 애플리케이션 인스턴스의 수명 주기 이벤트에 따라 작업을 자동화할 수 있습니다. 게시자는 사용자 지정 알림 웹후크 엔드포인트를 지정하여 신규 및 기존 관리형 애플리케이션 인스턴스에 대한 이벤트 알림을 받을 수 있습니다. 게시자는 애플리케이션 프로비전, 업데이트 및 삭제 시 사용자 지정 워크플로를 설정할 수 있습니다.
 
 ## <a name="getting-started"></a>시작
-관리 되는 응용 프로그램 수신을 시작 하려면 공용 HTTPS 끝점을 실행 하 고 서비스 카탈로그 응용 프로그램 정의 또는 Azure Marketplace 제안을 게시할 때 지정 합니다.
+관리형 애플리케이션으로부터 알림을 수신하기 시작하려면 공용 HTTPS 엔드포인트를 실행하고 서비스 카탈로그 애플리케이션 정의 또는 Azure Marketplace 제안을 게시할 때 해당 엔드포인트를 지정합니다.
 
-신속 하 게 시작 하는 데 권장 되는 단계는 다음과 같습니다.
-1. 들어오는 POST 요청을 기록 하 고를 반환 하는 공용 HTTPS 끝점을 실행 `200 OK` 합니다.
-2. 이 문서의 뒷부분에 설명 된 대로 서비스 카탈로그 응용 프로그램 정의 또는 Azure Marketplace 제품에 끝점을 추가 합니다.
-3. 응용 프로그램 정의 또는 Azure Marketplace 제품을 참조 하는 관리 되는 응용 프로그램 인스턴스를 만듭니다.
-4. 알림이 수신 중인지 확인 합니다.
-5. 이 문서의 **끝점 인증** 섹션에 설명 된 대로 권한 부여를 사용 하도록 설정 합니다.
-6. 이 문서의 **알림 스키마** 섹션에 설명 된 지침에 따라 알림 요청을 구문 분석 하 고 알림을 바탕으로 비즈니스 논리를 구현 합니다.
+빠른 시작을 위한 권장 단계는 다음과 같습니다.
+1. 들어오는 POST 요청을 기록하고 `200 OK`를 반환하는 공용 HTTPS 엔드포인트를 실행합니다.
+2. 이 문서의 뒷부분에 설명된 대로 서비스 카탈로그 애플리케이션 정의 또는 Azure Marketplace 제안에 엔드포인트를 추가합니다.
+3. 애플리케이션 정의 또는 Azure Marketplace 제안을 참조하는 관리형 애플리케이션 인스턴스를 만듭니다.
+4. 알림이 수신되는지 확인합니다.
+5. 이 문서의 **엔드포인트 인증** 섹션에 설명된 대로 권한 부여를 사용하도록 설정합니다.
+6. 이 문서의 **알림 스키마** 섹션에 설명된 지침에 따라 알림 요청을 구문 분석하고 알림을 바탕으로 비즈니스 논리를 구현합니다.
 
-## <a name="add-service-catalog-application-definition-notifications"></a>서비스 카탈로그 응용 프로그램 정의 알림 추가
+## <a name="add-service-catalog-application-definition-notifications"></a>서비스 카탈로그 애플리케이션 정의 알림 추가
 #### <a name="azure-portal"></a>Azure portal
-시작 하려면 [Azure Portal을 통해 서비스 카탈로그 응용 프로그램 게시](./publish-portal.md)를 참조 하세요.
+시작하려면 [Azure Portal을 통해 서비스 카탈로그 애플리케이션 게시](./publish-portal.md)를 참조하세요.
 
-![Azure Portal의 서비스 카탈로그 응용 프로그램 정의 알림](./media/publish-notifications/service-catalog-notifications.png)
+![Azure Portal의 서비스 카탈로그 애플리케이션 정의 알림](./media/publish-notifications/service-catalog-notifications.png)
 
 #### <a name="rest-api"></a>REST API
 
 > [!NOTE]
-> 현재 `notificationEndpoints` 응용 프로그램 정의 속성의에서 끝점을 하나만 제공할 수 있습니다.
+> 현재, 애플리케이션 정의 속성의 `notificationEndpoints`에서 엔드포인트를 하나만 제공할 수 있습니다.
 
 ``` JSON
     {
@@ -60,27 +60,27 @@ Azure 관리 되는 응용 프로그램 알림을 통해 게시자는 관리 되
         ...
 
 ```
-## <a name="add-azure-marketplace-managed-application-notifications"></a>Azure Marketplace 관리 되는 응용 프로그램 알림 추가
-자세한 내용은 [Azure 응용 프로그램 제품 만들기](../../marketplace/create-new-azure-apps-offer.md)를 참조 하세요.
+## <a name="add-azure-marketplace-managed-application-notifications"></a>Azure Marketplace 관리형 애플리케이션 알림 추가
+자세한 내용은 [Azure 애플리케이션 제안 만들기](../../marketplace/create-new-azure-apps-offer.md)를 참조하세요.
 
-![Azure Portal에서 관리 되는 응용 프로그램 알림 Azure Marketplace](./media/publish-notifications/marketplace-notifications.png)
+![Azure Portal의 Azure Marketplace 관리형 애플리케이션 알림](./media/publish-notifications/marketplace-notifications.png)
 ## <a name="event-triggers"></a>이벤트 트리거
-다음 표에서는 EventType 및 ProvisioningState와 해당 트리거의 가능한 모든 조합을 설명 합니다.
+다음 표에서는 EventType 및 ProvisioningState의 가능한 모든 조합과 해당 트리거에 대해 설명합니다.
 
-EventType | ProvisioningState | 알림에 대 한 트리거
+EventType | ProvisioningState | 알림 트리거
 ---|---|---
-PUT | 수락됨 | 관리 되는 리소스 그룹을 만들고 응용 프로그램을 넣은 후 (관리 되는 리소스 그룹 내 배포를 시작 하기 전에) 성공적으로 프로젝션 했습니다.
-PUT | 성공 | PUT 후에 관리 되는 응용 프로그램의 전체 프로 비전이 성공 했습니다.
-PUT | 실패 | 어떤 지점에서 든 응용 프로그램 인스턴스 프로 비전의 실패.
-패치 | 성공 | 관리 되는 응용 프로그램 인스턴스에 성공적으로 패치 한 후 태그, JIT 액세스 정책 또는 관리 id를 업데이트 합니다.
-Delete | 삭제 중 | 사용자가 관리 되는 앱 인스턴스의 삭제를 시작 하는 즉시
-Delete | 삭제됨 | 관리 되는 응용 프로그램을 모두 삭제 하 고 성공적으로 삭제 한 후
-Delete | 실패 | 프로 비전 해제 프로세스 중에 삭제를 차단 하는 오류가 발생 한 후
+PUT | 수락됨 | 애플리케이션 PUT 후 (관리되는 리소스 그룹 내부 배포를 시작하기 전에) 관리되는 리소스 그룹을 성공적으로 만들고 프로젝션했습니다.
+PUT | 성공 | PUT 후에 관리형 애플리케이션의 전체 프로비전이 성공했습니다.
+PUT | 실패 | 어떤 지점에서든 애플리케이션 인스턴스 프로비전 PUT이 실패했습니다.
+패치 | 성공 | 관리형 애플리케이션 인스턴스에서 성공적으로 패치한 후 태그, JIT 액세스 정책 또는 관리 ID를 업데이트합니다.
+Delete | 삭제 중 | 사용자가 관리형 앱 인스턴스의 삭제를 시작하는 즉시.
+Delete | 삭제됨 | 관리형 애플리케이션 전체를 성공적으로 삭제한 후.
+Delete | 실패 | 프로비전 해제 프로세스 중에 삭제를 차단하는 오류가 발생한 후.
 ## <a name="notification-schema"></a>알림 스키마
-알림을 처리 하기 위해 webhook 끝점을 실행 하는 경우 페이로드를 구문 분석 하 여 중요 한 속성을 가져온 다음 알림에 대 한 동작을 수행 해야 합니다. 서비스 카탈로그와 Azure Marketplace 관리 되는 응용 프로그램 알림은 동일한 속성을 많이 제공 합니다. 샘플 다음에 나오는 표에는 두 가지 작은 차이점이 설명 되어 있습니다.
+알림을 처리하기 위해 웹후크 엔드포인트를 실행하는 경우 페이로드를 구문 분석하여 중요한 속성을 가져온 다음 알림에 대한 동작을 수행해야 합니다. 서비스 카탈로그 및 Azure Marketplace 관리형 애플리케이션 알림은 동일한 속성을 많이 제공합니다. 샘플 다음에 나오는 표에는 두 가지 작은 차이점이 설명되어 있습니다.
 
-#### <a name="service-catalog-application-notification-schema"></a>서비스 카탈로그 응용 프로그램 알림 스키마
-관리 되는 응용 프로그램 인스턴스를 성공적으로 프로 비전 한 후의 샘플 서비스 카탈로그 알림은 다음과 같습니다.
+#### <a name="service-catalog-application-notification-schema"></a>서비스 카탈로그 애플리케이션 알림 스키마
+관리형 애플리케이션 인스턴스를 성공적으로 프로비전한 후의 서비스 카탈로그 알림의 예는 다음과 같습니다.
 ``` HTTP
 POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_parameter_value} HTTP/1.1
 
@@ -94,7 +94,7 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
 
 ```
 
-프로 비전이 실패 하면 오류 세부 정보가 포함 된 알림이 지정 된 끝점으로 전송 됩니다.
+프로비전이 실패하면 오류 세부 정보가 포함된 알림이 지정된 엔드포인트로 전송됩니다.
 
 ``` HTTP
 POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_parameter_value} HTTP/1.1
@@ -119,9 +119,9 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
 
 ```
 
-#### <a name="azure-marketplace-application-notification-schema"></a>Azure Marketplace 응용 프로그램 알림 스키마
+#### <a name="azure-marketplace-application-notification-schema"></a>Azure Marketplace 애플리케이션 알림 스키마
 
-관리 되는 응용 프로그램 인스턴스를 성공적으로 프로 비전 한 후의 샘플 서비스 카탈로그 알림은 다음과 같습니다.
+관리형 애플리케이션 인스턴스를 성공적으로 프로비전한 후의 서비스 카탈로그 알림의 예는 다음과 같습니다.
 ``` HTTP
 POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_parameter_value} HTTP/1.1
 
@@ -143,7 +143,7 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
 
 ```
 
-프로 비전이 실패 하면 오류 세부 정보가 포함 된 알림이 지정 된 끝점으로 전송 됩니다.
+프로비전이 실패하면 오류 세부 정보가 포함된 알림이 지정된 엔드포인트로 전송됩니다.
 
 ``` HTTP
 POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_parameter_value} HTTP/1.1
@@ -179,19 +179,19 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
 매개 변수 | 설명
 ---|---
 eventType | 알림을 트리거한 이벤트의 유형입니다. (예: PUT, PATCH, DELETE)
-applicationId | 알림이 트리거된 관리 되는 응용 프로그램의 정규화 된 리소스 식별자입니다.
-eventTime | 알림을 트리거한 이벤트의 타임 스탬프입니다. (UTC ISO 8601 형식의 날짜 및 시간)
-provisioningState | 관리 되는 응용 프로그램 인스턴스의 프로 비전 상태입니다. (예: 성공, 실패, 삭제, 삭제)
-error | *ProvisioningState가 실패 한 경우에만 지정* 됩니다. 오류 코드, 메시지 및 오류의 원인이 되는 문제에 대 한 세부 정보를 포함 합니다.
-applicationDefinitionId | *서비스 카탈로그 관리 되는 응용 프로그램에만 지정* 됩니다. 관리 되는 응용 프로그램 인스턴스가 프로 비전 된 응용 프로그램 정의의 정규화 된 리소스 식별자를 나타냅니다.
-계획 | *관리 되는 응용 프로그램 Azure Marketplace에만 지정* 됩니다. 관리 되는 응용 프로그램 인스턴스의 게시자, 제품, SKU 및 버전을 나타냅니다.
-billingDetails | *관리 되는 응용 프로그램 Azure Marketplace에만 지정 됩니다.* 관리 되는 응용 프로그램 인스턴스의 청구 정보입니다. 사용 세부 정보에 대 한 Azure Marketplace를 쿼리 하는 데 사용할 수 있는 resourceUsageId을 포함 합니다.
+applicationId | 알림이 트리거된 관리형 애플리케이션의 정규화된 리소스 식별자입니다.
+eventTime | 알림을 트리거한 이벤트의 타임스탬프입니다. (UTC ISO 8601 형식의 날짜 및 시간)
+provisioningState | 관리형 애플리케이션 인스턴스의 프로비전 상태입니다. (예: 성공, 실패, 삭제 중, 삭제됨)
+error | provisioningState가 실패인 경우에만 지정됩니다. 오류 코드, 메시지 및 오류의 원인이 되는 문제에 대한 세부 정보를 포함합니다.
+applicationDefinitionId | 서비스 카탈로그 관리형 애플리케이션에만 지정됩니다. 관리형 애플리케이션 인스턴스가 프로비전된 애플리케이션 정의의 정규화된 리소스 식별자를 나타냅니다.
+계획 | Azure Marketplace 관리형 애플리케이션에만 지정됩니다. 관리형 애플리케이션 인스턴스의 게시자, 제안, SKU 및 버전을 나타냅니다.
+billingDetails | Azure Marketplace 관리형 애플리케이션에만 지정됩니다. 관리형 애플리케이션 인스턴스의 청구 정보입니다. Azure Marketplace에서 사용량 세부 정보를 쿼리하는 데 사용할 수 있는 resourceUsageId를 포함합니다.
 
-## <a name="endpoint-authentication"></a>끝점 인증
-Webhook 끝점의 보안을 유지 하 고 알림의 신뢰성을 확인 하려면 다음을 수행 합니다.
-1. 웹 후크 URI 위에 다음과 같이 쿼리 매개 변수를 제공 합니다 (예: https/ \: . 각 알림에서 쿼리 매개 변수가 `sig` 예상 값을 포함 하는지 확인 `Guid` 합니다.
-2. ApplicationId를 사용 하 여 관리 되는 응용 프로그램 인스턴스에서 GET을 실행 합니다. 일관성을 유지 하기 위해 provisioningState이 알림의 provisioningState 일치 하는지 확인 합니다.
+## <a name="endpoint-authentication"></a>엔드포인트 인증
+웹후크 엔드포인트 보안을 유지하고 알림의 신뢰성을 보장하려면 다음을 수행합니다.
+1. 웹후크 URI 위에 다음과 같은 쿼리 매개 변수를 제공합니다. https\://your-endpoint.com?sig=Guid. 각 알림에서 쿼리 매개 변수 `sig`가 필요한 값 `Guid`를 포함하는지 확인합니다.
+2. applicationId를 사용하여 관리형 애플리케이션 인스턴스에서 GET을 실행합니다. 일관성을 유지하기 위해 provisioningState가 알림의 provisioningState와 일치하는지 확인합니다.
 
 ## <a name="notification-retries"></a>알림 다시 시도
 
-관리 되는 응용 프로그램 알림 서비스에는 웹 후크 `200 OK` 끝점에서 알림으로의 응답이 필요 합니다. 웹 후크 끝점이 500 보다 크거나 같은 HTTP 오류 코드를 반환 하거나, 429 오류 코드를 반환 하는 경우 또는 끝점에 일시적으로 연결할 수 없는 경우 알림 서비스가 다시 시도 됩니다. 웹 후크 끝점을 10 시간 이내에 사용할 수 없게 되 면 알림 메시지가 삭제 되 고 다시 시도가 중지 됩니다.
+관리형 애플리케이션 알림 서비스는 웹후크 엔드포인트에서 알림으로의 `200 OK` 응답을 예상합니다. 알림 서비스는 웹후크 엔드포인트가 500 이상의 HTTP 오류 코드를 반환하거나 429 오류 코드를 반환하는 경우 또는 엔드포인트에 일시적으로 연결할 수 없는 경우 다시 시도합니다. 웹후크 엔드포인트를 10시간 이내에 사용할 수 없게 되면 알림 메시지가 삭제되고 다시 시도가 중지됩니다.

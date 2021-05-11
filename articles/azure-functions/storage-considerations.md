@@ -3,12 +3,12 @@ title: Azure Functions의 스토리지 고려 사항
 description: Azure Functions의 스토리지 요구 사항 및 저장된 데이터 암호화에 관해 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: c4ffb622482585e35337caf8e43b69e0f3b0385c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5faa85a4fac9fc0b8639f33c475283f4f043c627
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100517266"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779258"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Azure Functions의 스토리지 고려 사항
 
@@ -71,7 +71,7 @@ ms.locfileid: "100517266"
 
 이 기능은 현재 Linux에서 실행하는 경우에만 사용할 수 있습니다. 
 
-기존 Azure Files 공유를 Linux 함수 앱에 탑재할 수 있습니다. Linux 함수 앱에 공유를 탑재하면 기존 기계 학습 모델 또는 함수의 기타 데이터를 활용할 수 있습니다. [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) 명령을 사용하여 Linux 함수 앱에 기존 공유를 탑재할 수 있습니다. 
+기존 Azure Files 공유를 Linux 함수 앱에 탑재할 수 있습니다. Linux 함수 앱에 공유를 탑재하면 기존 기계 학습 모델 또는 함수의 기타 데이터를 활용할 수 있습니다. [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_add) 명령을 사용하여 Linux 함수 앱에 기존 공유를 탑재할 수 있습니다. 
 
 이 명령에서 `share-name`은 기존 Azure Files 공유의 이름이며 `custom-id`는 함수 앱에 탑재될 때 공유를 고유하게 정의하는 문자열일 수 있습니다. 또한 `mount-path`는 함수 앱에서 공유에 액세스하는 경로입니다. `mount-path`는 `/dir-name` 형식이어야 하며 `/home`으로 시작할 수 없습니다.
 

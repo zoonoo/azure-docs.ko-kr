@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - VM 템플릿을 사용하여 Azure에서 가상 머신 만들기
 description: CloudSimple 프라이빗 클라우드용 VMware 인프라에서 VM 템플릿을 사용하여 Azure에서 가상 머신을 만드는 방법을 설명합니다.
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b01afe60a78a746eb0dc5f03cc7b45989f8cf81e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad998c1def91a0e2a6ff74c25e4e1cc972df1474
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97898762"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108182663"
 ---
 # <a name="create-a-virtual-machine-in-azure-using-vm-templates-on-the-vmware-infrastructure"></a>VMware 인프라에서 VM 템플릿을 사용하여 Azure에서 가상 머신 만들기
 

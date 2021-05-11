@@ -3,7 +3,7 @@ title: Azure DDoS 빠른 응답
 description: 활성 공격 도중 DDoS 전문가를 참여시켜 전문 지원을 받는 방법을 알아봅니다.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 8e860bf47420f2b58c44df695da7761bcc2aa0ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f551f40a9bd70c4a3b54c1d2756cfb94caf79590
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100521784"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103065"
 ---
 # <a name="azure-ddos-rapid-response"></a>Azure DDoS 빠른 응답
 
 Azure DDoS Protection Standard 고객은 활성 액세스 상태에서 공격 중 조사 및 공격 후 분석에 도움을 주는 DRR(DDoS 빠른 응답) 팀에 액세스할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 이 자습서의 단계를 완료하려면 먼저 [Azure DDoS Standard 보호 계획](manage-ddos-protection.md)을 만들어야 합니다.
 

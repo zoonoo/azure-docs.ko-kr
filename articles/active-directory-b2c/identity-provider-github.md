@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0c0507f9206ebe69662090d7a00da6d5c9d0b90a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 442894da23111877f4dd4f67363add0c8e52a4c9
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104580014"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028981"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 GitHub 계정으로 등록 설정 및 로그인
 
@@ -32,7 +32,7 @@ ms.locfileid: "104580014"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -154,7 +154,7 @@ Azure Active Directory B2C(Azure AD B2C)에서 GitHub 계정으로 로그인할 
 
 ### <a name="add-the-claims-transformations"></a>클레임 변환 추가
 
-GitHub 기술 프로필을 사용하려면 **CreateIssuerUserId** 클레임 변환이 ClaimsTransformations 목록에 추가되어야 합니다. 파일에 **ClaimsTransformations** 요소가 정의되지 않은 경우 아래와 같이 부모 XML 요소를 추가합니다. 클레임 변환에 **numericUserId** 라는 새로운 클레임 유형도 정의되어야 합니다.
+GitHub 기술 프로필을 사용하려면 **CreateIssuerUserId** 클레임 변환이 ClaimsTransformations 목록에 추가되어야 합니다. 파일에 **ClaimsTransformations** 요소가 정의되지 않은 경우 아래와 같이 부모 XML 요소를 추가합니다. 클레임 변환에 **numericUserId** 라는 새로운 클레임 형식도 정의되어야 합니다.
 
 1. [BuildingBlocks](buildingblocks.md) 요소를 검색합니다. 요소가 존재하지 않는 경우 추가합니다.
 1. [ClaimsSchema](claimsschema.md) 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
@@ -208,7 +208,7 @@ GitHub 기술 프로필을 사용하려면 **CreateIssuerUserId** 클레임 변�
 ## <a name="test-your-custom-policy"></a>사용자 지정 정책 테스트
 
 1. 신뢰 당사자 정책(예: `B2C_1A_signup_signin`)을 선택합니다.
-1. **애플리케이션** 에서 [이전에 등록된](troubleshoot-custom-policies.md#troubleshoot-the-runtime) 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **애플리케이션** 에서 [이전에 등록된](tutorial-register-applications.md) 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **지금 실행** 단추를 선택합니다.
 1. 등록 또는 로그인 페이지에서 **GitHub** 를 선택하여 GitHub 계정으로 로그인합니다.
 

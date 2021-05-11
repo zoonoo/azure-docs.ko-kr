@@ -3,12 +3,12 @@ title: Azure Event Hubs - 예외(레거시)
 description: 이 문서에서는 Azure Event Hubs 메시징 예외 및 제안된 작업의 목록을 제공합니다.
 ms.topic: article
 ms.date: 02/10/2021
-ms.openlocfilehash: b7c5016214bfa3e5813417177e5d113299e0284f
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: a76c98ec7d6d1f3370ed8787bf10d1d16a7baaa5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311926"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100390898"
 ---
 # <a name="event-hubs-messaging-exceptions---net-legacy"></a>Event Hubs 메시지 예외 - .NET(레거시)
 이 섹션에서는 .NET Framework API에 의해 생성된 .NET 예외를 나열합니다. 
@@ -142,4 +142,4 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 
 * [Event Hubs 개요](./event-hubs-about.md)
 * [이벤트 허브 만들기](event-hubs-create.md)
-* [Event Hubs FAQ](event-hubs-faq.yml)
+* [Event Hubs FAQ](event-hubs-faq.md)

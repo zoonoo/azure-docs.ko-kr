@@ -7,16 +7,16 @@ author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
 ms.openlocfilehash: df1f58418452ecafacddd013ab815ebca5cb8a35
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100097554"
 ---
-# <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Java SDK에 대 한 Application Insights 문제 해결 및 Q 및 A
+# <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Java SDK용 Application Insights 문제 해결과 질문 및 답변
 
 > [!IMPORTANT]
-> Java 응용 프로그램 모니터링에 권장 되는 방법은 코드를 변경 하지 않고 자동 계측을 사용 하는 것입니다. [Application Insights Java 3.0 에이전트](./java-in-process-agent.md)에 대 한 지침을 따르세요.
+> Java 애플리케이션 모니터링에 권장되는 방법은 코드를 변경하지 않고 자동 계측을 사용하는 것입니다. [Application Insights Java 3.0 에이전트](./java-in-process-agent.md) 지침을 따르세요.
 
 [Java의 Azure Application Insights][java]와 관련된 질문이나 문제가 있나요? 다음은 몇 가지 팁입니다.
 
@@ -33,19 +33,19 @@ ms.locfileid: "100097554"
 * xml 파일에 `<DisableTelemetry>true</DisableTelemetry>` 노드가 없는지 확인합니다.
 * 방화벽에서 dc.services.visualstudio.com으로 나가는 트래픽에 대해 TCP 포트 80 및 443을 열어야 할 수 있습니다. 최신 버전은 [방화벽 예외의 전체 목록](./ip-addresses.md)
 * Microsoft Azure 시작 보드에서 서비스 상태 맵을 살펴보세요. 어떤 경고 표시가 있는 경우 정상으로 돌아갈 때까지 기다린 후 Application Insights 애플리케이션 블레이드를 닫고 다시 엽니다.
-* [](#debug-data-from-the-sdk) `<SDKLogger />` 프로젝트의 리소스 폴더에 있는 ApplicationInsights.xml 파일의 루트 노드 아래에 요소를 추가 하 여 로깅을 설정 하 고 의심 스러운 로그의 AI: INFO/WARN/ERROR 앞에 있는 항목을 확인 합니다. 
+* ApplicationInsights.xml 파일(프로젝트의 리소스 폴더에 있음)의 루트 노드 아래에 `<SDKLogger />` 요소를 추가하여 [로깅을 켜고](#debug-data-from-the-sdk) 의심스러운 로그에서 AI: INFO/WARN/ERROR 접두사가 추가된 항목을 확인합니다. 
 * 콘솔의 출력 메시지에서 “구성 파일을 찾았습니다”라는 문을 찾아 ApplicationInsights.xml 파일이 Java SDK에 의해 성공적으로 로드되었음을 확인합니다.
 * 구성 파일이 없으면 출력 메시지를 확인하여 구성 파일이 검색되고 있는 위치를 확인하고, ApplicationInsights.xml이 그러한 검색 위치 중 한 위치에 있는지 확인합니다. 일반적으로 구성 파일을 Application Insights SDK JAR 주위에 배치할 수 있습니다. 예: Tomcat에서는 WEB-INF/classes 폴더를 의미합니다. 개발 중에 웹 프로젝트의 리소스 폴더에 ApplicationInsights.xml을 배치할 수 있습니다.
 * SDK의 알려진 문제에 대해서는 [GitHub 문제 페이지](https://github.com/microsoft/ApplicationInsights-Java/issues)를 참조하세요.
 * 버전 충돌 문제를 방지하려면 동일한 버전의 Application Insights 코어, 웹, 에이전트 및 로깅 어펜더를 사용합니다.
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>데이터를 보는 데 중지되었습니다.
-* 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격 책정을 열어 확인 합니다. 그렇다면 요금제를 업그레이드 하거나 추가 용량에 대 한 비용을 지불할 수 있습니다. [가격 체계](https://azure.microsoft.com/pricing/details/application-insights/)를 참조하세요.
+* 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 찾아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](https://azure.microsoft.com/pricing/details/application-insights/)를 참조하세요.
 * 최근에 SDK를 업그레이드했나요? 고유한 SDK jar만 프로젝트 디렉터리 내부에 있는지 확인합니다. 두 개의 서로 다른 SDK 버전이 있으면 안 됩니다.
 * 올바른 AI 리소스를 보고 있나요? 원격 분석이 필요한 리소스에 애플리케이션의 iKey를 일치합니다. 동일해야 합니다.
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>기대한 모든 데이터가 표시되지 않는 경우
-* 사용량 및 예상 비용 페이지를 열고 [샘플링](./sampling.md)이 작동 중인지 확인합니다. (100% 전송에서는 샘플링이 작동 하지 않음을 의미 합니다.) 앱에서 수신 하는 원격 분석의 일부만 허용 하도록 Application Insights 서비스를 설정할 수 있습니다. 이렇게 하면 원격 분석의 월간 할당량 내로 유지하는 데 도움이 됩니다.
+* 사용량 및 예상 비용 페이지를 열고 [샘플링](./sampling.md)이 작동 중인지 확인합니다. (100% 전송이란 샘플링을 사용하지 않는다는 의미입니다.) Application Insights 서비스는 앱에서 도착하는 원격 분석의 일부만 허용하도록 설정할 수 있습니다. 이렇게 하면 원격 분석의 월간 할당량 내로 유지하는 데 도움이 됩니다.
 * SDK 샘플링이 켜져 있나요? 켜져 있으면 적용 가능한 모든 유형에서 지정된 비율로 데이터가 샘플링됩니다.
 * 이전 버전의 Java SDK를 실행 중인가요? 버전 2.0.1부터 로컬 드라이브의 데이터 지속성뿐 아니라 간헐적인 네트워크 및 백 엔드 오류를 처리하는 내결함성 메커니즘이 도입되었습니다.
 * 과도한 원격 분석 때문에 제한되나요? INFO 로깅을 켜면 “앱이 제한되었습니다.”라는 로그 메시지가 표시됩니다. 현재 제한은 32K 원격 분석 항목/초입니다.
@@ -87,7 +87,7 @@ ApplicationInsights.xml(프로젝트의 리소스 폴더에 있음)을 업데이
 XML 메서드를 사용하여 값 변경 시 애플리케이션을 다시 시작해야 합니다.
 
 ## <a name="changing-the-target"></a>대상 변경
-**내 프로젝트에서 데이터를 보내는 Azure 리소스를 변경 하려면 어떻게 해야 하나요?**
+**내 프로젝트에서 데이터를 보내는 Azure 리소스를 변경하려면 어떻게 해야 하나요?**
 
 * [새 리소스의 계측 키를 가져옵니다.][java]
 * Azure Toolkit for Eclipse를 사용하여 프로젝트에 Application Insights를 추가한 경우 웹 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Azure**, **Application Insights 구성** 을 차례로 선택한 다음, 키를 변경합니다.
@@ -112,9 +112,9 @@ API의 상황에 대한 자세한 정보를 가져오려면 ApplicationInsights.
 </SDKLogger>
 ```
 
-### <a name="spring-boot-starter"></a>스프링 부팅 스타터
+### <a name="spring-boot-starter"></a>Spring Boot Starter
 
-Application Insights 스프링 부팅 스타터를 사용 하 여 스프링 부팅 앱에서 SDK 로깅을 사용 하도록 설정 하려면 파일에 다음을 추가 합니다 `application.properties` .
+Application Insights Spring Boot Starter를 통해 Spring Boot Apps를 통한 SDK 로깅을 사용하려면 다음을 `application.properties` 파일에 추가합니다.
 
 ```yaml
 azure.application-insights.logger.type=file
@@ -122,7 +122,7 @@ azure.application-insights.logger.base-folder-path=C:/agent/AISDK
 azure.application-insights.logger.level=trace
 ```
 
-또는 표준 오류로 인쇄 하려면 다음을 수행 하십시오.
+또는 표준 오류로 출력합니다.
 
 ```yaml
 azure.application-insights.logger.type=console
@@ -131,7 +131,7 @@ azure.application-insights.logger.level=trace
 
 ### <a name="java-agent"></a>Java 에이전트
 
-JVM 에이전트 로깅을 사용 하도록 설정 하려면 [AI-Agent.xml 파일](java-agent.md)을 업데이트 합니다.
+JVM 에이전트 로깅 업데이트를 사용 설정하려면 [AI-Agent.xml 파일](java-agent.md)을 업데이트합니다.
 
 ```xml
 <AgentLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->
@@ -142,22 +142,22 @@ JVM 에이전트 로깅을 사용 하도록 설정 하려면 [AI-Agent.xml 파�
 ```
 
 ### <a name="java-command-line-properties"></a>Java 명령줄 속성
-_버전 2.4.0 이후_
+버전 2.4.0 이후
 
-구성 파일을 변경 하지 않고 명령줄 옵션을 사용 하 여 로깅을 사용 하도록 설정 하려면:
+구성 파일을 변경하지 않고 명령줄 옵션을 사용하여 로깅을 사용하도록 설정하려면 다음을 수행합니다.
 
 ```
 java -Dapplicationinsights.logger.file.level=trace -Dapplicationinsights.logger.file.uniquePrefix=AI -Dapplicationinsights.logger.baseFolderPath="C:/my/log/dir" -jar MyApp.jar
 ```
 
-또는 표준 오류로 인쇄 하려면 다음을 수행 하십시오.
+또는 표준 오류로 출력합니다.
 
 ```
 java -Dapplicationinsights.logger.console.level=trace -jar MyApp.jar
 ```
 
 ## <a name="the-azure-start-screen"></a>Azure 시작 화면
-**[Azure Portal를](https://portal.azure.com)보고 있습니다. 지도에서 내 앱에 대 한 정보를 알려주세요.**
+**[Azure Portal](https://portal.azure.com)을 보고 있습니다. 맵에서 앱에 관한 정보를 알려줍니까?**
 
 아니요, 전 세계 Azure 서버의 상태가 표시됩니다.
 
@@ -170,7 +170,7 @@ java -Dapplicationinsights.logger.console.level=trace -jar MyApp.jar
 
 예, 서버가 공용 인터넷을 통해 Application Insights 포털에 원격 분석을 보낼 수 있는 경우 가능합니다.
 
-SDK에서 포털에 데이터를 보낼 수 있도록 [서버 방화벽에서 일부 나가는 포트를 열어야](./ip-addresses.md#outgoing-ports) 할 수도 있습니다.
+SDK에서 포털로 데이터를 보낼 수 있도록 [서버의 방화벽에 있는 일부 발신 포트를 개방](./ip-addresses.md#outgoing-ports)해야 할 수 있습니다.
 
 ## <a name="data-retention"></a>데이터 보존
 **데이터가 포털에 얼마나 오래 보존되나요? 안전한가요?**

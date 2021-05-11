@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 890c4a8a5aec3b15b150908c64bb114bd85a61a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9835ba2b6db2d71d0ff5825f2eb1996133e75537
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99256765"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530823"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>사용자 프로비전 상태 확인
 
@@ -30,7 +30,7 @@ Azure AD 프로비전 서비스는 원본 시스템 및 대상 시스템에 대�
 - 현재 실행 중이거나 마지막으로 완료된 프로비전 주기(초기 또는 증분)의 유형.
 - 완료된 프로비전 주기의 백분율을 보여 주는 **진행률 표시줄**. 백분율은 프로비전된 페이지 수를 반영합니다. 각 페이지에는 여러 사용자 또는 그룹이 포함될 수 있으므로 이 백분율은 프로비전된 사용자, 그룹 또는 역할의 수와 직접적인 상관관계는 없습니다.
 - 보기를 업데이트하는 데 사용할 수 있는 **새로 고침** 단추.
-- 커넥터 데이터 저장소에 있는 **사용자** 및 **그룹** 의 수입니다. 프로비전 범위에 개체가 추가될 때마다 수가 늘어납니다. 사용자가 일시 삭제 또는 완전 삭제된 경우 커넥터 데이터 저장소에서 개체가 제거되지 않으므로 개수가 감소하지 않습니다. 이 수는 CDS가 [다시 설정](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta)된 후 첫 번째 동기화에서 다시 계산됩니다. 
+- 커넥터 데이터 저장소에 있는 **사용자** 및 **그룹** 의 수입니다. 프로비전 범위에 개체가 추가될 때마다 수가 늘어납니다. 사용자가 일시 삭제 또는 완전 삭제된 경우 커넥터 데이터 저장소에서 개체가 제거되지 않으므로 개수가 감소하지 않습니다. 이 수는 CDS가 [다시 설정](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true)된 후 첫 번째 동기화에서 다시 계산됩니다. 
 - 개별 사용자의 프로비전 상태를 포함하여 사용자 프로비전 서비스에서 실행하는 모든 작업에 대한 세부 정보를 볼 수 있는 Azure AD 프로비전 로그를 여는 **감사 로그 보기** 링크(아래의 [프로비전 로그 사용](#use-provisioning-logs-to-check-a-users-provisioning-status) 섹션 참조).
 
 프로비전 주기가 완료된 후 **누적 통계** 섹션에는 마지막 주기의 완료 날짜 및 기간과 함께 현재까지 프로비전된 사용자 및 그룹의 누적 수가 표시됩니다. **활동 ID** 는 가장 최근의 프로비전 주기를 고유하게 식별합니다. **작업 ID** 는 프로비전 작업의 고유한 식별자이며 테넌트 내의 앱에만 적용됩니다.

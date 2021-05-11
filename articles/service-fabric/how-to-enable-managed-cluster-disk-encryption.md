@@ -3,23 +3,20 @@ title: Service Fabric 관리 클러스터(미리 보기) 노드에 디스크 암
 description: ARM 템플릿을 사용하여 Windows에서 Azure Service Fabric 관리 클러스터 노드에 디스크 암호화를 사용하도록 설정하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 02/15/2021
-ms.openlocfilehash: b7e56ff8db9f94b8c6681a1a7d69a4751b3f43a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa6388d9d165cd149faae3c19b81320198fd0b02
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100642512"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127284"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-managed-cluster-preview-nodes"></a>Service Fabric 관리 클러스터(미리 보기) 노드에 디스크 암호화 사용
 
 이 가이드에서는 ARM(Azure Resource Manager) 템플릿을 통해 [가상 머신 확장 집합](../virtual-machine-scale-sets/disk-encryption-azure-resource-manager.md)에 대한 [Azure Disk Encryption](../virtual-machines/windows/disk-encryption-overview.md) 기능을 사용하여 Windows에서 Service Fabric 관리 클러스터 노드에 디스크 암호화를 사용하도록 설정하는 방법을 알아봅니다.
 
-> [!IMPORTANT]
-> 가상 머신 확장 집합 디스크 암호화 미리 보기는 이미지 업그레이드 또는 이미지로 다시 설치를 아직 지원하지 않습니다. OS 이미지를 업그레이드해야 하는 경우에는 사용하지 마세요.
-
 ## <a name="register-for-azure-disk-encryption"></a>Azure Disk Encryption 등록
 
-가상 머신 확장 집합용 디스크 암호화 미리 보기에는 자체 등록이 필요합니다. 다음 명령 실행:
+가상 머신 확장 집합용 디스크 암호화 미리 보기에는 자체 등록이 필요합니다. 다음 명령을 실행합니다.
 
 ```powershell
 Register-AzProviderFeature -FeatureName "UnifiedDiskEncryption" -ProviderNamespace "Microsoft.Compute"
@@ -118,7 +115,7 @@ az keyvault update --name keyvaultName --enabled-for-disk-encryption
             "properties": { 
                 "publisher": "Microsoft.Azure.Security", 
                 "type": "AzureDiskEncryption", 
-                "typeHandlerVersion": "2.1", 
+                "typeHandlerVersion": "2.2", 
                 "autoUpgradeMinorVersion": true, 
                 "settings": {                     
                     "EncryptionOperation": "EnableEncryption", 
