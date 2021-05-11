@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34b554fbef63f23b3540fe49e5c45976122add25
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a80a357b58ec7b17cc0da3e8247a668faf7ee413
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89268607"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286477"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 상태 로밍 활성화
 
@@ -93,7 +93,7 @@ Enterprise State Roaming을 사용하여 Microsoft 클라우드에 동기화된 
 ## <a name="next-steps"></a>다음 단계
 
 * [엔터프라이즈 상태 로밍 개요](enterprise-state-roaming-overview.md)
-* [설정 및 데이터 로밍 FAQ](enterprise-state-roaming-faqs.md)
+* [설정 및 데이터 로밍 FAQ](enterprise-state-roaming-faqs.yml)
 * [설정 동기화에 대한 그룹 정책 및 MDM 설정](enterprise-state-roaming-group-policy-settings.md)
 * [Windows 10 로밍 설정 참조](enterprise-state-roaming-windows-settings-reference.md)
 * [문제 해결](enterprise-state-roaming-troubleshooting.md)

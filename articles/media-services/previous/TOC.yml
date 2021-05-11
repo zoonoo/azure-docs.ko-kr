@@ -41,7 +41,7 @@
           href: media-services-dotnet-get-started.md
         - name: Java
           href: media-services-java-how-to-use.md
-        - name: REST (영문)
+        - name: REST
           href: media-services-rest-get-started.md
     - name: 라이브 스트리밍 수행
       items:
@@ -414,7 +414,7 @@
     - name: Azure PowerShell(Resource Manager)
       href: /powershell/module/az.media
     - name: Azure PowerShell
-      href: /powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0
+      href: /powershell/module/servicemanagement/azure.service/
     - name: .NET
       href: /dotnet/api/microsoft.windowsazure.mediaservices.client
     - name: REST (영문)

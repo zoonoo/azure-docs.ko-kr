@@ -60,6 +60,8 @@
       href: manage-cli.md
     - name: PowerShell을 사용하여 컨소시엄 관리
       href: manage-consortium-powershell.md
+    - name: 마이그레이션 가이드
+      href: migration-guide.md
     - name: Logic Apps 사용
       href: ethereum-logic-app.md
     - name: Azure Blockchain Service 모니터링
@@ -67,7 +69,7 @@
 - name: 참조
   items:
     - name: Azure CLI
-      href: /cli/azure/ext/blockchain/blockchain
+      href: /cli/azure/blockchain
 - name: 리소스
   items:
     - name: Azure Blockchain 개발자 키트

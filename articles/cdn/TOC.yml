@@ -13,7 +13,7 @@
     - name: 프로필 및 엔드포인트 만들기
       href: cdn-create-new-endpoint.md
     - name: 프로필 및 엔드포인트 만들기 - ARM 템플릿
-      displayName: Resource Manager
+      displayName: 'Resource Manager, az group, az deployment group, New-AzResourceGroup, New-AzResourceGroupDeployment, Remove-AzResourceGroup'
       href: create-profile-endpoint-template.md
 - name: 자습서
   items:
@@ -31,12 +31,17 @@
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/resources/samples/?service=cdn'
+    - name: Azure CLI
+      items:
+        - name: 프로필 및 엔드포인트 만들기
+          displayName: 'az cdn profile, az cdn endpoint, az cdn origin, az cdn custom-domain, cdn origin-group'
+          href: ./scripts/cli/cdn-azure-cli-create-endpoint.md
 - name: 개념
   items:
     - name: 보안
       items:
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/content-delivery-network-security-baseline?toc=/azure/cdn/TOC.json
     - name: 캐싱 작동 방식
       href: cdn-how-caching-works.md
     - name: 중국 콘텐츠 전송
@@ -172,13 +177,15 @@
           href: cdn-http-debug-headers.md
     - name: Microsoft 특정 HTTP 헤더
       href: cdn-msft-http-debug-headers.md
+    - name: Azure CLI
+      href: /cli/azure/cdn
     - name: Azure PowerShell
       href: /powershell/module/az.cdn
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.cdn
     - name: Java
       href: /java/api/com.microsoft.azure.management.cdn
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/cdn/
 - name: 리소스
   items:

@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 745aeb9844f1abad075d34b34735563200ea618b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90054945"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>StorSimple 스냅샷 관리자를 사용하여 백업 정책 만들기 및 관리
 ## <a name="overview"></a>개요
-백업 정책은 로컬로 또는 클라우드에 볼륨 데이터를 백업하기 위한 일정을 만듭니다. 백업 정책을 만들 때 보존 정책을 지정할 수도 있습니다. 최대 64 개의 스냅숏을 유지할 수 있습니다. 백업 정책에 대 한 자세한 내용은 StorSimple 8000 시리즈의 [백업 유형](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies) [: 하이브리드 클라우드 솔루션](storsimple-overview.md)을 참조 하세요.
+백업 정책은 로컬로 또는 클라우드에 볼륨 데이터를 백업하기 위한 일정을 만듭니다. 백업 정책을 만들 때 보존 정책을 지정할 수도 있습니다. 최대 64개의 스냅샷을 보존할 수 있습니다. 백업 정책에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브리드 클라우드 솔루션](storsimple-overview.md)에서 [백업 유형](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies)을 참조하세요.
 
 이 자습서에서는 다음을 수행하는 방법을 설명합니다.
 

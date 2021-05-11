@@ -44,7 +44,7 @@
               displayName: 'regulatory, compliance, standards, domains'
               href: ./security-controls-policy.md
             - name: 보안 기준
-              href: security-baseline.md
+              href: /security/benchmark/azure/baselines/container-registry-security-baseline?toc=/azure/container-registry/TOC.json
         - name: 컨테이너 레지스트리 계층 및 제한
           href: container-registry-skus.md
         - name: '레지스트리, 리포지토리 및 이미지'
@@ -232,7 +232,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/acr
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/containerregistry
     - name: PowerShell
       href: /powershell/module/az.containerregistry

@@ -1,7 +1,7 @@
 ---
 title: Azure VMware Solution by CloudSimple
 description: Azure VMware Solutions by CloudSimple에 대한 개요, 빠른 시작, 개념, 자습서 및 방법 가이드 등을 알아보세요.
-author: Ajayan1008
+author: shortpatti
 ms.author: v-hborys
 ms.date: 08/20/2019
 ms.topic: article
@@ -10,12 +10,12 @@ ms.reviewer: cynthn
 manager: dikamath
 ms.custom: seo-azure-migrate
 keywords: vm 지원, azure vmware solution by cloudsimple, cloudsimple azure, vm 도구, vmware 설명서
-ms.openlocfilehash: a3514a011f940b82702984737d0a93c5da402b55
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 26e9b825e50e0d2783404cf58ab553bd4b99f3b9
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108384"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175031"
 ---
 # <a name="azure-vmware-solution-by-cloudsimple"></a>Azure VMware Solution by CloudSimple
 

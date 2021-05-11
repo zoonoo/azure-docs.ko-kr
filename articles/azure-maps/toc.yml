@@ -238,6 +238,8 @@
               href: spatial-io-supported-data-format-details.md
         - name: 웹 SDK 지원 브라우저
           href: supported-browsers.md
+        - name: 모범 사례
+          href: web-sdk-best-practices.md
     - name: Android SDK를 사용하여 개발
       items:
         - name: Android 지도 컨트롤 시작
@@ -369,7 +371,7 @@
 - name: 리소스
   items:
     - name: 지원 및 도움말 옵션
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/azure-maps/toc.json&bc=/azure/azure-maps/breadcrumb/toc.json
     - name: Azure IoT 서비스
       items:
         - name: IoT Hub
