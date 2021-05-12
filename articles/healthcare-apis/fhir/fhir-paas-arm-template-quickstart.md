@@ -7,13 +7,13 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: cavoeg
-ms.date: 10/06/2020
-ms.openlocfilehash: ee224f0a437aa5b34f29b1b5baf64e44d61fffb4
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.date: 05/10/2021
+ms.openlocfilehash: 67958db0c56e4f37a71f67c714d4e354d570719c
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108073002"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752556"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-api-for-fhir"></a>빠른 시작: ARM 템플릿을 사용하여 Azure API for FHIR 배포
 
@@ -23,7 +23,7 @@ ms.locfileid: "108073002"
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 로그인하면 Azure Portal에서 템플릿이 열립니다.
 
-[:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Azure Portal에서 ARM 템플릿을 사용하여 Azure API for FHIR 서비스를 Azure에 배포합니다.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
+[:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Azure Portal에서 ARM 템플릿을 사용하여 Azure API for FHIR 서비스를 Azure에 배포합니다.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.healthcareapis%2fazure-api-for-fhir%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -49,7 +49,7 @@ ms.locfileid: "108073002"
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-azure-api-for-fhir/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-azure-api-for-fhir/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.healthcareapis/azure-api-for-fhir/azuredeploy.json":::
 
 템플릿에서 다음과 같은 하나의 Azure 리소스를 정의합니다.
 
@@ -69,7 +69,7 @@ Replace the line above with the following line once https://docs.microsoft.com/a
 
 Azure Portal에서 ARM 템플릿을 사용하여 Azure API for FHIR을 배포하려면 다음 링크를 선택합니다.
 
-[:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Azure Portal에서 ARM 템플릿을 사용하여 Azure API for FHIR 서비스를 Azure에 배포합니다.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
+[:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Azure Portal에서 ARM 템플릿을 사용하여 Azure API for FHIR 서비스를 Azure에 배포합니다.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.healthcareapis%2fazure-api-for-fhir%2fazuredeploy.json)
 
 **Azure API for FHIR 배포** 페이지에서 다음을 수행합니다.
 
@@ -110,7 +110,7 @@ Write-Verbose "New-AzResourceGroup -Name $resourceGroupName -Location $resourceG
 New-AzResourceGroup -Name $resourceGroupName -Location $resourceGroupRegion
 Write-Verbose "Run New-AzResourceGroupDeployment to create an Azure API for FHIR service using an ARM template" -Verbose
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
-    -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-azure-api-for-fhir/azuredeploy.json `
+    -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.healthcareapis/azure-api-for-fhir/azuredeploy.json `
     -serviceName $serviceName `
     -location $serviceLocation
 Read-Host "Press [ENTER] to continue"
@@ -135,7 +135,7 @@ params='serviceName='$serviceName' location='$serviceLocation &&
 echo "CREATE RESOURCE GROUP:  az group create --name $resourceGroupName --location $resourceGroupRegion" &&
 az group create --name $resourceGroupName --location $resourceGroupRegion &&
 echo "RUN az deployment group create, which creates an Azure API for FHIR service using an ARM template" &&
-az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-azure-api-for-fhir/azuredeploy.json &&
+az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.healthcareapis/azure-api-for-fhir/azuredeploy.json &&
 read -p "Press [ENTER] to continue: "
 ```
 
