@@ -8,16 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: b8692973f187743e282de6f8e54a55363cc3105b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b29c9ceb5ad8cd7adb38582d087e91c2fe6e8b1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104669946"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743474"
 ---
 # <a name="iot-central-operator-guide"></a>Azure IoT Central 운영자 가이드
-
-*이 문서는 운영자에 적용됩니다.*
 
 IoT Central 애플리케이션을 사용하면 수백만 대의 디바이스를 수명 주기 전체 동안 모니터링하고 관리할 수 있습니다. 이 가이드는 IoT Central 애플리케이션을 사용하여 IoT 디바이스를 관리하는 운영자를 대상으로 합니다.
 

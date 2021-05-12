@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: cec391ba998165af4dd9339b719a3b73cb330c16
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 94440b71eee1ff9dcc4a86733582e3e5f57f6a00
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104601793"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764624"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Linux VM에서 Azure AD를 사용하여 Azure Disk Encryption 사용(이전 릴리스)
 
@@ -32,7 +32,7 @@ Azure Disk Encryption의 새 릴리스에서는 VM 디스크 암호화를 사용
  > - 이전에 [Azure AD 앱에서 Azure Disk Encryption](disk-encryption-overview-aad.md)을 사용하여 이 VM을 암호화한 경우에는 이 옵션을 계속 사용하여 VM을 암호화해야 합니다. 이 시나리오는 지원되지 않는 것으로 이 암호화된 VM에는 [Azure Disk Encryption](disk-encryption-overview.md)을 사용할 수 없습니다. 즉, Azure AD 애플리케이션에서 이 암호화된 VM으로의 전환은 아직 지원되지 않습니다.
  > - 암호화된 비밀이 지역 경계를 넘지 않도록 하려면 Azure Disk Encryption에서 키 자격 증명 모음과 VM이 동일한 지역에 함께 배치되어야 합니다. 암호화할 VM과 동일한 지역에 있는 키 자격 증명 모음을 만들고 사용합니다.
  > - Linux OS 볼륨을 암호화하는 경우 프로세스에 몇 시간이 걸릴 수 있습니다. 일반적으로 데이터 볼륨을 암호화하는 것보다 Linux OS 볼륨을 암호화하는 데 더 오랜 시간이 걸립니다.
-> - Linux OS 볼륨을 암호화하는 경우 VM을 사용할 수 없는 것으로 간주해야 합니다. 암호화를 진행하는 동안에는 암호화 프로세스 중에 액세스해야 하는 열린 파일을 차단하지 않도록 SSH 로그인을 하지 않는 것이 좋습니다. 프로세스를 확인하려면 [Get-AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) 또는 [vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) 명령을 사용합니다. 30GB OS 볼륨의 경우 이 프로세스에는 몇 시간이 걸리고 데이터 볼륨을 암호화하는 데 추가 시간이 걸립니다. 데이터 볼륨 암호화 시간은 **모든 형식 암호화** 옵션을 사용하지 않는 한 데이터 볼륨의 크기와 양에 비례합니다. 
+> - Linux OS 볼륨을 암호화하는 경우 VM을 사용할 수 없는 것으로 간주해야 합니다. 암호화를 진행하는 동안에는 암호화 프로세스 중에 액세스해야 하는 열린 파일을 차단하지 않도록 SSH 로그인을 하지 않는 것이 좋습니다. 프로세스를 확인하려면 [Get-AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) 또는 [vm encryption show](/cli/azure/vm/encryption#az_vm_encryption_show) 명령을 사용합니다. 30GB OS 볼륨의 경우 이 프로세스에는 몇 시간이 걸리고 데이터 볼륨을 암호화하는 데 추가 시간이 걸립니다. 데이터 볼륨 암호화 시간은 **모든 형식 암호화** 옵션을 사용하지 않는 한 데이터 볼륨의 크기와 양에 비례합니다. 
  > - Linux VM에서 암호화 사용 안 함은 데이터 볼륨에 대해서만 지원됩니다. OS 볼륨이 암호화된 경우 이 설정은 데이터 또는 OS 볼륨에서 지원되지 않습니다. 
 
  
@@ -50,7 +50,7 @@ Azure Disk Encryption의 새 릴리스에서는 VM 디스크 암호화를 사용
 ### <a name="enable-encryption-on-an-existing-or-running-linux-vm-by-using-the-azure-cli"></a><a name="bkmk_RunningLinuxCLI"> </a>Azure CLI를 사용하여 기존 또는 실행 중인 Linux VM에서 암호화 사용 
 [Azure CLI 2.0](/cli/azure) 명령줄 도구를 설치하고 사용하여 암호화된 VHD에서 디스크 암호화를 사용하도록 설정할 수 있습니다. [Azure Cloud Shell](../../cloud-shell/overview.md)과 함께 브라우저에서 사용하거나 로컬 컴퓨터에 설치하여 PowerShell 세션에서 사용할 수 있습니다. Azure에서 기존 또는 실행 중인 IaaS Linux VM에 암호화를 사용하도록 설정하려면 다음 CLI 명령을 사용합니다.
 
-Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) 명령을 사용하여 실행 중인 IaaS 가상 머신에서 암호화를 사용하도록 설정합니다.
+Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_enable) 명령을 사용하여 실행 중인 IaaS 가상 머신에서 암호화를 사용하도록 설정합니다.
 
 -  **클라이언트 암호를 사용하여 실행 중인 VM 암호화:**
     
@@ -67,13 +67,13 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-
    >[!NOTE]
    > disk-encryption-keyvault 매개 변수의 값 구문은 전체 식별자 문자열, 즉 /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]입니다.</br> </br> key-encryption-key 매개 변수의 값 구문은 KEK에 대한 전체 URI, 즉 https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]입니다.
 
-- **디스크가 암호화되어 있는지 확인:** IaaS VM의 암호화 상태를 확인하려면 [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) 명령을 사용합니다. 
+- **디스크가 암호화되어 있는지 확인:** IaaS VM의 암호화 상태를 확인하려면 [az vm encryption show](/cli/azure/vm/encryption#az_vm_encryption_show) 명령을 사용합니다. 
 
      ```azurecli-interactive
          az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
      ```
 
-- **암호화 사용 안 함:** 암호화를 사용하지 않도록 설정하려면 [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable) 명령을 사용합니다. 암호화 사용 안 함은 Linux VM용 데이터 볼륨에서만 허용됩니다.
+- **암호화 사용 안 함:** 암호화를 사용하지 않도록 설정하려면 [az vm encryption disable](/cli/azure/vm/encryption#az_vm_encryption_disable) 명령을 사용합니다. 암호화 사용 안 함은 Linux VM용 데이터 볼륨에서만 허용됩니다.
     
      ```azurecli-interactive
          az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type DATA
@@ -337,7 +337,7 @@ Azure PowerShell, Azure CLI 또는 Resource Manager 템플릿을 사용하여 �
          Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' [--volume-type {ALL, DATA, OS}]
      ```
 
-- **Azure CLI를 사용하여 암호화 사용 안 함:** 암호화를 사용하지 않도록 설정하려면 [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable) 명령을 사용합니다. 
+- **Azure CLI를 사용하여 암호화 사용 안 함:** 암호화를 사용하지 않도록 설정하려면 [az vm encryption disable](/cli/azure/vm/encryption#az_vm_encryption_disable) 명령을 사용합니다. 
      ```azurecli-interactive
          az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
      ```

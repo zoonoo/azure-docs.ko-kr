@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/13/2021
 ms.custom: mvc
-ms.openlocfilehash: c5d57705ca0d49db1fb1d67e20beb609f21b1d5b
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 5a581652bfd084118b47b5693a2b2ca9e92feda9
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771433"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751188"
 ---
 # <a name="tutorial-discover-google-cloud-platform-gcp-instances-with-azure-migrate-discovery-and-assessment"></a>자습서: Azure Migrate 검색 및 평가를 사용하여 GCP(Google Cloud Platform) 인스턴스 검색
 
@@ -57,7 +57,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
 
     ![Azure 구독을 검색하는 검색 상자](./media/tutorial-discover-gcp/search-subscription.png)
 
-2. **구독** 페이지에서 프로젝트를 만들려는 구독을 선택합니다.
+2. **구독** 페이지에서 프로젝트를 만들 구독을 선택합니다.
 3. 구독에서 **액세스 제어(IAM)**  > **액세스 확인** 을 선택합니다.
 4. **액세스 확인** 에서 관련 사용자 계정을 검색합니다.
 5. **역할 할당 추가** 에서 **추가** 를 클릭합니다.
@@ -176,7 +176,7 @@ Azure Migrate 어플라이언스에 대해 [자세히 알아봅니다](migrate-a
 
 - GCP 서버 검색 및 평가를 위한 에이전트와 웹 애플리케이션을 설치합니다.
 - Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯한 Windows 역할을 설치합니다.
-- IIS 재작성 모듈을 다운로드하여 설치합니다. [자세히 알아보기](https://www.microsoft.com/download/details.aspx?id=7435).
+- IIS 재작성 모듈을 다운로드하여 설치합니다.
 - Azure Migrate에 대한 영구적인 설정 세부 정보를 사용하여 레지스트리 키(HKLM)를 업데이트합니다.
 - 지정된 경로에 다음 파일을 만듭니다.
     - **구성 파일**: %Programdata%\Microsoft Azure\Config
@@ -219,7 +219,7 @@ Azure Migrate 어플라이언스에 대해 [자세히 알아봅니다](migrate-a
         - HTTP 프록시만 지원됩니다.
         - 프록시 세부 정보를 추가하거나 프록시 및/또는 인증을 사용하지 않도록 설정한 경우 **저장** 을 클릭하여 연결 확인을 다시 트리거합니다.
     - **시간 동기화**: 시간이 확인됩니다. 서버 검색이 제대로 작동하려면 어플라이언스의 시간이 인터넷 시간과 동기화되어야 합니다.
-    - **업데이트 설치**: Azure Migrate: 검색 및 평가에서 최신 업데이트가 어플라이언스에 설치되어 있는지 확인합니다. 확인이 완료되면 **어플라이언스 서비스 보기** 를 클릭하여 어플라이언스에서 실행되는 구성 요소의 상태와 버전을 확인할 수 있습니다.
+    - **업데이트 설치**: Azure Migrate: 검색 및 평가에서 어플라이언스에 최신 업데이트가 설치되어 있는지 확인합니다. 확인이 완료되면 **어플라이언스 서비스 보기** 를 클릭하여 어플라이언스에서 실행되는 구성 요소의 상태와 버전을 확인할 수 있습니다.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Azure Migrate를 사용하여 어플라이언스 등록
 
@@ -229,7 +229,7 @@ Azure Migrate 어플라이언스에 대해 [자세히 알아봅니다](migrate-a
     ![디바이스 코드를 보여주는 모달](./media/tutorial-discover-vmware/device-code.png)
 
 1. **코드 복사 및 로그인** 을 클릭하여 디바이스 코드를 복사하고 새 브라우저 탭에서 Azure 로그인 프롬프트를 엽니다. 표시되지 않으면 브라우저에서 팝업 차단을 사용하지 않도록 설정했는지 확인합니다.
-1. 새 탭에서 디바이스 코드를 붙여넣고, Azure 사용자 이름과 암호를 사용하여 로그인합니다.
+1. 새 탭에서 디바이스 코드를 붙여넣고 Azure 사용자 이름과 암호를 사용하여 로그인합니다.
    
    PIN을 사용한 로그인은 지원되지 않습니다.
 3. 로그인 탭을 실수로 로그인하지 않고 닫은 경우에는 어플라이언스 구성 관리자의 브라우저 탭을 새로 고쳐 로그인 단추를 다시 사용하도록 설정해야 합니다.
@@ -242,12 +242,12 @@ Azure Migrate 어플라이언스에 대해 [자세히 알아봅니다](migrate-a
 이제 어플라이언스에서 검색할 GCP 서버에 연결하여 검색을 시작합니다.
 
 1. **1단계: Windows 및 Linux 물리적 또는 가상 서버 검색을 위한 자격 증명 제공** 에서 **자격 증명 추가** 를 클릭합니다.
-1. Windows 서버의 경우 원본 유형을 **Windows 서버** 로 선택하고, 자격 증명에 대한 식별 이름을 지정하고, 사용자 이름 및 암호를 추가합니다. **Save** 를 클릭합니다.
-1. 암호 기반 인증을 Linux 서버에 사용하는 경우 원본 유형을 **Linux 서버(암호 기반)** 로 선택하고, 자격 증명에 대한 식별 이름을 지정하고, 사용자 이름 및 암호를 추가합니다. **Save** 를 클릭합니다.
+1. Windows 서버의 경우 원본 유형을 **Windows Server** 로 선택하고, 자격 증명에 친숙한 이름을 지정하고, 사용자 이름 및 암호를 추가합니다. **Save** 를 클릭합니다.
+1. Linux 서버에 암호 기반 인증을 사용하는 경우 원본 유형을 **Linux Server(암호 기반)** 로 선택하고, 자격 증명에 친숙한 이름을 지정하고, 사용자 이름 및 암호를 추가합니다. **Save** 를 클릭합니다.
 1. Linux 서버에 SSH 키 기반 인증을 사용하는 경우 원본 유형을 **Linux Server(SSH 키 기반)** 로 선택하고, 자격 증명에 친숙한 이름을 지정하고, 사용자 이름을 추가하고, SSH 프라이빗 키 파일을 찾아서 선택할 수 있습니다. **Save** 를 클릭합니다.
 
-    - Azure Migrate는 RSA, DSA, ECDSA 및 ed25519 알고리즘을 사용하여 ssh-keygen 명령으로 생성된 SSH 프라이빗 키를 지원합니다.
-    - Azure Migrate는 현재 암호 기반 SSH 키를 지원하지 않습니다. 암호 없이 SSH 키를 사용합니다.
+    - Azure Migrate는 RSA, DSA, ECDSA 및 ed25519 알고리즘을 사용하여 ssh-keygen 명령에 의해 생성된 SSH 프라이빗 키를 지원합니다.
+    - 현재 Azure Migrate는 암호 기반 SSH 키를 지원하지 않습니다. 암호 없이 SSH 키를 사용합니다.
     - 현재 Azure Migrate는 PuTTY에서 생성된 SSH 프라이빗 키 파일을 지원하지 않습니다.
     - Azure Migrate는 아래와 같이 SSH 프라이빗 키 파일의 OpenSSH 형식을 지원합니다.
     
@@ -259,7 +259,7 @@ Azure Migrate 어플라이언스에 대해 [자세히 알아봅니다](migrate-a
 4. 한 번에 하나씩 **단일 항목을 추가** 하거나 한꺼번에 **여러 항목을 추가** 할 수 있습니다. 또한 **CSV 가져오기** 를 통해 서버 세부 정보를 제공하는 옵션도 있습니다.
 
     - **단일 항목 추가** 를 선택하는 경우 OS 유형을 선택하고, 자격 증명의 식별 이름을 지정하고, 서버 **IP 주소/FQDN** 을 추가하고 **저장** 을 클릭합니다.
-    - **여러 항목 추가** 를 선택하는 경우 텍스트 상자에서 자격 증명에 대한 식별 이름과 함께 서버 **IP 주소/FQDN** 을 지정하여 여러 레코드를 한 번에 추가할 수 있습니다. 추가된 레코드를 확인**하고, **저장** 을 클릭합니다.
+    - **여러 항목 추가** 를 선택하는 경우 텍스트 상자에 자격 증명의 식별 이름과 서버 **IP 주소/FQDN** 을 지정하여 여러 레코드를 한 번에 추가할 수 있습니다. 추가된 레코드를 확인**하고 **저장** 을 클릭합니다.
     - **CSV가져오기** 를 선택하는 경우 _(기본적으로 선택됨)_ CSV 템플릿 파일을 다운로드하고 서버 **IP 주소/FQDN** 및 자격 증명 식별 이름으로 파일을 채울 수 있습니다. 그런 다음, 파일을 어플라이언스로 가져와 파일의 레코드를 **확인** 하고 **저장** 을 클릭합니다.
 
 5. 저장을 클릭하면 어플라이언스가 추가된 서버에 대한 연결의 유효성을 검사하고 각 서버에 대한 테이블에 **유효성 검사 상태** 를 표시합니다.
@@ -276,7 +276,7 @@ Azure Migrate 어플라이언스에 대해 [자세히 알아봅니다](migrate-a
 검색이 완료되면 서버가 포털에 표시되는지 확인할 수 있습니다.
 
 1. Azure Migrate 대시보드를 엽니다.
-2. **Azure Migrate - Windows, Linux 및 SQL 서버** > **Azure Migrate: 검색 및 평가** 페이지에서 **검색된 서버** 의 수를 표시하는 아이콘을 클릭합니다.
+2. **Azure Migrate - Windows, Linux 및 SQL Server** > **Azure Migrate: 검색 및 평가** 페이지에서 **검색된 서버** 의 수를 표시하는 아이콘을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

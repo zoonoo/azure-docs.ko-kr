@@ -8,18 +8,17 @@ ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 87c022ee7ccf3f1de2d9420ee799157ba96aa353
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 3bb3a89443cdefeedbe5df254d215dfcec770983
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317652"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737850"
 ---
-<a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Application Gateway의 백 엔드 상태 문제 해결
-==================================================
+# <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Application Gateway의 백 엔드 상태 문제 해결
 
-<a name="overview"></a>개요
---------
+## <a name="overview"></a>개요
+
 
 기본적으로 Azure Application Gateway는 백 엔드 서버를 검색하여 상태를 확인하고 요청을 처리할 준비가 되었는지 여부를 확인합니다. 사용자는 호스트 이름, 검색할 경로 및 정상으로 허용할 상태 코드를 언급하는 사용자 지정 프로브를 만들 수도 있습니다. 각 경우에 백 엔드 서버가 성공적으로 응답하지 않으면 Application Gateway는 서버를 비정상으로 표시하고 요청을 서버로 전달하는 것을 중지합니다. 서버 응답이 성공적으로 시작되면 Application Gateway에서 요청 전달을 다시 시작합니다.
 
@@ -37,8 +36,7 @@ ms.locfileid: "108317652"
 
 서버의 백 엔드 상태가 정상이면 Application Gateway가 해당 서버에 요청을 전달하는 것입니다. 그러나 백 엔드 풀의 모든 서버에 대한 백 엔드 상태가 비정상이거나 알 수 없음인 경우 애플리케이션에 액세스하려고 할 때 문제가 발생할 수 있습니다. 이 문서에서는 표시되는 각 오류에 대한 증상, 원인 및 해결 방법을 설명합니다.
 
-<a name="backend-health-status-unhealthy"></a>백 엔드 상태: 비정상
--------------------------------
+## <a name="backend-health-status-unhealthy"></a>백 엔드 상태: 비정상
 
 백 엔드 상태가 비정상이면 포털 보기는 다음 스크린샷과 유사하게 표시됩니다.
 
@@ -77,6 +75,7 @@ BackendAddressPoolsText : [
                             }
                         ]
 ```
+
 백 엔드 풀의 모든 서버에 대한 비정상 백 엔드 서버 상태를 받으면 요청이 서버로 전달되지 않고 Application Gateway는 요청하는 클라이언트에 "502 잘못된 게이트웨이" 오류를 반환합니다. 이 문제를 해결하려면 **백 엔드 상태** 탭에서 **세부 정보** 열을 확인합니다.
 
 **세부 정보** 열에 표시되는 메시지는 문제에 대한 보다 자세한 인사이트를 제공하고, 이에 따라 문제 해결을 시작할 수 있습니다.
@@ -84,9 +83,10 @@ BackendAddressPoolsText : [
 > [!NOTE]
 > 기본 프로브 요청은 \<protocol\>://127.0.0.1:\<port\>/ 형식으로 전송됩니다. 예를 들어 포트 80에 대한 http 프로브의 경우 http://127.0.0.1:80 입니다. 200~399의 HTTP 상태 코드만 정상으로 간주됩니다. 프로토콜 및 대상 포트는 HTTP 설정에서 상속됩니다. Application Gateway가 다른 프로토콜, 호스트 이름 또는 경로를 검색하고 다른 상태 코드를 정상으로 인식하기를 원하면 사용자 지정 프로브를 구성하고 HTTP 설정과 연결합니다.
 
-<a name="error-messages"></a>오류 메시지
-------------------------
-#### <a name="backend-server-timeout"></a>백 엔드 서버 시간 초과
+## <a name="error-messages"></a>오류 메시지
+
+
+### <a name="backend-server-timeout"></a>백 엔드 서버 시간 초과
 
 **메시지:** 백 엔드가 Application Gateway의 상태 검색에 응답하는 데 걸리는 시간이 프로브 설정의 제한 시간 임계값보다 깁니다.
 
@@ -104,7 +104,7 @@ BackendAddressPoolsText : [
 
 1.  사용자 지정 프로브 설정을 저장하고 백 엔드 상태가 지금 정상으로 표시되는지 확인합니다.
 
-#### <a name="dns-resolution-error"></a>DNS 확인 오류
+### <a name="dns-resolution-error"></a>DNS 확인 오류
 
 **메시지:** Application Gateway에서 이 백 엔드에 대한 프로브를 만들 수 없습니다. 이 오류는 일반적으로 백 엔드의 FQDN이 올바르게 입력되지 않은 경우에 발생합니다. 
 
@@ -122,7 +122,7 @@ BackendAddressPoolsText : [
 
 1.  도메인이 개인 또는 내부인 경우 동일한 가상 네트워크의 VM에서 확인해 보세요. 확인이 가능한 경우 Application Gateway를 다시 시작하고 다시 확인합니다. Application Gateway를 다시 시작하려면 연결된 이들 리소스에 설명된 PowerShell 명령을 사용하여 [중지](/powershell/module/azurerm.network/stop-azurermapplicationgateway)하고 [시작](/powershell/module/azurerm.network/start-azurermapplicationgateway)해야 합니다.
 
-#### <a name="tcp-connect-error"></a>TCP 연결 오류
+### <a name="tcp-connect-error"></a>TCP 연결 오류
 
 **메시지:** Application Gateway는 백 엔드에 연결할 수 없습니다.
 프로브에 사용되는 포트에서 백 엔드가 응답하는지 확인하세요.
@@ -188,7 +188,7 @@ BackendAddressPoolsText : [
 
 사용자 지정 프로브를 만들려면 [다음 단계](./application-gateway-create-probe-portal.md)를 수행합니다.
 
-#### <a name="http-response-body-mismatch"></a>HTTP 응답 본문 불일치
+### <a name="http-response-body-mismatch"></a>HTTP 응답 본문 불일치
 
 **메시지:** 백 엔드의 HTTP 응답 본문이 프로브 설정과 일치하지 않습니다. 받은 응답 본문에 {string}이(가) 없습니다.
 
@@ -208,7 +208,7 @@ BackendAddressPoolsText : [
 > 모든 TLS 관련 오류 메시지의 경우, SNI 동작 및 v1과 v2 SKU 간의 차이점에 대한 자세한 내용을 보려면 [TLS 개요](ssl-overview.md) 페이지를 확인하세요.
 
 
-#### <a name="backend-server-certificate-invalid-ca"></a>백 엔드 서버 인증서의 잘못된 CA
+### <a name="backend-server-certificate-invalid-ca"></a>백 엔드 서버 인증서의 잘못된 CA
 
 **메시지:** 백 엔드에서 사용되는 서버 인증서가 잘 알려진 CA(인증 기관)에서 서명하지 않았습니다. 백 엔드에서 사용되는 서버 인증서의 루트 인증서를 업로드하여 Application Gateway의 백 엔드를 허용합니다.
 
@@ -241,7 +241,7 @@ TLS/SSL 인증서를 신뢰할 수 있도록 하려면 Application Gateway의 �
 
 Application Gateway에서 신뢰할 수 있는 루트 인증서를 추출하고 업로드하는 방법에 대한 자세한 내용은 [신뢰할 수 있는 루트 인증서 내보내기(v2 SKU용)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku)를 참조하세요.
 
-#### <a name="trusted-root-certificate-mismatch"></a>신뢰할 수 있는 루트 인증서 불일치
+### <a name="trusted-root-certificate-mismatch"></a>신뢰할 수 있는 루트 인증서 불일치
 
 **메시지:** 백 엔드에서 사용되는 서버 인증서의 루트 인증서가 Application Gateway에 추가된 신뢰할 수 있는 루트 인증서와 일치하지 않습니다. 올바른 루트 인증서를 추가하여 백 엔드를 허용합니다.
 
@@ -255,6 +255,7 @@ Application Gateway HTTP 설정에 업로드된 인증서는 백 엔드 서버 �
 Application Gateway에 신뢰할 수 있는 올바른 루트 인증서를 업로드하려면 이전 메서드의 1-11 단계를 수행합니다.
 
 Application Gateway에서 신뢰할 수 있는 루트 인증서를 추출하고 업로드하는 방법에 대한 자세한 내용은 [신뢰할 수 있는 루트 인증서 내보내기(v2 SKU용)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku)를 참조하세요.
+
 > [!NOTE]
 > 이 오류는 백 엔드 서버가 TLS 핸드셰이크 중 루트 > 중간(해당하는 경우) > 리프를 포함하여 전체 인증서 체인을 교환하지 않는 경우에도 발생할 수 있습니다. 확인하려면 모든 클라이언트에서 OpenSSL 명령을 사용하고 Application Gateway 프로브에서 구성된 설정을 사용하여 백 엔드 서버에 연결할 수 있습니다.
 
@@ -262,6 +263,7 @@ Application Gateway에서 신뢰할 수 있는 루트 인증서를 추출하고 
 ```
 OpenSSL> s_client -connect 10.0.0.4:443 -servername www.example.com -showcerts
 ```
+
 출력에 반환되는 인증서의 전체 체인이 표시되지 않으면 루트 인증서를 포함하여 전체 체인으로 인증서를 다시 내보냅니다. 백 엔드 서버에서 해당 인증서를 구성합니다. 
 
 ```
@@ -281,7 +283,7 @@ OpenSSL> s_client -connect 10.0.0.4:443 -servername www.example.com -showcerts
   \-----END CERTIFICATE-----
 ```
 
-#### <a name="backend-certificate-invalid-common-name-cn"></a>백 엔드 인증서의 잘못된 CN(일반 이름)
+### <a name="backend-certificate-invalid-common-name-cn"></a>백 엔드 인증서의 잘못된 CN(일반 이름)
 
 **메시지:** 백 엔드 인증서의 CN(일반 이름)이 프로브의 호스트 헤더와 일치하지 않습니다.
 
@@ -322,7 +324,7 @@ OpenSSL을 사용하는 Linux의 경우:
 
 2.  표시된 속성에서 인증서의 CN을 찾고 http 설정의 호스트 이름 필드에 동일하게 입력합니다. 웹 사이트에 원하는 호스트 이름이 아닌 경우 해당 도메인에 대한 인증서를 얻거나 사용자 지정 프로브 또는 HTTP 설정 구성에 올바른 호스트 이름을 입력해야 합니다.
 
-#### <a name="backend-certificate-is-invalid"></a>잘못된 백 엔드 인증서
+### <a name="backend-certificate-is-invalid"></a>잘못된 백 엔드 인증서
 
 **메시지:** 백 엔드 인증서가 잘못되었습니다. 현재 날짜가 인증서의 \"유효 기간(시작)\" 및 \"유효 기간(끝)\" 날짜 범위 내에 없습니다.
 
@@ -336,7 +338,7 @@ OpenSSL을 사용하는 Linux의 경우:
 
 1.  인증서 옆에 있는 **삭제** 아이콘을 사용하여 이전 인증서를 제거한 다음 **저장** 을 선택합니다.
 
-#### <a name="certificate-verification-failed"></a>인증서 확인 실패
+### <a name="certificate-verification-failed"></a>인증서 확인 실패
 
 **메시지:** 백 엔드 인증서의 유효성을 확인할 수 없습니다. 이유를 확인하려면 오류 코드{errorCode}와 관련된 메시지에 대한 OpenSSL 진단을 확인합니다.
 
@@ -344,8 +346,8 @@ OpenSSL을 사용하는 Linux의 경우:
 
 **해결 방법:** 이 문제를 해결하려면 서버의 인증서가 제대로 생성되었는지 확인합니다. 예를 들어 [OpenSSL](https://www.openssl.org/docs/man1.0.2/man1/verify.html)을 사용하여 인증서 및 해당 속성을 확인한 다음 인증서를 Application Gateway HTTP 설정으로 다시 업로드할 수 있습니다.
 
-<a name="backend-health-status-unknown"></a>백 엔드 상태: 알 수 없음
--------------------------------
+## <a name="backend-health-status-unknown"></a>백 엔드 상태: 알 수 없음
+
 백 엔드 상태가 알 수 없음으로 표시되면 포털 보기는 다음 스크린샷과 유사하게 표시됩니다.
 
 ![Application Gateway 백 엔드 상태 - 알 수 없음](./media/application-gateway-backend-health-troubleshooting/appgwunknown.png)
@@ -396,7 +398,6 @@ OpenSSL을 사용하는 Linux의 경우:
 
 1.  Application Gateway가 정상 상태이고 실행 중인지 확인하려면 포털에서 **Resource Health** 옵션으로 이동하여 상태가 **정상** 인지 확인합니다. **비정상** 또는 **저하** 상태가 표시되는 경우 [고객 지원팀에 문의하세요](https://azure.microsoft.com/support/options/).
 
-<a name="next-steps"></a>다음 단계
-----------
+## <a name="next-steps"></a>다음 단계
 
 [Application Gateway 진단 및 로깅](./application-gateway-diagnostics.md)에 대해 자세히 알아보세요.

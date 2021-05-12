@@ -4,19 +4,21 @@ description: 이 문서에서는 Azure WAF(웹 애플리케이션 방화벽)를 
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 03/18/2020
+ms.date: 05/11/2021
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 49024c86d09f5cdd9e8b04d5a49f60021660b0c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7bcaf46ef6860a9546179b86d6293d24c0064c0c
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "79475790"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751530"
 ---
 # <a name="what-is-azure-web-application-firewall"></a>Azure 웹 애플리케이션 방화벽이란?
 
 WAF(웹 애플리케이션 방화벽)는 일반적인 악용과 취약성으로부터 웹 애플리케이션을 중앙 집중식으로 보호합니다. 일반적으로 알려진 취약성을 악용하여 웹 애플리케이션을 공격하는 악의적인 사례가 점점 늘어나고 있습니다. 그 중에서 SQL 삽입 및 사이트 간 스크립팅은 가장 흔한 공격 방식입니다.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWCwkM]
 
 ![WAF 개요](media/overview/wafoverview.png)
 

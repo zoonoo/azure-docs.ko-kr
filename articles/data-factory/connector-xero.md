@@ -1,17 +1,17 @@
 ---
 title: Azure Data Factory를 사용하여 Xero에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Xero에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.author: jingwang
-ms.openlocfilehash: d795f8355943032751b911423b8aaa93b2df3206
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: 1948ba58ed735ad663a191b41beeeda07cd65788
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100366911"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109484706"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Xero에서 데이터 복사
 
@@ -35,7 +35,7 @@ Xero에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사
 
 ## <a name="getting-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 Xero 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -43,7 +43,7 @@ Xero에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사
 
 다음은 Xero 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **Xero** 로 설정해야 합니다. | 예 |
 | connectionProperties | Xero에 연결하는 방법을 정의하는 속성 그룹입니다. | 예 |
@@ -56,7 +56,7 @@ Xero에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사
 | refreshToken | OAuth 2.0 인증에 적용됩니다.<br/>OAuth 2.0 새로 고침 토큰은 Xero 애플리케이션과 연결되며, 액세스 토큰을 새로 고치는 데 사용됩니다. 액세스 토큰은 30분 후에 만료됩니다. [이 문서](https://developer.xero.com/documentation/oauth2/auth-flow)에서는 Xero 권한 부여 흐름이 작동하는 방법 및 새로 고침 토큰을 가져오는 방법에 대해 알아봅니다. 새로 고침 토큰을 가져오려면, [offline_access 범위](https://developer.xero.com/documentation/oauth2/scopes)를 요청해야 합니다. <br/>**인식 제한**: Xero는 액세스 토큰 새로 고침에 사용된 후 새로 고침 토큰을 다시 설정한다는 점을 참고합니다. 조작 가능한 워크로드의 경우, 각 복사 작업을 실행하기 전에 ADF에서 사용할 유효한 새로 고침 토큰을 설정해야 합니다.<br/>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예(OAuth 2.0 인증의 경우) |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
 | useHostVerification | TLS를 통한 연결 시, 서버 인증서의 호스트 이름을 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
-| usePeerVerification | TLS를 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
+| usePeerVerification | TLS를 통해 연결할 때 서버의 ID 확인 여부를 지정합니다. 기본값은 true입니다.  | 예 |
 
 **예: OAuth 2.0 인증**
 
@@ -133,7 +133,7 @@ Unix 줄 끝(\n)을 포함하여 .pem 파일의 모든 텍스트를 포함합니
 
 Xero에서 데이터를 복사하려면 데이터 세트의 type 속성을 **XeroObject** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 형식 속성을 **XeroObject** 로 설정해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -163,7 +163,7 @@ Xero에서 데이터를 복사하려면 데이터 세트의 type 속성을 **Xer
 
 Xero에서 데이터를 복사하려면 복사 작업의 원본 형식을 **XeroSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **XeroSource** 로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Contacts"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |

@@ -3,16 +3,16 @@ title: Dynamics에서 데이터 복사(Common Data Service)
 description: Data Factory 파이프라인의 복사 작업을 사용하여 Microsoft Dynamics CRM 또는 Microsoft Dynamics 365(Common Data Service/Microsoft Dataverse)에서 지원되는 싱크 데이터 저장소로, 혹은 지원되는 원본 데이터 저장소에서 Dynamics CRM 또는 Dynamics 365로 데이터를 복사하는 방법에 대해 알아봅니다.
 ms.service: data-factory
 ms.topic: conceptual
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: f2db75fdcd4519b5ba0869bf4ef89c8323435539
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c949ed8d0ecb35df0a2c31bb90514c18cf3a3755
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565982"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109484328"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-servicemicrosoft-dataverse-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365(Common Data Service/Microsoft Dataverse) 또는 Dynamics CRM 간에 데이터 복사
 
@@ -63,7 +63,7 @@ Azure AD 서비스 사용자 인증을 통해 이 커넥터를 사용하려면 C
 
 ## <a name="get-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 Dynamics에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -323,7 +323,7 @@ Dynamics에 데이터를 복사하려는 경우 복사 작업 **싱크** 섹션�
 | alternateKeyName | upsert를 수행하기 위해 엔터티에 정의된 대체 키 이름입니다. | 아니요. |
 | writeBatchSize | 각 일괄 처리에서 Dynamics에 작성된 데이터의 행 수입니다. | 아니요. 기본값은 10입니다. |
 | ignoreNullValues | 쓰기 작업 중에 키 필드를 제외한 입력 데이터에서 null 값을 무시할지 여부입니다.<br/><br/>유효한 값은 **TRUE** 및 **FALSE** 입니다.<ul><li>**TRUE**: upsert 또는 업데이트 작업을 수행할 때 대상 개체의 데이터를 변경하지 않고 유지합니다. 삽입 작업을 수행할 때 정의된 기본 값을 삽입합니다.</li><li>**FALSE**: upsert 또는 업데이트 작업을 수행할 때 대상 개체의 데이터를 Null로 업데이트합니다. 삽입 작업을 수행할 때 Null 값을 삽입합니다.</li></ul> | 아니요. 기본값은 **FALSE** 입니다. |
-| maxConcurrentConnections |활동 실행 중 데이터 저장소에 설정된 동시 연결의 상한입니다. 동시 연결을 제한하려는 경우에만 값을 지정합니다.| 예 |
+| maxConcurrentConnections |작업을 실행하는 동안 데이터 저장소에 설정된 동시 연결의 상한입니다. 동시 연결을 제한하려는 경우에만 값을 지정합니다.| 예 |
 
 >[!NOTE]
 >Dynamics 싱크에 대한 싱크 **writeBatchSize** 및 복사 작업 **[parallelCopies](copy-activity-performance-features.md#parallel-copy)** 의 기본값은 모두 10입니다. 따라서 기본적으로 레코드 100개가 Dynamics에 동시 제출됩니다.

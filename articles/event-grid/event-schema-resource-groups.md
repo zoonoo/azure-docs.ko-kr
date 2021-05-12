@@ -3,12 +3,12 @@ title: Event Grid 원본으로서의 Azure 리소스 그룹
 description: Azure Event Grid를 사용하여 리소스 그룹 이벤트에 제공되는 속성을 설명합니다.
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.openlocfilehash: 4c1990909dc555e9e2a6d09538b807ba7e07ce83
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7616999d820075524f6efadccd98e04c09732032
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363222"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109733519"
 ---
 # <a name="azure-resource-group-as-an-event-grid-source"></a>Event Grid 원본으로서의 Azure 리소스 그룹
 
@@ -417,7 +417,7 @@ VM을 만들거나 스토리지 계정을 삭제할 때와 같이 리소스 그�
 # <a name="event-grid-event-schema"></a>[Event Grid 이벤트 스키마](#tab/event-grid-event-schema)
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | `topic` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -432,7 +432,7 @@ VM을 만들거나 스토리지 계정을 삭제할 때와 같이 리소스 그�
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | `source` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -446,7 +446,7 @@ VM을 만들거나 스토리지 계정을 삭제할 때와 같이 리소스 그�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | 설명 |
+| 속성 | Type | 설명 |
 | -------- | ---- | ----------- |
 | `authorization` | object | 작업에 대해 요청된 권한입니다. |
 | `claims` | object | 클레임의 속성입니다. 자세한 내용은 [JWT 사양](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)을 참조하세요. |
@@ -467,7 +467,7 @@ VM을 만들거나 스토리지 계정을 삭제할 때와 같이 리소스 그�
 | [Azure CLI: 리소스 그룹에 대한 이벤트 구독 및 리소스에 대한 필터링](./scripts/event-grid-cli-resource-group-filter.md) | 리소스 그룹에 대한 이벤트를 구독하고 하나의 리소스에 대한 이벤트를 필터링하는 샘플 스크립트입니다. |
 | [PowerShell: 리소스 그룹에 대한 이벤트 구독](./scripts/event-grid-powershell-resource-group.md) | 리소스 그룹에 대한 이벤트를 구독하는 샘플 스크립트입니다. WebHook에 이벤트를 보냅니다. |
 | [PowerShell: 리소스 그룹에 대한 이벤트 구독 및 리소스에 대한 필터링](./scripts/event-grid-powershell-resource-group-filter.md) | 리소스 그룹에 대한 이벤트를 구독하고 하나의 리소스에 대한 이벤트를 필터링하는 샘플 스크립트입니다. |
-| [Resource Manager 템플릿: 리소스 구독](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) | Azure 구독 또는 리소스 그룹에 대한 이벤트를 구독합니다. WebHook에 이벤트를 보냅니다. |
+| [Resource Manager 템플릿: 리소스 구독](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-resource-events-to-webhook) | Azure 구독 또는 리소스 그룹에 대한 이벤트를 구독합니다. WebHook에 이벤트를 보냅니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

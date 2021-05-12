@@ -1,17 +1,17 @@
 ---
 title: Azure Key Vault에 자격 증명 저장
 description: Azure Data Factory에서 런타임 시 자동으로 검색할 수 있는 Azure Key Vault에 사용되는 데이터 저장소의 자격 증명을 저장하는 방법을 알아봅니다.
-author: linda33wj
+author: nabhishek
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.author: jingwang
-ms.openlocfilehash: 00c28a9ede01a74f4ae64109d277276050047461
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: abnarain
+ms.openlocfilehash: b9c9d04e3667e95e9bcc02711755efa74559bc52
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100653767"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109482510"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Azure Key Vault에 자격 증명 저장
 
@@ -38,7 +38,7 @@ Azure Key Vault에 저장된 자격 증명을 참조하려면 다음을 수행�
 
 Azure Key Vault 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **AzureKeyVault** 로 설정되어야 합니다. | 예 |
 | baseUrl | Azure Key Vault URL을 지정합니다. | 예 |
@@ -71,7 +71,7 @@ Azure Key Vault 연결된 서비스에 다음 속성이 지원됩니다.
 
 키 자격 증명 모음 암호를 참조하는 연결된 서비스에서 필드를 구성할 때 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 필드의 형식 속성을 **AzureKeyVaultSecret** 으로 설정해야 합니다. | 예 |
 | secretName | Azure Key Vault의 비밀 이름입니다. | 예 |

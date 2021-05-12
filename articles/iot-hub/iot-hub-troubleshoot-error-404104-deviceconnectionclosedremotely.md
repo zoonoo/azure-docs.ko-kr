@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: mqtt
-ms.openlocfilehash: f1acd7b309a31dfe437f1f82cb9bbf73f4a5cca5
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 9edbcf30b7108c34fedddba365c20922a211777d
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061080"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109485390"
 ---
 # <a name="404104-deviceconnectionclosedremotely"></a>404104 DeviceConnectionClosedRemotely
 
@@ -38,7 +38,7 @@ ms.locfileid: "106061080"
 
 ### <a name="cause-1"></a>원인 1
 
-[IoT Hub 연결에 사용되는 SAS 토큰](iot-hub-devguide-security.md#security-tokens)이 만료되어 IoT Hub에서 디바이스의 연결을 끊습니다. 디바이스에서 토큰을 새로 고칠 때 연결이 다시 설정됩니다. 예를 들어 [기본적으로 C SDK에 대해 SAS 토큰이 매시간 만료](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-authentication)되므로 정기적으로 연결이 끊어질 수 있습니다.
+[IoT Hub 연결에 사용되는 SAS 토큰](iot-hub-dev-guide-sas.md#security-tokens)이 만료되어 IoT Hub에서 디바이스의 연결을 끊습니다. 디바이스에서 토큰을 새로 고칠 때 연결이 다시 설정됩니다. 예를 들어 [기본적으로 C SDK에 대해 SAS 토큰이 매시간 만료](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-authentication)되므로 정기적으로 연결이 끊어질 수 있습니다.
 
 자세히 알아보려면 [401003 IoTHubUnauthorized 원인](iot-hub-troubleshoot-error-401003-iothubunauthorized.md#cause-1)을 참조하세요.
 

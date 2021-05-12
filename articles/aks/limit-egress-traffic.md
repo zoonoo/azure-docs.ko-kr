@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 01/12/2021
 author: palma21
-ms.openlocfilehash: 4c14d77ba87ab4bd3f4465d915b911a1d44aefab
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: bf006c6ade92cc2d1286dc1173d09efea0294f50
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166454"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754472"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터 노드의 송신 트래픽 제어
 
@@ -209,9 +209,7 @@ Azure Policy를 사용하도록 설정된 AKS 클러스터에는 다음 FQDN/애
 |-----------------------------------------------|-----------|----------|
 | **`data.policy.core.windows.net`** | **`HTTPS:443`** | 이 주소는 Kubernetes 정책을 가져오고 클러스터 준수 상태를 정책 서비스에 보고하는 데 사용됩니다. |
 | **`store.policy.core.windows.net`** | **`HTTPS:443`** | 이 주소는 기본 제공 정책의 Gatekeeper 아티팩트를 가져오는 데 사용됩니다. |
-| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | 이 주소는 Azure Policy가 올바르게 작동하는 데 사용됩니다.  |
-| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | 이 주소는 Azure Policy가 올바르게 작동하도록 GitHub에서 기본 제공 정책을 끌어오는 데 사용됩니다. |
-| **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | 원격 분석 데이터를 Application Insights 엔드포인트로 보내는 Azure Policy 추가 기능입니다. |
+| **`dc.services.visualstudio.com`** | **`HTTPS:443`** | 원격 분석 데이터를 Application Insights 엔드포인트로 보내는 Azure Policy 추가 기능입니다. |
 
 #### <a name="azure-china-21vianet-required-fqdn--application-rules"></a>Azure 중국 21Vianet 필수 FQDN/애플리케이션 규칙
 
