@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 98854a4588b59cf0c19877da870e6124fa7c3b9a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "104674685"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Azure 데이터 카탈로그에 대한 질문과 대답
@@ -56,13 +56,13 @@ ms.locfileid: "104674685"
 ## <a name="how-do-i-request-support-for-another-data-source"></a>다른 데이터 원본에 대한 지원을 어떻게 요청하나요?
 기능 요청 및 기타 피드백을 제출하려면 [Azure Feedback Forums의 데이터 카탈로그](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources)으로 이동합니다.
 
-## <a name="why-do-i-get-an-error-catalog-already-exists-when-i-try-to-create-a-new-catalog"></a>새 카탈로그를 만들려고 할 때 오류 *카탈로그가 이미 존재* 하는 이유는 무엇 인가요?
+## <a name="why-do-i-get-an-error-catalog-already-exists-when-i-try-to-create-a-new-catalog"></a>새 카탈로그를 만들려고 할 때 ‘카탈로그가 이미 있습니다’ 오류가 발생하는 이유는 무엇인가요?
 
-Power BI Pro 라이선스를 사용 하 여 Office 365 E5를 구매 하는 경우 Microsoft는 구독 지역에 자동으로 기본 카탈로그를 만듭니다. 이 카탈로그는 무료 SKU를 사용 합니다. Office 365/Power BI 사용자 라이선스는 관리 페이지에서 관리 됩니다. 
+Power BI Pro 라이선스를 사용하여 Office 365 E5를 구매하는 경우 Microsoft는 자동으로 구독 지역에 기본 카탈로그를 만듭니다. 이 카탈로그는 무료 SKU를 사용합니다. Office 365/Power BI 사용자 라이선스는 관리 페이지에서 관리됩니다. 
 
-그러나이 유형의 데이터 카탈로그에는 **관리자 옵션이** 없으며 **Azure Portal** 에 표시 되지 않습니다. 이 유형의 데이터 카탈로그는 삭제할 수 없습니다. 마찬가지로, 데이터 카탈로그의 이름을 바꿀 수 없으며 다른 영역으로 이동할 수 없습니다. 
+그러나 해당 유형의 데이터 카탈로그에는 **관리자 옵션** 이 없으며 **Azure Portal** 에 표시되지 않습니다. 이 유형의 데이터 카탈로그는 삭제할 수 없습니다. 이와 마찬가지로 해당 데이터 카탈로그의 이름을 바꿀 수 없으며 다른 영역으로 이동할 수도 없습니다. 
 
-Power BI Pro 라이선스 자동으로 할당 된 사용자 계정은 Power BI Pro 라이선스를 사용 하 여 Office 365 E5에 등록할 때 사용권 계약으로 인해 데이터 카탈로그에 액세스할 수 있습니다. 이 유형의 사용자는 관리자 권한 없이 데이터 카탈로그 자산에 대 한 모든 권한을 가집니다. 이러한 종류의 사용자는 Azure Data Catalog의 **카탈로그 사용자** 역할에 포함 *되지 않습니다* .
+Power BI Pro 라이선스 자동이 할당된 사용자 계정은 Power BI Pro 라이선스를 사용하여 Office 365 E5에 가입할 때의 라이선스 계약으로 인해 데이터 카탈로그에 액세스할 수 있습니다. 해당 유형의 사용자는 관리자 권한을 제외하고 데이터 카탈로그 자산에 대한 모든 권한을 가집니다. 해당 유형의 사용자는 Azure Data Catalog의 **카탈로그 사용자** 역할에 포함되지 ‘않습니다’.
 
 
 ## <a name="how-do-i-get-started-with-data-catalog"></a>데이터 카탈로그를 시작하려면 어떻게 하나요?
@@ -90,7 +90,7 @@ Power BI Pro 라이선스 자동으로 할당 된 사용자 계정은 Power BI P
 >
 
 > [!NOTE]
-> 최우선 **Description** 속성이 있는 SQL Server Analysis Services와 같은 데이터 원본의 경우, 데이터 카탈로그 데이터 원본 등록 도구가 해당 속성 값을 추출합니다. 첫 번째 클래스 **설명** 속성이 없는 *온-프레미스* SQL Server 관계형 데이터베이스의 경우 Data Catalog 데이터 원본 등록 도구는 개체 및 열에 대 한 **ms_description** 확장 속성에서 값을 추출 합니다. 이 속성은 SQL Azure에 대해 지원 되지 않습니다. 자세한 내용은 [데이터베이스 개체의 확장 속성 사용](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105))을 참조하세요.
+> 최우선 **Description** 속성이 있는 SQL Server Analysis Services와 같은 데이터 원본의 경우, 데이터 카탈로그 데이터 원본 등록 도구가 해당 속성 값을 추출합니다. 최우선 **Description** 속성이 없는 ‘온-프레미스’ SQL Server 관계형 데이터베이스의 경우, 데이터 카탈로그 데이터 원본 등록 도구가 개체 및 열에 대한 **ms_description** 확장 속성에서 해당 값을 추출합니다. 이 속성은 SQL Azure에서 지원되지 않습니다. 자세한 내용은 [데이터베이스 개체의 확장 속성 사용](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105))을 참조하세요.
 >
 >
 

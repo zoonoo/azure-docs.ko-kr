@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 .NET Core를 사용하여 리소스를 �
 ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 82382160465684b0da40094012c6cb6561bf5036
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 422382ca438e203b2ee77deddc9ca82d73cd1ed4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108323288"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733777"
 ---
 # <a name="quickstart-create-a-management-group-with-net-core"></a>빠른 시작: .NET Core를 사용하여 관리 그룹 만들기
 
@@ -17,7 +17,7 @@ ms.locfileid: "108323288"
 
 디렉터리에서 만드는 첫 번째 관리 그룹을 완료하려면 최대 15분이 소요될 수 있습니다. 디렉터리에 대해 Azure 내의 관리 그룹 서비스를 설정하기 위해 처음으로 실행되는 프로세스가 있습니다. 프로세스가 완료되면 알림이 수신됩니다. 자세한 내용은 [관리 그룹의 초기 설정](./overview.md#initial-setup-of-management-groups)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -60,7 +60,7 @@ ms.locfileid: "108323288"
    using Microsoft.Rest;
    using Microsoft.Azure.Management.ManagementGroups;
    using Microsoft.Azure.Management.ManagementGroups.Models;
-   
+
    namespace mgCreate
    {
        class Program
@@ -72,12 +72,12 @@ ms.locfileid: "108323288"
                string strClientSecret = args[2];
                string strGroupId = args[3];
                string strDisplayName = args[4];
-   
+
                var authContext = new AuthenticationContext($"https://login.microsoftonline.com/{strTenant}");
                var authResult = await authContext.AcquireTokenAsync(
                       "https://management.core.windows.net",
                       new ClientCredential(strClientId, strClientSecret));
-   
+
                using (var client = new ManagementGroupsAPIClient(new TokenCredentials(authResult.AccessToken)))
                {
                    var mgRequest = new CreateManagementGroupRequest

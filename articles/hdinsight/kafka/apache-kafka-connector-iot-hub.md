@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
 ms.openlocfilehash: feada70c7a461bb4a9cd621c76b5606a7f0e19d5
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104865284"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Azure IoT Hub를 통해 HDInsight에서 Apache Kafka 사용
@@ -24,35 +24,35 @@ IoT Hub에서 끌어오는 경우 __원본__ 커넥터를 사용합니다. IoT H
 
 :::image type="content" source="./media/apache-kafka-connector-iot-hub/iot-hub-kafka-connector-hdinsight.png" alt-text="커넥터를 통해 IoT Hub에서 Kafka로 흐르는 데이터를 보여주는 이미지" border="false":::
 
-연결 API에 대 한 자세한 내용은을 참조 하십시오 [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect) .
+연결 API에 대한 자세한 내용은 [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* HDInsight의 Apache Kafka 클러스터 자세한 내용은 [HDInsight의 Kafka 빠른 시작](apache-kafka-get-started.md) 문서를 참조하세요.
+* HDInsight의 Apache Kafka 클러스터. 자세한 내용은 [HDInsight의 Kafka 빠른 시작](apache-kafka-get-started.md) 문서를 참조하세요.
 
 * Kafka 클러스터의 에지 노드입니다. 자세한 내용은 [HDInsight와 함께 에지 노드 사용](../hdinsight-apps-use-edge-node.md) 문서를 참조하세요.
 
 * SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-* Azure IoT Hub 및 장치입니다. 이 문서에서는 [Connect Raspberry Pi online 시뮬레이터를](../../iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md)사용 하 여 Azure IoT Hub 하는 것이 좋습니다.
+* Azure IoT Hub 및 디바이스. 이 문서의 경우 [Azure IoT Hub에 Raspberry Pi 온라인 시뮬레이터를 연결](../../iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md)하는 것이 좋습니다.
 
-* [Scala 빌드 도구](https://www.scala-sbt.org/)입니다.
+* [Scala 빌드 도구](https://www.scala-sbt.org/).
 
-## <a name="build-the-connector"></a>커넥터 빌드
+## <a name="build-the-connector"></a>커넥터 구축
 
-1. 에서 로컬 환경으로 커넥터의 원본을 다운로드 [https://github.com/Azure/toketi-kafka-connect-iothub/](https://github.com/Azure/toketi-kafka-connect-iothub/) 합니다.
+1. [https://github.com/Azure/toketi-kafka-connect-iothub/](https://github.com/Azure/toketi-kafka-connect-iothub/)에서 커넥터에 대한 원본을 로컬 환경에 다운로드합니다.
 
-2. 명령 프롬프트에서 `toketi-kafka-connect-iothub-master` 디렉터리로 이동 합니다. 그런 다음, 다음 명령을 사용 하 여 프로젝트를 빌드하고 패키지 합니다.
+2. 명령 프롬프트에서 `toketi-kafka-connect-iothub-master` 디렉터리로 이동합니다. 그런 다음, 다음 명령을 사용하여 프로젝트를 빌드하고 패키징합니다.
 
     ```cmd
     sbt assembly
     ```
 
-    빌드를 완료 하는 데 몇 분이 소요 됩니다. 명령은 `kafka-connect-iothub-assembly_2.11-0.7.0.jar` `toketi-kafka-connect-iothub-master\target\scala-2.11` 프로젝트에 대 한 디렉터리에 라는 파일을 만듭니다.
+    빌드를 완료하는 데 몇 분 정도 걸립니다. 이 명령은 프로젝트에 대한 `toketi-kafka-connect-iothub-master\target\scala-2.11` 디렉터리에서 `kafka-connect-iothub-assembly_2.11-0.7.0.jar`이라는 파일을 만듭니다.
 
 ## <a name="install-the-connector"></a>커넥터 설치
 
-1. HDInsight 클러스터의 Kafka에 지 노드에 jar 파일을 업로드 합니다. 클러스터의 실제 이름으로 대체 하 여 아래 명령을 편집 `CLUSTERNAME` 합니다. SSH 사용자 계정 및에 [지 노드](../hdinsight-apps-use-edge-node.md#access-an-edge-node) 이름에 대 한 기본값은 아래에 사용 되며 필요에 따라 수정 합니다.
+1. HDInsight 클러스터에서 Kafka의 에지 노드에 .jar 파일을 업로드합니다. `CLUSTERNAME`을 실제 클러스터의 이름으로 바꾸어 아래 명령을 편집합니다. SSH 사용자 계정 및 [에지 노드](../hdinsight-apps-use-edge-node.md#access-an-edge-node) 이름의 기본값은 아래와 같이 사용하며 필요에 따라 수정합니다.
 
     ```cmd
     scp kafka-connect-iothub-assembly*.jar sshuser@new-edgenode.CLUSTERNAME-ssh.azurehdinsight.net:
@@ -70,19 +70,19 @@ IoT Hub에서 끌어오는 경우 __원본__ 커넥터를 사용합니다. IoT H
     sudo mv kafka-connect-iothub-assembly*.jar /usr/hdp/current/kafka-broker/libs/
     ```
 
-나머지 단계에서 SSH 연결을 활성 상태로 유지 합니다.
+나머지 단계에서 SSH 연결을 활성 상태로 유지합니다.
 
 ## <a name="configure-apache-kafka"></a>Apache Kafka 구성
 
-SSH 연결에서에 지 노드에 대해 다음 단계를 사용 하 여 독립 실행형 모드에서 커넥터를 실행 하도록 Kafka을 구성 합니다.
+SSH 연결에서 에지 노드까지 다음 단계를 사용하여 독립 실행형 모드에서 실행되도록 Kafka를 구성합니다.
 
-1. 암호 변수를 설정합니다. PASSWORD를 클러스터 로그인 암호로 바꾸고 명령을 입력 합니다.
+1. 암호 변수를 설정합니다. PASSWORD를 클러스터 로그인 암호로 바꾼 다음, 다음 명령을 입력합니다.
 
     ```bash
     export password='PASSWORD'
     ```
 
-1. [Jq](https://stedolan.github.io/jq/) 유틸리티를 설치 합니다. jq를 사용 하면 Ambari 쿼리에서 반환 된 JSON 문서를 더 쉽게 처리할 수 있습니다. 다음 명령을 입력합니다.
+1. [jq](https://stedolan.github.io/jq/) 유틸리티를 설치합니다. jq는 Ambari 쿼리에서 반환된 JSON 문서 처리를 더 쉽게 해줍니다. 다음 명령을 입력합니다.
 
     ```bash
     sudo apt -y install jq
@@ -97,11 +97,11 @@ SSH 연결에서에 지 노드에 대해 다음 단계를 사용 하 여 독립 
     echo $KAFKABROKERS
     ```
 
-    나중에 사용할 값을 복사 합니다. 반환되는 값은 다음 텍스트와 유사합니다.
+    나중에 사용하도록 이 값을 복사합니다. 반환되는 값은 다음 텍스트와 유사합니다.
 
     `wn0-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092,wn1-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092`
 
-1. Apache Zookeeper 노드의 주소를 가져옵니다. 클러스터에 여러 Zookeeper 노드가 있지만 하나 또는 두 개의 참조만 필요합니다. 다음 명령을 사용 하 여 변수에 주소를 저장 합니다 `KAFKAZKHOSTS` .
+1. Apache Zookeeper 노드의 주소를 가져옵니다. 클러스터에 여러 Zookeeper 노드가 있지만 하나 또는 두 개의 참조만 필요합니다. 다음 명령을 사용하여 `KAFKAZKHOSTS` 변수에 주소를 저장합니다.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
@@ -113,14 +113,14 @@ SSH 연결에서에 지 노드에 대해 다음 단계를 사용 하 여 독립 
     sudo nano /usr/hdp/current/kafka-broker/config/connect-standalone.properties
     ```
 
-1. 다음과 같이 편집 합니다.
+1. 다음과 같이 편집합니다.
 
     |현재 값 |새 값 | 의견 |
     |---|---|---|
-    |`bootstrap.servers=localhost:9092`|값을 `localhost:9092` 이전 단계의 broker 호스트로 바꿉니다.|Kafka broker를 찾기 위해에 지 노드에 대 한 독립 실행형 구성을 구성 합니다.|
-    |`key.converter=org.apache.kafka.connect.json.JsonConverter`|`key.converter=org.apache.kafka.connect.storage.StringConverter`|이 변경을 통해 Kafka에 포함된 콘솔 생산자를 사용하여 테스트할 수 있습니다. 다른 생산자와 소비자에 대한 다른 변환기가 필요할 수 있습니다. 다른 변환기 값 사용에 대 한 자세한 내용은을 참조 하십시오 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .|
+    |`bootstrap.servers=localhost:9092`|`localhost:9092` 값을 이전 단계의 broker 호스트로 바꿉니다.|Kafka broker를 찾기 위해 에지 노드에 대한 독립 실행형 구성을 구성합니다.|
+    |`key.converter=org.apache.kafka.connect.json.JsonConverter`|`key.converter=org.apache.kafka.connect.storage.StringConverter`|이 변경을 통해 Kafka에 포함된 콘솔 생산자를 사용하여 테스트할 수 있습니다. 다른 생산자와 소비자에 대한 다른 변환기가 필요할 수 있습니다. 다른 변환기 값의 사용에 대한 내용은 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)을 참조합니다.|
     |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|위와 동일합니다.|
-    |해당 없음|`consumer.max.poll.records=10`|파일의 끝에를 추가 합니다. 이 변경은 한 번에 10개의 레코드로 제한하여 싱크 커넥터에서 시간 제한을 방지하기 위함입니다. 자세한 내용은 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)을(를) 참조하세요.|
+    |해당 없음|`consumer.max.poll.records=10`|파일의 끝에 추가합니다. 이 변경은 한 번에 10개의 레코드로 제한하여 싱크 커넥터에서 시간 제한을 방지하기 위함입니다. 자세한 내용은 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)을(를) 참조하세요.|
 
 1. 파일을 저장하려면 __Ctrl + X__, __Y__ 및 __Enter__ 키를 사용합니다.
 
@@ -153,7 +153,7 @@ SSH 연결에서에 지 노드에 대해 다음 단계를 사용 하 여 독립 
      3. __속성__ 에서 다음 필드의 값을 복사합니다.
 
          * __Event Hub 호환 이름__
-         * __Event Hub 호환 끝점__
+         * __Event Hub 호환 엔드포인트__
          * __파티션__
 
         > [!IMPORTANT]  
@@ -178,7 +178,7 @@ SSH 연결에서에 지 노드에 대해 다음 단계를 사용 하 여 독립 
     * __[Azure Portal](https://portal.azure.com/)__ 에서 다음 단계를 사용하세요.
 
         1. __공유 액세스 정책__ 을 선택한 다음, __서비스__ 를 선택합니다.
-        2. __기본 키__ 값을 복사 합니다.
+        2. __기본 키__ 값을 복사합니다.
         3. __연결 문자열 - 기본 키__ 값을 복사합니다.
 
     * __[Azure CLI](/cli/azure/get-started-with-azure-cli)__ 에서 다음 명령을 입력합니다.
@@ -228,11 +228,11 @@ IoT Hub와 작동하도록 원본을 구성하려면 SSH 연결에서 에지 노
     |`IotHub.StartTime=PLACEHOLDER`|`PLACEHOLDER`를 UTC 날짜로 바꿉니다. 이 날짜는 커넥터가 메시지에 대한 검사를 시작할 때입니다. 날짜 형식은 `yyyy-mm-ddThh:mm:ssZ`입니다.|
     |`BatchSize=100`|`100`을 `5`로 바꿉니다. 이 변경으로 인해 IoT Hub에 5개의 새 메시지가 있는 경우 커넥터가 메시지를 Kafka로 읽어 들일 수 있습니다.|
 
-    구성 예제는 [Azure IoT Hub에 대 한 Kafka Connect 원본 커넥터](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md)를 참조 하세요.
+    구성 예제는 [Azure IoT Hub용 Kafka 연결 원본 커넥터](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md)를 참조하세요.
 
 1. 변경을 저장하려면 __Ctrl + X__, __Y__ 및 __Enter__ 키를 사용합니다.
 
-커넥터 원본을 구성 하는 방법에 대 한 자세한 내용은을 참조 하십시오 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md) .
+커넥터 원본 구성에 대한 자세한 내용은 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md)을 참조합니다.
 
 ## <a name="configure-the-sink-connection"></a>싱크 연결 구성
 
@@ -257,11 +257,11 @@ IoT Hub와 작동하도록 싱크 연결을 구성하려면 SSH 연결에서 에
     |`topics=PLACEHOLDER`|`PLACEHOLDER`을 `iotout`로 바꿉니다. `iotout` 항목에 기록된 메시지는 IoT Hub로 전달됩니다.|
     |`IotHub.ConnectionString=PLACEHOLDER`|`PLACEHOLDER`를 `service` 정책에 대한 연결 문자열로 바꿉니다.|
 
-    구성 예제는 [Azure IoT Hub에 대 한 Kafka Connect 싱크 커넥터](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)를 참조 하세요.
+    구성 예제는 [Azure IoT Hub용 Kafka 연결 싱크 커넥터](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)를 참조하세요.
 
 1. 변경을 저장하려면 __Ctrl + X__, __Y__ 및 __Enter__ 키를 사용합니다.
 
-커넥터 싱크를 구성 하는 방법에 대 한 자세한 내용은을 참조 하십시오 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .
+커넥터 싱크 구성에 대한 자세한 내용은 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)을 참조합니다.
 
 ## <a name="start-the-source-connector"></a>원본 커넥터 시작
 
@@ -281,7 +281,7 @@ IoT Hub와 작동하도록 싱크 연결을 구성하려면 SSH 연결에서 에
     > [!NOTE]  
     > 커넥터가 시작할 때 여러 경고가 표시될 수 있습니다. 이러한 경고는 IoT Hub에서 메시지를 수신하는 문제를 일으키지 않습니다.
 
-1. 몇 분 후에 **Ctrl + C** 를 두 번 사용 하 여 커넥터를 중지 합니다. 커넥터를 중지 하는 데 몇 분 정도 걸릴 수 있습니다.
+1. 몇 분 후에 **Ctrl + C** 를 두 번 사용하여 커넥터를 중지합니다. 커넥터를 중지하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="start-the-sink-connector"></a>싱크 커넥터 시작
 
@@ -306,13 +306,13 @@ IotHubSinkTask:47)
 
 커넥터를 통해 메시지를 보내려면 다음 단계를 사용합니다.
 
-1. Kafka 클러스터에 대 *한 두 번째* SSH 세션을 엽니다.
+1. Kafka 클러스터에 ‘두 번째’ SSH 세션을 엽니다.
 
     ```bash
     ssh sshuser@new-edgenode.CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. 새 ssh 세션에 대 한 Kafka broker의 주소를 가져옵니다. PASSWORD를 클러스터 로그인 암호로 바꾸고 명령을 입력 합니다.
+1. 새 ssh 세션의 Kafka broker 주소를 가져옵니다. PASSWORD를 클러스터 로그인 암호로 바꾼 다음, 다음 명령을 입력합니다.
 
     ```bash
     export password='PASSWORD'
@@ -328,7 +328,7 @@ IotHubSinkTask:47)
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic iotout
     ```
 
-    이 명령은 일반 Bash 프롬프트로 반환 하지 않습니다. 대신 `iotout` 항목에 키보드 입력을 보냅니다.
+    이 명령은 기본 Bash 프롬프트로 반환하지 않습니다. 대신 `iotout` 항목에 키보드 입력을 보냅니다.
 
 1. 디바이스에 메시지를 보내려면 `kafka-console-producer`에 대한 SSH 세션에 JSON 문서를 붙여넣습니다.
 
@@ -339,9 +339,9 @@ IotHubSinkTask:47)
     {"messageId":"msg1","message":"Turn On","deviceId":"myDeviceId"}
     ```
 
-    이 JSON 문서에 대 한 스키마는에 자세히 설명 되어 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) 있습니다.
+    이 JSON 문서에 대한 스키마는 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)에 자세히 설명되어 있습니다.
 
-    시뮬레이션 된 Raspberry Pi 장치를 사용 중이 고 실행 중인 경우 장치에서 다음 메시지가 기록 됩니다.
+    시뮬레이션된 Raspberry Pi 디바이스를 사용하고 디바이스가 실행 중인 경우 해당 디바이스에서 다음 메시지를 기록합니다.
 
     ```output
     Receive message: Turn On
@@ -349,7 +349,7 @@ IotHubSinkTask:47)
 
     JSON 문서를 다시 보내지만 `"message"` 항목 값을 변경합니다. 디바이스에서 새 값을 기록합니다.
 
-싱크 커넥터를 사용 하는 방법에 대 한 자세한 내용은을 참조 하십시오 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .
+싱크 커넥터 사용에 대한 자세한 내용은 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

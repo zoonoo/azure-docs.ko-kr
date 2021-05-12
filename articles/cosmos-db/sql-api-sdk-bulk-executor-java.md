@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 5ef75719686f9299fee56cad247ca49167171813
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 2d3c7026fd221b1a17b8efe56b03b2a26358c7ab
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577175"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364406"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Java Bulk Executor 라이브러리: 정보 다운로드
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -30,7 +30,8 @@ ms.locfileid: "104577175"
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark 커넥터](sql-api-sdk-java-spark.md)
+> * [Spark 3 OLTP 커넥터](sql-api-sdk-java-spark-v3.md)
+> * [Spark 2 OLTP 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](/rest/api/cosmos-db-resource-provider/)

@@ -5,20 +5,20 @@ ms.topic: conceptual
 ms.date: 12/21/2020
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: 4d162918644727d4c79ad606f1ed34816f543d81
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105044382"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>서비스 패브릭 애플리케이션 및 다음 단계
-Azure 서비스 패브릭 애플리케이션이 만들어졌습니다. 이 문서에는 몇 가지 리소스, 관심을 가질 수 있는 몇 가지 추가 정보 및 [다음 단계가](#next-steps)포함 됩니다.
+Azure 서비스 패브릭 애플리케이션이 만들어졌습니다. 이 문서에는 몇 가지 리소스, 관심을 가질 만한 몇 가지 추가 정보, [다음 단계](#next-steps)가 포함됩니다.
 
-새 사용자가 [자습서, 연습 및 샘플](#get-started-with-tutorials-walk-throughs-and-samples) 을 유용 하 게 찾을 수 있습니다. [만든 응용 프로그램 프로젝트의 구조](#the-application-project)를 검사 하는 것도 유용할 수 있습니다. Service Fabric의 [프로그래밍 모델](#learn-more-about-the-programming-models), [서비스 통신](#learn-about-service-communication), [응용 프로그램 보안](#learn-about-configuring-application-security)및 [응용 프로그램 수명 주기에](#learn-about-the-application-lifecycle)대 한 설명도 포함 되어 있습니다.
+새 사용자는 [자습서, 연습 및 샘플](#get-started-with-tutorials-walk-throughs-and-samples)을 유용하게 사용할 수 있습니다. [만들어진 애플리케이션 프로젝트의 구조](#the-application-project)를 검사하는 데 유용할 수 있습니다. Service Fabric의 [프로그래밍 모델](#learn-more-about-the-programming-models), [서비스 커뮤니케이션](#learn-about-service-communication), [애플리케이션 보안](#learn-about-configuring-application-security), [애플리케이션 수명 주기](#learn-about-the-application-lifecycle)의 설명도 포함됩니다.
 
-숙련 된 사용자는 최대 효율성의 플랫폼과 구조 응용 프로그램을 활용 하는 방법을 배우는 데 도움이 되는 Service Fabric [모범 사례](#learn-about-best-practices) 섹션을 찾을 수 있습니다.
+숙련된 사용자는 플랫폼을 최대한으로 활용하고 애플리케이션을 효율적으로 구조화하는 방법을 배우는 데 유용한 Service Fabric [모범 사례](#learn-about-best-practices) 섹션을 활용할 수 있습니다.
 
-질문이 나 피드백이 있는 경우 나 문제를 보고 하려는 경우 [해당 섹션](#have-questions-or-feedback--need-to-report-an-issue)을 참조 하세요.
+질문 또는 피드백이 있거나 문제를 보고하려면 [해당 섹션](#have-questions-or-feedback--need-to-report-an-issue)을 참조하세요.
 
 ## <a name="get-started-with-tutorials-walk-throughs-and-samples"></a>자습서, 연습 및 샘플 시작하기
 시작할 준비가 되셨나요?  
@@ -58,9 +58,9 @@ Service Fabric 애플리케이션은 여러 가지 서비스로 구성되며, �
 ## <a name="learn-about-the-application-lifecycle"></a>애플리케이션 수명 주기에 대해 알아보기
 다른 플랫폼과 마찬가지로, Service Fabric 애플리케이션은 일반적으로 디자인, 개발, 테스트, 배포, 업그레이드, 유지 관리 및 제거 단계를 거칩니다. [이 문서](service-fabric-application-lifecycle.md)에서는 Service Fabric 애플리케이션 수명 주기의 모든 단계에서 여러 역할이 사용되는 방법 및 API에 대한 개요를 제공합니다.
 
-## <a name="learn-about-best-practices"></a>모범 사례에 대 한 자세한 정보
-Service Fabric에는 [모범 사례](./service-fabric-best-practices-security.md)를 설명 하는 다양 한 문서가 있습니다. 이 정보를 활용 하 여 클러스터 및 응용 프로그램의 실행 가능성을 보장 합니다.
-다루는 항목은 다음과 같습니다.
+## <a name="learn-about-best-practices"></a>모범 사례 알아보기
+Service Fabric에는 [모범 사례](./service-fabric-best-practices-security.md)를 설명하는 다양한 문서가 있습니다. 이 정보를 활용하여 클러스터 및 애플리케이션의 실행을 최대한 보장합니다.
+다음 내용을 다룹니다.
 * [보안](./service-fabric-best-practices-security.md)
 * [네트워킹](./service-fabric-best-practices-networking.md)
 * [컴퓨팅 계획 및 크기 조정](./service-fabric-best-practices-capacity-scaling.md)
@@ -68,12 +68,12 @@ Service Fabric에는 [모범 사례](./service-fabric-best-practices-security.md
 * [모니터링 및 진단](./service-fabric-best-practices-monitoring.md)
 * [애플리케이션 설계](./service-fabric-best-practices-applications.md)
 
-모든 모범 사례 정보를 사용 하기 쉬운 형식으로 통합 하는 [프로덕션 준비 검사 목록](./service-fabric-production-readiness-checklist.md) 도 포함 되어 있습니다.
+모든 모범 사례 정보를 사용하기 쉬운 형식으로 통합하는 [프로덕션 준비 검사 목록](./service-fabric-production-readiness-checklist.md)도 포함되어 있습니다.
 
 ## <a name="have-questions-or-feedback--need-to-report-an-issue"></a>질문이나 의견이 있으신가요?  문제를 보고해야 하나요?
 [일반적인 질문](service-fabric-common-questions.md)을 자세히 읽고 Service Fabric으로 할 수 있는 작업과 사용 방법에 대한 답변을 찾아보세요.
 
-[문제 해결 가이드](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides) 는 Service Fabric 클러스터의 일반적인 문제를 진단 하 고 해결 하는 데 도움이 될 수 있습니다.
+[문제 해결 가이드](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)는 Service Fabric 클러스터의 일반적인 문제를 진단하고 해결하는 데 유용할 수 있습니다.
 
 [지원 옵션](service-fabric-support.md)에는 질문을 하는 것 외에 문제를 보고하고, 지원을 받고, 제품 피드백을 제출하는 옵션을 제공하는 StackOverflow 및 MSDN의 포럼 목록이 나와 있습니다.
 

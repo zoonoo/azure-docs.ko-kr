@@ -3,12 +3,12 @@ title: Azure Site Recovery를 사용하여 복제에서 디스크 제외
 description: Azure Site Recovery를 사용하여 Azure로 복제할 때 디스크를 제외하는 방법.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 15989fbfd65f758eb777c5170c217aba8707e0be
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 45ee7b23d01ff80bcb2e090688626f3f7fccb146
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96008262"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108131121"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>재해 복구에서 디스크 제외
 
@@ -207,7 +207,7 @@ DB-Disk3 | Disk3 | F:\ | 사용자 데이터 2
 
 원본 VM의 페이징 파일 설정은 다음과 같습니다.
 
-![3000-7000의 페이징 파일 크기 (MB)를 보여 주는 D: 드라이브 [페이지 파일 볼륨] 선이 강조 표시 된 가상 메모리 대화의 스크린샷](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
+![3000-7000의 페이징 파일 크기(MB)를 보여 주는 D: 드라이브 [페이지 파일 볼륨] 줄이 강조 표시된 가상 메모리 대화 상자의 스크린샷.](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
 
 1. VM에 대한 복제를 활성화합니다.
 2. DB-Disk1을 복제에서 제외합니다.
@@ -260,12 +260,12 @@ DB-Disk3 | Disk3 | F:\ | 사용자 데이터 2
 
 Azure VM의 페이징 파일 설정은 다음과 같습니다.
 
-!["시스템 관리"의 페이징 파일 크기 설정을 보여 주는 C: 드라이브 회선이 강조 표시 된 가상 메모리 대화 상자 스크린샷](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
+!["시스템 관리"의 페이징 파일 크기 설정을 보여 주는 C: 드라이브 줄이 강조 표시된 가상 메모리 대화 상자의 스크린샷.](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
 
 
 ## <a name="next-steps"></a>다음 단계
 
 - 임시 스토리지 디스크에 대한 지침을 자세히 알아보세요.
     - Azure VM에서 SSD를 사용하여 SQL Server TempDB 및 버퍼 풀 확장을 저장하기는 방법에 대해 [알아보세요](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/).
-    - Azure VM의 SQL Server에 대한 성능 모범 사례를 [검토하세요](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md).
+    - Azure VM의 SQL Server에 대한 성능 모범 사례를 [검토하세요](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md).
 - 배포가 설정되고 실행된 후에는 다양한 장애 조치(Failover)에 대해 [자세히 알아보세요](failover-failback-overview.md).

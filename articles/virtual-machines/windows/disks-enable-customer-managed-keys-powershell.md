@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell-SSE 관리 디스크를 사용 하 여 고객 관리 키를 사용 하도록 설정
-description: Azure PowerShell를 사용 하 여 관리 디스크에서 고객이 관리 하는 키를 사용 하 여 서버 쪽 암호화를 사용 하도록 설정 합니다.
+title: Azure PowerShell - SSE 관리 디스크를 사용하여 고객 관리형 키를 사용하도록 설정
+description: Azure PowerShell로 관리 디스크에서 고객이 관리하는 키를 사용하여 서버 측 암호화를 사용하도록 설정합니다.
 author: roygara
 ms.date: 03/02/2021
 ms.topic: how-to
@@ -8,15 +8,15 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.openlocfilehash: 37d248fd61cd8fb99259e3776447a719ae365ab9
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105042886"
 ---
-# <a name="azure-powershell---enable-customer-managed-keys-with-server-side-encryption---managed-disks"></a>Azure PowerShell-서버 쪽 암호화 관리 디스크를 사용 하 여 고객 관리 키를 사용 하도록 설정 합니다.
+# <a name="azure-powershell---enable-customer-managed-keys-with-server-side-encryption---managed-disks"></a>Azure PowerShell - 서버 측 암호화를 사용하여 고객 관리형 키 사용 - 관리 디스크
 
-Azure 디스크 저장소를 사용 하면 관리 디스크에 대해 SSE (서버 쪽 암호화)를 사용 하는 경우 (선택 하는 경우) 사용자 고유의 키를 관리할 수 있습니다. 고객 관리 키 및 기타 관리 되는 디스크 암호화 유형으로 SSE에 대 한 개념 정보는 디스크 암호화 문서의 [고객 관리 키](../disk-encryption.md#customer-managed-keys) 섹션을 참조 하세요.
+Azure Disk Storage를 사용하면 관리 디스크에 대해 SSE(서버 쪽 암호화)를 사용하도록 선택하는 경우 자체 키를 관리할 수 있습니다. 고객 관리형 키 및 기타 관리 디스크 암호화 유형에 대한 SSE 개념 정보는 디스크 암호화 문서의 [고객 관리형 키](../disk-encryption.md#customer-managed-keys) 섹션을 참조하세요.
 
 ## <a name="restrictions"></a>제한
 
@@ -26,18 +26,18 @@ Azure 디스크 저장소를 사용 하면 관리 디스크에 대해 SSE (서�
     이 문제를 해결해야 하는 경우 고객 관리형 키를 사용하지 않는 완전히 다른 관리 디스크로 [모든 데이터를 복사](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk)해야 합니다.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
-## <a name="set-up-an-azure-key-vault-and-diskencryptionset-without-automatic-key-rotation"></a>자동 키 회전 없이 Azure Key Vault 및 Disk를 설정 합니다.
+## <a name="set-up-an-azure-key-vault-and-diskencryptionset-without-automatic-key-rotation"></a>자동 키 회전 없이 Azure Key Vault 및 DiskEncryptionSet를 설정합니다.
 
-SSE에서 고객 관리 키를 사용 하려면 Azure Key Vault 및 DiskEncryptionSet 리소스를 설정 해야 합니다.
+SSE로 고객 관리형 키를 사용하려면 Azure Key Vault 및 DiskEncryptionSet 리소스를 설정해야 합니다.
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-powershell](../../../includes/virtual-machines-disks-encryption-create-key-vault-powershell.md)]
 
-## <a name="set-up-an-azure-key-vault-and-diskencryptionset-with-automatic-key-rotation-preview"></a>자동 키 회전 (미리 보기)을 사용 하 여 Azure Key Vault 및 DiskEncryptionSet 설정
+## <a name="set-up-an-azure-key-vault-and-diskencryptionset-with-automatic-key-rotation-preview"></a>자동 키 회전 없이 Azure Key Vault 및 DiskEncryptionSet 설정(미리 보기)
 
-1. 최신 [Azure PowerShell 버전](/powershell/azure/install-az-ps)을 설치 했 고를 사용 하 여의 Azure 계정에 로그인 했는지 확인 `Connect-AzAccount` 합니다.
+1. 최신 [Azure PowerShell 버전](/powershell/azure/install-az-ps)을 설치했으며 `Connect-AzAccount`를 사용하여 Azure 계정에 로그인했는지 확인합니다.
 1. Azure Key Vault 및 암호화 키의 인스턴스를 만듭니다.
 
-    Key Vault 인스턴스를 만들 때 보호 제거를 사용 하도록 설정 해야 합니다. 제거 보호를 사용하면 보존 기간이 지날 때까지 삭제된 키를 영구 삭제할 수 없습니다. 이 설정은 실수로 인 한 삭제로 인해 데이터가 손실 되는 것을 방지 하 고 관리 디스크를 암호화 하는 데 필수적입니다.
+    Key Vault 인스턴스를 만드는 경우 제거 보호를 사용하도록 설정해야 합니다. 제거 보호를 사용하면 보존 기간이 지날 때까지 삭제된 키를 영구 삭제할 수 없습니다. 이 설정은 실수로 인한 삭제로 데이터가 손실되는 것을 방지하고 관리 디스크를 암호화하는 데 필수적입니다.
     
     ```powershell
     $ResourceGroupName="yourResourceGroupName"
@@ -52,7 +52,7 @@ SSE에서 고객 관리 키를 사용 하려면 Azure Key Vault 및 DiskEncrypti
     $key = Add-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName -Destination $keyDestination  
     ```
 
-1.  API 버전을 사용 하 여 DiskEncryptionSet을 만들고 `2020-12-01` `rotationToLatestKeyVersionEnabled` Azure Resource Manager 템플릿 [CreateDiskEncryptionSetWithAutoKeyRotation.js](https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/AutoKeyRotation/CreateDiskEncryptionSetWithAutoKeyRotation.json) 를 통해 속성을 true로 설정 합니다.
+1.  API 버전 `2020-12-01`을 사용하고 Azure Resource Manager 템플릿 [CreateDiskEncryptionSetWithAutoKeyRotation.json](https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/AutoKeyRotation/CreateDiskEncryptionSetWithAutoKeyRotation.json)을 통해 속성 `rotationToLatestKeyVersionEnabled`를 true로 설정하여 DiskEncryptionSet를 만듭니다.
     
     ```powershell
     New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName `
@@ -74,13 +74,13 @@ SSE에서 고객 관리 키를 사용 하려면 Azure Key Vault 및 DiskEncrypti
     Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
     ```
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
-이러한 리소스를 만들고 구성 했으므로 이제 이러한 리소스를 사용 하 여 관리 디스크를 보호할 수 있습니다. 다음은 각각의 시나리오를 포함 하는 예제 스크립트 이며,이 스크립트는 관리 디스크를 보호 하는 데 사용할 수 있습니다.
+이제 리소스를 만들고 구성했으므로 해당 리소스를 사용하여 관리 디스크를 보호할 수 있습니다. 다음은 관리 디스크를 보호하는 데 사용할 수 있는 개별 시나리오가 포함된 예제 스크립트입니다.
 
 ### <a name="create-a-vm-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Marketplace 이미지를 사용하여 VM을 만들고 고객 관리형 키를 사용하여 OS 및 데이터 디스크를 암호화합니다.
 
-스크립트를 복사 하 고 모든 예제 값을 사용자 고유의 매개 변수로 바꾼 다음 실행 합니다.
+스크립트를 복사하고 모든 예제 값을 사용자 고유의 매개 변수로 바꾼 다음 실행합니다.
 
 ```powershell
 $VMLocalAdminUser = "yourVMLocalAdminUserName"
@@ -120,7 +120,7 @@ New-AzVM -ResourceGroupName $ResourceGroupName -Location $LocationName -VM $Virt
 
 ### <a name="create-an-empty-disk-encrypted-using-server-side-encryption-with-customer-managed-keys-and-attach-it-to-a-vm"></a>고객 관리형 키와 함께 서버 쪽 암호화를 사용하여 암호화된 빈 디스크를 만들어 VM에 연결합니다.
 
-스크립트를 복사 하 고 모든 예제 값을 사용자 고유의 매개 변수로 바꾼 다음 실행 합니다.
+스크립트를 복사하고 모든 예제 값을 사용자 고유의 매개 변수로 바꾼 다음 실행합니다.
 
 ```PowerShell
 $vmName = "yourVMName"
@@ -157,9 +157,9 @@ $diskEncryptionSet = Get-AzDiskEncryptionSet -ResourceGroupName $rgName -Name $d
 New-AzDiskUpdateConfig -EncryptionType "EncryptionAtRestWithCustomerKey" -DiskEncryptionSetId $diskEncryptionSet.Id | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
 ```
 
-### <a name="encrypt-an-existing-virtual-machine-scale-set-with-sse-and-customer-managed-keys"></a>SSE 및 고객 관리 키를 사용 하 여 기존 가상 머신 확장 집합 암호화 
+### <a name="encrypt-an-existing-virtual-machine-scale-set-with-sse-and-customer-managed-keys"></a>SSE 및 고객 관리형 키로 기존 가상 머신 확장 집합 암호화 
 
-스크립트를 복사 하 고 모든 예제 값을 사용자 고유의 매개 변수로 바꾼 다음 실행 합니다.
+스크립트를 복사하고 모든 예제 값을 사용자 고유의 매개 변수로 바꾼 다음 실행합니다.
 
 ```powershell
 #set variables 
@@ -183,7 +183,7 @@ $ssevmss | update-azvmss
 
 ### <a name="create-a-virtual-machine-scale-set-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Marketplace 이미지를 사용하여 가상 머신 확장 집합을 만들고 고객 관리형 키를 사용하여 OS 및 데이터 디스크를 암호화합니다.
 
-스크립트를 복사 하 고 모든 예제 값을 사용자 고유의 매개 변수로 바꾼 다음 실행 합니다.
+스크립트를 복사하고 모든 예제 값을 사용자 고유의 매개 변수로 바꾼 다음 실행합니다.
 
 ```PowerShell
 $VMLocalAdminUser = "yourLocalAdminUser"
@@ -229,7 +229,7 @@ New-AzVmss -VirtualMachineScaleSet $VMSS -ResourceGroupName $ResourceGroupName -
 
 ### <a name="change-the-key-of-a-diskencryptionset-to-rotate-the-key-for-all-the-resources-referencing-the-diskencryptionset"></a>DiskEncryptionSet의 키를 변경하여 DiskEncryptionSet를 참조하는 모든 리소스에 대한 키를 회전합니다.
 
-스크립트를 복사 하 고 모든 예제 값을 사용자 고유의 매개 변수로 바꾼 다음 실행 합니다.
+스크립트를 복사하고 모든 예제 값을 사용자 고유의 매개 변수로 바꾼 다음 실행합니다.
 
 ```PowerShell
 $ResourceGroupName="yourResourceGroupName"
@@ -249,7 +249,7 @@ Update-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $Reso
 [!INCLUDE [virtual-machines-disks-encryption-status-powershell](../../../includes/virtual-machines-disks-encryption-status-powershell.md)]
 
 > [!IMPORTANT]
-> 고객 관리형 키는 Azure AD(Azure Active Directory)의 기능 중 하나인 Azure 리소스에 대한 관리 ID를 사용합니다. 고객 관리형 키를 구성하는 경우 관리 ID가 내부적으로 리소스에 자동으로 할당됩니다. 이후에 구독, 리소스 그룹 또는 관리 디스크를 Azure AD 디렉터리 간에 이동 하는 경우 관리 디스크와 연결 된 관리 되는 id가 새 테 넌 트로 전송 되지 않으므로 고객 관리 키가 더 이상 작동 하지 않을 수 있습니다. 자세한 정보는 [Azure AD 디렉터리 간에 구독 전송](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)을 참조하세요.
+> 고객 관리형 키는 Azure AD(Azure Active Directory)의 기능 중 하나인 Azure 리소스에 대한 관리 ID를 사용합니다. 고객 관리형 키를 구성하는 경우 관리 ID가 내부적으로 리소스에 자동으로 할당됩니다. 이후에 구독, 리소스 그룹 또는 관리 디스크를 Azure AD 디렉터리 간에 이동하는 경우, 관리 디스크와 연결된 관리 ID는 새로운 테넌트로 전송되지 않으므로 고객 관리형 키가 더 이상 작동하지 않을 수 있습니다. 자세한 정보는 [Azure AD 디렉터리 간에 구독 전송](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

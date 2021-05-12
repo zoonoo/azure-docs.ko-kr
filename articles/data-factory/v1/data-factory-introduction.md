@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 220c1969055ffaa5d1bea41ab547efd4596f8a20
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ea7c5a82a6219e673454d627a4350291c5b3f047
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786467"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108761654"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 소개 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -83,12 +83,12 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data 
 ### <a name="data-movement-activities"></a>데이터 이동 활동
 데이터 팩터리의 복사 활동은 원본 데이터 저장소의 데이터를 싱크 데이터 저장소로 복사합니다. 모든 소스의 데이터를 모든 싱크에 쓸 수 있습니다. 데이터 저장소를 선택하면 해당 저장소에서/저장소로 데이터를 복사하는 방법을 확인할 수 있습니다. 데이터 팩터리는 다음과 같은 데이터 저장소를 지원합니다.
 
-[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 자세한 내용은 [복사 작업을 사용하여 데이터 이동](data-factory-data-movement-activities.md)을 참조하세요.
 
 ### <a name="data-transformation-activities"></a>데이터 변환 활동
-[!INCLUDE [data-factory-transformation-activities](../../../includes/data-factory-transformation-activities.md)]
+[!INCLUDE [data-factory-transformation-activities](includes/data-factory-transformation-activities.md)]
 
 자세한 내용은 [복사 작업을 사용하여 데이터 이동](data-factory-data-transformation-activities.md)을 참조하세요.
 

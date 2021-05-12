@@ -1,6 +1,6 @@
 ---
 title: 서비스 레지스트리 및 검색 자동화
-description: 스프링 클라우드 서비스 레지스트리를 사용 하 여 서비스 검색 및 등록을 자동화 하는 방법을 알아봅니다.
+description: Spring Cloud 서비스 레지스트리를 사용하여 서비스 검색 및 등록을 자동화하는 방법 알아보기
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
@@ -9,25 +9,25 @@ ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: e2ad6d8e3d81497eb7ebe612d01e60415790faea
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104878664"
 ---
-# <a name="discover-and-register-your-spring-cloud-services"></a>스프링 클라우드 서비스 검색 및 등록
+# <a name="discover-and-register-your-spring-cloud-services"></a>Spring Cloud 서비스 검색 및 등록
 
-서비스 검색은 마이크로 서비스 기반 아키텍처의 핵심 요구 사항입니다.  각 클라이언트를 수동으로 구성 하면 시간이 걸리고 사용자 오류가 발생할 가능성이 있습니다.  Azure 스프링 클라우드 서비스 레지스트리는이 문제를 해결 합니다.  구성 된 서비스 레지스트리 서버는 응용 프로그램의 마이크로 서비스에 대 한 서비스 등록과 검색을 제어 합니다. 서비스 레지스트리 서버는 배포 된 마이크로 서비스의 레지스트리를 유지 관리 하 고, DNS에 의존 하지 않고 클라이언트 쪽 부하 분산 및 클라이언트의 분리 서비스 공급자를 사용 하도록 설정 합니다.
+서비스 검색은 마이크로 서비스 기반 아키텍처의 핵심 요구 사항입니다.  각 클라이언트를 수동으로 구성하면 시간이 걸리고 인적 오류가 발생할 가능성이 있습니다.  Azure Spring Cloud 서비스 레지스트리가 이 문제를 해결합니다.  구성된 서비스 레지스트리 서버는 애플리케이션의 마이크로 서비스에 대한 서비스 등록과 검색을 제어합니다. 서비스 레지스트리 서버는 배포된 마이크로 서비스의 레지스트리를 유지 관리하고 클라이언트 측 부하 분산을 지원하며 DNS에 의존하지 않고 서비스 공급자를 클라이언트로부터 분리합니다.
 
 ::: zone pivot="programming-language-csharp"
-Steeltoe 앱에 대 한 서비스 등록을 설정 하는 방법에 대 한 자세한 내용은 [Azure 스프링 클라우드에서 배포용 Java 스프링 응용 프로그램 준비](how-to-prepare-app-deployment.md)를 참조 하세요.
+Steeltoe 앱에 대한 서비스 등록을 설정하는 방법에 대한 자세한 내용은 [Azure Spring Cloud에서 배포용 Java Spring 애플리케이션 준비](how-to-prepare-app-deployment.md)를 참조하세요.
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-## <a name="register-your-application-using-spring-cloud-service-registry"></a>스프링 클라우드 서비스 레지스트리를 사용 하 여 응용 프로그램 등록
+## <a name="register-your-application-using-spring-cloud-service-registry"></a>Spring Cloud 서비스 레지스트리를 사용하여 애플리케이션 등록
 
-응용 프로그램에서 스프링 클라우드 서비스 레지스트리를 사용 하 여 서비스 등록과 검색을 관리 하려면 먼저 응용 프로그램의 *pom.xml* 파일에 몇 가지 종속성이 포함 되어야 합니다.
-*Netflix-eureka* 에 대 한 종속성을 포함 하 여 *pom.xml* 에 대 한 *종속성을 포함* 합니다.
+애플리케이션에서 Spring Cloud 서비스 레지스트리를 사용하여 서비스 등록 및 검색을 관리하려면 여러 종속성이 애플리케이션의 *pom.xml* 파일에 포함되어야 합니다.
+*spring-cloud-starter-netflix-eureka-client* 및 *spring-cloud-starter-azure-spring-cloud-client* 에 대한 종속성을 *pom.xml* 에 포함합니다.
 
 ```xml
     <dependency>
@@ -43,7 +43,7 @@ Steeltoe 앱에 대 한 서비스 등록을 설정 하는 방법에 대 한 자�
 
 ## <a name="update-the-top-level-class"></a>최상위 클래스 업데이트
 
-마지막으로 응용 프로그램의 최상위 수준 클래스에 주석을 추가 합니다.
+마지막으로 애플리케이션의 최상위 수준 클래스에 주석을 추가합니다.
 
  ```java
     package foo.bar;
@@ -59,7 +59,7 @@ Steeltoe 앱에 대 한 서비스 등록을 설정 하는 방법에 대 한 자�
     }
  ```
 
-스프링 클라우드 서비스 레지스트리 서버 끝점은 응용 프로그램에 환경 변수로 삽입 됩니다.  마이크로 서비스는 이제 서비스 레지스트리 서버에 자신을 등록 하 고 다른 종속 마이크로 서비스를 검색할 수 있습니다.
+Spring Cloud 서비스 레지스트리 서버 엔드포인트가 애플리케이션의 환경 변수로 삽입됩니다.  이제 마이크로 서비스가 서비스 레지스트리 서버에 자체 등록하고 다른 종속 마이크로 서비스를 검색할 수 있습니다.
 
-변경 내용이 서버에서 모든 마이크로 서비스로 전파 되는 데 몇 분 정도 걸릴 수 있습니다.
+변경 내용이 서버에서 모든 마이크로 서비스로 전파되는 데 몇 분 정도 걸릴 수 있습니다.
 ::: zone-end

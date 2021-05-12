@@ -1,17 +1,17 @@
 ---
 title: Azure Data Factory의 ORC 형식
 description: 이 항목에서는 Azure Data Factory에서 ORC 형식을 처리하는 방법에 대해 설명합니다.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/28/2020
-ms.author: jingwang
-ms.openlocfilehash: 8973692b90cc9d6caa852616bf2962371d25abfa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: f274c64e9ab6617315d921e254de7781a4108ce4
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100386461"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109487550"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Azure Data Factory의 ORC 형식
 
@@ -25,7 +25,7 @@ ORC 형식은 [Amazon S3](connector-amazon-simple-storage-service.md),[Azure Blo
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에는 ORC 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-| 속성         | 설명                                                  | 필수 |
+| 속성         | Description                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | 데이터 세트의 type 속성을 **Orc** 로 설정해야 합니다. | 예      |
 | 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location`의 고유한 위치 형식 및 지원되는 속성이 있습니다. **자세한 내용은 커넥터 문서 -> 데이터 세트 속성 섹션을 참조하세요**. | 예      |
@@ -67,7 +67,7 @@ ORC 형식은 [Amazon S3](connector-amazon-simple-storage-service.md),[Azure Blo
 
 복사 작업 ***\*source\* 섹션*** 에서 지원되는 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 type 속성을 **OrcSource** 로 설정해야 합니다. | 예      |
 | storeSettings | 데이터 저장소에서 데이터를 읽는 방법에 대한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings` 아래에 고유의 지원되는 읽기 설정이 있습니다. **자세한 내용은 커넥터 문서 -> 복사 작업 속성 섹션을 참조하세요**. | 예       |
@@ -76,7 +76,7 @@ ORC 형식은 [Amazon S3](connector-amazon-simple-storage-service.md),[Azure Blo
 
 복사 작업 ***\*sink\**** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 싱크의 type 속성은 **OrcSink** 로 설정해야 합니다. | 예      |
 | formatSettings | 속성 그룹입니다. 아래의 **ORC 쓰기 설정** 표를 참조하세요. |    예      |
@@ -84,7 +84,7 @@ ORC 형식은 [Amazon S3](connector-amazon-simple-storage-service.md),[Azure Blo
 
 `formatSettings`에서 지원되는 **ORC 쓰기 설정**:
 
-| 속성      | 설명                                                  | 필수                                              |
+| 속성      | Description                                                  | 필수                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | formatSettings의 type을 **OrcWriteSettings** 로 설정해야 합니다. | 예                                                   |
 | maxRowsPerFile | 폴더에 데이터를 쓸 때 여러 파일에 쓰도록 선택하고 파일당 최대 행 수를 지정할 수 있습니다.  | 예 |
@@ -102,7 +102,7 @@ ORC 데이터 세트나 [인라인 데이터 세트](data-flow-source.md#inline-
 
 인라인 데이터 세트를 사용하는 경우 [데이터 세트 속성](#dataset-properties) 섹션에 설명된 속성과 동일한 추가 파일 설정이 표시됩니다.
 
-| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 형식 | 형식은 `orc`여야 합니다. | 예 | `orc` | format |
 | 와일드 카드 경로 | 와일드 카드 경로와 일치하는 모든 파일이 처리됩니다. 데이터 세트에 설정된 폴더 및 파일 경로를 재정의합니다. | 아니요 | String[] | wildcardPaths |
@@ -160,7 +160,7 @@ OrcSource sink(
 
 - **JRE 사용**: 64비트 IR에는 64비트 JRE가 필요합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
 - **OpenJDK 사용**: IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
-- **Visual C++ 2010 재배포 가능 패키지 설치**: Visual C++ 2010 재배포 가능 패키지는 자체 호스팅 IR 설치와 함께 설치되지 않습니다. [여기](https://www.microsoft.com/download/details.aspx?id=14632)서 찾을 수 있습니다.
+- **Visual C++ 2010 재배포 가능 패키지 설치**: Visual C++ 2010 재배포 가능 패키지는 자체 호스팅 IR 설치와 함께 설치되지 않습니다. [여기](https://www.microsoft.com/download/details.aspx?id=26999)서 찾을 수 있습니다.
 
 > [!TIP]
 > 자체 호스팅 통합 런타임을 사용하여 데이터를 ORC 형식으로 또는 그 반대로 복사하고 'java를 호출할 때 오류가 발생함, 메시지: **java.lang.OutOfMemoryError:Java heap space**'라는 오류가 발생하는 경우 JVM의 최소/최대 힙 크기를 조정하도록 자체 호스팅 IR을 호스트하는 머신에서 `_JAVA_OPTIONS` 환경 변수를 추가하여 그러한 복사 기능을 강화한 다음, 파이프라인을 다시 실행할 수 있습니다.

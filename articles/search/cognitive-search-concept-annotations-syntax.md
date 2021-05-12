@@ -1,7 +1,7 @@
 ---
-title: 기술력과의 참조 입력 및 출력
+title: 기술 세트에서 참조 입력 및 출력
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search의 AI 보강 파이프라인에서 기술의 입력 및 출력에 있는 주석을 참조 하는 방법 및 주석 구문에 대해 설명 합니다.
+description: Azure Cognitive Search의 AI 보강 파이프라인에서 기술 세트의 입력과 출력에 있는 주석을 참조하는 방법 및 주석 구문을 설명합니다.
 manager: nitinme
 author: LuisCabrer
 ms.author: luisca
@@ -9,13 +9,13 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 03431d861ca6d469b894e45c36fe2a3d7904c3a2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88935537"
 ---
-# <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Azure Cognitive Search 기술에서 주석을 참조 하는 방법
+# <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Azure Cognitive Search 기술 세트의 주석을 참조하는 방법
 
 이 문서에서는 다양한 시나리오를 설명하는 예제를 사용하여 기술 정의에서 주석을 참조하는 방법을 알아 봅니다. 문서의 콘텐츠는 기술 집합을 통해 흐르기 때문에 주석으로 보강됩니다. 주석은 다운스트림 추가 보강을 위한 입력으로 사용되거나 인덱스에서 출력 필드에 매핑될 수 있습니다. 
  
@@ -33,7 +33,7 @@ ms.locfileid: "88935537"
 <a name="example-1"></a>
 ## <a name="example-1-simple-annotation-reference"></a>예제 1: 단순 주석 참조
 
-Azure Blob storage에서 엔터티 인식을 사용 하 여 추출할 사용자의 이름에 대 한 참조를 포함 하는 다양 한 파일이 있다고 가정 합니다. 아래의 기술 정의에서 `"/document/content"`은 전체 문서의 텍스트 표현이며 "사람"은 사용자로 식별되는 엔터티에 대한 전체 이름의 추출입니다.
+Azure Blob Storage에서는 엔터티 인식을 사용하여 추출하려는 사용자 이름에 대한 참조가 포함된 다양한 파일이 있다고 가정합니다. 아래의 기술 정의에서 `"/document/content"`은 전체 문서의 텍스트 표현이며 "사람"은 사용자로 식별되는 엔터티에 대한 전체 이름의 추출입니다.
 
 기본 컨텍스트가 `"/document"`이므로 사람의 목록은 이제 `"/document/people"`로서 참조될 수 있습니다. 특정한 경우에 `"/document/people"`은 인덱스의 필드에 매핑되거나 동일 기술 집합의 다른 기술에 사용될 수 있는 주석입니다.
 
@@ -95,7 +95,7 @@ Azure Blob storage에서 엔터티 인식을 사용 하 여 추출할 사용자�
 
 경우에 따라 특정 기술에 전달하는 특정 형식의 모든 주석을 그룹화해야 합니다. 예제 2에서 추출된 모든 성 가운데 가장 일반적인 성을 식별하는 가상의 사용자 지정 기술을 고려합니다. 사용자 지정 기술에 성만 제공하려면 컨텍스트를 `"/document"`로, 입력을 `"/document/people/*/lastname"`로 지정합니다.
 
-의 카디널리티는 `"/document/people/*/lastname"` 문서 보다 큽니다. 이 문서에 대한 문서 노드가 하나만 있는 반면 성 노드는 10개가 있을 수 있습니다. 이 경우 시스템은 문서의 모든 요소를 포함하는 `"/document/people/*/lastname"`의 배열을 자동으로 만듭니다.
+`"/document/people/*/lastname"`의 카디널리티는 문서의 카디널리티보다 큽니다. 이 문서에 대한 문서 노드가 하나만 있는 반면 성 노드는 10개가 있을 수 있습니다. 이 경우 시스템은 문서의 모든 요소를 포함하는 `"/document/people/*/lastname"`의 배열을 자동으로 만듭니다.
 
 ```json
   {

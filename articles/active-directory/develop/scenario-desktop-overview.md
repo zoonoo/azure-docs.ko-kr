@@ -13,10 +13,10 @@ ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: ea6ecf456bbcea01bf4c1eef5377d918bf0918fd
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104798955"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>시나리오: Web API를 호출하는 데스크톱 앱
@@ -25,12 +25,12 @@ ms.locfileid: "104798955"
 
 ## <a name="get-started"></a>시작
 
-아직 시작 하지 않은 경우 빠른 시작을 완료 하 여 첫 번째 응용 프로그램을 만듭니다.
+아직 없는 경우 빠른 시작을 완료하여 애플리케이션을 먼저 만듭니다.
 
 - [빠른 시작: Windows 데스크톱 앱에서 토큰 가져오기 및 Microsoft Graph API 호출](./quickstart-v2-windows-desktop.md)
 - [빠른 시작: UWP 앱에서 토큰 가져오기 및 Microsoft Graph API 호출](./quickstart-v2-uwp.md)
 - [빠른 시작: macOS 네이티브 앱에서 토큰 가져오기 및 Microsoft Graph API 호출](./quickstart-v2-ios.md)
-- [빠른 시작: Node.js & 전자 앱에서 토큰을 획득 하 고 Microsoft Graph API를 호출 합니다.](./quickstart-v2-nodejs-desktop.md)
+- [빠른 시작: Node.js 및 Electron 앱에서 토큰 가져오기 및 Microsoft Graph API 호출](./quickstart-v2-nodejs-desktop.md)
 
 ## <a name="overview"></a>개요
 
@@ -40,7 +40,7 @@ ms.locfileid: "104798955"
 
   - 데스크톱 애플리케이션이 그래픽 컨트롤을 지원하는 경우(예: Windows.Form 애플리케이션, WPF 애플리케이션 또는 macOS 네이티브 애플리케이션인 경우)
   - .NET Core 애플리케이션이며 Azure AD(Azure Active Directory)와의 인증 상호 작용이 시스템 브라우저에서 이루어지는 데 동의한 경우
-  - Chromium 인스턴스에서 실행 되는 Node.js 전자 응용 프로그램 인 경우 또는입니다.
+  - 또는 Chromium 인스턴스에서 실행되는 Node.js Electron 애플리케이션인 경우입니다.
 
 - Windows에서 호스트하는 애플리케이션의 경우, Windows 도메인에 가입된 컴퓨터 또는 Azure AD에 가입된 컴퓨터에서 실행되는 애플리케이션이 Windows 통합 인증을 사용하여 자동으로 토큰을 획득하는 것도 가능합니다.
 - 마지막으로, 이 방법은 권장되지는 않지만 공용 클라이언트 애플리케이션에서 사용자 이름 및 암호를 사용할 수 있습니다. 사용자 이름 및 암호를 사용하는 방법은 DevOps와 같은 몇 가지 시나리오에서 여전히 필요합니다. 이 방법을 사용하면 애플리케이션에 제한 사항이 적용됩니다. 예를 들어, [다단계 인증](../authentication/concept-mfa-howitworks.md)(조건부 액세스)을 수행해야 하는 사용자는 로그인할 수 없습니다. 애플리케이션에서 SSO(Single Sign-On)를 사용할 수 없습니다.
@@ -63,4 +63,4 @@ ms.locfileid: "104798955"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 시나리오의 다음 문서 [앱 등록](scenario-desktop-app-registration.md)으로 이동 합니다.
+이 시나리오의 다음 문서인 [앱 등록](scenario-desktop-app-registration.md)으로 이동합니다.

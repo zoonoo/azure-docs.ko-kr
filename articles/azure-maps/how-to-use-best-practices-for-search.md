@@ -9,21 +9,21 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 11c1938c3c1ccba533f52336fad81ebeaae53b24
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92895480"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Azure Maps Search Service에 대한 모범 사례
 
-Azure Maps [Search Service](/rest/api/maps/search) 에는 개발자가 주소, 위치, 비즈니스 목록을 이름 또는 범주별로 검색 하는 데 도움이 되는 다양 한 기능을 제공 하는 api와 기타 지리적 정보가 포함 되어 있습니다. 예를 들어[유사 항목 검색 API](/rest/api/maps/search/getsearchfuzzy) 를 사용 하면 사용자가 주소 또는 관심 지점 (poi)을 검색할 수 있습니다.
+Azure Maps [Search Service](/rest/api/maps/search)에는 개발자가 주소, 위치, 비즈니스 목록을 이름 또는 범주별로 검색하는 데 도움이 되는 다양한 기능을 제공하는 API와 기타 지리적 정보가 포함되어 있습니다. 예를 들어 [유사 항목 검색 API](/rest/api/maps/search/getsearchfuzzy)를 사용하면 사용자가 주소 또는 POI(관심 지점)를 검색할 수 있습니다.
 
 이 문서에서는 Azure Maps Search Service에서 데이터를 호출할 때 올바른 사례를 적용하는 방법을 설명합니다. 이 문서에서 배울 내용은 다음과 같습니다.
 > [!div class="checklist"]
-> * 관련 일치 항목을 반환 하는 쿼리 작성
+> * 관련 일치 항목을 반환하는 쿼리 작성
 > * 검색 결과 제한
-> * 결과 형식 간의 차이점 알아보기
+> * 결과 형식 간 차이점 파악
 > * 주소 검색-응답 구조 읽기
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -31,7 +31,7 @@ Azure Maps [Search Service](/rest/api/maps/search) 에는 개발자가 주소, �
 1. [Azure Maps 계정을 만듭니다](quick-demo-map-app.md#create-an-azure-maps-account).
 2. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
-이 문서에서는 [Postman 앱](https://www.postman.com/downloads/) 을 사용 하 여 REST 호출을 빌드 하지만 모든 API 개발 환경을 선택할 수 있습니다.
+이 문서에서는 [Postman 앱](https://www.postman.com/downloads/)을 사용하여 REST 호출을 빌드하지만 모든 API 개발 환경을 선택할 수 있습니다.
 
 ## <a name="best-practices-to-geocode-addresses"></a>지역 코드 주소에 대한 모범 사례
 
@@ -59,7 +59,7 @@ Azure Maps Search Service를 사용하여 전체 또는 부분 주소를 검색�
 
 #### <a name="fuzzy-search-parameters"></a>유사 항목 검색 매개 변수
 
-검색 쿼리의 사용자 입력을 모르는 경우 Azure Maps [Search Fuzzy API](/rest/api/maps/search/getsearchfuzzy)를 사용하는 것이 좋습니다. 예를 들어 사용자의 입력은 *장바구니* 와 같은 Poi (관심 지점)의 주소 또는 형식일 수 있습니다. 이 API는 POI 검색과 지오코딩을 정식 *한 줄 검색* 으로 결합합니다. 
+검색 쿼리의 사용자 입력을 모르는 경우 Azure Maps [Search Fuzzy API](/rest/api/maps/search/getsearchfuzzy)를 사용하는 것이 좋습니다. 예를 들어 사용자의 입력은 주소 또는 *쇼핑몰* 과 같은 POI(관심 지점)의 형식일 수 있습니다. 이 API는 POI 검색과 지오코딩을 정식 *한 줄 검색* 으로 결합합니다. 
 
 * `minFuzzyLevel` 및 `maxFuzzyLevel` 매개 변수는 쿼리 매개 변수가 사용자가 원하는 정보와 정확히 일치하지 않는 경우에도 관련 일치 항목을 반환하는 데 도움이 됩니다. 성능을 최대화하고 비정상적인 결과를 줄이려면 검색 쿼리를 기본값 `minFuzzyLevel=1` 및 `maxFuzzyLevel=2`로 설정합니다. 
 
@@ -83,7 +83,7 @@ Azure Maps Search Service를 사용하여 전체 또는 부분 주소를 검색�
 
 ### <a name="reverse-geocode-and-filter-for-a-geography-entity-type"></a>지리 엔터티 형식에 대한 역방향 지역 코드 및 필터
 
-[Search Address Reverse API](/rest/api/maps/search/getsearchaddressreverse)에서 역방향 지역 코드 검색을 수행하면 서비스에서 관리 영역에 대한 다각형을 반환할 수 있습니다. 예를 들어 구/군/시에 대 한 영역 다각형을 페치할 수 있습니다.  특정 지리 엔터티 형식으로 검색 범위를 좁히려면 요청에 `entityType` 매개 변수를 포함합니다. 
+[Search Address Reverse API](/rest/api/maps/search/getsearchaddressreverse)에서 역방향 지역 코드 검색을 수행하면 서비스에서 관리 영역에 대한 다각형을 반환할 수 있습니다. 예를 들어 도시에 대한 영역 다각형을 가져올 수 있습니다.  특정 지리 엔터티 형식으로 검색 범위를 좁히려면 요청에 `entityType` 매개 변수를 포함합니다. 
 
 결과 응답에는 지리 ID와 일치하는 엔터티 형식이 포함됩니다. 둘 이상의 엔티티를 제공하면 엔드포인트는 *사용 가능한 가장 작은 엔티티* 를 반환합니다. 반환된 기하 도형 ID를 사용하여 [Search Polygon 서비스](/rest/api/maps/search/getsearchpolygon)를 통해 지리의 기하 도형을 얻을 수 있습니다.
 
@@ -965,7 +965,7 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 
 ## <a name="next-steps"></a>다음 단계
 
-자세히 알아보려면 다음을 참조 하세요.
+자세한 내용은 다음을 참조하세요:
 
 > [!div class="nextstepaction"]
 > [Azure Maps Search Service 요청을 작성하는 방법](./how-to-search-for-address.md)

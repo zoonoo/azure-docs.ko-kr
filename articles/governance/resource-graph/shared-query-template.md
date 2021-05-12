@@ -1,17 +1,17 @@
 ---
 title: '빠른 시작: 템플릿을 사용하여 공유 쿼리 만들기'
 description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 OS별 가상 머신 수를 계산하는 Resource Graph 공유 쿼리를 만듭니다.
-ms.date: 05/01/2021
+ms.date: 05/11/2021
 ms.topic: quickstart
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: 60df3f4ab005252b392302fd487cd6e927569489
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 970c8633c0b7d5cb62520ad3778626d1423857b5
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325898"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750864"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 공유 쿼리 만들기
 
@@ -21,7 +21,7 @@ Resource Graph 쿼리를 _프라이빗 쿼리_ 또는 _공유 쿼리_ 로 저장
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 공유 쿼리를 만들기 위한 ARM 템플릿 배포" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 공유 쿼리를 만들기 위한 ARM 템플릿 배포" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/resourcegraph-sharedquery-countos/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/demos/resourcegraph-sharedquery-countos/azuredeploy.json":::
 
 템플릿에 정의된 리소스는 다음과 같습니다.
 
@@ -46,11 +46,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 다음 이미지를 선택하고 Azure Portal에 로그인하여 템플릿을 엽니다.
 
-   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 공유 쿼리를 만들기 위한 ARM 템플릿 배포" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 공유 쿼리를 만들기 위한 ARM 템플릿 배포" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
 
 1. 다음 값을 선택하거나 입력합니다.
 
-   | 속성 | 값 |
+   | Name | 값 |
    |------|-------|
    | Subscription | Azure 구독을 선택합니다. |
    | Resource group | **새로 만들기** 를 선택하고 이름을 지정한 다음, **확인** 을 선택합니다. |

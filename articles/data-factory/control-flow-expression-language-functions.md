@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/25/2019
 ms.openlocfilehash: e89cb847bcd5d0137354c07fe97148bcbeca2714
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104786297"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory의 식과 함수
@@ -69,7 +69,7 @@ ms.locfileid: "104786297"
 
 ### <a name="dynamic-content-editor"></a>동적 콘텐츠 편집기
 
-편집을 마치면 동적 콘텐츠 편집기가 자동으로 콘텐츠에서 문자를 이스케이프 합니다. 예를 들어 콘텐츠 편집기의 다음 콘텐츠는 두 개의 식 함수를 사용 하는 문자열 보간입니다. 
+편집을 마치면 동적 콘텐츠 편집기가 자동으로 콘텐츠에서 문자를 이스케이프합니다. 예를 들어 콘텐츠 편집기의 다음 콘텐츠는 두 개의 식 함수를 사용하는 문자열 보간입니다. 
 
 ```json
 { 
@@ -78,7 +78,7 @@ ms.locfileid: "104786297"
 }
 ```
 
-동적 콘텐츠 편집기는 위의 콘텐츠를 식으로 변환 `"{ \n  \"type\": \"@{if(equals(1, 2), 'Blob', 'Table' )}\",\n  \"name\": \"@{toUpper('myData')}\"\n}"` 합니다. 이 식의 결과는 아래에 표시 된 JSON 형식 문자열입니다.
+동적 콘텐츠 편집기는 위의 콘텐츠를 `"{ \n  \"type\": \"@{if(equals(1, 2), 'Blob', 'Table' )}\",\n  \"name\": \"@{toUpper('myData')}\"\n}"` 식으로 변환합니다. 이 식의 결과는 아래에 표시된 JSON 형식 문자열입니다.
 
 ```json
 {
@@ -549,8 +549,8 @@ addToTime('2018-01-01T00:00:00Z', 1, 'Day', 'D')
 
 ### <a name="and"></a>and
 
-두 식이 모두 true 인지 여부를 확인 합니다.
-두 식이 모두 true 이면 true를 반환 하 고, 하나 이상의 식이 false 이면 false를 반환 합니다.
+두 식이 모두 true인지 확인합니다.
+두 식이 모두 true이면 true를 반환하고, 식 중의 적어도 한 개가 false이면 false를 반환합니다.
 
 ```
 and(<expression1>, <expression2>)
@@ -558,17 +558,17 @@ and(<expression1>, <expression2>)
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, <*식 2*> | 예 | 부울 | 검사할 식 |
+| <*expression1*>, <*expression2*> | 예 | 부울 | 검사할 식 |
 |||||
 
 | 반환 값 | Type | Description |
 | ------------ | -----| ----------- |
-| true 또는 false | 부울 | 두 식이 모두 true 이면 true를 반환 합니다. 식 중의 적어도 한 개가 false이면 false를 반환합니다. |
+| true 또는 false | 부울 | 두 식이 모두 true이면 true를 반환합니다. 식 중의 적어도 한 개가 false이면 false를 반환합니다. |
 ||||
 
 *예제 1*
 
-다음 예에서는 지정 된 부울 값이 모두 true 인지 여부를 확인 합니다.
+아래 예제는 지정한 부울 값 두 개가 모두 true인지 검사합니다.
 
 ```
 and(true, true)
@@ -584,7 +584,7 @@ and(false, false)
 
 *예제 2*
 
-다음 예에서는 지정 된 식이 true 인지 여부를 확인 합니다.
+아래 예제는 지정한 식 두 개가 모두 true인지 검사합니다.
 
 ```
 and(equals(1, 1), equals(2, 2))
@@ -2406,7 +2406,7 @@ not(equals(1, 1))
 ### <a name="or"></a>또는
 
 최소 하나의 식이 true인지 검사합니다.
-하나 이상의 식이 true 이면 true를 반환 하 고, 둘 다 false 이면 false를 반환 합니다.
+최소 하나의 식이 true이면 true를 반환하고, 두 식 모두가 false이면 false를 반환합니다.
 
 ```
 or(<expression1>, <expression2>)
@@ -2414,12 +2414,12 @@ or(<expression1>, <expression2>)
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, <*식 2*> | 예 | 부울 | 검사할 식 |
+| <*expression1*>, <*expression2*> | 예 | 부울 | 검사할 식 |
 |||||
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| true 또는 false | 부울 | 최소 하나의 식이 true이면 true를 반환합니다. 두 식이 모두 false 이면 false를 반환 합니다. |
+| true 또는 false | 부울 | 최소 하나의 식이 true이면 true를 반환합니다. 두 식이 모두 false이면 false를 반환합니다. |
 ||||
 
 *예제 1*

@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.openlocfilehash: 199d85d2805b92e1421330be8f299c769637b649
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104578467"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory 앱 매니페스트
@@ -27,7 +27,7 @@ ms.locfileid: "104578467"
 Azure Portal을 통해 또는 프로그래밍 방식으로 [REST API](/graph/api/resources/application) 또는 [PowerShell](/powershell/module/azuread#applications)을 사용하여 앱 특성을 구성할 수 있습니다. 그러나 앱 매니페스트를 편집하여 앱 특성을 구성해야 하는 경우도 있습니다. 이 시나리오에는 다음이 포함됩니다.
 
 * Azure AD 다중 테넌트 및 개인 Microsoft 계정으로 앱을 등록한 경우 UI에서 지원되는 Microsoft 계정을 변경할 수 없습니다. 대신 애플리케이션 매니페스트 편집기를 사용하여 지원되는 계정 유형을 변경해야 합니다.
-* 앱에서 지 원하는 사용 권한 및 역할을 정의 하려면 응용 프로그램 매니페스트를 수정 해야 합니다.
+* 앱에서 지원하는 사용 권한 및 역할을 정의하려면 애플리케이션 매니페스트를 수정해야 합니다.
 
 ## <a name="configure-the-app-manifest"></a>앱 매니페스트 구성
 
@@ -82,7 +82,7 @@ Azure Portal을 통해 또는 프로그래밍 방식으로 [REST API](/graph/api
 | :--- | :--- |
 | addIns | 컬렉션 |
 
-소비하는 서비스가 특정 컨텍스트에서 앱을 호출하는 데 사용할 수 있는 사용자 지정 동작을 정의합니다. 예를 들어, 파일 스트림을 렌더링할 수 있는 애플리케이션은 해당 "FileHandler" 기능에 대해 `addIns` 속성을 설정할 수 있습니다. 이 매개 변수를 사용 하면 Microsoft 365와 같은 서비스가 사용자가 작업 중인 문서의 컨텍스트에서 응용 프로그램을 호출할 수 있습니다.
+소비하는 서비스가 특정 컨텍스트에서 앱을 호출하는 데 사용할 수 있는 사용자 지정 동작을 정의합니다. 예를 들어, 파일 스트림을 렌더링할 수 있는 애플리케이션은 해당 "FileHandler" 기능에 대해 `addIns` 속성을 설정할 수 있습니다. 이 매개 변수를 사용하면 Microsoft 365와 같은 서비스가 사용자가 작업 중인 문서의 컨텍스트에서 애플리케이션을 호출할 수 있습니다.
 
 예제:
 
@@ -172,9 +172,9 @@ Azure AD가 할당한 앱의 고유 식별자를 지정합니다.
 
 - `"None"`
 - `"SecurityGroup"`(보안 그룹 및 Azure AD 역할의 경우)
-- `"ApplicationGroup"` (이 옵션은 응용 프로그램에 할당 된 그룹만 포함)
-- `"DirectoryRole"` 사용자가 구성원 인 Azure AD 디렉터리 역할을 가져옵니다.
-- `"All"` 이를 통해 로그인 한 사용자가 구성원 인 모든 보안 그룹, 메일 그룹 및 Azure AD 디렉터리 역할을 가져옵니다.
+- `"ApplicationGroup"`(이 옵션은 애플리케이션에 할당된 그룹만 포함)
+- `"DirectoryRole"`(사용자가 구성원인 Azure AD 디렉터리 역할을 가져옴)
+- `"All"`(로그인한 사용자가 속한 모든 보안 그룹, 배포 그룹 및 Azure AD 디렉터리 역할을 가져옴)
 
 예제:
 

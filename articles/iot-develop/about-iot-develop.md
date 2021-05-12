@@ -6,12 +6,12 @@ ms.author: rywinter
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 01/11/2021
-ms.openlocfilehash: dd4e53eebe6593db457798f009d3d05ddcbd77b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 38c21ff71971868f6597856c4048ec179faf4e01
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100654823"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108759439"
 ---
 # <a name="what-is-azure-iot-device-and-application-development"></a>Azure IoT 디바이스 및 애플리케이션 개발이란?
 
@@ -74,5 +74,5 @@ Azure IoT 디바이스 또는 서비스 SDK를 선택하는 방법에 대한 자
 
 ## <a name="next-steps"></a>다음 단계
 개발 역할에 가장 적합한 다음 빠른 시작 시리즈 중 하나를 선택합니다. 이러한 문서에서는 디바이스를 호스팅할 Azure IoT 애플리케이션을 만들고, SDK를 사용하고, 디바이스를 연결하고, 원격 분석을 보내는 작업의 기본 사항에 대해 설명합니다.  
-- 디바이스 애플리케이션 개발의 경우: [빠른 시작: 디바이스에서 Azure IoT Central로 원격 분석 보내기](quickstart-send-telemetry-python.md)
+- 디바이스 애플리케이션 개발의 경우: [빠른 시작: 디바이스에서 Azure IoT Central로 원격 분석 보내기](quickstart-send-telemetry-central.md)
 - 포함 디바이스 개발의 경우: [빠른 시작: Azure IoT 포함 디바이스 개발 시작](quickstart-device-development.md)

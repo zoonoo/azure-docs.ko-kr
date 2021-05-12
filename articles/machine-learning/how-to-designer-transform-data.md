@@ -1,23 +1,23 @@
 ---
 title: 디자이너에서 데이터 변환
 titleSuffix: Azure Machine Learning
-description: 사용자 고유의 데이터 집합을 만들기 위해 Azure Machine Learning designer에서 데이터를 가져오고 변환 하는 방법을 알아봅니다.
+description: Azure Machine Learning 디자이너에서 데이터 가져오고 변환하여 고유 데이터 세트를 만드는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 author: peterclu
 ms.author: peterlu
 ms.date: 06/28/2020
-ms.topic: conceptual
-ms.custom: how-to, designer
-ms.openlocfilehash: 10904275d382c7f9dbf223ded78cab0adf14992a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.topic: how-to
+ms.custom: designer
+ms.openlocfilehash: 322408dac79b7ef113c6b0b51a25d5836688baea
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101661055"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107889433"
 ---
-# <a name="transform-data-in-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너에서 데이터 변환
+# <a name="transform-data-in-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너 데이터 변환
 
 
 이 문서에서는 기계 학습을 위해 사용자 고유의 데이터를 준비할 수 있도록 Azure Machine Learning 디자이너에서 데이터 세트를 변환 및 저장하는 방법을 알아봅니다.
@@ -52,7 +52,7 @@ ms.locfileid: "101661055"
 
 1. **성인 인구 조사 소득 이진 분류** 데이터 세트를 캔버스로 끌어 놓습니다.
 
-1. **성인 인구 조사 소득** 데이터 집합 모듈을 마우스 오른쪽 단추로 클릭 하 고  >  **데이터 집합 출력** 시각화를 선택 합니다.
+1. **성인 인구 조사 소득** 데이터 집합 모듈을 마우스 오른쪽 단추로 클릭하고 **데이터 집합 출력** **시각화** > 를 선택합니다
 
 1. 데이터 미리 보기 창을 사용하여 데이터 세트를 살펴봅니다. "native-country" 열 값에 특히 주의하세요.
 

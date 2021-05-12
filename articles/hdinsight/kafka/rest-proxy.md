@@ -6,15 +6,15 @@ ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-python
 ms.date: 04/03/2020
 ms.openlocfilehash: bc3cbe5d0d7cf5e5a78112ae5df63ebb88a97f5a
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104864842"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>REST 프록시를 사용하여 Azure HDInsight에서 Apache Kafka 클러스터와 상호 작용
 
-Kafka REST 프록시를 사용 하면 HTTPS를 통해 REST API를 통해 Kafka 클러스터와 상호 작용할 수 있습니다. 이 작업을 통해 Kafka 클라이언트는 가상 네트워크 외부에 있을 수 있습니다. 클라이언트는 Kafka 라이브러리를 사용 하는 대신 Kafka 클러스터에 대해 간단 하 고 안전한 HTTPS 호출을 수행할 수 있습니다. 이 문서에서는 REST 프록시 사용 Kafka 클러스터를 만드는 방법을 보여줍니다. 또한 REST 프록시를 호출하는 방법을 보여주는 샘플 코드도 제공합니다.
+Kafka REST 프록시를 사용하면 HTTPS를 통한 REST API를 통해 Kafka 클러스터와 상호 작용할 수 있습니다. 이 작업을 통해 Kafka 클라이언트는 가상 네트워크 외부에 있을 수 있습니다. 클라이언트는 Kafka 라이브러리를 사용하는 대신 Kafka 클러스터에 간단하고 안전한 HTTPS 호출을 수행할 수 있습니다. 이 문서에서는 REST 프록시 사용 Kafka 클러스터를 만드는 방법을 보여줍니다. 또한 REST 프록시를 호출하는 방법을 보여주는 샘플 코드도 제공합니다.
 
 ## <a name="rest-api-reference"></a>REST API 참조
 
@@ -34,7 +34,7 @@ REST 프록시를 사용하여 HDInsight Kafka 클러스터를 만들면 클러�
 
 Kafka REST 프록시에 대한 액세스는 Azure Active Directory 보안 그룹을 사용하여 관리됩니다. Kafka 클러스터를 만들 때 REST 엔드포인트 액세스를 사용하여 Azure AD 보안 그룹을 제공합니다. REST 프록시에 대한 액세스가 필요한 kafka 클라이언트는 그룹 소유자가 이 그룹에 등록해야 합니다. 그룹 소유자는 포털 또는 PowerShell을 통해 등록할 수 있습니다.
 
-REST 프록시 엔드포인트 요청의 경우 클라이언트 애플리케이션은 OAuth 토큰을 가져와야 합니다. 해당 토큰은 보안 그룹 멤버 자격을 확인하는 데 사용됩니다. OAuth 토큰을 가져오는 방법을 보여 주는 아래 [클라이언트 애플리케이션 샘플](#client-application-sample)을 찾습니다. 클라이언트 응용 프로그램은 HTTPS 요청의 OAuth 토큰을 REST 프록시로 전달 합니다.
+REST 프록시 엔드포인트 요청의 경우 클라이언트 애플리케이션은 OAuth 토큰을 가져와야 합니다. 해당 토큰은 보안 그룹 멤버 자격을 확인하는 데 사용됩니다. OAuth 토큰을 가져오는 방법을 보여 주는 아래 [클라이언트 애플리케이션 샘플](#client-application-sample)을 찾습니다. 클라이언트 애플리케이션은 HTTPS 요청의 OAuth 토큰을 REST 프록시로 전달합니다.
 
 > [!NOTE]
 > AAD 보안 그룹에 대한 자세한 내용은 [Azure Active Directory 그룹을 사용하여 앱 및 리소스 액세스 관리](../../active-directory/fundamentals/active-directory-manage-groups.md)를 참조하세요. OAuth 토큰이 작동하는 방법에 대한 자세한 내용은 [OAuth 2.0 코드 권한 부여 흐름을 사용하여 Azure Active Directory 웹 애플리케이션에 대한 액세스 권한 부여](../../active-directory/azuread-dev/v1-protocols-oauth-code.md)를 참조하세요.
@@ -60,11 +60,11 @@ REST 프록시 엔드포인트 요청의 경우 클라이언트 애플리케이�
 
 1. Kafka 클러스터 만들기 워크플로 중 **보안 + 네트워킹** 탭에서 **Kafka REST 프록시 사용** 옵션을 선택합니다.
 
-     :::image type="content" source="./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png" alt-text="보안 + 네트워킹이 선택 된 H + 정보 클러스터 만들기 페이지를 보여 주는 스크린샷" border="true":::
+     :::image type="content" source="./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png" alt-text="보안 + 네트워킹이 선택된 HDInsight 클러스터 만들기 페이지를 보여 주는 스크린샷." border="true":::
 
 1. **보안 그룹 선택** 을 클릭합니다. 보안 그룹 목록에서 REST 프록시에 액세스하려는 보안 그룹을 선택합니다. 검색 상자를 사용하여 적절한 보안 그룹을 찾을 수 있습니다. 아래쪽에서 **선택** 단추를 클릭합니다.
 
-     :::image type="content" source="./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png" alt-text="스크린샷에는 보안 그룹을 선택 하는 옵션이 포함 된 H D 정보 클러스터 만들기 페이지가 표시 됩니다." border="true":::
+     :::image type="content" source="./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png" alt-text="보안 그룹을 선택하는 옵션이 있는 HDInsight 클러스터 만들기 페이지를 보여 주는 스크린샷." border="true":::
 
 1. [Azure Portal을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터 만들기](./apache-kafka-get-started.md)에 설명된 대로 클러스터를 만드는 나머지 단계를 완료합니다.
 
@@ -94,7 +94,7 @@ REST 프록시 엔드포인트 요청의 경우 클라이언트 애플리케이�
 1. Azure AD에서 OAuth 토큰을 가져옵니다.
 1. Kafka REST 프록시로 요청을 만드는 방법을 보여줍니다.
 
-Python에서 OAuth 토큰을 가져오는 방법에 대 한 자세한 내용은 [Python AuthenticationContext 클래스](/python/api/adal/adal.authentication_context.authenticationcontext)를 참조 하세요. Kafka REST 프록시를 통해 생성 또는 삭제되지 않은 `topics`이 거기에서 리플렉트되고 있다면 지연 시간이 표시될 수 있습니다. 이 지연 시간은 캐시 새로 고침으로 인해 발생합니다. 생산자 API의 **값** 필드가 향상 되었습니다. 이제 JSON 개체와 serialize 된 모든 형식을 허용 합니다.
+Python에서 OAuth 토큰을 가져오는 방법에 대한 자세한 내용은 [Python AuthenticationContext 클래스](/python/api/adal/adal.authentication_context.authenticationcontext)를 참조하세요. Kafka REST 프록시를 통해 생성 또는 삭제되지 않은 `topics`이 거기에서 리플렉트되고 있다면 지연 시간이 표시될 수 있습니다. 이 지연 시간은 캐시 새로 고침으로 인해 발생합니다. 생산자 API의 **값** 필드가 향상되었습니다. 이제 JSON 개체와 모든 직렬화된 양식이 허용됩니다.
 
 ```python
 #Required python packages

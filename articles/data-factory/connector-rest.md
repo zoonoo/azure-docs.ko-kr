@@ -1,17 +1,17 @@
 ---
 title: Azure Data Factory를 사용하여 REST 엔드포인트에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 클라우드 또는 온-프레미스 REST 원본에서 지원되는 싱크 데이터 저장소로 데이터를 복사하거나 지원되는 원본 데이터 저장소에서 REST 싱크로 복사하는 방법에 대해 알아봅니다.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/16/2021
-ms.author: jingwang
-ms.openlocfilehash: 779a8745688e6a1fb8a15bc9119c6fbc1803ca2c
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.author: jianleishen
+ms.openlocfilehash: 24269fcfe7c60140c3d0fe9497eefeba71338bd7
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078930"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109487082"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 REST 엔드포인트에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -40,11 +40,11 @@ REST 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="get-started"></a>시작하기
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 REST 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -52,7 +52,7 @@ REST 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 
 REST 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | **형식** 속성은 **RestService** 로 설정되어야 합니다. | 예 |
 | url | REST 서비스의 기본 URL입니다. | 예 |
@@ -65,7 +65,7 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 **authenticationType** 속성을 **Basic** 으로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | userName | REST 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | 예 |
 | password | 사용자(**userName** 값)의 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 예 |
@@ -98,7 +98,7 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 **authenticationType** 속성을 **AadServicePrincipal** 로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | servicePrincipalId | Azure Active Directory 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
 | servicePrincipalKey | Azure Active Directory 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
@@ -136,7 +136,7 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 **authenticationType** 속성을 **ManagedServiceIdentity** 로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | aadResourceId | 권한 부여를 요청하는 AAD 리소스(예: `https://management.core.windows.net`)를 지정합니다.| 예 |
 
@@ -197,7 +197,7 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **RestResource** 로 설정해야 합니다. | 예 |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. HTTP 커넥터가 결합된 URL(`[URL specified in linked service]/[relative URL specified in dataset]`)에서 데이터를 복사합니다. | 예 |
@@ -233,7 +233,7 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성은 **RestSource** 로 설정해야 합니다. | 예 |
 | requestMethod | HTTP 메서드입니다. 허용되는 값은 **GET**(기본값) 또는 **POST** 입니다. | 예 |
@@ -322,7 +322,7 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 **type** 속성은 **RestSink** 로 설정해야 합니다. | 예 |
 | requestMethod | HTTP 메서드입니다. 허용되는 값은 **POST**(기본값), **PUT**, **PATCH** 입니다. | 예 |

@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: e603175aa40077009bb208846cba62d5280e57c7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 052dfc651ac590fd1acefa0a92dc3ef4f25daaea
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577067"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365215"
 ---
 # <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK v2 for SQL API: 다운로드 및 릴리스 정보
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -30,7 +30,8 @@ ms.locfileid: "104577067"
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark 커넥터](sql-api-sdk-java-spark.md)
+> * [Spark 3 OLTP 커넥터](sql-api-sdk-java-spark-v3.md)
+> * [Spark 2 OLTP 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](/rest/api/cosmos-db-resource-provider/)
@@ -52,7 +53,7 @@ ms.locfileid: "104577067"
 > [!NOTE]
 > .NET Framework를 사용하는 경우 .NET Standard를 대상으로 하는 [.NET SDK](sql-api-sdk-dotnet-standard.md)의 최신 버전 3.x를 참조하세요.
 
-다음의 .NET Sdk 하위 버전은 2.x 버전에서 사용할 수 있습니다.
+다음 .NET SDK 하위 버전은 2.x.x 버전에서 사용할 수 있습니다.
 
 [!INCLUDE[Release notes](~/samples-cosmosdb-dotnet-v2/changelog.md)]
 

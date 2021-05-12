@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/16/2021
 ms.openlocfilehash: 17e14859ecdfe11872d5b0526d755d01bc1b034a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104577855"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 네트워크 정책을 사용하여 pod 간 트래픽 보호
@@ -52,8 +52,8 @@ Azure는 네트워크 정책을 구현하는 두 가지 방법을 제공합니�
 
 | 기능                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
-| 지원 플랫폼                      | Linux                      | Linux, Windows Server 2019 (미리 보기)  |
-| 지원되는 네트워킹 옵션             | Azure CNI                  | Azure CNI (Windows Server 2019 및 Linux) 및 kubenet (Linux)  |
+| 지원 플랫폼                      | Linux                      | Linux, Windows Server 2019(미리 보기)  |
+| 지원되는 네트워킹 옵션             | Azure CNI                  | Azure CNI(Windows Server 2019 및 Linux) 및 kubenet(Linux)  |
 | Kubernetes 사양 준수 | 지원되는 모든 정책 유형 |  지원되는 모든 정책 유형 |
 | 추가 기능                      | None                       | 글로벌 네트워크 정책, 글로벌 네트워크 집합 및 호스트 엔드포인트로 구성된 확장 정책 모델. `calicoctl`CLI를 사용하여 이러한 확장 기능을 관리하는 방법에 대한 자세한 내용은 [calicoctl 사용자 참조][calicoctl]를 참조하세요. |
 | 지원                                  | Azure 지원 및 엔지니어링 팀에서 지원 | Calico 커뮤니티 지원. 추가 유료 지원에 대한 자세한 내용은 [프로젝트 Calico 지원 옵션][calico-support]을 참조하세요. |
@@ -122,9 +122,9 @@ az role assignment create --assignee $SP_ID --scope $VNET_ID --role Contributor
 SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP_NAME --vnet-name myVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-### <a name="create-an-aks-cluster-for-azure-network-policies"></a>Azure 네트워크 정책에 대 한 AKS 클러스터 만들기
+### <a name="create-an-aks-cluster-for-azure-network-policies"></a>Azure 네트워크 정책에 대한 AKS 클러스터 만들기
 
-AKS 클러스터를 만들고 네트워크 플러그 인 및 네트워크 정책에 대 한 가상 네트워크, 서비스 주체 정보 및 *azure* 를 지정 합니다.
+AKS 클러스터를 만들고 네트워크 플러그인 및 네트워크 정책에 대한 가상 네트워크, 서비스 주체 정보 및 *azure* 를 지정합니다.
 
 ```azurecli
 az aks create \
@@ -148,13 +148,13 @@ az aks create \
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
 ```
 
-### <a name="create-an-aks-cluster-for-calico-network-policies"></a>Calico 네트워크 정책에 대 한 AKS 클러스터 만들기
+### <a name="create-an-aks-cluster-for-calico-network-policies"></a>Calico 네트워크 정책에 대한 AKS 클러스터 만들기
 
-AKS 클러스터를 만들고 가상 네트워크, 서비스 주체 정보, 네트워크 플러그 인에 대 한 *azure* 및 네트워크 정책에 대 한 *calico* 를 지정 합니다. *Calico* 를 네트워크 정책으로 사용 하면 Linux 및 Windows 노드 풀 모두에서 calico 네트워킹을 사용할 수 있습니다.
+AKS 클러스터를 만들고 네트워크 정책에 대한 가상 네트워크, 서비스 주체 정보, 네트워크 플러그인의 *azure* 및 *calico* 를 지정합니다. *Calico* 를 네트워크 정책으로 사용하면 Linux 및 Windows 노드 풀 모두에서 Calico 네트워킹을 사용할 수 있습니다.
 
-Windows 노드 풀을 클러스터에 추가 하려는 경우 `windows-admin-username` `windows-admin-password` [windows Server 암호 요구 사항을][windows-server-password]충족 하는 및 매개 변수를에 포함 합니다. Windows 노드 풀에서 Calico를 사용 하려면도 등록 해야 `Microsoft.ContainerService/EnableAKSWindowsCalico` 합니다.
+Windows 노드 풀을 클러스터에 추가하려는 경우 [Windows Server 암호 요구 사항][windows-server-password]을 충족하는 클러스터에 `windows-admin-username` 및 `windows-admin-password` 매개 변수를 포함합니다. Windows 노드 풀에서 Calico를 사용하려면 `Microsoft.ContainerService/EnableAKSWindowsCalico`를 등록해야 합니다.
 
-`EnableAKSWindowsCalico`다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용 하 여 기능 플래그를 등록 합니다.
+다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용하여 `EnableAKSWindowsCalico` 기능 플래그를 등록합니다.
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAKSWindowsCalico"
@@ -166,22 +166,22 @@ az feature register --namespace "Microsoft.ContainerService" --name "EnableAKSWi
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAKSWindowsCalico')].{Name:name,State:properties.state}"
 ```
 
-준비가 되 면 [az provider register][az-provider-register] 명령을 사용 하 여 *ContainerService* 리소스 공급자 등록을 새로 고칩니다.
+준비가 되면 [az provider register][az-provider-register] 명령을 사용하여 *Microsoft.ContainerService* 리소스 공급자의 등록을 새로 고칩니다.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
 
 > [!IMPORTANT]
-> 현재 Windows 노드와 함께 Calico network 정책을 사용 하는 것은 Calico 3.17.2이 설치 된 Kubernetes 버전 1.20 이상을 사용 하는 새 클러스터에서 사용할 수 있으며, Azure CNI 네트워킹을 사용 해야 합니다. Calico를 사용 하는 AKS 클러스터의 Windows 노드도 기본적으로 [DSR (Direct Server Return][dsr] )이 사용 됩니다.
+> 현재 Windows 노드와 함께 Calico 네트워크 정책을 사용하는 것은 Calico 3.17.2가 설치된 Kubernetes 버전 1.20 이상을 사용하는 새 클러스터에서 제공되며, Azure CNI 네트워킹을 사용해야 합니다. Calico를 사용하는 AKS 클러스터의 Windows 노드에도 기본적으로 [DSR(Direct Server Return)][dsr] 사용이 설정되어 있습니다.
 >
-> 이전 버전의 Calico에서 Kubernetes 1.20를 실행 하는 Linux 노드 풀만 사용 하는 클러스터의 경우에는 Calico 버전이 자동으로 3.17.2로 업그레이드 됩니다.
+> 이전 버전의 Calico에서 Kubernetes 1.20을 실행하는 Linux 노드 풀만 사용하는 클러스터의 경우에는 Calico 버전이 자동으로 3.17.2로 업그레이드됩니다.
 
-Windows 노드를 사용 하는 calico 네트워킹 정책은 현재 미리 보기 상태입니다.
+Windows 노드를 사용하는 Calico 네트워킹 정책은 현재 미리 보기 상태입니다.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-클러스터에서 Windows Server 컨테이너에 대 한 관리자 자격 증명으로 사용할 사용자 이름을 만듭니다. 다음 명령은 사용자 이름을 묻는 메시지를 표시 하 고 나중에 사용할 수 있도록 WINDOWS_USERNAME 설정 합니다 (이 문서의 명령은 BASH 셸에 입력 됨).
+클러스터에서 Windows Server 컨테이너의 관리자 자격 증명으로 사용할 사용자 이름을 만듭니다. 다음 명령은 사용자 이름을 묻는 메시지를 표시하고 차후 명령에서 사용할 수 있도록 사용자 이름을 WINDOWS_USERNAME으로 설정합니다(이 문서의 명령은 BASH 셸에 입력됩니다).
 
 ```azurecli-interactive
 echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
@@ -206,7 +206,7 @@ az aks create \
     --network-policy calico
 ```
 
-클러스터를 만드는 데 몇 분이 걸립니다. 기본적으로 클러스터는 Linux 노드 풀만 사용 하 여 만들어집니다. Windows 노드 풀을 사용 하려면 하나를 추가할 수 있습니다. 예를 들면 다음과 같습니다.
+클러스터를 만드는 데 몇 분이 걸립니다. 기본적으로 클러스터는 Linux 노드 풀만 사용하여 만들어집니다. Windows 노드 풀을 사용하려는 경우 노드 풀을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```azurecli
 az aks nodepool add \
@@ -225,7 +225,7 @@ az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAM
 
 ## <a name="deny-all-inbound-traffic-to-a-pod"></a>pod에 대한 모든 인바운드 트래픽 거부
 
-특정 네트워크 트래픽을 허용하는 규칙을 정의하기 전에 먼저 모든 트래픽을 거부하는 네트워크 정책을 만듭니다. 이 정책은 원하는 트래픽에 대 한 allowlist 만들기 시작 하는 시작점을 제공 합니다. 이 네트워크 정책을 적용하면 트래픽이 삭제되는 것을 명확하게 확인할 수 있습니다.
+특정 네트워크 트래픽을 허용하는 규칙을 정의하기 전에 먼저 모든 트래픽을 거부하는 네트워크 정책을 만듭니다. 이 정책은 원하는 트래픽만을 위한 허용 목록을 만들기 위한 시작점을 제공합니다. 이 네트워크 정책을 적용하면 트래픽이 삭제되는 것을 명확하게 확인할 수 있습니다.
 
 샘플 애플리케이션 환경 및 트래픽 규칙의 경우 *development* 라는 네임스페이스를 만들어 예제 pod를 실행하겠습니다.
 

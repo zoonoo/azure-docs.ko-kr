@@ -3,17 +3,17 @@ title: cloud-init 이해
 description: cloud-init을 사용하여 Azure VM을 프로비전하는 방법을 자세히 알아봅니다.
 author: danielsollondon
 ms.service: virtual-machines
-ms.subservice: imaging
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 94dd57310375febb4bc9a55efa704a5fbf4e80e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.subservice: cloud-init
+ms.openlocfilehash: 63bc821648348c2936d437fef7fdd89314fad3c5
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102559446"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783228"
 ---
 # <a name="diving-deeper-into-cloud-init"></a>cloud-init에 대해 자세히 알아보기
 [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html)에 대해 자세히 알아보거나 심층적으로 문제를 해결하려면 작동 방식을 이해해야 합니다. 이 문서에서는 중요한 부분을 강조하고 Azure 사양에 대해 설명합니다.

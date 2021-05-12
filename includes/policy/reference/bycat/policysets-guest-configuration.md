@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/28/2021
+ms.date: 05/04/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 7f36d475a4bf039b1e59e4ca972b7189fa189f61
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 3b3c03ecd1e41a1c76fb230f0a9f3fc003e4bcff
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108182511"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108761460"
 ---
-|이름 |Description |정책 |버전 |
+|Name |Description |정책 |버전 |
 |---|---|---|---|
 |[안전하지 않은 암호 보안 설정이 있는 머신 감사](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_WindowsPasswordSettingsAINE.json) |이 이니셔티브는 정책 요구 사항을 배포하고 안전하지 않은 암호 보안 설정이 있는 머신을 감사합니다. 게스트 구성 정책에 대한 자세한 내용은 [https://aka.ms/gcpol](https://aka.ms/gcpol)을 방문하세요. |9 |1.0.0 |
 |[\[미리 보기\]: 필수 구성 요소를 배포하여 가상 머신에서 게스트 구성 정책을 사용하도록 설정](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_Prerequisites.json) |이 이니셔티브는 시스템 할당 관리 ID를 추가하고 게스트 구성 정책에서 모니터링할 수 있는 가상 머신에 플랫폼에 적합한 게스트 구성 확장을 배포합니다. 이는 모든 게스트 구성 정책의 필수 구성 요소이며 게스트 구성 정책을 사용하기 전에 정책 할당 범위에 할당해야 합니다. 게스트 구성에 대한 자세한 내용은 [https://aka.ms/gcpol](https://aka.ms/gcpol)을 방문하세요. |4 |1.0.0-preview |

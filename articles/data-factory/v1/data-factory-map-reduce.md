@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: f1f54e972d59d3de3b0f93b3150ee1150eb6f612
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104786399"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>데이터 팩터리에서 MapReduce 프로그램 호출
 > [!div class="op_single_selector" title1="변환 작업"]
 > * [Hive 작업](data-factory-hive-activity.md) 
-> * [Pig 활동](data-factory-pig-activity.md)
+> * [Pig 작업](data-factory-pig-activity.md)
 > * [MapReduce 작업](data-factory-map-reduce.md)
 > * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 > * [Spark 작업](data-factory-spark.md)
@@ -31,7 +31,7 @@ ms.locfileid: "104786399"
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory에서 MapReduce 작업을 사용하여 데이터 변환](../transform-data-using-hadoop-map-reduce.md)을 참조하세요.
 
 
-Data Factory [파이프라인](data-factory-create-pipelines.md) 의 HDInsight mapreduce 작업은 [사용자 고유](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) 또는 [주문형](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux 기반 HDInsight 클러스터에서 MapReduce 프로그램을 실행 합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서에서 작성합니다.
+Data Factory [파이프라인](data-factory-create-pipelines.md)의 HDInsight MapReduce 작업은 [사용자 고유](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) 또는 [주문형](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux 기반 HDInsight 클러스터에서 MapReduce 프로그램을 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서에서 작성합니다.
 
 > [!NOTE] 
 > Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](data-factory-introduction.md)를 읽고 이 문서를 읽기 전에 [첫 번째 데이터 파이프라인 빌드](data-factory-build-your-first-pipeline.md) 자습서를 수행하세요.  
@@ -113,7 +113,7 @@ HDInsight MapReduce 작업을 사용하는 샘플은 [GitHub의 데이터 팩터
 이 예제의 파이프라인에서는 Azure HDInsight 클러스터에서 Word Count Map/Reduce 프로그램을 실행합니다.   
 
 ### <a name="linked-services"></a>연결된 서비스
-우선 Azure HDInsight 클러스터에서 사용되는 Azure Storage를 Azure 데이터 팩터리에 연결하도록 연결된 서비스를 생성합니다. 다음 코드를 복사 하 여 붙여 넣는 경우 **계정 이름** 및 **계정 키** 를 Azure Storage의 이름과 키로 바꾸어야 합니다. 
+우선 Azure HDInsight 클러스터에서 사용되는 Azure Storage를 Azure 데이터 팩터리에 연결하도록 연결된 서비스를 생성합니다. 다음 코드를 복사하여 붙여넣을 경우 **계정 이름** 과 **계정 키** 를 Azure Storage의 이름과 키로 바꾸는 것을 잊지 마세요. 
 
 #### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
 
@@ -130,7 +130,7 @@ HDInsight MapReduce 작업을 사용하는 샘플은 [GitHub의 데이터 팩터
 ```
 
 #### <a name="azure-hdinsight-linked-service"></a>Azure HDInsight 연결된 서비스
-다음으로, Azure HDInsight 클러스터를 Azure 데이터 팩터리에 연결하도록 연결된 서비스를 만듭니다. 다음 코드를 복사 하 여 붙여 넣는 경우 **hdinsight 클러스터 이름** 을 hdinsight 클러스터의 이름으로 바꾸고 사용자 이름과 암호 값을 변경 합니다.   
+다음으로, Azure HDInsight 클러스터를 Azure 데이터 팩터리에 연결하도록 연결된 서비스를 만듭니다. 다음 코드를 복사하여 붙여넣는 경우, **HDInsight 클러스터 이름** 을 사용자의 HDInsight 클러스터 이름으로 바꾸고 사용자 이름과 암호 값을 변경합니다.   
 
 ```JSON
 {
@@ -176,9 +176,9 @@ HDInsight MapReduce 작업을 사용하는 샘플은 [GitHub의 데이터 팩터
 ### <a name="pipeline"></a>파이프라인
 이 예제의 파이프라인은 HDInsightMapReduce 형식의 작업을 하나만 포함합니다. JSON의 중요한 속성에 대한 예를 들면 다음과 같습니다. 
 
-| 속성 | 메모 |
+| 속성 | 참고 |
 |:--- |:--- |
-| 형식 |type은 **HDInsightMapReduce** 로 설정되어야 합니다. |
+| type |type은 **HDInsightMapReduce** 로 설정되어야 합니다. |
 | className |클래스 이름은 **wordcount** |
 | jarFilePath |클래스를 포함하는 jar 파일의 경로입니다. 다음 코드를 복사하여 붙여넣는 경우 클러스터의 이름을 변경해야 합니다. |
 | jarLinkedService |jar 파일을 포함하는 Azure Storage 연결된 서비스입니다. 이 연결된 서비스는 HDInsight 클러스터와 연결되는 스토리지를 지칭합니다. |
@@ -242,7 +242,7 @@ MapReduce 작업을 사용하여 HDInsight Spark 클러스터에서 Spark 프로
 
 ## <a name="see-also"></a>참고 항목
 * [Hive 작업](data-factory-hive-activity.md)
-* [Pig 활동](data-factory-pig-activity.md)
+* [Pig 작업](data-factory-pig-activity.md)
 * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 * [Spark 프로그램 호출](data-factory-spark.md)
 * [R 스크립트 호출](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)

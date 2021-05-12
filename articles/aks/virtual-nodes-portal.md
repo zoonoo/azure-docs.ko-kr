@@ -6,22 +6,22 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: references_regions, devx-track-azurecli
 ms.openlocfilehash: c1ecaa88dd5329d86818565983a6ba891a6d8424
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104577831"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Azure Portal에서 가상 노드를 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기 및 구성
 
-이 문서에서는 가상 노드를 사용 하도록 설정 하 여 가상 네트워크 리소스와 AKS 클러스터를 만들고 구성 하는 데 Azure Portal를 사용 하는 방법을 보여 줍니다.
+이 문서에서는 Azure Portal을 활용하여 가상 노드를 사용하도록 설정된 가상 네트워크 리소스 및 AKS 클러스터를 만들고 구성하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> [이 문서](virtual-nodes.md) 에서는 가상 노드를 사용 하 여 지역 가용성 및 제한 사항에 대 한 개요를 제공 합니다.
+> [이 문서](virtual-nodes.md)에서는 가상 노드를 사용하여 지역 가용성 및 제한 사항에 대한 개요를 제공합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-가상 노드는 ACI(Azure Container Instances)에서 실행되는 Pod와 AKS 클러스터 간의 네트워크 통신을 활성화합니다. 이 통신을 제공하기 위해 가상 네트워크 서브넷이 만들어지고 위임된 사용 권한이 할당됩니다. 가상 노드는 *고급* 네트워킹 (AZURE cni)을 사용 하 여 만든 AKS 클러스터 에서만 작동 합니다. 기본적으로 AKS 클러스터는 *기본* 네트워킹 (kubenet)을 사용 하 여 생성 됩니다. 이 문서에서는 가상 네트워크 및 서브넷을 만든 다음, 고급 네트워킹을 사용하는 AKS 클러스터에 배포하는 방법을 보여 줍니다.
+가상 노드는 ACI(Azure Container Instances)에서 실행되는 Pod와 AKS 클러스터 간의 네트워크 통신을 활성화합니다. 이 통신을 제공하기 위해 가상 네트워크 서브넷이 만들어지고 위임된 사용 권한이 할당됩니다. 가상 노드는 고급 네트워킹(Azure CNI)을 사용하여 만든 AKS 클러스터에서만 작동합니다. 기본적으로 AKS 클러스터는 기본 네트워킹(kubenet)을 사용하여 생성됩니다. 이 문서에서는 가상 네트워크 및 서브넷을 만든 다음, 고급 네트워킹을 사용하는 AKS 클러스터에 배포하는 방법을 보여 줍니다.
 
 이전에 ACI를 사용하지 않은 경우 구독에서 서비스 공급자를 등록합니다. 다음 예제와 같이 [az provider list][az-provider-list] 명령을 사용하여 ACI 공급자 등록의 상태를 확인할 수 있습니다.
 
@@ -54,17 +54,17 @@ Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **Kubernete
 **기본** 페이지에서 다음 옵션을 구성합니다.
 
 - *프로젝트 세부 정보*: Azure 구독을 선택하고 *myResourceGroup* 같은 Azure 리소스 그룹을 선택하거나 만듭니다. *myAKSCluster* 같은 **Kubernetes 클러스터 이름** 을 입력합니다.
-- *클러스터 세부 정보*: AKS 클러스터에 대 한 지역 및 Kubernetes 버전을 선택 합니다.
+- 클러스터 세부 정보: AKS 클러스터의 영역과 Kubernetes 버전을 선택합니다.
 - *주 노드 풀*: AKS 노드의 VM 크기를 선택합니다. AKS 클러스터를 배포한 후에는 VM 크기를 변경할 수 **없습니다**.
      - 클러스터에 배포할 노드 수를 선택합니다. 이 문서에서는 **노드 수** 를 *1* 로 설정합니다. 클러스터를 배포한 후에 노드 수를 조정할 수 **있습니다**.
 
-**다음: 노드 풀** 을 클릭 합니다.
+**다음: 노드 풀** 을 클릭합니다.
 
-**노드 풀** 페이지에서 *가상 노드 사용* 을 선택 합니다.
+**노드 풀** 페이지에서 ‘가상 노드 사용 설정’을 선택합니다.
 
-:::image type="content" source="media/virtual-nodes-portal/enable-virtual-nodes.png" alt-text="브라우저에서 Azure Portal에서 사용 하도록 설정 된 가상 노드를 사용 하 여 클러스터를 만드는 방법을 보여 줍니다. ' 가상 노드 사용 ' 옵션이 강조 표시 됩니다.":::
+:::image type="content" source="media/virtual-nodes-portal/enable-virtual-nodes.png" alt-text="브라우저에서 Azure Portal에서 사용하도록 설정된 가상 노드를 사용하여 클러스터를 만드는 방법을 보여 줍니다. ‘가상 노드 사용 설정’ 옵션이 강조 표시됩니다.":::
 
-기본적으로 클러스터 id가 만들어집니다. 이 클러스터 id는 클러스터 통신 및 다른 Azure 서비스와의 통합에 사용 됩니다. 기본적으로이 클러스터 id는 관리 되는 id입니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요. 또한 서비스 주체를 클러스터 id로 사용할 수 있습니다.
+기본적으로 클러스터 ID가 만들어집니다. 이 클러스터 ID는 클러스터 통신 및 다른 Azure 서비스와의 통합에 사용됩니다. 기본적으로 이 클러스터 ID는 관리 ID입니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요. 또한 서비스 주체를 클러스터 ID로 사용할 수 있습니다.
 
 고급 네트워킹에 대한 클러스터도 구성됩니다. 가상 노드는 자체 Azure 가상 네트워크 서브넷을 사용하도록 구성됩니다. 이 서브넷은 AKS 클러스터 간에 Azure 리소스를 연결할 수 있는 위임된 권한을 갖습니다. 위임된 서브넷이 아직 없는 경우 Azure Portal에서는 가상 노드에 사용할 Azure 가상 네트워크 및 서브넷을 만들고 구성합니다.
 
