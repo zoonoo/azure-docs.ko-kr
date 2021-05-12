@@ -4,12 +4,13 @@ description: 포털, PowerShell, Azure CLI 및 REST API를 사용하여 Azure Re
 tags: top-support-issue
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 898af2365dfbb0f61b6b87e7532c9256269d799a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: eeb56665d7287b8239ad309fd0f7de5b539e1ed2
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732774"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752106"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 배포 기록 보기
 
@@ -61,13 +62,13 @@ Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName Ex
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-리소스 그룹에 대한 배포를 나열하려면 [az deployment group list](/cli/azure/group/deployment#az-deployment-group-list)를 사용합니다.
+리소스 그룹에 대한 배포를 나열하려면 [az deployment group list](/cli/azure/group/deployment#az_deployment_group_list)를 사용합니다.
 
 ```azurecli-interactive
 az deployment group list --resource-group ExampleGroup
 ```
 
-특정 배포를 가져오려면 [az deployment group show](/cli/azure/group/deployment#az-deployment-group-show)를 사용합니다.
+특정 배포를 가져오려면 [az deployment group show](/cli/azure/group/deployment#az_deployment_group_show)를 사용합니다.
 
 ```azurecli-interactive
 az deployment group show --resource-group ExampleGroup --name ExampleDeployment
@@ -81,13 +82,13 @@ az deployment group show --resource-group ExampleGroup --name ExampleDeployment 
 
 # <a name="http"></a>[HTTP](#tab/http)
 
-리소스 그룹에 대한 배포를 나열하려면 다음 작업을 사용합니다. 요청에 사용할 최신 API 버전 번호는 [배포 - 리소스 그룹별 목록](/rest/api/resources/resources/deployments/listbyresourcegroup)을 참조하세요.
+리소스 그룹에 대한 배포를 나열하려면 다음 작업을 사용합니다. 요청에 사용할 최신 API 버전 번호는 [배포 - 리소스 그룹별 목록](/rest/api/resources/deployments/listbyresourcegroup)을 참조하세요.
 
 ```
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/?api-version={api-version}
 ```
 
-특정 배포를 가져오려면 다음 작업을 사용합니다. 요청에 사용할 최신 API 버전 번호는 [배포 - 가져오기](/rest/api/resources/resources/deployments/get)를 참조하세요.
+특정 배포를 가져오려면 다음 작업을 사용합니다. 요청에 사용할 최신 API 버전 번호는 [배포 - 가져오기](/rest/api/resources/deployments/get)를 참조하세요.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -147,7 +148,7 @@ Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -Deployme
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-리소스 그룹에 배포하기 위한 배포 작업을 보려면 [az deployment operation group list](/cli/azure/deployment/operation/group#az-deployment-operation-group-list) 명령을 사용합니다. Azure CLI 2.6.0 이상이 있어야 합니다.
+리소스 그룹에 배포하기 위한 배포 작업을 보려면 [az deployment operation group list](/cli/azure/deployment/operation/group#az_deployment-operation-group-list) 명령을 사용합니다. Azure CLI 2.6.0 이상이 있어야 합니다.
 
 ```azurecli-interactive
 az deployment operation group list --resource-group ExampleGroup --name ExampleDeployment
@@ -167,7 +168,7 @@ az deployment operation group list --resource-group ExampleGroup --name ExampleD
 
 # <a name="http"></a>[HTTP](#tab/http)
 
-배포 작업을 가져오려면 다음 작업을 사용합니다. 요청에 사용할 최신 API 버전 번호는 [배포 작업 - 목록](/rest/api/resources/resources/deploymentoperations/list)을 참조하세요.
+배포 작업을 가져오려면 다음 작업을 사용합니다. 요청에 사용할 최신 API 버전 번호는 [배포 작업 - 목록](/rest/api/resources/deploymentoperations/list)을 참조하세요.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
@@ -214,4 +215,3 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/
 * 특정 배포 오류에 대한 도움말은 [Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생한 일반적인 오류 해결](common-deployment-errors.md)을 참조하세요.
 * 기록에서 배포를 관리하는 방법에 관해 알아보려면 [배포 기록에서 자동 삭제](deployment-history-deletions.md)를 참조하세요.
 * 실행하기 전에 배포의 유효성을 검사하려면 [Azure Resource Manager 템플릿을 사용하여 리소스 그룹 배포](deploy-powershell.md)를 참조하세요.
-

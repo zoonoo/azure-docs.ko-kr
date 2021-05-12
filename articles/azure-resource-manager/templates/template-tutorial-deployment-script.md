@@ -11,12 +11,12 @@ ms.devlang: na
 ms.date: 12/16/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 36fb54b4b6521d87c7461936c84a644bf22f7e31
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ecd31f6f788331071abbbe67d5460494d54de8d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97963966"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753986"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>자습서: 배포 스크립트를 사용하여 자체 서명된 인증서 만들기
 
@@ -66,7 +66,7 @@ ARM 템플릿(Azure Resource Manager 템플릿)에서 배포 스크립트를 사
 2. **파일 이름** 에서 다음 URL을 붙여넣습니다.
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-key-vault-create/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.keyvault/key-vault-create/azuredeploy.json
     ```
 
 3. **열기** 를 선택하여 파일을 엽니다.

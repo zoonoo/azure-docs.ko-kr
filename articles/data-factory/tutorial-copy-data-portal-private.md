@@ -1,18 +1,18 @@
 ---
 title: 프라이빗 엔드포인트를 사용하여 Azure Data Factory 파이프라인 만들기
 description: 이 자습서에서는 Azure Portal을 사용하여 파이프라인이 있는 데이터 팩터리를 만드는 방법에 대한 단계별 지침을 제공합니다. 파이프라인은 복사 작업을 사용하여 Azure Blob 스토리지에서 Azure SQL 데이터베이스로 데이터를 복사합니다.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 04/14/2021
-ms.author: jingwang
-ms.openlocfilehash: 191ad61990e10fdb718eebf1a8f57d8edaadcf35
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.author: jianleishen
+ms.openlocfilehash: 555316ddf722e857914d5e99d7fadcd6539e1b8b
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515460"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109482582"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>프라이빗 엔드포인트를 사용하여 Azure Blob 스토리지에서 SQL 데이터베이스로 안전하게 데이터 복사
 

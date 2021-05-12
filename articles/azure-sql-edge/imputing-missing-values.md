@@ -1,6 +1,6 @@
 ---
-title: 시간 간격과 채우기 누락 값 채우기-Azure SQL Edge
-description: Azure SQL Edge에서 시간 간격을 채우고 누락 된 값을 채우기 하는 방법을 알아봅니다.
+title: 시간 간격을 채우고 누락된 값 귀속 - Azure SQL Edge
+description: Azure SQL Edge에서 시간 간격을 채우고 누락된 값을 귀속하는 방법 알아보기
 keywords: SQL Edge, 시계열
 services: sql-edge
 ms.service: sql-edge
@@ -10,19 +10,19 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: c444732a497d595235ac337d7f5c71fb84f17cca
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96185592"
 ---
-# <a name="filling-time-gaps-and-imputing-missing-values"></a>시간 간격과 채우기 누락 값 채우기 
+# <a name="filling-time-gaps-and-imputing-missing-values"></a>시간 간격을 채우고 누락된 값 귀속 
 
-시계열 데이터를 처리할 때 시계열 데이터에 특성에 대 한 누락 값이 있는 경우가 종종 있습니다. 데이터의 특성으로 인해 또는 데이터 수집 중단으로 인해 데이터 집합에 시간 *간격이* 있기 때문일 수도 있습니다.
+시계열 데이터를 처리할 때 시계열 데이터에 누락된 특성 값이 있을 수 있습니다. 또한 데이터의 특성이나 데이터 수집에서 중단이 발생하여 데이터 세트에 시간 *간격* 이 있을 수 있습니다.
 
-예를 들어 스마트 장치에 대 한 에너지 사용 통계를 수집 하는 경우 장치가 작동 하지 않을 때마다 사용 통계에 간격이 나타납니다. 마찬가지로, 컴퓨터 원격 분석 데이터 수집 시나리오에서는 서로 다른 빈도로 데이터를 내보내도록 여러 센서가 구성 되어 센서에 대해 누락 된 값이 생성 될 수 있습니다. 예를 들어 각각 100 Hz와 10-Hz 빈도로 구성 된 두 개의 센서, 전압 및 압력이 있는 경우 전압 센서는 1-1/100 초 마다 데이터를 내보내고 압력 센서는 1 초 간격으로 데이터를 내보냅니다.
+예를 들어 스마트 디바이스에 대한 에너지 사용 통계를 수집하는 경우 디바이스가 작동하지 않을 때마다 사용 통계에 간격이 나타납니다. 마찬가지로, 컴퓨터 원격 분석 데이터 수집 시나리오에서 여러 센서가 데이터를 다른 빈도로 내보내도록 구성된 경우 센서에 누락된 값이 생성될 수 있습니다. 예를 들어 전압과 압력이 각각 100Hz와 10Hz 빈도로 구성된 두 개의 센서가 있는 경우 전압 센서는 1/100초 마다 데이터를 내보내고 압력 센서는 1/10초 간격으로 데이터를 내보냅니다.
 
-다음 표에서는 1 초 간격으로 수집 된 컴퓨터 원격 분석 데이터 집합을 설명 합니다. 
+다음 표는 1초 간격으로 수집된 컴퓨터 원격 분석 데이터 세트를 나타냅니다. 
 
 ```
 timestamp               VoltageReading  PressureReading
@@ -41,19 +41,19 @@ timestamp               VoltageReading  PressureReading
 
 ```
 
-이전 데이터 집합의 두 가지 중요 한 특성이 있습니다. 
+앞의 데이터 세트에는 두 개의 중요한 특징이 있습니다. 
 
-- 데이터 집합에는,,, 등의 몇 가지 타임 스탬프와 관련 된 데이터 요소가 없습니다 `2020-09-07 06:14:47.000` `2020-09-07 06:14:48.000` `2020-09-07 06:14:50.000` `2020-09-07 06:14:53.000` `2020-09-07 06:14:55.000` . 이러한 타임 스탬프는 데이터 집합의 *간격* 입니다.  
-- `null`전압 및 압력 판독값에 대해로 표시 되는 누락 값이 있습니다. 
+- 데이터 세트에는 몇 개의 타임스탬프 `2020-09-07 06:14:47.000`, `2020-09-07 06:14:48.000`, `2020-09-07 06:14:50.000`, `2020-09-07 06:14:53.000`, `2020-09-07 06:14:55.000`에 대한 데이터 요소가 없습니다. 이러한 타임스탬프는 데이터 세트의 *간격* 입니다.  
+- 전압과 압력 값에 `null`로 나타나는 누락된 값이 있습니다. 
 
 ## <a name="gap-filling"></a>간격 채우기 
 
-격차 채우기는 시계열 데이터의 분석을 쉽게 수행할 수 있도록 연속적인 순서로 타임 스탬프 집합을 만드는 데 도움이 되는 기술입니다. Azure SQL Edge에서 시계열 데이터 집합의 간격을 채우는 가장 쉬운 방법은 원하는 시간 배포를 사용 하 여 임시 테이블을 정의한 다음 `LEFT OUTER JOIN` `RIGHT OUTER JOIN` 데이터 집합 테이블에서 또는 작업을 수행 하는 것입니다. 
+간격 채우기란 시계열 데이터의 분석을 쉽게 수행할 수 있도록 연속적으로 정렬된 타임 스탬프 집합을 만드는 데 도움이 되는 기술입니다. Azure SQL Edge에서 시계열 데이터 세트의 간격을 채우는 가장 쉬운 방법은 원하는 시간 배포를 사용하여 임시 테이블을 정의한 다음 데이터 세트 테이블에서 `LEFT OUTER JOIN` 또는 `RIGHT OUTER JOIN` 작업을 수행하는 것입니다. 
 
-`MachineTelemetry`위에 표시 된 데이터를 예로 들면 다음 쿼리를 사용 하 여 분석을 위해 연속적인 정렬 된 타임 스탬프 집합을 생성할 수 있습니다. 
+위에 표시된 `MachineTelemetry` 데이터를 예로 들면 다음 쿼리를 사용하여 분석을 위해 연속적으로 정렬된 타임 스탬프 집합을 생성할 수 있습니다. 
 
 > [!NOTE]
-> 다음 쿼리는 `null` 특성에 대 한 타임 스탬프 값과 값을 사용 하 여 누락 된 행을 생성 합니다. 
+> 아래의 쿼리를 사용하면 특성에 대한 타임스탬프 값과 `null` 값으로 누락된 행을 생성합니다. 
 
 ```sql
 Create Table #SeriesGenerate(dt datetime Primary key Clustered)
@@ -71,7 +71,7 @@ From
 #SeriesGenerate a LEFT OUTER JOIN MachineTelemetry b 
     on a.dt = b.[timestamp]
 ```
-위의 쿼리는 지정 된 범위의 모든 *1 초* 타임 스탬프를 포함 하는 다음과 같은 출력을 생성 합니다.
+위의 쿼리를 사용하면 지정된 범위의 모든 *1초* 타임스탬프를 포함하는 다음과 같은 출력을 생성합니다.
 
 결과 집합은 다음과 같습니다.
 
@@ -99,9 +99,9 @@ timestamp               VoltageReading    PressureReading
 
 ## <a name="imputing-missing-values"></a>누락 값 입력
 
-이전 쿼리에서는 데이터 분석을 위해 누락 된 타임 스탬프를 생성 했지만 및 판독값에 대해 누락 된 값 (null로 표시 됨)을 바꾸지 않았습니다 `voltage` `pressure` . Azure SQL Edge에서 T-sql 및 함수에 새 구문이 추가 되었습니다 .이는 `LAST_VALUE()` `FIRST_VALUE()` 데이터 집합의 앞의 값 또는 다음 값을 기준으로 누락 된 값을 돌립니다 하는 메커니즘을 제공 합니다. 
+앞의 쿼리를 사용하면 데이터 분석을 위한 누락된 타임스탬프가 생성되지만 `voltage` 및 `pressure` 값의 누락된 값(null로 표시됨)을 대체하지는 못합니다. Azure SQL Edge에서 T-SQL `LAST_VALUE()` 및 `FIRST_VALUE()` 기능에 대해 새로운 구문이 추가되었습니다. 이 구문은 데이터 세트 앞의 값이나 다음 값을 기준으로 누락된 값을 대체하는 메커니즘을 제공합니다. 
 
-새 구문은 및 `IGNORE NULLS` `RESPECT NULLS` 함수에 및 절을 추가 합니다 `LAST_VALUE()` `FIRST_VALUE()` . 데이터 집합에 대 한 다음 쿼리는 `MachineTelemetry` last_value 함수를 사용 하 여 누락 값을 계산 합니다. 여기서 누락 값은 데이터 집합에서 마지막으로 관찰 된 값으로 대체 됩니다.
+새로운 구문은 `LAST_VALUE()` 및 `FIRST_VALUE()` 함수에 `IGNORE NULLS` 및 `RESPECT NULLS` 절을 추가합니다. `MachineTelemetry` 데이터 세트의 다음 쿼리는 last_value 기능을 사용하여 누락된 값을 계산합니다. 이 기능을 사용하면 데이터 세트에서 마지막으로 관찰된 값을 바꿉니다.
 
 ```sql
 Select 
@@ -134,7 +134,7 @@ timestamp               OrigVoltageVals  ImputedVoltage OrigPressureVals  Impute
 
 ```
 
-다음 쿼리는 및 함수를 모두 사용 하 여 누락 된 값을 imputes 합니다 `LAST_VALUE()` `FIRST_VALUE` . 의 경우 출력 열에는 누락 된 값 `ImputedVoltage` 이 마지막으로 관찰 된 값으로 바뀌고 출력 열의 경우 `ImputedPressure` 누락 값이 데이터 집합에서 관찰 된 다음 값으로 대체 됩니다. 
+다음 쿼리를 사용하면 `LAST_VALUE()` 및 `FIRST_VALUE` 함수를 모두 사용하여 누락된 값을 대체합니다. 의 경우 출력 열 `ImputedVoltage`에서 누락된 값은 마지막으로 관찰된 값으로 바뀌고 출력 열 `ImputedPressure`의 경우 누락된 값은 데이터 세트에서 관찰된 다음 값으로 대체됩니다. 
 
 ```sql
 Select 
@@ -177,7 +177,7 @@ timestamp               OrigVoltageVals  ImputedVoltage  OrigPressureVals  Imput
 ```
 
 > [!NOTE]
-> 위의 쿼리는 함수를 사용 하 여 `FIRST_VALUE()` 누락 된 값을 관찰 된 다음 값으로 바꿉니다. 절에 함수를 사용 하 여 동일한 결과를 얻을 수 있습니다 `LAST_VALUE()` `ORDER BY <ordering_column> DESC` .
+> 위의 쿼리는 `FIRST_VALUE()` 함수를 사용하여 누락된 값을 다음 관찰된 값으로 바꿉니다. `ORDER BY <ordering_column> DESC` 절을 사용하는 `LAST_VALUE()` 기능을 사용해도 동일한 결과를 얻을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계 
 

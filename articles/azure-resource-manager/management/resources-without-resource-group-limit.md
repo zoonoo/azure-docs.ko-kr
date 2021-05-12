@@ -1,20 +1,20 @@
 ---
-title: 800 개수 제한이 없는 리소스
-description: 리소스 그룹에 800 개 이상의 인스턴스를 포함할 수 있는 Azure 리소스 종류를 나열 합니다.
+title: 800개 개수 제한이 없는 리소스
+description: 리소스 그룹에 800개가 넘는 인스턴스를 포함할 수 있는 Azure 리소스 종류를 나열합니다.
 ms.topic: conceptual
 ms.date: 01/08/2021
 ms.openlocfilehash: 6736118f0713a27a91618173e06423530e6f10cb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103563116"
 ---
-# <a name="resources-not-limited-to-800-instances-per-resource-group"></a>리소스 그룹당 800 인스턴스로 제한 되지 않는 리소스
+# <a name="resources-not-limited-to-800-instances-per-resource-group"></a>리소스 그룹당 인스턴스가 800개로 제한되지 않는 리소스
 
-기본적으로 각 리소스 그룹에 리소스 종류의 최대 800 개의 인스턴스를 배포할 수 있습니다. 그러나 일부 리소스 종류는 800 인스턴스 제한에서 제외 됩니다. 이 문서에서는 리소스 그룹에 800 개 이상의 인스턴스를 포함할 수 있는 Azure 리소스 종류를 나열 합니다. 다른 모든 리소스 유형은 800 인스턴스로 제한 됩니다.
+기본적으로 각 리소스 그룹에 리소스 종류의 인스턴스를 최대 800개까지 배포할 수 있습니다. 하지만 일부 리소스 종류는 800개 인스턴스 제한에서 제외됩니다. 이 문서에서는 리소스 그룹에 800개가 넘는 인스턴스를 포함할 수 있는 Azure 리소스 종류를 나열합니다. 다른 모든 리소스 종류는 인스턴스가 800개로 제한됩니다.
 
-일부 리소스 종류의 경우 지원 서비스에 문의 하 여 800 인스턴스 제한을 제거 해야 합니다. 이러한 리소스 종류는이 문서에 나와 있습니다.
+일부 리소스 종류의 경우 800개 인스턴스 제한을 제거하려면 고객 지원팀에 문의해야 합니다. 해당 리소스 종류는 이 문서에 나와 있습니다.
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -30,7 +30,7 @@ ms.locfileid: "103563116"
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
-* botServices-기본적으로 800 인스턴스로 제한 됩니다. 지원에 문의 하 여이 제한을 늘릴 수 있습니다.
+* botServices - 기본적으로 인스턴스가 800개로 제한됩니다. 고객 지원팀에 문의하여 한도를 늘릴 수 있습니다.
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -40,7 +40,7 @@ ms.locfileid: "103563116"
 * galleries/images/versions
 * images
 * 스냅샷
-* virtualMachineScaleSets-기본적으로 800 인스턴스로 제한 됩니다. 지원에 문의 하 여이 제한을 늘릴 수 있습니다.
+* virtualMachineScaleSets - 기본값으로 인스턴스가 800개로 제한됩니다. 고객 지원팀에 문의하여 한도를 늘릴 수 있습니다.
 * virtualMachines
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
@@ -50,15 +50,15 @@ ms.locfileid: "103563116"
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
 * registries/buildTasks
-* 레지스트리/buildTasks/listSourceRepositoryProperties
+* registries/buildTasks/listSourceRepositoryProperties
 * registries/buildTasks/steps
-* 레지스트리/buildTasks/단계/listBuildArguments
+* registries/buildTasks/steps/listBuildArguments
 * registries/eventGridFilters
 * registries/replications
 * registries/tasks
 * registries/webhooks
 
-## <a name="microsoftd365customerinsights"></a>D365CustomerInsights
+## <a name="microsoftd365customerinsights"></a>Microsoft.D365CustomerInsights
 
 * 인스턴스
 
@@ -98,16 +98,16 @@ ms.locfileid: "103563116"
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
 * autoManagedVmConfigurationProfiles
-* configurationprofil
+* configurationProfileAssignments
 * guestConfigurationAssignments
 * software
 * softwareUpdateProfile
-* 업데이트
+* softwareUpdates
 
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
-* 컴퓨터-최대 5000 인스턴스 지원
-* 확장-VM 확장 인스턴스를 무제한으로 지원 합니다.
+* 머신 - 최대 5,000개의 인스턴스 지원
+* 확장 - VM 확장 인스턴스를 무제한으로 지원
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 
@@ -126,9 +126,9 @@ ms.locfileid: "103563116"
 
 * netAppAccounts
 * netAppAccounts/capacityPools
-* netAppAccounts/capacityPools/볼륨
-* netAppAccounts/capacityPools/볼륨/mountTargets
-* netAppAccounts/capacityPools/볼륨/스냅숏
+* netAppAccounts/capacityPools/volumes
+* netAppAccounts/capacityPools/volumes/mountTargets
+* netAppAccounts/capacityPools/volumes/snapshots
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -160,11 +160,11 @@ ms.locfileid: "103563116"
 * privateDnsZones/SOA
 * privateDnsZones/SRV
 * privateDnsZones/TXT
-* privateDnsZones/모두
+* privateDnsZones/all
 * privateDnsZones/virtualNetworkLinks
 * privateEndpoints
 * privateLinkServices
-* publicIPAddresses-기본적으로 800 인스턴스로 제한 됩니다. 지원에 문의 하 여이 제한을 늘릴 수 있습니다.
+* publicIPAddresses - 기본적으로 인스턴스가 800개로 제한됩니다. 고객 지원팀에 문의하여 한도를 늘릴 수 있습니다.
 * serviceEndpointPolicies
 * trafficmanagerprofiles
 * virtualNetworkTaps
@@ -175,11 +175,11 @@ ms.locfileid: "103563116"
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
-* workspaceCollections-기본적으로 800 인스턴스로 제한 됩니다. 지원에 문의 하 여이 제한을 늘릴 수 있습니다.
+* workspaceCollections - 기본적으로 인스턴스가 800개로 제한됩니다. 고객 지원팀에 문의하여 한도를 늘릴 수 있습니다.
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
-* 용량-기본적으로 800 인스턴스로 제한 됩니다. 지원에 문의 하 여이 제한을 늘릴 수 있습니다.
+* 용량 - 기본적으로 인스턴스가 800개로 제한됩니다. 고객 지원팀에 문의하여 한도를 늘릴 수 있습니다.
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
@@ -193,13 +193,13 @@ ms.locfileid: "103563116"
 
 * 네임스페이스
 
-## <a name="microsoftsingularity"></a>특이성
+## <a name="microsoftsingularity"></a>Microsoft.Singularity
 
 * 계정
-* 계정/accountQuotaPolicies
-* 계정/그룹 정책
-* 계정/작업
-* 계정/storageContainers
+* accounts/accountQuotaPolicies
+* accounts/groupPolicies
+* accounts/jobs
+* accounts/storageContainers
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
@@ -216,4 +216,4 @@ ms.locfileid: "103563116"
 
 ## <a name="next-steps"></a>다음 단계
 
-할당량 및 제한의 전체 목록은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](azure-subscription-service-limits.md)을 참조 하세요.
+할당량 및 한도의 전체 목록은 [Azure 구독 및 서비스 한도, 할당량, 제약 조건](azure-subscription-service-limits.md)을 참조하세요.

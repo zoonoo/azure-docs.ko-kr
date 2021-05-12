@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 337275cef0f2159cb5fac40ac0435408baf3bbef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9fee7965e7834f0e05dba91f8652a0e155087b14
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96170925"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257877"
 ---
 # <a name="tutorial-for-configuring-theaccesshub-admin-tool-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 TheAccessHub 관리자 도구를 구성하기 위한 자습서
 
@@ -44,7 +44,7 @@ ms.locfileid: "96170925"
 
 - [선택] 마이그레이션하려는 고객 데이터의 모든 데이터베이스 또는 LDAP(Lightweight Directory Access protocol)를 위한 연결 및 자격 증명 정보.
 
-- [선택] 등록 정책 흐름에 TheAccessHub 관리자 도구를 통합하려는 경우 [사용자 지정 정책](./custom-policy-get-started.md)을 사용하기 위해 구성된 Azure AD B2C 환경.
+- [선택] 등록 정책 흐름에 TheAccessHub 관리자 도구를 통합하려는 경우 [사용자 지정 정책](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)을 사용하기 위해 구성된 Azure AD B2C 환경.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -358,7 +358,7 @@ Azure AD B2C에서 TheAccessHub 관리자 도구로 데이터를 동기화하는
 
 ## <a name="configure-azure-ad-b2c-policies"></a>Azure AD B2C 정책 구성
 
-TheAccessHub 관리자 도구의 동기화는 Azure AD B2C에 대한 최신 상태를 유지하는 기능에 있어서 제한적인 경우가 있습니다. TheAccessHub 관리자 도구의 API 및 Azure AD B2C 정책을 활용하면 변경 사항이 있을 때마다 TheAccessHub 관리자 도구에 이를 알릴 수 있습니다. 이 솔루션에는 [Azure AD B2C 사용자 지정 정책](./custom-policy-get-started.md)에 대한 기술 지식이 필요합니다. 다음 섹션에서는 등록 사용자 지정 정책에서 TheAccessHub 관리자 도구에 새 계정을 알리는 정책 단계 및 보안 인증서의 예를 제공합니다.
+TheAccessHub 관리자 도구의 동기화는 Azure AD B2C에 대한 최신 상태를 유지하는 기능에 있어서 제한적인 경우가 있습니다. TheAccessHub 관리자 도구의 API 및 Azure AD B2C 정책을 활용하면 변경 사항이 있을 때마다 TheAccessHub 관리자 도구에 이를 알릴 수 있습니다. 이 솔루션에는 [Azure AD B2C 사용자 지정 정책](./user-flow-overview.md)에 대한 기술 지식이 필요합니다. 다음 섹션에서는 등록 사용자 지정 정책에서 TheAccessHub 관리자 도구에 새 계정을 알리는 정책 단계 및 보안 인증서의 예를 제공합니다.
 
 ### <a name="create-a-secure-credential-to-invoke-theaccesshub-admin-tools-api"></a>TheAccessHub 관리자 도구의 API를 호출하는 보안 자격 증명 만들기
 
@@ -386,7 +386,7 @@ TheAccessHub 관리자 도구의 동기화는 Azure AD B2C에 대한 최신 상�
 
 5. **다운로드** 를 선택하여 고객이 등록할 때 TheAccessHub 관리자 도구에 고객을 추가하는 기본 정책으로 zip 파일을 가져옵니다.
 
-6. 이 [자습서](./custom-policy-get-started.md)에 따라 Azure AD B2C에서 사용자 지정 정책 디자인을 시작합니다.
+6. 이 [자습서](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)에 따라 Azure AD B2C에서 사용자 지정 정책 디자인을 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -394,4 +394,4 @@ TheAccessHub 관리자 도구의 동기화는 Azure AD B2C에 대한 최신 상�
 
 - [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C의 사용자 지정 정책 시작하기](./custom-policy-get-started.md?tabs=applications)
+- [Azure AD B2C의 사용자 지정 정책 시작하기](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

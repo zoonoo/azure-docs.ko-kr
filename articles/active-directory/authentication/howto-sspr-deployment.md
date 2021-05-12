@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 55fc4c0b5f3e2bbf57c972ad4a7fd2c9bdd3810e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104579198"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Azure Active Directory 셀프 서비스 암호 재설정 배포 계획
@@ -23,7 +23,7 @@ ms.locfileid: "104579198"
 > [!IMPORTANT]
 > 이 배포 계획은 Azure AD SSPR(셀프 서비스 암호 재설정)을 배포하기 위한 지침 및 모범 사례를 제공합니다.
 >
-> **최종 사용자 인 경우 계정으로 다시 전환 해야 하는 경우으로 [https://aka.ms/sspr](https://aka.ms/sspr) 이동** 합니다.
+> **사용자가 최종 사용자이며 계정으로 다시 돌아가야 하는 경우 [https://aka.ms/sspr](https://aka.ms/sspr)** 로 이동합니다.
 
 [SSPR(셀프 서비스 암호 재설정)](https://www.youtube.com/watch?v=pS3XwfxJrMo)은 사용자가 IT 직원에게 문의하여 도움을 요청하지 않고도 자신의 암호를 재설정할 수 있는 Azure AD(Active Directory) 기능입니다. 사용자는 직접 언제 어디서든 빠르게 차단을 해제하고 작업을 계속 수행할 수 있습니다. 직원이 직접 차단 해제하도록 허용하면 조직은 가장 일반적인 암호 관련 문제에 소모되는 비생산적인 시간과 높은 지원 비용을 줄일 수 있습니다.
 
@@ -78,7 +78,7 @@ Azure Active Directory는 사용자별로 사용이 허가 됩니다. 즉, 각 �
 | 동영상| [더 나은 IT 확장성으로 사용자 역량 강화](https://youtu.be/g9RpRnylxS8) 
 | |[셀프 서비스 암호 재설정이란?](https://youtu.be/hc97Yx5PJiM)|
 | |[셀프 서비스 암호 재설정 배포](https://www.youtube.com/watch?v=Pa0eyqjEjvQ&index=18&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0)|
-| |[Azure AD에서 SSPR을 사용 하도록 설정 하 고 구성 하는 방법](https://www.youtube.com/watch?v=rA8TvhNcCvQ)|
+| |[Azure AD에서 SSPR을 사용하도록 설정하고 구성하는 방법](https://www.youtube.com/watch?v=rA8TvhNcCvQ)|
 | |[Azure AD에서 사용자에 대해 셀프 서비스 암호 재설정을 구성하는 방법](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/) |
 | |[Azure Active Directory에 대한 보안 정보를 등록하는[등록하도록 사용자가 준비하는] 방법](https://youtu.be/gXuh0XS18wA) |
 | 온라인 과정|[Microsoft Azure Active Directory에서 ID 관리](https://www.pluralsight.com/courses/microsoft-azure-active-directory-managing-identities) SSPR을 사용하여 사용자에게 안전한 최신 환경을 제공할 수 있습니다. 특히 "[Azure Active Directory 사용자 및 그룹 관리](https://app.pluralsight.com/library/courses/microsoft-azure-active-directory-managing-identities/table-of-contents)" 모듈을 참조하세요. |
@@ -116,7 +116,7 @@ SSPR을 배포하기 전에 각 암호 재설정 호출의 수와 평균 비용�
 
 Microsoft는 조직이 SSPR 및 다단계 인증을 위한 결합된 등록 환경을 사용하는 것을 권장합니다. 이러한 결합된 등록 환경을 사용하는 경우 사용자는 두 기능을 모두 사용하려면 등록 정보를 한 번만 선택하면 합니다.
 
-결합 된 등록 환경에서는 조직에서 SSPR 및 Azure AD Multi-Factor Authentication를 모두 사용 하도록 설정할 필요가 없습니다. 결합된 등록은 조직에 더 나은 사용자 환경을 제공합니다. 자세한 내용은 [결합된 보안 정보 등록](concept-registration-mfa-sspr-combined.md)을 참조하세요.
+결합된 등록 환경에서는 SSPR 및 Azure AD Multi-Factor Authentication을 모두 사용하도록 설정할 필요가 없습니다. 결합된 등록은 조직에 더 나은 사용자 환경을 제공합니다. 자세한 내용은 [결합된 보안 정보 등록](concept-registration-mfa-sspr-combined.md)을 참조하세요.
 
 ## <a name="plan-the-deployment-project"></a>배포 프로젝트 계획
 
@@ -322,7 +322,7 @@ Azure Portal에서 미리 빌드된 보고서를 사용하여 SSPR 성능을 측
 
 ### <a name="authentication-methods--usage-and-insights"></a>인증 방법 - 사용량 및 인사이트
 
-[사용량 및 통찰력](./howto-authentication-methods-activity.md) 을 통해 AZURE AD MFA 및 SSPR와 같은 기능의 인증 방법이 조직에서 작동 하는 방식을 이해할 수 있습니다. 이 보고 기능은 등록 방법 및 사용 방법을 이해할 수 있는 수단을 조직에 제공합니다.
+[사용량 및 인사이트](./howto-authentication-methods-activity.md)를 사용하여 Azure AD MFA 및 SSPR 같은 기능의 인증 방법이 조직에서 작동되는 방식을 이해할 수 있습니다. 이 보고 기능은 등록 방법 및 사용 방법을 이해할 수 있는 수단을 조직에 제공합니다.
 
 ### <a name="troubleshoot"></a>문제 해결
 
@@ -340,7 +340,7 @@ Azure Portal에서 미리 빌드된 보고서를 사용하여 SSPR 성능을 측
 
 * [Azure Active Directory에서 암호 정책 및 제한](./concept-sspr-policy.md) 문서를 검토하세요.
 
-* [비밀 번호 쓰기 저장 이란?](./concept-sspr-writeback.md)
+* [비밀번호 쓰기 저장이란?](./concept-sspr-writeback.md)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,7 +1,7 @@
 ---
-title: AutoML을 사용 하 여 배포 & 모델 만들기
+title: AutoML을 사용하여 모델 만들기 및 배포
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning studio를 사용 하 여 자동화 된 기계 학습 모델을 만들고 검토 하 고 배포 합니다.
+description: Azure Machine Learning 스튜디오를 사용하여 자동화된 Machine Learning 모델을 만들고, 검토하고, 배포합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,16 +12,16 @@ ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
 ms.openlocfilehash: 2e06375441d6540d6630cfe9d4d8c3beec558879
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103562725"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 자동화된 Machine Learning 모델 만들기, 검토 및 배포
 
 
-이 문서에서는 Azure Machine Learning studio에서 코드를 한 줄 사용 하지 않고 자동화 된 기계 학습 모델을 만들고 탐색 하 고 배포 하는 방법에 대해 알아봅니다.
+이 문서에서는 Azure Machine Learning 스튜디오에서 코드를 한 줄도 쓰지 않고 자동화된 Machine Learning 모델을 만들고, 검색하고, 배포하는 방법에 대해 알아봅니다.
 
 자동화된 Machine Learning은 특정 데이터에 사용할 가장 적합한 기계 학습 알고리즘을 선택하는 프로세스입니다. 이 프로세스를 통해 기계 학습 모델을 빠르게 생성할 수 있습니다. [자동화된 Machine Learning에 대해 자세히 알아보세요](concept-automated-ml.md).
  
@@ -53,22 +53,22 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
 1. **+ 새 자동화된 ML 실행** 을 선택하고 양식을 채웁니다.
 
-1. 스토리지 컨테이너에서 데이터 세트를 선택하거나 새 데이터 세트를 만듭니다. 데이터 세트는 로컬 파일, 웹 URL, 데이터 저장소 또는 Azure 오픈 데이터 세트에서 만들 수 있습니다. [데이터 집합 생성](how-to-create-register-datasets.md)에 대해 자세히 알아보세요.  
+1. 스토리지 컨테이너에서 데이터 세트를 선택하거나 새 데이터 세트를 만듭니다. 데이터 세트는 로컬 파일, 웹 URL, 데이터 저장소 또는 Azure 오픈 데이터 세트에서 만들 수 있습니다. [데이터 세트 생성](how-to-create-register-datasets.md)에 대해 자세히 알아보세요.  
 
     >[!Important]
     > 학습 데이터 요구 사항:
     >* 데이터는 테이블 형식이어야 합니다.
     >* 예측하려는 값(대상 열)이 데이터에 있어야 합니다.
 
-    1. 로컬 컴퓨터의 파일에서 새 데이터 집합을 만들려면 **+ 데이터 집합 만들기** 를 선택 하 고 **로컬 파일에서를** 선택 합니다. 
+    1. 로컬 컴퓨터의 파일에서 새 데이터 세트를 만들려면 **+데이터 세트 생성** 을 선택한 다음 **로컬 파일에서** 를 선택합니다. 
 
-    1. **기본 정보** 양식에서 데이터 집합에 고유한 이름을 지정 하 고 설명 (선택 사항)을 제공 합니다. 
+    1. **기본 정보** 양식에서 데이터 세트에 고유한 이름을 지정하고 선택적 설명을 입력합니다. 
 
     1. **다음** 을 선택하여 **데이터 저장소 및 파일 선택 양식** 을 엽니다. 이 양식에서 데이터 세트를 업로드할 위치 또는 작업 영역에서 자동으로 만들어지는 기본 스토리지 컨테이너를 선택하거나 실험에 사용하려는 스토리지 컨테이너를 선택합니다. 
     
-        1. 데이터가 가상 네트워크 뒤에 있는 경우 **유효성 검사 함수 건너뛰기** 를 사용 하도록 설정 하 여 작업 영역에서 데이터에 액세스할 수 있도록 해야 합니다. 자세한 내용은 [Azure 가상 네트워크에서 Azure Machine Learning Studio 사용](how-to-enable-studio-virtual-network.md)을 참조 하세요. 
+        1. 데이터가 가상 네트워크 뒤에 있는 경우 **유효성 검사 건너뛰기** 기능을 사용하도록 설정하여 작업 영역이 데이터에 액세스할 수 있도록 해야 합니다. 자세한 내용은 [Azure 가상 네트워크에서 Azure Machine Learning 스튜디오 사용](how-to-enable-studio-virtual-network.md)을 참조하세요. 
     
-    1. **찾아보기** 를 선택 하 여 데이터 집합에 대 한 데이터 파일을 업로드 합니다. 
+    1. 데이터 세트에 대한 데이터 파일을 업로드하려면 **찾아보기** 를 선택합니다. 
 
     1. **설정 및 미리 보기** 양식을 검토하여 정확히 지정했는지 확인합니다. 양식은 파일 형식에 따라 지능적으로 채워집니다. 
 
@@ -91,7 +91,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
         **다음** 을 선택합니다.
 1. 새로 만든 데이터 세트가 표시되면 선택합니다. 또한 데이터 세트 및 샘플 통계 미리 보기도 볼 수 있습니다. 
 
-1. **실행 구성** 양식에서 **새로 만들기** 를 선택 하 고 실험 이름에 **자습서-automl-deploy** 를 입력 합니다.
+1. **실행 구성** 양식에서 **새로 만들기** 를 선택하고 실험 이름에 **Tutorial-automl-deploy** 를 입력합니다.
 
 1. 대상 열을 선택합니다. 이 열은 예측을 수행하려는 열입니다.
 
@@ -102,11 +102,11 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
     필드|Description
     ---|---
     컴퓨팅 이름| 컴퓨팅 컨텍스트를 식별하는 고유한 이름을 입력합니다.
-    가상 컴퓨터 우선 순위| 낮은 우선 순위의 가상 머신은 저렴 하지만 계산 노드를 보장 하지 않습니다. 
-    가상 머신 유형| 가상 컴퓨터 유형에 대해 CPU 또는 GPU를 선택 합니다.
+    가상 머신 우선 순위| 우선 순위가 낮은 가상 머신은 더 저렴하지만 컴퓨팅 노드를 보장하지는 않습니다. 
+    가상 머신 유형| 가상 머신 형식에 대해 CPU 또는 GPU를 선택합니다.
     가상 머신 크기| 컴퓨팅에 사용할 가상 머신 크기를 선택합니다.
     최소 / 최대 노드| 데이터를 프로파일링하려면 하나 이상의 노드를 지정해야 합니다. 컴퓨팅에 사용할 최대 노드 수를 입력합니다. AML 컴퓨팅의 경우 기본값은 6개 노드입니다.
-    고급 설정 | 이러한 설정을 사용 하 여 실험에 사용할 사용자 계정 및 기존 가상 네트워크를 구성할 수 있습니다. 
+    고급 설정 | 해당 설정을 사용하면 실험에 사용할 사용자 계정과 기존 가상 네트워크를 구성할 수 있습니다. 
     
     **만들기** 를 선택합니다. 새 컴퓨팅을 만드는 데 몇 분 정도 걸릴 수 있습니다.
 
@@ -115,56 +115,56 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
     **다음** 을 선택합니다.
 
-1. **작업 유형 및 설정** 양식에서 작업 유형(분류, 회귀 또는 예측)을 선택합니다. 자세한 내용은 [지원 되는 작업 형식](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) 을 참조 하세요.
+1. **작업 유형 및 설정** 양식에서 작업 유형(분류, 회귀 또는 예측)을 선택합니다. 자세한 내용은 [지원되는 작업 형식](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast)을 참조하세요.
 
-    1. **분류** 의 경우 심층 학습을 사용 하도록 설정할 수도 있습니다.
+    1. **분류** 의 경우 딥 러닝을 사용할 수도 있습니다.
     
-        심층 학습을 사용 하는 경우 유효성 검사는 _train_validation 분할_ 으로 제한 됩니다. [유효성 검사 옵션에 대해 자세히 알아보세요](how-to-configure-cross-validation-data-splits.md).
+        딥 러닝을 사용하면 유효성 검사가 _train_validation split_ 으로 제한됩니다. [유효성 검사 옵션](how-to-configure-cross-validation-data-splits.md)에 대해 자세히 알아보세요.
 
 
-    1. **예측** 을 위해 다음을 수행할 수 있습니다. 
+    1. **예측** 의 경우 다음을 수행할 수 있습니다. 
     
-        1. 심층 학습을 사용 합니다.
+        1. 딥 러닝 사용.
     
-        1. *시간 열* 선택:이 열은 사용할 시간 데이터를 포함 합니다.
+        1. ‘시간 열’ 선택: 이 열에는 사용될 시간 데이터가 포함됩니다.
 
-        1. *예측* 간격 선택: 모델에서 미래를 예측할 수 있는 시간 단위 (분/시간/일/주/월/년) 수를 표시 합니다. 나중에 예측하는 데 더 많은 모델이 필요할수록 정확도가 떨어집니다. [예측 및 예측 구간에 대해 자세히 알아보세요](how-to-auto-train-forecast.md).
+        1. ‘예측 구간’ 선택: 모델이 얼마나 많은 미래의 시간 단위(분/시간/일/주/월/년)를 예측할 수 있는지 표시합니다. 나중에 예측하는 데 더 많은 모델이 필요할수록 정확도가 떨어집니다. [예측 및 예측 구간에 대해 자세히 알아보세요](how-to-auto-train-forecast.md).
 
 1. (선택 사항) 추가 구성 설정 보기: 학습 작업을 더 효율적으로 제어하는 데 사용할 수 있는 추가 설정입니다. 그렇지 않으면 실험 선택 및 데이터를 기반으로 기본값이 적용됩니다. 
 
     추가 구성|Description
     ------|------
     기본 메트릭| 모델의 점수를 매기는 데 사용되는 기본 메트릭입니다. [모델 메트릭에 대해 자세히 알아보세요](how-to-configure-auto-train.md#primary-metric).
-    최상의 모델에 대한 설명 | 권장 되는 최상의 모델에 대 한 설명을 표시 하려면 선택 합니다. <br> 이 기능은 현재 [특정 예측 알고리즘](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model)에 사용할 수 없습니다. 
-    차단된 알고리즘| 학습 작업에서 제외하려는 알고리즘을 선택합니다. <br><br> 알고리즘을 허용 하는 것은 [SDK 실험](how-to-configure-auto-train.md#supported-models)에만 사용할 수 있습니다. <br> [각 작업 형식에 대해 지원 되는 모델](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels)을 참조 하세요.
+    최상의 모델에 대한 설명 | 권장되는 최상의 모델에 대한 설명을 표시하려면 사용 또는 사용하지 않음을 선택합니다. <br> 이 기능은 현재 [특정 예측 알고리즘](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model)에서 사용할 수 없습니다. 
+    차단된 알고리즘| 학습 작업에서 제외하려는 알고리즘을 선택합니다. <br><br> 알고리즘 허용은 [SDK 실험](how-to-configure-auto-train.md#supported-models)을 위해서만 가능합니다. <br> [각 작업 형식에 지원되는 모델](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels)을 참조하세요.
     종료 조건| 다음 조건 중 하나가 충족되면 학습 작업이 중지됩니다. <br> *학습 작업 시간(시간)* : 학습 작업을 실행할 수 있는 기간입니다. <br> *메트릭 점수 임계값*:  모든 파이프라인에 대한 최소 메트릭 점수입니다. 이렇게 하면 도달하려는 목표 메트릭이 정의되어 있는 경우 학습 작업에 필요한 시간보다 더 많은 시간을 소비하지 않습니다.
-    유효성 검사| 학습 작업에 사용할 교차 유효성 검사 옵션 중 하나를 선택합니다. <br> [교차 유효성 검사에 대해 자세히 알아보세요](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>예측은 k 접기 교차 유효성 검사만 지원 합니다.
-    동시성| *최대 동시 반복 횟수*: 학습 작업에서 테스트할 최대 파이프라인(반복) 수입니다. 작업이 지정된 반복 횟수를 초과하여 실행되지 않습니다. 자동화 된 ML이 [클러스터에서 여러 자식 실행을](how-to-configure-auto-train.md#multiple-child-runs-on-clusters)수행 하는 방법에 대해 자세히 알아보세요.
+    유효성 검사| 학습 작업에 사용할 교차 유효성 검사 옵션 중 하나를 선택합니다. <br> [교차 유효성 검사에 대해 자세히 알아보세요](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>예측은 k겹 교차 유효성 검사만 지원합니다.
+    동시성| *최대 동시 반복 횟수*: 학습 작업에서 테스트할 최대 파이프라인(반복) 수입니다. 작업이 지정된 반복 횟수를 초과하여 실행되지 않습니다. 자동화된 ML이 [클러스터에서 여러 자식 요소 실행](how-to-configure-auto-train.md#multiple-child-runs-on-clusters)을 수행하는 방법을 자세히 알아보세요.
 
-1. 필드 기능화 설정 보기: **추가 구성 설정** 양식에서 **자동 기능화** 를 사용 하도록 선택 하는 경우 기본 기능화 기술이 적용 됩니다. **기능화 설정 보기** 에서 이러한 기본값을 변경 하 고 적절 하 게 사용자 지정할 수 있습니다. [Featurizations를 사용자 지정](#customize-featurization)하는 방법을 알아봅니다. 
+1. (선택사항) 기능화 설정 보기: **추가 구성 설정** 양식에서 **자동 기능화** 를 사용하도록 선택하면 기본 기능화 기술이 적용됩니다. **기능화 설정 보기** 에서 기본값을 변경하고 적절하게 사용자 지정할 수 있습니다. [기능화를 사용자 지정](#customize-featurization)하는 방법을 알아보세요. 
 
-    ![스크린샷 기능화 설정이 포함 된 작업 유형 선택 대화 상자를 표시 합니다.](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
+    ![기능화 설정이 호출되어 있는 작업 형식 대화 상자 선택을 보여 주는 스크린샷.](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
 ## <a name="customize-featurization"></a>기능화 사용자 지정
 
-**기능화** 폼에서 자동 기능화를 사용 하거나 사용 하지 않도록 설정 하 고 실험에 대 한 자동 기능화 설정을 사용자 지정할 수 있습니다. 이 양식을 열려면 [실험 만들기 및 실행](#create-and-run-experiment) 섹션의 10 단계를 참조 하세요. 
+**기능화** 양식에서 자동 기능화를 사용/사용하지 않을 수 있으며, 실험에 대한 자동 기능화 설정을 사용자 지정할 수 있습니다. 이 양식을 열려면 [실험 만들기 및 실행](#create-and-run-experiment) 섹션에 나와 있는 10단계를 참조하세요. 
 
-다음 표에서는 현재 스튜디오를 통해 사용할 수 있는 사용자 지정 항목을 요약 합니다. 
+다음 테이블은 현재 스튜디오를 통해 사용할 수 있는 사용자 지정을 요약해 보여 줍니다. 
 
 열| 사용자 지정
 ---|---
-Included | 학습에 포함할 열을 지정 합니다.
-기능 유형| 선택한 열에 대 한 값 유형을 변경 합니다.
-돌립니다| 데이터에서 누락 된 값을 돌립니다 값을 선택 합니다.
+Included | 학습에 포함할 열을 지정합니다.
+기능 유형| 선택된 열에 대한 값 형식을 변경합니다.
+다음으로 대체| 데이터에서 누락된 값을 어떤 값으로 대체할지 선택합니다.
 
-![Azure Machine Learning studio 사용자 지정 기능화](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
+![Azure Machine Learning 스튜디오 사용자 지정 기능화](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
 
 ## <a name="run-experiment-and-view-results"></a>실험 실행 및 결과 보기
 
 **마침** 을 선택하여 실험을 실행합니다. 실험 준비 프로세스는 최대 10분 정도 걸릴 수 있습니다. 각 파이프라인에서 실행을 완료하는 데 학습 작업에 2-3분 더 걸릴 수 있습니다.
 
 > [!NOTE]
-> 자동화 된 ML의 알고리즘에는 정확도와 같은 권장 모델의 최종 메트릭 점수에 약간의 변형이 발생할 수 있는 내재 된 무작위성이 있습니다. 또한 자동화 된 ML은 필요한 경우 학습-테스트 분할, 학습-유효성 검사 분할 또는 교차 유효성 검사와 같은 데이터에 대 한 작업을 수행 합니다. 따라서 동일한 구성 설정 및 기본 메트릭을 사용 하 여 실험을 여러 번 실행 하는 경우 이러한 요인으로 인해 각 실험 최종 메트릭 점수에 변형이 표시 될 수 있습니다. 
+> 자동화된 ML이 채택하는 알고리즘에는 내재된 무작위성이 있어서 권장된 모델의 최종 메트릭 점수(예: 정확도)에 약간의 변동을 일으킬 수 있습니다. 또한 자동화된 ML은 필요한 경우 학습-테스트 분할, 학습-유효성 검사 분할 또는 교차 유효성 검사와 같은 데이터에 대한 작업을 수행합니다. 따라서 동일한 구성 설정과 기본 메트릭을 사용하여 여러 번 실험을 실행한 경우, 해당 요인으로 인해 각 실험의 최종 메트릭 점수에 변동이 있을 가능성이 높습니다. 
 
 ### <a name="view-experiment-details"></a>실험 세부 정보 보기
 
@@ -176,22 +176,22 @@ Included | 학습에 포함할 열을 지정 합니다.
 
 ### <a name="view-training-run-details"></a>학습 실행 세부 정보 보기
 
-**모델** 탭의 모델 요약 또는 **메트릭** 탭의 성능 메트릭 차트와 같은 학습 실행 세부 정보를 보려면 완성 된 모델을 드릴 다운 합니다. [차트에](how-to-understand-automated-ml.md)대해 자세히 알아보세요.
+완료된 모델을 드릴다운하여 **모델** 탭의 모델 요약 또는 **메트릭** 탭의 성능 메트릭 차트와 같은 학습 실행 세부 정보를 확인합니다. [차트에 대해 자세히 알아보세요](how-to-understand-automated-ml.md).
 
 [![반복 세부 정보](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
 ## <a name="model-explanations"></a>모델 설명
 
-모델에 대해 더 잘 이해 하려면 모델 설명 대시보드를 사용 하 여 모델의 예측에 영향을 받는 데이터 기능 (raw 또는 엔지니어링)을 참조 하세요. 
+모델을 더 잘 이해하려면 모델 설명 대시보드를 사용하여 모델의 예측에 영향을 주는 데이터 기능(원시 또는 엔지니어링)을 참조하세요. 
 
-모델 설명 대시보드는 예측 및 설명과 함께 학습 된 모델에 대 한 전체 분석을 제공 합니다. 또한 개별 데이터 요소와 개별 기능 importances를 자세히 살펴볼 수 있습니다. [설명 대시보드 시각화 및 특정 플롯에 대해 자세히 알아보세요](how-to-machine-learning-interpretability-aml.md#visualizations).
+모델 설명 대시보드는 예측 및 설명과 함께 학습된 모델의 전체적인 분석을 제공합니다. 또한 개별 데이터 포인트와 개별 기능 중요도를 자세히 살펴볼 수 있습니다. [설명 대시보드 시각화 및 특정 플롯에 대해 자세히 알아보세요](how-to-machine-learning-interpretability-aml.md#visualizations).
 
-특정 모델에 대 한 설명을 얻으려면 
+특정 모델에 대한 설명을 보려면 다음을 수행합니다. 
 
-1. **모델** 탭에서 사용 하려는 모델을 선택 합니다. 
-1. **모델 설명** 단추를 선택 하 고 설명을 생성 하는 데 사용할 수 있는 계산을 제공 합니다.
-1. **자식 실행** 탭에서 상태를 확인 합니다. 
-1. 완료 되 면 설명 대시보드가 포함 된 설명 **(미리 보기)** 탭으로 이동 합니다. 
+1. **모델** 탭에서 사용하려는 모델을 선택합니다. 
+1. **모델 설명** 단추를 선택하고 설명을 생성하는 데 사용할 수 있는 컴퓨팅을 제공합니다.
+1. **자식 실행** 탭에서 상태를 확인합니다. 
+1. 완료되면 설명 대시보드가 포함된 **설명(미리 보기)** 탭으로 이동합니다. 
 
     ![모델 설명 대시보드](media/how-to-use-automated-ml-for-ml-models/model-explanation-dashboard.png)
 
@@ -200,22 +200,22 @@ Included | 학습에 포함할 열을 지정 합니다.
 최상의 모델이 있으면 이제 새 데이터를 예측하기 위해 이 모델을 웹 서비스로 배포합니다.
 
 >[!TIP]
-> Python SDK를 사용 하 여 패키지를 통해 생성 된 모델을 배포 하려면 `automl` 작업 영역에 [모델을 등록](how-to-deploy-and-where.md?tabs=python#register-a-model-from-an-azure-ml-training-run-1) 해야 합니다. 
+> Python SDK를 사용한 `automl` 패키지를 통해 생성된 모델을 배포하려면 작업 영역에 [모델을 등록](how-to-deploy-and-where.md?tabs=python#register-a-model-from-an-azure-ml-training-run-1)해야 합니다. 
 >
-> 모델을 등록 한 후에는 왼쪽 창에서 **모델** 을 선택 하 여 스튜디오에서 찾을 수 있습니다. 모델을 연 후 화면 위쪽에서 **배포** 단추를 선택 하 고 **모델 배포** 섹션의 **2 단계** 에 설명 된 지침을 따를 수 있습니다.
+> 모델을 등록한 후에는 왼쪽 창에서 **모델** 을 선택하여 스튜디오에서 찾을 수 있습니다. 모델을 열면 화면 맨 위에 있는 **배포** 단추를 선택하고 **모델 배포** 섹션의 **2 단계** 에 설명된 지침을 따를 수 있습니다.
 
 자동화된 ML을 사용하면 코드를 작성하지 않고도 모델을 배포할 수 있습니다.
 
 1. 두 가지 배포 옵션은 다음과 같습니다. 
 
-    + 옵션 1: 정의한 메트릭 조건에 따라 최상의 모델을 배포 합니다. 
-        1. 실험이 완료 되 면 화면 맨 위에서 **실행 1** 을 선택 하 여 부모 실행 페이지로 이동 합니다. 
-        1.  **최적 모델 요약** 섹션에 나열 된 모델을 선택 합니다. 
-        1. 창의 왼쪽 위에서 **배포** 를 선택 합니다. 
+    + 옵션 1: 정의한 메트릭 조건에 따라 최상의 모델을 배포합니다. 
+        1. 실험이 완료되면 화면 맨 위에서 **실행 1** 을 선택하여 부모 실행 페이지로 이동합니다. 
+        1.  **최상의 모델 요약** 섹션에 나열된 모델을 선택합니다. 
+        1. 창의 왼쪽 위에서 **배포** 를 선택합니다. 
 
-    + 옵션 2:이 실험에서 특정 모델 반복을 배포 합니다.
+    + 옵션 2: 이 실험에서 특정 모델을 반복해 배포하려면 다음을 수행합니다.
         1. **모델** 탭에서 원하는 모델을 선택합니다.
-        1. 창의 왼쪽 위에서 **배포** 를 선택 합니다.
+        1. 창의 왼쪽 위에서 **배포** 를 선택합니다.
 
 1. **모델 배포** 창을 채웁니다.
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Synapse Analytics에 데이터 로드
 description: Azure Data Factory를 사용하여 Azure Synapse Analytics로 데이터 복사
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/29/2020
-ms.openlocfilehash: 0ebbbcd7430a86ee431f67f7b6174b45d60056e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a83a80ab8be8081e058436115eed82e6f5e7ce6
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593716"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109485570"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Synapse Analytics로 데이터 로드
 

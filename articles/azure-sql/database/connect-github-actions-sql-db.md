@@ -6,14 +6,14 @@ services: sql-database
 ms.service: sql-database
 ms.topic: quickstart
 ms.author: jukullam
-ms.date: 10/12/2020
+ms.date: 05/05/2021
 ms.custom: github-actions-azure
-ms.openlocfilehash: ceb9f0f9ef2a88532d5af16a03fcfd0282da84f8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 483763c9d29cc736608dac7907b8f3fa0aa84bac
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107787290"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753806"
 ---
 # <a name="use-github-actions-to-connect-to-azure-sql-database"></a>GitHub Actions를 사용하여 Azure SQL Database에 연결
 
@@ -143,7 +143,7 @@ Azure Portal에서 Azure SQL Database로 이동하여 **설정** > **연결 문�
       with:
         server-name: SQL_SERVER_NAME
         connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
-        sql-file: './Database.dacpac'
+        dacpac-package: './Database.dacpac'
     ``` 
 
 1. Azure에서 로그아웃하는 작업을 추가하여 워크플로를 완성합니다. 완성된 워크플로는 다음과 같습니다. 파일이 리포지토리의 `.github/workflows` 폴더에 표시됩니다.
@@ -171,7 +171,7 @@ Azure Portal에서 Azure SQL Database로 이동하여 **설정** > **연결 문�
       with:
         server-name: SQL_SERVER_NAME
         connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
-        sql-file: './Database.dacpac'
+        dacpac-package: './Database.dacpac'
 
         # Azure logout 
     - name: logout

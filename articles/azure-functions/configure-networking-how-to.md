@@ -4,12 +4,12 @@ description: Azure Functions에 대해 특정 가상 네트워킹 작업을 수�
 ms.topic: conceptual
 ms.date: 3/13/2021
 ms.custom: template-how-to
-ms.openlocfilehash: a28a59a0de40bba7914d1920b42034fbbc223ddc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c123b20e163731f9a872a969f2f1564479b6e308
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104609538"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718434"
 ---
 # <a name="how-to-configure-azure-functions-with-a-virtual-network"></a>가상 네트워크를 사용하여 Azure Functions를 구성하는 방법
 
@@ -30,7 +30,7 @@ ms.locfileid: "104609538"
 
 1. 다른 스토리지 계정을 만들거나 구성합니다.  이 계정은 서비스 엔드포인트로 보호되고 함수에 연결되는 스토리지 계정입니다.
 
-1. 보안 스토리지 계정에 [파일 공유를 만듭니다](../storage/files/storage-how-to-create-file-share.md#create-file-share).
+1. 보안 스토리지 계정에 [파일 공유를 만듭니다](../storage/files/storage-how-to-create-file-share.md#create-a-file-share).
 
 1. 스토리지 계정에 서비스 엔드포인트 또는 프라이빗 엔드포인트를 사용하도록 설정합니다.  
     * 프라이빗 엔드포인트 연결을 사용 중인 경우 스토리지 계정에 `file` 및 `blob` 하위 리소스에 대한 프라이빗 엔드포인트가 필요합니다.  Durable Functions와 같은 특정 기능을 사용 중인 경우 프라이빗 엔드포인트 연결을 통해 액세스할 수 있는 `queue` 및 `table`도 필요합니다.

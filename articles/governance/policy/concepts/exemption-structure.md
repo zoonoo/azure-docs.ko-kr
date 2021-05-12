@@ -1,36 +1,36 @@
 ---
 title: 정책 예외 구조의 세부 정보
-description: 이니셔티브 또는 정의 평가에서 리소스를 제외 하기 위해 Azure Policy에서 사용 하는 정책 예외 정의에 대해 설명 합니다.
-ms.date: 09/22/2020
+description: 이니셔티브 또는 정의 평가에서 리소스를 제외하기 위해 Azure Policy에서 사용하는 정책 예외 정의에 관해 설명합니다.
+ms.date: 03/31/2021
 ms.topic: conceptual
-ms.openlocfilehash: e6ced56c1dc65ca68998c5c58d3e985b63873e0b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: ecf956d7507dfa2168e4f2591e4b661423801365
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91950179"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106091738"
 ---
 # <a name="azure-policy-exemption-structure"></a>Azure Policy 예외 구조
 
-Azure Policy 예외 (미리 보기) 기능을 사용 하 여 리소스 계층 이나 개별 리소스를 평가 하거나 정의 평가에서 _제외_ 합니다. _제외_ 된 리소스는 전체 규정 준수를 계산 하지만 평가 하거나 임시 포기를 가질 수 없습니다. 자세한 내용은 [Azure Policy 범위 이해](./scope.md)를 참조 하세요. Azure Policy 예외는 [리소스 관리자 모드](./definition-structure.md#resource-manager-modes) 에서만 작동 하며 [리소스 공급자 모드](./definition-structure.md#resource-provider-modes)에서는 작동 하지 않습니다.
+Azure Policy 예외(미리 보기) 기능을 사용하여 이니셔티브나 정의 평가에서 개별 리소스나 리소스 계층 구조를 _제외_ 합니다. _제외_ 된 리소스는 전체 규정 준수에 포함되지만, 평가하거나 임시 면제를 가질 수 없습니다. 자세한 내용은 [Azure Policy의 범위 이해](./scope.md)를 참조하세요. Azure Policy 예외는 [Resource Manager 모드](./definition-structure.md#resource-manager-modes)에서만 작동하며 [리소스 공급자 모드](./definition-structure.md#resource-provider-modes)에서는 작동하지 않습니다.
 
 > [!IMPORTANT]
-> 이 기능은 **미리 보기** 기간 동안 무료입니다. 가격 책정에 대 한 자세한 내용은 [Azure Policy 가격 책정](https://azure.microsoft.com/pricing/details/azure-policy/)을 참조 하세요. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 이 기능은 **미리 보기** 시에는 무료입니다. 가격 책정 관련 자세한 내용은 [Azure Policy 가격 책정](https://azure.microsoft.com/pricing/details/azure-policy/)을 참조하세요. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-JSON을 사용 하 여 정책 예외를 만듭니다. 정책 예외에는 다음에 대 한 요소가 포함 됩니다.
+JSON을 사용하여 정책 예외를 만듭니다. 정책 정의에는 다음 요소가 포함됩니다.
 
 - 표시 이름
 - description
 - metadata
 - 정책 할당
-- 이니셔티브 내의 정책 정의
+- 이니셔티브에서 정책 정의
 - 예외 범주
 - expiration
 
 > [!NOTE]
-> 정책 예외는 리소스 계층에서 자식 개체로 만들어지거나 개별 리소스에 예외가 부여 되었으므로 해당 대상이 예외 정의에 포함 되지 않습니다.
+> 정책 예외는 리소스 계층에서 자식 개체로 만들어지거나 개별 리소스에 예외가 부여되었으므로, 해당 대상이 예외 정의에 포함되지 않습니다.
 
-예를 들어 다음 JSON은 라는 이니셔티브 할당에 대 한 리소스 **면제** 범주의 정책 예외를 보여 줍니다 `resourceShouldBeCompliantInit` . 리소스는 이니셔티브  의 두 정책 정의, `customOrgPolicy` 사용자 지정 정책 정의 (참조 `requiredTags` ) 및 ' 허용 된 위치 ' 기본 제공 정책 정의 (ID: `e56962a6-4747-49cd-b67b-bf8b01975c4c` , 참조) 에서만 제외 됩니다 `allowedLocations` .
+예를 들어 다음 JSON은 `resourceShouldBeCompliantInit`라는 이니셔티브 할당에 대한 리소스의 **면제** 범주의 정책 예외를 보여 줍니다. 리소스는 이니셔티브의 두 정책 정의, `customOrgPolicy` 사용자 지정 정책 정의(참조 `requiredTags`), '허용된 위치' 기본 제공 정책 정의(ID: `e56962a6-4747-49cd-b67b-bf8b01975c4c`, 참조 _)에서만_ 제외`allowedLocations`됩니다.
 
 ```json
 {
@@ -57,7 +57,7 @@ JSON을 사용 하 여 정책 예외를 만듭니다. 정책 예외에는 다음
 }
 ```
 
-정책 예외에 사용 되는 일치 항목으로 관련 이니셔티브의 코드 조각입니다 `policyDefinitionReferenceIds` .
+정책 예외에 사용되는 `policyDefinitionReferenceIds` 일치 항목으로 관련 이니셔티브의 코드 조각입니다.
 
 ```json
 "policyDefinitions": [
@@ -84,40 +84,40 @@ JSON을 사용 하 여 정책 예외를 만듭니다. 정책 예외에는 다음
 
 ## <a name="display-name-and-description"></a>표시 이름 및 설명
 
-**DisplayName** 및 **description** 을 사용 하 여 정책 예외를 식별 하 고 특정 리소스와 함께 사용 하기 위한 컨텍스트를 제공 합니다. **displayName** 은 최대 길이가 _128_ 자이고 **description** 은 최대 길이가 _512_ 자입니다.
+**displayName** 및 **description** 을 사용하여 정책 예외를 식별하고 특정 리소스와 함께 사용하기 위한 컨텍스트를 제공합니다. **displayName** 은 최대 길이가 _128_ 자이고 **description** 은 최대 길이가 _512_ 자입니다.
 
 ## <a name="metadata"></a>메타데이터
 
-**Metadata** 속성을 사용 하면 관련 정보를 저장 하는 데 필요한 자식 속성을 만들 수 있습니다. 위의 예제에서 **event.request.requestedby.displayname**, **approvedBy**, **approvedOn** 및 **ticketRef** 속성은 예외를 요청 하는 사람, 승인 된 사람 및 시기, 요청에 대 한 내부 추적 티켓을 제공 하는 고객 값을 포함 합니다. 이러한 **메타 데이터** 속성은 예 이지만 필요 하지 않으며 **메타 데이터** 는 이러한 자식 속성으로 제한 되지 않습니다.
+**메타데이터** 속성을 사용하면 관련 정보를 저장하는 데 필요한 자식 속성을 만들 수 있습니다. 위의 예제에서 **requestedBy**, **approvedBy**, **approvedOn**, **ticketRef** 속성은 예외 요청자, 승인자, 승인 시기, 요청에 대한 내부 추적 티켓 관련 정보를 제공하는 고객 값을 포함합니다. 해당 **메타데이터** 속성은 예제이지만 필요하지 않으며 **메타데이터** 는 자식 속성으로 제한되지 않습니다.
 
 ## <a name="policy-assignment-id"></a>정책 할당 ID
 
-이 필드는 정책 할당 또는 이니셔티브 할당의 전체 경로 이름 이어야 합니다.
-`policyAssignmentId` 는 배열이 아니라 문자열입니다. 이 속성은 부모 리소스 계층 또는 개별 리소스가 _제외_ 되는 할당을 정의 합니다.
+이 필드는 정책 할당 또는 이니셔티브 할당의 전체 경로 이름이어야 합니다.
+`policyAssignmentId`는 문자열이며 배열이 아닙니다. 이 속성은 부모 리소스 계층 구조 또는 개별 리소스가 _제외_ 되는 할당을 정의합니다.
 
-## <a name="policy-definition-ids"></a>정책 정의 Id
+## <a name="policy-definition-ids"></a>정책 정의 ID
 
-`policyAssignmentId`이 이니셔티브 할당에 대 한 인 경우 `policyDefinitionReferenceIds` 속성을 사용 하 여 주체 리소스가에 대 한 예외가 있는 이니셔티브의 정책 정의를 지정할 수 있습니다. 하나 이상의 포함 된 정책 정의에서 리소스가 제외 될 수 있으므로이 속성은 _배열_ 입니다. 값은 필드에 있는 이니셔티브 정의의 값과 일치 해야 합니다 `policyDefinitions.policyDefinitionReferenceId` .
+`policyAssignmentId`가 이니셔티브 할당용일 경우 `policyDefinitionReferenceIds` 속성을 사용하여 주체 리소스에 예외가 있는 이니셔티브의 정책 정의를 지정할 수 있습니다. 하나 이상 포함된 정책 정의에서 리소스가 제외될 수 있으므로 이 속성은 _배열_ 입니다. 값은 `policyDefinitions.policyDefinitionReferenceId` 필드에 있는 이니셔티브 정의의 값과 일치해야 합니다.
 
 ## <a name="exemption-category"></a>예외 범주
 
-예외를 그룹화 하는 데 사용 되는 두 개의 예외 범주가 있습니다.
+예외를 그룹화하는 데 사용되는 두 개의 예외 범주가 있습니다.
 
-- **완화**: 다른 메서드를 통해 정책 의도가 충족 되기 때문에 예외가 부여 됩니다.
-- **면제**: 리소스의 비호환 상태가 일시적으로 허용 되기 때문에 예외가 부여 됩니다. 이 범주를 사용 하는 또 다른 이유는 이니셔티브에서 하나 이상의 정의에서 제외 되어야 하지만 전체 이니셔티브에서 제외 해서는 안 되는 리소스 또는 리소스 계층 구조에 대 한 것입니다.
+- **완화됨**: 정책 의도가 다른 메서드를 통해 충족되었으므로 예외가 부여됩니다.
+- **면제**: 리소스의 비준수 상태가 일시적으로 수락되었으므로 예외가 부여됩니다. 이 범주를 사용하는 또 다른 이유는 이니셔티브에서 하나 이상의 정의에서 제외되어야 하지만 전체 이니셔티브에서 제외해서는 안 되는 리소스 또는 리소스 계층 구조를 위함입니다.
 
 ## <a name="expiration"></a>만료
 
-리소스 계층 또는 개별 리소스가 더 이상 할당에 _제외_ 되지 않는 경우를 설정 하려면 속성을 설정 `expiresOn` 합니다. 이 선택적 속성은 Universal ISO 8601 DateTime 형식 이어야 합니다 `yyyy-MM-ddTHH:mm:ss.fffffffZ` .
+리소스 계층 구조 또는 개별 리소스가 할당에 추가로 _제외_ 되지 않는 경우를 설정하려면, `expiresOn` 속성을 설정합니다. 이 선택적 속성은 유니버설 ISO 8601 날짜/시간 형식(`yyyy-MM-ddTHH:mm:ss.fffffffZ`)이어야 합니다.
 
 > [!NOTE]
-> 날짜에 도달 하면 정책 예외가 삭제 되지 않습니다 `expiresOn` . 개체는 레코드 유지를 위해 유지 되지만 예외는 더 이상 적용 되지 않습니다.
+> `expiresOn` 날짜가 되면 정책 예외가 삭제되지 않습니다. 개체는 레코드 유지를 위해 유지되지만, 예외는 더 적용되지 않습니다.
 
 ## <a name="required-permissions"></a>필요한 사용 권한
 
-정책 예외 개체를 관리 하는 데 필요한 Azure RBAC 권한은 `Microsoft.Authorization/policyExemptions` 작업 그룹에 있습니다. 기본 제공 역할 [리소스 정책 참가자](../../../role-based-access-control/built-in-roles.md#resource-policy-contributor) 및 [보안 관리자](../../../role-based-access-control/built-in-roles.md#security-admin) 는 모두 `read` 및 `write` 사용 권한을 가지 며 [Policy Insights 데이터 기록기 (미리 보기)](../../../role-based-access-control/built-in-roles.md#policy-insights-data-writer-preview) 에는 `read` 권한이 있습니다.
+정책 예외 개체를 관리하는 데 필요한 Azure RBAC 권한은 `Microsoft.Authorization/policyExemptions` 작업 그룹에 있습니다. 기본 제공 역할 [리소스 정책 기여자](../../../role-based-access-control/built-in-roles.md#resource-policy-contributor) 및 [보안 관리자](../../../role-based-access-control/built-in-roles.md#security-admin)는 모두 `read` 및 `write` 사용 권한을 가지며 [Policy Insights 데이터 쓰기 권한자(미리 보기)](../../../role-based-access-control/built-in-roles.md#policy-insights-data-writer-preview)에는 `read` 권한이 있습니다.
 
-예외에는 예외를 부여 하는 영향 때문에 추가 보안 수단이 있습니다. `Microsoft.Authorization/policyExemptions/write`리소스 계층 이나 개별 리소스에 대 한 작업을 요구 하는 것 외에는 예외 작성자에 게 `exempt/Action` 대상 할당에 대 한 동사가 있어야 합니다.
+예외에는 예외를 부여할 때의 영향 때문에 추가 보안 조치가 있습니다. 리소스 계층 또는 개별 리소스에 대한 `Microsoft.Authorization/policyExemptions/write` 작업을 요구하는 것 이외에도 예외 작성자에게는 대상 할당 관련한 `exempt/Action` 동사가 있어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

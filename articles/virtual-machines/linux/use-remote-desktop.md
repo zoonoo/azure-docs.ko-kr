@@ -1,5 +1,5 @@
 ---
-title: Linux에서 xrdp 사용
+title: Linux에 xrdp 사용
 description: Azure에서 그래픽 도구를 사용하여 Linux VM에 연결하도록 원격 데스크톱(xrdp)을 설치 및 구성하는 방법 알아보기
 services: virtual-machines
 author: cynthn
@@ -9,18 +9,18 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.author: cynthn
-ms.openlocfilehash: 84960e6247edc708bedb899c96ebf7522397269a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 309b106d2141c8257c5163efe7ff45a7bae5d5c3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104580371"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107759654"
 ---
-# <a name="install-and-configure-xrdp-to-use-remote-desktop-with-ubuntu"></a>Ubuntu에서 원격 데스크톱을 사용 하도록 xrdp 설치 및 구성
+# <a name="install-and-configure-xrdp-to-use-remote-desktop-with-ubuntu"></a>Ubuntu에 원격 데스크톱을 사용하도록 xrdp 설치 및 구성
 
-Azure의 Linux VM(가상 머신)은 SSH(보안 셸) 연결을 사용하여 명령줄에서 일반적으로 관리됩니다. Linux를 처음 사용하거나 빠른 문제 해결 시나리오의 경우 원격 데스크톱을 사용하는 편이 더 쉬울 수 있습니다. 이 문서에서는 Ubuntu를 실행 하는 Linux VM에 대 한 데스크톱 환경 ([xfce](https://www.xfce.org)) 및 원격 데스크톱 ([xrdp](http://xrdp.org))을 설치 하 고 구성 하는 방법을 자세히 설명 합니다.
+Azure의 Linux VM(가상 머신)은 SSH(보안 셸) 연결을 사용하여 명령줄에서 일반적으로 관리됩니다. Linux를 처음 사용하거나 빠른 문제 해결 시나리오의 경우 원격 데스크톱을 사용하는 편이 더 쉬울 수 있습니다. 이 문서에서는 Ubuntu를 실행 중인 Linux VM에 데스크톱 환경([xfce](https://www.xfce.org)) 및 원격 데스크톱([xrdp](http://xrdp.org))을 설치하고 구성하는 방법에 대해 자세히 설명합니다.
 
-이 문서는 Ubuntu 18.04 VM을 사용 하 여 쓰여진 고 테스트 되었습니다. 
+이 문서에서는 Ubuntu 18.04 VM을 사용하여 작성하고 테스트했습니다. 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -86,7 +86,7 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>원격 데스크톱 트래픽의 네트워크 보안 그룹 규칙 만들기
 Linux VM에 도달하는 원격 데스크톱 트래픽을 허용하려면 포트 3389에 대한 TCP가 VM에 도달하도록 네트워크 보안 그룹 규칙을 만들어야 합니다. 네트워크 보안 그룹 규칙에 대한 자세한 내용은 [네트워크 보안 그룹이란?](../../virtual-network/network-security-groups-overview.md)을 참조하세요. [Azure Portal을 사용하여 네트워크 보안 그룹 규칙을 만들](../windows/nsg-quickstart-portal.md) 수도 있습니다.
 
-다음 예제에서는 *3389* 포트에서 [az vm open-port](/cli/azure/vm#az-vm-open-port)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다. VM에 대한 SSH 세션이 아닌 Azure CLI에서 다음 네트워크 보안 그룹 규칙을 엽니다.
+다음 예제에서는 *3389* 포트에서 [az vm open-port](/cli/azure/vm#az_vm_open_port)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다. VM에 대한 SSH 세션이 아닌 Azure CLI에서 다음 네트워크 보안 그룹 규칙을 엽니다.
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389
@@ -97,11 +97,11 @@ az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 
 로컬 원격 데스크톱 클라이언트를 열고 IP 주소 또는 Linux VM의 DNS 이름에 연결합니다. 
 
-:::image type="content" source="media/use-remote-desktop/remote-desktop.png" alt-text="원격 데스크톱 클라이언트의 스크린샷":::
+:::image type="content" source="media/use-remote-desktop/remote-desktop.png" alt-text="원격 데스크톱 클라이언트의 스크린샷.":::
 
 사용자 계정의 사용자 이름 및 암호를 VM에 다음과 같이 입력합니다.
 
-:::image type="content" source="media/use-remote-desktop/xrdp-login.png" alt-text="화면에 있는 xrdp 로그인의 스크린샷":::
+:::image type="content" source="media/use-remote-desktop/xrdp-login.png" alt-text="xrdp 로그인 화면 스크린샷.":::
 
 인증한 후에 xfce 데스크톱 환경이 로드되면 다음 예제와 유사합니다.
 

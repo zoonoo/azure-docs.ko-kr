@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 7ec938a13d04cf3400e4d3df0eeda051c61d35ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b3d308385a896d1051a843c1638506aa46c34c0e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101724271"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108740364"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Azure Storage 준수 제품
 
@@ -49,7 +49,7 @@ Microsoft Azure 및 Azure Storage는 조직이 개인 데이터의 수집 및 �
 ## <a name="industry"></a>산업
 
 * [23 NYCRR Part 500](https://www.microsoft.com/trustcenter/compliance/NYCRR)
-* [APRA(오스트레일리아)](https://aka.ms/AzureCompliance)
+* [APRA(오스트레일리아)](https://www.microsoft.com/trustcenter/compliance/apra)
 * [CDSA](https://www.microsoft.com/trustcenter/compliance/cdsa)
 * [DPP(영국)](https://aka.ms/AzureCompliance)
 * [FACT(영국)](https://www.microsoft.com/trustcenter/compliance/fact)

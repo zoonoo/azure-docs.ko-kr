@@ -11,12 +11,12 @@ ms.date: 09/29/2020
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: fff4b9157c30203f47c65a74b211e3dbf6426d92
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc1f9aaa0409300f99535b0b64f5719f8e8c97ad
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101093023"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109484616"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>IoT Hub의 디바이스 쌍 이해 및 사용
 
@@ -224,7 +224,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
     }
     ```
 
-이전의 모든 작업은 [IoT Hub에 대한 액세스 제어](iot-hub-devguide-security.md)에서 정의된 대로 [낙관적 동시성](iot-hub-devguide-device-twins.md#optimistic-concurrency)을 지원하며 **ServiceConnect** 사용 권한이 필요합니다.
+이전의 모든 작업은 [IoT Hub에 대한 액세스 제어](iot-hub-dev-guide-sas.md)에서 정의된 대로 [낙관적 동시성](iot-hub-devguide-device-twins.md#optimistic-concurrency)을 지원하며 **ServiceConnect** 사용 권한이 필요합니다.
 
 이러한 작업 외에도 솔루션 백 엔드는 다음을 수행할 수 있습니다.
 
@@ -242,7 +242,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
 * **desired 속성 관찰**. 현재 연결된 디바이스는 desired 속성에 대한 업데이트가 발생하면 알림을 받도록 선택할 수 있습니다. 디바이스는 솔루션 백 엔드에 의해 실행된 것과 같은 형태의 업데이트(부분 또는 전체 바꾸기)를 수신합니다.
 
-이전의 모든 작업에는 [IoT Hub에 대한 액세스 제어](iot-hub-devguide-security.md)에서 정의한 대로 **DeviceConnect** 사용 권한이 필요합니다.
+이전의 모든 작업에는 [IoT Hub에 대한 액세스 제어](iot-hub-dev-guide-sas.md)에서 정의한 대로 **DeviceConnect** 사용 권한이 필요합니다.
 
 [Azure IoT 디바이스 SDK](iot-hub-devguide-sdks.md)를 사용하면 이전 작업을 다양한 언어와 플랫폼에서 손쉽게 사용할 수 있습니다. desired 속성 동기화를 위한 IoT Hub 기본 형식에 대한 자세한 내용은 [디바이스 다시 연결 흐름](iot-hub-devguide-device-twins.md#device-reconnection-flow)을 참조하세요.
 

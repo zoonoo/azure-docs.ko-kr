@@ -1,30 +1,30 @@
 ---
-title: Application Gateway 및 Azure 방화벽을 사용 하 여 응용 프로그램을 인터넷에 노출
-description: Application Gateway 및 Azure 방화벽을 사용 하 여 응용 프로그램을 인터넷에 노출 하는 방법
+title: Application Gateway 및 Azure Firewall을 사용하여 애플리케이션을 인터넷에 노출
+description: Application Gateway 및 Azure Firewall을 사용하여 애플리케이션을 인터넷에 노출하는 방법
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6c22d1bae4f1d116aa52846880498c7c2a425174
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.openlocfilehash: 7def685cb9e17ff253ade10714ece2259b432db1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104878580"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129012"
 ---
-# <a name="expose-applications-to-the-internet-using-application-gateway-and-azure-firewall"></a>Application Gateway 및 Azure 방화벽을 사용 하 여 응용 프로그램을 인터넷에 노출
+# <a name="expose-applications-to-the-internet-using-application-gateway-and-azure-firewall"></a>Application Gateway 및 Azure Firewall을 사용하여 애플리케이션을 인터넷에 노출
 
-이 문서에서는 Application Gateway 및 Azure 방화벽을 사용 하 여 응용 프로그램을 인터넷에 노출 하는 방법을 설명 합니다. Azure 스프링 클라우드 서비스 인스턴스를 가상 네트워크에 배포 하는 경우 서비스 인스턴스의 응용 프로그램은 개인 네트워크 에서만 액세스할 수 있습니다. 인터넷에서 응용 프로그램에 액세스할 수 있도록 하려면 **Azure 애플리케이션 게이트웨이와** 통합 하 고 필요에 따라 **Azure 방화벽과** 함께 통합 해야 합니다.
+이 문서는 Application Gateway 및 Azure Firewall을 사용하여 애플리케이션을 인터넷에 노출하는 방법에 대해 설명합니다. Azure Spring Cloud 서비스 인스턴스를 가상 네트워크에 배포하는 경우 서비스 인스턴스의 애플리케이션은 비공개 네트워크에서만 액세스할 수 있습니다. 인터넷에서 애플리케이션에 액세스할 수 있도록 하려면 **Azure Application Gateway** 와 통합하고 선택에 따라 **Azure Firewall** 과 통합해야 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [2.0.4 이상을 이상 버전을 Azure CLI](/cli/azure/install-azure-cli)합니다.
+- [Azure CLI 버전 2.0.4 이상](/cli/azure/install-azure-cli).
 
 ## <a name="define-variables"></a>변수 정의
 
-[Azure virtual network에서 Azure 스프링 클라우드 배포 (VNet 주입)](spring-cloud-tutorial-deploy-in-azure-virtual-network.md)에서 지시한 대로 만든 리소스 그룹 및 가상 네트워크에 대 한 변수를 정의 합니다. 실제 환경에 따라 값을 사용자 지정 합니다.
+[Azure virtual network에서 Azure Spring Cloud 배포(VNet 삽입)](./how-to-deploy-in-azure-virtual-network.md)에서 지시한 대로 만든 리소스 그룹과 가상 네트워크의 변수를 정의합니다. 실제 환경에 따라 값을 사용자 지정합니다.
 
 ```
 SUBSCRIPTION='subscription-id'
@@ -47,7 +47,7 @@ az account set --subscription ${SUBSCRIPTION}
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기
 
-만들 **Azure 애플리케이션 게이트웨이** 는 Azure 스프링 클라우드 서비스 인스턴스와 동일한 가상 네트워크를--또는 피어 링 가상 네트워크에 연결 합니다. 먼저를 사용 하 여 가상 네트워크의 Application Gateway에 대 한 새 서브넷을 만들고 `az network vnet subnet create` 를 사용 하 여 Application Gateway의 프런트 엔드로 공용 IP 주소를 만듭니다 `az network public-ip create` .
+생성되게 될 **Azure Application Gateway** 는 Azure Spring Cloud 서비스 인스턴스와 동일한 가상 네트워크에 조인하거나 Azure Spring Cloud 서비스 인스턴스에 대한 피어링된 가상 네트워크에 조인합니다. 먼저 `az network vnet subnet create`를 사용하여 가상 네트워크에 Application Gateway에 대한 새 서브넷을 만들고 `az network public-ip create`를 사용하여 Application Gateway의 프런트 엔드로 공용 IP 주소도 만듭니다.
 
 ```
 APPLICATION_GATEWAY_PUBLIC_IP_NAME='app-gw-public-ip'
@@ -66,7 +66,7 @@ az network public-ip create \
 
 ## <a name="create-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
-를 사용 하 여 응용 프로그램 게이트웨이를 만들고 `az network application-gateway create` 응용 프로그램의 개인 FQDN (정규화 된 도메인 이름)을 백 엔드 풀의 서버로 지정 합니다. 그런 다음를 사용 하 여 `az network application-gateway http-settings update` 백 엔드 풀의 호스트 이름을 사용 하도록 HTTP 설정을 업데이트 합니다.
+`az network application-gateway create`를 사용하여 애플리케이션 게이트웨이를 만들고 애플리케이션의 비공개 FQD(정규화된 도메인 이름)을 백 엔드 풀에서 서버로 지정합니다. 그런 다음 백 엔드 풀의 호스트 이름을 사용하도록 `az network application-gateway http-settings update`를 사용하여 HTTP 설정을 업데이트합니다.
 
 ```
 APPLICATION_GATEWAY_NAME='my-app-gw'
@@ -90,7 +90,7 @@ az network application-gateway http-settings update \
     --host-name-from-backend-pool true
 ```
 
-Azure가 애플리케이션 게이트웨이를 만들 때까지 최대 30분이 걸릴 수 있습니다. 만든 후에는를 사용 하 여 백 엔드 상태를 확인 합니다 `az network application-gateway show-backend-health` .  이는 응용 프로그램 게이트웨이가 해당 개인 FQDN을 통해 응용 프로그램에 도달 하는지 여부를 검사 합니다.
+Azure가 애플리케이션 게이트웨이를 만들 때까지 최대 30분이 걸릴 수 있습니다. 만든 후에는 `az network application-gateway show-backend-health`를 사용하여 백 엔드 상태를 확인합니다.  이를 통해 애플리케이션 게이트웨이가 해당 비공개 FQDN을 통해 애플리케이션에 도달하는지 여부를 검사할 수 있습니다.
 
 ```
 az network application-gateway show-backend-health \
@@ -121,9 +121,9 @@ az network application-gateway show-backend-health \
 }
 ```
 
-## <a name="access-your-application-using-the-frontend-public-ip-of-the-application-gateway"></a>응용 프로그램 게이트웨이의 프런트 엔드 공용 IP를 사용 하 여 응용 프로그램에 액세스
+## <a name="access-your-application-using-the-frontend-public-ip-of-the-application-gateway"></a>애플리케이션 게이트웨이의 프런트 엔드 공용 IP를 사용하여 애플리케이션에 액세스
 
-을 사용 하 여 응용 프로그램 게이트웨이의 공용 IP 주소를 가져옵니다 `az network public-ip show` .
+`az network public-ip show`를 사용하여 애플리케이션 게이트웨이의 공용 IP 주소를 가져옵니다.
 
 ```
 az network public-ip show \
@@ -139,5 +139,5 @@ az network public-ip show \
 
 ## <a name="see-also"></a>참고 항목
 
-- [VNET에서 Azure Spring Cloud 문제 해결](spring-cloud-troubleshooting-vnet.md)
-- [VNET에서 Azure Spring Cloud를 실행하는 고객의 책임](spring-cloud-vnet-customer-responsibilities.md)
+- [VNET에서 Azure Spring Cloud 문제 해결](./troubleshooting-vnet.md)
+- [VNET에서 Azure Spring Cloud를 실행하는 고객의 책임](./vnet-customer-responsibilities.md)

@@ -1,21 +1,23 @@
 ---
 title: Azure IoT Central 관리자 가이드
 description: Azure IoT Central은 IoT 솔루션 만들기를 간소화하는 IoT 애플리케이션 플랫폼입니다. 이 문서에서는 IoT Central의 관리자 역할에 대한 개요를 제공합니다.
-author: philmea
-ms.author: philmea
+author: TheJasonAndrew
+ms.author: v-anjaso
 ms.date: 03/25/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: c355902eae6aed1504b64dd12d056c6059771e57
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 16a8aecae70d73399acb3878d7088e5086c053a1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108759423"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105110494"
 ---
 # <a name="iot-central-administrator-guide"></a>IoT Central 관리자 가이드
+
+‘이 문서의 내용은 관리자에게 적용됩니다.’
 
 IoT Central 애플리케이션을 사용하면 수백만 대의 디바이스를 수명 주기 전체 동안 모니터링하고 관리할 수 있습니다. 이 가이드는 IoT Central 애플리케이션을 관리하는 관리자를 위한 것입니다.
 

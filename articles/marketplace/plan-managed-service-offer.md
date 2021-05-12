@@ -8,18 +8,18 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.date: 12/23/2020
-ms.openlocfilehash: f096e53f8054039f361bde1c5f2adffac615c53d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ffa7e35bed1713a5ef9e04b59a8dbdb692b9630f
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100371943"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790958"
 ---
 # <a name="how-to-plan-a-managed-service-offer-for-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스에 대한 관리형 서비스 제품을 계획하는 방법입니다.
 
 해당 문서에서는 파트너 센터를 통해 Microsoft 상업용 마켓플레이스에 관리형 서비스 제품을 게시하기 위한 요구 사항을 소개합니다.
 
-관리형 서비스는 Azure Lighthouse를 사용하여 교차 테넌트 및 다중 테넌트 관리를 가능하게 하는 Azure Marketplace 제품입니다. 자세한 정보는 [Azure Lighthouse란?](../lighthouse/overview.md)을 참조하세요. 고객이 관리형 서비스 제품을 구매할 때 하나 이상의 구독 또는 리소스 그룹을 위임할 수 있습니다. 그런 다음 Azure Lighthouse의 [Azure 위임된 리소스 관리](../lighthouse/concepts/azure-delegated-resource-management.md) 기능을 사용하여 해당 리소스에 대한 작업을 수행할 수 있습니다.
+관리형 서비스는 Azure Lighthouse를 사용하여 교차 테넌트 및 다중 테넌트 관리를 가능하게 하는 Azure Marketplace 제품입니다. 자세한 정보는 [Azure Lighthouse란?](../lighthouse/overview.md)을 참조하세요. 고객이 관리형 서비스 제품을 구매할 때 하나 이상의 구독 또는 리소스 그룹을 위임할 수 있습니다. 그런 다음 Azure Lighthouse의 [Azure 위임된 리소스 관리](../lighthouse/concepts/architecture.md) 기능을 사용하여 해당 리소스에 대한 작업을 수행할 수 있습니다.
 
 ## <a name="eligibility-requirements"></a>자격 요구 사항
 
@@ -31,7 +31,7 @@ ms.locfileid: "100371943"
 
 제품을 CRM(고객 관계 관리) 시스템에 연결하여 고객 정보를 수집해야 합니다. 고객에게 정보를 공유할 수 있는 권한을 요청합니다. 고객 세부 정보는 제품명, ID 및 고객이 제품을 찾은 온라인 매장과 함께, 구성된 CRM 시스템으로 보내집니다. 상업용 마켓플레이스는 Azure 테이블을 사용하거나 Power Automate를 사용하여 HTTPS 엔드포인트를 구성하는 옵션을 비롯한 다양한 종류의 CRM 시스템을 지원합니다.
 
-제품을 만드는 도중 또는 만든 이후에 언제든지 CRM 연결을 추가하거나 수정할 수 있습니다. 자세한 내용은 [상업용 마켓플레이스 제품의 잠재 고객](partner-center-portal/commercial-marketplace-get-customer-leads.md)을 참조하세요.
+제품을 만드는 도중 또는 만든 이후에 언제든지 CRM 연결을 추가하거나 수정할 수 있습니다. 자세한 내용은 [상업용 Marketplace 제품의 잠재 고객](partner-center-portal/commercial-marketplace-get-customer-leads.md)을 참조하세요.
 
 ## <a name="legal-contracts"></a>법적 계약
 
@@ -119,9 +119,9 @@ HTML 태그를 사용하여 설명의 서식을 지정할 수 있습니다. HTML
 미리 보기 대상 사용자는 제품을 테스트하기 위해 Azure Marketplace에 게시하기 전에 해당 제품에 액세스할 수 있습니다. 파트너 센터의 **미리 보기 대상** 페이지에서 제한된 미리 보기 대상 그룹을 정의할 수 있습니다.
 
 > [!NOTE]
-> 미리 보기 대상 그룹은 비공개 요금제 대상 그룹과 다릅니다. 비공개 요금제는 선택한 특정 대상만 사용할 수 있습니다. 비공개 요금제를 통해 특정 고객과 사용자 지정 요금제에 대해 협상할 수 있습니다.
+> 미리 보기 대상 그룹은 비공개 요금제 대상 그룹과 다릅니다. 프라이빗 플랜은 선택한 특정 대상만 사용할 수 있습니다. 비공개 요금제를 통해 특정 고객과 사용자 지정 요금제에 대해 협상할 수 있습니다.
 
-MSA(Microsoft 계정) 또는 Azure AD(Azure Active Directory) 메일 주소로 초대를 보낼 수 있습니다. 최대 10개의 메일 주소를 수동으로 추가하거나, .csv 파일을 사용하여 최대 20개까지 가져올 수 있습니다. 제품이 이미 출시되어 있는 경우, 제품의 변경 내용 또는 업데이트 내용을 테스트하기 위한 미리 보기 대상 그룹을 정의할 수 있습니다.
+MSA(Microsoft 계정) 또는 Azure AD(Azure Active Directory) 메일 주소로 초대를 보낼 수 있습니다. 최대 10개의 메일 주소를 수동으로 추가하거나 .csv 파일로 최대 20개를 가져옵니다. 제품이 이미 출시된 경우에도 제품의 변경 내용 또는 업데이트 내용을 테스트하기 위한 미리 보기 대상 그룹을 정의할 수 있습니다.
 
 ## <a name="plans-and-pricing"></a>플랜 및 가격 책정
 

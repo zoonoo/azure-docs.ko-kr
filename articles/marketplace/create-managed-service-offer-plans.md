@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 12/23/2020
-ms.openlocfilehash: 9b5526af03bdbefeb54633c49bbd43743555f60b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a20571e411b2849c3487582a9c316f0f0b35c91d
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100383231"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790940"
 ---
 # <a name="how-to-create-plans-for-your-managed-service-offer"></a>관리형 서비스 제품 플랜을 만드는 방법
 
@@ -79,7 +79,7 @@ Azure 구독 ID를 사용하여 프라이빗 플랜에 대한 액세스 권한�
 
 ## <a name="technical-configuration"></a>기술 구성
 
-이 섹션에서는 고객 리소스를 관리하기 위한 권한 부여 정보가 포함된 매니페스트가 생성됩니다. 이 정보는 [Azure 위임 리소스 관리](../lighthouse/concepts/azure-delegated-resource-management.md)를 사용하도록 설정하는 데 필요합니다.
+이 섹션에서는 고객 리소스를 관리하기 위한 권한 부여 정보가 포함된 매니페스트가 생성됩니다. 이 정보는 [Azure 위임 리소스 관리](../lighthouse/concepts/architecture.md)를 사용하도록 설정하는 데 필요합니다.
 
 [Azure Lighthouse 시나리오의 테넌트, 역할, 사용자](../lighthouse/concepts/tenants-users-roles.md#best-practices-for-defining-users-and-roles)를 검토해서 지원되는 역할과 권한 부여 정의에 대한 모범 사례를 알아봅니다.
 

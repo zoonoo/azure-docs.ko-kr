@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 6/08/2020
 ms.author: robinsh
-ms.openlocfilehash: 0b099f4ce91fd24e8d7baec054bcfc5a6cf0b032
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 6ff0a0bb8bc1ca9b26968d002bb44d206c36e158
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567114"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483914"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
@@ -74,7 +74,7 @@ Stream Analytics 작업을 만들어 시작해 보겠습니다. 작업을 만든
 
    **엔드포인트**: **메시징** 을 선택합니다.
 
-   **공유 액세스 정책 이름**: Stream Analytics 작업에서 IoT 허브에 사용할 공유 액세스 정책의 이름을 선택합니다. 이 자습서에서는 ‘서비스’를 선택할 수 있습니다. ‘서비스’ 정책은 기본적으로 새 IoT 허브에서 만들어지고 IoT 허브를 통해 공개되는 클라우드 쪽 엔드포인트에서 보내고 받을 수 있는 권한을 부여합니다. 자세히 알아보려면 [액세스 제어 및 권한](iot-hub-devguide-security.md#access-control-and-permissions)을 참조하세요.
+   **공유 액세스 정책 이름**: Stream Analytics 작업에서 IoT 허브에 사용할 공유 액세스 정책의 이름을 선택합니다. 이 자습서에서는 ‘서비스’를 선택할 수 있습니다. ‘서비스’ 정책은 기본적으로 새 IoT 허브에서 만들어지고 IoT 허브를 통해 공개되는 클라우드 쪽 엔드포인트에서 보내고 받을 수 있는 권한을 부여합니다. 자세히 알아보려면 [액세스 제어 및 권한](iot-hub-dev-guide-sas.md#access-control-and-permissions)을 참조하세요.
 
    **공유 액세스 정책 키**: 이 필드는 선택한 공유 액세스 정책 이름에 따라 자동으로 채워집니다.
 

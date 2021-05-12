@@ -6,14 +6,14 @@ author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 08/28/2020
+ms.date: 05/10/2021
 ms.author: victorh
-ms.openlocfilehash: 478f3454a728871040cdbbf9f817394cffe6b82f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d2c3a1501c2489b5d747ac5a64bcaef0c725bad0
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94660256"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752718"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---arm-template"></a>빠른 시작: 가용성 영역을 사용하여 Azure Firewall 배포 - ARM 템플릿
 
@@ -31,7 +31,7 @@ Azure Firewall에 대한 자세한 내용은 [Azure Portal을 사용하여 Azure
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-with-zones-sandbox%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-with-zones-sandbox%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -43,7 +43,7 @@ Azure Firewall에 대한 자세한 내용은 [Azure Portal을 사용하여 Azure
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-azurefirewall-with-zones-sandbox)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-azurefirewall-with-zones-sandbox/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/azurefirewall-with-zones-sandbox/azuredeploy.json":::
 
 템플릿에는 여러 개의 Azure 리소스가 정의되어 있습니다.
 
@@ -62,10 +62,10 @@ Azure에 ARM 템플릿을 배포합니다.
 
 1. **Azure에 배포** 를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 템플릿은 Azure Firewall, 네트워크 인프라 및 두 개의 가상 머신을 만듭니다.
 
-   [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-with-zones-sandbox%2Fazuredeploy.json)
+   [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-with-zones-sandbox%2Fazuredeploy.json)
 
 2. 포털의 **영역을 사용하여 Azure Firewall의 샌드박스 설정 만들기** 페이지에서 다음 값을 입력하거나 선택합니다.
-   - **리소스 그룹**: **새로 만들기** 를 선택하고 리소스 그룹의 이름을 입력하고 **확인** 을 선택합니다. 
+   - **리소스 그룹**: **새로 만들기** 를 선택하고 리소스 그룹의 이름을 입력하고 **확인** 을 선택합니다.
    - **가상 네트워크 이름**: 새 VNet의 이름을 입력합니다.
    - **관리자 사용자 이름**: 관리자 사용자 계정에 대한 사용자 이름을 입력합니다.
    - **관리자 암호**: 관리자 암호를 입력합니다.
@@ -86,7 +86,7 @@ Azure에 ARM 템플릿을 배포합니다.
 Remove-AzResourceGroup -Name MyResourceGroup
 ```
 
-방화벽 모니터링 자습서를 계속 진행하려면 리소스 그룹과 방화벽을 제거하지 마세요. 
+방화벽 모니터링 자습서를 계속 진행하려면 리소스 그룹과 방화벽을 제거하지 마세요.
 
 ## <a name="next-steps"></a>다음 단계
 

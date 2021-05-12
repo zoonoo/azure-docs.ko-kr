@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 355d36d58935372e9d8a92599e8f810fec9ebf19
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4c50c7de84f92f1050b88a9c5c7179c69211bb42
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104785345"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108766936"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Azure Data Factory의 데이터 세트(버전 1)
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -140,7 +140,7 @@ Data Factory의 데이터 세트는 다음과 같이 JSON 형식으로 정의됩
 ## <a name="dataset-type"></a><a name="Type"></a> 데이터 세트 형식
 데이터 세트의 형식은 사용하는 데이터 저장소에 따라 달라집니다. Data Factory에서 지원하는 데이터 저장소 목록은 다음 표를 참조하세요. 해당 데이터 저장소에 대해 연결된 서비스 및 데이터 세트를 만드는 방법을 알아보려면 데이터 저장소를 클릭합니다.
 
-[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 > [!NOTE]
 > *가 있는 데이터 저장소는 서비스(IaaS)로서 온-프레미스 또는 Azure 인프라에 있을 수 있습니다. 이러한 데이터 저장소에는 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 설치해야 합니다.
