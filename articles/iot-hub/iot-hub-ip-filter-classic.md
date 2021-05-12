@@ -1,6 +1,6 @@
 ---
-title: 클래식 IP 필터 Azure IoT Hub (사용 되지 않음) | Microsoft Docs
-description: 클래식 IP 필터에서 업그레이드 하는 방법 및 이점
+title: Azure IoT Hub 클래식 IP 필터(사용되지 않음) | Microsoft Docs
+description: 클래식 IP 필터에서 업그레이드하는 방법 및 이점
 author: jlian
 ms.service: iot-hub
 services: iot-hub
@@ -8,79 +8,79 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: jlian
 ms.openlocfilehash: 6f326bafb311acedc48c5a349c78f1cd6bcebc87
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101661157"
 ---
 # <a name="iot-hub-classic-ip-filter-and-how-to-upgrade"></a>IoT Hub 클래식 IP 필터 및 업그레이드 방법 
 
-IoT Hub에 대해 업그레이드 된 IP 필터는 기본 제공 끝점을 보호 하며 기본적으로 안전 합니다. 주요 변경 사항을 적용 하지는 않지만, 업그레이드 된 IP 필터의 강화 된 보안 모델이 클래식 IP 필터와 호환 되지 않으므로 사용 중지를 발표 합니다. 새 업그레이드 된 IP 필터에 대 한 자세한 내용은 [새로운 기능](#whats-new) 및 [IoT hub ip 필터](iot-hub-ip-filtering.md)를 참조 하세요.
+IoT Hub에 대해 업그레이드된 IP 필터는 기본 제공 엔드포인트를 보호하며 기본 값으로 보안됩니다. 호환성이 손상되는 변경을 하지 않으려 노력하지만, 업그레이드된 IP 필터의 강화된 보안 모델이 클래식 IP 필터와 호환되지 않으므로 사용 중지를 발표합니다. 새 업그레이드된 IP 필터에 대한 자세한 내용은 [새로운 기능](#whats-new) 및 [IoT hub ip 필터](iot-hub-ip-filtering.md)를 참조하세요.
 
-서비스 중단을 방지 하려면 마이그레이션 최종 기한 전에 단계별 업그레이드를 수행 해야 합니다. 이때 업그레이드는 자동으로 수행 됩니다. 마이그레이션 타임 라인에 대 한 자세한 내용은 [Azure 업데이트](https://aka.ms/ipfilterv2azupdate)를 참조 하세요.
+서비스 중단을 방지하려면 마이그레이션 최종 기한 전에 안내 받은 업그레이드를 수행해야 합니다. 이때 업그레이드는 자동으로 수행됩니다. 마이그레이션 타임라인에 대한 자세한 내용은 [Azure 업데이트](https://aka.ms/ipfilterv2azupdate)를 참조하세요.
 
 ## <a name="how-to-upgrade"></a>업그레이드하는 방법
 
 1.  Azure Portal 방문
 2.  IoT Hub로 이동
-3.  왼쪽 메뉴에서 **네트워킹** 을 선택 합니다.
-4.  IP 필터를 새 모델로 업그레이드할지 묻는 배너가 표시 됩니다. 계속하려면 **예** 를 선택합니다.
-    :::image type="content" source="media/iot-hub-ip-filter-classic/ip-filter-upgrade-banner.png" alt-text="클래식 IP 필터에서 업그레이드 하는 배너 프롬프트를 보여 주는 이미지":::
-5.  새 IP 필터는 기본적으로 모든 IP를 차단 하므로, 업그레이드는 개별 거부 규칙을 제거 하지만 저장 하기 전에 검토 하는 기회를 제공 합니다. 규칙을 신중 하 게 검토 하 여 제대로 작동 하는지 확인 합니다.
-6.  프롬프트에 따라 업그레이드를 완료 합니다.
+3.  왼쪽 메뉴에서 **네트워킹** 을 선택합니다.
+4.  IP 필터를 새 모델로 업그레이드할지 묻는 배너가 표시됩니다. 계속하려면 **예** 를 선택합니다.
+    :::image type="content" source="media/iot-hub-ip-filter-classic/ip-filter-upgrade-banner.png" alt-text="클래식 IP 필터에서 업그레이드하는 배너 프롬프트를 보여 주는 이미지":::
+5.  새 IP 필터는 기본값으로 모든 IP를 차단하므로, 업그레이드는 개별 거부 규칙을 제거하지만 저장하기 전에 검토하는 기회를 제공 합니다. 규칙을 신중하게 검토하여 제대로 작동하는지 확인합니다.
+6.  프롬프트에 따라 업그레이드를 완료합니다.
 
 ## <a name="whats-new"></a>새로운 기능
 
 ### <a name="secure-by-default"></a>기본적으로 보안 적용
 
-클래식 IP 필터를 사용 하면 기본적으로 모든 IP 주소가 IoT Hub에 연결 될 수 있으며, 가장 일반적인 네트워크 보안 시나리오와 잘 맞지 않습니다. 일반적으로는 신뢰할 수 있는 IP 주소만 IoT hub에 연결 하 고 다른 모든 항목을 거부할 수 있습니다. 클래식 IP 필터를 사용 하 여이 목표를 달성 하기 위해이 작업은 여러 단계로 진행 됩니다. 예를 들어에서 트래픽만 수락 하려면 다음을 `192.168.100.0/22` 해야 합니다.
+클래식 IP 필터를 사용하면 기본값으로 모든 IP 주소가 IoT Hub에 연결될 수 있으며, 가장 일반적인 네트워크 보안 시나리오와 잘 맞지 않습니다. 일반적으로는 신뢰할 수 있는 IP 주소만 IoT hub에 연결하고 다른 모든 항목을 거부할 수 있습니다. 클래식 IP 필터를 사용하여 이 목표를 달성하기 위해 이 작업은 여러 단계로 진행됩니다. 예를 들어 `192.168.100.0/22` 에서 트래픽만 수락하려면 다음을 해야 합니다.
 
-1. 에 대해 단일 *허용* 규칙을 구성 `192.168.100.0/22` 합니다.
-1. 에 대해 다른 *차단* 규칙 구성 `0.0.0.0/0` ("모두 차단" 규칙)
-1. 규칙이 블록 규칙 위에 순서 대로 정렬 되어 있는지 확인 합니다.
+1. `192.168.100.0/22`에 대해 단일 *허용* 규칙을 구성합니다.
+1. `0.0.0.0/0`에 대해 다른 *블록* 규칙 구성("모두 블록" 규칙)
+1. 규칙이 블록 규칙 위에 순서대로 정렬되어 있는지 확인합니다.
 
-실제로이 다중 단계 프로세스는 혼동을 일으킵니다. 사용자가 "모두 차단" 규칙을 구성 하지 않았거나 규칙을 제대로 정렬 하지 않았기 때문에 의도 하지 않은 노출이 발생 합니다. 
+실제로 이 다중 단계 프로세스는 혼동을 일으킵니다. 사용자가 "모두 차단" 규칙을 구성하지 않았거나 규칙을 제대로 정렬하지 않았기 때문에 의도하지 않은 노출이 발생합니다. 
 
-새 IP 필터는 기본적으로 모든 IP 주소를 차단 합니다. 명시적으로 추가 하는 IP 범위만 IoT Hub에 연결할 수 있습니다. 위의 예제에서 2 단계와 3 단계는 더 이상 필요 하지 않습니다. 이 새로운 동작으로 인해 보안이 간소화 되 고 [기본 원칙에 따라 보안이](https://wikipedia.org/wiki/Secure_by_default)유럽 연합 됩니다.
+새 IP 필터는 기본값으로 모든 IP 주소를 차단합니다. 명시적으로 추가하는 IP 범위만 IoT Hub에 연결할 수 있습니다. 위의 예제에서 2 단계와 3 단계는 더 이상 필요하지 않습니다. 이 새로운 동작으로 인해 구성이 간소화되고 [기본적으로 보안 유지" 원칙](https://wikipedia.org/wiki/Secure_by_default)을 준수합니다.
 
-### <a name="protect-the-built-in-event-hub-compatible-endpoint"></a>기본 제공 Event Hub 호환 끝점 보호
+### <a name="protect-the-built-in-event-hub-compatible-endpoint"></a>기본 제공 Event Hub 호환 엔드포인트 보호
 
-기본 제공 끝점에는 클래식 IP 필터를 적용할 수 없습니다. 이러한 제한 사항은 모든 규칙 (블록)이 구성 된 이벤트는 모든 `0.0.0.0/0` IP 주소에서 기본 제공 끝점에 액세스할 수 있음을 의미 합니다.
+기본 제공 엔드포인트에는 클래식 IP 필터를 적용할 수 없습니다. 이러한 제한 사항은 모두 블록 규칙(블록 `0.0.0.0/0`)을 사용하는 이벤트는 모든  IP 주소에서 기본 제공 엔드포인트에 액세스할 수 있음을 의미합니다.
 
-새 IP 필터는 기본 제공 끝점에 규칙을 적용 하는 옵션을 제공 하므로 네트워크 보안 위협에 대 한 노출을 줄일 수 있습니다.
+새 IP 필터는 기본 제공 엔드포인트에 규칙을 적용하는 옵션을 제공하므로 네트워크 보안 위협에 대한 노출을 줄일 수 있습니다.
 
-:::image type="content" source="media/iot-hub-ip-filter-classic/ip-filter-built-in-endpoint.png" alt-text="기본 제공 끝점에 적용할 토글을 보여 주는 이미지":::
+:::image type="content" source="media/iot-hub-ip-filter-classic/ip-filter-built-in-endpoint.png" alt-text="기본 제공 엔드포인트에 적용할 토글을 보여 주는 이미지":::
 
 > [!NOTE]
-> 이 옵션은 무료 (F1) IoT hub에서 사용할 수 없습니다. 기본 제공 끝점에 IP 필터 규칙을 적용 하려면 유료 IoT hub를 사용 합니다.
+> 체험용(F1) IoT 허브에서는 이 옵션을 사용할 수 없습니다. 기본 제공 엔드포인트에 IP 필터 규칙을 적용하려면 유료 IoT 허브를 사용해야 합니다.
 
 ### <a name="api-impact"></a>API 영향
 
-업그레이드 된 IP 필터는 `2020-08-31` (및)의 IoT Hub 리소스 API에서 사용할 수 있습니다 `2020-08-31-preview` . 클래식 IP 필터는 모든 API 버전에서 계속 사용할 수 있지만 마이그레이션 최종 기한 근처의 이후 API 버전에서는 제거 될 예정입니다. 마이그레이션 타임 라인에 대 한 자세한 내용은 [Azure 업데이트](https://aka.ms/ipfilterv2azupdate)를 참조 하세요.
+업그레이드된 IP 필터는 `2020-08-31`(및 `2020-08-31-preview`) 이상의 IoT Hub 리소스 API에서 사용할 수 있습니다. 클래식 IP 필터는 모든 API 버전에서 계속 사용할 수 있지만 마이그레이션 최종 기한 근처의 이후 API 버전에서는 제거 될 예정입니다. 마이그레이션 타임라인에 대한 자세한 내용은 [Azure 업데이트](https://aka.ms/ipfilterv2azupdate)를 참조하세요.
 
-## <a name="tip-try-the-changes-before-they-apply"></a>팁: 변경 내용을 적용 하기 전에 다시 시도 하세요.
+## <a name="tip-try-the-changes-before-they-apply"></a>팁: 변경 내용을 적용하기 전에 다시 시도하세요
 
-새 IP 필터는 모든 IP 주소를 기본적으로 차단 하므로 개별 블록 규칙은 더 이상 호환 되지 않습니다. 따라서 단계별 업그레이드 프로세스는 이러한 개별 블록 규칙을 제거 합니다. 
+새 IP 필터는 모든 IP 주소를 기본적으로 차단하므로 개별 블록 규칙은 더 이상 호환되지 않습니다. 따라서 단계별 업그레이드 프로세스는 이러한 개별 블록 규칙을 제거합니다. 
 
-클래식 IP 필터를 사용 하 여 변경 하려면 다음을 수행 합니다.
+클래식 IP 필터를 사용하여 변경하려면 다음을 수행합니다.
 
-1. IoT hub의 **네트워킹** 탭을 방문 합니다.
-1. 롤백하는 경우 기존 IP 필터 (클래식) 구성을 적어 둡니다.
-1. **블록이** 있는 규칙 옆에서 휴지통 아이콘을 선택 하 여 제거 합니다.
-1. 아래쪽에 다른 규칙을 추가 하 `0.0.0.0/0` 고 **차단** 을 선택 합니다.
+1. IoT hub의 **네트워킹** 탭으로 이동합니다
+1. 롤백하는 경우 기존 IP 필터 (클래식) 구성을 적어둡니다
+1. **블록이** 있는 규칙 옆에서 휴지통 아이콘을 선택하여 제거합니다
+1. `0.0.0.0/0`과 함께 아래쪽에 다른 규칙을 추가하고 **블록** 을 선택합니다
 1. **저장** 을 선택합니다.
 
-이 구성은 클래식에서 업그레이드 한 후 새 IP 필터가 작동 하는 방식을 모방 합니다. 한 가지 예외는 기본 제공 endpoint protection 이지만 클래식 IP 필터를 사용해 볼 수 없습니다. 그러나이 기능은 선택 사항이 며, 어떤 항목이 손상 될 수 있다고 생각 되 면 사용할 필요가 없습니다.
+이 구성은 클래식에서 업그레이드한 후 새 IP 필터가 작동하는 방식을 모방합니다. 한 가지 예외는 기본 제공 엔드포인트 보호이지만 클래식 IP 필터는 사용해 볼 수 없습니다. 그러나 이 기능은 선택 사항이며, 따라서 어떤 항목이 손상될 수 있다고 생각되면 사용할 필요가 없습니다.
 
-## <a name="tip-check-diagnostic-logs-for-all-ip-connections-to-your-iot-hub"></a>팁: IoT hub에 대 한 모든 IP 연결에 대 한 진단 로그를 확인 합니다.
+## <a name="tip-check-diagnostic-logs-for-all-ip-connections-to-your-iot-hub"></a>팁: IoT hub에 대한 모든 IP 연결에 대한 진단 로그를 확인합니다
 
-원활한 전환을 위해 연결 범주에서 진단 로그를 확인 합니다. 속성을 찾아 `maskedIpAddress` 범위가 기대한 것인지 확인 합니다. 주의: 새 IP 필터는 명시적으로 추가 되지 않은 모든 IP 주소를 차단 합니다.
+원활한 전환을 위해 연결 범주에서 진단 로그를 확인합니다. `maskedIpAddress` 속성을 찾아 범위가 기대한 것인지 확인합니다. 주의: 새 IP 필터는 명시적으로 추가되지 않은 모든 IP 주소를 차단합니다.
 
-## <a name="iot-hub-classic-ip-filter-documentation-retired"></a>클래식 IP 필터 설명서 IoT Hub (사용 되지 않음)
+## <a name="iot-hub-classic-ip-filter-documentation-retired"></a>클래식 IP 필터 설명서 IoT Hub(사용되지 않음)
 
 > [!IMPORTANT]
-> 다음은 사용이 중지 되는 클래식 IP 필터에 대 한 원본 설명서입니다.
+> 다음은 사용이 중지되는 클래식 IP 필터에 대한 원본 설명서입니다.
 
 보안은 Azure IoT Hub를 기반으로 하는 모든 IoT 솔루션의 중요한 측면입니다. 경우에 따라 디바이스가 보안 구성의 일부로 연결할 수 있는 IP 주소를 명시적으로 지정해야 합니다. *IP 필터* 기능을 사용하면 특정 IPv4 주소에서 들어오는 트래픽을 거부하거나 수락하는 규칙을 구성할 수 있습니다.
 

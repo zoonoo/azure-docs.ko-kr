@@ -4,10 +4,10 @@ description: VM 크기, 사용자당 최대 VM 수 및 자동 종료와 같은 �
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a7ada980b2a251b8164f2e1a20f65da54c89ba72
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90530355"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 대한 모든 정책 관리
@@ -103,9 +103,9 @@ Azure DevTest Labs에서는 각 랩의 정책(설정)을 관리하여 랩에서 
 ## <a name="set-autostart"></a>자동 시작 설정
 자동 시작 정책을 사용하면 현재 랩의 VM을 시작할 시기를 지정할 수 있습니다.  
 
-1. 랩의 **구성 및 정책** 창에서 **자동** 시작을 선택 합니다.
+1. 랩의 **구성 및 정책** 창에서 **자동 시작** 을 선택합니다.
    
-    ![화면 캡처는 가상 컴퓨터에 대 한 자동 시작 옵션을 표시 합니다.](./media/devtest-lab-set-lab-policy/auto-start.png)
+    ![화면 캡처는 가상 머신의 자동 시작 옵션을 표시합니다.](./media/devtest-lab-set-lab-policy/auto-start.png)
 
 2. 이 정책을 사용하도록 설정하려면 **설정** 을 선택하고 사용하지 않도록 설정하려면 **해제** 를 선택합니다.
 
@@ -113,7 +113,7 @@ Azure DevTest Labs에서는 각 랩의 정책(설정)을 관리하여 랩에서 
 
 4. **저장** 을 선택합니다.
 
-사용하도록 설정해도 이 정책이 현재 랩의 VM에 자동으로 적용되지 않습니다. 이 설정을 특정 VM에 적용 하려면 VM의 관리 창을 열고 **자동** 시작 설정을 변경 합니다.
+사용하도록 설정해도 이 정책이 현재 랩의 VM에 자동으로 적용되지 않습니다. 이 설정을 특정 VM에 적용하려면 VM의 관리 창을 열고 해당 **자동 시작** 설정을 변경합니다.
 
 ## <a name="set-expiration-date"></a>만료 날짜 설정
 [VM을 만들 때](devtest-lab-add-vm.md) 만료 날짜를 설정할 수 있습니다. **고급 설정** 에서 달력 아이콘을 선택하고 VM이 자동으로 삭제될 날짜를 지정합니다. 기본적으로 VM은 만료되지 않습니다.

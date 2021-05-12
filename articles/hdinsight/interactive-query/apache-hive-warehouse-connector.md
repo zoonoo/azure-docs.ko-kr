@@ -7,10 +7,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
 ms.openlocfilehash: 57a3d76f24c33984a883e926a8d4c68736e9f121
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104869891"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Azure HDInsight의 Hive Warehouse Connector와 Apache Spark 및 Apache Hive 통합
@@ -38,11 +38,11 @@ Hive Warehouse Connector에서 지원하는 일부 작업은 다음과 같습니
 ## <a name="hive-warehouse-connector-setup"></a>Hive Warehouse Connector 설정
 
 > [!IMPORTANT]
-> - Spark 2.4 Enterprise Security Package 클러스터에 설치 된 HiveServer2 대화형 인스턴스는 Hive 웨어하우스 커넥터에서 사용할 수 없습니다. 대신, HiveServer2 대화형 작업을 호스트 하는 별도의 HiveServer2 대화형 클러스터를 구성 해야 합니다. 단일 Spark 2.4 클러스터를 활용 하는 Hive 웨어하우스 커넥터 구성은 지원 되지 않습니다.
-> - HWC (Hive 웨어하우스 커넥터) 라이브러리는 WLM (워크 로드 관리) 기능이 설정 된 대화형 쿼리 클러스터에서 사용할 수 없습니다. <br>
-Spark 작업을 보유 하 고 HWC Library를 사용 하려는 경우 대화형 쿼리 클러스터에서 작업 관리 기능을 사용 하도록 설정 하지 않았는지 확인 `hive.server2.tez.interactive.queue` 합니다 (구성이 Hive configs에 설정 되지 않음). <br>
-Spark 워크 로드 (HWC) 및 LLAP 기본 워크 로드가 모두 있는 시나리오의 경우 공유 metastore 데이터베이스를 사용 하 여 두 개의 별도의 대화형 쿼리 클러스터를 만들어야 합니다. Wlm 기능을 필요에 따라 사용 하도록 설정할 수 있는 기본 LLAP 워크 로드 및 WLM 기능을 구성 하지 않아야 하는 HWC 전용 워크 로드에 대 한 클러스터 한 개.
-하나의 클러스터 에서만 사용 하도록 설정 된 경우에도 두 클러스터에서 WLM 리소스 계획을 볼 수 있습니다. 다른 클러스터의 WLM 기능에 영향을 줄 수 있으므로 WLM 기능을 사용 하지 않도록 설정 된 클러스터의 리소스 계획을 변경 하지 마세요.
+> - Spark 2.4 Enterprise Security Package 클러스터에 설치된 HiveServer2 대화형 인스턴스는 Hive Warehouse Connector에서 사용할 수 없습니다. 대신, HiveServer2 대화형 작업을 호스트하는 별도의 HiveServer2 대화형 클러스터를 구성해야 합니다. 단일 Spark 2.4 클러스터를 활용하는 Hive Warehouse Connector 구성은 지원되지 않습니다.
+> - HWC(Hive Warehouse Connector) 라이브러리는 WLM(워크로드 관리) 기능을 사용하도록 설정된 Interactive Query 클러스터에서 사용할 수 없습니다. <br>
+Spark 워크로드만을 보유하고 있고 HWC 라이브러리를 사용하려는 경우, Interactive Query 클러스터에서 워크로드 관리 기능을 사용하도록 설정하지 않았음을 확인해야 합니다(`hive.server2.tez.interactive.queue` 구성이 Hive 구성에서 설정되지 않음). <br>
+Spark 워크로드(HWC) 및 LLAP 기본 워크로드를 모두 보유하고 있는 시나리오의 경우 공유 메타스토어 데이터베이스를 사용하여 두 개의 개별 Interactive Query 클러스터를 만들어야 합니다. WLM 기능을 필요에 따라 사용하도록 설정할 수 있는 네이티브 LLAP 워크로드용 클러스터 한 개, 그리고 WLM 기능을 구성하지 않아야 하는 HWC 전용 워크로드용 클러스터 한 개를 만듭니다.
+WLM 리소스 계획이 클러스터 한 개에서만 사용하도록 설정된 경우에도 두 클러스터 모두에서 리소스 계획을 볼 수 있습니다. 다른 클러스터의 WLM 기능에 영향을 줄 수 있으므로 WLM 기능을 사용하지 않도록 설정된 클러스터의 리소스 계획을 변경하지 마세요.
 
 Hive Warehouse Connector에는 Spark 및 Interactive Query 워크로드를 위한 별도의 클러스터가 필요합니다. Azure HDInsight에서 이러한 클러스터를 설정하려면 다음 단계를 수행합니다.
 
@@ -101,15 +101,15 @@ ESP(Enterprise Security Package)는 Azure HDInsight의 Apache Hadoop 클러스�
     |----|----|
     | `spark.sql.hive.hiveserver2.jdbc.url.principal`    | `hive/<llap-headnode>@<AAD-Domain>` |
     
-    * 웹 브라우저에서로 이동 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` 합니다. 여기서 CLUSTERNAME은 대화형 쿼리 클러스터의 이름입니다. **HiveServer2 Interactive** 를 클릭 합니다. 스크린샷에 표시 된 것 처럼 LLAP이 실행 되는 헤드 노드의 FQDN (정규화 된 도메인 이름)이 표시 됩니다. `<llap-headnode>`이 값으로 대체 합니다.
+    * 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary`로 이동합니다. 여기서 CLUSTERNAME은 Interactive Query 클러스터의 이름입니다. **HiveServer2 Interactive** 를 클릭합니다. 스크린샷과 같이 LLAP가 실행 중인 헤드 노드의 FQDN(정규화된 도메인 이름)이 보입니다. `<llap-headnode>`를 이 값으로 바꿉니다.
 
-        :::image type="content" source="./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png" alt-text="hive 웨어하우스 커넥터 헤드 노드" border="true":::
+        :::image type="content" source="./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png" alt-text="Hive Warehouse Connector 헤드 노드" border="true":::
 
-    * [Ssh 명령을](../hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 대화형 쿼리 클러스터에 연결 합니다. `default_realm`파일에서 매개 변수를 찾습니다 `/etc/krb5.conf` . `<AAD-DOMAIN>`이 값을 대문자 문자열로 바꾸고, 그렇지 않으면 자격 증명을 찾을 수 없습니다.
+    * [ssh 명령](../hdinsight-hadoop-linux-use-ssh-unix.md)을 사용하여 Interactive Query 클러스터에 연결합니다. `/etc/krb5.conf` 파일에서 `default_realm` 매개 변수를 찾습니다. `<AAD-DOMAIN>`을 대문자 문자열로 하여 이 값으로 바꿉니다. 그렇지 않으면 자격 증명을 찾을 수 없습니다.
 
-        :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="hive 웨어하우스 커넥터 AAD 도메인" border="true":::
+        :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="Hive Warehouse Connector AAD 도메인" border="true":::
 
-    * 예를 들면 `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET` 입니다.
+    * 예: `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET`
     
 1. 변경 내용을 저장하고 필요하면 구성 요소를 다시 시작합니다.
 

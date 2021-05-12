@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/11/2020
 ms.openlocfilehash: 31b96f03a8519b068eaa816443be0a0f374a4a8c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98247032"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB의 자동 크기 조정 프로비전된 처리량 FAQ
@@ -28,7 +28,7 @@ ms.locfileid: "98247032"
 
 예를 들어 이전에 400~4,000RU/s 범위에서 크기 조정된 계층을 선택하는 경우 데이터베이스 또는 컨테이너는 이제 4,000RU/s의 최대 RU/s를 갖는 것으로 표시되고 400~4,000RU/s 범위에서 크기 조정됩니다. 여기에서 워크로드에 맞게 최대 RU/s를 사용자 지정 값으로 변경할 수 있습니다. 
 
-### <a name="how-quickly-will-autoscale-scale-up-based-on-spikes-in-traffic"></a>트래픽 급증을 기준으로 크기 자동 조정의 규모는 얼마나 되나요?
+### <a name="how-quickly-will-autoscale-scale-up-based-on-spikes-in-traffic"></a>자동 크기 조정은 트래픽 급증에 따라 얼마나 빠르게 확장되나요?
 자동 크기 조정을 사용하는 경우 시스템은 수신 트래픽에 따라 처리량(RU/s) `T`를 `0.1 * Tmax` 및 `Tmax` 범위 내에서 조정합니다. 크기 조정은 언제든지 자동으로 또한 즉각적으로 진행되므로 지연 없이 프로비전된 `Tmax`까지 사용할 수 있습니다. 
 
 ### <a name="how-do-i-determine-what-rus-the-system-is-currently-scaled-to"></a>시스템이 현재 크기 조정된 RU/s는 어떻게 확인하나요?
@@ -38,14 +38,14 @@ ms.locfileid: "98247032"
 매 시간마다 시스템이 해당 시간 내에 크기 조정된 최고 처리량 `T`에 대해 요금이 청구됩니다. 해당 시간 동안 리소스에 요청이 없거나 `0.1 * Tmax` 이상으로 확장되지 않은 경우 최소값 `0.1 * Tmax`에 대해 요금이 청구됩니다. 자세한 내용은 Azure Cosmos DB [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요. 
 
 ### <a name="how-does-autoscale-show-up-on-my-bill"></a>자동 크기 조정은 청구서에 어떻게 표시되나요?
-단일 쓰기 지역 계정에서 100 r u/초 당 자동 크기 조정 속도는 1.5 x 표준 (수동) 프로 비전 된 처리량의 속도입니다. 청구서에는 기존 표준 프로비전된 처리량 미터가 표시됩니다. 이 미터의 수량에 1.5를 곱합니다. 예를 들어 시스템이 특정 시간 중에 최고 6,000RU/s까지 크기 조정되었다면 해당 시간에 대해 미터의 60 * 1.5 = 90단위가 청구됩니다.
+단일 쓰기 지역 계정에서 100RU/s당 자동 크기 조정 요금은 표준(수동) 프로비전된 처리량 요금의 1.5배입니다. 청구서에는 기존 표준 프로비전된 처리량 미터가 표시됩니다. 이 미터의 수량에 1.5를 곱합니다. 예를 들어 시스템이 특정 시간 중에 최고 6,000RU/s까지 크기 조정되었다면 해당 시간에 대해 미터의 60 * 1.5 = 90단위가 청구됩니다.
 
-여러 쓰기 지역이 있는 계정에서 100 r u/초 당 자동 크기 조정 속도는 표준 (수동) 프로 비전 된 여러 쓰기 지역 처리량과 동일 합니다. 청구서에 기존 다중 쓰기 지역 측정기가 표시 됩니다. 요금은 동일하므로 자동 크기 조정을 사용하는 경우에도 표준 처리량과 동일한 수량이 표시됩니다.
+다중 쓰기 지역의 계정에서 100RU/s당 자동 크기 조정 요금은 표준(수동) 프로비전된 다중 쓰기 지역 처리량의 요금과 동일합니다. 청구서에는 기존 다중 쓰기 지역 측정기가 표시됩니다. 요금은 동일하므로 자동 크기 조정을 사용하는 경우에도 표준 처리량과 동일한 수량이 표시됩니다.
 
 ### <a name="does-autoscale-work-with-reserved-capacity"></a>자동 크기 조정 기능은 예약된 용량에 적용되나요?
-예. 단일 쓰기 지역이 있는 계정에 대해 예약 된 용량을 구매 하는 경우 자동 크기 조정 리소스에 대 한 예약 할인은 [특정 지역의 비율](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region)을 기준으로 미터 1.5 사용에 적용 됩니다. 
+예. 단일 쓰기 지역의 계정에 대해 예약된 용량을 구입하면 자동 크기 조정 리소스에 대한 예약 할인이 1.5 * [특정 지역 비율](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region)로 미터 사용량에 적용됩니다. 
 
-다중 쓰기 지역 예약 용량은 자동 크기 조정 및 표준 (수동) 프로 비전 된 처리량에 대해 동일 하 게 작동 합니다. [Azure Cosmos DB 예약된 용량](cosmos-db-reserved-capacity.md)을 참조하세요.
+다중 쓰기 지역 예약된 용량은 자동 크기 조정 프로비전된 처리량과 표준(수동) 프로비전된 처리량에서 동일하게 적용됩니다. [Azure Cosmos DB 예약된 용량](cosmos-db-reserved-capacity.md)을 참조하세요.
 
 ### <a name="does-autoscale-work-with-free-tier"></a>자동 크기 조정은 무료 계층에 적용되나요?
 예. 무료 계층에서는 컨테이너에서 자동 크기 조정 처리량을 사용할 수 있습니다. 사용자 지정 최대 RU/s를 사용하는 자동 크기 조정 공유 처리량 데이터베이스에 대한 지원은 아직 사용할 수 없습니다. [무료 계층 청구가 자동 크기 조정에 적용되는 방식](understand-your-bill.md#azure-free-tier)을 참조하세요.
@@ -53,7 +53,7 @@ ms.locfileid: "98247032"
 ### <a name="is-autoscale-supported-for-all-apis"></a>모든 API에 대해 자동 크기 조정이 지원되나요?
 예, 자동 크기 조정은 모든 API에 대해 지원됩니다. Core(SQL), Gremlin, Table, Cassandra 및 API for MongoDB.
 
-### <a name="is-autoscale-supported-for-multi-region-write-accounts"></a>다중 지역 쓰기 계정에 대해 자동 크기 조정이 지원 되나요?
+### <a name="is-autoscale-supported-for-multi-region-write-accounts"></a>다중 쓰기 지역 계정에 대해 자동 크기 조정이 지원되나요?
 예. 최대 RU/s는 Azure Cosmos DB 계정에 추가된 각 지역에서 사용할 수 있습니다. 
 
 ### <a name="how-do-i-enable-autoscale-on-new-databases-or-containers"></a>새 데이터베이스 또는 컨테이너에서 자동 크기 조정을 사용하려면 어떻게 해야 하나요??
@@ -88,9 +88,9 @@ ms.locfileid: "98247032"
 ### <a name="what-is-the-number-of-allowed-containers-per-shared-throughput-database-when-autoscale-is-enabled"></a>자동 크기 조정을 사용하는 경우 공유 처리량 데이터베이스당 허용된 컨테이너 수는 몇 개인가요?
 Azure Cosmos DB는 공유 처리량 데이터베이스에서 최대 25개의 컨테이너를 허용하며, 이는 자동 크기 조정 또는 표준(수동) 처리량을 사용하는 데이터베이스에 적용됩니다. 
 
-### <a name="what-is-the-impact-of-autoscale-on-database-consistency-level"></a>데이터베이스 일관성 수준에 대 한 자동 크기 조정의 영향은 무엇 인가요?
-데이터베이스의 일관성 수준에 대 한 자동 크기 조정에는 영향을 주지 않습니다.
-사용 가능한 일관성 수준에 대 한 자세한 내용은 [일관성 수준](consistency-levels.md) 문서를 참조 하세요.
+### <a name="what-is-the-impact-of-autoscale-on-database-consistency-level"></a>자동 크기 조정은 데이터베이스 일관성 수준에 어떤 영향을 미치나요?
+자동 크기 조정은 데이터베이스의 일관성 수준에 영향을 주지 않습니다.
+사용 가능한 일관성 수준에 대한 자세한 내용은 [일관성 수준](consistency-levels.md) 문서를 참조하세요.
 
 ### <a name="what-is-the-storage-limit-associated-with-each-max-rus-option"></a>각 최대 RU/s 옵션과 관련된 스토리지 제한은 무엇인가요?  
 각 최대 RU/s에 대한 스토리지 제한(GB)은 다음과 같습니다. 데이터베이스 또는 컨테이너의 최대 RU/s / 100. 예를 들어 최대 RU/s가 20,000RU/s이면 리소스가 200GB 스토리지를 지원할 수 있습니다. 사용 가능한 최대 RU/s 및 스토리지 옵션은 [자동 크기 조정 제한](provision-throughput-autoscale.md#autoscale-limits) 문서를 참조하세요. 

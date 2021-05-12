@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Maps 웹 맵 컨트롤 시작
-description: Azure Maps에서 맵 컨트롤 클라이언트 쪽 JavaScript 라이브러리를 사용 하 여 웹 및 모바일 응용 프로그램에 맵을 추가 하는 방법에 대해 알아봅니다. Maps를 지역화 하는 방법을 참조 하세요.
+description: Azure Maps에서 맵 컨트롤 클라이언트 측 JavaScript 라이브러리를 사용하여 웹 및 모바일 애플리케이션에 맵을 추가하는 방법에 대해 알아봅니다. 맵을 현지화하는 방법을 알아보세요.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/20/2020
@@ -10,53 +10,53 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: b283cacf94ff3567428787e50a3d7db9ba91fd9c
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104864043"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤 사용
 
-맵 컨트롤 클라이언트 쪽 JavaScript 라이브러리를 사용 하면 맵 및 포함 된 Azure Maps 기능을 웹 또는 모바일 응용 프로그램에 렌더링할 수 있습니다.
+맵 컨트롤 클라이언트 측 JavaScript 라이브러리를 사용하면 맵 및 포함된 Azure Maps 기능을 웹 또는 모바일 애플리케이션에 렌더링할 수 있습니다.
 
-이 설명서에서는 Azure Maps 웹 SDK를 사용 하지만 Azure Maps 서비스는 모든 지도 컨트롤에서 사용할 수 있습니다. Azure Maps 팀에서 플러그 인을 만든 몇 가지 인기 있는 오픈 소스 맵 컨트롤은 [다음](open-source-projects.md#third-part-map-control-plugins)과 같습니다.
+본 문서에서는 Azure Maps Web SDK를 사용하지만 Azure Maps 서비스는 모든 맵 컨트롤에서 사용할 수 있습니다. Azure Maps 팀에서 플러그 인을 만든 몇 가지 인기 있는 오픈 소스 맵 컨트롤은 [다음](open-source-projects.md#third-part-map-control-plugins)과 같습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-웹 페이지에서 맵 컨트롤를 사용 하려면 다음 필수 구성 요소 중 하나가 있어야 합니다.
+웹 페이지에서 맵 컨트롤을 사용하려면 다음 필수 조건 중 하나가 있어야 합니다.
 
-* [Azure Maps 계정을](quick-demo-map-app.md#create-an-azure-maps-account) 만들고 기본 키 또는 구독 키 라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+* [Azure Maps 계정을 만들고](quick-demo-map-app.md#create-an-azure-maps-account) 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
-* [인증 옵션](/javascript/api/azure-maps-control/atlas.authenticationoptions)을 사용 하 여 AAD (Azure Active Directory) 자격 증명을 가져옵니다.
+* [인증 옵션](/javascript/api/azure-maps-control/atlas.authenticationoptions)을 사용하여 AAD(Azure Active Directory) 자격 증명을 가져옵니다.
 
 ## <a name="create-a-new-map-in-a-web-page"></a>웹 페이지에 새 맵 만들기
 
-맵 컨트롤 클라이언트 쪽 JavaScript 라이브러리를 사용 하 여 웹 페이지에 맵을 포함할 수 있습니다.
+맵 컨트롤 클라이언트 쪽 JavaScript 라이브러리를 사용하여 웹 페이지에 맵을 포함할 수 있습니다.
 
 1. 새 HTML 파일 만들기
 
 2. Azure Maps 웹 SDK에서 로드합니다. 다음 두 가지 옵션 중 하나를 선택하세요.
 
-    * HTML 파일의 요소에서 JavaScript 및 스타일 시트에 대 한 참조를 추가 하 여 Azure Maps 웹 SDK의 전역적으로 호스팅된 CDN 버전을 사용 합니다 `<head>` .
+    * HTML 파일의 `<head>` 요소에서 JavaScript 및 스타일 시트에 대한 참조를 추가하여 Azure Maps 웹 SDK의 전역적으로 호스트된 CDN 버전을 사용합니다.
 
       ```html
       <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
       <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
       ```
 
-    * [NPM 패키지를 사용](https://www.npmjs.com/package/azure-maps-control) 하 여 AZURE MAPS 웹 SDK 소스 코드를 로컬로 로드 하 고 앱과 함께 호스트 합니다. 이 패키지에는 TypeScript 정의도 포함됩니다.
+    * [azure-maps-control](https://www.npmjs.com/package/azure-maps-control) NPM 패키지를 사용하여 로컬에서 Azure Maps 웹 SDK 소스 코드를 로드하여 앱으로 호스트합니다. 이 패키지에는 TypeScript 정의도 포함됩니다.
 
       > **npm install azure-maps-control**
 
-    그런 다음 Azure Maps 스타일 시트에 대 한 참조를 `<head>` 파일의 요소에 추가 합니다.
+    그런 다음 파일의 `<head>` 요소에 Azure Maps 스타일 시트에 대한 참조를 추가합니다.
 
     ```html
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
      ```
 
     > [!NOTE]
-    > 다음 코드를 추가 하 여 Typescript 정의를 응용 프로그램으로 가져올 수 있습니다.
+    > 다음 코드를 추가하여 Typescript 정의를 애플리케이션으로 가져올 수 있습니다.
     >
     > ```javascript
     > import * as atlas from 'azure-maps-control';
@@ -85,9 +85,9 @@ ms.locfileid: "104864043"
     </body>
    ```
 
-5. 이제 지도 컨트롤을 초기화 합니다. 컨트롤을 인증 하려면 Azure Maps 구독 키를 소유 하거나 [인증 옵션과](/javascript/api/azure-maps-control/atlas.authenticationoptions)함께 AAD (Azure Active Directory) 자격 증명을 사용 해야 합니다.
+5. 이제 맵 컨트롤을 초기화합니다. 컨트롤을 인증하려면 Azure Maps 구독 키를 소유하거나 [인증 옵션](/javascript/api/azure-maps-control/atlas.authenticationoptions)과 함께 AAD(Azure Active Directory) 자격 증명을 사용해야 합니다.
 
-    인증을 위해 구독 키를 사용 하는 경우 요소 내에 다음 스크립트 요소를 복사 하 여 `<head>` 첫 번째 요소 아래에 붙여 넣습니다 `<script>` . `<Your Azure Maps Key>`을 Azure Maps 기본 구독 키로 바꿉니다.
+    인증을 위해 구독 키를 사용하는 경우에는 다음 스크립트 요소를 복사하여 `<head>` 요소 내, 그리고 첫 번째 `<script>` 요소 아래에 붙여넣습니다. `<Your Azure Maps Key>`를 Azure Maps 기본 구독 키로 바꿉니다.
 
      ```HTML
     <script type="text/javascript">
@@ -106,7 +106,7 @@ ms.locfileid: "104864043"
     </script>
     ```
 
-    인증을 위해 AAD (Azure Active Directory)를 사용 하는 경우 요소 내에 다음 스크립트 요소를 복사 하 여 `<head>` 첫 번째 요소 아래에 붙여 넣습니다 `<script>` .
+    인증을 위해 AAD(Azure Active Directory)를 사용하는 경우에는 다음 스크립트 요소를 복사하여 `<head>` 요소 내, 그리고 첫 번째 `<script>` 요소 아래에 붙여넣습니다.
 
       ```HTML
     <script type="text/javascript">
@@ -127,12 +127,12 @@ ms.locfileid: "104864043"
     </script>
    ```
 
-    Azure Maps 인증에 대 한 자세한 내용은 [Azure Maps 인증](azure-maps-authentication.md) 문서를 참조 하세요. 또한 Azure Maps와 AAD (Azure Active Directory)를 통합 하는 방법을 보여 주는 샘플 목록은 [여기](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)에서 찾을 수 있습니다.
+    Azure Maps 인증에 대한 자세한 내용은 [Azure Maps 인증](azure-maps-authentication.md) 문서를 참조하세요. 또한 Azure Maps에 AAD(Azure Active Directory)를 통합하는 방법을 보여 주는 샘플 목록은 [여기](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)에서 찾을 수 있습니다.
 
     >[!TIP]
-    >이 예제에서는 지도의를 전달 했습니다 `id` `<div>` . 이 작업을 수행 하는 또 다른 방법은를 `HTMLElement` 첫 번째 매개 변수로 전달 하 여 개체를 전달 하는 것입니다 `document.getElementById('myMap')` .
+    >이 예제에서는 맵 `<div>`의 `id`에서 전달했습니다. 이 작업을 수행하는 또 다른 방법은 `document.getElementById('myMap')`를 첫 번째 매개 변수로 전달하여 `HTMLElement` 개체에서 전달하는 것입니다.
 
-6. 필요에 따라 `meta` 페이지의 요소에 다음 요소를 추가 하는 것이 유용할 수 있습니다 `head` .
+6. 필요에 따라 페이지의 `head` 요소에 다음 `meta` 요소를 추가하는 것이 유용할 수 있습니다.
 
    ```HTML
     <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
@@ -142,7 +142,7 @@ ms.locfileid: "104864043"
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    ```
 
-7. 모든 항목을 함께 저장 하면 HTML 파일은 다음과 같이 표시 됩니다.
+7. HTML 파일을 모두 모으면 다음 표시와 같은 모양입니다.
 
    ```HTML
     <!DOCTYPE html>
@@ -196,20 +196,20 @@ ms.locfileid: "104864043"
     </html>
     ```
 
-8. 웹 브라우저에서 파일을 열고 렌더링된 맵을 봅니다. 아래 이미지와 같습니다.
+8. 웹 브라우저에서 파일을 열고 렌더링된 맵을 봅니다. 다음 이미지와 같아야 합니다.
 
-   ![렌더링 된 결과를 표시 하는 지도 이미지](./media/how-to-use-map-control/map-of-seattle.png)
+   ![렌더링된 결과를 표시하는 맵 이미지](./media/how-to-use-map-control/map-of-seattle.png)
 
-## <a name="localizing-the-map"></a>맵 지역화
+## <a name="localizing-the-map&quot;></a>맵 지역화
 
-Azure Maps는 렌더링 된 맵의 언어 및 지역 뷰를 설정 하는 두 가지 다른 방법을 제공 합니다. 첫 번째 옵션은이 정보를 전역 네임 스페이스에 추가 하는 것입니다 `atlas` . 그러면 앱의 모든 맵 컨트롤 인스턴스가 이러한 설정을 기본값으로 설정 합니다. 다음은 언어를 프랑스어("fr-FR")로 설정하고 지역 보기를 "Auto"로 설정합니다.
+Azure Maps는 렌더링된 맵의 언어 및 지역 보기를 설정하는 두 가지 방법을 제공합니다. 첫 번째 옵션은 이 정보를 전체 `atlas` 네임스페이스에 추가하는 것입니다. 그러면 앱의 모든 맵 컨트롤 인스턴스가 기본적으로 이 설정으로 지정됩니다. 다음은 언어를 프랑스어(&quot;fr-FR")로 설정하고 지역 보기를 "Auto"로 설정합니다.
 
 ```javascript
 atlas.setLanguage('fr-FR');
 atlas.setView('Auto');
 ```
 
-두 번째 옵션은 다음과 같이 지도를 로드할 때이 정보를 맵 옵션에 전달 하는 것입니다.
+두 번째 옵션은 다음과 같이 맵을 로드할 때 맵 옵션에 이 정보를 전달하는 것입니다.
 
 ```javascript
 map = new atlas.Map('myMap', {
@@ -226,35 +226,35 @@ map = new atlas.Map('myMap', {
 ```
 
 > [!NOTE]
-> 서로 다른 언어 및 지역 설정을 사용 하 여 동일한 페이지에 여러 개의 맵 인스턴스를 로드할 수 있습니다. 또한 지도의 함수를 사용 하 여 맵이 로드 된 후 이러한 설정을 업데이트할 수 있습니다 `setStyle` .
+> 다른 언어 및 지역 설정을 사용하여 동일한 페이지에 여러 개의 맵 인스턴스를 로드할 수 있습니다. 또한 맵의 `setStyle` 함수를 사용하여 맵이 로드된 후 해당 설정을 업데이트할 수 있습니다.
 
-언어가 "fr-fr"로 설정 되 고 지역 보기가 "Auto"로 설정 된 Azure Maps의 예는 다음과 같습니다.
+다음은 언어가 “fr-FR”로 설정되고 지역 보기가 “Auto”로 설정된 Azure Maps의 예입니다.
 
-![프랑스어로 레이블을 표시 하는 지도 이미지](./media/how-to-use-map-control/websdk-localization.png)
+![프랑스어로 레이블을 표시하는 맵 이미지](./media/how-to-use-map-control/websdk-localization.png)
 
 지원되는 언어 및 지역 보기의 전체 목록은 [여기](supported-languages.md)에 설명되어 있습니다.
 
 ## <a name="azure-government-cloud-support"></a>Azure Government 클라우드 지원
 
-Azure Maps 웹 SDK는 Azure Government 클라우드를 지원 합니다. Azure Maps 웹 SDK에 액세스 하는 데 사용 되는 모든 JavaScript 및 CSS Url은 동일 하 게 유지 됩니다. Azure Maps 플랫폼의 Azure Government 클라우드 버전에 연결 하려면 다음 작업을 수행 해야 합니다.
+Azure Maps 웹 SDK는 Azure Government 클라우드를 지원합니다. Azure Maps 웹 SDK에 액세스하는 데 사용되는 모든 JavaScript 및 CSS URL은 동일하게 유지됩니다. Azure Maps 플랫폼의 Azure Government 클라우드 버전에 연결하려면 다음 작업을 수행해야 합니다.
 
-대화형 맵 컨트롤을 사용 하는 경우 클래스의 인스턴스를 만들기 전에 다음 코드 줄을 추가 `Map` 합니다.
+대화형 맵 컨트롤을 사용하는 경우 `Map` 클래스의 인스턴스를 만들기 전에 다음 코드 줄을 추가합니다.
 
 ```javascript
 atlas.setDomain('atlas.azure.us');
 ```
 
-지도와 서비스를 인증 하는 경우 Azure Government 클라우드 플랫폼에서 Azure Maps 인증 세부 정보를 사용 해야 합니다.
+맵 및 서비스 인증 시 Azure Government 클라우드 플랫폼에서 Azure Maps 인증 세부 정보를 사용해야 합니다.
 
-서비스 모듈을 사용 하는 경우 API URL 끝점의 인스턴스를 만들 때 서비스에 대 한 도메인을 설정 해야 합니다. 예를 들어 다음 코드는 클래스의 인스턴스를 만들고 `SearchURL` 도메인을 Azure Government 클라우드로 가리킵니다.
+서비스 모듈을 사용하는 경우에는 API URL 엔드포인트의 인스턴스를 만들 때 서비스에 대한 도메인을 설정해야 합니다. 예를 들어 다음 코드는 `SearchURL` 클래스의 인스턴스를 만들고 도메인을 Azure Government 클라우드로 가리킵니다.
 
 ```javascript
 var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
 ```
 
-Azure Maps REST 서비스에 직접 액세스 하는 경우 URL 도메인을로 변경 `atlas.azure.us` 합니다. 예를 들어 검색 API 서비스를 사용 하는 경우 URL 도메인을에서 `https://atlas.microsoft.com/search/` 로 변경 `https://atlas.azure.us/search/` 합니다.
+Azure Maps REST 서비스에 직접 액세스하는 경우 URL 도메인을 `atlas.azure.us`로 변경합니다. 예를 들어 검색 API 서비스를 사용하는 경우 URL 도메인을 `https://atlas.microsoft.com/search/`에서 `https://atlas.azure.us/search/`로 변경합니다.
 
-## <a name="javascript-frameworks"></a>JavaScript 프레임 워크
+## <a name="javascript-frameworks"></a>JavaScript 프레임워크
 
 JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소스 프로젝트 중 하나가 유용할 수 있습니다.
 
@@ -275,7 +275,7 @@ JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소
 > [!div class="nextstepaction"]
 > [지도 스타일 선택](choose-map-style.md)
 
-모범 사례를 알아보고 샘플을 참조 하세요.
+모범 사례를 알아보고 샘플을 참조하세요.
 
 > [!div class="nextstepaction"]
 > [모범 사례](web-sdk-best-practices.md)
@@ -283,7 +283,7 @@ JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소
 > [!div class="nextstepaction"]
 > [코드 샘플](/samples/browse/?products=azure-maps)
 
-Azure Maps와 AAD (Azure Active Directory)를 통합 하는 방법을 보여 주는 샘플 목록은 다음을 참조 하세요.
+Azure Maps에 AAD(Azure Active Directory)를 통합하는 방법을 보여 주는 샘플 목록은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
 > [Azure AD 인증 샘플](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)

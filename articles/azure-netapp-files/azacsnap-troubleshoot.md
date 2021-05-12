@@ -1,6 +1,6 @@
 ---
-title: Azure NetApp Files에 대 한 Azure 애플리케이션 일치 스냅숏 도구 문제 해결 Microsoft Docs
-description: Azure NetApp Files에서 사용할 수 있는 Azure 애플리케이션 일치 스냅숏 도구를 사용 하기 위한 문제 해결 콘텐츠를 제공 합니다.
+title: Azure NetApp Files에 대한 Azure 애플리케이션 일치 스냅샷 도구 문제 해결 | Microsoft Docs
+description: Azure NetApp Files에서 사용할 수 있는 Azure 애플리케이션 일치 스냅샷 도구를 사용하는 팁과 요령을 제공합니다.
 services: azure-netapp-files
 documentationcenter: ''
 author: Phil-Jensen
@@ -15,56 +15,56 @@ ms.topic: troubleshooting
 ms.date: 12/14/2020
 ms.author: phjensen
 ms.openlocfilehash: 7ba5a05515284612e17d5aba4cc673c7e78f7ba1
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104869925"
 ---
-# <a name="troubleshoot-azure-application-consistent-snapshot-tool-preview"></a>일관 된 스냅숏 도구 Azure 애플리케이션 문제 해결 (미리 보기)
+# <a name="troubleshoot-azure-application-consistent-snapshot-tool-preview"></a>Azure 애플리케이션 일치 스냅샷 도구 문제 해결(미리 보기)
 
-이 문서에서는 Azure NetApp Files에서 사용할 수 있는 Azure 애플리케이션 일치 스냅숏 도구를 사용 하기 위한 문제 해결 콘텐츠를 제공 합니다.
+이 문서에서는 Azure NetApp Files에서 사용할 수 있는 Azure 애플리케이션 일치 스냅샷 도구를 사용에 대한 문제 해결 내용을 제공합니다.
 
-명령을 실행 하는 동안 발생할 수 있는 일반적인 문제는 다음과 같습니다. 설명 된 해결 지침에 따라 문제를 해결 합니다. 여전히 문제가 발생 하는 경우 Azure Portal에서 서비스 요청을 열고 Microsoft 지원 응답할 SAP HANA Large Instance 큐에 요청을 할당 합니다.
+명령을 실행하는 동안 발생할 수 있는 일반적인 문제는 다음과 같습니다. 문제를 해결하려면 설명된 해결 지침을 수행합니다. 여전히 문제가 발생하는 경우 Azure Portal에서 서비스 요청을 열고 Microsoft 지원에 응답할 SAP HANA 대규모 인스턴스 큐에 요청을 할당합니다.
 
 ## <a name="log-files"></a>로그 파일
 
-AzAcSnap를 사용 하 여 오류를 디버깅 하는 데 가장 적합 한 정보는 로그 파일입니다.  
+AzAcSnap를 사용하여 오류를 디버깅하는 데 가장 적합한 정보 중 하나는 로그 파일입니다.  
 
 ### <a name="log-file-location"></a>로그 파일 위치
 
-로그 파일은 `logPath` AzAcSnap 구성 파일의 매개 변수에 따라 구성 된 디렉터리에 저장 됩니다.  기본 구성 파일 이름은이 `azacsnap.json` 고의 기본값입니다 `logPath` `"./logs"` . 즉, 로그 파일은 `./logs` 명령이 실행 되는 위치를 기준으로 디렉터리에 기록 됩니다 `azacsnap` .  `logPath`절대 위치 (예:)를 만들면 `/home/azacsnap/logs` `azacsnap` `/home/azacsnap/logs` 명령이 실행 된 위치에 관계 없이 로그를로 출력 합니다 `azacsnap` .
+로그 파일은 AzAcSnap 구성 파일의 `logPath` 매개 변수에 따라 구성된 디렉터리에 저장됩니다.  기본 구성 파일 이름은 `azacsnap.json`이며 `logPath`의 기본값은 `"./logs"`입니다. 즉, 로그 파일은 `azacsnap` 명령이 실행되는 위치와 관련하여 `./logs` 디렉터리에 기록됩니다.  `logPath` 절대 위치(예: `/home/azacsnap/logs`)를 만들면 `azacsnap` 명령이 실행된 위치에 관계없이 `azacsnap`이 `/home/azacsnap/logs`에 로그를 출력합니다.
 
 ### <a name="log-file-naming"></a>로그 파일 이름 지정
 
-로그 파일 이름은 응용 프로그램 이름 (예:) `azacsnap` , 사용 된 명령 옵션 (예:, 등) `-c` `backup` `test` `details` 및 구성 파일 이름 (예: 기본값 = `azacsnap.json` )을 기반으로 합니다.  따라서 명령을 사용 하는 경우 `-c backup` 기본적으로 로그 파일 이름은 `azacsnap-backup-azacsnap.log` 이며로 구성 된 디렉터리에 기록 됩니다 `logPath` .  
+로그 파일 이름은 애플리케이션 이름(예: `azacsnap`), 사용된 명령어 옵션 `-c`(예: `backup`, `test`, `details`) 및 구성 파일 이름(예: 기본값 = `azacsnap.json`)을 기반으로 합니다.  따라서 `-c backup` 명령을 사용하는 경우 기본적으로 로그 파일 이름은 `azacsnap-backup-azacsnap.log`이며 `logPath`로 구성된 디렉터리에 작성됩니다.  
 
-이 명명 규칙은 데이터베이스당 여러 구성 파일을 허용 하도록 설정 되었으며, 연결 된 로그 파일을 쉽게 찾을 수 있도록 합니다.  따라서 구성 파일 이름이 인 경우 `SID.json` 옵션을 사용할 때의 결과 파일 이름은이 됩니다 `azacsnap -c backup --configfile SID.json` `azacsnap-backup-SID.log` .
+이 명명 규칙은 데이터베이스당 여러 구성 파일을 허용하도록 설정되었으며, 연결된 로그 파일을 쉽게 찾을 수 있도록 합니다.  따라서 구성 파일 이름이 `SID.json`인 경우 `azacsnap -c backup --configfile SID.json` 옵션을 사용할 때 결과 파일 이름은 `azacsnap-backup-SID.log`가 됩니다.
 
 ### <a name="result-file-and-syslog"></a>결과 파일 및 syslog
 
-`-c backup`명령 옵션의 경우 AzAcSnap `*.result` 명령을 사용 하 여 파일 및 시스템 로그 ()에 기록 `/var/log/messages` `logger` 합니다.  `*.result`파일 이름은 [로그 파일과](#log-file-naming) 동일한 기본 이름을 가지 며 [로그 파일과 동일한 위치로](#log-file-location)이동 합니다.  다음 예제에 따라 간단한 단일 줄 출력 파일입니다.
+`-c backup` 명령 옵션의 경우 AzAcSnap은 `logger` 명령을 사용하여 `*.result` 파일 및 시스템 로그(`/var/log/messages`)에 작성합니다.  `*.result` 파일 이름은 [로그 파일](#log-file-naming)과 동일한 기본 이름이 있으며 [로그 파일과 동일한 위치](#log-file-location)로 이동합니다.  다음 예제에 따라 간단한 한 줄 출력 파일입니다.
 
-파일의 예제 출력 `*.result` 입니다.
+`*.result` 파일의 출력 예제.
 ```output
 Database # 1 (PR1) : completed ok
 ```
 
-파일의 예제 출력 `/var/log/messages` 입니다.
+`/var/log/messages` 파일의 출력 예제.
 ```output
 Dec 17 09:01:13 azacsnap-rhel azacsnap: Database # 1 (PR1) : completed ok
 ```
 
 ## <a name="failed-communication-with-azure-netapp-files"></a>Azure NetApp Files와의 통신 실패
 
-Azure NetApp Files 통신의 유효성을 검사할 때 통신이 실패 하거나 시간이 초과 될 수 있습니다.  방화벽 규칙이 AzAcSnap을 실행 하는 시스템에서 다음 주소 및 TCP/IP 포트로의 아웃 바운드 트래픽을 차단 하지 않는지 확인 합니다.
+Azure NetApp Files와의 통신 유효성을 검사하는 경우 통신이 실패하거나 시간이 초과될 수 있습니다.  방화벽 규칙이 AzAcSnap을 실행하는 시스템에서 다음 주소 및 TCP/IP 포트로의 아웃바운드 트래픽을 차단하지 않는지 확인합니다.
 
-- (https://) 관리. .com: 443
-- (https://) microsoftonline: 443 
+- (https://)management.azure.com:443
+- (https://)login.microsoftonline.com:443 
 
 ## <a name="failed-communication-with-sap-hana"></a>SAP HANA와의 통신 실패
 
-로 테스트를 실행 하 여 SAP HANA 통신의 유효성을 검사 하는 경우 `azacsnap -c test --test hana` 다음 오류를 제공 합니다.
+`azacsnap -c test --test hana`로 테스트를 실행하여 SAP HANA와의 통신 유효성을 검사하는 경우 다음 오류가 표시됩니다.
 
 ```output
 > azacsnap -c test --test hana
@@ -76,8 +76,8 @@ Cannot get SAP HANA version, exiting with error: 127
 
 **해결 방법:**
 
-1. 각 HANA 인스턴스에 대 한 구성 파일 (예:)을 확인 `azacsnap.json` 하 SAP HANA 데이터베이스 값이 올바른지 확인 합니다.
-1. 아래 명령을 실행 하 여 `hdbsql` 명령이 경로에 있는지 확인 하 고 SAP HANA 서버에 연결할 수 있는지 확인 하십시오. 다음 예제에서는 명령 및 해당 출력의 올바른 실행을 보여 줍니다.
+1. 각 HANA 인스턴스에 대해 구성 파일(예: `azacsnap.json`)을 확인하여 SAP HANA 데이터베이스 값이 올바른지 확인합니다.
+1. 아래 명령을 실행하여 `hdbsql` 명령이 경로에 있는지, SAP HANA 서버에 연결할 수 있는지 확인합니다. 다음 예제에서는 명령 및 해당 출력의 올바른 실행을 보여줍니다.
 
     ```bash
     hdbsql -n 172.18.18.50 - i 00 -d SYSTEMDB -U AZACSNAP "\s"
@@ -96,7 +96,7 @@ Cannot get SAP HANA version, exiting with error: 127
     sql port      : saphana1:30013
     ```
 
-    이 예에서는 `hdbsql` 사용자에 게 명령이 없습니다 `$PATH` .
+    이 예제에서는 `hdbsql` 명령이 사용자의 `$PATH`에 있지 않습니다.
 
     ```bash
     hdbsql -n 172.18.18.50 - i 00 -U SCADMIN "select version from sys.m_database"
@@ -107,7 +107,7 @@ Cannot get SAP HANA version, exiting with error: 127
     cnf hdbsql
     ```
 
-    이 예제에서는 `hdbsql` 명령이 사용자의에 일시적으로 추가 `$PATH` 되지만 실행 시 명령으로 연결 키가 올바르게 설정 되지 않은 것을 볼 `hdbuserstore Set` 수 있습니다 (자세한 내용은 시작 가이드 참조).
+    이 예제에서는 `hdbsql` 명령이 일시적으로 사용자의 `$PATH`에 추가되지만 실행 시 `hdbuserstore Set` 명령으로 올바르게 설정되지 않은 연결 키가 표시됩니다(자세한 내용은 시작 가이드 참조).
 
     ```bash
     export PATH=$PATH:/hana/shared/H80/exe/linuxx86_64/hdb/
@@ -122,19 +122,19 @@ Cannot get SAP HANA version, exiting with error: 127
     ```
 
     > [!NOTE]
-    > 사용자에 게 영구적으로 추가 하려면 `$PATH` 사용자의 파일을 업데이트 합니다. `$HOME/.profile`
+    > 사용자의 `$PATH`에 영구적으로 추가하려면 사용자의 `$HOME/.profile` 파일을 업데이트합니다.
 
-## <a name="the-hdbuserstore-location"></a>`hdbuserstore`위치
+## <a name="the-hdbuserstore-location"></a>`hdbuserstore` 위치
 
-SAP HANA와의 통신을 설정할 때 `hdbuserstore` 프로그램을 사용 하 여 보안 통신 설정을 만듭니다.  `hdbuserstore`프로그램은 일반적으로 또는 아래에 있습니다 `/usr/sap/<SID>/SYS/exe/hdb/` `/usr/sap/hdbclient` .  일반적으로 설치 관리자는 사용자의에 올바른 위치를 추가 `azacsnap` `$PATH` 합니다.
+SAP HANA와의 통신을 설정할 때 `hdbuserstore` 프로그램을 사용하여 보안 통신 설정을 만듭니다.  `hdbuserstore` 프로그램은 일반적으로 `/usr/sap/<SID>/SYS/exe/hdb/` 또는 `/usr/sap/hdbclient` 아래에 있습니다.  일반적으로 설치 프로그램은 `azacsnap` 사용자 `$PATH`에 올바른 위치를 추가합니다.
 
-## <a name="failed-test-with-storage"></a>저장소로 실패 한 테스트
+## <a name="failed-test-with-storage"></a>스토리지 테스트 실패
 
-명령이 `azacsnap -c test --test storage` 성공적으로 완료 되지 않았습니다.
+`azacsnap -c test --test storage` 명령이 성공적으로 완료되지 않습니다.
 
-### <a name="azure-large-instance"></a>Azure Large Instance
+### <a name="azure-large-instance"></a>Azure 대규모 인스턴스
 
-다음 예제는 `azacsnap` Azure Large Instance의 SAP HANA에서 실행 되는 것입니다.
+다음 예제는 Azure의 SAP HANA(대규모 인스턴스)에서 `azacsnap`을 실행하는 경우입니다.
 
 ```bash
 azacsnap -c test --test storage
@@ -146,7 +146,7 @@ ECDSA key fingerprint is SHA256:QxamHRn3ZKbJAKnEimQpVVCknDSO9uB4c9Qd8komDec.
 Are you sure you want to continue connecting (yes/no)?
 ```
 
-**해결 방법:** 위의 오류는 일반적으로 Azure Large Instance 저장소 사용자가 기본 저장소에 액세스할 수 없을 때 표시 됩니다. 제공 된 저장소 사용자를 사용 하 여 저장소에 대 한 액세스의 유효성을 검사 하려면 `ssh` 명령을 실행 하 여 저장소 플랫폼과의 통신 유효성을 검사 합니다.
+**해결 방법:** 위의 오류는 일반적으로 Azure 대규모 인스턴스 스토리지 사용자가 기본 스토리지에 액세스할 수 없을 때 표시됩니다. 제공된 스토리지 사용자로 스토리지에 대한 액세스를 유효성 감사하려면 `ssh` 명령을 실행하여 스토리지 플랫폼과의 통신을 유효성 검사합니다.
 
 ```bash
 ssh <StorageBackupname>@<Storage IP address> "volume show -fields volume"
@@ -165,7 +165,7 @@ osa33-hana-c01v250-client25-nprod hana_data_h80_mnt00001_t020_vol
 osa33-hana-c01v250-client25-nprod hana_data_h80_mnt00002_t020_vol
 ```
 
-#### <a name="the-authenticity-of-host-172181811-172181811-cant-be-established"></a>' 172.18.18.11 (172.18.18.11) ' 호스트의 신뢰성을 설정할 수 없습니다.
+#### <a name="the-authenticity-of-host-172181811-172181811-cant-be-established"></a>호스트 '172.18.18.11 (172.18.18.11)'의 신뢰성을 설정할 수 없습니다.
 
 ```bash
 azacsnap -c test --test storage
@@ -180,11 +180,11 @@ ECDSA key fingerprint is SHA256:cONAr0lpafb7gY4l31AdWTzM3s9LnKDtpMdPA+cxT7Y.
 Are you sure you want to continue connecting (yes/no)?
 ```
 
-**해결 방법:** 예를 선택 하지 마십시오. 저장소 IP 주소가 올바른지 확인 하세요. 문제가 여전히 발생 하는 경우 Microsoft 운영 팀에서 저장소 IP 주소를 확인 합니다.
+**해결 방법:** 예를 선택하지 마세요. 스토리지 IP 주소가 올바른지 확인하세요. 여전히 문제가 발생하는 경우 Microsoft 운영 팀에서 스토리지 IP 주소를 확인합니다.
 
 ### <a name="azure-netapp-files"></a>Azure NetApp Files
 
-다음 예는 `azacsnap` Azure NetApp Files을 사용 하 여 VM에서 실행 되는 것입니다.
+다음 예는 Azure NetApp Files을 사용하여 VM에서 실행되는 `azacsnap`입니다.
 
 ```bash
 azacsnap --configfile azacsnap.json.NOT-WORKING -c test --test storage
@@ -199,14 +199,14 @@ ERROR: Could not create StorageANF object [authFile = 'azureauth.json']
 
 **해결 방법:**
 
-1. 구성 파일에 설정 된 대로 서비스 사용자 파일이 있는지 확인 `azureauth.json` `azacsnap.json` 합니다.
-1. 로그 파일 (예:)을 확인 `logs/azacsnap-test-azacsnap.log` 하 여 서비스 주체 ()에 올바른 콘텐츠가 있는지 확인 합니다 `azureauth.json` .  로그의 예는 다음과 같습니다.
+1. `azacsnap.json` 구성 파일에 설정된 대로 서비스 주체 파일 `azureauth.json`이 있는지 확인합니다.
+1. 로그 파일(예: `logs/azacsnap-test-azacsnap.log`)을 확인하여 서비스 주체(`azureauth.json`)에 올바른 콘텐츠가 있는지 확인합니다.  로그의 예는 다음과 같습니다.
 
       ```output
       [19/Nov/2020:18:39:49 +13:00] DEBUG: [PID:0020080:StorageANF:659] [1] Innerexception: Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException AADSTS7000215: Invalid client secret is provided.
       ```
 
-1. 로그 파일 (예:)을 확인 `logs/azacsnap-test-azacsnap.log` 하 여 서비스 사용자 ( `azureauth.json` )가 만료 되었는지 확인 합니다. 로그의 예는 다음과 같습니다.
+1. 로그 파일(예: `logs/azacsnap-test-azacsnap.log`)을 확인하여 서비스 주체(`azureauth.json`)가 만료되었는지 확인합니다. 로그의 예는 다음과 같습니다.
 
       ```output
       [19/Nov/2020:18:41:10 +13:00] DEBUG: [PID:0020257:StorageANF:659] [1] Innerexception: Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException AADSTS7000222: The provided client secret keys are expired. Visit the Azure Portal to create new keys for your app, or consider using certificate credentials for added security: https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials

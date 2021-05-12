@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 801d810a82e4e484ca1ab30c5c6d510860dbab6b
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
-ms.translationtype: MT
+ms.openlocfilehash: fe42b98813f1687c78827b355a707b0147d6d2a4
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105566016"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067285"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 
@@ -51,23 +51,23 @@ Media Services REST API 버전 기록에 대한 자세한 내용은 [Azure Media
 
 ## <a name="february-2021"></a>2021년 2월
 
-### <a name="azure-media-services-v2-api-and-sdks-deprecation-announcement"></a>Azure Media Services v2 API 및 Sdk 사용 중단 알림
+### <a name="azure-media-services-v2-api-and-sdks-deprecation-announcement"></a>Azure Media Services v2 API 및 SDK 사용 중단 알림
 
-#### <a name="update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024"></a>Azure Media Services REST API 및 Sdk를 2024 년 2 월 29 일까 지 업데이트
+#### <a name="update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024"></a>2024년 2월 29일까지 Azure Media Services REST API 및 SDK를 버전 3으로 업데이트
 
-버전 3 Azure Media Services REST API 및 .NET 및 Java 용 클라이언트 Sdk 버전 2 보다 많은 기능을 제공 하기 때문에 Azure Media Services REST API 및 .NET 및 Java 용 클라이언트 Sdk 버전 2를 사용 중지 하 고 있습니다. Azure Media Services REST API 버전 3 및 .NET 및 Java 용 클라이언트 Sdk의 다양 한 이점을 얻기 위해 더 빨리 스위치를 설정 하는 것이 좋습니다.
-버전 3은 다음을 제공 합니다.
+Azure Media Services REST API와 .NET 및 Java용 클라이언트 SDK의 버전 3은 버전 2보다 더 많은 기능을 제공하기 때문에 Azure Media Services REST API와 .NET 및 Java용 클라이언트 SDK 버전 2의 사용을 중지하고 있습니다. Azure Media Services REST API와 .NET 및 Java용 클라이언트 SDK 버전 3의 다양한 이점을 얻을 수 있도록 더 빨리 전환하는 것이 좋습니다.
+버전 3은 다음을 제공합니다.
  
-- 연중 무휴 라이브 이벤트 지원
-- ARM REST Api, .NET core 용 클라이언트 Sdk, Node.js, Python, Java, Go 및 Ruby.
-- 고객 관리 키, 신뢰할 수 있는 저장소 통합, 개인 링크 지원 [등](https://review.docs.microsoft.com/en-us/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+- 연중무휴 라이브 이벤트 지원
+- .NET Core, Node.js, Python, Java, Go, Ruby용 ARM REST API, 클라이언트 SDK
+- 고객 관리형 키, 신뢰할 수 있는 스토리지 통합, 프라이빗 링크 지원 [등](https://review.docs.microsoft.com/en-us/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
 
 #### <a name="action-required"></a>작업 필요:
 
-워크 로드의 중단을 최소화 하려면 [마이그레이션 가이드](../latest/migrate-v-2-v-3-migration-introduction.md) 를 검토 하 여 버전 2 Api 및 sdk에서 버전 3 API 및 sdk로 코드를 전환 합니다. 2024 년 2 월 29 일 이전입니다.
-**2024 년 2 월 29** 일부 터 Azure Media Services는 더 이상 버전 2 REST API, ARM 계정 관리 API 버전 2015-10-01 또는 버전 2 .Net 클라이언트 sdk에서 트래픽을 수락 하지 않습니다. 여기에는 버전 2 API를 호출할 수 있는 타사 오픈 소스 클라이언트 SDK가 포함 됩니다.  
+워크로드 중단을 최소화하려면 [마이그레이션 가이드](../latest/migrate-v-2-v-3-migration-introduction.md)를 검토하여 2024년 2월 29일 이전에 API 및 SDK 버전 2에서 API 및 SDK 버전 3으로 코드를 전환합니다.
+**2024년 2월 29일 이후** Azure Media Services는 REST API 버전 2, ARM 계정 관리 API 버전 2015-10-01 또는 .NET 클라이언트 SDK 버전 2에서 더 이상 트래픽을 허용하지 않습니다. 여기에는 API 버전 2를 호출할 수 있는 타사 오픈 소스 클라이언트 SDK가 포함됩니다.  
 
-공식 [Azure 업데이트 공지](https://azure.microsoft.com/updates/update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024/)를 참조 하세요.
+공식 [Azure 업데이트 공지](https://azure.microsoft.com/updates/update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024/)를 참조하세요.
 
 ## <a name="september-2020"></a>2020년 9월
 
@@ -76,10 +76,10 @@ Media Services REST API 버전 기록에 대한 자세한 내용은 [Azure Media
 * [HistoricalEvents](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
 * [PerfMessage](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
 
-작업 기록을 가져오려면 웹 후크를 통해 v2 작업 알림을 사용 하거나 알림 끝점을 사용 하 여 메시지를 큐에 두어야 합니다. 자세한 내용은 다음을 참조하세요.
+작업 기록을 가져오려면 알림 엔드포인트를 사용하여 웹후크 또는 큐 메시지를 통해 v2 작업 알림을 사용해야 합니다. 자세한 내용은 다음을 참조하세요.
 
 * [Azure Queue Storage를 사용하여 Media Services 작업 알림을 모니터링합니다.](media-services-dotnet-check-job-progress-with-queues.md)
-* [Azure 웹 후크를 사용 하 여 Media Services 작업 알림 모니터링](media-services-dotnet-check-job-progress-with-webhooks.md)
+* [Azure Webhooks를 사용하여 Media Services 작업 알림 모니터링](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## <a name="february-2020"></a>2020년 2월
 
@@ -252,7 +252,7 @@ Azure SDK 팀은 Media Services에 대한 업데이트 및 새 기능을 포함�
 자세한 내용은 다음을 참조하세요.
 
 * 다음 [코드 샘플](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)을 통해 신속하게 시작할 수 있습니다.
-  * **vodworkflow_aes.php**: 이 PHP 파일은 AES-128 동적 암호화 및 키 배달 서비스를 사용하는 방법을 보여줍니다. [AES-128 동적 암호화 및 키 배달 서비스 사용](media-services-protect-with-aes128.md)에 설명된 .NET 샘플에 기반합니다.
+  * **vodworkflow_aes.php**: 이 PHP 파일은 AES-128 동적 암호화 및 키 배달 서비스를 사용하는 방법을 보여줍니다. [AES-128 동적 암호화 및 키 배달 서비스 사용](media-services-playready-license-template-overview.md)에 설명된 .NET 샘플에 기반합니다.
   * **vodworkflow_aes.php**: 이 PHP 파일은 PlayReady 동적 암호화 및 라이선스 배달 서비스를 사용하는 방법을 보여줍니다. [PlayReady 및/또는 Widevine 동적 일반 암호화 사용](media-services-protect-with-playready-widevine.md)에 설명된 .NET 샘플에 기반합니다.
   * **scale_encoding_units.php**: 이 PHP 파일은 인코딩 예약 단위 크기를 조정하는 방법을 보여줍니다.
 

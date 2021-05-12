@@ -1,5 +1,5 @@
 ---
-title: Azure .NET SDK를 사용 하 여 데이터 파이프라인 만들기
+title: Azure .NET SDK를 사용하여 데이터 파이프라인 만들기
 description: 데이터 팩터리 SDK를 사용하여 프로그래밍 방식으로 Azure Data Factory를 만들고, 모니터링하고, 관리하는 방법을 알아봅니다.
 author: dcstwh
 ms.author: weetok
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e67f924806909d55d17151c36f28f81312223b23
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104782778"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Azure Data Factory .NET SDK를 사용하여 Azure Data Factory 만들기, 모니터링 및 관리
@@ -25,7 +25,7 @@ ms.locfileid: "104782778"
 > [!NOTE]
 > 이 문서는 모든 데이터 팩터리 .NET API를 다루지 않습니다. 데이터 팩터리용 .NET API에 대한 포괄적인 설명서는 [데이터 팩터리 .NET API 참조](/dotnet/api/overview/azure/data-factory)를 참조하세요. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -134,7 +134,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
         </appSettings>
     </configuration>
     ```
-5. App.Config 파일에서 **&lt; 응용 프로그램 &gt; id**, **&lt; 암호 &gt;**, **&lt; 구독 id &gt;** 및 **&lt; 테 넌 트 id &gt;** 의 값을 고유한 값으로 업데이트 합니다.
+5. App.Config 파일에서 **&lt;애플리케이션 ID&gt;** , **&lt;암호&gt;** , **&lt;구독 ID&gt;** 및 **&lt;테넌트 ID&gt;** 의 값을 고유한 값으로 업데이트합니다.
 6. 프로젝트의 **Program.cs** 파일에 다음 **using** 문을 추가합니다.
 
     ```csharp
@@ -217,7 +217,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
     ```
 9. **입력 및 출력 데이터 세트** 를 만드는 다음 코드를 **Main** 메서드에 추가합니다.
 
-    입력 blob에 대 한 **FolderPath** 는 **adftutorial/** 로 설정 됩니다. 여기서 **adftutorial** 은 blob storage에 있는 컨테이너의 이름입니다. 이 컨테이너가 Azure blob storage에 없으면 **adftutorial** 이름을 사용 하 여 컨테이너를 만들고 텍스트 파일을 컨테이너에 업로드 합니다.
+    입력 BLOB의 **FolderPath** 는 **adftutorial/** 로 설정되며 **adftutorial** 은 BLOB 스토리지의 컨테이너 이름입니다. 이 컨테이너가 Azure BLOB 스토리지에 없으면 **adftutorial** 이라는 이름으로 컨테이너를 만들고 텍스트 파일을 컨테이너에 업로드합니다.
 
     출력 Blob의 FolderPath는 **adftutorial/apifactoryoutput/{Slice}** 로 설정됩니다. 여기서 **Slice** 는 **SliceStart**(각 조각의 시작 날짜-시간) 값을 기반으로 동적으로 계산됩니다.
 
@@ -442,7 +442,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
     }
     ```
 
-15. 솔루션 탐색기에서 프로젝트: **DataFactoryAPITestApp** 를 확장 하 고 **참조** 를 마우스 오른쪽 단추로 클릭 한 다음 **참조 추가** 를 클릭 합니다. `System.Configuration` 어셈블리에 대한 확인란을 선택하고 **확인** 을 클릭합니다.
+15. 솔루션 탐색기에서 프로젝트 **DataFactoryAPITestApp** 을 확장하고 **참조** 를 마우스 오른쪽 단추로 클릭한 다음 **참조 추가** 를 클릭합니다. `System.Configuration` 어셈블리에 대한 확인란을 선택하고 **확인** 을 클릭합니다.
 15. 콘솔 애플리케이션을 빌드합니다. 메뉴에서 **빌드** 를 클릭하고 **솔루션 빌드** 를 클릭합니다.
 16. 이 시작 자습서에서는 Microsoft Azure File Storage 사용에 대한 기본 사항을 설명합니다. 그렇지 않은 경우 메모장에서 다음 내용이 포함된 Emp.txt 파일을 만들어 adftutorial 컨테이너에 업로드합니다.
 
@@ -455,7 +455,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
     * 연결된 서비스: **AzureStorageLinkedService**
     * 데이터 세트: **DatasetBlobSource** 및 **DatasetBlobDestination**
     * 파이프라인: **PipelineBlobSample**
-19. 출력 파일이 **adftutorial** 컨테이너의 **apifactoryoutput** 폴더에 만들어졌는지 확인 합니다.
+19. 출력 파일이 **adftutorial** 컨테이너의 "**apifactoryoutput**" 폴더에 만들어졌는지 확인합니다.
 
 ## <a name="get-a-list-of-failed-data-slices"></a>실패한 데이터 조각 목록 가져오기 
 
@@ -497,6 +497,6 @@ while (response != null);
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Azure blob 저장소에서 Azure SQL Database로 데이터를 복사 하는 .NET SDK를 사용 하 여 파이프라인을 만드는 다음 예제를 참조 하세요. 
+Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 .NET SDK를 사용하여 파이프라인을 만드는 다음 예제를 살펴봅니다. 
 
 - [Blob Storage에서 SQL Database로 데이터를 복사하는 파이프라인 만들기](data-factory-copy-activity-tutorial-using-dotnet-api.md)

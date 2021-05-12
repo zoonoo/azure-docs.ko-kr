@@ -16,10 +16,10 @@ ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6aedaf829df941a225cd0684318f28bb06ba89d8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101674605"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Azure VM에서 SAP NetWeaver에 대한 고가용성
@@ -1449,7 +1449,7 @@ Azure에서 여러 다른 DBMS 서비스가 이러한 종류의 클러스터형 
 
 ASCS/SCS 인스턴스의 SAP 프로필을 수정하려면:
 
-1. ENSA1를 사용 하는 경우 SAP ASCS/SCS 인스턴스 프로필에이 프로필 매개 변수를 추가 합니다.
+1. ENSA1을 사용하는 경우 SAP ASCS/SCS 인스턴스 프로필에 이 프로필 매개 변수를 추가합니다.
 
    ```
    enque/encni/set_so_keepalive = true
@@ -1462,7 +1462,7 @@ ASCS/SCS 인스턴스의 SAP 프로필을 수정하려면:
 
    `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_SCS01_pr1-ascs-sap`
 
-   ENSA1 및 ENSA2 둘 다에 대해 `keepalive` SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736)에 설명 된 대로 OS 매개 변수를 설정 해야 합니다.  
+   ENSA1 및 ENSA2 모두에서 `keepalive` OS 매개 변수는 SAP 메모 [1410736](https://launchpad.support.sap.com/#/notes/1410736)에 설명된 대로 설정해야 합니다.  
 
 2. 변경 내용을 적용하려면 SAP ASCS/SCS 인스턴스를 다시 시작합니다.
 

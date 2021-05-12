@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
 ms.openlocfilehash: 79d21549e7234e4ee342776466f8d3d8ced5f08c
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102508812"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 프라이빗 엔드포인트란?
@@ -22,13 +22,13 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
  프라이빗 엔드포인트는 다음 속성을 지정합니다. 
 
 
-|속성  |설명 |
+|속성  |Description |
 |---------|---------|
 |속성    |    리소스 그룹의 고유한 이름입니다.      |
 |서브넷    |  가상 네트워크에서 프라이빗 IP 주소를 배포하고 할당하는 서브넷입니다. 서브넷 요구 사항은 이 문서의 제한 사항 섹션을 참조하세요.         |
 |프라이빗 링크 리소스    |   사용 가능한 형식 목록에서 리소스 ID 또는 별칭을 사용하여 연결할 프라이빗 링크 리소스입니다. 이 리소스로 전송되는 모든 트래픽에 대해 고유한 네트워크 식별자가 생성됩니다.       |
 |대상 하위 리소스   |      연결할 하위 리소스입니다. 각 프라이빗 링크 리소스 종류에는 기본 설정에 따라 선택할 수 있는 다양한 옵션이 있습니다.    |
-|연결 승인 방법    |  자동 또는 수동. Azure RBAC (역할 기반 액세스 제어) 사용 권한에 따라 개인 끝점이 자동으로 승인 될 수 있습니다. Azure RBAC 없이 개인 링크 리소스에 연결 하려고 하면 수동 메서드를 사용 하 여 리소스 소유자가 연결을 승인할 수 있습니다.        |
+|연결 승인 방법    |  자동 또는 수동. Azure RBAC(Azure 역할 기반 액세스 제어) 권한에 따라 프라이빗 엔드포인트가 자동으로 승인될 수 있습니다. Azure RBAC 없이 프라이빗 링크 리소스에 연결하려고 하면 수동 방법을 사용하여 리소스 소유자가 연결을 승인하도록 합니다.        |
 |요청 메시지     |  요청된 연결에 대한 메시지가 수동으로 승인되도록 지정할 수 있습니다. 이 메시지는 특정 요청을 식별하는 데 사용할 수 있습니다.        |
 |연결 상태   |   프라이빗 엔드포인트가 활성 상태인지 여부를 지정하는 읽기 전용 속성입니다. 승인된 상태의 프라이빗 엔드포인트만 트래픽을 보내는 데 사용할 수 있습니다. 사용 가능한 추가 상태: <br>-**승인됨**: 연결이 자동 또는 수동으로 승인되었으며, 사용할 준비가 되었습니다.</br><br>-**보류 중**: 연결이 수동으로 만들어지고, 프라이빗 링크 리소스 소유자의 승인이 보류 중입니다.</br><br>-**거부됨**: Private Link 리소스 소유자가 연결을 거부했습니다.</br><br>-**연결 끊김**: 프라이빗 링크 리소스 소유자가 연결을 거부했습니다. 프라이빗 엔드포인트는 정보형으로 지정되며 정리를 위해 삭제해야 합니다. </br>|
 
@@ -37,7 +37,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
  
 - 네트워크 연결은 프라이빗 엔드포인트에 연결하는 클라이언트에 의해서만 시작될 수 있으며 서비스 공급자는 서비스 소비자에 대한 연결을 시작하기 위해 라우팅을 구성할 필요가 없습니다. 연결은 단일 방향으로만 설정할 수 있습니다.
 
-- 프라이빗 엔드포인트를 만들 때 리소스 수명 주기 동안 읽기 전용 네트워크 인터페이스도 생성됩니다. 이 인터페이스에는 프라이빗 링크 리소스에 매핑되는 서브넷의 동적 프라이빗 IP 주소가 할당됩니다. 개인 IP 주소의 값은 개인 끝점의 전체 수명 주기 동안 변경 되지 않은 상태로 유지 됩니다.
+- 프라이빗 엔드포인트를 만들 때 리소스 수명 주기 동안 읽기 전용 네트워크 인터페이스도 생성됩니다. 이 인터페이스에는 프라이빗 링크 리소스에 매핑되는 서브넷의 동적 프라이빗 IP 주소가 할당됩니다. 프라이빗 IP 주소의 값은 프라이빗 엔드포인트의 전체 수명 주기 동안 변경되지 않고 유지됩니다.
  
 - 프라이빗 엔드포인트는 가상 네트워크와 동일한 지역에 배포되어야 합니다. 
  
@@ -47,7 +47,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
  
 - 동일한 가상 네트워크 내에서 동일하거나 다른 서브넷에 여러 프라이빗 엔드포인트를 만들 수 있습니다. 하나의 구독에서 만들 수 있는 프라이빗 엔드포인트 수는 제한됩니다. 자세한 내용은  [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)을 참조하세요.
 
-- 개인 링크 리소스의 구독은 Micosoft 리소스 공급자에도 등록 해야 합니다. 자세한 내용은 [Azure 리소스 공급자](../azure-resource-manager/management/resource-providers-and-types.md)를 참조 하세요.
+- 개인 링크 리소스의 구독은 Micosoft.네트워크 리소스 공급자에도 등록해야 합니다. 자세한 내용은 [Azure 리소스 공급자](../azure-resource-manager/management/resource-providers-and-types.md)를 참조하세요.
 
  
 ## <a name="private-link-resource"></a>프라이빗 링크 리소스 
@@ -56,7 +56,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
 |프라이빗 링크 리소스 이름  |리소스 유형   |하위 리소스  |
 |---------|---------|---------|
 |**프라이빗 링크 서비스**(사용자 고유의 서비스)   |  Microsoft.Network/privateLinkServices       | empty |
-|**Azure Automation** |  Microsoft.Automation/automationAccounts | Webhook, DSCAndHybridWorker |
+|**Azure Automation** |  Microsoft.Automation/automationAccounts | 웹후크, DSCAndHybridWorker |
 |**Azure SQL Database** | Microsoft.Sql/servers    |  Sql Server(sqlServer)        |
 |**Azure Synapse Analytics** | Microsoft.Sql/servers    |  Sql Server(sqlServer)        | 
 |**Azure Storage**  | Microsoft.Storage/storageAccounts    |  Blob(blob, blob_secondary)<BR> Table(table, table_secondary)<BR> 큐(queue, queue_secondary)<BR> 파일(file, file_secondary)<BR> 웹(web, web_secondary)        |
@@ -80,9 +80,9 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
 |**Azure App Service** | Microsoft.Web/sites    | sites |
 |**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | amlworkspace |
 |**SignalR** | Microsoft.SignalRService/SignalR    | signalR |
-|**Azure Monitor** | Microsoft Insights/privateLinkScopes    | azuremonitor |
-|**Cognitive Services** | (Cognitiveservices account/계정    | account |
-|**Azure 파일 동기화** | Microsoft.storagesync/storageSyncServices    | Afs |
+|**Azure Monitor** | Microsoft.Insights/privateLinkScopes    | azuremonitor |
+|**Cognitive Services** | microsoft.cognitiveservices/accounts    | account |
+|**Azure 파일 동기화** | microsoft.storagesync/storageSyncServices    | AFS |
     
   
 
@@ -95,7 +95,7 @@ Azure 서비스에 대한 프라이빗 엔드포인트를 사용하는 경우 �
  
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>승인 워크플로를 사용하여 프라이빗 링크 리소스에 액세스 
 다음 연결 승인 방법을 사용하여 프라이빗 링크 리소스에 연결할 수 있습니다.
-- **자동** 승인 - 사용자가 특정 프라이빗 링크 리소스를 소유하거나 해당 권한이 있는 경우. 필요한 권한은 다음 형식의 개인 링크 리소스 형식을 기반으로 합니다. Microsoft. \<Provider> /<resource_type>/privateEndpointConnectionApproval/action
+- **자동** 승인 - 사용자가 특정 프라이빗 링크 리소스를 소유하거나 해당 권한이 있는 경우. 필요한 권한은 다음 형식의 프라이빗 링크 리소스 종류를 기준으로 합니다. Microsoft.\<Provider>/<resource_type>/privateEndpointConnectionApproval/action
 - **수동** 요청 - 필요한 권한이 없고 액세스를 요청하려는 경우. 승인 워크플로가 시작됩니다. 프라이빗 엔드포인트 및 후속 프라이빗 엔드포인트 연결은 "보류 중" 상태로 만들어집니다. Private Link 리소스 소유자가 연결을 승인해야 합니다. 승인된 후 다음 승인 워크플로 다이어그램에 표시된 것처럼 프라이빗 엔드포인트가 트래픽을 정상적으로 보낼 수 있습니다.  
 
 ![워크플로 승인](media/private-endpoint-overview/private-link-paas-workflow.png)
@@ -127,22 +127,22 @@ Azure 서비스에 대한 프라이빗 엔드포인트를 사용하는 경우 �
 다음 표에서는 프라이빗 엔드포인트를 사용하는 경우의 알려진 제한 사항 목록을 제공합니다. 
 
 
-|제한 사항 |설명 |완화 방법  |
+|제한 사항 |Description |완화 방법  |
 |---------|---------|---------|
 |NSG(네트워크 보안 그룹) 규칙 및 사용자 정의 경로는 프라이빗 엔드포인트에 적용되지 않습니다.    |NSG는 프라이빗 엔드포인트에서 지원되지 않습니다. 프라이빗 엔드포인트를 포함하는 서브넷에 NSG가 연결되어 있을 수 있지만 규칙은 프라이빗 엔드포인트에서 처리하는 트래픽에 적용되지 않습니다. 서브넷에 프라이빗 엔드포인트를 배포하려면 [네트워크 정책 적용을 사용하지 않도록 설정](disable-private-endpoint-network-policy.md)해야 합니다. NSG는 동일한 서브넷에서 호스트되는 다른 워크로드에도 적용됩니다. 모든 클라이언트 서브넷의 경로는 /32 접두사를 사용하고 기본 라우팅 동작을 변경하려면 비슷한 UDR이 필요합니다.  | 원본 클라이언트의 아웃바운드 트래픽에 대한 NSG 규칙을 사용하여 트래픽을 제어합니다. /32 접두사가 있는 개별 경로를 배포하여 프라이빗 엔드포인트 경로를 재정의합니다. 아웃바운드 연결에 대한 NSG 흐름 로그 및 모니터링 정보는 계속 지원되며 사용 가능합니다.        |
 
 
 ## <a name="next-steps"></a>다음 단계
-- [포털을 사용 하 여 SQL Database에 대 한 개인 끝점 만들기](create-private-endpoint-portal.md)
-- [PowerShell을 사용 하 여 SQL Database에 대 한 개인 끝점 만들기](create-private-endpoint-powershell.md)
-- [CLI를 사용 하 여 SQL Database에 대 한 개인 끝점 만들기](create-private-endpoint-cli.md)
-- [포털을 사용 하 여 저장소 계정에 대 한 개인 끝점 만들기](./tutorial-private-endpoint-storage-portal.md)
-- [포털을 사용 하 여 Azure Cosmos 계정에 대 한 개인 끝점 만들기](../cosmos-db/how-to-configure-private-endpoints.md)
+- [포털을 사용하여 SQL Database용 프라이빗 엔드포인트 만들기](create-private-endpoint-portal.md)
+- [PowerShell을 사용하여 SQL Database용 프라이빗 엔드포인트 만들기](create-private-endpoint-powershell.md)
+- [CLI를 사용하여 SQL Database용 프라이빗 엔드포인트 만들기](create-private-endpoint-cli.md)
+- [포털을 사용하여 스토리지 계정용 프라이빗 엔드포인트 만들기](./tutorial-private-endpoint-storage-portal.md)
+- [포털을 사용하여 Azure Cosmos 계정용 프라이빗 엔드포인트 만들기](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Azure PowerShell를 사용하여 고유의 Private Link 서비스 만들기](create-private-link-service-powershell.md)
-- [포털을 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 개인 링크 만들기](../postgresql/howto-configure-privatelink-portal.md)
+- [포털을 사용하여 Azure Database for PostgreSQL - 단일 서버에 대해 고유한 프라이빗 링크 만들기](../postgresql/howto-configure-privatelink-portal.md)
 - [CLI를 사용하여 Azure Database for PostgreSQL - 단일 서버에 대해 고유한 프라이빗 링크 만들기](../postgresql/howto-configure-privatelink-cli.md)
-- [포털을 사용 하 여 Azure Database for MySQL에 대 한 사용자 고유의 개인 링크 만들기](../mysql/howto-configure-privatelink-portal.md)
+- [포털을 사용하여 Azure Database for MySQL에 대해 고유한 프라이빗 링크 만들기](../mysql/howto-configure-privatelink-portal.md)
 - [CLI를 사용하여 Azure Database for MySQL에 대해 고유한 프라이빗 링크 만들기](../mysql/howto-configure-privatelink-cli.md)
-- [포털을 사용 하 여 Azure Database for MariaDB에 대 한 사용자 고유의 개인 링크 만들기](../mariadb/howto-configure-privatelink-portal.md)
+- [포털을 사용하여 Azure Database for MariaDB에 대해 고유한 프라이빗 링크 만들기](../mariadb/howto-configure-privatelink-portal.md)
 - [CLI를 사용하여 Azure Database for MariaDB에 대해 고유한 프라이빗 링크 만들기](../mariadb/howto-configure-privatelink-cli.md)
-- [포털 및 CLI를 사용 하 여 Azure Key Vault에 대 한 사용자 고유의 개인 링크 만들기](../key-vault/general/private-link-service.md)
+- [포털 및 CLI를 사용하여 Azure Key Vault에 대한 사용자 고유의 프라이빗 링크 만들기](../key-vault/general/private-link-service.md)

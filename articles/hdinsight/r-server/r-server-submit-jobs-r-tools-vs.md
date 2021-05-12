@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.openlocfilehash: ee984de22052076618728fbacfc31b73c18c073a
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104864689"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Visual Studio용 R 도구에서 작업 제출
@@ -29,7 +29,7 @@ RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](/visual
 3. SSH 인증에 대한 공용 및 프라이빗 키가 필요합니다.
    <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
 
-4. 컴퓨터에 [ML Server](/previous-versions/machine-learning-server/install/r-server-install-windows)를 설치합니다. ML Server는 [`RevoScaleR`](/machine-learning-server/r-reference/revoscaler/revoscaler) 및 함수를 제공 `RxSpark` 합니다.
+4. 컴퓨터에 [ML Server](/previous-versions/machine-learning-server/install/r-server-install-windows)를 설치합니다. ML Server는 [`RevoScaleR`](/machine-learning-server/r-reference/revoscaler/revoscaler) 및 `RxSpark` 함수를 제공합니다.
 
 5. [PuTTY](https://www.putty.org/)를 설치하여 로컬 클라이언트에서 HDInsight 클러스터로 `RevoScaleR` 함수를 실행하기 위한 컴퓨팅 컨텍스트를 제공합니다.
 
@@ -63,7 +63,7 @@ RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](/visual
 
 PuTTY가 장착된 Windows 컴퓨터에서 Microsoft ML Server/Microsoft R Client를 사용하여, 로컬 클라이언트에서 HDInsight 클러스터로 분산 `RevoScaleR` 함수를 실행하는 컴퓨팅 컨텍스트를 만들 수 있습니다. `RxSpark`를 통해 사용자 이름, Apache Hadoop 클러스터의 Edge 노드, SSH 스위치 등을 지정하여 컴퓨팅 컨텍스트를 만듭니다.
 
-1. HDInsight의 ML 서비스에 지 노드 주소는 이며, `CLUSTERNAME-ed-ssh.azurehdinsight.net` 여기서 `CLUSTERNAME` 은 ml 서비스 클러스터의 이름입니다.
+1. HDInsight의 ML 서비스 Edge 노드 주소는 `CLUSTERNAME-ed-ssh.azurehdinsight.net`입니다. 여기서 `CLUSTERNAME`은 ML 서비스 클러스터의 이름입니다.
 
 1. 사용자 환경에 맞게 설정 변수 값을 변경하여 Visual Studio의 R 대화형 창에 다음 코드를 붙여 넣습니다.
 
@@ -93,7 +93,7 @@ PuTTY가 장착된 Windows 컴퓨터에서 Microsoft ML Server/Microsoft R Clien
     rxSetComputeContext(mySparkCluster)
     ```
 
-   :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png" alt-text="컨텍스트를 설정 하는 apache spark" border="true":::
+   :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png" alt-text="컨텍스트를 설정하는 Apache Spark" border="true":::
 
 1. R 대화형 창에서 다음 명령을 실행합니다.
 
@@ -111,13 +111,13 @@ a
 
     1. Azure의 HDInsight ML 서비스 클러스터 창의 왼쪽 메뉴에서 **스토리지 계정** 을 선택합니다.
 
-        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png" alt-text="Azure HDInsight 저장소 계정" border="true":::
+        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png" alt-text="Azure HDInsight 스토리지 계정" border="true":::
 
     2. 클러스터의 기본 스토리지 계정을 선택하고 컨테이너/디렉터리 이름을 적어둡니다.
 
     3. 스토리지 계정 창의 왼쪽 메뉴에서 **컨테이너** 를 선택합니다.
 
-        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png" alt-text="Azure HDInsight 저장소 컨테이너" border="true":::
+        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png" alt-text="Azure HDInsight 스토리지 컨테이너" border="true":::
 
     4. 클러스터의 컨테이너 이름을 선택하고, **사용자** 폴더(목록 맨 아래의 *추가 로드* 를 클릭해야 할 수 있음)로 이동한 후 *RevoShare*, **newUser** 를 차례로 선택합니다. `people.json` 파일이 `newUser` 폴더에 표시되어야 합니다.
 

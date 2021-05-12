@@ -1,6 +1,6 @@
 ---
-title: Azure Communication Services 팀 포함 라이브러리 사용
-description: 통신 서비스 팀에 라이브러리 기능 포함에 대해 알아봅니다.
+title: Azure Communication Services Teams Embed 라이브러리 사용
+description: Communication Services Teams Embed 라이브러리 기능에 대해 알아봅니다.
 author: palatter
 ms.author: palatter
 ms.date: 02/24/2021
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-ios-android
 ms.openlocfilehash: 27f574676b17ed2e1f7defec7e555350c39d685f
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104803681"
 ---
-# <a name="use-the-communication-services-teams-embed-library"></a>통신 서비스 팀 포함 라이브러리 사용
+# <a name="use-the-communication-services-teams-embed-library"></a>Communication Services Teams Embed 라이브러리 사용
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-응용 프로그램에 팀 회의를 추가 하려면 통신 서비스 팀 포함 라이브러리를 사용 하 여 Azure 통신 서비스를 시작 하세요. 
+Communication Services Teams Embed 라이브러리를 통해 앱에 팀 미팅을 추가하여 Azure Communication Services를 시작하세요. 
 
 ::: zone pivot="platform-android"
 [!INCLUDE [Meetings with Android](./includes/samples-android.md)]
@@ -36,4 +36,4 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- [팀 포함 샘플 시작](./getting-started-with-teams-embed.md) 하기
+- [Teams Embed 샘플 시작](./getting-started-with-teams-embed.md) 참조하기

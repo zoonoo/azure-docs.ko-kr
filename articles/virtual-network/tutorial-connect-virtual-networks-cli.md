@@ -1,11 +1,10 @@
 ---
-title: VNet 피어 링을 사용 하 여 가상 네트워크 연결-Azure CLI
+title: VNet 피어링을 사용하여 가상 네트워크 연결 - Azure CLI
 description: 이 문서에서는 Azure CLI를 사용하여 가상 네트워크 피어링으로 가상 네트워크를 연결하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
 tags: azure-resource-manager
-Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
@@ -15,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9c6399e437fa314aa82e0b41cbf8a170ea3ab72e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: df1b90a638052de7b56854060badfb8e3483d4c2
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94741776"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065432"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 피어링으로 가상 네트워크 연결
 
@@ -56,7 +55,7 @@ az network vnet create \
   --subnet-prefix 10.0.0.0/24
 ```
 
-주소 접두사 *10.1.0.0/16* 을 사용 하 여 *myVirtualNetwork2* 라는 가상 네트워크를 만듭니다.
+주소 접두사 *10.1.0.0/16* 을 포함하는 *myVirtualNetwork2* 라는 가상 네트워크를 만듭니다.
 
 ```azurecli-interactive 
 az network vnet create \
@@ -97,7 +96,7 @@ az network vnet peering create \
   --allow-vnet-access
 ```
 
-이전 명령이 실행 된 후 반환 된 출력에서 **Peeringstate** 가 *시작* 된 것을 확인할 수 있습니다. *myVirtualNetwork2* 에서 *myVirtualNetwork1* 으로 피어링을 만들 때까지 해당 피어링은 *Initiated* 상태를 유지합니다. *myVirtualNetwork2* 에서 *myVirtualNetwork1* 으로 피어링을 만듭니다. 
+이전 명령 실행 후 반환된 출력에서 **peeringState** 는 *Initiated* 로 표시됩니다. *myVirtualNetwork2* 에서 *myVirtualNetwork1* 으로 피어링을 만들 때까지 해당 피어링은 *Initiated* 상태를 유지합니다. *myVirtualNetwork2* 에서 *myVirtualNetwork1* 으로 피어링을 만듭니다. 
 
 ```azurecli-interactive
 az network vnet peering create \
@@ -108,7 +107,7 @@ az network vnet peering create \
   --allow-vnet-access
 ```
 
-이전 명령이 실행 된 후 반환 된 출력에서 **Peeringstate** 가 *연결* 된 것을 확인할 수 있습니다. 또한 Azure에서 *myVirtualNetwork1-myVirtualNetwork2* 피어링의 피어링 상태가 *Connected* 로 변경되었습니다. [az network vnet peering show](/cli/azure/network/vnet/peering)를 사용하여 *myVirtualNetwork1-myVirtualNetwork2* 피어링에 대한 피어링 상태가 *Connected* 로 변경되었는지 확인합니다.
+이전 명령 실행 후 반환된 출력에서 **peeringState** 는 *Connected* 로 표시됩니다. 또한 Azure에서 *myVirtualNetwork1-myVirtualNetwork2* 피어링의 피어링 상태가 *Connected* 로 변경되었습니다. [az network vnet peering show](/cli/azure/network/vnet/peering)를 사용하여 *myVirtualNetwork1-myVirtualNetwork2* 피어링에 대한 피어링 상태가 *Connected* 로 변경되었는지 확인합니다.
 
 ```azurecli-interactive
 az network vnet peering show \
@@ -118,7 +117,7 @@ az network vnet peering show \
   --query peeringState
 ```
 
-한 가상 네트워크의 리소스는 두 가상 네트워크의 피어 링에 대 한 **Peeringstate** 가 *연결* 될 때까지 다른 가상 네트워크의 리소스와 통신할 수 없습니다. 
+두 가상 네트워크의 피어링에 대한 **peeringState** 가 *Connected* 가 될 때까지, 한 가상 네트워크의 리소스는 다른 가상 네트워크의 리소스와 통신할 수 없습니다. 
 
 ## <a name="create-virtual-machines"></a>가상 머신 만들기
 

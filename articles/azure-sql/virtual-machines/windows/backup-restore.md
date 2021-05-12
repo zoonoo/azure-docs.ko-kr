@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
 ms.openlocfilehash: 2fcba81bcd20db321d791fcda589f40fb0699702
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97733076"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Azure VM에서 SQL Server의 백업 및 복원
@@ -72,7 +72,7 @@ SQL VM에 대해 자동화된 백업을 구성하는 방법에 대한 자세한 
 - **15분 RPO(복구 지점 목표)** : 최대 15분마다 SQL 트랜잭션 로그 백업을 구성합니다.
 - **특정 시점 복원**: 전체, 차등 및 로그 백업을 수동으로 복원할 필요 없이 포털을 사용하여 데이터베이스를 특정 시점으로 복구합니다.
 - **오류에 대한 통합된 이메일 경고**: 오류에 대한 통합된 이메일 알림을 구성합니다.
-- **Azure 역할 기반 액세스 제어**: 포털을 통해 백업 및 복원 작업을 관리할 수 있는 사람을 결정 합니다.
+- **Azure 역할 기반 액세스 제어**: 포털을 통해 백업 및 복원 작업을 관리할 수 있는 사용자를 결정합니다.
 
 데모와 함께 작동 방법에 대한 간략한 개요는 다음 비디오를 봅니다.
 
@@ -130,23 +130,23 @@ SQL Server 2016부터 Managed Backup은 예약, 시스템 데이터베이스 백
 
 | 옵션 | 자동화된 백업 | SQL에 대한 Azure Backup | 수동 백업 |
 |---|---|---|---|
-| 추가 Azure 서비스 필요 |   | ![녹색 확인 표시](./media/backup-restore/yes.png) |   |
-| Azure Portal에서 백업 정책 구성 | ![녹색 확인 표시](./media/backup-restore/yes.png) | ![녹색 확인 표시](./media/backup-restore/yes.png) |   |
-| Azure Portal에서 데이터베이스 복원 |   | ![녹색 확인 표시](./media/backup-restore/yes.png) |   |
-| 하나의 대시보드에서 여러 서버 관리 |   | ![녹색 확인 표시](./media/backup-restore/yes.png) |   |
-| 지정 시간 복원 | ![녹색 확인 표시](./media/backup-restore/yes.png) | ![녹색 확인 표시](./media/backup-restore/yes.png) | ![녹색 확인 표시](./media/backup-restore/yes.png) |
-| 15분 RPO(복구 지점 목표) | ![녹색 확인 표시](./media/backup-restore/yes.png) | ![녹색 확인 표시](./media/backup-restore/yes.png) | ![녹색 확인 표시](./media/backup-restore/yes.png) |
-| 단기 백업 보존 정책(일) | ![녹색 확인 표시](./media/backup-restore/yes.png) | ![녹색 확인 표시](./media/backup-restore/yes.png) |   |
-| 장기 백업 보존 정책(월, 년) |   | ![녹색 확인 표시](./media/backup-restore/yes.png) |   |
-| SQL Server Always On에 대한 기본 제공 지원 |   | ![녹색 확인 표시](./media/backup-restore/yes.png) |   |
-| Azure Storage 계정에 백업 | ![녹색 확인 표시](./media/backup-restore/yes.png)(자동) | ![녹색 확인 표시](./media/backup-restore/yes.png)(자동) | ![녹색 확인 표시](./media/backup-restore/yes.png)(고객 관리) |
-| 스토리지 및 백업 파일의 관리 | | ![녹색 확인 표시](./media/backup-restore/yes.png) |  |
-| VM의 연결된 디스크에 백업 |   |   | ![녹색 확인 표시](./media/backup-restore/yes.png) |
-| 사용자 지정 가능한 중앙 백업 보고서 |   | ![녹색 확인 표시](./media/backup-restore/yes.png) |   |
-| 오류에 대한 통합된 이메일 경고 |   | ![녹색 확인 표시](./media/backup-restore/yes.png) |   |
-| Azure Monitor 로그에 따라 모니터링 사용자 지정 |   | ![녹색 확인 표시](./media/backup-restore/yes.png) |   |
-| SSMS 또는 Transact-SQL 스크립트를 사용하여 백업 작업 모니터링 | ![녹색 확인 표시](./media/backup-restore/yes.png) | ![녹색 확인 표시](./media/backup-restore/yes.png) | ![녹색 확인 표시](./media/backup-restore/yes.png) |
-| SSMS 또는 Transact-SQL 스크립트를 사용하여 데이터베이스 복원 | ![녹색 확인 표시](./media/backup-restore/yes.png) |   | ![녹색 확인 표시](./media/backup-restore/yes.png) |
+| 추가 Azure 서비스 필요 |   | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) |   |
+| Azure Portal에서 백업 정책 구성 | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) |   |
+| Azure Portal에서 데이터베이스 복원 |   | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) |   |
+| 하나의 대시보드에서 여러 서버 관리 |   | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) |   |
+| 지정 시간 복원 | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) |
+| 15분 RPO(복구 지점 목표) | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) |
+| 단기 백업 보존 정책(일) | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) |   |
+| 장기 백업 보존 정책(월, 년) |   | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) |   |
+| SQL Server Always On에 대한 기본 제공 지원 |   | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) |   |
+| Azure Storage 계정에 백업 | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png)(자동) | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png)(자동) | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png)(고객 관리) |
+| 스토리지 및 백업 파일의 관리 | | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) |  |
+| VM의 연결된 디스크에 백업 |   |   | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) |
+| 사용자 지정 가능한 중앙 백업 보고서 |   | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) |   |
+| 오류에 대한 통합된 이메일 경고 |   | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) |   |
+| Azure Monitor 로그에 따라 모니터링 사용자 지정 |   | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) |   |
+| SSMS 또는 Transact-SQL 스크립트를 사용하여 백업 작업 모니터링 | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) |
+| SSMS 또는 Transact-SQL 스크립트를 사용하여 데이터베이스 복원 | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) |   | ![녹색 확인 표시입니다.](./media/backup-restore/yes.png) |
 
 ## <a name="next-steps"></a>다음 단계
 

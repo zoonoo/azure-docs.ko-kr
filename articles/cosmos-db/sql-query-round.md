@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB 쿼리 언어로 반올림
-description: Azure Cosmos DB의 SQL 시스템 함수 반올림에 대해 알아봅니다.
+title: Azure Cosmos DB 쿼리 언어의 ROUND
+description: Azure Cosmos DB의 SQL 시스템 함수 ROUND에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,13 +9,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 7dc4d78f7af1086f9a4de9aa7392acb388df966e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104590673"
 ---
-# <a name="round-azure-cosmos-db"></a>ROUND (Azure Cosmos DB)
+# <a name="round-azure-cosmos-db"></a>ROUND(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  가장 가까운 정수 값으로 반올림한 숫자 값을 반환합니다.  
@@ -37,9 +37,9 @@ ROUND(<numeric_expr>)
   
 ## <a name="remarks"></a>설명
   
-수행 된 반올림 연산은 0에서 벗어난 중간점을 따릅니다. 입력이 두 개의 정수 사이에서 정확 하 게 일치 하는 숫자 식인 경우 결과는 0에서 먼 가장 가까운 정수 값이 됩니다. 이 시스템 함수는 [범위 인덱스](index-policy.md#includeexclude-strategy)의 이점을 받습니다.
+수행되는 반올림 연산은 0에서 먼 쪽으로 중간점 반올림하는 방식을 따릅니다. 정확히 두 정수 사이에 있는 숫자 식으로 입력된 경우, 결과는 0에서 먼 쪽으로 가장 가까운 정수 값이 됩니다. 이 시스템 함수는 [범위 인덱스](index-policy.md#includeexclude-strategy)의 이점을 받습니다.
   
-|<numeric_expr>|까지|
+|<numeric_expr>|반올림|
 |-|-|
 |-6.5000|-7|
 |-0.5|-1|

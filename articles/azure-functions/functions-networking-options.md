@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
 ms.openlocfilehash: c35780ae2c4741454685d7d9740a660e965df19e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104606993"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
@@ -32,34 +32,34 @@ ms.locfileid: "104606993"
 
 ## <a name="inbound-access-restrictions"></a>인바운드 액세스 제한
 
-액세스 제한을 사용 하 여 앱에 대 한 액세스를 허용 하거나 거부 하는 우선 순위가 지정 된 IP 주소 목록을 정의할 수 있습니다. 이 목록에는 IPv4 및 IPv6 주소 또는 [서비스 끝점](#use-service-endpoints)을 사용 하는 특정 가상 네트워크 서브넷이 포함 될 수 있습니다. 하나 이상의 항목이 있는 경우 목록 끝에 암시적 "모두 거부"가 표시됩니다. IP 제한은 모든 함수 호스팅 옵션에서 작동합니다.
+액세스 제한을 사용하여 앱 액세스가 허용 또는 거부되는 IP 주소의 목록을 우선 순위대로 정의할 수 있습니다. 이 목록에는 IPv4 및 IPv6 주소나 [서비스 엔드포인트](#use-service-endpoints)를 사용하는 특정 가상 네트워크 서브넷이 포함될 수 있습니다. 하나 이상의 항목이 있는 경우 목록 끝에 암시적 "모두 거부"가 표시됩니다. IP 제한은 모든 함수 호스팅 옵션에서 작동합니다.
 
-액세스 제한은 [프리미엄](functions-premium-plan.md), [소비](consumption-plan.md)및 [App Service](dedicated-plan.md)에서 사용할 수 있습니다.
+액세스 제한은 [프리미엄](functions-premium-plan.md), [사용량](consumption-plan.md), [App Service](dedicated-plan.md)에서 사용할 수 있습니다.
 
 > [!NOTE]
-> 네트워크 제한이 적용 된 상태에서, 가상 네트워크 내 에서만 배포 하거나, 사용 중인 컴퓨터의 IP 주소를 안전 받는 사람 목록에 Azure Portal 액세스 하는 데 사용 하는 컴퓨터의 IP 주소를 배치할 수 있습니다. 그러나 포털을 사용 하 여 함수를 관리할 수는 있습니다.
+> 네트워크 제한을 사용하는 경우 가상 네트워크 내에서만 배포하거나, 사용 중인 컴퓨터의 IP 주소를 안전 수신자 목록의 Azure Portal에 액세스하는 데 사용할 수 있습니다. 그러나 포털을 사용하여 함수를 관리할 수는 있습니다.
 
 자세히 알아보려면 [Azure App Service 정적 액세스 제한](../app-service/app-service-ip-restrictions.md)을 참조하세요.
 
 ### <a name="use-service-endpoints"></a>서비스 엔드포인트 사용
 
-서비스 끝점을 사용 하 여 선택한 Azure virtual network 서브넷에 대 한 액세스를 제한할 수 있습니다. 특정 서브넷에 대 한 액세스를 제한 하려면 **Virtual Network** 유형을 사용 하 여 제한 규칙을 만듭니다. 그런 다음 액세스를 허용 하거나 거부할 구독, 가상 네트워크 및 서브넷을 선택할 수 있습니다. 
+서비스 엔드포인트를 사용하여 선택한 Azure 가상 네트워크 서브넷에 대한 액세스를 제한할 수 있습니다. 특정 서브넷에 대한 액세스를 제한하려면 **Virtual Network** 유형을 사용하여 제한 규칙을 만듭니다. 그런 다음 액세스를 허용하거나 거부할 구독, 가상 네트워크 및 서브넷을 선택할 수 있습니다. 
 
-선택한 서브넷에 대해 서비스 끝점이 아직 Microsoft 웹에서 사용 하도록 설정 되지 않은 경우 **누락 된 microsoft. 웹 서비스 끝점 무시** 확인란을 선택 하지 않으면 자동으로 사용 하도록 설정 됩니다. 앱에서 서비스 끝점을 사용 하도록 설정 하 고 서브넷은 사용 하지 않을 수 있는 시나리오는 주로 서브넷에서 사용 하도록 설정할 수 있는 권한이 있는지 여부에 따라 달라 집니다. 
+선택한 서브넷에 대한 서비스 엔드포인트가 아직 Microsoft 웹에서 사용하도록 설정되지 않은 경우 **누락된 Microsoft.Web 서비스 엔드포인트를 무시** 확인란을 선택하지 않으면 자동으로 사용하도록 설정됩니다. 앱에서 서비스 엔드포인트는 사용하고 서브넷은 사용하지 않도록 설정할 수 있는 시나리오는 대체로 서브넷에서 사용하도록 설정할 권한이 있는지에 따라 달라집니다. 
 
-다른 사용자가 서브넷에서 서비스 끝점을 사용 하도록 설정 해야 하는 경우 **누락 된 Microsoft 웹 서비스 끝점 무시** 확인란을 선택 합니다. 앱은 나중에 서브넷에서 사용 하도록 설정 하는 것을 예측 하 여 서비스 끝점에 대해 구성 됩니다. 
+다른 사용자가 서브넷에서 서비스 엔드포인트를 사용하도록 설정해야 하는 경우 **누락된 Microsoft.Web 서비스 엔드포인트를 무시** 확인란을 선택합니다. 앱은 나중에 서브넷에서 사용하도록 설정할 것을 예측하여 서비스 엔드포인트에 대해 구성됩니다. 
 
-![Virtual Network 유형이 선택 된 "IP 제한 추가" 창의 스크린샷](../app-service/media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
+![Virtual Network 유형이 선택된 "IP 제한 추가" 창의 스크린샷.](../app-service/media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
-서비스 끝점을 사용 하 여 App Service Environment에서 실행 되는 앱에 대 한 액세스를 제한할 수 없습니다. 앱이 App Service Environment에 있는 경우 IP 액세스 규칙을 적용 하 여 해당 앱에 대 한 액세스를 제어할 수 있습니다. 
+서비스 엔드포인트를 사용하여 App Service Environment에서 실행되는 앱에 대한 액세스를 제한할 수 없습니다. 앱이 App Service Environment에 있는 경우 IP 액세스 규칙을 적용하여 해당 앱에 대한 액세스를 제어할 수 있습니다. 
 
-서비스 끝점을 설정 하는 방법을 알아보려면 [Azure Functions 개인 사이트 액세스](functions-create-private-site-access.md)설정을 참조 하세요.
+서비스 엔드포인트를 설정하는 방법을 알아보려면 [Azure Functions 프라이빗 사이트 액세스 설정](functions-create-private-site-access.md)을 참조하세요.
 
-## <a name="private-endpoint-connections"></a>개인 끝점 연결
+## <a name="private-endpoint-connections"></a>프라이빗 엔드포인트 연결
 
 [!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
 
-저장소 또는 service bus와 같은 개인 끝점 연결이 있는 다른 서비스를 호출 하려면 [전용 끝점에 대 한 아웃 바운드 호출](#private-endpoints)을 수행 하도록 앱을 구성 해야 합니다.
+스토리지 또는 Service Bus와 같은 개인 엔드포인트 연결이 있는 다른 서비스를 호출하려면 [프라이빗 엔드포인트에 대한 아웃바운드 호출](#private-endpoints)을 수행하도록 앱을 구성해야 합니다.
 
 ## <a name="virtual-network-integration"></a>가상 네트워크 통합
 
@@ -81,15 +81,15 @@ Azure Functions의 가상 네트워크 통합은 App Service 웹 앱에 공유 �
 
 ## <a name="connect-to-service-endpoint-secured-resources"></a>서비스 엔드포인트 보안 리소스에 연결
 
-높은 수준의 보안을 제공하기 위해 서비스 엔드포인트를 사용하여 여러 Azure 서비스를 가상 네트워크로 제한할 수 있습니다. 그런 다음 해당 가상 네트워크와 함수 앱을 통합하여 리소스에 액세스해야 합니다. 이 구성은 가상 네트워크 통합을 지 원하는 모든 [요금제](functions-scale.md#networking-features) 에서 지원 됩니다.
+높은 수준의 보안을 제공하기 위해 서비스 엔드포인트를 사용하여 여러 Azure 서비스를 가상 네트워크로 제한할 수 있습니다. 그런 다음 해당 가상 네트워크와 함수 앱을 통합하여 리소스에 액세스해야 합니다. 이 구성은 가상 네트워크 통합을 지원하는 모든 [요금제](functions-scale.md#networking-features)에서 지원됩니다.
 
 자세한 내용은 [가상 네트워크 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 참조하세요.
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>가상 네트워크에 대한 스토리지 계정 제한 
 
-함수 앱을 만들 때 Blob, 큐 및 Table Storage을 지원하는 범용 Azure Storage 계정을 만들거나 연결해야 합니다. 이 저장소 계정은 서비스 끝점이 나 개인 끝점으로 보안이 유지 되는 계정으로 바꿀 수 있습니다. 
+함수 앱을 만들 때 Blob, 큐 및 Table Storage을 지원하는 범용 Azure Storage 계정을 만들거나 연결해야 합니다. 이 스토리지 계정은 서비스 엔드포인트 또는 프라이빗 엔드포인트로 보호되는 계정으로 바꿀 수 있습니다. 
 
-이 기능은 현재 전용 (App Service) 계획의 모든 Windows 가상 네트워크 지원 Sku와 프리미엄 요금제에 대해 작동 합니다. 소비 계획은 지원 되지 않습니다. 개인 네트워크로 제한 된 저장소 계정을 사용 하 여 함수를 설정 하는 방법을 알아보려면 [저장소 계정을 가상 네트워크로 제한](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network)을 참조 하세요.
+현재 이 기능은 전용(App Service) 요금제로 모든 Windows 가상 네트워크 지원 SKU에서 작동하며 프리미엄 요금제에서 작동합니다. 사용량 요금제는 지원되지 않습니다. 개인 네트워크로 제한된 스토리지 계정을 사용하여 함수를 설정하는 방법을 알아보려면 [가상 네트워크에 대한 스토리지 계정 제한](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network)을 참조하세요.
 
 ## <a name="use-key-vault-references"></a>Key Vault 참조 사용
 
@@ -106,7 +106,7 @@ Azure Key Vault 참조를 사용하여 코드 변경 없이도 Azure Functions �
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>가상 네트워크 트리거를 사용하는 프리미엄 계획
 
-프리미엄 계획을 실행하는 경우 비 HTTP 트리거 함수를 가상 네트워크 내에서 실행되는 서비스에 연결할 수 있습니다. 이렇게 하려면 함수 앱에 대한 가상 네트워크 트리거 지원을 사용하도록 설정해야 합니다. **런타임 규모 모니터링** 설정은 **구성** [](https://portal.azure.com)  >  **함수 런타임 설정** 아래 Azure Portal에 있습니다.
+프리미엄 계획을 실행하는 경우 비 HTTP 트리거 함수를 가상 네트워크 내에서 실행되는 서비스에 연결할 수 있습니다. 이렇게 하려면 함수 앱에 대한 가상 네트워크 트리거 지원을 사용하도록 설정해야 합니다. **런타임 크기 조정 모니터링** 설정은 **구성** > **함수 런타임 설정** 의 [Azure Portal](https://portal.azure.com)에서 확인할 수 있습니다.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
@@ -117,7 +117,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 ```
 
 > [!TIP]
-> 가상 네트워크 트리거를 사용 하도록 설정 하면 응용 프로그램 성능에 영향을 줄 수 있습니다. App Service 계획 인스턴스는 크기를 조정 하는 시기를 결정 하기 위해 트리거를 모니터링 해야 하기 때문입니다. 이러한 영향은 매우 작을 가능성이 높습니다.
+> 가상 네트워크 트리거를 사용하도록 설정하면 애플리케이션 성능에 영향을 줄 수 있습니다. App Service 요금제 인스턴스는 크기를 조정하는 시기를 결정하기 위해 트리거를 모니터링해야 하기 때문입니다. 이러한 영향은 매우 작을 가능성이 높습니다.
 
 가상 네트워크 트리거는 Functions 런타임의 버전 2.x 이상에서 지원됩니다. 다음과 같은 비 HTTP 트리거 형식이 지원됩니다.
 
@@ -155,13 +155,13 @@ Azure Functions에서 사용되는 것처럼 각 하이브리드 연결은 단�
 
 프리미엄 계획 또는 App Service 계획에서 함수 앱과 가상 네트워크를 통합하는 경우 앱에서 기본적으로 인터넷에 아웃바운드 호출을 수행할 수 있습니다. 애플리케이션 설정 `WEBSITE_VNET_ROUTE_ALL=1`을 추가하여 모든 아웃바운드 트래픽이 트래픽 제한에 네트워크 보안 그룹 규칙을 사용할 수 있는 가상 네트워크로 전송되도록 합니다.
 
-가상 네트워크를 사용 하 여 아웃 바운드 IP를 제어 하는 방법을 알아보려면 [자습서: Azure virtual NETWORK NAT 게이트웨이를 사용 하 여 아웃 바운드 Ip 제어 Azure Functions](functions-how-to-use-nat-gateway.md)를 참조 하세요. 
+가상 네트워크를 사용하여 아웃바운드 IP를 제어하는 방법을 알아보려면 [자습서: Azure 가상 네트워크 NAT 게이트웨이를 사용하여 Azure Functions 아웃바운드 IP 제어](functions-how-to-use-nat-gateway.md)를 참조하세요. 
 
-## <a name="automation"></a>자동화
-다음 Api를 사용 하면 프로그래밍 방식으로 지역 가상 네트워크 통합을 관리할 수 있습니다.
+## <a name="automation"></a>Automation
+다음 API를 사용하면 프로그래매틱 방식으로 지역 가상 네트워크 통합을 관리할 수 있습니다.
 
-+ **Azure CLI**: 명령을 사용 [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) 하 여 지역 가상 네트워크 통합을 추가, 나열 또는 제거 합니다.  
-+ **ARM 템플릿**: 지역 가상 네트워크 통합은 Azure Resource Manager 템플릿을 사용 하 여 사용 하도록 설정할 수 있습니다. 전체 예제는 [이 함수 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/)을 참조 하세요.
++ **Azure CLI**: [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) 명령을 사용하여 지역 가상 네트워크 통합을 추가, 나열 또는 제거합니다.  
++ **ARM 템플릿**: 지역 가상 네트워크 통합은 Azure Resource Manager 템플릿을 사용하여 사용하도록 설정할 수 있습니다. 전체 예제를 보려면 [이 함수 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/)을 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 

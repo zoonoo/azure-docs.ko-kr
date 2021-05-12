@@ -9,19 +9,16 @@ ms.topic: tutorial
 author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/30/2019
-ms.openlocfilehash: f2dd34ab7c6ee5be26836e4abb86960605ee44ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/10/2021
+ms.openlocfilehash: e8b37dd0f4037f2d348a98f871706c4c67723f24
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84708680"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715001"
 ---
 # <a name="tutorial-migrate-windows-users-and-groups-in-a-sql-server-instance-to-azure-sql-managed-instance-using-t-sql-ddl-syntax"></a>자습서: T-SQL DDL 구문을 사용하여 SQL Server 인스턴스의 Windows 사용자 및 그룹을 Azure SQL Managed Instance로 마이그레이션
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
-
-> [!NOTE]
-> 이 문서에서 사용자와 그룹을 SQL Managed Instance로 마이그레이션하는 데 사용되는 구문은 **공개 미리 보기** 상태입니다.
 
 이 문서에서는 T-SQL 구문을 사용하여 SQL Server의 온-프레미스 Windows 사용자 및 그룹을 Azure SQL Managed Instance로 마이그레이션하는 프로세스를 안내합니다.
 

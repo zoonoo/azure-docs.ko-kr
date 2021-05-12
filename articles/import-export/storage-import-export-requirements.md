@@ -9,10 +9,10 @@ ms.date: 02/22/2021
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 0bfc09a372584a25c23060cef33d1f698e6d5ff3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101712609"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export에 대한 시스템 요구 사항
@@ -41,19 +41,19 @@ WAImportExport 도구를 사용하여 하드 드라이브를 준비하기 위해
 
 Azure Import/Export 서비스는 다음과 같은 유형의 스토리지 계정을 지원합니다.
 
-- 표준 범용 v2 저장소 계정 (대부분의 시나리오에 권장)
+- 표준 범용 v2 스토리지 계정(대부분의 시나리오에 권장됨)
 - Blob Storage 계정
 - 범용 v1 스토리지 계정(클래식 또는 Azure Resource Manager 모두)
 
 > [!IMPORTANT]
-> Azure 가져오기/내보내기에서는 NFS (네트워크 파일 시스템) 3.0 Azure Blob 저장소의 프로토콜 지원이 지원 되지 않습니다.
+> Azure Blob Storage의 NFS(네트워크 파일 시스템) 3.0 프로토콜 지원은 Azure Import/Export에서 지원되지 않습니다.
 
 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../storage/common/storage-account-overview.md)를 참조하세요.
 
 각 작업은 하나의 스토리지 계정에서만 데이터 전송에 사용될 수 있습니다. 다시 말해, 하나의 가져오기/내보내기 작업이 여러 스토리지 계정에서 사용될 수 없습니다. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](../storage/common/storage-account-create.md)(영문)을 참조하세요.
 
 > [!IMPORTANT]
-> [Virtual Network 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md) 기능이 사용 하도록 설정 된 저장소 계정의 경우 **신뢰할 수 있는 Microsoft 서비스 허용** ... 설정을 사용 하 여 [가져오기/내보내기](../storage/common/storage-network-security.md) 서비스에서 Azure로/에서 데이터 가져오기/내보내기를 수행할 수 있도록 합니다.
+> [가상 네트워크 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md) 기능을 사용하도록 설정된 스토리지 계정의 경우 **신뢰할 수 있는 Microsoft 서비스 허용...** 설정을 사용하여 [Import/Export 사용](../storage/common/storage-network-security.md) 서비스에서 Azure로/에서 데이터 Import/Export를 수행할 수 있도록 합니다.
 
 ## <a name="supported-storage-types"></a>지원되는 스토리지 형식
 
@@ -80,11 +80,11 @@ Azure Import/Export 서비스의 경우 데이터를 복사할 지원되는 디�
 |SSD    |   2.5"      |SATA III          |
 |HDD     |  2.5"<br>3.5"       |SATA II, SATA III         |
 
-지원 되지 않는 디스크 유형은 다음과 같습니다.
+다음 디스크 형식은 지원되지 않습니다.
 
 - USBs.
-- 기본 제공 USB 어댑터를 사용 하는 외부 HDD.
-- 외부 HDD의 대/소문자를 포함 하는 디스크입니다.
+- 외부 HDD(기본 제공 USB 어댑터 포함)
+- 외부 HDD 케이싱 내 디스크
 
 단일 가져오기/내보내기 작업은 다음을 포함합니다.
 
@@ -97,4 +97,4 @@ Azure Import/Export 서비스의 경우 데이터를 복사할 지원되는 디�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [AzCopy 명령줄 유틸리티를 사용 하 여 데이터 전송](../storage/common/storage-use-azcopy-v10.md)
+* [AzCopy 명령줄 유틸리티로 데이터 전송](../storage/common/storage-use-azcopy-v10.md)

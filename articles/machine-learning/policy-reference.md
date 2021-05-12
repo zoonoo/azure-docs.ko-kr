@@ -1,22 +1,22 @@
 ---
-title: Azure Machine Learning에 대 한 기본 제공 정책 정의
-description: Azure Machine Learning에 대 한 Azure Policy 기본 제공 정책 정의를 나열 합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 03/24/2021
+title: Azure Machine Learning을 위한 기본 제공 정책 정의
+description: Azure Machine Learning을 위한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
+ms.date: 03/31/2021
 ms.author: larryfr
 author: BlackMist
 ms.topic: reference
 ms.service: machine-learning
 ms.custom: subject-policy-reference
-ms.openlocfilehash: bc0e6bc7fbc64d051e4a38fcc0494c3e071ba172
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
-ms.translationtype: MT
+ms.openlocfilehash: 01537083de38a019301d1c61e0e0b229f19720e5
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105037294"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106094424"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 기본 제공 정책 정의 Azure Policy
+# <a name="azure-policy-built-in-policy-definitions-for-azure-machine-learning"></a>Azure Machine Learning을 위한 Azure Policy 기본 제공 정책 정의
 
-이 페이지는 Azure Machine Learning에 대 한 [Azure Policy](../governance/policy/overview.md) 기본 제공 정책 정의의 인덱스입니다. Azure Policy에 대한 일반적인 사용 사례에는 리소스 일관성, 규정 준수, 보안, 비용 및 관리에 대한 거버넌스 구현이 포함됩니다. 이러한 일반적인 사용 사례에 대한 정책 정의는 Azure 환경에서 이미 기본 제공 기능으로 사용할 수 있으므로 시작하는 데 도움이 됩니다. 다른 서비스에 대한 추가 Azure Policy 기본 제공 기능은 [Azure Policy 기본 제공 정의](../governance/policy/samples/built-in-policies.md)를 참조하세요.
+이 페이지는 Azure Machine Learning을 위한 [Azure Policy](../governance/policy/overview.md) 기본 제공 정책 정의의 인덱스입니다. Azure Policy에 대한 일반적인 사용 사례에는 리소스 일관성, 규정 준수, 보안, 비용 및 관리에 대한 거버넌스 구현이 포함됩니다. 이러한 일반적인 사용 사례에 대한 정책 정의는 Azure 환경에서 이미 기본 제공 기능으로 사용할 수 있으므로 시작하는 데 도움이 됩니다. 다른 서비스에 대한 추가 Azure Policy 기본 제공 기능은 [Azure Policy 기본 제공 정의](../governance/policy/samples/built-in-policies.md)를 참조하세요.
 
 Azure Portal의 정책 정의에 대한 각 기본 제공 정책 정의 링크의 이름입니다. **GitHub** 열의 링크를 사용하여 [Azure Policy GitHub 리포지토리](https://github.com/Azure/azure-policy)에서 원본을 봅니다.
 

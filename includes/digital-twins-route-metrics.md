@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 8/3/2020
 ms.author: baanders
-ms.openlocfilehash: d486b5e8486d2c3c1c343701e0f3f4d474738063
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f0e60d8e947036e709734f7a4795d1efa8e78f49
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "87809010"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "109789944"
 ---
 ## <a name="monitor-event-routes"></a>이벤트 경로 모니터링
 
@@ -22,4 +22,4 @@ ms.locfileid: "87809010"
 
 여기에서 인스턴스에 대한 메트릭을 보고 사용자 지정 보기를 만들 수 있습니다.
 
-Azure Digital Twins 메트릭을 보는 방법에 대한 자세한 내용은 [*방법: Azure Monitor를 사용하여 메트릭 보기*](../articles/digital-twins/troubleshoot-metrics.md)를 참조하세요.
+Azure Digital Twins 메트릭을 보는 방법에 대한 자세한 내용은 [방법: Azure Monitor를 사용하여 메트릭 보기](../articles/digital-twins/troubleshoot-metrics.md)를 참조하세요.

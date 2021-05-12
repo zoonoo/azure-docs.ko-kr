@@ -4,10 +4,10 @@ description: 새 리소스 그룹이나 구독으로 이동할 수 있는 Azure 
 ms.topic: conceptual
 ms.date: 01/11/2021
 ms.openlocfilehash: 3a15ddc62c19d74871de33003d46ec2fc5437f51
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104584689"
 ---
 # <a name="move-operation-support-for-resources"></a>리소스에 대한 이동 작업 지원
@@ -15,7 +15,7 @@ ms.locfileid: "104584689"
 이 문서에서는 Azure 리소스 종류가 이동 작업을 지원하는지 여부에 대한 정보를 제공합니다. 또한 리소스를 이동할 때 고려해야 할 특수 조건에 대한 정보도 제공합니다.
 
 > [!IMPORTANT]
-> 대부분의 경우 자식 리소스를 부모 리소스와 독립적으로 이동할 수 없습니다. 자식 리소스의 형식에는 리소스 형식이 `<resource-provider-namespace>/<parent-resource>/<child-resource>` 있습니다. 예를 들어 `Microsoft.ServiceBus/namespaces/queues` 는의 자식 리소스입니다 `Microsoft.ServiceBus/namespaces` . 부모 리소스를 이동 하면 자식 리소스가 자동으로 함께 이동 됩니다. 이 문서에 자식 리소스가 표시 되지 않으면 부모 리소스와 함께 이동 하는 것으로 간주할 수 있습니다. 부모 리소스가 이동을 지원 하지 않는 경우 자식 리소스를 이동할 수 없습니다.
+> 대부분의 경우 자식 리소스는 해당 부모 리소스로부터 독립적으로 이동할 수 없습니다. 자식 리소스에는 `<resource-provider-namespace>/<parent-resource>/<child-resource>` 형식의 리소스 종류가 있습니다. 예를 들어, `Microsoft.ServiceBus/namespaces/queues`는 `Microsoft.ServiceBus/namespaces`의 자식 리소스입니다. 부모 리소스를 이동하면 자식 리소스가 부모 리소스와 함께 자동으로 이동됩니다. 이 문서에 자식 리소스가 보이지 않는 경우 부모 리소스와 함께 이동한 것으로 가정할 수 있습니다. 부모 리소스가 이동을 지원하지 않는 경우 자식 리소스를 이동할 수 없습니다.
 
 리소스 공급자 네임스페이스로 이동합니다.
 > [!div class="op_single_selector"]
@@ -107,7 +107,7 @@ ms.locfileid: "104584689"
 > - [Microsoft.HealthcareApis](#microsofthealthcareapis)
 > - [Microsoft.HybridCompute](#microsofthybridcompute)
 > - [Microsoft.HybridData](#microsofthybriddata)
-> - [HybridNetwork](#microsofthybridnetwork)
+> - [Microsoft.HybridNetwork](#microsofthybridnetwork)
 > - [Microsoft.Hydra](#microsofthydra)
 > - [Microsoft.ImportExport](#microsoftimportexport)
 > - [microsoft.insights](#microsoftinsights)
@@ -197,7 +197,7 @@ ms.locfileid: "104584689"
 > - [Microsoft.Web](#microsoftweb)
 > - [Microsoft.WindowsESU](#microsoftwindowsesu)
 > - [Microsoft.WindowsIoT](#microsoftwindowsiot)
-> - [WorkloadBuilder](#microsoftworkloadbuilder)
+> - [Microsoft.WorkloadBuilder](#microsoftworkloadbuilder)
 > - [Microsoft.WorkloadMonitor](#microsoftworkloadmonitor)
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
@@ -213,7 +213,7 @@ ms.locfileid: "104584689"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | diagnosticsettings | 예 | 예 |
-> | diagnosticsettingscategories | 예 | 아니요 |
+> | diagnosticsettingscategories | 예 | 예 |
 > | privatelinkforazuread | 예 | 예 |
 > | tenants | 예 | 예 |
 
@@ -307,7 +307,7 @@ ms.locfileid: "104584689"
 > | ------------- | ----------- | ---------- |
 > | apiapps | 예 | 예 |
 > | appidentities | 예 | 예 |
-> | gateways | 예 | 아니요 |
+> | gateways | 예 | 예 |
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
@@ -330,9 +330,9 @@ ms.locfileid: "104584689"
 > | 권한 | 예 | 예 |
 > | policyassignments | 예 | 예 |
 > | policydefinitions | 예 | 예 |
-> | policysetdefinitions | 예 | 아니요 |
-> | privatelinkassociations | 아니요 | 아니요 |
-> | resourcemanagementprivatelinks | 아니요 | 예 |
+> | policysetdefinitions | 예 | 예 |
+> | privatelinkassociations | 예 | 예 |
+> | resourcemanagementprivatelinks | 예 | 예 |
 > | roleassignments | 예 | 예 |
 > | roleassignmentsusagemetrics | 예 | 예 |
 > | roledefinitions | 예 | 예 |
@@ -342,7 +342,7 @@ ms.locfileid: "104584689"
 > [!IMPORTANT]
 > Runbook은 Automation 계정과 동일한 리소스 그룹에 있어야 합니다.
 >
-> 자세한 내용은 [Azure Automation 계정을 다른 구독으로 이동](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json)을 참조 하세요.
+> 자세한 내용은 [Azure Automation 계정을 다른 구독으로 이동](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json)을 참조하세요.
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
@@ -471,7 +471,7 @@ ms.locfileid: "104584689"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | redis | 예 | 예 |
-> | redisenterprise | 예 | 아니요 |
+> | redisenterprise | 예 | 예 |
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
@@ -534,7 +534,7 @@ ms.locfileid: "104584689"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | classicinfrastructureresources | 예 | 아니요 |
+> | classicinfrastructureresources | 예 | 예 |
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
@@ -551,7 +551,7 @@ ms.locfileid: "104584689"
 > | networksecuritygroups | 예 | 예 |
 > | quotas | 예 | 예 |
 > | reservedips | 예 | 예 |
-> | virtualnetworks | 예 | 아니요 |
+> | virtualnetworks | 예 | 예 |
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
@@ -568,7 +568,7 @@ ms.locfileid: "104584689"
 > | publicimages | 예 | 예 |
 > | quotas | 예 | 예 |
 > | storageaccounts | 예 | 예 |
-> | vmimages | 예 | 아니요 |
+> | vmimages | 예 | 예 |
 
 ## <a name="microsoftclassicsubscription"></a>Microsoft.ClassicSubscription
 
@@ -753,7 +753,7 @@ ms.locfileid: "104584689"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | availableskus | 아니요 | 아니요 |
+> | availableskus | 예 | 예 |
 > | databoxedgedevices | 예 | 예 |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
@@ -850,7 +850,7 @@ ms.locfileid: "104584689"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | flexibleServers | 아니요 | 예 |
+> | flexibleServers | 예 | 예 |
 > | servers | 예 | 예 |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
@@ -858,7 +858,7 @@ ms.locfileid: "104584689"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | flexibleServers | 아니요 | 예 |
+> | flexibleServers | 예 | 예 |
 > | servergroups | 예 | 예 |
 > | servers | 예 | 예 |
 > | serversv2 | 예 | 예 |
@@ -1026,7 +1026,7 @@ ms.locfileid: "104584689"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | hanainstances | 예 | 예 |
-> | sapmonitors | 아니요 | 아니요 |
+> | sapmonitors | 예 | 예 |
 
 ## <a name="microsofthardwaresecuritymodules"></a>Microsoft.HardwareSecurityModules
 
@@ -1069,7 +1069,7 @@ ms.locfileid: "104584689"
 > | ------------- | ----------- | ---------- |
 > | datamanagers | 예 | 예 |
 
-## <a name="microsofthybridnetwork"></a>HybridNetwork
+## <a name="microsofthybridnetwork"></a>Microsoft.HybridNetwork
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
@@ -1134,7 +1134,7 @@ ms.locfileid: "104584689"
 > | 트랜잭션 | 예 | 예 |
 > | vminsightsonboardingstatuses | 예 | 예 |
 > | webtests | 예 | 예 |
-> | 웹 테스트/gettestresultfile | 아니요 | 아니요 |
+> | webtests / gettestresultfile | 예 | 예 |
 > | workbooks | 예 | 예 |
 > | workbooktemplates | 예 | 예 |
 
@@ -1162,8 +1162,8 @@ ms.locfileid: "104584689"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | deletedvaults | 예 | 예 |
-> | hsmpools | 예 | 아니요 |
-> | managedhsms | 아니요 | 예 |
+> | hsmpools | 예 | 예 |
+> | managedhsms | 예 | 예 |
 > | vaults | 예 | 예 |
 
 ## <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
@@ -1366,8 +1366,8 @@ ms.locfileid: "104584689"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | assessmentprojects | 아니요 | 예 |
-> | migrateprojects | 아니요 | 아니요 |
+> | assessmentprojects | 예 | 예 |
+> | migrateprojects | 예 | 예 |
 > | movecollections | 예 | 예 |
 > | projects | 예 | 예 |
 
@@ -1412,18 +1412,18 @@ ms.locfileid: "104584689"
 > | expressroutegateways | 예 | 예 |
 > | expressrouteserviceproviders | 예 | 예 |
 > | firewallpolicies | 예 | 예 |
-> | frontdoors | 예 | 아니요 |
+> | frontdoors | 예 | 예 |
 > | ipallocations | 예 | 예 |
 > | ipgroups | 예 | 예 |
-> | loadbalancers | 예 - 기본 SKU<br> 예-표준 SKU | 예 - 기본 SKU<br>아니요 - 표준 SKU |
+> | loadbalancers | 예 - 기본 SKU<br> 예 - 표준 SKU | 예 - 기본 SKU<br>아니요 - 표준 SKU |
 > | localnetworkgateways | 예 | 예 |
-> | natgateways | 아니요 | 아니요 |
+> | natgateways | 예 | 예 |
 > | networkexperimentprofiles | 예 | 예 |
 > | networkintentpolicies | 예 | 예 |
 > | networkinterfaces | 예 | 예 |
 > | networkprofiles | 예 | 예 |
 > | networksecuritygroups | 예 | 예 |
-> | networkwatchers | 아니요 | 예 |
+> | networkwatchers | 예 | 예 |
 > | networkwatchers / connectionmonitors | 예 | 예 |
 > | networkwatchers / flowlogs | 예 | 예 |
 > | networkwatchers / pingmeshes | 예 | 예 |
@@ -1432,9 +1432,9 @@ ms.locfileid: "104584689"
 > | privatednszones / virtualnetworklinks | 예 | 예 |
 > | privatednszonesinternal | 예 | 예 |
 > | privateendpointredirectmaps | 예 | 예 |
-> | privateendpoints | 아니요 | 아니요 |
+> | privateendpoints | 예 | 예 |
 > | privatelinkservices | 예 | 예 |
-> | publicipaddresses | 예 - 기본 SKU<br>예-표준 SKU | 예 - 기본 SKU<br>아니요 - 표준 SKU |
+> | publicipaddresses | 예 - 기본 SKU<br>예 - 표준 SKU | 예 - 기본 SKU<br>아니요 - 표준 SKU |
 > | publicipprefixes | 예 | 예 |
 > | routefilters | 예 | 예 |
 > | routetables | 예 | 예 |
@@ -1452,7 +1452,7 @@ ms.locfileid: "104584689"
 > | virtualwans | 예 | 예 |
 > | vpngateways(Virtual WAN) | 예 | 예 |
 > | vpnserverconfigurations | 예 | 예 |
-> | vpnsites(Virtual WAN) | 예 | 아니요 |
+> | vpnsites(Virtual WAN) | 예 | 예 |
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
@@ -1474,10 +1474,10 @@ ms.locfileid: "104584689"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | hypervsites | 아니요 | 아니요 |
-> | importsites | 아니요 | 예 |
-> | serversites | 아니요 | 아니요 |
-> | vmwaresites | 아니요 | 아니요 |
+> | hypervsites | 예 | 예 |
+> | importsites | 예 | 예 |
+> | serversites | 예 | 예 |
+> | vmwaresites | 예 | 예 |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
@@ -1513,7 +1513,7 @@ ms.locfileid: "104584689"
 > | legacypeerings | 예 | 예 |
 > | peerasns | 예 | 예 |
 > | peeringlocations | 예 | 예 |
-> | peerings | 아니요 | 아니요 |
+> | peerings | 예 | 예 |
 > | peeringservicecountries | 예 | 예 |
 > | peeringservicelocations | 예 | 예 |
 > | peeringserviceproviders | 예 | 예 |
@@ -1711,8 +1711,8 @@ ms.locfileid: "104584689"
 > | ------------- | ----------- | ---------- |
 > | aggregations | 예 | 예 |
 > | alertrules | 예 | 예 |
-> | alertruletemplates | 예 | 아니요 |
-> | automationrules | 아니요 | 예 |
+> | alertruletemplates | 예 | 예 |
+> | automationrules | 예 | 예 |
 > | bookmarks | 예 | 예 |
 > | cases | 예 | 예 |
 > | dataconnectors | 예 | 예 |
@@ -1807,7 +1807,7 @@ ms.locfileid: "104584689"
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
 > [!IMPORTANT]
-> 데이터베이스와 서버는 동일한 리소스 그룹에 있어야 합니다. SQL Server를 이동하면 모든 해당 데이터베이스도 함께 이동합니다. 이 동작은 Azure SQL Database 및 Azure Synapse Analytics 데이터베이스에 적용 됩니다.
+> 데이터베이스와 서버는 동일한 리소스 그룹에 있어야 합니다. SQL Server를 이동하면 모든 해당 데이터베이스도 함께 이동합니다. 이 동작은 Azure SQL Database 및 Azure Synapse Analytics 데이터베이스에 적용됩니다.
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
@@ -1912,9 +1912,9 @@ ms.locfileid: "104584689"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | workspaces | 예 | 아니요 |
-> | workspaces / bigdatapools | 아니요 | 예 |
-> | workspaces / sqlpools | 아니요 | 예 |
+> | workspaces | 예 | 예 |
+> | workspaces / bigdatapools | 예 | 예 |
+> | workspaces / sqlpools | 예 | 예 |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
@@ -1949,7 +1949,7 @@ ms.locfileid: "104584689"
 > | ------------- | ----------- | ---------- |
 > | account | 예 | 예 |
 > | account / extension | 예 | 예 |
-> | account / project | 예 | 아니요 |
+> | account / project | 예 | 예 |
 
 ## <a name="microsoftvmware"></a>Microsoft.VMware
 
@@ -2018,7 +2018,7 @@ ms.locfileid: "104584689"
 > | sites / premieraddons | 예 | 예 |
 > | sites / slots | 예 | 예 |
 > | sourcecontrols | 예 | 예 |
-> | staticsites | 예 | 아니요 |
+> | staticsites | 예 | 예 |
 
 ## <a name="microsoftwindowsesu"></a>Microsoft.WindowsESU
 
@@ -2032,14 +2032,14 @@ ms.locfileid: "104584689"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | deviceservices | 예 | 아니요 |
+> | deviceservices | 예 | 예 |
 
-## <a name="microsoftworkloadbuilder"></a>WorkloadBuilder
+## <a name="microsoftworkloadbuilder"></a>Microsoft.WorkloadBuilder
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 작업 | 아니요 | 예 |
+> | 작업 | 예 | 예 |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 

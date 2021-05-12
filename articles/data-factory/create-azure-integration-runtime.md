@@ -7,10 +7,10 @@ ms.date: 06/09/2020
 author: nabhishek
 ms.author: abnarain
 ms.openlocfilehash: ecf2a74a16234084fbac4d1c26157d1703b56a13
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100373065"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Azure 통합 런타임을 만들고 구성하는 방법
@@ -25,24 +25,24 @@ Azure IR은 완전히 관리되는 컴퓨팅을 제공하여 기본적으로 데
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="default-azure-ir"></a>기본 Azure IR
-기본적으로 각 데이터 팩터리에는 백 엔드에 클라우드 데이터 저장소의 작업 및 공용 네트워크의 컴퓨팅 서비스를 지원하는 Azure IR이 있습니다. Azure IR 위치는 자동 해결입니다. **connectVia** 속성이 연결된 서비스 정의에 지정되지 않은 경우 기본 Azure IR이 사용됩니다. IR의 위치를 명시적으로 정의하려는 경우 또는 관리 목적으로 다른 IR에 대한 작업 실행을 가상으로 그룹화하려는 경우에만 Azure IR을 명시적으로 만들어야 합니다. 
+기본적으로 각 데이터 팩터리에는 백 엔드에 클라우드 데이터 저장소의 작업 및 공용 네트워크의 컴퓨팅 서비스를 지원하는 Azure IR이 있습니다. 해당 Azure IR 위치는 자동 해결됩니다. **connectVia** 속성이 연결된 서비스 정의에 지정되지 않은 경우 기본 Azure IR이 사용됩니다. IR의 위치를 명시적으로 정의하려는 경우 또는 관리 목적으로 다른 IR에 대한 작업 실행을 가상으로 그룹화하려는 경우에만 Azure IR을 명시적으로 만들어야 합니다. 
 
 ## <a name="create-azure-ir"></a>Azure IR 만들기
 
-Azure IR를 만들고 설정 하려면 다음 절차를 사용할 수 있습니다.
+Azure IR을 만들고 설정하려면 다음 절차를 사용합니다.
 
-### <a name="create-an-azure-ir-via-azure-powershell"></a>Azure PowerShell를 통해 Azure IR 만들기
-Integration Runtime는 **AzDataFactoryV2IntegrationRuntime** PowerShell cmdlet을 사용 하 여 만들 수 있습니다. Azure IR를 만들려면 명령에 이름, 위치 및 유형을 지정 합니다. 다음은 위치가 "West Europe"으로 설정된 Azure IR을 만드는 샘플 명령입니다.
+### <a name="create-an-azure-ir-via-azure-powershell"></a>Azure PowerShell을 통해 Azure IR 만들기
+통합 런타임은 **Set-AzDataFactoryV2IntegrationRuntime** PowerShell cmdlet을 사용하여 만들 수 있습니다. Azure IR을 만들려면 명령에 이름, 위치 및 형식을 지정합니다. 다음은 위치가 "West Europe"으로 설정된 Azure IR을 만드는 샘플 명령입니다.
 
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName "SampleV2DataFactory1" -Name "MySampleAzureIR" -ResourceGroupName "ADFV2SampleRG" -Type Managed -Location "West Europe"
 ```  
 Azure IR의 경우 형식은 **Managed** 로 설정되어야 합니다. 컴퓨팅 세부 정보는 클라우드에서 탄력적으로 완전히 관리되므로 지정할 필요가 없습니다. Azure-SSIS IR을 만들려는 경우 노드 크기 및 노드 개수와 같은 컴퓨팅 세부 정보를 지정합니다. 자세한 내용은 [Azure SSIS IR 만들기 및 구성](create-azure-ssis-integration-runtime.md)을 참조하세요.
 
-Set-AzDataFactoryV2IntegrationRuntime PowerShell cmdlet을 사용 하 여 해당 위치를 변경 하도록 기존 Azure IR를 구성할 수 있습니다. Azure IR의 위치에 대한 자세한 내용은 [통합 런타임 소개](concepts-integration-runtime.md)를 참조하세요.
+기존 Azure IR을 Set-AzDataFactoryV2IntegrationRuntime PowerShell cmdlet을 사용하여 해당 위치를 변경하도록 구성할 수 있습니다. Azure IR의 위치에 대한 자세한 내용은 [통합 런타임 소개](concepts-integration-runtime.md)를 참조하세요.
 
-### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Azure Data Factory UI를 통해 Azure IR 만들기
-다음 단계를 사용 하 여 Azure Data Factory UI를 사용 하 여 Azure IR를 만듭니다.
+### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Azure Data Factory UI를 사용하여 Azure IR 만들기
+다음 단계에 따라 Azure Data Factory UI를 사용하여 Azure IR을 생성합니다.
 
 1. Azure Data Factory UI의 **시작하기** 페이지의 맨 왼쪽 창에서 [관리 탭](./author-management-hub.md)을 선택합니다.
 
@@ -50,17 +50,17 @@ Set-AzDataFactoryV2IntegrationRuntime PowerShell cmdlet을 사용 하 여 해당
 
 1. 왼쪽 창에서 **통합 런타임** 을 선택한 다음, **+새로 만들기** 를 선택합니다.
 
-   ![왼쪽 창에서 통합 런타임을 강조 표시 하 고 + 새로 만들기 단추를 표시 하는 스크린샷](media/doc-common-process/manage-new-integration-runtime.png)
+   ![왼쪽 창과 + 새로 만들기 단추에서 통합 런타임을 강조 표시하는 스크린샷입니다.](media/doc-common-process/manage-new-integration-runtime.png)
 
-1. **Integration runtime 설정** 페이지에서 **Azure, 자체 호스팅** 을 차례로 선택 하 고 **계속** 을 선택 합니다. 
+1. **통합 런타임 설치** 페이지에서 **Azure, 자체 호스트** 를 선택하고 **계속** 을 선택합니다. 
 
-1. 다음 페이지에서 **Azure** 를 선택 하 여 Azure IR를 만든 후 **계속** 을 선택 합니다.
-   ![Integration Runtime 만들기](media/create-azure-integration-runtime/new-azure-integration-runtime.png)
+1. 다음 페이지에서 **Azure** 를 선택하여 Azure IR을 만든 후 **계속** 을 선택합니다.
+   ![Integration Runtime 생성](media/create-azure-integration-runtime/new-azure-integration-runtime.png)
 
-1. Azure IR에 대 한 이름을 입력 하 고 **만들기** 를 선택 합니다.
+1. Azure IR의 이름을 입력하고 **만들기** 를 선택합니다.
    ![Azure IR 만들기](media/create-azure-integration-runtime/create-azure-integration-runtime.png)
 
-1. 만들기가 완료 되 면 팝업 알림이 표시 됩니다. **통합 런타임** 페이지에서 새로 만든 IR이 목록에 표시 되는지 확인 합니다.
+1. 생성가 완료되면 팝업 알림이 표시됩니다. **통합 런타임** 페이지에서 새로 생성된 IR이 목록에 표시되는지 확인합니다.
 
 ## <a name="use-azure-ir"></a>Azure IR 사용
 

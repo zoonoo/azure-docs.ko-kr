@@ -1,47 +1,47 @@
 ---
-title: Azure IoT Hub에 대 한 장치 업데이트를 사용 하 여 업데이트 배포 | Microsoft Docs
-description: Azure IoT Hub에 대 한 장치 업데이트를 사용 하 여 업데이트를 배포 합니다.
+title: Azure IoT Hub에 대한 디바이스 업데이트를 사용하여 업데이트 배포 | Microsoft Docs
+description: Azure IoT Hub에 대한 디바이스 업데이트를 사용하여 업데이트를 배포합니다.
 author: vimeht
 ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ms.openlocfilehash: 0a11c8e8946229941c1fe60f7f2ce84d9fadb2ed
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101679514"
 ---
-# <a name="deploy-an-update-using-device-update-for-iot-hub"></a>IoT Hub에 대 한 장치 업데이트를 사용 하 여 업데이트 배포
+# <a name="deploy-an-update-using-device-update-for-iot-hub"></a>IoT Hub에 대한 디바이스 업데이트를 사용하여 업데이트 배포
 
-IoT Hub에 대 한 장치 업데이트를 사용 하 여 IoT 장치에 업데이트를 배포 하는 방법을 알아봅니다.
+IoT Hub에 대한 디바이스 업데이트를 사용하여 IoT 디바이스에 업데이트를 배포하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [IoT Hub 사용 하도록 설정 된 장치 업데이트를 사용 하는 IoT Hub에 대 한 액세스](create-device-update-account.md). IoT Hub에 대해 S1 (Standard) 계층 이상을 사용 하는 것이 좋습니다. 
-* [프로 비전 된 장치에 대 한 업데이트를 하나 이상 가져왔습니다.](import-update.md) 
-* IoT Hub 내에서 장치 업데이트를 위해 프로 비전 된 IoT 장치 (또는 시뮬레이터)입니다.
-* [업데이트 하려는 IoT 장치에 태그가 할당 되었습니다. 장치가 하나 이상의 업데이트 그룹에 속해 있습니다.](create-update-group.md)
+* [IoT Hub용 디바이스 업데이트를 사용으로 설정하여 IoT Hub에 액세스합니다](create-device-update-account.md). IoT Hub에 대해 S1(표준) 계층 이상을 사용하는 것이 좋습니다. 
+* [프로비전된 디바이스에 대한 업데이트를 하나 이상 가져왔습니다.](import-update.md) 
+* IoT Hub에서 디바이스 업데이트를 위해 프로비저닝된 IoT 디바이스(또는 시뮬레이터).
+* [업데이트하려는 IoT 디바이스에 태그가 할당되었습니다. 디바이스가 하나 이상의 업데이트 그룹에 속해 있습니다.](create-update-group.md)
 * 지원되는 브라우저:
   * [Microsoft Edge](https://www.microsoft.com/edge)
   * Google Chrome
 
 ## <a name="deploy-an-update"></a>업데이트 배포
 
-1. [Azure Portal](https://portal.azure.com) 로 이동
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 
-2. IoT Hub의 장치 업데이트 블레이드로 이동 합니다.
+2. IoT Hub의 디바이스 업데이트 블레이드로 이동합니다.
 
   :::image type="content" source="media/deploy-update/device-update-iot-hub.png" alt-text="IoT Hub" lightbox="media/deploy-update/device-update-iot-hub.png":::
 
-3. 페이지 맨 위에서 그룹 탭을 선택합니다. 장치 그룹에 대해 [자세히 알아보세요](device-update-groups.md) . 
+3. 페이지 맨 위에서 그룹 탭을 선택합니다. 디바이스 그룹에 대해 [자세히 알아봅니다](device-update-groups.md). 
 
   :::image type="content" source="media/deploy-update/updated-view.png" alt-text="그룹 탭" lightbox="media/deploy-update/updated-view.png":::
 
-4. 호환성 차트 및 그룹 업데이트 목록을 표시 합니다. 업데이트 보류 중에 업데이트에 대 한 링크를 포함 하 여 장치 그룹에 사용할 수 있는 새 업데이트가 표시 됩니다 (한 번 새로 고쳐야 할 수 있음). [업데이트 준수에 대해 자세히 알아보세요.](device-update-compliance.md) 
+4. 업데이트 규정 준수 차트 및 그룹 목록을 표시합니다. 보류 중인 업데이트 아래에 업데이트 링크와 함께 디바이스 그룹에 사용할 수 있는 새 업데이트가 표시되어야 합니다(한 번 새로 고쳐야 할 수 있음). [업데이트 준수에 대해 자세히 알아보세요.](device-update-compliance.md) 
 
-5. 사용 가능한 업데이트를 선택 합니다.
+5. 사용 가능한 업데이트를 클릭합니다.
 
 6. 올바른 그룹이 대상 그룹으로 선택되었는지 확인합니다. 배포를 예약한 후 업데이트 배포를 선택합니다.
 
@@ -70,15 +70,15 @@ IoT Hub에 대 한 장치 업데이트를 사용 하 여 IoT 장치에 업데이
 
 ## <a name="retry-an-update-deployment"></a>업데이트 배포 다시 시도
 
-어떤 이유로 인해 배포가 실패 하는 경우 실패 한 장치에 대 한 배포를 다시 시도할 수 있습니다. 
+어떤 이유로 배포가 실패하는 경우, 실패한 디바이스에 배포를 다시 시도할 수 있습니다. 
 
-1. 배포 탭으로 이동 하 여 실패 한 배포를 선택 합니다. 
+1. 배포 탭으로 이동하여 실패한 배포를 선택합니다. 
 
    :::image type="content" source="media/deploy-update/deployment-details.png" alt-text="배포 세부 정보" lightbox="media/deploy-update/deployment-details.png":::
 
-2. 자세한 배포 정보 창에서 "실패" 장치 상태를 클릭 합니다.
+2. 자세한 배포 정보 창에서 "실패" 디바이스 상태를 클릭합니다.
 
-3. "실패 한 장치 다시 시도"를 클릭 하 고 확인 알림을 승인 합니다. 
+3. "실패한 디바이스 다시 시도"를 클릭하고 확인 알림을 승인합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

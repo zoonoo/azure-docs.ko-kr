@@ -1,27 +1,27 @@
 ---
 title: 이니셔티브 정의 구조의 세부 정보
-description: 정책 이니셔티브 정의를 사용 하 여 조직의 Azure 리소스에 배포 하기 위한 정책 정의를 그룹화 하는 방법을 설명 합니다.
+description: 조직의 Azure 리소스에 배포하기 위한 정책 정의를 그룹화하는 데 정책 이니셔티브 정의를 사용하는 방법을 설명합니다.
 ms.date: 03/16/2021
 ms.topic: conceptual
 ms.openlocfilehash: edd3f25dd528d1a718c9287c9f30988b87fb73e2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104587222"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Azure Policy 이니셔티브 정의 구조
 
 그룹을 단일 항목으로 작업할 수 있기 때문에 이니셔티브를 사용하면 여러 관련 정책 정의를 그룹화할 수 있어 할당 및 관리를 간소화합니다. 예를 들어 관련 태그 지정 정책 정의를 단일 이니셔티브로 그룹화할 수 있습니다. 각 정책을 개별적으로 할당하는 대신 이니셔티브를 적용합니다.
 
-JSON을 사용 하 여 정책 이니셔티브 정의를 만듭니다. 정책 이니셔티브 정의에는 다음에 대 한 요소가 포함 됩니다.
+JSON을 사용하여 정책 이니셔티브 정의를 만듭니다. 정책 이니셔티브 정의에는 다음과 같은 요소가 포함됩니다.
 
 - 표시 이름
 - description
 - metadata
 - 매개 변수
 - 정책 정의
-- 정책 그룹 (이 속성은 [규정 준수 (미리 보기) 기능의](./regulatory-compliance.md)일부)
+- 정책 그룹(이 속성은 [규정 준수(미리 보기) 기능](./regulatory-compliance.md)의 일부임)
 
 다음 예제에서는 두 태그 `costCenter`과 `productName`를 처리하기 위한 이니셔티브를 만드는 방법을 보여 줍니다. 기본 태그 값을 적용하려면 두 가지 기본 제공 정책을 사용합니다.
 
@@ -104,34 +104,34 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 ## <a name="metadata"></a>메타데이터
 
-선택적 `metadata` 속성은 정책 이니셔티브 정의에 대 한 정보를 저장 합니다.
-고객은에서 조직에 유용한 모든 속성 및 값을 정의할 수 있습니다 `metadata` . 그러나 Azure Policy 및 기본 제공에서 사용 하는 몇 가지 _공통_ 속성이 있습니다.
+선택 사항인 `metadata` 속성은 정책 이니셔티브 정의에 대한 정보를 저장합니다.
+고객은 `metadata`에서 조직에 유용한 모든 속성 및 값을 정의할 수 있습니다. 그러나 Azure Policy 및 기본 제공에서 사용되는 몇 가지 ‘공통’ 속성이 있습니다.
 
-### <a name="common-metadata-properties"></a>공통 메타 데이터 속성
+### <a name="common-metadata-properties"></a>공통 메타데이터 속성
 
-- `version` (string): 정책 이니셔티브 정의의 콘텐츠 버전에 대 한 세부 정보를 추적 합니다.
-- `category` (string): Azure Portal 정책 정의가 표시 되는 범주를 결정 합니다.
+- `version`(문자열): 정책 이니셔티브 정의의 콘텐츠 버전에 대한 세부 정보를 추적합니다.
+- `category`(문자열): Azure Portal에서 정책 정의가 표시되는 범주를 결정합니다.
 
   > [!NOTE]
-  > [규정 준수](./regulatory-compliance.md) 이니셔티브의 경우는 `category` **규정 준수** 여야 합니다.
+  > [규정 준수](./regulatory-compliance.md) 이니셔티브의 경우는 `category`가 반드시 **규정 준수** 여야 합니다.
 
-- `preview` (부울): 정책 이니셔티브 정의가 _미리 보기_ 인 경우 True 또는 false 플래그입니다.
-- `deprecated` (부울): 정책 이니셔티브 정의가 _사용 되지 않는_ 것으로 표시 된 경우에 대 한 True 또는 false 플래그입니다.
+- `preview`(부울): 정책 이니셔티브 정의가 ‘미리 보기’인 경우에 대한 True 또는 False 플래그입니다.
+- `deprecated`(부울): 정책 이니셔티브 정의가 ‘사용되지 않음’으로 표시된 경우에 대한 True 또는 False 플래그입니다.
 
 > [!NOTE]
-> Azure Policy 서비스는 `version`, `preview` 및 `deprecated` 속성을 사용하여 기본 제공 정책 정의 또는 이니셔티브 및 상태에 대한 변경 수준 전달합니다. `version`의 형식은 `{Major}.{Minor}.{Patch}`입니다. _deprecated_ 또는 _preview_ 와 같은 특정 상태가 `version` 속성에 추가되거나 다른 속성에 **부울** 로 추가됩니다. 버전 Azure Policy 기본 제공 되는 방법에 대 한 자세한 내용은 [기본 제공 버전 관리](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md)를 참조 하세요.
+> Azure Policy 서비스는 `version`, `preview` 및 `deprecated` 속성을 사용하여 기본 제공 정책 정의 또는 이니셔티브 및 상태에 대한 변경 수준 전달합니다. `version`의 형식은 `{Major}.{Minor}.{Patch}`입니다. _deprecated_ 또는 _preview_ 와 같은 특정 상태가 `version` 속성에 추가되거나 다른 속성에 **부울** 로 추가됩니다. Azure Policy 버전 기본 제공 방식에 대한 자세한 내용은 [기본 제공 버전](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md)을 참조하세요.
 
 ## <a name="parameters"></a>매개 변수
 
 매개 변수는 정책 정의의 수를 줄여 정책 관리를 간소화하는 데 도움이 됩니다. 양식의 필드 `name`, `address`, `city`, `state`와 같은 매개 변수에 관해 생각해 봅니다. 이러한 매개 변수는 항상 그대로 유지되지만, 그 값은 양식을 작성하는 개별 값에 기초하여 달라집니다.
-매개 변수는 정책 이니셔티브를 구축할 때와 동일한 방식으로 작동 합니다. 정책 이니셔티브 정의에 매개 변수를 포함 하 여 포함 된 정책에서 해당 매개 변수를 다시 사용할 수 있습니다.
+매개 변수는 정책 이니셔티브를 빌드할 때와 같은 방법으로 작동합니다. 정책 이니셔티브 정의에 매개 변수를 포함하여 포함된 정책에서 해당 매개 변수를 다시 사용할 수 있습니다.
 
 > [!NOTE]
-> 이니셔티브를 할당 한 후에는 initative 수준 매개 변수를 변경할 수 없습니다. 따라서 매개 변수를 정의할 때 **defaultValue** 를 설정하는 것이 좋습니다.
+> 이니셔티브를 할당한 후에는 이니셔티브 수준 매개 변수를 변경할 수 없습니다. 따라서 매개 변수를 정의할 때 **defaultValue** 를 설정하는 것이 좋습니다.
 
 ### <a name="parameter-properties"></a>매개 변수 속성
 
-매개 변수에는 정책 이니셔티브 정의에 사용 되는 다음과 같은 속성이 있습니다.
+매개 변수에는 정책 이니셔티브 정의에 사용되는 다음과 같은 속성이 있습니다.
 
 - `name`: 매개 변수의 이름입니다. 정책 규칙 내의 `parameters` 배포 함수에서 사용됩니다. 자세한 내용은 [매개 변수 값 사용](#passing-a-parameter-value-to-a-policy-definition)을 참조하세요.
 - `type`: 매개 변수가 **문자열**, **배열**, **개체**, **부울**, **정수**, **float**, **datetime** 중에 무엇인지 확인합니다.
@@ -142,7 +142,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 - `defaultValue`: (선택 사항) 값이 지정되지 않은 경우 할당에서 매개 변수의 값을 설정합니다.
 - `allowedValues`: (선택 사항) 할당 중에 매개 변수가 허용하는 값의 배열을 제공합니다.
 
-예를 들어 정책 이니셔티브 정의를 정의 하 여 포함 된 다양 한 정책 정의의 리소스 위치를 제한할 수 있습니다. 해당 정책 이니셔티브 정의에 대 한 매개 변수는 **Allowedlocations** 일 수 있습니다. 그런 다음 매개 변수는 포함 된 각 정책 정의에서 사용할 수 있으며 정책 이니셔티브를 할당 하는 동안 정의 됩니다.
+예를 들어 정책 이니셔티브 정의를 정의하여 포함된 다양한 정책 정의에서 리소스 위치를 제한할 수 있습니다. 해당 정책 이니셔티브 정의의 매개 변수는 **allowedLocations** 일 수 있습니다. 그런 다음 매개 변수는 포함된 각 정책 정의에 사용될 수 있으며 정책 이니셔티브를 할당하는 동안 정의됩니다.
 
 ```json
 "parameters": {
@@ -165,9 +165,9 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 ### <a name="passing-a-parameter-value-to-a-policy-definition"></a>정책 정의에 매개 변수 값 전달
 
-이니셔티브 정의의 [policydefinitions](#policy-definitions) 배열에 포함 된 정책 정의에 전달 하는 이니셔티브 매개 변수를 선언 합니다. 매개 변수 이름은 동일할 수 있지만 정책 정의에 있는 것과 다른 이름을 사용 하 여 코드 가독성을 간소화 합니다.
+이니셔티브 정의의 [policyDefinitions](#policy-definitions) 배열에 포함된 정책 정의에 전달하는 이니셔티브 매개 변수를 선언합니다. 매개 변수 이름은 같아도 되지만, 이니셔티브에서 정책 정의 이름과 다른 이름을 사용하면 코드를 쉽게 읽을 수 있습니다.
 
-예를 들어 앞에서 정의한 **init_allowedLocations** 이니셔티브 매개 변수는 다음과 같이 몇 가지 포함 된 정책 정의 및 해당 매개 변수에 전달 될 수 있습니다. **sql_locations** 및 **vm_locations**.
+예를 들어 앞에서 정의한 **init_allowedLocations** 이니셔티브 매개 변수는 **sql_locations** 및 **vm_locations** 등 포함된 여러 정책 정의 및 매개 변수에 다음과 같이 전달될 수 있습니다.
 
 ```json
 "policyDefinitions": [
@@ -192,17 +192,17 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 ]
 ```
 
-이 샘플은 [매개 변수 속성](#parameter-properties)에서 보여 준 **init_allowedLocations** 매개 변수를 참조 합니다.
+이 샘플은 [매개 변수 속성](#parameter-properties)에 설명된 **init_allowedLocations** 매개 변수를 참조합니다.
 
 ### <a name="strongtype"></a>strongType
 
 `metadata` 속성 안에 **strongType** 을 사용하여 Azure Portal 내에서 다중 선택 옵션 목록을 제공할 수 있습니다. **strongType** 은 지원되는 리소스 유형이거나 허용되는 값일 수 있습니다. 리소스 유형이 **strongType** 에 유효한지 확인하려면 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)를 사용합니다.
 
-Get-AzResourceProvider에서 반환하지 않는 일부 리소스 유형이 지원됩니다. 이러한 리소스 종류는 다음과 같습니다.
+Get-AzResourceProvider에서 반환하지 않는 일부 리소스 유형이 지원됩니다. 해당 리소스 종류는 다음과 같습니다.
 
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
-**StrongType** 에 대해 허용 되지 않는 리소스 유형 값은 다음과 같습니다.
+**strongType** 의 리소스 유형이 아닌 허용되는 값은 다음과 같습니다.
 
 - `location`
 - `resourceTypes`
@@ -212,18 +212,18 @@ Get-AzResourceProvider에서 반환하지 않는 일부 리소스 유형이 지�
 
 ## <a name="policy-definitions"></a>정책 정의
 
-`policyDefinitions`이니셔티브 정의의 부분은 기존 정책 정의가 이니셔티브에 포함 된 _배열_ 입니다. [매개 변수 값을 정책 정의에 전달](#passing-a-parameter-value-to-a-policy-definition)하는 방법에 설명 된 대로이 속성은 [이니셔티브 매개 변수가](#parameters) 정책 정의에 전달 되는 위치입니다.
+이니셔티브 정의의 `policyDefinitions` 부분은 이니셔티브에 포함된 기존 정책 정의의 ‘배열’입니다. [정책 정의에 매개 변수 값 전달](#passing-a-parameter-value-to-a-policy-definition)에 설명된 대로, 해당 속성은 [이니셔티브 매개 변수](#parameters)가 정책 정의에 전달되는 위치입니다.
 
 ### <a name="policy-definition-properties"></a>정책 정의 속성
 
-정책 정의를 나타내는 각 _배열_ 요소에는 다음과 같은 속성이 있습니다.
+정책 정의를 나타내는 각 ‘배열’ 요소에는 다음과 같은 속성이 있습니다.
 
-- `policyDefinitionId` (string): 포함할 사용자 지정 또는 기본 제공 정책 정의의 ID입니다.
-- `policyDefinitionReferenceId` (string): 포함 된 정책 정의의 짧은 이름입니다.
-- `parameters`: (선택 사항) 포함 된 정책 정의에 이니셔티브 매개 변수를 해당 정책 정의의 속성으로 전달 하는 이름/값 쌍입니다. 자세한 내용은 [매개 변수](#parameters)를 참조하세요.
-- `groupNames` (문자열 배열): (선택 사항) 정책 정의가 멤버로 속해 있는 그룹입니다. 자세한 내용은 [정책 그룹](#policy-definition-groups)을 참조 하세요.
+- `policyDefinitionId`(문자열): 포함할 사용자 지정 또는 기본 제공 정책 정의의 ID입니다.
+- `policyDefinitionReferenceId`(문자열): 포함된 정책 정의의 짧은 이름입니다.
+- `parameters`: (선택 사항) 포함된 정책 정의에 해당 정책 정의의 속성으로서 이니셔티브 매개 변수를 전달하기 위한 이름/값 쌍입니다. 자세한 내용은 [매개 변수](#parameters)를 참조하세요.
+- `groupNames`(문자열 배열): (선택 사항) 정책 정의가 멤버로 속해 있는 그룹입니다. 자세한 내용은 [정책 그룹](#policy-definition-groups)을 참조하세요.
 
-다음은 `policyDefinitions` 각각 동일한 이니셔티브 매개 변수로 전달 되는 두 개의 정책 정의가 포함 된의 예입니다.
+다음은 `policyDefinitions`의 예시로서, 포함된 두 가지 정책 정의가 각각 동일한 이니셔티브 매개 변수를 전달합니다.
 
 ```json
 "policyDefinitions": [
@@ -250,22 +250,22 @@ Get-AzResourceProvider에서 반환하지 않는 일부 리소스 유형이 지�
 
 ## <a name="policy-definition-groups"></a>정책 정의 그룹
 
-이니셔티브 정의의 정책 정의를 그룹화 하 고 분류할 수 있습니다. Azure Policy의 [규정 준수](./regulatory-compliance.md) (미리 보기) 기능은이 속성을 사용 하 여 정의를 **컨트롤** 및 **규정 준수 도메인** 으로 그룹화 합니다. 이 정보는 `policyDefinitionGroups` _배열_ 속성에서 정의 됩니다. Microsoft에서 만든 **Policymetadata** 개체에서 추가 그룹화 세부 정보를 찾을 수 있습니다. 자세한 내용은 [메타 데이터 개체](#metadata-objects)를 참조 하세요.
+이니셔티브 정의의 정책 정의를 그룹화하고 분류할 수 있습니다. Azure Policy의 [규정 준수](./regulatory-compliance.md)(미리 보기) 기능은 이러한 속성을 사용하여 정의를 **컨트롤** 및 **규정 준수 도메인** 으로 그룹화합니다. 해당 정보는 `policyDefinitionGroups` ‘배열’ 속성에서 정의됩니다. Microsoft에서 만든 **policyMetadata** 개체에서 추가적인 그룹화 세부 정보를 찾을 수 있습니다. 자세한 내용은 [메타데이터 개체](#metadata-objects)를 참조하세요.
 
 ### <a name="policy-definition-groups-parameters"></a>정책 정의 그룹 매개 변수
 
-의 각 _배열_ 요소에 `policyDefinitionGroups` 는 다음 속성이 모두 있어야 합니다.
+`policyDefinitionGroups`의 각 ‘배열’ 요소에는 다음 속성이 모두 있어야 합니다.
 
-- `name` (문자열) \[ 필수 \] : **그룹** 의 짧은 이름입니다. 규정 준수에서 **컨트롤** 입니다. 이 속성의 값은에서 사용 됩니다 `groupNames` `policyDefinitions` .
-- `category` (string): 그룹이 속하는 계층입니다. 규정 준수에서 컨트롤의 **규정 준수 도메인** 입니다.
-- `displayName` (string): **그룹** 또는 **컨트롤** 의 이름입니다. 포털에서 사용 됩니다.
-- `description` (string): **그룹** 또는 **컨트롤이** 다루는 내용에 대 한 설명입니다.
-- `additionalMetadataId`(string): **제어** 및 **준수 도메인** 에 대 한 추가 정보를 포함 하는 [policymetadata](#metadata-objects) 개체의 위치입니다.
+- `name`(문자열) \[필수\]: **그룹** 의 짧은 이름입니다. 규정 준수에서 **컨트롤** 입니다. 해당 속성의 값은 `groupNames`에 의해서 `policyDefinitions`에서 사용됩니다.
+- `category`(문자열): 그룹이 속하는 계층 구조입니다. 규정 준수에서 컨트롤의 **규정 준수 도메인** 입니다.
+- `displayName`(문자열): **그룹** 또는 **컨트롤** 의 식별 이름입니다. 포털에서 사용됩니다.
+- `description`(문자열): **그룹** 또는 **컨트롤** 이 다루는 내용에 대한 설명입니다.
+- `additionalMetadataId`(문자열): **컨트롤** 및 **규정 준수 도메인** 에 대한 추가적인 세부 정보를 포함하는 [policyMetadata](#metadata-objects) 개체의 위치입니다.
 
   > [!NOTE]
-  > 고객은 기존 [Policymetadata](#metadata-objects) 개체를 가리킬 수 있습니다. 그러나 이러한 개체는 _읽기 전용_ 이며 Microsoft 에서만 생성 됩니다.
+  > 고객은 기존 [policyMetadata](#metadata-objects) 개체를 가리킬 수 있습니다. 그러나 해당 개체는 ‘읽기 전용’이며 Microsoft에서만 생성됩니다.
 
-`policyDefinitionGroups`NIST 기본 제공 이니셔티브 정의의 속성 예는 다음과 같습니다.
+NIST 기본 제공 이니셔티브 정의의 `policyDefinitionGroups` 속성의 예는 다음과 같습니다.
 
 ```json
 "policyDefinitionGroups": [
@@ -278,27 +278,27 @@ Get-AzResourceProvider에서 반환하지 않는 일부 리소스 유형이 지�
 
 ### <a name="metadata-objects"></a>메타데이터 개체
 
-Microsoft에서 만든 규정 준수 기본 기능에는 각 컨트롤에 대 한 추가 정보가 있습니다.
-이 정보는 다음과 같습니다.
+Microsoft에서 만든 규정 준수 기본 제공에는 각 컨트롤에 대한 추가 정보가 있습니다.
+해당 정보는:
 
-- 규정 준수 이니셔티브에 대 한 **컨트롤** 개요의 Azure Portal에 표시 됩니다.
-- REST API를 통해 사용할 수 있습니다. `Microsoft.PolicyInsights`리소스 공급자 및 [policymetadata 작업 그룹](/rest/api/policy/policymetadata/getresource)을 참조 하세요.
-- Azure CLI를 통해 사용할 수 있습니다. [Az policy metadata](/cli/azure/policy/metadata) 명령을 참조 하세요.
+- Azure Portal에서 규정 준수 이니셔티브의 **컨트롤** 개요에 표시됩니다.
+- REST API를 통해 사용 가능합니다. `Microsoft.PolicyInsights` 리소스 공급자 및 [policyMetadata 작업 그룹](/rest/api/policy/policymetadata/getresource)을 참조하세요.
+- Azure CLI를 통해 사용할 수 있습니다. [az policy metadata](/cli/azure/policy/metadata) 명령을 참조하세요.
 
 > [!IMPORTANT]
-> 규정 준수에 대 한 메타 데이터 개체는 _읽기 전용_ 이며 고객은 만들 수 없습니다.
+> 규정 준수에 대한 메타데이터 개체는 ‘읽기 전용’이며 고객은 만들 수 없습니다.
 
-정책 그룹화에 대 한 메타 데이터의 노드에는 다음 정보가 포함 됩니다 `properties` .
+정책 그룹화의 메타데이터는 `properties` 노드에 다음과 같은 정보가 있습니다.
 
-- `metadataId`: 그룹화가 관련 된 **컨트롤 ID** 입니다.
-- `category`(필수): **컨트롤이** 속한 **준수 도메인** 입니다.
-- `title` (필수): **컨트롤 ID** 의 이름입니다.
-- `owner` (필수): Azure에서 컨트롤을 담당 하는 사용자를 식별 합니다. _Customer_, _Microsoft_, _Shared_.
-- `description`: 컨트롤에 대 한 추가 정보입니다.
-- `requirements`: 컨트롤의 구현 책임에 대해 자세히 설명 합니다.
-- `additionalContentUrl`: 컨트롤에 대 한 자세한 정보에 대 한 링크입니다. 이 속성은 일반적으로 규정 준수 표준에서이 컨트롤을 다루는 설명서의 섹션에 대 한 링크입니다.
+- `metadataId`: 그룹화와 관련된 **컨트롤 ID**.
+- `category`(필수): **컨트롤** 이 속한 **규정 준수 도메인**.
+- `title`(필수): **컨트롤 ID** 의 식별 이름입니다.
+- `owner`(필수): Azure에서 누구에게 컨트롤 책임이 있는지 식별: ‘고객’, ‘Microsoft’, ‘공유’.  
+- `description`: 컨트롤에 대한 추가 정보.
+- `requirements`: 컨트롤 구현의 책임에 대한 세부 사항.
+- `additionalContentUrl`: 컨트롤에 대한 자세한 내용을 보여 주는 링크. 이 속성은 일반적으로 규정 준수 표준에서 해당 컨트롤을 다루는 문서 섹션에 대한 링크입니다.
 
-다음은 **Policymetadata** 개체의 예입니다. 이 예제 메타 데이터는 _NIST SP 800-53 4, AC-1_ 컨트롤에 속합니다.
+다음은 **policyMetadata** 개체의 예입니다. 해당 예시용 메타데이터는 _NIST SP 800-53 R4 AC-1_ 컨트롤에 속합니다.
 
 ```json
 {
