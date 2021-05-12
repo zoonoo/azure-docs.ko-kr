@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/08/2020
 ms.author: jeedes
-ms.openlocfilehash: 6e4cb3c372b696b203d2441c74a6cafff175af47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 25b5d96e80105d9c5052bb578edd5abf914c6de6
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821404"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108802111"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alibaba-cloud-service-role-based-sso"></a>자습서: Alibaba Cloud Service(역할 기반 SSO)와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -94,7 +94,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!Note]
     > **식별자** 및 **회신 URL** 값이 자동으로 입력되지 않으면 요구 사항에 따라 수동으로 값을 입력합니다.
 
-1. Alibaba Cloud Service(역할 기반 SSO)는 Azure AD에서 역할을 구성해야 합니다. 역할 클레임은 미리 구성되어 있으므로 구성할 필요가 없지만, 이 [문서](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview)를 사용하여 Azure AD에서 만들어야 합니다.
+1. Alibaba Cloud Service(역할 기반 SSO)는 Azure AD에서 역할을 구성해야 합니다. 역할 클레임은 미리 구성되어 있으므로 구성할 필요가 없지만, 이 [문서](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui)를 사용하여 Azure AD에서 만들어야 합니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 

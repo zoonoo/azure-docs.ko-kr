@@ -3,12 +3,12 @@ title: CAF Foundation 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 CAF Foundation 청사진 샘플에 대한 단계를 배포합니다.
 ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: a8d41364451bf2ebf1e48b90fad74f4b24c804e1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 281bd0fdae5aa144799499d583b5673a569612b1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103470152"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757874"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Azure에 대한 Microsoft 클라우드 채택 프레임워크 Foundation 청사진 샘플 배포
 
@@ -86,7 +86,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
      - **조직**: 고유한 조직 이름(예: Contoso)을 입력합니다.
      - **Azure 지역**: 배포할 Azure 지역을 선택합니다.
      - **허용되는 위치**: 리소스를 빌드할 수 있도록 허용하는 Azure 지역은 어디인가요?
-     
+
    - 아티팩트 매개 변수
 
      이 섹션에 정의된 매개 변수는 정의된 아티팩트에 적용됩니다. 이러한 매개 변수는 청사진 할당 중에 정의되므로 [동적 매개 변수](../../concepts/parameters.md#dynamic-parameters)입니다. 전체 목록 또는 아티팩트 매개 변수 및 해당 설명은 [아티팩트 매개 변수 테이블](#artifact-parameters-table)을 참조하세요.

@@ -3,12 +3,12 @@ title: '자습서: GitHub를 사용하여 Azure Policy as Code 구현'
 description: 이 자습서에서는 내보내기, GitHub 작업 및 GitHub 워크플로를 사용하여 Azure Policy as Code를 구현합니다.
 ms.date: 03/31/2021
 ms.topic: tutorial
-ms.openlocfilehash: 64957671597ad6df237f92176e10280dc45018c9
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: d7ad4d0487d8a6ead6c89834569e130c7b9945f5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106092758"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752034"
 ---
 # <a name="tutorial-implement-azure-policy-as-code-with-github"></a>자습서: GitHub를 사용하여 Azure Policy as Code 구현
 
@@ -46,7 +46,7 @@ Azure Portal에서 정책 정의를 내보내려면 다음 단계를 수행합�
    - **디렉터리**: Azure Policy 리소스를 내보낼 _루트 수준 폴더_ 입니다. 이 디렉터리의 하위 폴더는 내보낸 리소스에 따라 만들어집니다.
 
 1. **정책** 탭에서 줄임표를 선택하고 관리 그룹, 구독 또는 리소스 그룹의 조합을 선택하여 검색 범위를 설정합니다.
-   
+
 1. **정책 정의 추가** 단추를 사용하여 내보낼 개체 범위를 검색합니다. 열리는 측면 창에서 내보낼 각 개체를 선택합니다. 검색 상자 또는 유형을 사용하여 선택 항목을 필터링합니다. 모든 개체를 내보내기로 선택한 경우 페이지 맨 아래에 있는 **추가** 단추를 사용합니다.
 
 1. 선택한 각 개체의 정책 정의에 대해 원하는 내보내기 옵션을 선택합니다(예: _정의만_ 또는 _정의 및 할당_). 그런 다음, **검토 + 내보내기** 탭을 선택하거나 페이지 맨 아래에서 **다음: 검토 + 내보내기** 단추를 선택합니다.
@@ -98,29 +98,27 @@ Azure Policy 리소스는 선택한 GitHub 리포지토리 및 _루트 수준 �
 
 [Azure Policy 규정 준수 검사 작업](https://github.com/marketplace/actions/azure-policy-compliance-scan)을 사용하면 하나 또는 여러 리소스, 리소스 그룹 또는 구독의 [GitHub 워크플로](https://docs.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow#about-workflows)에서 주문형 규정 준수 평가 검사를 트리거하고, 해당 리소스의 규정 준수 상태에 따라 워크플로 경로를 변경할 수 있습니다. 또한 예정된 시간에 실행되어 편리한 시간에 최신 규정 준수 상태를 가져오도록 워크플로를 구성할 수 있습니다. 필요에 따라 이 GitHub 작업은 추가 분석 또는 보관을 위해 검사한 리소스의 규정 준수 상태에 대한 보고서를 생성할 수도 있습니다.
 
-다음 예제에서는 구독의 규정 준수 검사를 실행합니다. 
+다음 예제에서는 구독의 규정 준수 검사를 실행합니다.
 
 ```yaml
 
 on:
-  schedule:    
+  schedule:
     - cron:  '0 8 * * *'  # runs every morning 8am
 jobs:
-  assess-policy-compliance:    
+  assess-policy-compliance:
     runs-on: ubuntu-latest
-    steps:         
+    steps:
     - name: Login to Azure
       uses: azure/login@v1
       with:
-        creds: ${{secrets.AZURE_CREDENTIALS}} 
+        creds: ${{secrets.AZURE_CREDENTIALS}}
 
-    
     - name: Check for resource compliance
       uses: azure/policy-compliance-scan@v0
       with:
         scopes: |
           /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-
 ```
 
 ## <a name="review"></a>검토
