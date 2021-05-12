@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 738b875a273faddd20a67be0f6feb90825f66c9f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 67163cd2e2af43d58133dd5ff843b475fc70e3fc
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100370515"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108767080"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Database 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -27,11 +27,11 @@ ms.locfileid: "100370515"
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 **Azure SQL Database** 에서 다음 데이터 저장소로 데이터를 복사할 수 있습니다.
 
-[!INCLUDE [data-factory-supported-sinks](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sinks](includes/data-factory-supported-sinks.md)]
 
 다음 데이터 저장소에서 **Azure SQL Database** 로 데이터를 복사할 수 있습니다.
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 ## <a name="supported-authentication-type"></a>지원되는 인증 유형
 Azure SQL Database 커넥터는 기본 인증을 지원합니다.
@@ -57,7 +57,7 @@ Azure SQL Database 커넥터는 기본 인증을 지원합니다.
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 Azure SQL Database를 데이터 팩터리에 연결하는 Azure SQL 연결된 서비스입니다. 다음 테이블은 Azure SQL 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | type |형식 속성은 **AzureSqlDatabase** |예 |
 | connectionString |Azure SQL Database 인스턴스에 연결하는 데 필요한 정보를 connectionString 속성에 대해 지정합니다. 기본 인증만 지원됩니다. |예 |
@@ -72,7 +72,7 @@ Azure SQL Database에서 입력 또는 출력 데이터를 표시할 데이터 �
 
 typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **AzureSqlTable** 데이터 세트 형식의 데이터 세트에 대한 **typeProperties** 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 Azure SQL Database 인스턴스에서 테이블 또는 보기의 이름입니다. |예 |
 

@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93ae1982dfaef6e10edf39013474b6663dd688d0
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c0c5f342fccf2f313777961e803643daee5b91a1
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130614"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517247"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 새 테넌트 만들기
 
@@ -65,7 +65,7 @@ Azure Portal에 로그인한 후에 조직의 테넌트를 새로 만들 수 있
 
 새 Azure AD 테넌트를 만들면 해당 테넌트의 첫 번째 사용자가 됩니다. 첫 번째 사용자는 [전역 관리자](../roles/permissions-reference.md#global-administrator) 역할이 자동으로 할당됩니다. [**사용자**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers) 페이지로 이동하여 사용자 계정을 확인합니다.
 
-기본적으로 테넌트의 [기술 담당자](/microsoft-365/admin/manage/change-address-contact-and-more?view=o365-worldwide#what-do-these-fields-mean)로도 나열됩니다. 기술 연락처 정보는 [**속성**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)에서 변경할 수 있습니다.
+기본적으로 테넌트의 [기술 담당자](/microsoft-365/admin/manage/change-address-contact-and-more#what-do-these-fields-mean)로도 나열됩니다. 기술 연락처 정보는 [**속성**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)에서 변경할 수 있습니다.
 
 > [!WARNING]
 > 디렉터리에 전역 관리자 권한이 할당된 계정이 두 개 이상 있는지 확인합니다. 이렇게 하면 전역 관리자 한명이 잠겨 있는 경우에 도움이 됩니다. 자세한 내용은 [Azure AD의 응급 액세스 계정 관리](../roles/security-emergency-access.md) 문서를 참조하세요.

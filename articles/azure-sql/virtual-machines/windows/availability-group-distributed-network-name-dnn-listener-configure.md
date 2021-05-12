@@ -1,6 +1,6 @@
 ---
-title: 가용성 그룹에 대 한 DNN 수신기 구성
-description: DNN (분산 네트워크 이름) 수신기를 구성 하 여 VNN (가상 네트워크 이름) 수신기를 대체 하 고 Azure VM의 SQL Server에서 Always On 가용성 그룹으로 트래픽을 라우팅하는 방법에 대해 알아봅니다.
+title: 가용성 그룹에 대한 DNN 수신기 구성
+description: DNN(분산 네트워크 이름) 수신기를 구성하여 VNN(가상 네트워크 이름) 수신기를 대체하고 Azure VM의 SQL Server에서 Always On 가용성 그룹으로 트래픽을 라우팅하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -16,47 +16,47 @@ ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: bf5c4c39ea8f5705cc9788fdcf2cddd01dcb4087
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105034710"
 ---
-# <a name="configure-a-dnn-listener-for-an-availability-group"></a>가용성 그룹에 대 한 DNN 수신기 구성
+# <a name="configure-a-dnn-listener-for-an-availability-group"></a>가용성 그룹에 대한 DNN 수신기 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Azure Vm에 대 한 SQL Server를 사용 하 여 분산 네트워크 이름 (DNN)은 트래픽을 적절 한 클러스터 된 리소스로 라우팅합니다. Azure Load Balancer 없이는 VNN (가상 네트워크 이름) 수신기 보다 AG (Always On 가용성 그룹)에 연결 하는 쉬운 방법을 제공 합니다.
+DNN(분산 네트워크 이름)은 Azure VM의 SQL Server를 사용하여 트래픽을 클러스터된 적절한 리소스로 라우팅합니다. Azure Load Balancer 없이도 VNN(가상 네트워크 이름) 수신기보다 쉽게 Always On AG(가용성 그룹)에 연결하는 방법을 제공합니다.
 
-이 문서에서는 DNN 수신기를 구성 하 여 고가용성 및 HADR (재해 복구)을 위해 Azure Vm의 SQL Server를 사용 하 여 VNN 수신기를 대체 하 고 트래픽을 가용성 그룹으로 라우팅하는 방법을 설명 합니다.
+이 문서는 DNN 수신기를 구성하여 VNN 수신기를 대체하고 Azure VM의 SQL Server를 통해 가용성 그룹으로 트래픽을 라우팅하여 HADR(고가용성 및 재해 복구)을 실현하는 방법을 설명합니다.
 
-DNN listener 기능은 현재 Windows Server 2016 이상에서 SQL Server 2019 CU8부터만 사용할 수 있습니다.
+DNN 수신기 기능은 현재 Windows Server 2016 이상에서 SQL Server 2019 CU8부터만 사용할 수 있습니다.
 
-대체 연결 옵션의 경우 [Vnn 수신기를 고려 하 고 대신 Azure Load Balancer](availability-group-vnn-azure-load-balancer-configure.md) 합니다.
+대체 연결 옵션의 경우 [VNN 수신기와 Azure Load Balancer](availability-group-vnn-azure-load-balancer-configure.md)를 고려해보시기 바랍니다.
 
 ## <a name="overview"></a>개요
 
-DNN (분산 네트워크 이름) 수신기는 [SQL Server vm에서 Always On 가용성 그룹](availability-group-overview.md)와 함께 사용 될 때 기존 vnn (가상 네트워크 이름) 가용성 그룹 수신기를 대체 합니다. 이렇게 하면 트래픽을 라우팅하는 데 필요한 Azure Load Balancer, 배포 및 유지 관리를 간소화 하 고 장애 조치 (failover)를 향상 시킬 필요가 없습니다.
+DNN(분산 네트워크 이름) 수신기는 [SQL Server VM의 Always On 가용성 그룹](availability-group-overview.md)과 함께 사용될 경우 기존 VNN(가상 네트워크 이름) 가용성 그룹 수신기를 대체합니다. 이렇게 하면 트래픽을 라우팅하기 위해 Azure Load Balancer를 사용할 필요가 없으며 배포 및 유지 관리를 간소화하고 장애 조치(failover)를 개선합니다.
 
 DNN 수신기를 사용하여 기존 VNN 수신기를 대체하거나, 두 개의 고유한 연결 지점이 가용성 그룹에 있도록 기존 VNN 수신기와 함께 이 수신기를 사용합니다. 한 연결 지점은 VNN 수신기 이름(기본값이 아닌 경우 포트)을 사용하고 다른 하나는 DNN 수신기 및 포트를 사용합니다.
 
 > [!CAUTION]
-> DNN를 사용할 때의 라우팅 동작은 VNN을 사용 하는 경우와 다릅니다. 포트 1433을 사용 하지 마십시오. 자세한 내용은이 문서의 뒷부분에 나오는 [포트 고려 사항](#port-considerations) 섹션을 참조 하세요.
+> DNN을 사용할 때의 라우팅 동작은 VNN을 사용하는 경우와 다릅니다. 포트 1433은 사용하지 마세요. 자세한 내용은 이 문서 뒷부분에 나오는 [포트 고려 사항](#port-considerations) 섹션을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 단계를 완료하기 전에 다음이 준비되어 있어야 합니다.
 
-- CU8 이상, Windows Server 2016 이상에서 SQL Server 2019
-- 분산 네트워크 이름이 [HADR 솔루션에 대 한 적절 한 연결 옵션](hadr-cluster-best-practices.md#connectivity)이라고 결정 했습니다.
-- [Always On 가용성 그룹](availability-group-overview.md)을 구성 했습니다. 
-- 최신 버전의 [PowerShell](/powershell/azure/install-az-ps)을 설치 했습니다. 
-- DNN 수신기에 사용할 고유 포트를 식별 합니다. DNN 수신기에 사용 되는 포트는 가용성 그룹 또는 장애 조치 (failover) 클러스터 인스턴스의 모든 복제본에서 고유 해야 합니다.  다른 연결은 동일한 포트를 공유할 수 없습니다.
+- CU8 이상의 Windows Server 2016 이상에서 SQL Server 2019.
+- 분산 네트워크 이름이 [HADR 솔루션에 적절한 연결 옵션](hadr-cluster-best-practices.md#connectivity)이라고 판단했습니다.
+- [Always On 가용성 그룹](availability-group-overview.md)을 구성했습니다. 
+- 최신 버전의 [PowerShell](/powershell/azure/install-az-ps)을 설치했습니다. 
+- DNN 수신기에 사용할 고유 포트를 식별했습니다. DNN 수신기에 사용되는 포트는 가용성 그룹 또는 장애 조치(failover) 클러스터 인스턴스의 모든 복제본에서 고유해야 합니다.  다른 연결은 동일한 포트를 공유할 수 없습니다.
 
 
 
-## <a name="create-script"></a>스크립트 만들기
+## <a name="create-script"></a>Create 스크립트
 
-PowerShell을 사용 하 여 DNN (분산 네트워크 이름) 리소스를 만들고 가용성 그룹에 연결 합니다.
+PowerShell을 사용하여 DNN(분산 네트워크 이름) 리소스를 만들고 가용성 그룹에 연결합니다.
 
 이렇게 하려면 다음 단계를 따르십시오.
 
@@ -105,17 +105,17 @@ PowerShell을 사용 하 여 DNN (분산 네트워크 이름) 리소스를 만�
    Start-ClusterResource -Name $Ag
    ```
 
-1. 등의 파일로 스크립트를 저장 `.ps1` `add_dnn_listener.ps1` 합니다.
+1. 스크립트를 `add_dnn_listener.ps1`과 같은 `.ps1` 파일로 저장합니다.
 
 ## <a name="execute-script"></a>스크립트 실행
 
-DNN 수신기를 만들려면 가용성 그룹, 수신기 이름 및 포트의 이름에 대 한 매개 변수를 전달 하는 스크립트를 실행 합니다.
+DNN 수신기를 만들려면 가용성 그룹 이름, 수신기 이름 및 포트에 대한 매개 변수를 전달하는 스크립트를 실행합니다.
 
-예를 들어 가용성 그룹 이름 `ag1` , 수신기 이름 `dnnlsnr` 및 수신기 포트를로 가정 하 고 `6789` 다음 단계를 수행 합니다.
+예를 들어 가용성 그룹 이름이 `ag1`, 수신기 이름이 `dnnlsnr`, 수신기 포트가 `6789`라고 가정하면 다음 단계를 따라야 합니다.
 
 1. 명령 프롬프트 또는 PowerShell과 같은 명령줄 인터페이스 도구를 엽니다.
-1. 스크립트를 저장 `.ps1` 한 위치 (예: c:\documents.)로 이동 합니다.
-1. 스크립트를 실행 ```add_dnn_listener.ps1 <ag name> <listener-name> <listener port>``` 합니다. 예를 들어:
+1. c:\Documents와 같이 `.ps1` 스크립트를 저장한 위치로 이동합니다.
+1. 다음 스크립트를 실행합니다. ```add_dnn_listener.ps1 <ag name> <listener-name> <listener port>``` 예를 들면 다음과 같습니다.
 
    ```console
    c:\Documents> add_dnn_listener.ps1 ag1 dnnlsnr 6789
@@ -123,63 +123,63 @@ DNN 수신기를 만들려면 가용성 그룹, 수신기 이름 및 포트의 �
 
 ## <a name="verify-listener"></a>수신기 확인
 
-SQL Server Management Studio 또는 Transact-sql을 사용 하 여 DNN 수신기가 성공적으로 만들어졌는지 확인 합니다.
+SQL Server Management Studio 또는 Transact-SQL을 사용하여 DNN 수신기가 성공적으로 만들어졌는지 확인합니다.
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 
-[SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) 에서 **가용성 그룹 수신기** 를 확장 하 여 DNN 수신기를 확인 합니다.
+[SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)에서 **가용성 그룹 수신기** 를 확장하여 DNN 수신기를 봅니다.
 
-:::image type="content" source="media/availability-group-distributed-network-name-dnn-listener-configure/dnn-listener-in-ssms.png" alt-text="SQL Server Management Studio의 가용성 그룹 수신기에서 DNN 수신기 보기 (SSMS)":::
+:::image type="content" source="media/availability-group-distributed-network-name-dnn-listener-configure/dnn-listener-in-ssms.png" alt-text="SQL Server Management Studio(SSMS)의 가용성 그룹 수신기에서 DNN 수신기 보기":::
 
 ### <a name="transact-sql"></a>Transact-SQL
 
-Transact-sql을 사용 하 여 DNN 수신기의 상태를 확인 합니다.
+Transact-SQL을 사용하여 DNN 수신기의 상태를 확인합니다.
 
 ```sql
 SELECT * FROM SYS.AVAILABILITY_GROUP_LISTENERS
 ```
 
-`1`에 대 한 값은 `is_distributed_network_name` 수신기가 DNN (분산 네트워크 이름) 수신기 임을 나타냅니다.
+`is_distributed_network_name`에 대한 `1` 값은 수신기가 DNN(분산 네트워크 이름) 수신기임을 나타냅니다.
 
-:::image type="content" source="media/availability-group-distributed-network-name-dnn-listener-configure/dnn-listener-tsql.png" alt-text="Sys.availability_group_listeners를 사용 하 여의 값이 1 인 DNN 수신기를 식별 is_distributed_network_name":::
+:::image type="content" source="media/availability-group-distributed-network-name-dnn-listener-configure/dnn-listener-tsql.png" alt-text="sys.availability_group_listeners를 사용하여 is_distributed_network_name에서 값이 1인 DNN 수신기를 식별합니다.":::
 
 ## <a name="update-connection-string"></a>연결 문자열 업데이트
 
-DNN 수신기에 연결 하도록 응용 프로그램에 대 한 연결 문자열을 업데이트 합니다. DNN 수신기에 대 한 연결 문자열은 DNN 포트 번호를 제공 해야 합니다. 장애 조치 (failover) 시 빠른 연결을 보장 하려면 `MultiSubnetFailover=True` SQL 클라이언트에서 지 원하는 경우 연결 문자열에를 추가 합니다.
+DNN 수신기에 연결하도록 애플리케이션에 대한 연결 문자열을 업데이트합니다. DNN 수신기에 대한 연결 문자열은 DNN 포트 번호를 제공해야 합니다. 장애 조치(failover) 시 빠른 연결을 보장하려면 SQL 클라이언트에서 지원하는 경우 연결 문자열에 `MultiSubnetFailover=True`를 추가합니다.
 
 ## <a name="test-failover"></a>테스트 장애 조치
 
-가용성 그룹의 장애 조치 (failover)를 테스트 하 여 기능을 보장 합니다.
+가용성 그룹의 장애 조치(failover)를 테스트하여 기능을 보장합니다.
 
-장애 조치 (failover)를 테스트 하려면 다음 단계를 수행 합니다.
+장애 조치(failover)를 테스트하려면 다음 단계를 수행합니다.
 
-1. [SSMS (SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)를 사용 하 여 DNN 수신기 또는 복제본 중 하나에 연결 합니다.
-1. **개체 탐색기** 에서 **Always On 가용성 그룹** 을 확장 합니다.
-1. 가용성 그룹을 마우스 오른쪽 단추로 클릭 하 고 **장애 조치** (failover)를 선택 하 여 **장애 조치 마법사** 를 엽니다.
-1. 메시지의 지시에 따라 장애 조치 (failover) 대상을 선택 하 고 보조 복제본에 대 한 가용성 그룹을 장애 조치 (failover) 합니다.
-1. 데이터베이스가 새 주 복제본에서 동기화 된 상태 인지 확인 합니다.
-1. 필드 원래 주 복제본 또는 다른 보조 복제본으로 장애 복구 (failback) 합니다.
+1. [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)를 사용하여 DNN 수신기 또는 복제본 중 하나에 연결합니다.
+1. **개체 탐색기** 에서 **Always On 가용성 그룹** 을 확장합니다.
+1. 가용성 그룹을 마우스 오른쪽 단추로 클릭하고 **장애 조치(failover)** 를 선택하여 **장애 조치 마법사** 를 엽니다.
+1. 메시지에 따라 장애 조치(failover) 대상을 선택하고 보조 복제본에 대한 가용성 그룹을 장애 조치(failover)합니다.
+1. 데이터베이스가 새 주 복제본에서 동기화된 상태인지 확인합니다.
+1. (선택 사항) 원래 주 복제본 또는 다른 보조 복제본으로 장애 복구합니다.
 
 ## <a name="test-connectivity"></a>연결 테스트
 
-다음 단계를 사용 하 여 DNN 수신기에 대 한 연결을 테스트 합니다.
+다음 단계를 통해 DNN 수신기에 대한 연결을 테스트합니다.
 
 1. [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)를 엽니다.
-1. DNN 수신기에 연결 합니다.
-1. 새 쿼리 창을 열고를 실행 하 여 연결 된 복제본을 확인 `SELECT @@SERVERNAME` 합니다.
-1. 가용성 그룹을 다른 복제본으로 장애 조치 (failover) 합니다.
-1. 적절 한 시간 후를 실행 하 여 `SELECT @@SERVERNAME` 가용성 그룹이 현재 다른 복제본에 호스트 되는지 확인 합니다.
+1. DNN 수신기에 연결합니다.
+1. 새 쿼리 창을 열고 `SELECT @@SERVERNAME`을 실행하여 연결된 복제본을 확인합니다.
+1. 가용성 그룹을 다른 복제본으로 장애 조치(failover)합니다.
+1. 시간이 적당히 지나면 `SELECT @@SERVERNAME`을 실행하여 가용성 그룹이 다른 복제본에서 호스트되고 있는지 확인합니다.
 
 ## <a name="limitations"></a>제한 사항
 
-- 현재 가용성 그룹에 대 한 DNN 수신기는 Windows Server 2016 이상에서 SQL Server 2019 CU8 이상 에서만 지원 됩니다. 
-- DNN 수신기는 고유 포트로 구성 **해야** 합니다.  모든 복제본의 다른 연결과 포트를 공유할 수 없습니다.
-- 다른 SQL Server 기능 및 DNN를 사용 하 여 가용성 그룹으로 작업 하는 경우 추가 고려 사항이 있을 수 있습니다. 자세한 내용은 [DNN 상호 운용성을 사용 하는 AG](availability-group-dnn-interoperability.md)를 참조 하세요. 
+- 현재 가용성 그룹에 대한 DNN 수신기는 Windows Server 2016 이상에서 SQL Server 2019 CU8 이상에 대해서만 지원됩니다. 
+- DNN 수신기는 **반드시** 고유 포트로 구성해야 합니다.  모든 복제본의 다른 연결과 포트를 공유할 수 없습니다.
+- 다른 SQL Server 기능 및 DNN 지원 가용성 그룹으로 작업하는 경우 추가 고려 사항이 있을 수 있습니다. 자세한 내용은 [DNN과 상호 운용되는 AG](availability-group-dnn-interoperability.md)를 참조하세요. 
 
 ## <a name="port-considerations"></a>포트 고려 사항
 
-DNN 수신기는 모든 IP 주소에서 수신 대기 하 고 특정 한 고유 포트에서 수신 하도록 설계 되었습니다. 수신기 이름에 대 한 DNS 항목은 가용성 그룹에 있는 모든 복제본의 주소로 확인 되어야 합니다. 이는 [스크립트 만들기](#create-script) 섹션에 제공 된 PowerShell 스크립트를 사용 하 여 자동으로 수행 됩니다. DNN 수신기는 모든 IP 주소에 대 한 연결을 허용 하므로 수신기 포트는 고유 하 고 가용성 그룹의 다른 복제본에서는 사용 하지 않는 것이 중요 합니다. SQL Server는 직접 또는 SQL Browser 서비스를 통해 포트 1433에서 수신 대기 하므로 DNN 수신기에는 포트 1433를 사용할 수 없습니다.
+DNN 수신기는 모든 IP 주소에서 수신 대기하고 특정한 고유 포트에서 수신하도록 설계되었습니다. 수신기 이름에 대한 DNS 항목은 가용성 그룹에 있는 모든 복제본의 주소로 확인되어야 합니다. 이는 [스크립트 만들기](#create-script) 섹션에 제공된 PowerShell 스크립트를 통해 자동으로 수행됩니다. DNN 수신기는 모든 IP 주소에 대한 연결을 허용하므로 수신기 포트가 고유하고 가용성 그룹의 다른 복제본에서는 사용되지 않는 것이 중요합니다. SQL Server는 직접 또는 SQL Browser 서비스를 통해 포트 1433에서 수신 대기하므로 DNN 수신기에는 포트 1433을 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure에서 HADR 기능을 SQL Server 하는 방법에 대 한 자세한 내용은 [가용성 그룹](availability-group-overview.md) 및 [장애 조치 (Failover) 클러스터 인스턴스](failover-cluster-instance-overview.md)를 참조 하세요. 또한 고가용성 및 재해 복구를 위한 환경을 구성 하는 [모범 사례](hadr-cluster-best-practices.md) 를 배울 수 있습니다. 
+Azure의 SQL Server HADR 기능에 대한 자세한 정보는 [가용성 그룹](availability-group-overview.md) 및 [장애 조치(Failover) 클러스터 인스턴스](failover-cluster-instance-overview.md)를 참조하세요. 또한 고가용성 및 재해 복구를 위한 환경을 구성하는 [모범 사례](hadr-cluster-best-practices.md)를 배울 수도 있습니다. 

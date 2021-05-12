@@ -1,6 +1,6 @@
 ---
-title: 조건부 액세스 정책 빌드-Azure Active Directory
-description: 조건부 액세스 정책을 작성 하는 데 사용할 수 있는 모든 옵션은 무엇 이며 무엇을 의미 하나요?
+title: 조건부 액세스 정책 빌드 - Azure Active Directory
+description: 조건부 액세스 정책을 빌드하는 데 사용할 수 있는 모든 옵션에는 어떤 것들이 있으며 그 의미는 무엇인가요?
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,139 +12,139 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 35d2bf33b4a22c14abfb61a87a3697b05188ed31
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104579096"
 ---
 # <a name="building-a-conditional-access-policy"></a>조건부 액세스 정책 빌드
 
-[조건부 액세스 란](overview.md)문서에 설명 된 대로 조건부 액세스 정책은 대입문, **할당** 및 **액세스 제어** 에 대 한 것입니다. 조건부 액세스 정책은 신호를 결합 하 고 결정을 내리고 조직 정책을 적용 합니다.
+[조건부 액세스란](overview.md) 문서에 설명된 대로 조건부 액세스 정책은 **할당** 및 **액세스 제어** 의 if-then 문입니다. 조건부 액세스 정책은 결정을 내리고 조직 정책을 적용하기 위해 신호를 함께 제공합니다.
 
-조직에서 이러한 정책을 어떻게 만들 까 요? 필요한 항목 어떻게 적용 되나요?
+조직에서 해당 정책을 만드는 방식은 무엇이며 필요한 항목과 적용 방식은 어떻게 되나요?
 
-![조건부 액세스 (신호 + 결정 + 적용 = 정책)](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
+![조건부 액세스(신호 + 결정 + 적용 = 정책)](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
 
-언제든지 개별 사용자에게 여러 조건부 액세스 정책을 적용할 수 있습니다. 이 경우 적용되는 모든 정책이 충족되어야 합니다. 예를 들어 한 정책에 MFA (multi-factor authentication)가 필요 하 고 다른 정책에 준수 장치가 필요한 경우 MFA를 완료 하 고 규격 장치를 사용 해야 합니다. 모든 할당은 논리적으로 **and** 가 적용됩니다. 하나를 초과하여 할당을 구성한 경우 모든 할당이 충족되어야 정책을 트리거할 수 있습니다.
+언제든지 개별 사용자에게 여러 조건부 액세스 정책을 적용할 수 있습니다. 이 경우 적용되는 모든 정책이 충족되어야 합니다. 예를 들어 한 정책에 MFA(다단계 인증)가 필요하고 다른 정책에 규정 준수 디바이스가 필요한 경우 MFA를 완료한 다음 규정 준수 디바이스를 사용해야 합니다. 모든 할당은 논리적으로 **and** 가 적용됩니다. 하나를 초과하여 할당을 구성한 경우 모든 할당이 충족되어야 정책을 트리거할 수 있습니다.
 
 모든 정책은 다음 두 단계로 적용됩니다.
 
-- 1 단계: 세션 정보 수집 
-   - 정책 평가에 필요한 네트워크 위치 및 장치 id와 같은 세션 정보를 수집 합니다. 
-   - 정책 평가의 1 단계는 [보고서 전용 모드](concept-conditional-access-report-only.md)에서 설정 된 정책 및 정책에 대해 발생 합니다.
-- 2 단계: 적용 
-   - 1 단계에서 수집한 세션 정보를 사용 하 여 충족 되지 않은 요구 사항을 확인 합니다. 
-   - 액세스를 차단 하도록 구성 된 정책이 있는 경우 차단 권한 부여 컨트롤을 사용 하면 적용이 중지 되 고 사용자가 차단 됩니다. 
-   - 정책이 충족 될 때까지 다음 순서 대로 1 단계에서 충족 되지 않은 추가 권한 부여 컨트롤 요구 사항을 완료 하 라는 메시지가 사용자에 게 표시 됩니다.  
+- 1단계: 세션 세부 정보 수집 
+   - 정책 평가에 필요한 네트워크 위치 및 디바이스 ID와 같은 세션 세부 정보를 수집합니다. 
+   - 정책 평가의 1단계는 사용하도록 설정된 정책 및 [보고 전용 모드](concept-conditional-access-report-only.md)의 정책에 대해 발생합니다.
+- 2단계: 적용 
+   - 1단계에서 수집한 세션 세부 정보를 사용하여 충족되지 않은 요구 사항을 확인합니다. 
+   - 액세스를 차단하도록 구성된 정책이 있는 경우 차단 권한 부여 컨트롤을 사용하면 적용이 중지되고 사용자가 차단됩니다. 
+   - 정책이 충족될 때까지 다음 순서에 따라 1단계에서 충족되지 않은 추가 권한 부여 컨트롤 요구 사항을 완료하라는 메시지가 사용자에게 표시됩니다.  
       - Multi-Factor Authentication 
-      - 승인 된 클라이언트 앱/앱 보호 정책 
-      - 관리 되는 장치 (규격 또는 하이브리드 Azure AD 조인) 
+      - 승인된 클라이언트 앱/앱 보호 정책 
+      - 관리 디바이스(규정 준수 또는 하이브리드 Azure AD 조인) 
       - 사용 약관 
       - 사용자 지정 컨트롤  
-   - 모든 grant 컨트롤이 충족 되 면 세션 컨트롤 (앱 적용, Microsoft Cloud App Security 및 토큰 수명)을 적용 합니다. 
-   - 정책 평가의 2 단계는 사용 하도록 설정 된 모든 정책에 대해 발생 합니다. 
+   - 모든 권한 부여 컨트롤이 충족되면 세션 컨트롤(앱 적용, Microsoft Cloud App Security 및 토큰 수명)을 적용합니다. 
+   - 정책 평가의 2단계는 사용하도록 설정된 모든 정책에 대해 발생합니다. 
 
 ## <a name="assignments"></a>할당
 
-할당 부분은 조건부 액세스 정책의 사용자, 대상 및 위치를 제어 합니다.
+할당 부분은 조건부 액세스 정책의 사용자, 대상, 위치를 제어합니다.
 
 ### <a name="users-and-groups"></a>사용자 및 그룹
 
-[사용자 및 그룹](concept-conditional-access-users-groups.md) 은 정책에 포함 하거나 제외할 사용자를 할당 합니다. 이 할당에는 모든 사용자, 특정 사용자 그룹, 디렉터리 역할 또는 외부 게스트 사용자가 포함 될 수 있습니다. 
+[사용자 및 그룹](concept-conditional-access-users-groups.md)은 정책에 포함하거나 정책에서 제외할 사용자를 할당합니다. 이 할당에는 모든 사용자, 특정 사용자 그룹, 디렉터리 역할 또는 외부 게스트 사용자가 포함될 수 있습니다. 
 
 ### <a name="cloud-apps-or-actions"></a>클라우드 앱 또는 작업
 
-[클라우드 앱 또는 작업](concept-conditional-access-cloud-apps.md) 은 정책의 영향을 받는 클라우드 응용 프로그램 또는 사용자 작업을 포함 하거나 제외할 수 있습니다.
+[클라우드 앱 또는 작업](concept-conditional-access-cloud-apps.md)은 정책이 적용되는 클라우드 애플리케이션 또는 사용자 작업을 포함하거나 제외할 수 있습니다.
 
 ### <a name="conditions"></a>조건
 
-정책에는 여러 [조건이](concept-conditional-access-conditions.md)포함 될 수 있습니다.
+정책에는 여러 [조건](concept-conditional-access-conditions.md)이 포함될 수 있습니다.
 
 #### <a name="sign-in-risk"></a>로그인 위험
 
-[Azure AD ID 보호](../identity-protection/overview-identity-protection.md)를 사용 하는 조직의 경우 생성 되는 위험 검색은 조건부 액세스 정책에 영향을 줄 수 있습니다.
+[Azure AD ID 보호](../identity-protection/overview-identity-protection.md)를 사용하는 조직의 경우 생성되는 위험 검색이 조건부 액세스 정책에 영향을 미칠 수 있습니다.
 
 #### <a name="device-platforms"></a>디바이스 플랫폼
 
-여러 장치 운영 체제 플랫폼을 사용 하는 조직에서는 다양 한 플랫폼에 특정 정책을 적용 하려고 할 수 있습니다. 
+여러 디바이스 운영 체제 플랫폼을 사용하는 조직에서는 다양한 플랫폼에 특정 정책을 적용하려고 할 수 있습니다. 
 
-장치 플랫폼을 계산 하는 데 사용 되는 정보는 변경할 수 있는 사용자 에이전트 문자열과 같은 확인 되지 않은 원본에서 제공 됩니다.
+디바이스 플랫폼을 계산하는 데 사용되는 정보는 변경할 수 있는 사용자 에이전트 문자열과 같은 확인되지 않은 소스에서 제공됩니다.
 
 #### <a name="locations"></a>위치
 
-위치 데이터는 IP 지리적 위치 데이터에서 제공 됩니다. 관리자는 위치를 정의 하 고 조직의 네트워크 위치와 같이 신뢰할 수 있는 것으로 표시 하도록 선택할 수 있습니다.
+위치 데이터는 IP 지리적 위치 데이터에서 제공됩니다. 관리자는 위치를 정의하고 조직의 네트워크 위치와 같이 신뢰할 수 있는 위치로 표시하도록 선택할 수 있습니다.
 
 #### <a name="client-apps"></a>클라이언트 앱
 
-기본적으로 조건부 액세스 정책은 최신 인증을 지 원하는 브라우저 앱, 모바일 앱 및 데스크톱 클라이언트에 적용 됩니다. 
+기본적으로 조건부 액세스 정책은 최신 인증을 지원하는 브라우저 앱, 모바일 앱 및 데스크톱 클라이언트에 적용됩니다. 
 
-이 할당 조건을 통해 조건부 액세스 정책은 최신 인증을 사용 하지 않는 특정 클라이언트 응용 프로그램을 대상으로 지정할 수 있습니다. 이러한 응용 프로그램에는 Exchange ActiveSync 클라이언트, 최신 인증을 사용 하지 않는 이전 Office 응용 프로그램, IMAP, MAPI, POP, SMTP 등의 메일 프로토콜이 포함 됩니다.
+이 할당 조건을 통해 조건부 액세스 정책은 최신 인증을 사용하지 않는 특정 클라이언트 애플리케이션을 대상으로 지정할 수 있습니다. 해당 애플리케이션에는 Exchange ActiveSync 클라이언트, 최신 인증을 사용하지 않는 이전 Office 애플리케이션, 그리고 IMAP, MAPI, POP, SMTP 등의 메일 프로토콜이 포함됩니다.
 
 #### <a name="device-state"></a>디바이스 상태
 
-이 컨트롤은 하이브리드 Azure AD에 가입 되어 있거나 Intune에서 규격으로 표시 된 장치를 제외 하는 데 사용 됩니다. 이 제외는 관리 되지 않는 장치를 차단 하기 위해 수행할 수 있습니다. 
+이 컨트롤은 하이브리드 Azure AD 조인되었거나 Intune에서 규정을 준수하는 것으로 표시된 디바이스를 제외하는 데 사용됩니다. 비관리 디바이스를 차단하기 위해 이 제외 작업을 수행할 수 있습니다. 
 
 ## <a name="access-controls"></a>액세스 제어
 
-조건부 액세스 정책의 액세스 제어 부분은 정책이 적용 되는 방식을 제어 합니다.
+조건부 액세스 정책의 액세스 제어 부분은 정책이 적용되는 방식을 제어합니다.
 
 ### <a name="grant"></a>허용
 
-[Grant](concept-conditional-access-grant.md) 는 관리자에 게 액세스를 차단 하거나 허용할 수 있는 정책 적용 수단을 제공 합니다.
+[허용](concept-conditional-access-grant.md)은 관리자에게 액세스를 차단하거나 액세스 권한을 부여할 수 있는 정책 적용 수단을 제공합니다.
 
 #### <a name="block-access"></a>액세스 차단
 
-액세스를 차단 하면 지정 된 할당에 따라 액세스를 차단할 수 있습니다. Block 컨트롤은 강력 하며 적절 한 정보를 wielded 해야 합니다.
+액세스를 차단하면 지정된 할당에 따라 액세스를 차단할 수 있습니다. 차단 컨트롤은 강력한 기능이기 때문에 알맞은 지식을 갖춘 채로 행사해야 합니다.
 
 #### <a name="grant-access"></a>액세스 권한 부여
 
-Grant 컨트롤은 하나 이상의 컨트롤에 대 한 적용을 트리거할 수 있습니다. 
+권한 부여 컨트롤은 하나 이상의 컨트롤에 대한 적용을 트리거할 수 있습니다. 
 
-- Multi-factor authentication 필요 (Azure AD Multi-Factor Authentication)
-- 장치를 규격으로 표시 해야 함 (Intune)
+- 다단계 인증 필요(Azure AD Multi-Factor Authentication)
+- 디바이스를 규정 준수 상태로 표시해야 함(Intune)
 - 하이브리드 Azure AD 조인된 디바이스 필요
 - 승인된 클라이언트 앱 필요
 - 앱 보호 정책 필요
 - 암호 변경 필요
 - 사용 약관 필요
 
-관리자는 다음 옵션을 사용 하 여 이전 컨트롤 또는 모든 선택 된 컨트롤 중 하나를 요구 하도록 선택할 수 있습니다. 여러 컨트롤의 기본값은 모두 필요 합니다.
+관리자는 다음 옵션을 사용하여 이전 컨트롤 또는 모든 선택된 컨트롤 중 하나를 요구하도록 선택할 수 있습니다. 여러 컨트롤의 기본값은 모두를 요구하는 것입니다.
 
-- 모든 선택 된 컨트롤 필요 (컨트롤 및 컨트롤)
-- 선택한 컨트롤 (컨트롤 또는 컨트롤) 중 하나가 필요 합니다.
+- 선택한 모든 컨트롤 필요(컨트롤 및 컨트롤)
+- 선택한 컨트롤 중 하나가 필요(컨트롤 또는 컨트롤)
 
 ### <a name="session"></a>세션
 
-[세션 컨트롤](concept-conditional-access-session.md) 을 통해 환경을 제한할 수 있습니다. 
+[세션 컨트롤](concept-conditional-access-session.md)을 통해 환경을 제한할 수 있습니다. 
 
 - 앱에서 적용된 제한 사항 사용
-   - 현재 Exchange Online 및 SharePoint Online 에서만 작동 합니다.
-      - 에서는 장치 정보를 전달 하 여 전체 또는 제한 된 액세스 권한을 부여 하는 환경을 제어할 수 있습니다.
+   - 현재 Exchange Online 및 SharePoint Online에서만 작동합니다.
+      - 전체 또는 제한된 액세스 권한을 부여하는 환경을 제어할 수 있도록 디바이스 정보를 전달합니다.
 - 조건부 액세스 앱 제어 사용
-   - Microsoft Cloud App Security의 신호를 사용 하 여 다음과 같은 작업을 수행 합니다. 
-      - 중요 한 문서의 다운로드, 잘라내기, 복사 및 인쇄를 차단 합니다.
-      - 위험한 세션 동작을 모니터링 합니다.
-      - 중요 한 파일의 레이블을 지정 해야 합니다.
+   - Microsoft Cloud App Security의 신호를 사용하여 다음과 같은 작업을 수행합니다. 
+      - 중요한 문서의 다운로드, 잘라내기, 복사, 인쇄를 차단합니다.
+      - 위험한 세션 동작을 모니터링합니다.
+      - 중요한 파일의 레이블을 지정해야 합니다.
 - 로그인 빈도
-   - 최신 인증에 대 한 기본 로그인 빈도를 변경할 수 있습니다.
+   - 최신 인증에 대한 기본 로그인 빈도를 변경하는 기능입니다.
 - 영구 브라우저 세션
-   - 사용자가 브라우저 창을 닫았다가 다시 연 후 로그인 상태를 유지할 수 있습니다.
+   - 사용자가 브라우저 창을 닫은 후에 다시 열었을 때 로그인 상태가 유지되도록 합니다.
 
 ## <a name="simple-policies"></a>단순 정책
 
-조건부 액세스 정책에 적용 하려면 최소한 다음을 포함 해야 합니다.
+조건부 액세스 정책을 적용하려면 최소한 다음을 포함해야 합니다.
 
-- 정책의 **이름** 입니다.
+- 정책의 **이름**
 - **할당**
    - 정책을 적용할 **사용자 및/또는 그룹**
-   - 정책을 적용할 **클라우드 앱 또는 작업** 입니다.
+   - 정책을 적용할 **클라우드 앱 또는 작업**
 - **액세스 제어**
-   - 컨트롤 **허용** 또는 **차단**
+   - **권한 부여** 또는 **차단** 컨트롤
 
-![빈 조건부 액세스 정책](./media/concept-conditional-access-policies/conditional-access-blank-policy.png)
+![비어 있는 조건부 액세스 정책](./media/concept-conditional-access-policies/conditional-access-blank-policy.png)
 
-[일반적인 조건부 액세스 정책](concept-conditional-access-policy-common.md) 문서에는 대부분의 조직에 유용한 몇 가지 정책이 포함 되어 있습니다.
+[일반적인 조건부 액세스 정책](concept-conditional-access-policy-common.md) 문서에는 대부분의 조직에 유용한 몇 가지 정책이 포함되어 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -154,6 +154,6 @@ Grant 컨트롤은 하나 이상의 컨트롤에 대 한 적용을 트리거할 
 
 [클라우드 기반 Azure AD Multi-Factor Authentication 배포 계획](../authentication/howto-mfa-getstarted.md)
 
-[Intune을 사용 하 여 장치 준수 관리](/intune/device-compliance-get-started)
+[Intune을 사용하여 디바이스 규정 준수 관리](/intune/device-compliance-get-started)
 
 [Microsoft Cloud App Security 및 조건부 액세스](/cloud-app-security/proxy-intro-aad)

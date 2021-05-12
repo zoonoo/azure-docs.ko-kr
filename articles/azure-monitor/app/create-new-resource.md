@@ -3,13 +3,13 @@ title: 새 Azure Application Insights 리소스 만들기 | Microsoft Docs
 description: 새 라이브 애플리케이션에 대한 Application Insights 모니터링을 수동으로 설정합니다.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2130872003b1d91661f71468009025fa086af40b
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 7e4c4b0ba4dca9b51f120e6092c13195a061aa87
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321972"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109754536"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 

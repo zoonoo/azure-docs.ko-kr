@@ -1,16 +1,16 @@
 ---
-title: 자동 TLS를 사용 하 여 수신 만들기
+title: 자동 TLS를 사용하여 수신 만들기
 titleSuffix: Azure Kubernetes Service
-description: AKS (Azure Kubernetes Service) 클러스터에서 자동 TLS 인증서 생성을 위해 암호화를 사용 하는 NGINX 수신 컨트롤러를 설치 하 고 구성 하는 방법에 대해 알아봅니다.
+description: 자동 TLS 인증서 생성을 위해 Let's Encrypt를 사용하는 NGINX 수신 컨트롤러를 AKS(Azure Kubernetes Service) 클러스터에 설치하고 구성하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: aa03558196527e320ecba249dd22af19fec7a90c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.date: 04/23/2021
+ms.openlocfilehash: 74a44a4f3cb17084c0c2f433ad66a77928e037a6
+ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104592339"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108006803"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러 만들기
 
@@ -18,7 +18,7 @@ ms.locfileid: "104592339"
 
 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에 [NGINX 수신 컨트롤러][nginx-ingress]를 배포하는 방법을 보여 줍니다. [cert-manager][cert-manager] 프로젝트는 [Let's Encrypt][lets-encrypt] 인증서를 자동으로 생성하고 구성하는 데 사용됩니다. 마지막으로, 두 애플리케이션이 AKS 클러스터에서 실행되며 단일 IP 주소를 통해 각 애플리케이션에 액세스할 수 있습니다.
 
-또한 다음을 수행할 수 있습니다.
+다음도 가능합니다.
 
 - [외부 네트워크 연결을 사용하여 기본적인 수신 컨트롤러 만들기][aks-ingress-basic]
 - [HTTP 애플리케이션 라우팅 추가 기능 사용][aks-http-app-routing]
@@ -30,23 +30,23 @@ ms.locfileid: "104592339"
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
-또한이 문서에서는 AKS 클러스터와 동일한 리소스 그룹에 [DNS 영역][dns-zone] 을 사용 하는 [사용자 지정 도메인이][custom-domain] 있다고 가정 합니다.
+또한 이 문서에서는 AKS 클러스터와 동일한 리소스 그룹에 [DNS 영역][dns-zone]을 포함하는 [사용자 지정 도메인][custom-domain]이 있다고 가정합니다.
 
-이 문서에서는 [투구 3][helm] 을 사용 하 여 NGINX 수신 컨트롤러 및 인증서 관리자를 설치 합니다. 최신 버전의 투구를 사용 하 고 *수신-nginx* 및 *jetstack* 투구 리포지토리에 액세스할 수 있는지 확인 합니다. 업그레이드 지침은 [투구 설치 문서][helm-install]를 참조 하세요. 투구 구성 및 사용에 대 한 자세한 내용은 [Azure Kubernetes 서비스에서 투구를 사용 하 여 응용 프로그램 설치 (AKS)][use-helm]를 참조 하세요.
+이 문서에서는 [Helm 3][helm]을 사용하여 NGINX 수신 컨트롤러와 cert-manager를 설치합니다. 최신 릴리스의 Helm을 사용하고 있고 *ingress-nginx* 와 *jetstack* Helm 리포지토리에 대한 액세스 권한이 있는지 확인합니다. 업그레이드 지침은 [Helm 설치 문서][helm-install]를 참조하세요. Helm을 구성하고 사용하는 방법에 대한 자세한 내용은 [Helm을 사용하여 AKS(Azure Kubernetes Service)에 애플리케이션 설치][use-helm]를 참조하세요.
 
-또한이 문서에서는 Azure CLI 버전 2.0.64 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
+또한 이 문서에서는 Azure CLI 버전 2.0.64 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ## <a name="create-an-ingress-controller"></a>수신 컨트롤러 만들기
 
-수신 컨트롤러를 만들려면 명령을 사용 하 여 `helm` *nginx* 를 설치 합니다. 중복성을 추가하기 위해 NGINX 수신 컨트롤러의 두 복제본이 `--set controller.replicaCount` 매개 변수와 함께 배포됩니다. 수신 컨트롤러의 복제본을 실행하는 이점을 최대한 활용하려면 AKS 클러스터에 둘 이상의 노드가 있어야 합니다.
+수신 컨트롤러를 만들려면 `helm` 명령을 사용하여 *nginx-ingress* 를 설치합니다. 중복성을 추가하기 위해 NGINX 수신 컨트롤러의 두 복제본이 `--set controller.replicaCount` 매개 변수와 함께 배포됩니다. 수신 컨트롤러의 복제본을 실행하는 이점을 최대한 활용하려면 AKS 클러스터에 둘 이상의 노드가 있어야 합니다.
 
 수신 컨트롤러도 Linux 노드에서 예약해야 합니다. Windows Server 노드가 수신 컨트롤러를 실행해서는 안 됩니다. `--set nodeSelector` 매개 변수를 사용하여 노드 선택기를 지정하면 Linux 기반 노드에서 NGINX 수신 컨트롤러를 실행하도록 Kubernetes 스케줄러에 지시할 수 있습니다.
 
 > [!TIP]
-> 다음 예에서는 수신 *-기본* 이라는 수신 리소스에 대 한 Kubernetes 네임 스페이스를 만듭니다. 필요에 따라 사용자 환경에 대 한 네임 스페이스를 지정 합니다.
+> 다음 예에서는 *ingress-basic* 이라는 수신 리소스에 대한 Kubernetes 네임스페이스를 만듭니다. 필요에 따라 사용자 환경에 대한 네임스페이스를 지정합니다.
 
 > [!TIP]
-> 클러스터의 컨테이너에 대 한 요청에 대 한 [클라이언트 원본 IP 유지][client-source-ip] 를 사용 하도록 설정 하려면 `--set controller.service.externalTrafficPolicy=Local` 투구 install 명령에를 추가 합니다. 클라이언트 원본 IP가 *X 전달-에 대 한* 요청 헤더에 저장 됩니다. 클라이언트 원본 IP 유지를 사용 하는 수신 컨트롤러를 사용 하는 경우 TLS 통과는 작동 하지 않습니다.
+> 클러스터의 컨테이너에 대한 요청에 대해 [클라이언트 원본 IP 유지][client-source-ip]를 사용하도록 설정하려면 `--set controller.service.externalTrafficPolicy=Local`을 Helm install 명령에 추가합니다. 클라이언트 원본 IP가 *X-Forwarded-For* 아래의 요청 헤더에 저장됩니다. 클라이언트 원본 IP 유지가 사용 설정된 수신 컨트롤러를 사용하는 경우 TLS 통과는 작동하지 않습니다.
 
 ```console
 # Create a namespace for your ingress resources
@@ -79,7 +79,7 @@ nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_I
 
 ## <a name="add-an-a-record-to-your-dns-zone"></a>DNS 영역에 A 레코드 추가
 
-[Az network DNS record-add 레코드를][az-network-dns-record-set-a-add-record]사용 하 여 NGINX 서비스의 외부 IP 주소를 사용 하 여 DNS 영역에 *A* 레코드를 추가 합니다.
+[az network dns record-set a add-record][az-network-dns-record-set-a-add-record]를 사용하여 NGINX 서비스의 외부 IP 주소로 DNS 영역에 *A* 레코드를 추가합니다.
 
 ```console
 az network dns record-set a add-record \
@@ -90,7 +90,7 @@ az network dns record-set a add-record \
 ```
 
 > [!NOTE]
-> 필요에 따라 사용자 지정 도메인 대신 수신 컨트롤러 IP 주소에 대 한 FQDN을 구성할 수 있습니다. 이 샘플은 Bash 셸에 대 한 것입니다.
+> 선택적으로 사용자 지정 도메인 대신 수신 컨트롤러 IP 주소에 대한 FQDN을 구성할 수 있습니다. 이 샘플은 Bash 셸에 대한 것입니다.
 > 
 > ```bash
 > # Public IP address of your ingress controller
@@ -113,7 +113,7 @@ az network dns record-set a add-record \
 
 NGINX 수신 컨트롤러는 TLS 종료를 지원합니다. HTTPS에 대한 인증서를 검색하고 구성하는 몇 가지 방법이 있습니다. 이 문서에서는 자동 [Lets Encrypt][lets-encrypt] 인증서 생성 및 관리 기능을 제공하는 [cert-manager][cert-manager]를 사용하는 방법을 보여 줍니다.
 
-인증서 관리자 컨트롤러를 설치 하려면:
+cert-manager 컨트롤러 설치 방법
 
 ```console
 # Label the ingress-basic namespace to disable resource validation
@@ -171,11 +171,11 @@ kubectl apply -f cluster-issuer.yaml
 
 ## <a name="run-demo-applications"></a>데모 애플리케이션 실행
 
-수신 컨트롤러와 인증서 관리 솔루션이 구성되었습니다. 이제 AKS 클러스터에서 두 개의 데모 애플리케이션을 실행하겠습니다. 이 예제에서 투구는 간단한 *Hello 세계* 응용 프로그램의 두 인스턴스를 배포 하는 데 사용 됩니다.
+수신 컨트롤러와 인증서 관리 솔루션이 구성되었습니다. 이제 AKS 클러스터에서 두 개의 데모 애플리케이션을 실행하겠습니다. 이 예제에서는 Helm을 사용하여 간단한 *Hello world* 애플리케이션의 두 인스턴스를 배포합니다.
 
-작동 중인 수신 컨트롤러를 확인 하려면 AKS 클러스터에서 두 개의 데모 응용 프로그램을 실행 합니다. 이 예제에서는 `kubectl apply` 를 사용 하 여 간단한 *Hello 세계* 응용 프로그램의 두 인스턴스를 배포 합니다.
+작동 중인 수신 컨트롤러를 확인하려면 AKS 클러스터에서 두 개의 데모 애플리케이션을 실행합니다. 이 예제에서는 `kubectl apply`를 사용하여 간단한 *Hello world* 애플리케이션의 두 인스턴스를 배포합니다.
 
-Aks 파일을 만들고 다음 예제 YAML에 복사 *합니다* .
+*aks-helloworld-one.yaml* 파일을 만들고 다음 예제 YAML에 복사합니다.
 
 ```yml
 apiVersion: apps/v1
@@ -213,7 +213,7 @@ spec:
     app: aks-helloworld-one
 ```
 
-Aks 파일을 만들고 다음 예제 YAML에 복사 *합니다* .
+*aks-helloworld-two.yaml* 파일을 만들고 다음 예제 YAML에 복사합니다.
 
 ```yml
 apiVersion: apps/v1
@@ -251,7 +251,7 @@ spec:
     app: aks-helloworld-two
 ```
 
-다음을 사용 하 여 두 개의 데모 응용 프로그램을 실행 합니다 `kubectl apply` .
+`kubectl apply`를 사용하여 두 개의 데모 애플리케이션을 실행합니다.
 
 ```console
 kubectl apply -f aks-helloworld-one.yaml --namespace ingress-basic
@@ -260,17 +260,17 @@ kubectl apply -f aks-helloworld-two.yaml --namespace ingress-basic
 
 ## <a name="create-an-ingress-route"></a>수신 경로 만들기
 
-이제 두 애플리케이션이 모두 Kubernetes 클러스터에서 실행됩니다. 그러나 이러한 서비스는 형식의 서비스로 구성 `ClusterIP` 되며 인터넷에서 액세스할 수 없습니다. 응용 프로그램을 공개적으로 사용할 수 있도록 Kubernetes 수신 리소스를 만듭니다. 수신 리소스는 두 애플리케이션 중 하나로 트래픽을 라우팅하는 규칙을 구성합니다.
+이제 두 애플리케이션이 모두 Kubernetes 클러스터에서 실행됩니다. 그러나 두 애플리케이션은 `ClusterIP` 형식의 서비스로 구성되며 인터넷에서 액세스할 수 없습니다. 응용 프로그램을 공개적으로 사용할 수 있도록 Kubernetes 수신 리소스를 만듭니다. 수신 리소스는 두 애플리케이션 중 하나로 트래픽을 라우팅하는 규칙을 구성합니다.
 
-다음 예제에서는 hello-수신 주소에 대 한 트래픽 *입니다. MY_CUSTOM_DOMAIN* 는 *aks* 서비스로 라우팅됩니다. 주소 hello-수신에 대 한 트래픽 *. MY_CUSTOM_DOMAIN/hello-world-two* 는 *aks* 서비스로 라우팅됩니다. Hello-수신에 대 한 트래픽 *. MY_CUSTOM_DOMAIN/static* 은 정적 자산에 대 한 *aks* 이라는 서비스로 라우팅됩니다.
+다음 예제에서는 주소 *hello-world-ingress.MY_CUSTOM_DOMAIN* 에 대한 트래픽이 *aks-helloworld-one* 서비스로 라우팅됩니다. 주소 *hello-world-ingress.MY_CUSTOM_DOMAIN/hello-world-two* 에 대한 트래픽은 *aks-helloworld-two* 서비스로 라우팅됩니다. *hello-world-ingress.MY_CUSTOM_DOMAIN/static* 에 대한 트래픽은 정적 자산에 대한 *aks-helloworld-one* 이라는 서비스로 라우팅됩니다.
 
 > [!NOTE]
-> 사용자 지정 도메인 대신 수신 컨트롤러 IP 주소에 대 한 FQDN을 구성한 경우 hello-수신 대신 FQDN을 사용 *합니다. MY_CUSTOM_DOMAIN*. 예를 들어 FQDN이 *demo-aks-ingress.eastus.cloudapp.azure.com* 인 경우 *hello-수신을 대체 합니다.* 에서 *demo-aks-ingress.eastus.cloudapp.azure.com* 를 사용 하 여 MY_CUSTOM_DOMAIN `hello-world-ingress.yaml` 합니다.
+> 사용자 지정 도메인 대신 수신 컨트롤러 IP 주소에 대한 FQDN을 구성한 경우 *hello-world-ingress.MY_CUSTOM_DOMAIN* 대신 FQDN을 사용합니다. 예를 들어 FQDN이 *demo-aks-ingress.eastus.cloudapp.azure.com* 인 경우 `hello-world-ingress.yaml`에서 *hello-world-ingress.MY_CUSTOM_DOMAIN* 을 *demo-aks-ingress.eastus.cloudapp.azure.com* 으로 변경합니다.
 
-`hello-world-ingress.yaml`아래 예제 YAML을 사용 하 여 라는 파일을 만듭니다. *hosts* 및 *host* 를 이전 단계에서 만든 DNS 이름으로 업데이트합니다.
+아래 예제 YAML을 사용하여 `hello-world-ingress.yaml`라는 파일을 만듭니다. *hosts* 및 *host* 를 이전 단계에서 만든 DNS 이름으로 업데이트합니다.
 
 ```yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hello-world-ingress
@@ -288,20 +288,29 @@ spec:
   - host: hello-world-ingress.MY_CUSTOM_DOMAIN
     http:
       paths:
-      - backend:
-          serviceName: aks-helloworld-one
-          servicePort: 80
-        path: /hello-world-one(/|$)(.*)
-      - backend:
-          serviceName: aks-helloworld-two
-          servicePort: 80
-        path: /hello-world-two(/|$)(.*)
-      - backend:
-          serviceName: aks-helloworld-one
-          servicePort: 80
-        path: /(.*)
+      - path: /hello-world-one(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: aks-helloworld-one
+            port:
+              number: 80
+      - path: /hello-world-two(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: aks-helloworld-two
+            port:
+              number: 80
+      - path: /(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: aks-helloworld-one
+            port:
+              number: 80
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hello-world-ingress-static
@@ -319,9 +328,13 @@ spec:
   - host: hello-world-ingress.MY_CUSTOM_DOMAIN
     http:
       paths:
-      - backend:
-          serviceName: aks-helloworld-one
-          servicePort: 80
+      - path:
+        pathType: Prefix
+        backend:
+          service:
+            name: aks-helloworld-one
+            port: 
+              number: 80
         path: /static(/|$)(.*)
 ```
 
@@ -331,11 +344,11 @@ spec:
 kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
 ```
 
-## <a name="verify-a-certificate-object-has-been-created"></a>인증서 개체가 만들어졌는지 확인 합니다.
+## <a name="verify-a-certificate-object-has-been-created"></a>인증서 개체가 만들어졌는지 확인합니다.
 
-다음으로, 인증서 리소스를 만들어야 합니다. 인증서 리소스는 원하는 X.509 인증서를 정의합니다. 자세한 내용은 [인증서 관리자 인증서][cert-manager-certificates]를 참조 하세요. 인증서 관리자가 자동으로 수신 shim을 사용 하 여 인증서 개체를 만들었습니다 .이는 v 0.2.2 이후 인증서 관리자를 사용 하 여 자동으로 배포 됩니다. 자세한 내용은 [수신 shim 설명서][ingress-shim]를 참조하세요.
+다음으로, 인증서 리소스를 만들어야 합니다. 인증서 리소스는 원하는 X.509 인증서를 정의합니다. 자세한 내용은 [cert-manager 인증서][cert-manager-certificates]를 참조하세요. Cert-manager가 v0.2.2 이후 cert-manager와 자동으로 배포되는 ingress-shim을 사용하여 인증서 개체를 자동으로 생성했습니다. 자세한 내용은 [수신 shim 설명서][ingress-shim]를 참조하세요.
 
-인증서가 성공적으로 만들어졌는지 확인 하려면 명령을 사용 하 `kubectl get certificate --namespace ingress-basic` 고 *준비* 됨이 *True* 인지 확인 합니다 .이는 몇 분 정도 걸릴 수 있습니다.
+인증서가 성공적으로 만들어졌는지 확인하려면 `kubectl get certificate --namespace ingress-basic` 명령을 사용하고 *준비* 가 *True* 인지 확인합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.
 
 ```console
 $ kubectl get certificate --namespace ingress-basic
@@ -346,15 +359,15 @@ tls-secret   True    tls-secret   11m
 
 ## <a name="test-the-ingress-configuration"></a>수신 구성 테스트
 
-웹 브라우저를 열고 *hello-수신 합니다.* Kubernetes 수신 컨트롤러의 MY_CUSTOM_DOMAIN입니다. HTTPS를 사용 하도록 리디렉션하고 인증서를 신뢰 하 고 데모 응용 프로그램이 웹 브라우저에 표시 되는지 확인 합니다. */Hello-world-two* 경로를 추가 하 고 두 번째 데모 응용 프로그램이 사용자 지정 제목을 표시 하는지 확인 합니다.
+웹 브라우저를 Kubernetes 수신 컨트롤러의 *hello-world-ingress.MY_CUSTOM_DOMAIN* 에 개방합니다. HTTPS를 사용하도록 리디렉션하고 인증서를 신뢰할 수 있으며 데모 애플리케이션이 웹 브라우저에 표시되는지 확인합니다. */Hello-world-two* 경로를 추가하고, 사용자 지정 제목을 포함하는 두 번째 데모 애플리케이션이 표시되는지 확인합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 문서에서는 Helm을 사용하여 수신 구성 요소, 인증서 및 샘플 앱을 설치했습니다. Helm 차트를 배포하면 다수의 Kubernetes 리소스가 생성됩니다. 이 리소스에는 Pod, 배포 및 서비스가 포함됩니다. 이러한 리소스를 정리 하려면 전체 샘플 네임 스페이스 또는 개별 리소스를 삭제할 수 있습니다.
+이 문서에서는 Helm을 사용하여 수신 구성 요소, 인증서 및 샘플 앱을 설치했습니다. Helm 차트를 배포하면 다수의 Kubernetes 리소스가 생성됩니다. 이 리소스에는 Pod, 배포 및 서비스가 포함됩니다. 이러한 리소스를 정리하려면 전체 샘플 네임스페이스 또는 개별 리소스를 삭제하면 됩니다.
 
-### <a name="delete-the-sample-namespace-and-all-resources"></a>샘플 네임 스페이스 및 모든 리소스 삭제
+### <a name="delete-the-sample-namespace-and-all-resources"></a>샘플 네임스페이스 및 모든 리소스 삭제
 
-전체 샘플 네임 스페이스를 삭제 하려면 명령을 사용 하 `kubectl delete` 고 네임 스페이스 이름을 지정 합니다. 네임 스페이스의 모든 리소스가 삭제 됩니다.
+전체 샘플 네임스페이스를 삭제하려면 `kubectl delete` 명령을 사용하고 네임스페이스 이름을 지정합니다. 네임스페이스의 모든 리소스가 삭제됩니다.
 
 ```console
 kubectl delete namespace ingress-basic
@@ -362,13 +375,13 @@ kubectl delete namespace ingress-basic
 
 ### <a name="delete-resources-individually"></a>리소스를 개별적으로 삭제
 
-또는 만든 개별 리소스를 삭제 하는 것이 더 세부적인 방법입니다. 먼저 클러스터 발급자 리소스를 제거 합니다.
+또는 생성된 개별 리소스를 삭제하는 것이 보다 세분화된 접근 방식입니다. 먼저 클러스터 발급자 리소스를 제거합니다.
 
 ```console
 kubectl delete -f cluster-issuer.yaml --namespace ingress-basic
 ```
 
-명령을 사용 하 여 투구 릴리스를 나열 `helm list` 합니다. 다음 예제 출력에 표시 된 것 처럼 *nginx* 및 *cert manager* 라는 차트를 찾습니다.
+`helm list` 명령을 사용하여 Helm 릴리스를 나열합니다. 다음 예제 출력과 같이 이름이 *nginx* 와 *cert-manager* 인 차트를 찾습니다.
 
 ```console
 $ helm list --namespace ingress-basic
@@ -378,7 +391,7 @@ cert-manager            ingress-basic   1               2020-01-15 10:23:36.5155
 nginx                   ingress-basic   1               2020-01-15 10:09:45.982693 -0600 CST    deployed        nginx-ingress-1.29.1    0.27.0  
 ```
 
-명령을 사용 하 여 릴리스를 제거 합니다 `helm uninstall` . 다음 예제에서는 NGINX 수신 및 인증서 관리자 배포를 제거 합니다.
+`helm uninstall` 명령으로 해당 릴리스를 제거합니다. 다음 예제에서는 NGINX 수신 및 cert-manager 배포를 제거합니다.
 
 ```console
 $ helm uninstall cert-manager nginx --namespace ingress-basic
@@ -387,7 +400,7 @@ release "cert-manager" uninstalled
 release "nginx" uninstalled
 ```
 
-다음으로 두 개의 샘플 응용 프로그램을 제거 합니다.
+다음으로 두 개의 샘플 애플리케이션을 제거합니다.
 
 ```console
 kubectl delete -f aks-helloworld-one.yaml --namespace ingress-basic
@@ -400,7 +413,7 @@ kubectl delete -f aks-helloworld-two.yaml --namespace ingress-basic
 kubectl delete -f hello-world-ingress.yaml --namespace ingress-basic
 ```
 
-마지막으로 자체 네임 스페이스를 삭제할 수 있습니다. 명령을 사용 `kubectl delete` 하 여 네임 스페이스 이름을 지정 합니다.
+마지막으로 자체 네임스페이스를 삭제할 수 있습니다. `kubectl delete` 명령을 사용하여 네임스페이스 이름을 지정합니다.
 
 ```console
 kubectl delete namespace ingress-basic
@@ -414,7 +427,7 @@ kubectl delete namespace ingress-basic
 - [NGINX 수신 컨트롤러][nginx-ingress]
 - [인증서 관리자][cert-manager]
 
-또한 다음을 수행할 수 있습니다.
+다음도 가능합니다.
 
 - [외부 네트워크 연결을 사용하여 기본적인 수신 컨트롤러 만들기][aks-ingress-basic]
 - [HTTP 애플리케이션 라우팅 추가 기능 사용][aks-http-app-routing]
@@ -423,7 +436,7 @@ kubectl delete namespace ingress-basic
 - [고정 공용 IP를 사용하여 TLS 인증서를 자동으로 생성하도록 Let’s Encrypt를 사용하는 수신 컨트롤러 만들기][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
-[az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/#az-network-dns-record-set-a-add-record
+[az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/#az_network_dns_record_set_a_add_record
 [custom-domain]: ../app-service/manage-custom-dns-buy-domain.md#buy-an-app-service-domain
 [dns-zone]: ../dns/dns-getstarted-cli.md
 [helm]: https://helm.sh/
@@ -440,8 +453,8 @@ kubectl delete namespace ingress-basic
 <!-- LINKS - internal -->
 [use-helm]: kubernetes-helm.md
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
 [aks-ingress-internal]: ingress-internal-ip.md
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-ingress-basic]: ingress-basic.md

@@ -3,18 +3,18 @@ title: Azure Resource Manager 템플릿을 사용하여 Service Fabric 클러스
 description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure Service Fabric 테스트 클러스터를 만듭니다.
 author: erikadoyle
 ms.author: edoyle
-ms.date: 07/29/2020
+ms.date: 05/10/2021
 ms.topic: quickstart
 ms.service: service-fabric
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: cb3758ae837dc03789371d00f768b257a9ef295d
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 096894bc35f954b913020c4d3820cf096065c7df
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107535313"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753276"
 ---
 # <a name="quickstart-create-a-service-fabric-cluster-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Service Fabric 클러스터 만들기
 
@@ -26,7 +26,7 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-secure-cluster-5-node-1-nodetype%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.servicefabric%2Fservice-fabric-secure-cluster-5-node-1-nodetype%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -44,9 +44,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 [Azure Resource Manager 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates) 리포지토리를 복제하거나 다운로드합니다. 또는 우리가 사용할 다음 파일을 *service-fabric-secure-cluster-5-node-1-nodetype* 폴더에 로컬로 복사합니다.
 
-* [New-ServiceFabricClusterCertificate.ps1](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/scripts/New-ServiceFabricClusterCertificate.ps1)
-* [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json)
-* [azuredeploy.parameters.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.parameters.json)
+* [New-ServiceFabricClusterCertificate.ps1](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicefabric/service-fabric-secure-cluster-5-node-1-nodetype/scripts/New-ServiceFabricClusterCertificate.ps1)
+* [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicefabric/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json)
+* [azuredeploy.parameters.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicefabric/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.parameters.json)
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -93,7 +93,7 @@ $certThumbprint = "<Certificate Thumbprint>"
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/)에서 나온 것입니다. 이 문서의 템플릿이 너무 길어서 여기에 표시할 수 없습니다. 템플릿을 보려면 [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json) 파일을 참조하세요.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/)에서 나온 것입니다. 이 문서의 템플릿이 너무 길어서 여기에 표시할 수 없습니다. 템플릿을 보려면 [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicefabric/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json) 파일을 참조하세요.
 
 템플릿에 여러 Azure 리소스가 정의되어 있습니다.
 

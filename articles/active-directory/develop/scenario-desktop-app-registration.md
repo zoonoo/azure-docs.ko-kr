@@ -1,7 +1,7 @@
 ---
-title: 웹 Api를 호출 하는 데스크톱 앱 등록 | Microsoft
+title: 웹 API를 호출하는 데스크톱 앱 등록 | Azure
 titleSuffix: Microsoft identity platform
-description: 웹 Api (앱 등록)를 호출 하는 데스크톱 앱을 빌드하는 방법 알아보기
+description: 웹 API를 호출하는 데스크톱 앱을 빌드하는 방법 알아보기(앱 등록)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,56 +13,56 @@ ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 263397aa2cd09ba24fa750131b76047801869a65
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104798938"
 ---
-# <a name="desktop-app-that-calls-web-apis-app-registration"></a>웹 Api를 호출 하는 데스크톱 앱: 앱 등록
+# <a name="desktop-app-that-calls-web-apis-app-registration"></a>웹 API를 호출하는 데스크톱 앱: 앱 등록
 
-이 문서에서는 데스크톱 응용 프로그램에 대 한 앱 등록 세부 사항을 설명 합니다.
+이 문서에서는 데스크톱 애플리케이션에 대한 앱 등록 세부 사항을 설명합니다.
 
 ## <a name="supported-account-types"></a>지원되는 계정 유형
 
-데스크톱 응용 프로그램에서 지원 되는 계정 유형은 강화 하려는 환경에 따라 달라 집니다. 이 관계로 인해 지원 되는 계정 유형은 사용 하려는 흐름에 따라 달라 집니다.
+데스크톱 애플리케이션에서 지원되는 계정 유형은 강화하려는 환경에 따라 다릅니다. 이 관계로 인해 지원되는 계정 유형은 사용하려는 흐름에 따라 다릅니다.
 
-### <a name="audience-for-interactive-token-acquisition"></a>대화형 토큰 획득을 위한 대상 그룹
+### <a name="audience-for-interactive-token-acquisition"></a>대화형 토큰 획득의 대상
 
-데스크톱 응용 프로그램에서 대화형 인증을 사용 하는 경우 모든 [계정 유형에](quickstart-register-app.md)서 사용자에 게 로그인 할 수 있습니다.
+데스크톱 애플리케이션에서 대화형 인증을 사용하는 경우 모든 [계정 유형](quickstart-register-app.md)에서 사용자 로그인을 수행할 수 있습니다.
 
 ### <a name="audience-for-desktop-app-silent-flows"></a>데스크톱 앱 자동 흐름의 대상
 
-- Windows 통합 인증 또는 사용자 이름 및 암호를 사용 하려면 응용 프로그램이 사용자의 테 넌 트에 로그인 해야 합니다 (예: LOB (기간 업무) 개발자 인 경우). 또는 Azure Active Directory 조직에서는 ISV 시나리오용 경우 응용 프로그램에서 사용자 고유의 테 넌 트에서 사용자를 로그인 해야 합니다. 이러한 인증 흐름은 Microsoft 개인 계정에 대해 지원 되지 않습니다.
-- B2C (비즈니스 간) 기관 및 정책을 전달 하는 소셜 id를 사용 하 여 사용자를 로그인 하는 경우에는 대화형 및 사용자 이름-암호 인증만 사용할 수 있습니다.
+- Windows 통합 인증 또는 사용자 이름 및 암호를 사용하려면 애플리케이션이 사용자의 자체 테넌트에서 사용자 로그인을 수행해야 합니다(예를 들어, 사용자가 LOB(기간 업무) 개발자인 경우). 또는 Azure Active Directory 조직에서는 ISV 시나리오인 경우 애플리케이션이 사용자의 자체 테넌트에서 사용자 로그인을 수행해야 합니다. 이러한 인증 흐름은 Microsoft 개인 계정에 대해 지원되지 않습니다.
+- B2C(Business to Commerce) 기관 및 정책을 통과하는 소셜 ID로 사용자 로그인을 수행하면 대화형 및 사용자 이름-암호 인증만 사용할 수 있습니다.
 
 ## <a name="redirect-uris"></a>리디렉션 URI
 
-데스크톱 응용 프로그램에서 사용 하는 리디렉션 Uri는 사용 하려는 흐름에 따라 다릅니다.
+데스크톱 애플리케이션에서 사용할 리디렉션 URI는 사용하려는 흐름에 따라 다릅니다.
 
-Azure Portal에서 **앱 등록** 앱에 대 한 [플랫폼 설정을 구성](quickstart-register-app.md#add-a-redirect-uri) 하 여 앱에 대 한 리디렉션 URI를 지정 합니다.
+Azure Portal의 **앱 등록** 에서 앱에 대한 [플랫폼 설정을 구성](quickstart-register-app.md#add-a-redirect-uri)하여 앱에 대한 리디렉션 URI를 지정합니다.
 
-- 대화형 인증을 사용 하는 앱의 경우:
-  - 포함 된 브라우저를 사용 하는 앱: `https://login.microsoftonline.com/common/oauth2/nativeclient`
-  - 시스템 브라우저를 사용 하는 앱: `http://localhost`
+- 대화형 인증을 사용하는 앱의 경우:
+  - 포함된 브라우저를 사용하는 앱: `https://login.microsoftonline.com/common/oauth2/nativeclient`
+  - 시스템 브라우저를 사용하는 앱: `http://localhost`
 
   > [!IMPORTANT]
-  > 보안 모범 사례에 따라 `https://login.microsoftonline.com/common/oauth2/nativeclient` 또는 `http://localhost` 를 리디렉션 URI로 명시적으로 설정 하는 것이 좋습니다. MSAL.NET와 같은 일부 인증 라이브러리는 `urn:ietf:wg:oauth:2.0:oob` 다른 리디렉션 URI가 지정 되지 않은 경우 기본값을 사용 합니다 .이는 권장 되지 않습니다. 이 기본값은 다음 주요 릴리스의 주요 변경 내용으로 업데이트 됩니다.
+  > 보안 모범 사례에 따라 `https://login.microsoftonline.com/common/oauth2/nativeclient` 또는 `http://localhost`을(를) 리디렉션 URI로 명시적으로 설정하는 것이 좋습니다. MSAL.NET와 같은 일부 인증 라이브러리는 다른 리디렉션 URI가 지정되지 않은 경우 기본값 `urn:ietf:wg:oauth:2.0:oob`을(를) 사용하고, 이는 권장되지 않습니다. 이 기본값은 다음 주요 릴리스의 호환성이 손상되는 변경으로 업데이트됩니다.
 
-- MacOS에 대 한 기본 목표-C 또는 Swift 앱을 빌드하는 경우 응용 프로그램의 번들 식별자를 기반으로 하는 리디렉션 URI를 형식으로 등록 `msauth.<your.app.bundle.id>://auth` 합니다. `<your.app.bundle.id>`을 응용 프로그램의 번들 식별자로 바꿉니다.
-- Node.js 전자 앱을 빌드하는 경우, 예를 들어 권한 부여 흐름의 리디렉션 단계를 처리 하기 위해 일반 웹 (https://) 리디렉션 URI 대신 사용자 지정 파일 프로토콜을 사용 `msal://redirect` 합니다. 사용자 지정 파일 프로토콜 이름은 추측 하기 위해 명확 해서는 안 되며 [네이티브 앱에 대 한 oauth 2.0 사양의](https://tools.ietf.org/html/rfc8252#section-7.1)제안 사항을 따라야 합니다.
-- 응용 프로그램에서 Windows 통합 인증 또는 사용자 이름 및 암호만 사용 하는 경우 응용 프로그램에 대 한 리디렉션 URI를 등록할 필요가 없습니다. 이러한 흐름은 Microsoft identity platform v2.0 끝점으로의 왕복을 수행 합니다. 응용 프로그램은 특정 URI에서 다시 호출 되지 않습니다.
-- [디먼 응용](scenario-daemon-overview.md)프로그램에서 사용 되는 클라이언트 자격 증명 흐름을 사용 하 여 비밀 클라이언트 응용 프로그램에서 [장치 코드 흐름](scenario-desktop-acquire-token.md#device-code-flow), [Windows 통합 인증](scenario-desktop-acquire-token.md#integrated-windows-authentication)및 [사용자 이름 및 암호](scenario-desktop-acquire-token.md#username-and-password) 를 구분 하려면, 리디렉션 URI가 필요 하지 않은 경우 공용 클라이언트 응용 프로그램으로 구성 합니다. 이 구성을 설정하려면
+- macOS용 네이티브 Objective-C 또는 Swift 앱을 빌드하는 경우 애플리케이션의 번들 식별자를 기준으로 하는 리디렉션 URI를  `msauth.<your.app.bundle.id>://auth` 형식으로 등록합니다. `<your.app.bundle.id>`을(를) 애플리케이션의 번들 식별자로 바꿉니다.
+- Node.js Electron 앱을 빌드하는 경우, 예를 들어 `msal://redirect`과(와) 같은 권한 부여 흐름의 리디렉션 단계를 처리하기 위해 일반 웹(https://) 리디렉션 URI 대신 사용자 지정 파일 프로토콜을 사용합니다. 사용자 지정 파일 프로토콜 이름은 명확하게 추측되어서는 안 되며 [네이티브 앱에 대한 OAuth2.0 사양](https://tools.ietf.org/html/rfc8252#section-7.1)의 제안 사항을 따라야 합니다.
+- 앱에서 Windows 통합 인증 또는 사용자 이름 및 암호만 사용하는 경우 애플리케이션에 대한 리디렉션 URI를 등록할 필요가 없습니다. 이러한 흐름은 Microsoft Identity 플랫폼 v2.0 엔드포인트를 대상으로 왕복을 수행합니다. 애플리케이션은 특정 URI에서 다시 호출되지 않습니다.
+- [디바이스 코드 흐름](scenario-desktop-acquire-token.md#device-code-flow), [Windows 통합 인증](scenario-desktop-acquire-token.md#integrated-windows-authentication), [사용자 이름 및 암호](scenario-desktop-acquire-token.md#username-and-password)와 [디먼 애플리케이션](scenario-daemon-overview.md)에서 사용되는 클라이언트 자격 증명 흐름을 사용하는 기밀 클라이언트 애플리케이션을 구분하려면(모두 리디렉션 URI가 필요하지 않음) 퍼블릭 클라이언트 애플리케이션으로 구성합니다. 이 구성을 설정하려면
 
-    1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에서 **앱 등록** 의 앱을 선택한 다음 **인증** 을 선택 합니다.
-    1. **고급 설정** 에서  >  **공용 클라이언트 흐름 허용** 에서  >  **다음과 같은 모바일 및 데스크톱 흐름을 사용 하도록 설정 합니다.** 에서 **예** 를 선택 합니다.
+    1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>의 **앱 등록** 에서 앱을 선택한 다음 **인증** 을 선택합니다.
+    1. **고급 설정** > **퍼블릭 클라이언트 흐름 허용** > **다음 모바일 및 데스크톱 흐름 사용** 에서 **예** 를 선택합니다.
 
-        :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Azure Portal의 인증 창에서 공용 클라이언트 설정 사용":::
+        :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Azure Portal의 인증 창에서 퍼블릭 클라이언트 설정 사용":::
 
 ## <a name="api-permissions"></a>API 사용 권한
 
-데스크톱 응용 프로그램은 로그인 한 사용자에 대 한 Api를 호출 합니다. 위임 된 권한을 요청 해야 합니다. [디먼 응용 프로그램](scenario-daemon-overview.md)에서만 처리 되는 응용 프로그램 사용 권한을 요청할 수 없습니다.
+데스크톱 애플리케이션은 로그인한 사용자에 대한 API를 호출하고, 위임된 권한을 요청해야 합니다. 데스크톱 애플리케이션은 [디먼 애플리케이션](scenario-daemon-overview.md)에서만 처리되는 애플리케이션 권한을 요청할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 시나리오에서 [앱 코드 구성](scenario-desktop-app-configuration.md)의 다음 문서로 이동 합니다.
+이 시나리오의 다음 문서인 [앱 코드 구성](scenario-desktop-app-configuration.md)으로 이동합니다.

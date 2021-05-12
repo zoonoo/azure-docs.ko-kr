@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 3/15/2021
 ms.custom: template-concept,references_regions
-ms.openlocfilehash: 866eb9feb152c0094cd5281fe4820ccc4589386f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 17b3b74bc6879d54577492a13eb93e0e0ab58373
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107778322"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109486380"
 ---
 # <a name="azure-private-link-availability"></a>Azure Private Link 가용성
 
@@ -44,7 +44,7 @@ Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드�
 
 |지원되는 서비스  |사용 가능한 지역 | 기타 고려 사항 | 상태  |
 |:-------------------|:-----------------|:----------------|:--------|
-|Azure App Configuration | 모든 공용 지역      |  | 미리 보기  </br> [Azure App Configuration에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../azure-app-configuration/concept-private-endpoint.md) |
+|Azure App Configuration | 모든 공용 지역      |  | GA  </br> [Azure App Configuration에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../azure-app-configuration/concept-private-endpoint.md) |
 |Azure Managed Disks | 모든 공용 지역<br/> Azure Government 지역<br/>모든 중국 지역    | [알려진 제한 사항에 따른 선택](../virtual-machines/disks-enable-private-links-for-import-export-portal.md#limitations) | GA   <br/> [Azure Managed Disks에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../virtual-machines/disks-enable-private-links-for-import-export-portal.md)   |
 
 ### <a name="containers"></a>컨테이너

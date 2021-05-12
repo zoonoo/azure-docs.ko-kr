@@ -1,18 +1,18 @@
 ---
 title: 복사 작업 성능 문제 해결
 description: Azure Data Factory에서 복사 작업 성능 문제를 해결하는 방법에 대해 알아봅니다.
-ms.author: jianleishen
-author: jianleishen
+ms.author: jingwang
+author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/07/2021
-ms.openlocfilehash: eee68b8cb533763aff0c1cc6a1ebe19db735461e
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: ce7c97abfb879e9298edac5f38540bbc026274da
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109488576"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104584418"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>복사 작업 성능 문제 해결
 
@@ -240,5 +240,5 @@ ms.locfileid: "109488576"
 - [복사 작업 개요](copy-activity-overview.md)
 - [복사 작업 성능 및 확장성 가이드](copy-activity-performance.md)
 - [복사 작업 성능 최적화 기능](copy-activity-performance-features.md)
-- [Azure Data Factory를 사용하여 데이터 레이크에서 데이터 마이그레이션 또는 데이터 웨어하우스에서 Azure로 데이터 마이그레이션](data-migration-guidance-overview.md)
+- [Azure Data Factory를 사용하여 데이터 레이크 또는 데이터 웨어하우스에서 Azure로 데이터 마이그레이션](data-migration-guidance-overview.md)
 - [Amazon S3에서 Azure Storage로 데이터 마이그레이션](data-migration-guidance-s3-azure-storage.md)

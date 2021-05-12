@@ -3,12 +3,12 @@ title: '빠른 시작: Terraform을 사용하여 새 정책 할당'
 description: 이 빠른 시작에서는 Terraform 및 HCL 구문을 사용하여 비규격 리소스를 식별하는 정책 할당을 만듭니다.
 ms.date: 03/31/2021
 ms.topic: quickstart
-ms.openlocfilehash: 6c1a43010c48f71872d935a8fb52f608b479da8a
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 7530ad1c4e87fb2df00e1fa81e324bb9bd0c4034
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106092350"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108763040"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-terraform"></a>빠른 시작: Terraform을 사용하여 비규격 리소스를 식별하는 정책 할당 만들기
 
@@ -39,7 +39,7 @@ Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 
        version = "~>2.0"
        features {}
    }
-   
+
    resource "azurerm_policy_assignment" "auditvms" {
        name = "audit-vm-manageddisks"
        scope = var.cust_scope
@@ -48,6 +48,7 @@ Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 
        display_name = "Audit VMs without managed disks Assignment"
    }
    ```
+
 1. 다음 코드로 `variables.tf`를 만듭니다.
 
    ```hcl

@@ -3,12 +3,13 @@ title: Bicep 개발 및 배포 환경 설정
 description: Bicep 개발 및 배포 환경을 구성하는 방법
 ms.topic: conceptual
 ms.date: 03/26/2021
-ms.openlocfilehash: 0e62e6a4633bee09fcbe8b783118cc95ccd5702e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 39bac9d8494c9da94fe962dda9521bca4d071f1e
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626104"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752772"
 ---
 # <a name="install-bicep-preview"></a>Bicep 설치(미리 보기)
 
@@ -96,7 +97,7 @@ az bicep upgrade
 특정 버전을 설치하려면
 
 ```bash
-az bicep install --version v0.3.126
+az bicep install --version v0.3.255
 ```
 
 > [!IMPORTANT]
@@ -158,10 +159,10 @@ bicep --help
 
 ```sh
 # Add the tap for bicep
-brew tap azure/bicep https://github.com/azure/bicep
+brew tap azure/bicep
 
 # Install the tool
-brew install azure/bicep/bicep
+brew install bicep
 ```
 
 ##### <a name="macos-manual-install"></a>macOS 수동 설치

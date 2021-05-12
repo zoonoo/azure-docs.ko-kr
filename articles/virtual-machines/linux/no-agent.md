@@ -1,6 +1,6 @@
 ---
 title: 프로비저닝 에이전트 없이 Linux 이미지 만들기
-description: Azure에서 프로 비전 에이전트 없이 일반화 된 Linux 이미지를 만듭니다.
+description: Azure에서 프로비저닝 에이전트 없이 일반화된 Linux 이미지를 만듭니다.
 author: danielsollondon
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -11,44 +11,44 @@ ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.openlocfilehash: c7ca147f0a5b907ee0c5c66d53a219fe75ab2179
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102551711"
 ---
-# <a name="creating-generalized-images-without-a-provisioning-agent"></a>프로 비전 에이전트 없이 일반화 된 이미지 만들기
+# <a name="creating-generalized-images-without-a-provisioning-agent"></a>프로비저닝 에이전트 없이 일반화된 이미지 만들기
 
-Microsoft Azure은 Linux Vm에 대 한 프로 비전 에이전트를 [walinuxagent](https://github.com/Azure/WALinuxAgent) 또는 [클라우드-init](https://github.com/canonical/cloud-init) (권장) 형식으로 제공 합니다. 하지만 다음과 같은 프로 비전 에이전트로 이러한 응용 프로그램 중 하나를 사용 하지 않으려는 경우가 있습니다.
+Microsoft Azure는 Linux VM에 대한 프로비저닝 에이전트를 [walinuxagent](https://github.com/Azure/WALinuxAgent) 또는 [cloud-init](https://github.com/canonical/cloud-init)(권장) 형식으로 제공합니다. 그러나 다음과 같은 프로비저닝 에이전트에 이러한 애플리케이션 중 하나를 사용하지 않으려는 시나리오가 있을 수 있습니다.
 
-- Linux 배포판/버전은 클라우드-init/Linux 에이전트를 지원 하지 않습니다.
-- 호스트 이름 같은 특정 VM 속성을 설정 해야 합니다.
+- Linux 배포판/버전은 cloud-init/Linux 에이전트를 지원하지 않습니다.
+- 호스트 이름과 같은 특수화된 VM 속성을 설정해야 합니다.
 
 > [!NOTE] 
 >
-> 속성을 설정 하거나 어떤 형태의 프로 비전도 수행 하지 않아도 되는 경우 특수 이미지를 만드는 것이 좋습니다.
+> 속성을 설정할 필요가 없거나 어떤 형태의 프로비저닝도 필요하지 않은 경우 특수 이미지를 만드는 것을 고려해야 합니다.
 
-이 문서에서는 프로 비전 에이전트를 설치 하지 않고 Azure 플랫폼 요구 사항을 충족 하 고 호스트 이름을 설정 하기 위해 VM 이미지를 설정 하는 방법을 보여 줍니다.
+이 문서에서는 프로비저닝 에이전트를 설치하지 않고도 Azure 플랫폼 요구 사항을 충족하고 호스트 이름을 설정하도록 VM 이미지를 설정하는 방법을 보여 줍니다.
 
 ## <a name="networking-and-reporting-ready"></a>네트워킹 및 보고 준비 완료
 
-Linux VM이 Azure 구성 요소와 통신 하도록 하려면 DNS 확인 및 경로 관리 뿐만 아니라 가상 네트워크에서 호스트 IP를 검색 하는 데 DHCP 클라이언트가 필요 합니다. 대부분의 배포판은 이러한 유틸리티를 기본 제공 합니다. Linux 배포판 공급 업체에 의해 Azure에서 테스트 된 도구에는 `dhclient` , `network-manager` 및 기타가 포함 `systemd-networkd` 됩니다.
+Linux VM이 Azure 구성 요소와 통신하도록 하려면 DNS 확인 및 경로 관리 수행뿐만 아니라 가상 네트워크에서 호스트 IP를 검색하기 위한 DHCP 클라이언트가 필요합니다. 대부분의 배포판은 이러한 유틸리티를 기본 제공합니다. Linux 배포판 공급업체가 Azure에서 테스트한 도구에는 `dhclient`, `network-manager`, `systemd-networkd` 등이 있습니다.
 
 > [!NOTE]
 >
-> 현재 프로 비전 에이전트 없이 일반화 된 이미지를 만드는 것은 DHCP 사용 Vm만 지원 합니다.
+> 현재 프로비저닝 에이전트 없이 일반화된 이미지 만들기는 DHCP 사용 VM만 지원합니다.
 
-네트워킹이 설정 및 구성 된 후에는 "준비"로 설정 해야 합니다. 이렇게 하면 VM이 성공적으로 프로 비전 되었음을 Azure에 알려줍니다.
+네트워킹을 설정하고 구성한 후 ‘보고 준비’를 해야 합니다. 그러면 Azure에 VM이 성공적으로 프로비저닝 중임을 알 수 있습니다.
 
 > [!IMPORTANT]
 >
-> Azure에 대 한 준비를 보고 하지 못하면 VM이 다시 부팅 됩니다.
+> Azure에 준비를 보고하지 못하면 VM이 다시 부팅됩니다.
 
 ## <a name="demosample"></a>데모/샘플
 
-이 데모에서는 기존 Marketplace 이미지 (이 경우 Debian Buster VM)를 사용 하 여 Linux 에이전트 (walinuxagent)를 제거 하 고, VM이 "준비" 된 것으로 Azure에 보고 하는 가장 기본적인 프로세스를 만드는 방법을 보여 줍니다.
+이 데모에서는 기존 Marketplace 이미지(이 경우 Debian Buster VM)를 사용하여 Linux 에이전트(walinuxagent)를 제거할 뿐만 아니라 VM이 ‘준비’되었음을 Azure에 보고하는 가장 기본적인 프로세스를 만드는 방법을 보여 줍니다.
 
-### <a name="create-the-resource-group-and-base-vm"></a>리소스 그룹 및 기본 VM을 만듭니다.
+### <a name="create-the-resource-group-and-base-vm"></a>리소스 그룹 및 기본 VM 만들기:
 
 ```bash
 $ az group create --location eastus --name demo1
@@ -66,9 +66,9 @@ $ az vm create \
     --image "debian:debian-10:10:latest"
 ```
 
-### <a name="remove-the-image-provisioning-agent"></a>이미지 프로 비전 에이전트 제거
+### <a name="remove-the-image-provisioning-agent"></a>이미지 프로비저닝 에이전트 제거
 
-VM이 프로 비전 되 면 해당 VM에 대해 SSH를 수행 하 고 Linux 에이전트를 제거할 수 있습니다.
+VM이 프로비저닝 중이면 SSH에 연결하고 Linux 에이전트를 제거할 수 있습니다.
 
 ```bash
 $ sudo apt purge -y waagent
@@ -77,7 +77,7 @@ $ sudo rm -rf /var/lib/waagent /etc/waagent.conf /var/log/waagent.log
 
 ### <a name="add-required-code-to-the-vm"></a>VM에 필요한 코드 추가
 
-또한 VM 내에서 Azure Linux 에이전트를 제거 했으므로 준비를 보고 하는 메커니즘을 제공 해야 합니다. 
+또한 VM 내부에서 Azure Linux 에이전트를 제거했으므로 준비를 보고할 수 있는 메커니즘을 제공해야 합니다. 
 
 #### <a name="python-script"></a>Python 스크립트
 
@@ -151,13 +151,13 @@ print(f'Response: {resp.status} {resp.reason}')
 wireserver_conn.close()
 ```
 
-#### <a name="generic-steps-without-using-python"></a>일반 단계 (Python을 사용 하지 않음)
+#### <a name="generic-steps-without-using-python"></a>일반 단계(Python을 사용하지 않음)
 
-VM에 Python이 설치 되어 있지 않거나 사용할 수 없는 경우 다음 단계를 사용 하 여 프로그래밍 방식으로이 스크립트 논리를 재현할 수 있습니다.
+VM에 Python이 설치되어 있지 않거나 사용할 수 없는 경우 다음 단계를 사용하 여 위의 스크립트 논리를 프로그래밍 방식으로 재현할 수 있습니다.
 
-1. `ContainerId` `InstanceId` WireServer:에서 응답을 구문 분석 하 여 및를 검색 `curl -X GET -H 'x-ms-version: 2012-11-30' http://168.63.129.16/machine?comp=goalstate` 합니다.
+1. WireServer: `curl -X GET -H 'x-ms-version: 2012-11-30' http://168.63.129.16/machine?comp=goalstate`에서 응답을 구문 분석하여 `ContainerId` 및 `InstanceId`(을)를 검색합니다.
 
-2. 다음 XML 데이터를 생성 하 여 구문 분석 된 `ContainerId` 와 `InstanceId` 위의 단계에서 삽입 합니다.
+2. 위 단계에서 구문 분석된 `ContainerId` 및 `InstanceId`(을)를 삽입하여 다음 XML 데이터를 생성합니다.
    ```xml
    <Health>
      <GoalStateIncarnation>1</GoalStateIncarnation>
@@ -175,11 +175,11 @@ VM에 Python이 설치 되어 있지 않거나 사용할 수 없는 경우 다�
    </Health>
    ```
 
-3. WireServer에이 데이터를 게시 합니다. `curl -X POST -H 'x-ms-version: 2012-11-30' -H "x-ms-agent-name: WALinuxAgent" -H "Content-Type: text/xml;charset=utf-8" -d "$REPORT_READY_XML" http://168.63.129.16/machine?comp=health`
+3. WireServer: `curl -X POST -H 'x-ms-version: 2012-11-30' -H "x-ms-agent-name: WALinuxAgent" -H "Content-Type: text/xml;charset=utf-8" -d "$REPORT_READY_XML" http://168.63.129.16/machine?comp=health`에 이 데이터 게시
 
-### <a name="automating-running-the-code-at-first-boot"></a>처음 부팅 시 코드 실행 자동화
+### <a name="automating-running-the-code-at-first-boot"></a>처음 부팅할 때 코드 실행 자동화
 
-이 데모에서는 최신 Linux 배포판에서 가장 일반적인 init 시스템용 systemd를 사용 합니다. 따라서이 보고서 준비 메커니즘을 적절 한 시간에 실행 하는 가장 쉽고 기본적인 방법은 systemd 서비스 단위를 만드는 것입니다. 다음 단위 파일을에 추가할 수 있습니다 `/etc/systemd/system` .이 예에서는 단위 파일의 이름을로 지정할 수 있습니다 `azure-provisioning.service` .
+이 데모는 최신 Linux 배포판에서 가장 일반적인 init 시스템인 systemd를 사용합니다. 따라서 이 보고 준비 메커니즘이 적시에 실행되도록 하는 가장 쉽고 기본적인 방법은 systemd 서비스 단위를 만드는 것입니다. 다음 단위 파일을 `/etc/systemd/system`에 추가할 수 있습니다(이 예제는 단위 파일 이름을 `azure-provisioning.service`로 지정).
 
 ```bash
 [Unit]
@@ -197,30 +197,30 @@ ExecStart=/usr/bin/systemctl disable azure-provisioning.service
 WantedBy=multi-user.target
 ```
 
-이 systemd 서비스는 기본 프로 비전을 위한 세 가지 작업을 수행 합니다.
+이 systemd 서비스는 기본 프로비저닝을 위한 세 가지 작업을 수행합니다.
 
-1. Azure에 준비 된 보고서 (성공적으로 완료 되었음을 나타냄).
-1. [Azure Instance Metadata Service (IMDS)](./instance-metadata-service.md)에서이 데이터를 당겨 사용자가 제공한 vm 이름에 따라 vm의 이름을 바꿉니다. **참고** 또한 IMDS는 SSH 공개 키와 같은 다른 [인스턴스 메타 데이터](./instance-metadata-service.md#access-azure-instance-metadata-service)를 제공 하므로 호스트 이름 이외의 항목을 설정할 수 있습니다.
-1. 을 사용 하지 않도록 설정 하 여 첫 번째 부팅 에서만 실행 되며 이후에 다시 부팅할 때는 실행 되지 않습니다.
+1. Azure에 준비를 보고합니다(성공적으로 완료되었음을 나타냄).
+1. [Azure IMDS(Azure Instance Metadata Service)](./instance-metadata-service.md)에서 이 데이터를 가져와 사용자가 제공한 VM 이름에 따라 VM 이름을 변경합니다. **참고** IMDS는 또한 SSH 공개 키와 같은 다른 [인스턴스 메타데이터](./instance-metadata-service.md#access-azure-instance-metadata-service)를 제공하므로 호스트 이름보다 더 많은 항목을 설정할 수 있습니다.
+1. 처음 부팅할 때만 실행되며 이후에 재부팅할 때는 실행되지 않도록 자체 비활성화합니다.
 
-파일 시스템의 단위를 사용 하 여 사용 하도록 설정 하려면 다음을 실행 합니다.
+파일 시스템의 단위를 사용해 다음을 실행하여 활성화합니다.
 
 ```bash
 $ sudo systemctl enable azure-provisioning.service
 ```
 
-이제 VM을 일반화 하 고 이미지를 만들 수 있습니다. 
+이제 VM을 일반화할 준비가 되었고, VM에서 이미지를 만들 수 있습니다. 
 
 #### <a name="completing-the-preparation-of-the-image"></a>이미지 준비 완료
 
-개발 컴퓨터로 돌아가서 다음을 실행 하 여 기본 VM에서 이미지를 만들 준비를 합니다.
+개발 컴퓨터로 돌아가서 다음을 실행하여 기본 VM에서 이미지를 만들 준비를 합니다.
 
 ```bash
 $ az vm deallocate --resource-group demo1 --name demo1
 $ az vm generalize --resource-group demo1 --name demo1
 ```
 
-그리고이 VM에서 이미지를 만듭니다.
+그리고 이 VM에서 이미지를 만듭니다.
 
 ```bash
 $ az image create \
@@ -230,7 +230,7 @@ $ az image create \
     --name demo1img
 ```
 
-이제 이미지에서 새 VM (또는 여러 Vm)을 만들 준비가 되었습니다.
+이제 이미지에서 새 VM(또는 여러 VM)을 만들 준비가 되었습니다.
 
 ```bash
 $ IMAGE_ID=$(az image show -g demo1 -n demo1img --query id -o tsv)
@@ -246,9 +246,9 @@ $ az vm create \
 
 > [!NOTE]
 >
-> `--enable-agent` `false` 이미지에서 만들이 VM에 walinuxagent이 존재 하지 않기 때문에를로 설정 하는 것이 중요 합니다.
+> 이미지에서 생성될 이 VM에 walinuxagent이 존재하지 않기 때문에 `--enable-agent`(을)를 `false`(으)로 설정하는 것이 중요합니다.
 
-이 VM은 성공적으로 프로 비전 되어야 합니다. 새로 프로 비전 VM에 로그인 하면 보고서 준비 된 systemd 서비스의 출력을 볼 수 있습니다.
+이 VM은 성공적으로 프로비저닝되어야 합니다. 새로 프로비저닝된 VM에 로그인하면 보고 준비가 완료된 systemd 서비스의 출력을 볼 수 있습니다.
 
 ```bash
 $ sudo journalctl -u azure-provisioning.service
@@ -270,8 +270,8 @@ Jun 11 20:28:56 thstringnopa2 systemd[1]: Started Azure Provisioning.
 
 ## <a name="support"></a>지원
 
-사용자 고유의 프로 비전 코드/에이전트를 구현 하는 경우이 코드에 대 한 지원을 소유 하 고 있으므로 Microsoft 지원에서 프로 비전 인터페이스와 관련 된 문제를 조사할 수 있습니다. 이 영역에서 지속적으로 향상 되 고 변경 되 고 있으므로 API 변경의 프로 비전을 위해 클라우드 init 및 Azure Linux 에이전트에서 변경 내용을 모니터링 해야 합니다.
+자체 프로비저닝 코드/에이전트를 구현하고 이 코드에 대한 지원을 소유한 경우 Microsoft 지원에서는 사용할 수 없는 프로비저닝 인터페이스와 관련된 문제만 조사합니다. 이 영역에서 지속적으로 개선 및 변경 작업을 수행하고 있으므로 API 변경 사항을 프로비전하기 위해 cloud-init 및 Azure Linux 에이전트에서 변경 사항을 모니터링해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [Linux 프로 비전](provisioning.md)을 참조 하세요.
+자세한 내용은 [Linux 프로비저닝](provisioning.md)을 참조하세요.

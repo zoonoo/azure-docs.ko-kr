@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-python
 ms.date: 03/04/2020
 ms.openlocfilehash: eb97e209bc7bb9bc1a15ecadc88593e4c0573b5c
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104870622"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Azure Virtual Network를 통해 HDInsight의 Apache Kafka에 연결
@@ -29,7 +29,7 @@ HDInsight는 공용 인터넷을 통해 Kafka에 직접 연결하는 것을 허�
 
 * 온-프레미스 네트워크와 같은 프라이빗 네트워크를 가상 네트워크에 연결합니다. 이 구성을 통해 온-프레미스 네트워크의 클라이언트들은 직접 Kafka를 사용할 수 있습니다. 이 구성을 사용하도록 설정하려면 다음 작업을 수행합니다.
 
-  1. 가상 네트워크를 만듭니다.
+  1. 가상 네트워크를 생성합니다.
   2. 사이트 간 구성을 사용하는 VPN 게이트웨이를 만듭니다. 이 문서에 사용된 구성을 통해 온-프레미스 네트워크의 VPN 게이트웨이 디바이스에 연결합니다.
   3. 가상 네트워크에 DNS 서버를 만듭니다.
   4. 각 네트워크의 DNS 서버 간에 전달을 구성합니다.
@@ -39,7 +39,7 @@ HDInsight는 공용 인터넷을 통해 Kafka에 직접 연결하는 것을 허�
 
 * VPN 게이트웨이와 VPN 클라이언트를 사용하여 개별 컴퓨터를 가상 네트워크에 연결합니다. 이 구성을 사용하도록 설정하려면 다음 작업을 수행합니다.
 
-  1. 가상 네트워크를 만듭니다.
+  1. 가상 네트워크를 생성합니다.
   2. 지점-사이트 간 구성을 사용하는 VPN 게이트웨이를 만듭니다. 이 구성은 Windows 및 MacOS 클라이언트와 함께 사용할 수 있습니다.
   3. 가상 네트워크에 HDInsight의 Kafka 클러스터를 만듭니다.
   4. IP 보급을 위한 Kafka 구성. 이 구성을 사용하면 클라이언트에서 도메인 이름 대신 broker IP 주소를 사용하여 연결할 수 있습니다.
@@ -53,7 +53,7 @@ HDInsight는 공용 인터넷을 통해 Kafka에 직접 연결하는 것을 허�
      > * 각 클라이언트는 VPN 소프트웨어 클라이언트를 사용하여 연결해야 합니다.
      > * VPN 클라이언트는 가상 네트워크에 이름 확인 요청을 전달하지 않으므로, Kafka와 통신하기 위해 IP 주소 지정을 사용해야 합니다. IP 통신을 하려면 Kafka 클러스터에 추가 구성을 해야 합니다.
 
-가상 네트워크에서 HDInsight를 사용 하는 방법에 대 한 자세한 내용은 [Azure hdinsight 클러스터에 대 한 가상 네트워크 계획](../hdinsight-plan-virtual-network-deployment.md)을 참조 하세요.
+가상 네트워크에서 HDInsight 사용에 대한 자세한 내용은 [Azure HDInsight 클러스터용 가상 네트워크 계획](../hdinsight-plan-virtual-network-deployment.md)을 참조하세요.
 
 ## <a name="connect-to-apache-kafka-from-an-on-premises-network"></a><a id="on-premises"></a> 온-프레미스 네트워크에서 Apache Kafka에 연결
 
@@ -82,7 +82,7 @@ Kafka 클라이언트가 온-프레미스에서 클러스터로 연결할 수 �
 
 1. [지점 및 사이트 간 연결에 대한 자체 서명된 인증서로 작업](../../vpn-gateway/vpn-gateway-certificates-point-to-site.md) 문서에 나오는 단계를 수행합니다. 이 문서는 게이트웨이에 필요한 인증서를 만듭니다.
 
-2. PowerShell 프롬프트를 열고 다음 코드를 사용 하 여 Azure 구독에 로그인 합니다.
+2. PowerShell 프롬프트를 열고 다음 코드를 사용하여 Azure 구독에 로그인합니다.
 
     ```powershell
     Connect-AzAccount
@@ -365,7 +365,7 @@ Kafka에 대한 연결 유효성 검사를 하려면, 다음 단계를 사용하
 
 ## <a name="next-steps"></a>다음 단계
 
-가상 네트워크에서 HDInsight를 사용 하는 방법에 대 한 자세한 내용은 [Azure hdinsight 클러스터에 대 한 가상 네트워크 배포 계획](../hdinsight-plan-virtual-network-deployment.md) 문서를 참조 하세요.
+가상 네트워크와 함께 HDInsight 사용에 대한 자세한 내용은 [Azure HDInsight 클러스터용 가상 네트워크 계획](../hdinsight-plan-virtual-network-deployment.md) 문서를 참조하세요.
 
 지점-사이트 간 VPN Gateway를 사용하여 Azure Virtual Network를 만드는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 

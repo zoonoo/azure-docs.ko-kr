@@ -3,7 +3,7 @@ title: Azure(큰 인스턴스)에서 SAP HANA에 대해 재해 복구 사이트�
 description: Azure(큰 인스턴스)에서 SAP HANA에 대해 재해 복구 사이트로 장애 조치(failover)를 수행하는 방법
 services: virtual-machines-linux
 documentationcenter: ''
-author: saghorpa
+author: Ajayan1008
 manager: juergent
 editor: ''
 ms.service: virtual-machines-sap
@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/22/2019
-ms.author: saghorpa
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a33340524556f5da1703cae3532f053fbe8ba13
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1113e4152d444dbb1d2d1fd3e7727ebff3fe1b86
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670985"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736631"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>재해 복구 장애 조치(failover) 프로시저
 

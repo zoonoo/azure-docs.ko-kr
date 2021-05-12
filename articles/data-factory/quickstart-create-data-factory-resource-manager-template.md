@@ -8,13 +8,13 @@ ms.author: susabat
 ms.reviewer: jburchel, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 07/16/2020
-ms.openlocfilehash: 14d96e3c8892106f67125bbd3b7bce565de13812
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 05/10/2021
+ms.openlocfilehash: 6e99d0d78b87d68cf5b7a94d3b1b9f576ea4913f
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904877"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753960"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Data Factory 만들기
 
@@ -33,7 +33,7 @@ ms.locfileid: "107904877"
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -56,7 +56,7 @@ Jane, Doe
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-data-factory-v2-blob-to-blob-copy/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-data-factory-v2-blob-to-blob-copy/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.datafactory/data-factory-v2-blob-to-blob-copy/azuredeploy.json":::
 
 템플릿에 Azure 리소스가 정의되어 있습니다.
 
@@ -72,7 +72,7 @@ Jane, Doe
 
 1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 템플릿은 Azure Data Factory 계정, 스토리지 계정 및 Blob 컨테이너를 만듭니다.
 
-    [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
+    [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
 
 2. 다음 값을 선택하거나 입력합니다.
 
@@ -130,9 +130,9 @@ Jane, Doe
 
 ### <a name="start-trigger"></a>트리거 시작
 
-1. **데이터 팩터리** 페이지로 이동하여 이전에 만든 데이터 팩터리를 선택합니다. 
+1. **데이터 팩터리** 페이지로 이동하여 이전에 만든 데이터 팩터리를 선택합니다.
 
-2. **작성자 & 모니터** 타일을 선택합니다. 
+2. **작성자 & 모니터** 타일을 선택합니다.
 
     :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="작성자 및 모니터":::
 
@@ -158,13 +158,13 @@ Jane, Doe
 
 ### <a name="verify-the-output-file"></a>출력 파일 확인
 
-파이프라인은 자동으로 Blob 컨테이너에서 출력 폴더를 만듭니다. 그런 다음 입력 폴더에서 출력 폴더로 emp.txt 파일을 복사합니다. 
+파이프라인은 자동으로 Blob 컨테이너에서 출력 폴더를 만듭니다. 그런 다음 입력 폴더에서 출력 폴더로 emp.txt 파일을 복사합니다.
 
-1. Azure Portal의 **컨테이너** 페이지에서 **새로 고침** 을 선택하여 출력 폴더를 확인합니다. 
+1. Azure Portal의 **컨테이너** 페이지에서 **새로 고침** 을 선택하여 출력 폴더를 확인합니다.
 
 2. 폴더 목록에서 **출력** 을 선택합니다.
 
-3. **emp.txt** 가 출력 폴더에 복사되었는지 확인합니다. 
+3. **emp.txt** 가 출력 폴더에 복사되었는지 확인합니다.
 
     :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="출력":::
 
@@ -172,13 +172,13 @@ Jane, Doe
 
 빠른 시작에서 만든 리소스는 두 가지 방법으로 정리할 수 있습니다. 리소스 그룹의 모든 리소스를 포함하고 있는 [Azure 리소스 그룹을 삭제](../azure-resource-manager/management/delete-resource-group.md)할 수 있습니다. 다른 리소스를 그대로 유지하려면 이 자습서에서 만든 데이터 팩터리만 삭제합니다.
 
-리소스 그룹을 삭제하면 그 안에 포함된 데이터 팩터리를 포함한 모든 리소스가 삭제됩니다. 다음 명령을 실행하여 전체 리소스 그룹을 삭제합니다. 
+리소스 그룹을 삭제하면 그 안에 포함된 데이터 팩터리를 포함한 모든 리소스가 삭제됩니다. 다음 명령을 실행하여 전체 리소스 그룹을 삭제합니다.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
-전체 리소스 그룹이 아니라 데이터 팩터리만 삭제하려면 다음 명령을 실행합니다. 
+전체 리소스 그룹이 아니라 데이터 팩터리만 삭제하려면 다음 명령을 실행합니다.
 
 ```azurepowershell-interactive
 Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName

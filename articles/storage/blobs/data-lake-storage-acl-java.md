@@ -1,5 +1,5 @@
 ---
-title: Java를 사용해 Azure Data Lake Storage Gen2에서 ACL 설정
+title: Java를 사용해 Azure Data Lake Storage Gen2에서 ACL 관리
 description: Java용 Azure Storage 라이브러리를 사용하여 HNS(계층 구조 네임스페이스)를 보유한 스토리지 계정에서 ACL(액세스 제어 목록)을 관리합니다.
 author: normesta
 ms.service: storage
@@ -9,12 +9,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: e7d6156fe5cd8ab32ff159bda64e0c06cfbac406
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 75f65c87d47232aa0809475d38a82ffe68203df6
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100654227"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633702"
 ---
 # <a name="use-java-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Java를 사용해 Azure Data Lake Storage Gen2에서 ACL 관리
 

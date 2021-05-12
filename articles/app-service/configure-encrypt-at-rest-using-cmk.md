@@ -3,12 +3,12 @@ title: 미사용 애플리케이션 원본의 암호화
 description: Azure Storage에서 애플리케이션 데이터를 암호화하고, 이를 패키지 파일로 배포하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 5524b749b1e15342dd0133920d7190e33ced18ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a26660723fbe96a9b765401af1f0c9cfc80dbc3f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92146053"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779437"
 ---
 # <a name="encryption-at-rest-using-customer-managed-keys"></a>고객 관리형 키를 사용하는 미사용 데이터의 암호화
 
@@ -43,7 +43,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 이제 `WEBSITE_RUN_FROM_PACKAGE` 애플리케이션 설정 값을 SAS로 인코딩된 URL에 대한 Key Vault 참조로 바꿀 수 있습니다. 그러면 Key Vault에 암호화된 SAS URL이 유지되어, 추가 보안 계층을 제공합니다.
 
-1. 다음 [`az keyvault create`](/cli/azure/keyvault#az-keyvault-create) 명령을 사용하여 Key Vault 인스턴스를 만듭니다.       
+1. 다음 [`az keyvault create`](/cli/azure/keyvault#az_keyvault_create) 명령을 사용하여 Key Vault 인스턴스를 만듭니다.       
 
     ```azurecli    
     az keyvault create --name "Contoso-Vault" --resource-group <group-name> --location eastus    
@@ -51,13 +51,13 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 1. [다음 지침에 따라 키 자격 증명 모음에 대한 앱 액세스 권한을 부여](app-service-key-vault-references.md#granting-your-app-access-to-key-vault)하십시오.
 
-1. 다음 [`az keyvault secret set`](/cli/azure/keyvault/secret#az-keyvault-secret-set) 명령을 사용하여 외부 URL을 키 자격 증명 모음에 암호로 추가합니다.   
+1. 다음 [`az keyvault secret set`](/cli/azure/keyvault/secret#az_keyvault_secret_set) 명령을 사용하여 외부 URL을 키 자격 증명 모음에 암호로 추가합니다.   
 
     ```azurecli    
     az keyvault secret set --vault-name "Contoso-Vault" --name "external-url" --value "<SAS-URL>"    
     ```    
 
-1.  다음 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) 명령을 사용하여 외부 URL에 대한 Key Vault 참조로서의 값을 가지도록 `WEBSITE_RUN_FROM_PACKAGE` 애플리케이션 설정을 만듭니다.
+1.  다음 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) 명령을 사용하여 외부 URL에 대한 Key Vault 참조로서의 값을 가지도록 `WEBSITE_RUN_FROM_PACKAGE` 애플리케이션 설정을 만듭니다.
 
     ```azurecli    
     az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"    

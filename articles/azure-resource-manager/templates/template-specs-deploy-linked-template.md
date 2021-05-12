@@ -1,18 +1,18 @@
 ---
-title: 템플릿 사양을 연결 된 템플릿으로 배포
-description: 연결 된 배포에 기존 템플릿 사양을 배포 하는 방법에 대해 알아봅니다.
+title: 템플릿 사양을 연결된 템플릿으로 배포
+description: 연결된 배포에 기존 템플릿 사양을 배포하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.openlocfilehash: 8d4ccd77c8b37a696fab7494a8d3f8052fc89b35
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104889266"
 ---
-# <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>자습서: 템플릿 사양을 연결 된 템플릿으로 배포 (미리 보기)
+# <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>자습서: 템플릿 사양을 연결된 템플릿으로 배포(미리 보기)
 
-[연결 된 배포](linked-templates.md#linked-template)를 사용 하 여 기존 [템플릿 사양을](template-specs.md) 배포 하는 방법에 대해 알아봅니다. 템플릿 사양을 사용 하 여 조직 내 다른 사용자와 ARM 템플릿을 공유 합니다. 템플릿 사양을 만든 후 Azure PowerShell 또는 Azure CLI를 사용 하 여 템플릿 사양을 배포할 수 있습니다. 연결 된 템플릿을 사용 하 여 솔루션의 일부로 템플릿 사양을 배포할 수도 있습니다.
+[연결된 배포](linked-templates.md#linked-template)를 사용하여 기존 [템플릿 사양](template-specs.md)을 배포하는 방법에 대해 알아봅니다. 템플릿 사양을 사용하여 조직 내 다른 사용자와 ARM 템플릿을 공유합니다. 템플릿 사양을 만든 후 Azure PowerShell 또는 Azure CLI를 사용하여 템플릿 사양을 배포할 수 있습니다. 연결된 템플릿을 사용하여 솔루션의 일부로 템플릿 사양을 배포할 수도 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -23,11 +23,11 @@ ms.locfileid: "104889266"
 
 ## <a name="create-a-template-spec"></a>템플릿 사양 만들기
 
-[빠른 시작: 템플릿 사양 만들기 및 배포](quickstart-create-template-specs.md) 를 따라 저장소 계정을 배포 하기 위한 템플릿 사양을 만듭니다. 다음 섹션에서 템플릿 사양, 템플릿 사양 이름 및 템플릿 사양 버전의 리소스 그룹 이름이 필요 합니다.
+[빠른 시작: 템플릿 사양 만들기 및 배포](quickstart-create-template-specs.md)를 수행하여 스토리지 계정을 배포하기 위한 템플릿 사양을 만듭니다. 다음 섹션에서 템플릿 사양, 템플릿 사양 이름 및 템플릿 사양 버전의 리소스 그룹 이름이 필요합니다.
 
 ## <a name="create-the-main-template"></a>기본 템플릿 만들기
 
-ARM 템플릿에서 템플릿 사양을 배포 하려면 [배포 리소스](/azure/templates/microsoft.resources/deployments) 를 기본 템플릿에 추가 합니다. 속성에서 `templateLink` 템플릿 사양의 리소스 ID를 지정 합니다. **azuredeploy.js에서** 라는 다음 JSON을 사용 하 여 템플릿을 만듭니다. 이 자습서에서는 **c:\Templates\deployTS\azuredeploy.js** 경로에 저장 했지만 임의의 경로를 사용할 수 있다고 가정 합니다.
+ARM 템플릿에서 템플릿 사양을 배포하려면 [배포 리소스](/azure/templates/microsoft.resources/deployments)를 기본 템플릿에 추가합니다. `templateLink` 속성에서 템플릿 사양의 리소스 ID를 지정합니다. **azuredeploy.json** 이라는 다음 JSON으로 템플릿을 만듭니다. 이 자습서에서는 경로 **c:\Templates\deployTS\azuredeploy.json** 에 저장했지만 모든 경로를 사용할 수 있다고 가정합니다.
 
 ```json
 {
@@ -115,7 +115,7 @@ ARM 템플릿에서 템플릿 사양을 배포 하려면 [배포 리소스](/azu
 }
 ```
 
-템플릿 사양 ID는 함수를 사용 하 여 생성 됩니다 [`resourceID()`](template-functions-resource.md#resourceid) . TemplateSpec가 현재 배포의 동일한 리소스 그룹에 있는 경우 resourceID () 함수의 리소스 그룹 인수는 선택 사항입니다.  리소스 ID를 매개 변수로 직접 전달할 수도 있습니다. ID를 가져오려면 다음을 사용 합니다.
+템플릿 사양 ID는 [`resourceID()`](template-functions-resource.md#resourceid) 함수를 사용하여 생성됩니다. TemplateSpec이 현재 배포의 동일한 리소스 그룹에 있는 경우 resourceID() 함수의 리소스 그룹 인수는 선택 사항입니다.  리소스 ID를 매개 변수로 직접 전달할 수도 있습니다. ID를 가져오려면 다음을 사용합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -134,7 +134,7 @@ id = $(az ts show --name $templateSpecName --resource-group $resourceGroupName -
 
 ---
 
-템플릿 사양에 매개 변수를 전달 하는 구문은 다음과 같습니다.
+템플릿 사양에 매개 변수 전달하기 위한 구문은 다음과 같습니다.
 
 ```json
 "parameters": {
@@ -145,11 +145,11 @@ id = $(az ts show --name $templateSpecName --resource-group $resourceGroupName -
 ```
 
 > [!NOTE]
-> ApiVersion은 `Microsoft.Resources/deployments` 2020-06-01 이상 이어야 합니다.
+> `Microsoft.Resources/deployments`의 apiVersion은 2020-06-01 이후여야 합니다.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-연결 된 템플릿을 배포 하는 경우 웹 응용 프로그램과 저장소 계정이 모두 배포 됩니다. 배포는 다른 ARM 템플릿을 배포 하는 것과 같습니다.
+연결된 템플릿을 배포하는 경우 웹 애플리케이션 및 스토리지 계정을 모두 배포합니다. 배포는 다른 ARM 템플릿을 배포하는 것과 동일합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

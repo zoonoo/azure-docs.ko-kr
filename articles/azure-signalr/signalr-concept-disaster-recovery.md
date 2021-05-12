@@ -8,19 +8,19 @@ ms.custom: devx-track-csharp
 ms.date: 03/01/2019
 ms.author: kenchen
 ms.openlocfilehash: 996fa53aa105c0bcc27db7134c25d6d00e542a78
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105110290"
 ---
 # <a name="resiliency-and-disaster-recovery-in-azure-signalr-service"></a>Azure SignalR Service의 복원력 및 재해 복구
 
 복원력 및 재해 복구는 온라인 시스템에 공통적으로 필요합니다. Azure SignalR Service는 이미 99.9% 가용성을 보장하지만 여전히 지역 서비스에 불과합니다.
-서비스 인스턴스는 항상 한 지역에서 실행 되며 지역 전체 중단이 발생 하면 다른 지역으로 장애 조치 (failover) 되지 않습니다.
+사용자의 서비스 인스턴스는 항상 한 지역에서 실행되며, 지역 중단이 발생하는 경우 다른 지역으로 장애 조치(failover)되지 않습니다.
 
 Microsoft의 서비스 SDK는 대신 여러 SignalR Service 인스턴스를 지원하고 그 중 일부를 사용할 수 없는 경우 다른 인스턴스로 자동으로 전환하는 기능을 제공합니다.
-이 기능을 사용 하면 재해가 발생 한 경우 복구할 수 있지만 직접 시스템 토폴로지를 설정 해야 합니다. 이 문서에서는 그 방법에 대해 알아봅니다.
+이 기능을 사용하면 재해가 발생할 때 복구할 수 있지만 올바른 시스템 토폴로지를 직접 설정해야 합니다. 이 문서에서는 그 방법에 대해 알아봅니다.
 
 ## <a name="high-available-architecture-for-signalr-service"></a>SignalR Service에 대한 고가용성 아키텍처
 
@@ -29,8 +29,8 @@ SignalR Service에 대한 지역 간 복원력을 위해서는 다른 지역에�
 기본은 온라인 트래픽을 담당하는 인스턴스이며, 보조는 완벽하게 작동하지만 기본에 대한 백업 인스턴스입니다.
 SDK 구현에서 협상은 기본 엔드포인트만 반환하므로, 일반적인 경우 클라이언트는 기본 엔드포인트에만 연결됩니다.
 하지만 기본 인스턴스가 다운되는 경우 협상은 보조 엔드포인트를 반환하므로 클라이언트는 연결을 계속 유지할 수 있습니다.
-주 인스턴스 및 앱 서버는 일반 서버 연결을 통해 연결 되지만 보조 인스턴스 및 앱 서버는 약한 연결 이라고 하는 특수 한 유형의 연결을 통해 연결 됩니다.
-약한 연결의 주요 차이점은 보조 인스턴스가 다른 지역에 있기 때문에 클라이언트 연결 라우팅을 허용 하지 않는다는 것입니다. 클라이언트를 다른 지역으로 라우팅하는 것은 최적의 선택이 아닙니다 (대기 시간 증가).
+기본 인스턴스 및 앱 서버는 일반 서버 연결을 통해 연결되지만 보조 인스턴스 및 앱 서버는 취약한 연결이라는 특수한 유형의 연결을 통해 연결됩니다.
+취약한 연결의 주요 차이점은 보조 인스턴스가 다른 지역에 있으므로 클라이언트 연결 라우팅을 수락하지 않는다는 점입니다. 다른 지역으로 클라이언트를 라우팅하는 것은 최적의 선택이 아닙니다(대기 시간이 증가함).
 
 여러 앱 서버에 연결하는 경우 하나의 서비스 인스턴스가 여러 다른 역할을 가질 수 있습니다.
 지역 간 시나리오에 대한 한 가지 일반적인 설정은 SignalR Service 인스턴스와 앱 서버의 쌍을 두 개(또는 이상) 가지는 것입니다.
@@ -42,20 +42,20 @@ SDK 구현에서 협상은 기본 엔드포인트만 반환하므로, 일반적�
 
 다음은 이러한 토폴로지를 보여주는 다이어그램입니다.
 
-![다이어그램은 각각 앱 서버 및 SignalR 서비스를 포함 하는 두 개의 지역을 보여줍니다. 여기서 각 서버는 해당 지역의 SignalR 서비스와 다른 지역의 서비스를 보조로 연결 합니다.](media/signalr-concept-disaster-recovery/topology.png)
+![다이어그램은 각각 앱 서버 및 SignalR Service가 있는 두 개의 지역을 보여 줍니다. 여기에서 각 서버는 해당 지역의 SignalR Service와 기본으로 연결되며, 다른 지역의 서비스와 보조로 연결됩니다.](media/signalr-concept-disaster-recovery/topology.png)
 
-## <a name="configure-multiple-signalr-service-instances"></a>여러 SignalR 서비스 인스턴스 구성
+## <a name="configure-multiple-signalr-service-instances"></a>여러 SignalR Service 인스턴스 구성
 
-여러 SignalR service 인스턴스는 앱 서버와 Azure Functions 모두에서 지원 됩니다.
+앱 서버와 Azure Functions에서 모두 여러 개의 SignalR Service 인스턴스를 지원합니다.
 
-각 지역에서 SignalR 서비스 및 앱 서버/Azure Functions를 만든 후에는 앱 서버/Azure Functions를 구성 하 여 모든 SignalR 서비스 인스턴스에 연결할 수 있습니다.
+각 지역에서 SignalR Service 및 앱 서버/Azure Functions를 만든 후에 모든 SignalR Service 인스턴스에 연결되도록 앱 서버/Azure Functions를 구성할 수 있습니다.
 
 ### <a name="configure-on-app-servers"></a>앱 서버에서 구성
 두 가지 방법이 있습니다.
 
 #### <a name="through-config"></a>구성을 통해
 
-환경 변수/앱 설정/웹. cofig을 통해 이름이 인 구성 항목에서 SignalR 서비스 연결 문자열을 설정 하는 방법을 이미 알고 있어야 합니다 `Azure:SignalR:ConnectionString` .
+`Azure:SignalR:ConnectionString`이라는 구성 항목에서 환경 변수/애플리케이션 설정/web.cofig로 SignalR Service 연결 문자열을 설정하는 방법을 미리 알고 있어야 합니다.
 여러 엔드포인트가 있는 경우 여러 구성 항목에서 각각 다음 형식으로 설정할 수 있습니다.
 
 ```
@@ -67,7 +67,7 @@ Azure:SignalR:ConnectionString:<name>:<role>
 
 #### <a name="through-code"></a>코드를 통해
 
-연결 문자열을 다른 위치에 저장 하려는 경우 코드에서이를 읽고 `AddAzureSignalR()` (ASP.NET Core) 또는 `MapAzureSignalR()` (ASP.NET)를 호출할 때 매개 변수로 사용할 수도 있습니다.
+연결 문자열을 다른 곳에 저장하려는 경우 `AddAzureSignalR()`(ASP.NET Core에서) 또는 `MapAzureSignalR()`(ASP.NET에서)을 호출할 때 코드에서 이를 읽어 매개 변수로 사용할 수 있습니다.
 
 다음은 예제 코드입니다.
 
@@ -92,13 +92,13 @@ app.MapAzureSignalR(GetType().FullName, hub,  options => options.Endpoints = new
     };
 ```
 
-주 또는 보조 인스턴스를 여러 개 구성할 수 있습니다. 주 및/또는 보조 인스턴스가 여러 개 있는 경우 negotiate는 다음 순서로 끝점을 반환 합니다.
+기본 또는 보조 인스턴스를 여러 개 구성할 수 있습니다. 기본 및/또는 보조 인스턴스가 여러 개 있는 경우 negotiate가 다음 순서로 엔드포인트를 반환합니다.
 
-1. 주 인스턴스가 하나 이상 온라인 상태 이면 임의의 주 온라인 인스턴스를 반환 합니다.
-2. 모든 주 인스턴스가 다운 되 면 임의의 보조 온라인 인스턴스를 반환 합니다.
+1. 온라인 상태인 기본 인스턴스가 하나 이상이면 임의의 기본 온라인 인스턴스를 반환합니다.
+2. 모든 기본 인스턴스가 다운되면 임의의 보조 온라인 인스턴스를 반환합니다.
 
-### <a name="configure-on-azure-functions"></a>Azure Functions 구성
-[이 문서](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/docs/sharding.md#configuration-method)를 참조 하세요.
+### <a name="configure-on-azure-functions"></a>Azure Functions의 구성
+[이 문서](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/docs/sharding.md#configuration-method)를 참조하세요.
 
 ## <a name="failover-sequence-and-best-practice"></a>장애 조치(Failover) 시퀀스와 모범 사례
 
@@ -133,7 +133,7 @@ SignalR Service는 두 패턴을 모두 지원하며 주요 차이점은 앱 서
 앱 서버가 활성/수동인 경우 SignalR Service는 활성/수동이 될 수 있습니다(기본 앱 서버는 해당 기본 SignalR Service 인스턴스만 반환하므로).
 앱 서버가 활성/활성인 경우 SignalR Service는 활성/활성이 될 수 있습니다(모든 앱 서버는 자체 기본 SignalR 인스턴스를 반환하므로 모두 트래픽을 받을 수 있음).
 
-사용할 패턴에 관계 없이 각 SignalR 서비스 인스턴스를 앱 서버에 기본으로 연결 해야 합니다.
+사용하도록 선택한 패턴이 무엇인지 확인하세요. 각 SignalR Service 인스턴스를 기본으로 앱 서버에 연결해야 합니다.
 
 또한 SignalR 연결의 특성상(긴 연결임) 재해 및 장애 조치(failover)가 발생하는 경우 클라이언트에서 연결이 끊깁니다.
 최종 고객에게 명료하도록 그러한 경우를 클라이언트 쪽에서 처리해야 합니다. 예를 들어 연결을 닫은 후 다시 연결을 수행합니다.
@@ -142,6 +142,6 @@ SignalR Service는 두 패턴을 모두 지원하며 주요 차이점은 앱 서
 
 이 문서에서는 SignalR Service에 대한 복원력을 달성하기 위해 애플리케이션을 구성하는 방법을 알아보았습니다. SignalR Service의 서버/클라이언트 연결 및 연결 라우팅에 대해 자세히 알아보려면 [이 문서](signalr-concept-internals.md)에서 SignalR Service 내부 기능에 대해 읽어보세요.
 
-여러 인스턴스를 함께 사용 하 여 다 수의 연결을 처리 하는 분할와 같은 크기 조정 시나리오의 경우 [여러 인스턴스의 크기를 조정 하는 방법](signalr-howto-scale-multi-instances.md)을 참조 하세요.
+여러 인스턴스를 함께 사용하여 대규모 연결을 처리하는 분할과 같은 스케일링 시나리오의 경우 [여러 인스턴스를 스케일링하는 방법](signalr-howto-scale-multi-instances.md)을 참조하세요.
 
-여러 SignalR service 인스턴스를 사용 하 여 Azure Functions를 구성 하는 방법에 대 한 자세한 내용은 [Azure Functions에서 여러 Azure SignalR 서비스 인스턴스 지원](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/docs/sharding.md)을 참조 하세요.
+여러 SignalR Service 인스턴스를 사용하여 Azure Functions를 구성하는 방법에 대한 자세한 내용은 [Azure Functions에서 여러 Azure SignalR Service 인스턴스 지원](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/docs/sharding.md)을 참조하세요.

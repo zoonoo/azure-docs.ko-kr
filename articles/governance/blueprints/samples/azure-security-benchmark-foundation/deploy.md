@@ -3,12 +3,12 @@ title: Azure Security Benchmark Foundation 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 Azure Security Benchmark Foundation 청사진 샘플에 대한 단계를 배포합니다.
 ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: af41dd50c976ac6c0570b8a089211fa310ef4ef1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6afdc94624d39ce60b96ad33639721f130a056ef
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103232616"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108765182"
 ---
 # <a name="deploy-the-azure-security-benchmark-foundation-blueprint-sample"></a>Azure Security Benchmark Foundation 청사진 샘플 배포
 
@@ -82,7 +82,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    - 청사진 매개 변수
 
      이 섹션에 정의된 매개 변수는 일관성을 제공하기 위해 청사진 정의의 아티팩트 대부분에서 사용됩니다.
-    
+
      - **리소스 및 리소스 그룹의 접두사**: 이 문자열은 모든 리소스 및 리소스 그룹 이름의 접두사로 사용됩니다.
      - **허브 이름**: 허브에 대한 이름
      - **로그 보존 기간(일)** : 로그가 보존되는 일 수입니다. '0'을 입력하면 로그가 무기한 유지됩니다.
@@ -92,9 +92,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
      - **Network Watcher 이름**: Network Watcher 리소스에 대한 이름
      - **Network Watcher 리소스 그룹 이름**: Network Watcher 리소스 그룹에 대한 이름
      - **DDoS Protection 사용**: 가상 네트워크에서 DDoS 보호를 사용할지 여부를 지정하려면 'true' 또는 'false'를 입력합니다.
-     
-    > [!NOTE] 
-    > Network Watcher가 이미 사용하도록 설정된 경우 기존 Network Watcher 리소스 그룹을 사용하는 것이 좋습니다. 또한 아티팩트 매개 변수 **Network Watcher 리소스 그룹 위치** 에 대한 기존 Network Watcher 리소스 그룹의 위치를 제공해야 합니다.
+
+     > [!NOTE]
+     > Network Watcher가 이미 사용하도록 설정된 경우 기존 Network Watcher 리소스 그룹을 사용하는 것이 좋습니다. 또한 아티팩트 매개 변수 **Network Watcher 리소스 그룹 위치** 에 대한 기존 Network Watcher 리소스 그룹의 위치를 제공해야 합니다.
 
    - 아티팩트 매개 변수
 
@@ -115,7 +115,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |허브 리소스 그룹|리소스 그룹|리소스 그룹 위치|잠김 - 허브 위치 사용|
 |Azure Firewall 템플릿|Resource Manager 템플릿|Azure Firewall 개인 IP 주소||
 |Azure Log Analytics 및 진단 템플릿|Resource Manager 템플릿|Log Analytics 작업 영역 위치|Log Analytics 작업 영역을 만들 위치입니다. Azure PowersShell에서 `Get-AzLocation | Where-Object Providers -like 'Microsoft.OperationalInsights' | Select DisplayName`을 실행하여 사용 가능한 영역을 봅니다.|
-|Azure Log Analytics 및 진단 템플릿|Resource Manager 템플릿|Azure Automation 계정 ID(선택 사항)|Automation 계정 리소스 ID, Log Analytics와 Automation 계정 간에 연결된 서비스를 만드는 데 사용됩니다.|
+|Azure Log Analytics 및 진단 템플릿|Resource Manager 템플릿|Azure Automation 계정 ID(선택 사항) |Automation 계정 리소스 ID, Log Analytics와 Automation 계정 간에 연결된 서비스를 만드는 데 사용됩니다.|
 |Azure 네트워크 보안 그룹 템플릿|Resource Manager 템플릿|NSG 흐름 로그 사용|NSG 흐름 로그를 사용하거나 사용하지 않으려면 'true' 또는 'false'를 입력합니다.|
 |Azure Virtual Network 허브 템플릿|Resource Manager 템플릿|가상 네트워크 주소 접두사|허브 가상 네트워크에 대한 가상 네트워크 주소 접두사|
 |Azure Virtual Network 허브 템플릿|Resource Manager 템플릿|방화벽 서브넷 주소 접두사|허브 가상 네트워크에 대한 방화벽 서브넷 주소 접두사|

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 04/09/2021
 ms.author: rohink
-ms.openlocfilehash: 4c867ad3888544df93f8a6e5a6236a01197eefc2
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: eb66facb8d36884205bc9cd8e562ab97f92c3dd8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127842"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745040"
 ---
 # <a name="what-is-azure-private-dns"></a>Azure 프라이빗 DNS란?
 
@@ -74,7 +74,7 @@ Azure DNS의 제한 사항은 다음과 같습니다.
 
 * Azure DNS에서 프라이빗 영역으로 실현할 수 있는 몇 가지 일반 [프라이빗 영역 시나리오](./private-dns-scenarios.md)에 대해 읽어보세요.
 
-* Azure DNS의 프라이빗 영역에 대한 일반적인 질문과 답변은 [프라이빗 DNS FAQ](./dns-faq-private.md)를 참조하세요.
+* Azure DNS의 프라이빗 영역에 대한 일반적인 질문과 답변은 [프라이빗 DNS FAQ](./dns-faq-private.yml)를 참조하세요.
 
 * [DNS 영역 및 레코드 개요](dns-zones-records.md)를 참조하여 DNS 영역 및 레코드에 대해 알아봅니다.
 

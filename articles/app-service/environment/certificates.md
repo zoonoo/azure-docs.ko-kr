@@ -1,6 +1,6 @@
 ---
 title: 인증서 바인딩
-description: App Service Environment에서 인증서와 관련 된 다양 한 항목을 설명 합니다. 인증서 바인딩이 ASE의 단일 테 넌 트 앱에서 작동 하는 방식에 대해 알아봅니다.
+description: App Service Environment의 인증서와 관련된 다양한 항목에 대해 설명합니다. 인증서 바인딩이 ASE의 단일 테넌트 앱에서 작동하는 방식에 대해 알아봅니다.
 author: ccompy
 ms.assetid: 9e21a7e4-2436-4e81-bb05-4a6ba70eeaf7
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 306445e26e5b236b49273b9ab8888ecc610bc075
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88962046"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>인증서 및 App Service Environment 
@@ -22,7 +22,7 @@ ASE는 단일 테넌트 시스템입니다. 단일 테넌트이므로 다중 테
 
 ## <a name="ilb-ase-certificates"></a>ILB ASE 인증서 
 
-외부 ASE를 사용하는 경우 앱이 [appname].[asename].p.azurewebsites.net에서 연결됩니다. 기본적으로 모든 ASE, 심지어 ILB ASE도 해당 형식에 따라 인증서를 사용하여 만들어집니다. ILB ASE가 있는 경우 ILB ASE를 만들 때 지정한 도메인 이름에 따라 앱이 연결됩니다. 앱이 TLS를 지원 하도록 하려면 인증서를 업로드 해야 합니다. 내부 인증 기관을 사용 하거나, 외부 발급자 로부터 인증서를 구입 하거나, 자체 서명 된 인증서를 사용 하 여 유효한 TLS/SSL 인증서를 얻습니다. 
+외부 ASE를 사용하는 경우 앱이 [appname].[asename].p.azurewebsites.net에서 연결됩니다. 기본적으로 모든 ASE, 심지어 ILB ASE도 해당 형식에 따라 인증서를 사용하여 만들어집니다. ILB ASE가 있는 경우 ILB ASE를 만들 때 지정한 도메인 이름에 따라 앱이 연결됩니다. 앱에서 TLS을 지원하려면 인증서를 업로드해야 합니다. 내부 인증 기관을 사용하거나, 외부 발급자로부터 인증서를 구입하거나, 자체 서명된 인증서를 사용하는 등의 방법으로 유효한 TLS/SSL 인증서를 구합니다. 
 
 ILB ASE를 사용하여 인증서를 구성하는 두 가지 옵션이 있습니다.  ILB ASE에 대한 와일드카드 기본 인증서를 설정하거나 ASE의 개별 웹앱에 인증서를 설정할 수 있습니다.  선택한 항목에 관계없이 다음 인증서 특성을 올바르게 구성해야 합니다.
 
@@ -51,7 +51,7 @@ $fileName = "exportedcert.pfx"
 Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password
 ```
 
-자체 서명 된 인증서를 만들 때 주체 이름에 CN = {ASE_NAME_HERE} _InternalLoadBalancingASE 형식이 있는지 확인 해야 합니다.
+자체 서명된 인증서를 만들 때 주체 이름에 CN={ASE_NAME_HERE}_InternalLoadBalancingASE 형식이 있는지 확인해야 합니다.
 
 ## <a name="application-certificates"></a>애플리케이션 인증서 
 
@@ -61,7 +61,7 @@ ASE에서 호스팅되는 앱은 다중 테넌트 App Service에서 사용할 �
 - IP 기반 SSL - 외부 ASE에서만 지원되며,  ILB ASE는 IP 기반 SSL을 지원하지 않습니다.
 - KeyVault 호스팅 인증서 
 
-이러한 인증서를 업로드 하 고 관리 하는 방법에 대 한 지침은 [Azure App Service에서 TLS/SSL 인증서 추가](../configure-ssl-certificate.md)에서 사용할 수 있습니다.  웹앱에 할당한 사용자 지정 도메인 이름과 일치하도록 인증서를 간단히 구성하는 경우 이러한 지침만으로도 충분합니다. 기본 도메인 이름을 사용하여 ILB ASE 웹앱에 대한 인증서를 업로드하는 경우 앞에서 설명한 대로 인증서의 SAN에 scm 사이트를 지정합니다. 
+이러한 인증서의 업로드 및 관리 지침은 [Azure App Service의 TLS/SSL 인증서 추가](../configure-ssl-certificate.md)에서 사용할 수 있습니다.  웹앱에 할당한 사용자 지정 도메인 이름과 일치하도록 인증서를 간단히 구성하는 경우 이러한 지침만으로도 충분합니다. 기본 도메인 이름을 사용하여 ILB ASE 웹앱에 대한 인증서를 업로드하는 경우 앞에서 설명한 대로 인증서의 SAN에 scm 사이트를 지정합니다. 
 
 ## <a name="tls-settings"></a>TLS 설정 
 
@@ -81,7 +81,7 @@ ASE에서 인증서를 앱에 업로드하려면 다음을 수행합니다.
 
     84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 
-인증서는 해당 설정을 구성한 앱과 동일한 App Service 계획에 있는 모든 앱에서 사용할 수 있습니다. 다른 App Service 계획의 응용 프로그램에서 이 인증서를 사용할 수 있도록 하려면 해당 App Service 계획의 앱에서 앱 설정 작업을 반복해야 합니다. 인증서가 설정 되었는지 확인 하려면 Kudu 콘솔로 이동 하 여 PowerShell 디버그 콘솔에서 다음 명령을 실행 합니다.
+인증서는 해당 설정을 구성한 앱과 동일한 App Service 계획에 있는 모든 앱에서 사용할 수 있습니다. 다른 App Service 계획의 응용 프로그램에서 이 인증서를 사용할 수 있도록 하려면 해당 App Service 계획의 앱에서 앱 설정 작업을 반복해야 합니다. 인증서가 설정되었는지 확인하려면 Kudu 콘솔로 이동하여 PowerShell 디버그 콘솔에서 다음 명령을 실행합니다.
 
 ```azurepowershell-interactive
 dir cert:\localmachine\root

@@ -1,6 +1,6 @@
 ---
 title: Azure API Management 정책 | Microsoft Docs
-description: Azure API Management에 사용할 수 있는 정책에 대해 알아봅니다. 정책을 사용 하면 게시자가 구성을 통해 API 동작을 변경할 수 있습니다.
+description: Azure API Management에 사용할 수 있는 정책에 대해 알아봅니다. 정책을 사용하면 게시자는 구성을 통해 API 동작을 변경할 수 있습니다.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/17/2021
 ms.author: apimpm
 ms.openlocfilehash: e809efa9da32da5fe9ca296608c602e770f78265
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103562351"
 ---
 # <a name="api-management-policies"></a>API Management 정책
@@ -26,7 +26,7 @@ ms.locfileid: "103562351"
 
  정책이 다르게 지정하지 않는 한 정책 식은 어떤 API Management 정책에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다. [제어 흐름](api-management-advanced-policies.md#choose) 및 [변수 설정](api-management-advanced-policies.md#set-variable) 정책 등의 일부 정책은 정책 식을 기반으로 합니다. 자세한 내용은 [고급 정책](api-management-advanced-policies.md#AdvancedPolicies) 및 [정책 식](api-management-policy-expressions.md)을 참조하세요.
 
-##  <a name="policies"></a><a name="ProxyPolicies"></a> 방침
+##  <a name="policies"></a><a name="ProxyPolicies"></a> 정책
 
 -   [액세스 제한 정책](api-management-access-restriction-policies.md#AccessRestrictionPolicies)
     -   [HTTP 헤더 확인](api-management-access-restriction-policies.md#CheckHTTPHeader) - HTTP 헤더의 존재 및/또는 값을 적용합니다.
@@ -50,12 +50,12 @@ ms.locfileid: "103562351"
     -   [변수 설정](api-management-advanced-policies.md#set-variable) - 나중에 액세스할 수 있도록 명명된 context 변수의 값을 유지합니다.
     -   [요청 메서드 설정](api-management-advanced-policies.md#SetRequestMethod) - 요청에 대한 HTTP 메서드를 변경할 수 있습니다.
     -   [상태 코드 설정](api-management-advanced-policies.md#SetStatus) - 지정된 값으로 HTTP 상태 코드를 변경합니다.
-    -   [Trace](api-management-advanced-policies.md#Trace) -사용자 지정 추적을 [API 검사기](./api-management-howto-api-inspector.md) 출력, Application Insights 원격 분석 및 리소스 로그에 추가 합니다.
-    -   [대기](api-management-advanced-policies.md#Wait) -계속 하기 전에 포함 되는 [보내기 요청](api-management-advanced-policies.md#SendRequest), [캐시에서 값 가져오기](api-management-caching-policies.md#GetFromCacheByKey)또는 [제어 흐름](api-management-advanced-policies.md#choose) 정책에 대해 대기 합니다.
+    -   [추적](api-management-advanced-policies.md#Trace) - 사용자 지정 추적을 [API 검사기](./api-management-howto-api-inspector.md) 출력, Application Insights 원격 분석, 리소스 로그에 추가합니다.
+    -   [대기](api-management-advanced-policies.md#Wait) - 계속하기 전에 완료할 포함된 [요청 전송](api-management-advanced-policies.md#SendRequest), [캐시에서 값 가져오기](api-management-caching-policies.md#GetFromCacheByKey) 또는 [제어 흐름](api-management-advanced-policies.md#choose) 정책 등을 기다립니다.
 -   [인증 정책](api-management-authentication-policies.md#AuthenticationPolicies)
     -   [기본 사용 인증](api-management-authentication-policies.md#Basic) - 기본 인증을 사용하여 백 엔드 서비스를 인증합니다.
     -   [클라이언트 인증서 사용 인증](api-management-authentication-policies.md#ClientCertificate) - 클라이언트 인증서를 사용하여 백 엔드 서비스를 인증합니다.
-    -   [관리 id](api-management-authentication-policies.md#ManagedIdentity) 를 사용 하 여 인증- [관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md)를 사용 하 여 백 엔드 서비스로 인증 합니다.
+    -   [관리 ID로 인증](api-management-authentication-policies.md#ManagedIdentity) - [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하여 백 엔드 서비스로 인증합니다.
 -   [캐싱 정책](api-management-caching-policies.md#CachingPolicies)
     -   [캐시에서 가져오기](api-management-caching-policies.md#GetFromCache) - 캐시 조회를 수행하여 사용 가능한 경우 올바르게 캐시된 응답을 반환합니다.
     -   [캐시에 저장](api-management-caching-policies.md#StoreToCache) - 지정된 캐시 제어 구성에 따라 응답을 캐시합니다.
@@ -77,16 +77,16 @@ ms.locfileid: "103562351"
     -   [쿼리 문자열 매개 변수 설정](api-management-transformation-policies.md#SetQueryStringParameter) - 요청 쿼리 문자열 매개 변수를 추가하거나 그 값을 바꾸거나 삭제합니다.
     -   [URL 다시 쓰기](api-management-transformation-policies.md#RewriteURL) - 요청 URL을 공용 양식에서 웹 서비스에 필요한 양식으로 변환합니다.
     -   [XSLT를 사용하여 XML 변환](api-management-transformation-policies.md#XSLTransform) - 요청 또는 응답 본문의 XML에 XSL 변환을 적용합니다.
-- [Eapr 통합 정책](api-management-dapr-policies.md)
-    - [서비스에 요청 보내기](api-management-dapr-policies.md#invoke) -capr 런타임을 사용 하 여 마이크로 서비스를 찾고 안정적으로 통신 합니다.
-    -  [Pub/Sub 토픽으로 메시지 보내기](api-management-dapr-policies.md#pubsub) -capr 런타임을 사용 하 여 게시/구독 항목에 메시지를 게시 합니다.
-    -  [트리거 출력 바인딩](api-management-dapr-policies.md#bind) -gapr 런타임을 사용 하 여 출력 바인딩을 통해 외부 시스템을 호출 합니다.
+- [Dapr 통합 정책](api-management-dapr-policies.md)
+    - [서비스에 요청 보내기](api-management-dapr-policies.md#invoke) - Dapr 런타임을 사용하여 Dapr 마이크로 서비스를 찾고 안정적으로 통신합니다.
+    -  [Pub/Sub 토픽으로 메시지 보내기](api-management-dapr-policies.md#pubsub) - Dapr 런타임을 사용하여 게시/구독 토픽에 메시지를 게시합니다.
+    -  [출력 바인딩 트리거](api-management-dapr-policies.md#bind) - Dapr 런타임을 사용하여 출력 바인딩을 통해 외부 시스템을 호출합니다.
 - [정책 유효성 검사](validation-policies.md)
-    - [콘텐츠 유효성 검사](validation-policies.md#validate-content) -API 스키마에 대 한 요청 또는 응답 본문의 크기 또는 JSON 스키마의 유효성을 검사 합니다.
+    - [콘텐츠 유효성 검사](validation-policies.md#validate-content) - API 스키마에 대한 요청 또는 응답 본체의 크기 또는 JSON 스키마의 유효성을 검사합니다.
 . 
-    - [매개 변수 유효성 검사](validation-policies.md#validate-parameters) -API 스키마에 대 한 요청 헤더, 쿼리 또는 경로 매개 변수의 유효성을 검사 합니다.
-    - [헤더 유효성 검사](validation-policies.md#validate-headers) -API 스키마에 대해 응답 헤더의 유효성을 검사 합니다.
-    - [상태 코드 유효성 검사](validation-policies.md#validate-status-code) -API 스키마에 대 한 응답에서 HTTP 상태 코드의 유효성을 검사 합니다.
+    - [매개 변수 유효성 검사](validation-policies.md#validate-parameters) - API 스키마에 대한 요청 헤더, 쿼리 또는 경로 매개 변수의 유효성을 검사합니다.
+    - [헤더 유효성 검사](validation-policies.md#validate-headers) - API 스키마에 대한 응답 헤더의 유효성을 검사합니다.
+    - [상태 코드 유효성 검사](validation-policies.md#validate-status-code) -API 스키마에 대한 응답에서 HTTP 상태 코드의 유효성을 검사합니다.
 
 ## <a name="next-steps"></a>다음 단계
 정책으로 작업하는 방법에 대한 자세한 내용은 다음을 참조하세요.

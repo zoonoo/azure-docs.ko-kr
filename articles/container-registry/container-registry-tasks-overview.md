@@ -3,12 +3,12 @@ title: ACR 작업 개요
 description: 클라우드에서 안전하고 자동화된 컨테이너 이미지 빌드 관리, 패치를 제공하는 Azure Container Registry의 기능 모음인 ACR 작업을 소개합니다.
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: 1cf9faf934cebfb5abe0d2e1b26ffd7da2d6c549
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a42a2bfcdc1621689421940c4db2fcf4f5e64b89
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104606789"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781004"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>ACR 작업을 사용하여 컨테이너 이미지 빌드 및 유지 관리 자동화
 
@@ -59,7 +59,7 @@ ACR 작업은 Git 리포지토리를 작업의 컨텍스트로 설정할 때 다
 | 트리거 | 기본적으로 사용하도록 설정됨 |
 | ------- | ------------------ |
 | Commit | 예 |
-| 끌어오기 요청 | 예 |
+| 끌어오기 요청 | No |
 
 소스 코드 업데이트 트리거를 구성하려면 작업에 PAT(개인용 액세스 토큰)를 제공하여 퍼블릭 또는 프라이빗 GitHub 또는 Azure DevOps 리포지토리에 웹후크를 설정해야 합니다.
 
@@ -127,7 +127,7 @@ ACR 작업을 위한 [기본 이미지 업데이트 트리거](container-registr
 
 ## <a name="view-task-output"></a>태스크 출력 보기
 
-태스크가 실행될 때마다 로그 출력이 생성되며, 이를 검사하여 작업 단계가 성공적으로 실행되었는지 여부를 확인할 수 있습니다. 작업을 수동으로 트리거하는 경우 태스크 실행에 대한 로그 출력이 콘솔로 스트리밍되며 나중에 검색할 수 있도록 저장됩니다. 예를 들어 소스 코드 커밋 또는 기본 이미지 업데이트 시 태스크가 자동으로 트리거되면 작업 로그만 저장됩니다. Azure Portal에서 실행 로그를 보거나 [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) 명령을 사용합니다.
+태스크가 실행될 때마다 로그 출력이 생성되며, 이를 검사하여 작업 단계가 성공적으로 실행되었는지 여부를 확인할 수 있습니다. 작업을 수동으로 트리거하는 경우 태스크 실행에 대한 로그 출력이 콘솔로 스트리밍되며 나중에 검색할 수 있도록 저장됩니다. 예를 들어 소스 코드 커밋 또는 기본 이미지 업데이트 시 태스크가 자동으로 트리거되면 작업 로그만 저장됩니다. Azure Portal에서 실행 로그를 보거나 [az acr task logs](/cli/azure/acr/task#az_acr_task_logs) 명령을 사용합니다.
 
 [작업 로그 보기 및 관리](container-registry-tasks-logs.md)에 대한 자세한 내용을 참조하세요.
 
@@ -143,11 +143,11 @@ ACR 작업을 위한 [기본 이미지 업데이트 트리거](container-registr
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-pack-build]: /cli/azure/acr/pack#az-acr-pack-build
+[az-acr-build]: /cli/azure/acr#az_acr_build
+[az-acr-pack-build]: /cli/azure/acr/pack#az_acr_pack_build
 [az-acr-task]: /cli/azure/acr/task
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-login]: /cli/azure/reference-index#az-login
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-login]: /cli/azure/reference-index#az_login
 [az-login-service-principal]: /cli/azure/authenticate-azure-cli
 
 <!-- IMAGES -->
