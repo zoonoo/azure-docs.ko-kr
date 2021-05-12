@@ -1,5 +1,5 @@
 ---
-title: Windows 용 Azure Notification Hubs 보안 푸시
+title: Windows용 Azure Notification Hubs 보안 푸시
 description: Azure에서 보안 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 .NET API를 사용하여 C#으로 작성되었습니다.
 author: sethmanheim
 manager: femila
@@ -16,10 +16,10 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 98e587103e63cd5cc26eab5b00864d00e0b9007f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96019426"
 ---
 # <a name="send-secure-push-notifications-from-azure-notification-hubs"></a>Azure Notification Hubs에서 보안 푸시 알림 보내기
@@ -46,10 +46,10 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 
 앞의 흐름과 이 자습서에서는 사용자가 로그인한 후 디바이스가 인증 토큰을 로컬 스토리지에 저장한다고 가정합니다. 이렇게 하면 디바이스가 이 토큰을 사용하여 알림의 보안 페이로드를 검색할 수 있으므로 매우 원활한 환경이 보장됩니다. 애플리케이션이 인증 토큰을 디바이스에 저장하지 않거나 이 토큰이 만료될 수 없으면 알림 수신 시 디바이스 앱은 사용자에게 앱을 시작할지 묻는 메시지가 포함된 일반 알림을 표시해야 합니다. 그리고 나서 앱은 사용자를 인증하고 알림 페이로드를 표시합니다.
 
-이 자습서에서는 푸시 알림을 안전 하 게 보내는 방법을 보여 줍니다. 이 자습서는 사용자에 [게 알림](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) 자습서를 기반으로 하므로 먼저 해당 자습서의 단계를 완료 해야 합니다.
+이 자습서에서는 푸시 알림을 안전하게 보내는 방법을 보여 줍니다. 이 자습서는 [사용자에게 알림](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) 자습서를 기반으로 빌드되므로 해당 자습서의 단계를 먼저 완료해야 합니다.
 
 > [!NOTE]
-> 이 자습서에서는 [유니버설 Windows 플랫폼 앱에 알림 보내기](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)에 설명 된 대로 알림 허브를 만들고 구성 했다고 가정 합니다.
+> 이 자습서에서는 [유니버설 Windows 플랫폼 앱에 알림 보내기](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)에 설명된 대로 알림 허브를 만들고 구성했다고 가정합니다.
 > 또한 Windows Phone 8.1에 Windows(Windows Phone이 아님) 자격 증명이 필요하며, 백그라운드 작업은 Windows Phone 8.0 또는 Silverlight 8.1에서 작동하지 않습니다. Windows 스토어 애플리케이션은 앱에서 잠금 화면이 사용되는 경우(Appmanifest에서 확인란 클릭)에만 백그라운드 작업을 통해 알림을 받을 수 있습니다.
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
@@ -96,7 +96,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 1. 솔루션 탐색기에서 솔루션의 최상위 노드(이 경우 **Solution SecurePush**)를 마우스 오른쪽 단추로 클릭하고 **추가**, **새 프로젝트** 를 차례로 클릭합니다.
 2. **스토어 앱** 을 확장하고 **Windows Phone 앱**, **Windows 런타임 구성 요소(Windows Phone)** 를 차례로 클릭합니다. 프로젝트 이름을 **PushBackgroundComponent** 로 지정하고 **확인** 을 클릭하여 프로젝트를 만듭니다.
 
-    ![Windows 런타임 구성 요소 (Windows Phone) Visual c # 옵션이 강조 표시 된 새 프로젝트 추가 대화 상자의 스크린샷][12]
+    ![Windows 런타임 구성 요소(Windows Phone) Visual C# 옵션이 강조 표시된 새 프로젝트 추가 대화 상자의 스크린샷.][12]
 3. 솔루션 탐색기에서 **PushBackgroundComponent(Windows Phone 8.1)** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **클래스** 를 차례로 클릭합니다. 새 클래스 이름을 `PushBackgroundTask.cs`로 지정합니다. **추가** 를 클릭하여 클래스를 생성합니다.
 4. `PushBackgroundComponent` 네임스페이스 정의의 전체 콘텐츠를 다음 코드로 바꾸고 자리 표시자 `{back-end endpoint}`를 백 엔드 배포 시 얻은 백 엔드 엔드포인트로 바꿉니다.
 
@@ -163,16 +163,16 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
     using Windows.Data.Xml.Dom;
     ```
 
-11. 솔루션 탐색기의 **NotifyUserWindowsPhone (Windows Phone 8.1)** 프로젝트에서 **참조** 를 마우스 오른쪽 단추로 클릭 한 다음 **참조 추가**...를 클릭 합니다. 참조 관리자 대화 상자에서 **PushBackgroundComponent** 옆의 상자를 선택 하 고 **확인** 을 클릭 합니다.
+11. 솔루션 탐색기의 **NotifyUserWindowsPhone(Windows Phone 8.1)** 프로젝트에서 **참조** 를 마우스 오른쪽 단추로 클릭한 다음 **참조 추가...** 를 클릭합니다. 참조 관리자 대화 상자에서 **PushBackgroundComponent** 옆의 상자를 선택하고 **확인** 을 클릭합니다.
 12. 솔루션 탐색기의 **NotifyUserWindowsPhone(Windows Phone 8.1)** 프로젝트에서 **Package.appxmanifest** 를 두 번 클릭합니다. **알림** 에서 **알림 가능** 을 **예** 로 설정합니다.
 
-    ![Appxmanifest.xml에 초점을 맞춘 솔루션 탐색기 창의 스크린샷. 빨간색으로 표시 되는 알림 가능 옵션을 예로 설정할 수 있습니다.][3]
+    ![Package.appxmanifest에 초점을 맞춘 솔루션 탐색기 창의 스크린샷. 알림 가능 옵션이 예로 설정되어 윤곽선이 빨간색으로 표시됩니다.][3]
 13. 계속 **Package.appxmanifest** 에서 맨 위 근처에서 **선언** 을 클릭합니다. **사용 가능한 선언** 드롭다운에서 **백그라운드 태스크**, **추가** 를 차례로 클릭합니다.
 14. **Package.appxmanifest** 의 **속성** 에서 **푸시 알림** 을 선택합니다.
 15. **Package.appxmanifest** 의 **앱 설정** 에서 **진입점** 필드에 **PushBackgroundComponent.PushBackgroundTask** 를 입력합니다.
 
-    ![Appxmanifest.xml에 초점을 맞춘 솔루션 탐색기 창의 스크린샷. 사용 가능한 선언, 지원 되는 선언, 푸시 알림 및 빨간색으로 설명 된 진입점 옵션이 있습니다.][13]
-16. **파일** 메뉴에서 **모두 저장** 을 클릭 합니다.
+    ![Package.appxmanifest에 초점을 맞춘 솔루션 탐색기 창의 스크린샷. 사용 가능한 선언, 지원되는 선언, 푸시 알림 및 진입점 옵션의 윤곽선이 빨간색으로 표시됩니다.][13]
+16. **파일** 메뉴에서 **모두 저장** 을 클릭합니다.
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 

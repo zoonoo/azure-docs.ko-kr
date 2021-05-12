@@ -11,38 +11,38 @@ ms.workload: identity
 ms.date: 2/16/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a793ebb6d2b58718a6ee42c69c38b9da1b124722
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: b93fdcc125075786c237ab1eb7bfac8cf2e551f6
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589398"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108179171"
 ---
-# <a name="secure-hybrid-access-secure-legacy-apps-with-azure-active-directory"></a>보안 하이브리드 액세스: Azure Active Directory을 사용 하 여 레거시 앱 보호
+# <a name="secure-hybrid-access-secure-legacy-apps-with-azure-active-directory"></a>보안 하이브리드 액세스: Azure Active Directory를 사용한 보안 레거시 앱
 
-이제 다음을 사용 하 여 온-프레미스 및 클라우드 레거시 인증 응용 프로그램을 Azure Active Directory (AD)에 연결 하 여 보호할 수 있습니다.
+이제 온-프레미스 및 클라우드 레거시 인증 애플리케이션을 다음과 함께 Azure AD(Active Directory)에 연결하여 보호할 수 있습니다.
 
-- [Azure AD 응용 프로그램 프록시](#secure-hybrid-access-sha-through-azure-ad-application-proxy)
+- [Azure AD 애플리케이션 프록시](#secure-hybrid-access-sha-through-azure-ad-application-proxy)
 
-- [기존 응용 프로그램 제공 컨트롤러 및 네트워크](#sha-through-networking-and-delivery-controllers)
+- [기존 애플리케이션 배달 컨트롤러 및 네트워크](#sha-through-networking-and-delivery-controllers)
 
-- [VPN (가상 사설망) 및 SDP (Software-Defined 경계) 응용 프로그램](#sha-through-vpn-and-sdp-applications)
+- [VPN(가상 사설망) 및 SDP(소프트웨어 정의 경계) 애플리케이션](#sha-through-vpn-and-sdp-applications)
 
-Azure ad [조건부 액세스](../conditional-access/overview.md) 및 Azure Ad [id 보호](../identity-protection/overview-identity-protection.md)와 같은 azure ad 기능을 사용 하 여 모든 응용 프로그램에서 격차를 브리징 하 고 보안 상태를 강화할 수 있습니다.
+Azure AD [조건부 액세스](../conditional-access/overview.md) 및 Azure AD [ID 보호](../identity-protection/overview-identity-protection.md) 같은 Azure AD 기능을 사용하여 모든 애플리케이션에서 간극을 연결하고, 보안 태세를 강화할 수 있습니다.
 
-## <a name="secure-hybrid-access-sha-through-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 통한 SHA (Secure hybrid access)
+## <a name="secure-hybrid-access-sha-through-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 통한 SHA(보안 하이브리드 액세스)
   
-[응용 프로그램 프록시](./what-is-application-proxy.md) 를 사용 하 여 온-프레미스 웹 응용 프로그램에 대 한 [보안 원격 액세스](./application-proxy.md) 를 제공할 수 있습니다. 사용자가 VPN을 사용할 필요가 없습니다. 사용자는 [Single Sign-On](./add-application-portal-setup-sso.md)후에 모든 장치에서 응용 프로그램에 쉽게 연결 하 여 이점을 누릴 수 있습니다. 응용 프로그램 프록시는 원격 액세스를 서비스로 제공 하므로 [온-프레미스 응용 프로그램](./application-proxy-add-on-premises-application.md) 을 회사 네트워크 외부의 사용자에 게 쉽게 게시할 수 있습니다. 온-프레미스 응용 프로그램을 수정할 필요 없이 클라우드 액세스 관리를 확장 하는 데 도움이 됩니다. 다음 단계로 [Azure AD 응용 프로그램 프록시 배포를 계획](./application-proxy-deployment-plan.md) 합니다.
+[애플리케이션 프록시](../app-proxy/what-is-application-proxy.md)를 통해 온-프레미스 웹 애플리케이션에 대한 [보안 원격 액세스](../app-proxy/application-proxy.md)를 제공할 수 있습니다. 사용자가 VPN을 사용할 필요가 없습니다. 사용자는 [Single Sign-On](add-application-portal-setup-sso.md) 후에 모든 디바이스에서 애플리케이션에 쉽게 연결하여 이점을 누릴 수 있습니다. 애플리케이션 프록시는 원격 액세스를 서비스로 제공하므로 [온-프레미스 애플리케이션](../app-proxy/application-proxy-add-on-premises-application.md)을 회사 네트워크 외부의 사용자에게 쉽게 게시할 수 있습니다. 온-프레미스 애플리케이션을 수정할 필요 없이 클라우드 액세스 관리를 확장하는 데 도움이 됩니다. 다음 단계로 [Azure AD 애플리케이션 프록시 배포를 계획](application-proxy-deployment-plan.md)합니다.
 
 ## <a name="azure-ad-partner-integrations"></a>Azure AD 파트너 통합
 
 ### <a name="sha-through-networking-and-delivery-controllers"></a>네트워킹 및 배달 컨트롤러를 통한 SHA
 
-[Azure AD 응용 프로그램 프록시](./what-is-application-proxy.md)외에도, Microsoft에서 제공 하는 [제로 신뢰 프레임 워크](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)를 사용 하 여 타사 공급자와 협력 하 고 있습니다. 기존 네트워킹 및 배달 컨트롤러를 사용 하 고 비즈니스 프로세스에 중요 하지만 Azure AD를 사용 하기 전에는 보호할 수 없는 레거시 응용 프로그램을 쉽게 보호할 수 있습니다. 이러한 응용 프로그램을 보호 하기 시작 하는 데 필요한 모든 것이 이미 있을 가능성이 높습니다.
+[Azure AD 애플리케이션 프록시](./what-is-application-proxy.md)외에도, [제로 트러스트 프레임워크](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)를 사용할 수 있도록 Microsoft는 타사 공급자와 협력하고 있습니다. 기존 네트워킹 및 배달 컨트롤러를 사용하여 비즈니스 프로세스에 중요하지만 이전에는 Azure AD로 보호할 수 없었던 레거시 애플리케이션을 쉽게 보호할 수 있습니다. 이러한 애플리케이션을 보호하는 데 필요한 모든 조건은 이미 충족되었을 것입니다.
 
-![네트워킹 파트너 및 앱 프록시를 사용 하 여 보안 하이브리드 액세스를 보여 주는 이미지](./media/secure-hybrid-access/secure-hybrid-access.png)
+![네트워킹 파트너 및 앱 프록시를 사용하여 보안 하이브리드 액세스를 보여 주는 이미지](./media/secure-hybrid-access/secure-hybrid-access.png)
 
-다음 네트워킹 공급 업체는 Azure AD와 통합 하기 위한 미리 작성 된 솔루션과 자세한 지침을 제공 합니다.
+다음 네트워킹 공급업체는 Azure AD와 통합하기 위한 미리 빌드한 솔루션과 자세한 지침을 제공합니다.
 
 - [Akamai EAA(엔터프라이즈 애플리케이션 액세스)](../saas-apps/akamai-tutorial.md)
 
@@ -52,15 +52,15 @@ Azure ad [조건부 액세스](../conditional-access/overview.md) 및 Azure Ad [
 
 - [Kemp](../saas-apps/kemp-tutorial.md)
 
-- [VTM (Pulse Secure Virtual Traffic Manager)](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)
+- [Pulse Secure VTM(Virtual Traffic Manager)](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)
 
-### <a name="sha-through-vpn-and-sdp-applications"></a>VPN 및 SDP 응용 프로그램을 통한 SHA
+### <a name="sha-through-vpn-and-sdp-applications"></a>VPN 및 SDP 애플리케이션을 통한 SHA
 
-VPN 및 SDP 솔루션을 사용 하 여 조직의 데이터를 보호 하는 동안 언제 든 지 모든 장치에서 엔터프라이즈 네트워크에 대 한 보안 액세스를 제공할 수 있습니다. IDP (Id 공급자)로 Azure AD를 사용 하 여 Azure AD [Single sign-on](./what-is-single-sign-on.md) 및 [multi-factor authentication](../authentication/concept-mfa-howitworks.md) 과 같은 최신 인증 및 권한 부여 방법을 사용 하 여 온-프레미스 레거시 응용 프로그램을 보호할 수 있습니다.  
+VPN 및 SDP 솔루션을 사용하여 조직의 데이터를 보호하면서 언제 어디서나 모든 디바이스에서 엔터프라이즈 네트워크에 대한 보안 액세스를 제공할 수 있습니다. IDP(ID 공급자)로 Azure AD를 사용하여 Azure AD [Single Sign-On](./what-is-single-sign-on.md) 및 [다단계 인증](../authentication/concept-mfa-howitworks.md)과 같은 최신 인증 및 권한 부여 방법을 통해 온-프레미스 레거시 애플리케이션을 보호할 수 있습니다.  
 
-![VPN 파트너와 앱 프록시를 사용 하 여 보안 하이브리드 액세스를 보여 주는 이미지 ](./media/secure-hybrid-access/app-proxy-vpn.png)
+![VPN 파트너 및 앱 프록시를 사용하여 보안 하이브리드 액세스를 보여 주는 이미지 ](./media/secure-hybrid-access/app-proxy-vpn.png)
 
-다음 VPN 공급 업체는 Azure AD와 통합 하기 위한 미리 작성 된 솔루션과 자세한 지침을 제공 합니다.
+다음 VPN 공급업체는 Azure AD와 통합하기 위한 미리 빌드한 솔루션과 자세한 지침을 제공합니다.
 
 - [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
 
@@ -68,11 +68,11 @@ VPN 및 SDP 솔루션을 사용 하 여 조직의 데이터를 보호 하는 동
 
 - [F5 Big-IP APM](./f5-aad-password-less-vpn.md)
 
-- [Palo Alto Networks 글로벌 보호](../saas-apps/paloaltoadmin-tutorial.md)
+- [Palo Alto Networks Global Protect](../saas-apps/paloaltoadmin-tutorial.md)
 
-- [펄스 보안 펄스 연결 보안 (PC)](../saas-apps/pulse-secure-pcs-tutorial.md)
+- [Pulse Secure PCS(Pulse Connect Secure)](../saas-apps/pulse-secure-pcs-tutorial.md)
 
-다음 SDP 공급 업체는 Azure AD와 통합 하기 위한 미리 작성 된 솔루션과 자세한 지침을 제공 합니다.
+다음 SDP 공급업체는 Azure AD와 통합하기 위한 미리 빌드한 솔루션과 자세한 지침을 제공합니다.
 
 - [Datawiza Access Broker](./add-application-portal-setup-oidc-sso.md)
 

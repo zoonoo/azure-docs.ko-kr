@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory 유효성 검사 작업
-description: 유효성 검사 작업은 사용자가 지정 하는 특정 조건에 따라 연결 된 데이터 집합의 유효성을 검사할 때까지 파이프라인의 실행을 계속 하지 않습니다.
+title: Azure Data Factory의 유효성 검사 활동
+description: 유효성 검사 활동은 사용자가 지정한 특정 조건에 따라 연결된 데이터 세트의 유효성이 검사될 때까지 파이프라인을 계속 실행하지 않습니다.
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.openlocfilehash: 2c5208f754e66f92cf5019fdad3026decac88284
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104785957"
 ---
-# <a name="validation-activity-in-azure-data-factory"></a>Azure Data Factory 유효성 검사 작업
+# <a name="validation-activity-in-azure-data-factory"></a>Azure Data Factory의 유효성 검사 활동
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-파이프라인에서 유효성 검사를 사용 하 여 연결 된 데이터 집합 참조가 존재 하거나, 지정 된 조건을 충족 하 고, 시간 제한에 도달 하는 경우에만 파이프라인이 실행을 계속 하도록 할 수 있습니다.
+파이프라인에서 유효성 검사 활동을 사용하면 연결된 데이터 세트의 참조가 있는지, 파이프라인이 지정된 조건을 충족하는지 또는 시간 제한에 도달했는지 유효성을 검사한 후에만 파이프라인이 실행을 계속하는지 확인할 수 있습니다.
 
 
 ## <a name="syntax"></a>구문
@@ -58,13 +58,13 @@ ms.locfileid: "104785957"
 
 속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-name | ' 유효성 검사 ' 활동의 이름입니다. | String | 예 |
-type | **유효성 검사** 로 설정 되어야 합니다. | String | 예 |
-데이터 세트 | 작업은이 데이터 집합 참조가 있고 지정 된 조건을 만족 하거나 시간 제한에 도달 하 여 유효성을 검사할 때까지 실행을 차단 합니다. 제공 된 데이터 집합은 "이상 크기" 또는 "ChildItems" 속성을 지원 해야 합니다. | 데이터 집합 참조 | 예 |
-시간 제한 | 작업 실행에 대한 시간 제한을 지정합니다. 값을 지정 하지 않으면 기본값은 7 일 ("7.00:00:00")입니다. 형식은 d. hh: mm: ss입니다. | String | 아니요 |
-sleep | 유효성 검사 시도 간의 지연 시간 (초)입니다. 값을 지정 하지 않으면 기본값은 10 초입니다. | 정수 | 예 |
-childItems | 폴더에 자식 항목이 있는지 여부를 확인 합니다. -True로 설정할 수 있습니다. 즉, 폴더가 있고 항목이 있는지 확인 합니다. 폴더에 적어도 하나의 항목이 있을 때까지 차단 됩니다. 또는 시간 제한 값에 도달 했습니다.-false: 폴더가 존재 하 고 비어 있는지 확인 합니다. 폴더가 비어 있거나 시간 제한 값에 도달할 때까지 차단 합니다. 값을 지정 하지 않으면 폴더가 존재 하거나 시간 제한에 도달할 때까지 활동이 차단 됩니다. | 부울 | 아니요 |
-minimumSize | 파일의 최소 크기 (바이트)입니다. 값을 지정 하지 않으면 기본값은 0 바이트입니다. | 정수 | 예 |
+name | ‘Validation’ 작업의 이름 | String | 예 |
+type | **Validation** 으로 설정해야 합니다. | String | 예 |
+데이터 세트 | 이 데이터 세트 참조가 존재하는지 유효성을 검사했거나, 지정된 조건을 충족했거나, 시간 제한에 도달했을 때까지 작업이 실행을 차단합니다. 제공된 데이터 세트는 “MinimumSize” 또는 “ChildItems” 속성을 지원해야 합니다. | 데이터 세트 참조 | 예 |
+시간 제한 | 작업 실행에 대한 시간 제한을 지정합니다. 값을 지정하지 않으면 기본값은 7일(“7.00:00:00”)입니다. 형식은 d.hh:mm:ss입니다. | String | 예 |
+sleep | validation 시도 간의 지연 시간(초)입니다. 값을 지정하지 않으면 기본값은 10초입니다. | 정수 | 예 |
+childItems | 폴더에 자식 항목이 있는지 여부를 확인합니다. -true로 설정할 수 있습니다. 이렇게 하면 폴더가 존재하고 항목이 있는지 유효성을 검사합니다. 폴더에 적어도 하나의 항목이 존재하거나 시간 제한 값에 도달할 때까지 차단합니다. -false의 경우 폴더가 존재하고 비어 있는지 유효성을 검사합니다. 폴더가 비어 있거나 시간 제한 값에 도달할 때까지 차단합니다. 값을 지정하지 않으면 폴더가 존재하거나 시간 제한에 도달할 때까지 작업이 차단됩니다. | 부울 | 예 |
+minimumSize | 파일의 최소 크기(바이트)입니다. 값을 지정하지 않으면 기본값은 0바이트입니다. | 정수 | 예 |
 
 
 ## <a name="next-steps"></a>다음 단계

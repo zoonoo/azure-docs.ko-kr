@@ -3,12 +3,12 @@ title: DoD 영향 수준 5 청사진 샘플
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 DoD 영향 수준 5 청사진 샘플에 대한 단계를 배포합니다.
 ms.date: 04/13/2021
 ms.topic: sample
-ms.openlocfilehash: b978b9fb30732c13785a6a425e5195daf67bae0f
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 158925ad12e55d365cbd4f751c2f78e99fcaa83d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107377406"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757496"
 ---
 # <a name="deploy-the-dod-impact-level-5-blueprint-sample"></a>DoD 영향 수준 5 청사진 샘플 배포
 
@@ -112,7 +112,7 @@ Azure Government 구독이 없는 경우, 시작하기 전에 [평가판 구독]
 |DoD 영향 수준 5|정책 할당|정책 효과: 함수 앱의 일부로 사용되는 경우 '.NET Framework' 버전이 최신 상태인지 확인합니다.|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
 |DoD 영향 수준 5|정책 할당|정책 효과: SQL 데이터베이스에 투명한 데이터 암호화를 사용하도록 설정해야 합니다.|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
 |DoD 영향 수준 5|정책 할당|정책 효과: SQL 관리형 인스턴스에서 취약성 평가를 사용하도록 설정해야 합니다.|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
-|DoD 영향 수준 5|정책 할당|정책 효과: API 앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
+|DoD 영향 수준 5|정책 할당|정책 효과: API 앱의 일부로 사용되는 경우 'PHP 버전'이 최신 상태인지 확인함|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
 |DoD 영향 수준 5|정책 할당|정책 효과: SQL Server에 대해 Azure Active Directory 관리자를 프로비저닝해야 합니다.|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
 |DoD 영향 수준 5|정책 할당|정책 효과: Redis Cache에 보안 연결만 사용하도록 설정해야 합니다.|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
 |DoD 영향 수준 5|정책 할당|정책 효과: 가상 머신 확장 집합에 Endpoint Protection 솔루션을 설치해야 합니다.|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
@@ -133,17 +133,17 @@ Azure Government 구독이 없는 경우, 시작하기 전에 [평가판 구독]
 |DoD 영향 수준 5|정책 할당|정책 효과: 웹앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
 |DoD 영향 수준 5|정책 할당|정책 효과: 함수 앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
 |DoD 영향 수준 5|정책 할당|정책 효과: 웹앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
-|DoD 영향 수준 5|정책 할당|정책 효과: API 앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
+|DoD 영향 수준 5|정책 할당|정책 효과: API 앱의 일부로 사용되는 경우 'Python 버전'이 최신 상태인지 확인함|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
 |DoD 영향 수준 5|정책 할당|정책 효과: 취약성 평가 솔루션으로 취약성을 수정해야 합니다.|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
 |DoD 영향 수준 5|정책 할당|정책 효과: Azure Database for MySQL에 대해 지역 중복 백업을 사용하도록 설정해야 함|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
 |DoD 영향 수준 5|정책 할당|정책 효과: 웹앱의 일부로 사용되는 경우 '.NET Framework' 버전이 최신 상태인지 확인합니다.|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
 |DoD 영향 수준 5|정책 할당|정책 효과: 시스템 업데이트를 머신에 설치해야 합니다.|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
-|DoD 영향 수준 5|정책 할당|정책 효과: API 앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
+|DoD 영향 수준 5|정책 할당|정책 효과: API 앱의 일부로 사용되는 경우 'Java 버전'이 최신 상태인지 확인함|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
 |DoD 영향 수준 5|정책 할당|정책 효과: 웹앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
 |DoD 영향 수준 5|정책 할당|정책 효과: API 앱에서 최신 TLS 버전을 사용해야 합니다.|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
 |DoD 영향 수준 5|정책 할당|정책 효과: 구독에서 쓰기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
 |DoD 영향 수준 5|정책 할당|정책 효과: SQL Server에 대한 Advanced Data Security 설정에는 보안 경고를 받을 이메일 주소가 포함되어야 합니다.|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
-|DoD 영향 수준 5|정책 할당|정책 효과: API 앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
+|DoD 영향 수준 5|정책 할당|정책 효과: API 앱을 실행하는 데 사용되는 경우 'HTTP 버전'이 최신 상태인지 확인함|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
 |DoD 영향 수준 5|정책 할당|정책 효과: Microsoft IaaSAntimalware 확장을 Windows Server에 배포해야 합니다.|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
 |DoD 영향 수준 5|정책 할당|정책 효과: 함수 앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|
 |DoD 영향 수준 5|정책 할당|정책 효과: 인터넷 연결 엔드포인트를 통한 액세스를 제한해야 합니다.|이 정책에 대한 Azure Policy의 효과입니다. 효과에 대한 자세한 내용은 https://aka.ms/policyeffects 를 참조하세요.|

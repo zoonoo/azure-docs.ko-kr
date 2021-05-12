@@ -1,17 +1,17 @@
 ---
 title: Azure Data Factory를 사용하여 Teradata Vantage에서 데이터 복사
 description: 데이터 팩터리의 Teradata 커넥터 서비스를 통해 Teradata Vantage의 데이터를 데이터 팩터리에서 싱크로 지원하는 데이터 저장소로 복사할 수 있습니다.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/22/2021
-ms.author: jingwang
-ms.openlocfilehash: c65b295dca16a3453b2ee5472b9a3ee5e8d62df7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: 9ebf320dc92ef8a39bc8b7569272ce2d0e2b2a68
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100381769"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109486758"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Teradata Vantage에서 데이터 복사
 
@@ -41,13 +41,13 @@ Teradata Vantage에서 지원되는 모든 싱크 데이터 저장소로 데이�
 
 ## <a name="prerequisites"></a>필수 조건
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 자체 호스팅 통합 런타임을 사용하는 경우 버전 3.18부터 Teradata 드라이버가 기본 제공됩니다. 드라이버를 수동으로 설치할 필요가 없습니다. 드라이버를 사용하려면 자체 호스팅 통합 런타임 컴퓨터에 "Visual C++ 재배포 가능 패키지 2012 업데이트 4"가 필요합니다. 아직 설치되지 않은 경우 [여기](https://www.microsoft.com/en-sg/download/details.aspx?id=30679)서 다운로드하세요.
 
 ## <a name="getting-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 Teradata 커넥터에 한정된 데이터 팩터리 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -55,7 +55,7 @@ Teradata Vantage에서 지원되는 모든 싱크 데이터 저장소로 데이�
 
 Teradata 연결된 서비스는 다음 속성을 지원합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **Teradata** 로 설정되어야 합니다. | 예 |
 | connectionString | Teradata 인스턴스에 연결하는 데 필요한 정보를 지정합니다. 다음 샘플을 참조하세요.<br/>Azure Key Vault에 암호를 입력하고 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 [Azure Key Vault의 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요. | 예 |
@@ -65,7 +65,7 @@ Teradata 연결된 서비스는 다음 속성을 지원합니다.
 
 경우에 따라 연결 문자열에서 설정할 수 있는 추가 연결 속성이 있습니다.
 
-| 속성 | Description | 기본값 |
+| 속성 | 설명 | 기본값 |
 |:--- |:--- |:--- |
 | TdmstPortNumber | Teradata 데이터베이스에 액세스하는 데 사용되는 포트 번호입니다.<br>지원팀에서 지시하지 않는 한 이 값을 변경하지 마세요. | 1025 |
 | UseDataEncryption | Teradata 데이터베이스와의 모든 통신을 암호화할지 여부를 지정합니다. 허용되는 값은 0 또는 1입니다.<br><br/>- **0(사용하지 않음, 기본값)** : 인증 정보만을 암호화합니다.<br/>- **1(사용)** : 드라이버와 데이터베이스 간에 전달되는 모든 데이터를 암호화합니다. | `0` |
@@ -163,7 +163,7 @@ Teradata 연결된 서비스는 다음 속성을 지원합니다.
 
 Teradata의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성은 `TeradataTable`로 설정해야 합니다. | 예 |
 | 데이터베이스 | Teradata 인스턴스의 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -217,7 +217,7 @@ Teradata의 데이터를 복사하려는 경우 다음과 같은 속성이 지�
 
 Teradata에서 데이터를 복사하기 위해 복사 작업의 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 `TeradataSource`로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `"SELECT * FROM MyTable"`입니다.<br>분할된 로드를 사용하도록 설정하는 경우 쿼리에 해당하는 기본 제공 파티션 매개 변수를 후크해야 합니다. 예제는 [Teradata에서 병렬 복사](#parallel-copy-from-teradata) 섹션을 참조하세요. | No(데이터 세트의 테이블이 지정된 경우) |

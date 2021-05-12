@@ -1,40 +1,40 @@
 ---
 title: 보안 에이전트
-description: IoT 장치에서 IoT 보안 서비스 에이전트에 대 한 Azure Defender를 이해 하 고, 구성 하 고, 배포 하 고, 사용 하는 작업을 시작 하세요.
+description: IoT 디바이스에서 Azure Defender for IoT 보안 서비스 에이전트를 이해, 구성, 배포, 사용하는 방법을 시작하세요.
 ms.topic: conceptual
 ms.date: 1/24/2021
 ms.openlocfilehash: a1d74de9824b9e825f87754da21070d4e7f1ee33
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104783492"
 ---
-# <a name="get-started-with-azure-defender-for-iot-device-micro-agents"></a>IoT 용 Azure Defender 장치 마이크로 에이전트 시작
+# <a name="get-started-with-azure-defender-for-iot-device-micro-agents"></a>Azure Defender for IoT 디바이스 마이크로 에이전트 시작
 
-IoT 용 Defender 보안 에이전트는 운영 체제 구성 모범 사례 모니터링과 같은 향상 된 보안 기능을 제공 합니다. 단일 서비스에서 장치 필드 위협 방지 및 보안 상태를 제어 합니다.
+Defender for IoT 보안 에이전트는 운영 체제 구성 모범 사례 모니터링과 같은 향상된 보안 기능을 제공합니다. 단일 서비스에서 디바이스 필드 위협 방지 및 보안 태세를 제어합니다.
 
-IoT 용 방어자 보안 에이전트는 장치 운영 체제에서 원시 이벤트 수집을 처리 하 고, 비용을 절감 하 고, 장치 모듈 쌍을 통해 구성을 처리 합니다. 보안 메시지는 IoT Hub를 통해 IoT 분석 서비스용 Defender에 전송 됩니다.
+Defender for IoT 보안 에이전트는 디바이스 운영 체제의 원시 이벤트 수집, 비용을 줄이기 위한 이벤트 집계 및 디바이스 모듈 쌍을 통한 구성을 처리합니다. 보안 메시지는 IoT Hub를 통해 Defender for IoT 분석 서비스에 전송됩니다.
 
-다음 워크플로를 사용 하 여 IoT 보안 에이전트에 대 한 Defender를 배포 하 고 테스트 합니다.
+다음 워크플로를 사용하여 Defender for IoT 보안 에이전트를 배포하고 테스트합니다.
 
-1. [IoT Hub에 대 한 IoT 서비스용 Defender를 사용 하도록 설정](quickstart-onboard-iot-hub.md)합니다.
+1. [IoT Hub에 대한 Defender for IoT 서비스를 사용하도록 설정](quickstart-onboard-iot-hub.md)합니다.
 
-1. IoT Hub에 등록 된 장치가 없는 경우 [새 장치를 등록](../iot-accelerators/iot-accelerators-device-simulation-overview.md)합니다.
+1. IoT Hub에 등록된 디바이스가 없는 경우 [새 디바이스를 등록](../iot-accelerators/iot-accelerators-device-simulation-overview.md)합니다.
 
-1. 장치에 대해 [Defendde\마이크로 에이전트 모듈 쌍을 만듭니다](quickstart-create-micro-agent-module-twin.md) .
+1. 디바이스에 대해 [DefenderIotMicroAgent 모듈 쌍을 만듭니다](quickstart-create-micro-agent-module-twin.md).
 
-1. 실제 장치에를 설치 하는 대신 Azure 시뮬레이트된 장치에 에이전트를 설치 하려면 사용 가능한 영역에서 [새 AZURE VM (가상 머신)](../virtual-machines/linux/quick-create-portal.md) 을 실행 합니다.
+1. 실제 디바이스 대신 시뮬레이션된 Azure 디바이스에 에이전트를 설치하려면 사용 가능한 영역에서 [새 Azure VM(가상 머신)을 스핀업](../virtual-machines/linux/quick-create-portal.md)합니다.
 
-1. Iot 장치 또는 새 VM에 [iot 보안 에이전트 용 Defender를 배포](how-to-deploy-linux-cs.md) 합니다.
+1. IoT 디바이스 또는 새 VM에 [Defender for IoT 보안 에이전트를 배포](how-to-deploy-linux-cs.md)합니다.
 
-1. [Trigger_events](https://aka.ms/iot-security-github-trigger-events) 에 대 한 지침에 따라 OS 기준 이벤트를 실행 합니다.
+1. [trigger_events](https://aka.ms/iot-security-github-trigger-events)에 대한 지침에 따라 OS 기준 이벤트를 실행합니다.
 
-1. 이전 단계에서 시뮬레이션 된 OS 기준 검사 실패에 대 한 응답으로 Defender for IoT 권장 사항을 확인 합니다. 스크립트를 실행 한 후 30 분 이내에 확인을 시작 합니다.
+1. 이전 단계에서 시뮬레이션된 OS 기준 검사 실패에 대한 응답으로 Defender for IoT 권장 사항을 확인합니다. 스크립트를 실행한 후 30분 후에 확인을 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [솔루션](quickstart-configure-your-solution.md) 구성
-- [Defender-IoT-마이크로 에이전트 만들기](quickstart-create-security-twin.md)
+- [Defender-IoT-micro-agents 만들기](quickstart-create-security-twin.md)
 - [사용자 지정 경고](quickstart-create-custom-alerts.md) 구성
 - [보안 에이전트 배포](how-to-deploy-agent.md)

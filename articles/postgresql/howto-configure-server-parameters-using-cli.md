@@ -1,6 +1,6 @@
 ---
-title: 매개 변수 구성-Azure Database for PostgreSQL 단일 서버
-description: 이 문서에서는 Azure CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에서 Postgres 매개 변수를 구성 하는 방법을 설명 합니다.
+title: 매개 변수 구성 - Azure Database for PostgreSQL - 단일 서버
+description: 이 문서에서는 Azure CLI를 사용하여 Azure Database for PostgreSQL - 단일 서버에서 Postgres 매개 변수를 구성하는 방법을 설명합니다.
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 06/19/2019
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: cadf21423ac7eb997db5bb42005ee307d9813331
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105604195"
 ---
-# <a name="customize-server-configuration-parameters-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 서버 구성 매개 변수 사용자 지정
+# <a name="customize-server-configuration-parameters-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for PostgreSQL - 단일 서버에 대한 서버 구성 매개 변수 사용자 지정
 Azure CLI(명령줄 인터페이스)를 사용하여 Azure PostgreSQL 서버의 구성 매개 변수를 나열하고, 표시하며, 업데이트할 수 있습니다. 엔진 구성의 하위 집합은 서버 수준에서 노출되고 수정할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -51,5 +51,5 @@ az postgres server configuration set --name log_min_messages --resource-group my
 이 명령은 **log\_min\_messages** 구성을 기본값 **WARNING** 으로 다시 설정합니다. 서버 구성 및 허용되는 값에 자세한 내용은 [서버 구성](https://www.postgresql.org/docs/9.6/static/runtime-config.html)의 PostgreSQL 설명서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-- [서버를 다시 시작 하는 방법 알아보기](howto-restart-server-cli.md)
+- [서버를 다시 시작하는 방법 알아보기](howto-restart-server-cli.md)
 - 서버 로그를 구성하고 액세스하려면 [PostgreSQL용 Azure Database의 서버 로그](concepts-server-logs.md)를 참조하세요.

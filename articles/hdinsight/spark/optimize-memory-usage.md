@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: contperf-fy21q1
 ms.openlocfilehash: 4e23c5977b2492d2ea8a7a8cc050c77c512c3e16
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104868378"
 ---
-# <a name="memory-usage-optimization-for-apache-spark"></a>Apache Spark에 대 한 메모리 사용량 최적화
+# <a name="memory-usage-optimization-for-apache-spark"></a>Apache Spark에 대한 메모리 사용량 최적화
 
 이 문서에서는 Azure HDInsight에서 최상의 성능을 위해 Apache Spark 클러스터 메모리 관리를 최적화하는 방법을 설명합니다.
 

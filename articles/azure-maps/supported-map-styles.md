@@ -1,6 +1,6 @@
 ---
-title: 지원 되는 기본 제공 Azure Maps 지도 스타일
-description: 이동, blank_accessible, 위성, satellite_road_labels, road_shaded_relief, 야간 등 Azure Maps 지원 되는 기본 제공 지도 스타일에 대해 알아봅니다.
+title: 지원되는 기본 제공 Azure Maps 지도 스타일
+description: 도로, blank_accessible, 위성, satellite_road_labels, road_shaded_relief, 야간 등 Azure Maps에서 지원하는 기본 제공 지도 스타일에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/24/2020
@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: b3404c02dc159309ed1e9fcd6f9f6bb593fc7552
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92896942"
 ---
-# <a name="azure-maps-supported-built-in-map-styles"></a>지원 되는 기본 제공 지도 스타일 Azure Maps
+# <a name="azure-maps-supported-built-in-map-styles"></a>Azure Maps에서 지원하는 기본 제공 지도 스타일
 
 Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타일을 지원합니다.
 
 ## <a name="road"></a>도로
 
-**도로 지도는도로** 를 표시 하는 표준 지도입니다. 또한 자연 및 인공 특징과 이러한 기능에 대 한 레이블을 표시 합니다.
+**도로** 지도는 도로를 표시하는 표준 지도입니다. 또한 자연 및 인공 기능과 해당 기능의 레이블을 표시합니다.
 
 ![도로 지도 스타일](./media/supported-map-styles/road.png)
 
@@ -29,20 +29,20 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 
 * [지도 이미지](/rest/api/maps/render/getmapimage)
 * [지도 타일](/rest/api/maps/render/getmaptile)
-* 웹 SDK 맵 컨트롤
-* Android 맵 컨트롤
+* 웹 SDK 지도 컨트롤
+* Android 지도 컨트롤
 * Power BI 시각적 개체
 
 ## <a name="blank-and-blank_accessible"></a>blank 및 blank_accessible
 
-**빈** 지도와 **blank_accessible** 지도 스타일은 데이터를 시각화 하기 위한 빈 캔버스를 제공 합니다. 기본 지도가 표시 되지 않더라도 **blank_accessible** 스타일은 지도 위치 세부 정보를 사용 하 여 화면 판독기 업데이트를 계속 제공 합니다.
+**blank** 지도와 **blank_accessible** 지도 스타일은 데이터 시각화를 위한 빈 캔버스를 제공합니다. **blank_accessible** 스타일은 기본 지도가 표시되지 않더라도 지도의 위치 세부 정보와 함께 화면 읽기 프로그램 업데이트를 계속 제공합니다.
 
 > [!Note]
-> 웹 SDK에서 지도 DIV 요소의 CSS 스타일을 설정 하 여 지도의 배경색을 변경할 수 있습니다 `background-color` .
+> 웹 SDK에서 지도 DIV 요소의 CSS `background-color` 스타일을 설정하여 지도의 배경색을 변경할 수 있습니다.
 
 **적용 가능한 API:**
 
-* 웹 SDK 맵 컨트롤
+* 웹 SDK 지도 컨트롤
 
 ## <a name="satellite"></a>satellite
 
@@ -53,8 +53,8 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 **적용 가능한 API:**
 
 * [위성 타일](/rest/api/maps/render/getmapimagerytilepreview)
-* 웹 SDK 맵 컨트롤
-* Android 맵 컨트롤
+* 웹 SDK 지도 컨트롤
+* Android 지도 컨트롤
 * Power BI 시각적 개체
 
 ## <a name="satellite_road_labels"></a>satellite_road_labels
@@ -65,13 +65,13 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 
 **적용 가능한 API:**
 
-* 웹 SDK 맵 컨트롤
-* Android 맵 컨트롤
+* 웹 SDK 지도 컨트롤
+* Android 지도 컨트롤
 * Power BI 시각적 개체
 
 ## <a name="grayscale_dark"></a>grayscale_dark
 
-**회색조 진한** 은도로 지도 스타일의 어두운 버전입니다.
+**짙은 회색조** 는 도로 지도 스타일의 어두운 버전입니다.
 
 ![gray_scale 지도 스타일](./media/supported-map-styles/grayscale-dark.png)
 
@@ -79,19 +79,19 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 
 * [지도 이미지](/rest/api/maps/render/getmapimage)
 * [지도 타일](/rest/api/maps/render/getmaptile)
-* 웹 SDK 맵 컨트롤
-* Android 맵 컨트롤
+* 웹 SDK 지도 컨트롤
+* Android 지도 컨트롤
 * Power BI 시각적 개체
 
 ## <a name="grayscale_light"></a>grayscale_light
 
-**회색조 라이트** 는도로 지도 스타일의 조명 버전입니다.
+**밝은 회색조** 는 도로 지도 스타일의 밝은 버전입니다.
 
-![회색조 연한 지도 스타일](./media/supported-map-styles/grayscale-light.png)
+![밝은 회색조 지도 스타일](./media/supported-map-styles/grayscale-light.png)
 
 **적용 가능한 API:**
-* 웹 SDK 맵 컨트롤
-* Android 맵 컨트롤
+* 웹 SDK 지도 컨트롤
+* Android 지도 컨트롤
 * Power BI 시각적 개체
 
 ## <a name="night"></a>야간
@@ -102,36 +102,36 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 
 **적용 가능한 API:**
 
-* 웹 SDK 맵 컨트롤
-* Android 맵 컨트롤
+* 웹 SDK 지도 컨트롤
+* Android 지도 컨트롤
 * Power BI 시각적 개체
 
 ## <a name="road_shaded_relief"></a>road_shaded_relief
 
 **도로 음영 입체** 는 지구의 등고선으로 채워진 Azure Maps 주요 스타일입니다.
 
-![음영 된 릴리프 맵 스타일](./media/supported-map-styles/shaded-relief.png)
+![음영 입체 지도 스타일](./media/supported-map-styles/shaded-relief.png)
 
 **적용 가능한 API:**
 
 * [지도 타일](/rest/api/maps/render/getmaptile)
-* 웹 SDK 맵 컨트롤
-* Android 맵 컨트롤
+* 웹 SDK 지도 컨트롤
+* Android 지도 컨트롤
 * Power BI 시각적 개체
 
 ## <a name="high_contrast_dark"></a>high_contrast_dark
 
-**high_contrast_dark** 는 다른 스타일 보다 대비가 높은 짙은 지도 스타일입니다.
+**high_contrast_dark** 는 다른 스타일보다 더 고대비의 어두운 지도 스타일입니다.
 
-![고대비 어둡게 지도 스타일](./media/supported-map-styles/high-contrast-dark.png)
+![고대비 어두운 지도 스타일](./media/supported-map-styles/high-contrast-dark.png)
 
 **적용 가능한 API:**
 
-* 웹 SDK 맵 컨트롤
+* 웹 SDK 지도 컨트롤
 * Power BI 시각적 개체
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Maps에서 지도 스타일을 설정 하는 방법에 대해 알아봅니다.
+Azure Maps에서 지도 스타일을 설정하는 방법에 대해 알아봅니다:
 
 [지도 스타일 선택](./choose-map-style.md)

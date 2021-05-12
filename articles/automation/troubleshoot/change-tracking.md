@@ -6,10 +6,10 @@ ms.subservice: change-inventory-management
 ms.date: 02/15/2021
 ms.topic: troubleshooting
 ms.openlocfilehash: dd027f94edad580836f0afb8c7293c81ca77605a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101723829"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>변경 내용 추적 및 인벤토리 문제 해결
@@ -30,11 +30,11 @@ Unable to Register Machine for Change Tracking, Registration Failed with Excepti
 
 ### <a name="cause"></a>원인
 
-컴퓨터가 변경 내용 추적의 다른 작업 영역에 이미 배포 되었습니다.
+컴퓨터가 이미 변경 내용 추적을 위해 다른 작업 영역에 배포되었습니다.
 
 ### <a name="resolution"></a>해결 방법
 
-1. 머신이 올바른 작업 영역에 보고하고 있는지 확인합니다. 이를 확인 하는 방법에 대 한 지침은 [Azure Monitor에 대 한 에이전트 연결 확인](../../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor)을 참조 하세요. 또한 이 작업 영역이 Azure Automation 계정에 연결되어 있는지 확인합니다. 이를 확인하려면 Automation 계정으로 이동하고 **관련 리소스** 에서 **연결된 작업 영역** 을 선택합니다.
+1. 머신이 올바른 작업 영역에 보고하고 있는지 확인합니다. 이러한 측면을 확인하는 방법에 대한 참고 자료는 [Azure Monitor에 대한 에이전트 연결 확인](../../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor)을 참조하세요. 또한 이 작업 영역이 Azure Automation 계정에 연결되어 있는지 확인합니다. 이를 확인하려면 Automation 계정으로 이동하고 **관련 리소스** 에서 **연결된 작업 영역** 을 선택합니다.
 
 1. Automation 계정에 연결된 Log Analytics 작업 영역에 머신이 표시되는지 확인합니다. Log Analytics 작업 영역에서 다음 쿼리를 실행합니다.
 
@@ -43,9 +43,9 @@ Unable to Register Machine for Change Tracking, Registration Failed with Excepti
    | summarize by Computer, Solutions
    ```
 
-   쿼리 결과에 컴퓨터가 표시 되지 않으면 최근에 체크 인 되지 않은 것입니다. 로컬 구성 문제가 있을 수 있습니다. Log Analytics 에이전트를 다시 설치 해야 합니다.
+   사용자 컴퓨터가 쿼리 결과에 표시되지 않는다면 최근에 체크인하지 않은 것입니다. 로컬 구성 문제가 있을 수 있습니다. Log Analytics 에이전트를 다시 설치해야 합니다.
 
-   컴퓨터가 쿼리 결과에 표시 되는 경우 솔루션 속성 아래에서 **changeTracking** 이 나열 되는지 확인 합니다. 그러면 변경 내용 추적 및 인벤토리에 등록 되었는지 확인 됩니다. 그렇지 않으면 범위 구성 문제를 확인 합니다. 범위 구성은 변경 내용 추적 및 인벤토리에 대해 구성 된 컴퓨터를 결정 합니다. 대상 컴퓨터에 대 한 범위 구성을 구성 하려면 [Automation 계정에서 변경 내용 추적 및 인벤토리 사용](../change-tracking/enable-from-automation-account.md)을 참조 하세요.
+   컴퓨터가 쿼리 결과에 나열되는 경우, **솔루션** 속성에 changeTracking이 나열되어 있는지 확인합니다. 그러면 변경 내용 추적 및 인벤토리에 등록되었는지 확인합니다. 등록되지 않았으면 범위 구성 문제를 확인합니다. 범위 구성은 변경 내용 추적 및 인벤토리에 구성되는 컴퓨터를 결정합니다. 대상 컴퓨터에 범위 구성을 구성하려면, [Automation 계정에서 변경 내용 추적 및 인벤토리 사용](../change-tracking/enable-from-automation-account.md)을 참조하세요.
 
    작업 영역에서 이 쿼리를 실행합니다.
 
@@ -55,11 +55,11 @@ Unable to Register Machine for Change Tracking, Registration Failed with Excepti
    | sort by TimeGenerated desc
    ```
 
-1. ```Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota``` 결과를 얻는 경우 작업 영역에 정의된 할당량에 도달하여 중지된 데이터를 저장하지 못한 것입니다. 작업 영역에서 **사용량 및 예상 비용** 으로 이동 합니다. 더 많은 데이터를 사용할 수 있는 새로운 **가격 책정 계층** 을 선택 하거나, **일일** 한도를 클릭 하 고, 캡을 제거 합니다.
+1. ```Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota``` 결과를 얻는 경우 작업 영역에 정의된 할당량에 도달하여 중지된 데이터를 저장하지 못한 것입니다. 작업 영역에서 **사용량 및 예상 비용** 으로 이동합니다. 더 많은 데이터를 사용할 수 있는 새로운 **가격 책정 계층** 을 선택하거나, **일일 한도** 를 클릭하고 한도를 제거합니다.
 
-:::image type="content" source="./media/change-tracking/change-tracking-usage.png" alt-text="사용량 및 예상 비용" lightbox="./media/change-tracking/change-tracking-usage.png":::
+:::image type="content" source="./media/change-tracking/change-tracking-usage.png" alt-text="사용량 및 예상 비용." lightbox="./media/change-tracking/change-tracking-usage.png":::
 
-그래도 문제가 해결되지 않으면 [Windows Hybrid Runbook Worker 배포](../automation-windows-hrw-install.md)의 단계에 따라 Windows용 Hybrid Worker를 다시 설치합니다. Linux의 경우  [linux Hybrid Runbook Worker 배포](../automation-linux-hrw-install.md)의 단계를 따르세요.
+그래도 문제가 해결되지 않으면 [Windows Hybrid Runbook Worker 배포](../automation-windows-hrw-install.md)의 단계에 따라 Windows용 Hybrid Worker를 다시 설치합니다. Linux의 경우 [Linux Hybrid Runbook Worker 배포](../automation-linux-hrw-install.md)의 단계를 따르세요.
 
 ## <a name="windows"></a>Windows
 

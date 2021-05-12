@@ -1,7 +1,7 @@
 ---
 title: 관리 ID를 사용하여 App Configuration 액세스
 titleSuffix: Azure App Configuration
-description: 관리 id를 사용 하 여 Azure 앱 구성에 인증
+description: 관리 ID를 사용하여 Azure App Configuration에 인증
 author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
@@ -9,24 +9,24 @@ ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
 ms.date: 2/25/2020
 ms.openlocfilehash: 386a0e27c0f73f5bcd42397ed515f7561d5097fd
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104955060"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>관리 ID를 사용하여 App Configuration 액세스
 
-Azure Active Directory [관리 되는 id는](../active-directory/managed-identities-azure-resources/overview.md) 클라우드 응용 프로그램에 대 한 비밀 관리를 간소화 합니다. 관리 되는 id를 사용 하 여 코드는 실행 되는 Azure 서비스에 대해 만든 서비스 주체를 사용할 수 있습니다. Azure Key Vault 또는 로컬 연결 문자열에 저장된 별도의 자격 증명 대신 관리 ID를 사용합니다.
+Azure Active Directory [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)는 클라우드 애플리케이션에 대한 비밀 관리를 간소화합니다. 관리 ID를 사용하면 실행되는 Azure 서비스에 대해 만들어진 서비스 주체를 코드가 사용할 수 있습니다. Azure Key Vault 또는 로컬 연결 문자열에 저장된 별도의 자격 증명 대신 관리 ID를 사용합니다.
 
-Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라이언트 라이브러리에는 관리 되는 id 지원이 기본적으로 제공 됩니다. 이를 반드시 사용할 필요는 없지만 관리 되는 id를 사용 하면 암호를 포함 하는 액세스 토큰이 필요 하지 않습니다. 코드는 서비스 끝점만 사용 하 여 앱 구성 저장소에 액세스할 수 있습니다. 비밀을 노출 하지 않고 코드에이 URL을 직접 포함할 수 있습니다.
+Azure App Configuration과 해당 .NET Core, .NET Framework, Java Spring 클라이언트 라이브러리에는 관리 ID 지원이 기본적으로 제공됩니다. 관리 ID를 반드시 사용할 필요는 없지만 사용하는 경우 비밀이 포함된 액세스 토큰이 필요하지 않습니다. 코드는 서비스 엔드포인트만 사용하여 App Configuration 저장소에 액세스할 수 있습니다. 비밀을 노출하지 않고도 해당 URL을 코드에 직접 포함할 수 있습니다.
 
-이 문서에서는 관리 되는 id를 활용 하 여 앱 구성에 액세스 하는 방법을 보여 줍니다. 빠른 시작에 소개된 웹앱을 기반으로 합니다. 계속 하기 전에 먼저  [앱 구성을 사용 하 여 ASP.NET Core 앱을 만듭니다](./quickstart-aspnet-core-app.md) .
+이 문서에서는 관리 ID를 활용하여 App Configuration에 액세스하는 방법을 보여 줍니다. 빠른 시작에 소개된 웹앱을 기반으로 합니다. 계속 진행하기 전에 먼저 [App Configuration을 사용하여 ASP.NET Core 앱을 만듭니다](./quickstart-aspnet-core-app.md).
 
 > [!NOTE]
-> 이 문서에서는 Azure App Service를 예로 사용 하지만 관리 되는 id를 지 원하는 다른 Azure 서비스 (예: [Azure Kubernetes Service](../aks/use-azure-ad-pod-identity.md), [azure Virtual Machine](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)및 [Azure Container Instances](../container-instances/container-instances-managed-identity.md))에도 동일한 개념이 적용 됩니다. 워크 로드가 이러한 서비스 중 하나에서 호스트 되는 경우 서비스의 관리 되는 id 지원도 활용할 수 있습니다.
+> 이 문서에서는 Azure App Service를 예로 사용하지만, 관리 ID를 지원하는 다른 Azure 서비스(예: [Azure Kubernetes Service](../aks/use-azure-ad-pod-identity.md), [Azure Virtual Machine](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md), [Azure Container Instances](../container-instances/container-instances-managed-identity.md))에도 동일한 개념이 적용됩니다. 워크로드가 해당 서비스 중 하나에서 호스트되는 경우 서비스의 관리 ID 지원도 활용할 수 있습니다.
 
-또한이 문서에서는 관리 되는 id를 앱 구성의 Key Vault 참조와 함께 사용할 수 있는 방법을 보여 줍니다. 관리 되는 단일 id를 사용 하 여 Key Vault 및 앱 구성의 구성 값에서 모두 원활 하 게 액세스할 수 있습니다. 이 기능을 탐색 하려면 먼저 [ASP.NET Core를 사용 하 여 Key Vault 참조 사용](./use-key-vault-references-dotnet-core.md) 을 완료 합니다.
+이 문서에서는 관리 ID를 App Configuration의 Key Vault 참조와 함께 사용할 수 있는 방법도 보여 줍니다. 단일 관리 ID를 사용하여 Key Vault의 비밀과 App Configuration의 구성 값에 모두 원활하게 액세스할 수 있습니다. 해당 기능을 살펴보려면 먼저 [ASP.NET Core를 사용하여 Key Vault 참조 사용](./use-key-vault-references-dotnet-core.md)을 완료합니다.
 
 이 자습서의 단계는 임의의 코드 편집기를 사용하여 수행할 수 있습니다. [Visual Studio Code](https://code.visualstudio.com/)는 Windows, macOS 및 Linux 플랫폼에서 사용할 수 있는 훌륭한 옵션입니다.
 
@@ -35,40 +35,40 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
 > [!div class="checklist"]
 > * App Configuration에 대한 관리 ID 액세스 권한을 부여합니다.
 > * App Configuration에 연결할 때 관리 ID를 사용하도록 앱을 구성합니다.
-> * 필요에 따라 앱 구성 Key Vault 참조를 통해 Key Vault에 연결할 때 관리 id를 사용 하도록 앱을 구성 합니다.
+> * 필요에 따라 App Configuration Key Vault 참조를 통해 Key Vault에 연결할 때 관리 ID를 사용하도록 앱을 구성합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
 * [.NET Core SDK](https://www.microsoft.com/net/download/windows)
-* [Azure Cloud Shell 구성](../cloud-shell/quickstart.md)되었습니다.
+* [Azure Cloud Shell 구성](../cloud-shell/quickstart.md)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="add-a-managed-identity"></a>관리형 ID 추가
 
-포털에서 관리 id를 설정 하려면 먼저 응용 프로그램을 만든 후 기능을 사용 하도록 설정 합니다.
+포털에서 관리 ID를 설정하려면 먼저 애플리케이션을 만든 다음, 해당 기능을 사용합니다.
 
-1. 일반적으로 [Azure Portal](https://portal.azure.com) 에서 App Services 인스턴스를 만듭니다. 포털에서 이동합니다.
+1. 평소와 같이 [Azure Portal](https://portal.azure.com)에서 App Services 인스턴스를 만듭니다. 포털에서 이동합니다.
 
 1. 왼쪽 창에서 **설정** 그룹까지 아래로 스크롤하고 **ID** 를 선택합니다.
 
 1. **시스템 할당** 탭에서 **상태** 를 **켜기** 로 전환하고 **저장** 을 선택합니다.
 
-1. 시스템 할당 관리 id를 사용 하도록 설정 하 라는 메시지가 표시 되 면 **예** 를 대답 합니다.
+1. 시스템이 할당한 관리 ID를 사용하라는 메시지가 표시되면 **예** 라고 대답합니다.
 
     ![App Service에서 관리형 ID 설정](./media/set-managed-identity-app-service.png)
 
 ## <a name="grant-access-to-app-configuration"></a>App Configuration에 대한 액세스 권한 부여
 
-1. [Azure Portal](https://portal.azure.com)에서 **모든 리소스** 를 선택 하 고 빠른 시작에서 만든 앱 구성 저장소를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **모든 리소스** 를 선택하고, 빠른 시작에서 만든 App Configuration 저장소를 선택합니다.
 
 1. **액세스 제어(IAM)** 를 선택합니다.
 
 1. **액세스 권한 확인** 탭의 **역할 할당 추가** 카드 UI에서 **추가** 를 선택합니다.
 
-1. **역할** 아래에서 **앱 구성 데이터 판독기** 를 선택 합니다. **다음에 대한 액세스 할당** 의 **시스템이 할당한 관리 ID** 아래에서 **App Service** 를 선택합니다.
+1. **역할** 에서 **App Configuration 데이터 판독기** 를 선택합니다. **다음에 대한 액세스 할당** 의 **시스템이 할당한 관리 ID** 아래에서 **App Service** 를 선택합니다.
 
 1. **구독** 아래에서 Azure 구독을 선택합니다. 앱의 App Service 리소스를 선택합니다.
 
@@ -76,19 +76,19 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
 
     ![관리형 ID 추가](./media/add-managed-identity.png)
 
-1. 선택 사항: Key Vault에 대 한 액세스 권한을 부여 하려는 경우 [Key Vault 액세스 정책 할당](../key-vault/general/assign-access-policy-portal.md)의 지시를 따릅니다.
+1. 선택 사항: Key Vault에 대한 액세스 권한도 부여하려는 경우 [Key Vault 액세스 정책 할당](../key-vault/general/assign-access-policy-portal.md)의 지침을 따릅니다.
 
 ## <a name="use-a-managed-identity"></a>관리 ID 사용
 
-1. *Azure id* 패키지에 대 한 참조를 추가 합니다.
+1. *Azure.Identity* 패키지에 대한 참조를 추가합니다.
 
     ```bash
     dotnet add package Azure.Identity
     ```
 
-1. 앱 구성 저장소에 대 한 끝점을 찾습니다. 이 URL은 Azure Portal의 저장소에 대 한 **액세스 키** 탭에 나열 됩니다.
+1. App Configuration 저장소에 대한 엔드포인트를 찾습니다. 해당 URL은 Azure Portal의 저장소에 대한 **액세스 키** 탭에 나열됩니다.
 
-1. *appsettings.json* 을 열고 다음 스크립트를 추가합니다. 괄호를 포함 하 여 *\<service_endpoint>* 를 앱 구성 저장소에 대 한 URL로 바꿉니다.
+1. *appsettings.json* 을 열고 다음 스크립트를 추가합니다. *\<service_endpoint>* (대괄호 포함)를 App Configuration 저장소의 URL로 바꿉니다.
 
     ```json
     "AppConfig": {
@@ -96,13 +96,13 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
     }
     ```
 
-1. *프로그램 .cs* 를 열고 `Azure.Identity` 및 `Microsoft.Azure.Services.AppAuthentication` 네임 스페이스에 대 한 참조를 추가 합니다.
+1. *Program.cs* 를 열고 `Azure.Identity` 및 `Microsoft.Azure.Services.AppAuthentication` 네임스페이스에 대한 참조를 추가합니다.
 
     ```csharp-interactive
     using Azure.Identity;
     ```
 
-1. 앱 구성에 직접 저장 된 값에만 액세스 하려는 경우 `CreateWebHostBuilder` 메서드를 대체 하 여 메서드를 업데이트 `config.AddAzureAppConfiguration()` 합니다 (패키지에 있음 `Microsoft.Azure.AppConfiguration.AspNetCore` ).
+1. App Configuration에 직접 저장된 값에만 액세스하려는 경우 `config.AddAzureAppConfiguration()` 메서드(`Microsoft.Azure.AppConfiguration.AspNetCore` 패키지에 있음)를 대체하여 `CreateWebHostBuilder` 메서드를 업데이트합니다.
 
     > [!IMPORTANT]
     > .NET Core 3.0에서 `CreateHostBuilder`는 `CreateWebHostBuilder`를 대체합니다.  사용자 환경에 따라 올바른 구문을 선택합니다.
@@ -140,15 +140,15 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
     ---
 
     > [!NOTE]
-    > **사용자 할당 관리 id** 를 사용 하려는 경우 [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential)를 만들 때 clientId를 지정 해야 합니다.
+    > **사용자가 할당한 관리 ID** 를 사용하려는 경우 [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential)을 만들 때 clientId를 지정해야 합니다.
     >```
     >config.AddAzureAppConfiguration(options =>
     >   options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential(<your_clientId>)));
     >```
-    >[Azure 리소스에 대 한 관리 되는 Id faq](../active-directory/managed-identities-azure-resources/known-issues.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)에 설명 된 것 처럼 사용 되는 관리 id를 확인 하는 기본 방법이 있습니다. 이 경우 Azure Id 라이브러리는 나중에 계층이 가능한 런타임 문제를 방지 하기 위해 원하는 id를 지정 합니다. 예를 들어 새 사용자 할당 관리 id가 추가 되거나 시스템 할당 관리 id가 사용 하도록 설정 된 경우입니다. 따라서 하나의 사용자 할당 관리 id만 정의 되 고 시스템 할당 관리 id가 없는 경우에도 clientId를 지정 해야 합니다.
+    >[Azure 리소스에 대한 관리 ID FAQ](../active-directory/managed-identities-azure-resources/known-issues.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)에 설명된 것처럼 사용되는 관리 ID를 확인하는 기본 방법이 있습니다. 이 경우 Azure ID 라이브러리는 예를 들어 나중에 새 사용자가 할당한 관리 ID가 추가되거나 시스템이 할당한 관리 ID를 사용하는 경우 발생할 수 있는 런타임 문제를 방지하기 위해 원하는 ID를 지정하도록 강제합니다. 따라서 하나의 사용자가 할당한 관리 ID만 정의되어 있고 시스템이 할당한 관리 ID가 없는 경우에도 clientId를 지정해야 합니다.
 
 
-1. 앱 구성 값과 Key Vault 참조를 모두 사용 하려면 아래와 같이 *Program .cs* 를 업데이트 합니다. 이 코드는 `SetCredential` 의 일부로를 호출 하 여 `ConfigureKeyVault` Key Vault에 인증할 때 사용할 자격 증명을 구성 공급자에 게 알립니다.
+1. App Configuration 값과 Key Vault 참조를 모두 사용하려면 아래와 같이 *Program.cs* 를 업데이트합니다. 해당 코드는 `ConfigureKeyVault`의 일부로 `SetCredential`을 호출하여 Key Vault에 인증할 때 사용할 자격 증명을 구성 공급자에게 알립니다.
 
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -198,25 +198,25 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
     ```
     ---
 
-    이제 다른 앱 구성 키와 마찬가지로 Key Vault 참조에 액세스할 수 있습니다. 구성 공급자는를 사용 하 여 `ManagedIdentityCredential` Key Vault에 인증 하 고 값을 검색 합니다.
+    이제 다른 App Configuration 키와 마찬가지로 Key Vault 참조에 액세스할 수 있습니다. 구성 공급자는 `ManagedIdentityCredential`을 사용하여 Key Vault에 인증하고 값을 검색합니다.
 
     > [!NOTE]
-    > 는 `ManagedIdentityCredential` 관리 되는 id 인증을 지 원하는 서비스의 Azure 환경 에서만 작동 합니다. 로컬 환경에서는 작동 하지 않습니다. [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential)로컬 및 Azure 환경에서 작업 하는 데를 사용 하 여 관리 id를 비롯 한 몇 가지 인증 옵션으로 대체 합니다.
+    > `ManagedIdentityCredential`은 관리 ID 인증을 지원하는 서비스의 Azure 환경에서만 작동합니다. 로컬 환경에서는 작동하지 않습니다. 코드가 로컬 및 Azure 환경에서 모두 작동하도록 [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential)을 사용하면 관리 ID를 비롯한 몇 가지 인증 옵션으로 대체됩니다.
     > 
-    > Azure에 배포 된 경우에서 **사용자 asigned 관리 id** 를 사용 하려는 경우에는 `DefaultAzureCredential` clientId를 [지정](/dotnet/api/overview/azure/identity-readme#specifying-a-user-assigned-managed-identity-with-the-defaultazurecredential)합니다.
+    > Azure에 배포된 상태에서 **사용자가 할당한 관리 ID** 를 `DefaultAzureCredential`과 함께 사용하려는 경우 [clientId를 지정](/dotnet/api/overview/azure/identity-readme#specifying-a-user-assigned-managed-identity-with-the-defaultazurecredential)합니다.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 ## <a name="deploy-from-local-git"></a>로컬 Git에서 배포
 
-Kudu 빌드 서버를 사용 하 여 앱에 로컬 Git 배포를 사용 하도록 설정 하는 가장 쉬운 방법은 [Azure Cloud Shell](https://shell.azure.com)를 사용 하는 것입니다.
+Kudu 빌드 서버를 사용하여 앱에 로컬 Git 배포를 사용하는 가장 쉬운 방법은 [Azure Cloud Shell](https://shell.azure.com)을 사용하는 것입니다.
 
 ### <a name="configure-a-deployment-user"></a>배포 사용자 구성
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
 ### <a name="enable-local-git-with-kudu"></a>Kudu로 로컬 Git을 사용하도록 설정
-앱에 대 한 로컬 git 리포지토리가 없으면 하나를 초기화 해야 합니다. 로컬 git 리포지토리를 초기화 하려면 앱의 프로젝트 디렉터리에서 다음 명령을 실행 합니다.
+앱에 대한 로컬 git 리포지토리가 없으면 하나를 초기화해야 합니다. 로컬 git 리포지토리를 초기화하려면 앱의 프로젝트 디렉터리에서 다음 명령을 실행합니다.
 
 ```cmd
 git init
@@ -224,13 +224,13 @@ git add .
 git commit -m "Initial version"
 ```
 
-Kudu 빌드 서버를 사용 하 여 앱에 대 한 로컬 Git 배포를 사용 하도록 설정 하려면 [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/#az-webapp-deployment-source-config-local-git) Cloud Shell에서를 실행 합니다.
+Kudu 빌드 서버를 사용하여 앱에 로컬 Git 배포를 사용하도록 설정하려면 Cloud Shell에서 [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/#az-webapp-deployment-source-config-local-git)을 실행합니다.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
 ```
 
-이 명령은 다음과 같은 출력을 제공 합니다.
+해당 명령은 다음과 비슷한 출력을 제공합니다.
 
 ```json
 {
@@ -240,7 +240,7 @@ az webapp deployment source config-local-git --name <app_name> --resource-group 
 
 ### <a name="deploy-your-project"></a>프로젝트 배포
 
-_로컬 터미널 창_ 에서 로컬 Git 리포지토리에 Azure 원격을 추가 합니다. _\<url>_ [Kudu를 사용 하 여 로컬 git 사용](#enable-local-git-with-kudu)에서 가져온 GIT 원격의 URL로 대체 합니다.
+‘로컬 터미널 창’에서 로컬 Git 리포지토리에 Azure 원격을 추가합니다. _\<url>_ 을 [Kudu로 로컬 Git을 사용](#enable-local-git-with-kudu)에서 가져온 Git 원격의 URL로 바꿉니다.
 
 ```bash
 git remote add azure <url>
@@ -264,9 +264,9 @@ http://<app_name>.azurewebsites.net
 
 ## <a name="use-managed-identity-in-other-languages"></a>다른 언어의 관리형 ID 사용
 
-.NET Framework 및 Java Spring 용 App Configuration 공급자에는 관리형 ID에 대한 지원 기능이 내장되어 있습니다. 이러한 공급자 중 하나를 구성할 때 전체 연결 문자열 대신 상점의 URL 끝점을 사용할 수 있습니다.
+.NET Framework 및 Java Spring 용 App Configuration 공급자에는 관리형 ID에 대한 지원 기능이 내장되어 있습니다. 해당 공급자 중 하나를 구성할 때 전체 연결 문자열 대신 저장소의 URL 엔드포인트를 사용할 수 있습니다.
 
-예를 들어 빠른 시작에서 만든 .NET Framework 콘솔 앱을 업데이트 하 여 *App.config* 파일에서 다음 설정을 지정할 수 있습니다.
+예를 들어 빠른 시작에서 만든 .NET Framework 콘솔 앱을 업데이트하여 *App.config* 파일에 다음 설정을 지정할 수 있습니다.
 
 ```xml
     <configSections>
@@ -291,7 +291,7 @@ http://<app_name>.azurewebsites.net
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 앱 구성에 대 한 액세스를 간소화 하 고 앱에 대 한 자격 증명 관리를 개선 하기 위해 Azure 관리 id를 추가 했습니다. App Configuration을 사용하는 방법에 대해 자세히 알아보려면 Azure CLI 샘플로 계속 진행하세요.
+이 자습서에서는 Azure 관리 ID를 추가하여 App Configuration에 대한 액세스 관리를 간소화하고 앱에 대한 자격 증명 관리를 개선했습니다. App Configuration을 사용하는 방법에 대해 자세히 알아보려면 Azure CLI 샘플로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [CLI 샘플](./cli-samples.md)

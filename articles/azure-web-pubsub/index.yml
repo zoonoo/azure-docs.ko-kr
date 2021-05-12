@@ -1,0 +1,42 @@
+### YamlMime:Landing
+title: Azure Web PubSub 서비스 문서
+summary: Azure Web PubSub 서비스는 개발자가 실시간 기능 및 게시-구독 패턴을 사용하여 웹 애플리케이션을 쉽게 빌드할 수 있도록 도와주는 Azure 관리형 서비스입니다.
+metadata:
+  title: Azure Web PubSub 서비스 문서
+  description: 광범위한 언어 및 프레임워크를 지원하는 WebSocket을 기반으로 실시간 웹앱을 쉽게 빌드하고 크기를 조정할 수 있습니다.
+  ms.service: azure-web-pubsub
+  ms.topic: landing-page
+  author: yjin81
+  ms.author: yajin1
+  ms.date: 01/27/2021
+  ms.openlocfilehash: 468e003f209f4d1acd3f1f6cb80d8ca166495672
+  ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 04/28/2021
+  ms.locfileid: "108166791"
+landingContent:
+- title: Azure Web PubSub 서비스 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Web PubSub 서비스란?
+      url: overview.md
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 라이브 데모 시작
+      url: quickstart-live-demo.md
+    - text: 간단한 채팅방 서버리스 애플리케이션으로 시작
+      url: quickstart-serverless.md
+  - linkListType: how-to-guide
+    links:
+    - text: Web PubSub 인스턴스를 만드는 방법
+      url: howto-develop-create-instance.md
+    - text: 메시지 게시 및 구독
+      url: https://azure.github.io/azure-webpubsub/getting-started/publish-messages/js-publish-message
+    - text: 하위 프로토콜 작업
+      url: https://azure.github.io/azure-webpubsub/getting-started/using-pubsub-subprotocol/js-work-with-subprotocols
+    - text: 인증 및 권한
+      url: https://azure.github.io/azure-webpubsub/getting-started/auth-and-permissions/js-auth-and-permissions

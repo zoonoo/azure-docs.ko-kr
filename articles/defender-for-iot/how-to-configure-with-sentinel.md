@@ -1,60 +1,60 @@
 ---
-title: IoT 용 Azure 센티널 구성
-description: IoT 용 Defender 솔루션에서 데이터를 수신 하도록 Azure 센티널를 구성 하는 방법을 설명 합니다.
+title: Defender for IoT용 Azure Sentinel 구성
+description: Defender for IoT 솔루션에서 데이터를 수신하도록 Azure Sentinel을 구성하는 방법을 설명합니다.
 ms.topic: how-to
 ms.date: 12/28/2020
 ms.openlocfilehash: b481dd31b73e741d265a569076f1ddc076ad4a45
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104778953"
 ---
-# <a name="connect-your-data-from-defender-for-iot-to-azure-sentinel"></a>IoT 용 Defender의 데이터를 Azure 센티널에 연결 
+# <a name="connect-your-data-from-defender-for-iot-to-azure-sentinel"></a>Defender for IoT의 데이터를 Azure Sentinel에 연결 
 
-IoT 용 Defender 커넥터를 사용 하 여 모든 IoT 이벤트 용 Defender를 Azure 센티널로 스트리밍합니다. 
+Defender for IoT 커넥터를 사용하여 모든 Defender for IoT 이벤트를 Azure Sentinel로 스트리밍합니다. 
 
-이러한 통합을 통해 조직은 종종 교차와 경계를 교차 하는 다단계 공격을 신속 하 게 검색할 수 있습니다. 또한 Azure 센티널의 보안 오케스트레이션, 자동화 및 응답 (대화 충성도) 기능을 사용 하 여 IoT 용 Defender를 통합 하면 기본 제공 되는 OT 기반 플레이 북을 사용 하 여 자동화 된 응답과 방지를 사용할 수 있습니다. 
+해당 통합을 통해 조직은 IT와 OT의 경계를 넘나드는 다단계 공격을 신속하게 감지할 수 있습니다. 또한 Azure Sentinel의 SOAR(보안 오케스트레이션, 자동화, 응답) 기능과 Defender for IoT의 통합으로 기본 제공 OT 최적화 플레이북을 사용하여 응답과 예방을 자동화할 수 있습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure 센티널이 배포 된 작업 영역에 대 한 **읽기** 및 **쓰기** 권한
-- **IoT 용 Defender는** 관련 IoT Hub에서 **사용 하도록 설정** 해야 합니다.
-- 연결 하려는 **구독** 에 대 한 **참가자** 권한이 있어야 합니다.
+- Azure Sentinel이 배포된 작업 영역에 대한 **읽기** 및 **쓰기** 권한
+- **Defender for IoT** 를 관련 IoT Hub에서 **사용하도록 설정** 해야 합니다.
+- 연결하려는 **구독** 에 대한 **기여자** 권한이 있어야 합니다.
 
-## <a name="connect-to-defender-for-iot"></a>IoT 용 Defender에 연결
+## <a name="connect-to-defender-for-iot"></a>Defender for IoT에 연결
 
-1. Azure 센티널에서 **데이터 커넥터** 를 선택한 다음, 갤러리에서 **iot 용 Defender** (iot의 경우에도 Azure Security Center 라고도 함)를 선택 합니다.
+1. Azure Sentinel에서 **데이터 커넥터** 를 선택한 다음 갤러리에서 **Defender for IoT**(아직 IoT용 Azure Security Center라고 되어 있을 수 있음)를 선택합니다.
 
-1. 오른쪽 창의 맨 아래에서 **커넥터 페이지 열기** 를 클릭 합니다.
+1. 오른쪽 창 하단에서 **커넥터 페이지 열기** 를 클릭합니다.
 
-1. 연결을 클릭 하 고, 경고 및 장치 경고가 Azure 센티널로 스트리밍할 각 IoT Hub 구독 옆에 있는 **연결** 을 클릭 합니다.
-    - 구독 내에서 하나 이상의 IoT Hub에서 IoT 용 Defender를 사용 하도록 설정 하지 않은 경우 오류 메시지가 표시 됩니다. IoT Hub 내에서 IoT에 대해 Defender를 사용 하도록 설정 하 여 오류를 제거 합니다.
+1. Azure Sentinel로 경고 및 디바이스 경고를 스트리밍할 각 IoT Hub 구독 옆에 있는 **연결** 을 클릭합니다.
+    - 구독 내에서 하나 이상의 IoT Hub에서 Defender for IoT를 사용하도록 설정하지 않은 경우 오류 메시지가 표시됩니다. IoT Hub 내에서 Defender for IoT를 사용하도록 설정하여 오류를 제거합니다.
 
-1. IoT에 대해 Defender에서 경고를 통해 Azure 센티널에서 인시던트를 자동으로 생성할지 여부를 결정할 수 있습니다. **인시던트 만들기** 에서 **사용** 을 선택 하 여 기본 분석 규칙을 사용 하도록 설정 하 여 생성 된 경고에서 인시던트를 자동으로 만듭니다. 이 규칙은 **분석**  >  **활성 규칙** 에서 변경 하거나 편집할 수 있습니다.
+1. Defender for IoT의 경고에서 Azure Sentinel에 인시던트를 자동으로 생성할지를 결정할 수 있습니다. **인시던트 만들기** 에서 **사용** 을 선택해 기본 분석 규칙을 사용하도록 설정하여 생성된 경고로부터 인시던트를 자동으로 만듭니다. 이 규칙은 **분석** > **활성 규칙** 에서 변경하거나 편집할 수 있습니다.
 
 > [!NOTE]
-> 연결을 변경한 후 **구독** 목록을 새로 고치는 데 10 초 이상 걸릴 수 있습니다. 
+> 연결을 변경한 후 **구독** 목록을 새로 고치는 데 10초 이상 걸릴 수 있습니다. 
 
 ## <a name="log-analytics-alert-view"></a>Log Analytics 경고 보기
 
-Log Analytics에서 관련 스키마를 사용 하 여 IoT 경고에 대 한 Defender를 표시 하려면 다음을 수행 합니다.
+Log Analytics에서 관련 스키마를 사용하여 Defender for IoT 경고를 표시하려면 다음을 수행합니다.
 
-1. **Logs**  >  **securityinsights**  >  **securityinsights** 를 열거나 **securityinsights** 를 검색 합니다.
+1. **로그** > **SecurityInsights** > **SecurityAlert** 를 열거나 **SecurityAlert** 를 검색합니다.
 
-1. 다음 kql 필터를 사용 하 여 IoT 생성 된 경고에 대 한 Defender만 표시 하도록 필터링 합니다.
+1. 다음 kql 필터를 사용하여 Defender for IoT에서 생성된 경고만 표시하도록 필터링합니다.
 
 ```kusto
 SecurityAlert | where ProductName == "Azure Security Center for IoT"
 ```
 
-### <a name="service-notes"></a>서비스 정보
+### <a name="service-notes"></a>서비스 참고
 
-**구독** 을 연결한 후에는 약 15 분 후에 허브 데이터를 Azure 센티널에서 사용할 수 있습니다.
+**구독** 을 연결한 후 약 15분 후에 허브 데이터를 Azure Sentinel에서 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 IoT 용 Defender를 Azure 센티널에 연결 하는 방법을 알아보았습니다. 위협 검색 및 보안 데이터 액세스에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
+이 문서에서는 Defender for IoT를 Azure Sentinel에 연결하는 방법을 알아봤습니다. 위협 탐지 및 보안 데이터 액세스에 대해 자세히 알아보려면 다음 문서를 참조하세요.
 
-- Azure 센티널을 사용 하 여 데이터에 대 [한 가시성과 잠재적 위협을](../sentinel/quickstart-get-visibility.md)파악 하는 방법을 알아봅니다.
-- [IoT 보안 데이터에 액세스](how-to-security-data-access.md) 하는 방법 알아보기
+- Azure Sentinel을 사용하여 [데이터에 대한 가시성을 얻고 재적 위협을 확인](../sentinel/quickstart-get-visibility.md)하는 방법 알아보기
+- [IoT 보안 데이터에 액세스](how-to-security-data-access.md)하는 방법 알아보기

@@ -1,6 +1,6 @@
 ---
-title: 사이트 간 연결에 대 한 강제 터널링 구성
-description: 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치로 다시 리디렉션하는 방법 (force)
+title: 사이트 간 연결의 강제 터널링 구성
+description: 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션(강제 적용)하는 방법입니다.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
@@ -9,31 +9,31 @@ ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: cherylmc
 ms.openlocfilehash: afd1c1d5312a9fbf39b401b0cbb4b9997f27407a
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104869041"
 ---
 # <a name="configure-forced-tunneling"></a>강제 터널링 구성
 
-강제 터널링을 사용하면 검사 및 감사에 대한 사이트 간 VPN 터널을 통해 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션하거나 "force"할 수 있습니다. 대부분의 엔터프라이즈 IT 정책에 있어서 중요한 보안 요구 사항입니다. 강제 터널링을 구성 하지 않는 경우 Azure의 Vm에서 인터넷 바인딩된 트래픽은 항상 트래픽을 검사 또는 감사 하도록 허용 하는 옵션 없이 Azure 네트워크 인프라에서 직접 인터넷으로 트래버스 합니다. 인증되지 않은 인터넷 액세스는 잠재적으로 정보 공개 또는 다른 유형의 보안 위반을 발생시킬 수 있습니다.
+강제 터널링을 사용하면 검사 및 감사에 대한 사이트 간 VPN 터널을 통해 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션하거나 "force"할 수 있습니다. 대부분의 엔터프라이즈 IT 정책에 있어서 중요한 보안 요구 사항입니다. 강제 터널링을 구성하지 않는 경우 Azure의 VM에서 인터넷 바인딩된 트래픽은 항상 트래픽을 검사 또는 감사하도록 허용하는 옵션 없이 Azure 네트워크 인프라에서 직접 인터넷으로 트래버스합니다. 인증되지 않은 인터넷 액세스는 잠재적으로 정보 공개 또는 다른 유형의 보안 위반을 발생시킬 수 있습니다.
 
-강제 터널링은 Azure PowerShell를 사용 하 여 구성할 수 있습니다. Azure Portal를 사용 하 여 구성할 수 없습니다. 이 문서에서는 리소스 관리자 배포 모델을 사용 하 여 만든 가상 네트워크에 대해 강제 터널링을 구성 하는 방법을 설명 합니다. 클래식 배포 모델에 대해 강제 터널링을 구성 하려면 [강제 터널링-클래식](vpn-gateway-about-forced-tunneling.md)을 참조 하세요.
+강제 터널링은 Azure PowerShell를 사용하여 구성할 수 있습니다. Azure Portal를 사용하여 구성할 수 없습니다. 이 문서를 통해 Resource Manager 배포 모델을 사용하여 만든 가상 네트워크에 대한 강제 터널링을 구성할 수 있습니다. 클래식 배포 모델에 대해 강제 터널링을 구성하려면 [강제 터널링 - 클래식](vpn-gateway-about-forced-tunneling.md)을 참조하세요.
 
 ## <a name="about-forced-tunneling"></a>강제 터널링 정보
 
 다음 다이어그램에서는 강제 터널링 작동 방법을 보여 줍니다.
 
-:::image type="content" source="./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png" alt-text="다이어그램에 강제 터널링이 표시 됩니다.":::
+:::image type="content" source="./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png" alt-text="다이어그램에 강제 터널링이 표시됩니다.":::
 
-이 예에서 프런트 엔드 서브넷은 강제로 터널링 되지 않습니다. 프런트 엔드 서브넷에서 작업은 계속해서 인터넷에서 직접 고객의 요청을 수락하고 응답할 수 있습니다. 중간 계층 및 백 엔드 서브넷은 강제 터널링됩니다. 이러한 두 서브넷에서 인터넷으로의 모든 아웃 바운드 연결은 S2S (사이트 간) VPN 터널 중 하나를 통해 온-프레미스 사이트로 강제로 다시 리디렉션됩니다.
+이 예에서 프런트 엔드 서브넷은 강제 터널링되지 않았습니다. 프런트 엔드 서브넷에서 작업은 계속해서 인터넷에서 직접 고객의 요청을 수락하고 응답할 수 있습니다. 중간 계층 및 백 엔드 서브넷은 강제 터널링됩니다. 이러한 두 서브넷에서 인터넷으로의 모든 아웃바운드 연결은 S2S(사이트 간) VPN 터널 중 하나를 통해 온-프레미스 사이트로 다시 강제로 처리되거나 리디렉션됩니다.
 
 이를 통해 필요한 다중 계층 서비스 아키텍처를 계속 사용하면서 Azure의 가상 머신 또는 클라우드 서비스에서 인터넷 액세스를 제한하고 검사할 수 있습니다. 가상 네트워크에 인터넷 연결 작업이 없는 경우 강제 터널링을 전체 가상 네트워크에 적용할 수도 있습니다.
 
 ## <a name="requirements-and-considerations"></a>요구 사항 및 고려 사항
 
-Azure에서 강제 터널링은 가상 네트워크 사용자 정의 사용자 정의 경로를 사용 하 여 구성 됩니다. 온-프레미스 사이트에 트래픽을 리디렉션하는 것은 Azure VPN Gateway에 기본 경로로 표현됩니다. 사용자 정의 라우팅 및 가상 네트워크에 대 한 자세한 내용은 사용자 [정의 경로](../virtual-network/virtual-networks-udr-overview.md#user-defined)를 참조 하세요.
+Azure에서 강제 터널링은 가상 네트워크 사용자 지정 사용자 정의 경로을 통해 구성됩니다. 온-프레미스 사이트에 트래픽을 리디렉션하는 것은 Azure VPN Gateway에 기본 경로로 표현됩니다. 사용자 정의 경로 및 가상 네트워크에 대한 자세한 내용은 [사용자 지정 사용자 정의 경로](../virtual-network/virtual-networks-udr-overview.md#user-defined)를 참조하세요.
 
 * 각 가상 네트워크 서브넷에는 기본 제공 시스템 라우팅 테이블이 있습니다. 시스템 라우팅 테이블에는 다음 3개의 경로 그룹이 있습니다.
   
@@ -43,7 +43,7 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 정의 사용자 �
 * 이 절차는 UDR(사용자 정의 경로)을 사용하여 라우팅 테이블을 만들어 기본 경로에 추가한 다음 라우팅 테이블을 VNet 서브넷에 연결하여 해당 서브넷에 강제 터널링을 사용할 수 있습니다.
 * 강제 터널링은 경로 기반 VPN 게이트웨이가 있는 VNet에 연결되어야 합니다. 가상 네트워크에 연결된 크로스-프레미스 로컬 사이트 사이에서 "기본 사이트"를 설정해야 합니다. 또한 트래픽 선택기로 0.0.0.0/0을 사용하여 온-프레미스 VPN 디바이스를 구성해야 합니다. 
 * ExpressRoute 강제 터널링은 이 메커니즘을 통해 구성되지 않지만 대신 ExpressRoute BGP 피어링 세션을 통해 기본 경로를 보급하여 활성화됩니다. 자세한 내용은 [ExpressRoute 설명서](https://azure.microsoft.com/documentation/services/expressroute/)를 참조하세요.
-* 동일한 VNet에 VPN Gateway 및 Express 경로 게이트웨이를 모두 배포 하는 경우 Express 경로 게이트웨이는 구성 된 "기본 사이트"를 VNet에 보급 하므로 UDR (사용자 정의 경로)이 더 이상 필요 하지 않습니다.
+* 동일한 VNet에 VPN Gateway 및 ExpressRoute 게이트웨이를 모두 배포하는 경우 ExpressRoute 게이트웨이가 구성된 "기본 사이트"를 VNet에 보급하므로 UDR(사용자 정의 경로)이 더 이상 필요하지 않습니다.
 
 ## <a name="configuration-overview"></a>구성 개요
 
@@ -60,7 +60,7 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 정의 사용자 �
 >
 >
 
-### <a name="to-sign-in"></a>로그인 하려면
+### <a name="to-sign-in"></a>로그인 방법
 
 [!INCLUDE [Sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
@@ -72,7 +72,7 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 정의 사용자 �
 >
 
 
-1. 리소스 그룹을 만듭니다.
+1. 리소스 그룹을 생성합니다.
 
    ```powershell
    New-AzResourceGroup -Name 'ForcedTunneling' -Location 'North Europe'

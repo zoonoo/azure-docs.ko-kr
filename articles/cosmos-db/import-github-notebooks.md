@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.openlocfilehash: f7002b3968e91447a26315f31347ad469aa5daca
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101690654"
 ---
 # <a name="import-notebooks-from-a-github-repo-into-azure-cosmos-db"></a>GitHub 리포지토리에서 Azure Cosmos DB로 Notebook 가져오기
@@ -57,12 +57,12 @@ Notebook 작업 영역에서 GitHub 계정의 연결을 끊으려면 **데이터
 
 :::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Notebooks 편집 및 GitHub 변경 내용 커밋":::
 
-노트북을 편집한 후에는 [노트북 갤러리에 게시할](publish-notebook-gallery.md)수 있습니다. 
+Notebook을 편집한 후에는 [Notebook 갤러리에 게시할](publish-notebook-gallery.md)수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Cosmos DB Jupyter Notebooks](cosmosdb-jupyter-notebooks.md)의 이점에 대해 알아봅니다.
 * [Notebook 샘플 갤러리 살펴보기](https://cosmos.azure.com/gallery.html)
-* [Azure Cosmos DB 노트북 갤러리에 노트북 게시](publish-notebook-gallery.md)
+* [Azure Cosmos DB Notebook 갤러리에 Notebook 게시](publish-notebook-gallery.md)
 * [Python Notebook 기능 및 명령 사용](use-python-notebook-features-and-commands.md)
 * [C# Notebook 기능 및 명령 사용](use-csharp-notebook-features-and-commands.md)

@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
 ms.openlocfilehash: f01a1204aefbcaabe0ddac254b24bc014c3d5a64
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104654529"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS 분석 미리 보기 솔루션으로 DNS 인프라에 대한 정보 수집
@@ -35,9 +35,9 @@ DNS 분석은 다음을 수행하는 데 도움을 줍니다.
 | **연결된 원본** | **지원** | **설명** |
 | --- | --- | --- |
 | [Windows 에이전트](../agents/agent-windows.md) | 예 | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
-| [Linux 에이전트](../vm/quick-collect-linux-computer.md) | 아니요 | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
+| [Linux 에이전트](../vm/quick-collect-linux-computer.md) | 예 | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
 | [System Center Operations Manager 관리 그룹](../agents/om-agents.md) | 예 | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Azure Monitor로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
-| [Azure Storage 계정](../essentials/resource-logs.md#send-to-log-analytics-workspace) | 아니요 | Azure Storage가 솔루션에서 사용되지 않습니다. |
+| [Azure Storage 계정](../essentials/resource-logs.md#send-to-log-analytics-workspace) | 예 | Azure Storage가 솔루션에서 사용되지 않습니다. |
 
 ### <a name="data-collection-details"></a>데이터 수집 세부 정보
 
@@ -54,15 +54,15 @@ DNS 분석은 다음을 수행하는 데 도움을 줍니다.
 
 ### <a name="configure-the-solution"></a>솔루션 구성
 
-Azure Portal Log Analytics 작업 영역에서 **작업 영역 요약** 을 선택한 다음 **DNS 분석** 타일을 클릭 합니다. 솔루션 대시보드에서 **구성** 을 클릭하여 DNS 분석 구성 페이지를 엽니다. 다음과 같은 2가지 유형의 구성 변경을 수행할 수 있습니다.
+Azure Portal의 Log Analytics 작업 영역에서 **작업 영역 요약** 을 선택하여 **DNS 분석** 타일을 클릭합니다. 솔루션 대시보드에서 **구성** 을 클릭하여 DNS 분석 구성 페이지를 엽니다. 다음과 같은 2가지 유형의 구성 변경을 수행할 수 있습니다.
 
-- **나열 된 도메인 이름** 입니다. 솔루션이 모든 조회 쿼리를 처리하는 것은 아닙니다. 도메인 이름 접미사의 allowlist 유지 합니다. 이 allowlist 도메인 이름 접미사와 일치 하는 도메인 이름으로 확인 되는 조회 쿼리는 솔루션에서 처리 되지 않습니다. Allowlisted 된 도메인 이름을 처리 하지 않으면 Azure Monitor으로 전송 되는 데이터를 최적화 하는 데 도움이 됩니다. 기본 allowlist에는 www.google.com 및 www.facebook.com와 같은 인기 있는 공용 도메인 이름이 포함 됩니다. 스크롤하여 전체 기본 목록을 볼 수 있습니다.
+- **허용 목록에 포함된 도메인 이름**. 솔루션이 모든 조회 쿼리를 처리하는 것은 아닙니다. 도메인 이름 접미사의 허용 목록이 유지됩니다. 이 허용 목록의 도메인 이름 접미사와 일치하는 도메인 이름으로 확인되는 조회 쿼리는 솔루션에서 처리되지 않습니다. 허용 목록에 포함된 도메인 이름이 처리되지 않으면 Azure Monitor에 전송되는 데이터를 최적화하는 데 도움이 됩니다. 기본 허용 목록에는 인기 있는 공용 도메인 이름(예: www.google.com 및 www.facebook.com)이 포함됩니다. 스크롤하여 전체 기본 목록을 볼 수 있습니다.
 
   목록을 수정하여 조회 정보를 보려는 도메인 이름 접미사를 추가할 수 있습니다. 조회 정보를 보지 않으려는 도메인 이름 접미사는 제거할 수 있습니다.
 
 - **Talkative 클라이언트 임계값** 조회 요청 수에 대한 임계값을 초과하는 DNS 클라이언트는 **DNS 클라이언트** 블레이드에서 강조 표시됩니다. 기본 임계값은 1,000입니다. 이 임계값은 편집할 수 있습니다.
 
-    ![나열 된 도메인 이름](./media/dns-analytics/dns-config.png)
+    ![허용 목록 도메인 이름](./media/dns-analytics/dns-config.png)
 
 ## <a name="management-packs"></a>관리 팩
 
@@ -98,7 +98,7 @@ DNS 타일에는 데이터가 수집되는 DNS 서버 수가 포함됩니다. �
 
 ![DNS 보안 블레이드](./media/dns-analytics/dns-security-blade.png)
 
-목록의 클라이언트 IP를 클릭하면 로그 검색이 열리고 해당 쿼리의 조회 세부 정보를 표시합니다. 다음 예제에서 DNS 분석는 [Ircbot](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot&threatId=2621)과의 통신이 수행 되었음을 감지 했습니다.
+목록의 클라이언트 IP를 클릭하면 로그 검색이 열리고 해당 쿼리의 조회 세부 정보를 표시합니다. 다음 예제에서 DNS 분석은 [IRCbot](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot&threatId=2621)과의 통신이 수행되었음을 감지했습니다.
 
 ![ircbot을 표시하는 로그 검색 결과](./media/dns-analytics/ircbot.png)
 
@@ -109,7 +109,7 @@ DNS 타일에는 데이터가 수집되는 DNS 서버 수가 포함됩니다. �
 - 도메인 이름으로 확인된 IP 주소
 - 악의적인 IP 주소
 - 문제의 심각도
-- 악의적인 IP를 나열 하는 블록의 원인입니다.
+- 악의적인 IP를 차단 목록에 추가한 이유
 - 검색 시간
 
 **도메인 쿼리함**. 작업 환경의 DNS 클라이언트가 가장 자주 쿼리한 도메인 이름을 제공합니다. 쿼리되는 모든 도메인 이름 목록을 볼 수 있습니다. 로그 검색에서 특정 도메인 이름에 대한 조회 요청 세부 정보를 드릴다운할 수도 있습니다.
@@ -176,11 +176,11 @@ DNS 타일에는 데이터가 수집되는 DNS 서버 수가 포함됩니다. �
 
 일반적인 문제 해결 단계:
 
-1. 누락 된 DNS 조회 데이터-이 문제를 해결 하려면 구성를 다시 설정 하거나 포털에서 구성 페이지를 한 번만 로드 하십시오. 다시 설정 하려면 설정을 다른 값으로 변경한 다음 다시 원래 값으로 변경 하 고 구성을 저장 합니다.
+1. 누락된 DNS 조회 데이터 - 이 문제를 해결하려면 구성을 다시 설정하거나 포털에서 구성 페이지를 한 번만 로드합니다. 다시 설정하려면 설정을 다른 값으로 변경한 다음 다시 원래 값으로 변경하고 구성을 저장합니다.
 
 ## <a name="suggestions"></a>제안
 
-사용자 의견을 제공 하려면 [Log Analytics UserVoice 페이지](https://aka.ms/dnsanalyticsuservoice) 를 방문 하 여 작업할 DNS 분석 기능에 대 한 아이디어를 게시 하세요. 
+피드백을 제공하려면 [Log Analytics UserVoice 페이지](https://aka.ms/dnsanalyticsuservoice)에 방문하여 작업할 DNS 분석 기능에 대한 아이디어를 게시합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

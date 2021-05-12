@@ -7,10 +7,10 @@ ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 4550be7ae8c543eea1bdfa085db6f23fe668a121
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105025699"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions HTTP 트리거
@@ -375,7 +375,7 @@ module.exports = function(context, req) {
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-다음 예에서는 파일 및 [PowerShell 함수](functions-reference-node.md) *에서function.js* 의 트리거 바인딩을 보여 줍니다. 함수는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
+다음 예제는 *function.json* 의 트리거 바인딩 및 [PowerShell 함수](functions-reference-node.md)를 보여 줍니다. 함수는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
 
 ```json
 {
@@ -535,7 +535,7 @@ JavaScript에서는 특성을 지원하지 않습니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-특성은 PowerShell에서 지원 되지 않습니다.
+PowerShell에서는 특성을 지원하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -596,7 +596,7 @@ HTTP 트리거의 입력 바인딩에서 선택적 `route` 속성을 사용하�
 http://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 ```
 
-이 구성을 통해 함수 코드는 주소, _범주_ 및 _id_ 의 두 매개 변수를 지원할 수 있습니다. URL에서 경로 매개 변수가 토큰화 되는 방법에 대 한 자세한 내용은 [ASP.NET Core 라우팅](/aspnet/core/fundamentals/routing#route-constraint-reference)을 참조 하세요.
+이 구성으로 함수 코드에서 주소의 두 매개 변수, _category_ 및 _id_ 를 지원할 수 있습니다. URL에서 경로 매개 변수가 토큰화되는 방법에 대한 자세한 내용은 [ASP.NET Core의 라우팅](/aspnet/core/fundamentals/routing#route-constraint-reference)을 참조하세요.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -684,7 +684,7 @@ module.exports = function (context, req) {
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-파일의 *function.js* 에 선언 된 경로 매개 변수는 개체의 속성으로 액세스할 수 있습니다 `$Request.Params` .
+*function.json* 파일에 선언된 경로 매개 변수는 `$Request.Params` 개체의 속성으로 액세스할 수 있습니다.
 
 ```powershell
 $Category = $Request.Params.category
@@ -749,9 +749,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 }
 ```
 
-경로 매개 변수를 사용 하는 경우 `invoke_URL_template` 함수에 대해가 자동으로 만들어집니다. 클라이언트는 url을 사용 하 여 함수를 호출할 때 url 템플릿을 사용 하 여 url에 전달 해야 하는 매개 변수를 이해할 수 있습니다. [Azure Portal](https://portal.azure.com) 에서 HTTP 트리거 함수 중 하나로 이동 하 고 **함수 URL 가져오기** 를 선택 합니다.
+경로 매개 변수를 사용하는 경우 함수에 대해 `invoke_URL_template`이 자동으로 만들어집니다. 해당 URL 템플릿을 사용하여 클라이언트는 URL을 사용하여 함수를 호출할 때 URL에 전달해야 하는 매개 변수를 이해할 수 있습니다. [Azure Portal](https://portal.azure.com)에서 HTTP 트리거 함수 중 하나로 이동하고 **함수 URL 가져오기** 를 선택합니다.
 
-`invoke_URL_template` [목록 함수](/rest/api/appservice/webapps/listfunctions) 또는 [Get 함수](/rest/api/appservice/webapps/getfunction)에 Azure Resource Manager api를 사용 하 여 프로그래밍 방식으로에 액세스할 수 있습니다.
+[함수 나열](/rest/api/appservice/webapps/listfunctions) 또는 [함수 가져오기](/rest/api/appservice/webapps/getfunction)에 Azure Resource Manager API를 사용하여 프로그래밍 방식으로 `invoke_URL_template`에 액세스할 수 있습니다.
 
 ## <a name="working-with-client-identities"></a>클라이언트 ID 사용
 
@@ -850,17 +850,17 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 ## <a name="obtaining-keys"></a>키 확보
 
-키는 Azure에 함수 앱의 일부로 저장되며 나머지는 암호화되어 있습니다. 키를 보거나, 새 키를 만들거나, 키를 새 값으로 롤오버 하려면 [Azure Portal](https://portal.azure.com) 에서 HTTP 트리거 함수 중 하나로 이동 하 여 **기능 키** 를 선택 합니다.
+키는 Azure에 함수 앱의 일부로 저장되며 나머지는 암호화되어 있습니다. 키를 보거나 새 키를 만들거나 키를 새 값으로 전환하려면 [Azure Portal](https://portal.azure.com)에서 HTTP 트리거 함수 중 하나로 이동한 다음 **함수 키** 를 선택합니다.
 
-호스트 키를 관리할 수도 있습니다. [Azure Portal](https://portal.azure.com) 의 함수 앱으로 이동 하 고 **앱 키** 를 선택 합니다.
+호스트 키를 관리할 수도 있습니다. [Azure Portal](https://portal.azure.com)의 함수 앱으로 이동하고 **앱 키** 를 선택합니다.
 
-Azure Resource Manager Api를 사용 하 여 프로그래밍 방식으로 함수 및 호스트 키를 가져올 수 있습니다. [기능 키를 나열](/rest/api/appservice/webapps/listfunctionkeys) 하 고 [호스트 키](/rest/api/appservice/webapps/listhostkeys)를 나열 하는 api가 있으며 배포 슬롯을 사용 하는 경우 해당 Api에는 [함수 키 슬롯](/rest/api/appservice/webapps/listfunctionkeysslot) 및 [목록 호스트 키 슬롯이](/rest/api/appservice/webapps/listhostkeysslot)나열 됩니다.
+Azure Resource Manager API를 사용하여 프로그래밍 방식으로 함수 및 호스트 키를 가져올 수 있습니다. [함수 키 나열](/rest/api/appservice/webapps/listfunctionkeys) 및 [호스트 키 나열](/rest/api/appservice/webapps/listhostkeys)을 위한 API가 있으며, 배포 슬롯을 사용하는 경우 이에 해당하는 API는 [함수 키 슬롯 나열](/rest/api/appservice/webapps/listfunctionkeysslot) 및 [호스트 키 슬롯 나열](/rest/api/appservice/webapps/listhostkeysslot)입니다.
 
-[함수 비밀](/rest/api/appservice/webapps/createorupdatefunctionsecret)만들기 또는 업데이트, [함수 비밀 슬롯 만들기](/rest/api/appservice/webapps/createorupdatefunctionsecretslot)또는 업데이트, 호스트 [비밀](/rest/api/appservice/webapps/createorupdatehostsecret) 만들기 또는 업데이트, [호스트 비밀 슬롯 api 만들기](/rest/api/appservice/webapps/createorupdatehostsecretslot) 또는 업데이트를 사용 하 여 프로그래밍 방식으로 새 함수 및 호스트 키를 만들 수도 있습니다.
+[함수 비밀 만들기 또는 업데이트](/rest/api/appservice/webapps/createorupdatefunctionsecret), [함수 비밀 슬롯 만들기 또는 업데이트](/rest/api/appservice/webapps/createorupdatefunctionsecretslot), [호스트 비밀 만들기 또는 업데이트](/rest/api/appservice/webapps/createorupdatehostsecret) 및 [호스트 비밀 슬롯 만들기 또는 업데이트](/rest/api/appservice/webapps/createorupdatehostsecretslot) API를 사용하여 프로그래밍 방식으로 새 함수 및 호스트 키를 만들 수도 있습니다.
 
-함수 및 호스트 키는 [Delete 함수 비밀](/rest/api/appservice/webapps/deletefunctionsecret), [Delete 함수 비밀 슬롯](/rest/api/appservice/webapps/deletefunctionsecretslot)삭제, [호스트 암호](/rest/api/appservice/webapps/deletehostsecret)삭제 및 [호스트 비밀 슬롯](/rest/api/appservice/webapps/deletehostsecretslot) 삭제 api를 사용 하 여 프로그래밍 방식으로 삭제할 수 있습니다.
+함수 및 호스트 키는 [함수 비밀 삭제](/rest/api/appservice/webapps/deletefunctionsecret), [함수 비밀 슬롯 삭제](/rest/api/appservice/webapps/deletefunctionsecretslot), [호스트 비밀 삭제](/rest/api/appservice/webapps/deletehostsecret), [호스트 비밀 슬롯 삭제](/rest/api/appservice/webapps/deletehostsecretslot) API를 사용하여 프로그래밍 방식으로 삭제할 수 있습니다.
 
-[레거시 키 관리 api를 사용 하 여 함수 키를 가져올](https://github.com/Azure/azure-functions-host/wiki/Key-management-API)수도 있지만 대신 Azure Resource Manager api를 사용 하는 것이 좋습니다.
+[레거시 키 관리 API를 사용하여 함수 키를 가져올](https://github.com/Azure/azure-functions-host/wiki/Key-management-API) 수도 있지만 대신 Azure Resource Manager API를 사용하는 것이 좋습니다.
 
 ## <a name="api-key-authorization"></a>API 키 권한 부여
 
@@ -899,7 +899,7 @@ https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
 
 GitHub 웹후크에 응답하려면 먼저 HTTP 트리거를 사용하여 함수를 만들고 **webHookType** 속성을 `github`로 설정합니다. 그런 다음 URL 및 API 키를 GitHub 리포지토리의 **웹후크 추가** 페이지에 복사합니다. 
 
-![함수에 대 한 webhook를 추가 하는 방법을 보여 주는 스크린샷](./media/functions-bindings-http-webhook/github-add-webhook.png)
+![함수에 웹후크를 추가하는 방법을 보여 주는 스크린샷](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
 ### <a name="slack-webhooks"></a>Slack 웹후크
 
@@ -914,11 +914,11 @@ Slack webhook은 함수 전용 키를 지정하는 대신 사용자를 위한 �
 
 ## <a name="content-types"></a>내용 유형
 
-비 C # 함수에 이진 및 폼 데이터를 전달 하려면 적절 한 content-type 헤더를 사용 해야 합니다. 지원 되는 콘텐츠 형식은 `octet-stream` 이진 데이터 및 [다중 파트 형식](https://www.iana.org/assignments/media-types/media-types.xhtml#multipart)에 포함 됩니다.
+C# 함수가 아닌 함수에 이진 및 폼 데이터를 전달하려면 적절한 content-type 헤더를 사용해야 합니다. 지원되는 콘텐츠 형식에는 이진 데이터의 경우 `octet-stream`과 [다중 파트 형식](https://www.iana.org/assignments/media-types/media-types.xhtml#multipart)이 포함됩니다.
 
 ### <a name="known-issues"></a>알려진 문제
 
-비 C # 함수에서 content-type을 사용 하 여 전송 된 요청 `image/jpeg` 은 `string` 함수에 전달 된 값을 반환 합니다. 이와 같은 경우에는 `string` 값을 바이트 배열로 수동으로 변환 하 여 원시 이진 데이터에 액세스할 수 있습니다.
+C# 함수가 아닌 함수에서 content-type `image/jpeg`을 사용하여 전송된 요청은 함수에 `string` 값을 전달합니다. 이와 같은 경우에는 `string` 값을 바이트 배열로 수동으로 변환하여 원시 이진 데이터에 액세스할 수 있습니다.
 
 ## <a name="limits"></a>제한
 

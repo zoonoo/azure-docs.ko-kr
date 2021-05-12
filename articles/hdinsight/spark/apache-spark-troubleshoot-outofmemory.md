@@ -1,25 +1,25 @@
 ---
-title: Azure HDInsight의 Apache Spark에 대 한 OutOfMemoryError 예외
-description: Azure HDInsight의 Apache Spark 클러스터에 대 한 다양 한 OutOfMemoryError 예외
+title: Azure HDInsight의 Apache Spark에 대한 OutOfMemoryError 예외
+description: 다양한 Azure HDInsight의 Apache Spark 클러스터에 대한 OutOfMemoryError 예외
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: dd33972810ab3b0d51bbd82282d0e6cf6cd9d96c
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104868667"
 ---
-# <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Azure HDInsight의 Apache Spark에 대 한 OutOfMemoryError 예외
+# <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Azure HDInsight의 Apache Spark에 대한 OutOfMemoryError 예외
 
 이 문서에서는 Azure HDInsight 클러스터에서 Apache Spark 구성 요소를 사용할 때 발생하는 문제 해결 단계와 가능한 문제 해결 방법을 설명합니다.
 
-## <a name="scenario-outofmemoryerror-exception-for-apache-spark"></a>시나리오: Apache Spark에 대 한 OutOfMemoryError 예외
+## <a name="scenario-outofmemoryerror-exception-for-apache-spark"></a>시나리오: Apache Spark에 대한 OutOfMemoryError 예외
 
 ### <a name="issue"></a>문제
 
-OutOfMemoryError 처리 되지 않은 예외가 발생 하 여 Apache Spark 응용 프로그램이 실패 했습니다. 다음과 유사한 오류 메시지가 표시 될 수 있습니다.
+OutOfMemoryError 처리되지 않은 예외가 발생하여 Apache Spark 애플리케이션이 실패했습니다. 다음과 유사한 오류 메시지가 표시될 경우:
 
 ```error
 ERROR Executor: Exception in task 7.0 in stage 6.0 (TID 439)
@@ -51,17 +51,17 @@ java.lang.OutOfMemoryError
 
 ### <a name="cause"></a>원인
 
-이 예외의 가장 가능성 높은 원인은 JVM(Java Virtual Machine)에 할당된 힙 메모리가 충분하지 않다는 것입니다. 이러한 Jvm는 실행 기 또는 드라이버를 Apache Spark 응용 프로그램의 일부로 실행 됩니다.
+이 예외의 가장 가능성 높은 원인은 JVM(Java Virtual Machine)에 할당된 힙 메모리가 충분하지 않다는 것입니다. 이러한 JVM은 Apache Spark 애플리케이션의 일부로 실행기 또는 드라이버로서 시작됩니다.
 
 ### <a name="resolution"></a>해결 방법
 
-1. Spark 애플리케이션에서 처리할 데이터의 최대 크기를 결정합니다. 입력 데이터의 최대 크기를 기준으로 크기를 예상 하 고, 입력 데이터를 변환 하 여 생성 된 중간 데이터와 중간 데이터를 추가로 변환 하 여 출력 데이터를 생성 합니다. 초기 예측이 충분 하지 않으면 크기를 약간 늘리고 메모리 오류가 감소 때까지 반복 합니다.
+1. Spark 애플리케이션에서 처리할 데이터의 최대 크기를 결정합니다. 입력 데이터 크기의 최대값, 입력 데이터 변환을 통해 생성된 중간 데이터와 중간 데이터의 추가적인 변환을 통해 생성된 출력 데이터에 따라 이러한 크기를 추측합니다. 초기 예상이 충분하지 않으면 크기를 약간 늘리고 메모리 오류가 감소할 때까지 반복합니다.
 
-1. 사용할 HDInsight 클러스터가 Spark 애플리케이션을 수용할 수 있는 메모리와 코어 등 충분한 리소스를 갖추고 있는지 확인하세요. 이는 클러스터의 YARN UI에 있는 클러스터 메트릭 섹션에서 사용 하는 **메모리** 및 **총 메모리** 와 vcores의 **합계** **를 비교 하** 여 확인할 수 있습니다.
+1. 사용할 HDInsight 클러스터가 Spark 애플리케이션을 수용할 수 있는 메모리와 코어 등 충분한 리소스를 갖추고 있는지 확인하세요. 이 상황은 클러스터의 YARN UI에서 Cluster Metrics 섹션에 있는 **Memory Used** 값과 **Memory Total** 값, **VCores Used** 값과 **VCores Total** 값을 검토하여 확인할 수 있습니다.
 
-    :::image type="content" source="./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png" alt-text="yarn core 메모리 보기" border="true":::
+    :::image type="content" source="./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png" alt-text="YARN 코어 메모리 보기" border="true":::
 
-1. 다음 Spark 구성을 적절 한 값으로 설정 합니다. 응용 프로그램 요구 사항을 클러스터에서 사용 가능한 리소스와 분산 합니다. 이러한 값은 YARN에 의해 표시 되는 사용 가능한 메모리 및 코어의 90%를 초과할 수 없으며 Spark 응용 프로그램의 최소 메모리 요구 사항도 충족 해야 합니다.
+1. 다음 Spark 구성을 적절한 값으로 설정합니다. 애플리케이션 요구 사항과 클러스터에서 사용 가능한 리소스의 균형을 맞춥니다. 이러한 값은 YARN에 표시되는 사용 가능한 메모리 및 코어의 90%를 초과할 수 없으며 Spark 애플리케이션의 최소 메모리 요구 사항도 충족해야 합니다.
 
     ```
     spark.executor.instances (Example: 8 for 8 executor count)
@@ -87,11 +87,11 @@ java.lang.OutOfMemoryError
 
 ---
 
-## <a name="scenario-java-heap-space-error-when-trying-to-open-apache-spark-history-server"></a>시나리오: Apache Spark 기록 서버를 열려고 할 때 Java 힙 공간 오류가 발생 했습니다.
+## <a name="scenario-java-heap-space-error-when-trying-to-open-apache-spark-history-server"></a>시나리오: Apache Spark 기록 서버를 열려고 할 때의Java 힙 공간 오류
 
 ### <a name="issue"></a>문제
 
-Spark 기록 서버에서 이벤트를 열 때 다음과 같은 오류가 표시 됩니다.
+Spark 기록 서버에서 이벤트를 열면 다음과 같은 오류가 표시됩니다.
 
 ```
 scala.MatchError: java.lang.OutOfMemoryError: Java heap space (of class java.lang.OutOfMemoryError)
@@ -99,9 +99,9 @@ scala.MatchError: java.lang.OutOfMemoryError: Java heap space (of class java.lan
 
 ### <a name="cause"></a>원인
 
-이 문제는 많은 spark 이벤트 파일을 열 때 리소스가 부족 하 여 발생 하는 경우가 많습니다. Spark 힙 크기는 기본적으로 1gb로 설정 되지만 큰 Spark 이벤트 파일에는이 보다 많은 작업이 필요할 수 있습니다.
+이 문제는 큰 Spark 이벤트 파일을 열 때 리소스가 부족하여 발생하는 경우가 많습니다. Spark 힙 크기는 기본적으로 1GB로 설정되지만 큰 Spark 이벤트 파일은 이보다 큰 힙이 필요할 수도 있습니다.
 
-로드 하려는 파일의 크기를 확인 하려는 경우 다음 명령을 수행할 수 있습니다.
+로드하려는 파일의 크기를 확인하려는 경우 다음 명령을 수행할 수 있습니다.
 
 ```bash
 hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0274_1/
@@ -113,25 +113,25 @@ hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0264_1/
 
 ### <a name="resolution"></a>해결 방법
 
-`SPARK_DAEMON_MEMORY`Spark 구성에서 속성을 편집 하 고 모든 서비스를 다시 시작 하 여 Spark 기록 서버 메모리를 늘릴 수 있습니다.
+Spark 구성에서 `SPARK_DAEMON_MEMORY` 속성을 편집하고 모든 서비스를 다시 시작하여 Spark 기록 서버 메모리를 늘릴 수 있습니다.
 
-Spark2/Config/Advanced Spark2 섹션을 선택 하 여 Ambari 브라우저 UI 내에서이 작업을 수행할 수 있습니다.
+Spark2/Config/Advanced spark2-env 섹션을 선택하여 Ambari 브라우저 UI 내에서 이 작업을 수행할 수 있습니다.
 
 :::image type="content" source="./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png" alt-text="Advanced spark2-env 섹션" border="true":::
 
-다음 속성을 추가 하 여 Spark 기록 서버 메모리를 1g에서 `SPARK_DAEMON_MEMORY=4g` 4g:로 변경 합니다.
+다음 속성을 추가하여 Spark 기록 서버 메모리를 1G에서 4G로 변경합니다. `SPARK_DAEMON_MEMORY=4g`.
 
 :::image type="content" source="./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png" alt-text="Spark 속성" border="true":::
 
-Ambari에서 영향을 받는 모든 서비스를 다시 시작 해야 합니다.
+Ambari에서 영향을 받는 모든 서비스를 다시 시작해야 합니다.
 
 ---
 
-## <a name="scenario-livy-server-fails-to-start-on-apache-spark-cluster"></a>시나리오: Apache Spark 클러스터에서 Livy 서버를 시작 하지 못함
+## <a name="scenario-livy-server-fails-to-start-on-apache-spark-cluster"></a>시나리오: Apache Spark 클러스터에서 Livy 서버를 시작하지 못함
 
 ### <a name="issue"></a>문제
 
-Livy 서버는 Apache Spark (Linux의 Spark 2.1 (HDI 3.6)]에서 시작할 수 없습니다. 다시 시작을 시도 하면 Livy 로그에서 다음 오류 스택이 생성 됩니다.
+Livy 서버는 Apache Spark[Linux의 Spark 2.1(HDI 3.6)]에서 시작할 수 없습니다. 다시 시작을 시도하면 Livy 로그에서 다음 오류 스택이 생성됩니다.
 
 ```log
 17/07/27 17:52:50 INFO CuratorFrameworkImpl: Starting
@@ -191,52 +191,52 @@ Exception in thread "main" java.lang.OutOfMemoryError: unable to create new nati
 
 ### <a name="cause"></a>원인
 
-`java.lang.OutOfMemoryError: unable to create new native thread` 운영 체제에서 Jvm에 더 많은 네이티브 스레드를 할당할 수 없는 경우를 강조 표시 합니다. 프로세스별 스레드 수 제한 위반으로 인해이 예외가 발생 한 것으로 확인 되었습니다.
+`java.lang.OutOfMemoryError: unable to create new native thread`가 OS에서 JVM에 더 많은 네이티브 스레드를 할당할 수 없는 경우를 강조 표시합니다. 프로세스별 스레드 수 제한 위반으로 인해 이 예외가 발생한 것으로 확인되었습니다.
 
-Livy 서버가 예기치 않게 종료 되 면 Spark 클러스터에 대 한 모든 연결이 종료 됩니다. 즉, 모든 작업 및 관련 데이터가 손실 됩니다. HDP 2.6 세션 복구 메커니즘이 도입 되었습니다. Livy는 Livy 서버를 다시 시작한 후에 복구 될 수 있도록 세션 세부 정보를 사육 사육에 저장 합니다.
+Livy 서버가 예기치 않게 종료되면 Spark 클러스터에 대한 모든 연결이 종료됩니다. 즉, 모든 작업 및 관련 데이터가 손실됩니다. HDP 2.6 세션 복구 메커니즘이 도입됨에 따라 Livy는 Livy 서버를 다시 시작한 후에 복구될 수 있도록 세션 세부 정보를 Zookeeper에 저장합니다.
 
-Livy을 통해 많은 수의 작업을 제출 하는 경우 Livy 서버에 대 한 고가용성의 일부로 ZK (HDInsight 클러스터)에 이러한 세션 상태를 저장 하 고 Livy 서비스가 다시 시작 될 때 해당 세션을 복구 합니다. 예기치 않게 종료 된 후 다시 시작 시 Livy은 세션당 스레드를 하나씩 만들지만이로 인해 너무 많은 스레드가 생성 될 수 있도록 특정 개수의 복구 된 세션이 누적 됩니다.
+Livy를 통해 많은 수의 작업을 제출하는 경우 Livy 서버의 고가용성의 일부로 ZK(HDInsight 클러스터의)에 이러한 세션 상태를 저장하고 Livy 서비스가 다시 시작될 때 해당 세션을 복구합니다. 예기치 않게 종료된 후 다시 시작 시 Livy는 세션당 스레드를 하나씩 만들며, 이로 인해 복구될 세션이 일정 개수만큼 누적되어 너무 많은 스레드가 생성됩니다.
 
 ### <a name="resolution"></a>해결 방법
 
-아래에 설명 되어 있는 단계를 사용 하 여 모든 항목을 삭제 합니다.
+아래에 설명되어 있는 단계를 사용하여 모든 항목을 삭제합니다.
 
-1. 를 사용 하 여 사육 사 노드의 IP 주소를 가져옵니다.
+1. 다음을 사용하는 Zookeeper 노드의 IP 주소를 가져옵니다.
 
     ```bash
     grep -R zk /etc/hadoop/conf  
     ```
 
-1. 위의 명령은 클러스터의 모든 zookeeper 나열 됩니다.
+1. 위의 명령은 클러스터의 모든 Zookeeper에 나열됩니다.
 
     ```bash
     /etc/hadoop/conf/core-site.xml:      <value>zk1-hwxspa.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181,zk2-      hwxspa.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181,zk4-hwxspa.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181</value>
     ```
 
-1. Ping을 사용 하 여 사육 사 노드의 모든 IP 주소를 가져오거나, zk 이름을 사용 하 여 헤드 노드에서 사육 사에 연결할 수도 있습니다.
+1. Ping을 사용하여 Zookeeper 노드의 모든 IP 주소를 가져오거나, ZK 이름을 사용하여 헤드 노드에서 Zookeeper에 연결할 수도 있습니다.
 
     ```bash
     /usr/hdp/current/zookeeper-client/bin/zkCli.sh -server zk2-hwxspa:2181
     ```
 
-1. 사육 사에 연결 되 면 다음 명령을 실행 하 여 다시 시작 하려고 하는 모든 세션을 나열 합니다.
+1. Zookeeper에 연결되면 다음 명령을 실행하여 다시 시작하려고 하는 모든 세션을 나열합니다.
 
-    1. 대부분의 경우 8000 개 이상의 세션을 나열할 수 있습니다. ####
+    1. 대부분의 경우 8000개 이상의 세션을 나열할 수 있습니다. ####
 
         ```bash
         ls /livy/v1/batch
         ```
 
-    1. 다음 명령은 복구 가능한 모든 세션을 제거 하는 것입니다. #####
+    1. 다음 명령은 복구 가능한 모든 세션을 제거하는 명령입니다. #####
 
         ```bash
         rmr /livy/v1/batch
         ```
 
-1. 위의 명령이 완료 될 때까지 기다리거나 커서를 통해 프롬프트가 반환 되 면 성공 해야 하는 Ambari에서 Livy service를 다시 시작 합니다.
+1. 위의 명령이 완료될 때까지 기다리거나 커서를 통해 프롬프트가 반환되면 성공해야 하는 Ambari에서 Livy service를 다시 시작합니다.
 
 > [!NOTE]
-> `DELETE` livy 세션이 실행을 완료 한 후 Livy batch 세션은 spark 앱이 완료 되 자 마자 자동으로 삭제 되지 않습니다. Livy 세션은 Livy Rest 서버에 대 한 POST 요청에 의해 생성 된 엔터티입니다. `DELETE`해당 엔터티를 삭제 하려면 호출이 필요 합니다. 또는 GC가 시작 될 때까지 기다려야 합니다.
+> Livy 세션 실행이 완료되면 `DELETE`합니다. Livy 일괄 처리 세션은 설계상 Spark 앱이 완료되는 대로 자동으로 삭제되지 않습니다. Livy 세션은 Livy Rest 서버에 대한 POST 요청에 의해 생성된 엔터티입니다. 해당 엔터티를 삭제하려면 `DELETE` 호출이 필요합니다. 아니면 GC가 시작될 때까지 기다려야 합니다.
 
 ---
 
@@ -246,7 +246,7 @@ Livy을 통해 많은 수의 작업을 제출 하는 경우 Livy 서버에 대 �
 
 * [Spark 메모리 관리 개요](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview).
 
-* [HDInsight 클러스터에서 Spark 응용 프로그램 디버깅](/archive/blogs/azuredatalake/spark-debugging-101)
+* [HDInsight 클러스터에서 Spark 애플리케이션 디버깅](/archive/blogs/azuredatalake/spark-debugging-101).
 
 * [Azure 커뮤니티 지원](https://azure.microsoft.com/support/community/)을 통해 Azure 전문가로부터 답변을 얻습니다.
 

@@ -3,16 +3,16 @@ title: 로컬 PowerShell 스크립트를 사용하여 자체 호스팅 통합 �
 description: 로컬 머신에서 자체 호스팅 통합 런타임의 설치를 자동화합니다.
 ms.service: data-factory
 ms.topic: conceptual
-author: nabhishek
-ms.author: abnarain
+author: lrtoyou1223
+ms.author: lle
 ms.custom: seo-lt-2019
 ms.date: 05/09/2020
-ms.openlocfilehash: 8cbe54a23cb1c8b55afd86a18b51c0e392c3f78a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 54699a5641b98cde5bbff1f55add8b8345d6a1ac
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100376210"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109488288"
 ---
 # <a name="automating-self-hosted-integration-runtime-installation-using-local-powershell-scripts"></a>로컬 PowerShell 스크립트를 사용하여 자체 호스팅 통합 런타임 설치 자동화
 로컬 머신(Resource Manager 템플릿을 사용할 수 있는 Azure VM 제외)에 자체 호스팅 통합 런타임의 설치를 자동화하려면 로컬 PowerShell 스크립트를 사용할 수 있습니다. 이 문서에서는 사용할 수 있는 두 가지 스크립트를 소개합니다.

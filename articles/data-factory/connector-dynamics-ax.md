@@ -1,18 +1,18 @@
 ---
 title: Dynamics AX에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Dynamics AX에서 지원되는 싱크 데이터 스토리지로 데이터를 복사하는 방법에 대해 알아봅니다.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
-ms.openlocfilehash: 38ff77ad56f16fbd33b77021b18be77f6a153b3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 69972bc9ca0b4082eaa6148b5879b487f240e78f
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100380987"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109487190"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics AX에서 데이터 복사
 
@@ -36,7 +36,7 @@ Dynamics AX에서 지원되는 모든 싱크 데이터 스토리지로 데이터
 
 ## <a name="get-started"></a>시작하기
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 Dynamics AX 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 

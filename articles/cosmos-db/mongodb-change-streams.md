@@ -9,10 +9,10 @@ ms.date: 03/02/2021
 ms.author: rosouz
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 941fe8929b75fdebf187186ca7078b0ae1dd261c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101658523"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB에서 변경 스트림
@@ -21,7 +21,7 @@ ms.locfileid: "101658523"
 Azure Cosmos DB의 API for MongoDB의 [변경 피드](change-feed.md) 지원은 변경 스트림 API를 사용하여 제공됩니다. 변경 스트림 API를 사용하여 애플리케이션에서 컬렉션 또는 단일 분할된 데이터베이스의 항목에 대한 변경 내용을 가져올 수 있습니다. 나중에 결과에 따라 추가 작업을 수행할 수 있습니다. 컬렉션의 항목에 대한 변경 내용은 수정 시간 순서대로 캡처되고 분할된 데이터베이스 키당 정렬 순서가 보장됩니다.
 
 > [!NOTE]
-> 변경 스트림을 사용 하려면 서버 버전 3.6 이상을 사용 하는 MongoDB 용 Azure Cosmos DB API 계정을 만듭니다. 이전 버전에 대해 변경 스트림 예를 실행 하는 경우 *인식할 수 없는 파이프라인 단계 이름: $changeStream* 오류가 표시 될 수 있습니다.
+> 변경 스트림을 사용하려면 버전 3.6 이상의 Azure Cosmos DB 계정을 만듭니다. 이전 버전에 대해 변경 스트림 예제를 실행하는 경우 *인식할 수 없는 파이프라인 단계 이름: $changeStream* 오류가 표시될 수 있습니다.
 
 ## <a name="examples"></a>예
 
@@ -67,7 +67,7 @@ enumerator.Dispose();
 
 # <a name="java"></a>[Java](#tab/java)
 
-다음 예제에서는 Java에서 스트림 변경 기능을 사용 하는 방법을 보여 줍니다. 전체 예제는이 [GitHub 리포지토리](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-changestream/blob/main/mongostream/src/main/java/com/azure/cosmos/mongostream/App.java)를 참조 하세요. 또한이 예제에서는 메서드를 사용 하 여 `resumeAfter` 마지막 읽기부터 모든 변경 내용을 검색 하는 방법을 보여 줍니다. 
+다음 예제에서는 Java에서 스트림 변경 기능을 사용하는 방법을 보여줍니다. 전체 예제는 이 [GitHub 리포지토리](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-changestream/blob/main/mongostream/src/main/java/com/azure/cosmos/mongostream/App.java)를 참조하세요. 또한 이 예제에서는 `resumeAfter` 메서드를 사용하여 마지막 읽기부터 모든 변경 내용을 검색하는 방법을 보여줍니다. 
 
 ```java
 Bson match = Aggregates.match(Filters.in("operationType", asList("update", "replace", "insert")));
@@ -137,7 +137,7 @@ var cursor = db.coll.watch(
 변경 스트림을 사용하는 경우 다음과 같은 제한이 적용될 수 있습니다.
 
 * `operationType` 및 `updateDescription` 속성은 출력 문서에서 아직 지원되지 않습니다.
-* 현재 `insert`, `update` 및 `replace` 작업 유형이 지원됩니다. 그러나 삭제 작업 또는 기타 이벤트는 아직 지원 되지 않습니다.
+* 현재 `insert`, `update` 및 `replace` 작업 유형이 지원됩니다. 그러나 삭제 작업 또는 기타 이벤트는 아직 지원되지 않습니다.
 
 해당 제한 사항으로 인해 이전 예제에 나와 있는 것처럼 $match 단계, $project 단계 및 fullDocument 옵션이 필요합니다.
 
