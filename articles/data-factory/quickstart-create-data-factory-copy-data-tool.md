@@ -6,12 +6,12 @@ ms.author: yexu
 ms.service: data-factory
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 78bc815aff195124d3e79a83445b8d12506fc70d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 034f90adc46b541377f62ac66ea721a30ed48637
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104613093"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742052"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>빠른 시작: 데이터 복사 도구를 사용하여 데이터 복사
 
@@ -26,7 +26,7 @@ ms.locfileid: "104613093"
 > [!NOTE]
 > Azure Data Factory를 처음 사용하는 경우 이 빠른 시작을 수행하기 전에 [Azure Data Factory 소개](introduction.md)를 참조하세요. 
 
-[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
+[!INCLUDE [data-factory-quickstart-prerequisites](includes/data-factory-quickstart-prerequisites.md)] 
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 

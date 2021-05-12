@@ -3,13 +3,12 @@ title: PowerShell 및 템플릿으로 리소스 배포
 description: Azure Resource Manager와 Azure PowerShell을 사용하여 Azure에 리소스를 배포합니다. 리소스는 Resource Manager 템플릿 또는 Bicep 파일에 정의됩니다.
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2f7d9709a62d7c791296e26d28f391c1eeeab728
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 11a293ca58fc6acf3bd99bb0169d817dae11fb94
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108737048"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105543808"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포
 
@@ -19,7 +18,7 @@ Bicep 파일을 배포하려면 [Azure PowerShell 버전 5.6.0 이상](/powershe
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-배포할 템플릿이 필요합니다. 템플릿이 없는 경우 Azure 빠른 시작 템플릿 리포지토리에서 [예제 템플릿](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json)을 다운로드하고 저장합니다. 이 문서에 사용된 로컬 파일 이름은 _C:\MyTemplates\azuredeploy.json_ 입니다.
+배포할 템플릿이 필요합니다. 템플릿이 없는 경우 Azure 빠른 시작 템플릿 리포지토리에서 [예제 템플릿](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json)을 다운로드하고 저장합니다. 이 문서에 사용된 로컬 파일 이름은 _C:\MyTemplates\azuredeploy.json_ 입니다.
 
 Azure PowerShell을 설치하고 Azure에 연결해야 합니다.
 
@@ -111,7 +110,7 @@ New-AzResourceGroupDeployment `
   -TemplateFile <path-to-template-or-bicep>
 ```
 
-배포를 완료하는 데 몇 분 정도 걸릴 수 있습니다.
+배포가 완료되는 데 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="deploy-remote-template"></a>원격 템플릿 배포
 
@@ -134,7 +133,7 @@ New-AzResourceGroup -Name ExampleGroup -Location "Central US"
 New-AzResourceGroupDeployment `
   -Name remoteTemplateDeployment `
   -ResourceGroupName ExampleGroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
 앞의 예제에서는 템플릿에 중요한 데이터가 포함되어 있지 않으므로 대부분의 시나리오에 적합한 이 템플릿에 대해 공개적으로 액세스할 수 있는 URI가 필요합니다. 중요한 데이터(예: 관리자 암호)를 지정해야 하는 경우 해당 값을 안전한 매개 변수로 전달합니다. 그러나 템플릿에 대한 액세스를 관리하려는 경우 [템플릿 사양](#deploy-template-spec)을 사용하는 것이 좋습니다.
@@ -155,7 +154,7 @@ New-AzResourceGroupDeployment `
 
 > [!NOTE]
 > 현재 Azure PowerShell은 Bicep 파일을 제공하여 템플릿 사양을 만드는 것을 지원하지 않습니다. 그러나 [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) 리소스를 사용하여 Bicep 파일을 만들어 템플릿 사양을 배포할 수 있습니다. 여기에서 [예제](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep)를 확인할 수 있습니다.
-로컬 또는 원격 템플릿을 배포하는 대신 [템플릿 사양](template-specs.md)을 만들 수 있습니다. 템플릿 사양은 ARM 템플릿을 포함하는 Azure 구독의 리소스입니다. 이를 통해 조직의 사용자와 안전하게 템플릿을 공유할 수 있습니다. Azure RBAC(역할 기반 액세스 제어)를 사용하여 템플릿 사양에 대한 액세스 권한을 부여합니다. 이 기능은 현재 미리 보기로 제공됩니다.
+로컬 또는 원격 템플릿을 배포하는 대신 [템플릿 사양](template-specs.md)을 만들 수 있습니다. 템플릿 사양은 ARM 템플릿을 포함하는 Azure 구독의 리소스입니다. 이를 통해 조직의 사용자와 템플릿을 쉽고 안전하게 공유할 수 있습니다. Azure RBAC(역할 기반 액세스 제어)를 사용하여 템플릿 사양에 대한 액세스 권한을 부여합니다. 이 기능은 현재 미리 보기로 제공됩니다.
 
 다음 예제에서는 템플릿 사양을 만들고 배포하는 방법을 보여 줍니다.
 
@@ -243,8 +242,8 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json `
-  -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.parameters.json
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json `
+  -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -5,16 +5,16 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.subservice: management
+ms.subservice: extensions
 ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: d2682c989c6d9f0595debef5bb24922fa8d22265
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 1cc8e06b2057444efc4fa317790047e3bb9c4f00
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107887039"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768484"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>가상 머신 확장 세트에 애플리케이션 배포
 

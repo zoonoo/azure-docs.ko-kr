@@ -3,19 +3,19 @@ title: 자습서 - Azure CLI를 사용하여 사용자 지정 VM 이미지 만�
 description: 이 자습서에서는 Azure CLI를 사용하여 Azure에서 사용자 지정 가상 머신 이미지를 만드는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.reviewer: akjosh
-ms.openlocfilehash: 81bbf0b49919db68407a85b9ea2f731c5f8e1d91
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.reviewer: mimckitt
+ms.openlocfilehash: 64c80ec32b0fe151daa24628a22c27fce4c5f21b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769880"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768232"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure VM의 사용자 지정 이미지 만들기
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/03/2021
+ms.date: 04/19/2021
 ms.author: alkohli
-ms.openlocfilehash: d733f2642df4ff9f74d8013d45d67159fbb032f8
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: cdb87e691828db23e8c441fe9933204556fb8417
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108139276"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734147"
 ---
 # <a name="what-is-the-azure-stack-edge-mini-r"></a>Azure Stack Edge Mini R이란?
 
@@ -68,6 +68,7 @@ Azure Stack Edge Mini R 솔루션은 Azure Stack Edge 리소스, Azure Stack Edg
 
 * **Azure Stack Edge Mini R 로컬 웹 UI** - 주로 디바이스의 초기 구성에 사용되는 Azure Stack Edge Mini R 디바이스의 브라우저 기반 로컬 사용자 인터페이스입니다. 로컬 웹 UI를 사용하여 진단을 실행하고, Azure Stack Edge Pro 디바이스를 종료 및 다시 시작하고, 복사 로그를 보고, Microsoft 지원에 연락하여 서비스를 요청하세요.
 
+    [!INCLUDE [azure-stack-edge-gateway-local-web-ui-languages](../../includes/azure-stack-edge-gateway-local-web-ui-languages.md)]
 
 ## <a name="region-availability"></a>지역 가용성
 

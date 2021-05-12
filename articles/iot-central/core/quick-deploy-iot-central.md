@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 7b33beaad580e64a4760b0557f04f266ecfc1b4d
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: ef76b1283215da9ff08efb4d151d8e0e99a228f0
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718812"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768754"
 ---
 # <a name="quickstart---create-an-azure-iot-central-application"></a>빠른 시작 - Azure IoT Central 애플리케이션 만들기
 
@@ -76,6 +76,3 @@ ms.locfileid: "107718812"
 > [!div class="nextstepaction"]
 > [IoT Central 애플리케이션에 시뮬레이트된 디바이스 추가](./quick-create-simulated-device.md)
 
-디바이스 개발자이고 몇 가지 코드에 대해 자세히 알아보려면 다음 단계를 수행하는 것이 좋습니다.
-> [!div class="nextstepaction"]
-> [클라이언트 애플리케이션을 만들어 Azure IoT Central 애플리케이션에 연결](./tutorial-connect-device.md)

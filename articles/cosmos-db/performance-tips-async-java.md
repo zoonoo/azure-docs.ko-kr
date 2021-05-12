@@ -10,10 +10,10 @@ ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java, contperf-fy21q2
 ms.openlocfilehash: bd009ae4909c8cb016a31323294df3a359eb7c51
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97033666"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Azure Cosmos DB Async Java SDK v2에 대한 성능 팁
@@ -46,7 +46,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
   * [게이트웨이(기본값)](/java/api/com.microsoft.azure.cosmosdb.connectionmode)  
   * [수동으로 설치](/java/api/com.microsoft.azure.cosmosdb.connectionmode)
   
-  게이트웨이 모드는 모든 SDK 플랫폼에서 지원되며 기본적으로 구성되는 옵션입니다. 응용 프로그램이 엄격한 방화벽 제한이 있는 회사 네트워크 내에서 실행 되는 경우 표준 HTTPS 포트 및 단일 끝점을 사용 하기 때문에 게이트웨이 모드를 선택 하는 것이 가장 좋습니다.   그러나 성능 향상은 Azure Cosmos DB에 데이터를 읽거나 쓸 때마다 게이트웨이 모드에 추가 네트워크 홉이 포함 된다는 것입니다. 이 때문에 직접 모드는 네트워크 홉이 적기 때문에 더 나은 성능을 제공합니다.
+  게이트웨이 모드는 모든 SDK 플랫폼에서 지원되며 기본적으로 구성되는 옵션입니다. 엄격한 방화벽으로 제한된 회사 네트워크 내에서 애플리케이션을 실행하는 경우, 표준 HTTPS 포트 및 단일 엔드포인트를 사용하기 때문에 게이트웨이 모드가 최상의 선택입니다.   그러나 게이트웨이 모드의 경우 성능 유지를 위해 Azure Cosmos DB에서 데이터를 읽거나 쓸 때마다 네트워크 홉이 추가됩니다. 이 때문에 직접 모드는 네트워크 홉이 적기 때문에 더 나은 성능을 제공합니다.
   
   *ConnectionMode* 는 *ConnectionPolicy* 매개 변수로 *DocumentClient* 인스턴스를 생성하는 동안 구성됩니다.
 
@@ -90,7 +90,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
   :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="직접 모드 아키텍처의 그림" border="false":::
   
-  직접 모드에서 사용 되는 클라이언트 쪽 아키텍처를 사용 하면 예측 가능한 네트워크 사용률을 멀티플렉싱 Azure Cosmos DB 복제본에 액세스할 수 있습니다. 위의 다이어그램에서는 직접 모드에서 Cosmos DB 백 엔드를 통해 클라이언트 요청을 복제본으로 라우팅하는 방법을 보여 줍니다. 직접 모드 아키텍처는 DB 복제본 당 클라이언트 쪽에 최대 10 개의 **채널** 을 할당 합니다. 채널은 요청 버퍼가 30 개 요청으로 이루어진 TCP 연결입니다. 복제본에 속하는 채널은 복제본의 **서비스 끝점** 에서 필요에 따라 동적으로 할당 됩니다. 사용자가 직접 모드에서 요청을 실행 하는 경우 요청 **클라이언트** 는 파티션 키에 따라 적절 한 서비스 끝점으로 요청을 라우팅합니다. **요청 큐** 는 서비스 엔드포인트 앞에 요청을 버퍼링합니다.
+  직접 모드에서 사용되는 클라이언트 쪽 아키텍처를 사용하면 네트워크 사용률을 예측할 수 있고 Azure Cosmos DB 복제본에 멀티플렉싱 방식으로 액세스할 수 있습니다. 위의 다이어그램에서는 직접 모드에서 Cosmos DB 백 엔드를 통해 클라이언트 요청을 복제본으로 라우팅하는 방법을 보여 줍니다. 직접 모드 아키텍처는 DB 복제본당 최대 10개의 **채널** 을 클라이언트 쪽에 할당합니다. 채널은 요청 깊이가 30개인 요청 버퍼 뒤에 오는 TCP 연결입니다. 복제본에 속하는 채널은 복제본의 **서비스 엔드포인트** 에서 필요에 따라 동적으로 할당됩니다. 사용자가 직접 모드에서 요청을 실행하면 **TransportClient** 에서 파티션 키에 따라 요청을 적절한 서비스 엔드포인트로 라우팅합니다. **요청 큐** 는 서비스 엔드포인트 앞에 요청을 버퍼링합니다.
 
   * ***직접 모드용 ConnectionPolicy 구성 옵션***
 
@@ -117,17 +117,17 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
 * ***직접 모드를 위한 프로그래밍 팁***
 
-  SDK 문제를 해결 하기 위한 기준으로 Azure Cosmos DB Async Java SDK v2 [문제 해결](troubleshoot-java-async-sdk.md) 문서를 검토 합니다.
+  SDK 이슈를 해결하기 위한 기준으로 Azure Cosmos DB Async Java SDK v2 [문제 해결](troubleshoot-java-async-sdk.md) 문서를 검토합니다.
   
   직접 모드를 사용하는 경우의 몇 가지 중요한 프로그래밍 팁:
   
-  * **효율적인 TCP 데이터 전송을 위해 응용 프로그램에서 다중 스레딩을 사용** 합니다. 요청을 수행한 후 응용 프로그램은 다른 스레드에서 데이터를 받도록 구독 해야 합니다. 이렇게 하지 않으면 의도 하지 않은 "반이중" 작업을 강제로 수행 하 고 이전 요청의 회신을 기다리는 후속 요청이 차단 됩니다.
+  * **효율적인 TCP 데이터 전송을 위해 애플리케이션에서 다중 스레딩 사용** - 요청을 수행한 후 애플리케이션은 다른 스레드에서 데이터를 받도록 구독해야 합니다. 이렇게 하지 않으면 의도하지 않은 "반 이중" 작업이 강제로 수행되고 이전 요청의 응답을 기다리느라 후속 요청이 차단됩니다.
   
-  * **전용 스레드에서 계산 집약적인 작업을 수행** 합니다. 이전 팁과 비슷한 이유로 복잡 한 데이터 처리와 같은 작업은 별도의 스레드에 배치 하는 것이 가장 좋습니다. 다른 데이터 저장소에서 데이터를 끌어오는 요청 (예: 스레드에서 Azure Cosmos DB 및 Spark 데이터 저장소를 동시에 활용 하는 경우)은 대기 시간이 증가 하 고 다른 데이터 저장소에서 응답을 기다립니다 추가 스레드를 생성 하는 것이 좋습니다.
+  * **전용 스레드에서 컴퓨팅 집약적 워크로드 수행** - 이전 팁과 비슷한 이유로, 복잡한 데이터 처리와 같은 작업을 별도의 스레드에 배치하는 것이 가장 좋습니다. 다른 데이터 저장소에서 데이터를 끌어오는 요청(예: 스레드에서 Azure Cosmos DB 및 Spark 데이터 저장소를 동시에 활용하는 경우)은 대기 시간이 증가하므로 다른 데이터 저장소의 응답을 기다리는 추가 스레드를 생성하는 것이 좋습니다.
   
-    * Azure Cosmos DB Async Java SDK v 2의 기본 네트워크 IO는 Netty를 통해 관리 됩니다. [NETTY IO 스레드를 차단 하는 코딩 패턴을 방지 하기 위한 다음 팁](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread)을 참조 하십시오.
+    * Azure Cosmos DB Async Java SDK v2의 기본 네트워크 IO는 Netty를 통해 관리됩니다. [Netty IO 스레드를 차단하는 코딩 패턴을 방지하기 위한 팁](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread)을 참조하세요.
   
-  * **데이터 모델링** - Azure Cosmos DB SLA는 문서 크기를 1KB 미만이라고 가정합니다. 더 작은 문서 크기를 선호 하는 데이터 모델 및 프로그래밍을 최적화 하면 일반적으로 대기 시간이 감소 합니다. 1KB 보다 큰 문서를 저장 하 고 검색 해야 하는 경우 문서를 Azure Blob Storage의 데이터에 연결 하는 것이 좋습니다.
+  * **데이터 모델링** - Azure Cosmos DB SLA는 문서 크기를 1KB 미만이라고 가정합니다. 더 작은 문서 크기에 적합하게 데이터 모델 및 프로그래밍을 최적화하면 일반적으로 대기 시간이 감소합니다. 1KB보다 큰 문서를 저장하고 검색해야 하는 경우 문서를 Azure Blob Storage의 데이터에 연결하는 것이 좋습니다.
 
 * **분할된 컬렉션에 대한 병렬 쿼리 튜닝**
 
@@ -171,7 +171,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
   예를 들어 다음 코드는 이벤트 루프 IO netty 스레드에서 CPU 집약적인 작업을 실행합니다.
 
-  **Async Java SDK V2 (Maven:: azure-cosmosdb)**
+  **Async Java SDK V2(Maven com.microsoft.azure::azure-cosmosdb)**
 
   ```java
     Observable<ResourceResponse<Document>> createDocObs = asyncDocumentClient.createDocument(
@@ -189,7 +189,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
   결과에 대해 CPU 집약적인 작업을 수행하려는 경우 결과를 수신한 후에는 이벤트 루프 IO netty 스레드에서 이를 수행하지 않아야 합니다. 대신 사용자의 스케줄러를 제공하여 작업 실행을 위해 사용자의 스레드를 제공할 수 있습니다.
 
-  **Async Java SDK V2 (Maven:: azure-cosmosdb)**
+  **Async Java SDK V2(Maven com.microsoft.azure::azure-cosmosdb)**
 
   ```java
     import rx.schedulers;

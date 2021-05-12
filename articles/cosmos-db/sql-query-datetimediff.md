@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB 쿼리 언어의 DateTimeDiff
+title: Azure Cosmos DB의 DateTimeDiff 쿼리 언어
 description: Azure Cosmos DB의 SQL 시스템 함수 DateTimeDiff에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
@@ -9,15 +9,15 @@ ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: aeea2905b6bae094c92bd8b5d46523225c745494
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104595645"
 ---
-# <a name="datetimediff-azure-cosmos-db"></a>DateTimeDiff (Azure Cosmos DB)
+# <a name="datetimediff-azure-cosmos-db"></a>DateTimeDiff(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
-*지정 된 서 수* 와 *EndDate* 사이에 지정 된 DateTimePart 경계의 수를 부호 있는 정수 값으로 반환 합니다.
+지정된 *StartDate* 와 *EndDate* 사이에 지정된 DateTimePart 경계의 수(부호 있는 정수 값으로)를 반환합니다.
   
 ## <a name="syntax"></a>구문
   
@@ -28,56 +28,56 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
 ## <a name="arguments"></a>인수
   
 *DateTimePart*  
-   DateTimeAdd 정수를 추가 하는 날짜 부분입니다. 다음 표에서는 모든 유효한 DateTimePart 인수를 보여 줍니다.
+   DateTimeAdd가 정수를 추가하는 날짜 부분입니다. 이 표에서는 올바른 DateTimePart 인수가 모두 나열되어 있습니다.
 
 | DateTimePart | 약어        |
 | ------------ | -------------------- |
 | Year         | "year", "yyyy", "yy" |
 | 월        | "month", "mm", "m"   |
 | 일          | "day", "dd", "d"     |
-| 시간         | "시간", "hh"         |
+| 시간         | "hour", "hh"         |
 | Minute       | "minute", "mi", "n"  |
 | Second       | "second", "ss", "s"  |
-| Millisecond  | "밀리초", "ms"  |
-| 마이크로초  | "마이크로초", "mcs" |
-| 나노초   | "나노초", "ns"   |
+| Millisecond  | "millisecond", "ms"  |
+| Microsecond  | "microsecond", "mcs" |
+| Nanosecond   | "nanosecond", "ns"   |
 
 *StartDate*  
-    UTC 날짜 및 시간 ISO 8601 문자열 값 (형식 `YYYY-MM-DDThh:mm:ss.fffffffZ` :
+    `YYYY-MM-DDThh:mm:ss.fffffffZ` 형식의 UTC 날짜 및 시간 ISO 8601 문자열 값입니다. 형식은 다음과 같습니다.
   
-|서식|설명|
+|형식|Description|
 |-|-|
-|YYYY|네 자리 연도|
-|MM|두 자리 월 (01 = 1 월 등)|
+|YYYY|4자리 연도|
+|MM|두 자리 월(01=1월 등)|
 |DD|월 (01-31)의 2 자리 숫자 일|
-|T|시간 요소 시작에 대 한 signifier|
-|hh|두 자리 시간 (00-23)|
-|MM|두 자리 분 (00-59)|
-|ss|두 자리 초 (00-59)|
-|. fffffff|7 자리 소수 자릿수 초|
-|Z|UTC (협정 세계시) 지정자|
+|T|시간 요소의 시작을 나타내는 기호|
+|hh|두 자리 시간(00-23)|
+|MM|두 자리 분(00-59)|
+|ss|두 자리 초(00-59)|
+|.fffffff|7자리 소수 자릿수 초|
+|Z|UTC(협정 세계시) 지정자|
   
-  ISO 8601 형식에 대 한 자세한 내용은을 참조 하십시오 [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+  ISO 8601 형식에 대한 자세한 내용은 [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)을 참조하세요.
 
 *EndDate*  
-   형식의 UTC 날짜 및 시간 ISO 8601 문자열 값 `YYYY-MM-DDThh:mm:ss.fffffffZ`
+   `YYYY-MM-DDThh:mm:ss.fffffffZ` 형식의 UTC 날짜 및 시간 ISO 8601 문자열 값
 
 ## <a name="return-types"></a>반환 형식
 
-부호 있는 정수 값을 반환 합니다.
+부호 있는 정수 값을 반환합니다.
 
 ## <a name="remarks"></a>설명
 
-DateTimeDiff는 `undefined` 다음과 같은 이유로를 반환 합니다.
+DateTimeDiff는 다음과 같은 경우에 `undefined`를 반환합니다.
 
-- 지정 된 DateTimePart 값이 잘못 되었습니다.
-- 날짜/시간 또는 EndDate이 잘못 된 ISO 8601 DateTime입니다.
+- 지정된 DateTimePart 값이 잘못된 경우
+- StartDate 또는 EndDate가 올바른 ISO 8601 DateTime이 아닌 경우
 
-DateTimeDiff는 항상 부호 있는 정수 값을 반환 하 고 시간 간격을 측정 하는 것이 아니라 DateTimePart 경계의 수를 측정 합니다.
+DateTimeDiff는 항상 부호 있는 정수 값을 반환하며 시간 간격이 아닌 교차하는 DateTimePart 경계의 수를 측정합니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
-다음 예에서는와 사이의 날짜 경계 수를 계산 합니다 `2020-01-01T01:02:03.1234527Z` `2020-01-03T01:02:03.1234567Z` .
+다음 예제는 `2020-01-01T01:02:03.1234527Z`와 `2020-01-03T01:02:03.1234567Z` 간에 교차하는 날짜 경계의 수를 계산합니다.
 
 ```sql
 SELECT DateTimeDiff("day", "2020-01-01T01:02:03.1234527Z", "2020-01-03T01:02:03.1234567Z") AS DifferenceInDays
@@ -91,7 +91,7 @@ SELECT DateTimeDiff("day", "2020-01-01T01:02:03.1234527Z", "2020-01-03T01:02:03.
 ]
 ```  
 
-다음 예에서는와 사이의 연도 경계 수를 계산 합니다 `2028-01-01T01:02:03.1234527Z` `2020-01-03T01:02:03.1234567Z` .
+다음 예제는 `2028-01-01T01:02:03.1234527Z`와 `2020-01-03T01:02:03.1234567Z` 간에 교차하는 연도 경계의 수를 계산합니다.
 
 ```sql
 SELECT DateTimeDiff("yyyy", "2028-01-01T01:02:03.1234527Z", "2020-01-03T01:02:03.1234567Z") AS DifferenceInYears
@@ -105,7 +105,7 @@ SELECT DateTimeDiff("yyyy", "2028-01-01T01:02:03.1234527Z", "2020-01-03T01:02:03
 ]
 ```
 
-다음 예에서는와 사이의 시간 경계 수를 계산 합니다 `2020-01-01T01:00:00.1234527Z` `2020-01-01T01:59:59.1234567Z` . 이러한 DateTime 값이 0.99 시간을 초과 하는 경우에도는 `DateTimeDiff` 시간 경계를 초과 하지 않았으므로 0을 반환 합니다.
+다음 예제는 `2020-01-01T01:00:00.1234527Z`와 `2020-01-01T01:59:59.1234567Z` 간에 교차는 시간 경계의 수를 계산합니다. 해당 DateTime 값이 0.99 시간을 초과하더라도 교차된 시간 경계가 없으므로 `DateTimeDiff`는 0을 반환합니다.
 
 ```sql
 SELECT DateTimeDiff("hh", "2020-01-01T01:00:00.1234527Z", "2020-01-01T01:59:59.1234567Z") AS DifferenceInHours

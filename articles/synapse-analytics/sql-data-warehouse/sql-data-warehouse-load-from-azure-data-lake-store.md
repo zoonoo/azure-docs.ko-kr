@@ -1,6 +1,6 @@
 ---
 title: '자습서: Azure Data Lake Storage에서 데이터 로드'
-description: COPY 문을 사용 하 여 전용 SQL 풀의 Azure Data Lake Storage에서 데이터를 로드 합니다.
+description: COPY 문을 사용하여 Azure Data Lake Storage에서 전용 SQL 풀로 데이터를 로드합니다.
 services: synapse-analytics
 author: gaursa
 manager: craigg
@@ -12,23 +12,23 @@ ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: ca57c6200cf7006a89be4b1fd621974559e5b514
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104606126"
 ---
 # <a name="load-data-from-azure-data-lake-storage-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Data Lake Storage에서 Azure Synapse Analytics의 전용 SQL 풀로 데이터 로드
 
-이 가이드에서는 [COPY 문을](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) 사용 하 여 Azure Data Lake Storage에서 데이터를 로드 하는 방법을 설명 합니다. 모든 인증 방법에서 COPY 문을 사용 하는 방법에 대 한 빠른 예제를 보려면 [전용 SQL 풀을 사용 하 여 데이터를 안전 하 게 로드](./quickstart-bulk-load-copy-tsql-examples.md)설명서를 참조 하세요.
+이 가이드는 [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true)을 사용하여 Azure Data Lake Storage에서 데이터를 로드하는 방법을 개략적으로 설명합니다. 모든 인증 방법에서 COPY 문을 사용하는 방법에 대한 간단한 예제를 보려면 [전용 SQL 풀을 사용하여 데이터를 안전하게 로드](./quickstart-bulk-load-copy-tsql-examples.md) 설명서를 참조하세요.
 
 > [!NOTE]  
-> COPY 문에 사용자 의견을 제공 하거나 문제를 보고 하려면 메일 그룹에 전자 메일을 보냅니다 sqldwcopypreview@service.microsoft.com .
+> COPY 문에 대한 피드백을 제공하거나 오류를 보고하려면 메일을 sqldwcopypreview@service.microsoft.com 배포 목록으로 보냅니다.
 >
 > [!div class="checklist"]
 >
-> * Azure Data Lake Storage에서 데이터를 로드 하는 대상 테이블을 만듭니다.
-> * 데이터 웨어하우스로 데이터를 로드 하는 COPY 문을 만듭니다.
+> * Azure Data Lake Storage에서 데이터를 로드할 대상 테이블을 만듭니다.
+> * 데이터 웨어하우스로 데이터를 로드하는 COPY 문을 만듭니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -38,12 +38,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 자습서를 실행하려면 다음이 필요합니다.
 
-* 전용 SQL 풀. [전용 SQL 풀 만들기 및 데이터 쿼리](create-data-warehouse-portal.md)를 참조 하세요.
-* Data Lake Storage 계정. [Azure Data Lake Storage 시작](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조하세요. 이 저장소 계정에 대해 저장소 계정 키, SAS (공유 액세스 서명) 키, Azure Directory 응용 프로그램 사용자 또는 저장소 계정에 대 한 적절 한 Azure 역할이 있는 AAD 사용자를 로드 하려면 다음 자격 증명 중 하나를 구성 하거나 지정 해야 합니다.
+* 전용 SQL 풀. [전용 SQL 풀 만들기 및 데이터 쿼리](create-data-warehouse-portal.md)를 참조하세요.
+* Data Lake Storage 계정. [Azure Data Lake Storage 시작](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조하세요. 이 스토리지 계정의 경우 로드할 다음 자격 증명 중 하나를 구성하거나 지정해야 합니다. 스토리지 계정 키, SAS(공유 액세스 서명) 키, Azure Directory Application 사용자 또는 스토리지 계정에 대한 적절한 Azure 역할이 있는 AAD 사용자.
 
 ## <a name="create-the-target-table"></a>대상 테이블 만들기
 
-전용 SQL 풀에 연결 하 고 로드할 대상 테이블을 만듭니다. 이 예에서는 product 차원 테이블을 만듭니다.
+전용 SQL 풀에 연결하고 로드할 대상 테이블을 만듭니다. 이 예제에서는 제품 차원 테이블을 만듭니다.
 
 ```sql
 -- A: Create the target table
@@ -65,7 +65,7 @@ WITH
 
 ## <a name="create-the-copy-statement"></a>COPY 문 만들기
 
-SQL 전용 풀에 연결 하 고 COPY 문을 실행 합니다. 전체 예제 목록은 다음 설명서를 참조 하세요. [전용 SQL 풀을 사용 하 여 데이터를 안전 하 게 로드](./quickstart-bulk-load-copy-tsql-examples.md)합니다.
+SQL 전용 풀에 연결하고 COPY 문을 실행합니다. 전체 예제 목록은 [전용 SQL 풀을 사용하여 데이터를 안전하게 로드](./quickstart-bulk-load-copy-tsql-examples.md) 설명서를 참조하세요.
 
 ```sql
 -- B: Create and execute the COPY statement
@@ -132,7 +132,7 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 > [!div class="nextstepaction"]
 > [데이터 웨어하우징용 테이블을 개발하는 방법 알아보기](sql-data-warehouse-tables-overview.md)
 
-예제 및 참조를 로드 하는 방법에 대 한 자세한 내용은 다음 설명서를 참조 하세요.
+예제 및 참조를 로드하는 방법에 대한 자세한 내용은 다음 설명서를 참조하세요.
 - [COPY 문 참조 설명서](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax)
-- [각 인증 방법에 대 한 복사 예제](./quickstart-bulk-load-copy-tsql-examples.md)
-- [단일 테이블에 대 한 빠른 시작 복사](./quickstart-bulk-load-copy-tsql.md)
+- [각 인증 방법의 COPY 예제](./quickstart-bulk-load-copy-tsql-examples.md)
+- [단일 테이블에 대한 COPY 빠른 시작](./quickstart-bulk-load-copy-tsql.md)

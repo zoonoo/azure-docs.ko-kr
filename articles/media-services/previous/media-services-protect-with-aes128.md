@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7dacc01b37fb91f02fe67f76fe79c0bfa9375ea7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: b4375e7b68f0b279a971e92775ca454f06dcbd45
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103009541"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067336"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>AES-128 동적 암호화 및 키 전달 서비스 사용
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET](media-services-protect-with-aes128.md)
+> * [.NET](media-services-playready-license-template-overview.md)
 > * [Java](https://github.com/rnrneverdies/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 >  
@@ -37,7 +37,7 @@ ms.locfileid: "103009541"
 
 Media Services에서는 128비트 암호화 키를 사용하여 AES로 암호화된 HLS(HTTP 라이브 스트리밍) 및 부드러운 스트리밍을 배달할 수 있습니다. Media Services는 권한 있는 사용자에게 암호화 키를 제공하는 키 배달 서비스도 제공합니다. Media Services에서 자산을 암호화하려는 경우 암호화 키를 자산에 연결하고 해당 키에 대해 권한 부여 정책도 구성합니다. 플레이어가 스트림을 요청하면 Media Services는 지정된 키를 사용하고 AES 암호화를 사용하여 동적으로 사용자의 콘텐츠를 암호화합니다. 스트림을 해독하기 위해 플레이어는 키 배달 서비스에서 키를 요청합니다. 사용자에게 키를 얻을 수 있는 권한이 있는지 여부를 결정하기 위해 서비스는 키에 지정된 권한 부여 정책을 평가합니다.
 
-Media Services는 키를 요청 하는 사용자를 인증 하는 여러 방법을 지원합니다. 콘텐츠 키 인증 정책에는 하나 이상의 권한 부여 제한(열기 또는 토큰 제한)이 있을 수 있습니다. 토큰 제한 정책에는 STS(보안 토큰 서비스)에서 발급한 토큰이 수반되어야 합니다. Media Services는 SWT ( [단순 웹 토큰](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2) ) 및 [JSON Web Token](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3) (JWT) 형식의 토큰을 지원 합니다. 자세한 내용은 [콘텐츠 키의 권한 부여 정책 구성](media-services-protect-with-aes128.md#configure_key_auth_policy)을 참조 하세요.
+Media Services는 키를 요청 하는 사용자를 인증 하는 여러 방법을 지원합니다. 콘텐츠 키 인증 정책에는 하나 이상의 권한 부여 제한(열기 또는 토큰 제한)이 있을 수 있습니다. 토큰 제한 정책에는 STS(보안 토큰 서비스)에서 발급한 토큰이 수반되어야 합니다. Media Services는 [SWT(단순 웹 토큰)](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2) 형식 및 [JWT(JSON Web Token)](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3) 형식의 토큰을 지원합니다. 자세한 내용은 [콘텐츠 키의 권한 부여 정책 구성](media-services-protect-with-aes128.md#configure_key_auth_policy)을 참조하세요.
 
 동적 암호화를 이용하려면 다중 비트 전송률 MP4 파일 또는 다중 비트 전송률 부드러운 스트리밍 원본 파일의 집합이 포함된 자산을 만들어야 합니다. 또한 자산의 배달 정책을 구성해야 합니다(이 문서의 뒷부분에서 설명). 그런 다음 스트리밍 URL에 지정된 형식에 따라 주문형 스트리밍 서버는 사용자가 선택한 프로토콜로 스트림이 배달되도록 합니다. 따라서 단일 스토리지 형식으로만 파일을 저장하고 이에 대한 비용을 지불하면 됩니다. Media Services는 클라이언트의 요청에 따라 적절한 응답을 작성하고 제공합니다.
 
@@ -51,17 +51,17 @@ AES 암호화를 사용하여 미디어 콘텐츠를 보호하는 방법에 대�
 
 Media Services 키 배달 서비스를 사용하거나 동적 암호화도 사용하여 AES로 자산을 암호화하는 경우 다음 일반 단계를 수행합니다.
 
-1. [자산을 만들고 파일을 자산에 업로드](media-services-protect-with-aes128.md#create_asset)합니다.
+1. [자산 만들기 및 파일을 자산에 업로드](media-services-protect-with-aes128.md#create_asset)
 
-2. [파일이 포함 된 자산을 적응 비트 전송률 MP4 집합으로 인코딩합니다](media-services-protect-with-aes128.md#encode_asset).
+2. [파일이 포함된 자산을 적응 비트 전송률 MP4 집합으로 인코딩](media-services-protect-with-aes128.md#encode_asset).
 
-3. [콘텐츠 키를 만들고 인코딩된 자산과 연결](media-services-protect-with-aes128.md#create_contentkey)합니다. Media Services에서 콘텐츠 키에는 자산의 암호화 키가 들어 있습니다.
+3. [콘텐츠 키를 만들고 인코딩된 자산과 연결]media-services-protect-with-aes128.md#create_contentkey). Media Services에서 콘텐츠 키에는 자산의 암호화 키가 들어 있습니다.
 
-4. [콘텐츠 키의 권한 부여 정책을 구성](media-services-protect-with-aes128.md#configure_key_auth_policy)합니다. 콘텐츠 키 인증 정책을 구성해야 합니다. 콘텐츠 키가 클라이언트에 배달되려면 먼저 클라이언트에서 정책을 충족해야 합니다.
+4. [콘텐츠 키의 인증 정책 구성](media-services-protect-with-aes128.md#configure_key_auth_policy). 콘텐츠 키 인증 정책을 구성해야 합니다. 콘텐츠 키가 클라이언트에 배달되려면 먼저 클라이언트에서 정책을 충족해야 합니다.
 
-5. [자산에 대한 배달 정책을 구성합니다](media-services-protect-with-aes128.md#configure_asset_delivery_policy). 배달 정책 구성에는 키 획득 URL 및 IV(초기화 벡터)가 포함되어 있습니다. (AES-128에는 암호화 및 암호 해독을 위해 동일한 IV가 필요 합니다.) 구성에는 배달 프로토콜 (예: MPEG, HLS, 부드러운 스트리밍 또는 모두)과 동적 암호화 유형 (예: 봉투 (envelope) 또는 동적 암호화 없음)도 포함 됩니다.
+5. [자산에 대한 배달 정책을 구성합니다](media-services-protect-with-aes128.md#configure_asset_delivery_policy). 배달 정책 구성에는 키 획득 URL 및 IV(초기화 벡터)가 포함되어 있습니다. (AES-128에는 암호화 및 암호 해독을 위한 동일한 IV가 필요합니다.) 또한 이 구성에는 배달 프로토콜(예: MPEG DASH, HLS, 부드러운 스트리밍 또는 모두) 및 동적 암호화 형식(예: 봉투(Envelope) 또는 동적이지 않은 암호화)도 포함됩니다.
 
-    동일한 자산의 각 프로토콜에 다른 정책을 적용할 수 있습니다. 예를 들어 PlayReady 암호화는 Smooth/DASH에 적용하고, AES 봉투(envelope)는 HLS에 적용할 수 있습니다. 배달 정책에 정의되지 않은 모든 프로토콜은 스트리밍에서 차단됩니다. (HLS만 프로토콜로 지정 하는 단일 정책을 추가 하는 경우를 예로 들 수 있습니다.) 자산 배달 정책이 전혀 정의 되지 않은 경우는 예외입니다. 이렇게 하면 모든 프로토콜이 허용됩니다.
+    동일한 자산의 각 프로토콜에 다른 정책을 적용할 수 있습니다. 예를 들어 PlayReady 암호화는 Smooth/DASH에 적용하고, AES 봉투(envelope)는 HLS에 적용할 수 있습니다. 배달 정책에 정의되지 않은 모든 프로토콜은 스트리밍에서 차단됩니다. 예를 들어 HLS만 프로토콜로 지정하는 단일 정책을 추가하는 경우입니다. 자산 배달 정책이 전혀 정의되지 않은 경우는 예외입니다. 이렇게 하면 모든 프로토콜이 허용됩니다.
 
 6. 스트리밍 URL을 얻기 위해 [주문형 로케이터를 만듭니다](media-services-protect-with-aes128.md#create_locator).
 
@@ -93,12 +93,12 @@ Media Services 키 배달 서비스를 사용하거나 동적 암호화도 사�
 
 인코딩하는 방법에 관한 지침은 [Media Encoder Standard으로 자산 인코딩](media-services-dotnet-encode-with-media-encoder-standard.md)을 참조하세요.
 
-## <a name="create-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>콘텐츠 키를 만들어 인코딩된 자산에 연결 합니다.
+## <a name="create-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>콘텐츠 키를 만들어 인코딩된 자산에 연결
 Media Services에서 콘텐츠 키에는 자산을 암호화할 키가 들어 있습니다.
 
 자세한 내용은 [콘텐츠 키 만들기](media-services-dotnet-create-contentkey.md)를 참조하세요.
 
-## <a name="configure-the-content-keys-authorization-policy"></a><a id="configure_key_auth_policy"></a>콘텐츠 키의 권한 부여 정책 구성
+## <a name="configure-the-content-keys-authorization-policy"></a><a id="configure_key_auth_policy"></a>콘텐츠 키의 인증 정책 구성
 Media Services는 키를 요청 하는 사용자를 인증 하는 여러 방법을 지원합니다. 콘텐츠 키 인증 정책을 구성해야 합니다. 키가 클라이언트에 배달되려면 먼저 클라이언트(플레이어)에서 정책을 충족해야 합니다. 콘텐츠 키 권한 부여 정책에는 열기, 토큰 제한 또는 IP 제한과 같은 하나 이상의 권한 부여 제한이 있을 수 있습니다.
 
 자세한 내용은 [콘텐츠 키 인증 정책 구성](media-services-dotnet-configure-content-key-auth-policy.md)을 참조하세요.
@@ -163,7 +163,7 @@ Media Services는 키를 요청 하는 사용자를 인증 하는 여러 방법�
 
 HLS의 경우 루트 매니페스트는 세그먼트 파일로 나뉩니다. 
 
-예를 들어 루트 매니페스트는 http: \/ /test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest (format = m3u8-aapl-v3-aapl)입니다. 여기에는 세그먼트 파일 이름의 목록이 포함됩니다.
+예를 들어 루트 매니페스트는 http:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl)입니다. 여기에는 세그먼트 파일 이름의 목록이 포함됩니다.
 
 ```text
 . . . 
@@ -174,7 +174,7 @@ QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
 …
 ```
 
-텍스트 편집기 (예: http: \/ /test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels (514369)/매니페스트 (video, format = m3u8-aapl-v3-aapl))에서 세그먼트 파일 중 하나를 열면 파일이 암호화 되었음을 나타내는 #EXT X 키가 포함 됩니다.
+텍스트 편집기에서 세그먼트 파일 중 하나를 열면(예: http:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl)), 파일이 암호화되었음을 나타내는 #EXT-X-KEY가 포함됩니다.
 
 ```text
 #EXTM3U

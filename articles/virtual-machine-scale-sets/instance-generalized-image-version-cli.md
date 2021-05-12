@@ -3,18 +3,18 @@ title: Azure CLI로 정규화된 이미지에서 확장 집합 만들기
 description: Azure CLI를 사용하여 Shared Image Gallery에서 정규화된 이미지를 사용하는 확장 집합을 만듭니다.
 author: cynthn
 ms.service: virtual-machine-scale-sets
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
-ms.reviewer: akjosh
-ms.openlocfilehash: de50540345ac6170d229549cad736dafb04e488c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.reviewer: mimckitt
+ms.openlocfilehash: cc2260f4b4220ae79b87a8836b144c3a68672ab0
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107792366"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768502"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image-with-azure-cli"></a>Azure CLI로 정규화된 이미지에서 확장 집합 만들기
 
@@ -55,7 +55,7 @@ az vmss create \
 확장 집합 리소스와 VM을 모두 만들고 구성하는 데 몇 분 정도 걸립니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure VM Image Builder(미리 보기)](../virtual-machines/image-builder-overview.md)는 이미지 버전 생성 자동화에 도움이 되며, [기존 이미지 버전에서 새 이미지 버전을 만들고](../virtual-machines/linux/image-builder-gallery-update-image-version.md) 업데이트하는 데에도 사용할 수 있습니다. 
+[Azure Image Builder(미리 보기)](../virtual-machines/image-builder-overview.md)는 이미지 버전 생성을 자동화하는 데 도움이 되며, [기존 이미지 버전에서 새 이미지를 생성](../virtual-machines/linux/image-builder-gallery-update-image-version.md)하고 업데이트하는 데도 사용할 수 있습니다. 
 
 또한 템플릿을 사용하여 공유 이미지 갤러리 리소스를 만들 수도 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
 

@@ -1,19 +1,19 @@
 ---
 title: Azure Policy 리소스 내보내기
-description: 정책 정의 및 정책 할당과 같은 Azure Policy 리소스를 GitHub로 내보내는 방법을 알아봅니다.
-ms.date: 10/29/2020
+description: 정책 정의 및 정책 할당과 같은 Azure Policy 리소스를 GitHub으로 내보내는 방법을 알아봅니다.
+ms.date: 03/31/2021
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 923b063244f6f47def1c3e6a63d6e4d6b3b88083
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 8fd2a24d2c01b4214eda88054b45a409cd865a32
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94919568"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096549"
 ---
 # <a name="export-azure-policy-resources"></a>Azure Policy 리소스 내보내기
 
-이 문서에서는 기존 Azure Policy 리소스를 내보내는 방법에 대 한 정보를 제공 합니다. 리소스 내보내기는 유용 하 고 백업에 권장 되지만 클라우드 거 버 넌 스를 사용 하 고 [정책을 코드로](../concepts/policy-as-code.md)처리 하는 중요 한 단계 이기도 합니다. Azure Policy 리소스는 [Azure Portal](#export-with-azure-portal), [Azure CLI](#export-with-azure-cli), [Azure PowerShell](#export-with-azure-powershell)및 지원 되는 각 sdk를 통해 내보낼 수 있습니다.
+이 문서에서는 기존 Azure Policy 리소스를 내보내는 방법에 관한 정보를 제공합니다. 리소스 내보내기는 유용하고 백업에 권장되지만, 사용자 경험에서 클라우드 거버넌스를 사용하고 [policy-as-code](../concepts/policy-as-code.md)를 처리하는 중요한 단계이기도 합니다. Azure Policy 리소스는 [Azure Portal](#export-with-azure-portal), [Azure CLI](#export-with-azure-cli), [Azure PowerShell](#export-with-azure-powershell) 그리고 지원되는 각각의 SDK를 통해 내보낼 수 있습니다.
 
 ## <a name="export-with-azure-portal"></a>Azure Portal로 내보내기
 
@@ -61,13 +61,13 @@ Azure Policy 리소스는 선택한 GitHub 리포지토리 및 _루트 수준 �
 
 ## <a name="export-with-azure-cli"></a>Azure CLI로 내보내기
 
-Azure Policy 정의, 이니셔티브 및 할당을 [Azure CLI](/cli/azure/install-azure-cli)를 사용 하 여 JSON으로 내보낼 수 있습니다. 이러한 각 명령은 **name** 매개 변수를 사용 하 여 JSON을 가져올 개체를 지정 합니다. **Name** 속성은 대개 _GUID_ 이며 개체의 **displayName** 이 아닙니다.
+Azure Policy 정의, 이니셔티브, 할당을 [Azure CLI](/cli/azure/install-azure-cli)를 사용하여 JSON으로 내보낼 수 있습니다. 각 명령은 **name** 매개 변수를 사용하여 JSON을 가져올 개체를 지정합니다. **Name** 속성은 대개 _GUID_ 이며 개체의 **displayName** 이 아닙니다.
 
-- 정의- [az policy definition show](/cli/azure/policy/definition#az_policy_definition_show)
-- 이니셔티브- [az policy set-definition show](/cli/azure/policy/set-definition#az_policy_set_definition_show)
-- 할당- [az policy 할당 show](/cli/azure/policy/assignment#az_policy_assignment_show)
+- 정의 - [az policy definition show](/cli/azure/policy/definition#az_policy_definition_show)
+- 이니셔티브 - [az policy set-definition show](/cli/azure/policy/set-definition#az_policy_set_definition_show)
+- 할당 - [az policy assignment show](/cli/azure/policy/assignment#az_policy_assignment_show)
 
-다음은 **이름이** _VirtualMachineStorage_ 인 정책 정의에 대 한 JSON을 가져오는 예제입니다.
+다음은 _VirtualMachineStorage_ 라는 **이름** 이 있는 정책 정의를 위한 JSON을 가져오는 예제입니다.
 
 ```azurecli-interactive
 az policy definition show --name 'VirtualMachineStorage'
@@ -75,13 +75,13 @@ az policy definition show --name 'VirtualMachineStorage'
 
 ## <a name="export-with-azure-powershell"></a>Azure PowerShell로 내보내기
 
-Azure Policy 정의, 이니셔티브 및 할당을 [Azure PowerShell](/powershell/azure/)를 사용 하 여 JSON으로 내보낼 수 있습니다. 이러한 각 cmdlet은 **Name** 매개 변수를 사용 하 여 JSON을 가져올 개체를 지정 합니다. **Name** 속성은 대개 _GUID_ 이며 개체의 **displayName** 이 아닙니다.
+Azure Policy 정의, 이니셔티브, 할당을 [Azure PowerShell](/powershell/azure/)를 사용하여 JSON으로 내보낼 수 있습니다. 각 cmdlet은 **Name** 매개 변수를 사용하여 JSON을 가져올 개체를 지정합니다. **Name** 속성은 대개 _GUID_ 이며 개체의 **displayName** 이 아닙니다.
 
-- [AzPolicyDefinition](/powershell/module/az.resources/get-azpolicydefinition)
-- 이니셔티브- [AzPolicySetDefinition](/powershell/module/az.resources/get-azpolicysetdefinition)
-- 할당- [AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment)
+- 정의 - [Get-AzPolicyDefinition](/powershell/module/az.resources/get-azpolicydefinition)
+- 이니셔티브 - [Get-AzPolicySetDefinition](/powershell/module/az.resources/get-azpolicysetdefinition)
+- 할당 - [Get-AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment)
 
-다음은 **이름이** _VirtualMachineStorage_ 인 정책 정의에 대 한 JSON을 가져오는 예제입니다.
+다음은 _VirtualMachineStorage_ 라는 **이름** 이 있는 정책 정의를 위한 JSON을 가져오는 예제입니다.
 
 ```azurepowershell-interactive
 Get-AzPolicyDefinition -Name 'VirtualMachineStorage' | ConvertTo-Json -Depth 10

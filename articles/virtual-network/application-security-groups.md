@@ -1,7 +1,7 @@
 ---
-title: Azure 응용 프로그램 보안 그룹 개요
+title: Azure 애플리케이션 보안 그룹 개요
 titlesuffix: Azure Virtual Network
-description: 응용 프로그램 보안 그룹을 사용 하는 방법에 대해 알아봅니다.
+description: 애플리케이션 보안 그룹을 사용하는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,10 +14,10 @@ ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
 ms.openlocfilehash: e60d8490632a29e96dccf9cc8ff0365baf671bb6
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104802627"
 ---
 # <a name="application-security-groups"></a>애플리케이션 보안 그룹
@@ -26,7 +26,7 @@ ms.locfileid: "104802627"
 
 ![애플리케이션 보안 그룹](./media/security-groups/application-security-groups.png)
 
-이전 그림에서 *NIC1* 및 *NIC2* 는 *AsgWeb* 애플리케이션 보안 그룹의 멤버입니다. *NIC3* 는 *AsgLogic* 애플리케이션 보안 그룹의 멤버입니다. *NIC4* 는 *AsgDb* 애플리케이션 보안 그룹의 멤버입니다. 이 예제의 각 네트워크 인터페이스는 하나의 네트워크 보안 그룹의 구성원 이지만, 네트워크 인터페이스는 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)까지 여러 응용 프로그램 보안 그룹의 멤버일 수 있습니다. 어떤 네트워크 인터페이스에도 네트워크 보안 그룹이 연결되지 않았습니다. *NSG1* 은 두 서브넷에 연결되었으며 다음 규칙을 포함하고 있습니다.
+이전 그림에서 *NIC1* 및 *NIC2* 는 *AsgWeb* 애플리케이션 보안 그룹의 멤버입니다. *NIC3* 는 *AsgLogic* 애플리케이션 보안 그룹의 멤버입니다. *NIC4* 는 *AsgDb* 애플리케이션 보안 그룹의 멤버입니다. 이 예제의 각 네트워크 인터페이스는 한 네트워크 보안 그룹의 멤버이긴 하지만, 네트워크 인터페이스는 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) 내에서 여러 애플리케이션 보안 그룹의 멤버가 될 수 있습니다. 어떤 네트워크 인터페이스에도 네트워크 보안 그룹이 연결되지 않았습니다. *NSG1* 은 두 서브넷에 연결되었으며 다음 규칙을 포함하고 있습니다.
 
 ## <a name="allow-http-inbound-internet"></a>Allow-HTTP-Inbound-Internet
 
@@ -57,7 +57,7 @@ ms.locfileid: "104802627"
 애플리케이션 보안 그룹에는 다음과 같은 제약 사항이 있습니다.
 
 -    한 구독에 허용되는 애플리케이션 보안 그룹의 개수 제한 및 애플리케이션 보안 그룹과 관련된 기타 제한이 있습니다. 자세한 내용은 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.
-- Azure Portal에서 보안 규칙의 원본 및 대상으로 응용 프로그램 보안 그룹을 하나만 지정할 수 있습니다. REST API (PowerShell/Azure CLI 포함)에서 원본 또는 대상에 여러 응용 프로그램 보안 그룹을 지정할 수 있습니다.
+- Azure Portal에서 하나의 애플리케이션 보안 그룹만을 보안 규칙의 원본 및 대상으로 지정할 수 있습니다. REST API(PowerShell/Azure CLI 포함)에서 원본 또는 대상에 여러 애플리케이션 보안 그룹을 지정할 수 있습니다.
 - 애플리케이션 보안 그룹에 할당된 모든 네트워크 인터페이스는 애플리케이션 보안 그룹에 할당된 첫 번째 네트워크 인터페이스가 있는 가상 네트워크와 동일한 가상 네트워크에 있어야 합니다. 예를 들어 *AsgWeb* 라는 애플리케이션 보안 그룹에 할당된 첫 번째 네트워크 인터페이스가 *VNet1* 이라는 가상 네트워크에 있는 경우 *ASGWeb* 에 할당되는 모든 후속 네트워크 인터페이스는 *VNet1* 에 있어야 합니다. 서로 다른 가상 네트워크의 네트워크 인터페이스를 동일한 애플리케이션 보안 그룹에 추가할 수 없습니다.
 - 애플리케이션 보안 그룹을 보안 규칙의 원본 및 대상으로 지정하는 경우, 두 애플리케이션 보안 그룹의 네트워크 인터페이스는 동일한 가상 네트워크에 있어야 합니다. 예를 들어 *AsgLogic* 에 *VNet1* 의 네트워크 인터페이스, *AsgDb* 에 *VNet2* 의 네트워크 인터페이스가 포함되어 있는 경우 규칙에서 *AsgLogic* 을 원본으로, *AsgDb* 를 대상으로 할당할 수 없습니다. 원본 및 대상 애플리케이션 보안 그룹에 대한 모든 네트워크 인터페이스는 동일한 가상 네트워크에 있어야 합니다.
 
@@ -66,4 +66,4 @@ ms.locfileid: "104802627"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [네트워크 보안 그룹을 만드는](tutorial-filter-network-traffic.md)방법에 대해 알아봅니다.
+* [네트워크 보안 그룹 만들기](tutorial-filter-network-traffic.md)에 대해 알아보세요.

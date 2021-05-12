@@ -1,6 +1,6 @@
 ---
 title: 맵에 트래픽 표시 | Microsoft Azure Maps
-description: 지도에 트래픽 데이터를 추가 하는 방법을 알아보세요. 흐름 데이터에 대해 알아보고 Azure Maps 웹 SDK를 사용 하 여 지도에 인시던트 데이터 및 흐름 데이터를 추가 하는 방법을 참조 하세요.
+description: 맵에 트래픽 데이터를 추가하는 방법을 알아보세요. 흐름 데이터에 대해 알아보고, Azure Maps Web SDK를 사용하여 맵에 인시던트 데이터 및 흐름 데이터를 추가하는 방법을 참조하세요.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/29/2019
@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: b6fcf39e05c4649503f0b7a80aadaaa16df24674
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98599554"
 ---
 # <a name="show-traffic-on-the-map"></a>맵에 트래픽 표시
@@ -21,14 +21,14 @@ ms.locfileid: "98599554"
 Azure Maps에서 사용할 수 있는 트래픽 데이터에는 두 가지 유형이 있습니다.
 
 - 인시던트 데이터 - 건설, 도로 폐쇄 및 사고와 같은 사항에 대한 점 및 선 기반 데이터로 구성됩니다.
-- 흐름 데이터 - 도로의 트래픽 흐름에 대한 메트릭을 제공합니다. 트래픽 흐름 데이터를 사용하여 도로 색을 조정하는 경우가 많습니다. 이 색은 속도 제한 또는 다른 메트릭을 기준으로 흐름을 저하시키는 트래픽 양을 기반으로 합니다. 맵의 트래픽 옵션에 전달할 수 있는 4 개의 값이 있습니다 `flow` .
+- 흐름 데이터 - 도로의 트래픽 흐름에 대한 메트릭을 제공합니다. 트래픽 흐름 데이터를 사용하여 도로 색을 조정하는 경우가 많습니다. 이 색은 속도 제한 또는 다른 메트릭을 기준으로 흐름을 저하시키는 트래픽 양을 기반으로 합니다. 맵의 트래픽 `flow` 옵션에 전달할 수 있는 4개의 값이 있습니다.
 
     |흐름 값 | 설명|
     | :-- | :-- |
-    | `none` | 지도에 트래픽 데이터를 표시 하지 않습니다. |
-    | `relative` | 도로의 자유 흐름 속도에 상대적인 트래픽 데이터를 표시 합니다. |
-    | `relative-delay` | 평균 예상 지연 시간 보다 느린 영역을 표시 합니다. |
-    | `absolute` | 도로의 모든 차량에 대 한 절대 속도를 표시 합니다. |
+    | `none` | 맵에 트래픽 데이터를 표시하지 않습니다. |
+    | `relative` | 도로의 자유 흐름 속도에 비례하여 트래픽 데이터를 표시합니다. |
+    | `relative-delay` | 평균 예상 지연 시간보다 느린 영역을 표시합니다. |
+    | `absolute` | 도로에 있는 모든 차량의 절대 속도를 보여 줍니다. |
 
 다음 코드에서는 맵에 트래픽 데이터를 표시하는 방법을 보여줍니다.
 
@@ -60,9 +60,9 @@ map.setTraffic({
 
 ## <a name="add-traffic-controls"></a>트래픽 컨트롤 추가
 
-지도에 추가할 수 있는 두 가지 트래픽 컨트롤이 있습니다. 첫 번째 컨트롤인는 `TrafficControl` 트래픽을 설정 하거나 해제 하는 데 사용할 수 있는 토글 단추를 추가 합니다. 이 컨트롤에 대 한 옵션을 사용 하 여 트래픽을 표시할 때 트래픽 설정이 사용 되는 시기를 지정할 수 있습니다. 기본적으로이 컨트롤은 상대 트래픽 흐름 및 인시던트 데이터를 표시 하지만 원하는 경우 절대 트래픽 흐름을 표시 하 고 인시던트를 표시 하지 않도록 변경할 수 있습니다. 두 번째 컨트롤인는 `TrafficLegendControl` 지도에 트래픽 흐름 범례를 추가 하 여 사용자가 강조 표시 된 색 코드의 의미를 이해 하는 데 도움을 줍니다. 이 컨트롤은 지도에 트래픽 흐름 데이터가 표시 되는 경우에만 표시 되 고 다른 모든 시간에는 숨겨집니다.
+맵에 추가할 수 있는 두 가지 트래픽 컨트롤이 있습니다. 첫 번째 컨트롤 `TrafficControl`은 트래픽을 설정하거나 해제하는 데 사용할 수 있는 토글 단추를 추가합니다. 이 컨트롤에 대한 옵션을 사용하여 트래픽을 표시할 때 트래픽 설정이 사용되는 시기를 지정할 수 있습니다. 기본적으로 이 컨트롤은 상대적 트래픽 흐름 및 인시던트 데이터를 표시하지만, 원하는 경우 절대 트래픽 흐름만 표시 하고 인시던트는 표시하지 않도록 변경할 수 있습니다. 두 번째 컨트롤 `TrafficLegendControl`은 맵에 트래픽 흐름 범례를 추가하여 사용자가 강조 표시된 색 코드 도로의 의미를 이해하는 데 도움을 줍니다. 이 컨트롤은 맵에 트래픽 흐름 데이터가 표시되는 경우에만 보이고, 다른 모든 시간에는 숨겨집니다.
 
-다음 코드에서는 지도에 트래픽 컨트롤을 추가 하는 방법을 보여 줍니다.
+다음 코드에서는 맵에 트래픽 컨트롤을 추가하는 방법을 보여 줍니다.
 
 ```JavaScript
 //Att the traffic control toogle button to the top right corner of the map.
@@ -74,8 +74,8 @@ map.controls.add(new atlas.control.TrafficLegendControl(), { position: 'bottom-l
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="트래픽 제어" src="https://codepen.io/azuremaps/embed/ZEWaeLJ?height500&theme-id=0&default-tab=js,result&embed-version=2&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
-CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/ZEWaeLJ'>트래픽 제어</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a>
+<iframe height="500" style="width: 100%;" scrolling="no" title="트래픽 컨트롤" src="https://codepen.io/azuremaps/embed/ZEWaeLJ?height500&theme-id=0&default-tab=js,result&embed-version=2&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/ZEWaeLJ'>트래픽 컨트롤</a>을 참조하세요.
 </iframe>
 
 

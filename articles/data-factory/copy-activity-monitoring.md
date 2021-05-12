@@ -1,17 +1,17 @@
 ---
 title: 복사 작업 모니터
 description: Azure Data Factory에서 복사 작업 실행을 모니터링하는 방법을 알아보세요.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.author: jingwang
-ms.openlocfilehash: 4aefeea33e61b6ee2541e929dbeb3fc36343cac5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: 1382d92b09bef59a7b9e79a758c41c6bbaec7343
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104771382"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109482636"
 ---
 # <a name="monitor-copy-activity"></a>복사 작업 모니터
 
@@ -45,7 +45,7 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 
 복사 작업 실행 세부 정보 및 성능 특성도 **복사 작업 실행 결과** > **출력** 섹션에 반환되며, 이는 UI 모니터링 보기를 렌더링하는 데 사용됩니다. 다음은 반환될 수 있는 속성의 전체 목록입니다. 내 복사 시나리오에 적용할 수 있는 속성만 표시됩니다. 일반적인 프로그래밍 방식으로 활동 실행을 모니터링하는 방법에 대한 자세한 내용은 [프로그래밍 방식으로 Azure Data Factory 모니터링](monitor-programmatically.md)을 참조하세요.
 
-| 속성 이름  | Description | 출력 단위 |
+| 속성 이름  | 설명 | 출력 단위 |
 |:--- |:--- |:--- |
 | DataRead | 원본에서 읽어 온 실제 데이터 양입니다. | Int64 값(바이트) |
 | DataWritten | 싱크에 기록/커밋된 실제 데이터 양입니다. 각 데이터 저장소가 데이터를 저장하는 방법과 관련되므로 `dataRead`의 크기와 크기가 다를 수 있습니다. | Int64 값(바이트) |

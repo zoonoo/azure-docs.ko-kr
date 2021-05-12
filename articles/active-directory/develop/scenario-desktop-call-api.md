@@ -1,7 +1,7 @@
 ---
-title: 데스크톱 앱에서 웹 Api 호출 | Microsoft
+title: 데스크톱 앱에서 웹 API 호출 | Microsoft
 titleSuffix: Microsoft identity platform
-description: 웹 Api를 호출 하는 데스크톱 앱을 빌드하는 방법을 알아봅니다.
+description: 웹 API를 호출하는 데스크톱 앱을 빌드하는 방법 알아보기
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,15 +13,15 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: b5b52b679506a5c8b4d183c9ad5925c20238621c
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104798921"
 ---
-# <a name="desktop-app-that-calls-web-apis-call-a-web-api"></a>웹 api를 호출 하는 데스크톱 앱: web API 호출
+# <a name="desktop-app-that-calls-web-apis-call-a-web-api"></a>웹 API를 호출하는 데스크톱 앱: 웹 API
 
-이제 토큰이 있으므로 보호 된 web API를 호출할 수 있습니다.
+이제 토큰이 있으므로 보호된 웹 API를 호출할 수 있습니다.
 
 ## <a name="call-a-web-api"></a>웹 API 호출
 
@@ -50,9 +50,9 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 # <a name="macos"></a>[MacOS](#tab/macOS)
 
-## <a name="call-a-web-api-in-msal-for-ios-and-macos"></a>IOS 및 macOS 용 MSAL에서 web API 호출
+## <a name="call-a-web-api-in-msal-for-ios-and-macos"></a>iOS 및 macOS용 MSAL에서 웹 API 호출
 
-토큰을 획득하는 메서드는 `MSALResult` 개체를 반환합니다. `MSALResult``accessToken`웹 API를 호출 하는 데 사용할 수 있는 속성을 노출 합니다. 보호 된 web API에 액세스 하기 위해 호출 하기 전에 HTTP 권한 부여 헤더에 액세스 토큰을 추가 합니다.
+토큰을 획득하는 메서드는 `MSALResult` 개체를 반환합니다. `MSALResult`(은)는 API를 호출하는 데 사용할 수 있는 `accessToken` 속성을 표시합니다. 보호된 웹 API에 액세스하기 위해 호출하기 전에 액세스 토큰을 HTTP 인증 헤더에 추가합니다.
 
 Objective-C:
 
@@ -80,9 +80,9 @@ let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) { (data: D
 task.resume()
 ```
 
-## <a name="call-several-apis-incremental-consent-and-conditional-access"></a>여러 Api 호출: 증분 동의 및 조건부 액세스
+## <a name="call-several-apis-incremental-consent-and-conditional-access"></a>여러 API 호출: 증분 동의 및 조건부 액세스
 
-동일한 사용자에 대해 여러 Api를 호출 하려면 첫 번째 API에 대 한 토큰을 가져온 후를 호출 `AcquireTokenSilent` 합니다. 대부분의 시간 동안 다른 Api에 대 한 토큰을 자동으로 가져옵니다.
+동일한 사용자에 대해 여러 API를 호출하려면 첫 번째 API에 대한 토큰을 가져온 후 `AcquireTokenSilent`(을)를 호출합니다. 대부분의 경우 다른 API에 대한 토큰을 자동으로 가져옵니다.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -94,8 +94,8 @@ result = await app.AcquireTokenSilent("scopeApi2")
 
 다음과 같은 경우 상호 작용이 필요합니다.
 
-- 사용자가 첫 번째 API에 대해 동의했지만 이제 더 많은 범위에 동의해야 하는 경우. 이러한 종류의 동의를 증분 동의 라고 합니다.
-- 첫 번째 API에는 다단계 인증이 필요 하지 않지만 다음에는이 API가 있습니다.
+- 사용자가 첫 번째 API에 대해 동의했지만 이제 더 많은 범위에 동의해야 하는 경우. 이러한 종류의 동의를 증분 동의라고 합니다.
+- 첫 번째 API는 다단계 인증이 필요하지 않았지만 다음 API는 필요합니다.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -116,7 +116,7 @@ catch(MsalUiRequiredException ex)
 
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-[Axios](https://www.npmjs.com/package/axios)와 같은 HTTP 클라이언트를 사용 하 여 액세스 토큰을 *권한 부여 전달자* 로 사용 하 여 API 끝점 URI를 호출 합니다.
+[Axios](https://www.npmjs.com/package/axios)와 같은 HTTP 클라이언트를 사용하여 *권한 부여 전달자* 로 액세스 토큰을 통해 API 엔드포인트 URI를 호출합니다.
 
 ```javascript
 const axios = require('axios');
@@ -154,4 +154,4 @@ data = requests.get(endpoint, headers=http_headers, stream=False).json()
 
 ## <a name="next-steps"></a>다음 단계
 
-이 시나리오에서 다음 문서로 이동 하 여 [프로덕션으로 이동](scenario-desktop-production.md)합니다.
+이 시나리오의 다음 문서인 [프로덕션으로 이동](scenario-desktop-production.md)으로 이동합니다.

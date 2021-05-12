@@ -1,5 +1,5 @@
 ---
-title: SSL 구성-Azure Database for MySQL
+title: SSL 구성 - Azure Database for MySQL
 description: SSL 연결을 올바르게 사용하기 위해 MySQL용 Azure Database 및 연결된 애플리케이션을 올바르게 구성하는 방법에 대한 지침
 author: savjani
 ms.author: pariks
@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 1c3e5a44e01f3fa43b82644103066f5a03684ad2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 7bcdbd4229bda56af80cc5068dc5421dc2e5b58d
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94591583"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001577"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>MySQL용 Azure Database에 안전하게 연결하기 위한 사용자 애플리케이션의 SSL 연결 구성
 
@@ -20,20 +20,20 @@ MySQL용 Azure Database는 SSL(Secure Sockets Layer)을 사용한 MySQL용 Azure
 
 ## <a name="step-1-obtain-ssl-certificate"></a>1단계: SSL 인증서 받기
 
-에서 Azure Database for MySQL 서버와 SSL을 통해 통신 하는 데 필요한 인증서를 다운로드 하 [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) 고 인증서 파일을 로컬 드라이브에 저장 합니다 (이 자습서에서는 c:\ssal을 사용 하는 경우).
+[https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem)에서 SSL을 통해 MySQL용 Azure Database 서버와 통신하는 데 필요한 인증서를 다운로드하고 인증서 파일을 로컬 드라이브에 저장합니다(이 자습서에서는 c:\ssl을 예로 사용).
 **Microsoft Internet Explorer 및 Microsoft Edge:** 다운로드가 완료된 후 인증서 이름을 BaltimoreCyberTrustRoot.crt.pem으로 변경합니다.
 
 >[!NOTE]
-> 고객의 의견에 따라 2021 (02/15/2021)까지 기존 Baltimore 루트 CA에 대 한 루트 인증서 사용 중단을 연장 했습니다.
+> 고객의 피드백에 따라 2021년 2월 15일까지 기존 볼티모어 루트 CA에 대한 루트 인증서 사용 중단 기간을 연장했었습니다.
 
 > [!IMPORTANT] 
-> SSL 루트 인증서가 2021 (02/15/2021)부터 만료 되도록 설정 되어 있습니다. [새 인증서](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)를 사용 하도록 응용 프로그램을 업데이트 하십시오. 자세히 알아보려면 [계획 된 인증서 업데이트](concepts-certificate-rotation.md) 를 참조 하세요.
+> SSL 루트 인증서가 2021년 2월 15일에 만료되도록 설정되어 있습니다. [새 인증서](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)를 사용하도록 애플리케이션을 업데이트해 주십시오. 자세히 알아보려면 [계획된 인증서 업데이트](concepts-certificate-rotation.md)를 참조하세요.
 
-소 버린 클라우드의 서버 인증서에 대 한 다음 링크 ( [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure 중국](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)및 [azure 독일](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt))를 참조 하세요.
+소버린 클라우드의 서버 인증서에 대한 링크([Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure 중국](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)및 [Azure 독일](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt))를 참조하세요.
 
 ## <a name="step-2-bind-ssl"></a>2단계: SSL 바인딩
 
-특정 프로그래밍 언어 연결 문자열은 아래 [샘플 코드](howto-configure-ssl.md#sample-code) 를 참조 하세요.
+특정 프로그래밍 언어 연결 문자열은 아래 [샘플 코드](howto-configure-ssl.md#sample-code)를 참조하세요.
 
 ### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>SSL을 통해 MySQL Workbench를 사용하여 서버에 연결
 
@@ -66,7 +66,7 @@ mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p -
 
 Azure Portal을 사용하여 MySQL용 Azure Database 서버를 방문한 다음 **연결 보안** 을 클릭합니다. 설정/해제 단추를 사용하여 **SSL 연결 적용** 설정을 사용하거나 사용하지 않도록 설정한 다음 **저장** 을 클릭합니다. Microsoft는 향상된 보안을 위해 항상 **SSL 연결 적용** 을 활성화하는 것을 권장합니다.
 
-:::image type="content" source="./media/howto-configure-ssl/enable-ssl.png" alt-text="Azure Database for MySQL에서 SSL 연결을 적용 하 Azure Portal의 스크린샷":::
+:::image type="content" source="./media/howto-configure-ssl/enable-ssl.png" alt-text="Azure Database for MySQL에서 SSL 연결을 적용하는 Azure Portal의 스크린샷":::
 
 ### <a name="using-azure-cli"></a>Azure CLI 사용
 
@@ -90,7 +90,7 @@ mysql> status
 
 애플리케이션에서 SSL을 통해 Azure Database for MySQL에 대한 안전한 연결을 설정하려면 다음 코드 샘플을 참조하세요.
 
-Azure Database for MySQL 서비스에서 지 원하는 [호환 가능한 드라이버](concepts-compatibility.md) 목록을 참조 하십시오.
+Azure Database for MySQL 서비스에서 지원하는 [호환 가능한 드라이버](concepts-compatibility.md) 목록을 참조하세요.
 
 ### <a name="php"></a>PHP
 
@@ -103,7 +103,7 @@ die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 ```
 
-### <a name="php-using-pdo"></a>PHP (PDO 사용)
+### <a name="php-using-pdo"></a>PHP(PDO 사용)
 
 ```phppdo
 $options = array(
@@ -135,7 +135,7 @@ conn = pymysql.connect(user='myadmin@mydemoserver',
                        ssl={'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'})
 ```
 
-### <a name="django-pymysql"></a>Django (PyMySQL)
+### <a name="django-pymysql"></a>Django(PyMySQL)
 
 ```python
 DATABASES = {
@@ -179,7 +179,7 @@ connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&
 db, _ := sql.Open("mysql", connectionString)
 ```
 
-### <a name="java-mysql-connector-for-java"></a>Java (Java 용 MySQL 커넥터)
+### <a name="java-mysql-connector-for-java"></a>Java(Java용 MySQL 커넥터)
 
 ```java
 # generate truststore and keystore in code
@@ -208,7 +208,7 @@ properties.setProperty("password", 'yourpassword');
 conn = DriverManager.getConnection(url, properties);
 ```
 
-### <a name="java-mariadb-connector-for-java"></a>Java (Java 용 MariaDB 커넥터)
+### <a name="java-mariadb-connector-for-java"></a>Java(Java용 MariaDB 커넥터)
 
 ```java
 # generate truststore and keystore in code
@@ -253,6 +253,28 @@ using (var connection = new MySqlConnection(builder.ConnectionString))
 {
     connection.Open();
 }
+```
+
+### <a name="nodejs"></a>Node.js
+
+```node
+var fs = require('fs');
+var mysql = require('mysql');
+const serverCa = [fs.readFileSync("/var/www/html/BaltimoreCyberTrustRoot.crt.pem", "utf8")];
+var conn=mysql.createConnection({
+    host:"mydemoserver.mysql.database.azure.com",
+    user:"myadmin@mydemoserver",
+    password:"yourpassword",
+    database:"quickstartdb",
+    port:3306,
+    ssl: {
+        rejectUnauthorized: true,
+        ca: serverCa
+    }
+});
+conn.connect(function(err) {
+  if (err) throw err;
+});
 ```
 
 ## <a name="next-steps"></a>다음 단계

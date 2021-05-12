@@ -8,10 +8,10 @@ ms.author: abnarain
 ms.custom: seo-lt-2019
 ms.date: 05/08/2019
 ms.openlocfilehash: 7d312e4a00cdd2b62ee219df807f30c22f0c9790
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104773949"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop Hive 작업을 사용하여 데이터 변환
@@ -68,7 +68,7 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
 | queryTimeout        | 쿼리 시간 제한 값(분)입니다. HDInsight 클러스터에서 Enterprise Security Package가 사용하도록 설정되어 있으면 적용됩니다. | 예       |
 
 >[!NOTE]
->QueryTimeout의 기본값은 120 분입니다. 
+>queryTimeout의 기본값은 120분입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 다른 방법으로 데이터를 변환하는 방법을 설명하는 다음 문서를 참조하세요. 
@@ -79,5 +79,5 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
 * [Hadoop 스트리밍 작업](transform-data-using-hadoop-streaming.md)
 * [Spark 작업](transform-data-using-spark.md)
 * [.NET 사용자 지정 작업](transform-data-using-dotnet-custom-activity.md)
-* [Azure Machine Learning Studio (클래식) 일괄 처리 실행 작업](transform-data-using-machine-learning.md)
+* [Azure Machine Learning 스튜디오(클래식) Batch Execution 작업](transform-data-using-machine-learning.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)

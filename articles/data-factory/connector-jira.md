@@ -1,17 +1,17 @@
 ---
 title: Azure Data Factory를 사용하여 Jira에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Jira서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.author: jingwang
-ms.openlocfilehash: 16ab0ab0e4c4d647f62b38d71acde69df0ae0d42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: 0d7fccd134fc876ebee4c0e770068abb246caae4
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100378488"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481790"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Jira에서 데이터 복사
 
@@ -32,7 +32,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 ## <a name="getting-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 Jira 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -40,7 +40,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 다음은 Jira 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **Jira** 로 설정해야 합니다. | 예 |
 | host | Jira 서비스의 IP 주소 또는 호스트 이름입니다. (예: jira.example.com)  | 예 |
@@ -77,7 +77,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 Jira에서 데이터를 복사하려면 데이터 세트의 type 속성을 **JiraObject** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 형식 속성을 **JiraObject** 로 설정해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -107,7 +107,7 @@ Jira에서 데이터를 복사하려면 데이터 세트의 type 속성을 **Jir
 
 Jira에서 데이터를 복사하려면 복사 작업의 원본 형식을 **JiraSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **JiraSource** 로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |

@@ -1,18 +1,18 @@
 ---
 title: Azure Data Lake Storage Gen2에 데이터 로드
 description: Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에 데이터 복사
-ms.author: jianleishen
-author: jianleishen
+ms.author: jingwang
+author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: dc71dbb50478494b30bb78f4ae55a7f4a6423d62
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 075778e2650d3b1f67447078eb6cb130849bbb35
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109488630"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104593784"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에 데이터 로드
 
@@ -104,7 +104,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
     ![설정 페이지](./media/load-azure-data-lake-storage-gen2/copy-settings.png)
 
-11. **요약** 페이지에서 설정을 검토하고 **다음** 을 선택합니다.
+11. **요약** 페이지에서 설정을 검토하고, **다음** 을 선택합니다.
 
     ![요약 페이지](./media/load-azure-data-lake-storage-gen2/copy-summary.png)
 
