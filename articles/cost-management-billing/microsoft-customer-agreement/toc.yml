@@ -1,0 +1,60 @@
+- name: Microsoft 고객 계약 문서
+  href: index.yml?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+- name: 개요
+  expanded: true
+  items:
+    - name: Microsoft 고객 계약 개요
+      href: ../understand/mca-overview.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+- name: 개념
+  items:
+    - name: 계약 서명 후 검사 목록
+      href: microsoft-customer-agreement-get-started.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: 계약에서 테넌트 관리
+      href: manage-tenants.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: 사용량 및 청구 주기 이해
+      href: ../understand/mca-understand-your-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: 사용량 및 요금 파일 조건
+      href: ../understand/mca-understand-your-usage.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+- name: 자습서
+  items:
+    - name: 청구서 검토
+      href: ../understand/review-customer-agreement-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: 예산 작성 및 관리
+      href: ../costs/tutorial-acm-create-budgets.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+- name: 방법 가이드
+  expanded: true
+  items:
+    - name: 청구 설정
+      href: ../manage/mca-setup-account.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: 청구 계정 시작
+      href: ../understand/mca-overview.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: 청구서 구성
+      href: ../manage/mca-section-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: 청구 계정 보기
+      href: ../manage/view-all-accounts.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: 청구 역할
+      href: ../manage/understand-mca-roles.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: 청구에 대한 액세스 관리
+      href: ../manage/manage-billing-access.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: 구독 사용자를 관리하는 관리자 설정
+      href: ../manage/add-change-subscription-administrator.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: 새 구독 만들기
+      href: ../manage/create-subscription.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: 청구서에 따른 구독에 대한 요금 지불
+      href: ../manage/pay-by-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: 청구서 결제
+      href: ../understand/pay-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: 청구 소유권 이전
+      href: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Microsoft 고객 계약 API로 EA 마이그레이션
+      href: ../costs/migrate-cost-management-api.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: 사용량과 요금 보기 및 다운로드
+      href: ../understand/download-azure-daily-usage.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Azure 가격 책정 보기 및 다운로드
+      href: ../manage/ea-pricing.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Microsoft 고객 계약의 EA 작업
+      href: ../manage/mca-enterprise-operations.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: 문제 해결
+      items:
+        - name: 구독 액세스
+          href: troubleshoot-subscription-access.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json

@@ -1,19 +1,19 @@
 ---
-title: 가상 네트워크 규칙 사용-Azure Portal-Azure Database for PostgreSQL-단일 서버
-description: Azure Portal를 사용 하 여 단일 서버 Azure Database for PostgreSQL VNet 서비스 끝점 및 규칙 만들기 및 관리
+title: 가상 네트워크 규칙 사용 - Azure Portal - Azure Database for PostgreSQL - 단일 서버
+description: Azure Portal을 사용하여 Azure Database for PostgreSQL - 단일 서버에서 VNet 서비스 엔드포인트와 규칙 만들기 및 관리
 author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: 377f8eba179253ca6187b10a22970d0eadcda2f6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92489832"
 ---
-# <a name="create-and-manage-vnet-service-endpoints-and-vnet-rules-in-azure-database-for-postgresql---single-server-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL 단일 서버에서 VNet 서비스 끝점 및 VNet 규칙 만들기 및 관리
+# <a name="create-and-manage-vnet-service-endpoints-and-vnet-rules-in-azure-database-for-postgresql---single-server-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for PostgreSQL - 단일 서버에서 VNet 서비스 엔드포인트와 VNet 규칙 만들기 및 관리
 VNet(가상 네트워크) 서비스 엔드포인트 및 규칙이 가상 네트워크의 프라이빗 주소 공간을 Azure Database for PostgreSQL 서버로 확장합니다. 제한을 포함하여 Azure Database for PostgreSQL VNet 서비스 엔드포인트에 대한 개요는 [Azure Database for PostgreSQL 서버 VNet 서비스 엔드포인트](concepts-data-access-and-security-vnet.md)를 참조하세요. VNet 서비스 엔드포인트는 Azure Database for PostgreSQL에 대한 지원되는 모든 지역에서 사용할 수 있습니다.
 
 > [!NOTE]
@@ -25,14 +25,14 @@ VNet(가상 네트워크) 서비스 엔드포인트 및 규칙이 가상 네트�
 
 1. PostgreSQL 서버 페이지의 설정 머리글에서 **연결 보안** 을 클릭하여 Azure Database for PostgreSQL에 대한 연결 보안 페이지를 엽니다. 
 
-2. Azure 서비스에 대 한 액세스 허용 컨트롤이 **OFF** 로 설정 되어 있는지 확인 합니다.
+2. Azure 서비스 컨트롤에 대한 액세스 허용이 **OFF** 로 설정되어 있는지 확인합니다.
 
 > [!Important]
-> 컨트롤을 ON으로 설정 하면 Azure PostgreSQL 데이터베이스 서버는 모든 서브넷의 통신을 수락 합니다. 제어 집합을 ON으로 유지하면 보안 관점에서 과도하게 액세스할 수도 있습니다. Microsoft Azure Virtual Network 서비스 끝점 기능은 Azure Database for PostgreSQL의 가상 네트워크 규칙 기능을 함께 사용 하 여 보안 노출 영역을 줄일 수 있습니다.
+> 이 컨트롤을 ON으로 설정된 상태로 두면 Azure PostgreSQL Database 서버가 모든 서브넷의 통신을 수락합니다. 제어 집합을 ON으로 유지하면 보안 관점에서 과도하게 액세스할 수도 있습니다. Microsoft Azure Virtual Network 서비스 엔드포인트 기능을 Azure Database for PostgreSQL의 가상 네트워크 규칙 기능과 함께 사용하여 보안 노출 영역을 줄일 수 있습니다.
 
 3. 다음으로, **+ 기존 가상 네트워크 추가** 를 클릭합니다. 기존 VNet이 없는 경우 **+ 새 가상 네트워크 만들기** 를 클릭할 수 있습니다. [빠른 시작: Azure Portal을 사용하여 가상 네트워크 만들기](../virtual-network/quick-create-portal.md) 참조
 
-   :::image type="content" source="./media/howto-manage-vnet-using-portal/1-connection-security.png" alt-text="연결 보안 Azure Portal 클릭":::
+   :::image type="content" source="./media/howto-manage-vnet-using-portal/1-connection-security.png" alt-text="Azure Portal - 보안 연결 클릭":::
 
 4. VNet 규칙 이름을 입력하고 구독, 가상 네트워크 및 서브넷 이름을 선택한 다음, **사용** 을 클릭합니다. **Microsoft.SQL** 서비스 태그를 사용하여 서브넷에서 VNet 서비스 엔드포인트를 자동으로 사용하도록 설정할 수 있습니다.
 
@@ -58,7 +58,7 @@ VNet(가상 네트워크) 서비스 엔드포인트 및 규칙이 가상 네트�
 
 ## <a name="next-steps"></a>다음 단계
 - 마찬가지로 [Azure CLI를 사용하여 Azure Database for PostgreSQL에 대한 VNET 규칙을 만들고 VNet 서비스 엔드포인트를 사용](howto-manage-vnet-using-cli.md)하도록 스크립팅할 수 있습니다.
-- Azure Database for PostgreSQL 서버에 연결 하는 방법에 대 한 도움말은 [Azure Database for PostgreSQL 연결 라이브러리](./concepts-connection-libraries.md) 를 참조 하세요.
+- PostgreSQL용 Azure Database 서버 연결에 대한 도움말은 [PostgreSQL용 Azure Database에 대한 연결 라이브러리](./concepts-connection-libraries.md)를 참조하세요.
 
 <!-- Link references, to text, Within this same GitHub repo. --> 
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

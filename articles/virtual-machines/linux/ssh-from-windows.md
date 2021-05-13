@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
-ms.openlocfilehash: f018f591052050431996e3017335ab003973d25a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b191941dff66f28467030a3f367837ca4ed9656c
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104771008"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330821"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Azure에서 Windows를 통해 SSH 키를 사용하는 방법
 
@@ -68,7 +68,7 @@ az vm create \
    --name myVM \
    --image UbuntuLTS\
    --admin-username azureuser \
-   --ssh-key-value ~/.ssh/id_rsa
+   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
 PowerShell로 `New-AzVM`을 사용하여 SSH 키를 VM 구성에 추가합니다. 예를 들어 [빠른 시작: PowerShell을 사용하여 Azure에서 Linux 가상 머신 만들기](quick-create-powershell.md)를 참조하세요.
@@ -81,7 +81,7 @@ PowerShell로 `New-AzVM`을 사용하여 SSH 키를 VM 구성에 추가합니다
 Azure VM에서 배포된 공개 키 및 로컬 시스템에서 배포된 프라이빗 키를 통해 IP 주소 또는 VM의 DNS 이름을 사용하여 VM에 SSH를 사용합니다. 다음 명령에서 *azureuser* 및 *10.111.12.123* 을 관리자 사용자 이름, IP 주소(또는 정규화된 도메인 이름), 프라이빗 키의 경로로 바꿉니다.
 
 ```bash
-ssh -i ~/.ssh/id_rsa.pub azureuser@10.111.12.123
+ssh -i ~/.ssh/id_rsa azureuser@10.111.12.123
 ```
 
 키 쌍을 만들 때 암호를 구성한 경우 메시지가 표시되면 암호를 입력합니다.

@@ -20,6 +20,8 @@
       href: walkthrough-exchange-all.md
     - name: Peering Service 파트너 연습
       href: walkthrough-peering-service-all.md
+    - name: Communications Services 파트너 연습
+      href: walkthrough-communications-services-partner.md
     - name: 피어 ASN을 Azure 구독에 연결
       items:
         - name: 포털

@@ -30,24 +30,18 @@
   items:
     - name: 앱 통합 자습서 목록
       href: /azure/active-directory/saas-apps/
-    - name: 애플리케이션 프록시를 통해 온-프레미스 앱 추가
-      href: application-proxy-add-on-premises-application.md
 - name: 샘플
   items:
-    - name: 앱 관리 PowerShell 샘플
-      items:
-        - name: 앱 관리 샘플 개요
-          href: app-management-powershell-samples.md
-        - name: 비밀 및 인증서 내보내기(앱 등록)
-          href: ./scripts/powershell-export-all-app-registrations-secrets-and-certs.md
-        - name: 비밀 및 인증서 내보내기(엔터프라이즈 앱)
-          href: ./scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md
-        - name: 만료되는 비밀 및 인증서 내보내기
-          href: ./scripts/powershell-export-apps-with-expriring-secrets.md
-        - name: 필수 날짜 이후에 만료되는 비밀 및 인증서 내보내기
-          href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
-    - name: 앱 프록시 PowerShell 샘플
-      href: application-proxy-powershell-samples.md
+    - name: 앱 관리 샘플 개요
+      href: app-management-powershell-samples.md
+    - name: 비밀 및 인증서 내보내기(앱 등록)
+      href: ./scripts/powershell-export-all-app-registrations-secrets-and-certs.md
+    - name: 비밀 및 인증서 내보내기(엔터프라이즈 앱)
+      href: ./scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md
+    - name: 만료되는 비밀 및 인증서 내보내기
+      href: ./scripts/powershell-export-apps-with-expriring-secrets.md
+    - name: 필수 날짜 이후에 만료되는 비밀 및 인증서 내보내기
+      href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
 - name: 개념
   expanded: true
   items:
@@ -59,8 +53,6 @@
       items:
         - name: 앱 통합 시작
           href: plan-an-application-integration.md
-        - name: 갤러리에 나열되지 않은 앱에 대한 계획
-          href: non-gallery-apps.md
         - name: 내 앱 배포 계획
           href: my-apps-deployment-plan.md
     - name: Single Sign-On
@@ -69,24 +61,16 @@
           href: plan-sso-deployment.md
         - name: Single Sign-On 옵션
           href: sso-options.md
-        - name: 온-프레미스 앱을 사용한 Single Sign-On
-          href: application-proxy-config-sso-how-to.md
         - name: OIDC 기반 SSO
           href: configure-oidc-single-sign-on.md
         - name: SAML 기반 SSO
           href: configure-saml-single-sign-on.md
-        - name: SAML 기반 SSO(온-프레미스 앱)
-          href: application-proxy-configure-single-sign-on-on-premises-apps.md
         - name: 암호 기반 SSO
           href: configure-password-single-sign-on-non-gallery-applications.md
-        - name: 암호 기반 SSO(온-프레미스 앱)
-          href: application-proxy-configure-single-sign-on-password-vaulting.md
         - name: 연결 기반 SSO
           href: configure-linked-sign-on.md
         - name: 헤더 기반 SSO(온-프레미스 앱)
           href: application-proxy-configure-single-sign-on-with-headers.md
-        - name: Kerberos 기반 SSO(온-프레미스 앱)
-          href: application-proxy-configure-single-sign-on-with-kcd.md
         - name: 한 번 클릭 SSO
           href: one-click-sso-tutorial.md
     - name: 애플리케이션 보안
@@ -105,26 +89,6 @@
           href: end-user-experiences.md
         - name: 클라우드 앱 표시 유형 및 제어
           href: cloud-app-security.md
-    - name: 온-프레미스 앱에 대한 애플리케이션 프록시
-      items:
-        - name: 애플리케이션 프록시
-          href: application-proxy.md
-        - name: 온-프레미스 앱에 대한 애플리케이션 프록시란?
-          href: what-is-application-proxy.md
-        - name: 애플리케이션 프록시 배포 계획
-          href: application-proxy-deployment-plan.md
-        - name: 커넥터
-          href: application-proxy-connectors.md
-        - name: 커넥터 그룹
-          href: application-proxy-connector-groups.md
-        - name: 보안
-          href: application-proxy-security.md
-        - name: 네트워크 토폴로지
-          href: application-proxy-network-topology.md
-        - name: 고가용성 및 부하 분산
-          href: application-proxy-high-availability-load-balancing.md
-        - name: 원격 액세스 솔루션 비교
-          href: application-proxy-migration.md
 - name: 방법 가이드
   expanded: false
   items:
@@ -140,7 +104,7 @@
               href: configure-permission-classifications.md
             - name: 앱 동의 정책 관리
               href: manage-app-consent-policies.md
-            - name: 관리자 동의 워크플로 구성(미리 보기)
+            - name: 관리자 동의 워크플로 구성
               href: configure-admin-consent-workflow.md
             - name: 동의 요청 관리 및 평가
               href: manage-consent-requests.md
@@ -174,130 +138,40 @@
           href: migrate-adfs-apps-to-azure.md
         - name: Azure Active Directory에 애플리케이션 인증 마이그레이션
           href: migrate-application-authentication-to-azure-active-directory.md
-        - name: AD FS 애플리케이션 작업 보고서 사용(미리 보기)
+        - name: AD FS 애플리케이션 작업 보고서 사용
           href: migrate-adfs-application-activity.md
-    - name: 온-프레미스 커넥터 구성
+    - name: 레거시 앱 보호
       items:
-        - name: 프록시 서버를 사용한 구성
-          href: application-proxy-configure-connectors-with-proxy-servers.md
-        - name: 커넥터 등록 - 자동 설치
-          href: application-proxy-register-connector-powershell.md
-    - name: 온-프레미스 앱 액세스 구성
-      items:
-        - name: 클레임 인식 앱 구성
-          href: application-proxy-configure-for-claims-aware-applications.md
-        - name: 온-프레미스 API에 대한 모바일 및 데스크톱 앱 액세스 권한 부여
-          href: application-proxy-secure-api-access.md
-        - name: 모바일 및 데스크톱 클라이언트 앱 구성
-          href: application-proxy-configure-native-client-application.md
-        - name: 사용자 지정 홈페이지 구성
-          href: application-proxy-configure-custom-home-page.md
-        - name: 인라인 링크 변환
-          href: application-proxy-configure-hard-coded-link-translation.md
-        - name: 쿠키 설정 구성
-          href: application-proxy-configure-cookie-settings.md
-        - name: 와일드 카드를 사용하여 게시
-          href: application-proxy-wildcard.md
-        - name: 개인 데이터 제거
-          href: application-proxy-remove-personal-data.md
-        - name: 사용자 지정 도메인 구성
-          href: application-proxy-configure-custom-domain.md
-        - name: 레거시 앱 보호
-          items:
-            - name: Azure AD를 사용하여 하이브리드 액세스 보호
-              href: secure-hybrid-access.md
-            - name: F5 및 Azure AD 통합
-              href: f5-aad-integration.md
-            - name: Azure IaaS에 F5 BIG-IP VE 배포
-              href: f5-bigip-deployment-guide.md
-            - name: 암호 없는 VPN용 Azure AD를 사용하는 F5 Big-IP
-              href: f5-aad-password-less-vpn.md
-        - name: 게시 연습
-          items:
-            - name: NDES 서버에서 애플리케이션 프록시와 통합
-              href: active-directory-app-proxy-protect-ndes.md
-            - name: PingAccess를 사용하여 애플리케이션 프록시와 통합
-              href: application-proxy-ping-access-publishing-guide.md
-            - name: Azure AD Domain Services와 통합
-              href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
-            - name: Power BI와 통합
-              href: application-proxy-integrate-with-power-bi.md
-            - name: Cloud App Security와 통합
-              href: application-proxy-integrate-with-microsoft-cloud-application-security.md
-            - name: 원격 데스크톱과 통합
-              href: application-proxy-integrate-with-remote-desktop-services.md
-            - name: SharePoint와 통합(Kerberos)
-              href: application-proxy-integrate-with-sharepoint-server.md
-            - name: SharePoint와 통합(SAML)
-              href: application-proxy-integrate-with-sharepoint-server-saml.md
-            - name: Teams와 통합
-              href: application-proxy-integrate-with-teams.md
-            - name: Tableau와 통합
-              href: application-proxy-integrate-with-tableau.md
-            - name: Qlik와 통합
-              href: application-proxy-qlik.md
+        - name: Azure AD를 사용하여 하이브리드 액세스 보호
+          href: secure-hybrid-access.md
+        - name: F5 및 Azure AD 통합
+          href: f5-aad-integration.md
+        - name: Azure IaaS에 F5 BIG-IP VE 배포
+          href: f5-bigip-deployment-guide.md
+        - name: 암호 없는 VPN용 Azure AD를 사용하는 F5 Big-IP
+          href: f5-aad-password-less-vpn.md
     - name: 문제 해결
       items:
-        - name: 앱 추가 문제 해결
-          href: troubleshoot-adding-apps.md
         - name: 암호 기반 Single Sign-On 문제 해결
           href: troubleshoot-password-based-sso.md
         - name: SAML 기반 Single Sign-On 문제 해결
           href: troubleshoot-saml-based-sso.md
         - name: SAML 기반 Single Sign-On 디버그
           href: debug-saml-sso-issues.md
-        - name: 사용자 로그인 문제 해결
-          items:
-            - name: 예기치 않은 동의 확인 프롬프트
-              href: application-sign-in-unexpected-user-consent-prompt.md
-            - name: 사용자 동의 오류
-              href: application-sign-in-unexpected-user-consent-error.md
-            - name: 내 앱에서 로그인하는 문제
-              href: application-sign-in-other-problem-access-panel.md
-            - name: 애플리케이션 로그인 페이지의 오류
-              href: application-sign-in-problem-application-error.md
-            - name: Microsoft 앱에 로그인하는 문제
-              href: application-sign-in-problem-first-party-microsoft.md
-            - name: Single Sign-On 문제
-              href: application-sign-in-problem-federated-sso-gallery.md
-        - name: 온-프레미스 앱 문제 해결
-          items:
-            - name: 애플리케이션 프록시 문제 해결
-              href: application-proxy-troubleshoot.md
-            - name: 커넥터 문제 해결 순서도
-              href: application-proxy-debug-connectors.md
-            - name: 애플리케이션 문제 해결 순서도
-              href: application-proxy-debug-apps.md
-            - name: 앱 페이지를 표시할 때 문제
-              href: application-proxy-page-appearance-broken-problem.md
-            - name: 너무 긴 애플리케이션 로드
-              href: application-proxy-page-load-speed-problem.md
-            - name: 애플리케이션 페이지에서 링크가 작동하지 않음
-              href: application-proxy-page-links-broken-problem.md
-            - name: 내 앱에 대한 커넥터 그룹에서 작동하지 않는 커넥터
-              href: application-proxy-connectivity-no-working-connector.md
-            - name: 관리자 포털에서 구성
-              href: application-proxy-config-how-to.md
-            - name: 관리 포털에서 앱을 만드는 문제
-              href: application-proxy-config-problem.md
-            - name: Kerberos 제한된 위임 구성
-              href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
-            - name: PingAccess를 사용하여 구성
-              href: ./application-proxy-ping-access-publishing-guide.md
-            - name: 회사 애플리케이션에 액세스할 수 없음 오류
-              href: application-proxy-sign-in-bad-gateway-timeout-error.md
-            - name: 애플리케이션 프록시 에이전트 커넥터를 설치할 때 문제 발생
-              href: application-proxy-connector-installation-problem.md
-            - name: 로그인 문제
-              href: application-sign-in-problem-on-premises-application-proxy.md
-            - name: 애플리케이션 프록시의 CORS 문제
-              href: application-proxy-understand-cors-issues.md
+        - name: 예기치 않은 동의 확인 프롬프트
+          href: application-sign-in-unexpected-user-consent-prompt.md
+        - name: 사용자 동의 오류
+          href: application-sign-in-unexpected-user-consent-error.md
+        - name: 내 앱에서 로그인하는 문제
+          href: application-sign-in-other-problem-access-panel.md
+        - name: 애플리케이션 로그인 페이지의 오류
+          href: application-sign-in-problem-application-error.md
+        - name: Microsoft 앱에 로그인하는 문제
+          href: application-sign-in-problem-first-party-microsoft.md
 - name: 참조
   items:
-    - name: 애플리케이션 프록시 FAQ
-      href: application-proxy-faq.md
-    - name: 애플리케이션 프록시 버전 내역
-      href: application-proxy-release-version-history.md
+    - name: 앱 관리 인증서 FAQ
+      href: application-management-certs-faq.md
     - name: 앱이 엔터프라이즈 애플리케이션에 표시되는 이유
       href: application-types.md
     - name: 사용자가 앱에 할당되는 이유

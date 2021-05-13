@@ -1,7 +1,7 @@
 ---
-title: OAuth 2.0 장치 코드 흐름 | Microsoft
+title: OAuth 2.0 디바이스 코드 흐름 | Azure
 titleSuffix: Microsoft identity platform
-description: 브라우저 없이 사용자 로그인 장치 권한 부여를 사용 하 여 포함 된 브라우저 없는 인증 흐름을 빌드합니다.
+description: 사용자가 브라우저 없이 로그인하도록 합니다. 디바이스 권한 부여를 사용하여 브라우저 없는 포함된 인증 흐름을 빌드하세요.
 services: active-directory
 author: hpsin
 manager: CelesteDG
@@ -14,15 +14,15 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 8c757f3e067aeac5d8145ca47b2eac145daba574
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88272453"
 ---
-# <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 장치 권한 부여 흐름
+# <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 디바이스 권한 부여 흐름
 
-Microsoft id 플랫폼은 사용자가 스마트 TV, IoT 장치 또는 프린터와 같은 입력 제한 장치에 로그인 할 수 있도록 하는 [장치 권한](https://tools.ietf.org/html/rfc8628)부여를 지원 합니다.  이 흐름을 사용하도록 설정하기 위해 디바이스에서 사용자가 다른 디바이스의 브라우저에 있는 웹 페이지를 방문하여 로그인하도록 합니다.  사용자가 로그인하면 디바이스에서 액세스 토큰을 가져오고 필요에 따라 해당 토큰을 새로 고칠 수 있습니다.
+Microsoft ID 플랫폼은 [디바이스 권한 부여](https://tools.ietf.org/html/rfc8628)를 지원합니다. 디바이스 권한 부여를 사용하면 사용자가 스마트 TV, IoT 디바이스 또는 프린터와 같은 입력 제한된 디바이스에 로그인할 수 있습니다.  이 흐름을 사용하도록 설정하기 위해 디바이스에서 사용자가 다른 디바이스의 브라우저에 있는 웹 페이지를 방문하여 로그인하도록 합니다.  사용자가 로그인하면 디바이스에서 액세스 토큰을 가져오고 필요에 따라 해당 토큰을 새로 고칠 수 있습니다.
 
 이 문서에서는 애플리케이션에서 프로토콜에 대해 직접 프로그래밍을 수행하는 방법을 설명합니다.  가능하다면 [토큰을 획득하고 보안 웹 API를 호출](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows)하는 대신, 지원되는 MSAL(Microsoft 인증 라이브러리)을 사용하는 것이 좋습니다.  [MSAL을 사용하는 샘플 앱](sample-v2-code.md)도 살펴봅니다.
 
@@ -53,7 +53,7 @@ scope=user.read%20openid%20profile
 
 | 매개 변수 | 조건 | 설명 |
 | --- | --- | --- |
-| `tenant` | 필수 | /공용/소비자 또는/organizations. 일 수 있습니다.  GUID 또는 친숙 한 이름 형식의 사용 권한을 요청 하려는 디렉터리 테 넌 트가 될 수도 있습니다.  |
+| `tenant` | 필수 | /common, /consumers 또는 /organizations일 수 있습니다.  GUID 또는 식별 이름 형식의 사용 권한을 요청하려는 디렉터리 테넌트가 될 수도 있습니다.  |
 | `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 **애플리케이션(클라이언트) ID** 입니다. |
 | `scope` | 필수 | 사용자가 동의하게 할 공백으로 구분된 [범위](v2-permissions-and-consent.md) 목록입니다.  |
 
@@ -71,13 +71,13 @@ scope=user.read%20openid%20profile
 | `message`        | String | 사용자를 위한 지침이 포함된 사람이 읽을 수 있는 문자열입니다. 이는 `?mkt=xx-XX` 양식의 요청에 **쿼리 매개 변수** 를 포함하고 적절한 언어 문화권 코드를 채워서 지역화할 수 있습니다. |
 
 > [!NOTE]
-> `verification_uri_complete`응답 필드는 현재 포함 되어 있지 않거나 지원 되지 않습니다.  [표준](https://tools.ietf.org/html/rfc8628) 에 따라 `verification_uri_complete` 장치 코드 흐름 표준의 선택적 부분으로 나열 되는 것을 볼 수 있기 때문에이를 언급 합니다.
+> `verification_uri_complete` 응답 필드는 현재 포함되어 있지 않거나 지원되지 않습니다.  이 사항을 언급하는 이유는 [표준](https://tools.ietf.org/html/rfc8628)을 참조하는 경우 `verification_uri_complete`가 디바이스 코드 흐름 표준의 선택적 부분으로 나열된 것을 볼 수 있기 때문입니다.
 
 ## <a name="authenticating-the-user"></a>사용자 인증
 
-및를 받은 `user_code` 후 `verification_uri` 클라이언트는 사용자에 게 이러한 항목을 표시 하 여 휴대폰 또는 PC 브라우저를 사용 하 여 로그인 하도록 지시 합니다.
+`user_code` 및 `verification_uri`를 받은 후에는, 클라이언트에서 이를 사용자에게 표시하여 휴대폰이나 PC 브라우저로 로그인하도록 알려줍니다.
 
-사용자가 개인 계정으로 인증 하는 경우 (/공통 또는/또는 소비자) 인증 상태를 장치로 전송 하기 위해 다시 로그인 하 라는 메시지가 표시 됩니다.  또한 부여 되는 사용 권한을 인식 하도록 동의를 제공 하 라는 메시지가 표시 됩니다.  이는 인증에 사용 되는 회사 또는 학교 계정에는 적용 되지 않습니다.
+사용자가 개인 계정으로 인증하는 경우(/common 또는 /consumers에서) 인증 상태를 디바이스로 전송하기 위해 다시 로그인하도록 요청하는 메시지가 표시됩니다.  부여되는 사용 권한 인식을 위해 동의를 제공하도록 요청하는 메시지도 표시됩니다.  인증에 사용되는 회사 또는 학교 계정에는 이 내용이 적용되지 않습니다.
 
 사용자가 `verification_uri`에서 인증하는 동안 클라이언트는 `device_code`을(를) 사용하여 요청된 토큰에 대한 `/token` 엔드포인트를 폴링해야 합니다.
 
@@ -92,21 +92,21 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 
 | 매개 변수 | 필수 | 설명|
 | -------- | -------- | ---------- |
-| `tenant`  | 필수 | 초기 요청에 사용 되는 것과 동일한 테 넌 트 또는 테 넌 트 별칭입니다. |
+| `tenant`  | 필수 | 초기 요청에 사용된 것과 동일한 테넌트 또는 테넌트 별칭입니다. |
 | `grant_type` | 필수 | `urn:ietf:params:oauth:grant-type:device_code`이어야 합니다.|
 | `client_id`  | 필수 | 초기 요청에 사용된 `client_id`과(와) 일치해야 합니다. |
 | `device_code`| 필수 | 디바이스 권한 요청에서 반환된 `device_code`입니다.  |
 
 ### <a name="expected-errors"></a>예상 오류
 
-장치 코드 흐름은 사용자가 인증을 마치기 전에 클라이언트에서 오류를 수신 해야 하는 폴링 프로토콜입니다.
+디바이스 코드 흐름이 폴링 프로토콜이므로 사용자가 인증을 완료하기 전에 클라이언트가 오류 수신을 예상해야 합니다.
 
-| 오류 | Description | 클라이언트 작업 |
+| Error | Description | 클라이언트 작업 |
 | ------ | ----------- | -------------|
-| `authorization_pending` | 사용자가 인증을 마치지 않았지만 흐름을 취소 하지 않았습니다. | 최소 `interval`초 후에 요청을 반복하세요. |
+| `authorization_pending` | 사용자가 아직 인증을 완료하지 않았지만 흐름을 취소하지 않았습니다. | 최소 `interval`초 후에 요청을 반복하세요. |
 | `authorization_declined` | 일반 사용자가 권한 요청을 거부했습니다.| 폴링을 중지하고 인증되지 않은 상태로 되돌립니다.  |
-| `bad_verification_code`| `device_code`끝점으로 전송 된를 `/token` 인식할 수 없습니다. | 클라이언트가 요청에서 올바른 `device_code`을(를) 보내는지 확인하세요. |
-| `expired_token` | `expires_in`초 이상이 경과했으며 이 `device_code`을(를) 사용하여 더 이상 인증할 수 없습니다. | 폴링을 중지 하 고 인증 되지 않은 상태로 되돌립니다. |
+| `bad_verification_code`| `/token` 엔드포인트로 보낸 `device_code`가 인식되지 않았습니다. | 클라이언트가 요청에서 올바른 `device_code`을(를) 보내는지 확인하세요. |
+| `expired_token` | `expires_in`초 이상이 경과했으며 이 `device_code`을(를) 사용하여 더 이상 인증할 수 없습니다. | 폴링을 중지하고 인증되지 않은 상태로 되돌립니다. |
 
 ### <a name="successful-authentication-response"></a>성공적인 인증 응답
 
@@ -132,4 +132,4 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 | `id_token`   | JWT | 원래 `scope` 매개 변수에 `openid` 범위가 포함된 경우에 발급됩니다.  |
 | `refresh_token` | 불투명 문자열 | 원래 `scope` 매개 변수에 `offline_access`가 포함된 경우에 발급됩니다.  |
 
-새로 고침 토큰을 사용 하 여 [OAuth 코드 흐름 설명서](v2-oauth2-auth-code-flow.md#refresh-the-access-token)에 설명 된 것과 같은 흐름을 사용 하 여 새 액세스 토큰을 획득 하 고 토큰을 새로 고칠 수 있습니다.
+새로 고침 토큰은 [OAuth 코드 흐름 문서](v2-oauth2-auth-code-flow.md#refresh-the-access-token)에 설명된 동일한 흐름을 사용하여 새 액세스 토큰과 새로 고침 토큰을 가져올 수 있습니다.

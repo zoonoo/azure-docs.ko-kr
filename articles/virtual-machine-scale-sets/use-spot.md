@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: ec73d1363fb18d1d6c46589fe69879a8f6df1dab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 61bb87d84b96f988ae065a70b85d445fc8b96ccf
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104722568"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762950"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>가상 머신 확장 집합을 위한 Azure Spot Virtual Machines 
 
@@ -82,13 +82,13 @@ Azure Spot Virtual Machines를 사용하여 확장 집합을 만들 때 ‘할�
 
 **CLI 사용**
 
-[az feature register](/cli/azure/feature#az-feature-register)를 사용하여 구독에서 미리 보기를 사용하도록 설정합니다. 
+[az feature register](/cli/azure/feature#az_feature_register)를 사용하여 구독에서 미리 보기를 사용하도록 설정합니다. 
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name SpotTryRestore 
 ```
 
-기능 등록에는 최대 15분이 걸릴 수 있습니다. 등록 상태를 확인하는 방법은 다음과 같습니다. 
+기능 등록에는 최대 15분이 걸립니다. 등록 상태를 확인하는 방법은 다음과 같습니다. 
 
 ```azurecli-interactive
 az feature show --namespace Microsoft.Compute --name SpotTryRestore 
@@ -107,7 +107,7 @@ az provider register --namespace Microsoft.Compute
 Register-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 
 ```
 
-기능 등록에는 최대 15분이 걸릴 수 있습니다. 등록 상태를 확인하는 방법은 다음과 같습니다. 
+기능 등록에는 최대 15분이 걸립니다. 등록 상태를 확인하는 방법은 다음과 같습니다. 
 
 ```azurepowershell-interactive
 Get-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 

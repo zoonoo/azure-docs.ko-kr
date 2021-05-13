@@ -1,0 +1,89 @@
+- name: Azure BareMetal Infrastructure
+  href: index.yml
+- name: 개요
+  items:
+    - name: BareMetal Infrastructure란?
+      href: concepts-baremetal-infrastructure-overview.md
+    - name: 용어 알아보기
+      href: know-baremetal-terms.md
+    - name: Azure에서 BareMetal 인스턴스 연결
+      displayName: 'Azure CLI, az baremetalinstance, az baremetalinstance restart'
+      href: connect-baremetal-infrastructure.md
+- name: 워크로드
+  items:
+    - name: Azure(큰 인스턴스)에서 SAP HANA 사용
+      items:
+        - name: 인증
+          href: ../virtual-machines/workloads/sap/hana-certification.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        - name: HLI에 사용 가능한 SKU
+          href: ../virtual-machines/workloads/sap/hana-available-skus.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        - name: 크기 조정
+          href: ../virtual-machines/workloads/sap/hana-sizing.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        - name: 온보딩 요구 사항
+          href: ../virtual-machines/workloads/sap/hana-onboarding-requirements.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        - name: SAP HANA 데이터 계층화 및 확장 노드
+          href: ../virtual-machines/workloads/sap/hana-data-tiering-extension-nodes.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        - name: 작업 모델 및 책임
+          href: ../virtual-machines/workloads/sap/hana-operations-model.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        - name: 호환 가능한 운영 체제
+          href: ../virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        - name: HLI 지원 시나리오
+          href: ../virtual-machines/workloads/sap/hana-supported-scenario.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        - name: Architecture
+          items:
+            - name: 일반 아키텍처
+              href: ../virtual-machines/workloads/sap/hana-architecture.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: 네트워크 아키텍처
+              href: ../virtual-machines/workloads/sap/hana-network-architecture.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: 스토리지 아키텍처
+              href: ../virtual-machines/workloads/sap/hana-storage-architecture.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        - name: 인프라 및 연결
+          items:
+            - name: HLI 배포
+              href: ../virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: Azure VM을 HANA 큰 인스턴스에 연결
+              href: ../virtual-machines/workloads/sap/hana-connect-azure-vm-large-instances.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: VNet을 HANA 큰 인스턴스 ExpressRoute에 연결
+              href: ../virtual-machines/workloads/sap/hana-connect-vnet-express-route.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: 추가 네트워크 요구 사항
+              href: ../virtual-machines/workloads/sap/hana-additional-network-requirements.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        - name: SAP HANA 설치
+          items:
+            - name: 구성 유효성 검사
+              href: ../virtual-machines/workloads/sap/hana-installation.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: 샘플 HANA 설치
+              href: ../virtual-machines/workloads/sap/hana-example-installation.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        - name: 고가용성 및 재해 복구
+          items:
+            - name: 옵션 및 고려 사항
+              href: ../virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: 백업 및 복원
+              href: ../virtual-machines/workloads/sap/hana-backup-restore.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: 원칙 및 준비
+              href: ../virtual-machines/workloads/sap/hana-concept-preparation.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: 재해 복구 장애 조치(failover) 프로시저
+              href: ../virtual-machines/workloads/sap/hana-failover-procedure.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        - name: 문제 해결 및 모니터링
+          items:
+            - name: 모니터링 HLI
+              href: ../virtual-machines/workloads/sap/troubleshooting-monitoring.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: HANA 쪽에서 모니터링 및 문제 해결
+              href: ../virtual-machines/workloads/sap/hana-monitor-troubleshoot.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        - name: 방법
+          items:
+            - name: STONITH로 HA 설치
+              href: ../virtual-machines/workloads/sap/ha-setup-with-stonith.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: OS 백업
+              href: ../virtual-machines/workloads/sap/large-instance-os-backup.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: HANA Large Instances에 Kdump 사용
+              href: ../virtual-machines/workloads/sap/hana-large-instance-enable-kdump.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: HANA 대형 인스턴스를 위한 OS 업그레이드
+              href: ../virtual-machines/workloads/sap/os-upgrade-hana-large-instance.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: SUSE Linux용 SMT 서버 설정
+              href: ../virtual-machines/workloads/sap/hana-setup-smt.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: HLI에서 Azure VM으로 마이그레이션
+              href: ../virtual-machines/workloads/sap/hana-large-instance-virtual-machine-migration.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: SAP HANA(대규모 인스턴스) 예약 구입
+              href: ../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md
+    - name: Oracle
+      href: ./workloads/oracle/toc.yml

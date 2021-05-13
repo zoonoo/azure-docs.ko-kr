@@ -43,10 +43,10 @@
           displayName: 'azure stack, ash, windows, linux, hybrid, arc'
           href: quickstart-onboard-machines.md
         - name: AWS 계정 연결
-          displayName: 'hybrid, multicloud, amazon, arc'
+          displayName: 'hybrid, multicloud, multi-cloud, amazon, arc'
           href: quickstart-onboard-aws.md
         - name: GCP 계정 연결
-          displayName: 'hybrid, multicloud, google'
+          displayName: 'hybrid, multicloud, multi-cloud, google'
           href: quickstart-onboard-gcp.md
     - name: 6. 경고에 대한 자동 응답 만들기
       displayName: 'Resource Manager, ARM'
@@ -66,6 +66,8 @@
       href: security-center-compliance-dashboard.md
     - name: 보안 정책 관리
       href: tutorial-security-policy.md
+    - name: 리소스 상태 조사
+      href: investigate-resource-health.md
 - name: 개념
   items:
     - name: 클라우드 보안 태세 관리 개념
@@ -108,7 +110,10 @@
         - name: 권장 사항에 대한 응답 자동화
           displayName: workflow
           href: workflow-automation.md
-        - name: 권장 사항에서 리소스 제외
+        - name: 권장 사항 사용 안 함
+          href: tutorial-security-policy.md#disable-security-policies-and-disable-recommendations
+        - name: '리소스, 구독 또는 관리 그룹당 권장 사항 제외'
+          displayName: disable
           href: exempt-resource.md
         - name: 사용자 지정 보안 이니셔티브 및 정책 만들기
           href: custom-security-policies.md
@@ -141,7 +146,7 @@
               displayName: 'jit, management, ports'
               href: security-center-just-in-time.md
         - name: 통합된 Microsoft Defender for Endpoint 라이선스 사용
-          displayName: 'ATP, mdatp, wdatp'
+          displayName: 'ATP, mdatp, wdatp, mde, mdfe'
           href: security-center-wdatp.md
         - name: 머신에 대한 안전 애플리케이션 목록 정의
           displayName: 'aac, whitelist, allowlist, reviewgroup, adaptive application controls'
@@ -195,6 +200,9 @@
         - name: 특정 이미지 취약점 발견 사용 안 함
           displayName: 'ACR, registry, images, qualys'
           href: defender-for-container-registries-usage.md#disable-specific-findings-preview
+        - name: Azure Arc 지원 Kubernetes 클러스터 방어
+          displayName: 'k8s, containers, aks, hybrid, arc, azure arc, multicloud'
+          href: defender-for-kubernetes-azure-arc.md
         - name: Kubernetes 워크로드 보호
           displayName: 'k8s, containers, aks'
           href: kubernetes-workload-protections.md
@@ -233,7 +241,8 @@
       href: security-center-partner-integration.md
     - name: 네트워크 리소스 사용
       href: security-center-network-recommendations.md
-    - name: ID 및 액세스 보호
+    - name: MFA 적용 및 관리
+      displayName: 'identity, access, AAD, active directory, multi-factor, authentication, multifactor, users, passwords'
       href: security-center-identity-access.md
     - name: Security Center의 추가 위협 방지 사용
       href: other-threat-protections.md
@@ -288,7 +297,7 @@
     - name: REST API 설명서
       href: /rest/api/securitycenter/
     - name: 보안 기준
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/security-center-security-baseline?toc=/azure/security-center/TOC.json
     - name: Azure Security Center에 대한 FAQ
       items:
         - name: 일반적인 질문
@@ -308,6 +317,8 @@
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: 엔드포인트 보호 평가 및 권장 사항
       href: security-center-endpoint-protection.md
+    - name: Azure CLI
+      href: /cli/azure/security
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기

@@ -1,5 +1,5 @@
 ---
-title: Azure AD 사용자 지정 역할 할당-Privileged Identity Management (PIM)
+title: Azure AD 사용자 지정 역할 할당 - PIM(Privileged Identity Management)
 description: PIM(Privileged Identity Management) 할당을 위해 Azure AD 사용자 지정 역할을 할당하는 방법
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 75e004980ada23a616b57e3c7eb1afb241e09598
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92371650"
 ---
 # <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 사용자 지정 역할 할당
@@ -29,12 +29,12 @@ ms.locfileid: "92371650"
 
 - Azure AD에서 애플리케이션 관리를 위임하기 위한 사용자 지정 역할을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory의 사용자 지정 관리자 역할(미리 보기)](../roles/custom-overview.md)을 참조하세요.
 - Privileged Identity Management를 아직 사용하지 않은 경우 [Privileged Identity Management 사용 시작](pim-getting-started.md)에서 자세한 정보를 확인하세요.
-- 다른 관리자에 게 Privileged Identity Management 관리 권한을 부여 하는 방법에 대 한 자세한 내용은 [다른 관리자에 게 Privileged Identity Management를 관리할](pim-how-to-give-access-to-pim.md)수 있는 권한 부여를 참조 하세요.
+- 다른 관리자에게 Privileged Identity Management를 관리하기 위한 액세스 권한을 부여하는 방법에 대한 자세한 내용은 [ 관리를 위해 다른 관리자에게 액세스 권한 부여](pim-how-to-give-access-to-pim.md)를 참조하세요.
 
 > [!NOTE]
-> 미리 보기 기간 중에는 Azure AD 사용자 지정 역할이 기본 제공 디렉터리 역할과 통합되지 않습니다. 이 기능이 일반 공급되면 기본 제공 역할 환경에서 역할 관리가 수행됩니다. 다음 배너가 표시 되는 경우 이러한 역할은 [기본 제공 역할 환경에서](pim-how-to-activate-role.md) 관리 해야 하며이 문서는 적용 되지 않습니다.
+> 미리 보기 기간 중에는 Azure AD 사용자 지정 역할이 기본 제공 디렉터리 역할과 통합되지 않습니다. 이 기능이 일반 공급되면 기본 제공 역할 환경에서 역할 관리가 수행됩니다. 다음 배너가 표시되는 경우 해당 역할은 [기본 제공 역할 환경에서](pim-how-to-activate-role.md) 관리해야 하며 이 문서는 적용되지 않습니다.
 >
-> [![Azure AD > Privileged Identity Management를 선택 합니다.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
+> [![Azure AD > Privileged Identity Management를 선택합니다.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 ## <a name="assign-a-role"></a>역할 할당
 
@@ -74,7 +74,7 @@ Privileged Identity Management는 Azure AD(Azure Active Directory) 애플리케�
 1. **영구** 확인란이 있고 역할 설정에 따라 사용 가능한 경우 해당 할당이 영구적인지 여부를 지정할 수 있습니다. 영구 적격 할당으로 적용하거나 영구적으로 할당하려면 이 확인란을 선택합니다. 할당 기간을 지정하려면 이 확인란의 선택을 취소합니다.
 1. 새 역할 할당을 만들려면 **저장**, **추가** 를 차례로 클릭합니다. 그러면 할당 프로세스 상태에 대한 알림이 표시됩니다.
 
-역할 할당을 확인 하려면 열린 역할 **에서 할당 할당을 선택 하**  >   고 역할 할당이 적격 또는 활성으로 올바르게 식별 되었는지 확인 합니다.
+역할 할당을 확인하려면 열린 역할에서 **할당** > **할당** 을 차례로 선택하고, 역할 할당이 적격 또는 활성으로 올바르게 식별되었는지 확인합니다.
 
  ![역할 할당이 적격 또는 활성으로 표시되는지 확인](./media/azure-ad-custom-roles-assign/verify-assignments.png)
 

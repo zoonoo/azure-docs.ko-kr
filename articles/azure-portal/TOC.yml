@@ -11,7 +11,7 @@
 - name: 빠른 시작
   items:
     - name: 포털에서 VM 만들기
-      href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+      href: ../virtual-machines/windows/quick-create-portal.md?context=/azure/azure-portal/context/context
     - name: 대시보드 만들기
       items:
         - name: Azure CLI
@@ -21,13 +21,6 @@
         - name: ARM 템플릿
           displayName: Resource Manager
           href: quick-create-template.md
-- name: 개념
-  items:
-    - name: Azure 역할 기반 액세스 제어로 대시보드 공유
-      href: azure-portal-dashboard-share-access.md
-    - name: Azure 대시보드를 프로그래밍 방식으로 만들기
-      href: azure-portal-dashboards-create-programmatically.md
-      displayName: 'Azure CLI, az portal dashboard, az portal'
 - name: 방법 가이드
   items:
     - name: Azure Portal 설정 및 기본 설정 관리
@@ -38,10 +31,15 @@
       href: manage-filter-resource-views.md
     - name: Azure 대시보드 만들기
       items:
-        - name: Azure 대시보드 만들기 및 공유
+        - name: Azure 대시보드 만들기
           href: azure-portal-dashboards.md
+        - name: Azure 대시보드 공유
+          href: azure-portal-dashboard-share-access.md
         - name: 사용자 지정 markdown 타일 사용
           href: azure-portal-markdown-tile.md
+        - name: Azure 대시보드를 프로그래밍 방식으로 만들기
+          href: azure-portal-dashboards-create-programmatically.md
+          displayName: 'Azure CLI, az portal dashboard, az portal'
     - name: Azure Portal 방법 비디오 시리즈
       href: azure-portal-video-series.md
     - name: 지원 요청 생성 및 관리
@@ -81,13 +79,13 @@
     - name: Azure 대시보드의 구조
       href: azure-portal-dashboards-structure.md
     - name: Azure CLI
-      href: /cli/azure/ext/portal/portal
+      href: /cli/azure/portal
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
 - name: 리소스
   items:
-    - name: Azure 로드맵
+    - name: Azure 업데이트
       href: 'https://azure.microsoft.com/updates/'
     - name: Microsoft Learn을 통해 기술 쌓기
       href: /learn/browse/?products=azure-portal

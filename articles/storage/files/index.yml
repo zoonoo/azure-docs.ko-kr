@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: roygara
   ms.author: rogarana
-  ms.date: 08/27/2019
-  ms.openlocfilehash: 1ede53a8e288b14696ca2c30088486478a13a3af
-  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.date: 04/19/2021
+  ms.openlocfilehash: 56879a2b6efc0ae5e7278828a474d0197f37f255
+  ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/03/2021
-  ms.locfileid: "101724203"
+  ms.lasthandoff: 04/20/2021
+  ms.locfileid: "107761712"
 landingContent:
 - title: Azure Files 정보
   linkLists:
@@ -25,24 +25,16 @@ landingContent:
     links:
     - text: Azure Files 계획 가이드
       url: storage-files-planning.md
-    - text: Azure 파일 동기화 계획 가이드
-      url: storage-sync-files-planning.md
     - text: Azure Files란?
       url: storage-files-introduction.md
+    - text: ID 기반 인증
+      url: storage-files-active-directory-overview.md
 - title: 시작하기
   linkLists:
   - linkListType: get-started
     links:
     - text: 파일 공유 만들기/사용 - Windows
       url: storage-files-quick-create-use-windows.md
-    - text: 프리미엄 파일 공유 만들기
-      url: ./storage-how-to-create-file-share.md
-    - text: Azure 파일 동기화를 사용하여 서버 관리
-      url: storage-sync-files-server-registration.md
-  - linkListType: tutorial
-    links:
-    - text: Azure 파일 동기화를 사용하여 Windows 파일 서버 확장
-      url: storage-sync-files-extend-servers.md
 - title: 문제 해결
   linkLists:
   - linkListType: reference
@@ -53,5 +45,3 @@ landingContent:
       url: storage-troubleshoot-linux-file-connection-problems.md
     - text: Azure Files 성능 문제 해결
       url: storage-troubleshooting-files-performance.md
-    - text: Azure 파일 동기화 문제 해결
-      url: storage-sync-files-troubleshoot.md

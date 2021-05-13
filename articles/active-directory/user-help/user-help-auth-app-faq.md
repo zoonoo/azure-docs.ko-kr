@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 04/28/2021
+ms.date: 04/30/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: e5f7db6b360769b7a3c2e3ffdafe66f94c2582aa
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 6cc64c9b3ad3f177d50f3e659e8ea628ba485159
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108178307"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764174"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 대한 FAQ(자주 묻는 질문)
 
@@ -203,7 +203,13 @@ Android에서는 앱이 항상 위치에 액세스할 수 있도록 허용하는
 
 **Q**: watchOS 7을 사용하는 Apple Watch에서 문제가 발생하는 이유는 무엇인가요?
 
-**A**: watchOS 7에서 알림을 승인하는 데 문제가 있으며 해당 문제를 해결하기 위해 Apple과 협력하고 있습니다. 그동안 Microsoft Authenticator watchOS 앱을 요청하는 모든 알림을 휴대폰에서 승인해야 합니다.
+**A**: 때때로 watchOS 7에서 세션 승인 또는 거부가 "휴대 전화와 통신하지 못했습니다. 이후 요청 시 Watch 화면이 계속 켜져 있는지 확인합니다. 자세한 내용은 FAQ를 참조하세요."라는 오류 메시지와 함께 실패하는 경우가 있습니다. 앱 잠금을 사용하거나 번호 매치가 필요한 경우 알림에 대해 알려진 문제가 있으며 이를 해결하기 위해 Apple과 협력하고 있습니다. 그동안 Microsoft Authenticator watchOS 앱을 요청하는 모든 알림을 휴대폰에서 승인해야 합니다.
+
+### <a name="signing-into-an-ios-app"></a>iOS 앱에 로그인
+
+**Q**: iOS 앱에 로그인하려고 하는데, Authenticator 앱에서 알림을 승인해야 합니다. iOS 앱으로 돌아가면 중단됩니다. 어떻게 해야 하나요?
+
+**A**: 이는 iOS 13+의 알려진 문제입니다. 지원 관리자에게 도움을 요청하고 다음 세부 정보를 제공하세요. `Use Azure MFA, not MFA server.`
 
 ### <a name="apple-watch-doesnt-show-accounts"></a>Apple Watch에 계정이 표시되지 않음
 

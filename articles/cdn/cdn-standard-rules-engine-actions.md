@@ -1,6 +1,6 @@
 ---
-title: Azure CDN에 대 한 표준 규칙 엔진의 작업 | Microsoft Docs
-description: Azure Content Delivery Network에 대 한 표준 규칙 엔진 (Azure CDN)의 동작에 대 한 참조 설명서입니다.
+title: Azure CDN에 대한 표준 규칙 엔진의 동작 | Microsoft Docs
+description: Azure CDN(Azure Content Delivery Network)에 대한 표준 규칙 엔진의 동작을 살펴보는 참조 설명서입니다.
 services: cdn
 author: asudbring
 ms.service: azure-cdn
@@ -8,33 +8,33 @@ ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
 ms.openlocfilehash: 051737a9f5e0d4092cda26a3f7ce3df1d7f535ef
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87760127"
 ---
-# <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Azure CDN에 대 한 표준 규칙 엔진의 작업
+# <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Azure CDN에 대한 표준 규칙 엔진의 동작
 
-Azure Content Delivery Network (Azure CDN)에 대 한 [표준 규칙 엔진](cdn-standard-rules-engine.md) 에서 규칙은 하나 이상의 일치 조건 및 동작으로 구성 됩니다. 이 문서에서는 Azure CDN에 대 한 표준 규칙 엔진에서 사용할 수 있는 작업에 대해 자세히 설명 합니다.
+Azure CDN(Azure Content Delivery Network)에 대한 [표준 규칙 엔진](cdn-standard-rules-engine.md)에서 규칙은 하나 이상의 일치 조건 및 동작으로 구성됩니다. 이 문서에서는 Azure CDN에 대한 표준 규칙 엔진에서 사용할 수 있는 동작에 대해 자세히 설명합니다.
 
 규칙의 두 번째 부분은 동작입니다. 작업은 일치 조건 또는 일치 조건 세트에서 식별하는 요청 유형에 적용되는 동작을 정의합니다.
 
-## <a name="actions"></a>작업
+## <a name="actions"></a>동작
 
-Azure CDN에 대 한 표준 규칙 엔진에서 다음 작업을 사용할 수 있습니다. 
+Azure CDN에 대한 표준 규칙 엔진에서 사용할 수 있는 동작은 다음과 같습니다. 
 
 ### <a name="cache-expiration"></a>캐시 만료
 
-이 작업을 사용 하 여 규칙 일치 조건에서 지정 하는 요청에 대해 끝점의 TTL (time to live) 값을 덮어씁니다.
+규칙 일치 조건에 지정된 요청의 엔드포인트 TTL(Time to Live) 값을 덮어쓰려면 이 동작을 사용합니다.
 
 #### <a name="required-fields"></a>Required fields
 
 캐시 동작 |  Description              
 ---------------|----------------
-캐시 무시 | 이 옵션을 선택 하 고 규칙을 일치 시킬 경우 콘텐츠가 캐시 되지 않습니다.
-재정의 | 이 옵션을 선택 하 고 규칙을 일치 시킬 때 원점에서 반환 된 TTL 값을 작업에 지정 된 값으로 덮어씁니다. 이 동작은 응답을 캐시할 수 있는 경우에만 적용 됩니다. 캐시 제어 응답 헤더 값이 "no cache", "private", "no store" 인 경우 해당 작업은 적용 되지 않습니다.
-누락 된 경우 설정 | 이 옵션을 선택 하 고 규칙을 일치 시킬 때 원본에서 TTL 값이 반환 되지 않은 경우 규칙은 TTL을 작업에 지정 된 값으로 설정 합니다. 이 동작은 응답을 캐시할 수 있는 경우에만 적용 됩니다. 캐시 제어 응답 헤더 값이 "no cache", "private", "no store" 인 경우 해당 작업은 적용 되지 않습니다.
+바이패스 캐시 | 이 옵션이 선택되어 있고 규칙이 일치하면 콘텐츠가 캐시되지 않습니다.
+재정의 | 이 옵션이 선택되어 있고 규칙이 일치하면 원본에서 반환된 TTL 값을 이 동작에 지정된 값으로 덮어씁니다. 이 동작은 응답을 캐시할 수 있는 경우에만 적용됩니다. cache-control 응답 헤더 값이 “no-cache”, “private”, “no-store”이면 이 동작을 적용할 수 없습니다.
+누락된 경우 설정 | 이 옵션이 선택되어 있고 규칙이 일치하면 원본에서 TTL 값이 반환되지 않은 경우 규칙이 TTL을 이 동작에 지정된 값으로 설정합니다. 이 동작은 응답을 캐시할 수 있는 경우에만 적용됩니다. cache-control 응답 헤더 값이 “no-cache”, “private”, “no-store”이면 이 동작을 적용할 수 없습니다.
 
 #### <a name="additional-fields"></a>추가 필드
 
@@ -44,16 +44,16 @@ Int | Int | Int | Int
 
 ### <a name="cache-key-query-string"></a>캐시 키 쿼리 문자열
 
-이 작업을 사용 하 여 쿼리 문자열에 따라 캐시 키를 수정할 수 있습니다.
+쿼리 문자열에 따라 캐시 키를 수정하려면 이 동작을 사용합니다.
 
 #### <a name="required-fields"></a>Required fields
 
 동작 | 설명
 ---------|------------
-포함 | 이 옵션을 선택 하 고 규칙이 일치 하면 캐시 키가 생성 될 때 매개 변수에 지정 된 쿼리 문자열이 포함 됩니다. 
-모든 고유한 URL 캐시 | 이 옵션을 선택 하 고 규칙을 일치 시킬 경우 각 고유 URL에는 자체 캐시 키가 있습니다. 
-제외 | 이 옵션을 선택 하 고 규칙이 일치 하면 캐시 키가 생성 될 때 매개 변수에 지정 된 쿼리 문자열이 제외 됩니다.
-쿼리 문자열 무시 | 이 옵션을 선택 하 고 규칙을 일치 시킬 경우 캐시 키가 생성 될 때 쿼리 문자열이 고려 되지 않습니다. 
+포함 | 이 옵션이 선택되어 있고 규칙이 일치하면 캐시 키가 생성되는 경우 매개 변수에 지정된 쿼리 문자열이 포함됩니다. 
+모든 고유한 URL 캐시 | 이 옵션이 선택되어 있고 규칙이 일치하면 고유한 각 URL에 자체 캐시 키가 포함됩니다. 
+제외 | 이 옵션이 선택되어 있고 규칙이 일치하면 캐시 키가 생성되는 경우 매개 변수에 지정된 쿼리 문자열이 제외됩니다.
+쿼리 문자열 무시 | 이 옵션이 선택되어 있고 규칙이 일치하면 캐시 키가 생성되는 경우 쿼리 문자열을 고려하지 않습니다. 
 
 ### <a name="modify-request-header"></a>요청 헤더 수정
 
@@ -94,7 +94,7 @@ Type | 요청자에게 반환할 응답 형식(찾음(302), 이동됨(301), 임�
 쿼리 문자열 | 리디렉션에 사용되는 쿼리 문자열을 정의합니다. 들어오는 쿼리 문자열을 유지하려면 비워 둡니다. 
 Fragment | 리디렉션에 사용할 조각을 정의합니다. 들어오는 조각을 유지하려면 비워 둡니다. 
 
-절대 URL을 사용 하는 것이 좋습니다. 상대 URL을 사용 하면 Azure CDN Url을 잘못 된 경로로 리디렉션할 수 있습니다. 
+절대 URL을 사용하는 것이 좋습니다. 상대 URL을 사용하면 Azure CDN URL을 잘못된 경로로 리디렉션할 수 있습니다. 
 
 ### <a name="url-rewrite"></a>URL 다시 쓰기
 
@@ -104,9 +104,9 @@ Fragment | 리디렉션에 사용할 조각을 정의합니다. 들어오는 조
 
 필드 | 설명 
 ------|------------
-원본 패턴 | 대체할 URL 경로에서 원본 패턴을 정의 합니다. 현재 소스 패턴은 접두사 기반 일치를 사용 합니다. 모든 URL 경로를 일치 시키려면 **/** 소스 패턴 값으로 슬래시 ()를 사용 합니다.
-대상 | 재작성에 사용할 대상 경로를 정의 합니다. 대상 경로는 원본 패턴을 덮어씁니다.
-일치 하지 않는 경로 유지 | **예** 로 설정 된 경우 소스 패턴 뒤의 나머지 경로는 새 대상 경로에 추가 됩니다. 
+원본 패턴 | 바꿀 URL 경로에 원본 패턴을 정의합니다. 현재 원본 패턴은 접두사 기반 일치를 사용합니다. 모든 URL 경로를 일치시키려면 슬래시( **/** )를 원본 패턴 값으로 사용합니다.
+대상 | 다시 쓰기에 사용할 대상 경로를 정의합니다. 대상 경로는 원본 패턴을 덮어씁니다.
+불일치한 경로 유지 | **예** 로 설정된 경우 원본 패턴 뒤의 나머지 경로가 새 대상 경로에 추가됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

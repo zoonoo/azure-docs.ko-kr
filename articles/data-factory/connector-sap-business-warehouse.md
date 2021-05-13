@@ -1,18 +1,18 @@
 ---
 title: SAP BW에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 SAP Business Warehouse에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
-ms.author: jingwang
 author: linda33wj
+ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.openlocfilehash: 4a5eb7c8d729fc0c3b95a61a4b8dbc8266d1eec3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed7dbb778343bbef2ecf7c92866b8d63a123edc5
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100386665"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788304"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Business Warehouse에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -23,7 +23,7 @@ ms.locfileid: "100386665"
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 SAP BW(Business Warehouse)에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 >[!TIP]
->SAP 데이터 통합 시나리오에서 ADF의 전반적인 지원에 대해 자세히 알아보려면 [Azure Data Factory를 사용하여 SAP 데이터 통합 백서](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf)에서 각 SAP 커넥터에 대한 자세한 소개, 비교, 지침을 참조하세요.
+>SAP 데이터 통합 시나리오에서 ADF의 전반적인 지원에 대한 자세한 내용은 [Azure Data Factory 백서를 사용한 SAP 데이터 통합](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf)에 설명된 각 SAP 커넥터의 자세한 소개, 비교 및 지침을 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -54,7 +54,7 @@ SAP Business Warehouse에서 지원되는 모든 싱크 데이터 저장소로 �
 
 ## <a name="getting-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 SAP Business Warehouse 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 

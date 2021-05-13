@@ -1,6 +1,6 @@
 ---
 title: Azure IoT 솔루션 가속기 FAQ - Azure | Microsoft Docs
-description: 이 문서에서는 IoT 솔루션 가속기에 대 한 자주 묻는 질문에 답변 합니다. GitHub 리포지토리에 대 한 링크를 포함 합니다.
+description: 이 문서에서는 IoT 솔루션 가속기에 관한 자주 묻는 질문에 응답합니다. GitHub 리포지토리의 링크를 포함합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,39 +8,39 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 1fd2b8461bd66c826dc4890c331b740c4703f896
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 61993df77b0831926f16339a741a2553e80c2a0d
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96903992"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713843"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IoT 솔루션 가속기에 대한 질문과 대답
 
-[연결 된 팩터리 관련 FAQ](iot-accelerators-faq-cf.md)도 참조 하세요.
+[연결된 팩터리 관련 FAQ](iot-accelerators-faq-cf.md)도 참조하세요.
 
 ### <a name="where-can-i-find-the-source-code-for-the-solution-accelerators"></a>어디에서 솔루션 가속기에 대한 소스 코드를 찾을 수 있나요?
 
 소스 코드는 다음 GitHub 리포지토리에 저장됩니다.
 
 * [연결된 팩터리 솔루션 가속기](https://github.com/Azure/azure-iot-connected-factory)
-* [장치 시뮬레이션 솔루션 가속기](https://github.com/Azure/device-simulation-dotnet)
+* [디바이스 시뮬레이션 솔루션 가속기](https://github.com/Azure/azure-iot-pcs-device-simulation)
 
-### <a name="where-can-i-find-the-remote-monitoring-and-predictive-maintenance-solution-accelerators"></a>원격 모니터링 및 예측 유지 관리 솔루션 가속기는 어디서 찾을 수 있나요?
+### <a name="where-can-i-find-the-remote-monitoring-and-predictive-maintenance-solution-accelerators"></a>원격 모니터링 및 예측 유지 관리 솔루션 가속기는 어디에서 찾을 수 있나요?
 
-2020 년 12 월 10 일까 지 [Azure IoT 솔루션 가속기](https://www.azureiotsolutions.com/Accelerators) 사이트에서 원격 모니터링 및 예측 유지 관리 가속기가 제거 되었으며 새 배포에 더 이상 사용할 수 없습니다. 두 액셀러레이터에 대 한 GitHub 리포지토리가 보관 되었습니다. 모든 사용자가 코드를 계속 사용할 수 있지만 리포지토리가 새로운 기여를 취하지 않습니다.
+2020년 12월 10일에 원격 모니터링 및 예측 유지 관리 가속기는 [Azure IoT 솔루션 가속기](https://www.azureiotsolutions.com/Accelerators) 사이트에서 제거되었으며 더 이상 새 배포에서 사용할 수 없습니다. 두 가속기의 GitHub 리포지토리는 모두 보관되었습니다. 코드는 누구나 계속 액세스할 수 있지만 리포지토리는 새 기여를 수용하지 않습니다.
 
-### <a name="what-happens-to-my-existing-remote-monitoring-and-predictive-maintenance-deployments"></a>기존 원격 모니터링 및 예측 유지 관리 배포는 어떻게 되나요?
+### <a name="what-happens-to-my-existing-remote-monitoring-and-predictive-maintenance-deployments"></a>내 기존 원격 모니터링 및 예측 유지 관리 배포는 어떻게 되나요?
 
-기존 배포는 원격 모니터링 및 예측 유지 관리 솔루션 가속기 제거의 영향을 받지 않으며 계속 작동 합니다. 분기 리포지토리는 영향을 받지 않습니다. GitHub의 마스터 리포지토리가 보관 되었습니다.
+기존 배포는 원격 모니터링 및 예측 유지 관리 솔루션 가속기 제거의 영향을 받지 않으며 계속 작동합니다. 포크된 리포지토리도 영향을 받지 않습니다. GitHub의 마스터 리포지토리는 보관되었습니다.
 
-### <a name="how-do-i-deploy-device-simulation-solution-accelerator"></a>장치 시뮬레이션 솔루션 가속기를 배포 어떻게 할까요??
+### <a name="how-do-i-deploy-device-simulation-solution-accelerator"></a>디바이스 시뮬레이션 솔루션 가속기는 어떻게 배포하나요?
 
-장치 시뮬레이션 솔루션 가속기를 배포 하려면 [장치 시뮬레이션](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) GitHub 리포지토리를 참조 하세요.
+디바이스 시뮬레이션 솔루션 가속기를 배포하려면 [디바이스 시뮬레이션](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md) GitHub 리포지토리를 참조하세요.
 
-### <a name="where-can-i-find-information-about-the-removed-solution-accelerators"></a>제거 된 솔루션 가속기에 대 한 정보는 어디서 찾을 수 있나요?
+### <a name="where-can-i-find-information-about-the-removed-solution-accelerators"></a>제거된 솔루션 가속기에 관한 정보는 어디에서 찾을 수 있나요?
 
-이전 버전 사이트에서 다음 페이지를 참조 하세요.
+이전 버전 사이트에서 다음 페이지를 참조하세요.
 
 * [원격 모니터링](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
 * [예측 유지 관리](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
@@ -72,9 +72,9 @@ DevKit 디바이스를 사용하는 경우 [IoT DevKit SDK](https://github.com/M
 
 Azure 구독이 있는 것이 확실하다면, 구독에 대한 테넌트 매핑의 유효성을 검사하고 드롭다운에 올바른 테넌트가 선택되어 있는지 확인하세요. 테넌트가 맞는다는 것을 확인했으면, 이전의 다이어그램에 따라서 구독과 이 Azure AD 테넌트 매핑의 유효성을 검사합니다.
 
-### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Azure Portal에서 리소스 그룹을 삭제 하 고 azureiotsolutions.com의 솔루션 가속기에서 삭제를 클릭 하는 경우의 차이점은 무엇 인가요?
+### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Azure Portal에서 리소스 그룹을 삭제하는 것과 azureiotsolutions.com의 솔루션 가속기에서 삭제를 클릭하는 것의 차이는 무엇인가요?
 
-* [Azureiotsolutions.com](https://www.azureiotsolutions.com/)에서 솔루션 가속기를 삭제 하는 경우 솔루션 가속기를 만들 때 배포 된 모든 리소스를 삭제 합니다. 리소스 그룹에 리소스를 추가하면 이들 역시 삭제됩니다.
+* [azureiotsolutions.com](https://www.azureiotsolutions.com/)에서 솔루션 가속기를 삭제하면 솔루션 가속기를 만들 때 배포된 모든 리소스가 삭제됩니다. 리소스 그룹에 리소스를 추가하면 이들 역시 삭제됩니다.
 * [Azure Portal](https://portal.azure.com)에서 리소스 그룹을 삭제하는 경우 해당 리소스 그룹의 리소스만 삭제됩니다. 또한 솔루션 가속기와 연결된 Azure Active Directory 애플리케이션을 삭제해야 합니다.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>Azure IoT 솔루션 가속기에 대한 기존 투자를 계속 활용할 수 있나요?

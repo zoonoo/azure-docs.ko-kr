@@ -7,9 +7,7 @@
       href: overview.md
     - name: 어떤 MySQL 옵션을 선택해야 하나요?
       href: select-right-deployment-type.md
-    - name: 지원되는 버전
-      href: concepts-supported-versions.md
-    - name: 버전 관리 정책
+    - name: 버전 지원 정책
       href: concepts-version-policy.md
       displayName: version policy
 - name: 단일 서버
@@ -21,6 +19,10 @@
       items:
         - name: 단일 서버란?
           href: single-server-overview.md
+        - name: 지원되는 버전
+          href: concepts-supported-versions.md
+        - name: 단일 서버의 새로운 기능은 무엇인가요?
+          href: single-server-whats-new.md
         - name: 가격 책정 계층
           items:
             - name: 가격 책정 계층
@@ -178,7 +180,7 @@
         - name: 보안 개요
           href: concepts-security.md
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/mysql-security-baseline?toc=/azure/mysql/TOC.json
         - name: 인증
           items:
             - name: Azure AD 인증
@@ -376,6 +378,8 @@
         - name: 성능 권장 사항
           href: concepts-performance-recommendations.md
           displayName: recommendation
+        - name: Azure Advisor 권장 사항
+          href: concepts-azure-advisor-recommendations.md
     - name: 모범 사례
       items:
         - name: 모범 사례 모니터링
@@ -387,23 +391,6 @@
           displayName: application
         - name: 운영 모범 사례
           href: concept-operation-excellence-best-practices.md
-    - name: 문제 해결
-      items:
-        - name: 쿼리 성능 문제 해결
-          href: howto-troubleshoot-query-performance.md
-          displayName: 'debug, performance issues, query performance'
-        - name: sys 스키마에서 보기를 사용하는 방법
-          href: howto-troubleshoot-sys-schema.md
-          displayName: 'sys schema, views'
-        - name: 데이터 암호화 문제 해결
-          href: howto-data-encryption-troubleshoot.md
-          displayName: 'encryption, security'
-        - name: 복제 대기 시간 문제 해결
-          href: howto-troubleshoot-replication-latency.md
-          displayName: 'replication, latency, monitor'
-        - name: 데이터베이스 손상 완화
-          href: how-to-fix-corrupt-database.md
-          displayName: corrupt data
 - name: 유연한 서버(미리 보기)
   items:
     - name: 유연한 서버 설명서
@@ -412,8 +399,6 @@
       items:
         - name: 유연한 서버란?
           href: flexible-server/overview.md
-        - name: 지원되는 버전
-          href: concepts-supported-versions.md
         - name: 컴퓨팅 및 스토리지
           href: flexible-server/concepts-compute-storage.md
     - name: 빠른 시작
@@ -483,6 +468,8 @@
           href: flexible-server/how-to-stop-start-server-portal.md
         - name: Azure Portal을 사용하여 서버 다시 시작
           href: flexible-server/how-to-restart-server-portal.md
+        - name: Azure CLI를 사용하여 시작/중지/다시 시작
+          href: flexible-server/how-to-restart-stop-start-server-cli.md
     - name: 네트워킹
       items:
         - name: 개념
@@ -514,6 +501,8 @@
           href: flexible-server/concepts-high-availability.md
         - name: Azure Portal을 사용하여 고가용성 구성
           href: flexible-server/how-to-configure-high-availability.md
+        - name: Azure CLI를 사용하여 고가용성 구성
+          href: flexible-server/how-to-configure-high-availability-cli.md
     - name: 모니터링 및 로그
       items:
         - name: 개념
@@ -524,12 +513,16 @@
               href: flexible-server/concepts-slow-query-logs.md
             - name: Azure Portal을 사용하여 느린 쿼리 로그 구성
               href: flexible-server/how-to-configure-slow-query-logs-portal.md
+            - name: Azure CLI를 사용하여 느린 쿼리 로그 구성
+              href: flexible-server/how-to-configure-slow-query-log-cli.md
         - name: 감사 로그
           items:
             - name: 개념
               href: flexible-server/concepts-audit-logs.md
             - name: 감사 로그 구성
               href: flexible-server/how-to-configure-audit-logs-portal.md
+            - name: Azure CLI를 사용하여 감사 로그 구성
+              href: flexible-server/how-to-configure-audit-log-cli.md
     - name: 복제
       items:
         - name: 읽기 복제본
@@ -546,6 +539,8 @@
           href: flexible-server/concepts-backup-restore.md
         - name: Azure Portal을 사용하여 서버 복원
           href: flexible-server/how-to-restore-server-portal.md
+        - name: Azure CLI를 사용하여 서버 복원
+          href: flexible-server/how-to-restore-server-cli.md
     - name: 문제 해결
       items:
         - name: 연결 오류 문제 해결
@@ -567,6 +562,26 @@
     - name: 일반 오류 문제 해결
       href: howto-troubleshoot-common-errors.md
       displayName: 'SUPER privilege, DBA role, Access is denied'
+- name: 문제 해결
+  items:
+    - name: 마이그레이션 오류 문제 해결
+      href: howto-troubleshoot-common-errors.md
+      displayName: 'SUPER privilege, DBA role, Access is denied'
+    - name: 쿼리 성능 문제 해결
+      href: howto-troubleshoot-query-performance.md
+      displayName: 'debug, performance issues, query performance'
+    - name: sys 스키마에서 보기를 사용하는 방법
+      href: howto-troubleshoot-sys-schema.md
+      displayName: 'sys schema, views'
+    - name: 데이터 암호화 문제 해결
+      href: howto-data-encryption-troubleshoot.md
+      displayName: 'encryption, security'
+    - name: 복제 대기 시간 문제 해결
+      href: howto-troubleshoot-replication-latency.md
+      displayName: 'replication, latency, monitor'
+    - name: 데이터베이스 손상 문제 해결
+      href: how-to-fix-corrupt-database.md
+      displayName: corrupt data
 - name: 참조
   items:
     - name: Azure CLI

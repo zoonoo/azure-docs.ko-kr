@@ -54,8 +54,8 @@
   items:
     - name: Fortanix 기밀 컴퓨팅 관리자
       href: how-to-fortanix-confidential-computing-manager.md
-    - name: Fortanix Enclave Manager
-      href: how-to-fortanix-enclave-manager.md
+    - name: Fortanix 기밀 컴퓨팅 관리자 노드 에이전트
+      href: how-to-fortanix-confidential-computing-manager-node-agent.md
 - name: 참조
   items:
     - name: SGX 견적 도우미 기능

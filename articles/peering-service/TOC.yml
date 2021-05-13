@@ -4,14 +4,6 @@
   items:
     - name: Peering Service 정보
       href: about.md
-- name: 자습서
-  items:
-    - name: Peering Service 연결 등록
-      href: azure-portal.md
-    - name: Peering Service 연결 만들기
-      href: create-connection.md
-    - name: Peering Service 연결 원격 분석 측정
-      href: measure-connection-telemetry.md
 - name: 개념
   items:
     - name: 위치 및 파트너
@@ -20,22 +12,24 @@
       href: connection.md
     - name: 연결 원격 분석
       href: connection-telemetry.md
-    - name: 온보딩 모델
-      href: onboarding-model.md
 - name: 방법 가이드
   items:
-    - name: Peering Service 등록
+    - name: Peering Service 만들기
       items:
+        - name: Azure portal
+          href: azure-portal.md
         - name: Azure PowerShell
           href: powershell.md
         - name: Azure CLI
           href: cli.md
+    - name: Peering Service 연결 원격 분석 액세스
+      href: measure-connection-telemetry.md
 - name: 참조
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.peering
     - name: Azure CLI
-      href: /cli/azure/ext/peering/peering
+      href: /cli/azure/peering
 - name: 리소스
   items:
     - name: Azure 로드맵

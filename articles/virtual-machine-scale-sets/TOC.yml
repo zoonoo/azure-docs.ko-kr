@@ -209,7 +209,7 @@
         - name: Azure 디스크 암호화
           href: disk-encryption-overview.md
         - name: Azure 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline?toc=/azure/virtual-machine-scale-sets/TOC.json
       maintainContext: true
     - name: 모니터링
       href: ../azure-monitor/vm/monitor-vm-azure.md
@@ -223,7 +223,7 @@
       href: ../virtual-machines/put-calls-create-or-update.md
       maintainContext: true
     - name: 확장 집합 FAQ
-      href: virtual-machine-scale-sets-faq.md
+      href: virtual-machine-scale-sets-faq.yml
 - name: 방법
   items:
     - name: 계획 및 디자인
@@ -348,6 +348,8 @@
               href: ../virtual-machines/dedicated-hosts-portal.md
         - name: Azure Spot Virtual Machines
           href: use-spot.md
+        - name: Linux용 Azure 하이브리드 혜택
+          href: azure-hybrid-benefit-linux.md
     - name: 관리
       items:
         - name: 일반적인 관리 작업
@@ -413,11 +415,4 @@
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
 - name: 리소스
-- name: 인스턴스
-  items:
-    - name: 구매 옵션
-      items: null
-    - name: Azure 하이브리드 혜택
-      items:
-        - name: Linux
-          href: azure-hybrid-benefit-linux.md
+  items: null

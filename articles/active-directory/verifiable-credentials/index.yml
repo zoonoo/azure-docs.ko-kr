@@ -1,0 +1,47 @@
+### YamlMime:Landing
+title: Azure Active Directory 확인 가능한 자격 증명 문서
+summary: 확인 가능한 자격 증명을 통해 고객이 자신의 데이터를 관리할 수 있는 솔루션을 빌드할 수 있습니다.
+metadata:
+  author: barclayn
+  description: 고객이 스스로 정보를 제어할 수 있도록 확인 가능한 자격 증명을 솔루션에 통합하는 방법을 알아봅니다.
+  manager: daveba
+  ms.author: barclayn
+  ms.collection: na
+  ms.date: 03/30/2021
+  ms.service: active-directory
+  ms.subservice: na
+  ms.topic: landing-page
+  services: active-directory
+  ms.openlocfilehash: 13eb88e8e8613c913f66185eba751a1fe3c36e1e
+  ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 04/01/2021
+  ms.locfileid: "106176209"
+landingContent:
+- title: 확인 가능한 자격 증명 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Active Directory 확인 가능한 자격 증명 소개
+      url: decentralized-identifier-overview.md
+  - linkListType: video
+    links:
+    - text: 리소스에 대한 액세스 관리
+      url: https://www.youtube.com/watch?v=r20hCF9NbTo
+- title: 확인 가능한 자격 증명을 통해 개인 정보를 제어할 수 있습니다.
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 확인 가능한 자격 증명 시작
+      url: get-started-verifiable-credentials.md
+  - linkListType: concept
+    links:
+    - text: 발급자 서비스 통신 예
+      url: issuer-openid.md
+- title: DID를 연결하는 방법
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 도메인을 분산 식별자에 연결
+      url: how-to-dnsbind.md

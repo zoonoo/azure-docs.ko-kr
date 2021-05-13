@@ -1,6 +1,6 @@
 ---
-title: Azure Storage 탐색기 내게 필요한 옵션 | Microsoft Docs
-description: Azure Storage 탐색기의 접근성을 이해 합니다. 사용 가능한 화면 판독기, 확대/축소 기능, 고대비 테마 및 바로 가기 키를 검토 합니다.
+title: Azure Storage Explorer 접근성 | Microsoft Docs
+description: Azure Storage Explorer의 접근성에 대해 알아봅니다. 사용 가능한 화면 읽기 프로그램, 확대/축소 기능, 고대비 테마, 바로 가기 키에 대해 검토합니다.
 services: storage
 documentationcenter: na
 author: MrayermannMSFT
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
 ms.openlocfilehash: ca4a8d719277eaa1d853d53d282649f839256be9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88035488"
 ---
 # <a name="storage-explorer-accessibility"></a>Storage Explorer 접근성
@@ -27,11 +27,11 @@ ms.locfileid: "88035488"
 
 Storage Explorer는 Windows 및 Mac에서의 화면 읽기 프로그램 사용을 지원합니다. 각 플랫폼에 대해 다음 화면 읽기 프로그램을 사용하는 것이 좋습니다.
 
-플랫폼 | 화면 판독기
+플랫폼 | 화면 읽기 프로그램
 ---------|--------------
 Windows  | NVDA
 Mac      | 음성
-Linux    | (화면 판독기는 Linux에서 지원 되지 않음)
+Linux    | (Linux에서는 화면 읽기 프로그램이 지원되지 않음)
 
 Storage Explorer를 실행할 때 접근성 문제가 발생하면 [GitHub에서 문제를 제기](https://github.com/Microsoft/AzureStorageExplorer/issues)하세요.
 
@@ -45,7 +45,7 @@ Storage Explorer를 실행할 때 접근성 문제가 발생하면 [GitHub에서
 
 ## <a name="high-contrast-themes"></a>고대비 테마
 
-Storage Explorer에는 두 개의 고대비 테마(**고대비 밝게**, **고대비 어둡게**)가 있습니다. 도움말 > 테마 메뉴에서를 선택 하 여 테마를 변경할 수 있습니다.
+Storage Explorer에는 두 개의 고대비 테마(**고대비 밝게**, **고대비 어둡게**)가 있습니다. 도움말 > 테마 메뉴에서 선택하여 테마를 변경할 수 있습니다.
 
 ![테마 하위 메뉴][1]
 
@@ -80,8 +80,8 @@ Explorer               | **Control+Shift+E**
 
 명령  | 바로 가기 키
 ---------|------------------
-확대  | **컨트롤 + =**
-축소 | **컨트롤 +-**
+확대  | **Control+=**
+축소 | **Control+-**
 
 ### <a name="blob-and-file-share-editor-commands"></a>Blob 및 파일 공유 편집기 명령
 
@@ -105,7 +105,7 @@ Explorer               | **Control+Shift+E**
 명령                | 바로 가기 키
 -----------------------|------------------
 개발자 도구 설정/해제 | **F12**
-다시 로드                 | **Alt + Ctrl + R**
+다시 로드                 | **Alt+Control+R**
 
 [0]: ./media/vs-azure-tools-storage-explorer-accessibility/Zoom.png
 [1]: ./media/vs-azure-tools-storage-explorer-accessibility/HighContrast.png

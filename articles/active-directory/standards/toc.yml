@@ -1,0 +1,35 @@
+- name: 표준 문서
+  href: index.yml
+- name: 개요
+  expanded: true
+  items:
+    - name: ID 표준 개요
+      href: standards-overview.md
+- name: NIST AAL 달성
+  expanded: true
+  items:
+    - name: NIST 개요
+      href: nist-overview.md
+    - name: 인증자 보증 수준 정보
+      href: nist-about-authenticator-assurance-levels.md
+    - name: 인증자 기본 사항
+      href: nist-authentication-basics.md
+    - name: 인증자 유형 및 Microsoft 방법
+      href: nist-authenticator-types.md
+    - name: AAL 1 달성
+      href: nist-authenticator-assurance-level-1.md
+    - name: AAL 2 달성
+      href: nist-authenticator-assurance-level-2.md
+    - name: AAL 3 달성
+      href: nist-authenticator-assurance-level-3.md
+- name: FedRAMP High 규정 준수 달성
+  expanded: true
+  items:
+    - name: FedRAMP High 영향을 위한 Azure Active Directory 구성
+      href: configure-azure-active-directory-for-fedramp-high-impact.md
+    - name: FedRAMP 액세스 제어 구성
+      href: fedramp-access-controls.md
+    - name: 식별 및 인증-컨트롤 구성
+      href: fedramp-identification-and-authentication-controls.md
+    - name: 추가 컨트롤 구성
+      href: fedramp-other-controls.md

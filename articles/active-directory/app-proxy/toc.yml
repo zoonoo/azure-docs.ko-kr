@@ -1,0 +1,179 @@
+- name: 애플리케이션 프록시 문서
+  href: index.yml
+- name: 개요
+  expanded: true
+  items:
+    - name: 애플리케이션 프록시란?
+      href: what-is-application-proxy.md
+    - name: Docs의 새로운 기능
+      href: whats-new-docs.md
+- name: 자습서
+  expanded: true
+  items:
+    - name: 앱 통합 자습서 목록
+      href: /azure/active-directory/saas-apps/
+    - name: 애플리케이션 프록시를 통해 온-프레미스 앱 추가
+      href: application-proxy-add-on-premises-application.md
+- name: 샘플
+  expanded: false
+  items:
+    - name: 앱 프록시 샘플 개요
+      href: application-proxy-powershell-samples.md
+    - name: 앱에 대한 기본 정보 나열
+      href: ./scripts/powershell-get-all-app-proxy-apps-basic.md
+    - name: 앱에 대한 확장 정보 나열
+      href: ./scripts/powershell-get-all-app-proxy-apps-extended.md
+    - name: 커넥터 그룹별로 앱 나열
+      href: ./scripts/powershell-get-all-app-proxy-apps-by-connector-group.md
+    - name: 토큰 수명 정책을 사용하여 앱 나열
+      href: ./scripts/powershell-get-all-app-proxy-apps-with-policy.md
+    - name: 커넥터 그룹 및 커넥터 나열
+      href: ./scripts/powershell-get-all-connectors.md
+    - name: 커넥터 그룹 간에 앱 이동
+      href: ./scripts/powershell-move-all-apps-to-connector-group.md
+    - name: 앱에 할당된 사용자 및 그룹 나열
+      href: ./scripts/powershell-display-users-group-of-app.md
+    - name: 앱에 사용자 할당
+      href: ./scripts/powershell-assign-user-to-app.md
+    - name: 앱에 그룹 할당
+      href: ./scripts/powershell-assign-group-to-app.md
+    - name: 기본 도메인을 사용하여 앱 나열
+      href: ./scripts/powershell-get-all-default-domain-apps.md
+    - name: 와일드카드 게시를 사용하여 앱 나열
+      href: ./scripts/powershell-get-all-wildcard-apps.md
+    - name: 모든 사용자 지정 도메인 및 인증서 나열
+      href: ./scripts/powershell-get-all-custom-domains-and-certs.md
+    - name: 인증서 없이 앱 나열
+      href: ./scripts/powershell-get-all-custom-domain-no-cert.md
+    - name: 동일한 인증서를 사용하는 앱 나열
+      href: ./scripts/powershell-get-custom-domain-identical-cert.md
+    - name: 동일한 인증서 바꾸기
+      href: ./scripts/powershell-get-custom-domain-replace-cert.md
+- name: 개념
+  expanded: true
+  items:
+    - name: 애플리케이션 프록시
+      href: application-proxy.md
+    - name: 온-프레미스 앱을 사용한 Single Sign-On
+      href: application-proxy-config-sso-how-to.md
+    - name: 애플리케이션 프록시 배포 계획
+      href: application-proxy-deployment-plan.md
+    - name: 커넥터
+      href: application-proxy-connectors.md
+    - name: 커넥터 그룹
+      href: application-proxy-connector-groups.md
+    - name: 고가용성 및 부하 분산
+      href: application-proxy-high-availability-load-balancing.md
+    - name: SAML 기반 SSO(온-프레미스 앱)
+      href: application-proxy-configure-single-sign-on-on-premises-apps.md
+    - name: 헤더 기반 SSO
+      href: application-proxy-configure-single-sign-on-with-headers.md
+    - name: Kerberos 기반 SSO
+      href: application-proxy-configure-single-sign-on-with-kcd.md
+    - name: 암호 기반 SSO
+      href: application-proxy-configure-single-sign-on-password-vaulting.md
+    - name: 네트워크 토폴로지
+      href: application-proxy-network-topology.md
+    - name: 보안
+      href: application-proxy-security.md
+- name: 방법 가이드
+  expanded: true
+  items:
+    - name: 프록시 서버를 사용한 구성
+      href: application-proxy-configure-connectors-with-proxy-servers.md
+    - name: 온-프레미스 API에 대한 모바일 및 데스크톱 앱 액세스 권한 부여
+      href: application-proxy-secure-api-access.md
+    - name: 사용자 지정 홈페이지 구성
+      href: application-proxy-configure-custom-home-page.md
+    - name: 쿠키 설정 구성
+      href: application-proxy-configure-cookie-settings.md
+    - name: 와일드 카드를 사용하여 게시
+      href: application-proxy-wildcard.md
+    - name: 사용자 지정 도메인 구성
+      href: application-proxy-configure-custom-domain.md
+    - name: 인라인 링크 변환
+      href: application-proxy-configure-hard-coded-link-translation.md
+    - name: 클레임 인식 앱 구성
+      href: application-proxy-configure-for-claims-aware-applications.md
+    - name: 모바일 및 데스크톱 클라이언트 앱 구성
+      href: application-proxy-configure-native-client-application.md
+    - name: 커넥터 등록 - 자동 설치
+      href: application-proxy-register-connector-powershell.md
+    - name: 개인 데이터 제거
+      href: application-proxy-remove-personal-data.md
+    - name: 게시 연습
+      items:
+        - name: NDES 서버에서 애플리케이션 프록시와 통합
+          href: active-directory-app-proxy-protect-ndes.md
+        - name: PingAccess를 사용하여 애플리케이션 프록시와 통합
+          href: application-proxy-ping-access-publishing-guide.md
+        - name: Azure AD Domain Services와 통합
+          href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=%2fazure%2factive-directory%2fapp-proxy%2fcontext%2fapp-proxy-context
+        - name: Power BI와 통합
+          href: application-proxy-integrate-with-power-bi.md
+        - name: Cloud App Security와 통합
+          href: application-proxy-integrate-with-microsoft-cloud-application-security.md
+        - name: 원격 데스크톱과 통합
+          href: application-proxy-integrate-with-remote-desktop-services.md
+        - name: SharePoint와 통합(Kerberos)
+          href: application-proxy-integrate-with-sharepoint-server.md
+        - name: SharePoint와 통합(SAML)
+          href: application-proxy-integrate-with-sharepoint-server-saml.md
+        - name: Teams와 통합
+          href: application-proxy-integrate-with-teams.md
+        - name: Tableau와 통합
+          href: application-proxy-integrate-with-tableau.md
+        - name: Qlik와 통합
+          href: application-proxy-qlik.md
+    - name: 문제 해결
+      items:
+        - name: 애플리케이션 프록시 문제 해결
+          href: application-proxy-troubleshoot.md
+        - name: 관리자 포털에서 구성
+          href: application-proxy-config-how-to.md
+        - name: 커넥터 문제 해결 순서도
+          href: application-proxy-debug-connectors.md
+        - name: 애플리케이션 문제 해결 순서도
+          href: application-proxy-debug-apps.md
+        - name: 앱 페이지를 표시할 때 문제
+          href: application-proxy-page-appearance-broken-problem.md
+        - name: 너무 긴 애플리케이션 로드
+          href: application-proxy-page-load-speed-problem.md
+        - name: 애플리케이션 페이지에서 링크가 작동하지 않음
+          href: application-proxy-page-links-broken-problem.md
+        - name: 관리 포털에서 앱을 만드는 문제
+          href: application-proxy-config-problem.md
+        - name: Kerberos 제한된 위임 구성
+          href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
+        - name: 회사 애플리케이션에 액세스할 수 없음 오류
+          href: application-proxy-sign-in-bad-gateway-timeout-error.md
+        - name: 애플리케이션 프록시 에이전트 커넥터를 설치할 때 문제 발생
+          href: application-proxy-connector-installation-problem.md
+        - name: 내 앱에 대한 커넥터 그룹에서 작동하지 않는 커넥터
+          href: application-proxy-connectivity-no-working-connector.md
+        - name: 로그인 문제
+          href: application-sign-in-problem-on-premises-application-proxy.md
+        - name: 애플리케이션 프록시의 CORS 문제
+          href: application-proxy-understand-cors-issues.md
+- name: 참조
+  items:
+    - name: 앱 프록시 FAQ
+      href: application-proxy-faq.yml
+    - name: 애플리케이션 프록시 버전 내역
+      href: application-proxy-release-version-history.md
+- name: 리소스
+  items:
+    - name: 개발자를 위한 지원 및 도움말 옵션
+      href: ../develop/developer-support-help-options.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
+    - name: Azure 피드백 포럼
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: Microsoft Q&A 질문 페이지
+      href: /answers/topics/azure-active-directory.html
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/active-directory'
+    - name: 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/?product=active-directory'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
+    - name: 동영상
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

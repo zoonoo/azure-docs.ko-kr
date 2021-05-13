@@ -1,6 +1,6 @@
 ---
 title: Azure Maps를 사용하여 액세스 가능한 맵 애플리케이션 만들기 | Microsoft Azure Maps
-description: Azure Maps의 접근성 고려 사항에 대해 알아봅니다. 지도 응용 프로그램을 액세스할 수 있도록 하는 데 사용할 수 있는 기능을 확인 하 고 접근성 팁을 봅니다.
+description: Azure Maps의 접근성 고려 사항에 대해 알아봅니다. 지도 애플리케이션에 액세스할 수 있도록 하기 위해 사용되는 기능을 살펴보고 접근성을 높이는 팁도 확인합니다.
 services: azure-maps
 author: rbrundritt
 ms.author: richbrun
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
 ms.openlocfilehash: ec88437a0fad3a6bd94a67a5ef5c75b3e506f9e8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88006216"
 ---
 # <a name="building-an-accessible-application"></a>액세스 가능한 애플리케이션 작성
@@ -22,7 +22,7 @@ ms.locfileid: "88006216"
 맵과 같은 풍부한 대화형 콘텐츠로 제공되는 경우 몇 가지 일반적인 접근성 고려 사항은 다음과 같습니다.
 - 웹 애플리케이션을 보는 데 어려움이 있는 사용자를 위해 화면 읽기 프로그램을 지원합니다.
 - 마우스, 터치 및 키보드 등 다양한 방법으로 웹 애플리케이션과 상호 작용하고 탐색할 수 있습니다.
-- 색 대비를 통해 색이 혼합 되지 않고 서로 구분 하기 어렵습니다. 
+- 색 대비를 사용하여 색 혼합으로 색 구분이 어려워지는 일이 없도록 해야 합니다. 
 
 Azure Maps Web SDK는 다음과 같이 다양한 내게 필요한 옵션 기능을 제공합니다.
 - 맵이 이동할 때와 사용자가 컨트롤 또는 팝업에서 초점을 맞출 때 화면 읽기 프로그램 설명
@@ -46,7 +46,7 @@ Azure Maps Web SDK는 다음과 같이 다양한 내게 필요한 옵션 기능�
 - 맵에 초점을 맞춘 상태에서 빼기 기호, 하이픈(`-`) 또는 밑줄(`_`)을 사용하여 한 수준을 축소합니다.
 - 마우스, 터치 또는 키보드 Tab/Enter 키로 확대/축소 컨트롤을 사용합니다.
 - 맵에서 `Shift` 단추를 누른 상태에서 왼쪽 마우스 단추를 누른 채 바깥쪽으로 끌어서 영역을 그리면 맵이 확대됩니다.
-- 여러 터치 패드를 사용 하 여 두 손가락을 위쪽으로 끌어 축소 하거나 축소 하 여 확대 합니다.
+- 멀티 터치 패드 기능을 사용하는 경우 두 손가락을 끌어모아 축소하거나 벌려서 확대합니다.
 
 **맵 이동**
 
@@ -77,7 +77,7 @@ Azure Maps Web SDK는 다음과 같이 다양한 내게 필요한 옵션 기능�
 - 맵 컨트롤이 로드되면 고대비를 사용하는지 여부와 브라우저에서 지원하는지 여부를 확인합니다.
 - 맵 컨트롤은 장치의 고대비 모드를 모니터링하지 않습니다. 장치 모드가 변경되어도 맵은 변경되지 않습니다. 따라서 사용자가 페이지를 새로 고쳐 맵을 다시 로드해야 합니다.
 - 고대비가 검색되면 맵 스타일이 자동으로 고대비로 전환되고 모든 기본 제공 컨트롤은 고대비 스타일을 사용합니다. 예를 들어 ZoomControl, PitchControl, CompassControl, StyleControl 및 기타 기본 제공 컨트롤은 고대비 스타일을 사용합니다.
-- 고대비 유형에는 밝은 유형과 어두운 유형, 두 가지가 있습니다. 맵 컨트롤에서 고대비 유형을 검색할 수 있는 경우에는 맵의 동작이 적절하게 조정됩니다. 밝은 유형인 경우 grayscale_light 맵 스타일이 로드됩니다. 형식을 검색할 수 없거나 진한 경우 high_contrast_dark 스타일이 로드 됩니다.
+- 고대비 유형에는 밝은 유형과 어두운 유형, 두 가지가 있습니다. 맵 컨트롤에서 고대비 유형을 검색할 수 있는 경우에는 맵의 동작이 적절하게 조정됩니다. 밝은 유형인 경우 grayscale_light 맵 스타일이 로드됩니다. 유형을 검색할 수 없거나 어두운 유형인 경우 high_contrast_dark 스타일이 로드됩니다.
 - 사용자 지정 컨트롤을 만드는 경우 기본 제공 컨트롤이 고대비 스타일을 사용하는지 확인하는 데 유용합니다. 개발자는 css 클래스를 맵 컨테이너 분류에 추가하여 확인할 수 있습니다. 추가되는 css 클래스는 `high-contrast-dark` 및 `high-contrast-light`입니다. JavaScript를 사용하여 확인하려면 다음을 사용합니다.
 
 ```javascript
@@ -111,7 +111,7 @@ map.getMapContainer().classList.contains("high-contrast-light")
 | 빼기 기호, 하이픈(`-`) 또는 <sup>*</sup>밑줄(`_`) | 축소 | 
 | 맵에서 `Shift` + 마우스 끌기로 영역 그리기 | 영역 확대 |
 
-<sup>*</sup> 이러한 바로 가기 키는 일반적으로 키보드에서 동일한 키를 공유합니다. 이러한 바로 가기는 사용자 환경을 향상시키기 위해 추가되었습니다. 사용자가 shift 키를 사용 하는지 아니면 이러한 바로 가기 키가 아닌 경우에도 중요 하지 않습니다.
+<sup>*</sup> 이러한 바로 가기 키는 일반적으로 키보드에서 동일한 키를 공유합니다. 이러한 바로 가기는 사용자 환경을 향상시키기 위해 추가되었습니다. 사용자가 해당 바로 가기 키에 Shift 키를 사용하는지 여부 또한 중요하지 않습니다.
 
 ## <a name="screen-reader-support"></a>화면 읽기 프로그램 지원
 

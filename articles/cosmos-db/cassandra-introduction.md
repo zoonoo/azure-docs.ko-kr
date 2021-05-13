@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 11/25/2020
-ms.openlocfilehash: 2a778c2e9a44bda148fd40112776858943cffe4e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3a97f62030227eb0c18bd70af2fabbd1f5ef2863
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96188618"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108771274"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 소개
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -60,4 +60,4 @@ Cassandra API를 사용하면 이미 익숙한 CQL(Cassandra 쿼리 언어), Cas
 
 * Azure Cosmos DB Cassandra API에서 지원하는 Apache Cassandra 기능에 대해 알아보려면 [Cassandra 지원](cassandra-support.md) 문서를 참조하세요.
 
-* [질문과 대답](cassandra-faq.md)을 읽어보세요.
+* [질문과 대답](cassandra-faq.yml)을 읽어보세요.

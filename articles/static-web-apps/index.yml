@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Azure Static Web Apps 설명서
-summary: Azure Static Web Apps를 사용하면 GitHub에서 변경한 내용으로부터 자동으로 게시되는 최신 웹 애플리케이션을 빌드할 수 있습니다.
+summary: Azure Static Web Apps를 사용하면 코드가 변경될 때 웹에 자동으로 게시하는 최신 웹 애플리케이션을 빌드할 수 있습니다.
 metadata:
   title: Azure Static Web Apps 설명서
-  description: Azure Static Web Apps를 사용하면 GitHub에서 변경한 내용으로부터 자동으로 게시되는 최신 웹 애플리케이션을 빌드할 수 있습니다.
+  description: Azure Static Web Apps를 사용하면 코드가 변경될 때 웹에 자동으로 게시하는 최신 웹 애플리케이션을 빌드할 수 있습니다.
   ms.topic: landing-page
   ms.service: static-web-apps
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 12/08/2020
-  ms.openlocfilehash: 880d675915a17e24269361c0ceed320a257d0ba9
-  ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+  ms.date: 05/07/2021
+  ms.openlocfilehash: bcf07b325d18be53a15806f1a38cae5b61f13b41
+  ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 12/09/2020
-  ms.locfileid: "96906134"
+  ms.lasthandoff: 05/12/2021
+  ms.locfileid: "109813113"
 landingContent:
 - title: Static Web Apps 정보
   linkLists:
@@ -26,17 +26,17 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
+    - text: 첫 번째 앱 만들기(프레임워크 없음)
+      url: ./getting-started.md?tabs=vanilla-javascript
     - text: 첫 번째 Angular 앱 만들기
       url: ./getting-started.md?tabs=angular
     - text: 첫 번째 React 앱 만들기
       url: ./getting-started.md?tabs=react
     - text: 첫 번째 Vue 앱 만들기
       url: ./getting-started.md?tabs=vue
-    - text: 첫 번째 앱 만들기(프레임워크 없음)
-      url: ./getting-started.md?tabs=vanilla-javascript
   - linkListType: learn
     links:
-    - text: Angular, React, Svelte 또는 Vue JavaScript 앱 게시
+    - text: Angular, React, Svelte 또는 Vue JavaScript 앱
       url: /learn/modules/publish-app-service-static-web-app-api
     - text: API 게시
       url: /learn/modules/publish-static-web-app-api-preview-url
@@ -62,6 +62,10 @@ landingContent:
       url: deploy-nextjs.md
     - text: Nuxt.js에서 배포
       url: deploy-nuxtjs.md
+    - text: Azure DevOps로 배포
+      url: publish-devops.md
+    - text: ARM 템플릿을 사용하여 배포
+      url: publish-azure-resource-manager.md
   - linkListType: learn
     links:
     - text: Gatsby를 사용하여 정적 웹앱 게시
@@ -72,11 +76,11 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: 경로
-      url: routes.md
+    - text: 애플리케이션 구성
+      url: configuration.md
     - text: 공용 API
       url: apis.md
-    - text: 스테이징
+    - text: 스테이징 환경
       url: review-publish-pull-requests.md
     - text: 액세스 제한
       url: authentication-authorization.md

@@ -83,13 +83,15 @@
     - name: 보안
       items:
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
     - name: SSL
       items:
         - name: SSL 종료 및 엔드투엔드 SSL
           href: ssl-overview.md
         - name: SSL 정책 개요
           href: application-gateway-ssl-policy-overview.md
+        - name: 상호 인증
+          href: mutual-authentication-overview.md
         - name: Key Vault 사용
           href: key-vault-certs.md
     - name: AKS 수신
@@ -140,18 +142,28 @@
               href: end-to-end-ssl-portal.md
             - name: 엔드투엔드 SSL - PowerShell
               href: application-gateway-end-to-end-ssl-powershell.md
+        - name: 상호 인증
+          items:
+            - name: 상호 인증 - 포털
+              href: mutual-authentication-portal.md
+            - name: 상호 인증 - PowerShell
+              href: mutual-authentication-powershell.md
         - name: 인증서 관리
           items:
             - name: 백 엔드용 인증서
               href: certificates-for-backend-authentication.md
             - name: 인증서 갱신
               href: renew-certificates.md
-            - name: 자체 서명된 인증서 생성
+            - name: 백 엔드를 위한 자체 서명된 인증서 생성
               href: self-signed-certificates.md
+            - name: 신뢰할 수 있는 클라이언트 인증서
+              href: mutual-authentication-certificate-management.md
         - name: SSL 정책
           items:
             - name: SSL 정책 구성
               href: application-gateway-configure-ssl-policy-powershell.md
+            - name: 수신기별 SSL 정책
+              href: application-gateway-configure-listener-specific-ssl-policy.md
     - name: AKS 수신
       items:
         - name: Helm을 통한 AKS 수신(브라운필드)
@@ -254,6 +266,8 @@
           href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
         - name: 잘못된 게이트웨이(502) 오류
           href: application-gateway-troubleshooting-502.md
+        - name: 상호 인증
+          href: mutual-authentication-troubleshooting.md
         - name: AKS 수신
           href: ingress-controller-troubleshoot.md
         - name: 리소스 상태

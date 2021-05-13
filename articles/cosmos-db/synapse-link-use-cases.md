@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
 ms.custom: synapse-cosmos-db
-ms.openlocfilehash: 253257564ffc96108f282d7de3dbd9f5e8ce68fd
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.openlocfilehash: 5423305296e66fc90b0810a4a49e937a85583aa1
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104869874"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107905525"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Microsoft Azure Cosmos DB용 Synapse Link: 근 실시간 분석 사용 사례
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -36,7 +36,7 @@ Microsoft Azure Cosmos DB용 [Azure Synapse Link](synapse-link.md)는 클라우�
 
 다음 아키텍처에서는 공급망 분석에서 클라우드 네이티브 운영 데이터베이스 및 Synapse Link로 Microsoft Azure Cosmos DB를 활용하는 모습을 보여줍니다.
 
-:::image type="content" source="./media/synapse-link-use-cases/supply-chain-analytics.png" alt-text="공급망 분석의 Azure Cosmos DB에 대 한 Azure Synapse 링크 " border="false":::
+:::image type="content" source="./media/synapse-link-use-cases/supply-chain-analytics.png" alt-text="공급망 분석의 Microsoft Azure Cosmos DB용 Synapse Link" border="false":::
 
 이전 아키텍처를 기반으로 Microsoft Azure Cosmos DB용 Synapse Link를 사용하여 다음과 사용 사례가 가능합니다.
 
@@ -54,9 +54,9 @@ Microsoft Azure Cosmos DB용 [Azure Synapse Link](synapse-link.md)는 클라우�
 
   Microsoft Azure Cosmos DB용 Synapse Link는 다양한 BI(비즈니스 인텔리전스)/보고 시나리오를 지원합니다.
 
-  * 서버 리스 SQL 풀과 네이티브 통합을 사용 하 여 Azure Cosmos DB 분석 저장소에서 작동 데이터를 쿼리하고 T-sql 언어의 전체 표현을을 쿼리 합니다.
+  * 서버리스 SQL 풀과의 네이티브 통합 및 T-SQL 언어의 전체 표현을 사용하여 Microsoft Azure Cosmos DB 분석 스토리지에서 작동 데이터를 쿼리합니다.
 
-  * 익숙한 BI 도구에 대 한 서버를 사용 하지 않는 SQL 풀 지원을 통해 Azure Cosmos DB를 통해 BI 대시보드를 모델링 및 게시 합니다. Azure Analysis Services, Power BI Premium 등을 예로 들 수 있습니다.
+  * 익숙한 BI 도구에 대한 서버리스 SQL 풀 지원을 통해 Microsoft Azure Cosmos DB의 자동 새로 고침 BI 대시보드를 모델링하고 게시합니다. Azure Analysis Services, Power BI Premium 등을 예로 들 수 있습니다.
 
 다음은 Microsoft Azure Cosmos DB에 일괄 처리 및 스트리밍 데이터 통합에 대한 몇 가지 지침입니다.
 
@@ -94,7 +94,7 @@ Microsoft Azure Cosmos DB용 Azure Synapse Link 사용 사례:
 
 ## <a name="sample-scenario-htap-for-azure-cosmos-db"></a>샘플 시나리오: Microsoft Azure Cosmos DB용 HTAP
 
-거의 10 년 동안에는 수천 명의 고객이 트랜잭션 작업에서 쓰기 & 쓰기를 위해 낮은 대기 시간 및 고가용성을 위해 다중 지역 쓰기 복제를 필요로 하는 업무에 중요 한 응용 프로그램에 대 한 Azure Cosmos DB를 사용 했습니다.
+10년 가까이 수천 명의 고객이 트랜잭션 워크로드에서 짧은 읽기 및 쓰기 대기 시간과 고가용성을 위해 탄력적 스케일링, 턴키 글로벌 배포, 다중 지역 쓰기 복제가 필요한 중요 업무용 애플리케이션에 Microsoft Azure Cosmos DB를 사용해 왔습니다.
  
 다음 목록에서는 Microsoft Azure Cosmos DB를 사용하여 작동 데이터에서 지원되는 다양한 워크로드 패턴의 개요를 보여줍니다.
 
@@ -112,11 +112,11 @@ Azure Synapse Link를 통해 Microsoft Azure Cosmos DB는 트랜잭션 워크로
 
 * CompanyXYZ의 핵심 사업은 인벤토리 시스템에 의존하므로 가용성 및 신뢰성이 핵심 기둥 요구 사항입니다. Microsoft Azure Cosmos DB 사용의 이점:
 
-  * Azure 인프라와의 긴밀 한 통합 및 투명 한 다중 지역 쓰기, Azure Cosmos DB 전역 복제는 지역 가동 중단에 대 한 업계 최고의 [99.999%](high-availability.md) 고가용성을 제공 합니다.
+  * Microsoft Azure Cosmos DB는 Azure 인프라 및 투명 다중 지역 쓰기, 글로벌 복제와의 긴밀한 통합을 통해 지역 중단이 발생하지 않도록 [99.999%에 달하는 업계 최고 수준의 고가용성](high-availability.md)을 제공합니다.
 
 * CompanyXYZ의 공급망 파트너는 서로 다른 지리적 위치에 있지만 현지 운영 지원을 위해 전 세계 제품 인벤토리의 단일 보기가 필요할 수 있습니다. 또한 다른 공급망 파트너가 작성한 업데이트를 실시간으로 읽을 수 있어야 합니다. 처리량이 높아 다른 파트너와의 충돌에 대해 걱정하지 않고 업데이트할 수도 있습니다. Microsoft Azure Cosmos DB 사용의 이점:
 
-  * 고유한 다중 지역 쓰기 복제 프로토콜 및 래치 없는 쓰기에 최적화 된 트랜잭션 저장소를 사용 하는 경우 99 번째 백분위 수에서 인덱싱된 읽기와 쓰기 모두에 대해 10 밀리초 미만의 대기 시간을 보장 Azure Cosmos DB.
+  * Microsoft Azure Cosmos DB는 고유한 다중 지역 쓰기 복제 프로토콜과 쓰기에 최적화된 무제한 트랜잭션 스토리지를 통해 전역적으로 인덱싱된 읽기 및 쓰기 작업 모두에 대해 99번째 백분위수에서 10밀리초 미만의 대기 시간을 보장합니다.
 
   * 트랜잭션 저장소에서 [실시간 인덱싱](index-policy.md)을 사용하여 일괄 처리와 스트리밍 데이터 피드의 수집 처리량이 높습니다.
 
@@ -140,8 +140,8 @@ Azure Synapse Link를 통해 Microsoft Azure Cosmos DB는 트랜잭션 워크로
 
 * [Microsoft Azure Cosmos DB용 Synapse Link 작업](configure-synapse-link.md)
 
-* [Microsoft Azure Cosmos DB용 Azure Synapse Link에 대한 질문과 대답](synapse-link-frequently-asked-questions.md)
+* [Microsoft Azure Cosmos DB용 Azure Synapse Link에 대한 질문과 대답](synapse-link-frequently-asked-questions.yml)
 
 * [Azure Synapse Analytics의 Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md)
 
-* [Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀 런타임 지원](../synapse-analytics/sql/on-demand-workspace-overview.md)
+* [Azure Synapse Analytics의 서버리스 SQL 풀 런타임 지원](../synapse-analytics/sql/on-demand-workspace-overview.md)

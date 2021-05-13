@@ -94,9 +94,9 @@
               href: google-federation.md
             - name: Facebook 페더레이션
               href: facebook-federation.md
-            - name: 직접 페더레이션
+            - name: SAML/WS-Fed IdP 페더레이션
               href: direct-federation.md
-            - name: AD FS를 사용한 직접 페더레이션의 예제
+            - name: SAML/WS-Fed IdP 페더레이션의 예(AD FS)
               href: direct-federation-adfs.md
         - name: OTP(일회성 암호) 사용
           href: one-time-passcode.md
@@ -114,13 +114,11 @@
               href: self-service-sign-up-add-approvals.md
         - name: 게스트 사용자 계정 관리
           items:
-            - name: 역할에 B2B 사용자 추가
-              href: add-guest-to-role.md
             - name: 동적 그룹 및 B2B 사용자
               href: use-dynamic-groups.md
             - name: B2B 사용자 이해
               href: user-properties.md
-            - name: 상환 상태 재설정
+            - name: 상환 상태 재설정(미리 보기)
               href: reset-redemption-status.md
             - name: Azure AD용 B2B 통합 앱
               href: configure-saas-apps.md

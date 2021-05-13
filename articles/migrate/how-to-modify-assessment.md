@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 07/15/2019
-ms.openlocfilehash: 9bda4750f6b4340399bbbe070954dd23930b1ae1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e2fc240e04ec375f95bef74e3fd44381ff8cceb6
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104785209"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135746"
 ---
 # <a name="customize-an-assessment"></a>평가 사용자 지정
 
@@ -53,7 +53,7 @@ Azure Migrate 검색 및 평가에서 수행하는 평가에는 3가지 단계�
 **백분위 수 사용률** | 적정 크기를 산정하는 데 고려되는 성능 샘플 집합의 백분위수 값입니다. 이 속성은 크기 조정이 ‘성능 기반’인 경우에만 적용됩니다.
 **VM 시리즈** |     크기 조정 시 고려할 VM 시리즈를 지정할 수 있습니다. 예를 들어 Azure에서 A 시리즈 VM으로 마이그레이션하지 않으려는 프로덕션 환경이 있는 경우 목록 또는 시리즈에서 A 시리즈를 제외하면 선택한 시리즈에서만 적절한 크기 조정이 수행됩니다.
 **쾌적 인자** | Azure VM 평가는 평가 중에 버퍼(쾌적 인자)를 고려합니다. 이 버퍼는 VM의 컴퓨터 사용률 데이터(CPU, 메모리, 디스크 및 네트워크)를 기반으로 적용됩니다. 쾌적 인자는 계절별 사용량, 성능 기록 부족, 향후 사용량 증가 가능성 등의 문제를 고려합니다.<br/><br/> 예를 들어 사용률이 20%인 10코어 VM은 일반적으로 2코어 VM이라는 결과가 나옵니다. 그러나 쾌적 인자가 2.0x이면 결과는 4코어 VM이 됩니다.
-**제품** | 등록한 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/)입니다. Azure Migrate는 그에 따라 비용을 예측합니다.
+**제안** | 등록한 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/)입니다. Azure Migrate는 그에 따라 비용을 예측합니다.
 **통화** | 청구 통화입니다.
 **할인(%)** | Azure 제품에 적용되는 구독별 할인입니다.<br/> 기본 설정은 0%입니다.
 **VM 작동 시간** | Azure에서 VM을 연중 무휴로 실행하지는 않으려는 경우 VM을 실행할 기간(월별 일 수/일별 시간 수)을 지정하면 해당 기간에 따라 예상 비용이 계산됩니다.<br/> 기본값은 월당 31일이며 일당 24시간입니다.
@@ -75,7 +75,7 @@ Azure Migrate 검색 및 평가에서 수행하는 평가에는 3가지 단계�
 **성능 기록** | 머신의 성능 데이터를 평가하는 데 고려할 기간을 설정합니다. 이 속성은 크기 조정 기준이 ‘성능 기반’인 경우에만 적용됩니다. |
 **백분위 수 사용률** | 적정 크기를 산정하는 데 고려되는 성능 샘플 집합의 백분위수 값을 지정합니다. 이 속성은 크기 조정이 성능 기반인 경우에만 적용됩니다.|
 **쾌적 인자** | Azure Migrate는 평가 중에 버퍼(쾌적 인자)를 고려합니다. 이 버퍼는 VM의 컴퓨터 사용률 데이터(CPU, 메모리, 디스크 및 네트워크)를 기반으로 적용됩니다. 쾌적 인자는 계절별 사용량, 성능 기록 부족, 향후 사용량 증가 가능성 등의 문제를 고려합니다.<br/><br/> 예를 들어 사용률이 20%인 10코어 VM은 일반적으로 2코어 VM이라는 결과가 나옵니다. 그러나 쾌적 인자가 2.0x이면 결과는 4코어 VM이 됩니다. |
-**제품** | 사용자가 등록한 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/)이 표시됩니다. Azure Migrate는 그에 따라 비용을 예측합니다.|
+**제안** | 사용자가 등록한 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/)이 표시됩니다. Azure Migrate는 그에 따라 비용을 예측합니다.|
 **통화** | 계정의 청구 통화를 보여 줍니다. |
 **할인(%)** | Azure 제품에 적용되는 구독별 할인을 보여 줍니다. 기본 설정은 0%입니다. |
 **Azure 하이브리드 혜택** | 소프트웨어 보증이 있고 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-use-benefit/)을 받을 수 있는지를 지정합니다. 이는 노드 기반 가격으로 인한 Azure VMware 솔루션 가격에는 영향을 주지 않지만, 고객은 Azure 하이브리드 혜택을 사용하여 온-프레미스 OS 라이선스(Microsoft 기반)를 AVS에 계속해서 적용할 수 있습니다. 다른 소프트웨어 OS 공급업체는 RHEL와 같은 고유한 라이선스 용어를 제공해야 합니다. |
@@ -95,7 +95,7 @@ Azure Migrate 검색 및 평가에서 수행하는 평가에는 3가지 단계�
 **백분위 수 사용률** | 백분위 수 사용률은 적합한 크기 조정에 사용되는 성능 샘플의 백분위수 값을 지정합니다.
 **쾌적 인자** | 평가 중에 사용되는 버퍼입니다. 계절별 사용량, 짧은 성능 기록, 향후 사용량 증가 등의 문제를 고려합니다.<br/><br/> 예를 들어 사용률이 20%인 10코어 인스턴스는 일반적으로 2코어 인스턴스라는 결과가 나옵니다. 2\.0의 쾌적 인자를 사용하면 4코어 인스턴스라는 결과가 대신 나옵니다.
 **제품/라이선싱 프로그램** | 등록한 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/)입니다. 현재 종량제 및 종량제 개발/테스트에서만 선택할 수 있습니다. 종량제 제품 외에 예약된 용량과 Azure 하이브리드 혜택을 적용하여 추가 할인을 받을 수 있습니다.
-**서비스 계층** | Azure SQL Database 및/또는 Azure SQL Managed Instance로 마이그레이션해야 하는 비즈니스 요구 사항에 가장 적합한 서비스 계층 옵션입니다.<br/><br/>Azure Migrate에서 서버에 가장 적합한 서비스 계층을 추천하려면 **권장** 을 선택합니다. 권장 제품은 범용 또는 중요 비즈니스용 제품입니다. <br/><br/> 예산 기반 워크로드에 맞게 Azure SQL 구성을 디자인하려면 **범용** 을 선택합니다. [자세한 내용](https://docs.microsoft.com/azure/azure-sql/database/service-tier-general-purpose) <br/><br/> 복원력이 높고 장애 조치(failover)에 대한 대기 시간이 낮은 워크로드에 맞게 디자인된 Azure SQL 구성을 원하는 경우 **중요 비즈니스용** 을 선택합니다. [자세한 내용](https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical)
+**서비스 계층** | Azure SQL Database 및/또는 Azure SQL Managed Instance로 마이그레이션해야 하는 비즈니스 요구 사항에 가장 적합한 서비스 계층 옵션입니다.<br/><br/>Azure Migrate에서 서버에 가장 적합한 서비스 계층을 추천하려면 **권장** 을 선택합니다. 권장 제품은 범용 또는 중요 비즈니스용 제품입니다. <br/><br/> 예산 기반 워크로드에 맞게 Azure SQL 구성을 디자인하려면 **범용** 을 선택합니다. [자세한 내용](../azure-sql/database/service-tier-general-purpose.md) <br/><br/> 복원력이 높고 장애 조치(failover)에 대한 대기 시간이 낮은 워크로드에 맞게 디자인된 Azure SQL 구성을 원하는 경우 **중요 비즈니스용** 을 선택합니다. [자세한 내용](../azure-sql/database/service-tier-business-critical.md)
 **통화** | 계정의 청구 통화입니다.
 **할인(%)** | Azure 제품에 적용되는 구독별 할인입니다. 기본 설정은 0%입니다.
 **Azure 하이브리드 혜택** | SQL Server 라이선스가 이미 있는지를 지정합니다. <br/><br/> 이러한 작업을 수행하고 SQL Server 구독의 활성 소프트웨어 보증이 적용되는 경우 Azure에 라이선스를 가져올 때 Azure 하이브리드 혜택을 적용할 수 있습니다.
@@ -119,4 +119,3 @@ Azure Migrate 검색 및 평가에서 수행하는 평가에는 3가지 단계�
 - Azure VM 평가를 계산하는 방법에 대해 [자세히 알아보세요](concepts-assessment-calculation.md).
 - Azure SQL 평가를 계산하는 방법에 대해 [자세히 알아보세요](concepts-azure-sql-assessment-calculation.md).
 - AVS 평가를 계산하는 방법에 대해 [자세히 알아보세요](concepts-azure-vmware-solution-assessment-calculation.md).
-

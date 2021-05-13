@@ -60,7 +60,7 @@
     - name: 보안
       items:
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/vpn-gateway-security-baseline?toc=/azure/vpn-gateway/TOC.json
     - name: 백 엔드 연결 상호 운용성
       items:
         - name: 접두사 및 테스트 설정
@@ -262,6 +262,8 @@
     - name: 문제 해결
       href: vpn-gateway-troubleshoot.md
       items:
+        - name: 진단 로그를 사용하여 Azure VPN Gateway 문제 해결
+          href: troubleshoot-vpn-with-azure-diagnostics.md
         - name: 커뮤니티에서 제안한 VPN 또는 방화벽 디바이스 설정
           href: vpn-gateway-third-party-settings.md
         - name: VNet 또는 VPN 연결 구성 및 유효성 검사
@@ -305,7 +307,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.network#vpn
     - name: Azure PowerShell(클래식)
-      href: /powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0#azure
+      href: /powershell/module/servicemanagement/azure.service/#azure
     - name: REST (영문)
       href: /rest/api/network/virtualnetworkgateways
     - name: REST(클래식)

@@ -62,6 +62,8 @@
           href: hana-concept-preparation.md
         - name: 재해 복구 장애 조치(failover) 프로시저
           href: hana-failover-procedure.md
+        - name: RHEL의 SAP용 대규모 인스턴스 HA
+          href: large-instance-high-availability-rhel.md
     - name: 문제 해결 및 모니터링
       items:
         - name: 모니터링 HLI
@@ -74,8 +76,10 @@
           href: hana-li-portal.md
         - name: STONITH로 HA 설치
           href: ha-setup-with-stonith.md
-        - name: Type II SKU용 OS 백업
-          href: os-backup-type-ii-skus.md
+        - name: OS 백업
+          href: large-instance-os-backup.md
+        - name: RHEL의 SAP를 위한 Azure 대규모 인스턴스 고가용성
+          href: large-instance-high-availability-rhel.md
         - name: HANA Large Instances에 Kdump 사용
           href: hana-large-instance-enable-kdump.md
         - name: HANA 대형 인스턴스를 위한 OS 업그레이드
@@ -112,6 +116,8 @@
           href: sap-hana-high-availability-rhel.md
         - name: RHEL에서 ANF를 사용하여 SAP HANA 시스템 복제 설정
           href: sap-hana-high-availability-netapp-files-red-hat.md
+        - name: SLES의 Pacemaker를 사용하는 SAP HANA 스케일 아웃 HSR
+          href: sap-hana-high-availability-scale-out-hsr-suse.md
         - name: SLES에서 SAP HANA 스케일 아웃 및 Pacemaker 문제 해결
           href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
         - name: RHEL의 Pacemaker를 사용하는 SAP HANA 스케일 아웃 HSR
@@ -120,11 +126,25 @@
           href: sap-hana-scale-out-standby-netapp-files-suse.md
         - name: RHEL에서 Azure NetApp Files를 사용하여 대기 노드를 통한 SAP HANA 스케일 아웃
           href: sap-hana-scale-out-standby-netapp-files-rhel.md
-    - name: SAP HANA 백업 개요
-      href: sap-hana-backup-guide.md
-    - name: SAP HANA 파일 수준 백업
-      href: sap-hana-backup-file-level.md
-- name: Azure Virtual Machines의 SAP NetWeaver 및 Business One
+    - name: Azure Backup을 사용하여 SAP HANA 데이터베이스 백업
+      items:
+        - name: Azure VM의 SAP HANA 데이터베이스 백업
+          href: ../../../backup/sap-hana-db-about.md
+        - name: Azure VM에서 SAP HANA 데이터베이스 백업
+          href: ../../../backup/backup-azure-sap-hana-database.md
+        - name: Azure VM에서 SAP HANA 데이터베이스 복원
+          href: ../../../backup/sap-hana-db-restore.md
+        - name: 관리 및 모니터링
+          href: ../../../backup/sap-hana-db-manage.md
+        - name: SAP HANA 데이터베이스 백업에 대한 지원 매트릭스
+          href: ../../../backup/sap-hana-backup-support-matrix.md
+        - name: FAQ - Azure VM의 SAP HANA 데이터베이스 백업
+          href: ../../../backup/sap-hana-faq-backup-azure-vm.yml
+        - name: Azure의 SAP HANA 데이터베이스 백업 문제 해결
+          href: ../../../backup/backup-azure-sap-hana-database-troubleshoot.md
+        - name: 자습서 - Azure VM에서 SAP HANA 데이터베이스 백업
+          href: ../../../backup/tutorial-backup-sap-hana-db.md
+- name: 'Azure Virtual Machines의 SAP NetWeaver, S/4HANA 및 Business One'
   items:
     - name: SAP 워크로드 계획 및 배포 검사 목록
       href: sap-deployment-checklist.md
@@ -197,8 +217,6 @@
               href: high-availability-guide-rhel.md
             - name: Azure NetApp Files를 사용하는 (A)SCS 인스턴스의 Red Hat Enterprise Linux에 대한 HA
               href: high-availability-guide-rhel-netapp-files.md
-            - name: RHEL의 SAP용 대규모 인스턴스 HA
-              href: large-instance-high-availability-rhel.md
         - name: Azure 인프라 준비
           items:
             - name: (A)SCS 인스턴스에 공유 디스크를 사용하는 Windows
@@ -251,7 +269,9 @@
   items:
     - name: Azure의 SAP BusinessObjects BI 플랫폼 계획 및 구현 가이드
       href: businessobjects-deployment-guide.md
-    - name: Azure의 linux용 SAP BusinessObjects BI 플랫폼 배포 가이드
+    - name: Azure의 Windows용 SAP BusinessObjects BI 플랫폼 배포 가이드
+      href: businessobjects-deployment-guide-windows.md
+    - name: Azure의 Linux용 SAP BusinessObjects BI 플랫폼 배포 가이드
       href: businessobjects-deployment-guide-linux.md
 - name: SAP 애플리케이션과 Azure AD 통합
   items:
@@ -314,7 +334,7 @@
 - name: 참조
   items:
     - name: Azure CLI
-      href: /cli/azure/ext/sap-hana/hanainstance
+      href: /cli/azure/hanainstance
     - name: Azure PowerShell
       href: /powershell/module/az.hanaonazure/#sap-hana-on-azure
 - name: 리소스

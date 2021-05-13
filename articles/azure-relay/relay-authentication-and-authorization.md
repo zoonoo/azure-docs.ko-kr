@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Relay 서비스를 사용하는 SAS(공�
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 4b0a5c7a092155a006419eedd170a63abed42bb3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87033380"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Azure Relay 인증 및 권한 부여
@@ -20,7 +20,7 @@ ms.locfileid: "87033380"
 
 Relay 네임스페이스에서 SAS에 대한 키를 구성할 수 있습니다. Service Bus 메시징과 달리 [Relay 하이브리드 연결](relay-hybrid-connections-protocol.md)은 무단 또는 익명 발신자를 지원합니다. 포털에서 다음 스크린샷에 표시된 것처럼 만들 때 엔터티에 대한 익명 액세스를 활성화할 수 있습니다.
 
-!["하이브리드 연결 만들기" 라는 대화 상자에는 "이름" 텍스트 상자와 "클라이언트 인증 필요" 라는 확인란이 있습니다 .이 확인란은 선택 되어 있습니다.][0]
+![“하이브리드 연결 만들기” 대화 상자에 “이름” 텍스트 상자와 “클라이언트 인증 필요” 레이블이 지정되고 선택된 확인란이 있습니다.][0]
 
 SAS를 사용하려면 다음을 구성하는 Relay 네임스페이스에서 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 개체를 구성할 수 있습니다.
 

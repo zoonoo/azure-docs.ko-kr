@@ -1,21 +1,21 @@
 ---
-title: Azure Functions에 대 한 Azure Blob 저장소 입력 바인딩
-description: Azure Function에 Azure Blob storage 입력 바인딩 데이터를 제공 하는 방법을 알아봅니다.
+title: Azure Functions의 Azure Blob Storage 입력 바인딩
+description: Azure Function에 Azure Blob Storage 입력 바인딩 데이터를 제공하는 방법을 알아봅니다.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: cd69e89954fab2256ffc7c23e22d3b8d44ab2a11
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 4aaf63d2a4d49f7fff35eb7386b71ac271f1eac9
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102455876"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227401"
 ---
-# <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Azure Functions에 대 한 Azure Blob 저장소 입력 바인딩
+# <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Azure Functions의 Azure Blob Storage 입력 바인딩
 
-입력 바인딩을 사용 하면 blob storage 데이터를 Azure Function에 대 한 입력으로 읽을 수 있습니다.
+입력 바인딩을 사용하면 Blob Storage 데이터를 Azure Function에 대한 입력으로 읽을 수 있습니다.
 
 설정 및 구성 세부 정보에 관한 내용은 [개요](./functions-bindings-storage-blob.md)를 참조하세요.
 
@@ -40,7 +40,7 @@ public static void Run(
 
 <!--Same example for input and output. -->
 
-다음 예제에서는 바인딩을 사용하는 *function.json* 파일 및 [C# 스크립트(.csx)](functions-reference-csharp.md) 코드에서 Blob 입력 및 출력 바인딩을 보여줍니다. 함수는 텍스트 Blob의 복사본을 만듭니다. 함수는 복사할 Blob의 이름을 포함하는 큐 메시지에 의해 트리거됩니다. 새 blob 이름은 *{originalblobname}-Copy* 입니다.
+다음 예제에서는 바인딩을 사용하는 *function.json* 파일 및 [C# 스크립트(.csx)](functions-reference-csharp.md) 코드에서 Blob 입력 및 출력 바인딩을 보여줍니다. 함수는 텍스트 Blob의 복사본을 만듭니다. 함수는 복사할 Blob의 이름을 포함하는 큐 메시지에 의해 트리거됩니다. 새 Blob의 이름은 *{originalblobname}-Copy* 입니다.
 
 *function.json* 파일에서 `queueTrigger` 메타데이터 속성은 `path` 속성에서 Blob 이름을 지정하는 데 사용됩니다.
 
@@ -145,7 +145,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 
 <!--Same example for input and output. -->
 
-다음 예제에서는 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 스크립트](functions-reference-node.md) 코드에서 Blob 입력 및 출력 바인딩을 보여 줍니다. 함수는 Blob의 복사본을 만듭니다. 함수는 복사할 Blob의 이름을 포함하는 큐 메시지에 의해 트리거됩니다. 새 blob 이름은 *{originalblobname}-Copy* 입니다.
+다음 예제에서는 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 스크립트](functions-reference-node.md) 코드에서 Blob 입력 및 출력 바인딩을 보여 줍니다. 함수는 Blob의 복사본을 만듭니다. 함수는 복사할 Blob의 이름을 포함하는 큐 메시지에 의해 트리거됩니다. 새 Blob의 이름은 *{originalblobname}-Copy* 입니다.
 
 *function.json* 파일에서 `queueTrigger` 메타데이터 속성은 `path` 속성에서 Blob 이름을 지정하는 데 사용됩니다.
 
@@ -192,9 +192,9 @@ module.exports = function(context) {
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-다음 예에서는 [PowerShell](functions-reference-powershell.md) 함수에서 들어오는 blob 데이터를 사용할 수 있도록 하는 _function.js_ 파일에 정의 된 blob 입력 바인딩을 보여 줍니다.
+다음 예에서는 들어오는 blob 데이터를 [PowerShell](functions-reference-powershell.md) 함수에서 사용할 수 있게 하는 _function.js_ 파일에 정의된 blob 입력 바인딩을 보여 줍니다.
 
-Json 구성은 다음과 같습니다.
+json 구성은 다음과 같습니다.
 
 ```json
 {
@@ -223,7 +223,7 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 
 <!--Same example for input and output. -->
 
-다음 예제에서는 바인딩을 사용하는 *function.json* 파일 및 [Python 코드](functions-reference-python.md)에서 Blob 입력 및 출력 바인딩을 보여 줍니다. 함수는 Blob의 복사본을 만듭니다. 함수는 복사할 Blob의 이름을 포함하는 큐 메시지에 의해 트리거됩니다. 새 blob 이름은 *{originalblobname}-Copy* 입니다.
+다음 예제에서는 바인딩을 사용하는 *function.json* 파일 및 [Python 코드](functions-reference-python.md)에서 Blob 입력 및 출력 바인딩을 보여 줍니다. 함수는 Blob의 복사본을 만듭니다. 함수는 복사할 Blob의 이름을 포함하는 큐 메시지에 의해 트리거됩니다. 새 Blob의 이름은 *{originalblobname}-Copy* 입니다.
 
 *function.json* 파일에서 `queueTrigger` 메타데이터 속성은 `path` 속성에서 Blob 이름을 지정하는 데 사용됩니다.
 
@@ -260,13 +260,14 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 
 [구성](#configuration) 섹션에서는 이러한 속성을 설명합니다.
 
-속성은 사용 되는 `dataType` 바인딩을 결정 합니다. 다음 값은 다양 한 바인딩 전략을 지 원하는 데 사용할 수 있습니다.
+`dataType` 속성에 따라 사용되는 바인딩이 결정됩니다. 다음 값은 다양한 바인딩 전략을 지원하는 데 사용할 수 있습니다.
 
-| 바인딩 값 | 기본값 | 설명 | 예제 |
+| 바인딩 값 | 기본값 | Description | 예제 |
 | --- | --- | --- | --- |
-| `undefined` | Y | 풍부한 바인딩을 사용 합니다. | `def main(input: func.InputStream)` |
-| `string` | N | 제네릭 바인딩을 사용 하 고 입력 형식을로 캐스팅 합니다. `string` | `def main(input: str)` |
-| `binary` | N | 제네릭 바인딩을 사용 하 고 입력 blob을 Python 개체로 캐스팅 합니다. `bytes` | `def main(input: bytes)` |
+| `string` | N | 제네릭 바인딩을 사용하고 입력 형식을 `string`으로 캐스팅 | `def main(input: str)` |
+| `binary` | N | 제네릭 바인딩을 사용하고 입력 blob을 `bytes` Python 개체로 캐스팅 | `def main(input: bytes)` |
+
+`dataType` 속성이 function.json에 정의되지 않은 경우 기본값은 `string`입니다.
 
 다음은 Python 코드입니다.
 
@@ -275,8 +276,10 @@ import logging
 import azure.functions as func
 
 
-def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.InputStream:
-    logging.info('Python Queue trigger function processed %s', inputblob.name)
+# The input binding field inputblob can either be 'bytes' or 'str' depends
+# on dataType in function.json, 'binary' or 'string'.
+def main(queuemsg: func.QueueMessage, inputblob: bytes) -> bytes:
+    logging.info(f'Python Queue trigger function processed {len(inputblob)} bytes')
     return inputblob
 ```
 
@@ -315,7 +318,7 @@ public static void Run(
 }
 ```
 
-`StorageAccount` 특성을 사용하여 클래스, 메서드 또는 매개 변수 수준에서 스토리지 계정을 지정합니다. 자세한 내용은 [트리거-특성 및 주석](./functions-bindings-storage-blob-trigger.md#attributes-and-annotations)을 참조 하세요.
+`StorageAccount` 특성을 사용하여 클래스, 메서드 또는 매개 변수 수준에서 스토리지 계정을 지정합니다. 자세한 내용은 [트리거 - 특성과 주석](./functions-bindings-storage-blob-trigger.md#attributes-and-annotations)을 참조하세요.
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
@@ -323,7 +326,7 @@ C# 스크립트에서는 특성을 지원하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-`@BlobInput`특성은 함수를 트리거한 blob에 대 한 액세스를 제공 합니다. 특성에 바이트 배열을 사용 하는 경우 `dataType` 를로 설정 `binary` 합니다. 자세한 내용은 [입력 예](#example) 를 참조 하세요.
+`@BlobInput` 특성은 함수를 트리거한 blob에 대한 액세스 권한을 부여합니다. 특성과 함께 바이트 배열을 사용하는 경우 `dataType`을 `binary`로 설정합니다. 자세한 내용은 [입력 예제](#example)를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -331,7 +334,7 @@ JavaScript에서는 특성을 지원하지 않습니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-특성은 PowerShell에서 지원 되지 않습니다.
+PowerShell에서는 특성을 지원하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -349,8 +352,8 @@ Python에서는 특성을 지원하지 않습니다.
 |**direction** | 해당 없음 | `in`로 설정해야 합니다. 예외는 [사용](#usage) 섹션에서 표시됩니다. |
 |**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.|
 |**path** |**BlobPath** | Blob에 대한 경로입니다. |
-|**connection** |**연결**| 이 바인딩에 사용할 [저장소 연결 문자열](../storage/common/storage-configure-connection-string.md) 을 포함 하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어를 `connection` "MyStorage"로 설정 하는 경우 함수 런타임은 "AzureWebJobsMyStorage" 라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 스토리지 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.<br><br>연결 문자열 대신 [버전 5.x 이상의 확장](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)을 사용하는 경우 연결을 정의하는 구성 섹션에 대한 참조를 제공할 수 있습니다. [연결](./functions-reference.md#connections)을 참조하세요.|
-|**dataType**| 해당 없음 | 동적으로 형식화 된 언어의 경우에는 기본 데이터 형식을 지정 합니다. 가능한 값은 `string`, `binary` 또는 `stream`입니다. 자세한 내용은 [트리거 및 바인딩 개념](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions)을 참조 하세요. |
+|**connection** |**연결**| 이 바인딩에 사용할 [스토리지 연결 문자열](../storage/common/storage-configure-connection-string.md)을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 “MyStorage”로 설정한 경우 함수 런타임 기능은 “AzureWebJobsMyStorage”라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 스토리지 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.<br><br>연결 문자열 대신 [버전 5.x 이상의 확장](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)을 사용하는 경우 연결을 정의하는 구성 섹션에 대한 참조를 제공할 수 있습니다. [연결](./functions-reference.md#connections)을 참조하세요.|
+|**dataType**| 해당 없음 | 동적으로 형식화된 언어의 경우 기본 데이터 형식을 지정합니다. 가능한 값은 `string`, `binary` 또는 `stream`입니다. 자세한 내용은 [트리거 및 바인딩 개념](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions)을 참조하세요. |
 |해당 없음 | **Access** | 읽기 또는 쓰기를 나타냅니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -367,23 +370,23 @@ Python에서는 특성을 지원하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-`@BlobInput`특성은 함수를 트리거한 blob에 대 한 액세스를 제공 합니다. 특성에 바이트 배열을 사용 하는 경우 `dataType` 를로 설정 `binary` 합니다. 자세한 내용은 [입력 예](#example) 를 참조 하세요.
+`@BlobInput` 특성은 함수를 트리거한 blob에 대한 액세스 권한을 부여합니다. 특성과 함께 바이트 배열을 사용하는 경우 `dataType`을 `binary`로 설정합니다. 자세한 내용은 [입력 예제](#example)를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Where를 사용 하 여 blob 데이터 `context.bindings.<NAME>` `<NAME>` 에 액세스 합니다. 여기서는 *function.js* 에 정의 된 값과 일치 합니다.
+`context.bindings.<NAME>`을 사용하여 blob 데이터에 액세스합니다. 여기서 `<NAME>`은 *function.json* 에 정의된 값과 일치합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-파일 _의function.js_ 에서 바인딩의 name 매개 변수에 지정 된 이름과 일치 하는 매개 변수를 통해 blob 데이터에 액세스 합니다.
+_function.json_ 파일에서 바인딩의 이름 매개 변수로 지정된 이름과 일치하는 매개 변수를 통해 blob 데이터에 액세스합니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-[InputStream](/python/api/azure-functions/azure.functions.inputstream)으로 형식화 된 매개 변수를 통해 blob 데이터에 액세스 합니다. 자세한 내용은 [입력 예](#example) 를 참조 하세요.
+[InputStream](/python/api/azure-functions/azure.functions.inputstream)으로 형식화된 매개 변수를 통해 blob 데이터에 액세스합니다. 자세한 내용은 [입력 예제](#example)를 참조하세요.
 
 ---
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Blob storage 데이터가 변경 될 때 함수 실행](./functions-bindings-storage-blob-trigger.md)
-- [함수에서 blob 저장소 데이터 쓰기](./functions-bindings-storage-blob-output.md)
+- [Blob Storage 데이터 변경 시 함수 실행](./functions-bindings-storage-blob-trigger.md)
+- [함수에서 Blob Storage 데이터 쓰기](./functions-bindings-storage-blob-output.md)

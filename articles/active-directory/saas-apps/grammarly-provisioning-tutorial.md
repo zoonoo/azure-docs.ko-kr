@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2021
 ms.author: Zhchia
-ms.openlocfilehash: ca01289ce66afe642081e5be17373e640dd1e46d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 39d1e9e439ad1b14b6f6517868c21c682c45a7a3
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104864808"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130596"
 ---
 # <a name="tutorial-configure-grammarly-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Grammarly 구성
 
-이 자습서에서는 자동 사용자 프로비저닝을 구성하기 위해 Grammarly 및 Azure AD(Azure Active Directory)에서 수행해야 하는 단계를 설명합니다. 구성된 경우 Azure AD는 Azure AD 프로비저닝 서비스를 사용하여 사용자 및 그룹을 [Grammarly](https://www.grammarly.com/)로 자동으로 프로비저닝 및 프로비저닝 해제합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요. 
+이 자습서에서는 자동 사용자 프로비저닝을 구성하기 위해 Grammarly 및 Azure AD(Azure Active Directory)에서 수행해야 하는 단계를 설명합니다. 구성된 경우 Azure AD는 Azure AD 프로비저닝 서비스를 사용하여 사용자 및 그룹을 [Grammarly](https://www.grammarly.com/)로 자동으로 프로비저닝 및 프로비저닝 해제합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요. 
 
 
 ## <a name="capabilities-supported"></a>지원되는 기능
@@ -37,14 +37,14 @@ ms.locfileid: "104864808"
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
-* [Azure AD 테넌트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* 프로비저닝을 구성할 [권한](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
+* [Azure AD 테넌트](../develop/quickstart-create-new-tenant.md) 
+* 프로비저닝을 구성할 [권한](../roles/permissions-reference.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
 * 관리자 액세스 권한이 있는 Grammarly 비즈니스 계정.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획
-1. [프로비저닝 서비스의 작동 방식](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)에 대해 알아봅니다.
-1. [프로비저닝 범위](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)에 있는 사용자를 결정합니다.
-1. [Azure AD와 Grammarly 간에 매핑](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)할 데이터를 결정합니다. 
+1. [프로비저닝 서비스의 작동 방식](../app-provisioning/user-provisioning.md)에 대해 알아봅니다.
+1. [프로비저닝 범위](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에 있는 사용자를 결정합니다.
+1. [Azure AD와 Grammarly 간에 매핑](../app-provisioning/customize-application-attributes.md)할 데이터를 결정합니다. 
 
 ## <a name="step-2-configure-grammarly-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD를 사용하여 프로비저닝을 지원하도록 Grammarly 구성
 
@@ -108,7 +108,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |emails[type eq "work"].value|String|
 
 
-1. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에 제공된 지침을 참조하세요.
+1. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공된 지침을 참조하세요.
 
 1. Grammarly에 Azure AD 프로비저닝 서비스를 사용하려면 **설정** 섹션에서 **프로비저닝 상태** 를 **켜기** 로 변경합니다.
 
@@ -128,9 +128,9 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 프로비저닝이 구성되면 다음 리소스를 사용하여 배포를 모니터링합니다.
 
-* [프로비저닝 로그](../reports-monitoring/concept-provisioning-logs.md)를 사용하여 성공적으로 프로비저닝된 사용자 또는 성공적으로 프로비저닝되지 않은 사용자를 확인합니다.
+* [프로비저닝 로그](../reports-monitoring/concept-provisioning-logs.md)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
 * [진행률 표시줄](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
-* 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대해 자세히 알아보려면 [격리의 애플리케이션 프로비저닝 상태](../app-provisioning/application-provisioning-quarantine-status.md)를 참조하세요.
+* 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [격리 상태의 애플리케이션 프로비저닝](../app-provisioning/application-provisioning-quarantine-status.md)을 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

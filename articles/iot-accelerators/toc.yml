@@ -17,23 +17,11 @@
           href: overview-opc-publisher.md
         - name: 연결된 팩터리란?
           href: iot-accelerators-connected-factory-features.md
-    - name: 디바이스 시뮬레이션
-      href: iot-accelerators-device-simulation-overview.md
 - name: 빠른 시작
   items:
     - name: 연결된 팩터리 솔루션 사용
       href: quickstart-connected-factory-deploy.md
-    - name: 디바이스 시뮬레이션 솔루션 가속기 배포
-      href: 'https://github.com/Azure/device-simulation-dotnet/blob/master/README.md'
   expanded: true
-- name: 자습서
-  items:
-    - name: 디바이스 시뮬레이션
-      items:
-        - name: 시뮬레이션 만들기 및 실행
-          href: iot-accelerators-device-simulation-create-simulation.md
-        - name: 사용자 지정 시뮬레이션된 디바이스 만들기
-          href: iot-accelerators-device-simulation-create-custom-device.md
 - name: 개념
   items:
     - name: 산업용 IoT
@@ -78,20 +66,12 @@
               href: howto-opc-publisher-configure.md
             - name: OPC 게시자 실행
               href: howto-opc-publisher-run.md
-    - name: 디바이스 시뮬레이션
-      items:
-        - name: 기존 IoT Hub 사용
-          href: iot-accelerators-device-simulation-choose-hub.md
-        - name: 고급 시뮬레이션된 디바이스 만들기
-          href: iot-accelerators-device-simulation-advanced-device.md
-        - name: Time Series Insights를 사용하여 원격 분석 시각화
-          href: iot-accelerators-device-simulation-time-series-insights.md
-        - name: Protobuf를 사용하여 원격 분석 직렬화
-          href: iot-accelerators-device-simulation-protobuf.md
 - name: 리소스
   items:
     - name: 지원 및 도움말 옵션
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-accelerators/toc.json&bc=/azure/iot-accelerators/breadcrumb/toc.json
+    - name: IoT 용어집
+      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-accelerators/toc.json&bc=/azure/iot-accelerators/breadcrumb/toc.json
     - name: Azure IoT 서비스
       items:
         - name: IoT Hub
@@ -120,20 +100,16 @@
       items:
         - name: GitHub 리포지토리
           href: 'https://github.com/Azure/azure-iot-connected-factory'
-        - name: 연결된 팩터리 FAQ
-          href: iot-accelerators-faq-cf.md
-    - name: 디바이스 시뮬레이션
-      items:
-        - name: 개발자 참조 가이드
-          href: 'https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide'
-        - name: GitHub 리포지토리
-          href: 'https://github.com/Azure/device-simulation-dotnet'
     - name: 참조 아키텍처
       href: /azure/architecture/reference-architectures/iot
       items:
         - name: 다운로드
           href: /azure/architecture/reference-architectures/iot
     - name: FAQ
-      href: iot-accelerators-faq.md
+      items:
+        - name: 솔루션 가속기 FAQ
+          href: iot-accelerators-faq.md
+        - name: 연결된 팩터리 FAQ
+          href: iot-accelerators-faq-cf.md
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-iot-suite'

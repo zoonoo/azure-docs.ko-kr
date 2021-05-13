@@ -1,6 +1,6 @@
 ---
-title: NXLog LinuxAudit 데이터를 Azure 센티널에 연결 | Microsoft Docs
-description: NXLog LinuxAudit data connector를 사용 하 여 LinuxAudit 로그를 Azure 센티널로 가져오는 방법에 대해 알아봅니다. 통합 문서에서 LinuxAudit 데이터를 보고, 경고를 생성 하 고, 조사를 개선 합니다.
+title: NXLog LinuxAudit 데이터를 Azure Sentinel에 연결하기 | Microsoft Docs
+description: NXLog LinuxAudit 데이터 커넥터를 사용하여 LinuxAudit 로그를 Azure Sentinel로 끌어오는 방법을 알아봅니다. 통합 문서의 LinuxAudit 데이터를 확인하고 경고를 생성하고 조사를 개선합니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,44 +15,44 @@ ms.workload: na
 ms.date: 03/02/2021
 ms.author: yelevin
 ms.openlocfilehash: 2010b21a3cdb81f2b2aa4180f87857862cd02bf5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101700874"
 ---
-# <a name="connect-your-nxlog-linuxaudit-to-azure-sentinel"></a>Azure 센티널에 NXLog LinuxAudit 연결
+# <a name="connect-your-nxlog-linuxaudit-to-azure-sentinel"></a>NXLog LinuxAudit을 Azure Sentinel에 연결하기
 
 > [!IMPORTANT]
-> NXLog LinuxAudit 커넥터는 현재 **미리 보기로** 제공 됩니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 추가 약관은 [Microsoft Azure 미리 보기에](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 대 한 추가 사용 약관을 참조 하세요.
+> NXLog LinuxAudit 커넥터는 현재 **미리 보기** 중입니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-[Nxlog LinuxAudit](https://nxlog.co/documentation/nxlog-user-guide/im_linuxaudit.html) 커넥터를 사용 하면 회사 전체에서 도메인 이름 서버 작업에 대 한 통찰력을 제공 하 여 Linux 보안 이벤트를 실시간으로 Azure 센티널로 쉽게 내보낼 수 있습니다. NXLog LinuxAudit 모듈은 사용자 지정 감사 규칙을 지원 하 고 auditd 또는 기타 사용자 공간 소프트웨어 없이 로그를 수집 합니다. IP 주소와 그룹/사용자 Id는 보안 분석가에 게 더 있는 [Linux 감사](https://nxlog.co/documentation/nxlog-user-guide/linux-audit.html) 로그를 만드는 각 이름으로 확인 됩니다. NXLog LinuxAudit와 Azure 센티널 간의 통합은 REST API를 통해 촉진 됩니다.
+[NXLog LinuxAudit](https://nxlog.co/documentation/nxlog-user-guide/im_linuxaudit.html) 커넥터를 통하여 실시간으로 Linux 보안 이벤트를 Azure Sentinel에 간편하게 가져올 수 있어, 전체 조직에 걸쳐 도메인 이름 서버 활동에 대한 통찰력이 생깁니다. NXLog LinuxAudit 모듈은 사용자 지정 감사 규칙을 지원하고 auditd 또는 기타 사용자 공간 소프트웨어 없이 로그를 수집합니다. IP 주소 및 그룹/사용자 ID는 [Linux 감사](https://nxlog.co/documentation/nxlog-user-guide/linux-audit.html) 로그를 보안 분석가들이 더욱 많은 정보를 활용할 수 있는 형태로 만들어 주는 각각의 이름으로 확인됩니다. NXLog LinuxAudit과 Azure Sentinel 간의 통합은 REST API를 통하여 촉진됩니다.
 
 > [!NOTE]
-> 데이터는 Azure 센티널을 실행 하는 작업 영역의 지리적 위치에 저장 됩니다.
+> 데이터는 Azure Sentinel을 실행하는 작업 영역의 지리적 위치에 저장됩니다.
 
-## <a name="configure-and-connect-nxlog-linuxaudit"></a>NXLog LinuxAudit 구성 및 연결
+## <a name="configure-and-connect-nxlog-linuxaudit"></a>NXLog LinuxAudit 구성 및 연결하기
 
-NXLog를 구성 하 여 JSON 형식의 이벤트를 Azure 센티널로 직접 보낼 수 있습니다.
+NXLog를 구성하여 이벤트를 Azure Sentinel에 JSON 형식으로 바로 보내도록 할 수 있습니다.
 
-1. Azure 센티널 포털에서 **데이터 커넥터** 를 클릭 하 고 **Nxlog LinuxAudit** 커넥터를 선택 합니다.
+1. Azure Sentinel 포털에서, **데이터 커넥터** 를 클릭한 뒤 **NXLog LinuxAudit** 커넥터를 선택합니다.
 
 1. **커넥터 페이지 열기** 를 선택합니다.
 
-1. *Nxlog 사용자 가이드* 통합 항목에서 [센티널 Microsoft Azure](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) 의 단계별 지침에 따라 REST API를 통해 전달을 구성 합니다.
+1. *NXLog 사용자 가이드* 통합 주제 [Microsoft Azure Sentinel](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html)의 단계별 지침을 따라 REST API를 통한 착신 전환을 구성합니다.
 
 ## <a name="find-your-data"></a>데이터 찾기
 
-연결이 설정 되 면 데이터는 *LinuxAudit_CL* 테이블의 **사용자 지정 로그** 섹션 아래에 있는 **로그** 에 표시 됩니다.
+연결이 설정되면 데이터는 *LinuxAudit_CL* 테이블의 **사용자 지정 로그** 섹션에 있는 **로그** 에 표시됩니다.
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사
 
-로그가 Log Analytics 나타날 때까지 최대 20 분이 걸릴 수 있습니다.
+로그가 Log Analytics에 표시되는 데는 최대 20분이 걸립니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 NXLog LinuxAudit를 사용 하 여 Linux 보안 이벤트를 Azure 센티널에 수집 하는 방법을 배웠습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+본 문서에서, NXLog LinuxAudit을 사용하여 Linux 보안 이벤트를 Azure Sentinel에 수집하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [데이터 및 잠재적 위협에 대 한 가시성을 확보](quickstart-get-visibility.md)하는 방법을 알아보세요.
+- [데이터에 대한 가시성을 얻고 잠재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
 - [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
 - [통합 문서를 사용](tutorial-monitor-your-data.md)하여 데이터를 모니터링합니다.

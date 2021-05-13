@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: a5bc7e195efd62f430fdf2aa0cb606dbcff79528
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: a6bf14691e583190c4485ae854de78b187d95211
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567199"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773902"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Azure CLI용 IoT 확장을 사용하여 Azure IoT Hub 디바이스 관리
 
@@ -82,7 +82,7 @@ az iot hub invoke-device-method --device-id <your device id> \
 
 ```azurecli
 az iot hub device-twin update -n <your hub name> \
-  -d <your device id> --set properties.desired.interval = 3000
+  -d <your device id> --set properties.desired.interval=3000
 ```
 
 이 속성은 디바이스에서 읽을 수 있습니다.
@@ -111,7 +111,7 @@ az iot hub device-twin show --hub-name <your hub name> --device-id <your device 
 az iot hub device-twin update \
   --hub-name <your hub name> \
   --device-id <your device id> \
-  --set tags = '{"role":"temperature&humidity"}}'
+  --set tags='{"role":"temperature&humidity"}'
 ```
 
 ## <a name="device-twin-queries"></a>디바이스 쌍 쿼리

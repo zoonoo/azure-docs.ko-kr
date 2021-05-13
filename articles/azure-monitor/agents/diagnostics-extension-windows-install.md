@@ -1,18 +1,18 @@
 ---
 title: WAD(Windows Azure Diagnostics) 확장 설치 및 구성
-description: Windows 진단 확장을 설치 및 구성 하는 방법에 대해 알아봅니다. 또한 데이터를에 저장 하는 방법에 대 한 설명과 Azure Storage 계정에 대해 알아봅니다.
+description: Windows 진단 확장을 설치하고 구성하는 방법을 알아봅니다. 데이터를 Azure Storage 계정에 저장하는 방식에 대한 설명을 함께 알아봅니다.
 services: azure-monitor
 author: bwren
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 174f372f9dbe8dc0449c7f9b9f5b34c6206f92de
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 6f843f5ec593124305d978cd32559a089194ab6d
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101708563"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108073344"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>WAD(Windows Azure Diagnostics) 확장 설치 및 구성
 [Azure Diagnostics 확장](diagnostics-extension-overview.md)은 게스트 운영 체제에서 모니터링 데이터를 수집하고 Azure 가상 머신 및 기타 계산 리소스의 워크로드를 수집하는 Azure Monitor의 에이전트입니다. 이 문서에서는 Windows 진단 확장 설치 및 구성에 대한 자세한 내용을 알아보고 데이터가 저장되는 방법과 Azure Storage 계정에 대해 설명합니다.
@@ -20,7 +20,7 @@ ms.locfileid: "101708563"
 진단 확장은 Azure에서 [가상 머신 확장](../../virtual-machines/extensions/overview.md)으로 구현되므로 Resource Manager 템플릿, PowerShell 및 CLI를 사용한 동일한 설치 옵션을 지원합니다. 가상 머신 확장 설치 및 유지 관리에 대한 자세한 내용은 [Windows용 가상 머신 확장 및 기능](../../virtual-machines/extensions/features-windows.md)을 참조하세요.
 
 ## <a name="overview"></a>개요
-Windows Azure Diagnostics 확장을 구성하는 경우 지정된 모든 데이터가 전송될 스토리지 계정을 지정해야 합니다. 필요에 따라 데이터 *싱크* 를 하나 이상 추가 하 여 데이터를 다른 위치로 보낼 수 있습니다.
+Windows Azure Diagnostics 확장을 구성하는 경우 지정된 모든 데이터가 전송될 스토리지 계정을 지정해야 합니다. 필요한 경우 더 많은 *데이터 싱크* 에 대한 계정을 추가하여 데이터를 다른 위치로 보낼 수 있습니다.
 
 - Azure Monitor 싱크 - Azure Monitor 메트릭에 게스트 성능 데이터를 보냅니다.
 - 이벤트 허브 싱크 - Azure 외부로 전달하려면 Azure Event Hubs에 게스트 성능 및 로그 데이터를 전송합니다. 이 싱크는 Azure Portal에서 구성할 수 없습니다.
@@ -50,7 +50,7 @@ Azure Portal에서 개별 가상 머신에 진단 확장을 설치하고 구성�
 
 6. **로그** 탭에서 가상 머신에서 수집할 로그를 선택합니다. 로그를 스토리지 또는 이벤트 허브로 전송할 수 있지만 Azure Monitor로는 전송할 수 없습니다. [Log Analytics 에이전트](../agents/log-analytics-agent.md)를 사용하여 Azure Monitor에 대한 게스트 로그를 수집합니다.
 
-   ![가상 컴퓨터에 대해 다른 로그가 선택 된 로그 탭이 스크린샷으로 표시 됩니다.](media/diagnostics-extension-windows-install/logs.png)
+   ![스크린샷에는 가상 머신에 대하여 다양한 로그가 선택되어 있는 로그 탭이 보입니다.](media/diagnostics-extension-windows-install/logs.png)
 
 7. **크래시 덤프** 탭에서 크래시 후 메모리 덤프를 수집할 프로세스를 지정합니다. 진단 설정에 대한 데이터는 스토리지 계정에 기록되며 필요에 따라 Blob 컨테이너를 지정할 수 있습니다.
 
@@ -58,7 +58,7 @@ Azure Portal에서 개별 가상 머신에 진단 확장을 설치하고 구성�
 
 8. **싱크** 탭에서 데이터를 Azure 스토리지 이외의 위치로 보낼지 여부를 지정합니다. **Azure Monitor** 를 선택하면 게스트 성능 데이터가 Azure Monitor 메트릭에 전송됩니다. Azure Portal을 사용하여 이벤트 허브 싱크를 구성할 수 없습니다.
 
-   ![스크린샷 Azure Monitor 진단 데이터 보내기 옵션을 사용 하는 싱크 탭을 보여 줍니다.](media/diagnostics-extension-windows-install/sinks.png)
+   ![스크린샷에는 Azure Monitor에 진단 데이터 보내기 옵션을 사용하도록 설정된 싱크 탭이 보입니다.](media/diagnostics-extension-windows-install/sinks.png)
    
    가상 머신에 대해 구성된 시스템 할당 ID를 사용하도록 설정하지 않은 경우 Azure Monitor 싱크로 구성을 저장할 때 아래 경고가 표시될 수 있습니다. 시스템 할당 ID를 사용하도록 설정하려면 배너를 클릭합니다.
    
@@ -66,7 +66,7 @@ Azure Portal에서 개별 가상 머신에 진단 확장을 설치하고 구성�
 
 9. **에이전트** 에서 스토리지 계정을 변경하고, 디스크 할당량을 설정하고, 진단 인프라 로그를 수집할지 여부를 지정할 수 있습니다.  
 
-   ![스크린샷 저장소 계정을 설정 하는 옵션을 포함 하는 에이전트 탭을 보여 줍니다.](media/diagnostics-extension-windows-install/agent.png)
+   ![스크린샷에는 스토리지 계정 설정 옵션이 들어 있는 에이전트 탭이 보입니다.](media/diagnostics-extension-windows-install/agent.png)
 
 10. 구성을 저장하려면 **Save** 를 클릭합니다. 
 
@@ -77,7 +77,7 @@ Azure Portal에서 개별 가상 머신에 진단 확장을 설치하고 구성�
 Azure Resource Manager 템플릿을 사용하여 진단 확장을 배포하는 방법에 대한 자세한 내용은 [Windows VM 및 Azure Resource Manager를 사용하여 모니터링 및 진단 사용](../../virtual-machines/extensions/diagnostics-template.md)을 참조하세요. 
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 배포
-Azure CLI를 사용하여 다음 예와 같이 [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set)를 사용하여 기존 가상 머신에 Azure Diagnostics 확장을 배포할 수 있습니다. 
+Azure CLI를 사용하여 다음 예와 같이 [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set)를 사용하여 기존 가상 머신에 Azure Diagnostics 확장을 배포할 수 있습니다. 
 
 ```azurecli
 az vm extension set \

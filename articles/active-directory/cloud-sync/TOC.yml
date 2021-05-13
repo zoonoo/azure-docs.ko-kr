@@ -34,6 +34,8 @@
           href: how-to-prerequisites.md
         - name: Azure AD Connect 클라우드 프로비저닝 에이전트 설치
           href: how-to-install.md
+        - name: CLI 및 PowerShell을 사용하여 프로비저닝 에이전트 설치
+          href: how-to-install-pshell.md
         - name: 클라우드 동기화 구성
           href: how-to-configure.md
         - name: 주문형 프로비저닝
@@ -56,14 +58,16 @@
           href: how-to-manage-registry-options.md
         - name: 에이전트 gMSA PowerShell cmdlet
           href: how-to-gmsa-cmdlets.md
-        - name: PowerShell을 사용하여 프로비저닝 에이전트 설치
-          href: how-to-install-pshell.md
+        - name: 클라우드 동기화를 사용하여 usertype을 매핑하는 방법
+          href: how-to-map-usertype.md
     - name: 개발
       items:
         - name: 변환
           href: how-to-transformation.md
         - name: MS Graph API를 사용하여 클라우드 동기화를 프로그래밍 방식으로 구성
           href: how-to-inbound-synch-ms-graph.md
+        - name: 식 작성기
+          href: how-to-expression-builder.md
         - name: Azure AD 동기화 API
           href: /graph/api/resources/synchronization-overview
     - name: 문제 해결

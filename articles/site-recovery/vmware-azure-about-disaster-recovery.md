@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: dfbdff01064b483085233ece47d1d3b635b68743
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87021463"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>VMware VM에서 Azure로의 재해 복구 정보
@@ -25,7 +25,7 @@ BCDR(비즈니스 연속성 및 재해 복구) 전략은 비즈니스가 계속 
 - [Azure Site Recovery](site-recovery-overview.md)는 온-프레미스 컴퓨터 또는 Azure IaaS VM에서 실행되는 앱 및 워크로드대에 해 복원력 및 재해 복구를 제공합니다. Site Recovery는 복제를 오케스트레이션하고 중단이 발생하면 Azure로 장애 조치(Failover)합니다. 또한 Azure에서 기본 사이트로의 복구를 처리합니다. 
 
 > [!NOTE]
-> Site Recovery은 원본 컴퓨터에 대 한 재해 복구를 설정 하는 대상 지역에서 고객 데이터를 이동 하거나 저장 하지 않습니다. 고객이 선택 하는 경우 다른 지역에서 Recovery Services 자격 증명 모음을 선택할 수 있습니다. Recovery Services 자격 증명 모음은 메타 데이터를 포함 하지만 실제 고객 데이터는 포함 하지 않습니다.
+> Site Recovery는 원본 머신에 대해 재해 복구가 설정된 대상 지역을 벗어나서 고객 데이터를 이동하거나 저장하지 않습니다. 고객이 선택하는 경우 다른 지역에서 Recovery Services 자격 증명 모음을 선택할 수 있습니다. Recovery Services 자격 증명 모음에 메타데이터는 포함되어 있으나 실제 고객 데이터는 포함되어 있지 않습니다.
 
 ## <a name="how-does-site-recovery-do-disaster-recovery"></a>Site Recovery는 어떻게 재해 복구를 수행하나요?
 
@@ -36,7 +36,7 @@ BCDR(비즈니스 연속성 및 재해 복구) 전략은 비즈니스가 계속 
     - 이러한 훈련은 실제 요구가 있을 때 장애 조치(Failover)가 예상대로 진행되도록 하는 데 도움이 됩니다.
     - 또한 이러한 훈련 중에는 프로덕션 환경에 영향을 주지 않고 테스트 장애 조치(Failover)가 수행됩니다.
 5. 중단이 발생하는 경우에 Azure로의 전체 장애 조치(Failover)를 실행합니다. 단일 컴퓨터를 장애 조치(Failover)하거나 여러 컴퓨터를 동시에 장애 조치(Failover)하는 복구 계획을 만들 수 있습니다.
-6. 장애 조치 (failover) 시 관리 디스크 또는 저장소 계정의 VM 데이터에서 Azure Vm이 만들어집니다. 사용자는 Azure VM에서 앱 및 워크로드에 계속 액세스할 수 있습니다.
+6. 장애 조치 시 관리 디스크 또는 스토리지 계정의 VM 데이터에서 Azure VM이 만들어집니다. 사용자는 Azure VM에서 앱 및 워크로드에 계속 액세스할 수 있습니다.
 7. 온-프레미스 사이트를 다시 사용할 수 있게 되면 Azure에서 장애 복구(Failback)합니다.
 8. 장애 복구(Failback)를 수행하고 기본 사이트에서 한 번 더 작업한 후에 온-프레미스 VM을 Azure로 다시 복제할 수 있습니다.
 
@@ -45,12 +45,12 @@ BCDR(비즈니스 연속성 및 재해 복구) 전략은 비즈니스가 계속 
 
 Site Recovery는 지원되는 VMware VM 또는 실제 서버에서 실행 중인 모든 워크로드를 복제할 수 있습니다. 작업 환경에서 확인해야 하는 항목은 다음과 같습니다.
 
-- VMware VM을 복제하는 경우 VMware 가상화 서버의 올바른 버전을 실행하고 있나요? [여기를 확인](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers)하세요.
-- 복제하려는 컴퓨터가 지원되는 운영 체제를 실행하고 있나요? [여기를 확인](vmware-physical-azure-support-matrix.md#replicated-machines)하세요.
-- Linux 재해 복구의 경우 컴퓨터에서 지원되는 파일 시스템/게스트 스토리지가 실행되고 있나요? [여기를 확인 하세요.](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage)
-- 복제하려는 컴퓨터가 Azure 요구 사항을 충족하나요? [여기를 확인](vmware-physical-azure-support-matrix.md#azure-vm-requirements)하세요.
-- 사용하는 네트워크 구성이 지원되나요? [여기를 확인](vmware-physical-azure-support-matrix.md#network)하세요.
-- 사용하는 스토리지 구성이 지원되나요? [여기를 확인](vmware-physical-azure-support-matrix.md#storage)하세요.
+- VMware VM을 복제하는 경우 VMware 가상화 서버의 올바른 버전을 실행하고 있나요? [여기에서 확인하세요](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers).
+- 복제하려는 컴퓨터가 지원되는 운영 체제를 실행하고 있나요? [여기에서 확인하세요](vmware-physical-azure-support-matrix.md#replicated-machines).
+- Linux 재해 복구의 경우 컴퓨터에서 지원되는 파일 시스템/게스트 스토리지가 실행되고 있나요? [여기에서 확인하세요](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage).
+- 복제하려는 컴퓨터가 Azure 요구 사항을 충족하나요? [여기에서 확인하세요](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
+- 사용하는 네트워크 구성이 지원되나요? [여기에서 확인하세요](vmware-physical-azure-support-matrix.md#network).
+- 사용하는 스토리지 구성이 지원되나요? [여기에서 확인하세요](vmware-physical-azure-support-matrix.md#storage).
 
 
 ## <a name="what-do-i-need-to-set-up-in-azure-before-i-start"></a>시작하기 전에 Azure에서 어떤 항목을 설정해야 하나요?
@@ -58,12 +58,12 @@ Site Recovery는 지원되는 VMware VM 또는 실제 서버에서 실행 중인
 Azure에서 다음을 준비해야 합니다.
 
 1. Azure 계정에 Azure에서 VM을 만들 수 있는 권한이 있는지 확인합니다.
-2. 장애 조치 (failover) 후 저장소 계정 또는 관리 디스크에서 만들 때 Azure Vm이 가입할 Azure 네트워크를 만듭니다.
+2. 장애 조치 후 스토리지 계정 또는 관리 디스크에서 Azure VM이 만들어지면 Azure VM이 가입할 Azure 네트워크를 만듭니다.
 3. Site Recovery에 대한 Azure Recovery Services 자격 증명 모음을 설정합니다. 이 자격 증명 모음은 Azure Portal에 있고, 배포, 구성, 오케스트레이션, 모니터링 작업과 Site Recovery 배포 문제를 해결하는 데 사용됩니다.
 
 *도움이 더 필요하세요?*
 
-[계정을 확인](tutorial-prepare-azure.md#verify-account-permissions)하 고, [네트워크](tutorial-prepare-azure.md#set-up-an-azure-network)를 만들고, [자격 증명 모음을 설정](tutorial-prepare-azure.md#create-a-recovery-services-vault)하 여 Azure를 설정 하는 방법을 알아봅니다.
+[계정을 확인](tutorial-prepare-azure.md#verify-account-permissions)하고, [네트워크](tutorial-prepare-azure.md#set-up-an-azure-network)를 만들고, [자격 증명 모음을 설정](tutorial-prepare-azure.md#create-a-recovery-services-vault)하여 Azure를 설정하는 방법을 알아보세요.
 
 
 
@@ -95,12 +95,12 @@ Azure 및 온-프레미스 인프라가 준비된 후에 재해 복구를 설정
     - 구성 서버는 단일 온-프레미스 컴퓨터입니다. VMware 재해 복구의 경우 다운로드 가능 OVF 템플릿에서 배포할 수 있는 VMware VM으로 배포하는 것이 좋습니다.
     - 구성 서버는 온-프레미스와 Azure 간의 통신을 조정합니다.
     - 다른 일부 구성 요소는 구성 서버 컴퓨터에서 실행됩니다.
-        - 프로세스 서버는 Azure의 캐시 저장소 계정에 복제 데이터를 수신, 최적화 및 전송 합니다. 또한 복제하려는 컴퓨터에서 모바일 서비스의 자동 설치를 처리하고, VMware 서버에서 VM의 자동 검색을 수행합니다.
+        - 프로세스 서버는 복제 데이터를 수신하고 최적화하여 Azure의 캐시 스토리지 계정으로 보냅니다. 또한 복제하려는 컴퓨터에서 모바일 서비스의 자동 설치를 처리하고, VMware 서버에서 VM의 자동 검색을 수행합니다.
         - 마스터 대상 서버는 Azure에서 장애 복구 중 복제 데이터를 처리합니다.
     - 설정 중에 자격 증명 모음에 구성 서버가 등록되고, MySQL Server 및 VMware PowerCLI가 다운로드되고, 자동 검색 및 모바일 서비스 설치용으로 만든 계정이 지정됩니다.
-4. **대상 환경**: azure 구독 및 네트워크 설정을 지정 하 여 대상 azure 환경을 설정 합니다.
+4. **대상 환경**: Azure 구독 및 네트워크 설정을 지정하여 대상 Azure 환경을 설정합니다.
 5. **복제 정책**: 복제 수행 방법을 지정합니다. 또한 복구 지점이 생성 및 저장되는 주기와 앱 일치 스냅샷을 만들지 여부가 설정됩니다.
-6. **복제를 사용 하도록 설정** 합니다. 온-프레미스 컴퓨터에 대해 복제를 사용하도록 설정합니다. 모바일 서비스를 설치하기 위한 계정을 만든 경우 컴퓨터에 대해 복제를 사용하도록 설정할 때 해당 계정이 설치됩니다. 
+6. **복제를 활성화합니다**. 온-프레미스 컴퓨터에 대해 복제를 사용하도록 설정합니다. 모바일 서비스를 설치하기 위한 계정을 만든 경우 컴퓨터에 대해 복제를 사용하도록 설정할 때 해당 계정이 설치됩니다. 
 
 *도움이 더 필요하세요?*
 

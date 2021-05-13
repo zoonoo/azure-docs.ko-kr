@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services v3 API에 연결-Python
-description: 이 문서에서는 Python을 사용 하 여 Media Services v3 API에 연결 하는 방법을 보여 줍니다.
+title: Azure Media Services v3 API에 연결 - Python
+description: 이 문서에서는 Python을 사용하여 Media Services v3 API에 연결하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -14,39 +14,39 @@ ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: inhenkel
 ms.custom: devx-track-python
-ms.openlocfilehash: de78008a4645690cfc900f77670204bb892daf51
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
-ms.translationtype: MT
+ms.openlocfilehash: 24e2ba4027dc818256dc9572f697fe7ec5a5a56b
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105042971"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960710"
 ---
-# <a name="connect-to-media-services-v3-api---python"></a>Media Services v3 API에 연결-Python
+# <a name="connect-to-media-services-v3-api---python"></a>Media Services v3 API에 연결 - Python
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-이 문서에서는 서비스 사용자 로그인 메서드를 사용 하 여 Azure Media Services v3 Python SDK에 연결 하는 방법을 보여 줍니다.
+이 문서에서는 서비스 주체 로그인 메서드를 사용하여 Azure Media Services v3 Python SDK에 연결하는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-- [Python.org](https://www.python.org/downloads/) 에서 Python 다운로드
-- 환경 변수를 설정 해야 합니다. `PATH`
-- [Media Services 계정 만들기](./create-account-howto.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해야 합니다.
-- [액세스 api](./access-api-howto.md) 항목의 단계에 따라 서비스 주체 인증 방법을 선택 합니다. `SubscriptionId`이후 단계에서 필요한 구독 id (), 응용 프로그램 클라이언트 ID ( `AadClientId` ), 인증 키 ( `AadSecret` ) 및 테 넌 트 id ()를 기록 합니다 `AadTenantId` .
+- [python.org](https://www.python.org/downloads/)에서 Python 다운로드
+- `PATH` 환경 변수를 설정해야 합니다.
+- [Media Services 계정 만들기](./account-create-how-to.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해야 합니다.
+- [액세스 API](./access-api-howto.md) 토픽의 단계를 따라 서비스 주체 인증 방법을 선택합니다. 이후 단계에서 필요한 구독 ID(`SubscriptionId`), 애플리케이션 클라이언트 ID(`AadClientId`), 인증 키(`AadSecret`), 테넌트 ID(`AadTenantId`)를 기록합니다.
 
 > [!IMPORTANT]
 > [명명 규칙](media-services-apis-overview.md#naming-conventions)을 검토합니다.
 
 ## <a name="install-the-modules"></a>모듈 설치
 
-Python을 사용 하 여 Azure Media Services 작업 하려면 이러한 모듈을 설치 해야 합니다.
+Python을 사용하여 Azure Media Services로 작업하려면 해당 모듈을 설치해야 합니다.
 
-* `azure-mgmt-resource`모듈은 Active Directory 용 Azure 모듈을 포함 합니다.
-* `azure-mgmt-media`Media Services 엔터티를 포함 하는 모듈입니다.
+* Active Directory의 Azure 모듈을 포함하는 `azure-mgmt-resource` 모듈.
+* Media Services 엔터티를 포함하는 `azure-mgmt-media` 모듈.
 
-    [최신 버전의 Python 용 MEDIA SERVICES SDK](https://pypi.org/project/azure-mgmt-media/)를 다운로드 해야 합니다.
+    [최신 버전의 Python용 Media Services SDK](https://pypi.org/project/azure-mgmt-media/)를 얻어야 합니다.
 
-명령줄 도구를 열고 다음 명령을 사용 하 여 모듈을 설치 합니다.
+명령줄 도구를 열고 다음 명령을 사용하여 모듈을 설치합니다.
 
 ```
 pip3 install azure-mgmt-resource
@@ -55,11 +55,11 @@ pip3 install azure-mgmt-media==3.0.0
 
 ## <a name="connect-to-the-python-client"></a>Python 클라이언트에 연결
 
-1. 확장명을 사용 하 여 파일 만들기 `.py`
-1. 자주 사용 하는 편집기에서 파일을 엽니다.
-1. 파일에 다음 코드를 추가 합니다. 이 코드는 필요한 모듈을 가져오고 Media Services에 연결 하는 데 필요한 Active Directory 자격 증명 개체를 만듭니다.
+1. `.py` 확장명으로 파일 만들기
+1. 원하는 편집기에서 파일 열기
+1. 다음 코드를 파일에 추가합니다. 이 코드는 필요한 모듈을 가져오고 Media Services에 연결하는 데 필요한 Active Directory 자격 증명 개체를 만듭니다.
 
-      변수의 값을 [액세스 api](./access-api-howto.md)에서 가져온 값으로 설정 합니다. `ACCOUNT_NAME`및 변수를 `RESOUCE_GROUP_NAME` 해당 리소스를 만들 때 사용 되는 Media Services 계정 이름 및 리소스 그룹 이름으로 업데이트 합니다.
+      변수의 값을 [액세스 API](./access-api-howto.md)에서 가져온 값으로 설정합니다. `ACCOUNT_NAME`과 `RESOUCE_GROUP_NAME` 변수를 해당 리소스를 만들 때 사용되는 Media Services 계정 이름과 리소스 그룹 이름으로 업데이트합니다.
 
       ```
       import adal
@@ -104,5 +104,5 @@ pip3 install azure-mgmt-media==3.0.0
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PYTHON SDK](https://aka.ms/ams-v3-python-sdk)를 사용 합니다.
+- [Python SDK](https://aka.ms/ams-v3-python-sdk)를 사용합니다.
 - Media Services [Python 참조](/python/api/overview/azure/mediaservices/management) 설명서를 검토하세요.

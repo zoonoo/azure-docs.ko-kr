@@ -4,21 +4,22 @@
   items:
     - name: Media Services 정보
       href: media-services-overview.md
-    - name: Media Services의 새로운 기능
-      displayName: release notes
+    - name: 릴리스 정보
       href: release-notes.md
     - name: Media Services 규정 준수
-      href: concept-compliance.md
+      href: compliance-concept.md
+    - name: 질문과 대답
+      href: frequently-asked-questions.yml
 - name: 빠른 시작
   items:
     - name: 환경 설정
       items:
         - name: 테넌트 ID 찾기
-          href: how-to-set-azure-tenant.md
+          href: setup-azure-tenant-how-to.md
         - name: Azure 구독 찾기
-          href: how-to-set-azure-subscription.md
+          href: setup-azure-subscription-how-to.md
         - name: Media Services 계정 만들기
-          href: create-account-howto.md
+          href: account-create-how-to.md
         - name: API에 액세스
           href: access-api-howto.md
         - name: Azure Cloud Shell 설정
@@ -26,7 +27,7 @@
         - name: Media Services에 연결
           items:
             - name: REST 및 Postman과 연결
-              href: media-rest-apis-with-postman.md
+              href: setup-postman-rest-how-to.md
             - name: Java로 연결
               href: configure-connect-java-howto.md
             - name: .NET으로 연결
@@ -38,19 +39,17 @@
     - name: Azure Portal에서 Media Services 사용해 보기
       items:
         - name: 포털과 Wirecast를 사용하는 라이브 이벤트
-          href: live-events-wirecast-quickstart.md
+          href: live-event-wirecast-quickstart.md
         - name: 포털과 OBS를 사용하는 라이브 이벤트
-          href: live-events-obs-quickstart.md
+          href: live-event-obs-quickstart.md
         - name: '포털을 사용하여 콘텐츠 업로드, 인코딩 및 스트리밍'
-          href: manage-assets-quickstart.md
+          href: asset-create-asset-upload-portal-quickstart.md
         - name: 포털을 사용하여 콘텐츠 암호화
-          href: encrypt-content-quickstart.md
+          href: drm-encrypt-content-how-to.md
     - name: ARM 템플릿 사용
       items:
         - name: ARM을 사용하여 계정 만들기
-          href: quickstart-arm-template-account.md
-    - name: Python 기본 인코딩 빠른 시작
-      href: quickstart-basic-encoding-python.md
+          href: media-services-arm-template-quickstart.md
 - name: 자습서
   items:
     - name: .NET
@@ -62,22 +61,22 @@
         - name: .NET을 사용한 라이브 스트리밍
           href: stream-live-tutorial-with-api.md
         - name: .NET으로 비디오 분석
-          href: analyze-videos-tutorial-with-api.md
+          href: analyze-videos-tutorial.md
         - name: AES-128로 동적으로 암호화
-          href: protect-with-aes128.md
+          href: drm-playready-license-template-concept.md
         - name: DRM을 사용하여 동적으로 암호화
-          href: protect-with-drm.md
+          href: drm-protect-with-drm-tutorial.md
         - name: Azure AD를 통해 콘텐츠 보호
-          href: azure-ad-content-protection.md
+          href: architecture-azure-ad-content-protection.md
           displayName: 'AAD, Active Directory'
     - name: REST (영문)
       items:
         - name: 신뢰할 수 있는 스토리지 사용
-          href: tutorial-trusted-storage-rest.md
+          href: security-trusted-storage-rest-tutorial.md
         - name: 원격 파일 REST 인코딩 및 스트리밍
           href: stream-files-tutorial-with-rest.md
         - name: REST API를 사용하는 고객 관리형 키
-          href: tutorial-byok-postman.md
+          href: security-customer-managed-keys-rest-postman-tutorial.md
     - name: CLI
       items:
         - name: 원격 파일 CLI 인코딩 및 스트리밍
@@ -86,17 +85,25 @@
       items:
         - name: 원격 파일 Node.js 인코딩 및 스트리밍
           href: stream-files-nodejs-quickstart.md
+        - name: Node.js로 라이브 스트리밍
+          href: stream-live-tutorial-with-nodejs.md
+    - name: Python
+      items:
+        - name: Python 기본 인코딩
+          href: encode-basic-encoding-python-quickstart.md
     - name: Azure portal
       items:
         - name: 고객 관리형 키 또는 BYOK 자습서
-          href: tutorial-byok-portal.md
+          href: security-customer-managed-keys-portal-tutorial.md
         - name: Azure Log Analytics에 AMS 이벤트 저장
-          href: tutorial-events-log-analytics.md
+          href: integrate-event-grid-log-analytics-tutorial.md
 - name: 샘플
   items:
+    - name: 샘플 개요
+      href: samples-overview.md
     - name: Media Services v3 샘플
       displayName: '.NET, Java'
-      href: /samples/browse/?products=azure-media-services
+      href: 'https://github.com/Azure-Samples?q=media-services&type=&language=&sort='
     - name: Media Services v3 REST 샘플
       href: 'https://github.com/Azure-Samples/media-services-v3-rest-postman'
 - name: 개념
@@ -108,7 +115,7 @@
       items:
         - name: Media Services 계정
           displayName: subscription
-          href: media-services-account-concept.md
+          href: account-move-account-how-to.md
         - name: 스토리지 계정
           href: storage-account-concept.md
           displayName: Storage side encryption
@@ -126,144 +133,148 @@
     - name: 파일 처리
       items:
         - name: 변환 및 작업
-          href: transforms-jobs-concept.md
+          href: transform-jobs-concept.md
           displayName: 'preset, schema'
     - name: 콘텐츠 인코딩
       items:
         - name: 개요
-          href: encoding-concept.md
+          href: encode-concept.md
           displayName: 'encode, encoding, presets, jobs, adaptive, bitrate, billing'
         - name: 표준 인코더 형식
           displayName: 'containers, codecs'
-          href: media-encoder-standard-formats.md
+          href: encode-media-encoder-standard-formats-reference.md
         - name: Autogen 적응 비트 전송률 사다리
-          href: autogen-bitrate-ladder.md
+          href: encode-autogen-bitrate-ladder.md
         - name: 콘텐츠 인식 인코딩
-          href: content-aware-encoding.md
+          href: encode-content-aware-concept.md
         - name: 미디어 예약 단위
           href: concept-media-reserved-units.md
-    - name: 콘텐츠 분석(Video Indexer)
+    - name: 분석 및 교정
       items:
         - name: 개요
-          href: analyzing-video-audio-files-concept.md
+          href: analyze-video-audio-files-concept.md
           displayName: 'analyze, analyzing, presets, jobs'
+        - name: 얼굴 검색 및 편집(흐리게)
+          href: analyze-face-redaction-concept.md
+          displayName: 'analyze, redact, face, detect, presets, jobs, blur, faces, redaction'
     - name: 변환 및 작업
-      href: transforms-jobs-concept.md
+      href: transform-jobs-concept.md
     - name: 라이브 스트리밍
       items:
         - name: 개요
-          href: live-streaming-overview.md
+          href: stream-live-streaming-concept.md
         - name: 라이브 이벤트 및 라이브 출력
-          href: live-events-outputs-concept.md
-          displayName: 'vanity, ingest'
+          href: live-event-outputs-concept.md
+          displayName: 'vanity, ingest, static, hostname, rtmp, ingest'
         - name: 테스트된 온-프레미스 라이브 인코더
-          displayName: recommended
-          href: recommended-on-premises-live-encoders.md
+          displayName: 'recommended, on-premises, live, encoder, OBS, FFMPEG, Wirecast'
+          href: encode-recommended-on-premises-live-encoders.md
         - name: 시간 이동 및 실시간 VOD
           displayName: 'archive, dvr'
-          href: live-event-cloud-dvr.md
+          href: live-event-cloud-dvr-time-how-to.md
         - name: 라이브 전사
-          href: live-transcription.md
+          href: live-event-live-transcription-how-to.md
         - name: 라이브 이벤트 유형 비교
-          href: live-event-types-comparison.md
+          href: live-event-types-comparison-reference.md
         - name: 상태 및 청구
-          href: live-event-states-billing.md
+          href: live-event-states-billing-concept.md
         - name: 대기 시간
-          href: live-event-latency.md
+          href: live-event-latency-reference.md
     - name: 패키징 및 제공
       items:
         - name: 동적 패키징
           displayName: 'origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming, audio, video'
-          href: dynamic-packaging-overview.md
+          href: encode-dynamic-packaging-concept.md
         - name: 동적 매니페스트
-          href: filters-dynamic-manifest-overview.md
+          href: filters-dynamic-manifest-concept.md
         - name: 필터
           displayName: "manifest, dynamic manifest, filter, hls, dash, m3u8, mpd,\tcontent delivery"
           href: filters-concept.md
         - name: 스트리밍 엔드포인트
           displayName: 'origin, packager, cdn'
-          href: streaming-endpoint-concept.md
+          href: stream-streaming-endpoint-concept.md
         - name: CDN을 사용하여 스트리밍 크기 조정
-          href: scale-streaming-cdn.md
+          href: stream-scale-streaming-cdn-concept.md
         - name: 스트리밍 로케이터
           displayName: URLs
-          href: streaming-locators-concept.md
+          href: stream-streaming-locators-concept.md
         - name: 스트리밍 정책
-          href: streaming-policy-concept.md
+          href: stream-streaming-policy-concept.md
     - name: 콘텐츠 보호
       items:
         - name: 동적 암호화 및 키 전달
           displayName: 'content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom'
-          href: content-protection-overview.md
+          href: drm-content-protection-concept.md
         - name: 다중 DRM 시스템 디자인
           displayName: 'drm, access control'
-          href: design-multi-drm-system-with-access-control.md
+          href: architecture-design-multi-drm-system.md
         - name: DRM 라이선스
           items:
             - name: PlayReady 라이선스 템플릿
-              href: playready-license-template-overview.md
+              href: drm-playready-license-template-concept.md
             - name: Widevine 라이선스 템플릿
-              href: widevine-license-template-overview.md
+              href: drm-widevine-license-template-concept.md
             - name: FairPlay 라이선스 요구 사항
-              href: fairplay-license-overview.md
+              href: drm-fairplay-license-overview.md
         - name: 스트리밍 정책
-          href: streaming-policy-concept.md
+          href: stream-streaming-policy-concept.md
         - name: 콘텐츠 키 정책
-          href: content-key-policy-concept.md
+          href: drm-content-key-policy-concept.md
     - name: 모니터링
       items:
-        - name: Event Grid를 사용하는 이벤트
-          href: reacting-to-media-services-events.md
-        - name: Event Grid 스키마
-          href: media-services-event-schemas.md
-        - name: 메트릭 및 진단 로그
-          href: media-services-metrics-diagnostic-logs.md
-        - name: 진단 로그 스키마
-          href: media-services-diagnostic-logs-schema.md
+        - name: Azure Monitor로 모니터링
+          items:
+            - name: Media Services 모니터링
+              href: monitoring/monitor-media-services.md
+            - name: Media Services 데이터 참조 모니터링
+              href: monitoring/monitor-media-services-data-reference.md
+        - name: Event Grid로 모니터링
+          items:
+            - name: Event Grid를 사용하는 이벤트
+              href: monitoring/reacting-to-media-services-events.md
+            - name: Event Grid 스키마
+              href: monitoring/media-services-event-schemas.md
     - name: 호환 가능한 플레이어
       items:
         - name: Media Services용 미디어 플레이어
-          href: media-players-overview.md
+          href: player-media-players-concept.md
     - name: v3 API를 사용하여 개발
       items:
         - name: 개요
           href: media-services-apis-overview.md
           displayName: 'accessing, long-running, sdk, invalid character, name, naming, file name'
         - name: '엔터티 필터링, 순서 지정 및 페이징'
-          href: entities-overview.md
-        - name: Azure RBAC
-          href: rbac-overview.md
+          href: filter-order-page-entitites-how-to.md
         - name: 오류 코드
           items:
             - name: 스트리밍 엔드포인트 오류 코드
-              href: streaming-endpoint-error-codes.md
+              href: stream-streaming-endpoint-error-codes-reference.md
             - name: 라이브 이벤트 오류 코드
-              href: live-event-error-codes.md
+              href: live-event-error-codes-reference.md
             - name: 작업 오류 코드
-              href: job-error-codes.md
+              href: job-error-codes-reference.md
     - name: 고가용성
       items:
         - name: 주문형 비디오
           displayName: 'failover, bcdr, HA, high availability'
-          href: media-services-high-availability-encoding.md
+          href: architecture-high-availability-encoding-concept.md
     - name: Media Services 아키텍처
       displayName: architectures
-      href: architectures-concept.md
+      href: architecture-concept.md
     - name: 문제 해결
       items:
-        - name: 질문과 대답
-          displayName: faqs
-          href: frequently-asked-questions.md
+        - name: 질문 컬렉션
+          href: questions-collection.md
         - name: 오류 코드
           items:
             - name: 스트리밍 엔드포인트 오류 코드
-              href: streaming-endpoint-error-codes.md
+              href: stream-streaming-endpoint-error-codes-reference.md
             - name: 라이브 이벤트 오류 코드
-              href: live-event-error-codes.md
+              href: live-event-error-codes-reference.md
             - name: 작업 오류 코드
-              href: job-error-codes.md
+              href: job-error-codes-reference.md
         - name: 계정 자격 증명 다시 설정
-          href: cli-reset-account-credentials.md
+          href: account-reset-account-credentials.md
     - name: 마이그레이션 가이드
       displayName: migration
       items:
@@ -312,132 +323,148 @@
     - name: 테넌트 및 구독 찾기
       items:
         - name: 테넌트 ID 찾기
-          href: how-to-set-azure-tenant.md
+          href: setup-azure-tenant-how-to.md
         - name: 구독 ID 찾기
-          href: how-to-set-azure-subscription.md
+          href: setup-azure-subscription-how-to.md
     - name: 자산 만들기 및 미디어 업로드
       items:
         - name: 자산 만들기
-          href: how-to-create-asset.md
+          href: asset-create-asset-how-to.md
         - name: 미디어 업로드
-          href: how-to-upload-media.md
-    - name: 변환 및 작업 만들기
+          href: asset-upload-media-how-to.md
+        - name: 여러 스토리지 계정 관리
+          href: storage-managing-multiple-storage-accounts-how-to.md
+    - name: 변환 만들기
       items:
         - name: 변환 만들기
-          href: how-to-create-transform.md
+          href: transform-create-transform-how-to.md
         - name: REST를 사용하여 기본 오디오 변환 만들기
-          href: how-to-create-basic-audio-transform.md
+          href: transform-create-basic-audio-how-to.md
         - name: 썸네일 스프라이트 만들기
-          href: how-to-create-thumbnail-sprites.md
+          href: transform-create-thumbnail-sprites-how-to.md
+        - name: .NET을 사용하여 두 개 이상의 비디오 파일 연결
+          href: transform-stitch-how-to.md
+        - name: 비디오 서브클립 .NET
+          href: transform-subclip-video-dotnet-how-to.md
+          displayName: 'subclipping, clip, edit, trim, clipping'
+        - name: 비디오 서브클립 REST
+          href: transform-subclip-video-rest-how-to.md
+          displayName: 'subclipping, clip, edit, trim, clipping'
+        - name: 인코더 사전 설정 사용자 지정 .NET
+          href: transform-custom-presets-how-to.md
+        - name: 오버레이 변환 만들기 .NET
+          href: transform-create-overlay-how-to.md
+        - name: 썸네일 생성 .NET
+          href: transform-generate-thumbnails-dotnet-how-to.md
+        - name: .NET을 사용하여 비디오 자르기
+          href: crop-howto.md
+        - name: 인코더 사전 설정 사용자 지정 CLI
+          href: transform-custom-preset-cli-how-to.md
+        - name: 인코더 사전 설정 사용자 지정 REST
+          displayName: 'encode, encoding, custom, transform'
+          href: transform-custom-preset-rest-how-to.md
+        - name: 썸네일 생성 REST
+          href: transform-generate-thumbnails-rest-how-to.md
         - name: REST를 사용하여 copyAllBitrateNonInterleaved 변환 만들기
-          href: how-to-create-copyallbitratenoninterleaved-transform.md
+          href: transform-create-copyallbitratenoninterleaved-how-to.md
         - name: REST를 사용하여 인코딩 없이 비디오 복사
-          href: how-to-create-copy-video-audio-transform.md
-        - name: 작업 만들기
-          href: cli-create-jobs.md
+          href: transform-create-copy-video-audio-how-to.md
+    - name: 작업 만들기
+      items:
+        - name: CLI로 작업 만들기
+          href: job-create-cli-how-to.md
         - name: 로컬 파일 및 .NET을 사용하여 작업 입력 만들기
           displayName: upload
           href: job-input-from-local-file-how-to.md
         - name: 여러 변환 출력이 있는 작업
-          href: job-multiple-transform-outputs.md
-    - name: 콘텐츠 인코딩
-      items:
+          href: job-multiple-transform-outputs-how-to.md
         - name: 작업 입력으로의 HTTPS
           href: job-input-from-http-how-to.md
-        - name: 작업 입력으로의 로컬 파일
-          href: job-input-from-local-file-how-to.md
-        - name: 사용자 지정 변환으로 인코딩
-          items:
-            - name: .NET 사용
-              displayName: 'encode, encoding, custom, transform'
-              items:
-                - name: 인코더 사전 설정 사용자 지정
-                  href: customize-encoder-presets-how-to.md
-                - name: 오버레이 변환 만들기
-                  href: how-to-create-overlay.md
-                - name: .NET으로 썸네일 생성
-                  href: media-services-generate-thumbnails-dotnet.md
-            - name: CLI 사용
-              displayName: 'encode, encoding, custom, transform'
-              href: custom-preset-cli-howto.md
-            - name: REST 사용
-              displayName: 'encode, encoding, custom, transform'
-              href: custom-preset-rest-howto.md
-            - name: REST로 썸네일 생성
-              href: media-services-generate-thumbnails-rest.md
-            - name: 미디어 예약 단위 크기 조정
-              href: media-reserved-units-cli-how-to.md
-        - name: 비디오 서브클립
-          items:
-            - name: .NET 사용
-              href: subclip-video-dotnet-howto.md
-              displayName: 'subclipping, clip, edit, trim, clipping'
-            - name: REST 사용
-              href: subclip-video-rest-howto.md
-              displayName: 'subclipping, clip, edit, trim, clipping'
-        - name: 작업 오류 코드
-          href: job-error-codes.md
+    - name: 미디어 예약 단위 크기 조정 CLI
+      href: media-reserved-units-cli-how-to.md
     - name: 라이브 스트리밍
       items:
         - name: 포털과 Wirecast를 사용하는 라이브 이벤트
-          href: live-events-wirecast-quickstart.md
+          href: live-event-wirecast-quickstart.md
         - name: 온-프레미스 인코더 확인
-          href: become-on-premises-encoder-partner.md
+          href: encode-on-premises-encoder-partner.md
         - name: 라이브 이벤트 오류 코드
-          href: live-event-error-codes.md
+          href: live-event-error-codes-reference.md
     - name: Event Grid 사용
       items:
         - name: 이벤트 모니터링 - 포털
-          href: monitor-events-portal-how-to.md
+          href: monitoring/monitor-events-portal-how-to.md
         - name: 이벤트 모니터링 - CLI
-          href: job-state-events-cli-how-to.md
+          href: monitoring/job-state-events-cli-how-to.md
     - name: Azure Monitor 사용
       items:
         - name: 메트릭 모니터링
-          href: media-services-metrics-howto.md
+          href: monitoring/media-services-metrics-howto.md
         - name: 진단 로그 모니터링
-          href: media-services-diagnostic-logs-howto.md
+          href: monitoring/media-services-diagnostic-logs-howto.md
     - name: 콘텐츠 보호
       items:
         - name: 콘텐츠 키 정책 가져오기
-          href: get-content-key-policy-dotnet-howto.md
+          href: drm-get-content-key-policy-dotnet-how-to.md
         - name: iOS용 오프라인 FairPlay
-          href: offline-fairplay-for-ios.md
+          href: drm-offline-fairplay-for-ios-concept.md
         - name: Android용 오프라인 Widevine
-          href: offline-widevine-for-android.md
+          href: drm-offline-widevine-for-android.md
         - name: Windows 10용 오프라인 PlayReady
-          href: offline-plaready-streaming-for-windows-10.md
+          href: drm-offline-playready-streaming-for-windows-10.md
+    - name: Azure Functions 사용
+      items:
+        - name: .NET 사용
+          items:
+            - name: Azure Functions 사용 .NET
+              href: integrate-azure-functions-dotnet-how-to.md
     - name: 필터 생성
       items:
         - name: .NET 사용
-          href: filters-dynamic-manifest-dotnet-howto.md
+          href: filters-dynamic-manifest-dotnet-how-to.md
           displayName: filters
         - name: REST 사용
           href: filters-dynamic-manifest-rest-howto.md
           displayName: filters
         - name: CLI 사용
-          href: filters-dynamic-manifest-cli-howto.md
+          href: filters-dynamic-manifest-cli-how-to.md
           displayName: filters
     - name: 콘텐츠 배달
       items:
         - name: 스트리밍 엔드포인트 관리
-          href: manage-streaming-endpoints-howto.md
-        - name: 자산 게시
-          href: cli-publish-asset.md
+          href: stream-manage-streaming-endpoints-how-to.md
         - name: 스트리밍 로케이터 생성 및 URL 빌드
           href: create-streaming-locator-build-url.md
         - name: 결과 다운로드
-          href: download-results-howto.md
+          href: job-download-results-how-to.md
         - name: 신호 설명 오디오
           href: signal-descriptive-audio-howto.md
+        - name: 게시
+          href: asset-publish-cli-how-to.md
+    - name: 보안
+      items:
+        - name: Azure RBAC
+          href: security-rbac-concept.md
+        - name: 스토리지 액세스 키 롤
+          href: security-storage-roll-access-keys-how-to.md
+        - name: 신뢰할 수 있는 스토리지 사용
+          href: security-trusted-storage-rest-tutorial.md
+        - name: Azure Media Player 인증 토큰 전달
+          href: security-pass-authentication-tokens-how-to.md
+        - name: 신뢰할 수 있는 스토리지 사용
+          href: security-trusted-storage-rest-tutorial.md
+        - name: REST API를 사용하는 고객 관리형 키
+          href: security-customer-managed-keys-rest-postman-tutorial.md
     - name: 미디어 플레이어 사용
       items:
         - name: Azure Media Player 전체 설정
           href: ../azure-media-player/azure-media-player-full-setup.md
         - name: Video.js 플레이어 사용
-          href: how-to-video-js-player.md
+          href: player-how-to-video-js-player.md
         - name: Shaka 비디오 플레이어 사용
-          href: how-to-shaka-player.md
+          href: player-shaka-player-how-to.md
+        - name: 인증 토큰 전달
+          href: security-pass-authentication-tokens-how-to.md
 - name: 참조
   items:
     - name: OpenAPI 사양(Swagger)
@@ -500,7 +527,7 @@
     - name: Azure Media Services 탐색기
       href: 'https://github.com/Azure/Azure-Media-Services-Explorer'
     - name: 할당량 및 제한
-      href: limits-quotas-constraints.md
+      href: limits-quotas-constraints-reference.md
     - name: Azure 클라우드 및 지역
       href: azure-clouds-regions.md
     - name: 지역 코드 이름 및 엔드포인트

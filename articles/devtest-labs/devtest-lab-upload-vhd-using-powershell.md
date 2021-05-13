@@ -1,13 +1,13 @@
 ---
 title: PowerShell을 사용하여 Azure DevTest Labs에 VHD 파일 업로드 | Microsoft Docs
-description: 이 문서는 PowerShell을 사용 하 여 Azure DevTest Labs에 VHD 파일을 업로드 하는 방법을 보여 주는 연습을 제공 합니다.
+description: 이 문서에서는 PowerShell을 사용하여 Azure DevTest Labs에 VHD 파일을 업로드하는 방법을 보여 주는 연습을 제공합니다.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 2b393b886a50f60a918690ee2a5583f9623dbe39
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88650760"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-powershell"></a>PowerShell을 사용하여 랩의 스토리지 계정에 VHD 파일 업로드
@@ -22,7 +22,7 @@ Azure DevTest Labs에서는 VHD 파일을 사용하여 가상 머신을 프로�
 
 1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. **모든 서비스** 를 선택한 다음, 목록에서 **DevTest Labs** 를 선택 합니다.
+1. **모든 서비스** 를 선택한 다음 목록에서 **DevTest Labs** 를 선택합니다.
 
 1. 랩 목록에서 원하는 랩을 탭합니다.  
 
@@ -30,7 +30,7 @@ Azure DevTest Labs에서는 VHD 파일을 사용하여 가상 머신을 프로�
 
 1. 랩의 **구성** 블레이드에서 **사용자 지정 이미지(VHD)** 를 선택합니다.
 
-1. **사용자 지정 이미지** 블레이드에서 **+ 추가** 를 선택 합니다. 
+1. **사용자 지정 이미지** 블레이드에서 **+추가** 를 선택합니다. 
 
 1. **사용자 지정 이미지** 블레이드에서 **VHD** 를 선택합니다.
 

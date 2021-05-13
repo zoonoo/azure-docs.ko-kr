@@ -1,6 +1,6 @@
 ---
-title: Azure API Management에서 사용자 계정을 관리 하는 방법 | Microsoft Docs
-description: Azure API Management에서 사용자를 만들거나 초대 하는 방법에 대해 알아봅니다. 개발자 계정을 만든 후 사용할 추가 리소스를 봅니다.
+title: Azure API Management에서 사용자 계정을 관리하는 방법 | Microsoft Docs
+description: Azure API Management에서 사용자를 만들거나 초대하는 방법에 대해 알아봅니다. 개발자 계정을 만든 후 사용할 추가 리소스를 봅니다.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,15 +13,15 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 92e032eb104835788f515cc7800fe5dacfa8adaa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88566134"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Azure API Management에서 사용자 계정을 관리하는 방법
 
-API Management에서 개발자는 API Management 사용을 공개하는 API의 사용자입니다. 이 가이드에서는 개발자가 API Management 인스턴스와 함께 사용할 수 있는 Api 및 제품을 사용 하도록 개발자를 만들고 초대 하는 방법을 보여 줍니다. 프로그래밍 방식으로 사용자 계정 관리에 대한 내용은 [API Management REST](/rest/api/apimanagement/) 참조에서 [사용자 엔터티](/rest/api/apimanagement/2019-12-01/user) 설명서를 참조하세요.
+API Management에서 개발자는 API Management 사용을 공개하는 API의 사용자입니다. 이 가이드에서는 개발자를 만들고 API Management 인스턴스와 함께 사용할 수 있게 설정한 API 및 제품을 해당 개발자가 사용하도록 초대하는 방법을 보여 줍니다. 프로그래밍 방식으로 사용자 계정 관리에 대한 내용은 [API Management REST](/rest/api/apimanagement/) 참조에서 [사용자 엔터티](/rest/api/apimanagement/2019-12-01/user) 설명서를 참조하세요.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -42,7 +42,7 @@ API Management에서 개발자는 API Management 사용을 공개하는 API의 �
 
     ![새 사용자 추가](./media/api-management-howto-create-or-invite-developers/api-management-create-developer.png)
 
-기본적으로 새로 만든 개발자 계정은 **활성 상태** 이며 **개발자** 그룹과 연결 됩니다. **활성** 상태의 개발자 계정은 구독이 있는 모든 api에 액세스 하는 데 사용할 수 있습니다. 새로 만든 개발자와 추가 그룹을 연결하려면 [그룹과 개발자를 연결하는 방법][How to associate groups with developers]을 참조하세요.
+기본적으로 새로 만든 개발자 계정은 **활성** 이며, **개발자** 그룹과 연결됩니다. **활성** 상태의 개발자 계정은 구독하는 모든 API에 액세스하는 데 사용할 수 있습니다. 새로 만든 개발자와 추가 그룹을 연결하려면 [그룹과 개발자를 연결하는 방법][How to associate groups with developers]을 참조하세요.
 
 ## <a name="invite-a-developer"></a><a name="invite-developer"> </a>개발자 초대
 개발자를 초대하려면 이 섹션의 단계를 수행합니다.
@@ -56,7 +56,7 @@ API Management에서 개발자는 API Management 사용을 공개하는 API의 �
 
 초대가 허용되면 계정이 활성 상태가 됩니다.
 
-## <a name="deactivate-or-reactivate-a-developer-account"></a><a name="block-developer"></a> 개발자 계정 비활성화 또는 다시 활성화
+## <a name="deactivate-or-reactivate-a-developer-account"></a><a name="block-developer"> </a> 개발자 계정 비활성화 또는 다시 활성화
 
 기본적으로, 새로 만들거나 초대한 개발자 계정은 **활성** 상태가 됩니다. 개발자 계정을 비활성화하려면 **차단** 을 클릭합니다. 차단된 개발자 계정을 다시 활성화하려면 **활성화** 를 클릭합니다. 차단된 개발자 계정에서는 개발자 포털에 액세스하거나 어떤 API도 호출할 수 없습니다. 사용자 계정을 삭제하려면 **삭제** 를 클릭합니다.
 
@@ -68,10 +68,10 @@ API Management에서 개발자는 API Management 사용을 공개하는 API의 �
 
 ## <a name="reset-a-user-password"></a>사용자 암호 다시 설정
 
-프로그래밍 방식으로 사용자 계정 작업을 수행 하려면 [API Management REST API](/rest/api/apimanagement/) 참조에서 사용자 엔터티 설명서를 참조 하세요. 사용자 계정 암호를 특정 값으로 다시 설정하려면 [사용자 업데이트](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) 작업을 사용하여 원하는 암호를 지정할 수 있습니다.
+프로그래밍 방식으로 사용자 계정에 대해 작업하려면 [API Management REST API](/rest/api/apimanagement/) 참조에서 사용자 엔터티 설명서를 참조하세요. 사용자 계정 암호를 특정 값으로 다시 설정하려면 [사용자 업데이트](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) 작업을 사용하여 원하는 암호를 지정할 수 있습니다.
 
 ## <a name="next-steps"></a><a name="next-steps"> </a>다음 단계
-개발자 계정이 생성된 후에는 계정과 역할을 연결하고 해당 계정으로 제품 및 API를 구독할 수 있습니다. 자세한 내용은 [그룹을 만들고 사용 하는 방법][How to create and use groups]을 참조 하세요.
+개발자 계정이 생성된 후에는 계정과 역할을 연결하고 해당 계정으로 제품 및 API를 구독할 수 있습니다. 자세한 내용은 [그룹을 만들고 사용하는 방법][How to create and use groups](영문)을 참조하세요.
 
 [api-management-management-console]: ./media/api-management-howto-create-or-invite-developers/api-management-management-console.png
 [api-management-add-new-user]: ./media/api-management-howto-create-or-invite-developers/api-management-add-new-user.png

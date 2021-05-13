@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.openlocfilehash: f4e554a3354b9cfdce7d0c367f757251f44e4599
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92536827"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Azure Cache for Redis FAQ
@@ -21,7 +21,7 @@ Azure Cache for Redis에 대한 일반적인 질문과 대답, 패턴 및 모범
 * [관리 FAQ](cache-management-faq.md)
 * [모니터링 및 문제 해결 FAQ](cache-monitor-troubleshoot-faq.md)
 
-## <a name="deprecated-cache-services"></a>사용 되지 않는 캐시 서비스
+## <a name="deprecated-cache-services"></a>사용되지 않는 캐시 서비스
 
 ### <a name="managed-cache-service"></a>관리된 캐시 서비스
 [Managed Cache Service는 2016년 11월 30일에 사용이 중지되었습니다.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)(영문)
@@ -40,4 +40,4 @@ Azure Cache for Redis에 대한 일반적인 질문과 대답, 패턴 및 모범
 
 * [Azure 캐시에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-cache-redis.html)에 질문을 게시하면 Azure 캐시 팀 및 커뮤니티의 다른 구성원이 참여할 수 있습니다.
 * 기능을 요청하려면 [Azure Cache for Redis 사용자 의견](https://feedback.azure.com/forums/169382-cache)에 요청 및 아이디어를 제출하면 됩니다.
-* 에서 질문을 보낼 수도 있습니다 [azurecache@microsoft.com](mailto:azurecache@microsoft.com) .
+* 궁금한 내용은 [azurecache@microsoft.com](mailto:azurecache@microsoft.com)으로 보내주실 수도 있습니다.

@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55fc4c0b5f3e2bbf57c972ad4a7fd2c9bdd3810e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3e7792546531d7f443a44b127620d508816edcb
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579198"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108285775"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Azure Active Directory 셀프 서비스 암호 재설정 배포 계획
 
@@ -87,7 +87,7 @@ Azure Active Directory는 사용자별로 사용이 허가 됩니다. 즉, 각 �
 |자습서 |[Azure AD 셀프 서비스 암호 재설정 파일럿 배포 완료](./tutorial-enable-sspr.md) |
 | |[비밀번호 쓰기 저장을 사용하도록 설정](./tutorial-enable-sspr-writeback.md) |
 | |[Windows 10의 로그인 화면에서 Azure AD 암호 재설정](./howto-sspr-windows.md) |
-| FAQ|[암호 관리 질문과 대답](./active-directory-passwords-faq.md) |
+| FAQ|[암호 관리 질문과 대답](./active-directory-passwords-faq.yml) |
 
 
 ### <a name="solution-architecture"></a>솔루션 아키텍처
@@ -328,7 +328,7 @@ Azure Portal에서 미리 빌드된 보고서를 사용하여 SSPR 성능을 측
 
 * [셀프 서비스 암호 재설정 문제 해결](./troubleshoot-sspr.md)을 참조하세요. 
 
-* [암호 관리 질문과 대답](./active-directory-passwords-faq.md)을 따르세요. 
+* [암호 관리 질문과 대답](./active-directory-passwords-faq.yml)을 따르세요. 
 
 ### <a name="helpful-documentation"></a>유용한 설명서
 

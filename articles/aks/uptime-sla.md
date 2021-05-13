@@ -5,22 +5,22 @@ services: container-service
 ms.topic: conceptual
 ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 69a4955f28bbd42cd7bf5651bd057412e15303de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 288e1b9e361bd8c0cf41e4bb86fcfce15dda8ac9
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952918"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166400"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>AKS(Azure Kubernetes Service) 작동 시간 SLA
 
 작동 시간 SLA는 재정적 지원을 받는 상위 SLA를 클러스터에 설정하는 선택적 기능입니다. 작동 시간 SLA는 [가용성 영역][availability-zones]을 사용하는 클러스터에 Kubernetes API 서버 엔드포인트의 99.95% 가용성을 보장하고, 가용성 영역을 사용하지 않는 클러스터에는 99.9%의 가용성을 보장합니다. AKS는 업데이트 및 장애 도메인에서 마스터 노드 복제본을 사용하여 SLA 요구 사항을 충족하는지 확인합니다.
 
-규정 준수 요구 사항을 충족하거나 SLA를 최종 사용자로 확장하기 위해 SLA가 필요한 고객은 이 기능을 사용해야 합니다. 작동 시간이 높은 SLA를 활용하는 중요한 워크로드를 사용하는 고객에게도 이 기능이 유용할 수 있습니다. 작동 시간 SLA 기능을 가용성 영역과 함께 사용하면 Kubernetes API 서버의 작동 시간 가용성이 높아집니다.  
+규정 준수 요구 사항을 충족하거나 SLA를 최종 사용자로 확장하기 위해 SLA가 필요한 고객은 이 기능을 사용해야 합니다. 작동 시간이 높은 SLA를 활용하는 중요한 워크로드를 사용하는 고객에게도 이 기능이 유용할 수 있습니다. 작동 시간 SLA 기능을 가용성 영역과 함께 사용하면 Kubernetes API 서버의 작동 시간 가용성이 높아집니다.
 
 고객은 여전히 SLO(서비스 수준 목표)가 99.5% 인 무제한 무료 클러스터를 만들고, 필요에 따라 기본 SLO 또는 SLA 작동 시간을 선택할 수 있습니다.
 
-> [!Important]
+> [!IMPORTANT]
 > 송신 잠금이 있는 클러스터의 경우 [송신 트래픽 제한](limit-egress-traffic.md)을 참조하여 적절한 포트를 여세요.
 
 ## <a name="region-availability"></a>지역 가용성
@@ -46,12 +46,14 @@ ms.locfileid: "104952918"
 # Create a resource group
 az group create --name myResourceGroup --location eastus
 ```
+
 [`az aks create`][az-aks-create] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster* 라는 클러스터를 만듭니다. 이 작업을 완료하는 데 몇 분이 걸립니다.
 
 ```azurecli-interactive
 # Create an AKS cluster with uptime SLA
 az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1
 ```
+
 몇 분 후 명령이 완료되면 클러스터에 대한 JSON 형식 정보가 반환됩니다. 다음 JSON 코드 조각은 SKU의 유료 계층을 보여 줍니다. 이는 클러스터에 작동 시간 SLA가 설정되어 있음을 나타냅니다.
 
 ```output
@@ -91,18 +93,18 @@ az aks create --resource-group myResourceGroup --name myAKSCluster--node-count 1
 
 ```azurecli-interactive
 # Update an existing cluster to use Uptime SLA
- az aks update --resource-group myResourceGroup --name myAKSCluster --uptime-sla
- ```
+az aks update --resource-group myResourceGroup --name myAKSCluster --uptime-sla
+```
 
- 다음 JSON 코드 조각은 SKU의 유료 계층을 보여 줍니다. 이는 클러스터에 작동 시간 SLA가 설정되어 있음을 나타냅니다.
+다음 JSON 코드 조각은 SKU의 유료 계층을 보여 줍니다. 이는 클러스터에 작동 시간 SLA가 설정되어 있음을 나타냅니다.
 
- ```output
+```output
   },
   "sku": {
     "name": "Basic",
     "tier": "Paid"
   },
-  ```
+```
 
 ## <a name="opt-out-of-uptime-sla"></a>작동 시간 SLA 옵트아웃
 
@@ -111,7 +113,7 @@ az aks create --resource-group myResourceGroup --name myAKSCluster--node-count 1
 ```azurecli-interactive
 # Update an existing cluster to opt out of Uptime SLA
  az aks update --resource-group myResourceGroup --name myAKSCluster --no-uptime-sla
- ```
+```
 
 ## <a name="clean-up"></a>정리
 
@@ -120,7 +122,6 @@ az aks create --resource-group myResourceGroup --name myAKSCluster--node-count 1
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
-
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -137,10 +138,10 @@ az group delete --name myResourceGroup --yes --no-wait
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [faq]: ./faq.md
 [availability-zones]: ./availability-zones.md
-[az-aks-create]: /cli/azure/aks?#az-aks-create
+[az-aks-create]: /cli/azure/aks?#az_aks_create
 [limit-egress-traffic]: ./limit-egress-traffic.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [az-aks-update]: /cli/azure/aks#az_aks_update
-[az-group-delete]: /cli/azure/group#az-group-delete
+[az-group-delete]: /cli/azure/group#az_group_delete
 [private-clusters]: private-clusters.md

@@ -1,0 +1,103 @@
+### YamlMime:Landing
+title: 모든 클라우드 채택 단계에 대한 Azure 보안 문서
+summary: 클라우드로의 이동을 고려 중이든, 이미 클라우드로 마이그레이션했든 관계없이 클라우드 보안 경험의 모든 단계에 대한 지침을 찾을 수 있습니다.
+metadata:
+  title: Azure 보안 경험 문서
+  description: Azure에서 보안 경험의 각 단계에 대한 지침을 찾습니다.
+  services: security
+  ms.service: security
+  ms.subservice: journey
+  ms.topic: landing-page
+  author: TerryLanfear
+  ms.author: terrylan
+  manager: rkarlin
+  ms.date: 04/30/2021
+  ms.openlocfilehash: 09cef5e5e209b89f3c80b7565fbffb65c3d6eb6d
+  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 05/06/2021
+  ms.locfileid: "108732944"
+landingContent:
+- title: Azure의 보안 이점 이해
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 클라우드의 공동 책임
+      url: ../fundamentals/shared-responsibility.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: 엔드투엔드 보안 서비스
+      url: ../fundamentals/end-to-end.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - linkListType: concept
+    links:
+    - text: Microsoft는 Azure 인프라를 보호하는 방법
+      url: ../fundamentals/infrastructure.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Azure 플랫폼 보안 및 무결성
+      url: ../fundamentals/platform.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+- title: 클라우드로 안전하게 마이그레이션 준비
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 비즈니스 전반에서 보안 구현
+      url: /azure/cloud-adoption-framework/get-started/security?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - linkListType: concept
+    links:
+    - text: 안전한 아키텍처 설계
+      url: /azure/architecture/framework/security/security-principles?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: 엔터프라이즈 규모 보안, 거버넌스 및 규정 준수
+      url: /azure/cloud-adoption-framework/ready/enterprise-scale/security-governance-and-compliance/?tabs=MigrationTools?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+- title: 클라우드로 비즈니스 마이그레이션
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 보안 워크로드 마이그레이션
+      url: /azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - linkListType: overview
+    links:
+    - text: 거버넌스 또는 규정 준수 전략
+      url: /azure/cloud-adoption-framework/migrate/azure-best-practices/governance-or-compliance/?tabs=MigrationTools?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+- title: 클라우드 워크로드 보호
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 보안 모범 사례
+      url: ../fundamentals/best-practices-and-patterns.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: 보안 제어 및 기준
+      url: ../benchmarks/introduction.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - linkListType: concept
+    links:
+    - text: ID 관리
+      url: ../fundamentals/identity-management-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: 네트워크 보안
+      url: ../fundamentals/network-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: 데이터 보안 및 암호화
+      url: ../fundamentals/encryption-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Microsoft 맬웨어 방지
+      url: ../fundamentals/antimalware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: 가상 머신 보안
+      url: ../fundamentals/virtual-machines-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+- title: 위협 감지, 분석 및 완화
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 위협 보호
+      url: ../fundamentals/threat-detection.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: 위협 분석
+      url: /azure/architecture/framework/security/design-threat-model?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+- title: 의심스러운 활동 조사
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure 로깅
+      url: ../fundamentals/log-audit.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: 검토 및 감사
+      url: /azure/architecture/framework/security/monitor-audit?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: ID 및 네트워크 위험
+      url: /azure/architecture/framework/security/monitor-identity-network?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+- title: 보안 투자 최적화
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 거버넌스, 위험, 규정 준수
+      url: /azure/architecture/framework/governance/monitor-audit?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: ID 및 네트워크 위험
+      url: /azure/architecture/framework/security/monitor-test?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json

@@ -25,6 +25,8 @@
   items:
     - name: 보안
       items:
+        - name: 보안 기준
+          href: /security/benchmark/azure/baselines/aad-security-baseline?toc=/azure/active-directory/fundamentals/toc.json
         - name: 온-프레미스 공격으로부터 Microsoft 365 보호
           href: protect-m365-from-on-premises-attacks.md
         - name: 보안 외부 협업
@@ -53,23 +55,23 @@
           items:
             - name: Azure 서비스 계정 소개
               href: service-accounts-introduction-azure.md
-            - name: 관리 ID 보안
+            - name: 관리 ID 보호
               href: service-accounts-managed-identities.md
-            - name: 서비스 주체 보안
+            - name: 서비스 주체 보호
               href: service-accounts-principal.md
             - name: Azure 서비스 계정 관리
               href: service-accounts-governing-azure.md
             - name: 온-프레미스 서비스 계정 소개
               href: service-accounts-on-premises.md
-            - name: 그룹 MSA 보안
+            - name: 그룹 MSA 보호
               href: service-accounts-group-managed.md
-            - name: 독립 실행형 MSA 보안
+            - name: 독립 실행형 MSA 보호
               href: service-accounts-standalone-managed.md
             - name: 컴퓨터 계정 보안
               href: service-accounts-computer.md
-            - name: 사용자 기반 서비스 계정 보안
+            - name: 온-프레미스 사용자 서비스 계정 보호
               href: service-accounts-user-on-premises.md
-            - name: 온-프레미스 서비스 계정 관리
+            - name: 온-프레미스 사용자 서비스 계정 관리
               href: service-accounts-govern-on-premises.md
         - name: MFA 사용
           href: concept-fundamentals-mfa-get-started.md
@@ -165,6 +167,8 @@
                   href: resilience-client-app.md
                 - name: 디먼 애플리케이션
                   href: resilience-daemon-app.md
+                - name: OpenID Connect 메타데이터 새로 고침
+                  href: ../develop/howto-build-services-resilient-to-metadata-refresh.md
             - name: 복원력을 위한 애플리케이션 상태 모니터링
               href: monitor-sign-in-health-for-resilience.md
         - name: Azure에서 사용되는 인증 기관
@@ -181,6 +185,8 @@
           href: active-directory-data-storage-eu.md
         - name: 오스트레일리아 및 뉴질랜드의 ID 데이터 스토리지
           href: active-directory-data-storage-australia-newzealand.md
+    - name: 최전방 직원 관리
+      href: frontline-worker-management.md
     - name: Azure AD 작업 참조
       items:
         - name: 소개

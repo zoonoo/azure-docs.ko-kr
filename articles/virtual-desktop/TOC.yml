@@ -36,7 +36,7 @@
           href: connect-ios.md
         - name: Microsoft Store 클라이언트와 연결
           href: connect-microsoft-store.md
-        - name: Linux 디바이스와 연결
+        - name: 씬 클라이언트와 연결
           href: linux-overview.md
     - name: 디바이스 리디렉션 구성
       href: configure-device-redirections.md
@@ -126,8 +126,14 @@
       href: disaster-recovery.md
     - name: KDC 프록시 설정
       href: key-distribution-center-proxy.md
-    - name: RD 게이트웨이 역할 설정
-      href: rd-gateway-role.md
+    - name: 연결 시 VM 시작
+      items:
+        - name: 연결 시 VM 시작 설정
+          href: start-virtual-machine-connect.md
+        - name: 연결 시 VM 시작 FAQ
+          href: start-virtual-machine-connect-faq.md
+    - name: 드레이닝 모드 설정
+      href: drain-mode.md
 - name: 개념
   items:
     - name: 기본 제공 역할
@@ -150,6 +156,8 @@
           href: safe-url-list.md
         - name: 대역폭 고려 사항
           href: rdp-bandwidth.md
+        - name: 프록시 지원 지침
+          href: proxy-server-support.md
         - name: 사용자 연결 대기 시간 확인
           href: connection-latency.md
     - name: Windows Virtual Desktop에서 위임된 액세스
@@ -160,12 +168,10 @@
       href: fslogix-containers-azure-files.md
     - name: FSLogix 프로필 컨테이너에 대한 스토리지 옵션
       href: store-fslogix-profile.md
-    - name: 파트너 통합
-      href: partners.md
     - name: Windows Virtual Desktop FAQ
       href: faq.md
     - name: Windows 10 Enterprise 다중 세션 FAQ
-      href: windows-10-multisession-faq.md
+      href: windows-10-multisession-faq.yml
     - name: MSIX 앱 연결
       items:
         - name: MSIX 앱 연결이란?
@@ -181,7 +187,7 @@
     - name: 보안
       items:
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/windows-virtual-desktop-security-baseline?context=/azure/virtual-desktop/context/context
 - name: 문제 해결
   items:
     - name: '문제 해결 개요, 피드백 및 지원'
@@ -210,12 +216,16 @@
       href: security-guide.md
     - name: Linux 지원
       href: linux-overview.md
+    - name: Azure CLI
+      href: /cli/azure/desktopvirtualization
+    - name: Azure Monitor 비용 예측
+      href: azure-monitor-costs.md
     - name: 지원되는 RDP 파일 설정
       href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
     - name: 가상 머신 크기 조정 지침
       href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
     - name: Azure CLI(명령줄 인터페이스)
-      href: /cli/azure/ext/desktopvirtualization/
+      href: /cli/azure/
     - name: Azure 예제 시나리오
       href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
     - name: 이메일 검색
@@ -236,9 +246,11 @@
       href: 'https://support.microsoft.com/help/4563049/how-to-videos-about-windows-virtual-desktop'
     - name: 기술 커뮤니티 지원 그룹
       href: 'https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop'
-    - name: UserVoice 포럼
-      href: 'https://windowsvirtualdesktop.uservoice.com/forums/921118-general'
     - name: Microsoft 365 로드맵
       href: 'https://aka.ms/wvdroadmap'
     - name: Azure 리소스 관리자 템플릿
       href: 'https://github.com/Azure/RDS-Templates/tree/master/wvd-templates'
+    - name: Azure 규정 준수 제품
+      href: 'https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/'
+    - name: Azure Advisor
+      href: ../advisor/advisor-overview.md

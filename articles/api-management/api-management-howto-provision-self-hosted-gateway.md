@@ -1,6 +1,6 @@
 ---
-title: Azure API Management에서 자체 호스팅 게이트웨이 프로 비전 Microsoft Docs
-description: Azure API Management에서 자체 호스팅 게이트웨이를 프로 비전 하는 방법을 알아봅니다.
+title: Azure API Management에서 자체 호스팅 게이트웨이 프로비저닝 | Microsoft Docs
+description: Azure API Management에서 자체 호스팅 게이트웨이를 프로비저닝하는 방법을 알아봅니다.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -13,15 +13,15 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: apimpm
 ms.openlocfilehash: e79248e16ca21ae84022f8ac7f280d93f489c6a4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87050350"
 ---
-# <a name="provision-a-self-hosted-gateway-in-azure-api-management"></a>Azure API Management에서 자체 호스팅 게이트웨이 프로 비전
+# <a name="provision-a-self-hosted-gateway-in-azure-api-management"></a>Azure API Management에서 자체 호스팅 게이트웨이 프로비저닝
 
-Azure API Management 인스턴스에서 게이트웨이 리소스를 프로 비전 하는 것은 자체 호스팅 게이트웨이를 배포 하기 위한 필수 구성 요소입니다. 이 문서에서는 API Management에서 게이트웨이 리소스를 프로 비전 하는 단계를 안내 합니다.
+자체 호스팅 게이트웨이를 배포하려면 Azure API Management 인스턴스에서 게이트웨이 리소스를 사전에 프로비저닝해야 합니다. 이 문서에서는 API Management에서 게이트웨이 리소스를 프로비저닝하는 단계를 설명합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -31,23 +31,23 @@ Azure API Management 인스턴스에서 게이트웨이 리소스를 프로 비�
 
 ## <a name="provision-a-self-hosted-gateway"></a>자체 호스팅 게이트웨이 프로비전
 
-1. **배포 및 인프라** 에서 **게이트웨이** 를 선택 합니다.
+1. **배포 및 인프라** 에서 **게이트웨이** 를 선택합니다.
 2. **+ 추가** 를 클릭합니다.
-3. 게이트웨이의 **이름** 및 **지역을** 입력 합니다.
+3. 게이트웨이의 **이름** 및 **지역** 을 입력합니다.
 > [!TIP]
-> **Region** 이 게이트웨이 리소스와 연결 될 게이트웨이 노드의 위치를 지정 합니다. 모든 Azure 리소스와 연결 된 유사한 속성과 의미상 동일 하지만 임의의 문자열 값을 할당할 수 있습니다.
+> **지역** 은 이 게이트웨이 리소스와 연결될 게이트웨이 노드의 위치를 지정합니다. Azure 리소스와 연결된 유사한 속성과 의미상 동일하지만 임의의 문자열 값이 할당될 수 있습니다.
 
-4. 필요에 따라 게이트웨이 리소스에 대 한 **설명을** 입력 합니다.
-5. 필요에 따라 **+** **api** 를 선택 하 여 하나 이상의 api를이 게이트웨이 리소스와 연결 합니다.
+4. 필요에 따라 게이트웨이 리소스에 대한 **설명** 을 입력합니다.
+5. 필요에 따라 **API** 에서 **+** 를 선택하여 하나 이상의 API를 이 게이트웨이 리소스와 연결합니다.
 > [!IMPORTANT]
-> 기본적으로 기존 Api는 새 게이트웨이 리소스와 연결 되지 않습니다. 따라서 새 게이트웨이를 통해 호출 하려고 하면 `404 Resource Not Found` 응답이 발생 합니다.
+> 기본적으로 기존 API는 새 게이트웨이 리소스와 연결되지 않습니다. 따라서 새 게이트웨이를 통해 호출하려고 하면 `404 Resource Not Found` 응답이 발생합니다.
 
 6. **추가** 를 클릭합니다.
 
-이제 게이트웨이 리소스가 API Management 인스턴스에 프로 비전 되었습니다. 게이트웨이 배포를 계속할 수 있습니다.
+이제 API Management 인스턴스에 게이트웨이 리소스가 프로비저닝되었습니다. 게이트웨이 배포를 계속할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 자체 호스팅 게이트웨이에 대해 자세히 알아보려면 [Azure API Management 자체 호스팅 게이트웨이 개요](self-hosted-gateway-overview.md) 를 참조 하세요.
-* [Kubernetes에 자체 호스팅 게이트웨이를 배포](how-to-deploy-self-hosted-gateway-kubernetes.md) 하는 방법에 대 한 자세한 정보
-* [자체 호스팅 게이트웨이를 Docker에 배포](how-to-deploy-self-hosted-gateway-docker.md) 하는 방법에 대 한 자세한 정보
+* 자체 호스팅 게이트웨이에 대한 자세한 내용은 [Azure API Management 자체 호스팅 게이트웨이 개요](self-hosted-gateway-overview.md)를 참조하세요.
+* [Kubernetes에 자체 호스팅 게이트웨이를 배포](how-to-deploy-self-hosted-gateway-kubernetes.md)하는 방법을 알아보세요.
+* [Docker에 자체 호스팅 게이트웨이를 배포](how-to-deploy-self-hosted-gateway-docker.md)하는 방법을 알아보세요.

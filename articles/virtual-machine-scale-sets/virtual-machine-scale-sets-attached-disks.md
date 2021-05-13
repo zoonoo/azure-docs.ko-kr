@@ -1,6 +1,6 @@
 ---
-title: Azure Virtual Machine Scale Sets 연결 된 데이터 디스크
-description: 특정 사용 사례에 대 한 개요를 통해 가상 머신 확장 집합에 연결 된 데이터 디스크를 사용 하는 방법을 알아봅니다.
+title: Azure Virtual Machine Scale Sets와 연결된 데이터 디스크
+description: 특정 사용 사례에 대한 개요를 통해 Virtual Machine Scale Sets와 연결된 데이터 디스크를 사용하는 방법을 알아봅니다.
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
@@ -10,10 +10,10 @@ ms.date: 4/25/2017
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 9e4bdf868d3f8ddf3a049509ead30a4b1ba341b7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86527441"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Azure 가상 머신 확장 집합 및 연결된 데이터 디스크
@@ -33,7 +33,7 @@ ms.locfileid: "86527441"
 
 
 ## <a name="create-a-service-fabric-cluster-with-attached-data-disks"></a>연결된 데이터 디스크를 사용하여 Service Fabric 클러스터 만들기
-Azure에서 실행 되는 [Service Fabric](../service-fabric/index.yml) 클러스터의 각 [노드 유형은](../service-fabric/service-fabric-cluster-nodetypes.md) 가상 머신 확장 집합으로 지원 됩니다. Azure Resource Manager 템플릿을 사용하여 Service Fabric 클러스터를 구성하는 확장 집합에 데이터 디스크를 연결할 수 있습니다. [기존 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates) 시작 지점으로 사용할 수 있습니다. 템플릿에서, _Microsoft.Compute/virtualMachineScaleSets_ 리소스의 _storageProfile_ 에 _dataDisks_ 섹션을 포함하고 템플릿을 배포합니다. 다음 예제에서는 128GB 데이터 디스크를 연결합니다.
+Azure에서 실행되는 [Service Fabric](../service-fabric/service-fabric-cluster-nodetypes.md) 클러스터의 각 [노드 형식](../service-fabric/index.yml)은 가상 머신 확장 집합을 통해 백업됩니다. Azure Resource Manager 템플릿을 사용하여 Service Fabric 클러스터를 구성하는 확장 집합에 데이터 디스크를 연결할 수 있습니다. [기존 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates) 시작 지점으로 사용할 수 있습니다. 템플릿에서, _Microsoft.Compute/virtualMachineScaleSets_ 리소스의 _storageProfile_ 에 _dataDisks_ 섹션을 포함하고 템플릿을 배포합니다. 다음 예제에서는 128GB 데이터 디스크를 연결합니다.
 
 ```json
 "dataDisks": [
@@ -87,10 +87,10 @@ Linux 클러스터에서 자동으로 데이터 디스크를 준비하려면 다
 
 
 ## <a name="adding-pre-populated-data-disks-to-an-existing-scale-set"></a>기존 확장 집합에 미리 지정된 데이터 디스크 추가
-확장 집합 모델에 지정된 데이터 디스크는 항상 비어 있습니다. 그러나 확장 집합의 특정 VM에 기존 데이터 디스크를 연결할 수 있습니다. 확장 집합의 모든 Vm에서 데이터를 전파 하려면 데이터 디스크를 복제 하 여 확장 집합의 각 VM에 연결 하거나, 데이터를 포함 하는 사용자 지정 이미지를 만들고이 사용자 지정 이미지에서 확장 집합을 프로 비전 하거나, Azure Files 또는 유사한 데이터 저장소 제품을 사용할 수 있습니다.
+확장 집합 모델에 지정된 데이터 디스크는 항상 비어 있습니다. 그러나 확장 집합의 특정 VM에 기존 데이터 디스크를 연결할 수 있습니다. 확장 집합의 모든 VM에 데이터를 전파하려는 경우 데이터 디스크를 복제하고 확장 집합의 각 VM에 이 데이터 디스크를 연결하거나, 데이터가 포함된 사용자 지정 이미지를 만들고 이 사용자 지정 이미지에서 확장 집합을 프로비저닝하거나, Azure Files 또는 유사한 데이터 스토리지 제공을 사용할 수 있습니다.
 
 
 ## <a name="additional-notes"></a>추가적인 참고 사항
 Azure Managed Disks 및 확장 집합 연결 데이터 디스크에 대한 지원은 Microsoft.Compute API [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/compute/resource-manager/Microsoft.Compute/preview/2016-04-30-preview/compute.json) 이상의 API 버전에서 사용할 수 있습니다.
 
-크기 집합의 연결 된 데이터 디스크에 대 한 지원이 제한 됩니다. Azure Portal 요구 사항에 따라 Azure 템플릿, CLI, PowerShell, SDK 및 REST API를 사용하여 연결된 디스크를 관리할 수 있습니다.
+확장 집합에서 연결된 데이터 디스크에 대한 Azure Portal 지원은 제한되어 있습니다. 요구 사항에 따라 Azure 템플릿, CLI, PowerShell, SDK 및 REST API를 사용하여 연결된 디스크를 관리할 수 있습니다.

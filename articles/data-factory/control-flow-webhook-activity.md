@@ -1,18 +1,18 @@
 ---
 title: Azure Data Factory의 웹후크 작업
 description: 웹후크 작업은 사용자가 지정한 특정 조건에 따라 연결된 데이터 세트의 유효성이 검사될 때까지 파이프라인을 계속 실행하지 않습니다.
-author: dcstwh
-ms.author: weetok
+author: nabhishek
+ms.author: abnarain
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 4c3ff5d7139f4167769f78aa858c7d7a693539a3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0c35a8b25e09029d2f561b107613b13cc40b19de
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104785940"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903905"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Azure Data Factory의 웹후크 작업
 
@@ -57,19 +57,19 @@ ms.locfileid: "104785940"
 -------- | ----------- | -------------- | --------
 **name** | 웹후크 작업의 이름입니다. | String | 예 |
 **type** | “WebHook”로 설정해야 합니다. | String | 예 |
-**method** | 대상 엔드포인트에 대한 REST API 메서드입니다. | 문자열입니다. 지원되는 형식은 “POST”입니다. | 예 |
-**url** | 대상 엔드포인트 및 경로입니다. | 문자열 또는 문자열의 **resultType** 값이 포함된 식입니다. | 예 |
+**method** | 대상 엔드포인트에 대한 REST API 메서드입니다. | 문자열입니다. 지원되는 형식은 “POST”입니다. | Yes |
+**url** | 대상 엔드포인트 및 경로입니다. | 문자열 또는 문자열의 **resultType** 값이 포함된 식입니다. | Yes |
 **headers** | 요청에 전송되는 헤더입니다. 요청에 언어 및 형식을 설정하려면 `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`과 같이 합니다. | 문자열 또는 문자열의 **resultType** 값이 포함된 식입니다. | 예. `"headers":{ "Content-Type":"application/json"}`와 같은 `Content-Type` 헤더가 필요합니다. |
-**body** | 엔드포인트에 전송된 페이로드를 나타냅니다. | 유효한 JSON 또는 JSON의 **resultType** 값이 포함된 식입니다. 요청 페이로드의 스키마는 [요청 페이로드 스키마](./control-flow-web-activity.md#request-payload-schema)를 참조하세요. | 예 |
-**인증** | 엔드포인트를 호출하는 데 사용되는 인증 방법입니다. 지원되는 형식은 “Basic” 및 “ClientCertificate”입니다. 자세한 내용은 [인증](./control-flow-web-activity.md#authentication)을 참조하세요. 인증이 필요 없는 경우 이 속성을 제외합니다. | 문자열 또는 문자열의 **resultType** 값이 포함된 식입니다. | 예 |
+**body** | 엔드포인트에 전송된 페이로드를 나타냅니다. | 유효한 JSON 또는 JSON의 **resultType** 값이 포함된 식입니다. 요청 페이로드의 스키마는 [요청 페이로드 스키마](./control-flow-web-activity.md#request-payload-schema)를 참조하세요. | Yes |
+**인증** | 엔드포인트를 호출하는 데 사용되는 인증 방법입니다. 지원되는 형식은 “Basic” 및 “ClientCertificate”입니다. 자세한 내용은 [인증](./control-flow-web-activity.md#authentication)을 참조하세요. 인증이 필요 없는 경우 이 속성을 제외합니다. | 문자열 또는 문자열의 **resultType** 값이 포함된 식입니다. | No |
 **timeout** | 작업이 **callBackUri** 로 지정된 콜백이 호출될 때까지 대기하는 시간입니다. 기본값은 10분(“00:10:00”)입니다. 값은 *d*.*hh*:*mm*:*ss* 의 TimeSpan 형식을 가집니다. | String | 예 |
-**콜백에 대한 보고서 상태** | 사용자가 웹후크 작업의 실패 상태를 보고할 수 있습니다. | 부울 | 예 |
+**콜백에 대한 보고서 상태** | 사용자가 웹후크 작업의 실패 상태를 보고할 수 있습니다. | 부울 | No |
 
 ## <a name="authentication"></a>인증
 
 웹후크 작업은 다음 인증 유형을 지원합니다.
 
-### <a name="none"></a>없음
+### <a name="none"></a>None
 
 인증이 필요 없는 경우 **authentication** 속성을 포함하지 않습니다.
 

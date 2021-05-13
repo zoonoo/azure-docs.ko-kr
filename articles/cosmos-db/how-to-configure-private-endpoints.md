@@ -4,15 +4,15 @@ description: 가상 네트워크에서 개인 IP 주소를 사용하여 Azure Co
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/26/2021
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d21943c90e1f77bd4a43cdfd27b183df018f6cc7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 034eb35eeef975be23cc318aa797282008d71728
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101690671"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936906"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Azure Cosmos 계정에 대한 Azure Private Link 구성
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -20,13 +20,13 @@ ms.locfileid: "101690671"
 Azure Private Link를 사용하면 프라이빗 엔드포인트를 통해 Azure Cosmos 계정에 연결할 수 있습니다. 프라이빗 엔드포인트는 가상 네트워크 내부에 있는 서브넷의 개인 IP 주소 세트입니다. 그런 다음, 개인 IP 주소를 통해 Azure Cosmos 계정에 대한 액세스를 제한할 수 있습니다. Private Link를 제한된 NSG 정책과 결합하면 데이터 반출 위험을 줄일 수 있습니다. 프라이빗 엔드포인트에 대한 자세한 내용은 [Azure Private Link](../private-link/private-link-overview.md) 문서를 참조하세요.
 
 > [!NOTE]
-> 개인 링크를 통해 Azure Cosmos 끝점이 공용 DNS에서 확인 되는 것을 방지할 수 없습니다. 들어오는 요청에 대 한 필터링은 전송 또는 네트워크 수준이 아닌 응용 프로그램 수준에서 수행 됩니다.
+> Private Link는 Azure Cosmos 엔드포인트가 퍼블릭 DNS를 통해 확인되는 것을 방지하지 않습니다. 들어오는 요청 필터링은 전송이나 네트워크 수준이 아닌 애플리케이션 수준에서 발생합니다.
 
 Private Link를 사용하면 사용자가 가상 네트워크 내부에서 또는 피어링된 가상 네트워크에서 Azure Cosmos 계정에 액세스할 수 있습니다. Private Link에 매핑된 리소스 역시 프라이빗 피어링을 사용하여 VPN 또는 Azure ExpressRoute를 통해 온-프레미스에서 액세스할 수 있습니다.
 
 자동 또는 수동 승인 방법을 사용하여 Private Link를 통해 구성된 Azure Cosmos 계정에 연결할 수 있습니다. 자세한 내용은 Private Link 설명서의 [승인 워크플로](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) 섹션을 참조하세요.
 
-이 문서에서는 Azure Cosmos DB 트랜잭션 저장소에 대 한 개인 끝점을 설정 하는 방법을 설명 합니다. 자동 승인 방법을 사용하는 것으로 가정합니다. 분석 저장소를 사용 하는 경우 [분석 저장소에 대 한 개인 끝점](analytical-store-private-endpoints.md) 문서를 참조 하세요.
+이 문서에서는 Azure Cosmos DB 트랜잭션 저장소의 프라이빗 엔드포인트를 설정하는 방법을 설명합니다. 자동 승인 방법을 사용하는 것으로 가정합니다. 분석 저장소를 사용하는 경우 [분석 저장소의 프라이빗 엔드포인트](analytical-store-private-endpoints.md) 문서를 참조하세요.
 
 ## <a name="create-a-private-endpoint-by-using-the-azure-portal"></a>Azure Portal을 사용하여 프라이빗 엔드포인트 만들기
 
@@ -70,7 +70,7 @@ Private Link를 사용하면 사용자가 가상 네트워크 내부에서 또�
     | 가상 네트워크| 가상 네트워크를 선택합니다. |
     | 서브넷 | 서브넷을 선택합니다. |
     |**프라이빗 DNS 통합**||
-    |프라이빗 DNS 영역과 통합 |**예** 를 선택합니다. <br><br/> 프라이빗 엔드포인트에 비공개로 연결하려면 DNS 레코드가 필요합니다. 프라이빗 엔드포인트를 프라이빗 DNS 영역과 통합하는 것이 좋습니다. 자체 DNS 서버를 활용하거나 가상 머신의 호스트 파일을 사용하여 DNS 레코드를 만들 수도 있습니다. |
+    |프라이빗 DNS 영역과 통합 |**예** 를 선택합니다. <br><br/> 프라이빗 엔드포인트에 비공개로 연결하려면 DNS 레코드가 필요합니다. 프라이빗 엔드포인트를 프라이빗 DNS 영역과 통합하는 것이 좋습니다. 자체 DNS 서버를 활용하거나 가상 머신의 호스트 파일을 사용하여 DNS 레코드를 만들 수도 있습니다. <br><br/> 이 옵션에 대해 예를 선택하면 프라이빗 DNS 영역 그룹도 생성됩니다. DNS 영역 그룹은 프라이빗 DNS 영역과 프라이빗 엔드포인트 간의 링크입니다. 이 링크를 사용하면 프라이빗 엔드포인트에 대한 업데이트가 있을 때 프라이빗 DNS 영역을 자동으로 업데이트할 수 있습니다. 예를 들어 지역을 추가하거나 제거하는 경우 프라이빗 DNS 영역이 자동으로 업데이트됩니다. |
     |프라이빗 DNS 영역 |**privatelink.documents.azure.com** 을 선택합니다. <br><br/> 프라이빗 DNS 영역은 자동으로 결정됩니다. Azure Portal을 사용하여 변경할 수 없습니다.|
     |||
 
@@ -78,6 +78,8 @@ Private Link를 사용하면 사용자가 가상 네트워크 내부에서 또�
 1. **유효성 검사 통과** 메시지가 표시되면 **만들기** 를 선택합니다.
 
 Azure Cosmos 계정에 대한 Private Link를 승인하면 Azure Portal에서 **방화벽 및 가상 네트워크** 창에서 **모든 네트워크** 옵션을 사용할 수 없습니다.
+
+## <a name="api-types-and-private-zone-names"></a><a id="private-zone-name-mapping"></a>API 형식과 프라이빗 영역 이름
 
 다음 표는 여러 Azure Cosmos 계정 API 유형, 지원되는 하위 리소스 및 해당하는 프라이빗 영역 이름 간의 매핑을 보여줍니다. SQL API를 통해 Gremlin 및 Table API 계정에 액세스할 수도 있으므로, 이러한 API에 대한 두 가지 항목이 있습니다.
 
@@ -145,6 +147,8 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $ResourceGroupName -
 
 ```azurepowershell-interactive
 Import-Module Az.PrivateDns
+
+# Zone name differs based on the API type and group ID you are using. 
 $zoneName = "privatelink.documents.azure.com"
 $zone = New-AzPrivateDnsZone -ResourceGroupName $ResourceGroupName `
   -Name $zoneName
@@ -159,19 +163,19 @@ $pe = Get-AzPrivateEndpoint -Name $PrivateEndpointName `
 
 $networkInterface = Get-AzResource -ResourceId $pe.NetworkInterfaces[0].Id `
   -ApiVersion "2019-04-01"
- 
-foreach ($ipconfig in $networkInterface.properties.ipConfigurations) { 
-foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) { 
-Write-Host "$($ipconfig.properties.privateIPAddress) $($fqdn)"  
-$recordName = $fqdn.split('.',2)[0] 
-$dnsZone = $fqdn.split('.',2)[1] 
-New-AzPrivateDnsRecordSet -Name $recordName `
-  -RecordType A -ZoneName $zoneName  `
-  -ResourceGroupName $ResourceGroupName -Ttl 600 `
-  -PrivateDnsRecords (New-AzPrivateDnsRecordConfig `
-  -IPv4Address $ipconfig.properties.privateIPAddress)  
-}
-}
+
+# Create DNS configuration
+
+$PrivateDnsZoneId = $zone.ResourceId
+
+$config = New-AzPrivateDnsZoneConfig -Name $zoneName`
+ -PrivateDnsZoneId $PrivateDnsZoneId
+
+## Create a DNS zone group
+New-AzPrivateDnsZoneGroup -ResourceGroupName $ResourceGroupName`
+ -PrivateEndpointName $PrivateEndpointName`
+ -Name "MyPrivateZoneGroup"`
+ -PrivateDnsZoneConfig $config
 ```
 
 ### <a name="fetch-the-private-ip-addresses"></a>개인 IP 주소 가져오기
@@ -242,6 +246,7 @@ az network private-endpoint create \
 프라이빗 엔드포인트를 만든 후에는 다음 Azure CLI 스크립트를 사용하여 프라이빗 DNS 영역과 통합할 수 있습니다.
 
 ```azurecli-interactive
+#Zone name differs based on the API type and group ID you are using. 
 zoneName="privatelink.documents.azure.com"
 
 az network private-dns zone create --resource-group $ResourceGroupName \
@@ -253,15 +258,13 @@ az network private-dns link vnet create --resource-group $ResourceGroupName \
    --virtual-network $VNetName \
    --registration-enabled false 
 
-#Query for the network interface ID  
-networkInterfaceId=$(az network private-endpoint show --name $PrivateEndpointName --resource-group $ResourceGroupName --query 'networkInterfaces[0].id' -o tsv)
- 
-# Copy the content for privateIPAddress and FQDN matching the Azure Cosmos account 
-az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json 
- 
-#Create DNS records 
-az network private-dns record-set a create --name recordSet1 --zone-name privatelink.documents.azure.com --resource-group $ResourceGroupName
-az network private-dns record-set a add-record --record-set-name recordSet2 --zone-name privatelink.documents.azure.com --resource-group $ResourceGroupName -a <Private IP Address>
+#Create a DNS zone group
+az network private-endpoint dns-zone-group create \
+   --resource-group $ResourceGroupName \
+   --endpoint-name $PrivateEndpointName \
+   --name "MyPrivateZoneGroup" \
+   --private-dns-zone $zoneName \
+   --zone-name "myzone"
 ```
 
 ## <a name="create-a-private-endpoint-by-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 프라이빗 엔드포인트 만들기
@@ -460,38 +463,6 @@ PowerShell 스크립트의 `GroupId` 변수는 하나의 값만 포함할 수 �
 }
 ```
 
-다음 코드를 사용하여 "PrivateZoneRecords_template.json"이라는 Resource Manager 템플릿을 만듭니다.
-
-```json
-{
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "DNSRecordName": {
-            "type": "string"
-        },
-        "IPAddress": {
-            "type":"string"
-        }        
-    },
-    "resources": [
-         {
-            "type": "Microsoft.Network/privateDnsZones/A",
-            "apiVersion": "2018-09-01",
-            "name": "[parameters('DNSRecordName')]",
-            "properties": {
-                "ttl": 300,
-                "aRecords": [
-                    {
-                        "ipv4Address": "[parameters('IPAddress')]"
-                    }
-                ]
-            }
-        }    
-    ]
-}
-```
-
 **템플릿의 매개 변수 파일 정의**
 
 템플릿에 대한 다음 두 매개 변수를 만듭니다. "PrivateZone_parameters.json"을 만듭니다. 다음 코드와 바꿉니다.
@@ -511,18 +482,65 @@ PowerShell 스크립트의 `GroupId` 변수는 하나의 값만 포함할 수 �
 }
 ```
 
-"PrivateZoneRecords_parameters.json"을 만듭니다. 다음 코드와 바꿉니다.
+다음 코드를 사용하여 “PrivateZoneGroup_template.json”이라는 Resource Manager 템플릿을 만듭니다. 이 템플릿은 기존 가상 네트워크에서 기존 Azure Cosmos SQL API 계정에 대한 프라이빗 DNS 영역 그룹을 만듭니다.
+
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "privateZoneName": {
+            "type": "string"
+        },
+        "PrivateEndpointDnsGroupName": {
+            "value": "string"
+        },
+        "privateEndpointName":{
+            "value": "string"
+        }        
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Network/privateEndpoints/privateDnsZoneGroups",
+            "apiVersion": "2020-06-01",
+            "name": "[parameters('PrivateEndpointDnsGroupName')]",
+            "location": "global",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/privateDnsZones', parameters('privateZoneName'))]",
+                "[variables('privateEndpointName')]"
+            ],
+          "properties": {
+            "privateDnsZoneConfigs": [
+              {
+                "name": "config1",
+                "properties": {
+                  "privateDnsZoneId": "[resourceId('Microsoft.Network/privateDnsZones', parameters('privateZoneName'))]"
+                }
+              }
+            ]
+          }
+        }
+    ]
+}
+```
+
+**템플릿의 매개 변수 파일 정의**
+
+템플릿에 대한 다음 두 매개 변수를 만듭니다. “PrivateZoneGroup_parameters.json”을 만듭니다. 다음 코드와 바꿉니다.
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "DNSRecordName": {
+        "privateZoneName": {
             "value": ""
         },
-        "IPAddress": {
-            "type":"object"
+        "PrivateEndpointDnsGroupName": {
+            "value": ""
+        },
+        "privateEndpointName":{
+            "value": ""
         }
     }
 }
@@ -555,15 +573,18 @@ $PrivateZoneName = "myPrivateZone.documents.azure.com"
 # Name of the private endpoint to create
 $PrivateEndpointName = "myPrivateEndpoint"
 
+# Name of the DNS zone group to create
+$PrivateEndpointDnsGroupName = "myPrivateDNSZoneGroup"
+
 $cosmosDbResourceId = "/subscriptions/$($SubscriptionId)/resourceGroups/$($ResourceGroupName)/providers/Microsoft.DocumentDB/databaseAccounts/$($CosmosDbAccountName)"
 $VNetResourceId = "/subscriptions/$($SubscriptionId)/resourceGroups/$($ResourceGroupName)/providers/Microsoft.Network/virtualNetworks/$($VNetName)"
 $SubnetResourceId = "$($VNetResourceId)/subnets/$($SubnetName)"
 $PrivateZoneTemplateFilePath = "PrivateZone_template.json"
 $PrivateZoneParametersFilePath = "PrivateZone_parameters.json"
-$PrivateZoneRecordsTemplateFilePath = "PrivateZoneRecords_template.json"
-$PrivateZoneRecordsParametersFilePath = "PrivateZoneRecords_parameters.json"
 $PrivateEndpointTemplateFilePath = "PrivateEndpoint_template.json"
 $PrivateEndpointParametersFilePath = "PrivateEndpoint_parameters.json"
+$PrivateZoneGroupTemplateFilePath = "PrivateZoneGroup_template.json"
+$PrivateZoneGroupParametersFilePath = "PrivateZoneGroup_parameters.json"
 
 ## Step 2: Login your Azure account and select the target subscription
 Login-AzAccount 
@@ -594,21 +615,15 @@ $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpoint
     -PrivateEndpointName $PrivateEndpointName
 $deploymentOutput
 
-## Step 6: Map the private endpoint to the private zone
-$networkInterface = Get-AzResource -ResourceId $deploymentOutput.Outputs.privateEndpointNetworkInterface.Value -ApiVersion "2019-04-01"
-foreach ($ipconfig in $networkInterface.properties.ipConfigurations) {
-    foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) {
-        $recordName = $fqdn.split('.',2)[0]
-        $dnsZone = $fqdn.split('.',2)[1]
-        Write-Output "Deploying PrivateEndpoint DNS Record $($PrivateZoneName)/$($recordName) Template on $($resourceGroupName)"
-        New-AzResourceGroupDeployment -Name "PrivateEndpointDNSDeployment" `
-            -ResourceGroupName $ResourceGroupName `
-            -TemplateFile $PrivateZoneRecordsTemplateFilePath `
-            -TemplateParameterFile $PrivateZoneRecordsParametersFilePath `
-            -DNSRecordName "$($PrivateZoneName)/$($RecordName)" `
-            -IPAddress $ipconfig.properties.privateIPAddress
-    }
-}
+## Step 6: Create the private zone
+New-AzResourceGroupDeployment -Name "PrivateZoneGroupDeployment" `
+    -ResourceGroupName $ResourceGroupName `
+    -TemplateFile $PrivateZoneGroupTemplateFilePath `
+    -TemplateParameterFile $PrivateZoneGroupParametersFilePath `
+    -PrivateZoneName $PrivateZoneName `
+    -PrivateEndpointName $PrivateEndpointName`
+    -PrivateEndpointDnsGroupName $PrivateEndpointDnsGroupName
+
 ```
 
 ## <a name="configure-custom-dns"></a>사용자 지정 DNS 구성
@@ -618,7 +633,7 @@ foreach ($ipconfig in $networkInterface.properties.ipConfigurations) {
 프라이빗 엔드포인트를 만들 때 Azure의 프라이빗 DNS 영역과 통합할 수 있습니다. 사용자 지정 DNS 영역을 대신 사용하기로 선택하는 경우 프라이빗 엔드포인트에 대해 예약된 모든 개인 IP 주소의 DNS 레코드를 추가하도록 구성해야 합니다.
 
 > [!IMPORTANT]
-> 요청에 대 한 DNS 확인은 이러한 요청이 개인 끝점을 통과 하는지 또는 표준 공용 경로를 사용 하는지 결정 합니다. 로컬 DNS가 개인 끝점에서 매핑한 개인 IP 주소를 올바르게 참조 하는지 확인 합니다.
+> 해당 요청이 프라이빗 엔드포인트를 통과하는지 아니면 표준 퍼블릭 경로를 사용하는지 결정하는 요청의 DNS 확인입니다. 로컬 DNS가 프라이빗 엔드포인트에서 매핑된 개인 IP 주소를 올바르게 참조하는지 확인합니다.
 
 ## <a name="private-link-combined-with-firewall-rules"></a>방화벽 규칙과 결합된 Private Link
 
@@ -626,58 +641,62 @@ Private Link를 방화벽 규칙과 함께 사용하면 다음과 같은 상황 
 
 * 방화벽 규칙을 구성하지 않으면 기본적으로 모든 트래픽이 Azure Cosmos 계정에 액세스할 수 있습니다.
 
-* 공용 트래픽 또는 서비스 엔드포인트를 구성하고 프라이빗 엔드포인트를 만들면 해당 유형의 방화벽 규칙이 다양한 유형의 수신 트래픽 유형에 권한을 부여합니다. 서비스 엔드포인트도 구성 된 서브넷에서 개인 끝점이 구성 된 경우:
-  * 개인 끝점에서 매핑된 데이터베이스 계정에 대 한 트래픽은 개인 끝점을 통해 라우팅됩니다.
-  * 서브넷의 다른 데이터베이스 계정에 대 한 트래픽은 서비스 끝점을 통해 라우팅됩니다.
+* 공용 트래픽 또는 서비스 엔드포인트를 구성하고 프라이빗 엔드포인트를 만들면 해당 유형의 방화벽 규칙이 다양한 유형의 수신 트래픽 유형에 권한을 부여합니다. 프라이빗 엔드포인트가 서비스 엔드포인트도 구성된 서브넷에 구성된 경우:
+  * 프라이빗 엔드포인트로 매핑된 데이터베이스 계정에 대한 트래픽은 프라이빗 엔드포인트를 통해 라우팅됩니다.
+  * 서브넷에서 다른 데이터베이스 계정으로의 트래픽은 서비스 엔드포인트를 통해 라우팅됩니다.
 
-* 공용 트래픽 또는 서비스 엔드포인트를 구성하지 않고 프라이빗 엔드포인트를 만들면 프라이빗 엔드포인트를 통해서만 Azure Cosmos 계정에 액세스할 수 있습니다. 공용 트래픽 또는 서비스 끝점을 구성 하지 않은 경우 승인 된 모든 개인 끝점이 거부 되거나 삭제 된 후에는 PublicNetworkAccess가 사용 안 함으로 설정 되어 있지 않으면 계정이 전체 네트워크에 열립니다 (아래 섹션 참조).
+* 공용 트래픽 또는 서비스 엔드포인트를 구성하지 않고 프라이빗 엔드포인트를 만들면 프라이빗 엔드포인트를 통해서만 Azure Cosmos 계정에 액세스할 수 있습니다. 퍼블릭 트래픽이나 서비스 엔드포인트를 구성하지 않으면 승인된 모든 프라이빗 엔드포인트가 거부되거나 삭제된 후 계정이 전체 네트워크에 대해 열립니다. 단, PublicNetworkAccess가 Disabled로 설정된 경우는 제외입니다.
 
 ## <a name="blocking-public-network-access-during-account-creation"></a>계정을 만드는 동안 공용 네트워크 액세스 차단
 
-이전 섹션에서 설명했듯이, 방화벽 규칙을 설정하지 않고 프라이빗 엔드포인트를 추가하면 프라이빗 엔드포인트를 통해서만 Azure Cosmos 계정에 액세스할 수 있습니다. Azure Cosmos 계정이 만들어진 후 프라이빗 엔드포인트가 추가되기 전까지는 공용 트래픽이 Azure Cosmos 계정에 도달할 수 있다는 뜻입니다. 프라이빗 엔드포인트를 만들기 전에도 공용 네트워크 액세스를 사용하지 않도록 설정하려면 계정을 만들 때 `publicNetworkAccess` 플래그를 `Disabled`으로 설정하면 됩니다. 이 플래그는 IP 또는 가상 네트워크 규칙 보다 우선적으로 적용 됩니다. `Disabled`방화벽 구성에서 원본 IP 또는 가상 네트워크를 허용 하더라도 플래그가로 설정 되 면 모든 공용 및 가상 네트워크 트래픽이 차단 됩니다.
+이전 섹션에서 설명했듯이, 방화벽 규칙을 설정하지 않고 프라이빗 엔드포인트를 추가하면 프라이빗 엔드포인트를 통해서만 Azure Cosmos 계정에 액세스할 수 있습니다. Azure Cosmos 계정이 만들어진 후 프라이빗 엔드포인트가 추가되기 전까지는 공용 트래픽이 Azure Cosmos 계정에 도달할 수 있다는 뜻입니다. 프라이빗 엔드포인트를 만들기 전에도 공용 네트워크 액세스를 사용하지 않도록 설정하려면 계정을 만들 때 `publicNetworkAccess` 플래그를 `Disabled`으로 설정하면 됩니다. 이 플래그는 모든 IP 또는 가상 네트워크 규칙보다 우선하며, 원본 IP나 가상 네트워크가 방화벽 구성에서 허용되는 경우에도 플래그가 `Disabled`로 설정되면 모든 퍼블릭 및 가상 네트워크 트래픽이 차단됩니다.
 
 이 플래그를 사용하는 방법을 보여주는 예제는 [이 Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/)을 참조하세요.
 
-## <a name="adding-private-endpoints-to-an-existing-cosmos-account-with-no-downtime"></a>가동 중지 시간 없이 기존 Cosmos 계정에 개인 끝점 추가
+## <a name="adding-private-endpoints-to-an-existing-cosmos-account-with-no-downtime"></a>가동 중지 시간 없이 기존 Cosmos 계정에 프라이빗 엔드포인트 추가
 
-기본적으로 기존 계정에 개인 끝점을 추가 하면 약 5 분의 짧은 가동 중지 시간이 발생 합니다. 이러한 가동 중지 시간을 방지 하려면 아래 지침을 따르세요.
+기본적으로 기존 계정에 프라이빗 엔드포인트를 추가하면 약 5분의 짧은 가동 중지 시간이 발생합니다. 이 가동 중지 시간을 방지하려면 아래 지침을 따르세요.
 
-1. 방화벽 구성에 IP 또는 가상 네트워크 규칙을 추가 하 여 클라이언트 연결을 명시적으로 허용 합니다.
-1. 10 분 동안 기다린 후 구성 업데이트가 적용 되는지 확인 합니다.
-1. 새 개인 끝점을 구성 합니다.
-1. 1 단계에서 설정 된 방화벽 규칙을 제거 합니다.
+1. 클라이언트 연결을 명시적으로 허용하려면 방화벽 구성에 IP나 가상 네트워크 규칙을 추가합니다.
+1. 10분 동안 기다린 다음, 구성 업데이트가 적용되었는지 확인합니다.
+1. 새 프라이빗 엔드포인트를 구성합니다.
+1. 1단계에서 설정된 방화벽 규칙을 제거합니다.
 
-## <a name="port-range-when-using-direct-mode"></a>직접 모드를 사용 하는 경우의 포트 범위
+## <a name="port-range-when-using-direct-mode"></a>직접 모드를 사용할 때의 포트 범위
 
-직접 모드 연결을 통해 Azure Cosmos 계정에 개인 링크를 사용 하는 경우 TCP 포트의 전체 범위 (0-65535)가 열려 있는지 확인 해야 합니다.
+직접 모드 연결을 통해 Azure Cosmos 계정으로 Private Link를 사용할 때 전체 범위의 TCP 포트(0 - 65535)가 열려 있는지 확인해야 합니다.
 
 ## <a name="update-a-private-endpoint-when-you-add-or-remove-a-region"></a>지역을 추가하거나 제거할 때 프라이빗 엔드포인트 업데이트
 
-개인 DNS 영역 그룹을 사용 하지 않는 경우 Azure Cosmos 계정에 지역을 추가 하거나 제거 하려면 해당 계정에 대 한 DNS 항목을 추가 하거나 제거 해야 합니다. 지역을 추가 또는 제거한 후에는 추가 또는 제거된 DNS 항목과 해당 개인 IP 주소를 반영하도록 서브넷의 프라이빗 DNS 영역을 업데이트할 수 있습니다.
+예를 들어 Azure Cosmos 계정을 “미국 서부”, “미국 중부”, “서유럽”에 배포하는 경우입니다. 계정의 프라이빗 엔드포인트를 만들면 서브넷에서 4개의 개인 IP가 예약됩니다. 각 지역의 IP가 하나씩 있고, 나머지 하나는 글로벌/지역에 구애받지 않는 엔드포인트의 IP입니다. 나중에 Azure Cosmos 계정에 새 지역(예: "미국 동부")을 추가할 수 있습니다. 프라이빗 DNS 영역은 다음과 같이 업데이트됩니다.
 
-예를 들어 Azure Cosmos 계정을 "미국 서부", "미국 중부" 및 "서유럽"에 배포한다고 가정하겠습니다. 계정의 프라이빗 엔드포인트를 만들면 서브넷에서 4개의 개인 IP가 예약됩니다. 각 지역의 IP가 하나씩 있고, 나머지 하나는 글로벌/지역에 구애받지 않는 엔드포인트의 IP입니다.
+* **프라이빗 DNS 영역 그룹을 사용하는 경우:**
 
-나중에 Azure Cosmos 계정에 새 지역(예: "미국 동부")을 추가할 수 있습니다. 새 지역을 추가한 후에는 해당 DNS 레코드를 프라이빗 DNS 영역 또는 사용자 지정 DNS에 추가해야 합니다.
+  프라이빗 DNS 영역 그룹을 사용하는 경우 프라이빗 엔드포인트가 업데이트되면 프라이빗 DNS 영역이 자동으로 업데이트됩니다. 이전 예제에서는 새 지역을 추가한 다음, 프라이빗 DNS 영역이 자동으로 업데이트됩니다.
 
-지역을 제거할 때에도 동일한 단계를 사용하면 됩니다. 지역을 제거한 후에는 프라이빗 DNS 영역 또는 사용자 지정 DNS에서 해당 DNS 레코드를 제거해야 합니다.
+* **프라이빗 DNS 영역 그룹을 사용하지 않는 경우:**
+
+  프라이빗 DNS 영역 그룹을 사용하지 않는 경우 Azure Cosmos 계정에 지역을 추가하거나 제거하려면 해당 계정의 DNS 항목을 추가하거나 제거해야 합니다. 지역을 추가 또는 제거한 후에는 추가 또는 제거된 DNS 항목과 해당 개인 IP 주소를 반영하도록 서브넷의 프라이빗 DNS 영역을 업데이트할 수 있습니다.
+
+  이전 예제에서 새 지역을 추가한 후에는 해당 DNS 레코드를 프라이빗 DNS 영역 또는 사용자 지정 DNS에 추가해야 합니다. 지역을 제거할 때에도 동일한 단계를 사용하면 됩니다. 지역을 제거한 후에는 프라이빗 DNS 영역 또는 사용자 지정 DNS에서 해당 DNS 레코드를 제거해야 합니다.
 
 ## <a name="current-limitations"></a>현재 제한 사항
 
 Azure Cosmos 계정에 Private Link를 사용하면 다음 제한이 적용됩니다.
 
-* 단일 Azure Cosmos 계정에는 200 개 이상의 개인 끝점을 포함할 수 없습니다.
+* 단일 Azure Cosmos 계정의 프라이빗 엔드포인트는 200개가 넘을 수 없습니다.
 
-* 직접 모드 연결을 통해 Azure Cosmos 계정에 개인 링크를 사용 하는 경우 TCP 프로토콜만 사용할 수 있습니다. HTTP 프로토콜은 현재 지원되지 않습니다.
+* 직접 모드 연결을 통해 Azure Cosmos 계정에 Private Link를 사용하면 TCP 프로토콜만 사용할 수 있습니다. HTTP 프로토콜은 현재 지원되지 않습니다.
 
 * Azure Cosmos DB의 API for MongoDB 계정을 사용하면 서버 버전 3.6의 계정(즉, `*.mongo.cosmos.azure.com` 형식의 엔드포인트를 사용하는 계정)에만 프라이빗 엔드포인트가 지원됩니다. 서버 버전 3.2의 계정(즉, `*.documents.azure.com` 형식의 엔드포인트를 사용하는 계정)에는 Private Link가 지원되지 않습니다. Private Link를 사용하려면 이전 계정을 새 버전으로 마이그레이션해야 합니다.
 
-* 개인 링크가 있는 MongoDB에 대 한 Azure Cosmos DB API를 사용 하는 경우 도구/라이브러리가 SNI (서비스 이름 식별)를 지원 하거나 `appName` 연결 문자열에서 매개 변수를 전달 하 여 적절 하 게 연결 해야 합니다. 일부 이전 도구/라이브러리가 개인 링크 기능을 사용 하도록 호환 되지 않을 수 있습니다.
+* Private Link가 있는 MongoDB 계정용 Azure Cosmos DB의 API를 사용하는 경우 도구/라이브러리는 SNI(서비스 이름 식별)를 지원하거나 연결 문자열에서 `appName` 매개 변수를 전달하여 제대로 연결해야 합니다. 일부 이전 도구/라이브러리는 Private Link 기능을 사용하도록 호환되지 않을 수 있습니다.
 
 * 승인된 프라이빗 엔드포인트를 자동으로 만들려면 Azure Cosmos 계정 범위에서 네트워크 관리자에게 적어도 `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` 권한을 부여해야 합니다.
 
 ### <a name="limitations-to-private-dns-zone-integration"></a>프라이빗 DNS 영역 통합에 대한 제한
 
-개인 DNS 영역 그룹을 사용 하지 않는 한 개인 DNS 영역에 있는 DNS 레코드는 개인 끝점을 삭제 하거나 Azure Cosmos 계정에서 지역을 제거할 때 자동으로 제거 되지 않습니다. 다음 작업을 수행하기 전에 DNS 레코드를 수동으로 제거해야 합니다.
+프라이빗 DNS 영역 그룹을 사용하는 경우가 아니면, 프라이빗 엔드포인트를 삭제하거나 Azure Cosmos 계정에서 지역을 제거해도 프라이빗 DNS 영역의 DNS 레코드는 자동으로 제거되지 않습니다. 다음 작업을 수행하기 전에 DNS 레코드를 수동으로 제거해야 합니다.
 
 * 이 프라이빗 DNS 영역에 연결된 새 프라이빗 엔드포인트를 추가합니다.
 * 프라이빗 엔드포인트가 이 프라이빗 DNS 영역에 연결된 데이터베이스 계정에 새 영역을 추가합니다.
