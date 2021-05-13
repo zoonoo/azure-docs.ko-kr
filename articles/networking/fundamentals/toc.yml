@@ -1,0 +1,144 @@
+- name: 네트워킹 기본 문서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure 네트워킹 정보
+      href: networking-overview.md
+- name: 빠른 시작
+  items:
+    - name: 가상 네트워크 만들기
+      href: ../../virtual-network/quick-create-portal.md?toc=/azure/networking/fundamentals/toc.json
+- name: 자습서
+  items:
+    - name: 네트워크 액세스 제한
+      href: ../../virtual-network/tutorial-restrict-network-access-to-resources.md?toc=/azure/networking/fundamentals/toc.json
+- name: 개념
+  expanded: true
+  items:
+    - name: Architecture
+      href: architecture-guides.md
+    - name: 계획 및 디자인
+      items:
+        - name: 네트워크 엔지니어를 위한 Azure
+          href: ../azure-for-network-engineers.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 원격으로 작업
+          href: ../working-remotely-support.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 가상 네트워크
+          href: ../../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 크로스 프레미스 연결 - VPN
+          href: ../../vpn-gateway/design.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 크로스 프레미스 연결 - 프라이빗 전용
+          href: ../../expressroute/expressroute-workflows.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Microsoft 글로벌 네트워크
+      items:
+        - name: 개요
+          href: ../microsoft-global-network.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Azure 네트워크 대기 시간
+          href: ../azure-network-latency.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Azure의 인터넷 라우팅 기본 설정
+          href: ../../virtual-network/routing-preference-overview.md?toc=/azure/networking/fundamentals/toc.json
+    - name: 클라우드 네트워크 연결
+      items:
+        - name: 가상 네트워크
+          href: ../../virtual-network/virtual-networks-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 공용 IP 주소
+          href: ../../virtual-network/public-ip-addresses.md?toc=/azure/networking/fundamentals/toc.json
+        - name: DNS
+          href: ../../dns/dns-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 네트워크 트래픽 라우팅
+          href: ../../virtual-network/virtual-networks-udr-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 가상 네트워크 연결
+          href: ../../virtual-network/virtual-network-peering-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 리소스에 대한 프라이빗 액세스
+          href: ../../private-link/private-endpoint-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 온-프레미스에서 Azure로 연결 - VPN 암호화
+          href: ../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 온-프레미스에서 Azure로 확장 - 프라이빗 연결
+          href: ../../expressroute/expressroute-connect-azure-to-public-cloud.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 아웃바운드 전용 인터넷 연결
+          href: ../../virtual-network/nat-overview.md?toc=/azure/networking/fundamentals/toc.json
+    - name: 네트워크 보안
+      items:
+        - name: 네트워크 보안 그룹
+          href: ../../virtual-network/network-security-groups-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Private Endpoint
+          href: ../../private-link/private-endpoint-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 네트워크 방화벽
+          href: ../../firewall/overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: DDoS 보호
+          href: ../../ddos-protection/ddos-protection-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 웹 애플리케이션 방화벽
+          href: ../../web-application-firewall/overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Azure Policy의 보안 컨트롤
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ../security-controls-policy.md
+    - name: 확장성 있는 애플리케이션 전달
+      items:
+        - name: Azure의 부하 분산 옵션
+          href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/networking/fundamentals/toc.json
+        - name: 네트워크 부하 분산 장치
+          href: ../../load-balancer/load-balancer-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 안전한 클라우드 CDN 및 글로벌 부하 분산 장치
+          href: ../../frontdoor/front-door-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 웹 애플리케이션 부하 분산 장치
+          href: ../../application-gateway/overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: DNS 기반 부하 분산 장치
+          href: ../../traffic-manager/traffic-manager-overview.md?toc=/azure/networking/fundamentals/toc.json
+    - name: 네트워크 모니터링
+      items:
+        - name: Azure Monitor를 사용하여 네트워크 모니터링
+          href: ../../azure-monitor/insights/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 네트워크 상태 모니터링 및 복구
+          href: ../../network-watcher/network-watcher-monitoring-overview.md?toc=/azure/networking/fundamentals/toc.json
+- name: 방법 가이드
+  items:
+    - name: 클라우드 네트워크 만들기 및 연결
+      items:
+        - name: 가상 네트워크 만들기
+          href: ../../virtual-network/quick-create-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 공용 IP 주소 만들기
+          href: ../../virtual-network/create-public-ip-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 라우팅 비용 최적화
+          href: ../../virtual-network/routing-preference-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 아웃바운드 연결에 대한 NAT 게이트웨이 만들기
+          href: ../../virtual-network/tutorial-create-nat-gateway-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Azure DNS 영역 및 레코드 만들기
+          href: ../../dns/dns-getstarted-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 경로 테이블을 사용하여 트래픽 라우팅
+          href: ../../virtual-network/tutorial-create-route-table-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 가상 네트워크 연결
+          href: ../../virtual-network/tutorial-connect-virtual-networks-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 리소스에 대한 프라이빗 액세스
+          href: ../../private-link/create-private-endpoint-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 온-프레미스 네트워크를 가상 네트워크에 연결 - VPN 암호화
+          href: ../../vpn-gateway/tutorial-site-to-site-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 크로스 프레미스 연결 - 전용
+          href: ../../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=/azure/networking/fundamentals/toc.json
+    - name: 네트워크 보호
+      items:
+        - name: 네트워크 액세스 제한
+          href: ../../virtual-network/tutorial-restrict-network-access-to-resources.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 네트워크 트래픽 필터링
+          href: ../../virtual-network/tutorial-filter-network-traffic.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 네트워크 방화벽 배포
+          href: ../../firewall/tutorial-firewall-deploy-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: DDoS 공격으로부터 네트워크 보호
+          href: ../../ddos-protection/manage-ddos-protection.md?toc=/azure/networking/fundamentals/toc.json
+    - name: 애플리케이션 전달 크기 조정
+      items:
+        - name: 네트워크 부하 분산 장치 만들기
+          href: ../../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 안전한 클라우드 CDN 및 글로벌 부하 분산 장치 배포
+          href: ../../frontdoor/quickstart-create-front-door.md?toc=/azure/networking/fundamentals/toc.json
+        - name: 웹 애플리케이션 부하 분산 장치 만들기
+          href: ../../application-gateway/quick-create-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: DNS 기반 부하 분산 장치 만들기
+          href: ../../traffic-manager/quickstart-create-traffic-manager-profile.md?toc=/azure/networking/fundamentals/toc.json
+    - name: 네트워크 모니터링
+      items:
+        - name: 네트워크 상태 모니터링
+          href: ../../network-watcher/network-watcher-monitoring-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Azure 리소스 간 통신 모니터링
+          href: ../../network-watcher/connection-monitor-create-using-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Azure Monitor Network Insights
+          href: ../../azure-monitor/insights/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json

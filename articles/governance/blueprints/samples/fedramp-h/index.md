@@ -1,18 +1,19 @@
 ---
 title: FedRAMP High 청사진 개요
 description: FedRAMP High 청사진 샘플의 개요입니다. 이 청사진 샘플은 고객이 특정 FedRAMP High 컨트롤을 평가하는 데 도움이 됩니다.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 1287a0369e59cc78cce775bff01fe885c1b571d0
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: b98c73992202d7adeb60c3eb52219fd411cde959
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034852"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757334"
 ---
 # <a name="overview-of-the-fedramp-high-blueprint-sample"></a>FedRAMP High 청사진 샘플의 개요
 
-FedRAMP High 청사진 샘플은 특정 FedRAMP High 컨트롤을 평가하는 데 도움이 되는 [Azure Policy](../../../policy/overview.md)를 사용하여 거버넌스 가드 레일을 제공합니다. 이 청사진은 고객이 FedRAMP High 컨트롤을 구현해야 하는 Azure 배포 아키텍처에 대한 핵심 정책 세트를 배포하는 데 도움이 됩니다.
+FedRAMP High 청사진 샘플은 특정 FedRAMP High 컨트롤을 평가하는 데 도움이 되는 [Azure Policy](../../../policy/overview.md)를 사용하여 거버넌스 가드 레일을 제공합니다.
+이 청사진은 고객이 FedRAMP High 컨트롤을 구현해야 하는 Azure 배포 아키텍처에 대한 핵심 정책 세트를 배포하는 데 도움이 됩니다.
 
 ## <a name="control-mapping"></a>컨트롤 매핑
 

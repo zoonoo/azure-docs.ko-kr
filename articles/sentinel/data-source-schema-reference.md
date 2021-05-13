@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: reference
 ms.custom: ''
 ms.date: 01/14/2021
-ms.openlocfilehash: 84d5f1e4035fb730d33b7bc8dd375273610f0bfb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4601f2d6eddbbe8809dfd46a7e0cc5aa3c40c722
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104771943"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209573"
 ---
 # <a name="data-source-schema-reference"></a>데이터 원본 스키마 참조
 
@@ -30,7 +30,7 @@ ms.locfileid: "104771943"
 | **Azure**                            | Azure Active Directory | AzureActivity          | [Azure Monitor AzureActivity 참조](/azure/azure-monitor/reference/tables/azureactivity) |
 | **Azure**                            | Office                 | OfficeActivity         | Office 365 관리 작업 API 스키마: <br>- [공용 스키마 ](/office/office-365-management-api/office-365-management-activity-api-schema#common-schema)   <br>- [Exchange 관리 스키마 ](/office/office-365-management-api/office-365-management-activity-api-schema#exchange-admin-schema) <br>- [Exchange 사서함 스키마](/office/office-365-management-api/office-365-management-activity-api-schema#exchange-mailbox-schema)  <br>- [SharePoint 기본 스키마](/office/office-365-management-api/office-365-management-activity-api-schema#sharepoint-base-schema)   <br>- [SharePoint 파일 작업](/office/office-365-management-api/office-365-management-activity-api-schema#sharepoint-file-operations) |
 | **Azure**                            | Azure Key Vault         | AzureDiagnostics       | [Azure Monitor AzureDiagnostics 참조](/azure/azure-monitor/reference/tables/azurediagnostics) |
-| **Host**                             | Linux                  | Syslog                 | [Azure Monitor Syslog 참조](/azure/azure-monitor/reference/tables/syslog) |
+| **Host**                             | Linux                  | syslog                 | [Azure Monitor Syslog 참조](/azure/azure-monitor/reference/tables/syslog) |
 | **Network**                          | IIS 로그               | W3CIISLog              | [Azure Monitor W3CIISLog 참조](/azure/azure-monitor/reference/tables/w3ciislog) |
 | **Network**                          | VMinsights             | VMConnection           | [Azure Monitor VMConnection 참조](/azure/azure-monitor/reference/tables/vmconnection) |
 | **Network**                          | Wire Data 솔루션     | WireData               | [Azure Monitor WireData 참조](/azure/azure-monitor/reference/tables/wiredata) |
@@ -44,14 +44,14 @@ ms.locfileid: "104771943"
 
 다음 표에는 다양한 지원 로그 유형별로 지원되는 타사 공급업체 및 해당 CEF(Common Event Format) 매핑 설명서가 나열되어 있으며, 해당 설명서에는 각 범주 유형에 대한 CEF 필드 매핑 및 샘플 로그가 포함되어 있습니다.
 
-| 유형 |    Vendor |    제품 | Log Analytics 테이블 이름 | CEF 필드 매핑 참조  |
+| 유형 |    Vendor |    Product | Log Analytics 테이블 이름 | CEF 필드 매핑 참조  |
 | ----- | ----- | ----- | ----- |----- |
 | **Network** | Palo Alto   | PAN OS    | CommonSecurityLog |   [PAN-OS 9.0 Common Event Format 통합 가이드](https://docs.paloaltonetworks.com/content/dam/techdocs/en_US/pdf/cef/pan-os-90-cef-configuration-guide.pdf)(*CEF - 스타일 로그 형식* 검색) |
 | **Network** | Check Point  |ALL   | CommonSecurityLog | [로그 필드 설명](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk109795)       |
 | **Network** | Fortigate   | ALL   | CommonSecurityLog | [로그 스키마 구조](https://docs.fortinet.com/document/fortigate/6.2.3/fortios-log-message-reference/738142/log-schema-structure)         |
 | **Network** | Barracuda | 웹 애플리케이션 방화벽 |  CommonSecurityLog   | [Syslog 및 기타 로그를 구성하는 방법](https://campus.barracuda.com/product/webapplicationfirewall/doc/4259935/how-to-configure-syslog-and-other-logs/)  |
 | **Network** | 시스코 | ASA | CommonSecurityLog | [Cisco ASA 시리즈 Syslog 메시지](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/b_syslog/about.html)    |
-| **Network** | 시스코 | Firepower   | CommonSecurityLog | [Cisco Firepower 위협 방어 Syslog 메시지](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/b_fptd_syslog_guide.pdf)    |
+| **Network** | 시스코 | Firepower   | CommonSecurityLog | [Cisco Firepower 위협 방어 Syslog 메시지](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/b_fptd_syslog_guide.html)    |
 | **Network** | 시스코   | Umbrella  | 사용자 지정 로그 테이블  | [로그 형식 및 버전 관리](https://docs.umbrella.com/deployment-umbrella/docs/log-formats-and-versioning)   |
 | **Network**   | 시스코 | Meraki    | CommonSecurityLog |   [Syslog 이벤트 유형 및 로그 예제](https://documentation.meraki.com/zGeneral_Administration/Monitoring_and_Reporting/Syslog_Event_Types_and_Log_Samples)    |
 | **Network**   | Zscaler | NSS(Nano Streaming Service)|   CommonSecurityLog | [NSS 피드 형식 지정](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-feeds/formatting-nss-feeds)(웹, 방화벽, DNS, 터널 로그에만 해당) |

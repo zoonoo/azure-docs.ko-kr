@@ -1,28 +1,28 @@
 ---
-title: 템플릿을 사용 하 여 Apache Hadoop 클러스터 만들기-Azure HDInsight
+title: 템플릿을 사용하여 Apache Hadoop 클러스터 만들기 - Azure HDInsight
 description: Resource Manager 템플릿을 사용하여 HDInsight 클러스터를 만드는 방법에 대해 알아봅니다.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/07/2020
 ms.openlocfilehash: 43f9736ce902d4c195d6b07cfdf7011ba9ca0c2c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101702745"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터 만들기
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-이 문서에서는 [Azure Resource Manager 템플릿을](../azure-resource-manager/templates/deploy-powershell.md)사용 하 여 Azure HDInsight 클러스터를 만드는 몇 가지 방법을 알아봅니다. 다른 클러스터 만들기 도구 및 기능에 대 한 자세한 내용을 보려면이 페이지의 맨 위에 있는 탭 선택기를 클릭 합니다. [클러스터 생성 방법](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods)을 참조 하세요.
+이 문서에서는 [Azure Resource Manager 템플릿](../azure-resource-manager/templates/deploy-powershell.md)으로 Azure HDInsight 클러스터를 만드는 몇 가지 방법에 대하여 알아봅니다. 다른 클러스터 만들기 도구 및 기능을 알아보려면 같은 페이지 상단의 탭 선택기를 클릭하세요. [클러스터 생성 메서드](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods)를 함께 확인하세요.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="resource-manager-templates"></a>리소스 관리자 템플릿
 
-리소스 관리자 템플릿을 사용 하면 조정 된 단일 작업으로 응용 프로그램에 대 한 다음 리소스를 쉽게 만들 수 있습니다.
+Resource Manager 템플릿을 사용하면 조정된 단일 작업으로 애플리케이션에 대하여 다음 리소스를 쉽게 만들 수 있습니다.
 
 * HDInsight 클러스터 및 해당 종속 리소스(예: 기본 스토리지 계정)
 * 기타 리소스(예: [Apache Sqoop](https://sqoop.apache.org/)을 사용하는 Azure SQL Database).
@@ -40,7 +40,7 @@ Resource Manager 템플릿에 대한 자세한 내용은 다음 문서와 예제
 
 ## <a name="generate-templates"></a>템플릿 생성
 
-Resource Manager를 사용하면 여러 다른 도구를 사용하여 구독의 기존 리소스에서 Resource Manager 템플릿을 내보낼 수 있습니다. 생성된 템플릿을 사용하여 템플릿 구문에 대해 알아보거나 필요에 따라 솔루션 재배포를 자동화할 수 있습니다. 자세한 내용은 [템플릿 내보내기](../azure-resource-manager/templates/export-template-portal.md)를 참조 하세요.
+Resource Manager를 사용하면 여러 다른 도구를 사용하여 구독의 기존 리소스에서 Resource Manager 템플릿을 내보낼 수 있습니다. 생성된 템플릿을 사용하여 템플릿 구문에 대해 알아보거나 필요에 따라 솔루션 재배포를 자동화할 수 있습니다. 자세한 내용은 [내보내기 템플릿](../azure-resource-manager/templates/export-template-portal.md)을 참조하세요.
 
 ## <a name="deploy-using-the-portal"></a>Portal을 사용하여 배포
 
@@ -72,7 +72,7 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 
 이 문서에서는 HDInsight 클러스터를 만드는 여러 가지 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-* HDInsight 관련 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?term=hdinsight)을 참조 하세요.
+* 추가 HDInsight 관련 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?term=hdinsight)을 참조하세요.
 * .NET 클라이언트 라이브러리를 통해 리소스를 배포하는 예제는 [.NET 라이브러리 및 템플릿을 사용하여 리소스 배포](/previous-versions/azure/virtual-machines/windows/csharp-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 * 애플리케이션 배포에 대한 자세한 예제는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](../app-service/deploy-complex-application-predictably.md)를 참조하세요.
 * 다른 환경에 솔루션 배포에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](../devtest-labs/devtest-lab-overview.md)을 참조하세요.

@@ -1,19 +1,19 @@
 ---
 title: Azure Purview 계정 연결 
 description: Synapse 작업 영역에 Azure Purview 계정을 연결합니다.
-author: julieMSFT
+author: Jejiang
 ms.service: synapse-analytics
 ms.subservice: purview
 ms.topic: quickstart
 ms.date: 12/16/2020
-ms.author: jrasnick
+ms.author: jejiang
 ms.reviewer: jrasnick
-ms.openlocfilehash: e992b83b59a76b40a7a3065e9626e4b1d6203100
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: f0af3b571b1a6d793668c33d0c76e19a3d0c9e62
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143272"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109716063"
 ---
 # <a name="quickstartconnect-an-azure-purview-account-to-a-synapse-workspace"></a>빠른 시작: Synapse 작업 영역에 Azure Purview 계정 연결 
 

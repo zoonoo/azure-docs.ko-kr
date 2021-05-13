@@ -1,5 +1,5 @@
 ---
-title: HEVC에 대 한 부드러운 스트리밍 프로토콜 (MS SSTR) 수정-Azure
+title: HEVC용 부드러운 스트리밍 프로토콜(MS-SSTR) 수정 사항 - Azure
 description: 이 사양은 Azure Media Services에서 HEVC를 사용한 조각화된 MP4 기반 라이브 스트리밍에 대한 프로토콜 및 형식을 설명합니다. 이 문서에서는 HEVC를 제공하는 데 필요한 변경 내용을 명시하며, 그 외 "(변경 없음)"으로 표시된 부분은 단순히 설명용으로 복사되었습니다.
 services: media-services
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
 ms.openlocfilehash: 6454bc863cb5fd628d581fff380c5ab61354f762
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87053042"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>HEVC용 부드러운 스트리밍 프로토콜(MS-SSTR) 수정 사항 
@@ -27,7 +27,7 @@ ms.locfileid: "87053042"
 
 이 문서에서는 HEVC 인코딩 비디오의 부드러운 스트리밍을 사용하도록 부드러운 스트리밍 프로토콜 사양 [MS SSTR]에 적용되는 구체적인 수정 사항을 설명합니다. 이 사양에서는 HEVC 비디오 코덱을 제공하는 데 필요한 변경 내용만 간략하게 설명합니다. 이 문서는 [MS-SSTR] 사양과 동일한 번호 매기기 체계를 따릅니다. 문서 전체에 표시된 빈 헤드라인은 [MS SSTR] 사양에서 독자의 위치를 알려주기 위해 제공됩니다.  "(변경 없음)"은 텍스트가 단순히 설명용으로 복사되었음을 나타냅니다.
 
-이 문서에서는 부드러운 스트리밍 매니페스트에서 HEVC 비디오 코덱 (' hev1 ' 또는 ' hvc1 ' 형식 트랙 사용)에 대 한 신호를 보내는 데 필요한 기술 구현 요구 사항을 제공 하 고, 표준 참조 미디어 파일 형식에 대 한 HEVC, Common Encryption HEVC 및 box 이름이 최신 사양과 일치 하도록 업데이트 되었습니다. 
+이 문서에서는 부드러운 스트리밍 매니페스트에서 HEVC 비디오 코덱(‘hev1’ 또는 ‘hvc1’ 형식 트랙 사용) 신호를 보내기 위한 기술 구현 요구 사항을 제공하며 표준 참조는 HEVC, HEVC의 Common Encryption을 포함하는 현재 MPEG 표준을 참조하도록 업데이트되고, ISO 기본 미디어 파일 형식의 상자 이름은 최신 사양과 일치하도록 업데이트되었습니다. 
 
 참조된 부드러운 스트리밍 프로토콜 사양 [MS-SSTR]은 오디오나 비디오 같은 실시간 및 주문형 디지털 미디어를 여러 방법으로(인코더에서 웹 서버로, 서버에서 다른 서버로, 서버에서 HTTP 클라이언트로) 제공하는 데 사용되는 통신 형식을 설명합니다.
 HTTP를 통한 MPEG-4([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=327787) 기반의 데이터 구조를 사용하면 품질 수준이 다른 여러 압축 미디어 콘텐츠 간에 거의 실시간으로 원활한 전환을 구현할 수 있습니다. 따라서 클라이언트 컴퓨터 또는 디바이스에 따라 네트워크 및 비디오 렌더링 조건이 변하더라도 HTTP 클라이언트 최종 사용자에게 일관적인 재생 환경이 제공됩니다.
@@ -40,11 +40,11 @@ HTTP를 통한 MPEG-4([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=3277
 
 다음 용어는 이 문서에서만 사용됩니다.
 
->  **컴퍼지션 시간:**   [[ISO/IEC-14496-12-12]](https://go.microsoft.com/fwlink/?LinkId=183695)에 정의 된 대로 샘플이 클라이언트에 표시 되는 시간입니다.
+>  **컴퍼지션 시간:** 클라이언트에서 샘플이 표시되는 시간으로, [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695)에 정의되어 있습니다.
 > 
 >   **CENC**: Common Encryption으로, [ISO/IEC 23001-7] 제2판에 정의되어 있습니다.
 > 
->   **디코드 시간:**   [[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695)에 정의 된 대로 클라이언트에서 샘플을 디코딩하는 데 필요한 시간입니다.
+>   **디코딩 시간:** 클라이언트에서 샘플을 디코딩하는 데 필요한 시간으로, [[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695)에 정의되어 있습니다.
 
 **조각(Fragment):** 하나 이상의 **샘플** 로 구성되어 있고 독립적으로 다운로드 가능한 **미디어** 단위입니다.
 
@@ -52,11 +52,11 @@ HTTP를 통한 MPEG-4([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=3277
 > 
 >   **매니페스트:** 클라이언트가 **미디어** 에 대한 요청을 할 수 있도록 허용하는 **프레젠테이션** 에 대한 메타데이터. **미디어:** 클라이언트에서 **프레젠테이션** 재생에 사용하는 압축된 오디오, 비디오 및 텍스트 데이터. **미디어 형식:** 오디오 또는 비디오를 압축된 **샘플** 로 표시하는 데 사용되는 잘 정의된 형식.
 > 
->   **프레젠테이션:** 단일 동영상을 재생하는 데 필요한 모든 **스트림** 및 관련 메타데이터 집합. **요청:** [ [RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) **응답:** 서버에서 클라이언트로 전송 된 Http 메시지로, [ [RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) 에 정의 된 대로 클라이언트에서 서버로 보내는 http 메시지입니다.
+>   **프레젠테이션:** 단일 동영상을 재생하는 데 필요한 모든 **스트림** 및 관련 메타데이터 집합. **요청:** 클라이언트에서 서버로 전송된 HTTP 메시지로, [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372)에 정의되어 있습니다. **응답:** 서버에서 클라이언트로 전송된 HTTP 메시지로, [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372)에 정의되어 있습니다.
 > 
 >   **샘플:****미디어** 가 저장되고 처리되는 가장 작은 기본 단위(예: 프레임).
 > 
->   반드시 그렇지 않아야 합니다 **.** 이러한 용어 (모든 대문자)는 [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) 에 설명 된 대로 사용 됩니다. 모든 선택적 동작의 모든 문은 가능한 경우를 사용 하거나, 그렇지 않을 수도 있습니다.
+>   **MAY(할 수 있다), SHOULD(하는 것이 좋다), MUST(반드시 해야 한다), SHOULD NOT(하지 않는 것이 좋다), MUST NOT(절대 하면 안 된다):** 이 용어(영문의 경우 모두 대문자)는 [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317)에 설명된 대로 사용됩니다. 선택적 동작을 서술하는 설명문은 MAY(할 수 있다), SHOULD(하는 것이 좋다) 또는 SHOULD NOT(하지 않는 것이 좋다) 중 하나를 사용합니다.
 
 ## <a name="12-references"></a>1.2 참조
 
@@ -64,7 +64,7 @@ HTTP를 통한 MPEG-4([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=3277
 
 ### <a name="121-normative-references"></a>1.2.1 표준 참조 
 
->  [MS-SSTR] 부드러운 스트리밍 프로토콜 *v20140502*[https://msdn.microsoft.com/library/ff469518.aspx](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)
+>  [MS-SSTR] 부드러운 스트리밍 프로토콜 *v20140502* [https://msdn.microsoft.com/library/ff469518.aspx](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)
 > 
 >   [ISO/IEC 14496-12] 국제 표준화 기구, "Information technology -- Coding of audio-visual objects -- Part 12: ISO Base Media File Format", ISO/IEC 14496-12:2014, Edition 4, Plus Corrigendum 1, Amendments 1 & 2.
 >   <https://standards.iso.org/ittf/PubliclyAvailableStandards/c061988_ISO_IEC_14496-12_2012.zip>
@@ -80,15 +80,15 @@ HTTP를 통한 MPEG-4([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=3277
 > 
 >   [MPEG4-RA] MP4 등록 기관, "MP4REG", [http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
 > 
->   RFC2119 Bradner, s., "Rfc에서 사용 하 여 요구 수준 표시", BCP 14, RFC 2119, 3 월 1997,   [https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
+>   [RFC2119] Bradner, S., "Key words for use in RFCs to Indicate Requirement   Levels", BCP 14, RFC 2119, 1997년 3월,   [https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
 
 ### <a name="122-informative-references"></a>1.2.2 정보 참조 
 
 >   [MS-GLOS] Microsoft Corporation, "*Windows Protocols Master Glossary*(Windows 프로토콜 마스터 용어집)."
 > 
->   RFC3548 Josefsson, s., Ed., "Base16, Base32 및 Base64 데이터 인코딩", RFC 3548, 7 월 2003, [https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
+>   [RFC3548] Josefsson, S., Ed., "The Base16, Base32, and Base64 Data   Encodings", RFC 3548, 2003년 7월, [https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
 > 
->   RFC5234 Crocker, d., Ed., Overell, P., "BNF for 구문 사양: ABNF", STD 68, RFC 5234, 1 월 2008,   [https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
+>   [RFC5234] Crocker, D., Ed., and Overell, P., "Augmented BNF for Syntax   Specifications: ABNF", STD 68, RFC 5234, 2008년 1월,   [https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## <a name="13-overview"></a>1.3 개요 
@@ -108,7 +108,7 @@ HTTP를 통한 MPEG-4([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=3277
 >   다음 방법은 HEVC 비디오 형식을 사용하는 스트림을 식별하는 데 사용해야 합니다.
 > 
 >   * **미디어 형식에 대한 사용자 지정 설명 포함 코드:** 이 기능은 *2.2.2.5* 섹션에 지정된 대로 **FourCC** 필드에서 제공합니다.
->   구현자는 [[ISO/IEC-14496-12-12]](https://go.microsoft.com/fwlink/?LinkId=183695) 에 지정 된 대로 MPEG4-RA에 확장 코드를 등록 하 여 확장이 충돌 하지 않도록 보장할 수 있습니다.
+>   구현자는 [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695)에 지정된 대로 확장 코드를 MPEG4-RA에 등록하여 해당 확장이 충돌하지 않는지 확인할 수 있습니다.
 
 ## <a name="19-standards-assignments"></a>1.9 표준 할당 
 
@@ -129,7 +129,7 @@ HTTP를 통한 MPEG-4([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=3277
 >   **TimeScale(변수):** Duration 특성의 시간 단위로, 1초의 증분으로 지정됩니다. 기본값
 > 1. (변경 없음)
 > 
->    권장 값은 비디오 프레임의 정확한 지속 시간 및 소수 자릿수 프레임 비디오를 포함 하는 조각 (예: 30/1.001 Hz)을 나타내는 데 9만입니다.
+>    권장 값은 소수 자릿수 프레임 속도(예: 30/1.001Hz) 비디오를 포함하는 비디오 프레임 및 조각의 정확한 기간을 나타내는 90000입니다.
 
 #### <a name="2222-protectionelement"></a>2.2.2.2 ProtectionElement 
 
@@ -149,13 +149,13 @@ CENC(일반 암호화)가 비디오 또는 오디오 스트림에 적용된 경�
 > 
 > * "hev1": 이 트랙에 대한 비디오 샘플은 [ISO/IEC-14496-15]에 지정된 'hev1' 샘플 설명 형식을 사용하여 HEVC 비디오를 사용합니다.
 >
-> * "hvc1":이 트랙에 대 한 비디오 샘플은 [ISO/IEC-14496-12-15]에 지정 된 ' hvc1 ' 샘플 설명 형식을 사용 하 여 HEVC video를 사용 합니다.
+> * “hvc1”: 이 트랙에 대한 비디오 샘플은 [ISO/IEC-14496-15]에 지정된 ‘hvc1’ 샘플 설명 형식을 사용하여 HEVC 비디오를 사용합니다.
 > 
 >   **CodecPrivateData(변수):** 미디어 형식에는 고유하고 트랙의 모든 샘플에는 공통적인 매개 변수를 지정하는 데이터로, 16진수 코드 바이트 문자열로 표시됩니다. 바이트 시퀀스의 형식과 의미 체계 의미는 다음과 같이 **FourCC** 필드 값에 따라 달라집니다.
 > 
->   * 지 각 요소가 HEVC 비디오를 설명 하는 경우 **FourCC** 필드는 **"hev1"** 또는 **"hvc1"** 와 동일 합니다.
+>   * TrackElement가 HEVC 비디오를 설명하는 경우 **FourCC** 필드는 **“hev1”** 또는 **“hvc1”** 과 같아야 합니다.
 > 
->   **CodecPrivateData** 필드는 ABNF [[RFC5234]](https://go.microsoft.com/fwlink/?LinkId=123096) 에 지정 된 다음 바이트 시퀀스에 대 한 16 진수로 구분 된 문자열 표현을 포함 해야 합니다. (MS-sstr의 변경 내용 없음)
+>   **CodecPrivateData** 필드는 ABNF [[RFC5234]:](https://go.microsoft.com/fwlink/?LinkId=123096)(MS-SSTR 변경 내용 없음)에 지정된 다음 바이트 시퀀스의 16진수 코드 문자열 표현을 포함해야 합니다.
 > 
 >   * %x00 %x00 %x00 %x01 SPSField %x00 %x00 %x00 %x01 PPSField
 > 
@@ -175,7 +175,7 @@ CENC(일반 암호화)가 비디오 또는 오디오 스트림에 적용된 경�
 
 ### <a name="223-fragment-request"></a>2.2.3 조각 요청 
 
->   **참고**: **MinorVersion** 2 및 ' hev1 ' 또는 ' hvc1 '에 대해 요청 된 기본 미디어 형식은 [iso/Iec 14496-12] Iso 기본 미디어 파일 형식 4 번째 버전 및 [ISO/IEC 23001-7] Common Encryption 두 번째 버전에 지정 된 ' Iso8 ' 브랜드 Iso 기본 미디어 파일 형식입니다.
+>   **참고**: **MinorVersion** 2 및 ‘hev1’ 또는 ‘hvc1’에 대해 요청되는 기본 미디어 형식은 [ISO/IEC 14496-12] ISO 기본 미디어 파일 형식 제4판 및 [ISO/IEC 23001-7] 공통 암호화 제2판에 지정된 ‘iso8’ 브랜드 ISO 기본 미디어 파일 형식입니다.
 
 ### <a name="224-fragment-response"></a>2.2.4 조각 응답 
 
@@ -282,7 +282,7 @@ CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
 > 
 > * **MajorVersion**
 > * **MinorVersion**
-> * **단위**
+> * **TimeScale**
 > * **기간**
 > * **IsLive**
 > * **LookaheadCount**

@@ -8,16 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 7d9429507e39d975c5534e33052c56d77eeb3eb7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 309497c5ad17bd8c191992d15cb61b07fd8f9348
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "72949509"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747164"
 ---
 # <a name="supported-browsers-for-azure-iot-central"></a>Azure IoT Central에 지원되는 브라우저
-
-*이 문서는 운영자, 빌더 및 관리자에게 적용됩니다.*
 
 Azure IoT Central은 최신 데스크톱, 태블릿 및 브라우저를 통해 액세스할 수 있습니다. 다음 문서에서는 지원되는 브라우저 목록 및 필수 연결에 대해 설명합니다.  
 

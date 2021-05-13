@@ -3,17 +3,18 @@ title: Azure Cloud Services를 위한 가상 머신 크기(클래식) | Microsof
 description: Azure 클라우드 서비스 웹 및 작업자 역할에 대한 다양한 가상 머신 크기 및 ID를 나열합니다.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: a31c9c4747ccc72f0552ebe2f8daf85ef5fba8a3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4bc901f441de060bac3cd7d61f883c9d4e572f80
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103015304"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108771580"
 ---
 # <a name="sizes-for-cloud-services-classic"></a>Cloud Services에 적합한 크기(클래식)
 

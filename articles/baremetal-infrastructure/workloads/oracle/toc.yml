@@ -1,0 +1,36 @@
+- name: Oracle용 BareMetal Infrastructure란?
+  href: oracle-baremetal-overview.md
+- name: BareMetal SKU
+  href: oracle-baremetal-skus.md
+- name: 스토리지
+  href: oracle-baremetal-storage.md
+- name: 패치 고려 사항
+  href: oracle-baremetal-patching.md
+- name: 이더넷 구성
+  href: oracle-baremetal-ethernet.md
+- name: Architecture
+  href: oracle-baremetal-architecture.md
+- name: 프로비저닝
+  href: oracle-baremetal-provision.md
+- name: 고가용성 및 재해 복구
+  items:
+    - name: HA/DR 개요
+      href: concepts-oracle-high-availability.md
+    - name: 고가용성 기능
+      href: high-availability-features.md
+    - name: 옵션 및 고려 사항
+      href: options-considerations-high-availability.md
+    - name: 복구 방법 선택
+      href: oracle-high-availability-recovery.md
+- name: SnapCenter 통합
+  items:
+    - name: SnapCenter 개요
+      href: netapp-snapcenter-integration-oracle-baremetal.md
+    - name: 트래픽을 라우팅하는 SnapCenter 설정
+      href: set-up-snapcenter-to-route-traffic.md
+    - name: SnapCenter 구성
+      href: configure-snapcenter-oracle-baremetal.md
+    - name: 주문형 백업 만들기
+      href: create-on-demand-backup-oracle-baremetal.md
+    - name: Oracle Database 복원
+      href: restore-oracle-database-baremetal.md

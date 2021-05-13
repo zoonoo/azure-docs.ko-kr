@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/09/2020
 ms.author: v-jawe
-ms.openlocfilehash: 8a877e1773431053c5ad7344209076cb868a0ee3
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 6df6fc7e4c2cc7a1271d3ca01e34fe6802e7abde
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94424828"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109719230"
 ---
 이 빠른 시작에서는 Speech Service 및 cURL을 사용하여 텍스트를 음성으로 변환하는 방법을 알아봅니다.
 
@@ -40,4 +40,42 @@ ms.locfileid: "94424828"
 
 다음과 같은 응답을 받게 됩니다.
 
-:::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/get-voices.sh" id="response":::
+```http
+[
+    {
+        "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
+        "DisplayName": "Hoda",
+        "LocalName": "هدى",
+        "ShortName": "ar-EG-Hoda",
+        "Gender": "Female",
+        "Locale": "ar-EG",
+        "SampleRateHertz": "16000",
+        "VoiceType": "Standard"
+    },
+    {
+        "Name": "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)",
+        "DisplayName": "Naayf",
+        "LocalName": "نايف",
+        "ShortName": "ar-SA-Naayf",
+        "Gender": "Male",
+        "Locale": "ar-SA",
+        "SampleRateHertz": "16000",
+        "VoiceType": "Standard"
+    },
+    {
+        "Name": "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)",
+        "DisplayName": "Ivan",
+        "LocalName": "Иван",
+        "ShortName": "bg-BG-Ivan",
+        "Gender": "Male",
+        "Locale": "bg-BG",
+        "SampleRateHertz": "16000",
+        "VoiceType": "Standard"
+    },
+    {
+        // This response is truncated. The response will include 
+        // a complete list of supported languages and specific 
+        // details like short name, gender, etc. 
+    }
+]
+```

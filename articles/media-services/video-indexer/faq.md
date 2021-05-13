@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: juliako
-ms.openlocfilehash: 0fc28a1f808eeb2977b1dcca5046ed29933b8aa8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 0b7f0427708eece75b5d418b68dd1c7a2e90853f
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98028797"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108696"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Video Indexer 질문과 대답
 
@@ -59,7 +59,7 @@ Video Indexer에는 웹 기반 인터페이스에서 600분, API를 통해 2,400
 
 ### <a name="what-media-formats-does-video-indexer-support"></a>Video Indexer에서 지원하는 미디어 형식은 무엇인가요?
 
-Video Indexer는 가장 일반적인 미디어 형식을 지원합니다. 자세한 내용은 [Azure Media Encoder Standard 형식](../latest/media-encoder-standard-formats.md) 목록을 참조하세요.
+Video Indexer는 가장 일반적인 미디어 형식을 지원합니다. 자세한 내용은 [Azure Media Encoder Standard 형식](../latest/encode-media-encoder-standard-formats-reference.md) 목록을 참조하세요.
 
 ### <a name="how-do-i-upload-a-media-file-into-video-indexer-and-what-are-the-limitations"></a>미디어 파일을 Video Indexer에 어떻게 업로드하며 제한 사항은 무엇인가요?
 
@@ -197,7 +197,7 @@ Video Indexer API는 권한 부여 API 및 작업 API를 포함합니다. 권한
 
 ### <a name="what-are-the-login-options-to-video-indexer-developer-portal"></a>Video Indexer 개발자 포털에 대한 로그인 옵션은 무엇인가요?
 
-[로그인 정보](release-notes.md#october-2020)에 대 한 릴리스 정보를 참조 하세요.
+[로그인 정보](release-notes.md#october-2020)에 관한 릴리스 정보를 확인합니다.
 
 ID 공급자를 사용하여 이메일 계정을 등록한 후에는 해당 이메일 계정을 다른 ID 공급자에 사용할 수 없습니다.
 
