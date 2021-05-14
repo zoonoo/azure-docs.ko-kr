@@ -92,14 +92,42 @@
   items:
     - name: '큐, 토픽 및 구독'
       href: service-bus-queues-topics-subscriptions.md
-    - name: 토픽 필터 및 작업
-      href: topic-filters.md
     - name: 프리미엄 메시징
       href: service-bus-premium-messaging.md
     - name: Azure 큐와 Service Bus 큐 비교
       href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
-    - name: 성능 최적화
-      href: service-bus-performance-improvements.md
+    - name: 고급 기능
+      items:
+        - name: 메시지 세션
+          href: message-sessions.md
+        - name: 중복 메시지 검색
+          href: duplicate-detection.md
+        - name: 토픽 필터 및 작업
+          href: topic-filters.md
+        - name: 메시지 찾아보기
+          href: message-browsing.md
+        - name: '메시지 전송, 잠금 및 확인'
+          href: message-transfers-locks-settlement.md
+        - name: 배달하지 못한 편지 큐
+          href: service-bus-dead-letter-queues.md
+        - name: 메시지 지연
+          href: message-deferral.md
+        - name: 메시지 프리페치
+          href: service-bus-prefetch.md
+        - name: 엔터티를 자동 전달에 연결
+          href: service-bus-auto-forwarding.md
+        - name: 트랜잭션 처리
+          href: service-bus-transactions.md
+        - name: 성능 최적화
+          href: service-bus-performance-improvements.md
+        - name: 지리적 재해 복구 및 지역에서 복제
+          href: service-bus-geo-dr.md
+        - name: 비동기 메시징 및 고가용성
+          href: service-bus-async-messaging.md
+        - name: 중단 및 재해 처리
+          href: service-bus-outages-disasters.md
+        - name: 제한
+          href: service-bus-throttling.md
     - name: 페더레이션
       items:
         - name: 메시지 복제 및 지역 간 페더레이션
@@ -116,27 +144,15 @@
           href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub'
         - name: Event Hubs에서 메시지 가져오기
           href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus'
-    - name: 지리적 재해 복구 및 지역에서 복제
-      href: service-bus-geo-dr.md
-    - name: 비동기 메시징 및 고가용성
-      href: service-bus-async-messaging.md
-    - name: 중단 및 재해 처리
-      href: service-bus-outages-disasters.md
-    - name: 제한
-      href: service-bus-throttling.md
     - name: 보안
       items:
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/service-bus-messaging-security-baseline?toc=/azure/service-bus-messaging/TOC.json
         - name: 인증 및 권한 부여
           href: service-bus-authentication-and-authorization.md
           items:
-            - name: 공유 액세스 서명 사용
-              items:
-                - name: ACS에서 SAS로 마이그레이션
-                  href: service-bus-migrate-acs-sas.md
-                - name: 공유 액세스 서명을 사용한 인증
-                  href: service-bus-sas.md
+            - name: 공유 액세스 서명을 사용한 인증
+              href: service-bus-sas.md
             - name: Azure Active Directory 사용
               items:
                 - name: Azure 리소스에 대한 관리 ID를 사용하여 인증
@@ -154,28 +170,20 @@
           href: service-bus-to-event-grid-integration-concept.md
 - name: 방법 가이드
   items:
-    - name: 지역 간 이동
-      href: move-across-regions.md
-    - name: Azure Service Manager(클래식) API에서 Resource Manager API로 마이그레이션
-      href: deprecate-service-bus-management.md
-    - name: 네임스페이스 만들기
-      href: service-bus-create-namespace-portal.md
     - name: 개발
       items:
+        - name: 네임스페이스 만들기
+          href: service-bus-create-namespace-portal.md
         - name: 구독 필터 및 작업 설정
           href: service-bus-filter-examples.md
         - name: 메시지 처리
           items:
-            - name: '큐, 토픽 및 구독'
-              href: service-bus-queues-topics-subscriptions.md
             - name: JMS(Java Message Service) 2.0 엔터티
               href: java-message-service-20-entities.md
             - name: JMS(Java Message Service) 개발자 guide.md
               href: jms-developer-guide.md
             - name: '메시지, 페이로드 및 serialization'
               href: service-bus-messages-payloads.md
-            - name: '메시지 전송, 잠금 및 확인'
-              href: message-transfers-locks-settlement.md
             - name: 메시지 순서 지정 및 타임스탬프
               href: message-sequencing.md
             - name: 메시지 만료(TTL(Time To Live))
@@ -184,8 +192,6 @@
           href: service-bus-migrate-standard-premium.md
         - name: 분할 큐 및 항목
           href: service-bus-partitioning.md
-        - name: 메시지 세션
-          href: message-sessions.md
         - name: AMQP
           items:
             - name: AMQP 개요
@@ -200,30 +206,14 @@
               href: service-bus-amqp-request-response.md
             - name: AMQP 오류
               href: service-bus-amqp-troubleshoot.md
-        - name: 고급 기능
-          items:
-            - name: 배달하지 못한 편지 큐
-              href: service-bus-dead-letter-queues.md
-            - name: 메시지 프리페치
-              href: service-bus-prefetch.md
-            - name: 중복 메시지 검색
-              href: duplicate-detection.md
-            - name: 메시지 카운터
-              href: message-counters.md
-            - name: 메시지 지연
-              href: message-deferral.md
-            - name: 메시지 찾아보기
-              href: message-browsing.md
-            - name: 엔터티를 자동 전달에 연결
-              href: service-bus-auto-forwarding.md
-            - name: 트랜잭션 처리
-              href: service-bus-transactions.md
         - name: 다중 계층 Service Bus 애플리케이션 빌드
           href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
     - name: 마이그레이션
       items:
         - name: ActiveMQ에서 Azure Service Bus로 마이그레이션
           href: migrate-jms-activemq-to-servicebus.md
+        - name: Azure Service Manager(클래식) API에서 Resource Manager API로 마이그레이션
+          href: deprecate-service-bus-management.md
     - name: Monitor
       items:
         - name: 엔드투엔드 추적 및 진단
@@ -238,6 +228,20 @@
           href: service-bus-integrate-with-rabbitmq.md
     - name: 관리
       items:
+        - name: 큐 또는 구독에 대한 세션 사용
+          href: enable-message-sessions.md
+        - name: 큐 또는 토픽에 중복 검색 사용
+          href: enable-duplicate-detection.md
+        - name: 큐 또는 토픽에 파티션 사용
+          href: enable-partitions.md
+        - name: 큐 또는 구독에 자동 전달 사용
+          href: enable-auto-forward.md
+        - name: 큐 또는 구독에 대해 배달 못한 편지 사용
+          href: enable-dead-letter.md
+        - name: 메시지 카운터 가져오기
+          href: message-counters.md
+        - name: 지역 간 이동
+          href: move-across-regions.md
         - name: 자동으로 메시징 단위 업데이트
           href: automate-update-messaging-units.md
         - name: Azure PowerShell을 사용하여 엔터티 프로비전
@@ -292,9 +296,9 @@
         - name: azure-servicebus에서 azure-messaging-servicebus로 마이그레이션
           href: 'https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md'
         - name: azure-messaging-servicebus(최신)
-          href: /java/api/overview/azure/servicebus?view=azure-java-preview
+          href: /java/api/com.azure.messaging.servicebus?view=azure-java-stable
         - name: azure-servicebus
-          href: /java/api/overview/azure/servicebus
+          href: /java/api/com.microsoft.azure.servicebus?view=azure-java-stable
     - name: Python
       items:
         - name: azure-servicebus 버전 0.50에서 버전 7로 마이그레이션
@@ -317,6 +321,8 @@
       href: 'https://github.com/Azure/azure-sdk-for-ruby'
     - name: Go
       href: 'https://github.com/Azure/azure-service-bus-go'
+    - name: Azure CLI
+      href: /cli/azure/servicebus
     - name: Azure PowerShell
       href: /powershell/module/az.servicebus
     - name: REST (영문)
@@ -335,7 +341,7 @@
 - name: 리소스
   items:
     - name: FAQ
-      href: service-bus-faq.md
+      href: service-bus-faq.yml
     - name: Microsoft Learn을 통해 기술 쌓기
       href: /learn/browse/?products=azure-service-bus
     - name: Azure 로드맵

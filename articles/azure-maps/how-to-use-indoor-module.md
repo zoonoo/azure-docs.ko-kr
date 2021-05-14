@@ -1,5 +1,5 @@
 ---
-title: Microsoft Creator services (미리 보기)에서 Azure Maps 실내 맵 모듈 사용
+title: Microsoft Creator 서비스를 갖춘 Azure Maps Indoor Maps 사용하기(미리 보기)
 description: Microsoft Azure Maps Indoor Maps 모듈을 사용하여 모듈의 JavaScript 라이브러리를 포함하여 맵을 렌더링하는 방법을 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: e527cf5fa6a7caaeaf56ea19d684dd0830d5ca8a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101708682"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Azure Maps Indoor Maps 모듈 사용
@@ -22,7 +22,7 @@ ms.locfileid: "101708682"
 > Azure Maps Creator 서비스는 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-Azure Maps Web SDK에는 *Azure Maps Indoor* 모듈이 포함되어 있습니다. *Azure Maps 실내* 모듈을 사용 하면 Azure Maps Creator Services (미리 보기)에서 만든 실내 지도를 렌더링할 수 있습니다. 
+Azure Maps Web SDK에는 *Azure Maps Indoor* 모듈이 포함되어 있습니다. *Azure Maps Indoor* 모듈을 통하여 Azure Maps Creator 서비스(미리 보기)에서 만든 실내 맵을 렌더링할 수 있습니다. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -45,7 +45,7 @@ Azure Maps Web SDK에는 *Azure Maps Indoor* 모듈이 포함되어 있습니다
 
  또는 *Azure Maps Indoor* 모듈을 다운로드할 수 있습니다. *Azure Maps Indoor* 모듈은 Azure Maps 서비스에 액세스하기 위한 클라이언트 라이브러리를 포함합니다. 아래 단계에 따라 *Indoor* 모듈을 웹 애플리케이션에 설치하고 로드합니다.  
   
-  1. [Azure maps-실내 패키지](https://www.npmjs.com/package/azure-maps-indoor)를 설치 합니다.
+  1. [azure-maps-indoor 패키지](https://www.npmjs.com/package/azure-maps-indoor)를 설치합니다.
   
       ```powershell
       >npm install azure-maps-indoor
@@ -151,7 +151,7 @@ map.events.add("facilitychanged", indoorManager, (eventData) => {
 4. *Map* 개체를 초기화합니다. *Map* 개체는 다음과 같은 옵션을 지원합니다.
     - `Subscription key`는 Azure Maps 기본 구독 키입니다.
     - `center`는 실내 맵 가운데 위치의 위도와 경도를 정의합니다. `bounds` 값을 제공하지 않으려면 `center` 값을 제공합니다. 형식은 `center`: [-122.13315, 47.63637]과 같이 표시되어야 합니다.
-    - `bounds`는 타일 세트 맵 데이터가 포함된 가장 작은 직사각형 모양입니다. `center` 값을 설정하지 않으려면 `bounds` 값을 설정합니다. [Tileset List API](/rest/api/maps/tileset/listpreview)를 호출하여 맵 경계를 찾을 수 있습니다. Tileset List API는 `bbox`를 반환하며, 이것을 파싱하여 `bounds`에 할당할 수 있습니다. 형식은 `bounds` [# 서 부, # 남부, # 동부, # 북부]로 표시 되어야 합니다.
+    - `bounds`는 타일 세트 맵 데이터가 포함된 가장 작은 직사각형 모양입니다. `center` 값을 설정하지 않으려면 `bounds` 값을 설정합니다. [Tileset List API](/rest/api/maps/tileset/listpreview)를 호출하여 맵 경계를 찾을 수 있습니다. Tileset List API는 `bbox`를 반환하며, 이것을 파싱하여 `bounds`에 할당할 수 있습니다. `bounds`[# west, # south, # east, # north]와 같은 형식으로 표시하여야 합니다.
     - `style`을 사용하면 배경색을 설정할 수 있습니다. 흰색 배경을 표시하려면 `style`을 "blank"로 정의합니다.
     - `zoom`을 사용하면 맵의 최소 및 최대 확대/축소 수준을 지정할 수 있습니다.
 
@@ -255,7 +255,7 @@ map.events.add("facilitychanged", indoorManager, (eventData) => {
 > [드로잉 패키지 요구 사항](drawing-requirements.md)
 
 >[!div class="nextstepaction"]
-> [실내 지도의 작성자 (미리 보기)](creator-indoor-maps.md)
+> [실내 맵용 Creator(미리 보기)](creator-indoor-maps.md)
 
 맵에 데이터를 더 추가하는 방법을 알아봅니다.
 

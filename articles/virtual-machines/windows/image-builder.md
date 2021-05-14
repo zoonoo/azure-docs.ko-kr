@@ -1,19 +1,19 @@
 ---
 title: Azure Image Builder로 Windows VM 만들기(미리 보기)
 description: Azure Image Builder로 Windows VM을 만듭니다.
-author: kof-f
-ms.author: kofiforson
-ms.date: 04/23/2021
+author: cynthn
+ms.author: cynthn
+ms.date: 03/02/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
-ms.openlocfilehash: cd941868cd03a456ba78b57bcfeae5f8adfb59f4
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 918cee723bfde69d08532aee6fe4f395dbddb4ee
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107948206"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101695450"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>미리 보기:Azure Image Builder로 Windows VM 만들기
 
@@ -105,7 +105,7 @@ az group create -n $imageResourceGroup -l $location
 ```
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>사용자 할당 ID 만들기 및 리소스 그룹에 대한 사용 권한 설정
-Image Builder는 이미지를 해당 리소스 그룹에 삽입하기 위하여 제공된 [사용자 ID](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity)를 사용합니다. 본 예제에서는 이미지 배포를 위하여 세분화된 작업을 갖춘 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 user-identity에 할당됩니다.
+Image Builder는 이미지를 해당 리소스 그룹에 삽입하기 위하여 제공된 [사용자 ID](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity)를 사용합니다. 본 예제에서는 이미지 배포를 실행할 세분화된 작업이 있는 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 user-identity에 할당됩니다.
 
 ## <a name="create-user-assigned-managed-identity-and-grant-permissions"></a>사용자 할당 관리 ID 만들고 사용 권한 부여하기 
 ```bash
@@ -199,7 +199,7 @@ az resource delete \
 ```
 
 ## <a name="start-the-image-build"></a>이미지 빌드 시작하기
-[az 리소스 호출 작업](/cli/azure/resource#az_resource_invoke_action)을 사용하여 이미지 빌드 프로세스를 시작합니다.
+[az 리소스 호출 작업](/cli/azure/resource#az-resource-invoke-action)을 사용하여 이미지 빌드 프로세스를 시작합니다.
 
 ```azurecli-interactive
 az resource invoke-action \

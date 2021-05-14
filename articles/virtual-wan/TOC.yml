@@ -39,7 +39,7 @@
           href: virtual-wan-locations-partners.md
         - name: 파트너를 위한 자동화 지침
           href: virtual-wan-configure-automation-providers.md
-    - name: 아키텍처
+    - name: Architecture
       items:
         - name: Virtual WAN으로 마이그레이션
           href: migrate-from-hub-spoke-topology.md
@@ -71,6 +71,8 @@
           href: scenario-route-through-nvas-custom.md
         - name: Azure Firewall - 사용자 지정
           href: scenario-route-between-vnets-firewall.md
+        - name: Application Gateway 및 백 엔드 풀
+          href: scenario-secured-hub-app-gateway.md
     - name: 모니터링
       items:
         - name: Virtual WAN에 대한 Azure Monitor Insights 정보
@@ -88,11 +90,13 @@
     - name: 보안
       items:
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=/azure/virtual-wan/TOC.json
     - name: 가격 책정 개념
       href: pricing-concepts.md
     - name: 가상 허브의 NVA 정보
       href: about-nva-hub.md
+    - name: 보안 가상 허브 정보
+      href: ../firewall-manager/secured-virtual-hub.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
 - name: 방법 가이드
   items:
     - name: 가상 WAN SKU 업그레이드
@@ -113,6 +117,8 @@
           href: virtual-wan-site-to-site-portal.md
         - name: 가상 네트워크 게이트웨이를 Virtual WAN에 연결
           href: connect-virtual-network-gateway-vwan.md
+        - name: 패킷 캡처 수행
+          href: virtual-wan-site-to-site-packet-capture.md
         - name: 사용자 지정 IPsec 정책 구성
           href: virtual-wan-custom-ipsec-portal.md
         - name: NAT 규칙 구성
@@ -184,7 +190,7 @@
     - name: REST (영문)
       href: /rest/api/azure
     - name: Azure CLI
-      href: /cli/azure/ext/virtual-wan
+      href: /azure/virtual-wan/
     - name: Python SDK
       href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-network/10.0.0/azure.mgmt.network.v2019_02_01.operations.html#azure.mgmt.network.v2019_02_01.operations.VirtualWansOperations'
 - name: 리소스

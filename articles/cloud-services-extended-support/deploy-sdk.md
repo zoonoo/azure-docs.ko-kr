@@ -8,19 +8,16 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: d36bae57a9e1609e053326cf7288b5b1bc470cef
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: a91d26139fae80b38383e7f65f7ae2f58358e6f6
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166890"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795315"
 ---
 # <a name="deploy-cloud-services-extended-support-by-using-the-azure-sdk"></a>Azure SDK를 사용하여 Cloud Services(추가 지원) 배포
 
 이 문서에서는 [Azure SDK](https://azure.microsoft.com/downloads/)를 사용하여 여러 역할(웹 역할 및 작업자 역할) 인스턴스 및 원격 데스크톱 확장을 포함하는 Cloud Services(추가 지원)를 배포하는 방법을 보여줍니다. Cloud Services(추가 지원)는 Azure Resource Manager를 기반으로 하는 Azure Cloud Services의 배포 모델입니다.
-
-> [!IMPORTANT]
-> Cloud Services(추가 지원)는 현재 공개 미리 보기에 있습니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
