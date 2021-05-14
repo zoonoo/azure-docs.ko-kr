@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: cf41d6f9219397e439e8d89ea011c454662e6903
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c1b4980c401fd91c589b080e907e651a59c6ab43
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126492"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753914"
 ---
 # <a name="configure-storage-for-sql-server-vms"></a>SQL Server VM에 대한 스토리지 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -89,7 +89,7 @@ Azure Portal에서 SQL Server VM을 만드는 방법의 전체 연습은 [프로
 
 다음 빠른 시작 템플릿을 사용하여 스토리지 최적화를 기반으로 SQL Server VM을 배포할 수 있습니다. 
 
-* [스토리지 최적화를 사용하여 VM 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage/)
+* [스토리지 최적화를 사용하여 VM 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-new-storage/)
 * [UltraSSD를 사용하여 VM 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage-ultrassd)
 
 ## <a name="existing-vms"></a>기존 VM

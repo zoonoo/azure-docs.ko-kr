@@ -3,12 +3,12 @@ title: Azure Event Grid 보안 및 인증
 description: Azure Event Grid 및 해당 개념을 설명합니다.
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.openlocfilehash: e9bcf00e832e4deaaf9c5f81ba5af51609a1c412
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9dda983bdb70f0723b87419ae96ca5bbadccd61a
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104601043"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109735767"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Event Grid 리소스에 대한 액세스 권한 부여
 Azure Event Grid를 사용하면 여러 사용자가 이벤트 구독 나열, 새 구독 만들기, 키 생성과 같은 다양한 **관리 작업** 을 수행할 수 있는 액세스 수준을 제어할 수 있습니다. Event Grid는 Azure RBAC(역할 기반 액세스 제어)를 사용합니다.
@@ -40,8 +40,8 @@ Event Grid Contributor 역할을 사용하여 Event Grid 리소스를 만들고 
 
 | 역할 | Description |
 | ---- | ----------- | 
-| [Event Grid 구독 Reader](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-reader) | Event Grid 이벤트 구독 작업을 관리할 수 있습니다. |
-| [Event Grid 구독 Contributor](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-contributor) | Event Grid 이벤트 구독을 읽을 수 있습니다. |
+| [Event Grid 구독 Reader](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-reader) | Event Grid 이벤트 구독을 읽을 수 있습니다. |
+| [Event Grid 구독 Contributor](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-contributor) | Event Grid 이벤트 구독 작업을 관리할 수 있습니다. |
 | [Event Grid Contributor](../role-based-access-control/built-in-roles.md#eventgrid-contributor) | Event Grid 리소스를 만들고 관리할 수 있습니다. |
 
 

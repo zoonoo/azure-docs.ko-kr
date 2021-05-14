@@ -11,12 +11,12 @@ author: mumian
 ms.author: jgao
 ms.reviewer: sstein
 ms.date: 06/24/2020
-ms.openlocfilehash: b7883144509760c9670decd50062d2595b8dc495
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0cd8869b96bcc482d8549378abf818f5fe5f50d6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96187088"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108769888"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "96187088"
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-database%2Fazuredeploy.json)
+[![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.sql%2Fsql-database%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-sql-database/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-sql-database/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.sql/sql-database/azuredeploy.json":::
 
 이러한 리소스는 템플릿에 정의되어 있습니다.
 
@@ -60,7 +60,7 @@ $adminPassword = Read-Host -Prompt "Enter the SQl server administrator password"
 $resourceGroupName = "${projectName}rg"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-sql-database/azuredeploy.json" -administratorLogin $adminUser -administratorLoginPassword $adminPassword
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.sql/sql-database/azuredeploy.json" -administratorLogin $adminUser -administratorLoginPassword $adminPassword
 
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```

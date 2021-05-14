@@ -7,13 +7,12 @@ ms.service: web-application-firewall
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: victorh
-ms.reviewer: tyao
-ms.openlocfilehash: 479b1d8ed1f4238486bb78e33a6139463578dbba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32bee2a83e9133e516c66aec10e353fc0790b114
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94563310"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109632478"
 ---
 # <a name="set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Front Door에 대한 지역 필터링 WAF 정책 설정
 

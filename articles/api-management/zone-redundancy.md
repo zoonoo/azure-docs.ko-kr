@@ -4,15 +4,15 @@ description: 영역 중복을 사용하도록 설정하여 지역에서 Azure AP
 author: dlepow
 ms.service: api-management
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 05/07/2021
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 0ec2c0a270c721d1d706b696f5b8ba5b2ccd7ece
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 6e8352a93575ec6222be463daea14aee28f08a7c
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278869"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634818"
 ---
 # <a name="availability-zone-support-for-azure-api-management"></a>Azure API Management의 가용성 영역 지원 
 
@@ -39,6 +39,7 @@ ms.locfileid: "108278869"
 * 미국 중남부
 * 동남아시아
 * 영국 남부
+* 서유럽
 * 미국 서부 2
 * 미국 서부 3
 

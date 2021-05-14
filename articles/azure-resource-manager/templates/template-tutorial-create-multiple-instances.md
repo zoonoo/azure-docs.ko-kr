@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: e669e27547633639a88674ffee499fb1d84facdf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2076c27a241be49082ac7a46603f6a578252c101
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97673956"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754130"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>자습서: ARM 템플릿을 사용하여 여러 리소스 인스턴스 만들기
 
@@ -44,7 +44,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 1. **파일 이름** 에서 다음 URL을 붙여넣습니다.
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json
     ```
 
 1. **열기** 를 선택하여 파일을 엽니다.

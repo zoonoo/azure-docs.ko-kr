@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 02/22/2021
+ms.date: 04/19/2021
 ms.author: alkohli
-ms.openlocfilehash: 01e274ebb9746004713c3f3e6a36f9088a597802
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: b07fe5ad07cca8c8e151e8232e3ab165dc476be2
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140737"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732680"
 ---
 # <a name="what-is-the-azure-stack-edge-pro-r"></a>Azure Stack Edge Pro R이란?
 
@@ -67,6 +67,8 @@ Azure Stack Edge Pro R 솔루션은 Azure Stack Edge 리소스, Azure Stack Edge
 - **Azure Stack Edge 리소스** – 다양한 지리적 위치에서 액세스할 수 있는 웹 인터페이스에서 러기드 Azure Stack Edge Pro R 디바이스를 관리할 수 있는 Azure Portal의 리소스입니다. Azure Stack Edge 리소스를 사용하여 리소스를 생성/관리하고, 디바이스와 경고를 확인/관리하고, 공유를 관리합니다.  
 
 - **Azure Stack Edge Pro R 로컬 웹 UI** - 주로 디바이스의 초기 구성에 사용되는 Azure Stack Edge Pro R 디바이스의 브라우저 기반 로컬 사용자 인터페이스입니다. 로컬 웹 UI를 사용하여 진단을 실행하고, Azure Stack Edge Pro 디바이스를 종료 및 다시 시작하고, 복사 로그를 보고, Microsoft 지원에 연락하여 서비스를 요청하세요.
+
+    [!INCLUDE [azure-stack-edge-gateway-local-web-ui-languages](../../includes/azure-stack-edge-gateway-local-web-ui-languages.md)]
 
 
 ## <a name="region-availability"></a>지역 가용성

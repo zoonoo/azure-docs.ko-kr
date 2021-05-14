@@ -3,12 +3,12 @@ title: Azure Event Grid의 사용자 지정 토픽
 description: Azure Event Grid의 사용자 지정 토픽에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 8f48824989c8ec51b766385188ad99e9e59cf621
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c211e529e5382fd655fca6d78ab32409cbff4453
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86113788"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736649"
 ---
 # <a name="custom-topics-in-azure-event-grid"></a>Azure Event Grid의 사용자 지정 토픽
 Event Grid 항목에서는 원본이 이벤트를 보내는 엔드포인트를 제공합니다. 게시자는 Event Grid 항목을 만들고 이벤트 원본에 항목이 하나 필요한지 또는 둘 이상 필요한지 여부를 결정합니다. 항목은 관련 이벤트의 컬렉션에 사용됩니다. 특정 이벤트 형식에 응답하려면 구독자가 구독할 토픽을 결정합니다.
@@ -65,8 +65,8 @@ Event Grid 항목에서는 원본이 이벤트를 보내는 엔드포인트를 �
 ## <a name="arm-template-tutorials"></a>ARM 템플릿 자습서
 |제목  |Description  |
 |---------|---------|
-| [Resource Manager 템플릿: 토픽 및 WebHook 엔드포인트 사용자 지정](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid) | 사용자 지정 토픽 및 해당 사용자 지정 토픽에 대한 구독을 만드는 Resource Manager 템플릿입니다. WebHook에 이벤트를 보냅니다. |
-| [Resource Manager 템플릿: 토픽 및 Event Hubs 엔드포인트 사용자 지정](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| 사용자 지정 토픽에 대한 구독을 만드는 Resource Manager 템플릿입니다. Azure Event Hubs에 이벤트를 전송합니다. |
+| [Resource Manager 템플릿: 토픽 및 WebHook 엔드포인트 사용자 지정](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid) | 사용자 지정 토픽 및 해당 사용자 지정 토픽에 대한 구독을 만드는 Resource Manager 템플릿입니다. WebHook에 이벤트를 보냅니다. |
+| [Resource Manager 템플릿: 토픽 및 Event Hubs 엔드포인트 사용자 지정](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-event-hubs-handler)| 사용자 지정 토픽에 대한 구독을 만드는 Resource Manager 템플릿입니다. Azure Event Hubs에 이벤트를 전송합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요. 

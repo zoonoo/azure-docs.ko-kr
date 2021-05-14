@@ -31,15 +31,6 @@
     - name: 병렬 파일 처리 - Python
       displayName: 'tutorial, hpc, high-performance, large'
       href: tutorial-parallel-python.md
-    - name: Arnold를 사용하여 렌더링하는 장면
-      displayName: tutorial
-      href: tutorial-rendering-cli.md
-    - name: Batch Explorer를 사용한 렌더링
-      displayName: tutorial
-      href: tutorial-rendering-batchexplorer-blender.md
-    - name: 병렬 R 시뮬레이션
-      displayName: 'tutorial, doAzureParallel, rstudio'
-      href: tutorial-r-doazureparallel.md
     - name: Batch 및 Functions를 사용하는 OCR
       displayName: 'trigger, optical'
       href: tutorial-batch-functions.md
@@ -76,7 +67,7 @@
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/batch-security-baseline?toc=/azure/batch/TOC.json
         - name: 보안 모범 사례
           href: security-best-practices.md
     - name: Batch 서비스 워크플로 및 리소스
@@ -123,6 +114,8 @@
           href: private-connectivity.md
         - name: 고객 관리형 키 구성
           href: batch-customer-managed-key.md
+        - name: 영역 간 이동
+          href: account-move.md
     - name: Azure AD를 사용하여 인증
       items:
         - name: Batch 서비스 포함 Azure AD
@@ -172,6 +165,9 @@
         - name: 관리되는 ID 구성
           displayName: user-assigned
           href: managed-identity-pools.md
+        - name: 인증서 회전 사용
+          displayName: 'key vault, keyvault, automatic'
+          href: automatic-certificate-rotation.md
         - name: 가상 파일 시스템 탑재
           href: virtual-file-mount.md
         - name: Azure 파일 공유 탑재
@@ -238,11 +234,11 @@
           displayName: command line
           href: batch-cli-get-started.md
         - name: Batch CLI 템플릿 사용
-          diplayName: extension
+          displayName: extension
           href: batch-cli-templates.md
-    - name: Batch Node.js SDK 사용
+    - name: Batch JavaScript SDK 사용
       displayName: json
-      href: batch-nodejs-get-started.md
+      href: batch-js-get-started.md
     - name: 워크로드 실행
       items:
         - name: MPI
@@ -280,7 +276,7 @@
       href: /dotnet/api/overview/azure/batch
     - name: Java
       href: /java/api/overview/azure/batch
-    - name: Node.js
+    - name: JavaScript
       href: /javascript/api/overview/azure/batch
     - name: Python
       href: /python/api/overview/azure/batch

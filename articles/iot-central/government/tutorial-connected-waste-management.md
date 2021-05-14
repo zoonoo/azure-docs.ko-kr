@@ -7,12 +7,12 @@ ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: ff7cfb8c7aa8469111d4531da17c7cd184920f9b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42a82a59483a582e0d395092558665b12e1cd5a3
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727569"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684364"
 ---
 # <a name="tutorial-create-a-connected-waste-management-app"></a>자습서: 연결된 폐기물 관리 앱 만들기
 
@@ -53,8 +53,6 @@ Azure 구독이 권장됩니다. 대신 무료 7일 평가판을 사용할 수 �
     * **애플리케이션 이름**. 기본적으로 이 애플리케이션에는 Azure IoT Central이 생성하는 고유한 ID 문자열 다음에 오는 **연결된 폐기물 관리** 가 사용됩니다. 필요에 따라 친숙한 애플리케이션 이름을 선택할 수 있습니다. 애플리케이션 이름은 나중에 변경할 수도 있습니다.
     * **URL**. 선택적으로 원하는 URL을 선택할 수 있습니다. 나중에 URL을 변경할 수 있습니다. 
     * **요금제**. Azure 구독이 있는 경우 **청구 정보** 대화 상자의 해당 필드에 디렉터리, Azure 구독 및 지역을 입력합니다. 구독이 없는 경우 **무료** 를 선택하여 7일 평가판 구독을 활성화하고 필요한 연락처 정보를 작성합니다.  
-
-    디렉터리 및 구독에 대한 자세한 내용은 [빠른 시작 - Azure IoT Central 애플리케이션 만들기](../core/quick-deploy-iot-central.md)를 참조합니다.
 
 1. 페이지의 맨 아래에서 **만들기** 를 선택합니다. 
 

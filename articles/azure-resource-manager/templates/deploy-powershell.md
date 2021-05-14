@@ -3,12 +3,13 @@ title: PowerShell 및 템플릿으로 리소스 배포
 description: Azure Resource Manager와 Azure PowerShell을 사용하여 Azure에 리소스를 배포합니다. 리소스는 Resource Manager 템플릿 또는 Bicep 파일에 정의됩니다.
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: 11a293ca58fc6acf3bd99bb0169d817dae11fb94
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: db43613b1b359e6d6378e081f3f61ee1449bd641
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105543808"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108314646"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포
 
@@ -16,7 +17,7 @@ ms.locfileid: "105543808"
 
 Bicep 파일을 배포하려면 [Azure PowerShell 버전 5.6.0 이상](/powershell/azure/install-az-ps)이 필요합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 배포할 템플릿이 필요합니다. 템플릿이 없는 경우 Azure 빠른 시작 템플릿 리포지토리에서 [예제 템플릿](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json)을 다운로드하고 저장합니다. 이 문서에 사용된 로컬 파일 이름은 _C:\MyTemplates\azuredeploy.json_ 입니다.
 
@@ -110,7 +111,7 @@ New-AzResourceGroupDeployment `
   -TemplateFile <path-to-template-or-bicep>
 ```
 
-배포가 완료되는 데 몇 분 정도 걸릴 수 있습니다.
+배포를 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="deploy-remote-template"></a>원격 템플릿 배포
 

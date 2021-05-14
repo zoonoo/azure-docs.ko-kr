@@ -7,26 +7,26 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 74422318718e318a00d7bd7ebaf8e4093ef75aa6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 9608e3bdaab033d58796a3841e8cd92d7a8a81ef
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94629277"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777980"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-linux-for-use-with-azure-files"></a>Azure Files에서 사용하기 위한 Linux의 P2S(지점 및 사이트 간) VPN 구성
 P2S(지점 및 사이트 간) VPN 연결을 사용하여 포트 445을 열지 않고 Azure 외부에서 SMB를 통해 Azure 파일 공유를 탑재할 수 있습니다. 지점 및 사이트 간 VPN 연결은 Azure와 개별 클라이언트 간의 VPN 연결입니다. Azure Files에서 P2S VPN 연결을 사용하려면 연결하려는 각 클라이언트에 대해 P2S VPN 연결을 구성해야 합니다. 온-프레미스 네트워크에서 Azure 파일 공유에 연결해야 하는 클라이언트가 많은 경우에는 각 클라이언트에 대해 지점 및 사이트 간 연결 대신 S2S(사이트 간) VPN 연결을 사용할 수 있습니다. 자세한 내용은 [Azure Files에서 사용하기 위한 사이트 간 VPN 구성](storage-files-configure-s2s-vpn.md)을 참조하세요.
 
 Azure Files에 사용할 수 있는 네트워킹 옵션에 대해 자세히 알아보려면 이 방법 문서를 계속하기 전에 먼저 [Azure Files 네트워킹 개요](storage-files-networking-overview.md)를 참조하는 것이 좋습니다.
 
-이 문서에서는 Linux에서 지점 및 사이트 간 VPN을 구성하여 Azure 파일 공유를 온-프레미스에 직접 탑재하는 단계를 자세히 설명합니다. VPN을 통해 Azure 파일 동기화 트래픽을 라우팅하는 경우 [Azure 파일 동기화 프록시 및 방화벽 설정 구성](storage-sync-files-firewall-and-proxy.md)을 참조하세요.
+이 문서에서는 Linux에서 지점 및 사이트 간 VPN을 구성하여 Azure 파일 공유를 온-프레미스에 직접 탑재하는 단계를 자세히 설명합니다. VPN을 통해 Azure 파일 동기화 트래픽을 라우팅하는 경우 [Azure 파일 동기화 프록시 및 방화벽 설정 구성](../file-sync/file-sync-firewall-and-proxy.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 - 최신 버전의 Azure CLI. Azure CLI를 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell CLI 설치](/cli/azure/install-azure-cli)를 참조하고 해당 운영 체제를 선택합니다. Linux에서 Azure PowerShell 모듈을 사용하려는 경우에는 Azure CLI에 대한 아래 지침이 제공될 수 있습니다.
 
-- 온-프레미스에 탑재하려는 Azure 파일 공유. Azure 파일 공유는 저장소 계정 내에 배포 됩니다. 저장소 계정에는 blob 컨테이너 또는 큐와 같은 다른 저장소 리소스 뿐만 아니라 여러 파일 공유를 배포할 수 있는 저장소의 공유 풀을 나타내는 관리 구문도 있습니다. Azure 파일 공유 및 저장소 계정을 배포 하는 방법에 대 한 자세한 내용은 [azure 파일 공유 만들기](storage-how-to-create-file-share.md)를 통해 확인할 수 있습니다.
+- 온-프레미스에 탑재하려는 Azure 파일 공유. Azure 파일 공유는 스토리지 계정 내에 배포됩니다. 스토리지 계정은 여러 파일 공유뿐만 아니라 다른 스토리지 리소스(예: Blob 컨테이너 또는 큐)도 배포할 수 있는 공유 스토리지 풀을 나타내는 관리 구조입니다. [Azure 파일 공유 만들기](storage-how-to-create-file-share.md)에서 Azure 파일 공유 및 스토리지 계정을 배포하는 방법에 대해 자세히 알아봅니다.
 
-- 온-프레미스에 탑재 하려는 Azure 파일 공유가 포함 된 저장소 계정의 개인 끝점입니다. 개인 끝점을 만드는 방법에 대 한 자세한 내용은 [Azure Files 네트워크 끝점 구성](storage-files-networking-endpoints.md?tabs=azure-cli)을 참조 하세요. 
+- 온-프레미스에 탑재하려는 Azure 파일 공유가 포함된 스토리지 계정의 프라이빗 엔드포인트입니다. 프라이빗 엔드포인트를 만드는 방법에 대한 자세한 내용은 [Azure Files 네트워크 엔드포인트 구성](storage-files-networking-endpoints.md?tabs=azure-cli)을 참조하세요. 
 
 ## <a name="install-required-software"></a>필수 소프트웨어 설치
 Azure 가상 네트워크 게이트웨이는 IPsec 및 OpenVPN을 비롯한 여러 VPN 프로토콜을 사용하는 VPN 연결을 제공할 수 있습니다. 이 가이드에서는 IPsec 사용 방법을 보여주며 strongSwan 패키지를 사용하여 Linux에서 지원을 제공합니다. 
@@ -119,7 +119,7 @@ Azure 가상 네트워크 게이트웨이는 온-프레미스 Linux 머신에서
 > [!Note]  
 > Azure 가상 네트워크 게이트웨이를 배포하는 데 최대 45분이 걸릴 수 있습니다. 이 리소스가 배포되는 동안 이 bash 스크립트는 배포가 완료 될 때까지 차단됩니다.
 >
-> P2S IKEv2/OpenVPN 연결은 **기본** SKU에서 지원 되지 않습니다. 이 스크립트는 가상 네트워크 게이트웨이에 대 한 **VpnGw1** SKU를 적절 하 게 사용 합니다.
+> P2S IKEv2/OpenVPN 연결은 **기본** SKU에서 지원되지 않습니다. 따라서 이 스크립트는 가상 네트워크 게이트웨이에 대해 **VpnGw1** SKU를 사용합니다.
 
 ```bash
 vpnName="<desired-vpn-name-here>"
@@ -210,7 +210,7 @@ smbPath="//$storageAccountPrivateIP/$fileShareName"
 sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 - [Azure Files 네트워킹 개요](storage-files-networking-overview.md)
 - [Azure Files에서 사용하기 위한 Windows의 P2S(지점 및 사이트 간) VPN 구성](storage-files-configure-p2s-vpn-windows.md)
 - [Azure Files에서 사용할 S2S(사이트 간) VPN 구성](storage-files-configure-s2s-vpn.md)

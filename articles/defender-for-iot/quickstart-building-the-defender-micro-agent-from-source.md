@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: 소스 코드에서 Defender 마이크로 에이전트 빌드(미리 보기)'
 description: 이 빠른 시작에서는 배포를 사용자 지정하는 데 사용할 수 있는 인프라를 포함하는 마이크로 에이전트에 대해 알아봅니다.
-ms.date: 1/18/2021
+ms.date: 05/10/2021
 ms.topic: quickstart
-ms.openlocfilehash: a3a8f82989d6abbaf2657e4b45638c77b3b2f704
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: b52c985619e317421a1597fee77911d9bc1e81d2
+ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384600"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109664855"
 ---
 # <a name="quickstart-build-the-defender-micro-agent-from-source-code-preview"></a>빠른 시작: 소스 코드에서 Defender 마이크로 에이전트 빌드(미리 보기)
 
@@ -103,4 +103,5 @@ ms.locfileid: "106384600"
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Defender for IoT 솔루션을 구성합니다](quickstart-configure-your-solution.md).
+> [!div class="nextstepaction"]
+> [Azure Defender for IoT 솔루션을 구성합니다](quickstart-configure-your-solution.md).

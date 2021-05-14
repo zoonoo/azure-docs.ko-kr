@@ -6,12 +6,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 60d25c0567bec06311cd391c3181c2ab21742839
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 77888d1d0fe8c4ef1d948904cf9981ed23276fb8
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108313526"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109719334"
 ---
 이 빠른 시작에서는 iOS용 Azure Communication Services Calling SDK를 사용하여 통화를 시작하는 방법에 대해 알아봅니다.
 
@@ -114,7 +114,7 @@ struct ContentView: View {
 
 ## <a name="object-model"></a>개체 모델
 
-Azure Communication Services 통화 SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
+Azure Communication Services Calling SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
 | 이름                                  | 설명                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
@@ -164,8 +164,8 @@ func startCall()
     AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
         if granted {
             // start call logic
-            let callees:[CommunicationIdentifier] = [CommunicationUserIdentifier(identifier: self.callee)]
-            self.call = self.callAgent?.startCall(participants: callees, options: StartCallOptions()) { (call, error) in
+            let callees:[CommunicationIdentifier] = [CommunicationUserIdentifier(self.callee)]
+            self.callAgent?.startCall(participants: callees, options: StartCallOptions()) { (call, error) in
                 if (error == nil) {
                     self.call = call
                 } else {

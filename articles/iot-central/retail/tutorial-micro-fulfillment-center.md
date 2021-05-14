@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: ab4d609b1638b47ad73b6f1143adee2870577305
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78536867efa4894f1041a340b9d6347a4e030a69
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100390473"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685660"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>자습서: 마이크로 처리 센터 애플리케이션 템플릿 배포 및 살펴보기
 
@@ -52,8 +52,6 @@ ms.locfileid: "100390473"
     >친숙한 애플리케이션 이름을 사용하는 경우에도 고유한 값을 애플리케이션 URL에 사용해야 합니다.
 
 1. Azure 구독이 있는 경우 디렉터리, Azure 구독 및 지역을 입력합니다. 구독이 없는 경우 7일 평가판을 사용하도록 설정하고 필요한 연락처 정보를 작성할 수 있습니다.  
-
-    디렉터리 및 구독에 대한 자세한 내용은 [애플리케이션 만들기](../core/quick-deploy-iot-central.md) 빠른 시작을 참조하세요.
 
 1. **만들기** 를 선택합니다.
 
