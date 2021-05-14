@@ -1,6 +1,6 @@
 ---
-title: Android 맵에 다각형 입체 면 계층 추가 | Microsoft Azure 맵
-description: 다각형 밀어내기 계층을 Microsoft Azure 지도 Android SDK에 추가 하는 방법입니다.
+title: Android 맵에 입체 계층 추가 | Microsoft Azure Maps
+description: 다각형 입체 계층을 Microsoft Azure Maps Android SDK에 추가하는 방법입니다.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 02/26/2021
@@ -10,22 +10,22 @@ services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
 ms.openlocfilehash: 87cd32dcace6fd38180cc09ba999efca76f5ae16
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105605470"
 ---
-# <a name="add-a-polygon-extrusion-layer-to-the-map-android-sdk"></a>지도에 다각형 입체 면 계층 추가 (Android SDK)
+# <a name="add-a-polygon-extrusion-layer-to-the-map-android-sdk"></a>다각형 입체 계층을 맵에 추가(Android SDK)
 
-이 문서에서는 다각형 입체 면 계층을 사용 하 여 `Polygon` 및 `MultiPolygon` 기능 기 하 도형을 입체 도형으로 렌더링 하는 방법을 보여 줍니다.
+이 문서에서는 다각형 입체 계층을 사용하여 `Polygon` 및 `MultiPolygon` 기능 기하 도형을 입체 도형으로 렌더링하는 방법을 보여 줍니다.
 
-## <a name="use-a-polygon-extrusion-layer"></a>다각형 입체 면 계층 사용
+## <a name="use-a-polygon-extrusion-layer"></a>다각형 입체 계층 사용
 
-다각형 입체 면 계층을 데이터 원본에 연결 합니다. 그런 다음 맵에 로드 합니다. 다각형 입체 면 계층은 및 기능의 영역을 `Polygon` `MultiPolygon` 입체 도형으로 렌더링 합니다. `height` `base` 다각형 입체 면 계층의 및 속성은 입체 도형의 너비와 높이의 기본 거리를 **미터** 단위로 정의 합니다. 다음 코드에서는 다각형을 만들고 데이터 소스에 추가 하 고 다각형 입체 면 계층 클래스를 사용 하 여 렌더링 하는 방법을 보여 줍니다.
+다각형 입체 계층을 데이터 원본에 연결합니다. 그런 다음 맵에 로드합니다. 다각형 입체 계층은 `Polygon` 및 `MultiPolygon` 기능의 영역을 입체 도형으로 렌더링합니다. 다각형 입체 계층의 `height` 및 `base` 속성은 **미터** 단위로 지면에서 입체 도형까지의 기본 거리를 정의합니다. 다음 코드에서는 다각형을 만들어 데이터 원본에 추가하고 다각형 입체 계층 클래스를 사용하여 렌더링하는 방법을 보여 줍니다.
 
 > [!Note]
-> `base`다각형 입체 면 계층에 정의 된 값은의 값 보다 작거나 같아야 합니다 `height` .
+> 다각형 입체 계층에 정의된 `base` 값은 `height`의 값보다 작거나 같아야 합니다.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -106,13 +106,13 @@ map.layers.add(layer, "labels")
 
 ::: zone-end
 
-다음 스크린 샷에서는 다각형 입체 면 계층을 사용 하 여 세로로 확장 된 다각형을 렌더링 하는 위의 코드를 보여 줍니다.
+다음 스크린샷에서는 다각형 입체 계층을 사용하여 세로로 확장된 다각형을 렌더링하는 위의 코드를 보여 줍니다.
 
-![다각형 입체 면 레이어를 사용 하 여 세로로 확장 된 지도](media/map-extruded-polygon-android/polygon-extrusion-layer.jpg)
+![다각형 입체 계층을 사용하여 세로로 확장된 맵](media/map-extruded-polygon-android/polygon-extrusion-layer.jpg)
 
 ## <a name="add-data-driven-polygons"></a>데이터 중심 다각형 추가
 
-다각형 입체 면 레이어를 사용 하 여 choropleth 지도를 렌더링할 수 있습니다. `height` `fillColor` 밀어내기 계층의 및 속성을 `Polygon` 및 기능 기 하 도형에서 통계 변수의 측정으로 설정 합니다 `MultiPolygon` . 다음 코드 샘플은 상태별 모집단 밀도의 측정을 기반으로 하는 미국의 돌출 된 choropleth 지도를 보여 줍니다.
+다각형 입체 계층을 사용하여 단계구분도 지도를 렌더링할 수 있습니다. 입체 계층의 `height` 및 `fillColor` 속성을 `Polygon` 및 `MultiPolygon` 기능 기하 도형의 통계 변수 측정값으로 설정합니다. 다음 코드 샘플은 상태별 인구 밀도의 측정값을 기반으로 하는 미국의 입체 단계구분도 지도를 보여 줍니다.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -213,9 +213,9 @@ map.layers.add(layer, "labels")
 
 ::: zone-end
 
-다음 스크린샷에서는 채우기 밀도를 기준으로 입체 다각형으로 세로 방향으로 색이 지정 되 고 세로로 확장 된 미국 choropleth 지도를 보여 줍니다.
+다음 스크린샷에서는 인구 밀도를 기준으로 입체 다각형으로 색이 지정되고 세로로 확장된 미국 단계구분도 지도를 보여 줍니다.
 
-![모집단 밀도를 기준으로 입체 다각형으로 세로 방향으로 세로 방향으로 확장 된 미국 choropleth 지도](media/map-extruded-polygon-android/android-extruded-choropleth.jpg)
+![인구 밀도를 기준으로 입체 다각형으로 색이 지정되고 세로로 확장된 미국 단계구분도 지도를 보여 줍니다.](media/map-extruded-polygon-android/android-extruded-choropleth.jpg)
 
 ## <a name="next-steps"></a>다음 단계
 
