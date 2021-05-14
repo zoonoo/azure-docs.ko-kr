@@ -14,16 +14,16 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2020
 ms.author: allensu
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 7067d7d76815103541fa4654da2bf977ba03a4ef
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 4b1bdd1addec93647eaa631a89e6d419f7ecf477
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056252"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789140"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
 
-부하를 분산하면 들어오는 요청이 여러 VM(가상 머신)에 분산되어 가용성 및 확장성이 향상됩니다. 
+부하를 분산하면 들어오는 요청이 여러 VM(가상 머신)에 분산되어 가용성 및 확장성이 향상됩니다.
 
 이 빠른 시작에서는 가상 머신의 부하를 분산하는 표준 부하 분산 장치를 배포하는 방법을 보여줍니다.
 
@@ -33,7 +33,7 @@ ARM 템플릿을 사용하면 다른 배포 방법과 비교하여 단계가 줄
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-load-balancer-standard-create%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fload-balancer-standard-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 부하 분산 장치와 공용 IP SKU는 일치해야 합니다. 표준 부하 분산 장치를 만들 때 표준 부하 분산 장치의 프런트 엔드로 구성된 새 표준 공용 IP 주소도 만들어야 합니다. 기본 부하 분산 장치를 만들려면 [이 템플릿](https://azure.microsoft.com/resources/templates/201-2-vms-loadbalancer-natrules/)을 사용합니다. Microsoft는 프로덕션 워크로드용 표준 SKU를 사용할 것을 권장합니다.
 
-:::code language="json" source="~/quickstart-templates/101-load-balancer-standard-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/load-balancer-standard-create/azuredeploy.json":::
 
 템플릿에 여러 Azure 리소스가 정의되어 있습니다.
 
@@ -71,7 +71,7 @@ Azure Load Balancer에 관련된 더 많은 템플릿을 찾으려면 [Azure 빠
    $adminPassword = Read-Host -Prompt "Enter the virtual machine administrator password" -AsSecureString
 
    $resourceGroupName = "${projectName}rg"
-   $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json"
+   $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/load-balancer-standard-create/azuredeploy.json"
 
    New-AzResourceGroup -Name $resourceGroupName -Location $location
    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -location $location -adminUsername $adminUsername -adminPassword $adminPassword
@@ -119,7 +119,7 @@ Azure PowerShell은 템플릿을 배포하는 데 사용됩니다. Azure Portal,
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않으면 다음을 삭제합니다. 
+더 이상 필요하지 않으면 다음을 삭제합니다.
 
 * Resource group
 * 부하 분산 장치

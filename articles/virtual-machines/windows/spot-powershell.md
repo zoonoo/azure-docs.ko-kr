@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 9a2ad2eb197af613919efa4414da1759cd47e2e7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bcf3cb5a020bb2efd5a2528c28421deba206ee31
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104802746"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108125268"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Spot Virtual Machines 배포
 
@@ -99,7 +99,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 
 이 첫 번째 응답은 최대 2분 정도 걸릴 수 있습니다. 지금부터 출력이 거의 즉시 표시되어야 합니다.
 
-Az PowerShell 모듈이 설치된 컴퓨터(예: 로컬 컴퓨터)에서 [Set-AzVM](https://docs.microsoft.com/powershell/module/az.compute/set-azvm)을 사용하여 제거를 시뮬레이션합니다. 리소스 그룹 이름 및 VM 이름을 고유의 이름으로 바꿉니다. 
+Az PowerShell 모듈이 설치된 컴퓨터(예: 로컬 컴퓨터)에서 [Set-AzVM](/powershell/module/az.compute/set-azvm)을 사용하여 제거를 시뮬레이션합니다. 리소스 그룹 이름 및 VM 이름을 고유의 이름으로 바꿉니다. 
 
 ```azurepowershell-interactive
 Set-AzVM -ResourceGroupName "mySpotRG" -Name "mySpotVM" -SimulateEviction
@@ -107,7 +107,7 @@ Set-AzVM -ResourceGroupName "mySpotRG" -Name "mySpotVM" -SimulateEviction
 
 요청이 성공적으로 수행되면 응답 출력에 `Status: Succeeded`가 나타납니다.
 
-신속하게 스폿 가상 머신에 대한 원격 연결로 돌아가서 Scheduled Events 엔드포인트를 다시 쿼리합니다. 추가 정보를 포함하는 출력이 반환될 때까지 다음 명령을 반복합니다.
+신속하게 Spot Virtual MachineS에 대한 원격 연결로 돌아가서 Scheduled Events 엔드포인트를 다시 쿼리합니다. 추가 정보를 포함하는 출력이 반환될 때까지 다음 명령을 반복합니다.
 
 ```
 curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01

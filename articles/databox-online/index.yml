@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: alkohli
   ms.author: alkohli
-  ms.date: 10/27/2020
-  ms.openlocfilehash: 654c55436a47d91318548997aecc2605ae342099
-  ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+  ms.date: 04/20/2021
+  ms.openlocfilehash: 5bbd26cfe7972ded591fb7ee57c8f2e746ce1753
+  ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 01/25/2021
-  ms.locfileid: "98763060"
+  ms.lasthandoff: 04/22/2021
+  ms.locfileid: "107886895"
 landingContent:
 - title: Azure Stack Edge 정보
   linkLists:
@@ -25,12 +25,10 @@ landingContent:
     links:
     - text: Azure Stack Edge Pro GPU란?
       url: azure-stack-edge-gpu-overview.md
-    - text: Azure Stack Edge Pro FPGA란?
-      url: azure-stack-edge-overview.md
-    - text: Azure Stack Edge R이란?
-      url: azure-stack-edge-j-series-overview.md
+    - text: Azure Stack Edge Pro R이란?
+      url: ./azure-stack-edge-pro-r-overview.md
     - text: Azure Stack Edge Mini R이란?
-      url: azure-stack-edge-k-series-overview.md
+      url: azure-stack-edge-mini-r-overview.md
   - linkListType: architecture
     links:
     - text: Azure 데이터 전송 옵션 선택
@@ -39,59 +37,81 @@ landingContent:
       url: ../storage/common/storage-solution-large-dataset-low-network.md#offline-transfer-or-network-transfer
   - linkListType: whats-new
     links:
-    - text: 2101 릴리스 정보
-      url: azure-stack-edge-gpu-2101-release-notes.md
+    - text: Azure Stack Edge Pro GPU의 2103 릴리스 정보
+      url: azure-stack-edge-gpu-2103-release-notes.md
+    - text: Azure Stack Edge Pro FPGA의 2101 릴리스 정보
+      url: azure-stack-edge-2101-release-notes.md
 - title: 요구 사항 및 제한 사항
   linkLists:
   - linkListType: concept
     links:
     - text: Azure Stack Edge Pro GPU 요구 사항
       url: azure-stack-edge-gpu-system-requirements.md
-    - text: Azure Stack Edge Pro FPGA 요구 사항
-      url: azure-stack-edge-gpu-system-requirements.md
-    - text: Azure Stack Edge Pro 제한 사항
+    - text: Azure Stack Edge Pro R 요구 사항
+      url: azure-stack-edge-pro-r-system-requirements.md
+    - text: Azure Stack Edge Mini R 요구 사항
+      url: azure-stack-edge-mini-r-system-requirements.md
+    - text: Azure Stack Edge Pro GPU 제한
       url: azure-stack-edge-limits.md
-- title: 배포
+    - text: Azure Stack Edge Pro R 제한 사항
+      url: azure-stack-edge-pro-r-limits.md
+    - text: Azure Stack Edge Mini R 제한 사항
+      url: azure-stack-edge-mini-r-limits.md
+- title: 디바이스 배포
   linkLists:
   - linkListType: tutorial
     links:
-    - text: 배포 전 검사 목록 보기
+    - text: 배포 검사 목록 보기
       url: azure-stack-edge-gpu-deploy-checklist.md
     - text: Azure Stack Edge Pro GPU
       url: azure-stack-edge-gpu-deploy-prep.md
-    - text: Marketplace를 통한 GPU 모듈
-      url: azure-stack-edge-gpu-deploy-sample-module-marketplace.md
-    - text: IoT Edge를 통한 Kubernetes 워크로드
-      url: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
-- title: 개발
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: C# Edge 컴퓨팅 모듈
-      url: azure-stack-edge-create-iot-edge-module.md
-  - linkListType: download
-    links:
-    - text: 샘플 - Azure Stack Edge Pro GPU용 C#
-      url: /samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules/
+    - text: Azure Stack Edge Pro R
+      url: azure-stack-edge-pro-r-deploy-prep.md
+    - text: Azure Stack Edge Mini R
+      url: azure-stack-edge-mini-r-deploy-prep.md
 - title: 관리
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Azure Stack Edge Pro 공유
+    - text: Azure Stack Edge Pro GPU 공유
+      url: azure-stack-edge-gpu-manage-shares.md
+    - text: Azure Stack Edge Pro FPGA 공유
       url: azure-stack-edge-manage-shares.md
     - text: Edge 컴퓨팅
       url: azure-stack-edge-manage-compute.md
     - text: Edge 스토리지 계정
-      url: azure-stack-edge-j-series-manage-storage-accounts.md
+      url: azure-stack-edge-gpu-manage-storage-accounts.md
+- title: 워크로드 배포
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Marketplace를 통한 GPU 모듈
+      url: azure-stack-edge-gpu-deploy-sample-module-marketplace.md
+    - text: Azure Portal을 통한 VM
+      url: azure-stack-edge-gpu-deploy-virtual-machine-portal.md
+    - text: 템플릿을 통한 VM
+      url: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
+    - text: Azure Portal을 통한 IoT Edge 모듈
+      url: azure-stack-edge-gpu-deploy-compute-module-simple.md
+    - text: IoT Edge를 통한 Kubernetes
+      url: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
+    - text: kubectl을 통한 Kubernetes
+      url: azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md
+    - text: Azure Arc를 통한 Kubernetes
+      url: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md
 - title: 문제 해결
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Azure Stack Edge GPU
+    - text: Azure Stack Edge Pro GPU 주문 문제
+      url: azure-stack-edge-troubleshoot-ordering.md
+    - text: Azure Stack Edge Pro GPU 디바이스 문제
       url: azure-stack-edge-gpu-troubleshoot.md
-    - text: Edge 컴퓨팅 모듈
+    - text: Azure Stack Edge Pro GPU 활성화 문제
+      url: azure-stack-edge-gpu-troubleshoot-activation.md
+    - text: Edge 컴퓨팅 오류
       url: azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge
-    - text: Azure Stack Edge GPU 반환
+    - text: Azure Stack Edge Pro GPU 반환
       url: azure-stack-edge-return-device.md
     - text: 지원 티켓 열기
       url: azure-stack-edge-contact-microsoft-support.md

@@ -1,0 +1,50 @@
+- name: Azure AD 확인 가능한 자격 증명 문서
+  href: index.yml
+- name: 개요
+  expanded: true
+  items:
+    - name: Azure Active Directory 확인 가능한 자격 증명 소개
+      href: decentralized-identifier-overview.md
+- name: 자습서
+  expanded: true
+  items:
+    - name: 확인 가능한 자격 증명 시작
+      href: get-started-verifiable-credentials.md
+    - name: 테넌트에서 확인 가능한 자격 증명 구성
+      items:
+        - name: 1 - 고유의 Azure AD에서 확인 가능한 자격 증명 발급자 설정
+          href: enable-your-tenant-verifiable-credentials.md
+        - name: 2 - 확인 가능한 자격 증명 발급자를 고유의 Azure AD에 연결
+          href: issue-verify-verifiable-credentials-your-tenant.md
+- name: 개념
+  expanded: true
+  items:
+    - name: OpenID Connect 프로토콜 세부 정보
+      href: issuer-openid.md
+- name: 방법 가이드
+  expanded: true
+  items:
+    - name: 자격 증명을 사용자 지정하는 방법
+      href: credential-design.md
+    - name: 자격 증명 해지 관리
+      href: how-to-issuer-revoke.md
+    - name: 도메인을 DID에 연결
+      href: how-to-dnsbind.md
+    - name: 확인 가능한 자격 증명 옵트아웃
+      href: how-to-opt-out.md
+- name: 샘플
+  expanded: true
+  items:
+    - name: 샘플 노드 앱
+      href: 'https://github.com/Azure-Samples/active-directory-verifiable-credentials'
+    - name: 샘플 발급자
+      href: 'https://didvc-issuer-sample.azurewebsites.net/'
+    - name: 샘플 검증 도구
+      href: 'https://didvc-verifier-sample.azurewebsites.net/'
+- name: 리소스
+  expanded: true
+  items:
+    - name: FAQ
+      href: verifiable-credentials-faq.md
+    - name: 개발자 계정을 만드는 방법
+      href: how-to-create-a-free-developer-account.md

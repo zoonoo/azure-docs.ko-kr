@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에서 API 서버에 액세스할 수 
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: 20c3d46e9a19c66c727e5a21bccd6caa0dc5f0ba
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9b6ee4a17c15b6ada39798db40408d1d26971dfe
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104771926"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108016350"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 권한 있는 IP 주소 범위를 사용하는 안전한 API 서버 액세스
 
@@ -185,10 +185,10 @@ Invoke-RestMethod http://ipinfo.io/json | Select -exp ip
 [kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
 
 <!-- LINKS - internal -->
-[az-aks-update]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-update
-[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-update]: /cli/azure/aks#az_aks_update
+[az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-show]: /cli/azure/aks#az_aks_show
-[az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
+[az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [concepts-security]: concepts-security.md
 [install-azure-cli]: /cli/azure/install-azure-cli

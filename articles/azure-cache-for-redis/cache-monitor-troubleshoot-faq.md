@@ -1,23 +1,23 @@
 ---
-title: Azure Cache for Redis 모니터링 및 문제 해결 Faq
-description: Redis 용 Azure Cache를 모니터링 하 고 문제를 해결 하는 데 도움이 되는 일반적인 질문과 대답을 알아봅니다.
+title: Azure Cache for Redis 모니터링 및 문제 해결 FAQ
+description: Azure Cache for Redis를 모니터링하고 문제를 해결하는 데 도움이 되는 일반적인 질문에 대한 대답을 알아봅니다.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.openlocfilehash: 8e96c73578a9341f67d90cd4482ed75179c6886d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92537527"
 ---
-# <a name="azure-cache-for-redis-monitoring-and-troubleshooting-faqs"></a>Azure Cache for Redis 모니터링 및 문제 해결 Faq
-이 문서에서는 Redis 용 Azure Cache를 모니터링 하 고 문제를 해결 하는 방법에 대 한 질문과 대답을 제공 합니다.
+# <a name="azure-cache-for-redis-monitoring-and-troubleshooting-faqs"></a>Azure Cache for Redis 모니터링 및 문제 해결 FAQ
+이 문서에서는 Azure Cache for Redis를 모니터링하고 문제를 해결하는 방법에 대한 일반적인 질문의 대답을 알아봅니다.
 
-## <a name="common-questions-and-answers"></a>일반적인 질문 및 답변
-이 섹션에서는 다음 Faq를 다룹니다.
+## <a name="common-questions-and-answers"></a>일반적인 질문과 답변
+이 섹션에서는 다음 FAQ를 다룹니다.
 
 * [내 캐시의 상태 및 성능을 모니터링하려면 어떻게 해야 하나요?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
 * [왜 시간 초과가 표시되나요?](#why-am-i-seeing-timeouts)
@@ -49,7 +49,7 @@ Microsoft Azure Cache for Redis 인스턴스는 [Azure Portal](https://portal.az
   * 대역폭 임계값 제한에 도달했습니다.
   * CPU 바인딩된 작업을 완료하는 데 시간이 너무 오래 걸렸습니다.
 * 서버 쪽 원인
-  * 표준 캐시 기능에서 Redis 서비스에 대 한 Azure Cache는 주 노드에서 복제본 노드로 장애 조치 (failover)를 시작 했습니다.
+  * 표준 캐시 제안의 Azure Cache for Redis 서비스가 주 노드에서 복제본 노드로 장애 조치를 시작했습니다.
   * Azure에서 캐시가 배포된 인스턴스에 패치를 적용하고 있었습니다.
     * 이 작업은 Redis 서버 업데이트 또는 일반적인 VM 유지 관리를 위한 것일 수 있습니다.
 
@@ -58,4 +58,4 @@ Microsoft Azure Cache for Redis 인스턴스는 [Azure Portal](https://portal.az
 
 Azure Cache for Redis 인스턴스를 모니터링하고 관련 문제를 해결하는 방법에 대한 자세한 내용은 [Azure Cache for Redis를 모니터링하는 방법](cache-how-to-monitor.md) 및 다양한 문제 해결 안내서를 참조하세요.
 
-[Redis faq 용 다른 Azure Cache](cache-faq.md)에 대해 알아봅니다.
+다른 [Azure Cache for Redis FAQ](cache-faq.md)에 대해 알아봅니다.

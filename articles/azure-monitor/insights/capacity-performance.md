@@ -1,25 +1,25 @@
 ---
-title: Azure Monitor에서 용량 및 성능 솔루션 Microsoft Docs
-description: 모니터의 용량 및 성능 솔루션을 사용 하 여 Hyper-v 서버의 용량을 이해 하는 데 도움을 줍니다.
+title: Azure Monitor의 용량 및 성능 솔루션 | Microsoft Docs
+description: Monitor의 용량 및 성능 솔루션을 사용하면 Hyper-V 서버의 용량을 이해할 수 있습니다.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
 ms.openlocfilehash: aa08b9f5db5e6371bcd20b473a0c755db3199e7c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101704296"
 ---
-# <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>용량 및 성능 솔루션을 사용 하 여 Hyper-v 가상 머신 용량 계획 (사용 되지 않음)
+# <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>용량 및 성능 솔루션으로 Hyper-V 가상 머신 용량 계획(사용되지 않음)
 
 ![용량 및 성능 기호](./media/capacity-performance/capacity-solution.png)
 
 > [!NOTE]
 > 용량 및 성능 솔루션은 더 이상 사용되지 않습니다.  솔루션을 이미 설치한 고객은 계속해서 솔루션을 사용할 수 있지만, 새 작업 영역에는 용량 및 성능 솔루션을 추가할 수 없습니다.
 
-모니터의 용량 및 성능 솔루션을 사용 하 여 Hyper-v 서버의 용량을 이해 하는 데 도움을 줍니다. 이 솔루션은 Hyper-V 호스트에서 실행 중인 호스트 및 VM의 전체 사용률(CPU, 메모리 및 디스크)을 보여 줌으로써 Hyper-V 환경에 대한 정보를 제공합니다. 모든 호스트와 해당 호스트에서 실행되는 VM의 CPU, 메모리 및 디스크에 대한 메트릭이 수집됩니다.
+Monitor의 용량 및 성능 솔루션을 사용하면 Hyper-V 서버의 용량을 이해할 수 있습니다. 이 솔루션은 Hyper-V 호스트에서 실행 중인 호스트 및 VM의 전체 사용률(CPU, 메모리 및 디스크)을 보여 줌으로써 Hyper-V 환경에 대한 정보를 제공합니다. 모든 호스트와 해당 호스트에서 실행되는 VM의 CPU, 메모리 및 디스크에 대한 메트릭이 수집됩니다.
 
 솔루션:
 
@@ -38,12 +38,12 @@ ms.locfileid: "101704296"
 
 다음 표는 이 솔루션이 지원하는 연결된 소스를 설명합니다.
 
-| 연결된 소스 | 지원 | 설명 |
+| 연결된 소스 | 지원 | Description |
 |---|---|---|
 | [Windows 에이전트](../agents/agent-windows.md) | 예 | 솔루션에서 Windows 에이전트의 용량 및 성능 데이터 정보를 수집합니다. |
-| [Linux 에이전트](../vm/quick-collect-linux-computer.md) | 아니요    | 솔루션에서 Linux 에이전트의 용량 및 성능 데이터 정보를 직접 수집하지 않습니다.|
+| [Linux 에이전트](../vm/quick-collect-linux-computer.md) | 예    | 솔루션에서 Linux 에이전트의 용량 및 성능 데이터 정보를 직접 수집하지 않습니다.|
 | [SCOM 관리 그룹](../agents/om-agents.md) | 예 |솔루션에서 연결된 SCOM 관리 그룹에 있는 에이전트의 용량 및 성능 데이터를 수집합니다. SCOM에서 Log Analytics로 직접 연결은 필요하지 않습니다.|
-| [Azure Storage 계정](../essentials/resource-logs.md#send-to-log-analytics-workspace) | 아니요 | Azure Storage는 용량 및 성능 데이터를 포함하지 않습니다.|
+| [Azure Storage 계정](../essentials/resource-logs.md#send-to-log-analytics-workspace) | 예 | Azure Storage는 용량 및 성능 데이터를 포함하지 않습니다.|
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

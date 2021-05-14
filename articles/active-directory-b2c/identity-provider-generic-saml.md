@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a66486d791968f5752b96ed00374f8662b9c30fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 944eff6e76f4e5759f70105fe9d09aa61093917f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104580048"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028301"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-saml-identity-provider-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 SAML ID 공급자를 통한 가입 및 로그인 설정
 
@@ -36,7 +36,7 @@ Azure AD B2C(Azure Active Directory B2C)는 SAML 2.0 ID 공급자와의 페더�
 
 ## <a name="scenario-overview"></a>시나리오 개요
 
-사용자가 외부 소셜 또는 엔터프라이즈 SAML IdP(ID 공급자)의 자격 증명을 사용하여 애플리케이션에 로그인할 수 있도록 Azure AD B2C를 구성할 수 있습니다. Azure AD B2C는 SAML ID 공급자와 페더레이션될 때 SAML **ID 공급자** 에 대한 SAML 요청을 시작하며 SAML 응답을 기다리는 **서비스 공급자** 역할을 합니다. 다음 다이어그램대로 작업이 수행됩니다.
+사용자가 외부 소셜 또는 엔터프라이즈 SAML IdP(ID 공급자)의 자격 증명을 사용하여 애플리케이션에 로그인할 수 있도록 Azure AD B2C를 구성할 수 있습니다. Azure AD B2C는 SAML ID 공급자와 페더레이션될 때 SAML **ID 공급자** 에 대한 SAML 요청을 시작하며 SAML 응답을 기다리는 **서비스 공급자** 역할을 합니다. 다음 다이어그램에서:
 
 1. 애플리케이션이 Azure AD B2C에 대한 권한 부여 요청을 시작합니다. 애플리케이션은 [OAuth 2.0](protocols-overview.md) 또는 [OpenId Connect](openid-connect.md) 애플리케이션 또는 [SAML 서비스 공급자](saml-service-provider.md)일 수 있습니다. 
 1. Azure AD B2C 로그인 페이지에서 사용자는 SAML ID 공급자 계정(예: *Contoso*)을 통한 로그인을 선택합니다. Azure AD B2C는 SAML 권한 부여 요청을 시작하고 사용자를 SAML ID 공급자로 이동하여 로그인을 완료합니다.
@@ -227,7 +227,7 @@ https://your-domain-name/<your-tenant-name>.onmicrosoft.com/<your-policy>/samlp/
 1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
 1. **정책** 에서 **Identity Experience Framework** 를 선택합니다.
 1. 신뢰 당사자 정책(예: `B2C_1A_signup_signin`)을 선택합니다.
-1. **애플리케이션** 에서 [이전에 등록](troubleshoot-custom-policies.md#troubleshoot-the-runtime)한 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **애플리케이션** 에서 [이전에 등록된](tutorial-register-applications.md) 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **지금 실행** 단추를 선택합니다.
 1. 가입 또는 로그인 페이지에서 **Contoso** 를 선택하여 Contoso 계정으로 로그인합니다.
 

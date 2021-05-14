@@ -190,6 +190,8 @@
                   href: ./optimize-hive-ambari.md
                 - name: Apache Pig 최적화
                   href: ./optimize-pig-ambari.md
+            - name: 클러스터 노드의 호스트 이름 찾기
+              href: ./find-host-name.md
             - name: 클러스터 노드 다시 부팅
               href: ./cluster-reboot-vm.md
             - name: Apache Ambari REST API 사용
@@ -244,6 +246,8 @@
               href: ./hadoop/apache-hadoop-visual-studio-tools-get-started.md
             - name: VSCode용 Spark 및 Hive 도구
               href: ./hdinsight-for-vscode.md
+            - name: HDInsight 구성 설정 참조
+              href: ./hdinsight-config-for-vscode.md
         - name: 모니터링
           items:
             - name: Azure Monitor 로그 사용
@@ -256,6 +260,8 @@
               href: ./hdinsight-cluster-availability.md
             - name: 클러스터 가용성 - Azure Monitor 로그
               href: ./cluster-availability-monitor-logs.md
+            - name: Azure Monitor 테이블 업데이트
+              href: ./log-analytics-migration.md
         - name: 문제 해결
           items:
             - name: CPU 코어 할당량에 대한 요청 증가
@@ -266,10 +272,14 @@
               href: ./troubleshoot-resource-creation-fails.md
             - name: Apache Oozie 문제 해결
               href: ./troubleshoot-oozie.md
+            - name: Apache Sqoop 문제 해결
+              href: ./troubleshoot-sqoop.md
             - name: WebHCat 오류 이해 및 해결
               href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
     - name: 참조
       items:
+        - name: Azure CLI
+          href: /cli/azure/hdinsight
         - name: Azure PowerShell
           href: /powershell/module/az.hdinsight
         - name: .NET용 SDK
@@ -659,8 +669,6 @@
               href: ./kafka/apache-kafka-auto-create-topics.md
             - name: IoT Hub와 함께 Apache Kafka 사용
               href: ./kafka/apache-kafka-connector-iot-hub.md
-            - name: Confluent 스키마 레지스트리
-              href: ./kafka/apache-kafka-producer-consumer-api.md
             - name: 스트리밍 파이프라인 만들기
               items:
                 - name: 'Apache Spark, Apache Kafka 및 Azure Cosmos DB'
@@ -732,6 +740,8 @@
               href: ./hbase/apache-hbase-backup-replication.md
             - name: Apache HBase 클러스터를 최신 버전으로 마이그레이션
               href: ./hbase/apache-hbase-migrate-new-version.md
+            - name: Apache HBase 버전 및 스토리지 계정 마이그레이션
+              href: ./hbase/apache-hbase-migrate-new-version-new-storage-account.md
             - name: Apache Phoenix 성능 모범 사례
               href: ./hbase/apache-hbase-phoenix-performance.md
             - name: Azure VNet에서 Apache HBase 클러스터 만들기
@@ -971,7 +981,7 @@
     - name: 개념
       items:
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/hdinsight-security-baseline?toc=/azure/hdinsight/TOC.json
         - name: 엔터프라이즈 보안 일반 지침
           href: ./domain-joined/general-guidelines.md
         - name: ESP 클러스터 플랜

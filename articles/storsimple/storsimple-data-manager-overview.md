@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure StorSimple 데이터 관리자 개요 | Microsoft Docs
-description: StorSimple Data Manager 솔루션 및이 서비스를 사용 하 여 StorSimple 데이터 및 기타 Azure 서비스를 사용 하는 응용 프로그램을 작성 하는 방법에 대해 알아봅니다.
+description: StorSimple Data Manager 솔루션에 대해 알아보고 이 서비스를 사용하여 StorSimple 데이터 및 기타 Azure 서비스를 사용하는 애플리케이션을 작성하는 방법을 알아봅니다.
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: alkohli
 ms.openlocfilehash: d683f49cadb384ef59d3bae819156733691813cd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88183499"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>StorSimple 데이터 관리자 솔루션 개요
@@ -47,7 +47,7 @@ Azure Functions, Azure Automation 및 Azure Data Factory에서 이 데이터 관
 
 StorSimple 데이터 관리자는 다음 7개 지역에서 사용할 수 있습니다.
 
- - 동남 아시아
+ - 동남아시아
  - 미국 동부
  - 미국 서부
  - 미국 서부 2
@@ -68,9 +68,9 @@ StorSimple 데이터 관리자는 다음 7개 지역에서 사용할 수 있습�
  - 원본 스토리지 계정(StorSimple 디바이스와 연결된 계정) 및 대상 스토리지 계정(데이터를 네이티브 형식으로 유지하려는 계정)은 같은 Azure 지역에 있는 것이 좋습니다.
  - StorSimple 스토리지 계정을 포함하는 지역에서 데이터 관리자 및 작업 정의를 불러옵니다. 이것이 가능하지 않은 경우, 가장 가까운 Azure 지역에서 데이터 관리자를 불러온 다음, StorSimple 스토리지 계정과 동일한 지역에 작업 정의를 만듭니다. 
 
-    StorSimple 저장소 계정이 작업 정의 생성을 지 원하는 26 개 지역에 있지 않은 경우 긴 대기 시간 및 잠재적인 송신 요금이 표시 되므로 StorSimple Data Manager를 실행 하지 않는 것이 좋습니다.
+    StorSimple 스토리지 계정이 작업 정의 만들기를 지원하는 26개 지역 중 하나에 있지 않으면 대기 시간이 길어지고 전송 요금이 발생할 수 있으므로 StorSimple Data Manager를 실행하지 않는 것이 좋습니다.
     
-Microsoft는 모든 지역에서 Azure 서비스를 항상 사용할 수 있도록 하기 위해 노력 하 고 있습니다. 그러나 계획 되지 않은 서비스 중단이 특정 지역의 짧은 기간 동안 발생할 수 있습니다. 이러한 경우 중단의 영향을 받지 않는 지역에서 Data Manager 및 작업 정의를 가져와 변환 작업을 실행할 수 있습니다. 이러한 시나리오에서는 몇 가지 추가 대기 시간이 발생할 수 있지만이는 지역 가동 중단 시 드물게 복구 전략이 될 수 있습니다.
+Microsoft는 모든 지역에서 항상 Azure 서비스를 사용할 수 있도록 하기 위해 노력합니다. 하지만 특정 지역에서 짧은 기간 동안 계획되지 않은 서비스 중단이 발생할 수 있습니다. 이 경우 중단의 영향을 받지 않는 지역에서 Data Manager 및 작업 정의를 가져와 변환 작업을 실행할 수 있습니다. 이러한 시나리오에서는 대기 시간이 추가로 발생할 수 있지만 드물게 지역 중단이 발생하는 경우 복구 전략이 될 수 있습니다.
 
 ## <a name="security-considerations"></a>보안 고려 사항
 
@@ -86,7 +86,7 @@ StorSimple 데이터 관리자는 StorSimple 형식에서 네이티브 형식으
 
 ## <a name="managing-personal-information"></a>개인 정보 관리
 
-StorSimple Data Manager는 개인 정보를 수집하거나 표시하지 않습니다. 자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침을 검토 하세요.
+StorSimple Data Manager는 개인 정보를 수집하거나 표시하지 않습니다. 자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침을 검토합니다.
 
 ## <a name="known-limitations"></a>알려진 제한 사항
 

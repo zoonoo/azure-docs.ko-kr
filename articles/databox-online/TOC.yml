@@ -1,4 +1,4 @@
-- name: Azure Stack Edge Pro 설명서
+- name: Azure Stack Edge 문서
   href: ./index.yml
   expanded: true
 - name: Azure Stack Edge Pro - GPU
@@ -224,36 +224,56 @@
               href: azure-stack-edge-gpu-set-azure-resource-manager-password.md
             - name: 클라이언트 TLS 설정 구성
               href: azure-stack-edge-gpu-configure-tls-settings.md
-        - name: VM 배포(미리 보기)
+        - name: VM 정보(미리 보기)
           items:
-            - name: VM 배포 - Azure Portal
-              href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md
-            - name: VM 배포 - 템플릿
-              href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
-            - name: VM 배포 - GPU
-              href: azure-stack-edge-gpu-deploy-gpu-virtual-machine.md
-            - name: VM 배포 - Azure PowerShell cmdlet
-              href: azure-stack-edge-gpu-deploy-virtual-machine-powershell.md
-            - name: VM 배포 - Azure PowerShell 스크립트
-              href: azure-stack-edge-gpu-deploy-virtual-machine-powershell-script.md
-            - name: VM 배포 - Azure CLI/Python
-              href: azure-stack-edge-gpu-deploy-virtual-machine-cli-python.md
-            - name: VM에 사용자 지정 스크립트 확장 배포
-              href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
-            - name: VM 이미지 만들기
-              href: azure-stack-edge-gpu-create-virtual-machine-image.md
-            - name: Windows 일반화된 이미지 사용
-              href: azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md
-            - name: '지원되는 VM 크기, 형식'
+            - name: VM이란?
+              href: azure-stack-edge-gpu-virtual-machine-overview.md
+            - name: 지원되는 VM 보기
               href: azure-stack-edge-gpu-virtual-machine-sizes.md
-            - name: VM 콘솔에 연결
-              href: azure-stack-edge-gpu-connect-virtual-machine-console.md
-            - name: 네트워크 인터페이스 관리
-              href: azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md
-            - name: 디스크 관리
-              href: azure-stack-edge-gpu-manage-virtual-machine-disks-portal.md
-            - name: VM 크기 관리
-              href: azure-stack-edge-gpu-manage-virtual-machine-resize-portal.md
+            - name: VM 이미지 만들기
+              items:
+                - name: Azure VM의 사용자 지정 이미지
+                  href: azure-stack-edge-gpu-create-virtual-machine-image.md
+                - name: VHD의 Windows 범용 이미지
+                  href: azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md
+                - name: ISO의 범용 이미지
+                  href: azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md
+                - name: 특수화된 이미지 사용
+                  href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md
+            - name: VM 배포
+              items:
+                - name: Azure 포털을 통해
+                  href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md
+                - name: 템플릿을 통해
+                  href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
+                - name: GPU 사용
+                  href: azure-stack-edge-gpu-deploy-gpu-virtual-machine.md
+                - name: Azure PowerShell cmdlet을 통해
+                  href: azure-stack-edge-gpu-deploy-virtual-machine-powershell.md
+                - name: Azure PowerShell 스크립트를 통해
+                  href: azure-stack-edge-gpu-deploy-virtual-machine-powershell-script.md
+                - name: Azure CLI/Python을 통해
+                  href: azure-stack-edge-gpu-deploy-virtual-machine-cli-python.md
+            - name: 방법
+              items:
+                - name: 네트워크 인터페이스 관리
+                  href: azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md
+                - name: 디스크 관리
+                  href: azure-stack-edge-gpu-manage-virtual-machine-disks-portal.md
+                - name: VM 크기 관리
+                  href: azure-stack-edge-gpu-manage-virtual-machine-resize-portal.md
+                - name: VM 태그 관리
+                  href: azure-stack-edge-gpu-manage-virtual-machine-tags-powershell.md
+                - name: 가상 스위치 관리
+                  href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
+                - name: Install custom script extension
+                  href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
+                - name: VM 디스크 백업
+                  href: azure-stack-edge-gpu-back-up-virtual-machine-disks.md
+                - name: 문제 해결
+                  items:
+                    - name: VM 콘솔 연결
+                      href: azure-stack-edge-gpu-connect-virtual-machine-console.md
         - name: 인증서 관리
           items:
             - name: 요구 사항
@@ -300,7 +320,7 @@
               href: azure-stack-edge-gpu-prepare-device-failure.md
             - name: 디바이스 오류 복구
               href: azure-stack-edge-gpu-recover-device-failure.md
-        - name: 모니터
+        - name: Monitor
           items:
             - name: 메트릭 차트 사용
               href: azure-stack-edge-monitor.md
@@ -429,7 +449,11 @@
 - name: 보안
   items:
     - name: 보안 기준
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/stack-edge-security-baseline?toc=/azure/databox-online/TOC.json
+- name: 참조
+  items:
+    - name: Azure CLI
+      href: /cli/azure/databoxedge
 - name: 리소스
   items:
     - name: Azure Stack Edge Pro C# 모듈 샘플(.NET)

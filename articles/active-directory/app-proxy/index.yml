@@ -1,0 +1,57 @@
+### YamlMime:Landing
+title: Azure Active Directory 애플리케이션 프록시 문서
+summary: Azure Active Directory 애플리케이션 프록시는 프라이빗 애플리케이션에 대한 보안 원격 액세스 및 클라우드 규모 보안을 제공합니다.
+metadata:
+  title: 애플리케이션 프록시 문서
+  description: Azure Active Directory 애플리케이션 프록시는 프라이빗 애플리케이션에 대한 보안 원격 액세스 및 클라우드 규모 보안을 제공합니다.
+  ms.service: active-directory
+  ms.subservice: app-proxy
+  ms.workload: identity
+  ms.topic: landing-page
+  ms.date: 04/27/2021
+  author: kenwith
+  ms.author: kenwith
+  manager: mtillman
+  ms.openlocfilehash: a159d75eee20b10f9f7382044c7ccadb9da384c2
+  ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 04/28/2021
+  ms.locfileid: "108175139"
+landingContent:
+- title: 애플리케이션 프록시 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 애플리케이션 프록시란?
+      url: what-is-application-proxy.md
+- title: 시작
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 앱 보기
+      url: ../manage-apps/view-applications-portal.md
+    - text: 앱 추가
+      url: ../manage-apps/add-application-portal.md
+- title: Single Sign-On 이해
+  linkLists:
+  - linkListType: architecture
+    links:
+    - text: Single Sign-On 개념
+      url: ../manage-apps/what-is-single-sign-on.md
+    - text: Single Sign-On 옵션
+      url: ../manage-apps/sso-options.md
+- title: 새 앱 개발
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: 개발자를 위한 지침
+      url: ../develop/v2-howto-app-gallery-listing.md
+    - text: 플랫폼 이해
+      url: ../develop/v2-overview.md
+- title: 문서에서 새로 만들기
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: 문서의 새로운 기능
+      url: whats-new-docs.md

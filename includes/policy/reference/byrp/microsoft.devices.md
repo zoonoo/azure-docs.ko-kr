@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/28/2021
+ms.date: 05/04/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: fca7c948fe641d200e42511d0b0d6c301368b61c
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 246ffedffaa52c8ae226934d5f5342c6657b8cf9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108174881"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108749696"
 ---
-|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure IoT Hub는 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d7e144b-159c-44fc-95c1-ac3dbf5e6e54) |고객 관리형 키를 사용하여 IoT Hub에서 미사용 데이터를 암호화하면 기본 서비스 관리형 키 위에 두 번째 암호화 계층이 추가되고, 키에 대한 고객 제어, 사용자 지정 회전 정책 및 키 액세스 제어를 통해 데이터에 대한 액세스를 관리할 수 있습니다. IoT Hub를 만드는 동안 고객 관리형 키를 구성해야 합니다. 고객 관리형 키를 구성하는 방법에 대한 자세한 내용은 [https://aka.ms/iotcmk](https://aka.ms/iotcmk)를 구성해야 합니다. |감사, 거부, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IotHub_CMKEncryptionEnabled.json) |
 |[공용 네트워크 액세스를 사용하지 않도록 IoT Hub 디바이스 프로비저닝 서비스 인스턴스 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F859dfc91-ea35-43a6-8256-31271c363794) |공용 인터넷을 통해 액세스할 수 없도록 IoT Hub 디바이스 프로비저닝 인스턴스에 대한 공용 네트워크 액세스를 사용하지 않도록 설정합니다. 이를 통해 데이터 유출 위험을 줄일 수 있습니다. [https://aka.ms/iotdpsvnet](https://aka.ms/iotdpsvnet)에서 자세히 알아보세요. |수정, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IoTDps_DisablePublicNetworkAccess_Modify.json) |

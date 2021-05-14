@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center FAQ-사용 권한에 대 한 질문
-description: 이 FAQ는 위협을 예방, 감지 및 대응 하는 데 도움을 주는 제품인 Azure Security Center의 사용 권한에 대 한 질문에 답변 합니다.
+title: Azure Security Center FAQ - 사용 권한에 대한 질문
+description: 이 FAQ에서는 위협을 예방, 탐지, 대응하는 데 도움이 되는 제품인 Azure Security Center의 사용 권한에 대한 질문에 답합니다.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,15 +14,15 @@ ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
 ms.openlocfilehash: 88d6207bf44d1ec04fde4f74ac9295412ea88fbc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87824616"
 ---
-# <a name="permissions"></a>사용 권한
+# <a name="permissions"></a>권한
 
-## <a name="how-do-permissions-work-in-azure-security-center"></a>Azure Security Center에서 사용 권한은 어떻게 작동 하나요?
+## <a name="how-do-permissions-work-in-azure-security-center"></a>Azure Security Center의 사용 권한 적용 방식
 
 Azure Security Center는 Azure에서 사용자, 그룹 및 서비스에 할당할 수 있는 [기본 제공 역할](../role-based-access-control/built-in-roles.md)을 제공하는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)를 사용합니다.
 
@@ -34,6 +34,6 @@ Security Center의 역할 및 허용된 작업에 대한 자세한 내용은 [Az
 
 ## <a name="who-can-modify-a-security-policy"></a>보안 정책을 누가 수정할 수 있나요?
 
-보안 정책을 수정 하려면 해당 구독의 소유자 또는 참가자 여야 합니다.
+보안 정책을 수정하려면 해당 구독의 보안 관리자이거나 소유자 또는 기여자여야 합니다.
 
 보안 정책을 구성하는 방법을 자세히 알아보려면 [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md)을 참조하세요.

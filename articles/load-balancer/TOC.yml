@@ -31,6 +31,8 @@
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: 특정 가용성 영역 내에 VM 부하 분산
       href: tutorial-load-balancer-standard-public-zonal-portal.md
+    - name: 여러 가용성 집합으로 VM 부하 분산
+      href: tutorial-multi-availability-sets-portal.md
     - name: Load Balancer에서 포트 전달 구성
       href: tutorial-load-balancer-port-forwarding-portal.md
     - name: 영역 간 부하 분산 장치
@@ -41,6 +43,16 @@
           href: tutorial-cross-region-powershell.md
         - name: 영역 간 부하 분산 장치 만들기 - Azure CLI
           href: tutorial-cross-region-cli.md
+    - name: NAT 게이트웨이
+      items:
+        - name: NAT 게이트웨이 공용 부하 분산 장치 통합
+          href: ../virtual-network/tutorial-nat-gateway-load-balancer-public-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
+        - name: NAT 게이트웨이 내부 부하 분산 장치 통합
+          href: ../virtual-network/tutorial-nat-gateway-load-balancer-internal-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
+    - name: IP 기반 백 엔드
+      items:
+        - name: IP 기반 백 엔드로 공용 부하 분산 장치 만들기 - 포털
+          href: tutorial-load-balancer-ip-backend-portal.md
 - name: 샘플
   items:
     - name: Azure CLI
@@ -49,6 +61,8 @@
       href: powershell-samples.md
 - name: 개념
   items:
+    - name: 포털 설정
+      href: manage.md
     - name: 영역 간 부하 분산 장치
       href: cross-region-overview.md
     - name: 새로운 기능
@@ -90,7 +104,7 @@
     - name: 보안
       items:
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/load-balancer-security-baseline?toc=/azure/load-balancer/TOC.json
     - name: 백 엔드 풀 관리
       href: backend-pool-management.md
     - name: 표준 Load Balancer 및 Virtual Machine Scale Sets
@@ -99,8 +113,6 @@
       href: instance-metadata-service-load-balancer.md
 - name: 방법
   items:
-    - name: 포털 설정
-      href: manage.md
     - name: 가상 머신 확장 집합
       items:
         - name: Virtual Machine Scale Set에서 사용된 기존 Azure Load Balancer 업데이트 또는 삭제
@@ -184,7 +196,7 @@
       href: 'https://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2020_03_01/LoadBalancers'
     - name: Python
       href: /python/api/azure-mgmt-network/azure.mgmt.network.v2019_02_01.operations.loadbalancersoperations
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/load-balancer/loadbalancers
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.network/loadbalancers

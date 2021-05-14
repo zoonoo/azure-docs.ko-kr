@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
-ms.openlocfilehash: b2b405e7f6babf84ef8297310a5a7a34c3f2dc11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b11a6082a5c86526e04a8b78db30650c37d467fc
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102623421"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108792705"
 ---
 Cognitive Services는 두 가지 자연어 처리 서비스인 [Language Understanding](../luis/what-is-luis.md)과 [QnA Maker](../qnamaker/overview/overview.md)를 제공하며 각 작업은 서로 다른 용도로 사용됩니다. 각 서비스를 언제 사용해야 하며, 각 서비스가 서로 어떻게 보완되는지 이해합니다.
 
@@ -73,7 +73,7 @@ QnA Maker 기술 자료를 구축하고 있지만 주제 영역이 변경되는 
 
 Bot framework **[Dispatch CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** 도구를 사용하여 두 서비스를 모두 사용하는 프로세스를 빌드할 수 있습니다. 이 도구는 자식 앱으로 LUIS와 QnA Maker 간에 디스패치할 상위 LUIS 앱을 빌드합니다. LUIS, QnA Maker 및 Bot framework와의 통합에 대해 [자세히 알아보세요](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs).
 
-[C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) 또는 [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)를 지원하는 봇 작성기 샘플 **NLP with dispatch** 를 사용하여 이와 같은 유형의 채팅 봇을 구현하세요.
+[C#](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/14.nlp-with-orchestrator) 또는 [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/javascript_nodejs/14.nlp-with-orchestrator)를 지원하는 봇 작성기 샘플 **NLP with dispatch** 를 사용하여 이와 같은 유형의 채팅 봇을 구현하세요.
 
 ## <a name="best-practices"></a>모범 사례
 

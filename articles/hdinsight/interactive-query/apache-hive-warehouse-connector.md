@@ -6,12 +6,12 @@ ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 57a3d76f24c33984a883e926a8d4c68736e9f121
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7d90e874f22b6eaf43a99f4465b88aedbff2659c
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104869891"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108064614"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Azure HDInsight의 Hive Warehouse Connector와 Apache Spark 및 Apache Hive 통합
 
@@ -62,7 +62,7 @@ Hive Warehouse Connector에는 Spark 및 Interactive Query 워크로드를 위�
 
 1. **구성** > **고급** > **고급 hive-site** > **hive.zookeeper.quorum** 으로 이동한 후 값을 적어 둡니다. 값은 `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`과 유사할 수 있습니다.
 
-1. **구성** > **고급** > **일반** > **hive.metastore.uris** 로 이동한 후 값을 적어 둡니다. 값은 `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`과 유사할 수 있습니다.
+1. **구성** > **고급** > **일반** > **hive.metastore.uris** 로 이동한 후 값을 적어 둡니다. 값은 `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn*.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`과 유사할 수 있습니다.
 
 1. **구성** > **고급** > **고급 hive-interactive-site** > **hive.llap.daemon.service.hosts** 로 이동한 후 값을 적어 둡니다. 값은 `@llap0`과 유사할 수 있습니다.
 
@@ -109,7 +109,7 @@ ESP(Enterprise Security Package)는 Azure HDInsight의 Apache Hadoop 클러스�
 
         :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="Hive Warehouse Connector AAD 도메인" border="true":::
 
-    * 예: `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET`
+    * 예: `hive/hn*.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET`
     
 1. 변경 내용을 저장하고 필요하면 구성 요소를 다시 시작합니다.
 

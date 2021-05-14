@@ -1,18 +1,18 @@
 ---
 title: Azure Percept Studio에서 코드 없는 비전 솔루션 만들기
 description: Azure Percept Studio에서 코드 없는 비전 솔루션을 만들고 Azure Percept DK에 배포하는 방법에 대해 알아봅니다.
-author: elqu20
-ms.author: v-elqu
+author: philmea
+ms.author: philmea
 ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 49e5db729dab7abaa440b1adf6a61e9e52a1efbc
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 35d39fabedb71e27e54d72fd8f5031bcd9510b7b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023132"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746030"
 ---
 # <a name="create-a-no-code-vision-solution-in-azure-percept-studio"></a>Azure Percept Studio에서 코드 없는 비전 솔루션 만들기
 

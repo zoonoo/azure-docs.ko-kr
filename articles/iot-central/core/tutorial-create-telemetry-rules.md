@@ -7,16 +7,14 @@ ms.date: 01/08/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: b0b5aafd85fe6d992afa9d879f73ef0ec43e00d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d59f50d6fa4f21676cef01ffe0dde8ed1fa4441
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99834377"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768772"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>자습서: Azure IoT Central 애플리케이션에서 규칙 생성 및 알림 설정
-
-*이 문서는 운영자, 빌더 및 관리자에게 적용됩니다.*
 
 Azure IoT Central을 사용하여 원격으로 연결된 디바이스를 모니터링할 수 있습니다. Azure IoT Central 규칙을 사용하면 디바이스를 거의 실시간으로 모니터링하고 이메일 보내기 등의 작업을 자동으로 호출할 수 있습니다. 이 문서에서는 디바이스가 보내는 원격 분석을 모니터링하는 규칙을 만드는 방법을 설명합니다.
 

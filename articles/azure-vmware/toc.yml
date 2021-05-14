@@ -8,13 +8,13 @@
       href: azure-vmware-solution-platform-updates.md
 - name: 빠른 시작
   items:
-    - name: 0- 배포 계획
+    - name: 1 - 배포 계획
       href: production-ready-deployment-steps.md
-    - name: 1 - Azure VMware Solution 배포
+    - name: 2 - Azure VMware Solution 배포
       href: deploy-azure-vmware-solution.md
-    - name: 2- 온-프레미스에 연결
-      href: azure-vmware-solution-on-premises.md
-    - name: 3 - VMware HCX 배포 및 구성
+    - name: 3 - 온-프레미스에 연결
+      href: tutorial-expressroute-global-reach-private-cloud.md
+    - name: 4 - VMware HCX 배포 및 구성
       href: tutorial-deploy-vmware-hcx.md
 - name: 자습서
   items:
@@ -32,7 +32,7 @@
       href: tutorial-expressroute-global-reach-private-cloud.md
     - name: 7 - VMware HCX 배포 및 구성
       href: tutorial-deploy-vmware-hcx.md
-    - name: 8 - 프라이빗 클라우드 크기 조정
+    - name: 8 - 프라이빗 클라우드의 클러스터 확장 또는 축소
       href: tutorial-scale-private-cloud.md
     - name: 9 - 프라이빗 클라우드 삭제
       href: tutorial-delete-private-cloud.md
@@ -46,79 +46,145 @@
       href: concepts-storage.md
     - name: 프라이빗 클라우드의 액세스 및 ID
       href: concepts-identity.md
-    - name: vSphere 역할 기반 액세스 제어
-      href: concepts-role-based-access-control.md
     - name: 프라이빗 클라우드 모니터링 및 복구
-      href: concepts-monitor-repair-private-cloud.md
-    - name: 프라이빗 클라우드 업그레이드
-      href: concepts-upgrades.md
+      href: concepts-private-clouds-clusters.md#host-monitoring-and-remediation
+    - name: API Management
+      href: concepts-api-management.md
+    - name: 허브 및 스포크
+      href: concepts-hub-and-spoke.md
 - name: 방법 가이드
   items:
-    - name: 호스트 할당량 요청 및 Azure VMware Solution 사용
+    - name: Azure VMware Solution에 대한 호스트 할당량 요청
       href: enable-azure-vmware-solution.md
+    - name: 리소스 이동
+      items:
+        - name: Azure VMware solution 구독 이동
+          href: move-ea-csp-subscriptions.md
     - name: 예약 인스턴스로 비용 절감
       href: reserved-instance.md
-    - name: 마이그레이션 평가
-      href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
+    - name: Azure VMware Solution 평가 만들기
+      href: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
     - name: DHCP 관리
       href: manage-dhcp.md
     - name: NSX 네트워크 구성 요소 구성
       href: configure-nsx-network-components-azure-portal.md
-    - name: VM에 대한 재해 복구 배포
-      href: disaster-recovery-for-virtual-machines.md
-    - name: 콘텐츠 라이브러리를 통해 VM 배포
-      href: ./deploy-vm-content-library.md
-    - name: GitHub Enterprise 서버 설정
+    - name: GitHub Enterprise 서버 구성
       href: github-enterprise-server.md
-    - name: 공용 IP 사용량
-      href: public-ip-usage.md
-    - name: IPSec 터널 만들기
-      href: create-ipsec-tunnel.md
-    - name: Windows Server 장애 조치(Failover) 클러스터
-      href: windows-server-failover-cluster.md
+    - name: 공용 인터넷 액세스 사용
+      href: enable-public-internet-access.md
+    - name: vWAN에서 사이트 간 VPN 구성
+      href: configure-site-to-site-vpn-gateway.md
+    - name: Windows Server 장애 조치(Failover) 클러스터 구성
+      href: configure-windows-server-failover-cluster.md
+    - name: vSphere 자격 증명 재설정
+      href: reset-vsphere-credentials.md
+    - name: Azure Backup Server로 백업 및 복원
+      items:
+        - name: VMware VM 백업
+          href: /azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
+        - name: VMware 가상 컴퓨터 복원
+          href: /azure/backup/restore-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
+        - name: Azure Backup 워크로드 모니터링
+          href: /azure/backup/backup-azure-monitoring-built-in-monitor?context=/azure/azure-vmware/context/context
+    - name: 재해 복구
+      items:
+        - name: VM에 대한 재해 복구 배포
+          href: disaster-recovery-for-virtual-machines.md
+        - name: Azure로의 재해 복구
+          items:
+            - name: Azure 준비
+              href: /azure/site-recovery/avs-tutorial-prepare-azure?context=/azure/azure-vmware/context/context
+            - name: Azure VMware Solution 준비
+              href: /azure/site-recovery/avs-tutorial-prepare-avs?context=/azure/azure-vmware/context/context
+            - name: 복제 설정
+              href: /azure/site-recovery/avs-tutorial-replication?context=/azure/azure-vmware/context/context
+            - name: 재해 복구 훈련 실행
+              href: /azure/site-recovery/avs-tutorial-dr-drill-azure?context=/azure/azure-vmware/context/context
+            - name: Azure로 장애 조치(failover)
+              href: /azure/site-recovery/avs-tutorial-failover?context=/azure/azure-vmware/context/context
+            - name: VM 다시 보호
+              href: /azure/site-recovery/avs-tutorial-reprotect?context=/azure/azure-vmware/context/context
+            - name: Azure에서 장애 복구
+              href: /azure/site-recovery/avs-tutorial-failback?context=/azure/azure-vmware/context/context
     - name: Azure 네이티브 통합
       items:
-        - name: API Management
-          href: concepts-api-management.md
-        - name: 허브 및 스포크
-          href: concepts-hub-and-spoke.md
-        - name: Azure Security Center
+        - name: Azure Security Center로 VM 보호
           href: azure-security-integration.md
-        - name: Azure Backup 서버
-          items:
-            - name: Backup 서버 설정
-              href: set-up-backup-server-for-azure-vmware-solution.md
-            - name: Backup 서버를 사용하여 프라이빗 클라우드 VM 백업
-              href: backup-azure-vmware-solution-virtual-machines.md
-        - name: VM의 수명 주기 관리
+        - name: Azure Backup Server를 사용하여 VMware VM 백업
+          href: /azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
+        - name: VM 모니터링 및 관리
           href: lifecycle-management-of-azure-vmware-solution-vms.md
-        - name: Azure NetApp Files
+        - name: Azure NetApp Files 통합
           href: netapp-files-with-azure-vmware-solution.md
-        - name: Application Gateway
+        - name: Azure Application Gateway로 웹앱 보호
           href: protect-azure-vmware-solution-with-application-gateway.md
-        - name: Traffic Manager
+        - name: 워크로드를 분산하는 Traffic Manager 배포
           href: deploy-traffic-manager-balance-workloads.md
+        - name: 경고 구성 및 메트릭 작업
+          href: configure-alerts-for-azure-vmware-solution.md
     - name: VMware 솔루션
       items:
-        - name: vRealize Operations 설정
+        - name: vRealize 작업 구성
           href: vrealize-operations-for-azure-vmware-solution.md
         - name: VMware Horizon 배포
           href: azure-vmware-solution-horizon.md
+        - name: 콘텐츠 라이브러리에서 VM 배포
+          href: deploy-vm-content-library.md
     - name: VMware 에코시스템
       items:
         - name: VM용 백업 솔루션
           href: ecosystem-back-up-vms.md
+        - name: VM용 마이그레이션 솔루션
+          href: ecosystem-migration-vms.md
 - name: 리소스
   items:
     - name: 문제 해결
       items:
         - name: 배포 실패에 대한 지원 요청 열기
           href: fix-deployment-provisioning-failures.md
+        - name: VMware 도구 vix 오류 코드 = 21009
+          href: 'https://kb.vmware.com/s/article/2129927'
     - name: FAQ
-      href: faq.yml
+      items:
+        - name: 일반
+          href: /azure/azure-vmware/faq#general
+        - name: 고객 커뮤니케이션
+          href: /azure/azure-vmware/faq#customer-communication
+        - name: 구성 및 설정
+          href: /azure/azure-vmware/faq#configuration-and-setup
+        - name: VMware 소프트웨어
+          href: /azure/azure-vmware/faq#vmware-software
+        - name: '컴퓨팅, 백업 및 재해 복구'
+          href: '/azure/azure-vmware/faq#compute,-backup,-and-disaster-recovery'
+        - name: 네트워킹 및 상호 연결
+          href: /azure/azure-vmware/faq#networking-and-interconnectivity
+        - name: 스토리지
+          href: /azure/azure-vmware/faq#storage
+        - name: '호스트, 클러스터 및 프라이빗 클라우드'
+          href: '/azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds'
+        - name: ID 관리
+          href: /azure/azure-vmware/faq#identity-management
+        - name: 청구 및 지원
+          href: /azure/azure-vmware/faq#billing-and-support
+    - name: 동영상
+      items:
+        - name: 재생 목록
+          href: 'https://youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin'
+        - name: Azure 서비스와 통합
+          href: 'https://youtu.be/m26iLu6DHbU'
+        - name: Azure Application Gateway와 통합
+          href: 'https://youtu.be/BoQYvqzb6Y8'
+        - name: 마이그레이션 및 용량 계획
+          href: 'https://youtu.be/NoNG-hkksrA'
+        - name: Azure Logic App을 사용하여 vCenter 및 NSX-T 암호 회전
+          href: 'https://youtu.be/cK1qY3knj88'
 - name: 참조
   items:
+    - name: REST API
+      href: /rest/api/avs
     - name: Azure CLI
-      href: /cli/azure/ext/vmware/vmware
+      href: /cli/azure/vmware
     - name: Azure PowerShell
       href: /powershell/module/az.vmware/
+    - name: Terraform Azure 공급자
+      href: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud'

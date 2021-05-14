@@ -31,7 +31,7 @@
     - name: 보안
       items:
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/database-migration-security-baseline?toc=/azure/dms/toc.json
 - name: 자습서
   expanded: true
   items:
@@ -45,7 +45,9 @@
           href: tutorial-sql-server-managed-instance-online.md
     - name: MySQL 마이그레이션
       items:
-        - name: Azure Database for MySQL로
+        - name: Azure Database for MySQL로(오프라인)
+          href: tutorial-mysql-azure-mysql-offline-portal.md
+        - name: Azure Database for MySQL로(온라인)
           href: tutorial-mysql-azure-mysql-online.md
     - name: RDS MySQL 마이그레이션
       items:
@@ -71,10 +73,6 @@
           href: tutorial-mongodb-cosmos-db.md
         - name: Azure Cosmos DB Mongo API로(온라인)
           href: tutorial-mongodb-cosmos-db-online.md
-    - name: Oracle 마이그레이션
-      items:
-        - name: Azure DB for PostgreSQL-단일 서버로 온라인
-          href: tutorial-oracle-azure-postgresql-online.md
 - name: 방법 가이드
   items:
     - name: 마이그레이션 작업 모니터링
@@ -87,12 +85,18 @@
           href: howto-sql-server-to-azure-sql-managed-instance-powershell-online.md
         - name: SQL Server에서 SQL MI로(오프라인)
           href: howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md
+        - name: MySQL에서 Azure Database for MySQL로(오프라인)
+          href: migrate-mysql-to-azure-mysql-powershell.md
     - name: SSIS 패키지 다시 배포 대상
       items:
         - name: Azure SQL Database
           href: how-to-migrate-ssis-packages.md
         - name: Azure SQL Managed Instance
           href: how-to-migrate-ssis-packages-managed-instance.md
+- name: 참조
+  items:
+    - name: Azure CLI
+      href: /cli/azure/dms
 - name: 리소스
   items:
     - name: 질문과 대답
@@ -110,7 +114,7 @@
         - name: 데이터 마이그레이션 시나리오에 사용할 수 있는 서비스 및 도구
           href: dms-tools-matrix.md
         - name: Azure Database 마이그레이션 가이드
-          href: 'https://aka.ms/datamigration'
+          href: /data-migration/
         - name: Data Migration Assistant
           href: /sql/dma/dma-overview
         - name: SQL Server Migration Assistant
@@ -139,8 +143,6 @@
               href: known-issues-azure-mysql-online.md
             - name: PostgreSQL에서 Azure DB for PostgreSQL로
               href: known-issues-azure-postgresql-online.md
-            - name: Oracle에서 Azure DB for PostgreSQL로
-              href: known-issues-oracle-azure-postgresql-online.md
             - name: MongoDB에서 Azure Cosmos DB API for MongoDB로
               href: known-issues-mongo-cosmos-db.md
     - name: 동영상

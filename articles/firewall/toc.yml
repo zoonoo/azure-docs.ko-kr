@@ -19,11 +19,11 @@
 - name: 자습서
   items:
     - name: 배포 및 구성
-      href: tutorial-firewall-deploy-portal.md
+      href: tutorial-firewall-deploy-portal-policy.md
     - name: 하이브리드 네트워크에 배포
-      href: tutorial-hybrid-portal.md
+      href: tutorial-hybrid-portal-policy.md
     - name: DNAT를 사용하여 인바운드 트래픽 필터링
-      href: tutorial-firewall-dnat.md
+      href: tutorial-firewall-dnat-policy.md
 - name: 샘플
   items:
     - name: Azure PowerShell
@@ -63,13 +63,21 @@
     - name: 네트워크 규칙의 FQDN
       href: fqdn-filtering-network-rules.md
     - name: 보안 기준
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/firewall-security-baseline?toc=/azure/firewall/toc.json
     - name: 활성 FTP 지원
       href: active-ftp-support.md
 - name: 방법 가이드
   items:
+    - name: 배포 및 구성 - 클래식
+      href: tutorial-firewall-deploy-portal.md
+    - name: 하이브리드 네트워크에 배포 - 클래식
+      href: tutorial-hybrid-portal.md
+    - name: DNAT를 사용하여 인바운드 트래픽 필터링 - 클래식
+      href: tutorial-firewall-dnat.md
     - name: Azure PowerShell을 사용하여 배포
       href: deploy-ps.md
+    - name: Azure PowerShell을 사용하여 정책 배포
+      href: deploy-ps-policy.md
     - name: 하이브리드 네트워크에 배포 - PowerShell
       href: tutorial-hybrid-ps.md
     - name: Azure CLI를 사용하여 배포
@@ -103,10 +111,12 @@
       href: premium-deploy-certificates-enterprise-ca.md
     - name: Azure Firewall 프리미엄으로 마이그레이션
       href: premium-migrate.md
+    - name: 아웃바운드 SNAT 포트 크기 조정
+      href: integrate-with-nat-gateway.md
 - name: 참조
   items:
     - name: Azure CLI
-      href: /cli/azure/ext/azure-firewall/network/firewall
+      href: /cli/azure/network/firewall
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewall
     - name: .NET
@@ -117,7 +127,7 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/firewall
     - name: Azure Resource Manager
       href: ../azure-resource-manager/management/overview.md
