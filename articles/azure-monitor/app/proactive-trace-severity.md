@@ -1,13 +1,13 @@
 ---
-title: 추적 심각도 비율의 저하-Azure 애플리케이션 정보
-description: 스마트 감지를 사용 하 여 추적 원격 분석에서 비정상적인 패턴에 대 한 Azure 애플리케이션 정보로 응용 프로그램 추적을 모니터링 합니다.
+title: 추적 심각도 비율의 저하 - Azure Application Insights
+description: Azure Application Insights에서 스마트 검색을 통해 추적 원격 분석의 비정상적인 패턴을 검색하여 애플리케이션 추적을 모니터링합니다.
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.openlocfilehash: 2b27860adfc1652b58fe9c51d4d0b0a6c271fc0b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86539876"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>추적 심각도 비율의 저하(미리 보기)
@@ -17,13 +17,13 @@ ms.locfileid: "86539876"
 이 기능에는 앱에 대한 추적 로깅 구성 이외의 특별한 설정이 필요하지 않습니다([.NET](./asp-net-trace-logs.md) 또는 [Java](./java-trace-logs.md)에 추적 로그 수신기를 구성하는 방법 참조 ). 앱에서 충분한 예외 원격 분석을 생성하면 이 기능은 활성화됩니다.
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>이 형식의 스마트 검색 알림은 언제 받게 되나요?
-"양호" 추적 ( *정보* 수준 또는 *자세한* 정보 표시로 기록 된 추적) 및 "잘못 된" 추적 ( *경고*, *오류* 또는 *치명적* 수준으로 기록 된 추적) 간의 비율이 이전 7 일 동안 계산 된 기준에 비해 특정 날짜에 저하 되는 경우이 유형의 알림이 발생할 수 있습니다.
+“올바른” 추적(‘정보’ 또는 ‘자세한 정보’ 수준으로 기록된 추적) 및 “잘못된” 추적(‘경고’, ‘오류’ 또는 ‘심각한 오류’ 수준으로 기록된 추적) 간 비율이 지난 7일에 대해 계산한 기준과 비교할 때 특정 일에 저하되는 경우 이 유형의 알림이 발생할 수 있습니다.    
 
 ## <a name="does-my-app-definitely-have-a-problem"></a>내 앱에 분명히 문제가 있나요?
 아니요, 알림이 제공된다고 해서 앱에 반드시 문제가 있는 것은 아닙니다. "올바른" 및 "잘못된" 추적 간 비율의 저하가 애플리케이션 문제를 나타낼 수 있지만 이러한 비율의 변경은 무해할 수 있습니다. 예를 들어 기존 흐름보다 더 많은 "잘못된" 추적을 내보내는 애플리케이션에서 새 흐름으로 인해 증가가 발생할 수 있습니다.
 
 ## <a name="how-do-i-fix-it"></a>이 문제를 어떻게 해결하나요?
 알림에는 진단 프로세스에서 도움이 되는 진단 정보가 포함되어 있습니다.
-1. **문제.** 이 알림은 영향을 받은 작업의 수를 보여줍니다. 문제에 우선 순위를 할당하는 데 도움이 될 수 있습니다.
+1. **심사.** 이 알림은 영향을 받은 작업의 수를 보여줍니다. 문제에 우선 순위를 할당하는 데 도움이 될 수 있습니다.
 2. **범위.** 이 문제가 모든 트래픽에 영향을 주나요? 아니면 일부 작업에만 영향을 주나요? 이 정보는 알림에서 얻을 수 있습니다.
 3. **진단.** 지원 정보에 연결된 관련 항목 및 보고서를 사용하면 문제를 추가로 진단할 수 있습니다.

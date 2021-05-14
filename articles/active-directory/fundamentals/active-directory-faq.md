@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05a83b94a94831e96dc1851f2ded5f911e7d6cc5
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 74735e80326e1d05e3f8820fc2b94c8fe930fcb3
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288907"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784236"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Azure Active Directory에 대해 자주 묻는 질문과 대답
 Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 측면에 걸쳐있는 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
@@ -119,7 +119,8 @@ Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적�
 
 **A:** 예, 암호 쓰기 저장을 사용하도록 설정하는 경우 관리자가 수행하는 암호 작업이 온-프레미스 환경에 다시 기록됩니다.  
 
-<a name="for-more-answers-to-password-related-questions-see-password-management-frequently-asked-questions"></a>암호와 관련된 질문에 대한 자세한 답변은 [암호 관리 질문과 대답](../authentication/active-directory-passwords-faq.yml)을 참조하세요.
+암호와 관련된 질문에 대한 자세한 답변은 [암호 관리 질문과 대답](../authentication/active-directory-passwords-faq.yml)을 참조하세요.
+
 ---
 **Q: 암호 변경을 시도하는 동안 기존 Microsoft 365/Azure AD 암호를 기억할 수 없는 경우 어떻게 해야 하나요?**
 
@@ -132,8 +133,8 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 - [Azure Portal에서 계정 재설정](active-directory-users-reset-password-azure-portal.md)
 - [PowerShell 사용](/powershell/module/msonline/set-msoluserpassword)
 
-
 ---
+
 ## <a name="security"></a>보안
 **Q: 시도가 일정 횟수 실패하면 계정이 잠기나요 아니면 좀 더 복잡한 전략이 사용되나요?**
 

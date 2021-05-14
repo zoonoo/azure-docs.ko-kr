@@ -3,12 +3,12 @@ title: 패턴 정책 정의를 사용하여 리소스 배포
 description: 이 Azure Policy 패턴은 deployIfNotExists 정책 정의를 사용하여 리소스를 배포하는 방법에 대한 예제를 제공합니다.
 ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 1dda3d5f2d4bef57919931ec3c1635310723e0c8
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 2220a0c66cecac3dc9dfd342fe6b802df41c1f10
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106093403"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752457"
 ---
 # <a name="azure-policy-pattern-deploy-resources"></a>Azure Policy 패턴: 리소스 배포
 
@@ -43,7 +43,7 @@ ms.locfileid: "106093403"
 - **template** - 이 속성은 템플릿 자체를 포함합니다. 이 예제에서 **location** 템플릿 매개 변수는 새 네트워크 감시자 리소스의 위치를 설정합니다.
 
   :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="30-44":::
-  
+
 - **parameters** - 이 속성은 **template** 에 제공되는 매개 변수를 정의합니다. 매개 변수 이름은 **template** 에 정의된 이름과 일치해야 합니다. 이 예제에서는 매개 변수의 이름이 **location** 으로 일치합니다. **location** 의 값은 `field()` 함수를 다시 사용하여 평가된 리소스의 값을 가져옵니다. 이 값은 **policyRule.if** 블록의 가상 네트워크입니다.
 
   :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="45-49":::

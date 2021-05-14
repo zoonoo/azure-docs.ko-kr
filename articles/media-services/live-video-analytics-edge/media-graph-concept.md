@@ -3,12 +3,12 @@ title: 미디어 그래프 개념 - Azure
 description: 미디어 그래프에서 미디어를 캡처할 위치, 처리하는 방법 및 결과를 전달해야 하는 위치를 정의할 수 있습니다. 이 문서에서는 미디어 그래프 개념에 대한 자세한 설명을 제공합니다.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: ad23acbbbdd0c15e92e471ee22a229470a8a3a75
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 83c51bc87321633339f75ac57b480116d450bca7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557669"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770608"
 ---
 # <a name="media-graph"></a>미디어 그래프
 
@@ -112,7 +112,8 @@ gRPC 확장 프로세서 노드는 디코딩된 비디오 프레임을 입력으
 
 파일 싱크 노드를 사용하면 미디어(비디오 및/또는 오디오) 데이터를 IoT Edge 디바이스의 로컬 파일 시스템 위치에 쓸 수 있습니다. 미디어 그래프에는 파일 싱크 노드가 하나만 있을 수 있으며 신호 게이트 프로세서 노드의 다운스트림이어야 합니다. 그러면 출력 파일의 지속 시간이 신호 게이트 프로세서 노드 속성에 지정된 값으로 제한됩니다. 에지 디바이스의 디스크 공간이 부족하지 않도록 하려면 IoT Edge 모듈의 Live Video Analytics에서 데이터를 저장하는 데 사용할 수 있는 최대 크기를 설정할 수도 있습니다.  
 > [!NOTE]
-파일 싱크가 가득 차면 IoT Edge 모듈의 Live Video Analytics는 가장 오래된 데이터를 삭제하고 새 데이터로 대체합니다.
+> 파일 싱크가 가득 차면 IoT Edge 모듈의 Live Video Analytics는 가장 오래된 데이터를 삭제하고 새 데이터로 대체합니다.
+
 #### <a name="iot-hub-message-sink"></a>IoT Hub 메시지 싱크  
 
 IoT Hub 메시지 싱크 노드를 사용하여 IoT Edge 허브에 이벤트를 게시할 수 있습니다. 그런 다음 IoT Edge 허브는 데이터를 에지 디바이스의 다른 모듈이나 앱에 라우팅하거나 배포 매니페스트에 지정된 경로별로 클라우드의 IoT Hub에 라우팅할 수 있습니다. IoT Hub 메시지 싱크 노드는 동작 감지 프로세서 노드와 같은 업스트림 프로세서 또는 HTTP 확장 프로세서 노드를 통해 외부 유추 서비스에서 발생한 이벤트를 허용할 수 있습니다.

@@ -1,51 +1,51 @@
 ---
-title: 모듈 쌍 JSON 스키마-Azure
-description: 이 항목에서는 IoT Edge에서 라이브 비디오 분석의 모듈 쌍 JSON 스키마에 대해 설명 합니다.
+title: 모듈 쌍 JSON 스키마 - Azure
+description: 이 항목에서는 IoT Edge의 Live Video Analytics 모듈 쌍 JSON 스키마에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 8bd86bdc2c8de9ee586e785db2074fa772100420
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87053062"
 ---
 # <a name="module-twin-json-schema"></a>모듈 쌍 JSON 스키마
 
-장치 쌍은 메타 데이터, 구성 및 조건을 포함 하 여 장치 상태 정보를 저장 하는 JSON 문서입니다. Azure IoT Hub는 IoT Hub에 연결하는 디바이스마다 하나의 디바이스 쌍을 유지합니다. 자세한 설명은 [IoT Hub에서 모듈 쌍 이해 및 사용](../../iot-hub/iot-hub-devguide-module-twins.md) 을 참조 하세요.
+디바이스 쌍은 메타데이터, 구성, 조건 등 디바이스 상태 정보가 저장된 JSON 문서입니다. Azure IoT Hub는 IoT Hub에 연결하는 디바이스마다 하나의 디바이스 쌍을 유지합니다. 자세한 내용은 [IoT Hub의 모듈 쌍 이해 및 사용](../../iot-hub/iot-hub-devguide-module-twins.md)을 참조하세요.
 
-이 항목에서는 IoT Edge에서 라이브 비디오 분석의 모듈 쌍 JSON 스키마에 대해 설명 합니다.
+이 항목에서는 IoT Edge의 Live Video Analytics 모듈 쌍 JSON 스키마에 대해 설명합니다.
 
 > [!NOTE]
-> Media Services 리소스 및 Media Services API에 액세스할 수 있는 권한을 부여하려면 먼저 인증을 거쳐야 합니다. 자세한 내용은 [AZURE MEDIA SERVICES API 액세스](../latest/media-services-apis-overview.md#accessing-the-azure-media-services-api)를 참조 하세요.
+> Media Services 리소스 및 Media Services API에 액세스할 수 있는 권한을 부여하려면 먼저 인증을 거쳐야 합니다. 자세한 내용은 [Azure Media Services API 액세스](../latest/media-services-apis-overview.md#accessing-the-azure-media-services-api)를 참조하세요.
 
 ## <a name="module-twin-properties"></a>모듈 쌍 속성
 
-IoT Edge의 Live Video Analytics는 다음 모듈 쌍 속성을 노출 합니다. 
+IoT Edge의 Live Video Analytics는 다음 모듈 쌍 속성을 노출합니다. 
 
-|속성 |필수 |동적 |설명 |
+|속성 |필수 |동적 |Description |
 |---|---|---|---|
-|applicationDataDirectory |예 |아니요 |구성을 유지 하기 위한 탑재 된 볼륨의 경로입니다. |
-|azureMediaServicesArmId |예 |아니요 |Media Services 계정의 고유한 Azure 리소스 관리 식별자입니다.|
-|aadTenantId |예 |아니요 |고객 Azure AD 테 넌 트 ID입니다.|
-|aadServicePrincipalAppId |예 |예 |고객이 Azure AD AppId를 만들었습니다.|
-|aadServicePrincipalCertificate |예<sup>*</sup>  |yes |고객이 Azure AD AppId 인증서를 만들었습니다.|
-|aadServicePrincipalPassword |예<sup>*</sup>  |yes |고객이 Azure AD AppId 암호를 만들었습니다.|
-|aadEndpoint |아니요 |아니요 |클라우드 별 Azure AD 끝점. <br/>기본값: `https://login.microsoftonline.com` |
-|aadResourceId |아니요 |아니요 |클라우드 별 Azure AD 사용자/리소스 ID <br/>기본값: `https://management.core.windows.net/` |
-|armEndpoint |아니요 |아니요 |클라우드 별 Azure 리소스 관리 끝점입니다. <br/>기본값: `https://management.azure.com/` |
-|diagnosticsLevel |아니요 |예 |이벤트의 자세한 정도: <br/>정보 &#x02758; 경고 &#x02758; 오류 &#x02758; 중요 &#x02758; 없음을 |
-|diagnosticsEventsOutputName |아니요 |예 |진단 이벤트에 대 한 허브 출력입니다. <br/>(Empty는 진단이 게시 되지 않았음을 의미 함)|
-|operationalEventsOutputName|아니요|예|작업 이벤트에 대 한 허브 출력입니다.<br/>(Empty는 운영 이벤트가 게시 되지 않음을 의미 함)
-|logLevel|아니요|예|다음 중 하나 <br/>&#x000B7; 구문<br/>&#x000B7; 정보 (기본값)<br/>&#x000B7; 내용의<br/>&#x000B7; 메시지가<br/>&#x000B7; 없음을|
-|logCategories|아니요|예|응용 프로그램, MediaPipeline, 이벤트를 쉼표로 구분한 목록입니다. <br/>기본값: 응용 프로그램, 이벤트|
-|debugLogsDirectory|아니요|예|디버그 로그의 디렉터리입니다. 존재 로그가 생성 된 경우에는 없는 경우 디버그 로그를 사용할 수 없습니다.
+|applicationDataDirectory |예 |예 |구성을 유지하기 위해 탑재된 볼륨의 경로입니다. |
+|azureMediaServicesArmId |예 |예 |Media Services 계정의 고유한 Azure 리소스 관리 식별자입니다.|
+|aadTenantId |예 |예 |고객 Azure AD 테넌트 ID입니다.|
+|aadServicePrincipalAppId |예 |예 |고객이 만든 Azure AD AppId입니다.|
+|aadServicePrincipalCertificate |예<sup>*</sup>  |yes |고객이 만든 Azure AD AppId 인증서입니다.|
+|aadServicePrincipalPassword |예<sup>*</sup>  |yes |고객이 Azure AD AppId를 암호를 만들었습니다.|
+|aadEndpoint |예 |예 |클라우드 특정 Azure AD 엔드포인트입니다. <br/>기본값: `https://login.microsoftonline.com` |
+|aadResourceId |예 |예 |클라우드별 Azure AD 대상 그룹/리소스 ID입니다. <br/>기본값: `https://management.core.windows.net/` |
+|armEndpoint |예 |예 |클라우드별 Azure 리소스 관리 엔드포인트입니다. <br/>기본값: `https://management.azure.com/` |
+|diagnosticsLevel |예 |예 |이벤트의 세부 정보 표시 수준입니다. <br/>정보 &#x02758; 경고 &#x02758; 오류 &#x02758; 위험 &#x02758; 없음 |
+|diagnosticsEventsOutputName |예 |예 |진단 이벤트에 대한 허브 출력입니다. <br/>(비어 있는 경우 진단이 게시되지 않았음을 의미함)|
+|operationalEventsOutputName|예|예|작업 이벤트에 대한 허브 출력입니다.<br/>(비어 있는 경우 작업 이벤트가 게시되지 않았음을 의미함)
+|logLevel|예|예|다음 중 하나 <br/>&#x000B7; 세부 정보<br/>&#x000B7; 정보(기본값)<br/>&#x000B7; 경고<br/>&#x000B7; 오류<br/>&#x000B7; 없음|
+|logCategories|예|예|쉼표로 구분된 애플리케이션, MediaPipeline, 이벤트 목록입니다. <br/>기본값: 애플리케이션, 이벤트|
+|debugLogsDirectory|예|예|디버그 로그 디렉터리입니다. 디렉터리가 있으면 로그를 생성하고, 없으면 디버그 로그를 사용하지 않도록 설정합니다.
 
-<sup>*</sup>서비스 사용자 인증서 또는 암호를 제공 해야 합니다. 
+<sup>*</sup>서비스 주체 인증서 또는 암호를 제공해야 합니다. 
 
-모듈을 다시 시작 하지 않고도 동적 속성을 업데이트할 수 있습니다. [MEDIA SERVICES API에 대 한 액세스 권한](../latest/access-api-howto.md) 문서에 있는 지침에 따라 이러한 속성 중 일부에 대 한 값을 가져올 수 있습니다. 
+모듈을 다시 시작하지 않고도 동적 속성을 업데이트할 수 있습니다. [Media Services API에 대한 액세스 권한 얻기](../latest/access-api-howto.md) 문서에 있는 지침에 따라 여러 속성의 값을 얻을 수 있습니다. 
 
-선택적 진단 설정의 역할에 대 한 자세한 내용은 [모니터링 및 로깅](monitoring-logging.md) 문서를 참조 하세요.
+선택적 진단 설정의 역할에 대한 자세한 내용은 [모니터링 및 로깅](monitoring-logging.md) 문서를 참조하세요.
 
 ```
 { 

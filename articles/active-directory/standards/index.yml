@@ -1,0 +1,51 @@
+### YamlMime:Landing
+title: 표준 문서에 맞게 구성하는 Azure Active Directory
+summary: Azure 및 Azure Active Directory를 사용하면 규정 준수 인증을 활용하고 정부 및 산업 표준을 충족하도록 환경을 구성할 수 있습니다.
+metadata:
+  title: 표준 문서에 맞게 구성하는 Azure Active Directory
+  description: 정부 및 업계 표준을 충족하도록 Azure 및 Azure Active Directory를 구성하는 방법을 알아봅니다.
+  manager: mtillman
+  ms.author: baselden
+  ms.collection: na
+  ms.date: 04/26/2021
+  ms.service: active-directory
+  ms.subservice: na
+  ms.topic: landing-page
+  services: active-directory
+  ms.openlocfilehash: 765473f21c1572bd9b25fc7fca67e9eb0508d63d
+  ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 04/30/2021
+  ms.locfileid: "108293578"
+landingContent:
+- title: 표준 개요
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ID 표준에 대한 구성
+      url: standards-overview.md
+    - text: NIST AAL 개요
+      url: nist-overview.md
+    - text: FedRAMP High 영향 개요
+      url: configure-azure-active-directory-for-fedramp-high-impact.md
+- title: NIST AAL 구성
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: NIST AAL 1 달성
+      url: nist-authenticator-assurance-level-1.md
+    - text: NIST AAL 2 달성
+      url: nist-authenticator-assurance-level-2.md
+    - text: NIST AAL 3 달성
+      url: nist-authenticator-assurance-level-3.md
+- title: FedRAMP 컨트롤 구성
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 액세스 제어 구성
+      url: fedramp-access-controls.md
+    - text: 식별 및 인증 컨트롤 구성
+      url: fedramp-identification-and-authentication-controls.md
+    - text: 추가 컨트롤 구성
+      url: fedramp-other-controls.md

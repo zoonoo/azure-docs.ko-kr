@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 1e49e787854069c2fcea30df7a43c3aacdd21b9e
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: c1028d0a4a458746c08fd6fa4f16aa952d9962a2
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502031"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "87282010"
 ---
 # <a name="azcopy-benchmark"></a>azcopy benchmark
 
@@ -38,12 +38,6 @@ ms.locfileid: "107502031"
 벤치마크 모드에서는 최대 처리량을 제공하는 병렬 TCP 연결 수에 맞게 자동으로 튜닝됩니다. 끝에는 해당 숫자가 표시됩니다. 자동 튜닝을 방지하려면 AZCOPY_CONCURRENCY_VALUE 환경 변수를 특정 연결 수로 설정합니다. 
 
 일반적인 인증 유형은 모두 지원됩니다. 하지만 가장 간편한 업로드 벤치마크 방법은 일반적으로 SAS 토큰이 포함된 빈 컨테이너를 만들어 SAS 인증을 사용하는 것입니다. (다운로드 모드를 사용하려면 대상 컨테이너에 테스트 데이터 세트가 있어야 합니다.)
-
-## <a name="related-conceptual-articles"></a>관련 개념 문서
-
-- [AzCopy 시작](storage-use-azcopy-v10.md)
-- [Azure Storage를 사용하여 AzCopy v10의 성능 최적화](storage-use-azcopy-optimize.md)
-
 
 ## <a name="examples"></a>예
 
@@ -112,6 +106,6 @@ azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>" --file-
 **--trusted-microsoft-suffixes** 문자열: Azure Active Directory 로그인 토큰이 전송될 수 있는 추가 도메인 접미사를 지정합니다.  기본값은 ‘ *.core.windows.net;* .core.chinacloudapi.cn; *.core.cloudapi.de;* .core.usgovcloudapi.net’입니다. 여기에 나열된 항목은 모두 기본값에 추가됩니다. 보안을 위해 여기에는 Microsoft Azure 도메인만 배치해야 합니다. 여러 항목은 세미콜론으로 구분합니다.
 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [azcopy](storage-ref-azcopy.md)

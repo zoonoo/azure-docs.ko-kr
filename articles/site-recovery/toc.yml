@@ -93,7 +93,7 @@
 - name: 개념
   items:
     - name: Site Recovery에 대한 일반적인 질문
-      href: site-recovery-faq.md
+      href: site-recovery-faq.yml
     - name: Azure VM 재해 복구 정보
       items:
         - name: Azure에서 Azure로 아키텍처
@@ -179,7 +179,7 @@
     - name: 보안
       items:
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/site-recovery-security-baseline?toc=/azure/site-recovery/toc.json
 - name: 방법 가이드
   items:
     - name: Azure 간 재해 복구
@@ -200,6 +200,8 @@
           items:
             - name: Azure 간 복제 활성화
               href: azure-to-azure-how-to-enable-replication.md
+            - name: 정책을 사용하여 Azure 간 복제 사용
+              href: azure-to-azure-how-to-enable-policy.md
             - name: 암호화된 VM에 대한 Azure간 복제 활성화
               href: azure-to-azure-how-to-enable-replication-ade-vms.md
             - name: CMK 지원 디스크가 있는 VM에 대한 Azure 간 복제 활성화
@@ -230,6 +232,8 @@
               href: site-recovery-manage-registration-and-protection.md
             - name: 자격 증명 모음 삭제
               href: delete-vault.md
+            - name: VMM 서버의 정리 스크립트
+              href: unregister-vmm-server-script.md
     - name: VMware에서 Azure로 재해 복구
       items:
         - name: 규모에 따른 재해 복구 설정
@@ -482,6 +486,8 @@
       href: site-recovery-runbook-automation.md
     - name: ARM 템플릿
       href: asr-arm-templates.md
+    - name: 매개 변수 사용 중단 - New-AzRecoveryServicesAsrVMNicConfig cmdlet
+      href: site-recovery-ipconfig-cmdlet-parameter-deprecation.md
 - name: 모니터링
   items:
     - name: 모니터링에 대한 일반적인 질문

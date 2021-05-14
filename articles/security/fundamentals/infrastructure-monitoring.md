@@ -1,6 +1,6 @@
 ---
 title: Azure 인프라 모니터링
-description: 취약성 검색과 같은 Azure 프로덕션 네트워크의 인프라 모니터링 측면에 대해 알아봅니다.
+description: 취약성 검색과 같은 Azure 프로덕션 네트워크의 인프라 모니터링 측면 기능에 대해 알아봅니다.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 7b75c9dc874a41d4221c55a8b00dd12d943e80fc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87542945"
 ---
 # <a name="azure-infrastructure-monitoring"></a>Azure 인프라 모니터링   

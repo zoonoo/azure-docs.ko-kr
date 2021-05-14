@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: b58a9dd7901f85c59b09bc4ccb197d012bce2200
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ef1408d5f7afc3b78ab021cdd25eedd75110849
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92545058"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776935"
 ---
 # <a name="manage-an-azure-database-for-mysql---flexible-server-preview-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL - 유연한 서버(미리 보기) 관리
 
@@ -23,13 +23,13 @@ ms.locfileid: "92545058"
 ## <a name="prerequisites"></a>사전 요구 사항
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다. 이 문서에서는 Azure CLI 버전 2.0 이상을 로컬로 실행해야 합니다. 설치된 버전을 확인하려면 `az --version` 명령을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-[az login](/cli/azure/reference-index#az-login) 명령을 사용하여 계정에 로그인해야 합니다. Azure 계정에 대한 **구독 ID** 를 참조하는 **id** 속성을 기록해 둡니다.
+[az login](/cli/azure/reference-index#az_login) 명령을 사용하여 계정에 로그인해야 합니다. Azure 계정에 대한 **구독 ID** 를 참조하는 **id** 속성을 기록해 둡니다.
 
 ```azurecli-interactive
 az login
 ```
 
-[az account set](/cli/azure/account) 명령을 사용하여 계정에 속한 특정 구독을 선택합니다. 명령에서 **subscription** 인수에 대한 값으로 사용할 **az login** 출력의 **id** 값을 적어 둡니다. 구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. 모든 구독을 가져오려면 [az account list](/cli/azure/account#az-account-list)를 사용합니다.
+[az account set](/cli/azure/account) 명령을 사용하여 계정에 속한 특정 구독을 선택합니다. 명령에서 **subscription** 인수에 대한 값으로 사용할 **az login** 출력의 **id** 값을 적어 둡니다. 구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. 모든 구독을 가져오려면 [az account list](/cli/azure/account#az_account_list)를 사용합니다.
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -69,15 +69,15 @@ storage-size | 6144 | 서버의 스토리지 용량입니다(단위는 메가바
 |[az mysql flexible-server db list](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_list)|```az mysql flexible-server db list -g myresourcegroup -s mydemoserver```|서버의 모든 데이터베이스를 나열합니다.|
 |[az mysql flexible-server db show](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_show)|```az mysql flexible-server db show -g myresourcegroup -s mydemoserver -n mydatabasename```|데이터베이스에 대한 자세한 정보를 표시합니다.|
 
-## <a name="update-admin-password"></a>관리 암호 업데이트
+## <a name="update-admin-password"></a>관리자 암호 업데이트
 다음 명령을 사용하여 관리자 역할의 암호를 변경할 수 있습니다.
 ```azurecli-interactive
 az mysql flexible-server update --resource-group myresourcegroup --name mydemoserver --admin-password <new-password>
 ```
 
 > [!Important]
->  암호는 최소 8자, 최대 128자인지 확인합니다.
-> 암호에는 영어 대문자, 영어 소문자, 숫자 및 영숫자가 아닌 문자의 세 범주에 해당하는 문자가 포함되어야 합니다.
+>  암호는 최소 8자, 최대 128자여야 합니다.
+> 암호에는 영어 대문자, 영어 소문자, 숫자, 영숫자가 아닌 문자 중 세 가지에 해당하는 문자가 포함되어야 합니다.
 
 ## <a name="delete-a-server"></a>서버 삭제
 MySQL 유연한 서버를 삭제하려면 [az mysql flexible-server server delete](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_delete) 명령을 실행할 수 있습니다.

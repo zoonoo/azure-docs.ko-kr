@@ -1,28 +1,28 @@
 ---
 title: ArmApiControl UI 요소
-description: Azure Portal에 대 한 ArmApiControl UI 요소에 대해 설명 합니다. API 작업을 호출 하는 데 사용 됩니다.
+description: Azure Portal의 Microsoft.Solutions.ArmApiControl UI 요소에 대해 설명합니다. API 작업을 호출하는 데 사용됩니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
 ms.openlocfilehash: bbe36e072d10b81c421331b2212d8b161afd2693
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87098156"
 ---
-# <a name="microsoftcommonarmapicontrol-ui-element"></a>ArmApiControl UI 요소
+# <a name="microsoftcommonarmapicontrol-ui-element"></a>Microsoft.Common.ArmApiControl UI 요소
 
-ArmApiControl를 사용 하면 Azure Resource Manager API 작업에서 결과를 가져올 수 있습니다. 결과를 사용 하 여 다른 컨트롤의 동적 콘텐츠를 채웁니다.
+ArmApiControl을 사용하면 Azure Resource Manager API 작업에서 결과를 가져올 수 있습니다. 이 결과를 사용하여 다른 컨트롤의 동적 콘텐츠를 채웁니다.
 
 ## <a name="ui-sample"></a>UI 샘플
 
-이 컨트롤에 대 한 UI가 없습니다.
+이 컨트롤에는 UI가 없습니다.
 
 ## <a name="schema"></a>스키마
 
-다음 예제에서는이 컨트롤에 대 한 스키마를 보여 줍니다.
+다음 예제에서는 이 컨트롤에 대한 스키마를 보여 줍니다.
 
 ```json
 {
@@ -41,19 +41,19 @@ ArmApiControl를 사용 하면 Azure Resource Manager API 작업에서 결과를
 
 ## <a name="sample-output"></a>샘플 출력
 
-컨트롤의 출력이 사용자에 게 표시 되지 않습니다. 대신 작업의 결과가 다른 컨트롤에서 사용 됩니다.
+컨트롤 출력은 사용자에게 표시되지 않습니다. 대신, 작업의 결과가 다른 컨트롤에서 사용됩니다.
 
 ## <a name="remarks"></a>설명
 
-- `request.method`속성은 HTTP 메서드를 지정 합니다. `GET`또는만 `POST` 사용할 수 있습니다.
-- `request.path`속성은 URL의 상대 경로를 지정 합니다. 정적 경로 이거나 다른 컨트롤의 출력 값을 참조 하 여 동적으로 생성 될 수 있습니다.
-- `request.body` 속성은 선택 사항입니다. 이를 사용 하 여 요청과 함께 전송 되는 JSON 본문을 지정 합니다. 본문은 정적 콘텐츠 이거나 다른 컨트롤의 출력 값을 참조 하 여 동적으로 생성 될 수 있습니다.
+- `request.method` 속성은 HTTP 메서드를 지정합니다. `GET` 또는 `POST`만 사용할 수 있습니다.
+- `request.path` 속성은 URL의 상대 경로를 지정합니다. 고정 경로일 수도 있고 다른 컨트롤의 출력 값을 참조하여 동적으로 생성될 수도 있습니다.
+- `request.body` 속성은 선택 사항입니다. 요청과 함께 전송되는 JSON 본문을 지정하는 데 사용됩니다. 본문은 정적 콘텐츠일 수도 있고 다른 컨트롤의 출력 값을 참조하여 동적으로 생성될 수도 있습니다.
 
 ## <a name="example"></a>예제
 
-다음 예제에서 `providersApi` 요소는 API를 호출 하 여 공급자 개체의 배열을 가져옵니다.
+다음 예제에서는 `providersApi` 요소가 API를 호출하여 공급자 개체의 배열을 가져옵니다.
 
-`allowedValues` `providersDropDown` 요소의 속성은 공급자의 이름을 가져오도록 구성 됩니다. 드롭다운 목록에 표시 됩니다.
+`providersDropDown` 요소의 `allowedValues` 속성은 공급자 이름을 가져오도록 구성됩니다. 드롭다운 목록으로 표시합니다.
 
 ```json
 {
@@ -77,7 +77,7 @@ ArmApiControl를 사용 하면 Azure Resource Manager API 작업에서 결과를
 }
 ```
 
-ArmApiControl를 사용 하 여 리소스 이름의 가용성을 확인 하는 예제는 [Microsoft. 일반 텍스트 상자](microsoft-common-textbox.md)를 참조 하세요.
+ArmApiControl을 사용하여 리소스 이름의 가용성을 확인하는 예제는 [Microsoft.Common.TextBox](microsoft-common-textbox.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

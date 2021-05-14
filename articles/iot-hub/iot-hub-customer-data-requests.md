@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub 장치에 대 한 고객 데이터 요청
-description: Azure IoT Hub에서 관리 되는 대부분의 장치는 개인은 아니지만 일부는입니다. 이 문서에서는 장치에서 개인 데이터를 내보내거나 삭제할 수 있는 관리자에 대해 설명 합니다.
+title: Azure IoT Hub 디바이스에 대한 고객 데이터 요청
+description: Azure IoT Hub 디바이스에 대한 고객 데이터 요청 이 문서에서는 디바이스에서 개인 데이터를 내보내거나 삭제할 수 있는 관리자에 관해 설명합니다.
 author: robinsh
 ms.author: robinsh
 ms.date: 05/16/2018
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
 ms.openlocfilehash: df1d4f3a12c6e15e2954bb0e02454ef58b22cb73
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92535793"
 ---
-# <a name="customer-data-request-features-for-azure-iot-hub-devices"></a>Azure IoT Hub 장치에 대 한 고객 데이터 요청 기능
+# <a name="customer-data-request-features-for-azure-iot-hub-devices"></a>Azure IoT Hub 디바이스의 고객 데이터 요청 기능
 
 Azure IoT Hub는 수백만 개의 디바이스와 분할된 Azure 서비스 간의 안전한 양방향 통신을 지원하는 엔터프라이즈 고객을 대상으로 하는 REST API 기반 클라우드 서비스입니다.
 
@@ -30,7 +30,7 @@ Azure IoT Hub 서비스의 라우팅 기능을 사용하여 디바이스 메시�
 
 Azure IoT Hub 서비스의 Azure Event Grid 통합 기능을 사용하는 경우 이러한 이벤트의 각 구독자에 대해 테넌트 관리자가 데이터 요청을 수행해야 합니다. 자세한 내용은 [Event Grid를 사용하여 IoT Hub 이벤트에 대응](iot-hub-event-grid.md)을 참조하세요.
 
-Azure IoT Hub 서비스의 Azure Monitor 통합 기능을 사용 하 여 리소스 로그를 만든 경우에는 저장 된 로그에 대해 테 넌 트 관리자가 데이터 요청을 수행 해야 합니다. 자세한 내용은 [IoT Hub 모니터링](monitor-iot-hub.md)을 참조 하세요.
+Azure IoT Hub 서비스의 Azure Monitor 통합 기능을 사용하여 리소스 로그를 만드는 경우 저장된 로그에 대해 테넌트 관리자가 데이터 요청을 수행해야 합니다. 자세한 내용은 [IoT Hub 모니터링](monitor-iot-hub.md)을 참조하세요.
 
 ## <a name="deleting-customer-data"></a>고객 데이터 삭제
 
@@ -40,7 +40,7 @@ Azure IoT Hub 서비스의 Azure Monitor 통합 기능을 사용 하 여 리소�
 
 ## <a name="exporting-customer-data"></a>고객 데이터 내보내기
 
-테 넌 트 관리자는 Azure Portal에서 Azure IoT Hub 확장의 IoT 장치 창 내에서 복사 및 붙여넣기를 활용 하 여 장치와 연결 된 데이터를 내보낼 수 있습니다.
+테넌트 관리자는 Azure Portal에서 Azure IoT Hub 확장의 IoT 디바이스 창 내 복사하여 붙여넣기를 사용하여 해당 디바이스와 연결된 데이터를 내보낼 수 있습니다.
 
 또한 REST API를 사용하여 디바이스에 대한 내보내기 작업을 수행할 수 있습니다. 자세한 내용은 [서비스 - 디바이스 가져오기](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-getdevice)를 참조하세요.
 

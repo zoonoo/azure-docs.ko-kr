@@ -6,12 +6,12 @@ ms.author: palatter
 ms.date: 01/25/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 331d8eb6ed74880a855934fad4d3e1afc9b29109
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: cbf56f6567c3c7857afcd71ed9f6dc67be48f9d1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108313640"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108791563"
 ---
 이 빠른 시작에서는 Android용 Azure Communication Services Teams Embed 라이브러리를 사용하여 Microsoft Teams 미팅에 참가하는 방법을 알아봅니다.
 
@@ -76,7 +76,7 @@ dependencies {
 
 ### <a name="install-the-teams-embed-package"></a>Teams Embed 패키지 설치
 
-[`MicrosoftTeamsSDK` 패키지](https://github.com/Azure/communication-teams-embed/releases)를 다운로드합니다.
+[`MicrosoftTeamsSDK` 패키지](https://github.com/Azure/communication)를 다운로드합니다.
 
 그런 다음, 사용자 프로젝트 앱 폴더에 `MicrosoftTeamsSDK` 폴더 압축을 풉니다. 예: `TeamsEmbedAndroidGettingStarted/app/MicrosoftTeamsSDK`.
 

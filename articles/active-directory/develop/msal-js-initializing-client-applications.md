@@ -1,7 +1,7 @@
 ---
-title: 클라이언트 앱 MSAL.js 초기화 | Microsoft
+title: MSAL.js 클라이언트 앱 초기화 | Azure
 titleSuffix: Microsoft identity platform
-description: JavaScript 용 Microsoft Authentication Library (MSAL.js)를 사용 하 여 클라이언트 응용 프로그램을 초기화 하는 방법을 알아봅니다.
+description: MSAL.js(JavaScript용 Microsoft 인증 라이브러리)를 사용하여 클라이언트 애플리케이션을 초기화하는 방법에 관해 알아봅니다.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,39 +13,39 @@ ms.date: 07/17/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: a6d7b760ffd1931fa5dcdb3a67dd02f2798957a9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: fee241ba9f4a340513951c515f1996fc7e2385bf
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100365840"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063596"
 ---
-# <a name="initialize-client-applications-using-msaljs"></a>MSAL.js를 사용 하 여 클라이언트 응용 프로그램 초기화
+# <a name="initialize-client-applications-using-msaljs"></a>MSAL.js를 사용하여 클라이언트 애플리케이션 초기화
 
-이 문서에서는 사용자 에이전트 응용 프로그램의 인스턴스를 사용 하 여 JavaScript 용 Microsoft Authentication Library (MSAL.js)를 초기화 하는 방법을 설명 합니다.
+이 문서에서는 사용자 에이전트 애플리케이션의 인스턴스를 사용하여 MSAL.js(JavaScript용 Microsoft 인증 라이브러리)를 초기화하는 방법을 설명합니다.
 
-사용자 에이전트 응용 프로그램은 클라이언트 코드가 웹 브라우저와 같은 사용자 에이전트에서 실행 되는 공용 클라이언트 응용 프로그램의 형태입니다. 브라우저 컨텍스트는 공개적으로 액세스할 수 있기 때문에 이러한 클라이언트는 비밀을 저장 하지 않습니다.
+사용자 에이전트 애플리케이션은 클라이언트 코드가 웹 브라우저와 같은 사용자 에이전트에서 실행되는 퍼블릭 클라이언트 애플리케이션의 형태입니다. 이러한 클라이언트는 브라우저 컨텍스트에 공개적으로 액세스할 수 있기 때문에 비밀을 저장하지 않습니다.
 
-클라이언트 응용 프로그램 유형 및 응용 프로그램 구성 옵션에 대 한 자세한 내용은 [MSAL의 공용 및 기밀 클라이언트 앱](msal-client-applications.md)을 참조 하세요.
+클라이언트 애플리케이션 유형 및 애플리케이션 구성 옵션에 관한 자세한 내용은 [MSAL의 퍼블릭 및 기밀 클라이언트 앱](msal-client-applications.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-응용 프로그램을 초기화 하기 전에 먼저 Azure Portal에 [등록](scenario-spa-app-registration.md)하 여 응용 프로그램과 Microsoft id 플랫폼 간의 트러스트 관계를 설정 해야 합니다.
+애플리케이션을 초기화하기 전에 먼저 [Azure Portal에 등록](scenario-spa-app-registration.md)하여 애플리케이션과 Microsoft ID 플랫폼 간의 신뢰 관계를 설정해야 합니다.
 
-앱을 등록 한 후 Azure Portal에서 찾을 수 있는 다음 값의 일부 또는 모두가 필요 합니다.
+앱을 등록한 후 Azure Portal에서 찾을 수 있는 다음 값의 일부 또는 모두가 필요합니다.
 
 | 값 | 필수 | 설명 |
 |:----- | :------: | :---------- |
-| 애플리케이션(클라이언트) ID | 필수 | Microsoft id 플랫폼 내에서 응용 프로그램을 고유 하 게 식별 하는 GUID입니다. |
-| Authority | 선택 사항 | 응용 프로그램에 대 한 id 공급자 URL ( *인스턴스*) 및 *로그인 대상* 입니다. 인스턴스와 로그인 대상이 연결 되 면 *인증 기관* 을 구성 합니다. |
-| 디렉터리(테넌트) ID | 선택 사항 | 조직 전용 lob (기간 업무) 응용 프로그램을 작성 하는 경우 (종종 *단일 테 넌 트 응용 프로그램* 이라고 함)이를 지정 합니다. |
-| 리디렉션 URI | 선택 사항 | 웹 앱을 빌드하는 경우는 `redirectUri` id 공급자 (Microsoft id 플랫폼)에서 발급 한 보안 토큰을 반환 해야 하는 위치를 지정 합니다. |
+| 애플리케이션(클라이언트) ID | 필수 | Microsoft ID 플랫폼 내에서 애플리케이션을 고유하게 식별하는 GUID입니다. |
+| Authority | Optional | 애플리케이션에 대한 ID 공급자 URL(‘인스턴스’) 및 ‘로그인 대상 그룹’입니다.  인스턴스와 로그인 대상 그룹이 연결되면 ‘인증 기관’을 구성합니다. |
+| 디렉터리(테넌트) ID | Optional | ‘단일 테넌트 애플리케이션’이라고도 하는 조직 전용 LOB(기간 업무) 애플리케이션을 빌드하는 경우 이를 지정합니다. |
+| 리디렉션 URI | Optional | 웹앱을 빌드하는 경우 `redirectUri`는 ID 공급자(Microsoft ID 플랫폼)가 발급한 보안 토큰을 반환할 위치를 지정합니다. |
 
 ## <a name="initialize-msaljs-2x-apps"></a>MSAL.js 2.x 앱 초기화
 
-[구성][msal-js-configuration] 개체를 사용 하 여 [publicclientapplication][msal-js-publicclientapplication] 을 인스턴스화하여 msal 인증 컨텍스트를 초기화 합니다. 필요한 최소 구성 속성은 `clientID` Azure Portal에서 앱 등록의 **개요** 페이지에 **응용 프로그램 (클라이언트) ID** 로 표시 되는 응용 프로그램의입니다.
+[구성][msal-js-configuration] 개체로 [PublicClientApplication][msal-js-publicclientapplication]을 인스턴스화하여 MSAL 인증 컨텍스트를 초기화합니다. 필요한 최소 구성 속성은 Azure Portal의 앱 등록 **개요** 페이지에 **애플리케이션(클라이언트) ID** 로 표시되는 애플리케이션의 `clientID`입니다.
 
-다음은의 구성 개체 및 인스턴스화에 대 한 예제입니다 `PublicClientApplication` .
+다음은 `PublicClientApplication`의 구성 개체 및 인스턴스화에 대한 예제입니다.
 
 ```javascript
 const msalConfig = {
@@ -103,19 +103,19 @@ msalInstance.handleRedirectPromise().then((tokenResponse) => {
 
 ### `handleRedirectPromise`
 
-응용 프로그램에서 리디렉션 흐름을 사용 하는 경우 [handleRedirectPromise][msal-js-handleredirectpromise] 를 호출 합니다. 리디렉션 흐름을 사용 하는 경우 `handleRedirectPromise` 모든 페이지 로드에서를 실행 해야 합니다.
+애플리케이션에서 리디렉션 흐름을 사용할 때 [handleRedirectPromise][msal-js-handleredirectpromise]를 호출합니다. 리디렉션 흐름을 사용할 때는 페이지 로드마다 `handleRedirectPromise`를 실행해야 합니다.
 
-약속의 세 가지 가능한 결과는 다음과 같습니다.
+이 프라미스에서 가능한 세 가지 결과는 다음과 같습니다.
 
-- `.then` 가 호출 되 고 `tokenResponse` truthy: 응용 프로그램이 성공한 리디렉션 작업에서 반환 됩니다.
-- `.then` 가 호출 되 고 `tokenResponse` 가 잘못 되었습니다 ( `null` ): 응용 프로그램이 리디렉션 작업에서 반환 되지 않습니다.
-- `.catch` 호출 됨: 응용 프로그램이 리디렉션 작업에서 반환 되 고 오류가 발생 했습니다.
+- `.then`이 호출되고 `tokenResponse`가 true인 경우: 애플리케이션이 성공한 리디렉션 작업에서 반환됩니다.
+- `.then`이 호출되고 `tokenResponse`가 false인 경우(`null`): 애플리케이션이 리디렉션 작업에서 반환되지 않습니다.
+- `.catch`가 호출된 경우: 애플리케이션이 리디렉션 작업에서 반환되고 오류가 발생했습니다.
 
-## <a name="initialize-msaljs-1x-apps"></a>1.x 앱 MSAL.js 초기화
+## <a name="initialize-msaljs-1x-apps"></a>MSAL.js 1.x 앱 초기화
 
-구성 개체를 사용 하 여 [Useragentapplication][msal-js-useragentapplication] 을 인스턴스화하여 msal 1.x 인증 컨텍스트를 초기화 합니다. 필요한 최소 구성 속성은 `clientID` Azure Portal에서 앱 등록의 **개요** 페이지에 **응용 프로그램 (클라이언트) ID** 로 표시 되는 응용 프로그램의입니다.
+구성 개체로 [UserAgentApplication][msal-js-useragentapplication]을 인스턴스화하여 MSAL 1.x 인증 컨텍스트를 초기화합니다. 필요한 최소 구성 속성은 Azure Portal의 앱 등록 **개요** 페이지에 **애플리케이션(클라이언트) ID** 로 표시되는 애플리케이션의 `clientID`입니다.
 
-MSAL.js 1.2. x 또는 그 이전 버전에서 리디렉션 흐름 ([loginRedirect][msal-js-loginredirect] 및 [acquireTokenRedirect][msal-js-acquiretokenredirect])을 사용 하는 인증 방법에 대해서는 메서드를 통해 성공 또는 오류에 대 한 콜백을 명시적으로 등록 해야 합니다. `handleRedirectCallback()` 명시적으로 콜백을 등록 하려면 MSAL.js 1.2. x 및 이전 버전에서 필요 합니다 .이 경우 리디렉션 흐름은 팝업 환경을 사용 하는 메서드와 같은 약속을 반환 하지 않기 때문입니다. MSAL.js 버전 1.3. x 이상에서는 콜백을 *등록할 수 있습니다* .
+MSAL.js 1.2.x 또는 그 이전 버전에서 리디렉션 흐름([loginRedirect][msal-js-loginredirect] 및 [acquireTokenRedirect][msal-js-acquiretokenredirect])을 사용하는 인증 방법의 경우 `handleRedirectCallback()` 메서드를 통해 성공 또는 오류에 대한 콜백을 명시적으로 등록해야 합니다. 리디렉션 흐름은 팝업 환경을 사용하는 메서드처럼 프라미스를 반환하지 않기 때문에 명시적으로 MSAL.js 1.2.x 또는 그 이전 버전에서 콜백을 등록해야 합니다. MSAL.js 버전 1.3.x 이상에서는 콜백을 ‘선택적으로’ 등록할 수 있습니다.
 
 ```javascript
 // Configuration object constructed
@@ -140,13 +140,13 @@ msalInstance.handleRedirectCallback(authCallback);
 
 ## <a name="single-instance-and-configuration"></a>단일 인스턴스 및 구성
 
-MSAL.js 1.x 및 2.x 모두 단일 인스턴스 및 구성 (각각 또는)을 포함 하 여 `UserAgentApplication` `PublicClientApplication` 단일 인증 컨텍스트를 나타냅니다.
+MSAL.js 1.x 및 2.x는 각각 단일 인스턴스 및 `UserAgentApplication` 또는 `PublicClientApplication` 구성을 갖도록 설계되어 단일 인증 컨텍스트를 나타냅니다.
 
-또는의 여러 인스턴스는 `UserAgentApplication` `PublicClientApplication` 브라우저에서 충돌 하는 캐시 항목 및 동작을 야기 하므로 권장 되지 않습니다.
+`UserAgentApplication` 또는 `PublicClientApplication`의 여러 인스턴스는 브라우저에서 충돌하는 캐시 항목 및 동작을 유발하므로 권장하지는 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-GitHub의이 MSAL.js 2.x 코드 샘플에서는 [구성][msal-js-configuration] 개체를 사용 하 여 [publicclientapplication][msal-js-publicclientapplication] 의 인스턴스화를 보여 줍니다.
+GitHub의이 MSAL.js 2.x 코드 샘플에서는 [구성][msal-js-configuration] 개체를 사용하여 [PublicClientApplication][msal-js-publicclientapplication]의 인스턴스화를 보여 줍니다.
 
 [Azure-Samples/ms-identity-javascript-v2](https://github.com/Azure-Samples/ms-identity-javascript-v2)
 

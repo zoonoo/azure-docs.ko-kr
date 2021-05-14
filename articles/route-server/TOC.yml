@@ -12,13 +12,21 @@
       href: quickstart-configure-route-server-powershell.md
     - name: Route Server 구성 - CLI
       href: quickstart-configure-route-server-cli.md
+    - name: Route Server 구성 - ARM 템플릿
+      href: quickstart-configure-template.md
   expanded: true
+- name: 샘플
+  items:
+    - name: 리소스 관리자 템플릿
+      href: resource-manager-template-samples.md
 - name: 개념
   items:
     - name: 경로 서버 FAQ
       href: route-server-faq.md
     - name: ExpressRoute 및 Azure VPN 지원
       href: expressroute-vpn-support.md
+    - name: 이중 홈 네트워크
+      href: about-dual-homed-network.md
 - name: 방법 가이드
   items:
     - name: Route Server 문제 해결
@@ -29,7 +37,7 @@
       href: /powershell/module/az.network/#route
     - name: Azure CLI
       href: /cli/azure/network/routeserver
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/virtualwan/virtualhubipconfiguration
 - name: 리소스
   items:
@@ -38,7 +46,7 @@
     - name: 네트워킹 블로그
       href: 'https://azure.microsoft.com/blog/topics/networking/'
     - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/details/routeserver/'
+      href: 'https://azure.microsoft.com/pricing/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 서비스 업데이트

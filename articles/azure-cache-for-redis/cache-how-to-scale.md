@@ -6,12 +6,13 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: d91b62afacad31d78feb7d4743cd4050fcc1bd4e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 8d66678ee963a89dcd6b469eaf2622b95a4a5ec4
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104581646"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752394"
 ---
 # <a name="scale-an-azure-cache-for-redis-instance"></a>Azure Cache for Redis 인스턴스 스케일링
 Azure Cache for Redis에는 캐시 크기와 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. 기본, 표준 또는 프리미엄 캐시의 경우 캐시를 만든 후 애플리케이션 요구 사항을 충족하기 위해 크기 및 계층을 변경할 수 있습니다. 이 문서에서는 Azure Portal과 Azure PowerShell 및 Azure CLI와 같은 도구를 사용하여 캐시 크기를 조정하는 방법을 보여 줍니다.

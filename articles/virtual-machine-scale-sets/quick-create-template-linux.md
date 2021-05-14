@@ -9,12 +9,12 @@ ms.collection: linux
 ms.date: 03/27/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, subject-armqs
-ms.openlocfilehash: 4028ac9ec84c6aa9afdad6a96586361af5538688
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: be5007c08f51defdd3e705b9e73e9ce2a21a18e0
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071994"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108750967"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Linux 가상 머신 확장 집합 만들기
 
@@ -26,7 +26,7 @@ ARM 템플릿을 사용하면 관련 리소스 그룹을 배포할 수 있습니
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fpython%2Fvmss-bottle-autoscale%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/201-vmss-bottle-autoscale/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/201-vmss-bottle-autoscale/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/application-workloads/python/vmss-bottle-autoscale/azuredeploy.json":::
 
 이러한 리소스는 템플릿에 정의되어 있습니다.
 
@@ -83,7 +83,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음 **Azure에 배포** 단추를 선택하여 템플릿을 배포할 수 있습니다. 이 단추는 Azure Portal을 열고, 전체 템플릿을 로드하고, 몇 가지 매개 변수(예: 확장 집합 이름, 인스턴스 수 및 관리자 자격 증명)를 요구하는 메시지를 표시합니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fpython%2Fvmss-bottle-autoscale%2Fazuredeploy.json)
 
 Azure CLI를 사용하여 Resource Manager 템플릿을 배포할 수도 있습니다.
 
@@ -94,7 +94,7 @@ az group create --name myResourceGroup --location EastUS
 # Deploy template into resource group
 az deployment group create \
     --resource-group myResourceGroup \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/azuredeploy.json
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/application-workloads/python/vmss-bottle-autoscale/azuredeploy.json
 ```
 
 프롬프트에 응답하여 VM 인스턴스에 대한 확장 집합 이름, 인스턴스 수 및 관리자 자격 증명을 제공합니다. 확장 집합과 지원 리소스를 만드는 데 몇 분 정도 걸립니다.

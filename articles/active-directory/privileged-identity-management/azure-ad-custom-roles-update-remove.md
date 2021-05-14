@@ -1,5 +1,5 @@
 ---
-title: Azure AD 사용자 지정 역할 업데이트 또는 제거-PIM (Privileged Identity Management)
+title: Azure AD 사용자 지정 역할 업데이트 또는 제거 - PIM(Privileged Identity Management)
 description: PIM(Privileged Identity Management)에서 Azure AD 사용자 지정 역할 할당을 업데이트 또는 제거하는 방법
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4a35442dd8af1cd4acf22de453c8d10460e1e39f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92371531"
 ---
 # <a name="update-or-remove-an-assigned-azure-ad-custom-role-in-privileged-identity-management"></a>Privileged Identity Management에서 할당된 Azure AD 사용자 지정 역할 업데이트 또는 제거
@@ -31,9 +31,9 @@ ms.locfileid: "92371531"
 - Privileged Identity Management를 아직 사용하지 않은 경우 [Privileged Identity Management 사용 시작](pim-getting-started.md)에서 자세한 정보를 확인하세요.
 
 > [!NOTE]
-> 미리 보기 기간 중에는 Azure AD 사용자 지정 역할이 기본 제공 디렉터리 역할과 통합되지 않습니다. 이 기능이 일반 공급되면 기본 제공 역할 환경에서 역할 관리가 수행됩니다. 다음 배너가 표시 되는 경우 이러한 역할은 [기본 제공 역할 환경에서](pim-how-to-add-role-to-user.md) 관리 해야 하며이 문서는 적용 되지 않습니다.
+> 미리 보기 기간 중에는 Azure AD 사용자 지정 역할이 기본 제공 디렉터리 역할과 통합되지 않습니다. 이 기능이 일반 공급되면 기본 제공 역할 환경에서 역할 관리가 수행됩니다. 다음 배너가 표시되는 경우 해당 역할은 [기본 제공 역할 환경에서](pim-how-to-add-role-to-user.md) 관리해야 하며 이 문서는 적용되지 않습니다.
 >
-> [![Azure AD > Privileged Identity Management를 선택 합니다.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
+> [![Azure AD > Privileged Identity Management를 선택합니다.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 ## <a name="update-or-remove-an-assignment"></a>할당 업데이트 또는 제거
 

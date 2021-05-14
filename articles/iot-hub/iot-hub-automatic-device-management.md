@@ -11,10 +11,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: 0e017f4df413d6db528bb99756646859d9a74aea
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92545398"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Azure Portal을 사용하여 자동 IoT 디바이스 및 모듈 관리
@@ -236,7 +236,7 @@ SELECT deviceId, moduleId FROM devices.modules
 이 문서에서는 IoT 디바이스를 크기 조정 시 구성 및 모니터링하는 방법에 대해 알아보았습니다. Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려면 다음 링크를 따라가세요.
 
 * [대량으로 IoT Hub 디바이스 ID 관리](iot-hub-bulk-identity-mgmt.md)
-* [IoT hub 모니터링](monitor-iot-hub.md)
+* [IoT Hub 모니터링](monitor-iot-hub.md)
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 

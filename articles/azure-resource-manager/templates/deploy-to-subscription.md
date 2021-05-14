@@ -3,12 +3,13 @@ title: 구독에 리소스 배포
 description: Azure Resource Manager 템플릿에서 리소스 그룹을 만드는 방법을 설명합니다. 또한 Azure 구독 범위에서 리소스를 배포하는 방법도 보여 줍니다.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: f557a3a15da33b7394d22784bcd2c1c914ad6201
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: a2b9fedbd2916953b0ff2166bc7fddb5f877ee07
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889436"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109754089"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>ARM 템플릿을 사용한 구독 배포
 
@@ -92,7 +93,7 @@ Azure RBAC(Azure 역할 기반 액세스 제어)의 경우 다음을 사용합�
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI의 경우 [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create)를 사용합니다. 다음 예제에서는 리소스 그룹을 만드는 템플릿을 배포합니다.
+Azure CLI의 경우 [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create)를 사용합니다. 다음 예제에서는 리소스 그룹을 만드는 템플릿을 배포합니다.
 
 ```azurecli-interactive
 az deployment sub create \
