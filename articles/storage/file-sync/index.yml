@@ -1,0 +1,53 @@
+### YamlMime:Landing
+title: Azure 파일 동기화 문서
+summary: Azure 파일 동기화를 사용하면 Windows 파일 서버의 유연성, 성능, 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다.
+metadata:
+  title: Azure 파일 동기화 문서
+  description: Windows, Linux 및 macOS의 클라우드 또는 온-프레미스에서 파일 공유를 탑재하세요. Windows Server의 Azure 파일 공유를 Azure 파일 동기화와 함께 캐시하여 로컬 액세스를 이용할 수 있습니다.
+  services: storage
+  ms.service: storage
+  ms.subservice: files
+  ms.topic: landing-page
+  ms.collection: collection
+  author: roygara
+  ms.author: rogarana
+  ms.date: 04/19/2021
+  ms.openlocfilehash: 1a384985bbd58285ec1a556f2840f27994c4c40b
+  ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 04/20/2021
+  ms.locfileid: "107795441"
+landingContent:
+- title: Azure Files 동기화 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure 파일 동기화 계획 가이드
+      url: file-sync-planning.md
+    - text: Azure 파일 동기화란?
+      url: file-sync-introduction.md
+    - text: 클라우드 계층화 개요
+      url: file-sync-cloud-tiering-overview.md
+- title: 시작하기
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 파일 공유 만들기/사용 - Windows
+      url: ../files/storage-files-quick-create-use-windows.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
+    - text: Azure 파일 동기화를 사용하여 서버 관리
+      url: file-sync-server-registration.md
+  - linkListType: tutorial
+    links:
+    - text: Azure 파일 동기화를 사용하여 Windows 파일 서버 확장
+      url: file-sync-extend-servers.md
+- title: 문제 해결
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure Files Windows 문제 해결
+      url: ../files/storage-troubleshoot-windows-file-connection-problems.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
+    - text: Azure Files 성능 문제 해결
+      url: ../files/storage-troubleshooting-files-performance.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
+    - text: Azure 파일 동기화 문제 해결
+      url: file-sync-troubleshoot.md

@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 5ca821cb4f85deb77595e4a9029cc10298dbb884
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b0f5bf01080d89e6dc6d6843312d96243b8526ba
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105611976"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109484544"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Azure로 에이전트 없는 VMware 가상 머신의 마이그레이션 확장
 
@@ -76,7 +76,7 @@ ms.locfileid: "105611976"
 
 - 동시 서버 복제를 더 많이 수행하도록 게이트웨이 에이전트 및 어플라이언스 구성 관리자를 설치합니다.
 - Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯한 Windows 역할을 설치합니다.
-- IIS 재작성 모듈을 다운로드하여 설치합니다. [자세히 알아보기](https://www.microsoft.com/download/details.aspx?id=7435).
+- IIS 재작성 모듈을 다운로드하여 설치합니다.
 - Azure Migrate에 대한 영구적인 설정 세부 정보를 사용하여 레지스트리 키(HKLM)를 업데이트합니다.
 - 지정된 경로에 다음 파일을 만듭니다.
     - **구성 파일**: %Programdata%\Microsoft Azure\Config

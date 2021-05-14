@@ -1,5 +1,5 @@
 ---
-title: SAP 워크 로드에 대 한 IBM Db2 Azure Virtual Machines DBMS 배포 | Microsoft Docs
+title: SAP 워크로드용 IBM DB2 Azure Virtual Machines DBMS 배포 | Microsoft Docs
 description: SAP 워크로드용 IBM DB2 Azure Virtual Machines DBMS 배포
 services: virtual-machines-linux,virtual-machines-windows
 author: msjuergent
@@ -10,15 +10,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/20/2020
+ms.date: 04/20/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f89f218c82505fd6bc261d41938d4619b32bf8a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 1e9030558779be3e417383f9f32612ee3e834a1c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101675970"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788082"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 IBM DB2 Azure Virtual Machines DBMS 배포
 
@@ -27,7 +27,7 @@ LUW용 IBM DB2에서 SAP Business Suite를 실행하는 방법에 대한 일반�
 
 Azure의 LUW용 DB2 SAP에 대한 추가 정보 및 업데이트는 SAP Note [2233094]를 참조하세요. 
 
-릴리스된 Azure의 SAP 워크로드에 대해 다양한 문서가 있습니다.  [Azure의 SAP 워크로드 - 시작](./get-started.md)에서 시작한 후 원하는 영역을 선택하는 것이 좋습니다.
+릴리스된 Azure의 SAP 워크로드에 대해 다양한 문서가 있습니다.  [Azure의 SAP 워크로드 - 시작](./get-started.md)에서 시작한 다음, 원하는 영역을 선택하는 것이 좋습니다.
 
 이 문서에서 다루는 영역에 대해 Azure의 SAP와 관련된 SAP Note는 다음과 같습니다.
 
@@ -55,7 +55,7 @@ Microsoft Azure Virtual Machine 서비스에서 LUW용 IBM DB2의 SAP는 DB2 버
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Azure VM의 SAP 설치에 대한 Linux, UNIX 및 Windows용 IBM DB2 구성 지침
 ### <a name="storage-configuration"></a>스토리지 구성
-SAP 워크 로드에 대 한 Azure storage 유형 개요는 [sap 워크 로드에 대 한 Azure Storage 유형](./planning-guide-storage.md) 문서를 참조 하세요. 모든 데이터베이스 파일은 Azure 블록 저장소의 탑재 된 디스크에 저장 되어야 합니다 (WINDOWS: NFFS, Linux: xfs, ext4 또는 ext3). 다음 Azure 서비스와 같은 모든 종류의 네트워크 드라이브 또는 원격 공유는 데이터베이스 파일에 대해 지원 **되지 않습니다** . 
+SAP 워크로드에 대한 Azure Storage 유형의 개요는 [SAP 워크로드에 대한 Azure Storage 유형](./planning-guide-storage.md) 문서를 참조하세요. 모든 데이터베이스 파일은 Azure 블록 스토리지의 탑재된 디스크(Windows: NTFS, Linux: xfs 또는 ext3)에 저장되어야 합니다. 모든 종류의 네트워크 드라이브 또는 다음 Azure 서비스 같은 원격 공유는 데이터베이스 파일에 대해 지원되지 **않습니다**. 
 
 * [Microsoft Azure 파일 서비스](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
@@ -69,70 +69,73 @@ Azure 페이지 Blob Storage 또는 Managed Disks를 기반으로 하는 디스�
 
 SAP 설치 가이드의 ‘데이터베이스 디렉터리의 데이터 보안 및 성능 고려 사항’ 장에서도 성능 고려 사항을 참조할 수 있습니다.
 
-또는 Windows 저장소 풀 (Windows Server 2012 이상 에서만 사용 가능)을 사용 하 여 여러 디스크에 하나의 큰 논리적 장치를 만들 수 있도록 Linux의 SAP 워크 로드 또는 LVM 또는 mdadm [에 대 한 Azure VIRTUAL MACHINES DBMS 배포에 대 한 고려 사항을](dbms_guide_general.md) 설명 합니다.
+또는 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md)에서 설명한 대로 Window 스토리지 풀(Windows Server 2012 이상에서만 사용 가능)이나 Linux의 LVM 또는 mdadm을 사용하여 여러 디스크에 하나의 큰 논리적 디바이스를 만들 수 있습니다.
 
-<!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
-
-및 디렉터리에 대 한 Db2 저장소 경로를 포함 하는 디스크의 경우 `sapdata` `saptmp` 실제 디스크 섹터 크기를 512 KB로 지정 해야 합니다. Windows 스토리지 풀을 사용하는 경우 `-LogicalSectorSizeDefault` 매개 변수를 사용하여 명령줄 인터페이스를 통해 수동으로 스토리지 풀을 만들어야 합니다. 자세한 내용은 <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>을 참조하세요.
+<!-- log_dir, sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
 Azure M-Series VM의 경우, Azure Write Accelerator를 사용하면 Azure Premium Storage 성능과 비교하여 요소에 의해 트랜잭션 로그에 대한 기록 대기 시간을 줄일 수 있습니다. 또한 DB2 트랜잭션 로그의 볼륨을 구성하는 VHD용 Azure Write Accelerator를 배포해야 합니다. 자세한 내용은 [Write Accelerator](../../how-to-enable-write-accelerator.md) 문서에서 참조할 수 있습니다.
 
-## <a name="recommendation-on-vm-and-disk-structure-for-ibm-db2-deployment"></a>IBM Db2 배포를 위한 VM 및 디스크 구조에 대 한 권장 사항
+IBM Db2 LUW 11.5는 4KB 섹터 크기에 대한 지원을 릴리스했습니다. 이전 Db2 버전의 경우 512바이트 섹터 크기를 사용해야 합니다. 프리미엄 SSD 디스크는 기본 4KB이며 512바이트 에뮬레이션을 포함합니다. 울트라 디스크는 기본적으로 4KB 섹터 크기를 사용합니다. 울트라 디스크를 만드는 동안 512바이트 섹터 크기를 사용하도록 설정할 수 있습니다. 자세한 내용은 [Azure 울트라 디스크 사용](../../disks-enable-ultra-ssd.md#deploy-an-ultra-disk---512-byte-sector-size)에서 확인할 수 있습니다. 이 512바이트 섹터 크기는 IBM Db2 LUW 11.5 이전 버전의 필수 구성 요소입니다.
 
-Sap NetWeaver 용 IBM Db2 응용 프로그램은 SAP support note [1928533]에 나열 된 모든 VM 유형에 지원 됩니다.  IBM Db2 데이터베이스를 실행 하는 데 권장 되는 VM 패밀리는 Esd_v4/Eas_v4/Es_v3 및 M/M_v2 시리즈 (대기업 데이터베이스의 경우)입니다. M 시리즈 쓰기 가속기를 사용 하 여 IBM Db2 트랜잭션 로그 디스크 쓰기 성능을 향상 시킬 수 있습니다. 
+`log_dir`, `sapdata` 및 `saptmp` 디렉터리의 Db2 스토리지 경로에 스토리지 풀을 사용하는 Windows에서는 512KB의 물리적 디스크 섹터 크기를 지정해야 합니다. Windows 스토리지 풀을 사용하는 경우 `-LogicalSectorSizeDefault` 매개 변수를 사용하여 명령줄 인터페이스를 통해 수동으로 스토리지 풀을 만들어야 합니다. 자세한 내용은 <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>을 참조하세요.
 
-다음은 다양 한 크기의 기본 구성 및 d b 2에서 규모가 작은 Db2 배포의 용도입니다. 목록은 Azure premium storage를 기반으로 합니다. 그러나 Azure Ultra disk는 d b 2 에서도 완전히 지원 되며, 사용할 수도 있습니다. 용량, 버스트 처리량 및 버스트 IOPS 값을 사용 하 여 Ultra disk 구성을 정의 하면 됩니다. /Db2//log_dir에 대 한 IOPS는 5000 IOPS를 기준으로 제한할 수 있습니다 <SID> . 
 
-#### <a name="extra-small-sap-system-database-size-50---200-gb-example-solution-manager"></a>매우 작은 SAP 시스템: 데이터베이스 크기 50-200 GB: 솔루션 관리자 예
-| VM 이름/크기 |Db2 탑재 지점 |Azure Premium Disk |디스크의 NR |IOPS |처리량 [MB/s] |크기 [GB] |버스트 IOPS |버스트 Thr [GB] | 스트라이프 크기 | 캐싱 |
+## <a name="recommendation-on-vm-and-disk-structure-for-ibm-db2-deployment"></a>IBM Db2 배포를 위한 VM 및 디스크 구조에 대한 권장 사항
+
+SAP NetWeaver 애플리케이션용 IBM Db2는 SAP 지원 정보 [1928533]에 나열된 모든 VM 유형에서 지원됩니다.  대규모의 다중 테라바이트 데이터베이스에서 IBM Db2 데이터베이스를 실행하는 데 권장되는 VM 패밀리는 Esd_v4/Eas_v4/Es_v3 및 M/M_v2 시리즈입니다. M 시리즈 쓰기 가속기를 사용하여 IBM Db2 트랜잭션 로그 디스크 쓰기 성능을 향상시킬 수 있습니다. 
+
+다음은 소규모에서 대규모에 이르는 Db2 배포에서 SAP의 다양한 크기 및 용도에 대한 기본 구성입니다. 목록은 Azure Premium Storage를 기반으로 합니다. 그러나 Azure 울트라 디스크는 Db2에서도 완전히 지원되며 사용할 수도 있습니다. 용량, 버스트 처리량 및 버스트 IOPS에 대한 값을 사용하여 울트라 디스크 구성을 정의합니다. 5000 IOPS 정도에서 /db2/<SID>/log_dir에 대한 IOPS를 제한할 수 있습니다. 
+
+#### <a name="extra-small-sap-system-database-size-50---200-gb-example-solution-manager"></a>초소규모 SAP 시스템: 데이터베이스 크기 50~200GB: 예제 솔루션 관리자
+| VM 이름/크기 |Db2 탑재 지점 |Azure Premium Disk |디스크의 NR |IOPS |처리량[MB/s] |크기[GB] |버스트 IOPS |버스트 처리량[GB] | 스트라이프 크기 | 캐싱 |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E4ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  ||  |
-|vCPU: 4 |/db2/ <SID> 형식이 며/sapdata |P10 |2 |1,000  |200  |256  |7,000  |340  |256KB |ReadOnly |
-|RAM: 32 GiB |/db2/ <SID> /saptmp |P6 |1 |240  |50  |128  |3,500  |170  | ||
-| |/db2/ <SID> /log_dir |P6 |2 |480  |100  |128  |7,000  |340  |64KB ||
-| |/db2/ <SID> /offline_log_dir |P10 |1 |500  |100  |128  |3,500  |170  || |
+|vCPU: 4 |/db2/<SID>/sapdata |P10 |2 |1,000  |200  |256  |7,000  |340  |256KB |ReadOnly |
+|RAM: 32GiB |/db2/<SID>/saptmp |P6 |1 |240  |50  |128  |3,500  |170  | ||
+| |/db2/<SID>/log_dir |P6 |2 |480  |100  |128  |7,000  |340  |64KB ||
+| |/db2/<SID>/offline_log_dir |P10 |1 |500  |100  |128  |3,500  |170  || |
 
-#### <a name="small-sap-system-database-size-200---750-gb-small-business-suite"></a>Small SAP 시스템: 데이터베이스 크기 200-750 GB: small Business Suite
-| VM 이름/크기 |Db2 탑재 지점 |Azure Premium Disk |디스크의 NR |IOPS |처리량 [MB/s] |크기 [GB] |버스트 IOPS |버스트 Thr [GB] | 스트라이프 크기 | 캐싱 |
+#### <a name="small-sap-system-database-size-200---750-gb-small-business-suite"></a>소규모 SAP 시스템: 데이터베이스 크기 200~750GB: 소규모 Business Suite
+| VM 이름/크기 |Db2 탑재 지점 |Azure Premium Disk |디스크의 NR |IOPS |처리량[MB/s] |크기[GB] |버스트 IOPS |버스트 처리량[GB] | 스트라이프 크기 | 캐싱 |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E16ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  || |
-|vCPU: 16 |/db2/ <SID> 형식이 며/sapdata |P15 |4 |4400  |500  |1.024  |14,000  |680  |256KB |ReadOnly |
-|RAM: 128 GiB |/db2/ <SID> /saptmp |P6 |2 |480  |100  |128  |7,000  |340  |128KB ||
-| |/db2/ <SID> /log_dir |P15 |2 |2,200  |250  |512  |7,000  |340  |64KB ||
-| |/db2/ <SID> /offline_log_dir |P10 |1 |500  |100  |128  |3,500  |170  ||| 
+|vCPU: 16 |/db2/<SID>/sapdata |P15 |4 |4,400  |500  |1.024  |14,000  |680  |256KB |ReadOnly |
+|RAM: 128GiB |/db2/<SID>/saptmp |P6 |2 |480  |100  |128  |7,000  |340  |128KB ||
+| |/db2/<SID>/log_dir |P15 |2 |2,200  |250  |512  |7,000  |340  |64KB ||
+| |/db2/<SID>/offline_log_dir |P10 |1 |500  |100  |128  |3,500  |170  ||| 
 
-#### <a name="medium-sap-system-database-size-500---1000-gb-small-business-suite"></a>중간 규모 SAP 시스템: 데이터베이스 크기 500-1000 GB: small Business Suite
-| VM 이름/크기 |Db2 탑재 지점 |Azure Premium Disk |디스크의 NR |IOPS |처리량 [MB/s] |크기 [GB] |버스트 IOPS |버스트 Thr [GB] | 스트라이프 크기 | 캐싱 |
+#### <a name="medium-sap-system-database-size-500---1000-gb-small-business-suite"></a>중간 규모 SAP 시스템: 데이터베이스 크기 500~1,000GB: 소규모 Business Suite
+| VM 이름/크기 |Db2 탑재 지점 |Azure Premium Disk |디스크의 NR |IOPS |처리량[MB/s] |크기[GB] |버스트 IOPS |버스트 처리량[GB] | 스트라이프 크기 | 캐싱 |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E32ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  || |
-|vCPU: 32 |/db2/ <SID> 형식이 며/sapdata |P30 |2 |10000  |400  |2.048  |10000  |400  |256KB |ReadOnly |
-|RAM: 256 GiB |/db2/ <SID> /saptmp |P10 |2 |1,000  |200  |256  |7,000  |340  |128KB ||
-| |/db2/ <SID> /log_dir |P20 |2 |4600  |300  |1.024  |7,000  |340  |64KB ||
-| |/db2/ <SID> /offline_log_dir |P15 |1 |1,100  |125  |256  |3,500  |170  ||| 
+|vCPU: 32 |/db2/<SID>/sapdata |P30 |2 |10000  |400  |2.048  |10000  |400  |256KB |ReadOnly |
+|RAM: 256GiB |/db2/<SID>/saptmp |P10 |2 |1,000  |200  |256  |7,000  |340  |128KB ||
+| |/db2/<SID>/log_dir |P20 |2 |4,600  |300  |1.024  |7,000  |340  |64KB ||
+| |/db2/<SID>/offline_log_dir |P15 |1 |1,100  |125  |256  |3,500  |170  ||| 
 
-#### <a name="large-sap-system-database-size-750---2000-gb-business-suite"></a>큰 SAP 시스템: 데이터베이스 크기 750-2000 GB: Business Suite
-| VM 이름/크기 |Db2 탑재 지점 |Azure Premium Disk |디스크의 NR |IOPS |처리량 [MB/s] |크기 [GB] |버스트 IOPS |버스트 Thr [GB] | 스트라이프 크기 | 캐싱 |
+#### <a name="large-sap-system-database-size-750---2000-gb-business-suite"></a>대규모 SAP 시스템: 데이터베이스 크기 750~2,000GB: Business Suite
+| VM 이름/크기 |Db2 탑재 지점 |Azure Premium Disk |디스크의 NR |IOPS |처리량[MB/s] |크기[GB] |버스트 IOPS |버스트 처리량[GB] | 스트라이프 크기 | 캐싱 |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E64ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  || |
-|vCPU: 64 |/db2/ <SID> 형식이 며/sapdata |P30 |4 |20,000  |800  |4.096  |20,000  |800  |256KB |ReadOnly |
-|RAM: 504 GiB |/db2/ <SID> /saptmp |P15 |2 |2,200  |250  |512  |7,000  |340  |128KB ||
-| |/db2/ <SID> /log_dir |P20 |4 |9200  |600  |2.048  |14,000  |680  |64KB ||
-| |/db2/ <SID> /offline_log_dir |P20 |1 |2,300  |150  |512  |3,500  |170  || |
+|vCPU: 64 |/db2/<SID>/sapdata |P30 |4 |20,000  |800  |4.096  |20,000  |800  |256KB |ReadOnly |
+|RAM: 504GiB |/db2/<SID>/saptmp |P15 |2 |2,200  |250  |512  |7,000  |340  |128KB ||
+| |/db2/<SID>/log_dir |P20 |4 |9,200  |600  |2.048  |14,000  |680  |64KB ||
+| |/db2/<SID>/offline_log_dir |P20 |1 |2,300  |150  |512  |3,500  |170  || |
 
-#### <a name="large-multi-terabyte-sap-system-database-size-2-tb-global-business-suite-system"></a>큰 멀티 테라바이트 SAP 시스템: 데이터베이스 크기 2tb +: 글로벌 Business Suite 시스템
-| VM 이름/크기 |Db2 탑재 지점 |Azure Premium Disk |디스크의 NR |IOPS |처리량 [MB/s] |크기 [GB] |버스트 IOPS |버스트 Thr [GB] | 스트라이프 크기 | 캐싱 |
+#### <a name="large-multi-terabyte-sap-system-database-size-2-tb-global-business-suite-system"></a>대규모 다중 테라바이트 SAP 시스템: 데이터베이스 크기 2TB+: 글로벌 Business Suite 시스템
+| VM 이름/크기 |Db2 탑재 지점 |Azure Premium Disk |디스크의 NR |IOPS |처리량[MB/s] |크기[GB] |버스트 IOPS |버스트 처리량[GB] | 스트라이프 크기 | 캐싱 |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |M128s |/db2 |P10 |1 |500  |100  |128  |3,500  |170  || |
-|vCPU: 128 |/db2/ <SID> 형식이 며/sapdata |P40 |4 |30,000  |1.000  |8.192  |30,000  |1.000  |256KB |ReadOnly |
-|RAM: 2048 GiB |/db2/ <SID> /saptmp |P20 |2 |4600  |300  |1.024  |7,000  |340  |128KB ||
-| |/db2/ <SID> /log_dir |P30 |4 |20,000  |800  |4.096  |20,000  |800  |64KB |WriteAccelerator |
-| |/db2/ <SID> /offline_log_dir |P30 |1 |5,000  |200  |1.024  |5,000  |200  || |
+|vCPU: 128 |/db2/<SID>/sapdata |P40 |4 |30,000  |1.000  |8.192  |30,000  |1.000  |256KB |ReadOnly |
+|RAM: 2048GiB |/db2/<SID>/saptmp |P20 |2 |4,600  |300  |1.024  |7,000  |340  |128KB ||
+| |/db2/<SID>/log_dir |P30 |4 |20,000  |800  |4.096  |20,000  |800  |64KB |WriteAccelerator |
+| |/db2/<SID>/offline_log_dir |P30 |1 |5,000  |200  |1.024  |5,000  |200  || |
 
 
 ### <a name="backuprestore"></a>Backup/복원
 LUW용 IBM DB2의 백업/복원 기능은 표준 Windows Server 운영 체제 및 Hyper-V와 동일한 방법으로 지원됩니다.
 
-올바른 데이터베이스 백업 전략이 있는지 확인 합니다. 
+유효한 데이터베이스 백업 전략이 있는지 확인합니다. 
 
 완전 배포에서처럼 백업/복원 성능은 병렬로 읽을 수 있는 볼륨 수와 이러한 볼륨의 처리량에 따라 달라집니다. 또한 백업 압축에서 사용하는 CPU 사용량은 최대 8개의 CPU 스레드가 있는 VM에서 중요한 역할을 수행할 수 있습니다. 따라서 다음을 가정할 수 있습니다.
 
@@ -152,9 +155,9 @@ LUW용 IBM DB2의 백업/복원 기능은 표준 Windows Server 운영 체제 �
 
 #### <a name="linux-pacemaker"></a>Linux Pacemaker
 
-Pacemaker를 사용 하는 Db2 고가용성 재해 복구 (HADR)가 지원 됩니다. SLES 및 RHEL 운영 체제는 모두 지원 됩니다. 이 구성을 통해 SAP 용 IBM Db2의 고가용성을 사용할 수 있습니다. 배포 가이드:
-* SLES: [Pacemaker를 사용 하는 SUSE Linux Enterprise Server의 Azure vm에서 IBM DB2 LUW 고가용성](dbms-guide-ha-ibm.md) 
-* RHEL: [Red Hat Enterprise Linux 서버의 Azure vm에서 IBM DB2 LUW의 고가용성](high-availability-guide-rhel-ibm-db2-luw.md)
+Pacemaker를 사용하는 DB2 HADR(고가용성 재해 복구)을 지원합니다. SLES 및 RHEL 운영 체제 모두 지원됩니다. 이 구성은 SAP용 IBM Db2의 고가용성을 보장합니다. 배포 가이드:
+* SLES: [Pacemaker를 사용하는 SUSE Linux Enterprise Server의 Azure VMs에 배포된 IBM Db2 LUW의 고가용성](dbms-guide-ha-ibm.md) 
+* RHEL: [Red Hat Enterprise Linux Server의 Azure VMs에서 IBM DB2 LUW의 고가용성](high-availability-guide-rhel-ibm-db2-luw.md)
 
 #### <a name="windows-cluster-server"></a>Windows 클러스터 서버
 
@@ -162,7 +165,7 @@ MSCS(Microsoft Cluster Server)는 지원되지 않습니다.
 
 DB2 HADR(고가용성 재해 복구)은 지원됩니다. HA 구성의 가상 머신에 이름 확인 작업이 있는 경우 Azure 설정이 온-프레미스의 설정과 다르지 않습니다. IP 확인만 사용하는 것은 권장되지 않습니다.
 
-데이터베이스 디스크를 저장하는 스토리지 계정에는 지역에서 복제를 사용하지 마세요. 자세한 내용은 [SAP 워크 로드에 대 한 Azure VIRTUAL MACHINES DBMS 배포에 대 한 문서 고려 사항](dbms_guide_general.md)을 참조 하세요. 
+데이터베이스 디스크를 저장하는 스토리지 계정에는 지역에서 복제를 사용하지 마세요. 자세한 내용은 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md) 문서를 참조하세요. 
 
 ### <a name="accelerated-networking"></a>가속 네트워킹
 Windows의 DB2 배포에서는 [Azure 가속화된 네트워킹](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) 문서에 설명된 대로 가속화된 네트워킹의 Azure 기능을 사용하는 것이 좋습니다. 또한 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)도 고려하세요. 
@@ -234,13 +237,7 @@ Azure 가용성 집합 또는 SAP 모니터링과 같은 다른 일반적인 영
 
 - [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)
 
-[azure-cli]:../../../cli-install-nodejs.md
-[azure-portal]:https://portal.azure.com
-[azure-ps]:/powershell/azure/
-[azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
-[azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
-[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
+
 
 [dbms-guide]:dbms-guide.md 
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 

@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB(SQL API)에서 데이터 복사 및 변환
 description: Data Factory를 사용하여 Azure Cosmos DB(SQL API) 간에 데이터를 복사하고 Azure Cosmos DB(SQL API)에서 데이터를 변환하는 방법에 대해 알아봅니다.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: d42f30ebd72dca81255ddc02a9440db19979536d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a7676dfe6feedc5bb34ab6c96b4c3a03e4feb56c
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104608071"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483122"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Cosmos DB(SQL API)에서 데이터 복사 및 변환
 
@@ -48,9 +48,9 @@ Data Factory는 Azure Cosmos DB에 쓸 때 최상의 성능을 제공하기 위�
 > [!TIP]
 > [데이터 마이그레이션 동영상](https://youtu.be/5-SRNiC_qOU)에서는 Azure Blob Storage에서 Azure Cosmos DB로 데이터를 복사하는 단계를 안내합니다. 이 동영상에서는 또한 일반적으로 Azure Cosmos DB에 데이터를 수집하기 위한 성능 조정 고려 사항도 설명합니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 Azure Cosmos DB(SQL API)에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -153,7 +153,7 @@ Azure Cosmos DB(SQL API)에서 데이터를 복사하려면 복사 작업의 **s
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성을 **CosmosDbSqlApiSource** 로 설정해야 합니다. |예 |
-| Query |데이터를 읽는 Azure Cosmos DB 쿼리를 지정합니다.<br/><br/>예:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |예 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
+| Query |데이터를 읽는 Azure Cosmos DB 쿼리를 지정합니다.<br/><br/>예제:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |예 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
 | preferredRegions | Cosmos DB에서 데이터를 검색할 때 연결할 지역의 기본 목록입니다. | 예 |
 | pageSize | 쿼리 결과의 페이지당 문서 수입니다. 기본값은 서비스 쪽 동적 페이지 크기를 1000까지 사용함을 의미하는 “-1”입니다. | 예 |
 | detectDatetime | 문서의 문자열 값에서 날짜/시간을 검색할지를 지정합니다. 허용되는 값은 **true**(기본값), **false** 입니다. | 예 |
@@ -209,7 +209,7 @@ Azure Cosmos DB(SQL API)로 데이터를 복사하려면 복사 작업의 **sink
 | writeBehavior |Azure Cosmos DB에 데이터를 쓰는 방법을 설명합니다. 허용되는 값은 **insert** 및 **upsert** 입니다.<br/><br/>**upsert** 의 동작은 동일한 ID의 문서가 이미 존재하는 경우 문서를 바꾸는 것이며, 존재하지 않는 경우 문서를 삽입하는 것입니다.<br /><br />**참고**: ID가 원래 문서 또는 열 매핑에 지정되지 않은 경우 Data Factory는 문서에 대한 ID를 자동으로 생성합니다. 즉, **upsert** 가 예상대로 작동하려면 문서에 ID가 있는지 확인해야 합니다. |예<br />(기본값: **insert**) |
 | writeBatchSize | Data Factory는 [Azure Cosmos DB 대량 실행기 라이브러리](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)를 사용하여 Azure Cosmos DB에 데이터를 씁니다. **writeBatchSize** 속성은 ADF가 라이브러리에 제공하는 문서의 크기를 제어합니다. 성능을 개선하기 위해 **writeBatchSize** 에 대한 값을 늘리고 문서 크기가 커지는 경우 값을 줄이도록 시도할 수 있습니다. 아래 팁을 참조하세요. |예<br />(기본값: **10,000**) |
 | disableMetricsCollection | Data Factory는 복사 성능 최적화 및 권장 사항에 대한 Cosmos DB RU와 같은 메트릭을 수집합니다. 이 동작에 관심이 있는 경우 `true`를 지정하여 해제합니다. | 아니요(기본값: `false`) |
-| maxConcurrentConnections |작업을 실행하는 동안 데이터 저장소에 설정된 동시 연결 수의 상한입니다. 동시 연결 수를 제한하려는 경우에만 값을 지정합니다.| 예 |
+| maxConcurrentConnections |작업을 실행하는 동안 데이터 저장소에 설정된 동시 연결의 상한입니다. 동시 연결을 제한하려는 경우에만 값을 지정합니다.| 예 |
 
 
 >[!TIP]
@@ -320,7 +320,7 @@ Azure Cosmos DB에 특정한 설정은 싱크 변환의 **설정** 탭에서 사
 스키마 중립적 복사를 수행하려면 다음을 수행합니다.
 
 * 데이터 복사 도구를 사용하는 경우, **JSON 파일 또는 Cosmos DB 컬렉션으로 있는 그대로 내보내기** 옵션을 선택합니다.
-* 작업 작성을 사용하는 경우 원본 또는 싱크에 해당하는 파일 저장소를 가진 JSON 형식을 선택합니다.
+* 활동 제작을 사용하는 경우 원본 또는 싱크에 해당하는 파일 저장소를 사용하여 JSON 형식을 선택합니다.
 
 ## <a name="migrate-from-relational-database-to-cosmos-db"></a>관계형 데이터베이스에서 Cosmos DB로 마이그레이션
 

@@ -14,12 +14,12 @@ ms.date: 07/10/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4113c3cf8fd5942a2fb8f644c67b15066d85b41
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: e4478c9c286c06d5d6c5593195a0e93abd286b8c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517859"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "92371514"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할을 위한 관리 기능
 
@@ -56,7 +56,7 @@ Privileged Identity Management에서 Azure AD 역할을 위한 관리 환경은 
 
 ## <a name="api-changes"></a>API 변경 내용
 
-고객이 Azure AD 조직에 업데이트된 버전을 출시할 때 기존 Graph API의 작동이 중지됩니다. [Azure 리소스 역할을 위한 Graph API](/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta&preserve-view=true)를 사용하도록 전환해야 합니다. 해당 API를 사용하여 Azure AD 역할을 관리하려면 서명에서 `/azureResources`를 `/aadroles`로 바꾸고 `resourceId`에 디렉터리 ID를 사용합니다.
+고객이 Azure AD 조직에 업데이트된 버전을 출시할 때 기존 Graph API의 작동이 중지됩니다. [Azure 리소스 역할을 위한 Graph API](/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta)를 사용하도록 전환해야 합니다. 해당 API를 사용하여 Azure AD 역할을 관리하려면 서명에서 `/azureResources`를 `/aadroles`로 바꾸고 `resourceId`에 디렉터리 ID를 사용합니다.
 
 이전 API를 사용하는 모든 고객에게 연락하여 이러한 변경 사항을 미리 알리기 위해 최선을 다했습니다. Azure AD 조직이 새 버전으로 이동했는데 여전히 이전 API를 사용하는 경우의 팀(pim_preview@microsoft.com)에 문의하세요.
 

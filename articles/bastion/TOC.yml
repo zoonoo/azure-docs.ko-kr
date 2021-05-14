@@ -24,7 +24,7 @@
     - name: 보안
       items:
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/bastion-security-baseline?toc=/azure/bastion/TOC.json
 - name: 방법 가이드
   items:
     - name: 호스트 만들기
@@ -57,6 +57,8 @@
       href: diagnostic-logs.md
     - name: 세션 모니터링 및 관리
       href: session-monitoring.md
+    - name: '메트릭, 모니터링 및 경고'
+      href: howto-metrics-monitor-alert.md
     - name: 문제 해결
       href: troubleshoot.md
 - name: 참조

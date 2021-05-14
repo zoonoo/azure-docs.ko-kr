@@ -1,18 +1,18 @@
 ---
 title: Azure Data Factory의 If 조건 작업
 description: If 조건 작업을 사용하면 조건에 따라 프로세스 흐름을 제어할 수 있습니다.
-author: dcstwh
-ms.author: weetok
+author: chez-charlie
+ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: cd745f90598666e1fc5c849de335c81a2380d99f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f0b9de331dc6361a2358c57d19c73c54a4cdb6e5
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786229"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906713"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Azure Data Factory의 If 조건 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -65,7 +65,7 @@ If 조건 작업은 if 문에서 프로그래밍 언어로 제공하는 것과 �
 -------- | ----------- | -------------- | --------
 name | if 조건 작업의 이름입니다. | String | 예
 type | **IfCondition** 으로 설정해야 함 | String | 예
-식 | true 또는 false로 평가되어야 하는 식입니다. | 결과 형식이 부울인 식 | 예
+식 | true 또는 false로 평가되어야 하는 식입니다. | 결과 형식이 부울인 식 | Yes
 ifTrueActivities | 식이 `true`로 평가될 때 실행되는 작업 집합입니다. | Array | 예
 ifFalseActivities | 식이 `false`로 평가될 때 실행되는 작업 집합입니다. | Array | 예
 
@@ -286,7 +286,7 @@ $result.Error -join "`r`n"
 ## <a name="next-steps"></a>다음 단계
 Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요. 
 
-- [파이프라인 실행 작업](control-flow-execute-pipeline-activity.md)
+- [파이프라인 작업 실행](control-flow-execute-pipeline-activity.md)
 - [ForEach 작업](control-flow-for-each-activity.md)
 - [메타데이터 작업 가져오기](control-flow-get-metadata-activity.md)
 - [조회 작업](control-flow-lookup-activity.md)

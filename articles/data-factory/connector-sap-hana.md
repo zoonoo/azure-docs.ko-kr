@@ -1,18 +1,18 @@
 ---
 title: SAP HANA에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 SAP HANA에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
-ms.author: jingwang
 author: linda33wj
+ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/22/2020
-ms.openlocfilehash: ce3c1e22dd030c0730bf4d9859591c00860908a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 366165b0087755532a1d0584d43d82d7c85af798
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100382279"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787152"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP HANA에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -53,7 +53,7 @@ SAP HANA 데이터베이스에서 지원되는 모든 싱크 데이터 저장소
 
 ## <a name="getting-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 SAP HANA 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 

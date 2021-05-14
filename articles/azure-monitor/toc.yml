@@ -47,6 +47,8 @@
       href: logs/get-started-queries.md
     - name: 로그 쿼리에서 대시보드 만들기
       href: visualize/tutorial-logs-dashboards.md
+    - name: 로그 쿼리에서 경고 만들기
+      href: alerts/tutorial-response.md
     - name: 성능 및 일정에 대한 자동 크기 조정
       href: autoscale/tutorial-autoscale-performance-schedule.md
     - name: Application Insights

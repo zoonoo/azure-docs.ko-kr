@@ -1,6 +1,6 @@
 ---
-title: CLI를 사용 하 여 Azure 가상 머신에 대 한 유지 관리 제어
-description: 유지 관리 제어 및 CLI를 사용 하 여 Azure Vm에 유지 관리를 적용 하는 시기를 제어 하는 방법을 알아봅니다.
+title: CLI를 사용하여 Azure 가상 머신에 대한 유지 관리 제어
+description: 유지 관리 제어 및 CLI를 사용하여 Azure VM에 유지 관리가 적용되는 시기를 제어하는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: maintenance-control
@@ -8,20 +8,20 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 9425759de1e08bc83cac80cd1b56c602edb59fb1
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.openlocfilehash: c57f66eca5d15024c6b10e8fad12ddb575b9f894
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102562965"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765902"
 ---
-# <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>유지 관리 제어 및 Azure CLI를 사용 하 여 업데이트 제어
+# <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>유지 관리 제어 및 Azure CLI를 사용하여 업데이트 제어
 
-유지 관리 제어를 통해 격리 된 Vm 및 Azure 전용 호스트의 호스트 인프라에 플랫폼 업데이트를 적용 하는 시기를 결정할 수 있습니다. 이 항목에서는 유지 관리 제어를 위한 Azure CLI 옵션을 설명 합니다. 유지 관리 제어, 제한 사항 및 기타 관리 옵션을 사용 하는 이점에 대 한 자세한 내용은 [유지 관리 제어를 사용 하 여 플랫폼 업데이트 관리](maintenance-control.md)를 참조 하세요.
+유지 관리 제어를 통해 격리된 VM 및 Azure 전용 호스트 인프라에 플랫폼 업데이트를 적용하는 시기를 결정할 수 있습니다. 이 항목에서는 Azure CLI의 유지 관리 제어 옵션에 관해 설명합니다. 유지 관리 제어 사용의 이점, 제한 사항 및 기타 관리 옵션에 관한 자세한 내용은 [유지 관리 제어를 사용하여 플랫폼 업데이트 관리](maintenance-control.md)를 참조하세요.
 
 ## <a name="create-a-maintenance-configuration"></a>유지 관리 구성을 만듭니다.
 
-`az maintenance configuration create`를 사용 하 여 유지 관리 구성을 만듭니다. 이 예제에서는 호스트로 범위가 지정 된 *Myconfig* 라는 유지 관리 구성을 만듭니다. 
+`az maintenance configuration create`를 사용하여 유지 관리 구성을 만듭니다. 이 예제에서는 호스트로 범위가 지정된 *myConfig* 라는 유지 관리 구성을 만듭니다. 
 
 ```azurecli-interactive
 az group create \
@@ -34,20 +34,20 @@ az maintenance configuration create \
    --location eastus
 ```
 
-나중에 사용 하려면 출력에서 구성 ID를 복사 합니다.
+나중에 사용할 수 있도록 출력에서 구성 ID를 복사합니다.
 
-를 사용 하면 `--maintenance-scope host` 호스트 인프라에 대 한 업데이트를 제어 하는 데 유지 관리 구성이 사용 됩니다.
+`--maintenance-scope host`를 사용하면 유지 관리 구성이 호스트 인프라 업데이트를 제어하는 데 사용됩니다.
 
-이름이 같은 구성을 만들려고 하지만 다른 위치에 있는 경우 오류가 발생 합니다. 구성 이름은 리소스 그룹에서 고유 해야 합니다.
+다른 위치에서 동일한 이름의 구성을 만들려고 하면 오류가 발생합니다. 구성 이름은 리소스 그룹에서 고유해야 합니다.
 
-을 사용 하 여 사용 가능한 유지 관리 구성을 쿼리할 수 있습니다 `az maintenance configuration list` .
+`az maintenance configuration list`를 사용하여 사용 가능한 유지 관리 구성을 쿼리할 수 있습니다.
 
 ```azurecli-interactive
 az maintenance configuration list --query "[].{Name:name, ID:id}" -o table 
 ```
 
-### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>예약 된 기간을 사용 하 여 유지 관리 구성 만들기
-Azure가 리소스에 대 한 업데이트를 적용 하는 경우 예약 된 기간을 선언할 수도 있습니다. 이 예제에서는 매월 네 번째 월요일에 예약 된 기간이 5 시간인 myConfig 라는 유지 관리 구성을 만듭니다. 예약 된 기간을 만든 후에는 더 이상 수동으로 업데이트를 적용할 필요가 없습니다.
+### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>예약된 기간을 사용하여 유지 관리 구성 만들기
+Azure가 리소스에서 업데이트를 적용하는 예약된 기간을 선언할 수도 있습니다. 이 예제에서는 매월 네 번째 월요일에 예약된 기간 5시간 동안 myConfig라는 유지 관리 구성을 만듭니다. 예약된 기간을 만든 후에는 더 이상 수동으로 업데이트를 적용하지 않아도 됩니다.
 
 ```azurecli-interactive
 az maintenance configuration create \
@@ -62,21 +62,21 @@ az maintenance configuration create \
 ```
 
 > [!IMPORTANT]
-> 유지 관리 **기간은** *2 시간* 이상 이어야 합니다. 유지 관리 **되풀이** 는 35 일에 한 번 이상 발생 하도록 설정 되어야 합니다.
+> 유지 관리 **기간** 은 ‘2시간’ 이상이어야 합니다. 유지 관리 **되풀이** 는 35일에 한 번 이상 수행되도록 설정해야 합니다.
 
-유지 관리 되풀이는 매일, 매주 또는 매월로 표시 될 수 있습니다. 몇 가지 예는 다음과 같습니다.
-- **매일**-유지 관리-되풀이-되풀이-모든: "Day" **또는** "3days"
-- **주간**-유지 관리-되풀이-되풀이: "3weeks" **또는** "Week 토요일, 일요일"
-- **매월**-유지 관리-되풀이-되풀이: "month day23, day24" **또는** "month Last 일요일" **또는** "month 4 월요일"
+유지 관리 되풀이는 매일, 매주 또는 매월로 표시될 수 있습니다. 몇 가지 예는 다음과 같습니다.
+- **매일** - maintenance-window-recur-every: “일” **또는** “3일”
+- **매주** - maintenance-window-recur-every: “3주” **또는** “주 토요일, 일요일”
+- **매월** - maintenance-window-recur-every: “월 23일, 24일” **또는** “월 마지막 일요일” **또는** “월 4번째 월요일”
 
 
 ## <a name="assign-the-configuration"></a>구성 할당
 
-`az maintenance assignment create`를 사용 하 여 격리 된 VM 또는 Azure 전용 호스트에 구성을 할당 합니다.
+`az maintenance assignment create`를 사용하여 격리된 VM 또는 Azure Dedicated Host에 구성을 할당합니다.
 
-### <a name="isolated-vm"></a>격리 된 VM
+### <a name="isolated-vm"></a>격리된 VM
 
-구성의 ID를 사용 하 여 VM에 구성을 적용 합니다. 에 VM의 이름을 지정 하 고에서 vm에 대 한 리소스 그룹을 지정 하 고에 대 `--resource-type virtualMachines` `--resource-name` `--resource-group` 한 vm의 위치를 제공 `--location` 합니다. 
+구성 ID를 사용하여 VM에 구성을 적용합니다. `--resource-type virtualMachines`를 지정하고, `--resource-name`에 대해 VM 이름을 제공하고, `--resource-group`의 VM에 대해 리소스 그룹을 제공하고, `--location`에 대해 VM 위치를 제공합니다. 
 
 ```azurecli-interactive
 az maintenance assignment create \
@@ -91,9 +91,9 @@ az maintenance assignment create \
 
 ### <a name="dedicated-host"></a>전용 호스트
 
-전용 호스트에 구성을 적용 하려면 `--resource-type hosts` `--resource-parent-name` 호스트 그룹의 이름 및를 포함 하 여을 포함 해야 `--resource-parent-type hostGroups` 합니다. 
+전용 호스트에 구성을 적용하려면 `--resource-type hosts`, `--resource-parent-name`(호스트 그룹 이름 포함) 및 `--resource-parent-type hostGroups`를 포함해야 합니다. 
 
-매개 변수는 `--resource-id` 호스트의 ID입니다. [Az vm host get instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view) 를 사용 하 여 전용 호스트의 ID를 가져올 수 있습니다.
+`--resource-id` 매개 변수는 호스트 ID입니다. [az vm host get-instance-view](/cli/azure/vm/host#az_vm_host_get_instance_view)를 사용하여 전용 호스트의 ID를 가져올 수 있습니다.
 
 ```azurecli-interactive
 az maintenance assignment create \
@@ -110,9 +110,9 @@ az maintenance assignment create \
 
 ## <a name="check-configuration"></a>구성 확인
 
-구성이 올바르게 적용 되었는지 확인 하거나를 사용 하 여 현재 적용 되는 구성을 확인할 수 있습니다 `az maintenance assignment list` .
+구성이 올바르게 적용되었는지 확인하거나 `az maintenance assignment list`를 사용하여 현재 적용된 구성을 확인할 수 있습니다.
 
-### <a name="isolated-vm"></a>격리 된 VM
+### <a name="isolated-vm"></a>격리된 VM
 
 ```azurecli-interactive
 az maintenance assignment list \
@@ -141,11 +141,11 @@ az maintenance assignment list \
 
 ## <a name="check-for-pending-updates"></a>보류 중인 업데이트 확인
 
-`az maintenance update list`보류 중인 업데이트가 있는지 확인 하려면를 사용 합니다. 업데이트--구독이 VM을 포함 하는 구독의 ID가 되도록 합니다.
+`az maintenance update list`를 사용하여 보류 중인 업데이트가 있는지 확인합니다. --subscription을 VM이 포함된 구독의 ID로 업데이트합니다.
 
-업데이트가 없는 경우 명령은 라는 텍스트를 포함 하는 오류 메시지를 반환 합니다 `Resource not found...StatusCode: 404` .
+업데이트가 없는 경우 명령은 `Resource not found...StatusCode: 404` 텍스트를 포함하는 오류 메시지를 반환합니다.
 
-업데이트가 있는 경우 보류 중인 업데이트가 여러 개 있더라도 하나만 반환 됩니다. 이 업데이트에 대 한 데이터는 개체에서 반환 됩니다.
+업데이트가 있는 경우 보류 중인 업데이트가 여러 개 있더라도 하나만 반환됩니다. 이 업데이트의 데이터는 개체로 반환됩니다.
 
 ```text
 [
@@ -160,9 +160,9 @@ az maintenance assignment list \
 ]
   ```
 
-### <a name="isolated-vm"></a>격리 된 VM
+### <a name="isolated-vm"></a>격리된 VM
 
-격리 된 VM에 대 한 보류 중인 업데이트를 확인 합니다. 이 예제에서 출력은 가독성을 위해 테이블 형식으로 지정 됩니다.
+격리된 VM의 보류 중인 업데이트를 확인합니다. 이 예제에서는 가독성을 위해 출력이 표 형식으로 지정됩니다.
 
 ```azurecli-interactive
 az maintenance update list \
@@ -175,7 +175,7 @@ az maintenance update list \
 
 ### <a name="dedicated-host"></a>전용 호스트
 
-전용 호스트의 보류 중인 업데이트를 확인 합니다. 이 예제에서 출력은 가독성을 위해 테이블 형식으로 지정 됩니다. 리소스의 값을 고유한 값으로 바꿉니다.
+전용 호스트의 보류 중인 업데이트를 확인합니다. 이 예제에서는 가독성을 위해 출력이 표 형식으로 지정됩니다. 리소스 값을 고유한 값으로 바꿉니다.
 
 ```azurecli-interactive
 az maintenance update list \
@@ -191,11 +191,11 @@ az maintenance update list \
 
 ## <a name="apply-updates"></a>업데이트 적용
 
-`az maintenance apply update`보류 중인 업데이트를 적용 하는 데 사용 합니다. 성공할 경우이 명령은 업데이트의 세부 정보를 포함 하는 JSON을 반환 합니다.
+`az maintenance apply update`를 사용하여 보류 중인 업데이트를 적용합니다. 성공할 경우 이 명령은 업데이트의 세부 정보를 포함하는 JSON을 반환합니다.
 
-### <a name="isolated-vm"></a>격리 된 VM
+### <a name="isolated-vm"></a>격리된 VM
 
-격리 된 VM에 업데이트를 적용 하는 요청을 만듭니다.
+격리된 VM에 업데이트를 적용하는 요청을 만듭니다.
 
 ```azurecli-interactive
 az maintenance applyupdate create \
@@ -209,7 +209,7 @@ az maintenance applyupdate create \
 
 ### <a name="dedicated-host"></a>전용 호스트
 
-전용 호스트에 업데이트를 적용 합니다.
+전용 호스트에 업데이트를 적용합니다.
 
 ```azurecli-interactive
 az maintenance applyupdate create \
@@ -222,11 +222,11 @@ az maintenance applyupdate create \
    --resource-parent-type hostGroups
 ```
 
-## <a name="check-the-status-of-applying-updates"></a>업데이트 적용 상태 확인 
+## <a name="check-the-status-of-applying-updates"></a>업데이트 적용 상태를 확인합니다. 
 
-을 사용 하 여 업데이트의 진행률을 확인할 수 있습니다 `az maintenance applyupdate get` . 
+`az maintenance applyupdate get`을 사용하여 업데이트 진행률을 확인할 수 있습니다. 
 
-업데이트 이름으로를 사용 하 여 `default` 마지막 업데이트에 대 한 결과를 보거나를 `myUpdateName` 실행할 때 반환 된 업데이트의 이름으로 바꿀 수 있습니다 `az maintenance applyupdate create` .
+`default`를 업데이트 이름으로 사용하여 마지막 업데이트의 결과를 확인하거나, `myUpdateName`을 `az maintenance applyupdate create`를 실행할 때 반환된 업데이트 이름으로 바꿀 수 있습니다.
 
 ```text
 Status         : Completed
@@ -238,9 +238,9 @@ ute/virtualMachines/DXT-test-04-iso/providers/Microsoft.Maintenance/applyUpdates
 Name           : default
 Type           : Microsoft.Maintenance/applyUpdates
 ```
-LastUpdateTime은 자동 유지 관리 기간을 사용 하지 않는 경우 사용자 또는 플랫폼에 의해 시작 된 업데이트가 완료 된 시간입니다. 유지 관리 제어를 통해 업데이트를 적용 한 적이 없는 경우 기본값을 표시 합니다.
+LastUpdateTime은 셀프 유지 관리 기간이 사용되지 않은 경우 사용자 또는 플랫폼에 의해 시작된 업데이트가 완료된 시간입니다. 유지 관리 제어를 통해 업데이트를 적용한 적이 없는 경우 기본값을 표시합니다.
 
-### <a name="isolated-vm"></a>격리 된 VM
+### <a name="isolated-vm"></a>격리된 VM
 
 ```azurecli-interactive
 az maintenance applyupdate get \
@@ -270,7 +270,7 @@ az maintenance applyupdate get \
 
 ## <a name="delete-a-maintenance-configuration"></a>유지 관리 구성 삭제
 
-`az maintenance configuration delete`유지 관리 구성을 삭제 하려면를 사용 합니다. 구성을 삭제 하면 연결 된 리소스에서 유지 관리 컨트롤이 제거 됩니다.
+`az maintenance configuration delete`를 사용하여 유지 관리 구성을 삭제합니다. 구성을 삭제하면 연결된 리소스에서 유지 관리 제어가 제거됩니다.
 
 ```azurecli-interactive
 az maintenance configuration delete \
@@ -280,4 +280,4 @@ az maintenance configuration delete \
 ```
 
 ## <a name="next-steps"></a>다음 단계
-자세히 알아보려면 [유지 관리 및 업데이트](maintenance-and-updates.md)를 참조 하세요.
+자세히 알아보려면 [유지 관리 및 업데이트](maintenance-and-updates.md)를 참조하세요.

@@ -9,12 +9,12 @@ ms.date: 03/27/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 manager: philmea
-ms.openlocfilehash: a870b72d1dda04ab29dbb5f056873d47f888b837
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 932b2a5e09c335564273a1161c471182738e40b0
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501370"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685336"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Azure PowerShell에서 IoT Central 관리
 
@@ -79,7 +79,11 @@ New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
 |템플릿          | 사용할 애플리케이션 템플릿입니다. 자세한 내용은 다음 표를 참조하세요. |
 |DisplayName       |UI에 표시되는 애플리케이션 이름입니다. |
 
+### <a name="application-templates"></a>애플리케이션 템플릿
+
 [!INCLUDE [iot-central-template-list](../../../includes/iot-central-template-list.md)]
+
+사용자 고유의 애플리케이션 템플릿을 만든 경우 이 템플릿을 사용하여 새 애플리케이션을 만들 수 있습니다. 애플리케이션 템플릿을 요청하면 앱의 [애플리케이션 템플릿 내보내기](howto-use-app-templates.md#create-an-application-template) 섹션 아래에 있는 내보낸 앱의 URL 공유 가능 링크에 표시된 앱 ID를 입력합니다.
 
 ## <a name="view-your-iot-central-applications"></a>IoT Central 애플리케이션 보기
 

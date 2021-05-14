@@ -1,17 +1,17 @@
 ---
 title: Azure Data Factory를 통한 웹 테이블 데이터 복사
 description: 웹 테이블의 데이터를 데이터 팩터리에서 싱크로 지원하는 데이터 저장소로 복사할 수 있는 Azure Data Factory의 웹 테이블 커넥터에 대해 알아봅니다.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.author: jingwang
-ms.openlocfilehash: 1ab45868afd8d1b7ba1f61f5eaacca283817e6d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: d3035220f719bb4afde4dec8ff8417114b6569ee
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100367013"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109484760"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 웹 테이블의 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -44,7 +44,7 @@ ms.locfileid: "100367013"
 
 ## <a name="getting-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 웹 테이블 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "100367013"
 
 웹 테이블 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **웹** |예 |
 | url | 웹 원본에 대한 URL입니다. |예 |
@@ -84,7 +84,7 @@ ms.locfileid: "100367013"
 
 웹 테이블에서 데이터를 복사하려면 데이터 세트의 type 속성을 **WebTable** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **WebTable** 로 설정해야 합니다. | 예 |
 | 경로 |테이블을 포함하는 리소스에 대한 상대 URL입니다. |아니요. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. |

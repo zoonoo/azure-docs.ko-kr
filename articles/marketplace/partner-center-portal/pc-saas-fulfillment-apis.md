@@ -1,6 +1,6 @@
 ---
-title: Microsoft 상업적 marketplace의 SaaS 등록 Api
-description: Microsoft AppSource 및 Azure Marketplace에서 SaaS 제품을 통합 하는 데 사용할 수 있는 처리 Api를 소개 합니다.
+title: Microsoft 상업용 Marketplace의 SaaS 처리 API
+description: Microsoft AppSource 및 Azure Marketplace에서 SaaS 제품을 통합하는 데 사용할 수 있는 처리 API를 소개합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -8,53 +8,53 @@ ms.date: 05/18/2020
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 2e6381afb19018822f6f37171a5ca4b3d929b42e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88037527"
 ---
-# <a name="saas-fulfillment-apis-in-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace의 SaaS 등록 Api
+# <a name="saas-fulfillment-apis-in-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 Marketplace의 SaaS 처리 API
 
-SaaS 처리 Api는 Isv (독립 소프트웨어 공급 업체) 라고도 하는 게시자를 사용 하 여 Microsoft AppSource, Azure Marketplace 및 Azure Portal에서 SaaS 응용 프로그램을 게시 하 고 판매할 수 있습니다. 이러한 Api를 통해 ISV 응용 프로그램은 direct, 파트너-led (대리점) 및 현장 led와 같은 모든 상거래 사용 채널에 참여할 수 있습니다.  이러한 Api와 통합 하는 것은 파트너 센터에서 불가능 SaaS 제품을 만들고 게시 하기 위한 요구 사항입니다.
+SaaS 처리 API를 사용하면 게시자 또는 ISV(Independent Software Vendor)가 Microsoft AppSource, Azure Marketplace, Azure Portal에서 해당 SaaS 애플리케이션을 게시하고 판매할 수 있습니다. 해당 API를 사용하면 ISV 애플리케이션이 direct, partner-led(재판매인), field-led 같은 모든 상거래 지원 채널에 참여할 수 있습니다.  파트너 센터에서 거래 가능한 SaaS 제품을 만들고 게시하려면 이 API와 통합해야 합니다.
 
-Isv는 Isv 및 Microsoft 모두에 대해 동일한 구독 상태를 유지 하기 위해 SaaS 서비스 코드에를 추가 하 여 다음 API 흐름을 구현 해야 합니다.
+ISV 및 Microsoft 둘 다에서 동일한 구독 상태를 유지 관리하려면 ISV는 SaaS 서비스 코드에 추가하여 다음 API 흐름을 구현해야 합니다.
 
-* 방문 페이지 흐름: Microsoft는 marketplace에서 고객이 게시자의 SaaS 제안을 구매한 것을 게시자에 게 알립니다.
-* 활성화 흐름: 게시자는 새로 구매한 SaaS 계정이 게시자 쪽에서 구성 되었음을 Microsoft에 알립니다.
-* 업데이트 흐름: 구매한 요금제 및/또는 구매한 사용자의 수를 변경 합니다.
-* 일시 중단 및 복원 흐름: 고객의 지불 방법이 더 이상 유효 하지 않을 경우 구매한 SaaS 제품을 일시 중단 합니다. 지불 방법으로 문제가 해결 되 면 일시 중단 된 제품을 복구할 수 있습니다.
-* 웹 후크 흐름: microsoft는 Microsoft 쪽에서 고객이 트리거한 SaaS 구독 변경 내용 및 취소에 대해 게시자에 게 알립니다.
+* 방문 페이지 흐름: Microsoft는 마켓플레이스에서 고객이 게시자의 SaaS 제품을 구매한 것을 게시자에게 알립니다.
+* 활성화 흐름: 게시자는 새로 구매한 SaaS 계정이 게시자 쪽에서 구성되었음을 Microsoft에 알립니다.
+* 업데이트 흐름: 구매한 플랜 및/또는 구매한 사용자 수를 변경합니다.
+* 일시 중단 및 복구 흐름: 고객의 결제 방법이 더 이상 유효하지 않을 경우 구매한 SaaS 제품을 일시 중단합니다. 결제 방법에 대한 문제가 해결되면 일시 중단된 제품을 복구할 수 있습니다.
+* 웹후크 흐름: Microsoft 쪽에서 고객이 트리거한 SaaS 구독 변경 내용 및 취소에 대해 Microsoft가 게시자에게 알립니다.
 
-구매한 SaaS 구독을 취소 하는 경우 Microsoft 쪽에서 고객이 수행할 수 있으므로 통합은 선택 사항입니다.
+구매한 SaaS 구독을 취소하는 경우 통합은 선택 사항입니다. Microsoft 쪽에서 고객이 수행할 수 있기 때문입니다.
 
-SaaS 처리 Api와의 올바른 통합은 다음을 확인 하는 데 중요 합니다.
+SaaS 처리 API와 올바르게 통합하는 것은 다음을 보장하는 데 중요합니다.
 
-* 게시자의 SaaS 제품을 구매한 최종 고객은 Microsoft에 의해 올바르게 청구 됩니다.
-* 최종 고객은 marketplace에서 구매한 SaaS 구독을 구매, 구성, 사용 및 관리 하는 데 올바른 사용자 환경을 제공 하 고 있습니다.
+* 게시자의 SaaS 제품을 구매한 최종 고객에게는 Microsoft를 통해 올바르게 요금이 청구됩니다.
+* 최종 고객은 마켓플레이스에서 구매한 SaaS 구독을 구매하고, 구성하고, 사용하고, 관리하는 데 적합한 사용자 환경을 제공합니다.
 
-이러한 Api를 통해 게시자의 제안은 모든 상거래 사용 채널에 참여할 수 있습니다.
+이 API를 사용하면 게시자의 제품이 다음과 같은 모든 상거래 지원 채널에 참여할 수 있습니다.
 
 * direct
-* 파트너-led (대리점, CSP)
-* 필드-led
+* partner-led(재판매인, CSP)
+* field-led
 
-재판매인 (CSP) 시나리오에서 CSP는 최종 고객을 대신 하 여 SaaS 제안을 구매 합니다. 고객은 SaaS 제품을 사용 해야 하지만 CSP는 다음을 수행 하는 엔터티입니다.
+재판매인(CSP) 시나리오에서는 CSP가 최종 고객을 대신하여 SaaS 제품을 구매합니다. 고객이 SaaS 제품을 사용해야 하지만 CSP인 엔터티는 다음을 수행합니다.
 
 * 고객 요금 청구
-* 구독 계획 변경/구매한 사용자의 수량
+* 구독 플랜/구매한 사용자 수 변경
 * 구독 취소
 
 이 시나리오에서는 게시자가 API 호출 흐름을 다르게 구현할 필요가 없습니다.
 
-CSP에 대 한 자세한 내용은을 참조 하세요 https://partner.microsoft.com/licensing .
+CSP에 대한 자세한 내용은 https://partner.microsoft.com/licensing 을 참조하세요.
 
 >[!Warning]
->이 API의 현재 버전은 모든 새 SaaS 제품에 사용 되는 버전 2입니다. API의 버전 1은 더 이상 사용 되지 않으며 기존 제안을 지원 하기 위해 유지 관리 되 고 있습니다.
+>이 API의 현재 버전은 모든 새 SaaS 제품에 사용되는 버전 2입니다. API 버전 1은 더 이상 사용되지 않으며 기존 제품을 지원하기 위해 유지 관리되고 있습니다.
 
 >[!Note]
->SaaS 처리 Api는 게시자의 백 엔드 서비스에서 호출 되는 용도로만 사용 됩니다. 게시자의 웹 페이지에서 직접 Api와 통합 하는 것은 지원 되지 않습니다. 서비스 간 인증 흐름이 사용 되어야 합니다.
+>SaaS 처리 API는 게시자의 백 엔드 서비스에서 호출되는 용도로만 사용됩니다. 게시자의 웹 페이지에서 직접 API와 통합하는 것은 지원되지 않습니다. 서비스 간 인증 흐름만 사용해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-아직 수행 하지 않은 경우 [AZURE AD 응용 프로그램 등록](./pc-saas-registration.md)에 설명 된 대로 [Azure Portal](https://ms.portal.azure.com) 에서 SaaS 응용 프로그램을 등록 합니다.  그런 다음 개발용이 인터페이스의 최신 버전인 [SaaS 처리 API 버전 2](./pc-saas-fulfillment-api-v2.md)를 사용 합니다.
+아직 수행하지 않은 경우 [Azure AD 애플리케이션 등록](./pc-saas-registration.md)에 설명된 대로 [Azure Portal](https://ms.portal.azure.com)에서 SaaS 애플리케이션을 등록합니다.  그런 다음, 이 인터페이스의 최신 버전인 [SaaS 처리 API 버전 2](./pc-saas-fulfillment-api-v2.md)를 개발에 사용합니다.

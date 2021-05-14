@@ -1,5 +1,5 @@
 ---
-title: Event Grid 포털을 사용 하 여 Media Services 이벤트 모니터링
+title: Event Grid 포털을 사용하여 Media Services 이벤트 모니터링
 description: 이 문서에서는 Azure Media Services 이벤트를 모니터링하기 위해 Event Grid를 구독하는 방법을 설명합니다.
 services: media-services
 documentationcenter: na
@@ -15,27 +15,27 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 3828d5288c730e8fc0595a0deb6f1cb3267e885e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 1e288e4490916a7ee03371baa8e7cc3b798e272b
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609728"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961713"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Azure Portal을 사용하여 Event Grid에서 Media Services 이벤트 만들기 및 모니터링
 
 [!INCLUDE [media services api v3 logo](../includes/v3-hr.md)]
 
-Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 서비스는 [이벤트 구독](../../../event-grid/concepts.md#event-subscriptions) 을 사용 하 여 이벤트 메시지를 구독자로 라우팅합니다. Media Services 이벤트에는 데이터 변경에 대응하는 데 필요한 모든 정보가 포함되어 있습니다. Media Services 이벤트는 eventType 속성이 "Microsoft.Media"로 시작하는 것으로 식별할 수 있습니다. 자세한 내용은 [Media Services 이벤트 스키마](media-services-event-schemas.md)를 참조하세요.
+Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 서비스는 [이벤트 구독](../../../event-grid/concepts.md#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다. Media Services 이벤트에는 데이터 변경에 대응하는 데 필요한 모든 정보가 포함되어 있습니다. Media Services 이벤트는 eventType 속성이 "Microsoft.Media"로 시작하는 것으로 식별할 수 있습니다. 자세한 내용은 [Media Services 이벤트 스키마](media-services-event-schemas.md)를 참조하세요.
 
-이 문서에서는 Azure Portal을 사용하여 Azure Media Services 계정에 대한 이벤트를 구독합니다. 그런 다음, 이벤트를 트리거하여 결과를 봅니다. 일반적으로 이벤트 데이터를 처리하고 작업을 수행하는 엔드포인트에 이벤트를 보냅니다. 이 문서에서는 메시지를 수집 하 고 표시 하는 웹 앱으로 이벤트를 보냅니다.
+이 문서에서는 Azure Portal을 사용하여 Azure Media Services 계정에 대한 이벤트를 구독합니다. 그런 다음, 이벤트를 트리거하여 결과를 봅니다. 일반적으로 이벤트 데이터를 처리하고 작업을 수행하는 엔드포인트에 이벤트를 보냅니다. 이 문서에서는 메시지를 수집하고 표시하는 웹앱에 이벤트를 보냅니다.
 
 작업을 완료하면 이벤트 데이터가 웹앱에 보내진 것을 확인할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소 
 
 * 활성 Azure 구독.
-* [이 빠른 시작](../create-account-howto.md)에서 설명된 대로 새로운 Azure Media Services 계정을 만듭니다.
+* [이 빠른 시작](../account-create-how-to.md)에서 설명된 대로 새로운 Azure Media Services 계정을 만듭니다.
 
 ## <a name="create-a-message-endpoint"></a>메시지 엔드포인트 만들기
 
@@ -61,7 +61,7 @@ Media Services 계정에 대한 이벤트를 구독하기 전에 이벤트 메�
    ![웹 후크 선택](../media/monitor-events-portal/select-web-hook.png)
 
 1. 이벤트 구독은 Media Services 계정에 대한 값으로 미리 채워집니다. 
-1. **끝점 형식** 에 대해 ' 웹 후크 '를 선택 합니다.
+1. **엔드포인트 유형** 으로 ‘웹후크’를 선택합니다.
 1. 이 항목에서는 **모든 이벤트 유형 구독** 을 선택한 상태로 둡니다. 그러나 이 옵션을 선택 취소하고 특정 이벤트 유형을 필터링할 수 있습니다. 
 1. **엔드포인트 선택** 링크를 클릭합니다.
 

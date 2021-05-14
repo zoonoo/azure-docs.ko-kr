@@ -1,13 +1,13 @@
 ---
-title: 메모리 누수 탐지-Azure 애플리케이션 Insights 스마트 검색
+title: 메모리 누수 검색 - Azure Application Insights 스마트 검색
 description: Azure Application Insights를 사용하여 애플리케이션의 잠재적 메모리 누수를 모니터링합니다.
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.openlocfilehash: 3fe58cd7d61246c5565cd89fa782c8a977f09499
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86539893"
 ---
 # <a name="memory-leak-detection-preview"></a>메모리 누수 검색(미리 보기)
@@ -24,6 +24,6 @@ Application Insights는 애플리케이션에서 각 프로세스의 메모리 �
 
 ## <a name="how-do-i-fix-it"></a>이 문제를 어떻게 해결하나요?
 알림에는 진단 프로세스에서 도움이 되는 진단 분석 정보가 포함되어 있습니다.
-1. **문제.** 알림에는 메모리 증가(GB) 및 메모리가 증가된 시간 범위를 표시됩니다. 문제에 우선 순위를 할당하는 데 도움이 될 수 있습니다.
+1. **심사.** 알림에는 메모리 증가(GB) 및 메모리가 증가된 시간 범위를 표시됩니다. 문제에 우선 순위를 할당하는 데 도움이 될 수 있습니다.
 2. **범위.** 메모리 누수 패턴을 표시하는 컴퓨터 대수는? 잠재적 메모리 누수 중에 트리거된 예외 수는? 이 정보는 알림에서 얻을 수 있습니다.
 3. **진단.** 검색에는 시간에 따른 프로세스의 메모리 사용을 보여 주는 메모리 누수 패턴이 포함됩니다. 지원 정보에 연결된 관련 항목 및 보고서를 사용하면 문제를 추가로 진단할 수 있습니다.

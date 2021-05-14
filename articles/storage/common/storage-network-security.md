@@ -9,12 +9,12 @@ ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 5e8123c252d99b2999eeef42fecae189a05e382b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 51e0205fddf9c3e6e3d622465204e647c0099f53
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107778124"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715829"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -590,14 +590,14 @@ az storage account network-rule list \
 
 | 서비스                        | 리소스 공급자 이름                 | 목적            |
 | :----------------------------- | :------------------------------------- | :----------------- |
-| Azure API Management           | Microsoft.ApiManagement/service        | 정책을 사용하여 방화벽 뒤에 있는 스토리지 계정에 대한 API Management 서비스 액세스를 사용하는 것으로 설정합니다. [자세한 정보를 알아보세요](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
+| Azure API Management           | Microsoft.ApiManagement/service        | 정책을 사용하여 방화벽 뒤에 있는 스토리지 계정에 대한 API Management 서비스 액세스를 사용하는 것으로 설정합니다. [자세히 알아보기](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Cognitive Search 서비스를 사용하여 인덱싱, 처리 및 쿼리를 위해 스토리지 계정에 액세스할 수 있습니다. |
 | Azure Cognitive Services       | Microsoft.CognitiveService/accounts    | Cognitive Services를 사용하는 것으로 설정하여 스토리지 계정에 액세스할 수 있습니다. |
 | Azure Container Registry 작업 | Microsoft.ContainerRegistry/registries | ACR 태스크는 컨테이너 이미지를 빌드할 때 스토리지 계정에 액세스할 수 있습니다. |
 | Azure 데이터 팩터리             | Microsoft.DataFactory/factories        | ADF 런타임을 통해 스토리지 계정에 액세스할 수 있도록 합니다. |
 | Azure Data Share               | Microsoft.DataShare/accounts           | Data Share를 통해 스토리지 계정에 액세스할 수 있도록 합니다. |
 | Azure DevTest Labs             | Microsoft.DevTestLab/labs              | DevTest Labs를 통해 스토리지 계정에 액세스를 허용합니다. |
-| Azure IoT Hub                  | Microsoft.Devices/IotHubs              | IoT Hub의 데이터를 Blob 스토리지에 쓸 수 있습니다. [자세히 알아보기](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
+| Azure IoT Hub                  | Microsoft.Devices/IotHubs              | IoT Hub의 데이터를 Blob 스토리지에 쓸 수 있습니다. [자세히 알아보기](../../iot-hub/virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | 논리 앱을 사용하여 스토리지 계정에 액세스할 수 있습니다. [자세히 알아보기](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
 | Azure Machine Learning 서비스 | Microsoft.MachineLearningServices      | 권한 있는 Azure Machine Learning 작업 영역은 실험 출력, 모델 및 로그를 Blob 스토리지에 쓰고 데이터를 읽습니다. [자세히 알아보기](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
 | Azure Media Services           | Microsoft.Media/mediaservices          | Media Services를 통해 스토리지 계정에 액세스를 허용합니다. |
