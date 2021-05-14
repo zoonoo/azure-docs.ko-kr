@@ -8,17 +8,14 @@ ms.topic: how-to
 ms.date: 03/10/2021
 ms.reviewer: banders
 ms.author: andalmia
-ms.openlocfilehash: 105e090655021ed4046f8880ef9816d7f7ff559f
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 4d0ebd73065c538a78c950ab48254cb06d113897
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105631739"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108804523"
 ---
 # <a name="manage-azure-subscription-policies"></a>Azure 구독 정책 관리
-
->[!NOTE]
->현재 이 기능은 미리 보기로 제공되며 점진적으로 롤아웃되는 중이므로 일부 사용자에게는 아직 Azure Portal에서 이 환경이 나타나지 않을 수 있습니다.
 
 이 문서에서는 구독 작업에 대해 Azure 구독 정책을 구성하여 서로 다른 디렉터리 간 Azure 구독 이동을 제어하는 방법을 설명합니다.
 

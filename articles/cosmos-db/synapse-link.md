@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2020
 ms.reviewer: sngun
 ms.custom: synapse-cosmos-db
-ms.openlocfilehash: c22a4030bb44c1499995071849ca8942ae2110c3
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.openlocfilehash: c9c751338db45a7d9df3f6e63e3d53e4e1ef4f74
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104864349"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903239"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db"></a>Microsoft Azure Cosmos DB용 Synapse Link란?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -34,7 +34,7 @@ Azure Synapse Link는 완전 격리된 열 저장소인 [ Microsoft Azure Cosmos
 
 ### <a name="reduced-complexity-with-no-etl-jobs-to-manage"></a>관리할 ETL 작업이 없어 복잡성 감소
 
-Azure Synapse Link를 사용하면 복잡한 데이터 이동 없이 Azure Synapse Analytics를 사용하여 Microsoft Azure Cosmos DB 분석 저장소에 직접 액세스할 수 있습니다. 작동 데이터의 모든 업데이트는 ETL 또는 변경 피드 작업 없이 거의 실시간으로 분석 저장소에 표시됩니다. 추가 데이터 변환을 사용 하지 않고 Azure Synapse Analytics에서 분석 저장소에 대해 대규모 분석을 실행할 수 있습니다.
+Azure Synapse Link를 사용하면 복잡한 데이터 이동 없이 Azure Synapse Analytics를 사용하여 Microsoft Azure Cosmos DB 분석 저장소에 직접 액세스할 수 있습니다. 작동 데이터의 모든 업데이트는 ETL 또는 변경 피드 작업 없이 거의 실시간으로 분석 저장소에 표시됩니다. 추가 데이터 변환 없이 Azure Synapse Analytics에서 분석 저장소에 대해 대규모 분석을 실행할 수 있습니다.
 
 ### <a name="near-real-time-insights-into-your-operational-data"></a>작동 데이터에 대한 근 실시간 인사이트
 
@@ -55,7 +55,7 @@ Azure Synapse Link를 통해 운영 분석을 위한 비용에 최적화된 완�
 Microsoft Azure Cosmos DB 분석 저장소는 실행된 데이터 스토리지 및 분석 읽기/쓰기 작업과 쿼리를 기반으로 하는 소비 기반 가격 책정 모델을 따릅니다. 오늘날의 트랜잭션 워크로드와 마찬가지로 처리량을 프로비저닝할 필요가 없습니다. Azure Synapse Analytics의 매우 탄력적인 컴퓨팅 엔진으로 데이터에 액세스하면 스토리지와 컴퓨팅을 실행하는 데 드는 전체 비용을 매우 효율적으로 관리할 수 있습니다.
 
 
-### <a name="analytics-for-locally-available-globally-distributed-multi-region-writes"></a>로컬에서 사용할 수 있고 전 세계적으로 분산 되어 있는 다중 지역 쓰기에 대 한 분석
+### <a name="analytics-for-locally-available-globally-distributed-multi-region-writes"></a>로컬로 사용할 수 있고, 전역적으로 분산된 다중 지역 쓰기에 대한 분석
 
 Microsoft Azure Cosmos DB에서 데이터의 가장 가까운 지역 복사본을 대상으로 분석 쿼리를 효과적으로 실행할 수 있습니다. Microsoft Azure Cosmos DB는 활성-활성 방식으로 트랜잭션 워크로드와 함께 전역적으로 분산된 분석 워크 로드를 실행하는 최신 기능을 제공합니다.
 
@@ -73,13 +73,13 @@ Microsoft Azure Cosmos DB 분석 저장소는 열을 기반으로 Microsoft Azur
 
 ### <a name="integration-with-azure-synapse-analytics"></a><a id="synapse-link-integration"></a>Azure Synapse Analytics와 통합
 
-이제 Synapse Link를 사용하여 Azure Synapse Analytics에서 Microsoft Azure Cosmos DB 컨테이너에 직접 연결하고 별도의 커넥터 없이 분석 저장소에 액세스할 수 있습니다. Azure Synapse Analytics는 현재 [Synapse Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md) 및 [서버 리스 SQL 풀](../synapse-analytics/sql/on-demand-workspace-overview.md)의 Synapse 링크를 지원 합니다.
+이제 Synapse Link를 사용하여 Azure Synapse Analytics에서 Microsoft Azure Cosmos DB 컨테이너에 직접 연결하고 별도의 커넥터 없이 분석 저장소에 액세스할 수 있습니다. Azure Synapse Analytics는 현재 [Synapse Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md) 및 [서버리스 SQL 풀](../synapse-analytics/sql/on-demand-workspace-overview.md)과 함께 Synapse Link를 지원합니다.
 
 Azure Synapse Analytics에서 지원하는 여러 분석 런타임에서 interop를 사용하여 Microsoft Azure Cosmos DB 분석 저장소의 데이터를 동시에 쿼리할 수 ​​있습니다. 작동 데이터 분석을 위한 추가 데이터 변환이 필요하지 않습니다. 다음을 사용하여 분석 저장소 데이터를 쿼리하고 분석할 수 있습니다.
 
 * Scala, Python, SparkSQL 및 C#을 완벽하게 지원하는 Synapse Apache Spark. Synapse Spark는 데이터 엔지니어링 및 데이터 과학 시나리오의 중심입니다.
 
-* T-sql 언어를 사용 하는 서버 리스 SQL 풀 및 익숙한 BI 도구에 대 한 지원 (예: Power BI Premium 등)
+* T-SQL 언어 및 익숙한 BI 도구(예: Power BI Premium 등) 지원이 포함된 사용하는 서버리스 SQL 풀
 
 > [!NOTE]
 > Azure Synapse Analytics에서 Microsoft Azure Cosmos DB 컨테이너의 분석 및 트랜잭션 저장소에 모두 액세스할 수 있습니다. 그러나 작동 데이터에 대한 대규모 분석이나 검사를 실행하려는 경우 분석 저장소를 사용하여 트랜잭션 워크로드에 대한 성능 영향을 방지하는 것이 좋습니다.
@@ -89,7 +89,7 @@ Azure Synapse Analytics에서 지원하는 여러 분석 런타임에서 interop
 
 이러한 통합을 통해 여러 사용자에 대해 다음과 같은 HTAP 시나리오를 사용할 수 있습니다.
 
-* Synapse SQL을 통해 직접 Azure Cosmos DB에서 라이브 작동 데이터에 액세스 하는 Power BI 보고서를 모델링 및 게시 하려는 BI 엔지니어입니다.
+* Power BI 보고서를 모델링하고 게시하여 Synapse SQL을 통해 Azure Cosmos DB의 실시간 운영 데이터에 직접 액세스하려는 BI 엔지니어.
 
 * Synapse SQL로 쿼리하여 Microsoft Azure Cosmos DB 컨테이너의 작동 데이터에서 인사이트를 얻고, 대규모로 데이터를 읽고, 이러한 결과를 다른 데이터 원본과 결합하려는 데이터 분석가
 
@@ -98,20 +98,6 @@ Azure Synapse Analytics에서 지원하는 여러 분석 런타임에서 interop
 * 수동 ETL 프로세스 없이 Microsoft Azure Cosmos DB 컨테이너를 통해 SQL 또는 Spark 테이블을 만들어 소비자가 데이터에 액세스 할 수 있도록 하려는 데이터 엔지니어
 
 Microsoft Azure Cosmos DB에 대한 Azure Synapse Analytics 런타임 지원에 대한 자세한 내용 [Cosmos DB에 대한 Azure Synapse Analytics 지원](../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md)을 참조하세요.
-
-## <a name="security"></a>보안
-
-Synapse 링크를 사용 하면 Azure Cosmos DB에서 중요 업무용 데이터를 거의 실시간으로 분석 하 여 실행할 수 있습니다. 중요 한 비즈니스 데이터가 트랜잭션 및 분석 저장소에서 안전 하 게 저장 되도록 하는 것이 중요 합니다. Azure Cosmos DB에 대 한 Azure Synapse 링크는 다음 기능을 통해 이러한 보안 요구 사항을 충족 하는 데 도움이 되도록 설계 되었습니다.
-
-* **네트워크 격리-개인 끝점을 사용 하** 여 트랜잭션 및 분석 저장소의 데이터에 대 한 네트워크 액세스를 독립적으로 제어할 수 있습니다. 네트워크 격리는 Azure Synapse 작업 영역의 관리 되는 가상 네트워크 내에서 각 저장소에 대해 별도의 관리 되는 개인 끝점을 사용 하 여 수행 됩니다. 자세히 알아보려면 [분석 저장소에 대 한 개인 끝점을 구성](analytical-store-private-endpoints.md) 하는 방법 문서를 참조 하세요.
-
-* **고객 관리 키를 사용 하 여 데이터 암호화** -자동 및 투명 한 방식으로 동일한 고객 관리 키를 사용 하 여 트랜잭션 및 분석 저장소 간에 데이터를 원활 하 게 암호화할 수 있습니다. 자세히 알아보려면 [고객이 관리](how-to-setup-cmk.md) 하는 키를 구성 하는 방법 문서를 참조 하세요.
-
-* **보안 키 관리** -Synapse Spark 및 Synapse 서버 리스 SQL 풀의 분석 저장소에 있는 데이터에 액세스 하려면 Synapse Analytics 작업 영역 내에서 Azure Cosmos DB 키를 관리 해야 합니다. Spark 작업 또는 SQL 스크립트에서 Azure Cosmos DB 계정 키를 인라인으로 사용 하는 대신 Azure Synapse Link에서 더 안전한 기능을 제공 합니다.
-
-  * Synapse 서버를 사용 하지 않는 SQL 풀을 사용 하는 경우 계정 키를 저장 하 고 함수에서 참조 하는 SQL 자격 증명을 미리 만들어 Azure Cosmos DB 분석 저장소를 쿼리할 수 있습니다 `OPENROWSET` . 자세한 내용은 [Azure Synapse에서 서버를 사용 하지 않는 SQL 풀로 쿼리](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) 문서를 참조 하세요.
-
-  * Synapse Spark를 사용 하는 경우 Azure Cosmos DB 데이터베이스를 가리키는 연결 된 서비스 개체에 계정 키를 저장 하 고 런타임에 Spark 구성에서이를 참조할 수 있습니다. 자세히 알아보려면 [Apache Spark를 사용 하 여 전용 SQL 풀로 데이터 복사](../synapse-analytics/synapse-link/how-to-copy-to-sql-pool.md) 를 참조 하세요.
 
 ## <a name="when-to-use-azure-synapse-link-for-azure-cosmos-db"></a>Microsoft Azure Cosmos DB용 Synapse Link 사용 시기
 
@@ -129,13 +115,28 @@ Synapse Link는 다음과 같은 경우에 권장됩니다.
 
 ## <a name="limitations"></a>제한 사항
 
-* Azure Cosmos DB용 Azure Synapse Link는 SQL API 및 Azure Cosmos DB API for MongoDB에 대해 지원됩니다. Gremlin API, Cassandra API 및 Table API에 대해서는 지원 되지 않습니다.
+* Azure Cosmos DB용 Azure Synapse Link는 SQL API 및 Azure Cosmos DB API for MongoDB에 대해 지원됩니다. Gremlin API, Cassandra API 및 Table API에 대해서는 지원되지 않습니다.
 
-* 분석 저장소는 새 컨테이너에 대해서만 사용할 수 있습니다. 기존 컨테이너에 분석 저장소를 사용 하려면 [Azure Cosmos DB 마이그레이션 도구](cosmosdb-migrationchoices.md)를 사용 하 여 기존 컨테이너에서 새 컨테이너로 데이터를 마이그레이션합니다. 신규 및 기존 Azure Cosmos DB 계정에서 Synapse 링크를 사용 하도록 설정할 수 있습니다.
+* 분석 저장소는 새 컨테이너에 대해서만 사용할 수 있습니다. 기존 컨테이너에 분석 저장소를 사용하려면 [Azure Cosmos DB 마이그레이션 도구](cosmosdb-migrationchoices.md)를 사용하여 기존 컨테이너의 데이터를 새 컨테이너로 마이그레이션합니다. 신규 및 기존 Azure Cosmos DB 계정에서 Synapse Link를 사용하도록 설정할 수 있습니다.
 
-* 분석 저장소가 설정 된 컨테이너의 경우 지금은 분석 저장소에서 데이터의 자동 백업 및 복원이 지원 되지 않습니다. 데이터베이스 계정에서 Synapse 링크를 사용 하도록 설정 하면 Azure Cosmos DB는 항상으로 예약 된 백업 간격으로 컨테이너의 트랜잭션 저장소 (만)에 대 한 데이터 백업을 자동으로 [수행](./online-backup-and-restore.md) 합니다. 분석 저장소가 설정 된 컨테이너가 새 계정으로 복원 되 면 컨테이너는 트랜잭션 저장소로만 복원 되 고 분석 저장소는 사용 하도록 설정 되지 않습니다.
+* 현재, 분석 저장소가 설정된 컨테이너의 경우 분석 저장소에서 데이터의 자동 백업 및 복원이 지원되지 않습니다. 데이터베이스 계정에서 Synapse Link를 사용하도록 설정하면 Azure Cosmos DB는 항상 예약된 백업 간격에 따라 컨테이너의 트랜잭션 저장소(전용)에 있는 데이터의 [백업](./online-backup-and-restore.md)을 계속해서 자동으로 수행합니다. 분석 저장소가 설정된 컨테이너가 새 계정으로 복원되면 컨테이너는 트랜잭션 저장소로만 복원되고 분석 저장소는 사용하도록 설정되지 않습니다.
 
 * Synapse SQL 프로비저닝을 사용한 Microsoft Azure Cosmos DB 분석 저장소 액세스는 현재 제공되지 않습니다.
+
+## <a name="security"></a>보안
+
+Synapse Link를 사용하면 Azure Cosmos DB에서 중요 업무용 데이터를 근 실시간으로 분석할 수 있습니다. 중요 비즈니스 데이터가 트랜잭션 및 분석 저장소에 모두 안전하게 저장되도록 하는 것이 중요합니다. Azure Cosmos DB에 대한 Azure Synapse Link는 다음 기능을 통해 해당 보안 요구 사항을 충족하는 데 도움이 되도록 설계되었습니다.
+
+* **프라이빗 엔드포인트를 사용한 네트워크 격리** - 트랜잭션 및 분석 저장소에 있는 데이터에 대한 네트워크 액세스를 독립적으로 제어할 수 있습니다. 네트워크 격리는 Azure Synapse 작업 영역의 관리형 가상 네트워크 내에서 각 저장소마다 별도의 관리형 프라이빗 엔드포인트를 사용하여 수행됩니다. 자세히 알아보려면 [분석 저장소에 대한 프라이빗 엔드포인트 구성](analytical-store-private-endpoints.md) 방법에 대한 문서를 참조하세요.
+
+* **고객 관리형 키를 통한 데이터 암호화** - 자동화되고 투명한 방식으로 동일한 고객 관리형 키를 사용하여 트랜잭션 및 분석 저장소에서 데이터를 원활하게 암호화할 수 있습니다. 자세히 알아보려면 [고객 관리형 키 구성](how-to-setup-cmk.md) 방법에 대한 문서를 참조하세요.
+
+* **보안 키 관리** - Synapse Analytics 및 Synapse 서버리스 SQL 풀에서 분석 저장소에 있는 데이터에 액세스하려면 Synapse Analytics 작업 영역 내의 Azure Cosmos DB 키를 관리해야 합니다. Spark 작업 또는 SQL 스크립트에서 Azure Cosmos DB 계정 키를 인라인으로 사용하는 대신 Azure Synapse Link에서 더 안전한 기능을 제공합니다.
+
+  * Synapse 서버리스 SQL 풀을 사용하는 경우 계정 키를 저장하고 `OPENROWSET` 함수에서 참조하는 SQL 자격 증명을 미리 만들어 Azure Cosmos DB 분석 저장소를 쿼리할 수 있습니다. 자세히 알아보려면 [Synapse Analytics Link에서 서버리스 SQL 풀로 쿼리](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) 문서를 참조하세요.
+
+  * Synapse Spark를 사용하는 경우 Azure Cosmos DB 데이터베이스를 가리키는 연결된 서비스 개체에 계정 키를 저장하고 런타임에 Spark 구성에서 이를 참조할 수 있습니다. 자세히 알아보려면 [Apache Spark를 사용하여 전용 SQL 풀로 데이터 복사](../synapse-analytics/synapse-link/how-to-copy-to-sql-pool.md) 문서를 참조하세요.
+
 
 ## <a name="pricing"></a>가격 책정
 
@@ -151,6 +152,6 @@ Azure Synapse Link의 청구 모델은 Microsoft Azure Cosmos DB 분석 저장�
  
 * [Azure Synapse Analytics 런타임에서 지원되는 기능](../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md)
 
-* [Microsoft Azure Cosmos DB용 Azure Synapse Link에 대한 질문과 대답](synapse-link-frequently-asked-questions.md)
+* [Microsoft Azure Cosmos DB용 Azure Synapse Link에 대한 질문과 대답](synapse-link-frequently-asked-questions.yml)
 
 * [Microsoft Azure Cosmos DB용 Azure Synapse Link 사용 사례](synapse-link-use-cases.md)

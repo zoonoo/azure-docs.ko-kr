@@ -3,12 +3,12 @@ title: Azure Functions의 스토리지 고려 사항
 description: Azure Functions의 스토리지 요구 사항 및 저장된 데이터 암호화에 관해 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 5faa85a4fac9fc0b8639f33c475283f4f043c627
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 8c7f5ef6e1e9c354806994e5116e40523d660e9e
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779258"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109627711"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Azure Functions의 스토리지 고려 사항
 
@@ -19,7 +19,7 @@ ms.locfileid: "107779258"
 |---------|---------|
 | [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)     | 바인딩 상태 및 함수 키를 유지 관리합니다.  <br/>[Durable Functions의 작업 허브](durable/durable-functions-task-hubs.md)에서도 사용됩니다. |
 | [Azure 파일](../storage/files/storage-files-introduction.md)  | [사용 플랜](consumption-plan.md) 및 [프리미엄 플랜](functions-premium-plan.md)에서 함수 앱 코드를 저장 및 실행하는 데 사용되는 파일 공유입니다. |
-| [Azure Queue storage](../storage/queues/storage-queues-introduction.md)     | [Durable Functions의 작업 허브](durable/durable-functions-task-hubs.md)에서 사용됩니다.   |
+| [Azure Queue Storage](../storage/queues/storage-queues-introduction.md)     | [Durable Functions의 작업 허브](durable/durable-functions-task-hubs.md)에서 사용됩니다.   |
 | [Azure Table Storage](../storage/tables/table-storage-overview.md)  |  [Durable Functions의 작업 허브](durable/durable-functions-task-hubs.md)에서 사용됩니다.       |
 
 > [!IMPORTANT]

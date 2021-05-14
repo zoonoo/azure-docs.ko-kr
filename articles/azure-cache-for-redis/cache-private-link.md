@@ -1,73 +1,72 @@
 ---
-title: Azure 개인 링크를 사용 하는 azure Cache for Redis (미리 보기)
-description: Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 Azure Cache에 대해 개인적이 고 안전 하 게 연결 하는 네트워크 인터페이스입니다. 이 문서에서는 Azure Portal를 사용 하 여 Azure 캐시, Azure Virtual Network 및 개인 끝점을 만드는 방법에 대해 설명 합니다.
+title: Azure Private Link를 사용하는 Azure Cache for Redis
+description: Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 Azure Cache for Redis에 비공개로 안전하게 연결하는 네트워크 인터페이스입니다. 이 문서에서는 Azure Portal을 사용하여 Azure Cache, Azure Virtual Network 및 프라이빗 엔드포인트를 만드는 방법에 대해 알아봅니다.
 author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 22bdf93e7236ae5220a6bb7c6ead898628bb51a1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.date: 3/31/2021
+ms.openlocfilehash: 952f708d8f368b63f772e3af35f6fd441d65622d
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97007588"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121662"
 ---
-# <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Azure 개인 링크를 사용 하는 azure Cache for Redis (공개 미리 보기)
-이 문서에서는 Azure Portal를 사용 하 여 개인 끝점이 있는 Redis 인스턴스에 대 한 가상 네트워크 및 Azure Cache를 만드는 방법에 대해 알아봅니다. Redis 인스턴스에 대 한 기존 Azure 캐시에 개인 끝점을 추가 하는 방법에 대해서도 알아봅니다.
+# <a name="azure-cache-for-redis-with-azure-private-link"></a>Azure Private Link를 사용하는 Azure Cache for Redis
+이 문서에서는 Azure Portal을 사용하여 가상 네트워크 및 프라이빗 엔드포인트가 있는 Azure Cache for Redis 인스턴스를 만드는 방법에 대해 알아봅니다. 기존 Azure Cache for Redis 인스턴스에 프라이빗 엔드포인트를 추가하는 방법에 대해서도 알아봅니다.
 
-Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 Azure Cache에 대해 개인적이 고 안전 하 게 연결 하는 네트워크 인터페이스입니다. 
+Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 Azure Cache for Redis에 비공개로 안전하게 연결하는 네트워크 인터페이스입니다. 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 
 > [!IMPORTANT]
-> 개인 끝점을 사용 하려면 2020 년 7 월 28 일 이후에 Azure Cache for Redis 인스턴스를 만들어야 합니다.
-> 현재 지역에서 복제, 방화벽 규칙, 포털 콘솔 지원, 클러스터 된 캐시에 대 한 다중 끝점, 방화벽과 삽입 된 캐시에 대 한 지 속성은 지원 되지 않습니다. 
+> 현재, 영역 중복, 포털 콘솔 지원 및 방화벽 스토리지 계정에 대한 지속성은 지원되지 않습니다. 
 >
 >
 
-## <a name="create-a-private-endpoint-with-a-new-azure-cache-for-redis-instance"></a>Redis 인스턴스에 대 한 새 Azure Cache를 사용 하 여 개인 끝점 만들기 
+## <a name="create-a-private-endpoint-with-a-new-azure-cache-for-redis-instance"></a>새 Azure Cache for Redis 인스턴스를 사용하여 프라이빗 엔드포인트 만들기 
 
-이 섹션에서는 개인 끝점을 사용 하 여 Redis 인스턴스에 대 한 새 Azure Cache를 만듭니다.
+이 섹션에서는 프라이빗 엔드포인트를 사용하여 새 Azure Cache for Redis 인스턴스를 만듭니다.
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고, **리소스 만들기** 를 선택합니다.
 
-    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="리소스 만들기를 선택 합니다.":::
+    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="리소스 만들기를 선택합니다.":::
 
-2. **새로 만들기** 페이지에서 **네트워킹** 을 선택한 다음 **가상 네트워크** 를 선택 합니다.
+2. **새** 페이지에서 **네트워킹** 을 선택한 다음 **가상 네트워크** 를 선택합니다.
 
-3. **추가** 를 선택 하 여 가상 네트워크를 만듭니다.
+3. **추가** 를 선택하여 가상 네트워크를 만듭니다.
 
 4. **가상 네트워크 만들기** 의 **기본** 탭에서 다음 정보를 입력하거나 선택합니다.
 
    | 설정      | 제안 값  | 설명 |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **구독** | 드롭다운하여 구독을 선택합니다. | 이 가상 네트워크를 만들 구독입니다. | 
+   | **구독** | 드롭다운하여 구독을 선택합니다. | 가상 네트워크를 만들 구독입니다. | 
    | **리소스 그룹** | 드롭다운하여 리소스 그룹을 선택하거나, **새로 만들기** 를 선택하고 새 리소스 그룹 이름을 입력합니다. | 가상 네트워크 및 기타 리소스를 만들 리소스 그룹의 이름입니다. 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. | 
-   | **이름** | 가상 네트워크 이름을 입력 하십시오. | 이름은 문자 또는 숫자로 시작 하 고 문자, 숫자 또는 밑줄로 끝나야 하며 문자, 숫자, 밑줄, 마침표 또는 하이픈만 포함할 수 있습니다. | 
-   | **지역** | 드롭다운을 선택 하 고 지역을 선택 합니다. | 가상 네트워크를 사용 하는 다른 서비스 근처의 [지역을](https://azure.microsoft.com/regions/) 선택 합니다. |
+   | **이름** | 가상 네트워크 이름을 입력합니다. | 이름은 문자 또는 숫자로 시작하고 문자, 숫자 또는 밑줄로 끝나야 하며 문자, 숫자, 밑줄, 마침표, 또는 하이픈만 포함할 수 있습니다. | 
+   | **지역** | 드롭다운하여 지역을 선택합니다. | 가상 네트워크를 사용할 다른 서비스와 가까이 있는 [지역](https://azure.microsoft.com/regions/)을 선택합니다. |
 
-5. **Ip 주소** 탭을 선택 하거나 페이지 맨 아래에 있는 **다음: ip 주소** 단추를 클릭 합니다.
+5. **IP 주소** 탭을 선택하거나 페이지 하단의 **다음: IP 주소** 단추를 클릭합니다.
 
-6. **IP 주소** 탭에서 **IPv4 주소 공간** 을 CIDR 표기법 (예: 192.168.1.0/24)에서 하나 이상의 주소 접두사로 지정 합니다.
+6. **IP 주소** 탭에서 **IPv4 주소 공간** 을 CIDR 표기법을 따른 하나 이상의 주소 접두사로 지정합니다(예: 192.168.1.0/24).
 
-7. **서브넷 이름** 에서 **기본값** 을 클릭 하 여 서브넷의 속성을 편집 합니다.
+7. **서브넷 이름** 아래의 **기본값** 을 클릭하여 서브넷의 속성을 편집합니다.
 
-8. 서브넷 **편집** 창에서 서브넷 **이름** 및 **서브넷 주소 범위** 를 지정 합니다. 서브넷의 주소 범위는 CIDR 표기법 (예: 192.168.1.0/24) 이어야 합니다. 가상 네트워크의 주소 공간에 포함되어야 합니다.
+8. **서브넷 편집** 창에서 **서브넷 이름** 및 **서브넷 주소 범위** 를 지정합니다. 서브넷의 주소 범위는 CIDR 표기법을 따라야 합니다(예: 192.168.1.0/24). 가상 네트워크의 주소 공간에 포함되어야 합니다.
 
 9. **저장** 을 선택합니다.
 
-10. **검토 + 만들기** 탭을 선택 하거나 **검토 + 만들기** 단추를 클릭 합니다.
+10. **검토 + 만들기** 탭을 선택하거나 **검토 + 만들기** 단추를 클릭합니다.
 
-11. 모든 정보가 올바른지 확인 하 고 **만들기** 를 클릭 하 여 가상 네트워크를 프로 비전 합니다.
+11. 모든 정보가 올바른지 확인하고 **만들기** 를 클릭하여 가상 네트워크를 프로비저닝합니다.
 
-### <a name="create-an-azure-cache-for-redis-instance-with-a-private-endpoint"></a>개인 끝점을 사용 하 여 Redis 인스턴스에 대 한 Azure 캐시 만들기
-캐시 인스턴스를 만들려면 다음 단계를 수행 합니다.
+### <a name="create-an-azure-cache-for-redis-instance-with-a-private-endpoint"></a>프라이빗 엔드포인트를 사용하여 Azure Cache for Redis 인스턴스 만들기
+캐시 인스턴스를 만들려면 다음 단계를 수행합니다.
 
-1. Azure Portal 홈페이지로 돌아가서 사이드바 메뉴를 열고 **리소스 만들기** 를 선택 합니다. 
+1. Azure Portal 홈페이지로 돌아가서 사이드바 메뉴를 열고 **리소스 만들기** 를 선택합니다. 
    
 1. **새로 만들기** 페이지에서 **데이터베이스** 를 선택한 다음, **Azure Cache for Redis** 를 선택합니다.
 
@@ -85,13 +84,13 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
 
 1. **네트워킹** 탭을 선택하거나 페이지 하단에 있는 **네트워킹** 단추를 클릭합니다.
 
-1. **네트워킹** 탭에서 연결 방법에 대 한 **개인 끝점** 을 선택 합니다.
+1. **네트워킹** 탭에서 연결 방법에 대한 **프라이빗 엔드포인트** 를 선택합니다.
 
-1. **추가** 단추를 클릭 하 여 개인 끝점을 만듭니다.
+1. **추가** 단추를 클릭하여 프라이빗 엔드포인트를 추가합니다.
 
-    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="네트워킹에서 개인 끝점을 추가 합니다.":::
+    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="네트워킹에서 프라이빗 엔드포인트를 추가합니다.":::
 
-1. **개인 끝점 만들기** 페이지에서, 마지막 섹션에서 만든 가상 네트워크 및 서브넷을 사용 하 여 개인 끝점에 대 한 설정을 구성 하 고 **확인** 을 선택 합니다. 
+1. **프라이빗 엔드포인트 만들기** 페이지에서, 마지막 섹션에서 만든 가상 네트워크 및 서브넷을 사용하여 프라이빗 엔드포인트에 대한 설정을 구성하고 **확인** 을 선택합니다. 
 
 1. 페이지 맨 아래에서 **다음: 고급** 탭을 선택하거나 페이지 하단에서 **다음: 고급** 단추를 클릭합니다.
 
@@ -111,109 +110,118 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
     
 > [!IMPORTANT]
 > 
-> `publicNetworkAccess` `Disabled` 기본적으로 플래그가 있습니다. 
-> 이 플래그는가로 설정 된 경우 선택적으로 공용 및 개인 끝점 액세스를 모두 허용할 수 있도록 하기 위한 것입니다 `Enabled` . 로 설정 되 면 `Disabled` 개인 끝점 액세스만 허용 됩니다. `Disabled`다음 PATCH 요청을 사용 하 여 값을 또는로 설정할 수 있습니다 `Enabled` . 캐시에 사용할 플래그를 반영 하도록 값을 편집 합니다.
-> ```http
-> PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
-> {    "properties": {
->        "publicNetworkAccess":"Disabled"
->    }
-> }
-> ```
+> 기본값으로 `Disabled`된 `publicNetworkAccess` 플래그가 있습니다. 
+> 이 플래그가 `Enabled`로 설정된 경우 선택적으로 퍼블릭 및 프라이빗 엔드포인트 액세스를 모두 허용합니다. `Disabled`로 설정되면 프라이빗 엔드포인트 액세스만 허용됩니다. 값을 `Disabled` 또는 `Enabled`로 설정할 수 있습니다. 값을 변경하는 방법에 대한 자세한 내용은 [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)를 참조하세요.
+>
 >
 
-> [!IMPORTANT]
-> 
-> 클러스터형 캐시에 연결 하려면를 `publicNetworkAccess` 로 설정 해야 `Disabled` 하며 개인 끝점 연결은 하나만 있을 수 있습니다. 
->
+## <a name="create-a-private-endpoint-with-an-existing-azure-cache-for-redis-instance"></a>기존 Azure Cache for Redis 인스턴스를 사용하여 프라이빗 엔드포인트 만들기 
 
-## <a name="create-a-private-endpoint-with-an-existing-azure-cache-for-redis-instance"></a>Redis 인스턴스에 대 한 기존 Azure Cache를 사용 하 여 개인 끝점 만들기 
-
-이 섹션에서는 Redis 인스턴스에 대 한 기존 Azure 캐시에 개인 끝점을 추가 합니다. 
+이 섹션에서는 기존 Azure Cache for Redis 인스턴스에 프라이빗 엔드포인트를 추가합니다. 
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기 
-가상 네트워크를 만들려면 다음 단계를 수행 합니다.
+가상 네트워크를 만들려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고, **리소스 만들기** 를 선택합니다.
 
-2. **새로 만들기** 페이지에서 **네트워킹** 을 선택한 다음 **가상 네트워크** 를 선택 합니다.
+2. **새** 페이지에서 **네트워킹** 을 선택한 다음 **가상 네트워크** 를 선택합니다.
 
-3. **추가** 를 선택 하 여 가상 네트워크를 만듭니다.
+3. **추가** 를 선택하여 가상 네트워크를 만듭니다.
 
 4. **가상 네트워크 만들기** 의 **기본** 탭에서 다음 정보를 입력하거나 선택합니다.
 
    | 설정      | 제안 값  | 설명 |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **구독** | 드롭다운하여 구독을 선택합니다. | 이 가상 네트워크를 만들 구독입니다. | 
+   | **구독** | 드롭다운하여 구독을 선택합니다. | 가상 네트워크를 만들 구독입니다. | 
    | **리소스 그룹** | 드롭다운하여 리소스 그룹을 선택하거나, **새로 만들기** 를 선택하고 새 리소스 그룹 이름을 입력합니다. | 가상 네트워크 및 기타 리소스를 만들 리소스 그룹의 이름입니다. 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. | 
-   | **이름** | 가상 네트워크 이름을 입력 하십시오. | 이름은 문자 또는 숫자로 시작 하 고 문자, 숫자 또는 밑줄로 끝나야 하며 문자, 숫자, 밑줄, 마침표 또는 하이픈만 포함할 수 있습니다. | 
-   | **지역** | 드롭다운을 선택 하 고 지역을 선택 합니다. | 가상 네트워크를 사용 하는 다른 서비스 근처의 [지역을](https://azure.microsoft.com/regions/) 선택 합니다. |
+   | **이름** | 가상 네트워크 이름을 입력합니다. | 이름은 문자 또는 숫자로 시작하고 문자, 숫자 또는 밑줄로 끝나야 하며 문자, 숫자, 밑줄, 마침표, 또는 하이픈만 포함할 수 있습니다. | 
+   | **지역** | 드롭다운하여 지역을 선택합니다. | 가상 네트워크를 사용할 다른 서비스와 가까이 있는 [지역](https://azure.microsoft.com/regions/)을 선택합니다. |
 
-5. **Ip 주소** 탭을 선택 하거나 페이지 맨 아래에 있는 **다음: ip 주소** 단추를 클릭 합니다.
+5. **IP 주소** 탭을 선택하거나 페이지 하단의 **다음: IP 주소** 단추를 클릭합니다.
 
-6. **IP 주소** 탭에서 **IPv4 주소 공간** 을 CIDR 표기법 (예: 192.168.1.0/24)에서 하나 이상의 주소 접두사로 지정 합니다.
+6. **IP 주소** 탭에서 **IPv4 주소 공간** 을 CIDR 표기법을 따른 하나 이상의 주소 접두사로 지정합니다(예: 192.168.1.0/24).
 
-7. **서브넷 이름** 에서 **기본값** 을 클릭 하 여 서브넷의 속성을 편집 합니다.
+7. **서브넷 이름** 아래의 **기본값** 을 클릭하여 서브넷의 속성을 편집합니다.
 
-8. 서브넷 **편집** 창에서 서브넷 **이름** 및 **서브넷 주소 범위** 를 지정 합니다. 서브넷의 주소 범위는 CIDR 표기법 (예: 192.168.1.0/24) 이어야 합니다. 가상 네트워크의 주소 공간에 포함되어야 합니다.
+8. **서브넷 편집** 창에서 **서브넷 이름** 및 **서브넷 주소 범위** 를 지정합니다. 서브넷의 주소 범위는 CIDR 표기법을 따라야 합니다(예: 192.168.1.0/24). 가상 네트워크의 주소 공간에 포함되어야 합니다.
 
 9. **저장** 을 선택합니다.
 
-10. **검토 + 만들기** 탭을 선택 하거나 **검토 + 만들기** 단추를 클릭 합니다.
+10. **검토 + 만들기** 탭을 선택하거나 **검토 + 만들기** 단추를 클릭합니다.
 
-11. 모든 정보가 올바른지 확인 하 고 **만들기** 를 클릭 하 여 가상 네트워크를 프로 비전 합니다.
+11. 모든 정보가 올바른지 확인하고 **만들기** 를 클릭하여 가상 네트워크를 프로비저닝합니다.
 
 ### <a name="create-a-private-endpoint"></a>프라이빗 엔드포인트 만들기 
 
-개인 끝점을 만들려면 다음 단계를 수행 합니다.
+프라이빗 엔드포인트를 만들려면 다음 단계를 수행합니다.
 
-1. Azure Portal에서 **Azure Cache For Redis** 를 검색 하 고 enter 키를 누르거나 검색 제안에서 선택 합니다.
+1. Azure Portal에서 **Azure Cache For Redis** 를 검색하고 enter 키를 누르거나 검색 제안에서 선택합니다.
 
-    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Redis에 대 한 Azure 캐시를 검색 합니다.":::
+    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Azure Cache for Redis를 검색합니다.":::
 
-2. 개인 끝점을 추가 하려는 캐시 인스턴스를 선택 합니다.
+2. 프라이빗 엔드포인트를 추가하려는 캐시 인스턴스를 선택합니다.
 
-3. 화면 왼쪽에서 **(미리 보기) 개인 끝점** 을 선택 합니다.
+3. 화면 왼쪽에서 **프라이빗 엔드포인트** 를 선택합니다.
 
-4. 개인 **끝점** 단추를 클릭 하 여 개인 끝점을 만듭니다.
+4. **프라이빗 엔드포인트** 단추를 클릭하여 프라이빗 엔드포인트를 만듭니다.
 
-    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="개인 끝점을 추가 합니다.":::
+    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="프라이빗 엔드포인트를 추가합니다.":::
 
-5. **개인 끝점 만들기 페이지** 에서 개인 끝점에 대 한 설정을 구성 합니다.
+5. **프라이빗 엔드포인트 만들기 페이지** 에서 프라이빗 엔드포인트에 대한 설정을 구성합니다.
 
    | 설정      | 제안 값  | 설명 |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **구독** | 드롭다운하여 구독을 선택합니다. | 이 개인 끝점을 만들 구독입니다. | 
-   | **리소스 그룹** | 드롭다운하여 리소스 그룹을 선택하거나, **새로 만들기** 를 선택하고 새 리소스 그룹 이름을 입력합니다. | 개인 끝점 및 기타 리소스를 만들 리소스 그룹의 이름입니다. 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. | 
-   | **이름** | 개인 끝점 이름을 입력 합니다. | 이름은 문자 또는 숫자로 시작 하 고 문자, 숫자 또는 밑줄로 끝나야 하며 문자, 숫자, 밑줄, 마침표 또는 하이픈만 포함할 수 있습니다. | 
-   | **지역** | 드롭다운을 선택 하 고 지역을 선택 합니다. | 개인 끝점을 사용 하는 다른 서비스 근처의 [지역을](https://azure.microsoft.com/regions/) 선택 합니다. |
+   | **구독** | 드롭다운하여 구독을 선택합니다. | 프라이빗 엔드포인트를 만들 구독입니다. | 
+   | **리소스 그룹** | 드롭다운하여 리소스 그룹을 선택하거나, **새로 만들기** 를 선택하고 새 리소스 그룹 이름을 입력합니다. | 프라이빗 엔드포인트 및 기타 리소스를 만들 리소스 그룹의 이름입니다. 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. | 
+   | **이름** | 프라이빗 엔드포인트 이름을 입력합니다. | 이름은 문자 또는 숫자로 시작하고 문자, 숫자 또는 밑줄로 끝나야 하며 문자, 숫자, 밑줄, 마침표, 또는 하이픈만 포함할 수 있습니다. | 
+   | **지역** | 드롭다운하여 지역을 선택합니다. | 프라이빗 엔드포인트를 사용할 다른 서비스와 가까이 있는 [지역](https://azure.microsoft.com/regions/)을 선택합니다. |
 
-6. 페이지 맨 아래에 있는 **다음: 리소스** 단추를 클릭 합니다.
+6. 페이지 하단에서 **다음: 리소스** 단추를 클릭합니다.
 
-7. **리소스** 탭에서 구독을 선택 하 고, 리소스 종류를 선택 하 `Microsoft.Cache/Redis` 고, 개인 끝점을 연결 하려는 캐시를 선택 합니다.
+7. **리소스** 탭에서 구독을 선택하고, 리소스 종류를 `Microsoft.Cache/Redis`로 선택한 다음 프라이빗 엔드포인트를 연결하려는 캐시를 선택합니다.
 
-8. 페이지 맨 아래에 있는 **다음: 구성** 단추를 클릭 합니다.
+8. 페이지 하단에서 **다음: 구성** 단추를 클릭합니다.
 
-9. **구성** 탭에서 이전 섹션에서 만든 가상 네트워크 및 서브넷을 선택 합니다.
+9. **구성** 탭에서 이전 섹션에서 만든 가상 네트워크 및 서브넷을 선택합니다.
 
-10. 페이지 맨 아래에 있는 **다음: 태그** 단추를 클릭 합니다.
+10. 페이지 하단에서 **다음: 태그** 단추를 클릭합니다.
 
 11. 필요에 따라 리소스를 분류하려는 경우 **태그** 탭에서 이름 및 값을 입력합니다.
 
-12. **검토 + 만들기** 를 선택합니다. Azure에서 구성의 유효성을 검사 하는 **검토 + 만들기** 탭으로 이동 됩니다.
+12. **검토 + 만들기** 를 선택합니다. **검토 + 만들기** 탭으로 이동됩니다. 여기서 Azure가 구성의 유효성을 검사합니다.
 
-13. 녹색 **유효성 검사 통과** 메시지가 표시 되 면 **만들기** 를 선택 합니다.
+13. 녹색 **유효성 검사 통과** 메시지가 표시되면 **만들기** 를 선택합니다.
+
+> [!IMPORTANT]
+> 
+> 기본값으로 `Disabled`된 `publicNetworkAccess` 플래그가 있습니다. 
+> 이 플래그가 `Enabled`로 설정된 경우 선택적으로 퍼블릭 및 프라이빗 엔드포인트 액세스를 모두 허용합니다. `Disabled`로 설정되면 프라이빗 엔드포인트 액세스만 허용됩니다. 값을 `Disabled` 또는 `Enabled`로 설정할 수 있습니다. 값을 변경하는 방법에 대한 자세한 내용은 [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)를 참조하세요.
+>
+>
+
 
 ## <a name="faq"></a>FAQ
 
-### <a name="why-cant-i-connect-to-a-private-endpoint"></a>개인 끝점에 연결할 수 없는 이유는 무엇입니까?
-캐시가 이미 VNet 삽입 캐시 인 경우 개인 끝점은 캐시 인스턴스와 함께 사용할 수 없습니다. 캐시 인스턴스가 지원 되지 않는 기능을 사용 하 고 있는 경우 (아래에 나열 됨) 개인 끝점 인스턴스에 연결할 수 없습니다. 또한 개인 끝점을 사용 하려면 7 월 27 일 이후 캐시 인스턴스를 만들어야 합니다.
+### <a name="why-cant-i-connect-to-a-private-endpoint"></a>프라이빗 엔드포인트에 연결되지 않는 이유는 무엇인가요?
+캐시가 이미 VNet에 주입된 캐시인 경우 프라이빗 엔드포인트는 캐시 인스턴스와 함께 사용할 수 없습니다. 캐시 인스턴스가 (아래에 나열된) 지원되지 않는 기능을 사용하고 있는 경우 프라이빗 엔드포인트 인스턴스에 연결할 수 없습니다.
 
-### <a name="what-features-are-not-supported-with-private-endpoints"></a>개인 끝점에서 지원 되지 않는 기능은 무엇입니까?
-지역에서 복제, 방화벽 규칙, 포털 콘솔 지원, 클러스터 된 캐시 당 여러 끝점, 방화벽 규칙 및 영역 중복성에 대 한 지 속성 
+### <a name="what-features-are-not-supported-with-private-endpoints"></a>프라이빗 엔드포인트에서 지원되지 않는 기능은 무엇인가요?
+현재, 영역 중복, 포털 콘솔 지원 및 방화벽 스토리지 계정에 대한 지속성은 지원되지 않습니다. 
 
-### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access"></a>공용 네트워크 액세스에서 개인 끝점을 사용 하지 않도록 설정 하거나 사용 하도록 설정 하려면 어떻게 해야 하나요?
-`publicNetworkAccess` `Disabled` 기본적으로 플래그가 있습니다. 이 플래그는가로 설정 된 경우 선택적으로 공용 및 개인 끝점 액세스를 모두 허용할 수 있도록 하기 위한 것입니다 `Enabled` . 로 설정 되 면 `Disabled` 개인 끝점 액세스만 허용 됩니다. `Disabled`다음 PATCH 요청을 사용 하 여 값을 또는로 설정할 수 있습니다 `Enabled` . 캐시에 사용할 플래그를 반영 하도록 값을 편집 합니다.
+### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access"></a>공용 네트워크 액세스에서 프라이빗 엔드포인트를 사용하지 않도록 혹은 사용하도록 설정하려면 어떻게 해야 하나요?
+기본값으로 `Disabled`된 `publicNetworkAccess` 플래그가 있습니다. 이 플래그가 `Enabled`로 설정된 경우 선택적으로 퍼블릭 및 프라이빗 엔드포인트 액세스를 모두 허용합니다. `Disabled`로 설정되면 프라이빗 엔드포인트 액세스만 허용됩니다. Azure Portal에서 또는 Restful API PATCH 요청을 사용하여 값을 `Disabled` 또는 `Enabled`로 설정할 수 있습니다. 
+
+Azure Portal에서 값을 변경하려면 다음 단계를 수행합니다.
+
+1. Azure Portal에서 **Azure Cache For Redis** 를 검색하고 enter 키를 누르거나 검색 제안에서 선택합니다.
+
+2. 공용 네트워크 액세스 값을 변경하려는 캐시 인스턴스를 선택합니다.
+
+3. 화면 왼쪽에서 **프라이빗 엔드포인트** 를 선택합니다.
+
+4. **공용 네트워크 액세스 사용** 단추를 클릭합니다.
+
+Restful API PATCH 요청을 통해 값을 변경하려면 아래를 참조하여 캐시에 사용할 플래그를 반영하도록 값을 편집합니다.
 
 ```http
 PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
@@ -223,24 +231,23 @@ PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/
 }
 ```
 
-### <a name="are-network-security-groups-nsg-enabled-for-private-endpoints"></a>개인 끝점에 대해 NSG (네트워크 보안 그룹)를 사용할 수 있나요?
-아니요. 전용 끝점에 대해서는 사용할 수 없습니다. 프라이빗 엔드포인트를 포함하는 서브넷에 NSG가 연결되어 있을 수 있지만 규칙은 프라이빗 엔드포인트에서 처리하는 트래픽에 적용되지 않습니다. 서브넷에 프라이빗 엔드포인트를 배포하려면 [네트워크 정책 적용을 사용하지 않도록 설정](../private-link/disable-private-endpoint-network-policy.md)해야 합니다. NSG는 동일한 서브넷에서 호스트되는 다른 워크로드에도 적용됩니다. 모든 클라이언트 서브넷의 경로는/32 접두사를 사용 하 고 기본 라우팅 동작을 변경 하려면 비슷한 UDR이 필요 합니다. 
+### <a name="how-can-i-have-multiple-endpoints-in-different-virtual-networks"></a>서로 다른 가상 네트워크에 여러 엔드포인트를 사용하려면 어떻게 해야 하나요?
+서로 다른 가상 네트워크에 여러 프라이빗 엔드포인트를 사용하려면 프라이빗 엔드포인트를 만들기 _전에_ 프라이빗 DNS 영역을 여러 가상 네트워크에 수동으로 구성해야 합니다. 자세한 내용은 [Azure 프라이빗 엔드포인트 DNS 구성](../private-link/private-endpoint-dns.md)을 참조하세요. 
+
+### <a name="what-happens-if-i-delete-all-the-private-endpoints-on-my-cache"></a>내 캐시에서 모든 프라이빗 엔드포인트를 삭제하면 어떻게 되나요?
+캐시에서 프라이빗 엔드포인트를 삭제한 후에는 명시적으로 공용 네트워크 액세스를 사용하도록 설정하거나 다른 프라이빗 엔드포인트를 추가할 때까지 캐시 인스턴스에 연결이 불가할 수 있습니다. Azure Portal에서 또는 RESTFUL API PATCH 요청을 통해 `publicNetworkAccess` 플래그를 변경할 수 있습니다. 값을 변경하는 방법에 대한 자세한 내용은 [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)를 참조하세요.
+
+### <a name="are-network-security-groups-nsg-enabled-for-private-endpoints"></a>프라이빗 엔드포인트에 NSG(네트워크 보안 그룹)를 사용할 수 있나요?
+아니요. 프라이빗 엔드포인트에는 사용할 수 없습니다. 프라이빗 엔드포인트를 포함하는 서브넷에 NSG가 연결되어 있을 수 있지만 규칙은 프라이빗 엔드포인트에서 처리하는 트래픽에 적용되지 않습니다. 서브넷에 프라이빗 엔드포인트를 배포하려면 [네트워크 정책 적용을 사용하지 않도록 설정](../private-link/disable-private-endpoint-network-policy.md)해야 합니다. NSG는 동일한 서브넷에서 호스트되는 다른 워크로드에도 적용됩니다. 모든 클라이언트 서브넷의 경로는 /32 접두사를 사용하고 기본 라우팅 동작을 변경하려면 비슷한 UDR이 필요합니다. 
 
 원본 클라이언트의 아웃바운드 트래픽에 대한 NSG 규칙을 사용하여 트래픽을 제어합니다. /32 접두사가 있는 개별 경로를 배포하여 프라이빗 엔드포인트 경로를 재정의합니다. 아웃바운드 연결에 대한 NSG 흐름 로그 및 모니터링 정보는 계속 지원되며 사용 가능합니다.
 
-### <a name="can-i-use-firewall-rules-with-private-endpoints"></a>개인 끝점에서 방화벽 규칙을 사용할 수 있나요?
-아니요. 이것은 개인 끝점의 현재 제한 사항입니다. 캐시에 방화벽 규칙이 구성 된 경우 개인 끝점은 제대로 작동 하지 않습니다.
+### <a name="since-my-private-endpoint-instance-is-not-in-my-vnet-how-is-it-associated-with-my-vnet"></a>프라이빗 엔드포인트 인스턴스가 VNet에 있지 않은데 VNet과 어떻게 연결되나요?
+프라이빗 엔드포인트 인스턴스는 VNet에만 연결됩니다 해당 인스턴스가 VNet에 없으므로 종속 엔드포인트에 대한 NSG 규칙을 수정하지 않아도 됩니다.
 
-### <a name="how-can-i-connect-to-a-clustered-cache"></a>어떻게 클러스터형 캐시에 연결할 수 있나요?
-`publicNetworkAccess` 는로 설정 해야 `Disabled` 하며 개인 끝점 연결은 하나만 있을 수 있습니다.
-
-### <a name="since-my-private-endpoint-instance-is-not-in-my-vnet-how-is-it-associated-with-my-vnet"></a>내 개인 끝점 인스턴스는 내 VNet에 있지 않으므로 VNet에 연결 하는 방법은 무엇 인가요?
-VNet에만 연결 됩니다. VNet에 있지 않으므로 종속 끝점에 대 한 NSG 규칙을 수정할 필요가 없습니다.
-
-### <a name="how-can-i-migrate-my-vnet-injected-cache-to-a-private-endpoint-cache"></a>VNet 삽입 된 캐시를 개인 끝점 캐시로 마이그레이션하려면 어떻게 해야 하나요?
-VNet 삽입 캐시를 삭제 하 고 개인 끝점을 사용 하 여 새 캐시 인스턴스를 만들어야 합니다.
+### <a name="how-can-i-migrate-my-vnet-injected-cache-to-a-private-endpoint-cache"></a>VNet에 주입된 캐시를 프라이빗 엔드포인트 캐시로 마이그레이션하려면 어떻게 해야 하나요?
+VNet에 주입된 캐시를 삭제하고 프라이빗 엔드포인트를 사용하여 새 캐시 인스턴스를 만들어야 합니다. 자세한 내용은 [Azure Cache for Redis로 마이그레이션하기](cache-migration-guide.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-
-* Azure 개인 링크에 대 한 자세한 내용은 [Azure 개인 링크 설명서](../private-link/private-link-overview.md)를 참조 하세요.
-* 캐시 인스턴스에 대 한 다양 한 네트워크 격리 옵션을 비교 하려면 [Azure cache For Redis 네트워크 격리 옵션 설명서](cache-network-isolation.md)를 참조 하세요.
+* Azure Private Link에 대한 자세한 정보는 [Azure Private Link 설명서](../private-link/private-link-overview.md)를 참조하세요.
+* 캐시 인스턴스에 대한 다양한 네트워크 격리 옵션을 비교하려면 [Azure Cache For Redis 네트워크 격리 옵션 설명서](cache-network-isolation.md)를 참조하세요.

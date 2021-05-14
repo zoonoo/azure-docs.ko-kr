@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 04/06/2021
 ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: 470ae497acab4c75e83a13e485d1bcb118485ab9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6a10d29daaade5c588fc966190cbb81551170fd8
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799516"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139438"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Python SDK: 릴리스 정보 및 리소스
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -30,7 +30,8 @@ ms.locfileid: "104799516"
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark 커넥터](sql-api-sdk-java-spark.md)
+> * [Spark 3 OLTP 커넥터](sql-api-sdk-java-spark-v3.md)
+> * [Spark 2 OLTP 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](/rest/api/cosmos-db-resource-provider/)
@@ -41,7 +42,7 @@ ms.locfileid: "104799516"
 | 페이지| 링크 |
 |---|---|
 |**SDK 다운로드**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**API 설명서**|[Python API 참조 설명서](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos?view=azure-python&preserve-view=true)|
+|**API 설명서**|[Python API 참조 설명서](/python/api/azure-cosmos/azure.cosmos?preserve-view=true&view=azure-python)|
 |**SDK 설치 지침**|[Python SDK 설치 지침](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**시작**|[Python SDK 시작](create-sql-api-python.md)|
 |**현재 지원되는 플랫폼**|[Python 2.7](https://www.python.org/downloads/) 및 [Python 3.6 이상](https://www.python.org/downloads/)|

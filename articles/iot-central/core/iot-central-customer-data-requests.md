@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Central의 고객 데이터 요청 기능 | Microsoft Docs
-description: 이 문서에서는 Azure IoT Central 응용 프로그램에서 고객 데이터를 식별, 삭제 및 내보내는 방법을 설명 합니다.
+description: 이 문서에서는 Azure IoT Central 애플리케이션에서 고객 데이터를 식별하고, 삭제하고, 내보내는 방법을 설명합니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/23/2019
@@ -9,13 +9,13 @@ ms.service: iot-central
 services: iot-central
 manager: timlt
 ms.openlocfilehash: dabcadea96f4ced5bdf73a35ef533e6d290595c2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87001879"
 ---
-# <a name="azure-iot-central-customer-data-request-features"></a>Azure IoT Central 고객 데이터 요청 기능
+# <a name="azure-iot-central-customer-data-request-features"></a>Azure IoT Central의 고객 데이터 요청 기능
 
 Azure IoT Central은 대규모 IoT 자산을 연결, 모니터링 및 관리하고, IoT 데이터에서 심층 정보를 만들고, 정보를 바탕으로 작업을 수행하도록 도와주는 완전히 관리되는 IoT(사물 인터넷) SaaS(Software-as-a-Service) 솔루션입니다.
 
@@ -33,7 +33,7 @@ Microsoft 엔터프라이즈 서비스를 사용하는 경우 Microsoft는 시�
 
 ## <a name="deleting-customer-data"></a>고객 데이터 삭제
 
-사용자 데이터를 삭제하는 기능은 IoT Central 관리 페이지를 통해서만 제공됩니다. 응용 프로그램 관리자는 삭제할 사용자를 선택 하 고 응용 프로그램의 오른쪽 위 모서리에서 **삭제** 를 선택 하 여 레코드를 삭제할 수 있습니다. 또한 애플리케이션 관리자는 해당 애플리케이션과 더 이상 연결되지 않는 개별 계정을 제거할 수 있습니다.
+사용자 데이터를 삭제하는 기능은 IoT Central 관리 페이지를 통해서만 제공됩니다. 애플리케이션 관리자는 삭제할 사용자를 선택하고 애플리케이션의 오른쪽 위에서 **삭제** 를 선택하여 레코드를 삭제할 수 있습니다. 또한 애플리케이션 관리자는 해당 애플리케이션과 더 이상 연결되지 않는 개별 계정을 제거할 수 있습니다.
 
 사용자가 삭제된 후에는 해당 사용자의 전자 메일로 더 이상 경고가 전송되지 않습니다. 그러나 구성된 각 경고에서 이들의 전자 메일 주소를 개별적으로 제거해야 합니다.
 

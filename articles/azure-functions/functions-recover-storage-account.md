@@ -3,12 +3,12 @@ title: '오류 해결: Azure Functions 런타임에 연결할 수 없음'
 description: 잘못된 스토리지 계정 문제를 해결하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 09/05/2018
-ms.openlocfilehash: 6353e40113c3552ec26b20ded1833c8eb88f9f16
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 392882fc2f0394e61aee973a20479d8f1fa9bc92
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137674"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104606976"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>오류 해결: “Azure Functions 런타임에 연결할 수 없음”
 
@@ -59,7 +59,7 @@ Azure Portal에서 스토리지 계정을 검색하여 계정이 아직 있는�
 * 함수 앱이 스토리지 계정에서 전송/수신하는 트래픽을 허용하는 올바른 네트워크 규칙을 포함하지 않고 ASE(App Service Environment)에 배포됩니다.
 
 * 스토리지 계정 방화벽이 사용하도록 설정되었는데 Functions에서 전송/수신하는 트래픽을 허용하도록 구성되지 않았습니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
-* `allowSharedKeyAccess` 설정이 기본값인 `true`로 설정되어 있는지 확인합니다. 자세한 내용은 [Azure Storage 계정에 대한 공유 키 권한 부여 방지](../storage/common/shared-key-authorization-prevent.md?tabs=portal#verify-that-shared-key-access-is-not-allowed)를 참조하세요. 
+* `allowSharedKeyAccess` 설정이 기본값인 `true`로 설정되어 있는지 확인합니다. 자세한 내용은 [Azure Storage 계정에 대한 공유 키 권한 부여 방지](https://docs.microsoft.com/azure/storage/common/shared-key-authorization-prevent?tabs=portal#verify-that-shared-key-access-is-not-allowed)를 참조하세요. 
 
 ## <a name="daily-execution-quota-is-full"></a>일일 실행 할당량이 꽉 참
 

@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure Synapse Analytics
-summary: Azure Synapse는 엔터프라이즈 데이터 웨어하우징과 빅 데이터 분석을 결합한 무제한 분석 서비스입니다. 또한 서버리스 주문형 리소스 또는 프로비저닝된 리소스를 규모에 맞게 사용하여 사용자의 용어로 데이터를 자유롭게 쿼리할 수 있습니다.
+summary: Azure Synapse는 엔터프라이즈 데이터 웨어하우징과 빅 데이터 분석을 결합한 무제한 분석 서비스입니다. 서버리스 또는 전용 리소스를 규모에 맞게 사용하여 데이터를 사용자의 용어로 자유롭게 쿼리할 수 있습니다.
 metadata:
   title: Azure Synapse Analytics
   description: Azure Synapse는 엔터프라이즈 데이터 웨어하우징과 빅 데이터 분석을 결합한 무제한 분석 서비스입니다. 또한 서버리스 주문형 리소스 또는 프로비저닝된 리소스를 규모에 맞게 사용하여 사용자의 용어로 데이터를 자유롭게 쿼리할 수 있습니다.
@@ -12,12 +12,12 @@ metadata:
   author: julieMSFT
   ms.author: jrasnick
   ms.date: 12/01/2020
-  ms.openlocfilehash: 4fe151be6bf542b387b7b8dea915918fd59f34f8
-  ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+  ms.openlocfilehash: e44376c783a2c233b19b98526d457361e3408b93
+  ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 12/04/2020
-  ms.locfileid: "96606889"
+  ms.lasthandoff: 05/07/2021
+  ms.locfileid: "109516887"
 landingContent:
 - title: Azure Synapse Analytics 정보
   linkLists:

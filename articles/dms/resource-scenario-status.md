@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: fc2ab86a318086750b11780a7802aa3591065264
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d5706738a0d85beed839d324ae3da055cafe39a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463513"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747524"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Azure Database Migration Service에서 지원하는 마이그레이션 시나리오 상태
 
@@ -29,7 +29,7 @@ Azure Database Migration Service를 사용하면, 오프라인 또는 온라인 
 
 ## <a name="migration-scenario-status"></a>마이그레이션 시나리오 상태
 
-Azure Database Migration Service에서 지원하는 마이그레이션 시나리오 상태는 시간에 따라 달라집니다. 일반적으로 시나리오는 처음에 **프라이빗 미리 보기** 로 릴리스됩니다. 고객이 프라이빗 미리 보기에 참여하려면 [DMS 미리 보기 사이트](https://aka.ms/dms-preview)를 통해 추천을 제출해야 합니다. 프라이빗 미리 보기 후에는 시나리오 상태가 **퍼블릭 미리 보기** 로 변경됩니다. Azure Database Migration Service 사용자는 직접 사용자 인터페이스에서 퍼블릭 미리 보기로 마이그레이션 시나리오를 사용해 볼 수 있습니다. 가입은 필요하지 않습니다.  그러나 모든 지역에서 퍼블릭 미리 보기로 마이그레이션 시나리오를 사용할 수 있는 것은 아니며, 최종 릴리스 전에 추가 변경 사항이 발생할 수 있습니다. 퍼블릭 미리 보기 후에는 시나리오 상태가 **일반 공급** 으로 변경됩니다. GA(일반 공급)는 최종 릴리스 상태이며 기능이 완전히 갖춰지고 모든 사용자가 액세스할 수 있습니다.
+Azure Database Migration Service에서 지원하는 마이그레이션 시나리오 상태는 시간에 따라 달라집니다. 일반적으로 시나리오는 처음에 **프라이빗 미리 보기** 로 릴리스됩니다. 프라이빗 미리 보기 후에는 시나리오 상태가 **퍼블릭 미리 보기** 로 변경됩니다. Azure Database Migration Service 사용자는 직접 사용자 인터페이스에서 퍼블릭 미리 보기로 마이그레이션 시나리오를 사용해 볼 수 있습니다. 가입은 필요하지 않습니다.  그러나 모든 지역에서 퍼블릭 미리 보기로 마이그레이션 시나리오를 사용할 수 있는 것은 아니며, 최종 릴리스 전에 추가 변경 사항이 발생할 수 있습니다. 퍼블릭 미리 보기 후에는 시나리오 상태가 **일반 공급** 으로 변경됩니다. GA(일반 공급)는 최종 릴리스 상태이며 기능이 완전히 갖춰지고 모든 사용자가 액세스할 수 있습니다.
 
 ## <a name="migration-scenario-support"></a>마이그레이션 시나리오 지원
 
@@ -37,9 +37,6 @@ Azure Database Migration Service에서 지원하는 마이그레이션 시나리
 
 > [!NOTE]
 > 아래에 지원되는 것으로 표시되는 시나리오가 사용자 인터페이스에 나타나지 않으면 [Azure Database Migrations에 문의](mailto:AskAzureDatabaseMigrations@service.microsoft.com)하여 추가 정보를 요청하세요.
-
-> [!IMPORTANT]
-> 현재 Azure Database Migration Service에서 프라이빗 미리 보기로 지원되는 모든 시나리오를 보려면 [DMS 미리 보기 사이트](https://aka.ms/dms-preview)를 참조하세요.
 
 ### <a name="offline-one-time-migration-support"></a>오프라인(일회성) 마이그레이션 지원
 
@@ -56,10 +53,11 @@ Azure Database Migration Service에서 지원하는 마이그레이션 시나리
 | **Azure SQL VM** | SQL Server | ✔ | GA |
 |   | Oracle | X |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **MySQL용 Azure DB** | MySQL | X |   |
+| **MySQL용 Azure DB** | MySQL | ✔ |   |
 |   | RDS MySQL | X |   |
 | **Azure DB for PostgreSQL - 단일 서버** | PostgreSQL | X |
 |  | RDS PostgreSQL | X |   |
+|  | Oracle | X |   |
 | **Azure DB for PostgreSQL - 하이퍼스케일(Citus)** | PostgreSQL | X |
 |  | RDS PostgreSQL | X |   |
 
@@ -83,12 +81,9 @@ Azure Database Migration Service에서 지원하는 마이그레이션 시나리
 | **Azure DB for PostgreSQL - 단일 서버** | PostgreSQL | ✔ | GA |
 |   | Azure DB for PostgreSQL - 단일 서버 | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
-|   | Oracle | ✔ | 퍼블릭 미리 보기(2021년 5월 1일 이후에는 사용되지 않음) |
+|   | Oracle | X |   |
 | **Azure DB for PostgreSQL - 하이퍼스케일(Citus)** | PostgreSQL | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
-
-> [!IMPORTANT]
-> "Oracle을 Azure Database for PostgreSQL로" 마이그레이션 시나리오(현재 미리 보기 상태)는 2021년 5월 1일 이후에는 더 이상 사용할 수 없습니다. Ora2pg와 같은 대체 도구를 통해 계속 지원을 제공하고 Oracle에서 PostgreSQL로의 마이그레이션을 위한 최상의 마이그레이션 환경을 제공할 예정입니다. 마이그레이션 모범 사례는 [Oracle을 Azure Database for PostgreSQL로 마이그레이션 가이드](https://aka.ms/OracletoPGguide)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
