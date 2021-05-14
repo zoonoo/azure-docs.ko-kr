@@ -4,13 +4,14 @@
   displayName: 'IoT, OT, getting started'
   href: overview.md
   items:
-    - name: 에이전트 없는 솔루션 아키텍처
+    - name: 새로운 기능
+      displayName: 'version, versions, servicing, information, timeline, support, support date, dates, versioning, policy'
+      href: release-notes.md
+    - name: 에이전트 없는 솔루션 아키텍처란
       displayName: 'deployment, where to deploy'
       href: architecture.md
-    - name: 에이전트 기반 솔루션 아키텍처
+    - name: 에이전트 기반 솔루션 아키텍처란
       href: architecture-agent-based.md
-- name: 새로운 기능
-  href: release-notes.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -20,7 +21,7 @@
           displayName: 'firewall, proxy, open ports'
           href: quickstart-system-prerequisites.md
         - name: Azure Defender for IoT 시작
-          displayName: 'getting started, registration, onboarding'
+          displayName: 'getting started, registration, onboarding, activation, threat intelligence'
           href: getting-started.md
     - name: 디바이스 빌더를 위한 에이전트 기반 솔루션
       items:
@@ -35,7 +36,7 @@
         - name: 소스 코드에서 IoT용 Defender 마이크로 에이전트 빌드(미리 보기)
           displayName: 'baseline, configuration, customize, distribution'
           href: quickstart-building-the-defender-micro-agent-from-source.md
-        - name: Azure RTOS용 보안 모듈 구성
+        - name: Azure RTOS용 Defender-IoT-micro-agent 구성
           href: quickstart-azure-rtos-security-module.md
         - name: IoT 솔루션에 Azure 리소스 추가
           displayName: 'resources, monitored, resource'
@@ -79,10 +80,10 @@
           href: concept-recommendations.md
         - name: Classic
           items:
-            - name: 보안 모듈
-              displayName: 'device twins, security module twin'
+            - name: Defender-IoT-micro-agent
+              displayName: 'device twins, Defender-IoT-micro-agent twin'
               href: concept-security-module.md
-            - name: Edge 보안 모듈
+            - name: Edge Defender-IoT-micro-agent
               href: security-edge-architecture.md
             - name: 보안 에이전트
               href: overview-security-agents.md
@@ -93,9 +94,9 @@
               displayName: 'custom, setting, properties'
               href: concept-baseline.md
             - name: Azure Defender for IoT용 Azure 보안 기준
-              displayName: 'identity management, active directory, privileged access, data protection, asset management, incident response, posture, vulnerability, governance'
-              href: security-baseline.md
-            - name: 보안 모듈 클래식 이벤트 집계
+              displayName: 'identity management, active directory, privileged access, data protection, incident response, posture, vulnerability, governance'
+              href: /security/benchmark/azure/baselines/defender-for-iot-security-baseline?toc=/azure/defender-for-iot/TOC.json
+            - name: Defender-IoT-micro-agent 클래식 이벤트 집계
               displayName: 'twin, default, configuration, alerts'
               href: event-aggregation.md
             - name: 에이전트 기반 보안 경고
@@ -111,30 +112,41 @@
         - name: 네트워크 준비
           items:
             - name: 필수 어플라이언스 식별
-              displayName: 'virtual, Dell, HPE, SMB, certified, hardware, deployment'
               href: how-to-identify-required-appliances.md
+              displayName: 'virtual, Dell, HPE, SMB, certified, hardware, deployment, DL20, EL300, R340, enterprise, SMB, corporate'
             - name: 네트워크 설정
-              displayName: 'passive, browsers, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning'
+              displayName: 'passive, browsers, setup, deployment, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning, QOS, QoS, Quality of Service'
               href: how-to-set-up-your-network.md
             - name: 소프트웨어 설치
-              displayName: 'virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, install'
+              displayName: 'setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate, NIC, second, secondary, network, interface, network interface, appliance, Nuvo 5006LP, Fitlet2, BIOS, sanity, mirroring, port, ports'
               href: how-to-install-software.md
+        - name: 센서 준비
+          items:
+            - name: 온보드 센서
+              displayName: 'onboard, cloud, register, version, activate, offboard, subscription, threat intelligence, packages, connected'
+              href: how-to-manage-sensors-on-the-cloud.md
+            - name: 센서 활성화 및 설정
+              displayName: 'deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial'
+              href: how-to-activate-and-set-up-your-sensor.md
+        - name: 온-프레미스 관리 콘솔 준비
+          items:
+            - name: 구독 관리
+              displayName: 'onboard, offboard, subscription, billing, pricing, payment'
+              href: how-to-manage-subscriptions.md
+            - name: 온-프레미스 관리 콘솔 활성화 및 설정
+              displayName: 'deployment, activate, certificate, sign in, SSL, TLS, login, setup, initial, committed activation file'
+              href: how-to-activate-and-set-up-your-on-premises-management-console.md
+            - name: 고가용성 설정
+              displayName: 'primary, secondary, failover, failback fail, recovery'
+              href: how-to-set-up-high-availability.md
         - name: 센서 준비
           items:
             - name: 온보드 센서
               displayName: 'onboard, cloud, register, activate, offboard, subscription, subscriptions'
               href: how-to-manage-sensors-on-the-cloud.md
             - name: 센서 활성화 및 설정
-              displayName: 'onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial'
+              displayName: 'deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial'
               href: how-to-activate-and-set-up-your-sensor.md
-        - name: 온-프레미스 관리 콘솔 준비
-          items:
-            - name: 온-프레미스 관리 콘솔 활성화 및 설정
-              displayName: 'activate, certificate, sign in, SSL, TLS, login, setup, initial, committed activation file'
-              href: how-to-activate-and-set-up-your-on-premises-management-console.md
-            - name: 고가용성 설정
-              displayName: 'primary, secondary, failover, failback fail, recovery'
-              href: how-to-set-up-high-availability.md
         - name: 사용자 및 사용자 액세스 관리
           items:
             - name: 사용자 만들기 및 관리
@@ -144,7 +156,7 @@
               href: how-to-define-global-user-access-control.md
               displayName: 'business unit, site, region, user'
         - name: 모니터링된 트래픽 제어
-          displayName: 'Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets'
+          displayName: 'Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets, active, probing, scanning, switch'
           href: how-to-control-what-traffic-is-monitored.md
         - name: 온-프레미스 관리 콘솔에서 센서 관리
           displayName: 'disconnect, connect, activation file, sensor backup'
@@ -155,10 +167,11 @@
         - name: 클라우드에서 센서 관리
           href: how-to-manage-sensors-on-the-cloud.md
         - name: 온-프레미스 관리 콘솔 관리
-          displayName: 'upgrade, activation, certificate, software update, backup, restore, proxy, password recovery'
           href: how-to-manage-the-on-premises-management-console.md
+          displayName: 'mail, SMTP, activation, certificate, software update, backup, restore, proxy, password recovery'
         - name: 위협 인텔리전스 패키지 작업
           href: how-to-work-with-threat-intelligence-packages.md
+          displayName: 'packages, automatic, intelligence, push, threat'
         - name: 디바이스 인벤토리 정보 작업
           items:
             - name: 디바이스 인벤토리에서 모든 엔터프라이즈 센서 감지 조사
@@ -166,23 +179,26 @@
               displayName: classification
             - name: 디바이스 인벤토리에서 센서 감지 조사
               href: how-to-investigate-sensor-detections-in-a-device-inventory.md
-              displayName: 'classification, Windows registry, asset, device, firmware, import'
+              displayName: 'classification, Windows registry, device, firmware, import'
         - name: 센서 디바이스 맵 작업
           href: how-to-work-with-the-sensor-device-map.md
-          displayName: 'connections, Purdue, zoom, delete device'
+          displayName: 'connections, Purdue, zoom, delete device, authorized, unauthorized, programming, filter, groups, custom, zoom, connection, important device, IT network'
         - name: 센서가 감지한 경고 작업
           items:
-            - name: 센서의 경고 사용
+            - name: 센서 경고 이해
               href: how-to-work-with-alerts-on-your-sensor.md
-            - name: 보기 경고
+            - name: 경고 페이지에서 경고 필터링 및 관리
               href: how-to-view-alerts.md
-            - name: 경고에 제공된 정보 보기
+            - name: 경고 메시지 정보
               href: how-to-view-information-provided-in-alerts.md
-              displayName: PCAP
+              displayName: 'PCAP, metadata, alerts, link, device map,'
+            - name: 경고 유형 및 설명
+              href: alert-engine-messages.md
+              displayName: 'alert, alerts, description, engine, anomaly, protocol, policy, malware, violation, operational, severity, minor, major, critical, warning, alerts list, security alerts,'
             - name: 경고 이벤트 관리
               href: how-to-manage-the-alert-event.md
               displayName: 'PCAP, acknowledge, learn, mute, policy'
-            - name: 경고 인시던트 응답 가속화
+            - name: 경고 워크플로 가속화
               href: how-to-accelerate-alert-incident-response.md
               displayName: 'custom, alerts, comments, groups'
             - name: 경고 정보 전달
@@ -191,6 +207,9 @@
         - name: '전역, 지역 및 로컬 위협에 대한 인사이트 확보'
           href: how-to-gain-insight-into-global-regional-and-local-threats.md
           displayName: 'site, business unit, region, map'
+        - name: '영역당 몇 가지 정보 디바이스, 경고 및 센서'
+          href: how-to-view-information-per-zone.md
+          displayName: zones
         - name: 온-프레미스 관리 콘솔의 경고 작업
           href: how-to-work-with-alerts-on-premises-management-console.md
         - name: 보고서 만들기
@@ -218,10 +237,14 @@
             - name: 디바이스 정보 가져오기
               displayName: 'import, enrich'
               href: how-to-import-device-information.md
+            - name: WMI(Windows 엔드포인트 모니터링) 정의
+              displayName: 'scan, probe, active'
+              href: how-to-configure-windows-endpoint-monitoring.md
         - name: 센서 동작 추적
           displayName: 'timeline, time line, time-line, event'
           href: how-to-track-sensor-activity.md
         - name: 센서 및 온-프레미스 관리 콘솔 문제 해결
+          displayName: 'widget, password, traffic, broadcast, unicast, NTP, quality of service'
           href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
         - name: SNMP MIB 모니터링 설정
           href: how-to-set-up-snmp-mib-monitoring.md
@@ -253,14 +276,14 @@
         - name: 사용자 지정 경고 만들기
           displayName: security group
           href: quickstart-create-custom-alerts.md
-        - name: Azure RTOS용 보안 모듈
+        - name: Azure RTOS용 Defender-IoT-micro-agent
           href: iot-security-azure-rtos.md
           items:
-            - name: Azure RTOS용 보안 모듈 작업
+            - name: Azure RTOS용 Defender-IoT-micro-agent 사용
               href: how-to-azure-rtos-security-module.md
-            - name: Azure RTOS용 보안 모듈 이해
+            - name: Azure RTOS용 Defender-IoT-micro-agent 이해
               href: concept-rtos-security-module.md
-            - name: Azure RTOS용 보안 모듈 경고 및 권장 사항
+            - name: Azure RTOS 경고 및 권장 사항에 대한 Defender-IoT-micro-agent
               href: concept-rtos-security-alerts-recommendations.md
         - name: Classic
           items:
@@ -282,7 +305,7 @@
                   href: azure-iot-security-local-configuration-c.md
                 - name: 로컬 구성 C#
                   href: azure-iot-security-local-configuration-csharp.md
-            - name: Edge 보안 모듈 배포
+            - name: Edge Defender-IoT-micro-agent 배포
               href: how-to-deploy-edge.md
             - name: 보안 에이전트 구성
               displayName: property
@@ -295,16 +318,11 @@
             - name: 디바이스 조사
               displayName: 'access, data, kql, ports, logins, process'
               href: how-to-investigate-device.md
-- name: 문제 해결
-  items:
-    - name: Defender IoT 마이크로 에이전트 문제 해결(미리 보기)
-      displayName: 'service status, review logs'
-      href: troubleshoot-defender-micro-agent.md
-- name: 기능 지원 및 사용 중지
-  items:
-    - name: 기능 지원 및 사용 중지
-      displayName: 'C, C#, deprecation, support'
-      href: edge-security-module-deprecation.md
+    - name: 문제 해결
+      items:
+        - name: Defender IoT 마이크로 에이전트 문제 해결(미리 보기)
+          displayName: 'service status, review logs'
+          href: troubleshoot-defender-micro-agent.md
 - name: 참조
   items:
     - name: 조직을 위한 에이전트 없는 솔루션
@@ -319,40 +337,43 @@
           href: references-work-with-defender-for-iot-cli-commands.md
         - name: 독점 프로토콜 관리(Horizon)
           href: resources-manage-proprietary-protocols.md
+        - name: 질문과 대답 - 서비스
+          displayName: 'FAQ, regulation, internet, connection, hardware, appliances, ports, logs'
+          href: resources-frequently-asked-questions.md
     - name: 디바이스 빌더를 위한 에이전트 기반 솔루션
       items:
-        - name: Azure RTOS API용 보안 모듈
+        - name: Azure RTOS용 Defender-IoT-micro-agent API
           displayNAme: 'prototype, disable'
           href: azure-rtos-security-module-api.md
-        - name: 질문과 대답 - 서비스
-          displayName: 'regulation, internet, connection, hardware, appliances, ports, logs'
-          href: resources-frequently-asked-questions.md
         - name: 질문과 대답 - 에이전트
-          displayName: 'embedded, dependencies, data, quota, internet,'
+          displayName: 'FAQ, embedded, dependencies, data, quota, internet,'
           href: resources-agent-frequently-asked-questions.md
         - name: Azure 로드맵
           href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: Defender for IoT 용어집
       href: references-defender-for-iot-glossary.md
+    - name: 기능 지원 및 사용 중지
+      items:
+        - name: 기능 지원 및 사용 중지
+          displayName: 'C, C#, deprecation, support'
+          href: edge-security-module-deprecation.md
 - name: 리소스
   items:
+    - name: Microsoft Learn을 통해 보안 기술 쌓기
+      href: /learn/browse/?term=securityS&terms=securityS
+    - name: Azure Security Center 설명서
+      href: ../security-center/
+    - name: Azure 보안 설명서
+      href: ../security/index.yml
+    - name: 'Azure IoT 보안, 개인 정보 보호 및 규정 준수 블로그'
+      href: 'https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/azure-defender/'
+    - name: 동영상
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest'
     - name: 디바이스 빌더를 위한 에이전트 기반 솔루션
       items:
-        - name: Microsoft Learn을 통해 보안 기술 쌓기
-          href: /learn/browse/?term=securityS&terms=securityS
-        - name: Azure Security Center 설명서
-          href: ../security-center/
-        - name: Azure 보안 설명서
-          href: ../security/index.yml
-        - name: Stack Overflow의 Azure RTOS 보안 모듈
+        - name: Stack Overflow의 Azure RTOS Defender-IoT-micro-agent
           href: 'https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module'
-        - name: 'Azure IoT 보안, 개인 정보 보호 및 규정 준수 블로그'
-          href: 'https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity'
-        - name: 국가별 가용성
-          href: 'https://azure.microsoft.com/regions/services/'
-        - name: 가격 책정
-          href: 'https://azure.microsoft.com/pricing/details/azure-defender/'
-        - name: Azure Defender for IoT에 대한 지원 정책
-          href: support-policies.md
-        - name: 동영상
-          href: 'https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest'

@@ -12,6 +12,12 @@ items:
         href: create-catalog-portal.md
       - name: Purview 계정 만들기 - Azure PowerShell
         href: create-catalog-powershell.md
+      - name: Purview 계정 만들기 - .NET SDK
+        href: create-purview-dotnet.md
+      - name: Purview 계정 만들기 - Python
+        href: create-purview-python.md
+      - name: Kafka 알림 관리 - .NET
+        href: manage-kafka-dotnet.md
   - name: 자습서
     items:
       - name: 시작 키트
@@ -71,6 +77,8 @@ items:
             href: manage-integration-runtimes.md
           - name: 연결 문제 해결
             href: troubleshoot-connections.md
+          - name: 리소스 집합 패턴 규칙
+            href: how-to-resource-set-pattern-rules.md
           - name: 원본
             items:
               - name: 데이터 원본 관리
@@ -79,6 +87,8 @@ items:
                 href: purview-connector-overview.md
               - name: Azure 다중 소스
                 href: register-scan-azure-multiple-sources.md
+              - name: Azure Synapse Analytics(작업 영역)
+                href: register-scan-synapse-workspace.md
               - name: Azure Blob Storage
                 href: register-scan-azure-blob-storage-source.md
                 displayName: Register and scan azure blob storage
@@ -100,7 +110,7 @@ items:
               - name: Azure SQL Database Managed Instance
                 href: register-scan-azure-sql-database-managed-instance.md
                 displayName: Register and scan Azure SQL DB Managed Instance
-              - name: Azure Synapse Analytics
+              - name: Azure 전용 SQL 풀(이전 SQL DW)
                 href: register-scan-azure-synapse-analytics.md
               - name: 온-프레미스 SQL Server
                 href: register-scan-on-premises-sql-server.md
@@ -148,6 +158,10 @@ items:
             href: how-to-link-azure-data-factory.md
           - name: Azure Data Share 계보
             href: how-to-link-azure-data-share.md
+          - name: Power BI 계보
+            href: how-to-lineage-powerbi.md
+          - name: Spark 계보
+            href: how-to-lineage-spark-atlas-connector.md
       - name: 모니터
         items:
           - name: Azure Monitor로 모니터링
@@ -170,9 +184,21 @@ items:
         items:
           - name: 프라이빗 엔드포인트 관리
             href: catalog-private-link.md
+      - name: 재해 복구
+        items:
+          - name: 재해 복구
+            href: disaster-recovery.md
   - name: 참조
     items:
       - name: 지원되는 분류
         href: supported-classifications.md
       - name: ABAP 함수 배포 가이드
         href: abap-functions-deployment-guide.md
+  - name: 리소스
+    items:
+      - name: 기능 피드백(사용자 의견)
+        href: 'https://feedback.azure.com/forums/932437-azure-purview'
+      - name: 요금 계산기
+        href: 'https://azure.microsoft.com/pricing/details/azure-purview/'
+      - name: Microsoft Q&A 포럼
+        href: /answers/topics/azure-purview.html

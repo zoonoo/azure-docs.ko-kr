@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/30/2021
 ms.author: pafarley
 keywords: 컴퓨터 비전, 컴퓨터 비전 애플리케이션, 컴퓨터 비전 서비스
-ms.openlocfilehash: 0258eb7c57bc0734b5c0a67644cbaa4f62a34537
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6e4be05d6b1c930c66c775d7b3c893e5bad4da7e
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107766918"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109714533"
 ---
 # <a name="what-is-image-analysis"></a>이미지 분석이란?
 
@@ -24,7 +24,7 @@ ms.locfileid: "107766918"
 
 Computer Vision 이미지 분석 서비스는 이미지에서 다양한 시각적 기능을 추출할 수 있습니다. 예를 들어 이미지에 성인 콘텐츠가 포함되어 있는지, 특정 브랜드 또는 개체를 찾거나, 사람의 얼굴을 찾는지 여부를 확인할 수 있습니다.
 
-클라이언트 라이브러리 SDK를 통해 또는 [REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v2-ga/operations/5d986960601faab4bf452005)를 직접 호출하여 이미지 분석을 사용할 수 있습니다. [빠른 시작](quickstarts-sdk/image-analysis-client-library.md)을 따라 시작하세요.
+클라이언트 라이브러리 SDK를 통해 또는 [REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005)를 직접 호출하여 이미지 분석을 사용할 수 있습니다. [빠른 시작](quickstarts-sdk/image-analysis-client-library.md)을 따라 시작하세요.
 
 이 설명서에는 다음과 같은 유형의 문서가 포함되어 있습니다.
 * [빠른 시작](./quickstarts-sdk/image-analysis-client-library.md)은 서비스를 호출하고 짧은 시간 내에 결과를 얻을 수 있는 단계별 지침입니다. 
@@ -34,7 +34,7 @@ Computer Vision 이미지 분석 서비스는 이미지에서 다양한 시각�
 
 ## <a name="image-analysis-features"></a>이미지 분석 기능
 
-이미지를 분석하여 이미지의 시각적 기능 및 특성에 대한 인사이트를 제공할 수 있습니다. 아래 목록의 모든 기능이 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b) API로 제공됩니다. [빠른 시작](./quickstarts-sdk/image-analysis-client-library.md)을 따라 시작하세요.
+이미지를 분석하여 이미지의 시각적 기능 및 특성에 대한 인사이트를 제공할 수 있습니다. 아래 목록의 모든 기능이 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API로 제공됩니다. [빠른 시작](./quickstarts-sdk/image-analysis-client-library.md)을 따라 시작하세요.
 
 
 ### <a name="tag-visual-features"></a>시각적 기능 태그 지정

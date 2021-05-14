@@ -18,7 +18,7 @@
       href: overview-percept-security.md
     - name: 80/20 통합
       href: overview-8020-integration.md
-    - name: Percept 디바이스 업데이트
+    - name: 디바이스 업데이트
       href: overview-update-experience.md
 - name: 빠른 시작
   items:
@@ -44,6 +44,10 @@
       items:
         - name: LED 및 단추 동작
           href: audio-button-led-behavior.md
+    - name: 보안
+      items:
+        - name: 방화벽 구성 및 보안 권장 사항
+          href: concept-security-configuration.md
 - name: 방법 가이드
   items:
     - name: Azure Percept DK를 사용한 비전 솔루션 개발
@@ -58,14 +62,16 @@
           href: how-to-view-telemetry.md
     - name: Azure Percept DK를 사용하여 음성 솔루션 개발
       items:
-        - name: Azure Percept Studio에서 음성 도우미 구성
-          href: how-to-configure-voice-assistant.md
         - name: IoT Hub에서 음성 도우미 구성
+          href: how-to-configure-voice-assistant.md
+        - name: Azure Percept Studio에서 음성 도우미 구성
           href: how-to-manage-voice-assistant.md
     - name: Azure Percept 디바이스 업데이트
       items:
         - name: 무선 업데이트 설정
           href: how-to-set-up-over-the-air-updates.md
+        - name: 업데이트 패키지 식별
+          href: how-to-select-update-package.md
         - name: 무선으로 Azure Percept DK 업데이트
           href: how-to-update-over-the-air.md
         - name: USB를 통해 Azure Percept DK 업데이트
@@ -78,7 +84,7 @@
           href: how-to-connect-to-percept-dk-over-serial.md
     - name: 도구
       items:
-        - name: Devtools 팩 설치 관리자
+        - name: Dev Tools Pack 설치 관리자
           href: dev-tools-installer.md
     - name: 문제 해결
       items:

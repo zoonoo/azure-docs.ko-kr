@@ -4,13 +4,13 @@ description: Azure Portal을 통해 가상 노드를 사용하여 Pod를 실행�
 services: container-service
 ms.topic: conceptual
 ms.date: 03/15/2021
-ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: c1ecaa88dd5329d86818565983a6ba891a6d8424
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: references_regions
+ms.openlocfilehash: fad021dc92753013234a3b0831e76e87fa25db10
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104577831"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769304"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Azure Portal에서 가상 노드를 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기 및 구성
 
@@ -21,7 +21,7 @@ ms.locfileid: "104577831"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-가상 노드는 ACI(Azure Container Instances)에서 실행되는 Pod와 AKS 클러스터 간의 네트워크 통신을 활성화합니다. 이 통신을 제공하기 위해 가상 네트워크 서브넷이 만들어지고 위임된 사용 권한이 할당됩니다. 가상 노드는 고급 네트워킹(Azure CNI)을 사용하여 만든 AKS 클러스터에서만 작동합니다. 기본적으로 AKS 클러스터는 기본 네트워킹(kubenet)을 사용하여 생성됩니다. 이 문서에서는 가상 네트워크 및 서브넷을 만든 다음, 고급 네트워킹을 사용하는 AKS 클러스터에 배포하는 방법을 보여 줍니다.
+가상 노드는 ACI(Azure Container Instances)에서 실행되는 Pod와 AKS 클러스터 간의 네트워크 통신을 활성화합니다. 이 통신을 제공하기 위해 가상 네트워크 서브넷이 만들어지고 위임된 사용 권한이 할당됩니다. 가상 노드는 ‘고급’ 네트워킹(Azure CNI)을 사용하여 만든 AKS 클러스터에서만 작동합니다. 기본적으로 AKS 클러스터는 ‘기본’ 네트워킹(kubenet)을 사용하여 생성됩니다. 이 문서에서는 가상 네트워크 및 서브넷을 만든 다음, 고급 네트워킹을 사용하는 AKS 클러스터에 배포하는 방법을 보여 줍니다.
 
 이전에 ACI를 사용하지 않은 경우 구독에서 서비스 공급자를 등록합니다. 다음 예제와 같이 [az provider list][az-provider-list] 명령을 사용하여 ACI 공급자 등록의 상태를 확인할 수 있습니다.
 
@@ -45,7 +45,7 @@ az provider register --namespace Microsoft.ContainerInstance
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 
@@ -210,9 +210,9 @@ curl -L http://10.241.0.4
 
 <!-- LINKS - internal -->
 [aks-network]: ./configure-azure-cni.md
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
-[az-provider-list]: /cli/azure/provider#az-provider-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-provider-list]: /cli/azure/provider#az_provider_list
+[az-provider-register]: /cli/azure/provider#az_provider_register

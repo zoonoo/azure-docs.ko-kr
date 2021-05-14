@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/28/2021
+ms.date: 05/04/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 12764a636d9a40cf731cf72242b7464b9e8fbe02
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 44b8f4e6fa6a3d9063d335012d8b9a2ca9be84e8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108178262"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108765895"
 ---
-|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure Arc 사용 Kubernetes 클러스터에 Azure Defender의 확장이 설치되어 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8dfab9c4-fe7b-49ad-85e4-1e9be085358f) |Azure Arc용 Azure Defender 확장은 Arc 지원 Kubernetes 클러스터에 대한 위협 보호를 제공합니다. 확장은 클러스터의 모든 제어 평면(마스터) 노드에서 데이터를 수집하고 추가 분석을 위해 클라우드의 Azure Defender for Kubernetes 백엔드로 보냅니다. [https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-azure-arc](https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-azure-arc)에서 자세히 알아보세요. |AuditIfNotExists, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ASC_Audit_Azure_Defender_Kubernetes_Arc_Extension.json) |
 |[HTTPS 비밀을 사용하여 지정된 GitOps 구성으로 Kubernetes 클러스터 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6f560f4-f582-4b67-b123-a37dcd1bf7ea) |'sourceControlConfiguration'을 Kubernetes 클러스터에 배포하여 클러스터에서 정의된 git 리포지토리로부터 워크로드 및 구성에 대한 올바른 원본을 가져올 수 있도록 합니다. 이 정의에는 Key Vault에 저장된 HTTPS 사용자 및 키 비밀이 필요합니다. 지침은 [https://aka.ms/K8sGitOpsPolicy](https://aka.ms/K8sGitOpsPolicy)를 방문하세요. |deployIfNotExists, auditIfNotExists, disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/Deploy-GitOps-to-Kubernetes-cluster-HTTPS-secrets_DINE.json) |

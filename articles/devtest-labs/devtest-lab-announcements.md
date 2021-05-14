@@ -1,13 +1,13 @@
 ---
-title: Azure DevTest Labs에서 랩에 공지 게시 Microsoft Docs
-description: 기존 랩에서 사용자 지정 공지를 게시 하 여 Azure DevTest Labs에서 랩에 대 한 최근 변경 내용 또는 추가 사항을 사용자에 게 알리는 방법에 대해 알아봅니다.
+title: Azure DevTest Labs에서 랩에 공지 게시 | Microsoft Docs
+description: 기존 랩에서 사용자 지정 공지를 게시하여 Azure DevTest Labs에서 랩에 대한 최근 변경 내용 또는 추가 내용을 사용자에게 알리는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 72c6ed7ab691ece094673ff5a158ffa769a9f7a1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88270770"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 공지 게시
@@ -156,4 +156,4 @@ ms.locfileid: "88270770"
 
 ## <a name="next-steps"></a>다음 단계
 * 랩 정책을 변경하거나 설정하는 경우 사용자에게 알리기 위해 공지를 게시할 수 있습니다. [정책 및 일정 설정](devtest-lab-set-lab-policy.md)은 사용자 지정된 정책을 사용하여 구독에 제한 사항 및 규칙을 적용하는 방법에 대한 정보를 제공합니다.
-* [DevTest Labs Azure Resource Manager 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)를 탐색 합니다.
+* [DevTest Labs Azure Resource Manager 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)를 탐색합니다.

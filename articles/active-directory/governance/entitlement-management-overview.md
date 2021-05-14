@@ -3,7 +3,7 @@ title: 권한 관리란? - Azure AD
 description: Azure Active Directory 권한 관리에 대한 개요와 이를 사용하여 내부 및 외부 사용자의 그룹, 애플리케이션 및 SharePoint Online 사이트에 대한 액세스를 관리하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
 ms.date: 11/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 7efaaf9cbfdb13c80ce653c99d05da451c2b8968
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a0e4bb393e522d54bb259e1a85c645fe7f3f5e48
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100547318"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786360"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Azure AD 권한 관리란?
 

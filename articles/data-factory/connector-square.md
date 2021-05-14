@@ -1,18 +1,18 @@
 ---
 title: Square에서 데이터 복사(미리 보기)
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Square에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/03/2020
-ms.openlocfilehash: ac10e42d338e0ddd44cb3c07709645a69653808d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 481407b54c6a99bca1dbc0f8ea7f8446c8c785c2
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100384795"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109484256"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Azure Data Factory(미리 보기)를 사용하여 Square에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -35,7 +35,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 ## <a name="getting-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 Square 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -55,7 +55,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 | refreshToken | Square에서 가져온 새로 고침 토큰입니다. 현재 토큰이 만료될 때 새 액세스 토큰을 가져오는 데 사용됩니다.<br>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
 | useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름을 서버의 호스트 이름과 일치시킬지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
-| usePeerVerification | TLS를 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
+| usePeerVerification | TLS를 통해 연결할 때 서버의 ID 확인 여부를 지정합니다. 기본값은 true입니다.  | 예 |
 
 Square는 **개인** 및 **OAuth** 라는 두 가지 형식의 액세스 토큰을 지원합니다.
 

@@ -7,16 +7,14 @@ ms.date: 04/09/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 6032300bd203db78e8cd147cf79300d6dcd9b1dc
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 87f188b414791636e147a19202b6fcf314d6f307
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751691"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109683666"
 ---
 # <a name="transform-data-for-iot-central"></a>IoT Central에 대한 데이터 변환
-
-‘이 항목은 솔루션 작성기에 적용됩니다.’
 
 IoT 디바이스는 다양한 형식으로 데이터를 전송합니다. IoT Central 애플리케이션에서 디바이스 데이터를 사용하려면 변환을 통해 다음을 수행해야 할 수 있습니다.
 
@@ -33,17 +31,17 @@ IoT 디바이스는 다양한 형식으로 데이터를 전송합니다. IoT Cen
 
 다음 표에서는 세 가지 예제 변환 형식을 보여 줍니다.
 
-| 변환 | 설명 | 예제  | 참고 |
+| 변환 | 설명 | 예제  | 메모 |
 |------------------------|-------------|----------|-------|
 | 메시지 형식         | JSON 메시지로 변환하거나 JSON 메시지를 조작합니다. | CSV에서 JSON으로  | 수신 시. IoT Central은 JSON 메시지 값만 허용합니다. 자세히 알아보려면 [원격 분석, 속성 및 명령 페이로드](concepts-telemetry-properties-commands.md)를 참조하세요. |
 | 계산이           | [Azure Functions](../../azure-functions/index.yml)가 실행할 수 있는 수학 함수입니다. | 화씨에서 섭씨로 단위 변환.  | 송신 패턴으로 변환하여 IoT Central에 대한 직접 연결을 통해 스케일링 가능한 디바이스 수신을 활용합니다. 데이터를 변환하면 시각화 및 작업과 같은 IoT Central 기능을 사용할 수 있습니다. |
 | 메시지 보강     | 디바이스 속성 또는 원격 분석에 없는 외부 데이터 원본의 보강입니다. 내부 보강에 관해 자세히 알아보려면 [데이터 내보내기를 사용하여 클라우드 대상으로 IoT 데이터 내보내기](howto-export-data.md)를 참조하세요. | 디바이스에서 위치 데이터를 사용하여 메시지에 날씨 정보를 추가합니다. | 송신 패턴으로 변환하여 IoT Central에 대한 직접 연결을 통해 스케일링 가능한 디바이스 수신을 활용합니다. |
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서의 단계를 완료하려면 활성 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+이 방법 가이드의 단계를 완료하려면 다음이 필요합니다.
 
-솔루션을 설정하려면 IoT Central 애플리케이션이 필요합니다. IoT Central 애플리케이션을 만드는 방법을 알아보려면 [Azure IoT Central 애플리케이션 만들기](quick-deploy-iot-central.md)를 참조하세요.
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
 
 ## <a name="data-transformation-at-ingress"></a>수신 시 데이터 변환
 
@@ -87,6 +85,8 @@ IoT Edge 모듈을 사용하여 데이터가 IoT Central에 전송되기 전에 
   }
 }
 ```
+
+[![코드 찾아보기](media/common/browse-code.svg)](https://github.com/iot-for-all/iot-central-transform-with-iot-edge)
 
 다음 단계에서는 이 시나리오를 설정하고 구성하는 방법을 보여 줍니다.
 
@@ -144,7 +144,7 @@ IoT Edge 런타임은 Azure 컨테이너 레지스트리 또는 Docker Hub와 �
 
 1. **+ 새로 만들기** 를 선택하고, **IoT 디바이스** 를 선택하고, **다음: 사용자 지정** 을 선택합니다.
 
-1. 템플릿 이름으로 ‘자동 온도 조절기’를 입력하고 **다음: 검토** 를 선택합니다. 그런 다음 **만들기** 를 선택합니다.
+1. 템플릿 이름으로 ‘자동 온도 조절기’를 입력하고 **다음: 검토** 를 선택합니다. 그런 다음 **생성** 를 선택합니다.
 
 1. **모델 가져오기** 를 선택하고 이전에 다운로드한 *thermostat-2.json* 파일을 가져옵니다.
 
@@ -500,7 +500,7 @@ IoT Central 애플리케이션에 디바이스 템플릿을 추가하려면 IoT 
 
 1. IoT Central 애플리케이션에 로그인하고 **디바이스 템플릿** 페이지로 이동합니다.
 
-1. **+ 새로 만들기** 를 선택하고, **IoT 디바이스** 를 선택하고, **다음: 사용자 지정** 을 선택하고, 템플릿 이름으로 ‘계산 모델’을 입력합니다. 완료되면 **다음: 검토** 를 클릭합니다. 그런 다음 **만들기** 를 선택합니다.
+1. **+ 새로 만들기** 를 선택하고, **IoT 디바이스** 를 선택하고, **다음: 사용자 지정** 을 선택하고, 템플릿 이름으로 ‘계산 모델’을 입력합니다. 완료되면 **다음: 검토** 를 클릭합니다. 그런 다음 **생성** 를 선택합니다.
 
 1. **모델 가져오기** 를 선택하고 이전에 다운로드한 *model.json* 으로 이동합니다.
 

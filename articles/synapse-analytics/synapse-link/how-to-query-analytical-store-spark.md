@@ -10,12 +10,12 @@ ms.date: 09/15/2020
 ms.author: rosouz
 ms.reviewer: jrasnick
 ms.custom: cosmos-db
-ms.openlocfilehash: 4a8367ea41ea96d8a412af965346684737d190fe
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5e2458ebcdcc1b2dba598b5d443b8eab12312e7d
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105627577"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788965"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link"></a>Azure Synapse Link에서 Apache Spark를 사용하여 Azure Cosmos DB와 상호 작용
 
@@ -128,7 +128,7 @@ df.write.format("cosmos.oltp").
 ## <a name="load-streaming-dataframe-from-container"></a>컨테이너에서 스트리밍 DataFrame 로드
 이 제스처에서는 Spark Streaming 기능을 사용하여 컨테이너에서 데이터 프레임으로 데이터를 로드합니다. 데이터는 작업 영역에 연결된 기본 데이터 레이크 계정(및 파일 시스템)에 저장됩니다. 
 > [!NOTE]
-> Synapse Apache Spark에서 외부 라이브러리를 참조하려면 [여기](#external-library-management)를 참조하세요. 예를 들어 Cosmos DB API for Mongo DB의 컨테이너로 Spark 데이터 프레임을 수집하려는 경우 [여기](https://docs.mongodb.com/spark-connector/master/)서 Spark용 Mongo DB를 활용할 수 있습니다.
+> Synapse Apache Spark에서 외부 라이브러리를 참조하려면 [여기](../spark/apache-spark-azure-portal-add-libraries.md)를 참조하세요. 예를 들어 Cosmos DB API for Mongo DB의 컨테이너로 Spark 데이터 프레임을 수집하려는 경우 [여기](https://docs.mongodb.com/spark-connector/master/)서 Spark용 Mongo DB를 활용할 수 있습니다.
 
 ## <a name="load-streaming-dataframe-from-azure-cosmos-db-container"></a>Azure Cosmos DB 컨테이너에서 스트리밍 데이터 프레임 로드
 이 예제에서는 Spark의 구조적 스트리밍 기능을 사용하여 Azure Cosmos DB의 변경 피드 기능을 통해 Azure Cosmos DB 컨테이너의 데이터를 Spark 스트리밍 데이터 프레임으로 로드합니다. Spark에서 사용하는 검사점 데이터는 작업 영역에 연결된 기본 데이터 레이크 계정(및 파일 시스템)에 저장됩니다.
@@ -207,19 +207,6 @@ val query = dfStream.
 query.awaitTermination()
 ```
 
-## <a name="external-library-management"></a>외부 라이브러리 관리
-
-이 예제에서는 Synpase Apache Spark 작업 영역에서 Spark Notebook을 사용할 때 JAR 파일의 외부 라이브러리를 참조하는 방법을 알아봅니다. 작업 영역에 연결된 기본 데이터 레이크 계정의 컨테이너에 JAR 파일을 저장한 다음, Spark Notebook에 다음 `%configure` 문을 추가할 수 있습니다.
-
-```cmd
-%%configure -f
-{
-    "jars": [
-        "abfss://<storage container name>@<data lake account name>.dfs.core.windows.net/<path to jar>"
-    ]
-}
-```
-서버리스 Apache Spark 풀에 원격 Spark 작업 정의를 제출하려는 경우 이 [자습서](../spark/apache-spark-job-definitions.md)에 따라 외부 라이브러리를 참조하는 방법을 배울 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

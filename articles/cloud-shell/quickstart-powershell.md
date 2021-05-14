@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Shell 빠른 시작-PowerShell
-description: Azure Cloud Shell를 사용 하 여 브라우저에서 PowerShell을 사용 하는 방법을 알아봅니다.
+title: Azure Cloud Shell 빠른 시작 - PowerShell
+description: Azure Cloud Shell을 사용하여 브라우저에서 PowerShell을 사용하는 방법을 알아봅니다.
 author: maertendmsft
 ms.author: damaerte
 tags: azure-resource-manager
@@ -10,10 +10,10 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/18/2018
 ms.openlocfilehash: 7ff58c4e463b4ad47680b9140403e9ae5e22b057
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105045283"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Azure Cloud Shell의 PowerShell에 대한 빠른 시작
@@ -27,11 +27,11 @@ ms.locfileid: "105045283"
 
 1. Azure Portal의 위쪽 탐색 모음에서 **Azure Cloud Shell** 버튼을 클릭합니다.
 
-   ![Azure Portal에서 Azure Cloud Shell를 시작 하는 방법을 보여 주는 스크린샷](media/quickstart-powershell/shell-icon.png)
+   ![Azure Portal에서 Azure Cloud Shell을 시작하는 방법을 보여 주는 스크린샷.](media/quickstart-powershell/shell-icon.png)
 
 2. 드롭다운에서 PowerShell 환경을 선택하면 Azure 드라이브 `(Azure:)`에 들어가게 됩니다.
 
-   ![Azure Cloud Shell에 대 한 PowerShell 환경을 선택 하는 방법을 보여 주는 스크린샷](media/quickstart-powershell/environment-ps.png)
+   ![Azure Cloud Shell에 맞는 PowerShell 환경을 선택하는 방법을 보여 주는 스크린샷.](media/quickstart-powershell/environment-ps.png)
 
 ## <a name="run-powershell-commands"></a>PowerShell 명령 실행
 
@@ -160,7 +160,7 @@ SSH를 사용하여 서버 또는 VM을 인증하려면 Cloud Shell에서 공개
 
 ### <a name="using-ssh"></a>SSH 사용
 
-Azure PowerShell cmdlet을 사용 하 여 새 VM 구성을 만들려면 [여기](../virtual-machines/linux/quick-create-powershell.md) 의 지침을 따르세요.
+[여기](../virtual-machines/linux/quick-create-powershell.md)의 지침에 따라 Azure PowerShell cmdlet을 사용하여 새 VM 구성을 만듭니다.
 `New-AzVM`을 호출하여 배포를 시작하기 전에 SSH 공개 키를 VM 구성에 추가합니다.
 새로 만든 VM에는 공개 키가 `~\.ssh\authorized_keys` 위치에 포함되므로 자격 증명이 없는 SSH 세션을 VM에 사용할 수 있습니다.
 
@@ -231,7 +231,7 @@ PowerShell 프로필 `profile.ps1`(또는 `Microsoft.PowerShell_profile.ps1`)을
 
 ## <a name="use-git"></a>Git 사용
 
-Cloud Shell에서 Git 리포지토리를 복제 하려면 [개인용 액세스 토큰][githubtoken] 을 만들고 사용자 이름으로 사용 해야 합니다. 토큰이 있다면 다음과 같이 리포지토리를 복제합니다.
+Cloud Shell에서 Git 리포지토리를 복제하려면 [개인용 액세스 토큰][githubtoken]을 만들고 이를 사용자 이름으로 사용합니다. 토큰이 있다면 다음과 같이 리포지토리를 복제합니다.
 
 ```azurepowershell-interactive
   git clone https://<your-access-token>@github.com/username/repo.git
