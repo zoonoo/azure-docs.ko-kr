@@ -1,17 +1,17 @@
 ---
 title: Azure Data Factory를 사용하여 IBM Informix에서의 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 IBM Informix에서의 데이터를 복사하는 방법을 알아봅니다.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.author: jingwang
-ms.openlocfilehash: af907704862e80a2747ac064b98242a1d9d7edb3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: c992140863649752a9c964424923c917462f16f7
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104588871"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109485876"
 ---
 # <a name="copy-data-from-and-to-ibm-informix-using-azure-data-factory"></a>Azure Data Factory를 사용하여 IBM Informix에서의 데이터 복사
 
@@ -38,7 +38,7 @@ Informix 원본에서 지원되는 싱크 데이터 저장소로 또는 지원�
 
 ## <a name="getting-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 Informix 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -164,7 +164,7 @@ Informix로 데이터를 복사하기 위해 복사 작업 **싱크** 섹션에�
 | writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br/>허용되는 값은 시간 범위입니다. 예제: "00:30:00"(30분). |예 |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입<br/>허용되는 값은 정수(행 수)입니다. |아니요(기본값: 0 - 자동 검색됨) |
 | preCopyScript |각 실행 시 데이터 저장소에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |예 |
-| maxConcurrentConnections |활동을 실행하는 동안 데이터 저장소에 설정된 동시 연결의 상한입니다. 동시 연결을 제한하려는 경우에만 값을 지정합니다.| 예 |
+| maxConcurrentConnections |작업을 실행하는 동안 데이터 저장소에 설정된 동시 연결의 상한입니다. 동시 연결을 제한하려는 경우에만 값을 지정합니다.| 예 |
 
 **예:**
 

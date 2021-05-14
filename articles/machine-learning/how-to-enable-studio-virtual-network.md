@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperf-fy20q4, tracking-python
-ms.openlocfilehash: da8007a651b62430055f263f082fabf2aa4bf610
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 13becdf8c49d9affe8c2946d6147707fbe954437
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103574291"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107889325"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Azure 가상 네트워크에서 Azure Machine Learning 스튜디오 사용
 
@@ -39,7 +39,7 @@ ms.locfileid: "103574291"
 > [!IMPORTANT]
 > 작업 영역이 Azure Government 또는 Azure 중국 21Vianet과 같은 __소버린 클라우드__ 에 있는 경우 통합 Notebook은 가상 네트워크에 있는 스토리지 사용을 지원하지 ‘않습니다’. 대신 컴퓨팅 인스턴스에서 Jupyter Notebook을 사용할 수 있습니다. 자세한 내용은 [컴퓨팅 인스턴스 Notebook의 데이터 액세스](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) 섹션을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + 일반적인 가상 네트워크 시나리오 및 아키텍처를 이해하려면 [네트워크 보안 개요](how-to-network-security-overview.md)를 참조하세요.
 

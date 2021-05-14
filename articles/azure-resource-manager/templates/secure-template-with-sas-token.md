@@ -3,12 +3,13 @@ title: SAS 토큰과 함께 안전하게 템플릿 배포
 description: SAS 토큰으로 보호된 Azure Resource Manager 템플릿을 사용하여 Azure에 리소스를 배포합니다. Azure PowerShell 및 Azure CLI를 보여 줍니다.
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 8b35e82da8ebca98ec9fe1fb7441612bf61fb142
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 1c3dd78d8c9c0819c69b12ccb9199acd7a4a626e
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88855668"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752034"
 ---
 # <a name="deploy-private-arm-template-with-sas-token"></a>SAS 토큰과 함께 프라이빗 ARM 템플릿 배포
 

@@ -10,10 +10,10 @@ ms.date: 04/09/2020
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
 ms.openlocfilehash: ad6399a4713520ca0550d143cf3f19f87d55337c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87876804"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>IoT Hub(Python)를 사용하여 클라우드-디바이스 메시지 보내기
@@ -34,9 +34,9 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 이 자습서의 끝 부분에서 다음의 두 Python 콘솔 앱을 실행합니다.
 
-* **SimulatedDevice.py**- [장치에서 iot hub로 원격 분석 전송](quickstart-send-telemetry-python.md)에서 만든 앱의 수정 된 버전으로, iot hub에 연결 하 고 클라우드-장치 메시지를 수신 합니다.
+* **SimulatedDevice.py** - [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-python.md)에서 만든 앱의 수정 버전입니다. IoT Hub에 연결하고 클라우드-디바이스 메시지를 수신합니다.
 
-* **SendCloudToDeviceMessage.py**-IoT Hub를 통해 시뮬레이션 된 장치 앱에 클라우드-장치 메시지를 보냅니다.
+* **SendCloudToDeviceMessage.py** - IoT Hub를 통해 시뮬레이션된 디바이스 앱에 클라우드-디바이스 메시지를 보냅니다.
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
@@ -50,13 +50,13 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 이 섹션에서는 디바이스를 시뮬레이션하고 IoT Hub에서 클라우드-디바이스 메시지를 수신하는 Python 콘솔 앱을 만듭니다.
 
-1. 작업 디렉터리의 명령 프롬프트에서 **Python 용 Azure IoT Hub 장치 SDK** 를 설치 합니다.
+1. 작업 디렉터리의 명령 프롬프트에서 **Python용 Azure IoT Hub 디바이스 SDK** 를 설치합니다.
 
     ```cmd/sh
     pip install azure-iot-device
     ```
 
-1. 텍스트 편집기를 사용 하 여 **SimulatedDevice.py** 라는 파일을 만듭니다.
+1. 텍스트 편집기를 사용하여 **SimulatedDevice.py** 파일을 만듭니다.
 
 1. **SimulatedDevice.py** 파일의 시작 부분에 다음 `import` 문 및 변수를 추가합니다.
 
@@ -68,7 +68,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
     RECEIVED_MESSAGES = 0
     ```
 
-1. 다음 코드를 **SimulatedDevice.py** 파일에 추가합니다. `{deviceConnectionString}`자리 표시자 값을 [장치에서 IoT hub로 원격 분석 전송 빠른 시작](quickstart-send-telemetry-python.md) 에서 만든 장치에 대 한 장치 연결 문자열로 바꿉니다.
+1. 다음 코드를 **SimulatedDevice.py** 파일에 추가합니다. `{deviceConnectionString}` 자리 표시자 값을 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-python.md) 빠른 시작에서 만든 디바이스에 대한 디바이스 연결 문자열로 바꿉니다.
 
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"
@@ -132,13 +132,13 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 이 섹션에서는 클라우드-디바이스 메시지를 시뮬레이션된 디바이스 앱으로 보내는 Python 콘솔 응용 프로그램을 만듭니다. [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-python.md) 빠른 시작에서 추가한 디바이스의 디바이스 ID가 필요합니다. 이전에 [IoT Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 IoT Hub 연결 문자열도 필요합니다.
 
-1. 작업 디렉터리에서 명령 프롬프트를 열고 **Python 용 Azure IoT Hub SERVICE SDK** 를 설치 합니다.
+1. 작업 디렉터리에서 명령 프롬프트를 열고 **Python용 Azure IoT Hub 서비스 SDK** 를 설치합니다.
 
    ```cmd/sh
    pip install azure-iot-hub
    ```
 
-1. 텍스트 편집기를 사용 하 여 **SendCloudToDeviceMessage.py** 라는 파일을 만듭니다.
+1. 텍스트 편집기를 사용하여 **SendCloudToDeviceMessage.py** 파일을 만듭니다.
 
 1. **SendCloudToDeviceMessage.py** 파일 앞에 다음 `import` 문 및 변수를 추가합니다.
 
@@ -152,14 +152,14 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
     MSG_TXT = "{\"service client sent a message\": %.2f}"
     ```
 
-1. **SendCloudToDeviceMessage.py** 파일에 다음 코드를 추가합니다. `{iot hub connection string}`및 `{device id}` 자리 표시자 값을 앞에서 적어둔 IoT hub 연결 문자열 및 장치 ID로 바꿉니다.
+1. **SendCloudToDeviceMessage.py** 파일에 다음 코드를 추가합니다. `{iot hub connection string}` 및 `{device id}` 자리 표시자 값을 앞에서 기록해 둔 IoT Hub 연결 문자열 및 디바이스 ID로 바꿉니다.
 
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
     DEVICE_ID = "{deviceId}"
     ```
 
-1. 다음 코드를 추가 하 여 장치에 메시지를 보냅니다.
+1. 다음 코드를 추가하여 디바이스에 메시지를 보냅니다.
 
     ```python
     def iothub_messaging_sample_run():
@@ -213,7 +213,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 이제 애플리케이션을 실행할 준비가 되었습니다.
 
-1. 작업 디렉터리의 명령 프롬프트에서 다음 명령을 실행 하 여 클라우드-장치 메시지를 수신 합니다.
+1. 작업 디렉터리의 명령 프롬프트에서 다음 명령을 실행하여 클라우드-디바이스 메시지를 수신 대기합니다.
 
     ```shell
     python SimulatedDevice.py
@@ -221,7 +221,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
     ![시뮬레이션된 디바이스 앱 실행](./media/iot-hub-python-python-c2d/device-1.png)
 
-1. 작업 디렉터리에서 새 명령 프롬프트를 열고 다음 명령을 실행 하 여 클라우드-장치 메시지를 보냅니다.
+1. 작업 디렉터리에서 새 명령 프롬프트를 열고 다음 명령을 실행하여 클라우드-디바이스 메시지를 보냅니다.
 
     ```shell
     python SendCloudToDeviceMessage.py
@@ -229,7 +229,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
     ![앱을 실행하여 클라우드-디바이스 명령 보내기](./media/iot-hub-python-python-c2d/service.png)
 
-1. 장치에서 받은 메시지를 확인 합니다.
+1. 디바이스에서 수신한 메시지를 기록해 둡니다.
 
     ![수신된 메시지](./media/iot-hub-python-python-c2d/device-2.png)
 

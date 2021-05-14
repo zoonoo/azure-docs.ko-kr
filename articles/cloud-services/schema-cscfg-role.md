@@ -1,24 +1,25 @@
 ---
-title: Azure Cloud Services (클래식) 역할 스키마 | Microsoft Docs
-description: 서비스 구성 파일의 Role 요소는 각 역할, 구성 값 및 인증서 지문에 대해 배포할 역할 인스턴스 수를 지정 합니다.
+title: Azure Cloud Services(클래식) 역할 스키마 | Microsoft Docs
+description: 서비스 구성 파일의 역할 요소는 각 역할에 배포할 역할 인스턴스 수, 구성 값 및 인증서 지문을 지정합니다.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 2dc8e14a4e4d8855abb615632bb7d43b9034d360
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: dd46a37ada1fb96797faee6c8491359561e065d7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98743443"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934158"
 ---
-# <a name="azure-cloud-services-classic-config-role-schema"></a>Azure Cloud Services (클래식) 구성 역할 스키마
+# <a name="azure-cloud-services-classic-config-role-schema"></a>Azure Cloud Services(클래식) 역할 구성 스키마
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 구성 파일의 `Role` 요소는 서비스의 각 역할에 대해 배포할 역할 인스턴스의 수, 구성 설정의 값 및 역할에 연결된 인증서의 지문을 지정합니다.
 
@@ -43,7 +44,7 @@ Azure Service 구성 스키마에 대한 자세한 내용은 [Cloud Service(클�
 
 다음 표에서는 `Role` 요소의 특성을 설명합니다.
 
-| 특성 | 설명 |
+| attribute | 설명 |
 | --------- | ----------- |
 | name   | 필수 요소. 역할 이름을 지정합니다. 이름은 서비스 정의 파일에서 역할에 대해 제공된 이름과 일치해야 합니다.|
 | vmName | 선택 사항입니다. Virtual Machine에 대한 DNS 이름을 지정합니다. 이름은 10자 이하여야 합니다.|

@@ -1,17 +1,17 @@
 ---
 title: Azure Data Factory를 사용하여 PostgreSQL에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 PostgreSQL에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.author: jingwang
-ms.openlocfilehash: c0d8783c4b07c8c87e57ccd9a5d65983825347c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: 5b63d37f6e6d3823e93485ba87fab52cd072f2ab
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100384098"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109485696"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 PostgreSQL에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -35,13 +35,13 @@ PostgreSQL 데이터베이스에서 지원되는 모든 싱크 데이터 저장�
 
 ## <a name="prerequisites"></a>필수 조건
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 Integration Runtime은 버전 3.7부터 시작하는 기본 제공 PostgreSQL 드라이버를 제공하므로 수동으로 드라이버를 설치할 필요가 없습니다.
 
 ## <a name="getting-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 PostgreSQL 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 

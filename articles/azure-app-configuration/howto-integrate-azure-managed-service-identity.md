@@ -7,13 +7,13 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
-ms.date: 2/25/2020
-ms.openlocfilehash: 386a0e27c0f73f5bcd42397ed515f7561d5097fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/08/2021
+ms.openlocfilehash: 7a9eb992ff0cb98fdae2920da2beeda0bbd8941b
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104955060"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877537"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>관리 ID를 사용하여 App Configuration 액세스
 
@@ -41,7 +41,7 @@ Azure App Configuration과 해당 .NET Core, .NET Framework, Java Spring 클라�
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
-* [.NET Core SDK](https://www.microsoft.com/net/download/windows)
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Azure Cloud Shell 구성](../cloud-shell/quickstart.md)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -145,7 +145,7 @@ Azure App Configuration과 해당 .NET Core, .NET Framework, Java Spring 클라�
     >config.AddAzureAppConfiguration(options =>
     >   options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential(<your_clientId>)));
     >```
-    >[Azure 리소스에 대한 관리 ID FAQ](../active-directory/managed-identities-azure-resources/known-issues.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)에 설명된 것처럼 사용되는 관리 ID를 확인하는 기본 방법이 있습니다. 이 경우 Azure ID 라이브러리는 예를 들어 나중에 새 사용자가 할당한 관리 ID가 추가되거나 시스템이 할당한 관리 ID를 사용하는 경우 발생할 수 있는 런타임 문제를 방지하기 위해 원하는 ID를 지정하도록 강제합니다. 따라서 하나의 사용자가 할당한 관리 ID만 정의되어 있고 시스템이 할당한 관리 ID가 없는 경우에도 clientId를 지정해야 합니다.
+    >[Azure 리소스에 대한 관리 ID FAQ](../active-directory/managed-identities-azure-resources/managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)에 설명된 것처럼 사용되는 관리 ID를 확인하는 기본 방법이 있습니다. 이 경우 Azure ID 라이브러리는 예를 들어 나중에 새 사용자가 할당한 관리 ID가 추가되거나 시스템이 할당한 관리 ID를 사용하는 경우 발생할 수 있는 런타임 문제를 방지하기 위해 원하는 ID를 지정하도록 강제합니다. 따라서 하나의 사용자가 할당한 관리 ID만 정의되어 있고 시스템이 할당한 관리 ID가 없는 경우에도 clientId를 지정해야 합니다.
 
 
 1. App Configuration 값과 Key Vault 참조를 모두 사용하려면 아래와 같이 *Program.cs* 를 업데이트합니다. 해당 코드는 `ConfigureKeyVault`의 일부로 `SetCredential`을 호출하여 Key Vault에 인증할 때 사용할 자격 증명을 구성 공급자에게 알립니다.
@@ -224,7 +224,7 @@ git add .
 git commit -m "Initial version"
 ```
 
-Kudu 빌드 서버를 사용하여 앱에 로컬 Git 배포를 사용하도록 설정하려면 Cloud Shell에서 [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/#az-webapp-deployment-source-config-local-git)을 실행합니다.
+Kudu 빌드 서버를 사용하여 앱에 로컬 Git 배포를 사용하도록 설정하려면 Cloud Shell에서 [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/#az_webapp_deployment_source_config_local_git)을 실행합니다.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>

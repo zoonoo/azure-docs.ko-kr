@@ -1,5 +1,5 @@
 ---
-title: 초대 링크 또는 전자 메일 없이 B2B 게스트 추가-Azure AD
+title: 초대 링크 또는 메일 없이 B2B 게스트 추가 - Azure AD
 description: 게스트 사용자가 Azure Active Directory B2B 협업에서 초대를 사용하지 않고 Azure AD에 다른 게스트 사용자를 추가하도록 할 수 있습니다.
 documentationcenter: ''
 services: active-directory
@@ -13,15 +13,15 @@ manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b18279e44bc5a3fd668d2ec4af6be29229af1b6b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87909803"
 ---
-# <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>초대 링크 또는 전자 메일 없이 B2B 공동 작업 게스트 사용자 추가
+# <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>초대 링크 또는 메일 없이 B2B Collaboration 게스트 사용자 추가
 
-이제 공유 앱에 대 한 [직접 링크](redemption-experience.md#redemption-through-a-direct-link) 를 전송 하 여 게스트 사용자를 초대할 수 있습니다. 이 방법을 사용하면 게스트 사용자가 특별한 경우를 제외하고 초대 이메일을 사용하지 않아도 됩니다. 게스트 사용자는 앱 링크를 클릭하고, 개인 정보 보호 방침을 확인 및 수락한 다음, 자연스럽게 앱에 액세스합니다. 자세한 내용은 [B2B 협업 초대 상환](redemption-experience.md)을 참조하세요.
+이제 공유 앱에 대한 [직접 링크](redemption-experience.md#redemption-through-a-direct-link)를 전송하여 게스트 사용자를 초대할 수 있습니다. 이 방법을 사용하면 게스트 사용자가 특별한 경우를 제외하고 초대 이메일을 사용하지 않아도 됩니다. 게스트 사용자는 앱 링크를 클릭하고, 개인 정보 보호 방침을 확인 및 수락한 다음, 자연스럽게 앱에 액세스합니다. 자세한 내용은 [B2B 협업 초대 상환](redemption-experience.md)을 참조하세요.
 
 이 새로운 방법이 제공되기 전에는 UI나 PowerShell을 통해 초대자(조직 또는 파트너 조직 소속)를 **게스트 초대자** 디렉터리 역할에 추가한 다음, 게스트 사용자를 디렉터리, 그룹 또는 애플리케이션에 추가하여 초대 이메일 없이 게스트 사용자를 초대할 수 있었습니다. PowerShell을 사용하는 경우 초대 이메일을 모두 억제할 수 있습니다. 예를 들면 다음과 같습니다.
 

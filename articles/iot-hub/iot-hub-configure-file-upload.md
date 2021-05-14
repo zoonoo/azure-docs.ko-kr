@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: robinsh
 ms.openlocfilehash: da28bfa31c74ff33a200967267500033dd6a9b1b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92535878"
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Azure Portal을 사용하여 IoT Hub 파일 업로드 구성
@@ -46,7 +46,7 @@ IoT Hub의 파일 업로드 기능에 대한 자세한 내용은 IoT Hub 개발�
 Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려면 다음 링크를 따라가세요.
 
 * [IoT 디바이스 대량 관리](iot-hub-bulk-identity-mgmt.md)
-* [IoT hub 모니터링](monitor-iot-hub.md)
+* [IoT Hub 모니터링](monitor-iot-hub.md)
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 

@@ -1,31 +1,31 @@
 ---
-title: 정책 할당 구조의 세부 정보
-description: Azure Policy에서 평가를 위해 리소스에 정책 정의 및 매개 변수를 연결 하는 데 사용 하는 정책 할당 정의에 대해 설명 합니다.
+title: 정책 할당 구조 세부 정보
+description: Azure Policy에서 평가를 위해 정책 정의 및 매개 변수를 리소스에 연결하는 데 사용하는 정책 할당 정의를 설명합니다.
 ms.date: 03/17/2021
 ms.topic: conceptual
 ms.openlocfilehash: 909c1c361e092c512a73854a40e22a67efe5f2f8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104604868"
 ---
 # <a name="azure-policy-assignment-structure"></a>Azure Policy 할당 구조
 
-정책 할당은 Azure Policy에서 사용 하 여 정책이 나 이니셔티브에 할당 되는 리소스를 정의 합니다. 정책 할당은 할당 시 해당 리소스 그룹에 대 한 매개 변수 값을 결정할 수 있으므로 준수에 대 한 다른 요구 사항과 동일한 리소스 속성을 처리 하는 정책 정의를 다시 사용할 수 있습니다.
+정책 할당은 Azure Policy에서 정책이나 이니셔티브에 할당되는 리소스를 정의하는 데 사용됩니다. 정책 할당은 정책을 할당할 때 해당 리소스 그룹에 대한 매개 변수 값을 결정할 수 있으므로 규정 준수 요구 사항이 다른, 동일한 리소스 속성을 처리하는 정책 정의를 다시 사용할 수 있습니다.
 
-JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음에 대 한 요소가 포함 됩니다.
+JSON을 사용하여 정책 할당을 만듭니다. 정책 할당에는 다음 요소가 포함됩니다.
 
 - 표시 이름
 - description
 - metadata
 - 적용 모드
-- 제외 된 범위
+- 제외된 범위
 - 정책 정의
-- 비호환 메시지
+- 비준수 메시지
 - 매개 변수
 
-예를 들어 다음 JSON은 동적 매개 변수를 사용 하는 _DoNotEnforce_ 모드의 정책 할당을 보여 줍니다.
+예를 들어 다음 JSON은 동적 매개 변수를 사용하는 _DoNotEnforce_ 모드의 정책 할당을 보여 줍니다.
 
 ```json
 {
@@ -59,39 +59,39 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
 
 ## <a name="display-name-and-description"></a>표시 이름 및 설명
 
-**DisplayName** 및 **description** 을 사용 하 여 정책 할당을 식별 하 고 특정 리소스 집합과 함께 사용 하기 위한 컨텍스트를 제공 합니다. **displayName** 은 최대 길이가 _128_ 자이고 **description** 은 최대 길이가 _512_ 자입니다.
+**displayName** 및 **description** 을 사용하여 정책 할당을 식별하고 특정 리소스 집합과 함께 사용하기 위한 컨텍스트를 제공합니다. **displayName** 은 최대 길이가 _128_ 자이고 **description** 은 최대 길이가 _512_ 자입니다.
 
 ## <a name="enforcement-mode"></a>적용 모드
 
-**EnforcementMode** 속성은 [Azure 활동 로그](../../../azure-monitor/essentials/platform-logs-overview.md)에서 정책 효과를 시작 하거나 항목을 트리거하지 않고 기존 리소스에 대 한 정책 결과를 테스트 하는 기능을 고객에 게 제공 합니다. 이 시나리오를 일반적으로 "What If" 이라고 하며 안전 배포 방법에 맞춥니다. **enforcementMode** 는 [사용 하지 않도록 설정](./effects.md#disabled) 된 효과와 다릅니다. 이러한 효과는 리소스 평가가 전혀 발생 하지 않도록 방지 합니다.
+**enforcementMode** 속성은 [Azure 활동 로그](../../../azure-monitor/essentials/platform-logs-overview.md)에서 정책 효과를 시작하거나 항목을 트리거하지 않고 기존 리소스에 대한 정책 결과를 테스트하는 기능을 고객에게 제공합니다. 해당 시나리오를 일반적으로 “What If”라고 하며 안전 배포 방법에 부합합니다. **enforcementMode** 는 [사용 안 함](./effects.md#disabled) 효과와 다릅니다. 해당 효과는 리소스 평가가 전혀 일어나지 않도록 합니다.
 
-이 속성의 값은 다음과 같습니다.
+해당 속성 값은 다음과 같습니다.
 
-|Mode |JSON 값 |Type |수동으로 재구성 |활동 로그 항목 |설명 |
+|Mode |JSON 값 |유형 |수동으로 수정 |활동 로그 항목 |Description |
 |-|-|-|-|-|-|
-|사용 |기본값 |문자열 |예 |예 |정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 됩니다. |
-|사용 안 함 |DoNotEnforce |문자열 |예 |아니요 | 정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 되지 않습니다. |
+|사용 |기본값 |문자열 |예 |예 |리소스를 만들거나 업데이트하는 동안 정책 효과가 적용됩니다. |
+|사용 안 함 |DoNotEnforce |문자열 |예 |예 | 리소스를 만들거나 업데이트하는 동안 정책 효과가 적용되지 않습니다. |
 
-**EnforcementMode** 가 정책 또는 이니셔티브 정의에 지정 되지 않은 경우에는 _기본값_ 을 사용 합니다. **EnforcementMode** 가 _DoNotEnforce_ 로 설정 된 경우에도 [deployifnotexists](./effects.md#deployifnotexists) 정책에 대해 [재구성 작업](../how-to/remediate-resources.md) 을 시작할 수 있습니다.
+정책 또는 이니셔티브 정의에 **enforcementMode** 가 지정되지 않은 경우에는 ‘기본값’을 사용합니다. **enforcementMode** 가 _DoNotEnforce_ 로 설정된 경우에도 [deployIfNotExists](./effects.md#deployifnotexists) 정책에 대해 [수정 작업](../how-to/remediate-resources.md)을 시작할 수 있습니다.
 
-## <a name="excluded-scopes"></a>제외 된 범위
+## <a name="excluded-scopes"></a>제외된 범위
 
-할당의 **범위** 는 모든 자식 리소스 컨테이너 및 자식 리소스를 포함 합니다. 자식 리소스 컨테이너 또는 자식 리소스에 정의가 적용 되지 않아야 하는 경우에는 **Notscopes** 을 설정 하 여 계산에서 _제외할_ 수 있습니다. 이 속성은 하나 이상의 리소스 컨테이너 또는 리소스를 평가에서 제외할 수 있도록 하는 배열입니다. **Notscopes** 은 초기 할당을 만든 후 추가 하거나 업데이트할 수 있습니다.
+할당 **범위** 는 모든 자식 리소스 컨테이너 및 자식 리소스를 포함합니다. 자식 리소스 컨테이너 또는 자식 리소스에 정의가 적용되지 않아야 하는 경우에는 **notScopes** 를 설정하여 계산에서 ‘제외’할 수 있습니다. 해당 속성은 하나 이상의 리소스 컨테이너 또는 리소스를 평가에서 제외할 수 있도록 하는 배열입니다. **notScopes** 는 초기 할당을 만든 후 추가하거나 업데이트할 수 있습니다.
 
 > [!NOTE]
-> _제외_ 된 리소스 _는 제외 된 리소스와_ 다릅니다. 자세한 내용은 [Azure Policy 범위 이해](./scope.md)를 참조 하세요.
+> ‘제외’된 리소스는 ‘예외’ 리소스와 다릅니다.  자세한 내용은 [Azure Policy의 범위 이해](./scope.md)를 참조하세요.
 
 ## <a name="policy-definition-id"></a>정책 정의 ID
 
-이 필드는 정책 정의 또는 이니셔티브 정의의 전체 경로 이름 이어야 합니다.
-`policyDefinitionId` 는 배열이 아니라 문자열입니다. 여러 정책을 함께 할당 하는 것이 아니라 [이니셔티브](./initiative-definition-structure.md) 를 사용 하는 것이 좋습니다.
+해당 필드는 정책 정의 또는 이니셔티브 정의의 전체 경로 이름이어야 합니다.
+`policyDefinitionId`는 문자열이며 배열이 아닙니다. 여러 정책을 함께 할당하는 경우 대신 [이니셔티브](./initiative-definition-structure.md)를 사용하는 것이 좋습니다.
 
-## <a name="non-compliance-messages"></a>비호환 메시지
+## <a name="non-compliance-messages"></a>비준수 메시지
 
-리소스가 정책 또는 이니셔티브 정의와 호환 되지 않는 이유를 설명 하는 사용자 지정 메시지를 설정 하려면 `nonComplianceMessages` 할당 정의에서를 설정 합니다. 이 노드는 항목의 배열입니다 `message` . 이 사용자 지정 메시지는 비준수에 대 한 기본 오류 메시지 외에도 선택적입니다.
+리소스가 정책 또는 이니셔티브 정의를 준수하지 않는 이유를 설명하는 사용자 지정 메시지를 설정하려면 할당 정의에서 `nonComplianceMessages`를 설정합니다. 해당 노드는 `message` 항목의 배열입니다. 해당 사용자 지정 메시지는 비준수에 대한 기본 오류 메시지에 추가되며 선택 사항입니다.
 
 > [!IMPORTANT]
-> 비호환에 대 한 사용자 지정 메시지는 [리소스 관리자 모드](./definition-structure.md#resource-manager-modes) 정의를 사용 하는 정의 또는 이니셔티브 에서만 지원 됩니다.
+> 비준수에 대한 사용자 지정 메시지는 [리소스 관리자 모드](./definition-structure.md#resource-manager-modes) 정의를 사용하는 정의 또는 이니셔티브에서만 지원됩니다.
 
 ```json
 "nonComplianceMessages": [
@@ -101,7 +101,7 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
 ]
 ```
 
-이니셔티브에 대 한 할당 인 경우 이니셔티브의 각 정책 정의에 대해 서로 다른 메시지를 구성할 수 있습니다. 이 메시지는 `policyDefinitionReferenceId` 이니셔티브 정의에 구성 된 값을 사용 합니다. 자세한 내용은 [정책 정의 속성](./initiative-definition-structure.md#policy-definition-properties)을 참조 하세요.
+이니셔티브에 대한 할당인 경우 이니셔티브의 각 정책 정의에 대해 서로 다른 메시지를 구성할 수 있습니다. 메시지는 이니셔티브 정의에 구성된 `policyDefinitionReferenceId` 값을 사용합니다. 자세한 내용은 [정책 정의 속성](./initiative-definition-structure.md#policy-definition-properties)을 참조하세요.
 
 ```json
 "nonComplianceMessages": [
@@ -117,7 +117,7 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
 
 ## <a name="parameters"></a>매개 변수
 
-정책 할당의이 세그먼트는 [정책 정의 또는 이니셔티브 정의](./definition-structure.md#parameters)에 정의 된 매개 변수에 대 한 값을 제공 합니다. 이 설계를 통해 여러 리소스를 사용 하 여 정책 또는 이니셔티브 정의를 다시 사용할 수 있지만 다른 비즈니스 값 또는 결과를 확인할 수 있습니다.
+이 정책 할당 세그먼트는 [정책 정의 또는 이니셔티브 정의](./definition-structure.md#parameters)에 정의된 매개 변수에 대한 값을 제공합니다. 해당 설계를 통해 여러 리소스에 정책 또는 이니셔티브 정의를 다시 사용할 수 있지만, 다른 비즈니스 가치 또는 결과를 확인해야 합니다.
 
 ```json
 "parameters": {
@@ -130,7 +130,7 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
 }
 ```
 
-이 예제에서 정책 정의에 이전에 정의 된 매개 변수는 `prefix` 및 `suffix` 입니다. 이 특정 정책 할당 `prefix`  `suffix` **은 비-LC** 로 설정 됩니다. 동일한 정책 정의는 다른 부서에 대 한 다른 매개 변수 집합을 사용 하 여 다시 사용할 수 있으므로 유연성을 제공 하면서 정책 정의의 중복 및 복잡성을 줄일 수 있습니다.
+해당 예제에서 이전에 정책 정의에 정의된 매개 변수는 `prefix` 및 `suffix`입니다. 이 특정 정책 할당은 `prefix`를 **DeptA** 로 설정하고 `suffix`를 **-LC** 로 설정합니다. 동일한 정책 정의를 다른 부서에 다른 매개 변수 집합과 다시 사용할 수 있으므로 정책 정의의 중복 및 복잡성을 줄이면서 유연성을 제공할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

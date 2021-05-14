@@ -2,21 +2,23 @@
 title: Home Realm Discovery 정책을 통해 Azure AD에서 로그인 자동 가속 방지
 description: 페더레이션된 IDP로 domain_hint 자동 가속을 방지하는 방법에 대해 알아봅니다.
 services: active-directory
-author: iantheninja
-manager: CelesteDG
+documentationcenter: ''
+author: kenwith
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.author: iangithinji
-ms.reviewer: hirsin
-ms.openlocfilehash: b89e0e1c8bd8109fac8b4b7c05a845a3e234b617
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.author: hirsin
+ms.openlocfilehash: 53dfdfaf37695059d6d52428c2ba109970d9f7f7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375553"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104589381"
 ---
 # <a name="disable-auto-acceleration-to-a-federated-idp-during-user-sign-in-with-home-realm-discovery-policy"></a>사용자가 Home Realm Discovery 정책을 사용하여 로그인하는 동안 페더레이션된 IDP에 대해 자동 가속 비활성화
 

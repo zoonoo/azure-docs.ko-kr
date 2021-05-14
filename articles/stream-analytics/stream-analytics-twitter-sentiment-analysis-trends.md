@@ -1,6 +1,6 @@
 ---
-title: Azure Stream Analytics를 사용한 소셜 미디어 분석
-description: 이 문서에서는 twitter 클라이언트 API를 사용 하 여 소셜 미디어 분석에 Stream Analytics를 사용 하는 방법을 설명 합니다. 이벤트 생성부터 라이브 대시보드의 데이터에 이르는 단계별 지침이 포함되어 있습니다.
+title: Azure Stream Analytics를 통한 소셜 미디어 분석
+description: 이 문서에서는 트위터 클라이언트 API를 사용하여 소셜 미디어 분석에 Stream Analytics를 사용하는 방법을 설명합니다. 이벤트 생성부터 라이브 대시보드의 데이터에 이르는 단계별 지침이 포함되어 있습니다.
 services: stream-analytics
 author: enkrumah
 ms.author: ebnkruma
@@ -9,13 +9,13 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/16/2021
 ms.openlocfilehash: e2369e8f4349a3b4a83c1729c6414d319dd8419e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104589670"
 ---
-# <a name="social-media-analysis-with-azure-stream-analytics"></a>Azure Stream Analytics를 사용한 소셜 미디어 분석
+# <a name="social-media-analysis-with-azure-stream-analytics"></a>Azure Stream Analytics를 통한 소셜 미디어 분석
 
 이 문서에서는 실시간 Twitter 이벤트를 Azure Event Hubs로 가져와서 소셜 미디어 실시간 감정 분석을 위한 감정 분석 솔루션을 구축하는 방법을 설명합니다. Azure Stream Analytics 쿼리를 작성하여 데이터를 분석하고 나중에 사용할 수 있도록 결과를 저장하거나 [Power BI](https://powerbi.com/) 대시보드를 만들어 실시간으로 정보를 제공합니다.
 
@@ -41,9 +41,9 @@ Twitter에서 실시간으로 추세를 분석할 토픽을 식별하기 위해 
 
 * [.NET Core CLI](/dotnet/core/tools/?tabs=netcore2x) 버전 2.1.0을 설치합니다.
 
-구현할 솔루션 아키텍처는 다음과 같습니다.
+다음과 같은 솔루션 아키텍처를 구현할 것입니다.
 
-   ![솔루션을 빌드하는 데 사용 되는 다양 한 서비스 및 응용 프로그램을 보여 주는 다이어그램입니다.](./media/stream-analytics-twitter-sentiment-analysis-trends/solution-diagram.png "솔루션 다이어그램")
+   ![솔루션을 빌드하는 데 사용되는 여러 서비스 및 애플리케이션을 보여 주는 다이어그램입니다.](./media/stream-analytics-twitter-sentiment-analysis-trends/solution-diagram.png "솔루션 다이어그램")
 
 ## <a name="create-an-event-hub-for-streaming-input"></a>스트리밍 입력을 위한 이벤트 허브 만들기
 
@@ -110,11 +110,11 @@ Twitter에서 실시간으로 추세를 분석할 토픽을 식별하기 위해 
 
 1. 웹 브라우저에서 [개발자용 Twitter](https://developer.twitter.com/en/apps)로 이동하여 개발자 계정을 만든 다음, **앱 만들기** 를 선택합니다. Twitter 개발자 계정을 신청해야 한다는 메시지가 표시될 수 있습니다. 자유롭게 신청할 수 있으며 신청이 승인되면 확인 이메일이 수신됩니다. 개발자 계정이 승인될 때까지 며칠이 걸릴 수 있습니다.
 
-   ![응용 프로그램 만들기 단추를 보여 주는 스크린샷](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Twitter 애플리케이션 세부 정보")
+   ![앱 단추 생성을 보여 주는 스크린샷.](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Twitter 애플리케이션 세부 정보")
 
 2. **애플리케이션 만들기** 페이지에서 새 앱에 대한 세부 정보를 제공한 다음, **Twitter 애플리케이션 만들기** 를 선택합니다.
 
-   ![응용 프로그램에 대 한 값을 입력할 수 있는 앱 세부 정보 창이 스크린샷에 표시 됩니다.](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details-create.png "Twitter 애플리케이션 세부 정보")
+   ![앱의 값을 입력할 수 있는 앱 세부 정보 창을 보여 주는 스크린샷.](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details-create.png "Twitter 애플리케이션 세부 정보")
 
 3. 애플리케이션 페이지에서 **키 및 토큰** 탭을 선택하고, **소비자 API 키** 및 **소비자 API 비밀 키** 값을 복사합니다. 또한 **액세스 토큰 및 액세스 토큰 비밀** 아래에서 **만들기** 를 선택하여 액세스 토큰을 생성합니다. **액세스 토큰** 및 **액세스 토큰 비밀** 에 대한 값을 복사합니다.
 

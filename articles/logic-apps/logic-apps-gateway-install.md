@@ -7,15 +7,15 @@ ms.reviewer: arthii, logicappspm
 ms.topic: how-to
 ms.date: 03/16/2021
 ms.openlocfilehash: 4b2559ad20036870c6df5c0662bb973f35155bfa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104576801"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
-[Azure Logic Apps에서 온-프레미스 데이터 원본에 연결](../logic-apps/logic-apps-gateway-connection.md)하려면 먼저 [온-프레미스 데이터 게이트웨이](https://aka.ms/on-premises-data-gateway-installer)를 다운로드하여 로컬 컴퓨터에 설치합니다. 게이트웨이는 온-프레미스 데이터 원본과 논리 앱 간에 빠른 데이터 전송 및 암호화를 제공하는 브리지로 작동합니다. 다른 클라우드 서비스 (예: 전원 자동화, Power BI, Power Apps 및 Azure Analysis Services)와 동일한 게이트웨이 설치를 사용할 수 있습니다. 이러한 서비스에서 게이트웨이를 사용하는 방법에 대한 내용은 다음 문서를 참조하세요.
+[Azure Logic Apps에서 온-프레미스 데이터 원본에 연결](../logic-apps/logic-apps-gateway-connection.md)하려면 먼저 [온-프레미스 데이터 게이트웨이](https://aka.ms/on-premises-data-gateway-installer)를 다운로드하여 로컬 컴퓨터에 설치합니다. 게이트웨이는 온-프레미스 데이터 원본과 논리 앱 간에 빠른 데이터 전송 및 암호화를 제공하는 브리지로 작동합니다. Power Automate, Power BI, Power Apps, Azure Analysis Services와 같은 다른 클라우드 서비스에서도 동일한 게이트웨이 설치를 사용할 수 있습니다. 이러한 서비스에서 게이트웨이를 사용하는 방법에 대한 내용은 다음 문서를 참조하세요.
 
 * [Microsoft Power Automate 온-프레미스 데이터 게이트웨이](/power-automate/gateway-reference)
 * [Microsoft Power BI 온-프레미스 데이터 게이트웨이](/power-bi/service-gateway-onprem)
@@ -30,18 +30,18 @@ ms.locfileid: "104576801"
 
 * Azure 계정 및 구독 구독이 있는 Azure 계정이 없는 경우 [체험 Azure 계정에 가입](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)합니다.
 
-  * Azure 계정은 회사 계정 또는 학교 계정 이어야 하며 다음과 같습니다 `username@contoso.com` . Azure B2B(게스트) 계정 또는 개인 Microsoft 계정(예: @hotmail.com 또는 @outlook.com)은 사용할 수 없습니다.
+  * Azure 계정은 `username@contoso.com`과 같은 회사 계정 또는 학교 계정이어야 합니다. Azure B2B(게스트) 계정 또는 개인 Microsoft 계정(예: @hotmail.com 또는 @outlook.com)은 사용할 수 없습니다.
 
     > [!NOTE]
-    > Microsoft 365 제품에 등록 하 고 회사 메일 주소를 제공 하지 않은 경우 주소는와 같을 수 있습니다 `username@domain.onmicrosoft.com` . 계정이 Azure AD 테 넌 트에 저장 됩니다. 대부분의 경우 Azure 계정에 대 한 UPN (사용자 계정 이름)은 전자 메일 주소와 동일 합니다.
+    > Microsoft 365 제품에 가입했지만, 회사 메일 주소를 제공하지 않은 경우 주소는 `username@domain.onmicrosoft.com`과 같을 수 있습니다. 계정은 Azure AD 테넌트에 저장됩니다. 대부분의 경우 Azure 계정의 UPN(사용자 계정 이름)은 메일 주소와 동일합니다.
 
-    Microsoft 계정와 연결 된 [Visual Studio 표준 구독](https://visualstudio.microsoft.com/vs/pricing/) 을 사용 하려면 먼저 [Azure AD 테 넌 트를 만들거나](../active-directory/develop/quickstart-create-new-tenant.md) 기본 디렉터리를 사용 합니다. 암호가 있는 사용자를 디렉터리에 추가한 다음, 해당 사용자에게 Azure 구독에 대한 액세스 권한을 부여합니다. 그런 다음 이 사용자 이름 및 암호를 사용하여 게이트웨이 설치 중에 로그인할 수 있습니다.
+    Microsoft 계정에 연결된 [Visual Studio Standard 구독](https://visualstudio.microsoft.com/vs/pricing/)을 사용하려면 먼저 [Azure AD 테넌트를 만들거나](../active-directory/develop/quickstart-create-new-tenant.md) 기본 디렉터리를 사용합니다. 암호가 있는 사용자를 디렉터리에 추가한 다음, 해당 사용자에게 Azure 구독에 대한 액세스 권한을 부여합니다. 그런 다음 이 사용자 이름 및 암호를 사용하여 게이트웨이 설치 중에 로그인할 수 있습니다.
 
-  * Azure 계정은 단일 [Azure Active Directory (AZURE AD) 테 넌 트 또는 디렉터리](../active-directory/fundamentals/active-directory-whatis.md#terminology)에만 속해야 합니다. 로컬 컴퓨터에 게이트웨이를 설치 하 고 관리 하려면 동일한 Azure 계정을 사용 해야 합니다.
+  * Azure 계정은 단일 [Azure AD(Azure Active Directory) 테넌트 또는 디렉터리](../active-directory/fundamentals/active-directory-whatis.md#terminology)에만 속해야 합니다. 게이트웨이를 로컬 컴퓨터에 설치하고 관리하려면 동일한 Azure 계정을 사용해야 합니다.
 
-  * 게이트웨이를 설치할 때 azure 계정으로 로그인 합니다. 그러면 azure 계정에 게이트웨이 설치를 연결 하 고 해당 계정에만 연결 됩니다. 여러 Azure 계정 또는 Azure AD 테 넌 트에서 동일한 게이트웨이 설치를 연결할 수 없습니다.
+  * 게이트웨이를 설치할 때 Azure 계정으로 로그인합니다. 이 계정은 게이트웨이 설치를 Azure 계정 및 해당 계정에만 연결합니다. 여러 Azure 계정 또는 Azure AD 테넌트에 동일한 게이트웨이 설치를 연결할 수 없습니다.
 
-  * Azure Portal 나중에 게이트웨이 설치에 연결 되는 Azure 게이트웨이 리소스를 만들기 위해 동일한 Azure 계정을 사용 해야 합니다. 하나의 게이트웨이 설치와 하나의 Azure 게이트웨이 리소스만 서로 연결할 수 있습니다. 그러나 Azure 계정은 각각 Azure 게이트웨이 리소스와 연결 된 여러 게이트웨이 설치에 연결할 수 있습니다. 그러면 논리 앱이 트리거 및 온-프레미스 데이터 원본에 액세스할 수 있는 작업에서이 게이트웨이 리소스를 사용할 수 있습니다.
+  * 나중에 Azure Portal에서 동일한 Azure 계정을 사용하여 게이트웨이 설치에 연결되는 Azure 게이트웨이 리소스를 만들어야 합니다. 하나의 게이트웨이 설치와 하나의 Azure 게이트웨이 리소스만 서로 연결할 수 있습니다. 그러나 Azure 계정은 각각 Azure 게이트웨이 리소스와 연결된 여러 게이트웨이 설치에 연결할 수 있습니다. 그러면 논리 앱이 온-프레미스 데이터 원본에 액세스할 수 있는 트리거 및 작업에서 해당 게이트웨이 리소스를 사용할 수 있습니다.
 
 * 로컬 컴퓨터에 대한 요구 사항은 다음과 같습니다.
 
@@ -71,12 +71,12 @@ ms.locfileid: "104576801"
 
   * Windows 인증을 사용하려면 데이터 원본과 동일한 Active Directory 환경의 멤버인 컴퓨터에 게이트웨이를 설치해야 합니다.
 
-  * 게이트웨이 설치를 위해 선택한 지역은 나중에 논리 앱에 대한 Azure 게이트웨이 리소스를 만들 때 선택해야 하는 위치와 동일합니다. 기본적으로이 지역은 azure 사용자 계정을 관리 하는 Azure AD 테 넌 트와 동일한 위치입니다. 그러나 게이트웨이를 설치 하는 동안에는 위치를 변경할 수 있습니다.
+  * 게이트웨이 설치를 위해 선택한 지역은 나중에 논리 앱에 대한 Azure 게이트웨이 리소스를 만들 때 선택해야 하는 위치와 동일합니다. 기본적으로 이 지역은 Azure 사용자 계정을 관리하는 Azure AD 테넌트와 동일한 위치입니다. 그러나 위치는 게이트웨이 설치 중에 변경할 수 있으며 나중에 변경할 수도 있습니다.
 
     > [!IMPORTANT]
-    > 게이트웨이를 설치 하는 동안 [Azure Government 클라우드의](../azure-government/compare-azure-government-global-azure.md)Azure Active Directory (Azure AD) 테 넌 트와 연결 된 Azure Government 계정으로 로그인 한 경우에는 **지역 변경** 명령을 사용할 수 없습니다. 게이트웨이는 사용자 계정의 Azure AD 테 넌 트와 동일한 영역을 자동으로 사용 합니다.
+    > 게이트웨이를 설정하는 동안 [Azure Government 클라우드](../azure-government/compare-azure-government-global-azure.md)의 Azure Active Directory(Azure AD) 테넌트와 연결된 Azure Government 계정으로 로그인한 경우 **지역 변경** 명령을 사용할 수 없습니다. 게이트웨이는 사용자 계정의 Azure AD 테넌트와 동일한 지역을 자동으로 사용합니다.
     > 
-    > Azure Government 계정을 계속 사용 하 되 글로벌 다중 테 넌 트 Azure 상용 클라우드에서 작동 하도록 게이트웨이를 설정 하려면 먼저 사용자 이름으로 게이트웨이를 설치 하는 동안 로그인 `prod@microsoft.com` 합니다. 이 솔루션은 게이트웨이가 글로벌 다중 테 넌 트 Azure 클라우드를 사용 하도록 강제 하지만 계속 해 서 Azure Government 계정을 사용할 수 있습니다.
+    > Azure Government 계정을 계속 사용하되 글로벌 다중 테넌트 Azure 상용 클라우드에서 작동하도록 게이트웨이를 설정하려면 먼저 게이트웨이를 설치하는 동안 `prod@microsoft.com` 사용자 이름으로 로그인합니다. 해당 솔루션은 게이트웨이가 글로벌 다중 테넌트 Azure 클라우드를 사용하도록 강제하지만 계속해서 Azure Government 계정을 사용할 수 있습니다.
 
   * 게이트웨이 설치를 업데이트하는 경우 더 깨끗한 환경을 위해 먼저 현재 게이트웨이를 제거합니다.
 
@@ -119,7 +119,7 @@ ms.locfileid: "104576801"
 
    [고가용성 시나리오](#high-availability)를 위한 추가 게이트웨이를 설치하는 경우 선택하는 **기존 게이트웨이 클러스터에 추가** 옵션에 유의하세요.
 
-1. 게이트웨이 클라우드 서비스에 대 한 지역 및 게이트웨이 설치에 사용 되는 [Azure Service Bus 메시징 인스턴스](../service-bus-messaging/service-bus-messaging-overview.md) 를 확인 합니다. 이 지역은 기본적으로 Azure 계정에 대한 Azure AD 테넌트와 동일한 위치입니다.
+1. 게이트웨이 설치에서 사용되는 게이트웨이 클라우드 서비스 및 [Azure Service Bus Messaging 인스턴스](../service-bus-messaging/service-bus-messaging-overview.md)에 대한 지역을 확인합니다. 이 지역은 기본적으로 Azure 계정에 대한 Azure AD 테넌트와 동일한 위치입니다.
 
    ![게이트웨이 서비스 및 Service Bus에 대한 지역 확인](./media/logic-apps-gateway-install/confirm-gateway-region.png)
 
@@ -147,9 +147,9 @@ ms.locfileid: "104576801"
 
 ## <a name="check-or-adjust-communication-settings"></a>통신 설정 확인 또는 조정
 
-온-프레미스 데이터 게이트웨이는 클라우드 연결에 대 한 [Azure Service Bus 메시징](../service-bus-messaging/service-bus-messaging-overview.md) 에 의존 하며 게이트웨이의 연결 된 Azure 지역에 해당 하는 아웃 바운드 연결을 설정 합니다. 회사 환경에서 인터넷에 액세스 하기 위해 트래픽이 프록시 또는 방화벽을 통과 해야 하는 경우이 제한으로 인해 온-프레미스 데이터 게이트웨이가 게이트웨이 클라우드 서비스 및 Azure Service Bus 메시징에 연결 하지 못할 수 있습니다. 게이트웨이에는 조정할 수 있는 몇 가지 통신 설정이 있습니다.
+온-프레미스 데이터 게이트웨이는 클라우드 연결을 위해 [Azure Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md)을 사용하며, 게이트웨이의 연결된 Azure 지역에 해당하는 아웃바운드 연결을 설정합니다. 작업 환경에서 트래픽이 프록시 또는 방화벽을 통과하여 인터넷에 액세스해야 하는 경우 이 제한으로 인해 온-프레미스 데이터 게이트웨이에서 게이트웨이 클라우드 서비스 및 Azure Service Bus Messaging에 연결하지 못할 수 있습니다. 게이트웨이에는 조정할 수 있는 몇 가지 통신 설정이 있습니다.
 
-Azure에서 온-프레미스 데이터 게이트웨이 리소스를 사용 하 여 온-프레미스 리소스에 액세스 하는 사용자 지정 커넥터를 사용 하는 시나리오를 예로 들 수 있습니다. 특정 IP 주소에 대 한 트래픽을 제한 하는 방화벽을 사용 하는 경우 해당 *관리 커넥터 [아웃 바운드 IP 주소](logic-apps-limits-and-config.md#outbound)* 에 대 한 액세스를 허용 하도록 게이트웨이 설치를 설정 해야 합니다. 동일한 지역의 *모든* 논리 앱은 동일한 IP 주소 범위를 사용합니다.
+Azure에서 온-프레미스 데이터 게이트웨이 리소스를 사용하여 온-프레미스 리소스에 액세스하는 사용자 지정 커넥터를 사용하는 시나리오를 예로 들 수 있습니다. 특정 IP 주소에 대한 트래픽을 제한하는 방화벽을 사용하는 경우 해당 ‘관리 커넥터 [아웃바운드 IP 주소](logic-apps-limits-and-config.md#outbound)’에 대한 액세스를 허용하도록 게이트웨이 설치를 설정해야 합니다. 동일한 지역의 *모든* 논리 앱은 동일한 IP 주소 범위를 사용합니다.
 
 자세한 내용은 다음 항목을 참조하세요.
 
@@ -217,7 +217,7 @@ Azure AD 테넌트의 모든 온-프레미스 데이터 게이트웨이에 대�
 
 게이트웨이를 사용하면 백그라운드에서 더 빠르고 안전하게 통신할 수 있습니다. 이 통신은 클라우드의 사용자, 게이트웨이 클라우드 서비스 및 온-프레미스 데이터 원본 간에 전달됩니다. 게이트웨이 클라우드 서비스는 데이터 원본 자격 증명 및 게이트웨이 세부 정보를 암호화하고 저장합니다. 또한 이 서비스는 쿼리와 결과를 사용자, 게이트웨이 및 온-프레미스 데이터 원본 간에 라우팅합니다.
 
-게이트웨이는 방화벽과 함께 작동하며 아웃바운드 연결만 사용합니다. 모든 트래픽은 게이트웨이 에이전트에서 보호되는 아웃바운드 트래픽으로 시작됩니다. 게이트웨이는 [Azure Service Bus 메시징을](../service-bus-messaging/service-bus-messaging-overview.md)통해 암호화 된 채널의 온-프레미스 원본에서 데이터를 보냅니다. 이 Service Bus는 게이트웨이와 호출 서비스 간에 채널을 만들지만 데이터를 저장하지는 않습니다. 게이트웨이를 통해 전송되는 모든 데이터는 암호화됩니다.
+게이트웨이는 방화벽과 함께 작동하며 아웃바운드 연결만 사용합니다. 모든 트래픽은 게이트웨이 에이전트에서 보호되는 아웃바운드 트래픽으로 시작됩니다. 게이트웨이는 [Azure Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md)을 통해 암호화된 채널에서 온-프레미스 원본의 데이터를 보냅니다. 이 Service Bus는 게이트웨이와 호출 서비스 간에 채널을 만들지만 데이터를 저장하지는 않습니다. 게이트웨이를 통해 전송되는 모든 데이터는 암호화됩니다.
 
 ![온-프레미스 데이터 게이트웨이에 대한 아키텍처](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
@@ -228,9 +228,9 @@ Azure AD 테넌트의 모든 온-프레미스 데이터 게이트웨이에 대�
 
 1. 클라우드 서비스는 데이터 원본에 대한 암호화된 자격 증명과 함께 쿼리를 만듭니다. 그런 다음, 서비스에서 처리를 위해 쿼리와 자격 증명을 게이트웨이 큐에 보냅니다.
 
-1. 게이트웨이 클라우드 서비스에서 쿼리를 분석 하 고 요청을 Azure Service Bus 메시징으로 푸시합니다.
+1. 게이트웨이 클라우드 서비스에서 쿼리를 분석하고 요청을 Azure Service Bus Messaging으로 푸시합니다.
 
-1. Azure Service Bus 메시징은 보류 중인 요청을 게이트웨이로 보냅니다.
+1. Azure Service Bus Messaging은 보류 중인 요청을 게이트웨이에 보냅니다.
 
 1. 게이트웨이에서 쿼리를 가져오고, 자격 증명의 암호를 해독하고, 해당 자격 증명을 사용하여 하나 이상의 데이터 원본에 연결합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure VM에서 웹 앱 프로 파일링-Application Insights Profiler
+title: Azure VM에서 웹앱 프로파일링 - Application Insights Profiler
 description: Application Insights Profiler를 사용하여 Azure VM에서 웹앱 프로파일링
 ms.topic: conceptual
 author: cweining
@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 11/08/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: f514dd7b54ac091535aeab43a8a7d2a645b50a09
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87315838"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Application Insights Profiler를 사용하여 Azure Virtual Machine 또는 가상 머신 확장 집합에서 실행되는 웹앱 프로파일링
@@ -25,7 +25,7 @@ ms.locfileid: "87315838"
 ## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>가상 머신 또는 가상 머신 확장 집합에서 Profiler 배포
 이 문서에서는 Azure VM(Virtual Machine) 또는 Azure Virtual Machine Scale Set에서 실행되는 Application Insights Profiler를 가져오는 방법을 보여 줍니다. Profiler는 VM용 Azure Diagnostics 확장과 함께 설치됩니다. Profiler를 실행하도록 확장을 구성하고 애플리케이션에 Application Insights SDK를 빌드합니다.
 
-1. [ASP.NET 응용 프로그램](./asp-net.md)에 Application Insights SDK를 추가 합니다.
+1. Application Insights SDK를 [ASP.NET 애플리케이션](./asp-net.md)에 추가합니다.
 
    요청에 대한 프로필을 보려면 Application Insights에 요청 원격 분석을 전송해야 합니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "87315838"
 
    수정 사항을 적용하면 일반적으로 PowerShell cmdlet 또는 Visual Studio를 통한 전체 템플릿 배포 또는 클라우드 서비스 기반 게시가 진행됩니다.  
 
-   다음 PowerShell 명령은 Azure 진단 확장만 접촉 하는 기존 가상 컴퓨터에 대 한 대체 방법입니다. Get-AzVMDiagnosticsExtension 명령에 의해 반환 되는 구성에 앞에서 설명한 ProfilerSink를 추가 합니다. 그런 다음 업데이트 된 구성을 Set-AzVMDiagnosticsExtension 명령에 전달 합니다.
+   Azure Diagnostics 확장만 수정하는 기존 가상 머신에 대한 대안으로 다음과 같은 PowerShell 명령을 사용할 수 있습니다. 앞에서 언급한 ProfilerSink를 Get-AzVMDiagnosticsExtension 명령에서 반환하는 구성에 추가합니다. 그런 다음, 업데이트된 구성을 Set-AzVMDiagnosticsExtension 명령에 전달합니다.
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()
@@ -80,24 +80,24 @@ ms.locfileid: "87315838"
 
 1. 애플리케이션을 배포합니다.
 
-## <a name="set-profiler-sink-using-azure-resource-explorer"></a>Azure Resource Explorer를 사용 하 여 프로파일러 싱크 설정
-아직 포털에서 Application Insights Profiler 싱크를 설정 하는 방법은 없습니다. 위에서 설명한 것과 같은 powershell을 사용 하는 대신 Azure Resource Explorer를 사용 하 여 싱크를 설정할 수 있습니다. 그러나 VM을 다시 배포 하는 경우 싱크가 손실 됩니다. 이 설정을 유지 하기 위해 VM을 배포할 때 사용 하는 구성을 업데이트 해야 합니다.
+## <a name="set-profiler-sink-using-azure-resource-explorer"></a>Azure Resource Explorer를 사용하여 Profiler 싱크 설정
+아직 포털에서 Application Insights Profiler 싱크를 설정하는 방법은 없습니다. 위에서 설명한 것처럼 powershell을 사용하지 않고 Azure Resource Explorer를 사용하여 싱크를 설정할 수 있습니다. 하지만 VM을 다시 배포하는 경우 싱크가 손실됩니다. 이 설정을 유지하려면 VM을 배포할 때 사용하는 구성을 업데이트해야 합니다.
 
-1. 가상 컴퓨터에 설치 된 확장을 확인 하 여 Windows Azure 진단 확장을 설치 했는지 확인 합니다.  
+1. 가상 머신용으로 설치된 확장을 보고 Microsoft Azure Diagnostics 확장이 설치되었는지 확인합니다.  
 
-    ![WAD 확장이 설치 되어 있는지 확인][wadextension]
+    ![WAD 확장이 설치되었는지 확인][wadextension]
 
-2. VM에 대 한 VM 진단 확장을 찾습니다. [https://resources.azure.com](https://resources.azure.com)으로 이동합니다. 리소스 그룹, virtualMachines, 가상 컴퓨터 이름 및 확장을 확장 합니다.  
+2. VM에 대한 VM Diagnostics 확장을 찾습니다. [https://resources.azure.com](https://resources.azure.com)으로 이동합니다. 리소스 그룹, Microsoft.Compute virtualMachines, 가상 머신 이름, 확장을 확장합니다.  
 
-    ![Azure Resource Explorer에서 WAD config로 이동 합니다.][azureresourceexplorer]
+    ![Azure Resource Explorer에서 WAD 구성으로 이동합니다.][azureresourceexplorer]
 
-3. Diagnostics.wadcfg 아래의 SinksConfig 노드에 Application Insights Profiler 싱크를 추가 합니다. SinksConfig 섹션이 아직 없는 경우 하나를 추가 해야 할 수 있습니다. 설정에 적절 한 Application Insights iKey를 지정 해야 합니다. 오른쪽 위 모서리에서 탐색기 모드를 읽기/쓰기로 전환 하 고 파란색 ' 편집 ' 단추를 눌러야 합니다.
+3. Application Insights Profiler 싱크를 WadCfg 아래의 SinksConfig 노드에 추가합니다. 아직 SinksConfig 섹션이 없는 경우 하나 추가해야 할 수도 있습니다. 설정에 적절한 Application Insights iKey를 지정해야 합니다. 오른쪽 위 모서리에서 탐색기 모드를 읽기/쓰기로 전환하고 파란색 ‘편집’ 단추를 눌러야 합니다.
 
     ![Application Insights Profiler 싱크 추가][resourceexplorersinksconfig]
 
-4. 구성을 편집한 후 ' Put ' 키를 누릅니다. 성공적으로 배치 되 면 화면 중간에 녹색 확인 표시가 나타납니다.
+4. 구성 편집이 완료되면 ‘Put’(배치)을 누릅니다. 성공적으로 배치되면 화면 중간에 녹색 확인 표시가 나타납니다.
 
-    ![변경 내용을 적용 하기 위해 put 요청 보내기][resourceexplorerput]
+    ![배치 요청을 보내 변경 내용 적용][resourceexplorerput]
 
 
 
@@ -110,7 +110,7 @@ ms.locfileid: "87315838"
 ## <a name="next-steps"></a>다음 단계
 
 - 애플리케이션에 대한 트래픽을 생성합니다(예: [가용성 테스트](monitor-web-app-availability.md) 시작). 그런 다음, 추적을 10~15분 동안 기다려서 Application Insights 인스턴스로 보내기 시작합니다.
-- Azure Portal의 [Profiler 추적](profiler-overview.md?toc=/azure/azure-monitor/toc.json) 을 참조 하세요.
+- Azure Portal에서 [Profiler 추적](profiler-overview.md?toc=/azure/azure-monitor/toc.json)을 참조하세요.
 - Profiler 문제 해결 지원을 받으려면 [Profiler 문제 해결](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json)을 참조하세요.
 
 [azureresourceexplorer]: ./media/profiler-vm/azure-resource-explorer.png

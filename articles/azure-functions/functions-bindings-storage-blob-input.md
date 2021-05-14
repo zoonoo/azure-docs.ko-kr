@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 4aaf63d2a4d49f7fff35eb7386b71ac271f1eac9
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 191722d02b493cfe0197c3e45771543fd8c5926a
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227401"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961050"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Azure Functions의 Azure Blob Storage 입력 바인딩
 
@@ -262,7 +262,7 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 
 `dataType` 속성에 따라 사용되는 바인딩이 결정됩니다. 다음 값은 다양한 바인딩 전략을 지원하는 데 사용할 수 있습니다.
 
-| 바인딩 값 | 기본값 | Description | 예제 |
+| 바인딩 값 | 기본값 | 설명 | 예제 |
 | --- | --- | --- | --- |
 | `string` | N | 제네릭 바인딩을 사용하고 입력 형식을 `string`으로 캐스팅 | `def main(input: str)` |
 | `binary` | N | 제네릭 바인딩을 사용하고 입력 blob을 `bytes` Python 개체로 캐스팅 | `def main(input: bytes)` |
@@ -276,6 +276,7 @@ import logging
 import azure.functions as func
 
 
+# The type func.InputStream is not supported for blob input binding.
 # The input binding field inputblob can either be 'bytes' or 'str' depends
 # on dataType in function.json, 'binary' or 'string'.
 def main(queuemsg: func.QueueMessage, inputblob: bytes) -> bytes:

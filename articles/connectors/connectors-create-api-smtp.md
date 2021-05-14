@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 9989d0ebd95bfe5ee49be2ba76b73e07630b519a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87283948"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 SMTP 계정에서 이메일 보내기
@@ -49,14 +49,14 @@ Azure Logic Apps 및 SMTP(Simple Mail Transfer Protocol) 커넥터를 사용하�
 
 1. 메시지가 표시되면 이 연결 정보를 제공합니다.
 
-   | 속성 | 필수 | 설명 |
+   | 속성 | 필수 | Description |
    |----------|----------|-------------|
    | **연결 이름** | 예 | SMTP 서버에 대한 연결의 이름 | 
    | **SMTP 서버 주소** | 예 | SMTP 서버에 대한 주소 | 
    | **사용자 이름** | 예 | SMTP 계정에 대한 사용자 이름 | 
    | **암호** | 예 | SMTP 계정에 대한 암호 | 
-   | **SMTP 서버 포트** | 아니요 | 사용하려는 SMTP 서버의 특정 포트 | 
-   | **SSL을 사용 하도록 설정 하 시겠습니까?** | 아니요 | TLS/SSL 암호화를 설정 하거나 해제 합니다. | 
+   | **SMTP 서버 포트** | 예 | 사용하려는 SMTP 서버의 특정 포트 | 
+   | **SSL 사용?** | 예 | TLS/SSL 암호화를 설정하거나 해제합니다. | 
    |||| 
 
 1. 선택한 작업에 필요한 정보를 입력합니다. 
@@ -65,10 +65,10 @@ Azure Logic Apps 및 SMTP(Simple Mail Transfer Protocol) 커넥터를 사용하�
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 Swagger 파일에 설명 된 대로 트리거, 작업 및 제한과 같은이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](/connectors/smtpconnector/)를 참조 하세요.
+커넥터의 Swagger 파일에 설명된 트리거, 작업, 제한 등 이 커넥터에 대한 자세한 기술 정보는 [커넥터의 참조 페이지](/connectors/smtpconnector/)에서 확인할 수 있습니다.
 
 > [!NOTE]
-> [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 ise 레이블 버전은 [ise 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 대신 사용 합니다.
+> [ISE(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)의 논리 앱에서는 이 커넥터의 ISE 레이블 지정 버전이 [ISE 메시지 한도](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

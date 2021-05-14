@@ -4,10 +4,10 @@ description: 컴퓨팅 노드 및 풀에 대해 살펴보고 개발 관점에서
 ms.topic: conceptual
 ms.date: 03/11/2021
 ms.openlocfilehash: 7d4c2d45849deb011498efe4c8a1ae91724b9acd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103563898"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Azure Batch의 노드 및 풀
@@ -26,9 +26,9 @@ Batch의 모든 컴퓨팅 노드는 다음 사항도 포함합니다.
 
 - 태스크에서 참조로 사용할 수 있는 표준 [폴더 구조](files-and-directories.md) 및 연결된 [환경 변수](jobs-and-tasks.md)
 - **방화벽** 설정
-- 원격 액세스를 [사용 하지 않도록 설정 된 풀을 만들지](pool-endpoint-configuration.md)않는 경우 Windows (원격 데스크톱 프로토콜 (RDP)) 및 Linux (Secure Shell) 노드에 대 한 [원격 액세스](error-handling.md#connect-to-compute-nodes) .
+- Windows(RDP(원격 데스크톱 프로토콜)) 노드 및 Linux(SSH(Secure Shell)) 노드 모두에 대한 [원격 액세스](error-handling.md#connect-to-compute-nodes)([원격 액세스를 사용하지 않는 풀](pool-endpoint-configuration.md)을 만들지 않는 경우).
 
-기본적으로 노드는 서로 통신할 수 있지만 동일한 풀에 속하지 않는 가상 머신과 통신할 수 없습니다. 노드가 다른 가상 머신 또는 온-프레미스 네트워크와 안전 하 게 통신할 수 있도록 하려면 [Azure VNet (가상 네트워크)의 서브넷에](batch-virtual-network.md)풀을 프로 비전 할 수 있습니다. 이렇게 하면 공용 IP 주소를 통해 노드에 액세스할 수 있습니다. 이러한 공용 IP 주소는 일괄 처리로 생성 되며 풀의 수명 동안 변경 될 수 있습니다. 사용자가 제어 하는 [고정 공용 IP 주소를 사용 하 여 풀을 만들어](create-pool-public-ip.md) 예기치 않게 변경 되지 않도록 할 수도 있습니다.
+기본적으로 노드는 서로 통신할 수 있지만 동일한 풀에 속하지 않는 가상 머신과는 통신할 수 없습니다. 노드가 다른 가상 머신 또는 온-프레미스 네트워크와 안전하게 통신할 수 있도록 [Azure VNet(가상 네트워크)의 서브넷에서](batch-virtual-network.md) 풀을 프로비저닝할 수 있습니다. 이렇게 하면 공용 IP 주소를 통해 노드에 액세스할 수 있습니다. 공용 IP 주소는 일괄 처리로 생성되며 풀의 수명 동안 바뀔 수 있습니다. 직접 컨트롤할 수 있는 [고정적인 공용 IP 주소가 있는 풀을 생성](create-pool-public-ip.md)하여 IP 주소가 예기치 않게 변경되지 않도록 할 수도 있습니다.
 
 ## <a name="pools"></a>풀
 
@@ -40,7 +40,7 @@ Azure Batch 풀은 코어 Azure 컴퓨팅 플랫폼을 기반으로 합니다. B
 
 풀은 풀이 생성된 Batch 계정을 통해서만 사용할 수 있습니다. 한 Batch 계정에서 실행될 애플리케이션의 리소스 요구 사항을 충족하기 위해 여러 풀을 만들 수 있습니다.
 
-풀은 수동으로 만들거나 수행할 작업을 지정할 때 [Batch 서비스에서 자동으로](#autopools) 만들 수 있습니다. 풀을 만들 때는 다음과 같은 특성을 지정할 수 있습니다.
+풀을 수동으로 만들 수도 있고, 수행할 작업을 지정한 경우에는 [Batch 서비스에서 자동으로](#autopools) 풀을 만듭니다. 풀을 만들 때는 다음과 같은 특성을 지정할 수 있습니다.
 
 - [노드 운영 체제 및 버전](#operating-system-and-version)
 - [노드 유형 및 노드 대상 수](#node-type-and-target)
@@ -65,24 +65,24 @@ Batch 풀을 만들 때 Azure 가상 머신 구성과 풀의 각 컴퓨팅 노�
 Batch에서 사용할 수 있는 풀 구성에는 두 가지 유형이 있습니다.
 
 > [!IMPORTANT]
-> 구성 중 하나를 사용 하 여 풀을 만들 수는 있지만 새 풀은 가상 머신 구성을 사용 하 여 구성 하 고 Cloud Services 구성은 구성 하지 않아야 합니다. 모든 현재 및 새 Batch 기능은 가상 컴퓨터 구성 풀에서 지원 됩니다. Cloud Services 구성 풀은 모든 기능을 지원 하지 않으며 새로운 기능이 계획 되지 않았습니다. [2024 년 2 월 29 일 이후에는](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/)새 ' CloudServiceConfiguration ' 풀을 만들거나 기존 풀에 새 노드를 추가할 수 없습니다.
+> 현재 두 구성 중 아무거나 사용하여 풀을 만들 수 있지만, 새 풀은 Cloud Services 구성이 아니라 Virtual Machine 구성을 사용하여 구성해야 합니다. Batch의 모든 현재 및 새 기능은 Virtual Machine 구성 풀에서 지원됩니다. Cloud Services 구성 풀은 모든 기능을 지원하지 않으며 새로운 기능도 계획되어 있지 않습니다. [2024년 2월 29일 이후](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/) 새 ‘CloudServiceConfiguration’ 풀을 생성하거나 기존 풀에 새 노드를 추가할 수 없습니다.
 
 ### <a name="virtual-machine-configuration"></a>가상 머신 구성
 
 **가상 머신 구성** 은 풀이 Azure 가상 머신으로 구성됨을 나타냅니다. 이러한 VM은 Linux 또는 Windows 이미지에서 만들 수 있습니다.
 
-[Batch 노드 에이전트](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) 는 풀의 각 노드에서 실행 되 고 노드와 Batch 서비스 간에 명령 및 컨트롤 인터페이스를 제공 하는 프로그램입니다. SKU라고 하는 노드 에이전트의 구현은 서로 다른 운영 체제에 대해 여러 가지가 있습니다. Virtual Machine 구성에 따라 풀을 만들 때는 노드 크기와 해당 노드를 만드는 데 사용되는 이미지의 원본뿐만 아니라 해당 노드에 설치될 **가상 머신 이미지 참조** 및 Batch **노드 에이전트 SKU** 도 지정해야 합니다. 이러한 풀 속성에 대한 자세한 내용은 [Azure Batch 풀에서 Linux 컴퓨팅 노드 프로비전](batch-linux-nodes.md)을 참조하세요. 필요에 따라 하나 이상의 빈 데이터 디스크를 Marketplace 이미지에서 만든 풀 VM에 연결하거나 VM을 만드는 데 사용되는 사용자 지정 이미지에 데이터 디스크를 포함할 수 있습니다. 데이터 디스크를 포함하는 경우 VM 내에서 디스크를 탑재하고 포맷하여 사용해야 합니다.
+[Batch 노드 에이전트](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md)는 풀의 각 노드에서 실행되고 노드와 Batch 서비스 간의 명령 및 컨트롤 인터페이스를 제공하는 프로그램입니다. SKU라고 하는 노드 에이전트의 구현은 서로 다른 운영 체제에 대해 여러 가지가 있습니다. Virtual Machine 구성에 따라 풀을 만들 때는 노드 크기와 해당 노드를 만드는 데 사용되는 이미지의 원본뿐만 아니라 해당 노드에 설치될 **가상 머신 이미지 참조** 및 Batch **노드 에이전트 SKU** 도 지정해야 합니다. 이러한 풀 속성에 대한 자세한 내용은 [Azure Batch 풀에서 Linux 컴퓨팅 노드 프로비전](batch-linux-nodes.md)을 참조하세요. 필요에 따라 하나 이상의 빈 데이터 디스크를 Marketplace 이미지에서 만든 풀 VM에 연결하거나 VM을 만드는 데 사용되는 사용자 지정 이미지에 데이터 디스크를 포함할 수 있습니다. 데이터 디스크를 포함하는 경우 VM 내에서 디스크를 탑재하고 포맷하여 사용해야 합니다.
 
 ### <a name="cloud-services-configuration"></a>Cloud Services 구성
 
 > [!WARNING]
-> Cloud Services 구성 풀은 [사용 되지](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/)않습니다. 대신 가상 컴퓨터 구성 풀을 사용 하세요. 자세한 내용은 [Cloud Services에서 가상 머신으로 Batch 풀 구성 마이그레이션](batch-pool-cloud-service-to-virtual-machine-configuration.md)을 참조 하세요.
+> Cloud Services 구성 풀은 [사용되지 않습니다](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Virtual Machine 구성 풀을 대신 사용하세요. 자세한 내용은 [Cloud Services에서 Virtual Machine으로 Batch 풀 구성 마이그레이션](batch-pool-cloud-service-to-virtual-machine-configuration.md)을 참조하세요.
 
-**Cloud Services 구성** 은 풀이 Azure Cloud Services 노드로 구성됨을 나타냅니다. Cloud Services는 Windows 계산 노드만 제공 합니다.
+**Cloud Services 구성** 은 풀이 Azure Cloud Services 노드로 구성됨을 나타냅니다. Cloud Services는 Windows 컴퓨팅 노드만 제공합니다.
 
-Cloud Services 구성 풀에 사용 가능한 운영 체제는 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](../cloud-services/cloud-services-guestos-update-matrix.md)에 나열 되며, 사용 가능한 계산 노드 크기는 [Cloud Services 크기](../cloud-services/cloud-services-sizes-specs.md)에 나열 됩니다. Cloud Services 노드를 포함 하는 풀을 만들 때 노드 크기와 해당 *Os 제품군* (os와 함께 설치 되는 .net 버전을 결정)을 지정 합니다. Cloud Services는 Windows를 실행하는 가상 머신보다 더 빠르게 Azure에 배포됩니다. Windows 컴퓨팅 노드 풀을 원하는 경우 배포 시간 측면에서 Cloud Services가 성능 상의 이점을 제공할 수 있습니다.
+Cloud Services 구성 풀에 사용할 수 있는 운영 체제는 [Azure Guest OS 릴리스 및 SDK 호환성 매트릭스](../cloud-services/cloud-services-guestos-update-matrix.md)에 나열되고 사용 가능한 컴퓨팅 노드 크기는 [Cloud Services 크기](../cloud-services/cloud-services-sizes-specs.md)에 나열됩니다. Cloud Services 노드를 포함하는 풀을 만들 때 노드 크기와 해당 ‘OS 제품군’(OS와 함께 설치되는 .NET 버전을 결정)을 지정합니다. Cloud Services는 Windows를 실행하는 가상 머신보다 더 빠르게 Azure에 배포됩니다. Windows 컴퓨팅 노드 풀을 원하는 경우 배포 시간 측면에서 Cloud Services가 성능 상의 이점을 제공할 수 있습니다.
 
-Cloud Services 내의 작업자 역할과 마찬가지로 *OS 버전* 을 지정할 수 있습니다. OS 버전에 `Latest (*)`를 지정하는 것이 좋습니다. 그러면 노드가 자동으로 업그레이드되며 새로 릴리스된 버전을 사용하는 데 필요한 조정 작업이 없습니다. 특정 OS 버전을 선택하는 기본 사용 사례는 버전을 업데이트하기 전에 이전 버전과의 호환성 테스트를 수행할 수 있게 하여 애플리케이션 호환성을 유지하는 것입니다. 유효성 검사 후 풀의 OS 버전을 업데이트하고 새 OS 이미지를 설치할 수 있습니다. 실행 중인 태스크가 모두 중단되고 다시 큐에 저장됩니다.
+Cloud Services 내의 작업자 역할과 마찬가지로 ‘OS 버전’을 지정할 수 있습니다. OS 버전에 `Latest (*)`를 지정하는 것이 좋습니다. 그러면 노드가 자동으로 업그레이드되며 새로 릴리스된 버전을 사용하는 데 필요한 조정 작업이 없습니다. 특정 OS 버전을 선택하는 기본 사용 사례는 버전을 업데이트하기 전에 이전 버전과의 호환성 테스트를 수행할 수 있게 하여 애플리케이션 호환성을 유지하는 것입니다. 유효성 검사 후 풀의 OS 버전을 업데이트하고 새 OS 이미지를 설치할 수 있습니다. 실행 중인 태스크가 모두 중단되고 다시 큐에 저장됩니다.
 
 ### <a name="node-agent-skus"></a>노드 에이전트 SKU
 
@@ -117,7 +117,7 @@ Azure에 여유 용량이 부족하면 우선 순위가 낮은 노드는 선점�
 
 ## <a name="node-size"></a>노드 크기
 
-Azure Batch 풀을 만들 때 Azure에서 사용할 수 있는 거의 모든 VM 제품군과 크기 중에서 선택할 수 있습니다. Azure는 다양한 작업에 대해 다양한 VM 크기(특수화된 [HPC](../virtual-machines/sizes-hpc.md) 또는 [GPU 사용 가능](../virtual-machines/sizes-gpu.md) VM 크기 포함)를 제공합니다. 풀을 만들 때만 노드 크기를 선택할 수 있습니다. 즉, 풀을 만든 후에는 해당 노드 크기를 변경할 수 없습니다.
+Azure Batch 풀을 만들 때 Azure에서 사용할 수 있는 거의 모든 VM 제품군과 크기 중에서 선택할 수 있습니다. Azure는 다양한 작업에 대해 다양한 VM 크기(특수화된 [HPC](../virtual-machines/sizes-hpc.md) 또는 [GPU 사용 가능](../virtual-machines/sizes-gpu.md) VM 크기 포함)를 제공합니다. 노드 크기는 풀을 만들 때만 선택할 수 있습니다. 즉, 풀을 만든 후에는 해당 노드 크기를 변경할 수 없습니다.
 
 자세한 내용은 [Azure Batch 풀의 컴퓨팅 노드에 대한 VM 크기 선택](batch-pool-vm-sizes.md)을 참조하세요.
 
@@ -179,7 +179,7 @@ Batch에서 컴퓨팅 노드 풀을 프로비전하면 풀을 Azure [VNet(가상
 VNet에서 Batch 풀 설정에 대한 자세한 내용은 [가상 네트워크로 가상 머신의 풀 만들기](batch-virtual-network.md)를 참조하세요.
 
 > [!TIP]
-> 노드에 액세스 하는 데 사용 되는 공용 IP 주소가 변경 되지 않도록 하려면 [사용자가 제어 하는 지정 된 공용 ip 주소를 사용 하 여 풀을 만들](create-pool-public-ip.md)수 있습니다.
+> 노드에 액세스하는 데 사용되는 공용 IP 주소가 변경되지 않도록 하려면 [관리하고 있는 지정된 공용 IP 주소가 있는 풀을 생성](create-pool-public-ip.md)할 수 있습니다.
 
 ## <a name="pool-and-compute-node-lifetime"></a>풀 및 컴퓨팅 노드 수명
 
@@ -191,9 +191,9 @@ Azure Batch 솔루션을 설계할 때 풀을 만드는 방법 및 시기와 해
 
 통합 접근 방식은 일반적으로 가변적이지만 지속적인 부하를 처리하는 데 사용됩니다. 여러 작업이 제출되는 풀을 사용할 수 있으며 작업 부하에 따라 노드 수를 확장 또는 축소할 수 있습니다. 이는 현재 부하에 따라 사후 대응적으로 수행하거나 부하를 예측할 수 있는 경우 사전 대응적으로 수행할 수 있습니다. 자세한 내용은 [자동 크기 조정 정책](#automatic-scaling-policy)을 참조하세요.
 
-## <a name="autopools"></a>Autopools
+## <a name="autopools"></a>자동 풀
 
-[자동 풀](/rest/api/batchservice/job/add#autopoolspecification) 는 풀에서 실행 되는 작업 이전에 생성 되는 것이 아니라 작업을 제출할 때 Batch 서비스에서 만드는 풀입니다. Batch 서비스는 사용자가 지정 하는 특성에 따라 자동 풀의 수명을 관리 합니다. 일반적으로 이러한 풀은 작업이 완료 된 후에도 자동으로 삭제 되도록 설정 됩니다.
+[자동 풀](/rest/api/batchservice/job/add#autopoolspecification)은 풀에서 실행될 작업보다 먼저 풀이 만들어지는 것이 아니라, Batch 서비스에 의해 작업이 제출될 때 생성되는 풀입니다. Batch 서비스는 지정한 특성에 따라 자동 풀 수명을 관리합니다. 대부분의 경우 해당 풀은 작업이 완료된 후 자동으로 삭제되도록 설정됩니다.
 
 ## <a name="security-with-certificates"></a>인증서를 사용한 보안
 
@@ -208,4 +208,4 @@ Azure Batch 솔루션을 설계할 때 풀을 만드는 방법 및 시기와 해
 ## <a name="next-steps"></a>다음 단계
 
 - [작업 및 태스크](jobs-and-tasks.md)에 대해 알아봅니다.
-- [풀 및 노드 백그라운드 작업에서 오류를 감지 하 고 방지 ](batch-pool-node-error-checking.md)하는 방법에 대해 알아봅니다.
+- [풀 및 노드 백그라운드 작업에서 오류를 감지하고 방지](batch-pool-node-error-checking.md)하는 방법을 알아봅니다.

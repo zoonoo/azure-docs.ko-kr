@@ -4,17 +4,17 @@ description: 파일 및 디렉터리에 대해 살펴보고 개발 관점에서 
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.openlocfilehash: eafea6c234c3b261521f8a791b7a03e25388f02a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87552642"
 ---
 # <a name="files-and-directories-in-azure-batch"></a>Azure Batch의 파일 및 디렉터리
 
-Azure Batch 각 태스크에는 파일 및 디렉터리를 만들 수 있는 작업 디렉터리가 있습니다. 태스크가 실행하는 프로그램, 처리하는 데이터 및 수행하는 처리의 출력을 저장하는 데 작업 디렉터리를 사용할 수 있습니다. 태스크의 모든 파일 및 디렉터리는 태스크 사용자가 소유합니다.
+Azure Batch의 각 작업에는 작업 디렉터리가 있으며 이 디렉터리에 파일 및 디렉터리를 만들 수 있습니다. 태스크가 실행하는 프로그램, 처리하는 데이터 및 수행하는 처리의 출력을 저장하는 데 작업 디렉터리를 사용할 수 있습니다. 태스크의 모든 파일 및 디렉터리는 태스크 사용자가 소유합니다.
 
-Batch 서비스는 노드의 파일 시스템 일부를 *루트 디렉터리* 로 노출합니다. 이 루트 디렉터리는 OS 드라이브에서 직접이 아니라 VM의 임시 저장소 드라이브에 있습니다.
+Batch 서비스는 노드의 파일 시스템 일부를 *루트 디렉터리* 로 노출합니다. 이 루트 디렉터리는 OS 드라이브에 바로 있는 것이 아니라 VM의 임시 스토리지 드라이브에 있습니다.
 
 태스크는 `AZ_BATCH_NODE_ROOT_DIR` 환경 변수를 참조하여 루트 디렉터리에 액세스할 수 있습니다. 환경 변수 사용에 대한 자세한 내용은 [태스크에 대한 환경 설정](jobs-and-tasks.md#environment-settings-for-tasks)을 참조하세요.
 
@@ -22,7 +22,7 @@ Batch 서비스는 노드의 파일 시스템 일부를 *루트 디렉터리* �
 
 루트 디렉터리는 다음과 같은 디렉터리 구조를 포함합니다.
 
-![계산 노드 디렉터리 구조의 스크린샷](media\files-and-directories\node-folder-structure.png)
+![컴퓨팅 노드 디렉터리 구조 스크린샷입니다.](media\files-and-directories\node-folder-structure.png)
 
 - **애플리케이션**: 컴퓨팅 노드에 설치된 애플리케이션 패키지의 세부 사항에 대한 정보를 포함합니다. 태스크는 `AZ_BATCH_APP_PACKAGE` 환경 변수를 참조하여 이 디렉터리에 액세스할 수 있습니다.
 

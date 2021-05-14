@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/09/2019
 ms.openlocfilehash: 9aa11be42aca59458fea0462a90b6aeb70df893d
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104863142"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>HDInsight에서 Apache Kafka에 대한 확장성 및 스토리지 구성
@@ -20,18 +20,18 @@ HDInsight의 Kafka는 HDInsight 클러스터에서 가상 머신의 로컬 디�
 
 다음 다이어그램은 관리 디스크가 있기 전, HDInsight의 Kafka와 관리 디스크가 있는 HDInsight의 Kafka를 비교하여 보여줍니다.
 
-:::image type="content" source="./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png" alt-text="관리 디스크 아키텍처를 사용 하는 kafka" border="false":::
+:::image type="content" source="./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png" alt-text="관리 디스크 아키텍처를 사용하는 kafka" border="false":::
 
 ## <a name="configure-managed-disks-azure-portal"></a>관리 디스크 구성: Azure Portal
 
-1. [HDInsight 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)의 단계에 따라 포털을 사용하여 클러스터를 만드는 일반적인 단계를 이해합니다. 포털 만들기 프로세스를 완료 하지 마세요.
+1. [HDInsight 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)의 단계에 따라 포털을 사용하여 클러스터를 만드는 일반적인 단계를 이해합니다. 포털 생성 프로세스를 완료하지 마세요.
 
-2. **Configuration & 가격 책정** 섹션에서 __노드 수__ 필드를 사용 하 여 디스크 수를 구성 합니다.
+2. **구성 및 가격 책정** 섹션에서 __노드 수__ 필드를 사용하여 디스크 수를 구성합니다.
 
     > [!NOTE]  
     > 관리 디스크 유형은 __표준__ (HDD) 또는 __프리미엄__ (SSD)일 수 있습니다. 프리미엄 디스크는 DS 및 GS 시리즈 VM에 사용됩니다. 다른 모든 VM 유형은 표준을 사용합니다.
 
-    :::image type="content" source="./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka-disks.png" alt-text="작업자 노드당 디스크가 강조 표시 된 클러스터 크기 섹션" border="true":::
+    :::image type="content" source="./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka-disks.png" alt-text="작업자 노드당 디스크가 강조 표시된 클러스터 크기 섹션" border="true":::
 
 ## <a name="configure-managed-disks-resource-manager-template"></a>관리 디스크 구성: Resource Manager 템플릿
 
@@ -45,7 +45,7 @@ Kafka 클러스터에서 작업자 노드에 사용된 디스크 수를 제어�
     ],
 ```
 
-에서 관리 디스크를 구성 하는 방법을 보여 주는 전체 템플릿을 찾을 수 있습니다 [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json) .
+[https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json)에서 관리되는 디스크를 구성하는 방법을 보여주는 전체 템플릿을 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

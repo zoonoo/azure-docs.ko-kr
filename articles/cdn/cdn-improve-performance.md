@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
 ms.openlocfilehash: 11a2dbfc9c6da60e4dd96f65d2a20165a3663e8c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103601545"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Azure CDN에서 파일을 압축하여 성능 향상
@@ -27,7 +27,7 @@ ms.locfileid: "103601545"
 파일 압축을 사용하도록 설정하는 두 가지 방법이 있습니다.
 
 - 원본 서버에서 압축을 사용합니다. 이 경우 Azure CDN은 압축된 파일을 전달하고 이러한 파일을 요청하는 클라이언트에 배달합니다.
-- CDN POP 서버에서 직접 압축을 사용 하도록 설정 합니다 (*즉시 압축*). 이 경우 원본 서버에서 압축되지 않더라도 CDN이 파일을 압축하여 최종 사용자에게 제공합니다.
+- CDN POP 서버에서 직접 압축을 사용하도록 설정합니다(*즉석에서 압축*). 이 경우 원본 서버에서 압축되지 않더라도 CDN이 파일을 압축하여 최종 사용자에게 제공합니다.
 
 > [!IMPORTANT]
 > Azure CDN 구성 변경이 네트워크 통해 전파되려면 다소 시간이 걸릴 수 있습니다. 
@@ -53,12 +53,12 @@ ms.locfileid: "103601545"
     CDN 엔드포인트 페이지가 열립니다.
 2. **압축** 을 선택합니다.
 
-    ![포털 메뉴에서 압축이 선택 된 끝점을 보여 주는 스크린샷](./media/cdn-file-compression/cdn-compress-select-std.png)
+    ![포털 메뉴에서 압축이 선택된 엔드포인트를 보여주는 스크린샷.](./media/cdn-file-compression/cdn-compress-select-std.png)
 
     압축 페이지가 열립니다.
 3. **켜기** 를 선택하여 압축을 켭니다.
 
-    ![압축 설정을 보여 주는 스크린샷](./media/cdn-file-compression/cdn-compress-standard.png)
+    ![압축을 켜는 모습을 보여주는 스크린샷.](./media/cdn-file-compression/cdn-compress-standard.png)
 4. 기본 MIME 형식을 사용하거나, MIME 형식을 추가 또는 제거하여 목록을 수정합니다.
 
    > [!TIP]
@@ -97,9 +97,9 @@ ms.locfileid: "103601545"
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>Microsoft의 Azure CDN 표준 프로필
 
 **Microsoft의 Azure CDN 표준** 프로필의 경우에는 적합한 파일만 압축됩니다. 압축이 가능하려면 파일이 다음 조건을 충족해야 합니다.
-- [압축을 위해 구성](#enabling-compression)된 MIME 형식 이어야 합니다.
-- 1kb 보다 커야 합니다.
-- 8mb 보다 작아야 합니다.
+- [압축용으로 구성된](#enabling-compression) MIME 형식.
+- 1KB 초과
+- 8MB 미만
 
 이러한 프로필은 다음과 같은 압축 인코딩을 지원합니다.
 - gzip(GNU zip)
@@ -109,13 +109,13 @@ ms.locfileid: "103601545"
 
 자산에 대한 요청이 gzip 압축을 지정하고 캐시의 요청 결과가 누락된 경우 Azure CDN은 POP 서버에서 직접 자산의 gzip 압축을 수행합니다. 이후 압축된 파일은 캐시에서 제공됩니다.
 
-원본에서 CTE (청크 분할 전송 인코딩)를 사용 하 여 압축 된 데이터를 CDN POP로 보내는 경우 8MB 보다 큰 응답 크기는 지원 되지 않습니다. 
+원본에서 CTE(청크 분할 전송 인코딩)를 사용하여 압축된 데이터를 CDN POP로 보내는 경우 8MB보다 큰 응답 크기는 지원되지 않습니다. 
 
 ### <a name="azure-cdn-from-verizon-profiles"></a>Verizon의 Azure CDN 프로필
 
 **Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄** 프로필의 경우, 적합한 파일만 압축될 수 있습니다. 압축이 가능하려면 파일이 다음 조건을 충족해야 합니다.
 - 128바이트 초과.
-- 3mb 보다 작아야 합니다.
+- 3MB 미만
 
 이러한 프로필은 다음과 같은 압축 인코딩을 지원합니다.
 - gzip(GNU zip)
@@ -137,7 +137,7 @@ ms.locfileid: "103601545"
 다음 표는 모든 시나리오에 적용되는 Azure CDN 압축 동작을 설명합니다.
 
 ### <a name="compression-is-disabled-or-file-is-ineligible-for-compression"></a>압축이 비활성화되었거나 파일이 압축에 부적합
-| 클라이언트 요청 형식(Accept-Encoding 헤더를 통한) | 캐시된 파일 형식 | 클라이언트에 대한 CDN 응답 | &nbsp; &nbsp; &nbsp; &nbsp; 참고 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+| 클라이언트 요청 형식(Accept-Encoding 헤더를 통한) | 캐시된 파일 형식 | 클라이언트에 대한 CDN 응답 | 참고&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 | --- | --- | --- | --- |
 | Compressed |Compressed |Compressed | |
 | Compressed |미압축 |미압축 | |
@@ -149,10 +149,10 @@ ms.locfileid: "103601545"
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>압축이 활성화되고 파일이 압축에 적합
 | 클라이언트 요청 형식(Accept-Encoding 헤더를 통한) | 캐시된 파일 형식 | 클라이언트에 대한 CDN 응답 | 참고 |
 | --- | --- | --- | --- |
-| Compressed |Compressed |Compressed |지원되는 형식 간 CDN 코드 변환. <br/>**Microsoft에서 Azure CDN** 형식 간의 트랜스 코딩을 지원 하지 않으며 대신 원본에서 데이터를 인출 하 고 압축 및 캐시 하 여 형식에 대해 개별적으로 데이터를 인출 합니다. |
+| Compressed |Compressed |Compressed |지원되는 형식 간 CDN 코드 변환. <br/>**Microsoft의 Azure CDN** 은 형식 간 코드 변환을 지원하지 않으며 대신 원본에서 데이터를 가져와 형식에 대해 별도로 압축 및 캐시합니다. |
 | Compressed |미압축 |Compressed |CDN이 압축 수행. |
 | Compressed |캐시되지 않음 |Compressed |원본에서 미압축 파일을 반환하면 CDN이 압축을 수행합니다. <br/>**Verizon에서 Azure CDN** 은 첫 번째 요청에 압축되지 않은 파일을 전달한 다음 후속 요청에 대한 파일을 압축하고 캐시합니다. <br/>`Cache-Control: no-cache` 헤더가 있는 파일은 압축되지 않습니다. |
-| 미압축 |Compressed |미압축 |CDN이 압축을 풉니다. <br/>**Microsoft의 Azure CDN** 는 압축 풀기를 지원 하지 않으며 대신 압축 되지 않은 클라이언트에 대해 원본 및 캐시에서 별도로 데이터를 인출 합니다. |
+| 미압축 |Compressed |미압축 |CDN이 압축을 풉니다. <br/>**Microsoft의 Azure CDN** 은 압축 풀기를 지원하지 않으며 대신 원본에서 데이터를 가져와 압축되지 않은 클라이언트에 대해 별도로 캐시합니다. |
 | 미압축 |미압축 |미압축 | |
 | 미압축 |캐시되지 않음 |미압축 | |
 

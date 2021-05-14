@@ -1,84 +1,84 @@
 ---
-title: Cisco ISE pxGrid 통합 정보
-description: Cisco ISE pxGrid를 사용 하 여 IoT 용 Defender의 기능을 브리징 하면 엔터프라이즈 에코 시스템에 대 한 보안 팀의 장치 가시성을 향상 시킬 수 있습니다.
+title: Cisco ISE pxGrid 통합에 대한 정보
+description: Cisco ISE pxGrid를 통해 Defender for IoT의 기능을 브리징하여 보안 팀에 엔터프라이즈 에코시스템에 대한 전례 없는 디바이스 가시성을 제공합니다.
 ms.date: 12/28/2020
 ms.topic: how-to
 ms.openlocfilehash: 00151f2e407c65d024f3bd59bdaa85a08ae677f4
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104784087"
 ---
-# <a name="about-the-cisco-ise-pxgrid-integration"></a>Cisco ISE pxGrid 통합 정보
+# <a name="about-the-cisco-ise-pxgrid-integration"></a>Cisco ISE pxGrid 통합에 대한 정보
 
-IoT 용 Defender는 중요 한 국가 인프라를 방어 하는 트랙 레코드와 특허 된 ICS 인식 위협 분석 및 기계 학습을 사용 하는 유일한 플랫폼인 blue 팀 전문가가 만든 유일한 ICS 및 IoT 사이버 보안 플랫폼을 제공 합니다. IoT 용 Defender는 다음을 제공 합니다.
+Defender for IoT는 중요한 국가 인프라를 방어한 실적을 가진 블루 팀 전문가가 빌드한 유일한 ICS 및 IoT 사이버 보안 플랫폼과 특허받은 ICS 인식 위협 분석 및 기계 학습을 갖춘 유일한 플랫폼을 제공합니다. Defender for IoT는 다음을 제공합니다.
 
-- ICS 장치, 취약성 및 알려져 있고 0 일 위협에 대 한 즉각적인 통찰력.
+- ICS 디바이스, 취약성, 알려진 위협, 제로 데이 위협에 대한 즉각적인 인사이트.
 
-- ICS-프로토콜, 장치, 응용 프로그램 및 해당 동작에 대 한 심층 임베디드 정보를 인식 합니다.
+- OT 프로토콜, 디바이스, 애플리케이션, 해당 동작에 대한 심층적인 ICS 인식 정보.
 
-- 소유 분석을 통해 대상이 지정 된 ICS 공격의 가장 가능성이 높은 경로를 예측 하는 자동화 된 ICS 위협 모델링 기술입니다.
+- 독점 분석을 통해 대상 ICS 공격의 가장 가능성이 높은 경로를 예측하는 자동화된 ICS 위협 모델링 기술.
 
-## <a name="powerful-device-visibility-and-control"></a>강력한 장치 표시 유형 및 제어
+## <a name="powerful-device-visibility-and-control"></a>강력한 디바이스 가시성 및 제어
 
-Cisco ISE pxGrid와의 IoT 용 Defender 통합은 새 수준의 중앙 집중화 된 가시성, 모니터링 및 제어 기능을 제공 합니다.
+Defender for IoT의 Cisco ISE pxGrid와의 통합을 통해 OT 환경에 대한 새로운 수준의 중앙 집중화된 가시성, 모니터링, 제어 기능을 제공합니다.
 
-이러한 브리지 된 플랫폼은 이전에 연결할 수 없는 ICS 및 IIoT 장치에 대 한 자동 장치 가시성 및 보호를 지원 합니다.
+이 브리지된 플랫폼을 통해 이전에는 연결할 수 없었던 ICS 및 IIoT 디바이스에 대한 자동 디바이스 가시성과 보호 기능을 사용할 수 있습니다.
 
-### <a name="ics-and-iiot-device-visibility-comprehensive-and-deep"></a>ICS 및 IIoT 장치 표시 유형: 포괄적 및 딥
+### <a name="ics-and-iiot-device-visibility-comprehensive-and-deep"></a>포괄적이고 심층적인 ICS 및 IIoT 디바이스 가시성
 
-IoT 기술용 특허 형 Defender는 엔터프라이즈 데이터에 대 한 포괄적이 고 심층 ICS 및 IIoT 장치 검색 및 재고 관리를 보장 합니다.
+특허받은 Defender for IoT 기술은 엔터프라이즈 데이터에 대한 포괄적이고 심층적인 ICS 및 IIoT 디바이스 검색과 인벤토리 관리를 보장합니다.
 
-장치 유형, 제조업체, 오픈 포트, 일련 번호, 펌웨어 개정판, IP 주소 및 MAC 주소 데이터는 실시간으로 업데이트 됩니다. IoT 용 Defender는 중요 한 엔터프라이즈 데이터 원본과 통합 하 여이 기준에서 가시성, 검색 및 분석을 추가로 향상 시킬 수 있습니다. 예를 들어 CMDBs, DNS, 방화벽 및 Web Api가 있습니다.
+디바이스 유형, 제조업체, 오픈 포트, 일련 번호, 펌웨어 수정 사항, IP 주소, MAC 주소 데이터 등은 실시간으로 업데이트됩니다. Defender for IoT는 중요한 엔터프라이즈 데이터 원본과 통합하여 이 기준에서 가시성, 검색, 분석을 더욱 향상할 수 있습니다. 예를 들어 CMDB, DNS, 방화벽, Web API가 있습니다.
 
-또한 Defender 용 Defender 플랫폼은 수동 모니터링과 선택적인 선택적 검색 기법을 결합 하 여 산업 및 중요 인프라 조직에서 장치에 대 한 가장 정확 하 고 세부적인 인벤토리를 제공 합니다.
+또한 Defender for IoT 플랫폼은 수동 모니터링과 선택 사항인 선택적 프로빙을 결합하여 산업 및 중요 인프라 조직에서 디바이스에 대한 가장 정확하고 세부적인 인벤토리를 제공합니다.
 
 ### <a name="bridged-capabilities"></a>브리지 기능
 
-Cisco ISE pxGrid를 사용 하 여 이러한 기능을 브리징 하면 보안 팀에서 엔터프라이즈 에코 시스템에 대 한 장치 가시성을 향상 시킬 수 있습니다.
+Cisco ISE pxGrid를 통해 해당 기능을 브리징하여 보안 팀에 엔터프라이즈 에코시스템에 대한 전례 없는 디바이스 가시성을 제공합니다.
 
-Cisco ISE pxGrid와 원활 하 고 강력한 통합을 통해 장치를 찾을 수 없고 장치 정보가 누락 되지 않도록 합니다.
+Cisco ISE pxGrid와 원활하고 강력한 통합을 통해 모든 OT 디바이스가 검색 가능하고 디바이스 정보가 누락되지 않도록 합니다.
 
-:::image type="content" source="media/integration-cisco-isepxgrid-integration/endpoint-categories.png" alt-text="끝점 범주 OUA 샘플입니다.":::
+:::image type="content" source="media/integration-cisco-isepxgrid-integration/endpoint-categories.png" alt-text="엔드포인트 범주 OUI 샘플입니다.":::
 
-:::image type="content" source="media/integration-cisco-isepxgrid-integration/endpoints.png" alt-text="시스템의 샘플 끝점":::  
+:::image type="content" source="media/integration-cisco-isepxgrid-integration/endpoints.png" alt-text="시스템의 샘플 엔드포인트":::  
 
-:::image type="content" source="media/integration-cisco-isepxgrid-integration/attributes.png" alt-text="시스템에 있는 특성의 스크린샷":::  
+:::image type="content" source="media/integration-cisco-isepxgrid-integration/attributes.png" alt-text="시스템에 있는 특성의 스크린샷.":::  
 
-### <a name="use-case-coverage-ise-policies-based-on-defender-for-iot-attributes"></a>사용 사례 검사: IoT 특성에 대 한 Defender 기반 ISE 정책
+### <a name="use-case-coverage-ise-policies-based-on-defender-for-iot-attributes"></a>사용 사례 범위: Defender for IoT 특성 기반 ISE 정책
 
-IoT 심층 학습을 위한 Defender를 기반으로 하는 강력한 ISE 정책을 사용 하 여 ICS 및 IoT 사용 사례 요구 사항을 처리 합니다.
+Defender for IoT 딥 러닝을 기반으로 하는 강력한 ISE 정책을 사용하여 ICS 및 IoT 사용 사례 요구 사항을 처리합니다.
 
-정책을 사용 하면 보안 주기를 종료 하 고 네트워크를 실시간으로 규정 준수 상태로 전환할 수 있습니다.
+정책을 사용하면 보안 주기를 종료하고 실시간으로 네트워크가 규정을 준수하도록 할 수 있습니다.
 
-예를 들어 고객은 IoT ICS 및 IoT 특성에 Defender를 사용 하 여 다음과 같은 사용 사례를 처리 하는 정책을 만들 수 있습니다.
+예를 들어 고객은 Defender for IoT ICS 및 IoT 특성을 사용하여 다음과 같은 사용 사례를 다루는 정책을 만들 수 있습니다.
 
-- 허용 되는 특성을 기반으로 하는 중요 한 영역 (예: Rockwell Automation PLCs의 특정 펌웨어 버전)에 대해 알려진 승인 된 장치를 허용 하는 권한 부여 정책을 만듭니다.
+- 허용되는 특성을 기준으로 중요한 영역(예: Rockwell Automation PLC의 특정 펌웨어 버전)에 대해 알려진 디바이스 및 승인된 디바이스를 허용하는 권한 부여 정책을 만듭니다.
 
-- 비-지역에서 ICS 장치가 검색 되 면 보안 팀에 알립니다.
+- 비 OT 영역에서 ICS 디바이스가 검색되면 보안 팀에 알립니다.
 
-- 최신 또는 비규격 공급 업체를 사용 하 여 컴퓨터를 재구성 합니다.
+- 만료된 또는 비규격 공급업체를 통해 머신을 재구성합니다.
 
-- 필요에 따라 장치를 격리 하 고 차단 합니다.
+- 필요에 따라 디바이스를 격리하고 차단합니다.
 
-- CVEs (알려진 취약점)를 사용 하 여 PLCs 또는 RTUs 실행 펌웨어에 대 한 보고서를 생성 합니다.
+- 알려진 취약성이 있는 펌웨어를 실행하는 PLC 또는 RTU에 대한 보고서를 생성합니다(CVE).
 
 ### <a name="about-this-article"></a>이 문서의 내용
 
-이 문서에서는 IoT 용 Defender가 Cisco ISE에 대 한 특성을 삽입 하도록 pxGrid 및 IoT 플랫폼용 Defender를 설정 하는 방법을 설명 합니다.
+이 문서에서는 Defender for IoT가 OT 특성을 Cisco ISE에 삽입하도록 pxGrid 및 Defender for IoT를 설정하는 방법을 설명합니다.
 
 ### <a name="getting-more-information"></a>추가 정보 보기
 
-Cisco ISE pxGrid 통합 요구 사항에 대 한 자세한 내용은 다음을 참조 하세요. <https://www.cisco.com/c/en/us/products/security/pxgrid.html>
+Cisco ISE pxGrid 통합 요구 사항에 대한 자세한 내용은 <https://www.cisco.com/c/en/us/products/security/pxgrid.html> 페이지를 참조하세요.
 
 ## <a name="integration-system-requirements"></a>통합 시스템 요구 사항
 
-이 문서에서는 통합 시스템 요구 사항을 설명 합니다.
+이 문서에서는 통합 시스템 요구 사항을 설명합니다.
 
-IoT 요구 사항에 대 한 Defender
+Defender for IoT 요구 사항
 
-- IoT 용 Defender 버전 2.5
+- Defender for IoT 버전 2.5
 
 Cisco 요구 사항
 
@@ -88,104 +88,104 @@ Cisco 요구 사항
 
 네트워크 요구 사항
 
-- IoT 어플라이언스 용 Defender가 Cisco ISE 관리 인터페이스에 액세스할 수 있는지 확인 합니다.
+- Defender for IoT 어플라이언스에서 Cisco ISE 관리 인터페이스에 액세스할 수 있는지 확인합니다.
 
-- 기업에서 IoT 어플라이언스에 대 한 모든 Defender에 대 한 CLI 액세스 권한이 있는지 확인 합니다.
+- 기업의 모든 Defender for IoT 어플라이언스에 대한 CLI 액세스 권한이 있는지 확인합니다.
 
 > [!NOTE]
-> MAC 주소가 있는 장치만 Cisco ISE pxGrid와 동기화 됩니다.
+> MAC 주소가 있는 디바이스만 Cisco ISE pxGrid와 동기화됩니다.
 
 ## <a name="cisco-ise-pxgrid-setup"></a>Cisco ISE pxGrid 설정
 
 이 문서에서는 다음과 같이 방법을 설명합니다.
 
-- PxGrid를 사용 하 여 통신 설정
+- pxGrid와의 통신 설정
 
-- 끝점 장치 항목 구독
+- 엔드포인트 디바이스 토픽 구독
 
 - 인증서 생성
 
-- PxGrid 설정 정의
+- pxGrid 설정 정의
 
-## <a name="set-up-communication-with-pxgrid"></a>PxGrid를 사용 하 여 통신 설정
+## <a name="set-up-communication-with-pxgrid"></a>pxGrid와의 통신 설정
 
-이 문서에서는 pxGrid와의 통신을 설정 하는 방법을 설명 합니다.
+이 문서에서는 pxGrid와의 통신을 설정하는 방법을 설명합니다.
 
-통신을 설정 하려면:
+통신을 설정하려면 다음을 수행합니다.
 
-1. Cisco ISE에 로그인 합니다.
+1. Cisco ISE에 로그인합니다.
 
-1. **관리** > **시스템** 및 **배포** 를 선택 합니다.
+1. **관리**>**시스템** 및 **배포** 를 선택합니다.
 
-1. 필요한 노드를 선택 합니다. 일반 설정 탭에서 **Pxgrid 확인란** 을 선택 합니다.
+1. 필요한 노드를 선택합니다. 일반 설정 탭에서 **pxGrid 확인란** 을 선택합니다.
 
-    :::image type="content" source="media/integration-cisco-isepxgrid-integration/pxgrid.png" alt-text="Pxgrid 확인란을 선택 했는지 확인 합니다.":::
+    :::image type="content" source="media/integration-cisco-isepxgrid-integration/pxgrid.png" alt-text="pxGrid 확인란이 선택되었는지 확인합니다.":::
 
-1. **프로 파일링 구성** 탭을 선택 합니다.
+1. **프로파일링 구성** 탭을 선택합니다.
 
-1. **Pxgrid 확인란** 을 선택 합니다. 설명을 추가합니다.
+1. **pxGrid 확인란** 을 선택합니다. 설명을 추가합니다.
 
     :::image type="content" source="media/integration-cisco-isepxgrid-integration/profile-configuration.png" alt-text="설명 추가의 스크린샷":::
 
-## <a name="subscribe-to-the-endpoint-device-topic"></a>끝점 장치 항목 구독
+## <a name="subscribe-to-the-endpoint-device-topic"></a>엔드포인트 디바이스 토픽 구독
 
-ISE pxGrid 노드가 끝점 장치 항목을 구독 하는지 확인 합니다. **관리** > **pxgrid 서비스** > **웹 클라이언트** 로 이동 합니다. 여기서 ISE가 끝점 장치 항목을 구독 하는지 확인할 수 있습니다.
+ISE pxGrid 노드가 엔드포인트 디바이스 토픽을 구독하는지 확인합니다. **관리**>**pxGrid 서비스**>**웹 클라이언트** 로 이동합니다. 여기서 ISE가 엔드포인트 디바이스 토픽을 구독하는지 확인할 수 있습니다.
 
 ## <a name="generate-certificates"></a>인증서 생성
 
-이 문서에서는 인증서를 생성 하는 방법을 설명 합니다.
+이 문서에서는 인증서를 만드는 방법을 설명합니다.
 
-다음을 생성 합니다.
+인증서를 생성하려면 다음을 수행합니다.
 
-1. **관리**  >  **pxgrid 서비스** 를 선택 하 고 **인증서** 를 선택 합니다.
+1. **관리** > **pxGrid 서비스** 를 선택한 다음 **인증서** 를 선택합니다.
 
-    :::image type="content" source="media/integration-cisco-isepxgrid-integration/certificates.png" alt-text="인증서를 생성 하려면 인증서 탭을 선택 합니다.":::
+    :::image type="content" source="media/integration-cisco-isepxgrid-integration/certificates.png" alt-text="인증서를 생성하려면 인증서 탭을 선택합니다.":::
 
-1. **원하는 대상** 필드에서 **인증서 서명 요청 없이 단일 인증서 생성** 을 선택 합니다.
+1. **원하는 대상** 필드에서 **인증서 서명 요청 없이 단일 인증서 생성** 을 선택합니다.
 
-1. 나머지 필드를 입력 하 고 **만들기** 를 선택 합니다.
+1. 남은 필드를 입력하고 **만들기** 를 선택합니다.
 
-1. 클라이언트 인증서 키와 서버 인증서를 만든 다음 java 키 저장소 형식으로 변환 합니다. 네트워크에서 IoT 센서에 대 한 각 Defender로 복사 해야 합니다.
+1. 클라이언트 인증서 키와 서버 인증서를 만든 다음 java 키 저장소 형식으로 변환합니다. 이를 네트워크의 각 Defender for IoT 센서로 복사해야 합니다.
 
-## <a name="define-pxgrid-settings"></a>PxGrid 설정 정의
+## <a name="define-pxgrid-settings"></a>pxGrid 설정 정의
 
-설정을 정의 하려면:
+설정을 정의하려면 다음을 수행합니다.
 
-1. **관리**  >  **pxgrid 서비스** 를 선택한 다음 **설정** 을 선택 합니다.
+1. **관리** > **pxGrid 서비스** 를 선택한 다음 **설정** 을 선택합니다.
 
-1. **새 인증서 기반 계정을 자동으로 승인** 을 사용 하도록 설정 하 고 **암호 기반 계정을 만들 수 있습니다.**
+1. **새 인증서 기반 계정을 자동으로 승인** 하고 **암호 기반 계정을 만들 수 있도록** 설정할 수 있습니다.
 
-  :::image type="content" source="media/integration-cisco-isepxgrid-integration/allow-these.png" alt-text="두 확인란을 모두 선택 했는지 확인 합니다.":::
+  :::image type="content" source="media/integration-cisco-isepxgrid-integration/allow-these.png" alt-text="두 확인란을 모두 선택했는지 확인합니다.":::
 
-## <a name="set-up-the-defender-for-iot-appliances"></a>IoT 어플라이언스에 대 한 Defender 설정
+## <a name="set-up-the-defender-for-iot-appliances"></a>Defender for IoT 어플라이언스 설정
 
-이 문서에서는 pxGrid와 통신 하도록 IoT 어플라이언스를 설정 하는 방법을 설명 합니다. Cisco ISE에 데이터를 삽입 하는 IoT 어플라이언스의 모든 Defender에서 구성을 수행 해야 합니다.
+이 문서에서는 pxGrid와 통신하도록 Defender for IoT 어플라이언스를 설정하는 방법을 설명합니다. Cisco ISE에 데이터를 삽입하는 모든 Defender for IoT 어플라이언스에서 구성을 수행해야 합니다.
 
-어플라이언스를 설정 하려면:
+어플라이언스를 설정하려면 다음을 수행합니다.
 
-1. 센서 CLI에 로그인 합니다.
+1. 센서 CLI에 로그인합니다.
 
-1. `trust.jks`이전에 센서에 만든 및를 복사 합니다. 로 복사 `/var/cyberx/properties/` 합니다.
+1. 이전에 센서에서 만든 `trust.jks`를 복사합니다. `/var/cyberx/properties/`로 복사합니다.
 
 1. 편집 `/var/cyberx/properties/pxgrid.properties`:
 
-    1. 키와 신뢰를 추가 하 고 파일 이름 및 암호를 저장 합니다.
+    1. 키와 트러스트를 추가하고 파일 이름 및 암호를 저장합니다.
 
-    2. PxGrid 인스턴스의 호스트 이름을 추가 합니다.
+    2. pxGrid 인스턴스의 호스트 이름을 추가합니다.
 
     3. `Enabled=true`
 
-1. 어플라이언스를 다시 시작 합니다.
+1. 어플라이언스를 다시 시작합니다.
 
-1. 기업의 각 어플라이언스에 대해이 단계를 반복 하 여 데이터를 삽입 합니다.
+1. 데이터를 삽입할 기업의 각 어플라이언스에서 해당 단계들을 반복합니다.
 
 ## <a name="view-and-manage-detections-in-cisco-ise"></a>Cisco ISE에서 검색 보기 및 관리
 
-1. 끝점 검색은 ISE 컨텍스트 **표시 유형**  >  **끝점** 탭에 표시 됩니다.
+1. 엔드포인트 검색은 ISE 컨텍스트 **가시성** > **엔드포인트** 탭에 표시됩니다.
 
-1. **정책**  >  **프로 파일링**  >    >  **규칙** 추가  >  **+ 조건**  >  **새 조건 만들기** 를 선택 합니다.
+1. **정책** > **프로파일링** > **추가** > **규칙** >  **+ 조건** >  **새 조건 만들기** 를 선택합니다.
 
-1. **특성** 을 선택 하 고 IOT 장치 사전을 사용 하 여 삽입 된 특성을 기반으로 프로 파일링 규칙을 작성 합니다. 다음 특성이 삽입 됩니다.
+1. **특성** 을 선택하고 IOT 디바이스 사전을 사용하여 삽입된 특성을 기반으로 프로파일링 규칙을 빌드합니다. 다음과 같은 특성이 삽입됩니다.
 
     - 디바이스 유형
 
@@ -195,7 +195,7 @@ ISE pxGrid 노드가 끝점 장치 항목을 구독 하는지 확인 합니다. 
 
     - MAC 주소
 
-    - Name
+    - 이름
 
     - Product ID
 
@@ -207,7 +207,7 @@ ISE pxGrid 노드가 끝점 장치 항목을 구독 하는지 확인 합니다. 
 
     - Vendor
 
-MAC 주소가 있는 장치만 동기화 됩니다.
+MAC 주소가 있는 디바이스만 동기화됩니다.
 
 ## <a name="troubleshooting-and-logs"></a>문제 해결 및 로그
 

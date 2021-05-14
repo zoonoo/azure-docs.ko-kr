@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: makromer
 ms.reviewer: jrasnick
-ms.openlocfilehash: 144bdf5e94f753090dd73e5839b6c1fd25f11811
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 638b78f0304a9bbba8521ed523dffa1deda03c7c
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567641"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109480800"
 ---
 # <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Azure Synapse Analytics와 Azure Data Factory의 데이터 통합
 
@@ -32,7 +32,7 @@ Azure Synapse Analytics에서 Synapse 파이프라인 및 데이터 흐름과 �
 |                          | 통합 런타임 공유 | ✓<br><small>*여러 데이터 팩터리에서 공유 가능* | ✗ |
 |                          | TTL(Time to Live) | ✓ | ✗ |
 | **파이프라인 작업** | SSIS 패키지 작업 | ✓ | ✗ |
-|                          | 파워 쿼리 작업 지원 | ✓ | ✓ |
+|                          | 파워 쿼리 작업 지원 | ✓ | ✗ |
 | **템플릿 갤러리 및 지식 센터** | 솔루션 템플릿 | ✓<br><small>*Azure Data Factory 템플릿 갤러리* | ✓<br><small>*Synapse 작업 영역 지식 센터* |
 | **GIT 리포지토리 통합** | Git 통합. | ✓ | ✓ |
 | **Monitoring**           | 데이터 흐름에 대한 Spark 작업 모니터링 | ✗ | ✓<br><small>*Synapse Spark 풀 활용* |

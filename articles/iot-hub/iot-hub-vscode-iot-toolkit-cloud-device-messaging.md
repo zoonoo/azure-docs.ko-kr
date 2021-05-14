@@ -1,5 +1,5 @@
 ---
-title: VSCode 용 Azure IoT 도구를 사용 하 여 IT 허브 메시징 관리
+title: VSCode용 Azure IoT Tools를 사용하여 IT Hub 메시징 관리
 description: 디바이스-클라우드 메시지를 모니터링하고 클라우드를 Azure IoT Hub의 디바이스 메시지로 보내기 위해 Azure IoT Tools for Visual Studio Code를 사용하는 방법을 알아봅니다.
 author: formulahendry
 ms.service: iot-hub
@@ -11,10 +11,10 @@ ms.author: junhan
 ms.custom:
 - 'Role: Cloud Development'
 ms.openlocfilehash: b9d8f0c2a573ba1749b414a389cd7181ddd5f95a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87321686"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Azure IoT Tools for Visual Studio Code를 사용하여 디바이스와 IoT Hub 간에 메시지 보내고 받기
@@ -43,7 +43,7 @@ ms.locfileid: "87321686"
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 
-* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 또는이 URL을 복사 하 여 브라우저 창에 붙여 넣습니다. `vscode:extension/vsciot-vscode.azure-iot-tools`
+* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)(VS Code용 Azure IoT Tools) 또는 이 URL(`vscode:extension/vsciot-vscode.azure-iot-tools`)을 복사하여 브라우저 창에 붙여넣기
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>로그인하여 IoT Hub에 액세스
 
@@ -58,17 +58,17 @@ ms.locfileid: "87321686"
 5. 잠시 후 디바이스 목록이 **Azure IoT Hub 디바이스** 탭에 표시됩니다.
 
    > [!Note]
-   > **IoT Hub 연결 문자열 설정** 을 선택하여 설정을 완료할 수도 있습니다. 팝업 창에서 IoT 장치를 연결 하는 IoT hub에 대 한 **iothubowner** 정책 연결 문자열을 입력 합니다.
+   > **IoT Hub 연결 문자열 설정** 을 선택하여 설정을 완료할 수도 있습니다. 팝업 창에서 IoT 디바이스를 연결할 IoT Hub의 **iothubowner** 정책 연결 문자열을 입력합니다.
 
 ## <a name="monitor-device-to-cloud-messages"></a>디바이스-클라우드 메시지 모니터링
 
 디바이스에서 IoT Hub로 보낸 메시지를 모니터링하려면 다음 단계를 수행합니다.
 
-1. 장치를 마우스 오른쪽 단추로 클릭 하 고 **모니터링 시작 기본 제공 이벤트 끝점** 을 선택 합니다.
+1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **기본 제공 이벤트 엔드포인트 모니터링 시작** 을 선택합니다.
 
-2. 모니터링 되는 메시지는 **출력**  >  **Azure IoT Hub** 보기에 표시 됩니다.
+2. 모니터링되는 메시지가 **출력** > **Azure IoT Hub** 보기에 표시됩니다.
 
-3. 모니터링을 중지 하려면 **출력** 뷰를 마우스 오른쪽 단추로 클릭 하 고 **기본 제공 이벤트 끝점 모니터링 중지** 를 선택 합니다.
+3. 모니터링을 중지하려면 **출력** 보기를 마우스 오른쪽 단추로 클릭하고 **기본 제공 이벤트 엔드포인트 모니터링 중지** 를 선택합니다.
 
 ## <a name="send-cloud-to-device-messages"></a>클라우드-디바이스 메시지 보내기
 
@@ -78,7 +78,7 @@ IoT Hub에서 디바이스로 메시지를 보내려면 다음 단계를 수행�
 
 2. 입력 상자에 메시지를 입력합니다.
 
-3. 결과는 **출력**  >  **Azure IoT Hub** 보기에 표시 됩니다.
+3. 결과가 **출력** > **Azure IoT Hub** 보기에 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

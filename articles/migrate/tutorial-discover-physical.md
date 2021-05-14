@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.custom: mvc
-ms.openlocfilehash: 17740763777372a5eaed6941974c120860839279
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 7ff8a7739c0018d415ad503e888d63d04e641153
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106382712"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751206"
 ---
 # <a name="tutorial-discover-physical-servers-with-azure-migrate-discovery-and-assessment"></a>자습서: Azure Migrate: 검색 및 평가를 사용하여 물리적 서버 검색
 
@@ -166,7 +166,7 @@ Azure Migrate 어플라이언스는 서버 검색을 수행하고, 서버 구성
 
 - 물리적 서버 검색 및 평가를 위한 에이전트와 웹 애플리케이션을 설치합니다.
 - Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯한 Windows 역할을 설치합니다.
-- IIS 재작성 모듈을 다운로드하여 설치합니다. [자세히 알아보기](https://www.microsoft.com/download/details.aspx?id=7435).
+- IIS 재작성 모듈을 다운로드하여 설치합니다.
 - Azure Migrate에 대한 영구적인 설정 세부 정보를 사용하여 레지스트리 키(HKLM)를 업데이트합니다.
 - 지정된 경로에 다음 파일을 만듭니다.
     - **구성 파일**: %Programdata%\Microsoft Azure\Config

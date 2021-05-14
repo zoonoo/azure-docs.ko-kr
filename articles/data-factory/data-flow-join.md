@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
 ms.openlocfilehash: ac84ce17f53145ffd85ffa31b6633d8b4b184962
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93042649"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 조인 변환
@@ -108,7 +108,7 @@ SSIS와 같은 도구의 병합 조인과 달리, 조인 변환은 필수 병합
 
 Data Factory UX에서 이 변환은 아래 이미지와 같습니다.
 
-![스크린샷에는 조인 설정 탭이 선택 된 변환과 내부 조인 형식이 표시 됩니다.](media/data-flow/join-script1.png "조인 예제")
+![스크린샷에는 조인 설정 탭이 선택된 변환과 내부 조인 형식이 표시됩니다.](media/data-flow/join-script1.png "조인 예제")
 
 이 변환에 대한 데이터 흐름 스크립트는 아래 코드 조각에 있습니다.
 
@@ -130,7 +130,7 @@ TripData, TripFare
 
 Data Factory UX에서 이 변환은 아래 이미지와 같습니다.
 
-![[조인 설정] 탭이 선택 되어 있는 변환과 사용자 지정 (교차)의 조인 유형을 보여 주는 스크린샷](media/data-flow/join-script2.png "조인 예제")
+![스크린샷에는 조인 설정 탭이 선택된 변환과 내부 조인 형식(크로스)이 표시됩니다.](media/data-flow/join-script2.png "조인 예제")
 
 이 변환에 대한 데이터 흐름 스크립트는 아래 코드 조각에 있습니다.
 

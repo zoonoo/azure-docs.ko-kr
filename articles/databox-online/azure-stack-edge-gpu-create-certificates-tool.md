@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack 허브 준비 검사기 도구를 사용 하 여 인증서 만들기 | Microsoft Docs
-description: Azure Stack Hub 준비 검사 도구를 사용 하 여 인증서 요청을 만들고 Azure Stack Edge Pro GPU 장치에서 인증서를 가져오고 설치 하는 방법을 설명 합니다.
+title: Microsoft Azure Stack Hub 준비 상태 검사기 도구를 사용하여 인증서 만들기 | Microsoft Docs
+description: Azure Stack Hub 준비 상태 검사기 도구를 사용하여 인증서 요청을 만든 다음, Azure Stack Edge Pro GPU 디바이스에 인증서를 가져오고 설치하는 방법을 설명합니다.
 services: Azure Stack Edge Pro
 author: alkohli
 ms.service: databox
@@ -8,80 +8,80 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: a04243093b89b6a2498efc48f80cbd7a47d57337
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 8316dd0abfa437d4bf88e8268dfe034344c6614c
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102437726"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389335"
 ---
-# <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>Azure Stack 허브 준비 검사 도구를 사용 하 여 Azure Stack Edge Pro에 대 한 인증서 만들기 
+# <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>Azure Stack Hub 준비 상태 검사기 도구를 사용하여 Azure Stack Edge Pro의 인증서 만들기 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-이 문서에서는 Azure Stack Hub 준비 검사 도구를 사용 하 여 Azure Stack Edge Pro에 대 한 인증서를 만드는 방법을 설명 합니다. 
+이 문서에서는 Azure Stack Hub 준비 상태 검사기 도구를 사용하여 Azure Stack Edge Pro의 인증서를 만드는 방법을 설명합니다. 
 
-## <a name="using-azure-stack-hub-readiness-checker-tool"></a>Azure Stack 허브 준비 검사기 도구 사용
+## <a name="using-azure-stack-hub-readiness-checker-tool"></a>Azure Stack Hub 준비 상태 검사기 도구 사용
 
-Azure Stack 허브 준비 검사기 도구를 사용 하 여 Azure Stack Edge Pro 장치 배포에 대 한 Csr (인증서 서명 요청)을 만듭니다. Azure Stack Edge Pro 장치에 대 한 주문을 한 후 장치가 도착할 때까지 대기 하 여 이러한 요청을 만들 수 있습니다.
+Azure Stack Hub 준비 상태 검사기 도구를 사용하여 Azure Stack Edge Pro 디바이스 배포의 CSR(인증서 서명 요청)을 만듭니다. Azure Stack Edge Pro 디바이스에 대한 주문을 제출하고 디바이스가 도착할 때까지 기다린 후 이 요청을 만들 수 있습니다.
 
 > [!NOTE]
-> 프로덕션 장치가 아닌 테스트 또는 개발 목적 으로만이 도구를 사용 합니다. 
+> 이 도구는 프로덕션 디바이스가 아닌 테스트 또는 개발 용도로만 사용합니다. 
 
-Azure Stack 허브 준비 검사기 도구 (AzsReadinessChecker)를 사용 하 여 다음 인증서를 요청할 수 있습니다.
+Azure Stack Hub 준비 상태 검사기 도구(AzsReadinessChecker)를 사용하여 다음 인증서를 요청할 수 있습니다.
 
-- 인증서 Azure Resource Manager
+- Azure Resource Manager 인증서
 - 로컬 UI 인증서
 - 노드 인증서
 - Blob 인증서
 - VPN 인증서
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
-Azure Stack Edge Pro 장치 배포에 대 한 Csr을 만들려면 다음을 확인 합니다. 
+Azure Stack Edge Pro 디바이스 배포의 CSR을 만들려면 다음을 확인합니다. 
 
-- Windows 10 또는 Windows Server 2016 이상을 실행 하는 클라이언트가 있습니다. 
-- 이 시스템의 [PowerShell 갤러리에서](https://aka.ms/AzsReadinessChecker) Microsoft Azure Stack 허브 준비 검사기 도구를 다운로드 했습니다.
-- 인증서에 대 한 다음 정보가 있습니다.
+- Windows 10 또는 Windows Server 2016 이상을 실행하는 클라이언트가 있습니다. 
+- 이 시스템의 [PowerShell 갤러리에서](https://aka.ms/AzsReadinessChecker) Microsoft Azure Stack Hub 준비 상태 검사기 도구를 다운로드했습니다.
+- 인증서에 관한 다음 정보가 있습니다.
   - 디바이스 이름
   - 노드 일련 번호
-  - 외부 FQDN (정규화 된 도메인 이름)
+  - 외부 FQDN(정규화된 도메인 이름)
 
 ## <a name="generate-certificate-signing-requests"></a>인증서 서명 요청 생성
 
-다음 단계를 사용 하 여 Azure Stack Edge Pro 장치 인증서를 준비 합니다.
+다음 단계를 사용하여 Azure Stack Edge Pro 디바이스 인증서를 준비합니다.
 
-1. 관리자 권한으로 PowerShell을 실행 합니다 (5.1 이상).
-2. Azure Stack 허브 준비 검사기 도구를 설치 합니다. PowerShell 프롬프트에서 다음을 입력 합니다. 
+1. 관리자 권한으로 PowerShell을 실행합니다(5.1 이상).
+2. Azure Stack Hub 준비 상태 검사기 도구를 설치합니다. PowerShell 프롬프트에서 다음을 입력합니다. 
 
     ```azurepowershell
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
-    설치 된 버전을 가져오려면 다음을 입력 합니다.  
+    설치된 버전을 가져오려면 다음을 입력합니다.  
 
     ```azurepowershell
     Get-InstalledModule -Name Microsoft.AzureStack.ReadinessChecker  | ft Name, Version 
     ```
 
-3. 인증서가 아직 없는 경우 모든 인증서에 대 한 디렉터리를 만듭니다. 유형: 
+3. 인증서가 아직 없는 경우 모든 인증서에 사용할 디렉터리를 만듭니다. 유형: 
     
     ```azurepowershell
     New-Item "C:\certrequest" -ItemType Directory
     ``` 
     
-4. 인증서 요청을 만들려면 다음 정보를 제공 합니다. VPN 인증서를 생성 하는 경우 이러한 입력 중 일부가 적용 되지 않습니다.
+4. 인증서 요청을 만들려면 다음 정보를 제공합니다. VPN 인증서를 생성하는 경우 이 입력 중 일부가 적용되지 않습니다.
     
     |입력 |Description  |
     |---------|---------|
     |`OutputRequestPath`|인증서 요청을 만들려는 로컬 클라이언트의 파일 경로입니다.        |
-    |`DeviceName`|장치의 로컬 웹 UI에 있는 장치 **페이지의** 장치 이름입니다. <br> 이 필드는 VPN 인증서에는 필요 하지 않습니다.         |
-    |`NodeSerialNumber`|장치의 로컬 웹 UI에 있는 **네트워크** 페이지에 있는 장치 노드의 일련 번호입니다. <br> 이 필드는 VPN 인증서에는 필요 하지 않습니다.       |
-    |`ExternalFQDN`|장치의 로컬 웹 UI에 있는 **장치** 페이지의 DNSDomain 값입니다.         |
-    |`RequestType`|요청 형식은 다양 한 끝점에 대해 서로 다른 인증서가 될 수도 있고 `MultipleCSR` , `SingleCSR` 모든 끝점에 대 한 단일 인증서 일 수도 있습니다. <br> 이 필드는 VPN 인증서에는 필요 하지 않습니다.     |
+    |`DeviceName`|디바이스의 로컬 웹 UI에 있는 **디바이스** 페이지의 디바이스 이름입니다. <br> 이 필드는 VPN 인증서에는 필요하지 않습니다.         |
+    |`NodeSerialNumber`|디바이스의 로컬 웹 UI에 있는 **네트워크** 페이지의 디바이스 노드 일련 번호입니다. <br> 이 필드는 VPN 인증서에는 필요하지 않습니다.       |
+    |`ExternalFQDN`|디바이스의 로컬 웹 UI에 있는 **디바이스** 페이지의 DNSDomain 값입니다.         |
+    |`RequestType`|요청 유형은 다양한 엔드포인트에 대해 서로 다른 인증서를 사용하는 경우 `MultipleCSR`이고 모든 엔드포인트에 대해 단일 인증서를 사용하는 경우 `SingleCSR`일 수 있습니다. <br> 이 필드는 VPN 인증서에는 필요하지 않습니다.     |
 
-    VPN 인증서를 제외한 모든 인증서에 대해 다음을 입력 합니다. 
+    VPN 인증서를 제외한 모든 인증서에 대해 다음을 입력합니다. 
     
     ```azurepowershell
     $edgeCSRparams = @{
@@ -95,7 +95,7 @@ Azure Stack Edge Pro 장치 배포에 대 한 Csr을 만들려면 다음을 확�
     New-AzsCertificateSigningRequest @edgeCSRparams
     ```
 
-    VPN 인증서를 만들려면 다음을 입력 합니다. 
+    VPN 인증서를 만드는 경우 다음을 입력합니다. 
 
     ```azurepowershell
     $edgeCSRparams = @{
@@ -107,49 +107,49 @@ Azure Stack Edge Pro 장치 배포에 대 한 Csr을 만들려면 다음을 확�
     ```
 
     
-5. 위의 OutputRequestPath 매개 변수에 지정한 디렉터리에서 인증서 요청 파일을 찾을 수 있습니다. 매개 변수를 사용 하는 경우 `MultipleCSR` 확장명이 인 다음 4 개의 파일이 표시 됩니다 `.req` .
+5. 위의 OutputRequestPath 매개 변수에 지정한 디렉터리에서 인증서 요청 파일을 찾을 수 있습니다. `MultipleCSR` 매개 변수를 사용하는 경우 확장명이 `.req`인 다음 네 개의 파일이 표시됩니다.
 
     
     |파일 이름  |인증서 요청 유형  |
     |---------|---------|
-    |부터 `DeviceName`     |로컬 웹 UI 인증서 요청      |
-    |부터 `NodeSerialNumber`     |노드 인증서 요청         |
-    |`login`로 시작     |Azure Resource Manager 끝점 인증서 요청       |
-    |`wildcard`로 시작     |Blob storage 인증서 요청. 여기에는 장치에서 만들 수 있는 모든 저장소 계정을 포함 하기 때문에 와일드 카드가 포함 되어 있습니다.          |
+    |`DeviceName`으로 시작     |로컬 웹 UI 인증서 요청      |
+    |`NodeSerialNumber`로 시작     |노드 인증서 요청         |
+    |`login`로 시작     |Azure Resource Manager 엔드포인트 인증서 요청       |
+    |`wildcard`로 시작     |Blob Storage 인증서 요청. 여기에는 디바이스에서 만들 수 있는 모든 스토리지 계정을 포함하기 때문에 와일드카드가 포함됩니다.          |
     |`AzureStackEdgeVPNCertificate`로 시작     |VPN 클라이언트 인증서 요청.         |
 
-    또한 INF 폴더도 표시 됩니다. 여기에는 관리 기능이 포함 됩니다. 인증서 세부 정보를 설명 하는 일반 텍스트로 edge-장치> 정보 파일을 <합니다.  
+    INF 폴더도 표시됩니다. 여기에는 인증서 세부 정보를 설명하는 일반 텍스트의 management.<edge-devicename> 정보 파일이 포함됩니다.  
 
 
-6. 이러한 파일을 인증 기관 (내부 또는 공용)에 제출 합니다. CA는 생성 된 요청을 사용 하 여 [노드 인증서](azure-stack-edge-gpu-manage-certificates.md#node-certificates), [끝점 인증서](azure-stack-edge-gpu-manage-certificates.md#endpoint-certificates)및 [로컬 UI 인증서](azure-stack-edge-gpu-manage-certificates.md#local-ui-certificates)에 대 한 Azure Stack Edge Pro 인증서 요구 사항을 충족 하는 인증서를 생성 해야 합니다.
+6. 이 파일을 인증 기관(내부 또는 퍼블릭)에 제출합니다. 해당 CA가 생성된 요청을 사용하여 [노드 인증서](azure-stack-edge-gpu-manage-certificates.md#node-certificates), [엔드포인트 인증서](azure-stack-edge-gpu-manage-certificates.md#endpoint-certificates) 및 [로컬 UI 인증서](azure-stack-edge-gpu-manage-certificates.md#local-ui-certificates)의 Azure Stack Edge Pro 인증서 요구 사항을 충족하는 인증서를 생성하는지 확인합니다.
 
-## <a name="prepare-certificates-for-deployment"></a>배포용 인증서 준비
+## <a name="prepare-certificates-for-deployment"></a>인증서 배포 준비
 
-CA (인증 기관)에서 가져온 인증서 파일은 Azure Stack Edge Pro 장치의 인증서 요구 사항과 일치 하는 속성을 사용 하 여 가져오고 내보내야 합니다. 인증서 서명 요청을 생성 한 동일한 시스템에서 다음 단계를 완료 합니다.
+CA(인증 기관)에서 가져오는 인증서 파일은 Azure Stack Edge Pro 디바이스의 인증서 요구 사항과 일치하는 속성을 사용하여 가져오고 내보내야 합니다. 인증서 서명 요청을 생성한 동일한 시스템에서 다음 단계를 완료합니다.
 
-- 인증서를 가져오려면 [Azure Stack Edge Pro 장치에 액세스 하는 클라이언트에서 인증서 가져오기](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device)의 단계를 수행 합니다.
+- 인증서를 가져오려면 [Azure Stack Edge Pro 디바이스에 액세스하는 클라이언트에서 인증서 가져오기](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device)의 단계를 수행합니다.
 
-- 인증서를 내보내려면 [클라이언트에서 Azure Stack Edge Pro 장치에 액세스 하는 인증서 내보내기](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device)의 단계를 따릅니다.
+- 인증서를 내보내려면 [Azure Stack Edge Pro 디바이스에 액세스하는 클라이언트에서 인증서 내보내기](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device)의 단계를 수행합니다.
 
 
 ## <a name="validate-certificates"></a>인증서 유효성 검사
 
-먼저 적절 한 폴더 구조를 생성 하 고 해당 폴더에 인증서를 저장 합니다. 그런 다음 도구를 사용 하 여 인증서의 유효성을 검사 합니다.
+먼저 적절한 폴더 구조를 생성하고 해당 폴더에 인증서를 저장합니다. 그런 다음, 도구를 사용하여 인증서의 유효성을 검사합니다.
 
 1. 관리자 권한으로 PowerShell을 실행합니다.
 
-2. 적절 한 폴더 구조를 생성 하려면 프롬프트에 다음을 입력 합니다.
+2. 적절한 폴더 구조를 생성하려면 프롬프트에 다음을 입력합니다.
 
-    `New-AzsCertificateFolder -CertificateType AzureStackEdge -OutputPath "$ENV:USERPROFILE\Documents\AzureStackCSR"`
+    `New-AzsCertificateFolder -CertificateType AzureStackEdgeDevice -OutputPath "$ENV:USERPROFILE\Documents\AzureStackCSR"`
 
-3. PFX 암호를 보안 문자열로 변환 합니다. 유형:       
+3. PFX 암호를 보안 문자열로 변환합니다. 유형:       
 
     `$pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString` 
 
-4. 그런 다음 인증서의 유효성을 검사 합니다. 유형:
+4. 그런 다음, 인증서의 유효성을 검사합니다. 유형:
 
-    `Invoke-AzsCertificateValidation -CertificateType AzureStackEdge -DeviceName mytea1 -NodeSerialNumber VM1500-00025 -externalFQDN azurestackedge.contoso.com -CertificatePath $ENV:USERPROFILE\Documents\AzureStackCSR\AzureStackEdge -pfxPassword $pfxPassword`
+    `Invoke-AzsCertificateValidation -CertificateType AzureStackEdgeDevice -DeviceName mytea1 -NodeSerialNumber VM1500-00025 -externalFQDN azurestackedge.contoso.com -CertificatePath $ENV:USERPROFILE\Documents\AzureStackCSR\AzureStackEdge -pfxPassword $pfxPassword`
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Stack Edge Pro 장치 배포](azure-stack-edge-gpu-deploy-prep.md)
+[Azure Stack Edge Pro 디바이스 배포](azure-stack-edge-gpu-deploy-prep.md)

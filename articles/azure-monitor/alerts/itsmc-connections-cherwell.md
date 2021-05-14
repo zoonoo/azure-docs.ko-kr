@@ -1,24 +1,24 @@
 ---
-title: IT 서비스 관리 커넥터를 사용 하 여 Cherwell 연결
-description: 이 문서에서는 ITSMC 작업 항목을 중앙에서 모니터링 하 고 관리 하기 위해 Azure Monitor에서 ITSMC (IT 서비스 관리 커넥터)로 Cherwell 하는 방법에 대 한 정보를 제공 합니다.
+title: Cherwell을 IT 서비스 관리 커넥터에 연결
+description: 이 문서에서는 Cherwell를 Azure Monitor의 ITSMC(IT 서비스 관리 커넥터)와 연결하여 ITSM 작업 항목을 중앙에서 모니터링하고 관리하는 방법에 대한 정보를 제공합니다.
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
 ms.openlocfilehash: 0f488b047cf1323619d9603204877a55b413c295
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104802474"
 ---
-# <a name="connect-cherwell-with-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용 하 여 Cherwell 연결
+# <a name="connect-cherwell-with-it-service-management-connector"></a>Cherwell을 IT 서비스 관리 커넥터에 연결
 
-이 문서에서는 작업 항목을 중앙에서 관리 하기 위해 Log Analytics에서 Cherwell 인스턴스와 IT 서비스 관리 커넥터 (ITSMC) 간의 연결을 구성 하는 방법에 대 한 정보를 제공 합니다.
+이 문서에서는 Cherwell 인스턴스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다.
 
 > [!NOTE]
-> 2020 년 10 월 1 일-Cherwell ITSM와 Azure Alert의 통합은 더 이상 새 고객에 대해 사용 하도록 설정 되지 않습니다. 새 ITSM 연결은 지원 되지 않습니다.
-> 기존 ITSM 연결이 지원 됩니다.
+> 2020년 10월 1일부로 신규 고객은 Cherwell ITSM과 Azure Alert의 통합을 사용할 수 없습니다. 새 ITSM 연결은 지원되지 않습니다.
+> 기존 ITSM 연결은 지원됩니다.
 
 다음 섹션에서는 Cherwell 제품을 Azure의 ITSMC에 연결하는 방법을 자세히 설명합니다.
 

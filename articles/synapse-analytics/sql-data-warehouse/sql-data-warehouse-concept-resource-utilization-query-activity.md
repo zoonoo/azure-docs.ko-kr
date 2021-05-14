@@ -2,21 +2,21 @@
 title: 관리 효율성 및 모니터링 - 쿼리 작업, 리소스 사용률
 description: Azure Synapse Analytics를 관리하고 모니터링하는 데 사용할 수 있는 기능에 대해 알아봅니다. Azure Portal과 DMV(Dynamic Management Views)를 사용하여 데이터 웨어하우스의 쿼리 작업 및 리소스 사용률을 이해합니다.
 services: synapse-analytics
-author: julieMSFT
+author: gaursa
 manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/09/2020
-ms.author: jrasnick
+ms.author: gaursa
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 7b103991e22ffab8ed5bd2b3c10400330e1d09b3
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: e7f093860e9962db055a7551f5cdb608ecad9b29
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568406"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104585675"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 리소스 사용률 및 쿼리 작업 모니터링
 

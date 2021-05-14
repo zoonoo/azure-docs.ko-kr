@@ -1,5 +1,5 @@
 ---
-title: PHP에서 Azure Notification Hubs를 사용 하는 방법
+title: PHP에서 Azure Notification Hubs를 사용하는 방법
 description: PHP 백 엔드에서 Azure Notification Hubs를 사용하는 방법에 대해 알아봅니다.
 services: notification-hubs
 documentationcenter: ''
@@ -15,22 +15,22 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: daebf7c6a5fc9056e16b77a40ee9f90db598749f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87076631"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>PHP에서 Notification Hubs를 사용하는 방법
 
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-MSDN 항목 [NOTIFICATION HUBS REST api](/previous-versions/azure/reference/dn223264(v=azure.100))에 설명 된 대로 알림 허브 rest 인터페이스를 사용 하 여 JAVA/PHP/Ruby 백 엔드에서 모든 Notification Hubs 기능에 액세스할 수 있습니다.
+MSDN 항목 [Notification Hubs REST API](/previous-versions/azure/reference/dn223264(v=azure.100))에 설명된 대로 Notification Hubs REST 인터페이스를 사용하여 Java/PHP/Ruby 백 엔드에서 모든 Notification Hubs 기능에 액세스할 수 있습니다.
 
 이 항목에서는 다음 방법을 보여 줍니다.
 
 * PHP에서 Notification Hubs 기능에 대한 REST 클라이언트를 빌드하는 방법
-* 선택한 모바일 플랫폼에 대해 [Azure Notification Hubs를 사용 하 여 iOS 앱에 푸시 알림 보내기](ios-sdk-get-started.md) 를 따라 PHP에서 백 엔드 부분을 구현 합니다.
+* 선택한 모바일 플랫폼에 해당하는 [Azure Notification Hubs를 사용하여 iOS 앱에 푸시 알림 보내기](ios-sdk-get-started.md)의 내용에 따라 PHP에서 백 엔드 부분을 구현합니다.
 
 ## <a name="client-interface"></a>클라이언트 인터페이스
 
@@ -53,7 +53,7 @@ $hub->sendNotification($notification, null);
 
 ## <a name="implementation"></a>구현
 
-아직 수행 하지 않은 경우 백 엔드를 구현 해야 하는 마지막 섹션까지 [시작 자습서]를 따르세요.
+아직 수행하지 않았으면 [시작 자습서]의 마지막 섹션까지 수행합니다. 이 마지막 섹션에서는 백 엔드를 구현해야 합니다.
 필요하면 [PHP REST 래퍼 샘플]에서 코드를 사용하고 직접 [자습서 완료](#complete-tutorial) 섹션으로 이동할 수도 있습니다.
 
 전체 REST 래퍼를 구현하는 방법에 대한 자세한 내용은 [MSDN](/previous-versions/azure/reference/dn530746(v=azure.100))을 참조하세요. 이 섹션에서는 Notification Hubs REST 엔드포인트에 액세스하는 데 필요한 기본 단계의 PHP 구현에 대해 설명합니다.
@@ -220,7 +220,7 @@ public function sendNotification($notification, $tagsOrTagExpression="") {
 
 이제 PHP 백 엔드에서 알림을 보내 시작 자습서를 완료할 수 있습니다.
 
-Notification Hubs 클라이언트를 초기화 합니다 ([시작 자습서]의 지시에 따라 연결 문자열 및 허브 이름 대체).
+Notification Hubs 클라이언트를 초기화합니다([시작 자습서]에 설명된 대로 연결 문자열 및 허브 이름 대체).
 
 ```php
 $hub = new NotificationHub("connection string", "hubname");

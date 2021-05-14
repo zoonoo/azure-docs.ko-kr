@@ -27,6 +27,10 @@
       href: tutorial-connect-virtual-networks-portal.md
     - name: NAT 게이트웨이 만들기 및 유효성 검사
       href: tutorial-create-nat-gateway-portal.md
+    - name: NAT 게이트웨이 공용 부하 분산 장치 통합
+      href: tutorial-nat-gateway-load-balancer-public-portal.md
+    - name: NAT 게이트웨이 내부 부하 분산 장치 통합
+      href: tutorial-nat-gateway-load-balancer-internal-portal.md
 - name: 샘플
   items:
     - name: Azure CLI
@@ -100,13 +104,13 @@
         - name: 라우팅 기본 설정 무제한
           href: routing-preference-unmetered.md
         - name: 공용 IP 보안 기준
-          href: public-ip-security-baseline.md
+          href: /security/benchmark/azure/baselines/public-ip-security-baseline?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json
     - name: 보안
       items:
         - name: Virtual Network 보안 옵션
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/virtual-network-security-baseline?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json
         - name: Virtual Network NAT 보안 기준
-          href: nat-security-baseline.md
+          href: /security/benchmark/azure/baselines/virtual-network-nat-security-baseline?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json
         - name: Azure 서비스의 네트워크 격리
           href: vnet-integration-for-azure-services.md
         - name: 네트워크 보안 그룹
@@ -409,17 +413,13 @@
               href: move-across-regions-publicip-powershell.md
     - name: NAT
       items:
-        - name: NAT 게이트웨이 만들기 - PowerShell
-          href: quickstart-create-nat-gateway-powershell.md
-        - name: NAT 게이트웨이 만들기 - CLI
-          href: quickstart-create-nat-gateway-cli.md
+        - name: NAT 게이트웨이 만들기 및 유효성 검사 - PowerShell
+          href: tutorial-create-nat-gateway-powershell.md
+        - name: NAT 게이트웨이 만들기 및 유효성 검사 - CLI
+          href: tutorial-create-nat-gateway-cli.md
         - name: NAT 게이트웨이 만들기 - ARM 템플릿
           displayname: Resource Manager
           href: quickstart-create-nat-gateway-template.md
-        - name: NAT 게이트웨이 만들기 및 유효성 검사 - PowerShell
-          href: tutorial-create-validate-nat-gateway-powershell.md
-        - name: NAT 게이트웨이 만들기 및 유효성 검사 - CLI
-          href: tutorial-create-validate-nat-gateway-cli.md
     - name: 문제 해결
       items:
         - name: 가상 네트워크 피어링 문제 해결
@@ -453,7 +453,7 @@
 - name: 참조
   items:
     - name: Azure CLI
-      href: /cli/azure/network
+      href: /cli/azure/azure-cli-reference-for-network
     - name: Azure PowerShell
       href: /powershell/module/az.network
     - name: .NET
@@ -464,7 +464,7 @@
       href: /javascript/azure#azure-sdk
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/virtual-network
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.network/allversions

@@ -6,15 +6,15 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/25/2019
 ms.openlocfilehash: c81eb092fa59cb890093e1e9acd0511e39b5047b
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104864213"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>데이터 분석 파이프라인 운영
 
-*데이터 파이프라인* 은 많은 데이터 분석 솔루션의 토대가 됩니다. 이름에서 알 수 있듯이 데이터 파이프라인은 원시 데이터를 사용 하 여 필요에 따라 정리 하 고 스트림으로 다시 만드는 다음 처리 된 데이터를 저장 하기 전에 계산 또는 집계를 수행 합니다. 처리된 데이터는 클라이언트, 보고서 또는 API에서 사용됩니다. 데이터 파이프라인은 일정에 따르든, 새 데이터에 의해 트리거되든, 반복 가능한 결과를 제공해야 합니다.
+*데이터 파이프라인* 은 많은 데이터 분석 솔루션의 토대가 됩니다. 이름에서 알 수 있듯이, 데이터 파이프라인은 원시 데이터를 받고, 정리하고, 필요에 따라 변형한 후 처리된 데이터를 저장하기 전에 계산 또는 집계를 수행합니다. 처리된 데이터는 클라이언트, 보고서 또는 API에서 사용됩니다. 데이터 파이프라인은 일정에 따르든, 새 데이터에 의해 트리거되든, 반복 가능한 결과를 제공해야 합니다.
 
 이 문서에서는 HDInsight Hadoop 클러스터에서 실행되는 Oozie를 사용하여 반복성을 구현하도록 데이터 파이프라인을 운영하는 방법을 설명합니다. 예제 시나리오는 항공기 비행 시계열 데이터를 준비하고 처리하는 데이터 파이프라인을 안내합니다.
 
@@ -26,11 +26,11 @@ ms.locfileid: "104864213"
 | 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
 | 2017 | 1 | 3 | DL | 6.935409 | -2.1893024 | 1909696 |
 
-이 예제 파이프라인은 새로운 시간 간격의 비행 데이터가 도착할 때까지 기다렸다가, 장기적인 분석을 위해 자세한 비행 정보를 Apache Hive 데이터 웨어하우스에 저장합니다. 또한 이 파이프라인은 일별 비행 데이터만 요약하는 훨씬 더 작은 데이터 세트도 만듭니다. 이 일별 비행 요약 데이터는 웹 사이트의 경우와 같이 보고서를 제공 하기 위해 SQL Database 전송 됩니다.
+이 예제 파이프라인은 새로운 시간 간격의 비행 데이터가 도착할 때까지 기다렸다가, 장기적인 분석을 위해 자세한 비행 정보를 Apache Hive 데이터 웨어하우스에 저장합니다. 또한 이 파이프라인은 일별 비행 데이터만 요약하는 훨씬 더 작은 데이터 세트도 만듭니다. 이 일별 비행 요약 데이터는 웹 사이트용과 같은 보고서를 제공하기 위해 SQL Database로 전송됩니다.
 
 아래 다이어그램은 이 예제 파이프라인을 보여 줍니다.
 
-:::image type="content" source="./media/hdinsight-operationalize-data-pipeline/flight-pipeline-overview.png" alt-text="HDI 비행 예제 데이터 파이프라인 개요" border="false":::
+:::image type="content" source="./media/hdinsight-operationalize-data-pipeline/flight-pipeline-overview.png" alt-text="HDI 플라이트 예제 데이터 파이프라인 개요" border="false":::
 
 ## <a name="apache-oozie-solution-overview"></a>Apache Oozie 솔루션 개요
 
@@ -40,19 +40,19 @@ Oozie는 *작업*, *워크플로* 및 *코디네이터* 의 측면에서 해당 
 
 다음 다이어그램에서는 이 예제 Oozie 파이프라인의 개략적인 디자인을 보여 줍니다.
 
-:::image type="content" source="./media/hdinsight-operationalize-data-pipeline/pipeline-overview-oozie.png" alt-text="Oozie 비행 예제 데이터 파이프라인" border="false":::
+:::image type="content" source="./media/hdinsight-operationalize-data-pipeline/pipeline-overview-oozie.png" alt-text="Oozie 플라이트 예제 데이터 파이프라인" border="false":::
 
 ## <a name="provision-azure-resources"></a>Azure 리소스 프로비전
 
-이 파이프라인에서는 Azure SQL Database와 HDInsight Hadoop 클러스터가 같은 위치에 있어야 합니다. Azure SQL Database는 파이프라인 및 Oozie 메타 데이터 저장소에 의해 생성 된 요약 데이터를 모두 저장 합니다.
+이 파이프라인에서는 Azure SQL Database와 HDInsight Hadoop 클러스터가 같은 위치에 있어야 합니다. Azure SQL Database는 파이프라인 및 Oozie 메타데이터 저장소에서 생성되는 요약 데이터를 둘 다 저장합니다.
 
 ### <a name="provision-azure-sql-database"></a>Azure SQL Database 프로비전
 
-1. Azure SQL Database를 만듭니다. [Azure Portal에서 Azure SQL Database 만들기](../azure-sql/database/single-database-create-quickstart.md)를 참조 하세요.
+1. Azure SQL Database를 만듭니다. [Azure Portal에서 Azure SQL 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)를 참조하세요.
 
-1. HDInsight 클러스터가 연결 된 Azure SQL Database에 액세스할 수 있도록 하려면 Azure SQL Database 방화벽 규칙을 구성 하 여 Azure 서비스 및 리소스가 서버에 액세스할 수 있도록 해야 합니다. **서버 방화벽 설정** 을 선택 하 여 Azure Portal에서이 옵션을 사용 하도록 설정 하 고 Azure 서비스 및 리소스 **에서** Azure SQL Database에 대해 **이 서버에 액세스할 수 있도록 허용** 을 선택 합니다. 자세한 내용은 [IP 방화벽 규칙 만들기 및 관리](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)를 참조하세요.
+1. HDInsight 클러스터가 연결된 Azure SQL Database에 액세스할 수 있도록 하려면 Azure 서비스 및 리소스가 서버에 액세스할 수 있도록 Azure SQL Database 방화벽 규칙을 구성해야 합니다. **서버 방화벽 설정** 을 선택하고 Azure SQL Database에 대해 **Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용** 에서 **켜짐** 을 선택하여 이 옵션을 사용하도록 설정합니다. 자세한 내용은 [IP 방화벽 규칙 만들기 및 관리](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)를 참조하세요.
 
-1. [쿼리 편집기](../azure-sql/database/single-database-create-quickstart.md#query-the-database) 를 사용 하 여 다음 SQL 문을 실행 하 여 `dailyflights` 각 파이프라인 실행에서 요약 된 데이터를 저장할 테이블을 만듭니다.
+1. [쿼리 편집기](../azure-sql/database/single-database-create-quickstart.md#query-the-database)를 사용하여 파이프라인의 각 실행에서 요약 데이터를 저장하는 `dailyflights` 테이블을 만들도록 다음 SQL 문을 실행합니다.
 
     ```sql
     CREATE TABLE dailyflights
@@ -73,9 +73,9 @@ Oozie는 *작업*, *워크플로* 및 *코디네이터* 의 측면에서 해당 
 
 이제 Azure SQL Database가 준비되었습니다.
 
-### <a name="provision-an-apache-hadoop-cluster"></a>Apache Hadoop 클러스터 프로 비전
+### <a name="provision-an-apache-hadoop-cluster"></a>Apache Hadoop 클러스터 프로비저닝
 
-사용자 지정 metastore를 사용 하 여 Apache Hadoop 클러스터를 만듭니다. 포털에서 클러스터를 만드는 동안 **저장소** 탭에서 **Metastore 설정** 아래에서 SQL Database를 선택 했는지 확인 합니다. Metastore를 선택 하는 방법에 대 한 자세한 내용은 [클러스터를 만드는 동안 사용자 지정 Metastore 선택](./hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation)을 참조 하세요. 클러스터 만들기에 대 한 자세한 내용은 [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조 하세요.
+사용자 지정 메타스토어를 사용하여 Apache Hadoop 클러스터를 만듭니다. 포털에서 클러스터를 만드는 동안 **스토리지** 탭에서 **메타스토어 설정** 에 있는 SQL Database를 선택했는지 확인합니다. 메타스토어를 선택하는 방법에 대한 자세한 내용은 [클러스터를 만드는 동안 사용자 지정 메타스토어 선택](./hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation)을 참조하세요. 클러스터 만들기에 대한 자세한 내용은 [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
 ## <a name="verify-ssh-tunneling-set-up"></a>SSH 터널링 설정 확인
 
@@ -84,7 +84,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
 > [!NOTE]  
 > [Foxy Proxy](https://getfoxyproxy.org/) 확장에서 Chrome을 사용하여 SSH 터널에서 클러스터의 웹 리소스를 검색할 수도 있습니다. 터널 포트 9876의 호스트 `localhost`를 통해 모든 요청을 프록시하도록 구성합니다. 이 방법은 Windows 10의 Bash라고도 하는 Linux용 Windows 하위 시스템과 호환됩니다.
 
-1. 클러스터에 대 한 SSH 터널을 열려면 다음 명령을 실행 합니다. 여기서 `CLUSTERNAME` 은 클러스터의 이름입니다.
+1. 클러스터에 SSH 터널을 열려면 다음 명령을 실행합니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다.
 
     ```cmd
     ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -94,7 +94,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
 
     `http://headnodehost:8080`
 
-1. Ambari 내에서 **Oozie 웹 콘솔** 에 액세스 하려면 **Oozie**  >  **빠른 링크** > [Active server] > **Oozie 웹 UI** 로 이동 합니다.
+1. Ambari에서 **Oozie 웹 콘솔** 에 액세스하려면 **Oozie** > **빠른 링크** > [활성화된 서버] > **Oozie 웹 UI** 로 이동합니다.
 
 ## <a name="configure-hive"></a>Hive 구성
 
@@ -116,7 +116,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
         ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
         ```
 
-    1. Ssh 세션에서 HDFS 명령을 사용 하 여 헤드 노드 로컬 저장소에서 Azure Storage로 파일을 복사 합니다.
+    1. ssh 세션에서 HDFS 명령을 사용하여 헤드 노드 로컬 스토리지의 파일을 Azure Storage로 복사합니다.
 
         ```bash
         hadoop fs -mkdir /example/data/flights
@@ -131,7 +131,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
 
 2. 서비스 목록에서 **Hive** 를 선택합니다.
 
-    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png" alt-text="Hive를 선택 하는 Apache Ambari services 목록":::
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png" alt-text="Hive를 선택하는 Apache Ambari 서비스 목록":::
 
 3. Hive View 2.0 레이블 옆의 **보기로 이동** 을 선택합니다.
 
@@ -164,9 +164,9 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
 
 5. **실행** 을 선택하여 테이블을 만듭니다.
 
-    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png" alt-text="hdi ambari services hive 쿼리":::
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png" alt-text="HDI Ambari 서비스 Hive 쿼리":::
 
-6. `flights` 테이블을 만들려면 쿼리 텍스트 영역의 텍스트를 다음 문으로 바꿉니다. `flights`테이블은 연도, 월 및 월의 날짜를 기준으로 로드 된 데이터를 분할 하는 Hive 관리 테이블입니다. 이 테이블에는 모든 기록 비행 데이터가 포함되며, 원본 데이터의 최소 단위가 비행마다 하나의 행에 표시됩니다.
+6. `flights` 테이블을 만들려면 쿼리 텍스트 영역의 텍스트를 다음 문으로 바꿉니다. `flights` 테이블은 로드된 데이터를 년, 월 및 일별로 분할하는 Hive 관리 테이블입니다. 이 테이블에는 모든 기록 비행 데이터가 포함되며, 원본 데이터의 최소 단위가 비행마다 하나의 행에 표시됩니다.
 
     ```sql
     SET hive.exec.dynamic.partition.mode=nonstrict;
@@ -206,8 +206,8 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
 
 이러한 세 단계가 Oozie 워크플로에 의해 조정됩니다.
 
-1. 로컬 워크스테이션에서 라는 파일을 만듭니다 `job.properties` . 아래 텍스트를 파일의 시작 콘텐츠로 사용 합니다.
-그런 다음 특정 환경에 대 한 값을 업데이트 합니다. 텍스트 아래 표에는 각 속성이 요약 되어 있으며, 사용자 환경에 대 한 값을 찾을 수 있는 위치를 나타냅니다.
+1. 로컬 워크스테이션에서 `job.properties`라는 파일을 만듭니다. 아래 텍스트를 파일의 시작 콘텐츠로 사용합니다.
+그런 다음 특정 환경에 대한 값을 업데이트합니다. 텍스트 아래 표에서는 각 속성을 요약하고, 사용자가 자신의 환경에 해당하는 값을 찾을 수 있는 위치를 나타냅니다.
 
     ```text
     nameNode=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net
@@ -245,7 +245,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
     | month | 항공편 요약이 계산되는 날짜의 월 구성 요소입니다. 있는 그대로 둡니다. |
     | 일 | 항공편 요약이 계산되는 날짜의 일 구성 요소입니다. 있는 그대로 둡니다. |
 
-1. 로컬 워크스테이션에서 라는 파일을 만듭니다 `hive-load-flights-partition.hql` . 아래 코드를 파일의 내용으로 사용 합니다.
+1. 로컬 워크스테이션에서 `hive-load-flights-partition.hql`이라는 파일을 만듭니다. 아래 코드를 파일의 콘텐츠로 사용합니다.
 
     ```sql
     SET hive.exec.dynamic.partition.mode=nonstrict;
@@ -269,9 +269,9 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
     WHERE year = ${year} AND month = ${month} AND day_of_month = ${day};
     ```
 
-    Oozie 변수는 구문 `${variableName}`을 사용합니다. 이러한 변수는 파일에 설정 됩니다 `job.properties` . Oozie는 런타임에 실제 값을 대체합니다.
+    Oozie 변수는 구문 `${variableName}`을 사용합니다. 이러한 변수는 `job.properties` 파일에서 설정됩니다. Oozie는 런타임에 실제 값을 대체합니다.
 
-1. 로컬 워크스테이션에서 라는 파일을 만듭니다 `hive-create-daily-summary-table.hql` . 아래 코드를 파일의 내용으로 사용 합니다.
+1. 로컬 워크스테이션에서 `hive-create-daily-summary-table.hql`이라는 파일을 만듭니다. 아래 코드를 파일의 콘텐츠로 사용합니다.
 
     ```sql
     DROP TABLE ${hiveTableName};
@@ -297,7 +297,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
 
     이 쿼리는 하루 동안의 요약된 데이터만 저장하고, 평균 시간 지연 및 항공사가 비행한 거리 합계를 일별로 계산하는 SELECT 문을 작성하는 준비 테이블을 만듭니다. 이 테이블에 삽입된 데이터는 다음 단계에서 Sqoop의 원본으로 사용될 수 있도록, 알려진 위치(hiveDataFolder 변수가 나타내는 경로)에 저장되었습니다.
 
-1. 로컬 워크스테이션에서 라는 파일을 만듭니다 `workflow.xml` . 아래 코드를 파일의 내용으로 사용 합니다. 위의 이러한 단계는 Oozie 워크플로 파일에서 별도의 작업으로 표현 됩니다.
+1. 로컬 워크스테이션에서 `workflow.xml`이라는 파일을 만듭니다. 아래 코드를 파일의 콘텐츠로 사용합니다. 위의 이러한 단계는 Oozie 워크플로 파일에서 별도의 작업으로 표현됩니다.
 
     ```xml
     <workflow-app name="loadflightstable" xmlns="uri:oozie:workflow:0.5">
@@ -375,25 +375,25 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
     </workflow-app>
     ```
 
-두 Hive 쿼리는 Azure Storage의 경로에 의해 액세스 되며 나머지 변수 값은 파일에 의해 제공 됩니다 `job.properties` . 이 파일은 2017 년 1 월 3 일에 실행 되도록 워크플로를 구성 합니다.
+2개의 Hive 쿼리는 Azure Storage에서 해당 경로로 액세스되며, 나머지 변수 값은 다음 `job.properties` 파일을 통해 제공됩니다. 이 파일은 2017년 1월 3일에 워크플로가 실행되도록 구성합니다.
 
 ## <a name="deploy-and-run-the-oozie-workflow"></a>Oozie 워크플로 배포 및 실행
 
-Bash 세션에서 SCP를 사용 하 여 Oozie workflow ( `workflow.xml` ), Hive 쿼리 ( `hive-load-flights-partition.hql` 및 `hive-create-daily-summary-table.hql` ) 및 작업 구성 ()을 배포 `job.properties` 합니다.  Oozie에서는 `job.properties` 파일만 헤드 노드의 로컬 스토리지에 있을 수 있습니다. 다른 모든 파일은 HDFS(이 경우 Azure Storage)에 저장되어야 합니다. 워크플로에서 사용되는 Sqoop 작업은 SQL Database와 통신하기 위한 JDBC 드라이버에 따라 달라지며, 헤드 노드에서 HDFS로 복사되어야 합니다.
+bash 세션의 SCP를 사용하여 Oozie 워크플로(`workflow.xml`), Hive 쿼리(`hive-load-flights-partition.hql` 및 `hive-create-daily-summary-table.hql`) 및 작업 구성(`job.properties`)을 배포합니다.  Oozie에서는 `job.properties` 파일만 헤드 노드의 로컬 스토리지에 있을 수 있습니다. 다른 모든 파일은 HDFS(이 경우 Azure Storage)에 저장되어야 합니다. 워크플로에서 사용되는 Sqoop 작업은 SQL Database와 통신하기 위한 JDBC 드라이버에 따라 달라지며, 헤드 노드에서 HDFS로 복사되어야 합니다.
 
-1. 헤드 노드의 로컬 스토리지에 있는 사용자의 경로 아래의 `load_flights_by_day` 하위 폴더를 만듭니다. 열려 있는 ssh 세션에서 다음 명령을 실행 합니다.
+1. 헤드 노드의 로컬 스토리지에 있는 사용자의 경로 아래의 `load_flights_by_day` 하위 폴더를 만듭니다. OpenSSH 세션에서 다음 명령을 실행합니다.
 
     ```bash
     mkdir load_flights_by_day
     ```
 
-1. 현재 디렉터리에 있는 모든 파일(`workflow.xml` 및 `job.properties` 파일)을 `load_flights_by_day` 하위 폴더로 복사합니다. 로컬 워크스테이션에서 다음 명령을 실행 합니다.
+1. 현재 디렉터리에 있는 모든 파일(`workflow.xml` 및 `job.properties` 파일)을 `load_flights_by_day` 하위 폴더로 복사합니다. 로컬 워크스테이션에서 다음 명령을 실행합니다.
 
     ```cmd
     scp ./* sshuser@CLUSTERNAME-ssh.azurehdinsight.net:load_flights_by_day
     ```
 
-1. 워크플로 파일을 HDFS로 복사합니다. 열려 있는 ssh 세션에서 다음 명령을 실행 합니다.
+1. 워크플로 파일을 HDFS로 복사합니다. OpenSSH 세션에서 다음 명령을 실행합니다.
 
     ```bash
     cd load_flights_by_day
@@ -401,13 +401,13 @@ Bash 세션에서 SCP를 사용 하 여 Oozie workflow ( `workflow.xml` ), Hive 
     hdfs dfs -put ./* /oozie/load_flights_by_day
     ```
 
-1. `mssql-jdbc-7.0.0.jre8.jar`로컬 헤드 노드에서 HDFS의 워크플로 폴더로 복사 합니다. 클러스터에 다른 jar 파일이 포함 되어 있는 경우 필요에 따라 명령을 수정 합니다. `workflow.xml`다른 jar 파일을 반영 하기 위해 필요에 따라 수정 합니다. 열려 있는 ssh 세션에서 다음 명령을 실행 합니다.
+1. 로컬 헤드 노드에서 HDFS의 워크플로 폴더로 `mssql-jdbc-7.0.0.jre8.jar`를 복사합니다. 클러스터에 다른 jar 파일이 포함되어 있는 경우 필요에 따라 명령을 수정합니다. 다른 jar 파일을 반영하기 위해 필요에 따라 `workflow.xml`을 수정합니다. OpenSSH 세션에서 다음 명령을 실행합니다.
 
     ```bash
     hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc*.jar /oozie/load_flights_by_day
     ```
 
-1. 워크플로를 실행합니다. 열려 있는 ssh 세션에서 다음 명령을 실행 합니다.
+1. 워크플로를 실행합니다. OpenSSH 세션에서 다음 명령을 실행합니다.
 
     ```bash
     oozie job -config job.properties -run
@@ -415,9 +415,9 @@ Bash 세션에서 SCP를 사용 하 여 Oozie workflow ( `workflow.xml` ), Hive 
 
 1. Oozie 웹 콘솔을 사용하여 상태를 관찰합니다. Ambar 내에서 **Oozie**, **빠른 링크**, **Oozie 웹 콘솔** 을 차례로 선택합니다. **워크플로 작업** 탭 아래에서 **모든 작업** 을 선택합니다.
 
-    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-workflows.png" alt-text="hdi oozie 웹 콘솔 워크플로":::
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-workflows.png" alt-text="HDI Oozie 웹 콘솔 워크플로":::
 
-1. 상태가 성공 이면 SQL Database 테이블을 쿼리하여 삽입 된 행을 확인 합니다. Azure Portal을 사용하여 SQL Database에 대한 창으로 이동한 후 **도구** 를 선택하고 **쿼리 편집기** 를 엽니다.
+1. 상태가 성공인 경우, SQL Database 테이블을 쿼리하여 삽입된 행을 확인합니다. Azure Portal을 사용하여 SQL Database에 대한 창으로 이동한 후 **도구** 를 선택하고 **쿼리 편집기** 를 엽니다.
 
     ```sql
     SELECT * FROM dailyflights
@@ -504,7 +504,7 @@ Bash 세션에서 SCP를 사용 하 여 Oozie workflow ( `workflow.xml` ), Hive 
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
     ```
 
-    코디네이터는 `frequency` 특성으로 지정된 간격에 따라, `start` 및 `end` 데이터 범위 내에서 작업을 예약합니다. 예약된 각 작업은 구성된 대로 워크플로를 다시 실행합니다. 위의 코디네이터 정의에서 코디네이터는 2017 년 1 월 1 일에서 2017 년 1 월 5 일로 작업을 실행 하도록 구성 되어 있습니다. 빈도는 [Oozie Expression Language](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) frequency 식으로 1 일로 설정 됩니다 `${coord:days(1)}` . 이로 인해 코디네이터는 작업(및 워크플로)이 하루에 1번 실행되도록 예약합니다. 이 예제에서와 같이, 이전 날짜 범위에서는 작업이 지연 없이 실행되도록 예약됩니다. 작업이 실행되도록 예약된 날짜 시작을 *명목 시간* 이라고 합니다. 예를 들어 2017 년 1 월 1 일에 대 한 데이터를 처리 하기 위해 코디네이터는 명목상 시간 2017-01-01T00:00:00 GMT로 작업을 예약 합니다.
+    코디네이터는 `frequency` 특성으로 지정된 간격에 따라, `start` 및 `end` 데이터 범위 내에서 작업을 예약합니다. 예약된 각 작업은 구성된 대로 워크플로를 다시 실행합니다. 위의 코디네이터 정의에서, 코디네이터는 2017년 1월 1일부터 2017년 1월 5일까지 작업을 실행하도록 구성되어 있습니다. 주기는 [Oozie 식 언어](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) 주기 식 `${coord:days(1)}`에 따라 1일로 설정됩니다. 이로 인해 코디네이터는 작업(및 워크플로)이 하루에 1번 실행되도록 예약합니다. 이 예제에서와 같이, 이전 날짜 범위에서는 작업이 지연 없이 실행되도록 예약됩니다. 작업이 실행되도록 예약된 날짜 시작을 *명목 시간* 이라고 합니다. 예를 들어, 2017년 1월 1일의 데이터를 처리하기 위해 코디네이터는 명목 시간 2017-01-01T00:00:00 GMT를 사용해서 작업을 예약합니다.
 
 * 핵심 사항 2: 워크플로의 날짜 범위 내에서 `dataset` 요소는 HDFS에서 특정 날짜 범위의 데이터를 조회할 위치를 지정하고, Oozie가 처리를 위해 해당 데이터를 사용할 수 있는지 여부를 확인하는 방법을 구성합니다.
 
@@ -515,9 +515,9 @@ Bash 세션에서 SCP를 사용 하 여 Oozie workflow ( `workflow.xml` ), Hive 
     </dataset>
     ```
 
-    HDFS의 데이터 경로는 `uri-template` 요소에 제공된 식에 따라 동적으로 작성됩니다. 이 코디네이터에서, 데이터 세트에도 1일의 주기가 사용됩니다. 코디네이터 요소의 시작 및 종료 날짜가 작업이 예약되는 시간을 제어(및 명목 시간 정의)하지만, 데이터 세트의 `initial-instance` 및 `frequency`는 `uri-template` 구성에 사용되는 날짜 계산을 제어합니다. 이 경우 코디네이터 시작 하루 전으로 초기 인스턴스를 설정하여 데이터의 첫째 날(1/1/2017)을 선택하도록 합니다. 데이터 집합의 날짜 계산 값 `initial-instance` (12/31/2016)은 코디네이터 (첫 번째 작업의 경우 2017-01-01T00:00:00 GMT)로 설정 된 명목상 시간을 통과 하지 않는 가장 최근의 날짜를 찾을 때까지 () 데이터 집합 빈도 (1 일) 씩 이동 합니다.
+    HDFS의 데이터 경로는 `uri-template` 요소에 제공된 식에 따라 동적으로 작성됩니다. 이 코디네이터에서, 데이터 세트에도 1일의 주기가 사용됩니다. 코디네이터 요소의 시작 및 종료 날짜가 작업이 예약되는 시간을 제어(및 명목 시간 정의)하지만, 데이터 세트의 `initial-instance` 및 `frequency`는 `uri-template` 구성에 사용되는 날짜 계산을 제어합니다. 이 경우 코디네이터 시작 하루 전으로 초기 인스턴스를 설정하여 데이터의 첫째 날(1/1/2017)을 선택하도록 합니다. 데이터 세트의 날짜 계산은 코디네이터가 설정한 명목 시간(첫 번째 작업의 경우 2017-01-01T00:00:00 GMT)을 경과하지 않은 가장 최근 날짜를 찾을 때까지, `initial-instance` 값(12/31/2016)에서 데이터 세트 주기(1일)씩 늘어나면서 롤포워드됩니다.
 
-    빈 `done-flag` 요소는 Oozie가 지정된 시간에 입력 데이터의 존재 여부를 확인할 때 디렉터리 또는 파일의 존재 여부에 따라 데이터가 사용 가능한지 확인함을 나타냅니다. 이 경우 csv 파일이 존재 합니다. csv 파일이 있으면 Oozie는 데이터가 준비되어 있다고 가정하고, 파일을 처리하는 워크플로 인스턴스를 시작합니다. Csv 파일이 없는 경우 Oozie는 데이터가 아직 준비 되지 않은 것으로 가정 하 고 워크플로 실행이 대기 상태로 전환 됩니다.
+    빈 `done-flag` 요소는 Oozie가 지정된 시간에 입력 데이터의 존재 여부를 확인할 때 디렉터리 또는 파일의 존재 여부에 따라 데이터가 사용 가능한지 확인함을 나타냅니다. 이 경우 csv 파일의 존재 여부가 관건입니다. csv 파일이 있으면 Oozie는 데이터가 준비되어 있다고 가정하고, 파일을 처리하는 워크플로 인스턴스를 시작합니다. csv 파일이 없으면 Oozie는 데이터가 아직 준비되지 않았다고 가정하며 워크플로를 실행하면 대기 상태가 됩니다.
 
 * 핵심 사항 3: `data-in` 요소는 연결된 데이터 세트에 대해 `uri-template`의 값을 바꿀 때 명목 시간으로 사용할 특정 타임스탬프를 지정합니다.
 

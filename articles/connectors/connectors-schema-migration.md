@@ -1,16 +1,16 @@
 ---
-title: 최신 스키마로 앱 마이그레이션
-description: 논리 앱 워크플로 JSON 정의를 최신 워크플로 정의 언어 스키마 버전으로 마이그레이션하는 방법
+title: 앱을 최신 스키마로 마이그레이션
+description: 논리 앱 워크플로 JSON 정의를 최신 워크플로 정의 언어 스키마 버전으로 마이그레이션하는 방법을 설명합니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 ms.openlocfilehash: 114b8b32d4abb1fd9b7e641625cd1b132470bafd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87281449"
 ---
 # <a name="migrate-logic-apps-to-latest-schema-version"></a>논리 앱을 최신 스키마 버전으로 마이그레이션
@@ -34,7 +34,7 @@ ms.locfileid: "87281449"
 
 * 마이그레이션된 스크립트를 새 논리 앱으로 복사합니다. 테스트를 완료하고 마이그레이션된 앱이 예상대로 작동하는 것을 확인하기 전에는 이전 버전을 덮어쓰지 마세요.
 
-* 프로덕션에 배치 **하기 전에** 논리 앱을 테스트 합니다.
+* 프로덕션에 배치하기 **전에** 논리 앱을 테스트합니다.
 
 * 마이그레이션이 완료되면 가능한 경우 [관리 API](../connectors/apis-list.md)를 사용하도록 논리 앱 업데이트를 시작합니다. 예를 들어 Dropbox v1을 사용하는 모든 곳에서 DropBox v2를 사용하기 시작합니다.
 

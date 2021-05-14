@@ -1,28 +1,28 @@
 ---
-title: 부트스트랩을 사용 하 여 Azure HDInsight 클러스터 구성 사용자 지정
-description: .NET, PowerShell 및 리소스 관리자 템플릿을 사용 하 여 프로그래밍 방식으로 HDInsight 클러스터 구성을 사용자 지정 하는 방법을 알아봅니다.
+title: 부트스트랩을 사용하여 Azure HDInsight 클러스터 구성 사용자 지정
+description: .NET, PowerShell 및 Resource Manager 템플릿을 사용하여 프로그래밍 방식으로 HDInsight 클러스터 구성을 사용자 지정하는 방법을 알아봅니다.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
 ms.openlocfilehash: 55792cc1890702b904db00b7e3cb3ac3a78c63f1
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104866525"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정
 
-부트스트랩 스크립트를 사용 하 여 프로그래밍 방식으로 Azure HDInsight의 구성 요소를 설치 및 구성할 수 있습니다.
+부트스트랩 스크립트를 사용하여 프로그래밍 방식으로 Azure HDInsight의 구성 요소를 설치 및 구성할 수 있습니다.
 
-HDInsight 클러스터를 만들 때 구성 파일 설정을 설정 하는 방법에는 세 가지가 있습니다.
+HDInsight 클러스터를 만들 때 구성 파일 설정을 설정하는 방법에는 세 가지가 있습니다.
 
 * Azure PowerShell 사용
 * .NET SDK 사용
 * Azure Resource Manager 템플릿 사용
 
-예를 들어 이러한 프로그래밍 메서드를 사용 하 여 다음 파일의 옵션을 구성할 수 있습니다.
+예를 들어 해당 프로그래밍 방식을 사용하여 다음 파일의 옵션을 구성할 수 있습니다.
 
 * clusterIdentity.xml
 * core-site.xml
@@ -41,9 +41,9 @@ HDInsight 클러스터를 만들 때 구성 파일 설정을 설정 하는 방�
 * yarn-site.xml
 * server.properties(kafka-broker 구성)
 
-만든 시간 동안 HDInsight 클러스터에 추가 구성 요소를 설치 하는 방법에 대 한 자세한 내용은 [스크립트 작업을 사용 하 여 hdinsight 클러스터 사용자 지정 (Linux)](hdinsight-hadoop-customize-cluster-linux.md)을 참조 하세요.
+만드는 동안 HDInsight 클러스터에 추가 구성 요소를 설치하는 방법에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정(Linux)](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * PowerShell을 사용하는 경우 [Az Module](/powershell/azure/)이 필요합니다.
 
@@ -52,7 +52,7 @@ HDInsight 클러스터를 만들 때 구성 파일 설정을 설정 하는 방�
 다음 PowerShell 코드는 [Apache Hive](https://hive.apache.org/) 구성을 사용자 지정합니다.
 
 > [!IMPORTANT]  
-> 매개 변수는 `Spark2Defaults` [AzHDInsightConfigValue](/powershell/module/az.hdinsight/add-azhdinsightconfigvalue)와 함께 사용 해야 할 수 있습니다. 아래 코드 예제에 표시 된 것 처럼 매개 변수에 빈 값을 전달할 수 있습니다.
+> `Spark2Defaults` 매개 변수는 [AzHDInsightConfigValue](/powershell/module/az.hdinsight/add-azhdinsightconfigvalue)와 함께 사용해야 할 수 있습니다. 아래 코드 예제에 나와 있는 것처럼 매개 변수에 빈 값을 전달할 수 있습니다.
 
 ```powershell
 # hive-site.xml configuration
@@ -82,10 +82,10 @@ New-AzHDInsightCluster `
 
 **변경을 확인하려면:**
 
-1. 로 이동 `https://CLUSTERNAME.azurehdinsight.net/` `CLUSTERNAME` 합니다. 여기서은 클러스터의 이름입니다.
-1. 왼쪽 메뉴에서 **Hive**  >  **Configs**  >  **Advanced** 로 이동 합니다.
-1. **고급 hive-사이트** 를 확장 합니다.
-1. **Metastore** 를 찾고 값이 **90 년대** 인지 확인 합니다.
+1. `https://CLUSTERNAME.azurehdinsight.net/`으로 이동합니다. `CLUSTERNAME`은 클러스터의 이름입니다.
+1. 왼쪽 메뉴에서 **Hive** > **구성** > **고급** 으로 이동합니다.
+1. **고급 hive 사이트** 를 확장합니다.
+1. **hive.metastore.client.socket.timeout** 을 찾아 값이 **90s** 인지 확인합니다.
 
 다른 구성 파일을 사용자 지정하는 추가 샘플:
 
@@ -105,7 +105,7 @@ $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # 
 
 ## <a name="use-net-sdk"></a>.NET SDK 사용
 
-[.Net 용 Azure HDINSIGHT SDK를](/dotnet/api/overview/azure/hdinsight)참조 하세요.
+[.NET용 Azure HDInsight SDK](/dotnet/api/overview/azure/hdinsight)를 참조하세요.
 
 ## <a name="use-resource-manager-template"></a>Resource Manager 템플릿 사용
 
@@ -121,9 +121,9 @@ Resource Manager 템플릿에서 부트스트랩을 사용할 수 있습니다.
 }
 ```
 
-:::image type="content" source="./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png" alt-text="Hadoop은 클러스터 부트스트랩 Azure Resource Manager 템플릿을 사용자 지정 합니다.":::
+:::image type="content" source="./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png" alt-text="HDInsight Hadoop 사용자 지정 클러스터 부트스트랩 Azure Resource Manager 템플릿":::
 
-Spark2에서 구성을 전환 하는 샘플 리소스 관리자 템플릿 코드 조각-기본값은 저장소에서 이벤트 로그를 정기적으로 정리 합니다.  
+spark2-defaults에서 구성을 전환하는 샘플 Resource Manager 템플릿 코드 조각은 스토리지에서 이벤트 로그를 정기적으로 정리합니다.  
 
 ```json
 "configurations": {
@@ -138,13 +138,13 @@ Spark2에서 구성을 전환 하는 샘플 리소스 관리자 템플릿 코드
 ## <a name="see-also"></a>참고 항목
 
 * [HDInsight의 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)에서는 다른 사용자 지정 옵션을 사용하여 HDInsight 클러스터를 만드는 방법에 대한 지침을 제공합니다.
-* [HDInsight 용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)
+* [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)
 * [HDInsight 클러스터에서 Apache Spark 설치 및 사용](spark/apache-spark-jupyter-spark-sql-use-portal.md)
-* [HDInsight 클러스터에서 Apache Giraph 설치 및 사용](./hdinsight-hadoop-hue-linux.md)
+* [HDInsight 클러스터에 Apache Giraph 설치 및 사용](./hdinsight-hadoop-hue-linux.md)
 
 ## <a name="appendix-powershell-sample"></a>부록: PowerShell 샘플
 
-이 PowerShell 스크립트는 HDInsight 클러스터를 만들고 Hive 설정을 사용자 지정 합니다. , 및에 대 한 값을 입력 해야 `$nameToken` `$httpPassword` `$sshPassword` 합니다.
+이 PowerShell 스크립트는 HDInsight 클러스터를 만들고 Hive 설정을 사용자 지정합니다. `$nameToken`, `$httpPassword`, `$sshPassword` 값을 입력해야 합니다.
 
 ```powershell
 ####################################

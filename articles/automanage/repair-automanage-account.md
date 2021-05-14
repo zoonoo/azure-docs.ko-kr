@@ -8,13 +8,13 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: alsin
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: fdfeae56ba1ef46b58fdb8f5beb32f85a6e2fcb4
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e6bf5404a33e0b4e57c2ff8d82d8791eda3d0f06
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752322"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834195"
 ---
 # <a name="repair-an-automanage-account"></a>Automanage 계정 복구하기
 [Azure Automanage 계정](./automanage-virtual-machines.md#automanage-account)은 자동화된 작업이 수행되는 ID 또는 보안 컨텍스트입니다. Automanage 계정을 포함하는 구독을 최근에 새 테넌트로 이동한 경우 계정을 다시 구성해야 합니다. 다시 구성하려면 ID 유형을 다시 설정하고 계정에 적절한 역할을 할당해야 합니다.

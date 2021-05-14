@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53cdbfb3ba531330c37f86233cbed990da4efaf4
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: b47a4a79fd423806693e86aef1edd132d844069e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258387"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557907"
 ---
 # <a name="resilient-end-user-experience"></a>복원력 있는 최종 사용자 환경
 
@@ -40,9 +40,9 @@ ms.locfileid: "107258387"
 
 비즈니스 요구 사항을 충족할 수 있는 경우 기본 제공 사용자 흐름을 선택합니다. Microsoft의 광범위한 테스트를 거쳤기 때문에 이러한 ID 사용자 흐름의 정책 수준 기능, 성능 또는 규모의 유효성을 검사하는 데 필요한 테스트를 최소화할 수 있습니다. 그러나 애플리케이션의 기능, 성능 및 확장성은 테스트해야 합니다.
 
-비즈니스 요구 사항으로 인해 [사용자 지정 정책을 선택](../../active-directory-b2c/user-flow-overview.md)해야 하는 경우 애플리케이션 수준 테스트 외에도 기능, 성능 또는 규모에 대한 정책 수준 테스트를 수행해야 합니다.
+비즈니스 요구 사항으로 인해 [사용자 지정 정책을 선택](../../active-directory-b2c/custom-policy-get-started.md)해야 하는 경우 애플리케이션 수준 테스트 외에도 기능, 성능 또는 규모에 대한 정책 수준 테스트를 수행해야 합니다.
 
-[사용자 흐름과 사용자 지정 정책을 비교](../../active-directory-b2c/user-flow-overview.md#comparing-user-flows-and-custom-policies)하는 문서를 확인하면 결정하는 데 도움이 됩니다.
+[사용자 흐름과 사용자 지정 정책을 비교](../../active-directory-b2c/custom-policy-overview.md#comparing-user-flows-and-custom-policies)하는 문서를 확인하면 결정하는 데 도움이 됩니다.
 
 ## <a name="choose-multiple-idps"></a>여러 IdP 선택
 

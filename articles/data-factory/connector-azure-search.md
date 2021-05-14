@@ -1,18 +1,18 @@
 ---
 title: Search 인덱스에 데이터 복사
 description: Azure Data Factory 파이프라인에서 복사 작업을 사용하여 Azure Search 인덱스에 데이터를 푸시하거나 복사하는 방법에 대해 알아봅니다.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: 82f5d4f4c3f12b6e14e260fa004bb031247e1096
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7820232bc5f91d85ce24c9df8ebaa0a0bbc52342
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104597507"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109480218"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Cognitive Search 인덱스에 데이터 복사
 
@@ -30,7 +30,7 @@ ms.locfileid: "104597507"
 
 ## <a name="getting-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 Azure Cognitive Search 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -113,7 +113,7 @@ Azure Cognitive Search에 데이터를 복사하려면 복사 작업의 원본 �
 | type | 복사 작업 원본의 type 속성을 **AzureSearchIndexSink** 로 설정해야 합니다. | 예 |
 | writeBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. [WriteBehavior 속성](#writebehavior-property)을 참조하세요.<br/><br/>허용되는 값은 **Merge**(기본값) 및 **Upload** 입니다. | 예 |
 | writeBatchSize | 버퍼 크기가 writeBatchSize에 도달한 경우 검색 인덱스에 데이터를 업로드합니다. 자세한 내용은 [WriteBatchSize 속성](#writebatchsize-property)을 참조하세요.<br/><br/>허용되는 값은 정수 1~1,000이고 기본값은 1,000입니다. | 예 |
-| maxConcurrentConnections |작업을 실행하는 동안 데이터 저장소에 설정된 동시 연결 수의 상한입니다. 동시 연결 수를 제한하려는 경우에만 값을 지정합니다.| 예 |
+| maxConcurrentConnections |작업을 실행하는 동안 데이터 저장소에 설정된 동시 연결의 상한입니다. 동시 연결을 제한하려는 경우에만 값을 지정합니다.| 예 |
 
 ### <a name="writebehavior-property"></a>WriteBehavior 속성
 

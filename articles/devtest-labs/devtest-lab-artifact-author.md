@@ -1,13 +1,13 @@
 ---
 title: DevTest Labs 가상 머신에 대한 사용자 지정 아티팩트 만들기 | Microsoft Docs
-description: 가상 컴퓨터를 프로 비전 한 후 응용 프로그램을 배포 하 고 설정 하기 위해 Azure DevTest Labs 사용할 아티팩트를 만드는 방법에 대해 알아봅니다.
+description: 가상 머신을 프로비저닝한 후 애플리케이션을 배포하고 설정하기 위해 Azure DevTest Labs와 함께 사용할 아티팩트를 만드는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 85acfcc3811e671e58fadab08a23951778e1323d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88270685"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>DevTest Labs 가상 머신에 대한 사용자 지정 아티팩트 만들기
@@ -46,12 +46,12 @@ ms.locfileid: "88270685"
 
 | 요소 이름 | 필수 여부 | 설명 |
 | --- | --- | --- |
-| $schema |아니요 |JSON 스키마 파일의 위치입니다. JSON 스키마 파일은 정의 파일의 유효성을 검사하는 데 도움이 될 수 있습니다. |
+| $schema |예 |JSON 스키마 파일의 위치입니다. JSON 스키마 파일은 정의 파일의 유효성을 검사하는 데 도움이 될 수 있습니다. |
 | title |예 |랩에 표시되는 아티팩트의 이름입니다. |
-| 설명 |예 |랩에 표시되는 아티팩트에 대한 설명입니다. |
-| iconUri |아니요 |랩에 표시되는 아이콘의 URI입니다. |
+| description |예 |랩에 표시되는 아티팩트에 대한 설명입니다. |
+| iconUri |예 |랩에 표시되는 아이콘의 URI입니다. |
 | targetOsType |예 |아티팩트가 설치되는 VM의 운영 체제입니다. 지원되는 옵션은 Windows 및 Linux입니다. |
-| 매개 변수 |아니요 |아티팩트 설치 명령이 컴퓨터에서 실행될 때 제공되는 값으로 아티팩트를 사용자 지정할 수 있습니다. |
+| 매개 변수 |예 |아티팩트 설치 명령이 컴퓨터에서 실행될 때 제공되는 값으로 아티팩트를 사용자 지정할 수 있습니다. |
 | runCommand |예 |VM에서 실행되는 아티팩트 설치 명령입니다. |
 
 ### <a name="artifact-parameters"></a>아티팩트 매개 변수
@@ -73,7 +73,7 @@ ms.locfileid: "88270685"
 | --- | --- | --- |
 | type |예 |매개 변수 값의 형식입니다. 허용되는 형식에 대해 다음 목록을 참조하세요. |
 | displayName |예 |랩에서 사용자에게 표시되는 매개 변수의 이름입니다. |
-| 설명 |예 |랩에 표시되는 매개 변수의 설명입니다. |
+| description |예 |랩에 표시되는 매개 변수의 설명입니다. |
 
 허용 유형은 다음과 같습니다.
 
@@ -83,7 +83,7 @@ ms.locfileid: "88270685"
 * array(유효한 모든 JSON 배열)
 
 ## <a name="secrets-as-secure-strings"></a>보안 문자열로 된 비밀
-비밀을 보안 문자열로 선언 합니다. 다음은 파일의artifactfile.js섹션에서 보안 문자열 매개 변수를 선언 하는 구문입니다 `parameters` . 
+비밀을 보안 문자열로 선언합니다. 다음은 **artifactfile.json** 파일의 `parameters` 섹션 내에서 보안 문자열 매개 변수를 선언하는 구문입니다.
 
 ```json
 
@@ -95,7 +95,7 @@ ms.locfileid: "88270685"
     },
 ```
 
-아티팩트 설치 명령에서 ConvertTo-SecureString 명령을 사용 하 여 만든 보안 문자열을 사용 하는 PowerShell 스크립트를 실행 합니다. 
+아티팩트 설치 명령의 경우 ConvertTo-SecureString 명령을 사용하여 만든 보안 문자열이 사용된 PowerShell 스크립트를 실행합니다. 
 
 ```json
   "runCommand": {
@@ -103,9 +103,9 @@ ms.locfileid: "88270685"
   }
 ```
 
-전체 예제 및 artifact.ps1 (PowerShell 스크립트) artifactfile.js[GitHub에서이 샘플](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes)을 참조 하세요.
+전체 예제 artifactfile.json 및 artifact.ps1(PowerShell 스크립트)은 [GitHub에서 이 샘플](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes)을 참조하세요.
 
-또한 사용자 디버깅을 위해 출력이 캡처될 때 콘솔에 비밀을 기록 하지 않는 것이 중요 합니다. 
+유의해야 할 또 한 가지 중요한 점은 출력이 사용자 디버깅을 위해 캡처되므로 비밀을 콘솔에 기록하면 안 된다는 것입니다. 
 
 ## <a name="artifact-expressions-and-functions"></a>아티팩트 식 및 함수
 식과 함수를 사용하여 아티팩트 설치 명령을 구성할 수 있습니다.
@@ -130,7 +130,7 @@ ms.locfileid: "88270685"
 
 ## <a name="create-a-custom-artifact"></a>사용자 지정 아티팩트 만들기
 
-1. JSON 편집기를 설치합니다. 아티팩트 정의 파일 작업을 수행하려면 JSON 편집기가 필요합니다. Windows, Linux 및 OS X에 사용할 수 있는 [Visual Studio Code](https://code.visualstudio.com/)를 사용 하는 것이 좋습니다.
+1. JSON 편집기를 설치합니다. 아티팩트 정의 파일 작업을 수행하려면 JSON 편집기가 필요합니다. Windows, Linux 및 OS X에 사용할 수 있는 [Visual Studio Code](https://code.visualstudio.com/)를 사용하는 것이 좋습니다.
 2. 샘플 artifactfile.json 정의 파일을 가져옵니다. [GitHub 리포지토리](https://github.com/Azure/azure-devtestlab)에서 DevTest Labs 팀에서 만든 아티팩트를 확인하세요. 사용자 고유의 아티팩트를 만들 수 있는 풍부한 라이브러리의 아티팩트를 만들었습니다. 아티팩트 정의 파일을 다운로드하고 변경하여 사용자 고유 아티팩트를 만들 수 있습니다.
 3. IntelliSense를 사용합니다. 아티팩트 정의 파일을 구성하는 데 사용할 수 있는 유효한 요소를 보려면 IntelliSense를 사용합니다. 또한 요소 값에 대한 다양한 옵션을 볼 수 있습니다. 예를 들어 IntelliSense에 **targetOsType** 요소를 편집할 때 두 가지 선택 항목인 Windows 또는 Linux가 표시됩니다.
 4. 아티팩트를 [DevTest Labs용 공용 Git 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) 또는 [사용자 고유의 Git 리포지토리](devtest-lab-add-artifact-repo.md)에 저장합니다. 공용 리포지토리에서 직접 사용하거나 필요에 맞게 사용자 지정할 수 있으며 다른 사용자가 공유한 아티팩트를 볼 수 있습니다.

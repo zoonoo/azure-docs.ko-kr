@@ -1,21 +1,21 @@
 ---
 title: Azure Functions 트리거 및 바인딩 예
-description: Azure 함수 바인딩을 구성 하는 방법 알아보기
+description: Azure 함수 바인딩을 구성하는 방법을 알아봅니다.
 author: craigshoemaker
 ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: c95524a5de6696bd0ffe7463451d152a9d3a19b4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88205963"
 ---
 # <a name="azure-functions-trigger-and-binding-example"></a>Azure Functions 트리거 및 바인딩 예
 
-이 문서에서는 Azure 함수에서 [트리거와 바인딩을](./functions-triggers-bindings.md) 구성 하는 방법을 보여 줍니다.
+이 문서에서는 Azure 함수에서 [트리거 및 바인딩](./functions-triggers-bindings.md)을 구성하는 방법을 보여 줍니다.
 
 Azure Queue 스토리지에 새 메시지가 나타날 때마다 Azure Table Storage에 새 행을 쓰려는 경우를 가정하겠습니다. 이 시나리오는 Azure Queue 스토리지 트리거 및 Azure Table Storage 출력 바인딩을 사용하여 구현할 수 있습니다. 
 
@@ -46,7 +46,7 @@ Azure Queue 스토리지에 새 메시지가 나타날 때마다 Azure Table Sto
 
 `bindings` 배열의 두 번째 요소는 Azure Table Storage 출력 바인딩입니다. `type` 및 `direction` 속성은 바인딩을 식별합니다. `name` 속성은 함수가 새 테이블 행을 제공하는 방법을 지정하며 이 경우 함수 반환 값을 사용합니다. 테이블의 이름은 `tableName`에 있으며 연결 문자열은 `connection`으로 식별되는 앱 설정에 있습니다.
 
-Azure Portal에서 *function.js* 의 내용을 보고 편집 하려면 함수의 **통합** 탭에서 **고급 편집기** 옵션을 클릭 합니다.
+Azure Portal에서 *function.json* 의 내용을 보고 편집하려면 함수의 **통합** 탭에서 **고급 편집기** 를 클릭합니다.
 
 > [!NOTE]
 > `connection`의 값은 연결 문자열 자체가 아닌 연결 문자열을 포함하는 앱 설정의 이름입니다. 바인딩은 *function.json* 에 서비스 비밀이 포함되지 않은 모범 사례를 실행하기 위해 앱 설정에 저장된 연결 문자열을 사용합니다.
@@ -83,7 +83,7 @@ public class Person
 
 ## <a name="javascript-example"></a>JavaScript 예제
 
-JavaScript 함수를 사용 하 여 파일 *에 대해 동일한function.js* 를 사용할 수 있습니다.
+동일한 *function.json* 파일을 JavaScript 함수와 함께 사용할 수 있습니다.
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -131,7 +131,7 @@ public class Person
 }
 ```
 
-이제 Azure 큐에서 트리거되고 Azure Table storage에 데이터를 출력 하는 작동 하는 함수가 있습니다.
+이제 Azure 큐에서 트리거되고 Azure Table Storage로 데이터를 출력하는 작업 함수가 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

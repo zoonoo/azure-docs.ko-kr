@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 44c66f5fa89e7293667c930bfd1720d72dc26bf4
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104785073"
 ---
 # <a name="use-case---product-recommendations"></a>사용 사례 - 제품 추천
@@ -36,7 +36,7 @@ Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구�
 ## <a name="solution-overview"></a>솔루션 개요
 이 사용 사례 예에서는 실제 Azure 사용자가 [HDInsight](https://azure.microsoft.com/services/hdinsight/) 및 [Power BI](https://powerbi.microsoft.com/)를 포함한 Azure Data Factory 및 기타 Cortana Intelligence 구성 요소 서비스를 사용하여 해결 및 구현했습니다.
 
-온라인 소매점은 Azure Blob 저장소, 온-프레미스 SQL Server, Azure SQL Database 및 관계형 데이터 마트를 워크플로 전체의 데이터 저장소 옵션으로 사용 합니다.  Blob 저장소는 고객 정보, 고객 동작 데이터 및 제품 정보 데이터를 포함합니다. 제품 정보 데이터에는 Azure Synapse Analytics의 온-프레미스에 저장 된 제품 브랜드 정보 및 제품 카탈로그가 포함 되어 있습니다. 
+이 온라인 판매점은 전체 워크플로에서 Azure Blob 스토리지, 온-프레미스 SQL Server, Azure SQL Database 및 관계형 데이터 마트를 데이터 스토리지 옵션으로 사용합니다.  Blob 저장소는 고객 정보, 고객 동작 데이터 및 제품 정보 데이터를 포함합니다. 제품 정보 데이터는 Azure Synapse Analytics에 온-프레미스로 저장된 제품 브랜드 정보와 제품 카탈로그를 포함합니다. 
 
 사용자가 웹 사이트에서 카탈로그의 제품을 탐색하는 동안, 모든 데이터가 결합되고 제품 추천 시스템에 공급되어 고객 관심사 및 작업을 토대로 개인 설정된 추천을 제공합니다. 고객은 또한 전체 웹 사이트 사용 패턴에 따라 어떤 사용자와도 관련은 없지만 그들이 보고 있는 제품과 관련될 수 있는 제품도 보게 됩니다.
 

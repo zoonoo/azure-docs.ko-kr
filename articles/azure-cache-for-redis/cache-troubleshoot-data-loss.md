@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.openlocfilehash: 6db036752bab7b84b72a37b148eaec7aa5765ef3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92538598"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Azure Cache for Redis 데이터 손실 문제 해결
@@ -23,7 +23,7 @@ ms.locfileid: "92538598"
 
 ## <a name="partial-loss-of-keys"></a>키 부분 손실
 
-Azure Cache for Redis는 메모리에 저장된 키를 임의로 삭제하지 않습니다. 그러나 만료 또는 제거 정책에 대한 응답 및 명시적 키 삭제 명령에 따라 키를 제거합니다. 프리미엄 또는 표준 Azure Cache for Redis 인스턴스에 대 한 기본 노드에 기록 된 키를 복제본에서 바로 사용할 수 없을 수도 있습니다. 데이터는 비동기 및 비 블로킹 방식으로 주 데이터베이스에서 복제본으로 복제 됩니다.
+Azure Cache for Redis는 메모리에 저장된 키를 임의로 삭제하지 않습니다. 그러나 만료 또는 제거 정책에 대한 응답 및 명시적 키 삭제 명령에 따라 키를 제거합니다. 또한 프리미엄 또는 표준 Azure Cache for Redis 인스턴스에서 기본 노드에 기록된 키를 복제본에서 바로 사용할 수 없을 수도 있습니다. 데이터는 비동기 및 비중단 방식으로 기본에서 복제본으로 복제됩니다.
 
 키가 캐시에서 사라진 경우 다음과 같은 가능한 원인을 확인합니다.
 
@@ -80,7 +80,7 @@ cmdstat_hdel:calls=1,usec=47,usec_per_call=47.00
 
 ### <a name="async-replication"></a>비동기 복제
 
-Standard 또는 Premium 계층의 Redis 용 Azure Cache 인스턴스는 주 노드와 하나 이상의 복제본으로 구성 됩니다. 백그라운드 프로세스를 사용 하 여 데이터를 주 데이터베이스에서 복제본으로 비동기적으로 복사 합니다. [redis.io](https://redis.io/topics/replication) 웹 사이트에서는 Redis 데이터 복제가 작동하는 방식을 전반적으로 설명합니다. 클라이언트가 자주 Redis에 쓰는 시나리오의 경우 이 복제가 즉시 수행되지 않을 수 있으므로 부분 데이터 손실이 발생할 수 있습니다. 예를 들어 클라이언트가 키를 기록한 *후* 주 복제본이 다운 되 면 백그라운드 프로세스에서 복제본으로 해당 키를 보낼 수 있기 *전에* 복제본이 새 주 복제본으로 전달 될 때 키가 손실 됩니다.
+표준 또는 프리미엄 계층의 Azure Cache for Redis 인스턴스는 기본 노드 및 하나 이상의 복제본으로 구성됩니다. 데이터는 백그라운드 프로세스를 통해 기본에서 복제본으로 비동기적으로 복사됩니다. [redis.io](https://redis.io/topics/replication) 웹 사이트에서는 Redis 데이터 복제가 작동하는 방식을 전반적으로 설명합니다. 클라이언트가 자주 Redis에 쓰는 시나리오의 경우 이 복제가 즉시 수행되지 않을 수 있으므로 부분 데이터 손실이 발생할 수 있습니다. 예를 들어, 클라이언트가 키를 쓴 *이후* 이지만 백그라운드 프로세스가 키를 복제본에 보내기 *이전* 에 기본 노드가 다운되는 경우, 복제본이 새 기본으로 전환될 때 키가 손실됩니다.
 
 ## <a name="major-or-complete-loss-of-keys"></a>키의 대부분 또는 전부 손실
 
@@ -112,7 +112,7 @@ Azure Cache for Redis는 기본적으로 **db0** 데이터베이스를 사용합
 
 Redis는 메모리 내 데이터 저장소입니다. 데이터는 Redis 캐시를 호스트하는 물리적 또는 가상 머신에 유지됩니다. 기본 계층의 Azure Cache for Redis 인스턴스는 단일 VM(가상 머신)에서만 실행됩니다. 이 VM이 다운되면 캐시에 저장된 모든 데이터가 손실됩니다. 
 
-표준 및 프리미엄 계층의 캐시는 두 개의 VM을 복제된 구성으로 사용하여 데이터 손실에 훨씬 높은 복원력을 제공합니다. 이러한 캐시의 주 노드가 실패 하면 복제본 노드가 데이터를 자동으로 처리 하는 데 사용 됩니다. 이러한 VM은 장애 및 업데이트를 위해 별도의 도메인에 위치하여 동시에 사용할 수 없게 될 가능성을 최소화합니다. 그러나 주요 데이터 센터 중단이 발생하는 경우에는 두 VM이 함께 다운될 수 있습니다. 드물지만 이런 경우에는 데이터가 손실됩니다.
+표준 및 프리미엄 계층의 캐시는 두 개의 VM을 복제된 구성으로 사용하여 데이터 손실에 훨씬 높은 복원력을 제공합니다. 이러한 캐시의 기본 노드가 실패하면 복제본 노드가 자동으로 데이터를 처리하는 데 사용됩니다. 이러한 VM은 장애 및 업데이트를 위해 별도의 도메인에 위치하여 동시에 사용할 수 없게 될 가능성을 최소화합니다. 그러나 주요 데이터 센터 중단이 발생하는 경우에는 두 VM이 함께 다운될 수 있습니다. 드물지만 이런 경우에는 데이터가 손실됩니다.
 
 [Redis 데이터 지속성](https://redis.io/topics/persistence) 및 [지역 복제](./cache-how-to-geo-replication.md)를 사용하여 이러한 인프라 오류로부터 데이터 보호를 개선하는 것이 좋습니다.
 

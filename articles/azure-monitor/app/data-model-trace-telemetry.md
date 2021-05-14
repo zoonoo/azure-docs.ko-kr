@@ -1,14 +1,14 @@
 ---
-title: Azure 애플리케이션 Insights 데이터 모델-원격 분석 추적
+title: Azure Application Insights 데이터 모델 - 원격 분석 추적
 description: 추적 원격 분석을 위한 Azure Application Insights 데이터 모델
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: 8fea4bbf590816b2ef168a2ed16f197389ee282e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87320547"
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>추적 원격 분석: Application Insights 데이터 모델
@@ -31,8 +31,8 @@ ms.locfileid: "87320547"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Application Insights에서 .net 추적 로그를 탐색](./asp-net-trace-logs.md)합니다.
-- [Application Insights에서 Java 추적 로그를 탐색](./java-trace-logs.md)합니다.
+- [Application Insights에서 .NET 추적 로그 탐색](./asp-net-trace-logs.md).
+- [Application Insights에서 Java 추적 로그 탐색](./java-trace-logs.md).
 - Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](data-model.md)을 참조하세요.
 - [사용자 지정 추적 원격 분석을 작성합니다](./api-custom-events-metrics.md#tracktrace).
 - Application Insights에서 지원되는 [플랫폼](./platforms.md)을 확인합니다.

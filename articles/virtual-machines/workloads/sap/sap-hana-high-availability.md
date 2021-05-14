@@ -1,5 +1,5 @@
 ---
-title: SLES의 Azure Vm에 있는 SAP HANA의 고가용성 Microsoft Docs
+title: SLES의 Azure VM에 있는 SAP HANA의 고가용성 | Microsoft Docs
 description: SUSE Linux Enterprise Server의 Azure VM에 있는 SAP HANA의 고가용성
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 03/16/2021
 ms.author: radeltch
 ms.openlocfilehash: 42a4c4a41f6c8bdf9d4a8e78f634893722c8f389
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104576403"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server의 Azure VM에 있는 SAP HANA의 고가용성
@@ -60,8 +60,8 @@ Azure VM(Virtual Machines)에서 Azure의 HANA 시스템 복제는 현재 지원
   * 지원되는 SAP 소프트웨어 및 OS(운영 체제)와 데이터베이스 조합.
   * Microsoft Azure에서 Windows 및 Linux에 필요한 SAP 커널 버전.
 * SAP Note [2015553]은 Azure에서 SAP를 지원하는 SAP 소프트웨어 배포에 대한 필수 구성 요소가 나열되어 있습니다.
-* Sap Note [2205917] 에는 Sap 응용 프로그램의 SUSE Linux Enterprise Server에 대 한 OS 설정이 권장 됩니다.
-* Sap Note [1944799] 에는 Sap 응용 프로그램 SUSE Linux Enterprise Server에 대 한 SAP HANA 지침이 있습니다.
+* SAP Note [2205917]은 SAP 애플리케이션용 SUSE Linux Enterprise Server에 권장되는 OS 설정이 나와 있습니다.
+* SAP Note [1944799]는 SAP 애플리케이션용 SUSE Linux Enterprise Server에 대한 SAP HANA 지침이 나와 있습니다.
 * SAP Note [2178632]는 Azure에서 SAP에 대해 보고된 모든 모니터링 메트릭에 대한 자세한 정보를 포함하고 있습니다.
 * SAP Note [2191498]는 Azure에서 Linux에 필요한 SAP Host Agent 버전을 포함하고 있습니다.
 * SAP Note [2243692]는 Azure에서 Linux의 SAP 라이선스에 대한 정보를 포함하고 있습니다.
@@ -69,9 +69,9 @@ Azure VM(Virtual Machines)에서 Azure의 HANA 시스템 복제는 현재 지원
 * SAP Note [1999351]은 SAP용 Azure 고급 모니터링 확장을 위한 추가 문제 해결 정보를 포함하고 있습니다.
 * SAP Note [401162]는 HANA 시스템 복제를 설정할 때 “이미 사용 중인 주소”를 피하는 방법에 대한 정보를 포함하고 있습니다.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes)는 Linux에 필요한 모든 SAP Note를 포함하고 있습니다.
-* [SAP HANA 인증 된 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
+* [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 * [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide] 가이드.
-* [Linux에서 SAP 용 Azure Virtual Machines 배포][deployment-guide] (이 문서)
+* [Linux에서 SAP용 Azure Virtual Machines 배포][deployment-guide](이 문서).
 * [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide] 가이드.
 * [SAP 애플리케이션 12 SP3용 SUSE Linux Enterprise Server 모범 사례 가이드][sles-for-sap-bp]
   * SAP HANA SR 성능 최적화 인프라 설정(SAP 애플리케이션 12 SP1용 SLES). 이 가이드에는 온-프레미스 개발을 위해 SAP HANA 시스템 복제를 설정하는 데 필요한 모든 정보가 들어 있습니다. 이 가이드를 기준으로 사용합니다.
@@ -100,19 +100,19 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
 GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿에서 가상 머신, 부하 분산 장치, 가용성 집합 등을 배포합니다.
 템플릿을 배포하려면 다음 단계를 따릅니다.
 
-1. Azure Portal에서 [데이터베이스 템플릿][template-multisid-db] 또는 [수렴 형 템플릿을][template-converged] 엽니다. 
-    데이터베이스 템플릿은 데이터베이스에 대해서만 부하 분산 규칙을 만듭니다. 또한 수렴형 템플릿은 ASCS/SCS 및 ERS(Linux 전용) 인스턴스에 대해 부하 분산 규칙을 만듭니다. SAP NetWeaver 기반 시스템을 설치 하려는 경우 동일한 컴퓨터에 ASCS/SCS 인스턴스를 설치 하려면 [수렴 된 템플릿을][template-converged]사용 합니다.
+1. Azure Portal에서 [데이터베이스 템플릿][template-multisid-db] 또는 [수렴형 템플릿][template-converged]을 엽니다. 
+    데이터베이스 템플릿은 데이터베이스에 대해서만 부하 분산 규칙을 만듭니다. 또한 수렴형 템플릿은 ASCS/SCS 및 ERS(Linux 전용) 인스턴스에 대해 부하 분산 규칙을 만듭니다. SAP NetWeaver 기반 시스템을 설치하고 동일한 머신에 ASCS/SCS 인스턴스를 설치하려는 경우 [수렴형 템플릿][template-converged]을 사용합니다.
 
 1. 다음 매개 변수를 입력합니다.
     - **SAP 시스템 ID**: 설치하려는 SAP 시스템의 SAP 시스템 ID를 입력합니다. 이 ID는 배포되는 리소스의 접두사로 사용됩니다.
     - **스택 유형**: (이 매개 변수는 변환 템플릿을 사용할 때만 적용됩니다.) SAP NetWeaver 스택 유형을 선택합니다.
-    - **OS 유형**: Linux 배포판 중 하나를 선택합니다. 이 예에서는 **SLES 12** 를 선택 합니다.
+    - **OS 유형**: Linux 배포판 중 하나를 선택합니다. 이 예제에서는 **SLES 12** 를 선택합니다.
     - **Db 형식**: **HANA** 를 선택합니다.
     - **SAP 시스템 크기**: 새 시스템에서 제공할 SAP의 수를 입력합니다. 시스템에 필요한 SAP의 수를 모를 경우 SAP 기술 파트너 또는 시스템 통합자에 문의하세요.
     - **시스템 가용성**: **HA** 를 선택합니다.
-    - **관리자 사용자 이름 및 관리자 암호**: 컴퓨터에 로그인 하는 데 사용할 수 있는 새 사용자를 만듭니다.
-    - **새로운 또는 기존 서브넷**: 새 가상 네트워크 및 서브넷을 만들어야 하는지 또는 기존 서브넷을 사용해야 하는지 결정합니다. 온-프레미스 네트워크에 연결 된 가상 네트워크가 이미 있는 경우 **기존** 을 선택 합니다.
-    - **서브넷 ID**: 서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로 **/Subscriptions/ \<subscription ID> /Stgg/ \<resource group name> /providers/Microsoft.Network/virtualNetworks/ \<virtual network name> /subnets/ \<subnet name>** 와 같습니다.
+    - **관리자 사용자 이름 및 관리자 암호**: 머신에 로그인하는 데 사용할 수 있는 새 사용자가 만들어집니다.
+    - **새로운 또는 기존 서브넷**: 새 가상 네트워크 및 서브넷을 만들어야 하는지 또는 기존 서브넷을 사용해야 하는지 결정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 **기존** 을 선택합니다.
+    - **서브넷 ID**: 서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로 **/subscriptions/\<subscription ID>/resourceGroups/\<resource group name>/providers/Microsoft.Network/virtualNetworks/\<virtual network name>/subnets/\<subnet name>** 형태입니다.
 
 ### <a name="manual-deployment"></a>수동 배포
 
@@ -135,7 +135,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 1. 데이터 디스크를 추가합니다.
 
 > [!IMPORTANT]
-> 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원 되지 않습니다. 자세한 내용은 [Azure 부하 분산 장치 제한](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조 하세요. VM에 대 한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포 합니다.   
+> 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원되지 않습니다. 자세한 내용은 [Azure Load Balancer 제한 사항](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조하세요. VM에 대한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포합니다.   
 
 > [!Note]
 > 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 퍼블릭 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하는 Virtual Machines에 대한 퍼블릭 엔드포인트 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md)을 참조하세요.  
@@ -153,7 +153,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    
       1. 부하 분산 장치를 열고, **백 엔드 풀** 을 선택한 다음, **추가** 를 클릭합니다.
       1. 새 백 엔드 풀의 이름 입력합니다(예: **hana-backend**).
-      1. **Virtual Network** 를 선택 합니다.
+      1. **Virtual Network** 를 선택합니다.
       1. **가상 머신 추가** 를 선택합니다.
       1. **가상 머신**을 선택합니다.
       1. SAP HANA 클러스터의 가상 머신 및 해당 IP 주소를 선택합니다.
@@ -411,14 +411,14 @@ SAP HANA 시스템 복제를 설치하려면 [SAP HANA SR 성능 최적화 시�
 
    SAP HANA 2.0 또는 MDC를 사용하는 경우 SAP NetWeaver 시스템에 대한 테넌트 데이터베이스를 만듭니다. **NW1** 을 SAP 시스템의 SID로 바꿉니다.
 
-   <hanasid adm으로 다음 명령을 실행 합니다 \> .
+   다음 명령을 <hanasid\>adm으로 실행합니다.
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
 1. **[1]** 첫 번째 노드에서 시스템 복제를 구성합니다.
 
-   Hanasid adm <데이터베이스를 백업 합니다 \> .
+   데이터베이스를 <hanasid\>adm으로 백업합니다.
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -438,7 +438,7 @@ SAP HANA 시스템 복제를 설치하려면 [SAP HANA SR 성능 최적화 시�
 
 1. **[2]** 두 번째 노드에서 시스템 복제를 구성합니다.
     
-   두 번째 노드를 등록하여 시스템 복제를 시작합니다. Hanasid adm <다음 명령을 실행 합니다 \> .
+   두 번째 노드를 등록하여 시스템 복제를 시작합니다. 다음 명령을 <hanasid\>adm으로 실행합니다.
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -485,7 +485,7 @@ SAP HANA 시스템 복제를 설치하려면 [SAP HANA SR 성능 최적화 시�
 
 1. **[1]** 첫 번째 노드에서 시스템 복제를 구성합니다.
 
-   기본 사이트를 <hanasid adm으로 만듭니다 \> .
+   기본 사이트를 <hanasid\>adm으로 만듭니다.
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -531,7 +531,7 @@ sudo crm configure clone cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> rsc_SAPHana
 
 
 > [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 *마스터* 및 *슬레이브* 용어에 대 한 참조가 포함 되어 있습니다. 이러한 용어가 소프트웨어에서 제거 되 면이 문서에서 제거 합니다.
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 ‘마스터’ 및 ‘종속’ 용어에 대한 참조가 포함되어 있습니다.  해당 용어가 소프트웨어에서 제거되면 이 문서에서 제거됩니다.
 
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
 
@@ -595,39 +595,39 @@ sudo crm configure rsc_defaults migration-threshold=5000
 
 ## <a name="configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster"></a>Pacemaker 클러스터에서 HANA 활성/읽기 사용 시스템 복제 구성
 
-SAP HANA 2.0 SPS 01 s p 1부터 읽기 전용 작업에 대해 시스템 복제를 SAP HANA 하는 보조 시스템을 적극적으로 사용할 수 있는 SAP HANA 시스템 복제에 대해 활성/읽기 사용 설정을 사용할 수 있습니다. 클러스터에서 이러한 설정을 지원 하려면 클라이언트가 보조 읽기 가능 SAP HANA 데이터베이스에 액세스할 수 있도록 두 번째 가상 IP 주소가 필요 합니다. 인수 발생 한 후에도 보조 복제 사이트에 액세스할 수 있도록 하려면 클러스터에서 가상 IP 주소를 SAPHana 리소스의 보조로 이동 해야 합니다.
+SAP HANA 2.0 SPS 01부터 SAP에서 SAP HANA 시스템 복제에 활성/읽기 사용 설정을 사용할 수 있으며, SAP HANA 시스템 복제의 보조 시스템을 읽기 집약적인 워크로드에 적극적으로 사용할 수 있습니다. 클러스터에서 해당 설정을 지원하려면 클라이언트가 보조 읽기 사용 SAP HANA 데이터베이스에 액세스할 수 있도록 두 번째 가상 IP 주소가 필요합니다. 인수가 발생한 후에도 보조 복제 사이트에 액세스할 수 있게 하려면 클러스터에서 가상 IP 주소를 보조 SAPHana 리소스로 이동해야 합니다.
 
-이 섹션에서는 두 번째 가상 IP를 사용 하 여 SUSE 고가용성 클러스터에서 HANA 활성/읽기 사용 시스템 복제를 관리 하는 데 필요한 추가 단계에 대해 설명 합니다.    
-계속 하기 전에 설명서의 위 세그먼트에 설명 된 대로 SAP HANA 데이터베이스를 관리 하는 SUSE 고가용성 클러스터를 완전히 구성 했는지 확인 합니다.  
+해당 섹션에서는 두 번째 가상 IP가 있는 SUSE 고가용성 클러스터에서 HANA 활성/읽기 사용 시스템 복제를 관리하는 데 필요한 추가 단계에 대해 설명합니다.    
+계속 진행하기 전에 설명서의 상단 세그먼트에 설명된 대로 SAP HANA 데이터베이스를 관리하는 SUSE 고가용성 클러스터를 완전히 구성했는지 확인합니다.  
 
-![읽기 가능 보조 데이터베이스를 사용 하 여 고가용성 SAP HANA](./media/sap-hana-high-availability/ha-hana-read-enabled-secondary.png)
+![읽기 사용 보조가 있는 고가용성 SAP HANA](./media/sap-hana-high-availability/ha-hana-read-enabled-secondary.png)
 
-### <a name="additional-setup-in-azure-load-balancer-for-activeread-enabled-setup"></a>활성/읽기 사용 설정의 Azure 부하 분산 장치에 대 한 추가 설정
+### <a name="additional-setup-in-azure-load-balancer-for-activeread-enabled-setup"></a>활성/읽기 사용 설정을 위한 Azure Load Balancer 추가 설정
 
-두 번째 가상 IP를 프로 비전 하는 추가 단계를 진행 하려면 [수동 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#manual-deployment) 섹션에 설명 된 대로 Azure Load Balancer를 구성 했는지 확인 합니다.
+두 번째 가상 IP를 프로비저닝하는 추가 단계를 진행하려면 [수동 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#manual-deployment) 섹션에 설명된 대로 Azure Load Balancer를 구성했는지 확인합니다.
 
-1. **표준** 부하 분산 장치에 대해 이전 섹션에서 만든 것과 동일한 부하 분산 장치에서 아래 추가 단계를 수행 합니다.
+1. **표준** 부하 분산 장치의 경우 이전 섹션에서 만든 것과 동일한 부하 분산 장치에서 아래 추가 단계를 수행합니다.
 
-   a. 두 번째 프런트 엔드 IP 풀을 만듭니다. 
+   a. 두 번째 프런트 엔드 IP 풀 만들기: 
 
    - 부하 분산 장치를 열고, **프런트 엔드 IP 풀** 을 선택하고, **추가** 를 선택합니다.
-   - 두 번째 프런트 엔드 IP 풀의 이름 (예: **Hana secondaryip**)을 입력 합니다.
-   - **할당** 을 **정적** 으로 설정 하 고 IP 주소를 입력 합니다 (예: **10.0.0.14**).
+   - 두 번째 프런트 엔드 IP 풀의 이름을 입력합니다(예: **hana-secondaryIP**).
+   - **할당** 을 **정적** 으로 설정하고 IP 주소(예: **10.0.0.14**)를 입력합니다.
    - **확인** 을 선택합니다.
-   - 새 프런트 엔드 IP 풀을 만든 후 프런트 엔드 IP 주소를 확인 합니다.
+   - 새 프런트 엔드 IP 풀을 만든 후, 프런트 엔드 IP 주소를 적어 둡니다.
 
    b. 다음으로, 상태 프로브를 만듭니다.
 
    - 부하 분산 장치를 열고, **상태 프로브** 를 선택한 다음, **추가** 를 선택합니다.
-   - 새 상태 프로브 (예: **hana secondaryhp**)의 이름을 입력 합니다.
-   - 프로토콜 및 포트 **62603** 로 **TCP** 를 선택 합니다. 5로 설정된 **간격** 값, 2로 설정된 **비정상 임계값** 값을 유지합니다.
+   - 새 상태 프로브의 이름(예: **hana-secondaryhp**)을 입력합니다.
+   - 프로토콜 및 포트 **62603** 으로 **TCP** 를 선택합니다. 5로 설정된 **간격** 값, 2로 설정된 **비정상 임계값** 값을 유지합니다.
    - **확인** 을 선택합니다.
 
    다. 다음으로 부하 분산 규칙을 만듭니다.
 
    - 부하 분산 장치를 열고, **부하 분산 규칙** 을 선택한 다음, **추가** 를 선택합니다.
-   - 새 부하 분산 장치 규칙의 이름 (예: **hana secondarylb**)을 입력 합니다.
-   - 앞에서 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브를 선택 합니다 (예: **Hana secondaryIP**, **hana 백 엔드** 및 **hana secondaryip**).
+   - 새 부하 분산 장치 규칙의 이름(예: **hana-secondarylb**)을 입력합니다.
+   - 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀, 상태 프로브를 선택합니다(예: **hana-secondaryIP**, **hana-backend** 및 **hana-secondaryhp**).
    - **HA 포트** 를 선택합니다.
    - **유휴 상태 시간 제한** 을 30분으로 증가시킵니다.
    - **부동 IP를 사용하도록 설정** 했는지 확인합니다.
@@ -635,7 +635,7 @@ SAP HANA 2.0 SPS 01 s p 1부터 읽기 전용 작업에 대해 시스템 복제�
 
 ### <a name="configure-hana-activeread-enabled-system-replication"></a>HANA 활성/읽기 사용 시스템 복제 구성
 
-HANA 시스템 복제를 구성 하는 단계는 [SAP HANA 2.0 시스템 복제 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#configure-sap-hana-20-system-replication) 섹션에 설명 되어 있습니다. 읽기 가능 보조 시나리오를 배포 하는 동안 두 번째 노드에서 시스템 복제를 구성 하는 동안 **hanasid** adm으로 다음 명령을 실행 합니다.
+HANA 시스템 복제를 구성하는 단계는 [SAP HANA 2.0 시스템 복제 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#configure-sap-hana-20-system-replication) 섹션에 설명되어 있습니다. 읽기 사용 보조 시나리오를 배포하는 경우 두 번째 노드에서 시스템 복제를 구성하는 동안 **hanasid** adm으로 다음 명령을 실행합니다.
 
 ```
 sapcontrol -nr 03 -function StopWait 600 10 
@@ -643,9 +643,9 @@ sapcontrol -nr 03 -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2 --operationMode=logreplay_readaccess 
 ```
 
-### <a name="adding-a-secondary-virtual-ip-address-resource-for-an-activeread-enabled-setup"></a>활성/읽기 지원 설정에 대 한 보조 가상 IP 주소 리소스 추가
+### <a name="adding-a-secondary-virtual-ip-address-resource-for-an-activeread-enabled-setup"></a>활성/읽기 사용 설정을 위한 보조 가상 IP 주소 리소스 추가
 
-다음 명령을 사용 하 여 두 번째 가상 IP와 적절 한 공동 배치 제약 조건을 구성할 수 있습니다.
+다음 명령을 사용하여 두 번째 가상 IP와 적절한 공동 배치 제약 조건을 구성할 수 있습니다.
 
 ```
 crm configure property maintenance-mode=true
@@ -666,7 +666,7 @@ crm configure colocation col_saphana_secip_HN1_HDB03 4000: g_secip_HN1_HDB03:Sta
 
 crm configure property maintenance-mode=false
 ```
-클러스터 상태가 정상이며 모든 리소스가 시작되었는지 확인합니다. 두 번째 가상 IP는 보조 사이트에서 SAPHana 보조 리소스와 함께 실행 됩니다.
+클러스터 상태가 정상이며 모든 리소스가 시작되었는지 확인합니다. 두 번째 가상 IP는 보조 사이트에서 SAPHana 보조 리소스와 함께 실행됩니다.
 
 ```
 sudo crm_mon -r
@@ -690,17 +690,17 @@ sudo crm_mon -r
 
 ```
 
-다음 섹션에서는 실행할 일반적인 장애 조치 (failover) 테스트 집합을 찾을 수 있습니다.
+다음 섹션에서는 실행할 일반적인 장애 조치(failover) 테스트 집합을 확인할 수 있습니다.
 
-읽기 가능 보조 데이터베이스를 사용 하 여 구성 된 HANA 클러스터를 테스트 하는 동안 두 번째 가상 IP 동작을 알아야 합니다.
+읽기 사용 보조로 구성된 HANA 클러스터를 테스트하는 동안 두 번째 가상 IP 동작에 유의해야 합니다.
 
-1. 클러스터 리소스 **SAPHana_HN1_HDB03** **h n 1-1** 로 마이그레이션하면 두 번째 가상 IP가 **h n 1** 로 이동 합니다. AUTOMATED_REGISTER = "false"를 구성 하 고 HANA 시스템 복제를 자동으로 등록 하지 않은 경우 서버를 사용할 수 있고 클러스터 서비스가 온라인 상태가 될 때 두 번째 가상 IP가 **h n 1-db-0** 에서 실행 됩니다.  
+1. **SAPHana_HN1_HDB03** 클러스터 리소스를 **hn1-db-1** 로 마이그레이션하면 두 번째 가상 IP가 다른 서버 **hn1-db-0** 으로 이동합니다. AUTOMATED_REGISTER=“false”를 구성하고 HANA 시스템 복제를 자동으로 등록하지 않은 경우 서버를 사용할 수 있고 클러스터 서비스가 온라인 상태가 될 때 두 번째 가상 IP가 **hn1-db-0** 에서 실행됩니다.  
 
-2. 서버 충돌을 테스트할 때 두 번째 가상 IP 리소스 (**rsc_secip_HN1_HDB03**)와 Azure 부하 분산 장치 포트 리소스 (**rsc_secnc_HN1_HDB03**)는 주 가상 ip 리소스와 함께 주 서버에서 실행 됩니다. 보조 서버가 다운 되는 동안 읽기 지원 HANA 데이터베이스에 연결 된 응용 프로그램은 기본 HANA 데이터베이스에 연결 됩니다. 보조 서버를 사용할 수 없는 동안 읽기 가능 HANA 데이터베이스에 연결 된 응용 프로그램에 액세스할 수 없도록 하려는 경우에도 동작이 예상 됩니다.
+2. 서버 충돌을 테스트할 때 두 번째 가상 IP 리소스(**rsc_secip_HN1_HDB03**)와 Azure Load Balancer 포트 리소스(**rsc_secnc_HN1_HDB03**)는 주 가상 IP 리소스와 함께 주 서버에서 실행됩니다. 보조 서버가 다운 상태인 동안 읽기 사용 HANA 데이터베이스에 연결된 애플리케이션은 주 HANA 데이터베이스에 연결됩니다. 보조 서버를 사용할 수 없는 동안 읽기 사용 HANA 데이터베이스에 연결된 애플리케이션에 액세스할 수 없도록 하려는 동작을 예상할 수 있습니다.
   
-3. 보조 서버를 사용할 수 있고 클러스터 서비스가 온라인 상태 이면 HANA 시스템 복제를 보조 서버로 등록할 수 없는 경우에도 두 번째 가상 IP 및 포트 리소스가 보조 서버로 자동으로 이동 됩니다. 해당 서버에서 클러스터 서비스를 시작 하기 전에 보조 HANA 데이터베이스를 읽기 가능으로 등록 했는지 확인 해야 합니다. AUTOMATED_REGISTER = true 매개 변수를 설정 하 여 보조 복제본을 자동으로 등록 하도록 HANA 인스턴스 클러스터 리소스를 구성할 수 있습니다.       
+3. 보조 서버를 사용할 수 있고 클러스터 서비스가 온라인 상태이면 HANA 시스템 복제를 보조 서버로 등록할 수 없는 경우에도 두 번째 가상 IP 및 포트 리소스가 보조 서버로 자동으로 이동합니다. 해당 서버에서 클러스터 서비스를 시작하기 전에 보조 HANA 데이터베이스를 읽기 사용으로 등록했는지 확인해야 합니다. AUTOMATED_REGISTER=true 매개 변수를 설정하여 보조 데이터베이스를 자동으로 등록하도록 HANA 인스턴스 클러스터 리소스를 구성할 수 있습니다.       
 
-4. 장애 조치 (failover) 및 대체 중에 두 번째 가상 IP를 사용 하 여 HANA 데이터베이스에 연결 하는 응용 프로그램에 대 한 기존 연결이 중단 될 수 있습니다.  
+4. 장애 조치(failover) 및 대체 중에 두 번째 가상 IP를 사용하여 HANA 데이터베이스에 연결하는 애플리케이션에 대한 기존 연결이 중단될 수 있습니다.  
 
 ## <a name="test-the-cluster-setup"></a>클러스터 설정 테스트
 
@@ -876,7 +876,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   \>H n 1-db-0에서 hanasid adm <하는 다음 명령을 실행 합니다.
+   노드 hn1-db-0에서 <hanasid\>adm으로 다음 명령을 실행합니다.
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -917,7 +917,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
-   H n 1-1 노드에서 hanasid adm <하는 다음 명령을 실행 합니다 \> .
+   노드 hn1-db-1에서 <hanasid\>adm으로 다음 명령을 실행합니다.
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -958,7 +958,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   \>H n 1-db-0에서 hanasid adm <하는 다음 명령을 실행 합니다.
+   노드 hn1-db-0에서 <hanasid\>adm으로 다음 명령을 실행합니다.
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -999,7 +999,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
-   H n 1-1 노드에서 hanasid adm <하는 다음 명령을 실행 합니다 \> .
+   노드 hn1-db-1에서 <hanasid\>adm으로 다음 명령을 실행합니다.
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -1142,7 +1142,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   H n 1-1 노드에서 hanasid adm <하는 다음 명령을 실행 합니다 \> .
+   노드 hn1-db-1에서 <hanasid\>adm으로 다음 명령을 실행합니다.
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -1179,7 +1179,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   H n 1-1 노드에서 hanasid adm <하는 다음 명령을 실행 합니다 \> .
+   노드 hn1-db-1에서 <hanasid\>adm으로 다음 명령을 실행합니다.
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>

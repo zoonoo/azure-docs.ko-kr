@@ -1,17 +1,17 @@
 ---
 title: Azure Data Factory를 사용하여 Oracle 간 데이터 복사
 description: Data Factory를 사용하여 지원되는 원본 저장소에서 Oracle 데이터베이스로, 또는 Oracle에서 지원되는 싱크 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.author: jingwang
-ms.openlocfilehash: 9e6be88af13d5dd7ddceba32ec08cab54ca5e3a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: b1b223ddf4be6652282be2875e83900b8a7be372
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104587290"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109487172"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Oracle 간 데이터 복사
 
@@ -21,7 +21,7 @@ ms.locfileid: "104587290"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Oracle 데이터베이스 간에 데이터를 복사하는 방법을 간략하게 설명합니다. [복사 활동 개요](copy-activity-overview.md)를 기반으로 합니다.
+이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Oracle 데이터베이스 간에 데이터를 복사하는 방법을 간략하게 설명합니다. [복사 작업 개요](copy-activity-overview.md)를 기반으로 빌드됩니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -50,13 +50,13 @@ Oracle 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)] 
 
 통합 런타임은 기본 제공 Oracle 드라이버를 제공합니다. 따라서 Oracle 데이터 복사 작업에는 드라이버를 수동으로 설치할 필요가 없습니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 Oracle 커넥터에 한정된 데이터 팩터리 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -64,7 +64,7 @@ Oracle 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 
 Oracle 연결된 서비스는 다음 속성을 지원합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **Oracle** 로 설정해야 합니다. | 예 |
 | connectionString | Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. <br/>Azure Key Vault에 암호를 입력하고 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요. <br><br>**지원되는 연결 유형**: 데이터베이스를 식별하기 위해 **Oracle SID** 또는 **Oracle 서비스 이름** 을 사용할 수 있습니다.<br>- SID를 사용하는 경우: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 서비스 이름을 사용하는 경우: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;`<br>고급 Oracle 기본 연결 옵션의 경우 Oracle 서버에 있는 [TNSNAMES.ORA](http://www.orafaq.com/wiki/Tnsnames.ora) 파일에 항목을 추가하도록 선택할 수 있습니다. ADF Oracle 연결된 서비스에서는 Oracle 서비스 이름 연결 형식을 사용하고 해당하는 서비스 이름을 구성하도록 선택할 수 있습니다. | 예 |
@@ -79,7 +79,7 @@ Oracle 연결된 서비스는 다음 속성을 지원합니다.
 
 | 속성 | Description | 허용되는 값 |
 |:--- |:--- |:--- |
-| ArraySize |단일 네트워크 왕복에서 커넥터가 페치할 수 있는 바이트 수입니다. 예를 들면 `ArraySize=‭10485760‬`입니다.<br/><br/>값이 클수록 네트워크를 통해 데이터를 페치하는 횟수가 줄어들어 처리량이 증가합니다. 값이 작을수록 서버에서 데이터 전송을 기다리는 지연 시간이 줄어들기 때문에 응답 시간이 증가합니다. | 1에서 4294967296(4GB)사이의 정수입니다. 기본값은 `60000`여야 합니다. 값 1은 바이트 수를 정의하지 않지만 정확히 하나의 데이터 행에 대한 공간 할당을 나타냅니다. |
+| ArraySize |단일 네트워크 왕복에서 커넥터가 페치할 수 있는 바이트 수입니다. 예: `ArraySize=‭10485760‬`.<br/><br/>값이 클수록 네트워크를 통해 데이터를 페치하는 횟수가 줄어들어 처리량이 증가합니다. 값이 작을수록 서버에서 데이터 전송을 기다리는 지연 시간이 줄어들기 때문에 응답 시간이 증가합니다. | 1에서 4294967296(4GB)사이의 정수입니다. 기본값은 `60000`여야 합니다. 값 1은 바이트 수를 정의하지 않지만 정확히 하나의 데이터 행에 대한 공간 할당을 나타냅니다. |
 
 Oracle 연결에서 암호화를 사용하도록 설정하려면 다음 두 가지 옵션이 있습니다.
 
@@ -120,7 +120,7 @@ Oracle 연결에서 암호화를 사용하도록 설정하려면 다음 두 가�
         ```
 
     3.  자체 호스팅 IR 컴퓨터에 `truststore` 파일을 저장합니다. 예를 들어 파일을 C:\MyTrustStoreFile에 저장합니다.
-    4.  Azure Data Factory에서 `EncryptionMethod=1` 및 해당하는 `TrustStore`/`TrustStorePassword` 값을 사용하여 Oracle 연결 문자열을 구성합니다. 예들 들어 `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`입니다.
+    4.  Azure Data Factory에서 `EncryptionMethod=1` 및 해당하는 `TrustStore`/`TrustStorePassword` 값을 사용하여 Oracle 연결 문자열을 구성합니다. 예: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
 
 **예:**
 
@@ -171,7 +171,7 @@ Oracle 연결에서 암호화를 사용하도록 설정하려면 다음 두 가�
 
 Oracle 간에 데이터를 복사하려면 데이터 세트의 type 속성을 `OracleTable`로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성은 `OracleTable`로 설정해야 합니다. | 예 |
 | 스키마 | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
@@ -210,14 +210,14 @@ Oracle 간에 데이터를 복사하려면 데이터 세트의 type 속성을 `O
 
 Oracle에서 데이터를 복사하려면 복사 작업의 원본 형식을 `OracleSource`로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 `OracleSource`로 설정해야 합니다. | 예 |
 | oracleReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `"SELECT * FROM MyTable"`입니다.<br>분할된 로드를 사용하도록 설정하는 경우 쿼리에 해당하는 기본 제공 파티션 매개 변수를 후크해야 합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조하세요. | 예 |
 | partitionOptions | Oracle에서 데이터를 로드하는 데 사용되는 데이터 분할 옵션을 지정합니다. <br>허용되는 값은 **None**(기본값), **PhysicalPartitionsOfTable** 및 **DynamicRange** 입니다.<br>파티션 옵션을 사용하도록 설정하는 경우 (즉, `None`이 아님), Oracle 데이터베이스에서 데이터를 동시에 로드하는 병렬 처리 수준이 복사 작업에서 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 설정으로 제어됩니다. | 예 |
 | partitionSettings | 데이터 분할에 대한 설정 그룹을 지정합니다. <br>파티션 옵션이 `None`이 아닌 경우에 적용됩니다. | 예 |
 | partitionNames | 복사해야 하는 물리적 파티션 목록입니다. <br>파티션 옵션이 `PhysicalPartitionsOfTable`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfTabularPartitionName`를 후크합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조하세요. | 예 |
-| partitionColumnName | 병렬 복사를 위해 범위 분할에서 사용되는 **정수 형식으로** 원본 열의 이름을 지정합니다. 지정하지 않으면 테이블의 기본 키가 자동으로 검색되어 파티션 열로 사용됩니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionColumnName`을 후크합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조하세요. | 예 |
+| partitionColumnName | 병렬 복사를 위해 범위 분할에서 사용되는 **정수 형식으로** 원본 열의 이름을 지정합니다. 지정하지 않으면 테이블의 기본 키가 자동으로 검색되어 파티션 열로 사용됩니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionColumnName`를 후크합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조하세요. | 예 |
 | partitionUpperBound | 데이터를 복사할 파티션 열의 최댓값입니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionUpbound`를 후크합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조하세요. | 예 |
 | partitionLowerBound | 데이터를 복사할 파티션 열의 최솟값입니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionLowbound`를 후크합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조하세요. | 예 |
 
@@ -257,13 +257,13 @@ Oracle에서 데이터를 복사하려면 복사 작업의 원본 형식을 `Ora
 
 Oracle에 데이터를 복사하려면 복사 작업의 싱크 형식을 `OracleSink`로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 싱크의 형식 속성은 `OracleSink`로 설정해야 합니다. | 예 |
+| type | 복사 작업 싱크의 type 속성은 `OracleSink`로 설정해야 합니다. | 예 |
 | writeBatchSize | 버퍼 크기가 `writeBatchSize`에 도달하면 SQL 테이블에 데이터를 삽입합니다.<br/>허용되는 값은 정수(행 수)입니다. |아니요(기본값: 10,000) |
 | writeBatchTimeout | 시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br/>허용되는 값은 시간 범위입니다. 예를 들어 "00:30:00"(30분)입니다. | 예 |
 | preCopyScript | 각 실행 시 Oracle에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. | 예 |
-| maxConcurrentConnections |작업을 실행하는 동안 데이터 저장소에 설정되는 동시 연결 수의 상한입니다. 동시 연결을 제한하려는 경우에만 값을 지정합니다.| 예 |
+| maxConcurrentConnections |작업을 실행하는 동안 데이터 저장소에 설정된 동시 연결의 상한입니다. 동시 연결을 제한하려는 경우에만 값을 지정합니다.| 예 |
 
 **예:**
 
@@ -308,9 +308,9 @@ Data Factory Oracle 커넥터는 Oracle에서 병렬로 데이터를 복사하�
 
 | 시나리오                                                     | 제안된 설정                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 물리적 파티션을 사용하여 대형 테이블에서 전체 로드합니다.          | **파티션 옵션**: 테이블의 물리적 파티션입니다. <br><br/>실행하는 동안 Data Factory는 물리적 파티션을 자동으로 검색하여 파티션별로 데이터를 복사합니다. |
+| 실제 파티션을 사용하여 초대형 테이블에서 전체 로드          | **파티션 옵션**: 테이블의 물리적 파티션. <br><br/>실행 중에 Data Factory는 물리적 파티션을 자동으로 검색하여 파티션별로 데이터를 복사합니다. |
 | 데이터 분할을 위해 물리적 파티션을 사용하지 않지만 정수 열을 사용하여 대형 테이블에서 전체 로드합니다. | **파티션 옵션**: 동적 범위 파티션입니다.<br>**파티션 열**: 데이터를 분할하는 데 사용되는 열을 지정합니다. 지정하지 않으면 기본 키 열이 사용됩니다. |
-| 사용자 지정 쿼리를 사용하여 물리적 파티션과 함께 대량의 데이터를 로드합니다. | **파티션 옵션**: 테이블의 물리적 파티션입니다.<br>**쿼리**:`SELECT * FROM <TABLENAME> PARTITION("?AdfTabularPartitionName") WHERE <your_additional_where_clause>`.<br>**파티션 이름**: 데이터를 복사할 파티션 이름을 지정합니다. 지정하지 않으면 Data Factory는 Oracle 데이터 세트에서 지정한 테이블의 물리적 파티션을 자동으로 검색합니다.<br><br>실행하는 동안 Data Factory는 `?AdfTabularPartitionName`을 실제 파티션 이름으로 바꾸고 Oracle로 보냅니다. |
+| 사용자 지정 쿼리를 사용하여 물리적 파티션과 함께 대량의 데이터를 로드합니다. | **파티션 옵션**: 테이블의 물리적 파티션.<br>**쿼리**:`SELECT * FROM <TABLENAME> PARTITION("?AdfTabularPartitionName") WHERE <your_additional_where_clause>`.<br>**파티션 이름**: 데이터를 복사할 파티션 이름을 지정합니다. 지정하지 않으면 Data Factory는 Oracle 데이터 세트에서 지정한 테이블의 물리적 파티션을 자동으로 검색합니다.<br><br>실행하는 동안 Data Factory는 `?AdfTabularPartitionName`을 실제 파티션 이름으로 바꾸고 Oracle로 보냅니다. |
 | 물리적 파티션이 없는 사용자 지정 쿼리를 사용하여 대량의 데이터를 로드하는 동시에 데이터 분할을 위한 정수 열을 사용합니다. | **파티션 옵션**: 동적 범위 파티션입니다.<br>**쿼리**:`SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**파티션 열**: 데이터를 분할하는 데 사용되는 열을 지정합니다. 정수 데이터 형식의 열에 대해 분할할 수 있습니다.<br>**파티션 상한** 및 **파티션 하한**: 파티션 열에 대해 필터링하려는 하한과 상한 범위 사이에서만 데이터를 검색하도록 지정합니다.<br><br>실행하는 동안 Data Factory는 `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound` 및 `?AdfRangePartitionLowbound`를 각 파티션의 실제 열 이름과 값 범위로 바꾸고 Oracle로 보냅니다. <br>예를 들어 파티션 열 "ID"의 하한이 1로 설정되고 상한이 80으로 설정된 경우 병렬 복사를 4로 설정하면 Data Factory는 4개의 파티션으로 데이터를 검색합니다. 해당 ID는 [1, 20], [21, 40], [41, 60] 및 [61, 80] 사이에 각각 있습니다. |
 
 > [!TIP]

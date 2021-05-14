@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics를 사용 하는 높은 빈도 거래
+title: Azure Stream Analytics를 사용하여 자주 발생하는 거래
 description: Azure Stream Analytics 작업에서 선형 회귀 모델 학습 및 평가를 수행하는 방법입니다.
 author: enkrumah
 ms.author: ebnkruma
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/16/2021
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: f632c916c3de61b94532e96be23da511ad5863ea
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104593036"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Stream Analytics에서 자주 발생하는 거래 시뮬레이션
@@ -63,7 +63,7 @@ socket.On(Socket.EVENT_CONNECT, () =>
 >이벤트의 타임스탬프는 epoch 시간으로 **lastUpdated** 입니다.
 
 ### <a name="predictive-model-for-high-frequency-trading"></a>자주 발생하는 거래에 대한 예측 모델
-데모의 목적을 위해 Darryl [Shen에서 설명](https://docplayer.net/23038840-Order-imbalance-based-strategy-in-high-frequency-trading.html)하는 선형 모델을 사용 합니다.
+데모용으로 Darryl Shen이 작성한 [문서](https://docplayer.net/23038840-Order-imbalance-based-strategy-in-high-frequency-trading.html)에 설명된 선형 모델을 사용합니다.
 
 VOI(Volume Order Imbalance)는 현재 입찰/요청 가격과 볼륨 및 마지막 틱의 입찰/요청 가격 및 볼륨의 함수입니다. 이 문서는 VOI와 향후 가격 이동 간의 상관 관계를 식별합니다. 이전 VOI 값 5개와 그 다음 10틱의 가격 변경 간에 선형 모델을 빌드합니다. 선형 회귀와 함께 이전 날짜의 데이터를 사용하여 모델을 학습합니다. 
 
@@ -349,7 +349,7 @@ JavaScript UDA는 `init` 함수에서 모든 누적기를 초기화하고, 모�
 - 매도 신호가 발생하고 보유 중인 주식이 있으면 매도합니다.
 - 보유 중인 주식이 없으면 숏 포지션으로 갑니다. 
 
-현재 숏 포지션이고 매수 신호가 발생하면 숏 커버링합니다. 이 시뮬레이션에서 재고의 10 개 공유를 보유 하 고 있습니다. 거래 비용은 균일하게 $8입니다.
+현재 숏 포지션이고 매수 신호가 발생하면 숏 커버링합니다. 이 시뮬레이션에서 10개의 주식을 보유하고 있거나 숏 포지션입니다. 거래 비용은 균일하게 $8입니다.
 
 ```javascript
 function main() {

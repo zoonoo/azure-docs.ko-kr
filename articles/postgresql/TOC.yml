@@ -27,6 +27,8 @@
         - name: DMS를 사용한 최소 가동 중지 시간 마이그레이션
           href: howto-migrate-online.md
           displayName: 'dms, data migration service'
+        - name: Oracle에서 마이그레이션
+          href: howto-migrate-from-oracle.md
     - name: 버전 관리 정책
       href: concepts-version-policy.md
       displayName: 'version, postgresql'
@@ -91,6 +93,9 @@
             - name: Go
               href: connect-go.md
               displayName: connect with go
+            - name: Rust
+              href: connect-rust.md
+              displayName: connect with rust
     - name: 자습서
       items:
         - name: 데이터베이스 설계
@@ -124,14 +129,14 @@
           href: concepts-supported-versions.md
         - name: PostgreSQL 확장
           href: concepts-extensions.md
+        - name: 제한
+          href: concepts-limits.md
         - name: 가격 책정 계층 이해
           items:
             - name: 가격 책정 계층
               href: concepts-pricing-tiers.md
             - name: 예약된 용량 선불
               href: concept-reserved-pricing.md
-            - name: 제한
-              href: concepts-limits.md
         - name: 보안
           items:
             - name: 보안 개요
@@ -159,7 +164,7 @@
               displayName: 'regulatory, compliance, standards, domains'
               href: ./security-controls-policy.md
             - name: 보안 기준
-              href: security-baseline.md
+              href: /security/benchmark/azure/baselines/postgresql-security-baseline?toc=/azure/postgresql/TOC.json?toc=/azure/postgresql/TOC.json
         - name: 네트워킹
           items:
             - name: 방화벽 규칙
@@ -210,6 +215,8 @@
             - name: 성능 권장 사항
               href: concepts-performance-recommendations.md
               displayName: 'query store, performance, optimize, recommendations'
+            - name: Azure Advisor 권장 사항
+              href: concepts-azure-advisor-recommendations.md
         - name: 앱 개발
           items:
             - name: 모범 사례
@@ -410,6 +417,8 @@
       href: flexible-server/index.yml
     - name: 개요
       href: flexible-server/overview.md
+    - name: 릴리스 정보
+      href: flexible-server/release-notes.md
     - name: 빠른 시작
       expanded: true
       items:
@@ -461,6 +470,8 @@
           href: flexible-server/concepts-extensions.md
         - name: 예약된 유지 관리
           href: flexible-server/concepts-maintenance.md
+        - name: 연결 풀링(PgBouncer)
+          href: flexible-server/concepts-pgbouncer.md
         - name: 비즈니스 연속성
           items:
             - name: 비즈니스 연속성 개요
@@ -479,6 +490,16 @@
               displayName: 'monitor, server logs'
             - name: 감사 로그
               href: flexible-server/concepts-audit.md
+            - name: 지능형 성능
+              items:
+                - name: 쿼리 저장소 개요
+                  href: flexible-server/concepts-query-store.md
+                  displayName: 'performance, optimize, query store'
+                - name: 쿼리 저장소 사용 시나리오
+                  href: flexible-server/concepts-query-store-scenarios.md
+                  displayName: 'query store, performance, optimize'
+                - name: 쿼리 저장소 모범 사례
+                  href: flexible-server/concepts-query-store-best-practices.md
         - name: 복제
           href: flexible-server/concepts-logical.md
           displayName: logical decoding
@@ -556,11 +577,15 @@
       items:
         - name: 하이퍼스케일(Citus)이란?
           href: hyperscale-overview.md
+        - name: 미리 보기의 기능
+          href: hyperscale-preview-features.md
     - name: 빠른 시작
       items:
         - name: 서버 그룹 만들기
           items:
-            - name: Azure portal
+            - name: 기본 계층(미리 보기)
+              href: quickstart-create-hyperscale-basic-tier.md
+            - name: 표준 계층
               href: quickstart-create-hyperscale-portal.md
               displayName: 'portal, create hyperscale'
     - name: 자습서
@@ -579,6 +604,8 @@
           displayName: 'hyperscale, tutorial, real-time'
     - name: 개념
       items:
+        - name: 기본 계층
+          href: concepts-hyperscale-tiers.md
         - name: 분선 데이터
           items:
             - name: 노드 및 테이블
@@ -599,7 +626,9 @@
               href: concepts-hyperscale-ssl-connection-security.md
               displayName: 'hyperscale, ssl'
             - name: 보안 기준
-              href: postgresql-hyperscale-security-baseline.md
+              href: /security/benchmark/azure/baselines/postgresql-hyperscale-security-baseline?toc=/azure/postgresql/TOC.json?toc=/azure/postgresql/TOC.json
+        - name: 예약된 유지 관리
+          href: concepts-hyperscale-maintenance.md
         - name: 비즈니스 연속성
           items:
             - name: 백업 및 복원
@@ -607,26 +636,26 @@
               displayName: 'backup, restore, outage, hyperscale'
             - name: 고가용성
               href: concepts-hyperscale-high-availability.md
+        - name: 복제
+          href: concepts-hyperscale-read-replicas.md
         - name: 모니터링 및 튜닝
           items:
             - name: 모니터링 및 튜닝
               href: concepts-hyperscale-monitoring.md
             - name: 감사 로그
               href: concepts-hyperscale-audit.md
+        - name: 열 형식 스토리지
+          href: concepts-hyperscale-columnar.md
         - name: 구성 옵션
           href: concepts-hyperscale-configuration-options.md
+        - name: 제한 및 제한 사항
+          href: concepts-hyperscale-limits.md
         - name: 예약된 용량 선불
           href: concepts-hyperscale-reserved-pricing.md
+        - name: PostgreSQL 버전
+          href: concepts-hyperscale-versions.md
         - name: PostgreSQL 확장
           href: concepts-hyperscale-extensions.md
-    - name: API 참조
-      items:
-        - name: SQL API 함수
-          href: reference-hyperscale-functions.md
-        - name: 서버 매개 변수
-          href: reference-hyperscale-parameters.md
-        - name: 시스템 테이블
-          href: reference-hyperscale-metadata.md
     - name: 방법 가이드
       items:
         - name: 서버 그룹 크기
@@ -652,6 +681,15 @@
               href: howto-hyperscale-modify-distributed-tables.md
         - name: 고가용성
           href: howto-hyperscale-high-availability.md
+        - name: 복제
+          items:
+            - name: Azure portal
+              href: howto-hyperscale-read-replicas-portal.md
+              displayName: 'replication, read replica'
+        - name: 예약된 유지 관리
+          items:
+            - name: Azure portal
+              href: howto-hyperscale-maintenance.md
         - name: 모니터
           items:
             - name: 메트릭에 대한 경고 만들기
@@ -660,6 +698,12 @@
             - name: 데이터베이스 로그 액세스
               href: howto-hyperscale-logging.md
               displayName: 'log, hyperscale'
+        - name: 서버 그룹 복원
+          items:
+            - name: Azure portal
+              href: howto-hyperscale-restore-portal.md
+        - name: 주 버전 업그레이드
+          href: howto-hyperscale-upgrade.md
         - name: 문제 해결
           items:
             - name: 연결 오류 문제 해결
@@ -667,6 +711,14 @@
               displayName: 'connection errors, hyperscale'
             - name: 유용한 진단 쿼리
               href: howto-hyperscale-useful-diagnostic-queries.md
+    - name: API 참조
+      items:
+        - name: SQL API 함수
+          href: reference-hyperscale-functions.md
+        - name: 서버 매개 변수
+          href: reference-hyperscale-parameters.md
+        - name: 시스템 테이블
+          href: reference-hyperscale-metadata.md
 - name: 참조
   items:
     - name: Azure CLI

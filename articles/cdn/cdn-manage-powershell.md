@@ -1,6 +1,6 @@
 ---
 title: PowerShell을 사용하여 Azure CDN 관리 | Microsoft Docs
-description: 이 자습서에서는 PowerShell을 사용 하 여 Azure Content Delivery Network 끝점 프로필 및 끝점의 측면을 관리 하는 방법을 알아봅니다.
+description: 이 자습서에서는 PowerShell을 사용하여 Azure Content Delivery Network 엔드포인트 프로필 및 엔드포인트의 여러 측면을 관리하는 방법을 알아봅니다.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 11/20/2019
 ms.author: allensu
 ms.openlocfilehash: b5fa1cedf4cc5e87d11dc4b5c453d9cb2a307c3c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88192651"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>PowerShell을 사용하여 Azure CDN 관리
@@ -250,8 +250,8 @@ Get-AzCdnProfile | Get-AzCdnEndpoint | Stop-AzCdnEndpoint
 Get-AzCdnProfile | Get-AzCdnEndpoint | Start-AzCdnEndpoint
 ```
 
-## <a name="creating-standard-rules-engine-policy-and-applying-to-an-existing-cdn-endpoint"></a>표준 규칙 엔진 정책 만들기 및 기존 CDN 끝점에 적용
-`New-AzCdnDeliveryRule`, `New=AzCdnDeliveryRuleCondition` 및를 `New-AzCdnDeliveryRuleAction` 사용 하 여 Microsoft 프로필에서 Azure CDN의 Azure CDN 표준 규칙 엔진을 구성할 수 있습니다. 
+## <a name="creating-standard-rules-engine-policy-and-applying-to-an-existing-cdn-endpoint"></a>표준 규칙 엔진 정책 만들기 및 기존 CDN 엔드포인트에 적용
+`New-AzCdnDeliveryRule`, `New=AzCdnDeliveryRuleCondition`, `New-AzCdnDeliveryRuleAction`을 사용하여 Microsoft 프로필에서 Azure CDN의 Azure CDN 표준 규칙 엔진을 구성할 수 있습니다. 
 
 ```powershell
 # Create a new http to https redirect rule

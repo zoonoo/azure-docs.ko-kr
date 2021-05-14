@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 샘플-네트워킹
-description: Azure 리소스와 부하 분산 및 트래픽 방향 샘플 간의 연결에 대 한 샘플을 포함 하 여 네트워킹에 대 한 Azure CLI 샘플에 대해 알아봅니다.
+title: Azure CLI 샘플 - 네트워킹
+description: Azure 리소스와 부하 분산 및 트래픽 방향 샘플 간 연결 샘플을 포함하여 네트워킹을 위한 Azure CLI 샘플에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -16,10 +16,10 @@ ms.date: 04/25/2017
 ms.author: kumud
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: c038f0d238646f43b93ba2a2c6a1120ab5feccee
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87497293"
 ---
 # <a name="azure-cli-samples-for-networking"></a>네트워킹을 위한 Azure CLI 샘플

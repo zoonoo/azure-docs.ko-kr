@@ -116,8 +116,10 @@
                   href: ../backup/offline-backup-azure-data-box.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
             - name: 문제 해결
               items:
-                - name: Data Box 이슈
+                - name: Data Box 복사 문제
                   href: data-box-troubleshoot.md
+                - name: Data Box 업로드 문제
+                  href: data-box-troubleshoot-data-upload.md
                 - name: Data Box Blob 스토리지 이슈
                   href: data-box-troubleshoot-rest.md
     - name: Data Box Disk
@@ -168,7 +170,7 @@
                   href: data-box-disk-troubleshoot-data-copy.md
                 - name: 유효성 검사 문제
                   href: data-box-disk-troubleshoot.md
-                - name: 업로드 문제
+                - name: 업로드 오류 검토
                   href: data-box-disk-troubleshoot-upload.md
             - name: 지원에 문의
               href: data-box-disk-contact-microsoft-support.md

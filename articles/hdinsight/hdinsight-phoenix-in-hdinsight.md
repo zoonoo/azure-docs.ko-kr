@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: cb5230ae42703d19726fb8ea0d6c88aa70e589a8
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104864145"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Azure HDInsight의 Apache Phoenix
@@ -34,9 +34,9 @@ HBase의 기본 행 키에는 사전순으로 정렬되는 단일 인덱스가 �
 CREATE INDEX ix_purchasetype on SALTEDWEBLOGS (purchasetype, transactiondate) INCLUDE (bookname, quantity);
 ```
 
-이 방법은 단일 인덱싱 쿼리를 실행하는 것보다 성능을 크게 향상시킬 수 있습니다. 이 유형의 보조 인덱스는 쿼리에 포함된 모든 열을 포함하는 **포함 인덱스** 입니다. 따라서 테이블 조회가 필요 하지 않으며 인덱스는 전체 쿼리를 만족 합니다.
+이 방법은 단일 인덱싱 쿼리를 실행하는 것보다 성능을 크게 향상시킬 수 있습니다. 이 유형의 보조 인덱스는 쿼리에 포함된 모든 열을 포함하는 **포함 인덱스** 입니다. 따라서 테이블 조회는 필요하지 않으며 인덱스는 전체 쿼리를 만족합니다.
 
-### <a name="views"></a>뷰
+### <a name="views"></a>보기
 
 Phoenix 뷰는 물리적 테이블을 100개 이상 만들 때 성능이 저하되기 시작하는 HBase 제한을 극복하는 방법을 제공합니다. Phoenix 뷰를 사용하면 여러 *가상 테이블* 이 하나의 기본 실제 HBase 테이블을 공유할 수 있습니다.
 
@@ -67,7 +67,7 @@ WHERE metric_type = 'm';
 
 검색 건너뛰기는 복합 인덱스의 열 하나 이상을 사용하여 고유 값을 찾습니다. 범위 검색과 달리, 검색 건너뛰기는 행 내 검색을 구현하여 [향상된 성능](https://phoenix.apache.org/performance.html#Skip-Scan)을 제공합니다. 검색하는 동안, 일치하는 첫 번째 값은 다음 값을 찾을 때까지 인덱스와 함께 건너뛰어집니다.
 
-검색 건너뛰기는 HBase 필터의 `SEEK_NEXT_USING_HINT` 열거형을 사용합니다. `SEEK_NEXT_USING_HINT`를 사용할 경우 검색 건너뛰기는 각 열에 대해 검색되는 키 집합 또는 키 범위를 추적합니다. Skip 검색은 필터 평가 중에 전달 된 키를 사용 하 여 조합 중 하나 인지 여부를 확인 합니다. 그렇지 않으면, 검색 건너뛰기는 건너뛸 다음으로 가장 높은 키를 평가합니다.
+검색 건너뛰기는 HBase 필터의 `SEEK_NEXT_USING_HINT` 열거형을 사용합니다. `SEEK_NEXT_USING_HINT`를 사용할 경우 검색 건너뛰기는 각 열에 대해 검색되는 키 집합 또는 키 범위를 추적합니다. 검색 건너뛰기는 필터 평가 중에 전달된 키를 사용하고 해당 키가 키 조합 중 하나인지를 확인합니다. 그렇지 않으면, 검색 건너뛰기는 건너뛸 다음으로 가장 높은 키를 평가합니다.
 
 ### <a name="transactions"></a>트랜잭션
 
@@ -94,7 +94,7 @@ ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 
 ### <a name="salted-tables"></a>솔트된 테이블
 
-*영역 서버 핫스폿* 는 순차 키가 있는 레코드를 HBase에 쓸 때 발생할 수 있습니다. 클러스터에 여러 지역 서버가 있을 수 있지만 쓰기는 모두 한 서버에서만 발생합니다. 이러한 집중을 통해 쓰기 워크로드가 사용 가능한 모든 지역 서버에서 분산되지 않고, 한 서버만 부하를 처리하는 핫스폿 문제가 발생합니다. 각 영역에는 미리 정의 된 최대 크기가 있으므로 지역이 해당 크기 제한에 도달 하면 두 개의 작은 영역으로 분할 됩니다. 이 경우, 이러한 새 지역 중 하나가 모든 새 레코드를 받게 되어 새로운 핫스폿이 됩니다.
+*지역 서버 핫스폿* 은 HBase에 대한 순차 키를 사용해서 레코드를 작성할 때 발생할 수 있습니다. 클러스터에 여러 지역 서버가 있을 수 있지만 쓰기는 모두 한 서버에서만 발생합니다. 이러한 집중을 통해 쓰기 워크로드가 사용 가능한 모든 지역 서버에서 분산되지 않고, 한 서버만 부하를 처리하는 핫스폿 문제가 발생합니다. 각 영역의 최대 크기가 미리 정의되어 있으므로 영역이 해당 크기 제한에 도달하는 경우 두 개의 작은 영역으로 분할됩니다. 이 경우, 이러한 새 지역 중 하나가 모든 새 레코드를 받게 되어 새로운 핫스폿이 됩니다.
 
 이 문제를 완화하고 성능을 향상시키기 위해, 모든 지역 서버가 균일하게 사용되도록 테이블을 미리 분할합니다. Phoenix는 특정 테이블에 대한 행 키에 솔트 바이트를 투명하게 추가하여 *솔트된 테이블* 을 제공합니다. 이 테이블은 테이블의 초기 단계 동안, 지역 서버 간에 부하를 균일하게 분산하기 위해 솔트 바이트 경계에서 미리 분할됩니다. 이 방법은 사용 가능한 모든 지역 서버에서 쓰기 워크로드를 분산하여 쓰기 및 읽기 성능을 향상시킵니다. 테이블을 솔트하려면 테이블이 생성될 때 `SALT_BUCKETS` 테이블 속성을 지정합니다.
 
@@ -135,4 +135,4 @@ HDInsight HBase 클러스터에는 구성을 변경하기 위한 [Ambari UI](hdi
 
 * [HDInsight에서 Linux 기반 HBase 클러스터와 함께 Apache Phoenix 사용](hbase/apache-hbase-query-with-phoenix.md)
 
-* [Apache Zeppelin를 사용 하 여 Azure HDInsight에서 Apache HBase를 통해 Apache Phoenix 쿼리 실행](./hbase/apache-hbase-phoenix-zeppelin.md)
+* [Apache Zeppelin을 사용하여 Azure HDInsight에서 Apache HBase를 통해 Apache Phoenix 쿼리 실행](./hbase/apache-hbase-phoenix-zeppelin.md)

@@ -1,63 +1,63 @@
 ---
-title: Azure Portal에서 즐겨찾기 추가, 제거 및 정렬
-description: 즐겨찾기 목록에서 항목을 추가 또는 제거 하 고 항목 순서를 다시 정렬 하는 방법에 대해 알아봅니다.
+title: Azure Portal에서 즐겨찾기 추가, 제거, 정렬
+description: 즐겨찾기 목록에서 항목을 추가 또는 제거하고 항목 순서를 다시 정렬하는 방법에 대해 알아봅니다.
 keywords: 즐겨찾기, 포털
 ms.date: 03/16/2021
 ms.topic: how-to
 ms.openlocfilehash: dc1e9436c5adb84fbe4b736b2c2217b6e5da2c97
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104774476"
 ---
-# <a name="add-remove-and-rearrange-favorites"></a>즐겨찾기 추가, 제거 및 다시 정렬
+# <a name="add-remove-and-rearrange-favorites"></a>즐겨찾기 추가, 제거, 다시 정렬
 
-자주 사용 하는 서비스로 빠르게 이동할 수 있도록 **즐겨찾기** 목록에서 항목을 추가 하거나 제거 합니다. **즐겨찾기** 목록에 몇 가지 공통 서비스를 이미 추가 했지만 사용자 지정 하려고 할 가능성이 있습니다. **즐겨찾기에** 대 한 변경 내용을 사용자에 게 표시 하는 유일한 사용자입니다.
+자주 사용하는 서비스로 빠르게 이동할 수 있도록 **즐겨찾기** 목록에서 항목을 추가하거나 제거합니다. **즐겨찾기** 목록에 몇 가지 일반적인 서비스가 이미 추가되어 있지만 사용자가 해당 목록을 직접 지정할 수 있습니다. **즐겨찾기** 의 변경 사항은 사용자 본인에게만 표시됩니다.
 
 ## <a name="add-a-favorite"></a>즐겨찾기 추가
 
-**즐겨찾기** 아래에 나열 된 항목은 **모든 서비스** 에서 선택 됩니다. 서비스 이름 위로 마우스를 이동 하 여 서비스와 관련 된 정보 및 리소스를 표시 합니다. 서비스 이름 옆에 채워진 별 아이콘이 채워진 별 ![ 아이콘이 ](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-graystar.png) **즐겨찾기** 목록에 표시 됨을 나타냅니다. **즐겨찾기** 목록에 서비스를 추가 하려면 별표 아이콘을 선택 합니다.
+**즐겨찾기** 아래에 나열된 항목은 **모든 서비스** 에서 선택한 것입니다. 서비스 이름 위에 마우스를 올리면 서비스와 관련된 정보 및 리소스가 표시됩니다. 서비스 이름 옆의 채워진 별 아이콘 ![채워진 별 아이콘](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-graystar.png)은 해당 항목이 **즐겨찾기** 목록에 표시됨을 나타냅니다. 별 아이콘을 선택하면 서비스가 **즐겨찾기** 목록에 추가됩니다.
 
-### <a name="add-cost-management--billing-to-favorites"></a>즐겨찾기에 Cost Management + 청구 추가
+### <a name="add-cost-management--billing-to-favorites"></a>즐겨찾기에 Cost Management + Billing 추가
 
-1. Azure Portal 메뉴에서 **모든 서비스** 를 선택 합니다.
+1. Azure Portal 메뉴에서 **모든 서비스** 를 선택합니다.
 
     ![선택한 모든 서비스를 보여 주는 스크린샷](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-new-all-services.png)
 
-1. 검색 필드에 "cost" 라는 단어를 입력 합니다. 제목에 "cost"가 있거나 키워드로 "cost"가 포함 된 서비스가 표시 됩니다.
+1. 검색 필드에 “cost”라는 단어를 입력합니다. 제목에 “cost”가 포함되어 있거나 “cost”를 키워드로 하는 서비스가 표시됩니다.
 
    ![모든 서비스에서 검색을 보여 주는 스크린샷](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-find-service.png)
 
-1. 서비스 이름 위로 마우스를 가져가면 **Cost Management + 청구** 정보 카드가 표시 됩니다. 별 모양 아이콘을 선택 합니다.
+1. 서비스 이름 위로 마우스를 이동하면 **Cost Management + Billing** 정보 카드가 표시됩니다. 별 아이콘을 선택합니다.
 
-   ![Cost management + 청구 선택 옆의 별을 보여 주는 스크린샷](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-add.png)
+   ![선택한 Cost Management + Billing 옆의 별 아이콘을 보여 주는 스크린샷](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-add.png)
 
-1. **Cost Management + 청구** 는 이제 **즐겨찾기** 목록에서 마지막 항목으로 추가 됩니다.
+1. 이제 **Cost Management + Billing** 이 **즐겨찾기** 목록에 마지막 항목으로 추가됩니다.
 
 ## <a name="remove-an-item-from-favorites"></a>즐겨찾기에서 항목 제거
 
-이제 **즐겨찾기** 목록에서 직접 항목을 제거할 수 있습니다.
+이제 직접 **즐겨찾기** 목록에서 항목을 제거할 수 있습니다.
 
-1. 포털 메뉴의 **즐겨찾기** 섹션에서 제거 하려는 서비스의 이름을 마우스로 가리킵니다.
+1. 포털 메뉴의 **즐겨찾기** 섹션에서 제거하려는 서비스의 이름 위에 마우스를 올립니다.
 
-   ![즐겨찾기에 가리키기 동작을 보여 주는 스크린샷](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-remove.png)
+   ![즐겨찾기에서 마우스 올리기 동작을 보여 주는 스크린샷](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-remove.png)
 
-2. 정보 카드에서 별표를 선택 하 여 채워져 있지 않음에서 채워지지 않음으로 변경 합니다. 서비스가 **즐겨찾기** 목록에서 제거 됩니다.
+2. 정보 카드에서 별을 선택하면 별이 채워진 모양에서 채워지지 않은 모양으로 바뀝니다. 서비스가 **즐겨찾기** 목록에서 제거됩니다.
 
 ## <a name="rearrange-favorites"></a>즐겨찾기 다시 정렬
 
-즐겨 찾는 서비스가 나열 되는 순서를 변경할 수 있습니다. 메뉴 항목을 **즐겨찾기** 아래의 다른 위치로 끌어 놓습니다.
+즐겨 찾는 서비스가 나열되는 순서를 변경할 수 있습니다. 메뉴 항목을 **즐겨찾기** 아래의 다른 위치로 끌어서 놓습니다.
 
-### <a name="move-cost-management--billing-to-the-top-of-favorites"></a>Cost Management + 결제를 즐겨찾기 맨 위로 이동
+### <a name="move-cost-management--billing-to-the-top-of-favorites"></a>Cost Management + Billing을 즐겨찾기 상단으로 이동
 
-1. **즐겨찾기** 목록에서 **Cost Management + 청구** 항목을 선택 하 고 저장 합니다.
+1. **즐겨찾기** 목록에서 **Cost Management + Billing** 항목을 선택하고 누릅니다.
 
-   ![Cost management + 선택한 청구를 보여 주는 스크린샷](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-sort.png)
+   ![Cost Management + Billing이 선택되어 있는 것을 주는 스크린샷](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-sort.png)
 
-1. 계속 유지 하면서 항목을 **즐겨찾기** 맨 위로 끌고 릴리스 합니다.
+1. 누른 상태로 항목을 **즐겨찾기** 상단으로 끌어온 다음 놓습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 프로젝트 중심 작업 영역을 만들려면 [Azure Portal에서 대시보드 만들기 및 공유](../azure-portal/azure-portal-dashboards.md) 를 참조 하세요.
-* [Azure Portal 방법 비디오 시리즈](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR) 에서 자세한 정보 검색
+* 프로젝트 중심의 작업 영역을 만들려면 [Azure Portal에서 대시보드 만들기 및 공유](../azure-portal/azure-portal-dashboards.md)를 참조하세요.
+* [Azure Portal 방법 동영상 시리즈](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR)에서 자세한 방법을 알아봅니다.

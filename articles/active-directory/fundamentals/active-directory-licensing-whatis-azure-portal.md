@@ -15,15 +15,15 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0490334c759da6ef7ba7ff2535f5f561cdb7a9bf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92369814"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Azure Active Directory의 그룹 기반 라이선스란?
 
-Microsoft 365, Enterprise Mobility + Security, Dynamics 365 및 기타 유사한 제품과 같은 Microsoft 유료 클라우드 서비스에는 라이선스가 필요 합니다. 이러한 라이선스는 해당 서비스에 액세스해야 하는 각 사용자에게 할당됩니다. 라이선스를 관리하기 위해 관리자는 관리 포털(Office 또는 Azure) 및 PowerShell cmdlet 중 하나를 사용합니다. Azure AD(Azure Active Directory)는 모든 Microsoft 클라우드 서비스에 대한 ID 관리를 지원하는 기본 인프라입니다. Azure AD는 사용자에 대한 라이선스 할당 상태에 대한 정보를 저장합니다.
+Microsoft 365, Enterprise Mobility + Security, Dynamics 365, 기타 유사한 제품 등과 같은 Microsoft 유료 클라우드 서비스를 사용하려면 라이선스가 필요합니다. 이러한 라이선스는 해당 서비스에 액세스해야 하는 각 사용자에게 할당됩니다. 라이선스를 관리하기 위해 관리자는 관리 포털(Office 또는 Azure) 및 PowerShell cmdlet 중 하나를 사용합니다. Azure AD(Azure Active Directory)는 모든 Microsoft 클라우드 서비스에 대한 ID 관리를 지원하는 기본 인프라입니다. Azure AD는 사용자에 대한 라이선스 할당 상태에 대한 정보를 저장합니다.
 
 지금까지 개별 사용자 수준에서만 라이선스를 할당할 수 있었기 때문에 대규모 관리가 어려워질 수 있습니다. 예를 들어 조직이나 부서에 가입하거나 탈퇴하는 사용자와 같이 조직의 변경 내용에 따라 사용자 라이선스를 추가하거나 제거하려면 관리자는 종종 복잡한 PowerShell 스크립트를 작성해야 합니다. 이 스크립트는 클라우드 서비스를 개별적으로 호출합니다.
 
@@ -32,9 +32,9 @@ Microsoft 365, Enterprise Mobility + Security, Dynamics 365 및 기타 유사한
 ## <a name="licensing-requirements"></a>라이선싱 요구 사항
 그룹 기반 라이선싱을 사용하려면 다음 라이선스 중 하나가 있어야 합니다.
 
-- Azure AD Premium P1 이상에 대 한 유료 또는 평가판 구독
+- Azure AD Premium P1 이상의 유료 또는 평가판 구독
 
-- Office 365 Enterprise E3 또는 Office 365 A3 또는 Office 365 GCC G3 또는 office 365 E3 for GCCH 또는 office 365 E3 (DOD 이상)의 유료 또는 평가판
+- Office 365 Enterprise E3, Office 365 A3, Office 365 GCC G3, Office 365 E3 for GCCH, Office 365 E3 for DOD 이상의 유료 또는 평가판 버전
 
 ### <a name="required-number-of-licenses"></a>필요한 라이선스 수
 라이선스가 할당된 그룹의 경우 각 고유 구성원에 대한 라이선스도 있어야 합니다. 그룹의 각 구성원에게 라이선스를 할당할 필요는 없지만 모든 구성원을 포함하기에 충분한 라이선스가 있어야 합니다. 예를 들어 테넌트에서 라이선스가 부여된 그룹에 1,000명의 고유 구성원이 있는 경우 라이선싱 계약에 부합하려면 라이선스가 1,000개 이상 있어야 합니다.
@@ -45,11 +45,11 @@ Microsoft 365, Enterprise Mobility + Security, Dynamics 365 및 기타 유사한
 
 - Azure AD의 보안 그룹에 라이선스를 할당할 수 있습니다. Azure AD Connect를 사용하여 보안 그룹을 온-프레미스에서 동기화할 수 있습니다. 또한 Azure AD(클라우드 전용 그룹이라고도 함)에서 보안 그룹을 직접 만들거나 Azure AD 동적 그룹 기능을 통해 자동으로 만들 수 있습니다.
 
-- 그룹에 제품 라이선스를 할당하면 관리자는 제품에서 서비스 계획을 하나 이상 사용하지 않도록 설정할 수 있습니다. 일반적으로 조직이 제품에 포함된 서비스를 사용할 준비가 아직 되지 않은 경우에 이 할당이 수행됩니다. 예를 들어 관리자가 부서에 Microsoft 365 할당 하지만 Yammer 서비스를 일시적으로 사용 하지 않도록 설정할 수 있습니다.
+- 그룹에 제품 라이선스를 할당하면 관리자는 제품에서 서비스 계획을 하나 이상 사용하지 않도록 설정할 수 있습니다. 일반적으로 조직이 제품에 포함된 서비스를 사용할 준비가 아직 되지 않은 경우에 이 할당이 수행됩니다. 예를 들어 관리자가 부서에 Microsoft 365를 할당할 수 있지만 Yammer 서비스를 일시적으로 사용하지 않도록 설정할 수 있습니다.
 
-- 사용자 수준 라이선스를 필요로 하는 모든 Microsoft Clouds Services는 지원됩니다. 이 지원에는 모든 Microsoft 365 제품, Enterprise Mobility + Security 및 Dynamics 365이 포함 됩니다.
+- 사용자 수준 라이선스를 필요로 하는 모든 Microsoft Clouds Services는 지원됩니다. 이 지원에는 모든 Microsoft 365 제품, Enterprise Mobility + Security, Dynamics 365가 포함됩니다.
 
-- 그룹 기반 라이선스는 현재 [Azure Portal](https://portal.azure.com)통해서만 사용할 수 있습니다. [Microsoft 365 관리 센터](https://admin.microsoft.com)와 같이 주로 사용자 및 그룹 관리를 위해 다른 관리 포털을 사용 하는 경우이 작업을 계속할 수 있습니다. 그러나 그룹 수준에서 라이선스를 관리하려면 Azure Portal을 사용해야 합니다.
+- 그룹 기반 라이선스는 현재 [Azure portal](https://portal.azure.com)을 통해서만 사용할 수 있습니다. [Microsoft 365 관리 센터](https://admin.microsoft.com)와 같이 주로 사용자 및 그룹 관리를 위해 다른 관리 포털을 사용하는 경우에 이 작업을 계속 수행할 수 있습니다. 그러나 그룹 수준에서 라이선스를 관리하려면 Azure Portal을 사용해야 합니다.
 
 - Azure AD는 그룹 멤버 자격 변경으로 인해 발생하는 라이선스 수정을 자동으로 관리합니다. 일반적으로 라이선스 수정은 멤버 자격 변경 후 수분 내에 효과가 발생합니다.
 

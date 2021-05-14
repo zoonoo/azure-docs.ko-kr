@@ -1,24 +1,24 @@
 ---
-title: Azure HDInsight의 스크립트 작업 문제 해결
-description: Azure HDInsight의 스크립트 작업에 대 한 일반적인 문제 해결 단계입니다.
+title: Azure HDInsight의 스크립트 동작 문제 해결
+description: Azure HDInsight의 스크립트 동작에 대한 일반적인 문제 해결 단계입니다.
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: 73b958964db2d0b308dd6dfc34024d61ce5ad8af
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104871438"
 ---
-# <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Azure HDInsight의 스크립트 작업 문제 해결
+# <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Azure HDInsight의 스크립트 동작 문제 해결
 
-이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
+이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대한 문제 해결 단계 및 가능한 해결 방법을 설명합니다.
 
 ## <a name="viewing-logs"></a>로그 보기
 
-Apache Ambari 웹 UI를 사용 하 여 스크립트 동작에 의해 기록 된 정보를 볼 수 있습니다. 클러스터를 만드는 동안 스크립트가 실패 하는 경우 로그는 기본 클러스터 저장소 계정에 있습니다. 이 섹션에서는 이 두 옵션을 모두 사용하여 로그를 검색하는 방법에 대한 정보를 제공합니다.
+Apache Ambari 웹 UI를 사용하여 스크립트 동작에서 기록한 정보를 볼 수 있습니다. 클러스터 생성 도중 스크립트가 실패하는 경우 로그는 기본 클러스터 스토리지 계정에 있습니다. 이 섹션에서는 이 두 옵션을 모두 사용하여 로그를 검색하는 방법에 대한 정보를 제공합니다.
 
 ### <a name="apache-ambari-web-ui"></a>Apache Ambari 웹 UI
 
@@ -48,7 +48,7 @@ Apache Ambari 웹 UI를 사용 하 여 스크립트 동작에 의해 기록 된 
 
     * **작업자 노드**: `<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
 
-    * **사육 아웃 노드**: `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
+    * **Zookeeper 노드**: `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
 * 해당 호스트의 모든 **stdout** 및 **stderr** 이 스토리지 계정에 업로드됩니다. 각 스크립트 동작에 대해 **output-\*.txt** 및 **errors-\*.txt** 가 하나씩 있습니다. **output-*.txt** 파일에는 호스트에서 실행된 스크립트의 URI 정보를 포함되어 있습니다. 다음 텍스트는 이 정보의 예제입니다.
 
@@ -68,7 +68,7 @@ Apache Ambari 웹 UI를 사용 하 여 스크립트 동작에 의해 기록 된 
 
 ## <a name="ambari-watchdog"></a>Ambari 감시
 
-Linux 기반 HDInsight 클러스터에서 Ambari Watchdog(hdinsightwatchdog)에 대한 암호는 변경하지 마세요. 암호 변경으로 HDInsight 클러스터에서 새 스크립트 작업을 실행 하는 기능이 중단 됩니다.
+Linux 기반 HDInsight 클러스터에서 Ambari Watchdog(hdinsightwatchdog)에 대한 암호는 변경하지 마세요. 암호를 변경하면 HDInsight 클러스터에서 새 스크립트 동작을 실행할 수 없게 됩니다.
 
 ## <a name="cant-import-name-blobservice"></a>이름 BlobService를 가져올 수 없음
 
@@ -83,7 +83,7 @@ ImportError: cannot import name BlobService
 
 __원인__. 이 오류는 HDInsight 클러스터에 포함된 Python Azure Storage 클라이언트를 업그레이드하는 경우에 발생합니다. HDInsight는 Azure Storage 클라이언트 0.20.0을 예상합니다.
 
-__해결__. 이 오류를 해결하려면 `ssh`를 사용하여 각 클러스터 노드에 수동으로 연결합니다. 다음 명령을 실행하여 올바른 스토리지 클라이언트 버전을 다시 설치합니다.
+__해결 방법__. 이 오류를 해결하려면 `ssh`를 사용하여 각 클러스터 노드에 수동으로 연결합니다. 다음 명령을 실행하여 올바른 스토리지 클라이언트 버전을 다시 설치합니다.
 
 ```bash
 sudo pip install azure-storage==0.20.0

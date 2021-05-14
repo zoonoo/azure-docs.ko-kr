@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 03/22/2021
+ms.date: 03/15/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa9861dd1ffbdd33f59abe76c7ebbd1befe3e7a6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 99829d6afbec638f26ae91fcb73bd20220c54ffa
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799431"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481898"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>PIM에서 내 Azure AD 역할 활성화
 
@@ -31,7 +31,7 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 
 ## <a name="determine-your-version-of-pim"></a>PIM 버전 확인
 
-2019년 11월 부터 Privileged Identity Management의 Azure AD 역할 부분은 Azure 리소스 역할의 환경과 일치하는 새 버전으로 업데이트됩니다. 그러면 [기존 API에 대한 변경 내용](azure-ad-roles-features.md#api-changes)뿐만 아니라 추가 기능이 생성됩니다. 새 버전이 롤아웃되는 동안 이 문서에서 수행하는 절차는 현재 보유하고 있는 Privileged Identity Management 버전에 따라 달라집니다. 이 섹션의 단계에 따라 사용 중인 Privileged Identity Management 버전을 확인합니다. Privileged Identity Management 버전을 확인한 후에는 이 문서에서 해당 버전과 일치하는 절차를 선택할 수 있습니다.
+2019년 11월부터 Privileged Identity Management의 Azure AD 역할 부분은 Azure 리소스 역할의 환경과 일치하는 새 버전으로 업데이트됩니다. 그러면 [기존 API에 대한 변경](azure-ad-roles-features.md#api-changes)뿐만 아니라 추가 기능이 생성됩니다. 새 버전이 롤아웃되는 동안 이 문서에서 수행하는 절차는 현재 보유하고 있는 Privileged Identity Management 버전에 따라 달라집니다. 이 섹션의 단계에 따라 사용 중인 Privileged Identity Management 버전을 확인합니다. Privileged Identity Management 버전을 확인한 후에는 이 문서에서 해당 버전과 일치하는 절차를 선택할 수 있습니다.
 
 1. [권한 있는 역할 관리자](../roles/permissions-reference.md#privileged-role-administrator) 역할로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. **Azure AD Privileged Identity Management** 를 엽니다. 개요 페이지의 맨 위에 배너가 있는 경우 이 문서의 **새 버전** 탭에 있는 지침을 따르세요. 그렇지 않으면 **이전 버전** 탭의 지침을 따릅니다.

@@ -1,20 +1,20 @@
 ---
 title: Azure HDInsight에서 Jupyter를 사용한 Python 패키지용 스크립트 작업
-description: 스크립트 작업을 사용 하 여 HDInsight Spark 클러스터에서 사용할 수 있는 Jupyter 노트북을 외부 python 패키지를 사용 하도록 구성 하는 방법에 대 한 단계별 지침입니다.
+description: 스크립트 작업을 사용하여 HDInsight Spark 클러스터와 함께 제공되는 Jupyter Notebook에서 외부 python 패키지를 사용하도록 구성하는 방법에 대한 단계별 지침입니다.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
 ms.openlocfilehash: c3f912b4f4c2e78c44425f489927cee185b3d312
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104868718"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>스크립트 작업을 사용하여 Azure HDInsight에서 Python 환경을 안전하게 관리
 
-HDInsight는 Spark 클러스터에서 두 개의 기본 제공 Python 설치(Anaconda Python 2.7 및 Python 3.5)가 있습니다. 고객은 외부 Python 패키지 설치와 같은 Python 환경을 사용자 지정 해야 할 수 있습니다. 여기서는 HDInsight에서 Apache Spark 클러스터에 대한 Python 환경을 안전하게 관리하는 모범 사례를 소개합니다.
+HDInsight는 Spark 클러스터에서 두 개의 기본 제공 Python 설치(Anaconda Python 2.7 및 Python 3.5)가 있습니다. 고객은 외부 Python 패키지 설치와 같은 Python 환경을 사용자 지정해야 할 수 있습니다. 여기서는 HDInsight에서 Apache Spark 클러스터에 대한 Python 환경을 안전하게 관리하는 모범 사례를 소개합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -43,8 +43,8 @@ Anaconda 설치를 사용하여 HDInsight Spark 클러스터를 만듭니다. �
 |설정 |Python 2.7|Python 3.5|
 |----|----|----|
 |경로|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Spark 버전|2\.7로 기본 설정|Config를 3.5으로 변경할 수 있습니다.|
-|Livy 버전|2\.7로 기본 설정|Config를 3.5으로 변경할 수 있습니다.|
+|Spark 버전|2\.7로 기본 설정|3\.5로 구성을 변경할 수 있음|
+|Livy 버전|2\.7로 기본 설정|3\.5로 구성을 변경할 수 있음|
 |Jupyter|PySpark 커널|PySpark3 커널|
 
 ## <a name="safely-install-external-python-packages"></a>외부 Python 패키지를 안전하게 설치
@@ -127,16 +127,16 @@ HDInsight 클러스터는 Python 2.7 및 Python 3.5의 기본 제공 Python 환�
 
         :::image type="content" source="./media/apache-spark-python-package-installation/ambari-restart-services.png" alt-text="서비스 다시 시작" border="true":::
 
-    5. 작업이 업데이트 된 spark 구성 (및)을 가리키도록 하기 위해 Spark 세션에 두 속성을 설정 `spark.yarn.appMasterEnv.PYSPARK_PYTHON` 합니다 `spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON` . 
+    5. 작업이 업데이트된 Spark 구성을 가리키도록 Spark 세션에 두 가지 속성(`spark.yarn.appMasterEnv.PYSPARK_PYTHON` 및 `spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON`)을 설정합니다. 
 
-        터미널 또는 노트북을 사용 하 여 함수를 사용 `spark.conf.set` 합니다.
+        터미널 또는 노트북을 사용하여 `spark.conf.set` 함수를 사용합니다.
 
         ```spark
         spark.conf.set("spark.yarn.appMasterEnv.PYSPARK_PYTHON", "/usr/bin/anaconda/envs/py35/bin/python")
         spark.conf.set("spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON", "/usr/bin/anaconda/envs/py35/bin/python")
         ```
 
-        Livy를 사용 하는 경우 요청 본문에 다음 속성을 추가 합니다.
+        Livy를 사용하는 경우 요청 본문에 다음 속성을 추가합니다.
 
         ```
         “conf” : {
@@ -157,12 +157,12 @@ HDInsight 클러스터는 Python 2.7 및 Python 3.5의 기본 제공 Python 환�
 
 ## <a name="known-issue"></a>알려진 문제
 
-Anaconda 버전 `4.7.11`, `4.7.12` 및 `4.8.0`에 대한 알려진 버그가 있습니다. 스크립트 동작이에서 응답을 중지 하 고를 사용 하 여 실패 하는 것을 볼 수 있습니다 `"Collecting package metadata (repodata.json): ...working..."` `"Python script has been killed due to timeout after waiting 3600 secs"` . [관련 스크립트](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh)를 다운로드하여 모든 노드에서 스크립트 작업으로 실행함으로써 문제를 해결할 수 있습니다.
+Anaconda 버전 `4.7.11`, `4.7.12` 및 `4.8.0`에 대한 알려진 버그가 있습니다. 스크립트 작업이 `"Collecting package metadata (repodata.json): ...working..."`에서 응답이 중지되고 `"Python script has been killed due to timeout after waiting 3600 secs"`에서 오류가 발생합니다. [관련 스크립트](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh)를 다운로드하여 모든 노드에서 스크립트 작업으로 실행함으로써 문제를 해결할 수 있습니다.
 
 Anaconda 버전을 확인하려면 클러스터 헤더 노드로 SSH를 실행하고 `/usr/bin/anaconda/bin/conda --v`를 실행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
-* [Apache Spark에서 Jupyter 노트북을 사용 하는 외부 패키지](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Apache Spark에서 Jupyter Notebook을 사용하는 외부 패키지](apache-spark-jupyter-notebook-use-external-packages.md)
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](apache-spark-job-debugging.md)

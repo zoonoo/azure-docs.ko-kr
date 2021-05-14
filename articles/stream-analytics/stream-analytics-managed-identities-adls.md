@@ -1,5 +1,5 @@
 ---
-title: Azure Data Lake Storage Gen1에 대 한 Azure Stream Analytics 인증
+title: Azure Data Lake Storage Gen1에 대해 Azure Stream Analytics 인증
 description: 이 문서에서는 관리 ID를 사용하여 Azure Data Lake Storage Gen1 출력에 대해 Azure Stream Analytics 작업을 인증하는 방법을 설명합니다.
 author: enkrumah
 ms.author: ebnkruma
@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 03/16/2021
 ms.custom: seodec18
 ms.openlocfilehash: d5b406d260b1c6518d9227c51d84ab7eb3754329
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104598153"
 ---
-# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>관리 id를 사용 하 여 Azure Data Lake Storage Gen1에 대 한 Stream Analytics 인증
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>관리 ID를 사용하여 Azure Data Lake Storage Gen1 출력에 대해 Stream Analytics 인증
 
 Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하여 관리 ID 인증을 지원합니다. 관리 ID는 지정된 Stream Analytics 작업을 나타내는 Azure Active Directory에 등록된 관리되는 애플리케이션이며, 대상 리소스를 인증하는 데 사용될 수 있습니다. 관리 ID는 암호 변경 또는 90일마다 발생하는 사용자 토큰 만료로 인해 다시 인증해야 하는 것과 마찬가지로 사용자 기반 인증 방법의 제한을 제거합니다. 또한 관리 ID는 Azure Data Lake Storage Gen1을 출력되는 Stream Analytics 작업 배포의 자동화에 도움이 됩니다.
 
@@ -24,11 +24,11 @@ Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하
 
 ## <a name="azure-portal"></a>Azure portal
 
-1. 새 Stream Analytics 작업을 만들거나 Azure Portal에서 기존 작업을 열어 시작합니다. 화면 왼쪽에 있는 메뉴 모음에서 **구성** 아래에 있는 **관리 되는 id** 를 선택 합니다.
+1. 새 Stream Analytics 작업을 만들거나 Azure Portal에서 기존 작업을 열어 시작합니다. 화면 왼쪽에 있는 메뉴 모음에서 **구성** 아래에 있는 **관리 ID** 를 선택합니다.
 
-   ![관리 id Stream Analytics 구성](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
+   ![Stream Analytics 관리 ID 구성](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
 
-2. 오른쪽에 표시 되는 창에서 **시스템 할당 관리 Id 사용** 을 선택 합니다. Azure Active Directory에서 Stream Analytics 작업의 id를 확인 하려면 서비스 사용자에 게 **저장** 을 클릭 합니다. 새로 만든 ID의 수명 주기는 Azure에서 관리합니다. Stream Analytics 작업을 삭제하면 연결된 ID(즉, 서비스 주체)는 Azure에서 자동으로 삭제합니다.
+2. 오른쪽에 표시되는 창에서 **시스템이 할당한 관리 ID 사용** 을 선택합니다. Azure Active Directory에서 Stream Analytics 작업의 ID에 대한 서비스 주체에 **저장** 을 클릭합니다. 새로 만든 ID의 수명 주기는 Azure에서 관리합니다. Stream Analytics 작업을 삭제하면 연결된 ID(즉, 서비스 주체)는 Azure에서 자동으로 삭제합니다.
 
    구성이 저장되는 경우 서비스 주체의 OID(개체 ID)는 아래와 같이 보안 주체 ID로 나열됩니다.
 
@@ -36,7 +36,7 @@ Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하
  
    서비스 주체에는 Stream Analytics 작업과 동일한 이름이 사용됩니다. 예를 들어 작업 이름이 **MyASAJob** 인 경우 만든 서비스 주체 이름도 **MyASAJob** 이 됩니다.
 
-3. ADLS Gen1 출력 싱크의 출력 속성 창에서 인증 모드 드롭다운을 클릭 하 고 **관리 되는 id** 를 선택 합니다.
+3. ADLS Gen1 출력 싱크의 출력 속성 창에서 인증 모드 드롭다운을 클릭하고 **관리 ID** 를 선택합니다.
 
 4. 나머지 속성을 입력합니다. ADLS 출력을 만드는 방법에 대한 자세한 내용은 [Stream Analytics를 사용하여 Data Lake Store 출력 만들기](../data-lake-store/data-lake-store-stream-analytics.md)를 참조하세요. 작업을 마쳤으면 **저장** 을 클릭합니다.
 
@@ -54,7 +54,7 @@ Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하
 
    ![서비스 주체 이름 선택](./media/stream-analytics-managed-identities-adls/stream-analytics-service-principal-name.png)
  
-8. **사용 권한** 창에서 **쓰기** 및 **실행** 권한을 확인하고 **이 폴더 및 모든 하위 폴더** 에 할당합니다. 그런 다음 **확인을** 클릭 합니다.
+8. **사용 권한** 창에서 **쓰기** 및 **실행** 권한을 확인하고 **이 폴더 및 모든 하위 폴더** 에 할당합니다. 그런 다음, **확인** 을 클릭합니다.
 
    ![쓰기 선택 및 권한 실행](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
  
@@ -70,7 +70,7 @@ Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하
 
    ![Stream Analytics 작업 구성 관리 ID](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
 
-2. ADLS Gen1 출력 싱크의 출력 속성 창에서 인증 모드 드롭다운을 클릭 하 고 **관리 되는 id** 를 선택 합니다.
+2. ADLS Gen1 출력 싱크의 출력 속성 창에서 인증 모드 드롭다운을 클릭하고 **관리 ID** 를 선택합니다.
 
    ![ADLS 출력 관리 ID](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
 
@@ -84,7 +84,7 @@ Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하
 
    * 작업에 사용되는 ADLS Gen1에 대해 **쓰기** 및 **실행** 권한을 자동으로 설정하고 이 폴더 및 모든 하위 폴더에 할당합니다.
 
-5. 빌드 컴퓨터 (Visual Studio 외부)에서 [Stream Analytics CI.CD NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) 버전 1.5.0 이상을 사용 하 여 다음 속성을 사용 하 여 리소스 관리자 템플릿을 생성할 수 있습니다. 다음 섹션의 Resource Manager 템플릿 배포 단계에 따라 서비스 주체를 가져오고 PowerShell을 통해 서비스 주체에 액세스 권한을 부여합니다.
+5. 빌드 머신에서 [Stream Analytics CI.CD NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) 버전 1.5.0 이상(Visual Studio 외부에 있음)을 사용하여 다음 속성을 갖는 Resource Manager 템플릿을 생성할 수 있습니다. 다음 섹션의 Resource Manager 템플릿 배포 단계에 따라 서비스 주체를 가져오고 PowerShell을 통해 서비스 주체에 액세스 권한을 부여합니다.
 
 ## <a name="resource-manager-template-deployment"></a>Resource Manager 템플릿 배포
 
@@ -173,18 +173,18 @@ Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   위의 PowerShell 명령에 대 한 자세한 내용은 [AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) 설명서를 참조 하세요.
+   위의 PowerShell 명령에 대한 자세한 내용은 [Set-AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) 설명서를 참조하세요.
 
-## <a name="remove-managed-identity"></a>관리 Id 제거
+## <a name="remove-managed-identity"></a>관리 ID 제거
 
-Stream Analytics 작업에 대해 생성 된 관리 Id는 작업이 삭제 된 경우에만 삭제 됩니다. 작업을 삭제 하지 않고 관리 되는 Id를 삭제할 수 있는 방법은 없습니다. 관리 Id를 더 이상 사용 하지 않으려는 경우에는 출력에 대 한 인증 방법을 변경할 수 있습니다. 관리 Id는 작업이 삭제 될 때까지 계속 존재 하며 관리 되는 Id 인증을 다시 사용 하기로 결정 한 경우에 사용 됩니다.
+Stream Analytics 작업에 대해 생성된 관리 ID는 작업이 삭제된 경우에만 삭제됩니다. 작업을 삭제하지 않고 관리 ID를 삭제할 수는 없습니다. 관리 ID를 더 이상 사용하지 않으려는 경우에는 출력에 대한 인증 방법을 변경할 수 있습니다. 관리 ID는 작업이 삭제될 때까지 계속 존재하며, 관리 ID 인증을 다시 사용하기로 한 경우 사용됩니다.
 
 ## <a name="limitations"></a>제한 사항
-이 기능은 다음을 지원 하지 않습니다.
+이 기능은 다음을 지원하지 않습니다.
 
-1. **다중 테 넌 트 액세스**: 지정 된 Stream Analytics 작업에 대해 만든 서비스 주체는 작업이 만들어진 Azure Active Directory 테 넌 트에 상주할 수 있으며 다른 Azure Active Directory 테 넌 트에 있는 리소스에 대해 사용할 수 없습니다. 따라서 Azure Stream Analytics 작업과 동일한 Azure Active Directory 테 넌 트 내에 있는 ADLS Gen 1 리소스 에서만 MSI를 사용할 수 있습니다. 
+1. **다중 테넌트 액세스**: 주어진 Stream Analytics 작업에 대해 생성된 서비스 주체는 작업이 만들어진 Azure Active Directory 테넌트에 상주할 수 있으며 다른 Azure Active Directory 테넌트에 있는 리소스에 대해 사용할 수 없습니다. 따라서 Azure Stream Analytics 작업과 동일한 Azure Active Directory 테넌트 내에 있는 ADLS Gen 1 리소스에서만 MSI를 사용할 수 있습니다. 
 
-2. **[사용자 할당 id](../active-directory/managed-identities-azure-resources/overview.md)**:은 지원 되지 않습니다. 즉, 사용자는 자신의 Stream Analytics 작업에서 사용할 자신의 서비스 사용자를 입력할 수 없습니다. 서비스 사용자는 Azure Stream Analytics에서 생성 됩니다.
+2. **[사용자 할당 ID](../active-directory/managed-identities-azure-resources/overview.md)** : 지원되지 않습니다. 즉, 사용자는 자신의 Stream Analytics 작업에서 사용할 자체 서비스 주체를 입력할 수 없습니다. 서비스 주체는 Azure Stream Analytics에서 생성됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
