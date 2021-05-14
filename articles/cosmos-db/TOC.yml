@@ -65,7 +65,7 @@
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/cosmos-db-security-baseline?context=/azure/cosmos-db/context/context
     - name: Azure Synapse Link를 사용하는 분석
       items:
         - name: Cosmos DB용 Azure Synapse Link
@@ -77,7 +77,7 @@
         - name: Synapse Link 사용 사례
           href: synapse-link-use-cases.md
         - name: Synapse Link FAQ
-          href: synapse-link-frequently-asked-questions.md
+          href: synapse-link-frequently-asked-questions.yml
     - name: 백업 및 복원
       items:
         - name: 백업 및 복원 소개
@@ -87,7 +87,7 @@
             - name: 지속적인 백업 - 소개
               href: continuous-backup-restore-introduction.md
             - name: 지속적인 백업 - FAQ
-              href: continuous-backup-restore-frequently-asked-questions.md
+              href: continuous-backup-restore-frequently-asked-questions.yml
             - name: 지속적인 백업 - 리소스 모델
               href: continuous-backup-restore-resource-model.md
     - name: Azure Cosmos DB 비용 최적화
@@ -126,6 +126,8 @@
       items:
         - name: 규정 준수
           href: compliance.md
+        - name: 데이터 상주
+          href: data-residency.md
     - name: 자동 권장 사항
       href: automated-recommendations.md
 - name: SQL/Core API
@@ -150,6 +152,8 @@
               href: create-sql-api-java.md
             - name: Spring Data 앱
               href: create-sql-api-spring-data.md
+            - name: Spark v3 앱
+              href: create-sql-api-spark.md
             - name: Node.js 앱
               href: create-sql-api-nodejs.md
             - name: Python 앱
@@ -583,6 +587,9 @@
             - name: 매개 변수가 있는 쿼리
               displayName: 'parameterized query, parameterized, parameter, parameters'
               href: sql-query-parameterized-queries.md
+            - name: 페이지 매김
+              displayName: 'continuation tokens, paging, pagination'
+              href: sql-query-pagination.md
             - name: LINQ to SQL
               displayName: 'linq, .NET'
               href: sql-query-linq-to-sql.md
@@ -669,7 +676,7 @@
                 - name: 자동 크기 조정 처리량 프로비저닝 - 데이터베이스 또는 컨테이너
                   displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
                   href: how-to-provision-autoscale-throughput.md
-                - name: Cosmos Capacity Planner를 사용하여 RU/s 예측
+                - name: Capacity Planner를 사용하여 RU/s 예측
                   displayName: 'request units, RUs, RU, capacity'
                   href: estimate-ru-with-capacity-planner.md
                 - name: Azure Functions 타이머를 사용하여 크기 조정
@@ -752,6 +759,8 @@
                   href: troubleshoot-unauthorized.md
                 - name: 문제 해결 금지됨
                   href: troubleshoot-forbidden.md
+                - name: 잘못된 요청 문제 해결
+                  href: troubleshoot-bad-request.md
                 - name: 다중 지역 환경의 가용성 문제
                   href: troubleshoot-sdk-availability.md
             - name: .NET
@@ -828,7 +837,7 @@
               href: visualize-qlik-sense.md
         - name: Apache Spark를 사용한 기본 제공 분석
           items:
-            - name: Azure Databricks Spark 커넥터
+            - name: Azure Databricks Spark 2 OLTP 커넥터
               href: spark-connector.md
             - name: Apache Kafka 및 Cosmos DB를 사용하는 스트리밍
               href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
@@ -877,9 +886,9 @@
             - name: Azure Event Hubs 및 Azure Storage
               href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
             - name: Spring Boot Starter 사용
-              href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+              href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Spring Data 개발자 가이드
-              href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+              href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: ODBC 드라이버
               href: odbc-driver.md
     - name: 참조
@@ -908,10 +917,14 @@
               href: sql-api-sdk-java-spring-v2.md
             - name: Spring Data 커넥터 v3
               href: sql-api-sdk-java-spring-v3.md
-            - name: Spark 커넥터
+            - name: Spark 3 OLTP 커넥터(미리 보기)
+              href: sql-api-sdk-java-spark-v3.md
+            - name: Spark 2 OLTP 커넥터
               href: sql-api-sdk-java-spark.md
             - name: Java 대량 실행기 라이브러리 v2
               href: sql-api-sdk-bulk-executor-java.md
+        - name: Azure CLI
+          href: /cli/azure/cosmosdb
         - name: Node.js
           href: sql-api-sdk-node.md
         - name: Python
@@ -919,7 +932,7 @@
         - name: REST(데이터 평면)
           href: /rest/api/cosmos-db/
         - name: REST(관리 평면)
-          href: /rest/api/cosmos-db-resource-provider/2020-04-01/sqlresources
+          href: /rest/api/cosmos-db-resource-provider/2021-03-15/sqlresources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager 템플릿
@@ -966,7 +979,7 @@
     - name: 개념
       items:
         - name: FAQ
-          href: cassandra-faq.md
+          href: cassandra-faq.yml
         - name: 탄력적 확장
           href: manage-scale-cassandra.md
         - name: 분할
@@ -1000,7 +1013,7 @@
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge-cassandra.md
         - name: Spring 데이터 저장 및 관리
-          href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: 일반적인 문제 해결
           href: cassandra-troubleshoot.md
         - name: Cassandra 및 Spark
@@ -1037,7 +1050,7 @@
     - name: 참조
       items:
         - name: REST 리소스 공급자
-          href: /rest/api/cosmos-db-resource-provider/2020-04-01/cassandraresources
+          href: /rest/api/cosmos-db-resource-provider/2021-03-15/cassandraresources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager 템플릿
@@ -1046,7 +1059,7 @@
   items:
     - name: 개요
       items:
-        - name: Cosmos DB의 MongoDB API란?
+        - name: Cosmos DB의 MongoDB용 API는 무엇인가요?
           href: mongodb-introduction.md
     - name: 빠른 시작
       items:
@@ -1056,8 +1069,6 @@
           href: create-mongodb-java.md
         - name: Node.js
           href: create-mongodb-nodejs.md
-        - name: Python
-          href: ./mongodb-introduction.md
         - name: Xamarin
           href: create-mongodb-xamarin.md
         - name: Golang
@@ -1139,6 +1150,9 @@
           href: mongodb-indexing.md
         - name: 다중 문서 트랜잭션 사용
           href: use-multi-document-transactions.md
+        - name: Capacity Planner를 사용하여 RU/s 예측
+          displayName: 'request units, RUs, RU, capacity'
+          href: mongodb/estimate-ru-capacity-planner.md
         - name: 컨테이너 만들기 - MongoDB API
           href: how-to-create-container-mongodb.md
         - name: 처리량 프로비저닝 - MongoDB API
@@ -1154,7 +1168,7 @@
         - name: 속도 제한 오류 방지
           href: prevent-rate-limiting-errors.md
         - name: Spring 데이터 저장 및 관리
-          href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: MongoDB 확장 명령
           href: mongodb-custom-commands.md
           displayName: custom commands
@@ -1168,7 +1182,7 @@
     - name: 참조
       items:
         - name: REST 리소스 공급자
-          href: /rest/api/cosmos-db-resource-provider/2020-04-01/mongodbresources
+          href: /rest/api/cosmos-db-resource-provider/2021-03-15/mongodbresources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager 템플릿
@@ -1235,7 +1249,7 @@
         - name: 그래프 데이터 시각화
           href: graph-visualization.md
         - name: Spring 데이터 저장 및 관리
-          href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Resource Manager 템플릿을 사용하여 관리
           href: templates-samples-gremlin.md
           displayName: ARM
@@ -1250,7 +1264,7 @@
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: REST 리소스 공급자
-          href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
+          href: /rest/api/cosmos-db-resource-provider/2021-03-15/gremlinresources
         - name: Resource Manager 템플릿
           href: /azure/templates/microsoft.documentdb/allversions
 - name: 테이블 API
@@ -1408,6 +1422,8 @@
           href: how-to-restrict-user-data.md
         - name: 고객 관리형 키 구성
           href: how-to-setup-cmk.md
+        - name: 관리 ID 사용
+          href: how-to-setup-managed-identity.md
     - name: 엔터프라이즈 준비
       items:
         - name: 할당량 증가 요청

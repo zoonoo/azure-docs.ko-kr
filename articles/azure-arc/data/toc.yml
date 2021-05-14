@@ -6,8 +6,8 @@
       href: overview.md
     - name: 릴리스 정보
       href: release-notes.md
-    - name: 알려진 문제
-      href: known-issues.md
+    - name: 데이터 수집 및 보고
+      href: privacy-data-collection-and-reporting.md
 - name: 빠른 시작
   items:
     - name: 데이터 컨트롤러 만들기
@@ -44,16 +44,24 @@
               href: /sql/azdata/install/deploy-install-azdata-pip?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: 데이터 컨트롤러 만들기
       items:
-        - name: Azure Data Studio
-          href: create-data-controller-azure-data-studio.md
-        - name: Azure portal
-          href: create-data-controller-resource-in-azure-portal.md
-        - name: Azure Data CLI(azdata)
-          href: create-data-controller-using-azdata.md
-        - name: Kubernetes 도구
-          href: create-data-controller-using-kubernetes-native-tools.md
-        - name: SCC(OpenShift) 적용
-          href: how-to-apply-security-context-constraint.md
+        - name: 간접 연결 모드
+          items:
+            - name: Azure Data Studio
+              href: create-data-controller-azure-data-studio.md
+            - name: 포털
+              href: create-data-controller-resource-in-azure-portal.md
+            - name: Azure Data CLI(azdata)
+              href: create-data-controller-using-azdata.md
+            - name: Kubernetes 도구
+              href: create-data-controller-using-kubernetes-native-tools.md
+            - name: SCC(OpenShift) 적용
+              href: how-to-apply-security-context-constraint.md
+        - name: 직접 연결 모드
+          items:
+            - name: 필수 구성 요소
+              href: deploy-data-controller-direct-mode-prerequisites.md
+            - name: 배포
+              href: deploy-data-controller-direct-mode.md
     - name: Azure Arc 지원 데이터 서비스 간의 공통 환경
       items:
         - name: 대시보드를 사용하여 모니터링(Azure Data Studio)
@@ -106,6 +114,8 @@
           href: supported-versions-postgres-hyperscale.md
         - name: Postgres 하이퍼스케일 서버 그룹 만들기(CLI)
           href: create-postgresql-hyperscale-server-group.md
+        - name: Postgres 하이퍼스케일 서버 그룹 만들기(포털)
+          href: create-postgresql-hyperscale-server-group-azure-portal.md
         - name: Postgres 하이퍼스케일 서버 그룹 만들기(Azure Data Studio)
           href: create-postgresql-hyperscale-server-group-azure-data-studio.md
         - name: Postgres 하이퍼스케일 서버 그룹 만들기 - Kubernetes 네이티브 도구
@@ -140,7 +150,7 @@
               href: delete-postgresql-hyperscale-server-group.md
             - name: 서버 그룹 나열
               href: list-server-groups-postgres-hyperscale.md
-            - name: '모니터링, 로그 분석, 청구 정보, Azure Portal'
+            - name: '모니터링, 로그 분석, 청구 정보(포털)'
               href: monitoring-log-analytics-azure-portal-postgresql.md
             - name: 보안
               href: configure-security-postgres-hyperscale.md
@@ -180,7 +190,7 @@
           items:
             - name: 구성
               href: configure-managed-instance.md
-            - name: '모니터링, 로그 분석, 청구 정보, Azure Portal'
+            - name: '모니터링, 로그 분석, 청구 정보(포털)'
               href: monitoring-log-analytics-azure-portal-managed-instance.md
             - name: 고가용성
               href: managed-instance-high-availability.md

@@ -47,8 +47,6 @@
       href: logs/get-started-queries.md
     - name: 로그 쿼리에서 대시보드 만들기
       href: visualize/tutorial-logs-dashboards.md
-    - name: 로그 쿼리에서 경고 만들기
-      href: alerts/tutorial-response.md
     - name: 성능 및 일정에 대한 자동 크기 조정
       href: autoscale/tutorial-autoscale-performance-schedule.md
     - name: Application Insights
@@ -87,6 +85,8 @@
               href: app/resource-manager-web-app.md
             - name: Azure 기능
               href: app/resource-manager-function-app.md
+        - name: 컨테이너 인사이트
+          href: containers/resource-manager-container-insights.md
         - name: 데이터 수집 규칙
           href: agents/resource-manager-data-collection-rules.md
         - name: 진단 설정
@@ -95,10 +95,10 @@
           href: logs/resource-manager-workspace.md
         - name: 로그 쿼리
           href: logs/resource-manager-log-queries.md
+        - name: SQL 인사이트
+          href: insights/resource-manager-sql-insights.md
         - name: 통합 문서
           href: visualize/resource-manager-workbooks.md
-        - name: 컨테이너 인사이트
-          href: containers/resource-manager-container-insights.md
         - name: VM 인사이트
           href: vm/resource-manager-vminsights.md
     - name: Azure CLI
@@ -146,7 +146,7 @@
     - name: 보안
       items:
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/monitor-security-baseline?toc=/azure/azure-monitor/toc.json
         - name: Azure Policy의 보안 컨트롤
           displayName: 'regulatory, compliance, standards, domains'
           href: .//security-controls-policy.md
@@ -475,8 +475,6 @@
           items:
             - name: 메트릭 경고 관리
               href: alerts/alerts-metric.md
-            - name: 가용성
-              href: app/monitor-web-app-availability.md
             - name: 동적 임계값 사용
               href: alerts/alerts-dynamic-thresholds.md
             - name: 여러 시계열에 대한 단일 경고
@@ -642,7 +640,7 @@
             - name: 비 HTTP/백그라운드 앱
               displayname: 'console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host'
               href: app/worker-service.md
-            - name: ASP.NET 콘솔
+            - name: .NET 콘솔
               displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
               href: app/console.md
             - name: Java
@@ -720,12 +718,18 @@
                       href: app/java-in-process-agent.md
                     - name: 구성 옵션
                       href: app/java-standalone-config.md
-                    - name: 원격 분석 프로세서
+                    - name: 고급 구성
                       items:
-                        - name: 개요
-                          href: app/java-standalone-telemetry-processors.md
-                        - name: 예
-                          href: app/java-standalone-telemetry-processors-examples.md
+                        - name: JMX 메트릭
+                          href: app/java-jmx-metrics-configuration.md
+                        - name: 샘플링 재정의
+                          href: app/java-standalone-sampling-overrides.md
+                        - name: 원격 분석 프로세서
+                          items:
+                            - name: 개요
+                              href: app/java-standalone-telemetry-processors.md
+                            - name: 예
+                              href: app/java-standalone-telemetry-processors-examples.md
                     - name: JVM 인수 설정
                       href: app/java-standalone-arguments.md
                     - name: 2.x SDK에서 업그레이드
@@ -773,6 +777,8 @@
           displayname: 'e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies'
         - name: 가용성
           items:
+            - name: 개요
+              href: app/availability-overview.md
             - name: URL 테스트
               displayname: 'ping, ping tests, availability, GSM, up/down'
               href: app/monitor-web-app-availability.md
@@ -968,8 +974,6 @@
           items:
             - name: F5 통찰력
               href: app/visual-studio.md
-            - name: 추세
-              href: app/visual-studio-trends.md
             - name: CodeLens
               href: app/visual-studio-codelens.md
         - name: 기타 플랫폼
@@ -1040,6 +1044,8 @@
           href: vm/vminsights-workbooks.md
         - name: 모니터링 사용 안 함
           href: vm/vminsights-optout.md
+        - name: 문제 해결
+          href: vm/vminsights-troubleshoot.md
     - name: 컨테이너 인사이트
       items:
         - name: 개요
@@ -1128,6 +1134,18 @@
           href: insights/network-insights-overview.md
         - name: Key Vault
           href: insights/key-vault-insights-overview.md
+        - name: SQL 인사이트(미리 보기)
+          items:
+            - name: 개요
+              href: insights/sql-insights-overview.md
+            - name: FAQ
+              href: faq.md#sql-insights-preview
+            - name: 사용
+              href: insights/sql-insights-enable.md
+            - name: 경고
+              href: insights/sql-insights-alerts.md
+            - name: 문제 해결
+              href: insights/sql-insights-troubleshoot.md
         - name: 스토리지
           displayname: 'storage, monitor, insights, storage accounts, azure storage'
           href: insights/storage-insights-overview.md
@@ -1263,7 +1281,7 @@
               href: visualize/view-designer-conversion-tasks.md
             - name: 타일 변환
               href: visualize/view-designer-conversion-tiles.md
-            - name: 예제
+            - name: 예
               href: visualize/view-designer-conversion-examples.md
     - name: 기타 시각화
       items:
@@ -1375,7 +1393,7 @@
           href: /cli/azure/azure-cli-reference-for-monitor
           displayName: 'Action Groups, Autoscale, Diagnostic Settings, Metrics, Private Link Scope'
         - name: Application Insights
-          href: /cli/azure/ext/application-insights/monitor/app-insights
+          href: /cli/azure/monitor/app-insights
         - name: 활동 로그
           href: /cli/azure/monitor/activity-log
         - name: Log Analytics

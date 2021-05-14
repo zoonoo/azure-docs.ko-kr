@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.custom: mvc
-ms.openlocfilehash: 295cd5a6831cb64d146bb92bca74b82ff7ab29df
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: f71a8f3a720fae540773019e0ba2a3eb582fd76e
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771484"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751170"
 ---
 # <a name="tutorial-discover-aws-instances-with-azure-migrate-discovery-and-assessment"></a>자습서: Azure Migrate: 검색 및 평가를 사용하여 AWS 인스턴스 검색
 
@@ -134,8 +134,8 @@ Azure Migrate 어플라이언스에 대해 [자세히 알아봅니다](migrate-a
 
 ### <a name="1-generate-the-project-key"></a>1. 프로젝트 키 생성
 
-1. **마이그레이션 목표** > **Windows, Linux 및 SQL Server** > **Azure Migrate: 검색 및 평가** 에서 **검색** 을 선택합니다.
-2. **서버 검색** > **서버가 가상화되어 있나요?** 에서 **물리적 또는 기타(AWS, GCP, Xen 등)** 를 선택합니다.
+1. **마이그레이션 목표** > **Windows, Linux 및 SQL 서버** > **Azure Migrate: 검색 및 평가** 에서 **검색** 을 선택합니다.
+2. **서버 검색** > **서버가 가상화되어 있습니까?** 에서 **물리적 또는 기타(AWS, GCP, Xen 등)** 를 선택합니다.
 3. **1: 프로젝트 키 생성** 에서 물리적 또는 가상 서버를 검색하도록 설정할 Azure Migrate 어플라이언스의 이름을 입력합니다. 이름은 14자 이하의 영숫자여야 합니다.
 1. **키 생성** 을 클릭하여 필요한 Azure 리소스 만들기를 시작합니다. 리소스를 만드는 동안 [서버 검색] 페이지를 닫지 마세요.
 1. Azure 리소스가 성공적으로 만들어지면 **프로젝트 키** 가 생성됩니다.
@@ -173,7 +173,7 @@ Azure Migrate 어플라이언스에 대해 [자세히 알아봅니다](migrate-a
 
 - 물리적 서버 검색 및 평가를 위한 에이전트와 웹 애플리케이션을 설치합니다.
 - Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯한 Windows 역할을 설치합니다.
-- IIS 재작성 모듈을 다운로드하여 설치합니다. [자세히 알아보기](https://www.microsoft.com/download/details.aspx?id=7435).
+- IIS 재작성 모듈을 다운로드하여 설치합니다.
 - Azure Migrate에 대한 영구적인 설정 세부 정보를 사용하여 레지스트리 키(HKLM)를 업데이트합니다.
 - 지정된 경로에 다음 파일을 만듭니다.
     - **구성 파일**: %Programdata%\Microsoft Azure\Config

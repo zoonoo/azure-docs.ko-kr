@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 80a0b4634a2e84181271b515d2f6f63271cce7f2
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 5af424ff79cb8dc919590db7e236323b2d16fc4e
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784968"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752898"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 리소스에 대한 이름 확인
 
-IaaS, PaaS, 하이브리드 솔루션 호스팅에 Azure를 어떻게 사용할지에 따라 VM(가상 머신) 및 가상 네트워크에 배포된 다른 리소스가 서로 통신하도록 설정해야 할 수도 있습니다. IP 주소를 이용해 통신할 수도 있지만, 기억하기 쉽고 변경되지 않는 이름을 사용하면 보다 간편합니다. 
+IaaS, PaaS, 하이브리드 솔루션 호스팅에 Azure를 어떻게 사용할지에 따라 VM(가상 머신) 및 가상 네트워크에 배포된 다른 리소스가 서로 통신하도록 설정해야 할 수도 있습니다. IP 주소를 이용해 통신할 수도 있지만, 기억하기 쉽고 변경되지 않는 이름을 사용하면 보다 간편합니다.
 
 가상 네트워크에 배포된 리소스가 도메인 이름으로 내부 IP 주소를 확인하는 방법에는 다음 세 가지가 있습니다.
 
@@ -36,7 +36,8 @@ IaaS, PaaS, 하이브리드 솔루션 호스팅에 Azure를 어떻게 사용할�
 > Azure DNS 프라이빗 영역은 기본 설정 솔루션이며 DNS 영역 및 레코드를 유연하게 관리할 수 있도록 합니다. 자세한 내용은 [프라이빗 도메인에 Azure DNS 사용](../dns/private-dns-overview.md)을 참조하세요.
 
 > [!NOTE]
-> Azure에서 제공하는 DNS를 사용하는 경우 적절한 DNS 접미사가 가상 머신에 자동으로 적용됩니다. 다른 모든 옵션에 대해 FQDN(정규화된 도메인 이름)을 사용하거나 가상 머신에 적절한 DNS 접미사를 수동으로 적용해야 합니다.
+> Azure에서 제공하는 DNS를 사용하는 경우 적절한 DNS 접미사가 가상 머신에 자동으로 적용됩니다.
+> 다른 모든 옵션에 대해 FQDN(정규화된 도메인 이름)을 사용하거나 가상 머신에 적절한 DNS 접미사를 수동으로 적용해야 합니다.
 
 | **시나리오** | **해결 방법** | **DNS 접미사** |
 | --- | --- | --- |
@@ -47,8 +48,8 @@ IaaS, PaaS, 하이브리드 솔루션 호스팅에 Azure를 어떻게 사용할�
 | 한 가상 네트워크의 App Service Web Apps로부터 다른 가상 네트워크의 VM까지 이름을 확인합니다. |Azure(DNS 프록시)에서 이름을 확인할 수 있도록 가상 네트워크 간에 쿼리를 전달하는 고객이 관리하는 DNS 서버. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
 | Azure의 VM 또는 역할 인스턴스에서 온-프레미스 컴퓨터와 서비스 이름을 확인합니다. |고객이 관리하는 DNS 서버(예: 온-프레미스 도메인 컨트롤러, 로컬 읽기 전용 도메인 컨트롤러 또는 영역 전송을 사용하여 동기화된 DNS 보조). [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
 | 온-프레미스 컴퓨터에서 Azure 호스트 이름 확인. |해당 가상 네트워크에서 고객이 관리하는 DNS 프록시 서버에 쿼리를 전달하면 프록시 서버는 이름 확인을 위해 Azure에 쿼리를 전달합니다. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
-| 내부 IP에 대한 역방향 DNS |[Azure DNS 프라이빗 영역](../dns/private-dns-overview.md) 또는 [Azure 제공 이름 확인](#azure-provided-name-resolution) 또는 [자체 DNS 서버를 사용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |적용할 수 없음 |
-| 서로 다른 클라우드 서비스에 위치하며 가상 네트워크에 존재하지 않는 VM 또는 역할 인스턴스 간 이름 확인 |해당 사항 없음 가상 네트워크 외부에 있는 VM과 역할 인스턴스가 서로 다른 클라우드 서비스에 위치한 경우에는 연결을 지원하지 않습니다. |적용할 수 없음|
+| 내부 IP에 대한 역방향 DNS |[Azure DNS 프라이빗 영역](../dns/private-dns-overview.md) 또는 [Azure 제공 이름 확인](#azure-provided-name-resolution) 또는 [자체 DNS 서버를 사용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |해당 없음 |
+| 서로 다른 클라우드 서비스에 위치하며 가상 네트워크에 존재하지 않는 VM 또는 역할 인스턴스 간 이름 확인 |해당 사항 없음 가상 네트워크 외부에 있는 VM과 역할 인스턴스가 서로 다른 클라우드 서비스에 위치한 경우에는 연결을 지원하지 않습니다. |해당 없음|
 
 ## <a name="azure-provided-name-resolution"></a>Azure에서 제공하는 이름 확인
 
@@ -57,7 +58,7 @@ Azure에서 제공하는 이름 확인은 기본적인 권한 있는 DNS 기능�
 Azure에서는 공용 DNS 이름 확인과 함께, 동일한 가상 네트워크 또는 클라우드 서비스 내에 있는 VM 및 역할 인스턴스에 대한 내부 이름 확인을 제공합니다. 클라우드 서비스의 VM 및 인스턴스는 동일한 DNS 접미사를 공유하므로 호스트 이름만으로 충분합니다. 그러나 클래식 배포 모델을 사용하여 배표된 가상 네트워크에서는 클라우드 서비스마다 다른 DNS 접미사를 사용합니다. 이 경우 서로 다른 클라우드 서비스 간 이름 확인을 위해 FQDN이 필요합니다. Azure Resource Manager 배포 모델을 사용하여 배포된 가상 네트워크에서 DNS 접미사는 가상 네트워크 내의 모든 가상 머신에서 일관되므로 FQDN이 필요하지 않습니다. DNS 이름은 VM 및 네트워크 인터페이스 모두에 할당할 수 있습니다. Azure에서 제공한 이름 확인은 별도로 구성할 필요가 없으나, 앞의 표에 자세히 설명된 바와 같이 모든 배포 서비스에서 선택할 수 있는 것은 아닙니다.
 
 > [!NOTE]
-> 클라우드 서비스 웹 역할 및 작업자 역할을 사용할 때 Azure 서비스 관리 REST API를 사용하면 역할 인스턴스의 내부 IP 주소에 액세스할 수도 있습니다. 자세한 내용은 [서비스 관리 REST API 참조](/previous-versions/azure/ee460799(v=azure.100))를 참조하세요. 주소는 역할 이름 및 인스턴스 번호를 기반으로 합니다. 
+> 클라우드 서비스 웹 역할 및 작업자 역할을 사용할 때 Azure 서비스 관리 REST API를 사용하면 역할 인스턴스의 내부 IP 주소에 액세스할 수도 있습니다. 자세한 내용은 [서비스 관리 REST API 참조](/previous-versions/azure/ee460799(v=azure.100))를 참조하세요. 주소는 역할 이름 및 인스턴스 번호를 기반으로 합니다.
 >
 
 ### <a name="features"></a>기능
@@ -67,7 +68,7 @@ Azure 제공 이름 확인에는 다음과 같은 기능이 포함됩니다.
 * 고가용성. 자체 DNS 서버 클러스터를 만들고 관리할 필요가 없습니다.
 * 온-프레미스와 Azure 호스트 이름을 모두 확인하기 위해 이 서비스를 자체 DNS 서버와 함께 사용할 수 있습니다.
 * 동일한 클라우드 서비스 내에서 역할 인스턴스 및 VM 간 이름 확인을 사용할 수 있으며 FQDN은 필요하지 않습니다.
-* Azure Resource Manager 배포 모델을 사용하는 가상 네트워크에서 VM 간에 이름 확인을 사용할 수 있으며 FQDN은 필요하지 않습니다. 다른 클라우드 서비스에서 이름을 확인할 때 클래식 배포 모델에서 가상 네트워크는 FQDN을 필요로 합니다. 
+* Azure Resource Manager 배포 모델을 사용하는 가상 네트워크에서 VM 간에 이름 확인을 사용할 수 있으며 FQDN은 필요하지 않습니다. 다른 클라우드 서비스에서 이름을 확인할 때 클래식 배포 모델에서 가상 네트워크는 FQDN을 필요로 합니다.
 * 자동으로 생성되는 이름 대신 배포를 가장 잘 설명해주는 호스트 이름을 사용할 수 있습니다.
 
 ### <a name="considerations"></a>고려 사항
@@ -111,8 +112,8 @@ Azure 제공 이름 확인을 사용할 때 고려해야 할 사항입니다.
   * `sudo apt-get install dnsmasq`를 사용하여 dnsmasq 패키지를 설치합니다.
 * **SUSE(netconf 사용)** :
   * `sudo zypper install dnsmasq`를 사용하여 dnsmasq 패키지를 설치합니다.
-  * `systemctl enable dnsmasq.service`를 사용하여 dnsmasq 서비스를 사용하도록 설정합니다. 
-  * `systemctl start dnsmasq.service`를 사용하여 dnsmasq 서비스를 시작합니다. 
+  * `systemctl enable dnsmasq.service`를 사용하여 dnsmasq 서비스를 사용하도록 설정합니다.
+  * `systemctl start dnsmasq.service`를 사용하여 dnsmasq 서비스를 시작합니다.
   * **/etc/sysconfig/network/config** 를 편집하고 *NETCONFIG_DNS_FORWARDER=""* 를 *dnsmasq* 로 변경합니다.
   * 캐시를 로컬 DNS 확인자로 설정하기 위해 resolv.conf를 `netconfig update`로 업데이트합니다.
 * **CentOS(NetworkManager 사용)** :
@@ -125,12 +126,12 @@ Azure 제공 이름 확인을 사용할 때 고려해야 할 사항입니다.
 > [!NOTE]
 > dnsmasq 패키지는 여러 DNS 캐시 중에 Linux에 사용할 수 있는 유일한 캐시입니다. 사용하기 전에 특정 요구 사항에 대한 적합성을 확인하고 다른 캐시가 설치되어 있지 않은지 확인합니다.
 
-    
+
 ### <a name="client-side-retries"></a>클라이언트 쪽 재시도
 
 DNS는 주로 UDP 프로토콜입니다. UDP 프로토콜은 메시지 배달을 보장하지 않으므로 DNS 프로토콜 자체에서 재시도 논리가 처리됩니다. 각 DNS 클라이언트(운영 체제)는 작성자의 기본 설정에 따라 서로 다른 재시도 논리를 나타낼 수 있습니다.
 
-* Windows 운영 체제는 1초 후 재시도한 후 2초, 4초 후 다시 재시도하고 또 다시 4초 후 재시도합니다. 
+* Windows 운영 체제는 1초 후 재시도한 후 2초, 4초 후 다시 재시도하고 또 다시 4초 후 재시도합니다.
 * 기본 Linux 설정에서는 5초 후 재시도합니다. 다시 시도 사양을 1초 간격으로 다섯 번으로 변경하는 것이 좋습니다.
 
 `cat /etc/resolv.conf`를 통해 Linux VM의 현재 설정을 확인합니다. 예를 들어 *options* 줄을 살펴봅니다.
@@ -161,7 +162,7 @@ resolv.conf 파일은 일반적으로 자동으로 생성되며 편집할 수 �
 
 가상 네트워크 내의 DNS 서버는 Azure의 재귀 확인자로 DNS 쿼리를 전달할 수 있습니다. 이렇게 하면 해당 가상 네트워크 내에서 호스트 이름을 확인할 수 있습니다. 예를 들어, Azure에서 실행 중인 DC(도메인 컨트롤러)는 해당 도메인에 대한 DNS 쿼리에 응답하고 Azure에 다른 모든 쿼리를 전달할 수 있습니다. 쿼리 전달을 통해 VM은 온-프레미스 리소스(DC를 통해)와 Azure에서 제공하는 호스트 이름(전달자를 통해)을 확인할 수 있습니다. Azure의 재귀 확인자에 대한 액세스는 가상 IP 168.63.129.16을 통해 제공됩니다.
 
-또한 DNS 전달로 가상 네트워크 간 DNS 확인이 가능하며 온-프레미스 컴퓨터는 Azure에서 제공하는 호스트 이름을 확인할 수 있습니다. VM의 호스트 이름을 확인하려면 DNS 서버 VM이 동일한 가상 네트워크에 있어야 하며 Azure에 호스트 이름 쿼리를 전달하도록 구성되어야 합니다. DNS 접미사는 가상 네트워크마다 다르기 때문에 올바른 가상 네트워크에 DNS 쿼리를 보내도록 조건부 전달 규칙을 사용하여 이름을 확인할 수 있습니다. 다음 이미지는 이 방법을 사용하여 가상 네트워크 간에 DNS를 확인하는 두 가상 네트워크 및 온-프레미스 네트워크를 보여 줍니다. 예제 DNS 전달자는 [Azure 빠른 시작 템플릿 갤러리](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) 및 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder)에서 사용할 수 있습니다.
+또한 DNS 전달로 가상 네트워크 간 DNS 확인이 가능하며 온-프레미스 컴퓨터는 Azure에서 제공하는 호스트 이름을 확인할 수 있습니다. VM의 호스트 이름을 확인하려면 DNS 서버 VM이 동일한 가상 네트워크에 있어야 하며 Azure에 호스트 이름 쿼리를 전달하도록 구성되어야 합니다. DNS 접미사는 가상 네트워크마다 다르기 때문에 올바른 가상 네트워크에 DNS 쿼리를 보내도록 조건부 전달 규칙을 사용하여 이름을 확인할 수 있습니다. 다음 이미지는 이 방법을 사용하여 가상 네트워크 간에 DNS를 확인하는 두 가상 네트워크 및 온-프레미스 네트워크를 보여 줍니다. 예제 DNS 전달자는 [Azure 빠른 시작 템플릿 갤러리](https://azure.microsoft.com/documentation/templates/demos/dns-forwarder/) 및 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/dns-forwarder)에서 사용할 수 있습니다.
 
 > [!NOTE]
 > 역할 인스턴스는 동일한 가상 네트워크 내에서 VM의 이름 확인을 수행할 수 있습니다. 이를 위해 VM의 호스트 이름과 **internal.cloudapp.net** DNS 접미사로 구성되는 FQDN을 사용하면 됩니다. 그러나 이 경우 역할 인스턴스가 [역할 스키마(.cscfg 파일)](/previous-versions/azure/reference/jj156212(v=azure.100))에서 정의된 이름을 가지는 경우에만 이름 확인에 성공합니다.
@@ -181,7 +182,7 @@ Azure 제공 이름 확인을 사용하는 경우 Azure DHCP(Dynamic Host Config
 
 Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 자체 DNS 솔루션을 제공해야 합니다. DNS 솔루션은 다음을 수행해야 합니다:
 
-* [DDNS](virtual-networks-name-resolution-ddns.md) 등을 통해 적절한 호스트 이름 확인을 제공합니다. DDNS를 사용하는 경우 DNS 레코드 청소 기능을 해제해야 할 수도 있습니다. Azure DHCP 임대는 기간이 매우 길며 청소를 통해 DNS 레코드가 완전히 제거될 수 있습니다. 
+* [DDNS](virtual-networks-name-resolution-ddns.md) 등을 통해 적절한 호스트 이름 확인을 제공합니다. DDNS를 사용하는 경우 DNS 레코드 청소 기능을 해제해야 할 수도 있습니다. Azure DHCP 임대는 기간이 매우 길며 청소를 통해 DNS 레코드가 완전히 제거될 수 있습니다.
 * 외부 도메인 이름을 확인할 수 있도록 적절한 재귀 확인을 제공해야 합니다.
 * 제공하는 클라이언트에서 액세스 가능해야 하고(포트 53에서 TCP 및 UDP) 인터넷에 액세스할 수 있어야 합니다.
 * 외부 에이전트로 인해 나타나는 위험을 완화하기 위해 인터넷의 액세스로부터 보호되어야 합니다.
@@ -198,7 +199,7 @@ Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 �
 
 가상 네트워크에 연결된 App Service를 사용하여 빌드된 웹앱으로부터 다른 가상 네트워크의 VM으로의 이름 확인을 수행할 필요가 있는 경우 다음과 같이 두 가상 네트워크 모두에서 사용자 지정 DNS 서버를 사용해야 합니다.
 
-* Azure의 재귀 확인자(가상 IP 168.63.129.16)에도 쿼리를 전달할 수 있는 VM에서 대상 가상 네트워크에 DNS 서버를 설정합니다. 예제 DNS 전달자는 [Azure 빠른 시작 템플릿 갤러리](https://azure.microsoft.com/documentation/templates/301-dns-forwarder) 및 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder)에서 사용할 수 있습니다. 
+* Azure의 재귀 확인자(가상 IP 168.63.129.16)에도 쿼리를 전달할 수 있는 VM에서 대상 가상 네트워크에 DNS 서버를 설정합니다. 예제 DNS 전달자는 [Azure 빠른 시작 템플릿 갤러리](https://azure.microsoft.com/documentation/templates/demos/dns-forwarder) 및 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/dns-forwarder)에서 사용할 수 있습니다.
 * VM에서 원본 가상 네트워크의 DNS 전달자를 설정합니다. 대상 가상 네트워크의 DNS 서버로 쿼리를 전달하도록 이 DNS 전달자를 구성합니다.
 * 원본 가상 네트워크의 설정에 원본 DNS 서버를 구성합니다.
 * [가상 네트워크와 앱 통합](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)의 지침에 따라 원본 가상 네트워크에 웹앱을 연결하기 위해 가상 네트워크 통합을 사용하도록 설정합니다.

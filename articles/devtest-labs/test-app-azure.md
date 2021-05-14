@@ -4,14 +4,14 @@ description: 랩에서 파일 공유를 만들어 랩의 로컬 컴퓨터 및 �
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b2dbbf349da4e352fe20a22db03cc9063d801990
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87282248"
 ---
 # <a name="test-your-app-in-azure"></a>Azure에서 앱 테스트 
-이 문서에서는 DevTest Lab을 사용하여 Azure에서 애플리케이션을 테스트하는 방법에 대한 단계를 제공합니다. 먼저 랩 내에서 파일 공유를 설정하고 로컬 개발 컴퓨터의 드라이브 및 랩 내의 VM으로 탑재합니다. 그런 다음 Visual Studio 2019을 사용 하 여 랩의 VM에서 앱을 실행할 수 있도록 앱을 파일 공유에 배포 합니다.  
+이 문서에서는 DevTest Lab을 사용하여 Azure에서 애플리케이션을 테스트하는 방법에 대한 단계를 제공합니다. 먼저 랩 내에서 파일 공유를 설정하고 로컬 개발 컴퓨터의 드라이브 및 랩 내의 VM으로 탑재합니다. 그러면 Visual Studio 2019를 사용하여 앱을 파일 공유에 배포하므로 랩의 VM에서 앱을 실행할 수 있습니다.  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -22,7 +22,7 @@ ms.locfileid: "87282248"
 4. [Azure 파일에 파일 공유 만들기](../storage/files/storage-how-to-create-file-share.md) 문서에 있는 지침에 따라 Azure Storage에서 파일 공유를 만듭니다. 
 
 ## <a name="mount-the-file-share-on-your-local-machine"></a>로컬 컴퓨터에 파일 공유 탑재
-1. 로컬 컴퓨터에서 azure 파일 공유 [탑재](../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share) 섹션의 스크립트를 사용 하 여 Windows에서 [Azure 파일 공유 사용](../storage/files/storage-how-to-use-files-windows.md) 문서를 사용 합니다. 
+1. 로컬 머신에서는 [Windows에서 Azure 파일 공유 사용](../storage/files/storage-how-to-use-files-windows.md) 문서에 있는 [Azure 파일 공유 탑재](../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share) 섹션의 스크립트를 사용합니다. 
 2. 그런 다음, `net use` 명령을 사용하여 파일 공유를 컴퓨터에 탑재합니다. 다음은 샘플 명령입니다. 명령을 실행하기 전에 Azure Storage 이름 및 파일 공유 이름을 지정하세요. 
 
     `net use Z: \\<YOUR AZURE STORAGE NAME>.file.core.windows.net\<YOUR FILE SHARE NAME> /persistent:yes`
@@ -55,7 +55,7 @@ ms.locfileid: "87282248"
 ## <a name="publish-your-app-from-visual-studio"></a>Visual Studio에서 앱 게시
 이 섹션에서는 Visual Studio에서 클라우드의 테스트 VM으로 앱을 게시합니다.
 
-1. Visual Studio 2019을 사용 하 여 데스크톱/웹 응용 프로그램을 만듭니다.
+1. Visual Studio 2019를 사용하여 데스크톱/웹 애플리케이션을 만듭니다.
 2. 앱을 빌드합니다.
 3. 앱을 게시하려면 **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다. 
 4. **게시 마법사** 에서 파일 공유에 매핑된 **드라이브** 를 입력합니다.
@@ -64,7 +64,7 @@ ms.locfileid: "87282248"
 
     ![데스크톱 앱](media/test-app-in-azure/desktop-app.png)
 
-    **웹 앱:**
+    **웹앱:**
 
     ![웹앱](media/test-app-in-azure/web-app.png)
 

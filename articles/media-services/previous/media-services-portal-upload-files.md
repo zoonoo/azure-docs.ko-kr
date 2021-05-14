@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: c2dc193d65ff1c85837477c0a8fd345f11d59bcd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: a0e4b7e759e27dafb1d847dc5d7ce464b440e98c
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103009754"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960676"
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Azure Portal에서 Media Services 계정에 파일 업로드
 
@@ -32,13 +32,13 @@ ms.locfileid: "103009754"
 > 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. 포털을 사용 하 여 최신 파일을 업로드 [하려면 포털을 사용 하 여 콘텐츠 업로드, 인코딩 및 스트리밍](../latest/manage-assets-quickstart.md)을 참조 하세요.<br/>또한 [v3 Media Services](../latest/index.yml)확인 합니다. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. 포털을 사용한 최신 업로드 파일은 [포털을 사용하여 콘텐츠 업로드, 인코딩 및 스트리밍](../latest/asset-create-asset-upload-portal-quickstart.md)을 참조하세요.<br/>[Media Services v3](../latest/index.yml)도 확인합니다. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
 
 Azure Media Services에서 자산에 디지털 파일을 업로드합니다. 자산에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 자막 파일(및 이러한 파일에 대한 메타데이터)이 포함될 수 있습니다. 파일이 업로드되면 이후 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다.
 
 Media Services는 파일 처리를 위해 최대 파일 크기를 포함합니다. 파일 크기 제한에 대한 자세한 내용은 [Media Services 할당량 및 제한](media-services-quotas-and-limitations.md)을 참조하세요.
 
-이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조 하세요. 
+이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
 
 ## <a name="upload-files"></a>파일 업로드
 1. [Azure Portal](https://portal.azure.com/)에서 Azure Media Services 계정을 선택합니다.

@@ -1,17 +1,17 @@
 ---
 title: Azure Data Factory의 이진 형식
 description: 이 항목에서는 Azure Data Factory에서 이진 형식을 처리하는 방법에 대해 설명합니다.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.author: jingwang
-ms.openlocfilehash: cc5b54e99584b74b287fa66deba1694419b46b16
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: 816251e7a27c1b7693ac5fc42ed912135e7a9460
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100393686"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109486632"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Azure Data Factory의 이진 형식
 
@@ -28,10 +28,10 @@ ms.locfileid: "100393686"
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 이진 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-| 속성         | Description                                                  | 필수 |
+| 속성         | 설명                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | 데이터 세트의 형식 속성을 **이진** 으로 설정해야 합니다. | 예      |
-| 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location` 아래에 고유의 위치 형식 및 지원되는 속성이 있습니다. **자세한 내용은 커넥터 문서 ->데이터 세트 속성 섹션을 참조하세요**. | 예      |
+| 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location`의 고유한 위치 형식 및 지원되는 속성이 있습니다. **자세한 내용은 커넥터 문서 -> 데이터 세트 속성 섹션을 참조하세요**. | 예      |
 | 압축 | 파일 압축을 구성하는 속성 그룹입니다. 작업 실행 중 압축/압축 풀기를 수행하려는 경우 이 섹션을 구성합니다. | 예 |
 | type | 이진 파일을 읽고/쓰는 데 사용되는 압축 코덱입니다. <br>허용 값은 **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **Tar** 또는 **TarGzip** 입니다. <br>**참고** 복사 작업을 통해 **ZipDeflate** / **TarGzip** / **Tar** 파일의 압축을 풀고 파일 기반 싱크 데이터 저장소에 쓸 때, 기본적으로 파일은 `<path specified in dataset>/<folder named as source compressed file>/`과 같이 폴더로 추출됩니다. 즉, [복사 작업 원본](#binary-as-source)에서 `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder`를 사용하여 압축된 파일의 이름을 폴더 구조로 유지할지 여부를 제어합니다.| 예       |
 | 수준 | 압축 비율입니다. 복사 작업 싱크에서 데이터 세트를 사용하는 경우에 적용됩니다.<br>허용 값은 **최적** 또는 **가장 빠름** 입니다.<br>- **가장 빠름:** 결과 파일이 최적으로 압축되지 않은 경우에도 압축 작업을 최대한 빨리 완료해야 합니다.<br>- **최적**: 작업이 완료되는 데 시간이 오래 걸리더라도 최적으로 압축해야 합니다. 자세한 내용은 [압축 수준](/dotnet/api/system.io.compression.compressionlevel) 항목을 참조하세요. | 예       |
@@ -72,7 +72,7 @@ ms.locfileid: "100393686"
 
 복사 작업 ***\*원본\**** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 형식 속성은 **BinarySource** 로 설정해야 합니다. | 예      |
 | formatSettings | 속성 그룹입니다. 아래의 **이진 읽기 설정** 표를 참조하세요. | 예       |
@@ -80,7 +80,7 @@ ms.locfileid: "100393686"
 
 `formatSettings` 아래에서 지원되는 **이진 읽기 설정** 은 다음과 같습니다.
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | FormatSettings의 유형을 **Binaryreadsettings** 로 설정해야 합니다. | 예      |
 | compressionProperties | 지정된 압축 코덱에 대한 데이터의 압축을 푸는 방법에 대한 속성 그룹입니다. | 예       |
@@ -119,7 +119,7 @@ ms.locfileid: "100393686"
 
 복사 작업 ***\*싱크\**** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 형식 속성은 **BinarySink** 로 설정해야 합니다. | 예      |
 | storeSettings | 데이터 저장소에 데이터를 쓰는 방법에 대한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings` 아래에 고유의 지원되는 쓰기 설정이 있습니다. **자세한 내용은 커넥터 문서 -> 복사 작업 속성 섹션을 참조하세요**. | 예       |

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: f11677d9ebc31f1c1f7cc6332b07b69f8e35ad52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8581bf3ec4170b6914409d060b64a50c8bff2d2
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561180"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715613"
 ---
 # <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Linux VM에 대한 Azure Disk Encryption 샘플 스크립트
 
@@ -267,7 +267,7 @@ OS 암호화 진행 상태를 모니터링하는 방법은 세 가지가 있습�
 
    ![openSUSE 13.2 설치 - 부팅 시 암호 제공](./media/disk-encryption/opensuse-encrypt-fig2.png)
 
-3. [Azure용 SLES 또는 openSUSE 가상 머신 준비](./suse-create-upload-vhd.md?toc=/azure/virtual-machines/linux/toc.json#prepare-opensuse-131)의 지침에 따라 Azure에 업로드할 VM을 준비합니다. 마지막 단계(VM 프로비전 해제)를 아직 실행하지 마세요.
+3. [Azure용 SLES 또는 openSUSE 가상 머신 준비](./suse-create-upload-vhd.md?toc=/azure/virtual-machines/linux/toc.json#prepare-opensuse-152)의 지침에 따라 Azure에 업로드할 VM을 준비합니다. 마지막 단계(VM 프로비전 해제)를 아직 실행하지 마세요.
 
 Azure로 작업할 암호화를 구성하려면 다음 단계를 수행합니다.
 1. /etc/dracut.conf를 편집하고 다음 줄을 추가합니다.

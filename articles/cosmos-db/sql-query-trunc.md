@@ -9,13 +9,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: cc6370e9183f897edb65ceb129cd7600729a85aa
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93341521"
 ---
-# <a name="trunc-azure-cosmos-db"></a>TRUNC (Azure Cosmos DB)
+# <a name="trunc-azure-cosmos-db"></a>TRUNC(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  가장 가까운 정수 값으로 버린 숫자 값을 반환합니다.  
@@ -35,7 +35,7 @@ TRUNC(<numeric_expr>)
   
   숫자 식을 반환합니다.  
   
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
   다음 예제에서는 첨부된 양수와 음수를 가장 가까운 정수 값으로 자릅니다.  
   
@@ -55,6 +55,6 @@ SELECT TRUNC(2.4) AS t1, TRUNC(2.6) AS t2, TRUNC(2.5) AS t3, TRUNC(-2.4) AS t4, 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [수치 연산 함수 Azure Cosmos DB](sql-query-mathematical-functions.md)
+- [수학 함수 Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [시스템 함수 Azure Cosmos DB](sql-query-system-functions.md)
 - [Azure Cosmos DB 소개](introduction.md)

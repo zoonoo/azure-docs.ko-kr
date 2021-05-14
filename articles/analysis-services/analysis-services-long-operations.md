@@ -4,14 +4,14 @@ description: 이 문서에서는 장기 실행 작업에 대한 모범 사례를
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 04/27/2021
 ms.author: owend
-ms.openlocfilehash: 4e069effae0cb7f834b2c3dac696d05304d841a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e5b5f61900f3ca82509718e765f2a62ccd163ecf
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92014837"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108145882"
 ---
 # <a name="best-practices-for-long-running-operations"></a>장기 실행 작업에 대한 모범 사례
 

@@ -1,6 +1,6 @@
 ---
 title: Azure에서 고객 데이터 보호
-description: Azure가 데이터 분리, 데이터 중복성 및 데이터 소멸을 통해 고객 데이터를 보호 하는 방법에 대해 알아봅니다.
+description: Azure에서 데이터 분리, 데이터 중복, 데이터 소멸을 통해 고객 데이터를 보호하는 방법을 알아봅니다.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 07/10/2020
 ms.author: terrylan
 ms.openlocfilehash: 14589e4efe22d89468b069bf6ff7e3d9babcc714
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87543795"
 ---
 # <a name="azure-customer-data-protection"></a>Azure 고객 데이터 보호   
-Microsoft 운영 및 지원 담당자의 고객 데이터 액세스는 기본적으로 거부됩니다. 지원 사례와 관련 된 데이터에 대 한 액세스 권한이 부여 되는 경우 준수 및 개인 정보 취급 방침에 대해 감사 되 고 점검 되었다는 정책을 사용 하는 JIT (just-in-time) 모델만 사용 하도록 허가 됩니다.  액세스 제어 요구 사항은 다음 Azure 보안 정책으로 설정됩니다.
+Microsoft 운영 및 지원 담당자의 고객 데이터 액세스는 기본적으로 거부됩니다. 지원 사례와 관련된 데이터에 대한 액세스 권한이 부여되는 경우 규정 준수 및 개인정보처리방침에 따라 감사되고 점검되는 정책을 준수하는 JIT(Just-In-Time) 모델을 사용하는 경우에만 권한이 부여됩니다.  액세스 제어 요구 사항은 다음 Azure 보안 정책으로 설정됩니다.
 
 - 기본적으로 고객 데이터에 대한 액세스 권한이 없습니다.
 - 고객 VM에는 사용자 또는 관리자 계정이 없습니다.
@@ -40,14 +40,14 @@ Azure는 고객에게 강력한 데이터 보안을 기본적으로 그리고 �
 
 **미사용 데이터 보호**: 고객은 Azure에 저장된 데이터가 표준에 따라 암호화되도록 할 책임이 있습니다. Azure는 다양한 암호화 기능을 제공하여 고객의 필요에 가장 부합하는 솔루션을 선택할 수 있는 유연성을 제공합니다. Azure Key Vault를 사용하면 고객이 클라우드 애플리케이션과 서비스에서 데이터를 암호화하는 데 사용되는 키를 쉽게 제어할 수 있습니다. Azure Disk Encryption을 사용하면 고객이 VM을 암호화할 수 있습니다. Azure Storage 서비스 암호화를 사용하면 고객의 스토리지 계정에 배치된 모든 데이터를 암호화하는 것이 가능합니다.
 
-**전송 중 데이터 보호**: Microsoft는 고객이 Azure 네트워크 내에서 내부적으로 전송 되는 데이터를 보호 하 고, 인터넷을 통해 외부에서 최종 사용자에 게 데이터를 보호 하는 데 활용할 수 있는 다양 한 옵션을 제공 합니다.  여기에는 가상 사설망 (IPsec/IKE 암호화 활용), TLS (Transport Layer Security) 1.2 이상 (Azure 구성 요소 (예: Application Gateway 또는 Azure Front 도어), Azure 가상 컴퓨터 (예: Windows IPsec 또는 SMB)에서 직접 제공 되는 프로토콜을 통한 통신이 포함 됩니다. 
+**전송 중인 데이터 보호**: Microsoft에서는 내부적으로는 Azure 네트워크 내에서 전송 중인 데이터를, 외부적으로는 인터넷을 통해 최종 사용자에게 전송 중인 데이터를 보호하기 위해 고객이 사용할 수 있는 다양한 옵션을 제공합니다.  해당 옵션에는 가상 사설망(IPsec/IKE 암호화 활용), TLS(전송 계층 보안) 1.2 이상(Application Gateway, Azure Front Door 등 Azure 구성 요소 사용), Azure 가상 머신의 직접적인 프로토콜(예: Windows IPsec 또는 SMB) 등을 통한 통신이 포함됩니다. 
 
-또한 고객 데이터의 기밀성과 무결성을 보장 하기 위해 Azure 데이터 센터 간의 모든 Azure 트래픽 여행에 대해 MACsec (데이터 링크 계층의 IEEE standard)를 사용 하 여 "기본적으로 암호화"를 사용할 수 있습니다. 
+또한 Azure 데이터 센터 간에 이동하는 모든 Azure 트래픽에 대해 MACsec(데이터 링크 계층의 IEEE 표준)를 사용하는 “기본적으로 암호화”가 지원되도록 설정되어 있어 고객 데이터의 기밀성과 무결성이 보장됩니다. 
 
 **데이터 중복성**: Microsoft는 데이터 센터에 사이버 공격이나 물리적 손상이 있는 경우 데이터를 보호합니다. 고객이 선택할 수 있는 항목은 다음과 감습니다.
 
-- 규정 준수 또는 대기 시간 고려 사항에 대 한 국가/지역 내 저장소입니다.
-- 보안 또는 재해 복구를 위한 국가 외/지역에서 저장소입니다.
+- 규정 준수 또는 대기 시간 단축을 위한 국내/지역 내 스토리지
+- 보안 또는 재해 복구를 위한 국외/지역 외 스토리지
 
 데이터는 중복성을 위해 선택한 지리적 영역 내에 복제하는 것은 가능하지만 외부로 전송할 수는 없습니다. 고객에게는 복사본 수, 복제 데이터 센터의 수와 위치를 포함하여 데이터를 복제하기 위한 여러 옵션이 제공됩니다.
 

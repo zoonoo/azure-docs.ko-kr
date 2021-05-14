@@ -1,5 +1,5 @@
 ---
-title: Azure AD 사용자 지정 역할 활성화-PIM (Privileged Identity Management)
+title: Azure AD 사용자 지정 역할 활성화 - PIM(Privileged Identity Management)
 description: PIM(Privileged Identity Management)을 할당하기 위해 Azure AD 사용자 지정 역할을 활성화하는 방법
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c0d98641f8e2040de8350b7dd0231c2e7c889c9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92371616"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 사용자 지정 역할 활성화
@@ -28,15 +28,15 @@ ms.locfileid: "92371616"
 이제 Azure AD(Azure Active Directory)의 Privileged Identity Management에서 ID 및 액세스 관리 환경의 애플리케이션 관리를 위해 만든 사용자 지정 역할에 대해 Just-In-Time 및 시간 제한 할당이 지원됩니다. Azure AD에서 애플리케이션 관리를 위임하기 위한 사용자 지정 역할을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory의 사용자 지정 관리자 역할(미리 보기)](../roles/custom-overview.md)을 참조하세요.
 
 > [!NOTE]
-> 미리 보기 기간 중에는 Azure AD 사용자 지정 역할이 기본 제공 디렉터리 역할과 통합되지 않습니다. 이 기능이 일반 공급되면 기본 제공 역할 환경에서 역할 관리가 수행됩니다. 다음 배너가 표시 되는 경우 이러한 역할은 [기본 제공 역할 환경에서](pim-how-to-activate-role.md) 관리 해야 하며이 문서는 적용 되지 않습니다.
+> 미리 보기 기간 중에는 Azure AD 사용자 지정 역할이 기본 제공 디렉터리 역할과 통합되지 않습니다. 이 기능이 일반 공급되면 기본 제공 역할 환경에서 역할 관리가 수행됩니다. 다음 배너가 표시되는 경우 해당 역할은 [기본 제공 역할 환경에서](pim-how-to-activate-role.md) 관리해야 하며 이 문서는 적용되지 않습니다.
 >
-> :::image type="content" source="media/pim-how-to-add-role-to-user/pim-new-version.png" alt-text="Azure AD에서 Privileged Identity Management를 선택 합니다." lightbox="media/pim-how-to-add-role-to-user/pim-new-version.png":::
+> :::image type="content" source="media/pim-how-to-add-role-to-user/pim-new-version.png" alt-text="Azure AD에서 Privileged Identity Management를 선택합니다." lightbox="media/pim-how-to-add-role-to-user/pim-new-version.png":::
 
 ## <a name="activate-a-role"></a>역할 활성화
 
-Azure AD 사용자 지정 역할을 활성화 해야 하는 경우 Privileged Identity Management에서 내 역할 탐색 옵션을 선택 하 여 활성화를 요청 합니다.
+Azure AD 사용자 지정 역할을 활성화해야 하는 경우에는 Privileged Identity Management에서 내 역할 탐색 옵션을 선택하여 활성화를 요청하세요.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure AD [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart)를 엽니다.
 
 1. **Azure AD 사용자 지정 역할** 을 선택하면 적격 Azure AD 사용자 지정 역할이 표시됩니다.
@@ -44,7 +44,7 @@ Azure AD 사용자 지정 역할을 활성화 해야 하는 경우 Privileged Id
    ![적격 Azure AD 사용자 지정 역할 할당 목록 보기](./media/azure-ad-custom-roles-activate/view-preview-roles.png)
 
 > [!Note] 
-> 역할을 할당 하기 전에 역할을 만들거나 구성 해야 합니다. AAD 사용자 지정 역할을 구성 하는 방법에 대 한 자세한 내용은 [Privileged Identity Management에서 AZURE AD 사용자 지정 역할 구성](azure-ad-custom-roles-configure.md)을 참조 하세요.
+> 역할을 할당하기 전에 역할을 만들거나 구성해야 합니다. AAD 사용자 지정 역할을 구성하는 방법에 대한 자세한 내용은 [Privileged Identity Management에서 Azure AD 사용자 지정 역할 구성](azure-ad-custom-roles-configure.md)을 참조하세요.
 
 1. **Azure AD 사용자 지정 역할(미리 보기)** 페이지에서 필요한 할당을 찾습니다.
 1. **역할 활성화** 를 선택하여 **활성화** 페이지를 엽니다.

@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: 84c710e44fbbccdefd5bf811477e1fa4c3989114
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e4a76367b65556c0f6b030eba79355382e8db0c6
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102043459"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109754518"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Log Analytics 데이터의 대시보드 만들기 및 공유
 
@@ -86,7 +86,7 @@ Perf
 ![샘플 대시보드의 구성 완료됨](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-02.png)
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 Azure Portal에서 대시보드를 만들고 로그 쿼리를 추가하는 방법을 배웠습니다.  다음 자습서에서는 로그 쿼리 결과를 기반으로 구현할 수 있는 다양한 응답에 대해 알아봅니다.  
+이 자습서에서는 Azure Portal에서 대시보드를 만들고 로그 쿼리를 추가하는 방법을 배웠습니다.  미리 빌드된 Log Analytics 스크립트 샘플을 보려면 이 링크를 따릅니다.
 
 > [!div class="nextstepaction"]
-> [Log Analytics 경고로 이벤트에 응답](../alerts/tutorial-response.md)
+> [Log Analytics 스크립트 샘플](../powershell-samples.md)

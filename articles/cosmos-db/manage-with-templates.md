@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/24/2021
 ms.author: mjbrown
 ms.openlocfilehash: dd70e196180c68d6a498d147493411e6d1703e59
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105034047"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB Core(SQL) API 리소스 관리
@@ -27,7 +27,7 @@ ms.locfileid: "105034047"
 > * 계정 이름은 44자(모두 소문자)로 제한됩니다.
 > * 처리량 값을 변경하려면 업데이트된 RU/s로 템플릿을 다시 배포합니다.
 > * Azure Cosmos 계정에 위치를 추가하거나 제거하면 다른 속성을 동시에 수정할 수 없습니다. 이러한 작업은 별도로 수행해야 합니다.
-> * Azure Cosmos DB 리소스는 Azure Resource Manager 리소스 Uri에서 작동 하는 방법을 위반 하므로 이름을 바꿀 수 없습니다.
+> * Azure Resource Manager가 리소스 URI와 함께 작동하는 방식을 위반하므로 Azure Cosmos DB 리소스의 이름을 바꿀 수 없습니다.
 
 아래의 Azure Cosmos DB 리소스를 만들려면 다음 예제 템플릿을 새 json 파일에 복사합니다. 필요에 따라 이름 및 값이 다른 동일한 리소스의 여러 인스턴스를 배포할 때 매개 변수 json 파일을 만들 수 있습니다. [Azure Portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) 및 [GitHub](../azure-resource-manager/templates/deploy-to-azure-button.md)를 비롯한 Azure Resource Manager 템플릿을 배포할 수 있는 여러 가지 방법이 있습니다.
 
@@ -73,9 +73,9 @@ ms.locfileid: "105034047"
 
 <a id="create-rbac"></a>
 
-## <a name="azure-cosmos-db-account-with-azure-ad-and-rbac"></a>Azure AD 및 RBAC를 사용 하 여 계정 Azure Cosmos DB
+## <a name="azure-cosmos-db-account-with-azure-ad-and-rbac"></a>Azure AD 및 RBAC를 사용하는 Azure Cosmos DB 계정
 
-이 템플릿은 SQL Cosmos 계정, 고유 하 게 유지 관리 되는 역할 정의 및 AAD id에 대해 기본적으로 유지 관리 되는 역할 할당을 만듭니다. 이 템플릿은 Azure 빠른 시작 템플릿 갤러리에서 한 번 클릭으로 배포하는 경우에도 사용할 수 있습니다.
+이 템플릿은 SQL Cosmos 계정, 고유하게 유지 관리되는 역할 정의 및 AAD ID에 대해 고유하게 유지 관리되는 역할 할당을 만듭니다. 이 템플릿은 Azure 빠른 시작 템플릿 갤러리에서 한 번 클릭으로 배포하는 경우에도 사용할 수 있습니다.
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 배포":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-rbac%2Fazuredeploy.json)
 

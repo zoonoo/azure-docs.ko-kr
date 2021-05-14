@@ -1,18 +1,18 @@
 ---
 title: Azure Data Factory 커넥터 문제 해결
 description: Azure Data Factory의 커넥터 문제를 해결하는 방법을 알아봅니다.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 04/13/2021
-ms.author: jingwang
+ms.author: jianleishen
 ms.custom: has-adal-ref
-ms.openlocfilehash: 21b5522f07519e9a0c3353cb2463e0ec49063f34
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: c08456b08b6b11745cced97fd92417f07af23dda
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107713429"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109484832"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Azure Data Factory 커넥터 문제 해결
 
@@ -566,7 +566,7 @@ ms.locfileid: "107713429"
  
  - **권장 사항**: 
     1. Dynamics 지원 팀에 연락하여 상세한 오류 메시지를 제공하고 도움을 받습니다.  
-    1. 서비스 주체 인증을 사용하세요. [예: Azure AD 서비스 주체 및 인증서 인증을 사용하는 Dynamics Online](https://docs.microsoft.com/azure/data-factory/connector-dynamics-crm-office-365#example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication)을 참조할 수도 있습니다. 
+    1. 서비스 주체 인증을 사용하세요. [예: Azure AD 서비스 주체 및 인증서 인증을 사용하는 Dynamics Online](./connector-dynamics-crm-office-365.md#example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication)을 참조할 수도 있습니다. 
  
 
  - **원인**: 오류 메시지에 `Unable to retrieve authentication parameters from the serviceUri`라고 표시된다면 Dynamics 서비스 URL을 잘못 입력했거나 프록시/방화벽이 트래픽을 인터셉트하도록 설정된 것임을 의미합니다. 
@@ -609,7 +609,7 @@ ms.locfileid: "107713429"
 
 - **원인**: 서버 쪽에서 작업이 실패했습니다. 
 
-- **권장 사항**: 오류 메시지 `Dynamics operation failed with error code: {code}`에서 Dynamics 작업의 오류 코드를 확인하고 [웹 서비스 오류 코드](https://docs.microsoft.com/powerapps/developer/data-platform/org-service/web-service-error-codes) 문서에서 자세한 정보를 참조합니다. 필요한 경우 Dynamics 지원 팀으로 문의하세요. 
+- **권장 사항**: 오류 메시지 `Dynamics operation failed with error code: {code}`에서 Dynamics 작업의 오류 코드를 확인하고 [웹 서비스 오류 코드](/powerapps/developer/data-platform/org-service/web-service-error-codes) 문서에서 자세한 정보를 참조합니다. 필요한 경우 Dynamics 지원 팀으로 문의하세요. 
  
  
 ### <a name="error-code--dynamicsinvalidfetchxml"></a>오류 코드:  DynamicsInvalidFetchXml 

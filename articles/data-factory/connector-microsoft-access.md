@@ -1,18 +1,18 @@
 ---
 title: Microsoft Access 간 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용한 Microsoft Access 간 데이터 복사 방법에 대해 알아봅니다.
-ms.author: jianleishen
-author: jianleishen
+ms.author: jingwang
+author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: 75159291f383b4d8ed5752cbae0907a6c21c26ec
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: f0864eb65fb1f7dcf803ea48f762ab41b8468aac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109488486"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104588769"
 ---
 # <a name="copy-data-from-and-to-microsoft-access-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Microsoft Access 간 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -40,7 +40,7 @@ Microsoft Access 원본에서 지원되는 싱크 데이터 저장소로 또는 
 
 ## <a name="getting-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 Microsoft Access 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 

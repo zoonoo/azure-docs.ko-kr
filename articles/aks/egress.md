@@ -5,29 +5,29 @@ description: AKS(Azure Kubernetes Service) 클러스터의 송신 트래픽용�
 services: container-service
 ms.topic: article
 ms.date: 03/16/2021
-ms.openlocfilehash: e1f81bf4c4d35108557449a8bebd126bdf744191
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 7cff3f5d66bb9872a0c949c6237150f8b69c9fa7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104592373"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773012"
 ---
-# <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)의 *기본* SKU 부하 분산 장치를 사용 하 여 송신 트래픽에 대 한 고정 공용 IP 주소 사용
+# <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 *기본* SKU 부하 분산 장치를 사용하여 송신 트래픽에 대한 고정 공용 IP 주소 사용
 
-기본적으로 AKS(Azure Kubernetes Service) 클러스터의 송신 IP 주소는 임의로 할당됩니다. 하지만 외부 서비스 액세스용 IP 주소를 확인해야 하는 등의 경우에는 이러한 구성이 적합하지 않습니다. 대신 서비스 액세스를 위해 allowlist에 추가 되는 고정 IP 주소를 할당 해야 할 수도 있습니다.
+기본적으로 AKS(Azure Kubernetes Service) 클러스터의 송신 IP 주소는 임의로 할당됩니다. 하지만 외부 서비스 액세스용 IP 주소를 확인해야 하는 등의 경우에는 이러한 구성이 적합하지 않습니다. 대신 서비스 액세스용 허용 목록에 추가할 수 있는 고정 IP 주소를 할당해야 할 수 있습니다.
 
 이 문서에서는 AKS 클러스터의 송신 트래픽에 사용할 고정 공용 IP 주소를 만들어 사용하는 방법을 설명합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 Azure Basic Load Balancer를 사용 하 고 있다고 가정 합니다.  [Azure 표준 Load Balancer](../load-balancer/load-balancer-overview.md)을 사용 하는 것이 좋지만 [AKS 송신 트래픽을 제어](./limit-egress-traffic.md)하는 고급 기능을 사용할 수 있습니다.
+이 문서에서는 Azure 기본 Load Balancer를 사용하고 있다고 가정합니다.  [Azure 표준 Load Balancer](../load-balancer/load-balancer-overview.md)를 사용하는 것이 좋지만, [AKS 송신 트래픽 제어](./limit-egress-traffic.md)를 위한 더 고급 기능을 사용할 수 있습니다.
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
 또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 > [!IMPORTANT]
-> 이 문서에서는 단일 노드 풀로 *기본* SKU 부하 분산 장치를 사용 합니다. *기본* SKU 부하 분산 장치는 여러 노드 풀에서 지원 되지 않으므로이 구성은 여러 노드 풀에 사용할 수 없습니다. *표준* SKU 부하 분산 장치를 사용 하는 방법에 대 한 자세한 내용은 [Azure Kubernetes 서비스에서 공용 표준 LOAD BALANCER 사용 (AKS)][slb] 을 참조 하세요.
+> 이 문서에서는 단일 노드 풀에서 *기본* SKU 부하 분산 장치를 사용합니다. *기본* SKU 부하 분산 장치는 여러 노드 풀에서 지원되지 않으므로 이 구성은 여러 노드 풀에 사용할 수 없습니다. *표준* SKU 부하 분산 장치를 사용하는 방법에 대한 자세한 내용은 [AKS(Azure Kubernetes Service)에서 공용 표준 Load Balancer 사용][slb]을 참조하세요.
 
 ## <a name="egress-traffic-overview"></a>송신 트래픽 개요
 
@@ -98,7 +98,7 @@ spec:
 kubectl apply -f egress-service.yaml
 ```
 
-이 서비스는 Azure Load Balancer에서 새 프런트 엔드 IP를 구성합니다. 다른 IP를 구성하지 않은 경우에는 **모든** 송신 트래픽에 이 주소가 사용되어야 합니다. Azure Load Balancer에 여러 주소가 구성 된 경우 이러한 공용 IP 주소는 아웃 바운드 흐름의 후보가 되며 하나는 임의로 선택 됩니다.
+이 서비스는 Azure Load Balancer에서 새 프런트 엔드 IP를 구성합니다. 다른 IP를 구성하지 않은 경우에는 **모든** 송신 트래픽에 이 주소가 사용되어야 합니다. 여러 주소가 Azure Load Balancer에서 구성되는 경우 이러한 공용 IP 주소가 아웃바운드 흐름의 후보가 되며 그 중 하나가 임의로 선택됩니다.
 
 ## <a name="verify-egress-address"></a>송신 주소 확인
 
@@ -129,13 +129,13 @@ $ curl -s checkip.dyndns.org
 Azure Load Balancer에 공용 IP 주소가 여러 개 유지되지 않도록 하려는 경우 수신 컨트롤러를 대신 사용할 수 있습니다. 수신 컨트롤러는 SSL/TLS 종료, URI 재작성 지원, 업스트림 SSL/TLS 암호화와 같은 추가적인 이점을 제공합니다. 자세한 내용은 [AKS에서 기본 수신 컨트롤러 만들기][ingress-aks-cluster]를 참조하세요.
 
 <!-- LINKS - internal -->
-[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
-[az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
+[az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [azure-cli-install]: /cli/azure/install-azure-cli
 [ingress-aks-cluster]: ./ingress-basic.md
 [outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md#scenarios
-[public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
+[public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI를 사용 하 여 리소스 관리자으로 Vm 마이그레이션
-description: 이 문서에서는 Azure CLI를 사용 하 여 클래식에서 Azure Resource Manager로 리소스의 플랫폼 지원 마이그레이션 과정을 안내 합니다.
+title: Azure CLI를 사용하여 Resource Manager로 VM 마이그레이션
+description: 이 문서에서는 플랫폼 지원 방식의 Azure CLI를 사용하여 클래식에서 Azure Resource Manager로 리소스를 마이그레이션하는 과정을 안내합니다.
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
@@ -11,16 +11,16 @@ ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 671b27f927c91397d2aacd98cb7b500d8197d1c5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101669336"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Azure CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션
 
 > [!IMPORTANT]
-> 현재 IaaS Vm의 90%가 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)를 사용 하 고 있습니다. 2020 년 2 월 28 일부 터 클래식 Vm은 더 이상 사용 되지 않으며 2023 년 3 월 1 일에 완전히 사용 중지 됩니다. 이 사용 중단 및 [영향](classic-vm-deprecation.md#how-does-this-affect-me)에 대 한 [자세한 내용을 알아보세요]( https://aka.ms/classicvmretirement) .
+> 현재 IaaS VM의 약 90%는 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)를 사용하고 있습니다. 2020년 2월 28일부터 클래식 VM은 더 이상 사용되지 않으며 2023년 3월 1일에 완전히 사용 중지될 예정입니다. 사용 중단 및 [그 영향](classic-vm-deprecation.md#how-does-this-affect-me)에 대해 [자세히 알아보세요]( https://aka.ms/classicvmretirement).
 
 이러한 단계에서는 Azure CLI(명령줄 인터페이스) 명령을 사용하여 클래식 배포 모델의 laaS(Infrastructure as a Service) 리소스를 Azure Resource Manager 배포 모델로 마이그레이션하는 방법을 보여 줍니다. 이 문서는 [Azure 클래식 CLI](/cli/azure/install-classic-cli)가 필요합니다. Azure CLI는 Azure Resource Manager 리소스에만 적용할 수 있으므로 이 마이그레이션에 사용할 수 없습니다.
 
@@ -69,7 +69,7 @@ azure account set "<azure-subscription-name>"
 > 
 > 
 
-다음 명령을 사용하여 마이그레이션 리소스 공급자에 등록합니다. 일부 경우에는이 명령이 시간 초과 됩니다. 그러나 등록에 성공 합니다.
+다음 명령을 사용하여 마이그레이션 리소스 공급자에 등록합니다. 일부 경우에는 이 명령이 시간 초과됩니다. 그러나 등록은 성공적으로 수행됩니다.
 
 ```azurecli
 azure provider register Microsoft.ClassicInfrastructureMigrate
@@ -94,7 +94,7 @@ azure config mode asm
 azure config mode arm
 ```
 
-다음 CLI 명령을 사용하여 Azure Resource Manager에 있는 현재 vCPU 수를 확인할 수 있습니다. VCPU 할당량에 대 한 자세한 내용은 [제한 및 Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#managing-limits)을 참조 하세요.
+다음 CLI 명령을 사용하여 Azure Resource Manager에 있는 현재 vCPU 수를 확인할 수 있습니다. vCPU 할당량에 대한 자세한 내용은 [제한 및 Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#managing-limits)를 참조하세요.
 
 ```azurecli
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"
@@ -166,7 +166,7 @@ azure service deployment commit-migration <serviceName> <deploymentName>
 azure network vnet list
 ```
 
-출력은 다음과 같이 표시됩니다.
+출력은 다음과 비슷할 것입니다.
 
 ![전체 가상 네트워크 이름이 강조 표시된 명령줄의 스크린샷.](./media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 

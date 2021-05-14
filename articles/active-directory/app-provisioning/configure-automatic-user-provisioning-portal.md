@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory에서 엔터프라이즈 앱에 대 한 사용자 프로 비전 관리
-description: Azure Active Directory를 사용 하 여 엔터프라이즈 앱에 대 한 사용자 계정 프로 비전을 관리 하는 방법을 알아봅니다.
+title: Azure Active Directory에서 엔터프라이즈 앱에 대한 사용자 프로비저닝 관리
+description: Azure Active Directory를 사용하여 엔터프라이즈 앱에 대한 사용자 계정 프로비전을 관리하는 방법에 대해 알아봅니다.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -12,10 +12,10 @@ ms.date: 03/18/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: 5dceeb11ed9a4d6af88650a6146f58db412748d9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104579419"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure Portal에서 엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리
@@ -62,7 +62,7 @@ Azure Active Directory 포털을 사용하여 디렉터리에서 Single Sign-On�
 
 **매핑** 을 확장하여 사용자 계정이 프로비저닝되거나 업데이트될 때 Azure AD와 대상 애플리케이션 간에 흐르는 사용자 특성을 보고 편집할 수 있습니다.
 
-Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 간의 미리 구성된 매핑 세트가 있습니다. 일부 앱은 그룹 개체도 관리 합니다. 테이블에서 매핑을 선택 하 여 매핑 편집기를 열고 사용자가이를 확인 하 고 사용자 지정할 수 있습니다.
+Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 간의 미리 구성된 매핑 세트가 있습니다. 일부 앱은 그룹 개체 또한 관리합니다. 테이블에서 매핑을 선택하여 매핑 편집기를 엽니다. 이 편집기에서 매핑을 보고 사용자 지정할 수 있습니다.
 
 지원되는 사용자 지정은 다음과 같습니다.
 
@@ -76,7 +76,7 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 간의 미리 구�
 
 ### <a name="settings"></a>설정
 
-**설정** 을 확장 하 여 알림을 받을 전자 메일 주소와 오류에 대 한 경고를 받을지 여부를 설정 합니다. 동기화 할 사용자 범위를 선택할 수도 있습니다. 모든 사용자 및 그룹 또는 할당 된 그룹만 동기화 하도록 선택할 수 있습니다.
+**설정** 을 펼쳐 알림을 받을 메일 주소 및 오류에 대한 경고를 받을지 여부를 설정합니다. 동기화할 사용자 범위를 선택할 수도 있습니다. 모든 사용자 및 그룹을 동기화하거나 할당된 그룹만 동기화하도록 선택할 수 있습니다.
 
 ### <a name="provisioning-status"></a>프로비전 상태 
 

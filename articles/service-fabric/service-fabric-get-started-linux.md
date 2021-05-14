@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 14b8a278605a908b4182c724831b2e42de54a753
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93086893"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux에서 개발 환경 준비
@@ -19,16 +19,16 @@ ms.locfileid: "93086893"
 
 Linux 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션](service-fabric-application-model.md)을 배포하고 실행하려면 런타임 및 일반적인 SDK를 설치해야 합니다. 또한 Java 및 .NET Core 배포에 선택적 SDK를 설치할 수 있습니다. 
 
-이 문서의 단계에서는 Linux에서 기본적으로를 설치 하거나 [Service Fabric OneBox 컨테이너 이미지](https://hub.docker.com/_/microsoft-service-fabric-onebox)를 사용 하는 것으로 가정 합니다 (예: `mcr.microsoft.com/service-fabric/onebox:u18` ).
+이 문서의 단계에서는 기본적으로 Linux에 설치하거나 [Service Fabric OneBox 컨테이너 이미지](https://hub.docker.com/_/microsoft-service-fabric-onebox)를 사용한다고 가정합니다. 즉, `mcr.microsoft.com/service-fabric/onebox:u18`입니다.
 
-Azure Service Fabric CLI (명령줄 인터페이스)를 사용 하 여 클라우드 또는 온-프레미스에서 호스트 되는 Service Fabric 엔터티를 관리할 수 있습니다. CLI를 설치하는 방법에 대한 정보는 [Service Fabric CLI 설정](./service-fabric-cli.md)을 참조하세요.
+Azure Service Fabric CLI(명령줄 인터페이스)를 사용하여 클라우드 또는 온-프레미스에서 호스팅된 Service Fabric 엔터티를 관리할 수 있습니다. CLI를 설치하는 방법에 대한 정보는 [Service Fabric CLI 설정](./service-fabric-cli.md)을 참조하세요.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 개발을 위해 이러한 운영 체제 버전이 지원됩니다.
 
-* Ubuntu 16.04 ( `Xenial Xerus` ), 18.04 ( `Bionic Beaver` )
+* Ubuntu 16.04 (`Xenial Xerus`), 18.04 (`Bionic Beaver`)
 
     `apt-transport-https` 패키지가 설치됐는지 확인합니다.
          
@@ -50,7 +50,7 @@ apt-get 명령줄 도구를 통해 SDK 및 관련 런타임 패키지를 설치�
 
 ## <a name="script-installation"></a>스크립트 설치
 
-편의상 Service Fabric 런타임 및 Service Fabric 일반 SDK를 [ **sfctl** CLI](service-fabric-cli.md)와 함께 설치 하기 위한 스크립트가 제공 됩니다. 스크립트를 실행하면 설치된 모든 소프트웨어에 대한 라이선스에 동의하는 것으로 가정합니다. 또는 설치 되는 구성 요소 뿐만 아니라 관련 라이선스를 제공 하는 다음 섹션에서 [수동 설치](#manual-installation) 단계를 실행할 수 있습니다.
+편의상 스크립트는 [**sfctl** CLI](service-fabric-cli.md)와 함께 Service Fabric 런타임 및 Service Fabric 일반 SDK를 설치하기 위해 제공됩니다. 스크립트를 실행하면 설치된 모든 소프트웨어에 대한 라이선스에 동의하는 것으로 가정합니다. 또는 관련 라이선스와 설치중인 구성요소를 제공하는 다음 섹션에서 [수동 설치](#manual-installation) 단계를 실행할 수 있습니다.
 
 스크립트가 성공적으로 실행된 후에 [로컬 클러스터 설정](#set-up-a-local-cluster)으로 건너뛰어도 됩니다.
 
@@ -63,14 +63,14 @@ Service Fabric 런타임 및 일반 SDK의 수동 설치는 이 가이드의 뒷
 
 1. 터미널을 엽니다.
 
-2. `dotnet`배포에 해당 하는 원본 목록에 리포지토리를 추가 합니다.
+2. 배포에 해당하는 소스 목록에 `dotnet` 리포지토리를 추가합니다.
 
     ```bash
     wget -q https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb
     sudo dpkg -i packages-microsoft-prod.deb
     ```
 
-3. GnuPG 또는 GPG (새 MS Open Tech Gnu 개인 정보 보호) 키를 APT 인증 프로그램에 추가 합니다.
+3. 새로운 MS Open Tech Gnu Privacy Guard(GnuPG 또는 GPG) 키를 APT 인증 키에 추가합니다.
 
     ```bash
     sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
@@ -121,7 +121,7 @@ sudo apt-get install servicefabricsdkcommon
 # <a name="red-hat-enterprise-linux-74"></a>[Red Hat Enterprise Linux 7.4](#tab/sdksetuprhel74)
 
 ## <a name="update-your-yum-repositories"></a>Yum 리포지토리 업데이트
-Yum 명령줄 도구를 통해 SDK 및 관련 런타임 패키지를 설치 하려면 먼저 패키지 원본을 업데이트 해야 합니다.
+yum 명령 줄 도구를 통해 SDK 및 관련 런타임 패키지를 설치하려면 먼저 패키지 소스를 업데이트해야 합니다.
 
 ## <a name="manual-installation-rhel"></a>수동 설치 (RHEL)
 Service Fabric 런타임 및 일반 SDK의 수동 설치는 이 가이드의 뒷부분을 수행합니다.
@@ -152,7 +152,7 @@ Service Fabric 런타임 및 일반 SDK의 수동 설치는 이 가이드의 뒷
     sudo cp ./microsoft-prod.repo /etc/yum.repos.d/
     ```
 
-## <a name="install-and-set-up-the-service-fabric-sdk-for-a-local-cluster-rhel"></a>로컬 클러스터에 대 한 Service Fabric SDK 설치 및 설정 (RHEL)
+## <a name="install-and-set-up-the-service-fabric-sdk-for-a-local-cluster-rhel"></a>로컬 클러스터에 대해 Service Fabric SDK 설치 및 설정 (RHEL)
 
 원본을 업데이트하면 SDK를 설치할 수 있습니다. Service Fabric SDK 패키지를 설치하고, 설치를 확인한 다음, 사용권 계약에 동의합니다.
 
@@ -162,7 +162,7 @@ sudo yum install servicefabricsdkcommon
 
 ---
 
-## <a name="included-packages"></a>포함 된 패키지
+## <a name="included-packages"></a>포함된 패키지
 SDK 설치와 함께 제공되는 Service Fabric 런타임에는 다음 표에 나온 패키지가 포함됩니다. 
 
  | | DotNetCore | Java | Python | NodeJS | 
@@ -171,17 +171,17 @@ SDK 설치와 함께 제공되는 Service Fabric 런타임에는 다음 표에 �
 **RHEL** | - | OpenJDK 1.8 | npm에서 암시적 | 최신 |
 
 ## <a name="set-up-a-local-cluster"></a>로컬 클러스터를 설정합니다.
-1. 개발용 로컬 Service Fabric 클러스터를 시작 합니다.
+1. 개발용 로컬 Service Fabric 클러스터를 시작합니다.
 
 # <a name="container-based-local-cluster"></a>[컨테이너 기반 로컬 클러스터](#tab/localclusteroneboxcontainer)
 
-컨테이너 기반 [Service Fabric Onebox](https://hub.docker.com/_/microsoft-service-fabric-onebox) 클러스터를 시작 합니다.
+컨테이너 기반 [Service Fabric Onebox](https://hub.docker.com/_/microsoft-service-fabric-onebox) 클러스터를 시작합니다.
 
-1. Docker 컨테이너를 배포할 수 있도록 Moby를 설치 합니다.
+1. Docker 컨테이너를 배포할 수 있도록 Moby를 설치합니다.
     ```bash
     sudo apt-get install moby-engine moby-cli -y
     ```
-2. 다음 설정을 사용 하 여 호스트에서 Docker 디먼 구성을 업데이트 하 고 Docker 디먼을 다시 시작 합니다. 세부 정보: [IPv6 지원 사용](https://docs.docker.com/config/daemon/ipv6/)
+2. 다음 설정을 사용하여 호스트에서 Docker 디먼 구성을 업데이트하고 Docker 디먼을 다시 시작합니다. 세부 정보: [IPv6 지원 사용 설정](https://docs.docker.com/config/daemon/ipv6/)
 
     ```json
     {
@@ -190,7 +190,7 @@ SDK 설치와 함께 제공되는 Service Fabric 런타임에는 다음 표에 �
     }
     ```
 
-3. 클러스터를 시작 합니다.<br/>
+3. 클러스터를 시작합니다.<br/>
     <b>Ubuntu 18.04 LTS:</b>
     ```bash
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
@@ -202,11 +202,11 @@ SDK 설치와 함께 제공되는 Service Fabric 런타임에는 다음 표에 �
     ```
 
     >[!TIP]
-    > 기본적으로 이렇게 하면 최신 버전의 Service Fabric으로 이미지를 가져옵니다. 특정 수정 버전은 [Docker 허브](https://hub.docker.com/r/microsoft/service-fabric-onebox/) 페이지를 참조 하세요.
+    > 기본적으로 이렇게 하면 최신 버전의 Service Fabric으로 이미지를 가져옵니다. 특정 수정 버전은 [Docker 허브](https://hub.docker.com/r/microsoft/service-fabric-onebox/) 페이지를 참조하세요.
 
 # <a name="local-cluster"></a>[로컬 클러스터](#tab/localcluster)
 
-위의 단계를 사용 하 여 SDK를 설치한 후 로컬 클러스터를 시작 합니다.
+위 단계를 사용하여 SDK를 설치한 후 로컬 클러스터를 시작합니다.
 
 1. 클러스터 설치 스크립트를 실행합니다.
 
@@ -216,7 +216,7 @@ SDK 설치와 함께 제공되는 Service Fabric 런타임에는 다음 표에 �
 
 ---
 
-2. 웹 브라우저를 열고 **Service Fabric Explorer** ()로 이동 `http://localhost:19080/Explorer` 합니다. 클러스터를 시작하는 경우 Service Fabric Explorer 대시보드가 표시됩니다. 클러스터가 완전히 설치될 때까지 몇 분 정도 걸릴 수 있습니다. 브라우저에서 URL이 열리지 않거나 Service Fabric Explorer에 시스템이 준비되었다고 표시되지 않으면 몇 분 후 다시 시도합니다.
+2. 웹 브라우저를 열고 **Service Fabric Explorer**(`http://localhost:19080/Explorer`)로 이동합니다. 클러스터를 시작하는 경우 Service Fabric Explorer 대시보드가 표시됩니다. 클러스터가 완전히 설치될 때까지 몇 분 정도 걸릴 수 있습니다. 브라우저에서 URL이 열리지 않거나 Service Fabric Explorer에 시스템이 준비되었다고 표시되지 않으면 몇 분 후 다시 시도합니다.
 
     ![Linux의 Service Fabric Explorer][sfx-linux]
 
@@ -261,7 +261,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
 
 ## <a name="set-up-net-core-31-development"></a>.NET Core 3.1 개발 설정
 
-[Ubuntu 용 .Net Core 3.1 SDK](https://www.microsoft.com/net/core#linuxubuntu) 를 설치 하 여 [c # Service Fabric 응용 프로그램 만들기](service-fabric-create-your-first-linux-application-with-csharp.md)를 시작 합니다. .NET Core Service Fabric 응용 프로그램에 대 한 패키지는 NuGet.org에서 호스팅됩니다.
+[Ubuntu용 .NET Core 3.1 SDK](https://www.microsoft.com/net/core#linuxubuntu)를 설치하여 [C# Service Fabric 애플리케이션을 만들기](service-fabric-create-your-first-linux-application-with-csharp.md)를 시작합니다. .NET Core Service Fabric 애플리케이션의 패키지는 NuGet.org에서 호스트됩니다.
 
 ## <a name="set-up-java-development"></a>Java 개발 설정
 
@@ -298,11 +298,11 @@ Java 개발자용 또는 Java EE 개발자용 Eclipse IDE 내에서 Service Fabr
 > 
 > Ubuntu의 경우 패키지 설치 관리자(`apt` 또는 `apt-get`)를 사용하는 대신 Eclipse 사이트에서 직접 설치하는 것이 좋습니다. 이렇게 하면 최신 버전의 Eclipse를 확보할 수 있습니다. Java 개발자용 또는 Java EE 개발자용 Eclipse IDE를 설치할 수 있습니다.
 
-1. Eclipse에서 Eclipse Neon 이상 및 Buildship 버전 2.2.1 이상이 설치되어 있는지 확인합니다.   >  **Eclipse 설치 정보에 대 한** 도움말을 선택 하 여 설치 된 구성 요소의 버전을 확인  >  합니다. [Eclipse Buildship: Gradle용 Eclipse 플러그 인(영문)][buildship-update]의 지침을 사용하여 Buildship을 업데이트할 수 있습니다.
+1. Eclipse에서 Eclipse Neon 이상 및 Buildship 버전 2.2.1 이상이 설치되어 있는지 확인합니다. **도움말** > **Eclipse정보** > **설치 세부 정보** 를 차례로 선택하여 설치된 구성 요소의 버전을 확인합니다. [Eclipse Buildship: Gradle용 Eclipse 플러그 인(영문)][buildship-update]의 지침을 사용하여 Buildship을 업데이트할 수 있습니다.
 
-2. Service Fabric 플러그 인을 설치 하려면 **도움말**  >  **새 소프트웨어 설치** 를 선택 합니다.
+2. Service Fabric 플러그 인을 설치하려면 **도움말** > **새 소프트웨어 설치** 를 차례로 선택합니다.
 
-3. **작업** 위치 상자에 **https: \/ /dl.microsoft.com/eclipse** 를 입력 합니다.
+3. **Work with(사용할 플러그인)** 상자에 **https:\//dl.microsoft.com/eclipse** 를 입력합니다.
 
 4. **추가** 를 선택합니다.
 
@@ -312,7 +312,7 @@ Java 개발자용 또는 Java EE 개발자용 Eclipse IDE 내에서 Service Fabr
 
 6. 설치 단계를 수행합니다. 최종 사용자 라이선스 계약에 동의합니다.
 
-Service Fabric Eclipse 플러그 인이 이미 설치되어 있으면 최신 버전인지 확인합니다.   >  **Eclipse 설치 정보에 대 한** 도움말을 선택 하 여 확인  >  합니다. 그런 다음 설치 된 플러그 인 목록에서 Service Fabric을 검색 합니다. 최신 버전을 사용할 수 있는 경우 **업데이트** 를 선택 합니다.
+Service Fabric Eclipse 플러그 인이 이미 설치되어 있으면 최신 버전인지 확인합니다. **도움말** > **Eclipse 정보** > **설치 세부 정보** 를 선택하여 확인합니다. 그런 다음 설치된 플러그 인 목록에서 Service Fabric을 검색합니다. 최신 버전을 사용할 수 있는 경우 **업데이트** 를 선택합니다.
 
 자세한 내용은 [Eclipse Java 애플리케이션 배포를 위한 Azure Service Fabric 플러그 인](service-fabric-get-started-eclipse.md)을 참조하세요.
 

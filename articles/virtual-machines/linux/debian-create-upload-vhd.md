@@ -1,6 +1,6 @@
 ---
 title: Debian Linux VHD 준비
-description: Azure에서 VM 배포용 Debian VHD 이미지를 만드는 방법에 대해 알아봅니다.
+description: Azure에서 배포할 Debian VHD 이미지를 만드는 방법을 알아봅니다.
 author: gbowerman
 ms.service: virtual-machines
 ms.collection: linux
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/13/2018
 ms.author: guybo
 ms.openlocfilehash: 7dcb6dbc62513535c562a430f5958a62dae9d005
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102554516"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Azure용 Debian VHD 준비
@@ -20,13 +20,13 @@ ms.locfileid: "102554516"
 
 ## <a name="installation-notes"></a>설치 참고 사항
 * Azure용 Linux를 준비하는 방법에 대한 추가 팁은 [일반 Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes)을 참조하세요.
-* 새 VHDX 형식은 Azure에서 지원되지 않습니다. Hyper-v 관리자 또는 **변환-vhd** cmdlet을 사용 하 여 디스크를 VHD 형식으로 변환할 수 있습니다.
+* 새 VHDX 형식은 Azure에서 지원되지 않습니다. Hyper-V 관리자 또는 **convert-vhd** cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
 * Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다. 원하는 경우에는 데이터 디스크에서 [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) 또는 [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid)를 사용할 수 있습니다.
 * OS 디스크에 스왑 파티션을 구성하지 마세요. 임시 리소스 디스크에서 스왑 파일을 만들도록 Azure Linux 에이전트를 구성할 수 있습니다. 자세한 내용은 아래 단계에서 찾을 수 있습니다.
 * Azure의 모든 VHD는 가상 크기가 1MB 단위로 조정되어야 합니다. 원시 디스크에서 VHD로 변환할 때 변환하기 전에 원시 디스크 크기가 1MB의 배수인지 확인해야 합니다. 자세한 내용은 [Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes)을 참조하세요.
 
 ## <a name="use-azure-manage-to-create-debian-vhds"></a>Azure-Manage를 사용하여 Debian VHD를 만듭니다.
-Azure 용 Debian Vhd를 생성 하는 데 사용할 수 있는 도구 (예: [Credativ](https://www.credativ.com/)의 [azure 관리 스크립트)](https://github.com/credativ/azure-manage) 가 있습니다. 권장되는 방법과 이미지를 처음부터 새로 만드는 방법을 비교한 것입니다. 예를 들어 Debian 8 VHD를 만들기 위해 다음 명령을 실행하여 `azure-manage`(및 종속성)를 다운로드하고 `azure_build_image` 스크립트를 실행합니다.
+[redativ](https://www.credativ.com/)의 [azure-manage](https://github.com/credativ/azure-manage) 스크립트처럼 Azure용 Debian VHD를 생성하는 데 사용할 수 있는 도구가 있습니다. 권장되는 방법과 이미지를 처음부터 새로 만드는 방법을 비교한 것입니다. 예를 들어 Debian 8 VHD를 만들기 위해 다음 명령을 실행하여 `azure-manage`(및 종속성)를 다운로드하고 `azure_build_image` 스크립트를 실행합니다.
 
 ```console
 # sudo apt-get update
@@ -59,7 +59,7 @@ Azure 용 Debian Vhd를 생성 하는 데 사용할 수 있는 도구 (예: [Cre
     # sudo update-grub
     ```
 
-6. Debian 8, 9 또는 10의/etc/apt/sources.list에 Debian의 Azure 리포지토리를 추가 합니다.
+6. Debian의 Azure 리포지토리를 Debian 8, 9 또는 10 중 하나에 대한 /etc/apt/sources.list에 추가합니다.
 
     **Debian 8.x "Jessie"**
 
@@ -124,7 +124,7 @@ Azure 용 Debian Vhd를 생성 하는 데 사용할 수 있는 도구 (예: [Cre
     # logout
     ```
 
-10. **작업** -hyper-v 관리자에서 종료 >를 클릭 합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
+10. Hyper-V 관리자에서 **작업** -> 종료를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이제 Debian 가상 하드 디스크를 사용하여 Azure에서 새 가상 머신을 만들 준비가 되었습니다. .vhd 파일을 Azure에 처음 업로드하는 경우 [사용자 지정 디스크에서 Linux VM 만들기](upload-vhd.md#option-1-upload-a-vhd)를 참조하세요.

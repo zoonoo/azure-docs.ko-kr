@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8e7de74a75bc0cf2a298b7ff75cf7b6b92eaec9d
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 8e7a725b78fa828ce1286e212ee7de0205968156
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109716117"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "92536082"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>대량으로 IoT Hub 디바이스 ID 가져오기 및 내보내기
 
@@ -87,7 +87,7 @@ while(true)
 ```
 
 > [!NOTE]
-> 스토리지 계정에 IoT Hub의 연결을 제한하는 방화벽 구성이 있는 경우 [Microsoft 신뢰할 수 있는 자사 예외](./virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources)를 사용하는 것이 좋습니다(관리되는 서비스 ID로 IoT Hub의 선택 지역에서 사용 가능).
+> 스토리지 계정에 IoT Hub의 연결을 제한하는 방화벽 구성이 있는 경우 [Microsoft 신뢰할 수 있는 자사 예외](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing)를 사용하는 것이 좋습니다(관리되는 서비스 ID로 IoT Hub의 선택 지역에서 사용 가능).
 
 
 ## <a name="device-importexport-job-limits"></a>디바이스 가져오기/내보내기 작업 제한
@@ -262,7 +262,7 @@ JobProperties importJob =
 
 각 디바이스에 대한 가져오기 직렬화 데이터에 선택적 **importMode** 속성을 사용하여 가져오기 프로세스를 디바이스별로 제어합니다. **importMode** 속성에 다음과 같은 옵션이 있습니다.
 
-| importMode | Description |
+| importMode | 설명 |
 | --- | --- |
 | **createOrUpdate** |지정된 **ID** 를 가진 디바이스가 존재하지 않는 경우, 새로 등록됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 Etag는 지정된 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
 | **create** |지정된 **ID** 를 가진 디바이스가 존재하지 않는 경우, 새로 등록됩니다. <br/>디바이스에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 Etag는 지정된 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |

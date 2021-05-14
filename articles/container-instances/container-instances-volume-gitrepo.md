@@ -4,10 +4,10 @@ description: gitRepo 볼륨을 탑재하여 컨테이너 인스턴스에 Git 리
 ms.topic: article
 ms.date: 06/15/2018
 ms.openlocfilehash: 5f361b0bbd4a02f754e47c8321a664af05036601
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86260717"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Azure Container Instances에서 gitRepo 볼륨 탑재
@@ -15,7 +15,7 @@ ms.locfileid: "86260717"
 *gitRepo* 볼륨을 탑재하여 컨테이너 인스턴스에 Git 리포지토리를 복제하는 방법을 알아봅니다.
 
 > [!NOTE]
-> *gitRepo* 볼륨 탑재는 현재 Linux 컨테이너로 제한됩니다. Windows 컨테이너에 모든 기능을 제공 하기 위해 작업 하는 동안 [개요](container-instances-overview.md#linux-and-windows-containers)에서 현재 플랫폼 차이를 찾을 수 있습니다.
+> *gitRepo* 볼륨 탑재는 현재 Linux 컨테이너로 제한됩니다. Windows 컨테이너에도 모든 기능을 제공하려고 작업 중이며 현재 플랫폼의 차이점은 [개요](container-instances-overview.md#linux-and-windows-containers)에서 찾아볼 수 있습니다.
 
 ## <a name="gitrepo-volume"></a>gitRepo 볼륨
 
@@ -26,14 +26,14 @@ ms.locfileid: "86260717"
 | 속성 | 필수 | 설명 |
 | -------- | -------- | ----------- |
 | `repository` | 예 | 복제할 Git 리포지토리의 `http://` 또는 `https://`를 포함한 전체 URL입니다.|
-| `directory` | 아니요 | 리포지토리를 복제해야 하는 디렉터리입니다. 경로는 "`..`"을 포함하거나 이것으로 시작되지 않아야 합니다.  "`.`"을 지정하면 리포지토리가 볼륨의 디렉터리에 복제됩니다. 그렇지 않을 경우 Git 리포지토리가 볼륨 디렉터리 내 지정된 이름의 하위 디렉터리에 복제됩니다. |
-| `revision` | 아니요 | 복제될 수정 내용의 커밋 해시입니다. 지정하지 않으면 `HEAD` 수정 내용이 복제됩니다. |
+| `directory` | 예 | 리포지토리를 복제해야 하는 디렉터리입니다. 경로는 "`..`"을 포함하거나 이것으로 시작되지 않아야 합니다.  "`.`"을 지정하면 리포지토리가 볼륨의 디렉터리에 복제됩니다. 그렇지 않을 경우 Git 리포지토리가 볼륨 디렉터리 내 지정된 이름의 하위 디렉터리에 복제됩니다. |
+| `revision` | 예 | 복제될 수정 내용의 커밋 해시입니다. 지정하지 않으면 `HEAD` 수정 내용이 복제됩니다. |
 
 ## <a name="mount-gitrepo-volume-azure-cli"></a>gitRepo 볼륨 탑재: Azure CLI
 
 [Azure CLI](/cli/azure)로 컨테이너 인스턴스를 배포할 때 gitRepo 볼륨을 탑재하려면 `--gitrepo-url` 및 `--gitrepo-mount-path` 매개 변수를 [az container create][az-container-create] 명령에 제공합니다. 선택적으로 복제할 볼륨 내 디렉터리(`--gitrepo-dir`)와 복제된 수정 작업의 커밋 해시(`--gitrepo-revision`)를 지정할 수 있습니다.
 
-이 예제 명령은 Microsoft [aci-helloworld][aci-helloworld] 샘플 응용 프로그램을 컨테이너 인스턴스의에 복제 합니다 `/mnt/aci-helloworld` .
+이 예제 명령은 Microsoft [aci-helloworld][aci-helloworld] 샘플 애플리케이션을 컨테이너 인스턴스의 `/mnt/aci-helloworld`에 복제합니다.
 
 ```azurecli-interactive
 az container create \

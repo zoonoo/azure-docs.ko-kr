@@ -2,21 +2,21 @@
 title: '자습서: Azure Data Lake Storage에서 데이터 로드'
 description: COPY 문을 사용하여 Azure Data Lake Storage에서 전용 SQL 풀로 데이터를 로드합니다.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 11/20/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: ca57c6200cf7006a89be4b1fd621974559e5b514
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 16f95a86169be04eba202b311fc4437b204ec8b3
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104606126"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566531"
 ---
 # <a name="load-data-from-azure-data-lake-storage-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Data Lake Storage에서 Azure Synapse Analytics의 전용 SQL 풀로 데이터 로드
 
@@ -134,5 +134,5 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 
 예제 및 참조를 로드하는 방법에 대한 자세한 내용은 다음 설명서를 참조하세요.
 - [COPY 문 참조 설명서](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax)
-- [각 인증 방법의 COPY 예제](./quickstart-bulk-load-copy-tsql-examples.md)
+- [각 인증 방법에 대한 COPY 예제](./quickstart-bulk-load-copy-tsql-examples.md)
 - [단일 테이블에 대한 COPY 빠른 시작](./quickstart-bulk-load-copy-tsql.md)

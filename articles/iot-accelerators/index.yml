@@ -3,7 +3,7 @@ title: Azure IoT 솔루션 가속기 설명서
 summary: Azure IoT 솔루션 가속기는 연결된 팩터리와 같은 일반적인 IoT 시나리오를 구현하는 완전하고 배포 준비가 완료된 IoT 솔루션입니다.
 metadata:
   title: Azure IoT 솔루션 가속기 설명서
-  description: IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전하고 배포 준비가 완료된 IoT 솔루션입니다. 시나리오에는 연결된 팩터리 및 디바이스 시뮬레이션이 포함되어 있습니다. 솔루션 가속기를 배포할 때 배포에는 필수 애플리케이션 코드와 함께 모든 필수 클라우드 기반 서비스가 포함됩니다.
+  description: IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전하고 배포 준비가 완료된 IoT 솔루션입니다. 시나리오에는 연결된 공장이 포함됩니다. 솔루션 가속기를 배포할 때 배포에는 필수 애플리케이션 코드와 함께 모든 필수 클라우드 기반 서비스가 포함됩니다.
   services: iot-accelerators
   ms.service: iot-accelerators
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   ms.author: dobett
   manager: philmea
   ms.date: 09/16/2019
-  ms.openlocfilehash: 8f1b539e7201ffc31956ef48b4a155674385b97f
-  ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+  ms.openlocfilehash: 366cd9973ff72ecf638a2bbaec69004e45552ac8
+  ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 12/08/2020
-  ms.locfileid: "96854549"
+  ms.lasthandoff: 05/07/2021
+  ms.locfileid: "109480962"
 landingContent:
 - title: Azure IoT 솔루션 가속기
   linkLists:
@@ -44,15 +44,3 @@ landingContent:
     links:
     - text: 클라우드 기반 연결된 팩터리 솔루션 사용
       url: quickstart-connected-factory-deploy.md
-- title: 디바이스 시뮬레이션 시작
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: 디바이스 시뮬레이션 솔루션 가속기 개요
-      url: iot-accelerators-device-simulation-overview.md
-  - linkListType: tutorial
-    links:
-    - text: IoT 디바이스 시뮬레이션 만들기 및 실행
-      url: iot-accelerators-device-simulation-create-simulation.md
-    - text: 사용자 지정 시뮬레이션된 디바이스 만들기
-      url: iot-accelerators-device-simulation-create-custom-device.md

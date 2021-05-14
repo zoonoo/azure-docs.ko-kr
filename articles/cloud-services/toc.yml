@@ -18,7 +18,7 @@
         - name: 보안
           items:
             - name: 보안 기준
-              href: security-baseline.md
+              href: /security/benchmark/azure/baselines/cloud-services-security-baseline?toc=/azure/cloud-services/toc.json
     - name: 방법
       items:
         - name: 계획
@@ -105,6 +105,32 @@
               href: cloud-services-role-config-xpath.md
         - name: 인증서 관리
           items:
+            - name: Azure PowerShell
+              href: cloud-services-diagnostics-powershell.md
+            - name: .NET
+              href: cloud-services-dotnet-diagnostics.md
+            - name: Visual Studio
+              href: /visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?toc=/azure/cloud-services/toc.json
+        - name: Azure Storage에서 진단 데이터 저장 및 보기
+          href: diagnostics-extension-to-storage.md
+        - name: 진단을 사용하여 클라우드 서비스 추적
+          href: cloud-services-dotnet-diagnostics-trace-flow.md
+    - name: 마이그레이션
+      items:
+        - name: 마이그레이션 개요
+          href: ../cloud-services-extended-support/in-place-migration-overview.md?toc=/azure/cloud-services/toc.json
+        - name: 마이그레이션 기술 세부 정보
+          href: ../cloud-services-extended-support/in-place-migration-technical-details.md?toc=/azure/cloud-services/toc.json
+        - name: Azure Portal을 사용하여 마이그레이션
+          href: ../cloud-services-extended-support/in-place-migration-portal.md?toc=/azure/cloud-services/toc.json
+        - name: Powershell을 사용하여 마이그레이션
+          href: ../cloud-services-extended-support/in-place-migration-powershell.md?toc=/azure/cloud-services/toc.json
+        - name: 일반적인 오류 및 알려진 문제
+          href: ../cloud-services-extended-support/in-place-migration-common-errors.md?toc=/azure/cloud-services/toc.json
+    - name: 문제 해결
+      items:
+        - name: 디버그
+          items:
             - name: Cloud Services 및 관리 인증서
               href: cloud-services-certs-create.md
             - name: SSL 구성
@@ -172,6 +198,8 @@
                   href: cloud-services-deployment-faq.md
     - name: 참조
       items:
+        - name: Azure CLI
+          href: /cli/azure/cloud
         - name: 코드 샘플
           href: 'https://azure.microsoft.com/resources/samples/?service=cloud-services'
         - name: .csdef XML 스키마
@@ -196,17 +224,25 @@
           href: /rest/api/compute/cloudservices/
     - name: 리소스
       items:
-        - name: Azure 로드맵
-          href: 'https://azure.microsoft.com/roadmap/?category=compute'
-        - name: 학습 경로
-          href: /learn/paths/azure-fundamentals/
-        - name: Microsoft Q&A 질문 페이지
-          href: /answers/topics/azure-cloud-services.html
-        - name: 가격 책정
-          href: 'https://azure.microsoft.com/pricing/details/cloud-services/'
-        - name: 요금 계산기
-          href: 'https://azure.microsoft.com/pricing/calculator/'
-        - name: 서비스 업데이트
-          href: 'https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform='
-        - name: 동영상
-          href: 'https://azure.microsoft.com/documentation/videos/index/?services=cloud-services'
+        - name: 역할 스키마
+          href: schema-cscfg-role.md
+        - name: NetworkConfiguration 스키마
+          href: schema-cscfg-networkconfiguration.md
+    - name: REST (영문)
+      href: /rest/api/compute/cloudservices/
+- name: 리소스
+  items:
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: 학습 경로
+      href: /learn/paths/azure-fundamentals/
+    - name: Microsoft Q&A 질문 페이지
+      href: /answers/topics/azure-cloud-services.html
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/cloud-services/'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform='
+    - name: 동영상
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=cloud-services'

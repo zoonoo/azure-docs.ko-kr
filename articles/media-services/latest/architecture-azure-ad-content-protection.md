@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: 9c81a9b48ff9fa305385c45266d88deb4047f70f
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 2f1e610113b432fa1a62350308747ffb1d5c8fc8
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599488"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790922"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>자습서: Azure AD를 사용하여 엔드투엔드 콘텐츠 보호
 
@@ -134,7 +134,6 @@ JWT 토큰(access_token 또는 id_token)을 구문 분석하는 화면은 다음
 DRM/AES, 스트리밍 프로토콜 및 컨테이너 형식의 서로 다른 조합을 사용하여 보호된 콘텐츠를 테스트하는 화면은 다음과 같습니다.
 
 ![DRM 또는 AES와 스트리밍 프로토콜 및 컨테이너 형식의 서로 다른 조합을 사용하여 보호된 콘텐츠를 테스트하는 방법을 보여주는 스크린샷](media/aad-ams-content-protection/testing-protected-content.png)
--->
 
 <!-- You can see a hosted version of the sample at [https://aka.ms/ott](https://aka.ms/ott)-->
 

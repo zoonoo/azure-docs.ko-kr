@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 2fbdd46b872c4c70999355d457045f4aac8aa34c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9897ad062de308563dccc7d17191d1757b887fc2
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878236"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135170"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>시스템이 할당한 관리 ID를 Azure Spring Cloud 애플리케이션에 사용하도록 설정하는 방법
 
@@ -22,9 +22,9 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 이 문서에서는 Azure Portal 및 CLI(버전 0.2.4부터 사용 가능)를 사용하여 Azure Spring Cloud 앱에 대해 시스템이 할당한 관리 ID를 사용하거나 사용하지 않도록 설정하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 Azure 리소스에 대한 관리 ID에 대해 잘 모르는 경우 [개요 섹션](../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요.
-배포된 Azure Spring Cloud 인스턴스가 있어야 합니다. [Azure CLI를 사용하여 빠른 배포 시작](spring-cloud-quickstart.md)을 수행하세요.
+배포된 Azure Spring Cloud 인스턴스가 있어야 합니다. [Azure CLI를 사용하여 빠른 배포 시작](./quickstart.md)을 수행하세요.
 
 ## <a name="add-a-system-assigned-identity"></a>시스템 할당 ID 추가
 시스템이 할당한 ID를 사용하여 앱을 만들려면 애플리케이션에서 추가 속성을 설정해야 합니다.

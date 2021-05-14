@@ -9,13 +9,13 @@ ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
 ms.openlocfilehash: 8688d278c40ba34b7c4344a73cb4717f3fd71368
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104600074"
 ---
-# <a name="use-site-recovery-to-migrate-to-premium-storage"></a>Site Recovery를 사용 하 여 Premium Storage으로 마이그레이션
+# <a name="use-site-recovery-to-migrate-to-premium-storage"></a>Site Recovery를 사용하여 Premium Storage로 마이그레이션
 
 [Azure 프리미엄 SSD](../disks-types.md)는 I/O 사용량이 많은 워크로드를 실행하는 VM(가상 머신)에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. 이 가이드에서는 사용자가 [Azure Site Recovery](../../site-recovery/site-recovery-overview.md)를 사용하여 표준 스토리지 계정의 VM 디스크를 Premium Storage 계정으로 마이그레이션할 수 있도록 합니다.
 

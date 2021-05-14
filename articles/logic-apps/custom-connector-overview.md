@@ -1,5 +1,5 @@
 ---
-title: 사용자 지정 커넥터 토픽 링크
+title: 사용자 지정 커넥터 항목 링크
 description: 사용자 지정 커넥터를 만들고, 사용하고, 공유하고, 인증하는 방법 항목에 대한 링크
 services: logic-apps
 ms.suite: integration
@@ -7,10 +7,10 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 1/30/2018
 ms.openlocfilehash: 3305524a4e2e06f1e3433c018124495a4cd82f28
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87090368"
 ---
 # <a name="custom-connectors-in-logic-apps"></a>Logic Apps의 사용자 지정 커넥터

@@ -1,18 +1,18 @@
 ---
 title: Azure Data Factory의 유효성 검사 활동
 description: 유효성 검사 활동은 사용자가 지정한 특정 조건에 따라 연결된 데이터 세트의 유효성이 검사될 때까지 파이프라인을 계속 실행하지 않습니다.
-author: dcstwh
-ms.author: weetok
+author: chez-charlie
+ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 2c5208f754e66f92cf5019fdad3026decac88284
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0668750903d284ecf2020e2dd56a527c14f70b94
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104785957"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906201"
 ---
 # <a name="validation-activity-in-azure-data-factory"></a>Azure Data Factory의 유효성 검사 활동
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -63,7 +63,7 @@ type | **Validation** 으로 설정해야 합니다. | String | 예 |
 데이터 세트 | 이 데이터 세트 참조가 존재하는지 유효성을 검사했거나, 지정된 조건을 충족했거나, 시간 제한에 도달했을 때까지 작업이 실행을 차단합니다. 제공된 데이터 세트는 “MinimumSize” 또는 “ChildItems” 속성을 지원해야 합니다. | 데이터 세트 참조 | 예 |
 시간 제한 | 작업 실행에 대한 시간 제한을 지정합니다. 값을 지정하지 않으면 기본값은 7일(“7.00:00:00”)입니다. 형식은 d.hh:mm:ss입니다. | String | 예 |
 sleep | validation 시도 간의 지연 시간(초)입니다. 값을 지정하지 않으면 기본값은 10초입니다. | 정수 | 예 |
-childItems | 폴더에 자식 항목이 있는지 여부를 확인합니다. -true로 설정할 수 있습니다. 이렇게 하면 폴더가 존재하고 항목이 있는지 유효성을 검사합니다. 폴더에 적어도 하나의 항목이 존재하거나 시간 제한 값에 도달할 때까지 차단합니다. -false의 경우 폴더가 존재하고 비어 있는지 유효성을 검사합니다. 폴더가 비어 있거나 시간 제한 값에 도달할 때까지 차단합니다. 값을 지정하지 않으면 폴더가 존재하거나 시간 제한에 도달할 때까지 작업이 차단됩니다. | 부울 | 예 |
+childItems | 폴더에 자식 항목이 있는지 여부를 확인합니다. -true로 설정할 수 있습니다. 이렇게 하면 폴더가 존재하고 항목이 있는지 유효성을 검사합니다. 폴더에 적어도 하나의 항목이 존재하거나 시간 제한 값에 도달할 때까지 차단합니다. -false의 경우 폴더가 존재하고 비어 있는지 유효성을 검사합니다. 폴더가 비어 있거나 시간 제한 값에 도달할 때까지 차단합니다. 값을 지정하지 않으면 폴더가 존재하거나 시간 제한에 도달할 때까지 작업이 차단됩니다. | 부울 | No |
 minimumSize | 파일의 최소 크기(바이트)입니다. 값을 지정하지 않으면 기본값은 0바이트입니다. | 정수 | 예 |
 
 
