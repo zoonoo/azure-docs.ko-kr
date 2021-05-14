@@ -1,24 +1,25 @@
 ---
-title: Azure Cloud Services (클래식) 정의 스키마 (.cscfg 파일) | Microsoft Docs
-description: 서비스 구성 파일 (.cscfg)은 역할에 대 한 각 역할, 구성 값 및 인증서 지문에 대해 배포할 역할 인스턴스 수를 지정 합니다.
+title: Azure Cloud Services(클래식) 정의 스키마(.cscfg 파일) | Microsoft Docs
+description: 서비스 구성(.cscfg) 파일은 각 역할에 배포할 역할 인스턴스 수, 구성 값 및 역할에 대한 인증서 지문을 지정합니다.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: ba933d4981fb7ed209a7fb5d5c41113750f312de
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 17fea7c1eb75f8041c4c6a79870bfc653ea767ae
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98743477"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935144"
 ---
-# <a name="azure-cloud-services-classic-config-schema-cscfg-file"></a>Azure Cloud Services (클래식) 구성 스키마 (.cscfg 파일)
+# <a name="azure-cloud-services-classic-config-schema-cscfg-file"></a>Azure Cloud Services(클래식) 구성 스키마(.cscfg 파일)
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 서비스 구성 파일은 서비스의 각 역할에 대해 배포할 역할 인스턴스의 수, 구성 설정의 값 및 역할에 연결된 인증서의 지문을 지정합니다. 서비스가 Virtual Network의 일부인 경우, 가상 네트워킹 구성 파일 뿐 아니라 서비스 구성 파일에도 네트워크에 대한 구성 정보를 제공해야 합니다. 서비스 구성 파일의 기본 확장명은 .cscfg입니다.
 
@@ -59,7 +60,7 @@ ms.locfileid: "98743477"
 
 다음 표에서는 `ServiceConfiguration` 요소의 특성을 설명합니다. 모든 특성 값은 문자열 유형입니다.
 
-| 특성 | 설명 |
+| attribute | 설명 |
 | --------- | ----------- |
 |serviceName|필수 요소. 클라우드 서비스의 이름입니다. 여기서 지정된 이름은 서비스 정의 파일에서 지정된 이름과 일치해야 합니다.|
 |osFamily|선택 사항입니다. 클라우드 서비스의 역할 인스턴스에서 실행될 게스트 OS를 지정합니다. 지원되는 게스트 OS 릴리스에 대한 정보는 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](cloud-services-guestos-update-matrix.md)를 참조하세요.<br /><br /> `osFamily` 값을 포함하지 않고 특정 게스트 OS 버전에 `osVersion` 특성을 설정하지 않은 경우 기본값인 1이 사용됩니다.|

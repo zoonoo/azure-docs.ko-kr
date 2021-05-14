@@ -1,36 +1,36 @@
 ---
-title: Azure 이미지 작성기 (미리 보기)를 사용 하 여 Windows VM 만들기
-description: Azure 이미지 작성기를 사용 하 여 Windows VM을 만듭니다.
-author: cynthn
-ms.author: cynthn
-ms.date: 03/02/2020
+title: Azure Image Builder로 Windows VM 만들기(미리 보기)
+description: Azure Image Builder로 Windows VM을 만듭니다.
+author: kof-f
+ms.author: kofiforson
+ms.date: 04/23/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
-ms.openlocfilehash: 918cee723bfde69d08532aee6fe4f395dbddb4ee
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: cd941868cd03a456ba78b57bcfeae5f8adfb59f4
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101695450"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107948206"
 ---
-# <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>미리 보기: Azure 이미지 작성기를 사용 하 여 Windows VM 만들기
+# <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>미리 보기:Azure Image Builder로 Windows VM 만들기
 
-이 문서에서는 Azure VM 이미지 작성기를 사용 하 여 사용자 지정 된 Windows 이미지를 만드는 방법을 보여 줍니다. 이 문서의 예제에서는 [이미지를 사용자 지정 하기 위해](../linux/image-builder-json.md#properties-customize) 사용자 지정을 사용 합니다.
-- PowerShell (ScriptUri)- [powershell 스크립트](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1)를 다운로드 하 여 실행 합니다.
-- Windows 다시 시작-VM을 다시 시작 합니다.
-- PowerShell (인라인)-특정 명령을 실행 합니다. 이 예제에서는를 사용 하 여 VM에 디렉터리를 만듭니다 `mkdir c:\\buildActions` .
-- 파일-GitHub의 파일을 VM에 복사 합니다. 이 예제에서는 VM의 [index.md](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) 를에 복사 `c:\buildArtifacts\index.html` 합니다.
-- buildTimeoutInMinutes-빌드 시간을 늘려 더 긴 빌드를 허용 하 고, 기본값은 240 분 이며, 빌드 시간을 더 오래 실행 하면 빌드 시간을 늘릴 수 있습니다.
-- vmProfile-Vmprofile 및 네트워크 속성 지정
-- osDiskSizeGB-이미지 크기를 늘릴 수 있습니다.
-- id-빌드 중에 사용할 Azure 이미지 작성기의 id 제공
+본 문서에서는 Azure VM Image Builder를 사용하여 사용자 지정된 Windows 이미지를 만드는 방법을 보여 줍니다. 본 문서의 예제는 이미지 사용자 지정에 [사용자 지정자](../linux/image-builder-json.md#properties-customize)를 사용합니다.
+- PowerShell(ScriptUri) - [PowerShell 스크립트](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1)를 다운로드하여 실행합니다.
+- Windows 다시 시작 - VM을 다시 시작합니다.
+- PowerShell(인라인) - 특정 명령을 실행합니다. 본 예제에서는, `mkdir c:\\buildActions`를 사용하여 VM에 디렉터리를 만듭니다.
+- 파일 - GitHub에서 VM으로 파일을 복사합니다. 본 예제에서는 [index.md](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html)를 VM의 `c:\buildArtifacts\index.html`에 복사합니다.
+- buildTimeoutInMinutes - 빌드가 더 오래 실행되도록 빌드 시간을 연장합니다. 기본값은 240분이며 빌드를 더 오래 실행하려면 빌드 시간을 연장할 수 있습니다.
+- vmProfile - vmSize 및 네트워크 속성을 지정합니다.
+- osDiskSizeGB - 이미지 크기를 늘릴 수 있습니다.
+- ID - Azure Image Builder가 빌드 중에 사용할 ID를 제공합니다.
 
 
-를 지정할 수도 있습니다 `buildTimeoutInMinutes` . 기본값은 240 분 이며 빌드 시간을 더 오래 실행 하면 빌드 시간을 늘릴 수 있습니다.
+`buildTimeoutInMinutes`도 지정할 수 있습니다. 기본값은 240분이며 빌드를 더 오래 실행하려면 빌드 시간을 연장할 수 있습니다.
 
-이미지를 구성하는 데 샘플 .json 템플릿을 사용합니다. 사용 중인. json 파일은 [helloImageTemplateWin.js에](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json)있습니다. 
+이미지를 구성하는 데 샘플 .json 템플릿을 사용합니다. 사용할 .json 파일은 [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json)입니다. 
 
 
 > [!IMPORTANT]
@@ -97,7 +97,7 @@ imageName=aibWinImage
 subscriptionID=<Your subscription ID>
 ```
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
-이 리소스 그룹은 이미지 구성 템플릿 아티팩트와 이미지를 저장 하는 데 사용 됩니다.
+해당 리소스 그룹은 이미지 구성 템플릿 아티팩트와 해당 이미지를 저장하는 데에 사용됩니다.
 
 
 ```azurecli-interactive
@@ -105,9 +105,9 @@ az group create -n $imageResourceGroup -l $location
 ```
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>사용자 할당 ID 만들기 및 리소스 그룹에 대한 사용 권한 설정
-이미지 작성기는 제공 된 [사용자 id](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) 를 사용 하 여 리소스 그룹에 이미지를 삽입 합니다. 이 예제에서는 이미지 배포를 수행 하는 세분화 된 작업을 포함 하는 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 user-identity에 할당됩니다.
+Image Builder는 이미지를 해당 리소스 그룹에 삽입하기 위하여 제공된 [사용자 ID](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity)를 사용합니다. 본 예제에서는 이미지 배포를 위하여 세분화된 작업을 갖춘 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 user-identity에 할당됩니다.
 
-## <a name="create-user-assigned-managed-identity-and-grant-permissions"></a>사용자 할당 관리 id 만들기 및 사용 권한 부여 
+## <a name="create-user-assigned-managed-identity-and-grant-permissions"></a>사용자 할당 관리 ID 만들고 사용 권한 부여하기 
 ```bash
 # create user assigned identity for image builder to access the storage account where the script is located
 idenityName=aibBuiUserId$(date +'%s')
@@ -143,7 +143,7 @@ az role assignment create \
 
 ## <a name="download-the-image-configuration-template-example"></a>이미지 구성 템플릿 예제 다운로드
 
-매개 변수가 있는 이미지 구성 템플릿을 사용해 볼 수 있습니다. 예제 json 파일을 다운로드 하 고 이전에 설정한 변수를 사용 하 여 구성 합니다.
+매개 변수가 있는 이미지 구성 템플릿을 사용하여 볼 수 있게 만들어 두었습니다. 예제 .json 파일을 다운로드하여 이전에 설정하여 둔 변수로 구성합니다.
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json -o helloImageTemplateWin.json
@@ -157,19 +157,19 @@ sed -i -e "s%<imgBuilderId>%$imgBuilderId%g" helloImageTemplateWin.json
 
 ```
 
-터미널에서와 같은 텍스트 편집기를 사용 하 여이 예제를 수정할 수 있습니다 `vi` .
+`vi` 같은 텍스트 편집기를 사용하는 터미널에서 해당 예제를 수정할 수 있습니다.
 
 ```azurecli-interactive
 vi helloImageTemplateWin.json
 ```
 
 > [!NOTE]
-> 원본 이미지의 경우 항상 [버전을 지정](../linux/image-builder-troubleshoot.md#build--step-failed-for-image-version)해야 합니다 .를 사용할 수 없습니다 `latest` .
-> 이미지가 배포 되는 리소스 그룹을 추가 하거나 변경 하는 경우 리소스 그룹에 대 한 [사용 권한을 설정](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) 해야 합니다.
+> 소스 이미지의 경우, 언제나 [버전을 지정](../linux/image-builder-troubleshoot.md#build--step-failed-for-image-version)하여야 하며, `latest`는 사용할 수 없습니다.
+> 이미지를 배포할 리소스 그룹을 추가하거나 변경하는 경우, 리소스 그룹에서 [사용 권한을 설정](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group)하여야 합니다.
  
 ## <a name="create-the-image"></a>이미지 만들기
 
-VM 이미지 작성기 서비스에 이미지 구성 제출
+이미지 구성을 VM Image Builder 서비스에 제출하기
 
 ```azurecli-interactive
 az resource create \
@@ -180,16 +180,16 @@ az resource create \
     -n helloImageTemplateWin01
 ```
 
-완료 되 면 성공 메시지를 다시 콘솔로 반환 하 고에서를 만듭니다 `Image Builder Configuration Template` `$imageResourceGroup` . ' 숨겨진 형식 표시 '를 사용 하도록 설정 하는 경우 Azure Portal의 리소스 그룹에서이 리소스를 볼 수 있습니다.
+완료 시, 이러한 작업을 통하여 성공 메시지를 콘솔로 돌려보내며, `Image Builder Configuration Template`을 `$imageResourceGroup`에 만듭니다. ‘숨겨진 형식 표시’를 사용하도록 설정하였다면 Azure Portal의 리소스 그룹에서 해당 리소스를 볼 수 있습니다.
 
-배경에서 이미지 작성기는 구독에 준비 리소스 그룹도 만듭니다. 이 리소스 그룹은 이미지 빌드에 사용 됩니다. 다음 형식이 됩니다. `IT_<DestinationResourceGroup>_<TemplateName>`
+Image Builder는 백그라운드에서 구독에 준비 리소스 그룹을 만들기도 합니다. 해당 리소스 그룹은 이미지 빌드에 사용됩니다. `IT_<DestinationResourceGroup>_<TemplateName>`와 같은 형식입니다.
 
 > [!Note]
-> 스테이징 리소스 그룹을 직접 삭제 하면 안 됩니다. 먼저 이미지 템플릿 아티팩트를 삭제 합니다. 이렇게 하면 준비 리소스 그룹이 삭제 됩니다.
+> 준비 리소스 그룹을 바로 삭제하면 안됩니다. 이미지 템플릿 아티팩트를 먼저 삭제하면 준비 리소스 그룹도 따라 삭제됩니다.
 
-이미지 구성 템플릿 전송 중에 서비스에서 오류를 보고 하면 다음을 수행 합니다.
--  이러한 [문제 해결](../linux/image-builder-troubleshoot.md#troubleshoot-image-template-submission-errors) 단계를 검토 합니다. 
-- 제출을 다시 시도 하기 전에 다음 코드 조각을 사용 하 여 템플릿을 삭제 해야 합니다.
+이미지 구성 템플릿 제출 중에 서비스에서 오류를 보고하면 다음을 수행합니다.
+-  이 [문제 해결](../linux/image-builder-troubleshoot.md#troubleshoot-image-template-submission-errors) 단계를 검토하세요. 
+- 제출을 다시 시도하기 전에 다음의 코드 조각을 사용하여 템플릿을 삭제하여야 합니다.
 
 ```azurecli-interactive
 az resource delete \
@@ -198,8 +198,8 @@ az resource delete \
     -n helloImageTemplateLinux01
 ```
 
-## <a name="start-the-image-build"></a>이미지 빌드를 시작 합니다.
-[Az resource invoke 작업](/cli/azure/resource#az-resource-invoke-action)을 사용 하 여 이미지 작성 프로세스를 시작 합니다.
+## <a name="start-the-image-build"></a>이미지 빌드 시작하기
+[az 리소스 호출 작업](/cli/azure/resource#az_resource_invoke_action)을 사용하여 이미지 빌드 프로세스를 시작합니다.
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -209,14 +209,14 @@ az resource invoke-action \
      --action Run 
 ```
 
-빌드가 완료 될 때까지 기다립니다. 이는 약 15 분 정도 걸릴 수 있습니다.
+작업이 완료될 때까지 기다리세요. 15분 정도 걸릴 수 있습니다.
 
-오류가 발생 하는 경우 다음 [문제 해결](../linux/image-builder-troubleshoot.md#troubleshoot-common-build-errors) 단계를 검토 하세요.
+오류가 발생하면, [문제 해결](../linux/image-builder-troubleshoot.md#troubleshoot-common-build-errors) 단계를 검토하세요.
 
 
 ## <a name="create-the-vm"></a>VM 만들기
 
-빌드한 이미지를 사용 하 여 VM을 만듭니다. 를 *\<password>* VM의에 대 한 사용자 고유의 암호로 바꿉니다 `aibuser` .
+빌드한 이미지를 사용하여 VM을 만듭니다. *\<password>* 를 VM의 `aibuser`에서 자신의 암호로 바꿉니다.
 
 ```azurecli-interactive
 az vm create \
@@ -236,15 +236,15 @@ VM을 만들 때 설정한 사용자 이름 및 암호를 사용하여 VM에 대
 dir c:\
 ```
 
-이미지를 사용자 지정 하는 동안 생성 되는 두 개의 디렉터리를 확인 해야 합니다.
+이미지 사용자 지정 중에 생성되는 다음 두 개의 디렉터리를 확인하여야 합니다.
 - buildActions
 - buildArtifacts
 
 ## <a name="clean-up"></a>정리
 
-작업이 완료 되 면 리소스를 삭제 합니다.
+작업이 완료되면 리소스를 삭제합니다.
 
-### <a name="delete-the-image-builder-template"></a>이미지 작성기 템플릿 삭제
+### <a name="delete-the-image-builder-template"></a>Image Builder 템플릿 삭제
 
 ```azurecli-interactive
 az resource delete \
@@ -253,7 +253,7 @@ az resource delete \
     -n helloImageTemplateWin01
 ```
 
-### <a name="delete-the-role-assignment-role-definition-and-user-identity"></a>역할 할당, 역할 정의 및 사용자 id를 삭제 합니다.
+### <a name="delete-the-role-assignment-role-definition-and-user-identity"></a>역할 할당, 역할 정의, 사용자 ID를 삭제합니다.
 ```azurecli-interactive
 az role assignment delete \
     --assignee $imgBuilderCliId \
@@ -265,7 +265,7 @@ az role definition delete --name "$imageRoleDefName"
 az identity delete --ids $imgBuilderId
 ```
 
-### <a name="delete-the-image-resource-group"></a>이미지 리소스 그룹을 삭제 합니다.
+### <a name="delete-the-image-resource-group"></a>이미지 리소스 그룹 삭제
 
 ```azurecli-interactive
 az group delete -n $imageResourceGroup
@@ -274,4 +274,4 @@ az group delete -n $imageResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에 사용 된 json 파일의 구성 요소에 대해 자세히 알아보려면 [이미지 작성기 템플릿 참조](../linux/image-builder-json.md)를 참조 하세요.
+본 문서에서 사용한 .json 파일 구성 요소에 대한 자세한 내용은 [Image Builder 템플릿 참조](../linux/image-builder-json.md)를 확인하세요.

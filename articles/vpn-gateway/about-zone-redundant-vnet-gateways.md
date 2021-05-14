@@ -1,24 +1,23 @@
 ---
 title: Azure 가용성 영역의 영역 중복 가상 네트워크 게이트웨이 정보
-description: Azure 가용성 영역에서 VPN 및 Express 경로 게이트웨이를 배포 하 여 가상 네트워크 게이트웨이에 복원 력, 확장성 및 고가용성을 제공 합니다.
+description: Azure 가용성 영역에 VPN 및 ExpressRoute 게이트웨이를 배포하여 가상 네트워크 게이트웨이에 복원력, 확장성, 고가용성을 제공합니다.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
-Customer intent: As someone with a basic network background, I want to understand zone-redundant gateways.
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2030469262baf406635fd170af384e154fec6ae6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 2d0e6464e81c0b0d04b9a0f483bcd14f075fa399
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89401115"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065165"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Azure 가용성 영역의 영역 중복 가상 네트워크 게이트웨이 정보
 
-[Azure 가용성 영역](../availability-zones/az-overview.md)에서 VPN 및 express 경로 게이트웨이를 배포할 수 있습니다. 그러면 가상 네트워크 게이트웨이에 복원력, 확장성 및 고가용성이 제공됩니다. Azure Availability Zones에서 게이트웨이를 배포하면 Azure에서 영역 수준 오류로의 온-프레미스 네트워크 연결성을 보호하면서 물리적 및 논리적으로 영역 내 게이트웨이를 구분합니다.
+[Azure Availability Zones](../availability-zones/az-overview.md)에서 VPN 및 ExpressRoute 게이트웨이를 배포할 수 있습니다. 그러면 가상 네트워크 게이트웨이에 복원력, 확장성 및 고가용성이 제공됩니다. Azure Availability Zones에서 게이트웨이를 배포하면 Azure에서 영역 수준 오류로의 온-프레미스 네트워크 연결성을 보호하면서 물리적 및 논리적으로 영역 내 게이트웨이를 구분합니다.
 
 ### <a name="zone-redundant-gateways"></a><a name="zrgw"></a>영역 중복 게이트웨이
 
@@ -40,9 +39,9 @@ ms.locfileid: "89401115"
 
 ## <a name="gateway-skus"></a><a name="gwskus"></a>게이트웨이 SKU
 
-영역 중복 및 영역 게이트웨이는 새 게이트웨이 SKU로 제공됩니다. Azure AZ 지역에 새 가상 네트워크 게이트웨이 SKU가 추가되었습니다. 이러한 SKU는 영역 중복 및 영역 게이트웨이 특정 SKU라는 점을 제외하고 ExpressRoute 및 VPN Gateway에 해당하는 기존 SKU와 비슷합니다. SKU 이름에서 "AZ"를 기준으로 이러한 Sku를 식별할 수 있습니다.
+영역 중복 및 영역 게이트웨이는 새 게이트웨이 SKU로 제공됩니다. Azure AZ 지역에 새 가상 네트워크 게이트웨이 SKU가 추가되었습니다. 이러한 SKU는 영역 중복 및 영역 게이트웨이 특정 SKU라는 점을 제외하고 ExpressRoute 및 VPN Gateway에 해당하는 기존 SKU와 비슷합니다. SKU 이름에서 “AZ”를 기준으로 이러한 SKU를 식별할 수 있습니다.
 
-게이트웨이 Sku에 대 한 자세한 내용은 [VPN Gateway sku](vpn-gateway-about-vpngateways.md#gwsku) 및 [Express 경로 게이트웨이 sku](../expressroute/expressroute-about-virtual-network-gateways.md#gwsku)를 참조 하세요.
+게이트웨이 SKU에 대한 자세한 내용은 [VPN 게이트웨이 SKU](vpn-gateway-about-vpngateways.md#gwsku) 및 [ExpressRoute 게이트웨이 SKU](../expressroute/expressroute-about-virtual-network-gateways.md#gwsku)를 참조하세요.
 
 ## <a name="public-ip-skus"></a><a name="pipskus"></a>공용 IP SKU
 
@@ -75,7 +74,7 @@ ms.locfileid: "89401115"
 
 ### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>새 SKU를 사용할 수 있는 지역은 어디인가요?
 
-새 Sku는 Azure 가용성 영역 중부, 프랑스 중부, 유럽 서 부, 유럽 서부 및 미국 서 부 2 지역, 미국 동부, 미국 동부 2, 동남 아시아, 일본 동부, 영국 남부 있는 Azure 지역에서 사용할 수 있습니다. 앞으로 다른 Azure 공용 지역에서도 영역 중복 게이트웨이를 사용할 수 있도록 제공할 예정입니다.
+새 SKU는 미국 중부, 프랑스 중부, 북유럽, 서유럽, 미국 서부 2 지역, 미국 동부, 미국 동부 2, 동남 아시아, 일본 동부, 영국 남부에 Azure 가용성 영역이 있는 Azure 지역에서 사용할 수 있습니다. 앞으로 다른 Azure 공용 지역에서도 영역 중복 게이트웨이를 사용할 수 있도록 제공할 예정입니다.
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>내 기존 가상 네트워크 게이트웨이를 영역 중복 또는 영역 게이트웨이로 변경/마이그레이션/업그레이드할 수 있나요?
 

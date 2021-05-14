@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f1343f900e12bff09c0436ca52d8b091fe48a181
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3d42c7cc6498adad251174db7caea11feec82784
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100393550"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753566"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage 사이에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -33,11 +33,11 @@ ms.locfileid: "100393550"
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 **Azure Blob Storage에서** 다음 데이터 저장소로 데이터를 복사할 수 있습니다.
 
-[!INCLUDE [data-factory-supported-sink](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sink](includes/data-factory-supported-sinks.md)]
 
 다음 데이터 저장소에서 **Azure Blob Storage로** 데이터를 복사할 수 있습니다.
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 > [!IMPORTANT]
 > 복사 작업은 범용 Azure Storage 계정 및 핫/쿨 Blob Storage 간의 데이터 복사를 모두 지원합니다. 이 작업은 **블록에서 읽기, 추가 또는 페이지 Blob** 를 지원하며 **블록 Blob에 쓰기만** 지원합니다. Azure Premium Storage는 페이지 Blob으로 지원되므로 싱크로 지원하지 않습니다.
@@ -65,7 +65,7 @@ ms.locfileid: "100393550"
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 Azure Storage를 Azure Data Factory에 연결하는 데 사용할 수 있는 두 가지 유형의 연결된 서비스가 있습니다. **AzureStorage** 연결된 서비스 및 **AzureStorageSas** 연결된 서비스입니다. Azure Storage 연결된 서비스는 Azure Storage에 대한 전역 액세스로 Data Factory를 제공합니다. 반면 Azure Storage SAS(공유 액세스 서명) 연결된 서비스는 Azure Storage에 대한 제한/시간 제한 액세스로 Data Factory를 제공합니다. 이 두 연결된 서비스에는 다른 차이가 없습니다. 필요에 맞는 연결된 서비스를 선택합니다. 다음 섹션에서는 이러한 두 연결된 서비스에 대한 자세한 정보를 제공합니다.
 
-[!INCLUDE [data-factory-azure-storage-linked-services](../../../includes/data-factory-azure-storage-linked-services.md)]
+[!INCLUDE [data-factory-azure-storage-linked-services](includes/data-factory-azure-storage-linked-services.md)]
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 세트를 지정하려면 데이터 세트의 형식 속성을 **AzureBlob** 으로 설정합니다. 데이터 세트의 **linkedServiceName** 속성을 Azure Storage 또는 Azure Storage SAS 연결된 서비스의 이름으로 설정합니다.  데이터 세트의 형식 속성은 Blob Storage에서 **Blob 컨테이너** 와 **폴더** 를 지정합니다.

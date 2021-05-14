@@ -1,7 +1,7 @@
 ---
 title: Microsoft Threat Modeling Tool 릴리스 11/1/2018
 titleSuffix: Azure
-description: 11/1/2018에 릴리스된 위협 모델링 도구 업데이트에 대 한 릴리스 정보를 읽습니다. 이 릴리스에는 새로운 기능이나 수정 사항이 포함되어 있지 않습니다.
+description: 2018년 11월 1일 출시된 위협 모델링 도구 업데이트에 대한 릴리스 정보를 살펴봅니다. 이 릴리스에는 새로운 기능이나 수정 사항이 포함되어 있지 않습니다.
 author: jegeib
 ms.author: jegeib
 ms.service: security
@@ -9,10 +9,10 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/15/2019
 ms.openlocfilehash: e48e14c13ef2ff171145022f4eafa6e0f80a9b22
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87539019"
 ---
 # <a name="threat-modeling-tool-update-release-71510231---1112018"></a>Threat Modeling Tool 업데이트 릴리스 7.1.51023.1 - 2018/11/1

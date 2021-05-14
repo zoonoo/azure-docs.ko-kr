@@ -1,18 +1,18 @@
 ---
 title: Azure Databricks Delta Lake에/에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Azure Databricks Delta Lake에/에서 데이터를 복사하는 방법에 관해 알아봅니다.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/29/2021
-ms.openlocfilehash: fcf533ad95e2567e62d44d6997752df6f3145ecb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b1aa174645288f5f3024779a0e5b9e8bdbb57452
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726790"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109480458"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Databricks Delta Lake에/에서 데이터 복사
 
@@ -67,7 +67,7 @@ Databricks 클러스터에는 Azure Blob 또는 Azure Data Lake Storage Gen2 계
 
 ## <a name="get-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 Azure Databricks Delta Lake 커넥터에 고유한 Data Factory 엔터티를 정의하는 속성에 관해 자세히 설명합니다.
 
@@ -75,7 +75,7 @@ Databricks 클러스터에는 Azure Blob 또는 Azure Data Lake Storage Gen2 계
 
 Azure Databricks Delta Lake 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성    | 설명                                                  | 필수 |
+| 속성    | Description                                                  | 필수 |
 | :---------- | :----------------------------------------------------------- | :------- |
 | type        | type 속성은 **AzureDatabricksDeltaLake** 로 설정해야 합니다. | 예      |
 | 도메인      | Azure Databricks 작업 영역 URL(예: `https://adb-xxxxxxxxx.xx.azuredatabricks.net`)을 지정합니다. |          |
@@ -108,7 +108,7 @@ Azure Databricks Delta Lake 연결된 서비스에 다음 속성이 지원됩니
 
 Azure Databricks Delta Lake 데이터 세트에 다음 속성이 지원됩니다.
 
-| 속성  | 설명                                                  | 필수                    |
+| 속성  | Description                                                  | 필수                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | 데이터 세트의 type 속성을 **AzureDatabricksDeltaLakeDataset** 로 설정해야 합니다. | 예                         |
 | 데이터베이스 | 데이터베이스의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다.  |
@@ -142,7 +142,7 @@ Azure Databricks Delta Lake 데이터 세트에 다음 속성이 지원됩니다
 
 Azure Databricks Delta Lake에서 데이터를 복사하기 위해 복사 작업 **원본** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성                     | 설명                                                  | 필수 |
+| 속성                     | Description                                                  | 필수 |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | 복사 작업 원본의 type 속성을 **AzureDatabricksDeltaLakeSource** 로 설정해야 합니다. | 예      |
 | Query          | 데이터를 읽는 SQL 쿼리를 지정합니다. 시간 이동 컨트롤의 경우 다음 패턴을 따릅니다.<br>- `SELECT * FROM events TIMESTAMP AS OF timestamp_expression`<br>- `SELECT * FROM events VERSION AS OF version` | 예       |
@@ -256,7 +256,7 @@ Azure Databricks Delta Lake에서 데이터를 복사하기 위해 복사 작업
 
 Azure Databricks Delta Lake에 데이터를 복사하기 위해 복사 작업 **싱크** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | :------------ | :----------------------------------------------------------- | :------- |
 | type          | 복사 작업 싱크의 type 속성을 **AzureDatabricksDeltaLakeSink** 로 설정합니다. | 예      |
 | preCopyScript | 각 실행 시 Databricks 델타 테이블에 데이터를 쓰기 전에 실행할 복사 작업의 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리하거나 자르기 테이블 또는 Vacuum문을 추가할 수 있습니다. | 예       |

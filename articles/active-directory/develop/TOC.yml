@@ -24,10 +24,12 @@
       items:
         - name: Angular
           href: quickstart-v2-angular.md
-        - name: JavaScript - 인증 코드 흐름
+        - name: Angular - 인증 코드 흐름
+          href: quickstart-v2-javascript-auth-code-angular.md
+        - name: JavaScript
           href: quickstart-v2-javascript-auth-code.md
-        - name: JavaScript - 암시적 흐름
-          href: quickstart-v2-javascript.md
+        - name: 반응 - 인증 코드 흐름
+          href: quickstart-v2-javascript-auth-code-react.md
     - name: 웹앱
       items:
         - name: ASP.NET
@@ -80,12 +82,14 @@
       items:
         - name: Angular
           href: tutorial-v2-angular.md
+        - name: Angular - 인증 코드 흐름
+          href: tutorial-v2-angular-auth-code.md
         - name: Blazor WebAssembly
           href: tutorial-blazor-webassembly.md
-        - name: JavaScript - 인증 코드 흐름
+        - name: JavaScript
           href: tutorial-v2-javascript-auth-code.md
-        - name: JavaScript - 암시적 흐름
-          href: tutorial-v2-javascript-spa.md
+        - name: React
+          href: tutorial-v2-react.md
     - name: 웹앱
       items:
         - name: ASP.NET
@@ -373,6 +377,8 @@
               href: msal-b2c-overview.md
             - name: MSAL.js로 마이그레이션
               href: msal-compare-msal-js-and-adal-js.md
+            - name: MSAL 노드로 마이그레이션
+              href: msal-node-migration.md
             - name: MSAL.js를 사용한 Single Sign-On
               href: msal-js-sso.md
             - name: 고려 사항 - IE
@@ -498,7 +504,7 @@
     - name: 여러 테넌트에서 로그인 허용
       items:
         - name: 앱에서 지원되는 계정 수정
-          href: quickstart-modify-supported-accounts.md
+          href: ./howto-modify-supported-accounts.md
         - name: 다중 테넌트 로그인 사용
           href: howto-convert-app-to-be-multi-tenant.md
         - name: 게시자 도메인 구성
@@ -512,6 +518,16 @@
           href: howto-add-app-roles-in-azure-ad-apps.md
     - name: Microsoft Graph API 사용
       href: microsoft-graph-intro.md
+    - name: 복원력을 위해 빌드
+      items:
+        - name: 개발 개요
+          href: ../fundamentals/resilience-app-development-overview.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+        - name: 클라이언트 애플리케이션
+          href: ../fundamentals/resilience-client-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+        - name: 디먼 애플리케이션
+          href: ../fundamentals/resilience-daemon-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+        - name: OpenID Connect 메타데이터 새로 고침
+          href: howto-build-services-resilient-to-metadata-refresh.md
     - name: Market으로 앱 가져오기
       items:
         - name: 브랜딩 지침 준수
@@ -546,7 +562,9 @@
         - name: 인증 중 오류 진단
           href: vs-active-directory-error.md
     - name: 앱 등록 제거
-      href: quickstart-remove-app.md
+      href: ./howto-remove-app.md
+    - name: 삭제된 앱 등록 복원 또는 제거
+      href: ./howto-restore-app.md
 - name: 참조
   items:
     - name: 용어
@@ -587,6 +605,8 @@
             - name: OAuth 2.0 리소스 소유자 암호 자격 증명 부여
               displayName: ROPC
               href: v2-oauth-ropc.md
+            - name: OAuth 2.0 SAML 전달자 어설션 흐름
+              href: v2-saml-bearer-assertion.md
             - name: 서명 키 롤오버
               href: active-directory-signing-key-rollover.md
             - name: 토큰 교환 시나리오
@@ -612,6 +632,8 @@
               href: active-directory-saml-protocol-reference.md
             - name: SAML 토큰
               href: reference-saml-tokens.md
+    - name: Azure CLI
+      href: /cli/azure/identity
     - name: 애플리케이션 유형 및 OAuth 2.0
       displayName: 'App types, OAuth'
       href: v2-app-types.md
@@ -625,6 +647,8 @@
       href: reference-v2-libraries.md
     - name: Microsoft Graph의 ID 및 액세스 API
       href: /graph/api/resources/azure-ad-overview
+    - name: 클레임 매핑 정책 유형
+      href: reference-claims-mapping-policy-type.md
     - name: 인증 및 권한 부여 오류 코드
       displayName: AADSTS
       href: reference-aadsts-error-codes.md

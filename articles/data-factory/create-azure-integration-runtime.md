@@ -4,14 +4,14 @@ description: Azure Data Factory에서 데이터를 복사하고 변환 작업을
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/09/2020
-author: nabhishek
-ms.author: abnarain
-ms.openlocfilehash: ecf2a74a16234084fbac4d1c26157d1703b56a13
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: lrtoyou1223
+ms.author: lle
+ms.openlocfilehash: 778942fe9e2705612b138a7ea1c8452064572caa
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100373065"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109488612"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Azure 통합 런타임을 만들고 구성하는 방법
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -52,10 +52,10 @@ Azure IR의 경우 형식은 **Managed** 로 설정되어야 합니다. 컴퓨�
 
    ![왼쪽 창과 + 새로 만들기 단추에서 통합 런타임을 강조 표시하는 스크린샷입니다.](media/doc-common-process/manage-new-integration-runtime.png)
 
-1. **통합 런타임 설치** 페이지에서 **Azure, 자체 호스트** 를 선택하고 **계속** 을 선택합니다. 
+1. **통합 런타입 설치** 페이지에서 **Azure, 자체 호스트** 를 차례로 선택하고 **계속** 을 선택합니다. 
 
 1. 다음 페이지에서 **Azure** 를 선택하여 Azure IR을 만든 후 **계속** 을 선택합니다.
-   ![Integration Runtime 생성](media/create-azure-integration-runtime/new-azure-integration-runtime.png)
+   ![Integration Runtime 만들기](media/create-azure-integration-runtime/new-azure-integration-runtime.png)
 
 1. Azure IR의 이름을 입력하고 **만들기** 를 선택합니다.
    ![Azure IR 만들기](media/create-azure-integration-runtime/create-azure-integration-runtime.png)

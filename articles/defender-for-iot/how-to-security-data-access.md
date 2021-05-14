@@ -1,43 +1,43 @@
 ---
-title: 액세스 보안 & 권장 사항 데이터
-description: IoT 용 Defender를 사용 하는 경우 보안 경고 및 권장 사항 데이터에 액세스 하는 방법에 대해 알아봅니다.
+title: 보안 및 권장 사항 데이터 액세스
+description: Defender for IoT를 사용하는 경우 보안 경고 및 권장 사항 데이터에 액세스하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.openlocfilehash: 160f7c014c890f5d8c4dd6366d3acca70f21ad11
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104781690"
 ---
 # <a name="access-your-security-data"></a>보안 데이터 액세스
 
-IoT 용 Defender는 보안 경고, 권장 사항 및 원시 보안 데이터 (저장 하기로 선택한 경우)를 Log Analytics 작업 영역에 저장 합니다.
+Defender for IoT는 보안 경고, 권장 사항, 원시 보안 데이터(저장하기로 선택한 경우)를 Log Analytics 작업 영역에 저장합니다.
 
 ## <a name="log-analytics"></a>Log Analytics
 
-사용 되는 Log Analytics 작업 영역을 구성 하려면:
+어떤 Log Analytics 작업 영역을 사용할지 구성하려면 다음을 수행합니다.
 
 1. IoT Hub를 엽니다.
-1. **보안** 섹션에서 **설정** 블레이드를 클릭 합니다.
-1. **데이터 컬렉션** 을 클릭 하 고 Log Analytics 작업 영역 구성을 변경 합니다.
+1. **보안** 섹션에서 **설정** 블레이드를 클릭합니다.
+1. **데이터 컬렉션** 을 클릭하고 Log Analytics 작업 영역 구성을 변경합니다.
 
-구성 후 Log Analytics 작업 영역에서 경고 및 권장 사항에 액세스 하려면 다음을 수행 합니다.
+구성 후 Log Analytics 작업 영역에서 경고 및 권장 사항에 액세스하려면 다음을 수행합니다.
 
-1. IoT 용 Defender에서 경고 또는 권장 사항을 선택 합니다.
-1. **추가 조사** 를 클릭 한 다음 **이 경고가 있는 장치를 보려면 여기를 클릭 하 여 DeviceId 열을 확인** 합니다.
+1. Defender for IoT에서 경고 또는 권장 사항을 선택합니다.
+1. **추가 조사** 를 클릭한 다음 **이 경고가 있는 디바이스를 확인하려면 여기를 클릭하여 DeviceId 열을 보십시오** 를 클릭합니다.
 
-Log Analytics에서 데이터를 쿼리 하는 방법에 대 한 자세한 내용은 [Log Analytics에서 쿼리 시작](../azure-monitor/logs/get-started-queries.md)을 참조 하세요.
+Log Analytics에서 데이터를 쿼리하는 방법에 대한 자세한 내용은 [Log Analytics에서 쿼리 시작](../azure-monitor/logs/get-started-queries.md)을 참조하세요.
 
 ## <a name="security-alerts"></a>보안 경고
 
-보안 경고는 IoT 용 Defender 솔루션에 대해 구성 된 Log Analytics 작업 영역의 _AzureSecurityOfThings 경고_ 테이블에 저장 됩니다.
+보안 경고는 Defender for IoT 솔루션에 대해 구성된 Log Analytics 작업 영역의 _AzureSecurityOfThings.SecurityAlert_ 테이블에 저장됩니다.
 
-보안 경고 탐색을 시작 하는 데 도움이 되는 다양 한 유용한 쿼리를 제공 하 고 있습니다.
+보안 경고를 살펴보는 데 도움이 되는 유용한 쿼리를 다양하게 제공하고 있습니다.
 
 ### <a name="sample-records"></a>샘플 레코드
 
-몇 개의 임의 레코드를 선택 합니다.
+몇 개의 임의 레코드를 선택
 
 ```
 // Select a few random records
@@ -56,13 +56,13 @@ SecurityAlert
 
 | TimeGenerated           | IoTHubId                                                                                                       | DeviceId      | AlertSeverity | DisplayName                           | Description                                             | ExtendedProperties                                                                                                                                                             |
 |-------------------------|----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|---------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 2018-11-18T18:10:29.000 | /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 무차별 암호 대입 공격 성공           | 장치에서 무차별 암호 대입 공격 성공        |    {"전체 원본 주소": "[ \" 10.165.12.18: \" ]", "사용자 이름": "[ \" \" ]", "DeviceId": "IoT-Device-Linux"}                                                                       |
-| 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 장치에서 로컬 로그인 성공      | 장치에 대 한 로컬 로그인에 성공 했습니다.     | {"원격 주소": "?", "원격 포트": "", "로컬 포트": "", "로그인 셸": "/bin/su", "로그인 프로세스 Id": "28207", "사용자 이름": "공격자", "DeviceId": "IoT-Device-Linux"} |
-| 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 장치에서 로컬 로그인 시도 실패  | 장치에 대 한 로컬 로그인 시도가 실패 했습니다. |    {"원격 주소": "?", "원격 포트": "", "로컬 포트": "", "로그인 셸": "/bin/su", "로그인 프로세스 Id": "22644", "사용자 이름": "공격자", "DeviceId": "IoT-Device-Linux"} |
+| 2018-11-18T18:10:29.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 무차별 암호 대입 공격(brute force attack) 성공           | 디바이스에서 무차별 암호 대입 공격(brute force attack)에 성공함        |    { "Full Source Address": "[\"10.165.12.18:\"]", "User Names": "[\"\"]", "DeviceId": "IoT-Device-Linux" }                                                                       |
+| 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 디바이스에 로컬 로그인 성공      | 디바이스에 대해 성공한 로컬 로그인이 감지됨     | { "Remote Address": "?", "Remote Port": "", "Local Port": "", "Login Shell": "/bin/su", "Login Process Id": "28207", "User Name": "attacker", "DeviceId": "IoT-Device-Linux" } |
+| 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 디바이스에 로컬 로그인 시도 실패  | 디바이스에 대해 실패한 로컬 로그인 시도가 감지됨 |    { "Remote Address": "?", "Remote Port": "", "Local Port": "", "Login Shell": "/bin/su", "Login Process Id": "22644", "User Name": "attacker", "DeviceId": "IoT-Device-Linux" } |
 
-### <a name="device-summary"></a>장치 요약
+### <a name="device-summary"></a>디바이스 요약
 
-지난 주에 검색 된 개별 보안 경고의 수를 IoT Hub, 장치, 경고 심각도, 경고 유형별로 그룹화 하 여 가져옵니다.
+지난주에 감지된 개별 보안 경고의 수를 IoT 허브, 디바이스, 경고 심각도, 경고 유형별로 그룹화하여 가져옵니다.
 
 ```
 // Get the number of distinct security alerts detected in the last week, grouped by
@@ -79,14 +79,14 @@ SecurityAlert
 
 | IoTHubId                                                                                                       | DeviceId      | AlertSeverity | DisplayName                           | 개수 |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|-----|
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 무차별 암호 대입 공격 성공           | 9   |
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간        | 장치에서 로컬 로그인 시도 실패  | 242 |
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 장치에서 로컬 로그인 성공      | 31  |
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간        | 암호화 동전 마이너                     | 4   |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 무차별 암호 대입 공격(brute force attack) 성공           | 9   |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간        | 디바이스에 로컬 로그인 시도 실패  | 242 |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 디바이스에 로컬 로그인 성공      | 31  |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간        | 암호화 코인 마이너                     | 4   |
 
-### <a name="iot-hub-summary"></a>IoT hub 요약
+### <a name="iot-hub-summary"></a>IoT 허브 요약
 
-지난 주에 경고가 발생 한 여러 고유 장치를 선택 합니다. IoT Hub, 경고 심각도, 경고 유형
+지난주에 경고가 발생한 여러 고유 디바이스를 IoT 허브, 경고 심각도, 경고 유형별로 선택
 
 ```
 // Select number of distinct devices which had alerts in the last week, by
@@ -103,20 +103,20 @@ SecurityAlert
 
 | IoTHubId                                                                                                       | AlertSeverity | DisplayName                           | CntDevices |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------------------------------|------------|
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 높음          | 무차별 암호 대입 공격 성공           | 1          |
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 중간        | 장치에서 로컬 로그인 시도 실패  | 1          |
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 높음          | 장치에서 로컬 로그인 성공      | 1          |
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 중간        | 암호화 동전 마이너                     | 1          |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 높음          | 무차별 암호 대입 공격(brute force attack) 성공           | 1          |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 중간        | 디바이스에 로컬 로그인 시도 실패  | 1          |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 높음          | 디바이스에 로컬 로그인 성공      | 1          |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 중간        | 암호화 코인 마이너                     | 1          |
 
 ## <a name="security-recommendations"></a>보안 권장 사항
 
-보안 권장 사항은 IoT 용 Defender 솔루션에 대해 구성 된 Log Analytics 작업 영역의 _AzureSecurityOfThings 권장 사항_ 테이블에 저장 됩니다.
+보안 권장 사항은 Defender for IoT 솔루션에 대해 구성된 Log Analytics 작업 영역의 _AzureSecurityOfThings.SecurityRecommendation_ 테이블에 저장됩니다.
 
-보안 권장 사항 탐색을 시작 하는 데 도움이 되는 다양 한 유용한 쿼리를 제공 하 고 있습니다.
+보안 권장 사항을 살펴보는 데 도움이 되는 유용한 쿼리를 다양하게 제공하고 있습니다.
 
 ### <a name="sample-records"></a>샘플 레코드
 
-몇 개의 임의 레코드를 선택 합니다.
+몇 개의 임의 레코드를 선택
 
 ```
 // Select a few random records
@@ -136,12 +136,12 @@ SecurityRecommendation
 
 | TimeGenerated | IoTHubId | DeviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | Description | RecommendationAdditionalData |
 |---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
-| 2019-03-22T10:21:06.060 |    /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간 | 활성 | 입력 체인에서 허용 되는 방화벽 규칙을 찾았습니다. | 광범위 한 IP 주소 또는 포트에 대 한 허용 패턴이 포함 된 방화벽의 규칙이 있습니다. | {"Rules": "[{ \" SourceAddress \" : \" \" , \" sourceport \" : \" \" , \" destinationaddress \" : \" \" , \" destinationaddress \" : \" 1337 \" }]"} |
-| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간 | 활성 | 입력 체인에서 허용 되는 방화벽 규칙을 찾았습니다. | 광범위 한 IP 주소 또는 포트에 대 한 허용 패턴이 포함 된 방화벽의 규칙이 있습니다. | {"Rules": "[{ \" SourceAddress \" : \" \" , \" sourceport \" : \" \" , \" destinationaddress \" : \" \" , \" destinationaddress \" : \" 1337 \" }]"} |
+| 2019-03-22T10:21:06.060 |    /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간 | Active | 입력 체인 중 하나에서 허용 방화벽 규칙을 찾음 | 광범위한 IP 주소 또는 포트에 대한 허용 패턴을 포함하는 방화벽 규칙을 찾았습니다. | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간 | Active | 입력 체인 중 하나에서 허용 방화벽 규칙을 찾음 | 광범위한 IP 주소 또는 포트에 대한 허용 패턴을 포함하는 방화벽 규칙을 찾았습니다. | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
 
-### <a name="device-summary"></a>장치 요약
+### <a name="device-summary"></a>디바이스 요약
 
-IoT Hub, 장치, 권장 사항 심각도 및 유형별로 그룹화 된 고유한 활성 보안 권장 사항의 수를 가져옵니다.
+IoT 허브, 디바이스, 권장 사항 심각도, 유형별로 그룹화된 고유한 활성 보안 권장 사항의 수를 가져옵니다.
 
 ```
 // Get the number of distinct active security recommendations, grouped by by
@@ -156,14 +156,14 @@ SecurityRecommendation
 
 | IoTHubId                                                                                                       | DeviceId      | RecommendationSeverity | 개수 |
 |----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----|
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 2   |
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간        | 1 |
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 1  |
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간        | 4   |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 2   |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간        | 1 |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 1  |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간        | 4   |
 
 ## <a name="next-steps"></a>다음 단계
 
-- IoT 용 Defender [개요](overview.md) 읽기
-- IoT [아키텍처용](architecture.md) Defender에 대 한 자세한 정보
-- [IoT 경고에 대 한 Defender](concept-security-alerts.md) 이해 및 탐색
-- [IoT에 대 한 Defender 권장 사항](concept-recommendations.md) 이해 및 탐색
+- Defender for IoT [개요](overview.md) 읽기
+- Defender for IoT [아키텍처](architecture.md)에 대한 자세한 정보
+- [Defender for IoT 경고](concept-security-alerts.md)의 이해 및 검색
+- [Defender for IoT 권장 사항](concept-recommendations.md)의 이해 및 검색

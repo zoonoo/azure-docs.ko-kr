@@ -1,5 +1,5 @@
 ---
-title: StorSimple 가상 배열에 대 한 포털 준비
+title: StorSimple 가상 배열을 위한 포털 준비
 description: StorSimple 가상 배열을 배포하는 첫 번째 자습서에는 Azure 포털 준비가 포함됩니다.
 author: alkohli
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
@@ -9,15 +9,15 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c1a3d0b05f04ad8c182d428843479160666b96ee
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87070325"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>StorSimple 가상 배열 배포 – Azure Portal 준비
 
-![가상 배열을 배포 하는 데 필요한 단계를 보여 주는 다이어그램 첫 번째 단계는 시작 이라는 레이블이 지정 되 고 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
+![가상 배열을 배포하는 데 필요한 단계를 보여 주는 다이어그램입니다. 첫 번째 단계인 시작이 강조 표시되어 있습니다.](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
 
 
 ## <a name="overview"></a>개요
@@ -30,7 +30,7 @@ Resource Manager 모델을 사용하여 가상 배열을 파일 서버 또는 iS
 
 이 문서에 게시된 정보는 Azure Portal 및 Microsoft Azure Government 클라우드에서 StorSimple 가상 배열의 배포에 적용됩니다.
 
-### <a name="get-started"></a>시작하기
+### <a name="get-started"></a>시작
 배포 워크플로는 포털 준비, 가상화된 환경에 가상 배열 프로비전, 설치 완료로 구성됩니다. 파일 서버 또는 iSCSI 서버로 StorSimple 가상 배열 배포를 시작하려면 다음 표에 준비된 리소스를 참고해야 합니다.
 
 #### <a name="deployment-articles"></a>배포 문서
@@ -40,7 +40,7 @@ StorSimple 가상 배열을 배포하려면 다음 문서를 지정된 순서대
 | **#** | **단계** | **이 작업을 수행합니다…** | **그리고 이러한 문서를 사용합니다.** |
 | --- | --- | --- | --- |
 | 1. |**Azure Portal 설정** |StorSimple 가상 배열을 프로비전하기 전에 StorSimple 디바이스 관리자 서비스를 만들고 구성합니다. |[포털 준비](storsimple-virtual-array-deploy1-portal-prep.md) |
-| 2. |**가상 배열 프로비전** |Hyper-V의 경우 Windows Server 2012 R2, Windows Server 2012 또는 Windows Server 2008 R2에서 Hyper-V를 실행하는 호스트 시스템의 StorSimple 가상 배열을 프로비전하고 연결합니다. <br></br> <br></br> VMware의 경우 VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에서 StorSimple 가상 배열을 프로비전하고 해당 배열에 연결합니다.<br></br> |[Hyper-v에서 가상 배열 프로 비전](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [VMware에서 가상 배열 프로비전](storsimple-virtual-array-deploy2-provision-vmware.md) |
+| 2. |**가상 배열 프로비전** |Hyper-V의 경우 Windows Server 2012 R2, Windows Server 2012 또는 Windows Server 2008 R2에서 Hyper-V를 실행하는 호스트 시스템의 StorSimple 가상 배열을 프로비전하고 연결합니다. <br></br> <br></br> VMware의 경우 VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에서 StorSimple 가상 배열을 프로비전하고 해당 배열에 연결합니다.<br></br> |[Hyper-V에서 가상 배열 프로비전](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [VMware에서 가상 배열 프로비전](storsimple-virtual-array-deploy2-provision-vmware.md) |
 | 3. |**가상 배열 설정** |파일 서버에 대해 초기 설정을 수행하고 StorSimple 파일 서버를 등록하고 디바이스 설정을 완료합니다. 그런 다음 SMB 공유를 프로비전할 수 있습니다. <br></br> <br></br> iSCSI 서버에 대해 초기 설정을 수행하고 StorSimple iSCSI 서버를 등록하고 디바이스 설정을 완료합니다. 그런 다음 iSCSI 볼륨을 프로비전할 수 있습니다. |[파일 서버로 가상 배열 설정](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[iSCSI 서버로 가상 배열 설정](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 이제 Azure Portal 설치를 시작할 수 있습니다.
@@ -105,7 +105,7 @@ StorSimple 디바이스 관리자 서비스 단일 인스턴스는 여러 StorSi
 
 StorSimple 디바이스 관리자 서비스를 실행한 후에는 서비스 등록 키를 받아야 합니다. 이 키는 StorSimple 디바이스를 서비스에 등록 및 연결하는 데 사용됩니다.
 
-[Azure Portal](https://portal.azure.com/)에서 다음 단계를 수행 합니다.
+[Azure Portal](https://portal.azure.com/)에서 다음 단계를 수행합니다.
 
 [!INCLUDE [storsimple-virtual-array-get-service-registration-key](../../includes/storsimple-virtual-array-get-service-registration-key.md)]
 
@@ -123,7 +123,7 @@ StorSimple 디바이스 관리자 서비스를 실행한 후에는 서비스 등
 > 
 > 
 
-[Azure Portal](https://portal.azure.com/)에서 다음 단계를 수행 합니다.
+[Azure Portal](https://portal.azure.com/)에서 다음 단계를 수행합니다.
 
 #### <a name="to-get-the-virtual-array-image"></a>가상 배열 이미지를 가져오려면
 

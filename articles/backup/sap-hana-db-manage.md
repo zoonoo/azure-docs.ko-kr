@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure 가상 머신에서 실행되는 SAP HANA
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.openlocfilehash: 54d3341a83873ad3cc50815f04a0b252bb44438e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101703769"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>백업한 SAP HANA 데이터베이스 관리 및 모니터링
@@ -41,7 +41,7 @@ Microsoft Azure Backup은 Microsoft Azure Portal의 **백업 작업** 섹션에 
 
   ![백업 경고 목록](./media/sap-hana-db-manage/backup-alerts-list.png)
 
-* 경고를 선택 하 여 자세한 정보를 확인 합니다.
+* 경고를 선택하여 세부 정보를 봅니다.
 
   ![경고 세부 정보](./media/sap-hana-db-manage/alert-details.png)
 
@@ -61,12 +61,12 @@ Microsoft Azure Backup에서 지원하는 다양한 관리 작업으로 백업�
 
 백업은 정책 일정에 따라 실행됩니다. 다음과 같이 주문형 백업을 실행할 수 있습니다.
 
-1. 자격 증명 모음 메뉴에서 **백업 항목** 을 선택 합니다.
-2. **백업 항목** 에서 SAP HANA 데이터베이스를 실행 하는 VM을 선택한 다음 **지금 백업** 을 선택 합니다.
-3. **지금 백업** 에서 수행할 백업 유형을 선택 합니다. 그런 다음 **확인** 을 선택합니다. 이 백업은이 백업 항목과 연결 된 정책에 따라 보존 됩니다.
+1. 자격 증명 모음 메뉴에서 **백업 항목** 을 선택합니다.
+2. **백업 항목** 에서 SAP HANA 데이터베이스를 실행하는 VM을 선택하고 **지금 백업** 을 선택합니다.
+3. **지금 백업** 에서 수행할 백업 유형을 선택합니다. 그런 다음, **확인** 을 선택합니다. 이 백업은 이 백업 항목과 연결된 정책에 따라 보존됩니다.
 4. 포털 알림을 모니터링합니다. 자격 증명 모음 대시보드 > **백업 작업** > **진행 중** 에서 작업 진행률을 모니터링할 수 있습니다. 데이터베이스의 크기에 따라 초기 백업을 만드는 데 시간이 걸릴 수 있습니다.
 
-기본적으로 요청 시 백업의 보존은 45 일입니다.
+기본적으로 요청 시 백업의 보존은 45일입니다.
 
 ### <a name="hana-native-client-integration"></a>HANA 네이티브 클라이언트 통합
 
@@ -86,39 +86,39 @@ HANA 네이티브 클라이언트에서 **Backint** 로 트리거되는 주문�
 
 동일한 머신으로 복원을 위해 **Backint** 를 사용하여 HANA 네이티브 클라이언트에서 트리거된 복원을 **백업 작업** 페이지에서 [모니터링](#monitor-manual-backup-jobs-in-the-portal)할 수 있습니다.
 
-### <a name="run-sap-hana-native-client-backup-to-local-disk-on-a-database-with-azure-backup-enabled"></a>Azure Backup 사용 하도록 설정 된 데이터베이스에서 로컬 디스크로 SAP HANA native client 백업 실행
+### <a name="run-sap-hana-native-client-backup-to-local-disk-on-a-database-with-azure-backup-enabled"></a>Azure Backup을 사용하도록 설정한 데이터베이스에서 로컬 디스크에 SAP HANA 원시 클라이언트 백업을 실행하기
 
 Microsoft Azure Backup으로 백업 중인 데이터베이스의 로컬 백업(HANA Studio/Cockpit 사용)을 수행하려면 다음 단계를 따르세요.
 
 1. 데이터베이스에 대한 전체 또는 로그 백업이 완료될 때까지 기다립니다. SAP HANA Studio/Cockpit에서 상태를 확인합니다.
 2. 관련 DB의 경우
-    1. Backint 매개 변수를 설정 해제 합니다. 이렇게 하려면 **systemdb** > **구성** > **데이터베이스 선택** > **필터(로그)** 를 두 번 클릭합니다.
-        * enable_auto_log_backup: 아니요
+    1. backint 매개 변수를 설정 해제합니다. 이렇게 하려면 **systemdb** > **구성** > **데이터베이스 선택** > **필터(로그)** 를 두 번 클릭합니다.
+        * enable_auto_log_backup: No
         * log_backup_using_backint: False
         * catalog_backup_using_backint: False
-3. 데이터베이스의 주문형 전체 백업 수행
-4. 그런 다음 단계를 반대로 합니다. 위에서 언급 한 것과 동일한 관련 DB의 경우
-    1. backint 매개 변수를 다시 사용 하도록 설정
+3. 데이터베이스의 주문형 전체 백업을 수행합니다.
+4. 그런 다음 단계를 역순으로 실행합니다. 위에서 언급한 것과 동일한 관련 DB의 경우,
+    1. backint 매개 변수를 다시 사용하도록 설정합니다.
         1. catalog_backup_using_backint: True
         1. log_backup_using_backint: True
-        1. enable_auto_log_backup: 예
+        1. enable_auto_log_backup: Yes
 
-### <a name="manage-or-clean-up-the-hana-catalog-for-a-database-with-azure-backup-enabled"></a>Azure Backup 사용 하도록 설정 된 데이터베이스에 대 한 HANA 카탈로그 관리 또는 정리
+### <a name="manage-or-clean-up-the-hana-catalog-for-a-database-with-azure-backup-enabled"></a>Azure Backup을 사용하도록 설정한 데이터베이스에 대한 HANA 카탈로그 관리 또는 정리
 
-백업 카탈로그를 편집 하거나 정리 하려면 다음을 수행 합니다.
+백업 카탈로그를 편집하거나 정리하려면 다음을 수행합니다.
 
 1. 데이터베이스에 대한 전체 또는 로그 백업이 완료될 때까지 기다립니다. SAP HANA Studio/Cockpit에서 상태를 확인합니다.
 2. 관련 DB의 경우
-    1. Backint 매개 변수를 설정 해제 합니다. 이렇게 하려면 **systemdb** > **구성** > **데이터베이스 선택** > **필터(로그)** 를 두 번 클릭합니다.
-        * enable_auto_log_backup: 아니요
+    1. backint 매개 변수를 설정 해제합니다. 이렇게 하려면 **systemdb** > **구성** > **데이터베이스 선택** > **필터(로그)** 를 두 번 클릭합니다.
+        * enable_auto_log_backup: No
         * log_backup_using_backint: False
         * catalog_backup_using_backint: False
-3. 카탈로그를 편집 하 고 이전 항목을 제거 합니다.
-4. 그런 다음 단계를 반대로 합니다. 위에서 언급 한 것과 동일한 관련 DB의 경우
-    1. backint 매개 변수를 다시 사용 하도록 설정
+3. 카탈로그를 편집하고 이전 항목을 제거합니다.
+4. 그런 다음 단계를 역순으로 실행합니다. 위에서 언급한 것과 동일한 관련 DB의 경우,
+    1. backint 매개 변수를 다시 사용하도록 설정합니다.
         1. catalog_backup_using_backint: True
         1. log_backup_using_backint: True
-        1. enable_auto_log_backup: 예
+        1. enable_auto_log_backup: Yes
 
 ### <a name="change-policy"></a>정책 변경
 
@@ -133,7 +133,7 @@ SAP HANA 백업 항목에 대한 기본 정책을 변경할 수 있습니다.
   ![Azure VM의 SAP HANA 선택](./media/sap-hana-db-manage/sap-hana-in-azure-vm.png)
 
 * 기본 정책을 변경하려는 백업 항목을 선택합니다.
-* 기존 백업 정책을 선택 합니다.
+* 기존 백업 정책을 선택합니다.
 
   ![기존 백업 정책 선택](./media/sap-hana-db-manage/existing-backup-policy.png)
 
@@ -152,7 +152,7 @@ SAP HANA 백업 항목에 대한 기본 정책을 변경할 수 있습니다.
 
 ### <a name="modify-policy"></a>정책 수정
 
-정책을 수정 하 여 백업 유형, 빈도 및 보존 범위를 변경 합니다.
+정책을 수정하여 백업 유형, 빈도 및 보존 범위를 변경 합니다.
 
 >[!NOTE]
 >보존 기간의 변경 내용은 새 복구 지점과 모든 이전 복구 지점에 소급 적용됩니다.
@@ -217,7 +217,7 @@ SAP HANA 백업 항목에 대한 기본 정책을 변경할 수 있습니다.
 
 ### <a name="resume-protection-for-an-sap-hana-database"></a>SAP HANA 데이터베이스에 대한 보호 다시 시작
 
-**백업 데이터 보존** 옵션을 선택하고 SAP HANA 데이터베이스에 대한 보호를 중지하는 경우 나중에 보호를 다시 시작할 수 있습니다. 백업 된 데이터를 유지 하지 않는 경우 보호를 다시 시작할 수 없습니다.
+**백업 데이터 보존** 옵션을 선택하고 SAP HANA 데이터베이스에 대한 보호를 중지하는 경우 나중에 보호를 다시 시작할 수 있습니다. 백업 데이터를 유지하지 않으면 보호를 계속할 수 없습니다.
 
 SAP HANA 데이터베이스에 대한 보호를 다시 시작하려면
 
@@ -233,11 +233,11 @@ SAP HANA 데이터베이스에 대한 보호를 다시 시작하려면
 
 ### <a name="upgrading-from-sdc-to-mdc-without-a-sid-change"></a>SID 변경 없이 SDC에서 MDC로 업그레이드
 
-[SDC에서 MDC로 업그레이드 한 후 SID가 변경](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-no-change-in-sid)되지 않은 SAP HANA 데이터베이스의 백업을 계속 하는 방법에 대해 알아봅니다.
+[SDC에서 MDC로 업그레이드 후 SID가 변경되지 않은](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-no-change-in-sid) SAP HANA 데이터베이스의 백업을 계속하는 방법에 대하여 알아봅니다.
 
-### <a name="upgrading-to-a-new-version-in-either-sdc-or-mdc"></a>SDC 또는 MDC에서 새 버전으로 업그레이드
+### <a name="upgrading-to-a-new-version-in-either-sdc-or-mdc"></a>SDC 또는 MDC에서 새 버전으로 업그레이드하기
 
-[버전을 업그레이드 하는](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm)SAP HANA 데이터베이스의 백업을 계속 하는 방법에 대해 알아봅니다.
+[버전이 업그레이드된](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm) SAP HANA 데이터베이스 백업을 계속하는 방법을 알아봅니다.
 
 ### <a name="unregister-an-sap-hana-instance"></a>SAP HANA 인스턴스 등록 취소
 

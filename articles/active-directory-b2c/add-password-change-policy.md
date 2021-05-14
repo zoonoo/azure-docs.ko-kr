@@ -1,5 +1,5 @@
 ---
-title: 사용자 지정 정책을 사용 하 여 암호 변경 구성
+title: 사용자 지정 정책을 사용하여 암호 변경 구성
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 사용자가 암호를 변경할 수 있게 설정하는 방법을 알아봅니다.
 services: active-directory-b2c
@@ -12,26 +12,26 @@ ms.date: 03/22/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 21da8f79772d9648836bedec89cb5d7014486dc6
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
-ms.translationtype: MT
+ms.openlocfilehash: cd63144074577d4ff3564da41e672dd1ca226dcb
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104798362"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257163"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 변경 구성
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Azure Active Directory B2C (Azure AD B2C)에서 로컬 계정을 사용 하 여 로그인 한 사용자가 전자 메일 확인을 통해 id를 증명 하지 않고도 자신의 암호를 변경할 수 있도록 설정할 수 있습니다. 암호 변경 흐름에는 다음 단계가 포함 됩니다.
+Azure AD B2C(Azure Active Directory B2C)에서는 로컬 계정으로 로그인한 사용자가 메일 확인을 통해 ID를 증명할 필요 없이 암호를 변경할 수 있게 설정할 수 있습니다. 암호 변경 흐름에는 다음 단계가 포함됩니다.
 
-1. 사용자가 로컬 계정에 로그인 합니다. 세션이 아직 활성 상태인 경우 Azure AD B2C는 사용자에 게 권한을 부여 하 고 다음 단계로 건너뜁니다.
-1. 사용자가 **이전 암호** 를 확인 한 다음 **새 암호** 를 만들고 확인 합니다.
+1. 사용자가 로컬 계정에 로그인합니다. 세션이 아직 활성 상태인 경우 Azure AD B2C는 사용자에게 권한을 부여하고 다음 단계로 건너뜁니다.
+1. 사용자가 **이전 암호** 를 확인한 다음 **새 암호** 를 만들고 확인합니다.
 
 ![암호 변경 흐름](./media/add-password-change-policy/password-change-flow.png)  
 
 > [!TIP]
-> 암호 변경 흐름을 사용 하면 사용자가 암호를 알고 변경 하려는 경우에만 암호를 변경할 수 있습니다. 사용자가 암호를 잊어버린 경우를 지원 하기 위해 [셀프 서비스 암호 재설정](add-password-reset-policy.md) 을 사용 하도록 설정 하는 것이 좋습니다.
+> 암호 변경 흐름을 사용하면 사용자가 암호를 알고 있고 해당 암호를 변경하려는 경우에만 암호를 변경할 수 있습니다. 사용자가 암호를 잊어버린 경우를 지원하기 위해 [셀프 서비스 암호 재설정](add-password-reset-policy.md)을 사용하는 것이 좋습니다.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -41,10 +41,10 @@ Azure Active Directory B2C (Azure AD B2C)에서 로컬 계정을 사용 하 여 
 
 ::: zone pivot="b2c-custom-policy"
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* [Active Directory B2C에서 사용자 지정 정책을 사용하여 시작하기](custom-policy-get-started.md)에 있는 단계를 완료합니다.
-* 아직 수행 하지 않은 경우 [Azure Active Directory B2C에 웹 응용 프로그램을 등록](tutorial-register-applications.md)합니다.
+* [Active Directory B2C에서 사용자 지정 정책을 사용하여 시작하기](tutorial-create-user-flows.md?pivots=b2c-custom-policy)에 있는 단계를 완료합니다.
+* 아직 등록하지 않았다면 [Azure Active Directory B2C에 웹 애플리케이션을 등록](tutorial-register-applications.md)합니다.
 
 ## <a name="add-the-elements"></a>요소 추가
 
@@ -160,12 +160,12 @@ Azure Active Directory B2C (Azure AD B2C)에서 로컬 계정을 사용 하 여 
 
 1. 변경한 정책을 엽니다. 예를 들면, *B2C_1A_profile_edit_password_change* 입니다.
 2. **애플리케이션** 은 이전에 등록한 애플리케이션을 선택합니다. 토큰을 보려면 **회신 URL** 에 `https://jwt.ms`가 표시되어야 합니다.
-3. **지금 실행** 을 클릭합니다. 이전에 만든 계정으로 로그인 합니다. 이제 암호를 변경할 수 있습니다.
+3. **지금 실행** 을 클릭합니다. 이전에 만든 계정으로 로그인합니다. 이제 암호를 변경할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [GitHub](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change)에서 샘플 정책을 찾습니다.
 - [Azure AD B2C에서 암호 복잡성을 구성](password-complexity.md)하는 방법에 대해 알아봅니다.
-- [암호 다시 설정 흐름](add-password-reset-policy.md)을 설정 합니다.
+- [암호 재설정 흐름](add-password-reset-policy.md)을 설정합니다.
 
 ::: zone-end

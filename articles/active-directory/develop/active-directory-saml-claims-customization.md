@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 25e737afb524cb8c6f45ac8e99f46a8064ae7855
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 0cccf45037320b476b1a44cafa8074bacadacbc8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107598842"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103600952"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
@@ -77,7 +77,7 @@ SAML 요청에 NameIDPolicy에 대한 요소가 포함되지 않은 경우 Micro
 | 디렉터리 확장 | [Azure AD Connect 동기화를 사용하여 온-프레미스 Active Directory에서 동기화되는](../hybrid/how-to-connect-sync-feature-directory-extensions.md) 디렉터리 확장입니다. |
 | 확장 특성 1-15 | Azure AD 스키마를 확장하는 데 사용되는 온-프레미스 확장 특성입니다. |
 
-자세한 내용은 [테이블 3: 원본별 유효한 ID 값](reference-claims-mapping-policy-type.md#table-3-valid-id-values-per-source)을 참조하세요.
+자세한 내용은 [테이블 3: 원본별 유효한 ID 값](active-directory-claims-mapping.md#table-3-valid-id-values-per-source)을 참조하세요.
 
 또한 Azure AD에서 정의한 모든 클레임에 상수(정적) 값을 할당할 수도 있습니다. 상수 값을 할당하려면 다음 단계를 수행하세요.
 

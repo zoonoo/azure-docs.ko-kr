@@ -99,13 +99,13 @@
     - name: 보안
       items:
         - name: 보안 기준
-          href: security-baseline.md
-    - name: 보안 특성
-      href: ./security-baseline.md
+          href: /security/benchmark/azure/baselines/expressroute-security-baseline?toc=/azure/expressroute/TOC.json
     - name: ExpressRoute를 통한 BFD
       href: expressroute-bfd.md
     - name: QoS 요구 사항
       href: expressroute-qos.md
+    - name: ExpressRoute를 통해 Microsoft 365 트래픽 라우팅
+      href: using-expressroute-for-microsoft365.md
     - name: 고가용성 다이어그램 - 디자인
       href: designing-for-high-availability-with-expressroute.md
     - name: 재해 복구 - 디자인
@@ -144,6 +144,8 @@
           href: expressroute-howto-add-ipv6-powershell.md
     - name: 모니터링
       items:
+        - name: 네트워크 인사이트
+          href: expressroute-network-insights.md
         - name: 'ExpressRoute 모니터링, 메트릭 및 경고'
           href: expressroute-monitoring-metrics-alerts.md
         - name: ExpressRoute에 대한 네트워크 성능 모니터 구성
@@ -209,7 +211,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.network#expressroute
     - name: Azure CLI
-      href: /cli/azure/network/express-route
+      href: /cli/azure/azure-cli-reference-for-network
     - name: REST (영문)
       href: /rest/api/expressroute/
     - name: REST(클래식)

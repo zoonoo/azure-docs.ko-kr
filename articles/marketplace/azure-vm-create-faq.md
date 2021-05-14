@@ -1,6 +1,6 @@
 ---
-title: Azure Marketplace VM에 대 한 일반적인 질문
-description: Azure Marketplace에서 가상 머신을 만들 때 발생 하는 일반적인 질문입니다.
+title: Azure Marketplace의 VM에 대한 일반적인 질문
+description: Azure Marketplace에서 가상 머신을 만들 때 발생하는 일반적인 질문입니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
@@ -8,15 +8,15 @@ author: kriti-ms
 ms.author: krsh
 ms.date: 03/10/2021
 ms.openlocfilehash: 2975d1f1558bc7f9e4a12c18882e43a163b97982
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104593427"
 ---
-# <a name="common-questions-about-vm-in-azure-marketplace"></a>Azure Marketplace VM에 대 한 일반적인 질문
+# <a name="common-questions-about-vm-in-azure-marketplace"></a>Azure Marketplace의 VM에 대한 일반적인 질문
 
-FAQ (질문과 대답)는 Azure Marketplace에서 VM (가상 머신) 제품을 만들 때 발생할 수 있는 일반적인 문제를 다룹니다.
+FAQ(질문과 대답)는 Azure Marketplace에서 VM(가상 머신)을 만들 때 발생할 수 있는 일반적인 문제를 다룹니다.
 
 ## <a name="how-do-i-configure-a-virtual-private-network-vpn-to-work-with-my-vms"></a>내 VM에서 작동하도록 VPN(가상 사설망)을 구성하려면 어떻게 해야 하나요?
 
@@ -50,20 +50,20 @@ Azure PowerShell 모듈, Azure Resource Manager 템플릿을 통해 사용자 �
 
 이 문제는 일반적으로 사용자가 잠겨 있는 VHD에서 VM을 만든 경우에 발생합니다. 이 VHD에서 할당된 VM이 없는지 확인한 다음, 작업을 다시 시도하세요. 문제가 계속 발생하면 지원 티켓을 여세요. [파트너 센터 지원](support.md)을 참조하세요.
 
-## <a name="how-do-i-create-a-vm-from-a-generalized-vhd"></a>일반화 된 vhd에서 VM을 만들 어떻게 할까요? 있나요?
+## <a name="how-do-i-create-a-vm-from-a-generalized-vhd"></a>일반화된 VHD에서 VM을 만들려면 어떻게 하나요?
 
 ### <a name="prepare-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 준비
 
-이 섹션에서는 사용자 제공 VM(가상 머신) 이미지를 만들고 배포하는 방법을 설명합니다. Azure에서 배포 된 가상 하드 디스크에서 운영 체제 및 데이터 디스크 VHD 이미지를 제공 하 여이 작업을 수행할 수 있습니다. 이러한 단계는 일반화 된 VHD를 사용 하 여 VM을 배포 합니다.
+이 섹션에서는 사용자 제공 VM(가상 머신) 이미지를 만들고 배포하는 방법을 설명합니다. Azure에서 배포한 가상 하드 디스크의 운영 체제 및 데이터 디스크 VHD 이미지를 제공하여 이 작업을 수행할 수 있습니다. 이러한 단계는 일반화된 VHD를 사용하여 VM을 배포합니다.
 
 1. Azure Portal에 로그인합니다.
-2. 일반화 된 운영 체제 VHD 및 데이터 디스크 Vhd를 Azure Storage 계정에 업로드 합니다.
-3. 홈 페이지에서 리소스 만들기를 선택 하 고 "템플릿 배포"를 검색 한 후 만들기를 선택 합니다.
+2. 일반화된 운영 체제 VHD 및 데이터 디스크 VHD를 Azure Storage 계정에 업로드합니다.
+3. 홈페이지에서 리소스 만들기를 선택하고 "템플릿 배포"를 검색한 다음 만들기를 선택합니다.
 4. 편집기에서 사용자 고유의 템플릿 빌드를 선택합니다.
 
-   :::image type="content" source="media/vm/template-deployment.png" alt-text="템플릿 선택을 표시 합니다.":::
+   :::image type="content" source="media/vm/template-deployment.png" alt-text="템플릿 선택 표시":::
 
-5. 다음 JSON 템플릿을 편집기에 붙여넣고 저장을 선택 합니다.
+5. 편집기에 이 JSON 템플릿을 붙여넣고 저장을 선택합니다.
  ```json
   {
        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -250,7 +250,7 @@ Azure PowerShell 모듈, Azure Resource Manager 템플릿을 통해 사용자 �
 
  **표 1**
 
-| **ResourceGroupName** | **기존 Azure 리소스 그룹 이름입니다. 일반적으로 키 자격 증명 모음과 동일한 RG를 사용 합니다.** |
+| **ResourceGroupName** | **기존 Azure 리소스 그룹 이름입니다. 일반적으로 키 자격 증명 모음과 동일한 RG를 사용합니다.** |
 | --- | --- |
 | TemplateFile | VHDtoImage.json 파일에 대한 전체 경로 이름입니다. |
 | userStorageAccountName | 스토리지 계정 이름 |
@@ -271,7 +271,7 @@ Azure PowerShell 모듈, Azure Resource Manager 템플릿을 통해 사용자 �
 
 Azure에서 배포가 시작됩니다. 지정된 관리되지 않는 VHD가 있는 새 VM을 지정된 스토리지 계정 경로에 만듭니다. 포털의 왼쪽에 있는 Virtual Machines를 선택하여 Azure Portal에서 진행 상황을 추적할 수 있습니다. VM을 만들면 상태가 시작 중에서 실행 중으로 변경됩니다.
 
-2 세대 VM 배포의 경우 다음 템플릿을 사용 합니다.
+2세대 VM 배포의 경우 다음 템플릿을 사용합니다.
  ```json
  {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -454,7 +454,7 @@ Azure에서 배포가 시작됩니다. 지정된 관리되지 않는 VHD가 있�
   ```
 
 
-### <a name="deploy-an-azure-vm-using-powershell"></a>PowerShell을 사용 하 여 Azure VM 배포
+### <a name="deploy-an-azure-vm-using-powershell"></a>PowerShell을 사용하여 Azure VM 배포
 
 다음 스크립트를 복사 및 편집하여 `$storageaccount` 및 `$vhdUrl` 변수의 값을 제공합니다. 이 스크립트를 실행하여 일반화된 기존 VHD에서 Azure VM 리소스를 만듭니다.
 
@@ -471,16 +471,16 @@ $objAzureKeyVaultSecret.Id -vhdUrl "$vhdUrl" -vmSize "Standard\_A2" -publicIPAdd
 New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName"
 ```
 
-## <a name="how-do-i-test-a-hidden-preview-image"></a>숨겨진 미리 보기 이미지를 테스트 어떻게 할까요? 있나요?
+## <a name="how-do-i-test-a-hidden-preview-image"></a>숨겨진 미리 보기 이미지를 테스트하려면 어떻게 하나요?
 
-빠른 시작 템플릿을 사용 하 여 숨겨진 미리 보기 이미지를 배포할 수 있습니다.
-미리 보기 이미지를 배포 하려면 
-1. [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) 또는 [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)의 각 빠른 시작 템플릿으로 이동 하 여 "Azure에 배포"를 선택 합니다. 그러면 Azure Portal으로 이동 됩니다.
-2. Azure Portal에서 "템플릿 편집"을 선택 합니다.
-3. JSON 템플릿에서 imageReference를 검색 하 고 이미지의 publisherid, offerid, skuid 및 버전을 업데이트 합니다. 미리 보기 이미지를 테스트 하려면 offerid에 "-PREVIEW"를 추가 합니다.
+빠른 시작 템플릿을 사용하여 숨겨진 미리 보기 이미지를 배포할 수 있습니다.
+미리 보기 이미지를 배포하려면, 
+1. [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) 또는 [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)용 빠른 시작 템플릿으로 각각 이동하여 "Azure에 배포"를 선택합니다. 그러면 Azure Portal로 이동합니다.
+2. Azure Portal에서 "템플릿 편집"을 선택합니다.
+3. JSON 템플릿에서 imageReference를 검색하고 이미지의 publisherid, offerid, skuid 및 버전을 업데이트합니다. 미리 보기 이미지를 테스트하려면 offerid에 "-PREVIEW"를 추가합니다.
  ![image](https://user-images.githubusercontent.com/79274470/110191995-71c7d500-7de0-11eb-9f3c-6a42f55d8f03.png)
 4. 저장을 클릭합니다.
-5. 나머지 세부 정보를 입력 합니다. 검토 및 만들기
+5. 나머지 세부 정보를 입력합니다. 검토 및 만들기
 
 
 ## <a name="next-steps"></a>다음 단계

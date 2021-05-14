@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub (CLI)를 사용 하 여 규모에 맞게 자동 장치 관리 | Microsoft Docs
-description: Azure IoT Hub 자동 구성을 사용 하 여 여러 IoT 장치 또는 모듈 관리
+title: Azure IoT Hub(CLI)를 사용하여 대규모로 자동 디바이스 관리 | Microsoft Docs
+description: Azure IoT Hub 자동 구성을 사용하여 여러 IoT 디바이스 또는 모듈 관리
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
 ms.openlocfilehash: 0b8b499613f8234f449e6d72f6ed6ec1f2f21287
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92545415"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Azure CLI를 사용한 자동 IoT 디바이스 및 모듈 관리
@@ -63,9 +63,9 @@ Azure IoT Hub에서 자동 디바이스 관리는 대규모 디바이스를 관�
 
 ## <a name="define-the-target-content-and-metrics"></a>대상 콘텐츠 및 메트릭 정의
 
-대상 콘텐츠 및 메트릭 쿼리는 설정할 속성 및 보고 된 속성에 대 한 장치 쌍 또는 모듈 쌍 desired 속성을 설명 하는 JSON 문서로 지정 됩니다.  Azure CLI를 사용 하 여 자동 구성을 만들려면 대상 콘텐츠와 메트릭을 .txt 파일로 로컬로 저장 합니다. 명령을 실행 하 여 장치에 구성을 적용 하는 경우 이후 섹션에서 파일 경로를 사용 합니다.
+대상 콘텐츠 및 메트릭 쿼리는 설정할 원하는 디바이스 쌍 또는 모듈 쌍 속성과 측정할 보고된 속성을 설명하는 JSON 문서로 지정됩니다.  Azure CLI를 사용하여 자동 구성을 만들려면 대상 콘텐츠와 메트릭을 로컬에 .txt 파일로 저장합니다. 이후 섹션에서 명령을 실행하여 디바이스에 구성을 적용할 때 파일 경로를 사용합니다.
 
-자동 장치 구성에 대 한 기본 대상 콘텐츠 샘플은 다음과 같습니다.
+자동 디바이스 구성에 대한 기본 대상 콘텐츠 샘플은 다음과 같습니다.
 
 ```json
 {
@@ -79,7 +79,7 @@ Azure IoT Hub에서 자동 디바이스 관리는 대규모 디바이스를 관�
 }
 ```
 
-자동 모듈 구성은 매우 유사 하 게 작동 하지만 대신를 대상으로 `moduleContent` `deviceContent` 합니다.
+자동 모듈 구성은 매우 유사하게 작동하지만 `deviceContent` 대신 `moduleContent`를 대상으로 합니다.
 
 ```json
 {
@@ -105,7 +105,7 @@ Azure IoT Hub에서 자동 디바이스 관리는 대규모 디바이스를 관�
 }
 ```
 
-모듈에 대 한 메트릭 쿼리는 장치에 대 한 쿼리와도 유사 하지만에서를 선택 `moduleId` `devices.modules` 합니다. 예를 들면 다음과 같습니다. 
+모듈에 대한 메트릭 쿼리는 디바이스에 대한 쿼리와도 유사하지만 `devices.modules`에서 `moduleId`를 선택합니다. 예를 들면 다음과 같습니다. 
 
 ```json
 {
@@ -136,9 +136,9 @@ Azure IoT Hub에서 자동 디바이스 관리는 대규모 디바이스를 관�
 
 * --**hub-name** - 구성을 만들 IoT Hub의 이름입니다. 허브가 현재 구독에 있어야 합니다. `az account set -s [subscription name]` 명령을 사용하여 원하는 구독으로 전환합니다.
 
-* --**대상 조건** -대상 조건을 입력 하 여이 구성의 대상으로 지정할 장치 또는 모듈을 결정 합니다. 자동 장치 구성의 경우 조건은 장치 쌍 태그 또는 장치 쌍 desired 속성을 기반으로 하며 식 형식과 일치 해야 합니다. 예를 들어 `tags.environment='test'` 또는 `properties.desired.devicemodel='4000x'`입니다. 자동 모듈 구성의 경우 조건은 모듈 쌍 태그 또는 모듈 쌍 desired 속성을 기반으로 합니다. 예를 들어 `from devices.modules where tags.environment='test'` 또는 `from devices.modules where properties.reported.chillerProperties.model='4000x'`입니다.
+* --**target-condition** - 대상 조건을 입력하여 이 구성의 대상으로 지정할 디바이스 또는 모듈을 결정합니다. 자동 디바이스 구성의 경우 조건은 디바이스 쌍 태그 또는 원하는 디바이스 쌍 속성을 기반으로 하며, 식 형식과 일치해야 합니다. 예를 들어 `tags.environment='test'` 또는 `properties.desired.devicemodel='4000x'`입니다. 자동 모듈 구성의 경우 조건은 모듈 쌍 태그 또는 원하는 모듈 쌍 속성을 기반으로 합니다. 예를 들어 `from devices.modules where tags.environment='test'` 또는 `from devices.modules where properties.reported.chillerProperties.model='4000x'`입니다.
 
-* --**priority** -양의 정수입니다. 둘 이상의 구성이 동일한 장치 또는 모듈을 대상으로 하는 경우 우선 순위에 대 한 숫자 값이 가장 높은 구성이 적용 됩니다.
+* --**priority** - 양의 정수입니다. 둘 이상의 구성이 동일한 디바이스 또한 모듈을 대상으로 하는 경우, Priority의 숫자 값이 가장 큰 구성이 적용됩니다.
 
 * --**metrics** - 메트릭 쿼리의 파일 경로입니다. 메트릭은 디바이스 또는 모듈이 구성 콘텐츠를 적용한 후 다시 보고할 수 있는 다양한 상태의 요약 수를 제공합니다. 예를 들어 보류 중인 설정 변경에 대한 메트릭, 오류에 대한 메트릭 및 성공적인 설정 변경에 대한 메트릭을 만들 수 있습니다. 
 
@@ -157,13 +157,13 @@ az iot hub configuration show --config-id [configuration id] \
 
 명령 창에서 구성을 검사합니다.  **metrics** 속성은 각 허브에서 평가되는 각 메트릭의 개수를 나열합니다.
 
-* **Targetedcount** -대상 조건과 일치 하는 IoT Hub 장치 쌍 또는 모듈 쌍의 수를 지정 하는 시스템 메트릭입니다.
+* **targetedCount** - 대상 지정 조건과 일치하는 IoT Hub의 디바이스 쌍 또는 모듈 쌍의 수를 지정하는 시스템 메트릭입니다.
 
-* **appliedCount** -시스템 메트릭은 대상 콘텐츠가 적용 된 장치 또는 모듈 수를 지정 합니다.
+* **appliedCount** - 시스템 메트릭은 대상 콘텐츠가 적용된 디바이스 또는 모듈 수를 지정합니다.
 
-* 사용자 **지정 메트릭** -정의한 메트릭은 사용자 메트릭입니다.
+* **사용자 지정 메트릭** - 정의한 메트릭이 사용자 메트릭입니다.
 
-다음 명령을 사용 하 여 각 메트릭에 대 한 장치 Id, 모듈 Id 또는 개체의 목록을 표시할 수 있습니다.
+다음 명령을 사용하여 각 메트릭에 대한 디바이스 ID, 모듈 ID 또는 개체 목록을 표시할 수 있습니다.
 
 ```azurecli
 az iot hub configuration show-metric --config-id [configuration id] \
@@ -172,9 +172,9 @@ az iot hub configuration show-metric --config-id [configuration id] \
 
 * --**config-id** - IoT Hub에 있는 배포의 이름입니다.
 
-* --**메트릭-id** -장치 id 또는 모듈 id 목록을 보려는 메트릭의 이름입니다 (예:) `appliedCount` .
+* --**metric-id** - 디바이스 ID 또는 모듈 ID 목록을 보려는 메트릭의 이름(예: `appliedCount`)입니다.
 
-* --**허브-이름** -배포가 존재 하는 IoT hub의 이름입니다. 허브가 현재 구독에 있어야 합니다. `az account set -s [subscription name]` 명령을 사용하여 원하는 구독으로 전환합니다.
+* --**hub-name** - 배포가 있는 IoT Hub의 이름입니다. 허브가 현재 구독에 있어야 합니다. `az account set -s [subscription name]` 명령을 사용하여 원하는 구독으로 전환합니다.
 
 * --**metric-type** - 메트릭 유형은 `system` 또는 `user`일 수 있습니다.  시스템 메트릭은 `targetedCount` 및 `appliedCount`입니다. 다른 모든 메트릭은 사용자 메트릭입니다.
 
@@ -211,7 +211,7 @@ az iot hub configuration update --config-id [configuration id] \
 
 ## <a name="delete-a-configuration"></a>구성 삭제
 
-구성을 삭제 하는 경우 장치 쌍 또는 모듈 쌍은 다음으로 가장 높은 우선 순위 구성에서 수행 합니다. 쌍가 다른 구성의 대상 조건을 충족 하지 않는 경우에는 다른 설정이 적용 되지 않습니다. 
+구성을 삭제하면 모든 디바이스 쌍 또는 모듈 쌍은 다음으로 가장 높은 우선 순위 구성을 적용합니다. 쌍이 다른 구성의 대상 조건을 충족하지 않는 경우에는 다른 설정이 적용됩니다. 
 
 다음 명령을 사용하여 구성을 삭제합니다.
 
@@ -229,7 +229,7 @@ az iot hub configuration delete --config-id [configuration id] \
 이 문서에서는 IoT 디바이스를 크기 조정 시 구성 및 모니터링하는 방법에 대해 알아보았습니다. Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려면 다음 링크를 따라가세요.
 
 * [대량으로 IoT Hub 디바이스 ID 관리](iot-hub-bulk-identity-mgmt.md)
-* [IoT hub 모니터링](monitor-iot-hub.md)
+* [IoT Hub 모니터링](monitor-iot-hub.md)
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 

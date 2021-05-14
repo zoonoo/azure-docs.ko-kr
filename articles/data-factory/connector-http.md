@@ -1,17 +1,17 @@
 ---
 title: Azure Data Factory를 사용하여 HTTP 원본에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 클라우드 또는 온-프레미스 HTTP 원본에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
-author: jianleishen
+author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.author: jianleishen
-ms.openlocfilehash: c04bf94b26535ec7791bfd0c2354432aaa6fc98e
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.author: jingwang
+ms.openlocfilehash: 247bec30e9933dfd75b7c31cbce15ff043959243
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109485030"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104588888"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HTTP 엔드포인트에서 데이터 복사
 
@@ -49,11 +49,11 @@ HTTP 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="get-started"></a>시작하기
 
-[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 HTTP 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -61,7 +61,7 @@ HTTP 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 
 HTTP 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | **type** 속성은 **HttpServer** 로 설정해야 합니다. | 예 |
 | url | 웹 서버의 기본 URL입니다. | 예 |
@@ -74,7 +74,7 @@ HTTP 연결된 서비스에 다음 속성이 지원됩니다.
 
 **authenticationType** 속성을 **Basic**, **Digest** 또는 **Windows** 로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | userName | HTTP 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | 예 |
 | password | 사용자(**userName** 값)의 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 예 |
@@ -107,7 +107,7 @@ HTTP 연결된 서비스에 다음 속성이 지원됩니다.
 
 ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **ClientCertificate** 로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | embeddedCertData | Base64로 인코딩된 인증서 데이터입니다. | **embeddedCertData** 또는 **certThumbprint** 를 지정합니다. |
 | certThumbprint | 자체 호스팅 통합 런타임 머신의 인증서 저장소에 설치된 인증서의 지문입니다. 자체 호스팅 형식의 통합 런타임이 **connectVia** 속성에 지정된 경우에만 적용됩니다. | **embeddedCertData** 또는 **certThumbprint** 를 지정합니다. |
@@ -166,7 +166,7 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 ### <a name="using-authentication-headers"></a>인증 헤더 사용
 
-또한, 기본 제공 인증 형식과 함께 인증을 위한 요청 헤더를 구성할 수 있습니다.
+또한 기본 제공 인증 형식과 함께 인증을 위한 요청 헤더를 구성할 수 있습니다.
 
 **예제: API 키 인증 사용**
 
@@ -197,11 +197,11 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 
 
-[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
 형식 기반 데이터 세트의 `location` 설정에서 HTTP에 다음 속성이 지원됩니다.
 
-| 속성    | 설명                                                  | 필수 |
+| 속성    | Description                                                  | 필수 |
 | ----------- | ------------------------------------------------------------ | -------- |
 | type        | 데이터 세트에 있는 `location` 아래의 type 속성은 **HttpServerLocation** 으로 설정해야 합니다. | 예      |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. HTTP 커넥터가 결합된 URL(`[URL specified in linked service][relative URL specified in dataset]`)에서 데이터를 복사합니다.   | 예       |
@@ -243,18 +243,18 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 ### <a name="http-as-source"></a>HTTP를 원본으로
 
-[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
 형식 기반 복사 원본의 `storeSettings` 설정에서 HTTP에 다음 속성이 지원됩니다.
 
-| 속성                 | 설명                                                  | 필수 |
+| 속성                 | Description                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | `storeSettings` 아래의 type 속성은 **HttpReadSettings** 로 설정해야 합니다. | 예      |
 | requestMethod            | HTTP 메서드입니다. <br>허용되는 값은 **Get**(기본값) 또는 **Post** 입니다. | 예       |
 | additionalHeaders         | 추가 HTTP 요청 헤더입니다.                             | 예       |
 | requestBody              | HTTP 요청의 본문입니다.                               | 예       |
 | httpRequestTimeout           | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 기본값은 **00:01:40** 입니다. | 예       |
-| maxConcurrentConnections |작업을 실행하는 동안 데이터 저장소에 설정된 동시 연결의 상한입니다. 동시 연결을 제한하려는 경우에만 값을 지정합니다.| 예       |
+| maxConcurrentConnections |활동을 실행하는 동안 데이터 저장소에 설정된 동시 연결의 상한입니다. 동시 연결을 제한하려는 경우에만 값을 지정합니다.| 예       |
 
 **예:**
 
@@ -308,7 +308,7 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 ### <a name="legacy-dataset-model"></a>레거시 데이터 세트 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **HttpFile** 로 설정해야 합니다. | 예 |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. | 예 |
@@ -362,7 +362,7 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 ### <a name="legacy-copy-activity-source-model"></a>레거시 복사 작업 원본 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성을 **HttpSource** 로 설정해야 합니다. | 예 |
 | httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 기본값은 **00:01:40** 입니다.  | 예 |

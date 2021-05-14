@@ -4,12 +4,12 @@ description: Azure CLI를 사용하여 Azure Blockchain Service를 관리하는 
 ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 36b012c486c0c7d3303a81998e88f1605999c899
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 55df56274aa5baa946b60c27cf49723d59c928a1
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87170855"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865930"
 ---
 # <a name="manage-azure-blockchain-service-using-azure-cli"></a>Azure CLI를 사용하여 Azure Blockchain Service 관리
 
@@ -27,7 +27,7 @@ CLI를 로컬에서 설치하고 사용하는 것을 선호하는 경우 [Azure 
 
 1. 로그인합니다.
 
-    로컬에 설치된 CLI를 사용하는 경우 [az login](/cli/azure/reference-index#az-login) 명령을 사용하여 로그인합니다.
+    로컬에 설치된 CLI를 사용하는 경우 [az login](/cli/azure/reference-index#az_login) 명령을 사용하여 로그인합니다.
 
     ```azurecli
     az login
@@ -39,7 +39,7 @@ CLI를 로컬에서 설치하고 사용하는 것을 선호하는 경우 [Azure 
 
     Azure CLI에 대한 확장 참조를 사용하는 경우 먼저 확장을 설치해야 합니다.  Azure CLI 확장은 아직 핵심 CLI의 일부로 제공되지 않는 실험적 명령과 시험판 명령에 대한 액세스를 제공합니다.  확장 업데이트 및 제거를 포함하여 확장에 대해 자세한 내용을 보려면 [Azure CLI에서 확장 사용](/cli/azure/azure-cli-extensions-overview)을 참조하세요.
 
-    다음 명령을 실행하여 [Azure Blockchain Service](/cli/azure/ext/blockchain/blockchain)를 설치합니다.
+    다음 명령을 실행하여 [Azure Blockchain Service](/cli/azure/blockchain)를 설치합니다.
 
     ```azurecli-interactive
     az extension add --name blockchain
@@ -47,7 +47,7 @@ CLI를 로컬에서 설치하고 사용하는 것을 선호하는 경우 [Azure 
 
 ## <a name="create-blockchain-member"></a>블록체인 멤버 만들기
 
-예제는 새 컨소시엄에서 Quorum 원장 프로토콜을 실행하는  Azure Blockchain Service의 [블록체인 멤버를 만듭니다](/cli/azure/ext/blockchain/blockchain/member#ext-blockchain-az-blockchain-member-create).
+예제는 새 컨소시엄에서 Quorum 원장 프로토콜을 실행하는  Azure Blockchain Service의 [블록체인 멤버를 만듭니다](/cli/azure/blockchain/member#az_blockchain_member_create).
 
 ```azurecli
 az blockchain member create \
@@ -74,7 +74,7 @@ az blockchain member create \
 
 ## <a name="change-blockchain-member-passwords-or-firewall-rules"></a>블록체인 멤버 암호 또는 방화벽 규칙 변경
 
-예제는 [블록체인 멤버의 암호, 컨소시엄 관리 암호 및 방화벽 규칙을 업데이트](/cli/azure/ext/blockchain/blockchain/member#ext-blockchain-az-blockchain-member-update) 합니다.
+예제는 [블록체인 멤버의 암호, 컨소시엄 관리 암호 및 방화벽 규칙을 업데이트](/cli/azure/blockchain/member#az_blockchain_member_update) 합니다.
 
 ```azurecli
 az blockchain member update \
@@ -95,7 +95,7 @@ az blockchain member update \
 
 ## <a name="create-transaction-node"></a>트랜잭션 노드 만들기
 
-기존 블록체인 멤버 안에 [트랜잭션 노드를 만듭니다](/cli/azure/ext/blockchain/blockchain/transaction-node#ext-blockchain-az-blockchain-transaction-node-create). 트랜잭션 노드를 추가하여 보안 격리를 강화하고 부하를 분산할 수 있습니다. 예를 들어 다른 클라이언트 애플리케이션에 대한 트랜잭션 노드 엔드포인트가 있을 수 있습니다.
+기존 블록체인 멤버 안에 [트랜잭션 노드를 만듭니다](/cli/azure/blockchain/transaction-node#az_blockchain_transaction_node_create). 트랜잭션 노드를 추가하여 보안 격리를 강화하고 부하를 분산할 수 있습니다. 예를 들어 다른 클라이언트 애플리케이션에 대한 트랜잭션 노드 엔드포인트가 있을 수 있습니다.
 
 ```azurecli
 az blockchain transaction-node create \
@@ -115,7 +115,7 @@ az blockchain transaction-node create \
 
 ## <a name="change-transaction-node-password"></a>트랜잭션 노드 암호 변경하기
 
-예제는 [트랜잭션 노드 암호를 업데이트](/cli/azure/ext/blockchain/blockchain/transaction-node#ext-blockchain-az-blockchain-transaction-node-update)합니다.
+예제는 [트랜잭션 노드 암호를 업데이트](/cli/azure/blockchain/transaction-node#az_blockchain_transaction_node_update)합니다.
 
 ```azurecli
 az blockchain transaction-node update \
@@ -134,7 +134,7 @@ az blockchain transaction-node update \
 
 ## <a name="list-api-keys"></a>API 키 나열하기
 
-API 키는 사용자 이름 및 암호와 유사한 노드 액세스에 사용할 수 있습니다. 키 회전을 지원하는 두 개의 API 키가 있습니다. [API 키를 나열](/cli/azure/ext/blockchain/blockchain/member#ext-blockchain-az-blockchain-transaction-node-list-api-key)하려면 다음 명령을 사용합니다.
+API 키는 사용자 이름 및 암호와 유사한 노드 액세스에 사용할 수 있습니다. 키 회전을 지원하는 두 개의 API 키가 있습니다. [API 키를 나열](/cli/azure/blockchain/member#az_blockchain_transaction_node_list-api-key)하려면 다음 명령을 사용합니다.
 
 ```azurecli
 az blockchain member list-api-key \
@@ -149,7 +149,7 @@ az blockchain member list-api-key \
 
 ## <a name="regenerate-api-keys"></a>API 키 다시 생성하기
 
-다음 명령을 사용하여 [API 키를 다시 생성](/cli/azure/ext/blockchain/blockchain/member#ext-blockchain-az-blockchain-transaction-node-regenerate-api-key)합니다.
+다음 명령을 사용하여 [API 키를 다시 생성](/cli/azure/blockchain/member#az_blockchain_transaction_node_regenerate-api-key)합니다.
 
 ```azurecli
 az blockchain member regenerate-api-key \
@@ -166,7 +166,7 @@ az blockchain member regenerate-api-key \
 
 ## <a name="delete-a-transaction-node"></a>트랜잭션 노드 제거하기
 
-예제는 [블록체인 멤버 트랜잭션 노드를 삭제합니다](/cli/azure/ext/blockchain/blockchain/transaction-node#ext-blockchain-az-blockchain-transaction-node-delete).
+예제는 [블록체인 멤버 트랜잭션 노드를 삭제합니다](/cli/azure/blockchain/transaction-node#az_blockchain_transaction_node_delete).
 
 ```azurecli
 az blockchain transaction-node delete \
@@ -183,7 +183,7 @@ az blockchain transaction-node delete \
 
 ## <a name="delete-a-blockchain-member"></a>블록체인 멤버 삭제
 
-예제는 [블록체인 멤버를 삭제합니다](/cli/azure/ext/blockchain/blockchain/member#ext-blockchain-az-blockchain-member-delete).
+예제는 [블록체인 멤버를 삭제합니다](/cli/azure/blockchain/member#az_blockchain_member_delete).
 
 ```azurecli
 az blockchain member delete \
@@ -208,7 +208,7 @@ az role assignment create \
                             --scope /subscriptions/<subId>/resourceGroups/<groupName>/providers/Microsoft.Blockchain/blockchainMembers/<myMemberName>
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |---------|-------------|
 | **role** | Azure Active Directory 역할의 이름. |
 | **assignee** | Azure Active Directory 사용자 ID. 예를 들어 `user@contoso.com` |
@@ -244,7 +244,7 @@ az role assignment create \
                             --assignee-object-id <assignee_object_id>
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |---------|-------------|
 | **role** | Azure Active Directory 역할의 이름. |
 | **담당자-개체-id** | Azure AD 그룹 ID 또는 애플리케이션 ID입니다. |
@@ -270,7 +270,7 @@ az role assignment delete \
                             --scope /subscriptions/mySubscriptionId/resourceGroups/<myResourceGroup>/providers/Microsoft.Blockchain/blockchainMembers/<myMemberName>/transactionNodes/<myTransactionNode>
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |---------|-------------|
 | **role** | Azure Active Directory 역할의 이름. |
 | **assignee** | Azure Active Directory 사용자 ID. 예를 들어 `user@contoso.com` |

@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 8f329b6377915a3df6e3f3e212cbd8d41f9ed80d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6a144f674f95317f425fd8ba2eb9dda730ed3e28
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90017663"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108750134"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>분석을 사용하여 디바이스 데이터를 분석하는 방법
-
-*이 문서는 운영자, 빌더 및 관리자에게 적용됩니다.*
 
 Azure IoT Central은 기록 추세를 분석하고 디바이스의 다양한 원격 분석을 서로 연관 짓는 풍부한 분석 기능을 제공합니다. 시작하려면 왼쪽 창에서 **Analytics** 로 이동합니다.
 

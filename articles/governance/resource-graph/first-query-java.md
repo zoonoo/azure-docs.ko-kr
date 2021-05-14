@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 Java용 Resource Graph Maven 패키지�
 ms.date: 03/30/2021
 ms.topic: quickstart
 ms.custom: devx-track-java
-ms.openlocfilehash: 97c04cb8b8180034bdc5109446c79deb56e457c9
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 04e32a3e147ed68248f7fead488a1f630ffcdb4d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106223860"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751754"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-java"></a>빠른 시작: Java를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -93,7 +93,7 @@ Azure Resource Graph를 쿼리하기 위해 Java를 사용하도록 설정하려
 
    ```java
    package com.Fabrikam;
-   
+
    import java.util.Arrays;
    import java.util.List;
    import com.azure.core.management.AzureEnvironment;
@@ -104,22 +104,22 @@ Azure Resource Graph를 쿼리하기 위해 Java를 사용하도록 설정하려
    import com.azure.resourcemanager.resourcegraph.models.QueryRequestOptions;
    import com.azure.resourcemanager.resourcegraph.models.QueryResponse;
    import com.azure.resourcemanager.resourcegraph.models.ResultFormat;
-   
+
    public class App
    {
        public static void main( String[] args )
        {
            List<String> listSubscriptionIds = Arrays.asList(args[0]);
            String strQuery = args[1];
-   
+
            ResourceGraphManager manager = ResourceGraphManager.authenticate(new DefaultAzureCredentialBuilder().build(), new AzureProfile(AzureEnvironment.AZURE));
-   
+
            QueryRequest queryRequest = new QueryRequest()
                .withSubscriptions(listSubscriptionIds)
                .withQuery(strQuery);
-           
+
            QueryResponse response = manager.resourceProviders().resources(queryRequest);
-   
+
            System.out.println("Records: " + response.totalRecords());
            System.out.println("Data:\n" + response.data());
        }

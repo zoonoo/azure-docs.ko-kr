@@ -32,6 +32,8 @@
     - name: 정책 할당 - ARM 템플릿
       displayName: 'assign, compliance, resource manager'
       href: ./assign-policy-template.md
+    - name: 정책 할당 - Bicep
+      href: ./assign-policy-bicep.md
     - name: 정책 할당 - Terraform
       displayName: 'assign, compliance, hcl, provider'
       href: ./assign-policy-terraform.md
@@ -46,6 +48,9 @@
     - name: 태그 거버넌스 관리
       displayName: 'modify, append, effects'
       href: ./tutorials/govern-tags.md
+    - name: 정책 상태 변경 이벤트 라우팅
+      displayName: 'event grid, subject, topic, subscription'
+      href: ./tutorials/route-state-change-events.md
     - name: GitHub를 사용하여 코드로 Azure Policy 구현
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./tutorials/policy-as-code-github.md
@@ -87,6 +92,8 @@
           href: ./samples/azure-security-benchmark.md
         - name: Azure Security Benchmark v1
           href: ./samples/azure-security-benchmarkv1.md
+        - name: 캐나다 연방 PBMM
+          href: ./samples/canada-federal-pbmm.md
         - name: CIS Microsoft Azure Foundations Benchmark 1.3.0
           href: ./samples/cis-azure-1-3-0.md
         - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
@@ -95,6 +102,8 @@
           href: ./samples/cmmc-l3.md
         - name: HIPAA HITRUST 9.2
           href: ./samples/hipaa-hitrust-9-2.md
+        - name: IRS 1075 2016년 9월
+          href: ./samples/irs-1075-sept2016.md
         - name: 'ISO 27001:2013'
           href: ./samples/iso-27001.md
         - name: 뉴질랜드 ISM 제한됨
@@ -103,6 +112,14 @@
           href: ./samples/nist-sp-800-53-r4.md
         - name: NIST SP 800-171 R2
           href: ./samples/nist-sp-800-171-r2.md
+        - name: 영국 공식 및 영국 NHS
+          href: ./samples/ukofficial-uknhs.md
+    - name: 게스트 구성 기준
+      items:
+        - name: Azure Security Benchmark에 대한 Linux 기준
+          href: ./samples/guest-configuration-baseline-linux.md
+        - name: Azure Security Benchmark에 대한 Windows 기준
+          href: ./samples/guest-configuration-baseline-windows.md
 - name: 개념
   items:
     - name: 정의 구조
@@ -120,6 +137,9 @@
     - name: 할당 구조
       displayName: 'parameters, enforcementmode, policyDefinitionId'
       href: ./concepts/assignment-structure.md
+    - name: 정책 상태 변경 이벤트에 대응
+      displayName: 'event grid, subject, topic, subscription'
+      href: ./concepts/event-overview.md
     - name: 예외 구조
       displayName: 'waiver, mitigated, compliance'
       href: ./concepts/exemption-structure.md
@@ -149,7 +169,7 @@
     - name: 보안
       items:
         - name: Azure Security Benchmark에 대한 보안 기준
-          href: ./concepts/azure-security-benchmark-baseline.md
+          href: /security/benchmark/azure/baselines/policy-security-baseline?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
 - name: 방법 가이드
   items:
     - name: VS Code용 Azure Policy 확장
@@ -259,22 +279,8 @@
           href: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
     - name: REST (영문)
       items:
-        - name: 이벤트
-          href: /rest/api/policy-insights/policyevents
-        - name: 상태
-          href: /rest/api/policy-insights/policystates
-        - name: 할당
-          href: /rest/api/resources/policyassignments
-        - name: 정책 정의
-          href: /rest/api/resources/policydefinitions
-        - name: 정책 예외
-          href: /rest/api/resources/policyexemptions
-        - name: 이니셔티브 정의
-          href: /rest/api/resources/policysetdefinitions
-        - name: 정책 추적 리소스
-          href: /rest/api/policy-insights/policytrackedresources
-        - name: 수정
-          href: /rest/api/policy-insights/remediations
+        - name: 정책
+          href: /rest/api/policy/
         - name: 게스트 구성
           href: /rest/api/guestconfiguration/
     - name: 리소스 관리자 템플릿

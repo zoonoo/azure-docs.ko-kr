@@ -1,23 +1,23 @@
 ---
-title: IntelliJ를 사용 하 여 Azure Functions에서 Java 함수 만들기
-description: IntelliJ를 사용 하 여 간단한 HTTP로 트리거되는 Java 함수를 만드는 방법에 대해 알아봅니다 .이 함수는 Azure의 서버를 사용 하지 않는 환경에서 실행 되도록 게시 합니다.
+title: IntelliJ를 사용하여 Azure Functions에서 Java 함수 만들기
+description: IntelliJ를 사용하여 간단한 HTTP 트리거 Java 함수를 만든 다음, Azure의 서버리스 환경에서 실행되도록 게시하는 방법에 대해 알아봅니다.
 author: yucwan
 ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: yucwan
 ms.custom: mvc, devcenter, devx-track-java
 ms.openlocfilehash: 45fb62b446e6b589dc0cb9287a8aebe7f4e699b1
-ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105543648"
 ---
-# <a name="create-your-first-java-function-in-azure-using-intellij"></a>IntelliJ를 사용 하 여 Azure에서 첫 번째 Java 함수 만들기
+# <a name="create-your-first-java-function-in-azure-using-intellij"></a>IntelliJ를 사용하여 Azure에서 첫 번째 Java 함수 만들기
 
 이 문서에서는 다음을 안내합니다.
-- IntelliJ 아이디어 프로젝트에서 HTTP로 트리거되는 Java 함수를 만드는 방법입니다.
-- 사용자 컴퓨터의 IDE (통합 개발 환경)에서 프로젝트를 테스트 하 고 디버깅 하기 위한 단계입니다.
+- IntelliJ IDEA 프로젝트에서 HTTP로 트리거되는 Java 함수를 만드는 방법.
+- 개발자 컴퓨터의 IDE(통합 개발 환경)에서 프로젝트를 테스트 및 디버깅하는 단계.
 - Azure Functions에 함수 프로젝트를 배포하기 위한 지침
 
 <!-- TODO ![Access a Hello World function from the command line with cURL](media/functions-create-java-maven/hello-azure.png) -->
@@ -26,7 +26,7 @@ ms.locfileid: "105543648"
 
 ## <a name="set-up-your-development-environment"></a>개발 환경 설정
 
-IntelliJ를 사용 하 여 Azure에 Java 함수를 만들고 게시 하려면 다음 소프트웨어를 설치 합니다.
+IntelliJ를 사용하여 Java 함수를 만들고 Azure에 게시하려면 다음 소프트웨어를 설치합니다.
 
 + 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 + Java 8용 [Azure 지원 JDK(Java Development Kit)](/azure/developer/java/fundamentals/java-jdk-long-term-support)
@@ -56,7 +56,7 @@ IntelliJ를 사용 하 여 Azure에 Java 함수를 만들고 게시 하려면 �
 
    ![디바이스 로그인 브라우저][intellij-azure-link-ms-account]
 
-6. **구독 선택** 대화 상자에서 사용 하려는 구독을 선택 하 고 **선택** 을 클릭 합니다.
+6. **구독 선택** 대화 상자에서 사용하려는 구독을 선택한 다음, **선택** 을 클릭합니다.
 
    ![구독 선택 대화 상자][intellij-azure-login-select-subs]
    
@@ -84,13 +84,13 @@ IntelliJ를 사용 하 여 Azure에 Java 함수를 만들고 게시 하려면 �
 
     ![로컬 실행 함수 테스트 결과](media/functions-create-first-java-intellij/local-run-functions-test.png)
 
-1. 또한 로그는 사용자의 아이디어에 따라 출력 됩니다. 이제 *중지* 단추를 클릭 하 여 함수 앱을 중지 합니다.
+1. 로그는 IDEA에서도 출력됩니다. 이제 ‘중지’ 단추를 클릭하여 함수 앱을 중지합니다.
 
     ![로컬 실행 함수 테스트 로그](media/functions-create-first-java-intellij/local-run-functions-log.png)
 
-## <a name="debug-the-project-locally"></a>프로젝트를 로컬로 디버그
+## <a name="debug-the-project-locally"></a>로컬로 프로젝트 디버그
 
-1. 프로젝트의 함수 코드를 로컬로 디버깅 하려면 도구 모음에서 *디버그* 단추를 선택 합니다. 도구 모음이 표시 되지 않는 경우 모양 **보기**  >    >  **도구 모음** 을 선택 하 여 사용 하도록 설정 합니다.
+1. 프로젝트의 함수 코드를 로컬로 디버깅하려면 도구 모음에서 ‘디버그’ 단추를 선택합니다. 도구 모음이 표시되지 않는 경우 **보기** > **모양** > **도구 모음** 을 선택하여 도구 모음을 사용하도록 설정합니다.
 
     ![로컬 디버그 함수 앱 단추](media/functions-create-first-java-intellij/local-debug-functions-button.png)
 
@@ -104,25 +104,25 @@ IntelliJ를 사용 하 여 Azure에 Java 함수를 만들고 게시 하려면 �
 
     ![Azure에 프로젝트 배포](media/functions-create-first-java-intellij/deploy-functions-to-azure.png)
 
-1. 아직 함수 앱 없는 경우 *+* *함수* 줄을 클릭 합니다. 함수 앱 이름을 입력 하 고 적절 한 플랫폼을 선택 합니다. 여기에서 기본값을 그대로 사용할 수 있습니다. *확인* 을 클릭 하면 방금 만든 새 함수 앱이 자동으로 선택 됩니다. *실행* 을 클릭하여 함수를 배포합니다.
+1. 아직 함수 앱이 없는 경우 ‘함수’ 줄에서 *+* 를 클릭합니다. 함수 앱 이름을 입력하고 적절한 플랫폼을 선택합니다. 여기에서 기본값을 그대로 사용할 수도 있습니다. ‘확인’을 클릭하면 방금 만든 새 함수 앱이 자동으로 선택됩니다. *실행* 을 클릭하여 함수를 배포합니다.
 
     ![Azure에서 함수 앱 만들기](media/functions-create-first-java-intellij/deploy-functions-create-app.png)
 
     ![Azure 로그에 함수 앱 배포](media/functions-create-first-java-intellij/deploy-functions-log.png)
 
-## <a name="manage-function-apps-from-idea"></a>아이디어 로부터 함수 앱 관리
+## <a name="manage-function-apps-from-idea"></a>IDEA에서 함수 앱 관리
 
-1. 아이디어에서 *Azure 탐색기* 를 사용 하 여 함수 앱을 관리할 수 있습니다. *함수 앱* 을 클릭 하면 모든 함수 앱이 여기에 표시 됩니다.
+1. IDEA에서 *Azure Explorer* 를 사용하여 함수 앱을 관리할 수 있습니다. ‘함수 앱’을 클릭하면 모든 함수 앱이 여기에 표시됩니다.
 
     ![탐색기에서 함수 앱 보기](media/functions-create-first-java-intellij/explorer-view-functions.png)
 
-1. 함수 앱 중 하나를 클릭 하 여 선택 하 고 마우스 오른쪽 단추를 클릭 한 다음 *속성 표시* 를 선택 하 여 세부 정보 페이지를 엽니다. 
+1. 함수 앱 중 하나를 클릭하여 선택하고 마우스 오른쪽 단추를 클릭한 다음, ‘속성 표시’를 선택하여 세부 정보 페이지를 엽니다. 
 
     ![함수 앱 속성 표시](media/functions-create-first-java-intellij/explorer-functions-show-properties.png)
 
-1. *Httptrigger-Java* 함수 앱을 마우스 오른쪽 단추로 클릭 하 고 *트리거 함수* 를 선택 하면 트리거 URL을 사용 하 여 브라우저가 열린 것을 볼 수 있습니다.
+1. *HttpTrigger-Java* 함수 앱을 마우스 오른쪽 단추로 클릭하고 ‘트리거 함수’를 선택하면 브라우저에 트리거 URL이 열린 것을 볼 수 있습니다.
 
-    ![스크린 샷에서 U R L이 있는 브라우저를 표시 합니다.](media/functions-create-first-java-intellij/explorer-trigger-functions.png)
+    ![URL이 있는 브라우저를 보여 주는 스크린샷.](media/functions-create-first-java-intellij/explorer-trigger-functions.png)
 
 ## <a name="add-more-functions-to-the-project"></a>프로젝트에 함수 추가
 
@@ -132,7 +132,7 @@ IntelliJ를 사용 하 여 Azure에 Java 함수를 만들고 게시 하려면 �
 
 1. 클래스 이름 *HttpTest* 를 입력하고 함수 클래스 만들기 마법사에서 *HttpTrigger* 를 선택한 후 *확인* 을 클릭하면 원하는 대로 새 함수를 만들 수 있습니다.
 
-    ![함수 클래스 만들기 대화 상자를 보여 주는 스크린샷](media/functions-create-first-java-intellij/add-functions-trigger.png)
+    ![함수 클래스 만들기 대화 상자를 보여 주는 스크린샷.](media/functions-create-first-java-intellij/add-functions-trigger.png)
     
     ![프로젝트 출력에 함수 추가](media/functions-create-first-java-intellij/add-functions-output.png)
 
@@ -140,12 +140,12 @@ IntelliJ를 사용 하 여 Azure에 Java 함수를 만들고 게시 하려면 �
 
 1. Azure 탐색기에서 함수 삭제
       
-      ![상황에 맞는 메뉴에서 선택한 삭제를 보여 주는 스크린샷](media/functions-create-first-java-intellij/delete-function.png)
+      ![상황에 맞는 메뉴에서 삭제가 선택된 모습을 보여 주는 스크린샷.](media/functions-create-first-java-intellij/delete-function.png)
       
 
 ## <a name="next-steps"></a>다음 단계
 
-HTTP 트리거 함수를 사용 하 여 Java 프로젝트를 만들고, 로컬 컴퓨터에서 실행 하 고, Azure에 배포 했습니다. 이제 아래 방법으로 함수를 확장하겠습니다.
+HTTP 트리거 함수를 사용하여 Java 프로젝트를 만들고, 로컬 머신에서 실행하고, Azure에 배포했습니다. 이제 아래 방법으로 함수를 확장하겠습니다.
 
 > [!div class="nextstepaction"]
 > [Azure Storage 큐 출력 바인딩 추가](./functions-add-output-binding-storage-queue-java.md)

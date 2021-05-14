@@ -1,18 +1,19 @@
 ---
 title: FedRAMP Moderate 청사진 샘플 개요
 description: FedRAMP Moderate 청사진 샘플의 개요입니다. 이 청사진 샘플은 고객이 특정 FedRAMP Moderate 컨트롤을 평가하는 데 도움이 됩니다.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 65deb175c3a608b5f3a14048239bfa8be799619d
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 537053b516f1783969b3031a0924d606539c23f4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033815"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757190"
 ---
 # <a name="overview-of-the-fedramp-moderate-blueprint-sample"></a>FedRAMP Moderate 청사진 샘플의 개요
 
-FedRAMP Moderate 청사진 샘플은 특정 FedRAMP Moderate 컨트롤을 평가하는 데 도움이 되는 [Azure Policy](../../../policy/overview.md)를 사용하여 거버넌스 가드 레일을 제공합니다. 이 청사진은 고객이 FedRAMP Moderate 컨트롤을 구현해야 하는 Azure 배포 아키텍처에 대한 핵심 정책 세트를 배포하는 데 도움이 됩니다.
+FedRAMP Moderate 청사진 샘플은 특정 FedRAMP Moderate 컨트롤을 평가하는 데 도움이 되는 [Azure Policy](../../../policy/overview.md)를 사용하여 거버넌스 가드 레일을 제공합니다.
+이 청사진은 고객이 FedRAMP Moderate 컨트롤을 구현해야 하는 Azure 배포 아키텍처에 대한 핵심 정책 세트를 배포하는 데 도움이 됩니다.
 
 ## <a name="control-mapping"></a>컨트롤 매핑
 

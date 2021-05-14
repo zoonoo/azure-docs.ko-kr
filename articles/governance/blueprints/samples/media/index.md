@@ -1,18 +1,18 @@
 ---
 title: Media 청사진 샘플 개요
 description: Media 청사진 샘플에 대한 개요입니다. 이 청사진 샘플은 고객이 특정 Media 컨트롤을 평가하는 데 도움이 됩니다.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: f2b9e29d8f5095947587107cc372beb34b18abb7
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 1fb9b611434cba892f94f8a2ccf86acef04cad3c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034988"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757136"
 ---
 # <a name="overview-of-the-media-blueprint-sample"></a>Media 청사진 샘플의 개요
 
-Media 청사진 샘플은 [Media](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html) 증명에 도움이 되는 [Azure Policy](../../../policy/overview.md)를 사용하여 일련의 거버넌스 가드 레일을 제공합니다. 
+Media 청사진 샘플은 [Media](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html) 증명에 도움이 되는 [Azure Policy](../../../policy/overview.md)를 사용하여 일련의 거버넌스 가드 레일을 제공합니다.
 
 ## <a name="blueprint-sample"></a>청사진 샘플
 
