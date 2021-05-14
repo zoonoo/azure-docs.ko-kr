@@ -27,6 +27,18 @@
       href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
     - name: JavaScript Form Recognizer 클라이언트 라이브러리 SDK
       href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
+- name: AI의 책임 있는 사용
+  items:
+    - name: 투명성 메모
+      items:
+        - name: Form Recognizer 사용 사례
+          href: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/cognitive-services/form-recognizer/context/context
+        - name: 특성 및 제한 사항
+          href: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/cognitive-services/form-recognizer/context/context
+    - name: 윤리 및 책임 있는 사용
+      href: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/cognitive-services/form-recognizer/context/context
+    - name: '데이터, 개인 정보 및 보안'
+      href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/cognitive-services/form-recognizer/context/context
 - name: 방법 가이드
   items:
     - name: 학습 데이터 세트 빌드

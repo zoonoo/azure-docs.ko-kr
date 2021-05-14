@@ -1,18 +1,18 @@
 ---
 title: Azure Data Factory의 필터 작업
 description: 필터 작업은 입력을 필터링합니다.
-author: dcstwh
-ms.author: weetok
+author: chez-charlie
+ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.openlocfilehash: 97693d9f31b01bf6187843586f6971c92fe79bff
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.openlocfilehash: 6a488fff5e5c5f75697e787cdcede4de080a04ba
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786195"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906277"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Azure Data Factory의 필터 작업
 입력 배열에 필터 식을 적용하려면 파이프라인에서 필터 작업을 사용할 수 있습니다. 
@@ -37,12 +37,12 @@ ms.locfileid: "104786195"
 -------- | ----------- | -------------- | --------
 name | `Filter` 작업의 이름입니다. | String | 예
 type | **필터** 로 설정되어야 합니다. | String | 예
-condition(조건) | 입력을 필터링하는 데 사용할 조건입니다. | 식 | 예
+condition(조건) | 입력을 필터링하는 데 사용할 조건입니다. | 식 | Yes
 items | 필터를 적용해야 하는 입력 배열입니다. | 식 | 예
 
 ## <a name="example"></a>예제
 
-이 예제에서 파이프라인에는 **필터** 및 **ForEach** 라는 두 개의 작업이 있습니다. 필터 작업은 3보다 큰 값의 항목에 대한 입력 배열을 필터링하도록 구성됩니다. 그런 다음 ForEach 활동은 필터링 된 값을 반복 하 고 변수 **테스트** 를 현재 값으로 설정 합니다.
+이 예제에서 파이프라인에는 **필터** 및 **ForEach** 라는 두 개의 작업이 있습니다. 필터 작업은 3보다 큰 값의 항목에 대한 입력 배열을 필터링하도록 구성됩니다. 그런 다음, ForEach 작업은 필터링된 값에 대해 반복하고 변수 **test** 를 현재 값으로 설정합니다.
 
 ```json
 {

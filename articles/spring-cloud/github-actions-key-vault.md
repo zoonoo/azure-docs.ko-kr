@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 0ea0db1faf8c452958b8d95c193d45506057777c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9c51a7a953fca4ebdd7014beeb39e732670b15df
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878567"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129030"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>GitHub Actions에서 Key Vault를 사용하여 Azure Spring Cloud 인증
 
@@ -42,7 +42,7 @@ az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTIO
     "managementEndpointUrl": "https://management.core.windows.net/"
 }
 ```
-그런 다음 [GitHub 리포지토리 설정 및 Azure로 인증](./spring-cloud-howto-github-actions.md#set-up-github-repository-and-authenticate)에 설명된 대로 GitHub **비밀** 에 결과를 저장합니다.
+그런 다음 [GitHub 리포지토리 설정 및 Azure로 인증](./how-to-github-actions.md#set-up-github-repository-and-authenticate)에 설명된 대로 GitHub **비밀** 에 결과를 저장합니다.
 
 ## <a name="add-access-policies-for-the-credential"></a>자격 증명에 대한 액세스 정책 추가
 위에서 만든 자격 증명은 저장된 내용이 아니라 Key Vault에 대한 일반 정보만 가져올 수 있습니다.  Key Vault에 저장된 암호를 가져오려면 자격 증명에 대한 액세스 정책을 설정해야 합니다.
@@ -114,4 +114,4 @@ jobs:
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [Spring Cloud GitHub Actions](./spring-cloud-howto-github-actions.md)
+* [Spring Cloud GitHub Actions](./how-to-github-actions.md)

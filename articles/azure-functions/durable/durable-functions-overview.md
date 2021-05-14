@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: d99f1bd97c8199de1bda12f28f3fcb31b697946f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 27d3253d1bd2ec407968ff03e22c34222797ad81
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105031497"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656347"
 ---
 # <a name="what-are-durable-functions"></a>Durable Functions란?
 
@@ -685,7 +685,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 동적으로 생성된 프록시는 .NET에서 엔터티에 대한 신호를 형식이 안전한 방식으로 보내는 데에도 사용할 수 있습니다. 그리고 신호를 보내는 것 외에도 클라이언트는 오케스트레이션 클라이언트 바인딩에서 [형식이 안전한 메서드](durable-functions-bindings.md#entity-client-usage)를 사용하여 엔터티 함수의 상태를 쿼리할 수 있습니다.
+> 동적으로 생성된 프록시는 .NET에서 엔터티에 대한 신호를 형식이 안전한 방식으로 보내는 데에도 사용할 수 있습니다. 그리고 신호를 보내는 것 외에도 클라이언트는 오케스트레이션 클라이언트 바인딩에서 [형식이 안전한 메서드](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces)를 사용하여 엔터티 함수의 상태를 쿼리할 수 있습니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

@@ -7,13 +7,13 @@ metadata:
   services: Azure portal
   ms.topic: landing-page
   ms.collection: collection
-  ms.date: 08/05/2020
-  ms.openlocfilehash: c1617f295a101ae645743d60fdbe82a09d936ea2
-  ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+  ms.date: 03/15/2021
+  ms.openlocfilehash: 7b7727d1fdf550b3ab3341bd0dc852f343b00791
+  ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 12/07/2020
-  ms.locfileid: "96749014"
+  ms.lasthandoff: 03/16/2021
+  ms.locfileid: "103563915"
 landingContent:
 - title: Azure Portal 정보
   linkLists:
@@ -21,18 +21,44 @@ landingContent:
     links:
     - text: Azure Portal이란?
       url: azure-portal-overview.md
+    - text: Azure Quickstart Center를 사용한 온보딩
+      url: azure-portal-quickstart-center.md
     - text: 지원되는 브라우저 및 디바이스
       url: azure-portal-supported-browsers-devices.md
-- title: Azure Portal 사용자 지정
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 포털에서 VM 만들기
+      url: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+    - text: 대시보드 만들기 - Azure CLI
+      url: quickstart-portal-dashboard-azure-cli.md
+    - text: 대시보드 만들기 - Azure PowerShell
+      url: quickstart-portal-dashboard-powershell.md
+    - text: 대시보드 만들기 - ARM 템플릿
+      url: quick-create-template.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Portal 방법 비디오 시리즈
+      url: azure-portal-video-series.md
+- title: 지원 요청 생성 및 관리
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: 포털 기본 설정 지정
-      url: set-preferences.md
-    - text: 사용자 지정 대시보드 만들기 및 공유
-      url: azure-portal-dashboards.md
-    - text: 즐겨찾기 관리
-      url: azure-portal-add-remove-sort-favorites.md
+    - text: Azure 지원 요청 만들기
+      url: supportability/how-to-create-azure-support-request.md
+    - text: Azure 지원 요청 관리
+      url: supportability/how-to-manage-azure-support-request.md
+- title: 접근성 옵션 사용
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 바로 가기 키
+      url: azure-portal-keyboard-shortcuts.md
+  - linkListType: how-to-guide
+    links:
+    - text: 고대비 켜기
+      url: set-preferences.md#choose-a-theme-or-enable-high-contrast
 - title: Azure Portal에 대한 액세스 관리
   linkLists:
   - linkListType: reference
@@ -45,39 +71,17 @@ landingContent:
     links:
     - text: Azure에서 리소스 관리
       url: /learn/paths/manage-resources-in-azure/
-    - text: Azure RBAC(Azure 역할 기반 액세스 제어)로 Azure 리소스 보안
-      url: /learn//modules/secure-azure-resources-with-rbac/
-- title: 시작
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Azure Quickstart Center를 사용한 온보딩
-      url: azure-portal-quickstart-center.md
-  - linkListType: how-to-guide
-    links:
-    - text: Azure Portal 방법 비디오 시리즈
-      url: azure-portal-video-series.md
-  - linkListType: learn
-    links:
-    - text: Azure 기본 사항
-      url: /learn/paths/azure-fundamentals/
-    - text: 클라우드 개념 - 클라우드 컴퓨팅의 원칙
-      url: /learn/modules/principles-cloud-computing/
-- title: 접근성 옵션 사용
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: 바로 가기 키
-      url: azure-portal-keyboard-shortcuts.md
-  - linkListType: how-to-guide
-    links:
-    - text: 고대비 켜기
-      url: set-preferences.md#choose-a-theme-or-enable-high-contrast
-- title: 지원 요청 생성 및 관리
+    - text: Azure RBAC(Azure 역할 기반 액세스 제어)로 리소스 보호
+      url: /learn/modules/secure-azure-resources-with-rbac
+- title: Azure Portal 사용자 지정
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Azure 지원 요청 만들기
-      url: ../azure-portal/supportability/how-to-create-azure-support-request.md
-    - text: 지역 또는 SKU 구독 문제 해결
-      url: ../azure-portal/supportability/sku-series-unavailable.md
+    - text: Azure Portal 설정 및 기본 설정 관리
+      url: set-preferences.md
+    - text: 리소스 정보 보기 및 필터링
+      url: manage-filter-resource-views.md
+    - text: 대시보드 만들기 - Azure Portal UI
+      url: azure-portal-dashboards.md
+    - text: 즐겨찾기 추가, 제거 및 정렬
+      url: azure-portal-add-remove-sort-favorites.md

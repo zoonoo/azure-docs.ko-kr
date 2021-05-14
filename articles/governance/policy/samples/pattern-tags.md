@@ -3,16 +3,16 @@ title: 패턴 정책 정의에 태그 사용
 description: 이 Azure Policy 패턴은 매개 변수화된 태그를 추가하거나 정책 정의의 리소스 그룹에서 태그를 상속하는 방법에 대한 예시를 제공합니다.
 ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: c748eb9b8ea795f9725082ec0aa0b8065ada8c65
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 30357632e92535368505fd72d2414292da0f5ca1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106093387"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752312"
 ---
 # <a name="azure-policy-pattern-tags"></a>Azure Policy 패턴: 태그
 
-[태그](../../..//azure-resource-manager/management/tag-resources.md)는 Azure 리소스를 관리, 구성 및 관리하는 데 중요한 부분입니다. Azure Policy를 사용하면 [수정](../concepts/effects.md#modify) 효과와 [조정 작업](../how-to/remediate-resources.md)을 통해 새 리소스와 기존 리소스에 대한 태그를 대규모로 구성할 수 있습니다.
+[태그](../../../azure-resource-manager/management/tag-resources.md)는 Azure 리소스를 관리, 구성 및 관리하는 데 중요한 부분입니다. Azure Policy를 사용하면 [수정](../concepts/effects.md#modify) 효과와 [조정 작업](../how-to/remediate-resources.md)을 통해 새 리소스와 기존 리소스에 대한 태그를 대규모로 구성할 수 있습니다.
 
 ## <a name="sample-1-parameterize-tags"></a>샘플 1: 매개 변수화된 태그
 

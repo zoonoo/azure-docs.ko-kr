@@ -1,18 +1,18 @@
 ---
 title: Azure Percept DK 구성 요소 언박싱 및 조립
 description: Azure Percept DK를 언박싱 및 연결하고 기능을 활용하는 방법에 대해 알아봅니다.
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/16/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: efa255ba38f7e00785335bf458ecc0ed91da646b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: deaa0a3904eef33ebab8e73687d6864d389e2963
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608183"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748046"
 ---
 # <a name="quickstart-unbox-and-assemble-your-azure-percept-dk-components"></a>빠른 시작: Azure Percept DK 구성 요소 언박싱 및 조립
 

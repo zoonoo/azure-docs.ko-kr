@@ -1,24 +1,24 @@
 ---
 title: Slider UI 요소
-description: Azure Portal에 대 한 Microsoft Common. Slider UI 요소에 대해 설명 합니다. 사용자가 옵션 범위에서 값을 설정할 수 있습니다.
+description: Azure Portal의 Microsoft.Common.Slider UI 요소에 대해 설명합니다. 사용자가 옵션 범위에서 값을 설정할 수 있습니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/10/2020
 ms.author: tomfitz
 ms.openlocfilehash: bb168a4bff6d2570f539307530232b5063bb535c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87098535"
 ---
-# <a name="microsoftcommonslider-ui-element"></a>Microsoft. Slider UI 요소
+# <a name="microsoftcommonslider-ui-element"></a>Microsoft.Common.Slider UI 요소
 
-슬라이더 컨트롤을 사용 하면 사용자가 허용 되는 값 범위에서 선택할 수 있습니다.
+슬라이더 컨트롤을 사용하면 사용자가 허용되는 값 범위에서 값을 선택할 수 있습니다.
 
 ## <a name="ui-sample"></a>UI 샘플
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-slider.png" alt-text="Microsoft. 일반 슬라이더":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-slider.png" alt-text="Microsoft.Common.Slider":::
 
 ## <a name="schema"></a>스키마
 
@@ -48,8 +48,8 @@ ms.locfileid: "87098535"
 
 ## <a name="remarks"></a>설명
 
-- `min`및 `max` 값은 필수입니다. 슬라이더에 대 한 시작점과 끝점을 설정 합니다.
-- `showStepMarkers`속성의 기본값은 true입니다. 단계 마커는 min에서 max 까지의 범위가 100 이하인 경우에만 표시 됩니다.
+- `min` 및 `max` 값은 필수입니다. 이 값은 슬라이더의 시작점과 끝점을 설정합니다.
+- `showStepMarkers` 속성은 기본적으로 true로 설정됩니다. 단계 마커는 min에서 max까지의 범위가 100 이하인 경우에만 표시됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계

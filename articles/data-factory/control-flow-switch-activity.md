@@ -1,24 +1,24 @@
 ---
-title: Azure Data Factory의 전환 작업
-description: 전환 작업을 사용 하면 조건에 따라 처리 흐름을 제어할 수 있습니다.
-author: dcstwh
-ms.author: weetok
+title: Azure Data Factory의 Switch 작업
+description: Switch 작업을 사용하면 조건에 따라 프로세스 흐름을 제어할 수 있습니다.
+author: chez-charlie
+ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 08d93bd3d49dc345b35a942d4d5db4eef937d3de
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.openlocfilehash: dee7e7b21f3f7deb3d76bf36e07a82eeb84ed35a
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786144"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906266"
 ---
-# <a name="switch-activity-in-azure-data-factory"></a>Azure Data Factory의 전환 작업
+# <a name="switch-activity-in-azure-data-factory"></a>Azure Data Factory의 Switch 작업
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Switch 활동은 프로그래밍 언어로 제공 되는 스위치 문과 동일한 기능을 제공 합니다. 조건 평가와 일치 하는 사례에 해당 하는 활동 집합을 평가 합니다.
+Switch 작업은 switch 문이 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 조건 평가와 일치하는 사례에 해당하는 작업 세트를 평가합니다.
 
 ## <a name="syntax"></a>구문
 
@@ -67,11 +67,11 @@ Switch 활동은 프로그래밍 언어로 제공 되는 스위치 문과 동일
 
 속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-name | 전환 활동의 이름입니다. | String | 예
-type | *스위치로* 설정 해야 합니다.* | String | 예
-식 | 문자열 값으로 계산 해야 하는 식입니다. | 결과 형식 문자열이 포함 된 식 | 예
-cases | 값이 식 계산에 일치할 때 실행할 작업 집합 및 값을 포함 하는 사례 집합입니다. 하나 이상의 사례를 제공 해야 합니다. 최대 25 개의 사례 제한이 있습니다. | Case 개체의 배열 | 예
-defaultActivities | 식 계산에 만족 하지 않을 때 실행 되는 작업 집합입니다. | 작업 배열 | 예
+name | 전환 작업의 이름입니다. | String | 예
+type | ‘Switch’로 설정해야 함* | String | 예
+식 | 문자열 값으로 평가되어야 하는 식 | 결과 형식 문자열이 포함된 식 | Yes
+cases | 값이 식 평가에 일치할 때 실행할 작업 집합 및 값을 포함하는 사례 집합입니다. 하나 이상의 사례를 제공해야 합니다. 최대 사례 수 제한은 25개입니다. | 사례 개체의 배열 | Yes
+defaultActivities | 식 평가가 만족되지 않을 때 실행되는 작업 집합입니다. | 작업의 배열 | 예
 
 ## <a name="example"></a>예제
 
@@ -80,7 +80,7 @@ defaultActivities | 식 계산에 만족 하지 않을 때 실행 되는 작업 
 > [!NOTE]
 > 이 섹션에서는 파이프라인을 실행하는 JSON 정의 및 샘플 PowerShell 명령을 제공합니다. Azure PowerShell 및 JSON 정의를 사용하여 Data Factory 파이프라인을 만드는 단계별 지침이 포함된 연습은 [자습서: Azure PowerShell을 사용하여 Data Factory 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
 
-### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>전환 작업을 사용 하는 파이프라인 (Adfv2QuickStartPipeline.js)
+### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>Switch 작업이 포함된 파이프라인(Adfv2QuickStartPipeline.json)
 
 ```json
 {
@@ -286,7 +286,7 @@ defaultActivities | 식 계산에 만족 하지 않을 때 실행 되는 작업 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-이러한 명령은 JSON 파일을 C:\ADF. 폴더에 저장 했다고 가정 합니다. 
+해당 명령에서는 JSON 파일이 C:\ADF 폴더에 저장되어 있다고 가정합니다. 
 
 ```powershell
 Connect-AzAccount

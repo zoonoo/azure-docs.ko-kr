@@ -1,15 +1,15 @@
 ---
 title: SizeSelector UI 요소
-description: Azure Portal의 Microsoft.Compute.SizeSelector UI 요소에 대해 설명합니다. 가상 컴퓨터의 크기를 선택 하는 데 사용 합니다.
+description: Azure Portal의 Microsoft.Compute.SizeSelector UI 요소에 대해 설명합니다. 가상 머신의 크기를 선택하는 데 사용합니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: d6408f8c08694ae681d302ae35f5778894091733
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87063625"
 ---
 # <a name="microsoftcomputesizeselector-ui-element"></a>Microsoft.Compute.SizeSelector UI 요소

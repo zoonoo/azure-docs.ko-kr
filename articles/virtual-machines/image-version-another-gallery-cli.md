@@ -1,6 +1,6 @@
 ---
-title: CLI를 사용 하 여 다른 갤러리에서 이미지 버전 복사
-description: Azure CLI를 사용 하 여 다른 갤러리에서 이미지 버전을 복사 합니다.
+title: CLI를 사용하여 다른 갤러리에서 이미지 버전 복사
+description: Azure CLI를 사용하여 다른 갤러리에서 이미지 버전을 복사합니다.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -9,40 +9,40 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 0bea4fbac062b498dabe04e6e58d530d09b16d6d
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.openlocfilehash: e2cd885d886a0f13783e61a04c7243efdf12967e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102553105"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784986"
 ---
-# <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Azure CLI를 사용 하 여 다른 갤러리에서 이미지 복사
+# <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Azure CLI를 사용하여 다른 갤러리에서 이미지 복사
 
-조직에 여러 갤러리가 있는 경우 다른 갤러리에 저장 된 기존 이미지 버전에서 이미지 버전을 만들 수도 있습니다. 예를 들어 새 이미지를 만들고 테스트 하기 위한 개발 및 테스트 갤러리가 있을 수 있습니다. 프로덕션 환경에서 사용할 준비가 되 면이 예제를 사용 하 여 프로덕션 갤러리에 복사할 수 있습니다. [Azure PowerShell](image-version-another-gallery-powershell.md)를 사용 하 여 다른 갤러리의 이미지에서 이미지를 만들 수도 있습니다.
+조직에 여러 갤러리가 있는 경우 다른 갤러리에 저장된 기존 이미지 버전에서 이미지 버전을 만들 수도 있습니다. 예를 들어 새 이미지를 만들고 테스트하기 위한 개발 및 테스트 갤러리가 있을 수 있습니다. 프로덕션 환경에서 사용할 준비가 되면 이 예제를 사용하여 프로덕션 갤러리에 복사할 수 있습니다. [Azure PowerShell](image-version-another-gallery-powershell.md)을 사용하여 다른 갤러리의 이미지에서 이미지를 만들 수도 있습니다.
 
 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서를 완료 하려면 기존 원본 갤러리, 이미지 정의 및 이미지 버전이 있어야 합니다. 대상 갤러리도 있어야 합니다. 
+이 문서를 완료하려면 기존 원본 갤러리, 이미지 정의, 이미지 버전이 있어야 합니다. 대상 갤러리도 있어야 합니다. 
 
-원본 이미지 버전은 대상 갤러리가 있는 지역에 복제 되어야 합니다. 
+원본 이미지 버전은 대상 갤러리가 있는 지역에 복제되어야 합니다. 
 
-이 문서를 진행할 때 필요한 경우 리소스 이름을 바꿉니다.
+이 문서를 진행하며 필요한 경우 리소스 이름을 바꿉니다.
 
 
 
 ## <a name="get-information-from-the-source-gallery"></a>원본 갤러리에서 정보 가져오기
 
-새 갤러리에서 복사본을 만들 수 있도록 원본 이미지 정의의 정보가 필요 합니다.
+새 갤러리에서 복사본을 만들 수 있으려면 원본 이미지 정의의 정보가 필요합니다.
 
-[Az sig list](/cli/azure/sig#az-sig-list) 를 사용 하 여 사용 가능한 이미지 갤러리에 대 한 정보를 나열 하 여 원본 갤러리에 대 한 정보를 찾습니다.
+[az sig list](/cli/azure/sig#az_sig_list)를 사용하여 사용 가능한 이미지 갤러리에 대한 정보를 나열하고 원본 갤러리에 대한 정보를 찾습니다.
 
 ```azurecli-interactive 
 az sig list -o table
 ```
 
-[Az sig 이미지 정의 목록을](/cli/azure/sig/image-definition#az-sig-image-definition-list)사용 하 여 갤러리에서 이미지 정의를 나열 합니다. 이 예제에서는 *myGalleryRG* 리소스 그룹의 *mygallery* 라는 갤러리에서 이미지 정의를 검색 합니다.
+[az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list)를 사용하여 갤러리의 이미지 정의를 나열합니다. 이 예제에서는 *myGalleryRG* 리소스 그룹에 있는 *myGallery* 라는 갤러리에서 이미지 정의를 검색합니다.
 
 ```azurecli-interactive 
 az sig image-definition list \
@@ -51,7 +51,7 @@ az sig image-definition list \
    -o table
 ```
 
-갤러리에 있는 이미지 버전을 나열 하 고, [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) 를 사용 하 여 새 갤러리에 복사 하려는 이미지 버전을 찾습니다. 이 예제에서는 *Myimagedefinition* 이미지 정의의 일부인 모든 이미지 버전을 찾습니다.
+[az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list)를 사용하여 갤러리의 이미지 버전을 나열하고 새 갤러리에 복사하려는 이미지 버전을 찾습니다. 이 예제에서는 *myImageDefinition* 이미지 정의에 속하는 모든 이미지 버전을 찾습니다.
 
 ```azurecli-interactive
 az sig image-version list \
@@ -61,7 +61,7 @@ az sig image-version list \
    -o table
 ```
 
-필요한 정보가 모두 있으면 [az sig image-version show](/cli/azure/sig/image-version#az-sig-image-version-show)를 사용 하 여 원본 이미지 버전의 ID를 가져올 수 있습니다.
+필요한 정보가 모두 있으면 [az sig image-version show](/cli/azure/sig/image-version#az_sig_image_version_show)를 사용하여 원본 이미지 버전의 ID를 가져올 수 있습니다.
 
 ```azurecli-interactive
 az sig image-version show \
@@ -75,7 +75,7 @@ az sig image-version show \
 
 ## <a name="create-the-image-definition"></a>이미지 정의 만들기 
 
-원본 이미지 버전의 이미지 정의와 일치 하는 이미지 정의를 만들어야 합니다. [Az sig 이미지 정의 표시](/cli/azure/sig/image-definition#az-sig-image-definition-show)를 사용 하 여 새 갤러리에서 이미지 정의를 다시 만드는 데 필요한 모든 정보를 볼 수 있습니다.
+원본 이미지 버전의 이미지 정의와 일치하는 이미지 정의를 만들어야 합니다. [az sig image-definition show](/cli/azure/sig/image-definition#az_sig_image_definition_show)를 사용하여 새 갤러리에 이미지 정의를 다시 만드는 데 필요한 모든 정보를 표시할 수 있습니다.
 
 ```azurecli-interactive
 az sig image-definition show \
@@ -84,7 +84,7 @@ az sig image-definition show \
    --gallery-image-definition myImageDefinition
 ```
 
-출력은 다음과 같이 표시됩니다.
+출력은 다음과 비슷할 것입니다.
 
 ```output
 {
@@ -114,7 +114,7 @@ az sig image-definition show \
 }
 ```
 
-위의 출력 정보를 사용 하 여 새 갤러리에서 새 이미지 정의를 만듭니다.
+위의 출력 정보를 사용하여 새 갤러리에 새 이미지 정의를 만듭니다.
 
 
 ```azurecli-interactive 
@@ -133,11 +133,11 @@ az sig image-definition create \
 
 ## <a name="create-the-image-version"></a>이미지 버전 만들기
 
-[Az image gallery 만들기-이미지-버전](/cli/azure/sig/image-version#az-sig-image-version-create)을 사용 하 여 버전을 만듭니다. 이미지 버전을 만드는 기준선으로 사용할 관리되는 이미지의 ID를 전달해야 합니다. [az image list](/cli/azure/image?view#az-image-list)를 사용하여 리소스 그룹에 있는 이미지에 대한 정보를 가져올 수 있습니다. 
+[az image gallery create-image-version](/cli/azure/sig/image-version#az_sig_image_version_create)을 사용하여 버전을 만듭니다. 이미지 버전을 만드는 기준선으로 사용할 관리되는 이미지의 ID를 전달해야 합니다. [az image list](/cli/azure/image?view#az_image_list)를 사용하여 리소스 그룹에 있는 이미지에 대한 정보를 가져올 수 있습니다. 
 
 이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch*.
 
-이 예제에서 이미지의 버전은 *1.0.0* 이며, 지역 중복 저장소를 사용 하 여 *미국 동부* 지역에서 *미국* 동부 지역에 1 개의 복제본을 만들려고 합니다.
+해당 예제에서 이미지의 버전은 *1.0.0* 이며, 영역 중복 스토리지를 사용하여 ‘미국 중남부’ 지역에 복제본 1개, ‘미국 동부’ 지역에 복제본 1개를 만들 것입니다. 
 
 
 ```azurecli-interactive 
@@ -154,13 +154,13 @@ az sig image-version create \
 > [!NOTE]
 > 동일한 관리형 이미지를 사용하여 다른 이미지 버전을 만들려면 먼저 해당 이미지 버전이 완전히 빌드되어 복제될 때까지 기다려야 합니다.
 >
-> `--storage-account-type  premium_lrs`이미지 버전을 만들 때를 추가 하 여, 또는 [영역 중복 저장소](../storage/common/storage-redundancy.md) 를 추가 하 여 Premium storage에 이미지를 저장할 수도 있습니다 `--storage-account-type  standard_zrs` .
+> 또한 이미지 버전을 만들 때 `--storage-account-type  premium_lrs`를 추가하여 Premium Storage에 이미지를 저장하거나, `--storage-account-type  standard_zrs`를 추가하여 [영역 중복 스토리지](../storage/common/storage-redundancy.md)에 이미지를 저장할 수도 있습니다.
 >
 
 ## <a name="next-steps"></a>다음 단계
 
-[일반화](vm-generalized-image-version-cli.md) 된 이미지 버전 또는 [특수](vm-specialized-image-version-cli.md) 이미지 버전에서 VM을 만듭니다.
+[일반화](vm-generalized-image-version-cli.md)된 이미지 버전 또는 [특화](vm-specialized-image-version-cli.md)된 이미지 버전에서 VM을 만듭니다.
 
-또한 [Azure 이미지 작성기 (미리 보기)](./image-builder-overview.md) 를 사용 하면 이미지 버전 생성을 자동화 하는 데 도움이 될 수 있으며, [기존 이미지 버전에서 새 이미지 버전을](./linux/image-builder-gallery-update-image-version.md)업데이트 하 고 만드는 데에도 사용할 수 있습니다. 
+[Azure Image Builder(미리 보기)](./image-builder-overview.md)는 이미지 버전 생성 자동화에 도움이 되며, [기존 이미지 버전에서 새 이미지 버전을 만들고](./linux/image-builder-gallery-update-image-version.md) 업데이트하는 데에도 사용할 수 있습니다. 
 
-구매 계획 정보를 제공 하는 방법에 대 한 자세한 내용은 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](marketplace-images.md)을 참조 하세요.
+구매 계획 정보에 대한 자세한 내용은 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](marketplace-images.md)을 참조하세요.

@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
 ms.openlocfilehash: b8b03378e82810bc2b9680805bacf8360f322a94
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101708138"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Azure Monitor의 Azure 네트워킹 모니터링 솔루션
@@ -41,14 +41,14 @@ Azure Monitor는 네트워크를 모니터링하기 위해 다음과 같은 솔�
 1. Azure Monitor에 관리 솔루션을 추가하고
 2. Azure Monitor의 Log Analytics 작업 영역에 대한 진단을 지시하는 진단을 사용합니다. Azure Blob Storage에 로그를 쓸 필요는 없습니다.
 
-진단 로그를 사용할 수 없는 경우 해당 리소스에 대 한 대시보드 블레이드가 비어 있고 오류 메시지를 표시 합니다.
+진단 로그를 사용할 수 없는 경우, 해당 리소스의 대시보드 블레이드는 공란이며 오류 메시지가 나타납니다.
 
 ## <a name="azure-application-gateway-analytics"></a>Azure Application Gateway 분석
 
 1. Azure Monitor의 Log Analytics 작업 영역에 대한 진단을 지시하는 진단을 사용합니다.
-2. Application Gateway에 대 한 통합 문서 템플릿을 사용 하 여 리소스에 대 한 자세한 요약을 사용 합니다.
+2. Application Gateway용 통합 문서 템플릿을 사용하여 리소스에 대한 자세한 요약을 사용합니다.
 
-Application Gateway에 대해 진단 로그를 사용 하도록 설정 하지 않은 경우에는 통합 문서 내에 기본 메트릭 데이터만 채워집니다.
+Application Gateway용 진단 로그를 사용할 수 없는 경우, 통합 문서의 기본 메트릭 데이터만 채워집니다.
 
 
 > [!NOTE]
@@ -69,11 +69,11 @@ Azure Application Gateway 분석 및 네트워크 보안 그룹 분석 관리 �
 ### <a name="enable-azure-application-gateway-diagnostics-in-the-portal"></a>포털에서 Azure Application Gateway 진단 사용 설정
 
 1. Azure Portal에서 모니터링할 Application Gateway 리소스로 이동합니다.
-2. *진단 설정* 을 선택 하 여 다음 페이지를 엽니다.
+2. *진단 설정* 을 선택하여 다음 페이지를 엽니다.
 
-   ![Application Gateway 리소스에 대 한 진단 설정 구성의 스크린샷](media/azure-networking-analytics/diagnostic-settings-1.png)
+   ![Application Gateway 리소스용 진단 설정 구성의 스크린샷.](media/azure-networking-analytics/diagnostic-settings-1.png)
 
-   [![진단 설정 구성에 대 한 페이지의 스크린샷](media/azure-networking-analytics/diagnostic-settings-2.png)](media/azure-networking-analytics/application-gateway-diagnostics-2.png#lightbox)
+   [ ![진단 설정 구성 페이지 스크린샷](media/azure-networking-analytics/diagnostic-settings-2.png)](media/azure-networking-analytics/application-gateway-diagnostics-2.png#lightbox)
 
 5. Log Analytics로 보내기 확인란을 클릭합니다.
 6. 기존 Log Analytics 작업 영역을 선택하거나 작업 영역을 만듭니다.
@@ -92,47 +92,47 @@ $gateway = Get-AzApplicationGateway -Name 'ContosoGateway'
 Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
 
-#### <a name="accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights"></a>Azure Monitor Network insights를 통해 Azure 애플리케이션 Gateway analytics에 액세스
+#### <a name="accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights"></a>Azure Monitor 네트워크 인사이트를 통하여 Azure Application Gateway 분석에 액세스
 
-Application insights는 Application Gateway 리소스 내에서 insights 탭을 통해 액세스할 수 있습니다.
+Application Gateway 리소스의 인사이트 탭을 통하여 애플리케이션 인사이트에 액세스할 수 있습니다.
 
-![Application Gateway insights의 스크린샷 ](media/azure-networking-analytics/azure-appgw-insights.png
+![Application Gateway 인사이트 스크린샷 ](media/azure-networking-analytics/azure-appgw-insights.png
 )
 
-"자세한 메트릭 보기" 탭은 Application Gateway에서 데이터를 요약 하는 미리 채워진 통합 문서를 엽니다.
+“상세 메트릭 보기” 탭이 Application Gateway의 데이터를 요약하는 미리 채워진 통합 문서를 엽니다.
 
-[![Application Gateway 통합 문서 스크린샷](media/azure-networking-analytics/azure-appgw-workbook.png)](media/azure-networking-analytics/application-gateway-workbook.png#lightbox)
+[ ![Application Gateway 통합 문서 스크린샷](media/azure-networking-analytics/azure-appgw-workbook.png)](media/azure-networking-analytics/application-gateway-workbook.png#lightbox)
 
-### <a name="new-capabilities-with-azure-monitor-network-insights-workbook"></a>Azure Monitor Network Insights 통합 문서를 사용 하는 새로운 기능
-
-> [!NOTE]
-> Azure Monitor Insights 통합 문서와 관련 된 추가 비용은 없습니다. Log Analytics 작업 영역에는 사용량에 따라 계속 요금이 청구 됩니다.
-
-Network Insights 통합 문서를 사용 하면 다음을 포함 하 여 Azure Monitor 및 Log Analytics의 최신 기능을 활용할 수 있습니다.
-
-* [메트릭](../insights/network-insights-overview.md#resource-health-and-metrics) 및 로그 데이터를 모두 사용 하 여 모니터링 하 고 문제를 해결 하기 위한 중앙 집중식 콘솔
-
-* 사용자 지정 풍부한 [시각화](../visualize/workbooks-overview.md#visualizations)만들기를 지 원하는 유연한 캔버스입니다.
-
-* 더 광범위 한 커뮤니티에서 [통합 문서 템플릿을](../visualize/workbooks-overview.md#workbooks-versus-workbook-templates) 사용 및 공유 하는 기능
-
-새 통합 문서 솔루션의 기능에 대 한 자세한 정보를 보려면 [통합 문서 체크 아웃-개요](../visualize/workbooks-overview.md) 를 참조 하세요.
-
-## <a name="migrating-from-azure-gateway-analytics-solution-to-azure-monitor-workbooks"></a>Azure Gateway analytics 솔루션에서 Azure Monitor 통합 문서로 마이그레이션
+### <a name="new-capabilities-with-azure-monitor-network-insights-workbook"></a>Azure Monitor 네트워크 인사이트 통합 문서의 새로운 기능
 
 > [!NOTE]
-> Azure Monitor Network Insights 통합 문서는 Application Gateway 리소스에 대 한 메트릭 및 log analytics에 액세스 하기 위한 권장 솔루션입니다.
+> Azure Monitor 인사이트 통합 문서에 대한 추가 비용은 없습니다. Log Analytics 작업 영역은 사용량에 따라 계속 요금이 청구됩니다.
 
-1. 로그를 Log Analytics 작업 영역에 저장 하려면 [진단 설정을 사용](#enable-azure-application-gateway-diagnostics-in-the-portal) 하도록 설정 해야 합니다. 이미 구성 되어 있는 경우 Azure Monitor Network Insights 통합 문서는 동일한 위치의 데이터를 사용할 수 있으며 추가 변경이 필요 하지 않습니다.
+네트워크 인사이트 통합 문서를 통하여 Azure Monitor와 Log Analytics의 다음 기능을 포함한 최신 기능을 이용할 수 있습니다.
+
+* [메트릭](../insights/network-insights-overview.md#resource-health-and-metrics)과 로그 데이터 둘 모두를 모니터링하고 문제를 해결하기 위한 중앙 집중형 콘솔
+
+* 사용자 지정 풍부한 [시각화](../visualize/workbooks-overview.md#visualizations) 생성을 지원하는 유연한 캔버스
+
+* 보다 광범위한 커뮤니티에서 [통합 문서 템플릿을 공유](../visualize/workbooks-overview.md#workbooks-versus-workbook-templates)하고 사용하는 기능
+
+새로운 통합 문서 솔루션의 기능에 대한 자세한 내용은 [통합 문서-개요](../visualize/workbooks-overview.md)를 참조하세요.
+
+## <a name="migrating-from-azure-gateway-analytics-solution-to-azure-monitor-workbooks"></a>Azure Gateway 분석 솔루션에서 Azure Monitor 통합 문서로의 마이그레이션
 
 > [!NOTE]
-> 이전 데이터는 이미 사용 하도록 설정 된 시점부터 통합 문서 내에서 사용할 수 있습니다. 데이터 전송이 필요 하지 않습니다.
+> Azure Monitor 네트워크 인사이트 통합 문서는 Application Gateway 리소스가 메트릭과 Log Analytics에 액세스하기에 바람직한 솔루션입니다.
 
-2. Application Gateway 리소스에 대 한 [기본 insights 통합 문서](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) 에 액세스 합니다. Application Gateway analytics 솔루션에서 지원 되는 모든 기존 정보는 통합 문서에 이미 있습니다. 메트릭 & 로그 데이터를 기반으로 사용자 지정 [시각화](../visualize/workbooks-overview.md#visualizations) 를 추가 하 여이를 확장할 수 있습니다.
+1. [진단 설정을 사용하도록 설정](#enable-azure-application-gateway-diagnostics-in-the-portal)하여 로그를 Log Analytics 작업 영역에 저장할 수 있도록 하여야 합니다. 이미 그와 같이 구성한 경우, Azure Monitor 네트워크 인사이트 통합 문서가 동일한 위치에서 데이터를 사용할 수 있으며 별도의 변경은 필요 없습니다.
 
-3. 모든 메트릭 및 로그 정보를 볼 수 있으며, 작업 영역에서 Azure Gateway analytics 솔루션을 정리 하려면 솔루션 리소스 페이지에서 솔루션을 삭제 하면 됩니다.
+> [!NOTE]
+> 진단 설정을 원래 사용하도록 설정한 시점부터 과거의 데이터는 통합 문서에서 모두 사용할 수 있습니다. 데이터를 전송할 필요가 없습니다.
 
-[![Azure 애플리케이션 Gateway analytics 솔루션에 대 한 삭제 옵션의 스크린샷](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
+2. Application Gateway 리소스에 대한 [기본 인사이트 통합 문서](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights)에 엑세스합니다. Application Gateway 분석 솔루션이 지원하는 기존의 인사이트가 모두 이미 통합 문서에 들어 있습니다. 메트릭 및 로그 데이터를 기반으로 한 사용자 지정[시각화](../visualize/workbooks-overview.md#visualizations)를 추가하여 이를 확장할 수 있습니다.
+
+3. 메트릭과 로그 인사이트를 모두 볼 수 있게 되어 작업 영역에서 Azure Gateway 분석 솔루션을 정리할 수 있게 되면 해당 솔루션 리소스 페이지에서 솔루션을 삭제할 수 있습니다.
+
+[ ![Azure Application Gateway 분석 솔루션의 삭제 옵션 스크린샷](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
 
 ## <a name="azure-network-security-group-analytics-solution-in-azure-monitor"></a>Azure Monitor의 Azure 네트워크 보안 그룹 분석 솔루션
 
@@ -160,10 +160,10 @@ Network Insights 통합 문서를 사용 하면 다음을 포함 하 여 Azure M
 1. Azure Portal에서 모니터링할 네트워크 보안 그룹 리소스로 이동합니다.
 2. *진단 로그* 를 선택하여 다음 페이지를 엽니다.
 
-   ![진단을 켜는 옵션을 보여 주는 네트워크 보안 그룹 리소스에 대 한 진단 로그 페이지의 스크린샷](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics01.png)
+   ![진단을 켜는 옵션을 보여 주는 네트워크 보안 그룹 리소스 관련 진단 로그 페이지의 스크린샷](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics01.png)
 3. *진단 사용* 을 클릭하여 다음 페이지를 엽니다.
 
-   ![진단 설정 구성에 대 한 페이지의 스크린샷 상태가 설정 됨으로 설정 되 고 Log Analytics에 보내기를 선택 하 고 두 개의 로그 유형을 선택 합니다.](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics02.png)
+   ![진단 설정 구성 페이지 스크린샷 상태를 사용으로 설정하고 Log Analytics에 보내기를 선택한 다음 로그 유형 두 가지를 선택합니다.](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics02.png)
 4. 진단을 사용하려면 *상태* 에서 *켜기* 를 클릭합니다.
 5. *Log Analytics로 보내기* 확인란을 클릭합니다.
 6. 기존 Log Analytics 작업 영역을 선택하거나 작업 영역을 만듭니다.
@@ -191,9 +191,9 @@ Set-AzDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -
   * 허용된 흐름이 있는 네트워크 보안 그룹 규칙
   * 허용된 흐름이 있는 MAC 주소
 
-![차단 된 흐름 및 차단 된 흐름의 MAC 주소가 있는 규칙을 포함 하 여 네트워크 보안 그룹 차단 된 흐름에 대 한 데이터가 포함 된 타일의 스크린샷](media/azure-networking-analytics/log-analytics-nsg01.png)
+![흐름이 차단된 규칙과 흐름이 차단된 MAC 주소를 포함하는 네트워크 보안 그룹 차단된 흐름의 데이터 타일 스크린샷](media/azure-networking-analytics/log-analytics-nsg01.png)
 
-![허용 된 흐름이 있는 허용 된 흐름 및 MAC 주소를 포함 하는 네트워크 보안 그룹에 대 한 데이터가 포함 된 타일의 스크린샷](media/azure-networking-analytics/log-analytics-nsg02.png)
+![흐름이 허용된 규칙과 흐름이 허용된 MAC 주소를 포함하는 네트워크 보안 그룹 허용된 흐름의 데이터 타일 스크린샷](media/azure-networking-analytics/log-analytics-nsg02.png)
 
 **Azure 네트워크 보안 그룹 분석** 대시보드의 블레이드 중 하나에서 요약 정보를 검토한 다음 하나를 클릭하여 로그 검색 페이지에서 해당 항목에 대한 세부 정보를 봅니다.
 

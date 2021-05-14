@@ -16,6 +16,8 @@
       href: multi-factor-authentication-end-user-app-passwords.md
     - name: 로그인 방법
       href: user-help-sign-in.md?toc=./toc.json
+    - name: 회사 또는 학교 계정 로그인
+      href: multi-factor-authentication-end-user-signin.md
     - name: 도움말 보기
       href: multi-factor-authentication-end-user-troubleshoot.md
 - name: 암호 재설정 도움말

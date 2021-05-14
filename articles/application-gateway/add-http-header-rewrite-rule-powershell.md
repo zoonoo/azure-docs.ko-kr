@@ -7,13 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: absha
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c694a2151f15af52a5380b9a442c1ac27fa1e475
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: b674bdf59959715b666c521c0d0631f86f71b1d3
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319596"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093727"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Azure Application Gateway로 HTTP 요청 및 응답 헤더 다시 쓰기 - Azure PowerShell
 
@@ -107,4 +106,4 @@ set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="next-steps"></a>다음 단계
 
-몇 가지 일반적인 사용 사례를 설정하는 방법에 관한 자세한 내용은 [공용 헤더 다시 쓰기 시나리오](./rewrite-http-headers-url.md)를 참조하세요.
+몇 가지 일반적인 사용 사례를 설정하는 방법에 관한 자세한 내용은 [공용 헤더 다시 쓰기 시나리오](./rewrite-http-headers.md)를 참조하세요.
