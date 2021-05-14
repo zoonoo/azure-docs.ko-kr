@@ -1,4 +1,4 @@
-- name: Cloud Services(추가 지원) 설명서
+- name: Azure Cloud Services(추가 지원) 설명서
   href: index.yml
 - name: 개요
   items:
@@ -51,20 +51,44 @@
           href: schema-cscfg-role.md
         - name: NetworkConfiguration 스키마
           href: schema-cscfg-networkconfiguration.md
-    - name: 질문과 대답
-      href: faq.md
 - name: 방법
   items:
-    - name: 원격 데스크톱 확장 적용
-      href: enable-rdp.md
-    - name: WAD 확장 적용
-      href: enable-wad.md
+    - name: Azure Cloud Services(추가 지원)로 마이그레이션
+      items:
+        - name: 마이그레이션 개요
+          href: in-place-migration-overview.md
+        - name: 마이그레이션 기술 세부 정보
+          href: in-place-migration-technical-details.md
+        - name: Azure Portal을 사용하여 마이그레이션
+          href: in-place-migration-portal.md
+        - name: Powershell을 사용하여 마이그레이션
+          href: in-place-migration-powershell.md
+        - name: 일반적인 오류 및 알려진 문제
+          href: in-place-migration-common-errors.md
+    - name: 확장 적용
+      items:
+        - name: 원격 데스크톱 확장 적용
+          href: enable-rdp.md
+        - name: WAD 확장 적용
+          href: enable-wad.md
     - name: 경고 사용
       href: enable-alerts.md
     - name: 크기 조정 구성
       href: configure-scaling.md
     - name: 인증서
       href: certificates-and-key-vault.md
+    - name: 포털을 사용하여 ARM 템플릿 생성
+      href: generate-template-portal.md
+    - name: 클라우드 서비스 배포 교환
+      href: swap-cloud-service.md
+    - name: SKU 세부 정보 재정의
+      href: override-sku.md
+    - name: 문제 해결
+      items:
+        - name: 역할 시작 실패
+          href: role-startup-failure.md
+        - name: 질문과 대답
+          href: faq.md
 - name: 샘플
   items:
     - name: 샘플 템플릿
@@ -88,9 +112,11 @@
     - name: REST (영문)
       href: /rest/api/compute/cloudservices
     - name: .NET
-      href: /dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet-preview
+      href: /dotnet/api/overview/azure/virtualmachines/management
     - name: SDK)
       href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview'
+    - name: CLI
+      href: 'https://docs.microsoft.com/cli/azure/cloud-service?view=azure-cli-latest'
 - name: 리소스
   items:
     - name: Azure 로드맵

@@ -1,21 +1,21 @@
 ---
 title: Azure DevTest Labs에서 VM에 아티팩트 추가 | Microsoft Docs
-description: Azure DevTest Labs에서 랩에서 가상 머신에 아티팩트를 추가 하는 방법에 대해 알아봅니다.
+description: Azure DevTest Labs의 랩에서 가상 머신에 아티팩트를 추가하는 방법 알아보기
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b4772755d8077f7a659c4d403961ffaeb9e1d483
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85483893"
 ---
 # <a name="add-an-artifact-to-a-vm"></a>VM에 아티팩트 추가
-VM을 만드는 동안 기존 아티팩트를 추가할 수 있습니다. 이러한 아티팩트는 [공용 DevTest Labs git 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) 또는 사용자 고유의 Git 리포지토리에서 만들 수 있습니다. 이 문서에서는 Azure PowerShell를 사용 하 여 Azure Portal에 아티팩트를 추가 하는 방법을 보여 줍니다. 
+VM을 만드는 동안 기존 아티팩트를 추가할 수 있습니다. 이러한 아티팩트는 [공용 DevTest Labs Git 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) 또는 자체 Git 리포지토리에서 가져올 수 있습니다. 이 문서에서는 Azure Portal에서, 그리고 Azure PowerShell을 사용하여 아티팩트를 추가하는 방법을 보여줍니다. 
 
 Windows PowerShell 스크립트 실행, Bash 명령 실행 및 소프트웨어 설치 등 Azure DevTest Labs *아티팩트* 를 통해 VM을 프로비전할 때 수행하는 *작업* 을 지정할 수 있습니다. 아티팩트 *매개 변수* 를 통해 특정 시나리오에 대한 아티팩트를 사용자 지정할 수 있습니다.
 
-사용자 지정 아티팩트를 만드는 방법에 대 한 자세한 내용은 [사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md)문서를 참조 하세요.
+사용자 지정 아티팩트를 만드는 방법에 대한 자세한 내용은 [사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md) 문서를 참조하세요.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -54,7 +54,7 @@ Windows PowerShell 스크립트 실행, Bash 명령 실행 및 소프트웨어 �
 1. **확인** 을 선택하여 **선택한 아티팩트** 창을 닫습니다.
 
 ## <a name="use-powershell"></a>PowerShell 사용
-다음 스크립트는 지정 된 아티팩트를 지정 된 VM에 적용 합니다. [AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) 명령은 작업을 수행 합니다.  
+다음 스크립트는 지정된 아티팩트를 지정된 VM에 적용합니다. [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) 명령은 작업을 수행하는 명령입니다.  
 
 ```powershell
 #Requires -Module Az.Resources
@@ -153,9 +153,9 @@ if ($virtualMachine -ne $null) {
 ```
 
 ## <a name="next-steps"></a>다음 단계
-아티팩트에 대 한 다음 문서를 참조 하세요.
+아티팩트에 대한 다음 문서를 참조하세요:
 
-- [랩에 대 한 필수 아티팩트 지정](devtest-lab-mandatory-artifacts.md)
+- [랩에 대한 필수 아티팩트 지정](devtest-lab-mandatory-artifacts.md)
 - [사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md)
 - [랩에 아티팩트 리포지토리 추가](devtest-lab-artifact-author.md)
 - [아티팩트 실패 진단](devtest-lab-troubleshoot-artifact-failure.md)

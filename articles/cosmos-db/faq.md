@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 81c959467c4bb3700120917cf150773fb18e866d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eb5eb3f08436001d83ce807ce775c7e49cf0e8e4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359832"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108741980"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB의 다양한 API에 대한 질문과 대답
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -219,5 +219,5 @@ ResourceTokens를 사용한 사용 권한 만들기는 컨테이너 수준 및 �
 
 * [Azure Cosmos DB의 MongoDB용 API](mongodb-api-faq.md)에 대해 자주 묻는 질문
 * [Azure Cosmos DB의 Gremlin API](gremlin-api-faq.md)에 대해 자주 묻는 질문
-* [Azure Cosmos DB의 Cassandra API](cassandra-faq.md)에 대해 자주 묻는 질문
+* [Azure Cosmos DB의 Cassandra API](cassandra-faq.yml)에 대해 자주 묻는 질문
 * [Azure Cosmos DB의 Table API](table-api-faq.md)에 대해 자주 묻는 질문

@@ -1,21 +1,21 @@
 ---
 title: Azure Relay Node API 개요 | Microsoft Docs
-description: 이 문서에서는 Azure Relay 서비스의 Node.js API에 대 한 개요를 제공 합니다. 또한 hyco-ws-ws 노드 패키지를 사용 하는 방법을 보여 줍니다.
+description: 이 문서에서는 Azure Relay 서비스의 Node.js API에 대한 개요를 제공합니다. 또한 hyco-ws 노드 패키지를 사용하는 방법을 보여 줍니다.
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 558f49c09203192ff4cbb1af392eaeef8d705c94
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91263490"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Relay 하이브리드 연결 Node API 개요
 
 ## <a name="overview"></a>개요
 
-[`hyco-ws`](https://www.npmjs.com/package/hyco-ws)Azure Relay 하이브리드 연결의 노드 패키지는 [' ws '](https://www.npmjs.com/package/ws) NPM 패키지를 기반으로 하며 확장 합니다. 이 패키지는 해당 기본 패키지의 모든 내보내기를 다시 내보내며 Azure Relay 서비스 하이브리드 연결 기능과 통합할 수 있는 새로운 내보내기를 추가합니다. 
+Azure Relay 하이브리드 연결에 대한 [`hyco-ws`](https://www.npmjs.com/package/hyco-ws) Node 패키지는 ['ws'](https://www.npmjs.com/package/ws) NPM 패키지를 기반으로 하며 확장합니다. 이 패키지는 해당 기본 패키지의 모든 내보내기를 다시 내보내며 Azure Relay 서비스 하이브리드 연결 기능과 통합할 수 있는 새로운 내보내기를 추가합니다. 
 
 `require('ws')`이 `require('hyco-ws')` 대신 이 패키지를 사용할 수 있는 기존 애플리케이션을 사용하면 애플리케이션이 WebSocket 연결을 "방화벽 내부"에서 로컬로 및 하이브리드 연결을 통해 동시에 수신 대기할 수 있는 하이브리드 시나리오를 수행할 수 있습니다.
   

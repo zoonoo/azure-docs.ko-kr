@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services 레거시 구성 요소 | Microsoft Docs
-description: 이 항목에서는 레거시 구성 요소 Azure Media Services 설명 합니다.
+description: 이 토픽에서는 Azure Media Services 레거시 구성 요소를 설명합니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -13,39 +13,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 3487e735e48cb5067515762d6276429ca81e43fe
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 459658867a143a69850ce74b910fd5dc7e70d4b9
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103008742"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962988"
 ---
 # <a name="azure-media-services-legacy-components"></a>Azure Media Services 레거시 구성 요소
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-시간이 지남에 따라 Media Service 구성 요소를 개선 하 고 레거시 구성 요소를 사용 중지 합니다. 이 문서는 레거시 구성 요소에서 현재 구성 요소로 응용 프로그램을 마이그레이션하는 데 도움이 됩니다.
+시간이 지남에 따라 Media Service 구성 요소를 개선하고 레거시 구성 요소를 사용 중지합니다. 이 문서는 레거시 구성 요소에서 현재 구성 요소로 애플리케이션을 마이그레이션하는 데 도움이 됩니다.
  
-## <a name="retirement-plans-of-legacy-components-and-migration-guidance"></a>레거시 구성 요소 및 마이그레이션 지침의 사용 중지 계획
+## <a name="retirement-plans-of-legacy-components-and-migration-guidance"></a>레거시 구성 요소의 사용 중지 플랜 및 마이그레이션 참고 자료
 
-*Windows Azure Media Encoder* (wame) 및 *Azure Media Encoder* (AME) 미디어 프로세서는 더 이상 사용 되지 않습니다.
+WAME(*Windows Azure Media Encoder*)과 AME(*Azure Media Encoder*) 미디어 프로세서는 사용되지 않습니다.
 
 * [Windows Azure Media Encoder에서 Media Encoder Standard로 마이그레이션](migrate-windows-azure-media-encoder.md)
 * [Azure Media Encoder에서 Media Encoder Standard로 마이그레이션](migrate-azure-media-encoder.md)
 
-다음 미디어 분석 미디어 프로세서는 더 이상 사용 되지 않거나 더 이상 사용 되지 않을 예정입니다.
+다음 미디어 분석 미디어 프로세서는 더는 사용되지 않거나, 곧 더는 사용되지 않을 예정입니다.
 
   
  
 | **미디어 프로세서 이름** | **사용 중지 날짜** | **추가적인 참고 사항** |
 | --- | --- | ---|
-| Azure Media Indexer 2 | 2020 년 1 월 1 일 | 이 미디어 프로세서는 [Media Services V3 AudioAnalyzerPreset 기본 모드로](../latest/analyzing-video-audio-files-concept.md)바뀝니다. 자세한 내용은 [Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](migrate-indexer-v1-v2.md)을 참조 하세요. |
-| Azure Media Indexer | 2023 년 3 월 1 일 | 이 미디어 프로세서는 [Media Services V3 AudioAnalyzerPreset 기본 모드로](../latest/analyzing-video-audio-files-concept.md)바뀝니다. 자세한 내용은 [Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](migrate-indexer-v1-v2.md)을 참조 하세요. |
-| 동작 검색 | 6 월 1 일, 2020|지금은 교체 계획이 없습니다. |
-| 비디오 요약 |6 월 1 일, 2020|지금은 교체 계획이 없습니다.|
-| 비디오 광학 문자 인식 | 6 월 1 일, 2020 |이 미디어 프로세서는 [Video Indexer Azure Media Services](../video-indexer/index.yml)으로 대체 되었습니다. 또한 [Azure Media Services V3 API](../latest/analyzing-video-audio-files-concept.md)를 사용 하는 것이 좋습니다. <br/>[Azure Media Services v3 사전 설정 및 Video Indexer 비교를](../video-indexer/compare-video-indexer-with-media-services-presets.md)참조 하세요. |
-| 얼굴 감지기 | 6 월 1 일, 2020 | 이 미디어 프로세서는 [Video Indexer Azure Media Services](../video-indexer/index.yml)으로 대체 되었습니다. 또한 [Azure Media Services V3 API](../latest/analyzing-video-audio-files-concept.md)를 사용 하는 것이 좋습니다. <br/>[Azure Media Services v3 사전 설정 및 Video Indexer 비교를](../video-indexer/compare-video-indexer-with-media-services-presets.md)참조 하세요. |
-| Content Moderator | 6 월 1 일, 2020 |이 미디어 프로세서는 [Video Indexer Azure Media Services](../video-indexer/index.yml)으로 대체 되었습니다. 또한 [Azure Media Services V3 API](../latest/analyzing-video-audio-files-concept.md)를 사용 하는 것이 좋습니다. <br/>[Azure Media Services v3 사전 설정 및 Video Indexer 비교를](../video-indexer/compare-video-indexer-with-media-services-presets.md)참조 하세요. |
+| Azure Media Indexer 2 | 2020년 1월 1일 | 이 미디어 프로세서는 [Media Services v3 AudioAnalyzerPreset Basic 모드](../latest/analyze-video-audio-files-concept.md)로 바뀝니다. 자세한 내용은 [Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](migrate-indexer-v1-v2.md)을 참조하세요. |
+| Azure Media Indexer | 2023년 3월 1일 | 이 미디어 프로세서는 [Media Services v3 AudioAnalyzerPreset Basic 모드](../latest/analyze-video-audio-files-concept.md)로 바뀝니다. 자세한 내용은 [Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](migrate-indexer-v1-v2.md)을 참조하세요. |
+| 동작 감지 | 2020년 6월 1일|지금은 교체 플랜이 없습니다. |
+| 비디오 요약 |2020년 6월 1일|지금은 교체 플랜이 없습니다.|
+| 동영상 OCR(Optical Character Recognition) | 2020년 6월 1일 |이 미디어 프로세서는 [Azure Media Services Video Indexer](../video-indexer/index.yml)로 대체되었습니다. 또한 [Azure Media Services v3 API](../latest/analyze-video-audio-files-concept.md)를 사용하는 것이 좋습니다. <br/>[Azure Media Services v3 미리 설정 및 Video Indexer 비교](../video-indexer/compare-video-indexer-with-media-services-presets.md)를 참조하세요. |
+| 얼굴 감지기 | 2020년 6월 1일 | 이 미디어 프로세서는 [Azure Media Services Video Indexer](../video-indexer/index.yml)로 대체되었습니다. 또한 [Azure Media Services v3 API](../latest/analyze-video-audio-files-concept.md)를 사용하는 것이 좋습니다. <br/>[Azure Media Services v3 미리 설정 및 Video Indexer 비교](../video-indexer/compare-video-indexer-with-media-services-presets.md)를 참조하세요. |
+| Content Moderator | 2020년 6월 1일 |이 미디어 프로세서는 [Azure Media Services Video Indexer](../video-indexer/index.yml)로 대체되었습니다. 또한 [Azure Media Services v3 API](../latest/analyze-video-audio-files-concept.md)를 사용하는 것이 좋습니다. <br/>[Azure Media Services v3 미리 설정 및 Video Indexer 비교](../video-indexer/compare-video-indexer-with-media-services-presets.md)를 참조하세요. |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,12 +3,12 @@ title: 개인 데이터
 description: Azure Resource Manager 작업과 관련된 개인 데이터를 관리하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 2f616fa58c53a7f666978bd1db60d10a9266e342
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9087d3e46f38aab3de7774ea341ebd9cbc2d7d1f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934209"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785958"
 ---
 # <a name="manage-personal-data-associated-with-azure-resource-manager"></a>Azure Resource Manager와 관련된 개인 데이터 관리
 
@@ -24,13 +24,13 @@ ms.locfileid: "105934209"
 
 기록에 **배포** 를 나열하려면 다음을 사용합니다.
 
-* [리소스 그룹별 목록](/rest/api/resources/resources/deployments/listbyresourcegroup)
+* [리소스 그룹별 목록](/rest/api/resources/deployments/listbyresourcegroup)
 * [Get-AzResourceGroupDeployment](/powershell/module/az.resources/Get-AzResourceGroupDeployment)
 * [az deployment group list](/cli/azure/deployment/group#az_deployment_group_list)
 
 기록에서 **배포** 를 삭제하려면 다음을 사용합니다.
 
-* [삭제](/rest/api/resources/resources/deployments/delete)
+* [Delete](/rest/api/resources/deployments/delete)
 * [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/Remove-AzResourceGroupDeployment)
 * [az deployment group delete](/cli/azure/deployment/group#az_deployment_group_delete)
 
@@ -40,15 +40,15 @@ ms.locfileid: "105934209"
 
 **리소스 그룹** 을 나열하려면 다음을 사용합니다.
 
-* [목록](/rest/api/resources/resources/resourcegroups/list)
+* [목록](/rest/api/resources/resourcegroups/list)
 * [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup)
-* [az 그룹 목록](/cli/azure/group#az-group-list)
+* [az 그룹 목록](/cli/azure/group#az_group_list)
 
 **리소스 그룹** 을 삭제하려면 다음을 사용홥니다.
 
-* [삭제](/rest/api/resources/resources/resourcegroups/delete)
+* [Delete](/rest/api/resources/resourcegroups/delete)
 * [Remove-AzResourceGroup](/powershell/module/az.resources/Remove-AzResourceGroup)
-* [az group delete](/cli/azure/group#az-group-delete)
+* [az group delete](/cli/azure/group#az_group_delete)
 
 ## <a name="delete-personal-data-in-tags"></a>태그에 있는 개인 데이터 삭제
 
@@ -56,15 +56,15 @@ ms.locfileid: "105934209"
 
 **태그** 를 나열하려면 다음을 사용합니다.
 
-* [목록](/rest/api/resources/resources/tags/list)
+* [목록](/rest/api/resources/tags/list)
 * [Get-AzTag](/powershell/module/az.resources/Get-AzTag)
-* [az 태그 목록](/cli/azure/tag#az-tag-list)
+* [az 태그 목록](/cli/azure/tag#az_tag_list)
 
 **태그** 를 삭제하려면 다음을 사용합니다.
 
-* [삭제](/rest/api/resources/resources/tags/delete)
+* [Delete](/rest/api/resources/tags/delete)
 * [Remove-AzTag](/powershell/module/az.resources/Remove-AzTag)
-* [az 태그 삭제](/cli/azure/tag#az-tag-delete)
+* [az 태그 삭제](/cli/azure/tag#az_tag_delete)
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Resource Manager에 대한 개요는 [Resource Manager란 무엇입니까?](overview.md)를 참조하세요.

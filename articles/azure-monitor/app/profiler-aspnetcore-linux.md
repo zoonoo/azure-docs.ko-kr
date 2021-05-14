@@ -8,10 +8,10 @@ ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 4c208a80a1f701cc3e0c1c5cd08a999f2f15815e
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104889079"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Application Insights Profiler를 사용하여 ASP.NET Core Azure Linux 웹앱 프로파일링
@@ -48,7 +48,7 @@ ms.locfileid: "104889079"
    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
    ```
 
-1. 시작 .cs에서 Application Insights 및 Profiler를 사용 하도록 설정 합니다.
+1. Startup.cs에서 Application Insights 및 Profiler을 사용하도록 설정하려면:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -99,7 +99,7 @@ ms.locfileid: "104889079"
 
     ![Git 리포지토리 설정](./media/profiler-aspnetcore-linux/setup-git-repo.png)
 
-배포 옵션에 대 한 자세한 내용은 [App Service 설명서](../../app-service/index.yml)를 참조 하세요.
+추가 배포 옵션에 대해서는 [App Service 설명서](../../app-service/index.yml)를 참조하세요.
 
 ## <a name="deploy-your-project"></a>프로젝트 배포
 

@@ -1,13 +1,13 @@
 ---
-title: Azure DevTest Labs에서 클레임 할 수 있는 Vm 만들기 및 관리 Microsoft Docs
-description: Azure Portal를 사용 하 여 Azure DevTest Labs에서 클레임 할 수 있는 가상 컴퓨터를 추가 하는 방법을 알아보고, 가상 컴퓨터를 클레임/클레임 취소 하기 위해 다음 프로세스를 참조 하세요.
+title: Azure DevTest Labs에서 클레임할 수 있는 VM 생성 및 관리 | Microsoft Docs
+description: Azure Portal을 사용하여 Azure DevTest Labs에서 클레임할 수 있는 가상 머신을 추가하는 방법을 알아보고 가상 머신을 클레임/클레임 취소하기 위해 수행하는 프로세스를 살펴봅니다.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 1fe949d7104fe6437087e77c403cc0d921ebd025
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88270982"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Azure DevTest Labs에서 클레임할 수 있는 VM 생성 및 관리
@@ -61,7 +61,7 @@ ms.locfileid: "88270982"
   ![클레임할 수 있는 임의의 VM을 요청합니다.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
 
-사용자가 VM을 클레임 한 후 DevTest Labs는 컴퓨터를 시작 하 고 랩 사용자의 "내 가상 머신" 목록으로 이동 합니다. 즉, 랩 사용자는 이제이 컴퓨터에 대 한 소유자 권한을 갖게 됩니다. 이 단계에 필요한 시간은 시작 시간 및 클레임 이벤트 중 수행 되는 다른 사용자 지정 작업에 따라 달라질 수 있습니다. 요청 된 후에는 더 이상 클레임 할 수 있는 풀에서 컴퓨터를 사용할 수 없습니다.  
+사용자가 VM을 클레임하면 DevTest Labs는 머신을 시작하고 랩 사용자의 “내 가상 머신” 목록 위쪽으로 머신을 이동합니다. 즉, 랩 사용자는 이제 이 머신에 대한 소유자 권한을 갖게 됩니다. 이 단계에 필요한 시간은 시작 시간과 클레임 이벤트 중 수행되는 다른 사용자 지정 작업에 따라 달라질 수 있습니다. 클레임 후에는 클레임할 수 있는 풀에서 해당 머신을 더 이상 사용할 수 없습니다.  
 
 ## <a name="unclaim-a-vm"></a>VM 클레임 취소
 
@@ -75,7 +75,7 @@ ms.locfileid: "88270982"
 
   ![VM의 관리 창에서 VM 클레임을 취소합니다.](./media/devtest-lab-add-vm/devtestlab-unclaim-VM.png)
 
-사용자가 VM에 대 한 클레임을 해제 하면 해당 랩 VM에 대 한 소유자 권한이 더 이상 없으며, 풀로 반환 된 상태에서 다른 랩 사용자가 해당 vm에 대 한 요청을 받을 수 있습니다. 
+사용자가 VM 클레임을 취소하면 이 사용자에게는 해당 랩 VM에 대한 소유자 권한이 더 이상 없습니다. VM이 풀로 반환된 상태에서는 다른 랩 사용자가 해당 VM을 클레임할 수 있습니다. 
 
 ### <a name="transferring-the-data-disk"></a>데이터 디스크 전송
 클레임할 수 있는 VM에 연결된 데이터 디스크가 있고 사용자가 그에 대한 클레임을 취소하면 데이터 디스크기 VM에 유지됩니다. 그런 다음 또 다른 사용자가 해당 VM을 클레임하면 이 새로운 사용자가 VM은 물론 데이터 디스크를 클레임합니다.
@@ -88,4 +88,4 @@ ms.locfileid: "88270982"
 
 ## <a name="next-steps"></a>다음 단계
 * 생성된 후 해당 관리 창에서 **연결** 을 선택하여 VM에 연결할 수 있습니다.
-* [DevTest Labs Azure Resource Manager 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)를 탐색 합니다.
+* [DevTest Labs Azure Resource Manager 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)를 탐색합니다.

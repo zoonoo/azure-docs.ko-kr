@@ -3,12 +3,12 @@ title: Azure RTOS용 Defender-IoT-micro-agent에 대한 기본 개념 설명
 description: Azure RTOS 개념 및 워크플로용 Defender-IoT-micro-agent에 대한 기본 사항에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 83557930aeeccbb557382583e4d6666a000ce52c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 04b86d401bcb9fc919c36b28cf4f80ea3bfd7030
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104779276"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750485"
 ---
 # <a name="defender-iot-micro-agent-for-azure-rtos-preview"></a>Azure RTOS용 Defender-IoT-micro-agent(미리 보기)
 
@@ -16,7 +16,7 @@ ms.locfileid: "104779276"
 
 ## <a name="azure-rtos-iot-defender-iot-micro-agent"></a>Azure RTOS IoT Defender-IoT-micro-agent
 
-Azure RTOS용 Defender-IoT-micro-agent는 NetX Duo 제품에 속하는 Azure RTOS 디바이스를 위한 종합적인 보안 솔루션을 제공합니다. NetX Duo 제품 내에서 Azure RTOS는 Azure IoT Defender-IoT-micro-agent에 탑재되며, 활성화되면 실시간 운영 체제 디바이스를 대상으로 한 일반적인 위협을 감지합니다. 
+Azure RTOS용 Defender-IoT-micro-agent는 NetX Duo 제품에 속하는 Azure RTOS 디바이스를 위한 종합적인 보안 솔루션을 제공합니다. NetX Duo 제품 내에서 Azure RTOS는 Azure IoT Defender-IoT-micro-agent에 탑재되며, 활성화되면 실시간 운영 체제 디바이스를 대상으로 한 일반적인 위협을 감지합니다.
 
 Azure RTOS용 Defender-IoT-micro-agent는 백그라운드에서 실행되며, 각 고객의 고유 연결을 사용하여 IoT Hub에 보안 메시지를 전송하는 동안 원활한 사용자 환경을 제공합니다. Azure RTOS용 Defender-IoT-micro-agent는 기본적으로 사용됩니다.  
 

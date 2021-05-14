@@ -1,14 +1,14 @@
 ---
-title: Azure 애플리케이션 Insights를 사용 하 여 Visual Studio에서 디버그
+title: Azure Application Insights로 Visual Studio에서 디버그
 description: 디버깅 및 프로덕션 중에 웹앱 성능 분석 및 진단입니다.
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
 ms.openlocfilehash: 2507dbf7bb8294c949f434d5fa96ccc0af9a7eb3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103563541"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Visual Studio에서 Azure Application Insights로 애플리케이션 디버그
@@ -53,12 +53,12 @@ Search 창에서 예외 보고서가 표시됩니다. (일부 ASP.NET 애플리�
 
 예외를 클릭하여 스택 추적을 가져옵니다. 앱의 코드가 Visual Studio에서 열린 경우 스택 추적에서 코드의 관련된 줄까지 클릭할 수 있습니다.
 
-![스택 추적의 About 개체를 보여 주는 스크린샷](./media/visual-studio/17.png)
+![스택 추적의 About 개체를 보여 주는 스크린샷.](./media/visual-studio/17.png)
 
 ## <a name="view-request-and-exception-summaries-in-the-code"></a>코드의 요청 및 예외 요약 보기
 각 처리기 메서드 위의 코드 렌즈 줄에서는 지난 24시간 동안 Application Insights에 의해 기록된 요청 및 예외 수를 표시합니다.
 
-![스크린 샷에서는 상황에 맞는 대화 상자에서 예외를 표시 합니다.](./media/visual-studio/21.png)
+![컨텍스트 대화 상자에서 예외를 보여 주는 스크린샷.](./media/visual-studio/21.png)
 
 > [!NOTE] 
 > [Application Insights 포털에 원격 분석을 전송하도록 앱을 구성](./asp-net.md)한 경우 코드 렌즈에서는 Application Insights 데이터를 표시합니다.
@@ -76,10 +76,10 @@ Search 창에서 예외 보고서가 표시됩니다. (일부 ASP.NET 애플리�
 * *우선 Application Insights를 완전히 구성하여 포털에 원격 분석을 전송했습니다. 하지만 이제 Visual Studio에서만 원격 분석을 확인하려 합니다.*
   
   * Search 창 설정에서 앱이 포털에 원격 분석을 전송하는 경우 로컬 진단을 검색하는 옵션이 있습니다.
-  * 포털로 전송 되는 원격 분석을 중지 하려면 ApplicationInsights.config에서 줄을 주석으로 처리 `<instrumentationkey>...` 합니다. 포털에 원격 분석을 다시 보낼 준비가 되 면 주석 처리를 제거 합니다.
+  * 포털로 전송되는 원격 분석을 중지하려면 ApplicationInsights.config.에서 `<instrumentationkey>...` 줄을 주석으로 처리합니다. 포털로 원격 분석을 다시 보내고 싶으면 주석 처리를 제거합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
- * **[Application Insights 포털을 사용 하 여 작업](./overview-dashboard.md)** 합니다. 대시보드, 강력한 분석 및 진단 도구, 경고, 애플리케이션의 라이브 종속성 맵 및 내보낸 원격 분석 데이터를 봅니다. 
+ * **[Application Insights 포털 사용](./overview-dashboard.md)** . 대시보드, 강력한 분석 및 진단 도구, 경고, 애플리케이션의 라이브 종속성 맵 및 내보낸 원격 분석 데이터를 봅니다. 
 

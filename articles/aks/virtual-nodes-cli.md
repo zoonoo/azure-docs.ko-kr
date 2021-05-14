@@ -1,29 +1,29 @@
 ---
-title: Azure CLI를 사용 하 여 가상 노드 만들기
+title: Azure CLI를 사용하여 가상 노드 만들기
 titleSuffix: Azure Kubernetes Service
 description: Azure CLI를 통해 가상 노드를 사용하여 Pod를 실행하는 AKS(Azure Kubernetes Service) 클러스터를 만드는 방법을 알아봅니다.
 services: container-service
 ms.topic: conceptual
 ms.date: 03/16/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 1c673cae41fcbd3d54aa9b4062dd030ace9f0767
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 86f1d8923eea961471883c44168c4fa848ac12d1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577804"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769286"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Azure CLI에서 가상 노드를 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기 및 구성
 
-이 문서에서는 Azure CLI 사용 하 여 가상 네트워크 리소스와 AKS 클러스터를 만들고 구성한 다음 가상 노드를 사용 하도록 설정 하는 방법을 보여 줍니다.
+이 문서에서는 Azure CLI를 사용하여 가상 네트워크 리소스 및 AKS 클러스터를 만들고 구성한 후 가상 노드를 사용하도록 설정하는 방법을 보여 줍니다.
 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-가상 노드는 ACI(Azure Container Instances)에서 실행되는 Pod와 AKS 클러스터 간의 네트워크 통신을 활성화합니다. 이 통신을 제공하기 위해 가상 네트워크 서브넷이 만들어지고 위임된 사용 권한이 할당됩니다. 가상 노드는 *고급* 네트워킹 (AZURE cni)을 사용 하 여 만든 AKS 클러스터 에서만 작동 합니다. 기본적으로 AKS 클러스터는 *기본* 네트워킹 (kubenet)을 사용 하 여 생성 됩니다. 이 문서에서는 가상 네트워크 및 서브넷을 만든 다음, 고급 네트워킹을 사용하는 AKS 클러스터에 배포하는 방법을 보여 줍니다.
+가상 노드는 ACI(Azure Container Instances)에서 실행되는 Pod와 AKS 클러스터 간의 네트워크 통신을 활성화합니다. 이 통신을 제공하기 위해 가상 네트워크 서브넷이 만들어지고 위임된 사용 권한이 할당됩니다. 가상 노드는 ‘고급’ 네트워킹(Azure CNI)을 사용하여 만든 AKS 클러스터에서만 작동합니다. 기본적으로 AKS 클러스터는 ‘기본’ 네트워킹(kubenet)을 사용하여 생성됩니다. 이 문서에서는 가상 네트워크 및 서브넷을 만든 다음, 고급 네트워킹을 사용하는 AKS 클러스터에 배포하는 방법을 보여 줍니다.
 
 > [!IMPORTANT]
-> AKS를 사용 하 여 가상 노드를 사용 하기 전에 [AKS 가상 노드의 제한과][virtual-nodes-aks] [ACI의 가상 네트워킹 제한][virtual-nodes-networking-aci]사항을 검토 하세요. 이러한 제한 사항은 AKS 클러스터와 가상 노드의 위치, 네트워킹 구성 및 기타 구성 세부 사항에 영향을 줍니다.
+> AKS에서 가상 노드를 사용하기 전에 [AKS 가상 노드의 제한 사항][virtual-nodes-aks] 및 [ACI의 가상 네트워킹 제한 사항][virtual-nodes-networking-aci]을 둘 다 검토합니다. 이 제한 사항은 AKS 클러스터 및 가상 노드의 위치, 네트워킹 구성 및 기타 구성 세부 정보에 영향을 줍니다.
 
 이전에 ACI를 사용하지 않은 경우 구독에서 서비스 공급자를 등록합니다. 다음 예제와 같이 [az provider list][az-provider-list] 명령을 사용하여 ACI 공급자 등록의 상태를 확인할 수 있습니다.
 
@@ -55,7 +55,7 @@ Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **�
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. [az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *westus* 위치에 *myresourcegroup* 이라는 리소스 그룹을 만듭니다.
+Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. [az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *westus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
@@ -84,9 +84,9 @@ az network vnet subnet create \
     --address-prefixes 10.241.0.0/16
 ```
 
-## <a name="create-a-service-principal-or-use-a-managed-identity"></a>서비스 주체 만들기 또는 관리 id 사용
+## <a name="create-a-service-principal-or-use-a-managed-identity"></a>서비스 주체 만들기 또는 관리 ID 사용
 
-AKS 클러스터가 다른 Azure 리소스와 상호 작용할 수 있도록 클러스터 id가 사용 됩니다. 이 클러스터 id는 Azure CLI 또는 포털에서 자동으로 만들 수도 있고,이를 미리 만들고 추가 사용 권한을 할당할 수 있습니다. 기본적으로이 클러스터 id는 관리 되는 id입니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요. 또한 서비스 주체를 클러스터 id로 사용할 수 있습니다. 다음 단계에서는 서비스 주체를 수동으로 만들고 클러스터에 할당 하는 방법을 보여 줍니다.
+AKS 클러스터가 다른 Azure 리소스와 상호 작용할 수 있도록 클러스터 ID가 사용됩니다. Azure CLI 또는 Azure Portal에서 이 클러스터 ID를 자동으로 만들 수도 있고 추가 권한을 미리 만들고 할당할 수도 있습니다. 기본적으로 이 클러스터 ID는 관리 ID입니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요. 또한 서비스 주체를 클러스터 ID로 사용할 수 있습니다. 다음 단계에서는 서비스 주체를 수동으로 만들고 클러스터에 할당하는 방법을 보여 줍니다.
 
 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 명령을 사용하여 서비스 사용자를 만듭니다. `--skip-assignment` 매개 변수는 다른 추가 사용 권한이 할당되지 않도록 제한합니다.
 
@@ -132,7 +132,7 @@ az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
 az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
 ```
 
-[az aks create][az-aks-create] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster* 라는 클러스터를 만듭니다. 을 `<subnetId>` 이전 단계에서 가져온 ID로 바꾸고,을 `<appId>` `<password>` 이전 섹션에서 수집한 값으로 바꿉니다.
+[az aks create][az-aks-create] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster* 라는 클러스터를 만듭니다. `<subnetId>`를 이전 단계에서 얻은 ID로 바꾼 다음, `<appId>` 및 `<password>`를 이전 섹션에서 수집한 값으로 바꿉니다.
 
 ```azurecli-interactive
 az aks create \
@@ -277,15 +277,15 @@ curl -L http://10.241.0.4
 
 가상 노드를 더 이상 사용하지 않으려면 [az aks disable-addons][az aks disable-addons] 명령을 사용하여 사용하지 않도록 설정할 수 있습니다. 
 
-필요한 경우으로 이동 [https://shell.azure.com](https://shell.azure.com) 하 여 브라우저에서 Azure Cloud Shell를 엽니다.
+필요한 경우 브라우저에서 [https://shell.azure.com](https://shell.azure.com)으로 이동하여 Azure Cloud Shell을 엽니다.
 
-먼저, `aci-helloworld` 가상 노드에서 실행 중인 pod를 삭제 합니다.
+먼저, 가상 노드에서 실행되는 `aci-helloworld` Pod를 삭제합니다.
 
 ```console
 kubectl delete -f virtual-node.yaml
 ```
 
-다음 예제 명령은 Linux 가상 노드를 사용 하지 않도록 설정 합니다.
+다음 예제 명령은 Linux 가상 노드를 사용하지 않도록 설정합니다.
 
 ```azurecli-interactive
 az aks disable-addons --resource-group myResourceGroup --name myAKSCluster --addons virtual-node
@@ -336,22 +336,22 @@ az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET 
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-group-create]: /cli/azure/group#az-group-create
-[az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
-[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-create
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-network-vnet-show]: /cli/azure/network/vnet#az-network-vnet-show
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-show
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az aks disable-addons]: /cli/azure/aks#az-aks-disable-addons
+[az-group-create]: /cli/azure/group#az_group_create
+[az-network-vnet-create]: /cli/azure/network/vnet#az_network_vnet_create
+[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_create
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-network-vnet-show]: /cli/azure/network/vnet#az_network_vnet_show
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
+[az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_show
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-enable-addons]: /cli/azure/aks#az_aks_enable_addons
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az aks disable-addons]: /cli/azure/aks#az_aks_disable_addons
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: ./cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
-[az-provider-list]: /cli/azure/provider#az-provider-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-provider-list]: /cli/azure/provider#az_provider_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [virtual-nodes-aks]: virtual-nodes.md
 [virtual-nodes-networking-aci]: ../container-instances/container-instances-virtual-network-concepts.md

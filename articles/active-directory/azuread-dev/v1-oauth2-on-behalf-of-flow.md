@@ -15,10 +15,10 @@ ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: f746cc654934464d907c6ad669eb7470e4dcaeeb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88117739"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>On-Behalf-Of 흐름에서 위임된 사용자 ID를 사용하는 서비스 간 호출
@@ -62,7 +62,7 @@ On-Behalf-Of 흐름을 구성하는 단계는 다음과 같습니다. ![OAuth 2.
 1. Azure Portal에서 애플리케이션과 **인증서 및 암호** 를 차례로 선택합니다.
 1. **새 클라이언트 암호** 를 선택하고 기간이 1년 또는 2년인 암호를 추가합니다.
 1. 이 페이지를 저장하면 Azure Portal에 암호 값이 표시됩니다. 암호 값을 복사하여 안전한 위치에 저장합니다.
-1. 앱에 대 한 **API 노출** 페이지에서 "범위 추가"를 클릭 하 여 응용 프로그램의 범위를 만듭니다.  포털에서 응용 프로그램 ID URI를 만들어야 할 수도 있습니다. 
+1. 앱의 **API 노출** 페이지에서 “범위 추가”를 클릭하여 애플리케이션의 범위를 만듭니다.  포털에서 애플리케이션 ID URI도 만들도록 요청할 수 있습니다. 
 
 > [!IMPORTANT]
 > 구현에서 애플리케이션 설정을 구성하려면 암호가 필요합니다. 이 암호 값은 다시 표시되지 않으며, 어떤 방법으로도 검색할 수 없습니다. Azure Portal에 표시되자마자 이 키 값을 기록합니다.
@@ -79,7 +79,7 @@ On-Behalf-Of 흐름을 구성하는 단계는 다음과 같습니다. ![OAuth 2.
 1. **등록** 을 선택하여 애플리케이션을 만듭니다.
 1. 애플리케이션에 대한 권한을 구성합니다. **API 사용 권한** 에서 **사용 권한 추가** 와 **내 API** 를 차례로 선택합니다.
 1. 텍스트 필드에 중간 계층 서비스의 이름을 입력합니다.
-1. **권한 선택** 을 선택 하 고 중간 계층을 등록 하는 마지막 단계에서 만든 범위를 선택 합니다.
+1. **권한 선택** 을 누르고 중간 계층을 등록하는 마지막 단계에서 만든 범위를 선택합니다.
 
 ### <a name="configure-known-client-applications"></a>알려진 클라이언트 애플리케이션 구성
 

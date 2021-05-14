@@ -1,25 +1,25 @@
 ---
 title: Avere vFXT 클러스터 튜닝 - Azure
-description: 지원 담당자와 협력 하 여 수행할 수 있는 Azure 용 Avere vFXT의 vFXT 클러스터에 대 한 사용자 지정 튜닝 중 일부에 대해 알아봅니다.
+description: 지원 담당자와 협력하여 수행할 수 있는 Avere vFXT for Azure의 vFXT 클러스터에 대한 사용자 지정 튜닝을 몇 가지 알아봅니다.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.openlocfilehash: 5d9f81c9438cb992f81bd3e6319532d67db75552
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88272385"
 ---
 # <a name="cluster-tuning"></a>클러스터 튜닝
 
 대부분의 vFXT 클러스터는 사용자 지정 성능 설정에서 이점을 얻을 수 있습니다. 클러스터는 이러한 설정을 통해 특정 워크플로, 데이터 세트 및 도구에서 가장 효율적으로 작동합니다.
 
-이 사용자 지정은 Avere 제어판에서 사용할 수 없는 기능을 구성 하는 작업을 포함할 수 있으므로 지원 담당자의 도움을 받아야 합니다.
+이 사용자 지정에는 Avere 제어판에서 사용할 수 없는 기능 구성이 포함되어 있으므로 지원 담당자의 도움을 받아 수행해야 합니다.
 
-이 섹션에서는 수행할 수 있는 몇 가지 사용자 지정 튜닝에 대해 설명 합니다.
+이 섹션에서는 수행할 수 있는 몇 가지 사용자 지정 튜닝에 대해 설명합니다.
 
 ## <a name="general-optimizations"></a>일반 최적화
 
@@ -34,21 +34,21 @@ ms.locfileid: "88272385"
 
 ## <a name="cloud-nas-or-cloud-gateway-optimizations"></a>클라우드 NAS 또는 클라우드 게이트웨이 최적화
 
-클라우드 NAS 또는 게이트웨이 시나리오에서 vFXT 클러스터는 클라우드 컨테이너에 대 한 NAS 스타일의 액세스를 제공 합니다. VFXT 클러스터와 클라우드 저장소 간의 데이터 속도를 높이려면 담당자가 캐시에서 저장소 볼륨으로 데이터를 보다 적극적으로 푸시하는 설정을 변경 하는 것이 좋습니다. 예를 들면 다음과 같습니다.
+클라우드 NAS 또는 게이트웨이 시나리오에서 vFXT 클러스터는 클라우드 컨테이너에 대한 NAS 스타일 액세스를 제공합니다. vFXT 클러스터와 클라우드 스토리지 간에 데이터 속도를 높이려면 담당자가 더욱더 적극적으로 캐시에서 스토리지 볼륨으로 데이터를 푸시하도록 설정을 변경하는 것이 좋습니다. 예를 들면 다음과 같습니다.
 
 * 클러스터와 스토리지 컨테이너 간의 TCP 연결 수를 늘립니다.
 
 ## <a name="cloud-bursting-or-hybrid-wan-optimizations"></a>클라우드 버스팅 또는 하이브리드 WAN 최적화
 
-클라우드 버스트 시나리오 또는 하이브리드 저장소 WAN 최적화 시나리오에서 vFXT 클러스터는 클라우드와 온-프레미스 하드웨어 저장소 간의 통합을 제공 합니다. 다음과 같이 변경 하면 도움이 될 수 있습니다.
+클라우드 버스팅 시나리오 또는 하이브리드 스토리지 WAN 최적화 시나리오에서는 vFXT 클러스터가 클라우드와 온-프레미스 하드웨어 스토리지 간에 통합을 제공합니다. 다음과 같이 변경하면 도움이 될 수 있습니다.
 
 * 클러스터와 코어 파일러 간에 허용되는 TCP 연결 수를 늘립니다.
 * 원격 코어 파일러에 WAN 최적화 설정을 사용합니다(이 설정은 다른 Azure 지역의 원격 온-프레미스 파일러 또는 클라우드 코어 파일러에 사용할 수 있음).
 * TCP 소켓 버퍼 크기를 늘립니다.<sup>*</sup>
-* 중복 캐시 된 파일을 줄이기 위해 "항상 전달" 설정을 사용 하도록 설정<sup>*</sup>
+* “항상 전달” 설정을 사용하도록 지정하여 중복 캐시되는 파일을 줄입니다.<sup>*</sup>
 
-<sup>*</sup>이러한 조정은 워크 로드 및 성능 요구 사항에 따라 일부 시스템에는 적용 되지 않을 수 있습니다.
+<sup>*</sup>이러한 조정은 워크로드 및 성능 요구 사항에 따라 일부 시스템에는 적용되지 않을 수 있습니다.
 
 ## <a name="help-optimizing-your-avere-vfxt-for-azure"></a>Avere vFXT for Azure 최적화 도움말
 
-지원 직원에 게 이러한 최적화에 대해 문의 하려면 시스템에 대 한 [도움말 보기](avere-vfxt-open-ticket.md)에 설명 된 절차를 따르십시오.
+이 최적화에 대해 지원 담당자에게 문의하려면 [시스템 지원 받기](avere-vfxt-open-ticket.md)에 설명된 절차를 사용하세요.

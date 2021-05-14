@@ -5,15 +5,15 @@ ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.topic: how-to
 ms.date: 03/16/2021
 ms.openlocfilehash: 395fc0d5905389ffb8f68d8bbc4c6f8b3a871d36
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104774877"
 ---
 # <a name="create-an-azure-support-request"></a>Azure 지원 요청 만들기
 
-Azure를 통해 지원 티켓이라고도 하는 지원 요청을 만들고 관리할 수 있습니다. 이 문서에서 설명하는 것처럼 [Azure Portal](https://portal.azure.com)에서 요청을 만들고 관리할 수 있습니다. [Azure 지원 티켓 REST API](/rest/api/support)또는 [Azure CLI](/cli/azure/azure-cli-support-request)를 사용 하 여 프로그래밍 방식으로 요청을 만들고 관리할 수도 있습니다.
+Azure를 통해 지원 티켓이라고도 하는 지원 요청을 만들고 관리할 수 있습니다. 이 문서에서 설명하는 것처럼 [Azure Portal](https://portal.azure.com)에서 요청을 만들고 관리할 수 있습니다. [Azure 지원 티켓 REST API](/rest/api/support) 또는 [Azure CLI](/cli/azure/azure-cli-support-request)를 사용하여 프로그래밍 방식으로 요청을 만들고 관리할 수도 있습니다.
 
 > [!NOTE]
 > Azure Portal URL은 조직이 배포되는 Azure 클라우드에 특정합니다.
@@ -22,7 +22,7 @@ Azure를 통해 지원 티켓이라고도 하는 지원 요청을 만들고 관�
 >* 독일 Azure Portal: [https://portal.microsoftazure.de](https://portal.microsoftazure.de)
 >* 미국 정부에 대한 Azure Portal: [https://portal.azure.us](https://portal.azure.us)
 
-지원 요청 환경은 세 가지 주요 목표를 중점적으로 다룹니다.
+지원 요청 환경은 다음 세 가지 주요 목표를 중점적으로 다룹니다.
 
 * **간소화**: 지원 및 문제 해결을 찾기 쉽게 하고 지원 요청을 제출하는 방법을 간소화했습니다.
 * **통합**: Azure 리소스 문제를 해결할 때 컨텍스트를 전환하지 않고도 지원 요청을 쉽게 시작할 수 있습니다.
@@ -42,17 +42,17 @@ Azure Portal에서 **도움말 + 지원** 으로 이동할 수 있습니다. Azu
 
 Azure Portal의 어디에서나 지원 요청을 시작하려면 다음을 수행합니다.
 
-1. 글로벌 헤더에서 **?** 를 전역 헤더에서 **도움말 + 지원** 을 선택 합니다.
+1. 글로벌 헤더에서 **?** 를 선택한 다음 **도움말 + 지원** 을 선택합니다.
 
    ![도움말 및 지원](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
 
-1. **새 지원 요청** 을 선택합니다. 프롬프트에 따라 문제에 대 한 정보를 제공 합니다. 몇 가지 가능한 솔루션을 제안하고, 문제에 대한 세부 정보를 수집하며, 지원 요청을 제출 및 추적할 수 있게 지원합니다.
+1. **새 지원 요청** 을 선택합니다. 프롬프트에 따라 문제에 대한 정보를 제공합니다. 몇 가지 가능한 솔루션을 제안하고, 문제에 대한 세부 정보를 수집하며, 지원 요청을 제출 및 추적할 수 있게 지원합니다.
 
    ![새 지원 요청](./media/how-to-create-azure-support-request/newsupportrequest2lower.png)
 
 ### <a name="go-to-help--support-from-a-resource-menu"></a>리소스 메뉴에서 도움말 + 지원으로 이동
 
-현재 작업 중인 리소스의 컨텍스트에서 지원 요청을 시작 하려면 다음을 수행 합니다.
+리소스의 컨텍스트에서 지원 요청을 시작하기 위해 현재 다음 작업을 수행하고 있습니다.
 
 1. 리소스 메뉴의 **지원 + 문제 해결** 섹션에서 **새 지원 요청** 을 선택합니다.
 
@@ -68,7 +68,7 @@ Azure Portal의 어디에서나 지원 요청을 시작하려면 다음을 수�
 
 지원 요청 프로세스의 첫 번째 단계에서는 문제 및 지원 계획에 대한 기본 정보를 수집합니다.
 
-**새 지원 요청** 의 **기본 사항** 탭에서 선택기를 사용하여 문제에 대한 정보 제공을 시작합니다. 먼저 문제 유형에 대한 몇 가지 일반 범주를 확인하고 관련 구독을 선택합니다. 서비스 (예: Windows를 **실행 하는 가상 컴퓨터**)를 선택 합니다. 가상 머신의 이름 등과 같은 리소스를 선택합니다. 고유한 단어에 문제를 설명 하 고 **문제 유형** 및 **문제 하위 유형** 을 선택 하 여 보다 구체적인 정보를 얻습니다.
+**새 지원 요청** 의 **기본 사항** 탭에서 선택기를 사용하여 문제에 대한 정보 제공을 시작합니다. 먼저 문제 유형에 대한 몇 가지 일반 범주를 확인하고 관련 구독을 선택합니다. 서비스를 선택합니다(예: **Windows를 실행하는 가상 머신**). 가상 머신의 이름 등과 같은 리소스를 선택합니다. 문제에 대한 설명을 직접 입력한 후 **문제 유형** 과 **문제 하위 유형** 을 선택하여 좀 더 자세한 설명을 제공합니다.
 
 ![기본 사항 블레이드](./media/how-to-create-azure-support-request/basics2lower.png)
 
@@ -78,13 +78,13 @@ Azure Portal의 어디에서나 지원 요청을 시작하려면 다음을 수�
 
 ### <a name="details"></a>세부 정보
 
-이제 문제에 대한 추가 세부 정보를 수집합니다. 이 단계에서 철저 하 고 자세한 정보를 제공 하 여 지원 요청을 올바른 엔지니어에 게 라우트할 수 있습니다.
+이제 문제에 대한 추가 세부 정보를 수집합니다. 이 단계에서 철저하고 자세한 정보를 제공하면 지원 요청을 올바른 엔지니어에게 전달하는 데 도움이 됩니다.
 
-1. 가능하면 문제가 시작된 시기와 문제를 재현 하는 단계를 알려 주세요. 로그 파일 또는 진단의 출력과 같은 파일을 업로드할 수 있습니다. 파일 업로드에 대 한 자세한 내용은 [파일 업로드 지침](how-to-manage-azure-support-request.md#file-upload-guidelines)을 참조 하세요.
+1. 가능하면 문제가 시작된 시기와 문제를 재현 하는 단계를 알려 주세요. 로그 파일 또는 진단의 출력과 같은 파일을 업로드할 수 있습니다. 파일 업로드에 대한 자세한 내용은 [파일 업로드 지침](how-to-manage-azure-support-request.md#file-upload-guidelines)을 참조하세요.
 
-1. 문제에 대한 모든 정보를 제공한 후 지원을 받는 방법을 선택합니다. **세부 정보** 의 **지원 방법** 섹션에서 영향의 심각도를 선택합니다. 최대 심각도 수준은 [지원 계획](https://azure.microsoft.com/support/plans)에 따라 달라 집니다.
+1. 문제에 대한 모든 정보를 제공한 후 지원을 받는 방법을 선택합니다. **세부 정보** 의 **지원 방법** 섹션에서 영향의 심각도를 선택합니다. 최대 심각도 수준은 [지원 플랜](https://azure.microsoft.com/support/plans)에 따라 다릅니다.
 
-    기본적으로 **진단 정보 공유** 옵션이 선택 되어 있습니다. 이렇게 하면 azure 지원에서 Azure 리소스의 [진단 정보](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 를 수집할 수 있습니다. 경우에 따라 가상 컴퓨터의 메모리에 대 한 액세스를 요청 하는 것과 같이 기본적으로 선택 되지 않는 두 번째 질문이 있습니다.
+    기본적으로 **진단 정보 공유** 옵션이 선택되어 있습니다. 이 옵션은 Azure 지원 팀이 사용자의 Azure 리소스에서 [진단 정보](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/)를 수집할 수 있게 해 줍니다. 경우에 따라 가상 머신의 메모리에 대한 액세스 요청과 같이 기본적으로 선택되어 있지 않은 두 번째 질문이 있을 수 있습니다.
 
 1. 원하는 연락 방법, 적당한 연락 시간, 지원 언어를 입력합니다.
 
@@ -92,7 +92,7 @@ Azure Portal의 어디에서나 지원 요청을 시작하려면 다음을 수�
 
 ### <a name="review--create"></a>검토 + 만들기
 
-각 탭에 필요한 모든 정보를 입력한 다음, **검토 + 만들기** 를 선택합니다. 지원 하기 위해 보낼 세부 정보를 확인 합니다. 필요에 따라 변경하려면 탭으로 돌아갑니다. 지원 요청이 완료되면 **만들기** 를 선택합니다.
+각 탭에 필요한 모든 정보를 입력한 다음, **검토 + 만들기** 를 선택합니다. 고객 지원팀에 보낼 세부 정보를 확인합니다. 필요에 따라 변경하려면 탭으로 돌아갑니다. 지원 요청이 완료되면 **만들기** 를 선택합니다.
 
 지원 엔지니어가 귀하가 지정한 방법으로 연락할 것입니다. 초기 응답 시간에 대한 정보는 [지원 범위 및 응답성](https://azure.microsoft.com/support/plans/response/)을 참조하세요.
 
@@ -103,9 +103,9 @@ Azure의 자가 지원 옵션에 대한 자세한 정보를 보려면 다음 비
 
 > [!VIDEO https://www.youtube.com/embed/gNhzR5FE9DY]
 
-자세한 내용은 다음 링크를 참조 하세요.
+자세한 내용을 보려면 다음 링크를 따라가세요.
 
-* [Azure 지원 요청을 관리 하는 방법](how-to-manage-azure-support-request.md)
+* [Azure 지원 요청을 관리하는 방법](how-to-manage-azure-support-request.md)
 * [Azure 지원 티켓 REST API](/rest/api/support)
 * [피드백 및 제안 보내기](https://feedback.azure.com/forums/266794-support-feedback)
 * [Twitter](https://twitter.com/azuresupport)에서 연계

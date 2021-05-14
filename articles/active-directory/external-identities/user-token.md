@@ -1,5 +1,5 @@
 ---
-title: B2B 공동 작업의 사용자 토큰 이해-Azure AD
+title: B2B Collaboration의 사용자 토큰 이해 - Azure AD
 description: Azure Active Directory B2B 협업에 대한 사용자 토큰 참조
 services: active-directory
 ms.service: active-directory
@@ -12,15 +12,15 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 08dbb81b91def2fd464ecc85c2d2eaf45ed189d5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87908913"
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Azure AD B2B 협업의 사용자 토큰 이해
 
-B2B 협업 사용자에 대해 표시되는 토큰 형태를 알고 싶은 경우 다음에 나와 있는 리소스 테넌트(tenantid:04dcc6ab-388a-4559-b527-fbec656300ea)에서 Azure AD(Azure Active Directory) 게스트 및 Microsoft 계정 게스트에 대한 전달자 토큰 세부 정보 및 토큰 내용을 확인하세요. JWT (JSON Web Token) 콘텐츠를 보려면 또는를 사용 [https://jwt.io/](https://jwt.io/) [https://jwt.ms/](https://jwt.ms/) 합니다.
+B2B 협업 사용자에 대해 표시되는 토큰 형태를 알고 싶은 경우 다음에 나와 있는 리소스 테넌트(tenantid:04dcc6ab-388a-4559-b527-fbec656300ea)에서 Azure AD(Azure Active Directory) 게스트 및 Microsoft 계정 게스트에 대한 전달자 토큰 세부 정보 및 토큰 내용을 확인하세요. JWT(JSON Web Token) 콘텐츠를 보려면 [https://jwt.io/](https://jwt.io/) 또는 [https://jwt.ms/](https://jwt.ms/)를 사용하세요.
 
 ## <a name="azure-ad-guest-token"></a>Azure AD 게스트 토큰
 ```

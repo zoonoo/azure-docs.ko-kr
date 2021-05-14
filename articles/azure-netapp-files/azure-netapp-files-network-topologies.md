@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: ramakk
 ms.openlocfilehash: 96d8ba058a33d408ec2ee2a1adfba9011f393da9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96184487"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Azure NetApp Files 네트워크 계획 지침
@@ -42,7 +42,7 @@ Azure NetApp Files 네트워크를 계획하는 경우 몇 가지 고려 사항�
 * Azure 가상 WAN 
 * 영역 중복 Virtual Network 게이트웨이(Az를 포함한 게이트웨이 SKU) 
 * 활성/활성 Virtual Network GW 
-* 이중 스택 (IPv4 및 IPv6) VNet
+* 이중 스택(IPv4 및 IPv6) VNet
 
 Azure NetApp Files에는 다음과 같은 네트워크 제한이 적용됩니다.
 

@@ -1,15 +1,15 @@
 ---
 title: Linux용 게스트 구성 정책을 만드는 방법
 description: Linux용 Azure Policy 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 352c8b1936c38c9b5f706ac88bd4fd06e008b892
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: d356960987ecfe9a1e1858a28b93060dbf4aa634
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99525350"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096566"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Linux용 게스트 구성 정책을 만드는 방법
 
@@ -24,11 +24,11 @@ Linux를 감사할 때 게스트 구성은 [Chef InSpec](https://www.inspec.io/)
 다음 작업을 사용하여 Azure 또는 비 Azure 컴퓨터 상태의 유효성을 검사하는 고유한 구성을 만듭니다.
 
 > [!IMPORTANT]
-> Azure Government 및 Azure 중국 환경에서 게스트 구성을 사용 하는 사용자 지정 정책 정의는 미리 보기 기능입니다.
+> Azure Government 및 Azure 중국 환경에서 게스트 구성을 사용하는 사용자 지정 정책 정의는 미리 보기 기능입니다.
 >
-> 게스트 구성 확장은 Azure Virtual Machines에서 감사를 수행하는 데 필요합니다. 모든 Linux 컴퓨터에서 확장을 대규모로 배포 하려면 다음 정책 정의를 할당 합니다. `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
+> 게스트 구성 확장은 Azure Virtual Machines에서 감사를 수행하는 데 필요합니다. 모든 Linux 컴퓨터에서 확장을 대규모로 배포하려면 정책 정의(`Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`)를 할당합니다.
 > 
-> 사용자 지정 콘텐츠 패키지에서 비밀 또는 기밀 정보를 사용 하지 마세요.
+> 사용자 지정 콘텐츠 패키지에서 비밀 또는 기밀 정보를 사용하지 마세요.
 
 ## <a name="install-the-powershell-module"></a>PowerShell 모듈 설치
 
@@ -53,15 +53,15 @@ Linux를 감사할 때 게스트 구성은 [Chef InSpec](https://www.inspec.io/)
 - Windows
 
 > [!NOTE]
-> Cmdlet에는 `Test-GuestConfigurationPackage` OMI에 대 한 종속성으로 인해 OpenSSL 버전 1.0이 필요 합니다. 이로 인해 OpenSSL 1.1 이상의 환경에서 오류가 발생 합니다.
+> OMI에 대한 종속성으로 인해 `Test-GuestConfigurationPackage` cmdlet에는 OpenSSL 버전 1.0이 필요합니다. 이로 인해 OpenSSL 1.1 이상의 환경에서 오류가 발생합니다.
 >
-> Windows에서 실행 하는 cmdlet은 `Test-GuestConfigurationPackage` 게스트 구성 모듈 버전 2.1.0에만 사용할 수 있습니다.
+> `Test-GuestConfigurationPackage` cmdlet은 Windows에서만 게스트 구성 모듈 버전 2.1.0용으로 실행할 수 있습니다.
 
 게스트 구성 리소스 모듈에는 다음 소프트웨어가 필요합니다.
 
 - PowerShell 6.2 이상. 아직 설치되지 않은 경우 [다음 지침](/powershell/scripting/install/installing-powershell)을 따릅니다.
 - Azure PowerShell 1.5.0 이상. 아직 설치되지 않은 경우 [다음 지침](/powershell/azure/install-az-ps)을 따릅니다.
-  - Az modules ' Az. Accounts ' 및 ' Az .Resources '만 필요 합니다.
+  - Az 모듈 'Az.Accounts' 및 'Az.Resources'만 필요합니다.
 
 ### <a name="install-the-module"></a>모듈 설치
 
@@ -88,11 +88,9 @@ DSC는 InSpec에서 실행 방법, 매개 변수가 제공되는 방법 및 출�
 
 #### <a name="configuration-requirements"></a>구성 요구 사항
 
-사용자 지정 구성의 이름은 모든 위치에서 일관되어야 합니다. 콘텐츠 패키지용 .zip 파일의 이름, MOF 파일의 구성 이름 및 Azure Resource Manager 템플릿 (ARM 템플릿)의 게스트 할당 이름이 동일 해야 합니다.
+사용자 지정 구성의 이름은 모든 위치에서 일관되어야 합니다. 콘텐츠 패키지용 .zip 파일의 이름, MOF 파일의 구성 이름 및 Azure Resource Manager 템플릿(ARM 템플릿)에 있는 게스트 할당 이름은 동일해야 합니다.
 
-PowerShell cmdlet은 패키지를 만드는 데 도움이 됩니다.
-루트 수준 폴더 또는 버전 폴더는 필요하지 않습니다.
-패키지 형식은 .zip 파일이어야 합니다. 및는 압축 되지 않은 경우 전체 크기 (100MB)를 초과할 수 없습니다.
+PowerShell cmdlet은 패키지를 만드는 데 도움이 됩니다. 루트 수준 폴더 또는 버전 폴더는 필요하지 않습니다. 패키지 형식은 .zip 파일이어야 합니다. 또한 압축을 풀었을 때 전체 크기가 100MB를 초과할 수 없습니다.
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Linux에서 사용자 지정 게스트 구성
 
@@ -170,7 +168,7 @@ AuditFilePathExists -out ./Config
 - **Name**: 게스트 구성 패키지 이름입니다.
 - **구성**: 컴파일된 구성 문서 전체 경로입니다.
 - **경로**: 출력 폴더 경로입니다. 이 매개 변수는 선택 사항입니다. 지정하지 않으면 패키지가 현재 디렉터리에 만들어집니다.
-- **ChefInspecProfilePath**: InSpec profile의 전체 경로입니다. 이 매개 변수는 Linux를 감사할 콘텐츠를 만드는 경우에만 지원됩니다.
+- **ChefInspecProfilePath**: InSpec 프로필의 전체 경로입니다. 이 매개 변수는 Linux를 감사할 콘텐츠를 만드는 경우에만 지원됩니다.
 
 다음 명령을 실행하여 이전 단계에 지정된 구성을 사용하는 패키지를 만듭니다.
 
@@ -181,7 +179,7 @@ New-GuestConfigurationPackage `
   -ChefInSpecProfilePath './'
 ```
 
-구성 패키지를 만든 후 Azure에 게시 하기 전에 워크스테이션 또는 CI/CD (지속적인 통합 및 지속적인 배포) 환경에서 패키지를 테스트할 수 있습니다. GuestConfiguration cmdlet `Test-GuestConfigurationPackage`에는 Azure 컴퓨터 내에서 사용되는 것과 동일한 에이전트가 개발 환경에 포함되어 있습니다. 이 솔루션을 사용하여 청구되는 클라우드 환경에 릴리스하기 전 로컬에서 통합 테스트를 수행할 수 있습니다.
+구성 패키지를 만든 후 Azure에 게시하기 전에 워크스테이션 또는 CI/CD 환경(연속 통합 및 연속 배포)에서 패키지를 테스트할 수 있습니다. GuestConfiguration cmdlet `Test-GuestConfigurationPackage`에는 Azure 컴퓨터 내에서 사용되는 것과 동일한 에이전트가 개발 환경에 포함되어 있습니다. 이 솔루션을 사용하여 청구되는 클라우드 환경에 릴리스하기 전 로컬에서 통합 테스트를 수행할 수 있습니다.
 
 에이전트는 실제로 로컬 환경을 평가하므로, 대부분의 경우 감사할 계획인 OS 플랫폼과 동일한 플랫폼에서 Test- cmdlet을 실행해야 합니다.
 
@@ -204,17 +202,17 @@ cmdlet은 PowerShell 파이프라인의 입력도 지원합니다. `New-GuestCon
 New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefInspecProfilePath './' | Test-GuestConfigurationPackage
 ```
 
-다음 단계는 Azure Blob Storage에 파일을 게시 하는 것입니다. 이 명령에는 `Publish-GuestConfigurationPackage` 모듈이 필요 합니다 `Az.Storage` .
+다음 단계는 Azure Blob Storage에 파일을 게시하는 과정입니다. `Publish-GuestConfigurationPackage` 명령에는 `Az.Storage` 모듈이 필요합니다.
 
 `Publish-GuestConfigurationPackage` cmdlet의 매개 변수는 다음과 같습니다.
 
-- **경로**: 게시할 패키지의 위치
-- **ResourceGroupName**: 저장소 계정이 있는 리소스 그룹의 이름입니다.
-- **Storageaccountname**: 패키지를 게시 해야 하는 저장소 계정의 이름입니다.
-- **Storagecontainername 선언을 찾아**: (기본값: *guestconfiguration*) 저장소 계정의 저장소 컨테이너 이름
-- **Force**: 저장소 계정에서 이름이 같은 기존 패키지를 덮어씁니다.
+- **Path**: 게시할 패키지의 위치
+- **ResourceGroupName**: 스토리지 계정이 있는 리소스 그룹의 이름
+- **StorageAccountName**: 패키지를 게시해야 하는 스토리지 계정의 이름
+- **StorageContainerName**: (기본값: _guestconfiguration_) 스토리지 계정의 스토리지 컨테이너 이름
+- **Force**: 스토리지 계정에서 이름이 같은 기존 패키지를 덮어씁니다.
 
-아래 예제에서는 패키지를 저장소 컨테이너 이름 ' guestconfiguration '에 게시 합니다.
+아래 예제에서는 패키지를 스토리지 컨테이너 이름 ' guestconfiguration'에 게시합니다.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPackage -Path ./AuditFilePathExists/AuditFilePathExists.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
@@ -273,11 +271,11 @@ Publish-GuestConfigurationPolicy `
  | Publish-GuestConfigurationPolicy
  ```
 
-Azure에서 만든 정책을 사용 하 여 마지막 단계는 정의를 할당 하는 것입니다. [포털](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md)및 [Azure PowerShell](../assign-policy-powershell.md)를 사용 하 여 정의를 할당 하는 방법을 참조 하세요.
+Azure에서 만든 정책을 사용하는 마지막 단계는 정의를 할당하는 과정입니다. [Portal](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md) 및 [Azure PowerShell](../assign-policy-powershell.md)을 사용하여 정의를 할당하는 방법을 참조하세요.
 
 ### <a name="using-parameters-in-custom-guest-configuration-policies"></a>사용자 지정 게스트 구성 정책에서 매개 변수 사용
 
-게스트 구성은 런타임 시 구성 속성 재정의를 지원합니다. 이 기능은 패키지의 MOF 파일에 있는 값을 정적으로 간주할 필요가 없음을 의미합니다. 재정의 값은 Azure Policy를 통해 제공되며 구성을 작성하거나 컴파일하는 방법에 영향을 주지 않습니다.
+게스트 구성은 런타임 시 구성 속성 재정의를 지원합니다. 이 기능은 패키지의 MOF 파일에 있는 값을 정적으로 간주할 필요가 없음을 의미합니다. 재정의 값은 Azure Policy를 통해 제공되며 구성을 작성하거나 컴파일하는 방법을 변경하지 않습니다.
 
 InSpec을 사용하는 매개 변수는 일반적으로 런타임 시 입력으로 또는 특성을 사용하는 코드로 처리됩니다. 게스트 구성은 정책이 할당될 때 입력을 제공할 수 있도록 이 프로세스를 난독 처리합니다. 특성 파일은 컴퓨터 내에 자동으로 만들어집니다. 프로젝트에서 파일을 만들고 추가할 필요가 없습니다. Linux 감사 프로젝트에 매개 변수를 추가하는 두 가지 단계가 있습니다.
 
@@ -291,7 +289,7 @@ describe file(attr_path) do
 end
 ```
 
-구성에서 **AttributesYmlContent** 속성을 값으로 모든 문자열을 추가 합니다.
+임의의 문자열을 값으로 하여 구성의 **AttributesYmlContent** 속성을 추가합니다.
 게스트 구성 에이전트는 InSpec에서 특성을 저장하는 데 사용되는 YAML 파일을 자동으로 만듭니다. 아래 예제를 참조하세요.
 
 ```powershell
@@ -310,11 +308,11 @@ Configuration AuditFilePathExists
 }
 ```
 
-이 문서에 제공 된 예제를 사용 하 여 MOF 파일을 다시 컴파일합니다.
+이 문서에 제공된 예제를 사용하여 MOF 파일을 다시 컴파일합니다.
 
-Cmdlet은 `New-GuestConfigurationPolicy` `Test-GuestConfigurationPolicyPackage` **매개** 변수 라는 매개 변수를 포함 합니다. 이 매개 변수는 각 매개 변수에 대한 세부 정보를 모두 포함하는 해시 테이블을 사용하며, 각 Azure Policy 정의를 만드는 데 사용되는 파일의 필수 섹션을 모두 자동으로 만듭니다.
+cmdlet `New-GuestConfigurationPolicy` 및 `Test-GuestConfigurationPolicyPackage`에는 **Parameters** 라는 매개 변수가 포함됩니다. 이 매개 변수는 각 매개 변수에 대한 세부 정보를 모두 포함하는 해시 테이블을 사용하며, 각 Azure Policy 정의를 만드는 데 사용되는 파일의 필수 섹션을 모두 자동으로 만듭니다.
 
-다음 예에서는 사용자가 정책 할당 시 경로를 제공 하는 파일 경로를 감사 하는 정책 정의를 만듭니다.
+다음 예제에서는 사용자가 정책 할당 시 경로를 제공하는 파일 경로를 감사할 정책 정의를 만듭니다.
 
 ```azurepowershell-interactive
 $PolicyParameterInfo = @(
@@ -345,18 +343,17 @@ New-GuestConfigurationPolicy -ContentUri $uri `
 
 ## <a name="policy-lifecycle"></a>정책 수명 주기
 
-정책에 대 한 업데이트를 해제 하려면 게스트 구성 패키지와 Azure Policy 정의 세부 정보를 모두 변경 합니다.
+정책 업데이트를 릴리스하려면 게스트 구성 패키지와 Azure Policy 정의 세부 정보를 모두 변경합니다.
 
 > [!NOTE]
-> `version`게스트 구성 할당의 속성은 Microsoft에서 호스팅하는 패키지에만 영향을 주는 것입니다. 사용자 지정 콘텐츠의 버전을 지정 하는 가장 좋은 방법은 버전을 파일 이름에 포함 하는 것입니다.
+> 게스트 구성 할당의 `version` 속성은 Microsoft에서 호스팅하는 패키지에만 영향을 줍니다. 사용자 지정 콘텐츠의 버전을 관리하는 가장 좋은 방법은 버전을 파일 이름에 포함하는 것입니다.
 
-먼저,를 실행 하 `New-GuestConfigurationPackage` 는 경우 이전 버전에서 고유 하 게 만들 패키지의 이름을 지정 합니다. 이름에 버전 번호를 포함할 수 있습니다 (예:) `PackageName_1.0.0` .
-이 예의 숫자는 패키지를 고유 하 게 만드는 데만 사용 되며 패키지를 다른 패키지 보다 최신 또는 이전 버전으로 간주 하도록 지정 하는 데에는 사용 되지 않습니다.
+먼저, `New-GuestConfigurationPackage`를 실행할 때, 이전 버전과는 차별되는 고유한 패키지의 이름을 지정합니다. 이름에 버전 번호를 포함할 수 있습니다(예: `PackageName_1.0.0`). 이 예의 숫자는 패키지를 고유하게 만드는 데만 사용되며 패키지를 다른 패키지보다 최신 버전 또는 이전 버전으로 간주하도록 지정하기 위한 것은 아닙니다.
 
-그런 다음 아래 설명에 따라 cmdlet에 사용 된 매개 변수를 업데이트 합니다 `New-GuestConfigurationPolicy` .
+그런 다음 아래 설명에 따라 `New-GuestConfigurationPolicy` cmdlet에 사용된 매개 변수를 업데이트합니다.
 
 - **버전**: `New-GuestConfigurationPolicy` cmdlet을 실행할 때 현재 게시된 것보다 큰 버전 번호를 지정해야 합니다.
-- **contenturi**: cmdlet을 실행할 때 `New-GuestConfigurationPolicy` 패키지의 위치에 대 한 URI를 지정 해야 합니다. 패키지 버전을 파일 이름에 포함 하면 각 릴리스에서이 속성의 값이 변경 됩니다.
+- **contentUri**: `New-GuestConfigurationPolicy` cmdlet을 실행할 때 패키지의 위치에 대한 URI를 지정해야 합니다. 패키지 버전을 파일 이름에 포함하면 각 릴리스에서 속성의 값이 변경됩니다.
 - **contentHash**: 이 속성은 `New-GuestConfigurationPolicy` cmdlet에 의해 자동으로 업데이트됩니다. 이는 `New-GuestConfigurationPackage`에서 만든 패키지의 해시 값입니다. 게시하는 `.zip` 파일에 대한 속성이 정확해야 합니다. **contentUri** 속성만 업데이트된 경우 확장에서 콘텐츠 패키지를 수락하지 않습니다.
 
 업데이트된 패키지를 릴리스하는 가장 쉬운 방법은 이 문서에 설명된 프로세스를 반복하고 업데이트된 버전 번호를 제공하는 것입니다. 해당 프로세스는 모든 속성이 올바르게 업데이트되었음을 보장합니다.

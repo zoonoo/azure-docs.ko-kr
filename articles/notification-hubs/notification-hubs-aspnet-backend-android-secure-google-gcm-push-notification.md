@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs를 사용 하 여 보안 푸시 알림 보내기
+title: Azure Notification Hubs를 사용하여 보안 푸시 알림 보내기
 description: Azure에서 Android 앱에 보안 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 Java 및 C#으로 작성되었습니다.
 documentationcenter: android
 keywords: 푸시 알림,푸시알림,푸시 메시지,android 푸시 알림
@@ -16,13 +16,13 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: f2d5d618fabbe7400ce825f984ace1622a524f05
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88004022"
 ---
-# <a name="send-secure-push-notifications-with-azure-notification-hubs"></a>Azure Notification Hubs를 사용 하 여 보안 푸시 알림 보내기
+# <a name="send-secure-push-notifications-with-azure-notification-hubs"></a>Azure Notification Hubs를 사용하여 보안 푸시 알림 보내기
 
 > [!div class="op_single_selector"]
 > * [Windows 범용](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
@@ -47,18 +47,18 @@ Microsoft Azure의 푸시 알림 지원을 통해 간편하게 사용할 수 있
   * Android 디바이스가 보안 페이로드를 요청하는 백 엔드에 접속합니다.
   * 앱이 디바이스에서 페이로드를 알림으로 표시할 수 있습니다.
 
-앞의 흐름과 이 자습서에서는 사용자가 로그인한 후 디바이스가 인증 토큰을 로컬 스토리지에 저장한다고 가정합니다. 이 방법을 사용 하면 장치가이 토큰을 사용 하 여 알림의 보안 페이로드를 검색할 수 있으므로 원활한 환경이 보장 됩니다. 응용 프로그램이 인증 토큰을 장치에 저장 하지 않거나이 토큰이 만료 될 수 있는 경우 푸시 알림을 받을 때 장치 앱에 사용자에 게 앱을 시작할지 묻는 일반 알림이 표시 되어야 합니다. 그리고 나서 앱은 사용자를 인증하고 알림 페이로드를 표시합니다.
+앞의 흐름과 이 자습서에서는 사용자가 로그인한 후 디바이스가 인증 토큰을 로컬 스토리지에 저장한다고 가정합니다. 이렇게 하면 디바이스가 이 토큰을 사용하여 알림의 보안 페이로드를 검색할 수 있으므로 원활한 환경이 보장됩니다. 애플리케이션이 인증 토큰을 디바이스에 저장하지 않거나 해당 토큰이 만료될 수 있는 경우 푸시 알림을 수신하면 디바이스 앱은 사용자에게 앱을 시작할지 묻는 메시지가 포함된 일반 알림을 표시해야 합니다. 그리고 나서 앱은 사용자를 인증하고 알림 페이로드를 표시합니다.
 
-이 자습서에서는 보안 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서는 [사용자에 게 알림](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md) 자습서를 기반으로 하므로 먼저 해당 자습서의 단계를 완료 해야 합니다.
+이 자습서에서는 보안 푸시 알림을 보내는 방법을 보여 줍니다. [사용자에게 알림](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md) 자습서를 기반으로 빌드되므로 해당 자습서의 단계를 먼저 완료해야 합니다.
 
 > [!NOTE]
-> 이 자습서에서는 [Notification Hubs 시작 (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md)에 설명 된 대로 알림 허브를 만들고 구성 했다고 가정 합니다.
+> 이 자습서에서는 [Notification Hubs 시작하기(Android)](notification-hubs-android-push-notification-google-gcm-get-started.md)에 설명된 대로 알림 허브를 만들고 구성했다고 가정합니다.
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## <a name="modify-the-android-project"></a>Android 프로젝트 수정
 
-푸시 알림의 ID만 보내도록 앱 백 엔드를 수정 했으므로 해당 알림을 처리 하 고 백 엔드를 콜백 하 여 표시할 보안 메시지를 검색 하도록 Android 앱을 변경 해야 합니다.
+푸시 알림의 ID만 보내도록 앱 백 엔드를 수정했으므로 해당 알림을 처리하고 백 엔드를 콜백하여 표시할 보안 메시지를 검색하도록 Android 앱을 변경해야 합니다.
 이 목표를 달성하려면 Android 앱이 푸시 알림을 받을 때 백 엔드에 인증하는 방법을 알고 있어야 합니다.
 
 이제 앱의 공유 기본 설정에서 인증 헤더 값을 저장하기 위해 로그인 흐름을 수정합니다. 유사 메커니즘을 사용하여 사용자 앱에서 자격 증명 없이 사용해야 하는 인증 토큰(예: OAuth 토큰)을 저장할 수 있습니다.

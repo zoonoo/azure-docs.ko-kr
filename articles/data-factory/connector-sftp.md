@@ -1,18 +1,18 @@
 ---
 title: SFTP 서버 간에 데이터 복사
 description: Azure Data Factory를 사용하여 SFTP 서버로 또는 SFTP 서버로부터 데이터를 복사하는 방법을 알아봅니다.
-ms.author: jianleishen
-author: jianleishen
+ms.author: jingwang
+author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: bdee163a31c7822aa0eea2ff5900e10796e0c521
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 19b32bed15a4d292a7427d8401e777c7761e45a3
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109486848"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104592033"
 ---
 # <a name="copy-data-from-and-to-the-sftp-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SFTP 서버로 또는 SFTP 서버로부터 데이터 복사하기
 
@@ -30,7 +30,7 @@ SFTP 커넥터는 다음과 같은 작업에 지원됩니다.
 - [지원되는 원본/싱크 매트릭스](copy-activity-overview.md)를 사용한 [복사 작업](copy-activity-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
 - [GetMetadata 작업](control-flow-get-metadata-activity.md)
-- [활동 삭제](delete-activity.md)
+- [삭제 작업](delete-activity.md)
 
 특히 SFTP 커넥터는 다음을 지원합니다.
 
@@ -39,11 +39,11 @@ SFTP 커넥터는 다음과 같은 작업에 지원됩니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="get-started"></a>시작하기
 
-[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 SFTP에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -59,7 +59,7 @@ SFTP 연결된 서비스에 다음 속성이 지원됩니다.
 | skipHostKeyValidation | 호스트 키 유효성 검사를 건너뛸지 여부를 지정합니다.<br/>허용되는 값은 *true* 및 *false*(기본값)입니다.  | 예 |
 | hostKeyFingerprint | 호스트 키의 지문을 지정합니다. | 예(“skipHostKeyValidation”이 false로 설정된 경우)  |
 | authenticationType | 인증 유형을 지정합니다.<br/>허용되는 값은 *Basic*, *SshPublicKey* 및 *MultiFactor* 입니다. 자세한 속성은 [기본 인증 사용](#use-basic-authentication) 섹션을 참조하세요. JSON 예는 [SSH 퍼블릭 키 인증 사용](#use-ssh-public-key-authentication) 섹션을 참조하세요. |예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 자세한 내용은 [사전 요구 사항](#prerequisites) 섹션을 참조하세요. 통합 런타임이 지정되지 않은 경우 서비스는 기본 Azure Integration Runtime을 사용합니다. |예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 자세한 내용은 [필수 구성 요소](#prerequisites) 섹션을 참조하세요. 통합 런타임이 지정되지 않은 경우 서비스는 기본 Azure Integration Runtime을 사용합니다. |예 |
 
 ### <a name="use-basic-authentication"></a>기본 인증 사용
 
@@ -210,7 +210,7 @@ SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **Ss
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 
 
-[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
 형식 기반 데이터 세트의 `location` 설정에서 SFTP에 다음 속성이 지원됩니다.
 
@@ -252,7 +252,7 @@ SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **Ss
 
 ### <a name="sftp-as-source"></a>SFTP를 원본으로
 
-[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
 형식 기반 복사 원본의 `storeSettings` 설정에서 SFTP에 다음 속성이 지원됩니다.
 
@@ -266,12 +266,12 @@ SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **Ss
 | 옵션 3: 파일 목록<br>- fileListPath | 지정된 파일 집합을 복사하도록 나타냅니다. 복사할 파일 목록이 포함된 텍스트 파일을 가리킵니다(데이터 세트에 구성된 경로에 대한 상대 경로를 사용하여 한 줄에 하나의 파일).<br/>이 옵션을 사용하는 경우 데이터 세트에서 파일 이름을 지정하지 마세요. 더 많은 예를 보려면 [파일 목록 예](#file-list-examples)를 참조하세요. |예 |
 | ***추가 설정*** |  | |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive를 true로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다. <br>허용되는 값은 *true*(기본값) 및 *false* 입니다.<br>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. |예 |
-| deleteFilesAfterCompletion | 대상 저장소로 이동한 후에 원본 저장소에서 이진 파일을 삭제할지를 나타냅니다. 파일 삭제는 파일 단위로 이루어지므로 복사 작업에 실패하면 일부 파일은 대상에 복사되고 원본에서 삭제되었지만, 다른 파일은 원본 저장소에 계속 남아 있는 것을 확인할 수 있습니다. <br/>이 속성은 이진 파일 복사 시나리오에서만 유효합니다. 기본값: false. |예 |
-| modifiedDatetimeStart    | 파일은 *Last Modified* 특성을 기준으로 필터링됩니다. <br>마지막 수정 시간이 `modifiedDatetimeStart`~`modifiedDatetimeEnd` 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 *2018-12-01T05:00:00Z* 형식으로 적용됩니다. <br> 속성은 NULL일 수 있습니다. 이 경우 파일 특성 필터가 데이터 세트에 적용되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 크거나 같은 파일이 선택됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 작은 파일이 선택됩니다.<br/>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. | 예                                            |
+| deleteFilesAfterCompletion | 대상 저장소로 이동한 후에 원본 저장소에서 이진 파일을 삭제할지를 나타냅니다. 파일 삭제는 파일 단위로 이루어지므로 복사 작업에 실패하면 일부 파일은 대상에 복사되고 원본에서 삭제된 반면, 다른 파일은 원본 저장소에 계속 남아 있는 것을 확인할 수 있습니다. <br/>이 속성은 이진 파일 복사 시나리오에서만 유효합니다. 기본값은 false입니다. |예 |
+| modifiedDatetimeStart    | 파일은 *Last Modified* 특성을 기준으로 필터링됩니다. <br>마지막 수정 시간이 `modifiedDatetimeStart`~`modifiedDatetimeEnd` 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 시간대에 *2018-12-01T05:00:00Z* 형식으로 적용됩니다. <br> 속성은 NULL일 수 있습니다. 이 경우 파일 특성 필터가 데이터 세트에 적용되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 크거나 같은 파일이 선택됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 작은 파일이 선택됩니다.<br/>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. | 예                                            |
 | modifiedDatetimeEnd      | 위와 동일합니다.                                               | 예                                            |
 | enablePartitionDiscovery | 분할된 파일의 경우 파일 경로에서 파티션을 구문 분석할지를 지정하고 추가 원본 열로 추가합니다.<br/>허용되는 값은 **false**(기본값) 및 **true** 입니다. | 예                                            |
-| partitionRootPath | 파티션 검색을 사용하는 경우 분할된 폴더를 데이터 열로 읽도록 절대 루트 경로를 지정합니다.<br/><br/>지정하지 않으면 기본적으로 다음과 같이 지정됩니다.<br/>- 데이터 세트의 파일 경로 또는 원본의 파일 목록을 사용하는 경우 파티션 루트 경로는 데이터 세트에서 구성된 경로입니다.<br/>- 와일드카드 폴더 필터를 사용하는 경우 파티션 루트 경로는 첫 번째 와일드카드 앞의 하위 경로입니다.<br/><br/>예를 들어 데이터 세트의 경로를 "root/folder/year=2020/month=08/day=27"로 구성한다고 가정합니다.<br/>- 파티션 루트 경로를 "root/folder/year=2020"으로 지정하면 복사 작업은 내부의 열 외에도 각각 값이 "08" 및 "27"인 `month` 및 `day` 열을 파일에 두 개 더 생성합니다.<br/>- 파티션 루트 경로를 지정하지 않으면 추가 열이 생성되지 않습니다. | 예                                            |
-| maxConcurrentConnections | 작업을 실행하는 동안 데이터 저장소에 설정된 동시 연결의 상한입니다. 동시 연결을 제한하려는 경우에만 값을 지정합니다.| 예                                            |
+| partitionRootPath | 파티션 검색을 사용하는 경우 분할된 폴더를 데이터 열로 읽도록 절대 루트 경로를 지정합니다.<br/><br/>지정되지 않은 경우 기본적으로 다음과 같이 지정됩니다.<br/>- 데이터 세트의 파일 경로 또는 원본의 파일 목록을 사용하는 경우 파티션 루트 경로는 데이터 세트에 구성된 경로입니다.<br/>- 와일드카드 폴더 필터를 사용하는 경우 파티션 루트 경로는 첫 번째 와일드카드 앞의 하위 경로입니다.<br/><br/>예를 들어 데이터 세트의 경로를 “root/folder/year=2020/month=08/day=27”로 구성한다고 가정합니다.<br/>- 파티션 루트 경로를 “root/folder/year=2020”으로 지정하는 경우 복사 작업은 파일 내의 열 외에도 각각 값이 “08” 및 “27”인 두 개의 열(`month` 및 `day`)을 생성합니다.<br/>- 파티션 루트 경로가 지정되지 않은 경우 추가 열이 생성되지 않습니다. | 예                                            |
+| maxConcurrentConnections | 작업을 실행하는 동안 데이터 저장소에 설정된 동시 연결 수의 상한입니다. 동시 연결 수를 제한하려는 경우에만 값을 지정합니다.| 예                                            |
 
 **예:**
 
@@ -316,7 +316,7 @@ SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **Ss
 
 ### <a name="sftp-as-a-sink"></a>싱크로서의 SFTP
 
-[!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)]
+[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)]
 
 형식 기반 복사 싱크의 `storeSettings` 설정에서 SFTP에 다음 속성이 지원됩니다.
 
@@ -324,7 +324,7 @@ SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **Ss
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | `storeSettings` 아래의 *type* 속성은 *SftpWriteSettings* 로 설정해야 합니다. | 예      |
 | copyBehavior             | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일 이름이 지정된 경우 병합되는 파일 이름은 지정된 이름입니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 예       |
-| maxConcurrentConnections | 작업을 실행하는 동안 데이터 저장소에 설정된 동시 연결의 상한입니다. 동시 연결을 제한하려는 경우에만 값을 지정합니다. | 예       |
+| maxConcurrentConnections | 작업을 실행하는 동안 데이터 저장소에 설정된 동시 연결 수의 상한입니다. 동시 연결 수를 제한하려는 경우에만 값을 지정합니다. | 예       |
 | useTempFileRename | 임시 파일에 업로드하고 이름을 바꾸거나 대상 폴더 또는 파일 위치에 직접 쓸지를 나타냅니다. 기본적으로 Azure Data Factory는 먼저 임시 파일에 쓴 다음 업로드가 완료되면 이름을 바꿉니다. 이 시퀀스는 (1) 다른 프로세스가 동일한 파일에 쓰는 경우 파일이 손상될 수 있는 충돌을 방지하고 (2) 전송 중에 파일의 원래 버전이 존재하는지 확인하는 데 도움이 됩니다. SFTP 서버에서 이름 바꾸기 작업을 지원하지 않는 경우 이 옵션을 사용하지 않도록 설정하고 대상 파일에 동시 쓰기가 수행되지 않도록 합니다. 자세한 내용은 이 표의 끝에 나오는 문제 해결을 참조하세요. | 아니요. 기본값은 *True* 입니다. |
 | operationTimeout | SFTP 서버에 대한 각각의 쓰기 요청이 시간 초과되기까지의 대기 시간입니다. 기본값은60분(01:00:00)입니다.|예 |
 
@@ -383,7 +383,7 @@ SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **Ss
 
 | 샘플 원본 구조                                      | FileListToCopy.txt의 콘텐츠                             | Azure Data Factory 구성                                            |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
-| root<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;메타데이터<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **데이터 세트:**<br>- 폴더 경로: `root/FolderA`<br><br>**복사 작업 원본에서는 다음이 해당됩니다.**<br>- 파일 목록 경로: `root/Metadata/FileListToCopy.txt` <br><br>파일 목록 경로는 복사하려는 파일 목록이 포함된 동일한 데이터 저장소의 텍스트 파일을 가리킵니다(데이터 세트에 구성된 경로의 상대 경로를 사용하여 한 줄에 하나의 파일). |
+| root<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;메타데이터<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **데이터 세트:**<br>- 폴더 경로: `root/FolderA`<br><br>**복사 작업 원본:**<br>- 파일 목록 경로: `root/Metadata/FileListToCopy.txt` <br><br>파일 목록 경로는 복사하려는 파일 목록이 포함된 동일한 데이터 저장소의 텍스트 파일을 가리킵니다(데이터 세트에 구성된 경로의 상대 경로를 사용하여 한 줄에 하나의 파일). |
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 
@@ -457,7 +457,7 @@ GetMetadata 작업 속성에 대한 자세한 내용은 [Azure Data Factory의 G
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 *type* 속성을 *FileSystemSource* 로 설정해야 합니다. |예 |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive가 *true* 로 설정되고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다.<br/>허용되는 값은 *true*(기본값) 및 *false* 입니다. | 예 |
-| maxConcurrentConnections |작업을 실행하는 동안 데이터 저장소에 설정된 동시 연결의 상한입니다. 동시 연결을 제한하려는 경우에만 값을 지정합니다.| 예 |
+| maxConcurrentConnections |작업을 실행하는 동안 데이터 저장소에 설정된 동시 연결 수의 상한입니다. 동시 연결 수를 제한하려는 경우에만 값을 지정합니다.| 예 |
 
 **예:**
 

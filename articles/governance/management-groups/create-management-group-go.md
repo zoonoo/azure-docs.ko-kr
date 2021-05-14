@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 Go를 사용하여 리소스를 리소�
 ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bf2d2c556cfd6ada6d31fc6ee797888ed0899573
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 32665afec15d17b2bc15d61853ef6b1dc58388fa
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106091449"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733700"
 ---
 # <a name="quickstart-create-a-management-group-with-go"></a>빠른 시작: Go를 사용하여 관리 그룹 만들기
 
@@ -61,22 +61,22 @@ Go에서 관리 그룹을 관리할 수 있도록 하려면 패키지를 추가�
 
 1. Go 애플리케이션을 만들고 `mgCreate.go`로 다음 원본을 저장합니다.
 
-   ```Go
+   ```go
    package main
-   
+
    import (
     "context"
     "fmt"
     "os"
-   
+
     mg "github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups"
     "github.com/Azure/go-autorest/autorest/azure/auth"
    )
-   
+
    func main() {
     // Get variables from command line arguments
     var mgName = os.Args[1]
-   
+
     // Create and authorize a client
     mgClient := mg.NewClient()
     authorizer, err := auth.NewAuthorizerFromCLI()
@@ -85,12 +85,12 @@ Go에서 관리 그룹을 관리할 수 있도록 하려면 패키지를 추가�
     } else {
         fmt.Printf(err.Error())
     }
-   
+
     // Create the request
     Request := mg.CreateManagementGroupRequest{
         Name: &mgName,
     }
-   
+
     // Run the query and get the results
     var results, queryErr = mgClient.CreateOrUpdate(context.Background(), mgName, Request, "no-cache")
     if queryErr == nil {

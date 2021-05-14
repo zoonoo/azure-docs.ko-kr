@@ -3,13 +3,13 @@ title: Azure Policy 리소스 내보내기
 description: 정책 정의 및 정책 할당과 같은 Azure Policy 리소스를 GitHub으로 내보내는 방법을 알아봅니다.
 ms.date: 03/31/2021
 ms.topic: how-to
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 8fd2a24d2c01b4214eda88054b45a409cd865a32
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 36e3c28d8448bba94222a23581dda7bd6d3ffaeb
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106096549"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752672"
 ---
 # <a name="export-azure-policy-resources"></a>Azure Policy 리소스 내보내기
 
@@ -35,7 +35,7 @@ Azure Portal에서 정책 정의를 내보내려면 다음 단계를 수행합�
    - **디렉터리**: Azure Policy 리소스를 내보낼 _루트 수준 폴더_ 입니다. 이 디렉터리의 하위 폴더는 내보낸 리소스에 따라 만들어집니다.
 
 1. **정책** 탭에서 줄임표를 선택하고 관리 그룹, 구독 또는 리소스 그룹의 조합을 선택하여 검색 범위를 설정합니다.
-   
+
 1. **정책 정의 추가** 단추를 사용하여 내보낼 개체 범위를 검색합니다. 열리는 측면 창에서 내보낼 각 개체를 선택합니다. 검색 상자 또는 유형을 사용하여 선택 항목을 필터링합니다. 모든 개체를 내보내기로 선택한 경우 페이지 맨 아래에 있는 **추가** 단추를 사용합니다.
 
 1. 선택한 각 개체의 정책 정의에 대해 원하는 내보내기 옵션을 선택합니다(예: _정의만_ 또는 _정의 및 할당_). 그런 다음, **검토 + 내보내기** 탭을 선택하거나 페이지 맨 아래에서 **다음: 검토 + 내보내기** 단추를 선택합니다.

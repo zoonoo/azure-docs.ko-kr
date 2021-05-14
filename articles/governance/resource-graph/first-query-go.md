@@ -3,12 +3,12 @@ title: '빠른 시작: 첫 번째 Go 쿼리'
 description: 이 빠른 시작에서는 단계에 따라 Go용 Resource Graph 패키지를 사용하도록 설정하고 첫 번째 쿼리를 실행합니다.
 ms.date: 05/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: 7197dd95c0601f8aebd537a2b19d45821ef7716d
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 42e2ee9b5fc5c34fab2785d32b8b2de55dee0d71
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325034"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751790"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-go"></a>빠른 시작: Go를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -53,9 +53,9 @@ Go 패키지가 선택한 환경에 추가되었으므로 간단한 Resource Gra
 
 1. Go 애플리케이션을 만들고 `argQuery.go`로 다음 원본을 저장합니다.
 
-   ```Go
+   ```go
    package main
-   
+
    import (
       "fmt"
       "os"
@@ -64,12 +64,12 @@ Go 패키지가 선택한 환경에 추가되었으므로 간단한 Resource Gra
       arg "github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph"
       "github.com/Azure/go-autorest/autorest/azure/auth"
    )
-   
+
    func main() {
        // Get variables from command line arguments
        var query = os.Args[1]
        var subList = os.Args[2:]
-   
+
        // Create and authorize a ResourceGraph client
        argClient := arg.New()
        authorizer, err := auth.NewAuthorizerFromCLI()
@@ -78,19 +78,19 @@ Go 패키지가 선택한 환경에 추가되었으므로 간단한 Resource Gra
        } else {
            fmt.Printf(err.Error())
        }
-     
+
        // Set options
        RequestOptions := arg.QueryRequestOptions {
            ResultFormat: "objectArray",
        }
-     
+
        // Create the query request
        Request := arg.QueryRequest {
            Subscriptions: &subList,
            Query: &query,
            Options: &RequestOptions,
        }
-     
+
        // Run the query and get the results
        var results, queryErr = argClient.Resources(context.Background(), Request)
        if queryErr == nil {

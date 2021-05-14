@@ -1,7 +1,7 @@
 ---
-title: 웹 서비스로 배포 된 모델에 대 한 클라이언트 만들기
+title: 웹 서비스로 배포된 모델에 대한 클라이언트 만들기
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 모델을 배포할 때 생성 된 웹 서비스 끝점을 호출 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning에서 모델을 배포할 때 생성된 웹 서비스 엔드포인트를 호출하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,10 +12,10 @@ ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
 ms.openlocfilehash: e9fb801fce3e47fc83febeddd6f331ce2af207e6
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102506976"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
@@ -23,7 +23,7 @@ ms.locfileid: "102506976"
 
 Azure Machine Learning 모델을 웹 서비스로 배포하면 REST API 엔드포인트가 생성됩니다. 이 엔드포인트로 데이터를 보내고 모델에서 반환된 예측을 받을 수 있습니다. 이 문서에서는 C#, Go, Java 및 Python을 사용하여 웹 서비스용 클라이언트를 만드는 방법에 대해 알아봅니다.
 
-로컬 환경, Azure Container Instances, Azure Kubernetes Service 또는 FPGA (필드 프로그래밍 가능 게이트 배열)에 모델을 배포할 때 웹 서비스를 만듭니다. [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/intro)를 사용 하 여 웹 서비스에 액세스 하는 데 사용 되는 URI를 검색 합니다. 인증을 사용 하는 경우 SDK를 사용 하 여 인증 키 또는 토큰을 가져올 수도 있습니다.
+Azure Container 인스턴스, Azure Kubernetes Service 또는 필드 프로그래밍 가능 게이트 배열(FPGA)에 모델을 로컬 환경에 배포할 때 웹 서비스를 만듭니다. [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro)를 사용하여 웹 서비스에 액세스하는 데 사용되는 URI를 검색합니다. 인증이 사용 가능한 경우 SDK를 사용하여 인증 키 또는 토큰을 가져올 수도 있습니다.
 
 기계 학습 웹 서비스를 사용하는 클라이언트를 만들기 위한 일반적인 워크플로는 다음과 같습니다.
 
@@ -32,7 +32,7 @@ Azure Machine Learning 모델을 웹 서비스로 배포하면 REST API 엔드�
 1. 웹 서비스를 호출하는 애플리케이션을 만듭니다.
 
 > [!TIP]
-> 이 문서의 예제는 OpenAPI (Swagger) 사양을 사용 하지 않고 수동으로 생성 됩니다. 배포에 대 한 OpenAPI 사양을 활성화 한 경우 [swagger-codegen](https://github.com/swagger-api/swagger-codegen) 와 같은 도구를 사용 하 여 서비스에 대 한 클라이언트 라이브러리를 만들 수 있습니다.
+> 이 문서의 예제는 OpenAPI(Swagger) 사양을 사용하지 않고 수동으로 생성됩니다. 배포에 대한 OpenAPI 사양을 활성화한 경우 [swagger-codegen](https://github.com/swagger-api/swagger-codegen)와 같은 도구를 사용하여 서비스에 대한 클라이언트 라이브러리를 만들 수 있습니다.
 
 ## <a name="connection-information"></a>연결 정보
 
@@ -41,12 +41,12 @@ Azure Machine Learning 모델을 웹 서비스로 배포하면 REST API 엔드�
 
 [azureml.core.Webservice](/python/api/azureml-core/azureml.core.webservice%28class%29) 클래스는 클라이언트를 만드는 데 필요한 정보를 제공합니다. 다음 `Webservice` 속성은 클라이언트 애플리케이션을 만드는 데 유용합니다.
 
-* `auth_enabled` 키 인증을 사용 하면 `True` 이 고, 그렇지 않으면 `False` 입니다.
-* `token_auth_enabled` 토큰 인증을 사용 하면 `True` 이 고, 그렇지 않으면 `False` 입니다.
+* `auth_enabled` - 키 인증을 사용하도록 설정한 경우 `True`이고, 그렇지 않으면 `False`입니다.
+* `token_auth_enabled` - 토큰 인증을 사용하도록 설정한 경우 `True`이고, 그렇지 않으면 `False`입니다.
 * `scoring_uri` - REST API 주소입니다.
-* `swagger_uri` -OpenAPI 사양의 주소입니다. 자동 스키마 생성을 사용 하도록 설정한 경우이 URI를 사용할 수 있습니다. 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
+* `swagger_uri` -OpenAPI 사양의 주소입니다. 자동 스키마 생성을 사용하도록 설정한 경우이 URI를 사용할 수 있습니다. 자세한 내용은 [Azure Machine Learning을 사용하여 모델 배포](how-to-deploy-and-where.md)를 참조하세요.
 
-배포 된 웹 서비스에 대해이 정보를 검색 하는 방법에는 여러 가지가 있습니다.
+배포된 웹 서비스에 대해 이 정보를 검색하는 여러 방법이 있습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -77,7 +77,7 @@ Azure Machine Learning 모델을 웹 서비스로 배포하면 REST API 엔드�
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-배포 된 서비스의 이름을 알고 있는 경우 [az ml service show](/cli/azure/ext/azure-cli-ml/ml/service#ext_azure_cli_ml_az_ml_service_show) 명령을 사용 합니다.
+배포된 서비스의 이름을 알고 있는 경우 [az ml service show](/cli/azure/ext/azure-cli-ml/ml/service#ext_azure_cli_ml_az_ml_service_show) 명령을 사용합니다.
 
 ```azurecli
 az ml service show -n <service-name>
@@ -85,44 +85,44 @@ az ml service show -n <service-name>
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-Azure Machine Learning studio에서 __끝점__, __실시간 끝점__, 끝점 이름을 차례로 선택 합니다. 끝점에 대 한 세부 정보에서 __REST 끝점__ 필드는 점수 매기기 URI를 포함 합니다. __SWAGGER uri__ 에는 swagger uri가 포함 됩니다.
+Azure Machine Learning 스튜디오에서 __엔드포인트__, __실시간 엔드포인트__, 엔드포인트 이름을 차례로 선택합니다. 엔드포인트에 대한 세부 정보에서 __REST 엔드포인트__ 필드는 채점 URI를 포함합니다. __Swagger URI__ 에는 swagger URI가 포함됩니다.
 
 ---
 
-다음 표에서는 이러한 Uri의 모양을 보여 줍니다.
+다음 표는 이러한 URI는 어떤 것인지 보여줍니다.
 
 | URI 형식 | 예제 |
 | ----- | ----- |
-| 점수 매기기 URI | `http://104.214.29.152:80/api/v1/service/<service-name>/score` |
+| 채점 URI | `http://104.214.29.152:80/api/v1/service/<service-name>/score` |
 | Swagger URI | `http://104.214.29.152/api/v1/service/<service-name>/swagger.json` |
 
 > [!TIP]
-> IP 주소는 배포에 따라 달라 집니다. 각 AKS 클러스터는 해당 클러스터에 대 한 배포에서 공유 하는 고유한 IP 주소를 갖게 됩니다.
+> IP 주소는 배포에 따라 달라집니다. 각 AKS 클러스터는 해당 클러스터에 대한 배포에서 공유하는 고유한 IP 주소를 갖게됩니다.
 
 ### <a name="secured-web-service"></a>보안 웹 서비스
 
-TLS/SSL 인증서를 사용 하 여 배포 된 웹 서비스를 보호 한 경우에는 [HTTPS](https://en.wikipedia.org/wiki/HTTPS) 를 사용 하 여 점수 매기기 또는 swagger URI를 사용 하 여 서비스에 연결할 수 있습니다. HTTPS는 둘 간의 통신을 암호화 하 여 클라이언트와 웹 서비스 간의 통신을 보호 하는 데 도움이 됩니다. 암호화는 [TLS (전송 계층 보안)](https://en.wikipedia.org/wiki/Transport_Layer_Security)를 사용 합니다. Tls는 TLS의 선행 작업 인 *SSL(Secure Sockets Layer)* (SSL) 라고도 합니다.
+TLS/SSL 인증서를 사용하여 배포된 웹 서비스를 보호한 경우에는 [HTTPS](https://en.wikipedia.org/wiki/HTTPS)를 사용하여 채점 또는 swagger URI를 사용하여 서비스에 연결할 수 있습니다. HTTPS는 둘 간의 통신을 암호화하여 클라이언트와 웹 서비스 간의 통신을 보안하는데 도움이 됩니다. 암호화는 [TLS(전송 계층 보안)](https://en.wikipedia.org/wiki/Transport_Layer_Security)를 사용합니다. TLS는 TLS의 선행 작업인 *SSL(Secure Sockets Layer)* (SSL)이라고도 합니다.
 
 > [!IMPORTANT]
-> Azure Machine Learning에서 배포 하는 웹 서비스는 TLS 버전 1.2만 지원 합니다. 클라이언트 응용 프로그램을 만들 때이 버전이 지원 되는지 확인 합니다.
+> Azure Machine Learning에서 배포하는 웹 서비스는 TLS 버전 1.2만 지원합니다. 클라이언트 애플리케이션을 만들 때 이 버전이 지원되는지 확인합니다.
 
 자세한 내용은 [TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호](how-to-secure-web-service.md)를 참조하세요.
 
-### <a name="authentication-for-services"></a>서비스에 대 한 인증
+### <a name="authentication-for-services"></a>서비스에 대한 인증
 
-Azure Machine Learning은 웹 서비스에 대 한 액세스를 제어 하는 두 가지 방법을 제공 합니다.
+Azure Machine Learning은 웹 서비스에 대한 액세스를 제어하는 두 가지 방법을 제공합니다.
 
 |인증 방법|ACI|AKS|
 |---|---|---|
 |키|기본적으로 사용 안 함| 기본적으로 사용|
 |토큰| 사용할 수 없음| 기본적으로 사용 안 함 |
 
-키 또는 토큰으로 보안이 설정 된 서비스로 요청을 보낼 때 __권한 부여__ 헤더를 사용 하 여 키 또는 토큰을 전달 합니다. 키 또는 토큰은로 형식이 지정 되어야 합니다 `Bearer <key-or-token>` `<key-or-token>` . 여기서은 키 또는 토큰 값입니다.
+키 또는 토큰으로 보안이 설정된 서비스로 요청을 보낼 때 __권한 부여__ 헤더를 사용하여 키 또는 토큰을 전달합니다. 키 또는 토큰은 `Bearer <key-or-token>`로 형식이 지정되어야 합니다. 여기서 `<key-or-token>`는 키 또는 토큰 값입니다.
 
-키와 토큰의 주요 차이점은 키가 **정적 이며 수동으로 다시 생성할 수** 있고 **만료 시 토큰을 새로 고쳐야** 하는 것입니다. 키 기반 인증은 azure Container Instance 및 Azure Kubernetes 서비스 배포 웹 서비스에 대해 지원 되며, 토큰 기반 인증은 Azure Kubernetes Service 배포에 **만** 사용할 수 있습니다. 인증 구성에 대 한 자세한 내용은 [웹 서비스로 배포 된 모델에 대 한 인증 구성](how-to-authenticate-web-service.md)을 참조 하세요.
+키와 토큰의 주요 차이점은 **키가 정적이며 수동으로 다시 생성할 수 있고** **만료 시 토큰은 새로 고쳐야** 하는 것입니다. 키 기반 인증은 Azure Container Instance 및 Azure Kubernetes Service 배포 웹 서비스에 대해 지원되며, 토큰 기반 인증은 Azure Kubernetes Service 배포에 **만** 사용할 수 있습니다. 인증 구성에 대한 자세한 내용은 [웹 서비스로 배포된 모델에 대한 인증 구성](how-to-authenticate-web-service.md)을 참조하세요.
 
 
-#### <a name="authentication-with-keys"></a>키를 사용 하 여 인증
+#### <a name="authentication-with-keys"></a>키로 인증
 
 배포에 대해 인증을 사용하도록 설정하면 자동으로 인증 키를 만듭니다.
 
@@ -139,34 +139,34 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> 키를 다시 생성 해야 하는 경우를 사용 [`service.regen_key`](/python/api/azureml-core/azureml.core.webservice%28class%29) 합니다.
+> 키를 다시 생성해야 하는 경우 [`service.regen_key`](/python/api/azureml-core/azureml.core.webservice%28class%29)를 사용합니다.
 
-#### <a name="authentication-with-tokens"></a>토큰을 사용한 인증
+#### <a name="authentication-with-tokens"></a>토큰으로 인증
 
-웹 서비스에 대 한 토큰 인증을 사용 하도록 설정 하는 경우 사용자는 액세스할 수 있도록 웹 서비스에 Azure Machine Learning JWT 토큰을 제공 해야 합니다. 
+웹 서비스에 토큰 인증을 사용하도록 설정하는 경우, 웹 서비스에서 액세스할 수 있도록 사용자가 Azure Machine Learning JWT 토큰을 제공해야 합니다. 
 
-* 토큰 인증은 Azure Kubernetes Service에 배포할 때 기본적으로 사용 하지 않도록 설정 됩니다.
-* Azure Container Instances에 배포 하는 경우에는 토큰 인증이 지원 되지 않습니다.
+* Azure Kubernetes Service에 배포하는 경우 토큰 인증이 기본값으로 사용하지 않도록 설정됩니다.
+* Azure Container Instances에 배포하는 경우 토큰 인증이 지원되지 않습니다.
 
-토큰 인증을 제어 하려면 배포를 `token_auth_enabled` 만들거나 업데이트할 때 매개 변수를 사용 합니다.
+토큰 인증을 제어하려면 배포를 만들거나 업데이트할 때 `token_auth_enabled` 매개 변수를 사용합니다.
 
-토큰 인증을 사용 하는 경우 메서드를 사용 하 여 `get_token` 전달자 토큰을 검색 하 고 해당 토큰 만료 시간을 지정할 수 있습니다.
+토큰 인증을 사용하도록 설정하면 `get_token` 메서드를 사용하여 전달자 토큰 및 이 토큰의 만료 시간을 검색할 수 있습니다.
 
 ```python
 token, refresh_by = service.get_token()
 print(token)
 ```
 
-[Azure CLI 및 machine learning 확장이](reference-azure-machine-learning-cli.md)있는 경우 다음 명령을 사용 하 여 토큰을 가져올 수 있습니다.
+[Azure CLI 및 기계 학습 확장이](reference-azure-machine-learning-cli.md)있는 경우 다음 명령을 사용하여 토큰을 가져올 수 있습니다.
 
 ```azurecli
 az ml service get-access-token -n <service-name>
 ```
 
 > [!IMPORTANT]
-> 현재 토큰을 검색 하는 유일한 방법은 Azure Machine Learning SDK 또는 Azure CLI Machine Learning 확장을 사용 하는 것입니다.
+> 현재 토큰을 검색하는 유일한 방법은 Azure Machine Learning SDK 또는 Azure CLI Machine Learning 확장을 사용하는 것입니다.
 
-토큰의 시간 이후에 새 토큰을 요청 해야 합니다 `refresh_by` . 
+토큰의 `refresh_by` 시간 후 새 토큰을 요청해야 합니다. 
 
 ## <a name="request-data"></a>요청 데이터
 
@@ -186,10 +186,10 @@ REST API는 요청 본문이 다음과 같은 구조의 JSON 문서가 될 것�
 
 ### <a name="binary-data"></a>이진 데이터
 
-서비스에서 이진 데이터에 대 한 지원을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [이진 데이터](how-to-deploy-advanced-entry-script.md#binary-data)를 참조 하세요.
+서비스에서 이진 데이터에 대한 지원을 사용하도록 설정하는 방법에 대한 자세한 내용은 [이진 데이터](how-to-deploy-advanced-entry-script.md#binary-data)를 참조하세요.
 
 > [!TIP]
-> 배포 된 모델에서 사용 하는 score.py 파일에서 이진 데이터에 대 한 지원을 사용 하도록 설정 합니다. 클라이언트에서 프로그래밍 언어의 HTTP 기능을 사용 합니다. 예를 들어 다음 코드 조각은 JPG 파일의 내용을 웹 서비스로 보냅니다.
+> 배포된 모델에서 사용하는 score.py 파일에서 이진 데이터에 대한 지원을 사용하도록 설정합니다. 클라이언트에서 프로그래밍 언어의 HTTP 기능을 사용합니다. 예를 들어 다음 코드 조각은 JPG 파일의 내용을 웹 서비스로 보냅니다.
 >
 > ```python
 > import requests
@@ -201,7 +201,7 @@ REST API는 요청 본문이 다음과 같은 구조의 JSON 문서가 될 것�
 
 ### <a name="cross-origin-resource-sharing-cors"></a>CORS(원본 간 리소스 공유)
 
-서비스에서 CORS 지원을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [크로스-원본 리소스 공유](how-to-deploy-advanced-entry-script.md#cors)를 참조 하세요.
+서비스에서 CORS 지원을 사용하도록 설정하는 방법에 대한 자세한 내용은 [원본 간 리소스 공유](how-to-deploy-advanced-entry-script.md#cors)를 참조하세요.
 
 ## <a name="call-the-service-c"></a>서비스 호출(C#)
 
@@ -525,11 +525,11 @@ print(resp.text)
 ```
 
 
-## <a name="web-service-schema-openapi-specification"></a>웹 서비스 스키마 (OpenAPI 사양)
+## <a name="web-service-schema-openapi-specification"></a>웹 서비스 스키마(OpenAPI 사양)
 
-배포에서 자동 스키마 생성을 사용 하는 경우 [swagger_uri 속성](/python/api/azureml-core/azureml.core.webservice.local.localwebservice#swagger-uri)을 사용 하 여 서비스에 대 한 openapi 사양의 주소를 가져올 수 있습니다. (예: `print(service.swagger_uri)` ) GET 요청을 사용 하거나 브라우저에서 URI를 열어 사양을 검색 합니다.
+배포에서 자동 스키마 생성을 사용하는 경우 [swagger_uri 속성](/python/api/azureml-core/azureml.core.webservice.local.localwebservice#swagger-uri)을 사용하여 서비스에 대한 OpenAPI 사양의 주소를 가져올 수 있습니다. (예: `print(service.swagger_uri)`.) GET 요청을 사용하거나 브라우저에서 URI를 열어 사양을 검색합니다.
 
-다음 JSON 문서는 배포에 대해 생성 된 스키마 (OpenAPI 사양)의 예입니다.
+다음 JSON 문서는 배포에 대해 생성된 스키마(OpenAPI 사양)의 예제입니다.
 
 ```json
 {
@@ -663,22 +663,22 @@ print(resp.text)
 }
 ```
 
-자세한 내용은 [Openapi 사양](https://swagger.io/specification/)을 참조 하세요.
+자세한 내용은 [OpenAPI 사양](https://swagger.io/specification/)을 참조하세요.
 
-사양에서 클라이언트 라이브러리를 만들 수 있는 유틸리티는 [swagger-codegen](https://github.com/swagger-api/swagger-codegen)를 참조 하세요.
+사양에서 클라이언트 라이브러리를 만들 수 있는 유틸리티는 [swagger-codegen](https://github.com/swagger-api/swagger-codegen)를 참조하세요.
 
 
 > [!TIP]
-> 서비스를 배포한 후 스키마 JSON 문서를 검색할 수 있습니다. 배포 된 웹 서비스의 [swagger_uri 속성](/python/api/azureml-core/azureml.core.webservice.local.localwebservice#swagger-uri) (예:)을 사용 `service.swagger_uri` 하 여 로컬 웹 서비스의 swagger 파일에 대 한 uri를 가져옵니다.
+> 서비스를 배포한 후 스키마 JSON 문서를 검색할 수 있습니다. 배포된 웹 서비스의 [swagger_uri 속성](/python/api/azureml-core/azureml.core.webservice.local.localwebservice#swagger-uri) (예: `service.swagger_uri`)을 사용하여 로컬 웹 서비스의 swagger 파일에 대한 URI를 가져옵니다.
 
 ## <a name="consume-the-service-from-power-bi"></a>Power BI에서 서비스 사용
 
-Power BI에서는 Azure Machine Learning 웹 서비스를 사용 하 여 예측을 통해 Power BI 데이터를 보강 합니다. 
+Power BI에서는 Azure Machine Learning 웹 서비스를 사용하여 예측을 통해 Power BI 데이터를 지원합니다. 
 
-Power BI에서 사용 하도록 지원 되는 웹 서비스를 생성 하려면 스키마가 Power BI에 필요한 형식을 지원 해야 합니다. [Power BI 지원 스키마를 만드는 방법에 대해 알아봅니다](./how-to-deploy-advanced-entry-script.md#power-bi-compatible-endpoint).
+Power BI에서 사용하도록 지원되는 웹 서비스를 생성하려면 스키마가 Power BI에 필요한 형식을 지원해야 합니다. [Power BI 지원 스키마를 만드는 방법에 대해 알아봅니다](./how-to-deploy-advanced-entry-script.md#power-bi-compatible-endpoint).
 
 웹 서비스가 배포되면 Power BI 데이터 흐름에서 사용할 수 있습니다. [Power BI에서 Azure Machine Learning 웹 서비스를 사용하는 방법을 알아봅니다](/power-bi/service-machine-learning-integration).
 
 ## <a name="next-steps"></a>다음 단계
 
-Python 및 심층 학습 모델에 대 한 실시간 점수 매기기를 위한 참조 아키텍처를 보려면 [Azure 아키텍처 센터](/azure/architecture/reference-architectures/ai/realtime-scoring-python)로 이동 하세요.
+Python 및 딥 러닝 모델에 대한 실시간 채점을 위한 참조 아키텍처를 보려면 [Azure 아키텍처 센터](/azure/architecture/reference-architectures/ai/realtime-scoring-python)로 이동하세요.

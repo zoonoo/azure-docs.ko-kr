@@ -1,18 +1,18 @@
 ---
 title: 레거시를 사용하여 MongoDB로부터 데이터 복사
 description: 레거시 Azure Data Factory 파이프라인의 복사 작업을 통해 Mongo DB로부터 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아보기.
-author: linda33wj
-ms.author: jingwang
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.openlocfilehash: e13a1a5a939d314bdf4500c0827fa13201505016
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4882949abd21e782d98dff8de2ba7be1b66ecdfb
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100368849"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109482186"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Azure Data Factory를 사용하여 MongoDB에서 데이터 복사(레거시)
 
@@ -37,13 +37,13 @@ MongoDB 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 통합 런타임은 기본 제공 MongoDB 드라이버를 제공하므로 MongoDB에서 데이터를 복사할 때 수동으로 드라이버를 설치할 필요가 없습니다.
 
 ## <a name="getting-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 MongoDB 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 

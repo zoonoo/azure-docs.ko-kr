@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 008d0f106b07d61f0989a479457b12398000b5d9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "104674577"
 ---
 # <a name="azure-data-catalog-terminology"></a>Azure 데이터 카탈로그 용어
@@ -25,7 +25,7 @@ Azure 데이터 카탈로그는 데이터 원본이 있는 클라우드 기반 �
 
 ## <a name="data-source"></a>데이터 원본
 
-데이터 원본은 데이터 자산을 관리하는 시스템 또는 컨테이너입니다. 예를 들면 SQL Server 데이터베이스, Oracle 데이터베이스, SQL Server Analysis Services 데이터베이스 (테이블 형식 또는 다차원) 및 SQL Server Reporting Services 서버가 있습니다.
+데이터 원본은 데이터 자산을 관리하는 시스템 또는 컨테이너입니다. SQL Server 데이터베이스, Oracle 데이터베이스, SQL Server Analysis Services 데이터베이스(테이블 형식 또는 다차원) 및 SQL Server Reporting Services 서버를 예로 들 수 있습니다.
 
 ## <a name="data-asset"></a>데이터 자산
 
@@ -67,9 +67,9 @@ Azure 데이터 카탈로그에 있는 데이터 프로필은 등록 시 데이�
 
 ## <a name="user-perspective"></a>사용자 관점
 
-Azure 데이터 카탈로그에서 모든 사용자가 등록된 데이터 자산에 대해 설명이 포함된 메타데이터를 제공할 수 있습니다. 모든 사용자에 게는 데이터 및 사용에 대 한 고유한 큐브 뷰가 있습니다. 예를 들어, 서버 담당자는 해당 SLA(서비스 수준 계약) 또는 백업 창에 대한 세부 정보를 제공할 수 있습니다. 데이터 관리자는 데이터 지원을 처리하는 비즈니스에 대한 설명서 링크를 제공할 수 있습니다. 분석가는 다른 분석가와 가장 관련된 용어 및 데이터를 검색하고 이해하는 데 필요한 사용자에게 가장 중요할 수 있는 용어에 대한 설명을 제공할 수 있습니다.
+Azure 데이터 카탈로그에서 모든 사용자가 등록된 데이터 자산에 대해 설명이 포함된 메타데이터를 제공할 수 있습니다. 모든 사용자는 데이터와 용도에 대해 고유한 관점을 갖습니다. 예를 들어, 서버 담당자는 해당 SLA(서비스 수준 계약) 또는 백업 창에 대한 세부 정보를 제공할 수 있습니다. 데이터 관리자는 데이터 지원을 처리하는 비즈니스에 대한 설명서 링크를 제공할 수 있습니다. 분석가는 다른 분석가와 가장 관련된 용어 및 데이터를 검색하고 이해하는 데 필요한 사용자에게 가장 중요할 수 있는 용어에 대한 설명을 제공할 수 있습니다.
 
-이러한 각 큐브 뷰는 본질적으로 중요 하며, Azure Data Catalog 각 사용자가 의미 있는 정보를 제공할 수 있으며, 모든 사용자는 해당 정보를 사용 하 여 데이터 및 용도를 이해할 수 있습니다.
+각각의 견해는 본질적으로 중요합니다. 모든 사용자가 데이터 및 해당 목적을 이해하기 위한 정보를 사용할 수 있으며, Azure Data Catalog를 사용하여 각각의 사용자는 해당 사용자에게 의미 있는 정보를 제공할 수 있습니다.
 
 ## <a name="expert"></a>전문가
 
@@ -77,7 +77,7 @@ Azure 데이터 카탈로그에서 모든 사용자가 등록된 데이터 자�
 
 ## <a name="owner"></a>소유자
 
-소유자는 Azure 데이터 카탈로그에서 데이터 자산을 관리하기 위한 추가 권한이 있는 사용자입니다. 사용자는 등록된 자산 데이터의 소유권을 가져올 수 있으며 소유자는 다른 사용자를 공동 소유자로 추가할 수 있습니다. 자세한 내용은 [데이터 자산을 관리 하는 방법](data-catalog-how-to-manage.md) 을 참조 하세요.  
+소유자는 Azure 데이터 카탈로그에서 데이터 자산을 관리하기 위한 추가 권한이 있는 사용자입니다. 사용자는 등록된 자산 데이터의 소유권을 가져올 수 있으며 소유자는 다른 사용자를 공동 소유자로 추가할 수 있습니다. 자세한 내용은 [데이터 자산을 관리하는 방법](data-catalog-how-to-manage.md)을 참조하세요.  
 
 > [!NOTE]
 > 소유권 및 관리는 Azure 데이터 카탈로그의 표준 버전에서만 사용할 수 있습니다.
