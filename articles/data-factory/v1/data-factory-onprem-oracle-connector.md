@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 02fc142a08176aa577250417c0e394218e832f34
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a590082acee1a3382ef51ce2361eb2c9b5fb2636
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100387345"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108741548"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 다른 곳에서 Oracle 온-프레미스로 또는 그 반대로 데이터 복사
 
@@ -30,11 +30,11 @@ ms.locfileid: "100387345"
 
 *Oracle 데이터베이스에서* 다음 데이터 저장소로 데이터를 복사할 수 있습니다.
 
-[!INCLUDE [data-factory-supported-sink](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sink](includes/data-factory-supported-sinks.md)]
 
 다음 데이터 저장소에서 *Oracle 데이터베이스로* 데이터를 복사할 수 있습니다.
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 

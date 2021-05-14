@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 450a12ae5ae1e13c9cc9b5599a41b6c29d740a9f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b8f00715eac391e9180c36d8960f54c95772c564
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104785328"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753170"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure 데이터 팩터리 - 질문과 대답
 > [!NOTE]
@@ -88,13 +88,19 @@ Microsoft MVP(가장 중요한 전문가) 중 하나인 Reza Rad 님의 [Azure D
 ### <a name="what-are-the-supported-data-stores"></a>지원되는 데이터 저장소는 무엇입니까?
 데이터 팩터리의 복사 활동은 원본 데이터 저장소의 데이터를 싱크 데이터 저장소로 복사합니다. Data Factory는 다음과 같은 데이터 저장소를 지원합니다. 모든 소스의 데이터를 모든 싱크에 쓸 수 있습니다. 데이터 저장소를 클릭하면 해당 저장소에서/저장소로 데이터를 복사하는 방법을 확인할 수 있습니다.
 
-[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 > [!NOTE]
 > *가 있는 데이터 저장소는 온-프레미스 또는 Azure IaaS에 있을 수 있으며 온-프레미스/Azure IaaS 컴퓨터에 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 를 설치해야 합니다.
 
 ### <a name="what-are-the-supported-file-formats"></a>지원되는 파일 형식은 무엇입니까?
-[!INCLUDE [data-factory-file-format](../../../includes/data-factory-file-format.md)]
+Azure Data Factory는 다음과 같은 파일 형식을 지원합니다.
+
+* [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format)
+* [JSON 형식](data-factory-supported-file-and-compression-formats.md#json-format)
+* [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format)
+* [ORC 형식](data-factory-supported-file-and-compression-formats.md#orc-format)
+* [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format)
 
 ### <a name="where-is-the-copy-operation-performed"></a>복사 작업을 어디서 수행하나요?
 자세한 내용은 [전역적으로 사용 가능한 데이터 이동](data-factory-data-movement-activities.md#global) 섹션을 참조하세요. 즉, 온-프레미스 데이터 저장소가 관련된 경우 온-프레미스 환경의 데이터 관리 게이트웨이에서 복사 작업을 수행합니다. 그리고 두 클라우드 저장소 간에 데이터를 이동하는 경우 같은 지리의 싱크 위치에 가장 가까운 지역에서 복사 작업을 수행합니다.

@@ -4,34 +4,138 @@ summary: BareMetal Infrastructure를 사용하여 Microsoft Azure에서 가상 �
 metadata:
   title: BareMetal Infrastructure 설명서
   description: BareMetal Infrastructure를 사용하여 Microsoft Azure에서 가상 머신을 만들고 배포하고 관리하는 방법을 알아보세요.
-  services: virtual-machines
+  services: baremetal-infrastructure
   ms.service: baremetal-infrastructure
   ms.topic: landing-page
-  author: shortpatti
-  ms.author: v-patsho
-  ms.date: 12/31/2020
-  ms.openlocfilehash: 285421d12b656290ef5ddbe21136345b718e0ca1
-  ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+  author: Ajayan1008
+  ms.author: v-hborys
+  ms.date: 04/14/2021
+  ms.openlocfilehash: 4074e3002913bd3ea114611daf08f635deb6ec99
+  ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 01/23/2021
-  ms.locfileid: "98730275"
+  ms.lasthandoff: 05/07/2021
+  ms.locfileid: "109518363"
 landingContent:
 - title: BareMetal Infrastructure 정보
   linkLists:
   - linkListType: overview
     links:
     - text: Azure의 BareMetal Infrastructure란?
-      url: workloads/sap/baremetal-overview-architecture.md
+      url: concepts-baremetal-infrastructure-overview.md
     - text: 용어 알아보기
       url: know-baremetal-terms.md
+    - text: Azure에서 BareMetal 인스턴스 연결
+      url: connect-baremetal-infrastructure.md
+- title: Oracle용 BareMetal Infrastructure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Oracle용 BareMetal Infrastructure란?
+      url: workloads/oracle/oracle-baremetal-overview.md
+    - text: Oracle 워크로드의 BareMetal SKU
+      url: workloads/oracle/oracle-baremetal-skus.md
+    - text: Oracle용 BareMetal의 스토리지
+      url: workloads/oracle/oracle-baremetal-storage.md
+    - text: 패치 고려 사항
+      url: workloads/oracle/oracle-baremetal-patching.md
+    - text: 이더넷 구성
+      url: workloads/oracle/oracle-baremetal-ethernet.md
+    - text: Oracle용 BareMetal의 아키텍처
+      url: workloads/oracle/oracle-baremetal-architecture.md
+    - text: BareMetal for Oracle 프로비전
+      url: workloads/oracle/oracle-baremetal-provision.md
   - linkListType: reference
     links:
-    - text: BareMetal 워크로드 유형
-      url: ../virtual-machines/workloads/sap/get-started.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
-- title: BareMetal 인스턴스 단위
-  linkLists:
+    - text: 고가용성 및 재해 복구
+      url: workloads/oracle/concepts-oracle-high-availability.md
+    - text: 고가용성 기능
+      url: workloads/oracle/high-availability-features.md
+    - text: 옵션 및 고려 사항
+      url: workloads/oracle/options-considerations-high-availability.md
+    - text: 복구 방법 선택
+      url: workloads/oracle/oracle-high-availability-recovery.md
   - linkListType: how-to-guide
     links:
-    - text: Azure에서 BareMetal 인스턴스 단위 관리
-      url: workloads/sap/baremetal-infrastructure-portal.md
+    - text: SnapCenter 개요
+      url: workloads/oracle/netapp-snapcenter-integration-oracle-baremetal.md
+    - text: 트래픽을 라우팅하는 SnapCenter 설정
+      url: workloads/oracle/set-up-snapcenter-to-route-traffic.md
+    - text: SnapCenter 구성
+      url: workloads/oracle/configure-snapcenter-oracle-baremetal.md
+    - text: 주문형 백업 만들기
+      url: workloads/oracle/create-on-demand-backup-oracle-baremetal.md
+    - text: Oracle Database 복원
+      url: workloads/oracle/restore-oracle-database-baremetal.md
+- title: Azure(큰 인스턴스)에서 SAP HANA 사용
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 인증
+      url: ../virtual-machines/workloads/sap/hana-certification.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: HLI에 사용 가능한 SKU
+      url: ../virtual-machines/workloads/sap/hana-available-skus.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: 크기 조정
+      url: ../virtual-machines/workloads/sap/hana-sizing.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: 온보딩 요구 사항
+      url: ../virtual-machines/workloads/sap/hana-onboarding-requirements.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: SAP HANA 데이터 계층화 및 확장 노드
+      url: ../virtual-machines/workloads/sap/hana-data-tiering-extension-nodes.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: 작업 모델 및 책임
+      url: ../virtual-machines/workloads/sap/hana-operations-model.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: 호환 가능한 운영 체제
+      url: ../virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: HLI 지원 시나리오
+      url: ../virtual-machines/workloads/sap/hana-supported-scenario.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+  - linkListType: architecture
+    links:
+    - text: 일반 아키텍처
+      url: ../virtual-machines/workloads/sap/hana-architecture.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: 네트워크 아키텍처
+      url: ../virtual-machines/workloads/sap/hana-network-architecture.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: 스토리지 아키텍처
+      url: ../virtual-machines/workloads/sap/hana-storage-architecture.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+  - linkListType: get-started
+    links:
+    - text: HLI 배포
+      url: ../virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: Azure VM을 HANA 큰 인스턴스에 연결
+      url: ../virtual-machines/workloads/sap/hana-connect-azure-vm-large-instances.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: VNet을 HANA 큰 인스턴스 ExpressRoute에 연결
+      url: ../virtual-machines/workloads/sap/hana-connect-vnet-express-route.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: 추가 네트워크 요구 사항
+      url: ../virtual-machines/workloads/sap/hana-additional-network-requirements.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: 구성 유효성 검사
+      url: ../virtual-machines/workloads/sap/hana-installation.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: 샘플 HANA 설치
+      url: ../virtual-machines/workloads/sap/hana-example-installation.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+  - linkListType: reference
+    links:
+    - text: 옵션 및 고려 사항
+      url: ../virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: 백업 및 복원
+      url: ../virtual-machines/workloads/sap/hana-backup-restore.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: 원칙 및 준비
+      url: ../virtual-machines/workloads/sap/hana-concept-preparation.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: 재해 복구 장애 조치(failover) 프로시저
+      url: ../virtual-machines/workloads/sap/hana-failover-procedure.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: 모니터링 HLI
+      url: ../virtual-machines/workloads/sap/troubleshooting-monitoring.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: HANA 쪽에서 모니터링 및 문제 해결
+      url: ../virtual-machines/workloads/sap/hana-monitor-troubleshoot.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+  - linkListType: how-to-guide
+    links:
+    - text: STONITH로 HA 설치
+      url: ../virtual-machines/workloads/sap/ha-setup-with-stonith.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: OS 백업
+      url: ../virtual-machines/workloads/sap/large-instance-os-backup.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: HANA Large Instances에 Kdump 사용
+      url: ../virtual-machines/workloads/sap/hana-large-instance-enable-kdump.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: HANA 대형 인스턴스를 위한 OS 업그레이드
+      url: ../virtual-machines/workloads/sap/os-upgrade-hana-large-instance.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: SUSE Linux용 SMT 서버 설정
+      url: ../virtual-machines/workloads/sap/hana-setup-smt.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: HLI에서 Azure VM으로 마이그레이션
+      url: ../virtual-machines/workloads/sap/hana-large-instance-virtual-machine-migration.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: SAP HANA(대규모 인스턴스) 예약 구입
+      url: /azure/cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity

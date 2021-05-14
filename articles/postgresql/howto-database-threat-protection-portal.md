@@ -1,5 +1,5 @@
 ---
-title: Advanced Threat Protection 사용-Azure Database for PostgreSQL-단일 서버
+title: Advanced Threat Protection 사용 - Azure Database for PostgreSQL - 단일 서버
 description: Threat Protection은 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색합니다.
 author: sunilagarwal
 ms.author: sunila
@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: 5583e8423f0909936d9e55c6d87593835eded8f7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92489900"
 ---
-# <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL에 대 한 Advanced Threat Protection-단일 서버
+# <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL용 Advanced Threat Protection - 단일 서버
 
 Azure Database for PostgreSQL용 Advanced Threat Protection은 비정상적이며 유해할 가능성이 있는 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 검색합니다.
 
@@ -27,7 +27,7 @@ Advanced Threat Detection은 고급 보안 기능용 통합 패키지인 Advance
 > 이 기능은 Azure Database for PostgreSQL이 범용 및 메모리 최적화 서버용으로 배포된 모든 Azure 지역에서 사용할 수 있습니다.
 
 ## <a name="set-up-threat-detection"></a>위협 감지 설정
-1. 에서 Azure Portal를 시작 [https://portal.azure.com](https://portal.azure.com) 합니다.
+1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal을 시작합니다.
 2. 보호할 Azure Database for PostgreSQL 서버의 구성 페이지로 이동합니다. 보안 설정에서 **Advanced Threat Protection(미리 보기)** 을 선택합니다.
 3. **Advanced Threat Protectio(미리 보기)** 구성 페이지에서 다음을 수행합니다.
 

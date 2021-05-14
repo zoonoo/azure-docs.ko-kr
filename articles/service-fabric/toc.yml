@@ -2,18 +2,18 @@
   href: index.yml
 - name: 개요
   items:
-    - name: Service Fabric이란?
-      href: service-fabric-overview.md
     - name: Service Fabric 관리형 클러스터
       href: overview-managed-cluster.md
+    - name: Service Fabric이란?
+      href: service-fabric-overview.md
 - name: 빠른 시작
   expanded: true
   items:
+    - name: 관리형 클러스터
+      href: quickstart-managed-cluster-template.md
     - name: ARM 템플릿
       displayName: Resource Manager
       href: quickstart-cluster-template.md
-    - name: 관리형 클러스터
-      href: quickstart-managed-cluster-template.md
     - name: .NET 애플리케이션 만들기
       href: service-fabric-quickstart-dotnet.md
     - name: Linux 컨테이너 애플리케이션 배포
@@ -28,6 +28,16 @@
           href: service-fabric-quickstart-java-reliable-services.md
 - name: 자습서
   items:
+    - name: Service Fabric 관리형 클러스터 만들기
+      items:
+        - name: 1 - Service Fabric 관리형 클러스터 배포
+          href: tutorial-managed-cluster-deploy.md
+        - name: 2 - 관리형 클러스터 노드 형식 확장
+          href: tutorial-managed-cluster-scale.md
+        - name: 3 - 관리형 클러스터 노드 형식 추가 및 제거
+          href: tutorial-managed-cluster-add-remove-node-type.md
+        - name: 4 - 관리형 클러스터에 연결하고 애플리케이션 배포
+          href: tutorial-managed-cluster-deploy-app.md
     - name: .NET 앱 배포
       items:
         - name: 1- .NET 애플리케이션 빌드
@@ -68,17 +78,7 @@
           href: service-fabric-tutorial-package-containers.md
         - name: 3- 장애 조치(failover) 및 비율 크기 조정
           href: service-fabric-tutorial-containers-failover.md
-    - name: Service Fabric 관리형 클러스터 만들기
-      items:
-        - name: 1 - Service Fabric 관리형 클러스터 배포
-          href: tutorial-managed-cluster-deploy.md
-        - name: 2 - 관리형 클러스터 노드 형식 확장
-          href: tutorial-managed-cluster-scale.md
-        - name: 3 - 관리형 클러스터 노드 형식 추가 및 제거
-          href: tutorial-managed-cluster-add-remove-node-type.md
-        - name: 4 - 관리형 클러스터에 연결하고 애플리케이션 배포
-          href: tutorial-managed-cluster-deploy-app.md
-    - name: 클러스터 만들기 및 관리
+    - name: Azure에서 클러스터 만들기
       items:
         - name: 1 - Azure에서 클러스터 만들기
           href: service-fabric-tutorial-create-vnet-and-windows-cluster.md
@@ -106,8 +106,6 @@
           href: service-fabric-tutorial-standalone-clean-up.md
 - name: 모범 사례
   items:
-    - name: Service Fabric 모범 사례 개요
-      href: service-fabric-best-practices-overview.md
     - name: 보안
       href: service-fabric-best-practices-security.md
     - name: 네트워킹
@@ -138,7 +136,7 @@
       href: service-fabric-content-roadmap.md
     - name: 애플리케이션 시나리오
       href: service-fabric-application-scenarios.md
-    - name: 아키텍처
+    - name: Architecture
       href: service-fabric-architecture.md
     - name: 보안
       items:
@@ -156,7 +154,7 @@
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: Azure Security Benchmark에 대한 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/service-fabric-security-baseline?toc=/azure/service-fabric/toc.json
     - name: 용어
       href: service-fabric-technical-overview.md
     - name: 애플리케이션 빌드
@@ -358,6 +356,8 @@
               href: service-fabric-cluster-resource-manager-movement-cost.md
             - name: 자동 크기 조정 서비스
               href: service-fabric-cluster-resource-manager-autoscaling.md
+            - name: 노드 태깅
+              href: service-fabric-cluster-resource-manager-node-tagging.md
     - name: 모니터링 및 진단
       items:
         - name: 모니터링 개요
@@ -396,6 +396,30 @@
       href: configure-container-repository-credentials.md
 - name: 방법 가이드
   items:
+    - name: Service Fabric 관리형 클러스터 사용
+      items:
+        - name: 관리형 클러스터 노드 형식에 VM 확장 집합 확장 추가
+          href: how-to-managed-cluster-vmss-extension.md
+        - name: NSG 규칙 및 기타 관리형 클러스터 네트워킹 옵션 추가
+          href: how-to-managed-cluster-networking.md
+        - name: 관리형 클러스터 가용성 영역 스패닝 구성
+          href: how-to-managed-cluster-availability-zones.md
+        - name: 관리형 클러스터 구성
+          href: how-to-managed-cluster-configuration.md
+        - name: 관리형 클러스터 애플리케이션 비밀 배포
+          href: how-to-managed-cluster-application-secrets.md
+        - name: ARM 템플릿을 사용하여 관리형 클러스터 애플리케이션 배포
+          href: how-to-managed-cluster-app-deployment-template.md
+        - name: 관리 ID를 사용하여 관리형 클러스터 애플리케이션 배포
+          href: how-to-managed-cluster-application-managed-identity.md
+        - name: 상태 비저장 전용 노드 형식을 관리형 클러스터에 배포
+          href: how-to-managed-cluster-stateless-node-type.md
+        - name: 관리형 클러스터 노드에 대해 디스크 암호화 사용
+          href: how-to-enable-managed-cluster-disk-encryption.md
+        - name: 관리형 클러스터 노드에 대한 관리 디스크 유형 선택
+          href: how-to-managed-cluster-managed-disk.md
+        - name: 관리형 클러스터 노드에 관리 ID 사용
+          href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
     - name: 개발 환경 설정
       items:
         - name: Windows
@@ -442,20 +466,6 @@
                   href: service-fabric-develop-csharp-applications-with-vs-code.md
                 - name: VS Code를 통해 Java Service Fabric 애플리케이션 개발
                   href: service-fabric-develop-java-applications-with-vs-code.md
-    - name: Service Fabric 관리형 클러스터 사용
-      items:
-        - name: 관리형 클러스터 노드 형식에 가상 머신 확장 집합 확장 추가
-          href: how-to-managed-cluster-vmss-extension.md
-        - name: 관리형 클러스터 구성
-          href: how-to-managed-cluster-configuration.md
-        - name: NSG 규칙 및 기타 관리형 클러스터 네트워킹 옵션 추가
-          href: how-to-managed-cluster-networking.md
-        - name: ARM 템플릿을 사용하여 관리형 클러스터 애플리케이션 배포
-          href: how-to-managed-cluster-app-deployment-template.md
-        - name: 관리형 클러스터 노드에 대해 디스크 암호화 사용
-          href: how-to-enable-managed-cluster-disk-encryption.md
-        - name: 관리형 클러스터 노드에 관리 ID 사용
-          href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
     - name: 계획 및 준비
       items:
         - name: 클러스터 용량 계획
@@ -466,7 +476,7 @@
           href: service-fabric-disaster-recovery.md
         - name: 애플리케이션 용량 계획
           href: service-fabric-capacity-planning.md
-    - name: 클러스터 만들기 및 관리
+    - name: 클러스터 만들기 및 유지 관리
       items:
         - name: Azure의 클러스터
           items:
@@ -504,7 +514,7 @@
                   href: service-fabric-how-to-remove-node-type.md
             - name: 업그레이드
               items:
-                - name: Service Fabric 버전 업그레이드
+                - name: Service Fabric 클러스터 업그레이드 관리
                   href: service-fabric-cluster-upgrade-version-azure.md
                 - name: 클러스터 구성 업그레이드
                   href: service-fabric-cluster-config-upgrade-azure.md
@@ -923,12 +933,12 @@
       href: ./policy-reference.md
 - name: 리소스
   items:
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: 일반적인 질문
-      href: service-fabric-common-questions.md
     - name: Service Fabric 관리형 클러스터 공통 질문
       href: faq-managed-cluster.md
+    - name: 일반적인 질문
+      href: service-fabric-common-questions.md
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
     - name: Microsoft Q&A 질문 페이지
       href: /answers/topics/azure-service-fabric.html
     - name: Azure Resource Manager 배포 가드레일

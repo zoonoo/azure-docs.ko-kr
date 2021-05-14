@@ -51,7 +51,7 @@
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/automation-security-baseline?toc=/azure/automation/TOC.json
     - name: 데이터 보안
       items:
         - name: 보안 자산 암호화
@@ -66,6 +66,14 @@
           href: automation-create-standalone-account.md
         - name: Resource Manager 템플릿을 사용하여 Automation 계정 만들기
           href: quickstart-create-automation-account-template.md
+        - name: 관리 ID
+          items:
+            - name: 관리 ID 사용
+              href: enable-managed-identity-for-automation.md
+            - name: 관리 ID 사용 안 함
+              href: disable-managed-identity-for-automation.md
+            - name: 관리 ID 문제 해결
+              href: troubleshoot/managed-identity.md
         - name: 실행 계정
           items:
             - name: 실행 계정 만들기
@@ -86,6 +94,8 @@
           href: automation-role-based-access-control.md
         - name: Automation 계정을 다른 구독으로 이동
           href: how-to/move-account.md
+        - name: Automation 계정 삭제
+          href: delete-account.md
         - name: Orchestrator에서 Azure Automation으로 마이그레이션(베타)
           href: automation-orchestrator-migration.md
     - name: 공유 리소스
@@ -114,7 +124,7 @@
           href: troubleshoot/shared-resources.md
     - name: 프로세스 자동화
       items:
-        - name: PowerShell 갤러리에서 Runbook 및 모듈 사용
+        - name: 기존 Runbook 및 모듈 사용
           href: automation-runbook-gallery.md
         - name: PowerShell 워크플로 알아보기
           href: automation-powershell-workflow.md
@@ -136,8 +146,6 @@
               href: start-runbooks.md
             - name: 웹후크에서 Runbook 시작
               href: automation-webhooks.md
-            - name: 감시자 작업을 사용하여 업데이트된 파일 추적
-              href: automation-watchers-tutorial.md
             - name: 그래픽 Runbook SDK 사용
               href: graphical-runbook-sdk.md
         - name: Runbook 모니터링
@@ -184,6 +192,8 @@
               href: automation-dsc-compile.md
             - name: 비규격 상태 구성 서버 재구성
               href: automation-dsc-remediate.md
+            - name: 노드 및 구성 제거
+              href: state-configuration/remove-node-and-configuration-package.md
             - name: Chocolatey를 사용한 지속적인 배포 설정
               href: automation-dsc-cd-chocolatey.md
             - name: Azure Monitor 로그와 통합
@@ -312,7 +322,7 @@
               href: troubleshoot/update-agent-issues.md
             - name: Linux 업데이트 에이전트 문제 해결
               href: troubleshoot/update-agent-issues-linux.md
-    - name: 구성 요소 간 시나리오
+    - name: 시나리오
       items:
         - name: Runbook에서 이메일 보내기
           href: automation-send-email.md
@@ -320,6 +330,8 @@
           href: automation-alert-metric.md
         - name: Azure 경고에서 Runbook 트리거
           href: automation-create-alert-triggered-runbook.md
+        - name: 감시자 작업을 사용하여 업데이트된 파일 추적
+          href: automation-scenario-using-watcher-task.md
         - name: Office 365 서비스 관리
           href: manage-office-365.md
         - name: Automation Runbook을 사용하여 AWS VM 배포
@@ -332,6 +344,8 @@
           href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir
 - name: 참조
   items:
+    - name: Azure CLI
+      href: /cli/azure/automation
     - name: Azure PowerShell Az
       href: /powershell/module/az.automation
     - name: Azure PowerShell AzureRM

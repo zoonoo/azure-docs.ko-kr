@@ -26,6 +26,8 @@
           href: howto-create-private-cluster-4x.md
         - name: DNS 전달 구성
           href: dns-forwarding.md
+        - name: 송신 트래픽 제한
+          href: howto-restrict-egress.md
     - name: Storage
       items:
         - name: 고객 관리형 키를 사용한 PVC 암호화(미리 보기)
@@ -60,6 +62,10 @@
               href: ../azure-monitor/containers/container-insights-optout-openshift-v4.md
     - name: 애플리케이션 개발 및 실행
       items:
+        - name: 소스 코드에서 애플리케이션 배포
+          href: howto-deploy-with-s2i.md
+        - name: OpenShift 서버리스를 사용하여 애플리케이션 배포
+          href: howto-deploy-with-serverless.md
         - name: Open Liberty/WebSphere Liberty 앱 배포
           href: howto-deploy-java-liberty-app.md
     - name: Azure Red Hat OpenShift 3.11
@@ -107,6 +113,8 @@
       href: /cli/azure/aro
     - name: Azure Red Hat OpenShift REST API
       href: /rest/api/openshift
+    - name: Azure CLI
+      href: /cli/azure/openshift
 - name: 리소스
   items:
     - name: 자주 묻는 질문
@@ -117,6 +125,8 @@
       href: support-policies-v4.md
     - name: ARO 4에 대한 지원 수명 주기
       href: support-lifecycle.md
+    - name: 책임 매트릭스
+      href: responsibility-matrix.md
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Red Hat OpenShift 4 설명서

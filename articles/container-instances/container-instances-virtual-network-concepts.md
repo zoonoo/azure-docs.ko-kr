@@ -1,23 +1,23 @@
 ---
-title: 가상 네트워크를 사용 하는 시나리오
-description: Azure 가상 네트워크에 컨테이너 그룹을 배포 하는 시나리오, 리소스 및 제한 사항입니다.
+title: 가상 네트워크를 사용하는 시나리오
+description: Azure 가상 네트워크에 컨테이너 그룹을 배포하는 시나리오, 리소스 및 제한 사항입니다.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 20c2b4fe2f19402d6647f398a9696b7e16550d8e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 6de99c68c3f05e4734dd46a579d28a6f1a3b824e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606891"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763778"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>가상 네트워크 시나리오 및 리소스
 
 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)는 Azure 및 온-프레미스 리소스를 위한 안전한 프라이빗 네트워킹 기능을 제공합니다. 컨테이너 그룹을 Azure Virtual Network에 배포하면 컨테이너가 가상 네트워크의 다른 리소스와 안전하게 통신할 수 있습니다. 
 
-이 문서에서는 가상 네트워크 시나리오, 제한 사항 및 리소스에 대 한 배경 정보를 제공 합니다. Azure CLI 사용 하는 배포 예제는 [Azure virtual network에 컨테이너 인스턴스 배포](container-instances-vnet.md)를 참조 하세요.
+이 문서에서는 가상 네트워크 시나리오, 제한 사항 및 리소스에 대한 배경 정보를 제공합니다. Azure CLI를 사용하는 배포 예제는 [Azure Virtual Network에 컨테이너 인스턴스 배포](container-instances-vnet.md)를 참조하세요.
 
 > [!IMPORTANT]
-> 가상 네트워크에 대 한 컨테이너 그룹 배포는 Azure Container Instances을 사용할 수 있는 대부분의 지역에서 일반적으로 Linux 컨테이너에 사용할 수 있습니다. 자세한 내용은 [지역 및 리소스 가용성](container-instances-region-availability.md)을 참조 하세요. 
+> 가상 네트워크에 대한 컨테이너 그룹 배포는 일반적으로 Azure Container Instances를 사용할 수 있는 대부분의 지역에서 Linux 컨테이너에 사용할 수 있습니다. 자세한 내용은 [지역 및 리소스 가용성](container-instances-region-availability.md)을 참조하세요. 
 
 ## <a name="scenarios"></a>시나리오
 
@@ -26,26 +26,26 @@ Azure Virtual Network에 컨테이너 그룹을 배포하는 경우 다음과 �
 * 동일한 서브넷의 컨테이너 그룹 간 직접 통신
 * 컨테이너 인스턴스에서 가상 네트워크의 데이터베이스로 [작업 기반](container-instances-restart-policy.md) 워크로드 전송
 * 가상 네트워크의 [서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)에서 컨테이너 인스턴스의 콘텐츠 검색
-* [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [express](../expressroute/expressroute-introduction.md) 경로를 통해 온-프레미스 리소스와의 컨테이너 통신 사용
-* [Azure 방화벽과](../firewall/overview.md) 통합 하 여 컨테이너에서 시작 되는 아웃 바운드 트래픽 식별 
-* 가상 컴퓨터와 같은 가상 네트워크의 Azure 리소스와 통신 하기 위해 내부 Azure DNS를 통해 이름 확인
-* NSG 규칙을 사용 하 여 서브넷 또는 다른 네트워크 리소스에 대 한 컨테이너 액세스 제어
+* [VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [ExpressRoute](../expressroute/expressroute-introduction.md)를 통한 온-프레미스 리소스와 컨테이너 간 통신 사용
+* [Azure Firewall](../firewall/overview.md)과 통합하여 컨테이너에서 시작되는 아웃바운드 트래픽 식별 
+* 가상 머신과 같은 가상 네트워크의 Azure 리소스와 통신하기 위해 내부 Azure DNS를 통해 이름 확인
+* NSG 규칙을 사용하여 서브넷 또는 다른 네트워크 리소스에 대한 컨테이너 액세스 제어
 
-## <a name="unsupported-networking-scenarios"></a>지원 되지 않는 네트워킹 시나리오 
+## <a name="unsupported-networking-scenarios"></a>지원되지 않는 네트워킹 시나리오 
 
-* **Azure Load Balancer** -네트워크 컨테이너 그룹의 컨테이너 인스턴스 앞에 Azure Load Balancer를 배치 하는 것은 지원 되지 않습니다.
-* **글로벌 가상 네트워크 피어 링** -글로벌 피어 링 (Azure 지역에서 가상 네트워크 연결)은 지원 되지 않습니다.
-* **공용 ip 또는 DNS 레이블** -가상 네트워크에 배포 된 컨테이너 그룹은 현재 공용 ip 주소 또는 정규화 된 도메인 이름으로 컨테이너를 인터넷에 직접 노출 하는 것을 지원 하지 않습니다.
-* **VIRTUAL NETWORK nat** -가상 네트워크에 배포 된 컨테이너 그룹은 현재 아웃 바운드 인터넷 연결에 nat 게이트웨이 리소스를 사용 하 여 지원 하지 않습니다.
+* **Azure Load Balancer** - 네트워크 컨테이너 그룹의 컨테이너 인스턴스 앞에 Azure Load Balancer를 배치하는 시나리오는 지원되지 않습니다.
+* **글로벌 가상 네트워크 피어링** - 글로벌 피어링(Azure 지역에서 가상 네트워크 연결)은 지원되지 않습니다.
+* **공용 IP 또는 DNS 레이블** - 가상 네트워크에 배포된 컨테이너 그룹은 현재 공용 IP 주소 또는 정규화된 도메인 이름으로 컨테이너를 인터넷에 직접 노출하는 시나리오를 지원하지 않습니다.
+* **Virtual Network NAT** - 가상 네트워크에 배포된 컨테이너 그룹은 현재 아웃바운드 인터넷 연결에 대한 NAT 게이트웨이 리소스 사용을 지원하지 않습니다.
 
 ## <a name="other-limitations"></a>기타 제한 사항
 
-* 현재는 가상 네트워크에 배포 된 컨테이너 그룹 에서만 Linux 컨테이너를 지원 합니다.
-* 서브넷에 컨테이너 그룹을 배포 하려면 서브넷에 다른 리소스 종류를 포함할 수 없습니다. 컨테이너 그룹을 배포하기 전에 기존 서브넷에서 기존 리소스를 모두 제거하거나 새 서브넷을 만들어야 합니다.
-* 가상 네트워크에 배포 된 컨테이너 그룹에서 [관리 되는 id](container-instances-managed-identity.md) 를 사용할 수 없습니다.
-* 가상 네트워크에 배포 된 컨테이너 그룹에서 [선거의 프로브](container-instances-liveness-probe.md) 또는 [준비 프로브](container-instances-readiness-probe.md) 를 사용 하도록 설정할 수 없습니다.
-* 추가 네트워킹 리소스 때문에 가상 네트워크에 대 한 배포는 일반적으로 표준 컨테이너 인스턴스를 배포 하는 것 보다 느립니다.
-* 컨테이너 그룹을 Azure Storage 계정에 연결 하는 경우 해당 리소스에 [서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md) 을 추가 해야 합니다.
+* 현재는 가상 네트워크에 배포된 컨테이너 그룹에서만 Linux 컨테이너를 지원합니다.
+* 컨테이너 그룹을 배포하려는 서브넷에는 다른 리소스 종류가 포함되어 있지 않아야 합니다. 컨테이너 그룹을 배포하기 전에 기존 서브넷에서 기존 리소스를 모두 제거하거나 새 서브넷을 만들어야 합니다.
+* 가상 네트워크에 배포된 컨테이너 그룹의 [관리 ID](container-instances-managed-identity.md)를 사용할 수 없습니다.
+* 가상 네트워크에 배포된 컨테이너 그룹에서 [활동성 프로브](container-instances-liveness-probe.md)나 [준비 상태 프로브](container-instances-readiness-probe.md)를 사용하도록 설정할 수 없습니다.
+* 가상 네트워크에 배포할 때는 네트워킹 리소스가 추가로 사용되므로 대개 표준 컨테이너 인스턴스를 배포할 때보다 속도가 느립니다.
+* 컨테이너 그룹을 Azure Storage 계정에 연결하는 경우 해당 리소스에 [서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 추가해야 합니다.
 
 [!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 
@@ -75,15 +75,15 @@ Resource Manager 템플릿, YAML 파일 또는 프로그래밍 방식을 사용�
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure CLI에 대 한 배포 예제는 [Azure virtual network에 컨테이너 인스턴스 배포](container-instances-vnet.md)를 참조 하세요.
+* Azure CLI를 사용하는 배포 예제는 [Azure Virtual Network에 컨테이너 인스턴스 배포](container-instances-vnet.md)를 참조하세요.
 * Resource Manager 템플릿을 사용하여 새 가상 네트워크, 서브넷, 네트워크 프로필 및 컨테이너 그룹을 배포하려면 [VNet을 사용하여 Azure 컨테이너 그룹 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
 )를 참조하세요.
-* [Azure Portal](container-instances-quickstart-portal.md) 사용 하 여 컨테이너 인스턴스를 만들 때 **네트워킹** 탭에서 새 가상 네트워크 또는 exsting 가상 네트워크에 대 한 설정을 제공할 수도 있습니다.
+* [Azure Portal](container-instances-quickstart-portal.md)을 사용하여 컨테이너 인스턴스를 만들 때 **네트워킹** 탭에서 새 가상 네트워크 또는 기존 가상 네트워크에 대한 설정을 제공할 수도 있습니다.
 
 
 <!-- IMAGES -->
 [aci-vnet-01]: ./media/container-instances-virtual-network-concepts/aci-vnet-01.png
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list
+[az-container-create]: /cli/azure/container#az_container_create
+[az-network-profile-list]: /cli/azure/network/profile#az_network_profile_list

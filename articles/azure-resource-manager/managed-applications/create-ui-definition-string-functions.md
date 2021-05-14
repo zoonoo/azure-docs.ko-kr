@@ -1,20 +1,20 @@
 ---
-title: UI 정의 문자열 함수 만들기
-description: Azure Managed Applications에 대 한 UI 정의를 생성할 때 사용할 문자열 함수에 대해 설명 합니다.
+title: Create UI definition 문자열 함수
+description: Azure Managed Applications용 UI 정의를 생성하는 경우 사용할 문자열 함수에 대해 설명합니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: tomfitz
 ms.openlocfilehash: c662948542c36cd93f889ca045ee245c15c7bb11
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87098159"
 ---
 # <a name="createuidefinition-string-functions"></a>CreateUiDefinition 문자열 함수
 
-JSON 문자열과 함께 사용 하는 함수입니다.
+JSON 문자열과 함께 사용할 함수입니다.
 
 ## <a name="concat"></a>concat
 
@@ -30,7 +30,7 @@ JSON 문자열과 함께 사용 하는 함수입니다.
 
 문자열이 값으로 끝나는지 여부를 결정합니다.
 
-다음 샘플에서는 true를 반환 합니다.
+다음 샘플에서는 true를 반환합니다.
 
 ```json
 "[endsWith('tuvwxyz', 'xyz')]"
@@ -40,7 +40,7 @@ JSON 문자열과 함께 사용 하는 함수입니다.
 
 전역적으로 고유한 문자열(GUID)을 생성합니다.
 
-다음 예에서는와 같은 값을 반환 합니다 `"c7bc8bdc-7252-4a82-ba53-7c468679a511"` .
+다음 예제에서는 `"c7bc8bdc-7252-4a82-ba53-7c468679a511"` 같은 값을 반환합니다.
 
 ```json
 "[guid()]"
@@ -48,9 +48,9 @@ JSON 문자열과 함께 사용 하는 함수입니다.
 
 ## <a name="indexof"></a>indexof
 
-문자열 내에서 값의 첫 번째 위치를 반환 하거나, 찾을 수 없는 경우-1을 반환 합니다.
+문자열 내 값의 첫 번째 위치를 반환하거나 찾지 못하는 경우 -1을 반환합니다.
 
-다음 샘플에서는 2를 반환 합니다.
+다음 샘플에서는 2를 반환합니다.
 
 ```json
 "[indexOf('abcdef', 'cd')]"
@@ -58,9 +58,9 @@ JSON 문자열과 함께 사용 하는 함수입니다.
 
 ## <a name="lastindexof"></a>lastindexof
 
-문자열에서 값의 마지막 위치를 반환 하거나, 찾을 수 없는 경우-1을 반환 합니다.
+문자열 내 값의 마지막 위치를 반환하거나 찾지 못하는 경우 -1을 반환합니다.
 
-다음 샘플에서는 3을 반환 합니다.
+다음 샘플에서는 3을 반환합니다.
 
 ```json
 "[lastIndexOf('test', 't')]"
@@ -80,7 +80,7 @@ JSON 문자열과 함께 사용 하는 함수입니다.
 
 문자열이 값으로 시작하는지 여부를 결정합니다.
 
-다음 샘플에서는 true를 반환 합니다.
+다음 샘플에서는 true를 반환합니다.
 
 ```json
 "[startsWith('abcdefg', 'ab')]"

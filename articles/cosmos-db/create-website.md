@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 55d58a6c4724bd01325db029ed75d77ccc96d0f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1ff0543ebc341788ee9492f3e2a117c8e64c44f5
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93333582"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737387"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 및 Azure App Service에 대한 GitHub의 웹앱 배포
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -36,9 +36,9 @@ Resource Manager 템플릿은 매우 유연하며 Azure의 모든 서비스에�
 
 ## <a name="step-1-deploy-the-template"></a>1단계: 템플릿 배포
 
-먼저 아래의 **Azure에 배포** 단추를 선택하여 Azure Portal을 열고 사용자 지정 배포를 만듭니다. [Azure 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-webapp)에서 Azure 리소스 관리 템플릿을 볼 수도 있습니다.
+먼저 아래의 **Azure에 배포** 단추를 선택하여 Azure Portal을 열고 사용자 지정 배포를 만듭니다. [Azure 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.documentdb/cosmosdb-webapp)에서 Azure 리소스 관리 템플릿을 볼 수도 있습니다.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 배포":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-webapp%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 배포":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.documentdb%2Fcosmosdb-webapp%2Fazuredeploy.json)
 
 Azure Portal에 들어왔으면 배포할 구독을 선택하고 새 리소스 그룹을 선택하거나 만듭니다. 그 후, 다음 값을 채웁니다.
 
@@ -118,5 +118,5 @@ Azure Portal에 들어왔으면 배포할 구독을 선택하고 새 리소스 �
 
 축하합니다! Cosmos DB에 연결하는 데 필요한 연결 정보를 자동으로 포함하는 Azure Cosmos DB, Azure App Service 및 샘플 웹 애플리케이션을 단일 작업으로 사용하고 중요한 정보를 잘라내어 붙여넣지 않아도 됩니다. 이 템플릿을 시작점으로 사용하여 동일한 방식으로 웹 애플리케이션을 배포하도록 수정할 수 있습니다.
 
-* 이 샘플의 Azure Resource Manager 템플릿을 확인하려면 [Azure 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-webapp)로 이동합니다.
+* 이 샘플의 Azure Resource Manager 템플릿을 확인하려면 [Azure 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.documentdb/cosmosdb-webapp)로 이동합니다.
 * 샘플 앱의 원본 코드를 확인하려면 [GitHub Cosmos DB 할 일 앱](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app)으로 이동합니다.

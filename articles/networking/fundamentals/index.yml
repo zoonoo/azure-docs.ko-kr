@@ -1,0 +1,143 @@
+### YamlMime:Landing
+title: Azure 네트워킹 기본 사항 문서
+summary: Azure 네트워킹 서비스를 사용하면 Azure 리소스 및 온-프레미스 리소스 연결에 액세스하고, Azure 네트워크에서 애플리케이션을 보호, 전달 및 모니터링할 수 있습니다.
+metadata:
+  title: Azure 네트워킹 기본 사항 문서
+  description: Azure 리소스 간 연결, 온-프레미스 네트워크에서 Azure 리소스로의 연결, 네트워크 리소스 보호, 애플리케이션 전달 크기 조정 및 네트워크 모니터링을 제공하는 Azure의 네트워킹 서비스에 대해 알아봅니다.
+  ms.service: networking
+  ms.topic: landing-page
+  ms.collection: collection
+  author: KumudD
+  ms.author: kumud
+  ms.date: 03/30/2021
+  ms.openlocfilehash: aff3552a239bb3ed2859001ae02bcabefc66ff39
+  ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 04/07/2021
+  ms.locfileid: "107030375"
+landingContent:
+- title: Azure 네트워킹 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure 네트워킹이란?
+      url: networking-overview.md
+  - linkListType: concept
+    links:
+    - text: Microsoft 글로벌 네트워크란?
+      url: ../microsoft-global-network.md
+  - linkListType: learn
+    links:
+    - text: Azure에서 네트워크 인프라 빌드
+      url: /learn/paths/architect-network-infrastructure/
+    - text: Azure 네트워킹 서비스 살펴보기
+      url: /learn/modules/azure-networking-fundamentals/
+- title: 시작하기
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Virtual Network란?
+      url: ../../virtual-network/virtual-networks-overview.md
+  - linkListType: quickstart
+    links:
+    - text: 가상 네트워크 만들기
+      url: ../../virtual-network/quick-create-portal.md
+- title: 인터넷과 통신
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 공용 IP 주소란?
+      url: ../../virtual-network/virtual-networks-overview.md
+    - text: Virtual Network NAT 게이트웨이란?
+      url: ../../virtual-network/nat-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: 공용 IP 주소 만들기
+      url: ../../virtual-network/create-public-ip-portal.md
+    - text: NAT 게이트웨이 만들기
+      url: ../../virtual-network/tutorial-create-nat-gateway-portal.md
+  - linkListType: learn
+    links:
+    - text: Azure 배포에 대한 IP 주소 지정 스키마 디자인
+      url: /learn/modules/design-ip-addressing-for-azure/
+- title: 가상 네트워크 연결
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 가상 네트워크 피어링
+      url: ../../virtual-network/virtual-network-peering-overview.md
+  - linkListType: tutorial
+    links:
+    - text: 가상 네트워크 피어링을 사용하여 가상 네트워크 연결
+      url: ../../virtual-network/tutorial-connect-virtual-networks-portal.md
+- title: 네트워크 리소스에 대한 프라이빗 액세스
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure 프라이빗 엔드포인트란?
+      url: ../../private-link/private-endpoint-overview.md
+  - linkListType: tutorial
+    links:
+    - text: Private Endpoint 만들기
+      url: ../../private-link/create-private-endpoint-portal.md
+- title: 애플리케이션 부하 분산
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 네트워크 부하 분산 장치
+      url: ../../load-balancer/load-balancer-overview.md
+    - text: 안전한 클라우드 CDN 및 글로벌 부하 분산 장치
+      url: ../../frontdoor/front-door-overview.md
+    - text: 웹 애플리케이션 부하 분산 장치
+      url: ../../application-gateway/overview.md
+    - text: DNS 기반 부하 분산 장치
+      url: ../../traffic-manager/traffic-manager-overview.md
+  - linkListType: tutorial
+    links:
+    - text: 네트워크 부하 분산 장치 만들기
+      url: ../../load-balancer/quickstart-load-balancer-standard-public-portal.md
+    - text: 안전한 클라우드 CDN 및 글로벌 부하 분산 장치 배포
+      url: ../../frontdoor/quickstart-create-front-door.md
+    - text: 웹 애플리케이션 부하 분산 장치 만들기
+      url: ../../application-gateway/quick-create-portal.md
+    - text: DNS 기반 부하 분산 장치 만들기
+      url: ../../traffic-manager/quickstart-create-traffic-manager-profile.md
+- title: 가상 네트워크 보호
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 네트워크 보안 그룹
+      url: ../../virtual-network/network-security-groups-overview.md
+    - text: Azure DDoS Protection 표준
+      url: ../../ddos-protection/ddos-protection-overview.md
+    - text: Azure Firewall
+      url: ../../firewall/overview.md
+  - linkListType: tutorial
+    links:
+    - text: PaaS 리소스에 대한 네트워크 액세스 제한
+      url: ../../virtual-network/tutorial-restrict-network-access-to-resources.md
+    - text: Azure DDoS Protection Standard 만들기 및 구성
+      url: ../../ddos-protection/manage-ddos-protection.md
+    - text: Azure Firewall 배포 및 구성
+      url: ../../firewall/tutorial-firewall-deploy-portal.md
+  - linkListType: learn
+    links:
+    - text: Azure의 보안 네트워크 연결
+      url: /learn/modules/secure-network-connectivity-azure/
+- title: 가상 네트워크에 온-프레미스 네트워크 연결
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: VPN 연결 - VPN Gateway
+      url: ../../vpn-gateway/vpn-gateway-about-vpngateways.md
+    - text: 전용 프라이빗 연결 - ExpressRoute
+      url: ../../expressroute/expressroute-introduction.md
+    - text: VPN 및 전용 프라이빗 연결 - Virtual WAN
+      url: ../../virtual-wan/virtual-wan-about.md
+  - linkListType: tutorial
+    links:
+    - text: 온-프레미스 네트워크를 가상 네트워크에 연결 - VPN 암호화
+      url: ../../vpn-gateway/tutorial-site-to-site-portal.md
+    - text: ExpressRoute를 사용하여 온-프레미스 네트워크를 Azure로 확장
+      url: ../../expressroute/expressroute-howto-circuit-portal-resource-manager.md

@@ -1,5 +1,5 @@
 ---
-title: Azure API Management, Event Hubs 및 Moesif를 사용 하 여 Api 모니터링
+title: Azure API Management, Event Hubs, Moesif를 사용하여 API 모니터링
 titleSuffix: Azure API Management
 description: HTTP 로깅 및 모니터링을 위해 Azure API Management, Azure Event Hubs 및 Moesif를 연결하여 log-to-eventhub 정책을 보여주는 샘플 애플리케이션
 services: api-management
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
 ms.openlocfilehash: abb9cbb73f8957cec2cb3240bbf186623b9b2ef9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88205501"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Azure API Management, Event Hubs 및 Moesif를 사용하여 API 모니터링
@@ -295,7 +295,7 @@ public class MoesifHttpMessageProcessor : IHttpMessageProcessor
 }
 ```
 
-`MoesifHttpMessageProcessor`는 HTTP 이벤트 데이터를 해당 서비스로 쉽게 푸시할 수 있게 해주는 [Moesif용 C# API 라이브러리](https://www.moesif.com/docs/api?csharp#events)를 활용합니다. HTTP 데이터를 Moesif 수집기 API에 보내려면 계정 및 응용 프로그램 Id가 필요 합니다. [Moesif의 웹 사이트](https://www.moesif.com) 에서 계정을 만든 다음 _오른쪽 상단의 메뉴_  ->  _앱 설정_ 으로 이동 하 여 응용 프로그램 Id가 응용 프로그램 Id를 가져올 수 있습니다.
+`MoesifHttpMessageProcessor`는 HTTP 이벤트 데이터를 해당 서비스로 쉽게 푸시할 수 있게 해주는 [Moesif용 C# API 라이브러리](https://www.moesif.com/docs/api?csharp#events)를 활용합니다. HTTP 데이터를 Moesif Collector API로 보내려면 계정 및 애플리케이션 ID가 필요합니다. [Moesif 웹 사이트](https://www.moesif.com)에서 계정을 만들어 Moesif 애플리케이션 ID를 얻은 다음 _오른쪽 위 메뉴_ -> _앱 설정_ 으로 이동합니다.
 
 ## <a name="complete-sample"></a>전체 샘플
 샘플의 [원본 코드](https://github.com/dgilling/ApimEventProcessor) 및 테스트는 GitHub에 있습니다. 샘플을 직접 실행하려면 [API Management 서비스](get-started-create-service-instance.md), [연결된 Event Hub](api-management-howto-log-event-hubs.md) 및 [Storage 계정](../storage/common/storage-account-create.md)이 있어야 합니다.   

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 43bafeee90b1995c363ca03d031abc7d648001cf
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e8410b4e0997798eba5ee91f361c3a5f1ce47ef1
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126348"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104586304"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>로그 디스크를 Ultra 디스크로 마이그레이션
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -162,7 +162,7 @@ SSMS를 사용하여 기존 파일을 새 위치로 이동합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-성능 향상을 위한 추가 설정을 보려면 [성능 모범 사례](./performance-guidelines-best-practices-checklist.md)를 검토합니다. 
+성능 향상을 위한 추가 설정을 보려면 [성능 모범 사례](performance-guidelines-best-practices.md)를 검토합니다. 
 
 Azure Virtual Machines의 SQL Server에 대한 개요는 다음 문서를 참조하세요.
 

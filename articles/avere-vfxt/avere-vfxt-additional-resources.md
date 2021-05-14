@@ -1,16 +1,16 @@
 ---
 title: Avere vFXT for Azure에 대한 추가 링크
-description: Azure의 Avere vFXT에 대 한 추가 정보는 다음 리소스를 사용 하 여 Avere cluster 설명서 및 vFXT 관리 설명서를 참조 하세요.
+description: Avere vFXT for Azure에 대한 자세한 내용은 Avere 클러스터 설명서 및 vFXT 관리 설명서를 비롯한 해당 리소스를 사용합니다.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: 6f9a9f8e6d2a279871ded3dff614be99dd2901df
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88271093"
 ---
 # <a name="additional-documentation"></a>추가 설명서
@@ -25,7 +25,7 @@ ms.locfileid: "88271093"
   * [지원 및 모니터링 설정 사용자 지정](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_support.html#config-support>)에서는 지원 업로드 설정을 사용자 지정하고, 원격 모니터링을 사용하도록 설정하는 방법을 설명합니다.
   * [VServers 및 글로벌 네임스페이스 구성](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_vserver.html#config-vserver>)에는 클라이언트 측 네임스페이스를 만드는 방법에 대한 정보가 나와 있습니다.
   * [Avere 클러스터에 대한 DNS를 구성](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_network.html#dns-overview>)에서는 라운드 로빈 DNS를 구성하는 방법을 설명합니다.
-  * [백 엔드 저장소](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_core_filer.html#add-core-filer>) 문서를 추가 하면 핵심 filers를 추가 하는 방법에 대해 설명 합니다.
+  * [백 엔드 스토리지 추가](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_core_filer.html#add-core-filer>).
 
 * [클러스터 구성 가이드](<https://azure.github.io/Avere/#operations>)는 Avere 클러스터에 대한 설정 및 옵션에 대한 전체 참조입니다. vFXT 클러스터는 이러한 옵션의 하위 집합을 사용하지만, 동일한 구성 페이지의 대부분이 적용됩니다.
 
@@ -33,4 +33,4 @@ ms.locfileid: "88271093"
 
 ## <a name="vfxt-creation-and-management-documentation"></a>vFXT 만들기 및 관리 설명서
 
-Vfxt.py 사용에 대 한 전체 가이드 인 스크립트 기반 클라우드 클러스터 만들기 및 관리 유틸리티는 GitHub: [클라우드 클러스터 관리 vfxt.py](https://github.com/Azure/AvereSDK/blob/master/docs/README.md)를 참조 하세요.
+스크립트 기반 클라우드 클러스터 만들기 및 관리 유틸리티인 vfxt.py를 사용하는 방법에 대한 전체 가이드는 GitHub: [vfxt.py를 사용한 클라우드 클러스터 관리](https://github.com/Azure/AvereSDK/blob/master/docs/README.md)에서 제공됩니다.

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/23/2021
+ms.date: 03/29/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: aeed031025b9c494b35886861c273e2a7f9d2ac4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: caa8f4efa60f8a42856f7cd8e78edf32fce956c6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101653731"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937144"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 인증 코드 흐름
 
@@ -26,7 +26,7 @@ OAuth 2.0 인증 코드 권한은 디바이스에 설치된 앱에서 사용하�
 
 이 문서에서는 임의 언어를 사용하여 애플리케이션에서 프로토콜에 대해 직접 프로그래밍을 수행하는 방법을 설명합니다.  가능하면 [토큰을 획득하고 보안 Web API를 호출](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows)하는 대신, 지원되는 MSAL(Microsoft 인증 라이브러리)을 사용하는 것이 좋습니다.  [MSAL을 사용하는 샘플 앱](sample-v2-code.md)도 살펴봅니다.
 
-OAuth 2.0 인증 코드 흐름은 [OAuth 2.0 사양의 섹션 4.1](https://tools.ietf.org/html/rfc6749)에서 설명합니다. [단일 페이지 앱](v2-app-types.md#single-page-apps-javascript), [웹앱](v2-app-types.md#web-apps) 및 [기본적으로 설치된 앱](v2-app-types.md#mobile-and-native-apps)을 포함하여 대부분의 앱 형식에서 인증 및 권한 부여를 수행하는 데 사용됩니다. 흐름을 사용 하면 앱이 Microsoft id 플랫폼에서 보호 되는 리소스에 액세스 하는 데 사용할 수 있는 access_tokens를 안전 하 게 획득할 수 있으며, 로그인 한 사용자에 대 한 추가 access_tokens 및 ID 토큰을 가져오는 토큰을 새로 고칠 수 있습니다.
+OAuth 2.0 인증 코드 흐름은 [OAuth 2.0 사양의 섹션 4.1](https://tools.ietf.org/html/rfc6749)에서 설명합니다. [단일 페이지 앱](v2-app-types.md#single-page-apps-javascript), [웹앱](v2-app-types.md#web-apps) 및 [기본적으로 설치된 앱](v2-app-types.md#mobile-and-native-apps)을 포함하여 대부분의 앱 형식에서 인증 및 권한 부여를 수행하는 데 사용됩니다. 이 흐름을 사용하면 앱이 Microsoft ID 플랫폼에서 보호되는 리소스에 액세스하는 데 사용할 수 있는 access_token뿐만 아니라 로그인한 사용자에 대한 추가 access_token 및 ID 토큰을 가져오기 위한 새로 고침 토큰도 안전하게 획득할 수 있습니다.
 
 ## <a name="protocol-diagram"></a>프로토콜 다이어그램
 
@@ -36,19 +36,19 @@ OAuth 2.0 인증 코드 흐름은 [OAuth 2.0 사양의 섹션 4.1](https://tools
 
 ## <a name="redirect-uri-setup-required-for-single-page-apps"></a>단일 페이지 앱에 필요한 리디렉션 URI 설정
 
-단일 페이지 애플리케이션에 대한 인증 코드 흐름에는 몇 가지 추가 설정이 필요합니다.  [단일 페이지 응용 프로그램을 만들기](scenario-spa-app-registration.md#redirect-uri-msaljs-20-with-auth-code-flow) 위한 지침에 따라 리디렉션 URI를 CORS에 대해 사용 하도록 설정 된 것으로 올바르게 표시 합니다. CORS를 사용 하도록 기존 리디렉션 URI를 업데이트 하려면 매니페스트 편집기를 열고 `type` 섹션에서 리디렉션 uri에 대 한 필드를로 설정 `spa` `replyUrlsWithType` 합니다. 인증 탭의 "웹" 섹션에서 리디렉션 URI를 클릭 하 고 권한 부여 코드 흐름을 사용 하 여 마이그레이션하려는 uri를 선택할 수도 있습니다.
+단일 페이지 애플리케이션에 대한 인증 코드 흐름에는 몇 가지 추가 설정이 필요합니다.  [단일 페이지 애플리케이션 만들기](scenario-spa-app-registration.md#redirect-uri-msaljs-20-with-auth-code-flow)에 관한 지침에 따라 리디렉션 URI를 CORS에 사용하도록 설정된 것으로 올바르게 표시합니다. CORS를 사용하도록 기존 리디렉션 URI를 업데이트하려면 매니페스트 편집기를 열고 `replyUrlsWithType` 섹션에서 리디렉션 URI의 `type` 필드를 `spa`로 설정합니다. 인증 탭의 “웹” 섹션에서 리디렉션 URI를 클릭하고 권한 부여 코드 흐름을 사용하여 마이그레이션하려는 URI를 선택할 수도 있습니다.
 
-`spa`리디렉션 형식이 암시적 흐름과 이전 버전과 호환 됩니다. 현재 암시적 흐름을 사용 하 여 토큰을 가져오는 앱은 `spa` 문제 없이 리디렉션 URI 형식으로 이동 하 고 암시적 흐름을 계속 사용할 수 있습니다.
+`spa` 리디렉션 형식은 이전 버전의 암시적 흐름과 호환됩니다. 현재 암시적 흐름을 사용하여 토큰을 가져오는 앱은 이슈 없이 `spa` 리디렉션 URI 형식으로 이동하고 암시적 흐름을 계속 사용할 수 있습니다.
 
 인증 코드 흐름을 사용하려고 하면 다음 오류가 표시됩니다.
 
 `access to XMLHttpRequest at 'https://login.microsoftonline.com/common/v2.0/oauth2/token' from origin 'yourApp.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
 
-그런 다음 앱 등록을 방문 하 여 앱에 대 한 리디렉션 URI를 형식으로 업데이트 `spa` 합니다.
+그런 다음, 앱 등록을 방문하고 앱의 리디렉션 URI를 `spa` 형식으로 업데이트합니다.
 
 ## <a name="request-an-authorization-code"></a>인증 코드 요청
 
-인증 코드 흐름은 클라이언트가 사용자를 `/authorize` 엔드포인트로 보내는 것으로 시작됩니다. 이 요청에서 클라이언트는 사용자로부터 `openid`, `offline_access` 및 `https://graph.microsoft.com/mail.read ` 권한을 요청합니다.  예를 들어, `Directory.ReadWrite.All`을 사용하여 조직의 디렉터리에 데이터를 쓰는 것과 같은 일부 권한은 관리자가 제한합니다. 애플리케이션이 조직 사용자에게 이러한 사용 권한 중 하나에 대한 액세스를 요청하는 경우 사용자에게는 앱의 사용 권한에 동의할 권한이 부여되지 않음을 나타내는 오류 메시지가 표시됩니다. 관리자 제한 범위에 대 한 액세스를 요청 하려면 전역 관리자에 게 직접 요청 해야 합니다.  자세한 내용은 [관리자 제한 권한](v2-permissions-and-consent.md#admin-restricted-permissions)을 참조하세요.
+인증 코드 흐름은 클라이언트가 사용자를 `/authorize` 엔드포인트로 보내는 것으로 시작됩니다. 이 요청에서 클라이언트는 사용자로부터 `openid`, `offline_access` 및 `https://graph.microsoft.com/mail.read ` 권한을 요청합니다.  예를 들어, `Directory.ReadWrite.All`을 사용하여 조직의 디렉터리에 데이터를 쓰는 것과 같은 일부 권한은 관리자가 제한합니다. 애플리케이션이 조직 사용자에게 이러한 사용 권한 중 하나에 대한 액세스를 요청하는 경우 사용자에게는 앱의 사용 권한에 동의할 권한이 부여되지 않음을 나타내는 오류 메시지가 표시됩니다. 관리자 제한 범위에 대한 액세스를 요청하려면 글로벌 관리자에게 직접 요청해야 합니다.  자세한 내용은 [관리자 제한 권한](v2-permissions-and-consent.md#admin-restricted-permissions)을 참조하세요.
 
 ```
 // Line breaks for legibility only
@@ -72,21 +72,21 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |--------------|-------------|--------------|
 | `tenant`    | required    | 요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요.  |
 | `client_id`   | required    | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 **애플리케이션(클라이언트) ID** 입니다.  |
-| `response_type` | required    | 인증 코드 흐름에 대한 `code`를 포함해야 합니다. `id_token` `token` [하이브리드 흐름](#request-an-id-token-as-well-hybrid-flow)을 사용 하는 경우 또는을 포함할 수도 있습니다. |
-| `redirect_uri`  | 필수 | 앱이 인증 응답을 보내고 받을 수 있는 앱의 redirect_uri입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect_uri 중 하나와 정확히 일치해야 합니다. 네이티브 & 모바일 앱의 경우 권장 되는 값  `https://login.microsoftonline.com/common/oauth2/nativeclient` (포함 된 브라우저를 사용 하는 앱의 경우) 또는 `http://localhost` (시스템 브라우저를 사용 하는 앱의 경우) 중 하나를 사용 해야 합니다. |
+| `response_type` | required    | 인증 코드 흐름에 대한 `code`를 포함해야 합니다. [하이브리드 흐름](#request-an-id-token-as-well-hybrid-flow)을 사용하는 경우 `id_token`이나 `token`도 포함할 수 있습니다. |
+| `redirect_uri`  | 필수 | 앱이 인증 응답을 보내고 받을 수 있는 앱의 redirect_uri입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect_uri 중 하나와 정확히 일치해야 합니다. 원시 앱과 모바일 앱의 경우 권장되는 값 `https://login.microsoftonline.com/common/oauth2/nativeclient`(포함된 브라우저를 사용하는 앱의 경우)나 `http://localhost`(시스템 브라우저를 사용하는 앱의 경우) 중 하나를 사용해야 합니다. |
 | `scope`  | required    | 사용자가 동의하게 할 공백으로 구분된 [범위](v2-permissions-and-consent.md) 목록입니다.  요청의 `/authorize` 레그에서는 여러 리소스를 포함할 수 있으므로 앱은 사용자가 호출하려는 여러 웹 API에 대한 동의를 받을 수 있습니다. |
 | `response_mode`   | 권장 | 결과 토큰을 앱에 다시 보내는 데 사용해야 하는 방법을 지정합니다. 다음 중 하나일 수 있습니다.<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query`는 리디렉션 URI에 코드를 쿼리 문자열 매개 변수로 제공합니다. 암시적 흐름을 사용하여 ID 토큰을 요청하는 경우 `query`는 [OpenID 사양](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations)에서 명시한 대로 사용할 수 없습니다. 코드만 요청하는 경우 `query`, `fragment` 또는 `form_post`를 사용할 수 있습니다. `form_post`는 리디렉션 URI에 대한 코드가 포함된 POST를 실행합니다. |
 | `state`                 | 권장 | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 일반적으로 [교차 사이트 요청 위조 공격을 방지](https://tools.ietf.org/html/rfc6749#section-10.12)하기 위해 임의로 생성된 고유 값이 사용됩니다. 또한 이 값은 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩할 수 있습니다. |
-| `prompt`  | 선택 사항    | 필요한 사용자 상호 작용 유형을 나타냅니다. 이 경우 유효한 값은 `login`, `none` 및 `consent`뿐입니다.<br/><br/>- `prompt=login`은 Single-Sign On을 무효화면서, 사용자가 요청에 자신의 자격 증명을 입력하도록 합니다.<br/>- `prompt=none`은 그 반대로 사용자에게 어떠한 대화형 프롬프트도 표시되지 않도록 합니다. Single sign-on을 통해 요청을 자동으로 완료할 수 없는 경우 Microsoft id 플랫폼은 오류를 반환 합니다 `interaction_required` .<br/>- `prompt=consent`는 사용자가 로그인한 후에 OAuth 동의 대화 상자를 트리거하여 앱에 권한을 부여할 것을 사용자에게 요청합니다.<br/>- `prompt=select_account`는 세션의 모든 계정 또는 저장된 계정을 나열하는 계정 선택 환경이나 다른 계정을 모두 사용하도록 선택하는 옵션을 제공하면서 Single Sign-On을 중단시킵니다.<br/> |
+| `prompt`  | 선택 사항    | 필요한 사용자 상호 작용 유형을 나타냅니다. 이 경우 유효한 값은 `login`, `none`, `consent`, `select_account`뿐입니다.<br/><br/>- `prompt=login`은 Single-Sign On을 무효화면서, 사용자가 요청에 자신의 자격 증명을 입력하도록 합니다.<br/>- `prompt=none`은 그 반대로 사용자에게 어떠한 대화형 프롬프트도 표시되지 않도록 합니다. Single-Sign On을 통해 요청이 자동으로 완료될 수 없는 경우에 Microsoft ID 플랫폼은 `interaction_required` 오류를 반환합니다.<br/>- `prompt=consent`는 사용자가 로그인한 후에 OAuth 동의 대화 상자를 트리거하여 앱에 권한을 부여할 것을 사용자에게 요청합니다.<br/>- `prompt=select_account`는 세션의 모든 계정 또는 저장된 계정을 나열하는 계정 선택 환경이나 다른 계정을 모두 사용하도록 선택하는 옵션을 제공하면서 Single Sign-On을 중단시킵니다.<br/> |
 | `login_hint`  | 선택 사항    | 사용자 이름을 미리 알고 있는 경우 사용자를 위해 로그인 페이지의 사용자 이름/이메일 주소 필드를 미리 채우는 데 사용될 수 있습니다. `preferred_username` 클레임을 사용하여 이전 로그인 작업에서 사용자 이름이 이미 추출된 경우 앱이 재인증 과정에서 이 매개 변수를 종종 사용합니다.   |
 | `domain_hint`  | 선택 사항    | 포함된 경우, 로그인 페이지를 거친 사용자가 좀 더 효율적인 사용자 경험을 가질 수 있도록 이메일 기반 검색 프로세스를 건너뜁니다(예: 페더레이션 ID 공급자로 보내기). 앱이 이전 로그인 작업에서 `tid` 를 추출하여 재인증 과정에서 이 매개 변수를 종종 사용합니다. `tid` 클레임 값이 `9188040d-6c67-4c5b-b112-36a304b66dad`인 경우 `domain_hint=consumers`를 사용해야 합니다. 그렇지 않으면 `domain_hint=organizations`를 사용합니다.  |
-| `code_challenge`  | 권장/필수 | PKCE(Proof Key for Code Exchange)를 통해 권한 부여 코드를 보호하는 데 사용됩니다. `code_challenge_method`가 포함되면 필수입니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. 이제 모든 응용 프로그램 형식 (공용 및 기밀 클라이언트)에 대해 권장 되며 [인증 코드 흐름을 사용 하는 단일 페이지 앱](reference-third-party-cookies-spas.md)의 Microsoft id 플랫폼에서 필요 합니다. |
-| `code_challenge_method` | 권장/필수 | `code_challenge` 매개 변수에 대한 `code_verifier`를 인코딩하는 데 사용되는 메서드입니다. 이 *는* 여야 `S256` 하지만 `plain` 어떤 이유로 클라이언트가 SHA256을 지원할 수 없는 경우에는를 사용할 수 있습니다. <br/><br/>제외할 경우 `code_challenge`가 포함되면 `code_challenge`가 일반 텍스트로 간주됩니다. Microsoft id 플랫폼은 및를 모두 지원 합니다 `plain` `S256` . 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. [인증 코드 흐름을 사용하는 단일 페이지 앱](reference-third-party-cookies-spas.md)에 필요합니다.|
+| `code_challenge`  | 권장/필수 | PKCE(Proof Key for Code Exchange)를 통해 권한 부여 코드를 보호하는 데 사용됩니다. `code_challenge_method`가 포함되면 필수입니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. 이제 모든 애플리케이션 형식(퍼블릭 및 기밀 클라이언트 모두)에 권장되며 [권한 부여 코드 흐름을 사용하는 단일 페이지 앱](reference-third-party-cookies-spas.md)의 Microsoft ID 플랫폼에 필요합니다. |
+| `code_challenge_method` | 권장/필수 | `code_challenge` 매개 변수에 대한 `code_verifier`를 인코딩하는 데 사용되는 메서드입니다. 이는 `S256`*이어야* 하지만, 특정 이유로 클라이언트에서 SHA256을 지원할 수 없으면 사양에 따라 `plain`을 사용할 수 있습니다. <br/><br/>제외할 경우 `code_challenge`가 포함되면 `code_challenge`가 일반 텍스트로 간주됩니다. Microsoft ID 플랫폼은 `plain` 및 `S256`을 모두 지원합니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. [인증 코드 흐름을 사용하는 단일 페이지 앱](reference-third-party-cookies-spas.md)에 필요합니다.|
 
 
-이 시점에서 사용자에게 자격 증명을 입력하고 인증을 완료하라는 메시지가 표시됩니다. Microsoft id 플랫폼은 또한 사용자가 쿼리 매개 변수에 표시 된 사용 권한에 동의한 확인 합니다 `scope` . 사용자가 이러한 사용 권한 중 하나에 동의하지 않은 경우 필요한 사용 권한에 동의하라는 메시지가 표시됩니다. [사용 권한, 동의 및 다중 테넌트 앱의 세부 정보는 여기에 제공되어 있습니다](v2-permissions-and-consent.md).
+이 시점에서 사용자에게 자격 증명을 입력하고 인증을 완료하라는 메시지가 표시됩니다. Microsoft ID 플랫폼은 사용자가 `scope` 쿼리 매개 변수에 표시된 사용 권한에 동의했는지도 확인합니다. 사용자가 이러한 사용 권한 중 하나에 동의하지 않은 경우 필요한 사용 권한에 동의하라는 메시지가 표시됩니다. [사용 권한, 동의 및 다중 테넌트 앱의 세부 정보는 여기에 제공되어 있습니다](v2-permissions-and-consent.md).
 
-사용자가 인증 하 고 동의 하면 Microsoft id 플랫폼은 `redirect_uri` 매개 변수에 지정 된 메서드를 사용 하 여 지정 된에서 앱에 대 한 응답을 반환 합니다 `response_mode` .
+사용자가 인증하고 동의하면 Microsoft ID 플랫폼이 `response_mode` 매개 변수에 지정된 방법을 사용하여 표시된 `redirect_uri`에서 해당 앱에 응답을 반환합니다.
 
 #### <a name="successful-response"></a>성공적인 응답
 
@@ -103,7 +103,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 | `code` | 앱이 요청한 authorization_code입니다. 앱은 인증 코드를 사용하여 대상 리소스에 대한 액세스 토큰을 요청할 수 있습니다. authorization_code는 수명이 짧으며, 일반적으로 약 10분 후에 만료됩니다. |
 | `state` | 요청에 state 매개 변수가 포함되어 있으면 동일한 값이 응답에도 나타나야 합니다. 앱은 요청 및 응답의 state 값이 동일한지 확인해야 합니다. |
 
-또한 ID 토큰을 요청 하 고 응용 프로그램 등록에서 암시적 부여를 사용 하도록 설정 하는 경우 ID 토큰을 받을 수 있습니다.  이를 ["하이브리드 흐름"](#request-an-id-token-as-well-hybrid-flow)이 라고도 하며 ASP.NET와 같은 프레임 워크에서 사용 됩니다.
+ID 토큰을 요청하고 애플리케이션 등록에서 암시적 부여를 사용하도록 설정한 경우 해당 ID 토큰도 받을 수 있습니다.  이것을 경우에 따라 [“하이브리드 흐름”](#request-an-id-token-as-well-hybrid-flow)이라고도 하며 ASP.NET과 같은 프레임워크에서 사용됩니다.
 
 #### <a name="error-response"></a>오류 응답
 
@@ -129,18 +129,18 @@ error=access_denied
 | `invalid_request` | 프로토콜 오류(예: 필수 매개 변수 누락). | 요청을 수정하여 다시 제출하십시오. 일반적으로 초기 설정 중에 발견되는 개발 오류입니다. |
 | `unauthorized_client` | 클라이언트 애플리케이션이 인증 코드를 요청할 수 없습니다. | 이 오류는 일반적으로 클라이언트 애플리케이션이 Azure AD에 등록되지 않았거나 사용자의 Azure AD 테넌트에 추가되지 않은 경우 발생합니다. 애플리케이션이 사용자에게 애플리케이션을 설치하고 Azure AD에 추가하기 위한 지침이 포함된 메시지를 표시할 수 있습니다. |
 | `access_denied`  | 리소스 소유자가 동의 거부  | 클라이언트 애플리케이션이 사용자의 동의를 받지 않으면 계속 진행할 수 없다고 알릴 수 있습니다. |
-| `unsupported_response_type` | 권한 부여 서버가 요청에 해당 응답 형식을 지원하지 않습니다. | 요청을 수정하여 다시 제출하십시오. 일반적으로 초기 설정 중에 발견되는 개발 오류입니다. [하이브리드 흐름](#request-an-id-token-as-well-hybrid-flow)에 표시 되 면 클라이언트 앱 등록에서 ID 토큰 암시적 권한 부여 설정을 사용 하도록 설정 해야 한다는 신호를 보냅니다. |
+| `unsupported_response_type` | 권한 부여 서버가 요청에 해당 응답 형식을 지원하지 않습니다. | 요청을 수정하여 다시 제출하십시오. 일반적으로 초기 설정 중에 발견되는 개발 오류입니다. [하이브리드 흐름](#request-an-id-token-as-well-hybrid-flow)에서 볼 때 클라이언트 앱 등록에서 ID 토큰 암시적 허용 설정을 사용하도록 설정해야 한다는 신호를 보냅니다. |
 | `server_error`  | 서버에 예기치 않은 오류가 발생했습니다.| 요청을 다시 시도하십시오. 이러한 오류는 일시적인 상태 때문에 발생할 수 있습니다. 클라이언트 애플리케이션이 일시적 오류 때문에 응답이 지연되었음을 사용자에게 설명할 수 있습니다. |
 | `temporarily_unavailable`   | 서버가 일시적으로 사용량이 많아 요청을 처리할 수 없습니다. | 요청을 다시 시도하십시오. 클라이언트 애플리케이션이 일시적 상태 때문에 응답이 지연되었음을 사용자에게 설명할 수 있습니다. |
 | `invalid_resource`  | 대상 리소스가 존재하지 않거나 Azure AD에서 해당 리소스를 찾을 수 없거나 올바르게 구성되지 않았기 때문에 잘못되었습니다. | 이 오류는 리소스가 존재하는 경우 테넌트에 구성되지 않았음을 나타냅니다. 애플리케이션이 사용자에게 애플리케이션을 설치하고 Azure AD에 추가하기 위한 지침이 포함된 메시지를 표시할 수 있습니다. |
 | `login_required` | 사용자가 너무 많거나 없습니다. | 클라이언트에서 자동 인증(`prompt=none`)을 요청했지만 단일 사용자를 찾을 수 없습니다. 이는 세션에서 여러 사용자가 활성 상태이거나 사용자가 없음을 의미할 수 있습니다. 이 경우 선택한 테넌트를 고려합니다. 예를 들어 두 개의 Azure AD 계정이 활성 상태이고 하나의 Microsoft 계정이 있고 `consumers`가 선택되면 자동 인증이 작동합니다. |
 | `interaction_required` | 요청을 위해 사용자 상호 작용이 필요합니다. | 추가 인증 단계 또는 동의가 필요합니다. `prompt=none`을 사용하지 않고 요청을 다시 시도하세요. |
 
-### <a name="request-an-id-token-as-well-hybrid-flow"></a>ID 토큰 요청 (하이브리드 흐름)
+### <a name="request-an-id-token-as-well-hybrid-flow"></a>ID 토큰도 요청(하이브리드 흐름)
 
-인증 코드를 교환 하기 전에 사용자가 누구 인지 알아보려면 응용 프로그램이 인증 코드를 요청할 때 ID 토큰을 요청 하는 것이 일반적입니다. 이를 *하이브리드 흐름* 이라고 하며,이는 암시적 부여를 권한 부여 코드 흐름과 혼합 합니다. 하이브리드 흐름은 코드 상환 (특히 [ASP.NET](quickstart-v2-aspnet-core-webapp.md))을 차단 하지 않고 사용자에 대 한 페이지를 렌더링 하려는 웹 앱에서 일반적으로 사용 됩니다. 단일 페이지 앱과 기존 웹 앱은이 모델에서 대기 시간이 감소 하는 이점을 제공 합니다.
+권한 부여 코드를 사용하기 전에 사용자가 누구인지 알아보려면 일반적으로 애플리케이션이 권한 부여 코드를 요청할 때 ID 토큰도 요청합니다. 암시적 허용을 권한 부여 코드 흐름과 혼합하므로, *하이브리드 흐름* 이라고 합니다. 하이브리드 흐름은 코드 사용을 차단하지 않고 사용자를 위해 페이지를 렌더링하려는 웹앱, 특히 [ASP.NET](quickstart-v2-aspnet-core-webapp.md)에서 일반적으로 사용됩니다. 단일 페이지 앱과 기존 웹앱 모두 이 모델에서 대기 시간이 감소하는 혜택을 얻습니다.
 
-하이브리드 흐름은 앞에서 설명한 권한 부여 코드 흐름과 동일 하지만 세 가지 추가 항목이 있습니다 .이는 모두 ID 토큰을 요청 하는 데 필요 합니다. 새 범위, 새 response_type 및 새 `nonce` 쿼리 매개 변수입니다.
+하이브리드 흐름은 앞에서 설명한 권한 부여 코드 흐름과 같지만, 새 범위, 새 response_type, 새 `nonce` 쿼리 매개 변수의 세 가지 항목이 추가되며, 이 모두는 ID 토큰을 요청하는 데 필요합니다.
 
 ```
 // Line breaks for legibility only
@@ -157,14 +157,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &code_challenge_method=S256
 ```
 
-| 업데이트 된 매개 변수 | 필수/선택 | 설명 |
+| 업데이트된 매개 변수 | 필수/선택 | 설명 |
 |---------------|-------------|--------------|
-|`response_type`| 필수 | 추가는 `id_token` 응용 프로그램이 끝점의 응답에서 ID 토큰을 서버에 표시 한다는 것을 나타냅니다 `/authorize` .  |
-|`scope`| 필수 | ID 토큰의 경우 ID 토큰 범위를 포함 하도록를 업데이트 하 `openid` 고 필요에 따라 및을 (를) 포함 하도록 업데이트 해야 합니다 `profile` `email` . |
+|`response_type`| 필수 | `id_token`을 추가하면 애플리케이션이 `/authorize` 엔드포인트의 응답에서 ID 토큰을 원한다는 것을 서버에 나타냅니다.  |
+|`scope`| 필수 | ID 토큰의 경우 ID 토큰 범위(`openid`와 선택적으로 `profile`과 `email`)를 포함하도록 업데이트해야 합니다. |
 |`nonce`| 필수|     앱에서 생성하여 요청에 포함된 값이며, 결과 id_token에 클레임으로 포함됩니다. 그러면 앱에서 이 값을 확인하여 토큰 재생 공격을 완화할 수 있습니다. 이 값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열입니다. |
-|`response_mode`| 권장 | 결과 토큰을 앱으로 다시 보내는 데 사용해야 하는 메서드를 지정합니다. 인증 코드의 경우에는 기본적으로로 설정 `query` 되 `fragment` 고 요청에 id_token 포함 된 경우에는로 설정 됩니다 `response_type` .  그러나 `form_post` 특히를 리디렉션 URI로 사용할 때 앱을 사용 하는 것이 좋습니다 `http:/localhost` . |
+|`response_mode`| 권장 | 결과 토큰을 앱으로 다시 보내는 데 사용해야 하는 메서드를 지정합니다. 권한 부여 코드의 경우 기본값은 `query`이지만, 요청에 id_token `response_type`이 포함되어 있으면 `fragment`입니다.  그러나 앱은 특히 `http:/localhost`를 리디렉션 URI로 사용할 때 `form_post`를 사용하는 것이 좋습니다. |
 
-를 `fragment` 응답 모드로 사용 하면 브라우저에서 조각을 웹 서버에 전달 하지 않으므로 리디렉션에서 코드를 읽는 웹 앱에 문제가 발생 합니다.  이러한 상황에서 앱 `form_post` 은 응답 모드를 사용 하 여 모든 데이터가 서버로 전송 되도록 해야 합니다. 
+`fragment`를 응답 모드로 사용하면 브라우저가 조각을 웹 서버로 전달하지 않기 때문에 리디렉션에서 코드를 읽는 웹앱에 이슈가 발생합니다.  이 상황에서 앱은 모든 데이터가 서버로 전송되도록 `form_post` 응답 모드를 사용해야 합니다. 
 
 #### <a name="successful-response"></a>성공적인 응답
 
@@ -179,8 +179,8 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 
 | 매개 변수 | 설명  |
 |-----------|--------------|
-| `code` | 앱이 요청한 권한 부여 코드입니다. 앱은 인증 코드를 사용하여 대상 리소스에 대한 액세스 토큰을 요청할 수 있습니다. 권한 부여 코드는 수명이 짧습니다. 일반적으로 약 10 분 후에 만료 됩니다. |
-| `id_token` | *암시적 권한 부여* 를 통해 발급 된 사용자에 대 한 ID 토큰입니다. `c_hash`동일한 요청에서의 해시 인 특수 클레임을 포함 `code` 합니다. |
+| `code` | 앱이 요청한 권한 부여 코드입니다. 앱은 인증 코드를 사용하여 대상 리소스에 대한 액세스 토큰을 요청할 수 있습니다. 권한 부여 코드는 수명이 매우 짧으며, 일반적으로 약 10분 후에 만료됩니다. |
+| `id_token` | *암시적 허용* 을 통해 발급된 사용자의 ID 토큰입니다. 같은 요청에 있는 `code`의 해시인 특수 `c_hash` 클레임을 포함합니다. |
 | `state` | state 매개 변수가 요청에 포함된 경우 동일한 값이 응답에 표시됩니다. 앱은 요청 및 응답의 state 값이 동일한지 확인해야 합니다. |
 
 ## <a name="request-an-access-token"></a>액세스 토큰 요청
@@ -211,10 +211,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant`   | required   | 요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요.  |
 | `client_id` | required  | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지가 앱에 할당한 애플리케이션(클라이언트) ID입니다. |
 | `grant_type` | required   | 인증 코드 흐름에 대한 `authorization_code` 여야 합니다.   |
-| `scope`      | 선택적   | 공백으로 구분된 범위 목록입니다. 이 범위는 OIDC 범위(`profile`, `openid`, `email`)와 마찬가지로 모두 단일 리소스에 속해야 합니다. 범위에 대한 자세한 설명은 [사용 권한, 동의 및 범위](v2-permissions-and-consent.md)를 참조하세요. 이는 인증 코드 흐름에 대 한 Microsoft 확장으로, 앱이 토큰 상환 중에 토큰을 원하는 리소스를 선언할 수 있도록 하기 위한 것입니다.|
+| `scope`      | 선택적   | 공백으로 구분된 범위 목록입니다. 이 범위는 OIDC 범위(`profile`, `openid`, `email`)와 마찬가지로 모두 단일 리소스에 속해야 합니다. 범위에 대한 자세한 설명은 [사용 권한, 동의 및 범위](v2-permissions-and-consent.md)를 참조하세요. 권한 부여 코드 흐름의 Microsoft 확장이며, 토큰 사용 중에 앱에서 토큰을 원하는 리소스를 선언하는 데 사용합니다.|
 | `code`          | required  | 흐름의 첫 번째 레그에서 얻은 authorization_code입니다. |
 | `redirect_uri`  | required  | authorization_code를 획득하는 데 사용된 값과 동일한 redirect_uri 값입니다. |
-| `client_secret` | 기밀 웹앱에 필요 | 앱에 대한 앱 등록 포털에서 만든 애플리케이션 암호입니다. 디바이스 또는 웹 페이지에 client_secrets를 안정적으로 저장할 수 없기 때문에 네이티브 앱 또는 단일 페이지 앱에서 애플리케이션 암호를 사용하면 안 됩니다. 서버 쪽에서 client_secret을 안전하게 저장할 수 있는 웹앱과 Web API에 필요합니다.  여기에서 설명한 모든 매개 변수와 마찬가지로, 클라이언트 암호는 일반적으로 SDK에서 수행 하는 단계를 전송 하기 전에 URL로 인코딩해야 합니다. URI 인코딩에 대한 자세한 내용은 [URI 일반 구문 사양](https://tools.ietf.org/html/rfc3986#page-12)을 참조하세요. |
+| `client_secret` | 기밀 웹앱에 필요 | 앱에 대한 앱 등록 포털에서 만든 애플리케이션 암호입니다. 디바이스 또는 웹 페이지에 client_secrets를 안정적으로 저장할 수 없기 때문에 네이티브 앱 또는 단일 페이지 앱에서 애플리케이션 암호를 사용하면 안 됩니다. 서버 쪽에서 client_secret을 안전하게 저장할 수 있는 웹앱과 Web API에 필요합니다.  여기에 설명된 모든 매개 변수와 마찬가지로 클라이언트 암호는 전송되기 전에 URL로 인코딩되어야 하며, 이는 일반적으로 SDK에서 수행하는 단계입니다. URI 인코딩에 대한 자세한 내용은 [URI 일반 구문 사양](https://tools.ietf.org/html/rfc3986#page-12)을 참조하세요. |
 | `code_verifier` | 권장  | authorization_code를 얻는 데 사용된 동일한 code_verifier입니다. 인증 코드 부여 요청에 PKCE가 사용된 경우에는 필수입니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. |
 
 ### <a name="successful-response"></a>성공적인 응답
@@ -237,9 +237,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `access_token`  | 요청된 액세스 토큰입니다. 앱은 이 토큰을 사용하여 Web API와 같은 보안 리소스를 인증할 수 있습니다.  |
 | `token_type`    | 토큰 유형 값을 나타냅니다. Azure AD는 전달자 유형만 지원합니다. |
 | `expires_in`    | 액세스 토큰이 유효한 기간(초)입니다. |
-| `scope`         | access_token이 유효한 범위입니다. 선택 사항-표준이 아닙니다. 생략 하면 흐름의 초기 레그에서 요청 된 범위에 대 한 토큰이 됩니다. |
+| `scope`         | access_token이 유효한 범위입니다. 선택 사항 - 표준이 아니며, 생략된 경우 토큰은 흐름의 초기 구간에서 요청된 범위에 사용됩니다. |
 | `refresh_token` | OAuth 2.0 새로 고침 토큰입니다. 앱은 현재 액세스 토큰이 만료된 후 이 토큰을 사용하여 추가 액세스 토큰을 획득할 수 있습니다. refresh_token은 수명이 길며, 오랜 시간 동안 리소스에 대한 액세스를 유지하는 데 사용할 수 있습니다. 액세스 토큰 새로 고침에 대한 자세한 내용은 [아래 섹션](#refresh-the-access-token)을 참조하세요. <br> **참고:** `offline_access` 범위가 요청된 경우에만 제공됩니다. |
-| `id_token`      | JWT(JSON Web Token) 앱은 이 토큰의 세그먼트를 디코드하여 로그인한 사용자에 대한 정보를 요청할 수 있습니다. 앱은 값을 캐시 하 고 표시할 수 있으며, 기밀 클라이언트는 권한 부여에이를 사용할 수 있습니다. id_tokens에 대한 자세한 내용은 [`id_token reference`](id-tokens.md)를 참조하세요. <br> **참고:** `openid` 범위가 요청된 경우에만 제공됩니다. |
+| `id_token`      | JWT(JSON Web Token) 앱은 이 토큰의 세그먼트를 디코드하여 로그인한 사용자에 대한 정보를 요청할 수 있습니다. 앱은 값을 캐시하고 표시할 수 있으며 기밀 클라이언트는 권한 부여에 사용할 수 있습니다. id_tokens에 대한 자세한 내용은 [`id_token reference`](id-tokens.md)를 참조하세요. <br> **참고:** `openid` 범위가 요청된 경우에만 제공됩니다. |
 
 ### <a name="error-response"></a>오류 응답
 
@@ -277,10 +277,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `invalid_client` | 클라이언트 인증에 실패했습니다.  | 클라이언트 자격 증명이 잘못되었습니다. 해결하려면 애플리케이션 관리자가 자격 증명을 업데이트합니다.   |
 | `unsupported_grant_type` | 권한 부여 서버가 해당 권한 부여 유형을 지원하지 않습니다. | 요청에서 권한 부여 유형을 변경하십시오. 이 유형의 오류는 개발 중에만 발생하며 초기 테스트 중에 검색됩니다. |
 | `invalid_resource` | 대상 리소스가 존재하지 않거나 Azure AD에서 해당 리소스를 찾을 수 없거나 올바르게 구성되지 않았기 때문에 잘못되었습니다. | 리소스가 존재하는 경우 테넌트에 구성되지 않았음을 나타냅니다. 애플리케이션이 사용자에게 애플리케이션을 설치하고 Azure AD에 추가하기 위한 지침이 포함된 메시지를 표시할 수 있습니다.  |
-| `interaction_required` | 비 비표준. OIDC 사양은 끝점 에서만이를 호출 합니다 `/authorize` . 요청에는 사용자 조작이 필요 합니다. 예를 들어 추가 인증 단계가 필요합니다. | 동일한 범위를 사용 하 여 요청을 다시 시도 하세요 `/authorize` . |
-| `temporarily_unavailable` | 서버가 일시적으로 사용량이 많아 요청을 처리할 수 없습니다. | 약간의 지연 후 요청을 다시 시도 합니다. 클라이언트 애플리케이션이 일시적 상태 때문에 응답이 지연되었음을 사용자에게 설명할 수 있습니다. |
-|`consent_required` | 요청에는 사용자 동의가 필요 합니다. 이 오류는 일반적으로 OIDC 사양에 따라 끝점 에서만 반환 되므로 비표준입니다 `/authorize` . `scope`클라이언트 앱에 요청할 권한이 없는 코드 상환 흐름에서 매개 변수가 사용 된 경우 반환 됩니다.  | 클라이언트는 `/authorize` 동의를 트리거하기 위해 올바른 범위의 끝점으로 사용자를 다시 보내야 합니다. |
-|`invalid_scope` | 앱에서 요청 된 범위가 잘못 되었습니다.  | 인증 요청에서 범위 매개 변수 값을 유효한 값으로 업데이트 합니다. |
+| `interaction_required` | OIDC 사양이 `/authorize` 엔드포인트에서만 요청하므로 비표준입니다. 요청에는 사용자 상호 작용이 필요합니다. 예를 들어 추가 인증 단계가 필요합니다. | 같은 범위를 사용하여 `/authorize` 요청을 다시 시도합니다. |
+| `temporarily_unavailable` | 서버가 일시적으로 사용량이 많아 요청을 처리할 수 없습니다. | 약간 연기된 후 요청을 다시 시도합니다. 클라이언트 애플리케이션이 일시적 상태 때문에 응답이 지연되었음을 사용자에게 설명할 수 있습니다. |
+|`consent_required` | 요청하려면 사용자가 동의해야 합니다. 이 오류는 일반적으로 OIDC 사양에 따라 `/authorize` 엔드포인트에서만 반환되므로 비표준입니다. 클라이언트 앱에 요청 권한이 없는 코드 사용 흐름에서 `scope` 매개 변수를 사용하면 반환됩니다.  | 클라이언트는 동의를 트리거하기 위해 올바른 범위를 사용하여 사용자를 `/authorize` 엔드포인트로 다시 보내야 합니다. |
+|`invalid_scope` | 앱에서 요청한 범위가 잘못되었습니다.  | 인증 요청에서 범위 매개 변수 값을 유효한 값으로 업데이트합니다. |
 
 > [!NOTE]
 > 단일 페이지 앱에는 '단일 페이지 애플리케이션' 클라이언트 유형에 대해서만 원본 간 토큰 상환이 허용됨을 나타내는 `invalid_request` 오류가 표시될 수 있습니다.  이것은 토큰을 요청하는 데 사용되는 리디렉션 URI가 `spa` 리디렉션 URI로 표시되지 않았음을 나타냅니다.  이 흐름을 사용하도록 설정하는 방법에 대해서는 [애플리케이션 등록 단계](#redirect-uri-setup-required-for-single-page-apps)를 검토합니다.
@@ -333,7 +333,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant`        | required     | 요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요.   |
 | `client_id`     | required    | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 **애플리케이션(클라이언트) ID** 입니다. |
 | `grant_type`    | required    | 이 인증 코드 흐름 범례에 대한 `refresh_token` 이어야 합니다. |
-| `scope`         | required    | 공백으로 구분된 범위 목록입니다. 이 레그에서 요청된 범위가 원래 authorization_code 요청 레그에서 요청된 범위와 동일하거나 하위 집합이어야 합니다. 이 요청에 지정 된 범위가 여러 리소스 서버에 걸쳐 있는 경우 Microsoft id 플랫폼은 첫 번째 범위에 지정 된 리소스에 대 한 토큰을 반환 합니다. 범위에 대한 자세한 설명은 [사용 권한, 동의 및 범위](v2-permissions-and-consent.md)를 참조하세요. |
+| `scope`         | required    | 공백으로 구분된 범위 목록입니다. 이 레그에서 요청된 범위가 원래 authorization_code 요청 레그에서 요청된 범위와 동일하거나 하위 집합이어야 합니다. 이 요청에 지정된 범위가 여러 리소스 서버에 걸쳐 있는 경우 Microsoft ID 플랫폼은 첫 번째 범위에 지정된 리소스에 대한 토큰을 반환합니다. 범위에 대한 자세한 설명은 [사용 권한, 동의 및 범위](v2-permissions-and-consent.md)를 참조하세요. |
 | `refresh_token` | required    | 흐름의 두 번째 레그에서 얻은 refresh_token입니다. |
 | `client_secret` | 웹앱에 필요 | 앱에 대한 앱 등록 포털에서 만든 애플리케이션 암호입니다. 디바이스에 client_secret을 안정적으로 저장할 수 없으므로 네이티브 앱에서는 사용하면 안 됩니다. 서버 쪽에서 client_secret을 안전하게 저장할 수 있는 웹앱과 Web API에 필요합니다. 이 암호는 URL로 인코딩해야 합니다. 자세한 내용은 [URI 일반 구문 사양](https://tools.ietf.org/html/rfc3986#page-12)을 참조하세요. |
 

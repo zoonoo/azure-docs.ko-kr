@@ -130,14 +130,11 @@ conceptualContent:
     - title: 도구
       links:
         - itemType: overview
-          text: Speech CLI 정보(코드 명령줄 도구 없음)
-          url: spx-overview.md
-        - itemType: how-to-guide
-          text: Speech CLI 기본 사항(설치 및 예제)
-          url: spx-basics.md
+          text: Speech Studio 정보(코드 없는 UI 환경)
+          url: speech-studio-overview.md
         - itemType: overview
-          text: Speech Studio 정보(사용자 지정)
-          url: 'https://speech.microsoft.com'
+          text: Speech CLI 정보(코드 없는 명령줄 도구)
+          url: spx-overview.md
     - title: Hosting
       links:
         - itemType: how-to-guide

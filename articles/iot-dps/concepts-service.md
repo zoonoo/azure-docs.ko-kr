@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub 장치 프로 비전 서비스에 사용 되는 용어 | Microsoft Docs
-description: DPS (장치 프로 비전 서비스) 및 IoT Hub에 사용 되는 일반적인 용어에 대해 설명 합니다.
+title: Azure IoT Hub Device Provisioning Service에서 사용되는 용어 | Microsoft Docs
+description: DPS(Device Provisioning Service) 및 IoT Hub에서 사용되는 일반적인 용어 설명
 author: wesmc7777
 ms.author: wesmc
 ms.date: 09/18/2019
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: eliotga
-ms.openlocfilehash: b9fc37c6589cdd0bc6a5cdce7b7ebebe2c6e9a85
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: c9397351d1b6be5533f3a5eb9206dfd97311d9a1
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96019449"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483356"
 ---
-# <a name="iot-hub-device-provisioning-service-dps-terminology"></a>IoT Hub Device Provisioning Service (DPS) 용어
+# <a name="iot-hub-device-provisioning-service-dps-terminology"></a>IoT Hub DPS(Device Provisioning Service) 용어
 
-IoT Hub Device Provisioning Service는 지정된 IoT 허브에 대한 제로 터치 디바이스 프로비저닝을 구성하도록 사용하는 IoT Hub에 대한 도우미 서비스입니다. 장치 프로 비전 서비스를 사용 하 여 안전 하 고 확장 가능한 방식으로 수백만 대의 장치를 [프로 비전](about-iot-dps.md#provisioning-process) 할 수 있습니다.
+IoT Hub Device Provisioning Service는 지정된 IoT 허브에 대한 제로 터치 디바이스 프로비저닝을 구성하도록 사용하는 IoT Hub에 대한 도우미 서비스입니다. Device Provisioning Service를 사용하여 안전하고 확장 가능한 방식으로 수백만 개의 디바이스를 [프로비전](about-iot-dps.md#provisioning-process)할 수 있습니다.
 
-디바이스 프로비전은 두 부분의 프로세스로 구성됩니다. 첫 번째 부분은 장치를 *등록* 하 여 장치와 IoT 솔루션 간의 초기 연결을 설정 하는 것입니다. 두 번째 부분은 솔루션의 특정 요구 사항에 따라 디바이스에 적절한 *구성* 을 적용하는 것입니다. 두 단계가 수행되고 나면 디바이스가 완벽히 *프로비전된* 것입니다. Device Provisioning Service는 두 단계를 모두 자동화하여 디바이스에 원활한 프로비전 환경을 제공합니다.
+디바이스 프로비전은 두 부분의 프로세스로 구성됩니다. 첫 번째 부분은 디바이스를 *등록* 함으로써 디바이스와 IoT 솔루션 간 초기 연결을 설정하는 것입니다. 두 번째 부분은 솔루션의 특정 요구 사항에 따라 디바이스에 적절한 *구성* 을 적용하는 것입니다. 두 단계가 수행되고 나면 디바이스가 완벽히 *프로비전된* 것입니다. Device Provisioning Service는 두 단계를 모두 자동화하여 디바이스에 원활한 프로비전 환경을 제공합니다.
 
 이 문서는 *서비스* 관리에 가장 적합한 프로비전 개념의 개요를 제공합니다. 이 문서는 배포를 위해 디바이스를 준비하는 [클라우드 설치 단계](about-iot-dps.md#cloud-setup-step)에 관련된 사람에게 가장 적합합니다.
 
@@ -46,11 +46,11 @@ Device Provisioning 서비스는 Device Provisioning 서비스에 연결된 IoT 
 
 * **등록 목록을 통한 고정 구성**: 등록 목록에서 원하는 IoT Hub의 사양을 서비스 수준 할당 정책보다 우선합니다.
 
-* **사용자 지정 (Azure 함수 사용)**: 사용자 지정 할당 정책을 통해 IoT hub에 장치를 할당 하는 방법을 보다 효과적으로 제어할 수 있습니다. 이 작업을 수행하려면 Azure 함수에서 사용자 지정 코드를 사용하여 IoT Hub에 디바이스를 할당합니다. 장치 프로 비전 서비스는 장치에 대 한 모든 관련 정보와 코드에 대 한 등록을 제공 하는 Azure 함수 코드를 호출 합니다. 실행된 함수 코드는 디바이스를 프로비전하는 데 사용된 IoT Hub 정보를 반환합니다.
+* **사용자 지정(Azure 함수 사용)** : 사용자 지정 할당 정책을 사용하면 IoT Hub에 디바이스를 할당하는 방법을 더 구체적으로 제어할 수 있습니다. 이 작업을 수행하려면 Azure 함수에서 사용자 지정 코드를 사용하여 IoT Hub에 디바이스를 할당합니다. 디바이스 프로비저닝 서비스는 Azure Function 코드를 호출하여 디바이스 및 등록과 관련된 모든 정보를 코드에 제공합니다. 실행된 함수 코드는 디바이스를 프로비전하는 데 사용된 IoT Hub 정보를 반환합니다.
 
 ## <a name="enrollment"></a>등록
 
-등록은 자동 프로비전을 통해 등록될 수 있는 디바이스 또는 디바이스 그룹의 레코드입니다. 등록 레코드에는 다음을 포함 하 여 장치 또는 장치 그룹에 대 한 정보가 포함 됩니다.
+등록은 자동 프로비전을 통해 등록될 수 있는 디바이스 또는 디바이스 그룹의 레코드입니다. 등록 레코드에는 다음을 포함하여 디바이스 또는 디바이스 그룹에 대한 정보가 들어 있습니다.
 - 디바이스에서 사용되는 [증명 메커니즘](#attestation-mechanism)
 - 원하는 초기 구성(선택 사항)
 - 원하는 IoT Hub
@@ -60,7 +60,7 @@ Device Provisioning 서비스에는 다음 두 가지 유형의 등록을 지원
 
 ### <a name="enrollment-group"></a>등록 그룹
 
-등록 그룹은 특정 증명 메커니즘을 공유하는 디바이스의 그룹입니다. 등록 그룹은 x.509 뿐만 아니라 대칭을 모두 지원 합니다. X.509 등록 그룹의 모든 장치는 동일한 루트 또는 중간 CA (인증 기관)에서 서명 된 x.509 인증서를 제공 합니다. 대칭 키 등록 그룹의 각 장치는 그룹 대칭 키에서 파생 된 SAS 토큰을 제공 합니다. 등록 그룹 이름 및 인증서 이름은 영숫자, 소문자여야 하며 하이픈을 포함할 수 있습니다.
+등록 그룹은 특정 증명 메커니즘을 공유하는 디바이스의 그룹입니다. 등록 그룹은 X.509뿐만 아니라 대칭을 모두 지원합니다. X.509 등록 그룹의 모든 디바이스는 동일한 루트 또는 중간 CA(인증 기관)에서 서명한 X.509 인증서를 제공합니다. 대칭 키 등록 그룹의 각 디바이스는 그룹 대칭 키에서 파생된 SAS 토큰을 제공합니다. 등록 그룹 이름 및 인증서 이름은 영숫자, 소문자여야 하며 하이픈을 포함할 수 있습니다.
 
 > [!TIP]
 > 원하는 초기 구성을 공유하는 다수의 디바이스 또는 동일한 테넌트로 이동하는 디바이스에 대한 등록 그룹을 사용하는 것이 좋습니다.
@@ -75,15 +75,15 @@ Device Provisioning 서비스에는 다음 두 가지 유형의 등록을 지원
 
 ## <a name="attestation-mechanism"></a>증명 메커니즘
 
-증명 메커니즘은 장치의 id를 확인 하는 데 사용 되는 방법입니다. 증명 메커니즘은 등록 항목에 대해 구성 되며 등록 하는 동안 장치 id를 확인할 때 사용할 방법을 프로 비전 서비스에 알립니다.
+증명 메커니즘은 디바이스의 ID 확인에 사용되는 방법입니다. 증명 메커니즘은 등록 항목에 대해 구성되며 등록하는 동안 디바이스 ID를 확인할 때 사용할 방법을 프로비전 서비스에 알립니다.
 
 > [!NOTE]
 > IoT Hub는 해당 서비스에서 비슷한 개념에 대해 "인증 체계"를 사용합니다.
 
 Device Provisioning Service는 다음 형식의 증명을 지원합니다.
-* 표준 X.509 인증서 인증 흐름을 기반으로 하는 **X.509 인증서** 자세한 내용은 [x.509 증명](concepts-x509-attestation.md)을 참조 하세요.
-* nonce 문제를 기반으로 하는 **TPM(신뢰할 수 있는 플랫폼 모듈)** 은 서명된 SAS(공유 액세스 서명) 토큰을 표시하기 위해 키에 TPM 표준을 사용합니다. 이 경우 장치에 물리적 TPM이 필요 하지는 않지만 서비스는 [tpm 사양](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)에 따라 인증 키를 사용 하 여 증명할 것으로 예상 합니다. 자세한 내용은 [TPM 증명](concepts-tpm-attestation.md)을 참조 하세요.
-* 해시 된 서명 및 포함 된 만료를 포함 하는 SAS (공유 액세스 서명) [보안 토큰](../iot-hub/iot-hub-devguide-security.md#security-tokens)을 기반으로 하는 **대칭 키** 입니다. 자세한 내용은 [대칭 키 증명](concepts-symmetric-key-attestation.md)을 참조하세요.
+* 표준 X.509 인증서 인증 흐름을 기반으로 하는 **X.509 인증서** 자세한 내용은 [X.509 증명](concepts-x509-attestation.md)을 참조하세요.
+* nonce 문제를 기반으로 하는 **TPM(신뢰할 수 있는 플랫폼 모듈)** 은 서명된 SAS(공유 액세스 서명) 토큰을 표시하기 위해 키에 TPM 표준을 사용합니다. 이를 사용하는 경우 디바이스에 실제 TPM이 필요하지는 않지만, [TPM 사양](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)에 따라 인증 키를 사용하여 증명해야 합니다. 자세한 내용은 [TMP 증명](concepts-tpm-attestation.md)을 참조하세요.
+* 해시된 서명과 포함된 만료 날짜가 들어 있는 SAS(공유 액세스 서명) [보안 토큰](../iot-hub/iot-hub-dev-guide-sas.md#security-tokens)을 기반으로 하는 **대칭 키**. 자세한 내용은 [대칭 키 증명](concepts-symmetric-key-attestation.md)을 참조하세요.
 
 
 ## <a name="hardware-security-module"></a>하드웨어 보안 모듈
@@ -112,14 +112,14 @@ ID 범위는 사용자에 의해 생성되고 디바이스가 등록할 특정 �
 
 ## <a name="registration-id"></a>등록 ID
 
-등록 ID는 장치 프로 비전 서비스를 사용 하 여 장치 등록을 고유 하 게 식별 하는 데 사용 됩니다. 디바이스 ID는 프로비전 서비스 [ID 범위](#id-scope)에서 고유해야 합니다. 각 디바이스에는 등록 ID가 있어야 합니다. 등록 ID는 영숫자, 대/소문자를 구분 하지 않으며, 콜론, 마침표, 밑줄, 하이픈 등의 특수 문자를 포함할 수 있습니다.
+등록 ID는 Device Provisioning Service를 사용한 디바이스 등록을 고유하게 식별하는 데 사용됩니다. 디바이스 ID는 프로비전 서비스 [ID 범위](#id-scope)에서 고유해야 합니다. 각 디바이스에는 등록 ID가 있어야 합니다. 등록 ID는 영숫자로 대/소문자를 구분하지 않고, 콜론, 마침표, 밑줄, 하이픈 등의 특수 문자를 포함할 수 있습니다.
 
 * TPM의 경우 TPM 자체에서 등록 ID를 제공합니다.
 * X.509 기반 증명의 경우 등록 ID는 인증서의 주체 이름으로 제공됩니다.
 
 ## <a name="device-id"></a>디바이스 ID
 
-디바이스 ID는 IoT Hub에 표시되는 ID입니다. 등록 항목에서 원하는 디바이스 ID를 설정할 수 있지만 설정할 필요가 없습니다. 원하는 장치 ID 설정은 개별 등록 지원 됩니다. 등록 목록에 원하는 디바이스 ID가 지정되지 않은 경우 등록 ID는 디바이스를 등록할 때 디바이스 ID로 사용됩니다. [IoT Hub의 디바이스 ID](../iot-hub/iot-hub-devguide-identity-registry.md)에 대해 자세히 알아봅니다.
+디바이스 ID는 IoT Hub에 표시되는 ID입니다. 등록 항목에서 원하는 디바이스 ID를 설정할 수 있지만 설정할 필요가 없습니다. 원하는 디바이스 ID 설정은 개별 등록에서만 지원됩니다. 등록 목록에 원하는 디바이스 ID가 지정되지 않은 경우 등록 ID는 디바이스를 등록할 때 디바이스 ID로 사용됩니다. [IoT Hub의 디바이스 ID](../iot-hub/iot-hub-devguide-identity-registry.md)에 대해 자세히 알아봅니다.
 
 
 

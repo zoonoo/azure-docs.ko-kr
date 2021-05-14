@@ -1,0 +1,24 @@
+### YamlMime:Landing
+title: Azure Certified Device 문서
+summary: 이는 Azure에서 실행되도록 빌드된 IoT 디바이스를 쉽게 차별화하고 승격하고 찾을 수 있는 원스톱 프로그램입니다.
+metadata:
+  title: Azure Certified Device 프로그램
+  description: 이는 Azure에서 실행되도록 빌드된 IoT 디바이스를 쉽게 차별화하고 승격하고 찾을 수 있는 원스톱 프로그램입니다.
+  ms.service: certification
+  ms.topic: landing-page
+  author: cbroad
+  ms.author: cbroad
+  ms.date: 03/18/2021
+  ms.openlocfilehash: 3fa7e18388fc35eebdfdd0d0aec2be308765b4e1
+  ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/30/2021
+  ms.locfileid: "105975360"
+landingContent:
+- title: Azure Certified Device 프로그램 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Certified Device 프로그램이란?
+      url: ./overview.md

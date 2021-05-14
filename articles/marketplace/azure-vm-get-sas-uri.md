@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
-ms.date: 03/10/2021
-ms.openlocfilehash: 21ccafe3e15f902e35657a9aa31516bbaeb3b4c8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/21/2021
+ms.openlocfilehash: 0f7d63a1213b6fe6625f16f33f18680b7a9e6bcb
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558009"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906839"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>VM 이미지에 대한 SAS URI를 생성하는 방법
 
@@ -21,7 +21,6 @@ ms.locfileid: "105558009"
 
 VHD에 대한 SAS URI를 생성할 때의 요구 사항은 다음과 같습니다.
 
-- 관리되지 않는 VHD만 지원합니다.
 - 목록 및 읽기 권한만 필요합니다. 쓰기 또는 삭제 권한을 제공하지 마세요.
 - 액세스 기간(만료 날짜)은 SAS URI가 생성된 시점에서 3주 이상이어야 합니다.
 - UTC 시간 변경을 방지하려면 시작 날짜를 현재 날짜 전으로 설정합니다. 예를 들어, 현재 날짜가 2020년 6월 16일인 경우 6/15/2020을 선택합니다.

@@ -1,6 +1,6 @@
 ---
-title: Azure 테이블 저장소 디자인에서 관계 모델링 | Microsoft Docs
-description: Azure 테이블 저장소 솔루션을 설계할 때 모델링 프로세스를 이해 합니다. 일 대 다, 일 대 일 및 상속 관계에 대해 읽어 보세요.
+title: Azure Table Storage 디자인에서 관계 모델링 | Microsoft Docs
+description: Azure Table Storage 솔루션을 디자인하는 경우 수행되는 모델링 프로세스에 대해 알아봅니다. 일 대 다, 일 대 일, 상속 관계를 참조하세요.
 services: storage
 ms.service: storage
 author: tamram
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.subservice: tables
 ms.openlocfilehash: 3023b478ef7a4aaf6d9239e997bdf63282b56210
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88271195"
 ---
 # <a name="modeling-relationships"></a>관계 모델링
@@ -51,7 +51,7 @@ ms.locfileid: "88271195"
 <td>
 <ul>
 <li>단일 작업으로 부서 엔터티를 업데이트할 수 있습니다.</li>
-<li>직원 엔터티를 업데이트/삽입/삭제할 때마다 부서 엔터티를 수정 해야 하는 경우 일관성을 유지 하기 위해 엔터티 그룹 트랜잭션 * (가 수 t)을 사용할 수 있습니다. 예를 들어 각 부서의 직원 수를 유지 관리하는 경우가 여기에 해당됩니다.</li>
+<li>직원 엔터티를 업데이트/삽입/삭제할 때마다 부서 엔터티를 수정해야 하는 경우 EGT(엔터티 그룹 트랜잭션)를 사용하여 일관성을 유지할 수 있습니다. 예를 들어 각 부서의 직원 수를 유지 관리하는 경우가 여기에 해당됩니다.</li>
 </ul>
 </td>
 <td>
@@ -93,7 +93,7 @@ ms.locfileid: "88271195"
 </tr>
 </table>
 
-* 자세한 내용은 [엔터티 그룹 트랜잭션](table-storage-design.md#entity-group-transactions) 을 참조 하세요.  
+*자세한 내용은 [엔터티 그룹 트랜잭션](table-storage-design.md#entity-group-transactions)을 참조하세요.  
 
 
 이러한 옵션 간에 선택하는 방법 및 가장 중요한 장단점은 특정 애플리케이션 시나리오에 따라 다릅니다. 예를 들어 부서 엔터티를 수정하는 빈도, 모든 직원 쿼리를 수행하는 데 추가 부서 정보가 필요한지 여부, 파티션 또는 스토리지 계정의 확장성 제한에 얼마나 근접했는지 여부 등에 따라 달라집니다.  
@@ -103,7 +103,7 @@ ms.locfileid: "88271195"
 
 Table service에서 일대일 관계를 구현하기 위한 구현 고려 사항도 있습니다.  
 
-* 대량 엔터티 처리 (자세한 내용은 [Large Entities 패턴](table-storage-design-patterns.md#large-entities-pattern)참조).  
+* 큰 엔터티 처리(자세한 내용은 [큰 엔터티 패턴](table-storage-design-patterns.md#large-entities-pattern)참조)  
 * 액세스 제어 구현(자세한 내용은 공유 액세스 서명을 사용하여 액세스 제어 참조).  
 
 ## <a name="join-in-the-client"></a>클라이언트에 조인

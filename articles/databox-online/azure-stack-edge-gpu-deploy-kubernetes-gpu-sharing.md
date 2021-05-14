@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro GPU 장치에서 GPU 공유를 사용 하 여 Kubernetes 워크 로드 배포
-description: Azure Stack Edge Pro GPU 장치에서 Kubernetes을 통해 GPU 공유 작업을 배포 하는 방법을 설명 합니다.
+title: Azure Stack Edge Pro GPU 디바이스에서 GPU 공유를 사용하여 Kubernetes 워크로드 배포
+description: Azure Stack Edge Pro GPU 디바이스에서 Kubernetes를 통해 GPU 공유 작업을 배포하는 방법을 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,27 +9,27 @@ ms.topic: how-to
 ms.date: 03/12/2021
 ms.author: alkohli
 ms.openlocfilehash: 04299ba4028de313f640074ca98c0b611f734981
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103565141"
 ---
-# <a name="deploy-a-kubernetes-workload-using-gpu-sharing-on-your-azure-stack-edge-pro"></a>Azure Stack Edge Pro에서 GPU 공유를 사용 하 여 Kubernetes 워크 로드 배포
+# <a name="deploy-a-kubernetes-workload-using-gpu-sharing-on-your-azure-stack-edge-pro"></a>Azure Stack Edge Pro에서 GPU 공유를 사용하여 Kubernetes 워크로드 배포
 
-이 문서에서는 컨테이너 화 된 워크 로드가 Azure Stack Edge Pro GPU 장치에서 Gpu를 공유할 수 있는 방법을 설명 합니다. 이 문서에서는 GPU 컨텍스트를 공유 하지 않고 장치에서 MP (다중 프로세스 서비스)를 통해 컨텍스트 공유를 사용 하도록 설정 하는 작업을 두 번 실행 합니다. 자세한 내용은 [다중 프로세스 서비스](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf)를 참조 하세요.
+이 문서에서는 컨테이너화된 워크로드가 Azure Stack Edge Pro GPU 디바이스에서 GPU를 공유하는 방법을 설명합니다. 이 문서에서는 두 가지 작업을 실행합니다. 하나는 GPU 컨텍스트 공유 없이, 다른 하나는 디바이스에서 MPS(Multi-Process Service)를 통해 컨텍스트 공유를 사용하는 작업입니다. 자세한 내용은 [Multi-Process Service](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 
-1. [활성화](azure-stack-edge-gpu-deploy-activate.md) 되 고 [계산이 구성 ](azure-stack-edge-gpu-deploy-configure-compute.md)된 Azure Stack Edge Pro GPU 장치에 액세스할 수 있습니다. [KUBERNETES API 끝점이](azure-stack-edge-gpu-deploy-configure-compute.md#get-kubernetes-endpoints) 있으며 `hosts` 장치에 액세스 하는 클라이언트의 파일에이 끝점을 추가 했습니다.
+1. [활성화](azure-stack-edge-gpu-deploy-activate.md)되고 [컴퓨팅이 구성](azure-stack-edge-gpu-deploy-configure-compute.md)된 Azure Stack Edge Pro GPU 디바이스에 액세스했습니다. [Kubernetes API 엔드포인트](azure-stack-edge-gpu-deploy-configure-compute.md#get-kubernetes-endpoints)가 있으며 디바이스에 액세스하는 클라이언트의 `hosts` 파일에 해당 엔드포인트를 추가했습니다.
 
-1. [지원 되는 운영 체제](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device)를 사용 하 여 클라이언트 시스템에 액세스할 수 있습니다. Windows 클라이언트를 사용 하는 경우 시스템은 PowerShell 5.0 이상을 실행 하 여 장치에 액세스 해야 합니다.
+1. [지원 운영 체제](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device)를 사용하여 클라이언트 시스템에 액세스했습니다. Windows 클라이언트를 사용하는 경우 시스템은 PowerShell 5.0 이상을 실행하여 디바이스에 액세스해야 합니다.
 
-1. 네임 스페이스와 사용자를 만들었습니다. 또한 사용자에 게이 네임 스페이스에 대 한 액세스 권한을 부여 했습니다. 이 네임 스페이스의 kubeconfig 파일은 장치에 액세스 하는 데 사용할 클라이언트 시스템에 설치 되어 있습니다. 자세한 지침은 [Azure Stack Edge PRO GPU 장치에서 kubectl를 통해 Kubernetes 클러스터에 연결 및 관리](azure-stack-edge-gpu-create-kubernetes-cluster.md#configure-cluster-access-via-kubernetes-rbac)를 참조 하세요. 
+1. 네임스페이스와 사용자를 만들었습니다. 또한 사용자에게 해당 네임스페이스에 대한 액세스 권한을 부여했습니다. 해당 네임스페이스의 kubeconfig 파일을 디바이스에 액세스하는 데 사용할 클라이언트 시스템에 설치했습니다. 자세한 지침은 [Azure Stack Edge PRO GPU 디바이스에서 kubectl을 통한 Kubernetes 클러스터 연결 및 관리](azure-stack-edge-gpu-create-kubernetes-cluster.md#configure-cluster-access-via-kubernetes-rbac)를 참조하세요. 
 
-1. 로컬 시스템에 다음 배포를 저장 `yaml` 합니다. 이 파일을 사용 하 여 Kubernetes 배포를 실행 합니다. 이 배포는 Nvidia에서 공개적으로 사용할 수 있는 [간단한 HODA 컨테이너](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#running-simple-containers) 를 기반으로 합니다. 
+1. 로컬 시스템에 다음 배포 `yaml`을 저장합니다. 이 파일을 사용하여 Kubernetes 배포를 실행합니다. 이 배포는 Nvidia에서 공개적으로 사용할 수 있는 [Simple CUDA 컨테이너](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#running-simple-containers)를 기반으로 합니다. 
 
     ```yml
     apiVersion: batch/v1
@@ -75,22 +75,22 @@ ms.locfileid: "103565141"
       backoffLimit: 1
     ```
 
-## <a name="verify-gpu-driver-cuda-version"></a>GPU 드라이버, VERDA 버전 확인
+## <a name="verify-gpu-driver-cuda-version"></a>GPU 드라이버, CUDA 버전 확인
 
-첫 번째 단계는 장치에서 필요한 GPU 드라이버 및 UDA 버전이 실행 되 고 있는지 확인 하는 것입니다.
+첫 번째 단계는 필수 GPU 드라이버 및 CUDA 버전이 디바이스에서 실행되는지 확인하는 것입니다.
 
-1. [장치의 PowerShell 인터페이스에 연결](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface)합니다.
+1. [디바이스의 PowerShell 인터페이스에 연결합니다](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
-1. 다음 명령을 실행합니다.
+1. 다음 명령 실행:
 
     ```powershell
     Get-HcsGpuNvidiaSmi
     ```
 
-1. Nvidia smi-s 출력에서 GPU 버전 및 장치에 대 한 정보를 기록 합니다. Azure Stack Edge 2102 소프트웨어를 실행 하는 경우이 버전은 다음 드라이버 버전에 해당 합니다.
+1. Nvidia smi 출력에서 디바이스의 GPU 버전 및 CUDA 버전을 기록합니다. Azure Stack Edge 2102 소프트웨어를 실행하는 경우 이 버전은 다음의 드라이버 버전에 해당합니다.
 
     - GPU 드라이버 버전: 460.32.03
-    - VERDA 버전: 11.2
+    - CUDA 버전: 11.2
     
     출력의 예제는 다음과 같습니다.
 
@@ -121,15 +121,15 @@ ms.locfileid: "103565141"
     [10.100.10.10]: PS> 
     ```
 
-1. 이 세션을 열어 두세요 .이 세션을 사용 하 여 문서 전체에서 Nvidia smi-s 출력을 볼 수 있습니다.
+1. 이 세션을 사용하여 문서 전체에서 Nvidia smi 출력을 볼 수 있도록 이 세션을 열어 두세요.
 
 
 
 ## <a name="job-without-context-sharing"></a>컨텍스트 공유가 없는 작업
 
-첫 번째 작업을 실행 하 여 네임 스페이스의 장치에 응용 프로그램을 배포 `mynamesp1` 합니다. 또한이 응용 프로그램 배포에서는 GPU 컨텍스트 공유를 기본적으로 사용 하지 않도록 설정 하는 방법을 보여 줍니다. 
+첫 번째 작업을 실행하여 네임스페이스`mynamesp1`의 디바이스에 애플리케이션을 배포합니다. 또한 이 애플리케이션 배포에서는 GPU 컨텍스트 공유는 기본적으로 사용되지 않습니다. 
 
-1. 네임 스페이스에서 실행 중인 모든 pod를 나열 합니다. 다음 명령을 실행합니다. 
+1. 네임스페이스에서 실행 중인 모든 Pod를 나열합니다. 다음 명령 실행: 
 
     ```powershell
     kubectl get pods -n <Name of the namespace>
@@ -141,13 +141,13 @@ ms.locfileid: "103565141"
     PS C:\WINDOWS\system32> kubectl get pods -n mynamesp1
     No resources found.
     ```
-1. 이전에 제공 된 배포를 사용 하 여 장치에서 배포 작업을 시작 합니다. 다음 명령을 실행합니다. 
+1. 이전에 제공된 deployment.yaml을 사용하여 디바이스에서 배포 작업을 시작합니다. 다음 명령 실행: 
 
     ```powershell
     kubectl apply -f <Path to the deployment .yaml> -n <Name of the namespace> 
     ```  
 
-    이 작업은 두 컨테이너를 만들고 두 컨테이너에서 n-body 시뮬레이션을 실행 합니다. 시뮬레이션 반복 횟수는에 지정 되어 `.yaml` 있습니다. 자세한 내용은 [N-본문 시뮬레이션](https://physics.princeton.edu//~fpretori/Nbody/intro.htm)을 참조 하세요.
+    이 작업은 두 개의 컨테이너를 만들고 두 컨테이너에서 n-body 시뮬레이션을 실행합니다. 시뮬레이션 반복 횟수는 `.yaml`에 지정됩니다. 자세한 내용은 [n-body 시뮬레이션](https://physics.princeton.edu//~fpretori/Nbody/intro.htm)을 참조하세요.
     
     출력의 예제는 다음과 같습니다.
 
@@ -158,7 +158,7 @@ ms.locfileid: "103565141"
     PS C:\WINDOWS\system32>
     ```
 
-1. 배포에서 시작 된 pod를 나열 하려면 다음 명령을 실행 합니다.
+1. 배포에서 시작된 Pod를 나열하려면 다음 명령을 실행합니다.
 
     ```powershell
     kubectl get pods -n <Name of the namespace>
@@ -174,9 +174,9 @@ ms.locfileid: "103565141"
     PS C:\WINDOWS\system32>
     ```
 
-    `cuda-sample1-cf979886d-xcwsq`장치에서 실행 되는 두 개의 pod가 있습니다 `cuda-sample2-68b4899948-vcv68` .
+    디바이스에서 실행되는 두 개의 Pod에는 `cuda-sample1-cf979886d-xcwsq`와 `cuda-sample2-68b4899948-vcv68`이 있습니다.
 
-1. Pod의 세부 정보를 가져옵니다. 다음 명령을 실행합니다.
+1. Pod의 세부 정보를 가져옵니다. 다음 명령 실행:
 
     ```powershell
     kubectl -n <Name of the namespace> describe <Name of the job> 
@@ -252,11 +252,11 @@ ms.locfileid: "103565141"
       Normal  SuccessfulCreate  60s   job-controller  Created pod: cuda-sample2-db9vx
     PS C:\WINDOWS\system32>
     ```
-    출력은 작업에서 pod를 성공적으로 만들었음을 나타냅니다. 
+    출력은 두 Pod가 작업에 의해 성공적으로 만들었음을 나타냅니다. 
 
-1. 두 컨테이너 모두 n 본문 시뮬레이션을 실행 하는 동안 Nvidia smi-s 출력에서 GPU 사용률을 확인 합니다. 장치의 PowerShell 인터페이스로 이동 하 고를 실행 `Get-HcsGpuNvidiaSmi` 합니다.
+1. 두 개의 컨테이너가 n-body 시뮬레이션을 실행하는 동안 Nvidia smi 출력에서 GPU 사용률을 확인합니다. 디바이스의 PowerShell 인터페이스로 이동하고 `Get-HcsGpuNvidiaSmi`를 실행합니다.
 
-    다음은 두 컨테이너가 n 본문 시뮬레이션을 실행 하는 경우의 출력 예입니다.
+    다음은 두 개의 컨테이너가 n-body 시뮬레이션을 실행하는 경우의 출력 예제입니다.
 
     ```powershell
     [10.100.10.10]: PS>Get-HcsGpuNvidiaSmi
@@ -285,9 +285,9 @@ ms.locfileid: "103565141"
     +-----------------------------------------------------------------------------+
     [10.100.10.10]: PS>    
     ```
-    여기에서 볼 수 있듯이 GPU 0에서 n-본문 시뮬레이션을 사용 하 여 실행 되는 두 개의 컨테이너 (Type = C)가 있습니다. 
+    여기에서 볼 수 있듯이, GPU 0에서 n-body 시뮬레이션을 사용하여 실행되는 두 개의 컨테이너(Type = C)가 있습니다. 
 
-1. N-본문 시뮬레이션을 모니터링 합니다. 명령을 실행 `get pod` 합니다. 시뮬레이션을 실행 하는 경우의 예제 출력은 다음과 같습니다. 
+1. n-body 시뮬레이션을 모니터링합니다. `get pod` 명령을 실행합니다. 시뮬레이션을 실행하는 경우의 출력 예제는 다음과 같습니다. 
 
     ```powershell
     PS C:\WINDOWS\system32> kubectl get pods -n mynamesp1
@@ -297,7 +297,7 @@ ms.locfileid: "103565141"
     PS C:\WINDOWS\system32>
     ```
 
-    시뮬레이션이 완료 되 면 출력에이 표시 됩니다. 출력의 예제는 다음과 같습니다.
+    시뮬레이션이 완료되면 출력에 표시됩니다. 출력의 예제는 다음과 같습니다.
 
     ```powershell
     PS C:\WINDOWS\system32> kubectl get pods -n mynamesp1
@@ -307,7 +307,7 @@ ms.locfileid: "103565141"
     PS C:\WINDOWS\system32>
     ```
  
-1. 시뮬레이션이 완료 된 후 로그 및 시뮬레이션 완료의 총 시간을 볼 수 있습니다. 다음 명령을 실행합니다.
+1. 시뮬레이션이 완료된 후 로그 및 시뮬레이션 완료에 소요된 총 시간을 볼 수 있습니다. 다음 명령 실행:
 
     ```powershell
     kubectl logs -n <Name of the namespace> <pod name>
@@ -348,7 +348,7 @@ ms.locfileid: "103565141"
     = 1969.517 single-precision GFLOP/s at 20 flops per interaction
     PS C:\WINDOWS\system32>    
     ```
-1. 현재 GPU에서 실행 중인 프로세스가 없어야 합니다. Nvidia smi-s 출력을 사용 하 여 GPU 사용률을 확인 하 여이를 확인할 수 있습니다.
+1. 현재 GPU에서 실행 중인 프로세스가 없어야 합니다. Nvidia smi 출력을 사용하여 GPU 사용률을 확인하여 이를 확인할 수 있습니다.
 
     ```powershell
     [10.100.10.10]: PS>Get-HcsGpuNvidiaSmi
@@ -377,13 +377,13 @@ ms.locfileid: "103565141"
     [10.100.10.10]: PS>
     ```
 
-## <a name="job-with-context-sharing"></a>컨텍스트 공유를 사용 하는 작업
+## <a name="job-with-context-sharing"></a>컨텍스트 공유를 사용하는 작업
 
-MP를 통해 GPU 컨텍스트 공유를 사용 하는 경우 두 번째 작업을 실행 하 여 두 개의 트랜잭션 컨테이너에 n-본문 시뮬레이션을 배포 합니다. 먼저 장치에서 MP를 사용 하도록 설정 합니다.
+MPS를 통해 GPU 컨텍스트 공유를 사용하는 경우 두 번째 작업을 실행하여 두 개의 CUDA 컨테이너에 n-body 시뮬레이션을 배포합니다. 먼저 디바이스에서 MPS를 사용하도록 설정합니다.
 
-1. [장치의 PowerShell 인터페이스에 연결](azure-stack-edge-gpu-connect-powershell-interface.md)합니다.
+1. [디바이스의 PowerShell 인터페이스에 연결합니다](azure-stack-edge-gpu-connect-powershell-interface.md).
 
-1. 장치에서 MP를 사용 하도록 설정 하려면 `Start-HcsGpuMPS` 명령을 실행 합니다.
+1. 디바이스에서 MPS를 사용하도록 설정하려면 `Start-HcsGpuMPS` 명령을 실행합니다.
 
     ```powershell
     [10.100.10.10]: PS>Start-HcsGpuMPS
@@ -394,7 +394,7 @@ MP를 통해 GPU 컨텍스트 공유를 사용 하는 경우 두 번째 작업�
     Created nvidia-mps.service
     [10.100.10.10]: PS>    
     ```
-1. 이전에 사용한 것과 동일한 배포를 사용 하 여 작업을 실행 합니다 `yaml` . 기존 배포를 삭제 해야 할 수도 있습니다. [배포 삭제](#delete-deployment)를 참조 하세요.
+1. 이전에 사용한 것과 동일한 배포`yaml`을 사용하여 작업을 실행합니다. 기존 배포를 삭제해야 할 수도 있습니다. [배포 삭제](#delete-deployment)를 참조하세요.
 
     출력의 예제는 다음과 같습니다.
 
@@ -479,7 +479,7 @@ MP를 통해 GPU 컨텍스트 공유를 사용 하는 경우 두 번째 작업�
     PS C:\WINDOWS\system32>
     ```
 
-1. 시뮬레이션을 실행 하는 동안 Nvidia smi-s 출력을 볼 수 있습니다. 출력은 n-본문 시뮬레이션을 포함 하는, uda 컨테이너 (M + C 형식) 및 실행 중에 MPS 서비스 (C 형식)에 해당 하는 프로세스를 보여 줍니다. 이러한 모든 프로세스는 GPU 0을 공유 합니다.
+1. 시뮬레이션을 실행하는 동안 Nvidia smi 출력을 볼 수 있습니다. 출력은 n-body 시뮬레이션과 MPS 서비스(C type)가 실행되는 CUDA 컨테이너(M + C type)에 해당하는 프로세스를 보여 줍니다. 모든 프로세스는 GPU 0을 공유합니다.
 
     ```powershell
     PS>Get-HcsGpuNvidiaSmi
@@ -509,7 +509,7 @@ MP를 통해 GPU 컨텍스트 공유를 사용 하는 경우 두 번째 작업�
     +-----------------------------------------------------------------------------+
     ```
 
-1. 시뮬레이션이 완료 된 후 로그 및 시뮬레이션 완료의 총 시간을 볼 수 있습니다. 다음 명령을 실행합니다.
+1. 시뮬레이션이 완료된 후 로그 및 시뮬레이션 완료에 소요된 총 시간을 볼 수 있습니다. 다음 명령 실행:
 
     ```powershell
         PS C:\WINDOWS\system32> kubectl get pods -n mynamesp1
@@ -546,7 +546,7 @@ MP를 통해 GPU 컨텍스트 공유를 사용 하는 경우 두 번째 작업�
         = 2164.987 single-precision GFLOP/s at 20 flops per interaction
         PS C:\WINDOWS\system32>
     ```
-1. 시뮬레이션이 완료 된 후 Nvidia smi-s 출력을 다시 볼 수 있습니다. MPS 서비스에 대 한 nvidia-서버 프로세스만 실행 중으로 표시 됩니다. 
+1. 시뮬레이션이 완료된 후 Nvidia smi 출력을 다시 확인할 수 있습니다. MPS 서비스에 대한 nvidia-cuda-mps-server 프로세스만 실행 중으로 표시됩니다. 
 
     ```powershell
     PS>Get-HcsGpuNvidiaSmi
@@ -576,9 +576,9 @@ MP를 통해 GPU 컨텍스트 공유를 사용 하는 경우 두 번째 작업�
 
 ## <a name="delete-deployment"></a>배포 삭제
 
-MP를 사용 하도록 설정 하 고 장치에서 MP를 사용 하지 않도록 설정 하 여 실행 하는 경우 배포를 삭제 해야 할 수 있습니다.
+MPS를 사용하도록 설정한 상태에서 디바이스에서 MPS를 사용하지 않는다면 배포를 삭제해야 할 수 있습니다.
 
-장치에서 배포를 삭제 하려면 다음 명령을 실행 합니다. 
+디바이스에서 배포를 삭제하려면 다음 명령을 실행합니다. 
 
 ```powershell
 kubectl delete -f <Path to the deployment .yaml> -n <Name of the namespace> 
@@ -595,4 +595,4 @@ PS C:\WINDOWS\system32>
     
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Stack Edge Pro에서 GPU 공유를 사용 하 여 IoT Edge 워크 로드를 배포](azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing.md)합니다.
+- [Azure Stack Edge Pro에서 GPU 공유를 사용하여 IoT Edge 워크로드를 배포](azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing.md)합니다.

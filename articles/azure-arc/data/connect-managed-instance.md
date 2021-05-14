@@ -1,22 +1,22 @@
 ---
-title: Azure Arc 지원 SQL Managed Instance에 연결하기
-description: Azure Arc 지원 SQL Managed Instance에 연결하기
+title: Azure Arc 지원 SQL Managed Instance에 연결
+description: Azure Arc 지원 SQL Managed Instance에 연결
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: rothja
-ms.author: jroth
+author: vin-yu
+ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4edf23b3c5f8dd2d683b90cde4dcb3d9be94ca3e
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: abd27e15ccf5b421e69e78b2b726d192ffdecacb
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109733877"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "92372364"
 ---
-# <a name="connect-to-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 지원 SQL Managed Instance에 연결하기
+# <a name="connect-to-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 지원 SQL Managed Instance에 연결
 
 이 문서에서는 Azure Arc 지원 SQL Managed Instance에 연결할 수 있는 방법을 설명합니다. 
 
@@ -92,5 +92,5 @@ az network nsg rule create -n db_port --destination-port-ranges 30913 --source-a
 
 ## <a name="next-steps"></a>다음 단계
 
-- [SQL 관리형 인스턴스 대시보드 보기](azure-data-studio-dashboards.md#view-the-sql-managed-instance-dashboards)
+- [SQL Managed Instance 대시보드 보기](azure-data-studio-dashboards.md#view-the-sql-managed-instance-dashboards)
 - [Azure Portal에서 SQL Managed Instance 보기](view-arc-data-services-inventory-in-azure-portal.md)

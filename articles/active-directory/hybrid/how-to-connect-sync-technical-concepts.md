@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 01e53b30a4c27296e30e031ffb771697afa8e1e9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87019678"
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect Sync: 기술 개념
@@ -28,7 +28,7 @@ ms.locfileid: "87019678"
 
 Azure AD Connect 동기화는 견고한 메타 디렉터리 동기화 플랫폼상에 빌드됩니다.
 다음 섹션에서는 메타 디렉터리 동기화에 대한 개념을 소개합니다.
-MIIS (Microsoft Identity Integration Server), ILM (Id 수명 주기 관리자) 및 FIM (Forefront Identity Manager)을 기반으로 하는 Azure Active Directory 동기화 서비스는 데이터 원본에 연결 하 고, 데이터 원본 간에 데이터를 동기화 하 고, id의 프로 비전 및 프로 비전 해제를 위한 차세대 플랫폼을 제공 합니다.
+MIIS(Microsoft Identity Integration Server), ILM(Identity Lifecycle Manager), FIM(Forefront Identity Manager)을 기반으로 빌드하는 Azure Active Directory 동기화 서비스에서는 데이터 원본에 연결, 데이터 원본 간 데이터 동기화, ID 프로비저닝 및 프로비전 해제에 사용되는 다음 플랫폼을 제공합니다.
 
 ![기술 개념](./media/how-to-connect-sync-technical-concepts/scenario.png)
 
@@ -43,7 +43,7 @@ MIIS (Microsoft Identity Integration Server), ILM (Id 수명 주기 관리자) �
 ## <a name="connector"></a>커넥터
 연결된 디렉터리와 통신하는 데 사용되는 코드 모듈을 커넥터(이전의 MA(관리 에이전트))라고 합니다.
 
-이러한 컴퓨터는 Azure AD Connect 동기화를 실행 하는 컴퓨터에 설치 됩니다. 커넥터는 특수화 된 에이전트의 배포에 의존 하는 대신 원격 시스템 프로토콜을 사용 하 여 사용 하는 에이전트 없는 기능을 제공 합니다. 따라서 특히 중요한 애플리케이션 및 시스템을 다룰 때 위험성과 배포 시간이 감소합니다.
+커넥터는 Azure AD Connect 동기화를 실행하는 컴퓨터에 설치됩니다. 커넥터는 특수 에이전트 배포를 사용하는 대신 원격 시스템 프로토콜을 사용하여 통신하는 에이전트 없는 기능을 제공합니다. 따라서 특히 중요한 애플리케이션 및 시스템을 다룰 때 위험성과 배포 시간이 감소합니다.
 
 위 그림에서 커넥터는 커넥터 공간와 동의어 이지만 외부 시스템과의 모든 통신을 포함합니다.
 
@@ -87,7 +87,7 @@ ID가 서로 연결되어 있고 가져오기 흐름 매핑을 통해 기관이 
 규칙이 새 커넥터 공간 개체를 만들어야 한다고 결정할 때마다 프로버전이라고 부릅니다. 그러나 이 작업은 커넥터 공간 내에서만 발생하기 때문에 내보내기가 실행될 때까지 연결된 데이터 원본으로 전달되지 않습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
-* [Azure AD Connect 동기화: 동기화 옵션 사용자 지정](how-to-connect-sync-whatis.md)
+* [Azure AD Connect Sync: 사용자 지정 동기화 옵션](how-to-connect-sync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)
 
 <!--Image references-->

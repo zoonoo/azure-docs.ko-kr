@@ -8,16 +8,16 @@ ms.subservice: security
 ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
-author: jaszymas
-ms.author: jaszymas
+author: shohamMSFT
+ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 610f0a9692c18afbd7bb446959b09bac14d6f629
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 96b35e65f11e9f0c1dec6b75465454be962dce46
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102507622"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109735137"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell 및 Azure CLI: Azure Key Vault에서 고객 관리형 키로 투명한 데이터 암호화를 사용하도록 설정
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -242,7 +242,7 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
 
    # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-   ```powershell
+   ```azurecli
    az account show - s <SubscriptionId>
    ```
 

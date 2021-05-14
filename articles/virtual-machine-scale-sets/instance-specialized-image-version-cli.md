@@ -3,19 +3,19 @@ title: Azure CLI를 사용하여 특수 이미지 버전에서 확장 집합 만
 description: Azure CLI를 사용하여 Shared Image Gallery에서 특수 이미지 버전을 사용하는 확장 집합을 만듭니다.
 author: cynthn
 ms.service: virtual-machine-scale-sets
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
-ms.reviewer: akjosh
+ms.reviewer: mimckitt
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2ecc2bfe6bdc06ede61e6c4d1e6eccfc9ef6323a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c65f8c3ffcf8e48153701c8d4d2b316c2b41f375
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98878005"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768466"
 ---
 # <a name="create-a-scale-set-using-a-specialized-image-version-with-the-azure-cli"></a>Azure CLI를 통해 특수 이미지 버전을 사용하는 확장 집합 만들기
 
@@ -25,7 +25,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 이 예제에서 필요에 따라 리소스 이름을 바꿉니다. 
 
-[az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list)를 사용하여 갤러리에서 이미지 정의를 나열하면 해당 이름과 정의의 ID를 볼 수 있습니다.
+[az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list)를 사용하여 갤러리에서 이미지 정의를 나열하면 해당 이름과 정의의 ID를 볼 수 있습니다.
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -37,9 +37,9 @@ az sig image-definition list \
    --output tsv
 ```
 
-이미지가 특수 이미지임을 나타내는 `--specialized` 매개 변수를 사용하여 [`az vmss create`](/cli/azure/vmss#az-vmss-create)를 사용하는 확장 집합을 만듭니다.
+이미지가 특수 이미지임을 나타내는 `--specialized` 매개 변수를 사용하여 [`az vmss create`](/cli/azure/vmss#az_vmss_create)를 사용하는 확장 집합을 만듭니다.
 
-이미지 정의 ID를 `--image`에 사용하여 사용 가능한 최신 버전의 이미지에서 확장 집합 인스턴스를 만듭니다. 또한 `--image`에 대한 이미지 버전 ID를 제공하여 특정 버전에서 확장 집합 인스턴스를 만들 수 있습니다. 특정 이미지 버전이 지역에서 삭제되거나 제거되었기 때문에 사용할 수 없는 경우 특정 이미지 버전을 사용하면 자동화가 실패할 수 있음을 의미합니다. 특정 이미지 버전이 필요하지 않는 한 새 VM을 만들기 위해 이미지 정의 ID를 사용하는 것이 좋습니다.
+이미지 정의 ID를 `--image`에 사용하여 사용 가능한 최신 버전의 이미지에서 확장 집합 인스턴스를 만듭니다. 또한 `--image`에 대한 이미지 버전 ID를 제공하여 특정 버전에서 확장 집합 인스턴스를 만들 수 있습니다. 특정 이미지가 지역에서 삭제 또는 제거되었기 때문에 이용할 수 없는 경우, 해당 이미지 버전을 사용하면 자동화에 실패할 수 있다는 점에 유의하세요. 특정 이미지 버전이 필요하지 않는 한 새 VM을 만들기 위해 이미지 정의 ID를 사용하는 것이 좋습니다.
 
 다음 예제에서는 *myImageDefinition* 이미지의 최신 버전에서 인스턴스를 만듭니다.
 
@@ -54,7 +54,7 @@ az vmss create \
 
 
 ## <a name="next-steps"></a>다음 단계
-[Azure VM Image Builder(미리 보기)](../virtual-machines/image-builder-overview.md)는 이미지 버전 생성 자동화에 도움이 되며, [기존 이미지 버전에서 새 이미지 버전을 만들고](../virtual-machines/linux/image-builder-gallery-update-image-version.md) 업데이트하는 데에도 사용할 수 있습니다. 
+[Azure Image Builder(미리 보기)](../virtual-machines/image-builder-overview.md)는 이미지 버전 생성을 자동화하는 데 도움이 되며, [기존 이미지 버전에서 새 이미지를 생성](../virtual-machines/linux/image-builder-gallery-update-image-version.md)하고 업데이트하는 데도 사용할 수 있습니다. 
 
 또한 템플릿을 사용하여 공유 이미지 갤러리 리소스를 만들 수도 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
 

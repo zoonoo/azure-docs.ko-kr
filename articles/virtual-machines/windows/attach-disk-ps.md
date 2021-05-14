@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d5c638a63e4e8dc1a55c07f4bdf713fd36ca6b3d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8999889bf09d5dc9bb40989c5d71ebf324ef56f4
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550878"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753035"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>PowerShell을 사용하여 Windows VM에 데이터 디스크 연결
 
-이 문서에서는 PowerShell을 사용하여 새 디스크와 기존 디스크를 Windows 가상 머신에 연결하는 방법을 보여 줍니다. 
+이 문서에서는 PowerShell을 사용하여 새 디스크와 기존 디스크를 Windows 가상 머신에 연결하는 방법을 보여 줍니다.
 
 먼저 다음 팁을 검토합니다.
 
@@ -35,14 +35,14 @@ ms.locfileid: "102550878"
 ```azurepowershell-interactive
 $rgName = 'myResourceGroup'
 $vmName = 'myVM'
-$location = 'East US' 
+$location = 'East US'
 $storageType = 'Premium_LRS'
 $dataDiskName = $vmName + '_datadisk1'
 
 $diskConfig = New-AzDiskConfig -SkuName $storageType -Location $location -CreateOption Empty -DiskSizeGB 128
 $dataDisk1 = New-AzDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
 
-$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName 
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName
 $vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
 
 Update-AzVM -VM $vm -ResourceGroupName $rgName
@@ -62,7 +62,7 @@ $dataDiskName = $vmName + '_datadisk1'
 $diskConfig = New-AzDiskConfig -SkuName $storageType -Location $location -CreateOption Empty -DiskSizeGB 128 -Zone 1
 $dataDisk1 = New-AzDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
 
-$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName 
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName
 $vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
 
 Update-AzVM -VM $vm -ResourceGroupName $rgName
@@ -90,7 +90,7 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
     foreach ($disk in $disks) {
         $driveLetter = $letters[$count].ToString()
-        $disk | 
+        $disk |
         Initialize-Disk -PartitionStyle MBR -PassThru |
         New-Partition -UseMaximumSize -DriveLetter $driveLetter |
         Format-Volume -FileSystem NTFS -NewFileSystemLabel $labels[$count] -Confirm:$false -Force
@@ -105,11 +105,11 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 ```azurepowershell-interactive
 $rgName = "myResourceGroup"
 $vmName = "myVM"
-$location = "East US" 
+$location = "East US"
 $dataDiskName = "myDisk"
-$disk = Get-AzDisk -ResourceGroupName $rgName -DiskName $dataDiskName 
+$disk = Get-AzDisk -ResourceGroupName $rgName -DiskName $dataDiskName
 
-$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName 
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName
 
 $vm = Add-AzVMDataDisk -CreateOption Attach -Lun 0 -VM $vm -ManagedDiskId $disk.Id
 
@@ -118,4 +118,4 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="next-steps"></a>다음 단계
 
-템플릿을 사용하여 관리 디스크를 배포할 수도 있습니다. 자세한 내용은 여러 데이터 디스크 배포에 관한 [Azure Resource Manager 템플릿의 관리 디스크 사용](../using-managed-disks-template-deployments.md) 또는 [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk)을 참조하세요.
+템플릿을 사용하여 관리 디스크를 배포할 수도 있습니다. 자세한 내용은 여러 데이터 디스크 배포에 관한 [Azure Resource Manager 템플릿의 관리 디스크 사용](../using-managed-disks-template-deployments.md) 또는 [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-multiple-data-disk)을 참조하세요.

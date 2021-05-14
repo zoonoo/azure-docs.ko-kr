@@ -1,24 +1,24 @@
 ---
-title: UI 정의 함수 만들기
+title: Create UI definition 함수
 description: Azure Managed Applications에 대한 UI 정의를 생성할 때 사용하는 함수에 대해 설명합니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: tomfitz
 ms.openlocfilehash: e4255f0d42e28a72ad55d9b7f81d0dc49b2950cb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87040999"
 ---
 # <a name="createuidefinition-functions"></a>CreateUiDefinition 함수
 
-이 문서에서는 CreateUiDefinition에 대해 지원 되는 함수에 대 한 개요를 제공 합니다.
+이 문서에서는 CreateUiDefinition에 지원되는 함수에 대한 개요를 제공합니다.
 
 ## <a name="function-syntax"></a>함수 구문
 
-함수를 사용 하려면 호출을 대괄호로 묶습니다. 예를 들면 다음과 같습니다.
+함수를 사용하려면 호출을 대괄호로 묶습니다. 예를 들면 다음과 같습니다.
 
 ```json
 "[function()]"
@@ -92,7 +92,7 @@ ms.locfileid: "87040999"
 * [add](create-ui-definition-math-functions.md#add)
 * [ceil](create-ui-definition-math-functions.md#ceil)
 * [div](create-ui-definition-math-functions.md#div)
-* [평면](create-ui-definition-math-functions.md#floor)
+* [floor](create-ui-definition-math-functions.md#floor)
 * [max](create-ui-definition-math-functions.md#max)
 * [min](create-ui-definition-math-functions.md#min)
 * [mod](create-ui-definition-math-functions.md#mod)
@@ -103,10 +103,10 @@ ms.locfileid: "87040999"
 
 ## <a name="referencing-functions"></a>참조 함수
 
-* [기본 사항](create-ui-definition-referencing-functions.md#basics)
+* [basics](create-ui-definition-referencing-functions.md#basics)
 * [location](create-ui-definition-referencing-functions.md#location)
 * [resourceGroup](create-ui-definition-referencing-functions.md#resourcegroup)
-* [위한](create-ui-definition-referencing-functions.md#steps)
+* [steps](create-ui-definition-referencing-functions.md#steps)
 * [subscription](create-ui-definition-referencing-functions.md#subscription)
 
 ## <a name="string-functions"></a>문자열 함수

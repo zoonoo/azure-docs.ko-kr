@@ -1,18 +1,18 @@
 ---
 title: PowerShell을 사용하여 대량으로 데이터 복사
 description: 복사 작업과 함께 Azure Data Factory를 사용하여 원본 데이터 저장소에서 대상 데이터 저장소로 데이터를 대량으로 복사합니다.
-author: linda33wj
-ms.author: jingwang
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: fc539ababf4cb240fbe78de0d87b1f127807f604
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ca96b47d4af4e3b5d80e736ac33d767efa85f970
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101740433"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481449"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-using-powershell"></a>PowerShell을 통해 Azure Data Factory를 사용하여 여러 테이블 대량 복사
 

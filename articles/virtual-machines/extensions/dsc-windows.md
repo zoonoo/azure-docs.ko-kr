@@ -8,12 +8,12 @@ author: bobbytreed
 ms.author: robreed
 ms.collection: windows
 ms.date: 03/26/2018
-ms.openlocfilehash: 72f66aeee64133a13ce0e49155c4b2a90240a3fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d2591fa3b6d69e403935faeca075a2c747026c1
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102559990"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734741"
 ---
 # <a name="powershell-dsc-extension"></a>Powershell DSC 확장
 
@@ -31,11 +31,11 @@ Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
-Windows용 DSC 확장을 사용하려면 대상 가상 머신이 Azure와 통신할 수 있어야 하고 Azure 외부의 위치에 저장되어 있는 경우에는 구성 패키지(.zip 파일)의 위치와 통신할 수 있어야 합니다. 
+Windows용 DSC 확장을 사용하려면 대상 가상 머신이 Azure와 통신할 수 있어야 하고 Azure 외부의 위치에 저장되어 있는 경우에는 구성 패키지(.zip 파일)의 위치와 통신할 수 있어야 합니다.
 
 ## <a name="extension-schema"></a>확장 스키마
 
-다음 JSON은 Azure Resource Manager 템플릿의 DSC 확장 설정 부분에 대한 스키마를 보여 줍니다. 
+다음 JSON은 Azure Resource Manager 템플릿의 DSC 확장 설정 부분에 대한 스키마를 보여 줍니다.
 
 ```json
 {
@@ -70,7 +70,7 @@ Windows용 DSC 확장을 사용하려면 대상 가상 머신이 Azure와 통신
             "downloadMappings": {
              "specificDependencyKey": "https://myCustomDependencyLocation"
             }
-        } 
+        }
     },
     "protectedSettings": {
         "configurationArguments": {
@@ -92,7 +92,7 @@ Windows용 DSC 확장을 사용하려면 대상 가상 머신이 Azure와 통신
 
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 | 데이터 형식 |
+| 속성 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2018-10-01 | date |
 | publisher | Microsoft.Powershell.DSC | 문자열 |
@@ -121,12 +121,11 @@ Windows용 DSC 확장을 사용하려면 대상 가상 머신이 Azure와 통신
 | protectedSettings.configurationUrlSasToken | 문자열 | configuration.url에서 정의한 URL에 액세스하기 위해 SAS 토큰을 지정합니다. 이 속성은 암호화됩니다. |
 | protectedSettings.configurationDataUrlSasToken | 문자열 | configuration.url에서 정의한 URL에 액세스하기 위해 SAS 토큰을 지정합니다. 이 속성은 암호화됩니다. |
 
-
 ## <a name="template-deployment"></a>템플릿 배포
 
 Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다.
 배포 후 구성이 필요한 하나 이상의 가상 머신을 배포하는 경우 템플릿을 사용하는 것이 좋습니다.
-Windows용 DSC 확장을 포함하는 Resource Manager 템플릿 샘플은 [Azure 빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91)에서 찾을 수 있습니다.
+Windows용 DSC 확장을 포함하는 Resource Manager 템플릿 샘플은 [Azure 빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/automation-configuration/automation-configuration/nested/provisionServer.json#L91)에서 찾을 수 있습니다.
 
 ## <a name="troubleshoot-and-support"></a>문제 해결 및 지원
 

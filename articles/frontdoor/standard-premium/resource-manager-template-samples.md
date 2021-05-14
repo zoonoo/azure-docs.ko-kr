@@ -7,12 +7,12 @@ ms.author: jodowns
 ms.service: frontdoor
 ms.topic: sample
 ms.date: 04/16/2021
-ms.openlocfilehash: 0da7da3748f9c1dc088d0cee615b429927a40f92
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 387ff5ef13892c11867e26cff63ec482c1cdc5ee
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107890693"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795531"
 ---
 # <a name="azure-resource-manager-templates-for-azure-front-door"></a>Azure Front Door용 Azure Resource Manager 템플릿
 
@@ -32,7 +32,6 @@ ms.locfileid: "107890693"
 |**App Service 원본**| **설명** |
 | [App Service](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-app-service-public) | 퍼블릭 엔드포인트 및 Front Door 프로필을 사용하여 App Service 앱을 만듭니다.  |
 | [Private Link가 있는 App Service](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-app-service-private-link) | 프라이빗 엔드포인트 및 Front Door 프로필을 사용하여 App Service 앱을 만듭니다.  |
-| [Private Link가 있는 App Service 환경](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-app-service-environment-internal-private-link) | App Service 환경, 프라이빗 엔드포인트가 있는 앱, Front Door 프로필을 만듭니다.  |
 |**Azure Functions 원본**| **설명** |
 | [Azure Functions](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-function-public/) | 퍼블릭 엔드포인트 및 Front Door 프로필을 사용하여 Azure Functions 앱을 만듭니다.  |
 | [Private Link가 있는 Azure Functions](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-function-private-link) | 프라이빗 엔드포인트 및 Front Door 프로필을 사용하여 Azure Functions 앱을 만듭니다.  |
