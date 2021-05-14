@@ -5,12 +5,12 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 96384d2c50e7d5b4b5b6e652d01c4a89cd519573
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 785ed0ee38e27087750542c0719ab9e85ecd00ed
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99493396"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109516671"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Visual Studio Code를 사용하여 Azure Storage에 Azure Functions 연결
 
@@ -172,7 +172,7 @@ Functions에서 각 바인딩 형식의 `direction`, `type` 및 고유한 `name`
 
 Azure Storage Explorer를 이미 설치했고 Azure 계정에 연결한 경우 이 섹션을 건너뜁니다.
 
-1. [Azure Storage Explorer] 도구를 실행하여 왼쪽에 있는 연결 아이콘을 선택하고, **계정 추가** 를 선택합니다.
+1. [Azure Storage Explorer](https://storageexplorer.com/) 도구를 실행하여 왼쪽에 있는 연결 아이콘을 선택한 다음, **계정 추가** 를 선택합니다.
 
     ![Microsoft Azure Storage Explorer에 Azure 계정 추가](./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-add-account.png)
 

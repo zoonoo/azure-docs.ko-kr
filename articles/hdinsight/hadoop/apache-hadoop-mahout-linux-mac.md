@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/14/2020
-ms.openlocfilehash: c31ffaf094801bdd49e5800bd338a15d8b8315f6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 4c3484c1e65eb70be484a4a2eebda21a41dbf1ea
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946497"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936872"
 ---
 # <a name="generate-recommendations-using-apache-mahout-in-azure-hdinsight"></a>Apache Mahout 및 Azure HDInsight를 사용하여 추천 생성
 
@@ -18,7 +18,7 @@ Azure HDInsight에서 [Apache Mahout](https://mahout.apache.org) 기계 학습 �
 
 Mahout은 Apache Hadoop용 [Machine Learning](https://en.wikipedia.org/wiki/Machine_learning) 라이브러리입니다. Mahout에는 필터링, 분류 및 클러스터링과 같은 데이터 처리를 위한 알고리즘이 포함됩니다. 이 문서에서는 권장 엔진을 사용하여 친구가 본 영화를 기준으로 영화 권장을 생성합니다.
 
-HDInsight 클러스터의 Mahout 버전에 대한 자세한 내용은 [HDInsight 버전 및 Apache Hadoop 구성 요소](../hdinsight-component-versioning.md)를 참조하세요.
+Mahout은 HDInsight 3.6에서 사용할 수 있으며 HDInsight 4.0에서는 사용할 수 없습니다. HDInsight의 Mahout 버전에 관한 자세한 내용은 [HDInsight 3.6 구성 요소 버전](../hdinsight-36-component-versioning.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

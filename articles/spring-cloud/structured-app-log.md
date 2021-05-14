@@ -1,6 +1,6 @@
 ---
-title: Azure 스프링 클라우드의 구조적 응용 프로그램 로그 | Microsoft Docs
-description: 이 문서에서는 Azure 스프링 클라우드에서 구조화 된 응용 프로그램 로그 데이터를 생성 하 고 수집 하는 방법을 설명 합니다.
+title: Azure Spring Cloud의 구조적 애플리케이션 로그 | Microsoft Docs
+description: 이 문서에서는 Azure Spring Cloud에서 구조적 애플리케이션 로그 데이터를 생성하고 수집하는 방법을 설명합니다.
 author: MikeDodaro
 ms.service: spring-cloud
 ms.topic: conceptual
@@ -8,53 +8,53 @@ ms.date: 02/05/2021
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: 844530c6d1650b5fddd27b10c775c4364a3f5147
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104878357"
 ---
-# <a name="structured-application-log-for-azure-spring-cloud"></a>Azure 스프링 클라우드의 구조적 응용 프로그램 로그
+# <a name="structured-application-log-for-azure-spring-cloud"></a>Azure Spring Cloud의 구조적 애플리케이션 로그
 
-이 문서에서는 Azure 스프링 클라우드에서 구조화 된 응용 프로그램 로그 데이터를 생성 하 고 수집 하는 방법을 설명 합니다. 적절 한 구성을 통해 Azure 스프링 클라우드는 Log Analytics를 통해 유용한 응용 프로그램 로그 쿼리 및 분석 기능을 제공 합니다.
+이 문서에서는 Azure Spring Cloud에서 구조적 애플리케이션 로그 데이터를 생성하고 수집하는 방법을 설명합니다. 적절한 구성을 통해 Azure Spring Cloud는 Log Analytics를 사용하여 유용한 애플리케이션 로그 쿼리 및 분석 기능을 제공합니다.
 
 ## <a name="log-schema-requirements"></a>로그 스키마 요구 사항
-로그 쿼리 환경을 개선 하려면 응용 프로그램 로그가 JSON 형식이 고 스키마를 준수 해야 합니다. Azure 스프링 클라우드는이 스키마를 사용 하 여 응용 프로그램 및 스트림을 Log Analytics로 구문 분석 합니다. 
+로그 쿼리 환경을 개선하려면 애플리케이션 로그가 JSON 형식이고 스키마를 준수해야 합니다. Azure Spring Cloud는 이 스키마를 사용하여 애플리케이션을 구문 분석하고 Log Analytics로 스트리밍합니다. 
 
 **JSON 스키마 요구 사항:**
 
 | Json 키      | Json 값 형식|  필수 | Log Analytics의 열| Description |
 | --------------| ------------|-----------|-----------------|--------------------------|
-| timestamp     | string      |     예   | AppTimestamp    | 타임 스탬프 (UTC 형식)  |
+| timestamp     | 문자열      |     예   | AppTimestamp    | 타임스탬프(UTC 형식)  |
 | logger        | 문자열      |     No    | 로거          | logger                   |
 | 수준         | 문자열      |     No    | CustomLevel     | 로그 수준                |
 | 스레드        | 문자열      |     No    | 스레드          | 스레드                   |
 | message       | 문자열      |     No    | 메시지         | 로그 메시지              |
 | stackTrace    | 문자열      |     No    | StackTrace      | 예외 스택 추적    |
 | exceptionClass| 문자열      |     No    | ExceptionClass  | 예외 클래스 이름     |
-| mdc           | 중첩 된 JSON |     아니요    |                 | 매핑된 진단 컨텍스트|
-| mdc. traceId   | 문자열      |     No    | TraceId         |분산 추적의 추적 Id|
-| spanId    | 문자열      |     No    | SpanId          |분산 추적의 범위 Id |
+| mdc           | 중첩된 JSON |     예    |                 | 매핑된 진단 컨텍스트|
+| mdc.traceId   | 문자열      |     No    | TraceId         |분산 추적의 추적 ID|
+| mdc.spanId    | 문자열      |     No    | SpanId          |분산 추적의 범위 ID |
 |               |             |           |                 |                          |
 
-* "Timestamp" 필드는 필수 이며 UTC 형식 이어야 하며 다른 모든 필드는 선택 사항입니다.
-* "mdc" 필드의 "traceId" 및 "spanId"는 추적 용도로 사용 됩니다.
-* 각 JSON 레코드를 한 줄에 기록 합니다. 
+* "timestamp" 필드는 필수이며 UTC 형식이어야 하고 다른 모든 필드는 선택 사항입니다.
+* "mdc" 필드의 "traceId" 및 "spanId"는 추적 용도로 사용됩니다.
+* 각 JSON 레코드를 한 줄에 로그합니다. 
 
-**로그 레코드 샘플** 
+**레코드 로그 샘플** 
  ```
 {"timestamp":"2021-01-08T09:23:51.280Z","logger":"com.example.demo.HelloController","level":"ERROR","thread":"http-nio-1456-exec-4","mdc":{"traceId":"c84f8a897041f634","spanId":"c84f8a897041f634"},"stackTrace":"java.lang.RuntimeException: get an exception\r\n\tat com.example.demo.HelloController.throwEx(HelloController.java:54)\r\n\","message":"Got an exception","exceptionClass":"RuntimeException"}
 ```
 
 ## <a name="generate-schema-compliant-json-log"></a>스키마 규격 JSON 로그 생성  
-스프링 응용 프로그램의 경우 [logback](http://logback.qos.ch/) 및 [log4j2.xml](https://logging.apache.org/log4j/2.x/)와 같은 일반적인 [로깅 프레임 워크](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-configuration)를 사용 하 여 예상 되는 JSON 로그 형식을 생성할 수 있습니다. 
+Spring 애플리케이션의 경우 [logback](http://logback.qos.ch/) 및 [log4j2](https://logging.apache.org/log4j/2.x/)와 같은 일반적인 [로깅 프레임워크](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-configuration)를 사용하여 예상되는 JSON 로그 형식을 생성할 수 있습니다. 
 
-### <a name="log-with-logback"></a>Logback을 사용 하 여 로그 
-스프링 부팅 초보자를 사용 하는 경우 기본적으로 logback이 사용 됩니다. Logback 앱의 경우 [logback 태 시-인코더](https://github.com/logstash/logstash-logback-encoder) 를 사용 하 여 JSON 형식의 로그를 생성 합니다. 이 메서드는 스프링 부팅 버전 2.1 이상에서 지원 됩니다. 
+### <a name="log-with-logback"></a>Logback을 사용하여 로그 
+Spring Boot 스타터를 사용하는 경우 기본적으로 Logback이 사용됩니다. Logback 앱의 경우 [logstash-encoder](https://github.com/logstash/logstash-logback-encoder)를 사용하여 JSON 형식의 로그를 생성합니다. 이 메서드는 Spring Boot 버전 2.1 이상에서 지원됩니다. 
 
-절차는 다음과 같습니다.
+프로시저에서는 다음을 수행합니다.
 
-1. pom.xml 파일에 logstash 종속성을 추가 합니다. 
+1. pom.xml 파일에 logstash 종속성을 추가합니다. 
 
     ```json
     <dependency>
@@ -63,7 +63,7 @@ ms.locfileid: "104878357"
         <version>6.5</version>
     </dependency>
     ```
-1. logback.xml 구성 파일을 업데이트 하 여 JSON 형식을 설정 합니다.
+1. logback.xml 구성 파일을 업데이트하여 JSON 형식을 설정합니다.
     ```json
     <configuration>
         <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
@@ -104,13 +104,13 @@ ms.locfileid: "104878357"
     </configuration>
     ```
 
-### <a name="log-with-log4j2"></a>Log4j2.xml로 로그 
+### <a name="log-with-log4j2"></a>log4j2로 로그 
 
-Log4j2.xml apps의 경우 json [템플릿-레이아웃](https://logging.apache.org/log4j/2.x/manual/json-template-layout.html) 을 사용 하 여 json 형식의 로그를 생성 합니다. 이 메서드는 스프링 부팅 버전 2.1 이상에서 지원 됩니다.
+log4j2 앱의 경우 [json-template-layout](https://logging.apache.org/log4j/2.x/manual/json-template-layout.html)을 사용하여 JSON 형식의 로그를 생성합니다. 이 메서드는 Spring Boot 버전 2.1 이상에서 지원됩니다.
 
-절차는 다음과 같습니다.
+프로시저에서는 다음을 수행합니다.
 
-1. `spring-boot-starter-logging` `spring-boot-starter` pom.xml 파일에서 종속성을 제외 하 고 종속성 `spring-boot-starter-log4j2` 을 추가 `log4j-layout-template-json` 합니다.
+1. `spring-boot-starter`에서 `spring-boot-starter-logging`을 제외하고 pom.xml 파일에 `spring-boot-starter-log4j2`, `log4j-layout-template-json` 종속성을 추가합니다.
 
     ```xml
         <dependency>
@@ -134,7 +134,7 @@ Log4j2.xml apps의 경우 json [템플릿-레이아웃](https://logging.apache.o
         </dependency>
     ```
 
-2. JSON 레이아웃 템플릿 파일을 클래스 경로에 jsonTemplate.js준비 합니다.
+2. 클래스 경로에서 JSON 레이아웃 템플릿 파일 jsonTemplate.json을 준비합니다.
 
     ```json
         {
@@ -176,7 +176,7 @@ Log4j2.xml apps의 경우 json [템플릿-레이아웃](https://logging.apache.o
         }
     ```
 
-3. log4j2.xml 구성 파일에서이 JSON 레이아웃 템플릿을 사용 합니다. 
+3. log4j2.xml 구성 파일에서 이 JSON 레이아웃 템플릿을 사용합니다. 
 
     ```json
         <configuration>
@@ -193,15 +193,15 @@ Log4j2.xml apps의 경우 json [템플릿-레이아웃](https://logging.apache.o
         </configuration>
     ```
 
-## <a name="analyze-the-logs-in-log-analytics"></a>Log Analytics에서 로그 분석
+## <a name="analyze-the-logs-in-log-analytics"></a>Log Analytics의 로그 분석
 
-응용 프로그램을 올바르게 설정한 후에는 응용 프로그램 콘솔 로그가 Log Analytics로 스트리밍됩니다. 구조는 Log Analytics에서 효율적인 쿼리를 가능 하 게 합니다.
+애플리케이션을 올바르게 설정한 후에는 애플리케이션 콘솔 로그가 Log Analytics로 스트리밍됩니다. 이 구조를 통해 Log Analytics에서 효율적인 쿼리를 실행할 수 있습니다.
 
 ### <a name="check-log-structure-in-log-analytics"></a>Log Analytics에서 로그 구조 확인
 이렇게 하려면 다음 절차를 수행합니다.
-1. 서비스 인스턴스의 서비스 개요 페이지로 이동 합니다.
-2. `Logs`섹션에서 항목 `Monitoring` 을 클릭 합니다.
-3. 이 쿼리를 실행 합니다.
+1. 서비스 인스턴스의 서비스 개요 페이지로 이동합니다.
+2. `Monitoring` 섹션에서 `Logs` 항목을 클릭합니다.
+3. 이 쿼리를 실행합니다.
 
    ```
    AppPlatformLogsforSpring
@@ -209,13 +209,13 @@ Log4j2.xml apps의 경우 json [템플릿-레이아웃](https://logging.apache.o
    | project AppTimestamp, Logger, CustomLevel, Thread, Message, ExceptionClass, StackTrace, TraceId, SpanId
    ```
 
-4. 응용 프로그램 로그는 다음 이미지와 같이 반환 됩니다.
+4. 애플리케이션 로그는 다음 이미지에 표시된 대로 반환됩니다.
 
 ![Json 로그 표시](media/spring-cloud-structured-app-log/json-log-query.png)
 
-### <a name="show-log-entries-containing-errors"></a>오류를 포함 하는 로그 항목 표시
+### <a name="show-log-entries-containing-errors"></a>오류가 포함된 로그 항목 표시
 
-오류가 있는 로그 항목을 검토 하려면 다음 쿼리를 실행 합니다.
+오류가 있는 로그 항목을 검토하려면 다음 쿼리를 실행합니다.
 
 ```
 AppPlatformLogsforSpring
@@ -224,10 +224,10 @@ AppPlatformLogsforSpring
 | sort by AppTimestamp
 ```
 
-이 쿼리를 사용 하 여 오류를 찾거나 쿼리 용어를 수정 하 여 특정 예외 클래스 또는 오류 코드를 찾습니다. 
+이 쿼리를 사용하여 오류를 찾거나, 쿼리 용어를 수정하여 특정 예외 클래스 또는 오류 코드를 찾습니다. 
 
-### <a name="show-log-entries-for-a-specific-traceid"></a>특정 traceId에 대 한 로그 항목 표시
-특정 추적 ID "trace_id"에 대 한 로그 항목을 검토 하려면 다음 쿼리를 실행 합니다.
+### <a name="show-log-entries-for-a-specific-traceid"></a>특정 traceId에 대한 로그 항목 표시
+특정 추적 ID "trace_id"에 대한 로그 항목을 검토하려면 다음 쿼리를 실행합니다.
 
 ```
 AppPlatformLogsforSpring
@@ -238,4 +238,4 @@ AppPlatformLogsforSpring
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* 로그 쿼리에 대 한 자세한 내용은 [Azure Monitor에서 로그 쿼리 시작](../azure-monitor/logs/get-started-queries.md) 을 참조 하세요.
+* 로그 쿼리에 대한 자세한 내용은 [Azure Monitor에서 로그 쿼리 시작](../azure-monitor/logs/get-started-queries.md)을 참조하세요.

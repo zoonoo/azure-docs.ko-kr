@@ -52,8 +52,6 @@
           href: costs/ingest-azure-usage-at-scale.md
         - name: 파트너용 Cost Management
           href: costs/get-started-partners.md
-        - name: EA 보고에서 Azure Resource Manager API로 마이그레이션
-          href: costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md
     - name: 예약
       items:
         - name: Azure Reservations란?
@@ -128,10 +126,12 @@
           href: manage/azure-plan-subscription-transfer-partners.md
         - name: Azure EA 포털에서 시작
           href: manage/ea-portal-get-started.md
+        - name: 원천 징수 크레딧 요청 - 인도
+          href: manage/withholding-tax-credit-india.md
     - name: 보안
       items:
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/cost-management-security-baseline?toc=/azure/cost-management-billing/toc.json
 - name: 방법 가이드
   items:
     - name: Cost Management + 청구 구성
@@ -150,6 +150,8 @@
               href: manage/understand-mca-roles.md
             - name: 파트너 ID 연결
               href: manage/link-partner-id.md
+            - name: Power Apps 계정에 파트너 ID 연결
+              href: manage/link-partner-id-power-apps-accounts.md
         - name: 구독 관리
           items:
             - name: Cost Management 데이터에 대한 액세스 할당
@@ -162,9 +164,9 @@
               href: manage/azurestudents-subscription-disabled.md
             - name: 소유권 이전
               href: manage/billing-subscription-transfer.md
-            - name: Microsoft 고객 계약 소유권 요청
+            - name: Microsoft 고객 계약 소유권 이전
               href: manage/mca-request-billing-ownership.md
-            - name: Microsoft 파트너 계약 소유권 요청
+            - name: Microsoft 파트너 계약 소유권 이전
               href: manage/mpa-request-ownership.md
             - name: AWS 통합 설정 및 구성
               href: costs/aws-integration-set-up-configure.md
@@ -206,6 +208,8 @@
               href: manage/transfer-subscriptions-subscribers-csp.md
             - name: 구독 취소
               href: manage/cancel-azure-subscription.md
+            - name: 구독 정책 관리
+              href: manage/manage-azure-subscription-policy.md
         - name: 프로그래밍 방식으로 구독 만들기
           items:
             - name: 프로그래밍 방식으로 구독 만들기
@@ -216,8 +220,6 @@
               href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
             - name: 프로그램 방식으로 MPA 구독 만들기
               href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
-            - name: 구독 만들기 - ARM 템플릿
-              href: manage/create-subscription-template.md
             - name: 프로그래밍 방식으로 구독 만들기 - API 미리 보기
               href: manage/programmatically-create-subscription-preview.md
         - name: 기업 계약 구독 관리
@@ -296,8 +298,10 @@
           href: manage/mca-check-azure-credits-balance.md
         - name: EA에서 MCA API로 마이그레이션
           href: costs/migrate-cost-management-api.md
-        - name: SPN에게 역할 할당
+        - name: EA SPN에 역할 할당
           href: manage/assign-roles-azure-service-principals.md
+        - name: EA 보고에서 Azure Resource Manager API로 마이그레이션
+          href: costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md
     - name: 예약 구매 및 관리
       items:
         - name: 구매할 항목 확인
@@ -386,6 +390,8 @@
           href: ../azure-portal/supportability/how-to-create-azure-support-request.md
 - name: 참조
   items:
+    - name: Azure CLI
+      href: /cli/azure/billing
     - name: Azure Cost Management REST API
       href: /rest/api/cost-management
     - name: Azure Consumption REST API
@@ -424,6 +430,8 @@
           href: /rest/api/consumption/reservationsdetails
 - name: 리소스
   items:
+    - name: FAQ
+      href: cost-management-billing-faq.yml
     - name: Microsoft Learn을 통해 기술 쌓기
       href: /learn/browse/?products=azure-cost-management
     - name: Cost Management 피드백 포럼

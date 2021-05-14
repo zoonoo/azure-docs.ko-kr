@@ -1,13 +1,13 @@
 ---
-title: Azure Service Fabric에 대 한 네트워킹 패턴
+title: Azure Service Fabric의 네트워킹 패턴
 description: Service Fabric에 대한 일반적인 네트워킹 패턴과 Azure 네트워킹 기능을 사용하여 클러스터를 만드는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: 20bd5e931307725016c3e2ad69dae91214b2caab
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87421470"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 네트워킹 패턴
@@ -100,7 +100,7 @@ DnsSettings              : {
             },*/
     ```
 
-   Azure Portal의 클러스터 배포 블레이드에서 가상 네트워크 이름을 두 번 입력 하 라는 메시지가 표시 되지 않도록 "virtualNetworkName" 라는 이름으로 매개 변수를 주석으로 처리할 수도 있습니다.
+   Azure Portal의 클러스터 배포 블레이드에서 가상 네트워크 이름을 입력하라는 메시지를 두 번 표시하지 않도록 “virtualNetworkName” 이름을 사용하여 이 매개 변수를 주석으로 처리할 수도 있습니다.
 
 2. 기존 서브넷을 사용하고 1단계에서 이 변수를 사용하지 않도록 설정했으므로 `Microsoft.Compute/virtualMachineScaleSets`의 `nicPrefixOverride` 특성을 주석으로 처리합니다.
 
@@ -281,12 +281,12 @@ DnsSettings              : {
     New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
     ```
 
-배포 후에는 부하 분산 장치가 다른 리소스 그룹의 공용 고정 IP 주소에 바인딩된 것을 볼 수 있습니다. Service Fabric 클라이언트 연결 끝점 및 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 끝점은 고정 IP 주소의 DNS FQDN을 가리킵니다.
+배포 후에는 부하 분산 장치가 다른 리소스 그룹의 공용 고정 IP 주소에 바인딩된 것을 볼 수 있습니다. Service Fabric 클라이언트 연결 엔드포인트 및 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 엔드포인트는 고정 IP 주소의 DNS FQDN을 가리킵니다.
 
 <a id="internallb"></a>
 ## <a name="internal-only-load-balancer"></a>내부 전용 부하 분산 장치
 
-이 시나리오에서는 기본 Service Fabric 템플릿의 외부 부하 분산 장치를 내부 전용 부하 분산 장치로 바꿉니다. Azure Portal 및 Service Fabric 리소스 공급자에 대 한 의미는이 [문서의 앞부분에 있는](#allowing-the-service-fabric-resource-provider-to-query-your-cluster) 을 참조 하세요.
+이 시나리오에서는 기본 Service Fabric 템플릿의 외부 부하 분산 장치를 내부 전용 부하 분산 장치로 바꿉니다. Azure Portal 및 Service Fabric 리소스 공급자에 어떤 의미가 있는지는 [문서의 앞 부분](#allowing-the-service-fabric-resource-provider-to-query-your-cluster)을 참조하세요.
 
 1. `dnsName` 매개 변수를 제거합니다. (필수는 아닙니다.)
 
@@ -384,7 +384,7 @@ DnsSettings              : {
 <a id="internalexternallb"></a>
 ## <a name="internal-and-external-load-balancer"></a>내부 및 외부 부하 분산 장치
 
-이 시나리오는 기존 단일 노드 형식 외부 부하 분산 장치로 시작하고 동일한 노드 형식에 대한 내부 부하 분산 장치를 추가합니다. 백 엔드 주소 풀에 연결된 백 엔드 포트는 단일 부하 분산 장치에만 할당할 수 있습니다. 애플리케이션 포트를 포함할 부하 분산 장치 및 관리 엔드포인트를 포함할 부하 분산 장치를 선택합니다(포트 19000 및 19080). 내부 부하 분산 장치에 관리 끝점을 배치 하는 경우이 [문서의 앞부분에서](#allowing-the-service-fabric-resource-provider-to-query-your-cluster)설명한 Service Fabric 리소스 공급자 제한 사항에 유의 하세요. 사용하는 예제에서 관리 엔드포인트는 외부 부하 분산 장치에 유지됩니다. 또한 포트 80을 애플리케이션 포트에 추가한 후 내부 부하 분산 장치에 배치합니다.
+이 시나리오는 기존 단일 노드 형식 외부 부하 분산 장치로 시작하고 동일한 노드 형식에 대한 내부 부하 분산 장치를 추가합니다. 백 엔드 주소 풀에 연결된 백 엔드 포트는 단일 부하 분산 장치에만 할당할 수 있습니다. 애플리케이션 포트를 포함할 부하 분산 장치 및 관리 엔드포인트를 포함할 부하 분산 장치를 선택합니다(포트 19000 및 19080). 내부 부하 분산 장치에 관리 엔드포인트를 배치할 경우 [이 문서 앞부분](#allowing-the-service-fabric-resource-provider-to-query-your-cluster)에서 설명한 Service Fabric 리소스 공급자 제한 사항에 유의하세요. 사용하는 예제에서 관리 엔드포인트는 외부 부하 분산 장치에 유지됩니다. 또한 포트 80을 애플리케이션 포트에 추가한 후 내부 부하 분산 장치에 배치합니다.
 
 두 노드 형식 클러스터에서 한 노드 형식은 외부 부하 분산 장치에 있습니다. 다른 노드 형식은 내부 부하 분산 장치에 있습니다. 두 노드 형식 클러스터를 사용하려면 포털에서 만들어진 두 노드 형식 템플릿(두 가지 부하 분산 장치와 함께 제공)에서 두 번째 부하 분산 장치를 내부 부하 분산 장치로 전환합니다. 자세한 내용은 [내부 전용 부하 분산 장치](#internallb) 섹션을 참조하세요.
 
@@ -598,9 +598,9 @@ DnsSettings              : {
 
 배포 후 리소스 그룹에서 두 개의 부하 분산 장치를 볼 수 있습니다. 부하 분산 장치를 찾아보면 공용 IP 주소와 공용 IP 주소에 할당된 관리 엔드포인트(포트 19000 및 19080)를 볼 수 있습니다. 또한 고정 내부 IP 주소와 내부 부하 분산 장치에 할당된 애플리케이션 엔드포인트(포트 80)도 볼 수 있습니다. 두 부하 분산 장치 모두 동일한 가상 머신 확장 집합 백 엔드 풀을 사용합니다.
 
-## <a name="notes-for-production-workloads"></a>프로덕션 워크 로드에 대 한 참고 사항
+## <a name="notes-for-production-workloads"></a>프로덕션 워크로드에 대한 참고 사항
 
-위의 GitHub 템플릿은 기본 SKU 인 SLB (Azure 표준 Load Balancer)에 대 한 기본 SKU를 사용 하도록 설계 되었습니다. 이 SLB는 SLA를 갖지 않으므로 프로덕션 워크 로드의 경우 표준 SKU를 사용 해야 합니다. 이에 대 한 자세한 내용은 [Azure 표준 Load Balancer 개요](../load-balancer/load-balancer-overview.md)를 참조 하세요. SLB에 대 한 표준 SKU를 사용 하는 모든 Service Fabric 클러스터는 각 노드 형식에 443 포트에서 아웃 바운드 트래픽을 허용 하는 규칙이 있는지 확인 해야 합니다. 이는 클러스터 설정을 완료 하는 데 필요 하며, 이러한 규칙이 없는 모든 배포는 실패 합니다. 위의 "내부 전용" 부하 분산 장치 예제에서는 포트 443에 대 한 아웃 바운드 트래픽을 허용 하는 규칙을 사용 하 여 추가 외부 부하 분산 장치를 템플릿에 추가 해야 합니다.
+위의 GitHub 템플릿은 기본 SKU인 Azure SLB(표준 Load Balancer)의 기본 SKU를 사용하도록 설계되었습니다. 이 SLB에는 SLA가 없으므로 프로덕션 워크로드의 경우 표준 SKU를 사용해야 합니다. 자세한 내용은 [Azure 표준 Load Balancer 개요](../load-balancer/load-balancer-overview.md)를 참조하세요. SLB에 표준 SKU를 사용하는 모든 Service Fabric 클러스터는 노드 형식마다 443 포트에서 아웃바운드 트래픽을 허용하는 규칙이 있는지 확인해야 합니다. 클러스터 설정을 완료하는 데 필요하기 때문입니다. 이 규칙이 없으면 배포가 실패합니다. 위의 “내부 전용” 부하 분산 장치 예제에서는 443 포트에서 아웃바운드 트래픽을 허용하는 규칙과 함께 외부 부하 분산 장치를 템플릿에 추가해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [클러스터 만들기](service-fabric-cluster-creation-via-arm.md)

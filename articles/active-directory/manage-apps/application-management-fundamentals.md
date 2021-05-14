@@ -14,12 +14,12 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: iangithinji
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c895d77b9c6ab48c60b7a337dd8c44414d8d9b5
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: e9f77ff371bfb53cff08d860be6cc0160debe491
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108318516"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108765992"
 ---
 # <a name="application-management-best-practices"></a>애플리케이션 관리 모범 사례
 
@@ -55,4 +55,3 @@ ms.locfileid: "108318516"
 | 애플리케이션 서버에 가까운 커넥터 서버를 찾아 동일한 도메인에 있는지 확인합니다. | 성능을 최적화하려면 애플리케이션 서버와 가까운 커넥터 서버를 물리적으로 찾습니다([네트워크 토폴로지 고려 사항](../app-proxy/application-proxy-network-topology.md) 참조). 또한 커넥터 서버와 웹 애플리케이션 서버는 동일한 Active Directory 도메인에 속하거나 트러스팅 도메인에 걸쳐 있어야 합니다. 이 구성은 IWA(Windows 통합 인증) 및 KCD(Kerberos 제한 위임)를 사용하는 SSO에 필요합니다. 서버가 서로 다른 도메인에 있는 경우 SSO에 대한 리소스 기반 위임을 사용해야 합니다([애플리케이션 프록시를 사용하는 Single Sign-On의 KCD](../app-proxy/application-proxy-configure-single-sign-on-with-kcd.md) 참조). |
 | 커넥터에 대한 자동 업데이트 사용 | 최신 기능 및 버그 수정을 위해 커넥터에 대해 자동 업데이트를 사용하도록 설정합니다. Microsoft에서는 최신 커넥터 버전 및 이전 버전을 직접 지원합니다. [애플리케이션 프록시 릴리스 버전 기록](../app-proxy/application-proxy-release-version-history.md)을 참조하세요. |
 | 온-프레미스 프록시 바이패스 | 더 쉽게 유지 관리하려면 커넥터가 온-프레미스 프록시를 바이패스하여 Azure 서비스에 직접 연결하도록 구성합니다. ([애플리케이션 프록시 커넥터 및 프록시 서버](../app-proxy/application-proxy-configure-connectors-with-proxy-servers.md) 참조) |
-| 웹 애플리케이션 프록시에서 Azure AD 애플리케이션 프록시 사용 | 대부분의 온-프레미스 시나리오에서 Azure AD 애플리케이션 프록시를 사용합니다. 웹 애플리케이션 프록시는 AD FS용 프록시 서버가 필요하고 Azure Active Directory에서 사용자 지정 도메인을 사용할 수 없는 시나리오에서만 사용할 수 있습니다. ([애플리케이션 프록시 마이그레이션](../app-proxy/application-proxy-migration.md) 참조) |

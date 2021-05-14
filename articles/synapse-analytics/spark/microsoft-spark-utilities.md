@@ -1,6 +1,6 @@
 ---
 title: Microsoft Spark 유틸리티 소개
-description: '자습서: Azure Synapse Analytics 노트북의 MSSparkutils'
+description: '자습서: Azure Synapse Analytics Notebook의 MSSparkutils'
 author: ruixinxu
 services: synapse-analytics
 ms.service: synapse-analytics
@@ -10,54 +10,54 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 58672bd68d9a2ea85f58b3761f3b89098b9f5afc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 8b3bc99d4391e2079d1b0ecc39011f1b2afc4440
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100368662"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096039"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Microsoft Spark 유틸리티 소개
 
-Microsoft Spark 유틸리티 (MSSparkUtils)는 일반적인 작업을 쉽게 수행할 수 있도록 하는 기본 제공 패키지입니다. MSSparkUtils를 사용 하 여 파일 시스템 작업을 수행 하 고, 환경 변수를 가져오고, 암호를 사용할 수 있습니다. MSSparkUtils는 `PySpark (Python)` , `Scala` 및 `.NET Spark (C#)` 노트북 및 Synapse 파이프라인에서 사용할 수 있습니다.
+Microsoft Spark 유틸리티(MSSparkUtils)는 일반적인 작업을 쉽게 할 수 있게 돕는 기본 제공 패키지입니다. MSSparkUtils를 사용하여 파일 시스템 작업을 하고, 환경 변수를 가져오고, 비밀을 사용할 수 있습니다. MSSparkUtils는 `PySpark (Python)`, `Scala`, `.NET Spark (C#)` Notebook, Synapse 파이프라인에서 사용할 수 있습니다.
 
 ## <a name="pre-requisites"></a>필수 구성 요소
 
-### <a name="configure-access-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에 대 한 액세스 구성 
+### <a name="configure-access-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에 대한 액세스 구성 
 
-Synapse 노트북은 azure AD (Azure active directory) 통과를 사용 하 여 ADLS Gen2 계정에 액세스 합니다. ADLS Gen2 계정 (또는 폴더)에 액세스 하려면 **Blob Storage 데이터 참가자** 여야 합니다. 
+Synapse Notebook는 Azure AD(Azure Active Directory) 통과를 사용하여 ADLS Gen2 계정에 액세스합니다. ADLS Gen2 계정(또는 폴더)에 액세스하려면 **Storage Blob 데이터 기여자** 여야 합니다. 
 
-Synapse 파이프라인은 MSI (작업 영역 id)를 사용 하 여 저장소 계정에 액세스 합니다. 파이프라인 활동에서 MSSparkUtils를 사용 하려면 ADLS Gen2 계정 (또는 폴더)에 액세스 하기 위해 작업 영역 id를 **데이터 참가자로 Blob Storage** 해야 합니다.
+Synapse 파이프라인은 MSI(작업 영역 ID)를 사용하여 스토리지 계정에 액세스합니다. 파이프라인 활동에서 MSSparkUtils를 사용하려면 작업 영역 ID가 **Storage Blob 데이터 기여자로** 이어야 ADLS Gen2 계정(또는 폴더)에 액세스할 수 있습니다.
 
-다음 단계를 수행 하 여 Azure AD 및 작업 영역 MSI가 ADLS Gen2 계정에 액세스할 수 있도록 합니다.
-1. [Azure Portal](https://portal.azure.com/) 및 액세스 하려는 저장소 계정을 엽니다. 액세스 하려는 특정 컨테이너를 탐색할 수 있습니다.
-2. 왼쪽 패널에서 **액세스 제어 (IAM)** 를 선택 합니다.
-3. 아직 할당 되지 않은 경우 **AZURE AD 계정** 및 **작업 영역 id** (작업 영역 이름과 동일)를 저장소 계정의 **저장소 Blob 데이터 참가자** 역할에 할당 합니다. 
+다음 단계를 수행하여 Azure AD 및 작업 영역 MSI가 ADLS Gen2 계정에 액세스할 수 있도록 합니다.
+1. [Azure Portal](https://portal.azure.com/) 및 액세스하려는 스토리지 계정을 엽니다. 액세스하려는 특정 컨테이너를 탐색할 수 있습니다.
+2. 왼쪽 창에서 **액세스 제어(IAM)** 를 선택합니다.
+3. **Azure AD 계정** 및 **작업 영역 ID**(작업 영역 이름과 동일)를 스토리지 계정의 **Storage Blob 데이터 기여자** 역할에 할당합니다(아직 할당되지 않은 경우). 
 4. **저장** 을 선택합니다.
 
-다음 URL을 통해 Synapse Spark를 사용 하 여 ADLS Gen2의 데이터에 액세스할 수 있습니다.
+Synapse Spark를 사용하여 다음 URL을 통해 ADLS Gen2의 데이터에 액세스할 수 있습니다.
 
 <code>abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path></code>
 
-### <a name="configure-access-to-azure-blob-storage"></a>Azure Blob Storage에 대 한 액세스 구성  
+### <a name="configure-access-to-azure-blob-storage"></a>Azure Blob Storage에 대한 액세스 구성  
 
-Synapse **SAS (공유 액세스 서명)** 를 활용 하 여 Azure Blob Storage에 액세스 합니다. 코드에서 SAS 키를 노출 하지 않도록 하려면 Synapse 작업 영역에서 액세스 하려는 Azure Blob Storage 계정에 대 한 새 연결 된 서비스를 만드는 것이 좋습니다.
+Synapse는 **SAS(공유 액세스 서명)** 를 활용하여 Azure Blob Storage에 액세스합니다. 코드에서 SAS 키를 노출하지 않으려면 Synapse 작업 영역에서 액세스하려는 Azure Blob Storage 계정에 연결된 새 서비스를 만드는 것이 좋습니다.
 
-Azure Blob Storage 계정에 대 한 새 연결 된 서비스를 추가 하려면 다음 단계를 수행 합니다.
+Azure Blob Storage 계정을 위한 새 연결된 서비스를 추가하려면 다음 단계를 수행합니다.
 
 1. [Azure Synapse Studio](https://web.azuresynapse.net/)를 엽니다.
-2. 왼쪽 패널에서 **관리** 를 선택 하 고 **외부 연결** 아래에서 **연결 된 서비스** 를 선택 합니다.
-3. 오른쪽의 **새 연결 된 서비스** 패널에서 **Azure Blob Storage** 를 검색 합니다.
+2. 왼쪽 패널에서 **관리** 를 선택하고 **외부 연결** 아래에서 **연결된 서비스** 를 선택합니다.
+3. 오른쪽의 **새 연결된 서비스** 패널에서 **Azure Blob Storage** 를 검색합니다.
 4. **계속** 을 선택합니다.
-5. 연결 된 서비스 이름에 액세스 하 고 구성 하려면 Azure Blob Storage 계정을 선택 합니다. **인증 방법** 에 **계정 키** 를 사용 하는 것이 좋습니다.
-6. **연결 테스트** 를 선택 하 여 설정이 올바른지 확인 합니다.
-7. 먼저 **만들기** 를 선택 하 고 **모두 게시** 를 클릭 하 여 변경 내용을 저장 합니다. 
+5. 연결된 서비스 이름에 액세스하고 구성하려면 Azure Blob Storage 계정을 선택합니다. **인증 방법** 에 **계정 키** 를 사용하는 것이 좋습니다.
+6. **연결 테스트** 를 선택하여 설정이 올바른지 확인합니다.
+7. 먼저 **만들기** 를 선택하고 **모두 게시** 를 클릭하여 변경 내용을 저장합니다. 
 
-다음 URL을 통해 Synapse Spark를 사용 하 여 Azure Blob Storage의 데이터에 액세스할 수 있습니다.
+다음 URL을 통해 Synapse Spark를 사용하여 Azure Blob Storage의 데이터에 액세스할 수 있습니다.
 
 <code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
 
-다음은 코드 예제입니다.
+여기에 코드 예제가 있습니다.
 
 :::zone pivot = "programming-language-python"
 
@@ -119,32 +119,32 @@ Console.WriteLine(wasbs_path);
 
 ::: zone-end 
  
-###  <a name="configure-access-to-azure-key-vault"></a>Azure Key Vault에 대 한 액세스 구성
+###  <a name="configure-access-to-azure-key-vault"></a>Azure Key Vault에 대한 액세스 구성
 
-Azure Key Vault를 연결 된 서비스로 추가 하 여 Synapse에서 자격 증명을 관리할 수 있습니다. 다음 단계를 수행 하 여 Azure Key Vault를 Synapse 연결 된 서비스로 추가 합니다.
+Azure Key Vault를 연결된 서비스로 추가하여 Synapse에서 자격 증명을 관리할 수 있습니다. 다음 단계를 수행하여 Azure Key Vault를 Synapse 연결된 서비스로 추가합니다.
 1. [Azure Synapse Studio](https://web.azuresynapse.net/)를 엽니다.
-2. 왼쪽 패널에서 **관리** 를 선택 하 고 **외부 연결** 아래에서 **연결 된 서비스** 를 선택 합니다.
-3. 오른쪽의 **새 연결 된 서비스** 패널에서 **Azure Key Vault** 를 검색 합니다.
-4. 연결 된 서비스 이름에 액세스 하 고 구성 하려면 Azure Key Vault 계정을 선택 합니다.
-5. **연결 테스트** 를 선택 하 여 설정이 올바른지 확인 합니다.
-6. 먼저 **만들기** 를 선택 하 고 **모두 게시** 를 클릭 하 여 변경 내용을 저장 합니다. 
+2. 왼쪽 패널에서 **관리** 를 선택하고 **외부 연결** 아래에서 **연결된 서비스** 를 선택합니다.
+3. 오른쪽의 **새 연결된 서비스** 패널에서 **Azure Key Vault** 를 검색합니다.
+4. 연결된 서비스 이름에 액세스하고 구성하려면 Azure Key Vault 계정을 선택합니다.
+5. **연결 테스트** 를 선택하여 설정이 올바른지 확인합니다.
+6. 먼저 **만들기** 를 선택하고 **모두 게시** 를 클릭하여 변경 내용을 저장합니다. 
 
-Synapse 노트북은 azure AD (Azure active directory) 통과를 사용 하 여 Azure Key Vault에 액세스 합니다. Synapse 파이프라인은 MSI (작업 영역 id)를 사용 하 여 Azure Key Vault에 액세스 합니다. 노트북 및 Synapse 파이프라인에서 모두 코드가 작동 하는지 확인 하려면 Azure AD 계정 및 작업 영역 id에 대해 비밀 액세스 권한을 부여 하는 것이 좋습니다.
+Synapse Notebook는 Azure AD(Azure Active Directory) 통과를 사용하여 Azure Key Vault에 액세스합니다. Synapse 파이프라인은 MSI(작업 영역 ID)를 사용하여 Azure Key Vault에 액세스합니다. Notebook 및 Synapse 파이프라인에서 코드가 작동하는지 확인하려면 Azure AD 계정 및 작업 영역 ID에 비밀 액세스 권한을 부여하는 것이 좋습니다.
 
-작업 영역 id에 대 한 비밀 액세스 권한을 부여 하려면 다음 단계를 수행 합니다.
-1. [Azure Portal](https://portal.azure.com/) 및 액세스 하려는 Azure Key Vault를 엽니다. 
-2. 왼쪽 패널에서 **액세스 정책을** 선택 합니다.
-3. **액세스 정책 추가** 를 선택 합니다. 
-    - **키, 비밀, & 인증서 관리** 를 구성 템플릿으로 선택 합니다.
-    - 보안 주체 선택에서 **AZURE AD 계정** 및 **작업 영역 id** (작업 영역 이름과 동일)를 선택 하거나 이미 할당 되어 있는지 확인 합니다. 
-4. **선택** 및 **추가** 를 선택 합니다.
-5. **저장** 단추를 선택 하 여 변경 내용을 커밋합니다.  
+작업 영역 ID에 비밀 액세스 권한을 부여하려면 다음 단계를 수행합니다.
+1. [Azure Portal](https://portal.azure.com/) 및 액세스하려는 Azure Key Vault를 엽니다. 
+2. 왼쪽 창에서 **액세스 정책** 을 선택합니다.
+3. **액세스 정책 추가** 를 선택합니다. 
+    - **키, 비밀 밀 인증서 관리** 를 구성 템플릿으로 선택합니다.
+    - 보안 주체 선택에서 **Azure AD 계정** 및 **작업 영역 ID**(작업 영역 이름과 동일)를 선택하거나 이미 할당되어 있는지 확인합니다. 
+4. **선택** 및 **추가** 를 선택합니다.
+5. **저장** 단추를 선택하여 변경 내용을 커밋합니다.  
 
 ## <a name="file-system-utilities"></a>파일 시스템 유틸리티
 
-`mssparkutils.fs` Azure Data Lake Storage Gen2 (ADLS Gen2) 및 Azure Blob Storage를 포함 하 여 다양 한 파일 시스템을 사용 하기 위한 유틸리티를 제공 합니다. [Azure Data Lake Storage Gen2](#configure-access-to-azure-data-lake-storage-gen2) 및 [Azure Blob Storage](#configure-access-to-azure-blob-storage) 에 대 한 액세스를 적절 하 게 구성 해야 합니다.
+`mssparkutils.fs`는 ADLS Gen2(Azure Data Lake Storage Gen2) 및 Azure Blob Storage를 포함하여 다양한 파일 시스템을 사용하기 위한 유틸리티를 제공합니다. [Azure Data Lake Storage Gen2](#configure-access-to-azure-data-lake-storage-gen2) 및 [Azure Blob Storage](#configure-access-to-azure-blob-storage)에 대한 액세스를 적절하게 구성합니다.
 
-사용 가능한 메서드에 대 한 개요를 보려면 다음 명령을 실행 합니다.
+사용 가능한 메서드에 관한 개요를 보려면 다음 명령을 실행합니다.
 
 :::zone pivot = "programming-language-python"
 
@@ -191,7 +191,7 @@ Use mssparkutils.fs.help("methodName") for more info about a method.
 ```
 
 ### <a name="list-files"></a>파일 나열
-디렉터리의 콘텐츠를 나열 합니다.
+디렉터리의 콘텐츠를 나열합니다.
 
 
 :::zone pivot = "programming-language-python"
@@ -218,7 +218,7 @@ FS.Ls("Your directory path")
 
 
 ### <a name="view-file-properties"></a>파일 속성 보기
-파일 이름, 파일 경로, 파일 크기 및 디렉터리와 파일 인지 여부를 포함 하는 파일 속성을 반환 합니다.
+파일 이름, 파일 경로, 파일 크기 그리고 디렉터리인지 파일인지를 포함하는 파일 속성을 반환합니다.
 
 :::zone pivot = "programming-language-python"
 
@@ -253,7 +253,7 @@ foreach(var File in Files) {
 
 ### <a name="create-new-directory"></a>새 디렉터리 만들기
 
-지정 된 디렉터리 (존재 하지 않는 경우) 및 필요한 부모 디렉터리를 만듭니다.
+지정된 디렉터리(존재하지 않는 경우) 및 필요한 부모 디렉터리를 만듭니다.
 
 :::zone pivot = "programming-language-python"
 
@@ -280,7 +280,7 @@ FS.Mkdirs("new directory name")
 
 ### <a name="copy-file"></a>파일 복사
 
-파일이 나 디렉터리를 복사 합니다. 파일 시스템 간 복사를 지원 합니다.
+파일 또는 디렉터리를 복사합니다. 파일 시스템 간 복사를 지원합니다.
 
 :::zone pivot = "programming-language-python"
 
@@ -306,7 +306,7 @@ FS.Cp("source file or directory", "destination file or directory", true) // Set 
 
 ### <a name="preview-file-content"></a>파일 콘텐츠 미리 보기
 
-지정 된 파일의 첫 번째 ' maxBytes ' 바이트를 u t f-8로 인코딩된 문자열로 반환 합니다.
+지정된 파일의 첫 번째 'maxBytes' 바이트를 UTF-8으로 인코딩된 문자열로 반환합니다.
 
 :::zone pivot = "programming-language-python"
 
@@ -333,7 +333,7 @@ FS.Head("file path", maxBytes to read)
 
 ### <a name="move-file"></a>파일 이동
 
-파일이 나 디렉터리를 이동 합니다. 에서는 파일 시스템 간 이동을 지원 합니다.
+파일 또는 디렉터리를 이동합니다. 파일 시스템 간 이동을 지원합니다.
 
 :::zone pivot = "programming-language-python"
 
@@ -360,7 +360,7 @@ FS.Mv("source file or directory", "destination directory", true)
 
 ### <a name="write-file"></a>파일 쓰기
 
-지정 된 문자열을 u t f-8로 인코딩된 파일에 씁니다.
+지정된 문자열을 UTF-8으로 인코딩된 파일에 씁니다.
 
 :::zone pivot = "programming-language-python"
 
@@ -387,7 +387,7 @@ FS.Put("file path", "content to write", true) // Set the last parameter as True 
 
 ### <a name="append-content-to-a-file"></a>파일에 콘텐츠 추가
 
-지정 된 문자열을 u t f-8로 인코딩된 파일에 추가 합니다.
+지정된 문자열을 UTF-8으로 인코딩된 파일에 추가합니다.
 
 :::zone pivot = "programming-language-python"
 
@@ -414,7 +414,7 @@ FS.Append("file path","content to append",true) // Set the last parameter as Tru
 
 ### <a name="delete-file-or-directory"></a>파일 또는 디렉터리 삭제
 
-파일이 나 디렉터리를 제거 합니다.
+파일 또는 디렉터리를 제거합니다.
 
 :::zone pivot = "programming-language-python"
 
@@ -442,9 +442,9 @@ FS.Rm("file path", true) // Set the last parameter as True to remove all files a
 
 ## <a name="credentials-utilities"></a>자격 증명 유틸리티
 
-MSSparkUtils 자격 증명 유틸리티를 사용 하 여 Azure Key Vault에서 연결 된 서비스의 액세스 토큰을 가져오고 암호를 관리할 수 있습니다. 
+MSSparkUtils 자격 증명 유틸리티를 사용하여 Azure Key Vault에서 연결된 서비스의 액세스 토큰을 가져오고 비밀을 관리할 수 있습니다. 
 
-다음 명령을 실행 하 여 사용 가능한 방법에 대 한 개요를 가져옵니다.
+사용 가능한 메서드에 관한 개요를 가져오려면 다음 명령을 실행합니다.
 
 :::zone pivot = "programming-language-python"
 
@@ -483,18 +483,18 @@ putSecret(akvName, secretName, secretValue): puts AKV secret for a given akvName
 
 ### <a name="get-token"></a>토큰 가져오기
 
-지정 된 대상 그룹에 대 한 Azure AD 토큰을 반환 합니다 (선택 사항). 다음 표에서는 사용 가능한 모든 대상 그룹 유형을 나열 합니다. 
+지정된 대상 그룹을 위한 Azure AD 토큰을 반환합니다(선택 사항). 다음 표에서는 사용 가능한 모든 대상 그룹 형식을 나열합니다. 
 
-|대상 유형|대상 키|
+|대상 형식|대상 키|
 |--|--|
-|대상 그룹 확인 유형|그룹|
-|저장소 대상 리소스|저장할|
-|데이터 웨어하우스 대상 그룹 리소스|DW|
-|Data Lake 대상 리소스|' AzureManagement '|
-|자격 증명 모음 대상 리소스|DataLakeStore|
-|Azure OSSDB 대상 리소스|' AzureOSSDB '|
+|대상 그룹 확인 형식|'Audience'|
+|스토리지 대상 그룹 리소스|'Storage'|
+|데이터 웨어하우스 대상 그룹 리소스|'DW'|
+|Data Lake 대상 그룹 리소스|'AzureManagement'|
+|자격 증명 모음 대상 그룹 리소스|'DataLakeStore'|
+|Azure OSSDB 대상 그룹 리소스|'AzureOSSDB'|
 |Azure Synapse 리소스|'Synapse'|
-|Azure Data Factory 리소스|ADF|
+|Azure Data Factory 리소스|'ADF'|
 
 :::zone pivot = "programming-language-python"
 
@@ -520,9 +520,9 @@ Credentials.GetToken("audience Key")
 ::: zone-end
 
 
-### <a name="validate-token"></a>토큰 유효성 검사
+### <a name="validate-token"></a>토큰 확인
 
-토큰이 만료 되지 않은 경우 true를 반환 합니다.
+토큰이 만료되지 않은 경우 true를 반환합니다.
 
 :::zone pivot = "programming-language-python"
 
@@ -548,9 +548,9 @@ Credentials.IsValidToken("your token")
 ::: zone-end
 
 
-### <a name="get-connection-string-or-credentials-for-linked-service"></a>연결 된 서비스에 대 한 연결 문자열 또는 자격 증명 가져오기
+### <a name="get-connection-string-or-credentials-for-linked-service"></a>연결된 서비스를 위한 연결 문자열 또는 자격 증명 가져오기
 
-연결 된 서비스에 대 한 연결 문자열 또는 자격 증명을 반환 합니다. 
+연결된 서비스를 위한 연결 문자열 또는 자격 증명을 반환합니다. 
 
 :::zone pivot = "programming-language-python"
 
@@ -576,9 +576,9 @@ Credentials.GetConnectionStringOrCreds("linked service name")
 ::: zone-end
 
 
-### <a name="get-secret-using-workspace-identity"></a>작업 영역 id를 사용 하 여 비밀 가져오기
+### <a name="get-secret-using-workspace-identity"></a>작업 영역 ID를 사용하여 비밀 가져오기
 
-작업 영역 id를 사용 하 여 지정 된 Azure Key Vault 이름, 비밀 이름 및 연결 된 서비스 이름에 대 한 Azure Key Vault 암호를 반환 합니다. [Azure Key Vault](#configure-access-to-azure-key-vault) 에 대 한 액세스를 적절 하 게 구성 해야 합니다.
+작업 영역 ID를 사용하여 지정된 Azure Key Vault 이름, 비밀 이름, 연결된 서비스 이름을 위한 Azure Key Vault 비밀을 반환합니다. [Azure Key Vault](#configure-access-to-azure-key-vault)에 대한 액세스를 적절하게 구성합니다.
 
 :::zone pivot = "programming-language-python"
 
@@ -604,9 +604,9 @@ Credentials.GetSecret("azure key vault name","secret name","linked service name"
 ::: zone-end
 
 
-### <a name="get-secret-using-user-credentials"></a>사용자 자격 증명을 사용 하 여 비밀 가져오기
+### <a name="get-secret-using-user-credentials"></a>사용자 자격 증명을 사용하여 비밀 가져오기
 
-사용자 자격 증명을 사용 하 여 지정 된 Azure Key Vault 이름, 비밀 이름 및 연결 된 서비스 이름에 대 한 Azure Key Vault 암호를 반환 합니다. 
+사용자 자격 증명을 사용하여 지정된 Azure Key Vault 이름, 비밀 이름, 연결된 서비스 이름을 위한 Azure Key Vault 비밀을 반환합니다. 
 
 :::zone pivot = "programming-language-python"
 
@@ -637,9 +637,9 @@ Puts Azure Key Vault secret for a given Azure Key Vault name, secret name, and l
 
 :::zone pivot = "programming-language-python"
 
-### <a name="put-secret-using-workspace-identity"></a>작업 영역 id를 사용 하 여 비밀 배치
+### <a name="put-secret-using-workspace-identity"></a>작업 영역 ID를 사용하여 비밀 배치
 
-작업 영역 id를 사용 하 여 지정 된 Azure Key Vault 이름, 비밀 이름 및 연결 된 서비스 이름에 대 한 Azure Key Vault 암호를 넣습니다. [Azure Key Vault](#configure-access-to-azure-key-vault) 에 대 한 액세스를 적절 하 게 구성 해야 합니다.
+작업 영역 ID를 사용하여 지정된 Azure Key Vault 이름, 비밀 이름, 연결된 서비스 이름을 위한 Azure Key Vault 비밀을 넣습니다. [Azure Key Vault](#configure-access-to-azure-key-vault)에 대한 액세스를 적절하게 구성합니다.
 
 ```python
 mssparkutils.credentials.putSecret('azure key vault name','secret name','secret value','linked service name')
@@ -648,9 +648,9 @@ mssparkutils.credentials.putSecret('azure key vault name','secret name','secret 
 
 :::zone pivot = "programming-language-scala"
 
-### <a name="put-secret-using-workspace-identity"></a>작업 영역 id를 사용 하 여 비밀 배치
+### <a name="put-secret-using-workspace-identity"></a>작업 영역 ID를 사용하여 비밀 배치
 
-작업 영역 id를 사용 하 여 지정 된 Azure Key Vault 이름, 비밀 이름 및 연결 된 서비스 이름에 대 한 Azure Key Vault 암호를 넣습니다. [Azure Key Vault](#configure-access-to-azure-key-vault) 에 대 한 액세스를 적절 하 게 구성 해야 합니다.
+작업 영역 ID를 사용하여 지정된 Azure Key Vault 이름, 비밀 이름, 연결된 서비스 이름을 위한 Azure Key Vault 비밀을 넣습니다. [Azure Key Vault](#configure-access-to-azure-key-vault)에 대한 액세스를 적절하게 구성합니다.
 
 ```scala
 mssparkutils.credentials.putSecret("azure key vault name","secret name","secret value","linked service name")
@@ -673,9 +673,9 @@ Puts Azure Key Vault secret for a given Azure Key Vault name, secret name, and l
 
 :::zone pivot = "programming-language-python"
 
-### <a name="put-secret-using-user-credentials"></a>사용자 자격 증명을 사용 하 여 암호 입력
+### <a name="put-secret-using-user-credentials"></a>사용자 자격 증명을 사용하여 비밀 입력
 
-사용자 자격 증명을 사용 하 여 지정 된 Azure Key Vault 이름, 비밀 이름 및 연결 된 서비스 이름에 대 한 Azure Key Vault 비밀을 배치 합니다. 
+사용자 자격 증명을 사용하여 지정된 Azure Key Vault 이름, 비밀 이름, 연결된 서비스 이름을 위한 Azure Key Vault 비밀을 배치합니다. 
 
 ```python
 mssparkutils.credentials.putSecret('azure key vault name','secret name','secret value')
@@ -684,9 +684,9 @@ mssparkutils.credentials.putSecret('azure key vault name','secret name','secret 
 
 :::zone pivot = "programming-language-scala"
 
-### <a name="put-secret-using-user-credentials"></a>사용자 자격 증명을 사용 하 여 암호 입력
+### <a name="put-secret-using-user-credentials"></a>사용자 자격 증명을 사용하여 비밀 입력
 
-사용자 자격 증명을 사용 하 여 지정 된 Azure Key Vault 이름, 비밀 이름 및 연결 된 서비스 이름에 대 한 Azure Key Vault 비밀을 배치 합니다. 
+사용자 자격 증명을 사용하여 지정된 Azure Key Vault 이름, 비밀 이름, 연결된 서비스 이름을 위한 Azure Key Vault 비밀을 배치합니다. 
 
 ```scala
 mssparkutils.credentials.putSecret("azure key vault name","secret name","secret value")
@@ -705,7 +705,7 @@ mssparkutils.credentials.putSecret("azure key vault name","secret name","secret 
 
 ## <a name="environment-utilities"></a>환경 유틸리티 
 
-다음 명령을 실행 하 여 사용 가능한 방법에 대 한 개요를 가져옵니다.
+사용 가능한 메서드에 관한 개요를 가져오려면 다음 명령을 실행합니다.
 
 :::zone pivot = "programming-language-python"
 
@@ -742,7 +742,7 @@ GetClusterId(): returns cluster id
 
 ### <a name="get-user-name"></a>사용자 이름 가져오기
 
-현재 사용자 이름을 반환 합니다.
+현재 사용자 이름을 반환합니다.
 
 :::zone pivot = "programming-language-python"
 
@@ -769,7 +769,7 @@ Env.GetUserName()
 
 ### <a name="get-user-id"></a>사용자 ID 가져오기
 
-현재 사용자 ID를 반환 합니다.
+현재 사용자 ID를 반환합니다.
 
 :::zone pivot = "programming-language-python"
 
@@ -796,7 +796,7 @@ Env.GetUserId()
 
 ### <a name="get-job-id"></a>작업 ID 가져오기
 
-작업 ID를 반환 합니다.
+작업 ID를 반환합니다.
 
 :::zone pivot = "programming-language-python"
 
@@ -823,7 +823,7 @@ Env.GetJobId()
 
 ### <a name="get-workspace-name"></a>작업 영역 이름 가져오기
 
-작업 영역 이름을 반환 합니다.
+작업 영역 이름을 반환합니다.
 
 :::zone pivot = "programming-language-python"
 
@@ -850,7 +850,7 @@ Env.GetWorkspaceName()
 
 ### <a name="get-pool-name"></a>풀 이름 가져오기
 
-Spark 풀 이름을 반환 합니다.
+Spark 풀 이름을 반환합니다.
 
 :::zone pivot = "programming-language-python"
 
@@ -877,7 +877,7 @@ Env.GetPoolName()
 
 ### <a name="get-cluster-id"></a>클러스터 ID 가져오기
 
-현재 클러스터 ID를 반환 합니다.
+현재 클러스터 ID를 반환합니다.
 
 :::zone pivot = "programming-language-python"
 
@@ -904,7 +904,7 @@ Env.GetClusterId()
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Synapse 샘플 노트북 확인](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
+- [Synapse 샘플 Notebooks 체크 아웃](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
 - [빠른 시작: 웹 도구를 사용하여 Azure Synapse Analytics에서 Apache Spark 풀 만들기](../quickstart-apache-spark-notebook.md)
 - [Azure Synapse Analytics의 Apache Spark란?](apache-spark-overview.md)
 - [Azure Synapse Analytics](../index.yml)

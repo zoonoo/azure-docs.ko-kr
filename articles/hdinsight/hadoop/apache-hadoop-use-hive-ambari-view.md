@@ -1,15 +1,15 @@
 ---
-title: Azure HDInsight에서 Apache Hadoop Apache Ambari Hive 보기 사용
+title: Azure HDInsight에서 Apache Hadoop과 Apache Ambari Hive 보기 사용
 description: 웹 브라우저에서 Hive 뷰를 사용하여 Hive 쿼리를 제출하는 방법을 알아봅니다. Hive 뷰는 Linux 기반 HDInsight 클러스터와 함께 제공되는 Ambari 웹 UI의 일부입니다.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: 87a4d3960937450713747fa16bd473b4c34eff0e
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104867868"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop과 Apache Ambari Hive 보기 사용
@@ -18,19 +18,19 @@ ms.locfileid: "104867868"
 
 Apache Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 알아봅니다. Hive 보기를 사용하면 웹 브라우저에서 Hive 쿼리를 작성, 최적화 및 실행할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+HDInsight의 Hadoop 클러스터입니다. [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
 ## <a name="run-a-hive-query"></a>HIVE 쿼리 실행
 
-1. [Azure Portal](https://portal.azure.com/)에서 디렉터리를 선택합니다.  자세한 지침은 [클러스터 나열 및 표시](../hdinsight-administer-use-portal-linux.md#showClusters) 를 참조 하세요. 클러스터가 새 포털 보기에서 열립니다.
+1. [Azure Portal](https://portal.azure.com/)에서 디렉터리를 선택합니다.  지침에 대해서는 [클러스터 나열 및 표시](../hdinsight-administer-use-portal-linux.md#showClusters)를 참조하세요. 클러스터가 새 포털 보기에서 열립니다.
 
-1. **클러스터 대시보드에서** **Ambari views** 를 선택 합니다. 인증하라는 메시지가 표시되면 클러스터를 만들 때 제공한 클러스터 로그인(기본값 `admin`) 계정 이름과 암호를 사용합니다. 브라우저에서로 이동할 수도 있습니다 `https://CLUSTERNAME.azurehdinsight.net/#/main/views` `CLUSTERNAME` . 여기서은 클러스터의 이름입니다.
+1. **클러스터 대시보드** 에서 **Ambari 보기** 를 선택합니다. 인증하라는 메시지가 표시되면 클러스터를 만들 때 제공한 클러스터 로그인(기본값 `admin`) 계정 이름과 암호를 사용합니다. 브라우저에서 클러스터의 이름이 `CLUSTERNAME`인 `https://CLUSTERNAME.azurehdinsight.net/#/main/views`로 이동할 수도 있습니다.
 
 1. 보기 목록에서 __Hive 보기__ 를 선택합니다.
 
-    :::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png" alt-text="Apache Ambari select Apache Hive 보기" border="true":::
+    :::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png" alt-text="Apache Ambari Apache Hive 보기 선택" border="true":::
 
     Hive 보기 페이지는 다음 이미지와 유사합니다.
 
@@ -55,20 +55,20 @@ HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-
         GROUP BY t4;
     ```
 
-    이러한 문은 다음 작업을 수행 합니다.
+    이러한 문은 다음 작업을 수행합니다.
 
     |문 | 설명 |
     |---|---|
     |DROP TABLE|테이블이 이미 있는 경우 테이블과 데이터 파일을 삭제합니다.|
     |CREATE EXTERNAL TABLE|Hive에서 새 “외부” 테이블을 만듭니다. 외부 테이블은 테이블 정의만 Hive에 저장합니다. 데이터는 원래 위치에 그대로 유지됩니다.|
-    |행 형식|데이터의 형식을 지정하는 방법을 보여 줍니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.|
-    |TEXTFILE 위치로 저장 됨|데이터가 저장된 위치 및 텍스트로 저장되었음을 보여 줍니다.|
+    |ROW FORMAT|데이터의 형식을 지정하는 방법을 보여 줍니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.|
+    |STORED AS TEXTFILE LOCATION|데이터가 저장된 위치 및 텍스트로 저장되었음을 보여 줍니다.|
     |SELECT|t4 열에 [ERROR] 값이 포함된 모든 행의 수를 선택합니다.|
 
    > [!IMPORTANT]  
    > __데이터베이스__ 선택 영역을 __기본값__ 으로 둡니다. 이 문서의 예제에서는 HDInsight에 포함된 기본 데이터베이스를 사용합니다.
 
-1. 쿼리를 시작 하려면 워크시트 아래에서 **실행** 을 선택 합니다. 단추가 주황색으로 바뀌고 텍스트가 **중지** 로 변경됩니다.
+1. 쿼리를 시작하려면 워크시트 아래에서 **실행** 을 선택합니다. 단추가 주황색으로 바뀌고 텍스트가 **중지** 로 변경됩니다.
 
 1. 쿼리가 완료된 후에 **결과** 탭에 작업 결과가 표시됩니다. 다음 텍스트는 쿼리 결과입니다.
 
@@ -77,10 +77,10 @@ HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-
     [ERROR]        3
     ```
 
-    **로그** 탭을 사용 하 여 작업에서 만든 로깅 정보를 볼 수 있습니다.
+    **LOG** 탭을 사용하여 작업에서 생성된 로깅 정보를 볼 수 있습니다.
 
    > [!TIP]  
-   > **결과** 탭의 **작업** 드롭다운 대화 상자에서 결과를 다운로드 하거나 저장 합니다.
+   > **결과** 탭의 **작업** 드롭다운 대화 상자에서 결과를 다운로드하거나 저장합니다.
 
 ### <a name="visual-explain"></a>시각적 개체 설명
 
@@ -90,7 +90,7 @@ HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-
 
 ### <a name="tez-ui"></a>Tez UI
 
-쿼리에 대 한 Tez UI를 표시 하려면 워크시트 아래에서 **Tez ui** 탭을 선택 합니다.
+쿼리에 대한 Tez UI를 표시하려면 워크시트 아래에서 **Tez UI** 탭을 선택합니다.
 
 > [!IMPORTANT]  
 > Tez는 모든 쿼리를 해결하는 데 사용되지 않습니다. Tez를 사용하지 않고도 많은 쿼리를 확인할 수 있습니다.
@@ -99,7 +99,7 @@ HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-
 
 __작업__ 탭에 Hive 쿼리의 기록이 표시됩니다.
 
-:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png" alt-text="작업 탭 기록 Apache Hive 보기" border="true":::
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png" alt-text="Apache Hive 작업 탭 기록 보기" border="true":::
 
 ## <a name="database-tables"></a>데이터베이스 테이블
 
@@ -111,7 +111,7 @@ __테이블__ 탭을 사용하여 Hive 데이터베이스 내의 테이블을 �
 
 **쿼리** 탭에서 필요에 따라 쿼리를 저장할 수 있습니다. 쿼리를 저장한 후에 __저장된 쿼리__ 탭에서 다시 사용할 수 있습니다.
 
-:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png" alt-text="Apache Hive 뷰 저장 된 쿼리 탭" border="true":::
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png" alt-text="Apache Hive 저장된 쿼리 탭 보기" border="true":::
 
 > [!TIP]  
 > 저장된 쿼리는 기본 클러스터 스토리지에 저장됩니다. `/user/<username>/hive/scripts` 경로에서 저장된 쿼리를 찾을 수 있습니다. 이러한 쿼리는 일반 텍스트 `.hql` 파일로 저장됩니다.
@@ -124,11 +124,11 @@ UDF(사용자 정의 함수)를 통해 Hive를 확장할 수 있습니다. UDF�
 
 Hive 보기 위쪽의 **UDF** 탭을 사용하여 UDF 집합을 선언하고 저장합니다. UDF는 **쿼리 편집기** 를 통해 사용할 수 있습니다.
 
-:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png" alt-text="Udf 탭 표시 Apache Hive 보기" border="true":::
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png" alt-text="Apache Hive UDF 탭 화면 표시 보기" border="true":::
 
-**Udf 삽입** 단추가 **쿼리 편집기** 아래쪽에 표시 됩니다. 이 항목은 Hive 보기에 정의 된 Udf의 드롭다운 목록을 표시 합니다. UDF를 선택하면 쿼리에 HiveQL 문을 추가하여 UDF를 사용하도록 설정합니다.
+**udf 삽입** 단추가 **쿼리 편집기** 아래쪽에 표시됩니다. 이 항목은 Hive 뷰에서 정의된 UDF의 드롭다운 목록이 표시됩니다. UDF를 선택하면 쿼리에 HiveQL 문을 추가하여 UDF를 사용하도록 설정합니다.
 
-예를 들어 다음과 같은 속성을 사용 하 여 UDF를 정의한 경우
+예를 들어 다음 속성으로 UDF를 정의하는 경우:
 
 * 리소스 이름: myudfs
 

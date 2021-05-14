@@ -1,6 +1,6 @@
 ---
-title: Sqlcmd를 사용 하 여 연결
-description: Sqlcmd 명령줄 유틸리티를 사용 하 여 Azure Synapse Analytics에서 전용 SQL 풀에 연결 하 고 쿼리 합니다.
+title: Sqlcmd를 사용하여 연결
+description: Sqlcmd 명령줄 유틸리티를 사용하여 Azure Synapse Analytics에서 전용 SQL 풀에 연결하고 쿼리합니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,13 +12,13 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: f8b4d54585bc70c3ee5f24846e216f75e985cf84
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101675727"
 ---
-# <a name="connect-to-a-dedicated-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>Sqlcmd를 사용 하 여 Azure Synapse Analytics에서 전용 SQL 풀에 연결
+# <a name="connect-to-a-dedicated-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>sqlcmd를 사용하여 Azure Synapse Analytics에서 전용 SQL 풀에 연결합니다
 
 > [!div class="op_single_selector"]
 >
@@ -28,20 +28,20 @@ ms.locfileid: "101675727"
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 
-[Sqlcmd] [sqlcmd] 명령줄 유틸리티를 사용 하 여 전용 SQL 풀에 연결 하 고 쿼리 합니다.  
+sqlcmd 명령줄 유틸리티를 사용하여 전용 SQL 풀에 연결하고 쿼리합니다.  
 
 ## <a name="1-connect"></a>1. 연결
 
-[Sqlcmd] [sqlcmd]를 시작 하려면 명령 프롬프트를 열고 **sqlcmd** 다음에 전용 SQL 풀에 대 한 연결 문자열을 입력 합니다. 연결 문자열에는 다음 매개 변수가 필요합니다.
+[sqlcmd][sqlcmd]를 시작하려면 명령 프롬프트를 열고 전용 SQL 풀에 대한 연결 문자열 뒤에 **sqlcmd** 를 입력합니다. 연결 문자열에는 다음 매개 변수가 필요합니다.
 
 * **서버(-S):** `<`서버 이름`>`.database.windows.net 형식의 서버
 * **데이터베이스 (-d):** 전용 SQL 풀 이름입니다.
-* **따옴표 붙은 식별자 사용 (-I):** 전용 SQL 풀 인스턴스에 연결 하려면 따옴표 붙은 식별자를 사용 하도록 설정 해야 합니다.
+* **따옴표 붙은 식별자 사용(-I):** 전용 SQL 풀 인스턴스에 연결하려면 따옴표 붙은 식별자를 사용하도록 설정해야 합니다.
 
 SQL Server 인증을 사용하려면 사용자 이름/암호 매개 변수를 추가해야 합니다.
 
 * **사용자(-U):** `<`사용자`>` 형태의 서버 사용자
-* **암호 (-P):** 사용자와 연결 된 암호입니다.
+* **암호(-P):** 사용자와 연결된 암호
 
 예를 들어 연결 문자열은 다음과 같습니다.
 
@@ -85,4 +85,4 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 ## <a name="next-steps"></a>다음 단계
 
-Sqlcmd에서 사용할 수 있는 옵션에 대 한 자세한 내용은 [sqlcmd 설명서](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조 하세요.
+sqlcmd에서 사용할 수 있는 옵션에 대한 세부 정보는 [sqlcmd 설명서](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조하세요.

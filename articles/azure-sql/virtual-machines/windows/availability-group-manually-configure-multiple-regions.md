@@ -1,6 +1,6 @@
 ---
 title: 여러 지역에서 SQL Server Always On 가용성 그룹 구성
-description: 이 문서에서는 다른 지역의 복제본을 사용 하 여 Azure 가상 머신에서 SQL Server Always On 가용성 그룹을 구성 하는 방법을 설명 합니다.
+description: 이 문서에서는 다른 지역의 복제본으로 Azure Virtual Machines에서 SQL Server Always On 가용성 그룹을 구성하는 방법을 설명합니다.
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
@@ -16,10 +16,10 @@ ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 7ef3535158c99226da135ad3726266023ac0690f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102509407"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>여러 Azure 지역에서 SQL Server Always On 가용성 그룹 구성
@@ -32,7 +32,7 @@ ms.locfileid: "102509407"
 
 다음 이미지는 Azure Virtual Machines의 일반적인 가용성 그룹 배포를 보여 줍니다.
 
-   !["Windows Server 장애 조치 (Failover) 클러스터" 및 "Always On 가용성 그룹"을 사용 하 여 Azure 부하 분산 장치 및 가용성 집합을 보여 주는 다이어그램입니다.](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic.png)
+   !["Windows Server 장애 조치(Failover) 클러스터" 및 "Always On 가용성 그룹"을 사용하여 Azure Load Balancer 및 가용성 집합을 보여 주는 다이어그램입니다.](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic.png)
 
 이 배포에서 모든 가상 머신은 하나의 Azure 지역에 있습니다. 가용성 그룹 복제본은 SQL-1 및 SQL-2에 대해 자동 장애 조치로 동기 커밋할 수 있습니다. 이 아키텍처를 작성하려면 [가용성 그룹 템플릿 또는 자습서](availability-group-overview.md)를 참조하세요.
 
@@ -54,7 +54,7 @@ ms.locfileid: "102509407"
 
 다음 다이어그램에서는 데이터 센터 간 네트워크 통신 방법을 보여 줍니다.
 
-   ![V P N 게이트웨이를 사용 하 여 통신 하는 서로 다른 Azure 지역에 있는 두 개의 가상 네트워크를 보여 주는 다이어그램입니다.](./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png)
+   ![V P N 게이트웨이를 사용하여 통신하는 서로 다른 Azure 지역에 있는 두 개의 가상 네트워크를 보여 주는 다이어그램입니다.](./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png)
 
 >[!IMPORTANT]
 >이 아키텍처에서는 Azure 지역 간에 복제되는 데이터에 대해 아웃바운드 데이터 요금이 부과됩니다. [대역폭 가격 책정](https://azure.microsoft.com/pricing/details/bandwidth/)을 참조하세요.  
@@ -86,7 +86,7 @@ ms.locfileid: "102509407"
    - IP 주소 고유의 TCP 포트 프로브를 사용합니다.
    - 동일한 지역의 SQL Server와 관련된 부하 분산 규칙이 있습니다.  
    - 백 엔드 풀의 가상 머신이 단일 가용성 집합 또는 가상 머신 확장 집합에 포함되지 않는 경우 표준 Load Balancer여야 합니다. 자세한 내용은 [Azure Load Balancer 표준 개요](../../../load-balancer/load-balancer-overview.md)를 참조하세요.
-   - 서로 다른 두 지역의 두 가상 네트워크를 글로벌 VNet 피어 링을 통해 피어 링 하는 경우 표준 Load Balancer 해야 합니다. 자세한 내용은 [Azure VIRTUAL NETWORK faq (질문과 대답)](../../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)를 참조 하세요.
+   - 서로 다른 두 지역의 두 개의 가상 네트워크를 글로벌 VNet 피어링을 통해 피어링하는 경우, 표준 Load Balancer이어야 합니다. 자세한 내용은 [Azure Virtual Network FAQ(질문과 대답)](../../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)를 참조하십시오.
 
 1. [장애 조치(Failover) 클러스터링 기능을 새 SQL Server에 추가합니다](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
 
@@ -100,22 +100,22 @@ ms.locfileid: "102509407"
 
    장애 조치 클러스터 관리자에서 IP 주소 리소스를 만들 수 있습니다. 클러스터의 이름을 선택한 다음 **클러스터 코어 리소스** 에서 클러스터 이름을 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다. 
 
-   ![클러스터 이름, "서버 이름" 및 "속성"을 선택 하 여 "장애 조치(Failover) 클러스터 관리자"을 보여 주는 스크린샷](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
+   ![클러스터 이름, "서버 이름" 및 "속성"이 선택된 "장애 조치(Failover) 클러스터 관리자"를 보여 주는 스크린샷](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
 
-   **속성** 대화 상자에서 **IP 주소** 아래의 **추가** 를 선택한 다음 원격 네트워크 지역의 클러스터 이름의 IP 주소를 추가합니다. **Ip 주소** 대화 상자에서 **확인** 을 선택한 다음 **클러스터 속성** 대화 상자에서 **확인** 을 다시 선택 하 여 새 ip 주소를 저장 합니다. 
+   **속성** 대화 상자에서 **IP 주소** 아래의 **추가** 를 선택한 다음 원격 네트워크 지역의 클러스터 이름의 IP 주소를 추가합니다. **IP 주소** 대화 상자에서 **확인** 을 선택한 다음 **클러스터 속성** 대화 상자에서 다시 **확인** 을 선택하여 새 IP 주소를 저장합니다. 
 
    ![클러스터 IP 추가](./media/availability-group-manually-configure-multiple-regions/add-cluster-ip-address.png)
 
 
 1. 코어 클러스터 이름에 대한 종속성으로 IP 주소를 추가합니다.
 
-   클러스터 속성을 자세히 열고 **종속성** 탭을 선택 합니다. 두 개의 IP 주소에 대 한 또는 종속성을 구성 합니다. 
+   클러스터 속성을 다시 열고 **종속성** 탭을 선택합니다. 두 개의 IP 주소에 대한 OR 종속성을 구성합니다. 
 
    ![클러스터 속성](./media/availability-group-manually-configure-multiple-regions/cluster-ip-dependencies.png)
 
 1. 클러스터의 가용성 그룹 역할에 IP 주소 리소스를 추가합니다. 
 
-   장애 조치(Failover) 클러스터 관리자에서 가용성 그룹 역할을 마우스 오른쪽 단추로 클릭 하 고 **리소스 추가**, 추가 **리소스** 를 선택한 다음 **IP 주소** 를 선택 합니다.
+   장애 조치(failover) 클러스터 관리자에서 가용성 그룹 역할을 마우스 오른쪽 단추로 클릭하고 **리소스 추가**, **기타 리소스** 를 선택한 다음 **IP 주소** 를 선택합니다.
 
    ![IP 주소 만들기](./media/availability-group-manually-configure-multiple-regions/20-add-ip-resource.png)
 
@@ -172,16 +172,16 @@ ms.locfileid: "102509407"
 원격 지역에 대한 수신기 연결을 테스트하려면 복제본을 원격 지역으로 장애 조치할 수 있습니다. 복제본이 비동기인 경우 장애 조치 시 잠재적 데이터 손실이 발생하기 쉽습니다. 데이터 손실 없이 장애 조치를 수행하려면 가용성 모드를 동기로 변경하고 장애 조치 모드를 자동으로 설정합니다. 다음 단계를 사용합니다.
 
 1. **개체 탐색기** 에서 주 복제본을 호스트하는 SQL Server의 인스턴스에 연결합니다.
-1. **AlwaysOn 가용성 그룹**, **가용성 그룹** 에서 가용성 그룹을 마우스 오른쪽 단추로 클릭 하 고 **속성** 을 선택 합니다.
+1. **Always On 가용성 그룹**, **가용성 그룹** 아래에서 가용성 그룹을 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다.
 1. **일반** 페이지의 **가용성 복제본** 에서 DR 사이트의 보조 복제본을 **동기 커밋** 가용성 모드 및 **자동** 장애 조치 모드를 사용하도록 설정합니다.
 1. 보조 복제본의 고가용성을 위해 주 복제본과 같은 사이트에 있는 경우 이 복제본을 **비동기 커밋** 및 **수동** 으로 설정합니다.
 1. 확인을 선택합니다.
-1. **개체 탐색기** 에서 가용성 그룹을 마우스 오른쪽 단추로 클릭 하 고 **대시보드 표시** 를 선택 합니다.
+1. **개체 탐색기** 에서 가용성 그룹을 마우스 오른쪽 단추로 클릭하고 **대시보드 표시** 를 선택합니다.
 1. 대시보드에서 DR 사이트의 복제본이 동기화되었는지 확인합니다.
-1. **개체 탐색기** 에서 가용성 그룹을 마우스 오른쪽 단추로 클릭 하 고 **장애 조치 (Failover) ...** 를 선택 합니다. SQL Server Management 스튜디오는 SQL Server를 장애 조치 하는 마법사를 엽니다.  
-1. **다음** 을 선택 하 고 DR 사이트에서 SQL Server 인스턴스를 선택 합니다. **다음** 을 다시 선택 합니다.
-1. DR 사이트의 SQL Server 인스턴스에 연결 하 고 **다음** 을 선택 합니다.
-1. **요약** 페이지에서 설정을 확인 하 고 **마침** 을 선택 합니다.
+1. **개체 탐색기** 에서 가용성 그룹을 마우스 오른쪽 단추로 클릭하고 **장애 조치...** 를 선택합니다. SQL Server Management Studio는 SQL Server를 장애 조치하는 마법사를 엽니다.  
+1. **다음** 을 클릭하고 DR 사이트의 SQL Server 인스턴스를 선택합니다. **다음** 을 다시 선택합니다.
+1. DR 사이트에서 SQL Server 인스턴스에 연결하고 **다음** 을 선택합니다.
+1. **요약** 페이지에서 설정을 확인한 다음 **마침** 을 선택합니다.
 
 연결을 테스트한 후에 주 복제본은 기본 데이터 센터로 다시 이동되고 가용성 모드는 일반 작동 설정으로 다시 지정됩니다. 다음 표에는 이 문서에서 설명하는 아키텍처에 대한 일반 작업 설정이 나와 있습니다.
 

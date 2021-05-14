@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/03/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 1a0502568c1673bcd7f57d3e9bc9c95ed90bbefa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e2df24a85b39d1a66a162a826dbc3985a3908d53
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "80756949"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109508438"
 ---
 <!-- This tells how to create a custom shared access policy that has service connect and registry RW permissions for your IoT hub and get the connection string for it-->
 
@@ -35,4 +35,4 @@ ms.locfileid: "80756949"
 
     ![연결 문자열을 검색하는 방법 표시](./media/iot-hub-include-find-service-regrw-connection-string/iot-hub-get-connection-string.png)
 
-IoT Hub 공유 액세스 정책 및 사용 권한에 대한 자세한 내용은 [액세스 제어 및 권한](../articles/iot-hub/iot-hub-devguide-security.md#access-control-and-permissions)을 참조하세요.
+IoT Hub 공유 액세스 정책 및 사용 권한에 대한 자세한 내용은 [액세스 제어 및 권한](../articles/iot-hub/iot-hub-dev-guide-sas.md#access-control-and-permissions)을 참조하세요.

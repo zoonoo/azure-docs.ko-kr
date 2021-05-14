@@ -1,19 +1,19 @@
 ---
-title: Azure Functions에서 스트림 실행 로그
-description: 공백을 포함 하는 115-145 문자 이 추상은 검색 결과에 표시됩니다.
+title: Azure Functions에서 실행 로그 스트림
+description: 공백 포함 115-145자. 이 추상은 검색 결과에 표시됩니다.
 ms.date: 9/1/2020
 ms.topic: how-to
-ms.custom: contperf-fy21q2, devx-track-azurecli
-ms.openlocfilehash: 085849386fce929ceaec4536844cf31b94fe7539
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.custom: contperf-fy21q2, devx-track-azurepowershell
+ms.openlocfilehash: cc12af12fa41d5556f2c5a0fc000abbc9c13a0d8
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97033054"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076926"
 ---
-# <a name="enable-streaming-execution-logs-in-azure-functions"></a>Azure Functions에서 스트리밍 실행 로그 사용
+# <a name="enable-streaming-execution-logs-in-azure-functions"></a>Azure Functions에서 실행 로그 스트림 사용
 
-응용 프로그램을 개발 하는 동안 Azure에서 실행할 때 거의 실시간으로 로그에 기록 되는 항목을 확인 하는 것이 좋습니다.
+애플리케이션을 개발하는 동안 Azure에서 실행될 때 거의 실시간으로 로그에 기록되는 항목을 보고 싶은 경우가 있습니다.
 
 함수 실행에 의해 생성되는 로그 파일의 스트림을 보는 두 가지 방법이 있습니다.
 
@@ -66,11 +66,11 @@ az webapp log tail --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_N
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-[Azure PowerShell](/powershell/azure/)을 사용하여 스트리밍 로그를 사용하도록 설정할 수 있습니다. PowerShell의 경우 다음 코드 조각과 같이 [AzWebApp](/powershell/module/az.websites/set-azwebapp) 명령을 사용 하 여 함수 앱에 대 한 로깅을 사용 하도록 설정 합니다. 
+[Azure PowerShell](/powershell/azure/)을 사용하여 스트리밍 로그를 사용하도록 설정할 수 있습니다. PowerShell의 경우 다음 코드 조각에서처럼 [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) 명령을 사용하여 함수 앱에 대한 로깅을 사용하도록 설정합니다. 
 
 :::code language="powershell" source="~/powershell_scripts/app-service/monitor-with-logs/monitor-with-logs.ps1" range="19-20":::
 
-자세한 내용은 [전체 코드 예제](../app-service/scripts/powershell-monitor.md#sample-script)를 참조 하세요. 
+자세한 내용은 [전체 코드 예제](../app-service/scripts/powershell-monitor.md#sample-script)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

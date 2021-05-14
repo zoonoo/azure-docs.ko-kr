@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 2/16/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b93fdcc125075786c237ab1eb7bfac8cf2e551f6
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: a793ebb6d2b58718a6ee42c69c38b9da1b124722
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108179171"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104589398"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-azure-active-directory"></a>보안 하이브리드 액세스: Azure Active Directory를 사용한 보안 레거시 앱
 
@@ -32,7 +32,7 @@ Azure AD [조건부 액세스](../conditional-access/overview.md) 및 Azure AD [
 
 ## <a name="secure-hybrid-access-sha-through-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 통한 SHA(보안 하이브리드 액세스)
   
-[애플리케이션 프록시](../app-proxy/what-is-application-proxy.md)를 통해 온-프레미스 웹 애플리케이션에 대한 [보안 원격 액세스](../app-proxy/application-proxy.md)를 제공할 수 있습니다. 사용자가 VPN을 사용할 필요가 없습니다. 사용자는 [Single Sign-On](add-application-portal-setup-sso.md) 후에 모든 디바이스에서 애플리케이션에 쉽게 연결하여 이점을 누릴 수 있습니다. 애플리케이션 프록시는 원격 액세스를 서비스로 제공하므로 [온-프레미스 애플리케이션](../app-proxy/application-proxy-add-on-premises-application.md)을 회사 네트워크 외부의 사용자에게 쉽게 게시할 수 있습니다. 온-프레미스 애플리케이션을 수정할 필요 없이 클라우드 액세스 관리를 확장하는 데 도움이 됩니다. 다음 단계로 [Azure AD 애플리케이션 프록시 배포를 계획](application-proxy-deployment-plan.md)합니다.
+[애플리케이션 프록시](./what-is-application-proxy.md)를 통해 온-프레미스 웹 애플리케이션에 대한 [보안 원격 액세스](./application-proxy.md)를 제공할 수 있습니다. 사용자가 VPN을 사용할 필요가 없습니다. 사용자는 [Single Sign-On](./add-application-portal-setup-sso.md) 후에 모든 디바이스에서 애플리케이션에 쉽게 연결하여 이점을 누릴 수 있습니다. 애플리케이션 프록시는 원격 액세스를 서비스로 제공하므로 [온-프레미스 애플리케이션](./application-proxy-add-on-premises-application.md)을 회사 네트워크 외부의 사용자에게 쉽게 게시할 수 있습니다. 온-프레미스 애플리케이션을 수정할 필요 없이 클라우드 액세스 관리를 확장하는 데 도움이 됩니다. 다음 단계로 [Azure AD 애플리케이션 프록시 배포를 계획](./application-proxy-deployment-plan.md)합니다.
 
 ## <a name="azure-ad-partner-integrations"></a>Azure AD 파트너 통합
 

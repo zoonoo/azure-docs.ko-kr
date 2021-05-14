@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center에서 잘못 된 구성을 방지 하는 방법
-description: 권장 사항 세부 정보 페이지에서 Security Center의 ' 적용 ' 및 ' 거부 ' 옵션을 사용 하는 방법에 대해 알아봅니다.
+title: Azure Security Center를 사용하여 잘못된 구성을 방지하는 방법
+description: 권장 사항 세부 정보 페이지에서 Security Center의 ‘적용’ 및 ‘거부’ 옵션을 사용하는 방법에 대한 정보
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/17/2021
 ms.author: memildin
 ms.openlocfilehash: fabbd255f64e5614ae052c9d7c8d65fc35d45856
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104600499"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>적용/거부 권장 사항을 사용하여 구성 오류 방지
@@ -25,45 +25,45 @@ ms.locfileid: "104600499"
 - Azure Policy의 **거부** 효과를 사용하여 비정상 리소스가 만들어지는 것을 중지할 수 있습니다.
 - **적용** 옵션을 사용하여 Azure Policy의 **DeployIfNotExist** 효과를 활용하고, 비준수 리소스를 만들 때 자동으로 수정할 수 있습니다.
 
-이는 선택한 보안 권장 사항에 대 한 리소스 세부 정보 페이지의 맨 위에 있습니다 ( [거부/적용 옵션을 사용 하는 권장 사항](#recommendations-with-denyenforce-options)참조).
+이는 선택한 보안 권장 사항에 대한 리소스 세부 정보 페이지의 맨 위에 있습니다([거부/적용 옵션 관련 권장 사항](#recommendations-with-denyenforce-options)참조).
 
 ## <a name="prevent-resource-creation"></a>리소스 생성 방지
 
-1. 새 리소스에서 충족 해야 하는 권장 사항을 열고 페이지 맨 위에서 **거부** 단추를 선택 합니다.
+1. 새 리소스가 충족해야 하는 권장 사항을 열고 페이지 상단에서 **거부** 단추를 선택합니다.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-deny-button.png" alt-text="거부 단추가 강조 표시 된 권장 사항 페이지":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-deny-button.png" alt-text="거부 단추가 강조 표시된 권장 사항 페이지":::
 
-    구성 창이 열리고 범위 옵션이 나열 됩니다. 
+    구성 창이 열리고 범위 옵션이 나열됩니다. 
 
-1. 관련 구독 또는 관리 그룹을 선택 하 여 범위를 설정 합니다.
+1. 관련 구독 또는 관리 그룹을 선택하여 범위를 설정합니다.
 
     > [!TIP]
-    > 행의 끝에 있는 세 개의 점을 사용 하 여 단일 구독을 변경 하거나 확인란을 사용 하 여 여러 구독 또는 그룹을 선택한 후 **거부로 변경** 을 선택할 수 있습니다.
+    > 행의 끝에 있는 세 개의 점을 사용하여 단일 구독을 변경하거나 확인란을 사용하여 여러 구독 또는 그룹을 선택한 후 **거부로 변경** 을 선택할 수 있습니다.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-prevent-resource-creation.png" alt-text="Azure Policy 거부에 대 한 범위 설정":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-prevent-resource-creation.png" alt-text="Azure Policy 거부에 대한 범위 설정":::
 
 
 ## <a name="enforce-a-secure-configuration"></a>보안 구성 적용
 
-1. 새 리소스가 충족 하지 않는 경우 템플릿 배포를 배포할 권장 사항을 열고 페이지 맨 위에 있는 **적용** 단추를 선택 합니다.
+1. 새 리소스가 충족하지 않는 경우 템플릿 배포를 배포할 권장 사항을 열고 페이지 상단에 있는 **적용** 단추를 선택합니다.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-button.png" alt-text="적용 단추가 강조 표시 된 권장 사항 페이지":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-button.png" alt-text="적용 단추가 강조 표시된 권장 사항 페이지":::
 
     구성 창이 열리고 모든 정책 구성 옵션이 나타납니다. 
 
     :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-config.png" alt-text="구성 옵션 적용":::
 
-1. 범위, 할당 이름 및 기타 관련 옵션을 설정 합니다.
+1. 범위, 할당 이름, 기타 관련 옵션을 설정합니다.
 
 1. **검토 + 만들기** 를 선택합니다.
 
-## <a name="recommendations-with-denyenforce-options"></a>거부/적용 옵션을 사용한 권장 사항
+## <a name="recommendations-with-denyenforce-options"></a>거부/적용 옵션 권장 사항
 
-이러한 권장 사항은 **deny** 옵션과 함께 사용할 수 있습니다.
+해당 권장 사항은 **deny** 옵션과 함께 사용할 수 있습니다.
 
 [!INCLUDE [azure-security-center-recommendations-deny](../../includes/asc/recommendations-with-deny.md)]
 
-이러한 권장 사항은 **적용** 옵션과 함께 사용할 수 있습니다.
+해당 권장 사항은 **적용** 옵션과 함께 사용할 수 있습니다.
 
 - SQL Server에 대한 감사가 사용되도록 설정되어야 함
 - Azure Backup을 가상 머신에 사용하도록 설정해야 합니다.

@@ -1,6 +1,6 @@
 ---
-title: CREATE EXTERNAL STREAM (Transact-sql)-Azure SQL Edge
-description: Azure SQL Edge에서 CREATE EXTERNAL STREAM 문에 대해 알아보기
+title: CREATE EXTERNAL STREAM (Transact-SQL) - Azure SQL Edge
+description: Azure SQL Edge의 CREATE EXTERNAL STREAM 문에 대해 알아보기
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -10,24 +10,24 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
 ms.openlocfilehash: 203abe2b6def478dc1747dd4ce638b5b62707612
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101659225"
 ---
 # <a name="create-external-stream-transact-sql"></a>CREATE EXTERNAL STREAM(Transact-SQL)
 
-외부 스트림 개체에는 입력 및 출력 스트림의 두 가지 용도가 있습니다. Azure Event Hub, Azure IoT Hub (또는 Edge Hub) 또는 Kafka 같은 이벤트 수집 서비스에서 스트리밍 데이터를 쿼리 하는 입력으로 사용 하거나, 출력으로 사용 하 여 스트리밍 쿼리의 결과를 저장 하는 위치와 방법을 지정할 수 있습니다.
+EXTERNAL STREAM 개체는 입력과 출력 스트림이라는 두 가지 용도를 모두 갖고 있습니다. Azure Event Hub, Azure IoT Hub(또는 Edge Hub) 또는 Kafka와 같은 이벤트 수집 서비스에서 스트리밍 데이터를 쿼리하는 입력으로 사용할 수도 있고, 스트리밍 쿼리의 결과를 저장하는 위치와 방법을 지정하는 출력으로 사용할 수도 있습니다.
 
-EXTERNAL STREAM을 지정하고 이벤트 허브 또는 Blob 스토리지 같은 서비스의 출력과 입력으로 만들 수도 있습니다. 이렇게 하면 스트리밍 쿼리가 출력으로 외부 스트림에 결과를 유지 하 고 다른 스트리밍 쿼리를 입력으로 동일한 외부 스트림에서 읽는 시나리오를 쉽게 연결할 수 있습니다.
+EXTERNAL STREAM을 지정하고 이벤트 허브 또는 Blob 스토리지 같은 서비스의 출력과 입력으로 만들 수도 있습니다. 이를 통해 스트리밍 쿼리가 결과를 외부 스트림에 출력으로 유지하고, 또 다른 스트리밍 쿼리가 입력과 동일한 외부 스트림에서 읽는 시나리오를 연결하는 것이 가능합니다.
 
 현재 Azure SQL Edge는 스트림 입력 및 출력으로 다음 데이터 원본만 지원합니다.
 
 | 데이터 원본 유형 | 입력 | 출력 | Description |
 |------------------|-------|--------|------------------|
-| Azure IoT Edge 허브 | Y | Y | 스트리밍 데이터를 읽고 Azure IoT Edge 허브에 쓰기 위한 데이터 원본입니다. 자세한 내용은 [IoT Edge Hub](../iot-edge/iot-edge-runtime.md#iot-edge-hub)를 참조 하세요.|
-| SQL Database | N | Y | SQL Database에 스트리밍 데이터를 쓰는 데이터 원본 연결입니다. 데이터베이스는 Azure SQL Edge의 로컬 데이터베이스 이거나 SQL Server 또는 Azure SQL Database의 원격 데이터베이스 일 수 있습니다.|
+| Azure IoT Edge hub | Y | Y | 스트리밍 데이터를 읽고 Azure IoT Edge Hub에 쓰기 위한 데이터 원본입니다. 자세한 내용은 [IoT Edge Hub](../iot-edge/iot-edge-runtime.md#iot-edge-hub)를 참조하세요.|
+| SQL Database | N | Y | SQL Database에 스트리밍 데이터를 쓰는 데이터 원본 연결입니다. 데이터베이스는 Azure SQL Edge의 로컬 데이터베이스이거나, SQL Server 또는 Azure SQL Database의 원격 데이터베이스일 수 있습니다.|
 | Kafka | Y | N | Kafka 토픽에서 스트리밍 데이터를 읽는 데이터 원본입니다. Azure SQL Edge의 ARM64 버전에는 kafka 지원 기능을 사용할 수 없습니다.|
 
 
@@ -95,21 +95,21 @@ WITH  ( <with_options> )
 - [DATA_SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql/)
 - [FILE_FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql/)
 - **위치**: 데이터 원본에서 실제 데이터 또는 위치의 이름을 지정합니다. 
-   - Edge Hub 또는 Kafka 스트림 개체의 경우 location은 읽기 또는 쓰기에 대 한 Edge 허브 또는 Kafka 토픽의 이름을 지정 합니다.
-   - SQL 스트림 개체 (SQL Server, Azure SQL Database 또는 Azure SQL Edge) 위치에 대해 테이블의 이름을 지정 합니다. 스트림이 대상 테이블과 동일한 데이터베이스 및 스키마에 생성 된 경우에는 테이블 이름 접미사 합니다. 그렇지 않으면 테이블 이름을 정규화 해야 합니다 (<database_name. schema_name).
-   - Azure Blob Storage stream 개체 위치는 Blob 컨테이너 내에서 사용할 경로 패턴을 참조 합니다. 이 기능에 대 한 자세한 내용은 (/articles/stream-analytics/stream-analytics-define-outputs.md # blob-storage-gen2)를 참조 하세요.
+   - Edge Hub 또는 Kafka 스트림 개체의 경우, 위치는 데이터를 읽거나 쓸 Edge Hub 또는 Kafka 토픽의 이름을 지정합니다.
+   - SQL 스트림 개체(SQL Server, Azure SQL Database 또는 Azure SQL Edge)의 경우, 위치는 테이블의 이름을 지정합니다. 스트림이 대상 테이블과 동일한 데이터베이스 및 스키마에 생성된 경우에는 테이블 이름 접미사만 지정됩니다. 그렇지 않으면 테이블 이름을 정규화해야 합니다(<database_name.schema_name.table_name).
+   - Azure Blob Storage 스트림 개체 위치는 Blob 컨테이너 내에서 사용할 경로 패턴을 참조합니다. 이 기능에 대한 자세한 내용은 (/articles/stream-analytics/stream-analytics-define-outputs.md#blob-storage-and-azure-data-lake-gen2)를 참조하세요.
 
-- **INPUT_OPTIONS**: 옵션을 키-값 쌍으로 지정 합니다 (예: Kafka, 스트리밍 쿼리를 입력 하는 IoT Edge 허브).
-    - 파티션: 토픽에 대해 정의 된 파티션 수입니다. 사용할 수 있는 최대 파티션 수는 32 개로 제한 됩니다.
-      - Kafka 입력 스트림에 적용 됩니다.
+- **INPUT_OPTIONS**: 옵션을 스트리밍 쿼리의 입력인 Kafka, IoT Edge Hub와 같은 서비스의 키-값 쌍으로 지정합니다.
+    - 파티션: 토픽에 대해 정의된 파티션 수입니다. 사용할 수 있는 최대 파티션 수는 32개로 제한됩니다.
+      - Kafka 입력 스트림에 적용됩니다.
     - CONSUMER_GROUP: Event 및 IoT Hubs는 한 소비자 그룹 내의 reader 수를 5로 제한합니다. 이 필드를 비워 두면 '$Default' 소비자 그룹이 사용됩니다.
-      - 향후 사용을 위해 예약 되었습니다. Azure SQL Edge에는 적용 되지 않습니다.  
+      - 사용하도록 예약되었습니다. Azure SQL Edge에는 적용되지 않습니다.  
     - TIME_POLICY: 지연 이벤트 또는 잘못된 이벤트가 허용 오차 값을 전달할 때 이벤트를 삭제할 것인지 아니면 이벤트 시간을 조정할 것인지 여부를 설명합니다.
-      - 향후 사용을 위해 예약 되었습니다. Azure SQL Edge에는 적용 되지 않습니다.
+      - 사용하도록 예약되었습니다. Azure SQL Edge에는 적용되지 않습니다.
     - LATE_EVENT_TOLERANCE: 허용되는 최대 시간 지연입니다. 지연은 이벤트의 타임스탬프와 시스템 시계의 차이를 나타냅니다.
-      - 향후 사용을 위해 예약 되었습니다. Azure SQL Edge에는 적용 되지 않습니다.
+      - 사용하도록 예약되었습니다. Azure SQL Edge에는 적용되지 않습니다.
     - OUT_OF_ORDER_EVENT_TOLERANCE: 이벤트가 입력에서 스트리밍 쿼리로 이동한 후 순서 없이 도착할 수 있습니다. 이러한 이벤트를 그대로 허용할 수도 있고, 일정 시간 동안 일시 중지하고 순서를 변경할 수도 있습니다.
-      - 향후 사용을 위해 예약 되었습니다. Azure SQL Edge에는 적용 되지 않습니다.
+      - 사용하도록 예약되었습니다. Azure SQL Edge에는 적용되지 않습니다.
         
 - **OUTPUT_OPTIONS**: 옵션을 스트리밍 쿼리의 출력인 지원되는 서비스의 키-값 쌍으로 지정합니다. 
   - REJECT_POLICY:  DROP | RETRY 데이터 변환 오류가 발생할 때 데이터 오류 처리 정책을 지정합니다. 
@@ -118,31 +118,31 @@ WITH  ( <with_options> )
     출력에 작성된 일괄 처리마다 필요한 최소 행 수입니다. Parquet의 경우 일괄 처리마다 새 파일을 만듭니다. 
     - 적용 대상: 지원되는 모든 출력 
   - MAXIMUM_TIME:  
-    일괄 처리당 최대 대기 시간 (분)입니다. 이 시간이 지나면 최소 행 수 요구 사항이 충족되지 않아도 일괄 처리가 출력에 기록됩니다. 
+    일괄 처리당 최대 대기 시간(분 단위)입니다. 이 시간이 지나면 최소 행 수 요구 사항이 충족되지 않아도 일괄 처리가 출력에 기록됩니다. 
     - 적용 대상: 지원되는 모든 출력 
   - PARTITION_KEY_COLUMN:  
     파티션 키에 사용되는 열입니다. 
-    - 향후 사용을 위해 예약 되었습니다. Azure SQL Edge에는 적용 되지 않습니다.
+    - 사용하도록 예약되었습니다. Azure SQL Edge에는 적용되지 않습니다.
   - PROPERTY_COLUMNS:  
     쉼표로 구분된 출력 열 이름 목록이며, 메시지에 사용자 지정 속성으로 첨부되는 방식으로 제공됩니다.  
-    - 향후 사용을 위해 예약 되었습니다. Azure SQL Edge에는 적용 되지 않습니다. 
+    - 사용하도록 예약되었습니다. Azure SQL Edge에는 적용되지 않습니다. 
   - SYSTEM_PROPERTY_COLUMNS:  
     Service Bus 메시지에서 채워질 시스템 속성 이름 및 출력 열의 JSON 형식 이름/값 쌍 컬렉션입니다. 예: { "MessageId":   "column1", "PartitionKey": "column2"} 
-    - 향후 사용을 위해 예약 되었습니다. Azure SQL Edge에는 적용 되지 않습니다. 
+    - 사용하도록 예약되었습니다. Azure SQL Edge에는 적용되지 않습니다. 
   - PARTITION_KEY:  
     파티션 키를 포함하는 출력 열의 이름입니다. 파티션 키는 특정 테이블 내에서 분할의 고유 식별자 역할을 하며 엔터티 기본 키의 첫 번째 부분을 형성합니다. 크기가 최대 1KB인 문자열 값입니다. 
-    - 향후 사용을 위해 예약 되었습니다. Azure SQL Edge에는 적용 되지 않습니다.
+    - 사용하도록 예약되었습니다. Azure SQL Edge에는 적용되지 않습니다.
   - ROW_KEY:  
     행 키를 포함하는 출력 열의 이름입니다. 행 키는 주어진 파티션 내 엔터티의 고유 식별자입니다. 엔터티 기본 키의 두 번째 부분을 형성합니다. 행 키는 크기가 최대 1KB인 문자열 값입니다. 
-    - 향후 사용을 위해 예약 되었습니다. Azure SQL Edge에는 적용 되지 않습니다.
+    - 사용하도록 예약되었습니다. Azure SQL Edge에는 적용되지 않습니다.
   - BATCH_SIZE:  
     최대 레코드 수가 100개인 테이블 스토리지의 트랜잭션 수를 나타냅니다. Azure Functions의 경우 호출마다 함수로 전송되는 일괄 처리 크기(바이트)를 나타내며 기본값은 256kB입니다. 
-    - 향후 사용을 위해 예약 되었습니다. Azure SQL Edge에는 적용 되지 않습니다. 
+    - 사용하도록 예약되었습니다. Azure SQL Edge에는 적용되지 않습니다. 
   - MAXIMUM_BATCH_COUNT:  
     Azure 함수 호출마다 함수에 전송되는 최대 이벤트 수이며 기본값은 100입니다. SQL Database의 경우 모든 대량 삽입 트랜잭션과 함께 전송되는 최대 레코드 수이며 기본값은 10,000입니다. 
-    - 모든 SQL 기반 출력에 적용 됩니다. 
-  - STAGING_AREA: Azure Synapse Analytics에 처리량이 높은 데이터를 수집 하기 위한 스테이징 영역을 Blob Storage 하는 외부 데이터 원본 개체 
-    - 향후 사용을 위해 예약 되었습니다. Azure SQL Edge에는 적용 되지 않습니다.
+    - 모든 SQL 기반 출력에 적용됩니다. 
+  - STAGING_AREA: EXTERNAL DATA SOURCE 개체에서 Blob Storage로 적용. Azure Synapse Analytics에 높은 처리량의 데이터를 수집하기 위한 준비 영역입니다. 
+    - 사용하도록 예약되었습니다. Azure SQL Edge에는 적용되지 않습니다.
 
 
 ## <a name="examples"></a>예

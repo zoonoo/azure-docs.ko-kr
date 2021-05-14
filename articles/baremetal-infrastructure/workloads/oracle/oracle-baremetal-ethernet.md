@@ -4,12 +4,12 @@ description: Oracle 워크로드의 BareMetal 인스턴스에 관련된 이더�
 ms.topic: reference
 ms.subservice: workloads
 ms.date: 04/14/2021
-ms.openlocfilehash: c57cbc86d17090d6960a334c2790d80b43420aca
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: c381d06c5f152ef1bfecfb76747bf26dbb24f06e
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588890"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109516960"
 ---
 # <a name="ethernet-configuration-of-baremetal-for-oracle"></a>Oracle용 BareMetal의 이더넷 구성
 
@@ -58,7 +58,7 @@ BareMetal 인스턴스의 경우 기본값에는 논리적 NIC 4개의 할당된
 - 이더넷 “C”에는 NFS 스토리지에 대한 통신에 사용되는 할당된 IP 주소가 있어야 합니다. 이 유형의 주소는 etc/hosts 디렉터리에서 유지 관리하면 안 됩니다.
 - 이더넷 “D”는 DR 지역에서 BareMetal 인스턴스에 액세스하도록 글로벌 환경을 설정하는 데만 사용되어야 합니다.
 
-## <a name="next-step"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
 Oracle용 BareMetal Infrastructure 아키텍처에 관해 자세히 알아봅니다.
 

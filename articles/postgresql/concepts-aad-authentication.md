@@ -1,17 +1,17 @@
 ---
 title: Active Directory 인증 - Azure Database for PostgreSQL - 단일 서버
 description: Azure Database for PostgreSQL - 단일 서버 인증을 위한 Azure Active Directory 개념에 대해 알아봅니다.
-author: lfittl
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 0a19bd9d1547c16937ee575c08ea15a52589ccd0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: ff588a2fdc079c4b5a1cd50ddc4441a079d3feed
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87171046"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960923"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>PostgreSQL 인증을 위한 Azure Active Directory 사용
 
@@ -70,7 +70,7 @@ Azure Active Directory 인증에서는 Azure AD ID를 사용하여 데이터베�
 
 Active Directory에 대해 인증을 수행한 후 토큰을 검색합니다. 이 토큰은 로그인에 사용되는 암호입니다.
 
-새 사용자를 추가 하는 등의 관리 작업은이 시점에서 Azure AD 사용자 역할에 대해서만 지원 됩니다.
+새 사용자를 추가하는 등의 관리 작업은 이 시점에서 Azure AD 사용자 역할에만 지원됩니다.
 
 > [!NOTE]
 > Active Directory 토큰으로 연결하는 방법에 대한 자세한 내용은 [Azure Database for PostgreSQL에서 Azure AD 구성 및 로그인](howto-configure-sign-in-aad-authentication.md)을 참조하세요.

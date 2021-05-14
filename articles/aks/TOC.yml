@@ -51,7 +51,7 @@
     - name: 보안
       items:
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/aks-security-baseline?context=/azure/aks/context/aks-context
         - name: 애플리케이션 및 클러스터에 대한 보안
           href: concepts-security.md
         - name: Azure Policy의 보안 컨트롤
@@ -136,8 +136,10 @@
       items:
         - name: AKS 클러스터 크기 조정
           href: scale-cluster.md
-        - name: AKS 클러스터 중지(미리 보기)
+        - name: AKS 클러스터 중지
           href: start-stop-cluster.md
+        - name: 계획된 유지 관리 사용(미리 보기)
+          href: planned-maintenance.md
         - name: AKS 클러스터 업그레이드
           href: upgrade-cluster.md
         - name: 작동 시간 SLA 사용
@@ -207,6 +209,8 @@
               href: azure-disk-csi.md
             - name: Azure Files CSI 드라이버(미리 보기)
               href: azure-files-csi.md
+            - name: CSI 비밀 저장소 드라이버(미리 보기)
+              href: csi-secrets-store-driver.md
     - name: 네트워킹 구성
       items:
         - name: 기존 가상 네트워크 만들기 또는 사용
@@ -268,7 +272,7 @@
           href: use-pod-security-policies.md
         - name: API 서버 권한이 부여된 IP 범위 정의
           href: api-server-authorized-ip-ranges.md
-        - name: Azure Policy로 컨트롤 배포(미리 보기)
+        - name: Azure Policy로 배포 제어
           href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
         - name: 클러스터 자격 증명 업데이트
           href: update-credentials.md
@@ -293,6 +297,8 @@
           href: enable-host-encryption.md
     - name: 모니터링 및 로깅
       items:
+        - name: 클러스터 메트릭 보기
+          href: view-metrics.md
         - name: 컨테이너용 Azure Monitor
           href: ../azure-monitor/containers/container-insights-overview.md
           maintainContext: true
@@ -347,6 +353,8 @@
       items:
         - name: 서비스 메시 정보
           href: servicemesh-about.md
+        - name: Open Service Mesh AKS 추가 기능(미리 보기)
+          href: servicemesh-osm-about.md
         - name: Istio 사용
           items:
             - name: Istio 정보
@@ -397,7 +405,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/aks
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/aks
     - name: PowerShell
       href: /powershell/module/az.aks#aks

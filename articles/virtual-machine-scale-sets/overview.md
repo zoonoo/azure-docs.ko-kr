@@ -1,20 +1,19 @@
 ---
 title: Azure 가상 머신 확장 집합 개요
 description: Azure 가상 머신 확장 집합 및 애플리케이션의 크기를 자동으로 조정하는 방법을 알아봅니다.
-author: mimckitt
-ms.author: mimckitt
+author: ju-shim
+ms.author: jushiman
 ms.topic: overview
 ms.service: virtual-machine-scale-sets
 ms.subservice: ''
 ms.date: 06/30/2020
-ms.reviewer: jushiman
-ms.custom: mimckitt
-ms.openlocfilehash: 76d3bc1e1736e648316bcd81bf8897d1d2f272a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: mimckitt
+ms.openlocfilehash: 519b5388497ee43420befa5eac4a07ffcee8085c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101672590"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108738236"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>가상 머신 확장 집합이란?
 Azure 가상 머신 확장 집합을 사용하면 부하 분산된 VM의 그룹을 만들고 관리할 수 있습니다. VM 인스턴스의 수는 요구 또는 정의된 일정에 따라 자동으로 늘리거나 줄일 수 있습니다. 확장 집합은 애플리케이션에 고가용성을 제공하고 많은 수의 VM을 중앙에서 관리, 구성 및 업데이트할 수 있게 합니다. 가상 머신 확장 집합을 사용하면 컴퓨팅, 빅 데이터 및 컨테이너 작업과 같은 영역에 대한 대규모 서비스를 구축할 수 있습니다.

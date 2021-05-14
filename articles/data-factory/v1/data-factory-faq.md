@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 450a12ae5ae1e13c9cc9b5599a41b6c29d740a9f
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104785328"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure 데이터 팩터리 - 질문과 대답
@@ -29,7 +29,7 @@ Data Factory를 사용하면 온-프레미스와 클라우드 데이터 저장�
 자세한 내용은 [개요 및 주요 개념](data-factory-introduction.md)을 참조하세요.
 
 ### <a name="where-can-i-find-pricing-details-for-azure-data-factory"></a>Azure 데이터 팩터리에 대한 가격 정보는 어디서 찾을 수 있나요?
-Azure Data Factory에 대 한 가격 정보는 [Data Factory 가격 정보 페이지][adf-pricing-details] 를 참조 하세요.  
+Azure Data Factory에 대한 가격 책정 세부 정보는 [Data Factory 가격 책정 세부 정보 페이지][adf-pricing-details]를 참조하세요.  
 
 ### <a name="how-do-i-get-started-with-azure-data-factory"></a>Azure 데이터 팩터리를 시작하려면 어떻게 해야 하나요?
 * Azure 데이터 팩터리에 대한 개요는 [Azure 데이터 팩터리 소개](data-factory-introduction.md)를 참조하세요.
@@ -55,7 +55,7 @@ Data Factory는 **미국 서부** 및 **북유럽** 에서 사용할 수 있습�
 아니요. 다른 Azure 리소스와 마찬가지로 Azure 데이터 팩터리의 이름을 변경할 수 없습니다.
 
 ### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>데이터 팩터리를 Azure 구독 간에 이동할 수 있나요?
-예. 다음 다이어그램에 표시 된 것 처럼 데이터 팩터리 블레이드의 **이동** 단추를 사용 합니다.
+예. 다음 다이어그램과 같이 데이터 팩터리 블레이드의 **이동** 단추를 사용합니다.
 
 ![데이터 팩터리 이동](media/data-factory-faq/move-data-factory.png)
 
@@ -66,12 +66,12 @@ Data Factory는 **미국 서부** 및 **북유럽** 에서 사용할 수 있습�
 | --- | --- |
 | [주문형 HDInsight 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 또는 [사용자 고유의 HDInsight 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning Studio (클래식)](data-factory-compute-linked-services.md#azure-machine-learning-studio-classic-linked-service) |[Studio (클래식) 활동: 일괄 처리 실행 및 업데이트 리소스](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning Studio(클래식)](data-factory-compute-linked-services.md#azure-machine-learning-studio-classic-linked-service) |[Studio(클래식) 작업: 일괄 실행 및 리소스 업데이트](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[데이터 레이크 분석 U-SQL](data-factory-usql-activity.md) |
-| [AZURE SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [azure Synapse Analytics](data-factory-compute-linked-services.md#azure-synapse-analytics-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[저장 프로시저](data-factory-stored-proc-activity.md) |
+| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure Synapse Analytics](data-factory-compute-linked-services.md#azure-synapse-analytics-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[저장 프로시저](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Azure Data Factory를 SSIS(SQL Server Integration Services)와 비교하면 어떻게 다른가요? 
-Microsoft Mvp (가장 중요 한 전문가) 중 하나에서 [Azure Data Factory와 SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) 프레젠테이션을 참조 하세요. Reza Rad. 데이터 팩터리의 최근 변경 내용 중 일부는 슬라이드 모음에 표시되지 않을 수 있습니다. 지속적으로 Azure Data Factory에 기능을 추가할 예정입니다. 지속적으로 Azure Data Factory에 기능을 추가할 예정입니다. 이러한 업데이트는 올해 후반기에 Microsoft의 데이터 통합 기술 비교 자료에 포함될 예정입니다.   
+Microsoft MVP(가장 중요한 전문가) 중 하나인 Reza Rad 님의 [Azure Data Factory vs. SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) 프레젠테이션을 참조하세요. 데이터 팩터리의 최근 변경 내용 중 일부는 슬라이드 모음에 표시되지 않을 수 있습니다. 지속적으로 Azure Data Factory에 기능을 추가할 예정입니다. 지속적으로 Azure Data Factory에 기능을 추가할 예정입니다. 이러한 업데이트는 올해 후반기에 Microsoft의 데이터 통합 기술 비교 자료에 포함될 예정입니다.   
 
 ## <a name="activities---faq"></a>작업 - FAQ
 ### <a name="what-are-the-different-types-of-activities-you-can-use-in-a-data-factory-pipeline"></a>Data Factory 파이프라인에서 사용할 수 있는 다른 형식의 작업은 무엇인가요?
@@ -166,12 +166,12 @@ dataset4(데이터 팩터리 1의 파이프라인 2에 의해 생성)를 사용�
 
 * 모니터링 및 관리 앱을 사용하여 작업 창 또는 조각을 다시 실행합니다. 지침에 대해서는 [선택한 작업 창 다시 실행](data-factory-monitor-manage-app.md#perform-batch-actions)을 참조하세요.   
 * Azure 포털에서 조각의 **데이터 조각** 블레이드에 대해 명령 모음의 **실행** 을 클릭합니다.
-* 상태를 조각 **대기 중** 으로 설정 하 여 **AzDataFactorySliceStatus** cmdlet을 실행 합니다.   
+* 조각의 상태를 **Waiting** 으로 설정하여 **Set-AzDataFactorySliceStatus** cmdlet을 실행합니다.   
 
     ```powershell
     Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-  Cmdlet에 대 한 자세한 내용은 [AzDataFactorySliceStatus][set-azure-datafactory-slice-status] 를 참조 하십시오.
+  cmdlet에 대한 자세한 내용은 [Set-AzDataFactorySliceStatus][set-azure-datafactory-slice-status]를 참조하세요.
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>조각을 처리하는 데 얼마나 오래 걸렸나요?
 모니터링 및 관리 앱에서 작업 창 탐색기를 사용하여 데이터 조각을 처리하는 데 걸린 시간을 확인합니다. 자세한 내용은 [작업 창 탐색기](data-factory-monitor-manage-app.md#activity-window-explorer)를 참조하세요.
@@ -186,7 +186,7 @@ Azure 포털에서 다음을 수행할 수도 있습니다.
 6. **기간** 필드와 값이 표시됩니다. 이 값은 조각을 처리하는 데 소요된 시간입니다.   
 
 ### <a name="how-to-stop-a-running-slice"></a>실행 중인 조각을 중지하려면 어떻게 해야 하나요?
-파이프라인 실행을 중지 해야 하는 경우 [AzDataFactoryPipeline](/powershell/module/az.datafactory/suspend-azdatafactorypipeline) cmdlet을 사용할 수 있습니다. 현재, 파이프라인을 일시 중단해도 진행 중인 조각 실행은 중지되지 않습니다. 진행 중인 실행이 완료되면 추가 조각이 선택되지 않습니다.
+파이프라인 실행을 중지해야 하는 경우 [Suspend-Set-AzDataFactorySliceStatus](/powershell/module/az.datafactory/suspend-azdatafactorypipeline) cmdlet을 사용할 수 있습니다. 현재, 파이프라인을 일시 중단해도 진행 중인 조각 실행은 중지되지 않습니다. 진행 중인 실행이 완료되면 추가 조각이 선택되지 않습니다.
 
 모든 실행을 즉시 중지하려면 파이프라인을 삭제하고 다시 만들어야 합니다. 파이프라인을 삭제하도록 선택하는 경우 파이프라인에서 사용되는 테이블 및 연결된 서비스를 삭제할 필요는 없습니다.
 

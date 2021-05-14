@@ -1,18 +1,15 @@
 ---
 title: Azure Site Recovery를 사용하여 물리적 온-프레미스 서버에 대한 재해 복구 설정
 description: Azure Site Recovery 서비스를 사용하여 Azure에 온-프레미스 Windows 및 Linux 서버에 대한 재해 복구를 설정하는 방법을 알아봅니다.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/12/2019
-ms.author: raynew
-ms.openlocfilehash: 9b05d9952628e550beae5cedc49e051936a9d633
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 056c8118f2b1ab483e31771c4b8ead3fe6da4598
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87927286"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949600"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Azure에 온-프레미스 물리적 서버에 대한 재해 복구 설정
 
@@ -27,7 +24,7 @@ ms.locfileid: "87927286"
 > * 복제 정책 만들기
 > * 서버에 대해 복제 사용
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -51,7 +48,7 @@ ms.locfileid: "87927286"
 Microsoft [Azure 계정](https://azure.microsoft.com/)을 얻습니다.
 
 - [평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다.
-- [Site Recovery 가격 책정](site-recovery-faq.md#pricing)에 대해 알아보고 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/site-recovery/)를 가져옵니다.
+- [Site Recovery 가격 책정](/azure/site-recovery/site-recovery-faq#pricing)에 대해 알아보고 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/site-recovery/)를 가져옵니다.
 - Site Recovery에 대해 [지원되는 지역](https://azure.microsoft.com/pricing/details/site-recovery/)을 알아보세요.
 
 ### <a name="verify-azure-account-permissions"></a>Azure 계정 권한 확인

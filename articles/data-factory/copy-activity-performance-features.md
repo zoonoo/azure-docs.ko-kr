@@ -1,18 +1,18 @@
 ---
 title: 복사 작업 성능 최적화 기능
 description: Azure Data Factory에서 복사 작업 성능을 최적화하는 데 도움이 되는 주요 기능에 대해 알아봅니다.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/24/2020
-ms.openlocfilehash: ecb4550b218b069273cba2e3d70a9510c1cc74ca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e161ddbeaad0f9e366baa1265622bede93d5b567
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100387804"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109482618"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>복사 작업 성능 최적화 기능
 
@@ -143,7 +143,7 @@ ms.locfileid: "100387804"
 
 복사 작업에서 **enableStaging** 설정을 구성하여 데이터를 대상 데이터 저장소에 로드하기 전에 스토리지에 데이터를 스테이징할지 여부를 지정합니다. **enableStaging** 을 `TRUE`으로 설정한 경우, 다음 표에 나열된 추가 속성을 지정해야 합니다. 
 
-| 속성 | Description | 기본값 | 필수 |
+| 속성 | 설명 | 기본값 | 필수 |
 | --- | --- | --- | --- |
 | enableStaging |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |False |예 |
 | linkedServiceName |중간 준비 저장소로 사용할 스토리지 인스턴스를 참조하여 이름을 [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties)에 연결된 서비스로 지정합니다. |해당 없음 |예, **enableStaging** 이 TRUE로 설정된 경우입니다. |

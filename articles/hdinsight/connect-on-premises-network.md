@@ -1,15 +1,15 @@
 ---
-title: Azure HDInsight를 온-프레미스 네트워크에 연결
+title: 온-프레미스 네트워크에 Azure HDInsight 연결
 description: Azure Virtual Network에서 HDInsight 클러스터를 만들고 온-프레미스 네트워크에 연결하는 방법을 알아봅니다. 사용자 지정 DNS 서버를 사용하여 HDInsight와 온-프레미스 네트워크 간에 이름 확인을 구성하는 방법을 알아봅니다.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
 ms.openlocfilehash: f26813176d4286a052772d2096427231759aacc2
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104863380"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>온-프레미스 네트워크에 HDInsight 연결
@@ -25,24 +25,24 @@ Azure Virtual Networks와 VPN Gateway를 사용하여 HDInsight를 온-프레미
 
 HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도록 하려면 다음 작업을 수행해야 합니다.
 
-1. Azure Virtual Network를 만듭니다.
+1. Azure 가상 네트워크를 만듭니다.
 1. Azure Virtual Network에서 사용자 지정 DNS 서버 만들기
 1. 기본 Azure Recursive Resolver 대신 사용자 지정 DNS 서버를 사용하도록 가상 네트워크를 구성합니다.
 1. 사용자 지정 DNS 서버와 온-프레미스 DNS 서버 간에 전달을 구성합니다.
 
-이러한 구성을 통해 다음과 같은 동작을 수행할 수 있습니다.
+이 구성을 통해 다음과 같은 동작을 수행할 수 있습니다.
 
 * __가상 네트워크에 대한__ DNS 접미사가 있는 정규화된 도메인 이름의 요청을 사용자 지정 DNS 서버로 전달합니다. 그런 다음 사용자 지정 DNS 서버는 IP 주소를 반환하는 Azure Recursive Resolver에 이러한 요청을 전달합니다.
 * 다른 모든 요청을 온-프레미스 DNS 서버에 전달합니다. 이름 확인을 위해 Microsoft.com과 같은 인터넷 리소스에 대한 요청을 온-프레미스 DNS 서버에 전달합니다.
 
 다음 다이어그램에서 녹색 선은 가상 네트워크의 DNS 접미사로 끝나는 리소스에 대한 요청입니다. 파란색 선은 온-프레미스 네트워크 또는 공용 인터넷에 있는 리소스에 대한 요청입니다.
 
-:::image type="content" source="./media/connect-on-premises-network/on-premises-to-cloud-dns.png" alt-text="구성에서 DNS 요청을 확인 하는 방법에 대 한 다이어그램" border="false":::
+:::image type="content" source="./media/connect-on-premises-network/on-premises-to-cloud-dns.png" alt-text="구성에서 DNS 요청을 해결하는 방법을 보여 주는 다이어그램" border="false":::
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](./hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
-* PowerShell을 사용 하는 경우 [AZ Module](/powershell/azure/)이 필요 합니다.
+* PowerShell을 사용하는 경우 [AZ 모듈](/powershell/azure/)이 필요합니다.
 * Azure CLI를 사용하려 하나 아직 설치하지 않은 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-virtual-network-configuration"></a>가상 네트워크 구성 만들기
@@ -66,7 +66,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 
     :::image type="content" source="./media/connect-on-premises-network/azure-portal-create-resource.png" alt-text="Ubuntu 가상 머신 만들기":::
 
-1. **계산**  >  **가상 머신** 을 선택 하 여 **가상 머신 만들기** 페이지로 이동 합니다.
+1. **컴퓨팅** > **가상 머신** 을 선택하여 **가상 머신 만들기** 페이지로 이동합니다.
 
 1. __기본__ 탭에 다음 정보를 입력합니다.  
   
@@ -77,11 +77,11 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
     |가상 머신 이름 | 이 가상 머신을 식별하는 이름을 입력합니다. 이 예제에서는 **DNSProxy** 를 사용합니다.|
     |지역 | 앞에서 만든 가상 네트워크와 동일한 지역을 선택합니다.  일부 VM 크기는 일부 지역에서 사용할 수 없습니다.  |
     |가용성 옵션 |  원하는 가용성 수준을 선택합니다.  Azure에서는 애플리케이션 가용성과 복원력을 관리하는 다양한 옵션을 제공합니다.  가용성 영역 또는 가용성 집합에 복제된 VM을 사용하도록 솔루션을 설계하면 데이터 센터 중단 및 유지 관리 이벤트 시 앱과 데이터를 보호할 수 있습니다. 이 예제에서는 **인프라 중복이 필요하지 않습니다** 를 사용합니다. |
-    |이미지 | **Ubuntu Server 18.04 LTS** 에 그대로 둡니다. |
-    |인증 유형 | __암호__ 또는 __ssh 공개 키__: ssh 계정에 대 한 인증 방법입니다. 공개 키를 사용 하는 것이 더 안전 하므로 공개 키를 사용 하는 것이 좋습니다. 이 예제에서는 **암호** 를 사용 합니다.  자세한 내용은 [Linux VM에 대한 SSH 키 만들기 및 사용](../virtual-machines/linux/mac-create-ssh-keys.md) 문서를 참조하세요.|
+    |이미지 | **Ubuntu Server 18.04 LTS** 로 둡니다. |
+    |인증 유형 | __암호__ 또는 __SSH 공개 키__: SSH 계정에 대한 인증 방법입니다. 보다 안전한 공개 키를 사용하는 것이 좋습니다. 이 예에서는 **암호** 를 사용합니다.  자세한 내용은 [Linux VM에 대한 SSH 키 만들기 및 사용](../virtual-machines/linux/mac-create-ssh-keys.md) 문서를 참조하세요.|
     |사용자 이름 |VM의 관리자 이름을 입력합니다.  이 예제에서는 **sshuser** 를 사용합니다.|
     |암호 또는 SSH 공개 키 | 사용 가능한 필드는 **인증 형식** 에 대한 사용자의 선택에 따라 결정됩니다.  적절한 값을 입력합니다.|
-    |공용 인바운드 포트|**선택한 포트 허용** 을 선택합니다. 그런 다음 **인바운드 포트 선택** 드롭다운 목록에서 **SSH (22)** 를 선택 합니다.|
+    |공용 인바운드 포트|**선택한 포트 허용** 을 선택합니다. 그런 다음 **인바운드 포트 선택** 드롭다운 목록에서 **SSH(22)** 를 선택합니다.|
 
     :::image type="content" source="./media/connect-on-premises-network/virtual-machine-basics.png" alt-text="가상 컴퓨터 기본 구성":::
 
@@ -103,7 +103,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 
 ### <a name="review-ip-addresses"></a>IP 주소 검토
 
-가상 머신을 만든 후 **에는 리소스로 이동** 단추를 사용 하 여 **배포 성공** 알림을 받게 됩니다.  **리소스로 이동** 을 선택하여 새 가상 머신으로 이동합니다.  새 가상 머신에 대한 기본 보기에서 다음 단계에 따라 연결된 IP 정보를 식별합니다.
+가상 머신이 만들어지면 **리소스로 이동** 단추가 포함된 **배포 성공** 알림을 받게 됩니다.  **리소스로 이동** 을 선택하여 새 가상 머신으로 이동합니다.  새 가상 머신에 대한 기본 보기에서 다음 단계에 따라 연결된 IP 정보를 식별합니다.
 
 1. **설정** 에서 **속성** 을 선택합니다.
 
@@ -126,7 +126,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
     sudo apt-get install bind9 -y
     ```
 
-3. 온-프레미스 DNS 서버에 이름 확인 요청을 전달 하도록 바인딩을 구성 하려면 파일의 내용으로 다음 텍스트를 사용 합니다 `/etc/bind/named.conf.options` .
+3. 온-프레미스 DNS 서버에 이름 확인 요청을 전달하도록 Bind를 구성하려면 다음 텍스트를 `/etc/bind/named.conf.options` 파일의 콘텐츠로 사용합니다.
 
     ```DNS Zone file
     acl goodclients {
@@ -179,7 +179,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
     dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
     ```
 
-    `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` 텍스트는 이 가상 네트워크에 대한 __DNS 접미사__ 입니다. 이 값은 나중에 사용 되므로 저장 합니다.
+    `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` 텍스트는 이 가상 네트워크에 대한 __DNS 접미사__ 입니다. 이 값은 나중에 사용되므로 저장합니다.
 
 5. 가상 네트워크 내에서 리소스의 DNS 이름을 확인하도록 바인딩을 구성하려면 `/etc/bind/named.conf.local` 파일의 내용에 다음과 같은 텍스트를 사용합니다.
 
@@ -231,11 +231,11 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
     Address: 192.168.0.4
     ```
 
-## <a name="configure-virtual-network-to-use-the-custom-dns-server"></a>사용자 지정 DNS 서버를 사용 하도록 가상 네트워크 구성
+## <a name="configure-virtual-network-to-use-the-custom-dns-server"></a>사용자 지정 DNS 서버를 사용하도록 가상 네트워크 구성
 
 Azure Recursive Resolver 대신 사용자 지정 DNS 서버를 사용하도록 가상 네트워크를 구성하려면 [Azure Portal](https://portal.azure.com)에서 다음 단계를 사용합니다.
 
-1. 왼쪽 메뉴에서 **모든 서비스**  >  **네트워킹**  >  **가상 네트워크** 로 이동 합니다.
+1. 왼쪽 메뉴에서 **모든 서비스** > **네트워킹** > **가상 네트워크** 로 이동합니다.
 
 2. 목록에서 가상 네트워크를 선택하면 가상 네트워크에 대한 기본 보기가 열립니다.  
 
@@ -266,7 +266,7 @@ zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
 
 **Windows Server 2016** 에서 DNS를 사용하는 방법에 대한 내용은 [Add-DnsServerConditionalForwarderZone](/powershell/module/dnsserver/add-dnsserverconditionalforwarderzone) 설명서를 참조하세요...
 
-온-프레미스 DNS 서버를 구성한 후 `nslookup` 온-프레미스 네트워크에서를 사용 하 여 가상 네트워크에서 이름을 확인할 수 있는지 확인할 수 있습니다. 다음 예제 
+온-프레미스 DNS 서버를 구성한 후 온-프레미스 네트워크에서 `nslookup`을 사용하여 가상 네트워크에서 이름을 확인할 수 있는지 확인할 수 있습니다. 다음 예제 
 
 ```bash
 nslookup dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net 196.168.0.4
@@ -285,8 +285,8 @@ NSG(네트워크 보안 그룹) 또는 UDR(사용자 정의 경로)를 사용하
 
 2. 1단계에서 확인된 IP 주소의 경우, 해당 IP에서의 인바운드 트래픽을 허용합니다.
 
-   * __Nsg__ 를 사용 하는 경우: IP 주소에 대해 포트 __443__ 에서 __인바운드__ 트래픽을 허용 합니다.
-   * __Udr__ 을 사용 하는 경우: IP 주소에 대 한 경로의 __다음 홉__ 유형을 __인터넷__ 으로 설정 합니다.
+   * __NSG__ 를 사용하는 경우: IP 주소에 대해 포트 __443__ 에서 __인바운드__ 트래픽을 허용합니다.
+   * __UDR__ 을 사용하는 경우: IP 주소에 대해 경로의 __다음 홉__ 유형을 __인터넷__ 으로 설정합니다.
 
 Azure PowerShell 또는 Azure CLI를 사용하여 NSG를 만드는 예제는 [Azure Virtual Network에서 HDInsight 확장](hdinsight-create-virtual-network.md#hdinsight-nsg) 문서를 참조하세요.
 
@@ -303,9 +303,9 @@ Azure PowerShell 또는 Azure CLI를 사용하여 NSG를 만드는 예제는 [Az
 
 ## <a name="connecting-to-hdinsight"></a>HDInsight에 연결
 
-HDInsight에 대한 대부분의 설명서는 인터넷을 통해 클러스터에 액세스할 수 있다고 가정합니다. 예를 들어 `https://CLUSTERNAME.azurehdinsight.net`에 있는 클러스터에 연결할 수 있습니다. 이 주소는 인터넷에서 액세스를 제한 하기 위해 NSGs 또는 UDRs을 사용한 경우에는 사용할 수 없는 공용 게이트웨이를 사용 합니다.
+HDInsight에 대한 대부분의 설명서는 인터넷을 통해 클러스터에 액세스할 수 있다고 가정합니다. 예를 들어 `https://CLUSTERNAME.azurehdinsight.net`에 있는 클러스터에 연결할 수 있습니다. 이 주소는 인터넷에서의 액세스를 제한하기 위해 NSG 또는 UDR을 사용한 경우에는 사용할 수 없는 퍼블릭 게이트웨이를 사용합니다.
 
-일부 설명서는 SSH 세션에서 클러스터에 연결하는 경우 `headnodehost`도 참조합니다. 이 주소는 클러스터 내의 노드에서만 사용할 수 있으며 가상 네트워크를 통해 연결 된 클라이언트에서는 사용할 수 없습니다.
+일부 설명서는 SSH 세션에서 클러스터에 연결하는 경우 `headnodehost`도 참조합니다. 이 주소는 클러스터 내의 노드에서만 사용할 수 있으며 가상 네트워크를 통해 연결된 클라이언트에서는 사용할 수 없습니다.
 
 가상 네트워크를 통해 HDInsight에 직접 연결하려면 다음 단계를 사용합니다.
 
@@ -340,7 +340,7 @@ HDInsight에 대한 대부분의 설명서는 인터넷을 통해 클러스터�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 가상 네트워크에서 HDInsight를 사용 하는 방법에 대 한 자세한 내용은 [Azure hdinsight 클러스터에 대 한 가상 네트워크 배포 계획](./hdinsight-plan-virtual-network-deployment.md)을 참조 하세요.
+* 가상 네트워크에서 HDInsight 사용에 대한 자세한 내용은 [Azure HDInsight 클러스터용 가상 네트워크 계획](./hdinsight-plan-virtual-network-deployment.md)을 참조하세요.
 
 * Azure 가상 네트워크에 대한 자세한 내용은 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 

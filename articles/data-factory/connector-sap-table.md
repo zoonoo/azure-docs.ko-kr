@@ -1,18 +1,18 @@
 ---
 title: SAP 테이블에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 SAP 테이블에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
-ms.author: jingwang
 author: linda33wj
+ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/12/2021
-ms.openlocfilehash: 4026d2f987ca37834231ac4d7e827ff543af9d2e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a455def13bbf65d01f2f22972c18d39c2b15f3c
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103232395"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788125"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP 테이블에서 데이터 복사
 
@@ -70,7 +70,7 @@ SAP 테이블에서 모든 지원되는 싱크 데이터 저장소로 데이터�
 
 ## <a name="get-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 SAP 테이블 커넥터와 관련된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 

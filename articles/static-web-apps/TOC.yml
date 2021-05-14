@@ -45,8 +45,14 @@
       href: application-settings.md
     - name: 프런트 엔드 프레임워크 및 라이브러리 구성
       href: front-end-frameworks.md
+    - name: 모니터링 사용
+      href: monitor.md
+      displayName: Application Insights
     - name: 배포 토큰 재설정
       href: deployment-token-management.md
+    - name: 문제 해결 오류
+      href: troubleshooting.md
+      displayName: 'deployment, runtime, errors'
 - name: 자습서
   items:
     - name: 정적 사이트 생성기에서 게시
@@ -67,6 +73,16 @@
           href: deploy-nextjs.md
         - name: Nuxt.js
           href: deploy-nuxtjs.md
+    - name: Mongoose.js 및 Cosmos DB로 데이터베이스 추가
+      href: add-mongoose.md
+    - name: Azure DevOps로 게시
+      href: publish-devops.md
+    - name: ARM 템플릿으로 게시
+      href: publish-azure-resource-manager.md
+- name: 참조
+  items:
+    - name: Azure CLI
+      href: /cli/azure/staticwebapp
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기

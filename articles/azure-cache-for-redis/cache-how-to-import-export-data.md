@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
 ms.openlocfilehash: 9ee3b447b2b5f6dfa8972749c3c46ae01f79bfdc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96327511"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Azure Cache for Redis에서 데이터 가져오기 및 내보내기
@@ -24,7 +24,7 @@ ms.locfileid: "96327511"
 이 문서에서는 Azure Cache for Redis를 사용하여 데이터를 가져오고 내보내는 방법에 대한 지침과 자주 묻는 질문에 대한 답변을 제공합니다.
 
 > [!IMPORTANT]
-> Import/Export는 [프리미엄 계층](cache-overview.md#service-tiers) 캐시에만 사용할 수 있습니다.
+> 가져오기/내보내기는 [프리미엄 계층](cache-overview.md#service-tiers) 캐시에만 사용할 수 있습니다.
 >
 >
 
@@ -66,7 +66,7 @@ ms.locfileid: "96327511"
 
 1. 캐시의 현재 콘텐츠를 스토리지로 내보내려면 Azure Portal에서 [캐시로 이동](cache-configure.md#configure-azure-cache-for-redis-settings)하여 **리소스 메뉴** 에서 **데이터 내보내기** 를 클릭합니다.
 
-    ![Contoso5premium의 탐색 창에서 관리 목록의 데이터 내보내기 옵션이 강조 표시 됩니다.](./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png)
+    ![contoso5premium의 탐색 창에서 관리 목록의 데이터 내보내기 옵션이 강조 표시됩니다.](./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png)
 2. **스토리지 컨테이너 선택** 을 클릭하고 원하는 스토리지 계정을 선택합니다. 스토리지 계정은 캐시와 동일한 구독 및 지역 내에 있어야 합니다.
 
    > [!IMPORTANT]
@@ -76,7 +76,7 @@ ms.locfileid: "96327511"
     ![스토리지 계정](./media/cache-how-to-import-export-data/cache-export-data-choose-account.png)
 3. 원하는 Blob 컨테이너를 선택하고 **선택** 을 클릭합니다. 새 컨테이너를 사용하려면 **컨테이너 추가** 를 클릭하여 컨테이너를 추가한 다음 목록에서 선택합니다.
 
-    ![Contoso55 용 컨테이너에서 + 컨테이너 옵션이 강조 표시 됩니다. Cachesaves 목록에는 하나의 컨테이너가 있고 선택 되어 강조 표시 됩니다. 선택 옵션이 선택 되 고 강조 표시 됩니다.](./media/cache-how-to-import-export-data/cache-export-data-container.png)
+    ![contoso55용 컨테이너에서 + 컨테이너 옵션이 강조 표시됩니다. cachesaves 목록에는 하나의 컨테이너가 있으며 선택되고 강조 표시됩니다. 선택 옵션이 선택되고 강조 표시됩니다.](./media/cache-how-to-import-export-data/cache-export-data-container.png)
 4. **Blob 이름 접두사** 를 입력하고 **내보내기** 를 클릭하여 내보내기 프로세스를 시작합니다. Blob 이름 접두사는 내보내기 작업에 의해 생성되는 파일의 이름에 접두사를 붙이는 데 사용됩니다.
 
     ![내보내기](./media/cache-how-to-import-export-data/cache-export-data.png)
@@ -152,6 +152,6 @@ The request to import data into cache 'contoso55' failed with status 'error' and
 내보내기는 페이지 Blob으로 저장된 RDB 파일에 대해서만 작동합니다. 현재 핫 및 쿨 계층의 Blob Storage 계정을 비롯한 다른 Blob 형식이 지원되지 않습니다. 자세한 내용은 [Azure Storage 계정 개요](../storage/common/storage-account-overview.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Cache for Redis 기능에 대해 자세히 알아보세요.
+Azure Cache for Redis 기능에 대해 알아봅니다.
 
-* [Redis 서비스 계층에 대 한 Azure 캐시](cache-overview.md#service-tiers)
+* [Azure Cache for Redis 서비스 계층](cache-overview.md#service-tiers)

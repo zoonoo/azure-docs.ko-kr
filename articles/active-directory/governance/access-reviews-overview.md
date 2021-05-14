@@ -3,7 +3,7 @@ title: 액세스 검토란? - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory 액세스 검토를 사용하면 조직의 거버넌스, 위험 관리 및 규정 준수 이니셔티브를 충족할 수 있도록 그룹 멤버 자격 및 애플리케이션 액세스를 제어할 수 있습니다.
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
 ms.date: 10/29/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 22bfef17f68b2e83e4f7462d8e9af6fb8aacc284
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7e02cb82895940fca43a53c671aecd46e19ef497
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98246743"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786630"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Azure AD 액세스 검토란?
 
@@ -101,9 +101,9 @@ Azure AD 게스트 사용자 액세스는 1:5 비율 청구 모델을 대체하�
 | --- | --- | --- |
 | 관리자는 75명의 사용자와 1명의 그룹 소유자가 있는 그룹 A의 액세스 검토를 만들고 그룹 소유자를 검토자로 할당합니다. | 검토자인 그룹 소유자용 라이선스 1개 | 1 |
 | 관리자는 500명의 사용자와 3명의 그룹 소유자가 있는 그룹 B의 액세스 검토를 만들고 3명의 그룹 소유자를 검토자로 할당합니다. | 검토자인 각 그룹 소유자용 라이선스 3개 | 3 |
-| 관리자가 500명의 사용자가 있는 그룹 B의 액세스 검토를 생성합니다. 자체적으로 검토합니다. | 자체 검토자인 각 사용자용 라이선스 500개 | 500 |
-| 관리자가 50명의 멤버 사용자와 25명의 게스트 사용자가 있는 그룹 C의 액세스 검토를 생성합니다. 자체적으로 검토합니다. | 자체 검토자인 각 사용자용 라이선스 50개.* | 50 |
-| 관리자가 6명의 멤버 사용자와 108명의 게스트 사용자가 있는 그룹 D의 액세스 검토를 생성합니다. 자체적으로 검토합니다. | 자체 검토자인 각 사용자용 라이선스 6개. 게스트 사용자에게는 MAU(월간 활성 사용자)를 기준으로 요금이 청구됩니다. 추가 라이선스는 필요하지 않습니다. *  | 6 |
+| 관리자가 500명의 사용자가 있는 그룹 B의 액세스 검토를 만듭니다. 자체적으로 검토합니다. | 자체 검토자인 각 사용자용 라이선스 500개 | 500 |
+| 관리자가 50명의 멤버 사용자와 25명의 게스트 사용자가 있는 그룹 C의 액세스 검토를 만듭니다. 자체적으로 검토합니다. | 자체 검토자인 각 사용자용 라이선스 50개.* | 50 |
+| 관리자가 6명의 멤버 사용자와 108명의 게스트 사용자가 있는 그룹 D의 액세스 검토를 만듭니다. 자체적으로 검토합니다. | 자체 검토자인 각 사용자용 라이선스 6개. 게스트 사용자에게는 MAU(월간 활성 사용자)를 기준으로 요금이 청구됩니다. 추가 라이선스는 필요하지 않습니다. *  | 6 |
 
 \* Azure AD 외부 ID(게스트 사용자) 가격은 MAU(월간 활성 사용자)를 기반으로 하며, 이는 한 달 내에 인증 활동이 있는 고유한 사용자의 수입니다. 이 모델은 테넌트의 각 Azure AD Premium 라이선스에 대해 최대 5명의 게스트 사용자를 허용하는 1:5 비율 청구 모델을 대체합니다. 테넌트가 구독에 연결되어 있고 외부 ID 기능을 사용하여 게스트 사용자와 협업하는 경우 MAU 기반 청구 모델을 사용하여 자동으로 청구됩니다. 자세한 내용은 Azure AD 외부 ID에 대한 청구 모델을 참조하세요.
 

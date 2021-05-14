@@ -1,6 +1,6 @@
 ---
-title: 제안 상태 검색-Azure Marketplace
-description: API를 제공 하 여 제품의 현재 상태를 검색 합니다.
+title: 제안 상태 검색 - Azure Marketplace
+description: 제안의 현재 상태를 검색하는 API입니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
@@ -8,16 +8,16 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 336f23f83c33bcee1887d0e41710e686b794a663
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87272014"
 ---
 # <a name="retrieve-offer-status"></a>제안 상태 검색
 
 > [!NOTE]
-> Cloud 파트너 포털 Api는와 통합 되며 파트너 센터에서 계속 작업 합니다. 전환에는 작은 변화가 도입 됩니다. [CLOUD 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md) 에 나열 된 변경 내용을 검토 하 여 파트너 센터로 전환 된 후 코드가 계속 작동 하는지 확인 합니다. CPP Api는 파트너 센터로 전환 하기 전에 이미 통합 된 기존 제품에만 사용 해야 합니다. 새 제품은 파트너 센터 제출 Api를 사용 해야 합니다.
+> Cloud 파트너 포털 API는 파트너 센터와 통합되었으며 계속 파트너 센터에서 작동합니다. 이러한 전환으로 인해 몇 가지 사소한 사항이 변경되었습니다. [Cloud 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md)에 나열된 변경 사항을 검토하여 파트너 센터로 전환한 후에도 코드가 계속 작동하는지 확인하세요. CPP API는 파트너 센터로 전환하기 전에 이미 통합된 기존 제품에만 사용해야 합니다. 새 제품은 파트너 센터 제출 API를 사용해야 합니다.
 
 제안의 현재 상태를 검색합니다.
 
@@ -29,13 +29,13 @@ ms.locfileid: "87272014"
 |  -------------  |  ------------------------------------------  |  ------------  |
 |  publisherId    | 게시자 식별자입니다(예: `Contoso`).  |     String     |
 |  offerId        | 제안을 고유하게 식별하는 GUID입니다.      |     String     |
-|  api-version    | 최신 버전 API                        |     날짜       |
+|  api-version    | 최신 버전 API                        |     Date       |
 |  |  |
 
 ## <a name="header"></a>헤더
 
 
-|  Name           |  값               |
+|  이름           |  값               |
 |  -------------  | -------------------  |
 |  콘텐츠 형식   |  `application/json`  |
 |  권한 부여  | `Bearer YOUR_TOKEN`  |
@@ -126,18 +126,18 @@ ms.locfileid: "87272014"
 |  estimatedTimeFrame   | 이 단계를 완료하는 데 걸리는 예상 시간(일반 형식)입니다.                       |
 |  id                   | 단계의 식별자입니다.                                                                         |
 |  stepName             | 단계의 이름입니다.                                                                               |
-|  설명          | 단계에 대한 설명입니다.                                                                        |
+|  description          | 단계에 대한 설명입니다.                                                                        |
 |  상태               | 단계의 상태입니다. 가능한 값 목록을 보려면 아래의 [단계 상태](#step-status)를 참조하세요.    |
 |  messages             | 단계와 관련된 메시지의 배열입니다.                                                          |
 |  processPercentage    | 단계의 완료율입니다.                                                              |
-|  previewLinks         | *현재 구현 되지 않음*                                                                    |
-|  liveLinks            | *현재 구현 되지 않음*                                                                    |
-|  notificationEmails   | 파트너 센터로 마이그레이션된 제안에는 사용 되지 않습니다. 마이그레이션된 제안에 대 한 알림 전자 메일은 계정 설정의 판매자 연락처 정보에 지정 된 메일에 전송 됩니다.<br><br>마이그레이션되지 않은 제품의 경우 작업 진행 상황에 대 한 알림이 표시 되는 쉼표로 구분 된 전자 메일 주소 목록입니다.        |
+|  previewLinks         | *현재 구현되지 않음*                                                                    |
+|  liveLinks            | *현재 구현되지 않음*                                                                    |
+|  notificationEmails   | 파트너 센터로 마이그레이션된 제안에는 사용되지 않습니다. 마이그레이션된 제안에 대한 알림 메일은 계정 설정의 판매자 연락처 정보에 지정된 메일로 전송됩니다.<br><br>마이그레이션되지 않은 제안의 경우 작업 진행률에 대한 알림을 받을 메일 주소의 쉼표로 구분된 목록입니다.        |
 |  |  |
 
 ### <a name="response-status-codes"></a>응답 상태 코드
 
-| **코드** |   **설명**                                                                                 |
+| ‘코드’ |   **설명**                                                                                 |
 | -------  |   ----------------------------------------------------------------------------------------------- |
 |  200     |  `OK` - 요청이 성공적으로 처리되었으며 제안의 현재 상태가 반환되었습니다. |
 |  400     | `Bad/Malformed request` - 오류 응답 본문에 자세한 정보가 들어 있을 수 있습니다.                 |

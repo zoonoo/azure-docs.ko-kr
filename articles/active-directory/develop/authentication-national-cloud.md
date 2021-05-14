@@ -14,10 +14,10 @@ ms.author: negoe
 ms.reviewer: marsma, negoe,celested
 ms.custom: aaddev,references_regions
 ms.openlocfilehash: 41bb7287aaa045e191d61abb00f470018fda9cbe
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105031599"
 ---
 # <a name="national-clouds"></a>국가별 클라우드
@@ -76,9 +76,9 @@ Microsoft ID 플랫폼을 사용하여 애플리케이션을 빌드하는 방법
 
 ## <a name="next-steps"></a>다음 단계
 
-[국가 클라우드 환경에서 MSAL (Microsoft 인증 라이브러리)](msal-national-cloud.md)을 사용 하는 방법에 대해 알아봅니다.
+[국가 클라우드 환경에서 MSAL(Microsoft Authentication Library)](msal-national-cloud.md)을 사용하는 방법에 대해 알아봅니다.
 
-국가별 클라우드 설명서:
+국가별 클라우드 설명서는 다음과 같습니다.
 
 - [Azure Government](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)

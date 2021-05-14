@@ -1,6 +1,6 @@
 ---
-title: 웹 Api를 호출 하는 디먼 앱 구성-Microsoft identity platform | Microsoft
-description: 웹 Api를 호출 하는 디먼 응용 프로그램에 대 한 코드를 구성 하는 방법 알아보기 (앱 구성)
+title: 웹 API를 호출하는 디먼 앱 구성 - Microsoft ID 플랫폼 | Azure
+description: 웹 API를 호출하는 디먼 애플리케이션에 대한 코드를 구성하는 방법 알아보기(앱 구성)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,48 +12,48 @@ ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
 ms.openlocfilehash: 3c52d4d80fd3c77cff5e335967fc9d109212ce29
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104578433"
 ---
-# <a name="daemon-app-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 디먼 앱-코드 구성
+# <a name="daemon-app-that-calls-web-apis---code-configuration"></a>웹 API를 호출하는 디먼 앱 - 코드 구성
 
-웹 Api를 호출 하는 디먼 응용 프로그램에 대 한 코드를 구성 하는 방법을 알아봅니다.
+웹 API를 호출하는 디먼 애플리케이션에 대한 코드를 구성하는 방법을 알아봅니다.
 
-## <a name="microsoft-libraries-supporting-daemon-apps"></a>디먼 앱을 지 원하는 Microsoft 라이브러리
+## <a name="microsoft-libraries-supporting-daemon-apps"></a>디먼 앱을 지원하는 Microsoft 라이브러리
 
-다음 Microsoft 라이브러리는 디먼 앱을 지원 합니다.
+다음 Microsoft 라이브러리는 디먼 앱을 지원합니다.
 
 [!INCLUDE [active-directory-develop-libraries-daemon](../../../includes/active-directory-develop-libraries-daemon.md)]
 
-## <a name="configure-the-authority"></a>인증 기관 구성
+## <a name="configure-the-authority"></a>권한 구성
 
-디먼 응용 프로그램은 위임 된 권한 대신 응용 프로그램 사용 권한을 사용 합니다. 따라서 지원 되는 계정 유형은 조직 디렉터리 또는 개인 Microsoft 계정 (예: Skype, Xbox, Outlook.com)의 계정일 수 없습니다. Microsoft 개인 계정의 디먼 응용 프로그램에 대 한 동의를 허용 하는 테 넌 트 관리자가 없습니다. 조직 *에서* *계정이* 나 계정을 선택 해야 합니다.
+디먼 애플리케이션은 위임된 권한 대신 애플리케이션 권한을 사용합니다. 따라서 지원되는 계정 유형은 조직 디렉터리 또는 개인 Microsoft 계정(예: Skype, Xbox, Outlook.com)의 계정이 될 수 없습니다. Microsoft 개인 계정의 디먼 애플리케이션에 대한 동의 권한을 부여하는 테넌트 관리자가 없습니다. ‘내 조직의 계정’ 또는 ‘모든 조직의 계정’을 선택해야 합니다. 
 
-응용 프로그램 구성에 지정 된 기관은 테 넌 트 (조직에 연결 된 테 넌 트 ID 또는 도메인 이름을 지정)로 지정 해야 합니다.
+애플리케이션 구성에 지정된 권한은 테넌트로 지정(조직에 연결된 테넌트 ID 또는 도메인 이름을 지정)해야 합니다.
 
-다중 테 넌 트 도구를 제공 하려는 경우에도  `common` `organizations` 서비스에서 사용 해야 하는 테 넌 트를 안정적으로 유추할 수 없기 때문에 테 넌 트 ID 또는 도메인 이름을 사용 하거나이 흐름과 함께 사용 해야 합니다.
+다중 테넌트 도구를 제공하려는 경우에도 서비스에서 사용해야 하는 테넌트를 안정적으로 유추할 수 없기 때문에 테넌트 ID 또는 도메인 이름을 사용해야 하며, 이 흐름에서 `common` 또는 `organizations`를 사용해선 **안 됩니다**.
 
-## <a name="configure-and-instantiate-the-application"></a>응용 프로그램 구성 및 인스턴스화
+## <a name="configure-and-instantiate-the-application"></a>애플리케이션 구성 및 인스턴스화
 
-MSAL 라이브러리에서 클라이언트 자격 증명 (암호 또는 인증서)은 기밀 클라이언트 응용 프로그램 생성의 매개 변수로 전달 됩니다.
+MSAL 라이브러리에서 클라이언트 자격 증명(비밀 또는 인증서)은 기밀 클라이언트 애플리케이션 생성의 매개 변수로 전달됩니다.
 
 > [!IMPORTANT]
-> 응용 프로그램이 서비스로 실행 되는 콘솔 응용 프로그램 이더라도 디먼 응용 프로그램의 경우 기밀 클라이언트 응용 프로그램 이어야 합니다.
+> 애플리케이션이 서비스로 실행되는 콘솔 애플리케이션이더라도 디먼 애플리케이션의 경우에는 기밀 클라이언트 애플리케이션이어야 합니다.
 
 ### <a name="configuration-file"></a>구성 파일
 
-구성 파일은 다음을 정의 합니다.
+구성 파일은 다음을 정의합니다.
 
-- 클라우드 인스턴스 및 테 넌 트 ID는 함께 *인증 기관을* 구성 합니다.
-- 응용 프로그램 등록에서 가져온 클라이언트 ID입니다.
+- 클라우드 인스턴스 및 테넌트 ID가 함께 ‘권한’을 구성합니다.
+- 애플리케이션 등록에서 가져온 클라이언트 ID입니다.
 - 클라이언트 암호 또는 인증서 중 하나입니다.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-다음은 파일 [*에 대 한appsettings.js*](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) 의 구성을 정의 하는 예제입니다. 이 예제는 GitHub의 [.Net Core 콘솔 데몬](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) 코드 샘플에서 가져온 것입니다.
+다음은 [*appsettings.json*](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) 파일의 구성을 정의하는 예제입니다. 이 예제는 GitHub의 [.NET Core 콘솔 디먼](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) 코드 샘플에서 가져온 것입니다.
 
 ```json
 {
@@ -65,7 +65,7 @@ MSAL 라이브러리에서 클라이언트 자격 증명 (암호 또는 인증�
 }
 ```
 
-`ClientSecret`또는를 제공 `CertificateName` 합니다. 이러한 설정은 배타적입니다.
+`ClientSecret` 또는 `CertificateName`을 제공합니다. 해당 설정은 배타적입니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -78,7 +78,7 @@ MSAL 라이브러리에서 클라이언트 자격 증명 (암호 또는 인증�
 
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-[Node.js 디먼 샘플](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-console/) 에 대 한 구성 매개 변수는 *env* 파일에 있습니다.
+[Node.js 디먼 샘플](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-console/)의 구성 매개 변수는 *.env* 파일에 있습니다.
 
 ```Text 
 # Credentials
@@ -93,7 +93,7 @@ GRAPH_ENDPOINT=Enter_the_Graph_Endpoint_Here
 
 # <a name="python"></a>[Python](#tab/python)
 
-클라이언트 암호를 사용 하 여 기밀 클라이언트를 빌드하는 경우 [Python 디먼](https://github.com/Azure-Samples/ms-identity-python-daemon) 샘플의 구성 파일 [에 대 한parameters.js](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/1-Call-MsGraph-WithSecret/parameters.json) 는 다음과 같습니다.
+클라이언트 암호를 사용하여 기밀 클라이언트를 빌드하는 경우 [Python 디먼](https://github.com/Azure-Samples/ms-identity-python-daemon) 샘플의 [parameters.json](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/1-Call-MsGraph-WithSecret/parameters.json) 구성 파일은 다음과 같습니다.
 
 ```Json
 {
@@ -105,7 +105,7 @@ GRAPH_ENDPOINT=Enter_the_Graph_Endpoint_Here
 }
 ```
 
-인증서를 사용 하 여 기밀 클라이언트를 빌드하는 경우 [Python 디먼](https://github.com/Azure-Samples/ms-identity-python-daemon) 샘플의 구성 파일 [에 대 한parameters.js](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/parameters.json) 는 다음과 같습니다.
+인증서를 사용하여 기밀 클라이언트를 빌드하는 경우 [Python 디먼](https://github.com/Azure-Samples/ms-identity-python-daemon) 샘플의 [parameters.json](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/parameters.json) 구성 파일은 다음과 같습니다.
 
 ```Json
 {
@@ -120,21 +120,21 @@ GRAPH_ENDPOINT=Enter_the_Graph_Endpoint_Here
 
 ---
 
-### <a name="instantiate-the-msal-application"></a>MSAL 응용 프로그램 인스턴스화
+### <a name="instantiate-the-msal-application"></a>MSAL 애플리케이션 인스턴스화
 
-MSAL 응용 프로그램을 인스턴스화하려면 해당 언어에 따라 MSAL 패키지를 추가, 참조 또는 가져옵니다.
+MSAL 애플리케이션을 인스턴스화하려면 해당 언어에 따라 MSAL 패키지를 추가, 참조하거나 가져옵니다.
 
-클라이언트 암호 또는 인증서를 사용 하는지 여부에 따라 구성이 달라 집니다 (또는 고급 시나리오로 서명 된 어설션).
+클라이언트 암호 또는 인증서(또는 고급 시나리오로 서명된 어설션)를 사용하는지에 따라 구성이 달라집니다.
 
 #### <a name="reference-the-package"></a>패키지 참조
 
-응용 프로그램 코드에서 MSAL 패키지를 참조 합니다.
+애플리케이션 코드에서 MSAL 패키지를 참조합니다.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-응용 프로그램에 [Microsoft Identity. 클라이언트](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet 패키지를 추가 하 고 `using` 코드에 지시문을 추가 하 여 참조 합니다.
+애플리케이션에 [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet 패키지를 추가하고 코드에 `using` 지시문을 추가하여 참조합니다.
 
-MSAL.NET에서 기밀 클라이언트 응용 프로그램은 인터페이스로 표시 됩니다 `IConfidentialClientApplication` .
+MSAL.NET에서 기밀 클라이언트 애플리케이션은 `IConfidentialClientApplication` 인터페이스로 표시됩니다.
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -155,7 +155,7 @@ import com.microsoft.aad.msal4j.SilentParameters;
 
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-`npm install`파일 *의package.js* 있는 폴더에를 실행 하 여 패키지를 설치 하면 됩니다. 그런 다음, **msal 노드** 패키지를 가져옵니다.
+*package.json* 파일이 있는 폴더에서 `npm install`을 실행하여 패키지를 설치하면 됩니다. 그런 다음, **msal-node** 패키지를 가져옵니다.
 
 ```JavaScript 
 const msal = require('@azure/msal-node');
@@ -172,9 +172,9 @@ import logging
 
 ---
 
-#### <a name="instantiate-the-confidential-client-application-with-a-client-secret"></a>클라이언트 암호를 사용 하 여 기밀 클라이언트 응용 프로그램 인스턴스화
+#### <a name="instantiate-the-confidential-client-application-with-a-client-secret"></a>클라이언트 암호를 사용하여 기밀 클라이언트 애플리케이션 인스턴스화
 
-클라이언트 암호를 사용 하 여 기밀 클라이언트 응용 프로그램을 인스턴스화하는 코드는 다음과 같습니다.
+클라이언트 암호를 사용하여 기밀 클라이언트 애플리케이션을 인스턴스화하는 코드는 다음과 같습니다.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -185,9 +185,9 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
            .Build();
 ```
 
-는 `Authority` 클라우드 인스턴스와 테 넌 트 ID (예: 또는)를 연결한 것 `https://login.microsoftonline.com/contoso.onmicrosoft.com` 입니다 `https://login.microsoftonline.com/eb1ed152-0000-0000-0000-32401f3f9abd` . [구성 파일](#configuration-file) 섹션에 표시 되는 파일의 *appsettings.js* 에는 `Instance` 각각 및 값이 표시 됩니다 `Tenant` .
+`Authority`는 클라우드 인스턴스와 테넌트 ID의 연결입니다. 예를 들면 `https://login.microsoftonline.com/contoso.onmicrosoft.com` 또는 `https://login.microsoftonline.com/eb1ed152-0000-0000-0000-32401f3f9abd`입니다. [구성 파일](#configuration-file) 섹션에 표시되는 *appsettings.json* 파일에는 각각 `Instance`와 `Tenant` 값으로 표시됩니다.
 
-코드 샘플에서 이전 코드 조각은에서 가져온 `Authority` 것입니다 .는  [authenticationconfig](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/ffc4a9f5d9bdba5303e98a1af34232b434075ac7/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs#L61-L70) 클래스의 속성 이며 다음과 같이 정의 됩니다.
+이전 코드 조각을 가져온 코드 샘플에서 `Authority`는 [AuthenticationConfig](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/ffc4a9f5d9bdba5303e98a1af34232b434075ac7/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs#L61-L70) 클래스의 속성이며, 다음과 같이 정의됩니다.
 
 ```csharp
 /// <summary>
@@ -255,9 +255,9 @@ app = msal.ConfidentialClientApplication(
 
 ---
 
-#### <a name="instantiate-the-confidential-client-application-with-a-client-certificate"></a>클라이언트 인증서를 사용 하 여 기밀 클라이언트 응용 프로그램 인스턴스화
+#### <a name="instantiate-the-confidential-client-application-with-a-client-certificate"></a>클라이언트 인증서를 사용하여 기밀 클라이언트 애플리케이션 인스턴스화
 
-인증서를 사용 하 여 응용 프로그램을 빌드하는 코드는 다음과 같습니다.
+인증서를 사용하여 애플리케이션을 빌드하는 코드는 다음과 같습니다.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -270,7 +270,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 ```
 # <a name="java"></a>[Java](#tab/java)
 
-MSAL Java에는 인증서를 사용 하 여 기밀 클라이언트 응용 프로그램을 인스턴스화하는 두 가지 빌더가 있습니다.
+MSAL Java에는 인증서를 사용하여 기밀 클라이언트 애플리케이션을 인스턴스화하는 두 가지 작성기가 있습니다.
 
 ```Java
 
@@ -303,7 +303,7 @@ ConfidentialClientApplication cca =
 
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-샘플 응용 프로그램은 현재 인증서를 사용 하 여 초기화를 구현 하지 않습니다.
+현재 샘플 애플리케이션은 인증서를 사용하여 초기화를 구현하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -323,18 +323,18 @@ app = msal.ConfidentialClientApplication(
 
 ---
 
-#### <a name="advanced-scenario-instantiate-the-confidential-client-application-with-client-assertions"></a>고급 시나리오: 클라이언트 어설션을 사용 하 여 기밀 클라이언트 응용 프로그램 인스턴스화
+#### <a name="advanced-scenario-instantiate-the-confidential-client-application-with-client-assertions"></a>고급 시나리오: 클라이언트 어설션을 사용하여 기밀 클라이언트 애플리케이션 인스턴스화
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-클라이언트 암호 또는 인증서 대신 기밀 클라이언트 응용 프로그램은 클라이언트 어설션을 사용 하 여 해당 id를 증명할 수도 있습니다.
+클라이언트 암호 또는 인증서 대신 클라이언트 어설션을 사용하여 기밀 클라이언트 애플리케이션에서 해당 ID를 증명할 수도 있습니다.
 
-MSAL.NET에는 기밀 클라이언트 앱에 서명 된 어설션을 제공 하는 두 가지 방법이 있습니다.
+MSAL.NET에는 기밀 클라이언트 앱에 서명된 어설션을 제공하는 두 가지 방법이 있습니다.
 
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-를 사용 하 `WithClientAssertion` 는 경우 서명 된 JWT를 제공 합니다. 이 고급 시나리오는 [클라이언트 어설션에](msal-net-client-assertions.md)자세히 설명 되어 있습니다.
+`WithClientAssertion`을 사용하는 경우 서명된 JWT를 제공합니다. 이 고급 시나리오는 [클라이언트 어설션](msal-net-client-assertions.md)에 자세히 설명되어 있습니다.
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();
@@ -343,8 +343,8 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-를 사용 하는 경우 `WithClientClaims` MSAL.NET는 AZURE AD에서 예상한 클레임 및 전송 하려는 추가 클라이언트 클레임을 포함 하는 서명 된 어설션을 생성 합니다.
-이 코드는 다음을 수행 하는 방법을 보여 줍니다.
+`WithClientClaims`를 사용하는 경우 MSAL.NET은 Azure AD에서 예상한 클레임과 전송하려는 추가 클라이언트 클레임을 포함하는 서명된 어설션을 생성합니다.
+이 코드가 해당 작업의 작동 방식을 보여 줍니다.
 
 ```csharp
 string ipAddress = "192.168.1.2";
@@ -356,7 +356,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-자세한 내용은 [클라이언트 어설션](msal-net-client-assertions.md)을 참조 하세요.
+자세한 내용은 [클라이언트 어설션](msal-net-client-assertions.md)을 참조하세요.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -372,11 +372,11 @@ ConfidentialClientApplication cca =
 
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-샘플 응용 프로그램은 현재 어설션을 사용 하 여 초기화를 구현 하지 않습니다.
+현재 샘플 애플리케이션은 어설션을 사용하여 초기화를 구현하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-MSAL Python에서이의 개인 키로 서명 되는 클레임을 사용 하 여 클라이언트 클레임을 제공할 수 있습니다 `ConfidentialClientApplication` .
+MSAL Python에서 이 `ConfidentialClientApplication`의 개인 키로 서명되는 클레임을 사용하여 클라이언트 클레임을 제공할 수 있습니다.
 
 ```Python
 # Pass the parameters.json file as an argument to this Python script. E.g.: python your_py_file.py parameters.json
@@ -393,7 +393,7 @@ app = msal.ConfidentialClientApplication(
     )
 ```
 
-자세한 내용은 [ConfidentialClientApplication](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.__init__)에 대 한 Msal Python 참조 설명서를 참조 하세요.
+자세한 내용은 [ConfidentialClientApplication](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.__init__)에 대한 MSAL Python 참조 문서를 참조하세요.
 
 ---
 
@@ -401,18 +401,18 @@ app = msal.ConfidentialClientApplication(
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-이 시나리오의 다음 문서로 이동 하 여 [앱에 대 한 토큰을 획득](./scenario-daemon-acquire-token.md?tabs=dotnet)합니다.
+이 시나리오의 다음 문서로 이동하여 [앱에 대한 토큰을 획득](./scenario-daemon-acquire-token.md?tabs=dotnet)합니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-이 시나리오의 다음 문서로 이동 하 여 [앱에 대 한 토큰을 획득](./scenario-daemon-acquire-token.md?tabs=java)합니다.
+이 시나리오의 다음 문서로 이동하여 [앱에 대한 토큰을 획득](./scenario-daemon-acquire-token.md?tabs=java)합니다.
 
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-이 시나리오의 다음 문서로 이동 하 여 [앱에 대 한 토큰을 획득](./scenario-daemon-acquire-token.md?tabs=nodejs)합니다.
+이 시나리오의 다음 문서로 이동하여 [앱에 대한 토큰을 획득](./scenario-daemon-acquire-token.md?tabs=nodejs)합니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-이 시나리오의 다음 문서로 이동 하 여 [앱에 대 한 토큰을 획득](./scenario-daemon-acquire-token.md?tabs=python)합니다.
+이 시나리오의 다음 문서로 이동하여 [앱에 대한 토큰을 획득](./scenario-daemon-acquire-token.md?tabs=python)합니다.
 
 ---

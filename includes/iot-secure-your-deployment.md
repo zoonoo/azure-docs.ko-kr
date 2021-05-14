@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 597bcf9d7654b88cb4a3f9b7df32ea1c7b770da2
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96010704"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109508483"
 ---
 이 문서에서는 Azure IoT 기반 IoT(사물 인터넷) 인프라를 보호하기 위한 세부 정보를 제공합니다. 또한 각 구성 요소의 구성 및 배포에 대한 구현 수준의 세부 정보에 연결됩니다. 그밖에도 다양한 경쟁 방법 간을 비교하고 선택 항목을 제공합니다.
 
@@ -43,13 +43,13 @@ IoT Hub는 네트워크에서 토큰이 전송되는 것을 피하기 위해 보
 
 보안 토큰의 구조 및 사용법에 대한 자세한 내용은 다음 문서에 나와 있습니다.
 
-* [보안 토큰 구조](../articles/iot-hub/iot-hub-devguide-security.md#security-token-structure)
+* [보안 토큰 구조](../articles/iot-hub/iot-hub-dev-guide-sas.md#security-token-structure)
 
-* [디바이스로 SAS 토큰 사용](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)
+* [디바이스로 SAS 토큰 사용](../articles/iot-hub/iot-hub-dev-guide-sas.md#use-sas-tokens-as-a-device)
 
 각 IoT Hub에는 진행 중인 클라우드-디바이스 메시지를 포함하는 큐와 같은 서비스에 디바이스 단위 리소스를 만들고 디바이스 지향 엔드포인트에 대한 액세스를 허용하는 데 사용할 수 있는 [ID 레지스트리](../articles/iot-hub/iot-hub-devguide-identity-registry.md)가 있습니다. IoT Hub ID 레지스트리는 디바이스 ID에 대한 보안 스토리지와 솔루션을 위한 보안 키를 제공합니다. 개별 또는 그룹 디바이스 ID를 허용 목록 또는 차단 목록에 추가하여 디바이스 액세스를 완벽하게 제어할 수 있습니다. 다음 문서에서는 ID 레지스트리의 구조 및 지원되는 작업에 대한 자세한 내용을 제공합니다.
 
-[IoT Hub는 MQTT, AMQP 및 HTTP와 같은 프로토콜을 지원합니다](../articles//iot-hub/iot-hub-devguide-security.md). 이러한 각 프로토콜은 IoT 디바이스에서 IoT Hub로의 보안 토큰을 다음과 같이 다르게 사용합니다.
+[IoT Hub는 MQTT, AMQP 및 HTTP와 같은 프로토콜을 지원합니다](../articles//iot-hub/iot-hub-dev-guide-sas.md). 이러한 각 프로토콜은 IoT 디바이스에서 IoT Hub로의 보안 토큰을 다음과 같이 다르게 사용합니다.
 
 * AMQP: SASL PLAIN 및 AMQP 클레임 기반 보안(IoT 허브 수준 토큰의 경우 `{policyName}@sas.root.{iothubName}`, 디바이스 범위 토큰의 경우 `{deviceId}`)
 
@@ -57,11 +57,11 @@ IoT Hub는 네트워크에서 토큰이 전송되는 것을 피하기 위해 보
 
 * HTTP: 올바른 토큰은 권한 부여 요청 헤더에 있습니다.
 
-IoT Hub ID 레지스트리를 사용하여 디바이스별 보안 자격 증명 및 액세스 제어를 구성할 수 있습니다. 그러나 [사용자 지정 디바이스 ID 레지스트리 및/또는 인증 체계](../articles/iot-hub/iot-hub-devguide-security.md#custom-device-and-module-authentication)에 이미 상당한 투자를 한 IoT 솔루션의 경우 토큰 서비스를 만들어 IoT Hub가 있는 기존 인프라로 통합할 수 있습니다.
+IoT Hub ID 레지스트리를 사용하여 디바이스별 보안 자격 증명 및 액세스 제어를 구성할 수 있습니다. 그러나 [사용자 지정 디바이스 ID 레지스트리 및/또는 인증 체계](../articles/iot-hub/iot-hub-dev-guide-sas.md#create-a-token-service-to-integrate-existing-devices)에 이미 상당한 투자를 한 IoT 솔루션의 경우 토큰 서비스를 만들어 IoT Hub가 있는 기존 인프라로 통합할 수 있습니다.
 
 ### <a name="x509-certificate-based-device-authentication"></a>X.509 인증서 기반 디바이스 인증
 
-[디바이스 기반 X.509 인증서](../articles/iot-hub/iot-hub-devguide-security.md) 및 연결된 프라이빗 및 공개 키 쌍을 사용하면 물리적 계층에서 추가 인증이 수행될 수 있습니다. 프라이빗 키는 디바이스에 안전하게 저장되며 디바이스 외부에서 검색할 수 없습니다. X.509 인증서에는 디바이스 ID와 같은 디바이스 정보와 기타 조직 세부 정보가 포함되어 있습니다. 인증서의 서명은 프라이빗 키를 사용하여 생성됩니다.
+[디바이스 기반 X.509 인증서](../articles/iot-hub/iot-hub-dev-guide-sas.md) 및 연결된 프라이빗 및 공개 키 쌍을 사용하면 물리적 계층에서 추가 인증이 수행될 수 있습니다. 프라이빗 키는 디바이스에 안전하게 저장되며 디바이스 외부에서 검색할 수 없습니다. X.509 인증서에는 디바이스 ID와 같은 디바이스 정보와 기타 조직 세부 정보가 포함되어 있습니다. 인증서의 서명은 프라이빗 키를 사용하여 생성됩니다.
 
 고급 디바이스 프로비저닝 흐름:
 
@@ -81,7 +81,7 @@ IoT 디바이스와 IoT Hub 간 인터넷 연결은 TLS(전송 계층 보안) �
 
 ## <a name="securing-the-cloud"></a>클라우드 보안
 
-Azure IoT Hub에서는 각 보안 키에 대해 [액세스 제어 정책](../articles/iot-hub/iot-hub-devguide-security.md)을 정의할 수 있습니다. 또한 다음 권한 집합을 사용하여 각 IoT Hub의 엔드포인트에 대한 액세스 권한을 부여합니다. 사용 권한은 기능에 따라 IoT Hub에 대한 액세스를 제한합니다.
+Azure IoT Hub에서는 각 보안 키에 대해 [액세스 제어 정책](../articles/iot-hub/iot-hub-dev-guide-sas.md)을 정의할 수 있습니다. 또한 다음 권한 집합을 사용하여 각 IoT Hub의 엔드포인트에 대한 액세스 권한을 부여합니다. 사용 권한은 기능에 따라 IoT Hub에 대한 액세스를 제한합니다.
 
 * **RegistryRead**. ID 레지스트리에 대한 읽기 액세스 권한을 부여합니다. 자세한 내용은 [ID 레지스트리](../articles/iot-hub/iot-hub-devguide-identity-registry.md)를 참조하세요.
 
@@ -91,9 +91,9 @@ Azure IoT Hub에서는 각 보안 키에 대해 [액세스 제어 정책](../art
 
 * **DeviceConnect**. 디바이스 지향 엔드포인트에 대한 액세스를 부여합니다. 예를 들어 디바이스-클라우드 메시지를 보내고 클라우드-디바이스 메시지를 받을 수 있는 권한을 클라우드에 부여합니다. 이 권한은 디바이스에서 사용됩니다.
 
-디바이스 ID 키를 사용하거나 공유 액세스 키를 사용하는 등 두 가지 방법으로 [보안 토큰](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)과 함께 IoT Hub에서 **DeviceConnect** 권한을 얻을 수 있습니다. 또한 디바이스에서 액세스할 수 있는 모든 기능이 `/devices/{deviceId}`접두사가 있는 엔드포인트에서 디자인 시 노출되는 것을 유념해야 합니다.
+디바이스 ID 키를 사용하거나 공유 액세스 키를 사용하는 등 두 가지 방법으로 [보안 토큰](../articles/iot-hub/iot-hub-dev-guide-sas.md#use-sas-tokens-as-a-device)과 함께 IoT Hub에서 **DeviceConnect** 권한을 얻을 수 있습니다. 또한 디바이스에서 액세스할 수 있는 모든 기능이 `/devices/{deviceId}`접두사가 있는 엔드포인트에서 디자인 시 노출되는 것을 유념해야 합니다.
 
-[서비스 구성 요소는 적절한 권한을 부여하는 공유 액세스 정책을 사용하여 보안 토큰을 생성할 수 있습니다](../articles/iot-hub/iot-hub-devguide-security.md#use-security-tokens-from-service-components).
+[서비스 구성 요소는 적절한 권한을 부여하는 공유 액세스 정책을 사용하여 보안 토큰을 생성할 수 있습니다](../articles/iot-hub/iot-hub-dev-guide-sas.md#use-security-tokens-from-service-components).
 
 Azure IoT Hub 및 이 솔루션에 속할 수 있는 기타 서비스는 Azure Active Directory를 사용하여 사용자를 관리할 수 있도록 허용합니다.
 
