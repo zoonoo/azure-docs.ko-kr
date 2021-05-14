@@ -1,29 +1,29 @@
 ---
-title: Azure API에서 FHIR에 대해 인덱스 작업을 실행 하는 방법
-description: 이 문서에서는 인덱스 작업을 실행 하 여 데이터베이스에서 아직 인덱싱되지 않은 모든 검색 또는 정렬 매개 변수를 인덱싱하는 방법을 설명 합니다.
+title: Azure API for FHIR 다시 인덱스 작업을 실행하는 방법
+description: 이 문서에서는 다시 인덱스 작업을 실행하여 데이터베이스에서 아직 인덱싱되지 않은 검색 또는 정렬 매개 변수를 인덱싱하는 방법을 설명합니다.
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 4/23/2021
 ms.author: cavoeg
-ms.openlocfilehash: 0332582f65ea59f43cc55064f9cdacefe4beefe4
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: ea679023b2b5bb620bb9684a0e841f6cc4fa310d
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108322564"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109847007"
 ---
-# <a name="running-a-reindex-job"></a>인덱스 작업 실행
+# <a name="running-a-reindex-job"></a>다시 인덱스 작업 실행
 
-Azure API for FHIR에서 아직 인덱싱되지 않은 검색 또는 정렬 매개 변수를 사용할 수 있는 시나리오가 있습니다. 이는 사용자 고유의 검색 매개 변수를 정의할 때 특히 적합 합니다. 검색 매개 변수가 인덱싱되는 동안에는 검색에 사용할 수 없습니다. 이 문서에서는 인덱싱 작업을 실행 하 여 데이터베이스에서 아직 인덱싱되지 않은 모든 검색 또는 정렬 매개 변수를 인덱싱하는 방법에 대해 간략하게 설명 합니다.
+아직 인덱싱되지 않은 Azure API for FHIR 검색 또는 정렬 매개 변수가 있을 수 있는 시나리오가 있습니다. 이는 사용자 고유의 검색 매개 변수를 정의할 때 특히 관련이 있습니다. 검색 매개 변수가 인덱싱될 때까지 검색에 사용할 수 없습니다. 이 문서에서는 다시 인덱스 작업을 실행하여 데이터베이스에 아직 인덱싱되지 않은 검색 또는 정렬 매개 변수를 인덱싱하는 방법에 대해 간략하게 설명합니다.
 
 > [!Warning]
-> 시작 하기 전에이 문서 전체를 읽는 것이 중요 합니다. 인덱스를 사용 하는 작업은 매우 성능이 매우 높습니다. 이 문서에는 인덱스 작업을 제한 하 고 제어 하는 방법에 대 한 옵션이 포함 되어 있습니다.
+> 시작하기 전에 이 전체 문서를 읽는 것이 중요합니다. 다시 인덱스 작업은 성능이 매우 많이 사용될 수 있습니다. 이 문서에는 다시 인덱스 작업을 제한하고 제어하는 방법에 대한 옵션이 포함되어 있습니다.
 
-## <a name="how-to-run-a-reindex-job"></a>인덱스 작업을 실행 하는 방법 
+## <a name="how-to-run-a-reindex-job"></a>재색인 작업 실행 방법 
 
-인덱스를 사용 하 여 작업을 시작 하려면 다음 코드 예제를 사용 합니다.
+다시 인덱스 작업을 시작하려면 다음 코드 예제를 사용합니다.
 
 ```json
 POST {{FHIR URL}}/$reindex 
@@ -37,11 +37,11 @@ POST {{FHIR URL}}/$reindex
 }
  ```
 
-요청에 성공 하면 **201 생성** 됨 상태가 반환 됩니다. 이 메시지의 결과는 다음과 같습니다.
+요청이 성공하면 **201 Created** 상태가 반환됩니다. 이 메시지의 결과는 다음과 같습니다.
 
 ```json
 HTTP/1.1 201 Created 
-Content-Location: https://cv-cosmos1.azurewebsites.net/_operations/reindex/560c7c61-2c70-4c54-b86d-c53a9d29495e 
+Content-Location: https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b86d-c53a9d29495e 
 
 {
   "resourceType": "Parameters",
@@ -91,17 +91,15 @@ Content-Location: https://cv-cosmos1.azurewebsites.net/_operations/reindex/560c7
 ```
 
 > [!NOTE]
-> 또는의 상태를 확인 하 여 인덱스 취소 작업을 취소 하려면 인덱스 재 인덱싱 ID가 필요 합니다. 결과 매개 변수 리소스의 ID 이며 (위에 표시 됨), 콘텐츠 위치 문자열의 끝에서 GUID로도 찾을 수 있습니다.
+> 또는 의 상태를 확인하여 다시 인덱스 작업을 취소하려면 다시 인덱스 ID가 필요합니다. 이는 결과 매개 변수 리소스의 ID입니다(위 참조). 다시 인덱스 ID는 Content-Location 문자열의 끝에서도 찾을 수 있습니다. 위의 예제에서는 `560c7c61-2c70-4c54-b86d-c53a9d29495e` 입니다.
 
-`https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b86d-c53a9d29495e`
+ ## <a name="how-to-check-the-status-of-a-reindex-job"></a>다시 인덱스 작업의 상태를 확인하는 방법
 
- ## <a name="how-to-check-the-status-of-a-reindex-job"></a>인덱스 작업의 상태를 확인 하는 방법
-
-재 인덱싱 작업을 시작한 후에는 다음을 사용 하 여 작업의 상태를 확인할 수 있습니다.
+다시 인덱스 작업을 시작한 후에는 다음을 사용하여 작업의 상태를 확인할 수 있습니다.
 
 `GET {{FHIR URL}}/_operations/reindex/{{reindexJobId}`
 
-인덱스 재 인덱싱 작업 결과의 상태는 다음과 같습니다.
+다시 인덱스 작업 결과의 상태는 다음과 같습니다.
 
 ```json
 {
@@ -192,12 +190,12 @@ Content-Location: https://cv-cosmos1.azurewebsites.net/_operations/reindex/560c7
 
 | **매개 변수**                     | **설명**              | **기본값**        | **권장 범위**           |
 | --------------------------------- | ---------------------------- | ------------------ | ------------------------------- |
-| QueryDelayIntervalInMilliseconds  | 이는 일괄 처리 작업을 수행 하는 동안 시작 되는 각 리소스 일괄 처리 사이의 지연입니다. | 500 밀리초 (5 초) | 50 ~ 5000:50은 다시 인덱싱 작업 속도를 향상 시키고 5000은 기본값에서 속도가 느려집니다. |
-| MaximumResourcesPerQuery  | 인덱싱해야 수 있도록 리소스 일괄 처리에 포함 되는 최대 리소스 수입니다.  | 100 | 1-500 |
-| MaximumConcurreny  | 한 번에 수행 된 일괄 처리의 수입니다.  | 1 | 1-5 |
-| targetDataStoreUsagePercentrage | 이렇게 하면 인덱스 작업에 사용할 데이터 저장소의 비율을 지정할 수 있습니다. 예를 들어 50%를 지정할 수 있으며, 대부분의 인덱스 작업은 Cosmos DB에서 사용 가능한 RUs의 50%를 사용 하도록 합니다.  | 존재 하지 않습니다. 즉, 최대 100%를 사용할 수 있습니다. | 1-100 |
+| QueryDelayIntervalInMilliseconds  | 이는 일괄 처리 작업을 수행 하는 동안 시작 되는 각 리소스 일괄 처리 사이의 지연입니다. | 500MS(.5초) | 50에서 5000: 50은 다시 인덱스 작업의 속도를 증가시키고 5000은 기본값에서 속도가 느려집니다. |
+| MaximumResourcesPerQuery  | 이는 다시 인덱스할 리소스 일괄 처리에 포함된 최대 리소스 수입니다.  | 100 | 1-500 |
+| MaximumConcurreny  | 한 번에 수행되는 일괄 처리 수입니다.  | 1 | 1-5 |
+| targetDataStoreUsagePercentrage | 이렇게 하면 다시 인덱스 작업에 사용할 데이터 저장소의 백분율을 지정할 수 있습니다. 예를 들어 50%를 지정할 수 있으며, 이를 통해 Cosmos DB 사용 가능한 RU의 50%를 다시 인덱스 작업에서 사용할 수 있습니다.  | 존재하지 않습니다. 즉, 최대 100%를 사용할 수 있습니다. | 1-100 |
 
-위의 매개 변수를 사용 하려는 경우에는 인덱스 작업을 시작할 때 매개 변수 리소스에 전달할 수 있습니다.
+위의 매개 변수를 사용하려는 경우 다시 인덱스 작업을 시작할 때 매개 변수 리소스에 전달할 수 있습니다.
 
 ```json
 {
@@ -225,7 +223,7 @@ Content-Location: https://cv-cosmos1.azurewebsites.net/_operations/reindex/560c7
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 인덱스 작업을 시작 하는 방법을 배웠습니다. 인덱스를 새로 만드는 작업을 필요로 하는 새 검색 매개 변수를 정의 하는 방법에 대 한 자세한 내용은 
+이 문서에서는 다시 인덱스 작업을 시작하는 방법을 배웠습니다. 다시 인덱스 작업이 필요한 새 검색 매개 변수를 정의하는 방법을 알아보려면 다음을 참조하세요. 
 
 >[!div class="nextstepaction"]
 >[사용자 지정 검색 매개 변수 정의](how-to-do-custom-search.md)

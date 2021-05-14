@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Azure Dev Spaces 설명서
-summary: Azure Dev Spaces는 사용 중지되며 2023년 10월 31일에 작동이 중지됩니다.
+summary: Azure Dev Spaces는 사용 중지되며 2023년 10월 31일에 작동이 중지됩니다. 새 컨트롤러를 프로비저닝할 수 없습니다. 사용 가능한 지역은 해당 지역에서 고객 활동이 중단되면 닫힙니다.
 metadata:
   title: Azure Dev Spaces 설명서
-  description: Azure Dev Spaces는 사용 중지되며 2023년 10월 31일에 작동이 중지됩니다.
+  description: Azure Dev Spaces는 사용 중지되며 2023년 10월 31일에 작동이 중지됩니다. 새 컨트롤러를 프로비저닝할 수 없습니다. 사용 가능한 지역은 해당 지역에서 고객 활동이 중단되면 닫힙니다.
   services: azure-dev-spaces
   ms.service: azure-dev-spaces
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   ms.author: zarhoads
   manager: gwallace
   ms.date: 10/29/2020
-  ms.openlocfilehash: a3b3ca8c87871b9ae8e1d6a3db32d9e2051215b6
-  ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+  ms.openlocfilehash: 052e625961aa793d0ffe6ae3faccdc634c2e6a51
+  ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/30/2020
-  ms.locfileid: "93072034"
+  ms.lasthandoff: 05/06/2021
+  ms.locfileid: "108802705"
 landingContent:
 - title: Kubernetes에 대한 브리지
   linkLists:

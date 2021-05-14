@@ -84,8 +84,26 @@
       href: tutorial-firmware-update.md
     - name: 디바이스 연결 테스트
       href: tutorial-connectivity.md
+    - name: X.509 인증서 사용
+      items:
+        - name: 소개
+          href: tutorial-x509-introduction.md
+        - name: 인증서 필드
+          href: tutorial-x509-certificates.md
+        - name: 제공된 스크립트 사용
+          href: tutorial-x509-scripts.md
+        - name: OpenSSL 사용
+          href: tutorial-x509-openssl.md
+        - name: 자체 서명된 인증서 만들기
+          href: tutorial-x509-self-sign.md
+        - name: 소유 증명
+          href: tutorial-x509-prove-possession.md
+        - name: 인증 테스트
+          href: tutorial-x509-test-certificate.md
 - name: 개념
   items:
+    - name: 관리 ID 지원
+      href: iot-hub-managed-identity.md
     - name: TLS 지원
       href: iot-hub-tls-support.md
     - name: 가상 네트워크 지원
@@ -146,7 +164,13 @@
         - name: 디바이스 ID 관리
           href: iot-hub-devguide-identity-registry.md
         - name: IoT Hub에 대한 액세스 제어
-          href: iot-hub-devguide-security.md
+          items:
+            - name: 개요
+              href: iot-hub-devguide-security.md
+            - name: Azure AD를 사용하여 액세스 제어
+              href: iot-hub-dev-guide-azure-ad-rbac.md
+            - name: RBAC를 사용하여 액세스 제어
+              href: iot-hub-dev-guide-sas.md
         - name: 쌍 디바이스 이해
           href: iot-hub-devguide-device-twins.md
         - name: 모듈 쌍 이해
@@ -175,12 +199,10 @@
               href: iot-hub-mqtt-5-reference.md
         - name: AMQP 지원
           href: iot-hub-amqp-support.md
-        - name: 용어
-          href: iot-hub-devguide-glossary.md
     - name: 보안
       items:
         - name: 보안 기준
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json
         - name: 권장 사항
           href: ../iot-fundamentals/security-recommendations.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: 처음부터 보안을 고려
@@ -321,8 +343,6 @@
               href: iot-hub-configure-file-upload-powershell.md
             - name: Azure CLI 사용
               href: iot-hub-configure-file-upload-cli.md
-        - name: X.509 인증서를 사용하여 허브 보호
-          href: iot-hub-security-x509-get-started.md
         - name: IoT Hub 업그레이드
           href: iot-hub-upgrade.md
         - name: IP 필터링 구성
@@ -382,26 +402,26 @@
               href: iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md
             - name: Azure Functions로 자기 센서 모니터링 및 이메일 알림 보내기
               href: iot-hub-arduino-iot-devkit-az3166-door-monitor.md
-        - name: 확장된 IoT 시나리오
-          items:
-            - name: VS Code용 Azure IoT Tools로 클라우드 디바이스 메시징 관리
-              href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
-            - name: Visual studio용 클라우드 탐색기를 사용하여 클라우드 디바이스 메시징 관리
-              href: iot-hub-visual-studio-cloud-device-messaging.md
-            - name: Power BI에서 데이터 시각화
-              href: iot-hub-live-data-visualization-in-power-bi.md
-            - name: 웹앱에서 데이터 시각화
-              href: iot-hub-live-data-visualization-in-web-apps.md
-            - name: Azure Machine Learning을 사용하여 날씨 예측
-              href: iot-hub-weather-forecast-machine-learning.md
-            - name: VS Code용 Azure IoT Tools를 사용하여 디바이스 관리
-              href: iot-hub-device-management-iot-toolkit.md
-            - name: Visual studio용 클라우드 탐색기를 사용하여 디바이스 관리
-              href: iot-hub-device-management-visual-studio.md
-            - name: Azure CLI용 IoT 확장을 사용하여 디바이스 관리
-              href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
-            - name: Logic Apps를 사용하여 원격 모니터링 및 알림
-              href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
+    - name: 확장된 IoT 시나리오
+      items:
+        - name: VS Code용 Azure IoT Tools로 클라우드 디바이스 메시징 관리
+          href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
+        - name: Visual studio용 클라우드 탐색기를 사용하여 클라우드 디바이스 메시징 관리
+          href: iot-hub-visual-studio-cloud-device-messaging.md
+        - name: Power BI에서 데이터 시각화
+          href: iot-hub-live-data-visualization-in-power-bi.md
+        - name: 웹앱에서 데이터 시각화
+          href: iot-hub-live-data-visualization-in-web-apps.md
+        - name: Azure Machine Learning을 사용하여 날씨 예측
+          href: iot-hub-weather-forecast-machine-learning.md
+        - name: VS Code용 Azure IoT Tools를 사용하여 디바이스 관리
+          href: iot-hub-device-management-iot-toolkit.md
+        - name: Visual studio용 클라우드 탐색기를 사용하여 디바이스 관리
+          href: iot-hub-device-management-visual-studio.md
+        - name: Azure CLI용 IoT 확장을 사용하여 디바이스 관리
+          href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
+        - name: Logic Apps를 사용하여 원격 모니터링 및 알림
+          href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
     - name: 문제 해결 및 문제 해결 방법
       items:
         - name: 디바이스 연결 끊기
@@ -496,7 +516,9 @@
 - name: 리소스
   items:
     - name: 지원 및 도움말 옵션
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
+    - name: IoT 용어집
+      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Azure IoT 서비스
       items:
         - name: IoT Hub
@@ -533,8 +555,8 @@
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
         - name: iOS 플랫폼
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
-    - name: IoT용 Azure Certified 디바이스 카탈로그
-      href: 'https://catalog.azureiotsolutions.com/'
+    - name: Azure Certified Device 카탈로그
+      href: 'https://devicecatalog.azure.com/'
     - name: Azure IoT 개발자 센터
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: 고객 데이터 요청

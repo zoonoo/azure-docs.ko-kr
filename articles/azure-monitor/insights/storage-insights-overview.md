@@ -6,10 +6,10 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/11/2020
 ms.openlocfilehash: 0baaca8df8865061b51f1629da14c3b18a527047
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101708070"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Storage용 Azure Monitor를 사용하여 스토리지 서비스 모니터링
@@ -50,11 +50,11 @@ Azure Monitor에서 구독의 여러 스토리지 계정의 트랜잭션, 대기
 
 ### <a name="overview-workbook"></a>개요 통합 문서
 
-선택한 구독의 **개요** 통합 문서에서 테이블은 구독 내에 그룹화 된 최대 5 개의 저장소 계정에 대 한 대화형 저장소 메트릭 및 서비스 가용성 상태를 표시 합니다. 다음 드롭다운 목록에서 선택하는 옵션을 기준으로 결과를 필터링할 수 있습니다.
+선택한 구독에 대한 **개요** 통합 문서의 테이블에는 구독 내에 그룹화된 최대 5개의 스토리지 계정에 대한 대화형 스토리지 메트릭 및 서비스 가용성 상태가 표시됩니다. 다음 드롭다운 목록에서 선택하는 옵션을 기준으로 결과를 필터링할 수 있습니다.
 
 * **구독** - 스토리지 계정이 있는 구독만 나열됩니다.  
 
-* **저장소 계정** -기본적으로 5 개의 저장소 계정이 미리 선택 되어 있습니다. 범위 선택기에서 모든 스토리지 계정 또는 여러 스토리지 계정을 선택하는 경우 최대 200개의 스토리지 계정이 반환됩니다. 예를 들어 선택한 3개의 구독에 대해 총 573개의 스토리지 계정이 있는 경우 200개 계정만 표시됩니다. 
+* **스토리지 계정** - 기본적으로 5개의 스토리지 계정이 미리 선택되어 있습니다. 범위 선택기에서 모든 스토리지 계정 또는 여러 스토리지 계정을 선택하는 경우 최대 200개의 스토리지 계정이 반환됩니다. 예를 들어 선택한 3개의 구독에 대해 총 573개의 스토리지 계정이 있는 경우 200개 계정만 표시됩니다. 
 
 * **시간 범위** - 기본적으로는 선택한 항목을 기준으로 지난 4시간의 정보를 표시합니다.
 
@@ -84,13 +84,13 @@ Azure Monitor에서 구독의 여러 스토리지 계정의 트랜잭션, 대기
 
 ## <a name="view-from-a-storage-account"></a>스토리지 계정에서 보기
 
-저장소 계정에서 직접 VM 정보에 액세스 하려면 다음을 수행 합니다.
+스토리지 계정에서 바로 VM 인사이트에 액세스하려면 다음을 수행합니다.
 
 1. Azure Portal에서 스토리지 계정을 선택합니다.
 
 2. 목록에서 스토리지 계정을 선택합니다. 모니터링 섹션에서 인사이트를 선택합니다.
 
-    ![저장소 계정에 대 한 개요 통합 문서 페이지를 보여 주는 스크린샷](./media/storage-insights-overview/storage-account-direct-overview-01.png)
+    ![스토리지 계정의 개요 통합 문서 페이지를 보여 주는 스크린샷](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
 스토리지 계정에 대한 **개요** 통합 문서에는 신속하게 평가하는 데 도움이 되는 몇 가지 스토리지 성능 메트릭이 표시됩니다.
 
@@ -194,7 +194,7 @@ Azure Monitor에서 구독의 여러 스토리지 계정의 트랜잭션, 대기
 
 1. 메트릭 그리드에서 **열 설정** 을 선택합니다.
 
-2. **열 설정 편집** 창의,/storageaccounts **`|` /Blobservices-capacity-blobservices $ microsoft. storage/Storageaccounts/fileservices-FileCapacity $ microsoft. storage/storageaccounts/ `|` `|` `|` QueueCapacity-** tableservices $ **열** 아래에서을 (를) 선택 합니다 (예를 들면)를 선택 하 여. **색상표** 드롭다운 목록에서 **녹색** 을 선택합니다.
+2. **열 설정 편집** 창에서, **열** 섹션을 **microsoft.storage/storageaccounts-Capacity-UsedCapacity$`|`microsoft.storage/storageaccounts/blobservices-Capacity-BlobCapacity$`|`microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$`|`microsoft.storage/storageaccounts/queueservices-Capacity-QueueCapacity$`|`microsoft.storage/storageaccounts/tableservices-Capacity-TableCapacity$** 처럼 선택합니다. **색상표** 드롭다운 목록에서 **녹색** 을 선택합니다.
 
 3. **저장 후 닫기** 를 선택하여 변경 내용을 커밋합니다.
 
@@ -224,7 +224,7 @@ Azure Monitor에서 구독의 여러 스토리지 계정의 트랜잭션, 대기
 
 ## <a name="troubleshooting"></a>문제 해결
 
-일반적인 문제 해결 지침은 전용 통합 문서 기반 insights [문제 해결 문서](troubleshoot-workbooks.md)를 참조 하세요.
+일반적인 문제 해결 지침은 전용 통합 문서 기반 인사이트 [문제 해결 문서](troubleshoot-workbooks.md)를 참조하세요.
 
 이 섹션에서는 Storage용 Azure Monitor를 사용할 때 발생할 수 있는 몇 가지 일반적인 문제를 진단하고 해결하는 데 도움이 되는 정보를 제공합니다. 아래 목록에서 특정 문제와 관련된 정보를 찾을 수 있습니다.
 

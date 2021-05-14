@@ -4,40 +4,14 @@ summary: Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 �
 metadata:
   ms.service: service-fabric
   ms.topic: landing-page
-  author: erikadoyle
-  ms.author: edoyle
-  ms.date: 07/31/2020
-  ms.openlocfilehash: e850855a4f794e5e90abe9c86d6ddedd0af26a6b
-  ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+  ms.date: 05/10/2021
+  ms.openlocfilehash: 7fc89c669c88f65abfd89a98a321dd976696cd57
+  ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 02/17/2021
-  ms.locfileid: "100634841"
+  ms.lasthandoff: 05/10/2021
+  ms.locfileid: "109683870"
 landingContent:
-- title: Service Fabric 관리형 클러스터 사용해 보기(미리 보기)
-  linkLists:
-  - linkListType: get-started
-    links:
-    - text: Service Fabric 관리형 클러스터(미리 보기)란?
-      url: overview-managed-cluster.md
-    - text: 관리형 클러스터 배포(미리 보기)
-      url: quickstart-managed-cluster-template.md
-  - linkListType: tutorial
-    links:
-    - text: 관리형 클러스터 노드 형식 확장(미리 보기)
-      url: tutorial-managed-cluster-scale.md
-    - text: 관리형 클러스터 노드 형식 추가 및 제거(미리 보기)
-      url: tutorial-managed-cluster-add-remove-node-type.md
-    - text: 관리형 클러스터에 앱 배포(미리 보기)
-      url: tutorial-managed-cluster-deploy-app.md
-    - text: 관리형 클러스터 노드 형식에 VM 확장 집합 확장 추가(미리 보기)
-      url: how-to-managed-cluster-vmss-extension.md
-    - text: 관리형 클러스터 노드에 대해 디스크 암호화 사용
-      url: how-to-enable-managed-cluster-disk-encryption.md
-  - linkListType: whats-new
-    links:
-    - text: Service Fabric 관리형 클러스터 FAQ
-      url: faq-managed-cluster.md
 - title: Service Fabric 정보
   linkLists:
   - linkListType: overview
@@ -68,11 +42,37 @@ landingContent:
       url: service-fabric-guest-executables-introduction.md
     - text: Reliable Services
       url: service-fabric-reliable-services-introduction.md
+    - text: Linux와 Windows의 Service Fabric 간의 차이점
+      url: service-fabric-linux-windows-differences.md
   - linkListType: whats-new
     links:
     - text: 릴리스 정보
       url: release-notes.md
-- title: .NET 애플리케이션 및 Windows 시작
+- title: Service Fabric 관리형 클러스터 배포
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Service Fabric 관리형 클러스터 정보
+      url: overview-managed-cluster.md
+    - text: Service Fabric 관리형 클러스터 FAQ
+      url: faq-managed-cluster.md
+  - linkListType: quickstart
+    links:
+    - text: 관리형 클러스터 만들기
+      url: quickstart-managed-cluster-template.md
+  - linkListType: learn
+    links:
+    - text: 관리형 클러스터 노드 형식 확장
+      url: tutorial-managed-cluster-scale.md
+    - text: 관리형 클러스터 노드 형식 추가 및 제거
+      url: tutorial-managed-cluster-add-remove-node-type.md
+    - text: 관리형 클러스터에 앱 배포
+      url: tutorial-managed-cluster-deploy-app.md
+    - text: 관리형 클러스터 구성
+      url: how-to-managed-cluster-configuration.md
+    - text: 관리형 클러스터 애플리케이션 비밀 배포
+      url: how-to-managed-cluster-application-secrets.md
+- title: Service Fabric 애플리케이션 시작
   linkLists:
   - linkListType: quickstart
     links:
@@ -82,12 +82,16 @@ landingContent:
       url: service-fabric-quickstart-containers.md
     - text: Windows에서 게스트 실행 가능 앱 만들기
       url: quickstart-guest-app.md
+    - text: Linux 컨테이너 앱을 Service Fabric에 배포
+      url: service-fabric-quickstart-containers-linux.md
   - linkListType: tutorial
     links:
     - text: Service Fabric .NET 앱 만들기, 배포 및 관리
       url: service-fabric-tutorial-create-dotnet-app.md
     - text: 기존 .NET 앱을 Service Fabric용으로 컨테이너화
       url: service-fabric-host-app-in-a-container.md
+    - text: Service Fabric Java 앱 만들기, 배포 및 관리
+      url: service-fabric-tutorial-create-java-app.md
   - linkListType: how-to-guide
     links:
     - text: Visual Studio를 사용하여 앱 개발
@@ -98,30 +102,6 @@ landingContent:
       url: service-fabric-tutorial-create-vnet-and-windows-cluster.md
     - text: Windows 클러스터 진단
       url: service-fabric-diagnostics-event-aggregation-wad.md
-- title: Java 애플리케이션 및 Linux 시작
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Linux와 Windows의 Service Fabric 간의 차이점
-      url: service-fabric-linux-windows-differences.md
-  - linkListType: quickstart
-    links:
-    - text: Linux 컨테이너 앱을 Service Fabric에 배포
-      url: service-fabric-quickstart-containers-linux.md
-  - linkListType: tutorial
-    links:
-    - text: Service Fabric Java 앱 만들기, 배포 및 관리
-      url: service-fabric-tutorial-create-java-app.md
-  - linkListType: how-to-guide
-    links:
-    - text: Eclipse를 사용하여 앱 개발
-      url: service-fabric-get-started-eclipse.md
-    - text: Reliable Services 시작(Linux의 Java)
-      url: service-fabric-reliable-services-quick-start-java.md
-    - text: Azure Virtual Network에 Linux 클러스터 만들기
-      url: service-fabric-tutorial-create-vnet-and-linux-cluster.md
-    - text: Linux 클러스터 진단
-      url: service-fabric-diagnostics-oms-syslog.md
 - title: 클러스터 보호
   linkLists:
   - linkListType: concept
@@ -164,27 +144,3 @@ landingContent:
     links:
     - text: Service Fabric FAQ
       url: service-fabric-common-questions.md
-- title: 온-프레미스에서 Service Fabric 사용
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: 독립 실행형 클러스터 개요
-      url: service-fabric-standalone-clusters-overview.md
-    - text: 독립 실행형 패키지의 내용
-      url: service-fabric-cluster-standalone-package-contents.md
-  - linkListType: concept
-    links:
-    - text: 독립 실행형 클러스터 업그레이드
-      url: service-fabric-cluster-upgrade-standalone.md
-    - text: 독립 실행형 클러스터 크기 조정
-      url: service-fabric-cluster-scaling-standalone.md
-  - linkListType: how-to-guide
-    links:
-    - text: 독립 실행형 클러스터 배포에 대한 계획
-      url: service-fabric-cluster-standalone-deployment-preparation.md
-    - text: Windows Server에서 실행되는 독립 실행형 클러스터 만들기
-      url: service-fabric-cluster-creation-for-windows-server.md
-    - text: 정기적 백업 구성
-      url: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
-    - text: Service Fabric 런타임 업그레이드
-      url: service-fabric-cluster-upgrade-windows-server.md

@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: overview
 ms.date: 03/24/2021
 ms.author: inhenkel
-ms.openlocfilehash: 3707516818e54dd251bd470eb9231afc6e3fff67
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: cd82da805538abcddf2f76a20c28cb0a74b5c89b
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138682"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685606"
 ---
 # <a name="media-services-v3-samples"></a>Media Services v3 샘플
 
@@ -33,11 +33,11 @@ ms.locfileid: "108138682"
 
 | 폴더 | 설명 |
 |-------------|-------------|
-| [VideoEncoding/EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESPredefinedPreset)|기본 제공 사전 설정 및 HTTP URL 입력을 사용하여 작업을 제출하고, 스트리밍을 위해 출력 자산을 게시하고, 확인을 위해 결과를 다운로드하는 방법입니다.|
-| [VideoEncoding/EncodingWithMESCustomPreset_H264](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPreset_H264)|사용자 지정 H.264 인코딩 사전 설정 및 HTTP URL 입력을 사용하여 작업을 제출하고, 스트리밍을 위해 출력 자산을 게시하고, 확인을 위해 결과를 다운로드하는 방법입니다.|
-| [VideoEncoding/EncodingWithMESCustomPreset_HEVC](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPreset_HEVC)|사용자 지정 HEVC 인코딩 사전 설정 및 HTTP URL 입력을 사용하여 작업을 제출하고, 스트리밍을 위해 출력 자산을 게시하고, 확인을 위해 결과를 다운로드하는 방법입니다.|
-| [VideoEncoding/EncodingWithMESCustomStitchTwoAssets](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomStitchTwoAssets)|JobInputSequence를 사용하여 작업을 제출하여 시작 또는 종료 시간에 따라 잘릴 수 있는 둘 이상의 자산을 연결하는 방법입니다. 인코딩된 결과 파일은 모든 자산이 함께 연결된 단일 비디오입니다.  이 샘플은 확인을 위해 스트리밍 및 다운로드 결과에 대한 출력 자산도 게시합니다.|
-| [VideoEncoding/EncodingWithMESCustomPresetAndSprite](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPresetAndSprite)|미리 보기 스프라이트와 HTTP URL 입력이 포함된 사용자 지정 사전 설정을 사용하여 작업을 제출하고, 스트리밍을 위해 출력 자산을 게시하고, 확인을 위해 결과를 다운로드하는 방법입니다.|
+| [VideoEncoding/EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_PredefinedPreset)|기본 제공 사전 설정 및 HTTP URL 입력을 사용하여 작업을 제출하고, 스트리밍을 위해 출력 자산을 게시하고, 확인을 위해 결과를 다운로드하는 방법입니다.|
+| [VideoEncoding/EncodingWithMESCustomPreset_H264](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_H264)|사용자 지정 H.264 인코딩 사전 설정 및 HTTP URL 입력을 사용하여 작업을 제출하고, 스트리밍을 위해 출력 자산을 게시하고, 확인을 위해 결과를 다운로드하는 방법입니다.|
+| [VideoEncoding/EncodingWithMESCustomPreset_HEVC](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_HEVC)|사용자 지정 HEVC 인코딩 사전 설정 및 HTTP URL 입력을 사용하여 작업을 제출하고, 스트리밍을 위해 출력 자산을 게시하고, 확인을 위해 결과를 다운로드하는 방법입니다.|
+| [VideoEncoding/EncodingWithMESCustomStitchTwoAssets](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_StitchTwoAssets)|JobInputSequence를 사용하여 작업을 제출하여 시작 또는 종료 시간에 따라 잘릴 수 있는 둘 이상의 자산을 연결하는 방법입니다. 인코딩된 결과 파일은 모든 자산이 함께 연결된 단일 비디오입니다.  이 샘플은 확인을 위해 스트리밍 및 다운로드 결과에 대한 출력 자산도 게시합니다.|
+| [VideoEncoding/EncodingWithMESCustomPresetAndSprite](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_SpriteThumbnail)|미리 보기 스프라이트와 HTTP URL 입력이 포함된 사용자 지정 사전 설정을 사용하여 작업을 제출하고, 스트리밍을 위해 출력 자산을 게시하고, 확인을 위해 결과를 다운로드하는 방법입니다.|
 | [Live/LiveEventWithDVR](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Live/LiveEventWithDVR)|최대 25시간의 전체 보관을 사용하여 LiveEvent를 만들고 5분 DVR 기간을 사용하여 자산에 대한 필터를 만드는 방법입니다. 필터를 사용하여 스트리밍을 위한 로케이터를 만드는 방법입니다.|
 | [VideoAnalytics/VideoAnalyzer](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoAnalytics/VideoAnalyzer)|비디오 분석기 변환을 만들고, 비디오 파일을 입력 자산에 업로드하고, 변환이 있는 작업을 제출하고, 확인을 위해 결과를 다운로드하는 방법입니다.|
 | [AudioAnalytics/AudioAnalyzer](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/AudioAnalytics/AudioAnalyzer)|오디오 분석기 변환을 만들고, 미디어 파일을 입력 자산에 업로드하고, 변환이 있는 작업을 제출하고, 확인을 위해 결과를 다운로드하는 방법입니다.|

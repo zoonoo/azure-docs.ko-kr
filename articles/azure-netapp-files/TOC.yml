@@ -37,6 +37,8 @@
           href: azure-netapp-files-smb-performance.md
     - name: Azure NetApp Files 비용 모델
       href: azure-netapp-files-cost-model.md
+    - name: 볼륨 할당량 이해
+      href: volume-quota-introduction.md
     - name: Azure NetApp Files 네트워크 계획 지침
       href: azure-netapp-files-network-topologies.md
     - name: Azure NetApp Files 스냅샷 작동 방식
@@ -61,6 +63,8 @@
               href: solutions-benefits-azure-netapp-files-electronic-design-automation.md
             - name: Windows Virtual Desktop에서 Azure NetApp Files를 사용할 경우의 이점
               href: solutions-windows-virtual-desktop.md
+            - name: SQL Server 배포에 Azure NetApp Files를 사용할 경우의 이점
+              href: solutions-benefits-azure-netapp-files-sql-server.md
     - name: Azure NetApp Files에 대한 FAQ
       href: azure-netapp-files-faqs.md
     - name: Azure Application Consistent Snapshot Tool이란?
@@ -89,20 +93,26 @@
           href: azure-netapp-files-configure-nfsv41-domain.md
         - name: NFSv4.1 Kerberos 암호화 구성
           href: configure-kerberos-encryption.md
+        - name: NFS에 대한 확장 그룹을 사용하여 ADDS LDAP 구성
+          href: configure-ldap-extended-groups.md
         - name: Azure NetApp Files에 대한 NFS 클라이언트 구성
           href: configure-nfs-clients.md
-        - name: NFS 볼륨에 대한 내보내기 정책 구성
-          href: azure-netapp-files-configure-export-policy.md
     - name: SMB 볼륨 만들기
       href: azure-netapp-files-create-volumes-smb.md
     - name: 이중 프로토콜 볼륨 만들기
       href: create-volumes-dual-protocol.md
-    - name: Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제
+    - name: TLS를 통해 ADDS LDAP 구성
+      href: configure-ldap-over-tls.md
+    - name: NFS 또는 이중 프로토콜에 대한 내보내기 정책 구성
+      href: azure-netapp-files-configure-export-policy.md
+    - name: 볼륨 탑재 또는 분리
       href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
     - name: 스냅샷 관리
       href: azure-netapp-files-manage-snapshots.md
     - name: 용량 풀 또는 볼륨 크기 조정
       href: azure-netapp-files-resize-capacity-pools-or-volumes.md
+    - name: 볼륨 용량 모니터링
+      href: monitor-volume-capacity.md
     - name: 볼륨의 서비스 수준을 동적으로 변경
       href: dynamic-change-volume-service-level.md
     - name: 지역 간 복제 관리
@@ -115,6 +125,8 @@
           href: cross-region-replication-manage-disaster-recovery.md
         - name: 볼륨 복제 또는 볼륨 삭제
           href: cross-region-replication-delete.md
+    - name: 태그를 사용하여 청구 관리
+      href: manage-billing-tags.md
     - name: 개발
       items:
         - name: REST API
@@ -135,6 +147,8 @@
           href: troubleshoot-nfsv41-kerberos-volumes.md
         - name: 스냅샷 정책 문제 해결
           href: troubleshoot-snapshot-policies.md
+        - name: LDAP 볼륨 문제 해결
+          href: troubleshoot-ldap-volumes.md
         - name: 리소스 공급자 오류 문제 해결
           href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: 참조
@@ -143,8 +157,12 @@
       href: /rest/api/netapp/
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.netapp/allversions
+    - name: Azure CLI
+      href: /cli/azure/netappfiles
     - name: Azure Application Consistent Snapshot Tool(AzAcSnap)
       items:
+        - name: AzAcSnap 릴리스 정보
+          href: azacsnap-release-notes.md
         - name: AzAcSnap 시작
           href: azacsnap-get-started.md
         - name: AzAcSnap 설치
@@ -179,3 +197,5 @@
       href: 'https://azure.microsoft.com/support/legal/sla/netapp/'
     - name: 동영상
       href: azure-netapp-files-videos.md
+    - name: Azure Files 및 Azure NetApp Files 비교
+      href: ../storage/files/storage-files-netapp-comparison.md
