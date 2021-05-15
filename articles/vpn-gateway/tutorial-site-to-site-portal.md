@@ -1,18 +1,18 @@
 ---
 title: '자습서 - 온-프레미스 네트워크를 가상 네트워크에 연결: Azure portal'
-description: 포털을 사용하여 공용 인터넷을 통해 온-프레미스 네트워크에서 Azure 가상 네트워크에 사이트 간 VPN Gateway IPsec 연결을 만듭니다.
+description: 이 자습서에서는 온-프레미스 네트워크에서 VNet으로 사이트 간 VPN Gateway IPsec 연결을 만드는 방법에 대해 알아봅니다.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 12/04/2020
-ms.openlocfilehash: ccb43c3e7efb9289450ad9a71c003f54e5362b66
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/28/2021
+ms.openlocfilehash: 83c2e42db4cc3e1a287341592f4917afce7309e2
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99822204"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204228"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-in-the-azure-portal"></a>자습서: Azure Portal에서 사이트 간 연결 만들기
 

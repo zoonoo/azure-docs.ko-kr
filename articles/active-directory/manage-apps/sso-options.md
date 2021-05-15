@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: iangithinji
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: 202ccf6f540ec78c2bb30e0f0a0173609bba578c
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 820f27e770e3168277e12b85e7766cd16975ef7f
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751457"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315006"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Azure AD의 Single Sign-On 옵션
 
@@ -76,7 +76,7 @@ SAML 기반 Single Sign-On에 맞게 SaaS 애플리케이션을 구성하려면 
 
 WS-Federation에 맞게 애플리케이션을 구성하려면 동일한 지침에 따라 SAML 기반 Single Sign-On에 맞게 애플리케이션을 구성합니다. Azure AD를 사용하도록 애플리케이션을 구성하는 단계에서 WS-Federation 엔드포인트 `https://login.microsoftonline.com/<tenant-ID>/wsfed`에 대한 Azure AD 로그인 URL을 교체해야 합니다.
 
-SAML 기반 Single Sign-On에 맞는 온-프레미스 애플리케이션을 구성하려면 [애플리케이션 프록시를 사용하는 온-프레미스 애플리케이션을 위한 SAML Single Sign-On](application-proxy-configure-single-sign-on-on-premises-apps.md)을 참조하세요.
+SAML 기반 Single Sign-On에 맞는 온-프레미스 애플리케이션을 구성하려면 [애플리케이션 프록시를 사용하는 온-프레미스 애플리케이션을 위한 SAML Single Sign-On](../app-proxy/application-proxy-configure-single-sign-on-on-premises-apps.md)을 참조하세요.
 
 SAML 프로토콜에 대한 자세한 정보는 [Single Sign-On SAML 프로토콜](../develop/single-sign-on-saml-protocol.md)을 참조하세요.
 
@@ -107,7 +107,7 @@ HTML 기반 로그인 페이지가 있는 클라우드 기반 애플리케이션
 
 암호 기반 Single Sign-On에 맞게 클라우드 애플리케이션을 구성하려면 [암호 Single Sign-On 구성](configure-password-single-sign-on-non-gallery-applications.md)을 참조하세요.
 
-애플리케이션 프록시를 통해 Single Sign-On에 대한 온-프레미스 애플리케이션을 구성하려면 [애플리케이션 프록시를 사용하여 Single Sign-On에 대한 암호 자격 증명 모음 설정](application-proxy-configure-single-sign-on-password-vaulting.md)을 참조하세요
+애플리케이션 프록시를 통해 Single Sign-On에 대한 온-프레미스 애플리케이션을 구성하려면 [애플리케이션 프록시를 사용하여 Single Sign-On에 대한 암호 자격 증명 모음 설정](../app-proxy/application-proxy-configure-single-sign-on-password-vaulting.md)을 참조하세요
 
 ### <a name="how-authentication-works-for-password-based-sso"></a>암호 기반 SSO에 대한 인증 작동 방식
 
@@ -157,16 +157,16 @@ SP 시작 SAML 기반 Single Sign-On에 맞게 애플리케이션을 구성하�
 
 ## <a name="integrated-windows-authentication-iwa-sso"></a>IWA(Windows 통합 인증) SSO
 
-[애플리케이션 프록시](application-proxy.md)는 [Windows 통합 인증(IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication) 또는 클레임 인식 애플리케이션을 사용하는 애플리케이션에 SSO(Single Sign-On)를 제공합니다. 애플리케이션에서 IWA를 사용하는 경우 애플리케이션 프록시는 KCD(Kerberos 제한 위임)를 사용하여 애플리케이션에 인증합니다. Azure Active Directory를 신뢰하는 클레임 인식 애플리케이션의 경우 사용자가 이미 Azure AD를 사용하여 인증되었으므로 Single Sign-On이 작동합니다.
+[애플리케이션 프록시](../app-proxy/application-proxy.md)는 [Windows 통합 인증(IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication) 또는 클레임 인식 애플리케이션을 사용하는 애플리케이션에 SSO(Single Sign-On)를 제공합니다. 애플리케이션에서 IWA를 사용하는 경우 애플리케이션 프록시는 KCD(Kerberos 제한 위임)를 사용하여 애플리케이션에 인증합니다. Azure Active Directory를 신뢰하는 클레임 인식 애플리케이션의 경우 사용자가 이미 Azure AD를 사용하여 인증되었으므로 Single Sign-On이 작동합니다.
 
 IWA를 통해 인증하는 온-프레미스 앱에 Single Sign-On을 제공하려면 Windows 통합 인증 Single Sign-On 모드를 선택합니다.
 
-IWA에 대해 온-프레미스 앱을 구성하려면 [애플리케이션 프록시를 사용하여 애플리케이션에 Single Sign-On에 대한 Kerberos 제한 위임](application-proxy-configure-single-sign-on-with-kcd.md)을 참조하세요.
+IWA에 대해 온-프레미스 앱을 구성하려면 [애플리케이션 프록시를 사용하여 애플리케이션에 Single Sign-On에 대한 Kerberos 제한 위임](../app-proxy/application-proxy-configure-single-sign-on-with-kcd.md)을 참조하세요.
 
 ### <a name="how-single-sign-on-with-kcd-works"></a>KCD를 사용하는 Single Sign-On 작동 방식
 이 다이어그램은 IWA를 사용하는 온-프레미스 애플리케이션에 사용자가 액세스할 때 흐름을 설명합니다.
 
-![Microsoft Azure AD 인증 흐름 다이어그램](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
+![Microsoft Azure AD 인증 흐름 다이어그램](../app-proxy/media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
 1. 사용자가 URL을 입력하여 애플리케이션 프록시를 통해 온-프레미스 애플리케이션에 액세스합니다.
 1. 애플리케이션 프록시는 사전 인증을 위해 Azure AD 인증 서비스에 요청을 리디렉션합니다. 이 시점에서 Azure AD는 다단계 인증 등, 모든 적용 가능한 인증 및 권한 부여 정책을 적용합니다. 사용자가 확인되면 Azure AD에서 토큰을 만들어서 사용자에게 보냅니다.
@@ -183,10 +183,10 @@ IWA에 대해 온-프레미스 앱을 구성하려면 [애플리케이션 프록
 
 애플리케이션 프록시가 온-프레미스 애플리케이션에 대해 구성된 경우 헤더 기반 Single Sign-On을 선택합니다.
 
-헤더 기반 인증에 대해 자세히 알아보려면 [헤더 기반 SSO](application-proxy-configure-single-sign-on-with-headers.md)를 참조하세요.
+헤더 기반 인증에 대해 자세히 알아보려면 [헤더 기반 SSO](../app-proxy/application-proxy-configure-single-sign-on-with-headers.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
 * [애플리케이션 관리에 대한 빠른 시작 시리즈](view-applications-portal.md)
 * [Single Sign-On 배포 계획](plan-sso-deployment.md)
-* [온-프레미스 앱을 사용한 Single Sign-On](application-proxy-config-sso-how-to.md)
+* [온-프레미스 앱을 사용한 Single Sign-On](../app-proxy/application-proxy-config-sso-how-to.md)

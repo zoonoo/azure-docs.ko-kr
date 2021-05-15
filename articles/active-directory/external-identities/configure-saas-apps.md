@@ -1,6 +1,6 @@
 ---
-title: B2B 공동 작업을 위한 SaaS 앱 구성-Azure AD
-description: B2B 공동 작업 Azure Active Directory SaaS 앱을 구성 하 고 사용 가능한 추가 리소스를 확인 하는 방법을 알아봅니다.
+title: B2B 협업용 SaaS 앱 구성 - Azure AD
+description: Azure Active Directory B2B 협업용 SaaS 앱을 구성하고 사용 가능한 추가 리소스를 표시하는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0db5e609a5e6b7d74809810a50f86d72ae85675
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90705513"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>B2B 협업용 SaaS 앱 구성
@@ -54,7 +54,7 @@ Azure AD(Azure Active Directory) B2B 협업은 Azure AD와 통합되는 대부�
 
 5. **Single Sign-On** 페이지에서 로그온 URL을 사용하여 Dropbox에 로그인합니다.
 
-   ![Dropbox 로그인 페이지를 보여 주는 스크린샷](media/configure-saas-apps/sign-in-to-dropbox.png)
+   ![Dropbox 로그인 페이지를 보여주는 스크린샷](media/configure-saas-apps/sign-in-to-dropbox.png)
 
 6. 메뉴에서 **관리 콘솔** 을 선택합니다.
 
@@ -79,9 +79,9 @@ SAML 프로토콜 기반의 페더레이션을 사용하여 사용자의 Azure A
 
 2. 다음 순서로 Single Sign-On을 구성합니다.
 
-   ![Single Sign-On 구성 설정을 보여 주는 스크린샷](media/configure-saas-apps/configure-box-sso.png)
+   ![Single Sign-On 구성 설정을 보여주는 스크린샷](media/configure-saas-apps/configure-box-sso.png)
 
-   a. **로그온 URL** 상자에서 Azure Portal의 Box에 대해 로그온 URL이 적합하게 설정되었는지 확인합니다. 이 URL은 Box.com 테넌트의 URL이며 명명 규칙을 따라야 합니다 *https://.box.com* .  
+   a. **로그온 URL** 상자에서 Azure Portal의 Box에 대해 로그온 URL이 적합하게 설정되었는지 확인합니다. 이 URL은 Box.com 테넌트의 URL이며 *https://.box.com* 명명 규칙을 따라야 합니다.  
    **식별자** 는 이 앱에 적용되지 않지만 여전히 필수 필드로 표시됩니다.
 
    b. **사용자 식별자** 상자에 **user.mail**(게스트 계정의 SSO에 대한)을 입력합니다.

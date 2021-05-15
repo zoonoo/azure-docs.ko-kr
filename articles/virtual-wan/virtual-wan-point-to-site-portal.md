@@ -1,18 +1,18 @@
 ---
 title: '자습서: Azure Virtual WAN을 사용하여 Azure에 지점 및 사이트 간 연결 만들기'
-description: 이 자습서에서는 Azure Virtual WAN을 사용하여 Azure에 지점 및 사이트 간 VPN 연결을 만드는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure Virtual WAN을 사용하여 Azure에 대한 사용자 VPN(지점 및 사이트 간) 연결을 만드는 방법을 알아봅니다.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 03/05/2021
+ms.date: 04/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: db7345906605ce117f0d57deb80f9d26ebf84179
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a2943d83bd29251551bdf82e906e068717595e33
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102430527"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164240"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용하여 사용자 VPN 연결 만들기
 

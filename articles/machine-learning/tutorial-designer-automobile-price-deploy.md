@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.custom: designer
-ms.openlocfilehash: ec563371ab505113117707f56c31f506f7fdf377
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1846b5478c824caa954b85ea6346d773f46b279c
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659524"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315672"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>자습서: 디자이너를 사용하여 Machine Learning 모델 배포
 
@@ -28,7 +28,7 @@ ms.locfileid: "101659524"
 > * 실시간 엔드포인트를 배포합니다.
 > * 실시간 엔드포인트를 테스트합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [이 자습서의 1부](tutorial-designer-automobile-price-train-score.md)를 완료하여 디자이너에서 Machine Learning 모델을 학습하고 채점하는 방법을 알아보세요.
 
@@ -140,6 +140,8 @@ AKS 서비스 프로비저닝이 완료된 후에는 실시간 유추 파이프�
 
 ## <a name="limitations"></a>제한 사항
 
+### <a name="update-inference-pipeline"></a>유추 파이프라인 업데이트
+
 학습 파이프라인을 수정하는 경우 학습 파이프라인을 다시 제출하고, 유추 파이프라인을 **업데이트** 하고, 유추 파이프라인을 다시 실행해야 합니다.
 
 학습된 모델만 유추 파이프라인에서 업데이트되고, 데이터 변환은 업데이트되지 않습니다.
@@ -153,6 +155,10 @@ AKS 서비스 프로비저닝이 완료된 후에는 실시간 유추 파이프�
 ![변환 모듈을 바꾸는 방법을 보여주는 스크린샷](./media/tutorial-designer-automobile-price-deploy/replace-td-module.png)
 
 그런 다음, 업데이트된 모델과 변환이 적용된 유추 파이프라인을 제출하고 배포할 수 있습니다.
+
+### <a name="deploy-real-time-endpoint"></a>실시간 엔드포인트 배포
+
+datstore 액세스 제한으로 인해 유추 파이프라인에 **데이터 가져오기** 또는 **데이터 내보내기** 모듈이 포함되어 있으면 실시간 엔드포인트에 배포할 때 자동으로 제거됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

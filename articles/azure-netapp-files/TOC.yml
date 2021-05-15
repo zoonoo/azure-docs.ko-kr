@@ -77,10 +77,12 @@
       href: azure-netapp-files-register.md
     - name: NetApp 계정 만들기
       href: azure-netapp-files-create-netapp-account.md
-    - name: 용량 풀 설정
-      href: azure-netapp-files-set-up-capacity-pool.md
-    - name: 수동 QoS 용량 풀 관리
-      href: manage-manual-qos-capacity-pool.md
+    - name: 용량 풀 만들기 및 관리
+      items:
+        - name: 용량 풀 설정
+          href: azure-netapp-files-set-up-capacity-pool.md
+        - name: 수동 QoS 용량 풀 관리
+          href: manage-manual-qos-capacity-pool.md
     - name: Azure NetApp Files에 서브넷 위임
       href: azure-netapp-files-delegate-subnet.md
     - name: Active Directory 연결 만들기 및 관리
@@ -97,8 +99,12 @@
           href: configure-ldap-extended-groups.md
         - name: Azure NetApp Files에 대한 NFS 클라이언트 구성
           href: configure-nfs-clients.md
-    - name: SMB 볼륨 만들기
-      href: azure-netapp-files-create-volumes-smb.md
+    - name: SMB 볼륨 만들기 및 관리
+      items:
+        - name: SMB 볼륨 만들기
+          href: azure-netapp-files-create-volumes-smb.md
+        - name: 지속적인 가용성을 사용하도록 기존 SMB 볼륨 변환
+          href: convert-smb-continuous-availability.md
     - name: 이중 프로토콜 볼륨 만들기
       href: create-volumes-dual-protocol.md
     - name: TLS를 통해 ADDS LDAP 구성

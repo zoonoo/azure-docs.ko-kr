@@ -1,16 +1,16 @@
 ---
-title: 기본값에서 blob 경로 변경
-description: Azure function을 설정 하 여 기본 blob 파일 경로의 이름을 바꾸고 blob을 다른 위치로 이동 하는 방법에 대해 알아봅니다.
+title: 기본 경로에서 Blob 경로 변경
+description: 기본 Blob 파일 경로의 이름을 바꾸고 Blob을 다른 위치로 이동하도록 Azure 함수를 설정하는 방법을 알아봅니다.
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 6af095c7abdb9aa61e57d543ff2ab2f9192dadc8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96011441"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>기본 경로에서 Blob 경로 변경
@@ -25,7 +25,7 @@ StorSimple 데이터 관리자 서비스에서 작업 정의를 올바르게 구
 
 Azure 함수를 만들려면 다음 단계를 수행합니다.
 
-1. [Azure 포털](https://portal.azure.com/)로 이동합니다.
+1. [Azure Portal](https://portal.azure.com/)로 이동합니다.
 
 2. **+ 리소스 만들기** 를 클릭합니다. **검색** 상자에 **함수 앱** 을 입력하고 **Enter** 를 누릅니다. 표시되는 앱 목록에서 **함수 앱** 을 선택한 후 클릭합니다.
 
@@ -38,7 +38,7 @@ Azure 함수를 만들려면 다음 단계를 수행합니다.
 4. **함수 앱** 구성 블레이드에서 다음 단계를 수행합니다.
 
     1. 고유한 **앱 이름** 을 제공합니다.
-    2. 드롭다운 목록에서 **구독** 을 선택 합니다. 이 구독은 데이터 StorSimple 데이터 관리자 서비스와 연결된 구독과 동일해야 합니다.
+    2. 드롭다운 목록에서 **구독** 을 선택합니다. 이 구독은 데이터 StorSimple 데이터 관리자 서비스와 연결된 구독과 동일해야 합니다.
     3. **새 리소스 그룹 만들기** 를 선택합니다.
     4. **호스팅 계획** 드롭다운 목록에서 **소비 계획** 을 선택합니다.
     5. 함수가 실행되는 위치를 지정합니다. StorSimple 데이터 관리자 서비스 및 작업 정의와 연결된 스토리지 계정이 있는 동일한 영역이 좋습니다.
@@ -69,7 +69,7 @@ Azure 함수를 만들려면 다음 단계를 수행합니다.
      
 10. 함수 창에서 _.csx_ 파일을 실행합니다.
 
-    ![새 c # 함수 2 만들기](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
+    ![새 C# 함수 2 만들기](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
     
     다음 단계를 수행합니다.
 
@@ -193,7 +193,7 @@ Azure 함수를 만들려면 다음 단계를 수행합니다.
         
         ![새 함수 추가 파일 추가](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
     
-    3. **에project.js** 을 입력 하 고 **enter** 키를 누릅니다. **project.json** 파일에 다음 코드를 붙여 넣습니다.
+    3. **project.json** 을 입력하고 **Enter** 키를 누릅니다. **project.json** 파일에 다음 코드를 붙여 넣습니다.
 
         ```
         {
@@ -217,4 +217,4 @@ Azure Function이 만들어졌습니다. 이 함수는 데이터 변환 작업�
 
 ## <a name="next-steps"></a>다음 단계
 
-[StorSimple Data Manager UI를 사용 하 여 데이터 변환](storsimple-data-manager-ui.md)
+[StorSimple 데이터 관리자 UI를 사용하여 데이터를 변환합니다](storsimple-data-manager-ui.md).

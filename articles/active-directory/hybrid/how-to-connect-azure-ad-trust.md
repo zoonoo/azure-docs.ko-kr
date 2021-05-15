@@ -19,10 +19,10 @@ author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13d56ec321cd257412c2b0abbe0be655c6cb4dbf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85360098"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Azure AD Connect를 사용하여 Azure AD로 AD FS 신뢰 관리
@@ -39,7 +39,7 @@ Azure AD Connect는 온-프레미스 Active Directory Federation Service(AD FS)�
 
 Azure AD Connect는 Azure AD 신뢰와 관련된 설정 **만** 관리합니다. Azure AD Connect는 AD FS의 다른 신뢰 당사자 신뢰에 대한 설정을 수정하지 않습니다. 다음 표에는 Azure AD Connect에서 제어하는 설정이 나와 있습니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 | :--- | :--- |
 | 토큰 서명 인증서 | Azure AD Connect를 사용하여 Azure AD와의 신뢰를 다시 설정하고 다시 만들 수 있습니다. Azure AD Connect는 AD FS의 토큰 서명 인증서에 대한 일회성 즉시 롤오버를 수행하고 Azure AD 도메인 페더레이션 설정을 업데이트합니다.|
 | 토큰 서명 알고리즘 | 토큰 서명 알고리즘으로 SHA-256을 사용하는 것이 좋습니다. Azure AD Connect는 토큰 서명 알고리즘이 SHA-256보다 덜 안전한 값으로 설정되었는지 감지할 수 있습니다. 다음에 가능한 구성 작업에서 설정이 SHA-256으로 업데이트됩니다. 다른 신뢰 당사자 트러스트는 새로운 토큰 서명 인증서를 사용하도록 업데이트해야 합니다. |
@@ -105,7 +105,7 @@ Azure AD Connect는 Azure AD 트러스트가 항상 올바른 권장 클레임 �
 
 Azure AD Connect 버전 1.1.873.0 이상은 Azure AD 신뢰 설정에 대한 업데이트가 이루어질 때마다 Azure AD 신뢰 설정의 백업을 만듭니다. Azure AD 신뢰 설정은 **%ProgramData%\AADConnect\ADFS** 에 백업됩니다. 파일 이름은 AadTrust-&lt;date&gt;-&lt;time&gt;.txt와 같은 형식입니다(예 - AadTrust-20180710-150216.txt).
 
-![Azure AD 트러스트의 백업 예제 스크린샷](./media/how-to-connect-azure-ad-trust/backup.png)
+![Azure AD 신뢰의 백업 예제 스크린샷](./media/how-to-connect-azure-ad-trust/backup.png)
 
 아래에 제시된 단계를 따라 발급 변환 규칙을 복원할 수 있습니다.
 

@@ -9,10 +9,10 @@ ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: f55a82eeddc8d4515b0f1333b615244976975097
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104878246"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Azure Spring Cloud에서 분산 추적
@@ -20,26 +20,26 @@ ms.locfileid: "104878246"
 Azure Spring Cloud의 분산 추적 도구를 사용하면 복잡한 문제를 쉽게 디버그하고 모니터링할 수 있습니다. Azure Spring Cloud는 [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth)를 Azure의 [Application Insights](../azure-monitor/app/app-insights-overview.md)와 통합합니다. 이러한 통합은 Azure Portal의 강력한 분산 추적 기능을 제공합니다.
 
 ::: zone pivot="programming-language-csharp"
-이 문서에서는 .NET Core Steeltoe 앱에서 분산 추적을 사용 하도록 설정 하는 방법에 대해 알아봅니다.
+이 문서에서는 .NET Core Steeltoe 앱에서 분산 추적을 사용하도록 설정하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-이러한 절차를 따르려면 [Azure 스프링 클라우드에 배포 하기 위해 이미 준비한](how-to-prepare-app-deployment.md)Steeltoe 앱이 필요 합니다.
+이러한 절차를 따르려면 사전에 [Azure Spring Cloud에 배포하기 위해 준비한](how-to-prepare-app-deployment.md) Steeltoe 앱이 필요합니다.
 
 ## <a name="dependencies"></a>종속성
 
-Steeltoe 2.4.4의 경우 다음 NuGet 패키지를 추가 합니다.
+Steeltoe 2.4.4의 경우 다음 NuGet 패키지를 추가합니다.
 
-* [Steeltoe. TracingCore](https://www.nuget.org/packages/Steeltoe.Management.TracingCore/)
-* [Steeltoe. ExporterCore](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/)
+* [Steeltoe.Management.TracingCore](https://www.nuget.org/packages/Steeltoe.Management.TracingCore/)
+* [Steeltoe.Management.ExporterCore](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/)
 
-Steeltoe 3.0.0의 경우 다음 NuGet 패키지를 추가 합니다.
+Steeltoe 3.0.0의 경우 다음 NuGet 패키지를 추가합니다.
 
-* [Steeltoe. TracingCore](https://www.nuget.org/packages/Steeltoe.Management.TracingCore/)
+* [Steeltoe.Management.TracingCore](https://www.nuget.org/packages/Steeltoe.Management.TracingCore/)
 
-## <a name="update-startupcs"></a>업데이트 시작 .cs
+## <a name="update-startupcs"></a>Startup.cs 업데이트
 
-1. Steeltoe 2.4.4의 경우 `AddDistributedTracing` 메서드에서 및를 호출 `AddZipkinExporter` `ConfigureServices` 합니다.
+1. Steeltoe 2.4.4의 경우 `ConfigureServices` 메서드에서 `AddDistributedTracing` 및 `AddZipkinExporter`를 호출합니다.
 
    ```csharp
    public void ConfigureServices(IServiceCollection services)
@@ -49,7 +49,7 @@ Steeltoe 3.0.0의 경우 다음 NuGet 패키지를 추가 합니다.
    }
    ```
 
-   Steeltoe 3.0.0의 경우 `AddDistributedTracing` 메서드에서를 호출 `ConfigureServices` 합니다.
+   Steeltoe 3.0.0의 경우 `ConfigureServices` 메서드에서 `AddDistributedTracing`을 호출합니다.
 
    ```csharp
    public void ConfigureServices(IServiceCollection services)
@@ -58,7 +58,7 @@ Steeltoe 3.0.0의 경우 다음 NuGet 패키지를 추가 합니다.
    }
    ```
 
-1. Steeltoe 2.4.4의 경우 `UseTracingExporter` 메서드에서를 호출 `Configure` 합니다.
+1. Steeltoe 2.4.4의 경우 `Configure` 메서드에서 `UseTracingExporter`를 호출합니다.
 
    ```csharp
    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -71,17 +71,17 @@ Steeltoe 3.0.0의 경우 다음 NuGet 패키지를 추가 합니다.
    }
    ```
 
-   Steeltoe 3.0.0의 경우에는 메서드에 변경이 필요 하지 않습니다 `Configure` .
+   Steeltoe 3.0.0의 경우에는 `Configure` 메서드에 변경이 필요하지 않습니다.
 
 ## <a name="update-configuration"></a>구성 업데이트
 
-앱이 Azure 스프링 클라우드에서 실행 될 때 사용할 구성 원본에 다음 설정을 추가 합니다.
+앱이 Azure Spring Cloud에서 실행될 때 사용할 구성 원본에 다음 설정을 추가합니다.
 
 1. `management.tracing.alwaysSample`를 true로 설정합니다.
 
-2. Eureka 서버, 구성 서버 및 사용자 앱 간에 전송 된 추적 범위를 보려면 `management.tracing.egressIgnorePattern` "/api/v2/spans |/v2/apps/.*로 설정 합니다. /cvor 권한 |/eureka/.*| /oauth/. * "
+2. Eureka 서버, 구성 서버 및 사용자 앱 간에 전송된 추적 범위를 보려면 `management.tracing.egressIgnorePattern`을 "/api/v2/spans|/v2/apps/. */permissions|/eureka/.* |/oauth/.*"로 설정합니다.
 
-예를 들어 *의appsettings.js에* 는 다음과 같은 속성이 포함 됩니다.
+예를 들어 *appsettings.json* 에는 다음과 같은 속성이 포함됩니다.
  
 ```json
 "management": {
@@ -92,7 +92,7 @@ Steeltoe 3.0.0의 경우 다음 NuGet 패키지를 추가 합니다.
   }
 ```
 
-.NET Core Steeltoe 앱의 분산 추적에 대 한 자세한 내용은 Steeltoe 설명서의 [분산 추적](https://steeltoe.io/docs/3/tracing/distributed-tracing) 을 참조 하세요.
+.NET Core Steeltoe 앱의 분산 추적에 대한 자세한 내용은 Steeltoe 설명서의 [분산 추적](https://steeltoe.io/docs/3/tracing/distributed-tracing)을 참조하세요.
 ::: zone-end
 ::: zone pivot="programming-language-java"
 이 문서에서는 다음 방법을 설명합니다.
@@ -105,7 +105,7 @@ Steeltoe 3.0.0의 경우 다음 NuGet 패키지를 추가 합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-다음 절차를 수행하려면 이미 프로비저닝되어 실행 중인 Azure Spring Cloud 서비스가 필요합니다. [첫 번째 Azure 스프링 클라우드 응용 프로그램 배포 빠른 시작](spring-cloud-quickstart.md) 을 완료 하 여 Azure 스프링 클라우드 서비스를 프로 비전 하 고 실행 합니다.
+다음 절차를 수행하려면 이미 프로비저닝되어 실행 중인 Azure Spring Cloud 서비스가 필요합니다. [첫 번째 Azure Spring Cloud 애플리케이션 배포](spring-cloud-quickstart.md)를 완료하여 Azure Spring Cloud 서비스를 프로비전하고 실행합니다.
 
 ## <a name="add-dependencies"></a>종속성 추가
 

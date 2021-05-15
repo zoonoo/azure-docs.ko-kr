@@ -4,19 +4,19 @@ ms.service: api-management
 ms.topic: include
 ms.date: 04/16/2021
 ms.author: vlvinogr
-ms.openlocfilehash: 329ea156b296810395eb7b8e8310bed5ee0ee4c9
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 890cb1dc8d8a59f6b567497b968b53bb89ec1ecc
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107601912"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108230725"
 ---
 ## <a name="append-other-apis"></a>다른 API 추가
 
 다음을 포함하여 다양한 서비스에 의해 노출되는 API를 구성할 수 있습니다.
 * OpenAPI 사양
 * SOAP API
-* Azure App Service의 API Apps 기능
+* Azure App Service에서 호스팅되는 웹앱
 * Azure 함수 앱
 * Azure Logic Apps
 * Azure Service Fabric
@@ -30,7 +30,7 @@ ms.locfileid: "107601912"
 
     :::image type="content" source="./media/api-management-append-apis/service-page.png" alt-text="Azure API Mgmt 인스턴스로 이동":::
 
-1. 왼쪽 메뉴에서 **API** 를 선택합니다.
+1. **개요** 페이지 또는 왼쪽 메뉴에서 **API** 를 선택합니다.
 
     :::image type="content" source="./media/api-management-append-apis/api-select.png" alt-text="API 선택":::
 

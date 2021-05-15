@@ -1,6 +1,6 @@
 ---
-title: Synapse SQL에서 지원 되는 시스템 뷰
-description: Synapse SQL에서 지원 되는 시스템 뷰의 설명서에 대 한 링크입니다.
+title: Synapse SQL에서 지원되는 시스템 보기
+description: Synapse SQL에서 지원되는 시스템 보기에 대한 설명서 링크입니다.
 author: filippopovic
 ms.service: synapse-analytics
 ms.subservice: sql
@@ -9,20 +9,20 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: da033523e95d89ba6fd6b0eec780b45f7587bc55
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101666278"
 ---
-# <a name="system-views-supported-in-synapse-sql"></a>Synapse SQL에서 지원 되는 시스템 뷰
+# <a name="system-views-supported-in-synapse-sql"></a>Synapse SQL에서 지원되는 시스템 보기
 
-Synapse SQL에서 지원 되는 T-sql 문에 대 한 설명서에 대 한 링크입니다.
+Synapse SQL에서 지원되는 T-SQL 문에 대한 설명서 링크입니다.
 
 > [!NOTE]
-> Synapse 서버를 사용 하지 않는 SQL 풀은 SQL Server 카탈로그 뷰만 지원 합니다.  
+> Synapse 서버리스 SQL 풀은 SQL Server 카탈로그 보기만 지원합니다.  
 
-## <a name="dedicated-sql-pool-and-serverless-sql-pool-catalog-views"></a>전용 SQL 풀 및 서버를 사용 하지 않는 SQL 풀 카탈로그 뷰
+## <a name="dedicated-sql-pool-and-serverless-sql-pool-catalog-views"></a>전용 SQL 풀 및 서버리스 SQL 풀 카탈로그 보기
 
 * [sys.pdw_column_distribution_properties](/sql/relational-databases/system-catalog-views/sys-pdw-column-distribution-properties-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 * [sys.pdw_distributions](/sql/relational-databases/system-catalog-views/sys-pdw-distributions-transact-sql?view=azure-sqldw-latest&preserve-view=true)
@@ -48,7 +48,7 @@ Synapse SQL에서 지원 되는 T-sql 문에 대 한 설명서에 대 한 링크
 * [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest&preserve-view=true) (미리 보기)
 * [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?view=azure-sqldw-latest&preserve-view=true) (미리 보기)
 
-## <a name="dedicated-sql-pool-dynamic-management-views-dmvs"></a>전용 SQL 풀 Dmv (동적 관리 뷰)
+## <a name="dedicated-sql-pool-dynamic-management-views-dmvs"></a>전용 SQL 풀 DMV(동적 관리 보기)
 
 * [sys.dm_pdw_dms_cores](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-cores-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 * [sys.dm_pdw_dms_external_work](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-external-work-transact-sql?view=azure-sqldw-latest&preserve-view=true)
@@ -70,9 +70,9 @@ Synapse SQL에서 지원 되는 T-sql 문에 대 한 설명서에 대 한 링크
 * [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 * [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 
-## <a name="sql-server-dmvs-applicable-to-dedicated-sql-pool"></a>전용 SQL 풀에 적용할 수 있는 SQL Server Dmv
+## <a name="sql-server-dmvs-applicable-to-dedicated-sql-pool"></a>전용 SQL 풀에 적용 가능한 SQL Server DMV
 
-다음 Dmv는 전용 SQL 풀에 적용할 수 있지만 **master** 데이터베이스에 연결 하 여 실행 해야 합니다.
+다음 DMV는 전용 SQL 풀에 적용할 수 있지만, **master** 데이터베이스에 연결하여 실행해야 합니다.
 
 * [sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database?view=azure-sqldw-latest&preserve-view=true)
 * [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?view=azure-sqldw-latest&preserve-view=true)
@@ -152,11 +152,11 @@ Synapse SQL에서 지원 되는 T-sql 문에 대 한 설명서에 대 한 링크
 * [sys.types](/sql/relational-databases/system-catalog-views/sys-types-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 * [sys.views](/sql/relational-databases/system-catalog-views/sys-views-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 
-## <a name="sql-server-dmvs-available-in-dedicated-sql-pool"></a>전용 SQL 풀에서 사용할 수 있는 SQL Server Dmv
+## <a name="sql-server-dmvs-available-in-dedicated-sql-pool"></a>전용 SQL 풀에서 사용할 수 있는 SQL Server DMV
 
-SQL 풀은 다양한 SQL Server DMV(동적 관리 보기)를 표시합니다. 이 보기는 전용 SQL 풀에서 쿼리 되는 경우 배포에서 실행 되는 SQL 데이터베이스의 상태를 보고 합니다.
+SQL 풀은 다양한 SQL Server DMV(동적 관리 보기)를 표시합니다. 이러한 보기는 전용 SQL 풀에서 쿼리한 경우 배포에서 실행되고 있는 SQL Database의 상태를 보고합니다.
 
-SQL 풀 및 분석 플랫폼 시스템의 PDW (병렬 데이터 웨어하우스)는 동일한 시스템 뷰를 사용 합니다. 각 DMV에는 컴퓨팅 노드에 대한 식별자인 pdw_node_id라는 열이 있습니다.
+SQL 풀과 Analytics Platform System의 PDW(병렬 데이터 웨어하우스)는 모두 동일한 시스템 보기를 사용합니다. 각 DMV에는 컴퓨팅 노드에 대한 식별자인 pdw_node_id라는 열이 있습니다.
 
 > [!NOTE]
 > 이러한 보기를 사용하려면 다음 표와 같이 이름에 ‘pdw_nodes_’를 삽입합니다.
@@ -223,9 +223,9 @@ SQL 풀 및 분석 플랫폼 시스템의 PDW (병렬 데이터 웨어하우스)
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-session-transactions-transact-sql?view=azure-sqldw-latest&preserve-view=true) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-top-version-generators-transact-sql?view=azure-sqldw-latest&preserve-view=true) |
 
-## <a name="sql-server-2016-polybase-dmvs-available-in-dedicated-sql-pool"></a>SQL Server 2016 PolyBase Dmv 전용 SQL 풀에서 사용 가능
+## <a name="sql-server-2016-polybase-dmvs-available-in-dedicated-sql-pool"></a>전용 SQL 풀에서 사용할 수 있는 SQL Server 2016 PolyBase DMV
 
-다음 Dmv는 전용 SQL 풀에 적용할 수 있지만 **master** 데이터베이스에 연결 하 여 실행 해야 합니다.
+다음 DMV는 전용 SQL 풀에 적용할 수 있지만, **master** 데이터베이스에 연결하여 실행해야 합니다.
 
 * [sys.dm_exec_compute_node_errors](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-compute-node-errors-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 * [sys.dm_exec_compute_node_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-compute-node-status-transact-sql?view=azure-sqldw-latest&preserve-view=true)
@@ -252,5 +252,5 @@ SQL 풀 및 분석 플랫폼 시스템의 PDW (병렬 데이터 웨어하우스)
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 참조 정보는 [SYNAPSE sql의 t-sql 문](../sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements.md)및 [Synapse sql의 t-sql 언어 요소](../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md)를 참조 하세요.
+자세한 참조 정보는 [Synapse SQL의 T-SQL 문](../sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements.md) 및 [Synapse SQL의 T-SQL 언어 요소](../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md)를 참조하세요.
 

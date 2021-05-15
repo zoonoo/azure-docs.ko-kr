@@ -18,16 +18,16 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 056d0caf2bfc6e99d5d659a2561bc41844feb79a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "64918787"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>강력한 ID 솔루션을 통해 데이터 보안을 향상하기 위한 계획
 데이터를 보호하는 첫 번째 단계는 해당 데이터에 액세스할 수 있는 사용자를 식별하는 것입니다. 또한 인증 및 권한 부여 기능을 제공하기 위해 시스템을 통합할 수 있는 ID 솔루션이 필요합니다. 인증 및 권한 부여는 종종 서로 혼동되고 역할은 오해됩니다. 아래 그림에 표시된 대로 실제로 매우 다릅니다.
 
-![모바일 장치 수명 주기](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
+![모바일 디바이스 수명 주기](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
 
 **모바일 디바이스 관리 수명 주기 단계**
 

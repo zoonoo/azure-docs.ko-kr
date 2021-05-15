@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/12/2021
+ms.date: 04/28/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 3d53c96c4b0306911b0c8a0b8576f35a73419db0
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 9a39a1b0df364aeed970f3ed0e0d99d4d31585b2
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107498155"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175481"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>자습서: SCIM 엔드포인트 프로비저닝 개발 및 계획
 
@@ -213,10 +213,11 @@ AAD와의 호환성을 보장하려면 SCIM 엔드포인트를 구현할 때 다
 * 자격 특성은 지원되지 않습니다.
 * SCIM 엔드포인트에서 HTTPS를 지원합니다.
 * [스키마 검색](#schema-discovery)
-  * 스키마 검색은 현재 사용자 지정 애플리케이션에서 지원되지 않지만 특정 갤러리 애플리케이션에서 사용되고 있습니다. 앞으로 스키마 검색은 커넥터에 특성을 추가하는 기본 방법으로 사용됩니다. 
+  * 스키마 검색은 현재 사용자 지정 애플리케이션에서 지원되지 않지만 특정 갤러리 애플리케이션에서 사용되고 있습니다. 앞으로 스키마 검색은 기존 커넥터에 특성을 추가하는 유일한 방법으로 사용됩니다. 
   * 값이 없으면 null 값을 보내지 마세요.
   * 속성 값은 camel 대/소문자를 지정해야 합니다(예: readWrite).
   * 목록 응답을 반환해야 합니다.
+  * /schemas 요청은 누군가가 Azure Portal에서 프로비저닝 구성을 저장할 때마다 또는 사용자가 Azure Portal의 프로비저닝 편집 페이지에 도달할 때마다 Azure AD SCIM 클라이언트에서 수행됩니다. 검색된 추가 특성은 대상 특성 목록 아래의 특성 매핑에서 고객에게 표시됩니다. 스키마 검색에서는 추가 대상 특성만 추가됩니다. 특성이 제거되지 않습니다. 
   
 ### <a name="user-provisioning-and-deprovisioning"></a>사용자 프로비저닝 및 프로비저닝 해제
 

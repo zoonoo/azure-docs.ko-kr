@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 92a9abec36bd75c594c67843286bf8fa067d7dba
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101658540"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Azure Cosmos DB Java SDK v4를 사용하도록 애플리케이션 마이그레이션
@@ -91,7 +91,7 @@ Azure Cosmos DB Java SDK 3.x.x에서 `CosmosItemProperties` 개체는 공개 API
 
 * Azure Cosmos DB Java SDK 4.0 패키지는 `com.azure.cosmos`로 시작합니다.
 * Azure Cosmos DB Java SDK 3.x.x 패키지는 `com.azure.data.cosmos`로 시작합니다.
-* Azure Cosmos DB Java SDK 2.x 동기화 API 패키지는 다음으로 시작 합니다. `com.microsoft.azure.documentdb`
+* Azure Cosmos DB Java SDK 2.x.x Sync API packages는 `com.microsoft.azure.documentdb`로 시작합니다.
 
 * Azure Cosmos DB Java SDK 4.0은 여러 클래스를 중첩 패키지 `com.azure.cosmos.models`에 배치합니다. 이러한 패키지 중 일부는 다음과 같습니다.
 
@@ -115,7 +115,7 @@ Azure Cosmos DB Java SDK 4.0은 `get` 및 `set` 메서드를 노출하여 인스
 
 ### <a name="create-resources"></a>리소스 만들기
 
-다음 코드 조각은 4.0, 3.x 비동기 Api와 2.x 동기화 Api 사이에서 리소스를 만드는 방법의 차이점을 보여 줍니다.
+다음 코드 조각은 4.0과 3.x.x Async API에서 리소스를 생성하는 방법의 차이점을 보여줍니다.
 
 # <a name="java-sdk-40-async-api"></a>[Java SDK 4.0 Async API](#tab/java-v4-async)
 
@@ -152,7 +152,7 @@ client.createDatabaseIfNotExists("YourDatabaseName")
 }).subscribe();
 ```
 
-# <a name="java-sdk-2xx-sync-api"></a>[Java SDK 2.x 동기화 API](#tab/java-v2-sync)
+# <a name="java-sdk-2xx-sync-api"></a>[Java SDK 3.x.x Async API](#tab/java-v2-sync)
 
 ```java
 ConnectionPolicy defaultPolicy = ConnectionPolicy.GetDefault();
@@ -182,7 +182,7 @@ documentCollection = client.createCollection(database.getSelfLink(), documentCol
 
 ### <a name="item-operations"></a>항목 작업
 
-다음 코드 조각은 4.0, 3(sp3)의 비동기 Api와 2.x 동기화 Api 사이에서 항목 작업을 수행 하는 방법의 차이점을 보여 줍니다.
+다음 코드 조각은 4.0과 3.x.x Async API에서 항목 작업을 수행하는 방법의 차이점을 보여줍니다.
 
 # <a name="java-sdk-40-async-api"></a>[Java SDK 4.0 Async API](#tab/java-v4-async)
 
@@ -201,7 +201,7 @@ Flux.fromIterable(docs)
     .subscribe(); // ...Subscribing triggers stream execution.
 ```
 
-# <a name="java-sdk-2xx-sync-api"></a>[Java SDK 2.x 동기화 API](#tab/java-v2-sync)
+# <a name="java-sdk-2xx-sync-api"></a>[Java SDK 3.x.x Async API](#tab/java-v2-sync)
 
 ```java
 //  Container is created. Generate documents to insert.
@@ -215,7 +215,7 @@ Document responseDocument = documentResourceResponse.getResource();
 
 ### <a name="indexing"></a>인덱싱
 
-다음 코드 조각은 4.0, 3.x 비동기 Api와 2.x 동기화 Api 간에 인덱싱이 만들어지는 방법의 차이점을 보여 줍니다.
+다음 코드 조각은 4.0과 3.x.x Async API에서 인덱스를 만드는 방법의 차이점을 보여줍니다.
 
 # <a name="java-sdk-40-async-api"></a>[Java SDK 4.0 Async API](#tab/java-v4-async)
 
@@ -251,7 +251,7 @@ CosmosContainer containerIfNotExists = database.createContainerIfNotExists(conta
                                                .container();
 ```
 
-# <a name="java-sdk-2xx-sync-api"></a>[Java SDK 2.x 동기화 API](#tab/java-v2-sync)
+# <a name="java-sdk-2xx-sync-api"></a>[Java SDK 3.x.x Async API](#tab/java-v2-sync)
 
 ```java
 // Custom indexing policy
@@ -282,7 +282,7 @@ documentCollection = client.createCollection(database.getSelfLink(), documentCol
 
 ### <a name="stored-procedures"></a>저장 프로시저
 
-다음 코드 조각은 4.0, 3.x 비동기 Api와 2.x 동기화 Api 사이에서 저장 프로시저를 만드는 방법의 차이점을 보여 줍니다.
+다음 코드 조각은 4.0과 3.x.x Async API에서 저장 프로시저 생성 방법의 차이점을 보여줍니다.
 
 # <a name="java-sdk-40-async-api"></a>[Java SDK 4.0 Async API](#tab/java-v4-async)
 
@@ -330,7 +330,7 @@ container.getScripts()
         }).block();
 ```
 
-# <a name="java-sdk-2xx-sync-api"></a>[Java SDK 2.x 동기화 API](#tab/java-v2-sync)
+# <a name="java-sdk-2xx-sync-api"></a>[Java SDK 3.x.x Async API](#tab/java-v2-sync)
 
 ```java
 logger.info("Creating stored procedure...\n");
@@ -413,14 +413,14 @@ ChangeFeedProcessor.Builder()
                             .subscribe();
 ```
 
-# <a name="java-sdk-2xx-sync-api"></a>[Java SDK 2.x 동기화 API](#tab/java-v2-sync)
+# <a name="java-sdk-2xx-sync-api"></a>[Java SDK 3.x.x Async API](#tab/java-v2-sync)
 
-* 이 기능은 Java SDK v2 sync에서 지원 되지 않습니다. 
+* 이 기능은 Java SDK v2 sync에서 지원되지 않습니다. 
 ---
 
 ### <a name="container-level-time-to-livettl"></a>컨테이너 수준 TTL(Time-To-Live)
 
-다음 코드 조각은 4.0, 3.x 비동기 Api 및 2.x Sync Api를 사용 하 여 컨테이너의 데이터에 대해 ttl (time to live)을 만드는 방법의 차이점을 보여 줍니다.
+다음 코드 조각은 4.0과 3.x.x Async API를 사용하여 컨테이너의 데이터에 대한 TTL(Time to Live) 생성 방법의 차이점을 보여줍니다.
 
 # <a name="java-sdk-40-async-api"></a>[Java SDK 4.0 Async API](#tab/java-v4-async)
 
@@ -437,7 +437,7 @@ containerProperties.defaultTimeToLive(90 * 60 * 60 * 24);
 container = database.createContainerIfNotExists(containerProperties, 400).block().container();
 ```
 
-# <a name="java-sdk-2xx-sync-api"></a>[Java SDK 2.x 동기화 API](#tab/java-v2-sync)
+# <a name="java-sdk-2xx-sync-api"></a>[Java SDK 3.x.x Async API](#tab/java-v2-sync)
 
 ```java
 DocumentCollection documentCollection;
@@ -450,7 +450,7 @@ documentCollection = client.createCollection(database.getSelfLink(), documentCol
 
 ### <a name="item-level-time-to-livettl"></a>항목 수준 TTL(Time-To-Live)
 
-다음 코드 조각은 4.0, 3.x 비동기 Api 및 2.x Sync Api를 사용 하 여 항목에 대해 ttl (time to live)을 만드는 방법의 차이점을 보여 줍니다.
+다음 코드 조각은 4.0과 3.x.x Async API를 사용하여 항목에 대한 TTL(Time to Live) 생성 방법의 차이점을 보여줍니다.
 
 # <a name="java-sdk-40-async-api"></a>[Java SDK 4.0 Async API](#tab/java-v4-async)
 
@@ -492,7 +492,7 @@ SalesOrder salesOrder = new SalesOrder(
 );
 ```
 
-# <a name="java-sdk-2xx-sync-api"></a>[Java SDK 2.x 동기화 API](#tab/java-v2-sync)
+# <a name="java-sdk-2xx-sync-api"></a>[Java SDK 3.x.x Async API](#tab/java-v2-sync)
 
 ```java
 Document document = new Document();

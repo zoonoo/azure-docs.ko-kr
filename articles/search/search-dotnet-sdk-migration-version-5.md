@@ -10,15 +10,15 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 7f0e994cd41fc55824cf347a51ccfed25589a310
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91539540"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-5"></a>Azure Search .NET SDK 버전 5로 업그레이드
 
-버전 4.0-preview 또는 이전 버전의 [.NET SDK](/dotnet/api/overview/azure/search)를 사용 하는 경우이 문서는 버전 5를 사용 하도록 응용 프로그램을 업그레이드 하는 데 도움이 됩니다.
+버전 4.0-preview 또는 이전 버전의 [.NET SDK](/dotnet/api/overview/azure/search)를 사용하는 경우 이 문서를 통해 버전 5로 애플리케이션을 업그레이드할 수 있습니다.
 
 예제를 비롯하여 SDK에 대한 보다 일반적인 연습은 [.NET 애플리케이션에서 Azure Search를 사용하는 방법](search-howto-dotnet-sdk.md)을 참조하세요.
 
@@ -34,7 +34,7 @@ Azure Search .NET SDK 버전 5에는 이전 버전에서 변경된 사항이 일
 ## <a name="whats-new-in-version-5"></a>버전 5의 새로운 기능
 Azure Search .NET SDK 버전 5는 Azure Search REST API의 최신 일반 공급 버전, 특히 2017-11-11을 대상으로 합니다. 이 버전이 있으면 다음을 비롯한 Azure Search의 새 기능을 .NET 애플리케이션에서 사용할 수 있습니다.
 
-* [동의어](search-synonyms.md).
+* [동의어](search-synonyms.md)
 * 이제 프로그래밍 방식으로 인덱서 실행 기록에서 경고에 액세스할 수 있습니다. 자세한 내용은 [.NET 참조](/dotnet/api/microsoft.azure.search.models.indexerexecutionresult)에서 `IndexerExecutionResult`의 `Warning` 속성을 참조하세요.
 * .NET Core 2 지원
 * 새 패키지 구조는 필요한 SDK 부분만 사용하도록 지원합니다. 자세한 내용은 [버전 5의 주요 변경 내용](#ListOfChanges)을 참조하세요.
@@ -100,6 +100,6 @@ Azure Search .NET SDK의 패키징이 변경되었으므로 버전 5를 사용�
 ## <a name="conclusion"></a>결론
 Azure Search .NET SDK 사용에 대한 자세한 내용은 [.NET 방법](search-howto-dotnet-sdk.md)을 참조하세요.
 
-SDK에 대한 귀하의 피드백을 환영합니다! 문제가 발생 하는 경우 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search)에 대 한 도움을 요청 하세요. 버그를 발견하는 경우 [Azure .NET SDK GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/issues)에 문제를 제출할 수 있습니다. 문제 제목에 "[Azure Search]"라는 접두사를 지정해야 합니다.
+SDK에 대한 귀하의 피드백을 환영합니다! 만약 문제가 발생하면 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search)에 대해 자유롭게 도움을 요청해 주십시오. 버그를 발견하는 경우 [Azure .NET SDK GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/issues)에 문제를 제출할 수 있습니다. 문제 제목에 "[Azure Search]"라는 접두사를 지정해야 합니다.
 
 Azure Search를 이용해 주셔서 감사합니다!

@@ -13,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: d2c5af6aeccfbae0851513ff575bde3c39e3ca5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20138e7e3f24dcc09898b33aa24bf4550d87134b
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100103790"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166094"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>빠른 시작: iOS 또는 macOS 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -57,7 +57,7 @@ ms.locfileid: "100103790"
 >
 > 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 > 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
-> 1. **Azure Active Directory** 를 검색하고 선택합니다.    
+> 1. **Azure Active Directory** 를 검색하고 선택합니다.
 > 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
 > 1. 애플리케이션의 **이름** 을 입력합니다. 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
 > 1. **등록** 을 선택합니다.
@@ -99,23 +99,29 @@ ms.locfileid: "100103790"
 > > `Enter_the_Supported_Account_Info_Here`
 >
 > [!div renderon="docs"]
->#### <a name="step-4-configure-your-project"></a>4단계: 프로젝트 구성
+> #### <a name="step-4-configure-your-project"></a>4단계: 프로젝트 구성
 > 위의 옵션 1을 선택한 경우 이러한 단계를 건너뛸 수 있습니다.
 > 1. Zip 파일을 추출하고 XCode에서 프로젝트를 엽니다.
 > 1. **ViewController.swift** 를 편집하고, 'let kClientID'로 시작하는 줄을 다음 코드 조각으로 바꿉니다. `kClientID` 값은 이 빠른 시작의 앞부분에서 포털에 앱을 등록할 때 저장한 clientID로 업데이트해야 합니다.
+>
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
+
 > 1. [Azure AD 국가별 클라우드](/graph/deployments#app-registration-and-token-service-root-endpoints)에 대한 앱을 빌드하는 경우 'let kGraphEndpoint' 및 'let kAuthority'로 시작하는 줄을 올바른 엔드포인트로 바꿉니다. 글로벌 액세스의 경우 기본값을 사용합니다.
->     ```swift
->     let kGraphEndpoint = "https://graph.microsoft.com/"
->     let kAuthority = "https://login.microsoftonline.com/common"
->     ```
+>
+>    ```swift
+>    let kGraphEndpoint = "https://graph.microsoft.com/"
+>    let kAuthority = "https://login.microsoftonline.com/common"
+>    ```
+
 > 1. 다른 엔드포인트는 [여기에](/graph/deployments#app-registration-and-token-service-root-endpoints) 설명되어 있습니다. 예를 들어 Azure AD 독일에서 빠른 시작을 실행하려면 다음을 사용합니다.
->     ```swift
->     let kGraphEndpoint = "https://graph.microsoft.de/"
->     let kAuthority = "https://login.microsoftonline.de/common"
->     ```
+>
+>    ```swift
+>    let kGraphEndpoint = "https://graph.microsoft.de/"
+>    let kAuthority = "https://login.microsoftonline.de/common"
+>    ```
+
 > 1. 프로젝트 설정을 엽니다. **ID** 섹션에서 포털에 입력한 **번들 식별자** 를 입력합니다.
 > 1. 마우스 오른쪽 단추로 **Info.plist** 를 클릭하고, **파일 열기 형식** > **소스 코드** 를 차례로 선택합니다.
 > 1. dict 루트 노드 아래에서 `Enter_the_bundle_Id_Here`를 포털에서 사용한 ***번들 ID*** 로 바꿉니다.
@@ -130,9 +136,9 @@ ms.locfileid: "100103790"
 >          </array>
 >       </dict>
 >    </array>
->
 >    ```
-> 1. 앱을 빌드하고 실행합니다!
+
+> 1. 앱을 빌드하고 실행하세요!
 
 ## <a name="more-information"></a>추가 정보
 
@@ -144,8 +150,8 @@ MSAL([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-librar
 
 ```
 $ vi Podfile
-
 ```
+
 다음을 이 podfile에 추가합니다(프로젝트의 대상 포함).
 
 ```
@@ -154,12 +160,11 @@ use_frameworks!
 target 'MSALiOS' do
    pod 'MSAL'
 end
-
 ```
 
 CocoaPods 설치 명령을 실행합니다.
 
-```pod install```
+`podinstall`
 
 ### <a name="initialize-msal"></a>MSAL 초기화
 
@@ -188,31 +193,30 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 
 앱의 `AppDelegate`에도 다음이 있어야 합니다. 이렇게 하면 인증을 수행할 때 MSAL SDK에서 인증 broker 앱의 토큰 응답을 처리할 수 있습니다.
 
- ```swift
- func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+```swift
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
 
-        return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
-    }
-
- ```
+    return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
+}
+```
 
 > [!NOTE]
 > iOS 13 이상에서 `UIApplicationDelegate` 대신 `UISceneDelegate`를 채택하는 경우 이 코드를 `scene:openURLContexts:` 콜백에 대신 배치합니다([Apple 설명서](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc) 참조).
 > 이전 iOS와의 호환성을 위해 UISceneDelegate 및 UIApplicationDelegate를 모두 지원하는 경우 MSAL 콜백을 두 곳 모두에 배치해야 합니다.
 
- ```swift
- func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+```swift
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
 
-        guard let urlContext = URLContexts.first else {
-            return
-        }
+   guard let urlContext = URLContexts.first else {
+      return
+   }
 
-        let url = urlContext.url
-        let sourceApp = urlContext.options.sourceApplication
+   let url = urlContext.url
+   let sourceApp = urlContext.options.sourceApplication
 
-        MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApp)
-    }
- ```
+   MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApp)
+}
+```
 
 마지막으로 앱의 ***Info.plist*** 에 `CFBundleURLTypes`와 함께 `LSApplicationQueriesSchemes` 항목이 있어야 합니다. 샘플에는 이 항목이 포함되어 있습니다.
 

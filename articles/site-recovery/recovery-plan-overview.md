@@ -1,27 +1,27 @@
 ---
-title: Azure Site Recovery 복구 계획 정보
+title: Azure Site Recovery의 복구 계획에 대한 정보
 description: Azure Site Recovery에서 복구 계획에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: 8d191781cacc37242dd1be31d6cb87ef196e5e7a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84343917"
 ---
 # <a name="about-recovery-plans"></a>복구 계획 정보
 
-이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)의 복구 계획에 대 한 개요를 제공 합니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)의 복구 계획을 간략하게 설명합니다.
 
-복구 계획은 장애 조치 (failover)를 위해 컴퓨터를 복구 그룹으로 수집 합니다. 복구 계획은 장애 조치(failover)할 수 있는 독립적인 작은 단위를 만들어서 체계적인 복구 프로세스를 정의하는 데 도움이 됩니다. 단위는 일반적으로 사용자 환경에서 앱을 나타냅니다.
+복구 계획은 장애 조치(failover)를 위해 머신을 복구 그룹으로 수집합니다. 복구 계획은 장애 조치(failover)할 수 있는 독립적인 작은 단위를 만들어서 체계적인 복구 프로세스를 정의하는 데 도움이 됩니다. 단위는 일반적으로 사용자 환경에서 앱을 나타냅니다.
 
 - 복구 계획은 컴퓨터가 장애 조치(failover)되는 방식 및 장애 조치(failover) 후 시작되는 순서를 정의합니다.
-- 복구 계획은 Azure에서 장애 조치 (failover) 및 장애 복구 (failback) 모두에 사용할 수 있습니다.
-- 최대 100 개의 보호 된 인스턴스를 하나의 복구 계획에 추가할 수 있습니다.
+- 복구 계획은 Azure에서 장애 조치(failover) 및 장애 복구(failback) 모두에 사용할 수 있습니다.
+- 최대 100개의 보호된 인스턴스를 하나의 복구 계획에 추가할 수 있습니다.
 - 순서, 지침 및 수행할 작업을 추가하여 계획을 사용자 지정할 수 있습니다.
 - 계획을 정의한 후에 장애 조치(failover)를 실행할 수 있습니다.
-- 컴퓨터는 여러 복구 계획에서 참조 될 수 있으며, 이후 계획은 다른 복구 계획을 사용 하 여 이전에 배포 된 컴퓨터의 배포/시작을 건너뜁니다.
+- 여러 복구 계획에서 머신을 참조할 수 있으며 이후 계획은 다른 복구 계획을 사용하여 이전에 배포된 경우 머신의 배포/시작을 건너뜁니다.
 
 
 
@@ -30,9 +30,9 @@ ms.locfileid: "84343917"
 다음에 복구 계획을 사용합니다.
 
 * 해당 종속성 주변의 앱을 모델링합니다.
-* 복구 작업을 자동화 하 여 RTO (복구 시간 목표)를 줄입니다.
+* 복구 작업을 자동화하여 RTO(복구 시간 목표)를 줄입니다.
 * 앱이 복구 계획의 일부인지 확인하여 마이그레이션 또는 재해 복구를 위해 준비되었는지 확인합니다.
-* 복구 계획에서 테스트 장애 조치 (failover)를 실행 하 여 재해 복구 또는 마이그레이션이 예상 대로 작동 하는지 확인 합니다.
+* 복구 계획에서 테스트 장애 조치(failover)를 실행하여 재해 복구 또는 마이그레이션이 예상대로 작동하는지 확인합니다.
 
 
 ## <a name="model-apps"></a>앱 모델링 
@@ -44,7 +44,7 @@ ms.locfileid: "84343917"
 - 이 순서는 또한 모든 구성 요소가 시작되어 실행되고 앱이 요청을 수락할 준비가 되기 전에 최종 사용자가 앱 URL에 연결되지 않도록 프런트 엔드 서버가 마지막에 시작되도록 할 수도 있습니다.
 
 이 순서를 만들려면 복구 그룹에 그룹을 추가하고, 그룹에 컴퓨터를 추가합니다.
-- 순서가 지정되면 시퀀싱이 사용됩니다. 작업은 적절 하 게 병렬로 실행 되어 응용 프로그램 복구 RTO를 향상 시킵니다.
+- 순서가 지정되면 시퀀싱이 사용됩니다. 작업을 적절하게 병렬로 실행하여 애플리케이션 복구 RTO를 개선합니다.
 - 단일 그룹의 컴퓨터는 병렬로 장애 조치(failover)됩니다.
 - 서로 다른 그룹의 컴퓨터는 그룹 1의 모든 컴퓨터가 장애 조치(failover)되고 시작된 후에만 그룹 2 컴퓨터가 해당 장애 조치(failover)를 시작하도록 그룹 순서로 장애 조치(failover)됩니다.
 
@@ -71,21 +71,21 @@ ms.locfileid: "84343917"
     * 웹 서버 구성 또는 규칙을 변경합니다.
 
 
-### <a name="run-a-test-failover-on-recovery-plans"></a>복구 계획에서 테스트 장애 조치 (failover) 실행
+### <a name="run-a-test-failover-on-recovery-plans"></a>복구 계획에서 테스트 장애 조치(failover) 실행
 
 복구 계획을 사용하여 테스트 장애 조치(failover)를 트리거할 수 있습니다. 다음 모범 사례를 사용합니다.
 
 - 항상 전체 장애 조치(failover)를 실행하기 전에 앱에서 테스트 장애 조치(failover)를 완료합니다. 테스트 장애 조치(failover)는 앱이 복구 사이트에서 작동되는지 여부를 확인하는 데 도움이 됩니다.
-- 누락 된 항목이 있으면 정리를 트리거한 후 테스트 장애 조치 (failover)를 다시 실행 합니다. 
+- 누락된 것을 발견한 경우 정리를 트리거한 다음 테스트 장애 조치(failover)를 다시 실행합니다. 
 - 앱이 원활하게 복구될 때까지 테스트 장애 조치(failover)를 여러 번 실행합니다.
 - 각 앱은 고유하기 때문에 각 애플리케이션에 맞게 사용자 지정된 복구 계획을 구축하고 각각에서 테스트 장애 조치(failover)를 실행해야 합니다.
-- 앱 및 해당 종속성은 자주 변경됩니다. 복구 계획이 최신 상태 인지 확인 하려면 분기별로 각 앱에 대 한 테스트 장애 조치 (failover)를 실행 합니다.
+- 앱 및 해당 종속성은 자주 변경됩니다. 복구 계획을 최신 상태로 유지하려면 각 앱에 대해 분기별로 테스트 장애 조치(failover)를 실행합니다.
 
     ![Site Recovery의 테스트 복구 계획 예제 스크린샷](./media/recovery-plan-overview/rptest.png)
 
 ## <a name="watch-a-recovery-plan-video"></a>복구 계획 비디오 보기
 
-2 계층 WordPress 앱에 대 한 복구 계획에 대 한 클릭 시 장애 조치 (failover)를 보여 주는 간단한 예제 비디오를 시청 하세요.
+2계층 WordPress 앱에 대한 원클릭 장애 조치(failover)를 보여 주는 빠른 예제 비디오를 시청하세요.
     
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
@@ -93,5 +93,5 @@ ms.locfileid: "84343917"
 
 ## <a name="next-steps"></a>다음 단계
 
-- 복구 계획을 [만듭니다](site-recovery-create-recovery-plans.md) .
-- 장애 조치 (failover)를 [실행](site-recovery-failover.md) 합니다. 
+- 복구 계획을 [만듭니다](site-recovery-create-recovery-plans.md).
+- 장애 조치(failover)를 [실행](site-recovery-failover.md)합니다. 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Express 경로: Global Reach 구성'
+title: 'Azure ExpressRoute: Global Reach 구성'
 description: 이 문서는 온-프레미스 네트워크 간의 프라이빗 네트워크를 설정하고 Global Reach를 사용하도록 설정하기 위해 ExpressRoute 회로를 함께 연결하는 데 유용합니다.
 services: expressroute
 author: duongau
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: duau
 ms.openlocfilehash: 2365317d83a4c11fa17cb5c449a25b70da17c2eb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92368369"
 ---
 # <a name="configure-expressroute-global-reach"></a>ExpressRoute Global Reach 구성
@@ -22,10 +22,10 @@ ms.locfileid: "92368369"
 
 구성을 시작하기 전에 다음을 확인합니다.
 
-* Express 경로 회로 프로 비전 [워크플로](expressroute-workflows.md)를 이해 합니다.
-* Express 경로 회로는 프로 비전 된 상태입니다.
-* Azure 개인 피어 링은 Express 경로 회로에서 구성 됩니다.
-* PowerShell을 로컬로 실행 하려면 최신 버전의 Azure PowerShell이 컴퓨터에 설치 되어 있는지 확인 합니다.
+* ExpressRoute 회로 프로비저닝 [워크플로](expressroute-workflows.md)를 이해합니다.
+* ExpressRoute 회로가 프로비저닝된 상태입니다.
+* Azure 개인 피어링이 ExpressRoute 회로에 구성되어 있습니다.
+* PowerShell을 로컬로 실행하려면 최신 버전의 Azure PowerShell이 머신에 설치되어 있는지 확인합니다.
 
 ### <a name="working-with-azure-powershell"></a>Azure PowerShell 작업
 
@@ -35,19 +35,19 @@ ms.locfileid: "92368369"
 
 ## <a name="identify-circuits"></a>회로 식별
 
-1. 구성을 시작 하려면 Azure 계정에 로그인 하 고 사용 하려는 구독을 선택 합니다.
+1. 구성을 시작하려면 Azure 계정에 로그인하고 사용하려는 구독을 선택합니다.
 
    [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
-2. 사용할 Express 경로 회로를 식별 합니다. 지원 되는 국가/지역에 있고 서로 다른 피어 링 위치에서 만들어진 경우 두 Express 경로 회로의 개인 피어 링 간에 Express 경로 Global Reach를 사용 하도록 설정할 수 있습니다. 
+2. 사용할 ExpressRoute 회로를 식별합니다. 두 ExpressRoute 회로가 지원되는 국가/지역에 위치하고 서로 다른 피어링 위치에서 만들어진 경우에 한하여 해당 회로의 개인 피어링 간에 ExpressRoute Global Reach를 사용하도록 설정할 수 있습니다. 
 
    * 사용자 구독이 두 회로 모두를 소유하는 경우 다음 섹션에서 구성을 실행할 회로를 하나 선택할 수 있습니다.
    * 두 회로가 다른 Azure 구독에 있는 경우 하나의 Azure 구독에서 권한을 부여해야 합니다. 그런 후 다른 Azure 구독에서 구성 명령을 실행할 때 권한 부여 키를 제공합니다.
 
 ## <a name="enable-connectivity"></a>연결 설정
 
-온-프레미스 네트워크 간의 연결을 사용 하도록 설정 합니다. 동일한 Azure 구독에 있는 회로와 다른 구독의 회로에 대 한 별도의 지침 집합이 있습니다.
+온-프레미스 네트워크 간 연결 사용 동일한 Azure 구독에 있는 회로와 다른 구독의 회로에 대해 별도의 지침이 있습니다.
 
-### <a name="expressroute-circuits-in-the-same-azure-subscription"></a>동일한 Azure 구독의 Express 경로 회로
+### <a name="expressroute-circuits-in-the-same-azure-subscription"></a>동일한 Azure 구독의 ExpressRoute 회로
 
 1. 다음 명령을 사용하여 회로 1 및 회로 2를 가져옵니다. 두 회로는 같은 구독에 있습니다.
 
@@ -73,7 +73,7 @@ ms.locfileid: "92368369"
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
    ```
 
-이전 작업이 완료 되 면 두 개의 Express 경로 회로를 통해 온-프레미스 네트워크와 양쪽의 연결을 갖게 됩니다.
+이전 작업이 완료되면 두 ExpressRoute 회로를 통해 양쪽에 있는 온-프레미스 네트워크 간에 연결이 설정됩니다.
 
 ### <a name="expressroute-circuits-in-different-azure-subscriptions"></a>서로 다른 Azure 구독의 ExpressRoute 회로
 
@@ -99,7 +99,7 @@ ms.locfileid: "92368369"
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
    ```
 
-이전 작업이 완료 되 면 두 개의 Express 경로 회로를 통해 온-프레미스 네트워크와 양쪽의 연결을 갖게 됩니다.
+이전 작업이 완료되면 두 ExpressRoute 회로를 통해 양쪽에 있는 온-프레미스 네트워크 간에 연결이 설정됩니다.
 
 ## <a name="verify-the-configuration"></a>구성 확인
 
@@ -108,11 +108,11 @@ ms.locfileid: "92368369"
 $ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
 ```
 
-PowerShell에서 *$ckt _1* 을 실행 하는 경우 출력에 *CircuitConnectionStatus* 가 표시 됩니다. 연결이 설정되면 "연결됨", 설정되지 않으면 "연결 끊김"이 표시됩니다. 
+PowerShell에서 *$ckt_1* 만 실행하는 경우 *CircuitConnectionStatus* 가 출력됩니다. 연결이 설정되면 "연결됨", 설정되지 않으면 "연결 끊김"이 표시됩니다. 
 
 ## <a name="disable-connectivity"></a>연결 사용 안 함
 
-온-프레미스 네트워크 간의 연결을 사용 하지 않도록 설정 하려면 구성이 이루어진 회로에 대해 명령을 실행 합니다 (예: 이전 예제의 회로 1).
+온-프레미스 네트워크 간에 연결을 사용하지 않도록 설정하려면 구성이 수행된 회로(예를 들어, 이전 예제의 회로 1)에 대해 이 명령을 실행하세요.
 
 ```azurepowershell-interactive
 $ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
@@ -126,5 +126,5 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
 
 ## <a name="next-steps"></a>다음 단계
 1. [ExpressRoute Global Reach에 대해 자세히 알아봅니다.](expressroute-global-reach.md)
-2. [Express 경로 연결 확인](expressroute-troubleshooting-expressroute-overview.md)
+2. [ExpressRoute 연결 확인](expressroute-troubleshooting-expressroute-overview.md)
 3. [Azure Virtual Network에 ExpressRoute 회로 연결](expressroute-howto-linkvnet-arm.md)

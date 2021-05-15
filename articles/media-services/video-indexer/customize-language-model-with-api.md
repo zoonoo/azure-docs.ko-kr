@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/04/2020
 ms.author: kumud
-ms.openlocfilehash: f373afae03357ffb65eb459f806fe441e29b21b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 890e02812fb06cf0b0ebe990b0175311d5c85ab5
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87047077"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312929"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-api"></a>Video Indexer API로 언어 모델 사용자 지정
 
@@ -27,7 +27,7 @@ Video Indexer를 사용하면 엔진을 적응시킬 어휘가 포함된 도메�
 
 ## <a name="create-a-language-model"></a>언어 모델 만들기
 
-[언어 모델 만들기](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?) API에서는 지정된 계정에 새 사용자 지정 언어 모델을 만듭니다. 이 호출에서 언어 모델에 대한 파일을 업로드할 수 있습니다. 또는 여기에서 언어 모델을 만들고, 나중에 해당 언어 모델을 업데이트하여 모델에 대한 파일을 업로드할 수 있습니다.
+[언어 모델 만들기](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Language-Model) API에서는 지정된 계정에 새 사용자 지정 언어 모델을 만듭니다. 이 호출에서 언어 모델에 대한 파일을 업로드할 수 있습니다. 또는 여기에서 언어 모델을 만들고, 나중에 해당 언어 모델을 업데이트하여 모델에 대한 파일을 업로드할 수 있습니다.
 
 > [!NOTE]
 > 모델이 파일 내용을 파악하려면 활성화된 파일을 사용하여 모델을 학습해야 합니다. 언어 학습 지침은 다음 섹션에 나와 있습니다.
@@ -70,7 +70,7 @@ Video Indexer를 사용하면 엔진을 적응시킬 어휘가 포함된 도메�
 
 ## <a name="train-a-language-model"></a>언어 모델 학습
 
-[언어 모델 학습](https://api-portal.videoindexer.ai/docs/services/operations/operations/Train-Language-Model?&pattern=train) API에서는 언어 모델에서 업로드되고 사용하도록 설정된 파일의 콘텐츠를 사용하여 지정된 계정의 사용자 지정 언어 모델을 학습합니다.
+[언어 모델 학습](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Train-Language-Model) API에서는 언어 모델에서 업로드되고 사용하도록 설정된 파일의 콘텐츠를 사용하여 지정된 계정의 사용자 지정 언어 모델을 학습합니다.
 
 > [!NOTE]
 > 먼저 언어 모델을 생성한 후 해당 파일을 업로드해야 합니다. 언어 모델을 만들 때 파일을 업로드하거나 언어 모델을 업데이트하여 파일을 업로드할 수 있습니다.
@@ -105,11 +105,11 @@ Video Indexer를 사용하면 엔진을 적응시킬 어휘가 포함된 도메�
 }
 ```
 
-반환되는 `id`는 언어 모델 간 구별에 사용되는 고유한 ID이지만 `languageModelId`는 [인덱스에 비디오 업로드](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) 및 [비디오 다시 인덱싱](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API 둘 다에 사용됩니다(Video Indexer 업로드/다시 인덱싱 API에서는 `linguisticModelId`).
+반환되는 `id`는 언어 모델 간 구별에 사용되는 고유한 ID이지만 `languageModelId`는 [인덱스에 비디오 업로드](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) 및 [비디오 다시 인덱싱](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) API 둘 다에 사용됩니다(Video Indexer 업로드/다시 인덱싱 API에서는 `linguisticModelId`).
 
 ## <a name="delete-a-language-model"></a>언어 모델 삭제
 
-[언어 모델 삭제](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete) API에서는 사용자 지정 언어 모델을 지정된 계정에서 삭제합니다. 삭제된 언어 모델을 사용하던 모든 비디오는 비디오를 다시 인덱싱할 때까지 동일한 인덱스를 유지합니다. 비디오를 다시 인덱싱하는 경우 비디오에 새 언어 모델을 할당할 수 있습니다. 할당하지 않으면 Video Indexer는 기본 모델을 사용하여 비디오를 다시 인덱싱합니다.
+[언어 모델 삭제](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Language-Model) API에서는 사용자 지정 언어 모델을 지정된 계정에서 삭제합니다. 삭제된 언어 모델을 사용하던 모든 비디오는 비디오를 다시 인덱싱할 때까지 동일한 인덱스를 유지합니다. 비디오를 다시 인덱싱하는 경우 비디오에 새 언어 모델을 할당할 수 있습니다. 할당하지 않으면 Video Indexer는 기본 모델을 사용하여 비디오를 다시 인덱싱합니다.
 
 ### <a name="response"></a>응답
 
@@ -117,7 +117,7 @@ Video Indexer를 사용하면 엔진을 적응시킬 어휘가 포함된 도메�
 
 ## <a name="update-a-language-model"></a>언어 모델 업데이트
 
-[언어 모델 업데이트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model?&pattern=update) API에서는 지정된 계정의 사용자 지정 언어 개인 모델을 업데이트합니다.
+[언어 모델 업데이트](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Language-Model) API에서는 지정된 계정의 사용자 지정 언어 개인 모델을 업데이트합니다.
 
 > [!NOTE]
 > 언어 모델을 미리 만들었어야 합니다. 이 호출을 사용하여 해당 모델 내의 모든 파일을 사용하거나 사용하지 않도록 설정하고, 언어 모델의 이름을 업데이트하고, 언어 모델에 추가할 파일을 업로드할 수 있습니다.
@@ -161,7 +161,7 @@ Video Indexer를 사용하면 엔진을 적응시킬 어휘가 포함된 도메�
 
 ## <a name="update-a-file-from-a-language-model"></a>언어 모델에서 파일 업데이트
 
-[파일 업데이트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update)를 사용하면 지정된 계정의 사용자 지정 언어 모델에 있는 파일의 이름 및 `enable` 상태를 업데이트할 수 있습니다.
+[파일 업데이트](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Language-Model-file)를 사용하면 지정된 계정의 사용자 지정 언어 모델에 있는 파일의 이름 및 `enable` 상태를 업데이트할 수 있습니다.
 
 ### <a name="response"></a>응답
 
@@ -181,7 +181,7 @@ Video Indexer를 사용하면 엔진을 적응시킬 어휘가 포함된 도메�
 
 ## <a name="get-a-specific-language-model"></a>특정 언어 모델 가져오기
 
-[가져오기](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model?&pattern=get) API에서는 언어와 같은 지정된 계정의 지정된 언어 모델에 대한 정보와 언어 모델에 있는 파일을 반환합니다.
+[가져오기](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Language-Model) API에서는 언어와 같은 지정된 계정의 지정된 언어 모델에 대한 정보와 언어 모델에 있는 파일을 반환합니다.
 
 ### <a name="response"></a>응답
 
@@ -217,7 +217,7 @@ Video Indexer를 사용하면 엔진을 적응시킬 어휘가 포함된 도메�
 
 ## <a name="get-all-the-language-models"></a>모든 언어 모델 가져오기
 
-[모두 가져오기](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Models?&pattern=get) API에서는 지정된 계정의 모든 사용자 지정 언어 모델을 목록으로 반환합니다.
+[모두 가져오기](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Language-Models) API에서는 지정된 계정의 모든 사용자 지정 언어 모델을 목록으로 반환합니다.
 
 ### <a name="response"></a>응답
 
@@ -261,7 +261,7 @@ Video Indexer를 사용하면 엔진을 적응시킬 어휘가 포함된 도메�
 
 ## <a name="delete-a-file-from-a-language-model"></a>언어 모델에서 파일 삭제
 
-[삭제](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model-File?&pattern=delete) API에서는 지정된 계정의 지정된 언어 모델에서 지정된 파일을 삭제합니다.
+[삭제](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Language-Model-File) API에서는 지정된 계정의 지정된 언어 모델에서 지정된 파일을 삭제합니다.
 
 ### <a name="response"></a>응답
 
@@ -269,7 +269,7 @@ Video Indexer를 사용하면 엔진을 적응시킬 어휘가 포함된 도메�
 
 ## <a name="get-metadata-on-a-file-from-a-language-model"></a>언어 모델에서 파일의 메타데이터 가져오기
 
-[파일의 메타데이터 가져오기](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model-File-Data?&pattern=get%20language%20model) API에서는 계정의 선택한 언어 모델에서 지정된 파일의 콘텐츠 및 메타데이터를 반환합니다.
+[파일의 메타데이터 가져오기](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Language-Model-File-Data) API에서는 계정의 선택한 언어 모델에서 지정된 파일의 콘텐츠 및 메타데이터를 반환합니다.
 
 ### <a name="response"></a>응답
 
@@ -291,7 +291,7 @@ Video Indexer를 사용하면 엔진을 적응시킬 어휘가 포함된 도메�
 
 ## <a name="download-a-file-from-a-language-model"></a>언어 모델에서 파일 다운로드
 
-[파일 다운로드](https://api-portal.videoindexer.ai/docs/services/operations/operations/Download-Language-Model-File-Content?) API에서는 지정된 계정의 지정된 언어 모델에서 지정된 파일의 콘텐츠가 포함된 텍스트 파일을 다운로드합니다. 이 텍스트 파일은 원래 업로드한 텍스트 파일의 내용과 일치해야 합니다.
+[파일 다운로드](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Download-Language-Model-File-Content) API에서는 지정된 계정의 지정된 언어 모델에서 지정된 파일의 콘텐츠가 포함된 텍스트 파일을 다운로드합니다. 이 텍스트 파일은 원래 업로드한 텍스트 파일의 내용과 일치해야 합니다.
 
 ### <a name="response"></a>응답
 

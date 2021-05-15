@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 903853f9f37921a68c918d09a94087548b5c562c
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 71209d9e20ec0f0cbc263e84d04bf8eba6e98b99
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100664"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279067"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Azure Defender for Resource Manager 소개
 
@@ -35,7 +35,7 @@ Azure Defender for Resource Manager는 Azure Portal, Azure REST API, Azure CLI �
 
 Azure Defender for Resource Manager는 다음을 비롯한 문제를 방지합니다.
 
-- **의심스러운 리소스 관리 작업**(예: 의심스러운 IP 주소에서의 작업, 맬웨어 방지 및 VM 확장에서 실행되는 의심스러운 스크립트 비활성화)
+- **의심스러운 리소스 관리 작업**(예: 악성 IP 주소에서의 작업, 맬웨어 방지 및 VM 확장에서 실행되는 의심스러운 스크립트 비활성화)
 - Microburst 또는 PowerZure와 같은 **악용 도구 키트 사용**
 - Azure 관리 계층에서 Azure 리소스 데이터 평면으로의 **측면 이동**
 

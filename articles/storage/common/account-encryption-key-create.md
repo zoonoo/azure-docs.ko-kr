@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 4c86811ee72d2713fced6320a17d1ccde1866d99
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f2bc71100a92d1811d69af31a7a3085af36f60a8
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769952"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121934"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>테이블 및 큐에 대한 고객 관리형 키를 지원하는 계정 만들기
 
@@ -58,7 +58,7 @@ New-AzStorageAccount -ResourceGroupName <resource_group> `
 
 Azure CLI를 사용하여 계정 암호화 키에 의존하는 스토리지 계정을 만들려면 Azure CLI 모듈 버전 2.0.80 이상을 설치했는지 확인해야 합니다. 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-다음으로, 다음과 같이 적절한 매개 변수로 [az 스토리지 계정 만들기](/cli/azure/storage/account#az_storage_account_create) 명령을 호출하여 범용 v2 스토리지 계정을 만듭니다.
+다음으로, 다음과 같이 적절한 매개 변수로 [az 스토리지 계정 만들기](/cli/azure/storage/account#az-storage-account-create) 명령을 호출하여 범용 v2 스토리지 계정을 만듭니다.
 
 - `--encryption-key-type-for-queue` 옵션을 포함하고 해당 값을 `Account`로 설정하여 계정 암호화 키로 큐 스토리지의 데이터를 암호화합니다.
 - `--encryption-key-type-for-table` 옵션을 포함하고 해당 값을 `Account`로 설정하여 계정 암호화 키로 테이블 스토리지의 데이터를 암호화합니다.
@@ -119,7 +119,7 @@ az storage account create \
 
 ## <a name="verify-the-account-encryption-key"></a>계정 암호화 키 확인
 
-스토리지 계정의 서비스가 계정 암호화 키를 사용하고 있는지 확인하려면 Azure CLI [az storage account](/cli/azure/storage/account#az_storage_account_show) 명령을 호출합니다. 이 명령은 스토리지 계정 속성 및 해당 값의 집합을 반환합니다. 암호화 속성 내에서 각 서비스에 대한 `keyType` 필드를 찾아 `Account`로 설정되어 있는지 확인합니다.
+스토리지 계정의 서비스가 계정 암호화 키를 사용하고 있는지 확인하려면 Azure CLI [az storage account](/cli/azure/storage/account#az-storage-account-show) 명령을 호출합니다. 이 명령은 스토리지 계정 속성 및 해당 값의 집합을 반환합니다. 암호화 속성 내에서 각 서비스에 대한 `keyType` 필드를 찾아 `Account`로 설정되어 있는지 확인합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -134,7 +134,7 @@ $account.Encryption.Services.Table
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-스토리지 계정의 서비스가 계정 암호화 키를 사용하고 있는지 확인하려면 [az storage account show](/cli/azure/storage/account#az_storage_account_show) 명령을 호출합니다. 이 명령은 스토리지 계정 속성 및 해당 값의 집합을 반환합니다. 암호화 속성 내에서 각 서비스에 대한 `keyType` 필드를 찾아 `Account`로 설정되어 있는지 확인합니다.
+스토리지 계정의 서비스가 계정 암호화 키를 사용하고 있는지 확인하려면 [az storage account show](/cli/azure/storage/account#az-storage-account-show) 명령을 호출합니다. 이 명령은 스토리지 계정 속성 및 해당 값의 집합을 반환합니다. 암호화 속성 내에서 각 서비스에 대한 `keyType` 필드를 찾아 `Account`로 설정되어 있는지 확인합니다.
 
 ```azurecli
 az storage account show /

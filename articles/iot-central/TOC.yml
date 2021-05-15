@@ -8,6 +8,8 @@
       href: core/overview-iot-central-tour.md
     - name: 최근 업데이트
       items:
+        - name: 2021년 4월 새로운 기능 및 업데이트된 기능
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-april-2021/'
         - name: 2021년 3월 새로운 기능 및 업데이트된 기능
           href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-march-2021/'
         - name: 2021년 2월 새로운 기능 및 업데이트된 기능

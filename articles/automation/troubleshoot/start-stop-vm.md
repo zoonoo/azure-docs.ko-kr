@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: f6d2696a68643f87de0fcaf2e723da9365d9953e
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104953853"
 ---
 # <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>작업 시간 외 VM 중지/시작 문제 해결
@@ -201,7 +201,7 @@ Start-AzureRmVm : Run Login-AzureRmAccount to login
 
 실행 계정이 제대로 구성되어 있는지 확인하려면 Azure Portal에서 Automation 계정으로 이동한 후 **계정 설정** 아래에서 **실행 계정** 을 선택합니다. 실행 계정이 잘못 구성되었거나 만료된 경우 상태에 조건이 표시됩니다.
 
-실행 계정이 잘못 구성된 경우 실행 계정을 삭제한 후 다시 만드세요. 자세한 내용은 [Azure Automation 실행 계정](../automation-security-overview.md#run-as-accounts)을 참조 하세요.
+실행 계정이 잘못 구성된 경우 실행 계정을 삭제한 후 다시 만드세요. 자세한 내용은 [Azure Automation 실행 계정](../automation-security-overview.md#run-as-accounts)를 참조하세요.
 
 실행 계정에 대한 인증서가 만료되면 [자체 서명된 인증서 갱신](../manage-runas-account.md#cert-renewal)의 단계에 따라 인증서를 갱신합니다.
 

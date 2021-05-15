@@ -1,17 +1,15 @@
 ---
 title: 세부적인 역할 기반 액세스 Azure HDInsight 클러스터 구성
 description: HDInsight 클러스터 구성에 대한 세분화된 역할 기반 액세스 로 마이그레이션의 일부에 필요한 변경 사항에 대해 알아봅니다.
-author: tylerfox
-ms.author: tyfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: 47569309f35848e82488abd549751f6f1e5a1baa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1ab7e8e9a85ebbb822e1b1a1d53298a48a85cb85
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104954873"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108771004"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>클러스터 구성에 대한 세밀한 역할 기반 액세스로 마이그레이션
 
@@ -121,7 +119,7 @@ ms.locfileid: "104954873"
 
 Python용 HDInsight SDK의 [버전 1.0.0](https://pypi.org/project/azure-mgmt-hdinsight/1.0.0/) 이상으로 업데이트합니다. 이러한 변경의 영향을 받는 메서드를 사용하는 경우 최소한의 코드를 수정해야 할 수 있습니다.
 
-- [`ConfigurationsOperations.get`](/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#get-resource-group-name--cluster-name--configuration-name--custom-headers-none--raw-false----operation-config-)는 **더 이상 스토리지 키(핵심 사이트) 또는 HTTP 자격 증명(게이트웨이)과 같은 중요한 매개 변수를 반환하지 않습니다**.
+- [`ConfigurationsOperations.get`](/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#get-resource-group-name--cluster-name--configuration-name--custom-headers-none--raw-false----operation-config-)은 **더 이상 스토리지 키(핵심 사이트) 또는 HTTP 자격 증명(게이트웨이)과 같은 중요한 매개 변수를 반환하지 않습니다**.
     - 중요한 매개 변수를 포함한 모든 구성을 검색하려면 앞으로 [`ConfigurationsOperations.list`](/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#list-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-)를 사용합니다.  '읽기 권한자' 역할이 있는 사용자는 이 메서드를 사용할 수 없습니다. 이렇게 하면 클러스터에 대해 중요한 정보에 액세스할 수 있는 사용자를 세부적으로 제어할 수 있습니다. 
     - HTTP 게이트웨이 자격 증명만 검색하려면 [`ClusterOperations.get_gateway_settings`](/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#get-gateway-settings-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-)를 사용합니다.
 - [`ConfigurationsOperations.update`](/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#update-resource-group-name--cluster-name--configuration-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-)는 이제 사용되지 않으며 [`ClusterOperations.update_gateway_settings`](/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#update-gateway-settings-resource-group-name--cluster-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-)로 대체되었습니다.
@@ -192,7 +190,7 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 ### <a name="why-do-i-see-insufficient-privileges-to-complete-the-operation-when-running-the-azure-cli-command-to-assign-the-hdinsight-cluster-operator-role-to-another-user-or-service-principal"></a>Azure CLI 명령을 실행하여 다른 사용자나 서비스 주체에 HDInsight 클러스터 운영자 역할을 할당하는 경우 "권한이 부족하여 작업을 완료할 수 없습니다" 메시지가 표시되는 이유는 무엇인가요?
 
-사용자나 서비스 주체가 이 명령을 실행하려면 소유자 역할을 보유하는 것 외에도 담당자의 개체 ID를 조회할 Azure AD 권한이 있어야 합니다. 이 메시지는 Azure AD 권한이 부족함을 나타냅니다. `-–assignee`인수를 `–assignee-object-id`로 바꾸고 담당자의 개체 ID를 이름 대신 매개 변수로 제공합니다(또는 관리 ID의 경우 보안 주체 ID). 자세한 정보는 [az role assignment create 설명서](/cli/azure/role/assignment#az-role-assignment-create)의 선택적 매개 변수 섹션을 참조하세요.
+사용자나 서비스 주체가 이 명령을 실행하려면 소유자 역할을 보유하는 것 외에도 담당자의 개체 ID를 조회할 Azure AD 권한이 있어야 합니다. 이 메시지는 Azure AD 권한이 부족함을 나타냅니다. `-–assignee`인수를 `–assignee-object-id`로 바꾸고 담당자의 개체 ID를 이름 대신 매개 변수로 제공합니다(또는 관리 ID의 경우 보안 주체 ID). 자세한 정보는 [az role assignment create 설명서](/cli/azure/role/assignment#az_role_assignment_create)의 선택적 매개 변수 섹션을 참조하세요.
 
 그래도 문제가 해결되지 않으면 Azure AD 관리자에게 문의하여 올바른 권한을 획득합니다.
 

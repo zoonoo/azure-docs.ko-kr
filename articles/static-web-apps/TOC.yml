@@ -18,23 +18,27 @@
           href: get-started-cli.md
 - name: 개념
   items:
-    - name: 구성
-      href: configuration.md
-      displayName: Routing
     - name: Azure Functions를 통한 API 지원
       href: apis.md
-    - name: 경로
-      href: routes.md
-    - name: 인증 및 권한 부여
-      href: authentication-authorization.md
-    - name: 사용자 정보 액세스
-      href: user-information.md
+    - name: 구성
+      items:
+        - name: 애플리케이션 구성
+          href: configuration.md
+          displayName: 'routing, routes'
+        - name: 빌드 및 워크플로 구성
+          href: github-actions-workflow.md
+    - name: 보안
+      items:
+        - name: 인증 및 권한 부여
+          href: authentication-authorization.md
+        - name: 사용자 정보 액세스
+          href: user-information.md
+        - name: 사용자 지정 인증
+          href: authentication-custom.md
     - name: 사전 프로덕션 환경에서 끌어오기 요청 검토
       href: review-publish-pull-requests.md
     - name: 사용자 지정 도메인
       href: custom-domain.md
-    - name: 빌드 및 워크플로 구성
-      href: github-actions-workflow.md
 - name: 방법 가이드
   items:
     - name: 로컬 개발 설정
@@ -43,6 +47,8 @@
       href: add-api.md
     - name: 앱 설정 구성
       href: application-settings.md
+    - name: Azure DevOps로 게시
+      href: publish-devops.md
     - name: 프런트 엔드 프레임워크 및 라이브러리 구성
       href: front-end-frameworks.md
     - name: 모니터링 사용
@@ -50,9 +56,13 @@
       displayName: Application Insights
     - name: 배포 토큰 재설정
       href: deployment-token-management.md
-    - name: 문제 해결 오류
+    - name: 오류 문제 해결
       href: troubleshooting.md
       displayName: 'deployment, runtime, errors'
+    - name: 사용자 고유 함수 가져오기
+      href: functions-bring-your-own.md
+    - name: 보안 인증 비밀
+      href: key-vault-secrets.md
 - name: 자습서
   items:
     - name: 정적 사이트 생성기에서 게시
@@ -95,5 +105,7 @@
           href: /learn/modules/create-deploy-static-webapp-gatsby-app-service
         - name: Blazor를 사용하여 정적 웹앱 생성 및 게시
           href: /learn/modules/publish-app-service-static-web-app-api-dotnet
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/app-service/static/'
     - name: 할당량
       href: quotas.md

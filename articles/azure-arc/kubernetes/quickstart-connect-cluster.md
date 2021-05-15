@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Azure Arc에 기존 Kubernetes 클러스터 연결'
 description: 이 빠른 시작에서는 Azure Arc 지원 Kubernetes 클러스터를 연결하는 방법을 알아봅니다.
-author: mlearned
-ms.author: mlearned
+author: mgoedtel
+ms.author: magoedte
 ms.service: azure-arc
 ms.topic: quickstart
 ms.date: 03/03/2021
 ms.custom: template-quickstart, references_regions, devx-track-azurecli
 keywords: Kubernetes, Arc, Azure, 클러스터
-ms.openlocfilehash: 040f69adf318cb224a56e7838c8abf8e03a60286
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: de701e79677f7e862d953eb5f03534b4eaefb367
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783696"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290779"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>빠른 시작: Azure Arc에 기존 Kubernetes 클러스터 연결 
 

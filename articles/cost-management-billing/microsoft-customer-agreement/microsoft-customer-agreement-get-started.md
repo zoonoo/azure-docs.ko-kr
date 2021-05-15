@@ -6,15 +6,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 04/29/2021
 ms.author: banders
 ms.reviewer: baolcsva
-ms.openlocfilehash: f32c43b08b8259467fb00a75ca2e7089d7ec87e8
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 60d42598da2e0b7f29bfea832d27dc5156761556
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107485623"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108322062"
 ---
 # <a name="key-next-steps-after-accepting-your-microsoft-customer-agreement"></a>Microsoft 고객 계약에 동의한 후 주요 다음 단계
 
@@ -45,7 +45,7 @@ ms.locfileid: "107485623"
 
 구독을 이동한 후에도 구독에 대한 사용자 액세스 권한은 바뀌지 않습니다. 구독을 통해 사용할 때마다 새 계약에 의해 청구서가 전달됩니다.
 
-Azure 서비스 사용을 시작하면 Microsoft 고객 계약에 따른 새 청구서가 매월 5일에 생성되므로 [청구 프로필에서 PO 번호를 업데이트](../manage/change-azure-account-profile.md)해야 합니다. 기본 결제 방법은 전신 송금입니다. 연체를 방지하도록 결제 방법을 설정하는 방법을 알아보려면 [구독 요금 결제 방법](../understand/pay-bill.md#wire-bank-details)을 참조하세요. 이 문서에서는 필요한 은행 결제 정보를 가져오는 방법을 설명합니다.
+Azure 서비스 사용을 시작하면 Microsoft 고객 계약에 따른 새 청구서가 매월 5일에 생성됩니다. 기본 결제 방법은 전신 송금입니다. 연체를 방지하도록 결제 방법을 설정하는 방법을 알아보려면 [구독 요금 결제 방법](../understand/pay-bill.md#wire-bank-details)을 참조하세요. 이 문서에서는 필요한 은행 결제 정보를 가져오는 방법을 설명합니다.
 
 ## <a name="confirm-payment-details"></a>결제 정보 확인
 
@@ -67,6 +67,22 @@ Azure 서비스 사용을 시작하면 Microsoft 고객 계약에 따른 새 청
 ## <a name="complete-outstanding-payments"></a>미납 요금 전액 결제
 
 이전의 [종량제](../understand/download-azure-invoice.md) 또는 [EA](../manage/ea-portal-enrollment-invoices.md) 계약 구독 청구서에 대한 미납 요금을 전액 결제해야 합니다. 자세한 내용은 [Azure의 Microsoft 고객 계약 청구서 이해](../understand/mca-understand-your-invoice.md#billing-period)를 참조하세요.
+
+## <a name="update-a-po-number"></a>PO 번호 업데이트
+
+기본적으로 청구 프로필의 청구서에는 연결된 PO 번호가 없습니다. 청구 프로필의 PO 번호를 추가하면 청구 프로필의 청구서에 PO 번호가 표시됩니다.
+
+청구 프로필의 PO 번호를 추가하거나 변경하려면 다음 단계를 수행합니다.
+
+1.  Azure Portal에 로그인합니다.
+1.  **Cost Management + Billing** 를 검색한 다음, **청구 범위** 를 선택합니다.
+1.  청구 범위를 선택합니다.
+1.  왼쪽 메뉴의 **청구** 에서 **청구 프로필** 을 선택합니다.
+1.  적절한 청구 프로필을 선택합니다.
+1.  왼쪽 메뉴의 **설정** 에서 **속성** 을 선택합니다.
+1.  **PO 번호 업데이트** 를 선택합니다.
+1.  PO 번호를 입력한 다음, **업데이트** 를 선택합니다.
+
 
 ## <a name="update-your-tax-id"></a>TID 업데이트
 

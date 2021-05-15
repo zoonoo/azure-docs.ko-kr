@@ -1,6 +1,6 @@
 ---
-title: Azure AD Multi-Factor Authentication에 대 한 로그인 이벤트 세부 정보-Azure Active Directory
-description: Azure AD Multi-Factor Authentication 이벤트 및 상태 메시지에 대 한 로그인 활동을 보는 방법에 대해 알아봅니다.
+title: Azure AD Multi-Factor Authentication의 로그인 이벤트 세부 정보 - Azure Active Directory
+description: Azure AD Multi-Factor Authentication 이벤트의 로그인 활동 및 상태 메시지를 보는 방법에 대해 알아봅니다.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -13,15 +13,15 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 5f78b70599d6d0ae8825accf4cc55cdc1c01d9ce
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96861241"
 ---
-# <a name="use-the-sign-ins-report-to-review-azure-ad-multi-factor-authentication-events"></a>로그인 보고서를 사용 하 여 Azure AD Multi-Factor Authentication 이벤트를 검토 합니다.
+# <a name="use-the-sign-ins-report-to-review-azure-ad-multi-factor-authentication-events"></a>로그인 보고서를 사용하여 Azure AD Multi-Factor Authentication 이벤트 검토하기
 
-Azure AD Multi-Factor Authentication 이벤트를 검토 하 고 이해 하려면 Azure Active Directory (Azure AD) 로그인 보고서를 사용할 수 있습니다. 이 보고서는 사용자에게 다단계 인증에 대한 메시지가 표시될 때 조건부 액세스 정책이 사용 중인 경우 이벤트에 대한 인증 세부 정보를 표시합니다. 로그인 보고서에 대한 자세한 내용은 [Azure AD의 로그인 활동 보고서 개요](../reports-monitoring/concept-sign-ins.md)를 참조하세요.
+Azure AD Multi-Factor Authentication 이벤트를 검토하고 이해하려면 Azure AD(Azure Active Directory) 로그인 보고서를 사용합니다. 이 보고서는 사용자에게 다단계 인증에 대한 메시지가 표시될 때 조건부 액세스 정책이 사용 중인 경우 이벤트에 대한 인증 세부 정보를 표시합니다. 로그인 보고서에 대한 자세한 내용은 [Azure AD의 로그인 활동 보고서 개요](../reports-monitoring/concept-sign-ins.md)를 참조하세요.
 
 이 문서에서는 Azure Portal, MSOnline V1 PowerShell 모듈에서 Azure AD 로그인 보고서를 보는 방법을 보여 줍니다.
 

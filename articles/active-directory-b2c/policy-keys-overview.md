@@ -7,17 +7,28 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 04/19/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30348d7ca12ded2d1f4b0522a7cabeadf0553a07
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: a41717e9be0918dead9f77a5f5472494d734b38a
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94953358"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717534"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 정책 키 개요
+
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+::: zone pivot="b2c-user-flow"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 Azure Active Directory B2C (Azure AD B2C)는 암호 및 인증서를 정책 키 형식으로 저장하여 통합하는 서비스와의 신뢰를 설정합니다. 이러한 신뢰는 다음으로 구성됩니다.
 
@@ -28,7 +39,7 @@ Azure Active Directory B2C (Azure AD B2C)는 암호 및 인증서를 정책 키 
  이 문서에서는 Azure AD B2C에서 사용하는 정책 키에 대해 알아야 할 사항을 설명합니다.
 
 > [!NOTE]
-> 현재 정책 키의 구성은 [사용자 지정 정책](./custom-policy-get-started.md)에만 제한됩니다.
+> 현재 정책 키의 구성은 [사용자 지정 정책](./user-flow-overview.md)에만 제한됩니다.
 
 **정책 키** 메뉴의 Azure Portal에서 서비스 간의 신뢰를 설정 하기 위한 암호 및 인증서를 구성할 수 있습니다. 키는 대칭 키 또는 비대칭 키일 수 있습니다. *대칭* 암호화 또는 개인 키 암호화는 공유 암호를 사용하여 데이터 암호화 및 암호 해독에 사용됩니다. *비대칭* 암호화 또는 공개 키 암호화는 신뢰 당사자 애플리케이션과 공유되는 공개 키와 Azure AD B2C에만 알려진 개인 키로 구성된 키 쌍을 사용하는 암호화 시스템입니다.
 
@@ -39,8 +50,8 @@ Azure AD B2C의 정책 키에 대한 최상위 리소스는 **키 집합** 컨�
 | attribute |  필수 | 설명 |
 | --- | --- |--- |
 | `use` | 예 | 사용법: 공개 키의 용도를 확인합니다. 데이터 암호화 `enc` 또는 데이터에 대한 서명 확인 `sig` .|
-| `nbf`| 예 | 활성화 날짜 및 시간. |
-| `exp`| 예 | 만료 날짜 및 시간. |
+| `nbf`| No | 활성화 날짜 및 시간. |
+| `exp`| No | 만료 날짜 및 시간. |
 
 PKI 표준에 따른 키 활성화 및 만료 값 설정을 권장합니다. 보안 또는 정책상의 이유로 이러한 인증서를 주기적으로 갱신해야 할 수 있습니다. 예를 들어 매년 모든 인증서를 갱신하는 정책이 있을 수 있습니다.
 
@@ -89,3 +100,5 @@ Azure AD B2C 키 집합에 여러 키가 있는 경우 다음 기준에 따라 �
 ## <a name="next-steps"></a>다음 단계
 
 - Microsoft Graph를 사용하여 [키 집합](microsoft-graph-operations.md#trust-framework-policy-keyset) 및 [정책 키](microsoft-graph-operations.md#trust-framework-policy-key) 배포의 자동화 방법을 알아보세요
+
+::: zone-end

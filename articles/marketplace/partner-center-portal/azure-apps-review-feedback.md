@@ -8,10 +8,10 @@ ms.date: 11/11/2019
 ms.author: mingshen
 author: mingshen-ms
 ms.openlocfilehash: ede4e5dd781851c781407a8acea640e3e501f259
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96436388"
 ---
 # <a name="handling-review-feedback-for-azure-application-offers"></a>Azure 애플리케이션 제품에 대한 검토 피드백 처리
@@ -43,7 +43,7 @@ ms.locfileid: "96436388"
 
 1. 홈페이지의 왼쪽 메뉴에서 **파일** 을 선택하여 이 제품의 기술 자산을 구성하는 목록 파일을 표시합니다. Microsoft 검토자가 발견된 심각한 문제를 설명하는 주석을 추가해 두었을 것입니다. 다음 예제에서는 두 가지 문제가 발견되었습니다.
 
-    [![파일 및 검색 된 두 가지 문제를 강조 하는 스크린샷](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
+    [![파일 및 검색된 두 가지 문제를 강조하는 스크린샷입니다.](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *펼치려면 이 이미지를 클릭하세요.*
 
 1. 왼쪽 트리에서 각 주석 노드를 선택하여 주변 코드 컨텍스트의 주석으로 이동합니다. 팀 프로젝트의 소스 코드를 수정하여 주석에서 설명된 문제를 해결합니다.

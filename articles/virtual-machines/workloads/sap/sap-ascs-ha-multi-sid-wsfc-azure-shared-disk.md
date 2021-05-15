@@ -1,6 +1,6 @@
 ---
-title: WSFC 및 Azure 공유 디스크를 사용 하는 SAP ASCS/SCS 다중 SID HA | Microsoft Docs
-description: WSFC 및 Azure 공유 디스크를 사용 하는 SAP ASCS/SCS 인스턴스의 다중 SID 고가용성
+title: WSFC 및 Azure 공유 디스크를 사용하는 SAP ASCS/SCS 다중 SID HA | Microsoft Docs
+description: WSFC 및 Azure 공유 디스크를 사용하는 SAP ASCS/SCS 인스턴스의 다중 SID 고가용성
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -17,85 +17,85 @@ ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cef0630cfc7ec7d080073085e577153ae7a47ecf
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102504459"
 ---
-# <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>Windows server 장애 조치 (failover) 클러스터링 및 Azure 공유 디스크를 사용 하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성
+# <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>Windows Server 장애 조치(failover) 클러스터링 및 Azure 공유 디스크를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성
 
 > ![Windows OS][Logo_Windows] Windows
 >
 
-이 문서에서는 Azure 공유 디스크를 사용 하 여 기존 WSFC (Windows Server 장애 조치 (Failover) 클러스터링) 클러스터에 추가 SAP ASCS/SCS 클러스터형 인스턴스를 설치 하 여 단일 ASCS/SCS 설치에서 SAP 다중 SID 구성으로 이동 하는 방법을 중점적으로 설명 합니다. 이 프로세스가 완료되면 SAP 다중 SID 클러스터가 구성됩니다.
+이 문서에서는 Azure 공유 디스크를 사용하는 기존 WSFC(Windows Server 장애 조치(Failover) 클러스터링) 클러스터에 추가 SAP ASCS/SCS 클러스터형 인스턴스를 설치하여 단일 ASCS/SCS 설치에서 SAP 다중 SID 구성으로 이동하는 방법을 중점적으로 설명합니다. 이 프로세스가 완료되면 SAP 다중 SID 클러스터가 구성됩니다.
 
 ## <a name="prerequisites-and-limitations"></a>필수 구성 요소 및 제한 사항
 
-현재 SAP ASCS/SCS 인스턴스에 대 한 Azure 공유 디스크로 Azure 프리미엄 SSD 디스크를 사용할 수 있습니다. 다음과 같은 제한 사항이 적용 됩니다.
+현재, Azure 프리미엄 SSD 디스크를 SAP ASCS/SCS 인스턴스용 Azure 공유 디스크로 사용할 수 있습니다. 다음과 같은 제한 사항이 있습니다.
 
--  [Azure Ultra disk](../../disks-types.md#ultra-disk) 는 SAP 워크 로드에 대 한 Azure 공유 디스크로 지원 되지 않습니다. 현재 가용성 집합에서 Azure Ultra Disk를 사용 하 여 Azure Vm을 사용할 수 없습니다.
--  프리미엄 SSD 디스크가 있는 [Azure 공유 디스크](../../disks-shared.md) 는 가용성 집합의 vm 에서만 지원 됩니다. 가용성 영역 배포에서는 지원 되지 않습니다. 
--  Azure 공유 디스크 값 [Maxshares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) 는 공유 디스크를 사용할 수 있는 클러스터 노드 수를 결정 합니다. 일반적으로 SAP ASCS/SCS 인스턴스의 경우 Windows 장애 조치 (Failover) 클러스터에서 두 노드를 구성 하므로의 값을 `maxShares` 2로 설정 해야 합니다.
--  모든 SAP ASCS/SCS 클러스터 Vm은 동일한 [Azure 근접 배치 그룹](../../windows/proximity-placement-groups.md)에 배포 되어야 합니다.   
-   PPG 없이 Azure 공유 디스크를 사용 하 여 가용성 집합에 Windows 클러스터 Vm을 배포할 수 있지만, PPG를 사용 하면 Azure 공유 디스크와 클러스터 Vm의 물리적인 근접 한 공간을 확보 하 여 Vm과 저장소 계층 간의 대기 시간을 줄일 수 있습니다.    
+-  [Azure Ultra Disk](../../disks-types.md#ultra-disk)는 SAP 워크로드용 Azure 공유 디스크로 지원되지 않습니다. 현재 가용성 집합의 Azure Ultra Disk를 사용하여 Azure VM을 배치할 수 없습니다.
+-  프리미엄 SSD 디스크가 있는 [Azure 공유 디스크](../../disks-shared.md)는 가용성 집합의 VM에서만 지원됩니다. 가용성 영역 배포에서는 지원되지 않습니다. 
+-  Azure 공유 디스크 값인 [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes)는 공유 디스크로 사용할 수 있는 클러스터 노드의 개수를 결정합니다. 일반적으로 SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터에서는 두 개의 노드를 구성하므로 `maxShares`에 해당하는 값은 2로 설정되어야 합니다.
+-  모든 SAP ASCS/SCS 클러스터 VM은 동일한 [Azure 근접 배치 그룹](../../windows/proximity-placement-groups.md)에 배포되어야 합니다.   
+   PPG가 없는 Azure 공유 디스크를 사용해 가용성 집합에 Windows 클러스터 VM을 배포할 수 있지만, PPG가 있으면 Azure 공유 디스크와 클러스터 VM의 물리적 근접성을 확보할 수 있으므로 해당 VM과 스토리지 계층 간의 대기 시간을 줄일 수 있습니다.    
 
-Azure 공유 디스크의 제한 사항에 대 한 자세한 내용은 Azure 공유 디스크 설명서의 [제한 사항](../../disks-shared.md#limitations) 섹션을 참조 하세요.  
+Azure 공유 디스크의 제한 사항에 대한 자세한 내용은 Azure 공유 디스크 설명서의 [제한 사항](../../disks-shared.md#limitations) 섹션을 꼼꼼히 검토하여 참조하세요.  
 
 > [!IMPORTANT]
-> Azure 공유 디스크를 사용 하 여 SAP ASCS/SCS Windows 장애 조치 (Failover) 클러스터를 배포 하는 경우 배포는 하나의 저장소 클러스터에서 단일 공유 디스크로 작동 한다는 점에 유의 해야 합니다. Azure 공유 디스크가 배포 되는 저장소 클러스터에 문제가 있는 경우 SAP ASCS/SCS 인스턴스가 영향을 받습니다.  
+> SAP ASCS/SCS Windows 장애 조치(Failover) 클러스터를 Azure 공유 디스크로 배포하는 경우, 해당 배포가 하나의 스토리지 클러스터에서 단일 공유 디스크로 작동한다는 점에 유의합니다. Azure 공유 디스크가 배포된 스토리지 클러스터에 문제가 생기면 SAP ASCS/SCS 인스턴스가 영향을 받습니다.  
 
 > [!IMPORTANT]
 > 설치 프로그램은 다음 조건을 충족해야 합니다.
 > * 각 DBMS(데이터베이스 관리 시스템) SID에는 해당하는 고유한 전용 WSFC 클러스터가 있어야 합니다.  
 > * 하나의 SAP 시스템 SID에 속하는 SAP 애플리케이션 서버에는 고유한 전용 VM이 있어야 합니다.  
-> * 동일한 클러스터에서 큐에 넣기 복제 서버 1과 큐에 넣기 복제 서버 2를 함께 사용할 수 없습니다.  
+> * 동일한 클러스터에서 인큐 복제 서버1과 인큐 복제 서버2를 함께 사용하는 것은 지원되지 않습니다.  
 
 
 ## <a name="supported-os-versions"></a>지원된 OS 버전
 
-Windows Server 2016 및 Windows Server 2019이 모두 지원 됩니다 (최신 데이터 센터 이미지 사용).
+Windows Server 2016과 Windows Serve 2019가 모두 지원됩니다(최신 데이터 센터 이미지 사용).
 
-다음과 같이 **Windows Server 2019 Datacenter** 를 사용 하는 것이 좋습니다.
-- Windows 2019 장애 조치 (Failover) 클러스터 서비스가 Azure를 인식 합니다.
-- Azure 일정 이벤트를 모니터링 하 여 Azure 호스트 유지 관리 및 향상 된 환경에 대 한 통합 및 인식 기능이 추가 되었습니다.
-- 분산 네트워크 이름 (기본 옵션)을 사용할 수 있습니다. 따라서 클러스터 네트워크 이름에 대 한 전용 IP 주소를 가질 필요가 없습니다. 또한 Azure 내부 Load Balancer에서이 IP 주소를 구성할 필요가 없습니다. 
+다음과 같은 이유로 인해 **Windows Server 2019 Datacenter** 를 사용하는 것이 좋습니다.
+- Windows 2019 장애 조치(Failover) 클러스터 서비스가 Azure 인식
+- Azure 호스트 유지 관리에 대한 통합 및 인식이 추가되었으며, Azure 일정 이벤트를 모니터링하여 향상된 경험을 제공합니다.
+- 분산 네트워크 이름(기본 옵션)을 사용할 수 있습니다. 따라서, 클러스터 네트워크 이름을 위해 전용 IP 주소가 있을 필요가 없습니다. 또한, 해당 IP 주소를 Azure 내부 부하 분산 장치에 구성할 필요도 없습니다. 
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>Architecture
 
-다중 SID 구성에서는 큐에 넣기 복제 서버 1 (ERS1)과 큐에 넣기 복제 서버 2 (ERS2)가 모두 지원 됩니다.  ERS1와 ERS2의 혼합은 동일한 클러스터에서 지원 되지 않습니다. 
+다중 SID 구성에서는 ERS1(인큐 복제 서버1)과 ERS2(인큐 복제 서버2)가 모두 지원됩니다.  ERS1와 ERS2의 혼합은 동일한 클러스터에서 지원되지 않습니다. 
 
-1. 첫 번째 예제에서는 ERS1 아키텍처를 사용 하는 두 개의 SAP Sid를 보여 줍니다.
+1. 첫 번째 예제는 ERS1 아키텍처를 사용하는 두 개의 SAP SID를 보여 줍니다.
 
-   - SAP SID1는 공유 디스크, ERS1에 배포 됩니다. ERS 인스턴스는 로컬 호스트와 로컬 드라이브에 설치 됩니다.
-     SAP SID1에는 Azure 내부 부하 분산 장치에 구성 된 자체 (가상) IP 주소 (SID1 (A) SCS I P 1)가 있습니다.
+   - SAP SID1은 ERS1과 함께 공유 디스크에 배포됩니다. ERS 인스턴스는 로컬 호스트와 로컬 드라이브에 설치됩니다.
+     SAP SID1에는 Azure 내부 부하 분산 장치에 구성되어 있는 자체(가상) IP 주소(SID1 (A)SCS IP1)가 있습니다.
 
-   - SAP SID2는 공유 디스크, ERS1에 배포 됩니다. ERS 인스턴스는 로컬 호스트와 로컬 드라이브에 설치 됩니다.
-     SAP SID2에는 Azure 내부 부하 분산 장치에도 구성 된 자체 (가상) IP 주소 (SID2 (A) SCS IP2)가 있습니다.
+   - SAP SID2는 ERS1과 함께 공유 디스크에 배포됩니다. ERS 인스턴스는 로컬 호스트와 로컬 드라이브에 설치됩니다.
+     SAP SID2에는 Azure 내부 부하 분산 장치에 또한 구성되어 있는 자체(가상) IP 주소(SID2 (A)SCS IP2)가 있습니다.
 
-![고가용성 SAP ASCS/SCS 인스턴스-ERS1 구성을 사용 하는 두 개의 인스턴스][sap-ha-guide-figure-6007]
+![고가용성 SAP ASCS/SCS 인스턴스 - ERS1 구성을 사용하는 두 개의 인스턴스][sap-ha-guide-figure-6007]
 
-2. 두 번째 예제에서는 ERS2 아키텍처를 사용 하는 두 개의 SAP Sid를 보여 줍니다. 
+2. 두 번째 예제는 ERS2 아키텍처를 사용하는 두 개의 SAP SID를 보여 줍니다. 
 
-   - ERS2를 사용 하는 SAP SID1는 클러스터 된 상태에서 로컬 드라이브에 배포 됩니다.  
-     SAP SID1에는 Azure 내부 부하 분산 장치에 구성 된 자체 (가상) IP 주소 (SID1 (A) SCS I P 1)가 있습니다.
-     Sap SID1 시스템에서 사용 하는 SAP ERS2에는 Azure 내부 부하 분산 장치에 구성 된 자체 (가상) IP 주소 (SID1 ERS2 IP2)가 있습니다.
+   - ERS2를 사용하는 SAP SID1는 또한 클러스터되어 로컬 드라이브에 배포됩니다.  
+     SAP SID1에는 Azure 내부 부하 분산 장치에 구성되어 있는 자체(가상) IP 주소(SID1 (A)SCS IP1)가 있습니다.
+     SAP SID1 시스템에서 사용하는 SAP ERS2에는 Azure 내부 부하 분산 장치에 구성되어 있는 자체(가상) IP 주소(SID1 ERS2 IP2)가 있습니다.
 
-   - ERS2를 사용 하는 SAP SID2는 클러스터 된 상태에서 로컬 드라이브에 배포 됩니다.  
-     SAP SID2에는 Azure 내부 부하 분산 장치에 구성 된 자체 (가상) IP 주소 (SID2 (A) SCS P 3)가 있습니다.
-     Sap SID2 시스템에서 사용 하는 SAP ERS2에는 Azure 내부 부하 분산 장치에 구성 된 자체 (가상) IP 주소 (SID2 ERS2 IP4)가 있습니다.
+   - ERS2를 사용하는 SAP SID2는 또한 클러스터되어 로컬 드라이브에 배포됩니다.  
+     SAP SID2에는 Azure 내부 부하 분산 장치에 구성되어 있는 자체(가상) IP 주소(SID2 (A)SCS IP3)가 있습니다.
+     SAP SID2 시스템에서 사용하는 SAP ERS2에는 Azure 내부 부하 분산 장치에 구성되어 있는 자체(가상) IP 주소(SID2 ERS2 IP4)가 있습니다.
 
-   여기에는 총 4 개의 가상 IP 주소가 있습니다.  
-   - SID1 (A) SCS I P 1
-   - SID2 ERS2 IP2
-   - SID2 (A) SCS P 3
-   - SID2 ERS2 IP4
+   여기에는 총 4개의 가상 IP 주소가 있습니다.  
+   - SID1 (A)SCS IP1
+   - SID2 ERS2   IP2
+   - SID2 (A)SCS IP3
+   - SID2 ERS2   IP4
 
-![고가용성 SAP ASCS/SCS 인스턴스-ERS1 및 ERS2 구성을 사용 하는 두 개의 인스턴스][sap-ha-guide-figure-6008]
+![고가용성 SAP ASCS/SCS 인스턴스 - ERS1 및 ERS2 구성을 사용하는 두 개의 인스턴스][sap-ha-guide-figure-6008]
 
 ## <a name="infrastructure-preparation"></a>인프라 준비
 
-**기존 클러스터형** sap **PR1** ascs/SCS 인스턴스와 함께 새 sap SID **p r 2** 를 설치 합니다.  
+**기존 클러스터형** SAP **PR1** ASCS/SCS 인스턴스와 함께 새 SAP SID **PR2** 를 설치합니다.  
 
 ### <a name="host-names-and-ip-addresses"></a>호스트 이름 및 IP 주소
 
@@ -103,25 +103,25 @@ Windows Server 2016 및 Windows Server 2019이 모두 지원 됩니다 (최신 �
 | --- | --- | --- |---| ---|
 | 첫 번째 클러스터 노드 ASCS/SCS 클러스터 |pr1-ascs-10 |10.0.0.4 |pr1-ascs-avset |PR1PPG |
 | 두 번째 클러스터 노드 ASCS/SCS 클러스터 |pr1-ascs-11 |10.0.0.5 |pr1-ascs-avset |PR1PPG |
-| 클러스터 네트워크 이름 | pr1clust |10.0.0.42 (Win 2016 클러스터에 **만** 해당) | 해당 없음 | 해당 없음 |
+| 클러스터 네트워크 이름 | pr1clust |10.0.0.42(Win 2016 클러스터에 **만** 해당) | 해당 없음 | 해당 없음 |
 | **SID1** ASCS 클러스터 네트워크 이름 | pr1-ascscl |10.0.0.43 | 해당 없음 | 해당 없음 |
-| **SID1** ERS 클러스터 네트워크 이름 (ERS2에 **만** 해당) | pr1-erscl |10.0.0.44 | 해당 없음 | 해당 없음 |
-| **SID2** ASCS 클러스터 네트워크 이름 | p r 2-ascscl |에서 10.0.0.45 | 해당 없음 | 해당 없음 |
-| **SID2** ERS 클러스터 네트워크 이름 (ERS2에 **만** 해당) | pr1-erscl |10.0.0.46 | 해당 없음 | 해당 없음 |
+| **SID1** ERS 클러스터 네트워크 이름(ERS2에 **만** 해당) | pr1-erscl |10.0.0.44 | 해당 없음 | 해당 없음 |
+| **SID2** ASCS 클러스터 네트워크 이름 | pr2-ascscl |10.0.0.45 | 해당 없음 | 해당 없음 |
+| **SID2** ERS 클러스터 네트워크 이름(ERS2에 **만** 해당) | pr1-erscl |10.0.0.46 | 해당 없음 | 해당 없음 |
 
 ### <a name="create-azure-internal-load-balancer"></a>Azure 내부 부하 분산 장치 만들기
 
-SAP ASCS, SAP SCS 및 새 SAP ERS2 가상 호스트 이름 및 가상 IP 주소를 사용 합니다. Azure에서 [부하 분산 장치](../../../load-balancer/load-balancer-overview.md) 는 가상 IP 주소를 사용 하는 데 필요 합니다. [표준 부하 분산 장치](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md)를 사용 하는 것이 좋습니다. 
+SAP ASCS, SAP SCS 및 새 SAP ERS2는 가상 호스트 이름 및 가상 IP 주소를 사용합니다. Azure에서는 가상 IP 주소를 사용하려면 [부하 분산 장치](../../../load-balancer/load-balancer-overview.md)가 필요합니다. [표준 부하 분산 장치](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md)를 사용하는 것이 좋습니다. 
 
-두 번째 SAP SID ASCS/SCS/ERS 인스턴스 **p r 2** 에 대 한 구성을 기존 부하 분산 장치에 추가 해야 합니다. 첫 번째 SAP SID **PR1** 의 구성이 이미 준비 되어 있어야 합니다.  
+두 번째 SAP SID ASCS/SCS/ERS 인스턴스 **PR2** 에 대한 구성을 기존 부하 분산 장치에 추가해야 합니다. 첫 번째 SAP SID **PR1** 에 대한 구성이 이미 준비되어 있어야 합니다.  
 
-**은 SCS P R 2 [instance number 02]**
+**(A)SCS PR2 [인스턴스 번호 02]**
 - 프런트 엔드 구성
-    - 정적 ASCS/SCS IP 주소 **에서 10.0.0.45**
+    - 정적 ASCS/SCS IP 주소 **10.0.0.45**
 - 백 엔드 구성  
-    이미 준비 됨-Vm이 이미 백 엔드 풀에 추가 된 동안 SAP SID **PR1** 를 구성 하는 중입니다.
+    이미 준비됨 - SAP SID **PR1** 을 구성하는 VM이 이미 백 엔드 풀에 추가되었습니다.
 - 프로브 포트
-    - 포트 620 **nr** [**62002**] 프로토콜 (TCP), 간격 (5), 비정상 임계값 (2)에 대 한 기본 옵션을 그대로 둡니다.
+    - 포트 620 **nr** [**62002**]는 프로토콜(TCP), 간격(5), 비정상 임계값(2)에 대한 기본 옵션을 그대로 유지합니다.
 - 부하 분산 규칙
     - 표준 Load Balancer를 사용하는 경우 HA 포트를 선택합니다.
     - 기본 Load Balancer를 사용하는 경우 다음 포트에 대한 부하 분산 규칙을 만듭니다.
@@ -132,23 +132,23 @@ SAP ASCS, SAP SCS 및 새 SAP ERS2 가상 호스트 이름 및 가상 IP 주소�
         - 5 **nr** 13 TCP [**50213**]
         - 5 **nr** 14 TCP [**50214**]
         - 5 **nr** 16 TCP [**50216**]
-        - **P r 2** Ascs 프런트 엔드 IP, 상태 프로브 및 기존 백 엔드 풀과 연결 합니다.  
+        - **PR2** ASCS 프런트 엔드 IP, 상태 프로브 및 기존 백 엔드 풀과 연결합니다.  
 
-    - 유휴 시간 제한 (분)이 최대값인 30으로 설정 되어 있고 부동 IP (direct server return)가 사용 하도록 설정 되어 있는지 확인 합니다.
+    - 유휴 시간 제한(분)이 최댓값 30으로 설정되어 있고, 부동 IP(Direct Server Return)가 사용하도록 설정되어 있는지 확인합니다.
 
-**ERS2 P R 2 [인스턴스 번호 12]** 
+**ERS2 PR2 [인스턴스 번호 12]** 
 
-큐에 대기 중인 복제 서버 2 (ERS2)도 클러스터 됨에 따라 SAP ASCS/SCS IP 외에도 Azure ILB에서 ERS2 가상 IP 주소를 구성 해야 합니다. 이 섹션은 **p r 2** 에 대해 큐에 넣기 복제 서버 2 아키텍처를 사용 하는 경우에만 적용 됩니다.  
-- 새 프런트 엔드 구성
+ERS2(인큐 복제 서버2)도 클러스터되므로 SAP ASCS/SCS IP 외에 Azure ILB에서도 ERS2 가상 IP 주소를 구성해야 합니다. 이 섹션은 **PR2** 에 대한 인큐 복제 서버2 아키텍처를 사용하는 경우에만 적용됩니다.  
+- 프런트 엔드 구성
     - 정적 SAP ERS2 IP 주소 **10.0.0.46**
 
 - 백 엔드 구성  
-  Vm이 ILB 백 엔드 풀에 이미 추가 되었습니다.  
+  VM이 ILB 백 엔드 풀에 이미 추가되었습니다.  
 
 - 새 프로브 포트
-    - 포트 621 **nr**  [**62112**] 프로토콜 (TCP), 간격 (5), 비정상 임계값 (2)에 대 한 기본 옵션을 그대로 둡니다.
+    - 포트 621 **nr** [**62112**]는 프로토콜(TCP), 간격(5), 비정상 임계값(2)에 대한 기본 옵션을 그대로 유지합니다.
 
-- 새 부하 분산 규칙
+- 새 분산 규칙
     - 표준 Load Balancer를 사용하는 경우 HA 포트를 선택합니다.
     - 기본 Load Balancer를 사용하는 경우 다음 포트에 대한 부하 분산 규칙을 만듭니다.
         - 32 **nr** TCP [**3212**]
@@ -156,14 +156,14 @@ SAP ASCS, SAP SCS 및 새 SAP ERS2 가상 호스트 이름 및 가상 IP 주소�
         - 5 **nr** 13 TCP [**51212**]
         - 5 **nr** 14 TCP [**51212**]
         - 5 **nr** 16 TCP [**51212**]
-        - **P r 2** ERS2 프런트 엔드 IP, 상태 프로브 및 기존 백 엔드 풀과 연결 합니다.  
+        - **PR2** ERS2 프런트 엔드 IP, 상태 프로브 및 기존 백 엔드 풀과 연결합니다.  
 
-    - 유휴 시간 제한 (분)이 max 값 (예: 30)으로 설정 되어 있고 부동 IP (direct server return)가 사용 하도록 설정 되어 있는지 확인 합니다.
+    - 유휴 시간 제한(분)이 최댓값(예: 30)으로 설정되어 있고, 부동 IP(Direct Server Return)가 사용하도록 설정되어 있는지 확인합니다.
 
 
 ### <a name="create-and-attach-second-azure-shared-disk"></a>두 번째 Azure 공유 디스크 만들기 및 연결
 
-클러스터 노드 중 하나에서이 명령을 실행 합니다. 리소스 그룹, Azure 지역, SAPSID 등에 대 한 값을 조정 해야 합니다.  
+클러스터 노드 중 하나에서 이 명령을 실행합니다. 리소스 그룹, Azure 지역, SAPSID 등에 대한 값을 조정해야 합니다.  
 
 ```powershell
     $ResourceGroupName = "MyResourceGroup"
@@ -193,8 +193,8 @@ SAP ASCS, SAP SCS 및 새 SAP ERS2 가상 호스트 이름 및 가상 IP 주소�
     $vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun $LUNNumber
     Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
    ```
-### <a name="format-the-shared-disk-with-powershell"></a>PowerShell을 사용 하 여 공유 디스크 포맷
-1. 디스크 번호를 가져옵니다. 클러스터 노드 중 하나에서 PowerShell 명령을 실행 합니다.
+### <a name="format-the-shared-disk-with-powershell"></a>PowerShell을 사용하여 공유 디스크 포맷
+1. 디스크 번호를 가져옵니다. 클러스터 노드 중 하나에서 PowerShell 명령을 실행합니다.
 
    ```powershell
     Get-Disk | Where-Object PartitionStyle -Eq "RAW"  | Format-Table -AutoSize 
@@ -204,7 +204,7 @@ SAP ASCS, SAP SCS 및 새 SAP ERS2 가상 호스트 이름 및 가상 IP 주소�
     # 3      Msft Virtual Disk               Healthy      Online                512 GB RAW            
 
    ```
-2. 디스크를 포맷 합니다. 이 예제에서는 디스크 번호 3입니다. 
+2. 디스크를 포맷합니다. 이 예제에서는 디스크 번호 3입니다. 
 
    ```powershell
     # Format SAP ASCS Disk number '3', with drive letter 'S'
@@ -220,7 +220,7 @@ SAP ASCS, SAP SCS 및 새 SAP ERS2 가상 호스트 이름 및 가상 IP 주소�
     # S           PR2SAP          ReFS       Fixed     Healthy      OK                    504.98 GB 511.81 GB
    ```
 
-3. 이제 디스크가 클러스터 디스크로 표시 되는지 확인 합니다.  
+3. 이제 디스크가 클러스터 디스크로 표시되는지 확인합니다.  
    ```powershell
     # List all disks
     Get-ClusterAvailableDisk -All
@@ -233,7 +233,7 @@ SAP ASCS, SAP SCS 및 새 SAP ERS2 가상 호스트 이름 및 가상 IP 주소�
     # Partitions : {\\?\GLOBALROOT\Device\Harddisk3\Partition2\}
    ```
 
-4. 클러스터에 디스크를 등록 합니다.  
+4. 클러스터에 디스크를 등록합니다.  
    ```powershell
      # Add the disk to cluster 
     Get-ClusterAvailableDisk -All | Add-ClusterDisk
@@ -245,70 +245,70 @@ SAP ASCS, SAP SCS 및 새 SAP ERS2 가상 호스트 이름 및 가상 IP 주소�
 
 ## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>클러스터형 SAP ASCS/SCS 인스턴스의 가상 호스트 이름 만들기
 
-1. Windows DNS 관리자에서 새 SAP ASCS/SCS 인스턴스의 가상 호스트 이름에 대 한 DNS 항목을 만듭니다.  
-   DNS의 가상 호스트 이름에 할당 하는 IP 주소는 Azure Load Balancer에서 할당 한 IP 주소와 동일 해야 합니다.  
+1. Windows DNS 관리자에서 ASCS/SCS 인스턴스의 가상 호스트 이름에 대한 DNS 항목을 만듭니다.  
+   DNS에서 가상 호스트 이름에 할당하는 IP 주소는 Azure Load Balancer에 할당한 IP 주소와 동일해야 합니다.  
 
-   ![SAP ASCS/SCS 클러스터 가상 이름 및 IP 주소에 대 한 DNS 항목을 _Define 합니다.][sap-ha-guide-figure-6009]
+   ![_SAP ASCS/SCS 클러스터 가상 이름 및 IP 주소에 대한 DNS 항목 정의][sap-ha-guide-figure-6009]
  
-   _SAP ASCS/SCS 클러스터 가상 이름 및 IP 주소에 대 한 DNS 항목을 정의 합니다._
+   _SAP ASCS/SCS 클러스터 가상 이름 및 IP 주소에 대한 DNS 항목 정의_
 
-2. 클러스터 된 인스턴스인 SAP 큐에 넣기 복제 서버 2를 사용 하는 경우 ERS2에 대 한 가상 호스트 이름도 DNS에 예약 해야 합니다. 
-   DNS에서 ERS2의 가상 호스트 이름에 할당 하는 IP 주소는 Azure Load Balancer에서 할당 한 IP 주소와 동일 해야 합니다.  
+2. 클러스터형 인스턴스인 SAP ERS2를 사용하는 경우 ERS2에 대한 가상 호스트 이름도 DNS에서 예약해야 합니다. 
+   DNS에서 ERS2에 대한 가상 호스트 이름에 할당하는 IP 주소는 Azure Load Balancer에 할당한 IP 주소와 동일해야 합니다.  
 
-   ![SAP ERS2 클러스터 가상 이름 및 IP 주소에 대 한 DNS 항목을 _Define 합니다.][sap-ha-guide-figure-6010]
+   ![_SAP ERS2 클러스터 가상 이름 및 IP 주소에 대한 DNS 항목 정의][sap-ha-guide-figure-6010]
  
-   _SAP ERS2 클러스터 가상 이름 및 IP 주소에 대 한 DNS 항목을 정의 합니다._
+   _SAP ERS2 클러스터 가상 이름 및 IP 주소에 대한 DNS 항목 정의_
 
-3. 가상 호스트 이름에 할당 된 IP 주소를 정의 하려면 **DNS 관리자**  >  **도메인** 을 선택 합니다.
+3. 가상 호스트 이름에 할당된 IP 주소를 정의하려면 **DNS 관리자** > **도메인** 을 선택합니다.
 
-   ![SAP ASCS/SCS 및 ERS2 클러스터 구성에 대 한 새 가상 이름 및 IP 주소][sap-ha-guide-figure-6011]
+   ![SAP ASCS/SCS 및 ERS2 클러스터 구성을 위한 새 가상 이름 및 IP 주소][sap-ha-guide-figure-6011]
 
-   _SAP ASCS/SCS 및 ERS2 클러스터 구성에 대 한 새 가상 이름 및 TCP/IP 주소_
+   _SAP ASCS/SCS 및 ERS2 클러스터 구성을 위한 새 가상 이름 및 TCP/IP 주소_
 
 ## <a name="sap-installation"></a>SAP 설치 
 
 ### <a name="install-the-sap-first-cluster-node"></a> SAP 첫 번째 클러스터 노드 설치
 
-SAP에 설명 된 설치 절차를 따릅니다. 설치 시작 옵션 "첫 번째 클러스터 노드"를 확인 하 고 "클러스터 공유 디스크"를 구성 옵션으로 선택 합니다.  
-새로 만들기 공유 디스크를 선택 합니다.  
+SAP에 설명된 설치 절차를 따릅니다. 설치 시작 옵션인 ‘첫 번째 클러스터 노드’에서 ‘클러스터 공유 디스크’를 구성 옵션으로 선택했는지 확인합니다.  
+새로 만든 공유 디스크를 선택합니다.  
 
 ### <a name="modify-the-sap-profile-of-the-ascsscs-instance"></a> ASCS/SCS 인스턴스의 SAP 프로필 수정
 
-큐에 넣기 복제 서버 1을 실행 하는 경우 아래 설명 된 대로 SAP 프로필 매개 변수를 추가 `enque/encni/set_so_keepalive` 합니다. 이 프로필 매개 변수는 연결이 너무 오랫동안 유휴 상태일 때 SAP 작업 프로세스와 큐에 넣기 서버 사이의 연결이 닫히지 않도록 합니다. ERS2에는 SAP 매개 변수가 필요 하지 않습니다. 
+인큐 복제 서버1을 실행 중인 경우 아래 설명된 대로 SAP 프로필 매개 변수 `enque/encni/set_so_keepalive`을(를) 추가합니다. 이 프로필 매개 변수는 연결이 너무 오랫동안 유휴 상태일 때 SAP 작업 프로세스와 큐에 넣기 서버 사이의 연결이 닫히지 않도록 합니다. ERS2에는 SAP 매개 변수가 필요하지 않습니다. 
 
-1. ERS1를 사용 하는 경우이 프로필 매개 변수를 SAP ASCS/SCS 인스턴스 프로필에 추가 합니다.
+1. ERS1을 사용하는 경우 SAP ASCS/SCS 인스턴스 프로필에 이 프로필 매개 변수를 추가합니다.
 
    ```
    enque/encni/set_so_keepalive = true
    ```
    
-   ERS1 및 ERS2 둘 다에 대해 `keepalive` SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736)에 설명 된 대로 OS 매개 변수를 설정 해야 합니다.   
+   ERS1 및 ERS2 모두에서 `keepalive` OS 매개 변수는 SAP 메모 [1410736](https://launchpad.support.sap.com/#/notes/1410736)에 설명된 대로 설정해야 합니다.   
 
-2. SAP 프로필 매개 변수 변경 내용을 적용 하려면 SAP ASCS/SCS 인스턴스를 다시 시작 합니다.
+2. SAP 프로필 매개 변수 변경 내용을 적용하려면 SAP ASCS/SCS 인스턴스를 다시 시작합니다.
 
 ### <a name="configure-probe-port-on-the-cluster-resource"></a>클러스터 리소스에서 프로브 포트 구성
 
 내부 부하 분산 장치의 프로브 기능을 사용하여 전체 클러스터 구성이 Azure Load Balancer에서 작동하도록 합니다. 일반적으로 Azure 내부 부하 분산 장치는 참여하는 가상 머신 간에 동일하게 들어오는 작업 부하를 분산합니다.
 
-그러나 하나의 인스턴스만 활성 상태가 되므로 일부 클러스터 구성에서는 작동하지 않습니다. 다른 인스턴스는 수동 상태이므로 워크로드를 받아들일 수 없습니다. 프로브 기능을 사용 하면 Azure 내부 부하 분산 장치가 활성 상태인 인스턴스를 감지 하 고 활성 인스턴스만 대상으로 할 때 도움이 됩니다.  
+그러나 하나의 인스턴스만 활성 상태가 되므로 일부 클러스터 구성에서는 작동하지 않습니다. 다른 인스턴스는 수동 상태이므로 워크로드를 받아들일 수 없습니다. 프로브 기능을 사용하면 Azure 내부 부하 분산 장치가 활성 상태인 인스턴스를 감지하고 활성 인스턴스만 대상으로 할 때 도움이 됩니다.  
 
 > [!IMPORTANT]
-> 이 예제 구성에서 **ProbePort** 는 620 **Nr** 로 설정 됩니다. 숫자가 **02** 인 SAP ascs 인스턴스의 경우 620 **02** 입니다.
-> SAP 인스턴스 번호 및 SAP SID와 일치 하도록 구성을 조정 해야 합니다.
+> 이 예제 구성에서 **ProbePort** 는 620 **Nr** 로 설정됩니다. 번호가 **02** 인 SAP ASCS 인스턴스의 경우 620 **02** 입니다.
+> SAP 인스턴스 번호 및 SAP SID와 일치하도록 구성을 조정해야 합니다.
 
-프로브 포트를 추가 하려면 클러스터 Vm 중 하나에서이 PowerShell 모듈을 실행 합니다.
+프로브 포트를 추가하려면 클러스터 VM 중 하나에서 이 PowerShell 모듈을 실행합니다.
 
 - 인스턴스 번호가 **02** 인 SAP ASC/SCS 인스턴스의 경우 
    ```powershell
    Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource -SAPSID PR2 -ProbePort 62002
    ```
 
-- ERS2를 사용 하는 경우이 고, 인스턴스 번호 **12** 는 클러스터형입니다. ERS1에 대 한 프로브 포트는 클러스터 되지 않으므로 구성할 필요가 없습니다.  
+- ERS2를 사용하는 경우이고, 인스턴스 번호가 **12** 인 클러스터형입니다. ERS1에 대한 프로브 포트는 클러스터되지 않으므로 구성할 필요가 없습니다.  
    ```powershell
    Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource -SAPSID PR2 -ProbePort 62012 -IsSAPERSClusteredInstance $True
    ```
 
- 함수 코드는 `Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource` 다음과 같습니다.
+ `Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource` 함수의 코드는 다음과 같습니다.
    ```powershell
     function Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource {
     <#
@@ -449,21 +449,21 @@ SAP에 설명 된 설치 절차를 따릅니다. 설치 시작 옵션 "첫 번�
     }
    ```
 
-### <a name="continue-with-the-sap-installation"></a>SAP 설치 계속
+### <a name="continue-with-the-sap-installation"></a>SAP 설치 계속 진행
 
-1. SAP 설치 가이드에 설명 된 프로세스에 따라 데이터베이스 인스턴스를 설치 합니다.  
-2. SAP 설치 가이드에 설명 된 단계를 수행 하 여 두 번째 클러스터 노드에 SAP를 설치 합니다.  
-3. PAS를 호스팅하도록 지정한 가상 컴퓨터에 SAP 기본 PAS (기본 응용 프로그램 서버) 인스턴스를 설치 합니다.   
-   SAP 설치 가이드에 설명 된 프로세스를 따릅니다. Azure와는 관련이 없습니다.
-4. SAP 응용 프로그램 서버 인스턴스를 호스팅하도록 지정 된 가상 컴퓨터에 추가 SAP 응용 프로그램 서버를 설치 합니다.  
-   SAP 설치 가이드에 설명 된 프로세스를 따릅니다. Azure와는 관련이 없습니다. 
+1. SAP 설치 가이드에 설명된 프로세스를 따라 데이터베이스 인스턴스를 설치합니다.  
+2. SAP 설치 가이드에 설명된 단계에 따라 두 번째 클러스터 노드에 SAP를 설치합니다.  
+3. PAS(기본 애플리케이션 서버)를 호스트하도록 지정한 가상 머신에 SAP PAS 인스턴스를 설치합니다.   
+   SAP 설치 가이드에 설명된 프로세스를 따릅니다. Azure와는 관련이 없습니다.
+4. SAP 애플리케이션 서버 인스턴스를 호스팅하도록 지정된 가상 컴퓨터에 추가 SAP 애플리케이션 서버를 설치합니다.  
+   SAP 설치 가이드에 설명된 프로세스를 따릅니다. Azure와는 관련이 없습니다. 
 
-## <a name="test-the-sap-ascsscs-instance-failover"></a>SAP ASCS/SCS 인스턴스 장애 조치 (failover) 테스트
-앞서 설명한 장애 조치 (failover) 테스트에서는 SAP ASCS가 노드 A에서 활성화 되어 있다고 가정 합니다.  
+## <a name="test-the-sap-ascsscs-instance-failover"></a>SAP ASCS/SCS 인스턴스 장애 조치(failover) 테스트
+앞서 설명한 장애 조치(failover) 테스트에서는 SAP ASCS가 노드 A에서 활성화되어 있다고 가정합니다.  
 
-1. SAP 시스템이 노드 A에서 노드 B로 성공적으로 장애 조치 (failover) 할 수 있는지 확인 합니다. 이 예제에서는 SAPSID **p r 2** 에 대해 테스트가 수행 됩니다.  
-   각 SAPSID를 다른 클러스터 노드로 성공적으로 이동할 수 있는지 확인 합니다.   
-   \<SID\>클러스터 노드 a에서 클러스터 노드 B로 SAP 클러스터 그룹의 장애 조치 (failover)를 시작 하려면 다음 옵션 중 하나를 선택 합니다.
+1. SAP 시스템이 노드 A에서 노드 B로 성공적으로 장애 조치(failover)할 수 있는지 확인합니다. 이 예제에서는 SAPSID **PR2** 에 대해 테스트가 수행됩니다.  
+   각 SAPSID를 다른 클러스터 노드로 성공적으로 이동할 수 있는지 확인합니다.   
+   이러한 옵션 중 하나를 선택하여 클러스터 노드 A에서 클러스터 노드 B로 SAP \<SID\> 클러스터 그룹의 장애 조치(failover)를 시작합니다.
     - 장애 조치(failover) 클러스터 관리자  
     - 장애 조치 클러스터 PowerShell
 
@@ -474,13 +474,13 @@ SAP에 설명 된 설치 절차를 따릅니다. 설치 시작 옵션 "첫 번�
     Move-ClusterGroup -Name $SAPClusterGroup
 
     ```
-2. Windows 게스트 운영 체제 내에서 클러스터 노드 A를 다시 시작합니다. 그러면 \<SID\> 노드 A에서 노드 B로 SAP 클러스터 그룹의 자동 장애 조치 (failover)가 시작 됩니다.  
-3. Azure Portal에서 클러스터 노드 A를 다시 시작합니다. 그러면 \<SID\> 노드 A에서 노드 B로 SAP 클러스터 그룹의 자동 장애 조치 (failover)가 시작 됩니다.  
-4. Azure PowerShell을 사용하여 클러스터 노드 A를 다시 시작합니다. 그러면 \<SID\> 노드 A에서 노드 B로 SAP 클러스터 그룹의 자동 장애 조치 (failover)가 시작 됩니다.
+2. Windows 게스트 운영 체제 내에서 클러스터 노드 A를 다시 시작합니다. 이렇게 하면 노드 A에서 노드 B로의 SAP \<SID\> 클러스터 그룹의 자동 장애 조치(Failover)가 시작됩니다.  
+3. Azure Portal에서 클러스터 노드 A를 다시 시작합니다. 이렇게 하면 노드 A에서 노드 B로의 SAP \<SID\> 클러스터 그룹의 자동 장애 조치(Failover)가 시작됩니다.  
+4. Azure PowerShell을 사용하여 클러스터 노드 A를 다시 시작합니다. 이렇게 하면 노드 A에서 노드 B로의 SAP \<SID\> 클러스터 그룹의 자동 장애 조치(Failover)가 시작됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치 (failover) 클러스터 및 공유 디스크를 사용 하 여 SAP HA 용 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-shared-disk]
+* [Windows 장애 조치(Failover) 클러스터 및 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스에 대한 SAP HA용 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-shared-disk]
 * [SAP ASCS/SCS 인스턴스에 대한 Windows 장애 조치(Failover) 클러스터 및 공유 디스크에 SAP NetWeaver HA 설치][sap-high-availability-installation-wsfc-shared-disk]
 
 

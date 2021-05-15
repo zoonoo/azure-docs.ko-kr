@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: mqtt
 ms.openlocfilehash: 5c14e8cfcbf8df86b0f71d6b12025594d2e648c4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "81730099"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>여러 디바이스에서 작업 예약
@@ -69,7 +69,7 @@ Content-Type: application/json; charset=utf-8
 
 [IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)에 IoT Hub 쿼리 언어의 더 자세한 설명이 나와 있습니다.
 
-다음 코드 조각은 contoso-hub-1의 모든 장치에서 testMethod 라는 직접 메서드를 호출 하도록 예약 된 작업에 대 한 요청 및 응답을 보여 줍니다.
+다음 코드 조각은 contoso-hub-1의 모든 디바이스에서 testMethod라는 직접 메서드를 호출하도록 예약된 작업에 대한 요청 및 응답을 보여 줍니다.
 
 ```
 PUT https://contoso-hub-1.azure-devices.net/jobs/v2/job01?api-version=2018-06-30 HTTP/1.1
@@ -122,9 +122,9 @@ Content-Type: application/json; charset=utf-8
 ```
 
 > [!NOTE]
-> *Updatetwin* 속성에는 유효한 etag 일치가 필요 합니다. 예를 들면 `etag="*"` 입니다.
+> *updateTwin* 속성에는 유효한 etag 일치가 필요합니다(예: `etag="*"`).
 
-다음 코드 조각은 contoso-hub-1에서 테스트 장치에 대 한 장치 쌍 속성을 업데이트 하도록 예약 된 작업에 대 한 요청 및 응답을 보여 줍니다.
+다음 코드 조각은 contoso-hub-1에서 테스트 디바이스에 대한 디바이스 쌍 속성을 업데이트하도록 예약된 작업에 대한 요청 및 응답을 보여 줍니다.
 
 ```
 PUT https://contoso-hub-1.azure-devices.net/jobs/v2/job02?api-version=2018-06-30 HTTP/1.1
@@ -178,14 +178,14 @@ Content-Type: application/json; charset=utf-8
 
 다음 목록은 작업 또는 작업 결과를 쿼리할 때 사용할 수 있는 속성 목록 및 해당 설명을 나타냅니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
-| **Id** |작업에 대해 애플리케이션에서 제공한 ID입니다. |
+| **jobId** |작업에 대해 애플리케이션에서 제공한 ID입니다. |
 | **startTime** |작업에 대해 애플리케이션에서 제공한 시작 시간(ISO-8601)입니다. |
 | **endTime** |작업이 완료될 때 IoT Hub에서 제공한 날짜(ISO-8601)입니다. 작업이 '완료됨' 상태에 도달한 후에만 유효합니다. |
 | **type** |작업 형식: |
-| | **scheduleUpdateTwin**: desired 속성 또는 태그 집합을 업데이트 하는 데 사용 되는 작업입니다. |
-| | **scheduleDeviceMethod**: 장치 쌍 집합에서 장치 메서드를 호출 하는 데 사용 되는 작업입니다. |
+| | **scheduleUpdateTwin**: 원하는 속성 또는 태그 세트를 업데이트하는 데 사용되는 작업입니다. |
+| | **scheduledDeviceMethod**: 디바이스 쌍 세트에서 디바이스 메서드를 호출하는 데 사용되는 작업입니다. |
 | **status** |작업의 현재 상태입니다. 가능한 상태 값: |
 | | **보류 중** : 예약되어 작업 서비스에서 선택되기를 기다립니다. |
 | | **예약됨** : 이후 시간에 예약됩니다. |
@@ -194,7 +194,7 @@ Content-Type: application/json; charset=utf-8
 | | **실패함** : 작업이 실패했습니다. |
 | | **완료됨** : 작업이 완료되었습니다. |
 | **deviceJobStatistics** |작업 실행에 대한 통계입니다. |
-| | **Devicejobstatistics** 속성: |
+| | **deviceJobStatistics** 속성: |
 | | **deviceJobStatistics.deviceCount**: 작업의 디바이스 수입니다. |
 | | **deviceJobStatistics.failedCount**: 작업이 실패한 디바이스 수입니다. |
 | | **deviceJobStatistics.succeededCount**: 작업이 성공한 디바이스 수입니다. |

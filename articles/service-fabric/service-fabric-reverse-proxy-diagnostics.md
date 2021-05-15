@@ -1,15 +1,15 @@
 ---
 title: Azure Service Fabric 역방향 프록시 진단
-description: Azure Service Fabric 응용 프로그램에 대 한 역방향 프록시에서 요청 처리를 모니터링 하 고 진단 하는 방법을 알아봅니다.
+description: Azure Service Fabric 애플리케이션에 대한 역방향 프록시에서 요청 처리를 모니터링하고 진단하는 방법을 알아봅니다.
 author: kavyako
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: kavyako
 ms.openlocfilehash: bbc1fe5a76ecb5720bc49e0a082d5e9151b403d8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "75645466"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>역방향 프로세스에서의 요청 처리 모니터링 및 진단
@@ -77,7 +77,7 @@ Service Fabric 5.7 버전부터 역방향 프록시 이벤트를 컬렉션에 �
     
     다음은 역방향 프록시가 일치하는 서비스 엔드포인트를 찾지 못해 404를 반환하는 예제입니다.
     몇 가지 흥미로운 페이로드 항목은 다음과 같습니다.
-   * **Processrequestphase**: 요청을 처리 하는 동안 오류가 발생 했을 때 단계를 나타냅니다. 즉, **_TryGetEndpoint_** 전달할 서비스 엔드포인트를 가져오려고 시도하는 중에 실패가 발생한 단계입니다. 
+   * **processRequestPhase**: 요청을 처리하는 도중(**_TryGetEndpoin_**), 즉 전달할 서비스 엔드포인트를 가져오려고 시도하는 중에 실패가 발생한 단계입니다. 
    * **errorDetails**: 엔드포인트 검색 조건을 나열합니다. 여기서 listenerName specified = **FrontEndListener** 이고 복제본 엔드포인트 목록은 이름 **OldListener** 를 포함하는 수신기만 포함합니다.
     
      ```

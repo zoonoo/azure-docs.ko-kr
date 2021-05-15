@@ -1,19 +1,16 @@
 ---
 title: Azure Site Recovery를 사용하여 보조 사이트에 VMware VM/물리적 서버의 재해 복구
 description: Azure Site Recovery를 사용하여 보조 사이트에 VMware VM 또는 Windows 및 Linux 물리적 서버의 재해 복구를 설정하는 방법을 알아봅니다.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
 ms.date: 11/05/2019
-ms.author: raynew
-ms.openlocfilehash: 71d230c9fea25edfbf0ca4ea40f15b69779ad060
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c2456fcfffd9645f94856998142f262298b5eef9
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84711904"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581465"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>보조 사이트에 온-프레미스 VMware 가상 머신 또는 물리적 서버의 재해 복구 설정
 
@@ -51,8 +48,8 @@ o 물리적 머신의 경우 이 [자습서](./physical-azure-disaster-recovery.
 **필수 구성 요소** |복제된 머신의 모바일 서비스. 온-프레미스 구성 서버, 프로세스 서버, 마스터 대상 서버. 장애 복구를 위한 Azure의 임시 프로세스 서버.|모바일 서비스, 프로세스 서버, 구성 서버 및 마스터 대상
 **구성 및 오케스트레이션** |Azure Portal의 Recovery Services 자격 증명 모음 | vContinuum 사용 
 **복제됨** |디스크(Windows 및 Linux) |볼륨-Windows<br> 디스크-Linux
-**공유된 디스크 클러스터** |지원되지 않음|지원됨
-**데이터 변동 제한(평균)** |디스크당 10MB/s 데이터<br> VM당 25MB/s 데이터<br> [자세히 알아보기](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | 디스크당 10MB/s 데이터 이상  <br> VM당 25MB/s 데이터 이상
+**공유된 디스크 클러스터** |지원되지 않음|지원 여부
+**데이터 변동 제한(평균)** |디스크당 10MB/s 데이터<br> VM당 25MB/s 데이터<br> [자세한 정보](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | 디스크당 10MB/s 데이터 이상  <br> VM당 25MB/s 데이터 이상
 **Monitoring** |Azure Portal에서|CX(구성 서버)에서
 **지원 매트릭스** | [자세한 내용을 보려면 여기를 클릭](./vmware-physical-azure-support-matrix.md)|[ASR Scout 호환 매트릭스 다운로드](https://aka.ms/asr-scout-cm)
 

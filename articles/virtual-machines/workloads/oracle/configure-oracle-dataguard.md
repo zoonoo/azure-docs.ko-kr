@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.openlocfilehash: 1b04ef24ff01787c6904db0e288c23d4434e7dcf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101673821"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Azure Linux 가상 머신에서 Oracle Data Guard 구현 
 
 Azure CLI는 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 사용됩니다. 이 문서에서는 Azure CLI를 사용하여 Azure Marketplace 이미지에서 Oracle Database 12c 데이터베이스를 배포하는 방법을 설명합니다. 그런 다음 이 문서는 Azure VM(가상 머신)에서 Data Guard를 설치하고 구성하는 방법을 단계별로 보여 줍니다.
 
-시작하기 전에 Azure CLI가 설치되어 있는지 확인합니다. 자세한 내용은 [Azure CLI 설치 가이드](/cli/azure/install-azure-cli)를 참조 하세요.
+시작하기 전에 Azure CLI가 설치되어 있는지 확인합니다. 자세한 내용은 [Azure CLI 설치 가이드](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="prepare-the-environment"></a>환경 준비
 ### <a name="assumptions"></a>가정
@@ -267,7 +267,7 @@ SQL> ALTER DATABASE FORCE LOGGING;
 SQL> ALTER SYSTEM SWITCH LOGFILE;
 ```
 
-주 데이터베이스 다시 실행 로그와 동일한 크기와 수량을 설정 하는 대기 다시 실행 로그를 만듭니다.
+대기 다시 실행 로그를 만들어 다음과 같이 주 데이터베이스 다시 실행 로그와 동일한 크기와 수량을 설정합니다.
 
 ```bash
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo01.log') SIZE 200M;
@@ -276,7 +276,7 @@ SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_r
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 200M;
 ```
 
-플래시 백 (복구를 훨씬 더 용이 하 게 함)를 켜고 대기 \_ 파일 \_ 관리를 자동으로 설정 합니다. 그런 다음 SQL * Plus를 종료 합니다.
+복구가 훨씬 용이해지는 플래시백을 설정하고 STANDBY\_FILE\_MANAGEMENT를 자동으로 설정합니다. 그 다음 SQL*Plus를 종료합니다.
 
 ```bash
 SQL> ALTER DATABASE FLASHBACK ON;
@@ -506,7 +506,7 @@ SQL> EXIT;
 
 ### <a name="configure-data-guard-broker-on-myvm1-primary"></a>myVM1(기본)에서 Data Guard Broker 구성
 
-Data Guard Manager를 시작하고 SYS 및 암호를 사용하여 로그인합니다. OS 인증을 사용 하지 마십시오. 다음 작업을 수행 합니다.
+Data Guard Manager를 시작하고 SYS 및 암호를 사용하여 로그인합니다. (OS 인증을 사용하지 마십시오.) 다음 작업을 수행합니다.
 
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1

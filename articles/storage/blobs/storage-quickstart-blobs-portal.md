@@ -7,14 +7,14 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 10/19/2020
+ms.date: 04/29/2021
 ms.author: tamram
-ms.openlocfilehash: edadcc4025913052e048ea94d47cac253e4bcd1a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e181394a67cb6762965e600ada46ab48c753fbc
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95523334"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108317465"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Blob 업로드, 다운로드 및 나열
 
@@ -29,13 +29,13 @@ ms.locfileid: "95523334"
 Azure Portal에 컨테이너를 만들려면 다음 단계를 수행합니다.
 
 1. Azure Portal의 새 스토리지 계정으로 이동합니다.
-2. 스토리지 계정의 왼쪽 메뉴에서 **Blob 서비스** 섹션이 나올 때까지 스크롤한 다음, **컨테이너** 를 선택합니다.
-3. **+ 컨테이너** 단추를 선택합니다.
-4. 새 컨테이너의 이름을 입력합니다. 컨테이너 이름은 소문자여야 하고, 문자 또는 숫자로 시작해야 하며, 문자, 숫자 및 대시(-) 문자만 포함할 수 있습니다. 컨테이너 및 BLOB 이름에 대한 자세한 내용은 [컨테이너, BLOB, 메타데이터 이름 지정 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
-5. 컨테이너에 대한 공용 액세스 수준을 설정합니다. 기본 수준은 **프라이빗(익명 액세스 없음)** 입니다.
-6. **확인** 을 선택하여 컨테이너를 만듭니다.
+1. 스토리지 계정의 왼쪽 메뉴에서 **데이터 스토리지** 섹션이 나올 때까지 스크롤한 다음, **Blob 컨테이너** 를 선택합니다.
+1. **+ 컨테이너** 단추를 선택합니다.
+1. 새 컨테이너의 이름을 입력합니다. 컨테이너 이름은 소문자여야 하고, 문자 또는 숫자로 시작해야 하며, 문자, 숫자 및 대시(-) 문자만 포함할 수 있습니다. 컨테이너 및 BLOB 이름에 대한 자세한 내용은 [컨테이너, BLOB, 메타데이터 이름 지정 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
+1. 컨테이너에 대한 공용 액세스 수준을 설정합니다. 기본 수준은 **프라이빗(익명 액세스 없음)** 입니다.
+1. **확인** 을 선택하여 컨테이너를 만듭니다.
 
-    :::image type="content" source="media/storage-quickstart-blobs-portal/create-container.png" alt-text="Azure Portal에서 컨테이너를 만드는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/storage-quickstart-blobs-portal/create-container.png" alt-text="Azure Portal에서 컨테이너를 만드는 방법을 보여 주는 스크린샷" lightbox="media/storage-quickstart-blobs-portal/create-container.png":::
 
 ## <a name="upload-a-block-blob"></a>블록 Blob 업로드
 

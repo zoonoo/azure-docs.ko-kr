@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: 14f7a88e756123b807852d78b6511939b81fd9db
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 3370389027805cfb5a68b5b0551d14dc31154804
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126060"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105611840"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure Dedicated HSM 네트워킹
 
@@ -133,7 +133,7 @@ Command Result : 0 (Success)
 
 ### <a name="alternative-to-using-global-vnet-peering"></a>글로벌 VNet 피어링 사용의 대안
 글로벌 VNet 피어링의 대안으로 사용할 수 있는 몇 가지 아키텍처가 있습니다.
-1.  [Vnet 간 VPN 게이트웨이 연결](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) 사용 
+1.  [Vnet 간 VPN 게이트웨이 연결](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal) 사용 
 2.  ER 회로를 사용하여 다른 VNET과 HSM VNET을 연결합니다. 이는 직접 온-프레미스 경로가 필수 또는 VPN VNET인 경우에 가장 잘 작동합니다. 
 
 #### <a name="hsm-with-direct-express-route-connectivity"></a>직접 Express Route 연결을 사용한 HSM

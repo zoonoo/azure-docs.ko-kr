@@ -1,5 +1,5 @@
 ---
-title: Azure Linux VM에 대 한 액세스 다시 설정
+title: Azure Linux VM에 대한 액세스 다시 설정
 description: VMAccess 확장 및 Azure CLI를 사용하여 관리 사용자를 관리하고 Linux VM에 대한 액세스를 다시 설정하는 방법
 ms.topic: article
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.author: amjads
 ms.collection: linux
 ms.date: 05/10/2018
 ms.openlocfilehash: e0e63762fc151d93cb34885c04dd4d03285c29f1
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102557049"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Azure CLI에서 VMAccess 확장을 사용하여 관리 사용자, SSH를 관리하고 Linux VM의 디스크를 검사 또는 복구

@@ -1,14 +1,14 @@
 ---
 title: '자습서: 규정 준수를 적용하는 정책 빌드'
 description: 이 자습서에서는 정책을 사용하여 표준을 적용하고, 비용을 제어하고, 보안을 유지하고, 엔터프라이즈 수준의 디자인 원칙을 적용합니다.
-ms.date: 01/29/2021
+ms.date: 05/01/2021
 ms.topic: tutorial
-ms.openlocfilehash: a643e7ccede4966719972694ea29eeb77789595e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 68621ee5a4cdfcb3bdbdddb2baa423d443eba36a
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99221196"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108325214"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>자습서: 규정 준수를 적용하는 정책 만들기 및 관리
 

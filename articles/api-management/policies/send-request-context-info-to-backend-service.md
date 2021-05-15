@@ -1,5 +1,5 @@
 ---
-title: 샘플 API management 정책-백 엔드 서비스에 요청 컨텍스트 정보 보내기
+title: 샘플 API 관리 정책 - 백 엔드 서비스에 요청 컨텍스트 정보 보내기
 titleSuffix: Azure API Management
 description: Azure API Management 정책 샘플 - 백 엔드 서비스에 요청 컨텍스트 정보를 보내는 방법을 보여줍니다.
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 7782af3c8a533ceb3a6d2bd3b412c21469f9a021
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92078819"
 ---
 # <a name="send-request-context-information-to-the-backend-service"></a>백 엔드 서비스에 요청 컨텍스트 정보 보내기

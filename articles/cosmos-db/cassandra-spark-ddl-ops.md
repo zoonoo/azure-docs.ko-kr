@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 10/07/2020
 ms.openlocfilehash: 73d31fff362807937cbd87b8e1313cf601909802
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93092180"
 ---
 # <a name="ddl-operations-in-azure-cosmos-db-cassandra-api-from-spark"></a>Spark에서 Azure Cosmos DB Cassandra API의 DDL 작업
@@ -86,7 +86,7 @@ DESCRIBE keyspaces;
 **고려 사항:**  
 
 - create table 문을 사용하여 테이블 수준에서 처리량을 할당할 수 있습니다.  
-- 하나의 파티션 키에 20GB의 데이터를 저장할 수 있습니다.  
+- 하나의 파티션 키는 20GB의 데이터를 저장할 수 있습니다.  
 - 하나의 레코드는 최대 2MB의 데이터를 저장할 수 있습니다.  
 - 하나의 파티션 키 범위는 여러 파티션 키를 저장할 수 있습니다.
 

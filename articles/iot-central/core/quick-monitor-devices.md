@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 4c63a9833e6b9a9b243d289d79428ddef1468253
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c3aaeb5b3c01c9c940d49fd7022de653de0e48b
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99833884"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108206784"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>빠른 시작: Azure IoT Central을 사용하여 디바이스 모니터링
 
 *이 문서는 운영자, 빌더 및 관리자에게 적용됩니다.*
 
-이 빠른 시작에서는 운영자로서 Microsoft Azure IoT Central 애플리케이션을 사용하여 디바이스를 모니터링하고 설정을 변경하는 방법을 알려줍니다.
+이 빠른 시작에서는 운영자로서 Azure IoT Central 애플리케이션을 사용하여 디바이스를 모니터링하고 설정을 변경하는 방법을 알려줍니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

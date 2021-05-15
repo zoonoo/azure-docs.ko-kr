@@ -4,12 +4,12 @@ description: 이 자습서에서는 Azure CLI를 사용하여 Azure VM에서 실
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a249ab63aa72c1d39ab1626e72ff3b2037f3f723
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c3fafdd3c9e635e828a2d2a82c5df63685683264
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107768454"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279769"
 ---
 # <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure VM의 SAP HANA 데이터베이스 복원
 
@@ -280,7 +280,7 @@ az backup restore restore-azurewl --resource-group saphanaResourceGroup \
 >[!NOTE]
 >등록된 대상 VM에 탑재된 Azure 파일 공유에서 데이터베이스 백업 파일을 복원하려면 루트 계정에 Azure 파일 공유에 대한 읽기/쓰기 권한이 있는지 확인합니다.
 
-선택한 복원 지점 유형(**특정 시점** 또는 **전체 및 차등**)에 따라 대상 경로에 만들어진 하나 이상의 폴더를 볼 수 있습니다. `Data_<date and time of restore>`라는 폴더 중 하나에는 전체 및 차등 백업이 포함되고, `Log`라는 다른 폴더에는 로그 백업이 포함됩니다.
+선택한 복원 지점 유형(**특정 시점** 또는 **전체 및 차등**)에 따라 대상 경로에 만들어진 하나 이상의 폴더를 볼 수 있습니다. `Data_<date and time of restore>`라는 폴더 중 하나에는 전체 백업이 포함되고, `Log`라는 다른 폴더에는 로그 백업 및 기타 백업(예: 차등 및 증분)이 포함됩니다.
 
 복원된 이러한 파일을 데이터베이스로 복원하려는 SAP HANA 서버로 이동합니다. 그런 다음, 다음 단계에 따라 데이터베이스를 복원합니다.
 
@@ -305,7 +305,7 @@ az backup restore restore-azurewl --resource-group saphanaResourceGroup \
     위의 명령에서 다음을 수행합니다.
 
     * `<DataFileDir>` - 전체 백업이 포함된 폴더
-    * `<LogFilesDir>` - 로그 백업이 포함된 폴더
+    * `<LogFilesDir>` - 로그 백업, 차등 및 증분 백업(있는 경우)이 포함된 폴더
     * `<PathToPlaceCatalogFile>` - 생성된 카탈로그 파일을 배치해야 하는 폴더
 
 1. HANA Studio를 통해 새로 생성된 카탈로그 파일을 사용하여 복원하거나 새로 생성된 이 카탈로그를 사용하여 HDBSQL 복원 쿼리를 실행합니다. HDBSQL 쿼리는 아래에 나와 있습니다.
@@ -325,7 +325,7 @@ az backup restore restore-azurewl --resource-group saphanaResourceGroup \
         * `<DatabaseName@HostName>` - 백업이 복원에 사용되는 데이터베이스의 이름 및 이 데이터베이스가 있는 **호스트**/SAP HANA 서버 이름. `USING SOURCE <DatabaseName@HostName>` 옵션은 데이터 백업(복원에 사용됨)이 대상 SAP HANA 컴퓨터와 다른 SID 또는 이름을 사용하는 데이터베이스임을 지정합니다. 따라서 백업이 수행된 동일한 HANA 서버에서 수행되는 복원에 대해서는 이를 지정할 필요가 없습니다.
         * `<PathToGeneratedCatalogInStep3>` - **3단계** 에서 생성된 카탈로그 파일의 경로
         * `<DataFileDir>` - 전체 백업이 포함된 폴더
-        * `<LogFilesDir>` - 로그 백업이 포함된 폴더
+        * `<LogFilesDir>` - 로그 백업, 차등 및 증분 백업(있는 경우)이 포함된 폴더
         * `<BackupIdFromJsonFile>` - **3단계** 에서 추출된 **BackupId**
 
     * 특정 전체 또는 차등 백업으로 복원하려면 다음을 수행합니다.
@@ -341,7 +341,7 @@ az backup restore restore-azurewl --resource-group saphanaResourceGroup \
         * `<DatabaseName@HostName>` - 백업이 복원에 사용되는 데이터베이스의 이름 및 이 데이터베이스가 있는 **호스트**/SAP HANA 서버 이름. `USING SOURCE <DatabaseName@HostName>` 옵션은 데이터 백업(복원에 사용됨)이 대상 SAP HANA 컴퓨터와 다른 SID 또는 이름을 사용하는 데이터베이스임을 지정합니다. 따라서 백업이 수행된 동일한 HANA 서버에서 수행되는 복원에 대해서는 이를 지정할 필요가 없습니다.
         * `<PathToGeneratedCatalogInStep3>` - **3단계** 에서 생성된 카탈로그 파일의 경로
         * `<DataFileDir>` - 전체 백업이 포함된 폴더
-        * `<LogFilesDir>` - 로그 백업이 포함된 폴더
+        * `<LogFilesDir>` - 로그 백업, 차등 및 증분 백업(있는 경우)이 포함된 폴더
         * `<BackupIdFromJsonFile>` - **3단계** 에서 추출된 **BackupId**
 
 ## <a name="next-steps"></a>다음 단계

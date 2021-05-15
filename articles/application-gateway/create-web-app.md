@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용 하 여 App Service 구성
+title: PowerShell을 사용하여 App Service 구성
 titleSuffix: Azure Application Gateway
 description: 이 문서에서는 기존 또는 새 애플리케이션 게이트웨이에 웹앱을 백 엔드 호스트로 구성하는 방법을 안내합니다.
 services: application-gateway
@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 11/15/2019
 ms.author: victorh
 ms.openlocfilehash: 152f3c3254ab01c8aa61acd12c39bd98c8f55038
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84808046"
 ---
-# <a name="configure-app-service-with-application-gateway-using-powershell"></a>PowerShell을 사용 하 여 Application Gateway App Service 구성
+# <a name="configure-app-service-with-application-gateway-using-powershell"></a>PowerShell을 사용하여 Application Gateway를 통해 App Service 구성
 
 Application Gateway를 통해 App Service 앱 또는 다른 다중 테넌트 서비스를 백 엔드 풀 멤버로 사용할 수 있습니다. 이 문서에서는 Application Gateway를 사용하여 App Service 앱을 구성하는 방법을 알아봅니다. 첫 번째 예에서는 웹앱을 백 엔드 풀 멤버로 사용하도록 기존 애플리케이션 게이트웨이를 구성하는 방법을 보여 줍니다. 두 번째 예에서는 웹앱을 백 엔드 풀 멤버로 사용하여 새 애플리케이션 게이트웨이를 만드는 방법을 보여 줍니다.
 

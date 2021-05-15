@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell 스크립트: Azure 데이터 공유의 기존 공유를 나열 합니다.'
-description: 이 PowerShell 스크립트는 공유에 대 한 세부 정보를 나열 하 고 표시 합니다.
+title: 'PowerShell 스크립트: Azure Data Share의 기존 공유를 나열합니다.'
+description: 이 PowerShell 스크립트는 공유에 대한 세부 정보를 나열하고 표시합니다.
 services: data-share
 author: joannapea
 ms.author: joanpo
@@ -8,15 +8,15 @@ ms.service: data-share
 ms.topic: article
 ms.date: 07/07/2019
 ms.openlocfilehash: 54b4b6cedc2dc09e4a9d5c4b7b937e80750e17c6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92220825"
 ---
-# <a name="use-powershell-to-view-the-details-of-a-sent-data-share"></a>PowerShell을 사용 하 여 보낸 데이터 공유의 세부 정보 보기
+# <a name="use-powershell-to-view-the-details-of-a-sent-data-share"></a>PowerShell을 사용하여 전송된 데이터 공유의 세부 정보 보기
 
-이 PowerShell 스크립트는 기존 계정에서 데이터 공유를 나열 하 고 특정 공유의 세부 정보를 가져옵니다.
+이 PowerShell 스크립트는 기존 계정의 데이터 공유를 나열하고 특정 공유의 세부 정보를 가져옵니다.
 
 
 ## <a name="sample-script"></a>샘플 스크립트
@@ -43,11 +43,11 @@ Get-AzDataShare -ResourceGroupName $resourceGroupName -AccountName $dataShareAcc
 
 | 명령 | 메모 |
 |---|---|
-| [AzDataShare](/powershell/module/az.datashare/get-azdatashare) | 계정에 있는 공유의 목록을 가져오고 나열 합니다. |
+| [Get-AzDataShare](/powershell/module/az.datashare/get-azdatashare) | 계정에 있는 공유를 가져오고 공유 목록을 나열합니다. |
 |||
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/)를 참조하세요.
 
-추가 Azure 데이터 공유 PowerShell 스크립트 샘플은 [Azure 데이터 공유 powershell 샘플](../../samples-powershell.md)에서 찾을 수 있습니다.
+추가 Azure Data Share PowerShell 스크립트 샘플은 [Azure Data Share PowerShell 샘플](../../samples-powershell.md)에 있습니다.

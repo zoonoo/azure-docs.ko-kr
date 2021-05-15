@@ -1,19 +1,19 @@
 ---
 title: 빠른 시작 - 로그, 메트릭 및 추적을 사용하여 Azure Spring Cloud 앱 모니터링
-description: 로그 스트리밍, 로그 분석, 메트릭 및 추적을 사용하여 Azure Spring Cloud에서 Piggymetrics 샘플 앱을 모니터링합니다.
+description: 로그 스트리밍, 로그 분석, 메트릭 및 추적을 사용하여 Azure Spring Cloud에서 PetClinic 샘플 앱을 모니터링합니다.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 08/04/2020
+ms.date: 04/23/2021
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: b3b94de0fe97bb812921b831a92de44887df4070
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 9275eb9d5f3206a5acd41fa970c4acd1f4663a37
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132974"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321576"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>빠른 시작: 로그, 메트릭 및 추적을 사용하여 Azure Spring Cloud 앱 모니터링
 
@@ -109,7 +109,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-Azure Spring Cloud의 기본 제공 모니터링 기능을 사용하여 복잡한 문제를 디버그하고 모니터링할 수 있습니다. Azure Spring Cloud는 [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth)를 Azure의 [Application Insights](../azure-monitor/app/app-insights-overview.md)와 통합합니다. 이 통합은 Azure Portal에서 강력한 로그, 메트릭 및 분산 추적 기능을 제공합니다. 다음 절차에서는 배포된 PiggyMetrics 앱에서 로그 스트리밍, Log Analytics, 메트릭 및 분산 추적을 사용하는 방법을 설명합니다.
+Azure Spring Cloud의 기본 제공 모니터링 기능을 사용하여 복잡한 문제를 디버그하고 모니터링할 수 있습니다. Azure Spring Cloud는 [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth)를 Azure의 [Application Insights](../azure-monitor/app/app-insights-overview.md)와 통합합니다. 이 통합은 Azure Portal에서 강력한 로그, 메트릭 및 분산 추적 기능을 제공합니다. 다음 절차에서는 배포된 PetClinic 앱에서 로그 스트리밍, Log Analytics, 메트릭 및 분산 추적을 사용하는 방법을 설명합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -140,6 +140,8 @@ az spring-cloud app logs -s <service instance name> -g <resource group name> -n 
 > [!TIP]
 > `az spring-cloud app logs -h`를 사용하여 더 많은 매개 변수 및 로그 스트림 기능을 탐색합니다.
 
+Log Analytics에서 사용되는 쿼리 언어에 대한 자세한 내용은 [Azure Monitor 로그 쿼리](/azure/data-explorer/kusto/query/)를 참조하세요. 중앙 집중식 클라이언트에서 모든 Log Analytics 로그를 쿼리하려면 [Azure Data Explorer](/azure/data-explorer/query-monitor-data)를 확인하세요.
+
 #### <a name="intellij"></a>[IntelliJ](#tab/IntelliJ)
 
 Azure Toolkit for IntelliJ를 사용하여 로그를 가져오려면 다음을 수행합니다.
@@ -160,50 +162,58 @@ Azure Toolkit for IntelliJ를 사용하여 로그를 가져오려면 다음을 �
 
    ![스트리밍 로그 출력](media/spring-cloud-intellij-howto/streaming-log-output.png)
 
+ Log Analytics에서 사용되는 쿼리 언어에 대한 자세한 내용은 [Azure Monitor 로그 쿼리](/azure/data-explorer/kusto/query/)를 참조하세요. 중앙 집중식 클라이언트에서 모든 Log Analytics 로그를 쿼리하려면 [Azure Data Explorer](/azure/data-explorer/query-monitor-data)를 확인하세요.
+
 ---
+
 ### <a name="log-analytics"></a>Log Analytics
 
-1. **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **로그** 를 선택합니다. Azure Spring Cloud에 대한 샘플 쿼리 중 하나에서 **실행** 을 클릭합니다. 
+1. **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **로그** 를 선택합니다. Azure Spring Cloud에 대한 샘플 쿼리 중 하나에서 **실행** 을 클릭합니다.
 
-   [ ![Logs Analytics 항목](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
-    
+   [ ![Logs Analytics 포털 항목](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-entry.png#lightbox)
+
 1. 그러면 필터링된 로그가 표시됩니다. 쿼리 작성에 대한 자세한 지침은 [Azure Log Analytics 문서](../azure-monitor/logs/get-started-queries.md)를 참조하세요.
 
-   [ ![Logs Analytics 쿼리](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png#lightbox)
-
-1. Log Analytics에서 사용되는 쿼리 언어에 대한 자세한 내용은 [Azure Monitor 로그 쿼리](/azure/data-explorer/kusto/query/)를 참조하세요. 중앙 집중식 클라이언트에서 모든 Log Analytics 로그를 쿼리하려면 [Azure Data Explorer](/azure/data-explorer/query-monitor-data)를 확인하세요.
+   [ ![Logs Analytics 쿼리](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-query.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-query.png#lightbox)
 
 ## <a name="metrics"></a>메트릭
 
-1. **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **메트릭** 을 선택합니다. 전체 CPU 사용량에 대한 타임라인을 보려면 **메트릭** 에 대해 `system.cpu.usage`를 선택하고 **집계** 에 대해 `Avg`를 선택하여 첫 번째 메트릭을 추가합니다.
+`Metrics` 블레이드로 이동 - Spring Boot 앱, Spring Cloud 모듈 및 종속성에서 제공하는 메트릭을 볼 수 있습니다. 아래 차트는 `gateway-requests`(Spring Cloud Gateway), `hikaricp_connections`(JDBC 연결) 및 `http_client_requests`를 보여줍니다.
+ 
+[ ![메트릭 블레이드](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-metrics.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-metrics.jpg#lightbox)
 
-   [ ![메트릭 항목](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu.png#lightbox)
-    
-1. 위의 도구 모음에서 **필터 추가** 를 클릭하고, `App=Gateway`를 선택하여 **게이트웨이** 앱에 대해서만 CPU 사용량을 확인합니다.
+Spring Boot는 JVM, CPU, Tomcat, Logback 등 많은 수의 핵심 메트릭을 등록합니다. Spring Boot 자동 구성은 Spring MVC가 처리하는 요청을 계측할 수 있도록 합니다.
+이러한 세 가지 REST 컨트롤러 `OwnerResource`, `PetResource` 및 `VisitResource`는 모두 클래스 수준에서 `@Timed` Micrometer 주석에 의해 계측되었습니다.
 
-   [ ![메트릭에서 필터 사용](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter.png#lightbox)
+* `customers-service` 애플리케이션에는 다음과 같은 사용자 지정 메트릭이 활성화되어 있습니다.
+  * @Timed: `petclinic.owner`
+  * @Timed: `petclinic.pet`
+* `visits-service` 애플리케이션에는 다음과 같은 사용자 지정 메트릭이 활성화되어 있습니다.
+  * @Timed: `petclinic.visit`
 
-1. 위에서 만든 필터를 해제하여 **분할 적용** 을 클릭하고, **값** 에 대해 `App`을 선택하여 다른 앱의 CPU 사용량을 확인합니다.
+`Metrics` 블레이드에서 사용자 지정 메트릭을 볼 수 있습니다. [ ![사용자 지정 메트릭](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-custom-metrics.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-custom-metrics.jpg#lightbox)
 
-   [ ![메트릭에 분할 적용](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split.png#lightbox)
+Application Insights에서 가용성 테스트 기능을 사용하여 애플리케이션의 가용성을 모니터링할 수 있습니다.
 
-## <a name="distributed-tracing"></a>분산된 추적
+[ ![가용성 테스트](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-availability.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-availability.jpg#lightbox)
 
-1. **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **분산 추적** 을 선택합니다. 그런 다음, 오른쪽의 있는 **애플리케이션 맵 보기** 탭을 클릭합니다.
+`Live Metrics` 블레이드로 이동 - 화면에 대기 시간이 1초 미만인 라이브 메트릭을 볼 수 있습니다. [ ![라이브 메트릭](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-live-metrics.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-live-metrics.jpg#lightbox)
 
-   [ ![분산 추적 항목](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png#lightbox)
+## <a name="tracing"></a>추적
 
-1. 이제 Piggymetrics 앱 간의 호출 상태를 볼 수 있습니다. 
+Azure Spring Cloud에서 만든 Application Insights를 열고 마이크로 서비스 애플리케이션 모니터링을 시작합니다.
 
-   [![ 분산 추적 개요](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-overview.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-overview.png#lightbox)
-    
-1. **게이트웨이** 와 **계정 서비스** 간의 링크를 클릭하여 HTTP 메서드에 의한 가장 느린 호출과 같은 자세한 정보를 확인합니다.
+`Application Map` 블레이드로 이동: [ ![애플리케이션 맵](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/distributed-tracking-new-ai-agent.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/distributed-tracking-new-ai-agent.jpg#lightbox)
 
-   [ ![ 분산 추적](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-call.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-call.png#lightbox)
-    
-1. 마지막으로, **성능** 조사를 클릭하여 더 강력한 기본 제공 성능 분석을 탐색합니다.
+`Performance` 블레이드로 이동: [ ![성능 블레이드](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-performance.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-performance.jpg#lightbox)
 
-   [ ![분산 추적 성능](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-performance.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-performance.png#lightbox)
+`Performance/Dependenices` 블레이드로 이동 - 종속성, 특히 SQL 호출에 대한 성능 수치를 볼 수 있습니다. [ ![성능/종속성 블레이드](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-insights-on-dependencies.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-insights-on-dependencies.jpg#lightbox)
+
+SQL 호출을 클릭하여 컨텍스트에서 엔드투엔드 트랜잭션을 확인합니다. [ ![SQL 엔드투엔드 트랜잭션](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-end-to-end-transaction-details.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-end-to-end-transaction-details.jpg#lightbox)
+
+`Failures/Exceptions` 블레이드로 이동 - 예외 컬렉션을 볼 수 있습니다. [ ![실패/예외](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-failures-exceptions.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-failures-exceptions.jpg#lightbox)
+
+예외를 클릭하여 컨텍스트에서 엔드투엔드 트랜잭션 및 stacktrace를 확인합니다. [ ![Stacktrace 엔드투엔드](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/end-to-end-transaction-details.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/end-to-end-transaction-details.jpg#lightbox)
 
 ::: zone-end
 

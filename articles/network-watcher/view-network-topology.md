@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: damendo
-ms.openlocfilehash: c04da65af27ebd5ac654bc059ae004c157a20f33
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: f20fa22dac3fba4d01cbc5e398bafa4113e94a96
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "84737532"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780302"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Azure 가상 네트워크의 토폴로지 보기
 
@@ -61,7 +61,7 @@ ms.locfileid: "84737532"
     az group create --name NetworkWatcherRG --location eastus
     ```
 
-2. [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure)를 사용하여 네트워크 감시자를 만듭니다. 다음 예제에서는 *eastus* 지역에 네트워크 감시자를 만듭니다.
+2. [az network watcher configure](/cli/azure/network/watcher#az_network_watcher_configure)를 사용하여 네트워크 감시자를 만듭니다. 다음 예제에서는 *eastus* 지역에 네트워크 감시자를 만듭니다.
 
     ```azurecli-interactive
     az network watcher configure \
@@ -70,7 +70,7 @@ ms.locfileid: "84737532"
       --enabled true
     ```
 
-3. [az network watcher show-topology](/cli/azure/network/watcher#az-network-watcher-show-topology)를 사용하여 토폴로지를 표시합니다. 다음 예제에서는 *MyResourceGroup* 이라는 리소스 그룹에 대한 토폴로지를 표시합니다.
+3. [az network watcher show-topology](/cli/azure/network/watcher#az_network_watcher_show_topology)를 사용하여 토폴로지를 표시합니다. 다음 예제에서는 *MyResourceGroup* 이라는 리소스 그룹에 대한 토폴로지를 표시합니다.
 
     ```azurecli-interactive
     az network watcher show-topology --resource-group MyResourceGroup
@@ -84,17 +84,17 @@ ms.locfileid: "84737532"
 
 다음에 나오는 단계에서 명령을 실행할 수 있습니다.
 - Azure Cloud Shell에서 명령의 오른쪽 위에 있는 **사용해 보세요** 를 선택합니다. Azure Cloud Shell은 공통 Azure 도구가 사전 설치되고 계정으로 사용하도록 구성된 체험 대화형 셸입니다.
-- 컴퓨터에서 PowerShell을 실행합니다. 컴퓨터에서 PowerShell을 실행 하는 경우이 문서에 Azure PowerShell `Az` 모듈이 필요 합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+- 컴퓨터에서 PowerShell을 실행합니다. 컴퓨터에서 PowerShell을 실행하는 경우 이 문서에서는 Azure PowerShell `Az` 모듈이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 사용하는 계정에 필요한 [권한](required-rbac-permissions.md)이 있어야 합니다.
 
-1. 토폴로지를 만들려는 가상 네트워크와 같은 지역에 이미 네트워크 감시자가 있는 경우 3단계로 건너뜁니다. [AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup)를 사용 하 여 네트워크 감시자를 포함 하는 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 지역에 리소스 그룹을 만듭니다.
+1. 토폴로지를 만들려는 가상 네트워크와 같은 지역에 이미 네트워크 감시자가 있는 경우 3단계로 건너뜁니다. [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup)을 사용하여 네트워크 감시자가 포함될 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 지역에 리소스 그룹을 만듭니다.
 
     ```azurepowershell-interactive
     New-AzResourceGroup -Name NetworkWatcherRG -Location EastUS
     ```
 
-2. [AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher)를 사용 하 여 네트워크 감시자를 만듭니다. 다음 예제에서는 eastus 지역에 네트워크 감시자를 만듭니다.
+2. [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher)를 사용하여 네트워크 감시자를 만듭니다. 다음 예제에서는 eastus 지역에 네트워크 감시자를 만듭니다.
 
     ```azurepowershell-interactive
     New-AzNetworkWatcher `
@@ -102,7 +102,7 @@ ms.locfileid: "84737532"
       -ResourceGroupName NetworkWatcherRG
     ```
 
-3. [AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher)를 사용 하 여 Network Watcher 인스턴스를 검색 합니다. 다음 예제에서는 미국 동부 지역의 네트워크 감시자를 검색합니다.
+3. [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher)를 사용하여 네트워크 감시자 인스턴스를 검색합니다. 다음 예제에서는 미국 동부 지역의 네트워크 감시자를 검색합니다.
 
     ```azurepowershell-interactive
     $nw = Get-AzResource `
@@ -112,7 +112,7 @@ ms.locfileid: "84737532"
       -ResourceGroupName $nw.ResourceGroupName
     ```
 
-4. [AzNetworkWatcherTopology](/powershell/module/az.network/get-aznetworkwatchertopology)를 사용 하 여 토폴로지를 검색 합니다. 다음 예제에서는 *MyResourceGroup* 이라는 리소스 그룹의 가상 네트워크에 대한 토폴로지를 검색합니다.
+4. [Get-AzNetworkWatcherTopology](/powershell/module/az.network/get-aznetworkwatchertopology)를 사용하여 토폴로지를 검색합니다. 다음 예제에서는 *MyResourceGroup* 이라는 리소스 그룹의 가상 네트워크에 대한 토폴로지를 검색합니다.
 
     ```azurepowershell-interactive
     Get-AzNetworkWatcherTopology `

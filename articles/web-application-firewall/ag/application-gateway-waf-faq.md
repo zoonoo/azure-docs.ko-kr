@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
 ms.openlocfilehash: 890688dba70a7fa654e97652b3e474b919f9a077
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104585386"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-application-gateway"></a>Application Gateway의 Azure 웹 애플리케이션 방화벽에 대한 질문과 대답
@@ -54,27 +54,27 @@ WAF는 현재 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229),
 
 자세한 내용은 [OWASP의 상위 10가지 취약성](https://owasp.org/www-project-top-ten/)을 참조하세요.
 
-## <a name="what-content-types-does-waf-support"></a>WAF에서 지 원하는 콘텐츠 형식은 무엇입니까?
+## <a name="what-content-types-does-waf-support"></a>WAF에서는 어떤 콘텐츠 형식을 지원합니까?
 
-Application Gateway WAF는 관리 되는 규칙에 대해 다음과 같은 콘텐츠 형식을 지원 합니다.
+Application Gateway WAF는 관리되는 규칙에 대해 다음과 같은 콘텐츠 형식을 지원합니다.
 
 * application/json
 * 애플리케이션/xml
 * application/x-www-form-urlencoded
-* 다중 파트/양식 데이터
+* multipart/form-data
 
-사용자 지정 규칙의 경우:
+사용자 지정 규칙에 대한 필드:
 
 * application/x-www-form-urlencoded
-* 다중 파트/양식 데이터
+* multipart/form-data
 
 ## <a name="does-waf-support-ddos-protection"></a>WAF는 DDoS Protection을 지원하나요?
 
 예. Application Gateway가 배포된 가상 네트워크에서 DDoS Protection을 사용하도록 설정할 수 있습니다. 이 설정은 Azure DDoS Protection 서비스가 애플리케이션 게이트웨이 VIP(가상 IP)도 보호하도록 합니다.
 
-### <a name="does-waf-store-customer-data"></a>WAF는 고객 데이터를 저장 하나요?
+### <a name="does-waf-store-customer-data"></a>WAF에 고객 데이터가 저장되나요?
 
-아니요, WAF는 고객 데이터를 저장 하지 않습니다.
+아니요, WAF는 고객 데이터를 저장하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

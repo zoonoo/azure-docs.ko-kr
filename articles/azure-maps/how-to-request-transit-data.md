@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure 지도 모바일 서비스를 사용 하 여 전송 데이터 요청 (미리 보기)
-description: Azure Maps Mobility services (미리 보기)를 사용 하 여 metro 영역 Id, 전송 중지, 경로 및 경로 여정을 같은 공용 전송 데이터를 요청 하는 방법에 대해 알아봅니다.
+title: Microsoft Azure Maps Mobility Services(미리 보기)를 사용하여 대중교통 데이터 요청
+description: Azure Maps Mobility services(미리 보기)를 사용하여 대도시 지역 ID, 대중교통 정류장, 경로, 경로 일정 같은 대중교통 데이터를 요청하는 방법에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 12/07/2020
@@ -10,27 +10,27 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 740080d742f535f868b2ae194b24bebe5ac6ac24
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96906032"
 ---
-# <a name="request-public-transit-data-using-the-azure-maps-mobility-services-preview"></a>Azure Maps 모바일 서비스를 사용 하 여 공용 전송 데이터 요청 (미리 보기) 
+# <a name="request-public-transit-data-using-the-azure-maps-mobility-services-preview"></a>Azure Maps Mobility Services(미리 보기)를 사용하여 대중교통 데이터 요청 
 
 > [!IMPORTANT]
-> Azure Maps 모바일 서비스는 현재 공개 미리 보기로 제공 됩니다.
+> Azure Maps Mobility Services는 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 
-이 문서에서는 Azure Maps [모바일 서비스](/rest/api/maps/mobility) 를 사용 하 여 공용 전송 데이터를 요청 하는 방법을 보여 줍니다. 전송 데이터에는 전송 중지, 경로 정보 및 이동 시간 예측이 포함 됩니다.
+이 문서에서는 Azure Maps [Mobility Services](/rest/api/maps/mobility)를 사용하여 대중교통 데이터를 요청하는 방법을 보여 줍니다. 대중교통 데이터에는 대중교통 정류장, 경로 정보, 예상 이동 시간 등이 포함됩니다.
 
-이 문서에서는 다음 방법에 대해 알아봅니다.
+이 문서에서는 다음을 수행하는 방법을 알아봅니다.
 
-* [Metro 영역 다운로드 API](/rest/api/maps/mobility/getmetroareapreview) 를 사용 하 여 METRO 영역 ID 가져오기
-* 가까운 전송 서비스 [가져오기](/rest/api/maps/mobility/getnearbytransitpreview) 를 사용 하 여 근접 한 전송 요청을 중지 합니다.
-* 공개 전송을 사용 하 여 경로를 계획 하는 [Get 전송 경로 API](/rest/api/maps/mobility/gettransitroutepreview) 를 쿼리 합니다.
-* [전송 여행 일정 가져오기 API](https://aka.ms/https://azure.microsoft.com/services/azure-maps/)를 사용 하 여 경로에 대 한 전송 경로 기 하 도형 및 자세한 일정을 요청 합니다.
+* [대도시 지역 가져오기 API](/rest/api/maps/mobility/getmetroareapreview)를 사용하여 대도시 지역 ID 가져오기
+* [주변 대중교통 가져오기](/rest/api/maps/mobility/getnearbytransitpreview) 서비스를 사용하여 가까운 대중교통 정류장을 요청합니다.
+* [대중교통 경로 가져오기 API](/rest/api/maps/mobility/gettransitroutepreview)를 쿼리하여 대중교통 이용 경로를 계획합니다.
+* [대중교통 일정 가져오기 API](https://aka.ms/https://azure.microsoft.com/services/azure-maps/)를 사용하여 대중교통 경로 기하 구조와 상세 경로 일정을 요청합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -39,25 +39,25 @@ ms.locfileid: "96906032"
 
 이 자습서에서는 [Postman](https://www.postman.com/) 애플리케이션을 사용하지만 다른 API 개발 환경을 선택할 수도 있습니다.
 
-## <a name="get-a-metro-area-id"></a>Metro 영역 ID 가져오기
+## <a name="get-a-metro-area-id"></a>대도시 지역 ID 가져오기
 
-특정 대도시 영역에 대해 전송 기관 및 지원 되는 전송 형식에 대 한 세부 정보를 요청 하려면 `metroId` 해당 영역의가 필요 합니다. [Metro 영역 가져오기 API](/rest/api/maps/mobility/getmetroareapreview) 를 사용 하면 Azure Maps 모바일 서비스를 사용할 수 있는 metro 영역을 요청할 수 있습니다. 응답에는 `metroId` `metroName` GeoJSON 형식의 metro 영역 기 하 도형에 대 한,, 및 표현과 같은 세부 정보가 포함 됩니다.
+특정 대도시 지역의 대중교통 기관 및 지원되는 대중교통 형식에 대한 세부 정보를 요청하려면 해당 지역의 `metroId`가 필요합니다. [대도시 지역 가져오기 API](/rest/api/maps/mobility/getmetroareapreview)를 사용하면 Azure Maps Mobility Services를 사용할 수 있는 대도시 지역을 요청할 수 있습니다. 응답에는 `metroId`, `metroName`, GeoJSON 형식으로 표시된 대도시 지역 기하 구조 등 세부 정보가 포함됩니다.
 
-Seattle-Tacoma metro 영역 ID에 대 한 Metro 영역을 가져오기 위한 요청을 수행 하겠습니다. Metro 영역에 대 한 ID를 요청 하려면 다음 단계를 완료 합니다.
+시애틀-터코마 대도시 지역 ID에 대한 대도시 지역을 가져오기 위한 요청을 수행하겠습니다. 대도시 지역의 ID를 요청하려면 다음 단계를 완료합니다.
 
 1. Postman 앱을 열고 요청을 저장할 컬렉션을 만들어 보겠습니다. Postman 앱의 위쪽 근처에서 **새로 만들기** 를 선택합니다. **새로 만들기** 창에서 **컬렉션** 을 선택합니다.  컬렉션 이름을 지정하고, **만들기** 단추를 선택합니다.
 
-2. 요청을 만들려면 **새로 만들기** 를 다시 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. 이전 단계에서 만든 컬렉션을 요청을 저장할 위치로 선택 합니다. 그런 다음 **저장** 을 선택합니다.
+2. 요청을 만들려면 **새로 만들기** 를 다시 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. 이전 단계에서 만든 컬렉션을 요청을 저장할 위치로 선택합니다. 그런 다음 **저장** 을 선택합니다.
   
-    ![Postman에서 요청 만들기](./media/how-to-request-transit-data/postman-new.png)
+    ![Postman에서 요청 생성](./media/how-to-request-transit-data/postman-new.png)
 
-3. 작성기 탭에서 **get** HTTP 메서드를 선택 하 고 다음 URL을 입력 하 여 get 요청을 만듭니다. `{subscription-key}`을 Azure Maps 기본 키로 바꿉니다.
+3. 작성기 탭에서 **GET** HTTP 메서드를 선택하고, 다음 URL을 입력하여 GET 요청을 만듭니다. `{subscription-key}`를 Azure Maps 기본 키로 바꿉니다.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/metroArea/id/json?subscription-key={subscription-key}&api-version=1.0&query=47.63096,-122.126
     ```
 
-4. 요청이 성공적으로 완료 되 면 다음 응답을 받게 됩니다.
+4. 요청이 성공적으로 완료되면 다음 응답을 받게 됩니다.
 
     ```JSON
     {
@@ -114,21 +114,21 @@ Seattle-Tacoma metro 영역 ID에 대 한 Metro 영역을 가져오기 위한 �
     }
     ```
 
-## <a name="request-nearby-transit-stops"></a>가까운 전송 중지 요청
+## <a name="request-nearby-transit-stops"></a>가까운 대중교통 정류장 요청
 
-[주변 전송](/rest/api/maps/mobility/getnearbytransitpreview) 서비스를 Azure Maps 하 여 전송 개체를 검색할 수 있습니다. API는 지정 된 위치에 대 한 공개 전송 정지 및 공유 bikes와 같은 전송 개체 세부 정보를 반환 합니다. 다음으로 서비스에 대 한 요청을 수행 하 여 지정 된 위치 주위의 300-미터 반경 내에서 가까운 공용 전송 중지를 검색 합니다.
+Azure Maps [주변 대중교통 가져오기](/rest/api/maps/mobility/getnearbytransitpreview) 서비스를 통해 대중교통 개체를 검색할 수 있습니다. API는 지정된 위치 주변의 대중교통 정류장, 공유 자전거 같은 대중교통 개체 세부 정보를 반환합니다. 다음으로 지정된 위치 주변 300미터 반경 내의 가까운 대중교통 정류장을 검색할 것을 서비스에 요청하겠습니다.
 
-[주변 전송](/rest/api/maps/mobility/getnearbytransitpreview)에 대 한 요청을 수행 하려면 다음 단계를 수행 합니다.
+[주변 대중교통 가져오기](/rest/api/maps/mobility/getnearbytransitpreview)에 요청을 하려면 다음 단계를 수행합니다.
 
-1. Postman에서 **새 요청**  |  **가져오기 요청** 을 클릭 하 고 이름이 **근처에서 중지** 되도록 합니다.
+1. Postman에서 **새 요청** | **GET 요청** 을 클릭하고 이름을 **주변 정류장 가져오기** 로 지정합니다.
 
-2. 작성기 탭에서 **GET** HTTP 메서드를 선택 하 고 API 끝점에 대 한 다음 요청 URL을 입력 하 고 **보내기** 를 클릭 합니다.
+2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 API 엔드포인트에 대한 요청 URL을 다음과 같이 입력한 뒤 **보내기** 를 클릭합니다.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/nearby/json?subscription-key={subscription-key}&api-version=1.0&query=47.63096,-122.126&radius=300&objectType=stop
     ```
 
-3. 요청이 성공적으로 완료 되 면 응답 구조는 아래와 같이 표시 됩니다.
+3. 요청이 성공적으로 완료되면 응답 구조는 아래와 같이 표시됩니다.
 
     ```JSON
     {
@@ -215,29 +215,29 @@ Seattle-Tacoma metro 영역 ID에 대 한 Metro 영역을 가져오기 위한 �
     } 
     ```
 
-응답 구조를 신중 하 게 관찰 하면 각 전송 개체에 대 한 매개 변수가 포함 된 것을 알 수 있습니다. 각 전송 개체에는,, `id` `type` ,, `stopName` `mainTransitType` `mainAgencyName` , 개체의 위치 (좌표)와 같은 매개 변수가 있습니다.
+응답 구조를 자세히 관찰하면 각 대중교통 개체에 대한 매개 변수가 포함된 것을 알 수 있습니다. 각 대중교통 개체에는 `id`, `type`,`stopName`, `mainTransitType`, `mainAgencyName`, 개체의 위치(좌표) 등과 같은 매개 변수가 있습니다.
 
-학습을 위해 `id` 다음 섹션의 경로에 대 한 버스 중지를 원본으로 사용 합니다.  
+학습을 위해 버스 정류장의 `id`를 다음 섹션에 있는 경로의 원본으로 사용하겠습니다.  
 
-## <a name="request-a-transit-route"></a>전송 경로 요청
+## <a name="request-a-transit-route"></a>대중교통 경로 요청
 
-Azure Maps [전송 경로 가져오기 API](/rest/api/maps/mobility/gettransitroutepreview) 는 여행 계획을 허용 합니다. 원본에서 대상으로 가능한 가장 적합 한 경로 옵션을 반환 합니다. 이 서비스는 탐색, biking 및 공개 전송을 비롯 한 다양 한 유형의 여행 모드를 제공 합니다. 다음으로 가장 가까운 버스 정지의 경로를 시애틀의 공간 니 들 타워로 검색 합니다.
+Azure Maps [대중교통 경로 가져오기 API](/rest/api/maps/mobility/gettransitroutepreview)를 통해 이동을 계획할 수 있습니다. 이 서비스는 원본에서 대상으로 가장 적합한 경로 옵션을 반환합니다. 도보, 자전거, 대중교통 등 다양한 이동 모드가 제공됩니다. 다음으로 시애틀의 스페이스 니들 타워와 가장 가까운 버스 정류장에서 출발하는 경로를 검색합니다.
 
-### <a name="get-location-coordinates-for-destination"></a>대상에 대 한 위치 좌표 가져오기
+### <a name="get-location-coordinates-for-destination"></a>대상의 위치 좌표 가져오기
 
-우주 니 들 타워의 위치 좌표를 가져오기 위해 Azure Maps [유사 항목 검색 서비스](/rest/api/maps/search/getsearchfuzzy)를 사용 합니다.
+스페이스 니들 타워의 위치 좌표를 가져오기 위해 Azure Maps [유사 항목 검색 서비스](/rest/api/maps/search/getsearchfuzzy)를 사용하겠습니다.
 
-유사 항목 검색 서비스에 대 한 요청을 만들려면 다음 단계를 수행 합니다.
+유사 항목 검색 서비스로 요청을 하려면 다음 단계를 수행합니다.
 
-1. Postman에서 **새 요청**  |  **get 요청** 을 클릭 하 고 이름을 **location 좌표** 로 이름을 가져옵니다.
+1. Postman에서 **새 요청** | **GET 요청** 을 클릭하고 이름을 **위치 좌표 가져오기** 로 지정합니다.
 
-2. 작성기 탭에서 **GET** HTTP 메서드를 선택 하 고 다음 요청 URL을 입력 한 후 **보내기** 를 클릭 합니다.
+2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 요청 URL을 다음과 같이 입력한 뒤 **보내기** 를 클릭합니다.
 
     ```HTTP
     https://atlas.microsoft.com/search/fuzzy/json?subscription-key={subscription-key}&api-version=1.0&query=space needle
     ```
 
-3. 응답을 신중 하 게 살펴보면 공간 니 들 검색 결과에 여러 위치가 포함 되어 있습니다. 각 결과 **는 위치 아래의** 위치 좌표를 포함 합니다. `lat` `lon` 첫 번째 결과의 **위치** 에서 및를 복사 합니다.
+3. 응답을 자세히 살펴보면 스페이스 니들 검색 결과에 여러 위치가 포함되어 있습니다. 결과마다 **position** 아래에 위치 좌표가 있습니다. 첫 번째 결과의 **position** 아래에서 `lat`과 `lon`을 복사합니다.
 
    ```JSON
    {
@@ -332,23 +332,23 @@ Azure Maps [전송 경로 가져오기 API](/rest/api/maps/mobility/gettransitro
     }
     ```
 
-### <a name="request-route"></a>요청 경로
+### <a name="request-route"></a>경로 요청
 
-경로 요청을 만들려면 다음 단계를 완료 합니다.
+경로를 요청하려면 다음 단계를 완료합니다.
 
-1. Postman에서 **새 요청**  |  **가져오기 요청** 을 클릭 하 고 이름으로 **경로 정보를 가져옵니다**.
+1. Postman에서 **새 요청** | **GET 요청** 을 클릭하고 이름을 **경로 정보 가져오기** 로 지정합니다.
 
-2. 작성기 탭에서 **GET** HTTP 메서드를 선택 하 고 API 끝점에 대 한 다음 요청 URL을 입력 하 고 **보내기** 를 클릭 합니다.
+2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 API 엔드포인트에 대한 요청 URL을 다음과 같이 입력한 뒤 **보내기** 를 클릭합니다.
 
-    및 매개 변수를 지정 하 여 버스에 대 한 공용 전송 경로를 요청 `modeType` `transitType` 합니다. 요청 URL에는 이전 섹션에서 검색 된 위치가 포함 되어 있습니다. 에는 `originType` 이제 **stopid** 가 있습니다. 의 경우 `destionationType` **위치가** 있습니다.
+    `modeType` 및 `transitType` 매개 변수를 지정하여 버스의 대중교통 경로를 요청하겠습니다. 요청 URL에는 이전 섹션에서 검색한 위치가 포함되어 있습니다. `originType`의 경우, **stopId** 가 있습니다. `destionationType`의 경우에는 **position** 이 있습니다.
 
-    [전송 경로 가져오기 API](/rest/api/maps/mobility/gettransitroutepreview)에 대 한 요청에서 사용할 수 있는 [URI 매개 변수 목록을](/rest/api/maps/mobility/gettransitroutepreview#uri-parameters) 참조 하세요.
+    [대중교통 경로 가져오기 API](/rest/api/maps/mobility/gettransitroutepreview)에 대한 요청에서 사용할 수 있는 [URI 매개 변수 목록](/rest/api/maps/mobility/gettransitroutepreview#uri-parameters)을 참조하세요.
   
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/route/json?subscription-key={subscription-key}&api-version=1.0&originType=stopId&origin=522---2060603&destionationType=position&destination=47.62039,-122.34928&modeType=publicTransit&transitType=bus
     ```
 
-3. 요청이 성공적으로 완료 되 면 응답 구조는 아래와 같습니다.
+3. 요청이 성공적으로 완료되면 응답 구조는 아래와 같이 표시됩니다.
 
     ```JSON
     {
@@ -525,23 +525,23 @@ Azure Maps [전송 경로 가져오기 API](/rest/api/maps/mobility/gettransitro
     }
     ```
 
-4. 신중 하 게 관찰 하면 응답에 여러 개의 **버스** 경로가 있습니다. 각 경로에는 고유한 일정 **ID**, 경로의 각 다리를 설명 하는 요약 및 `itineraryFare` 버스 티켓에 대 한 항목별 및 총 가격을 모두 제공 하는가 있습니다. 경로 레그는 두 중지 waypoints 간의 경로 부분입니다. 그런 다음 응답에서를 사용 하 여 가장 빠른 경로에 대 한 세부 정보를 요청 `itineraryId` 합니다.
+4. 자세히 살펴보면 응답에 여러 개의 **버스** 경로가 있습니다. 각 경로에는 고유한 **일정 ID**, 경로의 각 구간을 설명하는 요약 및 버스표의 항목별 가격과 총 가격을 모두 제공하는 `itineraryFare`가 있습니다. 경로 구간이란 두 개의 정류장 중간 지점 사이에 있는 경로의 일부입니다. 그런 다음 응답에서 `itineraryId`를 사용하여 가장 빠른 경로에 대한 세부 정보를 요청해 보겠습니다.
 
-## <a name="request-fastest-route-itinerary"></a>가장 빠른 경로 요청 일정표
+## <a name="request-fastest-route-itinerary"></a>최단 경로 일정 요청
 
-Azure Maps [전송 여행 서비스 가져오기](/rest/api/maps/mobility/gettransititinerarypreview) 서비스를 사용 하면 [전송 경로 가져오기 API](/rest/api/maps/mobility/gettransitroutepreview) 서비스에서 반환 된 경로의 일정 **ID** 를 사용 하 여 특정 경로에 대 한 데이터를 요청할 수 있습니다. 요청을 수행 하려면 다음 단계를 완료 합니다.
+Azure Maps [대중교통 일정 가져오기](/rest/api/maps/mobility/gettransititinerarypreview) 서비스를 사용하면 [대중교통 경로 가져오기 API](/rest/api/maps/mobility/gettransitroutepreview) 서비스에서 반환된 경로의 **일정 ID** 를 사용하여 특정 경로에 대한 데이터를 요청할 수 있습니다. 경로를 요청하려면 다음 단계를 완료합니다.
 
-1. Postman에서 **새 요청**  |  **가져오기 요청** 을 클릭 하 고 이름으로 **전송 정보를 가져옵니다**.
+1. Postman에서 **새 요청** | **GET 요청** 을 클릭하고 이름을 **대중교통 정보 가져오기** 로 지정합니다.
 
-2. 작성기 탭에서 **GET** HTTP 메서드를 선택 합니다. API 끝점에 대 한 다음 요청 URL을 입력 하 고 **보내기** 를 클릭 합니다.
+2. 작성기 탭에서 **GET** HTTP 메서드를 선택합니다. API 엔드포인트에 대한 요청 URL을 다음과 같이 입력하고 **보내기** 를 클릭합니다.
 
-    `detailType`이 매개 변수를 **geometry** 로 설정 하 여 응답에 공용 전송에 대 한 중지 정보를 포함 하 고 경로를 탐색 하 고 자전거를 탐색할 수 있습니다.
+    `detailType` 매개 변수를 **기하 구조** 로 설정하여 응답에 대중교통 정류장 정보와 경로의 도보 및 자전거 구간에 대한 턴바이턴 내비게이션이 포함되도록 하겠습니다.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/itinerary/json?api-version=1.0&subscription-key={subscription-key}&query={itineraryId}&detailType=geometry
     ```
 
-3. 요청이 성공적으로 완료 되 면 응답 구조는 아래와 같이 표시 됩니다.  JSON 응답을 관찰 하는 경우 각 버스 레그에 요소가 포함 되어 있음을 알 수 있습니다 `legfare` . 요소에는 `legfare` 개별적으로 구매한 각 버스 경로에 대 한 센트의 비용이 포함 됩니다. 응답의 끝에 `itineraryFare` 전체 경로의 센트에 대 한 비용을 포함 하는 요소가 표시 됩니다. 이 예제에서는 각각 4 개의 버스 경로가 있습니다 `$2.75` . 그러나 전체 경로에 대 한 단일 티켓을 구매 하는 경우 비용은 `$5.50` 입니다.
+3. 요청이 성공적으로 완료되면 응답 구조는 아래와 같이 표시됩니다.  JSON 응답을 관찰하면 각 버스 구간마다 `legfare` 요소가 포함되어 있는 것을 확인할 수 있습니다. `legfare` 요소에는 별도 구매한 각 버스 경로별 요금(센트 단위)이 포함되어 있습니다. 응답의 끝에는 전체 경로의 요금(센트 단위)이 포함된 `itineraryFare` 요소가 있습니다. 이 예제에는 각 `$2.75`인 네 개의 버스 경로가 있습니다. 그러나 전체 경로에 대해 표를 하나면 구매한다면 비용은 `$5.50`입니다.
 
     ```JSON
    {
@@ -801,12 +801,12 @@ Azure Maps [전송 여행 서비스 가져오기](/rest/api/maps/mobility/gettra
 
 ## <a name="next-steps"></a>다음 단계
 
-모바일 서비스 (미리 보기)를 사용 하 여 실시간 데이터를 요청 하는 방법을 알아봅니다.
+Mobility Services(미리 보기)를 사용하여 실시간 데이터를 요청하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [실시간 데이터를 요청 하는 방법](how-to-request-real-time-data.md)
+> [실시간 데이터를 요청하는 방법](how-to-request-real-time-data.md)
 
-Azure Maps 모바일 서비스 (미리 보기) API 설명서 살펴보기
+Azure Maps Mobility Services(미리 보기) API 설명서 살펴보기
 
 > [!div class="nextstepaction"]
-> [모바일 서비스 설명서](/rest/api/maps/mobility)
+> [Mobility Service 설명서](/rest/api/maps/mobility)

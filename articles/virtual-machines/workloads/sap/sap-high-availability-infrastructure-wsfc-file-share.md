@@ -1,5 +1,5 @@
 ---
-title: WSFC&파일 공유를 사용 하는 SAP ASCS/SCS HA 용 Azure 인프라 | Microsoft Docs
+title: WSFC 및 파일 공유를 사용하는 SAP ASCS/SCS HA용 Azure 인프라 | Microsoft Docs
 description: SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -17,10 +17,10 @@ ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f539a63907bb7cbe9d04dc3249427357d79d7c87
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101673603"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비
@@ -205,7 +205,7 @@ ms.locfileid: "101673603"
 
 이 문서에서는 SAP ASCS/SCS 인스턴스를 클러스터링하는 옵션으로 스케일 아웃 파일 공유를 사용하여 WSFC(Windows 장애 조치(failover) 클러스터)에서 고가용성 SAP 시스템을 설치하고 구성하는 데 필요한 Azure 인프라 준비 단계를 설명합니다.
 
-## <a name="prerequisite"></a>필수 조건
+## <a name="prerequisite"></a>필수 요소
 
 설치를 시작하기 전에 다음 문서를 검토하세요.
 
@@ -246,15 +246,15 @@ ms.locfileid: "101673603"
 
 Azure 인프라를 준비하려면 다음을 완료합니다.
 
-* [Vm을 배포][sap-high-availability-infrastructure-wsfc-shared-disk]합니다.
+* [VM을 배포합니다.][sap-high-availability-infrastructure-wsfc-shared-disk]
 
-* [SAP ASCS에 대 한 Azure 부하 분산 장치를 만들고 구성][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules]합니다.
+* [SAP ASCS에 대해 Azure Load Balancer를 만들고 구성합니다][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules].
 
-* [큐에 넣기 복제 서버 2 (ERS2)를 사용 하는 경우 ERS2에 대 한 Azure Load Balancer 구성을 수행 ][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules]합니다. 
+* [ERS2(큐에 넣기 복제 서버 2)를 사용하는 경우 ERS2 ][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules]에 대한 Azure Load Balancer 구성을 수행합니다. 
 
-* [도메인에 Windows 가상 컴퓨터를 추가][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]합니다.
+* [도메인에 Windows 가상 머신을 추가합니다][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
 
-* [SAP ASCS/SCS 인스턴스의 두 클러스터 노드에 대해 레지스트리 항목을 추가][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]합니다.
+* [SAP ASCS/SCS 인스턴스의 두 클러스터 노드 모두에 레지스트리 항목을 추가합니다][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
 
 * Windows Server 2016을 사용하는 경우 [Azure Cloud Witness][deploy-cloud-witness]를 구성하는 것이 좋습니다.
 
@@ -312,7 +312,7 @@ Managed Disks를 사용하는 것이 좋습니다.
 
 ![그림 1: Managed Disks가 포함된 스케일 아웃 파일 서버 Resource Manager 템플릿의 UI 화면][sap-ha-guide-figure-8010]
 
-_**그림 1**: managed disks가 있는 Scale-Out 파일 서버 리소스 관리자 템플릿에 대 한 UI 화면_
+_**그림 1**: Managed Disks가 포함된 스케일 아웃 파일 서버 Resource Manager 템플릿의 UI 화면_
 
 템플릿에서 다음 작업을 수행합니다.
 1. **VM 수** 상자에 **2** 라는 최소 수를 입력합니다.
@@ -326,19 +326,19 @@ _**그림 1**: managed disks가 있는 Scale-Out 파일 서버 리소스 관리�
 
 ![그림 2: Managed Disks가 포함되지 않은 스케일 아웃 파일 서버 Azure Resource Manager 템플릿의 UI 화면][sap-ha-guide-figure-8011]
 
-_**그림 2**: managed disks가 없는 Scale-Out 파일 서버 Azure Resource Manager 템플릿에 대 한 UI 화면_
+_**그림 2**: Managed Disks가 포함되지 않은 스케일 아웃 파일 서버 Azure Resource Manager 템플릿의 UI 화면_
 
 **스토리지 계정 형식** 상자에서 **Premium Storage** 를 선택합니다. 다른 모든 설정은 Managed Disks와 동일합니다.
 
-## <a name="adjust-cluster-timeout-settings"></a>클러스터 제한 시간 설정 조정
+## <a name="adjust-cluster-timeout-settings"></a>클러스터 시간 제한 설정 조정
 
-Windows Scale-Out 파일 서버 클러스터를 성공적으로 설치한 후에는 장애 조치 (failover) 검색을 위한 제한 시간 임계값을 Azure의 조건에 맞게 조정 합니다. 변경할 매개 변수는 [장애 조치(failover) 클러스터 네트워크 임계값 조정][tuning-failover-cluster-network-thresholds]에 설명되어 있습니다. 클러스터 된 Vm이 동일한 서브넷에 있다고 가정 하 고 다음 매개 변수를 이러한 값으로 변경 합니다.
+Windows 스케일 아웃 파일 서버 클러스터를 성공적으로 설치한 후에는 장애 조치(Failover) 검색을 위한 시간 제한 임계값을 Azure의 조건에 맞게 조정합니다. 변경할 매개 변수는 [장애 조치(failover) 클러스터 네트워크 임계값 조정][tuning-failover-cluster-network-thresholds]에 설명되어 있습니다. 클러스터형 VM이 동일한 서브넷에 있다고 가정하고 다음 매개 변수를 이러한 값으로 변경합니다.
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
 - RouteHistoryLength = 30
 
-이러한 설정은 고객과 함께 테스트되어 도출된 합리적인 타협안입니다. 복원 력이 충분 하지만 실제 오류 조건 또는 VM 오류로 인해 빠르게 충분 한 장애 조치 (failover)를 제공 합니다.
+이러한 설정은 고객과 함께 테스트되어 도출된 합리적인 타협안입니다. 충분한 복원력을 갖고 있으며, 실제 오류가 발생했거나 VM에 장애가 발생한 경우 일정 정도로 빠른 장애 조치(Failover)를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

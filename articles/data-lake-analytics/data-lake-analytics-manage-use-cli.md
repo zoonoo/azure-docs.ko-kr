@@ -1,14 +1,14 @@
 ---
-title: Azure CLI를 사용 하 여 Azure Data Lake Analytics 관리
+title: Azure CLI를 사용하여 Azure Data Lake Analytics 관리
 description: 이 문서에서는 Azure CLI를 사용하여 Data Lake Analytics 작업, 데이터 원본 및 사용자를 관리하는 방법을 설명합니다.
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 01/29/2018
 ms.openlocfilehash: 19b471d85a52fe38b72ad55847d022fb56b3c4f0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92220927"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Azure CLI(명령줄 인터페이스)를 사용하여 Azure Data Lake Analytics 관리
@@ -23,7 +23,7 @@ Azure CLI를 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, �
 
 - Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-- Azure CLI [Azure CLI 설치 및 구성](/cli/azure/install-azure-cli)을 참조하세요.
+- Azure CLI. [Azure CLI 설치 및 구성](/cli/azure/install-azure-cli)을 참조하세요.
 
   - 이 데모를 완료하려면 **시험판** [Azure CLI 도구](https://github.com/MicrosoftBigData/AzureDataLake/releases) 를 다운로드하여 설치합니다.
 
@@ -138,7 +138,7 @@ Blob Storage 계정 나열:
    az dla account blob-storage list --account "<Data Lake Analytics account name>"
    ```
 
-!["DataLakeStoreAccounts:" 정보가 강조 표시 된 Azure C L I를 보여 주는 스크린샷](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
+![‘dataLakeStoreAccounts:’ 정보가 강조 표시된 Azure CLI를 보여 주는 스크린샷입니다.](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
 
 ### <a name="delete-data-sources"></a>데이터 원본 삭제
 
@@ -183,7 +183,7 @@ Blob Storage 계정 나열:
 
 ### <a name="cancel-jobs"></a>작업 취소
 
-List 명령을 사용 하 여 작업 ID를 찾은 다음, 취소를 사용 하 여 작업을 취소 합니다.
+list 명령을 사용하여 작업 ID를 찾은 후 cancel을 사용하여 작업을 취소합니다.
 
    ```azurecli
    az dla job cancel --account "<Data Lake Analytics account name>" --job-identity "<Job Id>"
@@ -212,6 +212,6 @@ az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recu
 ## <a name="next-steps"></a>다음 단계
 
 - [Microsoft Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
-- [Azure Portal를 사용 하 여 Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)
-- [Azure Portal를 사용 하 여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)
-- [Azure Portal를 사용 하 여 Azure Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Azure 포털을 사용하여 Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)
+- [Azure 포털을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)
+- [Azure Portal을 사용하여 Azure Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

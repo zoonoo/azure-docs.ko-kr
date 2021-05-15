@@ -1,24 +1,24 @@
 ---
 title: 템플릿 아티팩트 참조
-description: Azure Managed Applications에 대 한 배포 템플릿 아티팩트의 예를 제공 합니다.
+description: Azure Managed Applications에 대한 배포 템플릿 아티팩트의 예를 제공합니다.
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
 ms.openlocfilehash: 2bc0017d71e159ac490041494bcf37db035ef421
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "75651463"
 ---
 # <a name="reference-deployment-template-artifact"></a>참조: 배포 템플릿 아티팩트
 
-이 문서는 Azure Managed Applications 아티팩트의 *mainTemplate.js* 에 대 한 참조입니다. 배포 템플릿 작성에 대 한 자세한 내용은 [Azure Resource Manager 템플릿](../templates/template-syntax.md)을 참조 하세요.
+이 문서는 Azure Managed Applications의 *mainTemplate.json* 아티팩트에 대한 참조입니다. 배포 템플릿 작성에 대한 자세한 내용은 [Azure Resource Manager 템플릿](../templates/template-syntax.md)을 참조하세요.
 
 ## <a name="deployment-template"></a>배포 템플릿
 
-다음 JSON은 Azure Managed Applications 파일 *에mainTemplate.js* 의 예를 보여 줍니다.
+다음 JSON은 Azure Managed Applications의 *mainTemplate.json* 파일의 예를 보여 줍니다.
 
 ```json
 {
@@ -191,4 +191,4 @@ ms.locfileid: "75651463"
 
 - [자습서: 사용자 지정 작업 및 리소스가 있는 관리형 애플리케이션 만들기](tutorial-create-managed-app-with-custom-provider.md)
 - [참조: 사용자 인터페이스 요소 아티팩트](reference-createuidefinition-artifact.md)
-- [참조: 뷰 정의 아티팩트](reference-view-definition-artifact.md)
+- [참조: 보기 정의 아티팩트](reference-view-definition-artifact.md)

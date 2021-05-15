@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8d3f8e9441064a5d2d1372e3f177534b8dfefb93
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92359835"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect에 대한 토폴로지
@@ -42,7 +42,7 @@ ms.locfileid: "92359835"
 
 
 > [!IMPORTANT]
-> Microsoft는 공식적으로 문서화된 구성 또는 작업 외의 Azure AD Connect 동기화에 대한 수정 또는 작업을 지원하지 않습니다. 이러한 구성 또는 작업으로 인해 Azure AD Connect 동기화 상태가 일치 하지 않거나 지원 되지 않을 수 있습니다. 따라서 Microsoft는 이러한 배포에 대 한 기술 지원을 제공할 수 없습니다.
+> Microsoft는 공식적으로 문서화된 구성 또는 작업 외의 Azure AD Connect 동기화에 대한 수정 또는 작업을 지원하지 않습니다. 이러한 구성 또는 작업으로 인해 Azure AD Connect 동기화의 불일치 또는 지원되지 않는 상태가 발생할 수 있으며 그 결과, Microsoft가 해당 배포에 대해 기술 지원을 제공할 수 없습니다.
 
 
 ## <a name="single-forest-single-azure-ad-tenant"></a>단일 포리스트, 단일 Azure AD 테넌트
@@ -60,11 +60,11 @@ ms.locfileid: "92359835"
 
 많은 조직에는 다중 온-프레미스 Active Directory 포리스트가 있는 환경이 있습니다. 둘 이상의 온-프레미스 Active Directory 포리스트가 있는 이유는 여러 가지가 있습니다. 대표적인 예는 계정 리소스 포리스트를 사용하는 디자인과 합병 또는 인수의 결과입니다.
 
-포리스트가 여러 개인 경우 단일 Azure AD Connect Sync 서버에서 모든 포리스트에 연결할 수 있어야 합니다. 서버는 도메인에 가입 되어 있어야 합니다. 모든 포리스트에 연결해야 하는 경우 서버를 경계 네트워크(DMZ, 완충 지역 또는 스크린된 서브넷이라고도 함)에 배치할 수 있습니다.
+포리스트가 여러 개인 경우 단일 Azure AD Connect Sync 서버에서 모든 포리스트에 연결할 수 있어야 합니다. 서버가 도메인에 조인되어 있어야 합니다. 모든 포리스트에 연결해야 하는 경우 서버를 경계 네트워크(DMZ, 완충 지역 또는 스크린된 서브넷이라고도 함)에 배치할 수 있습니다.
 
 Azure AD Connect 설치 마법사는 여러 포리스트에 표시되는 사용자를 통합하는 몇 가지 옵션을 제공합니다. 이러한 옵션의 목표는 사용자를 Azure AD에서 한 번만 표시하는 것입니다. 설치 마법사에서 사용자 지정 설치 경로에 구성할 수 있는 몇 가지 일반적인 토폴로지가 있습니다. **사용자를 고유하게 식별** 페이지에서 해당 토폴로지를 나타내는 옵션을 선택합니다. 통합은 사용자에 대해서만 구성됩니다. 중복된 그룹은 기본 구성과 통합되지 않습니다.
 
-일반적인 토폴로지는 별도의 토폴로지, [전체 메시](#multiple-forests-full-mesh-with-optional-galsync)및 [계정 리소스 토폴로지에](#multiple-forests-account-resource-forest)대 한 섹션에서 설명 합니다.
+일반적인 토폴로지는 별도의 토폴로지, [전체 메시](#multiple-forests-full-mesh-with-optional-galsync) 및 [계정 리소스 토폴로지](#multiple-forests-account-resource-forest) 섹션에 설명되어 있습니다.
 
 Azure AD Connect 동기화의 기본 구성에서 다음 사항을 가정합니다.
 
@@ -113,19 +113,19 @@ Azure AD Connect 동기화의 기본 구성에서 다음 사항을 가정합니�
 
 ![다중 포리스트를 위한 계정 리소스 포리스트 토폴로지](./media/plan-connect-topologies/multiforestaccountresource.png)
 
-계정 리소스 포리스트 토폴로지에는 활성 사용자 계정이 있는 하나 이상의 *계정* 포리스트가 있습니다. 또한 비활성화 된 계정이 있는 하나 이상의 *리소스* 포리스트가 있습니다.
+계정 리소스 포리스트 토폴로지에는 활성 사용자 계정이 있는 하나 이상의 *계정* 포리스트가 있습니다. 또한 계정이 비활성화된 하나 이상의 *리소스* 포리스트가 있습니다.
 
 이 시나리오에서는 하나 이상의 리소스 포리스트가 모든 계정 포리스트를 신뢰합니다. 리소스 포리스트에는 일반적으로 Exchange 및 Lync와 확장된 Active Directory 스키마가 있습니다. 다른 공유 서비스는 물론이고 모든 Exchange 및 Lync 서비스도 이 포리스트에 배치됩니다. 사용자는 이 포리스트에 비활성화된 계정을 가지며 사서함이 계정 포리스트에 연결됩니다.
 
 ## <a name="microsoft-365-and-topology-considerations"></a>Microsoft 365 및 토폴로지 고려 사항
-일부 Microsoft 365 작업에는 지원 되는 토폴로지에 대 한 몇 가지 제한이 있습니다.
+일부 Microsoft 365 워크로드의 경우 지원되는 토폴로지에 약간의 제한이 있습니다.
 
 | 작업 | 제한 |
 | --------- | --------- |
 | Exchange Online | Exchange Online에서 지원하는 하이브리드 토폴로지에 대한 자세한 내용은 [여러 Active Directory 포리스트를 사용한 하이브리드 배포](/Exchange/hybrid-deployment/hybrid-with-multiple-forests)를 참조하세요. |
 | 비즈니스용 Skype | 다중 포리스트 온-프레미스를 사용하는 경우 계정 리소스 포리스트 토폴로지만 지원됩니다. 자세한 내용은 [Business Server 2015용 Skype에 대한 환경 요구 사항](/skypeforbusiness/plan-your-deployment/requirements-for-your-environment/environmental-requirements)을 참조하세요. |
 
-규모가 큰 조직인 경우 [Microsoft 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md) 기능을 사용 하는 것이 좋습니다. 사용자의 리소스가 배치되는 데이터 센터 지역을 정의할 수 있습니다.
+조직의 규모가 큰 경우에는 [Microsoft 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md) 기능을 사용하는 것이 좋습니다. 사용자의 리소스가 배치되는 데이터 센터 지역을 정의할 수 있습니다.
 
 ## <a name="staging-server"></a>스테이징 서버
 ![토폴로지의 준비 서버](./media/plan-connect-topologies/multiforeststaging.png)
@@ -161,10 +161,10 @@ DNS 도메인은 단일 Azure AD 테넌트에만 등록할 수 있습니다. 온
 
 이 토폴로지는 그 외의 지원되는 시나리오에 대해 다음과 같은 제한 사항이 있습니다.
 
-* 최대 5 개의 Azure Active Directory 테 넌 트는 온-프레미스 Active Directory 인스턴스와 Exchange 하이브리드를 가질 수 있습니다. 이 시나리오는 [9 월 2020 하이브리드 구성 마법사 업데이트](https://techcommunity.microsoft.com/t5/exchange-team-blog/september-2020-hybrid-configuration-wizard-update/ba-p/1687698)에 설명 되어 있습니다.
-* 하이브리드 구성 마법사를 실행 하는 Exchange Server는 2016 CU18 또는 2019 CU7 이상 이어야 합니다.
-* 각 Azure AD Connect 인스턴스는 도메인에 가입 된 컴퓨터에서 실행 되어야 합니다.
-* 온-프레미스 디렉터리에서 사용자를 필터링 하려면 도메인/OU 필터링 옵션을 사용 하 여 Azure AD Connect를 구성 해야 합니다. 이 옵션을 사용 하면 사용자가 단일 온라인 Exchange 테 넌 트에만 표시 됩니다.
+* 최대 5개의 Azure Active Directory 테넌트가 온-프레미스 Active Directory 인스턴스와 함께 Exchange Hybrid를 가질 수 있습니다. 이 시나리오에 대한 설명은 [2020년 9월 하이브리드 구성 마법사 업데이트](https://techcommunity.microsoft.com/t5/exchange-team-blog/september-2020-hybrid-configuration-wizard-update/ba-p/1687698)에 나와 있습니다.
+* 하이브리드 구성 마법사를 실행하는 Exchange Server는 2016 CU18 또는 2019 CU7 이상이어야 합니다.
+* 각 Azure AD Connect 인스턴스는 도메인 조인 머신에서 실행 중이어야 합니다.
+* 온-프레미스 디렉터리에서 사용자를 필터링하려면 도메인/OU 필터링 옵션을 사용하여 Azure AD Connect를 구성해야 합니다. 이 옵션을 사용하면 사용자가 단일 온라인 Exchange 테넌트에만 표시됩니다.
 * Windows 10 디바이스는 하나의 Azure AD 테넌트에만 연결할 수 있습니다.
 * 암호 해시 동기화 및 통과 인증에 대한 SSO(Single Sign-On) 옵션은 하나의 Azure AD 테넌트에만 사용할 수 있습니다.
 
@@ -195,14 +195,14 @@ Azure AD 테넌트는 서로 격리되도록 설계되었습니다. 다음 작�
 
 FIM 2010 또는 MIM 2016 온-프레미스를 사용하여 두 Exchange 조직 간에 GALSync를 통해 사용자를 동기화할 수 있습니다. 한 조직의 사용자는 다른 조직에서 외부 사용자/연락처로 표시됩니다. 이러한 여러 온-프레미스 Active Directory 인스턴스를 각각 자체 Azure AD 테넌트와 동기화할 수 있습니다.
 
-### <a name="using-unauthorized-clients-to-access-the-azure-ad-connect-backend"></a>권한 없는 클라이언트를 사용 하 여 Azure AD Connect 백 엔드에 액세스
-![권한 없는 클라이언트를 사용 하 여 Azure AD Connect 백 엔드에 액세스](./media/plan-connect-topologies/other-client-unsupported.png)
+### <a name="using-unauthorized-clients-to-access-the-azure-ad-connect-backend"></a>권한 없는 클라이언트를 사용하여 Azure AD Connect 백 엔드에 액세스
+![권한 없는 클라이언트를 사용하여 Azure AD Connect 백 엔드에 액세스](./media/plan-connect-topologies/other-client-unsupported.png)
 
-Azure Active Directory Connect 서버는 Azure Active Directory Connect 백 엔드를 통해 Azure Active Directory와 통신 합니다. 이 백 엔드와 통신 하는 데 사용할 수 있는 유일한 소프트웨어는 Azure Active Directory Connect입니다. 다른 소프트웨어나 방법을 사용 하 여 Azure Active Directory Connect 백 엔드와 통신할 수 없습니다. 
+Azure Active Directory Connect 서버는 Azure Active Directory Connect 백 엔드를 통해 Azure Active Directory와 통신합니다. 이 백 엔드와 통신하는 데 사용할 수 있는 유일한 소프트웨어는 Azure Active Directory Connect입니다. 다른 소프트웨어나 방법을 사용하여 Azure Active Directory Connect 백 엔드와 통신은 지원되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 이러한 시나리오에 대해 Azure AD Connect를 설치하는 방법을 알아보려면 [Azure AD Connect의 사용자 지정 설치](how-to-connect-install-custom.md)를 참조하세요.
 
 [Azure AD Connect 동기화](how-to-connect-sync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
-[Azure Active Directory와 온-프레미스 id 통합](whatis-hybrid-identity.md)에 대해 자세히 알아보세요.
+[Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)에 대해 자세히 알아봅니다.

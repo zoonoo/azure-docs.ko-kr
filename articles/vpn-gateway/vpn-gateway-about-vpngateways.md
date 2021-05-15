@@ -1,21 +1,21 @@
 ---
 title: Azure VPN Gateway 정보
-description: VPN Gateway가 무엇인지, VPN Gateway를 사용하여 IPsec IKE 사이트 간, VNet 간, 지점 및 사이트 간 VPN 가상 네트워크에 연결하는 방법에 대해 알아봅니다.
+description: VPN 게이트웨이가 무엇인지, VPN 게이트웨이를 사용하여 IPsec IKE 사이트 간, VNet 간, 지점 및 사이트 간 VPN 가상 네트워크에 연결하는 방법에 대해 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 08/27/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
 ms.custom:
 - contperf-fy21q1
 - e2e-hybrid
-ms.openlocfilehash: 9a73b3ab2a9ed939001350609a176dba3c2fc44d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: bdaa61aa45c357e95e35196a5be7774f0af95ec0
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2021
-ms.locfileid: "108141148"
+ms.locfileid: "108202338"
 ---
 # <a name="what-is-vpn-gateway"></a>VPN Gateway란?
 

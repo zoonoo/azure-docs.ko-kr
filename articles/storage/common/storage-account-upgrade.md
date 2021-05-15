@@ -1,49 +1,49 @@
 ---
 title: 범용 v2 스토리지 계정으로 업그레이드
 titleSuffix: Azure Storage
-description: Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 범용 v2 저장소 계정으로 업그레이드 합니다. Blob 데이터에 대 한 액세스 계층을 지정 합니다.
+description: Azure Portal, PowerShell 또는 Azure CLI를 사용하여 범용 v2 스토리지 계정으로 업그레이드합니다. Blob 데이터에 대한 액세스 계층을 지정합니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 03/30/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 85520032e9bc63b6296e40dd1c1055e36762dcc8
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.openlocfilehash: 30c73849d07c1495251c17510ea71f29c674c618
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102555009"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967492"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>범용 v2 스토리지 계정으로 업그레이드
 
-범용 v2 스토리지 계정은 최신 Azure Storage 기능을 지원하고 모든 범용 v1의 기능 및 Blob Storage 계정을 통합합니다. 범용 v2 계정은 대부분의 스토리지 시나리오에 권장됩니다. 범용 v2 계정은 업계 경쟁력 있는 트랜잭션 가격 뿐만 아니라 Azure Storage에 대해서도 가장 낮은 기가바이트당 용량 가격을 제공합니다. 범용 v2 계정은 핫, 쿨 또는 보관 사이에서 핫 또는 쿨 및 blob 수준 계층화의 기본 계정 액세스 계층을 지원 합니다.
+범용 v2 스토리지 계정은 최신 Azure Storage 기능을 지원하고 모든 범용 v1의 기능 및 Blob Storage 계정을 통합합니다. 범용 v2 계정은 대부분의 스토리지 시나리오에 권장됩니다. 범용 v2 계정은 업계 경쟁력 있는 트랜잭션 가격 뿐만 아니라 Azure Storage에 대해서도 가장 낮은 기가바이트당 용량 가격을 제공합니다. 범용 v2 계정은 핫, 쿨 또는 보관 사이에서 핫 또는 쿨 및 Blob 수준 계층화의 기본 계정 액세스 계층을 지원합니다.
 
-범용 v1 또는 Blob storage 계정에서 범용 v2 저장소 계정으로 업그레이드 하는 것은 간단 합니다. Azure Portal, PowerShell 또는 Azure CLI를 사용하여 업그레이드할 수 있습니다. 범용 v2 저장소 계정으로 업그레이드 하는 것과 관련 하 여 가동 중지 시간 또는 데이터 손실 위험이 없습니다. 계정 업그레이드는 계정 유형을 변경 하는 간단한 Azure Resource Manager 작업을 통해 수행 됩니다.
+범용 v1 또는 Blob Storage 계정에서 범용 v2 스토리지 계정으로 간단히 업그레이드할 수 있습니다. Azure Portal, PowerShell 또는 Azure CLI를 사용하여 업그레이드할 수 있습니다. 범용 v2 스토리지 계정으로 업그레이드하는 것과 관련된 가동 중지 시간 또는 데이터 손실 위험이 없습니다. 계정 업그레이드는 계정 유형을 변경하는 간단한 Azure Resource Manager 작업을 통해 수행됩니다.
 
 > [!IMPORTANT]
-> 범용 v1 또는 Blob storage 계정을 범용 v2로 업그레이드 하는 것은 영구적 이며 실행 취소할 수 없습니다.
+> 범용 v1 또는 Blob Storage 계정을 범용 v2로 업그레이드하는 것은 영구적이며 실행 취소할 수 없습니다.
 
 > [!NOTE]
-> Microsoft는 대부분의 시나리오에 범용 v2 계정을 권장 하지만 Microsoft는 신규 및 기존 고객에 대 한 범용 v1 계정을 계속 지원 합니다. 이러한 지역에서 Azure Storage를 사용할 수 있을 때마다 새 지역에서 범용 v1 storage 계정을 만들 수 있습니다. Microsoft는 현재 범용 v1 계정에 대 한 지원을 사용 중단 계획을가지고 있지 않으며, 사용 중단 모든 Azure Storage 기능을 제공 하기 전에 적어도 1 년의 사전 통지를 제공 합니다. Microsoft는 범용 v1 계정에 대 한 보안 업데이트를 계속 제공 하지만이 계정 유형에는 새로운 기능 개발이 필요 하지 않습니다.
+> Microsoft는 대부분의 시나리오에 범용 v2 계정을 권장하지만 신규 및 기존 고객에게 범용 v1 계정을 계속 지원할 것입니다. 해당 지역에서 Azure Storage를 사용할 수 있을 때마다 새 지역에서 범용 v1 스토리지 계정을 만들 수 있습니다. Microsoft는 현재 범용 v1 계정에 대한 지원을 중단할 계획이 없으며, Azure Storage 기능 지원을 중단하게 될 경우, 최소한 1년 전에 사전 고지할 것입니다. Microsoft는 범용 v1 계정에 대해 계속해서 보안 업데이트를 제공할 예정이지만 이 계정 유형에 대한 새로운 기능 개발은 예정에 없습니다.
 >
-> 2020 년 10 월 1 일부 터, 새 Azure Storage 지역의 범용 v1 계정 가격은 해당 지역의 범용 v2 계정에 대 한 가격 책정과 동일 합니다. 기존 Azure Storage 지역의 가격은 변경 되지 않았습니다. 특정 지역의 범용 v1 계정에 대 한 가격 정보는 Azure Storage 가격 책정 페이지를 참조 하세요. 지역을 선택 하 고 **가격 책정 제안** 옆에서 **기타** 를 선택 합니다.
+> 2020년 10월 1일 이후에 온라인 상태가 된 새 Azure 지역의 경우 범용 v1 계정 가격이 변경되었으며 해당 지역의 범용 v2 계정 가격과 동일합니다. 2020년 10월 1일 이전에 있었던 Azure 지역의 범용 v1 계정 가격은 변경되지 않았습니다. 특정 지역의 범용 v1 계정 가격 정보는 Azure Storage 가격 책정 페이지를 참조하세요. 지역을 선택한 후 **가격 정보** 옆에 있는 **기타** 를 선택합니다.
 
 ## <a name="upgrade-an-account"></a>계정 업그레이드
 
-범용 v1 또는 Blob storage 계정을 범용 v2 계정으로 업그레이드 하려면 Azure Portal, PowerShell 또는 Azure CLI를 사용 합니다.
+범용 v1 또는 Blob Storage 계정을 범용 v2 계정으로 업그레이드하려면 Azure Portal, PowerShell 또는 Azure CLI를 사용합니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 스토리지 계정으로 이동합니다.
 3. **설정** 섹션에서 **구성** 을 클릭합니다.
-4. **계정 종류** 아래에서 **업그레이드** 를 클릭 합니다.
-5. **업그레이드 확인** 에서 계정 이름을 입력 합니다.
+4. **계정 종류** 아래에서 **업그레이드** 를 클릭합니다.
+5. **업그레이드 확인** 에서 계정 이름을 입력합니다.
 6. 블레이드 하단에서 **업그레이드** 를 클릭합니다.
 
-    ![업그레이드 계정 종류](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
+    ![계정 종류 업그레이드](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -51,7 +51,7 @@ ms.locfileid: "102555009"
 
 PowerShell을 사용하여 범용 v1 계정을 업그레이드 v2 계정으로 업그레이드하려면 먼저 최신 버전의 **Az.Storage** 모듈을 사용하도록 PowerShell을 업데이트합니다. PowerShell 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/install-Az-ps)을 참조하세요.
 
-그런 다음, 리소스 그룹 이름, 저장소 계정 이름 및 원하는 계정 액세스 계층을 대체 하 여 계정을 업그레이드 하는 다음 명령을 호출 합니다.
+그런 다음, 아래 명령을 호출하여 계정을 업그레이드하고 리소스 그룹 이름, 스토리지 계정 이름 및 원하는 계정 액세스 계층으로 대체합니다.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
@@ -61,7 +61,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account>
 
 Azure CLI를 사용하여 범용 v1 계정을 범용 v2 계정으로 업그레이드하려면 먼저 최신 버전의 Azure CLI를 설치합니다. CLI 설치에 대한 자세한 내용은 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-그런 다음, 리소스 그룹 이름, 저장소 계정 이름 및 원하는 계정 액세스 계층을 대체 하 여 계정을 업그레이드 하는 다음 명령을 호출 합니다.
+그런 다음, 아래 명령을 호출하여 계정을 업그레이드하고 리소스 그룹 이름, 스토리지 계정 이름 및 원하는 계정 액세스 계층으로 대체합니다.
 
 ```azurecli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2 --access-tier=<Hot/Cool>
@@ -71,24 +71,24 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>Blob 데이터에 대한 액세스 계층을 지정합니다.
 
-범용 v2 계정은 모든 Azure storage 서비스 및 데이터 개체를 지원 하지만 액세스 계층은 Blob storage 내의 블록 blob에만 사용할 수 있습니다. 범용 v2 저장소 계정으로 업그레이드 하는 경우 핫 또는 쿨의 기본 계정 액세스 계층을 지정할 수 있습니다 .이 계층은 개별 blob 액세스 계층 매개 변수가 지정 되지 않은 것 처럼 blob 데이터를 업로드할 기본 계층을 나타냅니다.
+범용 v2 계정은 모든 Azure Storage 서비스 및 데이터 개체를 지원하지만 액세스 계층은 Blob Storage의 블록 Blob에만 사용할 수 있습니다. 범용 v2 스토리지 계정으로 업그레이드하는 경우 핫 또는 쿨의 기본 계정 액세스 계층을 지정할 수 있습니다. 이 계층은 개별 Blob 액세스 계층 매개 변수가 지정되지 않은 것처럼 Blob 데이터를 업로드할 기본 계층을 나타냅니다.
 
-Blob 액세스 계층을 사용 하 여 예상 되는 사용량 패턴에 따라 가장 비용 효율적인 저장소를 선택할 수 있습니다. 블록 blob은 핫, 쿨 또는 보관 계층에 저장할 수 있습니다. 액세스 계층에 대한 자세한 내용은 [Azure Blob Storage: 핫, 쿨 및 보관 스토리지 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요.
+Blob 액세스 계층을 사용하면 예상되는 사용량 패턴에 따라 가장 효율적이고 경제적인 스토리지를 선택할 수 있습니다. 블록 Blob은 핫, 쿨 또는 보관 계층에 저장할 수 있습니다. 액세스 계층에 대한 자세한 내용은 [Azure Blob Storage: 핫, 쿨 및 보관 스토리지 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요.
 
-기본적으로 새 저장소 계정이 핫 액세스 계층에 만들어지고 범용 v1 저장소 계정을 핫 또는 쿨 계정 계층으로 업그레이드할 수 있습니다. 업그레이드 시 계정 액세스 계층을 지정 하지 않으면 기본적으로 핫으로 업그레이드 됩니다. 업그레이드에 사용할 액세스 계층을 탐색 하는 경우 현재 데이터 사용 시나리오를 고려 하세요. 범용 v2 계정으로 마이그레이션하기 위한 두 가지 일반적인 사용자 시나리오가 있습니다.
+기본적으로 새 스토리지 계정은 핫 액세스 계층에 만들어지고, 범용 v1 스토리지 계정은 핫 또는 쿨 액세스 계층으로 업그레이드할 수 있습니다. 업그레이드 시 계정 액세스 계층을 지정하지 않으면 기본적으로 핫으로 업그레이드됩니다. 업그레이드에 사용할 액세스 계층을 탐색하는 경우 현재 데이터를 사용하는 시나리오를 고려합니다. 범용 v2 계정으로 마이그레이션하기 위한 두 가지 일반적인 사용자 시나리오가 있습니다.
 
 * 기존 범용 v1 스토리지 계정이 있는데 blob 데이터용으로 적합한 스토리지 액세스 계층이 있는 범용 v2 스토리지 계정으로의 업그레이드를 평가하고자 합니다.
-* 범용 v2 저장소 계정을 사용 하도록 결정 했거나 이미 하나 있는 경우 blob 데이터에 대 한 핫 또는 쿨 저장소 액세스 계층을 사용 해야 하는지 여부를 평가 하려고 합니다.
+* 범용 v2 스토리지 계정을 사용하도록 결정했거나, 스토리지 계정은 이미 있으며 Blob 데이터용으로 사용해야 하는 스토리지 액세스 계층(핫 또는 쿨)을 평가하고자 합니다.
 
 두 경우에 첫 번째 우선 순위는 범용 v2 스토리지 계정에 저장된 데이터를 저장, 액세스 및 운영하는 비용을 산정하고 현재 비용과 비교하는 것입니다.
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 
-V1 저장소 계정을 범용 v2 계정으로 업그레이드 하는 것은 무료입니다. 업그레이드 프로세스 중에 원하는 계정 계층을 지정할 수 있습니다. 업그레이드 시 계정 계층을 지정 하지 않으면 업그레이드 된 계정의 기본 계정 계층이로 설정 됩니다 `Hot` . 그러나 업그레이드 후 저장소 액세스 계층을 변경 하면 청구서가 변경 될 수 있으므로 업그레이드 하는 동안 새 계정 계층을 지정 하는 것이 좋습니다.
+v1 스토리지 계정은 범용 v2 계정으로 무료 업그레이드할 수 있습니다. 업그레이드 프로세스 중에 원하는 계정 계층을 지정할 수 있습니다. 업그레이드 시 계정 계층을 지정하지 않으면 업그레이드된 계정의 기본 계정 계층이 `Hot`으로 설정됩니다. 그러나 업그레이드 후 스토리지 액세스 계층을 변경하면 청구서가 변경될 수 있으므로 업그레이드하는 동안 새 계정 계층을 지정하는 것이 좋습니다.
 
 모든 스토리지 계정에서는 각 Blob의 계층에 따라 Blob Storage에 가격 책정 모델을 사용합니다. 스토리지 계정을 사용하는 경우 다음과 같은 청구 고려 사항이 적용됩니다.
 
-* **저장소 비용**: 저장 된 데이터의 양에 더하여 데이터 저장 비용은 저장소 액세스 계층에 따라 달라 집니다. 계층이 차가워질수록 기가바이트당 비용이 감소합니다.
+* **스토리지 비용**: 저장된 데이터 용량 외에도, 데이터 저장 비용은 스토리지 계층에 따라 달라집니다. 계층이 차가워질수록 기가바이트당 비용이 감소합니다.
 
 * **데이터 액세스 비용**: 계층이 차가워질수록 데이터 액세스 요금이 증가합니다. 쿨 및 보관 스토리지 액세스 계층에 있는 데이터의 경우 읽기에 대해 기가바이트당 데이터 액세스 요금이 부과됩니다.
 
@@ -98,7 +98,7 @@ V1 저장소 계정을 범용 v2 계정으로 업그레이드 하는 것은 무�
 
 * **아웃바운드 데이터 전송 비용**: 아웃바운드 데이터 전송(Azure 지역 밖으로 전송된 데이터)에서는 기가바이트당 요금을 기준으로 대역폭 사용 요금이 발생하며 범용 스토리지 계정과 같습니다.
 
-* **저장소 액세스 계층 변경**: 계정 저장소 액세스 계층을 쿨에서 핫으로 변경 하면 저장소 계정에 있는 모든 데이터를 읽는 것과 같은 요금이 발생 합니다. 하지만 계정 액세스 계층을 핫에서 쿨로 변경하면 모든 데이터를 쿨 계층에 쓰는 경우와 동일한 금액의 요금이 발생합니다(GPv2 계정에만 해당).
+* **스토리지 액세스 계층 변경**: 계정 스토리지 액세스 계층을 쿨에서 핫으로 변경하면 스토리지 계정에서 모든 기존 데이터를 읽는 것과 같은 요금이 발생합니다. 하지만 계정 액세스 계층을 핫에서 쿨로 변경하면 모든 데이터를 쿨 계층에 쓰는 경우와 동일한 금액의 요금이 발생합니다(GPv2 계정에만 해당).
 
 > [!NOTE]
 > 스토리지 계정의 가격 책정 모델에 대한 자세한 내용은 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/) 페이지를 참조하세요. 아웃바운드 데이터 전송 요금에 대한 자세한 내용은 [데이터 전송 가격 책정 정보](https://azure.microsoft.com/pricing/details/data-transfers/) 페이지를 참조하세요.
@@ -127,7 +127,7 @@ V1 저장소 계정을 범용 v2 계정으로 업그레이드 하는 것은 무�
 > Blob Storage 계정은 해당 계정의 메트릭 데이터를 저장하고 액세스하는 경우에만 Table service 엔드포인트를 노출합니다.
 
 Blob Storage에 대한 스토리지 사용량을 모니터링하려면 용량 메트릭을 활성화해야 합니다.
-이 기능을 사용 하도록 설정 하면 용량 데이터가 저장소 계정의 Blob service에 대해 매일 기록 되 고 동일한 저장소 계정 내에서 *$MetricsCapacityBlob* 테이블에 기록 되는 테이블 항목으로 기록 됩니다.
+이를 활성화하면 용량 데이터는 스토리지 계정의 Blob service에 대해 매일 기록되고 동일한 스토리지 계정 내에서 *$MetricsCapacityBlob* 테이블에 작성된 테이블 항목으로 기록됩니다.
 
 Blob Storage에 대한 데이터 액세스 패턴을 모니터링하려면 API에서 시간당 트랜잭션 메트릭을 활성화해야 합니다. 시간당 트랜잭션 메트릭을 활성화하면 API당 트랜잭션은 매시간 집계되며 동일한 스토리지 계정 내에서 *$MetricsHourPrimaryTransactionsBlob* 테이블로 작성된 테이블 항목으로 기록됩니다. *$MetricsHourSecondaryTransactionsBlob* 테이블은 RA-GRS 스토리지 계정을 사용하는 경우 보조 엔드포인트에 트랜잭션을 기록합니다.
 
@@ -136,7 +136,7 @@ Blob Storage에 대한 데이터 액세스 패턴을 모니터링하려면 API�
 
 데이터 소비 및 액세스 패턴을 대략적으로 파악하려면 정기적 사용을 나타내는 메트릭의 보존 기간을 선택하고 추정하는 것이 좋습니다. 한 가지 옵션은 7일 동안 메트릭 데이터를 보유하고 월말에 분석을 위해 매주 데이터를 수집하는 것입니다. 또 다른 옵션은 지난 30일 동안의 메트릭 데이터를 보존하고 30일 기간이 끝날 때 데이터를 수집하고 분석하는 것입니다.
 
-메트릭 데이터 사용, 수집 및 보기에 대 한 자세한 내용은 [저장소 분석 메트릭](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조 하세요.
+메트릭 데이터 사용, 수집 및 보기에 대한 자세한 내용은 [스토리지 분석 메트릭](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
 > [!NOTE]
 > 분석 데이터 저장, 액세스 및 다운로드는 일반 사용자 데이터와 마찬가지로 청구됩니다.

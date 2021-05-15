@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: bbac794263fec176e03c7148d860c479a2ed9d39
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 88492d914b710c7a738dd6d7f501e22d490065b6
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102501231"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833817"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Azure Automation에서 그래픽 Runbook 작성
 
@@ -91,11 +92,11 @@ Azure Automation의 모든 Runbook은 Windows PowerShell 워크플로입니다. 
 
 활동에 재시도 사용하면 지연 및 조건을 설정할 수 있습니다. 지연은 작업을 다시 실행하기 전에 Runbook이 대기하는 시간(분 또는 초 단위로 측정됨)입니다. 지연 시간을 지정하지 않으면 작업이 완료된 직후에 다시 실행됩니다.
 
-:::image type="content" source="media/automation-graphical-authoring-intro/retry-delay.png" alt-text="다시 시도 기능 설정 사용의 스크린샷":::
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-delay.png" alt-text="다시 시도 기능 설정 사용 스크린샷":::
 
 다시 시도 조건은 작업이 실행된 이후 매번 평가되는 PowerShell 식입니다. 식이 True로 확인되면 작업을 다시 실행합니다. 식이 False로 확인되면 작업이 다시 실행되지 않고 Runbook이 다음 작업으로 이동합니다.
 
-:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="이 조건이 true 일 때까지 다시 시도 및 재시도 조건에 사용할 수 있는 PowerShell 식의 예를 보여 주는 스크린샷":::
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="해당 조건이 true일 때까지 다시 시도 및 다시 시도 조건에 사용할 수 있는 PowerShell 식의 예를 보여 주는 스크린샷":::
 
 다시 시도 조건은 활동 다시 시도 정보에 대한 액세스를 제공하는 `RetryData`라는 변수를 사용할 수 있습니다. 이 변수는 다음 테이블의 속성을 가집니다.
 
@@ -328,19 +329,19 @@ Runbook은 다음과 같은 보다 복잡한 식에서 활동의 출력을 사�
 예를 들어 다음 조건은 `Get-AzureVM`이라는 활동의 가상 머신이 현재 중지되었는지 확인합니다.
 
 ```powershell-interactive
-$ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped"
+$ActivityOutput["Get-AzureVM"].PowerState -eq "Stopped"
 ```
 
 다음 조건은 동일한 가상 머신이 중지됨 이외의 상태인지를 확인합니다.
 
 ```powershell-interactive
-$ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
+$ActivityOutput["Get-AzureVM"].PowerState -ne "Stopped"
 ```
 
 `-and` 또는 `-or`와 같은 [논리 연산자](/powershell/module/microsoft.powershell.core/about/about_logical_operators)를 사용하여 Runbook에서 여러 조건을 조인할 수 있습니다. 예를 들어 다음 조건은 이전 예제에서 동일한 가상 머신이 중지됨 또는 중지 중 상태인지 여부를 확인합니다.
 
 ```powershell-interactive
-($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping")
+($ActivityOutput["Get-AzureVM"].PowerState -eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState -eq "Stopping")
 ```
 
 ### <a name="use-hashtables"></a>해시 테이블 사용

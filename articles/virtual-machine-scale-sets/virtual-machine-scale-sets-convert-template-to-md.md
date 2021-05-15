@@ -1,6 +1,6 @@
 ---
 title: 확장 집합 템플릿을 변환하여 관리 디스크 사용
-description: Azure Resource Manager 가상 머신 확장 집합 템플릿을 관리 디스크 크기 집합 템플릿으로 변환 합니다.
+description: Azure Resource Manager 가상 머신 확장 집합 템플릿을 관리 디스크 확장 집합 템플릿으로 변환하세요.
 keywords: 가상 머신 확장 집합
 author: ju-shim
 ms.author: jushiman
@@ -11,15 +11,15 @@ ms.date: 6/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 03cbe4eb56f3b3b99f87048b699f76b30b7937c8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85373967"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>확장 집합 템플릿을 변환하여 관리되는 디스크 확장 집합 템플릿 사용
 
-확장 집합을 만드는 데 관리되는 디스크를 사용하지 않고 Resource Manager 템플릿을 사용하는 고객은 관리되는 디스크를 사용하도록 수정하려고 할 수 있습니다. 이 문서에서는 샘플 Resource Manager 템플릿용 커뮤니티 중심 리포지토리 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates)에서 끌어오기 요청을 예로 사용하여 관리 디스크를 수행하는 방법을 보여 줍니다. 전체 끌어오기 요청은에서 확인할 수 있으며 [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998) , 차이점의 관련 된 부분은 설명과 함께 아래와 같습니다.
+확장 집합을 만드는 데 관리되는 디스크를 사용하지 않고 Resource Manager 템플릿을 사용하는 고객은 관리되는 디스크를 사용하도록 수정하려고 할 수 있습니다. 이 문서에서는 샘플 Resource Manager 템플릿용 커뮤니티 중심 리포지토리 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates)에서 끌어오기 요청을 예로 사용하여 관리 디스크를 수행하는 방법을 보여 줍니다. 전체 끌어오기 요청은 [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998)에서 찾을 수 있으며 차이점 관련 부분은 설명과 함께 아래에 있습니다.
 
 ## <a name="making-the-os-disks-managed"></a>관리되는 OS 디스크 만들기
 

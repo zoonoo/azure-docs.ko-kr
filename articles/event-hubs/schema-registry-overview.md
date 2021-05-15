@@ -2,14 +2,14 @@
 title: Event Hubs의 Azure Schema Registry(미리 보기)
 description: 이 문서에서는 Azure Event Hubs(미리 보기)의 스키마 레지스트리 지원에 대해 간략하게 설명합니다.
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 04/28/2021
 ms.custom: references_regions
-ms.openlocfilehash: a876651b76aa259754623854b8fc4a7c6c8a939e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 578bb082cf439d48b186461742ed51c39ce85e80
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92330498"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226447"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Event Hubs의 Azure Schema Registry(미리 보기)
 많은 이벤트 스트리밍 및 메시징 시나리오에서 이벤트 또는 메시지 페이로드에는 Apache Avro와 같은 스키마 기반 형식을 사용하여 직렬화되거나 역직렬화되는 정형 데이터가 포함됩니다. 발신기와 수신기 모두에서 JSON 스키마와 마찬가지로 스키마 문서를 사용하여 데이터의 무결성을 확인하려고 할 수 있습니다. 스키마 기반 형식의 경우 메시지 소비자에서 스키마를 사용할 수 있도록 하는 것이 소비자를 통해 데이터를 역직렬화할 수 있는 필수 구성 요소입니다. 
@@ -48,7 +48,7 @@ Avro 직렬 변환기가 포함된 다음 라이브러리 중 하나를 사용�
 :::image type="content" source="./media/schema-registry-overview/flow-diagram.png" alt-text="흐름 다이어그램":::
 
 ## <a name="standard-vs-dedicated-limits"></a>표준 및 전용 제한
-Event Hubs의 표준 계층과 전용 계층에 대해 동일하거나 다른 제한(예: 네임스페이스의 스키마 그룹 수)은 [스키마 레지스트리 제한 사항](../azure-resource-manager/management/azure-subscription-service-limits.md#schema-registry-limitations)을 참조하세요.
+Event Hubs의 표준 계층과 전용 계층에 대해 동일하거나 다른 제한(예: 네임스페이스의 스키마 그룹 수)은 [Event Hubs 및 제한 사항](event-hubs-quotas.md)을 참조하세요.
 
 ## <a name="azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어
 스키마 레지스트리에 프로그래밍 방식으로 액세스하는 경우 애플리케이션을 Azure AD(Azure Active Directory)에 등록하고 애플리케이션의 보안 주체를 Azure RBAC(Azure 역할 기반 액세스 제어) 역할 중 하나에 추가해야 합니다.

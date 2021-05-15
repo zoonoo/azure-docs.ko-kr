@@ -1,17 +1,18 @@
 ---
-title: '자습서 - VPN Gateway 만들기 및 관리: Azure portal'
-description: 이 자습서에 따라 포털을 사용하여 Azure VPN Gateway를 만들고, 배포하고, 관리하는 방법을 알아봅니다.
+title: '자습서 - VPN 게이트 만들기 및 관리: Azure Portal'
+description: 이 자습서에서는 포털을 사용하여 Azure VPN 게이트웨이를 만들고, 배포하고, 관리하는 방법을 알아봅니다.
+titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 12/01/2020
-ms.openlocfilehash: 820482a268af038737557c517ccda086cd65d943
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/28/2021
+ms.openlocfilehash: 29f479444679d1f76dc90eec4546539faea5337f
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99822257"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108202572"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>자습서: Azure Portal을 사용하여 VPN 게이트웨이 만들기 및 관리
 
@@ -28,9 +29,9 @@ Azure VPN 게이트웨이는 고객 프레미스와 Azure 사이에 프레미스
 
 다음 다이어그램은 이 자습서에서 만든 가상 네트워크 및 VPN 게이트웨이를 보여줍니다.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="VNet 및 VPN 게이트웨이 다이어그램":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="VNet 및 VPN 게이트웨이 다이어그램.":::
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 활성 구독이 있는 Azure 계정. 계정이 없는 경우 [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -74,7 +75,7 @@ Azure VPN 게이트웨이는 고객 프레미스와 Azure 사이에 프레미스
 
 게이트웨이의 **개요** 페이지에서 게이트웨이 공용 IP 주소를 볼 수 있습니다.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="개요 페이지":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="개요 페이지 스크린샷.":::
 
 공용 IP 주소 개체에 대한 추가 정보를 보려면 **공용 IP 주소** 옆에 있는 이름/IP 주소 링크를 클릭합니다.
 

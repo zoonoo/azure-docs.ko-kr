@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.openlocfilehash: b180a0f148db5222a288958724ad248acd18b565
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101673860"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Azure Linux 가상 머신에 Oracle ASM 설정  
@@ -33,7 +33,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-리소스 그룹을 만들려면 [az group create](/cli/azure/group) 명령을 사용 합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 이 예제에서는 *eastus* 지역에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
+리소스 그룹을 만들려면 [az group create](/cli/azure/group) 명령을 사용합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 이 예제에서는 *eastus* 지역에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -204,7 +204,7 @@ Oracle ASM 설치에 대한 자세한 내용은 [Oracle Linux 6에 대한 Oracle
    fdisk /dev/sdc
    ```
    
-   위에 제공 된 대답을 사용 하 여 명령에 대 한 출력은 `fdisk` 다음과 같습니다.
+   `fdisk` 명령에 대한 출력은 위의 답변을 사용하여 다음과 같이 표시됩니다.
 
    ```output
    Device contains not a valid DOS partition table, or Sun, SGI or OSF disklabel
@@ -240,7 +240,7 @@ Oracle ASM 설치에 대한 자세한 내용은 [Oracle Linux 6에 대한 Oracle
    Syncing disks.
    ```
 
-4. `fdisk`, 및에 대해 이전 명령을 반복 `/dev/sdd` `/dev/sde` `/dev/sdf` 합니다.
+4. `/dev/sdd`, `/dev/sde` 및 `/dev/sdf`의 경우 위의 `fdisk` 명령을 반복합니다.
 
 5. 디스크 구성을 확인합니다.
 
@@ -421,7 +421,7 @@ Oracle ASM를 구성하려면 설치 및 구성을 완료할 그래픽 인터페
    > 키에는 문자열 `ssh-rsa`가 포함되어야 합니다. 또한 키의 콘텐츠는 한 줄 텍스트여야 합니다.
    >  
 
-6. 클라이언트 컴퓨터에서 PuTTY를 시작합니다. **범주** 창에서 **연결**  >  **SSH**  >  **인증** 으로 이동 합니다. **인증을 위한 개인 키 파일** 상자에서 이전에 생성 한 키를 찾습니다.
+6. 클라이언트 컴퓨터에서 PuTTY를 시작합니다. **범주** 창에서 **연결** > **SSH** > **인증** 으로 이동합니다. **인증에 대한 프라이빗 키 파일** 상자에서 앞서 생성한 키를 찾아봅니다.
 
    ![SSH 인증 옵션의 스크린샷](./media/oracle-asm/setprivatekey.png)
 
@@ -528,13 +528,13 @@ Oracle ASM 설치를 설정하려면 다음 단계를 완료합니다.
    - `ok`을 클릭하여 디스크 그룹을 만듭니다.
    - `ok`을 클릭하여 확인 창을 닫습니다.
 
-   ![디스크 그룹 만들기 대화 상자의 스크린샷 및 외부 (없음) 옵션을 강조 표시 합니다.](./media/oracle-asm/asm04.png)
+   ![디스크 그룹 만들기 대화 상자 및 외부(없음) 옵션이 강조 표시된 스크린샷.](./media/oracle-asm/asm04.png)
 
 6. **끝내기** 를 선택하여 ASM 구성 도우미를 닫습니다.
 
    ![끝내기 단추가 있는 ASM 구성: 디스크 그룹 대화 상자의 스크린샷](./media/oracle-asm/asm05.png)
 
-## <a name="create-the-database"></a>데이터베이스 만들기
+## <a name="create-the-database"></a>데이터베이스 생성
 
 Oracle 데이터베이스 소프트웨어는 이미 Azure Marketplace 이미지에 설치되어 있습니다. 데이터베이스를 만들려면 다음 단계를 완료합니다.
 

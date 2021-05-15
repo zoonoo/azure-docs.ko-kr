@@ -5,16 +5,19 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: e9bcabc05f0a967c788c5811dce0d99dc5cf38c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b01e53161bce448400d2bf641fee76987b7b841e
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207693"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108316788"
 ---
 # <a name="azure-remote-rendering-tutorials"></a>Azure Remote Rendering 자습서
 
 Azure Remote Rendering 자습서를 시작합니다. 이러한 대화형 단원에서는 Azure Remote Rendering의 주요 개념을 학습하는 것 외에도 원격으로 렌더링된 모델을 보고, 조작하고, 사용자 지정하고, 안전하게 상용 준비된 애플리케이션을 빌드하기 위한 고려 사항을 강조하는 과정을 안내합니다.
+
+> [!TIP]
+> 이러한 단원에서는 여러 단계를 통해 예제 앱을 빌드하는 방법을 상세히 설명합니다. HoloLens 2에 신속하게 배포할 수 있는 더 간결한 예제를 보려면 [Unity 빠른 시작](../../quickstarts/render-model.md)을 살펴보세요.
 
 ### <a name="azure-remote-rendering-tutorials"></a>Azure Remote Rendering 자습서
 
@@ -45,4 +48,4 @@ Azure Remote Rendering 자습서를 시작합니다. 이러한 대화형 단원�
 
 마지막으로 Azure Remote Rendering을 사용하여 상용 애플리케이션을 준비하기 위한 몇 가지 중요한 고려 사항과 팁을 설명합니다. 이 리소스를 체크 아웃하기 전에 모든 Azure Remote Rendering 자습서를 완료한 경우에 유용합니다.
 
-[원격으로 렌더링된 모델 보기](view-remote-models/view-remote-models.md)를 **시작**합니다.
+[원격으로 렌더링된 모델 보기](view-remote-models/view-remote-models.md)를 **시작** 합니다.

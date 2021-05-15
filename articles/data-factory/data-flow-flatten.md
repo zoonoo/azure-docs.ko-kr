@@ -1,6 +1,6 @@
 ---
-title: 데이터 흐름 매핑의 결합 변환
-description: 평면화 된 변환을 사용 하 여 계층적 데이터 비 정규화
+title: 데이터 흐름 매핑의 평면화 변환
+description: 평면화 변환을 사용하여 계층 구조 데이터 비정규화
 author: kromerm
 ms.author: makromer
 ms.review: daperlov
@@ -8,41 +8,41 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: a0e75957a0ab49394dab56f2b7fb847dee4b43cb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "81413686"
 ---
-# <a name="flatten-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 결합 변환
+# <a name="flatten-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 평면화 변환
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-분할 된 변환을 사용 하 여 JSON과 같은 계층 구조 구조 내에서 배열 값을 가져오고 개별 행으로 언 롤 수 있습니다. 이 프로세스를 비 정규화 라고 합니다.
+평면화 변환을 사용하여 JSON과 같은 계층 구조 내부의 배열 값을 가져와서 개별 행으로 언롤합니다. 해당 프로세스를 비정규화라고 합니다.
 
 ## <a name="configuration"></a>구성
 
-평면화 변환에는 다음과 같은 구성 설정이 포함 됩니다.
+평면화 변환에는 다음 구성 설정이 포함됩니다.
 
-![설정 평면화](media/data-flow/flatten1.png "설정 평면화")
+![평면화 설정](media/data-flow/flatten1.png "평면화 설정")
 
-### <a name="unroll-by"></a>언 롤
+### <a name="unroll-by"></a>언롤 기준
 
-언 롤 할 배열을 선택 합니다. 출력 데이터에는 각 배열의 항목당 하나의 행이 포함 됩니다. 입력 행의 언 롤 by 배열이 null 이거나 비어 있으면 unrolled 값이 null 인 출력 행이 하나씩 있게 됩니다.
+언롤할 배열을 선택합니다. 출력 데이터에는 각 배열의 항목당 하나의 행이 포함됩니다. 입력 행의 언롤 기준에 따른 언롤이 Null이거나 비어 있으면 언롤된 값이 Null인 출력 행 1개가 있게 됩니다.
 
-### <a name="unroll-root"></a>언 롤 루트
+### <a name="unroll-root"></a>언롤 루트
 
-기본적으로 평면화 된 변환은 배열에 존재 하는 계층의 맨 위로 배열을 롤백합니다. 필요에 따라 배열을 언 롤 루트로 선택할 수 있습니다. 언 롤 root는 언 롤 배열을 포함 하는 복합 개체의 배열 이어야 합니다. 언 롤 root를 선택 하는 경우 출력 데이터는 언 롤 root의 항목당 하나 이상의 행을 포함 합니다. 입력 행에 언 롤 루트의 항목이 없으면 출력 데이터에서 삭제 됩니다. 언 롤 root를 선택 하면 항상 기본 동작 보다 작거나 같은 수의 행이 출력 됩니다.
+기본적으로 평면화 변환은 배열이 존재하는 계층 구조의 맨 위로 배열을 언롤합니다. 필요에 따라 배열을 언롤 루트로 선택할 수 있습니다. 언롤 루트는 언롤 기준 배열을 포함하는 복합 개체의 배열이어야 합니다. 언롤 루트를 선택하는 경우 출력 데이터는 언롤 루트의 항목당 하나 이상의 행을 포함합니다. 입력 행에 언롤 루트의 항목이 없으면 출력 데이터에서 삭제됩니다. 언롤 루트를 선택하면 항상 기본 동작보다 작거나 같은 수의 행이 출력됩니다.
 
-### <a name="flatten-mapping"></a>결합 매핑
+### <a name="flatten-mapping"></a>평면화 매핑
 
-선택 변환과 마찬가지로 들어오는 필드와 비 정규화 된 배열의 새 구조 프로젝션을 선택 합니다. 비 정규화 된 배열이 매핑되는 경우 출력 열은 배열과 동일한 데이터 형식이 됩니다. 언 롤 by 배열이 subarrays를 포함 하는 복합 개체의 배열인 경우 subarry의 항목을 매핑하면 배열이 출력 됩니다.
+선택 변환과 마찬가지로 들어오는 필드와 비정규화된 배열의 새 구조 프로젝션을 선택합니다. 비정규화된 배열이 매핑되는 경우 출력 열은 배열과 동일한 데이터 형식이 됩니다. 언롤 기준 언롤이 하위 배열을 포함한 복합 개체의 배열인 경우 하위 배열의 항목을 매핑하면 하나의 배열이 출력됩니다.
 
-매핑 출력을 확인 하려면 검사 탭 및 데이터 미리 보기를 참조 하세요.
+매핑 출력을 확인하려면 검사 탭 및 데이터 미리 보기를 참조하세요.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
-평면화 변환의 아래 예제에 대해서는 다음 JSON 개체를 참조 하세요.
+평면화 변환의 아래 예제에 대해서는 다음 JSON 개체를 참조하세요.
 
 ``` json
 {
@@ -64,11 +64,11 @@ ms.locfileid: "81413686"
 {"name": "Company3", "location": "Kirkland"}
 ```
 
-### <a name="no-unroll-root-with-string-array"></a>문자열 배열이 있는 언 롤 root 없음
+### <a name="no-unroll-root-with-string-array"></a>문자열 배열이 있는 언롤 루트 없음
 
-| 언 롤 | 언 롤 루트 | 프로젝션 |
+| 언롤 기준 | 언롤 루트 | 프로젝션 |
 | --------- | ----------- | ---------- |
-| 상품. 고객 | 없음 | name <br> customer = 상품 |
+| goods.customers | 없음 | name <br> customer = goods.customer |
 
 #### <a name="output"></a>출력
 
@@ -82,11 +82,11 @@ ms.locfileid: "81413686"
 { 'Company3', null}
 ```
 
-### <a name="no-unroll-root-with-complex-array"></a>복합 배열이 있는 언 롤 root 없음
+### <a name="no-unroll-root-with-complex-array"></a>복합 배열이 있는 언롤 루트 없음
 
-| 언 롤 | 언 롤 루트 | 프로젝션 |
+| 언롤 기준 | 언롤 루트 | 프로젝션 |
 | --------- | ----------- | ---------- |
-| 상품. 주문 된 주문 항목 | 없음 | name <br> orderId = 상품. 주문 주문 <br> itemName = 상품. orderItems. itemName <br> itemQty = 상품. orderItems. itemQty <br> location = location |
+| goods.orders.shipped.orderItems | 없음 | name <br> orderId = goods.orders.orderId <br> itemName = goods.orders.shipped.orderItems.itemName <br> itemQty = goods.orders.shipped.orderItems.itemQty <br> location = location |
 
 #### <a name="output"></a>출력
 
@@ -103,11 +103,11 @@ ms.locfileid: "81413686"
 { 'Company3', null, null, null, 'Kirkland'}
 ```
 
-### <a name="same-root-as-unroll-array"></a>언 롤 배열과 동일한 루트
+### <a name="same-root-as-unroll-array"></a>언롤 배열과 동일한 루트
 
-| 언 롤 | 언 롤 루트 | 프로젝션 |
+| 언롤 기준 | 언롤 루트 | 프로젝션 |
 | --------- | ----------- | ---------- |
-| 상품 주문 | 상품 주문 | name <br> 상품. 주문 항목. itemName <br> 상품. 고객 <br> 위치 |
+| goods.orders | goods.orders | name <br> goods.orders.shipped.orderItems.itemName <br> goods.customers <br> 위치 |
 
 #### <a name="output"></a>출력
 
@@ -119,11 +119,11 @@ ms.locfileid: "81413686"
 { 'Company2', null, ['Bank'], 'Bellevue'}
 ```
 
-### <a name="unroll-root-with-complex-array"></a>복합 배열이 있는 언 롤 root
+### <a name="unroll-root-with-complex-array"></a>복합 배열이 있는 언롤 루트
 
-| 언 롤 | 언 롤 루트 | 프로젝션 |
+| 언롤 기준 | 언롤 루트 | 프로젝션 |
 | --------- | ----------- | ---------- |
-| 상품. 주문 항목 | 상품 주문 |name <br> orderId = 상품. 주문 주문 <br> itemName = 상품. orderItems. itemName <br> itemQty = 상품. orderItems. itemQty <br> location = location |
+| goods.orders.shipped.orderItem | goods.orders |name <br> orderId = goods.orders.orderId <br> itemName = goods.orders.shipped.orderItems.itemName <br> itemQty = goods.orders.shipped.orderItems.itemQty <br> location = location |
 
 #### <a name="output"></a>출력
 
@@ -171,5 +171,5 @@ source foldDown(unroll(goods.orders.shipped.orderItems, goods.orders),
 
 ## <a name="next-steps"></a>다음 단계
 
-* [피벗 변환을](data-flow-pivot.md) 사용 하 여 행을 열로 피벗 합니다.
-* 피벗 해제 [변환을](data-flow-unpivot.md) 사용 하 여 열을 행으로 피벗 합니다.
+* [피벗 변환](data-flow-pivot.md)을 사용하여 행을 열로 피벗합니다.
+* [피벗 해제 변환](data-flow-unpivot.md)을 사용하여 열을 행으로 피벗합니다.

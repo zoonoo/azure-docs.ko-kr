@@ -1,24 +1,24 @@
 ---
-title: 뷰 정의 아티팩트 참조
-description: Azure Managed Applications에 대 한 뷰 정의 아티팩트의 예를 제공 합니다. 파일 이름을 viewDefinition.js합니다.
+title: 보기 정의 아티팩트 참조
+description: Azure Managed Applications에 대한 보기 정의 아티팩트의 예를 제공합니다. 파일 이름은 viewDefinition.json입니다.
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
 ms.openlocfilehash: 5173db54abef132a4a4d5d117881352ca37d6b23
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "75651203"
 ---
-# <a name="reference-view-definition-artifact"></a>참조: 뷰 정의 아티팩트
+# <a name="reference-view-definition-artifact"></a>참조: 보기 정의 아티팩트
 
-이 문서는 Azure Managed Applications 아티팩트의 *viewDefinition.js* 에 대 한 참조입니다. 제작 보기 구성에 대 한 자세한 내용은 [View definition 아티팩트](concepts-view-definition.md)를 참조 하세요.
+이 문서는 Azure Managed Applications의 *viewDefinition.json* 아티팩트에 대한 참조입니다. 보기 구성 작성에 대한 자세한 내용은 [보기 정의 아티팩트](concepts-view-definition.md)를 참조하세요.
 
 ## <a name="view-definition"></a>정의 보기
 
-다음 JSON은 Azure Managed Applications 파일 *에viewDefinition.js* 의 예를 보여 줍니다.
+다음 JSON은 Azure Managed Applications의  *viewDefinition.json* 파일의 예를 보여 줍니다.
 
 ```json
 {

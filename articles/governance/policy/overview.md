@@ -1,14 +1,14 @@
 ---
 title: Azure 정책 개요
 description: Azure Policy는 Azure 환경에서 정책 정의를 만들고, 할당하고, 관리하는 데 사용하는 Azure의 서비스입니다.
-ms.date: 01/14/2021
+ms.date: 05/01/2021
 ms.topic: overview
-ms.openlocfilehash: df430586af2e701ec2881f6ea760095fd2ca79d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d261cc958a104b4a11a6f82a8f86352159c0275
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98220731"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108323702"
 ---
 # <a name="what-is-azure-policy"></a>Azure Policy이란?
 
@@ -166,7 +166,7 @@ Azure Policy에는 기본적으로 사용 가능한 여러 가지 기본 제공 
 
 예를 들어 구독 범위에서 네트워킹 리소스를 만들지 못하도록 방지하는 정의를 할당할 수 있습니다. 해당 구독 내에서 네트워킹 인프라를 대상으로 하는 리소스 그룹을 제외할 수 있습니다. 그런 다음, 네트워킹 리소스 생성을 신뢰하는 사용자에게 이 네트워킹 리소스 그룹에 대한 액세스 권한을 부여합니다.
 
-또 다른 예로, 관리 그룹 수준에서 리소스 종류 허용 목록 정의를 할당할 수 있습니다. 그런 다음, 더 많은 허용 정책(더 많은 리소스 종류 허용)을 자식 관리 그룹에 할당하거나 구독에 직접 할당합니다. 그러나 Azure Policy는 명시적 거부 시스템이므로 이 예는 작동하지 않습니다. 대신 관리 그룹 수준 할당에서 자식 관리 그룹 또는 구독을 제외해야 합니다. 그런 다음, 더 많은 허용 정의를 자식 관리 그룹 또는 구독 수준에 할당합니다. 할당으로 인해 리소스가 거부되는 경우 리소스를 허용하는 유일한 방법은 거부하는 할당을 수정하는 것입니다.
+다른 예제에서는 관리 그룹 수준에서 리소스 종류 허용 목록 정의를 할당할 수 있습니다. 그런 다음, 더 많은 허용 정책(더 많은 리소스 종류 허용)을 자식 관리 그룹에 할당하거나 구독에 직접 할당합니다. 그러나 Azure Policy는 명시적 거부 시스템이므로 이 예는 작동하지 않습니다. 대신 관리 그룹 수준 할당에서 자식 관리 그룹 또는 구독을 제외해야 합니다. 그런 다음, 더 많은 허용 정의를 자식 관리 그룹 또는 구독 수준에 할당합니다. 할당으로 인해 리소스가 거부되는 경우 리소스를 허용하는 유일한 방법은 거부하는 할당을 수정하는 것입니다.
 
 포털을 통해 할당을 설정하는 방법에 대한 자세한 내용은 [Azure 환경에서 비준수 리소스를 식별하는 정책 할당 만들기](./assign-policy-portal.md)를 참조하세요. [PowerShell](./assign-policy-powershell.md) 및 [Azure CLI](./assign-policy-azurecli.md)용 단계도 제공됩니다. 할당 구조에 대한 정보는 [할당 구조](./concepts/assignment-structure.md)를 참조하세요.
 

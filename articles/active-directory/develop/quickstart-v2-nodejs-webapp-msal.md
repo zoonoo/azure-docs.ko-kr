@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: MSAL 노드를 사용하여 노드 웹앱에 인증 추가 | Azure'
+title: '빠른 시작: MSAL 노드를 사용하여 Node.js 웹앱에 인증 추가 | Azure'
 titleSuffix: Microsoft identity platform
 description: 이 빠른 시작에서는 Node.js 웹앱 및 Node.js용 MSAL(Microsoft 인증 라이브러리)을 사용하여 인증을 구현하는 방법을 알아봅니다.
 services: active-directory
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: 72eb6e77cfbcae662181f642393085185514eed6
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: af6d4388c9ca0af5301bc018854d9370c20d7cbe
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550951"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108176453"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>빠른 시작: 인증 코드 흐름을 사용하여 사용자를 로그인하고 노드 웹앱에서 액세스 토큰을 가져옵니다.
 
-이 빠른 시작에서는 인증 코드 흐름을 사용하여 Node.js 웹앱에서 사용자를 로그인할 수 있는 방법을 보여주는 코드 샘플을 다운로드하고 실행합니다. 코드 샘플은 Microsoft Graph API를 호출하기 위한 액세스 토큰을 가져오는 방법도 보여줍니다. 
+이 빠른 시작에서는 인증 코드 흐름을 사용하여 Node.js 웹앱에서 사용자를 로그인할 수 있는 방법을 보여주는 코드 샘플을 다운로드하고 실행합니다. 코드 샘플은 Microsoft Graph API를 호출하기 위한 액세스 토큰을 가져오는 방법도 보여줍니다.
 
 자세한 내용은 [샘플 작동 방식](#how-the-sample-works)을 참조하세요.
 
@@ -29,7 +29,7 @@ ms.locfileid: "106550951"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독 - [체험용 Azure 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Azure 구독 [무료로 Azure 구독을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.JS](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download) 또는 다른 코드 편집기
 
@@ -39,19 +39,19 @@ ms.locfileid: "106550951"
 > #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 >
 > 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
-> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+> 1. 여러 테넌트에 액세스할 수 있는 경우 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록할 테넌트를 선택합니다.
 > 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
 > 1. 애플리케이션의 **이름** 을 입력합니다. 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
 > 1. **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정** 을 선택합니다.
 > 1. **리디렉션 URI** 값을 `http://localhost:3000/redirect`으로 설정합니다.
-> 1. **등록** 을 선택합니다. 
+> 1. **등록** 을 선택합니다.
 > 1. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
 > 1. **관리** 아래에서 **인증서 및 비밀** > **새 클라이언트 암호** 를 선택합니다.  설명을 비워 두고 기본 만료를 그대로 둔 다음, **추가** 를 선택합니다.
-> 1. 나중에 사용하기 위해 **클라이언트 암호** 의 **값** 을 확인합니다.
+> 1. 나중에 사용할 수 있도록 **클라이언트 암호** 의 값을 기록해 둡니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-the-application-in-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
-> 이 빠른 시작의 코드 샘플이 작동하려면 클라이언트 암호를 만들고 회신 URL을 **http://localhost:3000/redirect** 로 추가해야 합니다.
+> 이 빠른 시작의 코드 샘플이 작동하려면 클라이언트 암호를 만들고 `http://localhost:3000/redirect` 회신 URL을 추가해야 합니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [자동 변경]()
 >
@@ -64,7 +64,7 @@ ms.locfileid: "106550951"
 > Node.js를 사용하여 웹 서버로 프로젝트를 실행하려면 [주요 프로젝트 파일을 다운로드](https://github.com/Azure-Samples/ms-identity-node/archive/main.zip)합니다.
 
 > [!div renderon="portal" class="sxs-lookup"]
-> Node.js를 사용하여 웹 서버에서 프로젝트 실행
+> Node.js를 사용하여 웹 서버에서 프로젝트를 실행합니다.
 
 > [!div renderon="portal" class="sxs-lookup" id="autoupdate" class="nextstepaction"]
 > [코드 샘플 다운로드](https://github.com/Azure-Samples/ms-identity-node/archive/main.zip)
@@ -73,8 +73,8 @@ ms.locfileid: "106550951"
 > #### <a name="step-3-configure-your-node-app"></a>3단계: 노드 앱 구성
 >
 > 프로젝트를 추출하고 *ms-identity-node-main* 폴더를 연 다음, *index.js* 파일을 엽니다.
-> **를 애플리케이션(클라이언트) ID** 로 `clientID`를 설정합니다.
-> **클라이언트 암호** 의 **값** 으로 `clientSecret`를 설정합니다.
+>
+> 애플리케이션(클라이언트) ID로 `clientID` 값을 설정한 다음, 클라이언트 암호로 `clientSecret` 값을 설정합니다.
 >
 >```javascript
 >const config = {
@@ -97,14 +97,14 @@ ms.locfileid: "106550951"
 
 > [!div renderon="docs"]
 >
-> 여기에 설명한 대로 `config` 섹션에서 값을 수정합니다.
+> `config` 섹션에서 값을 수정합니다.
 >
-> - `Enter_the_Application_Id_Here`는 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다.
+> - `Enter_the_Application_Id_Here`는 등록한 애플리케이션의 애플리케이션(클라이언트) ID입니다.
 >
->    **애플리케이션(클라이언트) ID** 값을 찾으려면 Azure Portal에서 앱 등록의 **개요** 페이지로 이동합니다.
-> - `Enter_the_Client_Secret_Here`는 등록한 애플리케이션의 **클라이언트 암호** 의 **값** 입니다.
+>    애플리케이션(클라이언트) ID 값을 찾으려면 Azure Portal에서 앱 등록의 **개요** 페이지로 이동합니다.
+> - `Enter_the_Client_Secret_Here`는 등록한 애플리케이션의 클라이언트 암호입니다.
 >
->    새 **클라이언트 암호** 를 검색하거나 생성하려면 **관리** 에서 **인증서 및 비밀** 을 선택합니다.
+>    새 클라이언트 암호를 검색하거나 생성하려면 **관리** 에서 **인증서 및 비밀** 을 선택합니다.
 >
 > 기본 `authority` 값은 기본(글로벌) Azure 클라우드를 나타냅니다.
 >
@@ -122,11 +122,13 @@ ms.locfileid: "106550951"
 Node.js를 사용하여 프로젝트를 실행합니다.
 
 1. 서버를 시작하려면 프로젝트의 디렉터리 내에서 다음 명령을 실행합니다.
+
     ```console
     npm install
     npm start
     ```
-1. [https://www.microsoft.com]\(`http://localhost:3000/`) 로 이동합니다.
+
+1. [https://editor.swagger.io](`http://localhost:3000/`) 로 이동합니다.
 
 1. **로그인** 을 선택하여 로그인 프로세스를 시작합니다.
 
@@ -136,7 +138,7 @@ Node.js를 사용하여 프로젝트를 실행합니다.
 
 ### <a name="how-the-sample-works"></a>샘플 작동 방법
 
-이 샘플은 실행될 때 localhost, 포트 3000에서 웹 서버를 호스팅합니다. 웹 브라우저가 이 사이트에 액세스하면 샘플은 즉시 사용자를 Microsoft 인증 페이지로 리디렉션합니다. 이 때문에 샘플에는 *html* 또는 표시 요소가 포함되지 않습니다. 인증에 성공하면 "OK" 메시지가 표시됩니다.
+이 샘플은 localhost, 포트 3000에서 웹 서버를 호스팅합니다. 웹 브라우저가 이 사이트에 액세스하면 샘플은 즉시 사용자를 Microsoft 인증 페이지로 리디렉션합니다. 이 때문에 샘플에는 HTML 또는 표시 요소가 포함되지 않습니다. 인증에 성공하면 "OK" 메시지가 표시됩니다.
 
 ### <a name="msal-node"></a>MSAL 노드
 

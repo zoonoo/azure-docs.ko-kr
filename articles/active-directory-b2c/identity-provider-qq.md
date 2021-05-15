@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0f09b4557f9bbf2f074948bd7c8dbd349cd397bc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 3456ecb1de4b6197b274f09a0d25c31c51f43ca0
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488672"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028845"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 QQ 계정으로 등록 설정 및 로그인
 
@@ -25,18 +25,18 @@ ms.locfileid: "103488672"
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 ## <a name="create-a-qq-application"></a>QQ 애플리케이션 만들기
 
-Azure Active Directory B2C (Azure AD B2C)에서 QQ 계정을 사용 하는 사용자에 대 한 로그인을 사용 하도록 설정 하려면 [qq 개발자 포털](http://open.qq.com)에서 응용 프로그램을 만들어야 합니다. 아직 QQ 계정이 없는 경우에는에서 등록할 수 있습니다 [https://ssl.zc.qq.com](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033) .
+Azure AD B2C(Azure Active Directory B2C)에서 사용자가 QQ 계정으로 로그인할 수 있도록 설정하려면 [QQ 개발자 포털](http://open.qq.com)에서 애플리케이션을 만들어야 합니다. QQ 계정이 아직 없는 경우 [https://ssl.zc.qq.com](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033)에서 가입할 수 있습니다.
 
 ### <a name="register-for-the-qq-developer-program"></a>QQ 개발자 프로그램 등록
 
 1. QQ 계정 자격 증명으로 [QQ 개발자 포털](http://open.qq.com)에 로그인합니다.
-1. 로그인 한 후로 이동 [https://open.qq.com/reg](https://open.qq.com/reg) 하 여 개발자로 등록 합니다.
+1. 로그인한 후에 [https://open.qq.com/reg](https://open.qq.com/reg)로 이동하여 개발자인 사용자를 직접 등록합니다.
 1. **个人**(개별 개발자)를 선택합니다.
 1. 필요한 정보를 입력하고 **下 一 步**(다음 단계)를 선택합니다.
 1. 전자 메일 확인 프로세스를 완료합니다. 개발자로 등록한 후 승인이 되기까지 몇 일 동안 기다려야 합니다.
@@ -46,7 +46,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 QQ 계정을 사용 하는 사�
 1. [https://connect.qq.com/index.html](https://connect.qq.com/index.html)으로 이동합니다.
 1. **应用管理**(앱 관리)를 선택합니다.
 1. **创建应用**(앱 만들기)를 선택한 후 필수 정보를 입력합니다.
-1. **域**(콜백 URL)에를 입력 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` 합니다. [사용자 지정 도메인](custom-domain.md)을 사용 하는 경우을 입력 `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` 합니다. `your-tenant-name`을 테 넌 트의 이름으로,를 `your-domain-name` 사용자 지정 도메인으로 바꿉니다.
+1. **授权回调域**(콜백 URL)에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. [사용자 지정 도메인](custom-domain.md)을 사용하는 경우 `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. `your-tenant-name`을 테넌트 이름으로 바꾸고 `your-domain-name`을 사용자 지정 도메인으로 바꿉니다.
 1. **创建应用**(앱 만들기)를 선택합니다.
 1. 확인 페이지에서 **应用管理**(앱 관리)를 선택하여 앱 관리 페이지로 돌아갑니다.
 1. 만든 앱 옆에 있는 **查看**(보기)를 선택합니다.
@@ -60,24 +60,24 @@ Azure Active Directory B2C (Azure AD B2C)에서 QQ 계정을 사용 하는 사�
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
-1. **Id 공급자** 를 선택한 다음 **Qq (미리 보기)** 를 선택 합니다.
-1. **이름** 을 입력합니다. 예를 들어 *Qq* 입니다.
-1. **클라이언트 ID** 에 대해 이전에 만든 qq 응용 프로그램의 앱 ID를 입력 합니다.
-1. **클라이언트 암호** 의 경우 기록한 앱 키를 입력 합니다.
+1. **ID 공급자** 를 선택한 다음, **QQ(미리 보기)** 을 선택합니다.
+1. **이름** 을 입력합니다. 예를 들면, *QQ* 과 같습니다.
+1. **클라이언트 ID** 에 대해 이전에 만든 QQ 애플리케이션의 앱 ID를 입력합니다.
+1. **클라이언트 암호** 에는 기록했던 앱 키를 입력합니다.
 1. **저장** 을 선택합니다.
 
-## <a name="add-qq-identity-provider-to-a-user-flow"></a>사용자 흐름에 QQ id 공급자 추가 
+## <a name="add-qq-identity-provider-to-a-user-flow"></a>사용자 흐름에 QQ ID 공급자 추가 
 
 1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
-1. QQ id 공급자를 추가 하려는 사용자 흐름을 클릭 합니다.
-1. **소셜 id 공급자** 아래에서 **qq** 를 선택 합니다.
+1. QQ ID 공급자를 추가할 사용자 흐름을 클릭합니다.
+1. **소셜 ID 공급자** 아래에서 **QQ** 를 선택합니다.
 1. **저장** 을 선택합니다.
-1. 정책을 테스트 하려면 **사용자 흐름 실행** 을 선택 합니다.
-1. **응용 프로그램** 의 경우 이전에 등록 한 *testapp1-development* 이라는 웹 응용 프로그램을 선택 합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
-1. **사용자 흐름 실행** 단추를 선택 합니다.
-1. 등록 또는 로그인 페이지에서 **qq** 를 선택 하 여 qq 계정으로 로그인 합니다.
+1. 정책을 테스트하려면 **사용자 흐름 실행** 을 선택합니다.
+1. **애플리케이션** 에서 이전에 등록한 *testapp1* 이라는 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **사용자 흐름 실행** 단추를 선택합니다.
+1. QQ ID로 로그인하려면 등록이나 로그인 페이지에서 **QQ** 를 선택합니다.
 
-로그인 프로세스가 성공 하면 브라우저가로 리디렉션되 며 `https://jwt.ms` ,이는 Azure AD B2C에서 반환 된 토큰의 내용을 표시 합니다.
+로그인 프로세스가 성공하면 브라우저가 `https://jwt.ms`로 리디렉션됩니다. 여기에는 Azure AD B2C에서 반환된 토큰의 내용이 표시됩니다.
 
 
 ::: zone-end
@@ -101,9 +101,9 @@ Azure Active Directory B2C (Azure AD B2C)에서 QQ 계정을 사용 하는 사�
 
 ## <a name="configure-qq-as-an-identity-provider"></a>QQ를 ID 공급자로 구성
 
-사용자가 QQ 계정을 사용 하 여 로그인 할 수 있도록 하려면 해당 계정을 사용 하 여 끝점을 통해 통신할 수 Azure AD B2C 하는 클레임 공급자로 계정을 정의 해야 합니다. 엔드포인트는 Azure AD B2C에서 사용하는 일련의 클레임을 제공하여 특정 사용자가 인증했는지 확인합니다.
+사용자가 QQ 계정을 사용하여 로그인할 수 있도록 하려면 Azure AD B2C가 엔드포인트를 통해 통신할 수 있는 클레임 공급자로 계정을 정의해야 합니다. 엔드포인트는 Azure AD B2C에서 사용하는 일련의 클레임을 제공하여 특정 사용자가 인증했는지 확인합니다.
 
-정책 확장 파일의 **ClaimsProviders** 요소에 qq 계정을 추가 하 여 해당 계정을 클레임 공급자로 정의할 수 있습니다.
+정책의 확장 파일에서 **ClaimsProviders** 요소에 QQ 계정을 추가하여 해당 계정을 클레임 공급자로 정의할 수 있습니다.
 
 1. *TrustFrameworkExtensions.xml* 을 엽니다.
 2. **ClaimsProviders** 요소를 찾습니다. 해당 요소가 없으면 루트 요소 아래에 추가합니다.
@@ -176,11 +176,11 @@ Azure Active Directory B2C (Azure AD B2C)에서 QQ 계정을 사용 하는 사�
 
 ## <a name="test-your-custom-policy"></a>사용자 지정 정책 테스트
 
-1. 신뢰 당사자 정책을 선택 합니다 (예:) `B2C_1A_signup_signin` .
-1. **응용 프로그램** 의 경우 [이전에 등록](troubleshoot-custom-policies.md#troubleshoot-the-runtime)한 웹 응용 프로그램을 선택 합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
-1. **지금 실행** 단추를 선택 합니다.
-1. 등록 또는 로그인 페이지에서 **qq** 를 선택 하 여 qq 계정으로 로그인 합니다.
+1. 신뢰 당사자 정책(예: `B2C_1A_signup_signin`)을 선택합니다.
+1. **애플리케이션** 에서 [이전에 등록된](tutorial-register-applications.md) 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **지금 실행** 단추를 선택합니다.
+1. QQ ID로 로그인하려면 등록이나 로그인 페이지에서 **QQ** 를 선택합니다.
 
-로그인 프로세스가 성공 하면 브라우저가로 리디렉션되 며 `https://jwt.ms` ,이는 Azure AD B2C에서 반환 된 토큰의 내용을 표시 합니다.
+로그인 프로세스가 성공하면 브라우저가 `https://jwt.ms`로 리디렉션됩니다. 여기에는 Azure AD B2C에서 반환된 토큰의 내용이 표시됩니다.
 
 ::: zone-end

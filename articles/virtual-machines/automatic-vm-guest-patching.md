@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: manayar
-ms.openlocfilehash: 276762bc2b8624f687cbb77e1af771478791a57b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a6a67fe43d4e0a6086154d71e61fe51680dbcd0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101679800"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762590"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-azure-vms"></a>미리 보기: Azure VM용 자동 VM 게스트 패치
 
@@ -80,7 +80,7 @@ Azure 플랫폼은 업데이트를 진행 중인 가상 머신 그룹을 대상�
 
 현재 지원되는 플랫폼 SKU는 다음과 같습니다(주기적으로 더 추가될 예정임).
 
-| 게시자               | OS 제품      |  SKU               |
+| Publisher               | OS 제품      |  SKU               |
 |-------------------------|---------------|--------------------|
 | Canonical  | UbuntuServer | 18.04-LTS |
 | Redhat  | RHEL | 7.x |
@@ -182,7 +182,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-[az feature register](/cli/azure/feature#az-feature-register)를 사용하여 구독에서 미리 보기를 사용하도록 설정합니다.
+[az feature register](/cli/azure/feature#az_feature_register)를 사용하여 구독에서 미리 보기를 사용하도록 설정합니다.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name InGuestAutoPatchVMPreview `
@@ -258,13 +258,13 @@ Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName
 ```
 
 ### <a name="azure-cli-for-windows-vms"></a>Windows VM용 Azure CLI
-새 VM을 만들 때 [az vm create](/cli/azure/vm#az-vm-create)를 사용하여 자동 VM 게스트 패치를 사용하도록 설정합니다. 다음 예제에서는 *myResourceGroup* 이라는 리소스 그룹에서 *myVM* 이라는 VM에 대한 자동 VM 게스트 패치를 구성합니다.
+새 VM을 만들 때 [az vm create](/cli/azure/vm#az_vm_create)를 사용하여 자동 VM 게스트 패치를 사용하도록 설정합니다. 다음 예제에서는 *myResourceGroup* 이라는 리소스 그룹에서 *myVM* 이라는 VM에 대한 자동 VM 게스트 패치를 구성합니다.
 
 ```azurecli-interactive
 az vm create --resource-group myResourceGroup --name myVM --image Win2019Datacenter --enable-agent --enable-auto-update --patch-mode AutomaticByPlatform
 ```
 
-기존 VM을 수정하려면 [az vm update](/cli/azure/vm#az-vm-update)를 사용합니다.
+기존 VM을 수정하려면 [az vm update](/cli/azure/vm#az_vm_update)를 사용합니다.
 
 ```azurecli-interactive
 az vm update --resource-group myResourceGroup --name myVM --set osProfile.windowsConfiguration.enableAutomaticUpdates=true osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatform
@@ -309,7 +309,7 @@ Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM" -Status
 PowerShell은 현재 패치 확장에 대한 정보만 제공합니다. `patchStatus`에 대한 정보도 PowerShell을 통해 곧 제공될 예정입니다.
 
 ### <a name="azure-cli"></a>Azure CLI
-[az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view)를 사용하여 VM의 인스턴스 보기에 액세스할 수 있습니다.
+[az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view)를 사용하여 VM의 인스턴스 보기에 액세스할 수 있습니다.
 
 ```azurecli-interactive
 az vm get-instance-view --resource-group myResourceGroup --name myVM
@@ -344,7 +344,7 @@ Invoke-AzVmPatchAssessment -ResourceGroupName "myResourceGroup" -VMName "myVM"
 ```
 
 ### <a name="azure-cli"></a>Azure CLI
-[az vm assess-patches](/cli/azure/vm#az-vm-assess-patches)를 사용하여 가상 머신에 대한 사용 가능한 패치를 평가합니다.
+[az vm assess-patches](/cli/azure/vm#az_vm_assess_patches)를 사용하여 가상 머신에 대한 사용 가능한 패치를 평가합니다.
 
 ```azurecli-interactive
 az vm assess-patches --resource-group myResourceGroup --name myVM

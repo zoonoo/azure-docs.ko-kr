@@ -5,18 +5,18 @@ description: Azure Container Instances를 사용하여 Azure Machine Learning �
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.custom: deploy
+ms.topic: conceptual
+ms.custom: how-to, deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: 4e682615ae4807611711307b5c9181c14d5c1dc4
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 5bf3c92f07cc33b35a070a3479e0063a63c9e43a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885473"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102522022"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Azure Container Instances에 모델 배포
 
@@ -84,7 +84,7 @@ print(service.state)
 * [Model.deploy](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
 * [Webservice.wait_for_deployment](/python/api/azureml-core/azureml.core.webservice%28class%29#wait-for-deployment-show-output-false-)
 
-### <a name="using-the-azure-cli"></a>Azure CLI 사용
+### <a name="using-the-cli"></a>CLI 사용
 
 CLI를 사용하여 배포하려면 다음 명령을 사용합니다. `mymodel:1`은 등록된 모델의 이름과 버전으로 바꿉니다. `myservice`는 이 서비스를 제공할 이름으로 바꿉니다.
 
@@ -94,7 +94,7 @@ az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploy
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aci-deploy-config.md)]
 
-자세한 내용은 [az ml model deploy](/cli/azure/ml/model#az_ml_model_deploy) 참조를 확인하세요. 
+자세한 내용은 [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy) 참조를 확인하세요. 
 
 ## <a name="using-vs-code"></a>VS Code 사용
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
 ms.openlocfilehash: 058873df989c444ebe06fc20a2f8a40fd2d3c594
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104594549"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 서비스
@@ -48,7 +48,7 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 | 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 사용할 수 없음 | ![사용 가능][check] |
 | 사용자 할당 | ![사용 가능][check] | ![사용 가능][check]  | 사용할 수 없음  | ![사용 가능][check] |
 
-Azure 앱 구성 (사용 가능한 경우 지역)에 대해 관리 되는 id를 구성 하려면 다음 목록을 참조 하세요.
+사용 가능한 지역에서 Azure App 환경설정용 관리 ID를 구성하려면 다음 목록을 참조하세요.
 
 - [Azure CLI](../../azure-app-configuration/overview-managed-identity.md)
 
@@ -73,7 +73,7 @@ Azure 앱 구성 (사용 가능한 경우 지역)에 대해 관리 되는 id를 
 | 시스템 할당 | 미리 보기 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 | 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
-Azure Arc enabled Kubernetes는 현재 [시스템 할당 id를 지원](../../azure-arc/kubernetes/quickstart-connect-cluster.md)합니다. 관리 서비스 id 인증서는 Azure와의 통신을 위해 모든 Azure Arc 사용 Kubernetes 에이전트에 사용 됩니다.
+Kubernetes가 가능한 Azure Arc는 현재 [시스템 할당 ID를 지원합니다](../../azure-arc/kubernetes/quickstart-connect-cluster.md). 관리 서비스 ID 인증서는 Azure와의 통신을 위한 Kubernetes 에이전트가 가능한 모든 Azure Arc에 사용됩니다.
 
 ### <a name="azure-arc-enabled-servers"></a>Azure Arc 지원 서버
 
@@ -82,10 +82,10 @@ Azure Arc enabled Kubernetes는 현재 [시스템 할당 id를 지원](../../azu
 | 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 사용할 수 없음 | 사용할 수 없음 |
 | 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
-모든 Azure Arc 사용 서버에는 시스템 할당 id가 있습니다. Azure Arc 사용 서버에서 시스템 할당 id를 사용 하지 않도록 설정 하거나 변경할 수 없습니다. Azure Arc 사용 서버에서 관리 되는 id를 사용 하는 방법에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
+모든 Azure Arc 지원 서버에는 시스템 할당 ID가 있습니다. Azure Arc 지원 서버에서 시스템 할당 ID를 사용하지 않도록 설정하거나 변경할 수 없습니다. Azure Arc 지원 서버에서 관리되는 ID를 사용하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-- [Arc 사용 서버를 사용 하 여 Azure 리소스에 대해 인증](../../azure-arc/servers/managed-identity-authentication.md)
-- [Arc 사용 서버에서 관리 되는 id 사용](../../azure-arc/servers/security-overview.md#using-a-managed-identity-with-arc-enabled-servers)
+- [Arc 지원 서버를 사용하는 Azure 리소스에 대해 인증](../../azure-arc/servers/managed-identity-authentication.md)
+- [Arc 지원 서버에서 관리 ID 사용](../../azure-arc/servers/security-overview.md#using-a-managed-identity-with-arc-enabled-servers)
 
 ### <a name="azure-automanage"></a>Azure Automanage
 
@@ -94,8 +94,8 @@ Azure Arc enabled Kubernetes는 현재 [시스템 할당 id를 지원](../../azu
 | 시스템 할당 | 미리 보기 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 | 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
-구독을 새 테 넌 트로 이동한 경우 관리 되는 id를 다시 구성 하려면 다음 문서를 참조 하세요.
-* [손상 된 Automanage 계정 복구](../../automanage/repair-automanage-account.md)
+구독을 새 테넌트로 이동한 경우 관리 ID를 다시 구성하려면 다음 문서를 참조하세요.
+* [손상된 Automanage 계정 복구](../../automanage/repair-automanage-account.md)
 
 ### <a name="azure-blueprints"></a>Azure Blueprints
 
@@ -186,7 +186,7 @@ Azure Arc enabled Kubernetes는 현재 [시스템 할당 id를 지원](../../azu
 | 시스템 할당 | ![사용 가능][check] | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 | 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
-Azure Digital Twins (사용 가능한 지역)에 대해 관리 되는 id를 구성 하려면 다음 목록을 참조 하세요.
+사용 가능한 지역에서 Azure Digital Twins용 관리 ID를 구성하려면 다음 목록을 참조하세요.
 
 - [Azure Portal](../../digital-twins/how-to-enable-managed-identities-portal.md)
 
@@ -197,7 +197,7 @@ Azure Digital Twins (사용 가능한 지역)에 대해 관리 되는 id를 구�
 | 시스템 할당 | 미리 보기 | 미리 보기 | 사용할 수 없음 | 미리 보기 |
 | 사용자 할당 | 사용할 수 없음 | 사용할 수 없음  | 사용할 수 없음  | 사용할 수 없음 |
 
-### <a name="azure-firewall-policy"></a>Azure 방화벽 정책
+### <a name="azure-firewall-policy"></a>Azure Firewall 정책
 
 관리 ID 유형 |모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -225,7 +225,7 @@ Azure Digital Twins (사용 가능한 지역)에 대해 관리 되는 id를 구�
 | 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 사용할 수 없음 | ![사용 가능][check] |
 | 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
-Azure IoT Hub에 대 한 관리 되는 id를 구성 하려면 다음 목록을 참조 하세요 (사용 가능한 지역).
+사용 가능한 지역에서 Azure IoT Hub용 관리 ID를 구성하려면 다음 목록을 참조하세요.
 
 - [Azure Portal](../../iot-hub/virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
@@ -233,7 +233,7 @@ Azure IoT Hub에 대 한 관리 되는 id를 구성 하려면 다음 목록을 �
 
 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| 시스템 할당 | Azure 가져오기 내보내기 서비스를 사용할 수 있는 지역에서 사용할 수 있습니다. | 미리 보기 | 사용 가능 | 사용 가능 |
+| 시스템 할당 | Azure 가져오기 내보내기 서비스가 가능한 지역에서 사용할 수 있습니다. | 미리 보기 | 사용 가능 | 사용 가능 |
 | 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
 ### <a name="azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)
@@ -246,14 +246,14 @@ Azure IoT Hub에 대 한 관리 되는 id를 구성 하려면 다음 목록을 �
 
 자세한 내용은 [Azure Kubernetes Service에서 관리 ID 사용](../../aks/use-managed-identity.md)을 참조하세요.
 
-### <a name="azure-log-analytics-cluster"></a>Azure Log Analytics 클러스터
+### <a name="azure-log-analytics-cluster"></a>Azure Log 분석 클러스터
 
 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 사용할 수 없음 | ![사용 가능][check] |
 | 사용자 할당 | ![사용 가능][check] | ![사용 가능][check] | 사용할 수 없음 | ![사용 가능][check] |
 
-자세한 내용은 [Azure Monitor에서 id가 작동 하는 방식](../../azure-monitor/logs/customer-managed-keys.md) 을 참조 하세요.
+자세한 내용은 [Azure Monitor에서 ID가 작동하는 방식](../../azure-monitor/logs/customer-managed-keys.md)을 참조하세요.
 
 ### <a name="azure-logic-apps"></a>Azure Logic Apps
 
@@ -275,7 +275,7 @@ Azure IoT Hub에 대 한 관리 되는 id를 구성 하려면 다음 목록을 �
 | 시스템 할당 | 미리 보기 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 | 사용자 할당 | 미리 보기 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
-자세한 내용은 [Azure Machine Learning에서 관리 되는 Id 사용](../../machine-learning/how-to-use-managed-identities.md)을 참조 하세요.
+자세한 내용은 [Azure Machine Learning에서 관리상 ID 사용](../../machine-learning/how-to-use-managed-identities.md)을 참조하세요.
 
 ### <a name="azure-policy"></a>Azure Policy
 
@@ -284,7 +284,7 @@ Azure IoT Hub에 대 한 관리 되는 id를 구성 하려면 다음 목록을 �
 | 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | ![사용 가능][check] | ![사용 가능][check] |
 | 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
-Azure Policy에 대 한 관리 되는 id를 구성 하려면 다음 목록을 참조 하세요 (사용 가능한 지역).
+사용 가능한 지역에서 Azure Policy용 관리 ID를 구성하려면 다음 목록을 참조하세요.
 
 - [Azure Portal](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
 - [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
@@ -295,7 +295,7 @@ Azure Policy에 대 한 관리 되는 id를 구성 하려면 다음 목록을 �
 
 ### <a name="azure-service-fabric"></a>Azure Service Fabric
 
-[Service Fabric 응용 프로그램에 대 한 관리 id](../../service-fabric/concepts-managed-identity.md) 는 모든 지역에서 사용할 수 있습니다.
+[Service Fabric Application용 관리상 ID](../../service-fabric/concepts-managed-identity.md)는 모든 지역에서 사용 가능합니다.
 
 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -314,13 +314,13 @@ Azure Policy에 대 한 관리 되는 id를 구성 하려면 다음 목록을 �
 | 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
 
-자세한 내용은 [Azure 스프링 클라우드 응용 프로그램에 대 한 시스템 할당 관리 id를 사용 하도록 설정 하는 방법](~/articles/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity.md)을 참조 하세요.
+자세한 정보는 [Azure Spring Cloud 애플리케이션용 시스템 할당 관리 ID를 사용하도록 설정하는 방법](~/articles/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity.md)을 참조하십시오.
 
 ### <a name="azure-stack-edge"></a>Azure Stack Edge
 
 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| 시스템 할당 | Azure Stack Edge 서비스를 사용할 수 있는 지역에서 사용할 수 있습니다. | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+| 시스템 할당 | Azure Stack Edge 서비스가 가능한 지역에서 사용 가능 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 | 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
 ### <a name="azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets
@@ -357,14 +357,14 @@ Azure Policy에 대 한 관리 되는 id를 구성 하려면 다음 목록을 �
 - [Azure SDK](qs-configure-sdk-windows-vm.md)
 
 
-### <a name="azure-vm-image-builder"></a>Azure VM 이미지 작성기
+### <a name="azure-vm-image-builder"></a>Azure VM Image Builder
 
 | 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | 시스템 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
-| 사용자 할당 | [지원 되는 지역에서 사용 가능](../../virtual-machines/image-builder-overview.md#regions) | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+| 사용자 할당 | [지원되는 영역에서 사용 가능](../../virtual-machines/image-builder-overview.md#regions) | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
-Azure VM 이미지 작성기 (사용 가능한 지역)에 대해 관리 id를 구성 하는 방법을 알아보려면 [이미지 작성기 개요](../../virtual-machines/image-builder-overview.md#permissions)를 참조 하세요.
+사용 가능한 지역에서 Azure VM Image Builder에 대해 관리 ID를 구성하는 방법을 알아보려면 [Image Builder 개요](../../virtual-machines/image-builder-overview.md#permissions)를 참조하세요.
 ### <a name="azure-signalr-service"></a>Azure SignalR Service
 
 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -372,7 +372,7 @@ Azure VM 이미지 작성기 (사용 가능한 지역)에 대해 관리 id를 �
 | 시스템 할당 | 미리 보기 | 미리 보기 | 사용할 수 없음 | 미리 보기 |
 | 사용자 할당 | 미리 보기 | 미리 보기 | 사용할 수 없음 | 미리 보기 |
 
-Azure SignalR Service에 대 한 관리 되는 id를 구성 하려면 다음 목록을 참조 하세요 (사용 가능한 지역).
+사용 가능한 지역에서 Azure SignalR Service용 관리 ID를 구성하려면 다음 목록을 참조하세요.
 
 - [Azure Resource Manager 템플릿](../../azure-signalr/howto-use-managed-identity.md)
 
@@ -380,10 +380,10 @@ Azure SignalR Service에 대 한 관리 되는 id를 구성 하려면 다음 목
 
 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| 시스템 할당 | Azure 리소스 이동 서비스를 사용할 수 있는 지역에서 사용할 수 있습니다. | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+| 시스템 할당 | Azure 리소스 이동 서비스를 사용할 수 있는 지역에서 사용 가능 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 | 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
-Azure 리소스 이동 기를 사용 하려면 다음 문서를 참조 하세요.
+Azure Resource Mover를 사용하려면 다음 문서를 참조하세요:
 
 - [Azure Resource Mover](../../resource-mover/overview.md)
 

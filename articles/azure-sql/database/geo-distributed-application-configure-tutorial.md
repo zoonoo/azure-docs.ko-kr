@@ -1,6 +1,6 @@
 ---
-title: 지리적으로 분산 된 솔루션 구현
-description: 복제 된 데이터베이스에 대 한 장애 조치 (failover) 및 테스트 장애 조치를 위해 Azure SQL Database 및 클라이언트 응용 프로그램에서 데이터베이스를 구성 하는 방법을 알아봅니다.
+title: 지역 분산 솔루션 구현
+description: Azure SQL Database와 클라이언트 애플리케이션을 복제된 데이터베이스로 장애 조치(failover)하도록 데이터베이스를 구성하고 장애 조치(failover)를 테스트하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,21 +12,21 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
 ms.openlocfilehash: 89d285a56553f5c521d1edbc92786debd4a92e32
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101659293"
 ---
-# <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>자습서: 지리적으로 분산 된 데이터베이스 (Azure SQL Database) 구현
+# <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>자습서: 지역 분산 데이터베이스 구현(Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-원격 지역으로 장애 조치 (failover) 하도록 SQL Database 및 클라이언트 응용 프로그램에서 데이터베이스를 구성 하 고 장애 조치 (failover) 계획을 테스트 합니다. 다음 방법을 알아봅니다.
+SQL 데이터베이스와 클라이언트 애플리케이션을 원격 지역으로 장애 조치(failover)하도록 구성하고 장애 조치(failover) 계획을 테스트합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 >
-> - [장애 조치 (failover) 그룹](auto-failover-group-overview.md) 만들기
-> - Java 응용 프로그램을 실행 하 여 SQL Database에서 데이터베이스 쿼리
+> - [장애 조치(failover) 그룹](auto-failover-group-overview.md) 만들기
+> - Java 애플리케이션을 실행하여 SQL 데이터베이스의 데이터베이스 쿼리
 > - 테스트 장애 조치
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 - [Azure PowerShell](/powershell/azure/)
 - Azure SQL Database의 단일 데이터베이스. 데이터베이스를 만들려면 다음 중 하나를 사용합니다.
-  - [Azure 포털](single-database-create-quickstart.md)
+  - [Azure Portal](single-database-create-quickstart.md)
   - [Azure CLI](az-cli-script-samples-content-guide.md)
   - [PowerShell](powershell-script-content-guide.md)
 
@@ -54,11 +54,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 > [!IMPORTANT]
 > 이 자습서의 단계를 수행하는 컴퓨터의 공용 IP 주소를 사용하도록 방화벽 규칙을 설정하세요. 데이터베이스 수준 방화벽 규칙은 보조 서버에 자동으로 복제됩니다.
 >
-> 자세한 내용은 [데이터베이스 수준 방화벽 규칙 만들기](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) 를 참조 하거나, 컴퓨터에 대 한 서버 수준 방화벽 규칙에 사용 되는 IP 주소를 확인 하려면 [서버 수준 방화벽 만들기](firewall-create-server-level-portal-quickstart.md)를 참조 하세요.  
+> 자세한 내용은 [데이터베이스 수준 방화벽 규칙 만들기](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)를 참조하세요. 사용 중인 컴퓨터용 서버 수준 방화벽 규칙에 사용되는 IP 주소를 확인하려면 [서버 수준 방화벽 만들기](firewall-create-server-level-portal-quickstart.md)를 참조하세요.  
 
 ## <a name="create-a-failover-group"></a>장애 조치 그룹 만들기
 
-Azure PowerShell를 사용 하 여 기존 서버와 다른 지역의 새 서버 간에 [장애 조치 (failover) 그룹](auto-failover-group-overview.md) 을 만듭니다. 그런 다음 장애 조치(failover) 그룹에 샘플 데이터베이스를 추가합니다.
+Azure PowerShell을 사용하여 기존 서버와 다른 지역의 새 서버 사이에서 [장애 조치(failover) 그룹](auto-failover-group-overview.md)을 만듭니다. 그런 다음 장애 조치(failover) 그룹에 샘플 데이터베이스를 추가합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -95,7 +95,7 @@ Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $server -Databas
 # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!IMPORTANT]
-> `az login`을 실행 하 여 Azure에 로그인 합니다.
+> `az login`를 실행하여 Azure에 로그인합니다.
 
 ```azurecli
 $admin = "<adminName>"
@@ -120,7 +120,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
 
 * * *
 
-데이터베이스를 선택한 다음 **설정**  >  **지역에서 복제** 를 선택 하 여 Azure Portal에서 지역에서 복제 설정을 변경할 수도 있습니다.
+Azure Portal에서 데이터베이스를 선택한 다음 **설정** > **지역에서 복제** 를 선택하여 지역에서 복제 설정을 변경할 수도 있습니다.
 
 ![지역에서 복제 설정](./media/geo-distributed-application-configure-tutorial/geo-replication.png)
 
@@ -140,7 +140,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
    cd SqlDbSample
    ```
 
-1. 자주 사용 하는 편집기를 사용 하 여 프로젝트 폴더에서 *pom.xml* 파일을 엽니다.
+1. 원하는 편집기를 사용하여 프로젝트 폴더에서 *pom.xml* 파일을 엽니다.
 
 1. 다음 `dependency` 섹션을 추가하여 SQL Server 종속성용 Microsoft JDBC Driver를 추가합니다. 더 큰 `dependencies` 섹션에 종속성을 붙여 넣어야 합니다.
 
@@ -290,7 +290,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
    }
    ```
 
-1. *응용 프로그램. java* 파일을 저장 하 고 닫습니다.
+1. *App.java* 파일을 저장하고 닫습니다.
 
 1. 명령 콘솔에서 다음 명령을 실행합니다.
 
@@ -321,7 +321,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-다음 명령을 사용 하 여 테스트 중에 재해 복구 서버의 역할을 확인할 수 있습니다.
+다음 명령을 사용한 테스트 중에 재해 복구 서버의 역할을 확인할 수 있습니다.
 
 ```powershell
 (Get-AzSqlDatabaseFailoverGroup -FailoverGroupName $failoverGroup `
@@ -346,7 +346,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
 
 # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-다음 명령을 사용 하 여 테스트 중에 재해 복구 서버의 역할을 확인할 수 있습니다.
+다음 명령을 사용한 테스트 중에 재해 복구 서버의 역할을 확인할 수 있습니다.
 
 ```azurecli
 az sql failover-group show --name $failoverGroup --resource-group $resourceGroup --server $drServer
@@ -370,15 +370,15 @@ az sql failover-group show --name $failoverGroup --resource-group $resourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 원격 지역으로 장애 조치 (failover) 하 고 장애 조치 (failover) 계획을 테스트 하는 응용 프로그램 및 Azure SQL Database의 데이터베이스를 구성 했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
+이 자습서에서는 Azure SQL Database의 데이터베이스와 애플리케이션을 원격 지역으로 장애 조치(failover)하도록 구성하고 장애 조치(failover) 계획을 테스트했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 >
 > - 지역에서 복제 장애 조치(failover) 그룹 만들기
-> - Java 응용 프로그램을 실행 하 여 SQL Database에서 데이터베이스 쿼리
+> - Java 애플리케이션을 실행하여 SQL Database의 데이터베이스 쿼리
 > - 테스트 장애 조치
 
-Azure SQL Managed Instance의 인스턴스를 장애 조치 (failover) 그룹에 추가 하는 방법에 대 한 다음 자습서로 이동 합니다.
+Azure SQL Managed Instance의 인스턴스를 장애 조치 (failover) 그룹에 추가하는 방법에 대한 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
-> [장애 조치 (failover) 그룹에 Azure SQL Managed Instance 인스턴스 추가](../managed-instance/failover-group-add-instance-tutorial.md)
+> [Azure SQL Managed Instance를 장애 조치(failover) 그룹에 추가](../managed-instance/failover-group-add-instance-tutorial.md)

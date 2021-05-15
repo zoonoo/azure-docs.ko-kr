@@ -5,13 +5,12 @@ author: genlin
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8ef38591fb47f7d7dcfce96551c756b11a42b2a9
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 41581ba48da2f2e717c5abf2a749f8fd2b86ac06
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108318822"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "75477669"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Azure 리소스 정책의 RequestDisallowedByPolicy 오류
 
@@ -52,12 +51,12 @@ Azure CLI에서 정책 정의 이름을 제공합니다.
 az policy definition show --name regionPolicyAssignment
 ```
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 보안 또는 규정 준수를 위해 구독 관리자는 리소스가 배포되는 방식을 제한하는 정책을 할당할 수 있습니다. 예를 들어, 구독에는 공용 IP 주소, 네트워크 보안 그룹, 사용자 정의 경로 또는 경로 테이블을 만들지 못하게 하는 정책이 있을 수 있습니다. **증상** 섹션의 오류 메시지는 정책의 이름을 표시합니다.
 이 문제를 해결하려면 리소스 정책을 검토하고 해당 정책을 준수하는 리소스를 배포하는 방법을 결정합니다.
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure Policy란?](../../governance/policy/overview.md)
+- [Azure Policy이란?](../../governance/policy/overview.md)
 - [규정 준수를 적용하는 정책 만들기 및 관리](../../governance/policy/tutorials/create-and-manage.md)

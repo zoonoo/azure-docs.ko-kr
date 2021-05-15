@@ -1,6 +1,6 @@
 ---
-title: 전용 SQL 풀 인증 (이전의 SQL DW)
-description: Azure Active Directory (Azure AD) 또는 SQL Server 인증을 사용 하 여 Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)에 인증 하는 방법에 대해 알아봅니다.
+title: 전용 SQL 풀(이전의 SQL DW)에 대한 인증
+description: Azure AD(Azure Active Directory) 또는 SQL Server 인증을 사용하여 Azure Synapse Analytics에서 전용 SQL 풀(이전의 SQL DW)에 인증하는 방법을 알아봅니다.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -13,23 +13,23 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
 ms.openlocfilehash: 80bc9f6fc6af94ba2a5ade77cc1d53b3fc29f1ea
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98685347"
 ---
-# <a name="authenticate-to-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)에 인증
+# <a name="authenticate-to-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)에 대한 인증
 
-Azure Active Directory (Azure AD) 또는 SQL Server 인증을 사용 하 여 Azure Synapse에서 전용 SQL 풀 (이전의 SQL DW)에 인증 하는 방법에 대해 알아봅니다.
+Azure AD(Azure Active Directory) 또는 SQL Server 인증을 사용하여 Azure Synapse에서 전용 SQL 풀(이전의 SQL DW)에 인증하는 방법을 알아봅니다.
 
-전용 SQL 풀 (이전의 SQL DW)에 연결 하려면 인증을 위해 보안 자격 증명을 전달 해야 합니다. 연결을 설정할 때 특정 연결 설정이 쿼리 세션을 설정하는 일부로 구성됩니다.  
+전용 SQL 풀(이전의 SQL DW)에 연결하려면 인증 목적으로 보안 자격 증명을 전달해야 합니다. 연결을 설정할 때 특정 연결 설정이 쿼리 세션을 설정하는 일부로 구성됩니다.  
 
-보안 및 전용 SQL 풀에 대 한 연결을 설정 하는 방법에 대 한 자세한 내용은 (이전의 SQL DW) [데이터베이스 보안 설명서](sql-data-warehouse-overview-manage-security.md)를 참조 하십시오.
+보안에 대한 자세한 내용과 전용 SQL 풀(이전의 SQL DW)에 대한 연결을 설정하는 방법은 [데이터베이스 보호 설명서](sql-data-warehouse-overview-manage-security.md)를 참조하세요.
 
 ## <a name="sql-authentication"></a>SQL 인증
 
-전용 SQL 풀 (이전의 SQL DW)에 연결 하려면 다음 정보를 제공 해야 합니다.
+전용 SQL 풀(이전의 SQL DW)에 연결하려면 다음 정보를 제공해야 합니다.
 
 * 정규화된 서버 이름
 * SQL 인증 지정
@@ -47,7 +47,7 @@ Azure Active Directory (Azure AD) 또는 SQL Server 인증을 사용 하 여 Azu
 
 ## <a name="azure-active-directory-authentication"></a>Azure Active Directory 인증
 
-[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 인증은 Azure AD(Azure Active Directory)에서 ID를 사용하여 SQL 풀에 연결하는 메커니즘입니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다. 중앙 ID 관리는 전용 SQL 풀 (이전의 SQL DW) 사용자를 관리 하 고 권한 관리를 간소화 하는 단일 장소를 제공 합니다.
+[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 인증은 Azure AD(Azure Active Directory)에서 ID를 사용하여 SQL 풀에 연결하는 메커니즘입니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다. 중앙 ID 관리는 전용 SQL 풀(이전의 sQL DW) 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다.
 
 ### <a name="benefits"></a>이점
 

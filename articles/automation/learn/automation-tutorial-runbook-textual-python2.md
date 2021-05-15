@@ -1,17 +1,17 @@
 ---
 title: Azure Automation에서 Python Runbook 만들기
-description: 이 문서에서는 간단한 Python Runbook을 만들고, 테스트하고, 게시하는 방법을 설명합니다.
+description: 이 문서에서는 Azure Automation 계정에서 간단한 Python Runbook을 만들고, 테스트하고, 게시하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/19/2020
+ms.date: 04/28/2021
 ms.topic: tutorial
 ms.custom: has-adal-ref, devx-track-python
-ms.openlocfilehash: e12327651165606e6a9b571d410f547a09a8ec8e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84b448b6a31dc9bdbad1b604a0a385aeae742b53
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87847927"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205020"
 ---
 # <a name="tutorial-create-a-python-runbook"></a>자습서: Python Runbook 만들기
 
@@ -31,8 +31,10 @@ ms.locfileid: "87847927"
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
-- [Automation 계정](../index.yml) . 이 계정은 가상 머신을 시작하고 중지할 수 있는 권한이 있어야 합니다.
-- Azure 가상 머신. 프로덕션 VM이 되지 않도록 이 가상 머신을 중지하고 시작합니다.
+
+- [Automation 계정](../automation-security-overview.md) . 이 계정은 가상 머신을 시작하고 중지할 수 있는 권한이 있어야 합니다. 이 자습서에는 [실행 계정](../automation-security-overview.md#run-as-accounts)이 필요합니다. 
+
+- Azure 가상 머신. 이 자습서를 진행하는 동안 이 머신을 시작하고 중지할 예정이므로 프로덕션 VM을 사용해서는 안 됩니다.
 
 ## <a name="create-a-new-runbook"></a>새 Runbook 만들기
 
@@ -110,13 +112,13 @@ print("Hello World!")
 ## <a name="add-authentication-to-manage-azure-resources"></a>Azure 리소스를 관리하는 인증 추가
 
 지금까지 Runbook을 테스트 하고 게시했지만, 딱히 유용하지는 않습니다. Azure 리소스를 관리하려고 합니다.
-이렇게 하려면 스크립트가 Automation 계정의 자격 증명을 사용하여 인증해야 합니다. [Azure Automation 유틸리티 패키지](https://github.com/azureautomation/azure_automation_utility)를 사용하면 더욱 간편하게 Azure 리소스를 인증하고 조작할 수 있습니다.
+이렇게 하려면 스크립트가 Automation 계정의 실행 계정 자격 증명을 사용하여 인증해야 합니다. [Azure Automation 유틸리티 패키지](https://github.com/azureautomation/azure_automation_utility)를 사용하면 더욱 간편하게 Azure 리소스를 인증하고 조작할 수 있습니다.
 
 > [!NOTE]
-> 실행 인증서를 만들려면 서비스 주체 기능을 사용하여 Automation 계정을 만들어야 합니다.
-> 서비스 주체를 사용하여 Automation 계정을 만들지 않은 경우 [Python용 Azure 관리 라이브러리를 사용하여 인증](/azure/python/python-sdk-azure-authenticate)에서 설명한 대로 인증할 수 있습니다.
+> 실행 인증서를 만들려면 실행 계정을 사용하여 Automation 계정을 만들어야 합니다.
+> 실행 계정을 사용하여 Automation 계정을 만들지 않은 경우 [Python용 Azure 관리 라이브러리를 사용하여 인증](/azure/python/python-sdk-azure-authenticate) 또는 [실행 계정 만들기](../create-run-as-account.md)에서 설명한 대로 인증할 수 있습니다.
 
-1. MyFirstRunbook-Python 창에서 **편집** 을 클릭하여 텍스트 편집기를 엽니다.
+1. **MyFirstRunbook-Python** 창에서 **편집** 을 클릭하여 텍스트 편집기를 엽니다.
 
 2. 다음 코드를 추가하여 Azure에 인증합니다.
 
@@ -206,7 +208,7 @@ async_vm_start = compute_client.virtual_machines.start(
 async_vm_start.wait()
 ```
 
-테스트 창에서 또는 게시된 Runbook으로 Python Runbook을 시작할 때 Runbook 시작 페이지의 **매개 변수** 아래에서 매개 변수의 값을 입력할 수 있습니다.
+**테스트** 창에서 또는 게시된 Runbook으로 Python Runbook을 시작할 때 **Runbook 시작** 페이지의 **매개 변수** 아래에서 매개 변수의 값을 입력할 수 있습니다.
 
 첫 번째 상자에 값을 입력하기 시작하면 두 번째 상자가 나타나는 식으로 상자가 계속 표시되므로 매개 변수 값을 필요한 수만큼 입력할 수 있습니다.
 
@@ -218,12 +220,12 @@ async_vm_start.wait()
 
 **확인** 을 클릭하여 Runbook을 시작합니다. Runbook이 실행되고 지정한 VM이 시작됩니다.
 
-## <a name="error-handling-in-python"></a>Python에서 오류 처리
+## <a name="error-handling-in-python&quot;></a>Python에서 오류 처리
 
 또한 다음 규칙을 사용하여 경고, 오류 및 디버그 스트림을 포함하여 Python Runbook에서 다양한 스트림을 검색할 수 있습니다.
 
 ```python
-print("Hello World output")
+print(&quot;Hello World output")
 print("ERROR: - Hello world error")
 print("WARNING: - Hello world warning")
 print("DEBUG: - Hello world debug")
@@ -244,9 +246,7 @@ except Exception as detail:
 
 ## <a name="next-steps"></a>다음 단계
 
-- PowerShell Runbook을 시작하려면 [PowerShell Runbook 만들기](automation-tutorial-runbook-textual-powershell.md)를 참조하세요.
-- 그래픽 Runbook을 시작하려면 [그래픽 Runbook 만들기](automation-tutorial-runbook-graphical.md)를 참조하세요.
-- PowerShell 워크플로 Runbook을 시작하려면 [PowerShell 워크플로 Runbook 만들기](automation-tutorial-runbook-textual.md)를 참조하세요.
 - Runbook의 형식, 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure Automation Runbook 형식](../automation-runbook-types.md)을 참조하세요.
 - Python을 사용하여 Azure를 개발하는 방법에 대해 알아보려면 [Python 개발자용 Azure](/azure/python/)를 참조하세요.
-- 샘플 Python 2 Runbook을 보려면 [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python)를 참조하세요.
+
+- 샘플 Python 2 Runbook을 보려면 [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python) 리포지토리를 참조하세요.

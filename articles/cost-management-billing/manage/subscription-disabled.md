@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.author: banders
-ms.openlocfilehash: 37093900bf49e8a7613e2e3f4311548675791ceb
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: aad194babdf539584f3e349e8050105ed801bbf0
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220886"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331739"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>비활성화된 Azure 구독 다시 활성화
 
@@ -23,7 +23,7 @@ ms.locfileid: "106220886"
 
 ## <a name="your-credit-is-expired"></a>크레딧이 만료됨
 
-Azure 체험 계정에 등록하면 30일 동안 청구 통화로 사용할 수 있는 USD200 Azure 크레딧과 12개월 무료 서비스를 제공하는 평가판 구독을 받습니다. 30일이 만료된 경우 Azure는 구독을 비활성화합니다. 구독에 포함된 크레딧과 체험 서비스를 벗어나는 사용량에 대한 요금을 실수로 부과하지 않도록 보호하기 위해 구독이 비활성화됩니다. Azure 서비스를 계속 사용하려면[구독을 업그레이드](upgrade-azure-subscription.md)해야 합니다. 업그레이드한 후에도 구독은 12개월 동안 체험 서비스에 액세스할 수 있습니다. 체험 서비스 수량 제한을 초과한 사용량에 대해서만 요금이 청구됩니다.
+Azure 체험 계정에 등록하면 30일 동안 청구 통화로 $200 Azure 크레딧과 12개월 무료 서비스를 제공하는 평가판 구독을 받습니다. 30일이 만료된 경우 Azure는 구독을 비활성화합니다. 구독에 포함된 크레딧과 체험 서비스를 벗어나는 사용량에 대한 요금을 실수로 부과하지 않도록 보호하기 위해 구독이 비활성화됩니다. Azure 서비스를 계속 사용하려면[구독을 업그레이드](upgrade-azure-subscription.md)해야 합니다. 업그레이드한 후에도 구독은 12개월 동안 체험 서비스에 액세스할 수 있습니다. 체험 서비스 수량 제한을 초과한 사용량에 대해서만 요금이 청구됩니다.
 
 ## <a name="you-reached-your-spending-limit"></a>지출 한도에 도달했습니다.
 

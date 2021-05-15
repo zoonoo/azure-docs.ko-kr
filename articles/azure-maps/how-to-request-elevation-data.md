@@ -3,18 +3,18 @@ title: Azure Maps 상승 서비스를 통한 Elevation 데이터 요청 (미리 
 description: Azure Maps 상승 서비스(미리 보기)를 통해 권한 상승 데이터 요청 방법을 알아보세요.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/26/2021
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: efdaf8d2d64a3865027f5211e4382458e1323b10
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: d14eda84144105bf2e04f1238284bc58a91c4c03
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325124"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "98684058"
 ---
 # <a name="request-elevation-data-using-the-azure-maps-elevation-service-preview"></a>Azure Maps 상승 서비스를 통한 Elevation 데이터 요청 (미리 보기)
 
@@ -24,9 +24,9 @@ ms.locfileid: "108325124"
 
 Azure Maps [Elevation 서비스](/rest/api/maps/elevation)는 지구 표면의 모든 상승 데이터를 쿼리하는 API를 제공합니다. 정의된 경계 상자 또는 특정 좌표에서 경로를 따라 샘플링된 상승 데이터를 요청할 수 있습니다. 또한 [Render V2 - Get Map Tile API](/rest/api/maps/renderv2)를 사용하여 타일 형태의 상승 데이터를 검색할 수 있습니다. 타일은 GeoTIFF 래스터 형식으로 제공됩니다. 이 문서는 Azure Maps Elevation 서비스 및 Get Map Tile API를 사용하여 상승 데이터 요청 방법을 보여줍니다. 상승 데이터는 GeoJSON 및 GeoTiff 형식으로 요청할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-1. [Gen 1(S1) 또는 Gen 2 가격 책정 계층에서 Azure Maps 계정을 만듭니다](quick-demo-map-app.md#create-an-azure-maps-account).
+1. [S1 가격 책정 계층에서 Azure Maps 계정 생성](quick-demo-map-app.md#create-an-azure-maps-account)
 2. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
 Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](how-to-manage-authentication.md)를 참조하세요.

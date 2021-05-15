@@ -1,6 +1,6 @@
 ---
 title: 기존 플레이어를 사용하여 콘텐츠 재생 - Azure | Microsoft Docs
-description: 이 문서에서는 콘텐츠를 재생 하는 데 사용할 수 있는 기존 플레이어를 나열 합니다.
+description: 이 문서에서는 콘텐츠를 재생하는 데 사용할 수 있는 기존 플레이어를 나열합니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: ce773adace1baf6db8f1b747643ef0ffdc56a97c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103008291"
 ---
 # <a name="playing-your-content-with-existing-players"></a>기존 플레이어를 사용하여 콘텐츠 재생
@@ -29,7 +29,7 @@ Azure Media Services는 부드러운 스트리밍, HTTP 라이브 스트리밍 �
 
 ## <a name="the-azure-portal-media-services-content-player"></a>Azure Portal Media Services 콘텐츠 플레이어
 
-**Azure** portal은 비디오를 테스트 하는 데 사용할 수 있는 콘텐츠 플레이어를 제공 합니다.
+**Azure** 포털에서는 비디오를 테스트하는 데 사용할 수 있는 콘텐츠 플레이어를 제공합니다.
 
 원하는 비디오( [게시된](media-services-portal-publish.md)것이어야 함)를 클릭하고 포털 맨 아래에 있는 **재생** 단추를 클릭합니다.
 
@@ -54,7 +54,7 @@ Azure Media Services는 부드러운 스트리밍, HTTP 라이브 스트리밍 �
 
 ### <a name="dash-players"></a>DASH 플레이어
 
-[대시 플레이어](http://players.akamai.com/players/dashjs)
+[dash 플레이어](http://players.akamai.com/players/dashjs)
 
 [https://dashif.org](https://dashif.org)
 

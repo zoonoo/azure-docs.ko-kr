@@ -1,6 +1,6 @@
 ---
-title: 첨부 파일 Azure Cosmos DB
-description: 이 문서에서는 Azure Cosmos DB 첨부 파일의 개요를 제공 합니다.
+title: Azure Cosmos DB 첨부 파일
+description: 이 문서에서는 Azure Cosmos DB 첨부 파일의 개요를 제공합니다.
 author: aliuy
 ms.author: andrl
 ms.service: cosmos-db
@@ -9,53 +9,53 @@ ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: sngun
 ms.openlocfilehash: a8e968d05a1f844a79d2e42d10c323ed4c392424
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102521223"
 ---
-# <a name="azure-cosmos-db-attachments"></a>첨부 파일 Azure Cosmos DB
+# <a name="azure-cosmos-db-attachments"></a>Azure Cosmos DB 첨부 파일
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-mongodb-api.md)]
 
-Azure Cosmos DB 첨부 파일은 외부 blob 또는 미디어 파일을 사용 하 여 연결 된 메타 데이터에 대 한 참조를 포함 하는 특수 한 항목입니다.
+Azure Cosmos DB 첨부 파일은 외부 Blob 또는 미디어 파일과 연관된 메타데이터 및 참조서를 포함하는 특수 항목입니다.
 
-Azure Cosmos DB는 두 가지 유형의 첨부 파일을 지원 합니다.
+Azure Cosmos DB는 두 가지 유형의 첨부 파일을 지원합니다.
 
-* **관리 되지 않는 첨부 파일** 은 외부 서비스 (예: Azure Storage, OneDrive 등)에 저장 된 blob에 대 한 URI 참조를 둘러싸는 래퍼입니다. 이 방법은 표준 Azure Cosmos DB 항목에 URI 속성을 저장 하는 것과 비슷합니다.
-* **관리 되는 첨부 파일** 은 Azure Cosmos DB에서 내부적으로 관리 및 저장 되 고 시스템 생성 mediaLink를 통해 노출 되는 blob입니다.
+* **관리되지 않는 첨부 파일** 은 외부 서비스(예: Azure Storage, OneDrive 등)에 저장된 Blob에 대한 URI 참조를 둘러싸는 래퍼입니다. 이 방법은 표준 Azure Cosmos DB 항목에 URI 속성을 저장하는 방법과 비슷합니다.
+* **관리되는 첨부 파일** 은 Azure Cosmos DB에서 내부적으로 관리 및 저장되며 시스템 생성 mediaLink를 통해 노출되는 Blob입니다.
 
 
 > [!NOTE]
-> 첨부 파일은 레거시 기능입니다. 이 기능을 이미 사용 중인 경우 해당 지원 범위는 계속 해 서 기능을 제공 합니다.
+> 첨부 파일은 레거시 기능입니다. 이 기능을 이미 사용 중인 경우 해당 기능은 지원 범위 내에서 계속 기능을 제공합니다.
 > 
-> 첨부 파일을 사용 하는 대신 blob 데이터를 저장 하는 데 사용 되는 용도의 blob 저장소 서비스로 Azure Blob Storage를 사용 하는 것이 좋습니다. 참조 URI 링크와 함께 blob와 관련 된 메타 데이터를 Azure Cosmos DB 항목 속성으로 계속 저장할 수 있습니다. Azure Cosmos DB에이 데이터를 저장 하면 Azure Blob Storage에 저장 된 blob에 대 한 메타 데이터 및 링크를 쿼리할 수 있습니다.
+> 첨부 파일을 사용하는 대신 Blob 데이터를 저장하는 데 사용되는 용도의 Blob Storage 서비스로 Azure Blob Storage를 사용하는 것이 좋습니다. Blob과 관련된 메타데이터를 참조 URI 링크와 함께 Azure Cosmos DB에 항목 속성으로 계속 저장할 수 있습니다. Azure Cosmos DB에 이 데이터를 저장하면 Azure Blob Storage에 저장된 Blob에 대한 메타데이터 및 링크를 쿼리할 수 있습니다.
 > 
-> Microsoft는 완전히 사용 중단 첨부 파일 전에 최소 36 개월 통지를 제공 하기 위해 최선을 다하고 있으며,이는 추가 날짜에 발표 될 예정입니다.
+> Microsoft는 첨부 파일을 완전히 사용 중단하기 전에 최소 36개월 전 통지를 제공하려고 최선을 다하고 있으며, 날짜는 추후에 발표할 예정입니다.
 
 ## <a name="known-limitations"></a>알려진 제한 사항
 
-Azure Cosmos DB의 관리 되는 첨부 파일은 표준 항목에 대해 지원 되는 것과 다릅니다 .이는 무제한의 확장성, 글로벌 배포 및 다른 Azure 서비스와의 통합을 제공 합니다.
+Azure Cosmos DB의 관리 첨부 파일은 표준 항목에 대한 지원과 다릅니다. 이는 무제한 확장성, 전역 배포 및 다른 Azure 서비스와의 통합을 제공하기 때문입니다.
 
-- 첨부 파일은 모든 버전의 Azure Cosmos DB Sdk에서 지원 되지 않습니다.
-- 관리 되는 첨부 파일은 데이터베이스 계정 마다 2gb의 저장소로 제한 됩니다.
-- 관리 되는 첨부 파일은 Azure Cosmos DB의 전역 배포와 호환 되지 않으며 지역 간에 복제 되지 않습니다.
+- 첨부 파일은 Azure Cosmos DB SDK 모든 버전에서 지원되지 않습니다.
+- 관리 첨부 파일은 데이터베이스 계정마다 2GB의 스토리지로 제한됩니다.
+- 관리 첨부 파일은 Azure Cosmos DB의 전역 배포와 호환되지 않으며 지역 간에 복제되지 않습니다.
 
 > [!NOTE]
-> MongoDB 버전 3.2에 대 한 Azure Cosmos DB API는 GridFS에 대 한 관리 되는 첨부 파일을 활용 하며 동일한 제한 사항이 적용 됩니다.
+> MongoDB 버전 3.2에 대한 Azure Cosmos DB API는 GridFS용 관리 첨부 파일을 활용하며 동일한 제한 사항이 적용됩니다.
 >
-> MongoDB GridFS 기능 집합을 사용 하 여 MongoDB 버전 3.6 이상의 API Azure Cosmos DB로 업그레이드 하는 것이 좋습니다 .이는 첨부 파일에서 분리 되며 더 나은 환경을 제공 합니다. 또는 MongoDB GridFS 기능 집합을 사용 하는 개발자는 Blob 콘텐츠를 저장 하기 위해 작성 된 용도로만 사용 되는 용도로 사용 되는 Azure Blob Storage를 사용 하는 것이 좋습니다.
+> MongoDB GridFS 기능 집합을 사용하여 MongoDB 버전 3.6 이상의 API Azure Cosmos DB로 업그레이드하는 것이 좋습니다.업그레이드 시 첨부 파일에서 분리되며 더 나은 환경을 제공합니다. 또는 MongoDB GridFS 기능 집합을 사용하는 개발자는 Blob 콘텐츠 저장 용도로 만들어졌으며 GridFS에 비해 저렴한 비용으로 확장 기능을 제공하는 Azure Blob Storage를 사용하는 것을 고려해 봐도 좋습니다.
 
 ## <a name="migrating-attachments-to-azure-blob-storage"></a>첨부 파일을 Azure Blob Storage로 마이그레이션
 
-다음 단계를 수행 하 여 Azure Cosmos DB 첨부 파일을 Azure Blob Storage로 마이그레이션하는 것이 좋습니다.
+다음 단계를 수행하여 Azure Cosmos DB 첨부 파일을 Azure Blob Storage로 마이그레이션하는 것이 좋습니다.
 
-1. 원본 Azure Cosmos DB 컨테이너의 첨부 파일 데이터를 대상 Azure Blob Storage 컨테이너에 복사 합니다.
-2. 대상 Azure Blob Storage 컨테이너에서 업로드 된 blob 데이터의 유효성을 검사 합니다.
-3. 해당 하는 경우 Azure Cosmos DB 데이터 집합 내의 문자열 속성으로 Azure Blob Storage에 포함 된 blob에 대 한 URI 참조를 추가 합니다.
-4. 새 Azure Blob Storage 컨테이너에서 blob을 읽고 쓰도록 응용 프로그램 코드를 리팩터링 합니다.
+1. 원본 Azure Cosmos DB 컨테이너의 첨부 파일 데이터를 대상 Azure Blob Storage 컨테이너로 복사합니다.
+2. 대상 Azure Blob Storage 컨테이너에서 업로드된 Blob 데이터의 유효성을 검사합니다.
+3. 해당하는 경우 URI 참조를 Azure Cosmos DB 데이터 세트 내의 문자열 속성으로 Azure Blob Storage에 포함된 Blob에 추가합니다.
+4. 새 Azure Blob Storage 컨테이너에서 Blob을 읽고 쓸 수 있도록 애플리케이션 코드를 리팩터링합니다.
 
-다음 dotnet 코드 샘플은 Azure Cosmos DB의 .NET SDK v2 및 Azure Blob Storage .NET SDK v12를 사용 하 여 마이그레이션 흐름의 일부로 Azure Cosmos DB에서 Azure Blob storage로 첨부 파일을 복사 하는 방법을 보여 줍니다. `<placeholder values>`원본 Azure Cosmos DB 계정 및 대상 Azure Blob storage 컨테이너에 대 한을 (를) 대체 해야 합니다.
+다음 dotnet 코드 샘플은 Azure Cosmos DB의 .NET SDK v2 및 Azure Blob Storage .NET SDK v12를 사용하여 마이그레이션 흐름의 일부로 첨부 파일을 Azure Cosmos DB에서 Azure Blob Storage로 복사하는 방법을 보여 줍니다. 원본 Azure Cosmos DB 계정 및 대상 Azure Blob Storage 컨테이너를 위해 `<placeholder values>`을(를) 대체해야 합니다.
 
 ```csharp
 
@@ -166,7 +166,7 @@ namespace attachments
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Blob storage](../storage/blobs/storage-quickstart-blobs-dotnet.md) 시작
-- [Azure Cosmos DB의 .NET SDK v2](/dotnet/api/microsoft.azure.documents.attachment) 를 통해 첨부 파일 사용에 대 한 참조 가져오기
-- [Azure Cosmos DB의 JAVA SDK v2](/java/api/com.microsoft.azure.documentdb.attachment) 를 통해 첨부 파일 사용에 대 한 참조 가져오기
-- [Azure Cosmos DB의 REST API](/rest/api/cosmos-db/attachments) 를 통해 첨부 파일 사용에 대 한 참조 가져오기
+- [Azure Blob Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md) 시작
+- [Azure Cosmos DB의 .NET SDK v2](/dotnet/api/microsoft.azure.documents.attachment)를 통해 첨부 파일 사용에 대한 참조 가져오기
+- [Azure Cosmos DB의 Java SDK v2](/java/api/com.microsoft.azure.documentdb.attachment)를 통해 첨부 파일 사용에 대한 참조 가져오기
+- [Azure Cosmos DB의 REST API](/rest/api/cosmos-db/attachments)를 통해 첨부 파일 사용에 대한 참조 가져오기

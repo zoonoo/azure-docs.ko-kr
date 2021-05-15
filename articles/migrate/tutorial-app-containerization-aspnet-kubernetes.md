@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: 464e2450b4d4dea9fc650ad8869af4215d3db1a7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 24fd5cb0abbf36df74d6e2300c570e7e39b875ad
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561800"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108180575"
 ---
 # <a name="aspnet-app-containerization-and-migration-to-azure-kubernetes-service"></a>ASP.NET 웹앱 컨테이너화 및 Azure Kubernetes Service로 마이그레이션
 
@@ -110,7 +110,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
 
 ## <a name="launch-the-app-containerization-tool"></a>앱 컨테이너화 도구 시작
 
-1. 앱 컨테이너화 도구를 실행하는 Windows 컴퓨터에 연결할 수 있는 컴퓨터에서 브라우저를 열고 도구 URL **https://*컴퓨터 이름 또는 IP 주소*: 44368** 을 엽니다.
+1. 앱 컨테이너화 도구를 실행하는 Windows 컴퓨터에 연결할 수 있는 머신에서 브라우저를 열고 도구 URL **https://*머신 이름 또는 IP 주소*: 44369** 를 엽니다.
 
    또는 바탕 화면에서 앱 바로 가기를 선택하여 앱을 열 수 있습니다.
 

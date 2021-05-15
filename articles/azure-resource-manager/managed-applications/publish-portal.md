@@ -1,15 +1,15 @@
 ---
-title: 포털을 통해 관리 되는 앱 게시
+title: 포털을 통한 관리형 앱 게시
 description: 조직의 구성원을 위한 Azure 관리되는 애플리케이션을 Azure Portal을 사용하여 만드는 방법을 보여 줍니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: tomfitz
 ms.openlocfilehash: 05302d92f2304be35a7b88fac6fabfc17b13c63e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "75651723"
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Azure Portal을 통해 서비스 카탈로그 애플리케이션 게시

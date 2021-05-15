@@ -1,18 +1,18 @@
 ---
 title: Salesforce Service Cloud 간에 데이터 복사
 description: 데이터 팩터리 파이프라인의 복사 작업을 사용하여 Salesforce Service Cloud에서 지원되는 싱크 데이터 저장소로, 또는 지원되는 원본 데이터 저장소에서 Salesforce Service Cloud로 데이터를 복사하는 방법에 대해 알아봅니다.
-ms.author: jianleishen
-author: jianleishen
+ms.author: jingwang
+author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: f61b5ab4a77372071658f18e81fce8ed2c3a7c51
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 6a712ad1924fd73926ff0e62a7d1b9684eb5b1d9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109486992"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104583119"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Salesforce Service Cloud 간에 데이터 복사
 
@@ -49,9 +49,9 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 
 두 시나리오 모두에서 "REQUEST_LIMIT_EXCEEDED" 오류 메시지가 나타날 수 있습니다. 자세한 내용은 [Salesforce 개발자 제한](https://developer.salesforce.com/docs/atlas.en-us.218.0.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm) 문서의 "API 요청 제한" 섹션을 참조하세요.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 Salesforce Service Cloud 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -231,7 +231,7 @@ Salesforce Service Cloud에 데이터를 복사하기 위해 복사 작업 **싱
 | externalIdFieldName | Upsert 작업의 외부 ID 필드 이름입니다. 지정된 필드는 Salesforce Service Cloud 개체에서 "외부 ID 필드"로 정의되어야 합니다. 해당하는 입력 데이터에서 NULL 값을 가질 수 없습니다. | "Upsert"에서 예 |
 | writeBatchSize | 각 일괄 처리에서 Salesforce Service Cloud에 작성된 데이터의 행 수입니다. | 아니요(기본값: 5,000) |
 | ignoreNullValues | 쓰기 작업 중에 입력 데이터에서 NULL 값을 무시할지 여부를 나타냅니다.<br/>허용되는 값은 **true** 및 **false** 입니다.<br>- **True**: Upsert나 업데이트 작업을 수행할 때 대상 개체의 데이터를 변경하지 않고 유지합니다. 삽입 작업을 수행할 때 정의된 기본 값을 삽입합니다.<br/>- **False**: Upsert나 업데이트 작업을 수행할 때 대상 개체의 데이터를 NULL로 업데이트합니다. 삽입 작업을 수행할 때 NULL 값을 삽입합니다. | 아니요(기본값: false) |
-| maxConcurrentConnections |작업을 실행하는 동안 데이터 저장소에 설정된 동시 연결의 상한입니다. 동시 연결을 제한하려는 경우에만 값을 지정합니다.| 예 |
+| maxConcurrentConnections |활동 실행 중에 데이터 저장소에 설정된 동시 연결 수의 상한입니다. 동시 연결 수를 제한하려는 경우에만 값을 지정합니다.| 예 |
 
 **예:**
 

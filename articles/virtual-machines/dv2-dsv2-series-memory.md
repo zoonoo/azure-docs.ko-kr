@@ -1,6 +1,6 @@
 ---
-title: 메모리 액세스에 최적화 된 Dv2 및 DSv2 시리즈 Vm-Azure Virtual Machines
-description: Dv2 및 DSv2 시리즈 Vm에 대 한 사양입니다.
+title: 메모리 최적화된 Dv2 및 DSv2 시리즈 VM - Azure Virtual Machines
+description: Dv2 및 DSv2 시리즈 VM의 사양입니다.
 author: joelpelley
 ms.service: virtual-machines
 ms.subservice: vm-sizes-general
@@ -8,31 +8,31 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
 ms.openlocfilehash: f07e4542e380e4e8057d9011a6b613e9ad55a058
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102560330"
 ---
-# <a name="memory-optimized-dv2-and-dsv2-series"></a>메모리 액세스에 최적화 된 Dv2 및 Dsv2 시리즈
+# <a name="memory-optimized-dv2-and-dsv2-series"></a>메모리 최적화된 Dv2 및 DSv2 시리즈
 
-Dv2 및 Dsv2 시리즈는 원본 D 시리즈에 대 한 후속 기능으로, 더 강력한 CPU를 제공 합니다. DSv2 시리즈 크기는 Intel® Xeon® 플래티넘 8272CL (케스케이드 Lake), Intel® Xeon® 8171M 2.1 GHz (Skylake) 또는 Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 또는 Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 프로세서에서 실행 됩니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
+원래 D 시리즈의 후속판인 Dv2 및 DSv2 시리즈는 더 강력한 CPU가 특징입니다. DSv2 시리즈 크기는 Intel® Xeon® Platinum 8272CL(Cascade Lake), Intel® Xeon® 8171M 2.1GHz (Skylake) 또는 Intel® Xeon® E5-2673 v4 2.3GHz(Broadwell) 또는 Intel® Xeon® E5-2673 v3 2.4GHz(Haswell) 프로세서에서 실행됩니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
 
 ## <a name="dv2-series-11-15"></a>Dv2 시리즈 11-15
 
-Dv2 시리즈 크기는 Intel® Xeon® 플래티넘 8272CL (케스케이드 Lake), Intel® Xeon® 8171M 2.1 GHz (Skylake) 또는 Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 또는 Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 프로세서에서 실행 됩니다.
+Dv2 시리즈 크기는 Intel® Xeon® Platinum 8272CL(Cascade Lake), Intel® Xeon® 8171M 2.1GHz(Skylake) 또는 Intel® Xeon® E5-2673 v4 2.3GHz(Broadwell) 또는 Intel® Xeon® E5-2673 v3 2.4GHz(Haswell) 프로세서에서 실행됩니다.
 
-[Acu](acu.md): 210-250<br>
-[Premium Storage](premium-storage-performance.md): 지원 되지 않음<br>
-[Premium Storage 캐싱](premium-storage-performance.md): 지원 되지 않음<br>
-[실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
-[메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
-[VM 생성 지원](generation-2.md): 1 세대<br>
-[가속화 된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨 (*최소 4 개의 vcpu 필요*)<br>
-[삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 되지 않음 <br>
+[ACU](acu.md): 210 - 250<br>
+[Premium Storage](premium-storage-performance.md): 지원되지 않음<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원되지 않음<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원됨<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원됨<br>
+[VM 생성 지원](generation-2.md): 1세대<br>
+[가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨(*최소 4개의 vCPU 필요*)<br>
+[임시 OS 디스크](ephemeral-os-disks.md): 지원되지 않음 <br>
 <br> 
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수|예상 네트워크 대역폭(Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_D11_v2 | 2  | 14  | 100 | 6000/93/46    | 8/8x500   | 2|1500  |
 | Standard_D12_v2 | 4  | 28  | 200 | 12000/187/93  | 16/16x500 | 4|3000  |
@@ -45,29 +45,29 @@ Dv2 시리즈 크기는 Intel® Xeon® 플래티넘 8272CL (케스케이드 Lake
 
 ## <a name="dsv2-series-11-15"></a>DSv2 시리즈 11-15
 
-DSv2 시리즈 크기는 Intel® Xeon® 플래티넘 8272CL (케스케이드 Lake), Intel® Xeon® 8171M 2.1 GHz (Skylake) 또는 Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 또는 Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 프로세서에서 실행 됩니다.
+DSv2 시리즈 크기는 Intel® Xeon® Platinum 8272CL(Cascade Lake), Intel® Xeon® 8171M 2.1GHz(Skylake) 또는 Intel® Xeon® E5-2673 v4 2.3GHz(Broadwell) 또는 Intel® Xeon® E5-2673 v3 2.4GHz(Haswell) 프로세서에서 실행됩니다.
 
-[Acu](acu.md): 210-250 <sup>1</sup><br>
-[Premium Storage](premium-storage-performance.md): 지원 됨<br>
-[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
-[실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
-[메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
-[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
-[가속화 된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨 (*최소 4 개의 vcpu 필요*)<br>
-[삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 됨 <br>
+[ACU](acu.md): 210 - 250 <sup>1</sup><br>
+[Premium Storage](premium-storage-performance.md): 지원됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원됨<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원됨<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원됨<br>
+[VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
+[가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨(*최소 4개의 vCPU 필요*)<br>
+[임시 OS 디스크](ephemeral-os-disks.md): 지원됨 <br>
 <br> 
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭(Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |---|
-| Standard_DS11_v2 <sup>3</sup> | 2  | 14  | 28  | 8  | 8000/64 (72)    | 6400/96   | 2|1500  |
-| Standard_DS12_v2 <sup>3</sup> | 4  | 28  | 56  | 16 | 16000/128 (144) | 12800/192 | 4|3000  |
-| Standard_DS13_v2 <sup>3</sup> | 8  | 56  | 112 | 32 | 32000/256 (288) | 25600/384 | 8|6000  |
-| Standard_DS14_v2 <sup>3</sup> | 16 | 112 | 224 | 64 | 64000/512 (576) | 51200/768 | 8|12000 |
-| Standard_DS15_v2 <sup>2</sup> | 20 | 140 | 280 | 64 | 80000/640 (720) | 64000/960 | 8|25000 <sup>4</sup> |
+| Standard_DS11_v2 <sup>3</sup> | 2  | 14  | 28  | 8  | 8000/64(72)    | 6400/96   | 2|1500  |
+| Standard_DS12_v2 <sup>3</sup> | 4  | 28  | 56  | 16 | 16000/128(144) | 12800/192 | 4|3000  |
+| Standard_DS13_v2 <sup>3</sup> | 8  | 56  | 112 | 32 | 32000/256(288) | 25600/384 | 8|6000  |
+| Standard_DS14_v2 <sup>3</sup> | 16 | 112 | 224 | 64 | 64000/512(576) | 51200/768 | 8|12000 |
+| Standard_DS15_v2 <sup>2</sup> | 20 | 140 | 280 | 64 | 80000/640(720) | 64000/960 | 8|25000 <sup>4</sup> |
 
 <sup>1</sup> DSv2 시리즈 VM에서 제공 가능한 최대 디스크 처리량(IOPS 또는 MBps)은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다.  자세한 내용은 [고성능을 위한 디자인](./premium-storage-performance.md)을 참조하세요.
-<sup>2</sup>  인스턴스는 Intel haswell 기반 하드웨어로 격리 되며 단일 고객 전용입니다.  
-<sup>3</sup> 제한 된 코어 크기를 사용할 수 있습니다.  
+<sup>2</sup>  인스턴스는 Intel Haswell 기반 하드웨어로 격리되며 단일 고객 전용입니다.  
+<sup>3</sup> 사용 가능한 코어 크기 제한  
 <sup>4</sup> 가속 네트워킹 사용 시 25,000Mbps
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
@@ -83,7 +83,7 @@ DSv2 시리즈 크기는 Intel® Xeon® 플래티넘 8272CL (케스케이드 Lak
 
 가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
 
-디스크 유형에 대 한 자세한 정보: [디스크 유형](./disks-types.md#ultra-disk)
+디스크 유형에 대한 자세한 정보: [디스크 유형](./disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>다음 단계

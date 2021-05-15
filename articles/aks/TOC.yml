@@ -282,7 +282,7 @@
               href: managed-aad.md
             - name: Azure AD 통합(레거시)
               href: azure-ad-integration-cli.md
-        - name: Kubernetes 권한 부여를 위해 Azure RBAC 사용(미리 보기)
+        - name: Kubernetes 권한 부여에 Azure RBAC 사용
           href: manage-azure-rbac.md
         - name: Azure AD 통합에 Kubernetes RBAC 사용
           href: azure-ad-rbac.md

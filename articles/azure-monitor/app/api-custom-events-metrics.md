@@ -4,12 +4,12 @@ description: 디바이스 또는 데스크톱 앱, 웹 페이지, 서비스에 �
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: c43ecced4c87deda3e3d92a470d6694dfd1813e2
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 8e866dc30d83f1b1f080a1be385026dcfbc77320
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331523"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122104"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
@@ -42,7 +42,7 @@ Application Insights SDK에 대한 참조가 아직 없는 경우:
   * [ASP.NET Core 프로젝트](./asp-net-core.md)
   * [Java 프로젝트](./java-get-started.md)
   * [Node.js 프로젝트](./nodejs.md)
-  * [각 웹 페이지의 JavaScript](./javascript.md)
+  * [각 웹 페이지의 JavaScript](./javascript.md) 
 * 디바이스 또는 웹 서버 코드에 다음을 포함합니다.
 
     *C#:* `using Microsoft.ApplicationInsights;`
@@ -66,7 +66,6 @@ AzureFunctions v2+ 또는 Azure WebJobs v3+를 사용하는 경우, 다음 문�
 ```csharp
 private TelemetryClient telemetry = new TelemetryClient();
 ```
-
 이 방법은 사용되지 않는 메시지이므로, 자세한 내용은 [microsoft/ApplicationInsights-dotnet#1152](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1152)를 참조하세요.
 
 *Visual Basic*
@@ -79,7 +78,7 @@ Private Dim telemetry As New TelemetryClient
 
 ```java
 private TelemetryClient telemetry = new TelemetryClient();
-```
+``` 
 
 *Node.JS*
 
@@ -149,6 +148,8 @@ telemetry.trackEvent({name: "WinGame"});
 
 원격 분석은 `customEvents` [Application Insights Logs 탭](../logs/log-query-overview.md) 또는 [Usage Experience](usage-overview.md)의 테이블에서 이용할 수 있습니다. 이벤트가 `trackEvent(..)` 또는 [분석 자동 컬렉션 플러그 인 클릭](javascript-click-analytics-plugin.md)에서 발생할 수 있습니다.
 
+ 
+
 [샘플링](./sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackEvent()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 따라서 정확한 사용자 지정 이벤트 수를 가져오려면 `customEvents | summarize sum(itemCount)`와 같은 코드를 사용해야 합니다.
 
 ## <a name="getmetric"></a>GetMetric
@@ -176,15 +177,15 @@ Application Insights로 메트릭을 보내려면 `TrackMetric(..)` API를 사�
 
 *JavaScript*
 
-```javascript
+ ```javascript
 appInsights.trackMetric("queueLength", 42.0);
-```
+ ```
 
 *C#*
 
 ```csharp
 var sample = new MetricTelemetry();
-sample.Name = "queueLength";
+sample.Name = "metric name";
 sample.Value = 42.3;
 telemetryClient.TrackMetric(sample);
 ```
@@ -197,9 +198,9 @@ telemetry.trackMetric("queueLength", 42.0);
 
 *Node.JS*
 
-```javascript
+ ```javascript
 telemetry.trackMetric({name: "queueLength", value: 42.0});
-```
+ ```
 
 ### <a name="custom-metrics-in-analytics"></a>분석의 사용자 지정 메트릭
 
@@ -494,7 +495,7 @@ trackTrace({
 
 메서드 출입 같은 진단 이벤트를 기록합니다.
 
- 매개 변수 | Description
+ 매개 변수 | 설명
 ---|---
 `message` | 진단 데이터입니다. 이름보다 훨씬 길어질 수 있습니다.
 `properties` | 문자열을 문자열로 매핑: 포털에서 [예외를 필터링](#properties)하는 데 사용되는 추가 데이터입니다. 기본적으로 비어 있습니다.
@@ -503,7 +504,7 @@ trackTrace({
 메시지 내용을 검색할 수 있지만 속성 값과는 달리 필터링할 수는 없습니다.
 
 `message`의 크기 제한이 속성의 크기 제한보다 훨씬 높습니다.
-TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.
+TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.  
 
 또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
@@ -600,7 +601,7 @@ finally
 }
 ```
 
-서버 SDK는 특정 종속성 호출(예: 데이터베이스 및 REST API)을 자동으로 검색하고 추적하는 [종속성 모듈](./asp-net-dependencies.md)을 포함합니다. 모듈 작업을 만들기 위해 서버에 에이전트를 설치해야 합니다.
+서버 SDK는 특정 종속성 호출(예: 데이터베이스 및 REST API)을 자동으로 검색하고 추적하는 [종속성 모듈](./asp-net-dependencies.md)을 포함합니다. 모듈 작업을 만들기 위해 서버에 에이전트를 설치해야 합니다. 
 
 Java에서 특정 종속성 호출은 [Java 에이전트](./java-agent.md)를 사용하여 자동으로 추적할 수 있습니다.
 
@@ -632,7 +633,7 @@ dependencies
 
 *C#*
 
-```csharp
+ ```csharp
 telemetry.Flush();
 // Allow some time for flushing before shutdown.
 System.Threading.Thread.Sleep(5000);
@@ -797,6 +798,8 @@ telemetry.trackEvent("WinGame", properties, metrics);
 
 > [!NOTE]
 > 속성에 개인 식별이 가능한 정보를 기록하지 않도록 주의해야 합니다.
+>
+>
 
 ### <a name="alternative-way-to-set-properties-and-metrics"></a>속성 및 메트릭을 설정하는 또 다른 방법
 
@@ -817,6 +820,8 @@ telemetry.TrackEvent(event);
 
 > [!WARNING]
 > Track*()을 여러 번 호출하기 위해 같은 원격 분석 항목 인스턴스(이 예에서 `event`)를 다시 사용하지 않습니다. 그러면 원격 분석을 잘못된 구성과 함께 보낼 수 있습니다.
+>
+>
 
 ### <a name="custom-measurements-and-properties-in-analytics"></a>분석의 사용자 지정 측정 및 속성
 
@@ -908,6 +913,7 @@ import com.microsoft.applicationinsights.TelemetryClient;
 import com.microsoft.applicationinsights.TelemetryContext;
 ...
 
+
 TelemetryClient gameTelemetry = new TelemetryClient();
 TelemetryContext context = gameTelemetry.getContext();
 context.getProperties().put("Game", currentGame.Name);
@@ -940,7 +946,7 @@ SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 
 
 [샘플링](./api-filtering-sampling.md)은 앱에서 포털로 전송되는 데이터의 양을 줄이는 패키지 솔루션입니다. 표시된 메트릭에 영향을 주지 않습니다. 예외, 요청 및 페이지 뷰와 같은 관련된 항목 간을 이동하여 문제를 진단하는 기능에 영향을 주지 않습니다.
 
-[자세한 정보를 알아보세요](./api-filtering-sampling.md).
+[자세히 알아봅니다](./api-filtering-sampling.md).
 
 ## <a name="disabling-telemetry"></a>원격 분석 사용 안 함
 

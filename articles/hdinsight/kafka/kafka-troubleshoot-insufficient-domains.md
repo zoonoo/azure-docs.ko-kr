@@ -1,35 +1,35 @@
 ---
-title: Azure HDInsight에서 지역 오류에 장애 도메인이 부족 합니다.
-description: Azure HDInsight의 지역에 장애 도메인이 충분 하지 않아 클러스터를 만들지 못했습니다.
+title: Azure HDInsight에서 지역 오류에 장애 도메인이 부족합니다.
+description: Azure HDInsight의 지역에 장애 도메인이 충분하지 않아 클러스터를 만들지 못했습니다.
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/09/2019
 ms.openlocfilehash: ed9e98750a469f78855096c3149254cf92c2788f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102501348"
 ---
-# <a name="scenario-cluster-creation-failed-due-to-not-sufficient-fault-domains-in-region-in-azure-hdinsight"></a>시나리오: `not sufficient fault domains in region` Azure HDInsight에서로 인해 클러스터를 만들지 못했습니다.
+# <a name="scenario-cluster-creation-failed-due-to-not-sufficient-fault-domains-in-region-in-azure-hdinsight"></a>시나리오: Azure HDInsight의 `not sufficient fault domains in region`로 인해 클러스터를 만들지 못했습니다.
 
-이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
+이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대한 문제 해결 단계 및 가능한 해결 방법을 설명합니다.
 
 ## <a name="issue"></a>문제
 
-Apache Kafka 클러스터를 만들려고 할 때와 유사한 오류 메시지가 표시 `not sufficient fault domains in region` 됩니다.
+Apache Kafka 클러스터를 만들려고 할 때 `not sufficient fault domains in region`와 유사한 오류 메시지가 수신됩니다.
 
 ## <a name="cause"></a>원인
 
 장애 도메인은 Azure 데이터 센터에 있는 기본 하드웨어의 논리적 그룹입니다. 장애 도메인마다 공통 전원과 네트워크 스위치를 공유합니다. HDInsight 클러스터 내의 노드를 구현하는 가상 머신과 관리 디스크는 이러한 장애 도메인에 분산되어 있습니다. 이 아키텍처에서는 실제 하드웨어 오류의 잠재적 영향을 제한합니다.
 
-Azure 지역마다 특정 수의 장애 도메인이 있습니다. 도메인 목록과 여기에 포함 된 장애 도메인의 수에 대 한 자세한 내용은 [가용성 집합](../../virtual-machines/availability.md)에 대 한 설명서를 참조 하세요.
+Azure 지역마다 특정 수의 장애 도메인이 있습니다. 도메인 목록과 해당 도메인에 포함된 장애 도메인의 수에 대한 내용은 [가용성 집합](../../virtual-machines/availability.md) 설명서를 참조하세요.
 
-HDInsight에서 Kafka 클러스터는 세 개 이상의 장애 도메인을 포함 하는 지역에서 프로 비전 해야 합니다.
+HDInsight에서 Kafka 클러스터는 세 개 이상의 장애 도메인을 포함하는 지역에서 프로비저닝되어야 합니다.
 
 ## <a name="resolution"></a>해결 방법
 
-클러스터를 만들려는 지역에 충분 한 장애 도메인이 없는 경우 세 개의 장애 도메인이 없더라도 제품 팀에 연락 하 여 클러스터를 프로 비전 할 수 있도록 합니다.
+클러스터를 만들려는 지역에 충분한 장애 도메인이 없는 경우, 세 개의 장애 도메인이 없더라도 제품 팀에 연락하여 클러스터를 프로비저닝할 수 있도록 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

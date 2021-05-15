@@ -5,10 +5,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 02/12/2018
 ms.openlocfilehash: cd339729f2300ff7e13e7422bf73373b4ce4658e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92221012"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대한 진단 로그에 액세스
@@ -25,7 +25,7 @@ ms.locfileid: "92221012"
 
 2. Data Lake Analytics 계정을 열고 __모니터링__ 섹션에서 **진단 로그** 를 선택합니다. 다음으로, __진단 상태 켜기__ 를 선택합니다.
 
-    !["진단 로그" 작업을 선택 하 고 "진단 기능을 사용 하 여 다음 로그를 수집" 하는 것을 보여 주는 스크린샷 강조 표시 됩니다.](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
+    ![‘진단 로그’ 작업이 선택되고 ‘진단을 켜서 다음 로그 수집’이 강조 표시된 스크린샷입니다.](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
 3. __진단 설정__ 에서 이 로깅 구성에 __이름__ 을 입력하고 로깅 옵션을 선택합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "92221012"
 
      * Azure Event Hub에 로그 데이터를 스트리밍하려면 **이벤트 허브로 스트리밍** 을 선택합니다. 들어오는 로그를 실시간으로 분석하는 다운스트림 처리 파이프라인을 사용하는 경우 이 옵션을 사용합니다. 이 옵션을 선택하는 경우 사용하려는 Azure 이벤트 허브에 대한 세부 정보를 제공해야 합니다.
 
-     * __Log Analytics 보내기를__ 선택 하 여 데이터를 Azure Monitor 서비스로 보냅니다. Azure Monitor 로그를 사용 하 여 로그를 수집 하 고 분석 하려는 경우이 옵션을 사용 합니다.
+     * __Log Analytics로 보내기__ 를 선택하여 데이터를 Azure Monitor 서비스로 보냅니다. Azure Monitor 로그를 사용하여 로그를 수집하고 분석하려는 경우 이 옵션을 사용합니다.
    * 감사 로그 또는 요청 로그를 가져올지, 혹은 둘 모두를 가져올지를 지정합니다.  요청 로그는 모든 API 요청을 캡처합니다. 감사 로그는 해당 API 요청에 의해 트리거되는 모든 작업을 기록합니다.
 
    * __스토리지 계정에 보관__ 의 경우 데이터를 보관할 일 수를 지정합니다.
@@ -125,7 +125,7 @@ ms.locfileid: "92221012"
 
 #### <a name="request-log-schema"></a>요청 로그 스키마
 
-| Name | Type | 설명 |
+| 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
 | resourceId |String |작업이 수행되는 리소스의 식별자 |
@@ -139,7 +139,7 @@ ms.locfileid: "92221012"
 
 #### <a name="request-log-properties-schema"></a>요청 로그 속성 스키마
 
-| Name | Type | 설명 |
+| 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | HttpMethod |String |작업에 사용된 HTTP 메서드 예를 들어 GET |
 | 경로 |String |작업이 수행된 경로 |
@@ -175,7 +175,7 @@ ms.locfileid: "92221012"
 
 #### <a name="audit-log-schema"></a>감사 로그 스키마
 
-| Name | Type | 설명 |
+| 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
 | resourceId |String |작업이 수행되는 리소스의 식별자 |
@@ -183,7 +183,7 @@ ms.locfileid: "92221012"
 | operationName |String |기록된 작업의 이름 예를 들어 JobSubmitted |
 | resultType |String |작업 상태(operationName)에 대한 하위 상태입니다. |
 | resultSignature |String |작업 상태(operationName)에 추가 세부 정보입니다. |
-| identity |String |작업을 요청한 사용자입니다. 예: susan@contoso.com |
+| identity |String |작업을 요청한 사용자입니다. 예들 들어 susan@contoso.com입니다. |
 | properties |JSON |자세한 내용은 다음 섹션(감사 로그 속성 스키마)을 참조하세요. |
 
 > [!NOTE]
@@ -193,7 +193,7 @@ ms.locfileid: "92221012"
 
 #### <a name="audit-log-properties-schema"></a>감사 로그 속성 스키마
 
-| Name | Type | 설명 |
+| 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | JobId |String |작업에 할당된 ID |
 | JobName |String |작업에 대해 제공된 이름 |
@@ -208,7 +208,7 @@ ms.locfileid: "92221012"
 
 ## <a name="process-the-log-data"></a>로그 데이터 처리
 
-Azure Data Lake Analytics에서는 로그 데이터를 처리하고 분석하는 방법에 대한 샘플을 제공합니다. 에서 샘플을 찾을 수 있습니다 [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample) .
+Azure Data Lake Analytics에서는 로그 데이터를 처리하고 분석하는 방법에 대한 샘플을 제공합니다. [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample)에서 샘플을 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

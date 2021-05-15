@@ -1,6 +1,6 @@
 ---
-title: Linux 용 Azure VM 확장 및 기능
-description: 제공 하거나 개선 하는 항목에 따라 그룹화 된 Linux의 Azure virtual machines에 사용할 수 있는 확장에 대해 알아봅니다.
+title: Azure VM 확장 및 Linux용 기능
+description: Linux에서 제공하거나 개선한 항목별로 그룹화된 Azure 가상 시스템에 사용할 수 있는 확장 기능을 자세히 알아보십시오.
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
@@ -8,12 +8,12 @@ author: amjads1
 ms.author: amjads
 ms.collection: linux
 ms.date: 03/30/2018
-ms.openlocfilehash: 8ff7b2940ca9ce3e5dc5913c0e676a32857771e7
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
-ms.translationtype: MT
+ms.openlocfilehash: bdbbc4c421b83fd041c7d900fb0edd01c4d636e0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105046881"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785094"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Linux용 가상 머신 확장 및 기능
 
@@ -31,7 +31,7 @@ Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 자동화
 
 프로세스 관련 확장 외에도 Windows 및 Linux 가상 머신에 대해 사용자 지정 스크립트 확장을 사용할 수 있습니다. Linux용 사용자 지정 스크립트 확장을 사용하면 Bash 스크립트를 VM에서 실행할 수 있습니다. 사용자 지정 스크립트는 네이티브 Azure 도구로 제공할 수 있는 것 이상의 구성이 필요한 Azure 배포를 디자인할 때 유용합니다. 자세한 내용은 [Linux VM 사용자 지정 스크립트 확장](custom-script-linux.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 VM에서 확장을 처리하려면 Azure Linux 에이전트를 설치해야 합니다. 일부 개별 확장에는 리소스에 대한 액세스 권한 또는 종속성 같은 필수 구성 요소가 있습니다.
 
@@ -39,7 +39,7 @@ VM에서 확장을 처리하려면 Azure Linux 에이전트를 설치해야 합�
 
 Azure VM 에이전트는 Azure VM과 Azure 패브릭 컨트롤러 간 상호 작용을 관리합니다. VM 에이전트는 VM 확장 실행을 포함하여 Azure VM 배포 및 관리의 다양한 기능적 측면을 담당합니다. Azure VM 에이전트는 Azure Marketplace 이미지에 미리 설치되며 지원되는 운영 체제에 수동으로 설치될 수 있습니다. Linux용 Azure VM 에이전트는 Linux 에이전트로 알려져 있습니다.
 
-지원 되는 운영 체제 및 설치 지침에 대 한 자세한 내용은 [Azure 가상 컴퓨터 에이전트](agent-linux.md)를 참조 하세요.
+지원되는 운영 체제 및 설치 지침에 대한 자세한 내용은 [Azure Virtual Machines 에이전트](agent-linux.md)를 참조하세요.
 
 #### <a name="supported-agent-versions"></a>지원되는 에이전트 버전
 
@@ -65,7 +65,7 @@ Linux 에이전트에는 에이전트 트래픽 요청을 리디렉션하기 위
 
 ## <a name="discover-vm-extensions"></a>VM 확장 검색
 
-Azure VM에서 여러 다양한 VM 확장을 사용할 수 있습니다. 전체 목록을 보려면 [az vm extension image list](/cli/azure/vm/extension/image#az-vm-extension-image-list)를 사용합니다. 다음 예제에서는 *westus* 위치에서 사용 가능한 모든 확장을 나열 합니다.
+Azure VM에서 여러 다양한 VM 확장을 사용할 수 있습니다. 전체 목록을 보려면 [az vm extension image list](/cli/azure/vm/extension/image#az_vm_extension_image_list)를 사용합니다. 다음 예제에서는 *westus* 위치의 모든 사용 가능한 확장을 나열합니다.
 
 ```azurecli
 az vm extension image list --location westus --output table
@@ -79,7 +79,7 @@ Azure VM 확장은 기존 VM에서 실행됩니다. 이러한 기능은 이미 �
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure VM 확장은 [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) 명령을 사용하여 기존 VM에 대해 실행할 수 있습니다. 다음 예제에서는 *Myvm* 이라는 리소스 그룹에서 *MYVM* 이라는 Vm에 대해 사용자 지정 스크립트 확장을 실행 합니다. 사용자 고유의 정보를 사용 하 여 예제 리소스 그룹 이름, VM 이름 및 스크립트를 실행 (https: \/ /raw.githubusercontent.com/me/project/hello.sh)으로 바꿉니다. 
+Azure VM 확장은 [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) 명령을 사용하여 기존 VM에 대해 실행할 수 있습니다. 다음 예에서는 *myResourceGroup* 이라는 리소스 그룹의 *myVM* 이라는 VM에 대해 사용자 지정 스크립트 확장을 실행합니다. 사용자 고유의 정보를 사용하여 예제 리소스 그룹 이름, VM 이름 및 스크립트를 실행 (https:\//raw.githubusercontent.com/me/project/hello.sh)으로 바꿉니다. 
 
 ```azurecli
 az vm extension set `
@@ -99,7 +99,7 @@ info:    Executing command vm extension set
 info:    vm extension set command OK
 ```
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal을 통해 기존 VM에 VM 확장을 적용할 수 있습니다. 포털에서 VM을 선택하고, **확장** 을 선택한 다음, **추가** 를 선택합니다. 사용 가능한 확장 목록에서 원하는 확장을 선택하고 마법사의 지시를 따릅니다.
 
@@ -107,11 +107,11 @@ Azure Portal을 통해 기존 VM에 VM 확장을 적용할 수 있습니다. 포
 
 ![Install custom script extension](./media/features-linux/installscriptextensionlinux.png)
 
-### <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
+### <a name="azure-resource-manager-templates"></a>Azure Resource Manager 템플릿
 
-Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포를 통해 실행할 수 있습니다. 템플릿을 사용하여 확장을 배포할 때 완전히 구성된 Azure 배포를 만들 수 있습니다. 예를 들어 다음 JSON은 부하 분산 된 Vm 및 Azure SQL Database 집합을 배포 하는 리소스 관리자 템플릿에서 가져온 후 각 VM에 .NET Core 응용 프로그램을 설치 합니다. VM 확장은 소프트웨어 설치를 관리합니다.
+Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포를 통해 실행할 수 있습니다. 템플릿을 사용하여 확장을 배포할 때 완전히 구성된 Azure 배포를 만들 수 있습니다. 예를 들어 다음 JSON은 부하 분산된 VM 세트 및 Azure SQL 데이터베이스를 배포한 후 각 VM에 .NET 핵심 애플리케이션을 설치하는 Resource Manager 템플릿에서 가져옵니다. VM 확장은 소프트웨어 설치를 관리합니다.
 
-자세한 내용은 전체 [리소스 관리자 템플릿](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)을 참조 하세요.
+자세한 내용은 전체 [Resource Manager 템플릿](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)을 참조하세요.
 
 ```json
 {
@@ -277,7 +277,7 @@ Goal state agent: 2.2.18
 
 #### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>확장이 VM에서 autoUpgradeMinorVersion로 설정되었는지를 식별합니다.
 
-확장이 ‘autoUpgradeMinorVersion’을 사용하여 프로비전된 경우 VM 모델에서 볼 수 있습니다. 확인하려면 [az vm show](/cli/azure/vm#az-vm-show)를 사용하고 다음과 같이 리소스 그룹 및 VM 이름을 제공합니다.
+확장이 ‘autoUpgradeMinorVersion’을 사용하여 프로비전된 경우 VM 모델에서 볼 수 있습니다. 확인하려면 [az vm show](/cli/azure/vm#az_vm_show)를 사용하고 다음과 같이 리소스 그룹 및 VM 이름을 제공합니다.
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM
@@ -346,7 +346,7 @@ INFO [Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027] Launch command:diagnost
 
 ### <a name="view-extension-status"></a>확장 상태 보기
 
-VM 확장이 VM에 대해 실행된 후에 다음과 같이 [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view)를 사용하여 확장 상태를 반환합니다.
+VM 확장이 VM에 대해 실행된 후에 다음과 같이 [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view)를 사용하여 확장 상태를 반환합니다.
 
 ```azurecli
 az vm get-instance-view \
@@ -379,7 +379,7 @@ Azure Portal에서 확장 실행 상태를 찾을 수도 있습니다. 확장의
 
 ### <a name="rerun-a-vm-extension"></a>VM 확장 다시 실행
 
-VM 확장을 다시 실행해야 하는 경우가 있을 수 있습니다. 확장을 다시 실행하려면 확장을 제거한 다음 원하는 실행 방법으로 확장을 다시 실행하면 됩니다. 확장을 제거하려면 다음과 같이 [az vm extension delete](/cli/azure/vm/extension#az-vm-extension-delete)를 사용합니다.
+VM 확장을 다시 실행해야 하는 경우가 있을 수 있습니다. 확장을 다시 실행하려면 확장을 제거한 다음 원하는 실행 방법으로 확장을 다시 실행하면 됩니다. 확장을 제거하려면 다음과 같이 [az vm extension delete](/cli/azure/vm/extension#az_vm_extension_delete)를 사용합니다.
 
 ```azurecli
 az vm extension delete \
@@ -397,7 +397,7 @@ az vm extension delete \
 
 ## <a name="common-vm-extension-reference"></a>일반적인 VM 확장 참조
 
-| 확장 이름 | Description | 자세한 정보 |
+| 확장 이름 | Description | 추가 정보 |
 | --- | --- | --- |
 | Linux용 사용자 지정 스크립트 확장 |Azure Virtual Machine에 대해 스크립트 실행 |[Linux용 사용자 지정 스크립트 확장](custom-script-linux.md) |
 | VM 액세스 확장 |Azure Virtual Machine에 대한 액세스 권한 복구 |[VM 액세스 확장](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |

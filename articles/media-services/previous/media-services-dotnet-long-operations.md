@@ -1,6 +1,6 @@
 ---
 title: 폴링 장기 실행 작업 | Microsoft 문서
-description: 'Azure Media Services는 작업을 시작 (예: 채널 만들기, 시작, 중지 또는 삭제) 하기 위해 Media Services 요청을 보내는 Api를 제공 합니다. 이러한 작업은 장기 실행입니다. 이 토픽에서는 장기 실행 작업을 폴링하는 방법을 보여 줍니다.'
+description: 'Azure Media Services는 작업을 시작하기 위해 Media Services에 요청을 보내는 API(예: 채널 생성, 시작, 중지 또는 삭제)를 제공합니다. 이러한 작업은 장시간 실행됩니다. 이 토픽에서는 장기 실행 작업을 폴링하는 방법을 보여 줍니다.'
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -16,10 +16,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7926f7aaa427d49d13cab5e13f5153bcd22e5898
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103013825"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Azure Media Services를 사용하여 라이브 스트리밍 제공
@@ -41,7 +41,7 @@ Media Services .NET SDK는 요청을 보내고 작업이 완료되기를 기다�
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-개발 환경을 설정 하 고 [.net을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다.
+개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다.
 
 ## <a name="example"></a>예제
 

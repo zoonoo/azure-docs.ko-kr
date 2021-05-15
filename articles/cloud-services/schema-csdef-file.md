@@ -1,24 +1,25 @@
 ---
-title: Azure Cloud Services (클래식) 정의 스키마 (.csdef 파일) | Microsoft Docs
-description: 서비스 정의 (.csdef) 파일은 사용 가능한 역할, 끝점 및 서비스에 대 한 구성 값을 포함 하는 응용 프로그램에 대 한 서비스 모델을 정의 합니다.
+title: Azure Cloud Services(클래식) 정의 스키마(.csdef 파일) | Microsoft Docs
+description: 서비스 정의(.csdef) 파일은 사용 가능한 역할, 엔드포인트, 서비스에 대한 구성 값을 포함하는 애플리케이션에 대한 서비스 모델을 정의합니다.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: b98534b049698ea95c6738ce3404dd5ef8ff7a28
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.openlocfilehash: f201bc05795fa6aece256f3d3b4bd650385fef48
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102502267"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934141"
 ---
-# <a name="azure-cloud-services-classic-definition-schema-csdef-file"></a>Azure Cloud Services (클래식) 정의 스키마 (.csdef 파일)
+# <a name="azure-cloud-services-classic-definition-schema-csdef-file"></a>Azure Cloud Services(클래식) 정의 스키마(.csdef 파일)
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 서비스 정의 파일은 애플리케이션에 대한 서비스 모델을 정의합니다. 파일은 클라우드 서비스에 사용할 수 있는 역할에 대한 정의가 포함되며, 서비스 엔드포인트를 지정하고, 서비스에 대한 구성 설정을 설정합니다. 구성 설정 값은 [Cloud Service(클래식) 구성 스키마](/previous-versions/azure/reference/ee758710(v=azure.100))에 설명된 대로 서비스 구성 파일에서 설정됩니다.
 
@@ -58,7 +59,7 @@ ms.locfileid: "102502267"
 
 - [LoadBalancerProbe 스키마](schema-csdef-loadbalancerprobe.md)
 - [WebRole 스키마](schema-csdef-webrole.md)
-- [작업자 역할 스키마](schema-csdef-workerrole.md)
+- [WorkerRole 스키마](schema-csdef-workerrole.md)
 - [NetworkTrafficRules 스키마](schema-csdef-networktrafficrules.md)
 
 ##  <a name="servicedefinition-element"></a><a name="ServiceDefinition"></a> ServiceDefinition 요소
@@ -66,9 +67,9 @@ ms.locfileid: "102502267"
 
 다음 표에서는 `ServiceDefinition` 요소의 특성을 설명합니다.
 
-| 특성               | 설명 |
+| attribute               | 설명 |
 | ----------------------- | ----------- |
 | name                    |필수 요소. 서비스의 이름입니다. 이름은 서비스 계정 내에서 고유해야 합니다.|
 | topologyChangeDiscovery | 선택 사항입니다. 토폴로지 유형 변경 알림을 지정합니다. 가능한 값은 다음과 같습니다.<br /><br /> -   `Blast` - 업데이트를 모든 역할 인스턴스에 최대한 빨리 보냅니다. 옵션을 선택한 경우 역할은 시작하지 않고 토폴로지 업데이트를 처리할 수 있어야 합니다.<br />-   `UpgradeDomainWalk` - 이전 인스턴스가 업데이트를 성공적으로 수락한 후 업데이트를 각 역할 인스턴스에 순차적으로 보냅니다.|
 | schemaVersion           | 선택 사항입니다. 서비스 정의 스키마의 버전을 지정합니다. 스키마 버전을 사용하면 SDK가 둘 이상의 버전이 동시에 설치된 경우 Visual Studio에서 스키마 유효성 검사에 사용할 올바른 SDK 도구를 선택할 수 있습니다.|
-| upgradeDomainCount      | 선택 사항입니다. 이 서비스의 역할이 할당되는 업그레이드 도메인의 수를 지정합니다. 서비스를 배포할 때 역할 인스턴스가 업그레이드 도메인에 할당됩니다. 자세한 내용은 [클라우드 서비스 역할 또는 배포 업데이트](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment), [가상 컴퓨터의 가용성 관리](../virtual-machines/availability.md) 및 [클라우드 서비스 모델 정의](./cloud-services-model-and-package.md)를 참조 하세요.<br /><br /> 최대 20개의 업그레이드 도메인을 지정할 수 있습니다. 지정하지 않은 경우 업그레이드 도메인의 기본값은 5입니다.|
+| upgradeDomainCount      | 선택 사항입니다. 이 서비스의 역할이 할당되는 업그레이드 도메인의 수를 지정합니다. 서비스를 배포할 때 역할 인스턴스가 업그레이드 도메인에 할당됩니다. 자세한 내용은 [클라우드 서비스 역할 또는 배포 업데이트](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment), [가상 머신의 가용성 관리](../virtual-machines/availability.md) 및 [클라우드 서비스 모델 정의](./cloud-services-model-and-package.md)를 참조하세요.<br /><br /> 최대 20개의 업그레이드 도메인을 지정할 수 있습니다. 지정하지 않은 경우 업그레이드 도메인의 기본값은 5입니다.|

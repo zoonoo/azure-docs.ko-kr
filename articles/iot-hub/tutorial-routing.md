@@ -2,23 +2,22 @@
 title: 자습서 - Azure CLI를 사용하여 Azure IoT Hub에 대한 메시지 라우팅 구성
 description: 자습서 - Azure CLI 및 Azure Portal을 사용하여 Azure IoT Hub에 대한 메시지 라우팅 구성
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 03/12/2019
+ms.date: 04/04/2021
 ms.author: robinsh
 ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: d7a10aac82286616273f7283bc3fba74f2c58f35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 965738a735052947940ec3763c664e5e90909ee1
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821670"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278297"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>자습서: Azure CLI 및 Azure Portal을 사용하여 IoT Hub 메시지 라우팅 구성
 
@@ -159,7 +158,7 @@ az servicebus queue create --name $sbQueueName \
    >
    > 예를 들어 기본 Blob 파일 이름 형식을 사용하고 허브 이름이 ContosoTestHub, 날짜/시간이 2018년 10월 30일 오전 10시 56분인 경우 Blob 이름은 `ContosoTestHub/0/2018/10/30/10/56`과 비슷합니다.
    > 
-   > Blob은 Avro 형식으로 기록됩니다.
+   > Blob은 기본적으로 AVRO 형식으로 작성됩니다.
    >
 
 8. **만들기** 를 선택하여 스토리지 엔드포인트를 만들고 경로에 추가합니다. **경로 추가** 창으로 돌아갑니다.

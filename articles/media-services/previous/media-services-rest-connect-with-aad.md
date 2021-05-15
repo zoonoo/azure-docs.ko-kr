@@ -15,10 +15,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.reviewer: willzhan; johndeu
 ms.openlocfilehash: a2b4e7bf03ebb1fbc197b78287cb50b3f421d713
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103017310"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Azure AD 인증을 사용하여 REST로 Media Services API 액세스
@@ -38,7 +38,7 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가�
     > [!NOTE]
     > **서비스 주체** 는 Azure Media Services에 연결하는 대다수 애플리케이션에 사용하는 것이 좋은 모범 사례입니다. 
 
-이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Portal에서 인증 정보 가져오기
@@ -52,7 +52,7 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가�
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
-- [Azure Portal를 사용 하 여 Azure Media Services 계정을 만듭니다](media-services-portal-create-account.md).
+- [Azure Portal을 사용하여 Azure Media Services 계정을 만듭니다](media-services-portal-create-account.md).
 - [Azure AD 인증을 사용하여 Azure Media Services API 액세스 개요](media-services-use-aad-auth-to-access-ams-api.md) 문서를 검토합니다.
 - [Postman](https://www.getpostman.com/) REST 클라이언트를 설치하여 이 문서에 나와 있는 REST API를 실행합니다. 
 
@@ -77,10 +77,10 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. AMS 인스턴스로 이동합니다.
-3. **API 액세스** 를 선택 합니다.
+3. **API 액세스** 를 선택합니다.
 4. **서비스 주체를 사용하여 Azure Media Services API에 연결** 을 클릭합니다.
 
-    ![오른쪽 창에서 "Media Services" 메뉴를 선택 하 고 "서비스 주체를 사용 하 여 Azure Media Services A P I에 연결"을 선택한 "A P I 액세스"를 보여 주는 스크린샷](./media/connect-with-rest/connect-with-rest01.png)
+    !["미디어 서비스" 메뉴에서 선택한 "API 액세스"와 오른쪽 창에서 선택한 "서비스 주체를 사용하여 Azure Media Services API에 연결"을 표시하는 스크린샷.](./media/connect-with-rest/connect-with-rest01.png)
 
 5. 기존 **Azure AD 애플리케이션** 을 선택하거나 아래와 같이 새 애플리케이션을 만듭니다.
 
@@ -94,7 +94,7 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
    3. **새로 만들기** 를 다시 누릅니다.
    4. **저장** 을 누릅니다.
 
-      !["앱 만들기" 입력란이 강조 표시 되 고 "저장" 단추가 선택 된 "새로 만들기" 대화 상자를 보여 주는 스크린샷](./media/connect-with-rest/new-app.png)
+      !["앱 만들기" 텍스트 상자와 "새로 만들기" 대화 상자가 강조 표시되어 있고 "저장" 단추가 선택되어 있는 스크린샷.](./media/connect-with-rest/new-app.png)
 
       새 앱이 페이지에 표시됩니다.
 
@@ -103,14 +103,14 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
    1. 애플리케이션을 선택합니다.
    2. 오른쪽 창에서 **클라이언트 ID** 를 가져옵니다. 
 
-      !["Azure A D 앱" 및 "응용 프로그램 관리"를 선택 하 고 오른쪽 창에 "클라이언트 I D"가 강조 표시 된 스크린샷](./media/connect-with-rest/existing-client-id.png)
+      !["Azure AD 앱" 및 "애플리케이션 관리"가 선택되어 있고 오른쪽 창 "클라이언트 ID"가 강조 표시되어 있는 스크린샷.](./media/connect-with-rest/existing-client-id.png)
 
 7. 애플리케이션의 **키**(클라이언트 암호) 가져오기 
 
    1. **애플리케이션 관리** 단추를 클릭합니다. 클라이언트 ID 정보는 **애플리케이션 ID** 아래에 있습니다. 
    2. **키** 를 누릅니다.
     
-       !["응용 프로그램 관리" 단추를 선택 하 고, 가운데 창에서 "응용 프로그램 I D"를 강조 표시 하 고, 오른쪽 창에서 "키"를 선택 하는 스크린샷](./media/connect-with-rest/manage-app.png)
+       !["애플리케이션 관리" 단추가 선택되어 있고, 가운데 창에 "애플리케이션 ID"가 강조 표시되어 있으며, 오른쪽 창에 "키"가 선택되어 있는 스크린샷.](./media/connect-with-rest/manage-app.png)
    3. **설명** 과 **만료 날짜** 를 입력하고 **저장** 을 눌러 앱 키(클라이언트 암호)를 생성합니다.
     
        **저장** 단추를 누르면 키 값이 표시됩니다. 블레이드에서 나가기 전에 키 값을 복사합니다.
@@ -135,7 +135,7 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 4. **Headers** 탭을 선택합니다.
 5. "Key/Value" 데이터 표를 사용하여 **Headers** 정보를 입력합니다. 
 
-    !["헤더" 탭 및 "대량 편집" 작업을 보여 주는 스크린샷](./media/connect-with-rest/headers-data-grid.png)
+    !["Headers" 탭 및 "Bulk Edit" 작업이 선택되어 있는 스크린샷.](./media/connect-with-rest/headers-data-grid.png)
 
     Postman 창 오른쪽의 **Bulk Edit** 링크를 클릭하고 다음 코드를 붙여 넣어도 됩니다.
 
@@ -160,7 +160,7 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 
 8. **보내기** 를 누릅니다.
 
-    !["Post" 텍스트 상자, "머리글" 및 "본문" 탭을 표시 하 고 "access_token"를 강조 표시 하 고 "보내기" 단추를 검색 하는 스크린샷](./media/connect-with-rest/connect-with-rest04.png)
+    !["Post" 텍스트 상자, "Headers" 및 "Body" 탭을 보여주고 "access_token" 및 "보내기" 단추가 강조 표시되어 있는 스크린샷.](./media/connect-with-rest/connect-with-rest04.png)
 
 반환되는 응답에는 AMS API에 액세스하려면 사용해야 하는 **액세스 토큰** 이 포함되어 있습니다.
 
@@ -169,7 +169,7 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 이 섹션에서는 **Postman** 을 사용하여 **Assets** API에 액세스하는 방법을 설명합니다.
 
 1. **Postman** 을 엽니다.
-2. **가져오기** 를 선택 합니다.
+2. **GET** 을 선택합니다.
 3. REST API 엔드포인트 붙여넣기(예: https://amshelloworld.restv2.westus.media.azure.net/api/Assets))
 4. **Authorization** 탭을 선택합니다. 
 5. **Bearer Token** 을 선택합니다.

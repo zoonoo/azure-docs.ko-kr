@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 801c2fe1710952a12584bf10dd8e5c77de3b839c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc7e58dcf2ed9c8897ec5a425415451e1083ed44
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821918"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326582"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 매장 로케이터 만들기
 
@@ -35,7 +35,7 @@ ms.locfileid: "99821918"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-1. [S1 가격 책정 계층을 사용하여 Azure Maps 계정 만들기](quick-demo-map-app.md#create-an-azure-maps-account)
+1. [Gen 1(S1) 또는 Gen 2 가격 책정 계층에서 Azure Maps 계정을 만듭니다](quick-demo-map-app.md#create-an-azure-maps-account).
 2. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
 Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](how-to-manage-authentication.md)를 참조하세요.

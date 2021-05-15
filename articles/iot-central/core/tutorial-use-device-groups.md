@@ -7,12 +7,12 @@ ms.date: 11/16/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a7d26eebb24662a448d8ccb44d037e7706fe776b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0cc9c0825761099f7f5f665cd3a7f27c88f9cdbc
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99832847"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108325322"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>자습서: 디바이스 그룹을 사용하여 디바이스 원격 분석 수행
 
@@ -37,15 +37,13 @@ ms.locfileid: "99832847"
 
 :::image type="content" source="media/tutorial-use-device-groups/simulated-devices.png" alt-text="5개의 시뮬레이션된 센서 컨트롤러 디바이스를 보여주는 스크린샷":::
 
-시뮬레이션된 센서 디바이스 중 4개는 **디바이스 관리** 보기를 사용하여 *Contoso* 에 대한 고객 이름을 설정합니다.
+시뮬레이션된 센서 디바이스 중 4개에 대해 **디바이스 관리** 보기를 사용하여 고객 이름을 *Contoso* 로 설정하고 **저장** 을 선택합니다.
 
 :::image type="content" source="media/tutorial-use-device-groups/customer-name.png" alt-text="고객 이름 클라우드 속성을 설정하는 방법을 보여주는 스크린샷":::
 
 ## <a name="create-a-device-group"></a>디바이스 그룹 만들기
 
-디바이스 그룹을 만들려면 다음을 수행합니다.
-
-1. 왼쪽 창에서 **디바이스 그룹** 을 선택합니다.
+1. 왼쪽 창에서 **디바이스 그룹** 을 선택하여 디바이스 그룹 페이지로 이동합니다.
 
 1. **+새로 만들기** 를 선택합니다.
 

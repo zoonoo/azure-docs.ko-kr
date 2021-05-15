@@ -1,25 +1,25 @@
 ---
-title: '자습서: 포털에서 Azure Firewall DNAT를 사용하여 인바운드 인터넷 트래픽 필터링'
-description: 이 자습서에서는 Azure Portal을 사용하여 Azure Firewall DNAT를 배포하고 구성하는 방법을 알아봅니다.
+title: 포털에서 Azure Firewall DNAT를 사용하여 인바운드 인터넷 트래픽 필터링
+description: 이 문서에서는 Azure Portal을 사용하여 Azure Firewall DNAT를 배포하고 구성하는 방법을 알아봅니다.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: tutorial
-ms.date: 03/01/2021
+ms.topic: how-to
+ms.date: 04/29/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a1d3bdae1e870b094472a63d4b808d9df95c129d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f31cffc6996ffe5b733ba322584cb400afcc5093
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101741908"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291913"
 ---
-# <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>자습서: Azure Portal에서 Azure Firewall DNAT를 사용하여 인바운드 인터넷 트래픽 필터링
+# <a name="filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Azure Portal에서 Azure Firewall DNAT를 사용하여 인바운드 인터넷 트래픽 필터링
 
 서브넷에 대한 인바운드 인터넷 트래픽을 변환하고 필터링하도록 Azure Firewall DNAT(Destination Network Address Translation)를 구성할 수 있습니다. DNAT를 구성하면 NAT 규칙 컬렉션 작업이 **Dnat** 로 설정됩니다. 그 후 NAT 규칙 컬렉션의 각 규칙을 사용하여 방화벽 공용 IP 주소 및 포트를 개인 IP 주소 및 포트로 변환할 수 있습니다. DNAT 규칙은 해당 네트워크 규칙을 암시적으로 추가하여 변환된 트래픽을 허용합니다. 보안상의 이유로, 네트워크에 대한 DNAT 액세스를 허용하고 와일드카드를 사용하지 않도록 하기 위해 특정 인터넷 원본을 추가하는 것이 좋습니다. Azure Firewall 규칙 처리 논리에 대한 자세한 내용은 [Azure Firewall 규칙 처리 논리](rule-processing.md)를 참조하세요.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 > * 테스트 네트워크 환경 설정
@@ -28,7 +28,10 @@ ms.locfileid: "101741908"
 > * DNAT 규칙 구성
 > * 방화벽 테스트
 
-## <a name="prerequisites"></a>필수 구성 요소
+> [!NOTE]
+> 이 문서에서는 클래식 방화벽 규칙을 사용하여 방화벽을 관리합니다. 선호되는 방법은 [방화벽 정책](../firewall-manager/policy-overview.md)을 사용하는 것입니다. 방화벽 정책을 사용하여 이 절차를 완료하려면 [자습서: Azure Portal을 사용하여 Azure Firewall 정책 DNAT로 인바운드 인터넷 트래픽 필터링](tutorial-firewall-dnat-policy.md)을 참조하세요.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -46,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="set-up-the-network-environment"></a>네트워크 환경 설정
 
-이 자습서에서는 두 개의 피어링된 VNet을 만듭니다.
+이 문서에서는 두 개의 피어링된 VNet을 만듭니다.
 
 - **VN-Hub** - 방화벽이 이 VNet에 있습니다.
 - **VN-Spoke** - 워크로드 서버가 이 VNet에 있습니다.
@@ -142,6 +145,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 배포가 완료되면 가상 머신에 대한 개인 IP 주소를 적어 둡니다. 나중에 방화벽을 구성할 때 사용됩니다. 가상 머신 이름을 선택하고, **설정** 아래에서 **네트워킹** 을 선택하여 개인 IP 주소를 찾습니다.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## <a name="deploy-the-firewall"></a>방화벽 배포
 
 1. 포털 홈 페이지에서 **리소스 만들기** 를 선택합니다.
@@ -217,20 +222,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다음 자습서에서 사용하기 위해 방화벽 리소스를 그대로 유지하거나, 더 이상 필요하지 않은 경우 **RG-DNAT-Test** 리소스 그룹을 삭제하여 모든 방화벽 관련 리소스를 삭제할 수 있습니다.
+추가 테스트를 위해 방화벽 리소스를 그대로 유지하거나, 더 이상 필요하지 않은 경우 **RG-DNAT-Test** 리소스 그룹을 삭제하여 모든 방화벽 관련 리소스를 삭제할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 작업 방법을 알아보았습니다.
-
-> [!div class="checklist"]
-> * 테스트 네트워크 환경 설정
-> * 방화벽 배포
-> * 기본 경로 만들기
-> * DNAT 규칙 구성
-> * 방화벽 테스트
-
 그런 다음, Azure Firewall 로그를 모니터링할 수 있습니다.
 
-> [!div class="nextstepaction"]
-> [자습서: Azure Firewall 로그 모니터링](./firewall-diagnostics.md)
+[자습서: Azure Firewall 로그 모니터링](./firewall-diagnostics.md)

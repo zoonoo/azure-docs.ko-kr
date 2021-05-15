@@ -1,5 +1,5 @@
 ---
-title: VPN gateway 문제 해결 및 모니터링-Azure Automation
+title: VPN 게이트웨이 문제 해결 및 모니터링 - Azure Automation
 titleSuffix: Azure Network Watcher
 description: 이 문서에서는 Azure Automation 및 Network Watcher로 온-프레미스 연결을 진단하는 방법을 설명합니다.
 services: network-watcher
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: af671996722524de9af1a90ae8dfde27f814c8c2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96011815"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Azure Network Watcher 문제 해결로 VPN Gateway 모니터링
@@ -42,7 +42,7 @@ Runbook은 VPN 터널의 연결 상태를 확인하는 스크립트를 사용하
 
 - Azure에서 Azure Automation 계정. Automation 계정에 최신 모듈 및 AzureRM.Network 모듈이 있는지 확인합니다. AzureRM.Network 모듈을 Automation 계정에 추가해야 하는 경우 모듈 갤러리에서 해당 모듈을 사용할 수 있습니다.
 - Azure Automation에 구성된 자격 증명 집합이 있어야 합니다. [Azure Automation 보안](../automation/automation-security-overview.md)에서 자세히 알아보세요.
-- 유효한 SMTP 서버 (Microsoft 365, 온-프레미스 전자 메일 또는 기타) 및에 정의 된 자격 증명 Azure Automation
+- Azure Automation에 정의된 유효한 SMTP 서버(Microsoft 365, 온-프레미스 이메일 또는 기타) 및 자격 증명
 - Azure에 구성된 Virtual Network 게이트웨이입니다.
 - 로그를 저장할 기존 컨테이너가 포함된 기존 스토리지 계정
 
@@ -79,7 +79,7 @@ Runbook은 VPN 터널의 연결 상태를 확인하는 스크립트를 사용하
 
 ### <a name="step-5"></a>5단계
 
-이 단계에서는 Runbook이 생성되고 다음 코드 예제는 예제에 필요한 모든 코드를 제공합니다. 를 포함 하는 코드의 항목을 \<value\> 구독의 값으로 바꾸어야 합니다.
+이 단계에서는 Runbook이 생성되고 다음 코드 예제는 예제에 필요한 모든 코드를 제공합니다. \<value\>을 포함하는 코드의 항목은 구독의 값으로 대체해야 합니다.
 
 다음 코드를 사용하고 **저장** 을 클릭합니다.
 

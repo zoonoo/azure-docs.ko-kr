@@ -1,6 +1,6 @@
 ---
-title: Azure CDN에 대 한 표준 규칙 엔진의 일치 조건 | Microsoft Docs
-description: Azure Content Delivery Network (Azure CDN)에 대 한 표준 규칙 엔진의 일치 조건에 대 한 참조 설명서입니다.
+title: Azure CDN에 대한 표준 규칙 엔진의 일치 조건 | Microsoft Docs
+description: Azure CDN(Azure Content Delivery Network)에 대한 표준 규칙 엔진의 일치 조건에 대한 참조 설명서입니다.
 services: cdn
 author: asudbring
 ms.service: azure-cdn
@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: allensu
 ms.openlocfilehash: b8050b973027ac91ede0ba98f4d1c76831da9828
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "81259932"
 ---
-# <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Azure CDN에 대 한 표준 규칙 엔진의 일치 조건
+# <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Azure CDN에 대한 표준 규칙 엔진의 일치 조건
 
-Azure Content Delivery Network (Azure CDN)에 대 한 [표준 규칙 엔진](cdn-standard-rules-engine.md) 에서 규칙은 하나 이상의 일치 조건 및 동작으로 구성 됩니다. 이 문서에서는 Azure CDN에 대 한 표준 규칙 엔진에서 사용할 수 있는 일치 조건에 대해 자세히 설명 합니다.
+Azure CDN(Azure Content Delivery Network)에 대한 [표준 규칙 엔진](cdn-standard-rules-engine.md)에서 규칙은 하나 이상의 일치 조건 및 작업으로 구성됩니다. 이 문서에서는 Azure CDN에 대한 표준 규칙 엔진에서 사용할 수 있는 일치 조건에 대해 자세히 설명합니다.
 
-규칙의 첫 번째 파트는 일치 조건 또는 일치 조건 세트입니다. Azure CDN에 대 한 표준 규칙 엔진에서 각 규칙에는 최대 4 개의 일치 조건이 있을 수 있습니다. 일치 조건은 정의된 작업을 수행할 특정 유형의 요청을 식별합니다. 여러 일치 조건을 사용하면 AND 논리를 사용하여 일치 조건이 그룹화됩니다.
+규칙의 첫 번째 파트는 일치 조건 또는 일치 조건 세트입니다. Azure CDN에 대한 표준 규칙 엔진에서 각 규칙에는 최대 4개의 일치 조건이 있을 수 있습니다. 일치 조건은 정의된 작업을 수행할 특정 유형의 요청을 식별합니다. 여러 일치 조건을 사용하면 AND 논리를 사용하여 일치 조건이 그룹화됩니다.
 
 예를 들어 다음을 수행하는 데 일치 조건을 사용할 수 있습니다.
 
@@ -28,7 +28,7 @@ Azure Content Delivery Network (Azure CDN)에 대 한 [표준 규칙 엔진](cdn
 
 ## <a name="match-conditions"></a>일치 조건
 
-Azure CDN에 대 한 표준 규칙 엔진에서 다음 일치 조건을 사용할 수 있습니다. 
+Azure CDN에 대한 표준 규칙 엔진에서 다음 일치 조건을 사용할 수 있습니다. 
 
 ### <a name="device-type"></a>디바이스 유형 
 
@@ -42,7 +42,7 @@ Azure CDN에 대 한 표준 규칙 엔진에서 다음 일치 조건을 사용�
 
 ### <a name="http-version"></a>HTTP 버전
 
-요청의 HTTP 버전에 따라 요청을 식별 합니다.
+요청의 HTTP 버전에 따라 요청을 식별합니다.
 
 #### <a name="required-fields"></a>Required fields
 
@@ -52,22 +52,22 @@ Azure CDN에 대 한 표준 규칙 엔진에서 다음 일치 조건을 사용�
 
 ### <a name="request-cookies"></a>요청 쿠키입니다.
 
-들어오는 요청의 쿠키 정보를 기반으로 요청을 식별 합니다.
+들어오는 요청의 쿠키 정보에 따라 요청을 식별합니다.
 
 #### <a name="required-fields"></a>Required fields
 
 쿠키 이름 | 연산자 | 쿠키 값 | 대/소문자 변환
 ------------|----------|--------------|---------------
-String | [표준 연산자 목록](#standard-operator-list) | 문자열, Int | 변환 없음, 대문자, 소문자
+String | [표준 연산자 목록](#standard-operator-list) | 문자열, Int | 변환 없음, 대문자로, 소문자로
 
 #### <a name="key-information"></a>주요 정보
 
-- 쿠키 이름을 지정할 때 와일드 카드 값 (별표 () 포함)을 사용할 수 없습니다. \* 정확한 쿠키 이름을 사용 해야 합니다.
-- 이 일치 조건의 인스턴스당 하나의 쿠키 이름만 지정할 수 있습니다.
+- 쿠키 이름을 지정할 때 와일드카드 값(별표(\*) 포함)을 사용할 수 없으며 정확한 쿠키 이름을 사용해야 합니다.
+- 해당 일치 조건의 인스턴스 당 하나의 쿠키 이름만 지정할 수 있습니다.
 - 쿠키 이름 비교는 대/소문자를 구분하지 않습니다.
-- 여러 쿠키 값을 지정 하려면 각 쿠키 값 사이에 단일 공백을 사용 합니다. 
-- 쿠키 값은 와일드 카드 값을 사용할 수 있습니다.
-- 와일드 카드 값을 지정 하지 않은 경우 정확히 일치 하는 항목만이 일치 조건을 충족 합니다. 예를 들어 "Value"는 "Value"와 일치 하지만 "Value1"과는 일치 하지 않습니다. 
+- 여러 쿠키 값을 지정하려면 각 쿠키 값 사이에 단일 공백을 사용합니다. 
+- 쿠키 값에는 와일드카드 값을 사용할 수 있습니다.
+- 와일드카드 값이 지정되지 않은 경우 정확하게 일치해야만 일치 조건이 충족됩니다. 예를 들어 “Value”는 “Value”와 일치하지만 “Value1”과는 일치하지 않습니다. 
 
 ### <a name="post-argument"></a>Post 인수
 
@@ -77,7 +77,7 @@ String | [표준 연산자 목록](#standard-operator-list) | 문자열, Int | �
 
 인수 이름 | 연산자 | 인수 값 | 대/소문자 변환
 --------------|----------|----------------|---------------
-String | [표준 연산자 목록](#standard-operator-list) | 문자열, Int | 변환 없음, 대문자, 소문자
+String | [표준 연산자 목록](#standard-operator-list) | 문자열, Int | 변환 없음, 대문자로, 소문자로
 
 ### <a name="query-string"></a>쿼리 문자열
 
@@ -87,7 +87,7 @@ String | [표준 연산자 목록](#standard-operator-list) | 문자열, Int | �
 
 연산자 | 쿼리 문자열 | 대/소문자 변환
 ---------|--------------|---------------
-[표준 연산자 목록](#standard-operator-list) | 문자열, Int | 변환 없음, 대문자, 소문자
+[표준 연산자 목록](#standard-operator-list) | 문자열, Int | 변환 없음, 대문자로, 소문자로
 
 ### <a name="remote-address"></a>원격 주소
 
@@ -100,7 +100,7 @@ String | [표준 연산자 목록](#standard-operator-list) | 문자열, Int | �
 모두 | 해당 없음
 지역 일치 | 국가 코드
 IP 일치 | IP 주소(공백으로 구분됨)
-모두 아님 | 해당 없음
+없음 | 해당 없음
 지역이 일치하지 않음 | 국가 코드
 IP가 일치하지 않음 | IP 주소(공백으로 구분됨)
 
@@ -122,7 +122,7 @@ IP가 일치하지 않음 | IP 주소(공백으로 구분됨)
 
 연산자 | 요청 본문 | 대/소문자 변환
 ---------|--------------|---------------
-[표준 연산자 목록](#standard-operator-list) | 문자열, Int | 변환 없음, 대문자, 소문자
+[표준 연산자 목록](#standard-operator-list) | 문자열, Int | 변환 없음, 대문자로, 소문자로
 
 ### <a name="request-header"></a>요청 헤더
 
@@ -132,7 +132,7 @@ IP가 일치하지 않음 | IP 주소(공백으로 구분됨)
 
 헤더 이름 | 연산자 | 헤더 값 | 대/소문자 변환
 ------------|----------|--------------|---------------
-String | [표준 연산자 목록](#standard-operator-list) | 문자열, Int | 변환 없음, 대문자, 소문자
+String | [표준 연산자 목록](#standard-operator-list) | 문자열, Int | 변환 없음, 대문자로, 소문자로
 
 ### <a name="request-method"></a>요청 메서드
 
@@ -146,7 +146,7 @@ String | [표준 연산자 목록](#standard-operator-list) | 문자열, Int | �
 
 #### <a name="key-information"></a>주요 정보
 
-- GET 요청 메서드만 Azure CDN 캐시 된 콘텐츠를 생성할 수 있습니다. 다른 모든 요청 메서드는 네트워크를 통해 프록시 설정됩니다. 
+- 오직 GET 요청 메서드만이 Azure CDN에서 캐시된 콘텐츠를 생성할 수 있습니다. 다른 모든 요청 메서드는 네트워크를 통해 프록시 설정됩니다. 
 
 ### <a name="request-protocol"></a>요청 프로토콜
 
@@ -166,13 +166,13 @@ String | [표준 연산자 목록](#standard-operator-list) | 문자열, Int | �
 
 연산자 | 요청 URL | 대/소문자 변환
 ---------|-------------|---------------
-[표준 연산자 목록](#standard-operator-list) | 문자열, Int | 변환 없음, 대문자, 소문자
+[표준 연산자 목록](#standard-operator-list) | 문자열, Int | 변환 없음, 대문자로, 소문자로
 
 #### <a name="key-information"></a>주요 정보
 
 - 이 규칙 조건을 사용하는 경우 프로토콜 정보를 포함해야 합니다. 예: *https://www.\<yourdomain\>.com*.
 
-### <a name="url-file-extension"></a>URL 파일 확장명
+### <a name="url-file-extension"></a>URL 파일 확장
 
 요청 URL의 파일 이름에 지정된 파일 확장명이 있는 요청을 식별합니다.
 
@@ -180,7 +180,7 @@ String | [표준 연산자 목록](#standard-operator-list) | 문자열, Int | �
 
 연산자 | 내선 번호 | 대/소문자 변환
 ---------|-----------|---------------
-[표준 연산자 목록](#standard-operator-list) | 문자열, Int | 변환 없음, 대문자, 소문자
+[표준 연산자 목록](#standard-operator-list) | 문자열, Int | 변환 없음, 대문자로, 소문자로
 
 #### <a name="key-information"></a>주요 정보
 
@@ -194,11 +194,11 @@ String | [표준 연산자 목록](#standard-operator-list) | 문자열, Int | �
 
 연산자 | 파일 이름 | 대/소문자 변환
 ---------|-----------|---------------
-[표준 연산자 목록](#standard-operator-list) | 문자열, Int | 변환 없음, 대문자, 소문자
+[표준 연산자 목록](#standard-operator-list) | 문자열, Int | 변환 없음, 대문자로, 소문자로
 
 #### <a name="key-information"></a>주요 정보
 
-- 여러 파일 이름을 지정 하려면 각 파일 이름을 하나의 공백으로 구분 합니다. 
+- 여러 파일 이름을 지정하려면 각 파일 이름을 단일 공백으로 구분합니다. 
 
 ### <a name="url-path"></a>URL 경로
 
@@ -208,7 +208,7 @@ String | [표준 연산자 목록](#standard-operator-list) | 문자열, Int | �
 
 연산자 | 값 | 대/소문자 변환
 ---------|-------|---------------
-[표준 연산자 목록](#standard-operator-list) | 문자열, Int | 변환 없음, 대문자, 소문자
+[표준 연산자 목록](#standard-operator-list) | 문자열, Int | 변환 없음, 대문자로, 소문자로
 
 #### <a name="key-information"></a>주요 정보
 

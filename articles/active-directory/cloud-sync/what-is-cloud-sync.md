@@ -11,12 +11,12 @@ ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af4eaa5912cdf7463c81f501d71b69e934f8febb
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: df178b49e3f9853bd8561794e7e6444e73630edd
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107306010"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108323677"
 ---
 # <a name="what-is-azure-ad-connect-cloud-sync"></a>Azure AD Connect 클라우드 동기화란?
 Azure AD Connect 클라우드 동기화는 사용자, 그룹 및 연락처를 Azure AD에 동기화하기 위한 하이브리드 ID 목표를 충족하고 달성하도록 설계된 Microsoft의 새로운 제품입니다.  Azure AD Connect 애플리케이션 대신 Azure AD 클라우드 프로비저닝 에이전트를 사용하여 이 작업을 수행합니다.  그러나 Azure AD Connect 동기화와 함께 사용할 수 있으며 다음과 같은 이점을 제공합니다.
@@ -73,7 +73,8 @@ Azure AD Connect 클라우드 동기화를 사용하면 AD에서 Azure AD로의 
 | Azure AD Domain Services 지원|● | |
 | [Exchange 하이브리드 쓰기 저장](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
 | AD 도메인당 최대 150,000개의 개체 지원 |● |● |
-| 대규모 그룹 지원 - 최대 50,000명의 구성원이 있는 그룹 |● |● |
+| 최대 50,000명의 멤버가 있는 그룹 |● |● |
+| 최대 250,000명의 멤버가 있는 대규모 그룹 |● |  |
 | 도메인 간 참조|● | |
 | 주문형 프로비저닝| |● |
 

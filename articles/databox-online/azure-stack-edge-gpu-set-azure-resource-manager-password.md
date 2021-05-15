@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro GPU 장치에서 Azure Resource Manager 암호를 설정 합니다.
-description: Azure PowerShell를 사용 하 여 Azure Stack Edge Pro GPU에 Azure Resource Manager 암호를 설정 하는 방법을 설명 합니다.
+title: Azure Stack Edge Pro GPU 디바이스의 Azure Resource Manager 암호 설정
+description: Azure PowerShell를 사용하여 Azure Stack Edge Pro GPU에 Azure Resource Manager 암호를 설정하는 방법을 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,30 +9,30 @@ ms.topic: how-to
 ms.date: 02/21/2021
 ms.author: alkohli
 ms.openlocfilehash: a2167d573871481c99b755fc713e18543d74c5bf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104602685"
 ---
-# <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Edge Pro GPU 장치 Azure Stack에서 Azure Resource Manager 암호를 설정 합니다.
+# <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스의 Azure Resource Manager 암호 설정
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-이 문서에서는 Azure Resource Manager 암호를 설정 하는 방법을 설명 합니다. [Azure Resource Manager를 통해 장치 로컬 api에 연결](azure-stack-edge-gpu-connect-resource-manager.md)하는 경우이 암호를 설정 해야 합니다. 
+이 문서에서는 Azure Resource Manager 암호를 설정하는 방법을 설명합니다. [Azure Resource Manager를 통해 디바이스 로컬 API에 연결](azure-stack-edge-gpu-connect-resource-manager.md)하는 경우 이 암호를 설정해야 합니다. 
 
 <!--The procedure to set the password can be different depending upon whether you use the Azure portal or the PowerShell cmdlets. Each of these procedures is described in the following sections.-->
 
 
 ## <a name="reset-password-via-the-azure-portal"></a>Azure Portal를 통해 암호 다시 설정
 
-1. Azure Portal에서 만든 Azure Stack Edge 리소스로 이동 하 여 장치를 관리 합니다. 
+1. Azure Portal에서 디바이스를 관리하기 위해 만든 Azure Stack Edge 리소스로 이동합니다. 
 
-2. **속성** 으로 이동 합니다. 오른쪽 창의 명령 모음에서 **Edge ARM 암호 재설정** 을 선택합니다. 
+2. **속성** 으로 이동합니다. 오른쪽 창의 명령 모음에서 **Edge ARM 암호 재설정** 을 선택합니다. 
 
     ![EdgeARM 사용자 암호 2 다시 설정](media/azure-stack-edge-gpu-set-azure-resource-manager-password/set-edgearm-password-2.png)
 
-3. **EdgeArm 사용자 암호 다시 설정** 블레이드에서 Azure Resource Manager를 통해 장치 로컬 api에 연결 하기 위한 암호를 제공 합니다. 암호를 확인 하 고 **재설정** 을 선택 합니다.
+3. **EdgeArm 사용자 암호 다시 설정** 블레이드에서 Azure Resource Manager를 통해 디바이스 로컬 API에 연결하기 위한 암호를 제공합니다. 암호를 확인하고 **다시 설정** 을 선택합니다.
 
     ![EdgeARM 사용자 암호 3 다시 설정](media/azure-stack-edge-gpu-set-azure-resource-manager-password/set-edgearm-password-3.png)
 

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
 ms.openlocfilehash: d01febec3972dcc26c6e9b5aa8d0c4cca5f32d0a
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105606082"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>EXPLAIN을 사용하여 Azure Database for MySQL에서 쿼리 성능을 프로파일링하는 방법
@@ -169,4 +169,4 @@ EXPLAIN과 다른 유형의 인덱스를 사용하면 성능이 크게 향상될
 
 
 ## <a name="next-steps"></a>다음 단계
-- 가장 관심 있는 질문에 대 한 피어 대답을 찾거나 새 질문/답변을 게시 하려면 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql)를 방문 하세요.
+- 가장 궁금한 질문에 대한 동료의 답변을 찾아보거나 새로운 질문/답변을 게시하려면 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql)를 참조하세요.

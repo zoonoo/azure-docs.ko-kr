@@ -1,6 +1,6 @@
 ---
 title: 네트워크 아키텍처 v1
-description: App Service 환경의 네트워크 토폴로지에 대 한 아키텍처 개요입니다. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
+description: App Service Environment의 네트워크 토폴로지 아키텍처 개요입니다. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
 author: stefsch
 ms.assetid: 13d03a37-1fe2-4e3e-9d57-46dfb330ba52
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: b1b866f3be789c59eea38c5c22b5557d557440be
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84701816"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>App Service Environment의 네트워크 아키텍처 개요

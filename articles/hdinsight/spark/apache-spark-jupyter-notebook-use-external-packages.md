@@ -1,24 +1,24 @@
 ---
-title: Spark에서 Jupyter와 함께 사용자 지정 Maven 패키지 사용-Azure HDInsight
-description: 사용자 지정 Maven 패키지를 사용 하도록 HDInsight Spark 클러스터에서 사용할 수 있는 Jupyter 노트북을 구성 하는 방법에 대 한 단계별 지침입니다.
+title: Spark에서 Jupyter와 함께 사용자 지정 Maven 패키지 사용 - Azure HDInsight
+description: HDInsight Spark 클러스터에서 사용 가능한 Jupyter Notebook을 사용자 지정 Maven 패키지 사용이 가능하도록 구성하는 방법에 대한 단계별 설명.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
 ms.openlocfilehash: 3ddfdfdfe10d5b6ea7c2d5cd99d325564163c0dd
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104866015"
 ---
-# <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>HDInsight의 Apache Spark 클러스터에서 Jupyter 노트북과 함께 외부 패키지 사용
+# <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook과 함께 외부 패키지 사용
 
-클러스터에 기본 제공 되지 않는 외부의 커뮤니티 제공 Apache **maven** 패키지를 사용 하도록 HDInsight의 Apache Spark 클러스터에서 [Jupyter Notebook](https://jupyter.org/) 를 구성 하는 방법에 대해 알아봅니다.
+클러스터에 기본적으로 포함되지 않는 외부의 커뮤니티에서 제공하는 Apache **maven** 패키지를 사용하도록 HDInsight의 Apache Spark 클러스터에서 [Jupyter Notebook](https://jupyter.org/)을 구성하는 방법을 알아봅니다.
 
 사용할 수 있는 패키지의 전체 목록은 [Maven 리포지토리](https://search.maven.org/) 를 검색할 수 있습니다. 다른 소스에서 사용 가능한 패키지 목록을 가져올 수도 있습니다. 예를 들어 커뮤니티 제공 패키지의 전체 목록은 [Spark 패키지](https://spark-packages.org/)에서 사용할 수 있습니다.
 
-이 문서에서는 Jupyter Notebook와 함께 [spark csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) 패키지를 사용 하는 방법을 알아봅니다.
+이 문서에서는 Jupyter Notebook에서 [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) 패키지를 사용하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -30,17 +30,17 @@ ms.locfileid: "104866015"
 
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>Jupyter 노트북에서 외부 패키지 사용
 
-1. 로 이동 `https://CLUSTERNAME.azurehdinsight.net/jupyter` `CLUSTERNAME` 합니다. 여기서은 Spark 클러스터의 이름입니다.
+1. Apache Spark 클러스터의 이름인 `https://CLUSTERNAME.azurehdinsight.net/jupyter`곳`CLUSTERNAME`으로 이동합니다.
 
-1. 새 Notebook을 만듭니다. **새로 만들기** 를 선택한 다음 **Spark** 를 선택 합니다.
+1. 새 Notebook을 만듭니다. **새로 만들기** 를 선택한 다음, **Spark** 를 선택합니다.
 
     :::image type="content" source="./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png " alt-text="새 Spark Jupyter Notebook 만들기" border="true":::
 
-1. 새 노트북이 만들어지고 Untitled.pynb 이름으로 열립니다. 위쪽에서 노트북 이름을 선택 하 고 이름을 입력 합니다.
+1. 새 노트북이 만들어지고 Untitled.pynb 이름으로 열립니다. 맨 위에서 노트북 이름을 클릭하고, 사용하기 편한 이름을 입력합니다.
 
     :::image type="content" source="./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-name-notebook.png " alt-text="노트북에 대한 이름 제공" border="true":::
 
-1. 매직을 사용 하 여 `%%configure` 외부 패키지를 사용 하도록 노트북을 구성 합니다. 외부 패키지를 사용하는 Notebook에서 `%%configure` Magic을 호출해야 합니다. 이렇게 하면 커널은 세션이 시작되기 전에 패키지를 사용하도록 구성됩니다.
+1. `%%configure` Magic을 사용하여 외부 패키지를 사용하도록 노트북을 구성합니다. 외부 패키지를 사용하는 Notebook에서 `%%configure` Magic을 호출해야 합니다. 이렇게 하면 커널은 세션이 시작되기 전에 패키지를 사용하도록 구성됩니다.
 
     >[!IMPORTANT]  
     >첫 번째 셀에서 커널을 구성하는 것을 잊은 경우 `%%configure`과 `-f` 매개 변수를 사용할 수 있지만 세션이 다시 시작되고 모든 진행률이 손실됩니다.
@@ -52,13 +52,13 @@ ms.locfileid: "104866015"
 
 1. 위의 코드 조각에는 Maven Center Repository의 외부 패키지에 대한 Maven 좌표가 필요합니다. 이 코드 조각에서 `com.databricks:spark-csv_2.11:1.5.0` 는 **spark-csv** 패키지에 대한 Maven 좌표입니다. 패키지의 좌표를 생성하는 방법은 다음과 같습니다.
 
-    a. Maven Repository에서 패키지를 찾습니다. 이 문서에서는 [spark-csv](https://mvnrepository.com/artifact/com.databricks/spark-csv)를 사용 합니다.
+    a. Maven Repository에서 패키지를 찾습니다. 이 문서에서는 [spark-csv](https://mvnrepository.com/artifact/com.databricks/spark-csv)를 사용합니다.
 
-    b. 해당 리포지토리에서 **GroupId**, **ArtifactId** 및 **Version** 값을 수집합니다. 수집하는 값이 클러스터와 일치하는지 확인합니다. 이 경우 Scala 2.11 및 Spark 1.5.0 패키지를 사용 하지만 클러스터에서 적절 한 Scala 또는 Spark 버전에 대해 다른 버전을 선택 해야 할 수도 있습니다. Spark Jupyter 커널에서 또는 Spark 제출 시 `scala.util.Properties.versionString`을 실행하여 클러스터에서 Scala 버전을 찾을 수 있습니다. Jupyter 노트북에서를 실행 하 여 클러스터에서 Spark 버전을 확인할 수 있습니다 `sc.version` .
+    b. 해당 리포지토리에서 **GroupId**, **ArtifactId** 및 **Version** 값을 수집합니다. 수집하는 값이 클러스터와 일치하는지 확인합니다. 이 경우에는 Scala 2.11 및 Spark 1.5.0 패키지를 사용하고 있지만, 해당 클러스터에 적합한 다른 Scala 또는 Spark 버전을 선택해야 할 수 있습니다. Spark Jupyter 커널에서 또는 Spark 제출 시 `scala.util.Properties.versionString`을 실행하여 클러스터에서 Scala 버전을 찾을 수 있습니다. Jupyter Notebook에서 `sc.version`을 실행하여 클러스터에서의 Spark 버전을 찾을 수 있습니다.
 
     :::image type="content" source="./media/apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png " alt-text="Jupyter Notebook에서 외부 패키지 사용" border="true":::
 
-    c. 콜론(**:**)으로 구분된 세 개의 값을 연결합니다.
+    다. 콜론(**:**)으로 구분된 세 개의 값을 연결합니다.
 
     ```scala
     com.databricks:spark-csv_2.11:1.5.0
@@ -73,7 +73,7 @@ ms.locfileid: "104866015"
     load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
     ```
 
-    HDInsight 3.4 및의 경우 다음 코드 조각을 사용 해야 합니다.
+    HDInsight 3.4 이하의 경우 다음 코드 조각을 사용해야 합니다.
 
     ```scala
     val df = sqlContext.read.format("com.databricks.spark.csv").
@@ -108,11 +108,11 @@ ms.locfileid: "104866015"
 
 ### <a name="tools-and-extensions"></a>도구 및 확장
 
-* [HDInsight Linux의 Apache Spark 클러스터에서 Jupyter 노트북과 함께 외부 python 패키지 사용](apache-spark-python-package-installation.md)
+* [HDInsight Linux의 Apache Spark 클러스터에서 Jupyter Notebook과 함께 외부 python 패키지 사용](apache-spark-python-package-installation.md)
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 애플리케이션 만들기 및 제출](apache-spark-intellij-tool-plugin.md)
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Apache Spark 애플리케이션을 원격으로 디버그](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md)
-* [HDInsight 용 Apache Spark 클러스터의 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)
+* [HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)
 * [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>리소스 관리

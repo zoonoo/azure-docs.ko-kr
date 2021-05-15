@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: ef9efe389894af7c792e980922ca422e9d05929b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5124a9bfcc0d98f32ae42457c79e9f74308a1e8
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96026904"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108212188"
 ---
 다음 표에서는 Azure 범용 v1, v2, Blob 스토리지 및 블록 Blob 스토리지 계정의 기본 제한에 대해 설명합니다. *수신* 제한은 스토리지 계정에 보내는 모든 데이터를 나타냅니다. *송신* 제한은 스토리지 계정에서 받는 모든 데이터를 나타냅니다.
 
@@ -31,8 +31,10 @@ ms.locfileid: "96026904"
 | 범용 v2 및 Blob 스토리지 계정에 대한 최대 송신(모든 지역) | 50Gbps |
 | 범용 v1 스토리지 계정에 대한 최대 송신(미국 지역) | RA-GRS/GRS를 사용하도록 설정한 경우 20Gbps, LRS/ZRS의 경우 30Gbps<sup>2</sup> |
 | 범용 v1 스토리지 계정에 대한 최대 송신(미국 이외의 지역) | RA-GRS/GRS를 사용하도록 설정한 경우 10Gbps, LRS/ZRS의 경우 15Gbps<sup>2</sup> |
-| 스토리지 계정당 최대 가상 네트워크 규칙 수 | 200 |
 | 스토리지 계정당 최대 IP 주소 규칙 수 | 200 |
+| 스토리지 계정당 최대 가상 네트워크 규칙 수 | 200 |
+| 스토리지 계정당 최대 리소스 인스턴스 규칙 수 | 200 |
+| 스토리지 계정당 최대 프라이빗 엔드포인트 수 | 200 |
 
 <sup>1</sup> Azure Storage 표준 계정은 더 높은 용량 제한과 요청별 수신에 대한 더 높은 제한을 지원합니다. 계정 제한을 늘리려면 [Azure 지원](https://azure.microsoft.com/support/faq/)에 문의하세요.
 

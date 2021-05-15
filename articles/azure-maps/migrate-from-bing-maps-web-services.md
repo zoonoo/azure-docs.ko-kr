@@ -3,18 +3,18 @@ title: '자습서: Bing Maps에서 웹 서비스 마이그레이션 | Microsoft 
 description: Bing Maps에서 Microsoft Azure Maps로 웹 서비스를 마이그레이션하는 방법에 대한 자습서.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/07/2020
+ms.date: 04/26/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 6024aae68183fbe02125ef4207e9fbce8abd6a2b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f108062c04292c322d07980155fea9c8808beb0a
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97679072"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326744"
 ---
 # <a name="tutorial-migrate-web-service-from-bing-maps"></a>자습서: Bing Maps에서 웹 서비스 마이그레이션
 
@@ -615,9 +615,9 @@ Bing Maps의 공간 데이터 서비스는 다음과 같은 세 가지 주요 �
 
 Bing Maps는 일괄 처리 지오코딩 요청 하나로 최대 200,000개의 주소를 전달할 수 있습니다. 이 요청은 큐에 들어간 후 일반적으로 데이터 세트의 크기와 서비스의 부하에 따라 몇 분에서 몇 시간까지 일정 시간 동안 처리합니다. 요청의 각 주소에서 트랜잭션을 생성했습니다.
 
-Azure Maps에는 일괄 처리 지오코딩 서비스가 있지만, 단일 요청으로 최대 10,000개의 주소를 전달할 수 있으며 데이터 세트의 크기와 서비스의 부하에 따라 몇 초에서 몇 분 동안 처리됩니다. 요청의 각 주소에서 트랜잭션을 생성했습니다. Azure Maps에서 일괄 처리 지오코딩 서비스는 S1 계층만 사용할 수 있습니다.
+Azure Maps에는 일괄 처리 지오코딩 서비스가 있지만, 단일 요청으로 최대 10,000개의 주소를 전달할 수 있으며 데이터 세트의 크기와 서비스의 부하에 따라 몇 초에서 몇 분 동안 처리됩니다. 요청의 각 주소에서 트랜잭션을 생성했습니다. Azure Maps에서 일괄 처리 지오코딩 서비스는 Gen 2 또는 S1 가격 책정 계층만 사용할 수 있습니다. 가격 책정 계층에 대한 자세한 내용은 [Azure Maps에서 적절한 가격 책정 계층 선택](choose-pricing-tier.md)을 참조하세요.
 
-Azure Maps를 사용하여 대량의 주소를 지오코딩하는 또 다른 옵션은 표준 검색 API에 대한 병렬 요청을 만드는 것입니다. 이러한 서비스는 요청당 하나의 주소만 허용하지만, 무료 사용량 제한을 제공하는 S0 계층에도 사용할 수 있습니다. S0 계층은 단일 계정에서 Azure Maps 플랫폼으로 초당 최대 50개 요청을 보낼 수 있습니다. 따라서 이러한 제한 내에서만 처리할 경우 시간당 최대 180,000개 주소를 지오코딩할 수 있습니다. S1 계층은 계정에서 수행할 수 있는 초당 쿼리 수에 대한 문서화된 제한이 없으므로 이 가격 책정 계층을 사용하면 훨씬 많은 데이터를 더 빠르게 처리할 수 있습니다. 그러나 일괄 처리 지오코딩 서비스를 사용하면 전송되는 총 데이터 양을 줄이고 네트워크 트래픽을 크게 줄일 수 있습니다.
+Azure Maps를 사용하여 대량의 주소를 지오코딩하는 또 다른 옵션은 표준 검색 API에 대한 병렬 요청을 만드는 것입니다. 이러한 서비스는 요청당 하나의 주소만 허용하지만, 무료 사용량 제한을 제공하는 S0 계층에도 사용할 수 있습니다. S0 계층은 단일 계정에서 Azure Maps 플랫폼으로 초당 최대 50개 요청을 보낼 수 있습니다. 따라서 이러한 제한 내에서만 처리할 경우 시간당 최대 180,000개 주소를 지오코딩할 수 있습니다. Gen 2 또는 S1 가격 책정 계층은 계정에서 수행할 수 있는 초당 쿼리 수에 대한 문서화된 제한이 없으므로 이 가격 책정 계층을 사용하면 훨씬 많은 데이터를 더 빠르게 처리할 수 있습니다. 그러나 일괄 처리 지오코딩 서비스를 사용하면 전송되는 총 데이터 양을 줄이고 네트워크 트래픽을 크게 줄일 수 있습니다.
 
 -   [자유 형식 주소 지오코딩](/rest/api/maps/search/getsearchaddress): 단일 주소 문자열(예: `"1 Microsoft way, Redmond, WA"`)을 지정하고 요청을 즉시 처리합니다. 이 서비스는 개별 주소를 신속하게 지오코딩해야 하는 경우에 추천합니다.
 -   [정형 주소 지오코딩](/rest/api/maps/search/getsearchaddressstructured): 도로명, 구/군/시, 국가, 우편 번호 등의 단일 주소 부분을 지정하고 요청을 즉시 처리합니다. 이 서비스는 개별 주소를 신속하게 지오코딩하고 데이터를 개별 주소 부분으로 구문 분석해야 하는 경우에 추천합니다.

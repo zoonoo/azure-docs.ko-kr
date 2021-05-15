@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2021
 ms.author: mnayak
-ms.openlocfilehash: 58b91c105ed48617b64356904942f5ab6b461cda
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 2291767c162953f8339fb8cc27e55b96290ef795
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776558"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101665950"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-azure-cli"></a>Azure CLI를 사용하여 공용 IP 주소에 대한 라우팅 기본 설정 구성
 
@@ -40,14 +40,14 @@ ms.locfileid: "107776558"
 - 이 문서에는 Azure CLI 버전 2.0.49 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
-[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 **미국 동부** Azure 지역의 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 **미국 동부** Azure 지역의 리소스 그룹을 만듭니다.
 
 ```azurecli
   az group create --name myResourceGroup --location eastus
 ```
 ## <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
 
-아래에 같은 형식으로 [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) 명령을 사용하여 **인터넷** 유형의 라우팅 기본 설정으로 공용 IP 주소를 만듭니다.
+아래에 같은 형식으로 [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) 명령을 사용하여 **인터넷** 유형의 라우팅 기본 설정으로 공용 IP 주소를 만듭니다.
 
 다음 명령은 **미국 동부** Azure 지역에서 **인터넷** 라우팅 기본 설정으로 새 공용 IP를 만듭니다.
 
@@ -71,3 +71,4 @@ az network public-ip create \
 
 - [공용 IP 주소의 라우팅 기본 설정](routing-preference-overview.md)에 대해 자세히 알아봅니다. 
 - [Azure CLI를 사용하여 VM에 대한 라우팅 기본 설정을 구성합니다](configure-routing-preference-virtual-machine-cli.md).
+

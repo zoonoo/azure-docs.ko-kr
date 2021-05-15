@@ -1,5 +1,5 @@
 ---
-title: Azure의 WSFC&공유 디스크를 사용 하는 SAP ASCS/SCS 다중 SID HA | Microsoft Docs
+title: Azure에서 WSFC 및 공유 디스크를 사용하는 SAP ASCS/SCS 다중 SID HA | Microsoft Docs
 description: Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 공유 디스크를 사용하는 SAP ASCS/SCS 인스턴스를 위한 다중 SID 고가용성
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -17,10 +17,10 @@ ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 92d881a85f5719e15db6fe24b80deed3b3d3fe35
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102504442"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-shared-disk-on-azure"></a>Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 공유 디스크를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성
@@ -30,7 +30,7 @@ ms.locfileid: "102504442"
 
 SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP 중앙 서비스(ASCS/SCS) 인스턴스에 대한 Windows 클러스터 구성을 만들어야 합니다.
 
-이 문서에서는 SIOS를 사용 하 여 공유 디스크를 시뮬레이션 하는 기존 WSFC (Windows Server 장애 조치 (Failover) 클러스터링) 클러스터에 추가 SAP ASCS/scs 클러스터형 인스턴스를 설치 하 여 단일 ASCS/SCS 설치에서 SAP 다중 SID 구성으로 이동 하는 방법을 중점적으로 설명 합니다. 이 프로세스가 완료되면 SAP 다중 SID 클러스터가 구성됩니다.
+이 문서에서는 SIOS로 공유 디스크를 시뮬레이션하는 공유 디스크를 사용하는 기존 WSFC(Windows Server 장애 조치(Failover) 클러스터링) 클러스터에 추가 SAP ASCS/SCS 클러스터형 인스턴스를 설치하여 단일 ASCS/SCS 설치에서 SAP 다중 SID 구성으로 이동하는 방법을 중점적으로 설명합니다. 이 프로세스가 완료되면 SAP 다중 SID 클러스터가 구성됩니다.
 
 > [!NOTE]
 > 이 기능은 Azure Resource Manager 배포 모델에만 사용할 수 있습니다.
@@ -43,7 +43,7 @@ SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP 중앙 �
 부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한 - Azure Resource Manager][networking-limits-azure-resource-manager]에서 "부하 분산 장치당 프라이빗 프런트 엔드 IP" 섹션을 참조하세요.
 
 > [!IMPORTANT]
-> 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원 되지 않습니다. 자세한 내용은 [Azure 부하 분산 장치 제한](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조 하세요. VM에 대 한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포 합니다.  
+> 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원되지 않습니다. 자세한 내용은 [Azure Load balancer 제한 사항](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조하세요. VM에 대한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포합니다.  
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -58,7 +58,7 @@ SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP 중앙 �
 > * SAP ASCS/SCS 인스턴스는 동일한 WSFC 클러스터를 공유해야 합니다.  
 > * 각 DBMS(데이터베이스 관리 시스템) SID에는 해당하는 고유한 전용 WSFC 클러스터가 있어야 합니다.  
 > * 하나의 SAP 시스템 SID에 속하는 SAP 애플리케이션 서버에는 고유한 전용 VM이 있어야 합니다.  
-> * 동일한 클러스터에서 큐에 넣기 복제 서버 1과 큐에 넣기 복제 서버 2를 함께 사용할 수 없습니다.  
+> * 동일한 클러스터에서 인큐 복제 서버1과 인큐 복제 서버2를 함께 사용하는 것은 지원되지 않습니다.  
 
 ## <a name="sap-ascsscs-multi-sid-architecture-with-shared-disk"></a>공유 디스크를 사용하는 SAP ASCS/SCS 다중 SID 아키텍처
 
@@ -227,7 +227,7 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 
 고급 절차는 다음과 같습니다.
 
-1. 고가용성 [ASCS/SCS 인스턴스를 사용 하 여 SAP를 설치][sap-high-availability-installation-wsfc-shared-disk-install-ascs]합니다.  
+1. [고가용성 ASCS/SCS 인스턴스를 갖는 SAP를 설치][sap-high-availability-installation-wsfc-shared-disk-install-ascs]합니다.  
  이 단계에서는 기존 WSFC 클러스터 노드 1에 고가용성 ASCS/SCS 인스턴스를 포함한 SAP를 설치하고 있습니다.
 
 2. [ASCS/SCS 인스턴스의 SAP 프로필을 수정합니다][sap-high-availability-installation-wsfc-shared-disk-modify-ascs-profile].

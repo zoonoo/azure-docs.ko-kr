@@ -7,39 +7,39 @@ ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
 ms.openlocfilehash: 79e7c5db2a2c445ae740a21744a0bdfe0736c01a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92342436"
 ---
 # <a name="access-the-vfxt-cluster"></a>vFXT 클러스터에 액세스
 
-클러스터 설정을 조정 하 고 클러스터를 모니터링 하려면 Avere 제어판을 사용 합니다. Avere 제어판은 클러스터에 대한 브라우저 기반의 그래픽 인터페이스입니다.
+클러스터 설정을 조정하고 클러스터를 모니터링하려면 Avere 제어판을 사용합니다. Avere 제어판은 클러스터에 대한 브라우저 기반의 그래픽 인터페이스입니다.
 
-VFXT 클러스터가 개인 가상 네트워크 내에 있기 때문에 SSH 터널을 만들거나 다른 방법을 사용 하 여 클러스터의 관리 IP 주소에 연결 해야 합니다.
+vFXT 클러스터는 프라이빗 가상 네트워크 내에 있으므로 SSH 터널을 만들거나 다른 방법을 사용하여 클러스터의 관리 IP 주소에 연결해야 합니다.
 
 다음과 같은 두 가지 기본 단계가 있습니다.
 
-1. 워크스테이션과 개인 가상 네트워크 간의 연결 만들기
+1. 워크스테이션과 프라이빗 가상 네트워크 간의 연결 만들기
 1. 웹 브라우저에서 클러스터의 제어판 로드
 
 > [!NOTE]
-> 이 문서에서는 클러스터 컨트롤러 또는 클러스터의 가상 네트워크 내부에 있는 다른 VM에 공용 IP 주소를 설정했다고 가정합니다. 이 문서에서는 호스트로 해당 VM을 사용하여 클러스터에 액세스하는 방법을 설명합니다. VPN 또는 가상 네트워크 액세스를 위한 Express 경로를 사용 하는 경우 [Avere 제어판에 연결](#connect-to-the-avere-control-panel-in-a-browser)을 건너뜁니다.
+> 이 문서에서는 클러스터 컨트롤러 또는 클러스터의 가상 네트워크 내부에 있는 다른 VM에 공용 IP 주소를 설정했다고 가정합니다. 이 문서에서는 호스트로 해당 VM을 사용하여 클러스터에 액세스하는 방법을 설명합니다. 가상 네트워크 액세스에 VPN 또는 ExpressRoute를 사용하는 경우 [Avere 제어판에 연결](#connect-to-the-avere-control-panel-in-a-browser)은 건너뜁니다.
 
-연결하기 전에 클러스터 컨트롤러를 만들 때 사용한 SSH 퍼블릭/프라이빗 키 쌍이 로컬 머신에 설치되어 있는지 확인합니다. 도움이 필요한 경우 [Windows](../virtual-machines/linux/ssh-from-windows.md) 또는 [Linux](../virtual-machines/linux/mac-create-ssh-keys.md)용 SSH 키 설명서를 참조하세요. 공개 키 대신 암호를 사용 하는 경우 연결할 때 암호를 입력 하 라는 메시지가 표시 됩니다.
+연결하기 전에 클러스터 컨트롤러를 만들 때 사용한 SSH 퍼블릭/프라이빗 키 쌍이 로컬 머신에 설치되어 있는지 확인합니다. 도움이 필요한 경우 [Windows](../virtual-machines/linux/ssh-from-windows.md) 또는 [Linux](../virtual-machines/linux/mac-create-ssh-keys.md)용 SSH 키 설명서를 참조하세요. 퍼블릭 키 대신 암호를 사용한 경우에는 연결 시 암호를 입력하라는 프롬프트가 표시됩니다.
 
 ## <a name="create-an-ssh-tunnel"></a>SSH 터널 만들기
 
 Linux 기반 또는 Windows 10 클라이언트 시스템의 명령줄에서 SSH 터널을 만들 수 있습니다.
 
-SSH 터널링 명령을 다음 형식으로 사용 합니다.
+SSH 터널링 명령은 다음 형식으로 사용합니다.
 
 ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_public_IP*
 
 이 명령은 클러스터 컨트롤러의 IP 주소를 통해 클러스터의 관리 IP 주소에 연결합니다.
 
-예제:
+예:
 
 ```sh
 ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
@@ -49,7 +49,7 @@ SSH 공개 키를 사용하여 클러스터를 만들고 일치하는 키가 클
 
 ## <a name="connect-to-the-avere-control-panel-in-a-browser"></a>브라우저에서 Avere 제어판에 연결
 
-이 단계에서는 웹 브라우저를 사용 하 여 vFXT 클러스터의 구성 유틸리티에 연결 합니다.
+이 단계에서는 웹 브라우저를 사용하여 vFXT 클러스터의 구성 유틸리티에 연결합니다.
 
 * SSH 터널 연결의 경우 웹 브라우저를 열고 `https://127.0.0.1:8443` 으로 이동합니다.
 
@@ -67,4 +67,4 @@ SSH 공개 키를 사용하여 클러스터를 만들고 일치하는 키가 클
 
 ## <a name="next-steps"></a>다음 단계
 
-클러스터의 제어판에 로그인 한 후 [지원](avere-vfxt-enable-support.md)을 사용 하도록 설정 합니다.
+클러스터의 제어판에 로그인한 후 [지원](avere-vfxt-enable-support.md)을 사용하도록 설정합니다.

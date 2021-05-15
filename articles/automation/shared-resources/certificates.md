@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: cbf9eb6c97dcceeca5e86e8bef47a39fb685792f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: fcd593beed6faa9ef142c62e2fbdb251b66c009f
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97734813"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169422"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>Azure Automation에서 인증서 관리
 
@@ -43,9 +43,9 @@ Azure Automation은 Azure Resource Manager 리소스에 대해 [Get-AzAutomation
 > [!NOTE]
 > Runbook 또는 DSC 구성에서 `Get-AutomationCertificate`의 `Name` 매개 변수에 변수를 사용하지 않는 것이 좋습니다. 이러한 변수로 디자인 타임에 Runbook 또는 DSC 구성과 Automation 변수 간의 종속성 검색이 복잡해질 수 있습니다.
 
-## <a name="python-functions-to-access-certificates"></a>인증서에 액세스 하는 Python 함수
+## <a name="python-functions-to-access-certificates"></a>인증서에 액세스하는 Python 함수
 
-다음 표의 함수를 사용 하 여 Python 2 및 3 runbook의 인증서에 액세스할 수 있습니다. Python 3 runbook은 현재 미리 보기로 제공 됩니다.
+다음 테이블의 함수를 사용하여 Python 2 및 3 Runbook의 인증서에 액세스합니다. Python 3 Runbook은 현재 미리 보기로 제공됩니다.
 
 | 함수 | Description |
 |:---|:---|
@@ -60,8 +60,8 @@ Azure Automation은 Azure Resource Manager 리소스에 대해 [Get-AzAutomation
 
 ### <a name="create-a-new-certificate-with-the-azure-portal"></a>Azure Portal을 사용하여 새 인증서 만들기
 
-1. Automation 계정의 왼쪽 창에서 **공유 리소스** 아래에 있는 **인증서** 를 선택 합니다.
-1. **인증서** 페이지에서 **인증서 추가** 를 선택 합니다.
+1. Automation 계정의 왼쪽 창에서 **공유 리소스** 아래에 있는 **인증서** 를 선택합니다.
+1. **인증서** 페이지에서 **인증서 추가** 를 선택합니다.
 1. **이름** 필드에서 인증서의 이름을 입력합니다.
 1. **.cer** 또는 **.pfx** 파일을 찾아보려면 **인증서 파일 업로드** 아래에서 **파일 선택** 을 선택합니다. **.pfx** 파일을 선택하는 경우 암호를 지정하고 내보낼 수 있는지 여부를 나타냅니다.
 1. **만들기** 를 선택하여 새 인증서 자산을 저장합니다.
@@ -76,7 +76,7 @@ $PfxCertPath = '.\MyCert.pfx'
 $CertificatePassword = ConvertTo-SecureString -String 'P@$$w0rd' -AsPlainText -Force
 $ResourceGroup = "ResourceGroup01"
 
-New-AzAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certificateName -Path $PfxCertPath –Password $CertificatePassword -Exportable -ResourceGroupName $ResourceGroup
+New-AzAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certificateName -Path $PfxCertPath -Password $CertificatePassword -Exportable -ResourceGroupName $ResourceGroup
 ```
 
 ### <a name="create-a-new-certificate-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 새 인증서 만들기
@@ -136,7 +136,7 @@ New-AzResourceGroupDeployment -Name NewCert -ResourceGroupName $ResourceGroupNam
 $serviceName = 'MyCloudService'
 $cert = Get-AutomationCertificate -Name 'MyCertificate'
 $certPwd = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
-–AutomationAccountName "MyAutomationAccount" –Name 'MyCertPassword'
+-AutomationAccountName "MyAutomationAccount" -Name 'MyCertPassword'
 Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
 ```
 
@@ -154,7 +154,7 @@ print cert
 
 # <a name="python-3"></a>[Python 3](#tab/python3)
 
-다음 예제에서는 Python 3 runbook (미리 보기)에서 인증서에 액세스 하는 방법을 보여 줍니다.
+다음 예제에서는 Python 3 Runbook의 인증서에 액세스하는 방법을 보여 줍니다(미리 보기).
 
 ```python
 # get a reference to the Azure Automation certificate

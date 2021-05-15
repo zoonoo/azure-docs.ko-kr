@@ -1,6 +1,6 @@
 ---
-title: Lsv2 시리즈-Azure Virtual Machines
-description: Lsv2 시리즈 Vm에 대 한 사양입니다.
+title: Lsv2 시리즈 - Azure Virtual Machines
+description: Lsv2 시리즈 VM의 사양입니다.
 author: sasha-melamed
 ms.service: virtual-machines
 ms.subservice: vm-sizes-storage
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
 ms.openlocfilehash: 787f9ada921e1580a34431568e87c41496b37f6a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102563203"
 ---
 # <a name="lsv2-series"></a>Lsv2 시리즈
@@ -19,31 +19,31 @@ ms.locfileid: "102563203"
 Lsv2 시리즈는 처리량이 많고, 대기 시간이 짧으며, 모든 코어 부스트가 2.55GHz이고 최대 부스트가 3.0GHz인 [AMD EPYC<sup>TM</sup> 7551 프로세서](https://www.amd.com/en/products/epyc-7000-series)에서 실행되는 직접 매핑된 로컬 NVMe 스토리지가 특징입니다. Lsv2 시리즈 VM은 동시 다중 스레딩 구성을 통해 8~80vCPU 크기로 제공됩니다.  vCPU당 8GiB 메모리, 8vCPU당 1.92TB NVMe SSD M.2 디바이스 한 대가 있으며, L80s v2에서 최대 19.2TB(10x1.92TB)를 사용할 수 있습니다.
 
 > [!NOTE]
-> Lsv2 시리즈 Vm은 내구성이 있는 데이터 디스크를 사용 하는 대신 VM에 직접 연결 된 노드에서 로컬 디스크를 사용 하도록 최적화 되어 있습니다. 이렇게 하면 워크로드에 대한 IOPS/처리량이 향상됩니다. Lsv2 및 Ls 시리즈는 영구 데이터 디스크에서 달성할 수 있는 IOPs를 늘리기 위해 로컬 캐시 생성을 지원 하지 않습니다.
+> Lsv2 시리즈 VM은 지속형 데이터 디스크를 사용하는 대신 VM에 직접 연결된 노드의 로컬 디스크를 사용하도록 최적화되었습니다. 이렇게 하면 워크로드에 대한 IOPS/처리량이 향상됩니다. Lsv2 및 Ls 시리즈는 로컬 캐시를 만들어 지속형 데이터 디스크에서 달성할 수 있는 IOPs를 늘리는 작업을 지원하지 않습니다.
 >
-> 로컬 디스크의 높은 처리량 및 IOPs를 통해 Lsv2 시리즈 Vm은 단일 VM의 장애가 발생 하는 경우 지 속성을 얻기 위해 여러 Vm 간에 데이터를 복제 하는 Apache Cassandra 및 MongoDB와 같은 NoSQL 저장소에 적합 합니다.
+> 로컬 디스크의 처리량 및 IOPs가 높으면 단일 VM의 오류가 발생한 경우 지속성을 달성하기 위해 여러 VM 간에 데이터를 복제하는 Apache Cassandra 및 MongoDB와 같은 NoSQL 저장소에 Lsv2 시리즈 VM을 사용하는 것이 이상적입니다.
 >
-> 자세히 알아보려면 [Windows](../virtual-machines/windows/storage-performance.md) 또는 [Linux](../virtual-machines/linux/storage-performance.md)용 Lsv2 시리즈 가상 머신에서 성능 최적화를 참조 하세요.  
+> 자세한 내용은 [Windows](../virtual-machines/windows/storage-performance.md) 또는 [Linux](../virtual-machines/linux/storage-performance.md)용 Lsv2 시리즈 가상 머신에서 성능을 최적화하는 방법을 참조하세요.  
 
-[Acu](acu.md): 150-175<br>
-[Premium Storage](premium-storage-performance.md): 지원 됨<br>
-[Premium Storage 캐싱](premium-storage-performance.md): 지원 되지 않음<br>
-[실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
-[메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
-[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
-버스트: 지원 됨<br>
-[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
-[삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 되지 않음 <br>
+[ACU](acu.md): 150-175<br>
+[Premium Storage](premium-storage-performance.md): 지원됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원되지 않음<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원되지 않음<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>
+[VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
+버스팅: 지원됨<br>
+[가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨<br>
+[임시 OS 디스크](ephemeral-os-disks.md): 지원되지 않음 <br>
 <br>
 
-| 크기 | vCPU | 메모리(GiB) | 임시 디스크<sup>1</sup>(GiB) | NVMe 디스크<sup>2</sup> | NVMe 디스크 처리량<sup>3</sup> (읽기 IOPS/MBps) | 캐시 되지 않은 데이터 디스크 처리량 (IOPs/MBps)<sup>4</sup> | 최대 버스트 캐시 되지 않은 데이터 디스크 처리량 (IOPs/MBps)<sup>5</sup>| 최대 데이터 디스크 수 | 최대 NIC 수 | 예상 네트워크 대역폭 (Mbps) |
+| 크기 | vCPU | 메모리(GiB) | 임시 디스크<sup>1</sup>(GiB) | NVMe 디스크<sup>2</sup> | NVMe 디스크 처리량<sup>3</sup>(IOPS/MBps 읽기) | 캐시되지 않은 데이터 디스크 처리량(IOPS/MBps)<sup>4</sup> | 최대 버스트 캐시되지 않은 데이터 디스크 처리량(IOPS/MBps)<sup>5</sup>| 최대 데이터 디스크 수 | 최대 NIC 수 | 예상 네트워크 대역폭(Mbps) |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92TB  | 400000/2000  | 8000/160   | 8000/1280 | 16 | 2 | 3200   |
 | Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92TB  | 800000/4000  | 16000/320  | 16000/1280 | 32 | 4 | 6400   |
-| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92TB  | 1.5 m/8000    | 32000/640  | 32000/1280 | 32 | 8 | 12800  |
-| Standard_L48s_v2  | 48 | 384 | 480 |  6x 1.92 TB  | 2.2 m/14000   | 48000/960  | 48000/2000 | 32 | 8 | 16000 + |
-| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92TB  | 2.9 m/16000   | 64000/1280 | 64000/2000 | 32 | 8 | 16000 + |
-| Standard_L80s_v2<sup>6</sup> | 80 | 640 | 800 | 10x1.92TB | 3.8 m/20000 | 80000/1400 | 80000/2000 | 32 | 8 | 16000 + |
+| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92TB  | 1.5M/8000    | 32000/640  | 32000/1280 | 32 | 8 | 12800  |
+| Standard_L48s_v2  | 48 | 384 | 480 |  6x1.92TB  | 2.2M/14000   | 48000/960  | 48000/2000 | 32 | 8 | 16000+ |
+| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92TB  | 2.9M/16000   | 64000/1280 | 64000/2000 | 32 | 8 | 16000+ |
+| Standard_L80s_v2<sup>6</sup> | 80 | 640 | 800 | 10x1.92TB | 3.8M/20000 | 80000/1400 | 80000/2000 | 32 | 8 | 16000+ |
 
 <sup>1</sup> Lsv2 시리즈 VM에는 OS 페이징/스왑 파일용 표준 SCSI 기반 임시 리소스 디스크가 있습니다(Windows의 D:, Linux의 /dev/sdb). 이 디스크는 모든 8 vCPU에 대해 80GiB 스토리지, 4,000 IOPS 및 80MBps 전송 속도를 제공합니다(예: Standard_L80s_v2는 40,000 IOPS 및 800MBPS에서 800GiB 제공). 이 경우 NVMe 드라이브는 완전히 애플리케이션 전용일 수 있습니다. 이는 임시 디스크이며 중지/할당 취소 시 모든 데이터가 손실됩니다.
 
@@ -53,19 +53,19 @@ Lsv2 시리즈는 처리량이 많고, 대기 시간이 짧으며, 모든 코어
 
 <sup>4</sup> Lsv2 시리즈 VM은 Lsv2 워크로드에 도움이 되지 않으므로 데이터 디스크에 대한 호스트 캐시를 제공하지 않습니다.
 
-<sup>5</sup> Lsv2 시리즈 vm은 한 번에 최대 30 분 동안 디스크 성능을 [버스트](./disk-bursting.md) 할 수 있습니다. 
+<sup>5</sup> Lsv2 시리즈 VM은 한 번에 최대 30분 동안 디스크 성능을 [버스트](./disk-bursting.md)할 수 있습니다. 
 
-<sup>6</sup> 64 개 이상의 vcpus가 포함 된 vm에는 다음과 같은 지원 되는 게스트 운영 체제 중 하나가 필요 합니다.
+<sup>6</sup> 64개 이상의 vCPU가 있는 VM에는 다음의 지원되는 게스트 운영 체제 중 하나가 필요합니다.
 
 - Windows Server 2016 이상
-- Ubuntu 16.04 LTS 이상, Azure에서 조정 된 커널 (4.15 kernel 이상)
+- Ubuntu 16.04 LTS 이상, Azure에서 조정된 커널(4.15커널 이상)
 - SLES 12 SP2 이상
-- Microsoft에서 제공 하는 LIS package 4.3.1 이상이 설치 된 RHEL 또는 CentOS 버전 6.7 ~ 6.10
-- RHEL 또는 CentOS 버전 7.3, Microsoft에서 제공 하는 LIS 패키지 4.2.1 이상 설치 됨
+- Microsoft에서 제공하는 LIS package 4.3.1 이상이 설치된 RHEL 또는 CentOS 버전 6.7 ~ 6.10
+- Microsoft에서 제공하는 LIS package 4.2.1 이상이 설치된 RHEL 또는 CentOS 버전 7.3
 - RHEL 또는 CentOS 버전 7.6 이상
-- UEK4 이상을 사용 하 여 Oracle Linux
-- Debian 9 (backports 커널, Debian 10 이상)
-- 4.14 커널을 CoreOS 이상
+- UEK4 이상을 사용하는 Oracle Linux
+- 백포트 커널이 있는 Debian 9, Debian 10 이상
+- 4\.14 커널이 있는 CoreOS 이상
 
 ## <a name="size-table-definitions"></a>크기 테이블 정의
 
@@ -86,7 +86,7 @@ Lsv2 시리즈는 처리량이 많고, 대기 시간이 짧으며, 모든 코어
 
 가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
 
-디스크 유형에 대 한 자세한 정보: [디스크 유형](./disks-types.md#ultra-disk)
+디스크 유형에 대한 자세한 정보는 [디스크 유형](./disks-types.md#ultra-disk)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

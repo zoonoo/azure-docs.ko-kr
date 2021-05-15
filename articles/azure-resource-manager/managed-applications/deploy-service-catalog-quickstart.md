@@ -1,15 +1,15 @@
 ---
-title: Azure Portal를 사용 하 여 서비스 카탈로그 앱 배포
+title: Azure Portal을 사용하여 서비스 카탈로그 앱 배포
 description: 관리되는 애플리케이션의 소비자에게 Azure Portal을 통해 서비스 카탈로그 앱을 배포하는 방법을 보여 줍니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: ce58fc69496f54c078b0a0a55a8a3c7cad82a051
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "81391703"
 ---
 # <a name="quickstart-deploy-service-catalog-app-through-azure-portal"></a>빠른 시작: Azure Portal을 통해 서비스 카탈로그 앱 배포
@@ -36,7 +36,7 @@ Azure Portal에서 다음 단계를 사용하세요.
 
    ![배포할 정의 선택](./media/deploy-service-catalog-quickstart/select-definition.png)
 
-1. **기본** 탭에 대 한 값을 제공 합니다. 서비스 카탈로그 앱을 배포할 Azure 구독을 선택 합니다. **applicationGroup** 이라는 새 리소스 그룹을 만듭니다. 앱의 위치를 선택합니다. 작업을 마쳤으면 **확인** 을 선택합니다.
+1. **기본** 탭에 대한 값을 제공합니다. 서비스 카탈로그 앱을 배포할 Azure 구독을 선택합니다. **applicationGroup** 이라는 새 리소스 그룹을 만듭니다. 앱의 위치를 선택합니다. 작업을 마쳤으면 **확인** 을 선택합니다.
 
    ![기본 사항에 대한 값 제공](./media/deploy-service-catalog-quickstart/provide-basics.png)
 

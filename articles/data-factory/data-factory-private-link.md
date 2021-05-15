@@ -1,18 +1,18 @@
 ---
 title: Azure Data Factory에 대한 Azure Private Link
 description: Azure Data Factory에서 Azure Private Link가 작동하는 방법에 대해 알아봅니다.
-ms.author: lle
-author: lrtoyou1223
+ms.author: abnarain
+author: nabhishek
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: f84d7d7a02b75723f78cfbed9ee23e19ebea9a15
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: d572509b3b2b3a0fc69f207d005984ee07ce34a4
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109481682"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076822"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Data Factory에 대한 Azure Private Link
 
@@ -72,7 +72,7 @@ Azure Data Factory 서비스에 대한 통신은 Private Link를 통해 이동�
 
 위의 예에서 프라이빗 엔드포인트를 호스팅하는 VNet 외부에서 해결되면 Data Factory 'DataFactory A'에 대한 DNS 리소스 레코드는 다음과 같습니다.
 
-| Name | Type | 값 |
+| 이름 | 유형 | 값 |
 | ---------- | -------- | --------------- |
 | DataFactoryA.{지역}.datafactory.azure.net | CNAME   | DataFactoryA.{지역}.privatelink.datafactory.azure.net |
 | DataFactoryA.{지역}.privatelink.datafactory.azure.net | CNAME   | < 데이터 팩터리 서비스 퍼블릭 엔드포인트 > |
@@ -80,7 +80,7 @@ Azure Data Factory 서비스에 대한 통신은 Private Link를 통해 이동�
 
 프라이빗 엔드포인트를 호스팅하는 VNet에서 확인되면 DataFactoryA에 대한 DNS 리소스 레코드는 다음과 같습니다.
 
-| Name | Type | 값 |
+| 이름 | 유형 | 값 |
 | ---------- | -------- | --------------- |
 | DataFactoryA.{지역}.datafactory.azure.net | CNAME   | DataFactoryA.{지역}.privatelink.datafactory.azure.net |
 | DataFactoryA.{지역}.privatelink.datafactory.azure.net   | A | < 프라이빗 엔드포인트 IP 주소 > |

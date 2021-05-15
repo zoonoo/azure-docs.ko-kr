@@ -1,6 +1,6 @@
 ---
-title: 특정 제품 API 검색-Azure Marketplace
-description: 게시자 네임 스페이스 내에서 지정 된 제품을 검색 하는 API입니다.
+title: 특정 제안 검색 API - Azure Marketplace
+description: 게시자 네임스페이스 내에서 지정된 제안을 검색하는 API입니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
@@ -8,16 +8,16 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 9f3ba6b2f13b9f2bb1d538db84723e3a9baaef12
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87271844"
 ---
 # <a name="retrieve-a-specific-offer"></a>특정 제안 검색
 
 > [!NOTE]
-> Cloud 파트너 포털 Api는와 통합 되며 파트너 센터에서 계속 작업 합니다. 전환에는 작은 변화가 도입 됩니다. [CLOUD 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md) 에 나열 된 변경 내용을 검토 하 여 파트너 센터로 전환 된 후 코드가 계속 작동 하는지 확인 합니다. CPP Api는 파트너 센터로 전환 하기 전에 이미 통합 된 기존 제품에만 사용 해야 합니다. 새 제품은 파트너 센터 제출 Api를 사용 해야 합니다.
+> Cloud 파트너 포털 API는 파트너 센터와 통합되었으며 계속 파트너 센터에서 작동합니다. 이러한 전환으로 인해 몇 가지 사소한 사항이 변경되었습니다. [Cloud 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md)에 나열된 변경 사항을 검토하여 파트너 센터로 전환한 후에도 코드가 계속 작동하는지 확인하세요. CPP API는 파트너 센터로 전환하기 전에 이미 통합된 기존 제품에만 사용해야 합니다. 새 제품은 파트너 센터 제출 API를 사용해야 합니다.
 
 게시자 네임스페이스 내에서 지정된 제안을 검색합니다.  
 
@@ -43,7 +43,7 @@ ms.locfileid: "87271844"
 | offerId     | 제안을 고유하게 식별하는 GUID입니다.                                                 | String        |
 | 버전     | 검색 중인 제안의 버전입니다. 기본적으로 최신 제안 버전이 검색됩니다. | 정수       |
 | slotId      | 제안이 검색될 슬롯으로, 다음 중 하나일 수 있습니다.      <br/>  - `Draft`(기본값)는 현재 초안에 있는 제안 버전을 검색합니다.  <br/>  -  `Preview`는 현재 미리 보기에 있는 제안 버전을 검색합니다.     <br/>  -  `Production`은 현재 프로덕션 환경에 있는 제안 버전을 검색합니다.          |      enum |
-| api-version | 최신 버전 API                                                                    | 날짜          |
+| api-version | 최신 버전 API                                                                    | Date          |
 |  |  |  |
 
 ## <a name="header"></a>헤더
@@ -184,7 +184,7 @@ ms.locfileid: "87271844"
 
 ### <a name="response-status-codes"></a>응답 상태 코드
 
-| **코드**  | **설명**                                                                                                                 |
+| ‘코드’  | **설명**                                                                                                                 |
 |  ------   | ------------------------------------------------------------------------------------------------------------------------------- |
 |  200      | `OK` - 요청이 성공적으로 처리되었으며 해당 게시자의 모든 제안이 클라이언트에 반환되었습니다.               |
 |  400      | `Bad/Malformed request` - 오류 응답 본문에 자세한 정보가 들어 있을 수 있습니다.                                                 |

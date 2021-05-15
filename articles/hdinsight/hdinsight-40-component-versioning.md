@@ -1,25 +1,25 @@
 ---
-title: Apache Hadoop 구성 요소 및 버전-Azure HDInsight 4.0
-description: Azure HDInsight 4.0의 Apache Hadoop 구성 요소 및 버전에 대해 알아봅니다.
+title: Apache Hadoop 구성 요소 및 버전 - Azure HDInsight 4.0
+description: Azure HDInsight 4.0의 Apache Hadoop 구성 요소 및 버전에 대해 자세히 알아봅니다.
 ms.service: hdinsight
 ms.topic: conceptual
 author: deshriva
 ms.author: deshriva
 ms.date: 02/08/2021
 ms.openlocfilehash: 0283779e10ac3e6070e9fd73d186af35972cad22
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104582887"
 ---
 # <a name="hdinsight-40-component-versions"></a>HDInsight 4.0 구성 요소 버전
 
 이 문서에서는 Azure HDInsight 4.0의 Apache Hadoop 환경 구성 요소 및 버전에 대해 알아봅니다.
 
-## <a name="apache-components-available-with-hdinsight-version-40"></a>HDInsight 버전 4.0에서 사용할 수 있는 Apache 구성 요소
+## <a name="apache-components-available-with-hdinsight-version-40"></a>HDInsight 버전 4.0에서 제공되는 Apache 구성 요소
 
-다음 표에는 HDInsight 4.0와 연결 된 OSS 구성 요소 버전이 나와 있습니다.
+HDInsight 4.0과 연결된 OSS 구성 요소 버전은 다음 표에 나열되어 있습니다.
 
 | 구성 요소              | HDInsight 4.0 |
 |------------------------|---------------|
@@ -41,12 +41,12 @@ ms.locfileid: "104582887"
 | Mono                   | 4.2.1         |
 
 
-이 표에는 사용이 중지 된 특정 HDInsight 4.0 클러스터 유형이 나와 있습니다.
+이 표에는 사용이 중지된 특정 HDInsight 4.0 클러스터 형식이 나와 있습니다.
 
-| 클러스터 유형                    | 프레임 워크 버전 | 지원 만료 날짜      | 사용 중지 날짜 |
+| 클러스터 유형                    | 프레임워크 버전 | 지원 만료 날짜      | 사용 중지 날짜 |
 |---------------------------------|-------------------|------------------------------|-----------------|
 | HDInsight 4.0 Spark             | 2.3               | 2020년 6월 30일                | 2020년 6월 30일   |
-| HDInsight 4.0 Kafka             | 1.1               | 2020 년 12 월 31 일                 | 2020 년 12 월 31 일    |
+| HDInsight 4.0 Kafka             | 1.1               | 2020년 12월 31일                 | 2020년 12월 31일    |
 
 ## <a name="next-steps"></a>다음 단계
 

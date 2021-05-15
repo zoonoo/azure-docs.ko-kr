@@ -6,14 +6,14 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/06/2021
+ms.date: 04/29/2021
 ms.author: mbullwin
-ms.openlocfilehash: a657b8f5bf967131a0168dbea5bb1db86b3b559e
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 632352e707927cccfb9ccc541ed4b9bd38e2c9c6
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107799790"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108333448"
 ---
 .NET용 Anomaly Detector 다변량 클라이언트 라이브러리를 시작합니다. 패키지를 설치하고 서비스에서 제공하는 알고리즘 사용을 시작하려면 다음 단계를 따르세요. 새로운 다변량 변칙 검색 API를 통해 개발자는 기계 학습 기술 또는 레이블이 지정된 데이터 없이도 메트릭 그룹에서 변칙을 검색하는 고급 AI를 쉽게 통합할 수 있습니다. 서로 다른 신호 간의 종속성 및 상호 상관 관계는 자동으로 주요 요소로 계산됩니다. 이를 통해 복잡한 시스템의 오류를 사전에 보호할 수 있습니다.
 
@@ -94,7 +94,18 @@ string apiKey =  "YOUR_ENDPOINT";
 string datasource = "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS";
 ```
 
- Anomaly Detector 다변량 API를 사용하려면 검색을 사용하기 전에 고유한 모델을 학습시켜야 합니다. 학습에 사용되는 데이터는 시계열의 일괄 처리입니다. 각 시계열은 타임스탬프와 값이라는 두 열이 포함된 CSV 형식이어야 합니다. 모든 시계열은 하나의 zip 파일로 압축되고 [Azure Blob Storage](../../../../storage/blobs/storage-blobs-introduction.md#blobs)에 업로드되어야 합니다. 기본적으로 파일 이름은 시계열의 변수를 나타내는 데 사용됩니다. 또는 변수의 이름을 .zip 파일 이름과 다르게 지정하려는 경우 추가 meta.js 파일을 zip 파일에 포함시킬 수 있습니다. [Blob SAS(공유 액세스 서명) URL](../../../../storage/common/storage-sas-overview.md)을 생성하면 학습을 위해 zip 파일에 대한 URL을 사용할 수 있습니다.
+Anomaly Detector 다변량 API를 사용하려면 먼저 고유한 모델을 학습해야 합니다. 학습 데이터는 다음 요구 사항을 충족하는 여러 시계열 세트입니다.
+
+각 시계열은 헤더 행으로 "timestamp" 및 "value"(모두 소문자)라는 2개(및 2개만)의 열이 포함된 CSV 파일이어야 합니다. "timestamp" 값은 ISO 8601을 준수해야 합니다. "value"는 소수 자릿수가 있는 정수 또는 소수일 수 있습니다. 예를 들면 다음과 같습니다.
+
+|timestamp | 값|
+|-------|-------|
+|2019-04-01T00:00:00Z| 5|
+|2019-04-01T00:01:00Z| 3.6|
+|2019-04-01T00:02:00Z| 4|
+|`...`| `...` |
+
+각 CSV 파일의 이름을 모델 학습에 사용되는 다른 변수 뒤에 지정해야 합니다. 예를 들면 "temperature.csv" 및 "humidity.csv"입니다. 모든 CSV 파일은 하위 폴더 없이 하나의 zip 파일로 압축되어야 합니다. zip 파일에는 원하는 이름을 사용할 수 있습니다. zip 파일을 Azure Blob Storage에 업로드해야 합니다. zip 파일에 대한 Blob SAS(공유 액세스 서명) URL을 생성한 후에는 학습에 사용할 수 있습니다. Azure Blob Storage에서 SAS URL을 생성하는 방법은 이 문서를 참조하세요.
 
 ## <a name="code-examples"></a>코드 예제
 

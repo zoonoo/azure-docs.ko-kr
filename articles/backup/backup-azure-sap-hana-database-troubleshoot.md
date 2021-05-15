@@ -3,12 +3,12 @@ title: SAP HANA 데이터베이스 백업 오류 문제 해결
 description: Azure Backup를 사용하여 SAP HANA 데이터베이스를 백업하는 경우 발생할 수 있는 일반적인 오류를 해결하는 방법을 설명합니다.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: cdf4c26aa32d65ec63ec84d85e454adaaf2ece8d
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 22800adc323bda8a60278160f24bc559103fb57e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107517235"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101713340"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Azure의 SAP HANA 데이터베이스 백업 문제 해결
 
@@ -197,4 +197,4 @@ SID를 변경하는 SDC에서 MDC로의 업그레이드는 다음과 같이 처�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure VM의 SAP HANA 데이터베이스 백업에 대해서는 [질문과 대답](./sap-hana-faq-backup-azure-vm.yml)을 검토하세요.
+- Azure VM의 SAP HANA 데이터베이스 백업에 대해서는 [질문과 대답](./sap-hana-faq-backup-azure-vm.md)을 검토하세요.

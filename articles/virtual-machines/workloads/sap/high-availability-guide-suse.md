@@ -13,14 +13,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/22/2020
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: e33b514f61aec69c566eae455d2e59b1a66813f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d125f258be45889c6c917d9d1fe170bb9502cf7
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101673807"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307523"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성
 
@@ -202,11 +202,10 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
          * 위의 단계를 반복하여 ERS에 대한 상태 프로브를 만듭니다(예: 621 **02** 및 **nw1-aers-hp**).
    1. 부하 분산 규칙
       1. ASCS에 대한 부하 분산 규칙
-         1. 부하 분산 장치를 열고, 부하 분산 규칙을 설정하고, 추가 클릭
+         1. 부하 분산 장치를 열고, 부하 분산 규칙을 선택하고, 추가 클릭
          1. 새 부하 분산 장치 규칙의 이름 입력(예: **nw1-lb-ascs**)
          1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 선택(예: **nw1-ascs-frontend**, **nw1-backend**, **nw1-ascs-hp**)
          1. **HA 포트** 선택
-         1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
          1. 확인 클릭
          * 위의 단계를 반복하여 ERS에 대한 부하 분산 규칙 만들기(예: **nw1-lb-ers**)
@@ -236,7 +235,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
          * 위의 단계를 반복하여 ERS에 대한 상태 프로브를 만듭니다(예: 621 **02** 및 **nw1-aers-hp**).
    1. 부하 분산 규칙
       1. TCP: 32 **00**(ASCS용)
-         1. 부하 분산 장치를 열고, 부하 분산 규칙을 설정하고, 추가 클릭
+         1. 부하 분산 장치를 열고, 부하 분산 규칙을 선택하고, 추가 클릭
          1. 새 부하 분산 장치 규칙의 이름 입력(예: **nw1-lb-3200**)
          1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 선택(예: **nw1-ascs-frontend**)
          1. 프로토콜로 **TCP** 를 유지하고. 포트로 **3200** 입력
@@ -532,7 +531,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    enque/encni/set_so_keepalive = true
    </code></pre>
 
-   ENSA1 및 ENSA2 모두에서 `keepalive` OS 매개 변수는 SAP 메모 [1410736](https://launchpad.support.sap.com/#/notes/1410736)에 설명된 대로 설정해야 합니다.    
+   ENSA1 및 ENSA2 모두에서 `keepalive` OS 매개 변수는 SAP Note [1410736](https://launchpad.support.sap.com/#/notes/1410736)에 설명된 대로 설정해야 합니다.    
 
    * ERS 프로필
 

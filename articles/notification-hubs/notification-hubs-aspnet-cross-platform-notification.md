@@ -17,31 +17,31 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 10/02/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3f8f9357fff4773467dd93046ece8533514eb444
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92313895"
 ---
-# <a name="send-cross-platform-notifications-with-azure-notification-hubs"></a>Azure Notification Hubs를 사용 하 여 플랫폼 간 알림 보내기
+# <a name="send-cross-platform-notifications-with-azure-notification-hubs"></a>Azure Notification Hubs를 사용하여 플랫폼 간 알림 보내기
 
-이 자습서는 이전 자습서를 기반으로 하며 [Azure Notification Hubs를 사용 하 여 특정 사용자에 게 알림을 보냅니다]. 이 자습서에서는 인증 된 특정 사용자에 게 등록 된 모든 장치에 알림을 푸시하는 방법을 설명 합니다. 이러한 접근 방식에는 지원 되는 각 클라이언트 플랫폼에 알림을 보내기 위한 여러 요청이 필요 했습니다. Azure Notification Hubs는 특정 디바이스가 알림을 받는 방법을 지정할 수 있는 템플릿을 지원합니다. 이 경우 플랫폼 중립적 알림 전송이 간소화됩니다.
+이 자습서는 이전 자습서 [Azure Notification Hubs를 사용하여 특정 사용자에게 알림 보내기]를 기반으로 합니다. 이전 자습서에서는 인증된 특정 사용자에게 등록된 모든 디바이스에 알림을 푸시하는 방법을 설명합니다. 해당 접근 방식에는 지원되는 각 클라이언트 플랫폼에 알림을 보내기 위해 여러 요청이 필요했습니다. Azure Notification Hubs는 특정 디바이스가 알림을 받는 방법을 지정할 수 있는 템플릿을 지원합니다. 이 경우 플랫폼 중립적 알림 전송이 간소화됩니다.
 
-이 문서에서는 템플릿을 활용 하 여 모든 플랫폼을 대상으로 하는 알림을 보내는 방법을 보여 줍니다. 이 문서에서는 단일 Request to Send 플랫폼 중립적 알림을 사용 합니다. 템플릿에 대 한 자세한 내용은 [Notification Hubs 개요][Templates]를 참조 하세요.
+이 문서에서는 템플릿을 활용하여 모든 플랫폼을 대상으로 하는 알림을 보내는 방법을 보여 줍니다. 이 문서에서는 단일 요청을 사용하여 플랫폼 중립적 알림을 보냅니다. 템플릿에 대한 자세한 내용은 [Azure Notification Hubs 개요][Templates]를 참조하세요.
 
 > [!IMPORTANT]
-> Windows Phone 프로젝트 8.1 및 이전 버전은 Visual Studio 2019에서 지원 되지 않습니다. 자세한 내용은 [Visual Studio 2019 플랫폼 대상 지정 및 호환성](/visualstudio/releases/2019/compatibility)을 참조 하세요.
+> Windows Phone 프로젝트 8.1 및 이전 버전은 Visual Studio 2019에서 지원되지 않습니다. 자세한 내용은 [Visual Studio 2019 플랫폼 대상 지정 및 호환성](/visualstudio/releases/2019/compatibility)을 참조하세요.
 
 > [!NOTE]
 > Notification Hubs를 사용하면 디바이스가 동일한 태그로 여러 템플릿을 등록할 수 있습니다. 이 경우 해당 태그를 대상으로 들어오는 메시지가 있으면 각 템플릿에 대해 하나씩 여러 개의 알림이 디바이스에 전달됩니다. 이 프로세스로 Windows 스토어 앱에 알림 메시지와 배지 둘 다로 표시하는 등 여러 시각적 알림에 동일한 메시지를 표시할 수 있습니다.
 
 ## <a name="send-cross-platform-notifications-using-templates"></a>템플릿을 사용하여 플랫폼 간 알림 보내기
 
-이 섹션에서는 [Azure Notification Hubs 자습서를 사용 하 여 특정 사용자에 게 알림 보내기] 에서 빌드한 샘플 코드를 사용 합니다. [GitHub에서 전체 샘플을 다운로드할](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers)수 있습니다.
+이 섹션에서는 [Azure Notification Hubs를 사용하여 특정 사용자에게 알림 보내기] 자습서에서 빌드한 샘플 코드를 사용합니다. [전체 샘플은 GitHub에서 다운로드](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers)할 수 있습니다.
 
-템플릿을 사용 하 여 플랫폼 간 알림을 보내려면 다음을 수행 합니다.
+템플릿을 사용하여 플랫폼 중립적 알림을 보내려면 다음을 수행합니다.
 
-1. **솔루션 탐색기** 의 Visual Studio에서 **컨트롤러** 폴더를 확장 한 다음 *registercontroller .cs* 파일을 엽니다.
+1. Visual Studio의 **솔루션 탐색기** 에서 **컨트롤러** 폴더를 확장한 다음 *RegisterController.cs* 파일을 엽니다.
 
 1. `Put` 메서드에서 새 등록을 만드는 코드 블록을 찾은 다음, `switch`의 내용을 다음 코드로 바꿉니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "92313895"
 
     이 코드는 플랫폼 특정 메서드를 호출하여 기본 등록이 아니라 템플릿 등록을 만듭니다. 템플릿 등록은 기본 등록에서 파생되므로 기존 등록을 수정할 필요는 없습니다.
 
-1. **솔루션 탐색기** 의 **Controllers** 폴더에서 **NotificationsController** 파일을 엽니다. `Post` 메서드를 다음 코드로 바꿉니다.
+1. **솔루션 탐색기** 에서 **컨트롤러** 폴더를 확장하고 **NotificationsController.cs** 파일을 엽니다. `Post` 메서드를 다음 코드로 바꿉니다.
 
     ```csharp
     public async Task<HttpResponseMessage> Post()
@@ -91,20 +91,20 @@ ms.locfileid: "92313895"
     }
     ```
 
-    이 코드는 모든 플랫폼에 동시에 알림을 보냅니다. 기본 페이로드를 지정 하지 않습니다. Notification Hubs는 등록된 템플릿에 지정된 대로 올바른 페이로드를 작성하고 제공된 tag 값을 가진 모든 디바이스에 전달합니다.
+    이 코드는 동시에 모든 플랫폼으로 알림을 보냅니다. 기본 페이로드를 지정하지 않습니다. Notification Hubs는 등록된 템플릿에 지정된 대로 올바른 페이로드를 작성하고 제공된 tag 값을 가진 모든 디바이스에 전달합니다.
 
-1. Web API 프로젝트를 다시 게시 합니다.
+1. Web API 프로젝트를 다시 게시합니다.
 
-1. 클라이언트 앱을 다시 실행 하 여 등록이 성공 했는지 확인 합니다.
+1. 클라이언트 앱을 다시 실행하여 등록에 성공했는지 확인합니다.
 
-1. 필요에 따라 클라이언트 앱을 두 번째 장치에 배포한 후 앱을 실행 합니다. 각 디바이스에 알림이 표시됩니다.
+1. 경우에 따라 클라이언트 앱을 두 번째 디바이스에 배포한 후 앱을 실행합니다. 각 디바이스에 알림이 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서를 완료 했으므로 다음 문서에서 Notification Hubs 및 템플릿에 대해 자세히 알아보세요.
+이 자습서를 마쳤습니다. 이제 다음 문서에서 Notification Hubs 및 템플릿에 대해 자세히 알아보세요.
 
-* 템플릿 사용에 대 한 다른 시나리오는 [유니버설 Windows 플랫폼 응용 프로그램을 실행 하는 특정 Windows 장치에 알림 푸시][Use Notification Hubs to send breaking news] 자습서를 참조 하세요.
-* 템플릿에 대 한 자세한 내용은 [Notification Hubs 개요][Templates]를 참조 하세요.
+* 템플릿 사용에 대한 다른 시나리오는 [유니버설 Windows 플랫폼 애플리케이션을 실행하는 특정 Windows 디바이스에 알림 푸시][Use Notification Hubs to send breaking news] 자습서를 참조하세요.
+* 템플릿에 대한 자세한 내용은 [Notification Hubs 개요][Templates]를 참조하세요.
 
 <!-- Anchors. -->
 

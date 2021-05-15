@@ -14,10 +14,10 @@ ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 27dc2f6c647308984a02f2cf52dbc0213abad088
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101676834"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>SAP HANA(대규모 인스턴스) 배포 
@@ -36,7 +36,7 @@ Microsoft는 HANA 대규모 인스턴스 단위를 배포하기 위해 다음 �
 - 모든 Azure 배포 지역의 경우:
     - Azure 가상 네트워크를 HANA 대규모 인스턴스에 연결하는 ER-P2P 연결에 대한 /29 IP 주소 범위
     - HANA 대규모 인스턴스 서버 IP 풀에 사용되는 /24 CIDR 블록
-    - [Global Reach express](../../../expressroute/expressroute-global-reach.md) 경로를 사용 하 여 온-프레미스에서 Hana 대량 인스턴스 단위나 다른 AZURE 지역의 Hana large instance 단위 간 라우팅을 사용 하도록 설정 하는 경우 다른/29 IP 주소 범위를 예약 해야 합니다. 이 특정 범위는 이전에 정의한 다른 IP 주소 범위와 겹칠 수 없습니다.
+    - 선택적으로 [ExpressRoute Global Reach](../../../expressroute/expressroute-global-reach.md)를 사용하여 온-프레미스에서 HANA 대규모 인스턴스 유닛으로 직접 라우팅하거나 여러 Azure 영역에 있는 HANA 대규모 인스턴스 유닛 간에 라우팅하는 경우, 다른 /29 IP 주소 범위를 예약해야 합니다. 이 특정 범위는 이전에 정의한 다른 IP 주소 범위와 겹치지 않을 수 있습니다.
 - HANA 대규모 인스턴스에 연결하는 모든 Azure 가상 네트워크의 가상 네트워크 주소 공간 특성에 사용된 IP 주소 범위 값
 - 각 HANA 대규모 인스턴스 시스템에 대한 데이터:
   - 원하는 호스트 이름 - 정규화된 도메인 이름이 이상적.
@@ -50,6 +50,6 @@ Microsoft는 HANA 대규모 인스턴스 단위를 배포하기 위해 다음 �
 
 Microsoft에서 배포한 후에 다음 순서를 사용하여 HANA 대규모 인스턴스에 연결합니다.
 
-1. [HANA large instances에 Azure Vm 연결](hana-connect-azure-vm-large-instances.md)
-2. [HANA large instances Express 경로에 VNet 연결](hana-connect-vnet-express-route.md)
+1. [Azure VM을 HANA 대규모 인스턴스에 연결](hana-connect-azure-vm-large-instances.md)
+2. [VNet을 HANA 대규모 인스턴스 ExpressRoute에 연결](hana-connect-vnet-express-route.md)
 3. [추가 네트워크 요구 사항(옵션)](hana-additional-network-requirements.md)

@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: 166e365a4ead8ad6d0f7e543c081161ebff5f027
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92330464"
 ---
 # <a name="elastic-database-tools-glossary"></a>Elastic Database 도구 용어집
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[Elastic Database 도구](elastic-scale-introduction.md)에 대해 정의 되는 용어는 다음과 같습니다. 이 도구는 [분할 데이터베이스 맵](elastic-scale-shard-map-management.md)을 관리하는 데 사용하며 [클라이언트 라이브러리](elastic-database-client-library.md), [분할-병합 도구](elastic-scale-overview-split-and-merge.md), [탄력적 풀](elastic-pool-overview.md), [쿼리](elastic-query-overview.md)를 포함합니다. 
+[탄력적 데이터베이스 도구](elastic-scale-introduction.md)에 대해 정의된 용어는 다음과 같습니다. 이 도구는 [분할 데이터베이스 맵](elastic-scale-shard-map-management.md)을 관리하는 데 사용하며 [클라이언트 라이브러리](elastic-database-client-library.md), [분할-병합 도구](elastic-scale-overview-split-and-merge.md), [탄력적 풀](elastic-pool-overview.md), [쿼리](elastic-query-overview.md)를 포함합니다. 
 
 이러한 용어는 [Elastic Database 도구를 사용하여 분할된 데이터베이스 추가](elastic-scale-add-a-shard.md) 및 [RecoveryManager 클래스를 사용하여 분할된 데이터베이스 맵 문제 해결](elastic-database-recovery-manager.md)에 사용됩니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "92330464"
 
 **다중 테넌트** 및 **단일 테넌트**: 단일 테넌트 데이터베이스 및 다중 테넌트 데이터베이스를 보여 줍니다.
 
-![단일 테 넌 트 데이터베이스 및 다중 테 넌 트 데이터베이스를 보여 주는 스크린샷](./media/elastic-scale-glossary/multi-single-simple.png)
+![단일 테넌트 데이터베이스 및 다중 테넌트 데이터베이스를 보여 주는 스크린샷](./media/elastic-scale-glossary/multi-single-simple.png)
 
 여기에 대표적인 **분할된** 단일 및 다중 테넌트 데이터베이스가 있습니다. 
 
@@ -51,7 +51,7 @@ ms.locfileid: "92330464"
 
 **참조 테이블**: 분할되지 않았지만 여러 분할된 데이터베이스에 걸쳐 복제되는 테이블입니다. 예를 들어, 우편번호는 참조 테이블에 저장할 수 있습니다. 
 
-분할 된 **데이터베이스: 분할 된** 데이터 집합의 데이터를 저장 하는 Azure SQL Database 데이터베이스입니다. 
+**분할된 데이터베이스**: 분할된 데이터 세트의 데이터를 저장하는 Azure SQL Database의 데이터베이스입니다. 
 
 **분할된 데이터베이스 탄력성**: **수평 확장** 과 **수직 확장** 을 모두 수행할 수 있는 기능입니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "92330464"
 
 **분할된 데이터베이스 맵 관리자**: 분할 맵, 분할 위치 및 하나 이상의 분할 집합에 대한 매핑을 포함하는 관리 개체 및 데이터 저장소입니다.
 
-![다이어그램은 shardmaps_global, shards_global 및 shard_mappings_global와 연결 된 분할 된 맵 관리자를 보여 줍니다.][2]
+![shardmaps_global, shards_global, shard_mappings_global과 연결된 분할된 데이터베이스 맵 관리자를 보여 주는 다이어그램][2]
 
 ## <a name="verbs"></a>동사
 **수평적 크기 조정**: 분할 맵에 분할을 추가하거나 제거하여 아래와 같이 분할 컬렉션을 규모 확장(또는 규모 감축)하는 작업입니다.

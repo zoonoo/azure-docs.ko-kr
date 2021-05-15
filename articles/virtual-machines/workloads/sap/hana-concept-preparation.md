@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: babd7c1dcae9d83af1f6c41e756b663d92d6d486
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101677121"
 ---
 # <a name="disaster-recovery-principles"></a>재해 복구 원칙
@@ -68,7 +68,7 @@ HANA 대규모 인스턴스는 서로 다른 Azure 지역의 HANA 대규모 인�
 - DR Azure 지역의 HANA 대규모 인스턴스 단위에 새로 설치된 SAP HANA 인스턴스를 중지합니다.
 - 이 PRD 볼륨을 분리하고 Azure Service Management의 SAP HANA에 문의하십시오. 스토리지 복제 대상으로 작동하는 동안은 액세스할 수 없으므로 볼륨을 단위에 탑재된 상태로 유지할 수 없습니다.  
 
-![프로덕션 Azure 지역의 PRD 볼륨과 DR Azure 지역의 PRD 볼륨 간의 복제 관계를 보여 주는 다이어그램입니다.](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start3.PNG)
+![다이어그램은 프로덕션 Azure 지역의 PRD 볼륨과 DR Azure 지역의 PRD 볼륨 간에 복제 관계를 보여 줍니다.](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start3.PNG)
 
 운영 팀에서는 프로덕션 Azure 지역의 PRD 볼륨과 DR Azure 지역의 PRD 볼륨 간에 복제 관계를 설정합니다.
 

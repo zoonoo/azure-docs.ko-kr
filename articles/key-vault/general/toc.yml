@@ -130,14 +130,16 @@
           href: backup.md
     - name: 보안
       items:
+        - name: 키 자격 증명 모음 네트워킹 설정 구성
+          href: how-to-azure-key-vault-network-security.md
+        - name: 방화벽 뒤에 있는 키 자격 증명 모음 액세스
+          href: access-behind-firewall.md
         - name: Azure Private Link
           items:
             - name: Azure Private Link Service와 통합
               href: private-link-service.md
             - name: Private Link 구성 문제 진단
               href: private-link-diagnostics.md
-        - name: 방화벽 뒤에 있는 키 자격 증명 모음 액세스
-          href: access-behind-firewall.md
     - name: Key Vault 이동
       items:
         - name: 다른 리소스 그룹으로 Key Vault 이동

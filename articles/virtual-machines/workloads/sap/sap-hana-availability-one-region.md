@@ -16,10 +16,10 @@ ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 845cecfb6b09591b10de30267b31e6e1a80a7482
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102504323"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>단일 Azure 지역 내 SAP HANA 가용성
@@ -78,7 +78,7 @@ SAP HANA 스케일 아웃 구성의 고가용성은 VM이 다시 가동될 때 A
 
 아키텍처는 다음과 같습니다.
 
-![저장소 복제를 사용 하는 두 Vm의 아키텍처를 보여 주는 다이어그램입니다.](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
+![스토리지 복제를 사용하는 두 VM의 아키텍처를 보여주는 다이어그램.](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
 
 이 설정은 중요한 RPO(복구 지점 목표) 및 RTO(복구 시간목표) 시간을 달성하는 데 적합하지 않습니다. 특히 RTO 시간은 복사된 백업을 사용하여 전체 데이터베이스를 완전히 복원해야 하므로 어려움을 겪습니다. 그러나 이 설정은 주 인스턴스에서 의도하지 않은 데이터 삭제를 복구하는 데 유용합니다. 이 설정을 사용하면 언제든지 특정 시점으로 복원하고, 데이터를 추출하며, 삭제된 데이터를 주 인스턴스로 가져올 수 있습니다. 따라서 다른 고가용성 기능과 함께 백업 복사본 방법을 사용해야 합니다. 
 

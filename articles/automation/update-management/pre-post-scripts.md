@@ -5,12 +5,13 @@ services: automation
 ms.subservice: update-management
 ms.date: 03/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: ce60c773626d951062de3cc830b898e3b875f3cb
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 51067095b7ebb33da61908b1424752b481668f5f
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102485540"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830811"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>사전 스크립트 및 사후 스크립트 관리
 
@@ -20,7 +21,7 @@ ms.locfileid: "102485540"
 
 Runbook을 사전 스크립트 또는 사후 스크립트로 사용하려면 해당 Runbook을 Automation 계정으로 가져온 다음 [Runbook을 게시](../manage-runbooks.md#publish-a-runbook)해야 합니다.
 
-현재 PowerShell 및 Python 2 runbook은 사전/사후 스크립트로만 지원 됩니다. Python 3, 그래픽, PowerShell 워크플로, 그래픽 PowerShell 워크플로 등의 다른 runbook 유형은 현재 사전/사후 스크립트로 지원 되지 않습니다.
+현재 PowerShell 및 Python 2 Runbook만 사전/사후 스크립트로 지원됩니다. Python 3, 그래픽, PowerShell 워크플로, 그래픽 PowerShell 워크플로 등의 다른 Runbook 유형은 현재 사전/사후 스크립트로 지원되지 않습니다.
 
 ## <a name="pre-script-and-post-script-parameters"></a>사전 스크립트 및 사후 스크립트 매개 변수
 
@@ -119,7 +120,7 @@ Runbook을 사전 스크립트 또는 사후 스크립트로 사용하려면 해
 
 ## <a name="stop-a-deployment"></a>배포 중지
 
-사전 스크립트를 기반으로 배포를 중지하려면 예외를 [throw](../automation-runbook-execution.md#throw)해야 합니다. 그렇지 않으면 배포 및 사후 스크립트가 계속 실행됩니다. 다음 코드 조각에서는 PowerShell을 사용 하 여 예외를 throw 하는 방법을 보여 줍니다.
+사전 스크립트를 기반으로 배포를 중지하려면 예외를 [throw](../automation-runbook-execution.md#throw)해야 합니다. 그렇지 않으면 배포 및 사후 스크립트가 계속 실행됩니다. 다음 코드 조각은 PowerShell을 사용하여 예외를 throw하는 방법을 보여 줍니다.
 
 ```powershell
 #In this case, we want to terminate the patch job if any run fails.
@@ -134,11 +135,11 @@ foreach($summary in $finalStatus)
 }
 ```
 
-Python 2에서 예외 처리는 [try](https://www.python-course.eu/exception_handling.php) 블록에서 관리 됩니다.
+Python 2에서 예외 처리는 [try](https://www.python-course.eu/exception_handling.php) 블록에서 관리됩니다.
 
 ## <a name="interact-with-machines"></a>머신과 상호 작용
 
-사전 스크립트 및 사후 스크립트는 Automation 계정에서 runbook으로 실행 되며 배포의 컴퓨터에서 직접 실행 되지 않습니다. 사전 작업 및 사후 작업도 Azure 컨텍스트에서 실행되며 비 Azure 머신에는 액세스할 수 없습니다. 다음 섹션에서는 Azure VM 또는 비 Azure 머신 상관없이 머신과 직접 상호 작용할 수 있는 방법을 보여 줍니다.
+사전 스크립트 및 사후 스크립트는 Automation 계정에서 Runbook으로 실행되며 배포의 머신에서 직접 실행되지 않습니다. 사전 작업 및 사후 작업도 Azure 컨텍스트에서 실행되며 비 Azure 머신에는 액세스할 수 없습니다. 다음 섹션에서는 Azure VM 또는 비 Azure 머신 상관없이 머신과 직접 상호 작용할 수 있는 방법을 보여 줍니다.
 
 ### <a name="interact-with-azure-machines"></a>Azure 머신과 상호 작용
 
@@ -147,7 +148,7 @@ Python 2에서 예외 처리는 [try](https://www.python-course.eu/exception_han
 * 실행 계정
 * 실행하려는 Runbook
 
-Azure 머신과 상호 작용하려면 [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) cmdlet을 사용하여 Azure VM과 상호 작용해야 합니다. 이 작업을 수행하는 방법의 예는 Runbook 예제 [업데이트 관리 – 실행 명령을 사용하여 스크립트 실행](https://github.com/azureautomation/update-management-run-script-with-run-command)를 참조하세요.
+Azure 머신과 상호 작용하려면 [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) cmdlet을 사용하여 Azure VM과 상호 작용해야 합니다. 이 작업을 수행하는 방법의 예는 Runbook 예제 [업데이트 관리 – 실행 명령을 사용하여 스크립트 실행](https://github.com/azureautomation/update-management-run-script-with-run-command)을 참조하세요.
 
 ### <a name="interact-with-non-azure-machines"></a>비 Azure 머신과의 상호 작용
 
@@ -172,7 +173,7 @@ if (<My custom error logic>)
 }
 ```
 
-Python 2에서 특정 조건이 발생 하는 경우 오류를 throw 하려면 [raise](https://docs.python.org/2.7/reference/simple_stmts.html#the-raise-statement) 문을 사용 합니다.
+Python 2에서 특정 조건이 발생하는 경우 오류를 throw하려면 [raise](https://docs.python.org/2.7/reference/simple_stmts.html#the-raise-statement) 문을 사용합니다.
 
 ```python
 If (<My custom error logic>)
@@ -181,7 +182,7 @@ If (<My custom error logic>)
 
 ## <a name="samples"></a>샘플
 
-사전 스크립트 및 사후 스크립트에 대 한 샘플은 [Azure Automation GitHub 조직](https://github.com/azureautomation) 및 [PowerShell 갤러리](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22)에서 찾을 수 있습니다. 또는 Azure Portal를 통해 가져올 수 있습니다. 이렇게 하려면 Automation 계정의 **프로세스 자동화** 아래에서 **Runbook 갤러리** 를 선택합니다. 필터에 대해 **업데이트 관리** 를 사용합니다.
+사전 스크립트 및 사후 스크립트 샘플은 [Azure Automation GitHub 조직](https://github.com/azureautomation) 및 [PowerShell 갤러리](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22)에서 찾거나 Azure Portal을 통해 가져올 수 있습니다. 이렇게 하려면 Automation 계정의 **프로세스 자동화** 아래에서 **Runbook 갤러리** 를 선택합니다. 필터에 대해 **업데이트 관리** 를 사용합니다.
 
 ![갤러리 목록](./media/pre-post-scripts/runbook-gallery.png)
 
@@ -238,9 +239,9 @@ Write-Output $context
 #Example: How to create and write to a variable using the pre-script:
 <#
 #Create variable named after this run so it can be retrieved
-New-AzAutomationVariable -ResourceGroupName $ResourceGroup –AutomationAccountName $AutomationAccount –Name $runId -Value "" –Encrypted $false
+New-AzAutomationVariable -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccount -Name $runId -Value "" -Encrypted $false
 #Set value of variable
-Set-AutomationVariable –Name $runId -Value $vmIds
+Set-AutomationVariable -Name $runId -Value $vmIds
 #>
 
 #Example: How to retrieve information from a variable set during the pre-script
@@ -254,4 +255,4 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## <a name="next-steps"></a>다음 단계
 
-업데이트 관리에 대 한 자세한 내용은 [vm에 대 한 업데이트 및 패치 관리](manage-updates-for-vm.md)를 참조 하세요.
+업데이트 관리에 대한 자세한 내용은 [VM의 업데이트 및 패치 관리](manage-updates-for-vm.md)를 참조하세요.

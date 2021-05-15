@@ -7,12 +7,13 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 565d801fb569f818613fd31b7492c0847eef9a7a
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 9b06213416241f671dd0e6ef56a7660a3af5f6e8
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169354"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123900"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Hybrid Runbook Worker 문제 해결
 
@@ -128,7 +129,7 @@ Hybrid Runbook Worker가 Azure VM이면 [관리 ID로 Runbook 인증](../automat
 #### <a name="resolution"></a>해결 방법
 
 ##### <a name="mistyped-workspace-id-or-key"></a>잘못 입력한 작업 영역 ID 또는 키
-에이전트의 작업 영역 ID 또는 작업 영역 키를 잘못 입력했는지 확인하려면 Windows 에이전트의 경우 [작업 영역 추가 또는 제거 – Windows 에이전트](../../azure-monitor/platform/agent-manage.md#windows-agent), Linux 에이전트의 경우 [작업 영역 추가 또는 제거 – Linux 에이전트](../../azure-monitor/platform/agent-manage.md#linux-agent)를 참조하세요. Azure Portal에서 주의 깊게 전체 문자열을 선택하고 복사하여 붙여 넣어야 합니다.
+에이전트의 작업 영역 ID 또는 작업 영역 키를 잘못 입력했는지 확인하려면 Windows 에이전트의 경우 [작업 영역 추가 또는 제거 – Windows 에이전트](../../azure-monitor/agents/agent-manage.md#windows-agent), Linux 에이전트의 경우 [작업 영역 추가 또는 제거 – Linux 에이전트](../../azure-monitor/agents/agent-manage.md#linux-agent)를 참조하세요. Azure Portal에서 주의 깊게 전체 문자열을 선택하고 복사하여 붙여 넣어야 합니다.
 
 ##### <a name="configuration-not-downloaded"></a>구성이 다운로드되지 않음
 

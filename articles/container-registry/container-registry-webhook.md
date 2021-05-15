@@ -3,18 +3,18 @@ title: 레지스트리 작업에 응답하는 웹후크
 description: 레지스트리 리포지토리 중 하나에서 풀 또는 푸시 작업이 수행되는 경우 웹후크를 사용하여 이벤트를 트리거하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 5374b58ba72727500294a173c26e9a131b29fe34
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 4f6fb719f8d9d51429a19616aa5548b32a2687e0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101722248"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773403"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Azure Container Registry 웹후크 사용
 
 Azure Container Registry는 Docker Hub에서 공개 Docker 이미지를 저장하는 것과 유사한 방식으로 프라이빗 Docker 컨테이너 이미지를 저장하고 관리합니다. 또한 애플리케이션을 Kubernetes로 배포하는 패키징 형식인 [Helm 차트](container-registry-helm-repos.md)(미리 보기)에 대한 리포지토리를 호스팅할 수 있습니다. 레지스트리 리포지토리 중 하나에서 특정 작업이 수행되는 경우 웹후크를 사용하여 이벤트를 트리거할 수 있습니다. 웹후크는 레지스트리 수준에서 이벤트에 응답하거나 특정 리포지토리 태그로 범위를 줄일 수 있습니다. [지역 복제](container-registry-geo-replication.md) 레지스트리를 사용하여 각 웹후크가 특정 지역 복제본의 이벤트에 응답하도록 구성할 수 있습니다.
 
-Webhook에 대 한 끝점은 레지스트리에서 공개적으로 액세스할 수 있어야 합니다. 보안 끝점에 인증 하도록 레지스트리 webhook 요청을 구성할 수 있습니다.
+웹후크에 대한 엔드포인트는 레지스트리에서 공개적으로 액세스할 수 있어야 합니다. 보안 엔드포인트에 인증하도록 레지스트리 웹후크 요청을 구성할 수 있습니다.
 
 Webhook 요청에 대한 세부 정보는 [Azure Container Registry 웹후크 스키마 참조](container-registry-webhook-reference.md)를 참조하세요.
 
@@ -43,11 +43,11 @@ Webhook 요청에 대한 세부 정보는 [Azure Container Registry 웹후크 �
 
 웹후크 양식 예제:
 
-![Azure Portal에 있는 ACR webhook 생성을 보여 주는 스크린샷](./media/container-registry-webhook/webhook.png)
+![Azure Portal에서 ACR 웹후크 생성 UI을 보여 주는 스크린샷](./media/container-registry-webhook/webhook.png)
 
 ## <a name="create-webhook---azure-cli"></a>웹후크 만들기 - Azure CLI
 
-Azure CLI를 사용하여 웹후크를 만들려면 [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create) 명령을 사용합니다. 다음 명령은 레지스트리 *mycontainerregistry* 의 모든 이미지 삭제 이벤트에 대한 웹후크를 만듭니다.
+Azure CLI를 사용하여 웹후크를 만들려면 [az acr webhook create](/cli/azure/acr/webhook#az_acr_webhook_create) 명령을 사용합니다. 다음 명령은 레지스트리 *mycontainerregistry* 의 모든 이미지 삭제 이벤트에 대한 웹후크를 만듭니다.
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -67,7 +67,7 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI를 사용하여 ACR 웹후크를 테스트하려면 [az acr webhook ping](/cli/azure/acr/webhook#az-acr-webhook-ping) 명령을 사용합니다.
+Azure CLI를 사용하여 ACR 웹후크를 테스트하려면 [az acr webhook ping](/cli/azure/acr/webhook#az_acr_webhook_ping) 명령을 사용합니다.
 
 ```azurecli-interactive
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01

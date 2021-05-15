@@ -19,10 +19,10 @@ ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: eb41593938c670199be38140118f276142ceed43
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102453226"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Azure Notification Hubs 및 Node.js를 사용하여 푸시 알림 보내기
@@ -34,7 +34,7 @@ ms.locfileid: "102453226"
 > [!IMPORTANT]
 > 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-nodejs-how-to-use-notification-hubs)을 통해 몇 분 이내에 평가판 계정을 만들 수 있습니다.
 
-이 가이드에서는 [Node.js](https://nodejs.org) 응용 프로그램에서 직접 Azure Notification Hubs의 도움을 통해 푸시 알림을 보내는 방법을 보여 줍니다.
+이 가이드에서는 [Node.js](https://nodejs.org) 애플리케이션에서 직접 Azure Notification Hubs를 통해 푸시 알림을 보내는 방법을 보여 줍니다.
 
 시나리오는 다음 플랫폼에서 애플리케이션에 푸시 알림을 보내기를 포함합니다.
 
@@ -83,7 +83,7 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 다음 단계를 수행하여 [Azure Portal]에서 `connectionstring` 연결 값을 가져옵니다.
 
 1. 왼쪽 탐색 창에서 **찾아보기** 를 클릭합니다.
-2. **Notification Hubs** 를 선택한 다음 샘플로 사용하려는 허브를 찾습니다. 새 알림 허브를 만드는 데 도움이 필요한 경우 [Windows 스토어 시작 자습서](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 를 참조할 수 있습니다.
+2. **Notification Hubs** 를 선택한 다음 샘플로 사용하려는 허브를 찾습니다. 새 알림 허브를 만드는 데 도움이 필요한 경우 [Windows 스토어 시작 자습서](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)를 참조할 수 있습니다.
 3. **설정** 을 선택합니다.
 4. **액세스 정책** 을 클릭합니다. 공유 및 전체 액세스 연결 문자열이 모두 표시됩니다.
 
@@ -109,7 +109,7 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 - **Payload** - 메시지의 JSON 또는 원시 문자열 페이로드
 - **Callback** - 콜백 함수.
 
-페이로드 형식에 대 한 자세한 내용은 [페이로드 설명서](https://payload.readthedocs.io/en/latest/)를 참조 하세요.
+페이로드 형식에 대한 자세한 내용은 [페이로드 설명서](https://payload.readthedocs.io/en/latest/)를 참조하세요.
 
 다음 코드는 `NotificationHubService`에서 공개하는 `GcmService` 인스턴스를 사용하여 등록된 모든 클라이언트에 푸시 알림을 보냅니다.
 
@@ -134,7 +134,7 @@ notificationHubService.gcm.send(null, payload, function(error){
 - **Payload** - 메시지의 JSON 또는 문자열 페이로드
 - **Callback** - 콜백 함수.
 
-페이로드 형식에 대 한 자세한 내용은 [usernotifications 가이드](https://developer.apple.com/documentation/usernotifications)의 **알림 콘텐츠** 섹션을 참조 하십시오.
+페이로드 형식에 대한 자세한 내용은 [usernotifications 가이드](https://developer.apple.com/documentation/usernotifications)의 **알림 콘텐츠** 섹션을 참조하세요.
 
 다음 코드는 `NotificationHubService`에서 공개하는 `ApnsService` 인스턴스를 사용하여 모든 클라이언트에 경고 메시지를 보냅니다.
 
@@ -155,7 +155,7 @@ notificationHubService.apns.send(null, payload, function(error){
 
 - **Tags** - 태그 식별자. 태그를 제공하지 않은 경우 모든 클라이언트에게 알림이 전송됩니다.
 - **Payload** - 메시지의 XML 페이로드
--   -  TargetName `toast` 알림 메시지의 경우 `token` - 타일 알림 메시지인 경우.
+- **TargetName** - `toast` - 알림 메시지인 경우. `token` - 타일 알림 메시지인 경우.
 - **NotificationClass** - 알림 우선 순위. 유효한 값은 **서버에서 푸시 알림** 문서의 [HTTP 헤더 요소](/previous-versions/windows/xna/bb200104(v=xnagamestudio.41)) 섹션을 참조하세요.
 - **Options** - 선택적 요청 헤더
 - **Callback** - 콜백 함수.

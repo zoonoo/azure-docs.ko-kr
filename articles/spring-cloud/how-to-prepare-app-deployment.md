@@ -1,6 +1,6 @@
 ---
-title: Azure 스프링 클라우드에서 배포할 응용 프로그램을 준비 하는 방법
-description: Azure 스프링 클라우드에 배포할 응용 프로그램을 준비 하는 방법에 대해 알아봅니다.
+title: Azure Spring Cloud에 배포할 애플리케이션을 준비하는 방법
+description: Azure Spring Cloud에 배포할 애플리케이션을 준비하는 방법을 알아봅니다.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: how-to
@@ -9,32 +9,32 @@ ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: a90d4c2a8649e270365af9b11fa408b865945f92
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104878471"
 ---
-# <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 배포용 응용 프로그램 준비
+# <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Azure Spring Cloud에 배포할 애플리케이션 준비
 
 ::: zone pivot="programming-language-csharp"
-Azure 스프링 클라우드는 Steeltoe 앱을 호스트, 모니터링, 크기 조정 및 업데이트 하기 위한 강력한 서비스를 제공 합니다. 이 문서에서는 Azure 스프링 클라우드에 배포 하기 위해 기존 Steeltoe 응용 프로그램을 준비 하는 방법을 보여 줍니다. 
+Azure Spring Cloud는 Steeltoe 앱을 호스팅, 모니터링, 크기 조정, 업데이트하기 위한 강력한 서비스를 제공합니다. 이 아티클에서는 Azure Spring Cloud에 배포하기 위해 기존 Steeltoe 애플리케이션을 준비하는 방법을 보여줍니다. 
 
-이 문서에서는 Azure 스프링 클라우드에서 .NET Core Steeltoe 앱을 실행 하는 데 필요한 종속성, 구성 및 코드에 대해 설명 합니다. Azure 스프링 클라우드에 응용 프로그램을 배포 하는 방법에 대 한 자세한 내용은 [첫 번째 Azure 스프링 클라우드 응용 프로그램 배포](spring-cloud-quickstart.md)를 참조 하세요.
+이 문서에서는 Azure Spring Cloud에서 .NET Core Steeltoe 앱을 실행하는 데 필요한 종속성, 구성 및 코드를 설명합니다. Azure Spring Cloud에 애플리케이션을 배포하는 방법에 대한 자세한 내용은 [첫 번째 Azure Spring Cloud 애플리케이션 배포](spring-cloud-quickstart.md)를 참조하세요.
 
 >[!Note]
 > Azure Spring Cloud에 대한 Steeltoe 지원은 현재 공개 미리 보기로 제공됩니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.  미리 보기 동안 제공되는 지원에 대한 자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 참조하거나 [지원 요청](../azure-portal/supportability/how-to-create-azure-support-request.md)을 제출하세요.
 
 ##  <a name="supported-versions"></a>지원되는 버전
 
-Azure 스프링 클라우드는 다음을 지원 합니다.
+Azure Spring Cloud는 다음을 지원합니다.
 
 * .NET Core 3.1
 * Steeltoe 2.4 및 3.0
 
 ## <a name="dependencies"></a>종속성
 
-Steeltoe 2.4의 경우 프로젝트 파일에 최신 [SpringCloud](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) 1.x 패키지를 추가 합니다.
+Steeltoe 2.4의 경우 프로젝트 파일에 최신 [Microsoft.Azure.SpringCloud.Client 1.x.x](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) 패키지를 추가합니다.
 
 ```xml
 <ItemGroup>
@@ -46,7 +46,7 @@ Steeltoe 2.4의 경우 프로젝트 파일에 최신 [SpringCloud](https://www.n
 </ItemGroup>
 ```
 
-Steeltoe 3.0의 경우 프로젝트 파일에 최신 [SpringCloud](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) 2.x 패키지를 추가 합니다.
+Steeltoe 3.0의 경우 프로젝트 파일에 최신 [Microsoft.Azure.SpringCloud.Client 2.x.x](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) 패키지를 추가합니다.
 
 ```xml
 <ItemGroup>
@@ -59,9 +59,9 @@ Steeltoe 3.0의 경우 프로젝트 파일에 최신 [SpringCloud](https://www.n
 
 ## <a name="update-programcs"></a>Program.cs 업데이트
 
-`Program.Main`메서드에서 메서드를 호출 `UseAzureSpringCloudService` 합니다.
+`Program.Main` 메서드에서 `UseAzureSpringCloudService` 메서드를 호출합니다.
 
-Steeltoe 2.4.4의 경우 호출 된 후 다음을 호출 합니다 `UseAzureSpringCloudService` `ConfigureWebHostDefaults` `AddConfigServer` .
+Steeltoe 2.4.4의 경우 `ConfigureWebHostDefaults` 다음 `UseAzureSpringCloudService`, 다음이 호출된 경우 `AddConfigServer`를 호출합니다.
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -74,7 +74,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
         .UseAzureSpringCloudService();
 ```
 
-Steeltoe 3.0.0의 경우 `UseAzureSpringCloudService` Steeltoe 구성 코드 전후에를 호출 합니다 `ConfigureWebHostDefaults` .
+Steeltoe 3.0.0의 경우 `ConfigureWebHostDefaults` 이전 및 Steeltoe 구성 코드 이전에 `UseAzureSpringCloudService`를 호출합니다.
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -89,9 +89,9 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 ## <a name="enable-eureka-server-service-discovery"></a>Eureka 서버 서비스 검색 사용
 
-앱이 Azure 스프링 클라우드에서 실행 될 때 사용 되는 구성 원본에서 `spring.application.name` 프로젝트가 배포 될 Azure 스프링 클라우드 앱과 동일한 이름으로 설정 합니다.
+앱이 Azure Spring Cloud에서 실행될 때 사용되는 구성 원본에서 `spring.application.name`을 프로젝트가 배포될 Azure Spring Cloud 앱과 동일한 이름으로 설정합니다.
 
-예를 들어 이라는 .NET 프로젝트를 `EurekaDataProvider` Azure 스프링 클라우드 앱에 배포 하는 경우 `planet-weather-provider` 파일 *의appSettings.js* 에 다음 JSON이 포함 되어야 합니다.
+예를 들어 `EurekaDataProvider`라는 이름의 .NET 프로젝트를 `planet-weather-provider`라는 이름의 Azure Spring Cloud 앱에 배포하는 경우 *appSettings.json* 파일은 다음 JSON을 포함해야 합니다.
 
 ```json
 "spring": {
@@ -103,7 +103,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 ## <a name="use-service-discovery"></a>서비스 검색 사용
 
-Eureka 서버 서비스 검색을 사용 하 여 서비스를 호출 하려면에 대해 HTTP 요청을 수행 합니다 `http://<app_name>` `app_name` . 여기서은 `spring.application.name` 대상 앱의 값입니다. 예를 들어 다음 코드는 서비스를 호출 합니다 `planet-weather-provider` .
+Eureka 서버 서비스 검색을 사용하여 서비스를 호출하려면 `app_name`이 대상 앱의 `spring.application.name` 값인 `http://<app_name>`에 HTTP 요청을 수행합니다. 예를 들어 다음 코드는 `planet-weather-provider` 서비스를 호출합니다.
 
 ```csharp
 using (var client = new HttpClient(discoveryHandler, false))
@@ -128,7 +128,7 @@ using (var client = new HttpClient(discoveryHandler, false))
 
 다른 예제에서는 POM 파일이 구성된 경우 Azure Spring Cloud에 애플리케이션을 배포하는 방법을 설명합니다. 
 * [첫 번째 앱 시작](spring-cloud-quickstart.md)
-* [마이크로 서비스 빌드 및 실행](spring-cloud-quickstart-sample-app-introduction.md)
+* [마이크로서비스 빌드 및 실행](spring-cloud-quickstart-sample-app-introduction.md)
 
 이 문서에서는 필요한 종속성과 이것을 POM 파일에 추가하는 방법을 설명합니다.
 
@@ -146,14 +146,14 @@ Azure Spring Cloud는 Spring Boot 버전 2.1 또는 버전 2.2의 Spring Boot �
 
 Spring Boot 버전 | Spring Cloud 버전
 ---|---
-2.2 | Hoxton
-2.3 | Hoxton
-2.4.1 + | 2020.0.0
+2.2 | Hoxton.SR8
+2.3 | Hoxton.SR8
+2.4.1+ | 2020.0.0
 
 > [!NOTE]
-> 앱과 Eureka 간의 TLS 인증에 대 한 스프링 부팅 2.4.0 문제가 확인 되었습니다. 2.4.1 이상을 사용 하세요. 2.4.0 사용을 참조 하는 경우 해결 방법에 대 한 [FAQ](./spring-cloud-faq.md?pivots=programming-language-java#development) 를 참조 하세요.
+> 앱과 Eureka 간의 TLS 인증에 대한 스프링 부팅 2.4.0 문제가 확인되었습니다. 2.4.1이상을 사용하십시오. 2\.4.0을 계속 사용하고자 하는 경우 해결 방법에 대한 [FAQ](./spring-cloud-faq.md?pivots=programming-language-java#development)를 참조하세요.
 
-### <a name="dependencies-for-spring-boot-version-2223"></a>스프링 부팅 버전 2.2/2.3에 대 한 종속성
+### <a name="dependencies-for-spring-boot-version-2223"></a>Spring Boot 버전 2.2/2.3에 대한 종속성
 
 Spring Boot 버전 2.2의 경우, 애플리케이션 POM 파일에 다음 종속성을 추가합니다.
 
@@ -179,7 +179,7 @@ Spring Boot 버전 2.2의 경우, 애플리케이션 POM 파일에 다음 종속
     </dependencyManagement>
 ```
 
-### <a name="dependencies-for-spring-boot-version-24"></a>스프링 부팅 버전 2.4에 대 한 종속성
+### <a name="dependencies-for-spring-boot-version-24"></a>Spring Boot 버전 2.4에 대한 종속성
 
 Spring Boot 버전 2.2의 경우, 애플리케이션 POM 파일에 다음 종속성을 추가합니다.
 
@@ -206,7 +206,7 @@ Spring Boot 버전 2.2의 경우, 애플리케이션 POM 파일에 다음 종속
 ```
 
 > [!WARNING]
-> `server.port`구성에를 지정 하지 마십시오. Azure 스프링 클라우드는이 설정을 고정 포트 번호로 재정의 합니다. 또한이 설정을 준수 하 고 코드에서 서버 포트를 지정 하지 마십시오.
+> 부트스트랩 구성에 `server.port`를 지정하지 마십시오. Azure Spring Cloud는 이 설정을 고정 포트 번호로 재정의합니다. 또한 이 설정을 준수하고 코드에서 서버 포트를 지정하지 마십시오.
 
 ## <a name="other-recommended-dependencies-to-enable-azure-spring-cloud-features"></a>Azure Spring Cloud 기능을 사용하도록 설정하기 위한 기타 권장 종속성
 
@@ -280,13 +280,13 @@ public class GatewayApplication {
  JMX 엔드포인트에서 메트릭을 정기적으로 끌어옵니다. Azure Portal을 사용하여 메트릭을 시각화할 수 있습니다.
 
  > [!WARNING]
- > `spring.jmx.enabled=true`구성 속성에서를 지정 하십시오. 그렇지 않으면 Azure Portal에서 메트릭을 시각화할 수 없습니다.
+ > 구성 속성에서 `spring.jmx.enabled=true`로 지정하십시오. 그러지 않으면 Azure Portal에서 메트릭을 시각화할 수 없습니다.
 
 ### <a name="distributed-tracing"></a>분산 추적
 
-또한, Azure Application Insights 인스턴스가 Azure Spring Cloud 서비스 인스턴스와 작동하도록 설정해야 합니다. Azure 스프링 클라우드에서 Application Insights를 사용 하는 방법에 대 한 자세한 내용은 [분산 추적에 대 한 설명서](spring-cloud-tutorial-distributed-tracing.md)를 참조 하세요.
+또한, Azure Application Insights 인스턴스가 Azure Spring Cloud 서비스 인스턴스와 작동하도록 설정해야 합니다. Azure Spring Cloud에서 Application Insights를 사용하는 방법에 대한 자세한 내용은 [분산 추적에 대한 설명서](spring-cloud-tutorial-distributed-tracing.md)를 참조하세요.
 
-#### <a name="spring-boot-2223"></a>스프링 부트 2.2/2.3
+#### <a name="spring-boot-2223"></a>Spring Boot 2.2/2.3
 pom.xml 파일의 종속성 섹션에 다음 `spring-cloud-starter-sleuth` 및 `spring-cloud-starter-zipkin` 종속성을 포함합니다.
 
 ```xml
@@ -300,8 +300,8 @@ pom.xml 파일의 종속성 섹션에 다음 `spring-cloud-starter-sleuth` 및 `
 </dependency>
 ```
 
-#### <a name="spring-boot-24"></a>스프링 부팅 2.4
-`spring-cloud-sleuth-zipkin`pom.xml 파일의 종속성 섹션에 다음 종속성을 포함 합니다.
+#### <a name="spring-boot-24"></a>Spring Boot 2.4
+pom.xml 파일의 종속성 섹션에 다음 `spring-cloud-sleuth-zipkin` 종속성을 포함합니다.
 
 ```xml
 <dependency>
@@ -319,7 +319,7 @@ pom.xml 파일의 종속성 섹션에 다음 `spring-cloud-starter-sleuth` 및 `
 
 ## <a name="next-steps"></a>다음 단계
 
-이 항목에서는 Azure Spring Cloud에 배포하기 위해 Java Spring 애플리케이션을 구성하는 방법을 알아보았습니다. 구성 서버 인스턴스를 설정 하는 방법을 알아보려면 [구성 서버 인스턴스 설정](spring-cloud-tutorial-config-server.md)을 참조 하세요.
+이 항목에서는 Azure Spring Cloud에 배포하기 위해 Java Spring 애플리케이션을 구성하는 방법을 알아보았습니다. 구성 서버 인스턴스를 설정하는 방법을 알아보려면 [구성 서버 인스턴스 설정](spring-cloud-tutorial-config-server.md)을 참조하세요.
 
 GitHub에서 더 많은 샘플을 사용할 수 있습니다. [Azure Spring Cloud 샘플](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
 ::: zone-end

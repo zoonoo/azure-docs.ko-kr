@@ -1,66 +1,66 @@
 ---
 title: Defender for IoT API 작업
-description: 외부 REST API를 사용 하 여 센서 및 관리 콘솔에서 검색 된 데이터에 액세스 하 고 해당 데이터를 사용 하 여 작업을 수행 합니다.
+description: 외부 REST API를 사용하여 센서 및 관리 콘솔에서 발견된 데이터에 액세스하고 해당 데이터를 사용하여 작업을 수행합니다.
 ms.date: 12/14/2020
 ms.topic: reference
 ms.openlocfilehash: d509f2674a61af1d0ab03892186526b1cb109eee
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104778834"
 ---
-# <a name="defender-for-iot-sensor-and-management-console-apis"></a>IoT 센서 및 관리 콘솔 Api 용 Defender
+# <a name="defender-for-iot-sensor-and-management-console-apis"></a>Defender for IoT 센서 및 관리 콘솔 API
 
-외부 REST API를 사용 하 여 센서 및 관리 콘솔에서 검색 된 데이터에 액세스 하 고 해당 데이터를 사용 하 여 작업을 수행 합니다.
+외부 REST API를 사용하여 센서 및 관리 콘솔에서 발견된 데이터에 액세스하고 해당 데이터를 사용하여 작업을 수행합니다.
 
-연결은 SSL을 통해 보안이 유지 됩니다.
+연결은 SSL을 통해 보안이 유지됩니다.
 
 ## <a name="getting-started"></a>시작
 
-일반적으로 IoT 센서 또는 온-프레미스 관리 콘솔에 대 한 Azure Defender에서 외부 API를 사용 하는 경우 액세스 토큰을 생성 해야 합니다. 센서 및 온-프레미스 관리 콘솔에서 사용 하는 인증 Api에는 토큰이 필요 하지 않습니다.
+일반적으로 Azure Defender for IoT 센서 또는 온-프레미스 관리 콘솔에 대한에서 외부 API를 사용하는 경우 액세스 토큰을 생성해야 합니다. 센서 및 온-프레미스 관리 콘솔에서 사용하는 인증 API에는 토큰이 필요하지 않습니다.
 
-토큰을 생성 하려면:
+토큰을 생성하려면 다음을 수행합니다.
 
-1. **시스템 설정** 창에서 **액세스 토큰** 을 선택 합니다.
+1. **시스템 설정** 창에서 **액세스 토큰** 을 선택합니다.
   
-   :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-tokens.png" alt-text="액세스 토큰 단추를 강조 표시 하는 시스템 설정 창의 스크린샷":::
+   :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-tokens.png" alt-text="액세스 토큰 단추를 강조 표시하는 시스템 설정 창의 스크린샷.":::
 
 2. **Generate new token**(새 토큰 생성)을 탭합니다.
    
-   :::image type="content" source="media/references-work-with-defender-for-iot-apis/new-token.png" alt-text="새 토큰을 생성 하는 단추를 선택 합니다.":::
+   :::image type="content" source="media/references-work-with-defender-for-iot-apis/new-token.png" alt-text="새 토큰을 생성하는 단추를 선택합니다.":::
 
-3. 새 토큰의 용도를 설명 하 고 **다음** 을 선택 합니다.
+3. 새 토큰의 목적을 설명하고 **다음** 을 선택합니다.
    
-   :::image type="content" source="media/references-work-with-defender-for-iot-apis/token-name.png" alt-text="새 토큰을 생성 하 고 연결 된 통합의 이름을 입력 합니다.":::
+   :::image type="content" source="media/references-work-with-defender-for-iot-apis/token-name.png" alt-text="새 토큰을 생성하고 연결된 통합의 이름을 입력합니다.":::
 
-4. 액세스 토큰이 표시 됩니다. 다시 표시 되지 않으므로 복사 합니다.
+4. 액세스 토큰이 나타납니다. 다시 표시되지 않으므로 복사합니다.
    
-   :::image type="content" source="media/references-work-with-defender-for-iot-apis/token-code.png" alt-text="통합을 위해 액세스 토큰을 복사 합니다.":::
+   :::image type="content" source="media/references-work-with-defender-for-iot-apis/token-code.png" alt-text="통합을 위해 액세스 토큰을 복사합니다.":::
 
 5. **마침** 을 선택합니다. 만든 토큰이 **액세스 토큰** 대화 상자에 나타납니다.
    
-   :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-token-window.png" alt-text="채워진 토큰이 있는 장치 토큰 대화 상자 스크린샷":::
+   :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-token-window.png" alt-text="채워진 토큰이 있는 디바이스 토큰 대화 상자 스크린샷":::
 
-   **사용** 됨이 토큰을 사용 하는 외부 호출을 마지막으로 받은 시간을 나타냅니다.
+   **사용됨** 은 이 토큰을 사용한 마지막 외부 호출이 수신된 시간을 나타냅니다.
 
-   이 토큰에 대해 **사용** 된 필드에 **N/A** 가 표시 되 면 센서와 연결 된 서버 간의 연결이 작동 하지 않습니다.
+   이 토큰에 대해 **사용됨** 필드에 **N/A** 가 표시되면 센서와 연결 서버 간의 연결이 작동하지 않습니다.
 
-6. **권한 부여** 라는 HTTP 헤더를 요청에 추가 하 고 해당 값을 생성 한 토큰으로 설정 합니다.
+6. **권한 부여** 라는 HTTP 헤더를 요청에 추가하고 해당 값을 생성한 토큰으로 설정합니다.
 
 ## <a name="sensor-api-specifications"></a>센서 API 사양
 
-이 섹션에서는 다음과 같은 센서 Api에 대해 설명 합니다.
+이 섹션에서는 다음과 같은 센서 API에 대해 설명합니다.
 
-- [장치 정보 검색-/api/v1/devices](#retrieve-device-information---apiv1devices)
+- [디바이스 정보 검색-/api/v1/devices](#retrieve-device-information---apiv1devices)
 
-- [장치 연결 정보 검색-/api/v1/devices/connections](#retrieve-device-connection-information---apiv1devicesconnections)
+- [디바이스 연결 정보 검색-/api/v1/devices/connections](#retrieve-device-connection-information---apiv1devicesconnections)
 
 - [CVEs에서 정보 검색-/api/v1/devices/cves](#retrieve-information-on-cves---apiv1devicescves)
 
 - [경고 정보 검색-/api/v1/alerts](#retrieve-alert-information---apiv1alerts)
 
-- [타임 라인 이벤트 검색-/api/v1/events](#retrieve-timeline-events---apiv1events)
+- [타임라인 이벤트 검색-/api/v1/events](#retrieve-timeline-events---apiv1events)
 
 - [취약점 정보 검색-/api/v1/reports/vulnerabilities/devices](#retrieve-vulnerability-information---apiv1reportsvulnerabilitiesdevices)
 
@@ -68,25 +68,25 @@ ms.locfileid: "104778834"
 
 - [운영 취약점 검색-/api/v1/reports/vulnerabilities/operational](#retrieve-operational-vulnerabilities---apiv1reportsvulnerabilitiesoperational)
 
-- [사용자 자격 증명의 유효성을 검사 합니다.////>](#validate-user-credentials---apiexternalauthenticationvalidation)
+- [사용자 자격 증명 유효성을 검사-/api/external/authentication/validation](#validate-user-credentials---apiexternalauthenticationvalidation)
 
 - [암호 변경-/external/authentication/set_password](#change-password---externalauthenticationset_password)
 
-- [시스템 관리자에의 한 사용자 암호 업데이트-/external/authentication/set_password_by_admin](#user-password-update-by-system-admin---externalauthenticationset_password_by_admin)
+- [시스템 관리자에 의한 사용자 암호 업데이트-/external/authentication/set_password_by_admin](#user-password-update-by-system-admin---externalauthenticationset_password_by_admin)
 
-### <a name="retrieve-device-information---apiv1devices"></a>장치 정보 검색-/api/v1/devices
+### <a name="retrieve-device-information---apiv1devices"></a>디바이스 정보 검색-/api/v1/devices
 
-이 API를 사용 하 여 IoT 용 Defender 센서가 검색 한 모든 장치 목록을 요청 합니다.
+이 API를 사용하여 Defender for IoT 센서가 검색한 모든 디바이스 목록을 요청합니다.
 
 #### <a name="method"></a>방법
 
 **GET**
 
-IoT 용 Defender 센서가 검색 한 모든 장치 목록을 요청 합니다.
+Defender for IoT 센서가 검색한 모든 디바이스 목록을 요청합니다.
 
 #### <a name="query-parameters"></a>쿼리 매개 변수
 
-- **권한 부여** 됨: 허가 되 고 권한이 없는 장치만 필터링 합니다.
+- **권한 부여됨**: 허가되고 권한이 없는 디바이스만 필터링합니다.
 
   **예**:
 
@@ -100,44 +100,44 @@ IoT 용 Defender 센서가 검색 한 모든 장치 목록을 요청 합니다.
 
 #### <a name="response-content"></a>응답 콘텐츠
 
-장치를 나타내는 JSON 개체의 배열입니다.
+디바이스를 나타내는 JSON 개체의 배열입니다.
 
-#### <a name="device-fields"></a>장치 필드
+#### <a name="device-fields"></a>디바이스 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| 이름 | 유형 | Nullable | 값 목록 |
 |--|--|--|--|
-| **ID** | 숫자 | 아니요 | - |
-| **ipAddresses** | JSON 배열 | 예 | IP 주소 (인터넷 주소 또는 이중 Nic를 사용 하는 장치의 경우 두 개 이상의 주소를 사용할 수 있음) |
-| **name** | String | 아니요 | - |
-| **type** | String | 아니요 | 알 수 없음, 엔지니어링 스테이션, PLC, HMI, Historian, 도메인 컨트롤러, DB 서버, 무선 액세스 지점, 라우터, 스위치, 서버, 워크스테이션, IP 카메라, 프린터, 방화벽, 터미널 스테이션, VPN Gateway, 인터넷 또는 멀티 캐스트 및 브로드캐스트 |
-| **macAddresses** | JSON 배열 | 예 | MAC 주소 (이중 Nic를 사용 하는 장치의 경우 두 개 이상의 주소를 사용할 수 있음) |
+| **id** | 숫자 | 예 | - |
+| **ipAddresses** | JSON 배열 | 예 | IP 주소(인터넷 주소 또는 이중 NIC를 사용하는 디바이스의 경우 두 개 이상의 주소를 사용할 수 있음) |
+| **name** | String | 예 | - |
+| **type** | String | 예 | 알 수 없음, 엔지니어링 스테이션, PLC, HMI, Historian, 도메인 컨트롤러, DB 서버, 무선 액세스 지점, 라우터, 스위치, 서버, 워크스테이션, IP 카메라, 프린터, 방화벽, 터미널 스테이션, VPN Gateway, 인터넷 또는 멀티 캐스트 및 브로드캐스트 |
+| **macAddresses** | JSON 배열 | 예 | MAC 주소(이중 NIC를 사용하는 디바이스의 경우 두 개 이상의 주소를 사용할 수 있음) |
 | **operatingSystem** | String | 예 | - |
-| **engineeringStation** | 부울 | 아니요 | True 또는 False |
-| **장치가** | 부울 | 아니요 | True 또는 False |
-| **승인됨** | 부울 | 아니요 | True 또는 False |
-| **업체인** | String | 예 | - |
-| **인터넷용** | JSON 배열 | 예 | 프로토콜 개체 |
-| **펌웨어입니다** | JSON 배열 | 예 | 펌웨어 개체 |
+| **engineeringStation** | 부울 | 예 | True 또는 False |
+| **스캐너** | 부울 | 예 | True 또는 False |
+| **승인됨** | 부울 | 예 | True 또는 False |
+| **공급업체** | String | 예 | - |
+| **프로토콜** | JSON 배열 | 예 | 프로토콜 개체 |
+| **펌웨어** | JSON 배열 | 예 | 펌웨어 개체 |
 
 #### <a name="protocol-fields"></a>프로토콜 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| 이름 | 유형 | Nullable | 값 목록 |
 |--|--|--|--|
-| **이름** | String | 아니요 |  |
-| **주소** | JSON 배열 | 예 | Master 또는 numeric 값 |
+| **이름** | String | 예 |  |
+| **주소** | JSON 배열 | 예 | Master 또는 숫자 값 |
 
 #### <a name="firmware-fields"></a>펌웨어 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| 이름 | 유형 | Nullable | 값 목록 |
 |--|--|--|--|
-| **연속적인** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **model** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **firmwareVersion** | Double | 아니요 | 해당 없음 또는 실제 값 |
-| **additionalData** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **moduleAddress** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **랙마운트** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **슬롯** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **address** | String | 아니요 | 해당 없음 또는 실제 값 |
+| **serial** | String | 예 | 해당 없음 또는 실제 값 |
+| **model** | String | 예 | 해당 없음 또는 실제 값 |
+| **firmwareVersion** | Double | 예 | 해당 없음 또는 실제 값 |
+| **additionalData** | String | 예 | 해당 없음 또는 실제 값 |
+| **moduleAddress** | String | 예 | 해당 없음 또는 실제 값 |
+| **랙** | String | 예 | 해당 없음 또는 실제 값 |
+| **슬롯** | String | 예 | 해당 없음 또는 실제 값 |
+| **address** | String | 예 | 해당 없음 또는 실제 값 |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -277,11 +277,11 @@ IoT 용 Defender 센서가 검색 한 모든 장치 목록을 요청 합니다.
 
 | 유형 | API | 예제 |
 |--|--|--|
-| GET | https://AUTH_TOKEN> "<IP_ADDRESS>/api/v1/devices < | 1234b734a9244d54ab8d40aedddcabcd "권한 부여:" https: <span> //127 <span> . 0.0.1/api/v1/devices? 공인 = true |
+| GET | curl -k -H "권한 부여: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices | curl -k -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" https:<span>//127<span>.0.0.1/api/v1/devices?authorized=true |
 
-### <a name="retrieve-device-connection-information---apiv1devicesconnections"></a>장치 연결 정보 검색-/api/v1/devices/connections
+### <a name="retrieve-device-connection-information---apiv1devicesconnections"></a>디바이스 연결 정보 검색-/api/v1/devices/connections
 
-이 API를 사용 하 여 장치 당 모든 연결 목록을 요청 합니다.
+이 API를 사용하여 디바이스 당 모든 연결 목록을 요청합니다.
 
 #### <a name="method"></a>방법
 
@@ -289,33 +289,33 @@ IoT 용 Defender 센서가 검색 한 모든 장치 목록을 요청 합니다.
 
 #### <a name="query-parameters"></a>쿼리 매개 변수
 
-쿼리 매개 변수를 설정 하지 않으면 모든 장치 연결이 반환 됩니다.
+쿼리 매개 변수를 설정하지 않으면 모든 디바이스 연결이 반환됩니다.
 
-**예**:
+**예제**:
 
 `/api/v1/devices/connections`
 
-- **deviceId**: 특정 장치 ID를 기준으로 필터링 하 여 연결을 확인 합니다.
+- **deviceId**: 특정 디바이스 ID를 기준으로 필터링하여 연결을 확인합니다.
 
-  **예**:
+  **예제**:
 
   `/api/v1/devices/<deviceId>/connections`
 
-- **lastActiveInMinutes**: 이제 시간이 지난 후 연결이 활성 상태인 시간 프레임입니다.
+- **lastActiveInMinutes**: 연결이 활성 상태인 이전부터 현재까지의 시간 프레임(분)입니다.
 
-  **예**:
+  **예제**:
 
   `/api/v1/devices/2/connections?lastActiveInMinutes=20`
 
-- **discoveredBefore**: 특정 시간 (밀리초, UTC) 전에 검색 된 연결만 필터링 합니다.
+- **discoveredBefore**: 특정 시간(밀리초, UTC) 전에 검색된 연결만 필터링합니다.
 
-  **예**:
+  **예제**:
 
   `/api/v1/devices/2/connections?discoveredBefore=<epoch>`
 
-- **discoveredAfter**: 특정 시간 (밀리초, UTC) 이후에 검색 된 연결만 필터링 합니다.
+- **discoveredAfter**: 특정 시간(밀리초, UTC) 후에 검색된 연결만 필터링합니다.
 
-  **예**:
+  **예제**:
 
   `/api/v1/devices/2/connections?discoveredAfter=<epoch>`
 
@@ -325,25 +325,25 @@ IoT 용 Defender 센서가 검색 한 모든 장치 목록을 요청 합니다.
 
 #### <a name="response-content"></a>응답 콘텐츠
 
-장치 연결을 나타내는 JSON 개체의 배열입니다.
+디바이스 연결을 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="fields"></a>필드
 
 | 이름 | 유형 | Nullable | 값 목록 |
 |--|--|--|--|
-| **firstDeviceId** | 숫자 | 아니요 | - |
-| **secondDeviceId** | 숫자 | 아니요 | - |
-| **lastSeen** | 숫자 | 아니요 | Epoch (UTC) |
-| **검색** | 숫자 | 아니요 | Epoch (UTC) |
-| **포트** | 숫자 배열 | 아니요 | - |
-| **인터넷용** | JSON 배열 | 아니요 | 프로토콜 필드 |
+| **firstDeviceId** | 숫자 | 예 | - |
+| **secondDeviceId** | 숫자 | 예 | - |
+| **lastSeen** | 숫자 | 예 | Epoch (UTC) |
+| **discovered** | 숫자 | 예 | Epoch (UTC) |
+| **포트** | 숫자 배열 | 예 | - |
+| **프로토콜** | JSON 배열 | 예 | 프로토콜 필드 |
 
 #### <a name="protocol-field"></a>프로토콜 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| 이름 | 유형 | Nullable | 값 목록 |
 |--|--|--|--|
-| **name** | String | 아니요 | - |
-| **명령을** | 문자열 배열 | 아니요 | - |
+| **name** | String | 예 | - |
+| **명령** | 문자열 배열 | 예 | - |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -450,12 +450,12 @@ IoT 용 Defender 센서가 검색 한 모든 장치 목록을 요청 합니다.
 > [!div class="mx-tdBreakAll"]
 > | 유형 | API | 예제 |
 > |--|--|--|
-> | GET | https://AUTH_TOKEN> "<IP_ADDRESS>/api/v1/devices/connections < | 말아 1234b734a9244d54ab8d40aedddcabcd "권한 부여:" https:/ <span> /127.0.0.1/api/v1/devices/connections |
-> | GET | https://"권한 부여: <AUTH_TOKEN>" ' <IP_ADDRESS>/api/v1/devices/ <deviceId> /tconnections? lastActiveInMinutes =&discoveredBefore =&discoveredAfter = ' | 1234b734a9244d54ab8d40aedddcabcd "권한 부여:" ' https:/ <span> /127.0.0.1/api/v1/devices/2/connections? lastActiveInMinutes = 20&discoveredBefore = 1594550986000&discoveredAfter = 1594550986000 ' |
+> | GET | curl -k -H "권한 부여: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/connections | curl -k -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/connections |
+> | GET | curl -k -H "권한 부여: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/devices/<deviceId>/connections?lastActiveInMinutes=&discoveredBefore=&discoveredAfter=' | curl -k -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/api/v1/devices/2/connections?lastActiveInMinutes=20&discoveredBefore=1594550986000&discoveredAfter=1594550986000' |
 
-### <a name="retrieve-information-on-cves---apiv1devicescves"></a>CVEs에서 정보 검색-/api/v1/devices/cves
+### <a name="retrieve-information-on-cves---apiv1devicescves"></a>CVE에서 정보 검색-/api/v1/devices/cves
 
-이 API를 사용 하 여 네트워크의 장치에서 검색 된 모든 알려진 CVEs 목록을 요청 합니다.
+이 API를 사용하여 네트워크의 디바이스에서 발견된 모든 알려진 CVE 목록을 요청합니다.
 
 #### <a name="method"></a>방법
 
@@ -463,21 +463,21 @@ IoT 용 Defender 센서가 검색 한 모든 장치 목록을 요청 합니다.
 
 #### <a name="query-parameters"></a>쿼리 매개 변수
 
-기본적으로이 API는 CVEs를 사용 하 여 모든 장치 Ip의 목록을 제공 합니다. 각 IP 주소에 대해 최대 100의 가장 높은 점수를 매긴 CVEs를 제공 합니다.
+기본 값으로 이 API는 CVE를 사용하여 모든 디바이스 IP의 목록을 각 IP 주소에 대해 최대 100의 가장 높은 점수를 매긴 CVE까지 제공합니다.
 
-**예**:
+**예제**:
 
 `/api/v1/devices/cves`
 
-- **deviceId**: 특정 장치에서 식별 된 가장 높은 점수 100를 매긴 cves를 가져오도록 특정 장치 IP 주소를 기준으로 필터링 합니다.
+- **deviceId**: 특정 디바이스에서 식별된 가장 높은 점수 100 까지 매긴 CVE를 가져오도록 특정 디바이스 IP 주소를 기준으로 필터링합니다.
 
-  **예**:
+  **예제**:
 
   `/api/v1/devices/<ipAddress>/cves`
 
-- **top**: 각 장치 IP 주소에 대해 검색할 상위 점수가 매겨진 cves의 수입니다.
+- **top**: 각 디바이스 IP 주소에 대해 검색할 상위 점수가 매겨진 CVE의 수입니다.
 
-  **예**:
+  **예제**:
 
   `/api/v1/devices/cves?top=50`
 
@@ -489,17 +489,17 @@ IoT 용 Defender 센서가 검색 한 모든 장치 목록을 요청 합니다.
 
 #### <a name="response-content"></a>응답 콘텐츠
 
-IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
+IP 주소에서 식별된 CVE를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="fields"></a>필드
 
 | 이름 | 유형 | Nullable | 값 목록 |
 |--|--|--|--|
-| **cveId** | String | 아니요 | - |
-| **\** | String | 아니요 | IP 주소 |
-| **점수** | String | 아니요 | 0.0-10.0 |
-| **attackVector** | String | 아니요 | 네트워크, 인접 네트워크, 로컬 또는 물리적 |
-| **description** | String | 아니요 | - |
+| **cveId** | String | 예 | - |
+| **ipAddress** | String | 예 | IP 주소 |
+| **점수** | String | 예 | 0.0 - 10.0 |
+| **attackVector** | String | 예 | 네트워크, 인접 네트워크, 로컬 또는 물리적 |
+| **description** | String | 예 | - |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -565,12 +565,12 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 | 유형 | API | 예제 |
 |--|--|--|
-| GET | https://AUTH_TOKEN> "<IP_ADDRESS>/api/v1/devices/cves < | 말아 1234b734a9244d54ab8d40aedddcabcd "권한 부여:" https:/ <span> /127.0.0.1/api/v1/devices/cves |
-| GET | 말아 https:///api/v1/devices/"Authorization: <AUTH_TOKEN>" <IP_ADDRESS><deviceIpAddress> /cves? top = | 말아 1234b734a9244d54ab8d40aedddcabcd "권한 부여:" https:/ <span> /127.0.0.1/api/v1/devices/10.10.10.15/cves? top = 50 |
+| GET | curl -k -H "권한 부여: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/cves | curl -k -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/cves |
+| GET | curl -k -H "권한 부여: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/<deviceIpAddress>/cves?top= | curl -k -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/10.10.10.15/cves?top=50 |
 
 ### <a name="retrieve-alert-information---apiv1alerts"></a>경고 정보 검색-/api/v1/alerts
 
-이 API를 사용 하 여 Defender 용 Defender 센서가 검색 한 모든 경고 목록을 요청 합니다.
+이 API를 사용하여 Defender for IoT 센서가 검색한 모든 경고 목록을 요청합니다.
 
 #### <a name="method"></a>방법
 
@@ -578,27 +578,27 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="query-parameters"></a>쿼리 매개 변수
 
-- **상태**: 처리 되거나 처리 되지 않은 경고만 필터링 합니다.
+- **상태**: 처리되거나 처리되지 않은 경고만 필터링합니다.
 
-  **예**:
+  **예제**:
 
   `/api/v1/alerts?state=handled`
 
-- **fromtime**: 특정 시간 (밀리초, UTC)에서 만든 경고를 필터링 합니다.
+- **fromtime**: 특정 시간(밀리초, UTC)에서 만든 경고를 필터링합니다.
 
-  **예**:
+  **예제**:
 
   `/api/v1/alerts?fromTime=<epoch>`
 
-- **totime**: 특정 시간 (밀리초, UTC) 전에만 생성 된 경고를 필터링 합니다.
+- **fromtime**: 특정 시간(밀리초, UTC) 이전에만 만든 경고를 필터링합니다.
 
-  **예**:
+  **예제**:
 
   `/api/v1/alerts?toTime=<epoch>`
 
-- **유형**: 특정 유형에 따라 경고를 필터링 합니다. 필터링 할 기존 형식: 예기치 않은 새 장치, 연결이 끊어지지 않습니다.
+- **유형**: 특정 유형에 따라 경고를 필터링합니다. 필터링할 기존 형식: 예기치 않은 새 디바이스, 연결 끊김.
 
-  **예**:
+  **예제**:
 
   `/api/v1/alerts?type=disconnections`
 
@@ -612,24 +612,24 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="alert-fields"></a>경고 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| 이름 | 유형 | Nullable | 값 목록 |
 |--|--|--|--|
-| **ID** | 숫자 | 아니요 | - |
-| **time** | 숫자 | 아니요 | Epoch (UTC) |
-| **title** | String | 아니요 | - |
-| **message** | String | 아니요 | - |
-| **severity** | String | 아니요 | 경고, 부, 주 또는 위험 |
-| **엔진** | String | 아니요 | 프로토콜 위반, 정책 위반, 맬웨어, 변칙 또는 작동 |
+| **ID** | 숫자 | 예 | - |
+| **time** | 숫자 | 예 | Epoch (UTC) |
+| **title** | String | 예 | - |
+| **message** | String | 예 | - |
+| **severity** | String | 예 | 경고, 경미, 중대 또는 위험 |
+| **엔진** | String | 예 | 프로토콜 위반, 정책 위반, 맬웨어, 변칙 또는 작동 |
 | **sourceDevice** | 숫자 | 예 | 디바이스 ID |
 | **destinationDevice** | 숫자 | 예 | 디바이스 ID |
 | **additionalInformation** | 추가 정보 개체 | 예 | - |
 
 #### <a name="additional-information-fields"></a>추가 정보 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| 이름 | 유형 | Nullable | 값 목록 |
 |--|--|--|--|
-| **description** | String | 아니요 | - |
-| **내용을** | JSON 배열 | 예 | String |
+| **description** | String | 예 | - |
+| **정보** | JSON 배열 | 예 | String |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -699,11 +699,11 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 > [!div class="mx-tdBreakAll"]
 > | 유형 | API | 예제 |
 > |--|--|--|
-> | GET | https://"권한 부여: <AUTH_TOKEN>" ' <IP_ADDRESS>/api/v1/alerts? state =&fromTime =&toTime =&type = ' | 1234b734a9244d54ab8d40aedddcabcd "Authorization:" Authorization: "' https:/ <span> /127.0.0.1/api/v1/alerts? state = 처리 되지 않은&fromTime = 1594550986000&toTime = 1594550986001&type = 연결이 끊김 ' |
+> | GET | curl -k -H "권한 부여: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/alerts?state=&fromTime=&toTime=&type=' | curl -k -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/api/v1/alerts?state=unhandled&fromTime=1594550986000&toTime=1594550986001&type=disconnections' |
 
 ### <a name="retrieve-timeline-events---apiv1events"></a>타임 라인 이벤트 검색-/api/v1/events
 
-이 API를 사용 하 여 이벤트 타임 라인에 보고 된 이벤트 목록을 요청 합니다.
+이 API를 사용하여 이벤트 타임 라인에 보고된 이벤트 목록을 요청합니다.
 
 #### <a name="method"></a>방법
 
@@ -711,13 +711,13 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="query-parameters"></a>쿼리 매개 변수
 
-- **minutesTimeFrame**: 이제 이벤트가 보고 된 시간 프레임의 시간 (분)입니다.
+- **minutesTimeFrame**: 이전부터 지금까지 이벤트가 보고된 시간 프레임(분).
 
-  **예**:
+  **예제**:
 
   `/api/v1/events?minutesTimeFrame=20`
 
-- **형식**: 특정 형식으로 이벤트 목록을 필터링 합니다.
+- **형식**: 특정 형식으로 이벤트 목록을 필터링합니다.
 
   **예**:
 
@@ -735,13 +735,13 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="event-fields"></a>이벤트 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| 이름 | 유형 | Nullable | 값 목록 |
 |--|--|--|--|--|
-| **timestamp** | 숫자 | 아니요 | Epoch (UTC) |
-| **title** | String | 아니요 | - |
-| **severity** | String | 아니요 | 정보, 알림 또는 경고 |
-| **소유자도** | String | 예 | 이벤트를 수동으로 만든 경우이 필드에는 이벤트를 만든 사용자 이름이 포함 됩니다. |
-| **content** | String | 아니요 | - |
+| **timestamp** | 숫자 | 예 | Epoch (UTC) |
+| **title** | String | 예 | - |
+| **severity** | String | 예 | 정보, 알림 또는 경고 |
+| **소유자** | String | 예 | 이벤트를 수동으로 만든 경우이 필드에는 이벤트를 만든 사용자 이름이 포함됩니다 |
+| **content** | String | 예 | - |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -820,11 +820,11 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 | 유형 | API | 예제 |
 |--|--|--|
-| GET | https://"권한 부여: <AUTH_TOKEN>" ' <IP_ADDRESS>/api/v1/events? minutesTimeFrame =&type = ' | 1234b734a9244d54ab8d40aedddcabcd "권한 부여:" ' https:/ <span> /127.0.0.1/api/v1/events? minutesTimeFrame = 20&type = DEVICE_CONNECTION_CREATED ' |
+| GET | curl -k -H "권한 부여: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/events?minutesTimeFrame=&type=' | curl -k -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/api/v1/events?minutesTimeFrame=20&type=DEVICE_CONNECTION_CREATED' |
 
 ### <a name="retrieve-vulnerability-information---apiv1reportsvulnerabilitiesdevices"></a>취약점 정보 검색-/api/v1/reports/vulnerabilities/devices
 
-이 API를 사용 하 여 각 장치에 대 한 취약성 평가 결과를 요청 합니다.
+이 API를 사용하여 각 디바이스에 대한 취약성 평가 결과를 요청합니다.
 
 #### <a name="method"></a>방법
 
@@ -836,9 +836,9 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="response-content"></a>응답 콘텐츠
 
-평가 된 장치를 나타내는 JSON 개체의 배열입니다.
+평가된 디바이스를 나타내는 JSON 개체의 배열입니다.
 
-장치 개체는 다음을 포함 합니다.
+디바이스 개체는 다음을 포함합니다.
 
 - 일반 데이터
 
@@ -846,78 +846,78 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 - 취약점
 
-#### <a name="device-fields"></a>장치 필드
+#### <a name="device-fields"></a>디바이스 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| 이름 | 유형 | Nullable | 값 목록 |
 |--|--|--|--|
-| **name** | String | 아니요 | - |
-| **ipAddresses** | JSON 배열 | 아니요 | - |
-| **securityScore** | 숫자 | 아니요 | - |
-| **업체인** | String | 예 |  |
+| **name** | String | 예 | - |
+| **ipAddresses** | JSON 배열 | 예 | - |
+| **securityScore** | 숫자 | 예 | - |
+| **공급업체** | String | 예 |  |
 | **firmwareVersion** | String | 예 | - |
 | **model** | String | 예 | - |
-| **isWirelessAccessPoint** | 부울 | 아니요 | True 또는 False |
+| **isWirelessAccessPoint** | 부울 | 예 | True 또는 False |
 | **operatingSystem** | 운영 체제 개체 | 예 | - |
 | **취약성** | 취약성 개체 | 예 | - |
 
 #### <a name="operating-system-fields"></a>운영 체제 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| 이름 | 유형 | Nullable | 값 목록 |
 |--|--|--|--|
 | **이름** | String | 예 | - |
 | **형식** | String | 예 | - |
-| **버전** | String | 예 | - |
+| **Version** | String | 예 | - |
 | **latestVersion** | String | 예 | - |
 
 #### <a name="vulnerabilities-fields"></a>취약성 필드
  
-| Name | 유형 | Nullable | 값 목록 |
+| 이름 | 유형 | Nullable | 값 목록 |
 |--|--|--|--|
-| **바이러스 방지** | JSON 배열 | 예 | 바이러스 백신 이름 |
-| **plainTextPasswords** | JSON 배열 | 예 | Password 개체 |
-| **remoteAccess** | JSON 배열 | 예 | 원격 액세스 개체 |
-| **isBackupServer** | 부울 | 아니요 | True 또는 False |
+| **antiViruses** | JSON 배열 | 예 | 바이러스 백신 이름 |
+| **plainTextPasswords** | JSON 배열 | 예 | 암호 개체 |
+| **원격 액세스** | JSON 배열 | 예 | 원격 액세스 개체 |
+| **isBackupServer** | 부울 | 예 | True 또는 False |
 | **openedPorts** | JSON 배열 | 예 | 열린 포트 개체 |
-| **isEngineeringStation** | 부울 | 아니요 | True 또는 False |
-| **isKnownScanner** | 부울 | 아니요 | True 또는 False |
-| **같이** | JSON 배열 | 예 | CVE 개체 |
-| **isUnauthorized 없음** | 부울 | 아니요 | True 또는 False |
-| **malwareIndicationsDetected** | 부울 | 아니요 | True 또는 False |
-| **weakAuthentication** | JSON 배열 | 예 | 약한 인증을 사용 하는 검색 된 응용 프로그램 |
+| **isEngineeringStation** | 부울 | 예 | True 또는 False |
+| **isKnownScanner** | 부울 | 예 | True 또는 False |
+| **CVE** | JSON 배열 | 예 | CVE 개체 |
+| **isUnauthorized** | 부울 | 예 | True 또는 False |
+| **malwareIndicationsDetected** | 부울 | 예 | True 또는 False |
+| **weakAuthentication** | JSON 배열 | 예 | 약한 인증을 사용하는 검색된 애플리케이션 |
 
 #### <a name="password-fields"></a>암호 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| 이름 | 유형 | Nullable | 값 목록 |
 |--|--|--|--|
-| **password** | String | 아니요 | - |
-| **protocol** | String | 아니요 | - |
-| **강도가** | String | 아니요 | 매우 약함, 약함, Medium 또는 Strong |
+| **password** | String | 예 | - |
+| **protocol** | String | 예 | - |
+| **strength** | String | 예 | 매우 약함, 약함, 중간 또는 강함 |
 
 #### <a name="remote-access-fields"></a>원격 액세스 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| 이름 | 유형 | Nullable | 값 목록 |
 |--|--|--|--|
-| **port** | 숫자 | 아니요 | - |
-| **트랜스포트가** | String | 아니요 | TCP 또는 UDP |
-| **클라이언트로** | String | 아니요 | IP 주소 |
-| **clientSoftware** | String | 아니요 | SSH, VNC, 원격 데스크톱 또는 팀 뷰어 |
+| **port** | 숫자 | 예 | - |
+| **전송** | String | 예 | TCP 또는 UDP |
+| **client** | String | 예 | IP 주소 |
+| **클라이언트 소프트웨어** | String | 예 | SSH, VNC, 원격 데스크톱 또는 팀 뷰어 |
 
 #### <a name="open-port-fields"></a>포트 필드 열기
 
-| Name | 유형 | Nullable | 값 목록 |
+| 이름 | 유형 | Nullable | 값 목록 |
 |--|--|--|--|
-| **port** | 숫자 | 아니요 | - |
-| **트랜스포트가** | String | 아니요 | TCP 또는 UDP |
+| **port** | 숫자 | 예 | - |
+| **전송** | String | 예 | TCP 또는 UDP |
 | **protocol** | String | 예 | - |
-| **isConflictingWithFirewall** | 부울 | 아니요 | True 또는 False |
+| **isConflictingWithFirewall** | 부울 | 예 | True 또는 False |
 
 #### <a name="cve-fields"></a>CVE 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| 이름 | 유형 | Nullable | 값 목록 |
 |--|--|--|--|
-| **ID** | String | 아니요 | - |
-| **점수** | 숫자 | 아니요 | Double |
-| **description** | String | 아니요 | - |
+| **ID** | String | 예 | - |
+| **점수** | 숫자 | 예 | Double |
+| **description** | String | 예 | - |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -1074,13 +1074,13 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 | 유형 | API | 예제 |
 |--|--|--|
-| GET | https://AUTH_TOKEN> "<IP_ADDRESS>/api/v1/reports/vulnerabilities/devices < | 말아 1234b734a9244d54ab8d40aedddcabcd "권한 부여:" https:/ <span> /127.0.0.1/api/v1/reports/vulnerabilities/devices |
+| GET | curl -k -H "권한 부여: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/devices | curl -k -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/reports/vulnerabilities/devices |
 
 ### <a name="retrieve-security-vulnerabilities---apiv1reportsvulnerabilitiessecurity"></a>보안 취약점 검색-/api/v1/reports/vulnerabilities/security
 
-이 API를 사용 하 여 일반적인 취약성 평가 결과를 요청 합니다. 이 평가는 시스템의 보안 수준에 대 한 통찰력을 제공 합니다.
+이 API를 사용하여 일반적인 취약성 평가 결과를 요청합니다. 이 평가는 시스템의 보안 수준에 대한 인사이트를 제공합니다.
 
-이 평가는 특정 장치 평가가 아니라 일반적인 네트워크 및 시스템 정보를 기반으로 합니다.
+이 평가는 특정 디바이스 평가가 아니라 일반적인 네트워크 및 시스템 정보를 기반으로 합니다.
 
 #### <a name="method"></a>방법
 
@@ -1092,7 +1092,7 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="response-content"></a>응답 콘텐츠
 
-평가 된 결과를 나타내는 JSON 개체입니다. 각 키는 nullable 일 수 있습니다. 그렇지 않은 경우 null을 허용 하지 않는 키를 포함 하는 JSON 개체를 포함 합니다.
+평가된 결과를 나타내는 JSON 개체입니다. 각 키는 null 허용일 수 있습니다. 그렇지 않은 경우 null을 허용하지 않는 키를 포함하는 JSON 개체를 포함합니다.
 
 ### <a name="result-fields"></a>결과 필드
 
@@ -1105,50 +1105,50 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 | **address** | String | IP 주소 |
 | **name** | String | - |
 | **firstDetectionTime** | 숫자 | Epoch (UTC) |
-| lastSeen | 숫자 | Epoch (UTC) |
+| LastSeen | 숫자 | Epoch (UTC) |
 
 **illegalTrafficByFirewallRules**
 
 | 필드 이름 | Type | 값 목록 |
 | ---------- | ---- | -------------- |
 | **server** | String | IP 주소 |
-| **클라이언트로** | String | IP 주소 |
+| **client** | String | IP 주소 |
 | **port** | 숫자 | - |
-| **트랜스포트가** | String | TCP, UDP 또는 ICMP |
+| **전송** | String | TCP, UDP 또는 ICMP |
 
 **weakFirewallRules**
 
 | 필드 이름 | Type | 값 목록 |
 | ---------- | ---- | -------------- |
-| **sources** | 소스의 JSON 배열입니다. 각 소스는 네 가지 형식 중 하나일 수 있습니다. | "Any", "ip 주소 (호스트)", "ip에서 ip로 (범위)", "ip 주소, 서브넷 마스크 (네트워크)" |
-| **대상** | 대상의 JSON 배열입니다. 각 대상은 네 가지 형식 중 하나일 수 있습니다. | "Any", "ip 주소 (호스트)", "ip에서 ip로 (범위)", "ip 주소, 서브넷 마스크 (네트워크)" |
-| **포트** | 3 가지 형식으로 된 포트의 JSON 배열 | "Any", "port (검색 된 경우 프로토콜)", "포트-포트 (프로토콜, 검색 된 경우)" |
+| **sources** | 원본의 JSON 배열. 각 소스는 네 가지 형식 중 하나일 수 있습니다. | "모든", "ip 주소(호스트)", "ip에서 ip로(범위)", "ip 주소, 서브넷 마스크(네트워크)" |
+| **대상** | 대상의 JSON 배열. 각 대상은 네 가지 형식 중 하나일 수 있습니다. | "모든", "ip 주소(호스트)", "ip에서 ip로(범위)", "ip 주소, 서브넷 마스크(네트워크)" |
+| **포트** | 3가지 형식으로 된 포트의 JSON 배열 | "모든", "포트(검색된 경우 프로토콜)", "포트-포트(검색된 경우 프로토콜)" |
 
 **accessPoints**
 
 | 필드 이름 | Type | 값 목록 |
 | ---------- | ---- | -------------- |
 | **macAddress** | String | MAC 주소 |
-| **업체인** | String | 공급업체 이름 |
-| **\** | String | IP 주소 또는 해당 없음 |
-| **name** | String | 장치 이름 또는 해당 없음 |
-| **wireless-n** | String | 아니요, 의심 됨 또는 예 |
+| **공급업체** | String | 공급업체 이름 |
+| **ipAddress** | String | IP 주소 또는 해당 없음 |
+| **name** | String | 디바이스 이름 또는 해당 없음 |
+| **무선** | String | 아니요, 의심됨 또는 예 |
 
 **connectionsBetweenSubnets**
 
 | 필드 이름 | Type | 값 목록 |
 | ---------- | ---- | -------------- |
 | **server** | String | IP 주소 |
-| **클라이언트로** | String | IP 주소 |
+| **client** | String | IP 주소 |
 
 **industrialMalwareIndicators**
 
 | 필드 이름 | Type | 값 목록 |
 | ---------- | ---- | -------------- |
 | **detectionTime** | 숫자 | Epoch (UTC) |
-| **Alertmessage가 잘못** | String | - |
+| **alertMessage** | String | - |
 | **description** | String | - |
-| **디바이스가** | JSON 배열 | 디바이스 이름 | 
+| **디바이스** | JSON 배열 | 디바이스 이름 | 
 
 **internetConnections**
 
@@ -1321,11 +1321,11 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 | 유형 | API | 예제 |
 |--|--|--|
-| GET | https://AUTH_TOKEN> "<IP_ADDRESS>/api/v1/reports/vulnerabilities/security < | 말아 1234b734a9244d54ab8d40aedddcabcd "권한 부여:" https:/ <span> /127.0.0.1/api/v1/reports/vulnerabilities/security |
+| GET | curl -k -H "권한 부여: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/security | curl -k -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/reports/vulnerabilities/security |
 
 ### <a name="retrieve-operational-vulnerabilities---apiv1reportsvulnerabilitiesoperational"></a>운영 취약점 검색-/api/v1/reports/vulnerabilities/operational
 
-이 API를 사용 하 여 일반적인 취약성 평가 결과를 요청 합니다. 이 평가는 네트워크의 작동 상태에 대 한 통찰력을 제공 합니다. 특정 장치 평가가 아닌 일반적인 네트워크 및 시스템 정보를 기반으로 합니다.
+이 API를 사용하여 일반적인 취약성 평가 결과를 요청합니다. 이 평가는 네트워크의 작동 상태에 대한 인사이트를 제공합니다. 이 평가는 특정 디바이스 평가가 아니라 일반적인 네트워크 및 시스템 정보를 기반으로 합니다.
 
 #### <a name="method"></a>방법
 
@@ -1337,7 +1337,7 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="response-content"></a>응답 콘텐츠
 
-평가 된 결과를 나타내는 JSON 개체입니다. 각 키에는 결과의 JSON 배열이 포함 되어 있습니다.
+평가된 결과를 나타내는 JSON 개체입니다. 각 키에는 결과의 JSON 배열이 포함되어 있습니다.
 
 #### <a name="result-fields"></a>결과 필드
 
@@ -1350,7 +1350,7 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 | **source** | String | IP 주소 |
 | **destination** | String | IP 주소 |
 | **port** | 숫자 | - |
-| **트랜스포트가** | String | TCP 또는 UDP |
+| **전송** | String | TCP 또는 UDP |
 | **backupMaximalInterval** | String | - |
 | **lastSeenBackup** | 숫자 | Epoch (UTC) |
 
@@ -1358,17 +1358,17 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 | 필드 이름 | Type | 값 목록 |
 |--|--|--|
-| **addresse** s | 숫자 | - |
+| **주소** 들 | 숫자 | - |
 | **network** | String | IP 주소 |
-| **마스크할** | String | 서브넷 마스크 |
+| **마스크** | String | 서브넷 마스크 |
 
 **protocolProblems**
 
 | 필드 이름 | Type | 값 목록 |
 |--|--|--|
 | **protocol** | String | - |
-| **주소로** | JSON 배열 | IP 주소 |
-| **오류** | String | - |
+| **addresses** | JSON 배열 | IP 주소 |
+| **경고** | String | - |
 | **reportTime** | 숫자 | Epoch (UTC) |
 
 **protocolDataVolumes**
@@ -1518,13 +1518,13 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 | 유형 | API | 예제 |
 |--|--|--|
-| GET | https://AUTH_TOKEN> "<IP_ADDRESS>/api/v1/reports/vulnerabilities/operational < | 말아 1234b734a9244d54ab8d40aedddcabcd "권한 부여:" https:/ <span> /127.0.0.1/api/v1/reports/vulnerabilities/operational |
+| GET | curl -k -H "권한 부여: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/operational | curl -k -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/reports/vulnerabilities/operational |
 
-### <a name="validate-user-credentials---apiexternalauthenticationvalidation"></a>사용자 자격 증명의 유효성을 검사 합니다.////>
+### <a name="validate-user-credentials---apiexternalauthenticationvalidation"></a>사용자 자격 증명 유효성 검사-/api/external/authentication/validation
 
-이 API를 사용 하 여 IoT의 사용자 이름 및 암호에 대 한 유효성을 검사 합니다. IoT 사용자 역할에 대 한 모든 Defender는 API와 함께 작동할 수 있습니다.
+이 API를 사용하여 Defender for IoT의 사용자 이름 및 암호에 대한 유효성을 검사합니다. 모든 Defender for IoT 사용자 역할은 API와 함께 작동할 수 있습니다.
 
-이 API를 사용 하는 데 IoT 용 Defender 액세스 토큰이 필요 하지 않습니다.
+이 API를 사용하는 데 Defender for IoT 액세스 토큰이 필요하지 않습니다.
 
 #### <a name="method"></a>방법
 
@@ -1538,8 +1538,8 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 | **이름** | **형식** | **Null 허용** |
 |--|--|--|
-| **username** | String | 아니요 |
-| **password** | String | 아니요 |
+| **username** | String | 예 |
+| **password** | String | 예 |
 
 #### <a name="request-example"></a>요청 예제
 
@@ -1562,11 +1562,11 @@ request:
 
 #### <a name="response-content"></a>응답 콘텐츠
 
-작업 상태 세부 정보를 포함 하는 메시지 문자열:
+작업 상태 세부 정보를 포함하는 메시지 문자열:
 
 - **성공-메시지**: 인증 성공
 
-- **실패-오류**: 자격 증명 유효성 검사에 실패 했습니다.
+- **실패-오류**: 자격 증명 유효성 검사에 실패했습니다
 
 #### <a name="response-example"></a>응답 예제
 
@@ -1585,11 +1585,11 @@ response:
 
 | 유형 | API | 예제 |
 |--|--|--|
-| GET | https://<IP_ADDRESS AUTH_TOKEN> "권한 부여: <"> | 말아 1234b734a9244d54ab8d40aedddcabcd "권한 부여:" https:/ <span> /127.0.0.1/api/external/authentication/validation |
+| GET | curl -k -H "권한 부여: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/external/authentication/validation | curl -k -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/external/authentication/validation |
 
 ### <a name="change-password---externalauthenticationset_password"></a>암호 변경-/external/authentication/set_password
 
-이 API를 사용 하 여 사용자가 자신의 암호를 변경할 수 있습니다. IoT 사용자 역할에 대 한 모든 Defender는 API와 함께 작동할 수 있습니다. 이 API를 사용 하는 데 IoT 용 Defender 액세스 토큰이 필요 하지 않습니다.
+이 API를 사용하여 사용자가 자신의 암호를 변경할 수 있습니다. 모든 Defender for IoT 사용자 역할은 API와 함께 작동할 수 있습니다. 이 API를 사용하는 데 Defender for IoT 액세스 토큰이 필요하지 않습니다.
 
 #### <a name="method"></a>방법
 
@@ -1622,13 +1622,13 @@ request:
 
 #### <a name="response-content"></a>응답 콘텐츠
 
-작업 상태 세부 정보를 포함 하는 메시지 문자열:
+작업 상태 세부 정보를 포함하는 메시지 문자열:
 
-- **성공 – 메시지**: 암호가 바뀌었습니다.
+- **성공 – 메시지**: 암호가 바뀌었습니다
 
-- **실패-오류**: 사용자 인증 실패
+- **실패 - 오류**: 사용자 인증 실패
 
-- **실패 – 오류**: 암호가 보안 정책과 일치 하지 않습니다.
+- **실패 – 오류**: 암호가 보안 정책과 일치하지 않습니다
 
 #### <a name="response-example"></a>응답 예제
 
@@ -1647,23 +1647,23 @@ response:
 
 ```
 
-#### <a name="device-fields"></a>장치 필드
+#### <a name="device-fields"></a>디바이스 필드
 
 | **이름** | **형식** | **Null 허용** |
 |--|--|--|
-| **username** | String | 아니요 |
-| **password** | String | 아니요 |
-| **new_password** | String | 아니요 |
+| **username** | String | 예 |
+| **password** | String | 예 |
+| **new_password** | String | 예 |
 
 #### <a name="curl-command"></a>Curl 명령
 
 | 유형 | API | 예제 |
 |--|--|--|
-| POST | 말아 https://USER_NAME> "{" username ":" <"," password ":" <CURRENT_PASSWORD> "," new_password ":" <NEW_PASSWORD> "} '-H ' Content-type: application/json ' <IP_ADDRESS>/api/ary/set_password | 말아 ork-d ' {"username": "myUser", "password": " 1234@abcd ", "new_password": " abcd@1234 "} '-H ' content-type: application/json ' https:/ <span> /127.0.0.1/api/external/authentication/set_password |
+| POST | curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password | curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/external/authentication/set_password |
 
-### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>시스템 관리자에의 한 사용자 암호 업데이트-/external/authentication/set_password_by_admin
+### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>시스템 관리자에 의한 사용자 암호 업데이트-/external/authentication/set_password_by_admin
 
-이 API를 사용 하 여 시스템 관리자가 지정 된 사용자에 대 한 암호를 변경할 수 있습니다. IoT 용 Defender 관리자 사용자 역할은 API를 사용할 수 있습니다. 이 API를 사용 하는 데 IoT 용 Defender 액세스 토큰이 필요 하지 않습니다.
+이 API를 사용하여 시스템 관리자가 지정된 사용자에 대한 암호를 변경할 수 있습니다. Defender for IoT 관리자 사용자 역할은 API로 작업할 수 있습니다. 이 API를 사용하는 데 Defender for IoT 액세스 토큰이 필요하지 않습니다.
 
 #### <a name="method"></a>방법
 
@@ -1695,17 +1695,17 @@ request:
 
 #### <a name="response-content"></a>응답 콘텐츠
 
-작업 상태 세부 정보를 포함 하는 메시지 문자열:
+작업 상태 세부 정보를 포함하는 메시지 문자열:
 
-- **성공 – 메시지**: 암호가 바뀌었습니다.
+- **성공 – 메시지**: 암호가 바뀌었습니다
 
-- **실패-오류**: 사용자 인증 실패
+- **실패 - 오류**: 사용자 인증 실패
 
-- **실패-오류**: 사용자가 없습니다.
+- **실패-오류**: 사용자가 없습니다
 
-- **실패 – 오류**: 암호가 보안 정책과 일치 하지 않습니다.
+- **실패 – 오류**: 암호가 보안 정책과 일치하지 않습니다
 
-- **실패 – 오류**: 사용자에 게 암호를 변경할 수 있는 권한이 없습니다.
+- **실패 – 오류**: 사용자에게 암호 변경 권한이 없습니다
 
 #### <a name="response-example"></a>응답 예제
 
@@ -1726,43 +1726,43 @@ response:
 
 ```
 
-#### <a name="device-fields"></a>장치 필드
+#### <a name="device-fields"></a>디바이스 필드
 
 | **이름** | **형식** | **Null 허용** |
 |--|--|--|
-| **admin_username** | String | 아니요 |
-| **admin_password** | String | 아니요 |
-| **username** | String | 아니요 |
-| **new_password** | String | 아니요 |
+| **관리자 사용자 이름** | String | 예 |
+| **관리자 암호** | String | 예 |
+| **username** | String | 예 |
+| **new_password** | String | 예 |
 
 #### <a name="curl-command"></a>Curl 명령
 
 > [!div class="mx-tdBreakAll"]
 > | 유형 | API | 예제 |
 > |--|--|--|
-> | POST | https://"{" admin_username ":" <ADMIN_USERNAME> "," admin_password ":" <ADMIN_PASSWORD> "," username ":" <USER_NAME> "," new_password ":" <NEW_PASSWORD> "} '-H ' Content-type: application/json ' <IP_ADDRESS> | /127.0.0.1/api/external/authentication/"{" admin_user ":" adminUser "," admin_password ":" 1234@abcd "," username ":" myUser "," new_password ":" abcd@1234 "} '-H ' content-type: application/json ' https:/ <span> set_password_by_admin |
+> | POST | curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password_by_admin | curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/api/external/authentication/set_password_by_admin |
 
 ## <a name="on-premises-management-console-api-specifications"></a>온-프레미스 관리 콘솔 API 사양
 
-이 섹션에서는 다음 온-프레미스 관리 콘솔 Api에 대해 설명 합니다.
+이 섹션에서는 다음 온-프레미스 관리 콘솔 API에 대해 설명합니다.
 
 - **/external/v1/alerts/<UUID>**
 
-- **경고 제외 (유지 관리 기간)**
+- **경고 제외(유지 관리 기간)**
 
 :::image type="content" source="media/references-work-with-defender-for-iot-apis/alert-exclusion-window.png" alt-text="활성 규칙을 보여 주는 경고 제외 창입니다.":::
 
-경고를 보내지 않을 조건을 정의 합니다. 예를 들어 중지 및 시작 시간, 경고를 트리거할 때 제외 되어야 하는 장치 또는 서브넷, 제외 되어야 하는 IoT 엔진의 Defender를 정의 하 고 업데이트 합니다. 예를 들어 유지 관리 기간 동안 중요 한 장치에 대 한 맬웨어 경고를 제외 하 고 모든 경고의 배달을 중지 하는 것이 좋습니다.
+경고를 보내지 않을 조건을 정의합니다. 예를 들어 중지 및 시작 시간, 경고를 트리거할 때 제외되어야 하는 디바이스 또는 서브넷, 제외되어야 하는 Defender for IoT 엔진을 정의하고 업데이트합니다. 예를 들어 유지 관리 기간 동안 중요한 디바이스에 대한 맬웨어 경고를 제외하고 모든 경고의 경고 제공을 중지할 수 있습니다.
 
-여기에서 정의 하는 Api는 온-프레미스 관리 콘솔의 **경고 제외** 창에 읽기 전용 제외 규칙으로 나타납니다.
+여기에서 정의하는 API는 온-프레미스 관리 콘솔의 **경고 제외** 창에 읽기 전용 제외 규칙으로 나타납니다.
 
 #### <a name="externalv1maintenancewindow"></a>/external/v1/maintenanceWindow
 
-- **/external/cvrv/유효성 검사**
+- **/external/authentication/validation**
 
 - **응답 예제**
 
-- **응답이**
+- **응답:**
 
 ```rest
 {
@@ -1773,15 +1773,15 @@ response:
 
 #### <a name="change-password---externalauthenticationset_password"></a>암호 변경-/external/authentication/set_password
 
-이 API를 사용 하 여 사용자가 자신의 암호를 변경할 수 있습니다. IoT 사용자 역할에 대 한 모든 Defender는 API와 함께 작동할 수 있습니다. 이 API를 사용 하는 데 IoT 용 Defender 액세스 토큰이 필요 하지 않습니다.
+이 API를 사용하여 사용자가 자신의 암호를 변경할 수 있습니다. 모든 Defender for IoT 사용자 역할은 API와 함께 작동할 수 있습니다. 이 API를 사용하는 데 Defender for IoT 액세스 토큰이 필요하지 않습니다.
 
-#### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>시스템 관리자에의 한 사용자 암호 업데이트-/external/authentication/set_password_by_admin
+#### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>시스템 관리자에 의한 사용자 암호 업데이트-/external/authentication/set_password_by_admin
 
-이 API를 사용 하 여 시스템 관리자가 특정 사용자에 대 한 암호를 변경할 수 있습니다. IoT 용 Defender 관리 사용자 역할은 API를 사용할 수 있습니다. 이 API를 사용 하는 데 IoT 용 Defender 액세스 토큰이 필요 하지 않습니다.
+이 API를 사용하여 시스템 관리자가 지정된 사용자에 대한 암호를 변경할 수 있습니다. 모든 Defender for IoT 관리 사용자 역할은 API로 작업할 수 있습니다. 이 API를 사용하는 데 Defender for IoT 액세스 토큰이 필요하지 않습니다.
 
-### <a name="retrieve-device-information---externalv1devices"></a>장치 정보 검색-/external/v1/devices
+### <a name="retrieve-device-information---externalv1devices"></a>디바이스 정보 검색-/external/v1/devices
 
-이 API는 온-프레미스 관리 콘솔에 연결 된 IoT 센서에 대해 Defender에서 검색 한 모든 장치 목록을 요청 합니다.
+이 API는 온-프레미스 관리 콘솔에 연결된 Defender for IoT 센서에서 검색한 모든 디바이스 목록을 요청합니다.
 
 #### <a name="method"></a>방법
 
@@ -1793,19 +1793,19 @@ response:
 
 #### <a name="response-content"></a>응답 콘텐츠
 
-장치를 나타내는 JSON 개체의 배열입니다.
+디바이스를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="query-parameters"></a>쿼리 매개 변수
 
-- **권한 부여** 됨: 허가 되 고 권한이 없는 장치만 필터링 합니다.
+- **권한 부여됨**: 허가되고 권한이 없는 디바이스만 필터링합니다.
 
-- **siteId**: 특정 사이트와 관련 된 장치만 필터링 합니다.
+- **siteId**: 특정 사이트와 관련된 디바이스만 필터링합니다.
 
-- **zoneId**: 특정 영역과 관련 된 장치만 필터링 합니다. [1](#1)
+- **siteId**: 특정 영역과 관련된 디바이스만 필터링합니다. [1](#1)
 
-- **sensorId**: 특정 센서가 검색 한 장치만 필터링 합니다. [1](#1)
+- **siteId**: 특정 센서와 관련된 디바이스만 필터링합니다. [1](#1)
 
-###### <a name="you-might-not-have-the-site-and-zone-id-if-this-is-the-case-query-all-devices-to-retrieve-the-site-and-zone-id"></a><a id="1">1</a> *사이트 및 영역 ID가 없을 수 있습니다. 이 경우 모든 장치를 쿼리하여 사이트와 영역 ID를 검색 합니다.*
+###### <a name="you-might-not-have-the-site-and-zone-id-if-this-is-the-case-query-all-devices-to-retrieve-the-site-and-zone-id"></a><a id="1">1</a> *사이트 및 영역 ID가 없을 수 있습니다. 이 경우 모든 디바이스를 쿼리하여 사이트와 영역 ID를 검색합니다.*
 
 #### <a name="query-parameters-example"></a>쿼리 매개 변수 예제
 
@@ -1819,44 +1819,44 @@ response:
 
 `/external/v1/devices?sensorId=8`
 
-#### <a name="device-fields"></a>장치 필드
+#### <a name="device-fields"></a>디바이스 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| 이름 | 유형 | Nullable | 값 목록 |
 |--|--|--|--|
-| **sensorId** | 숫자 | 아니요 | - |
+| **sensorId** | 숫자 | 예 | - |
 | **zoneId** | 숫자 | 예 | - |
 | **siteId** | 숫자 | 예 | - |
-| **ipAddresses** | JSON 배열 | 예 | IP 주소 (인터넷 주소 또는 이중 Nic를 사용 하는 장치의 경우 두 개 이상의 주소를 사용할 수 있음) |
-| **name** | String | 아니요 | - |
-| **type** | String | 아니요 | 알 수 없음, 엔지니어링 스테이션, PLC, HMI, Historian, 도메인 컨트롤러, DB 서버, 무선 액세스 지점, 라우터, 스위치, 서버, 워크스테이션, IP 카메라, 프린터, 방화벽, 터미널 스테이션, VPN Gateway, 인터넷 또는 멀티 캐스트 및 브로드캐스트 |
-| **macAddresses** | JSON 배열 | 예 | MAC 주소 (이중 Nic를 사용 하는 장치의 경우 두 개 이상의 주소를 사용할 수 있음) |
+| **ipAddresses** | JSON 배열 | 예 | IP 주소(인터넷 주소 또는 이중 NIC를 사용하는 디바이스의 경우 두 개 이상의 주소를 사용할 수 있음) |
+| **name** | String | 예 | - |
+| **type** | String | 예 | 알 수 없음, 엔지니어링 스테이션, PLC, HMI, Historian, 도메인 컨트롤러, DB 서버, 무선 액세스 지점, 라우터, 스위치, 서버, 워크스테이션, IP 카메라, 프린터, 방화벽, 터미널 스테이션, VPN Gateway, 인터넷 또는 멀티 캐스트 및 브로드캐스트 |
+| **macAddresses** | JSON 배열 | 예 | MAC 주소(이중 NIC를 사용하는 디바이스의 경우 두 개 이상의 주소를 사용할 수 있음) |
 | **operatingSystem** | String | 예 | - |
-| **engineeringStation** | 부울 | 아니요 | True 또는 False |
-| **장치가** | 부울 | 아니요 | True 또는 False |
-| **승인됨** | 부울 | 아니요 | True 또는 False |
-| **업체인** | String | 예 | - |
+| **engineeringStation** | 부울 | 예 | True 또는 False |
+| **스캐너** | 부울 | 예 | True 또는 False |
+| **승인됨** | 부울 | 예 | True 또는 False |
+| **공급업체** | String | 예 | - |
 | **프로토콜** | JSON 배열 | 예 | 프로토콜 개체 |
-| **펌웨어입니다** | JSON 배열 | 예 | 펌웨어 개체 |
+| **펌웨어** | JSON 배열 | 예 | 펌웨어 개체 |
 
 #### <a name="protocol-fields"></a>프로토콜 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| 이름 | 유형 | Nullable | 값 목록 |
 |--|--|--|--|
-| Name | String | 아니요 | - |
-| 주소 | JSON 배열 | 예 | Master 또는 numeric 값 |
+| Name | String | 예 | - |
+| 주소 | JSON 배열 | 예 | Master 또는 숫자 값 |
 
 #### <a name="firmware-fields"></a>펌웨어 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| 이름 | 유형 | Nullable | 값 목록 |
 |--|--|--|--|
-| **연속적인** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **model** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **firmwareVersion** | Double | 아니요 | 해당 없음 또는 실제 값 |
-| **additionalData** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **moduleAddress** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **랙마운트** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **슬롯** | String | 아니요 | 해당 없음 또는 실제 값 |
-| **address** | String | 아니요 | 해당 없음 또는 실제 값 |
+| **serial** | String | 예 | 해당 없음 또는 실제 값 |
+| **model** | String | 예 | 해당 없음 또는 실제 값 |
+| **firmwareVersion** | Double | 예 | 해당 없음 또는 실제 값 |
+| **additionalData** | String | 예 | 해당 없음 또는 실제 값 |
+| **moduleAddress** | String | 예 | 해당 없음 또는 실제 값 |
+| **랙** | String | 예 | 해당 없음 또는 실제 값 |
+| **슬롯** | String | 예 | 해당 없음 또는 실제 값 |
+| **address** | String | 예 | 해당 없음 또는 실제 값 |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -2002,11 +2002,11 @@ response:
 
 | 유형 | API | 예제 |
 |--|--|--|
-| GET | https://"권한 부여: <AUTH_TOKEN>" ' <>IP_ADDRESS>/external/v1/devices? siteId =&zoneId =&sensorId =&공인 = ' | 1234b734a9244d54ab8d40aedddcabcd "Authorization:" Authorization: "' https: <span> /127.0.0.1/external/v1/devices? siteId = 1&zoneId = 2&sensorId = 5&공인 = true ' |
+| GET | curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<>IP_ADDRESS>/external/v1/devices?siteId=&zoneId=&sensorId=&authorized=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/external/v1/devices?siteId=1&zoneId=2&sensorId=5&authorized=true' |
 
 ### <a name="retrieve-alert-information---externalv1alerts"></a>경고 정보 검색-/external/v1/alerts
 
-이 API를 사용 하 여 온-프레미스 관리 콘솔에서 모든 또는 필터링 된 경고를 검색 합니다.
+이 API를 사용하여 온-프레미스 관리 콘솔에서 모든 또는 필터링된 경고를 검색합니다.
 
 #### <a name="method"></a>방법
 
@@ -2014,52 +2014,52 @@ response:
 
 #### <a name="query-parameters"></a>쿼리 매개 변수
 
-- **상태**: 처리 및 처리 되지 않은 경고만 필터링 합니다.
+- **상태**: 처리되거나 처리되지 않은 경고만 필터링합니다.
 
-  **예**:
+  **예제**:
 
   `/api/v1/alerts?state=handled`
 
-- **fromtime**: 특정 시간 (밀리초, UTC)에서 만든 경고를 필터링 합니다.
+- **fromtime**: 특정 시간(밀리초, UTC)에서 만든 경고를 필터링합니다.
 
-  **예**:
+  **예제**:
 
   `/api/v1/alerts?fromTime=<epoch>`
 
-- **totime**: 특정 시간 (밀리초, UTC) 전에만 생성 된 경고를 필터링 합니다.
+- **fromtime**: 특정 시간(밀리초, UTC) 이전에만 만든 경고를 필터링합니다.
 
-  **예**:
+  **예제**:
 
   `/api/v1/alerts?toTime=<epoch>`
 
-- **siteId**: 경고가 검색 된 사이트입니다. [2](#2)
+- **siteId**: 경고가 발견된 사이트입니다. [2](#2)
 
-- **zoneId**: 경고가 검색 된 영역입니다. [2](#2)
+- **siteId**: 경고가 발견된 영역입니다. [2](#2)
 
-- **센서**: 경고가 검색 된 센서입니다.
+- **siteId**: 경고가 발견된 센서입니다.
 
-##### <a name="you-might-not-have-the-site-and-zone-id-if-this-is-the-case-query-all-devices-to-retrieve-the-site-and-zone-id"></a><a id="2">2</a> *사이트 및 영역 ID가 없을 수 있습니다. 이 경우 모든 장치를 쿼리하여 사이트와 영역 ID를 검색 합니다.*
+##### <a name="you-might-not-have-the-site-and-zone-id-if-this-is-the-case-query-all-devices-to-retrieve-the-site-and-zone-id"></a><a id="2">2</a> *사이트 및 영역 ID가 없을 수 있습니다. 이 경우 모든 디바이스를 쿼리하여 사이트와 영역 ID를 검색합니다.*
 
 #### <a name="alert-fields"></a>경고 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| 이름 | 유형 | Nullable | 값 목록 |
 |--|--|--|--|
-| **ID** | 숫자 | 아니요 | - |
-| **time** | 숫자 | 아니요 | Epoch (UTC) |
-| **title** | String | 아니요 | - |
-| **message** | String | 아니요 | - |
-| **severity** | String | 아니요 | 경고, 부, 주 또는 위험 |
-| **엔진** | String | 아니요 | 프로토콜 위반, 정책 위반, 맬웨어, 변칙 또는 작동 |
+| **ID** | 숫자 | 예 | - |
+| **time** | 숫자 | 예 | Epoch (UTC) |
+| **title** | String | 예 | - |
+| **message** | String | 예 | - |
+| **severity** | String | 예 | 경고, 경미, 중대 또는 위험 |
+| **엔진** | String | 예 | 프로토콜 위반, 정책 위반, 맬웨어, 변칙 또는 작동 |
 | **sourceDevice** | 숫자 | 예 | 디바이스 ID |
 | **destinationDevice** | 숫자 | 예 | 디바이스 ID |
 | **additionalInformation** | 추가 정보 개체 | 예 | - |
 
 #### <a name="additional-information-fields"></a>추가 정보 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| 이름 | 유형 | Nullable | 값 목록 |
 |--|--|--|--|
-| **description** | String | 아니요 | - |
-| **내용을** | JSON 배열 | 예 | String |
+| **description** | String | 예 | - |
+| **정보** | JSON 배열 | 예 | String |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -2164,31 +2164,31 @@ response:
 > [!div class="mx-tdBreakAll"]
 > | 유형 | API | 예제 |
 > |--|--|--|
-> | GET | https://"Authorization: <AUTH_TOKEN>" ' <>IP_ADDRESS>/external/v1/alerts? state =&zoneId =&fromTime =&toTime =&siteId =&i n k = ' | 1234b734a9244d54ab8d40aedddcabcd "Authorization:" ' https:/ <span> /127.0.0.1/external/v1/alerts? state = 처리 되지 않은&zoneId = 1&fromTime = 0&toTime = 1594551777000&siteId = 1&센서 = 1 ' |
+> | GET | curl -k -H "권한 부여: <AUTH_TOKEN>" 'https://<>IP_ADDRESS>/external/v1/alerts?state=&zoneId=&fromTime=&toTime=&siteId=&sensor=' | curl -k -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/external/v1/alerts?state=unhandled&zoneId=1&fromTime=0&toTime=1594551777000&siteId=1&sensor=1' |
 
 ### <a name="qradar-alerts"></a>QRadar 경고
 
-QRadar와 IoT 용 Defender 통합은 IoT 용 Defender에서 생성 된 경고를 식별 하 고 이러한 경고를 사용 하 여 작업을 수행 하는 데 도움이 됩니다. QRadar는 IoT 용 Defender에서 데이터를 받은 다음 공용 API 온-프레미스 관리 콘솔 구성 요소에 연결 합니다.
+QRadar와 Defender for IoT 통합은 Defender for IoT에서 생성된 경고를 식별하고 이러한 경고를 사용하여 작업을 수행하는 데 도움이 됩니다. QRadar는 Defender for IoT에서 데이터를 받은 다음 공용 API 온-프레미스 관리 콘솔 구성 요소에 연결합니다.
 
-Defender for IoT에서 검색 한 데이터를 QRadar에 보내려면 IoT 용 Defender 시스템에서 전달 규칙을 정의 하 고 **원격 지원 경고 처리** 옵션을 선택 합니다.
+Defender for IoT에서 발견한 데이터를 QRadar에 보내려면 Defender for IoT 시스템에서 전달 규칙을 정의하고 **원격 지원 경고 처리** 옵션을 선택합니다.
 
-:::image type="content" source="media/references-work-with-defender-for-iot-apis/edit-forwarding-rules.png" alt-text="필요에 맞게 전달 규칙을 편집 합니다.":::
+:::image type="content" source="media/references-work-with-defender-for-iot-apis/edit-forwarding-rules.png" alt-text="필요에 맞게 전달 규칙을 편집합니다.":::
 
-전달 규칙을 구성 하는 과정에서이 옵션을 선택 하면 다음과 같은 추가 필드가 QRadar에 표시 됩니다.
+전달 규칙을 구성하는 과정에서 이 옵션을 선택하면 다음과 같은 추가 필드가 QRadar에 표시됩니다.
 
-- **UUID**: 고유한 경고 식별자 (예: 1-1555245116250)입니다.
+- **UUID**: 고유한 경고 식별자(예: 1-1555245116250)입니다.
 
-- **사이트**: 경고가 검색 된 사이트입니다.
+- **사이트**: 경고가 검색된 사이트입니다.
 
-- **영역**: 경고가 검색 된 영역입니다.
+- **사이트**: 경고가 검색된 영역입니다.
 
-QRadar으로 전송 된 페이로드의 예:
+QRadar으로 전송된 페이로드의 예제는 다음과 같습니다.
 
 ```
 <9>May 5 12:29:23 sensor_Agent LEEF:1.0|CyberX|CyberX platform|2.5.0|CyberX platform Alert|devTime=May 05 2019 15:28:54 devTimeFormat=MMM dd yyyy HH:mm:ss sev=2 cat=XSense Alerts title=Device is Suspected to be Disconnected (Unresponsive) score=81 reporter=192.168.219.50 rta=0 alertId=6 engine=Operational senderName=sensor Agent UUID=5-1557059334000 site=Site zone=Zone actions=handle dst=192.168.2.2 dstName=192.168.2.2 msg=Device 192.168.2.2 is suspected to be disconnected (unresponsive).
 ```
 
-#### <a name="externalv1alertsltuuidgt"></a>/external/v1/alerts/ &lt; UUID&gt;
+#### <a name="externalv1alertsltuuidgt"></a>/external/v1/alerts/&lt;UUID&gt;
 
 #### <a name="method"></a>방법
 
@@ -2200,13 +2200,13 @@ QRadar으로 전송 된 페이로드의 예:
 
 #### <a name="request-content"></a>요청 콘텐츠
 
-UUID를 포함 하는 경고에 대해 수행할 작업을 나타내는 JSON 개체입니다.
+UUID를 포함하는 경고에 대해 수행할 작업을 나타내는 JSON 개체입니다.
 
 #### <a name="action-fields"></a>작업 필드
 
-| Name | 유형 | Nullable | 값 목록 |
+| 이름 | 유형 | Nullable | 값 목록 |
 |--|--|--|--|
-| **action** | String | 아니요 | 핸들 또는 handleAndLearn |
+| **action** | String | 예 | 핸들 또는 handleAndLearn |
 
 #### <a name="request-example"></a>요청 예제
 
@@ -2223,27 +2223,27 @@ UUID를 포함 하는 경고에 대해 수행할 작업을 나타내는 JSON 개
 
 #### <a name="response-content"></a>응답 콘텐츠
 
-장치를 나타내는 JSON 개체의 배열입니다.
+디바이스를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="response-fields"></a>응답 필드
 
 
-| Name | 유형 | Nullable | Description |
+| 이름 | 유형 | Nullable | Description |
 |--|--|--|--|
-| **내용/오류** | String | 아니요 | 요청에 성공 하면 content 속성이 나타납니다. 그렇지 않으면 오류 속성이 나타납니다. |
+| **내용/오류** | String | 예 | 요청에 성공하면 콘텐츠 속성이 나타납니다. 그렇지 않으면 오류 속성이 나타납니다. |
 
 #### <a name="possible-content-values"></a>가능한 콘텐츠 값
 
 | 상태 코드 | 콘텐츠 값 | Description |
 |--|--|--|
-| 200 | 경고 업데이트 요청이 성공적으로 완료 되었습니다. | 업데이트 요청이 성공적으로 완료 되었습니다. 설명이 없습니다. |
-| 200 | 경고가 이미 처리 되었습니다 (**handle**). | 경고에 대 한 핸들 요청을 받았을 때 경고가 이미 처리 되었습니다.<br />경고는 **처리** 된 상태로 유지 됩니다. |
-| 200 | 경고를 이미 처리 하 고 학습 했습니다 (**Handleandlearn**). | **Handleandlearn** 요청이 수신 될 때 경고가 이미 처리 되 고 학습 되었습니다.<br />경고는 **handledAndLearn** 상태로 유지 됩니다. |
-| 200 | 경고가 이미 처리 되었습니다 (**처리** 됨).<br />경고에 대해 핸들 및 학습 (**Handleandlearn**)이 수행 되었습니다. | **Handleandlearn** 요청이 수신 될 때 경고가 이미 처리 되었습니다.<br />이 경고는 **Handleandlearn** 수 있습니다. |
-| 200 | 경고를 이미 처리 하 고 학습 했습니다 (**Handleandlearn**). 핸들 요청이 무시 되었습니다. | 경고 처리에 대 한 요청을 받은 경우 경고가 이미 **Handleandlearn** 입니다. 이 경고는 **Handleandlearn** 로 유지 됩니다. |
-| 500 | 잘못 된 작업입니다. | 전송 된 작업은 경고에 대해 수행할 수 있는 올바른 작업이 아닙니다. |
-| 500 | 예기치 않은 오류가 발생했습니다. | 예기치 않은 오류가 발생했습니다. 이 문제를 해결 하려면 기술 지원 서비스에 문의 하십시오. |
-| 500 | 이 UUID에 대 한 경고를 찾을 수 없어 요청을 실행할 수 없습니다. | 지정 된 경고 UUID를 시스템에서 찾을 수 없습니다. |
+| 200 | 경고 업데이트 요청이 성공적으로 완료되었습니다. | 업데이트 요청이 성공적으로 완료되었습니다. 설명 없음. |
+| 200 | 경고가 이미 처리되었습니다(**처리**). | 경고에 대한 핸들 요청을 받았을 때 경고가 이미 처리되었습니다.<br />경고는 **처리된** 상태로 유지됩니다. |
+| 200 | 경고를 이미 핸들하고 학습했습니다(**Handleandlearn**). | **Handleandlearn** 요청이 수신될 때 경고가 이미 핸들되고 학습되었습니다.<br />경고는 **handledAndLearn** 상태로 유지됩니다. |
+| 200 | 경고가 이미 처리되었습니다(**처리됨**).<br />경고에 대해 핸들 및 학습(**Handleandlearn**)이 수행되었습니다. | **Handleandlearn** 요청이 수신될 때 경고가 이미 핸들되고 학습되었습니다.<br />이 경고는 **Handleandlearn** 될 수 있습니다. |
+| 200 | 경고를 이미 핸들하고 학습했습니다(**Handleandlearn**). 핸들 요청이 무시되었습니다. | 경고 핸들에 대한 요청을 받았을 때 경고가 이미 **Handleandlearn** 이었습니다. 이 경고는 **Handleandlearn** 로 유지됩니다. |
+| 500 | 잘못된 작업. | 전송된 작업은 경고에 대해 수행할 수 있는 유효한 작업이 아닙니다. |
+| 500 | 예기치 않은 오류가 발생했습니다. | 예기치 않은 오류가 발생했습니다. 이 문제를 해결하려면 지원 팀에 문의하십시오. |
+| 500 | 이 UUID에 대한 경고를 찾을 수 없어 요청을 실행할 수 없습니다. | 지정된 경고 UUID를 시스템에서 찾을 수 없습니다. |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -2267,80 +2267,80 @@ UUID를 포함 하는 경고에 대해 수행할 작업을 나타내는 JSON 개
 
 | 유형 | API | 예제 |
 |--|--|--|
-| PUT | 말아 넘기기--X PUT-d ' {"action": " <ACTION> "} '-H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/external/v1/alerts/<UUID> | 말아-k-X PUT-d ' {"action": "handle"} '-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/external/v1/alerts/1-1594550943000 |
+| PUT | curl -k -X PUT -d '{"action": "<ACTION>"}' -H "권한 부여: <AUTH_TOKEN>" https://<IP_ADDRESS>/external/v1/alerts/<UUID> | 말아-k-X PUT-d ' {"action": "handle"} '-H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/external/v1/alerts/1-1594550943000 |
 
-### <a name="alert-exclusions-maintenance-window---externalv1maintenancewindow"></a>경고 제외 (유지 관리 기간)-/external/v1/maintenanceWindow
+### <a name="alert-exclusions-maintenance-window---externalv1maintenancewindow"></a>경고 제외(유지 관리 기간)-/external/v1/maintenanceWindow
 
-경고를 보내지 않을 조건을 정의 합니다. 예를 들어 중지 및 시작 시간, 경고를 트리거할 때 제외 되어야 하는 장치 또는 서브넷, 제외 되어야 하는 IoT 엔진의 Defender를 정의 하 고 업데이트 합니다. 예를 들어 유지 관리 기간 동안 중요 한 장치에 대 한 맬웨어 경고를 제외 하 고 모든 경고의 경고 배달을 중지할 수 있습니다.
+경고를 보내지 않을 조건을 정의합니다. 예를 들어 중지 및 시작 시간, 경고를 트리거할 때 제외되어야 하는 디바이스 또는 서브넷, 제외되어야 하는 Defender for IoT 엔진을 정의하고 업데이트합니다. 예를 들어 유지 관리 기간 동안 중요한 디바이스에 대한 맬웨어 경고를 제외하고 모든 경고의 경고 제공을 중지할 수 있습니다.
 
-여기에서 정의 하는 Api는 온-프레미스 관리 콘솔의 **경고 제외** 창에 읽기 전용 제외 규칙으로 나타납니다.
+여기에서 정의하는 API는 온-프레미스 관리 콘솔의 **경고 제외** 창에 읽기 전용 제외 규칙으로 나타납니다.
 
-:::image type="content" source="media/references-work-with-defender-for-iot-apis/alert-exclusion-window.png" alt-text="모든 제외 규칙의 목록을 보여 주는 경고 제외 창 ":::
+:::image type="content" source="media/references-work-with-defender-for-iot-apis/alert-exclusion-window.png" alt-text="모든 제외 규칙의 목록을 보여주는 경고 제외 창 ":::
 
 #### <a name="method---post"></a>메서드-POST
 
 #### <a name="query-parameters"></a>쿼리 매개 변수
 
-- **ticketId**: 사용자 시스템의 유지 관리 티켓 ID를 정의 합니다.
+- **ticketId**: 사용자 시스템의 유지 관리 티켓 ID를 정의합니다.
 
-- **ttl**: 유지 관리 기간의 시간 (분) 인 ttl (time to live)을 정의 합니다. 이 매개 변수가 정의 된 기간 후에 시스템에서 자동으로 경고를 보내기 시작 합니다.
+- **ttl**: 유지 관리 기간의 시간(분)인 TTL(time to live)을 정의합니다. 이 매개 변수가 정의된 기간 후에 시스템에서 자동으로 경고를 보내기 시작합니다.
 
-- **엔진**: 유지 관리 프로세스 중에 경고를 표시 하지 않을 보안 엔진을 정의 합니다.
+- **엔진**: 유지 관리 프로세스 중에 경고를 표시하지 않을 보안 엔진을 정의합니다.
 
    - 예외적
 
-   - 악성
+   - 맬웨어
 
-   - 주기와
+   - 작동
 
-   - POLICY_VIOLATION
+   - 정책 위반
 
-   - PROTOCOL_VIOLATION
+   - 프로토콜 위반
 
-- **sensorIds**: 유지 관리 프로세스 중에 경고를 표시 하지 않을 IoT 센서의 Defender를 정의 합니다. /Api/v1/appliances (GET)에서 검색 된 것과 동일한 ID입니다.
+- **sensorIds**: 유지 관리 프로세스 중에 경고를 표시하지 않을 Defender for IoT 센서를 정의합니다. /api/v1/appliances(GET)에서 검색된 것과 동일한 ID입니다.
 
-- **서브넷**: 유지 관리 프로세스 중에 경고를 표시 하지 않을 서브넷을 정의 합니다. 서브넷은 192.168.0.0/16 형식으로 전송 됩니다.
+- **서브넷**: 유지 관리 프로세스 중에 경고를 표시하지 않을 서브넷을 정의합니다. 서브넷은 192.168.0.0/16 형식으로 전송됩니다.
 
 #### <a name="error-codes"></a>오류 코드
 
-- **201 (만들어짐)**: 작업이 성공적으로 완료 되었습니다.
+- **201(만들어짐)** : 작업이 성공적으로 완료되었습니다.
 
-- **400 (잘못 된 요청)**: 다음과 같은 경우에 나타납니다.
+- **400(잘못된 요청)** : 다음과 같은 경우에 나타납니다
 
    - **Ttl** 매개 변수가 숫자가 아니거나 양수가 아닙니다.
 
-   - **서브넷** 매개 변수가 잘못 된 형식을 사용 하 여 정의 되었습니다.
+   - **서브넷** 매개 변수가 잘못된 형식을 사용하여 정의되었습니다.
 
    - **TicketId** 매개 변수가 없습니다.
 
-   - **엔진** 매개 변수가 기존 보안 엔진과 일치 하지 않습니다.
+   - **엔진** 매개 변수가 기존 보안 엔진과 일치하지 않습니다.
 
-- **404 (찾을 수 없음)**: 센서 중 하나가 존재 하지 않습니다.
+- **404(찾을 수 없음)** : 센서 중 하나가 존재하지 않습니다.
 
-- **409 (충돌)**: 티켓 ID는 다른 열려 있는 유지 관리 창에 연결 됩니다.
+- **409(충돌)** : 티켓 ID는 다른 열려 있는 유지 관리 창에 연결됩니다.
 
-- **500 (내부 서버 오류)**: 다른 예기치 않은 오류가 발생 했습니다.
+- **500(내부 서버 오류)** : 다른 예기치 않은 오류가 발생했습니다.
 
 > [!NOTE]
-> 티켓 ID가 기존에 열려 있는 창에 연결 되지 않았는지 확인 합니다. 다음 제외 규칙이 생성 됩니다. 유지 관리-{token name}-{티켓 ID}.
+> 티켓 ID가 기존에 열려 있는 창에 연결되지 않았는지 확인합니다. 다음 제외 규칙이 생성됩니다. 유지 관리-{토큰 이름}-{티켓 ID}.
 
 #### <a name="method---put"></a>메서드-PUT
 
-**Ttl** 매개 변수를 변경 하 여 유지 관리 프로세스를 시작한 후 유지 관리 기간 업데이트를 허용 합니다. 새 기간 정의가 이전 기간 정의를 재정의 합니다.
+**Ttl** 매개 변수를 변경하여 유지 관리 프로세스를 시작한 후 유지 관리 기간 할당 시간 업데이트를 허용합니다. 새 기간 정의가 이전 기간 정의를 재정의합니다.
 
-이 메서드는 현재 구성 된 기간 보다 긴 기간을 설정 하려는 경우에 유용 합니다.
+이 메서드는 현재 구성된 기간보다 긴 기간을 설정하려는 경우에 유용합니다.
 
 #### <a name="query-parameters"></a>쿼리 매개 변수
 
-- **ticketId**: 사용자 시스템의 유지 관리 티켓 ID를 정의 합니다.
+- **ticketId**: 사용자 시스템의 유지 관리 티켓 ID를 정의합니다.
 
-- **ttl**: 기간 (분)을 정의 합니다.
+- **ttl**: 기간(분)을 정의합니다.
 
 #### <a name="error-code"></a>오류 코드
 
-- **200 (OK)**: 작업이 성공적으로 완료 되었습니다.
+- **200(정상)** : 작업이 성공적으로 완료되었습니다.
 
-- **400 (잘못 된 요청)**: 다음과 같은 경우에 나타납니다.
+- **400(잘못된 요청)** : 다음과 같은 경우에 나타납니다
 
    - **Ttl** 매개 변수가 숫자가 아니거나 양수가 아닙니다.
 
@@ -2348,12 +2348,12 @@ UUID를 포함 하는 경고에 대해 수행할 작업을 나타내는 JSON 개
 
    - **Ttl** 매개 변수가 없습니다.
 
-- **404 (찾을 수 없음)**: 티켓 ID가 열린 유지 관리 창에 연결 되어 있지 않습니다.
+- **404(찾을 수 없음)** : 티켓 ID가 열린 유지 관리 창에 연결되어 있지 않습니다.
 
-- **500 (내부 서버 오류)**: 다른 예기치 않은 오류가 발생 했습니다.
+- **500(내부 서버 오류)** : 다른 예기치 않은 오류가 발생했습니다.
 
 > [!NOTE]
-> 티켓 ID가 기존에 열려 있는 창에 연결 되어 있는지 확인 합니다.
+> 티켓 ID가 기존에 열려 있는 창에 연결되지 않았는지 확인합니다.
 
 #### <a name="method---delete"></a>메서드-삭제
 
@@ -2361,44 +2361,44 @@ UUID를 포함 하는 경고에 대해 수행할 작업을 나타내는 JSON 개
 
 #### <a name="query-parameters"></a>쿼리 매개 변수
 
-- **ticketId**: 사용자 시스템의 유지 관리 티켓 ID를 기록 합니다.
+- **ticketId**: 사용자 시스템의 유지 관리 티켓 ID를 기록합니다.
 
 #### <a name="error-code"></a>오류 코드
 
-- **200 (OK)**: 작업이 성공적으로 완료 되었습니다.
+- **200(정상)** : 작업이 성공적으로 완료되었습니다.
 
-- **400 (잘못 된 요청)**: **ticketId** 매개 변수가 없습니다.
+- **400(잘못된 요청)** : **ticketId** 매개 변수가 없습니다.
 
-- **404 (찾을 수 없음)**: 티켓 ID가 열린 유지 관리 창에 연결 되어 있지 않습니다.
+- **404(찾을 수 없음)** : 티켓 ID가 열린 유지 관리 창에 연결되어 있지 않습니다.
 
-- **500 (내부 서버 오류)**: 다른 예기치 않은 오류가 발생 했습니다.
+- **500(내부 서버 오류)** : 다른 예기치 않은 오류가 발생했습니다.
 
 > [!NOTE]
-> 티켓 ID가 기존에 열려 있는 창에 연결 되어 있는지 확인 합니다.
+> 티켓 ID가 기존에 열려 있는 창에 연결되지 않았는지 확인합니다.
 
 #### <a name="method---get"></a>메서드-GET
 
-유지 관리 중 시스템에서 수행 된 모든 열기, 닫기 및 업데이트 작업의 로그를 검색 합니다. 이전에 활성화 되었으며 종결 된 유지 관리 기간에 대해서만 로그를 검색할 수 있습니다.
+유지 관리 중 시스템에서 수행된 모든 열기, 닫기 및 업데이트 작업의 로그를 검색합니다. 이전에 활성화되었으며 종결된 유지 관리 기간에 대해서만 로그를 검색할 수 있습니다.
 
 #### <a name="query-parameters"></a>쿼리 매개 변수
 
-- **fromDate**: 미리 정의 된 날짜 이상에서 로그를 필터링 합니다. 형식은 2019-12-30입니다.
+- **fromDate**: 미리 정의된 날짜 및 이후에 로그를 필터링합니다. 형식은 2019-12-30입니다.
 
-- **toDate**: 미리 정의 된 날짜로 로그를 필터링 합니다. 형식은 2019-12-30입니다.
+- **toDate**: 미리 정의된 날짜까지 로그를 필터링합니다. 형식은 2019-12-30입니다.
 
-- **ticketId**: 특정 티켓 ID와 관련 된 로그를 필터링 합니다.
+- **ticketId**: 특정 티켓 ID와 관련된 로그를 필터링합니다.
 
-- **tokenName**: 특정 토큰 이름과 관련 된 로그를 필터링 합니다.
+- **tokenName**: 특정 토큰 이름과 관련된 로그를 필터링합니다.
 
 #### <a name="error-code"></a>오류 코드
 
-- **200 (OK)**: 작업이 성공적으로 완료 되었습니다.
+- **200(정상)** : 작업이 성공적으로 완료되었습니다.
 
-- **400 (잘못 된 요청)**: 날짜 형식이 잘못 되었습니다.
+- **400(잘못된 요청)** : 날짜 형식이 잘못되었습니다.
 
-- **204 (콘텐츠 없음)**: 표시할 데이터가 없습니다.
+- **204(콘텐츠 없음)** : 표시할 데이터가 없습니다.
 
-- **500 (내부 서버 오류)**: 다른 예기치 않은 오류가 발생 했습니다.
+- **500(내부 서버 오류)** : 다른 예기치 않은 오류가 발생했습니다.
 
 #### <a name="response-type"></a>응답 형식
 
@@ -2410,29 +2410,29 @@ UUID를 포함 하는 경고에 대해 수행할 작업을 나타내는 JSON 개
 
 #### <a name="response-structure"></a>응답 구조
 
-| Name | 유형 | 주석 | Nullable |
+| 이름 | 유형 | 의견 | Nullable |
 |--|--|--|--|
-| **dateTime** | String | 예: "2012-04-23T18:25:43.511 Z" | no |
-| **ticketId** | String | 예: "9a5fe99c-d914-4bda-9332-307384fe40bf" | no |
+| **dateTime** | String | 예제: "2012-04-23T18:25:43.511Z" | no |
+| **TicketId** | String | 예제: "9a5fe99c-d914-4bda-9332-307384fe40bf" | no |
 | **tokenName** | String | - | no |
 | **엔진** | 문자열 배열 | - | 예 |
 | **sensorIds** | 문자열 배열 | - | 예 |
 | **서브넷** | 문자열 배열 | - | 예 |
 | **ttl** | 숫자 | - | 예 |
-| **operationType** | String | 값은 "OPEN", "UPDATE" 및 "CLOSE"입니다. | no |
+| **operationType** | String | 값은 "OPEN", "UPDATE" 및 "CLOSE"입니다 | no |
 
 #### <a name="curl-command"></a>Curl 명령
 
 | 유형 | API | 예제 |
 |--|--|--|
-| POST | 말아-k-X 사후 d ' {"ticketId": "<TICKET_ID>", ttl ": <TIME_TO_LIVE>," 엔진 ": [<ENGINE1, ENGINE2 ... ENGINEn>], "sensorIds": [<SENSOR_ID1, SENSOR_ID2 ... SENSOR_IDn>], "서브넷": [<SUBNET1, SUBNET2 .... SUBNETn>]} '-H "Authorization: <AUTH_TOKEN>" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow | 말아-k-X 사후 d ' {"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf", "ttl": "20", "엔진": ["변칙"], "sensorIds": ["5", "3"], "서브넷": ["10.0.0.3"]} '-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https <span> :/127.0.0.1/external/v1/maintenanceWindow |
-| PUT | ticketId "{" ":" <TICKET_ID> ", ttl": "<TIME_TO_LIVE>"} '-H "권한 부여: <AUTH_TOKEN>" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow | 말아 ticketId-d ' {"": "a5fe99c-d914-9332-307384fe40bf", "ttl": "20"} '-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https <span> :/127.0.0.1/external/v1/maintenanceWindow |
-| Delete | 말아 ticketId DELETE-d ' {"": "<TICKET_ID>"} '-H "권한 부여: <AUTH_TOKEN>" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow | 말아 40d-X DELETE-d ' {"ticketId": "a5fe99c-d914-9332-307384fe40bf"} '-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https <span> :/127.0.0.1/external/v1/maintenanceWindow |
-| GET | https://"Authorization: <AUTH_TOKEN>" ' <IP_ADDRESS>/external/v1/maintenanceWindow? fromDate =&toDate =&ticketId =&tokenName = ' | 1234b734a9244d54ab8d40aedddcabcd "권한 부여:" ' https: <span> /127.0.0.1/external/v1/maintenanceWindow? fromDate = 2020-01-01&toDate = 2020-07-14&ticketId = a5fe99c-d914-9332-307384fe40bf&tokenName = a ' |
+| POST | curl -k -X POST -d '{"ticketId": "<TICKET_ID>",ttl": <TIME_TO_LIVE>,"engines": [<ENGINE1, ENGINE2...ENGINEn>],"sensorIds": [<SENSOR_ID1, SENSOR_ID2...SENSOR_IDn>],"subnets": [<SUBNET1, SUBNET2....SUBNETn>]}' -H "권한 부여 <AUTH_TOKEN>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow | curl -k -X POST -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20","engines": ["ANOMALY"],"sensorIds": ["5","3"],"subnets": ["10.0.0.3"]}' -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow |
+| PUT | curl -k -X PUT -d '{"ticketId": "<TICKET_ID>",ttl": "<TIME_TO_LIVE>"}' -H "권한 부여: <AUTH_TOKEN>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow | curl -k -X PUT -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20"}' -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow |
+| Delete | curl -k -X PUT -d '{"ticketId": "<TICKET_ID>",ttl": "<TIME_TO_LIVE>"}' -H "권한 부여: <AUTH_TOKEN>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow | curl -k -X DELETE -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf"}' -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow |
+| GET | curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v1/maintenanceWindow?fromDate=&toDate=&ticketId=&tokenName=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/external/v1/maintenanceWindow?fromDate=2020-01-01&toDate=2020-07-14&ticketId=a5fe99c-d914-4bda-9332-307384fe40bf&tokenName=a' |
 
-### <a name="authenticate-user-credentials---externalauthenticationvalidation"></a>사용자 자격 증명 인증-/external/authentication/validation validation
+### <a name="authenticate-user-credentials---externalauthenticationvalidation"></a>사용자 자격 증명 인증-/external/authentication/validation
 
-이 API를 사용 하 여 사용자 자격 증명의 유효성을 검사 합니다. IoT 사용자 역할에 대 한 모든 Defender는 API와 함께 작동할 수 있습니다. 이 API를 사용 하는 데 IoT 용 Defender 액세스 토큰이 필요 하지 않습니다.
+이 API를 사용하여 사용자 자격 증명의 유효성을 검사합니다. 모든 Defender for IoT 사용자 역할은 API와 함께 작동할 수 있습니다. 이 API를 사용하는 데 Defender for IoT 액세스 토큰이 필요하지 않습니다.
 
 #### <a name="method"></a>방법
 
@@ -2462,18 +2462,18 @@ request:
 
 #### <a name="response-content"></a>응답 콘텐츠
 
-작업 상태 세부 정보를 포함 하는 메시지 문자열:
+작업 상태 세부 정보를 포함하는 메시지 문자열:
 
-- **성공 – 메시지**: 인증 성공
+- **성공 - 메시지**: 인증 성공
 
-- **실패 – 오류**: 자격 증명의 유효성을 검사 하지 못했습니다.
+- **실패 - 오류**: 자격 증명 유효성 검사에 실패했습니다
 
-#### <a name="device-fields"></a>장치 필드
+#### <a name="device-fields"></a>디바이스 필드
 
 | **이름** | **형식** | **Null 허용** |
 |--|--|--|
-| **username** | String | 아니요 |
-| **password** | String | 아니요 |
+| **username** | String | 예 |
+| **password** | String | 예 |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -2491,11 +2491,11 @@ response:
 
 | 유형 | API | 예제 |
 |--|--|--|
-| POST | https://"{" username ":" <USER_NAME> "," password ":" PASSWORD "} ' ' <IP_ADDRESS>/external/ssrrhs ' | 말아 ~ k-d ' {"username": "myUser", "password": " 1234@abcd "} ' ' https:/ <span> /127.0.0.1/external/authentication/validation ' |
+| POST | curl -k -d '{"username":"<USER_NAME>","password":"PASSWORD"}' 'https://<IP_ADDRESS>/external/authentication/validation' | curl -k -d '{"username":"myUser","password":"1234@abcd"}' 'https:/<span>/127.0.0.1/external/authentication/validation' |
 
 ### <a name="change-password---externalauthenticationset_password"></a>암호 변경-/external/authentication/set_password
 
-이 API를 사용 하 여 사용자가 자신의 암호를 변경할 수 있습니다. IoT 사용자 역할에 대 한 모든 Defender는 API와 함께 작동할 수 있습니다. 이 API를 사용 하는 데 IoT 용 Defender 액세스 토큰이 필요 하지 않습니다.
+이 API를 사용하여 사용자가 자신의 암호를 변경할 수 있습니다. 모든 Defender for IoT 사용자 역할은 API와 함께 작동할 수 있습니다. 이 API를 사용하는 데 Defender for IoT 액세스 토큰이 필요하지 않습니다.
 
 #### <a name="method"></a>방법
 
@@ -2528,13 +2528,13 @@ request:
 
 #### <a name="response-content"></a>응답 콘텐츠
 
-작업 상태 세부 정보를 포함 하는 메시지 문자열:
+작업 상태 세부 정보를 포함하는 메시지 문자열:
 
-- **성공 – 메시지**: 암호가 바뀌었습니다.
+- **성공 – 메시지**: 암호가 바뀌었습니다
 
-- **실패-오류**: 사용자 인증 실패
+- **실패 - 오류**: 사용자 인증 실패
 
-- **실패 – 오류**: 암호가 보안 정책과 일치 하지 않습니다.
+- **실패 – 오류**: 암호가 보안 정책과 일치하지 않습니다
 
 #### <a name="response-example"></a>응답 예제
 
@@ -2553,23 +2553,23 @@ response:
 
 ```
 
-#### <a name="device-fields"></a>장치 필드
+#### <a name="device-fields"></a>디바이스 필드
 
 | **이름** | **형식** | **Null 허용** |
 |--|--|--|
-| **username** | String | 아니요 |
-| **password** | String | 아니요 |
-| **new_password** | String | 아니요 |
+| **username** | String | 예 |
+| **password** | String | 예 |
+| **new_password** | String | 예 |
 
 #### <a name="curl-command"></a>Curl 명령
 
 | 유형 | API | 예제 |
 |--|--|--|
-| POST | https://, "username": "<USER_NAME>", "password": "<CURRENT_PASSWORD>", "new_password": "<NEW_PASSWORD>"} '-H ' Content-type: application/json ' <IP_ADDRESS>/external/set_password | 말아 ork-d ' {"username": "myUser", "password": " 1234@abcd ", "new_password": " abcd@1234 "} '-H ' content-type: application/json ' https:/ <span> /127.0.0.1/external/authentication/set_password |
+| POST | curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password | curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/external/authentication/set_password |
 
-### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>시스템 관리자에의 한 사용자 암호 업데이트-/external/authentication/set_password_by_admin
+### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>시스템 관리자에 의한 사용자 암호 업데이트-/external/authentication/set_password_by_admin
 
-이 API를 사용 하 여 시스템 관리자가 지정 된 사용자에 대 한 암호를 변경할 수 있습니다. IoT 용 Defender 관리 사용자 역할은 API를 사용할 수 있습니다. 이 API를 사용 하는 데 IoT 용 Defender 액세스 토큰이 필요 하지 않습니다.
+이 API를 사용하여 시스템 관리자가 지정된 사용자에 대한 암호를 변경할 수 있습니다. 모든 Defender for IoT 관리 사용자 역할은 API로 작업할 수 있습니다. 이 API를 사용하는 데 Defender for IoT 액세스 토큰이 필요하지 않습니다.
 
 #### <a name="method"></a>방법
 
@@ -2601,17 +2601,17 @@ request:
 
 #### <a name="response-content"></a>응답 콘텐츠
 
-작업 상태 세부 정보를 포함 하는 메시지 문자열:
+작업 상태 세부 정보를 포함하는 메시지 문자열:
 
-- **성공 – 메시지**: 암호가 바뀌었습니다.
+- **성공 – 메시지**: 암호가 바뀌었습니다
 
-- **실패-오류**: 사용자 인증 실패
+- **실패 - 오류**: 사용자 인증 실패
 
-- **실패-오류**: 사용자가 없습니다.
+- **실패-오류**: 사용자가 없습니다
 
-- **실패 – 오류**: 암호가 보안 정책과 일치 하지 않습니다.
+- **실패 – 오류**: 암호가 보안 정책과 일치하지 않습니다
 
-- **실패 – 오류**: 사용자에 게 암호를 변경할 수 있는 권한이 없습니다.
+- **실패 – 오류**: 사용자에게 암호 변경 권한이 없습니다
 
 #### <a name="response-example"></a>응답 예제
 
@@ -2632,21 +2632,21 @@ response:
 
 ```
 
-#### <a name="device-fields"></a>장치 필드
+#### <a name="device-fields"></a>디바이스 필드
 
 | **이름** | **형식** | **Null 허용** |
 |--|--|--|
-| **admin_username** | String | 아니요 |
-| **admin_password** | String | 아니요 |
-| **username** | String | 아니요 |
-| **new_password** | String | 아니요 |
+| **관리자 사용자 이름** | String | 예 |
+| **관리자 암호** | String | 예 |
+| **username** | String | 예 |
+| **new_password** | String | 예 |
 
 #### <a name="curl-command"></a>Curl 명령
 
 > [!div class="mx-tdBreakAll"]
 > | 유형 | API | 예제 |
 > |--|--|--|
-> | POST | https://"{" admin_username ":" <ADMIN_USERNAME> "," admin_password ":" <ADMIN_PASSWORD> "," username ":" <USER_NAME> "," new_password ":" <NEW_PASSWORD> "} '-H ' Content-type: application/json ' <IP_ADDRESS> | /127.0.0.1/external/authentication/"{" admin_user ":" adminUser "," admin_password ":" 1234@abcd "," username ":" myUser "," new_password ":" abcd@1234 "} '-H ' content-type: application/json ' https:/ <span> set_password_by_admin |
+> | POST | curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password_by_admin | curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/external/authentication/set_password_by_admin |
 
 ## <a name="next-steps"></a>다음 단계
 
