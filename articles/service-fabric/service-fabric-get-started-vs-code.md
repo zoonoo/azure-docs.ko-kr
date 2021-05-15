@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric VS Code 시작 하기
+title: VS Code를 사용하여 Azure Service Fabric 시작
 description: 이 문서에서는 Visual Studio Code를 사용하여 Service Fabric 애플리케이션을 만드는 과정을 대략적으로 설명합니다.
 author: peterpogorski
 ms.topic: article
@@ -7,10 +7,10 @@ ms.date: 06/29/2018
 ms.author: pepogors
 ms.custom: devx-track-js
 ms.openlocfilehash: a655199d854462285ca98a2d8f454c483c061f99
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92316667"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Visual Studio Code용 Service Fabric
@@ -51,7 +51,7 @@ Java 개발을 위해서는 다음 필수 구성 요소를 설치해야 합니�
 * [.NET Core](https://www.microsoft.com/net/learn/get-started)(버전 2.0.0 이상)
 * [Visual Studio Code용 C#(OmniSharp 제공) VS Code 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) C# 서비스 디버그에 필요합니다. VS Code의 **작업 막대** 에서 확장 아이콘을 클릭하고 해당 확장을 검색하거나 VS Code Marketplace에서 설치할 수 있습니다.
 
-## <a name="setup"></a>설정
+## <a name="setup"></a>설치 프로그램
 
 1. VS Code를 엽니다.
 2. VS Code 왼쪽의 **작업 막대** 에서 확장 아이콘을 클릭합니다. "Service Fabric"을 검색합니다. Service Fabric Reliable Services 확장에 대해 **설치** 를 클릭합니다.
@@ -70,7 +70,7 @@ VS Code용 Service Fabric Reliable Services 확장은 개발자가 Service Fabri
 
 **Service Fabric: Create Application** 명령은 현재 작업 영역에서 새 Service Fabric 애플리케이션을 만듭니다. 개발 컴퓨터에 설치되는 yeoman 생성기에 따라, Java, C#, Container 및 Guest 프로젝트를 비롯한 여러 유형의 Service Fabric 애플리케이션을 만들 수 있습니다. 
 
-1.  **Service Fabric: 응용 프로그램 만들기** 명령을 선택 합니다.
+1.  **Service Fabric: Create Application** 명령 선택
 2.  새 Service Fabric 애플리케이션의 유형을 선택합니다. 
 3.  만들려는 애플리케이션의 이름을 입력합니다.
 3.  Service Fabric 애플리케이션에 추가하려는 서비스의 유형을 선택합니다. 
@@ -81,7 +81,7 @@ VS Code용 Service Fabric Reliable Services 확장은 개발자가 Service Fabri
 ### <a name="service-fabric-add-service"></a>Service Fabric: Add Service
 **Service Fabric: Add Service** 명령은 기존 Service Fabric 애플리케이션에 새 서비스를 추가합니다. 서비스가 추가될 애플리케이션은 작업 영역의 루트 디렉터리여야 합니다. 
 
-1.  **Service Fabric: 서비스 추가** 명령을 선택 합니다.
+1.  **Service Fabric: Add Service** 명령을 선택합니다.
 2.  현재 Service Fabric 애플리케이션의 유형을 선택합니다. 
 3.  Service Fabric 애플리케이션에 추가하려는 서비스의 유형을 선택합니다. 
 4.  지시에 따라 서비스 이름을 지정합니다. 
@@ -99,7 +99,7 @@ VS Code용 Service Fabric Reliable Services 확장은 개발자가 Service Fabri
 **Service Fabric: Deploy Application** 명령은 로컬 클러스터에 Service Fabric 애플리케이션을 배포합니다. 이 명령을 사용하기 전에 로컬 클러스터가 실행되고 있는지 확인합니다. 
 
 1. **Service Fabric: Deploy Application** 명령을 선택합니다.
-2. Service Fabric Explorer (http:/shosts: 19080/Explorer)를 사용 하 여 로컬 클러스터를 보고 \/ 응용 프로그램이 설치 되었는지 확인 합니다. 다소 시간이 소요되니 기다려 주세요.
+2. Service Fabric Explorer(http:\//localhost:19080/Explorer)를 사용하여 로컬 클러스터에 애플리케이션이 설치되어 있는지 확인합니다. 다소 시간이 소요되니 기다려 주세요.
 3. Cloud.json 파일에서 매개 변수를 설정하지 않은 상태로 **Service Fabric: Publish Application** 명령을 사용하여 로컬 클러스터에 배포할 수도 있습니다.
 
 > [!NOTE]
@@ -112,7 +112,7 @@ VS Code용 Service Fabric Reliable Services 확장은 개발자가 Service Fabri
 2.  Service Fabric Explorer를 사용하여 클러스터에서 애플리케이션이 제거되었는지 확인합니다. 다소 시간이 소요되니 기다려 주세요.
 
 ### <a name="service-fabric-build-application"></a>Service Fabric: Build Application
-**Service Fabric: Build Application** 명령은 Java 또는 c # Service Fabric 응용 프로그램을 빌드할 수 있습니다. 
+**Service Fabric: Build Application** 명령은 Java 또는 C# Service Fabric 애플리케이션을 빌드할 수 있습니다. 
 
 1.  이 명령을 실행하기 전에 애플리케이션 루트 폴더에 있는지 확인합니다. 이 명령은 애플리케이션의 유형(C# 또는 Java)을 식별하고 그에 따라 애플리케이션을 빌드합니다.
 2.  **Service Fabric: Build Application** 명령을 선택합니다.

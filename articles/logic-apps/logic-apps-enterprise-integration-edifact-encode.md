@@ -9,10 +9,10 @@ ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: cee97fddc619840de821ebb70d32e0cab1bbe040
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "82106528"
 ---
 # <a name="encode-edifact-messages-for-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에 대한 EDIFACT 메시지 인코딩
@@ -25,21 +25,21 @@ EDIFACT 메시지 인코딩 커넥터를 사용하여 EDI 및 파트너 관련 �
 필요한 항목은 다음과 같습니다.
 
 * Azure 계정의 경우 [무료 계정](https://azure.microsoft.com/free)
-* 이미 정의 되 고 Azure 구독과 연결 된 [통합 계정](logic-apps-enterprise-integration-create-integration-account.md) 입니다. EDIFACT 메시지 인코딩 커넥터를 사용하는 통합 계정이 있어야 합니다. 
+* [통합 계정](logic-apps-enterprise-integration-create-integration-account.md)이 이미 정의되고 Azure 구독과 연결되었습니다. EDIFACT 메시지 인코딩 커넥터를 사용하는 통합 계정이 있어야 합니다. 
 * 통합 계정에 이미 정의된 둘 이상의 [파트너](logic-apps-enterprise-integration-partners.md)
 * 통합 계정에 이미 정의된 [EDIFACT 규약](logic-apps-enterprise-integration-edifact.md)
 
 ## <a name="encode-edifact-messages"></a>EDIFACT 메시지 인코딩
 
 > [!IMPORTANT]
-> EDIFACT 커넥터는 UTF-8 문자만 지원 합니다.
-> 출력에 예기치 않은 문자가 포함 되어 있는 경우 EDIFACT 메시지에서 UTF-8 문자 집합을 사용 하는지 확인 합니다.
+> EDIFACT 커넥터는 UTF-8 문자만 지원합니다.
+> 출력에 예기치 않은 문자가 포함되어 있는 경우 EDIFACT 메시지에서 UTF-8 문자 집합을 사용하는지 확인합니다.
 
-1. [논리 앱을 만듭니다](quickstart-create-first-logic-app-workflow.md).
+1. [논리 앱 만들기](quickstart-create-first-logic-app-workflow.md)
 
 2. EDIFACT 메시지 인코딩 커넥터에는 트리거가 없으므로 요청 트리거와 마찬가지로 논리 앱을 시작하는 트리거를 추가해야 합니다. Logic App Designer에서 트리거를 추가하고 작업을 논리 앱에 추가합니다.
 
-3.  검색 상자에서 필터로 "EDIFACT"를 입력합니다. **규약 이름으로 Edifact 메시지 인코딩** 또는 **id로 edifact 메시지 인코딩** 중 하나를 선택 합니다.
+3.  검색 상자에서 필터로 "EDIFACT"를 입력합니다. **규약 이름으로 EDIFACT 메시지 인코딩** 또는 **ID로 EDIFACT 메시지 인코딩** 중 하나를 선택합니다.
    
     ![EDIFACT 검색](media/logic-apps-enterprise-integration-edifact-encode/edifactdecodeimage1.png)  
 

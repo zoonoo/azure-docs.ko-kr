@@ -1,6 +1,6 @@
 ---
 title: 라이브 스트리밍 문제 해결 가이드 | Microsoft Docs
-description: 이 문서에서는 Azure Media Services 라이브 스트리밍 문제를 해결 하는 방법에 대 한 제안을 제공 합니다.
+description: 이 문서에서는 Azure Media Services 라이브 스트리밍 문제를 해결하는 방법에 대해 제안합니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 1b7a7ec746f5400fe65e3e1db88ae61e97ae710a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103009048"
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>라이브 스트리밍 문제 해결 가이드

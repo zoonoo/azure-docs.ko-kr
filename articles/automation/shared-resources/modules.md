@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 02/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 57dfc388dcba926706a695c93d2afa1956432be8
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
-ms.translationtype: MT
+ms.openlocfilehash: c86eab249167fab2d1ad72bba22e1d507122138c
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953938"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169405"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Azure Automation에서 모듈 관리
 
@@ -32,17 +32,17 @@ Automation은 Runbook 및 DSC 컴파일 작업을 실행할 때 Runbook을 실�
 >[!NOTE]
 >Runbook 및 DSC 구성에 필요한 모듈만 가져와야 합니다. 루트 Az 모듈은 가져오지 않는 것이 좋습니다. 여기에는 필요하지 않은 많은 다른 모듈이 포함되어 성능 문제가 발생할 수 있습니다. 대신 Az.Compute와 같은 개별 모듈을 가져옵니다.
 
-클라우드 샌드박스는 최대 48 개의 시스템 호출을 지원 하 고 다른 모든 호출은 보안상의 이유로 제한 합니다. 자격 증명 관리 및 일부 네트워킹 등의 기타 기능은 클라우드 샌드박스에서 지원 되지 않습니다.
+클라우드 샌드박스는 최대 48개의 시스템 호출을 지원하고 다른 모든 호출은 보안상의 이유로 제한합니다. 자격 증명 관리 및 일부 네트워킹 등의 기타 기능은 클라우드 샌드박스에서 지원되지 않습니다.
 
-포함 된 모듈 및 cmdlet의 수로 인해 지원 되지 않는 호출을 수행 하는 cmdlet을 미리 파악 하기 어렵습니다. 일반적으로 높은 액세스를 필요로 하는 cmdlet 관련 문제를 확인 하거나, 매개 변수로 자격 증명을 요구 하거나, 네트워킹 관련 cmdlet을 사용 합니다. AIPService PowerShell 모듈의 [연결-aipservice](/powershell/module/aipservice/connect-aipservice) 및 dnsclient 모듈의 [DnsName](/powershell/module/dnsclient/resolve-dnsname) 을 포함 하 여 완전 한 스택 네트워크 작업을 수행 하는 모든 cmdlet은 샌드박스에서 지원 되지 않습니다.
+포함된 모듈 및 cmdlet의 수로 인해 지원되지 않는 호출을 만드는 cmdlet을 미리 파악하기가 어렵습니다. 일반적으로 권한이 상승된 액세스를 필요로 하거나 매개 변수로 자격 증명이 필요하거나 네트워킹과 관련된 cmdlet에 대한 문제가 있었습니다. AIPService PowerShell 모듈의 [Connect-AipService](/powershell/module/aipservice/connect-aipservice) 및 DNSClient 모듈의 [Resolve-DnsName](/powershell/module/dnsclient/resolve-dnsname)을 포함하여 완전한 스택 네트워크 작업을 수행하는 모든 cmdlet은 샌드박스에서 지원되지 않습니다.
 
-이는 샌드박스에서 알려진 제한 사항입니다. 권장 해결 방법은 [Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md) 을 배포 하거나 [Azure Functions](../../azure-functions/functions-overview.md)를 사용 하는 것입니다.
+이는 샌드박스와 관련하여 알려진 제한 사항입니다. 권장 해결 방법은 [Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md)를 배포하거나 [Azure Functions](../../azure-functions/functions-overview.md)를 사용하는 것입니다.
 
 ## <a name="default-modules"></a>기본 모듈
 
 다음 표에서는 Automation 계정을 만들 때 기본적으로 Azure Automation에서 가져오는 모듈을 나열합니다. Automation은 이러한 모듈의 최신 버전을 가져올 수 있습니다. 그러나 최신 버전을 삭제하는 경우에도 Automation 계정에서 원래 버전을 제거할 수 없습니다. 참고로 이러한 기본 모듈에는 여러 AzureRM 모듈이 포함됩니다.
 
-기본 모듈을 전역 모듈이 라고도 합니다. Azure Portal에서 **전역 모듈** 속성은 계정을 만들 때 가져온 모듈을 볼 때 **true** 가 됩니다.
+기본 모듈은 전역 모듈이라고도 합니다. Azure Portal에서 **전역 모듈** 속성은 계정을 만들 때 가져온 모듈을 볼 때 **True** 가 됩니다.
 
 ![Azure Portal에서 전역 모듈 속성의 스크린샷](../media/modules/automation-global-modules.png)
 
@@ -142,10 +142,10 @@ Automation 계정으로 Az 모듈을 가져와도 Runbook이 사용하는 PowerS
 
 * Runbook이 모듈에서 cmdlet을 호출하는 경우
 * Runbook이 [Import-module](/powershell/module/microsoft.powershell.core/import-module) cmdlet을 사용하여 모듈을 명시적으로 가져오는 경우
-* Runbook에서 [using module 문을 사용](/powershell/module/microsoft.powershell.core/about/about_using#module-syntax) 하 여 모듈을 명시적으로 가져오는 경우 Using 문은 Windows PowerShell 5.0부터 지원 되며 클래스 및 열거형 형식 가져오기를 지원 합니다.
+* Runbook에서 [using module](/powershell/module/microsoft.powershell.core/about/about_using#module-syntax) 문을 사용하여 모듈을 명시적으로 가져오는 경우. using 문은 Windows PowerShell 5.0부터 지원되며 클래스 및 열거형 형식 가져오기를 지원합니다.
 * Runbook이 다른 종속 모듈을 가져오는 경우
 
-Azure Portal에서 Az 모듈을 Automation 계정으로 가져올 수 있습니다. 사용 가능한 모든 Az module이 아니라 필요한 Az 모듈만 가져와야 합니다. [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0)는 다른 Az 모듈에 대한 종속성이기 때문에 이 모듈을 다른 모듈보다 먼저 가져와야 합니다.
+Azure Portal에서 Az 모듈을 Automation 계정으로 가져올 수 있습니다. 사용 가능한 모든 Az 모듈이 아니라 필요한 Az 모듈만 가져와야 합니다. [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0)는 다른 Az 모듈에 대한 종속성이기 때문에 이 모듈을 다른 모듈보다 먼저 가져와야 합니다.
 
 1. Automation 계정의 **공유 리소스** 아래에서 **모듈** 을 선택합니다.
 2. **갤러리 찾아보기** 를 선택합니다.  
@@ -164,15 +164,15 @@ Az 모듈을 Automation 계정으로 가져온 후에는 Runbook 및 DSC 구성 
 
 ## <a name="author-modules"></a>작성자 모듈
 
-Azure Automation에서 사용할 사용자 지정 PowerShell 모듈을 작성하는 경우 이 섹션의 고려 사항을 따르는 것이 좋습니다. 가져올 모듈을 준비 하려면 모듈 폴더와 같은 이름을 사용 하 여 psd1,. .psm1 또는 PowerShell module **.dll** 파일을 하나 이상 만들어야 합니다. 그런 다음, 모듈 폴더를 압축하여 Azure Automation에서 단일 파일로 가져올 수 있도록 합니다. **.zip** 패키지의 이름이 포함된 모듈 폴더와 같아야 합니다.
+Azure Automation에서 사용할 사용자 지정 PowerShell 모듈을 작성하는 경우 이 섹션의 고려 사항을 따르는 것이 좋습니다. 모듈을 가져오기 위해 준비하려면 모듈 폴더와 동일한 이름으로 적어도 .psd1, .psm1 또는 PowerShell 모듈 **.dll** 파일을 하나 이상 만들어야 합니다. 그런 다음, 모듈 폴더를 압축하여 Azure Automation에서 단일 파일로 가져올 수 있도록 합니다. **.zip** 패키지의 이름이 포함된 모듈 폴더와 같아야 합니다.
 
 PowerShell 모듈을 작성하는 방법에 대한 자세한 내용은 [PowerShell 스크립트 모듈을 작성하는 방법](/powershell/scripting/developer/module/how-to-write-a-powershell-script-module)을 참조하세요.
 
 ### <a name="version-folder"></a>버전 폴더
 
-PowerShell side-by-side 모듈 버전 관리를 사용 하면 PowerShell 내에서 모듈의 여러 버전을 사용할 수 있습니다. 이전 스크립트가 테스트 되었으며 특정 버전의 PowerShell 모듈에만 작동 하는 경우에 유용할 수 있지만 다른 스크립트에는 동일한 PowerShell 모듈의 최신 버전이 필요 합니다.
+PowerShell 병렬 모듈 버전 관리를 사용하면 PowerShell 내에서 모듈의 여러 버전을 사용할 수 있습니다. 이전 스크립트가 테스트되었으며 특정 버전의 PowerShell 모듈에만 작동하는 경우에는 유용할 수 있지만 다른 스크립트에는 동일한 PowerShell 모듈의 최신 버전이 필요합니다.
 
-여러 버전을 포함 하도록 PowerShell 모듈을 구성 하려면 모듈 폴더를 만든 다음 사용할 모듈의 각 버전에 대해이 모듈 폴더 내에 폴더를 만듭니다. 다음 예제에서 *testmodule* 이라는 모듈은 1.0.0 및 2.0.0의 두 가지 버전을 제공 합니다.
+여러 버전을 포함하도록 PowerShell 모듈을 구성하려면 모듈 폴더를 만든 다음 사용하려는 모듈의 각 버전에 대해 해당 모듈 폴더 내에 폴더를 만듭니다. 다음 예제에서 *TestModule* 이라는 모듈은 1.0.0 및 2.0.0의 두 가지 버전을 제공합니다.
 
 ```dos
 TestModule
@@ -180,13 +180,13 @@ TestModule
    2.0.0
 ```
 
-각 버전 폴더 내에서 모듈을 구성 하는 .psm1,. psd1 또는 PowerShell module **.dll** 파일을 해당 버전 폴더로 복사 합니다. 모듈 폴더를 압축 하 여 Azure Automation 단일 .zip 파일로 가져올 수 있도록 합니다. Automation은 가져온 모듈의 가장 높은 버전만 표시 하지만 모듈 패키지에 모듈의 side-by-side 버전이 포함 되어 있으면 모두 runbook 또는 DSC 구성에서 사용할 수 있습니다.  
+각 버전 폴더 내에서 모듈을 구성하는 PowerShell .psm1, .psd1 또는 PowerShell 모듈 **.dll** 파일을 해당 버전 폴더로 복사합니다. 그런 다음 모듈 폴더를 압축하여 Azure Automation에서 단일 .zip 파일로 가져올 수 있도록 합니다. Automation은 가져온 모듈의 가장 높은 버전만 표시하지만 모듈 패키지에 모듈의 병렬 버전이 포함되어 있으면 모두 Runbook 또는 DSC 구성에서 사용할 수 있습니다.  
 
-자동화는 동일한 패키지 내에서 side-by-side 버전을 포함 하는 모듈을 지원 하지만 모듈 패키지 가져오기에서 여러 버전의 모듈을 사용할 수 없습니다. 예를 들어 버전 1과 2가 포함 된 **모듈 A** 를 Automation 계정으로 가져올 수 있습니다. 나중에 버전 3과 4를 포함 하도록 **모듈 A** 를 업데이트 하는 경우 Automation 계정으로 가져올 때 버전 3 및 4만 RUNBOOK 또는 DSC 구성 내에서 사용할 수 있습니다. 모든 버전-1, 2, 3 및 4를 사용 하도록 요구 하는 경우에는 가져올 .zip 파일에 버전 1, 2, 3, 4가 포함 되어야 합니다.
+Automation은 동일한 패키지 내에서 병렬 버전을 포함하는 모듈을 지원하지만 모듈 패키지 가져오기에서 여러 버전의 모듈을 사용하는 기능은 지원하지 않습니다. 예를 들어 버전 1과 2가 포함된 **모듈 A** 를 Automation 계정으로 가져올 수 있습니다. 나중에 버전 3과 4를 포함하도록 **모듈 A** 를 업데이트하는 경우 Automation 계정으로 가져올 때 버전 3 및 4만 Runbook 또는 DSC 구성 내에서 사용할 수 있습니다. 모든 버전(1, 2, 3, 4)을 사용해야 하면 가져오는 .zip 파일에 버전 1, 2, 3, 4가 포함되어야 합니다.
 
-Runbook 사이에 동일한 모듈의 서로 다른 버전을 사용 하려는 경우에는 cmdlet을 사용 하 여 runbook에서 사용 하려는 버전을 항상 선언 `Import-Module` 하 고 매개 변수를 포함 해야 합니다 `-RequiredVersion <version>` . 사용 하려는 버전이 최신 버전인 경우에도 마찬가지입니다. Runbook 작업은 동일한 샌드박스에서 실행 될 수 있기 때문입니다. 샌드박스에서 특정 버전 번호의 모듈을 이미 명시적으로 로드 한 경우 해당 샌드박스에서 이전 작업에서이 작업을 수행 했으므로 해당 샌드박스에서 이후의 작업에서 해당 모듈의 최신 버전을 자동으로 로드 하지 않습니다. 이는 일부 버전이 이미 샌드박스에서 로드 되었기 때문입니다.
+Runbook 사이에 동일한 모듈의 서로 다른 버전을 사용하려는 경우에는 `Import-Module` cmdlet을 사용하여 Runbook에서 사용하려는 버전을 항상 선언하고 `-RequiredVersion <version>` 매개 변수를 포함해야 합니다. 사용하려는 버전이 최신 버전인 경우에도 마찬가지입니다. Runbook 작업은 동일한 샌드박스에서 실행될 수 있기 때문입니다. 샌드박스에서 특정 버전 번호의 모듈을 이미 명시적으로 로드한 경우 해당 샌드박스의 이전 작업에서 그렇게 하라고 했으므로 해당 샌드박스의 이후 작업에서는 해당 모듈의 최신 버전을 자동으로 로드하지 않습니다. 이는 일부 버전이 이미 샌드박스에서 로드되었기 때문입니다.
 
-DSC 리소스의 경우 다음 명령을 사용 하 여 특정 버전을 지정 합니다.
+DSC 리소스의 경우 다음 명령을 사용하여 특정 버전을 지정합니다.
 
 ```powershell
 Import-DscResource -ModuleName <ModuleName> -ModuleVersion <version>
@@ -224,7 +224,7 @@ Import-DscResource -ModuleName <ModuleName> -ModuleVersion <version>
 
   switch ($PSCmdlet.ParameterSetName) {
      "UserAccount" {
-        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $UserName, $Password
+        $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $UserName, $Password
         Connect-Contoso -Credential $cred
      }
      "ConnectionObject" {
@@ -249,7 +249,7 @@ Import-DscResource -ModuleName <ModuleName> -ModuleVersion <version>
   ```powershell
   $contosoConnection = Get-AutomationConnection -Name 'ContosoConnection'
 
-  $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $contosoConnection.UserName, $contosoConnection.Password
+  $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $contosoConnection.UserName, $contosoConnection.Password
   Connect-Contoso -Credential $cred
   }
   ```
@@ -393,6 +393,6 @@ Remove-AzAutomationModule -Name <moduleName> -AutomationAccountName <automationA
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure PowerShell 모듈을 사용 하는 방법에 대 한 자세한 내용은 [Azure PowerShell 시작](/powershell/azure/get-started-azureps)을 참조 하세요.
+* Azure PowerShell 모듈 사용에 대한 자세한 내용은 [Azure PowerShell 시작](/powershell/azure/get-started-azureps)을 참조하세요.
 
-* PowerShell 모듈을 만드는 방법에 대해 자세히 알아보려면 [Windows powershell 모듈 작성](/powershell/scripting/developer/module/writing-a-windows-powershell-module)을 참조 하세요.
+* PowerShell 모듈 만들기에 대한 자세한 내용은 [Windows PowerShell 모듈 작성](/powershell/scripting/developer/module/writing-a-windows-powershell-module)을 참조하세요.

@@ -10,10 +10,10 @@ ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java, contperf-fy21q2
 ms.openlocfilehash: 8aad9df4720c833a74659b5cd36b7f5aafdf9b60
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97631842"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Azure Cosmos DB Java SDK v4에 대한 성능 팁
@@ -39,7 +39,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 * **연결 모드: 직접 모드 사용**
 <a id="direct-connection"></a>
     
-Java SDK 기본 연결 모드는 direct입니다. 아래와 같이 *Directmode ()* 또는 *gmode ()* 메서드를 사용 하 여 클라이언트 작성기에서 연결 모드를 구성할 수 있습니다. 기본 설정을 사용 하 여 두 모드를 구성 하려면 인수 없이 메서드를 호출 합니다. 그렇지 않으면 구성 설정 클래스 인스턴스를 인수로 전달 합니다 ( *Directmode ()* 의 경우 *directconnectionconfig* , gmode의 경우 *directconnectionconfig* *()*). 다양 한 연결 옵션에 대해 자세히 알아보려면 [연결 모드](sql-sdk-connection-modes.md) 문서를 참조 하세요.
+Java SDK 기본 연결 모드는 직접 모드입니다. 아래와 같이 *DirectMode()* 또는 *gatewayMode()* 메서드를 사용하여 클라이언트 작성기에서 연결 모드를 구성할 수 있습니다. 기본 설정을 사용하여 두 모드 중 하나를 구성하려면 인수 없이 두 메서드 중 하나를 호출합니다. 그렇지 않으면 구성 설정 클래스 인스턴스를 인수로 전달합니다(*directMode()* 의 경우 *DirectConnectionConfig*, *gatewayMode()* 의 경우 *GatewayConnectionConfig*.). 다양한 연결 옵션에 대해 자세히 알아보려면 [연결 모드](sql-sdk-connection-modes.md) 문서를 참조하세요.
     
 ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java V4 SDK
 
@@ -57,7 +57,7 @@ Java SDK V4(Maven com.azure::azure-cosmos) Sync API
 
 --- 
 
-*Directmode ()* 메서드에는 다음과 같은 이유로 추가 재정의가 있습니다. 데이터베이스 및 컨테이너 CRUD와 같은 제어 평면 작업은 *항상* 게이트웨이 모드를 활용 합니다. 사용자가 데이터 평면 작업에 대해 직접 모드를 구성 하면 제어 평면 작업에서 기본 게이트웨이 모드 설정을 사용 합니다. 이는 대부분의 사용자에 게 적합 합니다. 그러나 데이터 평면 작업에 대 한 직접 모드를 사용 하 고 제어 평면 게이트웨이 모드 매개 변수의 tunability을 사용 하려는 사용자는 다음과 같은 *directmode ()* 재정의를 사용할 수 있습니다.
+*directMode()* 메서드에는 다음과 같은 이유로 추가 재정의가 있습니다. 데이터베이스 및 컨테이너 CRUD와 같은 컨트롤 플레인 작업은 *항상* 게이트웨이 모드를 활용합니다. 사용자가 데이터 평면 작업에 대해 직접 모드를 구성한 경우 컨트롤 플레인 평면 작업에서 기본 게이트웨이 모드 설정을 사용합니다. 이는 대부분의 사용자에게 적합합니다. 그러나 데이터 평면 작업에 직접 모드와 컨트롤 플레인 게이트웨이 모드 매개 변수의 튜닝성을 사용하려는 사용자는 다음과 같은 *directMode()* 재정의를 사용할 수 있습니다.
 
 ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java V4 SDK
 
@@ -76,7 +76,7 @@ Java SDK V4(Maven com.azure::azure-cosmos) Sync API
 --- 
 
 <a name="collocate-clients"></a>
-* **성능을 위해 동일한 Azure 지역에서 클라이언트 배치**
+* **성능을 위해 동일한 Azure 지역에 클라이언트 배치**
 <a id="same-region"></a>
 
 가능한 경우 Azure Cosmos DB를 호출하는 애플리케이션을 Azure Cosmos 데이터베이스와 동일한 지역에 배치합니다. 대략적으로 비교한다면, 동일한 지역 내의 Azure Cosmos DB 호출은 1-2밀리초 내에 완료되지만 미국 서부와 동부 해안 간의 대기 시간은 50밀리초보다 큽니다. 클라이언트에서 Azure 데이터 센터 경계로 요청이 전달되는 경로에 따라 이러한 요청 간 대기 시간은 달라질 수 있습니다. 호출하는 애플리케이션이 프로비전된 Azure Cosmos DB 엔드포인트와 동일한 Azure 지역 내에 있도록 하면 가능한 최저 대기 시간을 얻을 수 있습니다. 사용 가능한 영역 목록은 [Azure 지역](https://azure.microsoft.com/regions/#services)을 참조하세요.
@@ -146,7 +146,7 @@ Java SDK V4(Maven com.azure::azure-cosmos) Sync API
 
 * **ConnectionPolicy 튜닝**
 
-Azure Cosmos DB Java SDK v4를 사용하는 경우 직접 모드 Cosmos DB 요청은 기본적으로 TCP를 통해 수행됩니다. 내부적으로 직접 모드는 특수 아키텍처를 사용 하 여 네트워크 리소스를 동적으로 관리 하 고 최적의 성능을 얻을 수 있습니다.
+Azure Cosmos DB Java SDK v4를 사용하는 경우 직접 모드 Cosmos DB 요청은 기본적으로 TCP를 통해 수행됩니다. 내부적으로 직접 모드는 특별한 아키텍처를 사용하여 네트워크 리소스를 동적으로 관리하고 최고의 성능을 얻습니다.
 
 Azure Cosmos DB Java SDK v4에서 직접 모드는 대부분의 워크로드에서 데이터베이스 성능을 향상시키기 위한 가장 좋은 방법입니다. 
 
@@ -156,21 +156,21 @@ Azure Cosmos DB Java SDK v4에서 직접 모드는 대부분의 워크로드에�
 
 직접 모드에서 사용되는 클라이언트 쪽 아키텍처를 사용하면 네트워크 사용률을 예측할 수 있고 Azure Cosmos DB 복제본에 멀티플렉싱 방식으로 액세스할 수 있습니다. 위의 다이어그램에서는 직접 모드에서 Cosmos DB 백 엔드를 통해 클라이언트 요청을 복제본으로 라우팅하는 방법을 보여 줍니다. 직접 모드 아키텍처는 DB 복제본당 최대 10개의 **채널** 을 클라이언트 쪽에 할당합니다. 채널은 요청 깊이가 30개인 요청 버퍼 뒤에 오는 TCP 연결입니다. 복제본에 속하는 채널은 복제본의 **서비스 엔드포인트** 에서 필요에 따라 동적으로 할당됩니다. 사용자가 직접 모드에서 요청을 실행하면 **TransportClient** 에서 파티션 키에 따라 요청을 적절한 서비스 엔드포인트로 라우팅합니다. **요청 큐** 는 서비스 엔드포인트 앞에 요청을 버퍼링합니다.
 
-* ***직접 모드의 구성 옵션***
+* ***직접 모드용 구성 옵션***
 
-기본이 아닌 직접 모드 동작을 원하는 경우 *Directconnectionconfig* 인스턴스를 만들고 해당 속성을 사용자 지정한 다음 Azure Cosmos DB client Builder의 *directmode ()* 메서드에 사용자 지정 된 속성 인스턴스를 전달 합니다.
+기본이 아닌 직접 모드 동작을 원하는 경우 *DirectConnectionConfig* 인스턴스를 만들고 해당 속성을 사용자 지정한 다음 Azure Cosmos DB 클라이언트 작성기의 *directMode()* 메서드에 사용자 지정된 속성 인스턴스를 전달합니다.
 
-이러한 구성 설정은 위에서 설명한 기본 직접 모드 아키텍처의 동작을 제어 합니다.
+이러한 구성 설정은 위에서 설명한 기본 직접 모드 아키텍처의 동작을 제어합니다.
 
-첫 번째 단계로 아래 추천 구성 설정을 사용합니다. 이러한 *Directconnectionconfig* 옵션은 예기치 않은 방식으로 SDK 성능에 영향을 줄 수 있는 고급 구성 설정입니다. 장단점을 이해 하는 데 매우 편안 하 게 생각 하 고 반드시 필요한 경우가 아니면 수정 하지 않는 것이 좋습니다. 이 특정 항목에서 문제가 발생하는 경우 [Azure Cosmos DB 팀](mailto:CosmosDBPerformanceSupport@service.microsoft.com)에 문의하세요.
+첫 번째 단계로 아래 추천 구성 설정을 사용합니다. 이러한 *DirectConnectionConfig* 옵션은 예기치 않은 방식으로 SDK 성능에 영향을 줄 수 있는 고급 구성 설정입니다. 장단점을 매우 쉽게 이해할 수 없고 반드시 필요한 경우가 아니면 사용자가 수정하지 않는 것이 좋습니다. 이 특정 항목에서 문제가 발생하는 경우 [Azure Cosmos DB 팀](mailto:CosmosDBPerformanceSupport@service.microsoft.com)에 문의하세요.
 
 | 구성 옵션       | 기본값   |
 | :------------------:       | :-----:   |
 | idleConnectionTimeout      | "PT0"     |
 | maxConnectionsPerEndpoint  | "130"     |
 | connectTimeout             | "PT5S"    |
-| idleEndpointTimeout        | PT1H.JSON    |
-| maxRequestsPerConnection   | 인치      |
+| idleEndpointTimeout        | "PT1H"    |
+| maxRequestsPerConnection   | "30"      |
 
 * **분할된 컬렉션에 대한 병렬 쿼리 튜닝**
 
@@ -219,7 +219,7 @@ Azure Cosmos DB Java SDK의 비동기 기능은 [netty](https://netty.io/) 비�
 
 [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceNeedsSchedulerAsync)]
 
-결과에 대해 CPU 집약적인 작업을 수행하려는 경우 결과를 수신한 후에는 이벤트 루프 IO netty 스레드에서 이를 수행하지 않아야 합니다. 대신 사용자 고유의 스케줄러를 제공 하 여 아래와 같이 작업을 실행 하기 위한 고유한 스레드를 제공할 수 있습니다 (필요 `import reactor.core.scheduler.Schedulers` ).
+결과에 대해 CPU 집약적인 작업을 수행하려는 경우 결과를 수신한 후에는 이벤트 루프 IO netty 스레드에서 이를 수행하지 않아야 합니다. 대신 사용자 고유의 스케줄러를 제공하여 아래와 같이 작업을 실행하기 위한 사용자 고유의 스레드를 제공할 수 있습니다(`import reactor.core.scheduler.Schedulers` 필요).
 
 ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-scheduler"></a>Java SDK V4(Maven com.azure::azure-cosmos) Async API
 
@@ -307,7 +307,7 @@ Java SDK V4(Maven com.azure::azure-cosmos) Sync API
  
 * **더 빠른 쓰기에 대한 인덱싱에서 사용하지 않는 경로 제외**
 
-Azure Cosmos DB의 인덱싱 정책을 통해 인덱싱 경로(setIncludedPaths 및 setExcludedPaths)를 활용하여 인덱싱에 포함하거나 제외할 문서 경로를 지정할 수 있습니다. 인덱싱 비용이 인덱싱된 고유 경로 수와 직접 관련이 있기 때문에, 인덱싱 경로를 사용하면 사전에 알려진 쿼리 패턴의 시나리오에 대해 쓰기 성능을 향상시키고 인덱스 스토리지를 낮출 수 있습니다. 예를 들어 다음 코드는 "*" 와일드 카드를 사용 하 여 인덱싱에서 문서의 전체 섹션 (하위 트리 라고도 함)을 포함 하 고 제외 하는 방법을 보여 줍니다.
+Azure Cosmos DB의 인덱싱 정책을 통해 인덱싱 경로(setIncludedPaths 및 setExcludedPaths)를 활용하여 인덱싱에 포함하거나 제외할 문서 경로를 지정할 수 있습니다. 인덱싱 비용이 인덱싱된 고유 경로 수와 직접 관련이 있기 때문에, 인덱싱 경로를 사용하면 사전에 알려진 쿼리 패턴의 시나리오에 대해 쓰기 성능을 향상시키고 인덱스 스토리지를 낮출 수 있습니다. 예를 들어 다음 코드에서는 "*" 와일드카드를 사용하여 인덱싱에서 문서의 전체 섹션(하위 트리라고도 함)을 포함 및 제외하는 방법을 보여 줍니다.
 
 ### <a name="java-sdk-v4-maven-comazureazure-cosmos"></a><a id="java4-indexing"></a>Java SDK V4(Maven com.azure::azure-cosmos)
 

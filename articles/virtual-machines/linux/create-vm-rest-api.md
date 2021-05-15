@@ -1,5 +1,5 @@
 ---
-title: REST API를 사용 하 여 Linux VM 만들기
+title: REST API를 통해 Linux VM 만들기
 description: Azure에서 Azure REST API를 통해 관리 디스크 및 SSH 인증을 사용하는 Linux 가상 머신을 만드는 방법에 대해 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 519939445e67f0f993662e2faf506eb186686156
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102554567"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>REST API를 통해 SSH 인증을 사용하는 Linux 가상 머신 만들기
@@ -27,7 +27,7 @@ Azure Portal, Azure CLI 2.0, 여러 Azure SDK, Azure Resource Manager 템플릿 
 요청을 만들고 제출하기 전에 다음이 필요합니다.
 
 * 구독에 대한 `{subscription-id}`
-  * 구독이 여러 개인 경우 [여러 구독으로 작업](/cli/azure/manage-azure-subscriptions-azure-cli) 을 참조 하세요.
+  * 구독이 여러 개인 경우 [여러 구독으로 작업](/cli/azure/manage-azure-subscriptions-azure-cli)을 참조합니다.
 * 미리 만든 `{resourceGroupName}`
 * 같은 리소스 그룹의 [가상 네트워크 인터페이스](../../virtual-network/virtual-network-network-interface.md)
 * SSH 키 쌍(없는 경우 [새로 생성할](mac-create-ssh-keys.md) 수 있음)
@@ -55,7 +55,7 @@ REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성
 
 다음과 같은 일반적인 정의가 요청 본문을 빌드하는 데 사용됩니다.
 
-| Name                       | 필수 | Type                                                                                | 설명  |
+| 이름                       | 필수 | Type                                                                                | Description  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | 위치                   | True     | 문자열                                                                              | 리소스 위치. |
 | name                       |          | 문자열                                                                              | 가상 머신의 이름. |
@@ -119,7 +119,7 @@ REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성
 }
 ```
 
-요청 본문에서 사용할 수 있는 정의의 전체 목록은 [Virtual machines 요청 본문 정의 만들기 또는 업데이트](/rest/api/compute/virtualmachines/createorupdate#definitions)를 참조 하세요.
+요청 본문에 사용할 수 있는 정의의 전체 목록은 [가상 머신 요청 본문 정의 만들기 또는 업데이트](/rest/api/compute/virtualmachines/createorupdate#definitions)를 참조하세요.
 
 ## <a name="sending-the-request"></a>요청 보내기
 
@@ -129,7 +129,7 @@ REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성
 
 가상 머신 만들기 또는 업데이트하는 작업에 대한 성공적인 응답에는 두 가지가 있습니다.
 
-| Name        | Type                                                                              | 설명 |
+| 이름        | 유형                                                                              | Description |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 정상      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 정상          |
 | 201 생성됨 | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 생성일     |

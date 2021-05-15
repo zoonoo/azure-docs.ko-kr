@@ -7,19 +7,19 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/16/2021
 ms.openlocfilehash: 5ff59b0add8a9b3c48ad8ae80a50c0a816c08d6e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104588095"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Stream Analytics 창 함수 소개
 
 실시간 스트리밍 시나리오에서 임시 창에 포함된 데이터에서 작업을 수행하는 것은 일반적인 패턴입니다. Stream Analytics에는 개발자가 최소한의 노력으로 복잡한 스트림 처리 작업을 작성할 수 있도록 창 함수에 대한 네이티브 지원이 있습니다.
 
-선택할 수 있는 temporal 창에는 [**연속**](/stream-analytics-query/tumbling-window-azure-stream-analytics), [**도약**](/stream-analytics-query/hopping-window-azure-stream-analytics), [**슬라이딩**](/stream-analytics-query/sliding-window-azure-stream-analytics), [**Session**](/stream-analytics-query/session-window-azure-stream-analytics)및 [**Snapshot**](/stream-analytics-query/snapshot-window-azure-stream-analytics) 창이 있습니다.  Stream Analytics 작업에서 쿼리 구문의 [**GROUP BY**](/stream-analytics-query/group-by-azure-stream-analytics) 절에서 창 함수를 사용합니다. [ **Windows ()** 함수](/stream-analytics-query/windows-azure-stream-analytics)를 사용 하 여 여러 창에서 이벤트를 집계할 수도 있습니다.
+다음과 같은 선택할 수 있는 네 종류의 임시 창이 있습니다. [**연속**](/stream-analytics-query/tumbling-window-azure-stream-analytics), [**도약**](/stream-analytics-query/hopping-window-azure-stream-analytics), [**슬라이딩**](/stream-analytics-query/sliding-window-azure-stream-analytics), [**세션**](/stream-analytics-query/session-window-azure-stream-analytics) 및 [**스냅샷**](/stream-analytics-query/snapshot-window-azure-stream-analytics) 창.  Stream Analytics 작업에서 쿼리 구문의 [**GROUP BY**](/stream-analytics-query/group-by-azure-stream-analytics) 절에서 창 함수를 사용합니다. [ **Windows()** 함수](/stream-analytics-query/windows-azure-stream-analytics)를 사용하여 여러 창에서 이벤트를 집계할 수도 있습니다.
 
-모든 [창](/stream-analytics-query/windowing-azure-stream-analytics) 작업 결과는 창의 **끝** 에 출력됩니다. Stream analytics 작업을 시작할 때 *작업 출력 시작 시간* 을 지정할 수 있습니다. 그러면 시스템이 지정 된 시간에 첫 번째 창을 출력 하는 들어오는 스트림의 이전 이벤트를 자동으로 인출 합니다. 예를 들어 *Now* 옵션으로 시작 하는 경우 데이터를 즉시 내보내기 시작 합니다. 창의 출력은 사용된 집계 함수를 기반으로 하는 단일 이벤트입니다. 출력 이벤트에는 창 끝의 타임스탬프가 있고 모든 창 함수는 고정된 길이로 정의됩니다. 
+모든 [창](/stream-analytics-query/windowing-azure-stream-analytics) 작업 결과는 창의 **끝** 에 출력됩니다. 스트림 분석 작업을 시작할 때 *작업 출력 시작 시간* 을 지정할 수 있습니다. 그러면 시스템이 지정된 시간에 첫 번째 창을 출력하는 들어오는 스트림의 이전 이벤트를 자동으로 가져옵니다. 예를 들어 *Now* 옵션으로 시작하는 경우 데이터를 즉시 내보내기 시작합니다. 창의 출력은 사용된 집계 함수를 기반으로 하는 단일 이벤트입니다. 출력 이벤트에는 창 끝의 타임스탬프가 있고 모든 창 함수는 고정된 길이로 정의됩니다. 
 
 ![Stream Analytics 창 함수 개념](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 
@@ -29,13 +29,13 @@ ms.locfileid: "104588095"
 ![Stream Analytics 연속 창](media/stream-analytics-window-functions/stream-analytics-window-functions-tumbling-intro.png)
 
 ## <a name="hopping-window"></a>도약 창
-도약 창 함수는 고정된 기간만큼 시간을 앞으로 건너 뜁니다. 창 크기 보다 더 자주 겹쳐서 내보낼 수 있는 연속 창으로 생각 하는 것이 더 쉬울 수 있습니다. 이벤트는 둘 이상의 도약 창 결과 집합에 속할 수 있습니다. 연속 창과 동일한 도약 창을 만들려면 도약 크기를 창 크기와 동일하도록 지정합니다. 
+도약 창 함수는 고정된 기간만큼 시간을 앞으로 건너 뜁니다. 창 크기 보다 더 자주 겹쳐서 내보낼 수 있는 연속 창으로 생각하는 것이 더 쉬울 수 있습니다. 이벤트는 둘 이상의 도약 창 결과 집합에 속할 수 있습니다. 연속 창과 동일한 도약 창을 만들려면 도약 크기를 창 크기와 동일하도록 지정합니다. 
 
 ![Stream Analytics 도약 창](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 
 ## <a name="sliding-window"></a>슬라이딩 윈도우
 
-연속 또는 도약 windows와 달리 슬라이딩 윈도우는 창의 내용이 실제로 변경 된 시점에 대 한 이벤트만 출력 합니다. 즉, 이벤트가 창에 들어가거나 종료 될 때 따라서 모든 창에는 하나 이상의 이벤트가 있습니다. 도약 창과 마찬가지로 이벤트는 둘 이상의 슬라이딩 윈도우에 속할 수 있습니다.
+연속 또는 도약 windows와 달리 슬라이딩 윈도우는 창의 내용이 실제로 변경된 시점에 대한 이벤트만 출력합니다. 즉, 이벤트가 창에 들어가거나 종료 될 때를 말합니다. 따라서 모든 창에는 하나 이상의 이벤트가 있습니다. 도약 창과 유사하게 이벤트는 둘 이상의 슬라이딩 윈도우에 속할 수 있습니다.
 
 ![Stream Analytics 슬라이딩 윈도우](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
@@ -52,9 +52,9 @@ ms.locfileid: "104588095"
 
 ## <a name="snapshot-window"></a>스냅숏 창
 
-스냅숏 windows는 타임 스탬프를 포함 하는 이벤트를 그룹화 합니다. 특정 창 함수 (예: [Sessionwindow ())](/stream-analytics-query/session-window-azure-stream-analytics)를 필요로 하는 다른 창 함수 형식과 달리 group by 절에는 System. Timestamp ()를 추가 하 여 스냅숏 창을 적용할 수 있습니다.
+스냅샷 창은 타임 스탬프를 포함하는 이벤트를 그룹화합니다. 특정 창 함수(예: [Sessionwindow()](/stream-analytics-query/session-window-azure-stream-analytics)등을 요구하는 창 유형과는 달리, 시스템을 추가하여 스냅샷 창에 적용할 수 있음. Timestamp()를 절 별로 그룹에 적용할 수 있음.
 
-![Stream Analytics 스냅숏 창](media/stream-analytics-window-functions/snapshot.png)
+![스트림 분석 스냅샷 윈도우](media/stream-analytics-window-functions/snapshot.png)
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)

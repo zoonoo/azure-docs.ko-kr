@@ -1,15 +1,15 @@
 ---
-title: ARM을 사용 하 여 예측 가능한 앱 배포
-description: Azure 리소스 관리 템플릿 및 PowerShell 스크립팅을 사용 하 여 예측 가능한 방식으로 여러 Azure App Service 앱을 단일 단위로 배포 하는 방법에 대해 알아봅니다.
+title: ARM을 사용하여 예측 가능한 앱 배포
+description: Azure 리소스 관리 템플릿 및 PowerShell 스크립팅을 사용하여 여러 Azure App Service 앱을 예측 가능한 방식과 단일 유닛으로 배포하는 방법에 대해 알아봅니다.
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: aec23c28e075dd38fa65f1315f9abd9e21cdc9cb
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104951473"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포
@@ -39,10 +39,10 @@ ms.locfileid: "104951473"
 ### <a name="azure-powershell-080-or-later"></a>Azure PowerShell 0.8.0 또는 이후
 Azure PowerShell 설치는 버전 0.8.0부터 Azure 모듈 외에도 Azure 리소스 관리자 모듈을 포함합니다. 이 새 모듈을 사용하면 리소스 그룹의 배포를 스크립트할 수 있습니다.
 
-자세한 내용은 [Azure Resource Manager와 함께 Azure PowerShell 사용](../azure-resource-manager/management/manage-resources-powershell.md) 을 참조 하세요.
+자세한 내용은 [Azure 리소스 관리자로 Azure PowerShell 사용](../azure-resource-manager/management/manage-resources-powershell.md)
 
 ### <a name="azure-resource-explorer"></a>Azure Resource Explorer
-이 [미리 보기 도구](https://resources.azure.com)를 사용하면 구독 및 개별 리소스에서 모든 리소스 그룹의 JSON 정의를 탐색할 수 있습니다. 도구에서 리소스의 JSON 정의를 편집하고 리소스의 전체 계층을 삭제하며 새 리소스를 만들 수 있습니다.  이 도구에서 쉽게 사용할 수 있는 정보는 특정 유형의 리소스, 올바른 값 등에 대해 설정 해야 하는 속성을 보여 주므로 템플릿 제작에 매우 유용 합니다. [Azure Portal](https://portal.azure.com/)에서 리소스 그룹을 만든 다음 탐색기 도구에서 해당 JSON 정의를 검사 하 여 리소스 그룹을 templatize 수 있습니다.
+이 [미리 보기 도구](https://resources.azure.com)를 사용하면 구독 및 개별 리소스에서 모든 리소스 그룹의 JSON 정의를 탐색할 수 있습니다. 도구에서 리소스의 JSON 정의를 편집하고 리소스의 전체 계층을 삭제하며 새 리소스를 만들 수 있습니다.  이 도구에서 쉽게 사용할 수 있는 정보는 특정 유형의 리소스, 올바른 값 등에 대해 설정이 필요한 속성을 보여 주므로 템플릿 제작에 매우 유용합니다. [Azure Portal](https://portal.azure.com/)에서 리소스 그룹을 만든 다음, 탐색기 도구에서 해당 JSON 정의를 검사하여 리소스 그룹을 템플릿화할 수 있습니다.
 
 ### <a name="deploy-to-azure-button"></a>Azure 단추에 배포
 소스 제어용 GitHub를 사용하는 경우 [Azure 단추에 배포](../azure-resource-manager/templates/deploy-to-azure-button.md) 를 README.MD에 배치하여 턴키 배포 UI를 Azure에 사용합니다. 간단한 모든 앱에 이 작업을 수행할 수 있지만, azuredeploy.json 파일을 리포지토리 루트에 배치하면 전체 리소스 그룹을 배포하도록 이를 확장할 수 있습니다. 리소스 그룹을 만들려면 Azure 단추에 배포하 여 리소스 그룹 템플릿을 포함하는 이 JSON 파일을 사용합니다. 예를 들어 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 샘플을 참조하여 이 자습서에서 사용합니다.
@@ -54,19 +54,19 @@ Azure PowerShell 설치는 버전 0.8.0부터 Azure 모듈 외에도 Azure 리�
 2. Readme.md에서 **Azure에 배포** 를 클릭합니다.
 3. [azure 배포](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-appservice-samples%2FToDoApp%2Fmaster%2Fazuredeploy.json) 사이트로 이동하면 배포 매개 변수를 입력하라는 메시지가 표시됩니다. 대부분의 필드가 저장소 이름 및 일부 임의 문자열로 채워져 있는지 확인합니다. 원하는 모든 필드를 변경할 수 있지만 유일하게 입력해야 할 것은 SQL Server 관리 로그인 및 암호이며 그런 다음 **다음** 을 클릭합니다.
    
-   ![배포-azure 사이트에 입력 배포 매개 변수를 표시 합니다.](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
+   ![deploy-to-azure site에 입력 배포 매개 변수를 표시합니다.](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
 4. 그런 다음 배포 프로세스를 시작하려면 **배포** 를 클릭합니다. 프로세스가 완료되면 배포된 애플리케이션을 탐색하기 위해 http://todoapp*XXXX*.azurewebsites.net 링크를 클릭합니다. 
    
-   ![응용 프로그램의 배포 프로세스를 표시 합니다.](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
+   ![애플리케이션의 배포 프로세스를 자동화합니다.](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
    
    UI는 앱이 이제 시작하기 때문에 먼저 탐색할 때 약간 느릴 수 있지만 완벽하게 작동하는 애플리케이션임을 직접 확인하세요.
 5. 배포 페이지로 돌아와서 Azure Portal에서 새 애플리케이션을 보려면 **관리** 링크를 클릭합니다.
 6. **필수** 드롭다운에서 리소스 그룹 링크를 클릭합니다. 앱이 GitHub 리포지토리의 **외부 프로젝트** 아래에 이미 연결되었습니다. 
    
-   ![Essentials 드롭다운 섹션에 리소스 그룹 링크를 표시 합니다.](./media/app-service-deploy-complex-application-predictably/gettemplate-3-portalresourcegroup.png)
+   ![필수 드롭다운 섹션에서 리소스 그룹 링크를 나타냅니다.](./media/app-service-deploy-complex-application-predictably/gettemplate-3-portalresourcegroup.png)
 7. 리소스 그룹 블레이드에서 리소스 그룹에 앱 두 개와 SQL Database 한 개가 이미 있는 것을 확인합니다.
    
-   ![리소스 그룹에서 사용할 수 있는 리소스를 표시 합니다.](./media/app-service-deploy-complex-application-predictably/gettemplate-4-portalresourcegroupclicked.png)
+   ![리소스 그룹에서 사용할 수 있는 리소스를 표시합니다.](./media/app-service-deploy-complex-application-predictably/gettemplate-4-portalresourcegroupclicked.png)
 
 Azure 리소스 관리자의 자동화된 오케스트레이션이 설정한 모든 구성 요소, 종속성, 설정, 데이터베이스 및 지속적인 게시와 함께 완벽하게 배포된 두 가지 마이크로 서비스 애플리케이션에 대해 몇 분 동안 보았습니다. 이 모든 작업은 두 가지로 수행되었습니다.
 
@@ -80,10 +80,10 @@ Azure 리소스 관리자의 자동화된 오케스트레이션이 설정한 모
 
 1. 즐겨 찾는 git 도구를 사용하여 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 리포지토리를 복제합니다. 아래 스크린샷은 Visual Studio 2013의 팀 탐색기에서 이것을 보여줍니다.
    
-   ![Git 도구를 사용 하 여 ToDoApp 리포지토리를 복제 하는 방법을 보여 줍니다.](./media/app-service-deploy-complex-application-predictably/examinejson-1-vsclone.png)
+   ![git 도구를 사용하여 ToDoApp 리포지토리를 복제하는 방법을 보여줍니다.](./media/app-service-deploy-complex-application-predictably/examinejson-1-vsclone.png)
 2. 리포지토리 루트로부터 Visual Studio에서 azuredeploy.json을 엽니다. JSON 개요 창이 보이지 않으면 Azure.NET SDK를 설치해야 합니다.
    
-   ![Visual Studio의 JSON 개요 창을 표시 합니다.](./media/app-service-deploy-complex-application-predictably/examinejson-2-vsjsoneditor.png)
+   ![Visual Studio의 JSON 개요 창을 표시합니다.](./media/app-service-deploy-complex-application-predictably/examinejson-2-vsjsoneditor.png)
 
 JSON 형식의 모든 세부 정보를 설명하지 않겠지만 [더 리소스](#resources) 섹션에 리소스 그룹 템플릿 언어 학습을 위한 링크가 있습니다. 여기에서 앱 배포에 대한 고유의 사용자 지정 템플릿을 만들기 시작하는데 도움이 되는 흥미로운 기능을 보여 주겠습니다.
 
@@ -96,7 +96,7 @@ JSON 형식의 모든 세부 정보를 설명하지 않겠지만 [더 리소스]
 #### <a name="app-service-plan"></a>App Service 계획
 JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON 개요에서 해당하는 JSON 코드에 강조를 표시하기 위해 **[hostingPlanName]** 라고 명명된 App Service 계획을 클릭합니다. 
 
-![JSON 코드의 [hostingPlanName] 섹션을 보여 줍니다.](./media/app-service-deploy-complex-application-predictably/examinejson-3-appserviceplan.png)
+![JSON 코드의 [hostingPlanName] 섹션을 보여줍니다.](./media/app-service-deploy-complex-application-predictably/examinejson-3-appserviceplan.png)
 
 `type` 요소는 (오래 전 서버 팜을 호출했을) App Service 계획에 대한 문자열을 지정하고 JSON 파일에 정의된 매개 변수를 사용하여 다른 요소 및 속성을 채웁니다. 또한 이 리소스에는 모든 중첩된 리소스가 없습니다.
 
@@ -108,7 +108,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 #### <a name="sql-server"></a>SQL Server
 다음 JSON 개요에서 **SQLServer** 로 명명된 SQL Server 리소스를 클릭합니다.
 
-![JSON 개요에서 SQLServer 라는 SQL Server 리소스를 표시 합니다.](./media/app-service-deploy-complex-application-predictably/examinejson-4-sqlserver.png)
+![JSON 개요에 SQL Server라는 SQL Server 리소스를 표시합니다.](./media/app-service-deploy-complex-application-predictably/examinejson-4-sqlserver.png)
 
 강조 표시된 JSON 코드에 대해 다음에서 확인합니다.
 
@@ -128,12 +128,12 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 ##### <a name="root-resource"></a>루트 리소스
 앱은 두 가지 리소스에 따라 달라집니다. 즉, Azure Resource Manager는 App Service 계획과 SQL Server 인스턴스가 둘 다 생성된 후에만 앱을 만듭니다.
 
-![App Service 계획 및 SQL Server 인스턴스의 앱 종속성을 보여 줍니다.](./media/app-service-deploy-complex-application-predictably/examinejson-5-webapproot.png)
+![App Service 계획 및 SQL Server 인스턴스의 앱 종속성을 보여줍니다.](./media/app-service-deploy-complex-application-predictably/examinejson-5-webapproot.png)
 
 ##### <a name="app-settings"></a>앱 설정
 앱 설정은 중첩된 리소스로 정의됩니다.
 
-![JSON 코드에서 중첩 리소스로 정의 된 앱 설정을 표시 합니다.](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
+![JSON 코드에서 중첩된 리소스로 정의된 앱 설정을 표시합니다.](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
 
 `config/appsettings`를 위한 `properties` 요소에서 `"<name>" : "<value>"` 형식에 두 개의 앱 설정이 있습니다.
 
@@ -143,19 +143,19 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 ##### <a name="connection-strings"></a>연결 문자열
 연결 문자열은 중첩된 리소스로 정의됩니다.
 
-![연결 문자열이 JSON 코드에서 중첩 리소스로 정의 되는 방법을 보여 줍니다.](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
+![연결 문자열이 JSON 코드에서 중첩 리소스로 정의되는 방법을 보여줍니다.](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
 
-`config/connectionstrings`를 위한 `properties` 요소에서 각 연결 문자열은 `"<name>" : {"value": "…", "type": "…"}`이라는 특정 형식을 가직 이름: 값 쌍으로 정의됩니다. `type` 요소에 대해 가능한 값은 `MySql`, `SQLServer`, `SQLAzure`, 및 `Custom`입니다.
+`config/connectionstrings`를 위한 `properties` 요소에서 각 연결 문자열은 `"<name>&quot; : {&quot;value&quot;: &quot;…&quot;, &quot;type&quot;: &quot;…&quot;}`이라는 특정 형식을 가직 이름: 값 쌍으로 정의됩니다. `type` 요소에 대해 가능한 값은 `MySql`, `SQLServer`, `SQLAzure`, 및 `Custom`입니다.
 
 > [!TIP]
-> 연결 문자열 형식의 선언적 목록에 대해 Azure PowerShell에서 다음 명령을 실행합니다. \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
+> 연결 문자열 형식의 선언적 목록에 대해 Azure PowerShell에서 다음 명령을 실행합니다. \[Enum]::GetNames(&quot;Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
 > 
 > 
 
 ##### <a name="source-control"></a>원본 제어
 소스 제어 설정은 중첩된 리소스로 정의됩니다. JSON 파일을 처리하는 동안 Azure 리소스 관리자가 연속 게시를 구성하고 ( `IsManualIntegration` 나중에서 caveat을 참조) 자동으로 애플리케이션 코드의 배포를 시작하려면 이 리소스를 사용합니다.
 
-![JSON 코드에서 소스 제어 설정이 중첩 리소스로 정의 되는 방법을 보여 줍니다.](./media/app-service-deploy-complex-application-predictably/examinejson-8-webappsourcecontrol.png)
+![JSON 코드에서 소스 제어 설정이 중첩 리소스로 정의되는 방법을 보여줍니다.](./media/app-service-deploy-complex-application-predictably/examinejson-8-webappsourcecontrol.png)
 
 `RepoUrl` 및 `branch`는 매우 직관적이어야 하며 Git 리포지토리와 게시하려는 분기의 이름을 가리켜야 합니다. 다시, 입력 매개 변수에 의해 정의됩니다. 
 
@@ -171,11 +171,11 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 
 예를 들어 [Azure 리소스 탐색기](https://resources.azure.com) 도구로 이동하고 탐색기에서 노드를 확장하는 경우 해당 리소스 형식에서 수집되는 리소스 그룹 및 루트 수준 리소스를 볼 수 있습니다.
 
-![확장 된 Azure 리소스 탐색기 도구에서 리소스 그룹 및 루트 수준 리소스를 봅니다.](./media/app-service-deploy-complex-application-predictably/ARM-1-treeview.png)
+![확장된 Azure 리소스 탐색기 도구에서 리소스 그룹 및 루트 수준 리소스를 조회합니다.](./media/app-service-deploy-complex-application-predictably/ARM-1-treeview.png)
 
 앱을 드릴다운하면 아래 스크린샷과 비슷한 앱 구성 정보를 볼 수 있습니다.
 
-![드릴 다운 하 여 앱에서 구성 세부 정보를 확인 합니다.](./media/app-service-deploy-complex-application-predictably/ARM-2-jsonview.png)
+![드릴다운하여 앱에서 구성 세부 정보를 확인합니다.](./media/app-service-deploy-complex-application-predictably/ARM-2-jsonview.png)
 
 다시, 중첩된 리소스는 JSON 템플릿 파일의 리소스와 계층 구조가 매우 유사해야 하고 JSON 창에 제대로 적용된 앱 설정, 연결 문자열 등을 볼 수 있어야 합니다. 여기에 설정이 없는 경우 JSON 파일에 문제가 있을 수 있고 JSON 템플릿 파일의 문제를 해결하도록 돕습니다.
 
@@ -183,46 +183,46 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 **Azure에 배포** 단추는 유용하지만 GitHub에 azuredeploy.json를 이미 푸시한 경우에만 azuredeploy.json의 리소스 그룹 템플릿을 배포할 수 있습니다. 또한 Azure.NET SDK는 로컬 컴퓨터에서 직접 모든 JSON 템플릿 파일을 배포하는 도구를 제공 합니다. 이렇게 하려면 아래 단계를 수행합니다.
 
 1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트** 를 클릭합니다.
-2. **Visual c #**  >  **Cloud**  >  **Azure 리소스 그룹** 을 클릭 한 다음 **확인** 을 클릭 합니다.
+2. **Visual C#**  > **클라우드** > **Azure 리소스 그룹** 을 클릭한 후에 **확인** 을 클릭합니다.
    
    ![Azure .NET SDK에서 Azure 리소스 그룹으로 새 프로젝트를 만듭니다.](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. **Azure 템플릿 선택** 에서 **빈 템플릿** 을 선택하고 **확인** 을 클릭합니다.
 4. Azuredeploy.json을 새 프로젝트의 **템플릿** 폴더로 끌어옵니다.
    
-   ![파일에 azuredeploy.js을 프로젝트의 템플릿 폴더로 끌어 온 결과를 표시 합니다.](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
+   ![azuredeploy.json 파일을 프로젝트의 템플릿 폴더로 끌어온 결과를 표시합니다.](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
 5. 솔루션 탐색기에서 복사한 azuredeploy.json를 엽니다.
 6. 여기서는 설명을 위해 **리소스 추가** 를 클릭하여 일부 표준 Application Insight 리소스를 JSON 파일에 추가해 보겠습니다. JSON 파일 배포에 관심이 있다면 배포 단계를 건너뜁니다.
    
-   ![JSON 파일에 표준 응용 프로그램 정보 리소스를 추가 하는 데 사용할 수 있는 리소스 추가 단추를 표시 합니다.](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
+   ![JSON 파일에 표준 애플리케이션 정보 리소스를 추가하는 데 사용할 수 있는 리소스 추가 단추를 표시합니다.](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
 7. **Web Apps용 Application Insights** 를 선택한 다음, 기존 App Service 계획 및 앱을 선택했는지 확인하고 **추가** 를 클릭합니다.
    
-   ![Web Apps, 이름, App Service 계획 및 웹 앱에 대 한 Application Insights 선택이 표시 됩니다.](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
+   ![웹 앱, 이름, App Service 계획 및 웹 앱에 대한 Application Insights 선택이 표시됩니다.](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
    
    이제 리소스 및 그 기능에 따라 App Service 계획 또는 앱에 종속된 여러 새 리소스를 볼 수 있습니다. 이러한 리소스는 기존의 정의를 사용할 수 없고 변경해야 합니다.
    
-   ![App Service 계획 또는 앱에 대 한 종속성이 있는 새 리소스를 봅니다.](./media/app-service-deploy-complex-application-predictably/deploy-5-appinsightresources.png)
+   ![App Service 계획 또는 앱에 대한 종속성이 있는 새 리소스를 조회합니다.](./media/app-service-deploy-complex-application-predictably/deploy-5-appinsightresources.png)
 8. JSON 개요에서 JSON 코드에 강조를 표시하려면 **appInsights 자동 크기 조정** 을 클릭합니다. App Service 계획용 크기 조정 설정입니다.
 9. 강조 표시된 JSON 코드에서 `location` 및 `enabled` 속성을 찾아 아래와 같이 설정합니다.
    
-   ![AppInsights 자동 크기 조정 JSON 코드의 위치 및 활성화 속성 및 사용자가 설정 해야 하는 값을 표시 합니다.](./media/app-service-deploy-complex-application-predictably/deploy-6-autoscalesettings.png)
+   ![appInsights AutoScale JSON 코드에 위치 및 활성화된 속성 및 이 속성을 설정해야 하는 값을 표시합니다.](./media/app-service-deploy-complex-application-predictably/deploy-6-autoscalesettings.png)
 10. JSON 개요에서 JSON 코드에 강조를 표시하려면 **CPUHigh appInsights** 을 클릭합니다. 이것은 경고입니다.
 11. `location` 및 `isEnabled` 속성을 찾아 아래와 같이 설정합니다. 다른 3 개의 경고(자주색 전구)에 대해 동일한 작업을 수행합니다.
     
-    ![CPUHigh appInsights JSON 코드 및 사용자가 설정 해야 하는 값에 위치 및 isEnabled 속성을 표시 합니다.](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
-12. 배포할 준비가 되었습니다. 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **배포**  >  **새 배포** 를 선택 합니다.
+    ![CPUHigh appInsights JSON 코드 및 사용자가 설정해야 하는 값에 위치 및 isEnabled 속성을 표시합니다.](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
+12. 배포할 준비가 되었습니다. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **배포** > **New 배포ment** 을 참조하십시오.
     
-    ![새 프로젝트를 배포 하는 방법을 보여 줍니다.](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
+    ![새 프로젝트를 배포하는 방법을 보여줍니다.](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
 13. 아직 수행하지 않은 경우 Azure 계정에 로그인합니다.
 14. 구독에서 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만들고 **azuredeploy.json** 을 클릭한 다음 **매개 변수 편집** 을 클릭합니다.
     
-    ![파일의 azuredeploy.js에서 매개 변수를 편집 하는 방법을 보여 줍니다.](./media/app-service-deploy-complex-application-predictably/deploy-9-deployconfig.png)
+    ![azuredeploy.js 파일에서 매개 변수를 편집하는 방법을 보여줍니다.](./media/app-service-deploy-complex-application-predictably/deploy-9-deployconfig.png)
     
     이제 좋은 테이블에서 템플릿 파일에 정의된 모든 매개 변수를 편집할 수 있습니다. 기본값을 정의하는 매개 변수는 기본값이 이미 있고 허용된 값의 목록을 정의하는 매개 변수는 드롭다운으로 표시됩니다.
     
-    ![허용 되는 값 목록을 드롭다운 목록으로 정의 하는 매개 변수를 표시 합니다.](./media/app-service-deploy-complex-application-predictably/deploy-10-parametereditor.png)
+    ![허용되는 값의 목록을 드롭다운 목록으로 정의하는 매개 변수를 표시합니다.](./media/app-service-deploy-complex-application-predictably/deploy-10-parametereditor.png)
 15. 모든 빈 매개 변수를 입력하고 [repoUrl](https://github.com/azure-appservice-samples/ToDoApp.git) 에서 **ToDoApp용 GitHub 리포지토리 주소** 를 사용합니다. 그런 다음 **저장** 을 클릭합니다.
     
-    ![파일의 azuredeploy.js에 대해 새로 채워진 매개 변수를 표시 합니다.](./media/app-service-deploy-complex-application-predictably/deploy-11-parametereditorfilled.png)
+    ![azuredeploy.js 파일에 대해 새로 채워진 매개 변수를 표시합니다.](./media/app-service-deploy-complex-application-predictably/deploy-11-parametereditorfilled.png)
     
     > [!NOTE]
     > 자동 크기 조정은 **표준** 계층 이상에서 제공되는 기능이며 계획 수준 경고는 **기본** 계층 이상에서 제공되는 기능입니다. 모든 새 App Insights 리소스를 켜서 확인하기 위해서는 **sku** 매개 변수를 **표준** 또는 **프리미엄** 으로 설정해야 합니다.
@@ -240,7 +240,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 
 마지막 단계는 PowerShell cmdlet이 쉽게 수행합니다. 애플리케이션을 배포하는 경우 Visual Studio의 역할을 참고하려면 Scripts\Deploy AzureResourceGroup.ps1를 엽니다. 여기에 코드가 많지만 매개 변수 파일로 템플릿 파일을 배포하기 위해 필요한 모든 관련 코드에 강조를 표시하겠습니다.
 
-![매개 변수 파일을 사용 하 여 템플릿 파일을 배포 하는 데 사용 해야 하는 스크립트의 관련 코드를 보여 줍니다.](./media/app-service-deploy-complex-application-predictably/deploy-12-powershellsnippet.png)
+![매개 변수 파일을 사용한 템플릿 파일을 배포하는 데 사용해야 하는 스크립트의 관련된 코드를 보여 줍니다.](./media/app-service-deploy-complex-application-predictably/deploy-12-powershellsnippet.png)
 
 마지막 cmdlet인 `New-AzureResourceGroup`은 실제로 작업을 수행합니다. 이로써 도구를 통해 예측 가능한 방식으로 클라우드 애플리케이션을 배포하는 것을 비교적 간단하게 시연해야 합니다. cmdlet를 실행할 때마다 동일한 템플릿에서 동일한 매개 변수 파일로 동일한 결과를 얻어야 합니다.
 
@@ -251,8 +251,8 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 
 ## <a name="more-resources"></a>추가 리소스
 * [Azure 리소스 관리자 템플릿 언어](../azure-resource-manager/templates/template-syntax.md)
-* [Azure Resource Manager 템플릿 작성](../azure-resource-manager/templates/template-syntax.md)
-* [Azure Resource Manager 템플릿 함수](../azure-resource-manager/templates/template-functions.md)
+* [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/templates/template-syntax.md)
+* [Azure 리소스 관리자 템플릿 함수](../azure-resource-manager/templates/template-functions.md)
 * [Azure 리소스 관리자 템플릿으로 애플리케이션 배포](../azure-resource-manager/templates/deploy-powershell.md)
 * [Azure 리소스 관리자로 Azure PowerShell 사용](../azure-resource-manager/management/manage-resources-powershell.md)
 * [Azure에서 리소스 그룹 배포 문제 해결](../azure-resource-manager/templates/common-deployment-errors.md)
@@ -263,8 +263,8 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 
 * [Microsoft.Sql/servers](/azure/templates/microsoft.sql/servers)
 * [Microsoft.Sql/servers/databases](/azure/templates/microsoft.sql/servers/databases)
-* [Microsoft .Sql/servers/firewallRules](/azure/templates/microsoft.sql/servers/firewallrules)
+* [Microsoft.Sql/servers/firewallRules](/azure/templates/microsoft.sql/servers/firewallrules)
 * [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)
 * [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)
 * [Microsoft.Web/sites/slots](/azure/templates/microsoft.web/sites/slots)
-* [Microsoft Insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings)
+* [Microsoft.Insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings)

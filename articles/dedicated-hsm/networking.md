@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: 3370389027805cfb5a68b5b0551d14dc31154804
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
-ms.translationtype: MT
+ms.openlocfilehash: 14f7a88e756123b807852d78b6511939b81fd9db
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105611840"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126060"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure Dedicated HSM 네트워킹
 
@@ -60,7 +60,7 @@ Azure 서비스를 가상 네트워크에 통합하는 방법 및 제공되는 �
 
 ### <a name="site-to-site-vpn"></a>사이트 간 VPN
 
-사이트 간 가상 사설망을 사용하면 Azure 기반 전용 HSM 및 온-프레미스 IT 간 보안 통신이 가능합니다. 이 작업을 수행 하는 이유는 HSM의 온-프레미스에 대 한 백업 기능이 있고 백업을 실행 하기 위해 둘 사이에 연결이 필요한 이유입니다.
+사이트 간 가상 사설망을 사용하면 Azure 기반 전용 HSM 및 온-프레미스 IT 간 보안 통신이 가능합니다. 이 작업을 수행하는 이유는 HSM의 온-프레미스에 대한 백업 설비를 보유하고 백업을 실행하는 경우 Azure 기반 전용 HSM 및 온-프레미스 간 연결이 필요하기 때문입니다.
 
 ## <a name="connecting-virtual-networks"></a>가상 네트워크 연결
 
@@ -83,40 +83,40 @@ HSM 디바이스에는 소프트웨어 라이브러리를 통해 대체 HSM에 �
 > [!NOTE]
 > 글로벌 Vnet 피어링은 전용 HSM을 사용한 지역 간 연결 시나리오에서 사용할 수 없습니다. 대신 VPN 게이트웨이를 사용해야 합니다. 
 
-![다이어그램에는 두 개의 V P N 게이트웨이로 연결 된 두 개의 지역이 표시 됩니다. 각 지역은 피어 링 가상 네트워크를 포함 합니다.](media/networking/global-vnet.png)
+![다이어그램에는 두 개의 VPN 게이트웨이로 연결된 두 개의 지역이 표시됩니다. 각 지역은 피어링된 가상 네트워크를 포함합니다.](media/networking/global-vnet.png)
 
 ## <a name="networking-restrictions"></a>네트워킹 제한
 > [!NOTE]
-> HSM 배포에 대 한 대상 네트워크 아키텍처를 설계할 때 고려해 야 하는 제한 사항은 서브넷 위임을 사용한 전용 HSM 서비스의 제약 조건입니다. 서브넷 위임을 사용 하는 경우 NSGs, UDRs 및 글로벌 VNet 피어 링은 전용 HSM에 대해 지원 되지 않습니다. 아래 섹션에서는 이러한 기능에 대해 동일 하거나 비슷한 결과를 얻을 수 있는 다른 방법에 대 한 도움말을 제공 합니다. 
+> HSM 배포를 위한 대상 네트워크 아키텍처를 설계할 때 고려해야 하는 제한 사항은 서브넷 위임을 사용한 Dedicated HSM 서비스의 제약 조건입니다. 서브넷 위임을 사용하는 경우 NSG, UDR 및 글로벌 VNet 피어링은 Dedicated HSM에 지원되지 않습니다. 아래 섹션에서는 해당 기능에 대해 동일하거나 비슷한 결과를 얻을 수 있는 다른 방법에 대한 도움말을 제공합니다. 
 
-전용 HSM VNet에 있는 HSM NIC는 네트워크 보안 그룹 또는 사용자 정의 경로를 사용할 수 없습니다. 즉, 전용 hsm VNet의 관점에서 기본-거부 정책을 설정할 수 없으며, 전용 HSM 서비스에 대 한 액세스 권한을 얻기 위해 다른 네트워크 세그먼트가 나열 되어 있어야 합니다. 
+Dedicated HSM VNet에 있는 HSM NIC는 네트워크 보안 그룹 또는 사용자 정의 경로를 사용할 수 없습니다. 즉, Dedicated HSM VNet의 관점에서 기본-거부 정책을 설정할 수 없으며, Dedicated HSM 서비스에 대한 액세스 권한을 얻기 위해 다른 네트워크 세그먼트가 허용 목록에 있어야 합니다. 
 
-NVA (네트워크 가상 어플라이언스) 프록시 솔루션을 추가 하면 전송/DMZ 허브의 NVA 방화벽을 HSM NIC 앞에 논리적으로 배치 하 여 NSGs 및 UDRs에 필요한 대안을 제공할 수도 있습니다.
+NVA(네트워크 가상 어플라이언스) 프록시 솔루션을 추가하면 전송/DMZ 허브의 NVA 방화벽을 HSM NIC 앞에 논리적으로 배치하여 NSG 및 UDR에 필요한 대안을 제공할 수도 있습니다.
 
 ### <a name="solution-architecture"></a>솔루션 아키텍처
-이 네트워킹 디자인에는 다음 요소가 필요 합니다.
+이 네트워킹 디자인에는 다음 요소가 필요합니다.
 1.  NVA 프록시 계층이 있는 전송 또는 DMZ 허브 VNet입니다. 이상적으로 두 개 이상의 Nva가 있습니다. 
-2.  개인 피어 링이 사용 하도록 설정 되 고 전송 허브 VNet에 대 한 연결이 설정 된 Express 경로 회로입니다.
-3.  전송 허브 VNet과 전용 HSM VNet 간의 VNet 피어 링입니다.
-4.  NVA 방화벽 또는 Azure 방화벽을 배포 하 여 허브에서 옵션으로 DMZ 서비스를 제공할 수 있습니다. 
-5.  추가 워크 로드 스포크 Vnet는 허브 VNet에 피어 링 수 있습니다. Gemalto 클라이언트는 허브 VNet을 통해 전용 HSM 서비스에 액세스할 수 있습니다.
+2.  프라이빗 피어링이 설정되고 전송 허브 VNet에 대한 연결이 설정된 ExpressRoute 회로입니다.
+3.  전송 허브 VNet과 Dedicated HSM VNet 간의 VNet 피어링입니다.
+4.  NVA 방화벽 또는 Azure Firewall을 배포하여 허브에서 옵션으로 DMZ 서비스를 제공할 수 있습니다. 
+5.  추가 워크로드 스포크 Vnet은 허브 VNet에 피어링될 수 있습니다. Gemalto 클라이언트는 허브 VNet을 통해 전용 HSM 서비스에 액세스할 수 있습니다.
 
-![다이어그램은 NSG 및 UDR 해결을 위한 NVA 프록시 계층을 포함 하는 DMZ 허브 VNet을 보여 줍니다.](media/networking/network-architecture.png)
+![다이어그램은 NSG 및 UDR 해결을 위한 NVA 프록시 계층을 포함하는 DMZ 허브 VNet을 보여 줍니다.](media/networking/network-architecture.png)
 
-NVA 프록시 솔루션을 추가 하면 전송/DMZ 허브의 NVA 방화벽을 HSM NIC 앞에 논리적으로 배치할 수 있으므로 필요한 기본 거부 정책을 제공 합니다. 이 예제에서는이 목적으로 Azure 방화벽을 사용 하며 다음 요소가 필요 합니다.
-1. DMZ 허브 VNet의 "AzureFirewallSubnet" 서브넷에 배포 된 Azure 방화벽
-2. Azure ILB 개인 끝점에 트래픽을 azure 방화벽으로 전달 하는 UDR을 포함 하는 라우팅 테이블입니다. 이 라우팅 테이블은 고객 Express 경로 가상 게이트웨이가 있는 게이트웨이 서브넷에 적용 됩니다.
-3. TCP 포트 1792에서 수신 대기 하는 신뢰할 수 있는 원본 범위와 Azure .IBL 개인 끝점 간의 전달을 허용 하는 AzureFirewall 내의 네트워크 보안 규칙. 이 보안 논리는 전용 HSM 서비스에 대해 필요한 "기본 거부" 정책을 추가 합니다. 즉, 신뢰할 수 있는 원본 IP 범위만 전용 HSM 서비스에 허용 됩니다. 다른 모든 범위는 삭제 됩니다.  
-4. 트래픽을 온-프레미스에서 Azure 방화벽으로 전달 하는 UDR을 포함 하는 라우팅 테이블입니다. 이 라우팅 테이블은 NVA 프록시 서브넷에 적용 됩니다. 
-5. Azure 방화벽의 서브넷 범위만 원본으로 신뢰 하 고 TCP 포트 1792을 통해 HSM NIC IP 주소로 전달 하도록 허용 하기 위해 프록시 NVA 서브넷에 적용 된 NSG입니다. 
+NVA 프록시 솔루션을 추가하면 전송/DMZ 허브의 NVA 방화벽을 HSM NIC 앞에 논리적으로 배치할 수 있으므로 필요한 기본 거부 정책을 제공합니다. 이 예제에서는 이 목적으로 Azure Firewall을 사용하며 다음 요소가 필요합니다.
+1. DMZ 허브 VNet의 "AzureFirewallSubnet" 서브넷에 배포된 Azure Firewall
+2. Azure ILB 프라이빗 엔드포인트로 가는 트래픽을 Azure Firewall로 전달하는 UDR을 포함하는 라우팅 테이블입니다. 이 라우팅 테이블은 고객 ExpressRoute 가상 게이트웨이가 있는 GatewaySubnet에 적용됩니다.
+3. TCP 포트 1792에서 수신 대기하는 Azure IBL 프라이빗 엔드포인트와 신뢰할 수 있는 원본 범위 간의 전달을 허용하는 Azure Firewall 내의 네트워크 보안 규칙. 이 보안 로직은 Dedicated HSM 서비스에 대해 필요한 "기본 거부" 정책을 추가합니다. 즉, 신뢰할 수 있는 원본 IP 범위만 Dedicated HSM 서비스에 허용됩니다. 다른 모든 범위는 삭제됩니다.  
+4. 트래픽을 온-프레미스에서 Azure Firewall로 전달하는 UDR을 포함하는 라우팅 테이블입니다. 이 라우팅 테이블은 NVA 프록시 서브넷에 적용됩니다. 
+5. Azure Firewall의 서브넷 범위만 원본으로 신뢰하고 TCP 포트 1792를 통해 HSM NIC IP 주소에만 전달하도록 허용하기 위해 프록시 NVA 서브넷에 적용된 NSG입니다. 
 
 > [!NOTE]
-> NVA 프록시 계층은 HSM NIC에 전달 되는 클라이언트 IP 주소를 SNAT 하므로 HSM VNet과 DMZ 허브 VNet 간에 UDRs가 필요 하지 않습니다.  
+> NVA 프록시 계층은 HSM NIC에 전달되는 클라이언트 IP 주소를 SNAT하므로 HSM VNet과 DMZ 허브 VNet 간에 UDR이 필요하지 않습니다.  
 
-### <a name="alternative-to-udrs"></a>UDRs의 대안
-위에서 언급 한 NVA 계층 솔루션은 UDRs 대신 작동 합니다. 유의 해야 할 몇 가지 중요 한 사항이 있습니다.
-1.  반환 트래픽을 올바르게 라우팅할 수 있도록 NVA에서 네트워크 주소 변환을 구성 해야 합니다.
-2. 고객은 NAT 용 VNA를 사용 하도록 Luna HSM 구성에서 클라이언트 ip 확인을 사용 하지 않도록 설정 해야 합니다. 다음 명령은 ce를 예로 들어 합니다.
+### <a name="alternative-to-udrs"></a>UDR의 대안
+위에서 언급한 NVA 계층 솔루션은 UDR 대신 작동합니다. 고려할 몇 가지 중요한 사항은 다음과 같습니다.
+1.  반환 트래픽을 올바르게 라우팅할 수 있도록 NVA에서 NAT(Network Address Translation)를 구성해야 합니다.
+2. 고객은 NAT용 VNA를 사용하려면 Luna HSM 구성에서 클라이언트 IP 체크인을 사용하지 않도록 설정해야 합니다. 다음 명령은 예제입니다.
 ```
 Disable:
 [hsm01] lunash:>ntls ipcheck disable
@@ -128,16 +128,16 @@ Show:
 NTLS client source IP validation : Disable
 Command Result : 0 (Success)
 ```
-3.  수신 트래픽에 대 한 UDRs를 NVA 계층에 배포 합니다. 
-4. 디자인 마다 HSM 서브넷은 플랫폼 계층에 대 한 아웃 바운드 연결 요청을 시작 하지 않습니다.
+3.  수신 트래픽에 대한 UDR을 NVA 계층에 배포합니다. 
+4. 디자인에 따라서, HSM 서브넷은 플랫폼 계층에 대한 아웃바운드 연결 요청을 시작하지 않습니다.
 
-### <a name="alternative-to-using-global-vnet-peering"></a>Global VNet 피어링 사용에 대 한 대안
-글로벌 VNet 피어 링의 대 안으로 사용할 수 있는 몇 가지 아키텍처가 있습니다.
-1.  [Vnet 간 VPN Gateway 연결](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal) 사용 
-2.  ER 회로를 사용 하 여 다른 VNET과 HSM VNET을 연결 합니다. 이는 직접 온-프레미스 경로가 필수 또는 VPN VNET 인 경우에 가장 잘 작동 합니다. 
+### <a name="alternative-to-using-global-vnet-peering"></a>글로벌 VNet 피어링 사용의 대안
+글로벌 VNet 피어링의 대안으로 사용할 수 있는 몇 가지 아키텍처가 있습니다.
+1.  [Vnet 간 VPN 게이트웨이 연결](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) 사용 
+2.  ER 회로를 사용하여 다른 VNET과 HSM VNET을 연결합니다. 이는 직접 온-프레미스 경로가 필수 또는 VPN VNET인 경우에 가장 잘 작동합니다. 
 
-#### <a name="hsm-with-direct-express-route-connectivity"></a>Direct Express 경로 연결을 사용한 HSM
-![다이어그램에서 direct Express 경로 연결을 사용한 HSM 표시](media/networking/expressroute-connectivity.png)
+#### <a name="hsm-with-direct-express-route-connectivity"></a>직접 Express Route 연결을 사용한 HSM
+![다이어그램에서 직접 Express Route 연결을 사용한 HSM 표시](media/networking/expressroute-connectivity.png)
 
 ## <a name="next-steps"></a>다음 단계
 

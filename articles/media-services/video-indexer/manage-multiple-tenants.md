@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/15/2019
 ms.author: ikbarmen
-ms.openlocfilehash: 18f2cf3daa281400151ba223e1735e7138d97e8e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 7596aa4cef6c4bc601c15018e8ede4265f395eb7
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "76990507"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312861"
 ---
 # <a name="manage-multiple-tenants"></a>여러 테넌트 관리
 
@@ -45,7 +45,7 @@ ms.locfileid: "76990507"
 * 테넌트당 여러 개의 Video Indexer(및 관련 Media Services) 계정을 사용하므로 관리 작업이 더 어렵습니다.
 
 > [!TIP]
-> [Video Indexer 개발자 포털](https://api-portal.videoindexer.ai/)에서 시스템의 관리 사용자를 만들고 권한 부여 API를 사용하여 테넌트에 관련된 [계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token)을 제공합니다.
+> [Video Indexer 개발자 포털](https://api-portal.videoindexer.ai/)에서 시스템의 관리 사용자를 만들고 권한 부여 API를 사용하여 테넌트에 관련된 [계정 액세스 토큰](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account-Access-Token)을 제공합니다.
 
 ## <a name="single-video-indexer-account-for-all-users"></a>모든 사용자에 대해 단일 Video Indexer 계정 사용
 
@@ -55,7 +55,7 @@ ms.locfileid: "76990507"
 
 이 옵션을 사용하면 테넌트별로 모델을 필터링하여 테넌트 간에 사용자 지정 모델(개인, 언어 및 브랜드)을 공유하거나 격리할 수 있습니다.
 
-[비디오를 업로드](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)할 때 테넌트당 다른 파티션 특성을 지정할 수 있습니다. 이렇게 하면 [검색 API](https://api-portal.videoindexer.ai/docs/services/operations/operations/Search-videos?)에서 격리가 가능합니다. 검색 API에서 파티션 특성을 지정하면 지정된 파티션의 결과만 표시됩니다. 
+[비디오를 업로드](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video)할 때 테넌트당 다른 파티션 특성을 지정할 수 있습니다. 이렇게 하면 [검색 API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Search-Videos)에서 격리가 가능합니다. 검색 API에서 파티션 특성을 지정하면 지정된 파티션의 결과만 표시됩니다. 
 
 ### <a name="considerations"></a>고려 사항
 
@@ -68,7 +68,7 @@ ms.locfileid: "76990507"
 
 ## <a name="azure-subscription-per-tenant"></a>테넌트당 Azure 구독 사용 
 
-이 아키텍처를 사용 하는 경우 각 테 넌 트에는 자체 Azure 구독이 있습니다. 테넌트 구독에서 각 사용자에 대한 새 Video Indexer 계정을 만듭니다.
+이 아키텍처를 사용하는 경우 각 테넌트에 고유한 Azure 구독이 있습니다. 테넌트 구독에서 각 사용자에 대한 새 Video Indexer 계정을 만듭니다.
 
 ![테넌트당 Azure 구독 사용](./media/manage-multiple-tenants/azure-subscription-per-tenant.png)
 

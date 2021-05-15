@@ -3,25 +3,24 @@ title: 공통 매개 변수 및 헤더
 description: 매개 변수 및 헤더는 Key Vault 리소스와 관련하여 사용자가 수행할 수 있는 모든 작업에 공통적입니다.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d1d93bcd84fd9460e658b221089a4b24d46b0429
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 616b6061b08258d465b09902556de6903b873199
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "83005808"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749873"
 ---
 # <a name="common-parameters-and-headers"></a>공통 매개 변수 및 헤더
 
 다음 정보는 Key Vault 리소스와 관련하여 사용자가 수행할 수 있는 모든 작업에 공통적입니다.
 
-- HTTP `Host` 헤더는 항상 존재 해야 하며 자격 증명 모음 호스트 이름을 지정 해야 합니다. 예: `Host: contoso.vault.azure.net`. 대부분의 클라이언트 기술은 `Host` URI에서 헤더를 채웁니다. 예를 들어,는를 `GET https://contoso.vault.azure.net/secrets/mysecret{...}` 로 설정 합니다 `Host` `contoso.vault.azure.net` . 즉,와 같은 원시 IP 주소를 사용 하 Key Vault에 액세스 하는 경우 `GET https://10.0.0.23/secrets/mysecret{...}` 헤더의 자동 값 `Host` 이 잘못 되 고 `Host` 헤더에 자격 증명 모음 호스트 이름이 포함 되어 있는지 수동으로 확인할 수 있습니다.
+- HTTP `Host` 헤더는 항상 존재해야 하며 자격 증명 모음 호스트 이름을 지정해야 합니다. 예: `Host: contoso.vault.azure.net`. 대부분의 클라이언트 기술은 URI의 `Host` 헤더를 채웁니다. 예를 들어 `GET https://contoso.vault.azure.net/secrets/mysecret{...}`는 `Host`를 `contoso.vault.azure.net`으로 설정합니다. 즉, `GET https://10.0.0.23/secrets/mysecret{...}`와 같은 원시 IP 주소를 사용하여 Key Vault에 액세스하는 경우 `Host` 헤더의 자동 값이 잘못되고 `Host` 헤더에 자격 증명 모음 호스트 이름이 포함되어 있는지 수동으로 확인해야 합니다.
 - `{api-version}`을 URI의 API 버전으로 바꿉니다.
 - `{subscription-id}`를 URI의 구독 ID로 바꿉니다.
 - `{resource-group-name}`을 리소스 그룹으로 바꿉니다. 자세한 내용은 리소스 그룹을 사용하여 Azure 리소스 관리를 참조하세요.

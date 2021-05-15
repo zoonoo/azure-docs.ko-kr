@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/24/2021
-ms.openlocfilehash: 03cfb49dabd5039453f84ef0e636d3948af70d8d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 04/23/2021
+ms.openlocfilehash: 0163b58017599ceb26f52f0e47cbc87e161f6ed2
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107764840"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108161246"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 논리 앱 워크플로 정의 만들기 및 관리
 
@@ -224,24 +224,6 @@ Azure Portal에서 논리 앱을 검토하려면 다음 단계를 수행합니�
 
    ![Azure Portal의 새 논리 앱](./media/quickstart-create-logic-apps-visual-studio-code/published-logic-app-in-azure.png)
 
-<a name="disable-enable-logic-app"></a>
-
-## <a name="disable-or-enable-logic-app"></a>논리 앱 사용 또는 사용 안 함
-
-Visual Studio Code에서는 게시된 논리 앱을 편집하고 변경 내용을 저장하는 경우 이미 배포된 앱을 *덮어씁니다*. 프로덕션에서 논리 앱이 중단되지 않도록 방지하고 중단을 최소화하려면 먼저 논리 앱을 비활성화합니다. 그런 다음, 논리 앱이 여전히 작동하는지 확인한 후에 논리 앱을 다시 활성화할 수 있습니다.
-
-1. Visual Studio Code 내에서 아직 Azure 계정 및 구독에 로그인하지 않은 경우 [이전 단계에 따라 지금 로그인합니다](#access-azure).
-
-1. 해당 구독의 모든 논리 앱을 볼 수 있도록 Azure 창의 **Logic Apps** 아래에서 Azure 구독을 펼칩니다.
-
-   1. 원하는 논리 앱을 사용하지 않도록 설정하려면 논리 앱의 메뉴를 열고 **사용 안 함** 을 선택합니다.
-
-      ![논리 앱 사용 안 함](./media/quickstart-create-logic-apps-visual-studio-code/disable-published-logic-app.png)
-
-   1. 논리 앱을 다시 활성화할 준비가 되면 논리 앱의 메뉴를 열고 **사용** 을 선택합니다.
-
-      ![논리 앱 사용](./media/quickstart-create-logic-apps-visual-studio-code/enable-published-logic-app.png)
-
 <a name="edit-logic-app"></a>
 
 ## <a name="edit-deployed-logic-app"></a>배포된 논리 앱 편집
@@ -249,13 +231,13 @@ Visual Studio Code에서는 게시된 논리 앱을 편집하고 변경 내용�
 Visual Studio Code에서는 이미 배포된 Azure 논리 앱의 워크플로 정의를 열고 편집할 수 있습니다.
 
 > [!IMPORTANT] 
-> 프로덕션에서 활발하게 실행되는 논리 앱을 편집하려면 먼저 [논리 앱을 사용하지 않도록 설정](#disable-enable-logic-app)하여 해당 논리 앱을 중단시키는 위험을 피하고 중단을 최소화해야 합니다.
+> 프로덕션에서 활발하게 실행되는 논리 앱을 편집하려면 먼저 [논리 앱을 사용하지 않도록 설정](#disable-enable-logic-apps)하여 해당 논리 앱을 중단시키는 위험을 피하고 중단을 최소화해야 합니다.
 
 1. Visual Studio Code 내에서 아직 Azure 계정 및 구독에 로그인하지 않은 경우 [이전 단계에 따라 지금 로그인합니다](#access-azure).
 
 1. Azure 창의 **Logic Apps** 아래에서 Azure 구독을 확장하고 원하는 논리 앱을 선택합니다.
 
-1. 논리 앱의 메뉴를 열고, **편집기에서 열기** 를 선택합니다. 또는 논리 앱의 이름 옆에 있는 편집 아이콘을 선택합니다.
+1. 논리 앱 메뉴를 열고 **편집기에서 열기** 를 선택합니다. 또는 논리 앱의 이름 옆에 있는 편집 아이콘을 선택합니다.
 
    ![기존 논리 앱에 대한 편집기 열기](./media/quickstart-create-logic-apps-visual-studio-code/open-editor-existing-logic-app.png)
 
@@ -278,7 +260,7 @@ Visual Studio Code에서는 이미 배포된 Azure 논리 앱의 워크플로 �
 Visual Studio Code에서는 논리 앱의 이전 버전을 열고 검토할 수 있습니다. 또한 이전 버전을 현재 버전으로 승격할 수도 있습니다.
 
 > [!IMPORTANT] 
-> 프로덕션에서 활발하게 실행되는 논리 앱을 변경하려면 먼저 [논리 앱을 사용하지 않도록 설정](#disable-enable-logic-app)하여 해당 논리 앱을 중단시키는 위험을 피하고 중단을 최소화해야 합니다.
+> 프로덕션에서 활발하게 실행되는 논리 앱을 변경하려면 먼저 [논리 앱을 사용하지 않도록 설정](#disable-enable-logic-apps)하여 해당 논리 앱을 중단시키는 위험을 피하고 중단을 최소화해야 합니다.
 
 1. 해당 구독의 모든 논리 앱을 볼 수 있도록 Azure 창의 **Logic Apps** 아래에서 Azure 구독을 펼칩니다.
 
@@ -307,6 +289,61 @@ Visual Studio Code에서는 논리 앱의 이전 버전을 열고 검토할 수 
       ![이전 버전 승격 확인](./media/quickstart-create-logic-apps-visual-studio-code/confirm-promote-version.png)
 
       Visual Studio Code는 선택한 버전을 현재 버전으로 승격하고 새 번호를 승격된 버전에 할당합니다. 이제 이전의 현재 버전이 승격된 버전 아래에 표시됩니다.
+
+<a name="disable-enable-logic-apps"></a>
+
+## <a name="disable-or-enable-logic-apps"></a>논리 앱 사용 또는 사용하지 않도록 설정
+
+Visual Studio Code에서는 게시된 논리 앱을 편집하고 변경 내용을 저장하는 경우 이미 배포된 앱을 *덮어씁니다*. 프로덕션에서 논리 앱이 중단되지 않도록 방지하고 중단을 최소화하려면 먼저 논리 앱을 사용하지 않도록 설정합니다. 그런 다음, 논리 앱이 여전히 작동하는지 확인한 후에 논리 앱을 다시 활성화할 수 있습니다.
+
+> [!NOTE]
+> 논리 앱을 사용하지 않도록 설정하면 다음과 같은 방식으로 워크플로 인스턴스에 영향을 줍니다.
+>
+> * Logic Apps 서비스는 완료될 때까지 모든 진행 중인 실행 및 보류 중인 실행을 계속합니다. 볼륨 또는 백로그에 따라 이 프로세스를 완료하는 데 시간이 걸릴 수 있습니다.
+>
+> * Logic Apps 서비스는 새 워크플로 인스턴스를 만들거나 실행하지 않습니다.
+>
+> * 트리거는 다음에 조건이 충족될 때 발생하지 않습니다. 하지만 트리거 상태는 논리 앱이 중지된 지점을 기억합니다. 따라서 논리 앱을 다시 활성화하면 마지막 실행 이후 처리되지 않은 모든 항목에 대해 트리거가 발생합니다.
+>
+>   트리거가 마지막 실행 이후 처리되지 않은 항목에서 발생하지 않도록 하려면 논리 앱을 다시 활성화하기 전에 트리거의 상태를 지우세요.
+>
+>   1. 논리 앱에서 워크플로의 트리거 일부를 편집합니다.
+>   1. 변경 내용을 저장합니다. 이 단계는 트리거의 현재 상태를 다시 설정합니다.
+>   1. 논리 앱을 다시 활성화합니다.
+
+1. Visual Studio Code 내에서 아직 Azure 계정 및 구독에 로그인하지 않은 경우 [이전 단계에 따라 지금 로그인합니다](#access-azure).
+
+1. 해당 구독의 모든 논리 앱을 볼 수 있도록 Azure 창의 **Logic Apps** 아래에서 Azure 구독을 펼칩니다.
+
+   1. 원하는 논리 앱을 사용하지 않도록 설정하려면 논리 앱의 메뉴를 열고 **사용 안 함** 을 선택합니다.
+
+      ![논리 앱 사용 안 함](./media/quickstart-create-logic-apps-visual-studio-code/disable-published-logic-app.png)
+
+   1. 논리 앱을 다시 활성화할 준비가 되면 논리 앱 메뉴를 열고 **사용** 을 선택합니다.
+
+      ![논리 앱 사용](./media/quickstart-create-logic-apps-visual-studio-code/enable-published-logic-app.png)
+
+<a name="delete-logic-apps"></a>
+
+## <a name="delete-logic-apps"></a>논리 앱 삭제
+
+논리 앱을 삭제하면 다음과 같은 방식으로 워크플로 인스턴스에 영향을 줍니다.
+
+* Logic Apps 서비스가 진행 중이거나 보류 중인 실행을 취소하기 위해 전력을 다합니다.
+
+  볼륨이나 백로그가 큰 경우에도 대부분의 실행은 완료 또는 시작 전에 취소됩니다. 그러나 취소 프로세스를 완료하는 데 시간이 걸릴 수 있습니다. 서비스가 취소 프로세스를 진행하는 동안 일부 실행을 선택하여 진행할 수 있습니다.
+
+* Logic Apps 서비스는 새 워크플로 인스턴스를 만들거나 실행하지 않습니다.
+
+* 워크플로를 삭제한 다음, 동일한 워크플로를 다시 만들면 다시 생성된 워크플로에는 삭제된 워크플로와 동일한 메타데이터가 포함되지 않습니다. 삭제된 워크플로를 호출한 모든 워크플로를 다시 저장해야 합니다. 이렇게 하면 호출자가 다시 생성된 워크플로에 대한 올바른 정보를 가져옵니다. 그렇지 않으면 다시 생성된 워크플로에 대한 호출이 `Unauthorized` 오류와 함께 실패합니다. 이 동작은 Azure 함수를 호출하는 워크플로 및 통합 계정에서 아티팩트를 사용하는 워크플로에도 적용됩니다.
+
+1. Visual Studio Code 내에서 아직 Azure 계정 및 구독에 로그인하지 않은 경우 [이전 단계에 따라 지금 로그인합니다](#access-azure).
+
+1. 해당 구독의 모든 논리 앱을 볼 수 있도록 Azure 창의 **Logic Apps** 아래에서 Azure 구독을 펼칩니다.
+
+1. 삭제하려는 논리 앱을 찾고, 논리 앱 메뉴를 열고, **삭제** 를 선택합니다.
+
+   ![논리 앱 삭제](./media/quickstart-create-logic-apps-visual-studio-code/delete-logic-app.png)
 
 ## <a name="next-steps"></a>다음 단계
 

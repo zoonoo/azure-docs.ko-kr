@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
 ms.openlocfilehash: e0e7089e7c674f324c2c3d293661c518b41731b9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84021860"
 ---
 # <a name="azure-sql-database-security-features"></a>Azure SQL Database 보안 기능    
@@ -31,13 +31,13 @@ Azure SQL Database는 Azure에서 관계형 데이터베이스 서비스를 제�
 Azure SQL Database는 TCP/1433 기본 포트를 통해서만 데이터베이스에 액세스해야 하는 TDS(Tabular Data Stream) 프로토콜만 지원합니다.
 
 ### <a name="azure-sql-database-firewall"></a>Azure SQL Database 방화벽
-고객 데이터를 보호 하기 위해 Azure SQL Database에는 아래와 같이 기본적으로 SQL Database에 대 한 모든 액세스를 차단 하는 방화벽 기능이 포함 되어 있습니다.
+고객의 데이터를 보호하기 위해 Azure SQL Database에는 아래와 같이 SQL Database 서버에 대한 모든 액세스를 차단하는 방화벽 기능이 기본적으로 포함되어 있습니다.
 
 ![Azure SQL Database 방화벽](./media/infrastructure-sql/sql-database-firewall.png)
 
 게이트웨이 방화벽은 고객이 허용 가능한 IP 주소 범위를 세밀하게 제어할 수 있는 주소 제한 기능을 제공합니다. 방화벽은 각 요청의 원래 IP 주소에 따라 액세스 권한을 부여합니다.
 
-고객은 관리 포털을 사용하거나 Azure SQL Database Management REST API를 사용하여 프로그래밍 방식으로 방화벽을 구성할 수 있습니다. Azure SQL Database 게이트웨이 방화벽은 기본적으로 모든 고객 TDS 액세스를 Azure SQL Database 하는 것을 방지 합니다. 고객은 원본/대상 인터넷 주소, 프로토콜 및 포트 번호를 통한 Azure SQL Database 연결을 허용하려면 ACL(액세스 제어 목록)을 사용하여 액세스를 구성해야 합니다.
+고객은 관리 포털을 사용하거나 Azure SQL Database Management REST API를 사용하여 프로그래밍 방식으로 방화벽을 구성할 수 있습니다. Azure SQL Database 게이트웨이 방화벽은 기본적으로 Azure SQL 데이터베이스에 대한 모든 고객의 TDS 액세스를 차단합니다. 고객은 원본/대상 인터넷 주소, 프로토콜 및 포트 번호를 통한 Azure SQL Database 연결을 허용하려면 ACL(액세스 제어 목록)을 사용하여 액세스를 구성해야 합니다.
 
 ### <a name="dosguard"></a>DoSGuard
 DoSGuard라는 SQL Database 게이트웨이 서비스를 사용하면 DoS(서비스 거부) 공격을 줄일 수 있습니다. DoSGuard는 IP 주소에서 실패한 로그인을 활발히 추적합니다. 특정 기간 내에 특정 IP 주소에서 로그인 실패가 여러 번 발생하면 미리 정의된 기간 동안 서비스의 모든 리소스에 액세스할 수 없도록 해당 IP 주소가 차단됩니다.
@@ -75,7 +75,7 @@ Azure 프로덕션 네트워크는 논리적으로 다음 세 개의 기본 VLAN
 ### <a name="types-of-rules-on-firewalls"></a>방화벽 규칙 유형
 규칙은 다음과 같이 정의됩니다.
 
-{Src IP, Src 포트, 대상 IP, 대상 포트, 대상 프로토콜, In/Out, 상태 저장/상태 비저장, 상태 저장 흐름 시간 제한}.
+{Src IP, Src 포트, 대상 IP, 대상 포트, 대상 프로토콜, 내부/외부, 상태 저장/상태 비저장, 상태 저장 흐름 시간 제한}
 
 SYN(Synchronous idle character) 패킷은 규칙 중 하나에서 허용하는 경우에만 허용되거나 거부됩니다. TCP의 경우 Azure는 VM 내부 또는 외부로의 비SYN 패킷만 허용한다는 원칙이 있는 상태 비저장 규칙을 사용합니다. 보안 전제는 이전에 SYN 패킷을 본 적이 없는 경우 모든 호스트 스택에서 비SYN을 무시하는 복원력이 있다는 것입니다. TCP 프로토콜 자체는 상태 저장이며, 상태 비저장 SYN 기반 규칙과 결합하여 상태 저장 구현의 전체 동작을 수행합니다.
 

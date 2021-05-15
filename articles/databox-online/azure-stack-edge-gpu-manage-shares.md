@@ -1,6 +1,6 @@
 ---
 title: Azure Stack Edge Pro GPU 공유 관리 | Microsoft Docs
-description: Azure Portal를 사용 하 여 Azure Stack Edge Pro GPU에서 공유를 관리 하는 방법을 설명 합니다.
+description: Azure Portal을 사용하여 Azure Stack Edge Pro GPU에서 공유를 관리하는 방법을 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,31 +9,31 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
 ms.openlocfilehash: b79cb1b195d35c1e25dd750476c0dacb296f8010
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102638311"
 ---
-# <a name="use-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Azure Portal를 사용 하 여 Azure Stack Edge Pro에서 공유 관리
+# <a name="use-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Azure Portal을 사용하여 Azure Stack Edge Pro에서 공유 관리
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-이 문서에서는 Azure Stack Edge Pro에서 공유를 관리 하는 방법을 설명 합니다. Azure Portal 또는 로컬 웹 UI를 통해 Azure Stack Edge Pro를 관리할 수 있습니다. Azure Portal을 사용하여 공유와 연결된 스토리지 계정의 스토리지 키를 동기화하거나 공유를 추가, 삭제, 새로 고칠 수 있습니다. 이 문서는 Azure Stack Edge Pro GPU, Azure Stack Edge Pro R 및 Azure Stack Edge 미니 R 장치에 적용 됩니다.
+이 문서에서는 Azure Stack Edge Pro에서 공유를 관리하는 방법을 설명합니다. Azure Portal 또는 로컬 웹 UI를 통해 Azure Stack Edge Pro를 관리할 수 있습니다. Azure Portal을 사용하여 공유와 연결된 스토리지 계정의 스토리지 키를 동기화하거나 공유를 추가, 삭제, 새로 고칠 수 있습니다. 이 문서는 Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, Azure Stack Edge Mini R 디바이스에만 적용됩니다.
 
 ## <a name="about-shares"></a>공유에 대한 정보
 
-Azure로 데이터를 전송 하려면 Azure Stack Edge Pro에 공유를 만들어야 합니다. Azure Stack Edge Pro 장치에 추가 하는 공유는 클라우드에 데이터를 푸시하는 로컬 공유 또는 공유 일 수 있습니다.
+Azure에 데이터를 전송하려면 Azure Stack Edge Pro에 공유를 만들어야 합니다. Azure Stack Edge Pro 디바이스에 추가하는 공유는 로컬 공유 또는 데이터를 클라우드로 푸시하는 공유일 수 있습니다.
 
- - **로컬 공유**: 장치에서 데이터를 로컬로 처리 하려면 이러한 공유를 사용 합니다.
- - **공유**: 클라우드의 저장소 계정에 장치 데이터를 자동으로 푸시 하려면 이러한 공유를 사용 합니다. **새로 고침** 및 **동기화 저장소 키** 와 같은 모든 클라우드 함수는 공유에 적용 됩니다.
+ - **로컬 공유**: 이러한 공유는 데이터를 디바이스에서 로컬로 처리할 경우 사용합니다.
+ - **공유**: 이러한 공유는 디바이스 데이터를 클라우드의 스토리지 계정에 자동으로 푸시하려는 경우 사용합니다. **새로 고침** 및 **스토리지 키 동기화** 와 같은 모든 클라우드 기능이 공유에 적용됩니다.
 
 
 ## <a name="add-a-share"></a>공유 추가
 
 공유를 만들려면 Azure Portal에서 다음 단계를 수행합니다.
 
-1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 후 **클라우드 저장소 게이트웨이 > 공유** 로 이동 합니다. 명령 모음에서 **+ 공유 추가** 를 선택합니다.
+1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 다음, **클라우드 스토리지 게이트웨이 > 공유** 로 이동합니다. 명령 모음에서 **+ 공유 추가** 를 선택합니다.
 
     ![공유 추가 선택](media/azure-stack-edge-gpu-manage-shares/add-share-1.png)
 
@@ -45,7 +45,7 @@ Azure로 데이터를 전송 하려면 Azure Stack Edge Pro에 공유를 만들�
 
 4. 공유가 상주할 **스토리지 계정** 을 제공합니다. 컨테이너가 아직 없으면 스토리지 계정에 공유 이름이 포함된 컨테이너가 만들어집니다. 컨테이너가 이미 있으면 기존 컨테이너가 사용됩니다.
 
-5. 드롭다운 목록에서 블록 blob, 페이지 blob 또는 파일에서 **저장소 서비스** 를 선택 합니다. 선택하는 서비스 유형은 데이터를 Azure에 저장할 형식에 따라 달라집니다. 예를 들어이 인스턴스에서 데이터는 Azure에서 블록 blob으로 배치 하므로 **Blob 차단** 을 선택 합니다. **페이지 Blob** 을 선택 하는 경우 데이터를 512 바이트로 맞춰야 합니다. 항상 512 바이트를 맞춘 Vhd 또는 VHDX에 대해 **페이지 blob** 을 사용 합니다.
+5. 드롭다운 목록의 블록 Blob, 페이지 Blob 또는 파일에서 **스토리지 서비스** 를 선택합니다. 선택하는 서비스 유형은 데이터를 Azure에 저장할 형식에 따라 달라집니다. 예를 들어, 이 인스턴스에서는 Azure에서 데이터가 블록 Blob으로 존재하기를 원하므로 **블록 Blob** 을 선택합니다. **페이지 Blob** 을 선택하는 경우 데이터가 512바이트로 정렬되었는지 확인해야 합니다. 항상 512바이트로 정렬되는 VHD 또는 VHDX에는 **페이지 Blob** 을 사용합니다.
 
 6. 이 단계는 SMB 공유 또는 NFS 공유 중에서 어느 것을 만드는지에 따라 달라집니다.
     - **SMB 공유를 만드는 경우** - **모든 권한 로컬 사용자** 필드에서 **새로 만들기** 또는 **기존 항목 사용** 을 선택합니다. 새 로컬 사용자를 만드는 경우 **사용자 이름**, **암호** 를 입력한 다음, 암호를 확인합니다. 이렇게 하면 로컬 사용자에게 해당 권한이 할당됩니다. 여기에서 권한을 할당한 후에 파일 탐색기를 사용하여 해당 권한을 수정할 수 있습니다.
@@ -59,17 +59,17 @@ Azure로 데이터를 전송 하려면 Azure Stack Edge Pro에 공유를 만들�
 
 7. Edge 컴퓨팅 모듈에서 공유에 손쉽게 액세스하려면 로컬 탑재 지점을 사용합니다. 공유가 생성된 후 자동으로 탑재될 수 있도록 **Edge 컴퓨팅과 공유 사용** 을 선택합니다. 이 옵션을 선택하면 Edge 모듈이 로컬 탑재 지점과도 컴퓨팅을 사용할 수 있습니다.
 
-8. **만들기** 를 클릭 하 여 공유를 만듭니다. 공유 만들기가 진행 중이라는 알림이 표시됩니다. 지정 된 설정을 사용 하 여 공유를 만든 후 공유 **블레이드가 새** 공유를 반영 하도록 업데이트 됩니다.
+8. **만들기** 를 클릭하여 공유를 만듭니다. 공유 만들기가 진행 중이라는 알림이 표시됩니다. 지정한 설정으로 공유가 만들어지면 **공유** 블레이드를 업데이트하여 새 공유가 반영됩니다.
 
 ## <a name="add-a-local-share"></a>로컬 공유 추가
 
-1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 후 **클라우드 저장소 게이트웨이 > 공유** 로 이동 합니다. 명령 모음에서 **+ 공유 추가** 를 선택합니다.
+1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 다음, **클라우드 스토리지 게이트웨이 > 공유** 로 이동합니다. 명령 모음에서 **+ 공유 추가** 를 선택합니다.
 
-    ![공유 추가 2 선택](media/azure-stack-edge-gpu-manage-shares/add-local-share-1.png)
+    ![공유 추가 선택 2](media/azure-stack-edge-gpu-manage-shares/add-local-share-1.png)
 
 2. **공유 추가** 에서 공유 설정을 지정합니다. 공유에 대한 고유한 이름을 제공합니다.
     
-    공유 이름에는 숫자, 소문자 및 대문자 및 하이픈만 사용할 수 있습니다. 공유 이름은 3 -63자이며 문자 또는 숫자로 시작해야 합니다. 각 하이픈의 앞과 뒤에는 하이픈이 아닌 문자가 있어야 합니다.
+    공유 이름에는 숫자, 소문자 및 대문자, 하이픈만 포함될 수 있습니다. 공유 이름은 3 -63자이며 문자 또는 숫자로 시작해야 합니다. 각 하이픈의 앞과 뒤에는 하이픈이 아닌 문자가 있어야 합니다.
 
 3. 공유에 대한 **유형** 을 선택합니다. 유형은 **SMB** 또는 **NFS** 이며, SMB가 기본값입니다. SMB는 Windows 클라이언트에 대한 표준이며, NFS는 Linux 클라이언트에 사용됩니다. SMB 공유 또는 NFS 공유 중에서 어느 것을 선택하는지에 따라 제공되는 옵션이 약간 다릅니다.
 
@@ -86,7 +86,7 @@ Azure로 데이터를 전송 하려면 Azure Stack Edge Pro에 공유를 만들�
 
     ![로컬 공유 만들기](media/azure-stack-edge-gpu-manage-shares/add-local-share-2.png)
 
-    공유 만들기가 진행 중이라는 알림이 표시됩니다. 지정 된 설정을 사용 하 여 공유를 만든 후 공유 **블레이드가 새** 공유를 반영 하도록 업데이트 됩니다.
+    공유 만들기가 진행 중이라는 알림이 표시됩니다. 지정한 설정으로 공유가 만들어지면 **공유** 블레이드를 업데이트하여 새 공유가 반영됩니다.
 
     ![공유 블레이드가 업데이트된 보기](media/azure-stack-edge-gpu-manage-shares/add-local-share-3.png)
     
@@ -96,10 +96,10 @@ Azure로 데이터를 전송 하려면 Azure Stack Edge Pro에 공유를 만들�
 
 ## <a name="mount-a-share"></a>공유 탑재
 
-Azure Stack Edge Pro 장치에서 계산을 구성 하기 전에 공유를 만든 경우 공유를 탑재 해야 합니다. 공유를 탑재하려면 다음 단계를 수행합니다.
+Azure Stack Edge Pro 디바이스에서 컴퓨팅을 구성하기 전에 공유를 만든 경우에는 공유를 탑재해야 합니다. 공유를 탑재하려면 다음 단계를 수행합니다.
 
 
-1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 후 **클라우드 저장소 게이트웨이 > 공유** 로 이동 합니다. 공유 목록에서 탑재할 공유를 선택합니다. 선택한 공유에 대해 **컴퓨팅에 사용됨** 열에 **사용 안 함** 으로 상태가 표시됩니다.
+1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 다음, **클라우드 스토리지 게이트웨이 > 공유** 로 이동합니다. 공유 목록에서 탑재할 공유를 선택합니다. 선택한 공유에 대해 **컴퓨팅에 사용됨** 열에 **사용 안 함** 으로 상태가 표시됩니다.
 
     ![공유 선택](media/azure-stack-edge-gpu-manage-shares/mount-share-1.png)
 
@@ -123,11 +123,11 @@ Azure Stack Edge Pro 장치에서 계산을 구성 하기 전에 공유를 만�
 
 공유를 분리하려면 Azure Portal에서 다음 단계를 수행합니다.
 
-1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 후 **클라우드 저장소 게이트웨이 > 공유** 로 이동 합니다. 공유 목록에서 분리할 공유를 선택합니다. 분리할 공유가 다른 모듈에서 사용되지 않는지 확인하는 것이 좋습니다. 공유가 모듈에서 사용되면 해당 모듈과 관련된 문제가 표시됩니다.
+1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 다음, **클라우드 스토리지 게이트웨이 > 공유** 로 이동합니다. 공유 목록에서 분리할 공유를 선택합니다. 분리할 공유가 다른 모듈에서 사용되지 않는지 확인하는 것이 좋습니다. 공유가 모듈에서 사용되면 해당 모듈과 관련된 문제가 표시됩니다.
 
-    ![공유 2 선택](media/azure-stack-edge-gpu-manage-shares/unmount-share-1.png)
+    ![공유 선택 2](media/azure-stack-edge-gpu-manage-shares/unmount-share-1.png)
 
-2.  **분리** 를 선택 합니다.
+2.  **분리** 를 선택합니다.
 
     ![분리 선택](media/azure-stack-edge-gpu-manage-shares/unmount-share-2.png)
 
@@ -145,7 +145,7 @@ Azure Stack Edge Pro 장치에서 계산을 구성 하기 전에 공유를 만�
 
 1. 공유 목록에서 삭제하려는 공유를 선택하고 클릭합니다.
 
-    ![공유 3 선택](media/azure-stack-edge-gpu-manage-shares/delete-share-1.png)
+    ![공유 선택 3](media/azure-stack-edge-gpu-manage-shares/delete-share-1.png)
 
 2. **삭제** 를 클릭합니다.
 
@@ -169,7 +169,7 @@ Azure Stack Edge Pro 장치에서 계산을 구성 하기 전에 공유를 만�
 
 1.  Azure Portal에서 **공유** 로 이동합니다. 새로 고치려는 공유를 선택하고 클릭합니다.
 
-    ![공유 4 선택](media/azure-stack-edge-gpu-manage-shares/refresh-share-1.png)
+    ![공유 선택 4](media/azure-stack-edge-gpu-manage-shares/refresh-share-1.png)
 
 2.  **새로 고침** 을 클릭합니다. 
 
@@ -187,36 +187,36 @@ Azure Stack Edge Pro 장치에서 계산을 구성 하기 전에 공유를 만�
  
 오류가 있으면 경고가 발생합니다. 경고에는 원인 및 문제 해결을 위한 권장 사항이 자세히 설명되어 있습니다. 또한 경고는 업데이트나 삭제에 실패한 파일을 비롯하여 오류에 대한 전체 요약이 포함된 파일로 연결됩니다.
 
-## <a name="sync-pinned-files"></a>고정 된 파일 동기화 
+## <a name="sync-pinned-files"></a>고정된 파일 동기화 
 
-고정 된 파일을 자동으로 동기화 하려면 Azure Portal에서 다음 단계를 수행 합니다.
+고정된 파일을 자동으로 동기화하려면 Azure Portal에서 다음 단계를 수행합니다.
  
-1. 기존 Azure storage 계정을 선택 합니다. 
+1. 기존 Azure Storage 계정을 선택합니다. 
 
-2. **컨테이너로** 이동 하 고 **+ 컨테이너** 를 선택 하 여 컨테이너를 만듭니다. 이 컨테이너의 이름을 *newcontainer* 로 합니다. **공용 액세스 수준을** 컨테이너로 설정 합니다.
+2. **컨테이너로** 이동한 다음 **+ 컨테이너** 를 선택하여 컨테이너를 만듭니다. 이 컨테이너의 이름을 *newcontainer* 로 지정합니다. **공용 액세스 수준** 을 컨테이너로 설정합니다.
 
-    ![고정 된 파일에 대 한 자동화 된 동기화 1](media/azure-stack-edge-gpu-manage-shares/image-1.png)
+    ![고정된 파일에 대한 자동화된 동기화 1](media/azure-stack-edge-gpu-manage-shares/image-1.png)
 
-3. 컨테이너 이름을 선택 하 고 다음 메타 데이터를 설정 합니다.  
+3. 컨테이너 이름을 선택하고 다음 메타데이터를 설정합니다.  
 
-    - 이름 = "고정" 
+    - Name = "Pinned" 
     - Value = "True" 
 
-    ![고정 된 파일에 대 한 자동화 된 동기화 2](media/azure-stack-edge-gpu-manage-shares/image-2.png)
+    ![고정된 파일에 대한 자동화된 동기화 2](media/azure-stack-edge-gpu-manage-shares/image-2.png)
  
-4. 장치에 새 공유를 만듭니다. 기존 컨테이너 옵션을 선택 하 여 고정 된 컨테이너에 매핑합니다. 공유를 읽기 전용으로 표시 합니다. 새 사용자를 만들고이 공유의 사용자 이름과 해당 암호를 지정 합니다.  
+4. 디바이스에 새 공유를 만듭니다. 기존 컨테이너 옵션을 선택하여 고정된 컨테이너에 매핑합니다. 공유를 읽기 전용으로 표시합니다. 새 사용자를 만들고 이 공유에 대한 사용자 이름과 해당 암호를 지정합니다.  
 
-    ![고정 된 파일에 대 한 자동화 된 동기화 3](media/azure-stack-edge-gpu-manage-shares/image-3.png)
+    ![고정된 파일에 대한 자동화된 동기화 3](media/azure-stack-edge-gpu-manage-shares/image-3.png)
  
-5. Azure Portal에서 사용자가 만든 컨테이너로 이동 합니다. 메타 데이터가 고정으로 설정 된 newcontainer에 고정 하려는 파일을 업로드 합니다. 
+5. Azure Portal에서 사용자가 만든 컨테이너로 이동합니다. 메타데이터가 고정으로 설정된 newcontainer에 고정하려는 파일을 업로드합니다. 
 
-6. 장치에 대 한 Azure Portal에서 **데이터 새로 고침** 을 선택 하 여 특정 Azure Storage 컨테이너에 대 한 고정 정책을 다운로드 합니다.  
+6. Azure Portal에서 **데이터 새로 고침** 을 선택하면 디바이스가 특정 Azure Storage 컨테이너에 대한 고정 정책을 다운로드합니다.  
 
-    ![고정 된 파일에 대 한 자동화 된 동기화 4](media/azure-stack-edge-gpu-manage-shares/image-4.png)
+    ![고정된 파일에 대한 자동화된 동기화 4](media/azure-stack-edge-gpu-manage-shares/image-4.png)
  
-7. 장치에서 만든 새 공유에 액세스 합니다. 저장소 계정에 업로드 된 파일은 이제 로컬 공유에 다운로드 됩니다. 
+7. 디바이스에서 만든 새 공유에 액세스합니다. 스토리지 계정에 업로드된 파일은 이제 로컬 공유에 다운로드됩니다. 
 
-    장치가 연결이 끊어졌거나 다시 연결 되 면 새로 고침을 트리거합니다. 새로 고치면 변경 된 파일만 표시 됩니다. 
+    디바이스 연결이 끊어지거나 다시 연결될 때마다 새로 고침을 트리거합니다. 새로 고치면 변경된 파일만 표시됩니다. 
 
 
 ## <a name="sync-storage-keys"></a>스토리지 키 동기화

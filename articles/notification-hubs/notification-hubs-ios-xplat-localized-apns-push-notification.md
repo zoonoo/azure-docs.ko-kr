@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs을 사용 하 여 지역화 된 푸시 알림을 iOS로 보내기 Microsoft Docs
+title: Azure Notification Hubs를 사용하여 iOS에 지역화된 푸시 알림 보내기 | Microsoft Docs
 description: Azure Notification Hubs를 사용하여 iOS 디바이스에 지역화된 알림 푸시를 사용하는 방법
 services: notification-hubs
 documentationcenter: ios
@@ -17,19 +17,19 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: a78d3a76e2b13a120e9e744e181c95bfcb330f27
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92313906"
 ---
-# <a name="tutorial-send-localized-push-notifications-to-ios-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용 하 여 지역화 된 푸시 알림을 iOS로 보내기
+# <a name="tutorial-send-localized-push-notifications-to-ios-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 iOS에 지역화된 푸시 알림 보내기
 
 > [!div class="op_single_selector"]
 > * [Windows 스토어 C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
-이 자습서에서는 Azure Notification Hubs의 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 기능을 사용하여 언어 및 디바이스별로 지역화된 속보 알림을 브로드캐스트하는 방법을 보여줍니다. 이 자습서에서는 Notification Hubs 사용에서 만든 iOS 앱을 시작 [하 여 주요 소식을 보냅니다]. 완료 되 면 관심 있는 범주를 등록 하 고, 알림을 받을 언어를 지정 하 고, 선택한 범주에 대 한 푸시 알림만 해당 언어로 받을 수 있습니다.
+이 자습서에서는 Azure Notification Hubs의 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 기능을 사용하여 언어 및 디바이스별로 지역화된 속보 알림을 브로드캐스트하는 방법을 보여줍니다. 이 자습서에서는 [Notification Hubs를 사용하여 속보 보내기]에서 만든 iOS 앱을 시작합니다. 이 자습서를 완료하면 관심 있는 범주를 등록하고, 알림을 받을 언어를 지정하고, 선택한 범주에 대한 푸시 알림만 해당 언어로 받을 수 있습니다.
 
 이 시나리오는 두 부분으로 분류됩니다.
 
@@ -46,12 +46,12 @@ ms.locfileid: "92313906"
 
 ## <a name="overview"></a>개요
 
-[Notification Hubs 사용 하 여 최신 뉴스를 보낼]때 **태그** 를 사용 하 여 다른 뉴스 범주에 대 한 알림을 구독 하는 앱을 빌드 했습니다. 하지만 대부분의 앱은 여러 시장을 대상으로 하므로 지역화해야 합니다. 즉, 알림 자체의 내용을 지역화해서 올바른 디바이스 집합으로 전달해야 합니다. 이 자습서에서는 Notification Hubs의 **템플릿** 기능을 사용하여 지역화된 속보 알림을 쉽게 제공하는 방법을 보여줍니다.
+[Notification Hubs를 사용하여 속보 보내기]에서는 **태그** 를 사용하여 다른 뉴스 범주에 대한 알림을 구독하는 앱을 빌드했습니다. 하지만 대부분의 앱은 여러 시장을 대상으로 하므로 지역화해야 합니다. 즉, 알림 자체의 내용을 지역화해서 올바른 디바이스 집합으로 전달해야 합니다. 이 자습서에서는 Notification Hubs의 **템플릿** 기능을 사용하여 지역화된 속보 알림을 쉽게 제공하는 방법을 보여줍니다.
 
 > [!NOTE]
 > 지역화된 알림을 보내는 한 가지 방법은 각 태그의 여러 버전을 만드는 것입니다. 예를 들어 영어, 프랑스어 및 북경어를 지원하려면 세계 뉴스에 대한 3가지 태그 즉, "world_en", "world_fr" 및 "world_ch"가 필요합니다. 그런 다음, 이러한 각 태그로 세계 뉴스의 지역화된 버전을 보내야 합니다. 이 항목에서는 템플릿을 사용하여 태그의 확산을 방지하고 여러 메시지를 보낼 필요가 없도록 합니다.
 
-템플릿은 특정 장치에서 알림을 수신 하는 방법을 지정 하는 방법입니다. 템플릿은 앱에서 백 엔드로 보낸 메시지에 포함된 속성을 참조하여 정확한 페이로드 형식을 지정합니다. 여기서는 모든 지원되는 언어를 포함하는 로캘을 알 수 없는 메시지를 보냅니다.
+템플릿을 사용하면 특정 디바이스에서 알림을 받는 방법을 지정할 수 있습니다. 템플릿은 앱에서 백 엔드로 보낸 메시지에 포함된 속성을 참조하여 정확한 페이로드 형식을 지정합니다. 여기서는 모든 지원되는 언어를 포함하는 로캘을 알 수 없는 메시지를 보냅니다.
 
 ```json
 {
@@ -76,13 +76,13 @@ ms.locfileid: "92313906"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * [특정 iOS 디바이스에 푸시 알림](notification-hubs-ios-xplat-segmented-apns-push-notification.md) 자습서를 완료하고 이 자습서는 해당 코드에서 직접 빌드하므로 코드를 사용할 수 있도록 합니다.
-* Visual Studio 2019은 선택 사항입니다.
+* Visual Studio 2019는 선택 사항입니다.
 
 ## <a name="update-the-app-user-interface"></a>앱 사용자 인터페이스 업데이트
 
 이 섹션에서는 템플릿을 사용하여 지역화된 속보를 보내도록 [Notification Hubs를 사용하여 속보 보내기] 항목에서 만든 속보 앱을 수정합니다.
 
-에서 `MainStoryboard_iPhone.storyboard` 영어, 프랑스어 및 북경어의 세 가지 언어로 분할 된 컨트롤을 추가 합니다.
+`MainStoryboard_iPhone.storyboard`에서 분할된 컨트롤을 3가지 언어, 즉 영어, 프랑스어 및 북경어로 추가합니다.
 
 ![iOS UI 스토리보드 만들기][13]
 
@@ -92,7 +92,7 @@ ms.locfileid: "92313906"
 
 ## <a name="build-the-ios-app"></a>iOS 앱 빌드
 
-1. 에서 `Notification.h` 메서드를 추가 `retrieveLocale` 하 고 다음 코드와 같이 저장소 및 구독 메서드를 수정 합니다.
+1. 다음 코드와 같이 `Notification.h`에서 `retrieveLocale` 메서드를 추가하고, 저장 및 구독 메서드를 수정합니다.
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;

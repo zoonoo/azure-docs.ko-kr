@@ -13,10 +13,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: b75e859fc1237bc88bee464cef423b7289810fa8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92147795"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>IoT Hub의 직접 메서드 호출 및 이해
@@ -41,9 +41,9 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지 사�
 > 디바이스에서 직접 메서드를 호출할 때 속성 이름과 값은 US-ASCII로 출력 가능한 영숫자만 포함할 수 있으며 다음 집합은 제외됩니다. ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
 > 
 
-직접 메서드는 동기적 이며 시간 제한 기간 (기본값: 30 초, 5 초에서 300 초 사이로 설정 가능) 후 성공 하거나 실패 합니다. 직접 메서드는 디바이스가 온라인 상태에서 명령을 수신하는 경우에만 작동하기를 바라는 대화형 시나리오에서 유용합니다. 예를 들어 휴대폰에서 불을 켭니다. 이러한 시나리오에서는 클라우드 서비스가 결과에 최대한 빨리 대응할 수 있도록 즉각적인 성공이나 실패를 보려고 합니다. 디바이스는 메서드의 결과로 메시지 본문을 반환할 수 있지만 메서드가 반드시 그렇게 해야 하는 것은 아닙니다. 메서드 호출의 순서 지정 또는 동시성 의미 체계에 대한 보장은 없습니다.
+직접 메서드는 동기식이며 제한 시간(기본값: 30초, 5~300초 설정 가능)이 지나면 성공하거나 실패합니다. 직접 메서드는 디바이스가 온라인 상태에서 명령을 수신하는 경우에만 작동하기를 바라는 대화형 시나리오에서 유용합니다. 예를 들어 휴대폰에서 불을 켭니다. 이러한 시나리오에서는 클라우드 서비스가 결과에 최대한 빨리 대응할 수 있도록 즉각적인 성공이나 실패를 보려고 합니다. 디바이스는 메서드의 결과로 메시지 본문을 반환할 수 있지만 메서드가 반드시 그렇게 해야 하는 것은 아닙니다. 메서드 호출의 순서 지정 또는 동시성 의미 체계에 대한 보장은 없습니다.
 
-직접 메서드는 클라우드 쪽 및 MQTT, AMQP, Websocket을 통한 MQTT 또는 장치 쪽에서 Websocket을 통한 AMQP의 HTTPS 전용입니다.
+직접 메서드는 클라우드 쪽에서는 HTTPS 전용, 디바이스 쪽에서는 MQTT, AMQP, WebSocket을 통한 MQTT 또는 WebSocket을 통한 AMQP입니다.
 
 메서드 요청 및 응답에 대한 페이로드는 최대 128KB의 JSON 문서입니다.
 
@@ -63,7 +63,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지 사�
 
 * POST *메서드*
 
-* 권한 부여, 요청 ID, 콘텐츠 형식 및 콘텐츠 인코딩을 포함 하는 *헤더* 입니다.
+* *헤더* 에는 권한 부여, 요청 ID, 콘텐츠 형식, 콘텐츠 인코딩이 포함됩니다.
 
 * 다음과 같은 형식의 투명한 JSON *본문*:
 
@@ -78,21 +78,21 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지 사�
     }
     ```
 
-요청에서로 제공 되는 값은 `responseTimeoutInSeconds` IoT Hub 서비스가 장치에서 직접 메서드 실행이 완료 될 때까지 기다려야 하는 시간입니다. 이 시간 제한을 장치에서 직접 메서드를 실행 하는 데 예상 되는 시간 이상으로 설정 합니다. Timeout을 지정 하지 않으면 기본값인 30 초가 사용 됩니다. 의 최소값 및 최대값은 `responseTimeoutInSeconds` 각각 5 및 300 초입니다.
+요청에서 `responseTimeoutInSeconds`로 제공되는 값은 디바이스에서 직접 메서드 실행이 완료될 때까지 IoT Hub 서비스가 기다려야 하는 시간입니다. 이 제한 시간을 디바이스에서 직접 메서드를 실행하는 데 예상되는 시간 이상으로 설정합니다. 제한 시간을 지정하지 않으면 기본값인 30초가 사용됩니다. `responseTimeoutInSeconds`의 최소값 및 최대값은 각각 5 및 300초입니다.
 
-요청에서로 제공 되는 값은 `connectTimeoutInSeconds` 연결이 끊어진 장치가 온라인 상태가 될 때까지 IoT Hub 서비스에서 대기 해야 하는 직접 메서드를 호출 하는 시간입니다. 기본값은 0입니다. 즉, 직접 메서드를 호출할 때 장치가 이미 온라인 상태 여야 합니다. 의 최대값은 `connectTimeoutInSeconds` 300 초입니다.
+요청에서 `connectTimeoutInSeconds` 로 제공되는 값은 직접 메서드를 호출하는 시간으로, 연결이 끊어진 디바이스가 온라인 상태가 될 때까지 IoT Hub 서비스에서 대기해야 하는 시간입니다. 기본값은 0입니다. 즉, 직접 메서드를 호출할 때 디바이스가 이미 온라인 상태여야 합니다. `connectTimeoutInSeconds`에 대한 최대값은 300초입니다.
 
 #### <a name="example"></a>예제
 
-이 예제에서는 Azure IoT Hub에 등록 된 IoT 장치에서 직접 메서드를 호출 하는 요청을 안전 하 게 시작할 수 있습니다.
+이 예제에서는 Azure IoT Hub에 등록된 IoT 디바이스에서 직접 메서드를 호출하는 요청을 안전하게 시작할 수 있습니다.
 
-시작 하려면 [Azure CLI에 대 한 Microsoft Azure IoT 확장](https://github.com/Azure/azure-iot-cli-extension) 을 사용 하 여 SharedAccessSignature를 만듭니다.
+시작하려면 [Azure CLI에 대한 Microsoft Azure IoT 확장](https://github.com/Azure/azure-iot-cli-extension)을 사용하여 SharedAccessSignature를 만듭니다.
 
 ```bash
 az iot hub generate-sas-token -n <iothubName> -du <duration>
 ```
 
-그런 다음 권한 부여 헤더를 새로 생성 된 sharedaccesssignature로 바꾸고 `iothubName` ,, `deviceId` `methodName` 및 `payload` 매개 변수를 아래 예제 명령의 구현과 일치 하도록 `curl` 수정 합니다.  
+그런 다음 인증 헤더를 새로 생성된 SharedAccessSignature로 바꾸고, `iothubName`, `deviceId`, `methodName` 및 `payload` 매개 변수를 아래 예제 `curl` 명령의 구현과 일치하도록 수정합니다.  
 
 ```bash
 curl -X POST \
@@ -109,10 +109,10 @@ curl -X POST \
 }'
 ```
 
-수정 된 명령을 실행 하 여 지정 된 직접 메서드를 호출 합니다. 성공적인 요청은 HTTP 200 상태 코드를 반환 합니다.
+수정된 명령을 실행하여 지정된 직접 메서드를 호출합니다. 성공적인 요청은 HTTP 200 상태 코드를 반환합니다.
 
 > [!NOTE]
-> 위의 예제에서는 장치에서 직접 메서드를 호출 하는 방법을 보여 줍니다.  IoT Edge 모듈에서 직접 메서드를 호출 하려는 경우 아래와 같이 url 요청을 수정 해야 합니다.
+> 위의 예제에서는 디바이스에서 직접 메서드를 호출하는 방법을 보여 줍니다.  IoT Edge 모듈에서 직접 메서드를 호출하려는 경우 아래와 같이 url 요청을 수정해야 합니다.
 
 ```bash
 https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2018-06-30
@@ -122,11 +122,11 @@ https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/met
 백 엔드 앱은 다음 항목으로 구성된 응답을 받습니다.
 
 * *HTTP 상태 코드*:
-  * 200는 직접 메서드를 성공적으로 실행 했음을 나타냅니다.
-  * 404는 장치 ID가 올바르지 않거나, 직접 메서드를 호출할 때 장치가 온라인 상태가 아님을 나타내며 `connectTimeoutInSeconds` 그 이후에는 (수반 되는 오류 메시지를 사용 하 여 근본 원인을 파악 함)
-  * 504는 장치가 내에서 직접 메서드 호출에 응답 하지 않아 발생 한 게이트웨이 시간 초과를 나타냅니다 `responseTimeoutInSeconds` .
+  * 200은 직접 메서드를 성공적으로 실행했음을 나타냅니다.
+  * 404는 디바이스 ID가 잘못되거나, 직접 메서드를 호출한 후 `connectTimeoutInSeconds`에 대해 디바이스가 온라인 상태가 아니었음을 나타냅니다(함께 표시되는 오류 메시지를 사용하여 근본 원인 파악)
+  * 504는 디바이스가 `responseTimeoutInSeconds` 내에서 직접 메서드 호출에 응답하지 않아 발생한 게이트웨이 시간 제한 초과를 나타냅니다.
 
-* ETag, 요청 ID, 콘텐츠 형식 및 콘텐츠 인코딩을 포함 하는 *헤더* 입니다.
+* *헤더* 는 ETag, 요청 ID, 콘텐츠 형식, 콘텐츠 인코딩을 포함합니다.
 
 * 다음과 같은 형식의 JSON *본문*:
 
@@ -198,9 +198,9 @@ AMQP 메시지는 메서드 요청을 나타내는 수신 링크에 도착하며
 
 디바이스는 `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound` 주소에서 메서드 응답을 반환하기 위한 전송 링크를 만듭니다.
 
-메서드의 응답은 보내는 링크에서 반환 되 고 다음과 같이 구성 됩니다.
+전송 링크에서 반환되는 메서드의 응답은 다음과 같은 항목으로 구성됩니다.
 
-* 메서드의 요청 메시지에 전달 된 요청 ID를 포함 하는 상관 관계 ID 속성입니다.
+* 메서드의 요청 메시지에서 전달된 요청 ID를 포함하는 상관 관계 ID 속성
 
 * 사용자가 제공한 메서드 상태가 포함된 애플리케이션 속성 `IoThub-status`
 

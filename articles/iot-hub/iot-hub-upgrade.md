@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
 ms.openlocfilehash: 96c3a7b2cfda23f173f4caeff4fb7a92b1ddc438
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "61440236"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>IoT Hub를 업그레이드하는 방법
@@ -23,15 +23,15 @@ IoT 솔루션 증대에 따라 Azure IoT Hub도 고객의 확장을 지원할 �
 
 * IoT Hub 안에 단위를 추가합니다. 예를 들어 B1 IoT Hub 안의 각 추가 단위는 매일 400,000건의 추가적인 메시지를 허용합니다.
 
-* IoT Hub의 크기를 변경합니다. 예를 들어, 각 단위가 매일 지원할 수 있는 메시지 수를 늘리려면 B1 계층에서 B2 계층으로 마이그레이션합니다.
+* IoT Hub의 크기를 변경합니다. 예를 들어 B1 계층에서 B2 계층으로 마이그레이션하여 각 단위가 매일 지원할 수 있는 메시지의 수를 늘립니다.
 
-* 상위 계층으로 업그레이드합니다. 예를 들어 동일한 메시징 용량의 고급 기능에 액세스 하려면 B1 계층에서 S1 계층으로 업그레이드 합니다.
+* 상위 계층으로 업그레이드합니다. 예를 들어 B1 계층에서 S1 계층으로 업그레이드하고 동일한 메시징 용량이 있는 고급 기능에 액세스합니다.
 
 이러한 변경은 모두 기존 작업 중단 없이 가능합니다.
 
-IoT hub를 다운 그레이드 하려면 단위를 제거 하 고 IoT hub의 크기를 줄일 수 있지만 하위 계층으로 다운 그레이드할 수는 없습니다. 예를 들어 S2 계층에서 S1 계층으로는 이동할 수 있지만 S2 계층에서 B1 계층으로는 이동할 수 없습니다. 계층 내에서 한 가지 유형의 [Iot Hub 버전](https://azure.microsoft.com/pricing/details/iot-hub/) 만 IoT Hub 선택할 수 있습니다. 예를 들어 S1 및 B3 또는 S1 및 S2와 같은 서로 다른 버전의 단위 혼합이 아닌 여러 단위의 S1을 사용하여 IoT Hub를 만들 수 있습니다.
+IoT 허브를 다운그레이드하려면 단위를 제거하고 IoT 허브의 크기를 줄일 수 있지만 하위 계층으로 다운그레이드할 수는 없습니다. 예를 들어 S2 계층에서 S1 계층으로는 이동할 수 있지만 S2 계층에서 B1 계층으로는 이동할 수 없습니다. IoT Hub당 계층 내에서 한 가지 형식의 [IoT Hub 버전](https://azure.microsoft.com/pricing/details/iot-hub/)만 선택할 수 있습니다. 예를 들어 S1 및 B3 또는 S1 및 S2와 같은 서로 다른 버전의 단위 혼합이 아닌 여러 단위의 S1을 사용하여 IoT Hub를 만들 수 있습니다.
 
-이 예제는 사용자 솔루션 변경에 따라 IoT Hub를 조정하는 방법을 이해하는 데 도움이 됩니다. 각 계층의 기능에 대 한 구체적인 정보는 항상 [Azure IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)을 참조 해야 합니다.
+이 예제는 사용자 솔루션 변경에 따라 IoT Hub를 조정하는 방법을 이해하는 데 도움이 됩니다. 각 계층의 기능에 대한 특정 정보는 항상 [Azure IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)을 참조하세요.
 
 ## <a name="upgrade-your-existing-iot-hub"></a>기존 IoT Hub 업그레이드
 

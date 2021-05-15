@@ -4,19 +4,19 @@ description: 계획 단계에서 수집된 정보를 사용하여 Azure VMware S
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
 ms.date: 04/23/2021
-ms.openlocfilehash: 9a9f01788ccfaa7f304d71897efa3bcb0511d8fd
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: fe5e34ecb0ed3d8984432d44bbed5678c4592553
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126384"
+ms.locfileid: "108175859"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Azure VMware Solution 배포 및 구성
 
 이 문서에서는 [계획 섹션](production-ready-deployment-steps.md)의 정보를 사용하여 Azure VMware Solution을 배포하고 구성합니다. 
 
 >[!IMPORTANT]
->정보가 아직 정의되지 않은 경우 계속하기 전에 [계획 섹션](production-ready-deployment-steps.md)으로 돌아가세요.
+>계속하기 전에 [계획 섹션](production-ready-deployment-steps.md)을 살펴본 정보입니다.
 
 ## <a name="step-1-register-the-microsoftavs-resource-provider"></a>1단계. **Microsoft.AVS** 리소스 공급자 등록
 
@@ -72,5 +72,6 @@ ExpressRoute를 종료하는 Azure Virtual Network와 Azure VMware Solution 프�
 ## <a name="next-steps"></a>다음 단계
 
 다음 섹션에서는 ExpressRoute를 통해 Azure VMware Solution을 온-프레미스 네트워크에 연결합니다.
+
 > [!div class="nextstepaction"]
 > [온-프레미스 환경에 연결](tutorial-expressroute-global-reach-private-cloud.md)

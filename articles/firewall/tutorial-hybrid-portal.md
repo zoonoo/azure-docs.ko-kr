@@ -1,38 +1,37 @@
 ---
-title: '자습서: Azure Portal을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성'
-description: 이 자습서에서는 Azure Portal을 사용하여 Azure Firewall을 배포하고 구성하는 방법을 알아봅니다.
+title: Azure Portal을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성
+description: 이 문서에서는 Azure Portal을 사용하여 Azure Firewall을 배포하고 구성하는 방법을 알아봅니다.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: tutorial
-ms.date: 11/17/2020
+ms.topic: how-to
+ms.date: 04/29/2021
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 86e27c190b269763d8dd2f562a207b3f2020da29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 36605d6bf17c7652e7f21b89a83af08972765a30
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98051074"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287606"
 ---
-# <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성
+# <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Azure Portal을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성
 
 온-프레미스 네트워크를 Azure Virtual Network에 연결하여 하이브리드 네트워크를 만들 경우 Azure 네트워크 리소스에 대한 액세스를 제어하는 기능은 전체 보안 계획의 중요한 부분입니다.
 
 Azure Firewall을 사용하여 허용 및 거부된 네트워크 트래픽을 정의하는 규칙을 사용하여 하이브리드 네트워크에서 네트워크 액세스를 제어할 수 있습니다.
 
-이 자습서에서는 다음과 같은 세 가상 네트워크를 만듭니다.
+이 문서에서는 다음과 같은 세 개의 가상 네트워크를 만듭니다.
 
 - **VNet-Hub** - 방화벽이 이 가상 네트워크에 있습니다.
 - **VNet-Spoke** - 스포크 가상 네트워크는 Azure에 있는 워크로드를 나타냅니다.
-- **VNet-Onprem** - 온-프레미스 가상 네트워크는 온-프레미스 네트워크를 나타냅니다. 실제 배포에서는 VPN 또는 ExpressRoute 연결을 통해 연결할 수 있습니다. 간단히 하기 위해 이 자습서에서는 VPN 게이트웨이 연결을 사용하며 Azure에 있는 가상 네트워크를 사용하여 온-프레미스 네트워크를 나타냅니다.
+- **VNet-Onprem** - 온-프레미스 가상 네트워크는 온-프레미스 네트워크를 나타냅니다. 실제 배포에서는 VPN 또는 ExpressRoute 연결을 통해 연결할 수 있습니다. 간단히 하기 위해 이 프로시저에서는 VPN Gateway 연결을 사용하고 Azure에 있는 가상 네트워크를 사용하여 온-프레미스 네트워크를 나타냅니다.
 
 ![하이브리드 네트워크의 방화벽](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
-> * 변수 선언
 > * 방화벽 허브 가상 네트워크 만들기
 > * 스포크 가상 네트워크 만들기
 > * 온-프레미스 가상 네트워크 만들기
@@ -45,19 +44,22 @@ Azure Firewall을 사용하여 허용 및 거부된 네트워크 트래픽을 �
 
 Azure PowerShell을 대신 사용하여 이 절차를 완료하려면 [Azure PowerShell을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성](tutorial-hybrid-ps.md)을 참조하세요.
 
+> [!NOTE]
+> 이 문서에서는 클래식 방화벽 규칙을 사용하여 방화벽을 관리합니다. 선호되는 방법은 [방화벽 정책](../firewall-manager/policy-overview.md)을 사용하는 것입니다. 방화벽 정책을 사용하여 이 프로시저를 완료하려면 [자습서: Azure Portal을 사용하여 하이브리드 네트워크에서 Azure Firewall과 정책 배포 및 구성](tutorial-hybrid-portal-policy.md)을 참조하세요.
+
 ## <a name="prerequisites"></a>필수 구성 요소
 
 하이브리드 네트워크는 허브 및 스포크 아키텍처 모델을 사용하여 Azure VNet과 온-프레미스 네트워크 간에 트래픽을 라우팅합니다. 허브 및 스포크 아키텍처에는 다음과 같은 요구 사항이 있습니다.
 
-- VNet-Hub를 VNet-Spoke로 피어링하는 경우 **AllowGatewayTransit** 을 설정합니다. 허브 및 스포크 네트워크 아키텍처에서 스포크 가상 네트워크는 게이트웨이 전송을 통해 모든 스포크 가상 네트워크에서 VPN 게이트웨이를 배포하는 대신 허브에서 VPN 게이트웨이를 공유할 수 있습니다. 
+- VNet-Hub를 VNet-Spoke에 피어링할 경우 **이 가상 네트워크의 게이트웨이 또는 Route Server 사용** 을 설정합니다. 허브 및 스포크 네트워크 아키텍처에서 스포크 가상 네트워크는 게이트웨이 전송을 통해 모든 스포크 가상 네트워크에서 VPN 게이트웨이를 배포하는 대신 허브에서 VPN 게이트웨이를 공유할 수 있습니다. 
 
    또한 게이트웨이에 연결된 가상 네트워크 또는 온-프레미스 네트워크에 대한 경로는 게이트웨이 전송을 사용하여 피어링된 가상 네트워크에 대한 라우팅 테이블에 자동으로 전파됩니다. 자세한 내용은 [가상 네트워크 피어링을 위한 VPN 게이트웨이 전송 구성](../vpn-gateway/vpn-gateway-peering-gateway-transit.md)을 참조하세요.
 
-- VNet-Spoke를 VNet-Hub에 피어링할 때 **UseRemoteGateways** 를 설정합니다. **UseRemoteGateways** 가 설정되고 원격 피어링의 **AllowGatewayTransit** 도 설정된 경우, 스포크 가상 네트워크는 전송을 위해 원격 가상 네트워크의 게이트웨이를 사용합니다.
+- VNet-Spoke를 VNet-Hub에 피어링하는 경우 **원격 가상 네트워크의 게이트웨이 또는 Route Server 사용** 을 설정합니다. **원격 가상 네트워크의 게이트웨이 또는 Route Server 사용** 을 설정하고 원격 피어링에서 **이 가상 네트워크의 게이트웨이 또는 Route Server 사용** 도 설정한 경우 스포크 가상 네트워크에서 원격 가상 네트워크의 게이트웨이를 사용하여 전송합니다.
 - 허브 방화벽을 통해 스포크 서브넷 트래픽을 라우팅하려면 **가상 네트워크 게이트웨이 경로 전파** 옵션을 사용하지 않도록 설정된 방화벽을 가리키는 UDR(사용자 정의 경로)을 사용하면 됩니다. **가상 네트워크 게이트웨이 경로 전파** 사용 안 함 옵션은 스포크 서브넷에 대한 경로 배포를 방지합니다. 이렇게 하면 학습된 경로가 UDR과 충돌하지 않습니다. **가상 네트워크 게이트웨이 경로 전파** 를 사용하도록 설정하려면 BGP를 통해 온-프레미스에서 게시된 경로를 재정의하도록 방화벽에 대한 특정 경로를 정의해야 합니다.
 - 스포크 네트워크에 대한 다음 홉으로 방화벽 IP 주소를 가리키는 허브 게이트웨이 서브넷에서 UDR을 구성합니다. Azure Firewall 서브넷에서는 BGP로부터 경로를 학습하므로 UDR이 필요하지 않습니다.
 
-이 경로를 만드는 방법은 이 자습서의 [경로 만들기](#create-the-routes) 섹션을 참조하세요.
+이러한 경로를 만드는 방법을 확인하려면 이 문서의 [경로 만들기](#create-the-routes) 섹션을 참조하세요.
 
 >[!NOTE]
 >Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewallSubnet이 BGP를 통해 온-프레미스 네트워크에 대한 기본 경로를 학습하는 경우 이 경로를 직접 인터넷 연결을 유지하기 위해 **Internet** 으로 설정된 **NextHopType** 값을 통해 0.0.0.0/0 UDR로 재정의해야 합니다.
@@ -71,7 +73,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-the-firewall-hub-virtual-network"></a>방화벽 허브 가상 네트워크 만들기
 
-먼저 이 자습서에 대한 리소스를 포함하는 리소스 그룹을 만듭니다.
+먼저 리소스를 포함하는 리소스 그룹을 만듭니다.
 
 1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 2. Azure Portal 홈 페이지에서 **리소스 그룹** > **추가** 를 선택합니다.
@@ -154,6 +156,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    |Resource group     |**FW-Hybrid-Test** |
    |Name     |**AzFW01**|
    |Azure 지역     |**미국 동부**|
+   |방화벽 관리|**방화벽 규칙(클래식)을 사용하여 이 방화벽 관리**|
    |가상 네트워크 선택     |**기존 리소스 사용**:<br> **VNet-hub**|
    |공용 IP 주소     |새로 추가: <br>**fw-pip**. |
 
@@ -173,27 +176,27 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 3. **네트워크 규칙 컬렉션 추가** 를 선택합니다.
 4. **이름** 에 대해 **RCNet01** 을 입력합니다.
 5. **우선 순위** 에 대해 **100** 을 입력합니다.
-6. **동작** 에 대해 **허용** 을 선택합니다.
+6. **규칙 컬렉션 작업** 에 대해 **허용** 을 선택합니다.
 6. **규칙** 아래에서 **이름** 에 대해 **AllowWeb** 을 입력합니다.
-7. **프로토콜** 의 경우 **TCP** 를 선택합니다.
 8. **원본 유형** 에 대해 **IP 주소** 를 선택합니다.
 9. **원본** 에 대해 **192.168.1.0/24** 를 선택합니다.
-10. **대상 유형** 에 대해 **IP 주소** 를 선택합니다.
-11. **대상 주소** 에 대해 **10.6.0.0/16** 을 입력합니다.
-12. **대상 포트** 에 대해 **80** 을 입력합니다.
+7. **프로토콜** 의 경우 **TCP** 를 선택합니다.
+1. **대상 포트** 에 대해 **80** 을 입력합니다.
+1. **대상 유형** 에 대해 **IP 주소** 를 선택합니다.
+1. **대상** 에 대해 **10.6.0.0/16** 을 입력합니다.
 
 이제 RDP 트래픽을 허용하는 규칙을 추가합니다.
 
 두 번째 규칙 행에서 다음 정보를 입력합니다.
 
 1. **이름** 에 대해 **AllowRDP** 를 입력합니다.
-2. **프로토콜** 의 경우 **TCP** 를 선택합니다.
 3. **원본 유형** 에 대해 **IP 주소** 를 선택합니다.
 4. **원본** 에 대해 **192.168.1.0/24** 를 선택합니다.
-5. **대상 유형** 에 대해 **IP 주소** 를 선택합니다.
-6. **대상 주소** 에 대해 **10.6.0.0/16** 을 입력합니다.
-7. **대상 포트** 에 대해 **3389** 를 입력합니다.
-8. **추가** 를 선택합니다.
+2. **프로토콜** 의 경우 **TCP** 를 선택합니다.
+1. **대상 포트** 에 대해 **3389** 를 입력합니다.
+1. **대상 유형** 에 대해 **IP 주소** 를 선택합니다.
+1. **대상** 에 **10.6.0.0/16** 을 입력합니다.
+1. **추가** 를 선택합니다.
 
 ## <a name="create-and-connect-the-vpn-gateways"></a>VPN 게이트웨이 만들기 및 연결
 
@@ -423,6 +426,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 10. **부트 진단** 에 대해 **사용 안 함** 을 선택합니다.
 10. **검토 + 만들기** 를 선택하고, 요약 페이지에서 설정을 검토한 다음, **만들기** 를 선택합니다.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## <a name="test-the-firewall"></a>방화벽 테스트
 
 1. 먼저 **VM-spoke-01** 가상 머신의 개인 IP 주소를 기록합니다.
@@ -457,11 +462,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다음 자습서에서 사용하기 위해 방화벽 리소스를 그대로 유지하거나, 더 이상 필요하지 않은 경우 **FW-Hybrid-Test** 리소스 그룹을 삭제하여 모든 방화벽 관련 리소스를 삭제할 수 있습니다.
+추가 테스트를 위해 방화벽 리소스를 그대로 유지하거나, 더 이상 필요하지 않은 경우 **FW-Hybrid-Test** 리소스 그룹을 삭제하여 모든 방화벽 관련 리소스를 삭제할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 그런 다음, Azure Firewall 로그를 모니터링할 수 있습니다.
 
-> [!div class="nextstepaction"]
-> [자습서: Azure Firewall 로그 모니터링](./firewall-diagnostics.md)
+[자습서: Azure Firewall 로그 모니터링](./firewall-diagnostics.md)

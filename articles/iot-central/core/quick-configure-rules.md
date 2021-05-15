@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: f65614de97e8ff6eed732e624ae30c3f2b70bd60
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 94dab0124a1f5e0144aab2e271fbf89e02111d3a
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589009"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108206802"
 ---
 # <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>빠른 시작: Azure IoT Central에서 디바이스에 대한 규칙 및 작업 구성
 
@@ -31,13 +31,13 @@ ms.locfileid: "107589009"
 
 1. **환경 습도** 를 규칙 이름으로 입력합니다.
 
-1. **대상 디바이스** 섹션에서 **센서 컨트롤러** 를 디바이스 템플릿으로 선택합니다. 이 옵션은 디바이스 템플릿 유형별로 규칙이 적용되는 디바이스를 필터링합니다. **+ 필터** 를 선택하여 더 많은 필터 조건을 추가할 수 있습니다.
+1. **대상 디바이스** 섹션에서 **센서 컨트롤러** 를 **디바이스 템플릿** 으로 선택합니다. 이 옵션은 디바이스 템플릿 유형별로 규칙이 적용되는 디바이스를 필터링합니다. **+ 필터** 를 선택하여 더 많은 필터 조건을 추가할 수 있습니다.
 
 1. **조건** 섹션에서 규칙을 트리거하는 항목을 정의합니다. 다음 정보를 사용하여 온도 원격 분석을 기반으로 하는 조건을 정의합니다.
 
     | 필드        | 값            |
     | ------------ | ---------------- |
-    | 측정  | SensorHumid      |
+    | 원격 분석    | SensorHumid      |
     | 연산자     | 다음보다 큼  |
     | 값        | 55               |
 
@@ -60,14 +60,14 @@ ms.locfileid: "107589009"
 
     :::image type="content" source="media/quick-configure-rules/action.png" alt-text="규칙에 추가된 이메일 작업을 보여주는 스크린샷":::
 
-1. **저장** 을 선택합니다. **규칙** 페이지에 규칙이 나열됩니다.
+1. **저장** 을 선택합니다. 이제 **규칙** 페이지에 규칙이 나열됩니다.
 
 ## <a name="test-the-rule"></a>규칙 테스트
 
 규칙은 저장 한 직후 발효됩니다. 규칙에서 정의된 조건이 충족되면 애플리케이션이 작업에서 지정된 주소로 이메일을 보냅니다.
 
 > [!NOTE]
-> 테스트를 완료한 후에는 받은 편지함에 경고가 수신되지 않도록 규칙을 해제합니다.
+> 테스트를 완료한 후에는 받은 편지함에 경고가 수신되지 않도록 규칙을 비활성화합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

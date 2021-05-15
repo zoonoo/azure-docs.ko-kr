@@ -9,16 +9,16 @@ ms.author: chpalm
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 11cce223a0802c20c5fc144eed681327f989a949
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cabf4ba9ea17c1ad2d8af9fd17e7d6f09838e745
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103488383"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293155"
 ---
 # <a name="quickstart-send-sms-messages-in-azure-logic-apps-with-azure-communication-services"></a>빠른 시작: Azure Communication Services를 사용하여 Azure Logic Apps에서 SMS 메시지 보내기
 
-[Azure Communication Services SMS](../../overview.md) 커넥터와 [Azure Logic Apps](../../../logic-apps/logic-apps-overview.md)를 사용하면 SMS 메시지를 보낼 수 있는 자동화된 워크플로 또는 *논리 앱* 을 만들 수 있습니다. 이 빠른 시작에서는 논리 앱 워크플로의 첫 번째 단계인 트리거 이벤트에 응답하여 문자 메시지를 자동으로 보내는 방법을 보여 줍니다. 트리거 이벤트는 들어오는 이메일 메시지, 되풀이 일정, [Azure Event Grid](../../../event-grid/overview.md) 리소스 이벤트 또는 기타 [Azure Logic Apps에서 지원하는 트리거](/connectors/connector-reference/connector-reference-logicapps-connectors)일 수 있습니다.
+[Azure Communication Services SMS](../../overview.md) 커넥터 및 [Azure Logic Apps](../../../logic-apps/logic-apps-overview.md)를 사용하면 SMS 메시지를 보낼 수 있는 자동화된 워크플로를 만들 수 있습니다. 이 빠른 시작에서는 논리 앱 워크플로의 첫 번째 단계인 트리거 이벤트에 응답하여 문자 메시지를 자동으로 보내는 방법을 보여 줍니다. 트리거 이벤트는 들어오는 이메일 메시지, 되풀이 일정, [Azure Event Grid](../../../event-grid/overview.md) 리소스 이벤트 또는 기타 [Azure Logic Apps에서 지원하는 트리거](/connectors/connector-reference/connector-reference-logicapps-connectors)일 수 있습니다.
 
 :::image type="content" source="./media/logic-app/azure-communication-services-connector.png" alt-text="Logic Apps 디자이너가 열려 있는 Azure Portal에서 SMS 보내기 작업을 Azure Communication Services 커넥터에 사용하는 논리 앱의 예를 보여 주는 스크린샷입니다.":::
 
@@ -73,11 +73,11 @@ Azure Communication Services SMS 커넥터를 사용하여 워크플로의 새 �
 
 1. 완료되면 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
-다음으로, 테스트를 위해 논리 앱을 실행합니다.
+다음으로, 테스트를 위해 논리 앱 워크플로를 실행합니다.
 
 ## <a name="test-your-logic-app"></a>논리 앱 테스트
 
-논리 앱을 수동으로 시작하려면 디자이너 도구 모음에서 **실행** 을 선택합니다. 또는 논리 앱이 트리거될 때까지 기다릴 수 있습니다. 두 경우 모두에서 논리 앱은 SMS 메시지를 지정된 대상 전화 번호로 보내야 합니다. 논리 앱을 실행하는 방법에 대한 자세한 내용은 [논리 앱을 실행하는 방법](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-your-logic-app)을 검토하세요.
+워크플로를 수동으로 시작하려면 디자이너 도구 모음에서 **실행** 을 선택합니다. 또는 트리거가 실행될 때까지 기다릴 수 있습니다. 두 경우 모두에서 워크플로는 SMS 메시지를 지정된 대상 전화 번호로 보내야 합니다. 자세한 내용은 [워크플로를 실행하는 방법](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-workflow)을 검토하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

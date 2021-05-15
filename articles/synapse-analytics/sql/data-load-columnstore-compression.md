@@ -2,25 +2,25 @@
 title: Columnstore 인덱스 성능 향상
 description: 메모리 요구 사항을 줄이거나 사용 가능한 메모리를 늘려 columnstore 인덱스가 각 행 그룹으로 압축되는 행 수를 최대화합니다.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 2cbf38808f69ed2c1f76196fc7580a8ad3dae56a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: a452808b1c349e2aec91759675e269e3680f0598
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104602080"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567964"
 ---
-# <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Columnstore 인덱스 성능에 대 한 행 그룹 품질 최대화
+# <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Columnstore 인덱스 성능에 대한 행 그룹 품질 최대화
 
-행 그룹 품질은 행 그룹의 행 수에 따라 결정됩니다. 사용 가능한 메모리를 늘려서 columnstore 인덱스가 각 행 그룹에 압축 되는 행 수를 최대화할 수 있습니다.  이 방법을 사용하여 columnstore 인덱스에 대한 압축 비율 및 쿼리 성능을 개선시킬 수 있습니다.
+행 그룹 품질은 행 그룹의 행 수에 따라 결정됩니다. 사용 가능한 메모리를 늘려서 columnstore 인덱스가 각 행 그룹에 압축되는 행 수를 최대화할 수 있습니다.  이 방법을 사용하여 columnstore 인덱스에 대한 압축 비율 및 쿼리 성능을 개선시킬 수 있습니다.
 
 ## <a name="why-the-rowgroup-size-matters"></a>행 그룹 크기가 중요한 이유
 
@@ -34,15 +34,15 @@ columnstore 인덱스는 개별 행 그룹의 열 세그먼트를 검색하여 �
 
 ## <a name="rowgroups-can-get-trimmed-during-compression"></a>압축 중에 행 그룹을 잘라낼 수 있음
 
-대량 로드 또는 columnstore 인덱스를 다시 작성 하는 동안 각 행 그룹에 대해 지정 된 모든 행을 압축 하는 데 사용할 수 있는 메모리가 충분 하지 않을 수 있습니다. 메모리가 부족할 때 columnstore 인덱스는 columnstore로 압축이 성공할 수 있도록 행 그룹 크기를 자릅니다.
+대량 로드 또는 columnstore 인덱스 다시 작성 중에는 각 행 그룹에 대해 지정된 모든 행을 압축하기에 메모리가 부족할 수 있습니다. 메모리가 부족할 때 columnstore 인덱스는 columnstore로 압축이 성공할 수 있도록 행 그룹 크기를 자릅니다.
 
-1만 개 이상의 행을 각 행 그룹으로 압축 하기에 메모리가 부족 한 경우 오류가 생성 됩니다.
+10,000개 이상의 행을 각 행 그룹으로 압축하기에 메모리가 부족한 경우 오류가 생성됩니다.
 
 대량 로드에 대한 자세한 내용은 [클러스터형 columnstore 인덱스로 대량 로드](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?view=azure-sqldw-latest#bulk&preserve-view=true)를 참조하세요.
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>행 그룹 품질을 모니터링 하는 방법
 
-DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([SYS.DM_DB_COLUMN_STORE_ROW_GROUP_PHYSICAL_STATS](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?view=azure-sqldw-latest&preserve-view=true) SQL db와 일치 하는 뷰 정의가 포함 되어 있습니다.)는 행 그룹의 행 수와 트리밍 시 트리밍 이유 등의 유용한 정보를 노출 합니다. 다음 보기를 만들면 이 DMV를 간편하게 쿼리하여 행 그룹 잘라내기에 대한 정보를 가져올 수 있습니다.
+DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?view=azure-sqldw-latest&preserve-view=true) SQL DB와 일치하는 뷰 정의가 포함)는 행 그룹의 행 수와 제거 시(제거 이유)와 같은 유용한 정보를 노출합니다. 다음 보기를 만들면 이 DMV를 간편하게 쿼리하여 행 그룹 잘라내기에 대한 정보를 가져올 수 있습니다.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -71,25 +71,25 @@ from cte;
 
 trim_reason_desc는 행 그룹이 잘렸는지 여부를 나타냅니다. trim_reason_desc = NO_TRIM은 행 그룹이 잘리지 않았으며 최적의 품질임을 나타냅니다. 아래의 잘림 이유는 행 그룹이 중간에 잘렸음을 나타냅니다.
 
-- BULKLOAD: 로드에 대해 들어오는 행 배치의 행 수가 1백만 개 미만이면 이 자르기 이유가 사용됩니다. 삽입되는 행 수가 10만 개보다 많으면 엔진은 델타 저장소에 행을 삽입하지 않고 압축된 행 그룹을 만들지만 자르기 이유를 BULKLOAD로 설정합니다. 이 시나리오에서는 더 많은 행을 포함 하도록 일괄 처리 로드를 늘립니다. 또한 행 그룹은 파티션 경계를 벗어나도록 배치될 수 없으므로, 파티션 구성표를 다시 평가하여 파티션이 너무 세밀하지 않은지 확인합니다.
+- BULKLOAD: 로드에 대해 들어오는 행 배치의 행 수가 1백만 개 미만이면 이 자르기 이유가 사용됩니다. 삽입되는 행 수가 10만 개보다 많으면 엔진은 델타 저장소에 행을 삽입하지 않고 압축된 행 그룹을 만들지만 자르기 이유를 BULKLOAD로 설정합니다. 이 시나리오에서는 행이 더 많이 누적되도록 일괄 처리 로드를 늘리는 것이 좋습니다. 또한 행 그룹은 파티션 경계를 벗어나도록 배치될 수 없으므로, 파티션 구성표를 다시 평가하여 파티션이 너무 세밀하지 않은지 확인합니다.
 - MEMORY_LIMITATION: 행이 1백만 개인 행 그룹을 만들려는 경우 엔진에는 일정량의 작업 메모리가 필요합니다. 로딩 세션의 사용 가능한 메모리가 필요한 작업 메모리보다 적으면 행 그룹이 중간에 잘립니다. 필요한 메모리를 예측하고 메모리를 추가로 할당하는 방법은 다음 섹션에서 설명합니다.
 - DICTIONARY_SIZE: 이 자르기 이유는 너비 및/또는 높이 값이 큰 카디널리티 문자열이 포함된 문자열 열이 하나 이상 있어서 행 그룹이 잘렸음을 나타냅니다. 메모리에서 사전 크기는 16MB로 제한되며, 이 제한에 도달하면 행 그룹은 압축됩니다. 이러한 상황이 발생하는 경우 문제가 되는 열을 별도의 테이블에 포함해 보세요.
 
 ## <a name="how-to-estimate-memory-requirements"></a>메모리 요구 사항을 예측하는 방법
 
-한 행 그룹을 압축 하는 데 필요한 최대 메모리는 다음과 같습니다.
+한 개의 행 그룹을 압축하는 데 필요한 최대 메모리는 대략적으로 다음과 같습니다.
 
 - 72MB +
-- \#행 \* \# 열 \* 8 바이트 +
-- \#행 \* \# 의 짧은 문자열-열 \* 32 바이트 +
+- \#행\* \#열 \* 8바이트 +
+- \#행\* \#short-string-columns \* 32바이트 +
 - 압축 사전인 경우 \#long-string-columns \* 16MB
 
 > [!NOTE]
-> Short 문자열 열에서 <= 32 바이트의 문자열 데이터 형식을 사용 하 고 긴 문자열 열에는 > 32 바이트의 문자열 데이터 형식이 사용 됩니다.
+> 여기서 short-string-columns는 32바이트 이하의 문자열 데이터 형식을 사용하고 long-string-columns는 32바이트를 초과하는 문자열 데이터 형식을 사용합니다.
 
 긴 문자열은 텍스트 압축용으로 고안된 압축 방법으로 압축됩니다. 이 압축 방법은 *사전* 을 사용하여 텍스트 패턴을 저장합니다. 사전의 최대 크기는 16MB입니다. 행 그룹에는 긴 문자열 각각에 대해 사전이 한 개만 있습니다.
 
-Columnstore 메모리 요구 사항에 대 한 자세한 내용은 video [SYNAPSE SQL 크기 조정: 구성 및 지침](https://channel9.msdn.com/Events/Ignite/2016/BRK3291)을 참조 하세요.
+columnstore 메모리 요구 사항에 대한 자세한 내용은 [Synapse SQL 확장: 구성 및 참고 자료](https://channel9.msdn.com/Events/Ignite/2016/BRK3291) 비디오를 참조하세요.
 
 ## <a name="ways-to-reduce-memory-requirements"></a>메모리 요구 사항을 줄이는 방법
 
@@ -110,7 +110,7 @@ Columnstore 메모리 요구 사항에 대 한 자세한 내용은 video [SYNAPS
 
 ### <a name="avoid-over-partitioning"></a>오버 분할 방지
 
-Columnstore 인덱스는 파티션당 행 그룹을 하나 이상 만듭니다. Azure Synapse Analytics에서 데이터 웨어하우징의 경우 데이터가 분산 되 고 각 배포가 분할 되므로 파티션 수가 빠르게 증가 합니다. 테이블에 너무 많은 파티션이 있으면 행 그룹을 채우기에 충분하지 않을 수 있습니다. 행이 부족하다고 해서 압축 중에 메모리 부족이 발생하지는 않지만 행 그룹에서 최적의 columnstore 쿼리 성능을 달성하지 못하게 됩니다.
+Columnstore 인덱스는 파티션당 행 그룹을 하나 이상 만듭니다. Azure Synapse Analytics에서 데이터 웨어하우징의 경우 데이터가 분산되고 각 배포가 분할되므로 파티션 수가 빠르게 증가합니다. 테이블에 너무 많은 파티션이 있으면 행 그룹을 채우기에 충분하지 않을 수 있습니다. 행이 부족하다고 해서 압축 중에 메모리 부족이 발생하지는 않지만 행 그룹에서 최적의 columnstore 쿼리 성능을 달성하지 못하게 됩니다.
 
 오버 분할을 방지하는 다른 이유는 행을 분할된 테이블의 columnstore 인덱스에 로드하는 데 메모리 오버헤드가 있다는 점입니다. 로드하는 동안 많은 파티션이 들어오는 행을 수신할 수 있으며 각 파티션이 압축할 행을 충분히 포함할 때까지 행은 메모리에 보관됩니다. 너무 많은 파티션이 있으면 메모리 부족이 발생합니다.
 
@@ -122,7 +122,7 @@ Columnstore 인덱스는 파티션당 행 그룹을 하나 이상 만듭니다. 
 
 ### <a name="adjust-maxdop"></a>MAXDOP 조정
 
-각 배포는 배포 당 사용 가능한 CPU 코어가 둘 이상인 경우 행 그룹을 columnstore로 병렬로 압축 합니다. 병렬 처리는 메모리 부족 및 행 그룹 트리밍을 야기할 수 있는 추가 메모리 리소스를 필요로 합니다.
+각 배포에서는 배포당 사용 가능한 CPU 코어가 두 개 이상 있는 경우 행 그룹을 columnstore로 병렬로 압축합니다. 병렬 처리는 메모리 부족 및 행 그룹 트리밍을 야기할 수 있는 추가 메모리 리소스를 필요로 합니다.
 
 메모리 부족을 줄이기 위해 MAXDOP 쿼리 힌트를 사용하여 로드 작업이 각 배포 내에서 직렬 모드로 강제로 실행되도록 할 수 있습니다.
 
@@ -142,5 +142,5 @@ DWU 크기와 사용자 리소스 클래스를 함께 사용하여 사용자 쿼
 
 ## <a name="next-steps"></a>다음 단계
 
-Synapse SQL에서 성능을 개선 하는 더 많은 방법을 찾으려면 [성능 개요](../overview-terminology.md)를 참조 하세요.
+Synapse SQL의 성능을 향상시키기 위한 더 많은 방법을 찾으려면 [성능 개요](../overview-terminology.md)를 참조하세요.
 

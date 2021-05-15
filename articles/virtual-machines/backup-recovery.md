@@ -1,6 +1,6 @@
 ---
-title: Vm에 대 한 백업 옵션 개요
-description: Azure 가상 컴퓨터에 대 한 백업 옵션을 간략하게 설명 합니다.
+title: VM을 위한 백업 옵션 개요
+description: Linux Azure 가상 머신을 위한 백업 옵션 개요입니다.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: recovery
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 8/03/2020
 ms.author: cynthn
 ms.openlocfilehash: c4116ef8d02bd47d6375371be9381553f8c22eda
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102565447"
 ---
 # <a name="backup-and-restore-options-for-virtual-machines-in-azure"></a>Azure의 가상 머신을 위한 백업 및 복원 옵션
@@ -22,7 +22,7 @@ ms.locfileid: "102565447"
 
 프로덕션 작업을 실행하는 Azure VM을 백업하려면 Azure Backup을 사용합니다. Azure Backup은 Windows와 Linux VM 모두에 대해 애플리케이션 일치 백업을 지원합니다. Azure Backup은 지역 중복 복구 자격 증명 모음에 저장되는 복구 지점을 만듭니다. 복구 지점에서 복원하는 경우 전체 VM 또는 특정 파일만 복원할 수 있습니다. 
 
-Azure Vm의 Azure Backup에 대 한 간단한 소개는 [Azure Backup 빠른](../backup/quick-backup-vm-portal.md)시작을 참조 하세요.
+Azure VM용 Azure Backup에 대한 간단한 소개는 [Azure Backup 빠른 시작](../backup/quick-backup-vm-portal.md)을 참조하세요.
 
 Azure Backup 작동 방법에 대한 자세한 내용은 [Azure에서 VM 백업 인프라 계획](../backup/backup-azure-vms-introduction.md)을 참조하세요.
 
@@ -47,4 +47,4 @@ Azure Site Recovery는 주요 자연 재해 또는 광범위한 서비스 중단
 
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Backup 빠른](../backup/quick-backup-vm-portal.md)시작을 수행 하 여 Azure Backup을 사용해 볼 수 있습니다.
+[Azure Backup 빠른 시작](../backup/quick-backup-vm-portal.md)을 수행하여 Azure Backup을 시도해 볼 수 있습니다.

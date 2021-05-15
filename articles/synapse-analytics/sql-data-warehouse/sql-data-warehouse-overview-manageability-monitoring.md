@@ -1,26 +1,26 @@
 ---
-title: 관리 효율성 및 모니터링-개요
-description: Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 리소스 사용률, 로그 및 쿼리 작업, 권장 사항 및 데이터 보호 (백업 및 복원)에 대 한 모니터링 및 관리 효율성 개요.
+title: 관리 효율성 및 모니터링 - 개요
+description: Azure Synapse Analytics의 전용 SQL 풀을 사용하여 리소스 사용률, 로그 및 쿼리 활동, 권장 사항, 데이터 보호(백업 및 복원)에 대한 모니터링 및 관리 효율성 개요입니다.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 08/27/2018
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 56ec38140d53788de7cc94f3cb6046177ad2bed4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: dd9dc5b08de1a81b8da13aee875060fbe242baf5
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104585471"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568219"
 ---
-# <a name="manageability-and-monitoring-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용한 관리 효율성 및 모니터링
+# <a name="manageability-and-monitoring-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀을 사용한 관리 효율성 및 모니터링
 
-Synapse SQL을 사용 하면 전용 SQL 풀을 통해 데이터 웨어하우스를 프로 비전 할 수 있습니다. 다음 문서는 데이터 웨어하우스를 관리 하 고 모니터링 하는 데 도움이 됩니다. 데이터 웨어하우스의 사용 현황 및 성능을 최적화 하는 방법에 대해서도 알아봅니다.
+Synapse SQL을 사용하면 전용 SQL 풀을 통해 데이터 웨어하우스를 프로비전할 수 있습니다. 다음 문서는 데이터 웨어하우스를 관리하고 모니터링하는 데 도움이 됩니다. 또한 데이터 웨어하우스의 사용 현황 및 성능을 최적화하는 방법에 대해서도 알아봅니다.
 
 ## <a name="overview"></a>개요
 
@@ -33,4 +33,4 @@ Synapse SQL을 사용 하면 전용 SQL 풀을 통해 데이터 웨어하우스�
 
 
 ## <a name="next-steps"></a>다음 단계
-방법 가이드는 [전용 SQL 풀 모니터링 및 조정](sql-data-warehouse-manage-monitor.md)을 참조 하세요.
+방법 가이드에 대해서는 [전용 SQL 풀 모니터링 및 조정](sql-data-warehouse-manage-monitor.md)을 참조하세요.

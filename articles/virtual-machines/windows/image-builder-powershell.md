@@ -1,6 +1,6 @@
 ---
-title: PowerShell을 사용 하 여 Azure 이미지 작성기를 사용 하 여 Windows VM 만들기
-description: Azure 이미지 작성기 PowerShell 모듈을 사용 하 여 Windows VM을 만듭니다.
+title: PowerShell을 사용하여 Azure Image Builder로 Windows VM 만들기
+description: Azure Image Builder PowerShell 모듈을 사용하여 Windows VM을 만듭니다.
 author: cynthn
 ms.author: cynthn
 ms.date: 03/02/2021
@@ -10,15 +10,15 @@ ms.subervice: image-builder
 ms.colletion: windows
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 90d09763f2c9e167d6a0a34adbbc444ebad14c46
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101693461"
 ---
-# <a name="preview-create-a-windows-vm-with-azure-image-builder-using-powershell"></a>미리 보기: PowerShell을 사용 하 여 Azure 이미지 작성기를 사용 하 여 Windows VM 만들기
+# <a name="preview-create-a-windows-vm-with-azure-image-builder-using-powershell"></a>미리 보기: PowerShell을 사용하여 Azure Image Builder로 Windows VM 만들기
 
-이 문서에서는 Azure VM 이미지 작성기 PowerShell 모듈을 사용 하 여 사용자 지정 된 Windows 이미지를 만드는 방법을 보여 줍니다.
+이 문서에서는 Azure VM Image Builder PowerShell 모듈을 사용하여 사용자 지정된 Windows 이미지를 만드는 방법을 보여 줍니다.
 
 > [!CAUTION]
 > Azure Image Builder는 현재 공개 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공됩니다. 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
@@ -30,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 PowerShell을 로컬로 사용하도록 선택하는 경우 이 문서에서는 Az PowerShell 모듈을 설치하고 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용하여 Azure 계정에 연결해야 합니다. Az PowerShell 모듈을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
 > [!IMPORTANT]
-> **Az builder** 및 **az. ManagedServiceIdentity** PowerShell 모듈은 미리 보기 상태 이지만 `Install-Module` 매개 변수와 함께 cmdlet을 사용 하 여 별도로 설치 해야 합니다 `AllowPrerelease` . 이러한 PowerShell 모듈은 일반적으로 사용할 수 있게 되 면 이후 Az PowerShell module 릴리스의 일부가 되며 Azure Cloud Shell 내에서 기본적으로 사용할 수 있습니다.
+> **Az.ImageBuilder** 및 **Az.ManagedServiceIdentity** PowerShell 모듈이 미리 보기에 있는 동안 `AllowPrerelease` 매개 변수와 함께 `Install-Module` cmdlet을 사용하여 별도로 설치해야 합니다. 이 PowerShell 모듈이 일단 공급되면 이후 Az PowerShell 모듈 릴리스의 기능으로 포함되어 Azure Cloud Shell 내에서 기본적으로 사용할 수 있습니다.
 
 ```azurepowershell-interactive
 'Az.ImageBuilder', 'Az.ManagedServiceIdentity' | ForEach-Object {Install-Module -Name $_ -AllowPrerelease}
@@ -46,7 +46,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ### <a name="register-features"></a>기능 등록
 
-미리 보기 중에 Azure 이미지 작성기를 처음 사용 하는 경우 새 **VirtualMachineTemplatePreview** 기능을 등록 합니다.
+미리 보기 중에 Azure Image Builder를 처음 사용하는 경우 새 **VirtualMachineTemplatePreview** 기능을 등록합니다.
 
 ```azurepowershell-interactive
 Register-AzProviderFeature -ProviderNamespace Microsoft.VirtualMachineImages -FeatureName VirtualMachineTemplatePreview
@@ -55,13 +55,13 @@ Register-AzProviderFeature -ProviderNamespace Microsoft.VirtualMachineImages -Fe
 기능 등록 상태를 확인합니다.
 
 > [!NOTE]
-> 로 변경 하기 전에 **Registrationstate** 는 `Registering` 몇 분 동안 상태일 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
+> **RegistrationState** 는 `Registered`(으)로 변경되기 전 몇 동안 `Registering` 상태에 있을 수 있습니다. **Registered** 상태가 될 때까지 기다린 후에 계속하세요.
 
 ```azurepowershell-interactive
 Get-AzProviderFeature -ProviderNamespace Microsoft.VirtualMachineImages -FeatureName VirtualMachineTemplatePreview
 ```
 
-아직 등록 되지 않은 경우 Azure 구독에 사용할 다음 리소스 공급자를 등록 합니다.
+아직 등록되지 않은 경우 Azure 구독에 사용할 다음 리소스 공급자를 등록합니다.
 
 - Microsoft.Compute
 - Microsoft.KeyVault
@@ -93,7 +93,7 @@ $imageTemplateName = 'myWinImage'
 $runOutputName = 'myDistResults'
 ```
 
-Azure 구독 ID에 대 한 변수를 만듭니다. `subscriptionID`변수에 구독 ID가 포함 되어 있는지 확인 하려면 다음 예제에서 두 번째 줄을 실행할 수 있습니다.
+Azure 구독 ID에 대한 변수를 만듭니다. `subscriptionID` 변수에 구독 ID가 포함되어 있는지 확인하기 위해 다음 예제에서 두 번째 행을 실행할 수 있습니다.
 
 ```azurepowershell-interactive
 # Your Azure Subscription ID
@@ -105,17 +105,17 @@ Write-Output $subscriptionID
 
 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet을 사용하여 [Azure 리소스 그룹](../../azure-resource-manager/management/overview.md)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다.
 
-다음 예제에서는 `$location` 변수에 지정된 지역의 `$imageResourceGroup` 변수 이름을 기반으로 리소스 그룹을 만듭니다. 이 리소스 그룹은 이미지 구성 템플릿 아티팩트와 이미지를 저장 하는 데 사용 됩니다.
+다음 예제에서는 `$location` 변수에 지정된 지역의 `$imageResourceGroup` 변수 이름을 기반으로 리소스 그룹을 만듭니다. 해당 리소스 그룹은 이미지 구성 템플릿 아티팩트와 해당 이미지를 저장하는 데에 사용됩니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name $imageResourceGroup -Location $location
 ```
 
-## <a name="create-user-identity-and-set-role-permissions"></a>사용자 id 만들기 및 역할 권한 설정
+## <a name="create-user-identity-and-set-role-permissions"></a>사용자 ID 만들기 및 역할 권한 설정
 
-다음 예제를 사용 하 여 지정 된 리소스 그룹에서 이미지를 만들 수 있는 Azure 이미지 작성기 권한을 부여 합니다. 이 권한이 없으면 이미지 빌드 프로세스가 성공적으로 완료 되지 않습니다.
+다음 예제를 사용하여 지정된 리소스 그룹에서 이미지를 만들 수 있는 Azure Image Builder 권한을 부여합니다. 이 권한이 없으면 이미지 빌드 프로세스가 성공적으로 완료되지 않습니다.
 
-역할 정의 및 id 이름에 대 한 변수를 만듭니다. 이 기본값은 고유해야 합니다.
+역할 정의 및 ID 이름에 대한 변수를 만듭니다. 이 기본값은 고유해야 합니다.
 
 ```azurepowershell-interactive
 [int]$timeInt = $(Get-Date -UFormat '%s')
@@ -123,13 +123,13 @@ $imageRoleDefName = "Azure Image Builder Image Def $timeInt"
 $identityName = "myIdentity$timeInt"
 ```
 
-사용자 id를 만듭니다.
+사용자 ID를 만듭니다.
 
 ```azurepowershell-interactive
 New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName
 ```
 
-변수에 id 리소스 및 보안 주체 Id를 저장 합니다.
+변수에 ID 리소스 및 보안 주체 ID를 저장합니다.
 
 ```azurepowershell-interactive
 $identityNameResourceId = (Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).Id
@@ -138,7 +138,7 @@ $identityNamePrincipalId = (Get-AzUserAssignedIdentity -ResourceGroupName $image
 
 ### <a name="assign-permissions-for-identity-to-distribute-images"></a>ID에서 이미지를 배포하기 위한 권한 할당
 
-Json 구성 파일을 다운로드 하 고이 문서에 정의 된 설정에 따라 수정 합니다.
+.json 구성 파일을 다운로드하고 이 문서에 정의된 설정에 따라 수정합니다.
 
 ```azurepowershell-interactive
 $myRoleImageCreationUrl = 'https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json'
@@ -159,7 +159,7 @@ $Content | Out-File -FilePath $myRoleImageCreationPath -Force
 New-AzRoleDefinition -InputFile $myRoleImageCreationPath
 ```
 
-이미지 작성기 서비스 주체에 역할 정의를 부여 합니다.
+Image Builder 서비스 주체에 역할 정의를 부여합니다.
 
 ```azurepowershell-interactive
 $RoleAssignParams = @{
@@ -171,7 +171,7 @@ New-AzRoleAssignment @RoleAssignParams
 ```
 
 > [!NOTE]
-> "_AzRoleDefinition: 역할 정의 제한이 초과 되었습니다. 더 이상 역할 정의를 만들 수 없습니다._" [Azure RBAC 문제 해결](../../role-based-access-control/troubleshooting.md)을 참조 하세요.
+> "_AzRoleDefinition: 역할 정의 제한이 초과되었습니다. 더 이상 역할 정의를 만들 수 없습니다._ " 오류 메시지가 나타나면 [Azure RBAC 문제 해결](../../role-based-access-control/troubleshooting.md)을 참조하세요.
 
 ## <a name="create-a-shared-image-gallery"></a>Shared Image Gallery 만들기
 
@@ -203,7 +203,7 @@ New-AzGalleryImageDefinition @GalleryParams
 
 ## <a name="create-an-image"></a>이미지 만들기
 
-Azure 이미지 작성기 원본 개체를 만듭니다. 유효한 매개 변수 값 [은 Azure PowerShell를 사용 하 여 Azure Marketplace에서 WINDOWS VM 이미지 찾기](./cli-ps-findimage.md) 를 참조 하세요.
+Azure Image Builder 원본 개체를 만듭니다. 유효한 매개 변수 값은 [Azure PowerShell을 사용하여 Azure Marketplace에서 Windows VM 이미지 찾기](./cli-ps-findimage.md)를 참조하세요.
 
 ```azurepowershell-interactive
 $SrcObjParams = @{
@@ -216,7 +216,7 @@ $SrcObjParams = @{
 $srcPlatform = New-AzImageBuilderSourceObject @SrcObjParams
 ```
 
-Azure 이미지 작성기 배포자 개체를 만듭니다.
+Azure Image Builder 배포자 개체를 만듭니다.
 
 ```azurepowershell-interactive
 $disObjParams = @{
@@ -230,7 +230,7 @@ $disObjParams = @{
 $disSharedImg = New-AzImageBuilderDistributorObject @disObjParams
 ```
 
-Azure 이미지 작성기 사용자 지정 개체를 만듭니다.
+Azure Image Builder 사용자 지정 개체를 만듭니다.
 
 ```azurepowershell-interactive
 $ImgCustomParams01 = @{
@@ -242,7 +242,7 @@ $ImgCustomParams01 = @{
 $Customizer01 = New-AzImageBuilderCustomizerObject @ImgCustomParams01
 ```
 
-두 번째 Azure 이미지 빌더 사용자 지정 개체를 만듭니다.
+두 번째 Azure Image Builder 사용자 지정 개체를 만듭니다.
 
 ```azurepowershell-interactive
 $ImgCustomParams02 = @{
@@ -254,7 +254,7 @@ $ImgCustomParams02 = @{
 $Customizer02 = New-AzImageBuilderCustomizerObject @ImgCustomParams02
 ```
 
-Azure 이미지 작성기 템플릿을 만듭니다.
+Azure Image Builder 템플릿을 만듭니다.
 
 ```azurepowershell-interactive
 $ImgTemplateParams = @{
@@ -269,40 +269,40 @@ $ImgTemplateParams = @{
 New-AzImageBuilderTemplate @ImgTemplateParams
 ```
 
-완료 되 면 메시지가 반환 되 고에 이미지 작성기 구성 템플릿이 생성 됩니다 `$imageResourceGroup` .
+완료되면 메시지가 반환되고 `$imageResourceGroup`에 Image Builder 구성 템플릿이 생성됩니다.
 
-템플릿 생성 프로세스가 성공 했는지 확인 하기 위해 다음 예제를 사용할 수 있습니다.
+템플릿 생성 프로세스가 성공 하는지 확인하기 위해 다음 예제를 사용할 수 있습니다.
 
 ```azurepowershell-interactive
 Get-AzImageBuilderTemplate -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup |
   Select-Object -Property Name, LastRunStatusRunState, LastRunStatusMessage, ProvisioningState
 ```
 
-배경에서 이미지 작성기는 구독에 준비 리소스 그룹도 만듭니다. 이 리소스 그룹은 이미지 빌드에 사용 됩니다. 형식 `IT_<DestinationResourceGroup>_<TemplateName>` 입니다.
+Image Builder는 또한 백그라운드에서 구독에 준비 리소스 그룹을 만듭니다. 해당 리소스 그룹은 이미지 빌드에 사용됩니다. `IT_<DestinationResourceGroup>_<TemplateName>` 형식으로 되어 있습니다.
 
 > [!WARNING]
-> 스테이징 리소스 그룹을 직접 삭제 하지 마십시오. 이미지 템플릿 아티팩트를 삭제 하면 준비 리소스 그룹이 삭제 됩니다.
+> 준비 리소스 그룹을 바로 삭제하지 마세요. 이미지 템플릿 아티팩트를 삭제하면 준비 리소스 그룹도 따라서 삭제됩니다.
 
-이미지 구성 템플릿 전송 중에 서비스에서 오류를 보고 하면 다음을 수행 합니다.
+이미지 구성 템플릿 제출 중에 서비스에서 오류를 보고하면 다음을 수행합니다.
 
-- [AZURE VM 이미지 빌드 (AIB) 오류 문제 해결](../linux/image-builder-troubleshoot.md)을 참조 하세요.
-- 다음 예제를 사용 하 여 템플릿을 삭제 한 후 다시 시도 하십시오.
+- [AIB(Azure VM Image Build) 실패 문제 해결](../linux/image-builder-troubleshoot.md)을 참조하세요.
+- 다음 예제를 사용하여 템플릿을 삭제한 후 다시 시도하세요.
 
 ```azurepowershell-interactive
 Remove-AzImageBuilderTemplate -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup
 ```
 
-## <a name="start-the-image-build"></a>이미지 빌드를 시작 합니다.
+## <a name="start-the-image-build"></a>이미지 빌드 시작
 
-이미지 구성을 VM 이미지 빌더 서비스에 제출 합니다.
+이미지 구성을 VM Image Builder 서비스에 제출합니다.
 
 ```azurepowershell-interactive
 Start-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $imageTemplateName
 ```
 
-이미지 빌드 프로세스가 완료 될 때까지 기다립니다. 이 단계는 최대 한 시간 정도 걸릴 수 있습니다.
+이미지 빌드 프로세스가 완료될 때까지 기다립니다. 이 단계는 최대 1시간이 걸릴 수 있습니다.
 
-오류가 발생 하는 경우 [AZURE AIB (VM 이미지 빌드) 오류 문제 해결](../linux/image-builder-troubleshoot.md)을 검토 하세요.
+오류가 발생하는 경우 [AIB(Azure VM Image Build) 실패 문제 해결](../linux/image-builder-troubleshoot.md)을 검토하세요.
 
 ## <a name="create-a-vm"></a>VM 만들기
 
@@ -312,7 +312,7 @@ VM의 로그인 자격 증명을 변수에 저장합니다. 암호는 복잡해�
 $Cred = Get-Credential
 ```
 
-만든 이미지를 사용 하 여 VM을 만듭니다.
+빌드한 이미지를 사용해 VM을 만듭니다.
 
 ```azurepowershell-interactive
 $ArtifactId = (Get-AzImageBuilderRunOutput -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup).ArtifactId
@@ -322,25 +322,25 @@ New-AzVM -ResourceGroupName $imageResourceGroup -Image $ArtifactId -Name myWinVM
 
 ## <a name="verify-the-customizations"></a>사용자 지정 확인
 
-VM을 만들 때 설정한 사용자 이름 및 암호를 사용하여 VM에 대한 원격 데스크톱 연결을 만듭니다. VM 내에서 PowerShell을 열고 `Get-Content` 다음 예제와 같이를 실행 합니다.
+VM을 만들 때 설정한 사용자 이름 및 암호를 사용하여 VM에 대한 원격 데스크톱 연결을 만듭니다. VM 내에서 PowerShell을 열고 다음 예제와 같이 `Get-Content`을(를) 실행합니다.
 
 ```azurepowershell-interactive
 Get-Content -Path C:\buildActions\buildActionsOutput.txt
 ```
 
-이미지 사용자 지정 프로세스 중에 만들어진 파일의 내용에 따라 출력이 표시 됩니다.
+이미지 사용자 지정 프로세스 중에 만들어진 파일의 콘텐츠에 따라 출력이 표시되어야 합니다.
 
 ```Output
 Azure-Image-Builder-Was-Here
 ```
 
-동일한 PowerShell 세션에서 다음 예제와 같이 파일이 있는지 확인 하 여 두 번째 사용자 지정이 성공적으로 완료 되었는지 확인 합니다 `c:\buildArtifacts\index.html` .
+동일한 PowerShell 세션에서 다음 예제와 같이 `c:\buildArtifacts\index.html` 파일이 있는지 확인하여 두 번째 사용자 지정이 성공적으로 완료되었는지 확인합니다.
 
 ```azurepowershell-interactive
 Get-ChildItem c:\buildArtifacts\
 ```
 
-결과는 이미지 사용자 지정 프로세스 중에 다운로드 된 파일을 보여 주는 디렉터리 목록 이어야 합니다.
+결과는 이미지 사용자 지정 프로세스 중에 다운로드된 파일을 보여 주는 디렉터리 목록 이어야 합니다.
 
 ```Output
     Directory: C:\buildArtifacts
@@ -355,13 +355,13 @@ Mode                 LastWriteTime         Length Name
 
 이 문서에서 만든 리소스가 필요하지 않은 경우 다음 예제를 실행하여 삭제할 수 있습니다.
 
-### <a name="delete-the-image-builder-template"></a>이미지 작성기 템플릿 삭제
+### <a name="delete-the-image-builder-template"></a>Image Builder 템플릿 삭제
 
 ```azurepowershell-interactive
 Remove-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $imageTemplateName
 ```
 
-### <a name="delete-the-image-resource-group"></a>이미지 리소스 그룹을 삭제 합니다.
+### <a name="delete-the-image-resource-group"></a>이미지 리소스 그룹 삭제
 
 > [!CAUTION]
 > 다음 예제에서는 지정된 리소스 그룹과 해당 그룹에 포함된 모든 리소스를 삭제합니다.
@@ -373,4 +373,4 @@ Remove-AzResourceGroup -Name $imageResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에 사용 된 json 파일의 구성 요소에 대해 자세히 알아보려면 [이미지 작성기 템플릿 참조](../linux/image-builder-json.md)를 참조 하세요.
+이 문서에서 사용한 .json 파일 구성 요소에 대한 자세한 내용은 [Image Builder 템플릿 참조](../linux/image-builder-json.md)를 확인하세요.

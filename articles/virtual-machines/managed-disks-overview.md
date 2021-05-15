@@ -1,6 +1,6 @@
 ---
-title: Azure 디스크 저장소 개요
-description: Vm을 사용할 때 저장소 계정을 처리 하는 Azure managed disks에 대 한 개요입니다.
+title: Azure Disk Storage 개요
+description: VM을 사용할 때 스토리지 계정을 처리해주는 Azure 관리 디스크에 대한 개요
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1
 ms.openlocfilehash: eea5c800d7aa9c8d1e6c0c507136b86ab8bf21f3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104604035"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Azure Managed Disks 소개
@@ -47,7 +47,7 @@ Azure 관리 디스크는 Azure에서 관리하고 Azure Virtual Machines와 함
 
 #### <a name="azure-disk-backup"></a>Azure Disk Backup
 
-Azure Backup는 관리 디스크에서 데이터를 보호 하는 클라우드 기반의 네이티브 백업 솔루션인 Azure 디스크 백업 (미리 보기)을 제공 합니다. 몇 가지 단계를 통해 관리 디스크에 대 한 보호를 구성할 수 있는 간단 하 고 안전 하며 비용 효율적인 솔루션입니다. Azure Disk Backup은 스냅숏 생성을 정기적으로 자동화 하 고 백업 정책을 사용 하 여 구성 된 기간 동안 유지 하 여 관리 디스크에 대 한 스냅숏 수명 주기 관리를 제공 하는 턴키 솔루션을 제공 합니다. Azure 디스크 백업에 대 한 자세한 내용은 [Azure Disk Backup 개요 (미리 보기)](../backup/disk-backup-overview.md)를 참조 하세요.
+Azure Backup은 Azure Disk Backup(미리 보기)을 기본 클라우드 기반 백업 솔루션으로 제공하여 관리 디스크에서 데이터를 보호합니다. 몇 가지 단계를 통해 관리 디스크에 대한 보호를 구성할 수 있는 간단하고 안전하며 비용 효율적인 솔루션입니다. Azure Disk Backup은 관리 디스크의 스냅샷 생성을 정기적으로 자동화하고 백업 정책을 사용하여 구성된 기간 동안 유지함으로써 관리 디스크에 대한 스냅샷 수명 주기 관리를 제공하는 턴키 솔루션을 제공합니다. Azure 디스크 백업에 대한 자세한 내용은 [Azure Disk Backup 개요 (미리 보기)](../backup/disk-backup-overview.md)를 참조하세요.
 
 ### <a name="granular-access-control"></a>세부적인 액세스 제어
 
@@ -63,7 +63,7 @@ vhd를 Azure로 전송하는 방법을 알아보려면 [CLI](linux/disks-upload-
 
 ### <a name="private-links"></a>Private Link
 
-관리 디스크에 대 한 개인 링크 지원을 사용 하 여 네트워크 내부에서 관리 디스크를 가져오거나 내보낼 수 있습니다. Private Link를 사용하면 지역 확장, 재해 복구 및 포렌식 분석을 위해 데이터를 다른 지역으로 내보낼 수 있도록 연결되지 않은 관리 디스크 및 스냅샷에 대한 시간 제한 SAS(공유 액세스 서명) URI를 생성할 수 있습니다. 또한 SAS URI를 사용하여 VHD를 온-프레미스에서 빈 디스크로 직접 업로드할 수 있습니다. 이제 [Private Link](../private-link/private-link-overview.md)를 활용하여 Azure 가상 네트워크 내에서만 수행할 수 있도록 관리 디스크의 내보내기 및 가져오기를 제한할 수 있습니다. Private Link를 사용하면 데이터가 안전한 Microsoft 백본 네트워크 내에서만 이동하도록 할 수 있습니다.
+관리 디스크에 대한 프라이빗 링크 지원은 현재 미리 보기로 제공되며, 관리 디스크를 네트워크 내부로 가져오거나 내보내는 데 사용할 수 있습니다. Private Link를 사용하면 지역 확장, 재해 복구 및 포렌식 분석을 위해 데이터를 다른 지역으로 내보낼 수 있도록 연결되지 않은 관리 디스크 및 스냅샷에 대한 시간 제한 SAS(공유 액세스 서명) URI를 생성할 수 있습니다. 또한 SAS URI를 사용하여 VHD를 온-프레미스에서 빈 디스크로 직접 업로드할 수 있습니다. 이제 [Private Link](../private-link/private-link-overview.md)를 활용하여 Azure 가상 네트워크 내에서만 수행할 수 있도록 관리 디스크의 내보내기 및 가져오기를 제한할 수 있습니다. Private Link를 사용하면 데이터가 안전한 Microsoft 백본 네트워크 내에서만 이동하도록 할 수 있습니다.
 
 관리 디스크를 가져오거나 내보내는 데 Private Link를 사용하도록 설정하는 방법에 대한 자세한 내용은 [CLI](linux/disks-export-import-private-links-cli.md) 또는 [포털](disks-enable-private-links-for-import-export-portal.md) 문서를 참조하세요.
 
@@ -96,11 +96,11 @@ Azure에는 데이터 디스크, OS 디스크 및 임시 디스크라는 3가지
 
 모든 가상 머신은 하나의 연결된 운영 체제 디스크를 갖습니다. OS 디스크에는 VM이 만들어질 때 선택된 OS가 사전 설치되어 있습니다. 이 디스크에는 부팅 볼륨이 포함되어 있습니다.
 
-이 디스크의 최대 용량은 4095 GiB입니다.
+이 디스크의 최대 용량은 4,095GiB입니다.
 
 ### <a name="temporary-disk"></a>임시 디스크
 
-대부분의 Vm에는 관리 디스크가 아닌 임시 디스크가 포함 되어 있습니다. 임시 디스크는 응용 프로그램 및 프로세스를 위한 단기 저장소를 제공 하며 페이지 또는 스왑 파일과 같은 데이터를 저장 하기 위한 것입니다. 임시 디스크의 데이터는 [유지 관리 이벤트](./understand-vm-reboots.md) 또는 [VM을 다시 배포](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 때 손실될 수 있습니다. VM의 표준 다시 부팅이 완료 되 면 임시 디스크의 데이터가 유지 됩니다. 임시 디스크가 없는 Vm에 대 한 자세한 내용은 [로컬 임시 디스크가 없는 AZURE vm 크기](azure-vms-no-temp-disk.md)를 참조 하세요.
+모든 VM은 관리 디스크가 아닌 임시 디스크를 포함합니다. 이러한 임시 디스크는 애플리케이션 및 프로세스에 대한 단기 스토리지를 제공하며, 페이지 또는 스왑 파일과 같은 데이터 저장에만 사용됩니다. 임시 디스크의 데이터는 [유지 관리 이벤트](./understand-vm-reboots.md) 또는 [VM을 다시 배포](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 때 손실될 수 있습니다. VM을 정상적으로 재부팅하는 동안 임시 디스크의 데이터는 유지됩니다. 임시 디스크가 없는 VM에 대한 자세한 내용은 [로컬 임시 디스크가 없는 Azure VM 크기](azure-vms-no-temp-disk.md)를 참조하세요.
 
 Azure Linux VM의 임시 디스크는 일반적으로 /dev/sdb이고, Windows VM의 임시 디스크는 기본적으로 D:입니다. 호스트에서 암호화를 사용하도록 설정하지 않으면 임시 디스크가 서버 쪽 암호화를 통해 암호화되지 않습니다.
 

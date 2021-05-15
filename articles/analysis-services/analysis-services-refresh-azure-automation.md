@@ -7,26 +7,26 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: chlound
 ms.openlocfilehash: 7c801511b6f24cf5ef04d55bb195e3a4c62d7b6d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96491250"
 ---
 # <a name="refresh-with-azure-automation"></a>Azure Automation을 사용하여 새로 고침
 
 Azure Automation과 PowerShell Runbook을 사용하여 Azure Analysis 테이블 형식 모델에서 자동 데이터 새로 고침 작업을 수행할 수 있습니다.  
 
-이 문서의 예제에서는 [SqlServer PowerShell 모듈](/powershell/module/sqlserver/?view=sqlserver-ps&preserve-view=true)을 사용 합니다. 모델 새로 고침을 보여주는 샘플 PowerShell Runbook이 이 문서의 뒷부분에서 제공됩니다.  
+이 문서의 예에서는 [SqlServer PowerShell 모듈](/powershell/module/sqlserver/?view=sqlserver-ps&preserve-view=true)을 사용합니다. 모델 새로 고침을 보여주는 샘플 PowerShell Runbook이 이 문서의 뒷부분에서 제공됩니다.  
 
 ## <a name="authentication"></a>인증
 
-모든 호출은 유효한 Azure Active Directory(OAuth 2) 토큰을 사용하여 인증되어야 합니다.  이 문서의 예제에서는 SPN (서비스 주체)을 사용 하 여 Azure Analysis Services에 인증 합니다. 자세히 알아보려면 [Azure Portal를 사용 하 여 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조 하세요.
+모든 호출은 유효한 Azure Active Directory(OAuth 2) 토큰을 사용하여 인증되어야 합니다.  이 문서의 예에서는 SPN(서비스 사용자 이름)을 사용하여 Azure Analysis Services에 인증합니다. 자세한 내용은 [Azure Portal에서 서비스 사용자 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 > [!IMPORTANT]
-> 다음 예에서는 Azure Analysis Services 방화벽을 사용하지 않는다고 가정합니다. 방화벽이 사용 되는 경우 요청 개시자의 공용 IP 주소를 방화벽 규칙에 포함 해야 합니다.
+> 다음 예에서는 Azure Analysis Services 방화벽을 사용하지 않는다고 가정합니다. 방화벽이 사용되는 경우 요청 개시 장치의 공용 IP 주소가 방화벽 규칙에 포함돼야 합니다.
 
 ### <a name="install-sqlserver-modules-from-powershell-gallery"></a>PowerShell 갤러리에서 SqlServer 모듈을 설치합니다.
 
@@ -54,20 +54,20 @@ Azure Automation과 PowerShell Runbook을 사용하여 Azure Analysis 테이블 
 
 1. Automation 계정에서 서비스 사용자를 안전하게 저장하는 데 사용할 **자격 증명** 리소스를 만듭니다.
 
-    !["자격 증명 추가" 작업이 선택 된 "자격 증명" 페이지를 보여 주는 스크린샷](./media/analysis-services-refresh-azure-automation/6.png)
+    !["자격 증명 추가" 작업이 선택된 "자격 증명" 페이지를 보여주는 스크린샷.](./media/analysis-services-refresh-azure-automation/6.png)
 
-2. 자격 증명에 대한 세부 정보를 입력합니다. **사용자 이름** 에 서비스 사용자 응용 프로그램 ID (appid)를 입력 하 고 **암호** 에 서비스 사용자 암호를 입력 합니다.
+2. 자격 증명에 대한 세부 정보를 입력합니다. **사용자 이름** 에 서비스 사용자 애플리케이션 ID(appid)를 입력하고 **암호** 에는 서비스 사용자 비밀을 입력합니다.
 
     ![자격 증명 만들기](./media/analysis-services-refresh-azure-automation/7.png)
 
 3. Automation Runbook을 가져옵니다.
 
-    !["Runbook 가져오기" 작업을 선택 하 여 "Runbook" 페이지를 보여 주는 스크린샷](./media/analysis-services-refresh-azure-automation/8.png)
+    !["Runbook 가져오기" 작업이 선택된 "Runbook" 페이지를 보여주는 스크린샷.](./media/analysis-services-refresh-azure-automation/8.png)
 
 4. [Refresh-Model.ps1](#sample-powershell-runbook) 파일을 찾고 **이름** 과 **설명** 을 입력한 다음, **만들기** 를 클릭합니다.
 
     > [!NOTE]
-    > 이 문서의 맨 아래에 있는 [샘플 Powershell Runbook](#sample-powershell-runbook) 의 스크립트 섹션을 사용 하 여 Refresh-Model.ps1 라는 파일을 만들고 로컬 컴퓨터에 저장 하 여 Runbook으로 가져옵니다.
+    > 이 문서의 하단에 있는 [샘플 Powershell Runbook](#sample-powershell-runbook) 섹션의 스크립트를 사용하여 Refresh-Model.ps1이라는 파일을 만들고 로컬 컴퓨터에 저장하여 Runbook으로 가져옵니다.
 
     ![Runbook 가져오기](./media/analysis-services-refresh-azure-automation/9.png)
 
@@ -80,7 +80,7 @@ Azure Automation과 PowerShell Runbook을 사용하여 Azure Analysis 테이블 
 
 6. **시작** 을 클릭하여 Runbook을 테스트합니다.
 
-    !["시작" 작업이 선택 된 "개요" 페이지를 보여 주는 스크린샷](./media/analysis-services-refresh-azure-automation/11.png)
+    ![“시작” 작업이 선택된 “개요” 페이지를 보여주는 스크린샷.](./media/analysis-services-refresh-azure-automation/11.png)
 
 7. **DATABASENAME**, **ANALYSISSERVER** 및 **REFRESHTYPE** 매개 변수를 입력한 다음, **확인** 을 클릭합니다. Runbook을 수동으로 실행하는 경우에는 **WEBHOOKDATA** 매개 변수가 필요하지 않습니다.
 

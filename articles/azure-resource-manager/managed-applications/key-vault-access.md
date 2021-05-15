@@ -1,15 +1,15 @@
 ---
-title: 관리 되는 앱을 배포할 때 Key Vault 사용
+title: 관리형 앱을 배포할 때 Key Vault 사용
 description: Managed Applications를 배포하는 경우 Azure Key Vault에서 액세스 비밀 사용하는 방법 보여주기
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 5dc219747b9cc74b6c6aac8ab190ebfbe5ae9b32
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "81458286"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Azure Managed Applications를 배포할 때 Key Vault 비밀 액세스
@@ -52,7 +52,7 @@ ms.locfileid: "81458286"
 
 ## <a name="reference-key-vault-secret"></a>Key Vault 비밀 참조
 
-Key Vault에서 관리 되는 응용 프로그램의 템플릿으로 암호를 전달 하려면 [연결 된 템플릿 또는 중첩 된 템플릿을](../templates/linked-templates.md) 사용 하 고 연결 된 템플릿 또는 중첩 된 템플릿의 매개 변수에서 Key Vault을 참조 해야 합니다. Key Vault의 리소스 ID 및 비밀의 이름을 제공합니다.
+Key Vault에서 관리형 애플리케이션의 템플릿으로 암호를 전달하려면 [연결되거나 중첩된 템플릿](../templates/linked-templates.md)을 사용하고 연결되거나 중첩된 템플릿의 매개 변수에서 Key Vault를 참조해야 합니다. Key Vault의 리소스 ID 및 비밀의 이름을 제공합니다.
 
 ```json
 {

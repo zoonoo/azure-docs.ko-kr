@@ -1,18 +1,18 @@
 ---
-title: Azure Service Fabric API Management 개요
+title: API Management를 사용하는 Azure Service Fabric 개요
 description: 이 문서에서는 Service Fabric 애플리케이션에 대한 게이트웨이로 Azure API Management를 사용하는 것을 소개합니다.
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.openlocfilehash: 32f47d62cc9dda7cc88421dbf616bf69ffe152fc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96575689"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric 및 API Management 개요
 
-일반적으로 클라우드 애플리케이션에는 사용자, 디바이스 또는 기타 애플리케이션 수신을 위한 단일 지점을 제공하는 프런트 엔드 게이트웨이가 필요합니다. Service Fabric에서 게이트웨이는 [ASP.NET Core 응용 프로그램과](service-fabric-reliable-services-communication-aspnetcore.md)같은 상태 비저장 서비스 이거나 트래픽 수신 용으로 설계 된 다른 서비스 (예: [Event Hubs](../event-hubs/index.yml), [IoT Hub](../iot-hub/index.yml)또는 [Azure API Management](../api-management/index.yml)) 일 수 있습니다.
+일반적으로 클라우드 애플리케이션에는 사용자, 디바이스 또는 기타 애플리케이션 수신을 위한 단일 지점을 제공하는 프런트 엔드 게이트웨이가 필요합니다. Service Fabric에서 게이트웨이는 [ASP.NET Core 애플리케이션](service-fabric-reliable-services-communication-aspnetcore.md), 트래픽 수신을 위해 설계된 기타 서비스(예: [Event Hubs](../event-hubs/index.yml), [IoT Hub](../iot-hub/index.yml), [Azure API Management](../api-management/index.yml))와 같은 상태 비저장 서비스일 수 있습니다.
 
 이 문서에서는 Service Fabric 애플리케이션에 대한 게이트웨이로 Azure API Management를 사용하는 것을 소개합니다. API Management는 Service Fabric과 직접 통합되므로 다양한 라우팅 규칙 집합을 사용하여 백 엔드 Service Fabric 서비스에 API를 게시할 수 있습니다.
 
@@ -21,19 +21,19 @@ ms.locfileid: "96575689"
 > [!IMPORTANT]
 > 이 기능은 필수 가상 네트워크 지원으로 인해 API Management의 **프리미엄** 및 **개발자** 계층에서 사용할 수 있습니다.
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>Architecture
 
 공통 Service Fabric 아키텍처는 HTTP API를 노출하는 백 엔드 서비스에 HTTP 호출을 수행하는 단일 페이지 웹 애플리케이션을 사용합니다. [Service Fabric 시작 애플리케이션 예제](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)는 이 아키텍처의 예를 보여 줍니다.
 
 이 시나리오에서는 상태 비저장 웹 서비스가 Service Fabric 애플리케이션에 대한 게이트웨이로 작동합니다. 이 방법에서는 다음 다이어그램에 표시된 것처럼 HTTP 요청을 백 엔드 서비스로 프록시할 수 있는 웹 서비스를 작성해야 합니다.
 
-![상태 비저장 웹 서비스를 Service Fabric 응용 프로그램에 게이트웨이로 사용 하는 방법을 보여 주는 다이어그램입니다.][sf-web-app-stateless-gateway]
+![상태 비저장 웹 서비스가 Service Fabric 애플리케이션에 대한 게이트웨이로 제공되는 방법을 보여 주는 다이어그램입니다.][sf-web-app-stateless-gateway]
 
 애플리케이션이 복잡해짐에 따라 다양한 백 엔드 서비스 앞에 API를 제공해야 하는 게이트웨이도 복잡해집니다. Azure API Management는 최소한의 작업으로 라우팅 규칙, 액세스 제어, 속도 제한, 모니터링, 이벤트 로깅 및 응답 캐싱 등 복잡한 API를 처리하기 위해 설계되었습니다. Azure API Management는 Service Fabric 서비스 검색, 파티션 확인, 요청을 Service Fabric의 백 엔드 서비스에 지능적으로 직접 라우팅할 복제본 선택을 지원하므로 사용자 고유의 상태 비저장 API 게이트웨이를 작성할 필요가 없습니다. 
 
 이 시나리오에서 웹 UI는 여전히 웹 서비스를 통해 제공되지만 다음 다이어그램처럼 HTTP API 호출은 API Management를 통해 관리 및 라우팅됩니다.
 
-![웹 서비스를 통해 웹 UI를 계속 제공 하는 방법을 보여 주는 다이어그램으로, HTTP API 호출은 Azure API Management를 통해 관리 및 라우팅됩니다.][sf-apim-web-app]
+![HTTP API 호출이 Azure API Management를 통해 관리 및 라우팅되어도 여전히 웹 UI가 웹 서비스를 통해 제공되는 방법을 보여 주는 다이어그램입니다.][sf-apim-web-app]
 
 ## <a name="application-scenarios"></a>애플리케이션 시나리오
 
@@ -43,13 +43,13 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
 
 ## <a name="send-traffic-to-a-stateless-service"></a>트래픽을 상태 비저장 서비스로 보내기
 
-가장 간단한 경우, 트래픽은 상태 비저장 서비스 인스턴스로 전달됩니다. 이를 위해 API Management 작업에는 Service Fabric 백 엔드에서 특정 상태 비저장 서비스 인스턴스에 매핑되는 Service Fabric 백 엔드가 있는 인바운드 처리 정책이 포함됩니다. 해당 서비스에 전송 된 요청은 임의의 서비스 인스턴스로 전송 됩니다.
+가장 간단한 경우, 트래픽은 상태 비저장 서비스 인스턴스로 전달됩니다. 이를 위해 API Management 작업에는 Service Fabric 백 엔드에서 특정 상태 비저장 서비스 인스턴스에 매핑되는 Service Fabric 백 엔드가 있는 인바운드 처리 정책이 포함됩니다. 해당 서비스에 전송된 요청은 서비스의 임의 인스턴스로 전송됩니다.
 
 **예제**
 
 다음 시나리오에서 Service Fabric 애플리케이션에는 내부 HTTP API를 노출하는 `fabric:/app/fooservice` 이름의 상태 비저장 서비스가 포함됩니다. 서비스 인스턴스 이름은 잘 알려져 있으며 API Management 인바운드 처리 정책에 직접 하드 코딩될 수 있습니다. 
 
-![내부 HTTP API를 노출 하는 상태 비저장 서비스를 포함 하는 Service Fabric 응용 프로그램을 보여 주는 다이어그램입니다.][sf-apim-static-stateless]
+![내부 HTTP API를 노출하는 상태 비저장 서비스가 포함된 Service Fabric 애플리케이션을 보여 주는 다이어그램입니다.][sf-apim-static-stateless]
 
 ## <a name="send-traffic-to-a-stateful-service"></a>트래픽을 상태 저장 서비스로 보내기
 
@@ -67,7 +67,7 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
 
 보다 고급 시나리오에서는 요청을 둘 이상의 서비스 인스턴스로 매핑하는 API Management 작업을 정의할 수 있습니다. 이 경우 각 작업은 요청을 들어오는 HTTP 요청의 값(예: URL 경로 또는 쿼리 문자열, 상태 저장 서비스의 경우 서비스 인스턴스 내에 있는 파티션)에 따라 특정 서비스 인스턴스로 매핑하는 정책을 포함합니다.
 
-이를 위해 API Management 작업에는 들어오는 HTTP 요청에서 검색된 값에 따라 Service Fabric 백 엔드에서 상태 비저장 서비스 인스턴스에 매핑되는 Service Fabric 백 엔드가 있는 인바운드 처리 정책이 포함됩니다. 서비스에 대 한 요청은 임의의 서비스 인스턴스로 전송 됩니다.
+이를 위해 API Management 작업에는 들어오는 HTTP 요청에서 검색된 값에 따라 Service Fabric 백 엔드에서 상태 비저장 서비스 인스턴스에 매핑되는 Service Fabric 백 엔드가 있는 인바운드 처리 정책이 포함됩니다. 서비스에 대한 요청은 서비스의 임의 인스턴스로 전송됩니다.
 
 **예제**
 
@@ -80,7 +80,7 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
   - `/api/users/foo`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/foo`로 라우팅됩니다.
   - `/api/users/bar`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/bar`로 라우팅됩니다.
 
-![동적으로 생성 된 이름을 사용 하 여 응용 프로그램의 각 사용자에 대해 새 상태 비저장 서비스 인스턴스가 만들어지는 예를 보여 주는 다이어그램입니다.][sf-apim-dynamic-stateless]
+![동적으로 생성된 이름을 가진 애플리케이션의 각 사용자에 대해 새 상태 비저장 서비스 인스턴스가 생성되는 예를 보여 주는 다이어그램입니다.][sf-apim-dynamic-stateless]
 
 ## <a name="send-traffic-to-multiple-stateful-services"></a>트래픽을 여러 상태 저장 서비스로 보내기
 
@@ -101,7 +101,7 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
 
 각 서비스 인스턴스는 두 파티션을 포함하고 키 범위가 `Int64.MinValue` ~ `Int64.MaxValue`인 Int64 파티션 체계를 사용해서도 분할됩니다. 여기서 파티션 키 컴퓨팅을 위해 어떤 알고리즘이라도 사용할 수 있지만, 백 엔드 정책은 URL 요청 경로에 제공된 `id` 값을 64비트 정수로 변환하여 해당 범위 내에서 파티션 키를 계산합니다. 
 
-![각 서비스 인스턴스가 두 개의 파티션이 있는 Int64 파티션 구성표를 사용 하 여 분할 되 고 MinValue를 Int32.maxvalue로 확장 하는 키 범위가 있음을 보여 주는 다이어그램입니다.][sf-apim-dynamic-stateful]
+![각 서비스 인스턴스도 파티션이 두 개이고 키 범위가 Int64.MinValue ~ Int64.MaxValue인 Int64 파티션 구성표를 사용하여 분할되는 것을 보여 주는 다이어그램입니다.][sf-apim-dynamic-stateful]
 
 ## <a name="next-steps"></a>다음 단계
 

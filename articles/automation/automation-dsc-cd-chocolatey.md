@@ -5,13 +5,13 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.custom: references_regions
-ms.openlocfilehash: bb5f7b5e8214bd3b04bd7b9544ab4bc589f6c4bf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.custom: references_regions, devx-track-azurepowershell
+ms.openlocfilehash: 717561614a3e42995bbce6746839fd9b7cbca37e
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98896328"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834861"
 ---
 # <a name="set-up-continuous-deployment-with-chocolatey"></a>Chocolatey를 사용한 지속적인 배포 설정
 
@@ -47,7 +47,7 @@ Resource Manager 템플릿의 핵심 기능은 프로비저닝되었을 때 VM�
 
 ## <a name="quick-trip-around-the-diagram"></a>간략히 다이어그램 둘러보기
 
-맨 위쪽부터 코드를 작성하고 빌드 및 테스트한 다음, 설치 패키지를 만듭니다. Chocolatey는 MSI, MSU, ZIP 등과 같은 다양한 형태의 설치 패키지를 처리할 수 있습니다. 또한 Chocolatey의 기본 기능이 부족할 경우 PowerShell을 완전히 활용하여 실제 설치를 수행할 수 있습니다. 패키지를 읽을 수 있는 특정 위치, 즉 패키지 리포지토리에 넣습니다. 이 사용 예는 Auzre Blob Storage 계정의 공용 폴더를 사용하지만 어디에나 있을 수 있습니다. Chocolatey는 패키지 메타데이터의 관리를 위해 NuGet 서버 및 기타 제품과 기본적으로 연동됩니다. [이 문서](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) 에서는 이러한 옵션에 대해 설명합니다. 사용 예제는 NuGet을 사용합니다. Nuspec은 패키지에 관한 메타데이터입니다. Nuspec 정보는 NuPkg로 컴파일되고 NuGet 서버에 저장됩니다. 구성에서 이름으로 패키지를 요청하고 NuGet 서버를 참조할 경우 VM의 Chocolatey DSC 리소스가 패키지를 포착하여 설치합니다. 특정 버전의 패키지를 요청할 수도 있습니다.
+맨 위쪽부터 코드를 작성하고 빌드 및 테스트한 다음, 설치 패키지를 만듭니다. Chocolatey는 MSI, MSU, ZIP 등과 같은 다양한 형태의 설치 패키지를 처리할 수 있습니다. 또한 Chocolatey의 기본 기능이 부족할 경우 PowerShell을 완전히 활용하여 실제 설치를 수행할 수 있습니다. 패키지를 읽을 수 있는 특정 위치인 패키지 리포지토리에 넣습니다. 이 사용 예는 Auzre Blob Storage 계정의 공용 폴더를 사용하지만 어디에나 있을 수 있습니다. Chocolatey는 패키지 메타데이터의 관리를 위해 NuGet 서버 및 기타 제품과 기본적으로 연동됩니다. [이 문서](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) 에서는 이러한 옵션에 대해 설명합니다. 사용 예제는 NuGet을 사용합니다. Nuspec은 패키지에 관한 메타데이터입니다. Nuspec 정보는 NuPkg로 컴파일되고 NuGet 서버에 저장됩니다. 구성에서 이름으로 패키지를 요청하고 NuGet 서버를 참조할 경우 VM의 Chocolatey DSC 리소스가 패키지를 포착하여 설치합니다. 특정 버전의 패키지를 요청할 수도 있습니다.
 
 그림의 왼쪽 하단에는 Azure Resource Manager 템플릿이 있습니다. 이 사용 예제에서는 VM 확장이 VM을 Azure Automation State Configuration 풀 서버에 노드로 등록합니다. 구성은 풀 서버에 두 번(일반 텍스트로 한 번, MOF 파일로 컴파일되어 한 번) 저장됩니다. Azure Portal에서 MOF는 단순 구성과 반대로 노드 구성을 나타냅니다. 노드와 관련한 아티팩트이므로 노드가 그 구성을 알고 있습니다. 아래의 세부 정보는 노드 구성을 노드에 할당하는 방법을 보여줍니다.
 
@@ -73,8 +73,8 @@ Resource Manager 템플릿으로 시작하지 않아도 괜찮습니다. VM을 �
 인증된(`Connect-AzAccount`) PowerShell 명령줄에서(풀 서버를 설정하는 데 몇 분 정도 소요될 수 있음):
 
 ```azurepowershell-interactive
-New-AzResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
-New-AzAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
+New-AzResourceGroup -Name MY-AUTOMATION-RG -Location MY-RG-LOCATION-IN-QUOTES
+New-AzAutomationAccount -ResourceGroupName MY-AUTOMATION-RG -Location MY-RG-LOCATION-IN-QUOTES -Name MY-AUTOMATION-ACCOUNT
 ```
 
 Automation 계정을 다음 지역(위치라고도 함) 중 하나에 넣을 수 있습니다. 미국 동부 2, 미국 중남부, US Gov 버지니아, 서유럽, 동남 아시아, 일본 동부, 인도 중부 및 오스트레일리아 남동부, 캐나다 중부, 북유럽 등의 지역(즉, 위치) 중 하나에 놓을 수 있습니다.
@@ -103,7 +103,7 @@ Azure Portal에 최근에 추가된 또 다른 방법을 사용하면 새 모듈
 2. 통합 모듈을 설치합니다.
 
     ```azurepowershell-interactive
-    Install-Module –Name MODULE-NAME`    <—grabs the module from the PowerShell Gallery
+    Install-Module -Name MODULE-NAME`    <—grabs the module from the PowerShell Gallery
     ```
 
 3. **c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME** 의 모듈 폴더를 임시 폴더로 복사합니다.
@@ -119,14 +119,14 @@ Azure Portal에 최근에 추가된 또 다른 방법을 사용하면 새 모듈
     ```azurepowershell-interactive
     New-AzAutomationModule `
       -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
-      -Name MODULE-NAME –ContentLinkUri 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
+      -Name MODULE-NAME -ContentLinkUri 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
     ```
 
 포함된 예제는 cChoco 및xNetworking에 대해 이러한 단계를 구현합니다. 
 
 ## <a name="step-4-add-the-node-configuration-to-the-pull-server"></a>4단계: 노드 구성을 풀 서버에 추가
 
-구성을 풀 서버로 처음 가져와 컴파일하는 데는 별다른 사항이 없습니다. 동일한 구성의 모든 가져오기 또는 컴파일은 동일하게 보입니다. 패키지를 업데이트하고 프러덕션에 푸시해야 할 때마다 구성 파일이 정확한지 확인한 후(새 패키지 버전 포함) 이 단계를 수행합니다. 다음은 구성 파일 **ISVBoxConfig.ps1** 입니다.
+구성을 풀 서버로 처음 가져와 컴파일하는 데는 별다른 사항이 없습니다. 동일한 구성의 모든 가져오기 또는 컴파일은 동일하게 보입니다. 패키지를 업데이트하고 프로덕션으로 푸시해야 할 때마다 패키지의 새로운 버전을 포함하여 구성 파일이 올바른지 확인하고 해당 단계를 수행합니다. 다음은 구성 파일 **ISVBoxConfig.ps1** 입니다.
 
 ```powershell
 Configuration ISVBoxConfig
@@ -175,18 +175,18 @@ Configuration ISVBoxConfig
 
 ```powershell
 Import-AzAutomationDscConfiguration `
-    -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT `
+    -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
     -SourcePath C:\temp\AzureAutomationDsc\ISVBoxConfig.ps1 `
-    -Published –Force
+    -Published -Force
 
 $jobData = Start-AzAutomationDscCompilationJob `
-    -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT `
+    -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
     -ConfigurationName ISVBoxConfig
 
 $compilationJobId = $jobData.Id
 
 Get-AzAutomationDscCompilationJob `
-    -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT `
+    -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
     -Id $compilationJobId
 ```
 

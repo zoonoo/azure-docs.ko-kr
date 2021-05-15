@@ -7,13 +7,13 @@ ms.custom: devx-track-java
 ms.author: jgol
 ms.date: 04/16/2020
 ms.openlocfilehash: 1afd851f5511ce7b880727c36ffb76a7f4c6d5fe
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93376989"
 ---
-# <a name="java-codeless-application-monitoring-on-premises---azure-monitor-application-insights"></a>Java 코드 없는 응용 프로그램 모니터링 온-프레미스 Azure Monitor Application Insights
+# <a name="java-codeless-application-monitoring-on-premises---azure-monitor-application-insights"></a>온-프레미스 Java 코드리스 애플리케이션 모니터링 - Azure Monitor Application Insights
 
 Java 코드리스 애플리케이션 모니터링은 단순성에 관한 것입니다. 코드 변경이 없으며 Java 에이전트는 몇 가지 구성 변경만으로 활성화할 수 있습니다.
 

@@ -16,21 +16,21 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ef8e3a2e733247f713fe0240cb8ef6069803fcb7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103013961"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Media Services에서 Azure Functions 개발
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-이 문서에서는 Media Services를 사용하여 Azure Functions 만들기를 시작하는 방법을 보여 줍니다. 이 문서에 정의된 Azure 함수는 새 MP4 파일에 대한 스토리지 계정 컨테이너 **input** 을 모니터링합니다. 파일이 스토리지 컨테이너에 포함되면 blob 트리거가 함수를 실행합니다. Azure Functions를 검토 하려면 **Azure Functions** 섹션에서 [개요](../../azure-functions/functions-overview.md) 및 기타 항목을 참조 하세요.
+이 문서에서는 Media Services를 사용하여 Azure Functions 만들기를 시작하는 방법을 보여 줍니다. 이 문서에 정의된 Azure 함수는 새 MP4 파일에 대한 스토리지 계정 컨테이너 **input** 을 모니터링합니다. 파일이 스토리지 컨테이너에 포함되면 blob 트리거가 함수를 실행합니다. Azure Functions를 검토하려면 **Azure Functions** 섹션의 [개요](../../azure-functions/functions-overview.md) 및 기타 항목을 참조하세요.
 
 Azure Media Services를 사용하는 기존 Azure Functions를 탐색하고 배포하려는 경우 [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)를 확인하세요. 이 리포지토리는 Blob Storage에서 직접 콘텐츠를 수집하고 Blob Storage에 콘텐츠를 인코딩 및 작성하는 데 관련된 워크플로를 표시하는 데 Media Services를 사용하는 예제를 포함합니다. 또한 WebHooks 및 Azure 큐를 통해 작업 알림을 모니터링하는 방법의 예도 포함되어 있습니다. [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) 리포지토리의 예제를 기반으로 함수를 개발할 수도 있습니다. 함수를 배포하려면 **Azure에 배포** 단추를 누릅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 첫 번째 함수를 만들기 전에 활성 Azure 계정이 있어야 합니다. Azure 계정이 아직 없는 경우 [체험 계정을 사용](https://azure.microsoft.com/free/)할 수 있습니다.
 - AMS(Azure Media Services) 계정에서 작업을 수행하거나 Media Services에서 보낸 이벤트를 수신 대기하는 Azure Functions를 만들려는 경우 [여기](media-services-portal-create-account.md)에 설명한 대로 AMS 계정을 만들어야 합니다.
@@ -67,11 +67,11 @@ Media Services 함수를 개발하는 경우 함수 전체에서 사용할 환�
 2. **C#** 언어 및 **데이터 처리** 시나리오를 선택합니다.
 3. **BlobTrigger** 템플릿을 선택합니다. 이 함수는 Blob이 **input** 컨테이너에 업로드될 때마다 트리거됩니다. **input** 이름은 다음 단계에서 **Path** 에 지정됩니다.
 
-    ![스크린샷에는 BlobTrigger가 선택 된 템플릿 선택 대화 상자가 표시 됩니다.](./media/media-services-azure-functions/media-services-azure-functions004.png)
+    ![스크린샷은 BlobTrigger가 선택된 템플릿 선택 대화 상자를 보여 줍니다.](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
 4. **BlobTrigger** 를 선택하면 페이지에 몇 개의 추가 컨트롤이 표시됩니다.
 
-    ![스크린샷 함수 이름 대화 상자를 표시 합니다.](./media/media-services-azure-functions/media-services-azure-functions005.png)
+    ![스크린샷은 함수의 이름 대화 상자를 보여 줍니다.](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
 4. **만들기** 를 클릭합니다. 
 
@@ -79,11 +79,11 @@ Media Services 함수를 개발하는 경우 함수 전체에서 사용할 환�
 
 Azure Function은 이 섹션에 설명된 코드 파일 및 기타 파일과 연결됩니다. Azure Portal을 사용하여 함수를 만들 경우 **function.json** 및 **run.csx** 가 자동으로 만들어집니다. **project.json** 파일을 추가하고 업로드해야 합니다. 이 섹션의 나머지 부분에서는 각 파일을 간략하게 설명하고 해당 정의를 표시합니다.
 
-![프로젝트의 json 파일을 보여 주는 스크린샷](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![스크린샷은 프로젝트의 json 파일을 보여 줍니다.](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### <a name="functionjson"></a>function.json
 
-function.json 파일은 함수 바인딩 및 기타 구성 설정을 정의합니다. 런타임은 이 파일을 사용하여 모니터링할 이벤트와 함수 실행에서 데이터를 전달하고 반환하는 방법을 결정합니다. 자세한 내용은 [HTTP 및 webhook 바인딩 Azure Functions](../../azure-functions/functions-reference.md#function-code)를 참조 하세요.
+function.json 파일은 함수 바인딩 및 기타 구성 설정을 정의합니다. 런타임은 이 파일을 사용하여 모니터링할 이벤트와 함수 실행에서 데이터를 전달하고 반환하는 방법을 결정합니다. 자세한 내용은 [Azure Functions HTTP 및 웹후크 바인딩](../../azure-functions/functions-reference.md#function-code)을 참조하세요.
 
 >[!NOTE]
 >함수가 실행되지 않도록 **disabled** 속성을 **true** 로 설정합니다. 
@@ -336,7 +336,7 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 함수를 테스트하려면 연결 문자열에 지정한 스토리지 계정의 **input** 컨테이너에 MP4 파일을 업로드해야 합니다.  
 
 1. **StorageConnection** 환경 변수에 지정된 스토리지 계정을 선택합니다.
-2. **Blob** 을 클릭 합니다.
+2. **Blob** 을 클릭합니다.
 3. **+ 컨테이너** 를 클릭합니다. 컨테이너 **입력** 의 이름을 지정합니다.
 4. **업로드** 를 눌러 업로드하려는 .mp4 파일을 찾습니다.
 

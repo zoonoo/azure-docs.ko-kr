@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e5ddffb17c8f5acf16cf89dd58c634b6e404bf7b
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 825fb15d9c3a0a0a44a77d3feec767adc0368add
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749548"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279193"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Azure Private Link와 Key Vault 통합
 
@@ -233,7 +233,7 @@ Aliases:  <your-key-vault-name>.vault.azure.net
     1. 이름이 정확하게 privatelink.vaultcore.azure.net인 프라이빗 DNS 영역 리소스가 있어야 합니다. 
     2. 설정 방법은 다음 링크를 참조하세요. [프라이빗 DNS 영역](../../dns/private-dns-privatednszone.md)
     
-* 프라이빗 DNS 영역이 가상 네트워크에 연결되면 안 됩니다. 반환된 공용 IP 주소를 계속 가져오는 경우에 문제가 발생할 수 있습니다. 
+* 프라이빗 DNS 영역이 가상 네트워크에 연결되어 있는지 확인합니다. 반환된 공용 IP 주소를 계속 가져오는 경우에 문제가 발생할 수 있습니다. 
     1. 프라이빗 영역 DNS가 가상 네트워크에 연결되어 있지 않으면 가상 네트워크에서 시작되는 DNS 쿼리는 키 자격 증명 모음의 공용 IP 주소를 반환합니다. 
     2. Azure Portal에서 프라이빗 DNS 영역 리소스로 이동하여 가상 네트워크 링크 옵션을 클릭합니다. 
     4. 키 자격 증명 모음에 대한 호출을 수행할 가상 네트워크가 나열되어야 합니다. 

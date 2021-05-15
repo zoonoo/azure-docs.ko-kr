@@ -1,21 +1,18 @@
 ---
 title: Azure Security Center의 추가 위협 방지
 description: Azure Security Center에서 Azure Defender 이외에 사용 가능한 다른 위협 방지에 대해 알아보기
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 33c45447-3181-4b75-aa8e-c517e76cd50d
 ms.service: security-center
 ms.topic: overview
-ms.date: 09/15/2020
+ms.date: 04/29/2021
 ms.author: memildin
-ms.openlocfilehash: 5b9e9f5cc5184a083f45999eaeb031eb83b17c58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 656f38bb25a97a0a55b1d968e205907ca228a474
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96754337"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278365"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Azure Security Center의 추가 위협 방지
 또한 Azure Security Center는 기본 제공 [Azure Defender 보호](azure-defender.md)뿐만 아니라 다음과 같은 위협 방지 기능도 제공합니다.
@@ -36,16 +33,8 @@ Security Center 네트워크 계층 분석은 Azure 핵심 라우터에서 수�
 Azure 네트워크 계층 경고 목록은 [경고 참조 표](alerts-reference.md#alerts-azurenetlayer)를 참조하세요.
 
 
-## <a name="threat-protection-for-azure-resource-manager-preview"></a>Azure Resource Manager에 대한 위협 방지(미리 보기)<a name ="management-layer"></a>
-Azure Resource Manager를 기반으로 하는 Security Center의 보호 계층은 현재 미리 보기에 있습니다.
-
-Security Center는 Azure Resource Manager 이벤트를 사용하여 추가 보호 계층을 제공하며, 이는 Azure의 제어 평면으로 간주됩니다. Security Center는 Azure Resource Manager 레코드를 분석하여 Azure 구독 환경에서 비정상적이거나 잠재적으로 유해한 작업을 탐지합니다.
-
-Azure Defender for Resource Manager 경고 목록은 [경고 참조 표](alerts-reference.md#alerts-resourcemanager)를 참조하세요.
-
-
 >[!NOTE]
-> 이전 분석의 일부는 Microsoft Cloud App Security에서 작동됩니다. 이러한 분석을 활용하려면 Cloud App Security 라이선스에 대한 정품 인증을 수행해야 합니다. Cloud App Security 라이선스가 있는 경우 이러한 경고는 기본적으로 사용하도록 설정됩니다. 경고를 사용하지 않도록 설정하려면 다음을 수행합니다.
+> 이러한 분석 중 일부는 Microsoft Cloud App Security에서 제공합니다. 이러한 분석을 활용하려면 Cloud App Security 라이선스에 대한 정품 인증을 수행해야 합니다. Cloud App Security 라이선스가 있는 경우 이러한 경고는 기본적으로 사용하도록 설정됩니다. 경고를 사용하지 않도록 설정하려면 다음을 수행합니다.
 >
 > 1. Security Center 메뉴에서 **가격 책정 및 설정** 을 선택합니다.
 > 1. 변경하려는 구독을 선택합니다.
@@ -54,7 +43,7 @@ Azure Defender for Resource Manager 경고 목록은 [경고 참조 표](alerts-
 
 
 >[!NOTE]
->Security Center는 보안과 관련된 고객 데이터를 리소스와 동일한 지역에 저장합니다. Microsoft에서 Security Center를 해당 리소스의 지역에 아직 배포하지 않은 경우 데이터는 미국에 저장됩니다. Cloud App Security를 사용하도록 설정되는 경우 이 정보는 Cloud App Security의 지리적 위치 규칙에 따라 저장됩니다. 자세한 내용은 [비지역 서비스에 대한 데이터 저장](https://azuredatacentermap.azurewebsites.net/)을 참조하세요.
+> Security Center는 보안과 관련된 고객 데이터를 리소스와 동일한 지역에 저장합니다. Microsoft에서 Security Center를 해당 리소스의 지역에 아직 배포하지 않은 경우 데이터는 미국에 저장됩니다. Cloud App Security를 사용하도록 설정되는 경우 이 정보는 Cloud App Security의 지리적 위치 규칙에 따라 저장됩니다. 자세한 내용은 [비지역 서비스에 대한 데이터 저장](https://azuredatacentermap.azurewebsites.net/)을 참조하세요.
 
 1. 에이전트를 설치할 작업 영역을 설정합니다. 작업 영역이 Security Center에서 사용하는 구독과 동일한 구독에 있어야 하고 작업 영역에 대한 읽기/쓰기 권한이 있어야 합니다.
 

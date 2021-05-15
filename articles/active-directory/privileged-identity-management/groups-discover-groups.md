@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management에서 관리할 그룹 식별-Azure AD | Microsoft Docs
-description: Privileged Identity Management (PIM)에서 권한 있는 액세스 그룹으로 관리 하는 역할 할당 가능 그룹을 등록 하는 방법에 대해 알아봅니다.
+title: Privileged Identity Management에서 관리 그룹 식별-Azure AD | Microsoft Docs
+description: 역할 할당 그룹을 Privileged Identity Management(PIM)에서 권한 있는 액세스 그룹으로 관리하도록 온보딩하는 방법에 대해 알아보세요.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,43 +15,43 @@ ms.date: 08/03/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0c9e2580d2a88fbbab755f0c3df2f923bdc45548
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101688351"
 ---
-# <a name="bring-privileged-access-groups-preview-into-privileged-identity-management"></a>권한 있는 액세스 그룹 (미리 보기)을 Privileged Identity Management로 가져오기
+# <a name="bring-privileged-access-groups-preview-into-privileged-identity-management"></a>권한 있는 액세스 그룹(미리 보기)을 Privileged Identity Management로 가져오기
 
-Azure AD (Azure Active Directory)에서 클라우드 그룹에 Azure AD 기본 제공 역할을 할당 하 여 역할 할당을 관리 하는 방법을 단순화할 수 있습니다. Azure AD 역할을 보호 하 고 액세스를 보호 하기 위해 이제 PIM (Privileged Identity Management)을 사용 하 여 이러한 그룹의 멤버 또는 소유자에 대 한 just-in-time 액세스를 관리할 수 있습니다. Privileged Identity Management에서 Azure AD 역할 할당 가능 그룹을 권한 있는 액세스 그룹으로 관리 하려면 PIM의 관리 대상으로 가져와야 합니다.
+Azure Active Directory(Azure AD)에서는 Azure AD 기본 제공 역할을 클라우드 그룹에 할당하여 역할 할당 관리 방법을 단순화할 수 있습니다. Azure AD 역할을 보호하고 액세스를 확보하기 위해 이제 Privileged Identity Management(PIM)을 사용하여 이러한 그룹의 구성원 또는 소유자에 대한 적시 액세스를 관리할 수 있습니다. Azure AD 역할 할당 그룹을 Privileged Identity Management에서 권한 있는 액세스 그룹으로 관리하려면 해당 그룹을 PIM의 관리 하에 두어야 합니다.
 
-## <a name="identify-groups-to-manage"></a>관리할 그룹 식별
+## <a name="identify-groups-to-manage"></a>관리할 그룹 확인
 
-[Azure Active Directory에서 역할 할당 가능 그룹 만들기](../roles/groups-create-eligible.md)에 설명 된 대로 Azure AD에서 역할 할당 가능한 그룹을 만들 수 있습니다. Privileged Identity Management를 사용 하 여 관리 하는 그룹의 소유자 여야 합니다.
+[Azure Active Directory에서 역할 할당 가능 그룹 생성](../roles/groups-create-eligible.md)에 설명된 대로 Azure AD에서 역할 할당 가능 그룹을 만들 수 있습니다. Privileged Identity Management를 통해 그룹의 소유자가 그룹을 관리하도록 합니다.
 
-1. 권한 있는 역할 관리자 역할 권한을 사용 하 여 [AZURE AD에 로그인](https://aad.portal.azure.com) 합니다.
-1. **그룹** 을 선택한 다음 PIM에서 관리 하려는 역할 할당 가능 그룹을 선택 합니다. 목록을 검색 하 고 필터링 할 수 있습니다.
+1. 권한 있는 역할 관리자 사용 권한으로 [Azure Active Directory에 로그인합니다](https://aad.portal.azure.com).
+1. **그룹** 을 선택한 다음 PIM에서 관리할 역할 할당 가능 그룹을 선택하십시오. 목록을 검색하거나 필터링할 수 있습니다.
 
     ![PIM에서 관리할 역할 할당 가능 그룹 찾기](./media/groups-discover-groups/groups-list-in-azure-ad.png)
 
-1. 그룹을 열고 권한 있는 **액세스 (미리 보기)** 를 선택 합니다.
+1. 그룹을 열고 **권한 있는 액세스(미리 보기)** 를 선택합니다.
 
     ![Privileged Identity Management 환경 열기](./media/groups-discover-groups/groups-discover-groups.png)
 
-1. PIM에서 할당 관리를 시작 합니다.
+1. PIM에서 할당 관리를 시작하십시오.
 
     ![Privileged Identity Management에서 할당 관리](./media/groups-discover-groups/groups-bring-under-management.png)
 
 > [!NOTE]
-> 권한 있는 액세스 그룹을 관리 한 후에는 관리를 수행할 수 없습니다. 이렇게 하면 다른 리소스 관리자가 Privileged Identity Management 설정을 제거할 수 없습니다.
+> 권한 있는 액세스 그룹을 관리하면 해당 그룹을 관리에서 제거할 수 없습니다. 따라서 다른 리소스 관리자가 Privileged Identity Management 설정을 제거하지 못합니다.
 >
 
 > [!IMPORTANT]
-> 권한 있는 액세스 그룹이 Azure Active Directory에서 삭제 되는 경우 권한 있는 액세스 그룹 (미리 보기) 블레이드에서 그룹이 제거 되는 데 최대 24 시간이 걸릴 수 있습니다. 
+> Azure Active Directory에서 권한 있는 액세스 그룹을 삭제하는 경우 권한 있는 액세스 그룹(미리 보기) 블레이드에서 제거되는 데 최대 24 시간이 걸릴 수 있습니다. 
 >
 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Privileged Identity Management에서 권한 있는 액세스 그룹 할당 구성](pim-resource-roles-configure-role-settings.md)
+- [Privileged Identity Management에서 권한 있는 액세스 그룹 설정 구성](pim-resource-roles-configure-role-settings.md)
 - [Privileged Identity Management에서 권한 있는 액세스 그룹 할당](pim-resource-roles-assign-roles.md)

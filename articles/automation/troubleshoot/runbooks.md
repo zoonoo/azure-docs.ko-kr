@@ -5,12 +5,12 @@ services: automation
 ms.date: 02/11/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1ff5adf3ec974cc922d73cf5993a78722ca1b591
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: ea9d8a4899b0d725c9791192d68373b44acee11f
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101723812"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168742"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Runbook 문제 해결
 
@@ -90,12 +90,12 @@ No certificate was found in the certificate store with thumbprint
    ```powershell
    $Cred = Get-Credential
    #Using Azure Service Management
-   Add-AzureAccount –Credential $Cred
+   Add-AzureAccount -Credential $Cred
    #Using Azure Resource Manager
-   Connect-AzAccount –Credential $Cred
+   Connect-AzAccount -Credential $Cred
    ```
 
-1. 인증이 로컬로 실패하면 Azure AD(Azure Active Directory) 자격 증명을 올바르게 설정하지 않은 것입니다. Azure AD 계정을 올바르게 설정 하려면 [Azure Active Directory를 사용 하 여 azure에 인증](../automation-use-azure-ad.md)문서를 참조 하세요.
+1. 인증이 로컬로 실패하면 Azure AD(Azure Active Directory) 자격 증명을 올바르게 설정하지 않은 것입니다. Azure AD 계정을 올바르게 설정하려면 [Azure Active Directory를 사용하여 Azure에 인증](../automation-use-azure-ad.md) 문서를 참조하세요.
 
 1. 일시적인 오류로 표시되면 다시 시도 논리를 인증 루틴에 추가하여 인증을 더 강력하게 합니다.
 
@@ -133,7 +133,7 @@ Run Login-AzureRMAccount to login.
 
 ### <a name="cause"></a>원인
 
-실행 계정을 사용하지 않거나 실행 계정이 만료되었으면 이 오류가 발생할 수 있습니다. 자세한 내용은 [Azure Automation 실행 계정 개요](../automation-security-overview.md#run-as-accounts)를 참조 하세요.
+실행 계정을 사용하지 않거나 실행 계정이 만료되었으면 이 오류가 발생할 수 있습니다. 자세한 내용은 [Azure Automation 실행 계정 개요](../automation-security-overview.md#run-as-accounts)를 참조하세요.
 
 이 오류에는 다음 두 가지 주요 원인이 있습니다.
 
@@ -201,11 +201,11 @@ The subscription named <subscription name> cannot be found.
 
 1. 스크립트가 독립 실행형으로 작동하는지 확인하기 위해 Azure Automation 외부에서 테스트합니다.
 1. `Select-*` cmdlet을 실행하기 전에 스크립트에서 [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet을 실행하는지 확인합니다.
-1. Runbook의 시작 부분에 `Disable-AzContextAutosave –Scope Process`를 추가합니다. 이 cmdlet은 모든 자격 증명이 현재 Runbook의 실행에만 적용되도록 합니다.
+1. Runbook의 시작 부분에 `Disable-AzContextAutosave -Scope Process`를 추가합니다. 이 cmdlet은 모든 자격 증명이 현재 Runbook의 실행에만 적용되도록 합니다.
 1. 오류 메시지가 계속 표시되면 `Connect-AzAccount`에 대한 `AzContext` 매개 변수를 추가하여 코드를 수정한 다음, 코드를 실행합니다.
 
    ```powershell
-   Disable-AzContextAutosave –Scope Process
+   Disable-AzContextAutosave -Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
@@ -223,9 +223,9 @@ Runbook을 실행하면 Runbook에서 Azure 리소스를 관리하지 못합니�
 
 ### <a name="cause"></a>원인
 
-Runbook이 실행 시 올바른 컨텍스트를 사용하지 않습니다. Runbook에서 실수로 잘못 된 구독에 액세스 하려고 했기 때문일 수 있습니다.
+Runbook이 실행 시 올바른 컨텍스트를 사용하지 않습니다. Runbook에서 실수로 잘못된 구독에 액세스하려고 했기 때문일 수 있습니다.
 
-다음과 같은 오류가 표시 될 수 있습니다.
+다음과 같은 오류가 표시될 수 있습니다.
 
 ```error
 Get-AzVM : The client '<automation-runas-account-guid>' with object id '<automation-runas-account-guid>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.
@@ -237,18 +237,18 @@ Get-AzVM : The client '<automation-runas-account-guid>' with object id '<automat
 
 ### <a name="resolution"></a>해결 방법
 
-Runbook에서 여러 Runbook을 호출하면 구독 컨텍스트가 손실될 수 있습니다. 실수로 잘못 된 구독에 액세스를 시도 하지 않도록 하려면 아래 지침을 따라야 합니다.
+Runbook에서 여러 Runbook을 호출하면 구독 컨텍스트가 손실될 수 있습니다. 실수로 잘못된 구독에 액세스하려고 하지 않도록 하려면 아래 지침을 따라야 합니다.
 
-* 잘못 된 구독을 참조 하지 않으려면 각 runbook을 시작할 때 다음 코드를 사용 하 여 Automation runbook에서 컨텍스트 저장을 사용 하지 않도록 설정 합니다.
+* 잘못된 구독을 참조하지 않으려면 각 Runbook을 시작할 때 다음 코드를 사용하여 Automation Runbook에서 컨텍스트 저장을 사용하지 않도록 설정합니다.
 
    ```azurepowershell-interactive
-   Disable-AzContextAutosave –Scope Process
+   Disable-AzContextAutosave -Scope Process
    ```
 
-* Azure PowerShell cmdlet은 매개 변수를 지원 합니다 `-DefaultProfile` . 동일한 프로세스에서 여러 PowerShell 스크립트를 실행 하도록 지원 하기 위해 모든 Az 및 AzureRm cmdlet에 추가 되었습니다 .이를 통해 컨텍스트와 각 cmdlet에 사용할 구독을 지정할 수 있습니다. Runbook을 사용 하 여 runbook을 만들 때 (즉, 계정이 로그인 할 때) runbook에 컨텍스트 개체를 저장 하 고, 변경 될 때마다 Az cmdlet을 지정할 때 컨텍스트를 참조할 수 있습니다.
+* Azure PowerShell cmdlet은 `-DefaultProfile` 매개 변수를 지원합니다. 동일한 프로세스에서 여러 PowerShell 스크립트를 실행하도록 지원하기 위해 모든 Az 및 AzureRm cmdlet에 추가되었습니다. 이를 통해 컨텍스트와 각 cmdlet에 사용할 구독을 지정할 수 있습니다. Runbook을 사용하면 Runbook을 만들 때(즉, 계정이 로그인할 때) 및 변경될 때마다 Runbook에 컨텍스트 개체를 저장하고 Az cmdlet을 지정할 때 컨텍스트를 참조해야 합니다.
 
    > [!NOTE]
-   > [AzContext](/powershell/module/az.accounts/Set-AzContext) 또는 [AzSubscription](/powershell/module/servicemanagement/azure.service/set-azuresubscription)와 같은 cmdlet을 사용 하 여 직접 컨텍스트를 조작 하는 경우에도 컨텍스트 개체를 전달 해야 합니다.
+   > [Set-AzContext](/powershell/module/az.accounts/Set-AzContext) 또는 [Select-AzSubscription](/powershell/module/servicemanagement/azure.service/set-azuresubscription)과 같은 cmdlet을 사용하여 직접 컨텍스트를 조작하는 경우에도 컨텍스트 개체를 전달해야 합니다.
 
    ```azurepowershell-interactive
    $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName 
@@ -279,7 +279,7 @@ Azure 계정에서 다단계 인증을 사용하면 Azure Active Directory 사�
 
 ### <a name="resolution"></a>해결 방법
 
-Azure 클래식 배포 모델 cmdlet에 클래식 실행 계정을 사용 하려면 [azure 서비스를 관리 하는 클래식 실행 계정 만들기](../automation-create-standalone-account.md#create-a-classic-run-as-account)를 참조 하세요. Azure Resource Manager cmdlet에 서비스 주체를 사용하려면 [Azure Portal을 사용하여 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md) 및 [Azure Resource Manager를 사용하여 서비스 주체 인증](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)을 참조하세요.
+Azure 클래식 배포 모델 cmdlet과 함께 클래식 실행 계정을 사용하려면 [Azure 서비스를 관리하는 클래식 실행 계정 만들기](../automation-create-standalone-account.md#create-a-classic-run-as-account)를 참조하세요. Azure Resource Manager cmdlet에 서비스 주체를 사용하려면 [Azure Portal을 사용하여 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md) 및 [Azure Resource Manager를 사용하여 서비스 주체 인증](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)을 참조하세요.
 
 ## <a name="scenario-runbook-fails-with-a-task-was-canceled-error-message"></a><a name="task-was-cancelled"></a>시나리오: "작업이 취소되었습니다." 오류 메시지로 인해 Runbook이 실패함
 
@@ -516,11 +516,11 @@ The quota for the monthly total job run time has been reached for this subscript
 1. **설정**, **가격 책정** 을 차례로 선택합니다.
 1. 페이지 아래쪽에서 **사용** 을 선택하여 계정을 기본 계층으로 업그레이드합니다.
 
-## <a name="scenario-runbook-output-stream-greater-than-1-mb"></a><a name="output-stream-greater-1mb"></a>시나리오: Runbook 출력 스트림이 1mb를 초과 합니다.
+## <a name="scenario-runbook-output-stream-greater-than-1-mb"></a><a name="output-stream-greater-1mb"></a>시나리오: Runbook 출력 스트림이 1MB를 초과함
 
 ### <a name="issue"></a>문제
 
-Azure 샌드박스에서 실행 되는 runbook이 실패 하 고 다음 오류가 발생 합니다.
+Azure 샌드박스에서 실행되는 Runbook에 다음 오류가 발생하면서 실패합니다.
 
 ```error
 The runbook job failed due to a job stream being larger than 1MB, this is the limit supported by an Azure Automation sandbox.
@@ -528,11 +528,11 @@ The runbook job failed due to a job stream being larger than 1MB, this is the li
 
 ### <a name="cause"></a>원인
 
-이 오류는 runbook이 출력 스트림에 너무 많은 예외 데이터를 쓰려고 시도 했기 때문에 발생 합니다.
+Runbook에서 너무 많은 예외 데이터를 출력 스트림에 쓰려고 했습니다.
 
 ### <a name="resolution"></a>해결 방법
 
-작업 출력 스트림에는 1mb 제한이 있습니다. Runbook에서 `try` 및 `catch` 블록을 사용하여 실행 파일 또는 하위 프로세스에 대한 호출을 포함해야 합니다. 작업에서 예외를 throw하는 경우 코드에서 예외의 메시지를 Automation 변수에 쓰도록 합니다. 이 방법은 메시지를 작업 출력 스트림에 쓰지 않도록 방지합니다. 실행 되는 Hybrid Runbook Worker 작업의 경우 1mb로 잘린 출력 스트림은 오류 메시지 없이 표시 됩니다.
+작업 출력 스트림에는 1MB 제한이 있습니다. Runbook에서 `try` 및 `catch` 블록을 사용하여 실행 파일 또는 하위 프로세스에 대한 호출을 포함해야 합니다. 작업에서 예외를 throw하는 경우 코드에서 예외의 메시지를 Automation 변수에 쓰도록 합니다. 이 방법은 메시지를 작업 출력 스트림에 쓰지 않도록 방지합니다. 실행된 Hybrid Runbook Worker 작업의 경우 1MB로 잘린 출력 스트림이 오류 메시지 없이 표시됩니다.
 
 ## <a name="scenario-runbook-job-start-attempted-three-times-but-fails-to-start-each-time"></a><a name="job-attempted-3-times"></a>시나리오: Runbook 작업 시작을 세 번 시도했지만 매번 시작하지 못함
 

@@ -3,14 +3,14 @@ author: v-demjoh
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/15/2020
+ms.date: 04/28/2021
 ms.author: v-demjoh
-ms.openlocfilehash: ec34ba7b2d3bc026376aeb1cb91847d8eac1cac5
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 20c394520e8d4100470c0176c284cf4136e9d3db
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107073487"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227988"
 ---
 ## <a name="download-and-install"></a>다운로드 및 설치
 
@@ -28,8 +28,7 @@ Windows에 Speech CLI를 설치하려면 다음 단계를 수행합니다.
 `spx`를 입력하여 Speech CLI에 대한 도움말을 표시합니다.
 
 > [!NOTE]
-> NuGet의 대안으로, 음성 CLI [zip 보관](https://aka.ms/speech/spx-zips.zip) 파일을 다운로드하여 압축을 풀고, `spx-zips` 디렉터리에서 플랫폼을 찾아서 추출하고, `spx` 경로를 시스템 **PATH** 변수에 추가할 수 있습니다.
-
+> NuGet 대신 Windows용 Speech CLI를 [zip 파일](https://aka.ms/speech/spx-windows)로 다운로드하여 추출할 수 있습니다.
 
 ### <a name="font-limitations"></a>글꼴 제한 사항
 
@@ -60,7 +59,8 @@ x64 CPU에서 Linux에 Speech CLI를 설치하려면 다음 단계를 수행합�
 `spx`를 입력하여 Speech CLI에 대한 도움말을 표시합니다.
 
 > [!NOTE]
-> NuGet의 대안으로, [zip 보관](https://aka.ms/speech/spx-zips.zip)에서 이진 파일을 다운로드하고, 새 `~/spx` 디렉터리로 `spx-netcore-30-linux-x64.zip`를 추출하고, 이진에 `sudo chmod +r+x spx`를 입력하고, PATH 시스템 변수에 `~/spx` 경로를 추가할 수 있습니다.
+> NuGet 대신 Linux 이진 파일을 [zip 파일](https://aka.ms/speech/spx-linux)로 다운로드할 수 있습니다.
+> `spx-netcore-30-linux-x64.zip`을 `~/spx` 디렉터리로 추출하여 이진 파일에 `sudo chmod +r+x spx`를 입력하고 `~/spx` 경로를 PATH 시스템 변수에 추가합니다.
 
 
 #### <a name="docker-install-windows-linux-macos"></a>[Docker 설치(Windows, Linux, macOS)](#tab/dockerinstall)

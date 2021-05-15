@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1e8df39cc836890526b0dad1885f31dc15eaa837
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
-ms.translationtype: MT
+ms.openlocfilehash: 7eb576a3d084630ebe6020b57814f12687dc9bd9
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105629209"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168623"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Azure Automation에서 Runbook 관리
 
@@ -23,7 +23,7 @@ Azure Portal 또는 Windows PowerShell을 사용하여 Azure Automation에서 �
 * [Azure Automation에서 텍스트 Runbook 편집](automation-edit-textual-runbook.md)
 * [Automation Runbook에 대한 주요 Windows PowerShell 워크플로 개념 학습](automation-powershell-workflow.md)
 * [Azure Automation에서 Python 2 패키지 관리](python-packages.md)
-* [Azure Automation에서 Python 3 패키지 (미리 보기) 관리](python-3-packages.md)
+* [Azure Automation에서 Python 3 패키지(미리 보기) 관리](python-3-packages.md)
 
 ### <a name="create-a-runbook-in-the-azure-portal"></a>Azure Portal에서 Runbook 만들기
 
@@ -51,7 +51,7 @@ New-AzAutomationRunbook @params
 
 ## <a name="import-a-runbook"></a>Runbook 가져오기
 
-PowerShell 또는 PowerShell 워크플로 (**ps1**) 스크립트, 그래픽 runbook (**Graphrunbook**) 또는 python 2 또는 python 3 스크립트 (**. py**)를 가져와서 고유한 runbook을 만들 수 있습니다. 다음 사항을 고려하여 가져오기 동안 만들어지는 [Runbook 유형](automation-runbook-types.md)을 지정해야 합니다.
+PowerShell 또는 PowerShell 워크플로( **.ps1**) 스크립트, 그래픽 Runbook( **.graphRunbook**) 또는 Python 2 또는 Python 3 스크립트( **.py**)를 가져와 고유한 Runbook을 만들 수 있습니다. 다음 사항을 고려하여 가져오기 동안 만들어지는 [Runbook 유형](automation-runbook-types.md)을 지정해야 합니다.
 
 * 워크플로가 포함되지 않은 **.ps1** 파일을 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 또는 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)으로 가져올 수 있습니다. PowerShell 워크플로 Runbook으로 가져오는 경우 워크플로로 변환됩니다. 이 경우 변경 내용을 설명하는 주석이 Runbook에 포함됩니다.
 
@@ -204,7 +204,7 @@ Runbook이 시간 제약 조건 내에서 정상적으로 실행되는 경우 �
 
 ## <a name="work-with-multiple-subscriptions"></a>여러 구독 작업
 
-Runbook은 [구독](automation-runbook-execution.md#subscriptions)을 사용하여 작업할 수 있어야 합니다. 예를 들어 여러 구독을 처리하기 위해 Runbook은 [Disable-AzContextAutosave](/powershell/module/Az.Accounts/Disable-AzContextAutosave) cmdlet을 사용합니다. 이 cmdlet을 사용하면 동일한 샌드박스에서 실행되는 다른 Runbook에서 인증 컨텍스트가 검색되지 않습니다. Runbook은 또한 cmdlet을 사용 하 여 `Get-AzContext` 현재 세션의 컨텍스트를 검색 하 고 변수에 할당 `$AzureContext` 합니다.
+Runbook은 [구독](automation-runbook-execution.md#subscriptions)을 사용하여 작업할 수 있어야 합니다. 예를 들어 여러 구독을 처리하기 위해 Runbook은 [Disable-AzContextAutosave](/powershell/module/Az.Accounts/Disable-AzContextAutosave) cmdlet을 사용합니다. 이 cmdlet을 사용하면 동일한 샌드박스에서 실행되는 다른 Runbook에서 인증 컨텍스트가 검색되지 않습니다. Runbook은 또한 `Get-AzContext` cmdlet을 사용하여 현재 세션의 컨텍스트를 검색하고 이를 `$AzureContext` 변수에 할당합니다.
 
 ```powershell
 Disable-AzContextAutosave -Scope Process
@@ -311,7 +311,7 @@ Azure Automation에서의 작업 처리 관련 세부 정보는 [작업](automat
 
 타일을 클릭하면 실행된 모든 작업의 요약 목록이 포함된 작업 페이지가 표시됩니다. 이 페이지에는 각 작업의 상태, Runbook 이름, 시작 시간 및 완료 시간이 표시됩니다.
 
-:::image type="content" source="./media/manage-runbooks/automation-account-jobs-status-blade.png" alt-text="작업 페이지의 스크린샷":::
+:::image type="content" source="./media/manage-runbooks/automation-account-jobs-status-blade.png" alt-text="작업 페이지 스크린샷.":::
 
 **작업 필터링** 을 선택하여 작업 목록을 필터링할 수 있습니다. 드롭다운 목록에서 특정 Runbook, 작업 상태 또는 선택 항목을 필터링하고 검색에 대한 시간 범위를 입력합니다.
 
@@ -319,7 +319,7 @@ Azure Automation에서의 작업 처리 관련 세부 정보는 [작업](automat
 
 또는 Automation 계정의 Runbook 페이지에서 Runbook을 선택하여 특정 Runbook에 대한 작업 요약 세부 정보를 확인한 다음, **작업** 타일을 선택할 수 있습니다. 이 작업은 작업 페이지를 표시합니다. 여기에서 작업 레코드를 클릭하여 세부 정보 및 출력을 볼 수 있습니다.
 
-:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="오류 단추가 강조 표시 된 작업 페이지의 스크린샷":::
+:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="오류 단추가 강조 표시된 작업 페이지의 스크린샷.":::
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>PowerShell을 사용하여 작업 상태 검색
 
@@ -333,7 +333,7 @@ $getJobParams = @{
     ResourceGroupName     = 'MyResourceGroup'
     Runbookname           = 'Test-Runbook'
 }
-$job = (Get-AzAutomationJob @getJobParams | Sort-Object LastModifiedDate –Desc)[0]
+$job = (Get-AzAutomationJob @getJobParams | Sort-Object LastModifiedDate -Desc)[0]
 $job | Select-Object JobId, Status, JobParameters
 
 $getOutputParams = @{

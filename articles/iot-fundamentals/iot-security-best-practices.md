@@ -1,6 +1,6 @@
 ---
 title: IoT(사물 인터넷) 보안 모범 사례
-description: IoT 데이터 및 인프라를 보호 하기 위한 모범 사례
+description: IoT 데이터 및 인프라 보안 유지 모범 사례
 author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: robinsh
 ms.openlocfilehash: 61ddad58a9f61589aae137fb66ad75b37a0cbbe9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "73931168"
 ---
 # <a name="security-best-practices-for-internet-of-things-iot"></a>IoT(사물 인터넷) 보안 모범 사례

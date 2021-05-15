@@ -3,12 +3,12 @@ title: SAP HANA 데이터베이스 백업 오류 문제 해결
 description: Azure Backup를 사용하여 SAP HANA 데이터베이스를 백업하는 경우 발생할 수 있는 일반적인 오류를 해결하는 방법을 설명합니다.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 22800adc323bda8a60278160f24bc559103fb57e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: cdf4c26aa32d65ec63ec84d85e454adaaf2ece8d
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101713340"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517235"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Azure의 SAP HANA 데이터베이스 백업 문제 해결
 
@@ -22,7 +22,7 @@ ms.locfileid: "101713340"
 
 ### <a name="usererrorhanainternalrolenotpresent"></a>UserErrorHANAInternalRoleNotPresent
 
-| **오류 메시지**      | <span style="font-weight:normal">Azure Backup에는 백업을 수행 하는 데 필요한 역할 권한이 없습니다.</span>    |
+| **오류 메시지**      | <span style="font-weight:normal">Azure Backup에 백업을 수행하는 데 필요한 역할 권한이 없습니다.</span>    |
 | ---------------------- | ------------------------------------------------------------ |
 | **가능한 원인**    | 역할을 덮어쓴 것일 수 있습니다.                          |
 | **권장 작업** | 이 문제를 해결하려면 **DB 검색** 창에서 스크립트를 실행하거나 [여기](https://aka.ms/scriptforpermsonhana)에서 다운로드합니다. 또는 워크로드 백업 사용자(AZUREWLBACKUPHANAUSER)에 'SAP_INTERNAL_HANA_SUPPORT' 역할을 추가합니다. |
@@ -31,7 +31,7 @@ ms.locfileid: "101713340"
 
 | 오류 메시지      | <span style="font-weight:normal">HANA 시스템에 연결하지 못했습니다.</span>                        |
 | ------------------ | ------------------------------------------------------------ |
-| **가능한 원인**    | SAP HANA 인스턴스가 작동 중단된 것일 수 있습니다.<br/>HANA 데이터베이스와 상호 작용 하는 Azure Backup에 필요한 권한이 설정 되지 않았습니다. |
+| **가능한 원인**    | SAP HANA 인스턴스가 작동 중단된 것일 수 있습니다.<br/>Azure Backup이 HANA 데이터베이스와 상호 작용하는 데 필요한 사용 권한이 설정되지 않았습니다. |
 | **권장 작업** | SAP HANA 데이터베이스가 작동 중인지 확인합니다. 데이터베이스가 실행 중인 경우 필요한 모든 권한이 설정되어 있는지 확인합니다. 사용 권한이 없는 경우 [사전 등록 스크립트](https://aka.ms/scriptforpermsonhana)를 실행하여 누락된 사용 권한을 추가합니다. |
 
 ### <a name="usererrorhanainstancenameinvalid"></a>UserErrorHanaInstanceNameInvalid
@@ -45,7 +45,7 @@ ms.locfileid: "101713340"
 
 | 오류 메시지      | <span style="font-weight:normal">지정한 SAP HANA 작업이 지원되지 않습니다.</span>              |
 | ------------------ | ------------------------------------------------------------ |
-| **가능한 원인**    | SAP HANA Azure Backup는 SAP HANA native client에서 수행 되는 증분 백업 및 작업을 지원 하지 않습니다 (스튜디오/환경/DBA 환경). |
+| **가능한 원인**    | SAP HANA용 Azure Backup은 SAP HANA 원시 클라이언트(Studio/ Cockpit/ DBA Cockpit)에서 수행되는 증분 백업 및 작업을 지원하지 않습니다. |
 | **권장 작업** | 자세한 내용은 [여기](./sap-hana-backup-support-matrix.md#scenario-support)를 참조하세요. |
 
 ### <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure
@@ -66,7 +66,7 @@ ms.locfileid: "101713340"
 
 | 오류 메시지      | <span style="font-weight:normal">잘못된 Backint 구성이 검색되었습니다.</span>                       |
 | ------------------ | ------------------------------------------------------------ |
-| **가능한 원인**    | 지원 매개 변수가 잘못 지정 된 Azure Backup |
+| **가능한 원인**    | Azure Backup의 지원 매개 변수가 잘못 지정되었습니다. |
 | **권장 작업** | 다음(backint) 매개 변수가 설정되었는지 확인합니다.<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>HOST에 backint 기반 매개 변수가 있는 경우 해당 매개 변수를 제거합니다. 매개 변수가 HOST 수준에 없지만 데이터베이스 수준에서 수동으로 수정된 경우 앞에서 설명한 대로 적절한 값으로 되돌립니다. 또는 Azure Portal에서 [보호 중지 및 백업 데이터 보존](./sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database)을 실행한 후 **백업 다시 시작** 을 선택합니다. |
 
 ### <a name="usererrorincompatiblesrctargetsystemsforrestore"></a>UserErrorIncompatibleSrcTargetSystemsForRestore
@@ -89,8 +89,8 @@ SDC HANA 인스턴스 "H21"이 백업되었다고 가정합니다. 백업 항목
 다음 사항에 유의하세요.
 
 - 기본적으로 복원된 db 이름에는 백업 항목 이름이 채워집니다. 이 경우 h21(sdc)입니다.
-- H11로 대상을 선택 하면 복원 된 db 이름이 자동으로 변경 되지 않습니다. **h11(sdc)로 편집해야 합니다**. SDC와 관련하여 복원된 db 이름은 괄호로 묶은 소문자 'sdc'를 앞에 붙인 대상 인스턴스 ID입니다.
-- SDC는 단일 데이터베이스만 포함할 수 있으므로 복구 지점 데이터를 사용 하 여 기존 데이터베이스 데이터의 재정의를 허용 하는 확인란을 선택 해야 합니다.
+- 대상을 H11로 선택해도 복원된 db 이름은 자동으로 변경되지 않습니다. **h11(sdc)로 편집해야 합니다**. SDC와 관련하여 복원된 db 이름은 괄호로 묶은 소문자 'sdc'를 앞에 붙인 대상 인스턴스 ID입니다.
+- SDC에는 단일 데이터베이스만 있을 수 있으므로 기존 데이터베이스 데이터를 복구 지점 데이터로 재정의하려면 확인란을 선택해야 합니다.
 - Linux는 대/소문자를 구분합니다. 따라서 대/소문자를 유지해야 합니다.
 
 ### <a name="multiple-container-database-mdc-restore"></a>MDC(여러 컨테이너 데이터베이스) 복원
@@ -146,7 +146,7 @@ SID 변경을 발생시키지 않는 OS 업그레이드, SDC 버전 변경 또�
 - 새 OS 버전, SDC 또는 MDC 버전이 현재 [Azure Backup에서 지원](sap-hana-backup-support-matrix.md#scenario-support)되는지 확인합니다.
 - 데이터베이스에 대해 [데이터 보관을 통해 보호 중지](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database)
 - 업그레이드 또는 업데이트 수행
-- 사전 등록 스크립트를 다시 실행합니다. 업그레이드 프로세스에서 [필요한 역할](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does)을 제거 하는 경우가 종종 있습니다. 사전 등록 스크립트를 실행 하면 필요한 모든 역할을 확인 하는 데 도움이 됩니다.
+- 사전 등록 스크립트를 다시 실행합니다. 업그레이드 프로세스에서 [필요한 역할](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does)을 제거하는 경우가 종종 있습니다. 사전 등록 스크립트는 필요한 모든 역할을 확인하는 데 유용합니다.
 - 데이터베이스에 대한 보호 재개
 
 ## <a name="sdc-to-mdc-upgrade-with-no-change-in-sid"></a>SID를 변경하지 않으면서 SDC에서 MDC로 업그레이드
@@ -158,7 +158,7 @@ SID 변경을 발생시키지 않는 SDC에서 MDC로의 업그레이드는 다�
 - 업그레이드를 수행합니다. 완료되면 HANA 시스템은 이제 시스템 DB 및 테넌트 DB가 있는 MDC가 됩니다.
 - [사전 등록 스크립트](https://aka.ms/scriptforpermsonhana)를 다시 실행합니다.
 - Azure Portal에서 동일한 머신에 대한 확장을 다시 등록합니다(**백업** -> **세부 정보 보기** -> 관련 Azure VM 선택 -> 다시 등록).
-- 동일한 VM에 대해 **db** 다시 검색을 선택 합니다. 이 작업을 수행하면 3단계의 새 DB가 SDC가 아닌 SYSTEMDB 및 테넌트 DB로 표시됩니다.
+- 동일한 VM에 대해 **DB 다시 검색** 을 선택합니다. 이 작업을 수행하면 3단계의 새 DB가 SDC가 아닌 SYSTEMDB 및 테넌트 DB로 표시됩니다.
 - 이전 SDC 데이터베이스는 계속 자격 증명 모음에 존재하며 이전에 백업된 데이터는 정책에 따라 보존됩니다.
 - 이러한 데이터베이스에 대한 백업 구성
 
@@ -171,7 +171,7 @@ SID를 변경하는 SDC에서 MDC로의 업그레이드는 다음과 같이 처�
 - 업그레이드를 수행합니다. 완료되면 HANA 시스템은 이제 시스템 DB 및 테넌트 DB가 있는 MDC가 됩니다.
 - 올바른 세부 정보(새 SID 및 MDC)를 사용하여 [사전 등록 스크립트](https://aka.ms/scriptforpermsonhana)를 다시 실행합니다. SID의 변경으로 인해 스크립트를 성공적으로 실행하는 데 문제가 있을 수 있습니다. 문제가 발생하는 경우 Azure Backup 지원 서비스에 문의하세요.
 - Azure Portal에서 동일한 머신에 대한 확장을 다시 등록합니다(**백업** -> **세부 정보 보기** -> 관련 Azure VM 선택 -> 다시 등록).
-- 동일한 VM에 대해 **db** 다시 검색을 선택 합니다. 이 작업을 수행하면 3단계의 새 DB가 SDC가 아닌 SYSTEMDB 및 테넌트 DB로 표시됩니다.
+- 동일한 VM에 대해 **DB 다시 검색** 을 선택합니다. 이 작업을 수행하면 3단계의 새 DB가 SDC가 아닌 SYSTEMDB 및 테넌트 DB로 표시됩니다.
 - 이전 SDC 데이터베이스는 계속 자격 증명 모음에 존재하며 이전에 백업된 데이터는 정책에 따라 보존됩니다.
 - 이러한 데이터베이스에 대한 백업 구성
 
@@ -197,4 +197,4 @@ SID를 변경하는 SDC에서 MDC로의 업그레이드는 다음과 같이 처�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure VM의 SAP HANA 데이터베이스 백업에 대해서는 [질문과 대답](./sap-hana-faq-backup-azure-vm.md)을 검토하세요.
+- Azure VM의 SAP HANA 데이터베이스 백업에 대해서는 [질문과 대답](./sap-hana-faq-backup-azure-vm.yml)을 검토하세요.

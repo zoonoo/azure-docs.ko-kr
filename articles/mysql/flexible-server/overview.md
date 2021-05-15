@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 2f92c0646ef8c14134e8fc2f9b7558519f71fe8d
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 2b1a66c5f277f4aa46a0a8befe3a92a39b04d296
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107931004"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229687"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL - 유연한 서버(미리 보기)
 
@@ -35,7 +35,7 @@ Azure Database for MySQL 유연한 서버는 데이터베이스 관리 기능 �
 
 ## <a name="high-availability-within-and-across-availability-zones"></a>가용성 영역의 고가용성
 
-유연한 서버 배포 모델은 단일 가용성 영역 및 여러 가용성 영역에서 고가용성을 지원하도록 설계되었습니다. 아키텍처는 컴퓨팅과 스토리지를 분리합니다. 데이터베이스 엔진은 가상 머신에서 실행되는 반면, 데이터 파일은 Azure 스토리지에 상주합니다. 스토리지는 데이터베이스 파일의 세 가지 로컬 중복 동기 복사본을 유지하여 항상 데이터 내구성을 보장합니다. 
+유연한 서버 배포 모델은 단일 가용성 영역 및 여러 가용성 영역에서 고가용성을 지원하도록 설계되었습니다. 아키텍처는 컴퓨팅과 스토리지를 분리합니다. 데이터베이스 엔진은 Linux 가상 머신에서 실행되는 반면, 데이터 파일은 원격 Azure 프리미엄 스토리지에 상주합니다. 스토리지는 데이터베이스 파일의 세 가지 로컬 중복 동기 복사본을 유지하여 항상 데이터 내구성을 보장합니다. 
 
 계획되거나 계획되지 않은 이벤트로 인해 서버가 다운되면 서비스는 다음과 같은 자동 절차를 사용하여 서버의 고가용성을 유지합니다.
 

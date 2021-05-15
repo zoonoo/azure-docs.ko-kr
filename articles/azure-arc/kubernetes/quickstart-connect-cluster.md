@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Azure Arc에 기존 Kubernetes 클러스터 연결'
 description: 이 빠른 시작에서는 Azure Arc 지원 Kubernetes 클러스터를 연결하는 방법을 알아봅니다.
-author: mgoedtel
-ms.author: magoedte
+author: mlearned
+ms.author: mlearned
 ms.service: azure-arc
 ms.topic: quickstart
 ms.date: 03/03/2021
 ms.custom: template-quickstart, references_regions, devx-track-azurecli
 keywords: Kubernetes, Arc, Azure, 클러스터
-ms.openlocfilehash: 8da5ba5c4408cb96008c3d9802ce3a5ccdc25f1f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 040f69adf318cb224a56e7838c8abf8e03a60286
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140194"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783696"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>빠른 시작: Azure Arc에 기존 Kubernetes 클러스터 연결 
 
@@ -48,11 +48,8 @@ ms.locfileid: "108140194"
   az extension add --name connectedk8s
   ```
 
-
-
 >[!TIP]
 > `connectedk8s` 확장이 이미 설치되어 있는 경우 다음 명령 - `az extension update --name connectedk8s`를 사용하여 최신 버전으로 업데이트합니다.
-
 
 >[!NOTE]
 >Azure Arc 지원 Kubernetes에서 지원하는 지역 목록은 [여기](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)에서 찾을 수 있습니다.
@@ -148,6 +145,9 @@ eastus      AzureArcTest
 
 > [!TIP]
 > 위치 매개 변수가 지정되지 않은 상태에서 위 명령을 사용하면 동일한 위치에서 Azure Arc 지원 Kubernetes 리소스가 리소스 그룹으로 만들어집니다. 다른 위치에서 Azure Arc 지원 Kubernetes 리소스를 만들려면 `az connectedk8s connect` 명령을 실행할 때 `--location <region>` 또는 `-l <region>`을 지정합니다.
+
+> [!NOTE]
+> 서비스 주체를 사용하여 Azure CLI에 로그인한 경우, 클러스터를 Azure Arc에 연결할 때 사용자 지정 위치 기능을 사용하도록 설정하기 위해 서비스 주체에 대한 [추가 권한](troubleshooting.md#enable-custom-locations-using-service-principal)이 필요합니다.
 
 ## <a name="verify-cluster-connection"></a>클러스터 연결 확인
 

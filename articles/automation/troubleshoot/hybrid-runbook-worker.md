@@ -7,12 +7,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 15a18cbfc3a80bbfea0b92e5b616104dc0f593af
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 565d801fb569f818613fd31b7492c0847eef9a7a
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100580988"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169354"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Hybrid Runbook Worker 문제 해결
 
@@ -42,7 +42,7 @@ Runbook이 3회 실행을 시도한 직후 일시 중단됩니다. Runbook 완�
 
 #### <a name="resolution"></a>해결 방법
 
-컴퓨터의 포트 443에서 **\* azure-automation.net** 에 대 한 아웃 바운드 액세스 권한이 있는지 확인 합니다.
+**.azure-automation.net\*** 에 대한 아웃바운드 액세스 권한이 컴퓨터의 443 포트에 있는지 확인합니다.
 
 Hybrid Runbook Worker가 실행되는 컴퓨터는 작업자가 이 기능을 호스트하도록 구성하기 전에, 최소 하드웨어 요구 사항을 충족해야 합니다. Runbook 및 여기에 사용되는 백그라운드 프로세스로 인해 시스템이 과도하게 사용되어 Runbook 작업이 지연되거나 시간이 초과될 수 있습니다.
 
@@ -128,7 +128,7 @@ Hybrid Runbook Worker가 Azure VM이면 [관리 ID로 Runbook 인증](../automat
 #### <a name="resolution"></a>해결 방법
 
 ##### <a name="mistyped-workspace-id-or-key"></a>잘못 입력한 작업 영역 ID 또는 키
-에이전트의 작업 영역 ID 또는 작업 영역 키를 잘못 입력했는지 확인하려면 Windows 에이전트의 경우 [작업 영역 추가 또는 제거 – Windows 에이전트](../../azure-monitor/agents/agent-manage.md#windows-agent), Linux 에이전트의 경우 [작업 영역 추가 또는 제거 – Linux 에이전트](../../azure-monitor/agents/agent-manage.md#linux-agent)를 참조하세요. Azure Portal에서 주의 깊게 전체 문자열을 선택하고 복사하여 붙여 넣어야 합니다.
+에이전트의 작업 영역 ID 또는 작업 영역 키를 잘못 입력했는지 확인하려면 Windows 에이전트의 경우 [작업 영역 추가 또는 제거 – Windows 에이전트](../../azure-monitor/platform/agent-manage.md#windows-agent), Linux 에이전트의 경우 [작업 영역 추가 또는 제거 – Linux 에이전트](../../azure-monitor/platform/agent-manage.md#linux-agent)를 참조하세요. Azure Portal에서 주의 깊게 전체 문자열을 선택하고 복사하여 붙여 넣어야 합니다.
 
 ##### <a name="configuration-not-downloaded"></a>구성이 다운로드되지 않음
 
@@ -136,21 +136,21 @@ Log Analytics 작업 영역과 Automation 계정은 연결된 지역에 있어�
 
 컴퓨터의 날짜 또는 표준 시간대를 업데이트해야 할 수도 있습니다. 사용자 지정 시간 범위를 선택하는 경우 범위가 UTC(현지 표준 시간대와 다를 수 있음)인지 확인합니다.
 
-### <a name="scenario-set-azstorageblobcontent-fails-on-a-hybrid-runbook-worker"></a><a name="set-azstorageblobcontent-execution-fails"></a>시나리오: Hybrid Runbook Worker에서 Set-AzStorageBlobContent 실패 
+### <a name="scenario-set-azstorageblobcontent-fails-on-a-hybrid-runbook-worker"></a><a name="set-azstorageblobcontent-execution-fails"></a>시나리오: Hybrid Runbook Worker에서 Set-AzStorageBlobContent가 실패 
 
 #### <a name="issue"></a>문제
 
-Runbook이 실행 되려고 할 때 실패 `Set-AzStorageBlobContent` 하 고 다음과 같은 오류 메시지가 표시 됩니다.
+Runbook이 `Set-AzStorageBlobContent`를 실행하려고 할 때 실패하고 다음 오류 메시지가 표시됩니다.
 
 `Set-AzStorageBlobContent : Failed to open file xxxxxxxxxxxxxxxx: Illegal characters in path`
 
 #### <a name="cause"></a>원인
 
- 이 오류는 UNC 경로를 추가 하는에 대 한 호출의 긴 파일 이름 동작으로 인해 발생 `[System.IO.Path]::GetFullPath()` 합니다.
+ 해당 오류는 UNC 경로를 추가하는 `[System.IO.Path]::GetFullPath()`에 대한 호출의 긴 파일 이름 동작으로 인해 발생합니다.
 
 #### <a name="resolution"></a>해결 방법
 
-문제를 해결 하기 위해 다음 콘텐츠를 사용 하 여 라는 구성 파일을 만들 수 있습니다 `OrchestratorSandbox.exe.config` .
+문제를 해결하기 위해 다음 콘텐츠를 사용하여 `OrchestratorSandbox.exe.config`라는 구성 파일을 만들 수 있습니다.
 
 ```azurecli
 <configuration>
@@ -160,12 +160,12 @@ Runbook이 실행 되려고 할 때 실패 `Set-AzStorageBlobContent` 하 고 �
 </configuration>
 ```
 
-이 파일을 실행 파일과 동일한 폴더에 저장 `OrchestratorSandbox.exe` 합니다. 예제:
+해당 파일을 `OrchestratorSandbox.exe` 실행 파일과 동일한 폴더에 두세요. 예제:
 
 `%ProgramFiles%\Microsoft Monitoring Agent\Agent\AzureAutomation\7.3.702.0\HybridAgent`
 
 >[!Note]
-> 에이전트를 업그레이드 하는 경우에는이 구성 파일이 삭제 되므로 다시 만들어야 합니다.
+> 에이전트를 업그레이드하는 경우 해당 구성 파일이 삭제되며 다시 만들어야 합니다.
 
 ## <a name="linux"></a>Linux
 
@@ -249,7 +249,7 @@ PowerShell에서 `Get-Service healthservice` 명령을 입력하여 에이전트
 
 #### <a name="cause"></a>원인
 
-이 문제는 프록시 또는 네트워크 방화벽이 Microsoft Azure와의 통신을 차단하기 때문일 수 있습니다. 컴퓨터의 포트 443에서 **\* azure-automation.net** 에 대 한 아웃 바운드 액세스 권한이 있는지 확인 합니다.
+이 문제는 프록시 또는 네트워크 방화벽이 Microsoft Azure와의 통신을 차단하기 때문일 수 있습니다. **.azure-automation.net\*** 에 대한 아웃바운드 액세스 권한이 컴퓨터의 443 포트에 있는지 확인합니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -257,11 +257,11 @@ PowerShell에서 `Get-Service healthservice` 명령을 입력하여 에이전트
 
 Hybrid Worker는 클라우드에서 실행되는 Runbook 작업이 출력과 메시지를 보내는 것과 동일한 방식으로 Azure Automation에 [Runbook 출력 및 메시지](../automation-runbook-output-and-messages.md)를 보냅니다. Runbook을 활성화하듯이 세부 정보 표시 및 진행률 스트림을 활성화할 수 있습니다.
 
-### <a name="scenario-orchestratorsandboxexe-cant-connect-to-microsoft-365-through-proxy"></a>시나리오: Orchestrator.Sandbox.exe 프록시를 통해 Microsoft 365에 연결할 수 없음
+### <a name="scenario-orchestratorsandboxexe-cant-connect-to-microsoft-365-through-proxy"></a>시나리오: Orchestrator.Sandbox.exe가 프록시를 통해 Microsoft 365에 연결할 수 없음
 
 #### <a name="issue"></a>문제
 
-Windows Hybrid Runbook Worker에서 실행 되는 스크립트는 오 케 스트레이 터 샌드박스에서 Microsoft 365에 정상적으로 연결할 수 없습니다. 이 스크립트는 연결에 [Connect-MsolService](/powershell/module/msonline/connect-msolservice)를 사용하고 있습니다. 
+Windows Hybrid Runbook Worker에서 실행되는 스크립트를 예정대로 오케스트레이터 샌드박스의 Microsoft 365에 연결할 수 없습니다. 이 스크립트는 연결에 [Connect-MsolService](/powershell/module/msonline/connect-msolservice)를 사용하고 있습니다. 
 
 **Orchestrator.Sandbox.exe.config** 를 조정하여 프록시와 바이패스 목록을 설정해도 샌드박스가 제대로 연결되지 않습니다. 프록시 및 바이패스 목록 설정이 동일한 **Powershell_ise.exe.config** 파일이 예상대로 작동하는 것 같습니다. SMA(Service Management Automation) 로그 및 PowerShell 로그는 프록시와 관련된 정보를 제공하지 않습니다.
 
@@ -337,23 +337,23 @@ Start-Service -Name HealthService
 
 #### <a name="issue"></a>문제
 
-Python 스크립트를 사용 하 여 Hybrid Runbook Worker를 추가 하려고 하면 다음과 같은 메시지가 표시 됩니다 `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` .
+`sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` Python 스크립트를 사용하여 Hybrid Runbook Worker를 추가하려고 하면 다음과 같은 메시지가 표시됩니다.
 
 `Unable to register, an existing worker was found. Please deregister any existing worker and try again.`
 
-또한 python 스크립트를 사용 하 여 Hybrid Runbook Worker 등록을 취소 하려고 합니다 `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` .
+또한 `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` Python 스크립트를 사용하여 Hybrid Runbook Worker 등록을 취소하려고 하면 다음과 같은 메시지가 표시됩니다.
 
 `Failed to deregister worker. [response_status=404]`
 
 #### <a name="cause"></a>원인
 
-이 문제는 컴퓨터가 다른 Automation 계정에 이미 등록 되어 있거나, Azure Hybrid Worker 그룹이 삭제 되었거나, 컴퓨터에서 제거 하 고 나 서 Hybrid Runbook Worker를 다시 추가 하려고 할 때 발생할 수 있습니다.
+해당 문제는 머신에서 다른 Automation 계정으로 이미 등록되어 있거나 Azure Hybrid Worker 그룹이 삭제되었거나 머신에서 Hybrid Runbook Worker를 제거한 후 다시 추가하려고 하는 경우 발생할 수 있습니다.
 
 #### <a name="resolution"></a>해결 방법
 
 이 문제를 해결하려면:
 
-1. 에이전트를 제거 `sudo sh onboard_agent.sh --purge` 합니다.
+1. `sudo sh onboard_agent.sh --purge` 에이전트를 제거합니다.
 
 1. 다음 명령을 실행하세요.
 
@@ -363,11 +363,11 @@ Python 스크립트를 사용 하 여 Hybrid Runbook Worker를 추가 하려고 
    sudo mv -f /home/nxautomation/state/worker_diy.key /home/nxautomation/state/worker_diy.key_old
    ```
 
-1. 에이전트를 다시 등록 `sudo sh onboard_agent.sh -w <workspace id> -s <workspace key> -d opinsights.azure.com` 합니다.
+1. `sudo sh onboard_agent.sh -w <workspace id> -s <workspace key> -d opinsights.azure.com` 에이전트를 다시 온보딩합니다.
 
-1. 폴더가 채워질 때까지 기다립니다 `/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker` .
+1. `/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker` 폴더가 채워질 때까지 기다립니다.
 
-1. `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register`Python 스크립트를 다시 시도 하세요.
+1. `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` Python 스크립트를 다시 시도합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

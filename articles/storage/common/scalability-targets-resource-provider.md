@@ -1,6 +1,6 @@
 ---
-title: Azure Storage 리소스 공급자에 대 한 확장성
-description: Azure Storage 리소스 공급자에 대 한 작업의 확장성 및 성능 목표. 리소스 공급자는 Azure Storage에 대 한 Azure Resource Manager를 구현 합니다.
+title: Azure Storage 리소스 공급자에 대한 스케일링 가능성
+description: Azure Storage 리소스 공급자에 대한 작업의 스케일링 가능성 및 성능 목표. 리소스 공급자는 Azure Storage용 Azure Resource Manager를 구현합니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,17 +9,17 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: e7fb118dbc53b36e01c8188b9013a3f739bf0c59
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "75747783"
 ---
-# <a name="scalability-and-performance-targets-for-the-azure-storage-resource-provider"></a>Azure Storage 리소스 공급자에 대 한 확장성 및 성능 목표
+# <a name="scalability-and-performance-targets-for-the-azure-storage-resource-provider"></a>Azure Storage 리소스 공급자에 대한 스케일링 가능성 및 성능 목표
 
 [!INCLUDE [storage-scalability-intro-include](../../../includes/storage-scalability-intro-include.md)]
 
-## <a name="scale-targets-for-the-resource-provider"></a>리소스 공급자에 대 한 크기 조정 대상
+## <a name="scale-targets-for-the-resource-provider"></a>리소스 공급자에 대한 대상 스케일링
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 

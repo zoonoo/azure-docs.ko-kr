@@ -1,6 +1,6 @@
 ---
-title: Azure 센티널 제거 | Microsoft Docs
-description: Azure 센티널 인스턴스를 삭제 하는 방법
+title: Azure Sentinel 제거 | Microsoft Docs
+description: Azure Sentinel 인스턴스를 삭제하는 방법
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,60 +15,60 @@ ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
 ms.openlocfilehash: f9c400b55b0da47495db4f1ff4ceb86aa39fe2cc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90885831"
 ---
 # <a name="remove-azure-sentinel-from-your-workspace"></a>작업 영역에서 Azure Sentinel 제거
 
-Azure 센티널을 더 이상 사용 하지 않으려는 경우이 문서에서는 작업 영역에서 제거 하는 방법을 설명 합니다.
+Azure Sentinel 사용이 더 이상 필요하지 않은 경우, 이를 작업 영역에서 제거하는 방법을 이 문서에서 설명합니다.
 
-## <a name="how-to-remove-azure-sentinel"></a>Azure 센티널을 제거 하는 방법
+## <a name="how-to-remove-azure-sentinel"></a>Azure Sentinel 제거 방법
 
-작업 영역에서 Azure 센티널을 제거 하려면이 프로세스를 수행 합니다.
+작업 영역에서 Azure Sentinel을 제거하려면 이 프로세스를 수행합니다.
 
-1. **Azure 센티널** 로 이동 하 고 **설정** 을 입력 한 다음 **azure 센티널 제거** 탭을 선택 합니다.
+1. **Azure Sentinel** 로 이동하고, **설정** 을 입력한 다음, **Azure Sentinel 제거** 탭을 선택합니다.
 
-1. Azure 센티널을 제거 하기 전에 확인란을 사용 하 여 제거 하는 이유를 알려 주세요.
+1. Azure Sentinel을 제거하기 전에 확인란을 사용하여 제거하는 이유를 당사에 알려 주세요.
 
-1. **작업 영역에서 Azure 센티널 제거를** 선택 합니다.
+1. **작업 영역에서 Azure Sentinel 제거** 를 선택합니다.
     
-    ![SecurityInsights 솔루션을 삭제 합니다.](media/offboard/delete-solution.png)
+    ![SecurityInsights 솔루션 삭제](media/offboard/delete-solution.png)
 
-## <a name="what-happens-behind-the-scenes"></a>백그라운드에서 수행 되는 작업은 무엇 인가요?
+## <a name="what-happens-behind-the-scenes"></a>백그라운드에서 발생하는 일
 
-솔루션을 제거 하는 경우 Azure 센티널은 삭제 프로세스의 첫 번째 단계를 완료 하는 데 최대 48 시간이 걸립니다.
+솔루션을 제거하는 경우 Azure Sentinel을 통해 삭제 프로세스의 첫 번째 단계를 완료하는 데 최대 48시간이 걸립니다.
 
-연결이 끊어진 후에는 오프 보 딩 프로세스가 시작 됩니다.
+연결이 끊어진 것이 식별된 후에는 오프보딩 프로세스가 시작됩니다.
 
-**이러한 커넥터의 구성이 제거 됩니다.**
+**다음 커넥터의 구성이 제거됩니다.**
 -   Office 365
 
 -   AWS
 
--   Microsoft 서비스 보안 경고: Id 용 Microsoft Defender (*이전의 AZURE ATP*), Microsoft Cloud App Security CLOUD DISCOVERY 섀도 IT 보고 기능, Azure AD ID 보호, microsoft Defender for Endpoint (*이전의 microsoft defender ATP*), Azure Defender 경고를 포함 하는 Azure Security Center
+-   Microsoft 서비스 보안 경고: ID용 Microsoft Defender (*이전의 Azure ATP*), Microsoft Cloud App Security (Cloud Discovery Shadow IT 보고 포함), Azure AD Identity Protection, Microsoft Defender for Endpoint (*이전의 Microsoft Defender ATP*), Azure Security Center의 Azure Defender 경고
 
 -   위협 인텔리전스
 
--   일반 보안 로그 (CEF 기반 로그, Barracuda 및 Syslog 포함) (Azure Security Center에서 Azure Defender 경고가 발생 하는 경우 이러한 로그는 계속 수집 됩니다.)
+-   일반 보안 로그(CEF 기반 로그, Barracuda 및 Syslog 포함) (Azure Security Center에서 Azure Defender 경고가 발생하는 경우, 이러한 로그는 계속 수집됩니다.)
 
--   Windows 보안 이벤트 (Azure Security Center에서 Azure Defender 경고가 발생 하는 경우 이러한 로그는 계속 수집 됩니다.)
+-   Windows 보안 이벤트 (Azure Security Center에서 Azure Defender 경고가 발생하는 경우 이러한 로그는 계속 수집됩니다.)
 
-처음 48 시간 이내에 데이터 및 분석 규칙 (실시간 자동화 구성 포함)은 더 이상 Azure 센티널에서 액세스 하거나 쿼리할 수 없습니다.
+처음 48시간 이내에는 데이터 및 분석 규칙(실시간 자동화 구성 포함)에 더 이상 Azure Sentinel에서 액세스하거나 쿼리할 수 ​​없습니다.
 
-**30 일 후에는 다음 리소스가 제거 됩니다.**
+**30일 후에는 다음 리소스가 제거됩니다.**
 
--   인시던트 (조사 메타 데이터 포함)
+-   인시던트(조사 메타 데이터 포함)
 
 -   분석 규칙
 
 -   책갈피
 
-플레이북, 저장된 통합 문서, 저장된 헌팅 쿼리 및 Notebooks는 제거되지 않습니다. **제거 된 데이터로 인해 일부는 중단 될 수 있습니다. 수동으로 제거할 수 있습니다.**
+플레이북, 저장된 통합 문서, 저장된 헌팅 쿼리 및 Notebooks는 제거되지 않습니다. **제거된 데이터로 인해 일부는 중단 될 수 있습니다. 수동으로 이를 제거할 수 있습니다.**
 
-서비스를 제거 하 고 나면 30 일간의 유예 기간이 표시 됩니다 .이 기간 동안에는 솔루션을 다시 사용 하도록 설정 하 고 데이터 및 분석 규칙을 복원할 수 있지만 연결을 끊은 구성 된 커넥터는 다시 연결 해야 합니다.
+서비스를 제거하고 나면 30일 간의 유예 기간이 있습니다. 이 기간 동안에는 솔루션을 다시 사용하도록 설정할 수 있어서 데이터 및 분석 규칙을 복원할 수 있지만, 연결이 끊어진 구성된 커넥터는 다시 연결해야 합니다.
 
 > [!NOTE]
 > 솔루션을 제거하면 구독이 Azure Sentinel 리소스 공급자에 계속 등록됩니다. **수동으로 제거할 수 있습니다.**
@@ -77,5 +77,5 @@ Azure 센티널을 더 이상 사용 하지 않으려는 경우이 문서에서�
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure 센티널 서비스를 제거 하는 방법을 배웠습니다. 사용자의 점을 변경 하 고 다시 설치 하려면 다음을 수행 합니다.
-- [Azure 센티널을 온 보 딩](quickstart-onboard.md)하기 시작 합니다.
+이 문서에서는 Azure Sentinel 서비스를 제거하는 방법을 배웠습니다. 생각이 바뀌어 이를 다시 설치하려면 다음을 수행합니다.
+- [Azure Sentinel 등록](quickstart-onboard.md)을 시작합니다.

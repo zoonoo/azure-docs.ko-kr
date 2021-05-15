@@ -6,30 +6,25 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/08/2021
+ms.date: 04/29/2021
 ms.author: banders
-ms.openlocfilehash: 4cfb5c0b746ab8cf4ebb26ee0f755b34b6289982
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: c3294c09012339cb19f04327f1933688b05ae077
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481432"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321468"
 ---
 # <a name="transfer-azure-subscription-billing-ownership-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 Azure 구독 청구 소유권 이전
 
-기존 청구 소유자가 조직을 떠나거나 청구 계정을 통해 구독 요금을 지불하려는 경우 Azure 구독의 소유권을 가져올 수 있습니다. 소유권을 획득하면 구독 청구 책임이 사용자 계정에 전송됩니다.
-
-이 문서는 Microsoft 고객 계약에 대한 청구 계정에 적용됩니다. [Microsoft 고객 계약에 액세스할 수 있는지 확인하세요](#check-for-access).
-
-청구 소유권을 요청하려면 **청구서 섹션 소유자** 또는 **청구서 섹션 기여자** 여야 합니다. 자세히 알아보려면 [청구서 섹션 역할 작업](understand-mca-roles.md#invoice-section-roles-and-tasks)을 참조하세요.
+다음과 같은 경우 Azure 구독에 대한 청구 소유권을 양도해야 합니다.
+- 구독에 대한 청구 책임을 다른 청구 담당자로 이전하려고 합니다.
+- 한 사용권 계약에서 다른 사용권 계약으로 Azure 구독을 이전하려고 합니다. 예를 들어 기업계약 또는 MOSA(Microsoft 온라인 정기가입 계약)에서 Microsoft 고객 계약으로 이전할 수 있습니다. [Microsoft 고객 계약에 액세스할 수 있는지 확인하세요](#check-for-access).
 
 청구 소유권을 요청하는 사용자는 다음 역할 중 하나를 가지고 있어야 합니다.
-
-- 엔터프라이즈 Microsoft 고객 계약의 경우 사용자는 청구 소유자입니다.
-- 기업계약의 경우 사용자는 청구 소유자여야 합니다.
-- Microsoft Online Service 프로그램 청구 계정의 경우 사용자는 계정 관리자여야 합니다.
-
-자세한 내용은 [Azure Portal에서 청구 계정 보기](view-all-accounts.md)를 참조하세요.
+- Microsoft 고객 계약의 경우 해당 개인에게는 청구 계정 또는 관련 청구 프로필 또는 청구서 섹션에 대한 소유자 또는 기여자 역할이 있어야 합니다. 자세한 내용은 [청구 역할 및 작업](understand-mca-roles.md#invoice-section-roles-and-tasks)을 참조하세요.
+- 기업계약의 경우 개인이 계정 소유자여야 합니다.
+- Microsoft 온라인 정기가입 계약의 경우 해당 개인은 계정 관리자여야 합니다.
 
 ## <a name="request-billing-ownership"></a>청구 소유권 요청
 
@@ -139,6 +134,35 @@ ms.locfileid: "107481432"
 
 다음 섹션에서는 구독 이전에 대한 추가 정보를 제공합니다.
 
+### <a name="cancel-a-prior-support-plan"></a>이전 지원 플랜 취소
+
+Azure 지원 플랜이 있고 모든 Azure 구독을 새 계약으로 이전하는 경우 구독으로는 지원 플랜이 이전되지 않으므로 플랜을 취소해야 합니다. 예를 들어 Microsoft 온라인 정기가입 계약(웹에서 구매한 Azure 구독)을 Microsoft 고객 계약으로 이전할 수 있습니다. 지원 플랜을 취소하려면 다음을 수행합니다.
+
+자격 증명이 새 Microsoft 고객 계약 계정에 액세스하는 데 사용되는 자격 증명과 다를 경우 이전 계정에 대한 계정 관리자 자격 증명을 사용해야 합니다.
+
+1.  [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+1.  **Cost Management + 청구** 로 이동합니다.
+1.  왼쪽 창에서 **청구 범위** 를 선택합니다.
+1.  Microsoft 지원 플랜에 연결된 청구 계정을 선택합니다.
+    - Microsoft 고객 계약의 경우:
+        - 왼쪽 창에서 **반복 청구 요금** 을 선택합니다.
+        - 오른쪽 창에서 지원 플랜 품목의 오른쪽에 있는 줄임표( **...** )를 선택한 다음, **자동 갱신 끔** 을 선택합니다.
+    - MOSA(Microsoft 온라인 정기가입 계약)의 경우:
+        - 왼쪽 창에서 **구독** 을 선택합니다.
+        - 오른쪽 창에서 지원 플랜 구독을 선택한 다음, **취소** 를 선택합니다.
+
+### <a name="access-your-historical-invoices"></a>과거 청구서에 액세스
+
+청구 소유권을 새 Microsoft 고객 계약 계정으로 이전한 후 이전 Microsoft 온라인 정기가입 계약 계정(웹에서 구매한 Azure 구독)에 대한 청구서에 액세스하고자 할 수 있습니다. 이렇게 하려면 다음 단계를 수행합니다.
+
+자격 증명이 새 Microsoft 고객 계약 계정에 액세스하는 데 사용되는 자격 증명과 다를 경우 이전 계정에 대한 계정 관리자 자격 증명을 사용해야 합니다.
+
+1.  [https://portal.azure.com](https://azure.portal.com ) 에서 Azure Portal에 로그인합니다.
+1.  **Cost Management + 청구** 로 이동합니다.
+1.  왼쪽 창에서 **청구 범위** 를 선택합니다.
+1.  Microsoft 온라인 정기가입 계약 계정과 연결된 청구 계정을 선택합니다.
+1.  왼쪽 창에서 **청구서** 를 선택하여 과거 청구서에 액세스합니다.
+
 ### <a name="no-service-downtime"></a>서비스 가동 중지 시간이 없습니다.
 
 구독에 포함된 Azure 서비스는 계속해서 중단 없이 실행됩니다. 사용자가 이전하기 위해 선택하는 Azure 구독에 대한 청구 관계만 전환됩니다.
@@ -162,10 +186,6 @@ EA(기업계약) 구독 또는 Microsoft 고객 계약을 전송하는 경우 Az
 ### <a name="access-to-azure-services"></a>Azure 서비스에 대한 액세스
 
 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 사용하여 할당된 기존 사용자, 그룹 또는 서비스 사용자에 대한 액세스 권한은 전환 중에 영향을 받지 않습니다.
-
-### <a name="azure-support-plan"></a>Azure 지원 플랜
-
-Azure 지원은 구독과 함께 이전되지 않습니다. 사용자가 모든 Azure 구독을 이전하는 경우 지원 계획을 취소하도록 요청하세요.
 
 ### <a name="charges-for-transferred-subscription"></a>이전된 구독의 요금
 

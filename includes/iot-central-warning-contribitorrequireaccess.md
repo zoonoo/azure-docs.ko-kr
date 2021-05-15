@@ -8,12 +8,12 @@ ms.author: philmea
 ms.date: 12/28/2020
 ms.topic: include
 manager: dominicbetts
-ms.openlocfilehash: 94d458edd7ab9357ac5eb318036febd040dd0562
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: cf02b9ff2b17472f4ed107d1460fb578b82e9d23
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107880878"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108211220"
 ---
 > [!WARNING]
 > IoT Central 앱을 만들려면 Azure 구독에 대한 기여자 액세스 권한이 필요합니다. 앱을 만들기 위한 대체 액세스 수준이 있을 수 있지만, 구독에 대한 기여자 수준 액세스 권한을 갖는 것이 권장되는 경로입니다.

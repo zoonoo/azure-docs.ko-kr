@@ -1,6 +1,6 @@
 ---
 title: Azure Portal을 사용하여 Azure Data Box Gateway 문제 해결 | Microsoft Docs
-description: Azure Data Box Gateway에서 문제를 해결 하는 방법을 알아봅니다. 진단을 실행 하 고, 지원 정보를 수집 하 고, 로그를 사용 하 여 문제를 해결할 수 있습니다.
+description: Azure Data Box Gateway에서 문제를 해결하는 방법을 알아봅니다. 진단을 실행하고 지원 정보를 수집하고 로그를 사용하여 문제를 해결할 수 있습니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 03/20/2019
 ms.author: alkohli
 ms.openlocfilehash: e5280805090a83245e287c0b15a1735ee41e934e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96583152"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Azure Data Box Gateway 문제 해결
@@ -30,13 +30,13 @@ ms.locfileid: "96583152"
 
 디바이스 오류를 진단하고 해결하기 위해 진단 테스트를 실행합니다. 진단 테스트를 실행하려면 디바이스의 로컬 웹 UI에서 다음 단계를 수행합니다.
 
-1. 로컬 웹 UI에서 **문제 해결 > 진단 테스트** 로 이동합니다. 실행할 테스트를 선택 하 고 **테스트 실행** 을 클릭 합니다. 그러면 네트워크, 디바이스, 웹 프록시, 시간 또는 클라우드 설정에서 문제가 될만한 내용을 진단하는 테스트가 시작됩니다. 디바이스에서 테스트가 실행 중이라는 알림이 표시됩니다.
+1. 로컬 웹 UI에서 **문제 해결 > 진단 테스트** 로 이동합니다. 실행할 테스트를 선택하고 **테스트 실행** 을 클릭합니다. 그러면 네트워크, 디바이스, 웹 프록시, 시간 또는 클라우드 설정에서 문제가 될만한 내용을 진단하는 테스트가 시작됩니다. 디바이스에서 테스트가 실행 중이라는 알림이 표시됩니다.
 
     ![사용자 추가 클릭](media/data-box-gateway-troubleshoot/run-diag-1.png)
  
 2. 테스트가 완료된 후 결과가 표시됩니다. 테스트가 실패하면 권장 조치에 대한 URL이 표시됩니다. URL을 클릭하면 권장 조치를 볼 수 있습니다. 
  
-    ![사용자 추가 2를 클릭 합니다.](media/data-box-gateway-troubleshoot/run-diag-2.png)
+    ![사용자 2 추가 클릭](media/data-box-gateway-troubleshoot/run-diag-2.png)
 
 
 ## <a name="collect-support-package"></a>지원 패키지 수집
@@ -47,11 +47,11 @@ ms.locfileid: "96583152"
 
 1. 로컬 웹 UI에서 **문제 해결 > 지원** 으로 이동합니다. **지원 패키지 만들기** 를 클릭합니다. 시스템이 지원 패키지를 수집하기 시작합니다. 패키지 수집에는 몇 분 정도 걸릴 수 있습니다.
 
-    ![사용자 추가 3 클릭](media/data-box-gateway-troubleshoot/collect-logs-1.png)
+    ![사용자 3 추가 클릭](media/data-box-gateway-troubleshoot/collect-logs-1.png)
  
 2. 지원 패키지가 생성된 후에는 **지원 패키지 다운로드** 를 클릭합니다. 압축된 패키지가 선택한 경로에 다운로드됩니다. 패키지 압축을 풀 수 있습니다.
 
-    ![사용자 추가 4 클릭](media/data-box-gateway-troubleshoot/collect-logs-2.png)
+    ![사용자 4 추가 클릭](media/data-box-gateway-troubleshoot/collect-logs-2.png)
 
 ## <a name="use-logs-to-troubleshoot"></a>로그를 사용하여 문제 해결
 
@@ -59,7 +59,7 @@ ms.locfileid: "96583152"
 
 1. 오류 파일을 보려면 공유로 이동하여 공유를 클릭하고 콘텐츠를 보십시오. 
 
-      ![사용자 추가 5 클릭](media/data-box-gateway-troubleshoot/troubleshoot-logs-1.png)
+      ![사용자 5 추가 클릭](media/data-box-gateway-troubleshoot/troubleshoot-logs-1.png)
 
 2. _Microsoft Data Box Gateway 폴더_ 를 클릭합니다. 이 폴더에는 두 개의 하위 폴더가 있습니다.
 

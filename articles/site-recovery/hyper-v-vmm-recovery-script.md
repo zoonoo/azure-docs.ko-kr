@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sharrai
 ms.openlocfilehash: 3217c30737a133c1c1092fc4a8a8caaa0338e980
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89425877"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>복구 계획에 VMM 스크립트 추가
@@ -60,9 +60,9 @@ ms.locfileid: "89425877"
 
 VMM 소스 사이트가 있다면 VMM 서버에서 스크립트를 생성할 수 있습니다. 그런 다음, 복구 계획에 스크립트를 추가하면 됩니다.
 
-1. 라이브러리 공유에서 새 폴더를 만듭니다. 예: \<VMM server name> \MSSCVMMLibrary\RPScripts. 폴더를 VMM 서버의 소스와 대상에 배치합니다.
+1. 라이브러리 공유에서 새 폴더를 만듭니다. 예: \<VMM server name>\MSSCVMMLibrary\RPScripts. 폴더를 VMM 서버의 소스와 대상에 배치합니다.
 1. 스크립트를 작성합니다. 여기서는 스크립트의 이름을 RPScript라고 지정하겠습니다. 스크립트가 예상대로 작동하는지 확인합니다.
-1. \<VMM server name>원본 및 대상 VMM 서버의 \MSSCVMMLibrary 폴더에 스크립트를 저장 합니다.
+1. 스크립트를 소스 및 대상 VMM 서버의 \<VMM server name>\MSSCVMMLibrary 폴더에 배치합니다.
 
 ## <a name="add-the-script-to-a-recovery-plan"></a>복구 계획에 스크립트 추가
 

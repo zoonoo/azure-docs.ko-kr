@@ -1,14 +1,14 @@
 ---
-title: 실행 중인 컨테이너 인스턴스에서 명령 실행
+title: 실행 중인 컨테이너 인스턴스에 명령 실행
 description: Azure Container Instances에서 현재 실행 중인 컨테이너에서 명령을 실행하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 03/30/2018
-ms.openlocfilehash: de48e6ac246e2b0751561b4c60bb63d88b599bdf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 42832910efff67f111c669793798d9ff0e413536
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "79247203"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790782"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>실행 중인 Azure Container Instances에서 명령 실행
 
@@ -80,7 +80,7 @@ Bye.
 az container exec --resource-group myResourceGroup --name mynginx --container-name nginx-app --exec-command "/bin/bash"
 ```
 
-## <a name="restrictions"></a>제한
+## <a name="restrictions"></a>제한 사항
 
 현재 Azure Container Instances에서는 [az container exec][az-container-exec]를 사용하여 단일 프로세스를 시작하도록 지원합니다. 또한 명령 인수를 전달할 수 없습니다. 예를 들어 `sh -c "echo FOO && echo BAR"`에서 명령을 연결하거나 `echo FOO`를 실행할 수 없습니다.
 
@@ -89,6 +89,6 @@ az container exec --resource-group myResourceGroup --name mynginx --container-na
 다른 문제 해결 도구 및 일반적인 배포 문제에 대한 자세한 내용은 [Azure Container Instances에서 컨테이너 및 배포 문제 해결](container-instances-troubleshooting.md)에서 자세히 알아봅니다.
 
 <!-- LINKS - internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-exec]: /cli/azure/container#az-container-exec
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-exec]: /cli/azure/container#az_container_exec
 [azure-cli]: /cli/azure

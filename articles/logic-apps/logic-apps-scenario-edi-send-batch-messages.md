@@ -1,6 +1,6 @@
 ---
 title: EDI 메시지를 그룹으로 일괄 처리
-description: Azure Logic Apps에서 일괄 처리를 사용 하 여 EDI 메시지를 일괄 처리, 그룹 또는 컬렉션으로 전송 및 수신
+description: Azure Logic Apps에서 일괄 처리를 사용하여 EDI 메시지를 일괄 처리, 그룹 또는 컬렉션으로 전송 및 수신
 services: logic-apps
 author: divyaswarnkar
 ms.author: divswa
@@ -8,15 +8,15 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/19/2018
 ms.openlocfilehash: 6fc0833f70e3e9cd98100f193b52e5a1bfa4d651
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96000405"
 ---
-# <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>Azure Logic Apps에서 거래 파트너 간의 일괄 처리 또는 그룹으로 EDI 메시지 교환
+# <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>Azure Logic Apps에서 거래 파트너 간에 EDI 메시지를 일괄 처리 또는 그룹으로 교환
 
-B2B (business to business) 시나리오에서 파트너는 종종 그룹이 나 *일괄 처리* 로 메시지를 교환 합니다. Logic Apps를 사용하여 일괄 처리 솔루션을 빌드할 때 거래 파트너에게 메시지를 보내고 해당 메시지를 일괄 처리로 함께 처리할 수 있습니다. 이 문서에서는 X12를 사용하여(예: "일괄 처리 발신자" 논리 앱 및 "일괄 처리 수신자" 논리 앱을 만들어) EDI 메시지를 일괄 처리할 수 있는 방법을 보여줍니다. 
+B2B(Business to Business) 시나리오에서 파트너는 그룹 또는 *일괄 처리* 로 메시지를 교환하는 경우가 많습니다. Logic Apps를 사용하여 일괄 처리 솔루션을 빌드할 때 거래 파트너에게 메시지를 보내고 해당 메시지를 일괄 처리로 함께 처리할 수 있습니다. 이 문서에서는 X12를 사용하여(예: "일괄 처리 발신자" 논리 앱 및 "일괄 처리 수신자" 논리 앱을 만들어) EDI 메시지를 일괄 처리할 수 있는 방법을 보여줍니다. 
 
 X12 메시지 일괄 처리는 다른 메시지를 일괄 처리하는 것처럼 작동합니다. 메시지를 일괄 처리로 수집하는 일괄 처리 트리거 및 일괄 처리에 메시지를 전송하는 일괄 처리 작업을 사용합니다. 또한 X12 일괄 처리는 메시지가 거래 업체 또는 다른 대상으로 이동하기 전에 X12 인코딩 단계를 포함합니다. 일괄 처리 트리거 및 작업에 대해 자세히 알아보려면 [메시지 일괄 처리 프로세스](../logic-apps/logic-apps-batch-process-send-receive-messages.md)를 참조하세요.
 
@@ -30,11 +30,11 @@ X12 메시지 일괄 처리는 다른 메시지를 일괄 처리하는 것처럼
 
 일괄 처리 수신자와 일괄 처리 발신자에서 동일한 Azure 구독 *및* Azure 지역을 공유하는지 확인합니다. 그렇지 않은 경우 서로 표시되지 않기 때문에 일괄 처리 발신자를 만들 때 일괄 처리 수신자를 선택할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 예제를 수행하려면 다음과 같은 항목이 필요합니다.
 
-* Azure 구독 구독이 없는 경우 [무료 Azure 계정으로 시작할](https://azure.microsoft.com/free/)수 있습니다. 또는 [종량제 구독에 등록합니다](https://azure.microsoft.com/pricing/purchase-options/).
+* Azure 구독 구독이 없는 경우 [Azure 계정을 사용하여 시작](https://azure.microsoft.com/free/)할 수 있습니다. 또는 [종량제 구독에 등록합니다](https://azure.microsoft.com/pricing/purchase-options/).
 
 * [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
@@ -176,7 +176,7 @@ X12 메시지 일괄 처리는 다른 메시지를 일괄 처리하는 것처럼
    | 속성 | 설명 | 
    |----------|-------------| 
    | **일괄 처리 이름** | 수신자 논리 앱에서 정의된 일괄 처리 이름입니다(이 예의 경우 "TestBatch"). <p>**중요**: 일괄 처리 이름은 런타임에 유효성이 검사되고 수신자 논리 앱에서 지정된 이름과 일치해야 합니다. 일괄 처리 이름을 변경하면 일괄 처리 발신자가 실패하게 됩니다. | 
-   | **메시지 내용** | 보내려는 메시지에 대한 콘텐츠입니다. 이 예에서는 **본문** 토큰입니다. | 
+   | **메시지 콘텐츠** | 보내려는 메시지에 대한 콘텐츠입니다. 이 예에서는 **본문** 토큰입니다. | 
    ||| 
    
    ![일괄 처리 속성 설정](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-set-batch-properties.png)

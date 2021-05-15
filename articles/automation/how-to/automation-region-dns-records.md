@@ -1,34 +1,34 @@
 ---
-title: Azure Automation |에서 사용 하는 Azure 데이터 센터 DNS 레코드 Microsoft Docs
-description: 이 문서에서는 해당 Automation 계정을 호스팅하는 특정 Azure 지역에 대 한 통신을 제한할 때 Azure Automation 기능에 필요한 DNS 레코드를 제공 합니다.
+title: Azure Automation에서 사용하는 Azure 데이터 센터 DNS 레코드 | Microsoft Docs
+description: 이 문서에서는 해당 Automation 계정을 호스트하는 특정 Azure 지역에 대한 통신을 제한하는 경우 Azure Automation 기능에 필요한 DNS 레코드를 제공합니다.
 services: automation
 ms.subservice: process-automation
 ms.date: 11/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8630afa7410aad81a7a3c61540fc74702fc6481c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: d41d825c7bc33e05815c7528b436c85873859928
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100575990"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168929"
 ---
-# <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>Azure Automation에서 사용 하는 Azure 지역에 대 한 DNS 레코드
+# <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>Azure Automation에서 사용되는 Azure 지역에 대한 DNS 레코드
 
-[Azure Automation](../automation-intro.md) 서비스는 서비스에 연결 하는 기능에 대해 많은 DNS 레코드를 사용 합니다. 특정 지역에 대해 정의된 Automation 계정이 있는 경우 해당 지역 데이터 센터에 대한 통신을 제한할 수 있습니다. 방화벽 뒤에서 호스트 되는 경우 다음과 같은 자동화 기능을 사용할 수 있도록 이러한 레코드를 알아야 할 수 있습니다.
+[Azure Automation](../automation-intro.md) 서비스는 서비스에 연결하는 기능을 위해 여러 DNS 레코드를 사용합니다. 특정 지역에 대해 정의된 Automation 계정이 있는 경우 해당 지역 데이터 센터에 대한 통신을 제한할 수 있습니다. 방화벽 뒤에서 호스트되는 경우 다음과 같은 Automation 기능을 사용할 수 있도록 해당 레코드를 알아야 할 수 있습니다.
 
 * Hybrid Runbook Worker
 * 상태 구성
 * Webhook
 
 >[!NOTE]
->Linux Hybrid Runbook Worker 등록은 버전이 1.6.10.2 이상인 경우에만 새 레코드와 함께 실패 합니다. 컴퓨터에서 업데이트 된 버전의 작업자 역할을 수신 하 고 이러한 새 레코드를 사용 하려면 최신 버전의 [Linux 용 Log Analytics 에이전트로](../../azure-monitor/agents/agent-linux.md) 업그레이드 해야 합니다. 기존 컴퓨터는 문제 없이 계속 작동 합니다.  
+>Linux Hybrid Runbook Worker 등록은 버전이 1.6.10.2 이상이 아닌 경우 새 레코드를 사용하면 실패합니다. 컴퓨터에서 작업자 역할의 업데이트된 버전을 받고 이러한 새 레코드를 사용하려면 최신 버전의 [Linux용 Log Analytics 에이전트](../../azure-monitor/agents/agent-linux.md)로 업그레이드해야 합니다. 기존 컴퓨터는 문제없이 계속 작동합니다.  
 
 ## <a name="dns-records-per-region"></a>지역별 DNS 레코드
 
 다음 표에서는 각 지역에 대한 DNS 레코드를 제공합니다.
 
 >[!NOTE]
->여기에서 제공 하는 Automation DNS 레코드의 목록은 사용이 중지 되었지만 [개인 링크 지원에](#support-for-private-link) 나열 된 새 레코드로 마이그레이션할 수 있는 시간을 허용 하는 계속 작동 하 고 자동화 프로세스에 대 한 오류를 방지 합니다.
+>여기에서 제공하는 Automation DNS 레코드의 목록은 사용이 중지되었지만 [Private Link 지원](#support-for-private-link)에 나열된 새 레코드로 마이그레이션할 수 있는 시간을 허용하고 자동화 프로세스의 실패를 방지하기 위해 계속 작동합니다.
 
 | **지역** | **DNS 레코드** |
 | --- | --- |
@@ -48,9 +48,9 @@ ms.locfileid: "100575990"
 | 서유럽 |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
 | 미국 서부 2 |wus2-jobruntimedata-prod-su1.azure-automation.net</br>wus2-agentservice-prod-1.azure-automation.net |
 
-### <a name="support-for-private-link"></a>개인 링크에 대 한 지원
+### <a name="support-for-private-link"></a>Private Link에 대한 지원
 
-Azure Automation에서 [개인 링크](../../private-link/private-link-overview.md) 를 지원 하려면 지원 되는 모든 데이터 센터에 대 한 DNS 레코드가 업데이트 되었습니다. Url은 지역 특정 Url 대신 Automation 계정입니다.
+Azure Automation의 [Private Link](../../private-link/private-link-overview.md)를 지원하기 위해 지원되는 모든 데이터 센터에 대한 DNS 레코드가 업데이트되었습니다. URL은 지역 특정 URL이 아닌 Automation 특정 계정입니다.
 
 | **지역** | **DNS 레코드** |
 | --- | --- |
@@ -84,21 +84,21 @@ Azure Automation에서 [개인 링크](../../private-link/private-link-overview.
 | US Gov 텍사스 |`https://<accountId>.webhook.ussc.azure-automation.us`<br>`https://<accountId>.agentsvc.ussc.azure-automation.us`<br>`https://<accountId>.jrds.ussc.azure-automation.us` |
 | US Gov 애리조나 |`https://<accountId>.webhook.phx.azure-automation.us`<br>`https://<accountId>.agentsvc.phx.azure-automation.us`<br>`https://<accountId>.jrds.phx.azure-automation.us` |
 
-`<accountId>`DNS 레코드의를 값 **URL** 에서 Automation 계정 ID를 나타내는 GUID로 바꿉니다. Azure Portal의 **계정 설정** 아래에 있는 **키** 에서 필요한 ID를 가져올 수 있습니다.
+DNS 레코드의 `<accountId>`를 값 **URL** 에서 Automation 계정 ID를 나타내는 GUID로 바꿉니다. Azure Portal의 **계정 설정** 아래에 있는 **키** 에서 필요한 ID를 얻을 수 있습니다.
 
 ![Automation 계정 기본 키 페이지](./media/automation-region-dns-records/automation-account-keys.png)
 
-*계정/* > **URL** 필드에서 값을 복사 합니다.`https://<GUID>.agentsvc.<region>.azure-automation.net/accounts/<GUID>`
+**URL** 필드 - `https://<GUID>.agentsvc.<region>.azure-automation.net/accounts/<GUID>`에서 *accounts/* 뒤의 값을 복사합니다.
 
 > [!NOTE]
-> 개인 링크를 지원 하기 위해 모든 Webhook 및 agentservice DNS 레코드가 새 스타일의 DNS 레코드로 업데이트 되었습니다. JRDS DNS 레코드의 경우 이전 및 새 스타일 DNS 레코드가 둘 다 지원 됩니다. 개인 링크를 사용 하지 않는 경우에는 이전 스타일 DNS 레코드가 표시 되 고 개인 링크를 사용 하는 dns 레코드는 새 스타일의 DNS 레코드를 볼 수 있습니다.
+> Private Link를 지원하기 위해 모든 Webhook 및 agentservice DNS 레코드가 새 스타일의 DNS 레코드로 업데이트되었습니다. JRDS DNS 레코드의 경우 이전 스타일과 새 스타일 DNS 레코드 모두 지원됩니다. Private Link를 사용하지 않는 경우에는 이전 스타일의 DNS 레코드가 표시되고 Private Link를 사용하는 경우에는 새로운 스타일의 DNS 레코드가 표시됩니다.
 
-[예외](../automation-runbook-execution.md#exceptions)를 정의할 때 나열된 주소를 사용하는 것이 좋습니다. 지역 이름 대신 지역 IP 주소 목록을 보려면 Microsoft 다운로드 센터에서 다음 클라우드 환경에 대 한 JSON 파일을 다운로드 합니다.
+[예외](../automation-runbook-execution.md#exceptions)를 정의할 때 나열된 주소를 사용하는 것이 좋습니다. 지역 이름 대신 지역 IP 주소 목록을 보려면 Microsoft 다운로드 센터에서 다음 클라우드 환경에 대한 JSON 파일을 다운로드하세요.
 
-* [Azure IP 범위 및 서비스 태그-Azure public](https://www.microsoft.com/download/details.aspx?id=56519)
-* [Azure IP 범위 및 서비스 태그-Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
-* [Azure IP 범위 및 서비스 태그-Azure 독일](https://www.microsoft.com/download/details.aspx?id=57064)
-* [Azure IP 범위 및 서비스 태그 – Azure 중국 Vianet 21](https://www.microsoft.com/download/details.aspx?id=57062)
+* [Azure IP 범위 및 서비스 태그 - Azure 퍼블릭](https://www.microsoft.com/download/details.aspx?id=56519)
+* [Azure IP 범위 및 서비스 태그 - Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
+* [Azure IP 범위 및 서비스 태그 – Azure 독일](https://www.microsoft.com/download/details.aspx?id=57064)
+* [Azure IP 범위 및 서비스 태그 - Azure 중국 21Vianet](https://www.microsoft.com/download/details.aspx?id=57062)
 
 IP 주소 파일은 Microsoft Azure 데이터 센터에서 사용되는 IP 주소 범위를 나열합니다. 이는 컴퓨팅, SQL 및 스토리지 범위를 포함하며 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 반영합니다. 파일에 제시된 새 범위는 데이터 센터에서 적어도 한 주 동안 사용되지 않습니다.
 
@@ -111,4 +111,4 @@ IP 주소 파일은 Microsoft Azure 데이터 센터에서 사용되는 IP 주�
 
 * Hybrid Runbook Worker 문제를 해결하는 방법을 알아보려면 [Hybrid Runbook Worker 문제 해결](../troubleshoot/hybrid-runbook-worker.md#general)을 참조하세요.
 
-* 상태 구성 문제를 해결 하는 방법을 알아보려면 [상태 구성 문제 해결](../troubleshoot/desired-state-configuration.md)을 참조 하세요.
+* 상태 구성 문제를 해결하는 방법을 알아보려면 [상태 구성 문제 해결](../troubleshoot/desired-state-configuration.md)을 참조하세요.

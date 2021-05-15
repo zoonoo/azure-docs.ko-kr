@@ -1,15 +1,15 @@
 ---
-title: UI 정의 변환 함수 만들기
-description: 데이터 형식과 인코딩 간에 값을 변환할 때 사용 하는 함수에 대해 설명 합니다.
+title: Create UI definition 변환 함수
+description: 데이터 형식과 인코딩 사이의 값을 변환할 때 사용할 함수를 설명합니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: tomfitz
 ms.openlocfilehash: b69cd35b27b343da08727b4c4ee9b4fd025e1df7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87098196"
 ---
 # <a name="createuidefinition-conversion-functions"></a>CreateUiDefinition 변환 함수
@@ -18,7 +18,7 @@ ms.locfileid: "87098196"
 
 ## <a name="bool"></a>bool
 
-매개 변수를 부울로 변환합니다. 이 함수는 숫자, 문자열 및 부울 형식의 매개 변수를 지원합니다. JavaScript의 부울과 유사 하 게 또는를 제외한 모든 값은를 `0` `'false'` 반환 `true` 합니다.
+매개 변수를 부울로 변환합니다. 이 함수는 숫자, 문자열 및 부울 형식의 매개 변수를 지원합니다. JavaScript의 부울과 마찬가지로 `0` 또는 `'false'` 이외의 모든 값은 `true`를 반환합니다.
 
 다음 예제는 `true`을 반환합니다.
 

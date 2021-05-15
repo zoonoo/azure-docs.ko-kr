@@ -9,10 +9,10 @@ ms.author: amjads
 ms.collection: windows
 ms.date: 03/31/2017
 ms.openlocfilehash: 9a25e9eb27111a450f787f4efb3e0d39456fc757
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102559650"
 ---
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법
@@ -55,7 +55,7 @@ Set-AzureVMExtension -Publisher Symantec –Version $Agent.Version -ExtensionNam
 
 Symantec 보안 확장이 설치되고 최신 상태인지 확인하려면 다음을 수행합니다.
 
-1. 가상 머신에 로그온합니다. 자세한 내용은 [Windows Server를 실행 하는 가상 컴퓨터에 로그온 하는 방법][Logon]을 참조 하세요.
+1. 가상 머신에 로그온합니다. 지침은 [Windows Server를 실행하는 Virtual Machine에 로그온하는 방법][Logon]을 참조하세요.
 2. Windows Server 2008 R2의 경우, **시작 > Symantec Endpoint Protection** 을 클릭합니다. Windows Server 2012 또는 Windows Server 2012 R2의 경우, 시작 화면에서 **Symantec** 을 입력하고 **Symantec Endpoint Protection** 을 클릭합니다.
 3. **Status-Symantec Endpoint Protection** 창의 **상태** 탭에서 필요한 경우 업데이트를 적용하거나 다시 시작합니다.
 

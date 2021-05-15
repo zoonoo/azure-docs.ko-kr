@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 04/06/2021
 ms.author: anfeldma
-ms.openlocfilehash: 23c0787b45a6e3f52dae58c24a33e00437f1e09c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 99b6e06b817f98e64968615b5e652b707268fe78
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577192"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364501"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET 대량 실행기 라이브러리: 정보 다운로드 
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -29,7 +29,8 @@ ms.locfileid: "104577192"
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark 커넥터](sql-api-sdk-java-spark.md)
+> * [Spark 3 OLTP 커넥터](sql-api-sdk-java-spark-v3.md)
+> * [Spark 2 OLTP 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](/rest/api/cosmos-db-resource-provider/)
@@ -81,7 +82,7 @@ ms.locfileid: "104577192"
 
 ### <a name="189"></a><a name="1.8.9"></a>1.8.9
 
-* 이스케이프 된 따옴표가 있는 값이 입력 매개 변수로 전달 되는 경우 BulkDeleteAsync 문제가 해결 되었습니다.
+* 이스케이프된 견적이 있는 값이 입력 매개 변수로 전달되는 경우 BulkDeleteAsync와 관련된 문제 해결.
 
 ### <a name="188"></a><a name="1.8.8"></a>1.8.8
 

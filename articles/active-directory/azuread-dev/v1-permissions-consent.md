@@ -15,10 +15,10 @@ ms.reviewer: jesakowi
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 2b85115d905cb6a7eb7c6aed64a4834425d2f1d7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92366397"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의
@@ -33,8 +33,8 @@ Azure AD(Azure Active Directory)는 OAuth 및 OpenID Connect(OIDC) 흐름을 위
 
 Azure AD는 두 종류의 권한을 정의합니다.
 
-* **위임된 권한** - 로그인한 사용자가 현재 있는 앱에서 사용합니다. 이 앱에 대해 사용자 또는 관리자는 앱이 요청하는 권한 및 앱이 API를 호출할 때 로그인한 사용자로 행동하도록 위임된 권한이라는 데 동의합니다. API에 따라 사용자는 API에 직접 동의 하지 못할 수 있으며 대신 ["관리자 동의"를 제공 하는 관리자가 필요](../develop/howto-convert-app-to-be-multi-tenant.md)합니다.
-* **애플리케이션 권한** - 로그인한 사용자가 없이 실행한 앱(예: 백그라운드 서비스 또는 디먼으로 실행한 앱)에서 사용합니다. 응용 프로그램 권한은 일반적으로 강력 하 고 사용자 경계 또는 관리자에 게 제한 되는 데이터를 통해 데이터에 대 한 액세스를 허용 하기 때문에 [관리자만 동의한](../develop/v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) 수 있습니다. 리소스 응용 프로그램 소유자 (예: 사용 권한을 게시 하는 API)로 정의 된 사용자는 자신이 소유 하는 Api에 대 한 응용 프로그램 사용 권한도 부여할 수 있습니다.
+* **위임된 권한** - 로그인한 사용자가 현재 있는 앱에서 사용합니다. 이 앱에 대해 사용자 또는 관리자는 앱이 요청하는 권한 및 앱이 API를 호출할 때 로그인한 사용자로 행동하도록 위임된 권한이라는 데 동의합니다. API에 따라 사용자는 API에 직접 동의할 수 없고 대신에 [관리자에게 “관리자 동의”를 제공할 것을 요구](../develop/howto-convert-app-to-be-multi-tenant.md)합니다.
+* **애플리케이션 권한** - 로그인한 사용자가 없이 실행한 앱(예: 백그라운드 서비스 또는 디먼으로 실행한 앱)에서 사용합니다. 애플리케이션 권한은 일반적으로 강력하고 사용자 경계 간의 데이터 또는 다른 방법이라면 관리자로 제한될 수 있는 데이터에 액세스할 수 있도록 하므로 [관리자만이 동의](../develop/v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)할 수 있습니다. 리소스 애플리케이션 소유자로 정의된 사용자(예: 권한을 게시하는 API)는 자신이 소유하는 API에 대한 애플리케이션 권한도 부여할 수 있습니다.
 
 효과적인 권한은 앱이 API를 요청할 때 갖게 될 권한입니다. 
 

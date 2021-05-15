@@ -4,12 +4,12 @@ ms.service: container-instances
 ms.topic: include
 ms.date: 07/22/2020
 ms.author: danlep
-ms.openlocfilehash: 6878180ffedfaa53f25d2bdc6db72dcd7dd8b38b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c232875715253b3601c7f9a5ecc289705e3dcf40
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87384833"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108212037"
 ---
 | 리소스 | 제한 |
 | --- | :--- |
@@ -23,10 +23,10 @@ ms.locfileid: "87384833"
 | IP당 포트 수 | 5 |
 | 컨테이너 인스턴스 로그 크기 - 실행 중인 인스턴스 | 4MB |
 | 컨테이너 인스턴스 로그 크기 - 중지된 인스턴스 | 16KB 또는 1000개 줄 |
-| 시간당 컨테이너 생성 수 |300<sup>1</sup> |
-| 5분당 컨테이너 생성 수 | 100<sup>1</sup> |
-| 시간당 컨테이너 삭제 수 | 300<sup>1</sup> |
-| 5분당 컨테이너 삭제 수 | 100<sup>1</sup> |
+| 시간당 컨테이너 그룹 생성 수 |300<sup>1</sup> |
+| 5분당 컨테이너 그룹 생성 수 | 100<sup>1</sup> |
+| 시간당 컨테이너 그룹 삭제 수 | 300<sup>1</sup> |
+| 5분당 컨테이너 그룹 삭제 수 | 100<sup>1</sup> |
 
 
 <sup>1</sup>제한을 늘리도록 요청하려면 [Azure 지원 요청][azure-support]을 만듭니다. [Azure 체험 계정](https://azure.microsoft.com/offers/ms-azr-0044p/) 및 [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/)를 포함한 체험 구독은 제한 또는 할당량을 늘릴 수 없습니다. [체험 구독](../articles/cost-management-billing/manage/upgrade-azure-subscription.md)을 사용하는 경우 종량제 구독으로 업그레이드할 수 있습니다.<br />

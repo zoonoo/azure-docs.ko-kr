@@ -1,5 +1,5 @@
 ---
-title: 고객에 게 콘텐츠 제공
+title: 고객에 콘텐츠 배달
 description: 이 항목에서는 Azure Media Services를 사용하여 콘텐츠를 배달하는데 필요한 항목을 간략히 설명합니다.
 services: media-services
 author: IngridAtMicrosoft
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 1ad89345a2779766fde4559758e61dff92023741
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103016613"
 ---
 # <a name="deliver-content-to-customers"></a>고객에게 콘텐츠 배달
@@ -47,7 +47,7 @@ Media Services가 제공하는 동적 패키징을 사용하여 적응 비트 �
 
 동적 패키징은 표준 및 프리미엄 스트리밍 엔드포인트에 사용할 수 있습니다. 
 
-자세한 내용은 [동적 패키징](media-services-dynamic-packaging-overview.md)을 참조 하세요.
+자세한 내용은 [동적 패키징](media-services-dynamic-packaging-overview.md)을 참조하세요.
 
 ## <a name="filters-and-dynamic-manifests"></a>필터 및 동적 매니페스트
 Media Services를 사용하여 자산에 대한 필터를 정의할 수 있습니다. 이러한 필터는 고객이 비디오의 특정 부분만 재생하거나 자산과 연결된 모든 변환 대신 고객의 디바이스가 처리할 수 있는 오디오 및 비디오 변환의 하위 집합만 지정하는 등을 선택할 수 있도록 하는 서버 측 규칙입니다. 하나 이상의 지정한 필터에 따라 비디오를 스트림하는 고객의 요청에 따라 생성된 *동적 매니페스트* 를 통해 이러한 필터링이 이루어집니다.
@@ -81,41 +81,41 @@ Media Services를 사용하여 자산에 대한 필터를 정의할 수 있습�
 사용자에게 스트리밍 URL을 제공하려면 먼저 OnDemandOrigin 로케이터를 만들어야 합니다. 로케이터를 만들면 스트리밍할 콘텐츠를 포함하는 자산에 대한 기본 경로가 제공됩니다. 그러나 이 콘텐츠를 스트리밍하려면 나중에 이 경로를 수정해야 합니다. 스트리밍 매니페스트 파일에 대한 전체 URL을 생성하려면 로케이터의 경로 값과 매니페스트(filename.ism) 파일 이름을 연결해야 합니다. 그런 다음 로케이터 경로에 **/Manifest** 및 적절한 형식(필요한 경우)을 추가합니다.
 
 > [!NOTE]
-> TLS 연결을 통해 콘텐츠를 스트리밍할 수도 있습니다. 이렇게 하려면 스트리밍 URL이 HTTPS로 시작해야 합니다. 현재 AMS는 사용자 지정 도메인에서 TLS를 지원 하지 않습니다.  
+> TLS 연결을 통해 콘텐츠를 스트리밍할 수도 있습니다. 이렇게 하려면 스트리밍 URL이 HTTPS로 시작해야 합니다. 현재 AMS는 사용자 지정 도메인을 사용하는 TLS를 지원하지 않습니다.  
 > 
 
-콘텐츠를 배달 하는 스트리밍 끝점이 2014 년 9 월 10 일 이후에 만들어진 경우에만 TLS를 통해 스트리밍할 수 있습니다. 스트리밍 URL이 2014년 9월 10일 이후에 만들어진 스트리밍 엔드포인트를 기반으로 하는 경우 URL에는 "streaming.mediaservices.windows.net"이 포함됩니다. "Origin.mediaservices.windows.net" (이전 형식)이 포함 된 스트리밍 Url은 TLS를 지원 하지 않습니다. URL이 이전 형식인 경우 TLS를 통해 스트리밍할 수 있도록 하려면 새 스트리밍 끝점을 만듭니다. 새 스트리밍 끝점을 기반으로 하는 Url을 사용 하 여 TLS를 통해 콘텐츠를 스트리밍합니다.
+콘텐츠를 전달하는 스트리밍 엔드포인트가 2014년 9월 10일 이후에 만들어진 경우에만 TLS를 통해 스트리밍할 수 있습니다. 스트리밍 URL이 2014년 9월 10일 이후에 만들어진 스트리밍 엔드포인트를 기반으로 하는 경우 URL에는 "streaming.mediaservices.windows.net"이 포함됩니다. “origin.mediaservices.windows.net”(이전 형식)이 포함된 스트리밍 URL은 TLS를 지원하지 않습니다. URL이 이전 형식인 경우 TLS를 통해 스트리밍할 수 있도록 하려면 새 스트리밍 엔드포인트를 만듭니다. 새 스트리밍 엔드포인트를 기준으로 하는 URL을 사용하여 TLS을 통해 콘텐츠를 스트리밍합니다.
 
 ## <a name="streaming-url-formats"></a><a name="URLs"></a>스트리밍 URL 형식
 
 ### <a name="mpeg-dash-format"></a>MPEG-DASH 형식
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
-http: \/ /testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest (형식 = mpd-csf)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
 ### <a name="apple-http-live-streaming-hls-v4-format"></a>Apple HLS(HTTP 라이브 스트리밍) V4 형식
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-http: \/ /testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest (형식 = m3u8-aapl-v3-aapl)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
 
 ### <a name="apple-http-live-streaming-hls-v3-format"></a>Apple HLS(HTTP 라이브 스트리밍) V3 형식
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl-v3)
 
-http: \/ /testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest (format = m3u8-aapl-v3-aapl-v3)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
 ### <a name="apple-http-live-streaming-hls-format-with-audio-only-filter"></a>오디오 전용 필터로 Apple HTTP 라이브 스트리밍(HLS) 포맷
 기본적으로 오디오 전용 트랙은 HLS 매니페스트에 포함되어 있습니다. 셀룰러 네트워크에 대한 Apple 스토어 인증이 필요합니다. 이 경우 클라이언트가 충분한 대역폭이 없거나 2G 이상으로 연결되지 않은 경우 재생이 오디오 전용으로 전환됩니다. 이를 통해 콘텐츠 스트리밍이 버퍼링 없이 제공되지만 화면은 표시되지 않습니다. 일부 시나리오에서 오디오 전용 화면보다는 어느 정도 버퍼링이 발생하는 것이 나을 수도 있습니다. 오디오 전용 트랙을 제거하려는 경우 URL에 **audio-only=false** 를 추가합니다.
 
-http: \/ /testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest (format = m3u8-aapl-v3-aapl-v3, audio 전용 = false)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
 자세한 내용은 [동적 매니페스트 컴퍼지션 지원 및 HLS 출력 추가 기능](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)을 참조하세요.
 
 ### <a name="smooth-streaming-format"></a>부드러운 스트리밍 형식
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-예제:
+예:
 
-http: \/ /testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
 ### <a name="smooth-streaming-20-manifest-legacy-manifest"></a><a id="fmp4_v20"></a>부드러운 스트리밍 2.0 매니페스트(레거시 매니페스트)
 기본적으로 부드러운 스트리밍 매니페스트 형식에는 반복 태그(r 태그)가 포함됩니다. 그러나 일부 플레이어에서는 r 태그를 지원하지 않습니다. 이러한 플레이어를 사용하는 클라이언트는 r 태그를 사용하지 않도록 설정하는 형식을 사용할 수 있습니다.

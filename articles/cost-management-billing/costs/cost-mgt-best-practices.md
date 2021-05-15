@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: e333b4aadce33e5303820951051ce83c7e65eaf9
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: bb40946bc01b6bd241f542b3987e8a2e7d570794
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222387"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331667"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Azure Cost Management로 클라우드 투자를 최적화하는 방법
 
@@ -91,7 +91,7 @@ Cost Management 내에서 경험 극대화를 위한 첫 번째 단계 가장 �
 #### <a name="free"></a>[Free](https://azure.microsoft.com/free/)
 
 - 12개월 동안 평가판 서비스
-- 30일 동안 서비스를 탐색하려면 청구 통화에서 USD200 크레딧
+- 30일 동안 서비스를 탐색하도록 청구 통화로 $200 크레딧 제공
 - 25개 이상의 서비스 항상 무료
 
 #### <a name="pay-as-you-go"></a>[종량제](https://azure.microsoft.com/offers/ms-azr-0003p)

@@ -148,6 +148,8 @@
           href: expressroute-network-insights.md
         - name: 'ExpressRoute 모니터링, 메트릭 및 경고'
           href: expressroute-monitoring-metrics-alerts.md
+        - name: 유지 관리 경고 보기 및 구성
+          href: maintenance-alerts.md
         - name: ExpressRoute에 대한 네트워크 성능 모니터 구성
           href: how-to-npm.md
         - name: 보급 경로를 모니터링하기 위해 사용자 지정 경고 구성

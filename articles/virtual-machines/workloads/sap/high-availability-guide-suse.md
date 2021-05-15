@@ -1,5 +1,5 @@
 ---
-title: SLES의 SAP NetWeaver에 대 한 Azure Vm 고가용성 Microsoft Docs
+title: SLES의 SAP NetWeaver에 대한 Azure VM 고가용성 | Microsoft Docs
 description: SAP 애플리케이션용 SUSE Linux Enterprise Server의 SAP NetWeaver에 대한 고가용성 가이드
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2020
 ms.author: radeltch
 ms.openlocfilehash: e33b514f61aec69c566eae455d2e59b1a66813f6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101673807"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성
@@ -53,7 +53,7 @@ ms.locfileid: "101673807"
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
 이 문서에서는 가상 머신을 배포 및 구성하고 클러스터 프레임워크 및 고가용성 SAP NetWeaver 7.50 시스템을 설치하는 방법을 설명합니다.
-예제 구성, 설치 명령 등에 있습니다. ASCS 인스턴스 번호 00, ERS 인스턴스 번호 02 및 SAP 시스템 ID N W 1가 사용 됩니다. 예제에 포함된 리소스(예: 가상 머신, 가상 네트워크)의 이름은 SAP 시스템 ID가 NW1인 [수렴형 템플릿][template-converged]을 사용하여 리소스를 만들었다고 가정합니다.
+예제 구성에서 설치 명령 등 ASCS 인스턴스 번호 00, ERS 인스턴스 번호 02, SAP 시스템 ID NW1을 사용합니다. 예제에 포함된 리소스(예: 가상 머신, 가상 네트워크)의 이름은 SAP 시스템 ID가 NW1인 [수렴형 템플릿][template-converged]을 사용하여 리소스를 만들었다고 가정합니다.
 
 먼저 다음 SAP 참고와 문서 읽기
 
@@ -134,10 +134,10 @@ GitHub의 Azure 템플릿을 사용하여 필요한 Azure 리소스(가상 머�
 
 Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있는 SAP Applications 12용 SUSE Linux Enterprise Server의 이미지가 포함되어 있습니다. Marketplace 이미지는 SAP NetWeaver용 리소스 에이전트를 포함합니다.
 
-GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿은 가상 머신, 부하 분산 장치, 가용성 집합 등을 배포 합니다. 템플릿을 배포 하려면 다음 단계를 수행 합니다.
+GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿은 가상 머신, 부하 분산 장치, 가용성 집합 등을 배포합니다. 다음 단계에 따라 템플릿을 배포합니다.
 
-1. Azure Portal에서 [Ascs/SCS 다중 SID 템플릿][template-multisid-xscs] 또는 [수렴 형 템플릿][template-converged] 을 엽니다. 
-   ASCS/SCS 템플릿은 SAP NetWeaver ASCS/SCS 및 ERS (Linux 전용) 인스턴스에만 부하 분산 규칙을 만들지만 수렴 형 템플릿은 데이터베이스의 부하 분산 규칙을 만듭니다 (예: Microsoft SQL Server 또는 SAP HANA). SAP NetWeaver 기반 시스템을 설치할 계획이며 동일한 컴퓨터에 데이터베이스도 설치하려는 경우에는 [수렴형 템플릿][template-converged]을 사용합니다.
+1. Azure Portal에서 [ASCS/SCS 다중 SID 템플릿][template-multisid-xscs] 또는 [수렴 템플릿][template-converged]을 엽니다. 
+   ASCS/SCS 템플릿은 SAP NetWeaver ASCS/SCS 및 ERS(Linux에만 해당)용 부하 분산 규칙만 만드는 반면, 수렴형 템플릿은 데이터베이스(예: Microsoft SQL Server 또는 SAP HANA)용 부하 분산 규칙도 만듭니다. SAP NetWeaver 기반 시스템을 설치할 계획이며 동일한 컴퓨터에 데이터베이스도 설치하려는 경우에는 [수렴형 템플릿][template-converged]을 사용합니다.
 1. 다음 매개 변수를 입력합니다.
    1. 리소스 접두사(ASCS/SCS 다중 SID 템플릿에만 해당)  
       사용할 접두사를 입력합니다. 이 값은 배포되는 리소스의 접두사로 사용됩니다.
@@ -156,7 +156,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    9. 관리자 사용자 이름 및 관리자 암호 -  
       컴퓨터에 로그온하는 데 사용할 수 있게 만들어진 새 사용자입니다.
    10. 서브넷 ID  
-   서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로/subscriptions/**&lt; subscription &gt; ID**/Resourcegroups//**&lt; 리소스 그룹 이름 &gt;**/providers/Microsoft.Network/virtualNetworks/**&lt; 가상 네트워크 이름 &gt;**/subnets/**&lt; 서브넷 이름 &gt;** 처럼 보입니다.
+   서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 대개 /subscriptions/ **&lt;구독 ID&gt;** /resourceGroups/ **&lt;리소스 그룹 이름&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;가상 네트워크 이름&gt;** /subnets/ **&lt;서브넷 이름&gt;** 과 같은 형식입니다.
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Azure Portal을 통해 Linux를 수동으로 배포
 
@@ -189,7 +189,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
       1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
       1. 새 백 엔드 풀의 이름 입력(예: **nw1-backend**)
       1. 가상 머신 추가 클릭
-      1. 가상 컴퓨터 선택
+      1. 가상 머신 선택
       1. (A)SCS 클러스터의 가상 머신 및 해당 IP 주소 선택
       1. 추가를 클릭합니다.
    1. 상태 프로브 만들기
@@ -201,15 +201,15 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
       1. 포트: 621 **02**(ASCS ERS용)
          * 위의 단계를 반복하여 ERS에 대한 상태 프로브를 만듭니다(예: 621 **02** 및 **nw1-aers-hp**).
    1. 부하 분산 규칙
-      1. ASCS에 대 한 부하 분산 규칙
-         1. 부하 분산 장치를 열고 부하 분산 규칙을 선택한 다음 추가를 클릭 합니다.
-         1. 새 부하 분산 장치 규칙의 이름 입력 (예: **n w 1-ascs**)
-         1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 선택 (예: **n w 1**, **n w 1** , **n w 1 및-ascs-hp**)
+      1. ASCS에 대한 부하 분산 규칙
+         1. 부하 분산 장치를 열고, 부하 분산 규칙을 설정하고, 추가 클릭
+         1. 새 부하 분산 장치 규칙의 이름 입력(예: **nw1-lb-ascs**)
+         1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 선택(예: **nw1-ascs-frontend**, **nw1-backend**, **nw1-ascs-hp**)
          1. **HA 포트** 선택
          1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
          1. 확인 클릭
-         * 위의 단계를 반복 하 여 ERS에 대 한 부하 분산 규칙을 만듭니다 (예: **n w 1**).
+         * 위의 단계를 반복하여 ERS에 대한 부하 분산 규칙 만들기(예: **nw1-lb-ers**)
 1. 또는 시나리오에 기본 부하 분산 장치(내부)가 필요한 경우 다음 단계를 수행합니다.  
    1. 프런트 엔드 IP 주소 만들기
       1. IP 주소: 10.0.0.7(ASCS용)
@@ -218,7 +218,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
          1. 할당을 정적으로 설정하고 IP 주소 입력(예: **10.0.0.7**)
          1. 확인을 클릭합니다.
       1. IP 주소: 10.0.0.8(ASCS ERS용)
-         * 위의 단계를 반복 하 여 ERS에 대 한 IP 주소를 만듭니다 (예: **10.0.0.8** 및 **n w 1**).
+         * 위의 단계를 반복하여 ERS에 대한 IP 주소를 만듭니다(예: **10.0.0.8** 및 **nw1-aers-frontend**).
    1. 백 엔드 풀 만들기
       1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
       1. 새 백 엔드 풀의 이름 입력(예: **nw1-backend**)
@@ -236,7 +236,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
          * 위의 단계를 반복하여 ERS에 대한 상태 프로브를 만듭니다(예: 621 **02** 및 **nw1-aers-hp**).
    1. 부하 분산 규칙
       1. TCP: 32 **00**(ASCS용)
-         1. 부하 분산 장치를 열고 부하 분산 규칙을 선택한 다음 추가를 클릭 합니다.
+         1. 부하 분산 장치를 열고, 부하 분산 규칙을 설정하고, 추가 클릭
          1. 새 부하 분산 장치 규칙의 이름 입력(예: **nw1-lb-3200**)
          1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 선택(예: **nw1-ascs-frontend**)
          1. 프로토콜로 **TCP** 를 유지하고. 포트로 **3200** 입력
@@ -249,7 +249,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
          * ASCS ERS의 경우 33 **02**, 5 **02** 13, 5 **02** 14, 5 **02** 16 포트 및 TCP에 대해 위의 단계를 반복합니다.
 
 > [!IMPORTANT]
-> 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원 되지 않습니다. 자세한 내용은 [Azure 부하 분산 장치 제한](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조 하세요. VM에 대 한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포 합니다.  
+> 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원되지 않습니다. 자세한 내용은 [Azure 부하 분산 장치 제한 사항](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조하세요. VM에 대한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포합니다.  
 
 > [!Note]
 > 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 퍼블릭 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하는 Virtual Machines에 대한 퍼블릭 엔드포인트 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md)을 참조하세요.  
@@ -532,7 +532,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    enque/encni/set_so_keepalive = true
    </code></pre>
 
-   ENSA1 및 ENSA2 둘 다에 대해 `keepalive` SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736)에 설명 된 대로 OS 매개 변수를 설정 해야 합니다.    
+   ENSA1 및 ENSA2 모두에서 `keepalive` OS 매개 변수는 SAP 메모 [1410736](https://launchpad.support.sap.com/#/notes/1410736)에 설명된 대로 설정해야 합니다.    
 
    * ERS 프로필
 
@@ -552,7 +552,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
 1. **[A]** 연결 유지 구성
 
-   SAP NetWeaver 애플리케이션 서버와 ASCS/SCS 간의 통신은 소프트웨어 부하 분산 장치를 통해 라우팅됩니다. 부하 분산 장치는 구성 가능한 시간 제한이 지나면 비활성 연결을 끊습니다. 이를 방지 하려면 ENSA1를 사용 하는 경우 SAP NetWeaver ASCS/SCS 프로필에서 매개 변수를 설정 하 고 `keepalive` ENSA1/ENSA2 모두에 대해 모든 sap 서버에서 Linux 시스템 설정을 변경 해야 합니다. 자세한 내용은 [SAP Note 1410736][1410736]을 참조하세요.
+   SAP NetWeaver 애플리케이션 서버와 ASCS/SCS 간의 통신은 소프트웨어 부하 분산 장치를 통해 라우팅됩니다. 부하 분산 장치는 구성 가능한 시간 제한이 지나면 비활성 연결을 끊습니다. 이런 상황을 방지하려면 ENSA1 사용 시에는 SAP NetWeaver ASCS/SCS 프로필에 매개 변수를 설정하고, ENSA1/ENSA2 양쪽의 경우에는 모든 SAP 서버에서 Linux 시스템 `keepalive` 설정을 변경합니다. 자세한 내용은 [SAP Note 1410736][1410736]을 참조하세요.
 
    <pre><code># Change the Linux system configuration
    sudo sysctl net.ipv4.tcp_keepalive_time=300
@@ -1037,7 +1037,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-   예를 들어 트랜잭션 su01에서 사용자를 편집하여 큐에 넣기 잠금을 만듭니다. \<sapsid>ASCS 인스턴스가 실행 되 고 있는 노드에서 adm으로 다음 명령을 실행 합니다. 이러한 명령은 ASCS 인스턴스를 중지했다가 다시 시작합니다. 큐에 넣기 서버 1 아키텍처를 사용하는 경우 이 테스트에서 큐에 넣기 잠금이 손실될 것으로 예상됩니다. 큐에 넣기 서버 2 아키텍처를 사용하는 경우 큐에 넣기가 유지됩니다. 
+   예를 들어 트랜잭션 su01에서 사용자를 편집하여 큐에 넣기 잠금을 만듭니다. ASCS 인스턴스를 실행 중인 노드에서 \<sapsid>adm으로 다음 명령을 실행합니다. 이러한 명령은 ASCS 인스턴스를 중지했다가 다시 시작합니다. 큐에 넣기 서버 1 아키텍처를 사용하는 경우 이 테스트에서 큐에 넣기 잠금이 손실될 것으로 예상됩니다. 큐에 넣기 서버 2 아키텍처를 사용하는 경우 큐에 넣기가 유지됩니다. 
 
    <pre><code>nw1-cl-1:nw1adm 54> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>

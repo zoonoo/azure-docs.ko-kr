@@ -1,5 +1,5 @@
 ---
-title: 'Azure VPN Gateway: 구성 및 연결 문제 해결'
+title: 'Azure VPN Gateway: 문제 해결 구성 및 연결'
 description: 이 문서에서는 VPN Gateway 구성, 연결 문제를 해결하고 처리량이 유효한지 검사하기 위한 문서로 연결할 수 있게 도와줍니다.
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 01/31/2018
 ms.author: cherylmc
 ms.openlocfilehash: a74109594eec87dddf637542f6d85091ed49231b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104720256"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>VPN Gateway 문제 해결
@@ -28,7 +28,7 @@ VPN Gateway 연결은 다양 한 이유로 실패할 수 있습니다. 이 문�
 
 * [사이트 간 연결](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)<br>온-프레미스 네트워크와 Azure Virtual Network 사이에 사이트 간 VPN 연결을 구성한 후 VPN 연결이 갑자기 작동을 중지하며, 이를 다시 연결할 수 없는 경우가 있습니다. 이 문서에서는 이 문제를 해결하는 데 도움이 되는 문제 해결 단계를 제공합니다.
 
-* [진단 로그를 사용 하 여 Azure VPN Gateway 문제 해결](troubleshoot-vpn-with-azure-diagnostics.md)<br>진단 로그를 사용 하 여 구성 작업, VPN 터널 연결, IPsec 로깅, BGP 경로 교환, 지점 및 사이트 고급 로깅 등 여러 VPN gateway 관련 이벤트 문제를 해결할 수 있습니다. 
+* [진단 로그를 사용하여 Azure VPN Gateway 문제 해결](troubleshoot-vpn-with-azure-diagnostics.md)<br>진단 로그를 사용하여 구성 작업, VPN 터널 연결, IPsec 로깅, BGP 경로 교환, 지점 및 사이트 간 고급 로깅 등 여러 VPN gateway 관련 이벤트 문제를 해결할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

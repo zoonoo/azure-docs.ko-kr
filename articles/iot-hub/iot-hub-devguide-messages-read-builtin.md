@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - 'Role: Cloud Development'
 ms.openlocfilehash: 4bb33721625f4fc752745ce2b43051c90b3aaa74
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92147676"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>기본 제공 엔드포인트에서 디바이스-클라우드 메시지 읽기
@@ -59,7 +59,7 @@ IoT Hub를 인식하지 않는 Event Hubs SDK 또는 제품 통합을 사용하�
 | Hostname | abcd1234namespace.servicebus.windows.net |
 | 네임스페이스 | abcd1234namespace |
 
-그런 다음 위의 스크린샷에 표시 된 대로 드롭다운에서 공유 액세스 정책을 선택할 수 있습니다. 지정 된 이벤트 허브에 연결할 수 있는 **ServiceConnect** 권한이 있는 정책만 표시 됩니다.
+그런 다음 위의 스크린샷에 표시된 대로 드롭다운 목록에서 공유 액세스 정책을 선택할 수 있습니다. 지정된 이벤트 허브에 연결할 수 있는 **ServiceConnect** 권한이 있는 정책만 표시됩니다.
 
 IoT Hub에서 공개하는 기본 제공 Event Hub 호환 엔드포인트에 연결하는 데 사용할 수 있는 SDK는 다음과 같습니다.
 

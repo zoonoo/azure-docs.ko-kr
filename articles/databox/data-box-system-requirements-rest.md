@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 10/05/2020
 ms.author: alkohli
 ms.openlocfilehash: ac5f2de383066d6ee399dac3b0ad8c365b2e72bc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91744107"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Azure Data Box Blob Storage 요구 사항
 
-이 문서에서는 Data Box Blob storage에서 지원 되는 Azure Api, Azure 클라이언트 라이브러리 및 도구의 버전을 나열 합니다. Data Box Blob Storage는 Blob 관리 기능에 Azure 일관성이 있는 의미 체계를 제공합니다. 이 문서에서는 Azure Storage 서비스와 Azure Data Box Blob Storage의 알려진 차이점도 요약합니다.
+이 문서에서는 Azure API, Azure 클라이언트 라이브러리 및 Data Box Blob Storage에서 지원되는 도구 버전을 나열합니다. Data Box Blob Storage는 Blob 관리 기능에 Azure 일관성이 있는 의미 체계를 제공합니다. 이 문서에서는 Azure Storage 서비스와 Azure Data Box Blob Storage의 알려진 차이점도 요약합니다.
 
 Data Box Blob Storage에 연결하기 전에 정보를 주의 깊게 검토한 후 필요에 따라 다시 참조하는 것이 좋습니다.
 
@@ -30,13 +30,13 @@ Data Box Blob Storage에 연결하기 전에 정보를 주의 깊게 검토한 �
 |    미사용 데이터에 대한 서비스 암호화                  |    256비트 AES 암호화                             |    256비트 AES 암호화 |
 |    스토리지 계정 유형                                 |    범용 및 Azure Blob Storage 계정    |    범용 v1만|
 |    Blob 이름                                            |    1,024자(2,048바이트)                     |    880자(1,760바이트)|
-|    블록 Blob 최대 크기                              |    4.75TB(100MB X 50,000개 블록)                   |    4.75 TB (100 MB x 5만 블록) Azure Data Box v 3.0 이상|
+|    블록 Blob 최대 크기                              |    4.75TB(100MB X 50,000개 블록)                   |    Azure Data Box v 3.0 이상의 경우 4.75TB(100MB x 50,000개 블록)|
 |    페이지 Blob 최대 크기                               |    8 TB                                               |    1TB                   |
 |    페이지 Blob 페이지 크기                                  |    512바이트                                          |    4KB                   |
 
 ## <a name="supported-api-versions"></a>지원되는 API 버전
 
-Data Box Blob Storage에서 지원 되는 Azure Storage 서비스 Api 버전은 다음과 같습니다.
+Data Box Blob Storage에서 지원되는 Azure Storage 서비스 API 버전은 다음과 같습니다.
 
 ### <a name="azure-data-box-30-onwards"></a>Azure Data Box 3.0 이상
 
@@ -44,11 +44,11 @@ Data Box Blob Storage에서 지원 되는 Azure Storage 서비스 Api 버전은 
 
 ## <a name="supported-azure-client-libraries"></a>지원되는 Azure 클라이언트 라이브러리
 
-Data Box Blob Storage에는 특정 클라이언트 라이브러리 및 특정 엔드포인트 접미사 요구 사항이 있습니다. Data Box Blob 저장소 끝점은 최신 버전의 Azure Blob Storage REST API를 사용 하 여 전체 패리티를 갖지 않습니다. [Azure Data Box 3.0에 대해 지원 되는 버전](#supported-api-versions)을 참조 하세요. 스토리지 클라이언트 라이브러리의 경우 REST API와 호환되는 버전을 알아야 합니다.
+Data Box Blob Storage에는 특정 클라이언트 라이브러리 및 특정 엔드포인트 접미사 요구 사항이 있습니다. Data Box Blob Storage 엔드포인트는 최신 버전의 Azure Blob Storage REST API와 완전히 동일하지는 않습니다. [Azure Data Box 3.0 이상에 지원되는 버전](#supported-api-versions)을 참조하세요. 스토리지 클라이언트 라이브러리의 경우 REST API와 호환되는 버전을 알아야 합니다.
 
 ### <a name="azure-data-box-30-onwards"></a>Azure Data Box 3.0 이상
 
-Data Box Blob storage에 대해 지원 되는 Azure 클라이언트 라이브러리 버전은 다음과 같습니다.
+다음 Azure 클라이언트 라이브러리 버전은 Data Box Blob Storage에 지원됩니다.
 
 [!INCLUDE [data-box-rest-supported-azure-client-libraries](../../includes/data-box-rest-supported-azure-client-libraries.md)]
 
@@ -70,9 +70,9 @@ Data Box Blob storage에 대해 지원 되는 Azure 클라이언트 라이브러
 
 ### <a name="endpoint-declaration"></a>엔드포인트 선언
 
-Data Box Blob storage SDK에서 끝점 접미사-는 `<device serial number>.microsoftdatabox.com` Data Box 도메인을 식별 합니다. Blob service 끝점에 대 한 자세한 내용은 [Data Box blob storage를 통해 연결](data-box-deploy-copy-data-via-rest.md)로 이동 합니다.
+Data Box Blob Storage SDK에서 엔드포인트 접미사 - `<device serial number>.microsoftdatabox.com` -은 Data Box 도메인을 식별합니다. 해당 Blob 서비스 엔드포인트에 대한 자세한 내용은 [Data Box Blob Storage를 통해 연결](data-box-deploy-copy-data-via-rest.md)을 참조하세요.
  
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ### <a name="net"></a>.NET
 

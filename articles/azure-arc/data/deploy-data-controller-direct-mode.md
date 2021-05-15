@@ -7,20 +7,20 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 04/06/2021
+ms.date: 05/04/2021
 ms.topic: overview
-ms.openlocfilehash: 220618f167237d5937766eb5e28b9b6569cef76a
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 2cd9e1b0f3ba11eb051eb8d7f829b0c3b8b77c73
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107031351"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748118"
 ---
 #  <a name="deploy-azure-arc-data-controller--direct-connect-mode"></a>Azure Arc 데이터 컨트롤러 배포 | 직접 연결 모드
 
 이 문서에서는 이 기능의 현재 미리 보기 기간 동안 직접 연결 모드에서 Azure Arc 데이터 컨트롤러를 배포하는 방법을 설명합니다. 
 
-현재 Azure Portal에서 Azure Arc 데이터 컨트롤러를 만들 수 있습니다. Azure Arc 지원 데이터 서비스를 위한 다른 도구는 직접 연결 모드에서 데이터 컨트롤러 만들기를 지원하지 않습니다. 자세한 내용은 [알려진 문제 - Azure Arc 지원 데이터 서비스(미리 보기)](known-issues.md)를 참조하세요.
+현재 Azure Portal에서 Azure Arc 데이터 컨트롤러를 만들 수 있습니다. Azure Arc 지원 데이터 서비스를 위한 다른 도구는 직접 연결 모드에서 데이터 컨트롤러 만들기를 지원하지 않습니다. 자세한 내용은 [릴리스 정보](release-notes.md)를 참조하세요.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -66,7 +66,7 @@ $ENV:location="<Azure location>"
 #### <a name="linux"></a>Linux
 
 ```bash
-az k8s-extension create -c ${resourceName} -g ${resourceGroup} --name ${ADSExtensionName} --cluster-type connectedClusters --extension-type microsoft.arcdataservices --version "1.0.015564" --auto-upgrade false --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
+az k8s-extension create -c ${resourceName} -g ${resourceGroup} --name ${ADSExtensionName} --cluster-type connectedClusters --extension-type microsoft.arcdataservices --auto-upgrade false --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
 
 az k8s-extension show -g ${resourceGroup} -c ${resourceName} --name ${ADSExtensionName} --cluster-type connectedclusters
 ```
@@ -75,7 +75,7 @@ az k8s-extension show -g ${resourceGroup} -c ${resourceName} --name ${ADSExtensi
 ```PowerShell
 $ENV:ADSExtensionName="ads-extension"
 
-az k8s-extension create -c "$ENV:resourceName" -g "$ENV:resourceGroup" --name "$ENV:ADSExtensionName" --cluster-type connectedClusters --extension-type microsoft.arcdataservices --version "1.0.015564" --auto-upgrade false --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
+az k8s-extension create -c "$ENV:resourceName" -g "$ENV:resourceGroup" --name "$ENV:ADSExtensionName" --cluster-type connectedClusters --extension-type microsoft.arcdataservices --auto-upgrade false --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
 
 az k8s-extension show -g "$ENV:resourceGroup" -c "$ENV:resourceName" --name "$ENV:ADSExtensionName" --cluster-type connectedclusters
 ```
@@ -127,7 +127,7 @@ export extensionId=$(az k8s-extension show -g ${resourceGroup} -c ${resourceName
 
 az customlocation create -g ${resourceGroup} -n ${clName} --namespace ${clNamespace} \
   --host-resource-id ${hostClusterId} \
-  --cluster-extension-ids ${extensionId} --location eastus2euap
+  --cluster-extension-ids ${extensionId} --location eastus
 ```
 
 #### <a name="windows-powershell"></a>Windows PowerShell

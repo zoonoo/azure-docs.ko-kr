@@ -1,24 +1,24 @@
 ---
-title: Azure PowerShell를 사용 하 여 요새 호스트 만들기 Microsoft Docs
-description: 이 문서에서는 Azure 방호 호스트를 만드는 방법에 대해 알아봅니다.
+title: Azure PowerShell을 사용하여 베스천 호스트 만들기 | Microsoft Docs
+description: 이 문서에서는 Azure Bastion을 만드는 방법을 배웁니다.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: cherylmc
-ms.openlocfilehash: ba2716613a0e950cbae5c65add410ac8a8b38955
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 8abd4c417181b46fbf4d5c139c157044b329ea2a
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92077728"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580145"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Bastion 호스트 만들기
 
-이 문서에서는 PowerShell을 사용 하 여 Azure 방호 호스트를 만드는 방법을 보여 줍니다. 가상 네트워크에서 Azure 방호 서비스를 프로 비전 한 후에는 동일한 가상 네트워크의 모든 Vm에서 원활한 RDP/SSH 환경을 사용할 수 있습니다. Azure Bastion 배포는 구독/계정 또는 가상 머신이 아닌 가상 네트워크별로 수행됩니다.
+이 문서에서는 PowerShell을 사용하여 Azure Bastion 호스트를 만드는 방법을 보여 줍니다. 가상 네트워크에서 Azure Bastion 서비스를 프로비전한 후에는 같은 가상 네트워크의 모든 VM에서 원활한 RDP/SSH 환경을 사용할 수 있습니다. Azure Bastion 배포는 구독/계정 또는 가상 머신이 아닌 가상 네트워크별로 수행됩니다.
 
-필요에 따라 [Azure Portal](./tutorial-create-host-portal.md)를 사용 하 여 Azure 방호 호스트를 만들 수 있습니다.
+필요에 따라 [Azure Portal](./tutorial-create-host-portal.md)을 사용하여 Azure Bastion 호스트를 만들 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -26,11 +26,15 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 [!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
+ >[!NOTE]
+ >Azure 프라이빗 DNS 영역에서 Azure Bastion을 사용하는 것은 현재 지원되지 않습니다. 시작하기 전에 Bastion 리소스를 배포하려는 가상 네트워크가 프라이빗 DNS 영역에 연결되어 있지 않은지 확인하세요.
+ >
+
 ## <a name="create-a-bastion-host"></a><a name="createhost"></a>Bastion 호스트 만들기
 
-이 섹션은 Azure PowerShell를 사용 하 여 새 Azure 방호 리소스를 만드는 데 도움이 됩니다.
+이 섹션은 Azure PowerShell을 사용하여 새 Azure Bastion 리소스를 만드는 데 도움이 됩니다.
 
-1. 가상 네트워크 및 Azure 방호 서브넷을 만듭니다. 이름 값 **AzureBastionSubnet** 을 사용 하 여 Azure 방호 서브넷을 만들어야 합니다. 이 값을 통해 Azure에서 Bastion 리소스를 배포할 서브넷을 인식할 수 있습니다. 이는 게이트웨이 서브넷과는 다릅니다. 최소/27 이상의 서브넷 (/27,/26 등)의 서브넷을 사용 해야 합니다. 경로 테이블 또는 위임 없이 **AzureBastionSubnet** 를 만듭니다. **AzureBastionSubnet** 의 네트워크 보안 그룹을 사용 하는 경우 [nsgs 작업](bastion-nsg.md) 문서를 참조 하세요.
+1. 가상 네트워크 및 Azure Bastion 서브넷을 만듭니다. **AzureBastionSubnet** 이름 값을 사용하여 Azure Bastion 서브넷을 만들어야 합니다. 이 값을 통해 Azure에서 Bastion 리소스를 배포할 서브넷을 인식할 수 있습니다. 이는 게이트웨이 서브넷과는 다릅니다. 최소 /27 이상(/27, /26 등)의 서브넷을 사용해야 합니다. 경로 테이블 또는 위임 없이 **AzureBastionSubnet** 을 만듭니다. **AzureBastionSubnet** 의 네트워크 보안 그룹을 사용하는 경우 [NSG 사용](bastion-nsg.md) 문서를 참조하세요.
 
    ```azurepowershell-interactive
    $subnetName = "AzureBastionSubnet"
@@ -38,13 +42,13 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
    $vnet = New-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myBastionRG" -Location "westeurope" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
    ```
 
-2. Azure Bastion의 공용 IP 주소를 만듭니다. 공용 IP는 RDP/SSH를 액세스할 수 있는 방호 리소스 (443 포트)에 대 한 공용 IP 주소입니다. 공용 IP 주소는 만들려는 Bastion 리소스와 동일한 지역에 있어야 합니다.
+2. Azure Bastion의 공용 IP 주소를 만듭니다. 공용 IP는 포트 443을 통해 RDP/SSH에 액세스할 Bastion 리소스의 공용 IP 주소입니다. 공용 IP 주소는 만들려는 Bastion 리소스와 동일한 지역에 있어야 합니다.
 
    ```azurepowershell-interactive
    $publicip = New-AzPublicIpAddress -ResourceGroupName "myBastionRG" -name "myPublicIP" -location "westeurope" -AllocationMethod Static -Sku Standard
    ```
 
-3. 가상 네트워크의 AzureBastionSubnet에서 새 Azure 방호 리소스를 만드세요. 요새 리소스를 만들고 배포 하는 데 약 5 분이 걸립니다.
+3. 가상 네트워크의 AzureBastionSubnet에서 새 Azure Bastion 리소스를 만듭니다. Bastion 리소스가 생성되고 배포될 때까지 약 5분 정도 걸립니다.
 
    ```azurepowershell-interactive
    $bastion = New-AzBastion -ResourceGroupName "myBastionRG" -Name "myBastion" -PublicIpAddress $publicip -VirtualNetwork $vnet
@@ -52,5 +56,5 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 ## <a name="next-steps"></a>다음 단계
 
-* 추가 정보는 [요새 FAQ](bastion-faq.md) 를 참조 하세요.
+* 추가 정보는 [Bastion FAQ](bastion-faq.md)를 참조하세요.
 * Azure Bastion 서브넷에서 네트워크 보안 그룹을 사용하려면 [NSG 사용](bastion-nsg.md)을 참조하세요.

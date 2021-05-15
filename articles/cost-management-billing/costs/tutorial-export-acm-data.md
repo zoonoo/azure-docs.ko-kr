@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 37804be38918713cdfa7aea59763054e444daa7e
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 100f4252768f6a141253d4df03a73da9f4f6b4bc
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108015720"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290215"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>자습서: 내보낸 데이터 만들기 및 관리
 
@@ -32,18 +32,18 @@ Azure Storage로의 Azure 비용 데이터 예약된 내보내기를 만드는 �
 > * 일일 내보내기 만들기
 > * 데이터가 수집되는지 확인
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-데이터 내보내기는 [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/) 및 [Microsoft 고객 계약](get-started-partners.md) 고객을 포함한 다양한 종류의 Azure 계정에 사용할 수 있습니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요. 다음 Azure 사용 권한 또는 범위는 사용자 및 그룹별 데이터 내보내기에 대해 구독별로 지원됩니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
+데이터 내보내기는 [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/) 및 [Microsoft 고객 계약](get-started-partners.md) 고객을 비롯한 다양한 종류의 Azure 계정에 사용할 수 있습니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요. 다음 Azure 사용 권한 또는 범위는 사용자 및 그룹별 데이터 내보내기에 대해 구독별로 지원됩니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 
 - 소유자 - 구독에 대한 예약된 내보내기를 생성, 수정 또는 삭제할 수 있습니다.
 - 기여자 - 자신의 예약된 내보내기를 생성, 수정 또는 삭제할 수 있습니다. 다른 사용자가 만든 예약된 내보내기의 이름을 수정할 수 있습니다.
 - 읽기 권한자 - 권한이 있는 내보내기를 예약할 수 있습니다.
 
-기업계약 및 Microsoft 고객 계약 범위에 대한 내보내기를 구성하는 데 필요한 액세스 등 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
+**기업계약 및 Microsoft 고객 계약 범위에 대한 내보내기를 구성하는 데 필요한 액세스 등 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요**.
 
 Azure Storage 계정의 경우:
-- 내보내기에 대한 사용 권한과 상관 없이 구성된 스토리지 계정을 변경하려면 쓰기 사용 권한이 필요합니다.
+- 내보내기에 대한 사용 권한과 독립적으로 구성된 스토리지 계정을 변경하려면 쓰기 사용 권한이 필요합니다.
 - BLOB 또는 파일 스토리지에 대해 Azure 스토리지 계정이 구성되어 있어야 합니다.
 
 새 구독이 있는 경우 Cost Management 기능을 즉시 사용할 수 없습니다. 모든 Cost Management 기능을 사용하려면 최대 48시간이 걸릴 수 있습니다.
@@ -55,11 +55,11 @@ Azure Storage 계정의 경우:
 
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
-데이터 내보내기를 만들거나 보려면 또는 내보내기를 예약하려면 Azure Portal에서 원하는 범위를 열고 메뉴에서 **비용 분석** 을 선택합니다. 예를 들어 **구독** 으로 이동하여 목록에서 구독을 선택한 다음, 메뉴에서 **비용 분석** 을 선택합니다. 비용 분석 페이지의 맨 위에서 **설정** 을 선택한 다음, **내보내기** 를 선택합니다.
+데이터 내보내기를 만들거나 보려면 또는 내보내기를 예약하려면 Azure Portal에서 범위를 선택하고 메뉴에서 **비용 분석** 을 선택합니다. 예를 들어 **구독** 으로 이동하여 목록에서 구독을 선택한 다음, 메뉴에서 **비용 분석** 을 선택합니다. 비용 분석 페이지의 맨 위에서 **설정** 을 선택한 다음, **내보내기** 를 선택합니다.
 
 > [!NOTE]
 > - 구독 외에도 리소스 그룹, 관리 그룹, 부서 및 등록에서 내보내기를 만들 수 있습니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
->- 청구 계정 범위 또는 고객 테넌트에서 파트너로 로그인한 경우 파트너 스토리지 계정에 연결된 Azure Storage 계정으로 데이터를 내보낼 수 있습니다. 그러나 CSP 테넌트에 활성 구독이 있어야 합니다.
+> - 청구 계정 범위 또는 고객 테넌트에서 파트너로 로그인한 경우 파트너 스토리지 계정에 연결된 Azure Storage 계정으로 데이터를 내보낼 수 있습니다. 그러나 CSP 테넌트에 활성 구독이 있어야 합니다.
 
 1. **추가** 를 선택하고 내보내기의 이름을 입력합니다.
 1. **메트릭** 에서 선택합니다.
@@ -67,9 +67,9 @@ Azure Storage 계정의 경우:
     - **분할상환 비용(사용량 및 구매)** - Azure 예약과 같은 구매 분할상환 비용을 내보내려면 선택합니다.
 1. **내보내기 유형** 에서 선택합니다.
     - **월간 누계 비용 매일 내보내기** - 월간 누계 비용에 대한 새로운 내보내기 파일을 매일 제공합니다. 최신 데이터는 이전의 매일 내보내기에서 집계됩니다.
-    - **지난 7일 동안의 주간 비용 내보내기** - 선택한 내보내기 시작일로부터 지난 7일 동안 발생한 비용의 주간 내보내기를 만듭니다.
-    - **지난 달 비용의 월간 내보내기** - 내보내기를 만든 현재 달과 비교한 지난 달의 비용에 대한 내보내기를 제공합니다. 앞으로 진행하면 일정은 매월 5일에 이전 달의 비용으로 내보내기를 실행합니다.
-    - **일회성 내보내기** - Azure Blob Storage로 내보낼 기록 데이터의 날짜 범위를 선택할 수 있습니다. 선택한 날부터 최대 90일의 기록 비용을 내보낼 수 있습니다. 이 내보내기는 즉시 실행되며 2시간 이내에 스토리지 계정에서 사용할 수 있습니다.
+    - **지난 7일 동안의 주간 비용 내보내기** – 선택한 내보내기 시작일로부터 지난 7일 동안 발생한 비용의 주간 내보내기를 만듭니다.
+    - **지난달 비용의 월간 내보내기** – 내보내기를 만든 현재 달에 비해 지난 달의 비용에 대한 내보내기를 제공합니다. 앞으로, 일정은 매월 5일에 이전 달의 비용으로 내보내기를 실행합니다.
+    - **일회성 내보내기** – Azure Blob Storage로 내보낼 기록 데이터의 날짜 범위를 선택할 수 있습니다. 선택한 날부터 최대 90일의 기록 비용을 내보낼 수 있습니다. 이 내보내기는 즉시 실행되며 2시간 이내에 스토리지 계정에서 사용할 수 있습니다.
         내보내기 유형에 따라 시작 날짜를 선택하거나 **From** 및 **To** 날짜를 선택합니다.
 1. Azure 스토리지 계정에 대한 구독을 지정한 다음, 리소스 그룹을 선택하거나 새로 만듭니다.
 1. 스토리지 계정 이름을 선택하거나 새로 만듭니다.
@@ -241,7 +241,7 @@ Remove-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/00000000-00
 
 ### <a name="export-schedule"></a>내보내기 일정
 
-예약된 내보내기는 처음에 내보내기를 만든 요일과 시간의 영향을 받습니다. 예약된 내보내기를 만들면 이후의 각 내보내기 발생에 대해 동일한 빈도로 내보내기가 실행됩니다. 예를 들어 일별 빈도로 월간 누계 비용 매일 내보내기를 설정하는 경우 내보내기가 매일 실행됩니다. 마찬가지로 매주 내보내기의 경우에는 예약된 것과 동일한 요일에 내보내기가 매주 실행됩니다. 내보내기의 정확한 배달 시간은 보장되지 않으며, 내보낸 데이터는 런타임의 4시간 이내에 사용할 수 있습니다.
+예약된 내보내기는 처음에 내보내기를 만든 요일과 시간의 영향을 받습니다. 예약된 내보내기를 만들면 나중에 실행되는 각 내보내기에 대해 동일한 빈도로 내보내기가 실행됩니다. 예를 들어 일별 빈도로 월간 누계 비용 매일 내보내기를 설정하는 경우 내보내기가 매일 실행됩니다. 마찬가지로 매주 내보내기의 경우에는 예약된 것과 동일한 요일에 내보내기가 매주 실행됩니다. 내보내기의 정확한 배달 시간은 보장되지 않으며, 내보낸 데이터는 런타임의 4시간 이내에 사용할 수 있습니다.
 
 각 내보내기는 새 파일을 만들므로 이전의 내보내기를 덮어쓰지 않습니다.
 
@@ -257,6 +257,42 @@ Remove-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/00000000-00
 1. 범위에서 내보내기를 만들어 관리 그룹의 구독에 대한 비용 관리 데이터를 가져옵니다.
     :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="관리 그룹 범위를 사용하여 새 내보내기 옵션을 보여 주는 예제":::
 
+### <a name="file-partitioning-for-large-datasets"></a>대량 데이터 세트에 대한 파일 분할
+
+Microsoft 고객 계약 또는 Microsoft 파트너 계약이 있는 경우 내보내기를 사용하도록 설정하여 데이터 수집에 도움이 되는 여러 개의 작은 파일 파티션으로 파일을 청크 분할할 수 있습니다. 내보내기를 처음 구성할 때 **File Partitioning**(파일 분할) 설정을 **켜기** 로 설정합니다. 설정은 기본적으로 **끄기** 입니다.
+
+:::image type="content" source="./media/tutorial-export-acm-data/file-partition.png" alt-text="파일 분할 옵션을 보여 주는 스크린샷" lightbox="./media/tutorial-export-acm-data/file-partition.png" :::
+
+#### <a name="update-existing-exports-to-use-file-partitioning"></a>파일 분할을 사용하도록 기존 내보내기 업데이트
+
+기존 내보내기가 있고 파일 분할을 설정하려면 새 내보내기를 만듭니다. 파일 분할은 최신 내보내기 버전에서만 사용할 수 있습니다. 생성되는 사용량 파일의 일부 필드가 약간 변경될 수 있습니다.
+
+기존 내보내기에서 파일 분할을 사용하도록 설정하면 파일 출력에서 필드가 약간 변경될 수 있습니다. 처음 설정한 후에 내보내기에 대한 업데이트 때문에 변경 내용이 생성됩니다.
+
+#### <a name="partitioning-output"></a>분할 출력
+
+파일 분할을 사용하도록 설정하면 내보내기의 각 데이터 파티션에 대한 파일을 _manifest.json 파일과 함께 가져옵니다. 매니페스트에는 전체 데이터 세트에 대한 요약과 각 파일 파티션에 대한 정보가 포함되어 있습니다. 각 파일 파티션에는 헤더가 있으며 전체 데이터 세트의 하위 집합만 포함되어 있습니다. 전체 데이터 세트를 처리하려면 내보내기의 각 파티션을 수집해야 합니다.
+
+다음은 _manifest.json 예제 매니페스트 파일입니다.
+
+```json
+{
+  "manifestVersion": "2021-01-01",
+  "dataFormat": "csv",
+  "blobCount": 1,
+  "byteCount": 160769,
+  "dataRowCount": 136,
+  "blobs": [
+    {
+      "blobName": "blobName.csv",
+      "byteCount": 160769,
+      "dataRowCount": 136,
+      "headerRowCount": 1,
+      "contentMD5": "md5Hash"
+    }
+  ]
+}
+```
 ## <a name="verify-that-data-is-collected"></a>데이터가 수집되는지 확인
 
 Azure Storage Explorer를 사용하여 간단하게 Cost Management 데이터가 수집되는지 확인하고 내보낸 CSV 파일을 볼 수 있습니다.

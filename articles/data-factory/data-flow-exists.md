@@ -1,6 +1,6 @@
 ---
-title: 매핑 데이터 흐름의 존재 변환
-description: Azure Data Factory 매핑 데이터 흐름에서 exists 변환을 사용 하 여 기존 행을 확인 합니다.
+title: 데이터 흐름 매핑의 있음 변환
+description: Azure Data Factory 매핑 데이터 흐름에서 있음 변환을 사용하여 기존 행을 확인합니다.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,40 +9,40 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/07/2020
 ms.openlocfilehash: 805b51bf4e6d8feab9539f660dfc72ca78b82d5c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "82982635"
 ---
-# <a name="exists-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 존재 변환
+# <a name="exists-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 있음 변환
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-존재 변환은 데이터가 다른 원본 또는 스트림에 있는지 확인 하는 행 필터링 변환입니다. 출력 스트림에는 왼쪽 스트림에 존재 하거나 오른쪽 스트림에 존재 하지 않는 모든 행이 포함 됩니다. 존재 변환은 ```SQL WHERE EXISTS``` 및와 비슷합니다 ```SQL WHERE NOT EXISTS``` .
+있음 변환은 데이터가 다른 원본 또는 스트림에 있는지 확인하는 행 필터링 변환입니다. 출력 스트림에는 오른쪽 스트림에 존재하거나 존재하지 않는 왼쪽 스트림의 모든 행이 포함됩니다. 있음 변환은 ```SQL WHERE EXISTS``` 및 ```SQL WHERE NOT EXISTS```과 유사합니다.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vZKz]
 
 ## <a name="configuration"></a>구성
 
-1. **올바른 스트림** 드롭다운에서 있는지 확인 하는 데이터 스트림을 선택 합니다.
-1. 존재 **하는 데이터** 를 찾고 있는지 여부를 지정 합니다.
-1. **사용자 지정 식을** 사용할지 여부를 선택 합니다.
-1. 존재 조건으로 비교할 키 열을 선택 합니다. 기본적으로 데이터 흐름은 각 스트림의 한 열이 같은지 검색합니다. 계산된 값을 통해 비교하려면 열 드롭다운 위로 마우스를 이동하여 **계산 열** 을 선택합니다.
+1. **오른쪽 스트림** 드롭다운에서 있는지 확인할 데이터 스트림을 선택합니다.
+1. **있음 형식** 에 존재하거나 존재하지 않는 데이터를 찾고 있는지 여부를 지정합니다.
+1. **사용자 지정 식** 을 사용할지 여부를 선택합니다.
+1. 있음 조건으로 비교할 키 열을 선택합니다. 기본적으로 데이터 흐름은 각 스트림의 한 열이 같은지 검색합니다. 계산된 값을 통해 비교하려면 열 드롭다운 위로 마우스를 이동하여 **계산 열** 을 선택합니다.
 
-![Exists 설정](media/data-flow/exists.png "exists 1")
+![있음 설정](media/data-flow/exists.png "있음 1")
 
-### <a name="multiple-exists-conditions"></a>여러 개의 exists 조건
+### <a name="multiple-exists-conditions"></a>여러 개의 있음 조건
 
-각 스트림에서 여러 열을 비교 하려면 기존 행 옆에 있는 더하기 아이콘을 클릭 하 여 새 exists 조건을 추가 합니다. 각 추가 조건은 "and" 문으로 조인 됩니다. 두 열을 비교 하는 것은 다음 식과 같습니다.
+각 스트림에서 여러 열을 비교하려면 기존 행 옆에 있는 더하기 아이콘을 클릭하여 새 있음 조건을 추가합니다. 각 추가 조건은 “and” 문으로 조인됩니다. 두 열 비교는 다음 식과 동일합니다.
 
 `source1@column1 == source2@column1 && source1@column2 == source2@column2`
 
 ### <a name="custom-expression"></a>사용자 지정 식
 
-"And" 및 "equals" 이외의 연산자를 포함 하는 자유 형식 식을 만들려면 **사용자 지정 식** 필드를 선택 합니다. 파란색 상자를 클릭 하 여 데이터 흐름 식 작성기를 통해 사용자 지정 식을 입력 합니다.
+“and” 및 “equals to” 이외의 연산자를 포함하는 자유 형식 식을 만들려면 **사용자 지정 식** 필드를 선택합니다. 파란색 상자를 클릭하여 데이터 흐름 식 작성기를 통해 사용자 지정 식을 입력합니다.
 
-![Exists 사용자 지정 설정](media/data-flow/exists1.png "exists 사용자 지정")
+![있음 사용자 지정 설정](media/data-flow/exists1.png "있음 사용자 지정")
 
 ## <a name="broadcast-optimization"></a>브로드캐스트 최적화
 
@@ -67,11 +67,11 @@ ms.locfileid: "82982635"
 
 ### <a name="example"></a>예제
 
-아래 예제는 `checkForChanges` 왼쪽 스트림과 오른쪽 스트림을 취하는 이라는 exists 변환입니다 `NameNorm2` `TypeConversions` .  Exists 조건은 `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region` `EMPID` 각 스트림의 및 열이 모두 일치 하는 경우 true를 반환 하는 식입니다 `Region` . 존재 여부를 확인 하는 중 `negate` 이 false입니다. 최적화 탭에서 브로드캐스팅을 사용 하도록 설정 하지 않으므로 `broadcast` 값이 `'none'` 있습니다.
+아래 예제는 왼쪽 스트림 `NameNorm2` 및 오른쪽 스트림 `TypeConversions`를 사용하는 `checkForChanges`라는 있음 변환입니다.  있음 조건은 각 스트림의 `EMPID` 및 `Region` 열이 일치하는 경우 True를 반환하는 식 `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region`입니다. 존재 여부를 확인하는 동안 `negate`는 False입니다. 최적화 탭에서 브로드캐스팅을 사용하도록 설정하지 않으므로 `broadcast` 값이 `'none'`입니다.
 
 Data Factory UX에서 이 변환은 아래 이미지와 같습니다.
 
-![Exists 예](media/data-flow/exists-script.png "Exists 예")
+![있음 예제](media/data-flow/exists-script.png "있음 예제")
 
 이 변환에 대한 데이터 흐름 스크립트는 아래 코드 조각에 있습니다.
 
@@ -86,4 +86,4 @@ NameNorm2, TypeConversions
 
 ## <a name="next-steps"></a>다음 단계
 
-유사 변환은 [조회](data-flow-lookup.md) 및 [조인](data-flow-join.md)입니다.
+유사 변환으로는 [조회](data-flow-lookup.md) 및 [조인](data-flow-join.md)이 있습니다.

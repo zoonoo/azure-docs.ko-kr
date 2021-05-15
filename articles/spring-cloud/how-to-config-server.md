@@ -8,10 +8,10 @@ author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
 ms.openlocfilehash: de113e3c005e11bd2bcd13ec6c1554664ba8fbaf
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104878256"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>서비스용 Spring Cloud Config 서버 인스턴스 설정
@@ -83,7 +83,7 @@ SSH를 사용하는 프라이빗 Git 리포지토리를 설정하는 데 사용�
 | `strict-host-key-checking` | 예     | 프라이빗 `host-key`를 활용하는 경우 Config 서버 인스턴스가 시작되지 않는지 여부를 나타냅니다. *true*(기본값) 또는 *false* 여야 합니다. |
 
 > [!NOTE]
-> 구성 서버는 `master` 지정 되지 않은 경우 기본 레이블로 (Om Git 자체)를 사용 합니다. 그러나 GitHub는 기본 분기를에서 `master` 최근에로 변경 했습니다 `main` . Azure 스프링 클라우드 구성 서버 실패를 방지 하려면 GitHub를 사용 하 여 구성 서버를 설정 하는 경우, 특히 새로 만든 리포지토리에 대해 주의를 기울여야 합니다.
+> Config Server는 지정되지 않은 경우 `master`(om Git 자체)를 기본 레이블로 사용합니다. 그러나 GitHub는 최근 기본 분기를 `master`에서 `main`으로 변경했습니다. Azure Spring Cloud Config Server 오류를 방지하려면, 특히 새로 만든 리포지토리의 경우 GitHub를 사용하여 Config Server를 설정할 때 기본 레이블에 주의를 기울여야 합니다.
 
 -----
 
@@ -135,7 +135,7 @@ SSH를 사용하는 프라이빗 Git 리포지토리를 설정하는 데 사용�
 
 2. Azure Spring Cloud **개요** 페이지로 이동합니다.
 
-3. 왼쪽 탐색 창에서 **구성 서버** 를 선택 합니다.
+3. 왼쪽 탐색 창에서 **Config Server** 를 선택합니다.
 
 4. **기본 리포지토리** 섹션에서 **URI** 를 "https://github.com/Azure-Samples/piggymetrics-config"로 설정합니다.
 
@@ -170,7 +170,7 @@ SSH를 사용하는 프라이빗 Git 리포지토리를 설정하는 데 사용�
 
     * **SSH**: **기본 리포지토리** 섹션의 **Uri** 상자에서 리포지토리 URI를 붙여넣은 다음, **인증**("연필" 아이콘) 단추를 선택합니다. **인증 편집** 창의 **인증 유형** 드롭다운 목록에서 **SSH** 를 선택한 다음, **프라이빗 키** 를 입력합니다. 필요에 따라 **호스트 키** 및 **호스트 키 알고리즘** 을 지정합니다. Config 서버 리포지토리에 공개 키를 포함해야 합니다. **확인** 을 선택한 다음, **적용** 을 클릭하여 Config 서버 인스턴스 설정을 완료합니다.
 
-    ![인증 편집 창 ssh 인증](media/spring-cloud-tutorial-config-server/ssh-auth.png)
+    ![인증 편집 창 SSH 인증](media/spring-cloud-tutorial-config-server/ssh-auth.png)
 
 #### <a name="pattern-repository"></a>패턴 리포지토리
 
@@ -199,30 +199,30 @@ spring:
 
 YAML 파일의 정보가 Azure Portal에 표시됩니다. **적용** 을 선택하여 완료합니다. 
 
-## <a name="using-azure-repos-for-azure-spring-cloud-configuration"></a>Azure 스프링 클라우드 구성에 Azure Repos 사용
+## <a name="using-azure-repos-for-azure-spring-cloud-configuration"></a>Azure Spring Cloud 구성에 Azure Repos 사용
 
-Azure Spring Cloud는 퍼블릭 Git 리포지토리, SSH로 보호된 Git 리포지토리 또는 HTTP 기본 인증을 사용하여 보호된 Git 리포지토리에 액세스할 수 있습니다. Azure Repos를 사용 하 여 쉽게 만들고 관리할 수 있으므로 해당 마지막 옵션을 사용 합니다.
+Azure Spring Cloud는 퍼블릭 Git 리포지토리, SSH로 보호된 Git 리포지토리 또는 HTTP 기본 인증을 사용하여 보호된 Git 리포지토리에 액세스할 수 있습니다. Azure Repos를 사용하여 쉽게 만들고 관리할 수 있으므로 이 마지막 옵션을 사용해보겠습니다.
 
-### <a name="get-repo-url-and-credentials"></a>리포지토리 url 및 자격 증명 가져오기
-1. 프로젝트에 대 한 Azure Repos 포털에서 "복제" 단추를 클릭 합니다.
+### <a name="get-repo-url-and-credentials"></a>리포지토리 URL 및 자격 증명 가져오기
+1. 프로젝트의 Azure Repos 포털에서 "복제" 단추를 클릭합니다.
 
     ![복제 단추](media/spring-cloud-tutorial-config-server/clone-button.png)
 
-1. 텍스트 상자에서 클론 URL을 복사 합니다. 이 URL은 일반적으로 다음과 같은 형식입니다.
+1. 텍스트 상자에서 복제 URL을 복사합니다. 이 URL은 일반적으로 다음과 같은 형식입니다.
 
     ```Text
     https://<organization name>@dev.azure.com/<organization name>/<project name>/_git/<repository name>
     ```
 
-    을 포함 하 여 전후 모든 항목 `https://` `dev.azure.com` 을 제거 `@` 합니다. 결과 URL의 형식은 다음과 같아야 합니다.
+    `@`을(를) 포함하여 `https://` 이후와 `dev.azure.com` 이전 버전을 모두 제거합니다. 결과 URL의 형식은 다음과 같아야 합니다.
 
     ```Text
     https://dev.azure.com/<organization name>/<project name>/_git/<repository name>
     ```
 
-    다음 섹션에서 사용 하기 위해이 URL을 저장 합니다.
+    다음 섹션에서 사용하기 위해 이 URL을 저장합니다.
 
-1. "Git 자격 증명 생성"을 클릭 합니다. 사용자 이름 및 암호가 표시 됩니다. 다음 섹션에서 사용 하기 위해 저장 합니다.
+1. "Git 자격 증명 생성"을 클릭합니다. 사용자 이름 및 암호가 표시됩니다. 다음 섹션에서 사용하기 위해 저장합니다.
 
 
 ### <a name="configure-azure-spring-cloud-to-access-the-git-repository"></a>Git 리포지토리에 액세스하도록 Azure Spring Cloud 구성
@@ -233,12 +233,12 @@ Azure Spring Cloud는 퍼블릭 Git 리포지토리, SSH로 보호된 Git 리포
 
 1. 구성할 서비스를 선택합니다.
 
-1. 서비스 페이지의 왼쪽 창에 있는 **설정** 에서 **구성 서버** 탭을 선택 합니다. 이전에 만든 리포지토리를 구성 합니다.
-   - 이전 섹션에서 저장 한 리포지토리 URL 추가
-   - 설정을 클릭 하 고 다음을 선택 합니다. `Authentication``HTTP Basic`
-   - __사용자 이름은__ 이전 섹션에서 저장 한 사용자 이름입니다.
-   - __암호__ 는 이전 섹션에서 저장 한 암호입니다.
-   - "적용"을 클릭 하 고 작업이 성공할 때까지 기다립니다.
+1. 서비스 페이지에 있는 왼쪽 창의 **설정** 아래에서 **Config 서버** 탭을 선택합니다. 이전에 만든 리포지토리를 구성합니다.
+   - 이전 섹션에서 저장한 리포지토리 URL을 추가합니다
+   - `Authentication`을 클릭하고 `HTTP Basic`을 선택합니다
+   - __사용자 이름__ 은 이전 섹션에서 저장한 사용자 이름입니다
+   - __암호__ 는 이전 섹션에서 저장한 암호입니다
+   - "적용"을 클릭하고 작업이 성공할 때까지 기다립니다
 
    ![Spring Cloud 구성 서버](media/spring-cloud-tutorial-config-server/config-server-azure-repos.png)
 

@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: shortpatti
   ms.author: v-patsho
-  ms.date: 05/04/2021
-  ms.openlocfilehash: 20d2d685c6ac634a1463669c262f599fb465e05d
-  ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+  ms.date: 05/11/2021
+  ms.openlocfilehash: ae12f4ed9d356eb7a196164574766868ea469f1a
+  ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/06/2021
-  ms.locfileid: "108803913"
+  ms.lasthandoff: 05/11/2021
+  ms.locfileid: "109754338"
 landingContent:
 - title: Azure VMware Solution 정보
   linkLists:
@@ -64,7 +64,7 @@ landingContent:
       url: /azure/azure-vmware/faq#identity-management
     - text: 청구 및 지원
       url: /azure/azure-vmware/faq#billing-and-support
-- title: 시작하기
+- title: 시작
   linkLists:
   - linkListType: deploy
     links:
@@ -94,6 +94,14 @@ landingContent:
       url: tutorial-scale-private-cloud.md
     - text: 프라이빗 클라우드 삭제
       url: tutorial-delete-private-cloud.md
+- title: ID 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 프라이빗 클라우드의 액세스 및 ID
+      url: concepts-identity.md
+    - text: cloudadmin 자격 증명 회전
+      url: rotate-cloudadmin-credentials.md
 - title: Azure VMware Solution 확장
   linkLists:
   - linkListType: reference

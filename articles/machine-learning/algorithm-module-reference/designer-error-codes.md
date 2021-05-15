@@ -1,7 +1,7 @@
 ---
 title: 디자이너 모듈 오류 문제 해결
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning designer에서 자동화 된 모듈 오류 코드를 읽고 문제를 해결 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning 디자이너에서 자동화된 모듈 오류 코드를 읽고 문제를 해결하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,15 +11,15 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/25/2020
 ms.openlocfilehash: b917e3fc93c59de85c5236c18e31d7bbc9d891f0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98065476"
 ---
-# <a name="exceptions-and-error-codes-for-the-designer"></a>디자이너에 대 한 예외 및 오류 코드
+# <a name="exceptions-and-error-codes-for-the-designer"></a>디자이너의 예외 및 오류 코드
 
-이 문서에서는 Machine Learning 파이프라인 문제를 해결 하는 데 도움이 되는 Azure Machine Learning 디자이너의 오류 메시지 및 예외 코드를 설명 합니다.
+이 문서에서는 기계 학습 파이프라인의 문제를 해결하는 데 도움이 되는 Azure Machine Learning 디자이너의 오류 메시지 및 예외 코드를 설명합니다.
 
 다음 단계들을 수행하면 디자이너에서 오류 메시지를 찾을 수 있습니다.  
 
@@ -279,12 +279,12 @@ Blob에 대한 전체 경로가 지정된 경우, 이 경로가 **container/blob
 ## <a name="error-0014"></a>오류 0014  
  열의 고유 값 수가 허용되는 것보다 많으면 예외가 발생합니다.  
 
- 이 오류는 열에 ID 열 또는 텍스트 열과 같은 고유 값이 너무 많은 경우에 발생 합니다. 열이 범주 데이터로 처리 되도록 지정 했지만 처리를 완료할 수 있는 열에 너무 많은 고유 값이 있는 경우이 오류가 표시 될 수 있습니다. 두 입력의 고유 값 개수가 서로 일치하지 않을 경우에도 이 오류가 표시될 수 있습니다.   
+ 이 오류는 열에 ID 열 또는 텍스트 열과 같은 고유 값이 너무 많은 경우에 발생합니다. 하나의 열이 범주형 데이터로 처리되도록 지정했지만 해당 열에 너무 많은 고유 값이 있어 처리를 완료할 수 없는 경우, 이 오류가 표시될 수 있습니다. 두 입력의 고유 값 개수가 서로 일치하지 않을 경우에도 이 오류가 표시될 수 있습니다.   
 
-다음 조건을 **모두** 충족 하는 경우 고유한 값의 오류가 허용 되는 것 보다 큽니다.
+다음 두 조건을 **모두** 충족하는 경우 고유 값의 오류가 허용되는 것보다 큽니다.
 
-- 하나의 열에 있는 97% 이상의 인스턴스가 고유한 값 이므로 거의 모든 범주가 서로 다른 것을 의미 합니다.
-- 하나의 열에 1000 개 이상의 고유 값이 있습니다.
+- 하나의 열에 있는 97% 이상의 인스턴스가 고유 값이므로 거의 모든 범주가 서로 다릅니다.
+- 하나의 열에 1000개 이상의 고유 값이 있습니다.
 
 **해결 방법:**
 
@@ -292,9 +292,9 @@ Blob에 대한 전체 경로가 지정된 경우, 이 경로가 **container/blob
 
 그룹화 또는 분류에 사용할 열의 경우, 각 열에서 고유한 값의 수를 줄이는 단계를 수행합니다. 그 수는 열의 데이터 형식에 따라 여러 가지 방법으로 줄일 수 있습니다. 
 
-모델을 학습 하는 동안 의미 있는 기능이 아닌 ID 열의 경우 [메타 데이터 편집](../algorithm-module-reference/edit-metadata.md) 을 사용 하 여 해당 열을 **명확한 기능** 으로 표시할 수 있으며 모델을 학습 하는 동안 사용 되지 않습니다. 
+모델을 학습하는 동안 의미 없는 기능인 ID 열의 경우 [메타데이터 편집](../algorithm-module-reference/edit-metadata.md)을 사용하여 해당 열을 **명확한 기능** 으로 표시하면 모델을 학습하는 동안 이 열이 사용되지 않습니다. 
 
-텍스트 열의 경우 [기능 해시](../algorithm-module-reference/feature-hashing.md) 를 사용 하거나 [텍스트 모듈에서 N-문법 기능을 추출](../algorithm-module-reference/extract-n-gram-features-from-text.md) 하 여 텍스트 열을 전처리 할 수 있습니다.
+텍스트 열의 경우 [기능 해시](../algorithm-module-reference/feature-hashing.md)를 사용하거나 [텍스트 모듈에서 N-Gram 기능을 추출](../algorithm-module-reference/extract-n-gram-features-from-text.md)하여 텍스트 열을 전처리할 수 있습니다.
 <!--
 + For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
 + For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  
@@ -1116,7 +1116,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 
  모듈 예외에 의해 보고된 SQL 생성 메시지가 있는 경우, 보고된 오류에 따라 작업을 수행합니다. 예를 들어 오류 메시지에는 발생 가능한 오류에 대한 특정 지침이 때때로 포함됩니다.
 + 해당 열 또는 누락된 데이터베이스가 없음: 열 이름을 잘못 입력했을 수도 있음을 나타냅니다. 열 이름이 올바른지 잘 모르겠다면 대괄호 또는 따옴표를 사용하여 열 식별자를 묶습니다.
-+ 지정 된 키워드 앞에 구문 오류가 있음을 나타내는 *SQL 논리 오류가 근처 \<SQL keyword\>* 에 있습니다.
++ *\<SQL keyword\> 근처에 SQL 논리 오류가 있음*. 이는 지정된 키워드 앞에 구문 오류가 발생했을 수도 있음을 나타냅니다.
 
   
 |예외 메시지|
@@ -1510,7 +1510,7 @@ Azure Machine Learning에서 이 오류는 지원되지 않는 메서드를 사�
 
 
 ## <a name="error-0159"></a>오류 0159
- 모듈 모델 디렉터리가 잘못 된 경우 예외가 발생 합니다. 
+ 모듈 모델 디렉터리가 올바르지 않으면 예외가 발생합니다. 
 
 |예외 메시지|
 |------------------------------------------------------------|
@@ -1525,7 +1525,7 @@ Azure Machine Learning에서 이 오류는 지원되지 않는 메서드를 사�
 
 이 오류는 달리 처리되지 않은 내부 엔진 오류를 캡처하기 위해 제공됩니다. 따라서 오류를 생성한 모듈에 따라 이 오류의 원인이 달라질 수 있습니다.  
 
-자세한 도움말을 보려면 입력으로 사용 되는 데이터를 포함 하 여 시나리오에 대 한 설명과 함께 오류를 수반 하는 자세한 메시지를 [Azure Machine Learning 포럼](/answers/topics/azure-machine-learning.html)에 게시 하는 것이 좋습니다. 이 피드백은 오류의 우선 순위를 지정하고 추가 작업을 위해 가장 중요한 문제를 식별하는 데 도움이 됩니다.  
+자세한 도움말을 보려면 해당 오류와 함께 표시되는 세부 메시지를 시나리오에 대한 설명(입력으로 사용되는 데이터를 포함)을 덧붙여 [Azure Machine Learning 포럼](/answers/topics/azure-machine-learning.html)에 게시하는 것이 좋습니다. 이 피드백은 오류의 우선 순위를 지정하고 추가 작업을 위해 가장 중요한 문제를 식별하는 데 도움이 됩니다.  
 
 |예외 메시지|
 |------------------------|
@@ -1536,4 +1536,4 @@ Azure Machine Learning에서 이 오류는 지원되지 않는 메서드를 사�
 
 ## <a name="execute-python-script-module"></a>Python 스크립트 실행 모듈
 
-**Python 스크립트 실행 모듈** **70_driver_logs** 의 **azureml_main에서** 검색 하 고 발생 한 오류를 찾을 수 있습니다. 예를 들어 azureml_main "파일"/tmp/tmp01_ID/user_script. py "는 python 스크립트의 17 줄에서 오류가 발생 했음을 나타냅니다.
+**Python 스크립트 실행 모듈** **70_driver_logs** 의 **in azureml_main** 을 검색하여 오류가 발생한 줄을 찾을 수 있습니다. 예를 들어 "File "/tmp/tmp01_ID/user_script.py", line 17, in azureml_main"은 Python 스크립트의 17번째 줄에서 오류가 발생했음을 나타냅니다.

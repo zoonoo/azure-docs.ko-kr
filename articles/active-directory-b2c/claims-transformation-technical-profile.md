@@ -12,10 +12,10 @@ ms.date: 02/13/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 6553b9ec120ca0e1e479b400495b61bc68c88cf3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85201211"
 ---
 # <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 클레임 변환 기술 프로필 정의
@@ -82,7 +82,7 @@ TransformationClaimType="collection" />
 </TechnicalProfile>
 ```
 
-클레임 변환 기술 프로필을 사용하면 사용자 경험의 오케스트레이션 단계에서 클레임 변환을 실행할 수 있습니다. 다음 예제에서 오케스트레이션 단계는 **UnLink-Facebook-OAUTH** 와 같은 링크 해제 기술 프로필 중 하나를 호출합니다. 이 기술 프로필은 클레임 변환 기술 프로필 **RemoveAlternativeSecurityIdByIdentityProvider** 를 호출 하 여 컬렉션에서 Facebook id를 제거 하는 동안 사용자 소셜 id 목록이 포함 된 새 **AlternativeSecurityIds2** 클레임을 생성 합니다.
+클레임 변환 기술 프로필을 사용하면 사용자 경험의 오케스트레이션 단계에서 클레임 변환을 실행할 수 있습니다. 다음 예제에서 오케스트레이션 단계는 **UnLink-Facebook-OAUTH** 와 같은 링크 해제 기술 프로필 중 하나를 호출합니다. 이 기술 프로필이 호출하는 클레임 변환 기술 프로필 **RemoveAlternativeSecurityIdByIdentityProvider** 는 사용자의 소셜 ID 목록이 포함된 새 **AlternativeSecurityIds2** 클레임을 생성하면서 컬렉션에서 Facebook ID를 제거합니다.
 
 ```xml
 <UserJourney Id="AccountUnLink">
@@ -104,7 +104,7 @@ TransformationClaimType="collection" />
 
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| IncludeClaimResolvingInClaimsHandling  | 아니요 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면이를로 설정 `true` 합니다. |
+| IncludeClaimResolvingInClaimsHandling  | 예 | 입력 및 출력 클레임의 경우 기술 프로필에 [클레임 해결](claim-resolver-overview.md)이 포함되는지 여부를 지정합니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용하려면 이를 `true`로 설정합니다. |
 
 ## <a name="use-a-validation-technical-profile"></a>유효성 검사 기술 프로필 사용
 

@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
 ms.openlocfilehash: 62723a0fee6a3f696c517bc642fdac8cfa80a6b9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102557423"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Windows를 실행하는 N 시리즈 VM에 AMD GPU 드라이버 설치
@@ -33,12 +33,12 @@ Microsoft에서 게시하는 GPU 드라이버만 NVv4 VM에서 지원됩니다. 
 
 | OS | 드라이버 |
 | -------- |------------- |
-| Windows 10 Enterprise 다중 세션-빌드 1909 <br/><br/>Windows 10-빌드 1909<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20. Q4](https://download.microsoft.com/download/f/1/6/f16e6275-a718-40cd-a366-9382739ebd39/AMD-Azure-NVv4-Driver-20Q4.exe) (.exe) |
+| Windows 10 Enterprise 다중 세션 - 빌드 1909 <br/><br/>Windows 10 - 빌드 1909<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20.Q4](https://download.microsoft.com/download/f/1/6/f16e6275-a718-40cd-a366-9382739ebd39/AMD-Azure-NVv4-Driver-20Q4.exe) (.exe) |
 
  > [!NOTE]
-   >  1903/1909 빌드를 사용 하는 경우 최적의 성능을 위해 다음 그룹 정책을 업데이트 해야 할 수 있습니다. 이러한 변경 내용은 다른 Windows 빌드에 필요 하지 않습니다.
+   >  빌드 1903/1909를 사용하는 경우, 최적의 성능을 위해 다음 그룹 정책을 업데이트해야 할 수 있습니다. 이러한 변경 내용은 다른 Windows 빌드에는 필요하지 않습니다.
    >  
-   >  [컴퓨터 구성->정책->Windows 설정->관리 템플릿->Windows 구성 요소->원격 데스크톱 서비스->원격 데스크톱 세션 호스트 >원격 세션 환경]을 사용 하지 않도록 설정 합니다.
+   >  [컴퓨터 구성->정책->Windows 설정->관리 템플릿->Windows 구성 요소->원격 데스크톱 서비스->원격 데스크톱 세션 호스트->원격 세션 환경], 정책 [원격 데스크톱 연결에 WDDM 그래픽 디스플레이 드라이버 사용]을 사용하지 않도록 설정합니다.
    >  
 
 
@@ -46,7 +46,7 @@ Microsoft에서 게시하는 GPU 드라이버만 NVv4 VM에서 지원됩니다. 
 
 1. 원격 데스크톱을 통해 각 NVv4 시리즈 VM에 연결합니다.
 
-2. 이전 드라이버 버전을 제거 해야 하는 경우에는 [여기](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe) 에서 이전 버전의 드라이버와 함께 제공 되는 유틸리티를 사용 하지 마세요.
+2. 이전 드라이버 버전을 제거해야 하는 경우에는 [여기](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe)에서 AMD 정리 유틸리티를 다운로드합니다. 이전 버전의 드라이버와 함께 제공되는 유틸리티는 사용하지 마세요.
 
 3. 최신 드라이버를 다운로드하여 설치합니다.
 
@@ -57,11 +57,11 @@ Microsoft에서 게시하는 GPU 드라이버만 NVv4 VM에서 지원됩니다. 
 디바이스 관리자에서 드라이버 설치를 확인할 수 있습니다. 다음 예제에서는 Azure NVv4 VM에서 Radeon Instinct MI25 카드의 성공적인 구성을 보여줍니다.
 <br />
 
-![Azure NVv4 VM에서 Radeon 이러한 MI25 카드의 성공적인 구성을 보여 주는 스크린샷](./media/n-series-amd-driver-setup/device-manager.png)
+![Azure NVv4 VM에서 Radeon Instinct MI25 카드의 성공적인 구성을 보여 주는 스크린샷입니다.](./media/n-series-amd-driver-setup/device-manager.png)
 
 dxdiag를 사용하여 비디오 RAM을 비롯한 GPU 표시 속성을 확인할 수 있습니다. 다음 예제에서는 Azure NVv4 VM에서 Radeon Instinct MI25 카드의 1/2 파티션을 보여줍니다.
 <br />
-![Azure NVv4 VM에서 Radeon 이러한 MI25 카드의 1/2 파티션을 보여 주는 스크린샷](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
+![Azure NVv4 VM에서 Radeon Instinct MI25 카드의 1/2 파티션을 보여 주는 스크린샷입니다.](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
 
 Windows 10 빌드 1903 이상을 실행하는 경우 dxdiag는 'Display' 탭에 정보를 표시하지 않습니다. 하단에 있는 '모든 정보 저장' 옵션을 사용하면 출력 파일에 AMD MI25 GPU와 관련된 정보가 표시됩니다.
 

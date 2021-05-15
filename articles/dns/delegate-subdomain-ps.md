@@ -1,6 +1,6 @@
 ---
-title: 하위 도메인 위임-Azure PowerShell-Azure DNS
-description: 이 학습 경로를 사용 하 여 Azure PowerShell를 사용 하 여 Azure DNS 하위 도메인을 위임 하기 시작 합니다.
+title: 하위 도메인 위임 - Azure PowerShell - Azure DNS
+description: 이 학습 경로를 통해 Azure PowerShell을 사용하여 Azure DNS 하위 도메인 위임을 시작합니다.
 services: dns
 author: rohinkoul
 ms.service: dns
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 2/7/2019
 ms.author: rohink
 ms.openlocfilehash: 9b37d313aa5d8c2255b4e3be69831dfcb50238ea
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84712550"
 ---
 # <a name="delegate-an-azure-dns-subdomain-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure DNS 하위 도메인 위임

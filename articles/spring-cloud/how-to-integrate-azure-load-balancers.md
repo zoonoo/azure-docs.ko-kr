@@ -1,108 +1,108 @@
 ---
-title: 자습서-azure 부하 분산 솔루션과 Azure 스프링 클라우드 통합
-description: Azure 부하 분산 솔루션과 Azure 스프링 클라우드를 통합 하는 방법
+title: 자습서 - Azure 부하 분산 솔루션과 Azure Spring Cloud 통합
+description: Azure 부하 분산 솔루션과 Azure Spring Cloud를 통합하는 방법
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 50b09fd82461221ae6cd008f6918ac2f3a26fd94
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.openlocfilehash: 87b29d7417bfcaff670282377b2fffc6d4713395
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104878226"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135044"
 ---
 # <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Azure 부하 분산 솔루션과 Azure Spring Cloud 통합
 
 **이 문서는 다음에 적용됩니다.** ✔️ Java ✔️ C#
 
-Azure 스프링 클라우드는 Azure에서 마이크로 서비스를 지원 합니다.  비즈니스를 높이면 Azure 스프링 클라우드의 여러 인스턴스를 관리 하는 여러 데이터 센터가 필요할 수 있습니다.
+Azure Spring Cloud는 Azure에서 마이크로 서비스를 지원합니다.  비즈니스를 성장시키려면 Azure Spring Cloud의 여러 인스턴스를 관리하는 여러 데이터 센터가 필요할 수 있습니다.
 
-Azure는 이미 다른 부하 분산 솔루션을 제공 합니다. Azure 스프링 클라우드를 Azure 부하 분산 솔루션과 통합 하는 세 가지 옵션이 있습니다.
+Azure는 이미 다양한 부하 분산 솔루션을 제공합니다. Azure Spring Cloud를 Azure 부하 분산 솔루션과 통합하는 데는 세 가지 옵션이 있습니다.
 
-1.  Azure Traffic Manager와 Azure 스프링 클라우드 통합
-2.  Azure 앱 Gateway와 Azure 스프링 클라우드 통합
-3.  Azure 프런트 도어를 사용 하 여 Azure 스프링 클라우드 통합
+1.  Azure Spring Cloud를 Azure Traffic Manager와 통합
+2.  Azure Spring Cloud를 Azure App Gateway와 통합
+3.  Azure Spring Cloud를 Azure Front Door와 통합
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 스프링 클라우드: [azure 스프링 클라우드 서비스를 만드는 방법](./spring-cloud-quickstart.md)
+* Azure Spring Cloud: [Azure Spring Cloud 서비스를 만드는 방법](./quickstart.md)
 * Azure Traffic Manager: [Traffic Manager를 만드는 방법](../traffic-manager/quickstart-create-traffic-manager-profile.md)
-* Azure 앱 Gateway: [응용 프로그램 게이트웨이를 만드는 방법](../application-gateway/quick-create-portal.md)
-* Azure Front 도어: [Front 도어를 만드는 방법](../frontdoor/quickstart-create-front-door.md)
+* Azure App Gateway: [애플리케이션 게이트웨이를 만드는 방법](../application-gateway/quick-create-portal.md)
+* Azure Front 도어: [Front Door를 만드는 방법](../frontdoor/quickstart-create-front-door.md)
 
-## <a name="integrate-azure-spring-cloud-with-azure-traffic-manager"></a>Azure Traffic Manager와 Azure 스프링 클라우드 통합
+## <a name="integrate-azure-spring-cloud-with-azure-traffic-manager"></a>Azure Spring Cloud를 Azure Traffic Manager와 통합
 
-Azure 스프링 클라우드를 Traffic Manager와 통합 하려면 해당 공용 끝점을 traffic manager의 끝점으로 추가한 다음 traffic manager와 Azure 스프링 클라우드 모두에 대해 사용자 지정 도메인을 구성 합니다.
+Azure Spring Cloud를 Traffic Manager와 통합하려면 해당 공용 엔드포인트를 Traffic Manager의 엔드포인트로 추가한 다음 Traffic Manager와 Azure Spring Cloud 모두에 대해 사용자 지정 도메인을 구성합니다.
 
-### <a name="add-endpoint-in-traffic-manager"></a>Traffic Manager에 끝점 추가
-Traffic manager에서 끝점 추가:
-1.  *외부 끝점이* 될 **형식을** 지정 합니다.
-1.  각 Azure 스프링 클라우드 공용 끝점의 FQDN (정규화 된 도메인 이름)을 입력 합니다.
+### <a name="add-endpoint-in-traffic-manager"></a>Traffic Manager에 엔드포인트 추가
+Traffic Manager에 엔드포인트 추가:
+1.  *외부 엔드포인트* 가 될 **형식** 을 지정합니다.
+1.  각 Azure Spring Cloud 공용 엔드포인트의 FQDN(정규화된 도메인 이름)을 입력합니다.
 1. **확인** 을 클릭합니다.
 
-    ![Traffic Manager 1 ](media/spring-cloud-load-balancers/traffic-manager-1.png) ![ Traffic Manager 2](media/spring-cloud-load-balancers/traffic-manager-2.png)
+    ![Traffic Manager 1](media/spring-cloud-load-balancers/traffic-manager-1.png) ![Traffic Manager 2](media/spring-cloud-load-balancers/traffic-manager-2.png)
 
 ### <a name="configure-custom-domain"></a>사용자 지정 도메인 구성
-구성을 완료 하려면:
-1.  도메인 공급자의 웹 사이트에 로그인 하 고 사용자 지정 도메인에서 traffic manager의 Azure 기본 도메인 이름으로 CNAME 레코드 매핑을 만듭니다.
-1.  [Azure 스프링 클라우드에 사용자 지정 도메인을 추가 하는 방법에 대 한 지침을](spring-cloud-tutorial-custom-domain.md)따르세요.
-1. 위의 사용자 지정 도메인 바인딩을 traffic manager에 추가 하 여 Azure 스프링 클라우드 해당 app service에 추가 하 고 여기에 SSL 인증서를 업로드 합니다.
+구성을 완료하려면 다음과 같이 합니다.
+1.  도메인 공급자의 웹 사이트에 로그인하고 사용자 지정 도메인에서 Traffic Manager의 Azure 기본 도메인 이름으로 CNAME 레코드 매핑을 만듭니다.
+1.  [Azure Spring Cloud에 사용자 지정 도메인을 추가하는 방법](./tutorial-custom-domain.md)에 대한 지침을 따르세요.
+1. 위의 사용자 지정 도메인 바인딩을 Traffic Manager에 추가하여 Azure Spring Cloud에 해당 App Service가 추가되도록 하고 여기에 SSL 인증서를 업로드합니다.
 
     ![Traffic Manager 3](media/spring-cloud-load-balancers/traffic-manager-3.png)
 
-## <a name="integrate-azure-spring-cloud-with-azure-app-gateway"></a>Azure 앱 Gateway와 Azure 스프링 클라우드 통합
+## <a name="integrate-azure-spring-cloud-with-azure-app-gateway"></a>Azure Spring Cloud를 Azure App Gateway와 통합
 
-Azure 스프링 클라우드 서비스와 통합 하려면 다음 구성을 완료 합니다.
+Azure Spring Cloud 서비스와 통합하려면 다음 구성을 완료합니다.
 
 ### <a name="configure-backend-pool"></a>백 엔드 풀 구성
-1. **대상 유형을** *IP 주소* 또는 *FQDN* 으로 지정 합니다.
-1. Azure 스프링 클라우드 공용 끝점을 입력 합니다.
+1. **대상 유형** 을 *IP 주소* 또는 *FQDN* 으로 지정합니다.
+1. Azure Spring Cloud 공용 엔드포인트를 입력합니다.
 
-    ![앱 게이트웨이 1](media/spring-cloud-load-balancers/app-gateway-1.png)
+    ![App Gateway 1](media/spring-cloud-load-balancers/app-gateway-1.png)
 
 ### <a name="add-custom-probe"></a>사용자 지정 프로브 추가
-1. **상태 프로브** 를 선택 하 고 **추가** 를 선택 하 여 사용자 지정 **프로브** 대화 상자를 엽니다. 
-1. 핵심 요소는 **백 엔드 HTTP 설정에서 호스트 이름 선택** 옵션에 대해 *예* 를 선택 하는 것입니다.
+1. **상태 프로브** 를 선택하고 **추가** 를 선택하여 사용자 지정 **프로브** 대화 상자를 엽니다. 
+1. 핵심은 **백 엔드 HTTP 설정에서 호스트 이름 선택** 옵션에 대해 *예* 를 선택하는 것입니다.
 
-    ![앱 게이트웨이 2](media/spring-cloud-load-balancers/app-gateway-2.png)
+    ![App Gateway 2](media/spring-cloud-load-balancers/app-gateway-2.png)
 
-### <a name="configure-http-setting"></a>Http 설정 구성
-1.  Http **설정** 을 선택 하 고 **추가** 를 선택 하 여 http 설정을 추가 합니다.
-1.  **새 호스트 이름으로 재정의:** *예* 를 선택 합니다.
-1.  **호스트 이름 재정의**: **백 엔드 대상에서 호스트 이름 선택을** 선택 합니다.
-1.  **사용자 지정 프로브 사용**: *예* 를 선택 하 고 위에서 만든 사용자 지정 프로브를 선택 합니다.
+### <a name="configure-http-setting"></a>HTTP 설정 구성
+1.  **HTTP 설정** 을 선택하고 **추가** 를 선택하여 HTTP 설정을 추가합니다.
+1.  **새 호스트 이름으로 재정의:** *예* 를 선택합니다.
+1.  **호스트 이름 재정의**: **백 엔드 대상에서 호스트 이름 선택** 을 선택합니다.
+1.  **사용자 지정 프로브 사용**: *예* 를 선택하고 위에서 만든 사용자 지정 프로브를 선택합니다.
 
-    ![앱 게이트웨이 3](media/spring-cloud-load-balancers/app-gateway-3.png)
+    ![App Gateway 3](media/spring-cloud-load-balancers/app-gateway-3.png)
 
-### <a name="configure-rewrite-set"></a>재작성 집합 구성
-1.  다시 **작성을 선택 하** **고 다시 쓰기 집합** 을 추가 합니다.
-1.  Azure 스프링 클라우드 공용 끝점에 요청을 라우팅하는 라우팅 규칙을 선택 합니다.
-1.  **재작성 규칙 구성** 탭에서 **재작성 규칙 추가** 를 선택 합니다.
-1.  **재작성 유형**: **요청 헤더** 를 선택 합니다.
-1.  **작업 유형**: **삭제** 를 선택 합니다.
-1.  **헤더 이름**: **공용 헤더** 를 선택 합니다.
-1.  **공용 헤더**: **X 전달-프로토콜을** 선택 합니다.
+### <a name="configure-rewrite-set"></a>다시 쓰기 집합 구성
+1.  **다시 쓰기** 를 선택한 다음 **다시 쓰기 집합** 을 선택하여 다시 쓰기 집합을 추가합니다.
+1.  Azure Spring Cloud 공용 엔드포인트에 요청을 라우팅하는 라우팅 규칙을 선택합니다.
+1.  **재작성 규칙 구성** 탭에서 **재작성 규칙 추가** 를 선택합니다.
+1.  **재작성 유형**: **요청 헤더** 를 선택
+1.  **작업 유형**: **삭제** 를 선택
+1.  **헤더 이름**: **공용 헤더** 를 선택
+1.  **공용 헤더**: **X-Forwarded-Proto** 를 선택
 
-    ![앱 게이트웨이 4](media/spring-cloud-load-balancers/app-gateway-4.png)
+    ![App Gateway 4](media/spring-cloud-load-balancers/app-gateway-4.png)
 
-## <a name="integrate-azure-spring-cloud-with-azure-front-door"></a>Azure 프런트 도어를 사용 하 여 Azure 스프링 클라우드 통합
+## <a name="integrate-azure-spring-cloud-with-azure-front-door"></a>Azure Spring Cloud를 Azure Front Door와 통합
 
-Azure 스프링 클라우드 서비스와 통합 하 고 백 엔드 풀을 구성 하려면 
-1. **백 엔드 풀을 추가** 합니다.
-1. 호스트를 추가 하 여 백 엔드 끝점을 지정 합니다.
+Azure Spring Cloud 서비스와 통합하고 백 엔드 풀을 구성하려면 다음과 같이 합니다. 
+1. **백 엔드 풀을 추가합니다**.
+1. 호스트를 추가하여 백 엔드 엔드포인트를 지정합니다.
 
-    ![전면 도어 1](media/spring-cloud-load-balancers/front-door-1.png)
+    ![Front Door 1](media/spring-cloud-load-balancers/front-door-1.png)
 
-1.  **백 엔드 호스트 유형을** *사용자 지정 호스트로* 지정 합니다.
-1.  **백 엔드 호스트 이름** 에 Azure 스프링 클라우드 공용 끝점의 FQDN을 입력 합니다.
-1.  백 엔드 호스트 **이름과** 같은 **백 엔드 호스트 헤더** 기본값을 적용 합니다.
+1.  **백 엔드 호스트 유형** 을 *사용자 지정 호스트* 로 지정합니다.
+1.  **백 엔드 호스트 이름** 에 Azure Spring Cloud 공용 엔드포인트의 FQDN을 입력합니다.
+1.  **백 엔드 호스트 이름** 과 같은 **백 엔드 호스트 헤더** 기본값을 적용합니다.
 
-    ![전면 도어 2](media/spring-cloud-load-balancers/front-door-2.png)
+    ![Front Door 2](media/spring-cloud-load-balancers/front-door-2.png)
 
 ## <a name="next-steps"></a>다음 단계
-* [Traffic manager를 만드는 방법](../traffic-manager/quickstart-create-traffic-manager-profile.md)
-* [응용 프로그램 게이트웨이를 만드는 방법](../application-gateway/quick-create-portal.md)
-* [프런트 도어를 만드는 방법](../frontdoor/quickstart-create-front-door.md)
+* [Traffic Manager 프로필 만드는 방법](../traffic-manager/quickstart-create-traffic-manager-profile.md)
+* [애플리케이션 게이트웨이 만드는 방법](../application-gateway/quick-create-portal.md)
+* [Front Door 만드는 방법](../frontdoor/quickstart-create-front-door.md)

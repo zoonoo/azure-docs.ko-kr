@@ -1,6 +1,6 @@
 ---
-title: Azure Data Studio를 사용 하 여 PostgreSQL 인스턴스 관리
-description: Azure Data Studio를 사용 하 여 PostgreSQL 인스턴스 관리
+title: Azure Data Studio를 사용하여 PostgreSQL 인스턴스 관리
+description: Azure Data Studio를 사용하여 PostgreSQL 인스턴스 관리
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -10,86 +10,86 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 7dcc0f916a15598060e034dcf62536ee13e2672e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92320230"
 ---
-# <a name="use-azure-data-studio-to-manage-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Data Studio를 사용 하 여 Azure Arc enabled PostgreSQL Hyperscale 서버 그룹 관리
+# <a name="use-azure-data-studio-to-manage-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Data Studio를 사용하여 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 관리
 
 
 이 문서에서는 다음과 같이 방법을 설명합니다.
-- 개요, 연결 문자열, 속성, Resource Health 등의 대시보드 보기를 사용 하 여 PostgreSQL 인스턴스를 관리 합니다.
+- 개요, 연결 문자열, 속성, 리소스 상태 등의 대시보드 보기를 사용하여 PostgreSQL 인스턴스 관리
 - 데이터 및 스키마 작업
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-- [Azdata, Azure Data Studio 및 Azure CLI 설치](install-client-tools.md)
-- Azure Data Studio **[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]** 및 **Azure Arc** 및 **PostgreSQL** 확장을 설치 합니다.
+- [azdata, Azure Data Studio, Azure CLI 설치](install-client-tools.md)
+- Azure Data Studio에서 **[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]** , **Azure Arc**, **PostgreSQL** 확장을 설치합니다.
 - [Azure Arc 데이터 컨트롤러](create-data-controller-using-azdata.md) 만들기
-- 시작 Azure Data Studio
+- Azure Data Studio 시작
 
 ## <a name="connect-to-the-azure-arc-data-controller"></a>Azure Arc 데이터 컨트롤러에 연결
 
-Azure Data Studio에서 노드 **Azure Arc 컨트롤러** 를 확장 하 고 **연결 컨트롤러** 단추를 선택 합니다.
+Azure Data Studio에서 노드 **Azure Arc 컨트롤러** 를 확장하고 **연결 컨트롤러** 단추를 선택합니다.
 
-Azure 데이터 컨트롤러에 대 한 연결 정보를 입력 합니다.
+Azure 데이터 컨트롤러에 대한 연결 정보를 입력합니다.
 
 - **컨트롤러 URL:**
 
-    Kubernetes의 컨트롤러에 연결할 URL입니다. `https://<IP_address_of_the_controller>:<Kubernetes_port.`예를 들면 다음과 같은 형식으로 입력 됩니다.
+    Kubernetes의 컨트롤러에 연결할 URL입니다. `https://<IP_address_of_the_controller>:<Kubernetes_port.` 형식으로 입력합니다. 예:
 
     ```console
     https://12.345.67.890:30080
     ```
 - **사용자 이름:**
 
-    컨트롤러에 연결 하는 데 사용 하는 사용자 계정의 이름입니다. 를 실행할 때 일반적으로 사용 하는 이름을 사용 `azdata login` 합니다. 일반적으로 psql에서 PostgreSQL 데이터베이스 엔진에 연결 하는 데 사용 하는 PostgreSQL 사용자의 이름이 아닙니다.
-- **암호:** 컨트롤러에 연결 하는 데 사용 하는 사용자 계정의 암호입니다.
+    컨트롤러에 연결하는 데 사용하는 사용자 계정의 이름입니다. `azdata login`을 실행할 때 일반적으로 사용하는 이름입니다. 일반적으로 psql에서 PostgreSQL 데이터베이스 엔진에 연결하는 데 사용하는 PostgreSQL 사용자의 이름은 아닙니다.
+- **암호:** 컨트롤러에 연결하는 데 사용하는 사용자 계정의 암호입니다.
 
 
-Azure data studio는 Arc 데이터 컨트롤러를 표시 합니다. 확장 하 고 관리 하는 PostgreSQL 인스턴스의 목록을 표시 합니다.
+Azure Data Studio는 Arc 데이터 컨트롤러를 표시합니다. 컨트롤러를 확장하면 관리하는 PostgreSQL 인스턴스의 목록이 표시됩니다.
 
-## <a name="manage-your-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹 관리
+## <a name="manage-your-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 관리
 
-관리할 PostgreSQL 인스턴스를 마우스 오른쪽 단추로 클릭 하 고 [관리]를 선택 합니다.
+관리할 PostgreSQL 인스턴스를 마우스 오른쪽 단추로 클릭하고 [관리]를 선택합니다.
 
 PostgreSQL 대시보드 보기:
 
-이 기능은 해당 창의 왼쪽에 나열 된 여러 대시보드를 제공 합니다.
+여기에는 창 왼쪽에 다음과 같은 대시보드가 여러 개 나열되어 있습니다.
 
-- **개요:** 사용자 인스턴스에 대 한 요약 정보 (예: 이름, PostgreSQL admin 사용자 이름, Azure 구독 ID, 구성, 데이터베이스 엔진 버전, Grafana 및 Kibana에 대 한 끝점)를 표시 합니다.
-- **연결 문자열:** Psql, Node.js, PHP, Ruby ...와 같이 PostgreSQL 인스턴스에 연결 하는 데 필요할 수 있는 다양 한 연결 문자열을 표시 합니다.
-- **문제 진단 및 해결:** 문제 해결 노트북을 확장할 때 인스턴스 문제를 해결 하는 데 도움이 되는 다양 한 리소스를 찾을 수 있는 방문 페이지입니다.
-- **새 지원 요청:** 지원 서비스에서 공개 미리 보기 알림을 시작 하는 데 도움을 요청할 수 있는 방문 페이지입니다.
+- **개요:** 사용자 인스턴스에 대한 요약 정보(예: 이름, PostgreSQL 관리 사용자 이름, Azure 구독 ID, 구성, 데이터베이스 엔진 버전, Grafana 및 Kibana의 엔드포인트)를 표시합니다.
+- **연결 문자열:** PostgreSQL 인스턴스(예: psql, Node.js, PHP, Ruby 등...)에 연결하는 데 필요할 수 있는 다양한 연결 문자열을 표시합니다.
+- **문제 진단 및 해결:** 문제 해결 Notebook을 확장할 때 인스턴스 문제를 해결하는 데 도움이 되는 다양한 리소스를 찾을 수 있는 방문 페이지입니다.
+- **새 지원 요청:** 퍼블릭 미리 보기 알림을 시작하는 지원 서비스에 도움을 요청할 수 있는 방문 페이지입니다.
 
 ## <a name="work-with-your-data-and-schema"></a>데이터 및 스키마 작업
 
-Azure Data Studio 창의 왼쪽에서 노드 **서버** 를 확장 합니다.
+Azure Data Studio 창의 왼쪽에서 **서버** 노드를 확장합니다.
 
-[연결 추가]를 선택 하 고 PostgreSQL 인스턴스에 대 한 연결 세부 정보를 입력 합니다.
+[연결 추가]를 선택하고 PostgreSQL 인스턴스에 대한 다음 연결 세부 정보를 입력합니다.
 - **연결 형식:** PostgreSQL
-- **서버 이름:** PostgreSQL 인스턴스의 이름을 입력 합니다. 예: postgres01
+- **서버 이름:** PostgreSQL 인스턴스의 이름을 입력합니다. 예: postgres01
 - **인증 유형:** 암호
-- **사용자 이름:** 예를 들어 standard/default PostgreSQL admin 사용자 이름을 사용할 수 있습니다. 이 필드는 대/소문자를 구분 합니다.
-- **암호:** 명령 출력의 psql 연결 문자열에서 PostgreSQL username의 암호를 찾을 수 있습니다. `azdata postgres server endpoint -n postgres01`
-- **데이터베이스 이름:** 연결 하려는 데이터베이스의 이름을 설정 합니다. __기본값으로__ 설정 되도록 할 수 있습니다.
-- **서버 그룹:** __기본값으로__ 설정 되도록 할 수 있습니다.
-- **Name (선택 사항):** 비워 둘 수 있습니다.
-- **고급**
+- **사용자 이름:** 예를 들어 표준/기본 PostgreSQL 관리 사용자 이름을 사용할 수 있습니다. 이 필드는 대/소문자를 구분합니다.
+- **암호:** `azdata postgres server endpoint -n postgres01` 명령 출력의 psql 연결 문자열에서 PostgreSQL 사용자 이름의 암호를 찾을 수 있습니다.
+- **데이터베이스 이름:** 연결하려는 데이터베이스의 이름을 설정합니다. __기본값__ 으로 설정되도록 할 수 있습니다.
+- **서버 그룹:** __기본값__ 으로 설정되도록 할 수 있습니다.
+- **이름(선택 사항):** 비워 둘 수 있습니다.
+- **고급:**
     - **호스트 IP 주소:** Kubernetes 클러스터의 공용 IP 주소입니다.
-    - **포트:** PostgreSQL 인스턴스가 수신 대기 중인 포트입니다. 이 포트는 명령 출력의 psql 연결 문자열 끝에서 찾을 수 있습니다 `azdata postgres server endpoint -n postgres01` . Kubernetes에서 수신 대기 하 고 Azure Data Studio의 Azure 데이터 컨트롤러에 연결할 때 입력 한 포트 30080이 아닙니다.
-    - **기타 매개 변수:** 이러한 값은 자체 명시적 이어야 하며, 표시 되는 기본/빈 값을 사용할 수 있습니다.
+    - **포트:** PostgreSQL 인스턴스가 수신하는 포트입니다. 이 포트는 `azdata postgres server endpoint -n postgres01` 명령 출력의 psql 연결 문자열 끝에서 확인할 수 있습니다. Kubernetes에서 수신하고 Azure Data Studio의 Azure 데이터 컨트롤러에 연결할 때 입력한 포트 30080은 아닙니다.
+    - **기타 매개 변수:** 자체 명시적이어야 하며, 함께 표시되는 기본값/빈 값과 같이 사용할 수 있습니다.
 
-**[확인]을 선택 하 고 [연결]** 을 선택 하 여 서버에 연결 합니다.
+**[확인]을 선택하고 [연결]** 을 선택하여 서버에 연결합니다.
 
-연결 되 면 몇 가지 환경을 사용할 수 있습니다.
+연결되면 다음 여러 가지를 경험할 수 있습니다.
 - **새 쿼리**
 - **새 Notebook**
-- **서버 표시를 확장 하 고 데이터베이스 내 개체를 찾아보거나 작업 합니다.**
+- **서버 표시를 확장하고 데이터베이스 내에서 개체를 찾아보거나 개체에 대해 작업합니다.**
 - **...**
 
 ## <a name="next-step"></a>다음 단계

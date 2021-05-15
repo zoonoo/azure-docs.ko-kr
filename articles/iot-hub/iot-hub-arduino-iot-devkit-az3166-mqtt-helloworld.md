@@ -1,6 +1,6 @@
 ---
-title: Azure MQTT 클라이언트 라이브러리를 사용 하 여 MQTT 서버에 메시지 보내기
-description: MQTT 클라이언트 라이브러리를 사용 하 여 MQTT broker에 메시지를 보내는 방법에 대해 알아봅니다. 또한 mXChip IoT DevKit를 MQTT 클라이언트로 구성 하는 방법에 대해 알아봅니다.
+title: Azure MQTT 클라이언트 라이브러리를 사용하여 MQTT 서버에 메시지 보내기
+description: MQTT 클라이언트 라이브러리를 사용하여 MQTT broker에 메시지를 보내는 방법을 배워봅니다. 또한 mXChip IoT DevKit를 MQTT 클라이언트로 구성하는 방법을 배워봅니다.
 author: liydu
 manager: jeffya
 ms.service: iot-hub
@@ -11,10 +11,10 @@ ms.date: 04/02/2018
 ms.author: liydu
 ms.custom: mqtt
 ms.openlocfilehash: fb8bf593568825793a1a205a2955599b16fa78cf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92151758"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>MQTT 서버에 메시지 보내기
@@ -55,7 +55,7 @@ IoT(사물 인터넷) 시스템은 종종 간헐적이거나, 품질이 낮거�
 
 `Ctrl+P`(macOS: `Cmd+P`)를 입력하여 `task device-upload`를 실행합니다. 업로드가 완료되면 DevKit가 다시 시작되고 스케치가 실행됩니다.
 
-![스크린샷 Arduino 스케치를 업로드 하 고 실행 하는 명령 프롬프트 창을 보여 줍니다.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
+![스크린샷은 Arduino 스케치를 업로드하고 실행하는 명령 프롬프트 창을 보여 줍니다.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
 
 > [!NOTE]
 > "오류: AZ3166: 알 수 없는 패키지" 오류 메시지가 표시될 수 있습니다. 보드 패키지 인덱스가 올바르게 새로 고쳐지지 않으면 이 오류가 발생합니다. 이 오류를 해결하려면 [IoT DevKit FAQ의 개발 섹션](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development)을 참조하세요.
@@ -64,15 +64,15 @@ IoT(사물 인터넷) 시스템은 종종 간헐적이거나, 품질이 낮거�
 
 VS Code에서 다음 절차에 따라 직렬 모니터를 열고 설정합니다.
 
-1. `COM[X]`상태 표시줄에서 단어를 클릭 하 여 오른쪽 COM 포트를로 설정 합니다 `STMicroelectronics` . ![ 스크린샷 COM8 S 마이크로 전자 제품이 선택 된 Visual Studio Code 표시 됩니다.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-com-port.jpg)
+1. 상태 표시줄에서 `COM[X]` 단어를 클릭하여 오른쪽 COM 포트를 `STMicroelectronics`로 설정합니다. ![스크린샷은 COM8 S T Micro 전자 제품이 선택된 Visual Studio Code를 보여 줍니다.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-com-port.jpg)
 
-2. 상태 표시줄의 전원 플러그 아이콘을 클릭 하 여 직렬 모니터를 엽니다. ![ 스크린샷 상태 표시줄에 릴리스 요약 및 전원 플러그 아이콘이 표시 됩니다.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-monitor.jpg)
+2. 상태 표시줄의 전원 플러그 아이콘을 클릭하여 직렬 모니터를 엽니다. ![스크린샷은 상태 표시줄에 릴리스 요약 및 전원 플러그 아이콘을 보여 줍니다.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-monitor.jpg)
   
-3. 상태 표시줄에서 전송 속도를 나타내는 숫자를 클릭 하 고 다음으로 설정 `115200` ![ 합니다. 스크린샷에 Visual Studio Code 전송 속도 설정이 표시 됩니다.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-baud-rate.jpg)
+3. 상태 표시줄에서 전송 속도를 나타내는 숫자를 클릭하고 `115200`로 설정합니다. ![스크린샷은 Visual Studio Code 전송 속도 설정을 보여 줍니다.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-baud-rate.jpg)
 
 직렬 모니터는 샘플 스케치에서 보낸 메시지를 모두 표시합니다. 이 스케치는 DevKit를 Wi-Fi에 연결합니다. Wi-Fi 연결이 성공적으로 완료되면 스케치에서 MQTT broker에 메시지를 전송합니다. 그런 다음, 샘플에서 QoS 0과 QoS 1을 각각 사용하여 두 개의 "iot.eclipse.org" 메시지를 반복적으로 보냅니다.
 
-![스크린샷에서는 스케치에서 보낸 메시지를 표시 하는 직렬 모니터를 보여 줍니다.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-output.jpg)
+![스크린샷에서 스케치에서 보낸 메시지를 표시하는 직렬 모니터를 보여 줍니다.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-output.jpg)
 
 ## <a name="problems-and-feedback"></a>문제 및 피드백
 
@@ -88,4 +88,4 @@ VS Code에서 다음 절차에 따라 직렬 모니터를 열고 설정합니다
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 MXChip Iot DevKit를 MQTT 클라이언트로 구성 하 고 MQTT 클라이언트 라이브러리를 사용 하 여 MQTT broker로 메시지를 보내는 방법을 알아보았습니다. [Azure Iot 원격 모니터링 솔루션 가속기 개요](/azure/iot-suite/) 에서 제안 하는 다음 단계를 참조 하세요.
+이제 MXChip Iot DevKit를 MQTT 클라이언트로 구성하고, MQTT 클라이언트 라이브러리를 사용하여 메시지를 MQTT broker에 보내는 방법을 알아보았으므로 여기서 제안되는 단계는 [Azure IoT 원격 모니터링 솔루션 가속기 개요](/azure/iot-suite/)입니다.

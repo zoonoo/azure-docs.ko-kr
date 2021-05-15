@@ -1,7 +1,7 @@
 ---
-title: Azure API Management에서 그룹을 사용 하 여 개발자 계정 관리
+title: Azure API Management의 그룹을 사용하여 개발자 계정 관리
 titleSuffix: Azure API Management
-description: Azure API Management에서 그룹을 사용 하 여 개발자 계정을 관리 하는 방법을 알아봅니다. 그룹을 만든 다음 제품 또는 개발자에 게 연결 합니다.
+description: Azure API Management의 그룹을 사용하여 개발자 계정을 관리하는 방법에 대해 알아보세요. 그룹을 생성한 다음 제품 또는 개발자와 연결합니다.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: ea674981036b4be292329a4b30b43180ed26d642
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92092786"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Azure API Management에서 개발자 계정을 관리하는 그룹을 만들고 사용하는 방법
@@ -49,7 +49,7 @@ API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 �
 이 섹션에서는 API Management 계정에 새 그룹을 추가하는 방법을 보여 줍니다.
 
 1. 화면 왼쪽의 **그룹** 탭을 선택합니다.
-2. **+ 추가** 를 클릭 합니다.
+2. **+추가** 를 클릭합니다.
 3. 그룹의 고유한 이름 및 선택적 설명을 입력합니다.
 4. **만들기** 를 누릅니다.
 
@@ -66,10 +66,10 @@ API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 �
 3. **액세스 제어** 를 누릅니다.
 4. **+ 그룹 추가** 를 클릭합니다.
 
-    ![그룹 추가 단추를 강조 표시 하는 스크린샷](./media/api-management-howto-create-groups/groups002.png)
+    ![그룹 추가 버튼이 강조 표시된 스크린샷.](./media/api-management-howto-create-groups/groups002.png)
 5. 추가하려는 그룹을 선택합니다.
 
-    ![선택한 그룹을 표시 하 고 선택 단추를 강조 표시 하는 스크린샷](./media/api-management-howto-create-groups/groups003.png)
+    ![선택한 그룹을 표시하고 선택 버튼을 강조 표시하는 스크린샷.](./media/api-management-howto-create-groups/groups003.png)
 
     제품에서 그룹을 제거하려면 **삭제** 를 클릭합니다.
 
@@ -90,7 +90,7 @@ API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 �
     ![멤버 추가](./media/api-management-howto-create-groups/groups005.png)
 3. **+추가** 를 누르고 구성원을 선택합니다.
 
-    ![추가 단추, 선택한 사용자 및 선택 단추를 강조 표시 하는 스크린샷](./media/api-management-howto-create-groups/groups006.png)
+    ![추가 버튼, 선택한 사용자 및 선택 버튼을 강조 표시하는 스크린샷.](./media/api-management-howto-create-groups/groups006.png)
 4. **선택** 을 누릅니다.
 
 개발자와 그룹 간의 연결을 추가한 후에는 **사용자** 탭에서 확인할 수 있습니다.

@@ -1,5 +1,5 @@
 ---
-title: 고급 작업 일정 및 되풀이 빌드
+title: 고급 작업 일정 및 되풀이 구축
 description: Azure Scheduler에서 고급 일정과 되풀이 작업을 만드는 방법을 알아보기
 services: scheduler
 ms.service: scheduler
@@ -10,16 +10,16 @@ ms.suite: infrastructure-services
 ms.topic: article
 ms.date: 11/14/2018
 ms.openlocfilehash: 5a74240e3f116121c0aaddd11c186e6e674ea26a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92368182"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Azure Scheduler에서 고급 일정과 되풀이 작업 작성
 
 > [!IMPORTANT]
-> [Azure Scheduler](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)는 조만간 사용 중지되고 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)로 대체됩니다. 스케줄러에 설정 된 작업을 계속 하려면 가능한 한 빨리 [Azure Logic Apps로 마이그레이션](../scheduler/migrate-from-scheduler-to-logic-apps.md) 하세요. 
+> [Azure Scheduler](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)는 조만간 사용 중지되고 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)로 대체됩니다. Scheduler에서 설정한 작업으로 계속 작업하려면 가능한 한 빨리 [Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md)로 마이그레이션하세요. 
 >
 > Scheduler는 더 이상 Azure Portal에서 사용할 수 없지만 [REST API](/rest/api/scheduler) 및 [Azure Scheduler PowerShell cmdlet](scheduler-powershell-reference.md)은 현재 사용 가능하므로 작업 및 작업 컬렉션을 관리할 수 있습니다.
 
@@ -66,13 +66,13 @@ ms.locfileid: "92368182"
 
 | 요소 | 필수 | 설명 | 
 |---------|----------|-------------|
-| **startTime** | 아니요 | 기본 일정에서 작업이 처음 시작되는 시기를 지정하는 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)의 날짜/시간 문자열 값입니다. <p>복잡한 일정의 경우 작업은 **startTime** 이후에 시작됩니다. | 
-| **방법** | 아니요 | 작업이 실행되는 시기에 대한 되풀이 규칙입니다. **recurrence** 개체는 **frequency**, **interval**, **schedule**, **count** 및 **endTime** 요소를 지원합니다. <p>**recurrence** 요소를 사용하는 경우에는 **frequency** 요소도 사용해야 하며 다른 **recurrence** 요소는 선택 사항입니다. |
-| **주기와** | 예(**recurrence** 를 사용하는 경우) | 발생 간격의 시간 단위이며 "분", "시간", "일", "주", "월" 및 "연도" 값을 지원합니다. | 
-| **간격은** | 아니요 | **frequency** 에 기반한 발생 간격의 시간 단위 수를 결정하는 양의 정수입니다. <p>예를 들어 **interval** 이 10이고 **frequency** 가 "week"인 경우 작업은 10주마다 되풀이 됩니다. <p>각 빈도의 간격에 대한 최대 수는 다음과 같습니다. <p>- 18개월 <br>- 78주 <br>- 548일 <br>- 시간과 분의 경우 범위는 1 <= <*interval*> <= 1000입니다. | 
-| **일정과** | 아니요 | 지정된 분 표시, 시간 표시, 요일 및 날짜를 기반으로 되풀이에 대한 변경을 정의합니다. | 
-| **count** | 아니요 | 작업이 완료되기 전에 실행되는 횟수를 지정하는 양의 정수입니다. <p>예를 들어 일일 작업의 **count** 가 7로 설정되고 시작 날짜가 월요일이면 이 작업은 일요일에 실행을 마칩니다. 시작 날짜가 이미 지난 경우에는 만든 시간에서 첫 번째 실행이 계산됩니다. <p>**endTime** 이나 **count** 가 없으면 작업이 무한으로 실행됩니다. 같은 작업에 **count** 와 **endTime** 을 둘 다 사용할 수 없지만 먼저 끝나는 규칙이 적용됩니다. | 
-| **endTime** | 아니요 | 작업 실행이 중지되는 시기를 지정하는 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)의 날짜 또는 날짜/시간 문자열 값입니다. 과거의 **endTime** 에 대한 값을 설정할 수 있습니다. <p>**endTime** 이나 **count** 가 없으면 작업이 무한으로 실행됩니다. 같은 작업에 **count** 와 **endTime** 을 둘 다 사용할 수 없지만 먼저 끝나는 규칙이 적용됩니다. |
+| **startTime** | 예 | 기본 일정에서 작업이 처음 시작되는 시기를 지정하는 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)의 날짜/시간 문자열 값입니다. <p>복잡한 일정의 경우 작업은 **startTime** 이후에 시작됩니다. | 
+| **recurrence** | 예 | 작업이 실행되는 시기에 대한 되풀이 규칙입니다. **recurrence** 개체는 **frequency**, **interval**, **schedule**, **count** 및 **endTime** 요소를 지원합니다. <p>**recurrence** 요소를 사용하는 경우에는 **frequency** 요소도 사용해야 하며 다른 **recurrence** 요소는 선택 사항입니다. |
+| **frequency** | 예(**recurrence** 를 사용하는 경우) | 발생 간격의 시간 단위이며 "분", "시간", "일", "주", "월" 및 "연도" 값을 지원합니다. | 
+| **interval** | 예 | **frequency** 에 기반한 발생 간격의 시간 단위 수를 결정하는 양의 정수입니다. <p>예를 들어 **interval** 이 10이고 **frequency** 가 "week"인 경우 작업은 10주마다 되풀이 됩니다. <p>각 빈도의 간격에 대한 최대 수는 다음과 같습니다. <p>- 18개월 <br>- 78주 <br>- 548일 <br>- 시간과 분의 경우 범위는 1 <= <*interval*> <= 1000입니다. | 
+| **schedule** | 예 | 지정된 분 표시, 시간 표시, 요일 및 날짜를 기반으로 되풀이에 대한 변경을 정의합니다. | 
+| **count** | 예 | 작업이 완료되기 전에 실행되는 횟수를 지정하는 양의 정수입니다. <p>예를 들어 일일 작업의 **count** 가 7로 설정되고 시작 날짜가 월요일이면 이 작업은 일요일에 실행을 마칩니다. 시작 날짜가 이미 지난 경우에는 만든 시간에서 첫 번째 실행이 계산됩니다. <p>**endTime** 이나 **count** 가 없으면 작업이 무한으로 실행됩니다. 같은 작업에 **count** 와 **endTime** 을 둘 다 사용할 수 없지만 먼저 끝나는 규칙이 적용됩니다. | 
+| **endTime** | 예 | 작업 실행이 중지되는 시기를 지정하는 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)의 날짜 또는 날짜/시간 문자열 값입니다. 과거의 **endTime** 에 대한 값을 설정할 수 있습니다. <p>**endTime** 이나 **count** 가 없으면 작업이 무한으로 실행됩니다. 같은 작업에 **count** 와 **endTime** 을 둘 다 사용할 수 없지만 먼저 끝나는 규칙이 적용됩니다. |
 |||| 
 
 예를 들어,이 JSON 스키마는 기본 일정과 되풀이 작업을 설명합니다. 
@@ -163,8 +163,8 @@ ms.locfileid: "92368182"
 | JSON 이름 | 설명 | 유효한 값 |
 |:--- |:--- |:--- |
 | **minutes** |작업이 실행되는 시간(분)입니다. |정수 배열입니다. |
-| **시간의** |작업이 실행되는 일의 시간(시)입니다. |정수 배열입니다. |
-| **평일** |작업이 실행되는 요일입니다. 주 단위 빈도로만 지정할 수 있습니다. |다음 값 중 하나의 배열입니다(최대 배열 크기: 7).<br />- "Monday"<br />- "Tuesday"<br />- "Wednesday"<br />- "Thursday"<br />- "Friday"<br />- "Saturday"<br />- "Sunday"<br /><br />대/소문자를 구분하지 않습니다. |
+| **hours** |작업이 실행되는 일의 시간(시)입니다. |정수 배열입니다. |
+| **weekDays** |작업이 실행되는 요일입니다. 주 단위 빈도로만 지정할 수 있습니다. |다음 값 중 하나의 배열입니다(최대 배열 크기: 7).<br />- "Monday"<br />- "Tuesday"<br />- "Wednesday"<br />- "Thursday"<br />- "Friday"<br />- "Saturday"<br />- "Sunday"<br /><br />대/소문자를 구분하지 않습니다. |
 | **monthlyOccurrences** |작업이 실행되는 월의 일을 결정합니다. 월 단위 빈도로만 지정할 수 있습니다. |**monthlyOccurrences** 개체의 배열입니다.<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** 는 작업이 실행되는 주의 요일입니다. 예를 들어 *{Sunday}* 는 월의 매주 일요일입니다. 필수 요소.<br /><br />**occurrence** 는 월 중 일의 되풀이 항목입니다. 예를 들어 *{Sunday, -1}* 은 월의 마지막 일요일입니다. 선택 사항입니다. |
 | **monthDays** |작업이 실행되는 월의 일입니다. 월 단위 빈도로만 지정할 수 있습니다. |다음 값의 배열입니다.<br />- 1 이상 및 31 이하의 모든 값<br />- 1 이하 및 31 이상의 모든 값|
 

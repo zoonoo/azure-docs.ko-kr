@@ -13,12 +13,12 @@ ms.date: 12/01/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 1f6fd0160988802e198ff9388cfeb3232b34b100
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: ac02638dfdef4867e93e277175df82be18be66a7
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96861122"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530089"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>애플리케이션을 Azure AD에 추가하는 방법 및 이유
 
@@ -46,7 +46,7 @@ Azure Portal에서 [앱 등록](https://aka.ms/appregistrations) 환경을 통�
 * Azure Portal에서 애플리케이션 등록
 * Visual Studio를 사용하여 새 애플리케이션을 만들고, Azure AD 인증을 사용하도록 구성
 * 관리자가 앱 갤러리에서 애플리케이션을 추가하는 경우(서비스 주체도 만듦)
-* Microsoft Graph API 또는 PowerShell을 사용 하 여 새 응용 프로그램 만들기
+* Microsoft Graph API 또는 PowerShell을 사용하여 새 애플리케이션 만들기
 * Azure의 다양한 개발자 환경 및 개발자 센터의 API 탐색기 환경을 포함한 기타 여러 가지 방법
 
 ## <a name="what-are-service-principals-and-where-do-they-come-from"></a>서비스 주체란 무엇이며 어디에서 생겨날까요?
@@ -59,7 +59,7 @@ Azure Portal에서 [엔터프라이즈 애플리케이션](https://portal.azure.
 * 로컬 사용자 및 그룹 애플리케이션 역할 할당 기록
 * 애플리케이션에 부여된 로컬 사용자 및 관리자 권한 기록
   * 예: 특정 사용자 이메일에 액세스하기 위한 애플리케이션 권한
-* 조건부 액세스 정책을 포함 한 로컬 정책 레코드
+* 조건부 액세스 정책을 포함한 로컬 정책 기록
 * 애플리케이션의 대체 로컬 설정 기록
   * 클레임 변환 규칙
   * 특성 매핑(사용자 프로비전)
@@ -70,9 +70,9 @@ Azure Portal에서 [엔터프라이즈 애플리케이션](https://portal.azure.
 
 * 사용자가 Azure AD와 통합된 타사 애플리케이션에 로그인하는 경우
   * 로그인하는 동안 사용자는 자신의 프로필 및 다른 권한에 액세스할 수 있는 권한을 애플리케이션에 부여하도록 요청받습니다. 처음으로 동의하는 사람이 애플리케이션을 나타내는 서비스 주체를 디렉터리에 추가하게 됩니다.
-* 사용자가 [Microsoft 365](https://products.office.com/) 와 같이 Microsoft 온라인 서비스에 로그인 하는 경우
-  * Microsoft 365를 구독 하거나 평가판을 시작 하면 Microsoft 365와 관련 된 모든 기능을 제공 하는 데 사용 되는 다양 한 서비스를 나타내는 디렉터리에 하나 이상의 서비스 주체가 만들어집니다.
-  * SharePoint와 같은 일부 Microsoft 365 서비스는 워크플로를 포함 하는 구성 요소 간의 보안 통신을 허용 하기 위해 지속적으로 서비스 주체를 만듭니다.
+* 사용자가 [Microsoft 365](https://products.office.com/)와 같은 Microsoft 온라인 서비스에 로그인하는 경우
+  * Microsoft 365를 구독하거나 평가판을 시작하면 Microsoft 365와 관련된 모든 기능을 전달하는 데 사용되는 다양한 서비스를 나타내는 디렉터리에 하나 이상의 서비스 주체가 만들어집니다.
+  * SharePoint와 같은 일부 Microsoft 365 서비스는 워크플로 등과 같은 구성 요소 간의 보안 통신을 허용하도록 지속적으로 서비스 주체를 만듭니다.
 * 관리자가 앱 갤러리에서 애플리케이션을 추가하는 경우(이때 기본 앱 개체도 만듦)
 * 애플리케이션을 추가하여 [Azure AD 애플리케이션 프록시](../manage-apps/application-proxy.md) 사용
 * SAML 또는 암호 SSO(Single Sign-On)를 사용하여 Single-Sign-On용 애플리케이션 연결
@@ -82,7 +82,7 @@ Azure Portal에서 [엔터프라이즈 애플리케이션](https://portal.azure.
 
 애플리케이션에는 각 애플리케이션 개체가 동작하는 각각의 디렉터리(애플리케이션의 홈 디렉터리를 포함) 내에 하나 이상의 서비스 주체에 의해 참조되는 홈 디렉터리에 하나의 애플리케이션 개체를 갖습니다.
 
-![앱 개체와 서비스 사용자 간의 관계를 표시 합니다.][apps_service_principals_directory]
+![앱 개체와 서비스 주체 간의 관계를 보여 줍니다.][apps_service_principals_directory]
 
 위 다이어그램에서 Microsoft는 두 개의 디렉터리를 내부적으로 유지하며(왼쪽에 표시됨) 애플리케이션을 게시하는 데 사용합니다.
 
@@ -99,13 +99,13 @@ Azure AD와 통합하는 애플리케이션 게시자/공급업체에는 게시 
 
 ### <a name="notes-and-exceptions"></a>참고 사항 및 예외
 
-* 일부 서비스 주체만 애플리케이션 개체를 다시 가리킵니다. Azure AD가 처음 빌드되었을 때 애플리케이션에 제공된 서비스는 더 제한적이었으며 서비스 주체로 충분히 애플리케이션 ID를 설정할 수 있었습니다. 원래 서비스 주체는 Windows Server Active Directory 서비스 계정의 형태에 더 가까웠습니다. 이러한 이유로 먼저 애플리케이션 개체를 만들지 않고도 Azure AD PowerShell을 사용하는 것처럼 다른 경로를 통해 서비스 주체를 만들 수 있는 것입니다. Microsoft Graph API에는 서비스 주체를 만들기 전에 응용 프로그램 개체가 필요 합니다.
+* 일부 서비스 주체만 애플리케이션 개체를 다시 가리킵니다. Azure AD가 처음 빌드되었을 때 애플리케이션에 제공된 서비스는 더 제한적이었으며 서비스 주체로 충분히 애플리케이션 ID를 설정할 수 있었습니다. 원래 서비스 주체는 Windows Server Active Directory 서비스 계정의 형태에 더 가까웠습니다. 이러한 이유로 먼저 애플리케이션 개체를 만들지 않고도 Azure AD PowerShell을 사용하는 것처럼 다른 경로를 통해 서비스 주체를 만들 수 있는 것입니다. Microsoft Graph API는 애플리케이션 개체가 있어야 서비스 주체를 만들 수 있습니다.
 * 위에서 설명한 정보 중 일부만 프로그래밍 방식으로 나타납니다. 다음은 UI에서만 사용할 수 있습니다.
   * 클레임 변환 규칙
   * 특성 매핑(사용자 프로비전)
-* 서비스 주체 및 응용 프로그램 개체에 대 한 자세한 내용은 Microsoft Graph API 참조 설명서를 참조 하세요.
+* 서비스 주체 및 애플리케이션 개체에 대한 자세한 내용은 다음과 같은 Microsoft Graph API 참조 문서를 참조하세요.
   * [애플리케이션](/graph/api/resources/application)
-  * [서비스 주체](/graph/api/resources/serviceprincipal?view=graph-rest-beta)
+  * [서비스 주체](/graph/api/resources/serviceprincipal)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>애플리케이션이 Azure AD와 통합되는 이유는 무엇일까요?
 
@@ -116,9 +116,9 @@ Azure AD와 통합하는 애플리케이션 게시자/공급업체에는 게시 
 * 페더레이션 또는 암호를 사용한 SSO
 * 사용자 프로비전 및 동기화
 * 역할 기반 액세스 제어 - 애플리케이션 역할을 정의하는 디렉터리를 사용하여 애플리케이션에서 역할 기반 권한 부여 확인을 수행합니다.
-* OAuth 권한 부여 서비스-Microsoft 365 및 기타 Microsoft 응용 프로그램에서 Api/리소스에 대 한 액세스 권한을 부여 하는 데 사용 됩니다.
+* OAuth 권한 부여 서비스: Microsoft 365와 기타 Microsoft 애플리케이션에서 API/리소스에 대한 액세스 권한을 부여하는 데 사용됩니다.
 * 애플리케이션 게시 및 프록시 - 프라이빗 네트워크의 애플리케이션을 인터넷에 게시
-* 디렉터리 스키마 확장 특성-Azure AD에 추가 데이터를 저장 하도록 [서비스 사용자 및 사용자 개체의 스키마를 확장 합니다](active-directory-schema-extensions.md) . 
+* 디렉터리 스키마 확장 특성: [서비스 주체와 사용자 개체의 스키마를 확장](active-directory-schema-extensions.md)하여 Azure AD에 추가 데이터를 저장합니다. 
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>애플리케이션을 Azure AD 인스턴스에 추가할 권한이 있는 사용자는?
 

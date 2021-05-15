@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli, contperf-fy21q2
-ms.date: 11/23/2020
-ms.openlocfilehash: afc39673a30f5c99455696c7a075cb1a6a33ecd1
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.date: 04/23/2021
+ms.openlocfilehash: 48d71d3736737e88825bbae19e0a5274bacd21a1
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107875506"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108161090"
 ---
 # <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 논리 앱 만들기 및 관리
 
@@ -43,22 +43,18 @@ Logic Apps를 처음 사용하는 경우에는 [Azure Portal](quickstart-create-
 논리 앱에 대한 리소스 그룹이 아직 없는 경우 `az group create` 명령을 사용하여 그룹을 만듭니다. 예를 들어 다음 명령은 `westus` 위치에 `testResourceGroup`이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
-
 az group create --name testResourceGroup --location westus
-
 ```
 
 리소스 그룹이 성공적으로 만들어지면 출력에서 `provisioningState`가 `Succeeded`로 표시됩니다.
 
 ```output
-
 <...>
   "name": "testResourceGroup",
   "properties": {
     "provisioningState": "Succeeded"
   },
 <...>
-
 ```
 
 ## <a name="workflow-definition"></a>워크플로 정의
@@ -72,7 +68,6 @@ Azure CLI를 사용하여 [새 논리 앱을 만들거나](#create-logic-apps-fr
 Azure CLI에서 [`az logic workflow create`](/cli/azure/logic/workflow#az_logic_workflow_create) 명령과 정의에 대한 JSON 파일을 사용하여 논리 앱 워크플로를 만들 수 있습니다.
 
 ```azurecli
-
 az logic workflow create --definition
                          --location
                          --name
@@ -83,7 +78,6 @@ az logic workflow create --definition
                          [--integration-service-environment]
                          [--state {Completed, Deleted, Disabled, Enabled, NotSpecified, Suspended}]
                          [--tags]
-
 ```
 
 명령에 다음과 같은 [필수 매개 변수](/cli/azure/logic/workflow#az_logic_workflow_create-required-parameters)가 포함되어야 합니다.
@@ -94,6 +88,7 @@ az logic workflow create --definition
 | 위치 | `--location -l` | 논리 앱이 배치되는 Azure 지역입니다. |
 | Name | `--name -n` | 논리 앱의 이름입니다. 이름에는 문자, 숫자, 하이픈(`-`), 밑줄(`_`), 괄호(`()`) 및 마침표(`.`)만 사용할 수 있습니다. 또한 이름은 모든 Azure 지역에서 고유해야 합니다. |
 | 리소스 그룹 이름 | `--resource-group -g` | 논리 앱을 만들 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)입니다. 논리 앱에 대한 리소스 그룹이 아직 없는 경우 시작하기 전에 [리소스 그룹을 만듭니다](#example---create-resource-group). |
+||||
 
 [선택적 매개 변수](/cli/azure/logic/workflow#az_logic_workflow_create-optional-parameters)를 추가로 포함시켜 논리 앱의 액세스 제어, 엔드포인트, 통합 계정, 통합 서비스 환경, 상태 및 리소스 태그를 구성할 수도 있습니다.
 
@@ -102,9 +97,7 @@ az logic workflow create --definition
 이 예제에서는 `westus` 지역에 있는 `testResourceGroup`이라는 리소스 그룹에 `testLogicApp`이라는 워크플로가 만들어집니다. JSON 파일 `testDefinition.json`에는 워크플로 정의가 포함됩니다
 
 ```azurecli-interactive
-
 az logic workflow create --resource-group "testResourceGroup" --location "westus" --name "testLogicApp" --definition "testDefinition.json"
-
 ```
 
 워크플로가 성공적으로 만들어지면 새 워크플로 정의의 JSON 코드가 CLI에 표시됩니다. 워크플로 만들기가 실패하는 경우 [가능한 오류 목록](#errors)을 참조하세요.
@@ -116,7 +109,6 @@ Azure CLI에서 [`az logic workflow create`](/cli/azure/logic/workflow#az_logic_
 명령에는 [논리 앱을 만들 때](#create-logic-apps-from-cli)와 동일한 [필수 매개 변수](/cli/azure/logic/workflow#az_logic_workflow_create-required-parameters)가 포함되어야 합니다. 논리 앱을 만들 때와 동일한 [선택적 매개 변수](/cli/azure/logic/workflow#az_logic_workflow_create-optional-parameters)를 추가할 수도 있습니다.
 
 ```azurecli
-
 az logic workflow create --definition
                          --location
                          --name
@@ -127,7 +119,6 @@ az logic workflow create --definition
                          [--integration-service-environment]
                          [--state {Completed, Deleted, Disabled, Enabled, NotSpecified, Suspended}]
                          [--tags]
-
 ```
 
 ### <a name="example---update-logic-app"></a>예제 - 논리 앱 업데이트
@@ -135,9 +126,7 @@ az logic workflow create --definition
 이 예제에서는 [이전 섹션에서 만든 샘플 워크플로](#example---create-logic-app)가 다른 JSON 정의 파일 `newTestDefinition.json`을 사용하고, 설명 값이 포함된 두 개의 리소스 태그 `testTag1` 및 `testTag2`를 추가하도록 업데이트됩니다.
 
 ```azurecli-interactive
-
 az logic workflow create --resource-group "testResourceGroup" --location "westus" --name "testLogicApp" --definition "newTestDefinition.json" --tags "testTag1=testTagValue1" "testTag2=testTagValue"
-
 ```
 
 워크플로가 성공적으로 업데이트되면 논리 앱의 업데이트된 워크플로 정의가 CLI에 표시됩니다. 업데이트가 실패하는 경우 [가능한 오류 목록](#errors)을 참조하세요.
@@ -150,25 +139,22 @@ Azure CLI에서 [`az logic workflow delete`](/cli/azure/logic/workflow#az_logic_
 
 | 매개 변수 | 값 | Description |
 | --------- | ----- | ----------- |
-| Name | `--name -n` | 논리 앱의 이름입니다. |
+| 이름 | `--name -n` | 논리 앱의 이름입니다. |
 | 리소스 그룹 이름 | `-resource-group -g` | 논리 앱이 배치되는 리소스 그룹입니다. |
+||||
 
 확인 프롬프트를 건너뛰는 [선택적 매개 변수](/cli/azure/logic/workflow#az_logic_workflow_delete-optional-parameters) `--yes -y`를 포함할 수도 있습니다.
 
 ```azurecli
-
 az logic workflow delete --name
                          --resource-group
                          [--yes]
-
 ```
 
 이렇게 하면 CLI에서 논리 앱의 삭제를 확인하는 메시지를 표시합니다. 명령에 선택적 매개 변수 `--yes -y`를 사용하여 확인 프롬프트를 건너뛸 수 있습니다.
 
-```azurecli
-
+```output
 Are you sure you want to perform this operation? (y/n):
-
 ```
 
 [CLI에서 논리 앱을 나열](#list-logic-apps-in-cli)하거나 Azure Portal에서 논리 앱을 검토하여 논리 앱이 삭제되었는지 확인할 수 있습니다.
@@ -178,39 +164,46 @@ Are you sure you want to perform this operation? (y/n):
 이 예제에서는 [이전 섹션에서 만든 샘플 워크플로](#example---create-logic-app)를 삭제합니다.
 
 ```azurecli-interactive
-
 az logic workflow delete --resource-group "testResourceGroup" --name "testLogicApp"
-
 ```
 
 확인 프롬프트에 `y`로 대답하면 논리 앱이 삭제됩니다.
+
+### <a name="considerations---delete-logic-app"></a>고려 사항 - 논리 앱 삭제
+
+논리 앱을 삭제하면 다음과 같은 방식으로 워크플로 인스턴스에 영향을 줍니다.
+
+* Logic Apps 서비스가 진행 중이거나 보류 중인 실행을 취소하기 위해 전력을 다합니다.
+
+  볼륨이나 백로그가 큰 경우에도 대부분의 실행은 완료 또는 시작 전에 취소됩니다. 그러나 취소 프로세스를 완료하는 데 시간이 걸릴 수 있습니다. 한편, 런타임이 취소 프로세스를 진행하는 동안 일부 실행을 선택하여 진행할 수 있습니다.
+
+* Logic Apps 서비스는 새 워크플로 인스턴스를 만들거나 실행하지 않습니다.
+
+* 워크플로를 삭제한 다음, 동일한 워크플로를 다시 만들면 다시 생성된 워크플로에는 삭제된 워크플로와 동일한 메타데이터가 포함되지 않습니다. 삭제된 워크플로를 호출한 모든 워크플로를 다시 저장해야 합니다. 이렇게 하면 호출자가 다시 생성된 워크플로에 대한 올바른 정보를 가져옵니다. 그렇지 않으면 다시 생성된 워크플로에 대한 호출이 `Unauthorized` 오류와 함께 실패합니다. 이 동작은 Azure 함수를 호출하는 워크플로 및 통합 계정에서 아티팩트를 사용하는 워크플로에도 적용됩니다.
 
 ## <a name="show-logic-apps-in-cli"></a>CLI에서 논리 앱 표시
 
 [`az logic workflow show`](/cli/azure/logic/workflow#az_logic_workflow_show) 명령을 사용하여 특정 논리 앱 워크플로를 가져올 수 있습니다.
 
 ```azurecli
-
 az logic workflow show --name
                        --resource-group
-
 ```
 
 명령에 다음과 같은 [필수 매개 변수](/cli/azure/logic/workflow#az_logic_workflow_show-required-parameters)가 포함되어야 합니다.
 
 | 매개 변수 | 값 | Description |
 | --------- | ----- | ----------- |
-| Name | `--name -n` | 논리 앱의 이름입니다. |
+| 이름 | `--name -n` | 논리 앱의 이름입니다. |
 | 리소스 그룹 이름 | `--resource-group -g` | 논리 앱이 배치되는 리소스 그룹의 이름입니다. |
+||||
 
 ### <a name="example---get-logic-app"></a>예제 - 논리 앱 가져오기
 
 이 예제에서는 디버깅을 위해 리소스 그룹 `testResourceGroup`의 논리 앱 `testLogicApp`이 전체 로그와 함께 반환됩니다.
 
 ```azurecli-interactive
-
 az logic workflow show --resource-group "testResourceGroup" --name "testLogicApp" --debug
-
 ```
 
 ## <a name="list-logic-apps-in-cli"></a>CLI에서 논리 앱 나열
@@ -224,13 +217,12 @@ az logic workflow show --resource-group "testResourceGroup" --name "testLogicApp
 | 리소스 그룹 이름 | `--resource-group -g` | 결과를 필터링할 리소스 그룹의 이름입니다. |
 | 항목 수 | `--top` | 결과에 포함되는 항목의 수입니다. |
 | Assert | `--filter` | 목록에 사용 중인 필터의 유형입니다. 상태(`State`), 트리거(`Trigger`) 및 참조되는 리소스의 식별자(`ReferencedResourceId`)를 기준으로 필터링할 수 있습니다. |
+||||
 
 ```azurecli
-
 az logic workflow list [--filter]
                        [--resource-group]
                        [--top]
-
 ```
 
 ### <a name="example---list-logic-apps"></a>예제 - 논리 앱 나열
@@ -238,9 +230,7 @@ az logic workflow list [--filter]
 이 예제에서는 리소스 그룹 `testResourceGroup`에서 사용하도록 설정된 모든 워크플로가 ASCII 테이블 형식으로 반환됩니다.
 
 ```azurecli-interactive
-
 az logic workflow list --resource-group "testResourceGroup" --filter "(State eq 'Enabled')" --output "table"
-
 ```
 
 ## <a name="errors"></a>오류
@@ -248,17 +238,13 @@ az logic workflow list --resource-group "testResourceGroup" --filter "(State eq 
 다음 오류는 Azure Logic Apps CLI 확장이 설치되지 않았음을 나타냅니다. 필수 구성 요소의 단계에 따라 컴퓨터에 [Logic Apps 확장](#prerequisites)을 설치하세요.
 
 ```output
-
 az: 'logic' is not in the 'az' command group. See 'az --help'. If the command is from an extension, please make sure the corresponding extension is installed. To learn more about extensions, please visit https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview
-
 ```
 
 다음 오류는 워크플로 정의를 업로드하는 파일 경로가 올바르지 않다는 의미일 수 있습니다.
 
 ```output
-
 Expecting value: line 1 column 1 (char 0)
-
 ```
 
 ## <a name="global-parameters"></a>글로벌 매개 변수
@@ -273,6 +259,7 @@ Expecting value: line 1 column 1 (char 0)
 | 디버그 | `--debug` | 모든 디버그 로그를 표시합니다. |
 | 도움말 메시지 | `--help -h` | 도움말 대화 상자를 표시합니다. |
 | 쿼리 | `--query` | JSON 출력에 대한 JMESPath 쿼리 문자열을 설정합니다. |
+||||
 
 ## <a name="next-steps"></a>다음 단계
 

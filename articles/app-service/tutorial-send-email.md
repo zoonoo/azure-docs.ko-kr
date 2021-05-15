@@ -4,12 +4,12 @@ description: App Service 앱에서 비즈니스 프로세스를 호출하는 방
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 6b15c09162146de7aef8abfcdba40627eb77621c
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 04bdab82c9d1efed6da3f533617f19b82cf0781e
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830937"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290707"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>자습서: App Service에서 이메일 보내기 및 다른 비즈니스 프로세스 호출
 
@@ -54,13 +54,13 @@ ms.locfileid: "107830937"
 
 ## <a name="create-the-logic-app"></a>논리 앱 만들기
 
-1. [Azure Portal](https://portal.azure.com)에서 [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md#create-your-logic-app)의 지침에 따라 빈 논리 앱을 만듭니다. **Logic Apps 디자이너** 가 표시되면 이 자습서로 돌아갑니다.
+1. [Azure Portal](https://portal.azure.com)에서 [첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)의 지침에 따라 빈 논리 앱을 만듭니다. **Logic Apps 디자이너** 가 표시되면 이 자습서로 돌아갑니다.
 1. Logic Apps 디자이너의 시작 페이지에서 **일반적인 트리거로 시작** 아래의 **HTTP 요청을 수신한 경우** 를 선택합니다.
 
     ![H T T P 요청 수신 시 강조 표시되는 Logic Apps 디자이너의 시작 페이지를 보여주는 스크린샷.](./media/tutorial-send-email/receive-http-request.png)
 1. **HTTP 요청을 수신한 경우** 대화 상자에서 **샘플 페이로드를 사용하여 스키마 생성** 을 선택합니다.
 
-    ![H T T P 요청 대화 상자와 샘플 페이로드를 사용하여 선택한 스키마 옵션을 생성하는 경우를 보여주는 스크린샷. ](./media/tutorial-send-email/generate-schema-with-payload.png)
+    ![HTTP 요청 대화 상자와 샘플 페이로드를 사용하여 선택한 스키마 옵션을 생성하는 경우를 보여주는 스크린샷. ](./media/tutorial-send-email/generate-schema-with-payload.png)
 
 1. 다음 샘플 JSON을 텍스트 상자에 복사하고, **완료** 를 선택합니다.
 
@@ -81,7 +81,7 @@ ms.locfileid: "107830937"
 
     이 HTTP 요청 정의는 이 논리 앱에서 수행하려는 작업(Gmail 등)에 대한 트리거입니다. 나중에 App Service 앱에서 이 URL을 호출합니다. 요청 트리거에 대한 자세한 내용은 [HTTP 요청/응답 참조](../connectors/connectors-native-reqres.md)를 참조하세요.
 
-1. 디자이너 아래쪽에서 **새 단계** 를 클릭하고, 작업 검색 상자에서 **Gmail** 을 입력하고, **이메일 보내기(V2)** 를 찾아서 선택합니다.
+1. 디자이너 아래쪽에서 **새 단계** 를 클릭하여 작업 검색 상자에 **Gmail** 을 입력합니다. **이메일 보내기(V2)** 를 찾아서 선택합니다.
     
     > [!TIP]
     > SendGrid, MailChimp, Microsoft 365 및 SalesForce와 같은 다른 유형의 통합을 검색할 수 있습니다. 자세한 내용은 [Logic Apps 설명서](../logic-apps/index.yml)를 참조하세요.

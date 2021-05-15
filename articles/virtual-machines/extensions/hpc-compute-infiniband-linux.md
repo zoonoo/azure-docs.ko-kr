@@ -1,6 +1,6 @@
 ---
-title: InfiniBand 드라이버 확장-Azure Linux Vm
-description: Linux를 실행 하는 H-및 N 시리즈 계산 Vm에 InfiniBand 드라이버를 설치 하기 위한 확장을 Microsoft Azure 합니다.
+title: InfiniBand 드라이버 확장 - Azure Linux VM
+description: Linux를 실행하는 H 시리즈 및 N 시리즈 컴퓨팅 VM에 InfiniBand 드라이버를 설치하기 위한 Microsoft Azure 확장입니다.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -15,19 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
 ms.openlocfilehash: 1219f5befb4de81850681a53c10f03dc81249d53
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102559735"
 ---
-# <a name="infiniband-driver-extension-for-linux"></a>Linux 용 InfiniBand 드라이버 확장
+# <a name="infiniband-driver-extension-for-linux"></a>Linux용 InfiniBand 드라이버 확장
 
-이 확장은 Linux를 실행 하는 InfiniBand 및 SR-IOV 사용 (' r ' 크기) [H 시리즈](../sizes-hpc.md) 및 [N 시리즈](../sizes-gpu.md) vm에 InfiniBand OFED 드라이버를 설치 합니다. VM 제품군에 따라 확장은 연결-X NIC에 적절 한 드라이버를 설치 합니다.
+이 확장은 Linux를 실행하는 InfiniBand 및 SR-IOV 사용('r' 크기) [H 시리즈](../sizes-hpc.md) 및 [N 시리즈](../sizes-gpu.md) VM에 InfiniBand OFED 드라이버를 설치합니다. VM 제품군에 따라 확장은 Connect-X NIC에 적절한 드라이버를 설치합니다.
 
-OFED 드라이버의 수동 설치에 대 한 지침은 [여기](../workloads/hpc/enable-infiniband.md#manual-installation)에서 제공 됩니다.
+OFED 드라이버의 수동 설치에 대한 지침은 [여기](../workloads/hpc/enable-infiniband.md#manual-installation)에서 확인할 수 있습니다.
 
-확장은 [Windows vm](hpc-compute-infiniband-windows.md)용 InfiniBand 드라이버를 설치 하는 데도 사용할 수 있습니다.
+[Windows VM](hpc-compute-infiniband-windows.md)용 InfiniBand 드라이버를 설치하기 위한 확장도 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -38,12 +38,12 @@ OFED 드라이버의 수동 설치에 대 한 지침은 [여기](../workloads/hp
 | 배포 | 버전 |
 |---|---|
 | Linux: Ubuntu | 16.04 LTS, 18.04 LTS, 20.04 LTS |
-| Linux: CentOS | 7.4, 7.5, 7.6, 7.7, 8.1, 8, 2 |
-| Linux: Red Hat Enterprise Linux | 7.4, 7.5, 7.6, 7.7, 8.1, 8, 2 |
+| Linux: CentOS | 7.4, 7.5, 7.6, 7.7, 8.1, 8,2 |
+| Linux: Red Hat Enterprise Linux | 7.4, 7.5, 7.6, 7.7, 8.1, 8,2 |
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
-InfiniBand 드라이버를 Microsoft Azure 확장 하려면 대상 VM이에 연결 되어 있고 인터넷에 액세스할 수 있어야 합니다.
+InfiniBand 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM이 인터넷에 연결되어 있고 액세스 권한이 있어야 합니다.
 
 ## <a name="extension-schema"></a>확장 스키마
 
@@ -139,7 +139,7 @@ az vm extension set \
 
 ### <a name="add-extension-to-a-virtual-machine-scale-set"></a>가상 머신 확장 집합에 확장 추가
 
-다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹에 배포 된 *myvmss* 라는 기존 가상 머신 확장 집합의 모든 RDMA 지원 vm에 최신 버전 1.1 InfiniBandDriverLinux 확장을 설치 합니다.
+다음 예제에서는 *myResourceGroup* 이라는 리소스 그룹에 배포된 *myVMSS* 라는 기존 가상 머신 확장 집합의 모든 RDMA 지원 VM에 최신 버전 1.1 InfiniBandDriverLinux 확장을 설치합니다.
 
   ```powershell
   $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
@@ -163,7 +163,7 @@ Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtens
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-확장 실행 출력은 다음 파일에 기록 됩니다. 설치 상태를 추적 하 고 오류를 해결 하려면이 파일을 참조 하세요.
+확장 실행 출력은 다음 파일에 기록됩니다. 설치 상태를 추적하고 오류를 해결하려면 이 파일을 참조하세요.
 
 ```bash
 /var/log/azure/ib-vmext-status
@@ -171,25 +171,25 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 ### <a name="exit-codes"></a>종료 코드
 
-다음 표에서는 확장 설치 프로세스의 종료 코드를 기반으로 하는 의미와 권장 작업에 대해 설명 합니다.
+다음 표에서는 확장 설치 프로세스의 종료 코드에 따른 의미와 권장 사항에 대해 설명합니다.
 
 | 종료 코드 | 의미 | 가능한 작업 |
 | :---: | --- | --- |
 | 0 | 작업이 성공했습니다. |
 | 1 | 확장의 사용이 잘못되었습니다. | 실행 출력 로그를 확인합니다. |
 | 10 | Hyper-V 및 Azure에 대한 Linux Integration Services를 사용하거나 설치할 수 없습니다. | lspci의 출력을 확인합니다. |
-| 11 | 이 VM 크기에서 Mellanox InfiniBand을 찾을 수 없습니다. | [지원되는 VM 크기 및 OS](../sizes-hpc.md)를 사용합니다. |
+| 11 | 이 VM 크기에서 Mellanox InfiniBand을 찾을 수 없음 | [지원되는 VM 크기 및 OS](../sizes-hpc.md)를 사용합니다. |
 | 12 | 지원되지 않는 이미지 제품 |
-| 13 | 지원되지 않는 VM 크기 | InfiniBand 사용 (' r ' 크기) [H 시리즈](../sizes-hpc.md) 및 [n](../sizes-gpu.md)시리즈 n 시리즈 VM을 사용 하 여 배포 |
+| 13 | 지원되지 않는 VM 크기 | InfiniBand 사용('r' 크기) [H 시리즈](../sizes-hpc.md) 및 [N 시리즈](../sizes-gpu.md) VM을 사용하여 배포 |
 | 14 | 작업 실패 | 실행 출력 로그를 확인합니다. |
 
 
 ### <a name="support"></a>지원
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/community/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)를 통해 지원 인시던트를 파일에 추가할 수 있습니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/community/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)를 통해 지원 인시던트를 제출할 수 있습니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-InfiniBand 사용 (' r ' 크기)에 대 한 자세한 내용은 [H 시리즈](../sizes-hpc.md) 및 [N 시리즈](../sizes-gpu.md) vm을 참조 하세요.
+InfiniBand 사용(‘r’ 크기)에 대한 자세한 내용은 [H 시리즈](../sizes-hpc.md) 및 [N 시리즈](../sizes-gpu.md) VM을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Linux Vm 확장 및 기능에 대 한 자세한 정보](features-linux.md)
+> [Linux VM 확장 및 기능에 대한 자세한 정보](features-linux.md)

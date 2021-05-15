@@ -1,5 +1,5 @@
 ---
-title: 스키마 업데이트 6 월-1-2016
+title: 스키마 업데이트 2016년 6월 1일
 description: Azure Logic Apps의 논리 앱 정의에 대한 업데이트된 스키마 버전 2016-06-01
 services: logic-apps
 ms.suite: integration
@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2016
 ms.openlocfilehash: ccc7df5bfac327fabf05f210764dbe10658b5015
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96000320"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Azure Logic Apps에 대한 스키마 업데이트 - 2016년 6월 1일
@@ -103,7 +103,7 @@ Azure Logic Apps에 대한 [업데이트된 스키마](https://schema.management
 
 1. Azure Portal에서 논리 앱을 엽니다.
 
-2. **개요** 로 이동 합니다. 논리 앱 도구 모음에서 **스키마 업데이트** 를 선택합니다.
+2. **개요** 로 이동합니다. 논리 앱 도구 모음에서 **스키마 업데이트** 를 선택합니다.
    
    ![스키마 업데이트 선택][1]
    

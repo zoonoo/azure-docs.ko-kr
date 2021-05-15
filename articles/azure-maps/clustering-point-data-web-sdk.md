@@ -1,6 +1,6 @@
 ---
 title: 맵에서 요소 데이터 클러스터링 | Microsoft Azure Maps
-description: 지도에서 point 데이터를 클러스터링 하는 방법에 대해 알아봅니다. Azure Maps 웹 SDK를 사용 하 여 데이터를 클러스터링 하 고, 클러스터 마우스 이벤트에 대응 하 고, 클러스터 집계를 표시 하는 방법을 참조 하세요.
+description: 맵에서 요소 데이터를 클러스터링하는 방법에 대해 알아봅니다. Azure Maps 웹 SDK를 사용하여 데이터를 클러스터링하고, 클러스터 마우스 이벤트에 대응하고, 클러스터 집계를 표시하는 방법을 참조하세요.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: f798b4a7964eba112ed9948b2db4f6d5c3edd1e3
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105608360"
 ---
 # <a name="clustering-point-data"></a>요소 데이터 클러스터링
@@ -26,7 +26,7 @@ ms.locfileid: "105608360"
 
 ## <a name="enabling-clustering-on-a-data-source"></a>데이터 원본에서 클러스터링 사용
 
-`DataSource`옵션을로 설정 하 여 클래스에서 클러스터링을 사용 하도록 설정 `cluster` `true` 합니다. `clusterRadius`주변 요소를 선택 하 고 클러스터에 결합 하도록 설정 합니다. `clusterRadius`의 값은 픽셀 단위입니다. `clusterMaxZoom`클러스터링 논리를 비활성화할 확대/축소 수준을 지정 하는 데 사용 합니다. 데이터 원본에서 클러스터링을 사용하도록 설정하는 방법의 예는 다음과 같습니다.
+`cluster` 옵션을 `true`로 설정하여 `DataSource` 클래스에서 클러스터링을 사용하도록 설정합니다. 주변 요소를 선택하여 클러스터로 결합하도록 `clusterRadius`를 설정합니다. `clusterRadius`의 값은 픽셀 단위입니다. `clusterMaxZoom`을 사용하여 클러스터링 논리를 사용하지 않도록 설정할 확대/축소 수준을 지정합니다. 데이터 원본에서 클러스터링을 사용하도록 설정하는 방법의 예는 다음과 같습니다.
 
 ```javascript
 //Create a data source and enable clustering.
@@ -46,7 +46,7 @@ var datasource = new atlas.source.DataSource(null, {
 > [!TIP]
 > 두 데이터 요소를 함께 사용하는 경우 확대로 인해 데이터 요소가 얼마나 가까워지든, 클러스터는 절대 분리되지 않습니다. 이를 해결하기 위해 `clusterMaxZoom` 옵션을 설정하여 클러스터링 논리를 사용하지 않도록 설정하고 모든 항목을 표시하기만 합니다.
 
-`DataSource`클래스는 클러스터링과 관련 된 다음 메서드를 제공 합니다.
+`DataSource` 클래스는 클러스터링과 관련하여 다음 메서드를 제공합니다.
 
 | 방법 | 반환 형식 | Description |
 |--------|-------------|-------------|

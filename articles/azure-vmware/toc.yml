@@ -76,8 +76,8 @@
       href: configure-site-to-site-vpn-gateway.md
     - name: Windows Server 장애 조치(Failover) 클러스터 구성
       href: configure-windows-server-failover-cluster.md
-    - name: vSphere 자격 증명 재설정
-      href: reset-vsphere-credentials.md
+    - name: cloudadmin 자격 증명 회전
+      href: rotate-cloudadmin-credentials.md
     - name: Azure Backup Server로 백업 및 복원
       items:
         - name: VMware VM 백업

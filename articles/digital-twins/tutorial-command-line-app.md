@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: c18366fd4bc510f32ac0ef255b27709797a3b626
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 419e609c4b78007f215d67ab4a69671bc9cbb198
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103493710"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205632"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-a-sample-client-app"></a>자습서: 샘플 클라이언트 앱을 사용하여 Azure Digital Twins 그래프 만들기
 
 [!INCLUDE [digital-twins-tutorial-selector.md](../../includes/digital-twins-tutorial-selector.md)]
 
-이 자습서에서는 모델, 트윈 및 관계를 사용하여 Azure Digital Twins에서 그래프를 작성합니다. 이 자습서의 도구는 Azure Digital Twins 인스턴스와 상호 작용하기 위한 **샘플 명령줄 클라이언트 애플리케이션** 입니다. 클라이언트 앱은 [*자습서: 클라이언트 앱 코딩*](tutorial-code.md)에서 작성한 앱과 유사합니다.
+이 자습서에서는 모델, 트윈 및 관계를 사용하여 Azure Digital Twins에서 그래프를 작성합니다. 이 자습서의 도구는 Azure Digital Twins 인스턴스와 상호 작용하기 위한 **샘플 명령줄 클라이언트 애플리케이션** 입니다. 클라이언트 앱은 [자습서: 클라이언트 앱 코딩](tutorial-code.md)에서 작성한 앱과 비슷합니다.
 
 이 샘플을 사용하여 모델 업로드, 트윈 생성 및 수정, 관계 생성과 같은 필수 Azure Digital Twins 작업을 수행할 수 있습니다. 또한 [샘플 코드](https://github.com/Azure-Samples/digital-twins-samples/tree/master/)를 보고 Azure Digital Twins API에 대해 배우고 원하는 대로 샘플 프로젝트를 수정하여 명령을 직접 구현해 볼 수 있습니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "103493710"
 
 Azure Digital Twins 인스턴스와 샘플 앱이 설정되었으므로 이제 시나리오의 그래프를 만들 수 있습니다. 
 
-Azure Digital Twins 솔루션을 만드는 첫 번째 단계는 사용자 환경에 대한 트윈 [**모델**](concepts-models.md)을 정의하는 것입니다. 
+Azure Digital Twins 솔루션을 만드는 첫 번째 단계는 사용자 환경에 대한 트윈 [모델](concepts-models.md)을 정의하는 것입니다. 
 
 모델은 개체 지향 프로그래밍 언어의 클래스와 유사하며, 나중에 [디지털 트윈](concepts-twins-graph.md)이 따르고 인스턴스화할 수 있도록 사용자 정의 템플릿을 제공합니다. 모델은 **DTDL(Digital Twins 정의 언어)** 이라는 JSON과 같은 언어로 작성되며 트윈의 *속성*, *원격 분석*, *관계* 및 *구성 요소* 를 정의할 수 있습니다.
 
@@ -95,7 +95,7 @@ CreateModels Room
 ```
 
 모델을 덮어쓸 수 없으므로 이제 서비스 오류가 반환됩니다.
-기존 모델을 삭제하는 방법에 대한 자세한 내용은 [*방법: DTDL 모델 관리*](how-to-manage-model.md)를 참조하세요.
+기존 모델을 삭제하는 방법에 대한 자세한 내용은 [방법: DTDL 모델 관리](how-to-manage-model.md)를 참조하세요.
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)
@@ -112,7 +112,7 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="create-digital-twins"></a>디지털 트윈 만들기
 
-일부 모델이 Azure Digital Twins 인스턴스에 업로드되었으므로 모델 정의를 기반으로 [**디지털 트윈**](concepts-twins-graph.md)을 만들 수 있습니다. 디지털 트윈은 농장의 센서, 건물의 방 또는 자동차의 조명과 같은 비즈니스 환경 내의 엔터티를 나타냅니다. 
+일부 모델이 Azure Digital Twins 인스턴스에 업로드되었으므로 모델 정의를 기반으로 [디지털 트윈](concepts-twins-graph.md)을 만들 수 있습니다. 디지털 트윈은 농장의 센서, 건물의 방 또는 자동차의 조명과 같은 비즈니스 환경 내의 엔터티를 나타냅니다. 
 
 디지털 트윈을 만들려면 `CreateDigitalTwin` 명령을 사용합니다. 트윈이 기반으로 하는 모델을 참조해야 하며, 필요에 따라 모델의 속성에 대한 초기 값을 정의할 수 있습니다. 이 단계에서는 관계 정보를 전달할 필요가 없습니다.
 
@@ -157,9 +157,9 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="create-a-graph-by-adding-relationships"></a>관계를 추가하여 그래프 만들기
 
-다음으로, 이러한 트윈 간의 몇 가지 **관계** 를 만들어 [**트윈 그래프**](concepts-twins-graph.md)로 연결할 수 있습니다. 트윈 그래프는 전체 환경을 나타내는 데 사용됩니다. 
+다음으로, 이러한 트윈 간의 몇 가지 **관계** 를 만들어 [트윈 그래프](concepts-twins-graph.md)로 연결할 수 있습니다. 트윈 그래프는 전체 환경을 나타내는 데 사용됩니다. 
 
-한 트윈에서 다른 트윈으로 작성할 수 있는 관계 유형은 이전에 업로드한 [모델](#model-a-physical-environment-with-dtdl) 내에서 정의됩니다. [*Floor* 에 대한 모델 정의](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json)는 *포함* 이라는 관계 유형이 있는 floor를 지정합니다. 이를 통해 각 *Floor* 트윈에서 포함된 해당 room으로의 *포함* 유형 관계를 만들 수 있습니다.
+한 트윈에서 다른 트윈으로 작성할 수 있는 관계 유형은 이전에 업로드한 [모델](#model-a-physical-environment-with-dtdl) 내에서 정의됩니다. [Floor에 대한 모델 정의](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json)는 *포함* 이라는 관계 유형이 있는 floor를 지정합니다. 이를 통해 각 *Floor* 트윈에서 포함된 해당 room으로의 *포함* 유형 관계를 만들 수 있습니다.
 
 관계를 추가하려면 `CreateRelationship` 명령을 사용합니다. 관계가 시작되는 트윈, 관계 유형 및 관계가 연결되는 트윈을 지정합니다. 마지막으로 관계에 고유한 ID를 지정합니다.
 
@@ -171,7 +171,7 @@ Content-Type: application/json; charset=utf-8
     ```
 
     >[!TIP]
-    >또한 [*Floor* 모델](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json)의 *포함* 관계는 두 문자열 속성(`ownershipUser` 및 `ownershipDepartment`)으로도 정의되었기 때문에 관계를 만들 때 이에 대한 초기값으로 인수를 제공할 수도 있습니다.
+    >또한 [Floor 모델](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json)의 *포함* 관계는 두 문자열 속성(`ownershipUser` 및 `ownershipDepartment`)으로도 정의되었기 때문에 관계를 만들 때 이에 대한 초기값으로 인수를 제공할 수도 있습니다.
     > 다음은 이러한 속성에 대한 초기값도 지정하는 *relationship0* 을 만드는 위 명령의 대체 버전입니다.
     > ```cmd/sh
     > CreateRelationship floor0 contains room0 relationship0 ownershipUser string MyUser ownershipDepartment string myDepartment
@@ -279,4 +279,4 @@ Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하도록 
 
 다음 자습서에서 Azure Digital Twins와 다른 Azure 서비스를 결합하여 데이터 기반의 엔드투엔드 시나리오를 완성하세요.
 > [!div class="nextstepaction"]
-> [*자습서: 엔드투엔드 솔루션 연결*](tutorial-end-to-end.md)
+> [자습서: 엔드투엔드 솔루션 연결](tutorial-end-to-end.md)

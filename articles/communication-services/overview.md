@@ -8,12 +8,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8c2559315e3bfffc41c138be6826adae95dd7b07
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 6dae6e7ef5a442392972a39f75bbea8046b4beff
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588108"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324728"
 ---
 # <a name="what-is-azure-communication-services"></a>Azure Communication Services란?
 
@@ -42,6 +42,7 @@ Communication Services 리소스를 만든 후 음성 및 화상 통화 또는 �
 |---                                    |---                                   |
 |**[첫 번째 사용자 액세스 토큰 만들기](./quickstarts/access-tokens.md)**|사용자 액세스 토큰은 Azure Communication Services 리소스에 대해 클라이언트를 인증하는 데 사용됩니다. 이러한 토큰은 Communication Services SDK를 사용하여 프로비저닝되고 다시 발급됩니다.|
 |**[음성 및 화상 통화 시작](./quickstarts/voice-video-calling/getting-started-with-calling.md)**| Azure Communication Services를 사용하면 Calling SDK를 사용하여 음성 및 화상 통화를 브라우저 또는 네이티브 앱에 추가할 수 있습니다. |
+|**[앱에 전화 통화 추가](./quickstarts/voice-video-calling/pstn-call.md)**|Azure Communication Services를 사용하면 애플리케이션에 전화 통신 기능을 추가할 수 있습니다.|
 |**[통화 앱으로 Teams 미팅 참가](./quickstarts/voice-video-calling/get-started-teams-interop.md)**|Azure Communication Services는 Microsoft Teams와 상호 작용하는 사용자 지정 모임 환경을 구축하는 데 사용할 수 있습니다. Communication Services 솔루션의 사용자는 음성, 비디오, 채팅 및 화면 공유를 통해 Teams 참가자와 상호 작용할 수 있습니다.|
 |**[채팅 시작](./quickstarts/chat/get-started.md)**|Azure Communication Services 채팅 SDK를 사용하여 서식 있는 실시간 텍스트 채팅을 애플리케이션에 추가할 수 있습니다.|
 
@@ -54,6 +55,7 @@ Communication Services 리소스를 만든 후 음성 및 화상 통화 또는 �
 |---                                    |---                                   |
 |**[그룹 통화 주인공 샘플](./samples/calling-hero-sample.md)**| 브라우저, iOS 및 Android 디바이스용으로 설계된 그룹 통화 애플리케이션 샘플을 다운로드합니다. |
 |**[그룹 채팅 주인공 샘플](./samples/chat-hero-sample.md)**| 브라우저용으로 설계된 그룹 텍스트 채팅 애플리케이션 샘플을 다운로드합니다. |
+|**[웹 통화 샘플](./samples/web-calling-sample.md)**| 오디오, 비디오 및 PSTN 통화를 위해 디자인된 웹 애플리케이션 샘플을 다운로드합니다. |
 
 
 ## <a name="platforms-and-sdk-libraries"></a>플랫폼 및 SDK 라이브러리

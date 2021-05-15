@@ -1,15 +1,15 @@
 ---
 title: Azure Service Fabric의 복제본 및 인스턴스
-description: 수명 주기 및 함수에 대 한 개요를 포함 하 여 Service Fabric의 복제본 및 인스턴스에 대해 알아봅니다.
+description: 수명 주기 및 함수에 대한 개요를 포함하여 Service Fabric의 복제본 및 인스턴스에 대해 알아봅니다.
 author: appi101
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: cf21af43de553a2802289e44eaece12952d077d3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84710748"
 ---
 # <a name="replicas-and-instances"></a>복제본 및 인스턴스 

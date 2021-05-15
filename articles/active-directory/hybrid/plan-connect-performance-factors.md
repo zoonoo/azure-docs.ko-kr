@@ -14,10 +14,10 @@ ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 15bcb0f7ca30c343072da396abeac8d08dee03a9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90087012"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Azure AD Connect의 성능에 영향을 주는 요인
@@ -35,13 +35,13 @@ Azure AD Connect는 Active Directory를 Azure AD에 동기화합니다. 이 서�
 이 문서의 목적은 Azure AD Connect 프로비저닝 엔진의 성능에 영향을 미치는 요소를 설명하는 것입니다. 대규모 또는 복잡한 조직(100,000개 초과의 개체를 프로비전하는 조직)은 여기에 설명된 성능 문제가 발생하는 경우 Azure AD Connect 구현을 최적화하기 위한 권장 사항을 사용할 수 있습니다. [Azure AD Connect 상태](how-to-connect-health-agent-install.md)와 같은 Azure AD Connect의 다른 구성 요소 및 에이전트는 여기에서 다루지 않습니다.
 
 > [!IMPORTANT]
-> Microsoft는 공식적으로 문서화된 작업 외의 Azure AD Connect 동기화에 대한 수정 또는 작업을 지원하지 않습니다. 이러한 작업을 수행 하면 Azure AD Connect 동기화 상태가 일치 하지 않거나 지원 되지 않는 상태가 될 수 있습니다. 따라서 Microsoft는 이러한 배포에 대 한 기술 지원을 제공할 수 없습니다.
+> Microsoft는 공식적으로 문서화된 작업 외의 Azure AD Connect 동기화에 대한 수정 또는 작업을 지원하지 않습니다. 이러한 작업은 Azure AD Connect 동기화의 불일치 또는 지원되지 않는 상태를 발생시킬 수 있으며 결과적으로 Microsoft가 해당 배포에 대해 기술 지원을 제공할 수 없습니다.
 
 ## <a name="azure-ad-connect-component-factors"></a>Azure AD Connect 구성 요소
 
 다음 다이어그램은 다중 포리스트는 지원되긴 하지만 단일 포리스트에 연결된 엔진 프로비전의 개략적인 아키텍처를 보여줍니다. 이 아키텍처는 다양한 구성 요소가 서로 어떻게 상호 작용하는지를 보여줍니다.
 
-![다이어그램은 연결 된 디렉터리와 Azure AD Connect 프로 비전 엔진이 SQL Database의 커넥터 공간 및 메타 버스 구성 요소를 포함 하 여 상호 작용 하는 방법을 보여 줍니다. ](media/plan-connect-performance-factors/AzureADConnentInternal.png)
+![다이어그램은 SQL Database의 커넥터 공간 및 메타버스 구성 요소를 포함하여 연결된 디렉터리와 Azure AD Connect 프로비전 엔진이 상호 작용하는 방법을 보여줍니다. ](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
 프로비전 엔진은 각 Active Directory 포리스트와 Azure AD에 연결되어 있습니다. 각 디렉터리에서 정보를 읽는 프로세스를 가져오기라고 합니다. 내보내기는 프로비전 엔진에서 디렉터리를 업데이트하는 것을 가리킵니다. 동기화는 프로비전 엔진 내에서 개체가 흐르는 방식의 규칙을 평가합니다. 더 자세한 내용은 [Azure AD Connect 동기화: 아키텍처 이해](./concept-azure-ad-connect-sync-architecture.md)를 참조하세요.
 
@@ -143,7 +143,7 @@ Active Directory CS의 여러 영구적인 [디스커넥터 개체](concept-azur
 
 ## <a name="azure-ad-connect-dependency-factors"></a>Azure AD Connect 종속성 요소
 
-Azure AD Connect의 성능은 가져오고 내보내는 연결된 디렉터리의 성능에 따라 달라 집니다. 예를 들어 가져와야 하는 Active Directory의 크기 또는 Azure AD 서비스에 대한 네트워크 대기 시간이 있습니다. 프로 비전 엔진에서 사용 하는 SQL database도 동기화 주기의 전반적인 성능에 영향을 줍니다.
+Azure AD Connect의 성능은 가져오고 내보내는 연결된 디렉터리의 성능에 따라 달라 집니다. 예를 들어 가져와야 하는 Active Directory의 크기 또는 Azure AD 서비스에 대한 네트워크 대기 시간이 있습니다. 프로비전 엔진이 사용하는 SQL Database도 동기화 주기의 전반적인 성능에 영향을 줍니다.
 
 ### <a name="active-directory-factors"></a>Active Directory 요소
 
@@ -172,7 +172,7 @@ Azure AD는 DoS(서비스 거부) 공격으로부터 클라우드 서비스를 �
 
 - 사용자가 100,000명 초과인 조직은 SQL Database와 프로비전 엔진을 동일한 서버에 배치함으로써 네트워크 대기 시간을 줄일 수 있습니다.
 - 동기화 프로세스의 높은 디스크 입력 및 출력(I/O) 요구 사항으로 인해 최적의 결과를 위해서 프로비전 엔진의 SQL Database에 SSD(반도체 드라이브)를 사용합니다. 불가능한 경우 RAID 0 또는 RAID 1 구성을 고려합니다.
-- 전체 동기화를 수행 하지 않습니다. 미리; 불필요 한 변동 및 느린 응답 시간이 발생 합니다.
+- 미리 전체 동기화를 수행하지 마십시오. 불필요한 변동 및 느린 응답 시간으로 이어질 수 있습니다.
 
 ## <a name="conclusion"></a>결론
 

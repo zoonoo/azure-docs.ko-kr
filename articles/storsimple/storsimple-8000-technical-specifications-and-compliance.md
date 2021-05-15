@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "68965281"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>StorSimple 디바이스에 대한 기술 사양 및 규정 준수
@@ -83,7 +83,7 @@ StorSimple 디바이스에는 8100 및 8600에 대한 하드 디스크 드라이
 | 총 사용 가능한 용량 * |최대 15TB |최대 38TB |
 | 최대 솔루션 용량(클라우드 포함) |200TB |500TB |
 
-<sup>* </sup>- *사용 가능한 총 용량에는 데이터, 메타 데이터 및 버퍼에 사용할 수 있는 용량이 포함 됩니다. 8100 장치에서 로컬로 고정 된 볼륨은 최대 8.5, 더 큰 8600 장치에서는 최대 22.5 TB를 프로 비전 할 수 있습니다. 자세한 내용은 [StorSimple 로컬로 고정 된 볼륨](storsimple-8000-local-volume-faq.md)으로 이동 합니다.*
+<sup>* </sup>- *사용 가능한 총 용량에는 데이터, 메타데이터, 버퍼에 사용할 수 있는 용량이 포함됩니다. 8100 디바이스에서 로컬로 고정된 볼륨은 최대 8.5TB, 더 큰 8600 디바이스에서는 최대 22.5TB를 프로비저닝할 수 있습니다. 자세한 내용은 [StorSimple 로컬로 고정된 볼륨](storsimple-8000-local-volume-faq.md)으로 이동합니다.*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>엔클로저 차원과 가중치 사양
 
@@ -175,7 +175,7 @@ Microsoft Azure StorSimple 디바이스는 다음 EMC 등급을 만족합니다.
 
 ## <a name="ac-power-cord-compliance"></a>AC 전원 코드 규정 준수
 
-플러그 앤 전체 전원 코드 어셈블리는 장치를 사용 하는 국가/지역에 적합 한 표준을 충족 해야 하며, 해당 국가/지역에서 허용 되는 안전 승인을 보유 해야 합니다. 다음 표에서 미국과 유럽에 대한 표준을 보여줍니다.
+플러그 및 전체 전원 코드 어셈블리는 디바이스를 사용 중인 국가/지역에 맞는 표준을 충족해야 하며 해당 국가/지역에서 허용되는 안전 승인서가 있어야 합니다. 다음 표에서 미국과 유럽에 대한 표준을 보여줍니다.
 
 ### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>AC 전원 코드-미국(나열된 NRTL이어야 함)
 

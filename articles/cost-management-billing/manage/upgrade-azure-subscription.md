@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 03/11/2021
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6066b5efc9bb004aab6b651f15d24b19672c3497
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 56d0116217f8db76131ccecc884312fb5296d1ed
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220609"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331721"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Azure 체험 계정 또는 Azure for Students Starter 계정 업그레이드
 
 Azure Portal에서 [Azure 체험 계정](https://azure.microsoft.com/free/)을 [종량제 요율](https://azure.microsoft.com/offers/ms-azr-0003p/)로 업그레이드할 수 있습니다.
 
-[Azure for Students Starter 계정](https://azure.microsoft.com/offers/ms-azr-0144p/)이 있고 [Azure 체험 계정](https://azure.microsoft.com/free/)에 대한 자격이 있으면 [Azure 체험 계정](https://azure.microsoft.com/free/)으로 업그레이드할 수 있습니다. 업그레이드 시 청구 통화와 12개월 무료 서비스의 USD200 Azure 크레딧이 제공됩니다. 체험 계정에 대한 자격이 없으면 [지원 요청](https://go.microsoft.com/fwlink/?linkid=2083458)을 통해 [종량제 요율](https://azure.microsoft.com/offers/ms-azr-0003p/)로 업그레이드할 수 있습니다.
+[Azure for Students Starter 계정](https://azure.microsoft.com/offers/ms-azr-0144p/)이 있고 [Azure 체험 계정](https://azure.microsoft.com/free/)에 대한 자격이 있으면 [Azure 체험 계정](https://azure.microsoft.com/free/)으로 업그레이드할 수 있습니다. 업그레이드 시 청구 통화와 12개월 무료 서비스의 $200 Azure 크레딧이 제공됩니다. 체험 계정에 대한 자격이 없으면 [지원 요청](https://go.microsoft.com/fwlink/?linkid=2083458)을 통해 [종량제 요율](https://azure.microsoft.com/offers/ms-azr-0003p/)로 업그레이드할 수 있습니다.
 
 [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) 계정이 있으면 [지원 요청](https://go.microsoft.com/fwlink/?linkid=2083458)을 통해 [종량제 요율](https://azure.microsoft.com/offers/ms-azr-0003p/)로 업그레이드할 수 있습니다.
 

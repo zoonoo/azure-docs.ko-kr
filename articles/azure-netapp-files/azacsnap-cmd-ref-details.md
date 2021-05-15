@@ -1,6 +1,6 @@
 ---
-title: Azure NetApp Files에 대 한 Azure 애플리케이션 일치 스냅숏 도구를 사용 하 여 세부 정보 가져오기 Microsoft Docs
-description: Azure NetApp Files에서 사용할 수 있는 Azure 애플리케이션 일치 스냅숏 도구의 details 명령을 실행 하는 방법에 대 한 지침을 제공 합니다.
+title: Azure NetApp Files에 대한 Azure Application Consistent Snapshot 세부 정보 가져오기 | Microsoft Docs
+description: Azure NetApp Files에서 사용할 수 있는 Azure Application Consistent Snapshot 도구의 자세히 보기 명령을 실행하는 방법에 대한 지침을 제공합니다.
 services: azure-netapp-files
 documentationcenter: ''
 author: Phil-Jensen
@@ -15,41 +15,41 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: phjensen
 ms.openlocfilehash: 1d6a5488ee761acec57e6a1030bcb17872b09258
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104865301"
 ---
-# <a name="obtain-details-using-azure-application-consistent-snapshot-tool-preview"></a>Azure 애플리케이션 일관성 있는 스냅숏 도구를 사용 하 여 세부 정보 얻기 (미리 보기)
+# <a name="obtain-details-using-azure-application-consistent-snapshot-tool-preview"></a>Azure Application Consistent Snapshot 도구로 세부 정보 가져오기(미리 보기)
 
-이 문서에서는 Azure NetApp Files에서 사용할 수 있는 Azure 애플리케이션 일치 스냅숏 도구의 세부 정보 명령을 실행 하는 방법에 대 한 지침을 제공 합니다.
+이 문서에서는 Azure NetApp Files에서 사용할 수 있는 Azure Application Consistent Snapshot 도구의 세부 정보 가져오기 명령을 실행하는 방법에 대한 지침을 제공합니다.
 
 ## <a name="introduction"></a>소개
 
-`azacsnap -c details`명령은 구성 파일의 모든 볼륨에 저장 된 스냅숏 (볼륨 이름, 스냅숏 이름, 만든 시간, 설명, 스냅숏 크기)에 대 한 세부 정보를 나열 합니다.  추가 분석을 위해 콘솔 출력을 스프레드시트에 붙여 넣을 수 있습니다.
+`azacsnap -c details`명령은 구성 파일의 모든 볼륨에 저장된 스냅샷(볼륨 이름, 스냅샷 이름, 만든 시간, 설명, 스냅샷 크기)에 대한 세부 정보를 나열합니다.  추가 분석을 위해 콘솔 출력을 스프레드시트에 붙여 넣을 수 있습니다.
 
-백 엔드 시스템에 저장 된 정보로 인해 **Azure의 많은 인스턴스와** **Azure NetApp Files** 에서 실행할 때 명령의 출력이 약간 다릅니다.
+백 엔드 시스템에 저장된 정보로 인해 **Azure의 많은 인스턴스와** **Azure NetApp Files** 에서 실행할 때 명령의 출력이 약간 다릅니다.
 
 ## <a name="command-options"></a>명령 옵션
 
-명령에는 `-c details` 다음과 같은 옵션이 있습니다.
+`-c details` 명령에는 다음과 옵션이 있습니다.
 
-- `--details snapshots` 구성 된 각 볼륨의 스냅숏에 대 한 기본 세부 정보 목록을 제공 합니다. 이 명령은 주 서버 또는 재해 복구 위치의 서버에서 실행할 수 있습니다. 명령은 스냅숏이 포함 된 각 볼륨에 대해 다음과 같은 정보를 제공 합니다.
-  - 볼륨의 총 스냅숏 크기입니다.
+- `--details snapshots`은 구성된 각 볼륨의 스냅샷에 대한 기본 세부 정보 목록을 제공합니다. 이 명령은 주 서버 또는 재해 복구 위치의 서버에서 실행할 수 있습니다. 이 명령은 스냅샷이 포함된 각 볼륨별로 다음과 같이 세분화된 정보를 제공합니다.
+  - 볼륨의 총 스냅샷 크기
   - 해당 볼륨의 각 스냅샷에는 다음 세부 정보가 포함됩니다.
   - 스냅샷 이름
   - 만든 시간
   - 스냅샷 크기
   - 스냅샷 빈도
 
-- `--details replication` 프로덕션 사이트에서 재해 복구 사이트로의 복제 상태에 대 한 기본 세부 정보를 제공 합니다. 이 명령은 모니터링을 통해 복제가 수행 되도록 하는 출력을 제공 합니다.  복제 되는 항목의 크기를 표시 합니다. 또한 복제가 너무 오래 걸리거나 연결이 종료 되는 경우 지침을 제공 합니다.
+- `--details replication`은 프로덕션 사이트에서 재해 복구 사이트로의 복제 상태에 대한 기본 세부 정보를 제공합니다. 이 명령은 모니터링을 통해 복제가 수행되도록 하는 출력을 제공합니다.  복제되는 항목의 크기를 표시합니다. 또한 복제가 너무 오래 걸리거나 연결이 다운될 경우에 대한 지침을 제공합니다.
 
-- `[--configfile <config filename>]` 는 사용자 지정 구성 파일 이름을 허용 하는 선택적 매개 변수입니다.
+- `[--configfile <config filename>]`은 사용자 지정 구성 파일 이름을 허용하는 선택적 매개 변수입니다.
 
-### <a name="output-of-the-azacsnap--c-details---details-snapshots-command"></a>`azacsnap -c details --details snapshots`명령의 출력
+### <a name="output-of-the-azacsnap--c-details---details-snapshots-command"></a>`azacsnap -c details --details snapshots` 명령의 출력을 확인합니다
 
-아래 예제는 **Azure Large Instance** 에서 실행 되었으며, 간단히 하기 위해 출력이 잘렸습니다.  또한 일부 줄이 출력에 맞게 줄 바꿈되는 것을 알 수 있습니다.
+아래 예제는 **Azure Large Instance** 에서 실행되었으며, 간단히 하기 위해 출력이 잘렸습니다.  또한 일부 줄이 출력에 맞게 래핑되는 것을 알 수 있습니다.
 
 ```bash
 azacsnap -c details --details snapshots
@@ -92,9 +92,9 @@ List snapshot details called with snapshotFilter ''
 ```
 
 > [!NOTE]
-> 이 예제에서는 최신 버전을 사용 하 여 실행 되는 스냅숏 (5.0) 및 최신 버전 ()을 사용 하 여 실행 되는 스냅숏에 대 한 출력을 보여 줍니다.
+> 이 예제에서는 최신 버전을 사용하여 실행되는 스냅샷(5.0) 및 이전 버전(v4.3)을 사용하여 실행되는 스냅샷에 대한 출력을 보여줍니다.
 
-다음 예제에서는 **Azure NetApp Files** 에 대 한 출력을 포함 하 고, 정보가 서비스에 의해 노출 되지 않기 때문에이 명령을 사용 하 여 축소 된 정보를 확인 합니다.
+다음 예제에서는 **Azure NetApp Files** 에 대한 출력을 포함하고, 정보가 서비스에 의해 노출되지 않기 때문에 이 명령을 사용하여 축소된 정보를 확인합니다.
 
 ```bash
 azacsnap -c details --details snapshots
@@ -134,12 +134,12 @@ List snapshot details called with snapshotFilter ''
 #9, HANALOGBACKUP_P, logs_5mins__2021-03-22T011002-2234413Z
 ```
 
-### <a name="output-of-the-azacsnap--c-details---details-replication-command"></a>`azacsnap -c details --details replication`명령의 출력
+### <a name="output-of-the-azacsnap--c-details---details-replication-command"></a>`azacsnap -c details --details replication` 명령의 출력
 
-이 명령은 기본 사이트에서 DR 위치로 저장소 복제 상태를 확인 하 고 **dr 사이트 서버** 에서 실행 되어야 *합니다* . 이 명령은 구성 파일의 **볼륨만 검사 합니다** .
+이 명령은 기본 사이트에서 DR 위치로 스토리지 복제 상태를 확인하고 **DR 사이트 서버** 에서 실행되어야 *합니다*. 이 명령은 구성 파일의 볼륨 **만** 검사합니다.
 
 > [!NOTE]
-> 이 옵션은 hli ( **Azure Large Instance** ) 시스템 에서만 사용할 수 있습니다.
+> 이 옵션은 HLI(**Azure Large Instance**) 시스템에서만 사용할 수 있습니다.
 
 ```bash
 azacsnap -c details --details replication
@@ -153,10 +153,10 @@ hana_shared_h80_t250_xdp, Active, Idle, snapmirror.d4b34832-8922-11e9-9b18-00a09
 hana_log_backups_h80_t250_xdp, Active, Idle, snapmirror.d4b34832-8922-11e9-9b18-00a098f706fa_2151036635.2020-11-02_031500, 2.32KB, 00h 01m 04s
 ```
 
-다음 예에서는 복제 상태가 손상 되었으며이 시나리오에서는 DR 사이트에서 DR을 활성화 하면 불완전 한 데이터가 생성 될 수 있습니다.
+다음 예제에서는 복제 상태가 손상되었으며 이 시나리오에서는 DR 사이트에서 DR을 활성화하면 불완전한 데이터가 생성될 수 있습니다.
 
 > [!NOTE]
-> 다음 예에서는 두 볼륨의 복제를 해제 하는 방법에 대 한 경고를 확인 합니다.
+> 다음 예제에서는 두 볼륨의 복제를 해제하는 방법에 대한 경고를 확인합니다.
 
 ```bash
 azacsnap -c details --details replication
@@ -170,7 +170,7 @@ hana_log_backups_h80_sapprdhdb80_t020_xdp, Broken-Off - Contact Microsoft Operat
 hana_shared_h80_sapprdhdb80_t020_xdp, Active, Idle, snapmirror.d4b34832-8922-11e9-9b18-00a098f706fa_2151036524.2020-04-02_020000, 2.94MB, 00h 04m 55s
 ```
 
-이 예에서는 기본 사이트와 DR 사이트 간의 성공적인 복제가 있으므로 이러한 시스템이 DR 시나리오를 지원할 수 있습니다.
+이 예제에서는 기본 사이트와 DR 사이트 간의 성공적인 복제가 있으므로 이러한 시스템이 DR 시나리오를 지원할 수 있습니다.
 
 ```bash
 azacsnap -c details --details replication

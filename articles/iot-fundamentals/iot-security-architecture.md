@@ -1,6 +1,6 @@
 ---
 title: IoT 보안 아키텍처
-description: Azure IoT 솔루션에 대 한 보안 아키텍처 지침 및 고려 사항
+description: Azure IoT 솔루션에 대한 보안 아키텍처 지침 및 고려 사항
 author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: robinsh
 ms.openlocfilehash: e4e6a60f893108f8fa58d84dabb50c88afcf774c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "73929601"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>IoT(사물 인터넷) 보안 아키텍처

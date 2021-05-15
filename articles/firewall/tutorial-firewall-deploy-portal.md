@@ -1,21 +1,21 @@
 ---
-title: '자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성'
-description: 이 자습서에서는 Azure Portal을 사용하여 Azure Firewall을 배포하고 구성하는 방법을 알아봅니다.
+title: Azure Portal을 사용하여 Azure Firewall 배포 및 구성
+description: 이 문서에서는 Azure Portal을 사용하여 Azure Firewall을 배포하고 구성하는 방법을 알아봅니다.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: tutorial
-ms.date: 02/19/2021
+ms.topic: how-to
+ms.date: 04/29/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 54900b7b9089d4a4c6cbc742ecf09aa19ff2a550
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 951e2406a387ed2aaedc4cec875c62a14cf5bb2e
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741959"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291949"
 ---
-# <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성
+# <a name="deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Firewall 배포 및 구성
 
 아웃바운드 네트워크 액세스 제어는 전체 네트워크 보안 계획에서 중요한 부분입니다. 예를 들어 웹 사이트에 대한 액세스를 제한할 수 있습니다. 또는 액세스 가능한 아웃바운드 IP 주소 및 포트를 제한할 수 있습니다.
 
@@ -26,16 +26,16 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 
 네트워크 트래픽은 서브넷 기본 게이트웨이처럼 방화벽에 네트워크 트래픽을 라우팅할 경우 구성된 방화벽 규칙에 종속됩니다.
 
-이 자습서에서는 배포가 용이하도록 두 개의 서브넷을 사용하여 간소화된 단일 VNet을 만듭니다.
+이 문서에서는 배포가 용이하도록 두 개의 서브넷을 사용하여 간소화된 단일 VNet을 만듭니다.
 
 프로덕션 배포의 경우 [허브 및 스포크 모델](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)이 권장되며 방화벽은 자체 VNet에 있습니다. 워크로드 서버는 하나 이상의 서브넷이 있는 동일한 지역에서 피어링된 VNet에 있습니다.
 
 * **AzureFirewallSubnet** - 방화벽은 이 서브넷에 있습니다.
 * **워크로드-SN** - 워크로드 서버는 이 서브넷에 있습니다. 이 서브넷의 네트워크 트래픽은 방화벽을 통해 이동합니다.
 
-![자습서 네트워크 인프라](media/tutorial-firewall-deploy-portal/tutorial-network.png)
+![네트워크 인프라](media/tutorial-firewall-deploy-portal/tutorial-network.png)
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 > * 테스트 네트워크 환경 설정
@@ -46,9 +46,12 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 > * 테스트 서버에 대한 원격 데스크톱을 허용하도록 NAT 규칙 구성
 > * 방화벽 테스트
 
-원하는 경우 [Azure PowerShell](deploy-ps.md)을 사용하여 이 자습서를 완료할 수 있습니다.
+> [!NOTE]
+> 이 문서에서는 클래식 방화벽 규칙을 사용하여 방화벽을 관리합니다. 선호되는 방법은 [방화벽 정책](../firewall-manager/policy-overview.md)을 사용하는 것입니다. 방화벽 정책을 사용하여 이 절차를 완료하려면 [자습서: Azure Portal을 사용하여 Azure Firewall과 정책 배포 및 구성](tutorial-firewall-deploy-portal-policy.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+원하는 경우 [Azure PowerShell](deploy-ps.md)을 사용하여 이 절차를 완료할 수 있습니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -58,7 +61,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-리소스 그룹에는 자습서의 모든 리소스가 포함되어 있습니다.
+리소스 그룹에는 이 절차에 사용된 모든 리소스가 포함되어 있습니다.
 
 1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 2. Azure Portal 메뉴에서 **리소스 그룹** 을 선택하거나 검색하여 어느 페이지에서든 *리소스 그룹* 을 선택합니다. 그런 다음, **추가** 를 선택합니다.
@@ -111,7 +114,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    |Resource group     |**Test-FW-RG**|
    |가상 머신 이름     |**Srv-Work**|
    |지역     |이전과 동일함|
-   |이미지|Windows Server 2019 Datacenter|
+   |이미지|Windows Server 2016 Datacenter|
    |관리자 사용자 이름     |사용자 이름 입력|
    |암호     |암호 입력|
 
@@ -123,6 +126,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 11. 나머지는 기본값으로 두고 **다음: 관리** 를 선택합니다.
 12. **사용 안 함** 을 선택하여 부팅 진단을 비활성화합니다. 나머지는 기본값으로 두고 **검토 + 만들기** 를 선택합니다.
 13. 요약 페이지에서 설정을 검토한 다음, **만들기** 를 선택합니다.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="deploy-the-firewall"></a>방화벽 배포
 
@@ -241,7 +246,7 @@ Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 �
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>**Srv-Work** 네트워크 인터페이스에 대해 기본 및 보조 DNS 주소 변경
 
-이 자습서에서는 테스트 목적으로 서버의 기본 및 보조 DNS 주소를 구성할 수 있습니다. 일반적인 Azure Firewall 요구 사항이 아닙니다.
+테스트 목적으로 서버의 기본 및 보조 DNS 주소를 구성합니다. 일반적인 Azure Firewall 요구 사항이 아닙니다.
 
 1. Azure Portal 메뉴에서 **리소스 그룹** 을 선택하거나 검색하여 어느 페이지에서든 *리소스 그룹* 을 선택합니다. **Test-FW-RG** 리소스 그룹을 선택합니다.
 2. **Srv-Work** 가상 머신에 대해 네트워크 인터페이스를 선택합니다.
@@ -272,9 +277,8 @@ Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다음 자습서를 위해 방화벽 리소스를 그대로 두어도 되고, 더 이상 필요하지 않은 경우 **Test-FW-RG** 리소스 그룹을 삭제하여 모든 방화벽 관련 리소스를 삭제해도 됩니다.
+테스트를 계속하도록 방화벽 리소스를 그대로 유지하거나, 더 이상 필요하지 않은 경우 **Test-FW-RG** 리소스 그룹을 삭제하여 모든 방화벽 관련 리소스를 삭제해도 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [자습서: Azure Firewall 로그 모니터링](./firewall-diagnostics.md)
+[자습서: Azure Firewall 로그 모니터링](./firewall-diagnostics.md)

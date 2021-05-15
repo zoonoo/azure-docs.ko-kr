@@ -1,23 +1,23 @@
 ---
-title: Azure Data Lake에 대 한 U-SQL 사용자 정의 결합 자 프로그래밍 기능 가이드
-description: U-SQL UDO 프로그래밍 기능 가이드-사용자 정의 결합 자에 대해 알아봅니다.
+title: Azure Data Lake용 U-SQL 사용자 정의 결합자 프로그래밍 기능 가이드
+description: U-SQL UDO 프로그래밍 기능 가이드 - 사용자 정의 결합자에 대해 알아봅니다.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: a6c560cf4ec11197183711656d69024591e7008c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96512699"
 ---
 # <a name="use-user-defined-combiner"></a>사용자 정의 결합자 사용
 
-## <a name="u-sql-udo-user-defined-combiner"></a>U-SQL UDO: 사용자 정의 결합 자
+## <a name="u-sql-udo-user-defined-combiner"></a>U-SQL UDO: 사용자 정의 결합자
 UDC(사용자 정의 결합자)를 사용하면 사용자 지정 논리를 기반으로 하여 왼쪽 및 오른쪽 행 집합의 행을 결합할 수 있습니다. UDC는 COMBINE 식으로 사용됩니다.
 
-## <a name="how-to-define-and-use-user-defined-combiner"></a>사용자 정의 결합 자을 정의 하 고 사용 하는 방법
+## <a name="how-to-define-and-use-user-defined-combiner"></a>사용자 정의 결합자를 정의하고 사용하는 방법
 
 결합자는 입력 행 집합, 그룹화 열, 예상 결과 스키마 및 추가 정보에 대해 필요한 정보를 제공하는 COMBINE 식으로 호출됩니다.
 
@@ -94,9 +94,9 @@ CombinerMode 열거형은 다음 값을 포함할 수 있습니다.
 
 입력 행 집합은 **left** 및 **right** `IRowset` 형식의 인터페이스로 전달됩니다. 두 행 집합은 처리하기 위해 모두 열거되어야 합니다. 각 인터페이스를 한 번만 열거할 수 있으므로 필요에 따라 열거하고 캐시해야 합니다.
 
-캐싱에 사용 하기 위해 \<T\> LINQ 쿼리 실행의 결과로 메모리 구조의 목록 유형을 만들 수 있습니다. 특히 목록<`IRow`> 합니다. 익명 데이터 형식도 열거하는 동안에 사용할 수 있습니다.
+캐싱을 위해 LINQ 쿼리 실행의 결과로 List\<T\> 형식의 메모리 구조체를 만들 수 있습니다(구체적으로 List<`IRow`>). 익명 데이터 형식도 열거하는 동안에 사용할 수 있습니다.
 
-LINQ 쿼리에 대 한 자세한 내용은 [Linq 쿼리 소개 (c #)](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries) 및 ienumerable 인터페이스에 대 한 자세한 내용은 [ienumerable \<T\> interface](/dotnet/api/system.collections.generic.ienumerable-1) 를 참조 하십시오 \<T\> .
+LINQ 쿼리에 대한 자세한 내용은 [LINQ 쿼리 소개(C #)](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries)를, IEnumerable\<T\> 인터페이스에 대한 자세한 내용은 [IEnumerable\<T\> 인터페이스](/dotnet/api/system.collections.generic.ienumerable-1)를 참조하세요.
 
 들어오는 `IRowset`에서 실제 데이터 값을 가져오려면 `IRow` 인터페이스의 Get() 메서드를 사용합니다.
 
@@ -304,5 +304,5 @@ USING MyNameSpace.MyCombiner();
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [U-SQL 프로그래밍 기능 가이드-개요](data-lake-analytics-u-sql-programmability-guide.md)
-* [U-SQL 프로그래밍 기능 가이드-UDT 및 UDAGG](data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md)
+* [U-SQL 프로그램 기능 가이드 - 개요](data-lake-analytics-u-sql-programmability-guide.md)
+* [U-SQL 프로그램 기능 가이드 - UDT 및 UDAGG](data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md)

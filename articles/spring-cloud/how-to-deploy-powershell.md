@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell를 사용 하 여 Azure 스프링 클라우드를 배포 하는 방법
-description: Azure PowerShell를 사용 하 여 Azure 스프링 클라우드를 배포 하는 방법
+title: Azure PowerShell을 사용하여 Azure Spring Cloud 배포하는 방법
+description: Azure PowerShell을 사용하여 Azure Spring Cloud 배포하는 방법
 author: bmitchell287
 ms.author: brendm
 ms.topic: conceptual
@@ -8,16 +8,16 @@ ms.service: spring-cloud
 ms.devlang: azurepowershell
 ms.date: 11/16/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3cb320a37818084f2fbcad22a3cc992655b19c3d
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.openlocfilehash: 40c5d720aa3ddf6d38b830c84e326e9cbbf06ed0
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104878297"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135188"
 ---
 # <a name="deploy-azure-spring-cloud-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Spring Cloud 배포
 
-이 문서에서는 [SpringCloud](/powershell/module/Az.SpringCloud) PowerShell 모듈을 사용 하 여 Azure 스프링 클라우드 인스턴스를 만드는 방법을 설명 합니다.
+이 문서에서는 [Az.SpringCloud](/powershell/module/Az.SpringCloud) PowerShell 모듈을 사용하여 Azure Spring Cloud의 인스턴스를 만들 수 있는 방법을 설명합니다.
 
 ## <a name="requirements"></a>요구 사항
 
@@ -26,7 +26,7 @@ ms.locfileid: "104878297"
 [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 
   > [!IMPORTANT]
-  > **SpringCloud** PowerShell 모듈은 미리 보기 상태 이지만 cmdlet을 사용 하 여 별도로 설치 해야 합니다 `Install-Module` . 이 PowerShell 모듈이 일반 공급되면 이후 Az PowerShell 모듈 릴리스의 일부가 되며 기본적으로 Azure Cloud Shell 내에서 사용할 수 있습니다.
+  > **Az.SpringCloud** PowerShell 모듈은 미리 보기 상태지만 `Install-Module` cmdlet을 사용하여 별도로 설치해야 합니다. 이 PowerShell 모듈이 일반 공급되면 이후 Az PowerShell 모듈 릴리스의 일부가 되며 기본적으로 Azure Cloud Shell 내에서 사용할 수 있습니다.
 
   ```azurepowershell-interactive
   Install-Module -Name Az.SpringCloud
@@ -48,49 +48,49 @@ ms.locfileid: "104878297"
 New-AzResourceGroup -Name <resource group name> -Location eastus
 ```
 
-## <a name="provision-a-new-instance-of-azure-spring-cloud"></a>Azure 스프링 클라우드의 새 인스턴스 프로 비전
+## <a name="provision-a-new-instance-of-azure-spring-cloud"></a>Azure Spring Cloud의 새 인스턴스 프로비저닝
 
-Azure 스프링 클라우드의 새 인스턴스를 만들려면 [AzSpringCloud](/powershell/module/az.springcloud/new-azspringcloud) cmdlet을 사용 합니다. 다음 예제에서는 이전에 만든 리소스 그룹에 지정 된 이름을 사용 하 여 Azure 스프링 클라우드 서비스를 만듭니다.
+Azure Spring Cloud의 새 인스턴스를 만들려면 [New-AzSpringCloud](/powershell/module/az.springcloud/new-azspringcloud) cmdlet을 사용합니다. 다음 예제에서는 이전에 만든 리소스 그룹에 지정된 이름을 사용하여 Azure Spring Cloud 서비스를 만듭니다.
 
 ```azurepowershell-interactive
 New-AzSpringCloud -ResourceGroupName <resource group name> -name <service instance name> -Location eastus
 ```
 
-## <a name="create-a-new-azure-spring-cloud-app"></a>새 Azure 스프링 클라우드 앱 만들기
+## <a name="create-a-new-azure-spring-cloud-app"></a>새 Azure Spring Cloud 앱 만들기
 
-새 앱을 만들려면 [AzSpringCloudApp](/powershell/module/az.springcloud/new-azspringcloudapp) cmdlet을 사용 합니다. 다음 예제에서는 라는 Azure 스프링 클라우드 앱을 만듭니다 `gateway` .
+새 앱을 만들려면 [New-AzSpringCloudApp](/powershell/module/az.springcloud/new-azspringcloudapp) cmdlet을 사용합니다. 다음 예제에서는 `gateway`라는 Azure Spring Cloud 앱을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzSpringCloudApp -ResourceGroupName <resource group name> -ServiceName <service instance name> -AppName gateway
 ```
 
-## <a name="create-a-new-azure-spring-cloud-deployment"></a>새 Azure 스프링 클라우드 배포 만들기
+## <a name="create-a-new-azure-spring-cloud-deployment"></a>새 Azure Spring Cloud 배포 만들기
 
-새 배포를 만들려면 [AzSpringCloudAppDeployment](/powershell/module/az.springcloud/new-azspringcloudappdeployment) cmdlet을 사용 합니다. 다음 예제에서는 앱에 대해 라는 Azure 스프링 클라우드 배포를 만듭니다 `default` `gateway` .
+새 배포를 만들려면 [New-AzSpringCloudAppDeployment](/powershell/module/az.springcloud/new-azspringcloudappdeployment) cmdlet을 사용합니다. 다음 예제에서는 `gateway` 앱에 대한 `default`라는 Azure Spring Cloud 배포를 만듭니다.
 
 ```azurepowershell-interactive
 New-AzSpringCloudAppDeployment -ResourceGroupName <resource group name> -Name <service instance name> -AppName gateway -DeploymentName default
 ```
 
-## <a name="get-an-azure-spring-cloud-service"></a>Azure 스프링 클라우드 서비스 가져오기
+## <a name="get-an-azure-spring-cloud-service"></a>Azure Spring Cloud 서비스 가져오기
 
-Azure 스프링 클라우드 서비스 및 해당 속성을 가져오려면 [AzSpringCloud](/powershell/module/az.springcloud/get-azspringcloud) cmdlet을 사용 합니다. 다음 예제에서는 지정 된 Azure 스프링 클라우드 서비스에 대 한 정보를 검색 합니다.
+Azure Spring Cloud 서비스 및 해당 속성을 가져오려면 [Get-AzSpringCloud](/powershell/module/az.springcloud/get-azspringcloud) cmdlet을 사용합니다. 다음 예제에서는 지정된 Azure Spring Cloud 서비스에 대한 정보를 검색합니다.
 
 ```azurepowershell-interactive
 Get-AzSpringCloud -ResourceGroupName <resource group name> -ServiceName <service instance name>
 ```
 
-## <a name="get-an-azure-spring-cloud-app"></a>Azure 스프링 클라우드 앱 가져오기
+## <a name="get-an-azure-spring-cloud-app"></a>Azure Spring Cloud 앱 가져오기
 
-Azure 스프링 클라우드 앱 및 해당 속성을 가져오려면 [AzSpringCloudApp](/powershell/module/az.springcloud/get-azspringcloudapp) cmdlet을 사용 합니다. 다음 예제에서는 스프링 클라우드 앱에 대 한 정보를 검색 합니다 `gateway` .
+Azure Spring Cloud 앱 및 해당 속성을 가져오려면 [Get-AzSpringCloudApp](/powershell/module/az.springcloud/get-azspringcloudapp) cmdlet을 사용합니다. 다음 예에서는 `gateway` Spring Cloud 앱에 대한 정보를 검색합니다.
 
 ```azurepowershell-interactive
 Get-AzSpringCloudApp -ResourceGroupName <resource group name> -ServiceName <service instance name> -AppName gateway
 ```
 
-## <a name="get-an-azure-spring-cloud-deployment"></a>Azure 스프링 클라우드 배포 가져오기
+## <a name="get-an-azure-spring-cloud-deployment"></a>Azure Spring Cloud 배포 가져오기
 
-Azure 스프링 클라우드 배포 및 해당 속성을 가져오려면 [AzSpringCloudAppDeployment](/powershell/module/az.springcloud/get-azspringcloudappdeployment) cmdlet을 사용 합니다. 다음 예제에서는 스프링 클라우드 배포에 대 한 정보를 검색 합니다 `default` .
+Azure Spring Cloud 배포 및 해당 속성을 가져오려면 [Get-AzSpringCloudAppDeployment](/powershell/module/az.springcloud/get-azspringcloudappdeployment) cmdlet을 사용합니다. 다음 예에서는 `default` Spring Cloud 배포에 대한 정보를 검색합니다.
 
 ```azurepowershell-interactive
 Get-AzSpringCloudAppDeployment -ResourceGroupName <resource group name> -ServiceName <service instance name> -AppName gateway -DeploymentName default
@@ -100,25 +100,25 @@ Get-AzSpringCloudAppDeployment -ResourceGroupName <resource group name> -Service
 
 이 문서에서 만든 리소스가 필요하지 않은 경우 다음 예제를 실행하여 삭제할 수 있습니다.
 
-### <a name="delete-an-azure-spring-cloud-deployment"></a>Azure 스프링 클라우드 배포 삭제
+### <a name="delete-an-azure-spring-cloud-deployment"></a>Azure Spring Cloud 배포 삭제
 
-Azure 스프링 클라우드 배포를 제거 하려면 [AzSpringCloudAppDeployment](/powershell/module/az.springcloud/remove-azspringcloudappdeployment) cmdlet을 사용 합니다. 다음 예제에서는 `default` 지정 된 서비스 및 앱에 대해 라는 Azure 스프링 클라우드 앱 배포를 삭제 합니다.
+Azure Spring Cloud 배포를 제거하려면 [Remove-AzSpringCloudAppDeployment](/powershell/module/az.springcloud/remove-azspringcloudappdeployment) cmdlet을 사용합니다. 다음 예제에서는 지정된 서비스 및 앱에 대한 `default`라는 Azure Spring Cloud 앱 배포를 삭제합니다.
 
 ```azurepowershell-interactive
 Remove-AzSpringCloudAppDeployment -ResourceGroupName <resource group name> -ServiceName <service instance name> -AppName gateway -DeploymentName default
 ```
 
-### <a name="delete-an-azure-spring-cloud-app"></a>Azure 스프링 클라우드 앱 삭제
+### <a name="delete-an-azure-spring-cloud-app"></a>Azure Spring Cloud 앱 삭제
 
-스프링 클라우드 앱을 제거 하려면 [AzSpringCloudApp](/powershell/module/Az.SpringCloud/remove-azspringcloudapp) cmdlet을 사용 합니다. 다음 예에서는 지정 된 `gateway` 서비스 및 리소스 그룹에서 앱을 삭제 합니다.
+Spring Cloud 앱을 제거하려면 [Remove-AzSpringCloudApp](/powershell/module/Az.SpringCloud/remove-azspringcloudapp) cmdlet을 사용합니다. 다음 예에서는 지정된 서비스 및 리소스 그룹에서 `gateway` 앱을 삭제합니다.
 
 ```azurepowershell
 Remove-AzSpringCloudApp -ResourceGroupName <resource group name> -ServiceName <service instance name> -AppName gateway
 ```
 
-### <a name="delete-an-azure-spring-cloud-service"></a>Azure 스프링 클라우드 서비스 삭제
+### <a name="delete-an-azure-spring-cloud-service"></a>Azure Spring Cloud 서비스 삭제
 
-Azure 스프링 클라우드 서비스를 제거 하려면 [AzSpringCloud](/powershell/module/Az.SpringCloud/remove-azspringcloud) cmdlet을 사용 합니다. 다음 예에서는 지정 된 Azure 스프링 클라우드 서비스를 삭제 합니다.
+Azure Spring Cloud 서비스를 제거하려면 [Remove-AzSpringCloud](/powershell/module/Az.SpringCloud/remove-azspringcloud) cmdlet을 사용합니다. 다음 예에서는 지정된 Azure Spring Cloud 서비스를 삭제합니다.
 
 ```azurepowershell
 Remove-AzSpringCloud -ResourceGroupName <resource group name> -ServiceName <service instance name>
@@ -136,4 +136,4 @@ Remove-AzResourceGroup -Name <resource group name>
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 스프링 클라우드 개발자 리소스](spring-cloud-resources.md).
+[Azure Spring Cloud 개발자 리소스](./resources.md).

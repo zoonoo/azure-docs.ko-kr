@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 01/21/2021
 ms.author: amverma
 ms.openlocfilehash: fa2b82f3246fd87830010f572ba23aa2df075053
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102566229"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Linux용 NVIDIA GPU 드라이버 확장
@@ -84,10 +84,10 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM�
 
 모든 설정은 선택 사항입니다. 기본 동작은 드라이버 설치에 필요하지 않은 경우 커널을 업데이트하지 않고, 지원되는 최신 드라이버 및 CUDA 도구 키트(해당하는 경우)를 설치하는 것입니다.
 
-| 속성 | 설명 | 기본값 | 유효한 값 | 데이터 형식 |
+| 속성 | Description | 기본값 | 유효한 값 | 데이터 형식 |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | 드라이버 설치에 필요하지 않은 경우에도 커널을 업데이트합니다. | false | true, false | boolean |
-| driverVersion | NV: GRID 드라이버 버전<br> NC/ND: CUDA 도구 키트 버전. 선택한 CUDA에 대한 최신 드라이버가 자동으로 설치됩니다. | 최신 | 지원 되는 드라이버 버전 [목록](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json) | 문자열 |
+| driverVersion | NV: GRID 드라이버 버전<br> NC/ND: CUDA 도구 키트 버전. 선택한 CUDA에 대한 최신 드라이버가 자동으로 설치됩니다. | 최신 | 지원되는 드라이버 버전 [목록](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json) | 문자열 |
 | installCUDA | CUDA 도구 키트를 설치합니다. NC/ND 시리즈 VM에만 관련됩니다. | true | true, false | boolean |
 
 
@@ -139,7 +139,7 @@ Set-AzVMExtension
 
 ### <a name="azure-cli"></a>Azure CLI
 
-다음 예제에서는 위의 Azure Resource Manager 및 PowerShell 예제를 미러링합니다.
+다음 예는 위의 Azure Resource Manager와 PowerShell 예들을 미러링합니다.
 
 ```azurecli
 az vm extension set \
@@ -150,7 +150,7 @@ az vm extension set \
   --version 1.3 
 ```
 
-또한 다음 예제에서는 기본이 아닌 드라이버 설치에 대 한 예제로 두 개의 선택적 사용자 지정 설정을 추가 합니다. 특히 OS 커널을 최신으로 업데이트 하 고 특정 VERDA toolkit 버전 드라이버를 설치 합니다. '--Settings '는 선택 사항이 며 기본값입니다. 커널을 업데이트 하면 확장 설치 시간이 늘어날 수 있습니다. 또한 특정 (이전) VERDA tolkit 버전을 선택 하는 것은 최신 커널을 항상 호환 되지 않을 수도 있습니다.
+또한 다음 예에서는 사용자 지정 설정을 기본이 아닌 드라이버 설치의 예가 추가됩니다. 특히, OS 커널을 최신으로 업데이트하고 특정 CUDA 도구 키트 버전 드라이버를 설치합니다. 다시 말해서 '--Settings'는 선택 사항이며 기본값입니다. 커널을 업데이트하면 확장 설치 시간이 늘어날 수 있습니다. 또한 특정 (이전) VERDA tolkit 버전을 선택하면 최신 커널과 항상 호환되지 않을 수도 있습니다.
 
 ```azurecli
 az vm extension set \
@@ -179,7 +179,7 @@ Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtens
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-확장 실행 출력은 다음 파일에 기록 됩니다. 이 파일을 참조 하 여 (모든 장기 실행) 설치의 상태를 추적 하 고 오류를 해결 합니다.
+확장 실행 출력은 다음 파일에 기록됩니다. (모든 장기 실행) 설치 상태를 추적하고 오류를 해결하려면 이 파일을 참조하세요.
 
 ```bash
 /var/log/azure/nvidia-vmext-status

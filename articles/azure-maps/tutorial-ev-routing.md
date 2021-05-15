@@ -3,18 +3,18 @@ title: '자습서: Microsoft Azure Maps에서 Azure Notebooks(Python)를 사용�
 description: Microsoft Azure Maps 라우팅 API 및 Azure Notebooks를 사용하여 전기 차량을 라우팅하는 방법에 대한 자습서
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 04/26/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 7341d1f07e8814edcad7b84f6b3b46c7bece3159
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce6cb60754ed0afae27c5b5d316a7158961b55a3
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821204"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108323378"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>자습서: Azure Notebooks를 사용하여 전기 차량 라우팅(Python)
 
@@ -34,16 +34,13 @@ Python 및 R과 같은 언어에서 Azure Maps REST API를 호출하여 지리 �
 > * 지도에서 도달 가능한 범위 경계와 충전소를 렌더링합니다.
 > * 주행 시간을 기준으로 가장 가까운 전기 차량 충전소까지의 경로를 찾아 시각화합니다.
 
+## <a name="prerequisites"></a>사전 요구 사항
 
-## <a name="prerequisites"></a>사전 요구 사항 
+1. [Azure Maps 계정을 만들](quick-demo-map-app.md#create-an-azure-maps-account)고 [Gen 2 또는 S1 가격 책정 계층을 선택](choose-pricing-tier.md)합니다.
+2. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
-이 자습서를 완료하려면 먼저 Azure Maps 계정을 만들고 기본 키(구독 키)를 가져와야 합니다. 
+Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](how-to-manage-authentication.md)를 참조하세요.
 
-Azure Maps 계정 구독을 만들려면 [계정 만들기](quick-demo-map-app.md#create-an-azure-maps-account)의 지침을 따릅니다. S1 가격 책정 계층을 사용하는 Azure Maps 계정 구독이 필요합니다. 
-
-계정에 대한 기본 구독 키를 가져오려면 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)의 지침을 따릅니다.
-
-Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요.
 
 ## <a name="create-an-azure-notebooks-project"></a>Azure Notebooks 프로젝트 만들기
 

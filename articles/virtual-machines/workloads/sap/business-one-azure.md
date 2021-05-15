@@ -6,12 +6,12 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: juergent
-ms.openlocfilehash: e17739c65c0b80beb1f6fdd09f31897b317d7858
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.openlocfilehash: 7647fdd9d7dd9d535477fdc4e69ea382a9c25443
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102506891"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146260"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>Azure Virtual Machines의 SAP Business One
 이 문서에서는 Azure Virtual Machines에 SAP Business One을 배포하는 지침을 제공합니다. 이 문서는 SAP용 Business One 설치 문서를 대체하지 않습니다. 이 문서에서는 Business One 애플리케이션을 실행할 Azure 인프라에 대한 기본 계획 및 배포 지침을 다루어야 합니다.
@@ -28,7 +28,7 @@ SQL Server의 경우, [SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배�
 - [Windows의 Azure 가상 머신](../../windows/tutorial-manage-vm.md)
 - [Linux의 Azure 가상 머신](../../linux/tutorial-manage-vm.md)
 - [PowerShell을 사용하는 Azure 네트워킹 및 가상 네트워크 관리](../../windows/tutorial-virtual-network.md)
-- [CLI를 사용 하는 Azure 네트워킹 및 virtual network](../../linux/tutorial-virtual-network.md)
+- [CLI를 사용하는 Azure 네트워킹 및 가상 네트워크](../../linux/tutorial-virtual-network.md)
 - [Azure CLI를 사용하여 Azure 디스크 관리](../../linux/tutorial-manage-disks.md)
 
 Business One에만 관심이 있는 경우에도 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현](./planning-guide.md) 문서를 통해 유용한 정보를 얻을 수 있습니다.
@@ -68,7 +68,7 @@ Business One은 다음 두 개의 계층이 있는 애플리케이션입니다.
 
 SAP NetWeaver에서 지원하는 VM만 Business One 클라이언트 구성 요소 및 DBMS 호스트를 호스트하는 Azure 가상 머신으로 사용할 수 있습니다. SAP NetWeaver에서 지원하는 Azure VM 목록은 [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533)(SAP 노트 #1928533)을 참조하세요.
 
-SAP HANA를 비즈니스용 DBMS 백 엔드로 실행 하는 경우 hana [인증 IaaS 플랫폼 목록](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure%23SAP%20Business%20One) 에서 Hana for business에 대해 나열 된 VM만 hana에 대해 지원 됩니다. Business One 클라이언트 구성 요소는 DBMS 시스템으로 사용되는 SAP HANA에 대한 보다 강력한 이 제한 사항의 영향을 받지 않습니다.
+SAP HANA를 Business One의 DBMS 백 엔드로 실행하는 경우, [HANA certifeid IaaS platform list](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure%23SAP%20Business%20One)(HANA 인증 IaaS 플랫폼 목록)에서 HANA의 Business에 대해 나열된 VM만 HANA에 사용할 수 있습니다. Business One 클라이언트 구성 요소는 DBMS 시스템으로 사용되는 SAP HANA에 대한 보다 강력한 이 제한 사항의 영향을 받지 않습니다.
 
 ### <a name="operating-system-releases-to-use-for-sap-business-one"></a>SAP Business One에 사용할 운영 체제 릴리스
 
@@ -98,7 +98,7 @@ Azure에 배포하는 데 필요한 네트워크 인프라는 단일 Business On
 사용자가 Azure에 대한 프라이빗 연결 없이 인터넷을 통해 연결하는 경우, Azure의 네트워크 디자인은 [Azure 및 인터넷 간의 DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz)에 대한 Azure 참조 아키텍처에 문서화된 원칙을 따라야 합니다.
 
 ### <a name="business-one-database-server"></a>Business One 데이터베이스 서버
-데이터베이스 유형으로 SQL Server 및 SAP HANA를 사용할 수 있습니다. DBMS와는 독립적으로 [SAP 워크 로드에 대 한 azure VIRTUAL MACHINES dbms 배포에 대 한 문서 고려 사항을](./dbms_guide_general.md) 참조 하 여 azure VM의 dbms 배포와 관련 네트워킹 및 저장소 항목에 대 한 일반적인 이해를 받으세요.
+데이터베이스 유형으로 SQL Server 및 SAP HANA를 사용할 수 있습니다. DBMS에 관계없이, [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_general.md)(SAP 워크로드에 대한 Azure Virtual Machines DBMS 배포의 고려 사항) 문서를 읽고 Azure VM의 DBMS 배포와 관련 네트워킹 및 스토리지 항목을 전반적으로 이해해야 합니다.
 
 특정 및 일반 데이터베이스 문서에서 이미 강조되었지만, 다음을 숙지해야 합니다.
 
@@ -127,20 +127,20 @@ SQL Server의 DBMS 쪽에 대한 대략적인 크기 조정 예상은 다음과 
 | 최대 80명 | 16 | 64GB | D16s_v3, E16s_v3 |
 | 최대 150명 | 32 | 128GB | D32s_v3, E32s_v3 |
 
-위에 나열된 크기 조정은 시작할 위치에 대한 아이디어를 제공합니다. 리소스를 더 많이 필요로 할 수 있으며,이 경우 Azure에서 장구는 쉽습니다. VM을 다시 시작하기만 하면 VM 유형 간에 변경할 수 있습니다.
+위에 나열된 크기 조정은 시작할 위치에 대한 아이디어를 제공합니다. 필요한 리소스가 더 많거나 적을 수 있으며, 이 경우 Azure에서 쉽게 조정할 수 있습니다. VM을 다시 시작하기만 하면 VM 유형 간에 변경할 수 있습니다.
 
 #### <a name="sap-hana-as-dbms"></a>SAP HANA를 DBMS로 사용
 SAP HANA를 DBMS로 사용하는 다음 섹션에서는 [Azure의 SAP HANA 운영 가이드](./hana-vm-operations.md) 문서의 고려 사항을 따라야 합니다.
 
 Azure에서 Business One의 데이터베이스로 사용되는 SAP HANA에 대한 고가용성 및 재해 복구 구성은 [Azure 가상 머신의 SAP HANA 고가용성](./sap-hana-availability-overview.md) 문서를 참조하세요.
 
-SAP HANA 백업 및 복원 전략은 [Azure Virtual Machines의 SAP HANA 백업 가이드](./sap-hana-backup-guide.md) 및 해당 문서에서 가리키는 문서를 참조하세요.
+SAP HANA 백업 및 복원 전략은 [Azure Virtual Machines의 SAP HANA 백업 가이드](../../../backup/sap-hana-db-about.md) 및 해당 문서에서 가리키는 문서를 참조하세요.
 
  
 ### <a name="business-one-client-server"></a>Business One 클라이언트 서버
 이러한 구성 요소에서 스토리지 고려 사항은 중요하지 않습니다. 그래도 신뢰할 수 있는 플랫폼을 구현하는 것이 좋습니다. 따라서 기본 VHD의 경우에도 이 VM에 Azure Premium Storage를 사용해야 합니다. [SAP Business One Hardware Requirements Guide](https://help.sap.com/doc/bfa9770d12284cce8509956dcd4c5fcb/9.3/en-US/B1_Hardware_Requirements_Guide.pdf)(SAP Business One 하드웨어 요구 사항 가이드)에 제공된 데이터를 사용하여 VM 크기를 조정합니다. Azure의 경우, 문서의 2.4 장에 명시된 요구 사항을 사용하여 계산하고 집중해야 합니다. 요구 사항을 계산할 때 다음 문서와 비교하여 이상적인 VM을 찾아야 합니다.
 
 - [Azure에서 Windows 가상 머신에 대한 크기](../../sizes.md)
-- [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533)
+- [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533)(SAP 노트 #1928533)
 
 필요한 CPU 수와 메모리를 Microsoft에서 문서화된 내용과 비교합니다. VM을 선택할 때 네트워크 처리량도 고려하세요.

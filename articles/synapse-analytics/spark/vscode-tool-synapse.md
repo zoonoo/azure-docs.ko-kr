@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 09/03/2020
-ms.openlocfilehash: e5d335ee14709ec330405419f5be8ac5fbd6ce75
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83d8d6498a5ec4906f7cdd7187ae88e4a2f45126
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99822319"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318030"
 ---
 # <a name="tutorial-create-an-apache-spark-applications-with-vscode-using-a-synapse-workspace"></a>자습서: Synapse 작업 영역을 사용하여 VSCode로 Apache Spark 애플리케이션 만들기
 
@@ -84,7 +84,9 @@ Azure 구독에 로그인하여 Spark 풀에 연결합니다.
 
 4. Azure 계정에 아직 연결하지 않은 경우 [연결](#connect-to-your-spark-pools)합니다.
 
-5. 현재 스크립트 파일의 기본 Spark 풀로 Spark 풀을 선택합니다. 도구에서 **.VSCode\settings.json** 구성 파일이 자동으로 업데이트됩니다.
+5. 현재 스크립트 파일의 기본 Spark 풀로 Spark 풀을 선택합니다. 
+
+6. **Synapse: PySpark Interactive** 를 사용하여 이 파일을 제출합니다. 또한 이 도구는 **.VSCode\settings.json** 구성 파일을 자동으로 업데이트합니다.
 
      ![기본 클러스터 구성 설정](./media/vscode-tool-synapse/set-default-cluster-configuration.png)
 

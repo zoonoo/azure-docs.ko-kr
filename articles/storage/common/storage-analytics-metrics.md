@@ -1,6 +1,6 @@
 ---
 title: Azure 스토리지 분석 메트릭(클래식)
-description: Azure Storage에서 스토리지 분석 메트릭을 사용하는 방법에 대해 알아봅니다. 트랜잭션 및 용량 메트릭에 대해 알아보고, 메트릭을 저장 하 고, 메트릭을 사용 하도록 설정 하는 방법에 대해 알아봅니다.
+description: Azure Storage에서 스토리지 분석 메트릭을 사용하는 방법에 대해 알아봅니다. 트랜잭션 및 용량 메트릭, 메트릭 저장 방법, 메트릭 활성화 등에 대해 알아봅니다.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -10,22 +10,22 @@ ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
 ms.openlocfilehash: d900ffa4481ba2b6deb21a8325f3f8def8084f84
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101714734"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure 스토리지 분석 메트릭(클래식)
 
-**2023 년 8 월 31** 일에는 스토리지 분석 메트릭을 사용 하 *는 것이 좋습니다* . 자세한 내용은 [공식 공지](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/)를 참조하세요. 클래식 메트릭을 사용하는 경우 해당 날짜 이전의 Azure Monitor의 메트릭으로 전환해야 합니다. 이 문서는 전환을 수행하는 데 도움이 됩니다. 
+**2023년 8월 31일** 에 *클래식 메트릭* 이라고도 하는 스토리지 분석 메트릭이 사용 중지됩니다. 자세한 내용은 [공식 공지](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/)를 참조하세요. 클래식 메트릭을 사용하는 경우 해당 날짜 이전의 Azure Monitor의 메트릭으로 전환해야 합니다. 이 문서는 전환을 수행하는 데 도움이 됩니다. 
 
 Azure Storage는 Azure 스토리지 분석 솔루션을 사용하여 스토리지 서비스에 대한 요청과 관련하여 집계된 트랜잭션 통계 및 용량 데이터를 포함하는 메트릭을 저장합니다. 트랜잭션은 API 작업 수준과 스토리지 서비스 수준에서 보고됩니다. 용량은 스토리지 서비스 수준에서 보고됩니다. 메트릭 데이터를 사용하여 다음 작업을 수행할 수 있습니다.
 - 스토리지 서비스 사용량을 분석합니다.
 - 스토리지 서비스에 대해 수행된 요청에 대한 문제를 진단합니다.
 - 서비스를 사용하는 애플리케이션의 성능을 향상시킵니다.
 
- 스토리지 분석 메트릭은 새 Storage 계정에서 기본적으로 활성화됩니다. PowerShell을 사용 하거나 Azure CLI를 사용 하 여 [Azure Portal](https://portal.azure.com/)에서 메트릭을 구성할 수 있습니다. 단계별 지침은 [Azure Storage 분석 메트릭 설정 및 관리 (클래식)](./manage-storage-analytics-logs.md)를 참조 하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 스토리지 분석을 사용하도록 설정할 수도 있습니다. 서비스 속성 설정 작업을 사용하여 각 서비스에 대한 스토리지 분석을 사용하도록 설정할 수 있습니다.  
+ 스토리지 분석 메트릭은 새 Storage 계정에서 기본적으로 활성화됩니다. PowerShell을 사용하거나 Azure CLI를 사용하여 [Azure Portal](https://portal.azure.com/)에서 메트릭을 구성할 수 있습니다. 단계별 안내는 [Azure 스토리지 분석 로그 메트릭(클래식) 설정 및 관리](./manage-storage-analytics-logs.md)를 참조하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 스토리지 분석을 사용하도록 설정할 수도 있습니다. 서비스 속성 설정 작업을 사용하여 각 서비스에 대한 스토리지 분석을 사용하도록 설정할 수 있습니다.  
 
 > [!NOTE]
 > 스토리지 분석 메트릭은 Azure Blob Storage, Azure Queue Storage, Azure Table Storage 및 Azure Files에 대해 사용하도록 설정됩니다.
@@ -69,7 +69,7 @@ Azure Storage는 Azure 스토리지 분석 솔루션을 사용하여 스토리�
  해당 테이블은 스토리지 서비스 엔드포인트에 대해 스토리지 분석을 사용하도록 설정하면 자동으로 작성됩니다. 스토리지 계정의 네임스페이스를 통해 해당 테이블에 액세스할 수 있습니다. 예: `https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")` 메트릭 테이블은 목록 작업에 표시되지 않으며 테이블 이름을 통해 직접 액세스해야 합니다.
 
 ## <a name="metrics-alerts"></a>메트릭 알림
-스토리지 서비스 동작의 중요한 변경 내용을 자동으로 알릴 수 있도록 [Azure Portal](https://portal.azure.com)에서 경고를 설정하는 것이 좋습니다. 단계별 지침은 [메트릭 경고 만들기](./manage-storage-analytics-logs.md)를 참조 하세요.
+스토리지 서비스 동작의 중요한 변경 내용을 자동으로 알릴 수 있도록 [Azure Portal](https://portal.azure.com)에서 경고를 설정하는 것이 좋습니다. 단계별 지침은 [메트릭 경고 만들기](./manage-storage-analytics-logs.md)를 참조하세요.
 
 Storage Explorer 도구를 사용하여 이 메트릭 데이터를 구분된 형식에서 다운로드하려면 Microsoft Excel을 사용하여 데이터를 분석할 수 있습니다. 사용 가능한 Storage Explorer 도구의 목록은 [Azure Storage 클라이언트 도구](./storage-explorers.md)를 참조하세요.
 

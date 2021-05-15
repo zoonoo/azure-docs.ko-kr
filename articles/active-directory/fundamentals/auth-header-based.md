@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory를 사용 하 여 헤더 기반 인증
-description: Azure Active Directory를 사용 하 여 헤더 기반 인증을 수행 하는 방법에 대 한 아키텍처 지침입니다.
+title: Azure Active Directory를 사용한 헤더 기반 인증
+description: Azure Active Directory를 사용한 헤더 기반 인증에 대한 아키텍처 지침.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,42 +13,42 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69e87fc919893a544f5d0b1b615a110f25486e57
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 23598a3901e23290b860b9b0ab280710aab9b9b6
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96168749"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175841"
 ---
-# <a name="header-based-authentication-with-azure-active-directory"></a>Azure Active Directory를 사용 하 여 헤더 기반 인증
+# <a name="header-based-authentication-with-azure-active-directory"></a>Azure Active Directory를 사용한 헤더 기반 인증
 
-레거시 응용 프로그램은 일반적으로 헤더 기반 인증을 사용 합니다. 이 시나리오에서는 사용자 (또는 메시지 보낸 사람)가 중간 id 솔루션을 인증 합니다. 중간 솔루션은 사용자를 인증 하 고 필요한 하이퍼텍스트 전송 프로토콜 (HTTP) 헤더를 대상 웹 서비스로 전파 합니다. AD (Azure Active Directory)는 응용 프로그램 프록시 서비스를 통해이 패턴을 지원 하 고 다른 네트워크 컨트롤러 솔루션과의 통합을 지원 합니다. 
+레거시 애플리케이션은 일반적으로 헤더 기반 인증을 사용합니다. 이 시나리오에서는 사용자(또는 메시지 보낸 사람)가 중간 ID 솔루션을 인증합니다. 중간 솔루션은 사용자를 인증하고 필요한 HTTP(Hypertext Transfer Protocol) 헤더를 대상 웹 서비스로 전파합니다. Azure AD(Active Directory)는 애플리케이션 프록시 서비스를 통해 이 패턴을 지원하고 다른 네트워크 컨트롤러 솔루션과의 통합을 지원합니다. 
 
-이 솔루션에서 응용 프로그램 프록시는 응용 프로그램에 대 한 원격 액세스를 제공 하 고, 사용자를 인증 하 고, 응용 프로그램에 필요한 헤더를 전달 합니다. 
+이 솔루션에서 애플리케이션 프록시는 애플리케이션에 대한 원격 액세스를 제공하고, 사용자를 인증하고, 애플리케이션에 필요한 헤더를 전달합니다. 
 
 ## <a name="use-when"></a>적용 가능한 상황
 
-원격 사용자는 헤더 기반 인증이 필요한 온-프레미스 응용 프로그램에 안전 하 게 (SSO)를 Single Sign-On 해야 합니다.
+원격 사용자는 헤더 기반 인증이 필요한 온-프레미스 애플리케이션에 안전하게 SSO(Single Sign-On)해야 합니다.
 
 ![아키텍처 이미지 헤더 기반 인증](./media/authentication-patterns/header-based-auth.png)
 
 ## <a name="components-of-system"></a>시스템의 구성 요소
 
-* **사용자**: 응용 프로그램 프록시에서 제공 하는 레거시 응용 프로그램에 액세스 합니다.
+* **사용자**: 애플리케이션 프록시에서 제공하는 레거시 애플리케이션에 액세스합니다.
 
-* **웹 브라우저**: 응용 프로그램의 외부 URL에 액세스 하기 위해 사용자가 상호 작용 하는 구성 요소입니다.
+* **웹 브라우저**: 애플리케이션의 외부 URL에 액세스하기 위해 사용자가 상호 작용하는 구성 요소입니다.
 
-* **AZURE AD**: 사용자를 인증 합니다. 
+* **Azure AD**: 사용자를 인증합니다. 
 
-* **응용 프로그램 프록시 서비스**: 사용자 로부터 온-프레미스 응용 프로그램으로 요청을 보내는 역방향 프록시로 작동 합니다. Azure AD에 상주 하며 모든 조건부 액세스 정책을 적용할 수도 있습니다.
+* **애플리케이션 프록시 서비스**: 사용자에게서 온-프레미스 애플리케이션으로 요청을 보내는 역방향 프록시로 작동합니다. Azure AD에 상주하며 모든 조건부 액세스 정책을 적용할 수도 있습니다.
 
-* **응용 프로그램 프록시 커넥터**: 응용 프로그램에 대 한 연결을 제공 하기 위해 Windows server의 온-프레미스에 설치 됩니다. 아웃 바운드 연결만 사용 합니다. Azure AD에 대 한 응답을 반환 합니다.
+* **애플리케이션 프록시 커넥터**: 애플리케이션에 대한 연결을 제공하기 위해 Windows 서버의 온-프레미스에 설치됩니다. 아웃바운드 연결만 사용하고 Azure AD에 대한 응답을 반환합니다.
 
-* **레거시 응용 프로그램**: 응용 프로그램 프록시에서 사용자 요청을 수신 하는 응용 프로그램입니다. 레거시 응용 프로그램은 세션을 설정 하 고 응답을 반환 하는 데 필요한 HTTP 헤더를 수신 합니다. 
+* **레거시 애플리케이션**: 애플리케이션 프록시에서 사용자 요청을 수신하는 애플리케이션입니다. 레거시 애플리케이션은 세션을 설정하고 응답을 반환하는 데 필요한 HTTP 헤더를 수신합니다. 
 
-## <a name="implement-header-based-authentication-with-azure-ad"></a>Azure AD를 사용 하 여 헤더 기반 인증 구현
+## <a name="implement-header-based-authentication-with-azure-ad"></a>Azure AD를 사용한 헤더 기반 인증 구현
 
-* [Azure AD에서 응용 프로그램 프록시를 통해 원격 액세스를 위한 온-프레미스 응용 프로그램 추가](../manage-apps/application-proxy-add-on-premises-application.md)  
+* [Azure AD에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가](../app-proxy/application-proxy-add-on-premises-application.md)  
 
 * [애플리케이션 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증](../manage-apps/application-proxy-configure-single-sign-on-with-headers.md) 
 

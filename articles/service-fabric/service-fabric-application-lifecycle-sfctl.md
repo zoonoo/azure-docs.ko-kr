@@ -1,15 +1,15 @@
 ---
-title: Sfctl을 사용 하 여 Azure Service Fabric 응용 프로그램 관리
+title: sfctl을 사용하여 Azure Service Fabric 애플리케이션 관리
 description: Azure Service Fabric CLI를 사용하여 Azure Service Fabric 클러스터에서 애플리케이션을 배포하고 제거하는 방법을 알아봅니다.
 author: Christina-Kang
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
 ms.openlocfilehash: 7d361d44c349bc7a6e3c041f78d00ad66182fa15
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84711037"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Azure Service Fabric CLI(sfctl)를 사용하여 Azure Service Fabric 애플리케이션 관리

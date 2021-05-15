@@ -1,7 +1,7 @@
 ---
 title: Azure에 연결되는 Video Indexer 계정 만들기
 titleSuffix: Azure Media Services
-description: Azure에 연결 된 Video Indexer 계정을 만드는 방법에 대해 알아봅니다.
+description: Azure에 연결된 Video Indexer 계정을 만드는 방법에 대해 알아봅니다.
 services: media-services
 author: Juliako
 manager: femila
@@ -11,33 +11,33 @@ ms.topic: article
 ms.date: 01/14/2021
 ms.author: juliako
 ms.openlocfilehash: 35d01fd60d0549a528a45013add48bd203b86d6e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104654682"
 ---
-# <a name="create-a-video-indexer-account"></a>Video Indexer 계정 만들기
+# <a name="create-a-video-indexer-account"></a>Video Indexer 계정 생성
 
-Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용 하 여 Azure 구독에 연결 된 Video Indexer 계정을 만들 수 있습니다. 인덱싱된 시간(분)에 대한 비용을 지불하는 경우 자세한 내용은 [Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/)을 참조하세요.
+Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 Azure 구독으로 연결되는 Video Indexer 계정을 만듭니다. 인덱싱된 시간(분)에 대한 비용을 지불하는 경우 자세한 내용은 [Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/)을 참조하세요.
 
 이 문서에서는 Azure 구독 및 Azure Media Services 계정에 연결되는 Video Indexer 계정을 만드는 방법에 대해 설명합니다. 이 토픽에서는 자동(기본값) 흐름을 사용하여 Azure에 연결하는 단계를 설명합니다. Azure에 수동으로 연결하는 방법도 보여줍니다(고급).
 
-*평가판* 에서 *유료* Video Indexer 계정으로 전환 하는 경우 [평가판 계정에서 콘텐츠 가져오기](#import-your-content-from-the-trial-account) 섹션에 설명 된 대로 모든 비디오 및 모델 사용자 지정을 새 계정에 복사 하도록 선택할 수 있습니다.
+*평가판* 에서 *유료* 비디오 인덱서 계정으로 이동하는 경우, [평가판 계정](#import-your-content-from-the-trial-account) 섹션에서 설명한 대로 모든 비디오 및 모델 사용자 지정을 새 계정에 복사하도록 선택할 수 있습니다.
 
-이 문서에서는 [Azure Government에 Video Indexer 계정을 연결 하는 방법](#video-indexer-in-azure-government)에 대해서도 설명 합니다.
+이 문서에서는 [Azure Government에 Video Indexer 계정을 연결하는 방법](#video-indexer-in-azure-government)에 대해서도 다룹니다.
 
-## <a name="prerequisites-for-connecting-to-azure"></a>Azure에 연결 하기 위한 필수 구성 요소
+## <a name="prerequisites-for-connecting-to-azure"></a>Azure 연결을 위한 사전 요구 사항
 
 * Azure 구독
 
     아직 Azure 구독이 없는 경우 [Azure 평가판](https://azure.microsoft.com/free/)에 가입합니다.
-* Azure Active Directory (Azure AD) 도메인입니다.
+* Azure Active Directory(Azure AD) 도메인.
 
-    Azure AD 도메인이 없는 경우 Azure 구독을 사용하여 이 도메인을 만듭니다. 자세한 내용은 [AZURE AD에서 사용자 지정 도메인 이름 관리](../../active-directory/enterprise-users/domains-manage.md) 를 참조 하세요.
-* **응용 프로그램 관리자** 역할을 사용 하는 Azure AD 도메인의 사용자입니다. 이 멤버는 Video Indexer 계정을 Azure에 연결할 때 사용합니다.
+    Azure AD 도메인이 없는 경우 Azure 구독을 사용하여 이 도메인을 만듭니다. 자세한 내용은 [Azure Active Directory에서 사용자 지정 도메인 이름 관리](../../active-directory/enterprise-users/domains-manage.md)를 참조하세요
+* **애플리케이션 관리자** 역할을 하는 Azure AD 도메인의 사용자. 이 멤버는 Video Indexer 계정을 Azure에 연결할 때 사용합니다.
 
-    이 사용자는 회사 또는 학교 계정이 있는 Azure AD 사용자 여야 합니다. Outlook.com, live.com 또는 hotmail.com와 같은 개인 계정을 사용 하지 마세요.
+    이 사용자는 직장 또는 학교 계정이 있는 Azure AD 사용자여야 합니다. outlook.com, live.com 또는 hotmail.com와 같은 개인 계정을 사용하지 마세요.
 
     ![모든 Azure AD 사용자](./media/create-account/all-aad-users.png)
 
@@ -47,7 +47,7 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 
     이 멤버는 Video Indexer 계정을 Azure에 연결할 때 사용합니다.
 
-    이 사용자는 **소유자** 역할이 있거나 **기여자** 와 **사용자 액세스 관리자** 역할이 모두 있는 Azure 구독의 멤버여야 합니다. 두 개의 역할을 사용 하 여 사용자를 두 번 추가할 수 있습니다. 기여자 역할과 사용자 액세스 관리자 역할이 각각 있는 멤버로 두 번 추가합니다. 자세한 내용은 [Azure 리소스에 대 한 사용자 액세스 권한 보기](../../role-based-access-control/check-access.md)를 참조 하세요.
+    이 사용자는 **소유자** 역할이 있거나 **기여자** 와 **사용자 액세스 관리자** 역할이 모두 있는 Azure 구독의 멤버여야 합니다. 두 역할을 가진 사용자를 두 번 추가할 수 있습니다. 기여자 역할과 사용자 액세스 관리자 역할이 각각 있는 멤버로 두 번 추가합니다. [자세한 내용은 Azure 리소스에 대한 사용자의 액세스 권한 보기](../../role-based-access-control/check-access.md)에서 알아보세요.
 
     ![액세스 제어](./media/create-account/access-control-iam.png)
 
@@ -61,18 +61,18 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 
     ![EventGrid](./media/create-account/event-grid.png)
 
-## <a name="create-a-new-account-on-azure"></a>Azure에서 새 계정 만들기 
+## <a name="create-a-new-account-on-azure"></a>새 Azure 계정을 생성합니다 
 
 > [!NOTE]
-> Azure 구독에서 인증서 기반 multi-factor authentication을 사용 하는 경우 필수 인증서가 설치 된 장치에서 다음 단계를 수행 하는 것이 중요 합니다.
+> Azure 구독에서 인증서 기반 다중 인증을 사용하는 경우 필수 인증서가 설치된 디바이스에서 다음 단계를 수행하는 것이 중요합니다.
 
 1. [Video Indexer](https://www.videoindexer.ai/) 웹 사이트로 이동하고 로그인합니다.
-1. **무제한 계정 만들기** 단추를 선택 합니다.
+1. **무제한 계정 만들기** 버튼을 선택합니다:
 
-    ![새 Video Indexer 계정 만들기](./media/create-account/create-unlimited-account.png)
+    ![Video Indexer 계정 생성](./media/create-account/create-unlimited-account.png)
 1. 구독 목록이 표시되면 사용하려는 구독을 선택합니다.
 
-    ![Azure에 Video Indexer 연결](./media/create-account/new-account-on-azure-subscription.png)
+    ![Video Indexer를 Azure에 연결](./media/create-account/new-account-on-azure-subscription.png)
 1. 지원되는 위치에서 Azure 지역(미국 서부 2, 북유럽 또는 동아시아)을 선택합니다.
 1. **Azure Media Services 계정** 아래에서 다음 옵션 중 하나를 선택합니다.
 
@@ -84,8 +84,8 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
         Media Services 계정에는 Video Indexer 계정과 동일한 지역이 있어야 합니다.
 
         > [!NOTE]
-        > 인덱싱 기간과 낮은 처리량을 최소화 하려면 Media Services 계정의 [예약 단위](../previous/media-services-scale-media-processing-overview.md ) 유형과 수를 **10 개의 S3 예약 단위** 로 조정 하는 것이 좋습니다. [포털을 사용 하 여 예약 단위 변경을](../previous/media-services-portal-scale-media-processing.md)참조 하세요. 예약 단위는 계정에 청구 되 고 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/media-services/#analytics)를 볼 수 있습니다.
-    * 수동으로 연결을 구성 하려면 **수동 구성으로 전환** 링크를 선택 합니다.
+        > 인덱싱 지속 시간과 낮은 처리량을 줄이기 위해 미디어 서비스 계정의 [예약 장치](../previous/media-services-scale-media-processing-overview.md )의 유형과 수를 **10S3예약 장치** 로 조정하는 것이 좋습니다. [예약 단위 변경을 위한 포털 사용](../previous/media-services-portal-scale-media-processing.md)을 참조하세요. 예약 단위는 계정에 청구되고 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/media-services/#analytics)를 볼 수 있습니다.
+    * 연결을 수동으로 구성하려면 **수동 구성으로 전환** 링크를 클릭합니다.
 
         자세한 내용은 이어지는 [Azure에 수동으로 연결](#connect-to-azure-manually-advanced-option)(고급 옵션) 섹션을 참조하세요.
 1. 작업을 완료하면 **만들기** 를 선택합니다. 이 작업은 최대 몇 분 정도 걸릴 수 있습니다.
@@ -93,65 +93,65 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
     Azure에 연결되면 새 Video Indexer 계정이 계정 목록에 표시됩니다.
 
     ![새 계정](./media/create-account/new-account.png)
-1. Video Indexer 웹 앱에서 비디오를 재생 하기 전에 Media Services 계정의 스트리밍 끝점이 실행 중인지 확인 합니다 (중지 된 상태 이면 시작 누르기).
+1. Video Indexer 웹 앱에서 비디오를 재생하기 전에 Media Services 계정의 스트리밍 종점이 실행 중인지 확인합니다 (정지된 상태일 경우 시작 누름).
 
 > [!TIP]
-> 친숙 한 표시를 계정에 제공 하려면 **설정** 으로 이동 합니다.
+> 친숙한 디스플레이를 계정에 제공하려면 **설정** 으로 이동합니다.
 
 ## <a name="connect-to-azure-manually-advanced-option"></a>Azure에 수동으로 연결(고급 옵션)
 
 Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 수 있습니다.
 
 > [!NOTE]
-> 동일한 지역에는 동일한 Media Services 계정에 연결 된 Azure storage 계정 뿐만 아니라 Media Services 계정에 연결 하는 Video Indexer 계정 이라는 세 가지 계정을 사용 하는 것이 좋습니다.
+> Media Services 계정과 이를 연결하는 Video Indexer 계정, 그리고 같은 Media Services 계정에 연결된 Azure Storage 계정 총 3개 계정은 같은 영역에 있는 것이 좋습니다.
 
 ### <a name="create-and-configure-a-media-services-account"></a>Media Services 계정을 만들고 구성
 
 1. [Azure](https://portal.azure.com/) Portal을 사용하여 [계정 만들기](../previous/media-services-portal-create-account.md)에 설명된 대로 Azure Media Services 계정을 만듭니다.
 
-     클래식 Api를 사용 하 여 Media Services 계정이 만들어졌는지 확인 합니다. 
+     Media Services 계정이 클래식 API로 생성되었는지 확인합니다. 
  
     ![Media Services 클래식 API](./media/create-account/enable-classic-api.png)
 
 
-    Media Services 계정에 대 한 저장소 계정을 만들 때 복제 필드의 계정 종류 및 **지역 중복** (GRS)에 대해 **StorageV2** 를 선택 합니다.
+    Media Services 계정에 대한 스토리지 계정을 생성할 때 계정 종류로 **StorageV2** 를 선택하고 복제 필드로 **지역 중복 (GRS)** 을 선택합니다.
 
     ![새 AMS 계정](./media/create-account/create-new-ams-account.png)
 
     > [!NOTE]
-    > Media Services 리소스 및 계정 이름을 기록해 둡니다. 다음 섹션의 단계에 필요 합니다.
-1. 만든 Media Services 계정에서 [예약 단위](../previous/media-services-scale-media-processing-overview.md ) 유형 및 수를 **10 S3 예약 단위** 로 조정 합니다. [포털을 사용 하 여 예약 단위 변경을](../previous/media-services-portal-scale-media-processing.md)참조 하세요.
+    > Media Services 리소스 및 계정 이름을 기록해 둡니다. 다음 섹션의 단계에서 그것들이 필요합니다.
+1. 생성된 Media Services 계정에서 [예약 단위](../previous/media-services-scale-media-processing-overview.md )의 유형 및 수를 **S3 예약 단위 10개** 로 조정합니다. [예약 단위 변경을 위한 포털 사용](../previous/media-services-portal-scale-media-processing.md)을 참조하세요.
 
-    예약 단위에는 계정에 대 한 요금이 청구 되 고 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/media-services/#analytics)를 볼 수 있습니다.
-1. Video Indexer 웹 앱에서 비디오를 재생 하려면 먼저 새 Media Services 계정의 기본 **스트리밍 끝점** 을 시작 해야 합니다.
+    예약 단위는 계정에 청구되고, [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/media-services/#analytics)를 볼 수 있습니다.s
+1. Video Indexer 웹 애플리케이션에서 비디오를 재생하기 전에 새 Media Services 계정의 기본 **스트리밍 엔드포인트** 를 시작해야 합니다.
 
-    새 Media Services 계정에서 **스트리밍 끝점** 을 선택 합니다. 그런 다음 스트리밍 끝점을 선택 하 고 시작을 누릅니다.
+    새 Media Services 계정에서 **스트리밍 엔드포인트** 를 클릭합니다. 스트리밍 엔드포인트를 선택하고 [시작]을 누릅니다.
 
     ![스트리밍 엔드포인트](./media/create-account/create-ams-account-se.png)
-4. Media Services API를 사용 하 여 인증 Video Indexer AD 앱을 만들어야 합니다. 다음 단계는 [Azure Portal을 사용하여 Azure AD 인증 시작](../previous/media-services-portal-get-started-with-aad.md)에 설명된 Azure AD 인증 프로세스를 안내합니다.
+4. Video Indexer가 Media Services API를 인증하려면 AD 앱을 만들어야 합니다. 다음 단계는 [Azure Portal을 사용하여 Azure AD 인증 시작](../previous/media-services-portal-get-started-with-aad.md)에 설명된 Azure AD 인증 프로세스를 안내합니다.
 
     1. 새 Media Services 계정에서 **API 액세스** 를 선택합니다.
     2. [서비스 주체 인증 방법](../previous/media-services-portal-get-started-with-aad.md)을 선택합니다.
     3. 클라이언트 ID 및 클라이언트 암호 가져오기
 
-        **설정** -> **키** 를 선택 하 고, **설명을** 추가 하 고, **저장** 을 누르고, 키 값이 채워집니다.
+        **설정**->**키** 를 선택한 후, **설명** 을 추가한 뒤에 **저장** 을 누르면 키 값이 채워집니다.
 
-        키가 만료 되 면 계정 소유자는 Video Indexer 지원 담당자에 게 문의 하 여 키를 갱신 해야 합니다.
+        키가 만료되면 계정 소유자는 Video Indexer 지원에 문의하여 키를 갱신해야 합니다.
 
         > [!NOTE]
-        > 키 값 및 애플리케이션 ID를 적어 둡니다. 다음 섹션의 단계에 필요 합니다.
+        > 키 값 및 애플리케이션 ID를 적어 둡니다. 다음 섹션의 단계에서 필요합니다.
 
 ### <a name="connect-manually"></a>수동으로 연결
 
-[Video Indexer](https://www.videoindexer.ai/) 페이지의 **Azure 구독에서 새 계정 만들기** 대화 상자에서 **수동 구성으로 전환** 링크를 선택 합니다.
+[Video Indexer](https://www.videoindexer.ai/) 페이지의 **Azure 구독에 새 계정 생성** 대화 상자에서 **수동 구성으로 전환** 링크를 선택합니다.
 
 대화 상자에서 다음 정보를 입력합니다.
 
-|설정|설명|
+|설정|Description|
 |---|---|
-|Video Indexer 계정 지역|Video Indexer 계정 지역의 이름입니다. 성능 및 비용 절감을 위해 Azure Media Services 리소스 및 Azure Storage 계정이 있는 지역의 이름을 지정 하는 것이 좋습니다. |
+|Video Indexer 계정 지역|Video Indexer 계정 지역의 이름입니다. 성능을 향상시키고 비용을 절감하려면 Azure Media Services 리소스 및 Azure Storage 계정이 있는 영역의 이름을 지정하는 것이 좋습니다. |
 |Azure AD 테넌트|Azure AD 테넌트의 이름입니다(예: "contoso.onmicrosoft.com"). Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 이동합니다. **도메인** 오른쪽에서 이름을 찾습니다.|
-|구독 ID|이 연결을 만들어야 하는 Azure 구독입니다. 구독 ID는 Azure Portal에서 검색할 수 있습니다. 왼쪽 패널에서 **모든 서비스** 를 선택 하 고 "구독"을 검색 합니다. **구독** 을 선택하고 구독 목록에서 원하는 ID를 선택합니다.|
+|구독 ID|이 연결을 만들어야 하는 Azure 구독입니다. 구독 ID는 Azure Portal에서 검색할 수 있습니다. 왼쪽 패널에서 **모든 서비스** 를 선택하고, "가입"을 검색합니다. **구독** 을 선택하고 구독 목록에서 원하는 ID를 선택합니다.|
 |Azure Media Services 리소스 그룹 이름|Media Services 계정을 만든 리소스 그룹의 이름입니다.|
 |Media Services 리소스 이름|이전 섹션에서 만든 Azure Media Services 계정의 이름입니다.|
 |애플리케이션 ID|이전 섹션에서 만든 Azure AD 애플리케이션 ID(지정된 Media Services 계정에 대한 권한이 있는)입니다.|
@@ -159,93 +159,93 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 ### <a name="import-your-content-from-the-trial-account"></a>*평가판* 계정에서 콘텐츠 가져오기
 
-새 계정을 만들 때 *평가판* 계정에서 새 계정으로 콘텐츠를 가져오는 옵션이 있습니다. **Azure 구독에서 새 계정 만들기** 대화 상자에서 *가져오기* 옵션을 선택 하면 모든 미디어 및 콘텐츠 모델 사용자 지정이 *평가판* 계정에서 새 계정으로 복사 됩니다.
+새 계정을 생성할 때, *평가판* 계정에서 새 계정으로 콘텐츠를 가져오는 옵션이 있습니다. **Azure 구독에서 새 계정 만들기** 대화 상자에서 *가져오기* 옵션을 선택하면, 모든 개별적인 미디어 및 콘텐츠 모델이 *평가판* 계정에서 새 계정으로 복사됩니다.
 
-콘텐츠를 가져오는 기능은 위에 설명 된 자동 및 수동 방법 모두에 유효 합니다.
+콘텐츠를 가져오는 기능은 위에 설명된 자동 및 수동 방법 모두에 유효합니다.
 
 > [!NOTE]
 > 콘텐츠는 각 계정에서 한 번만 가져올 수 있습니다.
 >
-> Azure Government 클라우드에서 *평가판* 계정을 availagle 하지 않습니다.
+> Azure Government 클라우드에서는 *평가판* 계정이 가능하지 않습니다.
 
 ## <a name="azure-media-services-considerations"></a>Azure Media Services 고려 사항
 
 다음과 같은 Azure Media Services 관련 고려 사항이 적용됩니다.
 
-* 기존 Media Services 계정에 연결 하려는 경우 클래식 Api를 사용 하 여 Media Services 계정을 만들었는지 확인 합니다. 
+* 기존 Media Services 계정에 연결하려는 경우 클래식 API를 사용하여 Media Services 계정을 만들었는지 확인합니다. 
  
     ![Media Services 클래식 API](./media/create-account/enable-classic-api.png)
-* 기존 Media Services 계정에 연결 하는 경우 Video Indexer 기존 미디어 **예약 단위** 구성을 변경 하지 않습니다.
+* 기존 Media Services 계정에 연결하게 되면 Video Indexer는 기존 미디어 **예약 단위** 구성을 변경하지 않습니다.
 
-   계획 된 부하에 따라 미디어 예약 단위 유형 및 수를 조정 해야 할 수 있습니다. 로드가 높고 단위 또는 속도가 충분하지 않으면 비디오 처리로 인해 시간 제한 오류가 발생할 수 있습니다.
+   계획된 로드에 따라 미디어 예약 단위의 유형과 수를 조정해야 할 수 있습니다. 로드가 높고 단위 또는 속도가 충분하지 않으면 비디오 처리로 인해 시간 제한 오류가 발생할 수 있습니다.
 * 새 Media Services 계정에 연결하면 Video Indexer가 그 안에서 자동으로 기본 **스트리밍 엔드포인트** 를 시작합니다.
 
     ![Media Services 스트리밍 엔드포인트](./media/create-account/ams-streaming-endpoint.png)
 
-    스트리밍 끝점은 시작 시간이 상당히 많이 있습니다. 따라서 Video Indexer 웹 앱에서 비디오를 스트리밍 및 조사할 수 있을 때까지 계정을 Azure에 연결한 시간부터 몇 분 정도 걸릴 수 있습니다.
-* 기존 Media Services 계정에 연결 하는 경우 Video Indexer 기본 스트리밍 끝점 구성을 변경 하지 않습니다. 실행 중인 **스트리밍 끝점이** 없는 경우에는이 Media Services 계정이 나 Video Indexer에서 비디오를 볼 수 없습니다.
+    스트리밍 엔드포인트의 시작 시간이 상당히 깁니다. 따라서 계정을 Azure에 연결하는 시점부터 Video Indexer 웹 앱에서 비디오를 스트리밍하고 시청할 수 있게 되는 시점까지 몇 분 정도 걸릴 수 있습니다.
+* 기존 Media Services 계정에 연결하게 되면 Video Indexer가 기본 스트리밍 엔드포인트 구성을 변경하지 않습니다. **스트리밍 엔드포인트** 가 실행되지 않으면 이 Media Services 계정 또는 Video Indexer에서 비디오를 시청할 수 없습니다.
 * 자동으로 연결하면 Video Indexer가 미디어 **예약 단위** 를 S3 단위 10개로 설정합니다.
 
     ![Media Services 예약 단위](./media/create-account/ams-reserved-units.png)
     
-## <a name="automate-creation-of-the-video-indexer-account"></a>Video Indexer 계정 만들기 자동화
+## <a name="automate-creation-of-the-video-indexer-account"></a>Video Indexer 계정 생성 자동화
 
-계정 만들기를 자동화 하는 과정은 다음 두 단계로 진행 됩니다.
+계정 생성을 자동화하는 과정은 다음 두 단계로 진행됩니다:
  
-1. Azure Resource Manager를 사용 하 여 Azure Media Services 계정 + Azure AD 응용 프로그램을 만듭니다.
+1. Azure Resource Manager를 사용하여 Azure Media Services 계정 + Azure AD 어플리케이션을 만듭니다.
 
-    [Media Services 계정 생성 템플릿의](https://github.com/Azure-Samples/media-services-v3-arm-templates)예를 참조 하세요.
-1. [Media Services 및 AZURE AD 응용 프로그램을 사용 하 여 Create-Account](https://videoindexer.ai.azure.us/account/login?source=apim)를 호출 합니다.
+    [Media Services 계정 생성 템플릿](https://github.com/Azure-Samples/media-services-v3-arm-templates)의 예를 살펴보세요.
+1. [Media Services 및 Azure AD 어플리케이션으로 Create-Account](https://videoindexer.ai.azure.us/account/login?source=apim)를 호출 합니다.
 
-## <a name="video-indexer-in-azure-government"></a>Azure Government Video Indexer
+## <a name="video-indexer-in-azure-government"></a>Azure Government에서 Video Indexer
 
-### <a name="prerequisites-for-connecting-to-azure-government"></a>Azure Government에 연결 하기 위한 필수 구성 요소
+### <a name="prerequisites-for-connecting-to-azure-government"></a>Azure Government 연결을 위한 사전 요구 사항
 
--   [Azure Government](../../azure-government/index.yml)의 Azure 구독입니다.
-- Azure Government의 Azure AD 계정.
-- [Azure에 연결 하기 위한 필수 구성 요소](#prerequisites-for-connecting-to-azure)에 설명 된 대로 사용 권한 및 리소스의 모든 사전 요구 사항입니다. 자동 흐름에 대 한 [추가 필수 구성 요소](#additional-prerequisites-for-automatic-flow) 및 [수동 흐름의 추가 필수 구성](#additional-prerequisites-for-manual-flow)요소를 확인 해야 합니다.
+-   [Azure Government에서 Azure 구독](../../azure-government/index.yml).
+- Azure Government에서 Azure AD 계정.
+- 위 [Azure에 연결하기 위한 필수 구성 요소](#prerequisites-for-connecting-to-azure)에 설명된 대로 사용 권한 및 리소스의 모든 사전 요구 사항입니다. [자동 흐름에 대한 추가 사전 요구 사항](#additional-prerequisites-for-automatic-flow) 및 [수동 흐름의 추가 사전 요구 사항](#additional-prerequisites-for-manual-flow)을 확인해야 합니다.
 
-### <a name="create-new-account-via-the-azure-government-portal"></a>Azure Government 포털을 통해 새 계정 만들기
+### <a name="create-new-account-via-the-azure-government-portal"></a>Azure Government 포털을 통해 새 계정 생성하기
 
 > [!NOTE]
-> Azure Government 클라우드는 Video Indexer의 *평가판* 환경을 포함 하지 않습니다.
+> Azure Government 클라우드는 Video Indexer의 *평가판* 체험을 포함하지 않습니다.
 
-Video Indexer 포털을 통해 유료 계정을 만들려면 다음을 수행 합니다.
+Video Indexer 포털을 통해 유료 계정을 만들려면:
 
 1. https://videoindexer.ai.azure.us 로 이동 
-1. Azure Government Azure AD 계정으로 로그인 합니다.
-1.  소유자 이거나 기여자 인 Azure Government의 Video Indexer 계정이 없으면 계정 만들기를 시작할 수 있는 빈 환경을 사용할 수 있습니다 (예를 들어, 
+1. Azure Government Azure AD 계정으로 로그인합니다.
+1.  소유자이거나 참여자인 Azure Government의 Video Indexer 계정이 없으면 계정 생성을 시작할 수 있는 빈 환경을 사용하게 됩니다. 
 
-    흐름의 나머지 부분은 위에 설명 된 것 처럼, 선택할 지역은 비디오 인덱서를 사용할 수 있는 정부 지역입니다. 
+    흐름의 나머지 부분은 위에 설명된 것처럼, 선택할 지역은 Video Indexer를 사용할 수 있는 Government 영역입니다 
 
-    이미 Azure Government에 있는 하나 이상의 Video Indexer 계정에 대 한 참여자 또는 관리자 인 경우 해당 계정으로 이동 하 여 위에서 설명한 대로 필요한 경우 추가 계정을 만들기 위한 다음 단계를 시작할 수 있습니다.
+    이미 Azure Government에서 하나 이상의 Video Indexer 계정에 대한 참여자 또는 관리자인 경우, 해당 계정으로 이동하여 위에서 설명한 대로 필요한 경우 다음 단계를 시작하여 추가 계정을 생성할 수 있습니다.
     
-### <a name="create-new-account-via-the-api-on-azure-government"></a>Azure Government API를 통해 새 계정 만들기
+### <a name="create-new-account-via-the-api-on-azure-government"></a>Azure Government의 API를 통해 새 계정 생성하기
 
-Azure Government에서 유료 계정을 만들려면 [유료-계정]()에 설명 된 지침을 따르세요. 이 API 끝점에는 정부 클라우드 지역만 포함 됩니다.
+Azure Government에서 유료 계정을 만들려면 [유료-계정-생성]()에 설명된 지침을 따르세요. 이 API 엔드포인트에는 Government 클라우드 지역만 포함됩니다.
 
-### <a name="limitations-of-video-indexer-on-azure-government"></a>Azure Government에 대 한 Video Indexer 제한 사항
+### <a name="limitations-of-video-indexer-on-azure-government"></a>Azure Government에서 Video Indexer의 제한 사항
 
-*   정부 클라우드에서는 수동 콘텐츠 조정을 사용할 수 없습니다. 
+*   Government 클라우드에서는 수동 콘텐츠 조정을 사용할 수 없습니다. 
 
-    콘텐츠 조정을 기반으로 콘텐츠가 악의적인 것으로 간주 되는 공용 클라우드에서 고객은 해당 콘텐츠를 확인 하 고 잠재적으로 해당 결정을 되돌릴 수 있습니다.  
-*   평가판 계정이 없습니다. 
-* Bing 설명-.Gov 클라우드에서는 유명인 및 명명 된 엔터티에 대 한 설명을 제공 하지 않습니다. 이는 UI 기능입니다. 
+    공용 클라우드에서 콘텐츠가 콘텐츠 조정을 기반으로 악의적인 것으로 간주되는 경우 고객은 해당 콘텐츠를 확인하고 잠재적으로 해당 결정을 되돌릴 수 있습니다.  
+*   평가판 계정 없음. 
+* Bing 설명 - Gov 클라우드에서는 확인된 유명 인사 및 명명된 엔티티에 대한 설명을 제시하지 않습니다. 이는 오직 UI 기능만입니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서를 완료 한 후에는 사용 하지 않을 리소스를 삭제 합니다.
+이 튜토리얼을 완료한 후 사용하지 않을 리소스를 삭제합니다.
 
 ### <a name="delete-a-video-indexer-account"></a>Video Indexer 계정 삭제
 
-Video Indexer 계정을 삭제 하려는 경우 Video Indexer 웹 사이트에서 계정을 삭제할 수 있습니다. 계정을 삭제 하려면 소유자 여야 합니다.
+Video Indexer 계정을 삭제하려는 경우 Video Indexer 웹 사이트에서 계정을 삭제할 수 있습니다. 계정을 삭제하려면 소유자여야 합니다.
 
-계정 > **설정을** 선택 하 여  ->  **이 계정을 삭제** 합니다. 
+계정->**설정** -> **이 계정 삭제** 를 선택합니다. 
 
-계정은 90 일 후에 영구적으로 삭제 됩니다.
+계정은 90일 내에 영구적으로 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Api 사용](video-indexer-use-apis.md)의 지침에 따라 Azure에 연결 된 Video Indexer 계정과 평가판 계정 및/또는를 프로그래밍 방식으로 조작할 수 있습니다.
+[API 사용](video-indexer-use-apis.md)의 설명에 따라 평가판 계정 및/또는 Azure에 연결된 Video Indexer 계정과 프로그래밍 방식으로 상호 작용할 수 있습니다.
 
 Azure에 연결할 때 사용한 것과 동일한 Azure AD 사용자를 사용해야 합니다.

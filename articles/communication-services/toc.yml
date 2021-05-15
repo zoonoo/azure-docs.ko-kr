@@ -51,11 +51,11 @@
     - name: UI 프레임워크
       items:
         - name: 복합 구성 요소 시작
-          href: quickstarts/ui-framework/get-started-with-composites.md
-        - name: 기본 구성 요소 시작
-          href: quickstarts/ui-framework/get-started-with-components.md
-        - name: UI 프레임워크 구성 요소 만들기
-          href: quickstarts/ui-framework/create-your-own-components.md
+          href: 'https://azure.github.io/communication-ui-sdk/?path=/docs/quickstarts-get-started-with-composites--page'
+        - name: 상태 저장 클라이언트 시작
+          href: 'https://azure.github.io/communication-ui-sdk/?path=/docs/quickstarts-get-started-with-stateful-client--page'
+        - name: UI 구성 요소 시작
+          href: 'https://azure.github.io/communication-ui-sdk/?path=/docs/quickstarts-get-started-with-ui-components--page'
 - name: 자습서
   expanded: false
   items:

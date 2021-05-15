@@ -1,17 +1,17 @@
 ---
 title: Event Grid 비동기 작업 상태
-description: Azure에서 Event Grid 비동기 작업을 추적 하는 방법을 설명 합니다. 장기 실행 작업의 상태를 가져오는 데 사용하는 값을 보여줍니다.
+description: Azure에서 Event Grid 비동기 작업을 추적하는 방법에 대해 설명합니다. 장기 실행 작업의 상태를 가져오는 데 사용하는 값을 보여줍니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: baae7b097a0b696d405c0e7ea3d3bdeb326f23b1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89011687"
 ---
-# <a name="track-event-grid-asynchronous-azure-operations"></a>비동기 Azure 작업 Event Grid 추적
+# <a name="track-event-grid-asynchronous-azure-operations"></a>Event Grid 비동기 Azure 작업 추적
 일부 Azure REST 작업은 작업을 신속하게 완료할 수 없기 때문에 비동기적으로 실행합니다. 이 문서에서는 응답에서 반환되는 값을 통해 비동기 작업의 상태를 추적하는 방법을 설명합니다.  
 
 ## <a name="status-codes-for-asynchronous-operations"></a>비동기 작업의 상태 코드
@@ -186,4 +186,4 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft
 ## <a name="next-steps"></a>다음 단계
 
 * 각 REST 작업에 대한 설명서는 [REST API 설명서](/rest/api/)를 참조하세요.
-* 리소스 관리자 REST API를 통해 템플릿을 배포 하는 방법에 대 한 자세한 내용은 [리소스 관리자 템플릿과 함께 리소스 배포 및 리소스 관리자 REST API](../azure-resource-manager/templates/deploy-rest.md)을 참조 하세요.
+* Resource Manager REST API를 통한 템플릿 배포 방법에 대한 정보는 [Resource Manager 템플릿과 Resource Manager REST API로 리소스 배포](../azure-resource-manager/templates/deploy-rest.md)를 참조하세요.

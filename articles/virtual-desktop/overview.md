@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a6d98f827c39f973714441e308dcc4f2bd061c9b
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 7e5c94cad817f398ae56fb1aa9cbbd1c43cd47a4
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107835581"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291823"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Windows Virtual Desktop이란?
 
@@ -121,10 +121,10 @@ Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스
 
 ## <a name="supported-virtual-machine-os-images"></a>지원되는 가상 머신 OS 이미지
 
-Windows Virtual Desktop은 다음 x64 운영 체제 이미지를 지원합니다.
+Windows 가상 데스크톱은 [Microsoft 수명 주기 정책](https://docs.microsoft.com/lifecycle/)을 따르고 다음 x64 운영 체제 이미지를 지원합니다.
 
-* Windows 10 Enterprise 다중 세션, 버전 1809 이상
-* Windows 10 Enterprise 버전 1809 이상(반기 채널에만 해당)
+* Windows 10 Enterprise 다중 세션
+* Windows 10 Enterprise
 * Windows 7 Enterprise
 * Windows Server 2019
 * Windows Server 2016
@@ -136,10 +136,8 @@ Windows Virtual Desktop은 x86(32비트), Windows 10 Enterprise N, Windows 10 Pr
 
 |운영 체제|Azure 이미지 갤러리|수동 VM 배포|Azure Resource Manager 템플릿 통합|Azure Marketplace에서 호스트 풀 프로비저닝|
 |--------------------------------------|:------:|:------:|:------:|:------:|
-|Windows 10 Enterprise(다중 세션) 버전 2004|예|예|예|예|
-|Windows 10 Enterprise(다중 세션) 버전 1909|예|예|예|예|
-|Windows 10 Enterprise(다중 세션) 버전 1903|예|예|아니요|아니요|
-|Windows 10 Enterprise(다중 세션) 버전 1809|예|예|아니요|아니요|
+|Windows 10 Enterprise 다중 세션, 버전 1909 이상|예|예|예|예|
+|Windows 10 Enterprise, 버전 1909 이상|예|예|예|예|
 |Windows 7 Enterprise|예|예|아니요|아니요|
 |Windows Server 2019|예|예|아니요|예|
 |Windows Server 2016|예|예|예|예|

@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 47ab010d5306d57a03687ca2fc11520e3fd6acb2
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 779f1bead820af99b7f0bba859518eaa5d0ea2fc
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132740"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286650"
 ---
-# <a name="quickstart-provision-azure-spring-cloud-service"></a>빠른 시작: Azure Spring Cloud 서비스 프로비저닝
+# <a name="quickstart-provision-an-azure-spring-cloud-service"></a>빠른 시작: Azure Spring Cloud 서비스 프로비저닝
 
 ::: zone pivot="programming-language-csharp"
 이 빠른 시작에서는 Azure CLI를 사용하여 Azure Spring Cloud 서비스의 인스턴스를 프로비저닝합니다.
@@ -118,6 +118,8 @@ Azure Portal 또는 Azure CLI를 사용하여 Azure Spring Cloud를 인스턴스
     - **리소스 그룹**: 새 리소스에 대한 리소스 그룹을 새로 만드는 것이 가장 좋습니다. 이는 이후 단계에서 **\<resource group name\>** 로 사용됩니다.
     - **서비스 세부 정보/이름**: **\<service instance name\>** 를 지정합니다.  이름은 4-32자 사이여야 하며, 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다.  서비스 이름의 첫 글자는 문자여야 하며 마지막 문자는 문자 또는 숫자여야 합니다.
     - **위치**: 서비스 인스턴스에 대한 위치를 선택합니다.
+    - **가격 책정 계층** 옵션에 대해 *표준* 을 선택합니다.
+    - **애플리케이션 인사이트** 탭에서 **Java In Process 에이전트 사용** 에 대해 *예* 를 선택합니다.
 
     ![ASC 포털 시작](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
@@ -130,6 +132,12 @@ Azure Portal 또는 Azure CLI를 사용하여 Azure Spring Cloud를 인스턴스
 
 다음 절차에서는 Azure CLI 확장을 사용하여 Azure Spring Cloud의 인스턴스를 프로비저닝합니다.
 
+1. Azure Spring Cloud 확장을 사용하여 Azure CLI를 업데이트합니다.
+
+    ```azurecli
+    az extension update --name spring-cloud
+    ```
+
 1. Azure CLI에 로그인하고 활성 구독을 선택합니다.
 
     ```azurecli
@@ -140,21 +148,20 @@ Azure Portal 또는 Azure CLI를 사용하여 Azure Spring Cloud를 인스턴스
 
 1. Azure Spring Cloud 서비스의 이름을 준비합니다.  이름은 4-32자 사이여야 하며, 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다.  서비스 이름의 첫 글자는 문자여야 하며 마지막 문자는 문자 또는 숫자여야 합니다.
 
-1. Azure Spring Cloud 서비스를 포함할 리소스 그룹을 만듭니다.
+1. Azure Spring Cloud 서비스를 포함할 리소스 그룹을 만듭니다.  Azure Spring Cloud 서비스의 인스턴스에서 만듭니다.  
 
-    ```azurecli
-    az group create --location eastus --name <resource group name>
+    ```azurecli 
+    az group create --name <resource group name>
+    az spring-cloud create -n <service instance name> -g <resource group name> --enable-java-agent
     ```
 
     [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)에 대해 자세히 알아봅니다.
 
-1. Azure CLI 창을 열고 다음 명령을 실행하여 Azure Spring Cloud의 인스턴스를 프로비저닝합니다.
+1. 다음 명령을 사용하여 기본 리소스 그룹 이름과 Spring Cloud 서비스 이름을 설정합니다.
 
     ```azurecli
-    az spring-cloud create -n <service instance name> -g <resource group name>
+    az configure --defaults group=<resource group name> spring-cloud=<service name>
     ```
-
-    서비스 인스턴스를 배포하는 데 약 5분이 걸립니다.
 ---
 ::: zone-end
 

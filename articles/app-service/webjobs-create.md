@@ -1,6 +1,6 @@
 ---
-title: WebJobs를 사용 하 여 백그라운드 작업 실행
-description: WebJobs를 사용 하 여 Azure App Service에서 백그라운드 작업을 실행 하는 방법에 대해 알아봅니다. 다양 한 스크립트 형식 중에서 선택 하 고 CRON 식을 사용 하 여 실행 합니다.
+title: WebJobs로 백그라운드 작업 실행
+description: WebJobs를 사용하여 Azure App Service에서 백그라운드 작업을 실행하는 방법에 대해 알아봅니다. 다양한 스크립트 형식 중에서 선택하고 CRON 식을 사용하여 실행합니다.
 author: ggailey777
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: conceptual
@@ -13,18 +13,18 @@ adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts
 adobe-target-experience: Experience B
 adobe-target-content: ./webjobs-create-ieux
 ms.openlocfilehash: 8afc8ca9b0dedb10ecdb30e8abb22a5d0986de5b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101723880"
 ---
-# <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure App Service에서 WebJobs를 사용 하 여 백그라운드 작업 실행
+# <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure App Service에서 WebJobs로 백그라운드 작업 실행
 
 이 문서에서는 실행 파일 또는 스크립트를 업로드하기 위해 [Azure Portal](https://portal.azure.com)을 사용하여 WebJobs를 배포하는 방법을 보여줍니다. Visual Studio를 사용하여 WebJobs를 개발하고 배포하는 방법에 대한 정보는 [Visual Studio를 사용하여 WebJobs 배포](webjobs-dotnet-deploy-vs.md)를 참조하세요.
 
 ## <a name="overview"></a>개요
-WebJobs는 웹 앱, API 앱 또는 모바일 앱과 동일한 인스턴스에서 프로그램 또는 스크립트를 실행할 수 있도록 하는 [Azure App Service](index.yml) 기능입니다. 웹 작업을 사용하는 데 추가 비용은 없습니다.
+WebJobs는 웹앱, API 앱 또는 모바일 앱과 동일한 인스턴스에서 프로그램이나 스크립트를 실행할 수 있도록 하는 [Azure App Service](index.yml)의 기능입니다. 웹 작업을 사용하는 데 추가 비용은 없습니다.
 
 > [!IMPORTANT]
 > WebJobs는 Linux의 App Service에 대해서는 아직 지원되지 않습니다.
@@ -66,7 +66,7 @@ when making changes in one don't forget the other two.
 -->
 
 > [!IMPORTANT]
-> 응용 프로그램을 사용 하 여 구성 된 소스 제어를 사용 하는 경우 소스 제어 통합의 일부로 Webjobs를 배포 해야 합니다. 소스 제어가 응용 프로그램을 사용 하 여 구성 되 면 WebJob을 Azure Portal에서 추가할 수 없습니다.
+> 애플리케이션으로 소스 제어가 구성된 경우 웹 작업은 소스 제어 통합의 일부로 배포되어야 합니다. 소스 제어가 애플리케이션을 사용하여 구성되면 WebJob을 Azure Portal에서 추가할 수 없습니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 App Service 웹앱, API 앱 또는 모바일 앱의 **App Service** 페이지로 이동합니다.
 
@@ -80,7 +80,7 @@ when making changes in one don't forget the other two.
 
 3. 표에 지정된 대로 **WebJob 추가** 설정을 사용합니다.
 
-   ![구성 해야 하는 WebJob 추가 설정을 보여 주는 스크린샷](./media/web-sites-create-web-jobs/addwjcontinuous.png)
+   ![구성해야 하는 WebJob 추가 설정을 보여주는 스크린샷.](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
    | 설정      | 샘플 값   | Description  |
    | ------------ | ----------------- | ------------ |
@@ -118,7 +118,7 @@ when making changes in one don't forget the other two.
 
 3. 표에 지정된 대로 **WebJob 추가** 설정을 사용합니다.
 
-   ![수동으로 트리거된 WebJob을 만들기 위해 설정 해야 하는 설정을 보여 주는 스크린샷](./media/web-sites-create-web-jobs/addwjtriggered.png)
+   ![수동으로 트리거된 WebJob을 만들기 위해 설정해야 하는 설정을 보여주는 스크린샷.](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
    | 설정      | 샘플 값   | Description  |
    | ------------ | ----------------- | ------------ |
@@ -174,7 +174,7 @@ when making changes in one don't forget the other two.
 
 ## <a name="ncrontab-expressions"></a>NCRONTAB 식
 
-다음 예제와 같이 포털에 [NCRONTAB 식을](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) 입력 하거나 `settings.job` WebJob *.zip* 파일의 루트에 파일을 포함할 수 있습니다.
+다음 예제와 같이 포털에 [NCRONTAB 식](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)을 입력하거나 WebJob *.zip* 파일의 루트에 `settings.job` 파일을 포함할 수 있습니다.
 
 ```json
 {
@@ -182,11 +182,11 @@ when making changes in one don't forget the other two.
 }
 ```
 
-자세히 알아보려면 [트리거된 WebJob 예약](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob)을 참조 하세요.
+자세한 내용은 [트리거된 WebJob 예약](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob)을 참조하세요.
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
-## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a> 작업 기록 보기
+## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a>작업 기록 보기
 
 1. 기록을 확인하려는 WebJob을 선택하고 **로그** 단추를 선택합니다.
    

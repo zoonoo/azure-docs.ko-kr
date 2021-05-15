@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 01/25/2021
 ms.author: alkohli
 ms.openlocfilehash: f1bce5c0ecdab4a9c96c3f2cc0e9734247bdfd66
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102566348"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>StorSimple 디바이스 배포 문제 해결
@@ -33,7 +33,7 @@ ms.locfileid: "102566348"
 또한 이 문서는 StorSimple 배포 문제 해결을 위한 도구에 대해 설명하며 단계별 문제 해결 예제를 제공합니다.
 
 ## <a name="first-time-deployment-issues"></a>처음 배포 시 문제
-처음으로 장치를 배포할 때 문제가 발생 하는 경우 다음 지침을 고려 하세요.
+처음으로 디바이스를 배포할 때 문제가 발생하는 경우 다음 참고 자료를 고려합니다.
 
 * 물리적 디바이스의 문제를 해결하는 경우 하드웨어가 [StorSimple 8100 디바이스 설치](storsimple-8100-hardware-installation.md) 또는 [StorSimple 8600 디바이스 설치](storsimple-8600-hardware-installation.md)에 설명된 대로 설치 및 구성되었는지 확인합니다.
 * 배포를 위한 필수 구성 요소를 확인합니다. [배포 구성 검사 목록](storsimple-8000-deployment-walkthrough-u2.md#deployment-configuration-checklist)에 모든 정보가 설명되어 있는지 확인합니다.
@@ -41,13 +41,13 @@ ms.locfileid: "102566348"
 
 디바이스 배포 중 사용자가 접하는 가장 일반적인 문제는 해당 설치 마법사를 실행하는 경우 및 StorSimple용 Windows PowerShell을 통해 디바이스를 등록하는 경우에 발생합니다. (StorSimple용 Windows PowerShell을 사용하여 StorSimple 디바이스를 등록하고 구성합니다. 디바이스 등록에 대한 자세한 내용은 [3단계: StorSimple용 Windows PowerShell을 통해 디바이스 구성 및 등록](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)을 참조하세요.)
 
-다음 섹션에서는 StorSimple 장치를 처음 구성할 때 발생 하는 문제를 해결 하는 데 도움이 되는 정보를 제공 합니다.
+다음 섹션에서는 StorSimple 디바이스를 처음 구성할 때 발생하는 문제를 해결할 수 있습니다.
 
 ## <a name="first-time-setup-wizard-process"></a>처음 설치 마법사 프로세스
 다음 단계에서는 설치 마법사 프로세스를 간략하게 설명합니다. 자세한 설치 정보는 [온-프레미스 StorSimple 디바이스 배포](storsimple-8000-deployment-walkthrough-u2.md)를 참조하세요.
 
 1. [Invoke-HcsSetupWizard](/previous-versions/windows/powershell-scripting/dn688135(v=wps.630)) cmdlet을 실행하여 나머지 과정을 안내하는 설치 마법사를 시작합니다. 
-2. 네트워크 구성: 설치 마법사를 사용하면 StorSimple 디바이스에서 데이터 0 네트워크 인터페이스에 대한 네트워크 설정을 구성합니다. 다음 설정이 포함 됩니다.
+2. 네트워크 구성: 설치 마법사를 사용하면 StorSimple 디바이스에서 데이터 0 네트워크 인터페이스에 대한 네트워크 설정을 구성합니다. 다음 설정이 포함됩니다.
    * 가상 IP(VIP), 서브넷 마스크 및 게이트웨이 – [Set-HcsNetInterface](/previous-versions/windows/powershell-scripting/dn688161(v=wps.630)) cmdlet이 백그라운드에서 실행됩니다. StorSimple 디바이스의 데이터 0 네트워크 인터페이스에 대한 IP 주소, 서브넷 마스크 및 게이트웨이를 구성합니다.
    * 기본 DNS 서버 - [Set-HcsDnsClientServerAddress](/previous-versions/windows/powershell-scripting/dn688172(v=wps.630)) cmdlet이 백그라운드에서 실행됩니다. StorSimple 솔루션에 대한 DNS 설정을 구성합니다.
    * NTP 서버 – [Set-HcsNtpClientServerAddress](/previous-versions/windows/powershell-scripting/dn688138(v=wps.630)) cmdlet이 백그라운드에서 실행됩니다. StorSimple 솔루션에 대한 NTP 서버 설정을 구성합니다.
@@ -58,10 +58,10 @@ ms.locfileid: "102566348"
      > [!IMPORTANT]
      > 등록 하기 전에 암호가 수집되지만 디바이스를 성공적으로 등록한 후에만 적용됩니다. 암호를 적용하지 못한 경우 필요한 암호(복잡성 요구 사항에 맞는)가 수집될 때까지 다시 암호를 입력하라는 메시지가 표시됩니다.
      
-4. 디바이스 등록: 최종 단계는 Microsoft Azure에서 실행되는 StorSimple 디바이스 관리자 서비스를 사용하는 디바이스 등록입니다. 등록할 때 Azure Portal에서 [서비스 등록 키를 가져와](storsimple-8000-manage-service.md#get-the-service-registration-key) 설치 마법사에서 제공해야 합니다. **장치가 성공적으로 등록 되 면 서비스 데이터 암호화 키가 제공 됩니다. 이 암호화 키는 모든 후속 장치를 서비스에 등록 하는 데 필요 하므로 안전한 위치에 보관 해야 합니다.**
+4. 디바이스 등록: 최종 단계는 Microsoft Azure에서 실행되는 StorSimple 디바이스 관리자 서비스를 사용하는 디바이스 등록입니다. 등록할 때 Azure Portal에서 [서비스 등록 키를 가져와](storsimple-8000-manage-service.md#get-the-service-registration-key) 설치 마법사에서 제공해야 합니다. **디바이스가 등록되면 서비스 데이터 암호화 키가 제공됩니다. 이 암호화 키는 모든 후속 디바이스를 서비스에 등록하는 데 필요하므로 안전한 위치에 보관해야 합니다.**
 
 ## <a name="common-errors-during-device-deployment"></a>디바이스 배포 중 일반 오류
-다음 표에서는 발생할 수 있는 일반적인 오류를 나열 합니다.
+아래 표는 다음의 경우 발생할 수 있는 일반 오류를 열거합니다.
 
 * 필요한 네트워크 설정을 구성합니다.
 * 선택적 웹 프록시 설정을 구성합니다.
@@ -82,7 +82,7 @@ ms.locfileid: "102566348"
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>선택적 웹 프록시 설정 중 오류
 | 아니요. | 오류 메시지 | 가능한 원인 | 권장 조치 |
 | --- | --- | --- | --- |
-| 1 |Invoke-HcsSetupWizard: 잘못된 매개 변수(HRESULT: 0x80070057에서 예외 발생) |프록시 설정에 대해 제공된 매개 변수 중 하나가 잘못되었습니다. |URI는 올바른 형식으로 제공되지 않습니다. 다음 형식을 사용 합니다. http:// *\<IP address or FQDN of the web proxy server>* :*\<TCP port number>* |
+| 1 |Invoke-HcsSetupWizard: 잘못된 매개 변수(HRESULT: 0x80070057에서 예외 발생) |프록시 설정에 대해 제공된 매개 변수 중 하나가 잘못되었습니다. |URI는 올바른 형식으로 제공되지 않습니다. 다음 형식을 사용합니다. http:// *\<IP address or FQDN of the web proxy server>* : *\<TCP port number>* |
 | 2 |Invoke-HcsSetupWizard: RPC 서버 사용 불가능(HRESULT: 0x800706ba에서 예외 발생) |근본 원인은 다음 중 하나입니다.<ol><li>클러스터가 켜지지 않았습니다.</li><li>수동 컨트롤러는 활성 컨트롤러와 통신할 수 없으며 명령은 수동 컨트롤러에서 실행되었습니다.</li></ol> |근본 원인에 따라:<ol><li>[Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하여 클러스터가 작동하는지 확인합니다.</li><li>활성 컨트롤러에서 명령을 실행합니다. 수동 컨트롤러에서 명령을 실행하려는 경우 수동 컨트롤러가 활성 컨트롤러와 통신할 수 있는지 확인해야 합니다. 이 연결이 끊긴 경우에는 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)해야 합니다.</li></ol> |
 | 3 |Invoke-HcsSetupWizard: RPC 호출 실패함(HRESULT: 0x800706be에서 예외 발생) |클러스터의 작동이 중단되었습니다. |[Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하여 클러스터가 작동하는지 확인합니다. |
 | 4 |Invoke-HcsSetupWizard: 클러스터 리소스를 찾을 수 없음(HRESULT: 0x8007138f에서 예외 발생) |클러스터 리소스를 찾을 수 없습니다. 설치가 올바르지 않은 경우 발생할 수 있습니다. |디바이스를 공장 기본 설정으로 다시 설정해야 합니다. [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하여 클러스터 리소스를 만듭니다. |
@@ -93,8 +93,8 @@ ms.locfileid: "102566348"
 
 암호는 다음 요구 사항을 충족하는지 확인합니다.
 
-* 장치 관리자 암호는 8 자에서 15 자 사이 여야 합니다.
-* 암호는 소문자, 대문자, 숫자 및 특수 문자 유형 중 세 가지를 포함 해야 합니다. 
+* 디바이스 관리자 암호는 8자에서 15자 사이여야 합니다.
+* 암호에는 소문자, 대문자, 숫자 및 특수 문자 중 세 가지가 포함되어야 합니다. 
 * 암호는 마지막 24개의 암호와 동일할 수 없습니다.
 
 또한 암호가 만료되는 해를 염두하고 디바이스를 성공적으로 등록한 후에만 변경할 수 있습니다. 어떤 이유로든 등록이 실패하면, 암호가 변경되지 않습니다.
@@ -131,7 +131,7 @@ Microsoft Azure에서 실행되는 StorSimple 디바이스 관리자 서비스�
 | 1 |오류 350027: StorSimple 디바이스 관리자를 사용하여 디바이스를 등록하지 못했습니다. | |몇 분간 기다린 다음 작업을 다시 시도하세요. 문제가 지속되면 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. |
 | 2 |오류 350013: 디바이스를 등록 하는 중에 오류가 발생했습니다. 잘못된 서비스 등록 키 때문일 수 있습니다. | |올바른 서비스 등록 키로 디바이스를 다시 등록하세요. 자세한 내용은 [서비스 등록 키 받기](storsimple-8000-manage-service.md#get-the-service-registration-key)를 참조하세요. |
 | 3 |오류 350063: StorSimple 디바이스 관리자 서비스에 대한 인증은 통과했지만 등록에 실패했습니다. 잠시 후 작업을 다시 시도하세요. |이 오류는 ACS로 인증이 통과했지만 서비스에 대한 레지스터 호출이 실패했음을 나타냅니다. 간헐적인 네트워크 결함의 결과일 수 있습니다. |문제가 지속되면 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. |
-| 4 |350049 오류: 등록하는 동안 서비스에 연결할 수 없습니다. |서비스에 호출되면 웹 예외가 수신됩니다. 경우에 따라 작업을 나중에 다시 시도하여 수정될 수 있습니다. |IP 주소 및 DNS 이름을 확인한 다음 작업을 다시 시도합니다. 문제가 지속 되 면 [Microsoft 지원에 문의 하세요.](storsimple-8000-contact-microsoft-support.md) |
+| 4 |350049 오류: 등록하는 동안 서비스에 연결할 수 없습니다. |서비스에 호출되면 웹 예외가 수신됩니다. 경우에 따라 작업을 나중에 다시 시도하여 수정될 수 있습니다. |IP 주소 및 DNS 이름을 확인한 다음 작업을 다시 시도합니다. 문제가 지속되면, [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. |
 | 5 |오류 350031: 디바이스가 이미 등록되었습니다. | |아무런 작업도 수행할 필요가 없습니다. |
 | 6 |오류 350016: 디바이스 등록에 실패했습니다. | |등록 키가 올바른지 확인하세요. |
 | 7 |Invoke-HcsSetupWizard: 디바이스를 등록하는 동안 오류가 발생했습니다. 잘못된 IP 주소 또는 DNS 이름때문일 수 있습니다. 네트워크 설정을 확인하고 다시 시도하세요. 문제가 계속되면 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. (오류 350050) |디바이스에 외부 네트워크를 ping할 수 있는지 확인합니다. 외부 네트워크에 연결되지 않은 경우 이 오류와 함께 등록이 실패할 수 있습니다. 이 오류는 다음 중 하나 이상의 조합일 수 있습니다:<ul><li>잘못된 IP</li><li>잘못된 서브넷</li><li>잘못된 게이트웨이</li><li>잘못된 DNS 설정</li></ul> |[단계별 문제 해결 예제](#step-by-step-storsimple-troubleshooting-example)의 단계를 참조하세요. |
@@ -142,7 +142,7 @@ Microsoft Azure에서 실행되는 StorSimple 디바이스 관리자 서비스�
 StorSimple은 StorSimple 솔루션 문제를 해결하는데 사용할 수 있는 여러 도구를 포함합니다. 이러한 도구로는 다음이 있습니다.
 
 * 지원 패키지 및 디바이스 로그
-* 문제 해결을 위해 설계 된 cmdlet입니다.
+* 문제 해결을 위해 설계된 Cmdlet
 
 ## <a name="support-packages-and-device-logs-available-for-troubleshooting"></a>문제 해결에 사용 가능한 지원 패키지 및 디바이스 로그
 지원 패키지는 디바이스 문제를 해결하는 Microsoft 기술 지원 서비스 팀을 지원할 수 있는 모든 관련 로그를 포함합니다. StorSimple용 Windows PowerShell을 사용하여 지원 담당자와 공유할 수 있는 암호화된 지원 패키지를 생성할 수 있습니다.
@@ -153,7 +153,7 @@ StorSimple은 StorSimple 솔루션 문제를 해결하는데 사용할 수 있�
 3. 이 [단계별 절차](storsimple-8000-create-manage-support-package.md#edit-a-support-package)를 사용하여 지원 패키지를 열고 암호를 해독합니다.
 4. 암호 해독된 지원 패키지 로그는 etw/etvx 형식입니다. 다음 단계를 수행하여 Windows 이벤트 뷰어에서 이 파일을 볼 수 있습니다.
    
-   1. Windows 클라이언트에서 **eventvwr** 명령을 실행 하 여 이벤트 뷰어를 시작 합니다.
+   1. Windows 클라이언트에서 **eventvwr** 명령을 실행하여 이벤트 뷰어를 시작합니다.
    2. **작업** 창에서 **저장된 로그 열기** 를 클릭하고 etvx/etw 형식의 로그 파일(지원 패키지)을 지정하세요. 이제 파일을 볼 수 있습니다. 파일을 연 후 마우스 오른쪽 단추로 클릭하고 텍스트로 파일을 저장할 수 있습니다.
       
       > [!IMPORTANT]
@@ -189,7 +189,7 @@ StorSimple은 StorSimple 솔루션 문제를 해결하는데 사용할 수 있�
    * 인터페이스의 상태가 정상이지만 사용되지 않는 경우 **ifIndex** 상태가 **NotPresent** 로 표시됩니다.
    * 인터페이스가 없는 경우 이 목록에 나타나지 않습니다. StorSimple 디바이스 관리자 서비스 UI에서는 이 인터페이스가 계속 실패한 상태로 표시됩니다.
 
-이 cmdlet을 사용 하는 방법에 대 한 자세한 내용은 Windows PowerShell cmdlet 참조에서 [get-netadapter](/powershell/module/netadapter/get-netadapter) 를 참조 하세요.
+이 cmdlet을 사용하는 방법에 대한 자세한 내용은 Windows PowerShell cmdlet 참조의 [Get-NetAdapter](/powershell/module/netadapter/get-netadapter)로 이동합니다.
 
 다음 섹션에서는 샘플 `Get-NetAdapter` cmdlet의 출력 샘플을 표시합니다.
 
@@ -206,7 +206,7 @@ StorSimple은 StorSimple 솔루션 문제를 해결하는데 사용할 수 있�
 
 **샘플 출력 - 컨트롤러 0**
 
-다음 샘플 데이터는 컨트롤러 0 (수동 컨트롤러)의 출력입니다. 데이터 1, 데이터 2 및 데이터 3는 연결되지 않습니다. 데이터 4 및 데이터 5가 디바이스에 존재하지 않기 때문에 표시되지 않습니다.
+컨트롤러 0(수동 컨트롤러)의 출력은 다음 샘플 데이터와 같습니다. 데이터 1, 데이터 2 및 데이터 3는 연결되지 않습니다. 데이터 4 및 데이터 5가 디바이스에 존재하지 않기 때문에 표시되지 않습니다.
 
 ```output
 Controller0>Get-NetAdapter
@@ -222,7 +222,7 @@ DATA0                Intel(R) 82574L Gigabit Network Conn...     15       Up
 
 **샘플 출력 - 컨트롤러 1**
 
-다음 샘플 데이터는 컨트롤러 1 (활성 컨트롤러)의 출력입니다. 디바이스에서 데이터 0 네트워크 인터페이스만이 구성되며 작동합니다.
+컨트롤러 1(활성 컨트롤러)의 출력은 다음 샘플 데이터와 같습니다. 디바이스에서 데이터 0 네트워크 인터페이스만이 구성되며 작동합니다.
 
 ```output
 Controller1>Get-NetAdapter
@@ -241,7 +241,7 @@ DATA4                Intel(R) Gigabit ET Dual Port Serv...#2     17       NotPre
 ## <a name="troubleshoot-with-the-test-connection-cmdlet"></a>Test-Connection cmdlet 문제 해결
 `Test-Connection` cmdlet을 사용하여 StorSimple 디바이스를 외부 네트워크에 연결할 수 있는지 여부를 확인할 수 있습니다. DNS를 포함한 모든 네트워킹 매개 변수가 설치 마법사에서 올바르게 구성된 경우, `Test-Connection` cmdlet을 사용하여 outlook.com과 같은 네트워크 외부에 알려진 주소를 ping할 수 있습니다.
 
-Ping cmdlet을 사용 하지 않도록 설정 하면 연결 문제 해결에 사용 하기 위해 ping을 사용 하도록 설정 해야 합니다.
+Ping cmdlet을 사용하지 않도록 설정하면, 연결 문제 해결에 사용하기 위해 ping을 사용하도록 설정해야 합니다.
 
 `Test-Connection` cmdlet에서 다음과 같은 출력 샘플을 확인하세요.
 
@@ -250,7 +250,7 @@ Ping cmdlet을 사용 하지 않도록 설정 하면 연결 문제 해결에 사
 
 **샘플 출력 – 잘못된 DNS**
 
-다음 샘플에는 DNS가 확인 되지 않음을 나타내는 IPV4 및 IPV6 주소에 대 한 출력이 포함 되지 않습니다. 외부 네트워크에 연결 되어 있지 않으므로 올바른 DNS를 제공 해야 합니다.
+다음 샘플에는 IPV4 및 IPV6 주소에 대한 출력이 없으며, 이는 DNS가 확인되지 않음을 나타냅니다. 외부 네트워크에 연결되지 않았으며 올바른 DNS를 지정해야 합니다.
 
 ```output
 Source        Destination     IPV4Address      IPV6Address
@@ -263,7 +263,7 @@ HCSNODE0      outlook.com
 
 **샘플 출력 – 올바른 DNS**
 
-다음 샘플에서 DNS는 DNS가 올바르게 구성되었음을 나타내는 IPV4 주소를 반환합니다. 출력은 외부 네트워크에 대 한 연결이 있는지 확인 합니다.
+다음 샘플에서 DNS는 DNS가 올바르게 구성되었음을 나타내는 IPV4 주소를 반환합니다. 출력은 외부 네트워크에 대한 연결이 있는지 확인합니다.
 
 ```output
 Source        Destination     IPV4Address      IPV6Address
@@ -281,29 +281,29 @@ HCSNODE0      outlook.com     132.245.92.194
 1. 디바이스가 등록되어 있는지 확인합니다.
 2. 디바이스 상태를 확인합니다. 유지 관리 모드 또는 오프라인으로 디바이스를 비활성화한 경우 다음 오류 중 하나가 나타날 수 있습니다.
    
-   * Errorcode.cisdevicedecommissioned: 장치가 비활성화 되었음을 나타냅니다.
-   * Errorcode.devicenotready: 장치가 유지 관리 모드에 있음을 나타냅니다.
-   * Errorcode.devicenotready: 장치가 온라인 상태가 아님을 나타냅니다.
+   * ErrorCode.CiSDeviceDecommissioned: 디바이스가 비활성화되었음을 표시합니다.
+   * ErrorCode.DeviceNotReady: 디바이스가 유지 관리 모드에 있음을 나타냅니다.
+   * ErrorCode.DeviceNotReady: 디바이스가 온라인에 있지 않음을 나타냅니다.
 3. StorSimple 디바이스 관리자 서비스가 실행 중인지 확인합니다([Get-ClusterResource](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee461004(v=technet.10)) cmdlet 사용). 서비스를 실행하지 않는 경우 다음 오류가 나타날 수 있습니다.
    
    * ErrorCode.CiSApplianceAgentNotOnline
-   * Errorcode.cispowershellscripthcserror: Get-clusterresource를 실행할 때 예외가 발생 했음을 나타냅니다.
+   * ErrorCode.CisPowershellScriptHcsError: Get-ClusterResource를 실행할 때 예외가 있음을 나타냅니다.
 4. ACS(Access Control Service) 토큰을 확인합니다. 웹 예외가 발생한 경우, 게이트웨이 문제, 프록시 인증 누락, 잘못된 DNS 또는 인증 오류의 결과일 수 있습니다. 다음 오류가 표시될 수 있습니다.
    
-   * Errorcode.cisappliancegateway: HttpStatusCode를 나타냅니다. 이름 확인자 서비스에서 호스트 이름을 확인할 수 없습니다.
-   * Errorcode.cisapplianceproxy: HttpStatusCode 요청 예외 (HTTP 상태 코드 407): 클라이언트에서 프록시 서버를 사용 하 여 인증할 수 없습니다.
-   * Errorcode.cisappliancednserror: WebExceptionStatus를 나타냅니다. Webexceptionstatus.nameresolutionfailure 예외: 이름 확인자 서비스에서 호스트 이름을 확인할 수 없습니다.
-   * Errorcode.cisapplianceacserror: 서비스에서 인증 오류를 반환 했지만 연결이 있음을 나타냅니다.
+   * ErrorCode.CiSApplianceGateway: HttpStatusCode.BadGateway 예외를 표시합니다. 이름 확인자 서비스는 호스트 이름을 확인할 수 없습니다.
+   * ErrorCode.CiSApplianceProxy: HttpStatusCode.ProxyAuthenticationRequired 예외(HTTP 상태 코드 407)를 표시합니다. 클라이언트는 프록시 서버로 인증할 수 없습니다.
+   * ErrorCode.CiSApplianceDNSError: WebExceptionStatus.NameResolutionFailure 예외를 표시합니다. 이름 확인자 서비스는 호스트 이름을 확인할 수 없습니다.
+   * ErrorCode.CiSApplianceACSError: 서비스가 인증 오류를 반환했지만, 연결되었음을 나타냅니다.
      
-     웹 예외를 throw 하지 않는 경우 Errorcode.cisappliancefailure에 대해 확인 합니다 .이 오류는 어플라이언스에 오류가 발생 했음을 나타냅니다.
+     웹 예외가 발생하지 않은 경우, 어플라이언스 실패를 나타내는 ErrorCode.CiSApplianceFailure을 확인하세요.
 5. 클라우드 서비스 연결을 확인하세요. 서비스에서 웹 예외가 발생한 경우 다음 오류가 나타낼 수 있습니다.
    
-   * Errorcode.cisappliancegateway: HttpStatusCode를 나타냅니다. 중간 프록시 서버는 다른 프록시 또는 원본 서버에서 잘못 된 요청을 받았습니다.
-   * Errorcode.cisapplianceproxy: HttpStatusCode 요청 예외 (HTTP 상태 코드 407): 클라이언트에서 프록시 서버를 사용 하 여 인증할 수 없습니다.
-   * Errorcode.cisappliancednserror: WebExceptionStatus를 나타냅니다. Webexceptionstatus.nameresolutionfailure 예외: 이름 확인자 서비스에서 호스트 이름을 확인할 수 없습니다.
-   * Errorcode.cisapplianceacserror: 서비스에서 인증 오류를 반환 했지만 연결이 있는지를 나타냅니다.
+   * ErrorCode.CiSApplianceGateway: HttpStatusCode.BadGateway 예외를 나타냅니다. 중간 프록시 서버는 다른 프록시 또는 원래 서버에서 잘못된 요청을 수신했습니다.
+   * ErrorCode.CiSApplianceProxy: HttpStatusCode.ProxyAuthenticationRequired 예외(HTTP 상태 코드 407)를 표시합니다. 클라이언트는 프록시 서버로 인증할 수 없습니다.
+   * ErrorCode.CiSApplianceDNSError: WebExceptionStatus.NameResolutionFailure 예외를 표시합니다. 이름 확인자 서비스는 호스트 이름을 확인할 수 없습니다.
+   * ErrorCode.CiSApplianceACSError: 서비스가 인증 오류를 반환했지만, 연결되었음을 나타냅니다.
      
-     웹 예외를 throw 하지 않는 경우 StorSimple 장치 관리자 서비스에 문제가 있음을 나타내는 CiSApplianceSaasServiceError를 확인 합니다.
+     웹 예외가 발생하지 않은 경우, StorSimple 디바이스 관리자 서비스에 문제가 있음을 나타내는 ErrorCode.CiSApplianceSaasServiceError를 확인합니다.
 6. Azure Service Bus 연결을 확인합니다. ErrorCode.CiSApplianceServiceBusError는 디바이스가 Service Bus에 연결할 수 없음을 나타냅니다.
 
 로그 파일 CiSCommandletLog0Curr.errlog 및 CiSAgentsvc0Curr.errlog에는 예외 세부 정보와 같은 추가 정보가 있습니다.
@@ -357,7 +357,7 @@ Device is registered successfully
 Checking connectivity from device to SaaS.. Failure
 ```
 
-디바이스는 현재 웹 프록시 구성을 사용하여 연결할 수 없습니다. 웹 프록시 구성 또는 네트워크 연결 문제에 문제가 있을 수 있습니다. 이 경우, 웹 프록시 설정이 올바르며 웹 프록시 서버가 온라인 상태이고 연결할 수 있는지 확인해야 합니다.
+디바이스는 현재 웹 프록시 구성을 사용하여 연결할 수 없습니다. 웹 프록시 구성 또는 네트워크 연결에 문제가 발생할 수 있습니다. 이 경우, 웹 프록시 설정이 올바르며 웹 프록시 서버가 온라인 상태이고 연결할 수 있는지 확인해야 합니다.
 
 ## <a name="troubleshoot-with-the-sync-hcstime-cmdlet"></a>Sync-HcsTime cmdlet를 사용하여 문제 해결
 이 cmdlet을 사용하여 디바이스 시간을 표시합니다. 디바이스 시간에 NTP 서버와 오프셋에 있는 경우 이 cmdlet을 사용하여 NTP 서버와 시간을 강제로 동기화 할 수 있습니다.
@@ -419,11 +419,11 @@ Trace complete.
 ## <a name="troubleshoot-with-the-get-hcsroutingtable-cmdlet"></a>Get HcsRoutingTable cmdlet을 사용하여 문제해결
 StorSimple 디바이스에 대한 라우팅 테이블을 보려면 이 cmdlet을 사용합니다. 라우팅 테이블은 IP (인터넷 프로토콜) 네트워크를 통해 이동하는 데이터 패킷이 어디로 이동하는지 결정하는 데 도움이 되는 규칙 집합입니다.
 
-라우팅 테이블은 지정 네트워크에 데이터를 라우팅하는 인터페이스와 게이트웨이를 보여줍니다. 또한 특정 대상에 도달 하는 데 사용 되는 경로에 대 한 의사 결정 결정자 인 라우팅 메트릭이 제공 됩니다. 라우팅 메트릭이 낮을수록 기본 설정이 높습니다.
+라우팅 테이블은 지정 네트워크에 데이터를 라우팅하는 인터페이스와 게이트웨이를 보여줍니다. 이는 또한 특정 대상에 연결된 경로에 대한 의사 결정자인 라우팅 메트릭을 제공합니다. 라우팅 메트릭이 낮을수록 기본 설정이 높습니다.
 
-예를 들어 데이터 2와 데이터 3의 두 네트워크 인터페이스가 인터넷에 연결 되어 있다고 가정 합니다. 데이터 2 및 데이터 3에 대 한 라우팅 메트릭이 각각 15 및 261 인 경우 라우팅 메트릭이 낮은 데이터 2가 인터넷에 연결 하는 데 사용 되는 기본 인터페이스입니다.
+예를 들어, 네트워크 인터페이스가 2개(DATA 2, DATA 3) 있는 경우 데이터 2와 데이터 3을 인터넷에 연결합니다. 데이터 2 및 데이터 3에 대한 라우팅 메트릭이 각각 15, 261인 경우에는 라우팅 메트릭이 가장 낮은 데이터 2는 인터넷에 연결하는데 사용되는 기본 인터페이스입니다.
 
-StorSimple 디바이스에 업데이트 1을 실행하는 경우 데이터 0 네트워크 인터페이스에는 클라우드 트래픽에 대한 가장 높은 기본 설정을 합니다. 이 구성을 사용 하는 경우 다른 클라우드를 사용 하는 인터페이스가 있더라도 대부분의 클라우드 트래픽은 DATA 0을 통해 라우팅됩니다.<!--This implies that even if there are other cloud-enabled interfaces, the cloud traffic would be routed through DATA 0. - Preceding sentence replaces this one. Use of "This implies" is a bit murky. DATA 0 will be the preferred network interface? Is my translation OK?-->
+StorSimple 디바이스에 업데이트 1을 실행하는 경우 데이터 0 네트워크 인터페이스에는 클라우드 트래픽에 대한 가장 높은 기본 설정을 합니다. 이러한 구성으로, 다른 클라우드 가능 인터페이스가 있는 경우에도 클라우드 트래픽이 DATA 0 통해 라우팅됩니다.<!--This implies that even if there are other cloud-enabled interfaces, the cloud traffic would be routed through DATA 0. - Preceding sentence replaces this one. Use of "This implies" is a bit murky. DATA 0 will be the preferred network interface? Is my translation OK?-->
 
 (다음 예와 같이) 매개 변수를 지정하지 않고 `Get-HcsRoutingTable` cmdlet을 실행하면 cmdlet에서 IPv4 및 IPv6 라우팅 테이블을 모두 출력합니다. 아니면 `Get-HcsRoutingTable -IPv4` 또는 `Get-HcsRoutingTable -IPv6`를 지정하여 관련 라우팅 테이블을 가져올 수 있습니다.
 
@@ -504,7 +504,7 @@ Invoke-HcsSetupWizard: An error has occurred while registering the device. This 
 +FullyQualifiedErrorID: CiSClientCommunicationErros, Microsoft.HCS.Management.PowerShell.Cmdlets.InvokeHcsSetupWizardCommand
 ```
 
-이 오류는 다음과 같은 문제로 인해 발생할 수 있습니다.
+오류는 다음 문제 중 하나가 원인일 수 있습니다.
 
 * 잘못된 하드웨어 설치
 * 잘못된 네트워크 인터페이스
@@ -526,10 +526,10 @@ Invoke-HcsSetupWizard: An error has occurred while registering the device. This 
 3. 네트워크 인터페이스의 상태를 확인합니다.
    
    * Get-NetAdapter cmdlet를 사용하여 데이터 0에 대한 네트워크 인터페이스의 상태를 감지합니다. 
-   * 링크가 작동 하지 않는 경우 상태는 `ifindex` 인터페이스가 다운 되었음을 표시 합니다. 그런 다음 기기 및 스위치에 대한 네트워크 연결을 확인해야 합니다. 잘못된 케이블을 제거해야 합니다. 
-   * 활성 컨트롤러의 DATA 0 포트가 실패 한 것으로 의심 되 면 컨트롤러 1의 DATA 0 포트에 연결 하 여 확인할 수 있습니다. 컨트롤러 0에서 장치 뒷면에서 네트워크 케이블의 연결을 끊은 다음 컨트롤러 1에 케이블을 연결 하 고 Get-NetAdapter cmdlet을 다시 실행 합니다.
+   * 링크 작동하지 않은 경우, `ifindex` 상태는 인터페이스가 작동 중단되었음을 나타냅니다. 그런 다음 기기 및 스위치에 대한 네트워크 연결을 확인해야 합니다. 잘못된 케이블을 제거해야 합니다. 
+   * 활성 컨트롤러의 데이터 0 포트가 의심되는 경우, 컨트롤러 1의 데이터 0 포트에 연결하여 확인할 수 있습니다. 컨트롤러 0의 디바이스 뒷면에서 네트워크 케이블을 분리하고 컨트롤러 1에 케이블을 연결한 다음 Get-NetAdapter cmdlet을 다시 실행합니다.
    
-     컨트롤러의 DATA 0 포트가 실패 하면 다음 단계는 [Microsoft 지원에 문의 하세요](storsimple-8000-contact-microsoft-support.md) . 시스템에서 컨트롤러를 교체해야할 수 있습니다.
+     컨트롤러의 데이터 0 포트가 실패하면, 다음 단계는 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. 시스템에서 컨트롤러를 교체해야할 수 있습니다.
 4. 스위치에 연결을 확인합니다.
    
    * 기본 인클로저에서 컨트롤러 0과 컨트롤러 1의 데이터 0 네트워크 인터페이스가 동일한 서브넷에 있는지 확인합니다. 
@@ -545,7 +545,7 @@ Invoke-HcsSetupWizard: An error has occurred while registering the device. This 
      > 
      > 
 6. Test-Connection cmdlet을 사용하여 외부 네트워크에 연결했는지 확인합니다. 자세한 내용은 [Test-Connection cmdlet 문제 해결](#troubleshoot-with-the-test-connection-cmdlet)로 이동합니다.
-7. 방화벽 간섭을 확인합니다. VIP (가상 IP), 서브넷, 게이트웨이 및 DNS 설정이 모두 올바른지 확인 하 고 연결 문제가 계속 표시 되는 경우 방화벽이 장치와 외부 네트워크 간의 통신을 차단 하 고 있을 수 있습니다. 80 및 443 포트가 아웃바운드 통신을 위한 StorSimple 디바이스에서 사용할 수 있는지 확인합니다. 자세한 내용은 [StorSimple 디바이스에 대한 네트워킹 요구 사항](storsimple-8000-system-requirements.md#networking-requirements-for-your-storsimple-device)을 참조하세요.
+7. 방화벽 간섭을 확인합니다. 가상 IP(VIP), 서브넷, 게이트웨이 및 DNS 설정이 모두 올바른지 확인하고 연결 문제가 계속 나타나면, 방화벽이 디바이스와 외부 네트워크 간의 통신을 차단하고 있을 수 있습니다. 80 및 443 포트가 아웃바운드 통신을 위한 StorSimple 디바이스에서 사용할 수 있는지 확인합니다. 자세한 내용은 [StorSimple 디바이스에 대한 네트워킹 요구 사항](storsimple-8000-system-requirements.md#networking-requirements-for-your-storsimple-device)을 참조하세요.
 8. 로그를 살펴봅니다. [문제 해결에 사용 가능한 지원 패키지 및 디바이스 로그](#support-packages-and-device-logs-available-for-troubleshooting)로 이동합니다.
 9. 앞의 단계로 문제가 해결되지 않으면 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요.
 
