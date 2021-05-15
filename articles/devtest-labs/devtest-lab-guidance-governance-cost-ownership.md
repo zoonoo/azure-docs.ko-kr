@@ -1,14 +1,14 @@
 ---
 title: Azure DevTest Labs에서 비용 및 소유권 관리
-description: 이 문서에서는 비용을 최적화 하 고 사용자 환경에서 소유권을 맞추는 데 도움이 되는 정보를 제공 합니다.
+description: 이 문서에서는 비용을 최적화하고 현재 환경에서 소유권을 조정하는 데 유용한 정보를 제공합니다.
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: dfac69a055c9b0c75032622caf7fb8502fad3406
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92328269"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Azure DevTest Labs 인프라의 거버넌스 - 비용 및 소유권 관리
@@ -36,7 +36,7 @@ DevTest 제안을 사용하기로 결정한 경우 이 혜택이 개발 및 애�
 
 ## <a name="define-role-based-access-across-your-organization"></a>조직 전체에서 역할 기반 액세스 정의
 ### <a name="question"></a>질문
-DevTest Labs 환경에 대 한 Azure 역할 기반 액세스 제어를 정의 하 여 개발자/테스트에서 작업을 수행할 수 있는 동안 제어할 수 있는지 확인 합니다. 어떻게 할까요? 
+개발자/테스트 담당자가 해당 작업을 수행하는 동안 IT 부서에서 관리할 수 있도록 내 DevTest Labs의 Azure 역할 기반 액세스 제어를 정의하려면 어떻게 해야 하나요? 
 
 ### <a name="answer"></a>답변
 광범위하게 적용되는 한 가지 패턴이 있지만 세부 사항은 조직에 따라 다릅니다.
@@ -49,7 +49,7 @@ DevTest Labs 리소스는 프로젝트/애플리케이션 팀에 가까운 소�
 
 프로젝트/애플리케이션 팀 멤버를 DevTest Labs 사용자 역할에 추가하는 것이 좋습니다. 이러한 사용자는 가상 머신을 만들 수 있습니다(랩 및 구독 수준 정책에 따라). 또한 자신의 가상 머신을 관리할 수도 있습니다. 다른 사용자에게 속하는 가상 머신은 관리할 수 없습니다.
 
-자세한 내용은 [Azure enterprise 스 캐 폴드 – 규범적 구독 거 버 넌 스](/azure/architecture/cloud-adoption/appendix/azure-scaffold) 설명서를 참조 하세요.
+자세한 내용은 [Azure 엔터프라이즈 스캐폴드: 규범적 구독 거버넌스](/azure/architecture/cloud-adoption/appendix/azure-scaffold) 설명서를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

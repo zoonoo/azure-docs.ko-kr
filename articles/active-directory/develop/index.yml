@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Microsoft ID 플랫폼 설명서
-summary: Microsoft ID 플랫폼은 인증 서비스, 오픈 소스 라이브러리 및 애플리케이션 관리 도구입니다. 빠른 시작, 자습서 및 코드 샘플을 사용하여 최신 표준 기반 인증 솔루션을 만드는 방법을 알아봅니다. 사용자 및 고객이 Microsoft ID 또는 소셜 계정을 사용하여 로그인하는 애플리케이션을 빌드하고 API 또는 Microsoft Graph와 같은 Microsoft API에 대한 액세스 권한을 부여합니다.
+summary: 개발자를 위한 Microsoft ID 플랫폼은 인증 서비스, 오픈 소스 라이브러리 및 애플리케이션 관리 도구입니다. 빠른 시작, 자습서 및 코드 샘플을 사용하여 최신 표준 기반 인증 솔루션을 만드는 방법을 알아봅니다. 사용자 및 고객이 Microsoft ID 또는 소셜 계정을 사용하여 로그인하는 애플리케이션을 빌드하고 API 또는 Microsoft Graph와 같은 Microsoft API에 대한 액세스 권한을 부여합니다.
 metadata:
   ms.topic: landing-page
-  ms.date: 10/07/2020
+  ms.date: 05/11/2021
   author: mmacy
   ms.author: marsma
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: 86e1b4de21738ec584d7b5cae1346f166adfd595
-  ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+  ms.openlocfilehash: 607672d77a71dbcbe60042a2b6c6fd586aab8fe3
+  ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/27/2021
-  ms.locfileid: "108072498"
+  ms.lasthandoff: 05/11/2021
+  ms.locfileid: "109750523"
 landingContent:
 - title: Microsoft ID 플랫폼 정보
   linkLists:
@@ -51,9 +51,11 @@ landingContent:
   - linkListType: get-started
     links:
     - text: Angular
-      url: quickstart-v2-angular.md
+      url: tutorial-v2-angular-auth-code.md
     - text: JavaScript
-      url: quickstart-v2-javascript-auth-code.md
+      url: tutorial-v2-javascript-auth-code.md
+    - text: React
+      url: tutorial-v2-react.md
 - title: 웹앱
   linkLists:
   - linkListType: get-started
@@ -116,13 +118,9 @@ landingContent:
       url: ../managed-identities-azure-resources/overview.md
     - text: 관리 ID 및 Azure VM
       url: ../managed-identities-azure-resources/how-managed-identities-work-vm.md
-- title: 문서에서 새로 만들기
+- title: ID 플랫폼 문서의 새로운 기능
   linkLists:
   - linkListType: whats-new
     links:
     - text: Docs의 새로운 기능
       url: whats-new-docs.md
-    - text: Microsoft Identity Web 라이브러리 개요
-      url: microsoft-identity-web.md
-    - text: '자습서: Blazor Server'
-      url: tutorial-blazor-server.md

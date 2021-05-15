@@ -8,14 +8,14 @@ manager: gwallace
 editor: ''
 ms.service: api-management
 ms.topic: article
-ms.date: 04/26/2020
+ms.date: 04/19/2021
 ms.author: apimpm
-ms.openlocfilehash: b9e990988770e8aca015ae8b1159bb4f5e50df57
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 531421726bc1e081d85eca9d535267520d3fea5f
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "82205093"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725610"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Azure API Management 자체 호스팅 게이트웨이를 Docker에 배포
 
@@ -39,23 +39,23 @@ ms.locfileid: "82205093"
 2. 배포하려는 게이트웨이 리소스를 선택합니다.
 3. **배포** 를 선택합니다.
 4. **토큰** 텍스트 상자의 액세스 토큰은 기본 **만료** 및 **비밀 키** 값을 사용하여 자동으로 생성되었습니다. 필요한 경우 컨트롤 중 하나 또는 둘 다에서 원하는 값을 선택하여 새 토큰을 생성합니다.
-4. **배포 스크립트** 아래에서 **Docker** 가 선택되어 있는지 확인합니다.
-5. **환경** 옆에 있는 **env.conf** 파일 링크를 선택하여 파일을 다운로드합니다.
-6. **실행** 텍스트 상자의 오른쪽 끝에 있는 **복사** 아이콘을 선택하여 Docker 명령을 클립보드로 복사합니다.
-7. 명령을 터미널(또는 명령) 창에 붙여넣습니다. 필요에 따라 포트 매핑 및 컨테이너 이름을 조정합니다. 명령은 다운로드한 환경 파일이 현재 디렉터리에 있는 것으로 가정합니다.
-```
-    docker run -d -p 80:8080 -p 443:8081 --name <gateway-name> --env-file env.conf mcr.microsoft.com/azure-api-management/gateway:<tag>
-```
-8. 명령을 실행합니다. 명령은 Microsoft Container Registry에서 다운로드한 [컨테이너 이미지](https://aka.ms/apim/sputnik/dhub)를 사용하여 컨테이너를 실행하고 컨테이너의 HTTP(8080) 및 HTTPS(8081) 포트를 호스트의 포트 80 및 443에 매핑하라고 Docker 환경에 지시합니다.
-9. 아래 명령을 실행하여 게이트웨이 컨테이너가 실행되고 있는지 확인합니다.
-```console
-docker ps
-CONTAINER ID        IMAGE                                                 COMMAND                  CREATED             STATUS              PORTS                                         NAMES
-895ef0ecf13b        mcr.microsoft.com/azure-api-management/gateway:latest   "/bin/sh -c 'dotnet …"   5 seconds ago       Up 3 seconds        0.0.0.0:80->8080/tcp, 0.0.0.0:443->8081/tcp   my-gateway
-```
+5. **배포 스크립트** 아래에서 **Docker** 가 선택되어 있는지 확인합니다.
+6. **환경** 옆에 있는 **env.conf** 파일 링크를 선택하여 파일을 다운로드합니다.
+7. **실행** 텍스트 상자의 오른쪽 끝에 있는 **복사** 아이콘을 선택하여 Docker 명령을 클립보드로 복사합니다.
+8. 명령을 터미널(또는 명령) 창에 붙여넣습니다. 필요에 따라 포트 매핑 및 컨테이너 이름을 조정합니다. 명령은 다운로드한 환경 파일이 현재 디렉터리에 있는 것으로 가정합니다.
+   ```
+       docker run -d -p 80:8080 -p 443:8081 --name <gateway-name> --env-file env.conf mcr.microsoft.com/azure-api-management/gateway:<tag>
+   ```
+9. 명령을 실행합니다. 명령은 Microsoft Container Registry에서 다운로드한 [컨테이너 이미지](https://aka.ms/apim/sputnik/dhub)를 사용하여 컨테이너를 실행하고 컨테이너의 HTTP(8080) 및 HTTPS(8081) 포트를 호스트의 포트 80 및 443에 매핑하라고 Docker 환경에 지시합니다.
+10. 아래 명령을 실행하여 게이트웨이 컨테이너가 실행되고 있는지 확인합니다.
+    ```console
+    docker ps
+    CONTAINER ID        IMAGE                                                 COMMAND                  CREATED             STATUS              PORTS                                         NAMES
+    895ef0ecf13b        mcr.microsoft.com/azure-api-management/gateway:latest   "/bin/sh -c 'dotnet …"   5 seconds ago       Up 3 seconds        0.0.0.0:80->8080/tcp, 0.0.0.0:443->8081/tcp   my-gateway
+    ```
 10. Azure Portal로 돌아가서 **개요** 를 클릭하고 방금 배포한 자체 호스팅 게이트웨이 컨테이너가 정상 상태를 보고하는지 확인합니다.
 
-![게이트웨이 상태](media/how-to-deploy-self-hosted-gateway-docker/status.png)
+    ![게이트웨이 상태](media/how-to-deploy-self-hosted-gateway-docker/status.png)
 
 > [!TIP]
 > <code>console docker container logs <gateway-name></code> 명령을 사용하여 자체 호스팅 게이트웨이 로그의 스냅샷을 봅니다.

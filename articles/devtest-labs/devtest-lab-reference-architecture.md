@@ -4,12 +4,12 @@ description: 이 문서에서는 엔터프라이즈에서 Azure DevTest Labs에 
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: d977ae8341981c90096c10bbc2c051372b4d8dab
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 29f739c2fb9dd1cc58bf6c400eeee1bebb6243c2
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125880"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "92328847"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>엔터프라이즈의 Azure DevTest Labs 참조 아키텍처
 이 문서에서는 엔터프라이즈에서 Azure DevTest Labs 기반 솔루션을 배포하는 데 도움이 되는 참조 아키텍처를 제공합니다. 이 문서의 내용은 다음과 같습니다.
@@ -20,7 +20,7 @@ ms.locfileid: "108125880"
 
 ![참조 아키텍처 다이어그램](./media/devtest-lab-reference-architecture/reference-architecture.png)
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>Architecture
 다음은 참조 아키텍처의 주요 요소입니다.
 
 - **Azure AD(Azure Active Directory)** : DevTest Labs에서는 [ID 관리에 Azure AD 서비스](../active-directory/fundamentals/active-directory-whatis.md)를 사용합니다. DevTest Labs를 기반으로 환경에 대한 액세스 권한을 사용자에게 부여하는 경우 다음 두 가지 주요 측면을 고려하세요.
@@ -34,7 +34,7 @@ ms.locfileid: "108125880"
 - **원격 데스크톱 게이트웨이**: 기업은 일반적으로 회사 방화벽에서 나가는 원격 데스크톱 연결을 차단합니다. DevTest Labs에는 클라우드 기반 환경에 연결을 사용하도록 설정하는 몇 가지 옵션이 있습니다. 예를 들면 다음과 같습니다.
   - [원격 데스크톱 게이트웨이](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)를 사용하고 게이트웨이 부하 분산 장치의 고정 IP 주소를 허용합니다.
   - ExpressRoute/사이트 간 VPN 연결을 통해 [들어오는 모든 RDP 트래픽을 보냅니다](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md). 이 기능은 기업이 DevTest Labs 배포를 계획할 때 일반적으로 고려하는 사항입니다.
-- **네트워크 서비스(가상 네트워크, 서브넷)** : [Azure 네트워킹](../networking/fundamentals/networking-overview.md) 토폴로지는 DevTest Labs 아키텍처의 또 다른 주요 요소입니다. 랩의 리소스가 서로 통신하고 온-프레미스 및 인터넷에 액세스할 수 있는지 여부를 제어합니다. 이 아키텍처 다이어그램에는 고객이 DevTest Labs를 사용하는 가장 일반적인 방법, 즉 모든 랩이 [허브-스포크 모델](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)을 사용하여 [가상 네트워크 피어링](../virtual-network/virtual-network-peering-overview.md) 을 통해 ExpressRoute/온-프레미스에 대한 사이트 간 VPN 연결에 연결하는 방법이 포함되어 있습니다. 그러나 DevTest Labs는 Azure Virtual Network를 직접 사용하므로 네트워킹 인프라를 설정하는 방법에 제한이 없습니다.
+- **네트워크 서비스(가상 네트워크, 서브넷)** : [Azure 네트워킹](../networking/networking-overview.md) 토폴로지는 DevTest Labs 아키텍처의 또 다른 주요 요소입니다. 랩의 리소스가 서로 통신하고 온-프레미스 및 인터넷에 액세스할 수 있는지 여부를 제어합니다. 이 아키텍처 다이어그램에는 고객이 DevTest Labs를 사용하는 가장 일반적인 방법, 즉 모든 랩이 [허브-스포크 모델](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)을 사용하여 [가상 네트워크 피어링](../virtual-network/virtual-network-peering-overview.md) 을 통해 ExpressRoute/온-프레미스에 대한 사이트 간 VPN 연결에 연결하는 방법이 포함되어 있습니다. 그러나 DevTest Labs는 Azure Virtual Network를 직접 사용하므로 네트워킹 인프라를 설정하는 방법에 제한이 없습니다.
 - **DevTest labs**: DevTest labs는 전반적인 아키텍처의 핵심 부분입니다. 서비스에 대해 자세히 알아보려면 [DevTest Labs 정보](devtest-lab-overview.md)를 참조하세요.
 - **가상 머신 및 기타 리소스(SaaS, PaaS, IaaS)** : 가상 머신은 DevTest Labs에서 다른 Azure 리소스와 함께 지원하는 주요 워크로드입니다. DevTest Labs를 통해 기업은 (VM 및 기타 Azure 리소스를 비롯한) Azure 리소스에 쉽게 액세스할 수 있습니다. [개발자](devtest-lab-developer-lab.md)와 [테스터](devtest-lab-test-env.md)를 위한 Azure 액세스에 대해 자세히 알아보세요.
 

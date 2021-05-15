@@ -2,7 +2,6 @@
 title: Azure 게스트 OS에 대한 지원 가능성 및 사용 중지 정책 가이드 | Microsoft Docs
 description: Cloud Services에서 사용하는 Azure 게스트 OS에 대해 Microsoft가 지원하는 내용에 대한 정보를 제공합니다.
 services: cloud-services
-ms.subservice: auto-os-updates
 documentationcenter: na
 author: raiye
 manager: timlt
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: fb59ff08409da14e01b5c36db382ef0f4f779525
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: fbe9b3379799fe3cf0a56d921ab257bc87606ca9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108735986"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "68945445"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure 게스트 OS 지원 가능성 및 사용 중지 정책
 이 페이지의 정보는 Cloud Services 작업자 및 웹 역할(PaaS)에 대해 Azure 게스트 운영 체제([게스트 OS](cloud-services-guestos-update-matrix.md))와 관련됩니다. Virtual Machines(IaaS)에 적용되지 않습니다.

@@ -9,12 +9,12 @@ ms.date: 09/06/2018
 ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: 0a54d0c85902915d2ee62acd8a1d38b8db8b221c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 801d073642114addeed87c4ee2073774f7888fa5
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92536048"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109487622"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Azure Portal을 사용하여 IoT Hub 만들기
 
@@ -60,7 +60,7 @@ IoT 허브에 설정할 수 있는 몇 가지 속성은 다음 과같습니다.
 
 **만들기** 를 클릭하여 새로 만들어진 이 정책을 기존 목록에 추가합니다.
 
-특정 권한으로 부여되는 액세스에 대한 자세한 내용은 [IoT Hub 권한](./iot-hub-devguide-security.md#iot-hub-permissions)을 참조하세요.
+특정 권한으로 부여되는 액세스에 대한 자세한 내용은 [IoT Hub 권한](./iot-hub-dev-guide-sas.md#access-control-and-permissions)을 참조하세요.
 
 ## <a name="register-a-new-device-in-the-iot-hub"></a>IoT Hub에서 새 디바이스 등록
 

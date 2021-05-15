@@ -1,13 +1,13 @@
 ---
-title: 저장소 계정 이름 오류
+title: 스토리지 계정 이름 오류
 description: 스토리지 계정 이름을 지정할 때 발생할 수 있는 오류를 설명합니다.
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.openlocfilehash: 5b2706d8540ea38ef08bf7ca0f804e6811a93085
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "76153975"
 ---
 # <a name="resolve-errors-for-storage-account-names"></a>스토리지 계정 이름 오류 해결

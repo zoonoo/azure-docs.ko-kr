@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: 10a3360f30d211336e4ce861b124a307c85fb150
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 9d2ffac813456398c02066c978c37bdb09501aeb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308254"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105628988"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub 고가용성 및 재해 복구
 
@@ -64,7 +64,7 @@ IoT Hub에 대한 장애 조치(failover) 작업이 완료되면 해당 디바�
 >
 > - Azure Functions 또는 Azure Stream Analytics를 사용하여 기본 제공 이벤트 엔드포인트를 연결하는 경우, **다시 시작** 을 수행해야 할 수 있습니다. 이는 장애 조치(failover) 중 이전 오프셋이 더 이상 유효하지 않기 때문입니다.
 >
-> - 스토리지로 라우팅하는 경우, Blob 또는 파일을 나열한 다음, 이를 반복하여 파티션을 가정하지 않고 모든 Blob 또는 파일을 읽을 수 있도록 하는 것이 좋습니다. 파티션 범위는 Microsoft 시작 장애 조치 또는 수동 장애 조치 중에 변경할 수 있습니다. Blob 목록을 열거하기 위해 [Blob API 나열](/rest/api/storageservices/list-blobs)을 사용하거나 파일 목록에 대해 [ADLS Gen2 API 나열](/rest/api/storageservices/datalakestoragegen2/filesystem/list)을 사용할 수 있습니다. 자세한 내용은 [라우팅 엔드포인트로서의 Azure Storage](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint)를 참조하세요.
+> - 스토리지로 라우팅하는 경우, Blob 또는 파일을 나열한 다음, 이를 반복하여 파티션을 가정하지 않고 모든 Blob 또는 파일을 읽을 수 있도록 하는 것이 좋습니다. 파티션 범위는 Microsoft 시작 장애 조치 또는 수동 장애 조치 중에 변경할 수 있습니다. Blob 목록을 열거하기 위해 [Blob API 나열](/rest/api/storageservices/list-blobs)을 사용하거나 파일 목록에 대해 [ADLS Gen2 API 나열](/rest/api/storageservices/datalakestoragegen2/filesystem/listpaths)을 사용할 수 있습니다. 자세한 내용은 [라우팅 엔드포인트로서의 Azure Storage](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint)를 참조하세요.
 
 ## <a name="microsoft-initiated-failover"></a>Microsoft 시작 장애 조치
 

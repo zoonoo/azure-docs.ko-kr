@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management-Azure Active Directory에서 Azure 리소스 역할에 대 한 보안 경고 구성 Microsoft Docs
+title: Privileged Identity Management에서 Azure 리소스 역할에 대한 보안 경고 구성 - Azure Active Directory | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 역할에 대한 보안 경고를 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -16,23 +16,23 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0bfca096eb49ee9f1807935de1dac49151cc8ac3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84743765"
 ---
-# <a name="configure-security-alerts-for-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할에 대 한 보안 경고 구성
+# <a name="configure-security-alerts-for-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할에 대한 보안 경고 구성
 
-PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직에 의심 스러운 또는 안전 하지 않은 활동이 있을 때 경고를 생성 합니다. 경고가 트리거될 때 경고 페이지에 표시됩니다.
+PIM(Privileged Identity Management)은 사용자의 Azure AD(Azure Active Directory) 조직에 의심스럽거나 안전하지 않은 활동이 있을 때 경고를 생성합니다. 경고가 트리거될 때 경고 페이지에 표시됩니다.
 
-![Azure 리소스-경고, 위험 수준 및 수를 나열 하는 경고 페이지](media/pim-resource-roles-configure-alerts/rbac-alerts-page.png)
+![Azure 리소스 - 경고, 위험 수준, 수를 나열하는 경고 페이지](media/pim-resource-roles-configure-alerts/rbac-alerts-page.png)
 
 ## <a name="review-alerts"></a>경고 검토
 
-경고를 선택 하 여 수정 지침과 함께 경고를 트리거한 사용자 또는 역할을 나열 하는 보고서를 표시 합니다.
+경고를 선택하여 수정 지침과 함께 경고를 트리거하는 사용자 또는 역할을 나열하는 보고서를 확인합니다.
 
-![마지막 검사 시간, 설명, 완화 단계, 유형, 심각도, 보안 영향 및 다음 시간을 방지 하는 방법 등을 보여 주는 경고 보고서](media/pim-resource-roles-configure-alerts/rbac-alert-info.png)
+![마지막 검사 시간, 설명, 완화 단계, 형식, 심각도, 보안 영향, 다음을 방지하는 방법을 표시하는 경고 보고서](media/pim-resource-roles-configure-alerts/rbac-alert-info.png)
 
 ## <a name="alerts"></a>경고
 
@@ -52,11 +52,11 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 
 경고 페이지에서 **설정** 으로 이동합니다.
 
-![설정이 강조 표시 된 경고 페이지](media/pim-resource-roles-configure-alerts/rbac-navigate-settings.png)
+![설정이 강조 표시된 경고 페이지](media/pim-resource-roles-configure-alerts/rbac-navigate-settings.png)
 
 환경 및 보안 목표로 작업하는 다양한 경고에서 설정을 사용자 지정합니다.
 
-![설정을 사용 하도록 설정 하 고 구성 하는 경고에 대 한 페이지 설정](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
+![설정을 사용하도록 설정하고 구성하는 경고에 대한 페이지 설정](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
 
 ## <a name="next-steps"></a>다음 단계
 

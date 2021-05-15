@@ -1,5 +1,5 @@
 ---
-title: Windows 용 Azure VM 확장 및 기능
+title: Azure VM 확장 및 Windows용 기능
 description: 확장이 제공하거나 개선하는 기능별로 그룹화하여 Azure 가상 머신에 사용할 수 있는 확장을 알아봅니다.
 ms.topic: article
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.author: amjads
 ms.collection: windows
 ms.date: 03/30/2018
 ms.openlocfilehash: b9b10e2ed58a41cee99e7e6ef1c3994035460407
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104601863"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Windows용 가상 머신 확장 및 기능
@@ -28,7 +28,7 @@ Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 자동화
 각각 특정 사용 사례가 있는 몇 가지 다른 Azure VM 확장을 사용할 수 있습니다. 일부 사례:
 
 - Windows용 DSC 확장을 사용하여 VM에 PowerShell의 필요한 상태 구성을 적용합니다. 자세한 내용은 [Azure 필요한 상태 구성 확장](dsc-overview.md)을 참조하세요.
-- Log Analytics 에이전트 VM 확장을 사용 하 여 VM 모니터링을 구성 합니다. 자세한 내용은 [Azure vm을 Azure Monitor 로그에 연결](../../azure-monitor/vm/quick-collect-azurevm.md)을 참조 하세요.
+- 로그 분석 에이전트 VM 확장을 사용하여 VM의 모니터링을 구성합니다. 자세한 내용은 [Azure Monitor 로그에 Azure VM 연결](../../azure-monitor/vm/quick-collect-azurevm.md)을 참조하세요.
 - Chef를 사용하여 Azure VM을 구성합니다. 자세한 내용은 [Chef를 사용하여 Azure VM 배포 자동화](/azure/developer/chef/windows-vm-configure)를 참조하세요.
 - Datadog 확장으로 Azure 인프라의 모니터링을 구성합니다. 자세한 내용은 [Datadog 블로그](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)를 참조하세요.
 
@@ -43,7 +43,7 @@ VM에서 확장을 처리하려면 Azure Windows 에이전트를 설치해야 �
 
 Azure VM 에이전트는 Azure VM과 Azure 패브릭 컨트롤러 간 상호 작용을 관리합니다. VM 에이전트는 VM 확장 실행을 포함하여 Azure VM 배포 및 관리의 다양한 기능적 측면을 담당합니다. Azure VM 에이전트는 Azure Marketplace 이미지에 미리 설치되며 지원되는 운영 체제에 수동으로 설치될 수 있습니다. Windows용 Azure VM 에이전트는 Windows 게스트 에이전트라고 합니다.
 
-지원 되는 운영 체제 및 설치 지침에 대 한 자세한 내용은 [Azure 가상 컴퓨터 에이전트](agent-windows.md)를 참조 하세요.
+지원되는 운영 체제 및 설치 지침에 대한 자세한 내용은 [Azure Virtual Machines 에이전트](agent-windows.md)를 참조하세요.
 
 #### <a name="supported-agent-versions"></a>지원되는 에이전트 버전
 
@@ -58,14 +58,14 @@ Windows 게스트 에이전트는 여러 OS에서 실행되지만 확장 프레�
 
 #### <a name="network-access"></a>네트워크 액세스
 
-확장 패키지는 Azure Storage 확장 리포지토리에서 다운로드되고, 확장 상태 업로드는 Azure Storage에 게시됩니다. [지원 되](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) 는 버전의 에이전트를 사용 하는 경우 VM 지역에서 Azure Storage에 대 한 액세스를 허용할 필요가 없습니다. 에이전트를 사용 하 여 에이전트 통신을 위해 Azure 패브릭 컨트롤러로 통신을 리디렉션할 수 있습니다 (개인 IP [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)의 권한 있는 채널을 통한 hostgaplugin 기능). 지원되지 않는 버전의 에이전트가 설치된 경우 VM의 해당 지역에서 Azure Storage에 대한 아웃바운드 액세스 권한을 허용해야 합니다.
+확장 패키지는 Azure Storage 확장 리포지토리에서 다운로드되고, 확장 상태 업로드는 Azure Storage에 게시됩니다. 에이전트의 [지원](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) 버전을 사용하는 경우 에이전트를 사용하여 에이전트 통신을 위한 Azure 패브릭 컨트롤러에 통신을 리디렉션할 수 있는 것처럼 VM 지역에서 Azure Storage에 대한 액세스 권한을 허용하지 않아도 됩니다(개인 IP [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)에서 권한 있는 채널을 통한 HostGAPlugin 기능). 지원되지 않는 버전의 에이전트가 설치된 경우 VM의 해당 지역에서 Azure Storage에 대한 아웃바운드 액세스 권한을 허용해야 합니다.
 
 > [!IMPORTANT]
-> 게스트 방화벽 또는 프록시를 사용 하 여 *168.63.129.16* 에 대 한 액세스를 차단 하는 경우에는 위의 방법에 관계 없이 확장이 실패 합니다. 포트 80, 443 및 32526가 필요 합니다.
+> 게스트 방화벽이나 프록시를 사용하여 *168.63.129.16* 에 대한 액세스를 차단한 경우 확장은 위와 관계없이 실패합니다. 포트 80, 443 및 32526가 필요합니다.
 
-에이전트는 확장 패키지 및 보고 상태를 다운로드하는 데 사용할 수 있습니다. 예를 들어 확장을 설치하는 데 GitHub에서 스크립트(사용자 지정 스크립트)를 다운로드해야 하거나 Azure Storage(Azure Backup)에 대한 액세스 권한이 필요한 경우 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 확장마다 고유한 권한의 애플리케이션이므로 요구 사항이 다릅니다. Azure Storage 또는 Azure Active Directory에 대 한 액세스가 필요한 확장의 경우 [Azure NSG 서비스 태그](../../virtual-network/network-security-groups-overview.md#service-tags) 를 사용 하 여 저장소 또는 AzureActiveDirectory에 대 한 액세스를 허용할 수 있습니다.
+에이전트는 확장 패키지 및 보고 상태를 다운로드하는 데 사용할 수 있습니다. 예를 들어 확장을 설치하는 데 GitHub에서 스크립트(사용자 지정 스크립트)를 다운로드해야 하거나 Azure Storage(Azure Backup)에 대한 액세스 권한이 필요한 경우 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 확장마다 고유한 권한의 애플리케이션이므로 요구 사항이 다릅니다. Azure Storage 또는 Azure Active Directory에 대한 액세스 권한이 필요한 확장의 경우 Storage 또는 AzureActiveDirectory에 [Azure NSG 서비스 태그](../../virtual-network/network-security-groups-overview.md#service-tags)를 사용하여 액세스를 허용할 수 있습니다.
 
-Windows 게스트 에이전트는를 통해 에이전트 트래픽 요청을 리디렉션할 수 있는 프록시 서버를 지원 하지 않습니다. 즉, Windows 게스트 에이전트는 사용자 지정 프록시 (있는 경우)를 사용 하 여 인터넷 또는 IP 168.63.129.16를 통해 호스트에 있는 리소스에 액세스 합니다.
+Windows 게스트 에이전트에는 에이전트 트래픽 요청을 리디렉션할 수 있는 프록시 서버를 지원하지 않습니다. 즉, Windows 게스트 에이전트는 사용자 지정 프록시(있는 경우)를 사용하여 인터넷 또는 IP 168.63.129.16을 통해 호스트에 있는 리소스에 액세스합니다.
 
 ## <a name="discover-vm-extensions"></a>VM 확장 검색
 
@@ -143,7 +143,7 @@ Azure Portal을 통해 기존 VM에 VM 확장을 적용할 수 있습니다. 포
 
 ### <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
 
-Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포를 통해 실행할 수 있습니다. 템플릿을 사용하여 확장을 배포할 때 완전히 구성된 Azure 배포를 만들 수 있습니다. 예를 들어 다음 JSON은 부하 분산 된 Vm 및 Azure SQL Database 집합을 배포한 다음 각 VM에 .NET Core 응용 프로그램을 설치 하는 리소스 관리자 템플릿에서 가져온 것입니다. VM 확장은 소프트웨어 설치를 관리합니다.
+Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포를 통해 실행할 수 있습니다. 템플릿을 사용하여 확장을 배포할 때 완전히 구성된 Azure 배포를 만들 수 있습니다. 예를 들어 다음 JSON은 부하 분산된 VM 집합 및 Azure SQL 데이터베이스를 배포한 후 각 VM에 .NET Core 애플리케이션을 설치하는 Resource Manager 템플릿에서 가져옵니다. VM 확장은 소프트웨어 설치를 관리합니다.
 
 자세한 내용은 전체 [Resource Manager 템플릿](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)을 참조하세요.
 
@@ -245,9 +245,9 @@ VM 확장을 실행하는 경우 자격 증명, 스토리지 계정 이름 및 �
 }
 ```
 
-확장을 사용 하는 Azure IaaS VM에서 인증서 콘솔에는 **_Microsoft AZURE CRP 인증서 생성기_** 주체가 있는 인증서가 표시 될 수 있습니다. 클래식 RDFE VM에서 이러한 인증서에는 **_확장을 위한 Windows Azure 서비스 관리_** 주체 이름이 있습니다.
+확장을 사용하는 Azure IaaS VM의 인증서 콘솔에는 **_Windows Azure CRP 인증서 생성기_** 주체가 있는 인증서가 표시될 수 있습니다. 클래식 RDFE VM의 이러한 인증서에는 **_Windows Azure Service Management for Extensions_** 주체 이름이 있습니다.
 
-이러한 인증서는 확장에서 사용하는 보호된 설정(암호, 기타 자격 증명)을 전송하는 동안 VM과 해당 호스트 간의 통신을 보호합니다. 인증서는 Azure 패브릭 컨트롤러에 의해 빌드되고 VM 에이전트로 전달됩니다. 매일 VM을 중지하고 시작하는 경우 패브릭 컨트롤러에서 새 인증서를 만들 수 있습니다. 인증서는 컴퓨터의 개인 인증서 저장소에 저장됩니다. 이러한 인증서는 삭제할 수 있습니다. 필요한 경우 VM 에이전트에서 인증서를 다시 만듭니다.
+이러한 인증서는 확장에서 사용하는 보호된 설정(암호, 기타 자격 증명)을 전송하는 동안 VM과 해당 호스트 간의 통신을 보호합니다. 인증서는 Azure 패브릭 컨트롤러에 의해 빌드되고 VM 에이전트로 전달됩니다. 매일 VM을 중지하고 시작하는 경우 패브릭 컨트롤러에서 새 인증서를 만들 수 있습니다. 인증서는 컴퓨터의 개인 인증서 저장소에 저장됩니다. 이러한 인증서는 삭제할 수 있습니다. 필요한 경우 VM 에이전트가 인증서를 다시 만듭니다.
 
 ### <a name="how-do-agents-and-extensions-get-updated"></a>에이전트 및 확장을 업데이트하는 방법
 
@@ -346,9 +346,9 @@ AutoUpgradeMinorVersion     : True
 
 다음 문제 해결 단계는 모든 VM 확장에 적용됩니다.
 
-1. Windows 게스트 에이전트 로그를 확인 하려면 확장이 *C:\WindowsAzure\Logs\WaAppAgent.log* 에서 프로 비전 되는 경우 활동을 확인 합니다.
+1. Windows 게스트 에이전트 로그를 확인하려면 *C:\WindowsAzure\Logs\WaAppAgent.log* 에서 확장이 프로비저닝된 경우 작업을 확인합니다.
 
-2. C:\WindowsAzure\Logs\Plugins에 대 한 자세한 내용은 실제 확장 로그를 참조 하세요. *\\ <extensionName>*
+2. *C:\WindowsAzure\Logs\Plugins\\<extensionName>* 에서 실제 확장 로그에 대한 자세한 내용을 확인합니다.
 
 3. 오류 코드, 알려진 문제 등에 대한 확장 특정 설명서 문제 해결 섹션을 확인합니다.
 
@@ -364,7 +364,7 @@ AutoUpgradeMinorVersion     : True
 
 ### <a name="view-extension-status"></a>확장 상태 보기
 
-Vm에 대해 VM 확장을 실행 한 후 [new-azvm](/powershell/module/az.compute/get-azvm) 를 사용 하 여 확장 상태를 반환 합니다. *하위 상태[0]* 에서는 확장 프로비전이 성공했음을 보여줍니다. 즉, VM에 배포에 성공했지만 VM 내에서 확장의 실행에 실패했습니다. *하위 상태[1]*
+VM 확장이 VM에 대해 실행된 후에 [Get-AzVM](/powershell/module/az.compute/get-azvm)을 사용하여 확장 상태를 반환합니다. *하위 상태[0]* 에서는 확장 프로비전이 성공했음을 보여줍니다. 즉, VM에 배포에 성공했지만 VM 내에서 확장의 실행에 실패했습니다. *하위 상태[1]*
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
@@ -414,12 +414,12 @@ Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "
 4. **제거** 를 선택합니다.
 
 ## <a name="common-vm-extensions-reference"></a>일반 VM 확장 참조
-| 확장 이름 | 설명 | 자세한 정보 |
+| 확장 이름 | Description | 자세한 정보 |
 | --- | --- | --- |
-| Windows용 사용자 지정 스크립트 확장 |Azure Virtual Machine에 대해 스크립트 실행 |[Windows 용 사용자 지정 스크립트 확장](custom-script-windows.md) |
+| Windows용 사용자 지정 스크립트 확장 |Azure Virtual Machine에 대해 스크립트 실행 |[Windows용 사용자 지정 스크립트 확장](custom-script-windows.md) |
 | Windows용 DSC 확장 |PowerShell DSC(Desired State Configuration) 확장 |[Windows용 DSC 확장](dsc-overview.md) |
-| Azure Diagnostics 확장 |Azure Diagnostics 관리 |[Azure 진단 확장](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Azure VM 액세스 확장 |사용자 및 자격 증명 관리 |[Linux 용 VM 액세스 확장](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Azure Diagnostics 확장 |Azure Diagnostics 관리 |[Azure Diagnostics 확장](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
+| Azure VM 액세스 확장 |사용자 및 자격 증명 관리 |[Linux용 VM 액세스 확장](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>다음 단계
 

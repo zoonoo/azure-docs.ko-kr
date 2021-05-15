@@ -12,14 +12,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/12/2021
+ms.date: 01/11/2021
 ms.author: radeltch
-ms.openlocfilehash: b202613e6f24a5cd549267a1c8928e8e68caa232
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: e652d1374db12d797dc4505f07350e6e110d6408
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303596"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101674438"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>SAP 애플리케이션용 Azure NetApp Files를 사용하는 Red Hat Enterprise Linux의 SAP NetWeaver에 대한 Azure Virtual Machines 고가용성
 
@@ -208,6 +208,7 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
          1. 새 부하 분산 장치 규칙의 이름 입력(예: **lb.QAS.ASCS**)
          1. 이전에 만든 ASCS의 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 선택(예: **frontend.QAS.ASCS**, **backend.QAS** 및 **health.QAS.ASCS**)
          1. **HA 포트** 선택
+         1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
          1. 확인 클릭
          * 위의 단계를 반복하여 ERS에 대한 부하 분산 규칙 만들기(예: **lb.QAS.ERS**)

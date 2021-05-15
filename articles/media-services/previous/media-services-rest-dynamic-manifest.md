@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services REST API로 필터 생성 | Microsoft Docs
-description: 이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. Media Services REST API는 이러한 선택적 스트리밍을 위해 동적 매니페스트를 만듭니다.
+description: 이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. Media Services REST API는 이 선택적 스트리밍을 달성하기 위해 동적 매니페스트를 생성합니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -16,10 +16,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.reviewr: cenkdin
 ms.openlocfilehash: b9286260d0fead11c7f55eff213c8ad0241a8cba
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103008793"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Azure Media Services REST API로 필터 생성

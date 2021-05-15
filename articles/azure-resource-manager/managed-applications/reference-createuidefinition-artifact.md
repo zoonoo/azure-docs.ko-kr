@@ -1,24 +1,24 @@
 ---
 title: CreateUiDefinition 아티팩트
-description: Azure 관리 되는 응용 프로그램에 대 한 createUiDefinition 아티팩트를 만드는 방법을 보여 줍니다. 파일의 이름은 createUiDefinition.js설정 되어 있습니다.
+description: Azure Managed Applications에 대해 createUiDefinition 아티팩트를 만드는 방법을 보여 줍니다. 파일 이름은 createUiDefinition.json입니다.
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
 ms.openlocfilehash: 9be1cb02c419314a33b9487bf183ef3659b2b549
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "75651489"
 ---
 # <a name="reference-user-interface-elements-artifact"></a>참조: 사용자 인터페이스 요소 아티팩트
 
-이 문서는 Azure Managed Applications 아티팩트의 *createUiDefinition.js* 에 대 한 참조입니다. 사용자 인터페이스 요소를 작성 하는 방법에 대 한 자세한 내용은 [사용자 인터페이스 요소 만들기](create-uidefinition-elements.md)를 참조 하세요.
+이 문서는 Azure Managed Applications의 *createUiDefinition.js* 아티팩트에 대한 참조입니다. 사용자 인터페이스 요소를 작성하는 방법에 대한 자세한 내용은 [사용자 인터페이스 요소 만들기](create-uidefinition-elements.md)를 참조하세요.
 
 ## <a name="user-interface-elements"></a>사용자 인터페이스 요소
 
-다음 JSON은 Azure Managed Applications 파일 *에createUiDefinition.js* 의 예를 보여 줍니다.
+다음 JSON은 Azure Managed Applications에 대한 *createUiDefinition.json* 파일의 예를 보여 줍니다.
 
 ```json
 {
@@ -83,4 +83,4 @@ ms.locfileid: "75651489"
 
 - [자습서: 사용자 지정 작업 및 리소스가 있는 관리형 애플리케이션 만들기](tutorial-create-managed-app-with-custom-provider.md)
 - [참조: 배포 템플릿 아티팩트](reference-main-template-artifact.md)
-- [참조: 뷰 정의 아티팩트](reference-view-definition-artifact.md)
+- [참조: 보기 정의 아티팩트](reference-view-definition-artifact.md)

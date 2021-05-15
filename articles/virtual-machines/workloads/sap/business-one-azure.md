@@ -6,12 +6,12 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: juergent
-ms.openlocfilehash: 7647fdd9d7dd9d535477fdc4e69ea382a9c25443
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e17739c65c0b80beb1f6fdd09f31897b317d7858
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146260"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102506891"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>Azure Virtual Machines의 SAP Business One
 이 문서에서는 Azure Virtual Machines에 SAP Business One을 배포하는 지침을 제공합니다. 이 문서는 SAP용 Business One 설치 문서를 대체하지 않습니다. 이 문서에서는 Business One 애플리케이션을 실행할 Azure 인프라에 대한 기본 계획 및 배포 지침을 다루어야 합니다.
@@ -134,7 +134,7 @@ SAP HANA를 DBMS로 사용하는 다음 섹션에서는 [Azure의 SAP HANA 운�
 
 Azure에서 Business One의 데이터베이스로 사용되는 SAP HANA에 대한 고가용성 및 재해 복구 구성은 [Azure 가상 머신의 SAP HANA 고가용성](./sap-hana-availability-overview.md) 문서를 참조하세요.
 
-SAP HANA 백업 및 복원 전략은 [Azure Virtual Machines의 SAP HANA 백업 가이드](../../../backup/sap-hana-db-about.md) 및 해당 문서에서 가리키는 문서를 참조하세요.
+SAP HANA 백업 및 복원 전략은 [Azure Virtual Machines의 SAP HANA 백업 가이드](./sap-hana-backup-guide.md) 및 해당 문서에서 가리키는 문서를 참조하세요.
 
  
 ### <a name="business-one-client-server"></a>Business One 클라이언트 서버

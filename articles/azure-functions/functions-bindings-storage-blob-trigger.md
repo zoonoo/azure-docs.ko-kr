@@ -1,29 +1,29 @@
 ---
-title: Azure Functions에 대 한 Azure Blob storage 트리거
-description: Azure Blob storage 데이터 변경으로 Azure 함수를 실행 하는 방법에 대해 알아봅니다.
+title: Azure Functions의 Azure Blob Storage 트리거
+description: Azure Blob Storage 데이터 변경으로 Azure 함수를 실행하는 방법에 대해 알아봅니다.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 1d83a828829d27d85749b3fa7b283cad9683bffc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102455921"
 ---
-# <a name="azure-blob-storage-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Blob storage 트리거
+# <a name="azure-blob-storage-trigger-for-azure-functions"></a>Azure Functions의 Azure Blob Storage 트리거
 
-Blob Storage 트리거는 신규 또는 업데이트된 Blob를 검색할 때 함수를 시작합니다. Blob 콘텐츠는 [함수에 대 한 입력](./functions-bindings-storage-blob-input.md)으로 제공 됩니다.
+Blob Storage 트리거는 신규 또는 업데이트된 Blob를 검색할 때 함수를 시작합니다. Blob 콘텐츠는 [함수의 입력](./functions-bindings-storage-blob-input.md)으로 제공됩니다.
 
-Azure Blob storage 트리거에는 범용 저장소 계정이 필요 합니다. [계층적 네임 스페이스](../storage/blobs/data-lake-storage-namespace.md) 를 사용 하는 저장소 V2 계정도 지원 됩니다. Blob 전용 계정을 사용 하거나 응용 프로그램에 특수 한 요구 사항이 있는 경우이 트리거 사용에 대 한 대안을 검토 합니다.
+Azure Blob Storage 트리거에는 범용 스토리지 계정이 필요합니다. [계층 구조 네임스페이스](../storage/blobs/data-lake-storage-namespace.md)를 사용하는 스토리지 V2 계정도 지원됩니다. Blob 전용 계정을 사용하거나 애플리케이션에 특수한 요구 사항이 있는 경우 이 트리거 사용에 대한 대안을 검토하세요.
 
 설정 및 구성 세부 정보에 관한 내용은 [개요](./functions-bindings-storage-blob.md)를 참조하세요.
 
 ## <a name="polling"></a>폴링
 
-폴링은 로그 검사와 정기적인 컨테이너 검색 실행 간의 하이브리드 방식으로 작동 합니다. Blob은 간격 간에 사용 되는 연속 토큰을 사용 하 여 한 번에 1만 그룹으로 스캔 됩니다.
+폴링은 로그 검사와 정기적인 컨테이너 검사 실행 간의 하이브리드 방식으로 작동합니다. Blob은 간격 간에 사용되는 연속 토큰을 사용하여 한 번에 1만 개 그룹으로 스캔됩니다.
 
 > [!WARNING]
 > 또한 [스토리지 로그는 "최선을 다해" 생성됩니다](/rest/api/storageservices/About-Storage-Analytics-Logging). 하지만 모든 이벤트가 캡처되는 것은 아닙니다. 경우에 따라 로그가 누락될 수 있습니다.
@@ -35,19 +35,19 @@ Azure Blob storage 트리거에는 범용 저장소 계정이 필요 합니다. 
 
 ### <a name="event-grid-trigger"></a>Event Grid 트리거
 
-또한 [Event Grid 트리거](functions-bindings-event-grid.md) 는 [blob 이벤트](../storage/blobs/storage-blob-event-overview.md)를 기본적으로 지원 합니다. 다음과 같은 시나리오에 대해 Blob Storage 트리거 대신 Event Grid를 사용합니다.
+[Event Grid 트리거](functions-bindings-event-grid.md)는 [Blob 이벤트](../storage/blobs/storage-blob-event-overview.md)도 기본적으로 지원합니다. 다음과 같은 시나리오에 대해 Blob Storage 트리거 대신 Event Grid를 사용합니다.
 
-- **Blob 전용 저장소 계정**: blob [전용 저장소 계정은](../storage/common/storage-account-overview.md#types-of-storage-accounts) blob 입력 및 출력 바인딩에 대해서는 지원 되지만 blob 트리거에는 지원 되지 않습니다.
+- **Blob 전용 스토리지 계정**: [Blob 전용 스토리지 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)은 BLOB 입력 및 바인딩 출력을 지원하지만 Blob 트리거는 지원하지 않습니다.
 
-- **높은 규모**: 높은 배율은 10만 개 이상의 blob이 포함 된 컨테이너 또는 초당 blob 업데이트가 100 개 이상인 저장소 계정으로 느슨하게 정의 될 수 있습니다.
+- **높은 확장성**: 높은 확장성은 100,000개 이상의 BLOB이 있는 컨테이너 또는 초당 100개 이상의 BLOB 업데이트가 있는 스토리지 계정으로 정의할 수 있습니다.
 
-- **대기 시간 최소화**: 함수 앱이 소비 계획에 있는 경우 함수 앱이 유휴 상태가 되는 경우 새 blob을 처리 하는 데 최대 10 분까지 지연 될 수 있습니다. 이 대기 시간을 방지하려면 Always On을 사용하도록 설정한 App Service 계획으로 전환하면 됩니다. Blob Storage 계정으로 [Event Grid 트리거](functions-bindings-event-grid.md)를 사용할 수도 있습니다. 예를 들어 [Event Grid 자습서](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json)를 참조하세요.
+- **대기 시간 최소화**: 함수 앱이 소비 계획에 있는 경우 함수 앱이 유휴 상태가 되면 새 Blob 처리에 하루 최대 10분이 걸릴 수 있습니다. 이 대기 시간을 방지하려면 Always On을 사용하도록 설정한 App Service 계획으로 전환하면 됩니다. Blob Storage 계정으로 [Event Grid 트리거](functions-bindings-event-grid.md)를 사용할 수도 있습니다. 예를 들어 [Event Grid 자습서](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json)를 참조하세요.
 
-Event Grid 예제의 [이미지 크기 조정 Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md) 자습서를 참조 하세요.
+Event Grid 예제의 [Event Grid로 이미지 크기 조정](../event-grid/resize-images-on-storage-blob-upload-event.md) 자습서를 참조하세요.
 
 ### <a name="queue-storage-trigger"></a>Queue Storage 트리거
 
-Blob을 처리 하는 또 다른 방법은 만들어지거나 수정 되는 blob에 해당 하는 큐 메시지를 작성 한 다음 [queue storage 트리거](./functions-bindings-storage-queue.md) 를 사용 하 여 처리를 시작 하는 것입니다.
+Blob을 처리하는 또 다른 방법은 만들어지거나 수정되는 Blob에 해당하는 큐 메시지를 작성한 다음 [큐 스토리지 트리거](./functions-bindings-storage-queue.md)를 사용하여 처리를 시작하는 것입니다.
 
 ## <a name="example"></a>예제
 
@@ -65,11 +65,11 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 
 blob 트리거 경로 `samples-workitems/{name}`의 문자열 `{name}`은 함수 코드에서 사용할 수 있는 [바인딩 식](./functions-bindings-expressions-patterns.md)을 만들어 트리거 blob의 파일 이름에 액세스합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [Blob 이름 패턴](#blob-name-patterns)을 참조하세요.
 
-특성에 대 한 자세한 내용은 `BlobTrigger` [특성 및 주석](#attributes-and-annotations)을 참조 하세요.
+`BlobTrigger` 특성에 대한 자세한 내용은 [특성 및 주석](#attributes-and-annotations)을 참조하세요.
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-다음 예에서는 바인딩을 사용 하는 파일 및 코드 *의function.js* 에 있는 blob 트리거 바인딩을 보여 줍니다. 함수는 컨테이너에서 blob을 추가 하거나 업데이트할 때 로그를 기록 합니다 `samples-workitems` [](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+다음 예제에서는 바인딩을 사용하는 *function.json* 파일 및 코드의 Blob 트리거 바인딩을 보여 줍니다. 함수는`samples-workitems` [컨테이너](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)에서 Blob을 추가하거나 업데이트할 때 로그를 씁니다.
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -116,7 +116,7 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 
 # <a name="java"></a>[Java](#tab/java)
 
-이 함수는 컨테이너에서 blob을 추가 하거나 업데이트할 때 로그를 기록 합니다 `myblob` .
+이 함수는 `myblob`컨테이너에서 Blob을 추가하거나 업데이트할 때 로그를 씁니다.
 
 ```java
 @FunctionName("blobprocessor")
@@ -168,9 +168,9 @@ module.exports = function(context) {
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-다음 예제에서는 blob 저장소 컨테이너에 파일을 추가할 때 실행 되는 함수를 만드는 방법을 보여 줍니다 `source` .
+다음 예제에서는 `source` Blob Storage 컨테이너에 파일을 추가할 때 실행되는 함수를 만드는 방법을 보여 줍니다.
 
-의 함수 구성 파일 (_function.js_)에는 `type` 의 `blobTrigger` 및를로 설정 하 `direction` 는 바인딩이 포함 되어 있습니다 `in` .
+함수 구성 파일(_function.json_)에는 `blobTrigger` 의 `type` 및 `direction`가 `in`로 설정된 바인딩이 포함되어 있습니다.
 
 ```json
 {
@@ -186,7 +186,7 @@ module.exports = function(context) {
 }
 ```
 
-_run.ps1_ 파일에 대 한 관련 코드는 다음과 같습니다.
+_run.ps1_ 파일 관련 코드는 다음과 같습니다.
 
 ```powershell
 param([byte[]] $InputBlob, $TriggerMetadata)
@@ -196,7 +196,7 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 
 # <a name="python"></a>[Python](#tab/python)
 
-다음 예제에서는 바인딩을 사용하는 *function.json* 파일 및 [Python 코드](functions-reference-python.md)의 Blob 트리거 바인딩을 보여 줍니다. 함수는 컨테이너에서 blob을 추가 하거나 업데이트할 때 로그를 기록 합니다 `samples-workitems` [](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+다음 예제에서는 바인딩을 사용하는 *function.json* 파일 및 [Python 코드](functions-reference-python.md)의 Blob 트리거 바인딩을 보여 줍니다. 함수는`samples-workitems` [컨테이너](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)에서 Blob을 추가하거나 업데이트할 때 로그를 씁니다.
 
 *function.json* 파일은 다음과 같습니다.
 
@@ -265,7 +265,7 @@ def main(myblob: func.InputStream):
   }
    ```
 
-  전체 예제는 [트리거 예](#example)를 참조 하세요.
+  전체 예제는 [트리거 예제](#example)를 참조하세요.
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
@@ -297,7 +297,7 @@ C# 스크립트에서는 특성을 지원하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-`@BlobTrigger`특성은 함수를 트리거한 blob에 대 한 액세스 권한을 제공 하는 데 사용 됩니다. 자세한 내용은 [트리거 예](#example) 를 참조 하세요.
+`@BlobTrigger` 특성은 함수를 트리거한 Blob에 대한 액세스 권한을 부여하는 데 사용됩니다. 자세한 내용은 [트리거 예제](#example)를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -305,7 +305,7 @@ JavaScript에서는 특성을 지원하지 않습니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-특성은 PowerShell에서 지원 되지 않습니다.
+PowerShell에서는 특성을 지원하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -322,7 +322,7 @@ Python에서는 특성을 지원하지 않습니다.
 |**type** | 해당 없음 | `blobTrigger`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
 |**direction** | 해당 없음 | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. 예외는 [사용](#usage) 섹션에서 표시됩니다. |
 |**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다. |
-|**path** | **BlobPath** |모니터링할 [컨테이너](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) 입니다.  [Blob 이름 패턴](#blob-name-patterns)일 수 있습니다. |
+|**path** | **BlobPath** |모니터링할 [컨테이너](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)입니다.  [Blob 이름 패턴](#blob-name-patterns)일 수 있습니다. |
 |**connection** | **연결** | 이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob Storage 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.<br><br>연결 문자열 대신 [버전 5.x 이상의 확장](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)을 사용하는 경우 연결을 정의하는 구성 섹션에 대한 참조를 제공할 수 있습니다. [연결](./functions-reference.md#connections)을 참조하세요.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -339,19 +339,19 @@ Python에서는 특성을 지원하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-`@BlobTrigger`특성은 함수를 트리거한 blob에 대 한 액세스 권한을 제공 하는 데 사용 됩니다. 자세한 내용은 [트리거 예](#example) 를 참조 하세요.
+`@BlobTrigger` 특성은 함수를 트리거한 Blob에 대한 액세스 권한을 부여하는 데 사용됩니다. 자세한 내용은 [트리거 예제](#example)를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Where를 사용 하 여 blob 데이터 `context.bindings.<NAME>` `<NAME>` 에 액세스 합니다. 여기서는 *function.js* 에 정의 된 값과 일치 합니다.
+`context.bindings.<NAME>`을(를) 사용하여 Blob 데이터에 액세스합니다. 여기서 `<NAME>`은 *function.json* 에 정의된 값과 일치합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-파일 _의function.js_ 에서 바인딩의 name 매개 변수에 지정 된 이름과 일치 하는 매개 변수를 통해 blob 데이터에 액세스 합니다.
+_function.json_ 파일에서 바인딩의 이름 매개 변수로 지정된 이름과 일치하는 매개 변수를 통해 Blob 데이터에 액세스합니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-[InputStream](/python/api/azure-functions/azure.functions.inputstream)으로 형식화 된 매개 변수를 통해 blob 데이터에 액세스 합니다. 자세한 내용은 [트리거 예](#example) 를 참조 하세요.
+[InputStream](/python/api/azure-functions/azure.functions.inputstream)으로 형식화된 매개 변수를 통해 Blob 데이터에 액세스합니다. 자세한 내용은 [트리거 예제](#example)를 참조하세요.
 
 ---
 
@@ -398,7 +398,7 @@ Blob 이름이 *original-Blob1.txt* 인 경우 함수 코드에 있는 `name` �
 "path": "images/{{20140101}}-{name}",
 ```
 
-Blob의 이름이 *{20140101}-soundfile.mp3* 이면 `name` 함수 코드의 변수 값이 *soundfile.mp3* 됩니다.
+Blob의 이름이 *{20140101}-soundfile.mp3* 인 경우 함수 코드에서 `name` 변수 값은 *soundfile.mp3* 입니다.
 
 ## <a name="metadata"></a>메타데이터
 
@@ -412,7 +412,7 @@ Blob의 이름이 *{20140101}-soundfile.mp3* 이면 `name` 함수 코드의 변�
 
 # <a name="java"></a>[Java](#tab/java)
 
-메타 데이터는 Java에서 사용할 수 없습니다.
+메타데이터는 Java에서 사용할 수 없습니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -425,11 +425,11 @@ module.exports = function (context, myBlob) {
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-메타 데이터는 매개 변수를 통해 사용할 수 있습니다 `$TriggerMetadata` .
+메타데이터는 `$TriggerMetadata` 매개 변수를 통해 사용할 수 있습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Python에서는 메타 데이터를 사용할 수 없습니다.
+메타데이터는 Python에서 사용할 수 없습니다.
 
 ---
 
@@ -439,42 +439,42 @@ Azure Functions 런타임은 동일한 새 Blob 또는 업데이트된 Blob에 �
 
 Azure Functions는 사용자 함수 앱에서 사용하는(`AzureWebJobsStorage` 앱 설정에서 지정됨) Azure Storage 계정의 *azure-webjobs-hosts* 라는 컨테이너에 Blob 수신 확인을 저장합니다. Blob 수신 확인에는 다음 정보가 포함됩니다.
 
-* 트리거된 함수 ( `<FUNCTION_APP_NAME>.Functions.<FUNCTION_NAME>` 예: `MyFunctionApp.Functions.CopyBlob` )
+* 트리거된 함수(`<FUNCTION_APP_NAME>.Functions.<FUNCTION_NAME>`예제:`MyFunctionApp.Functions.CopyBlob`)
 * 컨테이너 이름
-* Blob 유형 ( `BlockBlob` 또는 `PageBlob` )
+* BLOB 유형 (`BlockBlob` 또는 `PageBlob`)
 * Blob 이름
-* ETag (blob 버전 식별자, 예: `0x8D1DC6E70A277EF` )
+* ETag(Blob 버전 식별자, 예제:`0x8D1DC6E70A277EF`)
 
-Blob을 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해당 Blob에 대한 Blob 수신 확인을 수동으로 삭제하면 됩니다. 다시 처리는 즉시 발생 하지 않을 수 있지만 나중에 발생 하는 것이 보장 됩니다. 즉시 다시 처리 하기 위해 *azure-webjobs/blobscaninfo* 의 *scaninfo* blob을 업데이트할 수 있습니다. 속성 뒤에 마지막으로 수정 된 타임 스탬프가 있는 모든 blob `LatestScan` 은 다시 검사 됩니다.
+Blob을 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해당 Blob에 대한 Blob 수신 확인을 수동으로 삭제하면 됩니다. 재처리는 즉시 발생하지 않을 수도 있지만 나중에는 반드시 발생합니다. 즉시 재처리하려면 *azure-webjobs/blobscaninfo* 의 *scaninfo* Blob을 업데이트하면 됩니다. `LatestScan` 속성 뒤에 마지막으로 수정된 타임스탬프가 있는 모든 Blob은 다시 검사됩니다.
 
-## <a name="poison-blobs"></a>포이즌 blob
+## <a name="poison-blobs"></a>포이즌 Blob
 
 지정된 Blob에 대한 Blob 트리거 함수가 실패한 경우 Azure Functions는 기본적으로 총 5번 해당 함수를 다시 시도합니다.
 
 5번 모두 실패한 경우 Azure Functions는 *webjobs-blobtrigger-poison* 이라는 스토리지 큐에 메시지를 추가합니다. 최대 다시 시도 횟수는 구성 가능합니다. 동일한 MaxDequeueCount 설정이 포이즌 Blob 처리와 포이즌 큐 메시지 처리에 사용됩니다. 포이즌 Blob에 대한 큐 메시지는 다음 속성을 포함하는 JSON 개체입니다.
 
-* FunctionId (형식 `<FUNCTION_APP_NAME>.Functions.<FUNCTION_NAME>` )
-* BlobType ( `BlockBlob` 또는 `PageBlob` )
+* FunctionId (형식 `<FUNCTION_APP_NAME>.Functions.<FUNCTION_NAME>`)
+* BlobType (`BlockBlob` 또는 `PageBlob`)
 * ContainerName
 * BlobName
-* ETag (blob 버전 식별자, 예: `0x8D1DC6E70A277EF` )
+* ETag(Blob 버전 식별자, 예제: `0x8D1DC6E70A277EF`)
 
 ## <a name="concurrency-and-memory-usage"></a>동시성 및 메모리 사용량
 
 Blob 트리거는 큐를 내부적으로 사용하므로 동시 함수 호출의 최대 수는 [host.json의 큐 구성](functions-host-json.md#queues)에 의해 제어됩니다. 기본 설정은 동시성을 24 호출로 제한합니다. 이 제한은 Blob 트리거를 사용하는 각 함수에 개별적으로 적용됩니다.
 
 > [!NOTE]
-> [저장소 확장의 5.0.0 이상 버전](functions-bindings-storage-blob.md#storage-extension-5x-and-higher)을 사용 하는 앱의 경우 host.js의 큐 구성은 큐 트리거에만 적용 됩니다. Blob 트리거 동시성은 [host.js의 blob 구성](functions-host-json.md#blobs)에 의해 제어 됩니다.
+> [스토리지 확장의 5.0.0 이상 버전](functions-bindings-storage-blob.md#storage-extension-5x-and-higher)을 사용하는 앱의 경우 host.json 의 큐 구성은 큐 트리거에만 적용됩니다. Blob 트리거 동시성은 [host.json의 Blob 구성](functions-host-json.md#blobs)에 의해 제어됩니다.
 
-[소비 계획은](event-driven-scaling.md) 하나의 VM (가상 머신)에서 1.5 GB의 메모리로 함수 앱을 제한 합니다. 메모리는 각각 동시에 함수 인스턴스를 실행하여 함수 런타임 자체에서 사용됩니다. Blob 트리거된 함수에서 전체 Blob을 메모리로 로드하는 경우 Blob에 대해 해당 함수에서 사용되는 최대 메모리는 24 * 최대 Blob 크기입니다. 예를 들어 세 개의 Blob 트리거된 함수 및 기본 설정이 있는 함수 앱은 3*24 = 72 함수 호출의 최대 VM당 동시성을 갖습니다.
+[소비 계획](event-driven-scaling.md)은 하나의 VM(가상 머신)에서 함수 앱을 1.5GB의 메모리로 제한합니다. 메모리는 각각 동시에 함수 인스턴스를 실행하여 함수 런타임 자체에서 사용됩니다. Blob 트리거된 함수에서 전체 Blob을 메모리로 로드하는 경우 Blob에 대해 해당 함수에서 사용되는 최대 메모리는 24 * 최대 Blob 크기입니다. 예를 들어 세 개의 Blob 트리거된 함수 및 기본 설정이 있는 함수 앱은 3*24 = 72 함수 호출의 최대 VM당 동시성을 갖습니다.
 
-JavaScript 및 Java 함수는 전체 blob을 메모리로 로드 하 고 c # 함수는, 또는에 바인딩할 경우이를 수행 `string` `Byte[]` 합니다.
+JavaScript 및 Java 함수는 전체 Blob을 메모리에 로드하고 C# 함수는 `string` 또는 `Byte[]`(으)로 바인딩하는 경우 로드합니다.
 
 ## <a name="hostjson-properties"></a>host.json 속성
 
-파일 [ 의host.js](functions-host-json.md#blobs) 에는 blob 트리거 동작을 제어 하는 설정이 포함 되어 있습니다. 사용 가능한 설정에 대 한 자세한 내용은 [ 설정에](functions-bindings-storage-blob.md#hostjson-settings) 대 한host.js섹션을 참조 하세요.
+[host.json](functions-host-json.md#blobs) 파일에는 Blob 트리거 동작을 제어하는 설정이 포함됩니다. 사용 가능한 설정에 대한 자세한 내용은 [host.json 설정](functions-bindings-storage-blob.md#hostjson-settings) 섹션을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [함수가 실행 될 때 blob 저장소 데이터 읽기](./functions-bindings-storage-blob-input.md)
-- [함수에서 blob 저장소 데이터 쓰기](./functions-bindings-storage-blob-output.md)
+- [함수 실행 시 Blob Storage 데이터 읽기](./functions-bindings-storage-blob-input.md)
+- [함수에서 Blob Storage 데이터 쓰기](./functions-bindings-storage-blob-output.md)

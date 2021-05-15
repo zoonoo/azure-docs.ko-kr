@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 04/28/2021
 ms.author: cshoe
-ms.openlocfilehash: 8c6764ad5b63aa2fde07326ab986404ea4312316
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0f572d49867fe9149416664a405309253dd01af2
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99822469"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108202943"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>자습서: Azure Static Web Apps 미리 보기에 Jekyll 사이트 게시
 
@@ -23,7 +23,7 @@ ms.locfileid: "99822469"
 > [!div class="checklist"]
 >
 > - Jekyll 웹 사이트 만들기
-> - Azure Static Web Apps 설정
+> - Azure Static Web Apps 리소스 설정
 > - Azure에 Jekyll 앱 배포
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -111,7 +111,7 @@ Azure Static Web Apps는 GitHub를 사용하여 웹 사이트를 게시합니다
 
 1. _SKU_ 에 대해 **무료** 를 선택합니다.
 
-    :::image type="content" source="./media/publish-jekyll/basic-app-details.png" alt-text="세부 정보 입력":::
+1. _배포 세부 정보_ 에서 _원본_ 에 대해 **GitHub** 를 선택합니다.
 
 1. **GitHub로 로그인** 단추를 클릭합니다.
 
@@ -121,19 +121,19 @@ Azure Static Web Apps는 GitHub를 사용하여 웹 사이트를 게시합니다
 
 1. _분기_ 에 대해 **기본** 을 선택합니다.
 
-    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="완료된 GitHub 정보":::
-
 ### <a name="build"></a>빌드
 
 그런 다음, 빌드 프로세스에서 앱을 빌드하는 데 사용하는 구성 설정을 추가합니다. 다음 설정은 GitHub Action 워크플로 파일을 구성합니다.
 
-1. **다음: 빌드 >** 단추를 클릭하여 빌드 구성을 편집합니다.
+1. _빌드 사전 설정_ 에 대해 **사용자 지정** 을 선택합니다.
 
-1. _앱 위치_ 를 **/_site** 로 설정합니다.
+1. _앱 위치_ 를 **/** 로 설정합니다.
 
-1. _앱 아티팩트 위치_ 를 비워 둡니다.
+1. _출력 위치_ 를 **_site** 로 설정합니다.
 
    현재 API를 배포하지 않으므로 _API 위치_ 에 대한 값이 필요하지 않습니다.
+
+   :::image type="content" source="./media/publish-jekyll/github-actions-inputs.png" alt-text="GitHub Actions 입력":::
 
 ### <a name="review-and-create"></a>검토 및 만들기
 
@@ -141,40 +141,35 @@ Azure Static Web Apps는 GitHub를 사용하여 웹 사이트를 게시합니다
 
 1. **만들기** 를 클릭하여 Azure Static Web Apps 만들기를 시작하고 배포를 위한 GitHub Action을 프로비저닝합니다.
 
-1. 워크플로 파일에는 Jekyll 관련 설정이 필요하므로 먼저 배포가 실패합니다. 이러한 설정을 추가하려면 터미널로 이동하여 GitHub Action을 통해 커밋을 머신으로 가져옵니다.
-
-   ```bash
-   git pull
-   ```
-
-1. 텍스트 편집기에서 Jekyll 앱을 열고 _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml_ 파일을 엽니다.
-
-1. `- name: Build And Deploy` 줄 앞에 다음 구성 블록을 추가합니다.
-
-    ```yml
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1.59.1
-      with:
-        ruby-version: 2.6
-    - name: Install dependencies
-      run: bundle install
-    - name: Jekyll build
-      run: jekyll build
-    ```
-
-1. 업데이트된 워크플로를 커밋하고 GitHub로 푸시합니다.
-
-    ```bash
-    git add -A
-    git commit -m "Updating GitHub Actions workflow"
-    git push
-    ```
-
 1. GitHub Action이 완료될 때까지 기다립니다.
 
-1. Azure Portal의 _개요_ 창에서 _URL_ 링크를 클릭하여 배포된 애플리케이션을 엽니다.
+1. 새로 만든 Azure Static Web Apps 리소스의 Azure Portal _개요_ 창에서 _URL_ 링크를 클릭하여 배포된 애플리케이션을 엽니다.
 
    :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="배포된 애플리케이션":::
+
+#### <a name="custom-jekyll-settings"></a>사용자 지정 Jekyll 설정
+
+정적 웹앱을 생성하면 애플리케이션에 대한 게시 구성 설정이 포함된 [워크플로 파일](./github-actions-workflow.md)이 생성됩니다.
+
+`JEKYLL_ENV`와 같은 환경 변수를 구성하려면 워크플로의 Azure Static Web Apps GitHub Action에 `env` 섹션을 추가합니다.
+
+```yaml
+- name: Build And Deploy
+   id: builddeploy
+   uses: Azure/static-web-apps-deploy@v0.0.1-preview
+   with:
+      azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+      repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+      action: "upload"
+      ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
+      # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+      app_location: "/" # App source code path
+      api_location: "" # Api source code path - optional
+      output_location: "_site_" # Built app content directory - optional
+      ###### End of Repository/Build Configurations ######
+   env:
+      JEKYLL_ENV: production
+```
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -8,12 +8,12 @@ ms.author: nmurav
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 526e3a1e4eeb6ef6a31a33498241d9a7443cca35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f25f7504c8962643176785f62e0d5d33928726bb
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103490639"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108325448"
 ---
 # <a name="call-flow-topologies"></a>호출 흐름 토폴로지
 이 문서에서는 Azure Communication Services 전화 흐름 토폴로지를 설명합니다. 현재 관리하는 네트워크 내에서 Communication Services를 통합하는 엔터프라이즈 고객이라면 이 문서를 검토하는 것이 좋습니다. Communication Services 전화 흐름에 대한 소개는 [전화 흐름 개념 설명서](./call-flows.md)를 참조하세요.
@@ -74,7 +74,7 @@ Communication Services 전화 흐름의 기반이 되는 네 가지 일반적인
 
 ### <a name="communication-services-internet"></a>Communication Services(인터넷)
 
-이 토폴로지는 SIP 인터페이스처럼 온-프레미스 배포 없이 클라우드에서 Communication Services를 사용하는 고객에 의해 사용됩니다. 이 토폴로지에서는 Communication Services로 들어오고 나가는 트래픽이 인터넷을 통해 흐릅니다.
+이 토폴로지는 Azure 직접 라우팅과 같은 온-프레미스 배포 없이 클라우드에서 Communication Services를 사용하는 고객에 의해 사용됩니다. 이 토폴로지에서는 Communication Services로 들어오고 나가는 트래픽이 인터넷을 통해 흐릅니다.
 
 :::image type="content" source="./media/call-flows/detailed-flow-general.png" alt-text="Azure Communication Services 토폴로지":::
 
@@ -172,7 +172,7 @@ Communication Services 전화 흐름의 기반이 되는 네 가지 일반적인
 
 ### <a name="use-case-communication-services-client-to-pstn-through-communication-services-trunk"></a>사용 사례: Communication Services 트렁크를 통해 Communication Services 클라이언트에서 PSTN으로
 
-Communication Services를 사용하면 PSTN(Public Switched Telephone Network)에서 호출을 배치하고 받을 수 있습니다. Communication Services에서 제공하는 전화 번호를 사용하여 PSTN 트렁크가 연결된 경우에는 특별한 연결 요구 사항이 없습니다. 고유의 온-프레미스 PSTN 트렁크를 Azure Communication Services에 연결하려면 SIP 인터페이스(2021년에 사용 가능)를 사용하면 됩니다.
+Communication Services를 사용하면 PSTN(Public Switched Telephone Network)에서 호출을 배치하고 받을 수 있습니다. Communication Services에서 제공하는 전화 번호를 사용하여 PSTN 트렁크가 연결된 경우에는 특별한 연결 요구 사항이 없습니다. 자체 온-프레미스 PSTN 트렁크를 Azure Communication Services에 연결하려면 Azure 직접 라우팅(CY2021에서 사용 가능)을 사용하면 됩니다.
 
 :::image type="content" source="./media/call-flows/acs-to-pstn.png" alt-text="PSTN 참가자와 일대일 전화":::
 

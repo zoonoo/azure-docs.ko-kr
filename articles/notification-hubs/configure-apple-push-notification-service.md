@@ -1,6 +1,6 @@
 ---
 title: Azure Notification Hubs에서 Apple Push Notification Service 구성 | Microsoft Docs
-description: APNS (Apple Push Notification Service) 설정을 사용 하 여 Azure notification hub를 구성 하는 방법에 대해 알아봅니다.
+description: APNS(Apple Push Notification Service) 설정을 사용하여 Azure 알림 허브를 구성하는 방법을 알아봅니다.
 services: notification-hubs
 author: sethmanheim
 manager: femila
@@ -12,15 +12,15 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/25/2019
 ms.openlocfilehash: 63c7e0c9569428b55420911f253deee52ce440cb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85255401"
 ---
-# <a name="configure-apple-push-notification-service-settings-for-a-notification-hub-in-the-azure-portal"></a>Azure Portal에서 알림 허브에 대 한 Apple Push Notification Service 설정 구성
+# <a name="configure-apple-push-notification-service-settings-for-a-notification-hub-in-the-azure-portal"></a>Azure Portal에서 알림 허브에 대한 Apple Push Notification Service 설정 구성
 
-이 문서에서는 Azure Portal를 사용 하 여 Azure 알림 허브에 대 한 APNS (Apple Push Notification Service) 설정을 구성 하는 방법을 보여 줍니다.
+이 문서에서는 Azure Portal을 사용하여 Azure 알림 허브에 대한 APNS(Apple Push Notification Service) 설정을 구성하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -28,9 +28,9 @@ ms.locfileid: "85255401"
 
 ## <a name="configure-apple-push-notification-service"></a>Apple Push Notification Service 구성
 
-다음 절차에서는 알림 허브에 대 한 APNS (Apple Push Notification Service) 설정을 구성 하는 단계를 제공 합니다.
+다음 절차에서는 알림 허브에 대한 APNS(Apple Push Notification Service) 설정을 구성하는 단계를 설명합니다.
 
-1. Azure Portal의 **알림 허브** 페이지에서 왼쪽 메뉴에 있는 **Apple (APNS)** 을 선택 합니다.
+1. Azure Portal의 **알림 허브** 페이지 왼쪽 메뉴에서 **Apple(APNS)** 을 선택합니다.
 
 1. **인증 모드** 의 경우 **인증서** 또는 **토큰** 을 선택합니다.
 
@@ -49,4 +49,4 @@ ms.locfileid: "85255401"
 
 ## <a name="next-steps"></a>다음 단계
 
-IOS 장치로 알림을 보내는 방법에 대 한 단계별 지침이 포함 된 자습서는 [Azure Notification Hubs를 사용 하 여 ios 앱에 푸시 알림 보내기](ios-sdk-get-started.md)문서를 참조 하세요.
+iOS 디바이스로 알림을 보내는 방법에 대한 단계별 지침이 포함된 자습서는 [Azure Notification Hubs를 사용하여 iOS 앱에 푸시 알림 보내기](ios-sdk-get-started.md) 문서를 참조하세요.

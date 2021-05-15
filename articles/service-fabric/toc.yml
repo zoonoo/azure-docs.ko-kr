@@ -136,7 +136,7 @@
       href: service-fabric-content-roadmap.md
     - name: 애플리케이션 시나리오
       href: service-fabric-application-scenarios.md
-    - name: Architecture
+    - name: 아키텍처
       href: service-fabric-architecture.md
     - name: 보안
       items:
@@ -519,7 +519,10 @@
                 - name: 클러스터 구성 업그레이드
                   href: service-fabric-cluster-config-upgrade-azure.md
                 - name: 클러스터 노드 패치(Windows)
-                  href: service-fabric-patch-orchestration-application.md
+                  href: how-to-patch-cluster-nodes-windows.md
+                  items:
+                    - name: POA(패치 오케스트레이션 애플리케이션) 사용
+                      href: service-fabric-patch-orchestration-application.md
                 - name: 디스크 암호화 사용(Windows)
                   href: service-fabric-enable-azure-disk-encryption-windows.md
                 - name: 디스크 암호화 사용(Linux)
@@ -561,7 +564,7 @@
                 - name: 액세스 제어 설정
                   href: service-fabric-cluster-security-roles.md
                 - name: 클러스터 노드 패치(Windows)
-                  href: service-fabric-patch-orchestration-application.md
+                  href: how-to-patch-cluster-nodes-windows.md
         - name: Service Fabric Explorer를 사용하여 시각화
           href: service-fabric-visualizing-your-cluster.md
         - name: 보안 클러스터에 연결

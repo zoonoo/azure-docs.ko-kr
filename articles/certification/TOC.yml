@@ -21,7 +21,7 @@
   items:
     - name: Azure Certified Device
       href: program-requirements-azure-certified-device.md
-    - name: IoT Plug and Play
+    - name: IoT 플러그 앤 플레이
       href: program-requirements-pnp.md
     - name: Edge Managed
       href: program-requirements-edge-managed.md
@@ -47,3 +47,5 @@
   items:
     - name: 인증 용어집
       href: resources-glossary.md
+    - name: MPN/Microsoft 파트너 네트워크 지원
+      href: 'https://docs.microsoft.com/partner-center'

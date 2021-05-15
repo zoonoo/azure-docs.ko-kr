@@ -4,20 +4,16 @@ description: 이 자습서에서는 APIM(API Management)을 사용하여 API를 
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 04/26/2021
 ms.author: apimpm
-ms.openlocfilehash: 39a3b9d7dd9efbda93de0b5d7c5f9938922d0012
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4419bca71e3523d4b1bf6c803a96fe8190bda780
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96183862"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108230742"
 ---
 # <a name="add-an-api-manually"></a>API를 수동으로 추가
 
@@ -55,7 +51,7 @@ ms.locfileid: "96183862"
 
 1. 이전 단계에서 만든 API를 선택합니다.
 2. **+작업 추가** 를 클릭합니다.
-3. **URL** 에서 **GET** 을 선택하고 리소스에 " */get*"을 입력합니다.
+3. **URL** 에서 **GET** 을 선택하고 리소스에 `/get`을 입력합니다.
 4. **표시 이름** 으로 "*FetchData*"를 입력합니다.
 5. **저장** 을 선택합니다.
 
@@ -77,8 +73,8 @@ Azure Portal에서 작업을 테스트합니다. 또는 **개발자 포털** 에
 
 1. 이전 단계에서 만든 API를 선택합니다.
 2. **+작업 추가** 를 클릭합니다.
-3. **URL** 에서 **GET** 을 선택하고 리소스에 " */status/{code}* "를 입력합니다. 필요에 따라 이 매개 변수와 관련된 몇 가지 정보를 제공할 수 있습니다. 예를 들어 **형식** 에 대해 "*Number*"를 입력하고 **값** 에 대해 “*200*”(기본값)을 입력합니다.
-4. **표시 이름** 으로 "GetStatus"를 입력합니다.
+3. **URL** 에서 **GET** 을 선택하고 리소스에 `*/status/{code}`를 입력합니다. 필요에 따라 이 매개 변수와 관련된 몇 가지 정보를 제공할 수 있습니다. 예를 들어 **형식** 에 대해 "*Number*"를 입력하고 **값** 에 대해 “*200*”(기본값)을 입력합니다.
+4. **표시 이름** 에 "WildcardGet"을 입력합니다.
 5. **저장** 을 선택합니다.
 
 ### <a name="test-the-operation"></a>작업 테스트 
@@ -86,10 +82,34 @@ Azure Portal에서 작업을 테스트합니다. 또는 **개발자 포털** 에
 Azure Portal에서 작업을 테스트합니다.  또는 **개발자 포털** 에서 테스트할 수도 있습니다.
 
 1. **테스트** 탭을 선택합니다.
-2. **GetStatus** 를 선택합니다. 기본적으로 코드 값은 "*200*"으로 설정됩니다. 이 값을 변경하여 다른 값을 테스트할 수 있습니다. 예를 들어 "*418*"을 입력합니다.
+2. **WildcardGet** 을 선택합니다. 기본적으로 코드 값은 "*200*"으로 설정됩니다. 이 값을 변경하여 다른 값을 테스트할 수 있습니다. 예를 들어 "*418*"을 입력합니다.
 3. **보내기** 를 누릅니다.
 
     "http://httpbin.org/status/200" 작업이 생성하는 응답이 표시됩니다. 작업을 변환하려면 [API 변환 및 보호](transform-api.md)를 참조하세요.
+
+## <a name="add-and-test-a-wildcard-operation"></a>와일드카드 작업 추가 및 테스트
+
+이 섹션에서는 와일드카드 작업을 추가하는 방법을 보여줍니다. 와일드카드 작업을 사용하면 API 요청으로 임의의 값을 전달할 수 있습니다. 이전 섹션에 표시된 대로 별도의 GET 작업을 만드는 대신 와일드카드 GET 작업을 만들 수 있습니다.
+
+### <a name="add-the-operation"></a>작업 추가
+
+1. 이전 단계에서 만든 API를 선택합니다.
+2. **+작업 추가** 를 클릭합니다.
+3. **URL** 에서 **GET** 을 선택하고 리소스에 `/*`를 입력합니다.
+4. **표시 이름** 에 "*WildcardGet*"을 입력합니다.
+5. **저장** 을 선택합니다.
+
+### <a name="test-the-operation"></a>작업 테스트 
+
+Azure Portal에서 작업을 테스트합니다.  또는 **개발자 포털** 에서 테스트할 수도 있습니다.
+
+1. **테스트** 탭을 선택합니다.
+2. **WildcardGet** 을 선택합니다. 이전 섹션에서 테스트한 GET 작업 중 하나 이상을 시도하거나 지원되는 다른 GET 작업을 시도하세요. 
+
+    예를 들어 **템플릿 매개 변수** 에서 와일드카드(*) 이름 옆의 값을 `headers`로 업데이트합니다. 이 작업은 들어오는 요청의 HTTP 헤더를 반환합니다.
+1. **보내기** 를 누릅니다.
+
+    "http://httpbin.org/headers" 작업이 생성하는 응답이 표시됩니다. 작업을 변환하려면 [API 변환 및 보호](transform-api.md)를 참조하세요.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

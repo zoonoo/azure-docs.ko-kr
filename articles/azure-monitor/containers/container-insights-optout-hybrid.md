@@ -3,12 +3,13 @@ title: 하이브리드 Kubernetes 클러스터 모니터링을 중지하는 방�
 description: 이 문서에서는 컨테이너 인사이트를 사용하여 하이브리드 Kubernetes 클러스터의 모니터링을 중지할 수 있는 방법에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: e8708d6b860683cc96a806160ccc7c8e33949ab2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: bd13c3e3c3a1aca3253bc43377a15324db2cc4fb
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101713697"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319938"
 ---
 # <a name="how-to-stop-monitoring-your-hybrid-cluster"></a>하이브리드 클러스터 모니터링 중지 방법
 
@@ -44,7 +45,7 @@ Kubernetes 클러스터에 대한 모니터링을 사용하도록 설정한 후 
 
     `helm delete <releaseName>`
 
-    예:
+    예제:
 
     `helm delete azmon-containers-release-1`
 

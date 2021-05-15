@@ -3,17 +3,17 @@ title: Azure에 클라우드 서비스(클래식)를 배포할 때 Overconstrain
 description: 이 문서에서는 클라우드 서비스(클래식)를 Azure에 배포할 때 OverconstrainedAllocationRequest 예외 사항을 해결하는 방법을 보여 줍니다.
 services: cloud-services
 documentationcenter: ''
-author: mibufo
-ms.author: v-mibufo
+author: mamccrea
+ms.author: mamccrea
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
-ms.openlocfilehash: 1b50ded166b3f62b38830b4c2d18da7c4c4f0d35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a5880107aaa414da42fe5e36e0cb3315071d8a0
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101745637"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877429"
 ---
 # <a name="troubleshoot-overconstrainedallocationrequest-when-deploying-cloud-services-classic-to-azure"></a>클라우드 서비스(클래식)를 Azure에 배포할 때 OverconstrainedAllocationRequest 문제 해결
 
@@ -46,7 +46,7 @@ Azure 구독 제한에 도달하기 전에도 이러한 작업 중에 간혹 오
 >
 > 시간이 지남에 따라 클러스터의 리소스가 완전히 활용될 수 있습니다. 고정된 클러스터에서 사용할 수 있는 리소스가 부족한 경우 클라우드 서비스(클래식)에서 추가 리소스에 대한 할당 요청을 수행하면 이 요청으로 인해 [할당 오류](cloud-services-allocation-failures.md)가 발생합니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 다음 시나리오에서 할당 오류에 대한 지침을 따르세요.
 

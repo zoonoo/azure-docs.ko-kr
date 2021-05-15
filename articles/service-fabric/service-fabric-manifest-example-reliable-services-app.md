@@ -1,15 +1,15 @@
 ---
-title: 신뢰할 수 있는 서비스 앱 매니페스트 예
+title: 신뢰할 수 있는 서비스 앱 매니페스트 예제
 description: Reliable Services Service Fabric 애플리케이션에 대한 애플리케이션 및 서비스 매니페스트 설정을 구성하는 방법을 알아봅니다.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: pepogors
 ms.openlocfilehash: f40e54f5260f827f0b18c833d23d1f57b5ebc3a3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84701101"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Reliable Services 애플리케이션 및 서비스 매니페스트 예제
@@ -19,7 +19,7 @@ ms.locfileid: "84701101"
 
 |file:///|기능|
 |---|---|
-|[응용 프로그램 매니페스트](#application-manifest)| [리소스 거버넌스](service-fabric-resource-governance.md), [로컬 관리자 계정으로 서비스 실행](service-fabric-application-runas-security.md), [모든 서비스 코드 패키지에 기본 정책 적용](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages), [사용자 및 그룹 보안 주체 만들기](service-fabric-application-runas-security.md), 서비스 인스턴스 간에 데이터 패키지 공유, [서비스 엔드포인트 재정의](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml)| 
+|[애플리케이션 매니페스트](#application-manifest)| [리소스 거버넌스](service-fabric-resource-governance.md), [로컬 관리자 계정으로 서비스 실행](service-fabric-application-runas-security.md), [모든 서비스 코드 패키지에 기본 정책 적용](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages), [사용자 및 그룹 보안 주체 만들기](service-fabric-application-runas-security.md), 서비스 인스턴스 간에 데이터 패키지 공유, [서비스 엔드포인트 재정의](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml)| 
 |FrontEndService 서비스 매니페스트| [서비스 시작 시 스크립트 실행](service-fabric-run-script-at-service-startup.md), [HTTPS 엔드포인트 정의](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
 |BackEndService 서비스 매니페스트| [구성 패키지 선언](service-fabric-application-and-service-manifests.md), [데이터 패키지 선언](service-fabric-application-and-service-manifests.md), [엔드포인트 구성](service-fabric-service-manifest-resources.md)| 
 

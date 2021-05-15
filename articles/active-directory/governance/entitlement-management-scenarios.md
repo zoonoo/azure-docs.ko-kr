@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28c16e4d73fc2379806e1a2bce2fa5dbb3247fed
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: c0f45a1481661aa350815560d795ab7411f99545
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531957"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "92317839"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Azure AD 권한 관리의 일반적인 시나리오
 
@@ -154,7 +154,7 @@ ms.locfileid: "107531957"
 
 ## <a name="programmatic-administration"></a>프로그래매틱 관리
 
-Microsoft Graph를 사용하여 액세스 패키지, 카탈로그, 정책, 요청, 할당을 관리할 수 있습니다.  위임된 `EntitlementManagement.ReadWrite.All` 권한이 있는 애플리케이션을 사용하는 적절한 역할의 사용자는 [권한 관리 API](/graph/tutorial-access-package-api)를 호출할 수 있습니다.
+Microsoft Graph를 사용하여 액세스 패키지, 카탈로그, 정책, 요청, 할당을 관리할 수 있습니다.  위임된 `EntitlementManagement.ReadWrite.All` 권한이 있는 애플리케이션을 사용하는 적절한 역할의 사용자는 [권한 관리 API](/graph/tutorial-access-package-api?view=graph-rest-beta)를 호출할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

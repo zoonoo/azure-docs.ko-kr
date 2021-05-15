@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
 ms.openlocfilehash: 0e9ca2c7b5d15fcc6be451bbe215c8b85d5309eb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92368267"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Azure Scheduler 작업을 Azure Logic Apps로 마이그레이션
@@ -96,7 +96,7 @@ ms.locfileid: "92368267"
 
    예를 들어 URL로 요청을 전송하는 HTTP 작업 또는 Storage 큐, Service Bus 큐, Service Bus 토픽을 사용하는 작업을 포함할 수 있습니다.
 
-   ![스크린샷 후 작업 후 POST 메서드를 사용 하는 H T T P 작업이 오는 지연 시간을 보여 줍니다.](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
+   ![POST 메서드를 사용하는 H T T P 동작이 뒤이어 수행되는 작업까지 지연을 보여 주는 스크린샷](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
 
 1. 완료되면 논리 앱을 저장합니다.
 
@@ -155,7 +155,7 @@ Logic Apps에서 각 일회성 작업은 단일 논리 앱 실행 인스턴스�
 
    예를 들어 URL로 요청을 전송하는 HTTP 작업 또는 Storage 큐, Service Bus 큐, Service Bus 토픽을 사용하는 작업을 포함할 수 있습니다.
 
-   ![스크린샷-POST 메서드를 사용 하는 H T T P 동작을 보여 줍니다.](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
+   ![POST 메서드를 사용하는 H T T P 동작을 보여 주는 스크린샷](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
 
 1. 완료되면 논리 앱을 저장합니다.
 

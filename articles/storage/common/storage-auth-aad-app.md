@@ -10,12 +10,12 @@ ms.date: 12/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: baad1a0b173ae89fec9d160572224c6cb0aa615d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c2de1dc71579e6915a54e3815edd2858532ba263
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103574631"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108075936"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>클라이언트 애플리케이션의 요청에 대한 승인을 위해 Azure AD에서 토큰 가져오기
 
@@ -69,7 +69,7 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
 
 ### <a name="create-a-client-secret"></a>클라이언트 비밀 만들기
 
-애플리케이션은 토큰을 요청할 때 해당 ID를 증명하기 위해 클라이언트 암호가 필요합니다. 클라이언트 암호를 추가하려면 다음 단계를 수행합니다.
+애플리케이션은 토큰을 요청할 때 해당 ID를 증명하기 위해 클라이언트 암호가 필요합니다. 보안상의 이유로 Microsoft는 24개월보다 긴 클라이언트 암호 생성을 제한하며 12개월 미만의 값으로 설정하는 것이 좋습니다. 클라이언트 암호를 추가하려면 다음 단계를 수행합니다.
 
 1. Azure Portal에서 앱 등록으로 이동합니다.
 1. **인증서 및 암호** 설정을 선택합니다.

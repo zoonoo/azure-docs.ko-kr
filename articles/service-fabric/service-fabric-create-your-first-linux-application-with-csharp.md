@@ -1,13 +1,13 @@
 ---
-title: 'C를 사용 하 여 Linux에서 첫 번째 Azure Service Fabric 앱 만들기 #'
+title: C#을 사용하여 Linux에서 첫 Azure Service Fabric 앱 만들기
 description: C# 및 .NET Core 2.0을 사용하여 Service Fabric 애플리케이션을 만들고 배포하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.openlocfilehash: 556d8dee4efd492fa98755f1ffd1cdc1c9887856
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "82193652"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>첫 번째 Azure Service Fabric 애플리케이션 만들기
@@ -33,7 +33,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
    nvm install node 
    ```
-2. NPM에서 컴퓨터에 [\오만](https://yeoman.io/) 템플릿 생성기 설치
+2. NPM의 컴퓨터에 [Yeoman](https://yeoman.io/) 템플릿 생성기 설치
 
    ```bash
    npm install -g yo
@@ -97,7 +97,7 @@ Service Fabric Yeoman 템플릿은 빌드 스크립트를 포함하며 이것을
 
 1. 행위자 서비스의 출력을 확인하려면 조사식 유틸리티를 사용하여 스크립트를 실행합니다.
 
-   MAC OS X의 경우 다음과 같은 추가 명령을 실행 하 여 myactorsvcTestClient 폴더를 컨테이너 내의 동일한 위치에 복사 해야 합니다.
+   MAC OS X의 경우 다음 추가 명령을 실행하여 myactorsvcTestClient 폴더를 컨테이너 내 동일한 위치에 복사해야 합니다.
     
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home
@@ -123,7 +123,7 @@ Service Fabric Yeoman 템플릿은 빌드 스크립트를 포함하며 이것을
 ## <a name="next-steps"></a>다음 단계
 
 * [Service Fabric CLI를 사용하여 Service Fabric 클러스터와 상호 작용](service-fabric-cli.md)
-* [Service Fabric 지원 옵션](service-fabric-support.md) 에 대 한 자세한 정보
+* [Service Fabric 지원 옵션](service-fabric-support.md) 알아보기
 * [Service Fabric CLI 시작](service-fabric-cli.md)
 
 <!-- Images -->

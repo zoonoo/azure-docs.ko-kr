@@ -1,7 +1,6 @@
 ---
 title: 데이터 관리 파트너
 description: Azure Synapse Analytics를 지원하는 솔루션을 제공하는 타사 데이터 관리 파트너 목록입니다.
-services: synapse-analytics
 author: mabasile-MSFT
 manager: craigg
 ms.service: synapse-analytics
@@ -11,12 +10,12 @@ ms.date: 04/17/2018
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d58deccb124e451106f43ae30c2fe910b3d41b54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8d900b004dbadd7a8909de14caec16f8617aeb8
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102634120"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566616"
 ---
 # <a name="azure-synapse-analytics-data-management-partners"></a>Azure Synapse Analytics 데이터 관리 파트너
 

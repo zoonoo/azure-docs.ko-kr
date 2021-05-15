@@ -1,6 +1,6 @@
 ---
-title: Linux Vm 용 Azure 이미지 작성기를 사용 하 여 기존 Azure VNET (미리 보기)에 대 한 액세스 허용
-description: Azure 이미지 작성기를 사용 하 여 기존 Azure VNET에 액세스할 수 있는 Linux VM 이미지 만들기
+title: Linux VM 용 Azure Image Builder를 사용하여 기존 Azure VNET(미리 보기)에 대한 액세스 허용
+description: Azure Image Builder를 사용하여 기존 Azure VNET에 액세스할 수 있는 Linux VM 이미지 만들기
 author: danielsollondon
 ms.author: danis
 ms.date: 03/02/2021
@@ -10,15 +10,15 @@ ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: danis
 ms.openlocfilehash: 500ddec9b84f9d73db45ddb4b7f5a8486a48d3e5
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102565311"
 ---
-# <a name="use-azure-image-builder-for-linux-vms-allowing-access-to-an-existing-azure-vnet"></a>Linux Vm에 Azure 이미지 작성기를 사용 하 여 기존 Azure VNET에 액세스 허용
+# <a name="use-azure-image-builder-for-linux-vms-allowing-access-to-an-existing-azure-vnet"></a>Linux VM 용 Azure Image Builder를 사용하여 기존 Azure VNET에 대한 액세스 허용
 
-이 문서에서는 Azure 이미지 작성기를 사용 하 여 VNET의 기존 리소스에 대 한 액세스 권한이 있는 기본 사용자 지정 Linux 이미지를 만드는 방법을 보여 줍니다. 만든 빌드 VM은 구독에서 지정 하는 새 VNET 또는 기존 VNET에 배포 됩니다. 기존 Azure VNET을 사용 하는 경우 Azure 이미지 작성기 서비스는 공용 네트워크 연결이 필요 하지 않습니다.
+이 문서에서는 Azure Image Builder를 사용하여 VNET의 기존 리소스에 대한 액세스 권한이 있는 기본 사용자 지정 Linux 이미지를 만드는 방법을 보여 줍니다. 만드는 빌드 VM은 구독에서 지정하는 새 VNET 또는 기존 VNET에 배포됩니다. 기존 Azure VNET을 사용하는 경우, Azure Image Builder 서비스에는 공용 네트워크 연결이 필요하지 않습니다.
 
 > [!IMPORTANT]
 > Azure Image Builder는 현재 공개 미리 보기로 제공됩니다.
@@ -28,7 +28,7 @@ ms.locfileid: "102565311"
 
 ## <a name="register-the-features"></a>기능 등록
 
-먼저, Azure 이미지 작성기 서비스에 등록 해야 합니다. 등록은 스테이징 리소스 그룹을 만들고, 관리 하 고, 삭제할 수 있는 권한을 서비스에 부여 합니다. 또한이 서비스에는 이미지 빌드에 필요한 그룹에 리소스를 추가할 수 있는 권한이 있습니다.
+먼저, Azure Image Builder 서비스에 등록해야 합니다. 등록은 스테이징 리소스 그룹을 만들고, 관리하고, 삭제할 수 있는 권한을 서비스에 부여합니다. 또한 이 서비스에는 이미지 빌드에 필요한 그룹에 리소스를 추가할 수 있는 권한이 있습니다.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
@@ -36,7 +36,7 @@ az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMac
 
 ## <a name="set-variables-and-permissions"></a>변수 및 사용 권한 설정 
 
-일부 정보를 반복 해 서 사용 하 게 됩니다. 해당 정보를 저장할 변수를 만듭니다.
+몇 가지 정보를 반복해서 사용하게 됩니다. 해당 정보를 저장할 약간의 변수를 만듭니다.
 
 ```azurecli-interactive
 # set your environment variables here!!!!
@@ -78,7 +78,7 @@ az group create -n $imageResourceGroup -l $location
 
 ## <a name="configure-networking"></a>네트워킹 구성
 
-기존 VNET\Subnet\NSG 없는 경우 다음 스크립트를 사용 하 여 새로 만듭니다.
+기존 VNET\Subnet\NSG 가 없는 경우, 다음 스크립트를 사용하여 새로 만듭니다.
 
 ```bash
 
@@ -108,7 +108,7 @@ az network vnet subnet update \
 
 ### <a name="add-network-security-group-rule"></a>네트워크 보안 그룹 규칙 추가
 
-이 규칙은 Azure 이미지 작성기 부하 분산 장치에서 프록시 VM으로의 연결을 허용 합니다. 포트 60001은 Linux OSs 용 이며 포트 6만는 Windows OSs 용입니다. 프록시 VM은 Linux OSs의 경우 포트 22, Windows OSs의 경우 포트 5986을 사용 하 여 빌드 VM에 연결 합니다.
+이 규칙으로 Azure Image Builder 부하 분산 장치에서 프록시 VM으로의 연결이 허용됩니다. 포트 60001은 Linux OS 용이며, 포트 60000은 Windows OS 용입니다. 프록시 VM은 Linux OS의 경우 포트 22, Windows OS의 경우 포트 5986을 사용하여 빌드 VM에 연결합니다.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -123,7 +123,7 @@ az network nsg rule create \
     --description "Allow Image Builder Private Link Access to Proxy VM"
 ```
 
-### <a name="disable-private-service-policy-on-subnet"></a>서브넷에서 개인 서비스 정책 사용 안 함
+### <a name="disable-private-service-policy-on-subnet"></a>서브넷에서 프라이빗 서비스 정책 사용 안함
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -133,7 +133,7 @@ az network vnet subnet update \
   --disable-private-link-service-network-policies true 
 ```
 
-이미지 작성기 네트워킹에 대 한 자세한 내용은 [Azure 이미지 작성기 서비스 네트워킹 옵션](image-builder-networking.md)을 참조 하세요.
+Image Builder 네트워킹에 대한 자세한 내용은 [Azure Image Builder Service 네트워킹 옵션](image-builder-networking.md)을 참조하세요.
 
 ## <a name="modify-the-example-template-and-create-role"></a>예제 템플릿 수정 및 역할 만들기
 
@@ -162,7 +162,7 @@ sed -i -e "s/<vnetRgName>/$vnetRgName/g" aibRoleNetworking.json
 
 ```
 
-## <a name="set-permissions-on-the-resource-group"></a>리소스 그룹에 대 한 사용 권한 설정
+## <a name="set-permissions-on-the-resource-group"></a>리소스 그룹에 대한 사용 권한 설정
 
 Image Builder는 제공된 [user-identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity)를 사용하여 Azure SIG(Shared Image Gallery)에 이미지를 삽입합니다. 이 예제에서는 SIG에 이미지를 배포하는 세분화된 작업을 포함하는 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 user-identity에 할당됩니다.
 
@@ -189,7 +189,7 @@ sed -i -e "s/Azure Image Builder Service Image Creation Role/$imageRoleDefName/g
 sed -i -e "s/Azure Image Builder Service Networking Role/$netRoleDefName/g" aibRoleNetworking.json
 ```
 
-이미지 작성기에 더 낮은 세분성과 증가 된 권한을 부여 하는 대신 두 가지 역할을 만들 수 있습니다. 하나는 이미지를 만들기 위한 작성기 권한을 제공 하 고, 다른 하나는 빌드 VM 및 부하 분산 장치를 VNET에 연결 하는 것을 허용 합니다.
+Image Builder에 더 낮은 세분성과 증가된 권한을 부여하는 대신, 두 가지 역할을 만들 수 있습니다. 하나는 이미지를 만들기 위한 작성기 권한을 제공하고, 다른 하나는 빌드 VM 및 부하 분산 장치를 VNET에 연결하는 것을 허용합니다.
 
 ```bash
 # create role definitions
@@ -208,7 +208,7 @@ az role assignment create \
     --scope /subscriptions/$subscriptionID/resourceGroups/$vnetRgName
 ```
 
-사용 권한에 대 한 자세한 내용은 [Azure CLI를 사용 하 여 Azure 이미지 작성기 서비스 권한 구성](image-builder-permissions-cli.md) 또는 [PowerShell을 사용 하 여 Azure 이미지 작성기 서비스 권한 구성](image-builder-permissions-powershell.md)을 참조 하세요.
+권한에 대한 자세한 내용은 [Azure CLI를 사용하여 Azure Image Builder Service 권한 구성](image-builder-permissions-cli.md) 또는 [PowerShell을 사용하여 Azure Image Builder Service 권한 구성](image-builder-permissions-powershell.md)을 참조하세요.
 
 ## <a name="create-the-image"></a>이미지 만들기
 
@@ -272,10 +272,10 @@ SSH 연결이 설정되는 즉시 오늘의 메시지로 이미지가 사용자 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이제 이미지 버전을 recustomizing 하 여 동일한 이미지의 새 버전을 만들려면 다음 단계를 건너뛰고 [Azure 이미지 작성기를 사용 하 여 다른 이미지 버전을 만듭니다](image-builder-gallery-update-image-version.md).로 이동 하세요.
+이제 이미지 버전을 다시 사용자 지정하여 동일한 이미지의 새 버전을 만들려면 다음 단계를 건너뛰고 [Azure Image Builder를 사용하여 다른 이미지 버전 만들기](image-builder-gallery-update-image-version.md)를 계속 진행합니다.
 
 
-다음은 다른 모든 리소스 파일과 함께 생성 된 이미지를 삭제 합니다. 리소스를 삭제하기 전에 이 배포를 완료했는지 확인합니다.
+다음은 생성된 이미지와 다른 모든 리소스 파일을 삭제합니다. 리소스를 삭제하기 전에 이 배포를 완료했는지 확인합니다.
 
 이미지 갤러리 리소스를 삭제하는 경우 먼저 모든 이미지 버전을 삭제해야 해당 이미지 버전을 만드는 데 사용된 이미지 정의를 삭제할 수 있습니다. 갤러리를 삭제하려면 먼저 갤러리에서 이미지 정의를 모두 삭제해야 합니다.
 
@@ -288,7 +288,7 @@ az resource delete \
     -n existingVNETLinuxTemplate01
 ```
 
-권한 할당, 역할 및 id 삭제
+권한 할당, 역할 및 ID 삭제
 ```azurecli-interactive
 az role assignment delete \
     --assignee $imgBuilderCliId \
@@ -313,7 +313,7 @@ az identity delete --ids $imgBuilderId
 az group delete -n $imageResourceGroup
 ```
 
-이 빠른 시작에 대 한 VNET을 만든 경우 더 이상 사용 되지 않는 VNET을 삭제할 수 있습니다.
+이 빠른 시작에 VNET을 만든 경우, 더 이상 사용되지 않는 VNET을 삭제할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
